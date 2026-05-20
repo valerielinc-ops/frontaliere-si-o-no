@@ -186,7 +186,7 @@ function renderHub(locale: Locale, snap: WeatherSnapshot | null, distDir: string
 ${weatherFontsAndStyle()}
 ${iconSprite()}
 <div data-weather-page>
-<header class="max-w-4xl mx-auto pt-2 pb-1 px-1"><h1 class="text-4xl sm:text-5xl font-medium text-heading mb-2 leading-tight tracking-tight" style="font-family:var(--font-display,inherit);">${escapeHtml(HUB_TITLE[locale])}</h1>
+<header class="max-w-4xl mx-auto pt-2 pb-1 px-1"><h1 class="text-4xl sm:text-5xl font-medium text-heading mb-2 leading-tight tracking-tight s-9_rKTH">${escapeHtml(HUB_TITLE[locale])}</h1>
 <p class="text-base sm:text-lg text-body max-w-2xl">${escapeHtml(HUB_TAGLINE[locale])}</p></header>
 <section class="my-6 max-w-3xl mx-auto"><p class="text-body leading-relaxed">${escapeHtml(intro)}</p></section>
 <section class="my-6 max-w-3xl mx-auto"><ul class="bg-white rounded-2xl border border-edge overflow-hidden divide-y divide-edge">${cityRows}</ul></section>
@@ -291,7 +291,7 @@ ${weatherFontsAndStyle()}
 ${iconSprite()}
 <div data-weather-page>
 ${breadcrumb}
-<header class="max-w-4xl mx-auto pt-2 pb-1 px-1"><h1 class="text-4xl sm:text-5xl font-medium text-heading mb-2 leading-tight tracking-tight" style="font-family:var(--font-display,inherit);">${escapeHtml(headline)}</h1>
+<header class="max-w-4xl mx-auto pt-2 pb-1 px-1"><h1 class="text-4xl sm:text-5xl font-medium text-heading mb-2 leading-tight tracking-tight s-9_rKTH">${escapeHtml(headline)}</h1>
 <p class="text-base sm:text-lg text-body max-w-2xl">${escapeHtml(tagline)}</p></header>
 ${heroHtml}
 ${valichiHtml}
@@ -439,7 +439,7 @@ function renderHourly(cw: CityWeather, locale: Locale): string {
     const ringClass = isNow ? 'ring-1 ring-orange-300 bg-accent-subtle/60' : 'bg-white';
     return `<div class="flex-shrink-0 w-[68px] ${ringClass} rounded-xl border border-edge p-2 text-center hover:border-edge transition-colors"><div class="text-[11px] text-subtle font-medium tabular-nums">${hour}<span class="text-muted">:00</span></div><div class="my-1 flex justify-center ${iconColor}">${icon}</div><div class="text-base font-semibold text-strong tabular-nums">${Math.round(h.temp)}°</div></div>`;
   }).join('');
-  return `<section class="my-8 max-w-3xl mx-auto"><h2 class="text-xl sm:text-2xl font-medium text-heading mb-3 px-1" style="font-family:var(--font-display,inherit);">${escapeHtml(heading)}</h2><div class="overflow-x-auto -mx-1 px-1 pb-3" style="scrollbar-width:thin;"><div style="width:${totalW}px;">${sparkline}<div class="flex gap-2 mt-1">${cells}</div></div></div></section>`;
+  return `<section class="my-8 max-w-3xl mx-auto"><h2 class="text-xl sm:text-2xl font-medium text-heading mb-3 px-1 s-9_rKTH">${escapeHtml(heading)}</h2><div class="overflow-x-auto -mx-1 px-1 pb-3 s-zsAc4v"><div style="width:${totalW}px;">${sparkline}<div class="flex gap-2 mt-1">${cells}</div></div></div></section>`;
 }
 
 function renderDaily(cw: CityWeather, locale: Locale): string {
@@ -470,7 +470,7 @@ function renderDaily(cw: CityWeather, locale: Locale): string {
     const rowBg = isToday ? 'bg-accent-subtle/40' : '';
     return `<li class="grid grid-cols-[68px_32px_1fr_88px] gap-3 py-3.5 px-3 border-b border-edge last:border-0 items-center ${rowBg}"><span>${dayLabelHtml}</span><span class="${iconColor} flex justify-center" title="${escapeHtml(cond)}" aria-label="${escapeHtml(cond)}">${icon}</span><span class="relative h-2 bg-surface-alt rounded-full overflow-hidden" aria-hidden="true"><span class="absolute top-0 bottom-0 bg-gradient-to-r from-sky-400 via-amber-300 to-rose-500 rounded-full" style="left:${leftPct}%;width:${widthPct}%;"></span></span><span class="text-sm tabular-nums text-right"><span class="font-semibold text-heading">${Math.round(d.tempMax)}°</span> <span class="text-muted">${Math.round(d.tempMin)}°</span></span></li>`;
   }).join('');
-  return `<section class="my-8 max-w-3xl mx-auto"><h2 class="text-xl sm:text-2xl font-medium text-heading mb-3 px-1" style="font-family:var(--font-display,inherit);">${escapeHtml(heading)}</h2><ol class="bg-white rounded-2xl border border-edge overflow-hidden">${rows}</ol></section>`;
+  return `<section class="my-8 max-w-3xl mx-auto"><h2 class="text-xl sm:text-2xl font-medium text-heading mb-3 px-1 s-9_rKTH">${escapeHtml(heading)}</h2><ol class="bg-white rounded-2xl border border-edge overflow-hidden">${rows}</ol></section>`;
 }
 
 /**
@@ -512,7 +512,7 @@ function renderCommuteScenarios(city: WeatherCity, locale: Locale): string {
     ['Chaleur extrême et ozone', `Entre juin et août, l'ozone troposphérique au-delà de 180 µg/m³ déclenche l'alerte MeteoSwiss niveau 3-4 sur le Mendrisiotto. Les personnes asthmatiques ou cardiaques devraient commuter avant 7h30 (concentrations d'ozone plus basses) et utiliser la climatisation en recyclage. Les lieux de travail sous la loi cantonale tessinoise sur l'hygiène du travail doivent réguler la température intérieure quand la température extérieure dépasse 30 °C pendant trois jours consécutifs.`],
   ];
   const items = blocks.map(([h, p]) => `<article class="bg-white border border-edge rounded-2xl p-5 sm:p-6"><h3 class="text-base font-semibold text-heading mb-2">${escapeHtml(h)}</h3><p class="text-sm text-body leading-relaxed">${escapeHtml(p)}</p></article>`).join('');
-  return `<section class="my-10 max-w-3xl mx-auto"><h2 class="text-xl sm:text-2xl font-medium text-heading mb-4 px-1" style="font-family:var(--font-display,inherit);">${escapeHtml(heading)}</h2><div class="grid gap-3 sm:gap-4">${items}</div></section>`;
+  return `<section class="my-10 max-w-3xl mx-auto"><h2 class="text-xl sm:text-2xl font-medium text-heading mb-4 px-1 s-9_rKTH">${escapeHtml(heading)}</h2><div class="grid gap-3 sm:gap-4">${items}</div></section>`;
 }
 
 function renderEvergreen(city: WeatherCity, locale: Locale): string {

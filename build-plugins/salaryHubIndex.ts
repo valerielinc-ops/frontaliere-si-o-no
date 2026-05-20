@@ -534,7 +534,7 @@ export function buildScenarioIndexHtml(opts: ScenarioIndexPageOpts): string {
   };
   const relatedArticlesHtml =
     opts.relatedArticles && opts.relatedArticles.length > 0
-      ? `<section data-salary-index-related-articles style="margin-top:32px">
+      ? `<section class="s-sC82IX" data-salary-index-related-articles>
           <h2>${esc(RELATED_HEADINGS[locale])}</h2>
           <ul class="scenarios">${opts.relatedArticles
             .map((a) => `<li><a href="${esc(a.href)}">${esc(a.title)}</a></li>`)
@@ -598,15 +598,15 @@ export function buildScenarioIndexHtml(opts: ScenarioIndexPageOpts): string {
     de: 'Deutsch',
     fr: 'Fran\u00e7ais',
   };
-  const localeSwitcherHtml = `<nav aria-label="locales" data-salary-index-locale-switch style="margin:0 0 28px;font-size:13px;color:#64748b">
+  const localeSwitcherHtml = `<nav class="s-90MXgH" aria-label="locales" data-salary-index-locale-switch>
     ${LOCALES
       .map((loc) => {
         const href = SCENARIO_INDEX_PATH[loc];
         const label = LOCALE_SWITCHER_LABELS[loc];
         if (loc === locale) {
-          return `<span style="margin-right:14px;font-weight:700;color:#1e293b" lang="${loc}">${esc(label)}</span>`;
+          return `<span class="s-IwOcOT" lang="${loc}">${esc(label)}</span>`;
         }
-        return `<a href="${esc(href)}" hreflang="${loc}" lang="${loc}" style="margin-right:14px;color:#533afd;text-decoration:none">${esc(label)}</a>`;
+        return `<a class="s-QagMP-" href="${esc(href)}" hreflang="${loc}" lang="${loc}">${esc(label)}</a>`;
       })
       .join('')}
   </nav>`;

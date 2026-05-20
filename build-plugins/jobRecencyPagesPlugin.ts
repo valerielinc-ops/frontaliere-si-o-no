@@ -208,9 +208,9 @@ export function jobRecencyPagesPlugin(rootDir: string): Plugin {
           });
 
           const faqHtml = model.faq.length > 0
-            ? `<section style="margin:28px 0 0">
+            ? `<section class="s-m_ILbB">
     <h2 style="${H2_STYLE}">FAQ</h2>
-    ${model.faq.map((f) => `<details style="${CARD_STYLE};border-radius:12px;margin-bottom:8px"><summary style="font-weight:700;cursor:pointer;color:var(--color-heading)">${esc(f.question)}</summary><p style="margin:8px 0 0;color:var(--color-body);line-height:1.6">${esc(f.answer)}</p></details>`).join('')}
+    ${model.faq.map((f) => `<details style="${CARD_STYLE};border-radius:12px;margin-bottom:8px"><summary class="s-HBR0NM">${esc(f.question)}</summary><p class="s-bOIp6r">${esc(f.answer)}</p></details>`).join('')}
   </section>`
             : '';
 
@@ -313,7 +313,7 @@ ${alternates}
   </head>
   <body class="bg-surface-alt text-heading overflow-x-hidden">
     <div id="root"></div>
-    <main class="seo-static-content" style="max-width:1100px;margin:0 auto;padding:32px 20px 56px">
+    <main class="seo-static-content s-xzWvwM">
       <nav style="${BREADCRUMB_STYLE}">
         <a href="${BASE_URL}/" style="${BREADCRUMB_LINK_STYLE}">Home</a>
         <span> / </span>
@@ -321,25 +321,25 @@ ${alternates}
         <span> / </span>
         <span>${esc(model.timeframeLabel)}</span>
       </nav>
-      <header style="margin-bottom:24px">
+      <header class="s-sy52lX">
         <p style="${HERO_EYEBROW_STYLE}">${esc(model.updatedLabel)} · ${dateStamp}</p>
         <h1 style="${H1_STYLE}">${esc(model.heading)}</h1>
         <p style="${LEDE_STYLE};max-width:860px">${esc(model.description)}</p>
         <p style="${BODY_STYLE};max-width:860px">${esc(model.intro)}</p>
       </header>
-      <section style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin:0 0 22px">
+      <section class="s-uhqVU-">
         <div style="${STAT_TILE_ACCENT};border-radius:20px">
           <div style="${STAT_TILE_LABEL}">${esc(model.countsLabel)}</div>
           <div style="${STAT_TILE_VALUE};font-size:32px;font-weight:800">${model.totalJobs}</div>
         </div>
         <div style="${STAT_TILE_SUCCESS};border-radius:20px">
           <div style="${STAT_TILE_LABEL}">${esc(model.timeframeLabel)}</div>
-          <div style="margin-top:8px;font-size:16px;font-weight:600;line-height:1.4;color:var(--color-heading)">${esc(dateStamp)}</div>
+          <div class="s-_c4-r2">${esc(dateStamp)}</div>
         </div>
         <a href="${esc(model.sisterLinkHref)}" style="${STAT_TILE_WARNING};border-radius:20px;text-decoration:none;font-weight:700;display:flex;align-items:center">${esc(model.sisterLinkLabel)} →</a>
       </section>
-      <section style="margin:0 0 24px">
-        <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:16px;margin:0 0 14px">
+      <section class="s-ziawP1">
+        <div class="s-r2QmTP">
           <h2 style="${H2_STYLE};margin:0">${esc(model.jobsLabel)}</h2>
           <a href="${openAllHref}" style="${LINK_ACCENT_STYLE};font-weight:700">${esc(model.openAllLabel)} →</a>
         </div>
@@ -355,10 +355,10 @@ ${alternates}
           fr: 'Guide frontaliers : salaire, permis G, fiscalité, retour',
         } as Record<JobLandingLocale, string>)[locale];
         const inner = renderJobBoardCommuterContext({ locale, location: 'Ticino', omitCommute: true });
-        return `<details class="hub-seo-context" style="margin:32px 0 0;padding:0;border-top:1px solid var(--color-edge)">
-          <summary style="margin-top:18px;padding:10px 14px;cursor:pointer;color:var(--color-link);font-weight:600;font-size:15px;list-style:none">${summary}</summary>
-          <div style="padding:8px 0 0">
-            <section style="max-width:860px;margin:0;color:var(--color-body);line-height:1.65;font-size:15px">
+        return `<details class="hub-seo-context s-mxdIN0">
+          <summary class="s-1yn7b_">${summary}</summary>
+          <div class="s-yZU6bn">
+            <section class="s-p_RJwm">
               ${inner}
             </section>
           </div>

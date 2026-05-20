@@ -44,7 +44,7 @@ function patchFile(opts: LinkTarget): boolean {
   // Injection block — plain HTML, styled with design tokens so it
   // blends into the existing static SEO body (same pattern as other
   // programmatic-links plugins already in the codebase).
-  const block = `<aside data-ae7-link style="margin:1.25rem 0;padding:14px 16px;border:1px solid var(--color-edge);border-radius:12px;background:var(--color-surface-alt)"><p style="margin:0;color:var(--color-body);font-size:.95rem;line-height:1.6">${intro} <a href="${href}" style="color:var(--color-link);text-decoration:none;font-weight:600">${label}</a>.</p></aside>`;
+  const block = `<aside class="s-S4XJXX" data-ae7-link><p class="s-ckSIMG">${intro} <a class="s-t_pXue" href="${href}">${label}</a>.</p></aside>`;
 
   // Prefer injecting right after the first `<main …>` open tag so the
   // block appears near the top of the editorial content. Fall back to

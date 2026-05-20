@@ -277,7 +277,7 @@ function renderSparkline(
       return `<title>${esc(valueLabel)}</title>`;
     })
     .join('');
-  return `<svg role="img" aria-label="${esc(ariaLabel)}" viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" style="display:block;margin-top:6px">
+  return `<svg class="s-reNCT-" role="img" aria-label="${esc(ariaLabel)}" viewBox="0 0 ${W} ${H}" width="${W}" height="${H}">
     ${tooltips}
     <path d="${linePath}" stroke="#1d4ed8" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" />
     ${dots}
@@ -1860,12 +1860,12 @@ function renderHealthPremiumFrontalierContext(args: {
     },
   };
   const c = copy[locale] || copy.it;
-  return `<section style="margin:0 0 24px" aria-labelledby="frontalierContext">
+  return `<section class="s-ziawP1" aria-labelledby="frontalierContext">
     <h2 id="frontalierContext" style="${H2_STYLE}">${esc(c.h)}</h2>
-    <p style="margin:0 0 14px;color:var(--color-body);line-height:1.7;max-width:860px">${esc(c.p1)}</p>
-    <p style="margin:0 0 14px;color:var(--color-body);line-height:1.7;max-width:860px">${esc(c.p2)}</p>
-    <p style="margin:0 0 14px;color:var(--color-body);line-height:1.7;max-width:860px">${esc(c.p3)}</p>
-    <p style="margin:0;color:var(--color-body);line-height:1.7;max-width:860px">${esc(c.p4)}</p>
+    <p class="s-KwuhOL">${esc(c.p1)}</p>
+    <p class="s-KwuhOL">${esc(c.p2)}</p>
+    <p class="s-KwuhOL">${esc(c.p3)}</p>
+    <p class="s-E7ZJqo">${esc(c.p4)}</p>
   </section>`;
 }
 
@@ -1991,8 +1991,8 @@ function renderHpAdviceBanner(
           ? copy.yoyStable
           : '';
   return `<aside data-hp-advice data-hp-advice-tier="${esc(rankingTierValue)}" aria-label="${esc(copy.eyebrow)}" style="${tile};margin:0 0 18px">
-    <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.04em;color:var(--color-subtle)">${esc(copy.eyebrow)}</div>
-    <p style="margin:6px 0 0;font-size:15px;line-height:1.55;color:var(--color-heading);font-weight:500">${esc(head)}${yoyLine ? ` ${esc(yoyLine)}` : ''}</p>
+    <div class="s-a8IQOM">${esc(copy.eyebrow)}</div>
+    <p class="s-lEdUfz">${esc(head)}${yoyLine ? ` ${esc(yoyLine)}` : ''}</p>
   </aside>`;
 }
 
@@ -2079,7 +2079,7 @@ function renderLeafPage(inp: LeafInputs): string {
     ? renderHpAdviceBanner(tier, ranking.position, ranking.total, yoyTierVal, bracketYoyDelta, cantonLabel, copy.advice, locale)
     : '';
   const rankingLineHtml = ranking
-    ? `<p style="margin:0 0 24px;font-size:14px;color:var(--color-subtle);line-height:1.5">${esc(copy.advice.rankingLine(cantonLabel, ranking.position, ranking.total, ranking.cheaperCount))}</p>`
+    ? `<p class="s-5kS4rj">${esc(copy.advice.rankingLine(cantonLabel, ranking.position, ranking.total, ranking.cheaperCount))}</p>`
     : '';
 
   // Top-20 table
@@ -2132,7 +2132,7 @@ function renderLeafPage(inp: LeafInputs): string {
     </tr></thead>
     <tbody>${rankingRows
       .map(
-        (r, i) => `<tr${r.canton === canton ? ' style="background:var(--color-accent-subtle)"' : ''}>
+        (r, i) => `<tr class="s-UGbkWC"${r.canton === canton ? '' : ''}>
         <td style="${TABLE_CELL_STYLE};font-variant-numeric:tabular-nums">${i + 1}</td>
         <td style="${TABLE_CELL_STYLE}${r.canton === canton ? ';font-weight:700' : ''}">${esc(HEALTH_PREMIUM_CANTON_DISPLAY[locale][r.canton])}</td>
         <td style="${TABLE_CELL_STYLE};text-align:right;font-variant-numeric:tabular-nums">${r.price === null ? '—' : formatCHF(r.price, locale) + ' ' + esc(copy.priceUnit)}</td>
@@ -2151,24 +2151,24 @@ function renderLeafPage(inp: LeafInputs): string {
     ? `<div style="${STAT_TILE_DANGER}">
       <div style="${STAT_TILE_LABEL}">Δ vs ${yoy?.priorYear ?? ''}</div>
       <div style="${STAT_TILE_VALUE};font-size:24px;color:${(bracketYoy.medianPct ?? 0) >= 0 ? 'var(--color-danger)' : 'var(--color-success)'}">${esc(formatPct(bracketYoy.medianPct, locale))}</div>
-      <div style="margin-top:2px;font-size:13px;color:var(--color-subtle)">${bracketYoy.sourceInsurers} casse</div>
+      <div class="s-iydat0">${bracketYoy.sourceInsurers} casse</div>
     </div>`
     : '';
-  const statsHtml = `<section style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin:0 0 24px">
+  const statsHtml = `<section class="s-XENO3U">
     <div style="${STAT_TILE_ACCENT}">
       <div style="${STAT_TILE_LABEL}">${esc(copy.statsLabels.median)}</div>
       <div style="${STAT_TILE_VALUE};font-size:32px;font-weight:800">${medFmt}</div>
-      <div style="margin-top:2px;font-size:13px;color:var(--color-subtle)">${esc(copy.priceUnit)}</div>
+      <div class="s-iydat0">${esc(copy.priceUnit)}</div>
     </div>
     <div style="${STAT_TILE_SUCCESS}">
       <div style="${STAT_TILE_LABEL}">${esc(copy.statsLabels.min)}</div>
       <div style="${STAT_TILE_VALUE};font-size:24px">${minFmt}</div>
-      <div style="margin-top:2px;font-size:13px;color:var(--color-subtle)">${esc(copy.priceUnit)}</div>
+      <div class="s-iydat0">${esc(copy.priceUnit)}</div>
     </div>
     <div style="${STAT_TILE_WARNING}">
       <div style="${STAT_TILE_LABEL}">${esc(copy.statsLabels.max)}</div>
       <div style="${STAT_TILE_VALUE};font-size:24px">${maxFmt}</div>
-      <div style="margin-top:2px;font-size:13px;color:var(--color-subtle)">${esc(copy.priceUnit)}</div>
+      <div class="s-iydat0">${esc(copy.priceUnit)}</div>
     </div>
     <div style="${STAT_TILE_BASE}">
       <div style="${STAT_TILE_LABEL}">${esc(copy.statsLabels.insurers)}</div>
@@ -2212,10 +2212,10 @@ function renderLeafPage(inp: LeafInputs): string {
         })
         .join('')}</tbody>
     </table>`;
-    return `<section style="margin:0 0 24px" aria-labelledby="yoy">
+    return `<section class="s-ziawP1" aria-labelledby="yoy">
       <h2 id="yoy" style="${H2_STYLE}">${esc(copy.yoy.sectionTitle(yoy.priorYear))}</h2>
-      <p style="margin:0 0 12px;color:var(--color-body);line-height:1.6;max-width:860px">${esc(copy.yoy.summary(cantonLabel, ageLabel, medPctFmt, yoy.priorYear, bracketYoy.sourceInsurers))}</p>
-      <p style="margin:0 0 12px;color:var(--color-subtle);font-size:13px;line-height:1.5">${esc(copy.yoy.tableCaption(yoy.priorYear))}</p>
+      <p class="s-1j3K91">${esc(copy.yoy.summary(cantonLabel, ageLabel, medPctFmt, yoy.priorYear, bracketYoy.sourceInsurers))}</p>
+      <p class="s-ubTE3b">${esc(copy.yoy.tableCaption(yoy.priorYear))}</p>
       ${table}
     </section>`;
   })();
@@ -2238,14 +2238,14 @@ function renderLeafPage(inp: LeafInputs): string {
     const sparkAria = copy.triYear.sparklineLabel(cantonLabel, ageLabel);
     const sparkHtml = renderSparkline(trend, locale, sparkAria);
     const sequence = `${oldestYear} → ${priorYear} → ${currentYear}`;
-    return `<section style="margin:0 0 24px" aria-labelledby="triYear">
+    return `<section class="s-ziawP1" aria-labelledby="triYear">
       <h2 id="triYear" style="${H2_STYLE}">${esc(copy.triYear.sectionTitle(oldestYear, currentYear))}</h2>
-      <p style="margin:0 0 12px;color:var(--color-body);line-height:1.6;max-width:860px">${esc(copy.triYear.summary(cantonLabel, ageLabel, oldestYear, priorYear, currentYear, yoyOlderFmt, yoyRecentFmt, cumFmt))}</p>
-      <div style="display:flex;flex-wrap:wrap;gap:18px;align-items:center;margin:6px 0 0">
+      <p class="s-1j3K91">${esc(copy.triYear.summary(cantonLabel, ageLabel, oldestYear, priorYear, currentYear, yoyOlderFmt, yoyRecentFmt, cumFmt))}</p>
+      <div class="s-nYwIZw">
         <div style="${STAT_TILE_ACCENT};padding:14px 18px;border-radius:14px">
           <div style="${STAT_TILE_LABEL};font-size:11px">${esc(sequence)}</div>
-          <div style="margin-top:6px;font-size:20px;font-weight:700;color:var(--color-heading);font-variant-numeric:tabular-nums">${esc(yoyOlderFmt)} · ${esc(yoyRecentFmt)}</div>
-          <div style="margin-top:2px;font-size:13px;color:var(--color-subtle);font-variant-numeric:tabular-nums">${esc(cumFmt)}</div>
+          <div class="s--RQH7i">${esc(yoyOlderFmt)} · ${esc(yoyRecentFmt)}</div>
+          <div class="s-Xya6Gm">${esc(cumFmt)}</div>
         </div>
         ${sparkHtml}
       </div>
@@ -2254,13 +2254,13 @@ function renderLeafPage(inp: LeafInputs): string {
 
   // FAQ
   const faqItems = copy.faq;
-  const faqHtml = `<section style="margin:32px 0 0" aria-labelledby="hpFaq">
+  const faqHtml = `<section class="s-ZqtBbL" aria-labelledby="hpFaq">
     <h2 id="hpFaq" style="${H2_STYLE}">${esc(copy.faqTitle)}</h2>
     ${faqItems
       .map(
         (f) => `<details style="${CARD_STYLE};margin-bottom:8px">
-        <summary style="font-weight:700;cursor:pointer;color:var(--color-heading)">${esc(f.q(cantonLabel, ageLabel))}</summary>
-        <p style="margin:10px 0 0;color:var(--color-body);line-height:1.6">${esc(f.a(cantonLabel, ageLabel, medFmt, minFmt, maxFmt))}</p>
+        <summary class="s-HBR0NM">${esc(f.q(cantonLabel, ageLabel))}</summary>
+        <p class="s-OCic8j">${esc(f.a(cantonLabel, ageLabel, medFmt, minFmt, maxFmt))}</p>
       </details>`,
       )
       .join('')}
@@ -2330,7 +2330,7 @@ function renderLeafPage(inp: LeafInputs): string {
   const title = clampSiteSuffix(titleBase, 'Frontaliere Ticino');
   const description = introLong.slice(0, 180);
 
-  const bodyHtml = `<article style="max-width:1100px;margin:0 auto;padding:32px 20px 56px">
+  const bodyHtml = `<article class="s-xzWvwM">
   <nav style="${BREADCRUMB_STYLE}">
     <a href="${BASE_URL}/" style="${BREADCRUMB_LINK_STYLE}">${esc(copy.breadcrumbHome)}</a>
     <span> / </span>
@@ -2340,7 +2340,7 @@ function renderLeafPage(inp: LeafInputs): string {
     <span> / </span>
     <span>${esc(ageLabel)}</span>
   </nav>
-  <header style="margin-bottom:22px">
+  <header class="s-Nv0GaD">
     <p style="${HERO_EYEBROW_STYLE}">LAMal ${year}</p>
     <h1 style="${H1_STYLE}">${esc(h1)}</h1>
     <p style="${LEDE_STYLE}">${esc(introShort)}</p>
@@ -2348,33 +2348,33 @@ function renderLeafPage(inp: LeafInputs): string {
   ${adviceBannerHtml}
   ${statsHtml}
   ${rankingLineHtml}
-  <section style="margin:0 0 24px" aria-labelledby="comparatorCta">
+  <section class="s-ziawP1" aria-labelledby="comparatorCta">
     <h2 id="comparatorCta" style="${H2_STYLE}">${esc(copy.comparatorCTA)}</h2>
-    <p style="margin:0 0 12px;color:var(--color-body);line-height:1.6;max-width:860px">${esc(copy.comparatorCTAText)}</p>
+    <p class="s-1j3K91">${esc(copy.comparatorCTAText)}</p>
     <a href="${esc(comparatorHref)}" style="${CTA_PRIMARY_STYLE};font-size:15px">${esc(copy.comparatorCTA)}</a>
   </section>
-  <section style="margin:0 0 24px" aria-labelledby="top20">
+  <section class="s-ziawP1" aria-labelledby="top20">
     <h2 id="top20" style="${H2_STYLE}">${esc(copy.top20Title(cantonLabel, ageLabel))}</h2>
     ${tableHtml}
-    ${(age === '0-18' || age === '19-25') && !bracketIsReal ? `<p style="margin:12px 0 0;color:var(--color-warning);font-size:13px;line-height:1.5;padding:12px;background:var(--color-warning-subtle);border-radius:8px">${esc(copy.derivationNote)}</p>` : ''}
+    ${(age === '0-18' || age === '19-25') && !bracketIsReal ? `<p class="s-iFFsKs">${esc(copy.derivationNote)}</p>` : ''}
   </section>
-  <section style="margin:0 0 24px" aria-labelledby="ranking">
+  <section class="s-ziawP1" aria-labelledby="ranking">
     <h2 id="ranking" style="${H2_STYLE}">${esc(copy.rankingTitle)}</h2>
-    <p style="margin:0 0 12px;color:var(--color-body);line-height:1.6;max-width:860px">${esc(copy.rankingIntro(cantonLabel))}</p>
+    <p class="s-1j3K91">${esc(copy.rankingIntro(cantonLabel))}</p>
     ${rankingHtml}
   </section>
   ${yoyHtml}
   ${triYearHtml}
-  <section style="margin:0 0 24px" aria-labelledby="editorial">
+  <section class="s-ziawP1" aria-labelledby="editorial">
     <h2 id="editorial" style="${H2_STYLE}">${esc(copy.editorialTitle)}</h2>
-    <p style="margin:0 0 14px;color:var(--color-body);line-height:1.7;max-width:860px">${esc(copy.editorial(cantonLabel, ageLabel, medFmt, year))}</p>
-    <p style="margin:0;color:var(--color-body);line-height:1.7;max-width:860px">${esc(introLong)}</p>
+    <p class="s-KwuhOL">${esc(copy.editorial(cantonLabel, ageLabel, medFmt, year))}</p>
+    <p class="s-E7ZJqo">${esc(introLong)}</p>
   </section>
   ${renderHealthPremiumFrontalierContext({ locale, canton: cantonLabel, age: ageLabel, ageId: age, year, median: medFmt, min: minFmt, max: maxFmt })}
   ${faqHtml}
   ${renderDiscoverMore(locale, HEALTH_PREMIUMS_DISCOVER_MORE_CTAS[locale])}
   ${generateRelatedLinksBlock(locale, 'health_premiums', { cantonSlug: canton, age })}
-  <section style="margin-top:32px" aria-label="advertisement">
+  <section class="s-sC82IX" aria-label="advertisement">
     ${adSlotHtml('ARTICLE_END_MULTIPLEX')}
   </section>
 </article>`;
@@ -2490,11 +2490,11 @@ function renderCantonHubPage(inp: CantonHubInputs): string {
     </div>`
     : '';
 
-  const statsHtml = `<section style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin:0 0 24px">
+  const statsHtml = `<section class="s-XENO3U">
     <div style="${STAT_TILE_ACCENT}">
       <div style="${STAT_TILE_LABEL}">${esc(leafCopy.statsLabels.median)}</div>
       <div style="${STAT_TILE_VALUE};font-size:32px;font-weight:800">${medFmt}</div>
-      <div style="margin-top:2px;font-size:13px;color:var(--color-subtle)">${esc(copy.priceUnit)}</div>
+      <div class="s-iydat0">${esc(copy.priceUnit)}</div>
     </div>
     <div style="${STAT_TILE_SUCCESS}">
       <div style="${STAT_TILE_LABEL}">${esc(leafCopy.statsLabels.min)}</div>
@@ -2540,10 +2540,10 @@ function renderCantonHubPage(inp: CantonHubInputs): string {
         })
         .join('')}</tbody>
     </table>`;
-    return `<section style="margin:0 0 24px" aria-labelledby="yoy">
+    return `<section class="s-ziawP1" aria-labelledby="yoy">
       <h2 id="yoy" style="${H2_STYLE}">${esc(copy.yoy.sectionTitle(yoy.priorYear))}</h2>
-      <p style="margin:0 0 12px;color:var(--color-body);line-height:1.6;max-width:860px">${esc(copy.yoy.cantonSummary(cantonLabel, adultPctFmt, yoy.priorYear))}</p>
-      <p style="margin:0 0 12px;color:var(--color-subtle);font-size:13px;line-height:1.5">${esc(copy.yoy.gridCaption(yoy.priorYear))}</p>
+      <p class="s-1j3K91">${esc(copy.yoy.cantonSummary(cantonLabel, adultPctFmt, yoy.priorYear))}</p>
+      <p class="s-ubTE3b">${esc(copy.yoy.gridCaption(yoy.priorYear))}</p>
       ${gridTable}
     </section>`;
   })();
@@ -2560,22 +2560,22 @@ function renderCantonHubPage(inp: CantonHubInputs): string {
     const cumFmt = formatPct(adult.cumulativePct, locale);
     const sparkAria = HUB_COPY[locale].triYear.cantonSummary(cantonLabel, oldestYear, currentYear, cumFmt);
     const sparkHtml = renderSparkline(adult, locale, sparkAria);
-    return `<section style="margin:0 0 24px" aria-labelledby="triYearHub">
+    return `<section class="s-ziawP1" aria-labelledby="triYearHub">
       <h2 id="triYearHub" style="${H2_STYLE}">${esc(copy.triYear.sectionTitle(oldestYear, currentYear))}</h2>
-      <p style="margin:0 0 12px;color:var(--color-body);line-height:1.6;max-width:860px">${esc(copy.triYear.cantonSummary(cantonLabel, oldestYear, currentYear, cumFmt))}</p>
+      <p class="s-1j3K91">${esc(copy.triYear.cantonSummary(cantonLabel, oldestYear, currentYear, cumFmt))}</p>
       ${sparkHtml}
     </section>`;
   })();
 
   // Canton FAQ
   const faqItems = copy.cantonFaq;
-  const faqHtml = `<section style="margin:32px 0 0" aria-labelledby="hpFaq">
+  const faqHtml = `<section class="s-ZqtBbL" aria-labelledby="hpFaq">
     <h2 id="hpFaq" style="${H2_STYLE}">${esc(copy.faqTitle)}</h2>
     ${faqItems
       .map(
         (f) => `<details style="${CARD_STYLE};margin-bottom:8px">
-        <summary style="font-weight:700;cursor:pointer;color:var(--color-heading)">${esc(f.q(cantonLabel))}</summary>
-        <p style="margin:10px 0 0;color:var(--color-body);line-height:1.6">${esc(f.a(cantonLabel, medFmt, year))}</p>
+        <summary class="s-HBR0NM">${esc(f.q(cantonLabel))}</summary>
+        <p class="s-OCic8j">${esc(f.a(cantonLabel, medFmt, year))}</p>
       </details>`,
       )
       .join('')}
@@ -2604,7 +2604,7 @@ function renderCantonHubPage(inp: CantonHubInputs): string {
     ? renderHpAdviceBanner(tier, ranking.position, ranking.total, yoyTierVal, yoyAdult, cantonLabel, copy.advice, locale)
     : '';
   const rankingLineHtml = ranking
-    ? `<p style="margin:0 0 24px;font-size:14px;color:var(--color-subtle);line-height:1.5">${esc(copy.advice.rankingLine(cantonLabel, ranking.position, ranking.total, ranking.cheaperCount))}</p>`
+    ? `<p class="s-5kS4rj">${esc(copy.advice.rankingLine(cantonLabel, ranking.position, ranking.total, ranking.cheaperCount))}</p>`
     : '';
   const comparatorHref = `${HEALTH_PREMIUM_COMPARATOR_PATH[locale]}#canton=${stats.cantonBagCode}`;
 
@@ -2643,7 +2643,7 @@ function renderCantonHubPage(inp: CantonHubInputs): string {
   const title = clampSiteSuffix(titleBase, 'Frontaliere Ticino');
   const description = introLong.slice(0, 180);
 
-  const bodyHtml = `<article style="max-width:1100px;margin:0 auto;padding:32px 20px 56px">
+  const bodyHtml = `<article class="s-xzWvwM">
   <nav style="${BREADCRUMB_STYLE}">
     <a href="${BASE_URL}/" style="${BREADCRUMB_LINK_STYLE}">${esc(copy.breadcrumbHome)}</a>
     <span> / </span>
@@ -2651,7 +2651,7 @@ function renderCantonHubPage(inp: CantonHubInputs): string {
     <span> / </span>
     <span>${esc(cantonLabel)}</span>
   </nav>
-  <header style="margin-bottom:22px">
+  <header class="s-Nv0GaD">
     <p style="${HERO_EYEBROW_STYLE}">LAMal ${year} · ${esc(copy.updatedLabel)}</p>
     <h1 style="${H1_STYLE}">${esc(h1)}</h1>
     <p style="${LEDE_STYLE}">${esc(introShort)}</p>
@@ -2659,21 +2659,21 @@ function renderCantonHubPage(inp: CantonHubInputs): string {
   ${adviceBannerHtml}
   ${statsHtml}
   ${rankingLineHtml}
-  <section style="margin:0 0 24px" aria-labelledby="cantonComparatorCta">
+  <section class="s-ziawP1" aria-labelledby="cantonComparatorCta">
     <h2 id="cantonComparatorCta" style="${H2_STYLE}">${esc(copy.comparatorCTA)}</h2>
-    <p style="margin:0 0 12px;color:var(--color-body);line-height:1.6;max-width:860px">${esc(copy.comparatorCTAText)}</p>
+    <p class="s-1j3K91">${esc(copy.comparatorCTAText)}</p>
     <a href="${esc(comparatorHref)}" style="${CTA_PRIMARY_STYLE};font-size:15px">${esc(copy.comparatorCTA)}</a>
   </section>
-  <section style="margin:0 0 24px" aria-labelledby="ageGrid">
+  <section class="s-ziawP1" aria-labelledby="ageGrid">
     <h2 id="ageGrid" style="${H2_STYLE}">${esc(copy.ageGridTitle(cantonLabel))}</h2>
     ${ageGridHtml}
   </section>
   ${yoyHubHtml}
   ${triYearHubHtml}
-  <section style="margin:0 0 24px" aria-labelledby="cantonContext">
+  <section class="s-ziawP1" aria-labelledby="cantonContext">
     <h2 id="cantonContext" style="${H2_STYLE}">${esc(copy.cantonContext.title)}</h2>
-    <p style="margin:0 0 14px;color:var(--color-body);line-height:1.7;max-width:860px">${esc(copy.cantonContext.body(cantonLabel, medFmt, year))}</p>
-    <p style="margin:0;color:var(--color-body);line-height:1.7;max-width:860px">${esc(introLong)}</p>
+    <p class="s-KwuhOL">${esc(copy.cantonContext.body(cantonLabel, medFmt, year))}</p>
+    <p class="s-E7ZJqo">${esc(introLong)}</p>
   </section>
   ${renderMethodologyBulletList({
     id: 'cantonDeductibleGuide',
@@ -2690,7 +2690,7 @@ function renderCantonHubPage(inp: CantonHubInputs): string {
   ${faqHtml}
   ${renderDiscoverMore(locale, HEALTH_PREMIUMS_DISCOVER_MORE_CTAS[locale])}
   ${generateRelatedLinksBlock(locale, 'health_premiums', { cantonSlug: canton })}
-  <section style="margin-top:32px" aria-label="advertisement">
+  <section class="s-sC82IX" aria-label="advertisement">
     ${adSlotHtml('ARTICLE_END_MULTIPLEX')}
   </section>
 </article>`;
@@ -2747,13 +2747,13 @@ function renderMethodologyBulletList(args: {
   const { id, title, intro, bullets } = args;
   const items = bullets
     .map(
-      (b) => `<li style="margin:0 0 12px;line-height:1.6"><strong style="color:var(--color-heading)">${esc(b.heading)}</strong> — <span style="color:var(--color-body)">${esc(b.body)}</span></li>`,
+      (b) => `<li class="s-7H35Rg"><strong class="s-MLbk8r">${esc(b.heading)}</strong> — <span class="s-_B4enX">${esc(b.body)}</span></li>`,
     )
     .join('');
-  return `<section style="margin:0 0 24px" aria-labelledby="${esc(id)}">
+  return `<section class="s-ziawP1" aria-labelledby="${esc(id)}">
     <h2 id="${esc(id)}" style="${H2_STYLE}">${esc(title)}</h2>
-    <p style="margin:0 0 14px;color:var(--color-body);line-height:1.7;max-width:860px">${esc(intro)}</p>
-    <ul style="margin:0;padding-left:20px;max-width:860px">${items}</ul>
+    <p class="s-KwuhOL">${esc(intro)}</p>
+    <ul class="s-E9R09i">${items}</ul>
   </section>`;
 }
 
@@ -2817,13 +2817,13 @@ function renderRootHubPage(inp: RootHubInputs): string {
   </table>`;
 
   const faqItems = copy.rootFaq;
-  const faqHtml = `<section style="margin:32px 0 0" aria-labelledby="hpFaq">
+  const faqHtml = `<section class="s-ZqtBbL" aria-labelledby="hpFaq">
     <h2 id="hpFaq" style="${H2_STYLE}">${esc(copy.faqTitle)}</h2>
     ${faqItems
       .map(
         (f) => `<details style="${CARD_STYLE};margin-bottom:8px">
-        <summary style="font-weight:700;cursor:pointer;color:var(--color-heading)">${esc(f.q)}</summary>
-        <p style="margin:10px 0 0;color:var(--color-body);line-height:1.6">${esc(f.a(year))}</p>
+        <summary class="s-HBR0NM">${esc(f.q)}</summary>
+        <p class="s-OCic8j">${esc(f.a(year))}</p>
       </details>`,
       )
       .join('')}
@@ -2896,7 +2896,7 @@ function renderRootHubPage(inp: RootHubInputs): string {
   };
   const rootTl = rootTileLabels[locale];
   const rootStatsHtml = cantonsCount > 0
-    ? `<section style="display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:14px;margin:0 0 18px">
+    ? `<section class="s-kdmhjX">
     <div style="${STAT_TILE_BASE}">
       <div style="${STAT_TILE_LABEL}">${esc(rootTl.cantons)}</div>
       <div style="${STAT_TILE_VALUE};font-size:24px;font-variant-numeric:tabular-nums">${cantonsCount}</div>
@@ -2904,12 +2904,12 @@ function renderRootHubPage(inp: RootHubInputs): string {
     <div style="${STAT_TILE_ACCENT}">
       <div style="${STAT_TILE_LABEL}">${esc(rootTl.median)}</div>
       <div style="${STAT_TILE_VALUE};font-size:32px;font-weight:800;font-variant-numeric:tabular-nums">${esc(formatCHF(nationalMedian, locale))}</div>
-      <div style="margin-top:2px;font-size:13px;color:var(--color-subtle)">${esc(copy.priceUnit)}</div>
+      <div class="s-iydat0">${esc(copy.priceUnit)}</div>
     </div>
     <div style="${STAT_TILE_SUCCESS}">
       <div style="${STAT_TILE_LABEL}">${esc(rootTl.cheapest)}</div>
       <div style="${STAT_TILE_VALUE};font-size:22px;font-variant-numeric:tabular-nums">${esc(formatCHF(nationalCheapest, locale))}</div>
-      ${cheapestCantonName ? `<div style="margin-top:2px;font-size:13px;color:var(--color-subtle)">${esc(cheapestCantonName)}</div>` : ''}
+      ${cheapestCantonName ? `<div class="s-iydat0">${esc(cheapestCantonName)}</div>` : ''}
     </div>
     <div style="${STAT_TILE_WARNING}">
       <div style="${STAT_TILE_LABEL}">${esc(rootTl.mostExp)}</div>
@@ -2918,35 +2918,35 @@ function renderRootHubPage(inp: RootHubInputs): string {
   </section>`
     : '';
 
-  const bodyHtml = `<article style="max-width:1100px;margin:0 auto;padding:32px 20px 56px">
+  const bodyHtml = `<article class="s-xzWvwM">
   <nav style="${BREADCRUMB_STYLE}">
     <a href="${BASE_URL}/" style="${BREADCRUMB_LINK_STYLE}">${esc(copy.breadcrumbHome)}</a>
     <span> / </span>
     <span>${esc(leafCopy.breadcrumbRoot)}</span>
   </nav>
-  <header style="margin-bottom:22px">
+  <header class="s-Nv0GaD">
     <p style="${HERO_EYEBROW_STYLE}">LAMal ${year}</p>
     <h1 style="${H1_STYLE}">${esc(h1)}</h1>
     <p style="${LEDE_STYLE}">${esc(taglineByLocale[locale])}</p>
   </header>
   ${rootStatsHtml}
-  <section style="margin:0 0 24px" aria-labelledby="rootComparatorCta">
+  <section class="s-ziawP1" aria-labelledby="rootComparatorCta">
     <h2 id="rootComparatorCta" style="${H2_STYLE}">${esc(copy.comparatorCTA)}</h2>
-    <p style="margin:0 0 12px;color:var(--color-body);line-height:1.6;max-width:860px">${esc(copy.comparatorCTAText)}</p>
+    <p class="s-1j3K91">${esc(copy.comparatorCTAText)}</p>
     <a href="${esc(HEALTH_PREMIUM_COMPARATOR_PATH[locale])}" style="${CTA_PRIMARY_STYLE};font-size:15px">${esc(copy.comparatorCTA)}</a>
   </section>
-  <section style="margin:0 0 24px" aria-labelledby="cantonGrid">
+  <section class="s-ziawP1" aria-labelledby="cantonGrid">
     <h2 id="cantonGrid" style="${H2_STYLE}">${esc(copy.cantonGridTitle)}</h2>
     ${cantonGridHtml}
   </section>
-  <section style="margin:0 0 24px" aria-labelledby="background">
+  <section class="s-ziawP1" aria-labelledby="background">
     <h2 id="background" style="${H2_STYLE}">${esc(copy.rootBackgroundTitle)}</h2>
-    <p style="margin:0 0 14px;color:var(--color-body);line-height:1.7;max-width:860px">${esc(intro)}</p>
-    <p style="margin:0;color:var(--color-body);line-height:1.7;max-width:860px">${esc(copy.rootBackground)}</p>
+    <p class="s-KwuhOL">${esc(intro)}</p>
+    <p class="s-E7ZJqo">${esc(copy.rootBackground)}</p>
   </section>
-  <section style="margin:0 0 24px" aria-labelledby="rootMethodology">
+  <section class="s-ziawP1" aria-labelledby="rootMethodology">
     <h2 id="rootMethodology" style="${H2_STYLE}">${esc(copy.rootMethodology.title)}</h2>
-    <p style="margin:0;color:var(--color-body);line-height:1.7;max-width:860px">${esc(copy.rootMethodology.body(year))}</p>
+    <p class="s-E7ZJqo">${esc(copy.rootMethodology.body(year))}</p>
   </section>
   ${renderMethodologyBulletList({
     id: 'rootDeductibleAndModelGuide',
@@ -2963,7 +2963,7 @@ function renderRootHubPage(inp: RootHubInputs): string {
   ${faqHtml}
   ${renderDiscoverMore(locale, HEALTH_PREMIUMS_DISCOVER_MORE_CTAS[locale])}
   ${generateRelatedLinksBlock(locale, 'health_premiums', { cantonSlug: 'ticino' })}
-  <section style="margin-top:32px" aria-label="advertisement">
+  <section class="s-sC82IX" aria-label="advertisement">
     ${adSlotHtml('ARTICLE_END_MULTIPLEX')}
   </section>
 </article>`;

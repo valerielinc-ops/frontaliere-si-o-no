@@ -259,11 +259,11 @@ function buildExtendedFaqAccordion(
   const block = blocks[locale];
   const items = block.faqs
     .map(
-      (f) => '<details style="' + DETAILS_STYLE + '"><summary style="' + SUMMARY_STYLE + '">' + esc(f.q) + '</summary><p style="' + ANSWER_STYLE + '">' + esc(f.a) + '</p></details>',
+      (f) => '<details class="s-j2wp2M"><summary class="s-iDY72K">' + esc(f.q) + '</summary><p class="s-E6DhdW">' + esc(f.a) + '</p></details>',
     )
     .join('');
 
-  return '<section style="' + SECTION_STYLE + '"><h2 style="margin:0 0 10px;font-size:22px">' + esc(block.heading) + '</h2><p style="margin:0 0 16px;color:var(--color-subtle);line-height:1.6;font-size:14px">' + esc(block.intro) + '</p>' + items + '</section>';
+  return '<section class="s-dc6Yoc"><h2 class="s-xa37_g">' + esc(block.heading) + '</h2><p class="s-gISFYN">' + esc(block.intro) + '</p>' + items + '</section>';
 }
 
 /** Build an editorialized H1 from the canonical query per locale. */
@@ -551,7 +551,7 @@ function renderPage(opts: {
   });
   const jobCards = renderJobCardListHtml(cardItems, { locale });
 
-  const similarList = similar.map((q) => `<li style="margin:4px 0"><a href="${esc(jobBoardRoot[locale])}" style="${LINK_ACCENT_STYLE}">${esc(q.query)}</a> <span style="color:var(--color-subtle);font-size:12px">(${q.impressions})</span></li>`).join('');
+  const similarList = similar.map((q) => `<li class="s-F6hoFh"><a href="${esc(jobBoardRoot[locale])}" style="${LINK_ACCENT_STYLE}">${esc(q.query)}</a> <span class="s-7pwP-Z">(${q.impressions})</span></li>`).join('');
 
   const employerList = topEmployers.length > 0
     ? topEmployers.map((e) => `<li>${esc(e.name)} (${e.count})</li>`).join('')
@@ -605,54 +605,54 @@ function renderPage(opts: {
       <span> / </span>
       <span>${esc(cluster.canonicalQuery)}</span>
     </nav>
-    <header style="margin-bottom:20px">
+    <header class="s-YcUNX5">
       <p style="${HERO_EYEBROW_STYLE}">${esc(t('orphanLanding.updatedLabel', 'Updated'))} · ${esc(dateStamp)}</p>
       <h1 style="${H1_STYLE}">${esc(buildEditorialH1(cluster.canonicalQuery, locale))}</h1>
       <p style="${LEDE_STYLE}">${esc(matchingJobs.length > 0 ? (locale === 'it' ? `${matchingJobs.length} offerte attive per "${cluster.canonicalQuery}"${medianSalary > 0 ? ` · mediana salario CHF ${medianSalary.toLocaleString('de-CH')}` : ''}.` : locale === 'en' ? `${matchingJobs.length} active openings for "${cluster.canonicalQuery}"${medianSalary > 0 ? ` · median salary CHF ${medianSalary.toLocaleString('de-CH')}` : ''}.` : locale === 'de' ? `${matchingJobs.length} aktive Stellen für "${cluster.canonicalQuery}"${medianSalary > 0 ? ` · Median CHF ${medianSalary.toLocaleString('de-CH')}` : ''}.` : `${matchingJobs.length} offres actives pour « ${cluster.canonicalQuery} »${medianSalary > 0 ? ` · médiane CHF ${medianSalary.toLocaleString('de-CH')}` : ''}.`) : esc(t('orphanLanding.noResults', 'No openings.')))}</p>
     </header>
-    <section style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin:0 0 24px">
+    <section class="s-IdxvJZ">
       <div style="${STAT_TILE_BASE}">
         <div style="${STAT_TILE_LABEL}">${esc(t('orphanLanding.medianSalary', 'Median salary'))}</div>
         <div style="${STAT_TILE_VALUE}">${medianSalary > 0 ? `CHF ${medianSalary.toLocaleString('de-CH')}` : esc(t('orphanLanding.medianSalaryNA', 'N/A'))}</div>
       </div>
       ${topEmployers.length > 0 ? `<div style="${STAT_TILE_BASE}">
         <div style="${STAT_TILE_LABEL}">${esc(t('orphanLanding.topEmployers', 'Top employers'))}</div>
-        <ul style="margin:8px 0 0;padding:0 0 0 18px;line-height:1.5;font-size:14px;color:var(--color-body)">${employerList}</ul>
+        <ul class="s-qVzgqV">${employerList}</ul>
       </div>` : ''}
       ${topCities.length > 0 ? `<div style="${STAT_TILE_BASE}">
         <div style="${STAT_TILE_LABEL}">${esc(t('orphanLanding.topCities', 'Top cities'))}</div>
-        <ul style="margin:8px 0 0;padding:0 0 0 18px;line-height:1.5;font-size:14px;color:var(--color-body)">${cityList}</ul>
+        <ul class="s-qVzgqV">${cityList}</ul>
       </div>` : ''}
     </section>
-    <section style="margin:0 0 28px">
-      <h2 style="margin:0 0 12px;font-size:22px">${esc(t('orphanLanding.resultsLabel', 'Openings'))}</h2>
+    <section class="s-KZc0LQ">
+      <h2 class="s-sOn5-B">${esc(t('orphanLanding.resultsLabel', 'Openings'))}</h2>
       ${matchingJobs.length > 0
         ? jobCards
-        : `<p style="margin:0;padding:16px;border-radius:12px;background:var(--color-warning-subtle);color:var(--color-heading)">${esc(t('orphanLanding.noResults', 'No openings.'))}</p>`}
+        : `<p class="s-WzYXnb">${esc(t('orphanLanding.noResults', 'No openings.'))}</p>`}
     </section>
-    ${similar.length > 1 ? `<section style="margin:0 0 28px">
-      <h2 style="margin:0 0 12px;font-size:22px">${esc(t('orphanLanding.similarQueries', 'Similar searches'))}</h2>
-      <ul style="margin:0;padding:0 0 0 18px">${similarList}</ul>
+    ${similar.length > 1 ? `<section class="s-KZc0LQ">
+      <h2 class="s-sOn5-B">${esc(t('orphanLanding.similarQueries', 'Similar searches'))}</h2>
+      <ul class="s-LvQ0sH">${similarList}</ul>
     </section>` : ''}
-    <section style="margin:0 0 28px">
-      <h2 style="margin:0 0 12px;font-size:22px">${esc(t('orphanLanding.faqH2', 'FAQ'))}</h2>
-      <details style="padding:12px 14px;border:1px solid var(--color-edge);border-radius:12px;margin-bottom:8px;background:var(--color-surface)">
-        <summary style="font-weight:700;cursor:pointer">${esc(t('orphanLanding.faqQ1', ''))}</summary>
-        <p style="margin:8px 0 0;color:var(--color-body);line-height:1.65">${esc(t('orphanLanding.faqA1', ''))}</p>
+    <section class="s-KZc0LQ">
+      <h2 class="s-sOn5-B">${esc(t('orphanLanding.faqH2', 'FAQ'))}</h2>
+      <details class="s-bOXb_q">
+        <summary class="s-evnceI">${esc(t('orphanLanding.faqQ1', ''))}</summary>
+        <p class="s-dbDev_">${esc(t('orphanLanding.faqA1', ''))}</p>
       </details>
-      <details style="padding:12px 14px;border:1px solid var(--color-edge);border-radius:12px;margin-bottom:8px;background:var(--color-surface)">
-        <summary style="font-weight:700;cursor:pointer">${esc(t('orphanLanding.faqQ2', ''))}</summary>
-        <p style="margin:8px 0 0;color:var(--color-body);line-height:1.65">${esc(t('orphanLanding.faqA2', ''))}</p>
+      <details class="s-bOXb_q">
+        <summary class="s-evnceI">${esc(t('orphanLanding.faqQ2', ''))}</summary>
+        <p class="s-dbDev_">${esc(t('orphanLanding.faqA2', ''))}</p>
       </details>
     </section>
-    <section style="display:flex;gap:12px;flex-wrap:wrap;margin:0 0 16px">
+    <section class="s-p1QaOi">
       <a href="${esc(jobBoardRoot[locale])}" style="${CTA_PRIMARY_STYLE}">${esc(t('orphanLanding.ctaAllJobs', 'All jobs'))}</a>
-      <a href="${BASE_URL}${locale === 'it' ? '/' : `/${locale}/`}" style="padding:12px 18px;border-radius:12px;background:var(--color-surface);border:1px solid var(--color-edge);color:var(--color-body);text-decoration:none;font-weight:700">${esc(t('orphanLanding.ctaCalculator', 'Calculate net salary'))}</a>
+      <a class="s-bX1C8q" href="${BASE_URL}${locale === 'it' ? '/' : `/${locale}/`}">${esc(t('orphanLanding.ctaCalculator', 'Calculate net salary'))}</a>
     </section>
-    <section style="margin:0 0 28px;max-width:860px">
-      <p style="margin:0 0 14px;color:var(--color-body);font-size:16px;line-height:1.6">${esc(editorialBody)}</p>
-      <p style="margin:0 0 14px;color:var(--color-body);line-height:1.65">${esc(buildClusterSignalsParagraph(cluster, locale))}</p>
-      <p style="margin:0;color:var(--color-subtle);line-height:1.65">${esc(genericBody)}</p>
+    <section class="s-86Shfc">
+      <p class="s-lx0qs8">${esc(editorialBody)}</p>
+      <p class="s-R5y55I">${esc(buildClusterSignalsParagraph(cluster, locale))}</p>
+      <p class="s-mLcS-R">${esc(genericBody)}</p>
     </section>
     ${generateRelatedLinksBlock(locale, 'orphan_landing', { city: topCities[0]?.name })}
     ${(() => {
@@ -666,42 +666,42 @@ function renderPage(opts: {
       const city = topCities[0]?.name ?? '';
       const med = medianSalary > 0 ? `CHF ${medianSalary.toLocaleString('de-CH')}` : '';
       if (locale === 'it') {
-        return `<section style="margin:32px 0 0;padding-top:24px;border-top:1px solid var(--color-edge);max-width:860px">
-          <h2 style="margin:0 0 12px;font-size:22px">Come leggere questa ricerca per un frontaliere italo-svizzero</h2>
-          <p style="margin:0 0 14px;line-height:1.65;color:var(--color-body)">Le offerte raggruppate sotto la query <em>${esc(q)}</em> rappresentano posizioni reali aperte oggi nei motori di ricerca svizzeri e nei principali aggregatori (Jobs.ch, JobUp, JobScout24, RAV) che riguardano il pendolarismo dalla Lombardia o dal Piemonte. La concentrazione di annunci in questa categoria riflette sia la domanda effettiva del mercato del lavoro ticinese sia il match con il profilo permesso G — turni compatibili con il rientro quotidiano in Italia, contratti svizzeri a tempo determinato o indeterminato, salario nettamente superiore al netto italiano equivalente${med ? ` (mediana per questo cluster: ${med})` : ''}.</p>
-          <h2 style="margin:0 0 12px;font-size:22px">Cosa cambia con il Nuovo Accordo 2026</h2>
-          <p style="margin:0 0 14px;line-height:1.65;color:var(--color-body)">Per le offerte in questa pagina la fiscalità dipende dalla data di assunzione e dalla distanza dal confine. Un frontaliere "vecchio" (assunto prima del 17 luglio 2023, o residente entro 20 km dalla frontiera) paga solo l'imposta alla fonte ticinese, con un credito d'imposta per l'eventuale tassazione italiana. Un frontaliere "nuovo" residente oltre i 20 km paga sia l'imposta svizzera sia quella italiana, con franchigia di 10 000 € sul reddito imponibile in Italia. La differenza sul netto annuale può raggiungere il 15-20 %: simulare l'esatto impatto con il <a href="${BASE_URL}${locale === 'it' ? '/' : `/${locale}/`}" style="${LINK_ACCENT_STYLE}">calcolatore stipendio netto</a> prima di firmare è sempre la mossa giusta.</p>
-          <h2 style="margin:0 0 12px;font-size:22px">Per chi è utile questa selezione</h2>
-          <p style="margin:0;line-height:1.65;color:var(--color-body)">Questa pagina è pensata per chi sta valutando un trasferimento del proprio carico professionale verso ${city ? esc(city) : 'il Ticino'} oppure cerca attivamente posizioni con questo profilo specifico${employer ? ` (datori di lavoro più frequenti come ${esc(employer)})` : ''}. Aggiorniamo le offerte ogni 24 ore tirando da cinque fonti diverse, filtriamo per ruoli realmente accessibili a un permesso G, e mostriamo solo annunci con stipendio dichiarato o ricavabile dalla mediana di settore. Per affinare la ricerca consigliamo di esplorare anche le query simili elencate sopra e l'<a href="${esc(jobBoardRoot[locale])}" style="${LINK_ACCENT_STYLE}">archivio completo del job board</a>.</p>
+        return `<section class="s-OQInrb">
+          <h2 class="s-sOn5-B">Come leggere questa ricerca per un frontaliere italo-svizzero</h2>
+          <p class="s-zQltsL">Le offerte raggruppate sotto la query <em>${esc(q)}</em> rappresentano posizioni reali aperte oggi nei motori di ricerca svizzeri e nei principali aggregatori (Jobs.ch, JobUp, JobScout24, RAV) che riguardano il pendolarismo dalla Lombardia o dal Piemonte. La concentrazione di annunci in questa categoria riflette sia la domanda effettiva del mercato del lavoro ticinese sia il match con il profilo permesso G — turni compatibili con il rientro quotidiano in Italia, contratti svizzeri a tempo determinato o indeterminato, salario nettamente superiore al netto italiano equivalente${med ? ` (mediana per questo cluster: ${med})` : ''}.</p>
+          <h2 class="s-sOn5-B">Cosa cambia con il Nuovo Accordo 2026</h2>
+          <p class="s-zQltsL">Per le offerte in questa pagina la fiscalità dipende dalla data di assunzione e dalla distanza dal confine. Un frontaliere "vecchio" (assunto prima del 17 luglio 2023, o residente entro 20 km dalla frontiera) paga solo l'imposta alla fonte ticinese, con un credito d'imposta per l'eventuale tassazione italiana. Un frontaliere "nuovo" residente oltre i 20 km paga sia l'imposta svizzera sia quella italiana, con franchigia di 10 000 € sul reddito imponibile in Italia. La differenza sul netto annuale può raggiungere il 15-20 %: simulare l'esatto impatto con il <a href="${BASE_URL}${locale === 'it' ? '/' : `/${locale}/`}" style="${LINK_ACCENT_STYLE}">calcolatore stipendio netto</a> prima di firmare è sempre la mossa giusta.</p>
+          <h2 class="s-sOn5-B">Per chi è utile questa selezione</h2>
+          <p class="s-AA8lz_">Questa pagina è pensata per chi sta valutando un trasferimento del proprio carico professionale verso ${city ? esc(city) : 'il Ticino'} oppure cerca attivamente posizioni con questo profilo specifico${employer ? ` (datori di lavoro più frequenti come ${esc(employer)})` : ''}. Aggiorniamo le offerte ogni 24 ore tirando da cinque fonti diverse, filtriamo per ruoli realmente accessibili a un permesso G, e mostriamo solo annunci con stipendio dichiarato o ricavabile dalla mediana di settore. Per affinare la ricerca consigliamo di esplorare anche le query simili elencate sopra e l'<a href="${esc(jobBoardRoot[locale])}" style="${LINK_ACCENT_STYLE}">archivio completo del job board</a>.</p>
         </section>`;
       }
       if (locale === 'en') {
-        return `<section style="margin:32px 0 0;padding-top:24px;border-top:1px solid var(--color-edge);max-width:860px">
-          <h2 style="margin:0 0 12px;font-size:22px">How to read this search for an Italian-Swiss cross-border worker</h2>
-          <p style="margin:0 0 14px;line-height:1.65;color:var(--color-body)">The openings grouped under the query <em>${esc(q)}</em> are real positions live today on Swiss search engines and major aggregators (Jobs.ch, JobUp, JobScout24, RAV) that fit the commute profile from Lombardy or Piedmont. The density of listings in this category reflects both real demand in the Ticino labour market and the fit with the G-permit profile — shifts compatible with daily return to Italy, Swiss employment contracts, salaries materially higher than the equivalent Italian net${med ? ` (cluster median: ${med})` : ''}.</p>
-          <h2 style="margin:0 0 12px;font-size:22px">What the 2026 New Agreement changes</h2>
-          <p style="margin:0 0 14px;line-height:1.65;color:var(--color-body)">For the openings on this page, taxation depends on hire date and distance from the border. An "old" cross-border worker (hired before 17 July 2023, or resident within 20 km of the border) pays only Swiss withholding tax, with a tax credit on any Italian taxation. A "new" cross-border worker resident beyond 20 km pays both Swiss and Italian tax, with a €10 000 personal allowance on the Italian taxable income. The difference on annual net can reach 15-20 %: simulate the exact impact with the <a href="${BASE_URL}/${locale}/" style="${LINK_ACCENT_STYLE}">net-salary calculator</a> before signing.</p>
-          <h2 style="margin:0 0 12px;font-size:22px">Who this selection is for</h2>
-          <p style="margin:0;line-height:1.65;color:var(--color-body)">This page is built for those evaluating a professional move toward ${city ? esc(city) : 'Ticino'} or actively searching for positions matching this specific profile${employer ? ` (most frequent employers like ${esc(employer)})` : ''}. We refresh listings every 24 hours from five sources, filter for roles actually accessible to a G-permit holder, and only show ads with declared salary or industry-median data. To refine the search, also explore the similar queries above and the <a href="${esc(jobBoardRoot[locale])}" style="${LINK_ACCENT_STYLE}">full job-board archive</a>.</p>
+        return `<section class="s-OQInrb">
+          <h2 class="s-sOn5-B">How to read this search for an Italian-Swiss cross-border worker</h2>
+          <p class="s-zQltsL">The openings grouped under the query <em>${esc(q)}</em> are real positions live today on Swiss search engines and major aggregators (Jobs.ch, JobUp, JobScout24, RAV) that fit the commute profile from Lombardy or Piedmont. The density of listings in this category reflects both real demand in the Ticino labour market and the fit with the G-permit profile — shifts compatible with daily return to Italy, Swiss employment contracts, salaries materially higher than the equivalent Italian net${med ? ` (cluster median: ${med})` : ''}.</p>
+          <h2 class="s-sOn5-B">What the 2026 New Agreement changes</h2>
+          <p class="s-zQltsL">For the openings on this page, taxation depends on hire date and distance from the border. An "old" cross-border worker (hired before 17 July 2023, or resident within 20 km of the border) pays only Swiss withholding tax, with a tax credit on any Italian taxation. A "new" cross-border worker resident beyond 20 km pays both Swiss and Italian tax, with a €10 000 personal allowance on the Italian taxable income. The difference on annual net can reach 15-20 %: simulate the exact impact with the <a href="${BASE_URL}/${locale}/" style="${LINK_ACCENT_STYLE}">net-salary calculator</a> before signing.</p>
+          <h2 class="s-sOn5-B">Who this selection is for</h2>
+          <p class="s-AA8lz_">This page is built for those evaluating a professional move toward ${city ? esc(city) : 'Ticino'} or actively searching for positions matching this specific profile${employer ? ` (most frequent employers like ${esc(employer)})` : ''}. We refresh listings every 24 hours from five sources, filter for roles actually accessible to a G-permit holder, and only show ads with declared salary or industry-median data. To refine the search, also explore the similar queries above and the <a href="${esc(jobBoardRoot[locale])}" style="${LINK_ACCENT_STYLE}">full job-board archive</a>.</p>
         </section>`;
       }
       if (locale === 'de') {
-        return `<section style="margin:32px 0 0;padding-top:24px;border-top:1px solid var(--color-edge);max-width:860px">
-          <h2 style="margin:0 0 12px;font-size:22px">Wie diese Suche für italo-schweizerische Grenzgänger zu lesen ist</h2>
-          <p style="margin:0 0 14px;line-height:1.65;color:var(--color-body)">Die unter der Suchanfrage <em>${esc(q)}</em> gruppierten Stellen sind reale Inserate, die heute auf Schweizer Suchmaschinen und grossen Aggregatoren (Jobs.ch, JobUp, JobScout24, RAV) aktiv sind und zum Pendelprofil aus der Lombardei oder dem Piemont passen. Die Inseratendichte in dieser Kategorie spiegelt sowohl die reale Nachfrage des Tessiner Arbeitsmarktes als auch die Passung zum G-Bewilligungs-Profil wider — Schichten kompatibel mit täglicher Rückkehr nach Italien, Schweizer Arbeitsverträge, Lohn deutlich über dem äquivalenten italienischen Netto${med ? ` (Cluster-Median: ${med})` : ''}.</p>
-          <h2 style="margin:0 0 12px;font-size:22px">Was sich mit dem Neuen Abkommen 2026 ändert</h2>
-          <p style="margin:0 0 14px;line-height:1.65;color:var(--color-body)">Für die Stellen auf dieser Seite hängt die Besteuerung vom Einstellungsdatum und vom Abstand zur Grenze ab. Ein "alter" Grenzgänger (eingestellt vor dem 17. Juli 2023 oder mit Wohnsitz innerhalb von 20 km von der Grenze) zahlt nur die Schweizer Quellensteuer, mit einer Steueranrechnung auf eine allfällige italienische Besteuerung. Ein "neuer" Grenzgänger mit Wohnsitz ausserhalb von 20 km zahlt sowohl Schweizer als auch italienische Steuern, mit einem Freibetrag von 10 000 € auf das italienische steuerpflichtige Einkommen. Der Unterschied beim Jahresnetto kann 15-20 % erreichen: die genaue Wirkung mit dem <a href="${BASE_URL}/${locale}/" style="${LINK_ACCENT_STYLE}">Nettolohn-Rechner</a> vor Vertragsunterzeichnung simulieren.</p>
-          <h2 style="margin:0 0 12px;font-size:22px">Für wen diese Auswahl ist</h2>
-          <p style="margin:0;line-height:1.65;color:var(--color-body)">Diese Seite richtet sich an alle, die eine berufliche Verlagerung Richtung ${city ? esc(city) : 'Tessin'} prüfen oder aktiv nach Stellen mit diesem spezifischen Profil suchen${employer ? ` (häufigste Arbeitgeber wie ${esc(employer)})` : ''}. Wir aktualisieren die Inserate alle 24 Stunden aus fünf Quellen, filtern auf Rollen, die für G-Bewilligungs-Inhaber tatsächlich zugänglich sind, und zeigen nur Anzeigen mit deklariertem Lohn oder Branchen-Median-Daten. Zur Verfeinerung der Suche empfehlen wir die ähnlichen Anfragen oben und das <a href="${esc(jobBoardRoot[locale])}" style="${LINK_ACCENT_STYLE}">vollständige Stellenarchiv</a>.</p>
+        return `<section class="s-OQInrb">
+          <h2 class="s-sOn5-B">Wie diese Suche für italo-schweizerische Grenzgänger zu lesen ist</h2>
+          <p class="s-zQltsL">Die unter der Suchanfrage <em>${esc(q)}</em> gruppierten Stellen sind reale Inserate, die heute auf Schweizer Suchmaschinen und grossen Aggregatoren (Jobs.ch, JobUp, JobScout24, RAV) aktiv sind und zum Pendelprofil aus der Lombardei oder dem Piemont passen. Die Inseratendichte in dieser Kategorie spiegelt sowohl die reale Nachfrage des Tessiner Arbeitsmarktes als auch die Passung zum G-Bewilligungs-Profil wider — Schichten kompatibel mit täglicher Rückkehr nach Italien, Schweizer Arbeitsverträge, Lohn deutlich über dem äquivalenten italienischen Netto${med ? ` (Cluster-Median: ${med})` : ''}.</p>
+          <h2 class="s-sOn5-B">Was sich mit dem Neuen Abkommen 2026 ändert</h2>
+          <p class="s-zQltsL">Für die Stellen auf dieser Seite hängt die Besteuerung vom Einstellungsdatum und vom Abstand zur Grenze ab. Ein "alter" Grenzgänger (eingestellt vor dem 17. Juli 2023 oder mit Wohnsitz innerhalb von 20 km von der Grenze) zahlt nur die Schweizer Quellensteuer, mit einer Steueranrechnung auf eine allfällige italienische Besteuerung. Ein "neuer" Grenzgänger mit Wohnsitz ausserhalb von 20 km zahlt sowohl Schweizer als auch italienische Steuern, mit einem Freibetrag von 10 000 € auf das italienische steuerpflichtige Einkommen. Der Unterschied beim Jahresnetto kann 15-20 % erreichen: die genaue Wirkung mit dem <a href="${BASE_URL}/${locale}/" style="${LINK_ACCENT_STYLE}">Nettolohn-Rechner</a> vor Vertragsunterzeichnung simulieren.</p>
+          <h2 class="s-sOn5-B">Für wen diese Auswahl ist</h2>
+          <p class="s-AA8lz_">Diese Seite richtet sich an alle, die eine berufliche Verlagerung Richtung ${city ? esc(city) : 'Tessin'} prüfen oder aktiv nach Stellen mit diesem spezifischen Profil suchen${employer ? ` (häufigste Arbeitgeber wie ${esc(employer)})` : ''}. Wir aktualisieren die Inserate alle 24 Stunden aus fünf Quellen, filtern auf Rollen, die für G-Bewilligungs-Inhaber tatsächlich zugänglich sind, und zeigen nur Anzeigen mit deklariertem Lohn oder Branchen-Median-Daten. Zur Verfeinerung der Suche empfehlen wir die ähnlichen Anfragen oben und das <a href="${esc(jobBoardRoot[locale])}" style="${LINK_ACCENT_STYLE}">vollständige Stellenarchiv</a>.</p>
         </section>`;
       }
-      return `<section style="margin:32px 0 0;padding-top:24px;border-top:1px solid var(--color-edge);max-width:860px">
-        <h2 style="margin:0 0 12px;font-size:22px">Comment lire cette recherche pour un frontalier italo-suisse</h2>
-        <p style="margin:0 0 14px;line-height:1.65;color:var(--color-body)">Les offres regroupées sous la requête <em>${esc(q)}</em> sont des annonces réelles actives aujourd'hui sur les moteurs de recherche suisses et les grands agrégateurs (Jobs.ch, JobUp, JobScout24, RAV) compatibles avec la navette depuis la Lombardie ou le Piémont. La densité d'annonces dans cette catégorie reflète à la fois la demande réelle du marché tessinois et la correspondance avec le profil permis G — horaires compatibles avec le retour quotidien en Italie, contrats suisses, salaires nettement supérieurs au net italien équivalent${med ? ` (médiane du cluster : ${med})` : ''}.</p>
-        <h2 style="margin:0 0 12px;font-size:22px">Ce que change le Nouvel Accord 2026</h2>
-        <p style="margin:0 0 14px;line-height:1.65;color:var(--color-body)">Pour les offres de cette page, la fiscalité dépend de la date d'embauche et de la distance à la frontière. Un "ancien" frontalier (embauché avant le 17 juillet 2023, ou résidant à moins de 20 km de la frontière) ne paie que l'impôt à la source suisse, avec un crédit d'impôt sur l'éventuelle imposition italienne. Un "nouveau" frontalier résidant au-delà des 20 km paie l'impôt suisse ET italien, avec une franchise de 10 000 € sur le revenu imposable italien. L'écart sur le net annuel peut atteindre 15-20 % : simulez l'impact exact avec le <a href="${BASE_URL}/${locale}/" style="${LINK_ACCENT_STYLE}">calculateur de salaire net</a> avant signature.</p>
-        <h2 style="margin:0 0 12px;font-size:22px">À qui s'adresse cette sélection</h2>
-        <p style="margin:0;line-height:1.65;color:var(--color-body)">Cette page est destinée à ceux qui évaluent un déménagement professionnel vers ${city ? esc(city) : 'le Tessin'} ou recherchent activement des postes correspondant à ce profil spécifique${employer ? ` (employeurs les plus fréquents comme ${esc(employer)})` : ''}. Nous actualisons les offres toutes les 24 heures depuis cinq sources, filtrons les rôles réellement accessibles à un titulaire de permis G, et n'affichons que les annonces avec salaire déclaré ou médiane sectorielle. Pour affiner la recherche, explorez aussi les requêtes similaires ci-dessus et l'<a href="${esc(jobBoardRoot[locale])}" style="${LINK_ACCENT_STYLE}">archive complète du job board</a>.</p>
+      return `<section class="s-OQInrb">
+        <h2 class="s-sOn5-B">Comment lire cette recherche pour un frontalier italo-suisse</h2>
+        <p class="s-zQltsL">Les offres regroupées sous la requête <em>${esc(q)}</em> sont des annonces réelles actives aujourd'hui sur les moteurs de recherche suisses et les grands agrégateurs (Jobs.ch, JobUp, JobScout24, RAV) compatibles avec la navette depuis la Lombardie ou le Piémont. La densité d'annonces dans cette catégorie reflète à la fois la demande réelle du marché tessinois et la correspondance avec le profil permis G — horaires compatibles avec le retour quotidien en Italie, contrats suisses, salaires nettement supérieurs au net italien équivalent${med ? ` (médiane du cluster : ${med})` : ''}.</p>
+        <h2 class="s-sOn5-B">Ce que change le Nouvel Accord 2026</h2>
+        <p class="s-zQltsL">Pour les offres de cette page, la fiscalité dépend de la date d'embauche et de la distance à la frontière. Un "ancien" frontalier (embauché avant le 17 juillet 2023, ou résidant à moins de 20 km de la frontière) ne paie que l'impôt à la source suisse, avec un crédit d'impôt sur l'éventuelle imposition italienne. Un "nouveau" frontalier résidant au-delà des 20 km paie l'impôt suisse ET italien, avec une franchise de 10 000 € sur le revenu imposable italien. L'écart sur le net annuel peut atteindre 15-20 % : simulez l'impact exact avec le <a href="${BASE_URL}/${locale}/" style="${LINK_ACCENT_STYLE}">calculateur de salaire net</a> avant signature.</p>
+        <h2 class="s-sOn5-B">À qui s'adresse cette sélection</h2>
+        <p class="s-AA8lz_">Cette page est destinée à ceux qui évaluent un déménagement professionnel vers ${city ? esc(city) : 'le Tessin'} ou recherchent activement des postes correspondant à ce profil spécifique${employer ? ` (employeurs les plus fréquents comme ${esc(employer)})` : ''}. Nous actualisons les offres toutes les 24 heures depuis cinq sources, filtrons les rôles réellement accessibles à un titulaire de permis G, et n'affichons que les annonces avec salaire déclaré ou médiane sectorielle. Pour affiner la recherche, explorez aussi les requêtes similaires ci-dessus et l'<a href="${esc(jobBoardRoot[locale])}" style="${LINK_ACCENT_STYLE}">archive complète du job board</a>.</p>
       </section>`;
     })()}
     ${buildExtendedFaqAccordion(locale, {
@@ -737,9 +737,9 @@ function renderPage(opts: {
   // Keep the existing inline-styled `<main>` so the static shell still renders
   // something readable before React hydrates. buildSimplePage wraps this in
   // `<div id="root">` with `skipMainWrap: true` to avoid nested <main>.
-  const bodyHtml = `<article style="max-width:1100px;margin:0 auto;padding:32px 20px 56px;color:var(--color-body)">
+  const bodyHtml = `<article class="s-it71Rt">
         ${body}
-        <section style="margin-top:32px" aria-label="advertisement">
+        <section class="s-sC82IX" aria-label="advertisement">
           ${adSlotHtml('JOBLIST_END_MULTIPLEX')}
         </section>
       </article>`;
@@ -937,7 +937,7 @@ export function orphanQueryLandingPlugin(rootDir: string): Plugin {
         const canonicalUrl = `${BASE_URL}${hubPath}`;
 
         const itemsHtml = sorted
-          .map((it) => `<li style="margin:0"><a href="${esc(it.path)}" style="${LINK_ACCENT_STYLE};font-weight:600">${esc(cap(it.query))}</a></li>`)
+          .map((it) => `<li class="s-q3nqK4"><a href="${esc(it.path)}" style="${LINK_ACCENT_STYLE};font-weight:600">${esc(cap(it.query))}</a></li>`)
           .join('');
 
         const breadcrumbLd = JSON.stringify({
@@ -1005,24 +1005,24 @@ export function orphanQueryLandingPlugin(rootDir: string): Plugin {
           fr: 'À quoi s\'attendre sur le net : les niveaux salariaux tessinois restent constamment 35-55 % au-dessus du poste italien équivalent, même après l\'impôt à la source suisse et l\'assurance-maladie LAMal obligatoire. Pour une infirmière HES avec 5 ans d\'expérience, un salaire brut annuel de CHF 88 000 (médiane cantonale 2026) se traduit par un net de CHF 6 200-6 400 par mois pour un frontalier "ancien" résidant à moins de 20 km de la frontière, contre ~ EUR 1 900 net pour l\'équivalent italien dans le service public. Pour un magasinier ou un chauffeur poids lourds CE, l\'écart reste substantiel : CHF 4 200 mensuels nets contre EUR 1 500 en Italie. La plupart des employeurs tessinois versent en outre un 13e salaire et — dans les conventions collectives les plus répandues (CCT hôtellerie, CCNL construction, CCT santé) — un 14e partiel lié aux objectifs de l\'entreprise.',
         };
 
-        const bodyHtml = `<article style="max-width:1100px;margin:0 auto;padding:32px 20px 56px">
+        const bodyHtml = `<article class="s-xzWvwM">
           <nav style="${BREADCRUMB_STYLE}">
             <a href="${BASE_URL}/" style="${BREADCRUMB_LINK_STYLE}">${esc(copy.breadcrumbHome)}</a>
             <span> / </span>
             <span>${esc(copy.sectionLabel)}</span>
           </nav>
-          <header style="margin-bottom:22px">
-            <h1 style="margin:0 0 14px;font-size:clamp(1.8rem,4vw,2.6rem);line-height:1.15">${esc(copy.h1)}</h1>
-            <p style="margin:0 0 14px;color:var(--color-body);font-size:17px;line-height:1.6;max-width:860px">${esc(copy.intro)}</p>
-            <p style="margin:0;color:var(--color-subtle);font-size:13px">${sorted.length} · ${esc(dateStamp)}</p>
+          <header class="s-Nv0GaD">
+            <h1 class="s-PGjX_Q">${esc(copy.h1)}</h1>
+            <p class="s-JlLVGf">${esc(copy.intro)}</p>
+            <p class="s-XLkmUf">${sorted.length} · ${esc(dateStamp)}</p>
           </header>
-          <section style="margin:24px 0">
-            <ul style="list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:8px">${itemsHtml}</ul>
+          <section class="s-H1qo5-">
+            <ul class="s-N93mPe">${itemsHtml}</ul>
           </section>
-          <section style="margin:32px 0 0;padding-top:24px;border-top:1px solid var(--color-edge)">
-            <p style="margin:0 0 14px;color:var(--color-body);font-size:15px;line-height:1.65;max-width:860px">${esc(HUB_PROSE_HOW[loc])}</p>
-            <p style="margin:0 0 14px;color:var(--color-body);font-size:15px;line-height:1.65;max-width:860px">${esc(HUB_PROSE_WHY[loc])}</p>
-            <p style="margin:0;color:var(--color-body);font-size:15px;line-height:1.65;max-width:860px">${esc(HUB_PROSE_ECON[loc])}</p>
+          <section class="s-Kdse50">
+            <p class="s-ZcgQDz">${esc(HUB_PROSE_HOW[loc])}</p>
+            <p class="s-ZcgQDz">${esc(HUB_PROSE_WHY[loc])}</p>
+            <p class="s-wXMVsI">${esc(HUB_PROSE_ECON[loc])}</p>
           </section>
         </article>`;
 

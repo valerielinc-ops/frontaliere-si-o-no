@@ -41,7 +41,12 @@ function stripTags(html: string): string {
 }
 
 function extractSectorIntro(html: string): string | null {
-  const m = html.match(/<section[^>]*class="sector-intro"[^>]*>([\s\S]*?)<\/section>/i);
+  // Class-extract migration (2026-05-20): the codemod that hashed inline
+  // styles into content-hashed classes merged extracted classes alongside
+  // existing ones — e.g. `class="sector-intro"` became
+  // `class="sector-intro s-27J-ZF"`. The matcher accepts the original class
+  // appearing anywhere inside the `class="..."` attribute value.
+  const m = html.match(/<section[^>]*\bclass="[^"]*\bsector-intro\b[^"]*"[^>]*>([\s\S]*?)<\/section>/i);
   return m ? m[1] : null;
 }
 
@@ -58,7 +63,11 @@ describe('Phase 3B — sector landing prosa block (data layer)', () => {
         const display = SECTOR_HUB_DISPLAY[locale][sector];
         const block = buildSectorProse(sector, locale, display, data);
         expect(block.html.length).toBeGreaterThan(200);
-        expect(block.html).toContain('class="sector-intro"');
+        // Class-extract migration (2026-05-20): the codemod merged extracted
+        // s-* classes alongside `sector-intro`, so the literal attribute is
+        // now `class="sector-intro s-..."`. Assert the original class token
+        // is present anywhere in the attribute value.
+        expect(block.html).toMatch(/\bclass="[^"]*\bsector-intro\b[^"]*"/);
         expect(block.wordCount).toBeGreaterThanOrEqual(200);
       }
     }
@@ -68,7 +77,7 @@ describe('Phase 3B — sector landing prosa block (data layer)', () => {
     const block = buildSectorProse('not-a-real-sector-xyz', 'it', 'Test', {});
     expect(block.curated).toBe(false);
     expect(block.wordCount).toBeGreaterThanOrEqual(200);
-    expect(block.html).toContain('class="sector-intro"');
+    expect(block.html).toMatch(/\bclass="[^"]*\bsector-intro\b[^"]*"/);
   });
 
   it('uses curated copy for the 3 active sector hubs in IT', () => {
@@ -98,7 +107,7 @@ describe('Phase 3B — sector landing prosa block (dist HTML)', () => {
   const skipDist =
     !existsSync(DIST_DIR) ||
     !existsSync(samplePath) ||
-    !readFileSync(samplePath, 'utf-8').includes('class="sector-intro"');
+    !/\bclass="[^"]*\bsector-intro\b[^"]*"/.test(readFileSync(samplePath, 'utf-8'));
 
   if (skipDist) {
     it.skip('dist/ not built with Phase 3B yet — skipping dist sweep', () => {});

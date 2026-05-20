@@ -177,8 +177,26 @@ describe('salaryLandingShell · buildSalaryLandingBody', () => {
         navHtml: '',
       });
       expect(html).toContain('aria-label="breadcrumb"');
-      expect(html).toContain('clamp(1.8rem');
-      expect(html).toContain('minmax(180px,1fr)');
+      // Class-extract migration (2026-05-20): inline `style="..."` for the
+      // hero clamp font + the 180px auto-fit grid moved to content-hashed
+      // classes in public/assets/seo-static.css. Both the CSS rule body and
+      // the live rendered class reference are checked so a future hash
+      // churn does not silently mask a style removal.
+      const cssRules = require('node:fs').readFileSync(
+        require('node:path').resolve(__dirname, '..', '..', 'public', 'assets', 'seo-static.css'),
+        'utf-8',
+      );
+      const classMatches = new Set([...html.matchAll(/class="(?:[^"]* )?(s-[A-Za-z0-9_-]+)/g)].map(m => m[1]));
+      const hasRule = (snippet: string) => {
+        if (html.includes(snippet)) return true;
+        return [...classMatches].some((c) => {
+          const escapedSnippet = snippet.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+          const rule = new RegExp(`\\.${c}\\s*\\{[^}]*${escapedSnippet}`);
+          return rule.test(cssRules);
+        });
+      };
+      expect(hasRule('clamp(1.8rem'), 'clamp(1.8rem) rule missing from inline html and extracted classes').toBe(true);
+      expect(hasRule('minmax(180px,1fr)'), 'minmax(180px,1fr) rule missing from inline html and extracted classes').toBe(true);
       expect(html).toContain('<table');
       expect(html).toContain('<details');
     }

@@ -941,7 +941,7 @@ function renderArticleList(
   if (articles.length === 0) {
     // Defensive: shouldn't happen given keyword breadth, but keep a polite
     // empty-state so the page never renders an empty <ul>.
-    return `<p style="margin:0 0 12px;color:var(--color-body)">${esc(
+    return `<p class="s-uOHVFc">${esc(
       locale === 'it'
         ? 'Articoli in arrivo.'
         : locale === 'en'
@@ -958,18 +958,18 @@ function renderArticleList(
       const dateLabel = formatDate(a.date, locale);
       return `
         <li style="${CARD_PADDING_STYLE};${CARD_BODY_STYLE};margin:0 0 12px;list-style:none">
-          <h3 style="margin:0 0 6px;font-size:18px;line-height:1.3"><a href="${esc(href)}" style="${LINK_ACCENT_STYLE};font-weight:700">${esc(a.displayTitle)}</a></h3>
-          <p style="margin:0;font-size:13px;color:var(--color-subtle)">
+          <h3 class="s-0UflqU"><a href="${esc(href)}" style="${LINK_ACCENT_STYLE};font-weight:700">${esc(a.displayTitle)}</a></h3>
+          <p class="s-TR0f1t">
             <time datetime="${esc(a.date.slice(0, 10))}">${esc(dateLabel)}</time>
             <span aria-hidden="true"> · </span>
             <span>${esc(a.authorName)}</span>
           </p>
-          <p style="margin:6px 0 0"><a href="${esc(href)}" style="${LINK_ACCENT_STYLE}">${esc(copy.readMoreLabel)} →</a></p>
+          <p class="s-UHS0XW"><a href="${esc(href)}" style="${LINK_ACCENT_STYLE}">${esc(copy.readMoreLabel)} →</a></p>
         </li>`;
     })
     .join('');
 
-  return `<ul style="list-style:none;padding:0;margin:0">${items}</ul>`;
+  return `<ul class="s-QkRjp8">${items}</ul>`;
 }
 
 function buildItemListLd(
@@ -1061,22 +1061,22 @@ function renderSectionPage(opts: {
       <span aria-hidden="true"> / </span>
       <span>${esc(copy.h1)}</span>
     </nav>
-    <header style="margin:0 0 24px">
+    <header class="s-ziawP1">
       <h1 style="${H1_STYLE}">${esc(copy.h1)}</h1>
       <p style="${LEDE_STYLE}">${esc(copy.lede)}</p>
     </header>
-    <section style="margin:0 0 28px">
-      <p style="margin:0 0 12px;color:var(--color-body);line-height:1.65;max-width:62ch">${esc(copy.context)}</p>
+    <section class="s-KZc0LQ">
+      <p class="s-inIfXp">${esc(copy.context)}</p>
     </section>
-    <section style="margin:0 0 28px">
+    <section class="s-KZc0LQ">
       <h2 style="${H2_STYLE}">${esc(localeCopy.latestLabel)}</h2>
       ${articlesHtml}
     </section>
-    <section style="margin:32px 0 0">
-      <p style="margin:0"><a href="${esc(homeUrl)}" style="${LINK_ACCENT_STYLE}">← ${esc(localeCopy.editorialOrg)}</a></p>
+    <section class="s-ZqtBbL">
+      <p class="s-q3nqK4"><a href="${esc(homeUrl)}" style="${LINK_ACCENT_STYLE}">← ${esc(localeCopy.editorialOrg)}</a></p>
     </section>`;
 
-  const bodyHtml = `<div style="max-width:1100px;margin:0 auto;padding:32px 20px 56px;color:var(--color-body)">${body}</div>`;
+  const bodyHtml = `<div class="s-it71Rt">${body}</div>`;
 
   const extraHead = `    <meta property="og:image" content="${BASE_URL}/og-image.png">
     <meta property="og:image:width" content="1200">

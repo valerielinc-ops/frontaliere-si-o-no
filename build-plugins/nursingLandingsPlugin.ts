@@ -186,19 +186,19 @@ function renderSection(title: string, paragraphs: string[]): string {
   const ps = paragraphs
     .map(
       (p) =>
-        `<p style="margin:0 0 14px;color:var(--color-body);line-height:1.7;max-width:62ch">${esc(p)}</p>`,
+        `<p class="s-Poj6T0">${esc(p)}</p>`,
     )
     .join('');
-  return `<section style="margin:0 0 28px"><h2 style="margin:0 0 12px;font-size:24px;color:var(--color-heading);font-weight:600">${esc(title)}</h2>${ps}</section>`;
+  return `<section class="s-KZc0LQ"><h2 class="s-BEjFo9">${esc(title)}</h2>${ps}</section>`;
 }
 
 function renderFaqBlock(faqs: NursingLandingComposedCopy['faqs']): string {
   return faqs
     .map(
       (f) => `
-      <details style="margin:0 0 10px;padding:14px 16px;border:1px solid var(--color-edge);border-radius:12px;background:var(--color-surface)">
-        <summary style="font-weight:700;cursor:pointer;color:var(--color-heading);line-height:1.45">${esc(f.question)}</summary>
-        <p style="margin:10px 0 0;color:var(--color-body);line-height:1.65">${esc(f.answer)}</p>
+      <details class="s-RTovxW">
+        <summary class="s-ZAbW3N">${esc(f.question)}</summary>
+        <p class="s-XXXebZ">${esc(f.answer)}</p>
       </details>`,
     )
     .join('');
@@ -208,17 +208,17 @@ function renderRelatedLinks(locale: NursingLocale, label: string): string {
   const items = RELATED_LINKS[locale]
     .map(
       (l) =>
-        `<li style="margin:0 0 8px"><a href="${esc(l.href)}" style="${LINK_ACCENT_STYLE}">${esc(l.label)}</a></li>`,
+        `<li class="s-Pkexk_"><a href="${esc(l.href)}" style="${LINK_ACCENT_STYLE}">${esc(l.label)}</a></li>`,
     )
     .join('');
-  return `<section style="margin:0 0 28px"><h2 style="margin:0 0 12px;font-size:22px;color:var(--color-heading);font-weight:600">${esc(label)}</h2><ul style="margin:0 0 0 20px;padding:0;color:var(--color-body);line-height:1.55;max-width:860px">${items}</ul></section>`;
+  return `<section class="s-KZc0LQ"><h2 class="s-zlWKhs">${esc(label)}</h2><ul class="s-Bidr8Y">${items}</ul></section>`;
 }
 
 function renderApprofondisciDivider(label: string): string {
-  return `<div role="separator" aria-label="${esc(label)}" style="margin:36px 0 28px;display:flex;align-items:center;gap:14px;color:var(--color-subtle)">
-    <span aria-hidden="true" style="flex:1;height:1px;background:var(--color-edge)"></span>
+  return `<div class="s-7V0OIo" role="separator" aria-label="${esc(label)}">
+    <span class="s-EIg6N7" aria-hidden="true"></span>
     <span style="${SMALL_HEADING_STYLE};margin:0">${esc(label)}</span>
-    <span aria-hidden="true" style="flex:1;height:1px;background:var(--color-edge)"></span>
+    <span class="s-EIg6N7" aria-hidden="true"></span>
   </div>`;
 }
 
@@ -256,8 +256,8 @@ function renderFeaturedJobs(
   const ctaLabel = snapshot.featured.length > 0 && snapshot.liveCount > 0
     ? pickCtaAllJobs(id, locale, snapshot.liveCount)
     : (copy.featuredJobsCtaAllLabel ?? 'Vedi tutti gli annunci →');
-  return `<section style="margin:0 0 28px">
-    <h2 style="margin:0 0 12px;font-size:22px;color:var(--color-heading);font-weight:700">${esc(copy.shell.featuredJobsTitle)}</h2>
+  return `<section class="s-KZc0LQ">
+    <h2 class="s-8dKmAe">${esc(copy.shell.featuredJobsTitle)}</h2>
     ${listHtml}
     ${snapshot.featured.length > 0 ? `<a href="${esc(ctaHref)}" style="${LINK_ACCENT_STYLE};font-weight:700;font-size:15px;display:inline-block;margin-top:14px">${esc(ctaLabel)}</a>` : ''}
   </section>`;
@@ -283,8 +283,8 @@ function renderEmployerGrid(
     variant: 'compact',
   });
 
-  return `<section style="margin:0 0 28px">
-    <h2 style="margin:0 0 12px;font-size:22px;color:var(--color-heading);font-weight:700">${esc(copy.shell.employerGridTitle)}</h2>
+  return `<section class="s-KZc0LQ">
+    <h2 class="s-8dKmAe">${esc(copy.shell.employerGridTitle)}</h2>
     ${listHtml}
   </section>`;
 }
@@ -411,7 +411,7 @@ function renderPage(opts: {
     { label: copy.shell.statTileFreshLabel, value: copy.statFreshValue, tone: pickStatTileTone('fresh', snapshot.fresh30Count) },
   ])}</div>`;
 
-  const primaryCtaHtml = `<div style="margin:0 0 28px"><a href="${esc(calculatorUrl)}" style="${CTA_PRIMARY_STYLE}">${esc(copy.shell.primaryCtaLabel)} →</a></div>`;
+  const primaryCtaHtml = `<div class="s-KZc0LQ"><a href="${esc(calculatorUrl)}" style="${CTA_PRIMARY_STYLE}">${esc(copy.shell.primaryCtaLabel)} →</a></div>`;
 
   const featuredHtml = renderFeaturedJobs(id, locale, snapshot, copy);
   const employerGridHtml = renderEmployerGrid(snapshot, copy, locale);
@@ -434,7 +434,7 @@ function renderPage(opts: {
           openings: snapshot.liveCount,
           medianSalary: snapshot.medianSalaryChf ?? undefined,
         }, copy.h1, copy.denseLede)
-      : `<header style="margin-bottom:20px">
+      : `<header class="s-YcUNX5">
       <p style="${HERO_EYEBROW_STYLE}">${esc(copy.shell.eyebrow)}</p>
       <h1 style="${H1_STYLE}">${esc(copy.h1)}</h1>
       <p style="${LEDE_STYLE}">${esc(copy.denseLede)}</p>
@@ -446,20 +446,20 @@ function renderPage(opts: {
     ${employerGridHtml}
     ${dividerHtml}
     ${sectionsHtml}
-    <section style="margin:0 0 28px">
-      <h2 style="margin:0 0 12px;font-size:24px;color:var(--color-heading);font-weight:600">${esc(copy.faqTitle)}</h2>
+    <section class="s-KZc0LQ">
+      <h2 class="s-BEjFo9">${esc(copy.faqTitle)}</h2>
       ${faqHtml}
     </section>
     ${relatedHtml}
-    <section style="display:flex;gap:12px;flex-wrap:wrap;margin:0 0 16px">
+    <section class="s-p1QaOi">
       <a href="${esc(ctaJobsUrl)}" style="${CTA_PRIMARY_STYLE}">${esc(copy.ctaJobs)}</a>
-      <a href="${esc(calculatorUrl)}" style="padding:12px 18px;border-radius:12px;background:var(--color-surface);border:1px solid var(--color-edge);color:var(--color-body);text-decoration:none;font-weight:700">${esc(copy.ctaSimulator)}</a>
+      <a class="s-bX1C8q" href="${esc(calculatorUrl)}">${esc(copy.ctaSimulator)}</a>
     </section>
-    <section style="margin:32px 0 0;padding:24px 22px;border-radius:16px;background:var(--color-surface);border:1px solid var(--color-edge)" aria-label="${esc(copy.h1)}">
-      <p style="margin:0;color:var(--color-body);line-height:1.7;max-width:72ch;font-size:15px;font-style:italic">${esc(copy.lede)}</p>
+    <section class="s-GCEyQg" aria-label="${esc(copy.h1)}">
+      <p class="s-y8VKoI">${esc(copy.lede)}</p>
     </section>`;
 
-  const bodyHtml = `<main style="max-width:1100px;margin:0 auto;padding:32px 20px 56px;color:var(--color-body)">${body}</main>`;
+  const bodyHtml = `<main class="s-it71Rt">${body}</main>`;
 
   const extraHead = `    <meta property="og:image" content="${BASE_URL}/og-image.png">
     <meta property="og:image:width" content="1200">

@@ -1196,19 +1196,19 @@ function renderSvgTrendChart(
   const ticks = series
     .map((s, i) => {
       const x = padding + (series.length === 1 ? innerW / 2 : (i * innerW) / (series.length - 1));
-      return `<text x="${x.toFixed(2)}" y="${height - 8}" text-anchor="middle" font-size="11" style="fill:var(--color-chart-label)">${esc(s.periodLabel)}</text>`;
+      return `<text class="s-nPV7FI" x="${x.toFixed(2)}" y="${height - 8}" text-anchor="middle" font-size="11">${esc(s.periodLabel)}</text>`;
     })
     .join('');
-  return `<svg viewBox="0 0 ${width} ${height}" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="${esc(ariaLabel)}" style="width:100%;max-width:100%;height:auto;background:var(--color-surface-alt);border:1px solid var(--color-edge);border-radius:12px">
-    <polygon points="${areaPoints}" style="fill:var(--color-chart-area)" fill-opacity="0.5" />
-    <polyline points="${points}" fill="none" style="stroke:var(--color-chart-line)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+  return `<svg class="s-af2sP2" viewBox="0 0 ${width} ${height}" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="${esc(ariaLabel)}">
+    <polygon class="s-im2Yam" points="${areaPoints}" fill-opacity="0.5" />
+    <polyline class="s-3lpjYF" points="${points}" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
     ${series.map((s, i) => {
       const x = padding + (series.length === 1 ? innerW / 2 : (i * innerW) / (series.length - 1));
       const y = padding + innerH - ((s.value - minValue) / range) * innerH;
-      return `<circle cx="${x.toFixed(2)}" cy="${y.toFixed(2)}" r="3.5" style="fill:var(--color-chart-dot)" />`;
+      return `<circle class="s-9uqoSQ" cx="${x.toFixed(2)}" cy="${y.toFixed(2)}" r="3.5" />`;
     }).join('')}
-    <text x="${padding}" y="${padding - 10}" font-size="11" style="fill:var(--color-chart-label)">${esc(String(maxValue))}</text>
-    <text x="${padding}" y="${padding + innerH + 0}" font-size="11" style="fill:var(--color-chart-label)" dy="0">${esc(String(minValue))}</text>
+    <text class="s-nPV7FI" x="${padding}" y="${padding - 10}" font-size="11">${esc(String(maxValue))}</text>
+    <text class="s-nPV7FI" x="${padding}" y="${padding + innerH + 0}" font-size="11" dy="0">${esc(String(minValue))}</text>
     ${ticks}
   </svg>`;
 }
@@ -1216,7 +1216,7 @@ function renderSvgTrendChart(
 function renderRelatedLinks(copy: LocalisedCopy): string {
   return `<aside style="margin:28px 0 0;${CARD_STYLE}" aria-labelledby="relatedLinks">
     <h2 id="relatedLinks" style="${H2_STYLE};font-size:18px;margin-bottom:10px">${esc(copy.relatedLinksHeading)}</h2>
-    <ul style="margin:0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:8px">
+    <ul class="s-_tVWUV">
       ${copy.relatedLinks
         .map(
           (l) => `<li><a href="${esc(l.href)}" style="${LINK_ACCENT_STYLE};font-weight:600">${esc(l.label)} →</a></li>`,
@@ -1228,13 +1228,13 @@ function renderRelatedLinks(copy: LocalisedCopy): string {
 
 function renderFaq(copy: LocalisedCopy): string {
   if (copy.faq.length === 0) return '';
-  return `<section style="margin:32px 0 0" aria-labelledby="jobMarketFaq">
+  return `<section class="s-ZqtBbL" aria-labelledby="jobMarketFaq">
     <h2 id="jobMarketFaq" style="${H2_STYLE}">${esc(copy.faqTitle)}</h2>
     ${copy.faq
       .map(
         (f) => `<details style="${CARD_STYLE};margin-bottom:8px">
-      <summary style="font-weight:700;cursor:pointer;color:var(--color-heading)">${esc(f.q)}</summary>
-      <p style="margin:10px 0 0;color:var(--color-body);line-height:1.6">${esc(f.a)}</p>
+      <summary class="s-HBR0NM">${esc(f.q)}</summary>
+      <p class="s-OCic8j">${esc(f.a)}</p>
     </details>`,
       )
       .join('')}
@@ -1284,9 +1284,9 @@ function renderTopList(
 ): string {
   const headingId = toHeadingId(idPrefix, heading);
   if (items.length === 0) {
-    return `<section style="margin:22px 0 0" aria-labelledby="${headingId}">
+    return `<section class="s-PUSG7Q" aria-labelledby="${headingId}">
       <h2 id="${headingId}" style="margin:0 0 10px;${H2_STYLE}">${esc(heading)}</h2>
-      <p style="margin:0;color:var(--color-subtle)">—</p>
+      <p class="s-BJnoBY">—</p>
     </section>`;
   }
   const isEmployerList = idPrefix === 'top-employers';
@@ -1306,12 +1306,12 @@ function renderTopList(
         logoAlt: item.name,
         iconSvg: isEmployerList ? (logoUrl ? undefined : ICON_BUILDING_SVG) : undefined,
       });
-      return `<li style="margin:0 0 8px;padding:0">${card}</li>`;
+      return `<li class="s-LO6hJn">${card}</li>`;
     })
     .join('');
-  return `<section style="margin:22px 0 0" aria-labelledby="${headingId}">
+  return `<section class="s-PUSG7Q" aria-labelledby="${headingId}">
     <h2 id="${headingId}" style="${H2_STYLE};margin-bottom:10px">${esc(heading)}</h2>
-    <ol style="margin:0;padding:0;list-style:none">${rows}</ol>
+    <ol class="s-JCydom">${rows}</ol>
   </section>`;
 }
 
@@ -1335,22 +1335,22 @@ function renderCityBreakdown(
   const rows = items
     .map((c) => {
       const label = hubKeys.has(c.key)
-        ? `<a href="${esc(cityLinkBase[locale])}/${esc(c.key)}/" style="color:var(--color-body);text-decoration:none;font-weight:700">${esc(c.name)}</a>`
-        : `<span style="color:var(--color-body);font-weight:700">${esc(c.name)}</span>`;
+        ? `<a class="s-RsZACC" href="${esc(cityLinkBase[locale])}/${esc(c.key)}/">${esc(c.name)}</a>`
+        : `<span class="s-FDf_dB">${esc(c.name)}</span>`;
       return `<li style="${CARD_STYLE};margin-bottom:8px">
-    <div style="display:flex;justify-content:space-between;align-items:center;gap:12px">
+    <div class="s-nVM1cq">
       ${label}
-      <span style="color:var(--color-subtle);font-weight:600">${esc(String(c.added))} · ${esc(c.percentage.toFixed(1))}%</span>
+      <span class="s-peGxAI">${esc(String(c.added))} · ${esc(c.percentage.toFixed(1))}%</span>
     </div>
-    <div style="margin-top:8px;background:var(--color-edge);border-radius:999px;height:6px;overflow:hidden">
+    <div class="s-Fz1VeK">
       <div style="width:${esc(c.percentage.toFixed(1))}%;height:100%;background:var(--color-accent)"></div>
     </div>
   </li>`;
     })
     .join('');
-  return `<section style="margin:22px 0 0" aria-labelledby="cityBreakdown">
+  return `<section class="s-PUSG7Q" aria-labelledby="cityBreakdown">
     <h2 id="cityBreakdown" style="${H2_STYLE};margin-bottom:10px">${esc(heading)}</h2>
-    <ol style="margin:0;padding:0;list-style:none">${rows}</ol>
+    <ol class="s-JCydom">${rows}</ol>
   </section>`;
 }
 
@@ -1423,9 +1423,9 @@ function renderSnapshotFrontalierContext(
     `Pour lire correctement ${periodLabel}, croisez le solde net (${flowSign}${netFlow}) avec la répartition par secteur ci-dessous : ${activeEmployers} employeurs actifs ne correspondent pas à ${activeEmployers} rôles au-dessus de la médiane salariale, car les secteurs qui portent réellement la médiane (mécanique, santé aiguë, banque et assurance) ont moins d'ouvertures mais une rémunération plus solide que les rôles administratifs débutants et les contrats à durée déterminée du commerce. ${kind === 'weekly' ? 'Sur fenêtre hebdomadaire' : 'Sur fenêtre mensuelle'} le signal le plus fiable pour un frontalier est la convergence de trois indicateurs — flux net, médiane et nombre de top employeurs récurrents — sur 4-6 ${kind === 'weekly' ? 'semaines' : 'mois'} : un instantané unique indique la direction, la convergence certifie la tendance et sépare le bruit saisonnier de la trajectoire structurelle du canton.`,
   ];
 
-  return `<section style="margin:24px 0 0;padding:18px 22px;border-radius:14px;border:1px solid var(--color-edge);background:var(--color-surface-alt)" aria-labelledby="snapshotFrontalierContext">
+  return `<section class="s-_cuQ7T" aria-labelledby="snapshotFrontalierContext">
     <h2 id="snapshotFrontalierContext" style="${H2_STYLE};margin-bottom:10px">${esc(headline)}</h2>
-    ${paragraphs.map((p) => `<p style="margin:0 0 14px;color:var(--color-body);line-height:1.7;max-width:860px">${esc(p)}</p>`).join('\n    ')}
+    ${paragraphs.map((p) => `<p class="s-KwuhOL">${esc(p)}</p>`).join('\n    ')}
   </section>`;
 }
 
@@ -1466,10 +1466,10 @@ function renderSnapshotPage(inp: SnapshotPageInputs): string {
       : `${formatDate(stats.startDate, locale)} – ${formatDate(stats.endDate, locale)}`;
 
   const degradedNote = degraded
-    ? `<p style="margin:0 0 14px;padding:12px 16px;border-radius:12px;background:var(--color-warning-subtle);color:var(--color-warning);border:1px solid var(--color-warning-border)">${esc(copy.degradedNote)}</p>`
+    ? `<p class="s-lR0v2l">${esc(copy.degradedNote)}</p>`
     : '';
 
-  const statTiles = `<section style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin:0 0 22px" aria-label="${esc(copy.seriesKicker)}">
+  const statTiles = `<section class="s-VOrae_" aria-label="${esc(copy.seriesKicker)}">
     ${renderStatTile(copy.statNewJobs, String(stats.newJobs), 'primary')}
     ${renderStatTile(copy.statClosedJobs, String(stats.closedJobs), 'warning')}
     ${renderStatTile(copy.statActiveEmployers, String(stats.activeEmployers), 'success')}
@@ -1539,7 +1539,7 @@ function renderSnapshotPage(inp: SnapshotPageInputs): string {
 
   const cityBreakdown = renderCityBreakdown(copy.cityBreakdownHeading, stats.cityBreakdown, locale);
 
-  const trendSection = `<section style="margin:24px 0 0" aria-labelledby="trendChart">
+  const trendSection = `<section class="s-Va7_33" aria-labelledby="trendChart">
     <h2 id="trendChart" style="${H2_STYLE};margin-bottom:12px">${esc(copy.trendHeading)}</h2>
     ${renderSvgTrendChart(
       stats.trendSeries,
@@ -1548,9 +1548,9 @@ function renderSnapshotPage(inp: SnapshotPageInputs): string {
     )}
   </section>`;
 
-  const methodology = `<section style="margin:26px 0 0" aria-labelledby="methodology">
+  const methodology = `<section class="s-sS5pU-" aria-labelledby="methodology">
     <h2 id="methodology" style="${H2_STYLE};margin-bottom:10px">${esc(copy.methodologyHeading)}</h2>
-    <p style="margin:0;color:var(--color-body);line-height:1.65">${esc(copy.methodologyBody)}</p>
+    <p class="s-0kQbve">${esc(copy.methodologyBody)}</p>
   </section>`;
 
   // Frontaliere-context block: interprets THIS period's headline numbers
@@ -1721,7 +1721,7 @@ function renderSnapshotPage(inp: SnapshotPageInputs): string {
 
   const robots = noindex ? 'noindex,follow' : 'index,follow';
 
-  const bodyHtml = `<article style="max-width:1100px;margin:0 auto;padding:32px 20px 56px">
+  const bodyHtml = `<article class="s-xzWvwM">
     <nav style="${BREADCRUMB_STYLE}">
       <a href="${BASE_URL}/" style="${BREADCRUMB_LINK_STYLE}">${esc(copy.breadcrumbHome)}</a>
       <span> / </span>
@@ -1729,10 +1729,10 @@ function renderSnapshotPage(inp: SnapshotPageInputs): string {
       <span> / </span>
       <span>${esc(periodRange)}</span>
     </nav>
-    <header style="margin-bottom:22px">
+    <header class="s-Nv0GaD">
       <p style="${HERO_EYEBROW_STYLE}">${esc(copy.seriesKicker)} · ${esc(periodRange)}</p>
       <h1 style="${H1_STYLE}">${esc(h1)}</h1>
-      <p style="margin:0 0 10px;color:var(--color-subtle);font-size:13px">${esc(copy.freshnessLabel(todayIso))}</p>
+      <p class="s-aP88r9">${esc(copy.freshnessLabel(todayIso))}</p>
       <p style="${LEDE_STYLE}">${esc(snapshotTaglineByLocale[locale](kind, stats.newJobs, stats.activeEmployers))}</p>
     </header>
     ${degradedNote}
@@ -1744,14 +1744,14 @@ function renderSnapshotPage(inp: SnapshotPageInputs): string {
     ${frontalierContextHtml}
     ${methodology}
     ${faqHtml}
-    <section style="margin:32px 0 0;padding:24px 22px;border-radius:16px;background:var(--color-surface);border:1px solid var(--color-edge)" aria-label="${esc(copy.seriesKicker)}">
-      <p style="margin:0 0 14px;color:var(--color-body);line-height:1.7;max-width:72ch;font-size:15px">${esc(intro)}</p>
-      <p style="margin:0;color:var(--color-body);line-height:1.7;max-width:72ch;font-size:15px">${esc(paragraph)}</p>
+    <section class="s-GCEyQg" aria-label="${esc(copy.seriesKicker)}">
+      <p class="s-kvHUMU">${esc(intro)}</p>
+      <p class="s-yOfiVn">${esc(paragraph)}</p>
     </section>
     ${relatedHtml}
     ${renderDiscoverMore(locale, JOB_MARKET_DISCOVER_MORE_CTAS[locale])}
     ${generateRelatedLinksBlock(locale, 'job_market_snapshot')}
-    <section style="margin-top:32px" aria-label="advertisement">
+    <section class="s-sC82IX" aria-label="advertisement">
       ${adSlotHtml('JOBLIST_END_MULTIPLEX')}
     </section>
   </article>`;
@@ -1802,11 +1802,11 @@ function renderHubPage(inp: HubPageInputs): string {
   const h1 = copy.hubHeading;
 
   const degradedNote = degraded
-    ? `<p style="margin:0 0 14px;padding:12px 16px;border-radius:12px;background:var(--color-warning-subtle);color:var(--color-warning);border:1px solid var(--color-warning-border)">${esc(copy.degradedNote)}</p>`
+    ? `<p class="s-lR0v2l">${esc(copy.degradedNote)}</p>`
     : '';
 
   const heroStatsHtml = heroStats
-    ? `<section style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin:0 0 22px">
+    ? `<section class="s-VOrae_">
       ${renderStatTile(copy.statNewJobs, String(heroStats.newJobs), 'primary')}
       ${renderStatTile(copy.statClosedJobs, String(heroStats.closedJobs), 'warning')}
       ${renderStatTile(copy.statActiveEmployers, String(heroStats.activeEmployers), 'success')}
@@ -1815,16 +1815,16 @@ function renderHubPage(inp: HubPageInputs): string {
     : '';
 
   const latestWeeksHtml = latestWeeks.length > 0
-    ? `<section style="margin:24px 0 0" aria-labelledby="latestWeeks">
+    ? `<section class="s-Va7_33" aria-labelledby="latestWeeks">
         <h2 id="latestWeeks" style="${H2_STYLE}">${esc(copy.hubLatestLabel)}</h2>
-        <ol style="margin:0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px">
+        <ol class="s-HyJ7O3">
           ${latestWeeks
             .map(
               (w) => `<li style="${CARD_STYLE}">
-                <a href="${esc(w.href)}" style="color:var(--color-body);text-decoration:none;display:block">
-                  <div style="font-weight:700;font-size:16px">${esc(copy.weeklyHeading(w.week, w.year))}</div>
-                  <div style="margin-top:4px;color:var(--color-subtle);font-size:13px">${esc(w.rangeLabel)}</div>
-                  <div style="margin-top:10px;display:flex;gap:14px;font-size:14px;color:var(--color-body)">
+                <a class="s-lWX0iP" href="${esc(w.href)}">
+                  <div class="s-_A1Pie">${esc(copy.weeklyHeading(w.week, w.year))}</div>
+                  <div class="s-3U98wH">${esc(w.rangeLabel)}</div>
+                  <div class="s-kMi32q">
                     <span><strong>${esc(String(w.newJobs))}</strong> ${esc(copy.statNewJobs.toLowerCase())}</span>
                     <span><strong>${esc(String(w.activeEmployers))}</strong> ${esc(copy.statActiveEmployers.toLowerCase())}</span>
                   </div>
@@ -1837,9 +1837,9 @@ function renderHubPage(inp: HubPageInputs): string {
     : '';
 
   const archiveHtml = monthlyArchive.length > 0
-    ? `<section style="margin:24px 0 0" aria-labelledby="monthlyArchive">
+    ? `<section class="s-Va7_33" aria-labelledby="monthlyArchive">
         <h2 id="monthlyArchive" style="${H2_STYLE}">${esc(copy.hubArchiveLabel)}</h2>
-        <ul style="margin:0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:8px">
+        <ul class="s-SRtKN_">
           ${monthlyArchive
             .map(
               (m) => `<li><a href="${esc(m.href)}" style="${LINK_ACCENT_STYLE};font-weight:600">${esc(m.monthLabel)} →</a></li>`,
@@ -1850,7 +1850,7 @@ function renderHubPage(inp: HubPageInputs): string {
     : '';
 
   const ctaHtml = latestWeekHref
-    ? `<p style="margin:0 0 20px"><a href="${esc(latestWeekHref)}" style="display:inline-flex;align-items:center;gap:6px;padding:12px 22px;border-radius:12px;background:var(--color-accent);color:var(--color-on-accent);text-decoration:none;font-weight:700">${esc(copy.hubSeeCurrentWeek)} →</a></p>`
+    ? `<p class="s-UWtNGG"><a class="s-fudyeq" href="${esc(latestWeekHref)}">${esc(copy.hubSeeCurrentWeek)} →</a></p>`
     : '';
 
   // Sector navigator — closes the orphan-graph for every per-sector snapshot
@@ -1874,15 +1874,15 @@ function renderHubPage(inp: HubPageInputs): string {
       return `<li><a href="${esc(href)}" style="${LINK_ACCENT_STYLE};font-weight:600">${esc(label.charAt(0).toUpperCase() + label.slice(1))} →</a></li>`;
     })
     .join('');
-  const sectorsHtml = `<section style="margin:26px 0 0" aria-labelledby="sectorList">
+  const sectorsHtml = `<section class="s-sS5pU-" aria-labelledby="sectorList">
     <h2 id="sectorList" style="${H2_STYLE};margin-bottom:8px">${esc(sectorsHeading)}</h2>
-    <p style="margin:0 0 14px;color:var(--color-subtle);line-height:1.6">${esc(sectorsLede)}</p>
-    <ul style="margin:0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:8px">${sectorAnchors}</ul>
+    <p class="s-dnpXsY">${esc(sectorsLede)}</p>
+    <ul class="s-7BPL4l">${sectorAnchors}</ul>
   </section>`;
 
-  const methodology = `<section style="margin:26px 0 0" aria-labelledby="methodology">
+  const methodology = `<section class="s-sS5pU-" aria-labelledby="methodology">
     <h2 id="methodology" style="${H2_STYLE};margin-bottom:10px">${esc(copy.methodologyHeading)}</h2>
-    <p style="margin:0;color:var(--color-body);line-height:1.65">${esc(copy.methodologyBody)}</p>
+    <p class="s-0kQbve">${esc(copy.methodologyBody)}</p>
   </section>`;
 
   const faqHtml = renderFaq(copy);
@@ -2002,16 +2002,16 @@ function renderHubPage(inp: HubPageInputs): string {
     fr: `Snapshot hebdomadaire du marché du travail tessinois — nouvelles offres, employeurs les plus actifs, métiers demandés.`,
   };
 
-  const bodyHtml = `<article style="max-width:1100px;margin:0 auto;padding:32px 20px 56px">
+  const bodyHtml = `<article class="s-xzWvwM">
     <nav style="${BREADCRUMB_STYLE}">
       <a href="${BASE_URL}/" style="${BREADCRUMB_LINK_STYLE}">${esc(copy.breadcrumbHome)}</a>
       <span> / </span>
       <span>${esc(JOB_MARKET_HUB_NAME[locale])}</span>
     </nav>
-    <header style="margin-bottom:22px">
+    <header class="s-Nv0GaD">
       <p style="${HERO_EYEBROW_STYLE}">${esc(copy.seriesKicker)}</p>
       <h1 style="${H1_STYLE}">${esc(h1)}</h1>
-      <p style="margin:0 0 10px;color:var(--color-subtle);font-size:13px">${esc(copy.freshnessLabel(todayIso))}</p>
+      <p class="s-aP88r9">${esc(copy.freshnessLabel(todayIso))}</p>
       <p style="${LEDE_STYLE}">${esc(taglineByLocale[locale])}</p>
     </header>
     ${degradedNote}
@@ -2022,14 +2022,14 @@ function renderHubPage(inp: HubPageInputs): string {
     ${sectorsHtml}
     ${methodology}
     ${faqHtml}
-    <section style="margin:32px 0 0;padding:24px 22px;border-radius:16px;background:var(--color-surface);border:1px solid var(--color-edge)" aria-label="${esc(copy.seriesKicker)}">
-      <p style="margin:0 0 14px;color:var(--color-body);line-height:1.7;max-width:72ch;font-size:15px">${esc(copy.hubIntro)}</p>
-      <p style="margin:0;color:var(--color-body);line-height:1.7;max-width:72ch;font-size:15px">${esc(copy.hubParagraph)}</p>
+    <section class="s-GCEyQg" aria-label="${esc(copy.seriesKicker)}">
+      <p class="s-kvHUMU">${esc(copy.hubIntro)}</p>
+      <p class="s-yOfiVn">${esc(copy.hubParagraph)}</p>
     </section>
     ${relatedHtml}
     ${renderDiscoverMore(locale, JOB_MARKET_DISCOVER_MORE_CTAS[locale])}
     ${generateRelatedLinksBlock(locale, 'job_market_snapshot')}
-    <section style="margin-top:32px" aria-label="advertisement">
+    <section class="s-sC82IX" aria-label="advertisement">
       ${adSlotHtml('JOBLIST_END_MULTIPLEX')}
     </section>
   </article>`;
@@ -2762,11 +2762,11 @@ function renderSectorFrontalierContext(args: {
   };
   const c = copy[locale] || copy.it;
   const p3 = p3Map[locale] || p3Map.it;
-  return `<section style="margin:24px 0 0" aria-labelledby="sectorFrontalierContext">
+  return `<section class="s-Va7_33" aria-labelledby="sectorFrontalierContext">
     <h2 id="sectorFrontalierContext" style="${H2_STYLE};margin-bottom:10px">${esc(c.h)}</h2>
-    <p style="margin:0 0 14px;color:var(--color-body);line-height:1.7;max-width:860px">${c.p1}</p>
-    <p style="margin:0 0 14px;color:var(--color-body);line-height:1.7;max-width:860px">${c.p2}</p>
-    <p style="margin:0;color:var(--color-body);line-height:1.7;max-width:860px">${p3}</p>
+    <p class="s-KwuhOL">${c.p1}</p>
+    <p class="s-KwuhOL">${c.p2}</p>
+    <p class="s-E7ZJqo">${p3}</p>
   </section>`;
 }
 
@@ -2785,7 +2785,7 @@ function renderSectorPage(inp: SectorPageInputs): string {
   const title = clampSiteSuffix(titleBase, 'Frontaliere Ticino');
   const metaDesc = copy.metaDesc(sectorLabel, stats.activeJobs);
 
-  const statTiles = `<section style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin:0 0 22px" aria-label="${esc(copy.kicker)}">
+  const statTiles = `<section class="s-VOrae_" aria-label="${esc(copy.kicker)}">
     ${renderStatTile(copy.statActiveJobs, String(stats.activeJobs), 'primary')}
     ${stats.medianSalary !== null ? renderStatTile(copy.statMedianSalary, `${stats.medianSalary.toLocaleString('en-US').replace(/,/g, '\u202f')} CHF`, 'neutral') : ''}
     ${renderStatTile(copy.statWeeklyDelta, formatSectorDelta(stats.weeklyDelta, copy.statEditorialFallback), 'success')}
@@ -2810,7 +2810,7 @@ function renderSectorPage(inp: SectorPageInputs): string {
     rootDir,
   );
 
-  const trendSection = `<section style="margin:24px 0 0" aria-labelledby="sectorTrend">
+  const trendSection = `<section class="s-Va7_33" aria-labelledby="sectorTrend">
     <h2 id="sectorTrend" style="${H2_STYLE};margin-bottom:12px">${esc(copy.trendHeading)}</h2>
     ${renderSvgTrendChart(
       stats.trendSeries,
@@ -2825,25 +2825,25 @@ function renderSectorPage(inp: SectorPageInputs): string {
     : `${CITY_SECTOR_HUB_PREFIX[locale]}/`;
   const snapshotHubHref = buildHubPath(locale);
 
-  const ctaHtml = `<p style="margin:0 0 20px;display:flex;gap:12px;flex-wrap:wrap">
-    <a href="${esc(sectorHubHref)}" style="display:inline-flex;align-items:center;gap:6px;padding:12px 22px;border-radius:12px;background:var(--color-accent);color:var(--color-on-accent);text-decoration:none;font-weight:700">${esc(copy.sectorHubCta(sectorLabel))} →</a>
-    <a href="${esc(snapshotHubHref)}" style="display:inline-flex;align-items:center;gap:6px;padding:12px 22px;border-radius:12px;background:var(--color-surface);border:1px solid var(--color-accent-border);color:var(--color-accent);text-decoration:none;font-weight:700">${esc(copy.snapshotRootCta)} →</a>
+  const ctaHtml = `<p class="s-AgQl-O">
+    <a class="s-fudyeq" href="${esc(sectorHubHref)}">${esc(copy.sectorHubCta(sectorLabel))} →</a>
+    <a class="s-feRhpX" href="${esc(snapshotHubHref)}">${esc(copy.snapshotRootCta)} →</a>
   </p>`;
 
-  const methodology = `<section style="margin:26px 0 0" aria-labelledby="sectorMethodology">
+  const methodology = `<section class="s-sS5pU-" aria-labelledby="sectorMethodology">
     <h2 id="sectorMethodology" style="${H2_STYLE};margin-bottom:10px">${esc(copy.methodologyHeading)}</h2>
-    <p style="margin:0;color:var(--color-body);line-height:1.65">${esc(copy.methodologyBody(sectorLabel))}</p>
+    <p class="s-0kQbve">${esc(copy.methodologyBody(sectorLabel))}</p>
   </section>`;
 
   const faqEntries = copy.faq(sectorLabel, stats);
   const faqHtml = faqEntries.length > 0
-    ? `<section style="margin:32px 0 0" aria-labelledby="sectorFaq">
+    ? `<section class="s-ZqtBbL" aria-labelledby="sectorFaq">
         <h2 id="sectorFaq" style="${H2_STYLE}">${esc(copy.faqTitle)}</h2>
         ${faqEntries
           .map(
             (f) => `<details style="${CARD_STYLE};margin-bottom:8px">
-              <summary style="font-weight:700;cursor:pointer;color:var(--color-heading)">${esc(f.q)}</summary>
-              <p style="margin:10px 0 0;color:var(--color-body);line-height:1.6">${esc(f.a)}</p>
+              <summary class="s-HBR0NM">${esc(f.q)}</summary>
+              <p class="s-OCic8j">${esc(f.a)}</p>
             </details>`,
           )
           .join('')}
@@ -2970,7 +2970,7 @@ function renderSectorPage(inp: SectorPageInputs): string {
     fr: `Snapshot hebdomadaire secteur ${sectorLabel} : ${stats.activeJobs} offres actives au Tessin.`,
   };
 
-  const bodyHtml = `<article style="max-width:1100px;margin:0 auto;padding:32px 20px 56px">
+  const bodyHtml = `<article class="s-xzWvwM">
     <nav style="${BREADCRUMB_STYLE}">
       <a href="${BASE_URL}/" style="${BREADCRUMB_LINK_STYLE}">${esc(copy.breadcrumbHome)}</a>
       <span> / </span>
@@ -2978,10 +2978,10 @@ function renderSectorPage(inp: SectorPageInputs): string {
       <span> / </span>
       <span>${esc(sectorLabel)}</span>
     </nav>
-    <header style="margin-bottom:22px">
+    <header class="s-Nv0GaD">
       <p style="${HERO_EYEBROW_STYLE}">${esc(copy.kicker)} · ${esc(sectorLabel)}</p>
       <h1 style="${H1_STYLE}">${esc(h1)}</h1>
-      <p style="margin:0 0 10px;color:var(--color-subtle);font-size:13px">${esc(copy.freshnessLabel(todayIso))}</p>
+      <p class="s-aP88r9">${esc(copy.freshnessLabel(todayIso))}</p>
       <p style="${LEDE_STYLE}">${esc(sectorTaglineByLocale[locale])}</p>
     </header>
     ${statTiles}
@@ -2991,14 +2991,14 @@ function renderSectorPage(inp: SectorPageInputs): string {
     ${frontalierContextHtml}
     ${methodology}
     ${faqHtml}
-    <section style="margin:32px 0 0;padding:24px 22px;border-radius:16px;background:var(--color-surface);border:1px solid var(--color-edge)" aria-label="${esc(copy.kicker)}">
-      <p style="margin:0 0 14px;color:var(--color-body);line-height:1.7;max-width:72ch;font-size:15px">${esc(copy.intro(sectorLabel, stats.activeJobs))}</p>
-      <p style="margin:0 0 14px;color:var(--color-body);line-height:1.7;max-width:72ch;font-size:15px">${esc(copy.paragraph1(sectorLabel, stats))}</p>
-      <p style="margin:0;color:var(--color-body);line-height:1.7;max-width:72ch;font-size:15px">${esc(copy.paragraph2(sectorLabel))}</p>
+    <section class="s-GCEyQg" aria-label="${esc(copy.kicker)}">
+      <p class="s-kvHUMU">${esc(copy.intro(sectorLabel, stats.activeJobs))}</p>
+      <p class="s-kvHUMU">${esc(copy.paragraph1(sectorLabel, stats))}</p>
+      <p class="s-yOfiVn">${esc(copy.paragraph2(sectorLabel))}</p>
     </section>
     ${renderDiscoverMore(locale, JOB_MARKET_DISCOVER_MORE_CTAS[locale])}
     ${generateRelatedLinksBlock(locale, 'job_market_snapshot')}
-    <section style="margin-top:32px" aria-label="advertisement">
+    <section class="s-sC82IX" aria-label="advertisement">
       ${adSlotHtml('JOBLIST_END_MULTIPLEX')}
     </section>
   </article>`;

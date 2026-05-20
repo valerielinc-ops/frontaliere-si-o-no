@@ -31,11 +31,11 @@ function buildRedirectPage(partner: typeof PARTNERS[number]): string {
  <script>window.location.replace(${JSON.stringify(targetUrl)})</script>
  </head>
  <body>
- <main style="font-family:system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;max-width:480px;margin:60px auto;padding:0 16px;text-align:center;color:#0f172a">
- <p style="font-size:48px;margin:0 0 16px">${partner.emoji}</p>
- <h1 style="font-size:24px;margin:0 0 12px">Stai per visitare ${esc(partner.name)}</h1>
- <p style="margin:0 0 20px;color:#475569">Verrai reindirizzato automaticamente. Se non succede, clicca il link qui sotto.</p>
- <p><a href="${esc(targetUrl)}" rel="noopener sponsored" style="color:#1d4ed8;font-weight:700;text-decoration:none">Vai a ${esc(partner.name)} &rarr;</a></p>
+ <main class="s-9MsAg7">
+ <p class="s-16ZGVZ">${partner.emoji}</p>
+ <h1 class="s-0Ns7AE">Stai per visitare ${esc(partner.name)}</h1>
+ <p class="s-a4vtCV">Verrai reindirizzato automaticamente. Se non succede, clicca il link qui sotto.</p>
+ <p><a class="s-uJ0x5V" href="${esc(targetUrl)}" rel="noopener sponsored">Vai a ${esc(partner.name)} &rarr;</a></p>
  </main>
  </body>
 </html>`;

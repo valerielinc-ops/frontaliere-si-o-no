@@ -222,45 +222,45 @@ const INTERNAL_LINKS: ReadonlyArray<{ href: string; label: string }> = [
 function renderProfileExamples(): string {
   const cards = PROFILE_EXAMPLES.map(
     (p) => `<div style="${CARD_STYLE};display:flex;flex-direction:column;gap:4px">
-      <div style="font-weight:700;font-size:15px;color:var(--color-heading);line-height:1.35">${esc(p.role)} · ${esc(p.canton)}</div>
-      <div style="font-size:13px;color:var(--color-subtle)">${esc(p.grossEur)}</div>
-      <div style="font-weight:700;color:var(--color-accent);font-size:14px">${esc(p.netEur)}</div>
+      <div class="s-YR-bwN">${esc(p.role)} · ${esc(p.canton)}</div>
+      <div class="s-Z7vpPG">${esc(p.grossEur)}</div>
+      <div class="s-jOqm8t">${esc(p.netEur)}</div>
     </div>`,
   ).join('');
-  return `<section style="margin:0 0 28px">
+  return `<section class="s-KZc0LQ">
     <h2 style="${H2_STYLE}">Exemples chiffrés</h2>
     <p style="${BODY_STYLE};max-width:780px">
       Trois profils types pour situer rapidement votre futur revenu net (estimations
       indicatives, conversion CHF→EUR au taux courant).
     </p>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px">${cards}</div>
+    <div class="s-J2fKgL">${cards}</div>
   </section>`;
 }
 
 function renderCantonsGrid(): string {
   const cells = TOP_CANTONS.map(
     (c) => `<div style="display:flex;align-items:center;gap:10px;${CARD_PADDING_STYLE};${CARD_BODY_STYLE}">
-      <div style="flex:1;min-width:0">
-        <div style="font-weight:700;font-size:15px;color:var(--color-heading);line-height:1.3">${esc(c.name)}</div>
-        <div style="font-size:13px;color:var(--color-subtle);line-height:1.35">${esc(c.count)}</div>
+      <div class="s-KGNylX">
+        <div class="s-AT4KWZ">${esc(c.name)}</div>
+        <div class="s--JqMke">${esc(c.count)}</div>
       </div>
     </div>`,
   ).join('');
-  return `<section style="margin:0 0 28px">
+  return `<section class="s-KZc0LQ">
     <h2 style="${H2_STYLE}">Cantons frontaliers les plus convoités</h2>
     <p style="${BODY_STYLE};max-width:780px">
       Répartition indicative des frontaliers français par canton de travail
       (Source: OFS — Statistique des frontaliers STAF 2024).
     </p>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px">${cells}</div>
+    <div class="s-yG5zT8">${cells}</div>
   </section>`;
 }
 
 function renderApprofondisciDivider(label: string): string {
-  return `<div role="separator" aria-label="${esc(label)}" style="margin:36px 0 28px;display:flex;align-items:center;gap:14px;color:var(--color-subtle)">
-    <span aria-hidden="true" style="flex:1;height:1px;background:var(--color-edge)"></span>
+  return `<div class="s-7V0OIo" role="separator" aria-label="${esc(label)}">
+    <span class="s-EIg6N7" aria-hidden="true"></span>
     <span style="${SMALL_HEADING_STYLE};margin:0">${esc(label)}</span>
-    <span aria-hidden="true" style="flex:1;height:1px;background:var(--color-edge)"></span>
+    <span class="s-EIg6N7" aria-hidden="true"></span>
   </div>`;
 }
 
@@ -269,20 +269,20 @@ function renderApprofondisciDivider(label: string): string {
 function renderBreakdownTable(): string {
   const rows = BREAKDOWN_ROWS.map(
     (r) => `
-      <tr style="border-top:1px solid var(--color-edge)">
-        <td style="padding:10px 12px;color:var(--color-body)">${esc(r.label)}</td>
-        <td style="padding:10px 12px;color:var(--color-heading);font-weight:600;white-space:nowrap">${esc(r.rate)}</td>
-        <td style="padding:10px 12px;color:var(--color-subtle);font-size:14px">${esc(r.note)}</td>
+      <tr class="s-_yM8Lx">
+        <td class="s-aVTCCh">${esc(r.label)}</td>
+        <td class="s-uqJP2T">${esc(r.rate)}</td>
+        <td class="s-6olq44">${esc(r.note)}</td>
       </tr>`,
   ).join('');
   return `
     <div style="overflow-x:auto;${CARD_STYLE};padding:0;border-radius:14px">
-      <table style="width:100%;border-collapse:collapse;min-width:560px">
+      <table class="s-grO3Cl">
         <thead>
-          <tr style="background:var(--color-surface-alt)">
-            <th style="text-align:left;padding:12px;color:var(--color-heading);font-size:13px;text-transform:uppercase;letter-spacing:0.05em">Cotisation</th>
-            <th style="text-align:left;padding:12px;color:var(--color-heading);font-size:13px;text-transform:uppercase;letter-spacing:0.05em">Taux</th>
-            <th style="text-align:left;padding:12px;color:var(--color-heading);font-size:13px;text-transform:uppercase;letter-spacing:0.05em">Remarques</th>
+          <tr class="s-_esAK2">
+            <th class="s-QTDcUd">Cotisation</th>
+            <th class="s-QTDcUd">Taux</th>
+            <th class="s-QTDcUd">Remarques</th>
           </tr>
         </thead>
         <tbody>${rows}</tbody>
@@ -294,23 +294,23 @@ function renderScenariosTable(): string {
   const fmt = (n: number): string => n.toLocaleString('fr-CH', { maximumFractionDigits: 0 });
   const rows = SCENARIOS.map(
     (s) => `
-      <tr style="border-top:1px solid var(--color-edge)">
-        <td style="padding:10px 12px;color:var(--color-body);font-weight:600">${fmt(s.gross)} CHF</td>
-        <td style="padding:10px 12px;color:var(--color-heading);font-weight:700">${fmt(s.net)} CHF</td>
-        <td style="padding:10px 12px;color:var(--color-subtle)">${esc(s.effective)}</td>
+      <tr class="s-_yM8Lx">
+        <td class="s-9Z4OtE">${fmt(s.gross)} CHF</td>
+        <td class="s-fLU9Xz">${fmt(s.net)} CHF</td>
+        <td class="s-BsBNiT">${esc(s.effective)}</td>
       </tr>`,
   ).join('');
   return `
     <div style="overflow-x:auto;${CARD_STYLE};padding:0;border-radius:14px">
-      <table style="width:100%;border-collapse:collapse;min-width:480px">
-        <caption style="caption-side:top;text-align:left;padding:12px;color:var(--color-subtle);font-size:13px">
+      <table class="s-w50MTU">
+        <caption class="s-li0wom">
           Estimations indicatives pour un frontalier célibataire, sans enfants, travaillant au Tessin (régime 2026 nouveau frontalier).
         </caption>
         <thead>
-          <tr style="background:var(--color-surface-alt)">
-            <th style="text-align:left;padding:12px;color:var(--color-heading);font-size:13px;text-transform:uppercase;letter-spacing:0.05em">Salaire brut mensuel</th>
-            <th style="text-align:left;padding:12px;color:var(--color-heading);font-size:13px;text-transform:uppercase;letter-spacing:0.05em">Salaire net estimé</th>
-            <th style="text-align:left;padding:12px;color:var(--color-heading);font-size:13px;text-transform:uppercase;letter-spacing:0.05em">Taux de prélèvement</th>
+          <tr class="s-_esAK2">
+            <th class="s-QTDcUd">Salaire brut mensuel</th>
+            <th class="s-QTDcUd">Salaire net estimé</th>
+            <th class="s-QTDcUd">Taux de prélèvement</th>
           </tr>
         </thead>
         <tbody>${rows}</tbody>
@@ -322,8 +322,8 @@ function renderFaqBlock(): string {
   return FAQS.map(
     (f) => `
       <details style="margin:0 0 10px;${CARD_STYLE};border-radius:12px">
-        <summary style="font-weight:700;cursor:pointer;color:var(--color-heading);line-height:1.45">${esc(f.question)}</summary>
-        <p style="margin:10px 0 0;color:var(--color-body);line-height:1.65">${esc(f.answer)}</p>
+        <summary class="s-ZAbW3N">${esc(f.question)}</summary>
+        <p class="s-XXXebZ">${esc(f.answer)}</p>
       </details>`,
   ).join('');
 }
@@ -331,9 +331,9 @@ function renderFaqBlock(): string {
 function renderInternalLinks(): string {
   const items = INTERNAL_LINKS.map(
     (l) =>
-      `<li style="margin:0 0 8px"><a href="${esc(l.href)}" style="${LINK_ACCENT_STYLE}">${esc(l.label)}</a></li>`,
+      `<li class="s-Pkexk_"><a href="${esc(l.href)}" style="${LINK_ACCENT_STYLE}">${esc(l.label)}</a></li>`,
   ).join('');
-  return `<ul style="margin:0 0 0 20px;padding:0;color:var(--color-body);line-height:1.55;max-width:780px">${items}</ul>`;
+  return `<ul class="s-BNZI5h">${items}</ul>`;
 }
 
 // ── Page assembly ────────────────────────────────────────────────
@@ -428,7 +428,7 @@ function renderPage(opts: RenderOpts): RenderResult {
     { label: STAT_NET_SAVING_LABEL, value: STAT_NET_SAVING, tone: 'warning' },
   ]);
 
-  const primaryCtaHtml = `<div style="margin:0 0 28px"><a href="${esc(calcUrl)}" style="${CTA_PRIMARY_STYLE}">Lancer la simulation gratuite →</a></div>`;
+  const primaryCtaHtml = `<div class="s-KZc0LQ"><a href="${esc(calcUrl)}" style="${CTA_PRIMARY_STYLE}">Lancer la simulation gratuite →</a></div>`;
 
   const profileExamplesHtml = renderProfileExamples();
   const cantonsGridHtml = renderCantonsGrid();
@@ -442,7 +442,7 @@ function renderPage(opts: RenderOpts): RenderResult {
       <span> / </span>
       <span>Calcul salaire net frontalier Suisse 2026</span>
     </nav>
-    <header style="margin-bottom:20px">
+    <header class="s-YcUNX5">
       <p style="${HERO_EYEBROW_STYLE}">Calculateur · Frontalier suisse · 2026 · Mis à jour ${esc(dateStamp)}</p>
       <h1 style="${H1_STYLE}">${esc(H1)}</h1>
       <p style="${LEDE_STYLE}">${esc(DENSE_LEDE)}</p>
@@ -453,7 +453,7 @@ function renderPage(opts: RenderOpts): RenderResult {
     ${cantonsGridHtml}
     ${dividerHtml}
 
-    <section style="margin:0 0 28px">
+    <section class="s-KZc0LQ">
       <h2 style="${H2_STYLE}">Comment est calculé le salaire net en Suisse</h2>
       <p style="${BODY_STYLE};max-width:780px">
         Le salaire net d'un frontalier au Tessin résulte du salaire brut moins les
@@ -469,7 +469,7 @@ function renderPage(opts: RenderOpts): RenderResult {
       </p>
     </section>
 
-    <section style="margin:0 0 28px">
+    <section class="s-KZc0LQ">
       <h2 style="${H2_STYLE}">Tableau de référence: brut vs net (4 scénarios)</h2>
       <p style="${BODY_STYLE};max-width:780px">
         Voici quatre scénarios de référence pour un frontalier célibataire sans enfants,
@@ -485,22 +485,22 @@ function renderPage(opts: RenderOpts): RenderResult {
         régime de frontalier, et de votre commune de résidence en Italie, utilisez notre
         simulateur officiel.
       </p>
-      <p style="margin:12px 0 0">
+      <p class="s-4GMup_">
         <a href="${esc(calcUrl)}" style="${CTA_PRIMARY_STYLE}">Lancer la simulation complète</a>
       </p>
     </section>
 
-    <section style="margin:0 0 28px">
+    <section class="s-KZc0LQ">
       <h2 style="${H2_STYLE}">Questions fréquentes</h2>
       ${renderFaqBlock()}
     </section>
 
-    <section style="margin:0 0 28px">
+    <section class="s-KZc0LQ">
       <h2 style="${H2_STYLE}">Liens utiles</h2>
       ${renderInternalLinks()}
     </section>`;
 
-  const bodyHtml = `<main class="seo-static-content" style="max-width:1100px;margin:0 auto;padding:32px 20px 56px">${body}</main>`;
+  const bodyHtml = `<main class="seo-static-content s-xzWvwM">${body}</main>`;
 
   const extraHead = `    <meta property="og:image" content="${BASE_URL}/og-image.png">
     <meta property="og:image:width" content="1200">

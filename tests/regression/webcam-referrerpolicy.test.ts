@@ -71,24 +71,49 @@ describe('F8 webcam — referrerpolicy', () => {
   });
 });
 
+/**
+ * Class-extract migration (2026-05-20): inline styles in build-plugins were
+ * extracted to content-hashed classes in public/assets/seo-static.css. The
+ * webcam figure used to carry `style="...aspect-ratio:16/9;max-width:640px"`
+ * directly; now it carries `class="s-<hash>"` whose CSS rule has the same
+ * declarations. The helper below asserts the same SEMANTIC contract by
+ * checking the inline form OR by following the s-* class reference into
+ * the source CSS file.
+ */
+function htmlOrCssHas(html: string, declarations: ReadonlyArray<string>): boolean {
+  const inlineHit = declarations.every((d) => html.includes(d));
+  if (inlineHit) return true;
+  const cssRules = require('node:fs').readFileSync(
+    require('node:path').resolve(__dirname, '..', '..', 'public', 'assets', 'seo-static.css'),
+    'utf-8',
+  );
+  const classes = new Set([...html.matchAll(/class="(?:[^"]* )?(s-[A-Za-z0-9_-]+)/g)].map((m) => m[1]));
+  for (const c of classes) {
+    const rule = cssRules.match(new RegExp(`\\.${c}\\s*\\{([^}]*)\\}`));
+    if (!rule) continue;
+    if (declarations.every((d) => rule[1].includes(d))) return true;
+  }
+  return false;
+}
+
 describe('F8 webcam — responsive figure wrapper', () => {
   it('<figure> wrapper has aspect-ratio:16/9', () => {
     // The figure must constrain aspect ratio so the layout does not collapse
     // when the webcam image fails to load.
-    expect(BROGEDA_IT).toMatch(/aspect-ratio:16\/9/);
+    expect(htmlOrCssHas(BROGEDA_IT, ['aspect-ratio:16/9'])).toBe(true);
   });
 
   it('<figure> wrapper has max-width:640px', () => {
-    expect(BROGEDA_IT).toContain('max-width:640px');
+    expect(htmlOrCssHas(BROGEDA_IT, ['max-width:640px'])).toBe(true);
   });
 
   it('<figure> wrapper has both aspect-ratio and max-width on the same element', () => {
-    // Check that a single figure element has both constraints together.
+    // Check that a single figure element has both constraints together (via
+    // a single inline style OR via a single shared content-hashed class).
     const figureMatch = BROGEDA_IT.match(/<figure[^>]+>/);
     expect(figureMatch).not.toBeNull();
     const figureTag = figureMatch![0];
-    expect(figureTag).toContain('aspect-ratio:16/9');
-    expect(figureTag).toContain('max-width:640px');
+    expect(htmlOrCssHas(figureTag, ['aspect-ratio:16/9', 'max-width:640px'])).toBe(true);
   });
 });
 
@@ -121,7 +146,7 @@ describe('F8 webcam — multi-locale regression', () => {
     it(`[${locale}] chiasso-brogeda page figure has aspect-ratio:16/9`, () => {
       const html = pages[buildOggiPath(locale, 'chiasso-brogeda')];
       if (html.includes('<figure')) {
-        expect(html).toMatch(/aspect-ratio:16\/9/);
+        expect(htmlOrCssHas(html, ['aspect-ratio:16/9'])).toBe(true);
       }
     });
   }

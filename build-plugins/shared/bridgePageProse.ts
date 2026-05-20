@@ -137,7 +137,7 @@ function buildCopy(locale: BridgeProseLocale): ProseCopy {
         generic: `Sul sito Frontaliere Ticino trovi calcolatori, comparatori e guide pensati per chi vive in Italia e lavora in Svizzera, o per chi sta valutando un trasferimento con Permesso B. Tutti gli strumenti sono gratuiti, senza registrazione, e tengono conto del Nuovo Accordo bilaterale 2024 per i nuovi frontalieri.`,
       },
       permitHeading: 'Permesso G, Permesso B e fiscalità del Nuovo Accordo 2024',
-      permitBody: `Il Permesso G è obbligatorio per chi risiede nella zona di 20 km dal confine svizzero (Lombardia, Piemonte e — per i nuovi pendolari dal 2024 — Valle d'Aosta) e lavora in Svizzera con rientro almeno settimanale al domicilio italiano. La prima emissione richiede 2-6 settimane dalla firma del contratto, con rinnovo annuale automatico fino al limite contrattuale. Il Nuovo Accordo Italia-Svizzera 2024 prevede tassazione concorrente con credito d'imposta italiano fino all'80 % della ritenuta CH per i nuovi frontalieri (assunti dopo il 17 luglio 2023), con franchigia di 10'000 EUR; chi era già frontaliere prima di quella data mantiene il vecchio regime di tassazione esclusiva svizzera con ristorno del 38,8 % al comune italiano di residenza. Per simulare il netto reale apri il <a href="${calc}" style="color:var(--color-link)">calcolatore stipendio frontaliere</a>: vecchio + nuovo regime, conversione CHF/EUR, stima del ristorno comunale.`,
+      permitBody: `Il Permesso G è obbligatorio per chi risiede nella zona di 20 km dal confine svizzero (Lombardia, Piemonte e — per i nuovi pendolari dal 2024 — Valle d'Aosta) e lavora in Svizzera con rientro almeno settimanale al domicilio italiano. La prima emissione richiede 2-6 settimane dalla firma del contratto, con rinnovo annuale automatico fino al limite contrattuale. Il Nuovo Accordo Italia-Svizzera 2024 prevede tassazione concorrente con credito d'imposta italiano fino all'80 % della ritenuta CH per i nuovi frontalieri (assunti dopo il 17 luglio 2023), con franchigia di 10'000 EUR; chi era già frontaliere prima di quella data mantiene il vecchio regime di tassazione esclusiva svizzera con ristorno del 38,8 % al comune italiano di residenza. Per simulare il netto reale apri il <a class="s-IjpSYt" href="${calc}">calcolatore stipendio frontaliere</a>: vecchio + nuovo regime, conversione CHF/EUR, stima del ristorno comunale.`,
       faqHeading: 'Domande frequenti dei frontalieri italo-svizzeri',
       faqs: [
         {
@@ -146,15 +146,15 @@ function buildCopy(locale: BridgeProseLocale): ProseCopy {
         },
         {
           q: `Conviene davvero lo stipendio svizzero rispetto al lordo italiano?`,
-          a: `Il netto svizzero dipende da quattro variabili: imposta alla fonte cantonale (scaglioni 4-19 % a seconda del lordo, stato civile e figli), contributi sociali (AVS-AI-IPG 5,3 % fissi, AD 1,1 %, LPP 7-18 % in base all'età), Nuovo Accordo Italia-Svizzera 2024 con credito d'imposta italiano, e costi di pendolarismo (carburante, autostrada, usura veicolo, LAMal). Sul <a href="${calc}" style="color:var(--color-link)">simulatore</a> inserisci il lordo CHF di un'offerta concreta e ottieni il netto mensile reale in CHF e in EUR, immediatamente confrontabile con il netto italiano della tua zona.`,
+          a: `Il netto svizzero dipende da quattro variabili: imposta alla fonte cantonale (scaglioni 4-19 % a seconda del lordo, stato civile e figli), contributi sociali (AVS-AI-IPG 5,3 % fissi, AD 1,1 %, LPP 7-18 % in base all'età), Nuovo Accordo Italia-Svizzera 2024 con credito d'imposta italiano, e costi di pendolarismo (carburante, autostrada, usura veicolo, LAMal). Sul <a class="s-IjpSYt" href="${calc}">simulatore</a> inserisci il lordo CHF di un'offerta concreta e ottieni il netto mensile reale in CHF e in EUR, immediatamente confrontabile con il netto italiano della tua zona.`,
         },
         {
           q: `Quali altri strumenti gratuiti trovo sul sito?`,
-          a: `Oltre al simulatore stipendio: <a href="${fx}" style="color:var(--color-link)">comparatore cambio CHF/EUR</a> con i tassi di banche italiane, cambia-valute svizzeri e Wise/Revolut; <a href="${health}" style="color:var(--color-link)">comparatore casse malati LAMal</a> per scegliere il premio mensile più conveniente nel tuo comune di lavoro svizzero; <a href="${fuel}" style="color:var(--color-link)">prezzo carburante svizzero</a> aggiornato giornalmente da TCS Benzinpreis; e il <a href="${jobs}" style="color:var(--color-link)">job-board frontaliere</a> con oltre 2000 offerte attive in Ticino e negli altri cantoni svizzeri.`,
+          a: `Oltre al simulatore stipendio: <a class="s-IjpSYt" href="${fx}">comparatore cambio CHF/EUR</a> con i tassi di banche italiane, cambia-valute svizzeri e Wise/Revolut; <a class="s-IjpSYt" href="${health}">comparatore casse malati LAMal</a> per scegliere il premio mensile più conveniente nel tuo comune di lavoro svizzero; <a class="s-IjpSYt" href="${fuel}">prezzo carburante svizzero</a> aggiornato giornalmente da TCS Benzinpreis; e il <a class="s-IjpSYt" href="${jobs}">job-board frontaliere</a> con oltre 2000 offerte attive in Ticino e negli altri cantoni svizzeri.`,
         },
       ],
       relatedHeading: 'Strumenti collegati',
-      relatedBody: `Per chiudere il cerchio prima di accettare un'offerta svizzera: <a href="${calc}" style="color:var(--color-link)">calcolatore stipendio netto</a> (vecchio + nuovo Accordo 2024), <a href="${fx}" style="color:var(--color-link)">cambio CHF/EUR</a>, <a href="${health}" style="color:var(--color-link)">comparatore casse malati LAMal</a>, <a href="${fuel}" style="color:var(--color-link)">prezzo benzina/diesel</a> in Svizzera aggiornato ogni notte, <a href="${jobs}" style="color:var(--color-link)">job-board frontaliere</a> con i datori che assumono.`,
+      relatedBody: `Per chiudere il cerchio prima di accettare un'offerta svizzera: <a class="s-IjpSYt" href="${calc}">calcolatore stipendio netto</a> (vecchio + nuovo Accordo 2024), <a class="s-IjpSYt" href="${fx}">cambio CHF/EUR</a>, <a class="s-IjpSYt" href="${health}">comparatore casse malati LAMal</a>, <a class="s-IjpSYt" href="${fuel}">prezzo benzina/diesel</a> in Svizzera aggiornato ogni notte, <a class="s-IjpSYt" href="${jobs}">job-board frontaliere</a> con i datori che assumono.`,
     };
   }
 
@@ -174,7 +174,7 @@ function buildCopy(locale: BridgeProseLocale): ProseCopy {
         generic: `Frontaliere Ticino hosts calculators, comparators and guides designed for Italian residents working in Switzerland — or for anyone considering a B-permit move. Every tool is free, no sign-up, and accounts for the 2024 New Bilateral Agreement applicable to new cross-border workers.`,
       },
       permitHeading: 'G permit, B permit and the 2024 New Bilateral Agreement',
-      permitBody: `The G permit is mandatory for residents within 20 km of the Swiss border (Lombardy, Piedmont and — for new commuters since 2024 — Aosta Valley too) working in Switzerland with at least weekly return to the Italian domicile. First issuance takes 2-6 weeks after contract signature, with yearly renewal up to the contract end. The 2024 Italy-Switzerland Agreement introduces dual taxation with Italian tax credit up to 80 % of the Swiss withholding for new cross-border workers (hired after 17 July 2023), with a 10,000 EUR allowance; workers already classified as cross-border before that date keep the legacy regime of exclusive Swiss taxation with 38.8 % refund to the Italian residence municipality. To simulate the real take-home pay open the <a href="${calc}" style="color:var(--color-link)">cross-border salary calculator</a>: both regimes, CHF/EUR conversion, municipal refund estimate.`,
+      permitBody: `The G permit is mandatory for residents within 20 km of the Swiss border (Lombardy, Piedmont and — for new commuters since 2024 — Aosta Valley too) working in Switzerland with at least weekly return to the Italian domicile. First issuance takes 2-6 weeks after contract signature, with yearly renewal up to the contract end. The 2024 Italy-Switzerland Agreement introduces dual taxation with Italian tax credit up to 80 % of the Swiss withholding for new cross-border workers (hired after 17 July 2023), with a 10,000 EUR allowance; workers already classified as cross-border before that date keep the legacy regime of exclusive Swiss taxation with 38.8 % refund to the Italian residence municipality. To simulate the real take-home pay open the <a class="s-IjpSYt" href="${calc}">cross-border salary calculator</a>: both regimes, CHF/EUR conversion, municipal refund estimate.`,
       faqHeading: 'Frequently asked questions from Italian-Swiss cross-border workers',
       faqs: [
         {
@@ -183,15 +183,15 @@ function buildCopy(locale: BridgeProseLocale): ProseCopy {
         },
         {
           q: `Is a Swiss salary really worth it compared with the Italian gross?`,
-          a: `Swiss net pay depends on four variables: cantonal source tax (brackets 4-19 % depending on gross, marital status and children), social charges (AVS-AI-IPG 5.3 % flat, unemployment 1.1 %, LPP 7-18 % by age), the 2024 Italy-Switzerland agreement with Italian tax credit, and commute costs (fuel, motorway, vehicle wear, LAMal). Open the <a href="${calc}" style="color:var(--color-link)">simulator</a>, paste a real listing's gross CHF and you'll see the monthly net in CHF and EUR, immediately comparable with the Italian net for your residence area.`,
+          a: `Swiss net pay depends on four variables: cantonal source tax (brackets 4-19 % depending on gross, marital status and children), social charges (AVS-AI-IPG 5.3 % flat, unemployment 1.1 %, LPP 7-18 % by age), the 2024 Italy-Switzerland agreement with Italian tax credit, and commute costs (fuel, motorway, vehicle wear, LAMal). Open the <a class="s-IjpSYt" href="${calc}">simulator</a>, paste a real listing's gross CHF and you'll see the monthly net in CHF and EUR, immediately comparable with the Italian net for your residence area.`,
         },
         {
           q: `What other free tools does the site offer?`,
-          a: `Beyond the salary simulator: <a href="${fx}" style="color:var(--color-link)">CHF/EUR exchange comparator</a> with rates from Italian banks, Swiss bureaux de change and Wise/Revolut; <a href="${health}" style="color:var(--color-link)">LAMal health-insurance comparator</a> for the cheapest premium in your Swiss work municipality; <a href="${fuel}" style="color:var(--color-link)">daily Swiss fuel price</a> from TCS Benzinpreis; and the <a href="${jobs}" style="color:var(--color-link)">cross-border job board</a> with 2000+ active listings in Ticino and the other Swiss cantons.`,
+          a: `Beyond the salary simulator: <a class="s-IjpSYt" href="${fx}">CHF/EUR exchange comparator</a> with rates from Italian banks, Swiss bureaux de change and Wise/Revolut; <a class="s-IjpSYt" href="${health}">LAMal health-insurance comparator</a> for the cheapest premium in your Swiss work municipality; <a class="s-IjpSYt" href="${fuel}">daily Swiss fuel price</a> from TCS Benzinpreis; and the <a class="s-IjpSYt" href="${jobs}">cross-border job board</a> with 2000+ active listings in Ticino and the other Swiss cantons.`,
         },
       ],
       relatedHeading: 'Related tools',
-      relatedBody: `Close the loop before accepting a Swiss offer: <a href="${calc}" style="color:var(--color-link)">net salary calculator</a> (legacy + 2024 new agreement), <a href="${fx}" style="color:var(--color-link)">CHF/EUR exchange</a>, <a href="${health}" style="color:var(--color-link)">LAMal health-insurance comparator</a>, <a href="${fuel}" style="color:var(--color-link)">Swiss petrol/diesel price</a> updated every night, <a href="${jobs}" style="color:var(--color-link)">cross-border job board</a> with the employers that are hiring.`,
+      relatedBody: `Close the loop before accepting a Swiss offer: <a class="s-IjpSYt" href="${calc}">net salary calculator</a> (legacy + 2024 new agreement), <a class="s-IjpSYt" href="${fx}">CHF/EUR exchange</a>, <a class="s-IjpSYt" href="${health}">LAMal health-insurance comparator</a>, <a class="s-IjpSYt" href="${fuel}">Swiss petrol/diesel price</a> updated every night, <a class="s-IjpSYt" href="${jobs}">cross-border job board</a> with the employers that are hiring.`,
     };
   }
 
@@ -211,7 +211,7 @@ function buildCopy(locale: BridgeProseLocale): ProseCopy {
         generic: `Frontaliere Ticino bietet Rechner, Vergleicher und Leitfäden für italienisch-ansässige Personen, die in der Schweiz arbeiten — oder für jeden, der einen Umzug mit B-Bewilligung erwägt. Alle Tools sind gratis, ohne Anmeldung, und berücksichtigen das bilaterale Abkommen 2024 für neue Grenzgänger.`,
       },
       permitHeading: 'G-Bewilligung, B-Bewilligung und das bilaterale Abkommen 2024',
-      permitBody: `Die G-Bewilligung ist Pflicht für Ansässige innerhalb 20 km der Schweizer Grenze (Lombardei, Piemont und — für neue Pendler ab 2024 — auch Aostatal), die in der Schweiz arbeiten und mindestens wöchentlich zum italienischen Wohnsitz zurückkehren. Die Erstausstellung dauert 2-6 Wochen nach Vertragsunterzeichnung, danach jährliche Verlängerung. Das Steuerabkommen Italien-Schweiz 2024 sieht eine konkurrierende Besteuerung mit italienischer Steuergutschrift bis 80 % der schweizerischen Quellensteuer für neue Grenzgänger (Anstellung ab 17. Juli 2023) und 10'000 EUR Freibetrag vor; Personen, die vor diesem Datum bereits als Grenzgänger eingestuft waren, behalten das alte Regime exklusiver schweizerischer Besteuerung mit 38,8 % Rückerstattung an die italienische Wohngemeinde. Um das tatsächliche Netto zu simulieren, öffnen Sie den <a href="${calc}" style="color:var(--color-link)">Grenzgänger-Lohnrechner</a>: beide Regime, CHF/EUR-Umrechnung, Schätzung der Gemeinde-Rückerstattung.`,
+      permitBody: `Die G-Bewilligung ist Pflicht für Ansässige innerhalb 20 km der Schweizer Grenze (Lombardei, Piemont und — für neue Pendler ab 2024 — auch Aostatal), die in der Schweiz arbeiten und mindestens wöchentlich zum italienischen Wohnsitz zurückkehren. Die Erstausstellung dauert 2-6 Wochen nach Vertragsunterzeichnung, danach jährliche Verlängerung. Das Steuerabkommen Italien-Schweiz 2024 sieht eine konkurrierende Besteuerung mit italienischer Steuergutschrift bis 80 % der schweizerischen Quellensteuer für neue Grenzgänger (Anstellung ab 17. Juli 2023) und 10'000 EUR Freibetrag vor; Personen, die vor diesem Datum bereits als Grenzgänger eingestuft waren, behalten das alte Regime exklusiver schweizerischer Besteuerung mit 38,8 % Rückerstattung an die italienische Wohngemeinde. Um das tatsächliche Netto zu simulieren, öffnen Sie den <a class="s-IjpSYt" href="${calc}">Grenzgänger-Lohnrechner</a>: beide Regime, CHF/EUR-Umrechnung, Schätzung der Gemeinde-Rückerstattung.`,
       faqHeading: 'Häufige Fragen italienisch-schweizerischer Grenzgänger',
       faqs: [
         {
@@ -220,15 +220,15 @@ function buildCopy(locale: BridgeProseLocale): ProseCopy {
         },
         {
           q: `Lohnt sich ein Schweizer Lohn wirklich verglichen mit dem italienischen Brutto?`,
-          a: `Das schweizerische Netto hängt von vier Variablen ab: kantonale Quellensteuer (Stufen 4-19 % je nach Brutto, Zivilstand und Kindern), Sozialabgaben (AHV-IV-EO 5,3 % fix, ALV 1,1 %, BVG 7-18 % nach Alter), Steuerabkommen 2024 mit italienischer Steuergutschrift und Pendelkosten (Treibstoff, Autobahn, Fahrzeugverschleiss, KVG). Mit dem <a href="${calc}" style="color:var(--color-link)">Lohnrechner</a> geben Sie das Brutto einer konkreten Stellenausschreibung ein und erhalten das tatsächliche Monatsnetto in CHF und EUR, direkt vergleichbar mit dem italienischen Netto Ihrer Wohnregion.`,
+          a: `Das schweizerische Netto hängt von vier Variablen ab: kantonale Quellensteuer (Stufen 4-19 % je nach Brutto, Zivilstand und Kindern), Sozialabgaben (AHV-IV-EO 5,3 % fix, ALV 1,1 %, BVG 7-18 % nach Alter), Steuerabkommen 2024 mit italienischer Steuergutschrift und Pendelkosten (Treibstoff, Autobahn, Fahrzeugverschleiss, KVG). Mit dem <a class="s-IjpSYt" href="${calc}">Lohnrechner</a> geben Sie das Brutto einer konkreten Stellenausschreibung ein und erhalten das tatsächliche Monatsnetto in CHF und EUR, direkt vergleichbar mit dem italienischen Netto Ihrer Wohnregion.`,
         },
         {
           q: `Welche anderen gratis Tools bietet die Plattform?`,
-          a: `Neben dem Lohnrechner: <a href="${fx}" style="color:var(--color-link)">CHF/EUR-Wechselkursvergleich</a> mit den Kursen italienischer Banken, Schweizer Wechselstuben und Wise/Revolut; <a href="${health}" style="color:var(--color-link)">KVG-Krankenkassen-Vergleich</a> für die günstigste Prämie in Ihrer Schweizer Arbeitsgemeinde; <a href="${fuel}" style="color:var(--color-link)">täglicher Schweizer Benzinpreis</a> von TCS Benzinpreis; und das <a href="${jobs}" style="color:var(--color-link)">Grenzgänger-Job-Board</a> mit 2000+ aktiven Stellen im Tessin und den anderen Schweizer Kantonen.`,
+          a: `Neben dem Lohnrechner: <a class="s-IjpSYt" href="${fx}">CHF/EUR-Wechselkursvergleich</a> mit den Kursen italienischer Banken, Schweizer Wechselstuben und Wise/Revolut; <a class="s-IjpSYt" href="${health}">KVG-Krankenkassen-Vergleich</a> für die günstigste Prämie in Ihrer Schweizer Arbeitsgemeinde; <a class="s-IjpSYt" href="${fuel}">täglicher Schweizer Benzinpreis</a> von TCS Benzinpreis; und das <a class="s-IjpSYt" href="${jobs}">Grenzgänger-Job-Board</a> mit 2000+ aktiven Stellen im Tessin und den anderen Schweizer Kantonen.`,
         },
       ],
       relatedHeading: 'Verwandte Tools',
-      relatedBody: `Den Kreis schliessen vor der Annahme eines Schweizer Angebots: <a href="${calc}" style="color:var(--color-link)">Netto-Lohnrechner</a> (altes + neues Abkommen 2024), <a href="${fx}" style="color:var(--color-link)">CHF/EUR-Wechselkurs</a>, <a href="${health}" style="color:var(--color-link)">KVG-Krankenkassen-Vergleich</a>, <a href="${fuel}" style="color:var(--color-link)">Schweizer Benzin-/Dieselpreis</a> nächtlich aktualisiert, <a href="${jobs}" style="color:var(--color-link)">Grenzgänger-Job-Board</a> mit Arbeitgebern, die einstellen.`,
+      relatedBody: `Den Kreis schliessen vor der Annahme eines Schweizer Angebots: <a class="s-IjpSYt" href="${calc}">Netto-Lohnrechner</a> (altes + neues Abkommen 2024), <a class="s-IjpSYt" href="${fx}">CHF/EUR-Wechselkurs</a>, <a class="s-IjpSYt" href="${health}">KVG-Krankenkassen-Vergleich</a>, <a class="s-IjpSYt" href="${fuel}">Schweizer Benzin-/Dieselpreis</a> nächtlich aktualisiert, <a class="s-IjpSYt" href="${jobs}">Grenzgänger-Job-Board</a> mit Arbeitgebern, die einstellen.`,
     };
   }
 
@@ -248,7 +248,7 @@ function buildCopy(locale: BridgeProseLocale): ProseCopy {
       generic: `Frontaliere Ticino propose calculateurs, comparateurs et guides destinés aux résidents italiens travaillant en Suisse — ou à quiconque envisage un déménagement avec permis B. Tous les outils sont gratuits, sans inscription, et tiennent compte du Nouvel Accord bilatéral 2024 pour les nouveaux frontaliers.`,
     },
     permitHeading: 'Permis G, permis B et Nouvel Accord bilatéral 2024',
-    permitBody: `Le permis G est obligatoire pour les résidents dans un rayon de 20 km de la frontière suisse (Lombardie, Piémont et — pour les nouveaux pendulaires depuis 2024 — Vallée d'Aoste aussi) qui travaillent en Suisse avec un retour hebdomadaire minimum au domicile italien. La première délivrance prend 2-6 semaines après signature du contrat, puis renouvellement annuel jusqu'à la fin du contrat. L'accord fiscal Italie-Suisse 2024 prévoit une taxation concurrente avec crédit d'impôt italien jusqu'à 80 % de la retenue suisse pour les nouveaux frontaliers (engagés après le 17 juillet 2023), avec un abattement de 10 000 EUR ; les personnes déjà classées frontalières avant cette date conservent l'ancien régime de taxation suisse exclusive avec rétrocession de 38,8 % à la commune italienne de résidence. Pour simuler le net réel, ouvrez le <a href="${calc}" style="color:var(--color-link)">calculateur de salaire frontalier</a> : les deux régimes, conversion CHF/EUR, estimation de la rétrocession communale.`,
+    permitBody: `Le permis G est obligatoire pour les résidents dans un rayon de 20 km de la frontière suisse (Lombardie, Piémont et — pour les nouveaux pendulaires depuis 2024 — Vallée d'Aoste aussi) qui travaillent en Suisse avec un retour hebdomadaire minimum au domicile italien. La première délivrance prend 2-6 semaines après signature du contrat, puis renouvellement annuel jusqu'à la fin du contrat. L'accord fiscal Italie-Suisse 2024 prévoit une taxation concurrente avec crédit d'impôt italien jusqu'à 80 % de la retenue suisse pour les nouveaux frontaliers (engagés après le 17 juillet 2023), avec un abattement de 10 000 EUR ; les personnes déjà classées frontalières avant cette date conservent l'ancien régime de taxation suisse exclusive avec rétrocession de 38,8 % à la commune italienne de résidence. Pour simuler le net réel, ouvrez le <a class="s-IjpSYt" href="${calc}">calculateur de salaire frontalier</a> : les deux régimes, conversion CHF/EUR, estimation de la rétrocession communale.`,
     faqHeading: 'Questions fréquentes des frontaliers italo-suisses',
     faqs: [
       {
@@ -257,15 +257,15 @@ function buildCopy(locale: BridgeProseLocale): ProseCopy {
       },
       {
         q: `Le salaire suisse vaut-il vraiment la peine comparé au brut italien ?`,
-        a: `Le net suisse dépend de quatre variables : impôt à la source cantonal (tranches 4-19 % selon brut, état civil et enfants), charges sociales (AVS-AI-APG 5,3 % fixe, chômage 1,1 %, LPP 7-18 % par âge), accord fiscal 2024 avec crédit d'impôt italien, et coûts de trajet (carburant, autoroute, usure du véhicule, LAMal). Ouvrez le <a href="${calc}" style="color:var(--color-link)">simulateur</a> avec le brut d'une annonce concrète et vous obtenez le net mensuel réel en CHF et en EUR, directement comparable avec le net italien de votre zone de résidence.`,
+        a: `Le net suisse dépend de quatre variables : impôt à la source cantonal (tranches 4-19 % selon brut, état civil et enfants), charges sociales (AVS-AI-APG 5,3 % fixe, chômage 1,1 %, LPP 7-18 % par âge), accord fiscal 2024 avec crédit d'impôt italien, et coûts de trajet (carburant, autoroute, usure du véhicule, LAMal). Ouvrez le <a class="s-IjpSYt" href="${calc}">simulateur</a> avec le brut d'une annonce concrète et vous obtenez le net mensuel réel en CHF et en EUR, directement comparable avec le net italien de votre zone de résidence.`,
       },
       {
         q: `Quels autres outils gratuits propose le site ?`,
-        a: `Au-delà du simulateur de salaire : <a href="${fx}" style="color:var(--color-link)">comparateur de change CHF/EUR</a> avec les taux des banques italiennes, bureaux de change suisses et Wise/Revolut ; <a href="${health}" style="color:var(--color-link)">comparateur LAMal des caisses maladie</a> pour la prime la moins chère dans votre commune de travail suisse ; <a href="${fuel}" style="color:var(--color-link)">prix quotidien du carburant suisse</a> depuis TCS Benzinpreis ; et le <a href="${jobs}" style="color:var(--color-link)">job-board frontalier</a> avec 2000+ offres actives au Tessin et dans les autres cantons suisses.`,
+        a: `Au-delà du simulateur de salaire : <a class="s-IjpSYt" href="${fx}">comparateur de change CHF/EUR</a> avec les taux des banques italiennes, bureaux de change suisses et Wise/Revolut ; <a class="s-IjpSYt" href="${health}">comparateur LAMal des caisses maladie</a> pour la prime la moins chère dans votre commune de travail suisse ; <a class="s-IjpSYt" href="${fuel}">prix quotidien du carburant suisse</a> depuis TCS Benzinpreis ; et le <a class="s-IjpSYt" href="${jobs}">job-board frontalier</a> avec 2000+ offres actives au Tessin et dans les autres cantons suisses.`,
       },
     ],
     relatedHeading: 'Outils associés',
-    relatedBody: `Pour boucler la boucle avant d'accepter une offre suisse : <a href="${calc}" style="color:var(--color-link)">calculateur de salaire net</a> (ancien + nouvel Accord 2024), <a href="${fx}" style="color:var(--color-link)">change CHF/EUR</a>, <a href="${health}" style="color:var(--color-link)">comparateur LAMal des caisses maladie</a>, <a href="${fuel}" style="color:var(--color-link)">prix de l'essence/diesel suisse</a> actualisé chaque nuit, <a href="${jobs}" style="color:var(--color-link)">job-board frontalier</a> avec les employeurs qui recrutent.`,
+    relatedBody: `Pour boucler la boucle avant d'accepter une offre suisse : <a class="s-IjpSYt" href="${calc}">calculateur de salaire net</a> (ancien + nouvel Accord 2024), <a class="s-IjpSYt" href="${fx}">change CHF/EUR</a>, <a class="s-IjpSYt" href="${health}">comparateur LAMal des caisses maladie</a>, <a class="s-IjpSYt" href="${fuel}">prix de l'essence/diesel suisse</a> actualisé chaque nuit, <a class="s-IjpSYt" href="${jobs}">job-board frontalier</a> avec les employeurs qui recrutent.`,
   };
 }
 
@@ -295,19 +295,19 @@ export function renderBridgePageProse(opts: BridgePageProseOpts): string {
   const faqHtml = copy.faqs
     .map(
       (f) =>
-        `<details style="background:var(--color-surface);border:1px solid var(--color-edge);border-radius:10px;padding:12px 14px;margin:8px 0"><summary style="font-weight:700;cursor:pointer;color:var(--color-heading);font-size:14.5px">${esc(f.q)}</summary><p style="margin:8px 0 0;color:var(--color-body);line-height:1.65;font-size:14.5px">${f.a}</p></details>`,
+        `<details class="s-6l74G5"><summary class="s-uwtLRE">${esc(f.q)}</summary><p class="s-JDVT3O">${f.a}</p></details>`,
     )
     .join('');
 
-  const html = `<section class="bridge-page-prose" data-bridge-kind="${esc(bridgeKind)}" data-locale="${esc(locale)}" style="max-width:860px;margin:32px auto 0;color:var(--color-body);line-height:1.65;font-size:15px">
-  <h2 style="font-size:20px;font-weight:700;color:var(--color-heading);margin:24px 0 12px">${esc(copy.contextHeading)}</h2>
-  <p style="margin:0 0 14px">${opener}</p>
-  <h3 style="font-size:17px;font-weight:700;color:var(--color-heading);margin:22px 0 8px">${esc(copy.permitHeading)}</h3>
-  <p style="margin:0 0 14px;font-size:14.5px">${copy.permitBody}</p>
-  <h3 style="font-size:17px;font-weight:700;color:var(--color-heading);margin:22px 0 8px">${esc(copy.faqHeading)}</h3>
+  const html = `<section class="bridge-page-prose s-A_RnbE" data-bridge-kind="${esc(bridgeKind)}" data-locale="${esc(locale)}">
+  <h2 class="s-WaVHtT">${esc(copy.contextHeading)}</h2>
+  <p class="s-clIDbe">${opener}</p>
+  <h3 class="s-XD0S4S">${esc(copy.permitHeading)}</h3>
+  <p class="s-JG9W4o">${copy.permitBody}</p>
+  <h3 class="s-XD0S4S">${esc(copy.faqHeading)}</h3>
   ${faqHtml}
-  <h3 style="font-size:17px;font-weight:700;color:var(--color-heading);margin:22px 0 8px">${esc(copy.relatedHeading)}</h3>
-  <p style="margin:0 0 8px;font-size:14.5px">${copy.relatedBody}</p>
+  <h3 class="s-XD0S4S">${esc(copy.relatedHeading)}</h3>
+  <p class="s-CxF6Qp">${copy.relatedBody}</p>
 </section>`;
   PROSE_CACHE.set(cacheKey, html);
   return html;

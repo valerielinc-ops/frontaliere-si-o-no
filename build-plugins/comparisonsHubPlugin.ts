@@ -144,19 +144,19 @@ function renderSalaryTable(copy: ComparisonsHubCopy, rows: readonly SalarySector
           (r) =>
             `<tr>
               <td>${esc(r.sector)}</td>
-              <td style="text-align:right">${fmtInt(r.count, locale)}</td>
-              <td style="text-align:right">${fmtInt(r.medianCHF, locale)}</td>
-              <td style="text-align:right">${fmtInt(r.estimatedItalyEUR, locale)}</td>
-              <td style="text-align:right">${fmtRatio(r.ratio, locale)}</td>
+              <td class="s-XzJlZK">${fmtInt(r.count, locale)}</td>
+              <td class="s-XzJlZK">${fmtInt(r.medianCHF, locale)}</td>
+              <td class="s-XzJlZK">${fmtInt(r.estimatedItalyEUR, locale)}</td>
+              <td class="s-XzJlZK">${fmtRatio(r.ratio, locale)}</td>
             </tr>`,
         )
         .join('')
-    : `<tr><td colspan="5" style="text-align:center;color:var(--color-subtle);padding:18px">—</td></tr>`;
-  return `<figure style="margin:0 0 28px" data-speakable>
-  <figcaption style="font-weight:700;margin:0 0 8px;color:var(--color-heading)">${esc(copy.tSalaryCaption)}</figcaption>
-  <div style="overflow-x:auto;border:1px solid var(--color-edge);border-radius:12px">
-    <table style="width:100%;border-collapse:collapse;min-width:640px;font-size:14px">
-      <thead style="background:var(--color-surface-alt)">
+    : `<tr><td class="s-RgFW0A" colspan="5">—</td></tr>`;
+  return `<figure class="s-KZc0LQ" data-speakable>
+  <figcaption class="s-USTxiS">${esc(copy.tSalaryCaption)}</figcaption>
+  <div class="s-hrA9tN">
+    <table class="s-Tiw3aV">
+      <thead class="s-_esAK2">
         <tr>
           <th style="${TABLE_HEAD_STYLE};text-align:left">${esc(copy.tSalaryColSector)}</th>
           <th style="${TABLE_HEAD_STYLE};text-align:right">${esc(copy.tSalaryColObservations)}</th>
@@ -165,12 +165,12 @@ function renderSalaryTable(copy: ComparisonsHubCopy, rows: readonly SalarySector
           <th style="${TABLE_HEAD_STYLE};text-align:right">${esc(copy.tSalaryColRatio)}</th>
         </tr>
       </thead>
-      <tbody style="color:var(--color-body)">
-        ${tbody.replace(/<td>/g, `<td style="${TABLE_CELL_STYLE}">`).replace(/<td style="text-align:right">/g, `<td style="${TABLE_CELL_STYLE};text-align:right">`)}
+      <tbody class="s-_B4enX">
+        ${tbody.replace(/<td>/g, `<td style="${TABLE_CELL_STYLE}">`).replace(/<td class="s-XzJlZK">/g, `<td style="${TABLE_CELL_STYLE};text-align:right">`)}
       </tbody>
     </table>
   </div>
-  <p style="margin:10px 0 0;font-size:12px;color:var(--color-subtle);line-height:1.5">${mdLinks(copy.tSalaryFooter)}</p>
+  <p class="s-M4R4f8">${mdLinks(copy.tSalaryFooter)}</p>
 </figure>`;
 }
 
@@ -185,11 +185,11 @@ function renderTaxTable(copy: ComparisonsHubCopy): string {
       </tr>`,
     )
     .join('');
-  return `<figure style="margin:0 0 28px" data-speakable>
-  <figcaption style="font-weight:700;margin:0 0 8px;color:var(--color-heading)">${esc(copy.tTaxCaption)}</figcaption>
-  <div style="overflow-x:auto;border:1px solid var(--color-edge);border-radius:12px">
-    <table style="width:100%;border-collapse:collapse;min-width:640px;font-size:14px">
-      <thead style="background:var(--color-surface-alt)">
+  return `<figure class="s-KZc0LQ" data-speakable>
+  <figcaption class="s-USTxiS">${esc(copy.tTaxCaption)}</figcaption>
+  <div class="s-hrA9tN">
+    <table class="s-Tiw3aV">
+      <thead class="s-_esAK2">
         <tr>
           <th style="${TABLE_HEAD_STYLE};text-align:left">${esc(copy.tTaxColScenario)}</th>
           <th style="${TABLE_HEAD_STYLE};text-align:right">${esc(copy.tTaxColChTotal)}</th>
@@ -197,10 +197,10 @@ function renderTaxTable(copy: ComparisonsHubCopy): string {
           <th style="${TABLE_HEAD_STYLE};text-align:right">${esc(copy.tTaxColNetDelta)}</th>
         </tr>
       </thead>
-      <tbody style="color:var(--color-body)">${rows}</tbody>
+      <tbody class="s-_B4enX">${rows}</tbody>
     </table>
   </div>
-  <p style="margin:10px 0 0;font-size:12px;color:var(--color-subtle);line-height:1.5">${mdLinks(copy.tTaxFooter)}</p>
+  <p class="s-M4R4f8">${mdLinks(copy.tTaxFooter)}</p>
 </figure>`;
 }
 
@@ -214,22 +214,22 @@ function renderHealthTable(copy: ComparisonsHubCopy, rows: readonly LamalCantonR
       </tr>`,
     )
     .join('');
-  return `<figure style="margin:0 0 28px" data-speakable>
-  <figcaption style="font-weight:700;margin:0 0 8px;color:var(--color-heading)">${esc(copy.tHealthCaption)}</figcaption>
-  <div style="overflow-x:auto;border:1px solid var(--color-edge);border-radius:12px">
-    <table style="width:100%;border-collapse:collapse;min-width:520px;font-size:14px">
-      <thead style="background:var(--color-surface-alt)">
+  return `<figure class="s-KZc0LQ" data-speakable>
+  <figcaption class="s-USTxiS">${esc(copy.tHealthCaption)}</figcaption>
+  <div class="s-hrA9tN">
+    <table class="s-8y_5Dt">
+      <thead class="s-_esAK2">
         <tr>
           <th style="${TABLE_HEAD_STYLE};text-align:left">${esc(copy.tHealthColCanton)}</th>
           <th style="${TABLE_HEAD_STYLE};text-align:right">${esc(copy.tHealthColMonthly)}</th>
           <th style="${TABLE_HEAD_STYLE};text-align:right">${esc(copy.tHealthColAnnual)}</th>
         </tr>
       </thead>
-      <tbody style="color:var(--color-body)">${tbody}</tbody>
+      <tbody class="s-_B4enX">${tbody}</tbody>
     </table>
   </div>
-  <p style="margin:10px 0 0;font-size:12px;color:var(--color-subtle);line-height:1.5">${mdLinks(copy.tHealthFooter)}</p>
-  <p style="margin:8px 0 0;font-size:13px;color:var(--color-body);line-height:1.6">${mdLinks(copy.tHealthContext)}</p>
+  <p class="s-M4R4f8">${mdLinks(copy.tHealthFooter)}</p>
+  <p class="s-4s9CFT">${mdLinks(copy.tHealthContext)}</p>
 </figure>`;
 }
 
@@ -243,21 +243,21 @@ function renderBenefitsTable(copy: ComparisonsHubCopy): string {
       </tr>`,
     )
     .join('');
-  return `<figure style="margin:0 0 28px" data-speakable>
-  <figcaption style="font-weight:700;margin:0 0 8px;color:var(--color-heading)">${esc(copy.tBenefitsCaption)}</figcaption>
-  <div style="overflow-x:auto;border:1px solid var(--color-edge);border-radius:12px">
-    <table style="width:100%;border-collapse:collapse;min-width:720px;font-size:14px">
-      <thead style="background:var(--color-surface-alt)">
+  return `<figure class="s-KZc0LQ" data-speakable>
+  <figcaption class="s-USTxiS">${esc(copy.tBenefitsCaption)}</figcaption>
+  <div class="s-hrA9tN">
+    <table class="s-iPczBT">
+      <thead class="s-_esAK2">
         <tr>
           <th style="${TABLE_HEAD_STYLE};text-align:left">${esc(copy.tBenefitsColArea)}</th>
           <th style="${TABLE_HEAD_STYLE};text-align:left">${esc(copy.tBenefitsColCh)}</th>
           <th style="${TABLE_HEAD_STYLE};text-align:left">${esc(copy.tBenefitsColIt)}</th>
         </tr>
       </thead>
-      <tbody style="color:var(--color-body)">${rows}</tbody>
+      <tbody class="s-_B4enX">${rows}</tbody>
     </table>
   </div>
-  <p style="margin:10px 0 0;font-size:12px;color:var(--color-subtle);line-height:1.5">${mdLinks(copy.tBenefitsFooter)}</p>
+  <p class="s-M4R4f8">${mdLinks(copy.tBenefitsFooter)}</p>
 </figure>`;
 }
 
@@ -271,21 +271,21 @@ function renderCostTable(copy: ComparisonsHubCopy): string {
       </tr>`,
     )
     .join('');
-  return `<figure style="margin:0 0 28px" data-speakable>
-  <figcaption style="font-weight:700;margin:0 0 8px;color:var(--color-heading)">${esc(copy.tCostCaption)}</figcaption>
-  <div style="overflow-x:auto;border:1px solid var(--color-edge);border-radius:12px">
-    <table style="width:100%;border-collapse:collapse;min-width:560px;font-size:14px">
-      <thead style="background:var(--color-surface-alt)">
+  return `<figure class="s-KZc0LQ" data-speakable>
+  <figcaption class="s-USTxiS">${esc(copy.tCostCaption)}</figcaption>
+  <div class="s-hrA9tN">
+    <table class="s-asm5zV">
+      <thead class="s-_esAK2">
         <tr>
           <th style="${TABLE_HEAD_STYLE};text-align:left">${esc(copy.tCostColItem)}</th>
           <th style="${TABLE_HEAD_STYLE};text-align:right">${esc(copy.tCostColCh)}</th>
           <th style="${TABLE_HEAD_STYLE};text-align:right">${esc(copy.tCostColIt)}</th>
         </tr>
       </thead>
-      <tbody style="color:var(--color-body)">${rows}</tbody>
+      <tbody class="s-_B4enX">${rows}</tbody>
     </table>
   </div>
-  <p style="margin:10px 0 0;font-size:12px;color:var(--color-subtle);line-height:1.5">${mdLinks(copy.tCostFooter)}</p>
+  <p class="s-M4R4f8">${mdLinks(copy.tCostFooter)}</p>
 </figure>`;
 }
 
@@ -293,9 +293,9 @@ function renderFaqBlock(faqs: ComparisonsHubCopy['faqs']): string {
   return faqs
     .map(
       (f) => `
-      <details style="margin:0 0 10px;padding:14px 16px;border:1px solid var(--color-edge);border-radius:12px;background:var(--color-surface)">
-        <summary style="font-weight:700;cursor:pointer;color:var(--color-heading);line-height:1.45">${esc(f.question)}</summary>
-        <p style="margin:10px 0 0;color:var(--color-body);line-height:1.65">${mdLinks(f.answer)}</p>
+      <details class="s-RTovxW">
+        <summary class="s-ZAbW3N">${esc(f.question)}</summary>
+        <p class="s-XXXebZ">${mdLinks(f.answer)}</p>
       </details>`,
     )
     .join('');
@@ -305,10 +305,10 @@ function renderRelatedLinks(locale: ComparisonsLocale, label: string): string {
   const items = RELATED_LINKS[locale]
     .map(
       (l) =>
-        `<li style="margin:0 0 8px"><a href="${esc(l.href)}" style="${LINK_ACCENT_STYLE}">${esc(l.label)}</a></li>`,
+        `<li class="s-Pkexk_"><a href="${esc(l.href)}" style="${LINK_ACCENT_STYLE}">${esc(l.label)}</a></li>`,
     )
     .join('');
-  return `<section style="margin:0 0 28px"><h2 style="margin:0 0 12px;font-size:22px;color:var(--color-heading)">${esc(label)}</h2><ul style="margin:0 0 0 20px;padding:0;color:var(--color-body);line-height:1.55;max-width:860px">${items}</ul></section>`;
+  return `<section class="s-KZc0LQ"><h2 class="s-JpGPuV">${esc(label)}</h2><ul class="s-Bidr8Y">${items}</ul></section>`;
 }
 
 // ── Page rendering ───────────────────────────────────────────────
@@ -362,7 +362,7 @@ function renderPage(opts: {
   const tldrParas = copy.tldrParagraphs
     .map(
       (p) =>
-        `<p style="margin:0 0 14px;color:var(--color-body);line-height:1.7;max-width:860px">${esc(p)}</p>`,
+        `<p class="s-KwuhOL">${esc(p)}</p>`,
     )
     .join('');
 
@@ -370,59 +370,59 @@ function renderPage(opts: {
   const relatedHtml = renderRelatedLinks(locale, copy.relatedTitle);
 
   const body = `
-    <nav style="margin:0 0 14px;font-size:13px;color:var(--color-subtle)" aria-label="Breadcrumb">
+    <nav class="s-Vigh-K" aria-label="Breadcrumb">
       <a href="${esc(homeUrl)}" style="${LINK_ACCENT_STYLE}">${esc(copy.breadcrumbHome)}</a>
       <span> / </span>
       <a href="${esc(hubParentUrl)}" style="${LINK_ACCENT_STYLE}">${esc(copy.breadcrumbHub)}</a>
       <span> / </span>
       <span>${esc(copy.h1)}</span>
     </nav>
-    <header style="margin-bottom:24px">
-      <p style="margin:0 0 8px;color:var(--color-accent);font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:0.04em">${esc(copy.updatedLabel)} · ${esc(dateStamp)}</p>
+    <header class="s-sy52lX">
+      <p class="s-GMBtq0">${esc(copy.updatedLabel)} · ${esc(dateStamp)}</p>
       <!-- Demoted from <h1> to <h2> in Phase 4C: hubChrome's hero already emits
            the page's primary <h1>, and Semrush W6 / Issue 104 flagged the
            comparisons + FAQ hubs for shipping two H1 tags. The longer
            "Confronti Svizzera vs Italia per frontalieri (2026)" string remains
            the most descriptive heading in the body content. -->
-      <h2 style="margin:0 0 16px;font-size:clamp(1.9rem,4vw,2.8rem);line-height:1.15;font-weight:800">${esc(copy.h1)}</h2>
+      <h2 class="s-YhHKey">${esc(copy.h1)}</h2>
     </header>
-    <section style="margin:0 0 28px" data-speakable aria-label="TL;DR">
-      <h2 style="margin:0 0 12px;font-size:24px;color:var(--color-heading)">${esc(copy.tldrTitle)}</h2>
+    <section class="s-KZc0LQ" data-speakable aria-label="TL;DR">
+      <h2 class="s-q_J6t9">${esc(copy.tldrTitle)}</h2>
       ${tldrParas}
     </section>
-    <section style="margin:0 0 28px">
-      <h2 style="margin:0 0 10px;font-size:22px;color:var(--color-heading)">${esc(copy.tSalaryCaption)}</h2>
-      <p style="margin:0 0 14px;color:var(--color-body);line-height:1.7;max-width:860px">${esc(copy.salaryIntro)}</p>
+    <section class="s-KZc0LQ">
+      <h2 class="s-UYLzwC">${esc(copy.tSalaryCaption)}</h2>
+      <p class="s-KwuhOL">${esc(copy.salaryIntro)}</p>
       ${salaryTable}
     </section>
-    <section style="margin:0 0 28px">
-      <h2 style="margin:0 0 10px;font-size:22px;color:var(--color-heading)">${esc(copy.tTaxCaption)}</h2>
-      <p style="margin:0 0 14px;color:var(--color-body);line-height:1.7;max-width:860px">${esc(copy.taxIntro)}</p>
+    <section class="s-KZc0LQ">
+      <h2 class="s-UYLzwC">${esc(copy.tTaxCaption)}</h2>
+      <p class="s-KwuhOL">${esc(copy.taxIntro)}</p>
       ${taxTable}
     </section>
-    <section style="margin:0 0 28px">
-      <h2 style="margin:0 0 10px;font-size:22px;color:var(--color-heading)">${esc(copy.tHealthCaption)}</h2>
-      <p style="margin:0 0 14px;color:var(--color-body);line-height:1.7;max-width:860px">${esc(copy.healthIntro)}</p>
+    <section class="s-KZc0LQ">
+      <h2 class="s-UYLzwC">${esc(copy.tHealthCaption)}</h2>
+      <p class="s-KwuhOL">${esc(copy.healthIntro)}</p>
       ${healthTable}
     </section>
-    <section style="margin:0 0 28px">
-      <h2 style="margin:0 0 10px;font-size:22px;color:var(--color-heading)">${esc(copy.tBenefitsCaption)}</h2>
-      <p style="margin:0 0 14px;color:var(--color-body);line-height:1.7;max-width:860px">${esc(copy.benefitsIntro)}</p>
+    <section class="s-KZc0LQ">
+      <h2 class="s-UYLzwC">${esc(copy.tBenefitsCaption)}</h2>
+      <p class="s-KwuhOL">${esc(copy.benefitsIntro)}</p>
       ${benefitsTable}
     </section>
-    <section style="margin:0 0 28px">
-      <h2 style="margin:0 0 10px;font-size:22px;color:var(--color-heading)">${esc(copy.tCostCaption)}</h2>
-      <p style="margin:0 0 14px;color:var(--color-body);line-height:1.7;max-width:860px">${esc(copy.costIntro)}</p>
+    <section class="s-KZc0LQ">
+      <h2 class="s-UYLzwC">${esc(copy.tCostCaption)}</h2>
+      <p class="s-KwuhOL">${esc(copy.costIntro)}</p>
       ${costTable}
     </section>
-    <section style="margin:0 0 28px">
-      <h2 style="margin:0 0 12px;font-size:24px;color:var(--color-heading)">${esc(copy.faqTitle)}</h2>
+    <section class="s-KZc0LQ">
+      <h2 class="s-q_J6t9">${esc(copy.faqTitle)}</h2>
       ${faqHtml}
     </section>
-    <p style="margin:0 0 20px;color:var(--color-subtle);font-size:13px;line-height:1.55;max-width:860px">${esc(copy.disclaimer)}</p>
+    <p class="s-kddz8N">${esc(copy.disclaimer)}</p>
     ${relatedHtml}`;
 
-  const bodyHtml = `<main class="seo-static-content" style="max-width:1100px;margin:0 auto;padding:32px 20px 56px;color:var(--color-body);background:var(--color-surface-alt)">${body}</main>`;
+  const bodyHtml = `<main class="seo-static-content s-EDtWsL">${body}</main>`;
 
   // ── Structured data ────────────────────────────────────────────
   const breadcrumbLd = JSON.stringify({

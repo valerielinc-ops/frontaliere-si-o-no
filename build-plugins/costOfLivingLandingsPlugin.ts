@@ -186,7 +186,7 @@ export function renderFeaturedJobs(
   }));
   const allJobsHref = buildJobBoardUrl(locale);
   const emptyHtml = `<div style="${CARD_STYLE};display:flex;flex-direction:column;gap:10px">
-    <p style="margin:0;color:var(--color-body);font-size:14px;line-height:1.55">${esc(pickEmptyState(cityId, locale))}</p>
+    <p class="s-roj_d-">${esc(pickEmptyState(cityId, locale))}</p>
     <a href="${esc(allJobsHref)}" style="${LINK_ACCENT_STYLE};font-weight:700;font-size:15px">${esc(view.featuredJobsCtaAll)}</a>
   </div>`;
   const listHtml = renderJobCardListHtml(items, {
@@ -197,8 +197,8 @@ export function renderFeaturedJobs(
   const ctaLabel = snapshot.featured.length > 0 && snapshot.liveCount > 0
     ? pickCtaAllJobs(cityId, locale, snapshot.liveCount)
     : view.featuredJobsCtaAll;
-  return `<section style="margin:0 0 28px">
-    <h2 style="margin:0 0 12px;font-size:22px;color:var(--color-heading);font-weight:700">${esc(view.featuredJobsTitle)}</h2>
+  return `<section class="s-KZc0LQ">
+    <h2 class="s-8dKmAe">${esc(view.featuredJobsTitle)}</h2>
     ${listHtml}
     ${snapshot.featured.length > 0 ? `<a href="${esc(ctaHref)}" style="${LINK_ACCENT_STYLE};font-weight:700;font-size:15px;display:inline-block;margin-top:14px">${esc(ctaLabel)}</a>` : ''}
   </section>`;
@@ -226,17 +226,17 @@ export function renderEmployerGrid(
     variant: 'compact',
   });
 
-  return `<section style="margin:0 0 28px">
-    <h2 style="margin:0 0 12px;font-size:22px;color:var(--color-heading);font-weight:700">${esc(view.employerGridTitle)}</h2>
+  return `<section class="s-KZc0LQ">
+    <h2 class="s-8dKmAe">${esc(view.employerGridTitle)}</h2>
     ${listHtml}
   </section>`;
 }
 
 function renderApprofondisciDivider(label: string): string {
-  return `<div role="separator" aria-label="${esc(label)}" style="margin:36px 0 28px;display:flex;align-items:center;gap:14px;color:var(--color-subtle)">
-    <span aria-hidden="true" style="flex:1;height:1px;background:var(--color-edge)"></span>
+  return `<div class="s-7V0OIo" role="separator" aria-label="${esc(label)}">
+    <span class="s-EIg6N7" aria-hidden="true"></span>
     <span style="${SMALL_HEADING_STYLE};margin:0">${esc(label)}</span>
-    <span aria-hidden="true" style="flex:1;height:1px;background:var(--color-edge)"></span>
+    <span class="s-EIg6N7" aria-hidden="true"></span>
   </div>`;
 }
 
@@ -393,7 +393,7 @@ function renderPage(opts: {
   const sectionsHtml = sections
     .map(
       (s) => `
-        <section style="margin:0 0 28px;max-width:960px">
+        <section class="s-9uoIN2">
           <h2 class="col-h2">${esc(s.title)}</h2>
           ${s.html}
         </section>`,
@@ -461,7 +461,7 @@ function renderPage(opts: {
     },
   ])}</div>`;
 
-  const primaryCtaHtml = `<div style="margin:0 0 28px"><a href="${esc(calculatorUrl)}" style="${CTA_PRIMARY_STYLE}">${esc(view.primaryCtaLabel)} →</a></div>`;
+  const primaryCtaHtml = `<div class="s-KZc0LQ"><a href="${esc(calculatorUrl)}" style="${CTA_PRIMARY_STYLE}">${esc(view.primaryCtaLabel)} →</a></div>`;
   const featuredHtml = renderFeaturedJobs(city, locale, snapshot, view);
   const employerGridHtml = renderEmployerGrid(snapshot, view, locale, city);
   const dividerHtml = renderApprofondisciDivider(view.approfondisciHeading);
@@ -491,7 +491,7 @@ function renderPage(opts: {
   const relatedHtml = L.related
     .map(
       (r) =>
-        `<li style="margin:0 0 8px"><a href="${esc(r.href)}" style="${LINK_ACCENT_STYLE}">${esc(r.label)}</a></li>`,
+        `<li class="s-Pkexk_"><a href="${esc(r.href)}" style="${LINK_ACCENT_STYLE}">${esc(r.label)}</a></li>`,
     )
     .join('');
 
@@ -510,7 +510,7 @@ function renderPage(opts: {
           medianSalary: snapshot.medianSalaryChf ?? undefined,
           city: cityName,
         }, h1, denseLede)
-      : `<header style="margin-bottom:20px">
+      : `<header class="s-YcUNX5">
       <p class="col-eyebrow">${esc(L.eyebrow(cityName))}</p>
       <h1 style="${H1_STYLE}">${esc(h1)}</h1>
       <p class="col-lede">${esc(denseLede)}</p>
@@ -522,20 +522,20 @@ function renderPage(opts: {
     ${employerGridHtml}
     ${dividerHtml}
     ${sectionsHtml}
-    <section style="margin:0 0 28px;max-width:960px">
+    <section class="s-9uoIN2">
       <h2 class="col-h2">${esc(L.faqTitle)}</h2>
       ${faqHtml}
     </section>
-    <section style="margin:0 0 28px;max-width:960px">
+    <section class="s-9uoIN2">
       <h2 class="col-h2">${esc(L.relatedLabel)}</h2>
-      <ul style="margin:0 0 0 20px;padding:0;color:var(--color-body);line-height:1.55">${relatedHtml}</ul>
+      <ul class="s-1HBTZ4">${relatedHtml}</ul>
     </section>
-    <section style="display:flex;gap:12px;flex-wrap:wrap;margin:0 0 16px">
+    <section class="s-p1QaOi">
       <a href="${esc(calculatorUrl)}" style="${CTA_PRIMARY_STYLE}">${esc(L.ctaSimulator)}</a>
       <a href="${esc(hubUrl)}" style="${CARD_STYLE};text-decoration:none;font-weight:700;border-radius:12px">${esc(L.ctaCompare)}</a>
     </section>`;
 
-  const bodyHtml = `<main class="seo-static-content" style="max-width:1100px;margin:0 auto;padding:32px 20px 56px">${body}</main>`;
+  const bodyHtml = `<main class="seo-static-content s-xzWvwM">${body}</main>`;
 
   const extraHead = `    <meta property="og:image" content="${BASE_URL}/og-image.png">
     <meta property="og:image:width" content="1200">

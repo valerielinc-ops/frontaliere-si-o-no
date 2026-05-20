@@ -426,7 +426,7 @@ function renderTable(headers: string[], rows: string[][]): string {
     const tds = r.map((c, idx) => `<td style="${TABLE_CELL_STYLE}${idx === 0 ? ';font-weight:600' : ''}">${c}</td>`).join('');
     return `<tr>${tds}</tr>`;
   }).join('');
-  return `<div style="overflow-x:auto;border-radius:14px;border:1px solid var(--color-edge);background:var(--color-surface);margin:12px 0 24px"><table style="width:100%;border-collapse:collapse;font-size:15px"><thead><tr>${h}</tr></thead><tbody>${body}</tbody></table></div>`;
+  return `<div class="s-Itl8IE"><table class="s-wkGd-4"><thead><tr>${h}</tr></thead><tbody>${body}</tbody></table></div>`;
 }
 
 function renderReport(opts: {
@@ -468,7 +468,7 @@ function renderReport(opts: {
 
   // Headline stat cards
   const statCards = `
-    <section style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin:0 0 28px">
+    <section class="s-epjKYm">
       <div style="${STAT_TILE_BASE}">
         <div style="${STAT_TILE_LABEL}">${esc(copy.headlineActiveJobsLabel)}</div>
         <div style="${STAT_TILE_VALUE}">${formatNumber(activeJobs)}</div>
@@ -505,7 +505,7 @@ function renderReport(opts: {
     const href = cityHubHref(c.key);
     const cell = href
       ? `<a href="${esc(href)}" style="${LINK_ACCENT_STYLE}">${esc(c.name)}</a>`
-      : `<span style="color:var(--color-heading);font-weight:600">${esc(c.name)}</span>`;
+      : `<span class="s-F2VOFC">${esc(c.name)}</span>`;
     return [`#${i + 1}`, cell, formatNumber(c.count)];
   });
 
@@ -525,7 +525,7 @@ function renderReport(opts: {
     const href = cityHubHref(l.key);
     const cell = href
       ? `<a href="${esc(href)}" style="${LINK_ACCENT_STYLE}">${esc(l.name)}</a>`
-      : `<span style="color:var(--color-heading);font-weight:600">${esc(l.name)}</span>`;
+      : `<span class="s-F2VOFC">${esc(l.name)}</span>`;
     return [`#${i + 1}`, cell, esc(formatCHF(l.avgMid))];
   });
   const topSalaryCompaniesTable = topSalaryCompanies.length > 0
@@ -629,68 +629,68 @@ function renderReport(opts: {
       <span> / </span>
       <span>${esc(copy.h1)}</span>
     </nav>
-    <header style="margin-bottom:24px">
+    <header class="s-sy52lX">
       <p style="${HERO_EYEBROW_STYLE}">${esc(copy.updatedLabel)} · ${esc(dateStamp)} · ${esc(copy.sourceLabel)}: data/jobs-stats.json</p>
       <h1 style="${H1_STYLE}">${esc(copy.h1)}</h1>
       <p style="${LEDE_STYLE}">${esc(copy.ledeIntro)}</p>
     </header>
     ${statCards}
-    <section style="margin:0 0 28px">
+    <section class="s-KZc0LQ">
       <h2 style="${H2_STYLE}">${esc(copy.topEmployersH2)}</h2>
       <p style="${BODY_STYLE}">${esc(copy.topEmployersP)}</p>
       ${topEmployersTable}
     </section>
-    <section style="margin:0 0 28px">
+    <section class="s-KZc0LQ">
       <h2 style="${H2_STYLE}">${esc(copy.topCitiesH2)}</h2>
       <p style="${BODY_STYLE}">${esc(copy.topCitiesP)}</p>
       ${topCitiesTable}
     </section>
-    <section style="margin:0 0 28px">
+    <section class="s-KZc0LQ">
       <h2 style="${H2_STYLE}">${esc(copy.salaryH2)}</h2>
       <p style="${BODY_STYLE}">${esc(copy.salaryP)}</p>
-      ${topSalaryCompaniesTable ? `<h3 style="margin:18px 0 6px;font-size:18px;color:var(--color-heading)">${esc(copy.topSalaryCompaniesH3)}</h3>${topSalaryCompaniesTable}` : ''}
-      ${topSalaryLocationsTable ? `<h3 style="margin:18px 0 6px;font-size:18px;color:var(--color-heading)">${esc(copy.topSalaryLocationsH3)}</h3>${topSalaryLocationsTable}` : ''}
+      ${topSalaryCompaniesTable ? `<h3 class="s-QiTCCv">${esc(copy.topSalaryCompaniesH3)}</h3>${topSalaryCompaniesTable}` : ''}
+      ${topSalaryLocationsTable ? `<h3 class="s-QiTCCv">${esc(copy.topSalaryLocationsH3)}</h3>${topSalaryLocationsTable}` : ''}
     </section>
-    <section style="margin:0 0 28px">
+    <section class="s-KZc0LQ">
       <h2 style="${H2_STYLE}">${esc(copy.sectorsH2)}</h2>
       <p style="${BODY_STYLE}">${esc(copy.sectorsP)}</p>
     </section>
-    <section style="margin:0 0 28px">
+    <section class="s-KZc0LQ">
       <h2 style="${H2_STYLE}">${esc(copy.analysisH2)}</h2>
       <p style="${BODY_STYLE}">${esc(copy.analysisP1)}</p>
       <p style="${BODY_STYLE}">${esc(copy.analysisP2)}</p>
       <p style="${BODY_STYLE}">${esc(copy.analysisP3)}</p>
     </section>
-    <section style="margin:0 0 28px">
+    <section class="s-KZc0LQ">
       <h2 style="${H2_STYLE}">${esc(copy.trendsH2)}</h2>
       <p style="${BODY_STYLE}">${esc(copy.trendsP)}</p>
-      <ol style="margin:0 0 14px 22px;color:var(--color-body);line-height:1.65;max-width:860px">
-        <li style="margin:0 0 10px">${esc(copy.trendsBullet1)}</li>
-        <li style="margin:0 0 10px">${esc(copy.trendsBullet2)}</li>
-        <li style="margin:0">${esc(copy.trendsBullet3)}</li>
+      <ol class="s-C1hMlw">
+        <li class="s-U2-lJ-">${esc(copy.trendsBullet1)}</li>
+        <li class="s-U2-lJ-">${esc(copy.trendsBullet2)}</li>
+        <li class="s-q3nqK4">${esc(copy.trendsBullet3)}</li>
       </ol>
     </section>
-    <section style="margin:0 0 28px;padding:18px;border-radius:14px;background:var(--color-accent-subtle);border:1px solid var(--color-accent-border)">
+    <section class="s-AV5A4S">
       <h2 style="${H2_STYLE}">${esc(copy.embedH2)}</h2>
       <p style="${BODY_STYLE}">${esc(copy.embedP)}</p>
-      <p style="margin:0 0 8px;font-weight:700;color:var(--color-heading)">${esc(copy.embedSnippetLabel)}</p>
-      <pre style="margin:0;padding:14px;border-radius:10px;background:var(--color-surface);border:1px solid var(--color-edge);overflow-x:auto;font-size:13px;line-height:1.6;color:var(--color-body)"><code>${embedSnippet}</code></pre>
-      <h3 style="margin:16px 0 4px;font-size:16px;color:var(--color-heading)">${esc(copy.citationH3)}</h3>
-      <p style="margin:0;color:var(--color-subtle);line-height:1.6;font-size:14px">${esc(copy.citationText)}</p>
+      <p class="s-d2yCXP">${esc(copy.embedSnippetLabel)}</p>
+      <pre class="s-7jSP06"><code>${embedSnippet}</code></pre>
+      <h3 class="s-8qAk8z">${esc(copy.citationH3)}</h3>
+      <p class="s-pz9soM">${esc(copy.citationText)}</p>
     </section>
-    <section style="margin:0 0 28px">
+    <section class="s-KZc0LQ">
       <h2 style="${H2_STYLE}">${esc(copy.methodologyH2)}</h2>
       <p style="${BODY_STYLE}">${esc(copy.methodologyP)}</p>
     </section>
-    <p style="margin:0 0 24px;padding:14px 16px;border-radius:12px;background:var(--color-warning-subtle);color:var(--color-heading);border:1px solid var(--color-warning-border);line-height:1.55;max-width:860px;font-size:14px">${esc(copy.cautionP)}</p>
-    <section style="display:flex;gap:12px;flex-wrap:wrap;margin:0 0 16px">
+    <p class="s-80ZfUb">${esc(copy.cautionP)}</p>
+    <section class="s-p1QaOi">
       <a href="${esc(jobsRoot[locale])}" style="${CTA_PRIMARY_STYLE}">${esc(copy.ctaJobs)}</a>
-      <a href="${esc(homeUrl)}" style="padding:12px 18px;border-radius:12px;background:var(--color-surface);border:1px solid var(--color-edge);color:var(--color-body);text-decoration:none;font-weight:700">${esc(copy.ctaSimulator)}</a>
+      <a class="s-bX1C8q" href="${esc(homeUrl)}">${esc(copy.ctaSimulator)}</a>
     </section>
   `;
 
-  const adSection = `<section style="max-width:1100px;margin:32px auto 0;padding:0 20px" aria-label="advertisement">${adSlotHtml('ARTICLE_END_MULTIPLEX')}</section>`;
-  const bodyHtml = `<main style="max-width:1100px;margin:0 auto;padding:32px 20px 56px">${body}</main>${adSection}`;
+  const adSection = `<section class="s-U5Q4dL" aria-label="advertisement">${adSlotHtml('ARTICLE_END_MULTIPLEX')}</section>`;
+  const bodyHtml = `<main class="s-xzWvwM">${body}</main>${adSection}`;
 
   const extraHead = `    <meta property="og:image" content="${BASE_URL}/og-image.png">
     <meta property="og:image:width" content="1200">

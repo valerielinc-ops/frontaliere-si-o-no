@@ -1835,7 +1835,7 @@ function resolveScenarioData(canonicalPath: string): { data: SalaryLandingData; 
 // ── Renderers ────────────────────────────────────────────────────────────────
 
 function renderAdvice(label: string, text: string): string {
-  return `<aside data-salary-advice style="${STAT_TILE_WARNING};margin:0 0 18px"><p style="${SMALL_HEADING_STYLE};margin:0 0 6px">${esc(label)}</p><p style="margin:0;color:var(--color-heading);line-height:1.55;font-size:15px">${esc(text)}</p></aside>`;
+  return `<aside data-salary-advice style="${STAT_TILE_WARNING};margin:0 0 18px"><p style="${SMALL_HEADING_STYLE};margin:0 0 6px">${esc(label)}</p><p class="s-1LDhZh">${esc(text)}</p></aside>`;
 }
 
 function renderCtaBlock(
@@ -1845,7 +1845,7 @@ function renderCtaBlock(
   const secondaryHtml = secondary
     ? `<a href="${esc(secondary.href)}" style="${LINK_ACCENT_STYLE};font-weight:600;font-size:15px;align-self:center">${esc(secondary.label)} →</a>`
     : '';
-  return `<div style="display:flex;flex-wrap:wrap;gap:14px;align-items:center;margin:0 0 28px"><a href="${esc(primary.href)}" style="${CTA_PRIMARY_STYLE}">${esc(primary.label)} →</a>${secondaryHtml}</div>`;
+  return `<div class="s-iB_-rV"><a href="${esc(primary.href)}" style="${CTA_PRIMARY_STYLE}">${esc(primary.label)} →</a>${secondaryHtml}</div>`;
 }
 
 function renderTable(table: SalaryTable): string {
@@ -1867,9 +1867,9 @@ function renderTable(table: SalaryTable): string {
     })
     .join('');
   const footnote = table.footnote
-    ? `<p style="margin:8px 0 0;font-size:12px;color:var(--color-subtle);line-height:1.5">${esc(table.footnote)}</p>`
+    ? `<p class="s-9KOPUg">${esc(table.footnote)}</p>`
     : '';
-  return `<section style="margin:0 0 28px" aria-labelledby="salary-table-caption"><p id="salary-table-caption" style="${SMALL_HEADING_STYLE};margin:0 0 10px">${esc(table.caption)}</p><div style="overflow-x:auto;-webkit-overflow-scrolling:touch"><table style="${TABLE_STYLE}"><thead><tr>${headCells}</tr></thead><tbody>${bodyRows}</tbody></table></div>${footnote}</section>`;
+  return `<section class="s-KZc0LQ" aria-labelledby="salary-table-caption"><p id="salary-table-caption" style="${SMALL_HEADING_STYLE};margin:0 0 10px">${esc(table.caption)}</p><div class="s-eC0-6I"><table style="${TABLE_STYLE}"><thead><tr>${headCells}</tr></thead><tbody>${bodyRows}</tbody></table></div>${footnote}</section>`;
 }
 
 function renderFaqs(label: string, faqs: ReadonlyArray<SalaryFaqItem>): string {
@@ -1877,10 +1877,10 @@ function renderFaqs(label: string, faqs: ReadonlyArray<SalaryFaqItem>): string {
   const items = faqs
     .map(
       (f) =>
-        `<details style="border-top:1px solid var(--color-edge);padding:14px 0"><summary style="cursor:pointer;font-weight:600;color:var(--color-heading);font-size:15px;line-height:1.4;list-style:none">${esc(f.q)}</summary><p style="margin:10px 0 0;color:var(--color-body);line-height:1.6;font-size:15px">${esc(f.a)}</p></details>`,
+        `<details class="s-s_Pd_q"><summary class="s-qfelts">${esc(f.q)}</summary><p class="s-IA4FeZ">${esc(f.a)}</p></details>`,
     )
     .join('');
-  return `<section style="margin:0 0 28px"><p style="${SMALL_HEADING_STYLE};margin:0 0 4px">${esc(label)}</p>${items}</section>`;
+  return `<section class="s-KZc0LQ"><p style="${SMALL_HEADING_STYLE};margin:0 0 4px">${esc(label)}</p>${items}</section>`;
 }
 
 export interface BuildSalaryLandingArgs {
@@ -1944,14 +1944,14 @@ export function renderSalaryLandingShell(
   const faqsHtml = data.faqs ? renderFaqs(pack.faqsLabel, data.faqs) : '';
 
   const prose = args.editorialHtml
-    ? `<section style="margin:32px 0 0;border-top:1px solid var(--color-edge);padding-top:24px">${args.editorialHtml}</section>`
+    ? `<section class="s-jybItB">${args.editorialHtml}</section>`
     : '';
 
   const navHtml = args.navHtml
-    ? `<nav aria-label="${esc(pack.navLabel)}" style="margin-top:32px;padding-top:20px;border-top:1px solid var(--color-edge);font-size:13px;color:var(--color-subtle);line-height:1.9">${args.navHtml}</nav>`
+    ? `<nav class="s-GJASh3" aria-label="${esc(pack.navLabel)}">${args.navHtml}</nav>`
     : '';
 
-  return `<div style="max-width:64rem;margin:0 auto;padding:16px 16px 32px;font-family:inherit">${breadcrumb}<header style="margin:0 0 20px">${eyebrow}${h1}${lede}</header>${tilesHtml}${adviceHtml}${ctaHtml}${dataAreaHtml}${faqsHtml}${prose}${navHtml}</div>`;
+  return `<div class="s-mgGJ2k">${breadcrumb}<header class="s-UWtNGG">${eyebrow}${h1}${lede}</header>${tilesHtml}${adviceHtml}${ctaHtml}${dataAreaHtml}${faqsHtml}${prose}${navHtml}</div>`;
 }
 
 export function buildSalaryLandingBody(args: BuildSalaryLandingArgs): string {

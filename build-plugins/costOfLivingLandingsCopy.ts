@@ -590,7 +590,7 @@ export function buildCitySections(
     ['rooms_4', fso.rooms_4_5.median_chf_month],
   ] as const;
   const rentTableHtml = `
-    <table class="seo-table" style="width:100%;border-collapse:collapse;margin:16px 0;font-size:15px">
+    <table class="seo-table s-JN75g4">
       <thead><tr>
         ${L.rentTableHeaders
           .map(
@@ -613,7 +613,7 @@ export function buildCitySections(
           .join('')}
       </tbody>
     </table>
-    <p style="font-size:14px;color:var(--color-subtle);margin:8px 0 0">
+    <p class="s-o9QG3k">
       ${locale === 'it' ? `Dato: prezzo per m² a ${cityName} = ${rtFmtChf(fso.price_per_m2_chf_month)}/m²/mese (affitto netto, anno di riferimento ${fso.reference_year}). Fonte: ${citeFso('FSO — Loyers par commune')}.` : locale === 'en' ? `Data: price per m² in ${cityName} = ${rtFmtChf(fso.price_per_m2_chf_month)}/m²/month (net rent, reference year ${fso.reference_year}). Source: ${citeFso('FSO — Rents by commune')}.` : locale === 'de' ? `Preis pro m² in ${cityName}: ${rtFmtChf(fso.price_per_m2_chf_month)}/m²/Monat (Nettomiete, Referenzjahr ${fso.reference_year}). Quelle: ${citeFso('BFS — Mieten nach Gemeinde')}.` : `Prix par m² à ${cityName} : ${rtFmtChf(fso.price_per_m2_chf_month)}/m²/mois (loyer net, année de référence ${fso.reference_year}). Source : ${citeFso('OFS — Loyers par commune')}.`}
     </p>`;
 
@@ -630,7 +630,7 @@ export function buildCitySections(
     ['cpi', istat.cpi_index_2023_100, 'ISTAT'],
   ] as const;
   const basketTableHtml = `
-    <table class="seo-table" style="width:100%;border-collapse:collapse;margin:16px 0;font-size:15px">
+    <table class="seo-table s-JN75g4">
       <thead><tr>
         ${L.basketTableHeaders
           .map(
@@ -693,7 +693,7 @@ export function buildCitySections(
       (1 - istat.grocery_basket_eur_month_single / (700 * 0.95)) * 100,
     );
     return `
-      <table class="seo-table" style="width:100%;border-collapse:collapse;margin:16px 0;font-size:15px">
+      <table class="seo-table s-JN75g4">
         <thead><tr>
           <th class="t-h">${r.voice}</th>
           <th class="t-h">${r.ch}</th>

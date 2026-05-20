@@ -333,27 +333,27 @@ export function renderCantonSeoProse(opts: CantonSeoProseOpts): string {
   const copy = buildSlotCopy(opts);
   const { locale, ctaHref, ctaLabel } = opts;
   const cta = ctaHref
-    ? `<p style="margin:16px 0 0;font-size:14.5px"><a href="${esc(ctaHref)}" style="color:var(--color-link);text-decoration:underline;font-weight:600">${esc(ctaLabel || DEFAULT_CTA_LABEL[locale])} →</a></p>`
+    ? `<p class="s-OMTrs1"><a class="s-nF5mos" href="${esc(ctaHref)}">${esc(ctaLabel || DEFAULT_CTA_LABEL[locale])} →</a></p>`
     : '';
 
   const faqHtml = copy.faqs
     .map(
       (f) =>
-        `<details style="background:var(--color-surface);border:1px solid var(--color-edge);border-radius:10px;padding:12px 14px;margin:8px 0"><summary style="font-weight:700;cursor:pointer;color:var(--color-heading);font-size:14.5px">${esc(f.q)}</summary><p style="margin:8px 0 0;color:var(--color-body);line-height:1.65;font-size:14.5px">${f.a}</p></details>`,
+        `<details class="s-6l74G5"><summary class="s-uwtLRE">${esc(f.q)}</summary><p class="s-JDVT3O">${f.a}</p></details>`,
     )
     .join('');
 
   const deepDive = buildDeepDiveBlock(opts);
 
-  return `<section class="canton-seo-prose" data-slot="${esc(opts.slot)}" data-canton="${esc(opts.cantonDisplay)}" style="max-width:860px;margin:32px auto 0;color:var(--color-body);line-height:1.65;font-size:15px">
-  <h2 style="font-size:20px;font-weight:700;color:var(--color-heading);margin:24px 0 12px">${esc(copy.blockHeading)}</h2>
-  <p style="margin:0 0 14px">${copy.intro}</p>
-  <p style="margin:0 0 14px;color:var(--color-body);font-size:14.5px"><strong>${esc(locale === 'it' ? 'Metodologia.' : locale === 'en' ? 'Methodology.' : locale === 'de' ? 'Methodik.' : 'Méthodologie.')}</strong> ${copy.methodology}</p>
-  <p style="margin:0 0 14px;color:var(--color-body);font-size:14.5px"><strong>${esc(locale === 'it' ? 'Permesso G + fiscalità.' : locale === 'en' ? 'G permit + tax context.' : locale === 'de' ? 'G-Bewilligung + Steuern.' : 'Permis G + fiscalité.')}</strong> ${copy.permitContext}</p>
-  <h3 style="font-size:17px;font-weight:700;color:var(--color-heading);margin:22px 0 8px">${esc(copy.faqHeading)}</h3>
+  return `<section class="canton-seo-prose s-A_RnbE" data-slot="${esc(opts.slot)}" data-canton="${esc(opts.cantonDisplay)}">
+  <h2 class="s-WaVHtT">${esc(copy.blockHeading)}</h2>
+  <p class="s-clIDbe">${copy.intro}</p>
+  <p class="s-D6KDw8"><strong>${esc(locale === 'it' ? 'Metodologia.' : locale === 'en' ? 'Methodology.' : locale === 'de' ? 'Methodik.' : 'Méthodologie.')}</strong> ${copy.methodology}</p>
+  <p class="s-D6KDw8"><strong>${esc(locale === 'it' ? 'Permesso G + fiscalità.' : locale === 'en' ? 'G permit + tax context.' : locale === 'de' ? 'G-Bewilligung + Steuern.' : 'Permis G + fiscalité.')}</strong> ${copy.permitContext}</p>
+  <h3 class="s-XD0S4S">${esc(copy.faqHeading)}</h3>
   ${faqHtml}
   ${deepDive}
-  <p style="margin:18px 0 0;font-size:14.5px"><strong>${esc(locale === 'it' ? 'Strumenti collegati.' : locale === 'en' ? 'Related tools.' : locale === 'de' ? 'Verwandte Tools.' : 'Outils associés.')}</strong> ${copy.crossLinks}</p>
+  <p class="s-tw3E7n"><strong>${esc(locale === 'it' ? 'Strumenti collegati.' : locale === 'en' ? 'Related tools.' : locale === 'de' ? 'Verwandte Tools.' : 'Outils associés.')}</strong> ${copy.crossLinks}</p>
   ${cta}
 </section>`;
 }
@@ -553,11 +553,11 @@ function buildDeepDiveBlock(opts: CantonSeoProseOpts): string {
     return `Pour un poste professionnel typique dans le canton ${canton} (brut annuel CHF 85 000-110 000 incluant le 13e mois, AVS-AI-APG 5,3 %, chômage 1,1 %, LPP 7-15 % selon la tranche d'âge, impôt à la source cantonal 4-14 % selon la tranche et l'état civil), le net mensuel pour un célibataire sans enfants se situe généralement entre CHF 5 400 et CHF 6 600 ; pour un couple marié avec deux enfants à charge, après déductions familiales cantonales, entre CHF 5 800 et CHF 7 200. Avec l'accord fiscal Italie-Suisse 2024 (en vigueur pour les frontaliers engagés après le 17 juillet 2023), la taxation concurrente s'applique : l'employeur suisse retient 80 % du taux cantonal ordinaire, le contribuable déclare le revenu en Italie avec abattement de EUR 10 000 et crédit d'impôt pour la retenue suisse. Les frontaliers déjà classés avant le 17 juillet 2023 conservent l'ancien régime (taxation exclusivement suisse, rétrocession de 38,8 % à la commune italienne de résidence). Ouvrez le <a href="${CALCULATOR_HREF[locale]}">calculateur de salaire Frontaliere Ticino</a> avec le brut d'une annonce du canton ${canton} : en moins de 30 secondes vous obtenez le net mensuel en CHF et en EUR, directement comparable à une offre italienne.`;
   })();
 
-  return `<h3 style="font-size:17px;font-weight:700;color:var(--color-heading);margin:22px 0 10px">${esc(headings.section)}</h3>
-  <p style="margin:0 0 12px;color:var(--color-body);font-size:14.5px"><strong>${esc(headings.playbook)}.</strong> ${playbookP}</p>
-  <p style="margin:0 0 12px;color:var(--color-body);font-size:14.5px"><strong>${esc(headings.commute)}.</strong> ${commuteP}</p>
-  <p style="margin:0 0 12px;color:var(--color-body);font-size:14.5px"><strong>${esc(headings.sectors)}.</strong> ${sectorsP}</p>
-  <p style="margin:0 0 14px;color:var(--color-body);font-size:14.5px"><strong>${esc(headings.netpay)}.</strong> ${netpayP}</p>`;
+  return `<h3 class="s-J_8kBc">${esc(headings.section)}</h3>
+  <p class="s-XCgoeD"><strong>${esc(headings.playbook)}.</strong> ${playbookP}</p>
+  <p class="s-XCgoeD"><strong>${esc(headings.commute)}.</strong> ${commuteP}</p>
+  <p class="s-XCgoeD"><strong>${esc(headings.sectors)}.</strong> ${sectorsP}</p>
+  <p class="s-D6KDw8"><strong>${esc(headings.netpay)}.</strong> ${netpayP}</p>`;
 }
 
 /**

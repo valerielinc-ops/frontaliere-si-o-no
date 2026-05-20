@@ -256,12 +256,12 @@ function renderMatchedPage(entry: OrphanEntry, distDir: string): string {
   // the 60+ active-job orphan URLs in this cohort. Parametric + memoized.
   const bridgeProse = renderBridgePageProse({ locale, bridgeKind: 'job-matched' });
 
-  const bodyHtml = `<main class="cluster-seo-prose" style="max-width:860px;margin:0 auto;padding:24px 16px;color:var(--color-body);line-height:1.65">
-    <header style="margin-bottom:16px">
-      <h1 style="font-size:26px;font-weight:700;color:var(--color-heading);margin:0 0 8px;letter-spacing:-0.01em">${esc(copy.matchedH1)}</h1>
+  const bodyHtml = `<main class="cluster-seo-prose s-zry6VY">
+    <header class="s-v0ohjg">
+      <h1 class="s-hiC5FI">${esc(copy.matchedH1)}</h1>
     </header>
-    <p style="margin:0 0 12px;font-size:15.5px">${esc(copy.matchedLede)}</p>
-    <p style="margin:12px 0 0;font-size:14.5px"><a href="${esc(buildSectionCanonical(locale, entry.currentSlug || entry.slug))}" style="color:var(--color-link);text-decoration:underline;font-weight:600">${esc(copy.browseAllLabel)} →</a></p>
+    <p class="s-cbFAda">${esc(copy.matchedLede)}</p>
+    <p class="s-elb1Sb"><a class="s-nF5mos" href="${esc(buildSectionCanonical(locale, entry.currentSlug || entry.slug))}">${esc(copy.browseAllLabel)} →</a></p>
     ${bridgeProse}
   </main>`;
 
@@ -310,12 +310,12 @@ function renderExpiredPage(entry: OrphanEntry, distDir: string): string {
   // raise a duplicate-content flag at scale).
   const bridgeProse = renderBridgePageProse({ locale, bridgeKind: 'job-expired' });
 
-  const bodyHtml = `<main class="cluster-seo-prose" style="max-width:860px;margin:0 auto;padding:24px 16px;color:var(--color-body);line-height:1.65">
-    <header style="margin-bottom:16px">
-      <h1 style="font-size:26px;font-weight:700;color:var(--color-heading);margin:0 0 8px;letter-spacing:-0.01em">${esc(copy.expiredH1(companyHint))}</h1>
+  const bodyHtml = `<main class="cluster-seo-prose s-zry6VY">
+    <header class="s-v0ohjg">
+      <h1 class="s-hiC5FI">${esc(copy.expiredH1(companyHint))}</h1>
     </header>
-    <p style="margin:0 0 12px;font-size:15.5px">${esc(copy.expiredLede)}</p>
-    <p style="margin:12px 0 0;font-size:14.5px"><a href="${esc(sectionPath)}" style="color:var(--color-link);text-decoration:underline;font-weight:600">${esc(copy.browseAllLabel)} →</a></p>
+    <p class="s-cbFAda">${esc(copy.expiredLede)}</p>
+    <p class="s-elb1Sb"><a class="s-nF5mos" href="${esc(sectionPath)}">${esc(copy.browseAllLabel)} →</a></p>
     ${bridgeProse}
   </main>`;
 

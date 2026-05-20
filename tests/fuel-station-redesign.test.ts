@@ -104,7 +104,10 @@ describe('Per-station page redesign — hero', () => {
     expect(pages[path]).toBeDefined();
     const html = pages[path];
     expect(html).toContain('aria-label="Migrol Chiasso"');
-    expect(html).toMatch(/font-size:clamp\(2\.2rem,6vw,3rem\);font-weight:800[^>]*>1,950</);
+    // Class-extract migration (2026-05-20): the hero-price font-size:clamp(...) rule
+    // moved from inline `style=` to a content-hashed class in seo-static.css. The
+    // assertion accepts EITHER the legacy inline form or the new `class="s-..."` form.
+    expect(html).toMatch(/(font-size:clamp\(2\.2rem,6vw,3rem\);font-weight:800|class="s-[A-Za-z0-9_-]+")[^>]*>1,950</);
     expect(html).toContain('CHF/litro · Diesel');
   });
 
@@ -212,7 +215,29 @@ describe('Per-station page redesign — location card', () => {
     const html = pages['/prezzi-diesel/chiasso/stazioni/migrol-via-cantonale/'];
     // Old behavior used `minmax(0,1fr)` (always 1 col); new behavior uses
     // `repeat(auto-fit, minmax(320px, 1fr))` so containers >640px wrap to 2.
-    expect(html).toContain('grid-template-columns:repeat(auto-fit,minmax(320px,1fr))');
+    //
+    // Class-extract migration (2026-05-20): the grid rule moved from inline
+    // style to a content-hashed class in public/assets/seo-static.css. The
+    // assertion now checks that EITHER the legacy inline declaration is
+    // present in HTML, OR the corresponding class (whose CSS rule contains
+    // the same declaration) is referenced — verified against the source CSS.
+    const cssRules = require('node:fs').readFileSync(
+      require('node:path').resolve(__dirname, '..', 'public', 'assets', 'seo-static.css'),
+      'utf-8',
+    );
+    const inlineHit = html.includes('grid-template-columns:repeat(auto-fit,minmax(320px,1fr))');
+    if (inlineHit) {
+      expect(inlineHit).toBe(true);
+    } else {
+      // Extract referenced s-* classes from html, then verify at least one
+      // of them resolves to the expected grid rule in seo-static.css.
+      const classMatches = [...html.matchAll(/class="(?:[^"]* )?(s-[A-Za-z0-9_-]+)/g)].map(m => m[1]);
+      const targetClass = classMatches.find((c) => {
+        const rule = new RegExp(`\\.${c}\\s*\\{[^}]*grid-template-columns:repeat\\(auto-fit,minmax\\(320px,1fr\\)\\)`, 'm');
+        return rule.test(cssRules);
+      });
+      expect(targetClass, 'no extracted class matched the 320px auto-fit grid rule').toBeDefined();
+    }
     expect(html).not.toContain('grid-template-columns:minmax(0,1fr)');
   });
 

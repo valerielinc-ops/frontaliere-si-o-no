@@ -2147,12 +2147,12 @@ function renderCityHubsListBlock(
     .map((c) => {
       const href = buildCurrentWeekPath(locale, c);
       const label = WEEKLY_EMPLOYERS_CITY_DISPLAY[c];
-      return `<li style="margin:0;padding:0"><a href="${esc(href)}" style="display:inline-block;padding:6px 0;${LINK_ACCENT_STYLE};font-weight:600">${esc(label)}</a></li>`;
+      return `<li class="s-6FVpHG"><a href="${esc(href)}" style="display:inline-block;padding:6px 0;${LINK_ACCENT_STYLE};font-weight:600">${esc(label)}</a></li>`;
     })
     .join('');
-  return `<section style="margin:0 0 28px" aria-labelledby="weCityHubs">
+  return `<section class="s-KZc0LQ" aria-labelledby="weCityHubs">
     <h2 id="weCityHubs" style="${H2_STYLE}">${esc(t.cityHubsTitle)}</h2>
-    <ul style="list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:4px 16px">${items}</ul>
+    <ul class="s-POKfPP">${items}</ul>
   </section>`;
 }
 
@@ -2183,12 +2183,12 @@ function renderWeeklyArchiveListBlock(
     .map((a) => {
       const href = buildArchiveWeekPath(locale, city, a.weekNum, a.year);
       const label = t.archiveItemLabel(a.weekNum, a.year);
-      return `<li style="margin:0;padding:0"><a href="${esc(href)}" style="display:inline-block;padding:6px 0;${LINK_ACCENT_STYLE}">${esc(label)}</a></li>`;
+      return `<li class="s-6FVpHG"><a href="${esc(href)}" style="display:inline-block;padding:6px 0;${LINK_ACCENT_STYLE}">${esc(label)}</a></li>`;
     })
     .join('');
-  return `<section style="margin:0 0 28px" aria-labelledby="weArchives">
+  return `<section class="s-KZc0LQ" aria-labelledby="weArchives">
     <h2 id="weArchives" style="${H2_STYLE}">${esc(t.archiveListTitle(cityDisplay))}</h2>
-    <ul style="list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:4px 16px">${items}</ul>
+    <ul class="s-ZBfF7F">${items}</ul>
   </section>`;
 }
 
@@ -2214,12 +2214,12 @@ function renderCompanyLeavesForCityBlock(
         city as WeeklyEmployersCompanyCity,
         p.companySlug,
       );
-      return `<li style="margin:0;padding:0"><a href="${esc(href)}" style="display:inline-block;padding:6px 0;${LINK_ACCENT_STYLE}">${esc(p.employer)}</a></li>`;
+      return `<li class="s-6FVpHG"><a href="${esc(href)}" style="display:inline-block;padding:6px 0;${LINK_ACCENT_STYLE}">${esc(p.employer)}</a></li>`;
     })
     .join('');
-  return `<section style="margin:0 0 28px" aria-labelledby="weLeaves">
+  return `<section class="s-KZc0LQ" aria-labelledby="weLeaves">
     <h2 id="weLeaves" style="${H2_STYLE}">${esc(t.leavesTitle(cityDisplay))}</h2>
-    <ul style="list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:4px 16px">${items}</ul>
+    <ul class="s-D91UPE">${items}</ul>
   </section>`;
 }
 
@@ -2237,12 +2237,12 @@ function renderLocaleSwitcherBlock(
     .map((alt) => {
       const href = buildAlternatePath(alt);
       const label = t.localeLabels[alt];
-      return `<li style="margin:0;padding:0"><a hreflang="${alt}" href="${esc(href)}" style="display:inline-block;padding:6px 0;${LINK_ACCENT_STYLE}">${esc(label)}</a></li>`;
+      return `<li class="s-6FVpHG"><a hreflang="${alt}" href="${esc(href)}" style="display:inline-block;padding:6px 0;${LINK_ACCENT_STYLE}">${esc(label)}</a></li>`;
     })
     .join('');
-  return `<section style="margin:0 0 24px" aria-labelledby="weLocaleSwitch">
+  return `<section class="s-ziawP1" aria-labelledby="weLocaleSwitch">
     <h2 id="weLocaleSwitch" style="${H2_STYLE}">${esc(t.localeSwitchTitle)}</h2>
-    <ul style="list-style:none;padding:0;margin:0;display:flex;gap:14px;flex-wrap:wrap">${items}</ul>
+    <ul class="s-JYHj9f">${items}</ul>
   </section>`;
 }
 
@@ -2336,9 +2336,9 @@ export function renderTopHubPage(inp: TopHubPageInputs): string {
   });
   const faqHtml = faqEntries
     .map(
-      (qa) => `    <details style="margin:0 0 12px;padding:14px 16px;border:1px solid var(--color-edge);border-radius:14px;background:var(--color-surface)">
-      <summary style="font-weight:700;cursor:pointer;color:var(--color-heading)">${esc(qa.q)}</summary>
-      <p style="margin:10px 0 0;color:var(--color-body);line-height:1.6">${esc(qa.a)}</p>
+      (qa) => `    <details class="s-DmybdA">
+      <summary class="s-HBR0NM">${esc(qa.q)}</summary>
+      <p class="s-OCic8j">${esc(qa.a)}</p>
     </details>`,
     )
     .join('\n');
@@ -2392,7 +2392,7 @@ export function renderTopHubPage(inp: TopHubPageInputs): string {
     fr: `Index hebdomadaire mis à jour chaque lundi à 06:00 — ouvrez la ville où vous voulez postuler.`,
   };
 
-  const topStatsHtml = `<section style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin:0 0 18px" aria-label="${esc(copy.kickerCurrent)}">
+  const topStatsHtml = `<section class="s-Bk-L3k" aria-label="${esc(copy.kickerCurrent)}">
     <div style="${STAT_TILE_ACCENT}">
       <div style="${STAT_TILE_LABEL}">${esc(WEEKLY_EMPLOYERS_TILE_LABELS[locale].jobs)}</div>
       <div style="${STAT_TILE_VALUE};font-size:32px;font-weight:800;font-variant-numeric:tabular-nums">${formatLocalisedInteger(jobsCount, locale)}</div>
@@ -2409,15 +2409,15 @@ export function renderTopHubPage(inp: TopHubPageInputs): string {
 
   // Top hub is the TI aggregate — pass 'TI' so the legacy slug is preserved
   // (helper early-returns `cerca-lavoro-ticino`).
-  const topJobBoardCtaHtml = `<p style="margin:0 0 24px"><a href="${esc(weeklyEmployersJobBoardPath(locale, 'TI'))}" style="${CTA_PRIMARY_STYLE};font-size:15px">${esc(WEEKLY_EMPLOYERS_TILE_LABELS[locale].jobBoardCta)} →</a></p>`;
+  const topJobBoardCtaHtml = `<p class="s-ziawP1"><a href="${esc(weeklyEmployersJobBoardPath(locale, 'TI'))}" style="${CTA_PRIMARY_STYLE};font-size:15px">${esc(WEEKLY_EMPLOYERS_TILE_LABELS[locale].jobBoardCta)} →</a></p>`;
 
-  const bodyHtml = `<article style="max-width:1100px;margin:0 auto;padding:32px 20px 56px">
+  const bodyHtml = `<article class="s-xzWvwM">
   <nav style="${BREADCRUMB_STYLE}" aria-label="breadcrumb">
     <a href="${BASE_URL}/" style="${BREADCRUMB_LINK_STYLE}">${esc(copy.breadcrumbHome)}</a>
     <span> / </span>
     <span>${esc(t.topHubTitle)}</span>
   </nav>
-  <header style="margin-bottom:22px">
+  <header class="s-Nv0GaD">
     <p style="${HERO_EYEBROW_STYLE}">${esc(copy.kickerCurrent)} · ${esc(copy.updatedLabel)} ${dateStamp}</p>
     <h1 style="${H1_STYLE}">${esc(t.topHubH1)}</h1>
     <p style="${LEDE_STYLE}">${esc(taglineByLocale[locale])}</p>
@@ -2425,16 +2425,16 @@ export function renderTopHubPage(inp: TopHubPageInputs): string {
   ${topStatsHtml}
   ${topJobBoardCtaHtml}
   ${renderCityHubsListBlock(locale)}
-  <section style="margin:0 0 28px" aria-labelledby="weTopMethodology">
+  <section class="s-KZc0LQ" aria-labelledby="weTopMethodology">
     <h2 id="weTopMethodology" style="${H2_STYLE}">${esc(LINKING_COPY[locale].cityHubsTitle)} — ${esc(copy.kickerCurrent)}</h2>
-    <p style="margin:0 0 14px;color:var(--color-body);line-height:1.7;max-width:860px">${esc(lede[locale])}</p>
-    <p style="margin:0;color:var(--color-body);line-height:1.7;max-width:860px">${esc(methodology[locale])}</p>
+    <p class="s-KwuhOL">${esc(lede[locale])}</p>
+    <p class="s-E7ZJqo">${esc(methodology[locale])}</p>
   </section>
-  <section style="margin:0 0 28px" aria-labelledby="weTopCommute">
+  <section class="s-KZc0LQ" aria-labelledby="weTopCommute">
     <h2 id="weTopCommute" style="${H2_STYLE}">${esc(commuteHeading[locale])}</h2>
-    <p style="margin:0;color:var(--color-body);line-height:1.7;max-width:860px">${esc(commuteContext[locale])}</p>
+    <p class="s-E7ZJqo">${esc(commuteContext[locale])}</p>
   </section>
-  <section style="margin:0 0 28px" aria-labelledby="weTopFaq">
+  <section class="s-KZc0LQ" aria-labelledby="weTopFaq">
     <h2 id="weTopFaq" style="${H2_STYLE}">${esc(copy.faqTitle)}</h2>
 ${faqHtml}
   </section>
@@ -2530,10 +2530,10 @@ function wrapHubSeoContextWeekly(locale: WeeklyEmployersLocale, location: string
     fr: 'Guide frontaliers : salaire, permis G, fiscalité, retour',
   } as Record<WeeklyEmployersLocale, string>)[locale];
   const inner = renderJobBoardCommuterContext({ locale, location, omitCommute });
-  return `<details class="hub-seo-context" style="margin:32px 0 0;padding:0;border-top:1px solid var(--color-edge)">
-    <summary style="margin-top:18px;padding:10px 14px;cursor:pointer;color:var(--color-link);font-weight:600;font-size:15px;list-style:none">${summary}</summary>
-    <div style="padding:8px 0 0">
-      <section style="max-width:860px;margin:0;color:var(--color-body);line-height:1.65;font-size:15px">
+  return `<details class="hub-seo-context s-mxdIN0">
+    <summary class="s-1yn7b_">${summary}</summary>
+    <div class="s-yZU6bn">
+      <section class="s-p_RJwm">
         ${inner}
       </section>
     </div>
@@ -2556,29 +2556,29 @@ function renderWeeklyEmployersFrontalierContext(args: {
     it: {
       h: `Come leggere lo snapshot settimanale${where} da frontaliere`,
       p1: `Le ${jobsCount} posizioni aperte distribuite su ${companiesCount} aziende${where} fotografate sopra non sono un valore statico: il delta settimanale (la differenza rispetto allo snapshot di sette giorni fa) è il segnale più informativo per chi cerca lavoro come frontaliere. Un delta positivo significa che l'azienda sta crescendo l'organico — è la finestra temporale ottimale per inviare un CV, anche fuori dalle posizioni esattamente in linea, perché HR e responsabili di linea stanno valutando profili attivamente. Un delta zero o negativo segnala saturazione: in questi periodi conviene puntare alle multinazionali con HR centralizzato (Lonza, Helsinn, Medacta, BancaStato) che fanno hiring continuativo, mentre le PMI ticinesi assumono in modo più discontinuo. Confronta sempre il delta con i picchi storici: marzo-aprile e settembre-ottobre concentrano il 40-55 % delle assunzioni annuali nel Sottoceneri.`,
-      p2: `Per ottimizzare la candidatura usa questo elenco come "lista calda" e affianca tre azioni in parallelo: (1) apri la pagina hub di ogni top employer per leggere la sezione "Informazioni per frontalieri" (Permesso G, canton di ritenuta fonte, contributi sociali) e calcola il netto reale del lordo dichiarato nel <a href="${BASE_URL}/calcola-stipendio/" style="color:var(--color-link)">simulatore stipendio</a>; (2) verifica i tempi di attesa sui valichi vicini (Brogeda, Chiasso, Stabio, Gaggiolo) per stimare l'orario di arrivo a ${cityDisplay} per il colloquio o il primo giorno di lavoro; (3) per ruoli regolamentati (sanità, scuole, finanza, sicurezza) avvia la pratica di equipollenza del titolo italiano presso SBFI/SEFRI prima dell'invio del CV — la pratica richiede 3-6 mesi e va fatta in parallelo, non dopo. Quando il delta settimanale di un'azienda passa da zero a positivo per due settimane consecutive, è il segnale più forte di una fase di crescita strutturale: il momento giusto per la candidatura spontanea, non solo per le offerte pubblicate.`,
+      p2: `Per ottimizzare la candidatura usa questo elenco come "lista calda" e affianca tre azioni in parallelo: (1) apri la pagina hub di ogni top employer per leggere la sezione "Informazioni per frontalieri" (Permesso G, canton di ritenuta fonte, contributi sociali) e calcola il netto reale del lordo dichiarato nel <a class="s-IjpSYt" href="${BASE_URL}/calcola-stipendio/">simulatore stipendio</a>; (2) verifica i tempi di attesa sui valichi vicini (Brogeda, Chiasso, Stabio, Gaggiolo) per stimare l'orario di arrivo a ${cityDisplay} per il colloquio o il primo giorno di lavoro; (3) per ruoli regolamentati (sanità, scuole, finanza, sicurezza) avvia la pratica di equipollenza del titolo italiano presso SBFI/SEFRI prima dell'invio del CV — la pratica richiede 3-6 mesi e va fatta in parallelo, non dopo. Quando il delta settimanale di un'azienda passa da zero a positivo per due settimane consecutive, è il segnale più forte di una fase di crescita strutturale: il momento giusto per la candidatura spontanea, non solo per le offerte pubblicate.`,
     },
     en: {
       h: `How to read the weekly snapshot${whereEn} as a cross-border worker`,
       p1: `The ${jobsCount} open positions across ${companiesCount} companies${whereEn} captured above are not static numbers: the weekly delta (the difference vs the snapshot seven days ago) is the most informative signal for cross-border job seekers. A positive delta means the company is growing headcount — that's the optimal window to send a CV, even outside exactly aligned openings, because HR and line managers are actively assessing profiles. A zero or negative delta signals saturation: in those periods focus on multinationals with centralised HR (Lonza, Helsinn, Medacta, BancaStato) that hire continuously, while Ticino SMEs hire in bursts. Always benchmark the delta against historical peaks: March-April and September-October concentrate 40-55 % of annual hires in Sottoceneri.`,
-      p2: `To optimise your application use this list as a "hot list" and run three parallel actions: (1) open each top employer's hub page for the "Information for cross-border workers" section (G permit, withholding canton, social charges) and run the actual net of the advertised gross in the <a href="${BASE_URL}/en/calculate-salary/" style="color:var(--color-link)">salary simulator</a>; (2) check live wait times at nearby crossings (Brogeda, Chiasso, Stabio, Gaggiolo) to size the arrival time at ${cityDisplay} for the interview or first day on site; (3) for regulated roles (healthcare, schools, finance, security) launch the SBFI/SEFRI Italian-title equivalence procedure before sending the CV — it takes 3-6 months and should run in parallel, not after. When a company's weekly delta flips from zero to positive for two consecutive weeks, that's the strongest signal of a structural growth phase: the right moment for a speculative application, not just posted openings.`,
+      p2: `To optimise your application use this list as a "hot list" and run three parallel actions: (1) open each top employer's hub page for the "Information for cross-border workers" section (G permit, withholding canton, social charges) and run the actual net of the advertised gross in the <a class="s-IjpSYt" href="${BASE_URL}/en/calculate-salary/">salary simulator</a>; (2) check live wait times at nearby crossings (Brogeda, Chiasso, Stabio, Gaggiolo) to size the arrival time at ${cityDisplay} for the interview or first day on site; (3) for regulated roles (healthcare, schools, finance, security) launch the SBFI/SEFRI Italian-title equivalence procedure before sending the CV — it takes 3-6 months and should run in parallel, not after. When a company's weekly delta flips from zero to positive for two consecutive weeks, that's the strongest signal of a structural growth phase: the right moment for a speculative application, not just posted openings.`,
     },
     de: {
       h: `Wie der wöchentliche Snapshot${whereDe} als Grenzgänger zu lesen ist`,
       p1: `Die ${jobsCount} offenen Stellen verteilt auf ${companiesCount} Unternehmen${whereDe}, die oben abgebildet sind, sind keine statischen Werte: das wöchentliche Delta (der Unterschied zum Snapshot vor sieben Tagen) ist das aussagekräftigste Signal für stellensuchende Grenzgänger. Ein positives Delta bedeutet, dass das Unternehmen den Personalbestand ausbaut — das ist das optimale Zeitfenster für eine Bewerbung, auch ausserhalb exakt passender Stellen, weil HR und Linienvorgesetzte aktiv Profile prüfen. Ein null oder negatives Delta signalisiert Sättigung: in diesen Phasen fokussieren Sie sich auf Multinationals mit zentralisierter HR (Lonza, Helsinn, Medacta, BancaStato), die kontinuierlich einstellen, während Tessiner KMU schubweise einstellen. Vergleichen Sie das Delta immer mit historischen Spitzen: März-April und September-Oktober konzentrieren 40-55 % der jährlichen Anstellungen im Sottoceneri.`,
-      p2: `Um die Bewerbung zu optimieren, nutzen Sie diese Liste als "Hot List" und führen Sie drei Aktionen parallel aus: (1) öffnen Sie die Hub-Seite jedes Top-Arbeitgebers für den Abschnitt "Informationen für Grenzgänger" (G-Bewilligung, Quellenkanton, Sozialabgaben) und berechnen Sie das reale Netto des angegebenen Brutto im <a href="${BASE_URL}/de/gehalt-berechnen/" style="color:var(--color-link)">Lohnsimulator</a>; (2) prüfen Sie die Live-Wartezeiten an den nahen Grenzübergängen (Brogeda, Chiasso, Stabio, Gaggiolo) zur Schätzung der Ankunftszeit in ${cityDisplay} für das Vorstellungsgespräch oder den ersten Arbeitstag; (3) für regulierte Rollen (Gesundheit, Schulen, Finanzen, Sicherheit) starten Sie das SBFI/SEFRI-Anerkennungsverfahren des italienischen Titels vor dem Versand des Lebenslaufs — es dauert 3-6 Monate und sollte parallel laufen, nicht danach. Wenn das Wochen-Delta eines Unternehmens zwei aufeinanderfolgende Wochen von null auf positiv springt, ist das das stärkste Signal einer strukturellen Wachstumsphase: der richtige Moment für eine Initiativbewerbung, nicht nur für ausgeschriebene Stellen.`,
+      p2: `Um die Bewerbung zu optimieren, nutzen Sie diese Liste als "Hot List" und führen Sie drei Aktionen parallel aus: (1) öffnen Sie die Hub-Seite jedes Top-Arbeitgebers für den Abschnitt "Informationen für Grenzgänger" (G-Bewilligung, Quellenkanton, Sozialabgaben) und berechnen Sie das reale Netto des angegebenen Brutto im <a class="s-IjpSYt" href="${BASE_URL}/de/gehalt-berechnen/">Lohnsimulator</a>; (2) prüfen Sie die Live-Wartezeiten an den nahen Grenzübergängen (Brogeda, Chiasso, Stabio, Gaggiolo) zur Schätzung der Ankunftszeit in ${cityDisplay} für das Vorstellungsgespräch oder den ersten Arbeitstag; (3) für regulierte Rollen (Gesundheit, Schulen, Finanzen, Sicherheit) starten Sie das SBFI/SEFRI-Anerkennungsverfahren des italienischen Titels vor dem Versand des Lebenslaufs — es dauert 3-6 Monate und sollte parallel laufen, nicht danach. Wenn das Wochen-Delta eines Unternehmens zwei aufeinanderfolgende Wochen von null auf positiv springt, ist das das stärkste Signal einer strukturellen Wachstumsphase: der richtige Moment für eine Initiativbewerbung, nicht nur für ausgeschriebene Stellen.`,
     },
     fr: {
       h: `Comment lire le panorama hebdomadaire${whereFr} en tant que frontalier`,
       p1: `Les ${jobsCount} postes ouverts répartis sur ${companiesCount} entreprises${whereFr} capturés ci-dessus ne sont pas des valeurs statiques : le delta hebdomadaire (la différence par rapport au panorama d'il y a sept jours) est le signal le plus informatif pour les frontaliers en recherche d'emploi. Un delta positif signifie que l'entreprise étoffe ses effectifs — c'est la fenêtre optimale pour envoyer un CV, même en dehors d'offres parfaitement alignées, car les RH et les responsables hiérarchiques évaluent activement des profils. Un delta nul ou négatif signale la saturation : dans ces périodes, concentrez-vous sur les multinationales à RH centralisée (Lonza, Helsinn, Medacta, BancaStato) qui recrutent en continu, tandis que les PME tessinoises recrutent par à-coups. Comparez toujours le delta aux pics historiques : mars-avril et septembre-octobre concentrent 40-55 % des embauches annuelles dans le Sottoceneri.`,
-      p2: `Pour optimiser la candidature, utilisez cette liste comme "liste chaude" et menez trois actions en parallèle : (1) ouvrez la page hub de chaque top employeur pour la section "Informations pour les frontaliers" (permis G, canton de retenue, charges sociales) et calculez le net réel du brut affiché dans le <a href="${BASE_URL}/fr/calculer-salaire/" style="color:var(--color-link)">simulateur de salaire</a> ; (2) vérifiez les temps d'attente en direct aux passages voisins (Brogeda, Chiasso, Stabio, Gaggiolo) pour estimer l'heure d'arrivée à ${cityDisplay} pour l'entretien ou le premier jour de travail ; (3) pour les rôles réglementés (santé, écoles, finance, sécurité) lancez la procédure SBFI/SEFRI d'équivalence du titre italien avant l'envoi du CV — elle prend 3-6 mois et doit être menée en parallèle, pas après. Lorsque le delta hebdomadaire d'une entreprise passe de zéro à positif pendant deux semaines consécutives, c'est le signal le plus fort d'une phase de croissance structurelle : le bon moment pour une candidature spontanée, pas seulement pour les offres publiées.`,
+      p2: `Pour optimiser la candidature, utilisez cette liste comme "liste chaude" et menez trois actions en parallèle : (1) ouvrez la page hub de chaque top employeur pour la section "Informations pour les frontaliers" (permis G, canton de retenue, charges sociales) et calculez le net réel du brut affiché dans le <a class="s-IjpSYt" href="${BASE_URL}/fr/calculer-salaire/">simulateur de salaire</a> ; (2) vérifiez les temps d'attente en direct aux passages voisins (Brogeda, Chiasso, Stabio, Gaggiolo) pour estimer l'heure d'arrivée à ${cityDisplay} pour l'entretien ou le premier jour de travail ; (3) pour les rôles réglementés (santé, écoles, finance, sécurité) lancez la procédure SBFI/SEFRI d'équivalence du titre italien avant l'envoi du CV — elle prend 3-6 mois et doit être menée en parallèle, pas après. Lorsque le delta hebdomadaire d'une entreprise passe de zéro à positif pendant deux semaines consécutives, c'est le signal le plus fort d'une phase de croissance structurelle : le bon moment pour une candidature spontanée, pas seulement pour les offres publiées.`,
     },
   };
   const c = copy[locale] || copy.it;
-  return `<section style="margin:0 0 28px" aria-labelledby="weeklyEmpFrontalier">
+  return `<section class="s-KZc0LQ" aria-labelledby="weeklyEmpFrontalier">
     <h2 id="weeklyEmpFrontalier" style="${H2_STYLE}">${esc(c.h)}</h2>
-    <p style="margin:0 0 14px;color:var(--color-body);line-height:1.7;max-width:860px">${c.p1}</p>
-    <p style="margin:0;color:var(--color-body);line-height:1.7;max-width:860px">${c.p2}</p>
+    <p class="s-KwuhOL">${c.p1}</p>
+    <p class="s-E7ZJqo">${c.p2}</p>
   </section>`;
 }
 
@@ -2640,7 +2640,7 @@ export function renderWeeklyEmployersPage(inp: WeeklyEmployersPageInputs): strin
   // initial-data state (no historical delta available yet). Suppresses the
   // per-card "coldStart" label to avoid 20× repetition of the same sentence.
   const coldStartBannerHtml = !hasHistoricalDelta
-    ? `<aside style="margin:0 0 16px;padding:14px 16px;border-radius:12px;background:var(--color-surface-alt);border:1px solid var(--color-edge);color:var(--color-subtle);font-size:14px;line-height:1.6" role="note">${esc(copy.coldStartBanner)}</aside>`
+    ? `<aside class="s-QEXgwA" role="note">${esc(copy.coldStartBanner)}</aside>`
     : '';
 
   // Phase 6 (Cathedral): resolve the city's canton once and reuse for every
@@ -2650,7 +2650,7 @@ export function renderWeeklyEmployersPage(inp: WeeklyEmployersPageInputs): strin
   const jobBoardSection = weeklyJobBoardSection(locale, cityCanton);
   const topCompaniesHtml = (() => {
     if (stats.topCompanies.length === 0) {
-      return `<p style="padding:14px 16px;border-radius:12px;background:var(--color-warning-subtle);color:var(--color-warning)">${esc(copy.topCompaniesEmpty)}</p>`;
+      return `<p class="s-fne6Eu">${esc(copy.topCompaniesEmpty)}</p>`;
     }
     const items = stats.topCompanies.map((c, idx) => {
       const brandHref = employerBrandPath(c.employerKey, c.employer, knownSlugs);
@@ -2695,16 +2695,16 @@ export function renderWeeklyEmployersPage(inp: WeeklyEmployersPageInputs): strin
 
   const newcomersHtml =
     stats.newcomers.length > 0
-      ? `<ul style="list-style:disc;padding-left:20px;margin:0 0 0 4px;color:var(--color-body);line-height:1.7">${stats.newcomers
+      ? `<ul class="s-1K12ix">${stats.newcomers
           .map((n) => {
             const newcomerHref = employerBrandPath(n.employerKey, n.employer, knownSlugs);
             const nameHtml = newcomerHref
-              ? `<a href="${esc(newcomerHref)}" style="color:var(--color-link);text-decoration:none;font-weight:700">${esc(n.employer)}</a>`
+              ? `<a class="s-YszcPD" href="${esc(newcomerHref)}">${esc(n.employer)}</a>`
               : `<strong>${esc(n.employer)}</strong>`;
             return `<li>${nameHtml} — ${esc(copy.jobsCountLabel(n.active))}</li>`;
           })
           .join('')}</ul>`
-      : `<p style="color:var(--color-subtle);line-height:1.7">${esc(copy.newcomersEmpty)}</p>`;
+      : `<p class="s-R4vH2z">${esc(copy.newcomersEmpty)}</p>`;
 
   // Stats grid + advice banner (mirror of the canton-hub / border-wait
   // pattern). Tiles surface the headline data above the fold; the advice
@@ -2717,7 +2717,7 @@ export function renderWeeklyEmployersPage(inp: WeeklyEmployersPageInputs): strin
     variant === 'archive'
       ? `W${weekNum} ${year}`
       : `W${getIsoWeekAndYear(today).week} ${getIsoWeekAndYear(today).year}`;
-  const cityStatsHtml = `<section style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin:0 0 18px" aria-label="${esc(kicker)}">
+  const cityStatsHtml = `<section class="s-Bk-L3k" aria-label="${esc(kicker)}">
     <div style="${STAT_TILE_ACCENT}">
       <div style="${STAT_TILE_LABEL}">${esc(tileLabels.jobs)}</div>
       <div style="${STAT_TILE_VALUE};font-size:32px;font-weight:800;font-variant-numeric:tabular-nums">${formatLocalisedInteger(jobsCount, locale)}</div>
@@ -2755,8 +2755,8 @@ export function renderWeeklyEmployersPage(inp: WeeklyEmployersPageInputs): strin
         : tileLabels.adviceStable;
   const cityAdviceBannerHtml = stats.topCompanies.length > 0
     ? `<aside data-we-advice aria-label="${esc(tileLabels.adviceEyebrow)}" style="${cityAdviceTone};margin:0 0 18px">
-      <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.04em;color:var(--color-subtle)">${esc(tileLabels.adviceEyebrow)}</div>
-      <p style="margin:6px 0 0;font-size:15px;line-height:1.55;color:var(--color-heading);font-weight:500">${esc(cityAdviceText)}</p>
+      <div class="s-a8IQOM">${esc(tileLabels.adviceEyebrow)}</div>
+      <p class="s-lEdUfz">${esc(cityAdviceText)}</p>
     </aside>`
     : '';
 
@@ -2764,7 +2764,7 @@ export function renderWeeklyEmployersPage(inp: WeeklyEmployersPageInputs): strin
   // so the CTA + role-search URLs point at the correct per-canton job
   // board (still TI for TI cities → byte-identical).
   const cityJobBoardPath = weeklyEmployersJobBoardPath(locale, cityCanton);
-  const cityCtaHtml = `<p style="margin:0 0 24px"><a href="${esc(cityJobBoardPath)}?city=${esc(city)}" style="${CTA_PRIMARY_STYLE};font-size:15px">${esc(tileLabels.cityCta(cityDisplay))} →</a></p>`;
+  const cityCtaHtml = `<p class="s-ziawP1"><a href="${esc(cityJobBoardPath)}?city=${esc(city)}" style="${CTA_PRIMARY_STYLE};font-size:15px">${esc(tileLabels.cityCta(cityDisplay))} →</a></p>`;
 
   const jobBoardSearchBase: Record<WeeklyEmployersLocale, string> = {
     it: cityJobBoardPath,
@@ -2795,17 +2795,17 @@ export function renderWeeklyEmployersPage(inp: WeeklyEmployersPageInputs): strin
   };
   const rolesHtml =
     stats.topRoles.length > 0
-      ? `<ul style="list-style:disc;padding-left:20px;margin:0 0 0 4px;color:var(--color-body);line-height:1.7">${stats.topRoles
+      ? `<ul class="s-1K12ix">${stats.topRoles
           .map((r) => {
             const roleSlug = slugifyEmployer(r.role);
             const sectorKey = ROLE_TO_SECTOR_HUB[roleSlug.toLowerCase()];
             const roleHref = sectorKey && (SECTOR_HUB_KEYS as readonly string[]).includes(sectorKey)
               ? buildSectorHubPath(locale, sectorKey)
               : `${jobBoardSearchBase[locale]}?q=${encodeURIComponent(roleSlug || r.role)}`;
-            return `<li><a href="${esc(roleHref)}" style="color:var(--color-link);text-decoration:none;text-transform:capitalize">${esc(r.role)}</a> — ${esc(copy.jobsCountLabel(r.count))}</li>`;
+            return `<li><a class="s-QTUjw9" href="${esc(roleHref)}">${esc(r.role)}</a> — ${esc(copy.jobsCountLabel(r.count))}</li>`;
           })
           .join('')}</ul>`
-      : `<p style="color:var(--color-subtle);line-height:1.7">${esc(copy.rolesEmpty)}</p>`;
+      : `<p class="s-R4vH2z">${esc(copy.rolesEmpty)}</p>`;
 
   // Related links: city hub + first employer brand (if present)
   const relatedLinks: string[] = [];
@@ -2821,7 +2821,7 @@ export function renderWeeklyEmployersPage(inp: WeeklyEmployersPageInputs): strin
       `<a href="${esc(href)}" style="${LINK_ACCENT_STYLE}">${esc(copy.relatedLinksEmployerBrand(firstEmployerWithBrand.employer))}</a>`,
     );
   }
-  const relatedHtml = `<ul style="list-style:none;padding:0;margin:0;display:flex;gap:14px;flex-wrap:wrap">${relatedLinks
+  const relatedHtml = `<ul class="s-JYHj9f">${relatedLinks
     .map((link) => `<li>${link}</li>`)
     .join('')}</ul>`;
 
@@ -2912,10 +2912,10 @@ export function renderWeeklyEmployersPage(inp: WeeklyEmployersPageInputs): strin
 
   const archiveNote =
     variant === 'archive' && !indexable
-      ? `<p style="margin:0 0 16px;color:var(--color-warning);background:var(--color-warning-subtle);padding:10px 14px;border-radius:12px;font-size:14px">${esc(copy.archiveNoindexNote)}</p>`
+      ? `<p class="s-4vckkk">${esc(copy.archiveNoindexNote)}</p>`
       : '';
 
-  const bodyHtml = `<article style="max-width:1100px;margin:0 auto;padding:32px 20px 56px">
+  const bodyHtml = `<article class="s-xzWvwM">
   <nav style="${BREADCRUMB_STYLE}" aria-label="breadcrumb">
     <a href="${BASE_URL}/" style="${BREADCRUMB_LINK_STYLE}">${esc(copy.breadcrumbHome)}</a>
     <span> / </span>
@@ -2923,7 +2923,7 @@ export function renderWeeklyEmployersPage(inp: WeeklyEmployersPageInputs): strin
     <span> / </span>
     <span>${esc(cityDisplay)}</span>
   </nav>
-  <header style="margin-bottom:22px">
+  <header class="s-Nv0GaD">
     <p style="${HERO_EYEBROW_STYLE}">${esc(kicker)} · ${esc(copy.updatedLabel)} ${dateStamp}</p>
     <h1 style="${H1_STYLE}">${esc(h1)}</h1>
     <p style="${LEDE_STYLE}">${esc(intro)}</p>
@@ -2932,25 +2932,25 @@ export function renderWeeklyEmployersPage(inp: WeeklyEmployersPageInputs): strin
   ${cityAdviceBannerHtml}
   ${cityCtaHtml}
   ${archiveNote}
-  <section style="margin:0 0 28px" aria-labelledby="topCompanies">
+  <section class="s-KZc0LQ" aria-labelledby="topCompanies">
     <h2 id="topCompanies" style="${H2_STYLE}">${esc(copy.topCompaniesTitle)}</h2>
     ${topCompaniesHtml}
   </section>
-  <section style="margin:0 0 28px" aria-labelledby="newcomers">
+  <section class="s-KZc0LQ" aria-labelledby="newcomers">
     <h2 id="newcomers" style="${H2_STYLE}">${esc(copy.newcomersTitle)}</h2>
-    <p style="margin:0 0 10px;color:var(--color-body);line-height:1.65;max-width:860px">${esc(copy.newcomersDesc)}</p>
+    <p class="s-tJ2IPU">${esc(copy.newcomersDesc)}</p>
     ${newcomersHtml}
   </section>
-  <section style="margin:0 0 28px" aria-labelledby="roles">
+  <section class="s-KZc0LQ" aria-labelledby="roles">
     <h2 id="roles" style="${H2_STYLE}">${esc(copy.rolesTitle)}</h2>
     ${rolesHtml}
   </section>
   ${renderWeeklyEmployersFrontalierContext({ locale, cityDisplay, isRegional, jobsCount, companiesCount })}
-  <section style="margin:32px 0 0;padding:24px 22px;border-radius:16px;background:var(--color-surface);border:1px solid var(--color-edge)" aria-labelledby="editorial">
+  <section class="s-GCEyQg" aria-labelledby="editorial">
     <h2 id="editorial" style="${H2_STYLE};margin:0 0 12px;font-size:18px">${esc(cityDisplay)}</h2>
-    <p style="margin:0 0 12px;color:var(--color-body);line-height:1.7;max-width:72ch;font-size:15px">${esc(heroSummary)}</p>
-    <p style="margin:0 0 12px;color:var(--color-body);line-height:1.7;max-width:72ch;font-size:15px">${esc(editorial)}</p>
-    <p style="margin:0;color:var(--color-subtle);line-height:1.7;max-width:72ch;font-size:14px">${esc(methodology)}</p>
+    <p class="s-qWFepn">${esc(heroSummary)}</p>
+    <p class="s-qWFepn">${esc(editorial)}</p>
+    <p class="s-XJm5bb">${esc(methodology)}</p>
   </section>
   ${renderCompanyLeavesForCityBlock(locale, city, cityLeaves ?? [])}
   ${renderCityHubsListBlock(locale, city)}
@@ -2961,28 +2961,28 @@ export function renderWeeklyEmployersPage(inp: WeeklyEmployersPageInputs): strin
     variant === 'archive' ? { weekNum, year } : undefined,
   )}
   ${renderLocaleSwitcherBlock(locale, (alt) => (variant === 'current' ? buildCurrentWeekPath(alt, city) : buildArchiveWeekPath(alt, city, weekNum, year)))}
-  <section style="margin:0 0 28px" aria-labelledby="relatedLinks">
+  <section class="s-KZc0LQ" aria-labelledby="relatedLinks">
     <h2 id="relatedLinks" style="${H2_STYLE}">${esc(copy.relatedLinksTitle)}</h2>
     ${relatedHtml}
   </section>
-  <section style="margin:0 0 0" aria-labelledby="weeklyFaq">
+  <section class="s-u4apOs" aria-labelledby="weeklyFaq">
     <h2 id="weeklyFaq" style="${H2_STYLE}">${esc(copy.faqTitle)}</h2>
     <details style="${CARD_STYLE};margin-bottom:8px">
-      <summary style="font-weight:700;cursor:pointer;color:var(--color-heading)">${esc(copy.faqHowOftenQ)}</summary>
-      <p style="margin:10px 0 0;color:var(--color-body);line-height:1.6">${esc(copy.faqHowOftenA)}</p>
+      <summary class="s-HBR0NM">${esc(copy.faqHowOftenQ)}</summary>
+      <p class="s-OCic8j">${esc(copy.faqHowOftenA)}</p>
     </details>
     <details style="${CARD_STYLE};margin-bottom:8px">
-      <summary style="font-weight:700;cursor:pointer;color:var(--color-heading)">${esc(copy.faqDeltaQ)}</summary>
-      <p style="margin:10px 0 0;color:var(--color-body);line-height:1.6">${esc(copy.faqDeltaA)}</p>
+      <summary class="s-HBR0NM">${esc(copy.faqDeltaQ)}</summary>
+      <p class="s-OCic8j">${esc(copy.faqDeltaA)}</p>
     </details>
     <details style="${CARD_STYLE};margin-bottom:8px">
-      <summary style="font-weight:700;cursor:pointer;color:var(--color-heading)">${esc(copy.faqApplyQ)}</summary>
-      <p style="margin:10px 0 0;color:var(--color-body);line-height:1.6">${esc(copy.faqApplyA)}</p>
+      <summary class="s-HBR0NM">${esc(copy.faqApplyQ)}</summary>
+      <p class="s-OCic8j">${esc(copy.faqApplyA)}</p>
     </details>
   </section>
   ${renderDiscoverMore(locale, WEEKLY_EMPLOYERS_DISCOVER_MORE_CTAS[locale])}
   ${generateRelatedLinksBlock(locale, 'weekly_employers', { city, weeklyCity: city })}
-  <section style="margin-top:32px" aria-label="advertisement">
+  <section class="s-sC82IX" aria-label="advertisement">
     ${adSlotHtml('JOBLIST_END_MULTIPLEX')}
   </section>
   ${wrapHubSeoContextWeekly(locale, cityDisplay, isRegional)}
@@ -3196,8 +3196,8 @@ export function renderCompanyCityPage(inp: CompanyCityPageInputs): string {
   // attach React onError handlers.
   const LOGO_ONERROR = `if(this.dataset.lf==='ph')return;if(this.src.indexOf('logo.clearbit.com')>-1){var d=this.src.replace(/^https?:\\/\\/logo\\.clearbit\\.com\\//,'').split(/[\\/?#]/)[0];if(d){this.src='https://www.google.com/s2/favicons?domain='+encodeURIComponent(d)+'&sz=128';this.dataset.lf='gf';return;}}this.src='/icons/company-placeholder.svg';this.dataset.lf='ph';this.style.visibility='visible';`;
   const headerLogoHtml = brandLogoUrl
-    ? `<img src="${esc(brandLogoUrl)}" alt="Logo ${esc(employer)}" width="80" height="80" loading="eager" decoding="async" onerror="${LOGO_ONERROR}" style="display:block;width:80px;height:80px;border-radius:16px;object-fit:contain;background:var(--color-surface-alt);border:1px solid var(--color-edge);flex-shrink:0">`
-    : `<span aria-hidden="true" style="display:flex;align-items:center;justify-content:center;width:80px;height:80px;border-radius:16px;background:var(--color-surface-alt);border:1px solid var(--color-edge);color:var(--color-subtle);flex-shrink:0">${ICON_BUILDING_SVG}</span>`;
+    ? `<img class="s-xISvoQ" src="${esc(brandLogoUrl)}" alt="Logo ${esc(employer)}" width="80" height="80" loading="eager" decoding="async" onerror="${LOGO_ONERROR}">`
+    : `<span class="s-oRrysh" aria-hidden="true">${ICON_BUILDING_SVG}</span>`;
 
   // Job list (≤10) — rendered via the SPA-matching shared `renderJobCardHtml`
   // so the static employer×city page mirrors the in-app `<JobCard>`. Logo,
@@ -3219,7 +3219,7 @@ export function renderCompanyCityPage(inp: CompanyCityPageInputs): string {
 
   const jobsListHtml =
     stats.activeJobs.length > 0
-      ? `<ol style="list-style:none;padding:0;margin:0;display:grid;grid-template-columns:1fr;gap:10px;counter-reset:weekly-employer-rank">${stats.activeJobs
+      ? `<ol class="s-LqkLeN">${stats.activeJobs
           .map((job, idx) => {
             const cardJob: JobCardJob = {
               title: job.title || `${OPEN_POSITION_LABEL[locale]} ${idx + 1}`,
@@ -3243,11 +3243,11 @@ export function renderCompanyCityPage(inp: CompanyCityPageInputs): string {
             });
             // CSS counter restores the visible "1.", "2." numbering that the
             // surrounding <ol> implies (the SPA card itself has no rank prefix).
-            const rankBadge = `<span aria-hidden="true" style="display:inline-flex;align-items:center;justify-content:center;min-width:28px;height:28px;padding:0 8px;border-radius:999px;background:var(--color-surface-alt);color:var(--color-subtle);font-size:13px;font-weight:700;line-height:1;flex-shrink:0">${idx + 1}</span>`;
-            return `<li style="margin:0;padding:0;display:flex;align-items:flex-start;gap:10px"><span style="padding-top:12px">${rankBadge}</span><div style="flex:1;min-width:0">${card}</div></li>`;
+            const rankBadge = `<span class="s-BF8Fx2" aria-hidden="true">${idx + 1}</span>`;
+            return `<li class="s-O_tf5k"><span class="s-jHHky4">${rankBadge}</span><div class="s-KGNylX">${card}</div></li>`;
           })
           .join('')}</ol>`
-      : `<p style="padding:14px 16px;border-radius:12px;background:var(--color-warning-subtle);color:var(--color-warning)">${esc(copy.topCompaniesEmpty)}</p>`;
+      : `<p class="s-fne6Eu">${esc(copy.topCompaniesEmpty)}</p>`;
 
   // Related links (own + cross-feature via shared helper).
   const parentHubHref = buildCurrentWeekPath(locale, city);
@@ -3257,14 +3257,14 @@ export function renderCompanyCityPage(inp: CompanyCityPageInputs): string {
   const ownRelated: string[] = [];
   if (brandHref) {
     ownRelated.push(
-      `<li style="margin:0;padding:0"><a href="${esc(brandHref)}" style="display:inline-block;padding:8px 0;${LINK_ACCENT_STYLE};font-weight:600">${esc(copy.companyCityBrandHubLabel(employer))} →</a></li>`,
+      `<li class="s-6FVpHG"><a href="${esc(brandHref)}" style="display:inline-block;padding:8px 0;${LINK_ACCENT_STYLE};font-weight:600">${esc(copy.companyCityBrandHubLabel(employer))} →</a></li>`,
     );
   }
   ownRelated.push(
-    `<li style="margin:0;padding:0"><a href="${esc(parentHubHref)}" style="display:inline-block;padding:8px 0;${LINK_ACCENT_STYLE};font-weight:600">${esc(copy.companyCityParentHubLabel(cityDisplay))} →</a></li>`,
+    `<li class="s-6FVpHG"><a href="${esc(parentHubHref)}" style="display:inline-block;padding:8px 0;${LINK_ACCENT_STYLE};font-weight:600">${esc(copy.companyCityParentHubLabel(cityDisplay))} →</a></li>`,
   );
   ownRelated.push(
-    `<li style="margin:0;padding:0"><a href="${esc(cityJobsHref)}" style="display:inline-block;padding:8px 0;${LINK_ACCENT_STYLE};font-weight:600">${esc(copy.companyCityCityHubLabel(cityDisplay))} →</a></li>`,
+    `<li class="s-6FVpHG"><a href="${esc(cityJobsHref)}" style="display:inline-block;padding:8px 0;${LINK_ACCENT_STYLE};font-weight:600">${esc(copy.companyCityCityHubLabel(cityDisplay))} →</a></li>`,
   );
 
   // Sibling company-city pages for the same company (other cities).
@@ -3392,7 +3392,7 @@ export function renderCompanyCityPage(inp: CompanyCityPageInputs): string {
 
   const archiveNote =
     variant === 'archive' && !indexable
-      ? `<p style="margin:0 0 16px;color:var(--color-warning);background:var(--color-warning-subtle);padding:10px 14px;border-radius:12px;font-size:14px">${esc(copy.archiveNoindexNote)}</p>`
+      ? `<p class="s-4vckkk">${esc(copy.archiveNoindexNote)}</p>`
       : '';
 
   // Company × city stats tile + advice + CTA — same UX pattern as the
@@ -3413,7 +3413,7 @@ export function renderCompanyCityPage(inp: CompanyCityPageInputs): string {
     de: 'Top-Rolle',
     fr: 'Rôle principal',
   };
-  const ccStatsHtml = `<section style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin:0 0 18px" aria-label="${esc(copy.companyCityKicker)}">
+  const ccStatsHtml = `<section class="s-Bk-L3k" aria-label="${esc(copy.companyCityKicker)}">
     <div style="${STAT_TILE_ACCENT}">
       <div style="${STAT_TILE_LABEL}">${esc(ccTileLabels.jobs)}</div>
       <div style="${STAT_TILE_VALUE};font-size:32px;font-weight:800;font-variant-numeric:tabular-nums">${formatLocalisedInteger(stats.activeJobsCount, locale)}</div>
@@ -3444,16 +3444,16 @@ export function renderCompanyCityPage(inp: CompanyCityPageInputs): string {
       ? ccTileLabels.adviceStableArchive(weekNum, year)
       : ccTileLabels.adviceStable;
   const ccAdviceBannerHtml = `<aside data-we-advice aria-label="${esc(ccTileLabels.adviceEyebrow)}" style="${ccAdviceTone};margin:0 0 18px">
-    <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.04em;color:var(--color-subtle)">${esc(ccTileLabels.adviceEyebrow)}</div>
-    <p style="margin:6px 0 0;font-size:15px;line-height:1.55;color:var(--color-heading);font-weight:500">${esc(ccAdviceText)}</p>
+    <div class="s-a8IQOM">${esc(ccTileLabels.adviceEyebrow)}</div>
+    <p class="s-lEdUfz">${esc(ccAdviceText)}</p>
   </aside>`;
 
   // Phase 6 (Cathedral): per-company×city CTA points at the city's canton-
   // resolved job board (TI cities → legacy slug, byte-identical).
   const ccJobBoardPath = weeklyEmployersJobBoardPath(locale, cityWeeklyEmployerCanton(city));
-  const ccCtaHtml = `<p style="margin:0 0 24px"><a href="${esc(ccJobBoardPath)}?city=${esc(city)}&q=${encodeURIComponent(employer)}" style="${CTA_PRIMARY_STYLE};font-size:15px">${esc(ccTileLabels.cityCta(`${employer} · ${cityDisplay}`))} →</a></p>`;
+  const ccCtaHtml = `<p class="s-ziawP1"><a href="${esc(ccJobBoardPath)}?city=${esc(city)}&q=${encodeURIComponent(employer)}" style="${CTA_PRIMARY_STYLE};font-size:15px">${esc(ccTileLabels.cityCta(`${employer} · ${cityDisplay}`))} →</a></p>`;
 
-  const bodyHtml = `<article style="max-width:1100px;margin:0 auto;padding:32px 20px 56px">
+  const bodyHtml = `<article class="s-xzWvwM">
   <nav style="${BREADCRUMB_STYLE}" aria-label="breadcrumb">
     <a href="${BASE_URL}/" style="${BREADCRUMB_LINK_STYLE}">${esc(copy.breadcrumbHome)}</a>
     <span> / </span>
@@ -3463,9 +3463,9 @@ export function renderCompanyCityPage(inp: CompanyCityPageInputs): string {
     <span> / </span>
     <span>${esc(employer)}</span>
   </nav>
-  <header style="margin-bottom:22px;display:flex;align-items:flex-start;gap:18px;flex-wrap:wrap">
+  <header class="s-PUHMVu">
     ${headerLogoHtml}
-    <div style="flex:1;min-width:260px">
+    <div class="s-4mGaO2">
       <p style="${HERO_EYEBROW_STYLE}">${esc(copy.companyCityKicker)} · ${esc(copy.updatedLabel)} ${dateStamp}</p>
       <h1 style="${H1_STYLE}">${esc(h1)}</h1>
       <p style="${LEDE_STYLE}">${esc(heroSummary)}</p>
@@ -3475,51 +3475,51 @@ export function renderCompanyCityPage(inp: CompanyCityPageInputs): string {
   ${ccAdviceBannerHtml}
   ${ccCtaHtml}
   ${archiveNote}
-  <section style="margin:0 0 28px" aria-labelledby="companyCityJobs">
+  <section class="s-KZc0LQ" aria-labelledby="companyCityJobs">
     <h2 id="companyCityJobs" style="${H2_STYLE}">${esc(copy.companyCityJobsHeading(employer, cityDisplay))}</h2>
     ${jobsListHtml}
   </section>
-  <section style="margin:0 0 28px" aria-labelledby="companyCityEditorial">
+  <section class="s-KZc0LQ" aria-labelledby="companyCityEditorial">
     <h2 id="companyCityEditorial" style="${H2_STYLE}">${esc(employer)} · ${esc(cityDisplay)}</h2>
-    <p style="margin:0 0 12px;color:var(--color-body);line-height:1.7;max-width:860px">${esc(intro)}</p>
-    <p style="margin:0;color:var(--color-body);line-height:1.7;max-width:860px">${esc(editorial)}</p>
+    <p class="s-ZLNNaY">${esc(intro)}</p>
+    <p class="s-E7ZJqo">${esc(editorial)}</p>
   </section>
-  <section style="margin:0 0 28px" aria-labelledby="companyCityFrontalier">
+  <section class="s-KZc0LQ" aria-labelledby="companyCityFrontalier">
     <h2 id="companyCityFrontalier" style="${H2_STYLE}">${esc(copy.companyCityFrontalierTitle(employer, cityDisplay))}</h2>
     ${copy
       .companyCityFrontalier({ employer, city: cityDisplay, jobsCount: stats.activeJobsCount })
-      .map((p) => `<p style="margin:0 0 12px;color:var(--color-body);line-height:1.7;max-width:860px">${p}</p>`)
+      .map((p) => `<p class="s-ZLNNaY">${p}</p>`)
       .join('')}
   </section>
-  <section style="margin:0 0 28px" aria-labelledby="companyCityMethodology">
+  <section class="s-KZc0LQ" aria-labelledby="companyCityMethodology">
     <h2 id="companyCityMethodology" style="${H2_STYLE}">${esc(copy.companyCityMethodologyTitle)}</h2>
-    <p style="margin:0;color:var(--color-body);line-height:1.7;max-width:860px">${esc(copy.companyCityMethodology({ employer, city: cityDisplay, jobsCount: stats.activeJobsCount, delta: stats.delta, hasHistoricalDelta }))}</p>
+    <p class="s-E7ZJqo">${esc(copy.companyCityMethodology({ employer, city: cityDisplay, jobsCount: stats.activeJobsCount, delta: stats.delta, hasHistoricalDelta }))}</p>
   </section>
-  <section style="margin:0 0 28px" aria-labelledby="companyCityLinks">
+  <section class="s-KZc0LQ" aria-labelledby="companyCityLinks">
     <h2 id="companyCityLinks" style="${H2_STYLE}">${esc(copy.relatedLinksTitle)}</h2>
-    <ul style="list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:6px 18px">${ownRelated.join('')}<!--SIBLING_LINKS_PLACEHOLDER--></ul>
+    <ul class="s-tbOFc9">${ownRelated.join('')}<!--SIBLING_LINKS_PLACEHOLDER--></ul>
   </section>
-  <section style="margin:0 0 0" aria-labelledby="companyCityFaq">
+  <section class="s-u4apOs" aria-labelledby="companyCityFaq">
     <h2 id="companyCityFaq" style="${H2_STYLE}">${esc(copy.faqTitle)}</h2>
     <details style="${CARD_STYLE};margin-bottom:8px">
-      <summary style="font-weight:700;cursor:pointer;color:var(--color-heading)">${esc(copy.companyCityFaqWhyQ(employer))}</summary>
-      <p style="margin:10px 0 0;color:var(--color-body);line-height:1.6">${esc(copy.companyCityFaqWhyA(employer, cityDisplay))}</p>
+      <summary class="s-HBR0NM">${esc(copy.companyCityFaqWhyQ(employer))}</summary>
+      <p class="s-OCic8j">${esc(copy.companyCityFaqWhyA(employer, cityDisplay))}</p>
     </details>
     <details style="${CARD_STYLE};margin-bottom:8px">
-      <summary style="font-weight:700;cursor:pointer;color:var(--color-heading)">${esc(copy.companyCityFaqHowApplyQ)}</summary>
-      <p style="margin:10px 0 0;color:var(--color-body);line-height:1.6">${esc(copy.companyCityFaqHowApplyA(employer))}</p>
+      <summary class="s-HBR0NM">${esc(copy.companyCityFaqHowApplyQ)}</summary>
+      <p class="s-OCic8j">${esc(copy.companyCityFaqHowApplyA(employer))}</p>
     </details>
     <details style="${CARD_STYLE};margin-bottom:8px">
-      <summary style="font-weight:700;cursor:pointer;color:var(--color-heading)">${esc(copy.companyCityFaqUpdateQ)}</summary>
-      <p style="margin:10px 0 0;color:var(--color-body);line-height:1.6">${esc(copy.companyCityFaqUpdateA)}</p>
+      <summary class="s-HBR0NM">${esc(copy.companyCityFaqUpdateQ)}</summary>
+      <p class="s-OCic8j">${esc(copy.companyCityFaqUpdateA)}</p>
     </details>
     <details style="${CARD_STYLE};margin-bottom:8px">
-      <summary style="font-weight:700;cursor:pointer;color:var(--color-heading)">${esc(copy.companyCityFaqTeleworkQ(employer))}</summary>
-      <p style="margin:10px 0 0;color:var(--color-body);line-height:1.6">${esc(copy.companyCityFaqTeleworkA(employer, cityDisplay))}</p>
+      <summary class="s-HBR0NM">${esc(copy.companyCityFaqTeleworkQ(employer))}</summary>
+      <p class="s-OCic8j">${esc(copy.companyCityFaqTeleworkA(employer, cityDisplay))}</p>
     </details>
     <details style="${CARD_STYLE};margin-bottom:8px">
-      <summary style="font-weight:700;cursor:pointer;color:var(--color-heading)">${esc(copy.companyCityFaqEquivalenceQ)}</summary>
-      <p style="margin:10px 0 0;color:var(--color-body);line-height:1.6">${esc(copy.companyCityFaqEquivalenceA(employer))}</p>
+      <summary class="s-HBR0NM">${esc(copy.companyCityFaqEquivalenceQ)}</summary>
+      <p class="s-OCic8j">${esc(copy.companyCityFaqEquivalenceA(employer))}</p>
     </details>
   </section>
   ${generateRelatedLinksBlock(locale, 'weekly_employer_company_city', {
@@ -3529,7 +3529,7 @@ export function renderCompanyCityPage(inp: CompanyCityPageInputs): string {
     employer,
     companySiblingCities,
   })}
-  <section style="margin-top:32px" aria-label="advertisement">
+  <section class="s-sC82IX" aria-label="advertisement">
     ${adSlotHtml('JOBLIST_END_MULTIPLEX')}
   </section>
   ${wrapHubSeoContextWeekly(locale, cityDisplay, false)}
@@ -3584,7 +3584,7 @@ export function injectSiblingLinks(
     .map((c) => {
       const href = buildCompanyCityCurrentPath(locale, c, companySlug);
       const label = copy.companyCitySiblingLabel(employer, WEEKLY_EMPLOYERS_CITY_DISPLAY[c]);
-      return `<li style="margin:0;padding:0"><a href="${esc(href)}" style="display:inline-block;padding:8px 0;${LINK_ACCENT_STYLE};font-weight:600">${esc(label)} →</a></li>`;
+      return `<li class="s-6FVpHG"><a href="${esc(href)}" style="display:inline-block;padding:8px 0;${LINK_ACCENT_STYLE};font-weight:600">${esc(label)} →</a></li>`;
     })
     .join('');
   if (!items) {

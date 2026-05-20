@@ -588,9 +588,9 @@ export function ogPagesPlugin(rootDir: string): Plugin {
  const prefix = locale === 'it' ? '' : `/${locale}`;
  const href = `${BASE_URL}${prefix}/${indexSlug}/${slug}/`;
  const title = art.ogT.replace(/\s*\|\s*Frontaliere Ticino\s*$/i, '');
- return `<li style="margin:0 0 6px 0"><a href="${esc(href)}" style="color:#1e3a8a;text-decoration:none;font-weight:500">${esc(title)}</a></li>`;
+ return `<li class="s-65FRzB"><a class="s-ty-PxH" href="${esc(href)}">${esc(title)}</a></li>`;
  }).join('');
- return `<section style="margin-top:1.5rem;padding:1rem;background:#f1f5f9;border-radius:8px"><h2 style="font-size:1rem;font-weight:700;margin:0 0 0.5rem">${esc(relatedArticlesLabel[locale] ?? relatedArticlesLabel.it)}</h2><ul style="list-style:none;padding:0;margin:0;font-size:0.9rem">${items}</ul></section>`;
+ return `<section class="s-zzuqwx"><h2 class="s-GipLjS">${esc(relatedArticlesLabel[locale] ?? relatedArticlesLabel.it)}</h2><ul class="s-9oHkUE">${items}</ul></section>`;
  };
 
  for (const en of entries) {
@@ -940,9 +940,9 @@ export function ogPagesPlugin(rootDir: string): Plugin {
  : locale === 'de' ? 'Häufig gestellte Fragen'
  : locale === 'fr' ? 'Questions fréquentes'
  : 'Domande frequenti';
- visibleFaqHtml = `<details style="margin:1.5rem 0;border:1px solid #e2e8f0;border-radius:8px;padding:.5rem .75rem"><summary style="cursor:pointer;font-weight:700;font-size:1rem;color:#1e293b;padding:.25rem 0">${faqLabel}</summary><dl style="margin-top:.5rem">` +
+ visibleFaqHtml = `<details class="s-lfB4Bo"><summary class="s-qAjSfB">${faqLabel}</summary><dl class="s-4vhLHi">` +
  useFaqPairs.slice(0, 10).map(pair =>
- `<dt style="font-weight:600;margin:.75rem 0 .25rem;color:#334155">${esc(pair.question)}</dt><dd style="margin:0 0 .5rem;color:#475569;line-height:1.6">${esc(pair.answer).substring(0, 500)}</dd>`
+ `<dt class="s-fG2BFJ">${esc(pair.question)}</dt><dd class="s-nrPIRx">${esc(pair.answer).substring(0, 500)}</dd>`
  ).join('') +
  `</dl></details>`;
  }
@@ -1026,7 +1026,7 @@ ${headTags}
  ${ADSENSE_SNIPPET}
  </head>
  <body class="bg-surface-alt text-heading overflow-x-hidden">
- <div id="root"><main id="main-content"><article><h1>${esc(differentiateH1FromTitle(localizedTitle, htmlPageTitle, articleLocale))}</h1><p class="article-byline" style="font-size:0.85rem;color:var(--color-body-muted,#64748b);margin:0.25rem 0 1rem">Di Valerie Linc · ${buildDateByline(en.datePub || en.dateMod || todayIso, en.dateMod || en.datePub || todayIso, locale)}</p><p>${esc(localizedDesc)}</p>${articleBodyHtml}${visibleFaqHtml}${buildRelatedArticlesHtml(en.articleId, articleCategoryById[en.articleId] || '', locale)}<nav><a href="/">Simulatore Fiscale</a> | <a href="/compara-servizi/">Confronta Servizi</a> | <a href="/tasse-e-pensione/">Tasse e Pensione</a> | <a href="/guida-frontaliere/">Guida Frontaliere</a> | <a href="/domande-frequenti-frontalieri/">FAQ</a> | <a href="/glossario-frontaliere/">Glossario</a> | <a href="/articoli-frontaliere/">Articoli</a></nav></article></main></div>
+ <div id="root"><main id="main-content"><article><h1>${esc(differentiateH1FromTitle(localizedTitle, htmlPageTitle, articleLocale))}</h1><p class="article-byline s-L_lk4l">Di Valerie Linc · ${buildDateByline(en.datePub || en.dateMod || todayIso, en.dateMod || en.datePub || todayIso, locale)}</p><p>${esc(localizedDesc)}</p>${articleBodyHtml}${visibleFaqHtml}${buildRelatedArticlesHtml(en.articleId, articleCategoryById[en.articleId] || '', locale)}<nav><a href="/">Simulatore Fiscale</a> | <a href="/compara-servizi/">Confronta Servizi</a> | <a href="/tasse-e-pensione/">Tasse e Pensione</a> | <a href="/guida-frontaliere/">Guida Frontaliere</a> | <a href="/domande-frequenti-frontalieri/">FAQ</a> | <a href="/glossario-frontaliere/">Glossario</a> | <a href="/articoli-frontaliere/">Articoli</a></nav></article></main></div>
  <script type="module" crossorigin fetchpriority="high" src="/assets/${entryJs}"></script>
  </body>
 </html>`;

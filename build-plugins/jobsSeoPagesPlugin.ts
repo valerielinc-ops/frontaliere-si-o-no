@@ -129,10 +129,10 @@ const HUB_SEO_CONTEXT_SUMMARY: Record<'it' | 'en' | 'de' | 'fr', string> = {
  * audit:text-html-ratio gate stays above the 10% Semrush threshold.
  */
 function wrapHubSeoContext(locale: 'it' | 'en' | 'de' | 'fr', innerHtml: string): string {
- return `<details class="hub-seo-context" style="margin:32px 0 0;padding:0;border-top:1px solid var(--color-edge)">
- <summary style="margin-top:18px;padding:10px 14px;cursor:pointer;color:var(--color-link);font-weight:600;font-size:15px;list-style:none">${HUB_SEO_CONTEXT_SUMMARY[locale]}</summary>
- <div style="padding:8px 0 0">
- <section style="max-width:860px;margin:0;color:var(--color-body);line-height:1.65;font-size:15px">
+ return `<details class="hub-seo-context s-mxdIN0">
+ <summary class="s-1yn7b_">${HUB_SEO_CONTEXT_SUMMARY[locale]}</summary>
+ <div class="s-yZU6bn">
+ <section class="s-p_RJwm">
  ${innerHtml}
  </section>
  </div>
@@ -776,9 +776,9 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  const prefix = locale === 'it' ? '' : `/${locale}`;
  const href = `${BASE_URL}${prefix}/${blogSectionByLocale[locale]}/${slug}/`;
  const title = articleTitleByLocale.it[art.id] || art.id.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
- return `<li style="margin:0 0 8px 0"><a href="${href}" style="text-decoration:none;color:var(--color-link);font-weight:600">${esc(title)}</a></li>`;
+ return `<li class="s-86Qi7h"><a class="s-KkZ9xy" href="${href}">${esc(title)}</a></li>`;
  }).join('');
- return `<section class="related" style="margin-top:12px"><h2 style="margin:0 0 10px 0;font-size:16px">${esc(recentArticlesLabel[locale])}</h2><ul style="list-style:none;padding:0;margin:0">${items}</ul></section>`;
+ return `<section class="related s-Duf2at"><h2 class="s-F8Mkz3">${esc(recentArticlesLabel[locale])}</h2><ul class="s-QkRjp8">${items}</ul></section>`;
  };
 
  // Default search-section route slugs — these are actual URL paths that must exist in the router.
@@ -2835,7 +2835,7 @@ ${hreflangHtml}
  const rx = new RegExp(`\\b${display}\\b`, 'i');
  return safe.replace(
  rx,
- (match) => `<a href="${href}" style="color:var(--color-accent);text-decoration:none;font-weight:600">${match}</a>`,
+ (match) => `<a class="s-uHD3iY" href="${href}">${match}</a>`,
  );
  };
 
@@ -2888,7 +2888,7 @@ ${hreflangHtml}
  linkifyLocation: linkifyCityInLocation,
  logoUrl: companyLogo(job),
  });
- return `<li style="list-style:none;margin:0 0 10px 0">${cardHtml}</li>`;
+ return `<li class="s-hjzncp">${cardHtml}</li>`;
  };
 
  /** Render a row of sector/city hub link chips for the company. */
@@ -2922,9 +2922,9 @@ ${hreflangHtml}
  })
  .join('');
  const parts: string[] = [];
- if (sectorChips) parts.push(`<div style="margin-top:10px"><span style="font-size:12px;color:var(--color-subtle);margin-right:8px">${esc(labels.sectorsLead)}:</span>${sectorChips}</div>`);
- if (cityChips) parts.push(`<div style="margin-top:6px"><span style="font-size:12px;color:var(--color-subtle);margin-right:8px">${esc(labels.citiesLead)}:</span>${cityChips}</div>`);
- return `<section style="margin-top:20px"><h3 style="margin:0 0 6px 0;font-size:14px;font-weight:700;color:var(--color-heading)">${esc(labels.intro)}</h3>${parts.join('')}</section>`;
+ if (sectorChips) parts.push(`<div class="s-35KBSc"><span class="s-QSf4up">${esc(labels.sectorsLead)}:</span>${sectorChips}</div>`);
+ if (cityChips) parts.push(`<div class="s-MBZH9Q"><span class="s-QSf4up">${esc(labels.citiesLead)}:</span>${cityChips}</div>`);
+ return `<section class="s-7uP4UM"><h3 class="s-sobAsC">${esc(labels.intro)}</h3>${parts.join('')}</section>`;
  };
 
  // Collect unique companies by canonical slug (mirrors runtime grouping)
@@ -3131,9 +3131,9 @@ ${hreflangHtml}
  const faqsHtml = brandCopy.faqs
  .map(
  (f) =>
- `<div style="margin:0 0 12px 0;padding:12px 14px;border:1px solid var(--color-edge);border-radius:10px"><h3 style="margin:0 0 6px 0;font-size:15px;color:var(--color-heading)">${esc(
+ `<div class="s-7-U_cj"><h3 class="s-uaMy8e">${esc(
  f.q,
- )}</h3><p style="margin:0;font-size:14px;color:var(--color-body);line-height:1.55">${esc(
+ )}</h3><p class="s-iQySYg">${esc(
  f.a,
  )}</p></div>`,
  )
@@ -3145,38 +3145,38 @@ ${hreflangHtml}
  const listingUrlCurated = `${BASE_URL}${withSlash(
  `${localePrefix[locale]}/${sectionSlug}`.replace(/\/+/g, '/'),
  )}`;
- const headerBadge = `<p style="margin:0 0 8px 0;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:var(--color-accent);font-weight:700">${esc(
+ const headerBadge = `<p class="s-Lk3xVq">${esc(
  curatedBrand.shortName,
  )}</p>`;
  const hubLabels = {
  viewAllLabel: copy.viewAll,
  };
  curatedBodyHtml = [
- `<header>${headerBadge}<h1>${esc(brandCopy.h1)}</h1><p style="font-size:16px;color:var(--color-subtle);margin-top:4px">${esc(
+ `<header>${headerBadge}<h1>${esc(brandCopy.h1)}</h1><p class="s-Yy-luh">${esc(
  brandCopy.tagline,
  )}</p></header>`,
- `<section style="margin-top:28px"><h2>${esc(brandCopy.sectionHeadings.about)}</h2>${paragraphsHtml}</section>`,
- `<section style="margin-top:28px"><h2>${esc(brandCopy.sectionHeadings.locations)}</h2><p>${esc(
+ `<section class="s-KeNgmc"><h2>${esc(brandCopy.sectionHeadings.about)}</h2>${paragraphsHtml}</section>`,
+ `<section class="s-KeNgmc"><h2>${esc(brandCopy.sectionHeadings.locations)}</h2><p>${esc(
  brandCopy.locationsIntro,
  )}</p><ul>${locationsHtml}</ul></section>`,
- `<section style="margin-top:28px"><h2>${esc(brandCopy.sectionHeadings.benefits)}</h2><ul>${benefitsHtml}</ul></section>`,
- `<section style="margin-top:28px"><h2>${esc(brandCopy.sectionHeadings.howToApply)}</h2><p>${esc(
+ `<section class="s-KeNgmc"><h2>${esc(brandCopy.sectionHeadings.benefits)}</h2><ul>${benefitsHtml}</ul></section>`,
+ `<section class="s-KeNgmc"><h2>${esc(brandCopy.sectionHeadings.howToApply)}</h2><p>${esc(
  brandCopy.howToApply,
  )}</p>${
  curatedBrand.careersUrl
- ? `<p><a href="${esc(curatedBrand.careersUrl)}" rel="noopener noreferrer" target="_blank" style="color:var(--color-link);font-weight:600;text-decoration:none">${esc(
+ ? `<p><a class="s-NXSorZ" href="${esc(curatedBrand.careersUrl)}" rel="noopener noreferrer" target="_blank">${esc(
  curatedBrand.website.replace(/^https?:\/\//, ''),
  )} &rarr;</a></p>`
  : ''
  }</section>`,
- `<section style="margin-top:28px"><h2>${esc(brandCopy.sectionHeadings.openRoles)} (${companyJobs.length})</h2>${
+ `<section class="s-KeNgmc"><h2>${esc(brandCopy.sectionHeadings.openRoles)} (${companyJobs.length})</h2>${
  openRolesListHtml
- ? `<ul style="list-style:none;padding:0;margin:16px 0">${openRolesListHtml}</ul><p><a href="${listingUrlCurated}">${esc(
+ ? `<ul class="s-0WjlyL">${openRolesListHtml}</ul><p><a href="${listingUrlCurated}">${esc(
  hubLabels.viewAllLabel,
  )}</a></p>${renderHubChipsHtml(companyJobs, locale)}`
  : `<p>${esc(brandCopy.emptyStateNote)}</p>`
  }</section>`,
- `<section style="margin-top:28px"><h2>${esc(brandCopy.sectionHeadings.faq)}</h2>${faqsHtml}</section>`,
+ `<section class="s-KeNgmc"><h2>${esc(brandCopy.sectionHeadings.faq)}</h2>${faqsHtml}</section>`,
  ].join('\n');
 
  // Apply curated meta overrides so brand-queried SERPs show branded titles.
@@ -3236,10 +3236,10 @@ ${hreflangHtml}
    if (companyProfile.sector) facts.push(`<li><strong>${esc(lbl.sector)}:</strong> ${esc(companyProfile.sector)}</li>`);
    if (companyProfile.headquarters) facts.push(`<li><strong>${esc(lbl.hq)}:</strong> ${esc(companyProfile.headquarters)}</li>`);
    const factsBlock = facts.length > 0
-    ? `<aside style="margin:0 0 14px;padding:12px 14px;background:var(--color-surface-subtle);border-radius:10px"><h3 style="margin:0 0 6px;font-size:14px;color:var(--color-heading)">${esc(factsTitle)}</h3><ul style="margin:0;padding:0;list-style:none;display:grid;gap:4px;font-size:14px;line-height:1.55;color:var(--color-body)">${facts.join('')}</ul></aside>`
+    ? `<aside class="s-nq3Bca"><h3 class="s-R_q_mI">${esc(factsTitle)}</h3><ul class="s-fGW3CV">${facts.join('')}</ul></aside>`
     : '';
    if (!desc && !factsBlock) return '';
-   return `<section class="company-profile" style="margin:20px 0 0">${factsBlock}${desc ? `<p style="margin:0;line-height:1.65;color:var(--color-body)">${esc(desc)}</p>` : ''}</section>`;
+   return `<section class="company-profile s-vJhV9y">${factsBlock}${desc ? `<p class="s-AA8lz_">${esc(desc)}</p>` : ''}</section>`;
   })()
   : '';
 
@@ -3260,8 +3260,8 @@ ${hreflangHtml}
  name: copy.sectionName,
  },
  });
- const companyBodyHtml = `<div style="max-width:1100px;margin:0 auto;padding:32px 20px 56px;color:var(--color-body)">
- <nav style="margin:0 0 16px;font-size:14px"><a href="${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionSlug}`.replace(/\/+/g, '/'))}" style="color:var(--color-accent);text-decoration:none;font-weight:600">&larr; ${esc(copy.allJobsLink)}</a></nav>
+ const companyBodyHtml = `<div class="s-it71Rt">
+ <nav class="s-ZVaIKh"><a class="s-uHD3iY" href="${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionSlug}`.replace(/\/+/g, '/'))}">&larr; ${esc(copy.allJobsLink)}</a></nav>
 ${curatedBodyHtml ? curatedBodyHtml + '\n' : `<h1>${esc(copy.heading(companyName))}</h1>\n<p>${esc(description)}</p>\n${companyProfileHtml}\n`}${curatedBodyHtml ? '' : (() => {
  // Collect location info from company jobs
  const companyLocations = [...new Set(companyJobs.map((j: any) => String(j.location || '')).filter(Boolean))];
@@ -3279,8 +3279,8 @@ ${curatedBodyHtml ? curatedBodyHtml + '\n' : `<h1>${esc(copy.heading(companyName
  const parts: string[] = [];
 
  // Job list first — most relevant content for landing visitors
- parts.push(`<section style="margin-top:20px"><h2>${locale === 'it' ? 'Posizioni aperte' : locale === 'en' ? 'Open positions' : locale === 'de' ? 'Offene Stellen' : 'Postes ouverts'}</h2>`);
- parts.push(`<ul style="list-style:none;padding:0;margin:16px 0">${jobListHtml}</ul>`);
+ parts.push(`<section class="s-7uP4UM"><h2>${locale === 'it' ? 'Posizioni aperte' : locale === 'en' ? 'Open positions' : locale === 'de' ? 'Offene Stellen' : 'Postes ouverts'}</h2>`);
+ parts.push(`<ul class="s-0WjlyL">${jobListHtml}</ul>`);
  parts.push(`<p><a href="${listingUrl}">${esc(copy.viewAll)}</a></p>`);
  parts.push('</section>');
 
@@ -3290,7 +3290,7 @@ ${curatedBodyHtml ? curatedBodyHtml + '\n' : `<h1>${esc(copy.heading(companyName
  // and clears the Semrush text-to-HTML ratio gate.
  const noLocOrSectors = !locationListStr && companySectors.length === 0;
  if (locale === 'it') {
- parts.push(`<section style="margin-top:20px"><h2>Informazioni su ${esc(companyName)}</h2>`);
+ parts.push(`<section class="s-7uP4UM"><h2>Informazioni su ${esc(companyName)}</h2>`);
  parts.push(`<p>${esc(companyName)} offre attualmente <strong>${companyJobs.length} posizioni aperte</strong> in Canton ${esc(displayCanton)}.`);
  if (locationListStr) parts[parts.length - 1] += ` Le sedi di lavoro includono: ${locationListLinkedHtml}.`;
  if (companySectors.length > 0) parts[parts.length - 1] += ` L'azienda opera nel settore ${esc(companySectors.slice(0, 3).join(', '))}.`;
@@ -3301,7 +3301,7 @@ ${curatedBodyHtml ? curatedBodyHtml + '\n' : `<h1>${esc(copy.heading(companyName
  }
  parts.push('</section>');
  } else if (locale === 'en') {
- parts.push(`<section style="margin-top:20px"><h2>About ${esc(companyName)}</h2>`);
+ parts.push(`<section class="s-7uP4UM"><h2>About ${esc(companyName)}</h2>`);
  parts.push(`<p>${esc(companyName)} currently has <strong>${companyJobs.length} open positions</strong> in the Canton of ${esc(displayCanton)}.`);
  if (locationListStr) parts[parts.length - 1] += ` Work locations include: ${locationListLinkedHtml}.`;
  if (companySectors.length > 0) parts[parts.length - 1] += ` The company operates in the ${esc(companySectors.slice(0, 3).join(', '))} sector.`;
@@ -3312,7 +3312,7 @@ ${curatedBodyHtml ? curatedBodyHtml + '\n' : `<h1>${esc(copy.heading(companyName
  }
  parts.push('</section>');
  } else if (locale === 'de') {
- parts.push(`<section style="margin-top:20px"><h2>\u00dcber ${esc(companyName)}</h2>`);
+ parts.push(`<section class="s-7uP4UM"><h2>\u00dcber ${esc(companyName)}</h2>`);
  parts.push(`<p>${esc(companyName)} bietet derzeit <strong>${companyJobs.length} offene Stellen</strong> im Kanton ${esc(displayCanton)} an.`);
  if (locationListStr) parts[parts.length - 1] += ` Arbeitsorte sind unter anderem: ${locationListLinkedHtml}.`;
  if (companySectors.length > 0) parts[parts.length - 1] += ` Das Unternehmen ist in den Bereichen ${esc(companySectors.slice(0, 3).join(', '))} t\u00e4tig.`;
@@ -3323,7 +3323,7 @@ ${curatedBodyHtml ? curatedBodyHtml + '\n' : `<h1>${esc(copy.heading(companyName
  }
  parts.push('</section>');
  } else {
- parts.push(`<section style="margin-top:20px"><h2>\u00c0 propos de ${esc(companyName)}</h2>`);
+ parts.push(`<section class="s-7uP4UM"><h2>\u00c0 propos de ${esc(companyName)}</h2>`);
  parts.push(`<p>${esc(companyName)} propose actuellement <strong>${companyJobs.length} postes ouverts</strong> dans le Canton du ${esc(displayCanton)}.`);
  if (locationListStr) parts[parts.length - 1] += ` Les lieux de travail incluent : ${locationListLinkedHtml}.`;
  if (companySectors.length > 0) parts[parts.length - 1] += ` L'entreprise op\u00e8re dans le secteur ${esc(companySectors.slice(0, 3).join(', '))}.`;
@@ -3345,7 +3345,7 @@ ${curatedBodyHtml ? curatedBodyHtml + '\n' : `<h1>${esc(copy.heading(companyName
  // strings interpolate companyName / primaryLocation / displayCanton so the
  // text stays page-specific and Google won't see boilerplate.
  if (locale === 'it') {
- parts.push(`<section style="margin-top:20px"><h2>Informazioni per frontalieri</h2>`);
+ parts.push(`<section class="s-7uP4UM"><h2>Informazioni per frontalieri</h2>`);
  parts.push(`<p>${esc(companyName)} ha sede${primaryLocation ? ` a ${esc(primaryLocation)}` : ''} in Canton ${esc(displayCanton)}, Svizzera. Per lavorare come frontaliere presso questa azienda serve il Permesso G. Il Canton ${esc(displayCanton)} applica l'imposta alla fonte con aliquote variabili sul reddito lordo dei lavoratori transfrontalieri. Usa il nostro <a href="${BASE_URL}/">simulatore fiscale gratuito</a> per calcolare il tuo stipendio netto e confrontare i costi della vita tra Svizzera e Italia.</p>`);
  parts.push(`<p><strong>Permesso G e residenza.</strong> Per essere assunto come frontaliere da ${esc(companyName)}${primaryLocation ? ` a ${esc(primaryLocation)}` : ''} devi risiedere in un comune italiano entro la fascia di 20 km dal confine svizzero (Lombardia o Piemonte) e rientrare al domicilio almeno una volta a settimana. Il Permesso G viene richiesto dal datore di lavoro all'Ufficio della migrazione cantonale dopo la firma del contratto: la prima emissione richiede 2-6 settimane, poi viene rinnovato annualmente fino al limite contrattuale. Le assenze prolungate dall'Italia (più di una settimana lavorativa senza rientro) compromettono lo status fiscale di "vecchio" frontaliere.</p>`);
  parts.push(`<p><strong>Imposta alla fonte e Nuovo Accordo fiscale 2024.</strong> Il datore svizzero trattiene mensilmente l'imposta alla fonte sul lordo: l'aliquota effettiva nel Canton ${esc(displayCanton)} oscilla fra il 5 % e il 19 % a seconda di reddito, stato civile e figli a carico. I frontalieri assunti dal 1° gennaio 2024 ricadono nel Nuovo Accordo Italia-Svizzera: imposta concorrente fra i due Stati con credito d'imposta italiano sulle ritenute svizzere fino all'80 %, deducibili nel quadro RW del modello 730/Redditi PF. Per il calcolo personalizzato netto-lordo apri il simulatore stipendio e inserisci la categoria contrattuale offerta da ${esc(companyName)}.</p>`);
@@ -3353,7 +3353,7 @@ ${curatedBodyHtml ? curatedBodyHtml + '\n' : `<h1>${esc(copy.heading(companyName
  parts.push(`<p><strong>Pendolarismo: cosa aspettarsi.</strong> ${primaryLocation ? `Lavorando per ${esc(companyName)} a ${esc(primaryLocation)} ` : `Lavorando per ${esc(companyName)} `}, il tragitto giornaliero da Como passa tipicamente dal valico di Brogeda (autostrada A2) o di Chiasso-strada per le destinazioni del Mendrisiotto/Luganese, con tempi di 25-50 minuti in ora di punta in funzione delle code al confine. Da Varese o Luino il valico di Stabio o Gaggiolo offre tragitti alternativi. Per stimare costo carburante mensile, usura veicolo e il tempo perso al confine consulta la guida pendolarismo e la mappa dei tempi di attesa: integrarli con lo stipendio netto è il modo corretto per valutare se il salario di ${esc(companyName)} è competitivo rispetto a un'alternativa italiana.</p>`);
  parts.push('</section>');
  } else if (locale === 'en') {
- parts.push(`<section style="margin-top:20px"><h2>Information for cross-border workers</h2>`);
+ parts.push(`<section class="s-7uP4UM"><h2>Information for cross-border workers</h2>`);
  parts.push(`<p>${esc(companyName)} is based${primaryLocation ? ` in ${esc(primaryLocation)}` : ''} in the Canton of ${esc(displayCanton)}, Switzerland. Cross-border workers need a G Permit to work at this company. The Canton of ${esc(displayCanton)} applies withholding tax at variable rates on the gross income of cross-border employees. Use our <a href="${BASE_URL}/en/">free tax simulator</a> to calculate your net salary and compare the cost of living between Switzerland and Italy.</p>`);
  parts.push(`<p><strong>G permit and residence.</strong> To be hired as a cross-border worker by ${esc(companyName)}${primaryLocation ? ` in ${esc(primaryLocation)}` : ''}, you must reside in an Italian municipality within the 20 km border zone (Lombardy or Piedmont) and return home at least once a week. The G permit is requested by the employer at the cantonal migration office after the contract is signed: first issuance takes 2-6 weeks and is then renewed yearly. Extended absences from Italy (more than a working week without returning home) jeopardise the "former" cross-border worker fiscal status.</p>`);
  parts.push(`<p><strong>Withholding tax and the 2024 fiscal agreement.</strong> The Swiss employer withholds tax monthly on the gross salary: the effective rate in the Canton of ${esc(displayCanton)} ranges between 5 % and 19 % depending on income, marital status and dependants. Cross-border workers hired on or after 1 January 2024 fall under the new Italy-Switzerland agreement with concurrent taxation: Italian tax credit on Swiss withholding up to 80 %, declared in section RW of the Italian tax return. For a personalised gross-to-net calculation use the salary simulator with the contract type ${esc(companyName)} offers.</p>`);
@@ -3361,7 +3361,7 @@ ${curatedBodyHtml ? curatedBodyHtml + '\n' : `<h1>${esc(copy.heading(companyName
  parts.push(`<p><strong>What to expect from the commute.</strong> ${primaryLocation ? `Working for ${esc(companyName)} in ${esc(primaryLocation)} ` : `Working for ${esc(companyName)} `}, the daily commute from Como typically goes through the Brogeda (A2 motorway) or Chiasso-strada crossing for destinations in Mendrisiotto/Luganese, taking 25-50 minutes at peak times depending on the border queue. From Varese or Luino, the Stabio or Gaggiolo crossings offer alternatives. To estimate monthly fuel cost, vehicle wear and time lost at the border, see the cross-border commuter guide and the live border-wait map: combining those numbers with net salary is the right way to compare a ${esc(companyName)} offer with an Italian alternative.</p>`);
  parts.push('</section>');
  } else if (locale === 'de') {
- parts.push(`<section style="margin-top:20px"><h2>Informationen f\u00fcr Grenzg\u00e4nger</h2>`);
+ parts.push(`<section class="s-7uP4UM"><h2>Informationen f\u00fcr Grenzg\u00e4nger</h2>`);
  parts.push(`<p>${esc(companyName)} hat seinen Sitz${primaryLocation ? ` in ${esc(primaryLocation)}` : ''} im Kanton ${esc(displayCanton)}, Schweiz. Grenzg\u00e4nger ben\u00f6tigen eine G-Bewilligung, um bei diesem Unternehmen zu arbeiten. Der Kanton ${esc(displayCanton)} erhebt eine Quellensteuer mit variablen S\u00e4tzen auf das Bruttoeinkommen der Grenzg\u00e4nger. Nutzen Sie unseren <a href="${BASE_URL}/de/">kostenlosen Steuersimulator</a>, um Ihr Nettogehalt zu berechnen und die Lebenshaltungskosten zwischen der Schweiz und Italien zu vergleichen.</p>`);
  parts.push(`<p><strong>G-Bewilligung und Wohnsitz.</strong> Um als Grenzg\u00e4nger bei ${esc(companyName)}${primaryLocation ? ` in ${esc(primaryLocation)}` : ''} angestellt zu werden, m\u00fcssen Sie in einer italienischen Gemeinde innerhalb der 20-km-Grenzzone (Lombardei oder Piemont) wohnen und mindestens einmal pro Woche nach Hause zur\u00fcckkehren. Die G-Bewilligung wird vom Arbeitgeber nach Vertragsunterzeichnung beim kantonalen Migrationsamt beantragt: die erste Ausstellung dauert 2-6 Wochen, danach erfolgt die j\u00e4hrliche Verl\u00e4ngerung. L\u00e4ngere Abwesenheiten von Italien (mehr als eine Arbeitswoche ohne R\u00fcckkehr) gef\u00e4hrden den steuerlichen "Alt-Grenzg\u00e4nger"-Status.</p>`);
  parts.push(`<p><strong>Quellensteuer und neues Steuerabkommen 2024.</strong> Der schweizerische Arbeitgeber zieht die Quellensteuer monatlich vom Bruttolohn ab: der effektive Satz im Kanton ${esc(displayCanton)} liegt je nach Einkommen, Zivilstand und Kindern zwischen 5 % und 19 %. Grenzg\u00e4nger, die ab dem 1. Januar 2024 angestellt wurden, fallen unter das neue Abkommen Italien-Schweiz mit konkurrierender Besteuerung: italienische Steuergutschrift auf die schweizerische Quellensteuer bis zu 80 %, deklariert in Abschnitt RW der italienischen Steuererkl\u00e4rung. F\u00fcr eine personalisierte Brutto-Netto-Berechnung verwenden Sie den Lohnsimulator mit der von ${esc(companyName)} angebotenen Vertragsart.</p>`);
@@ -3369,7 +3369,7 @@ ${curatedBodyHtml ? curatedBodyHtml + '\n' : `<h1>${esc(copy.heading(companyName
  parts.push(`<p><strong>Was Sie beim Pendeln erwartet.</strong> ${primaryLocation ? `Wer f\u00fcr ${esc(companyName)} in ${esc(primaryLocation)} arbeitet ` : `Wer f\u00fcr ${esc(companyName)} arbeitet `}, pendelt typischerweise von Como \u00fcber den Grenz\u00fcbergang Brogeda (Autobahn A2) oder Chiasso-Strasse zu Zielen im Mendrisiotto/Luganese, mit Fahrzeiten von 25-50 Minuten in Stosszeiten je nach Grenzwartezeit. Von Varese oder Luino bieten Stabio oder Gaggiolo Alternativen. F\u00fcr eine monatliche Sch\u00e4tzung von Treibstoffkosten, Fahrzeugverschleiss und Zeitverlust an der Grenze konsultieren Sie den Grenzg\u00e4nger-Leitfaden und die Live-Wartezeitenkarte: diese Zahlen zusammen mit dem Nettolohn ergeben die richtige Grundlage, um ein ${esc(companyName)}-Angebot gegen eine italienische Alternative abzuw\u00e4gen.</p>`);
  parts.push('</section>');
  } else {
- parts.push(`<section style="margin-top:20px"><h2>Informations pour les frontaliers</h2>`);
+ parts.push(`<section class="s-7uP4UM"><h2>Informations pour les frontaliers</h2>`);
  parts.push(`<p>${esc(companyName)} a son si\u00e8ge${primaryLocation ? ` \u00e0 ${esc(primaryLocation)}` : ''} dans le Canton du ${esc(displayCanton)}, en Suisse. Les travailleurs frontaliers ont besoin d'un permis G pour travailler dans cette entreprise. Le Canton du ${esc(displayCanton)} applique un imp\u00f4t \u00e0 la source \u00e0 taux variable sur le revenu brut des frontaliers. Utilisez notre <a href="${BASE_URL}/fr/">simulateur fiscal gratuit</a> pour calculer votre salaire net et comparer le co\u00fbt de la vie entre la Suisse et l'Italie.</p>`);
  parts.push(`<p><strong>Permis G et r\u00e9sidence.</strong> Pour \u00eatre engag\u00e9 comme frontalier par ${esc(companyName)}${primaryLocation ? ` \u00e0 ${esc(primaryLocation)}` : ''}, vous devez r\u00e9sider dans une commune italienne situ\u00e9e dans la zone fronti\u00e8re des 20 km (Lombardie ou Pi\u00e9mont) et rentrer chez vous au moins une fois par semaine. Le permis G est demand\u00e9 par l'employeur \u00e0 l'office cantonal des migrations apr\u00e8s la signature du contrat : la premi\u00e8re d\u00e9livrance prend 2 \u00e0 6 semaines, puis le permis est renouvel\u00e9 chaque ann\u00e9e. Des absences prolong\u00e9es d'Italie (plus d'une semaine de travail sans retour au domicile) compromettent le statut fiscal de \u00ab ancien \u00bb frontalier.</p>`);
  parts.push(`<p><strong>Imp\u00f4t \u00e0 la source et nouvel accord fiscal 2024.</strong> L'employeur suisse retient mensuellement l'imp\u00f4t \u00e0 la source sur le brut : le taux effectif dans le Canton du ${esc(displayCanton)} oscille entre 5 % et 19 % selon le revenu, l'\u00e9tat civil et les personnes \u00e0 charge. Les frontaliers engag\u00e9s \u00e0 partir du 1er janvier 2024 rel\u00e8vent du nouvel accord Italie-Suisse \u00e0 imposition concurrente : cr\u00e9dit d'imp\u00f4t italien sur la retenue suisse jusqu'\u00e0 80 %, d\u00e9clar\u00e9 dans le cadre RW de la d\u00e9claration italienne. Pour un calcul personnalis\u00e9 brut-net, utilisez le simulateur de salaire avec la cat\u00e9gorie contractuelle propos\u00e9e par ${esc(companyName)}.</p>`);
@@ -3384,25 +3384,25 @@ ${curatedBodyHtml ? curatedBodyHtml + '\n' : `<h1>${esc(copy.heading(companyName
  // impact on take-home, and benefit benchmarks. All values interpolate
  // companyName / displayCanton so Google sees page-specific copy.
  if (locale === 'it') {
- parts.push(`<section style="margin-top:20px"><h2>Contesto economico per chi valuta ${esc(companyName)}</h2>`);
+ parts.push(`<section class="s-7uP4UM"><h2>Contesto economico per chi valuta ${esc(companyName)}</h2>`);
  parts.push(`<p><strong>Range salariali tipici nel Canton ${esc(displayCanton)}.</strong> Le buste paga lorde in ${esc(displayCanton)} per i frontalieri si distribuiscono tipicamente in tre fasce: profili junior e mansioni operative tra CHF 4'200 e CHF 5'400 al mese (13ª inclusa); ruoli intermedi e tecnici qualificati tra CHF 5'500 e CHF 8'200; ruoli specialistici, manageriali e regolamentati tra CHF 8'500 e CHF 14'000. Per ${esc(companyName)} la collocazione concreta dipende dal CCL applicato (CCNL nazionale, CCL ramo, contratto aziendale), dall'anzianità e dalla certificazione richiesta. Confronta sempre il lordo svizzero con il netto italiano equivalente: a parità di mansione, in Ticino il netto resta superiore del 25-45 % grazie alla pressione fiscale e contributiva ridotta.</p>`);
  parts.push(`<p><strong>Impatto del cambio CHF/EUR sul potere d'acquisto.</strong> Lo stipendio in franchi va riconvertito in euro per le spese italiane (mutuo, scuola, spesa, utenze): un CHF/EUR a 1,06 vs 0,95 cambia il netto in euro fino al 12 % a parità di lordo svizzero. I frontalieri che lavorano per aziende come ${esc(companyName)} possono ridurre questo rischio cambio aprendo un conto multivaluta in Italia, mantenendo una riserva CHF per le spese svizzere (parking, mensa, eventuale spesa nei valichi) e cambiando in EUR solo la quota destinata alle uscite italiane. Le commissioni di cambio bancarie tradizionali (1,5-3 %) erodono il vantaggio: usa fornitori specializzati (Wise, Revolut Premium) o accordi di cambio negoziato con la propria banca italiana per massimizzare il netto effettivo.</p>`);
  parts.push(`<p><strong>Benefit accessori da chiedere in colloquio.</strong> Oltre allo stipendio lordo, valuta sempre i benefit non monetari quando ricevi un'offerta da ${esc(companyName)}: contributo LPP sopra il minimo legale (8-12 % del lordo è il benchmark per ruoli qualificati nel ${esc(displayCanton)}), 13ª e 14ª mensilità, bonus annuale legato a obiettivi (tipicamente 5-15 % del lordo), giorni di vacanza oltre i 4 settimane minime di legge (le aziende competitive offrono 5-6 settimane), formazione continua (budget di CHF 1'500-3'500/anno per ruoli senior), copertura assicurativa malattia LCA integrativa e flessibilità di telelavoro. Quest'ultimo punto è critico: dal 1° gennaio 2024 i frontalieri possono telelavorare fino al 25 % del tempo senza perdere lo status fiscale, ma il datore di lavoro deve esplicitarlo nel contratto.</p>`);
  parts.push('</section>');
  } else if (locale === 'en') {
- parts.push(`<section style="margin-top:20px"><h2>Economic context for evaluating ${esc(companyName)}</h2>`);
+ parts.push(`<section class="s-7uP4UM"><h2>Economic context for evaluating ${esc(companyName)}</h2>`);
  parts.push(`<p><strong>Typical salary ranges in the Canton of ${esc(displayCanton)}.</strong> Gross monthly salaries for cross-border workers in ${esc(displayCanton)} typically split into three bands: junior and operational roles between CHF 4,200 and CHF 5,400 per month (13th included); intermediate and skilled-technical roles between CHF 5,500 and CHF 8,200; specialist, managerial and regulated roles between CHF 8,500 and CHF 14,000. For ${esc(companyName)} the actual band depends on the applicable collective agreement (CCL), seniority and required certifications. Always compare the Swiss gross with the Italian net equivalent: for the same job in Ticino the net is typically 25-45 % higher than the Italian counterpart due to lower fiscal and social burden.</p>`);
  parts.push(`<p><strong>CHF/EUR exchange rate impact on purchasing power.</strong> Your CHF salary needs to be converted into EUR for Italian expenses (mortgage, school, groceries, utilities): a CHF/EUR rate at 1.06 vs 0.95 changes net EUR by up to 12 % at the same Swiss gross. Cross-border workers at companies like ${esc(companyName)} can hedge this exchange-rate risk by opening a multi-currency account in Italy, keeping a CHF reserve for Swiss expenses (parking, canteen, occasional shopping near the border) and converting to EUR only the share destined for Italian spending. Traditional bank FX fees (1.5-3 %) erode the benefit: use specialised providers (Wise, Revolut Premium) or a negotiated FX deal with your Italian bank to maximise effective net.</p>`);
  parts.push(`<p><strong>Benefits to negotiate at offer stage.</strong> Beyond the gross salary, always evaluate non-cash benefits when ${esc(companyName)} extends an offer: pension (LPP) contribution above the legal minimum (8-12 % of gross is the benchmark for skilled roles in ${esc(displayCanton)}), 13th and 14th-month payments, annual bonus tied to targets (typically 5-15 % of gross), holiday entitlement beyond the legal 4-week minimum (competitive employers offer 5-6 weeks), continuous training (CHF 1,500-3,500/year budget for senior roles), supplementary LCA health insurance and remote-work flexibility. The latter is critical: since 1 January 2024 cross-border workers can work remotely up to 25 % of the time without losing fiscal status, but the employer must explicitly include this in the contract.</p>`);
  parts.push('</section>');
  } else if (locale === 'de') {
- parts.push(`<section style="margin-top:20px"><h2>Wirtschaftlicher Kontext zur Bewertung von ${esc(companyName)}</h2>`);
+ parts.push(`<section class="s-7uP4UM"><h2>Wirtschaftlicher Kontext zur Bewertung von ${esc(companyName)}</h2>`);
  parts.push(`<p><strong>Typische Lohnbandbreiten im Kanton ${esc(displayCanton)}.</strong> Bruttogeh\u00e4lter f\u00fcr Grenzg\u00e4nger im ${esc(displayCanton)} verteilen sich typischerweise auf drei Bereiche: Junior- und operative Rollen zwischen CHF 4'200 und CHF 5'400 pro Monat (13. inbegriffen); mittlere und qualifiziert-technische Rollen zwischen CHF 5'500 und CHF 8'200; Spezialisten, Kader und regulierte Rollen zwischen CHF 8'500 und CHF 14'000. F\u00fcr ${esc(companyName)} h\u00e4ngt die konkrete Eingruppierung vom anwendbaren GAV (Branchen-GAV, Firmenvertrag), der Anstellungsdauer und den geforderten Zertifizierungen ab. Vergleichen Sie immer das Schweizer Brutto mit dem italienischen Netto-\u00c4quivalent: f\u00fcr dieselbe Stelle ist das Tessiner Netto typischerweise 25-45 % h\u00f6her als die italienische Alternative, dank tieferer Steuer- und Soziallast.</p>`);
  parts.push(`<p><strong>Auswirkungen des CHF/EUR-Kurses auf die Kaufkraft.</strong> Ihr CHF-Lohn muss f\u00fcr italienische Ausgaben (Hypothek, Schule, Eink\u00e4ufe, Nebenkosten) in EUR umgerechnet werden: ein CHF/EUR-Kurs von 1,06 vs 0,95 \u00e4ndert den Nettobetrag in EUR bei gleichem Schweizer Brutto um bis zu 12 %. Grenzg\u00e4nger bei Unternehmen wie ${esc(companyName)} k\u00f6nnen dieses Wechselkursrisiko absichern, indem sie ein Multiw\u00e4hrungskonto in Italien er\u00f6ffnen, eine CHF-Reserve f\u00fcr Schweizer Ausgaben halten (Parking, Personalrestaurant, gelegentliche Eink\u00e4ufe nahe der Grenze) und nur den Anteil f\u00fcr italienische Ausgaben in EUR konvertieren. Traditionelle Bankgeb\u00fchren (1,5-3 %) zehren am Vorteil: spezialisierte Anbieter (Wise, Revolut Premium) oder ein verhandelter FX-Deal mit Ihrer italienischen Bank maximieren das effektive Netto.</p>`);
  parts.push(`<p><strong>Verhandelbare Zusatzleistungen.</strong> \u00dcber das Bruttogehalt hinaus pr\u00fcfen Sie bei einem Angebot von ${esc(companyName)} stets die nicht monet\u00e4ren Leistungen: BVG-Beitrag \u00fcber dem gesetzlichen Minimum (8-12 % des Brutto sind der Benchmark f\u00fcr qualifizierte Rollen im ${esc(displayCanton)}), 13. und 14. Monatslohn, Bonus an Zielvereinbarungen gekoppelt (typischerweise 5-15 % des Brutto), Ferienanspruch \u00fcber dem gesetzlichen Minimum von 4 Wochen (kompetitive Arbeitgeber bieten 5-6 Wochen), Weiterbildung (CHF 1'500-3'500/Jahr f\u00fcr Senior-Rollen), erg\u00e4nzende LCA-Krankenversicherung und Telearbeit-Flexibilit\u00e4t. Letzteres ist entscheidend: seit dem 1. Januar 2024 d\u00fcrfen Grenzg\u00e4nger bis zu 25 % der Zeit im Homeoffice arbeiten, ohne den Steuerstatus zu verlieren — der Arbeitgeber muss dies aber im Vertrag explizit regeln.</p>`);
  parts.push('</section>');
  } else {
- parts.push(`<section style="margin-top:20px"><h2>Contexte \u00e9conomique pour \u00e9valuer ${esc(companyName)}</h2>`);
+ parts.push(`<section class="s-7uP4UM"><h2>Contexte \u00e9conomique pour \u00e9valuer ${esc(companyName)}</h2>`);
  parts.push(`<p><strong>Fourchettes salariales typiques dans le Canton du ${esc(displayCanton)}.</strong> Les salaires bruts mensuels pour les frontaliers dans le ${esc(displayCanton)} se r\u00e9partissent g\u00e9n\u00e9ralement en trois fourchettes : postes juniors et op\u00e9rationnels entre CHF 4'200 et CHF 5'400 par mois (13e inclus) ; postes interm\u00e9diaires et techniques qualifi\u00e9s entre CHF 5'500 et CHF 8'200 ; postes sp\u00e9cialis\u00e9s, cadres et r\u00e9glement\u00e9s entre CHF 8'500 et CHF 14'000. Pour ${esc(companyName)} le positionnement concret d\u00e9pend de la convention collective applicable (CCL national, CCL de branche, contrat d'entreprise), de l'anciennet\u00e9 et des certifications requises. Comparez toujours le brut suisse avec le net italien \u00e9quivalent : pour le m\u00eame poste au Tessin, le net est g\u00e9n\u00e9ralement 25-45 % sup\u00e9rieur \u00e0 l'\u00e9quivalent italien gr\u00e2ce \u00e0 une charge fiscale et sociale plus faible.</p>`);
  parts.push(`<p><strong>Impact du taux de change CHF/EUR sur le pouvoir d'achat.</strong> Votre salaire en CHF doit \u00eatre converti en EUR pour les d\u00e9penses italiennes (hypoth\u00e8que, \u00e9cole, courses, charges) : un taux CHF/EUR \u00e0 1,06 vs 0,95 modifie le net en EUR jusqu'\u00e0 12 % \u00e0 brut suisse \u00e9gal. Les frontaliers chez des entreprises comme ${esc(companyName)} peuvent couvrir ce risque de change en ouvrant un compte multi-devises en Italie, en gardant une r\u00e9serve CHF pour les d\u00e9penses suisses (parking, cantine, achats occasionnels pr\u00e8s de la fronti\u00e8re) et en convertissant en EUR seulement la part destin\u00e9e aux d\u00e9penses italiennes. Les frais de change bancaires traditionnels (1,5-3 %) r\u00e9duisent l'avantage : utilisez des prestataires sp\u00e9cialis\u00e9s (Wise, Revolut Premium) ou un accord de change n\u00e9goci\u00e9 avec votre banque italienne pour maximiser le net effectif.</p>`);
  parts.push(`<p><strong>Avantages \u00e0 n\u00e9gocier au moment de l'offre.</strong> Au-del\u00e0 du salaire brut, \u00e9valuez toujours les avantages non mon\u00e9taires lorsque ${esc(companyName)} fait une offre : cotisation LPP au-del\u00e0 du minimum l\u00e9gal (8-12 % du brut est le benchmark pour les postes qualifi\u00e9s dans le ${esc(displayCanton)}), 13e et 14e mois, bonus annuel index\u00e9 sur des objectifs (typiquement 5-15 % du brut), cong\u00e9s au-del\u00e0 du minimum l\u00e9gal de 4 semaines (les employeurs comp\u00e9titifs offrent 5-6 semaines), formation continue (budget CHF 1'500-3'500/an pour les postes seniors), assurance maladie compl\u00e9mentaire LCA et flexibilit\u00e9 du t\u00e9l\u00e9travail. Ce dernier point est critique : depuis le 1er janvier 2024, les frontaliers peuvent t\u00e9l\u00e9travailler jusqu'\u00e0 25 % du temps sans perdre leur statut fiscal, mais l'employeur doit l'inscrire explicitement dans le contrat.</p>`);
@@ -3428,10 +3428,10 @@ ${curatedBodyHtml ? curatedBodyHtml + '\n' : `<h1>${esc(copy.heading(companyName
  if (companyHubFrontalierContext) parts.push(companyHubFrontalierContext);
 
  // Editorial
- parts.push(`<p style="margin-top:16px;font-size:14px;color:var(--color-subtle);line-height:1.6">${esc(copy.editorial)}</p>`);
+ parts.push(`<p class="s-Xxg-ZL">${esc(copy.editorial)}</p>`);
  return parts.join('\n');
  })()}
- ${curatedBodyHtml ? `<p style="margin-top:24px;font-size:14px;color:var(--color-subtle);line-height:1.6">${esc(copy.editorial)}</p>` : ''}
+ ${curatedBodyHtml ? `<p class="s-DhzLIy">${esc(copy.editorial)}</p>` : ''}
  ${wrapHubSeoContext(locale as 'it' | 'en' | 'de' | 'fr', renderJobBoardCommuterContext({ locale, location: primaryLocation || 'Ticino', omitCommute: !primaryLocation }))}
  </div>`;
 
@@ -3623,7 +3623,7 @@ ${curatedBodyHtml ? curatedBodyHtml + '\n' : `<h1>${esc(copy.heading(companyName
    }>,
  ) => {
    if (items.length === 0) {
-     return '<p style="margin:0;color:var(--color-subtle);font-size:14px">—</p>';
+     return '<p class="s-heE-6f">—</p>';
    }
    return renderJobCardListHtml(
      items.map((item) => {
@@ -3687,7 +3687,7 @@ ${curatedBodyHtml ? curatedBodyHtml + '\n' : `<h1>${esc(copy.heading(companyName
       : isTender
       ? `I ${jobsCount} concorsi pubblici aperti a ${location} sono accessibili anche ai frontalieri italiani con i titoli equivalenti, ma con regole di residenza più stringenti rispetto al settore privato. Per i ruoli nell'amministrazione cantonale del Ticino, alcune posizioni richiedono la residenza svizzera al momento dell'assunzione (impiegati di concetto, dirigenti); i ruoli operativi e tecnici sono di solito accessibili al frontaliere. Il riconoscimento del titolo italiano (laurea, diploma) presso SBFI/SEFRI richiede 3-6 mesi e va lanciato in parallelo all'invio del CV. Le selezioni pubbliche svizzere prevedono di solito una prova scritta + colloquio + assessment psicometrico, con tempi di chiusura di 4-8 settimane dalla scadenza.`
       : `Le ${jobsCount} posizioni di ${typeLabel.toLowerCase()} a ${location} sono accessibili ai frontalieri italiani residenti in zona di frontiera (entro 20 km dalla Svizzera) tramite il Permesso G. La candidatura passa dal datore svizzero, che richiede il permesso all'Ufficio della migrazione cantonale dopo la firma del contratto: la prima emissione richiede 2-6 settimane, poi è rinnovata annualmente fino al limite contrattuale. Da Como il valico di Brogeda o Chiasso porta a ${location} in 25-50 minuti in ora di punta a seconda delle code; da Varese o Luino i valichi di Stabio o Gaggiolo offrono alternative.`,
-    p2: `Stipendio, pendolarismo e cosa controllare nei singoli annunci. Il netto reale di una posizione di ${typeLabel.toLowerCase()} a ${location} dipende dal CCL applicato, dal Nuovo Accordo fiscale Italia-Svizzera 2024 (imposta concorrente con credito d'imposta italiano fino all'80 % sulla ritenuta svizzera), dai contributi sociali (AVS-AI-IPG 5,3 %, disoccupazione 1,1 %, LPP variabile 7-18 % per età) e dal regime fiscale cantonale. La differenza lordo-netto tipica è 18-28 %. Apri ogni annuncio per leggere mansionario, requisiti, sede precisa e tipologia contrattuale, poi calcola il netto effettivo nel <a href="${baseUrl}${calcPath}" style="color:var(--color-link);text-decoration:none">simulatore stipendio</a> tenendo conto anche dei costi di pendolarismo verso ${location} (carburante, usura veicolo, tempo perso ai valichi) per un confronto onesto con un'alternativa italiana.`,
+    p2: `Stipendio, pendolarismo e cosa controllare nei singoli annunci. Il netto reale di una posizione di ${typeLabel.toLowerCase()} a ${location} dipende dal CCL applicato, dal Nuovo Accordo fiscale Italia-Svizzera 2024 (imposta concorrente con credito d'imposta italiano fino all'80 % sulla ritenuta svizzera), dai contributi sociali (AVS-AI-IPG 5,3 %, disoccupazione 1,1 %, LPP variabile 7-18 % per età) e dal regime fiscale cantonale. La differenza lordo-netto tipica è 18-28 %. Apri ogni annuncio per leggere mansionario, requisiti, sede precisa e tipologia contrattuale, poi calcola il netto effettivo nel <a class="s-U9K6Vf" href="${baseUrl}${calcPath}">simulatore stipendio</a> tenendo conto anche dei costi di pendolarismo verso ${location} (carburante, usura veicolo, tempo perso ai valichi) per un confronto onesto con un'alternativa italiana.`,
    },
    en: {
     h: `${typeLabel} jobs in ${location} for cross-border workers`,
@@ -3700,7 +3700,7 @@ ${curatedBodyHtml ? curatedBodyHtml + '\n' : `<h1>${esc(copy.heading(companyName
       : isTender
       ? `The ${jobsCount} public tenders in ${location} are open to Italian cross-border workers with equivalent qualifications, but with stricter residence rules than the private sector. For Ticino cantonal administration roles, some senior positions require Swiss residence at hire (white-collar, executives); operational and technical roles are usually open to cross-border workers. Italian qualification recognition (degree, diploma) at SBFI/SEFRI takes 3-6 months and should be launched in parallel with applications. Swiss public selections typically include a written test + interview + psychometric assessment, with 4-8 week closing times after the deadline.`
       : `The ${jobsCount} ${typeLabel.toLowerCase()} positions in ${location} are accessible to Italian cross-border workers resident in the border zone (within 20 km of Switzerland) through the G permit. The application goes via the Swiss employer, who files for the permit at the cantonal migration office after the contract is signed: first issuance takes 2-6 weeks and is renewed yearly. From Como the Brogeda or Chiasso crossing reaches ${location} in 25-50 minutes at peak times; from Varese or Luino, the Stabio or Gaggiolo crossings offer alternatives.`,
-    p2: `Salary, commute and what to read in each listing. The real take-home for a ${typeLabel.toLowerCase()} role in ${location} depends on the applicable collective agreement, the 2024 Italy-Switzerland fiscal agreement (concurrent taxation, Italian tax credit up to 80 % on Swiss withholding), social charges (AVS-AI-IPG 5.3 %, unemployment 1.1 %, LPP rising from 7 % to 18 % by age) and the cantonal tax regime. The typical gross-to-net gap is 18-28 %. Open each listing for the description, requirements, exact location and contract type, then run the actual net figure in the <a href="${baseUrl}${calcPath}" style="color:var(--color-link);text-decoration:none">salary simulator</a>, factoring in commute costs to ${location} for an honest comparison with an Italian alternative.`,
+    p2: `Salary, commute and what to read in each listing. The real take-home for a ${typeLabel.toLowerCase()} role in ${location} depends on the applicable collective agreement, the 2024 Italy-Switzerland fiscal agreement (concurrent taxation, Italian tax credit up to 80 % on Swiss withholding), social charges (AVS-AI-IPG 5.3 %, unemployment 1.1 %, LPP rising from 7 % to 18 % by age) and the cantonal tax regime. The typical gross-to-net gap is 18-28 %. Open each listing for the description, requirements, exact location and contract type, then run the actual net figure in the <a class="s-U9K6Vf" href="${baseUrl}${calcPath}">salary simulator</a>, factoring in commute costs to ${location} for an honest comparison with an Italian alternative.`,
    },
    de: {
     h: `${typeLabel} in ${location} für Grenzgänger`,
@@ -3713,7 +3713,7 @@ ${curatedBodyHtml ? curatedBodyHtml + '\n' : `<h1>${esc(copy.heading(companyName
       : isTender
       ? `Die ${jobsCount} öffentlichen Ausschreibungen in ${location} stehen italienischen Grenzgängern mit gleichwertigen Qualifikationen offen, aber mit strikteren Wohnsitzregeln als im Privatsektor. Bei der Tessiner Kantonsverwaltung erfordern einige Senior-Positionen den Schweizer Wohnsitz bei der Anstellung (Sachbearbeitende, Kader); operative und technische Rollen stehen Grenzgängern in der Regel offen. Die Anerkennung italienischer Titel (Studium, Diplom) beim SBFI/SEFRI dauert 3-6 Monate und sollte parallel zu den Bewerbungen gestartet werden. Schweizerische öffentliche Auswahlverfahren umfassen typischerweise eine schriftliche Prüfung, ein Vorstellungsgespräch und ein psychometrisches Assessment, mit Abschlusszeiten von 4-8 Wochen nach Bewerbungsfrist.`
       : `Die ${jobsCount} ${typeLabel.toLowerCase()}-Stellen in ${location} sind für italienische Grenzgänger mit Wohnsitz in der Grenzzone (innerhalb von 20 km zur Schweiz) über die G-Bewilligung zugänglich. Die Bewerbung läuft über den Schweizer Arbeitgeber, der die Bewilligung beim kantonalen Migrationsamt nach Vertragsunterzeichnung beantragt: die erste Ausstellung dauert 2-6 Wochen, danach erfolgt die jährliche Verlängerung. Von Como erreicht der Übergang Brogeda oder Chiasso ${location} in 25-50 Minuten in Stosszeiten; von Varese oder Luino bieten Stabio oder Gaggiolo Alternativen.`,
-    p2: `Lohn, Pendeln und worauf in den einzelnen Inseraten zu achten ist. Der reale Nettolohn einer ${typeLabel.toLowerCase()}-Rolle in ${location} hängt vom anwendbaren GAV, vom neuen Steuerabkommen Italien-Schweiz 2024 (konkurrierende Besteuerung, italienische Steuergutschrift bis zu 80 % auf die schweizerische Quellensteuer), den Sozialabgaben (AHV-IV-EO 5,3 %, ALV 1,1 %, BVG variabel 7-18 % nach Alter) und der kantonalen Steuerregelung ab. Der typische Brutto-Netto-Abstand beträgt 18-28 %. Öffnen Sie jedes Inserat für die Stellenbeschreibung, die Anforderungen, den genauen Arbeitsort und die Vertragsart, berechnen Sie dann den exakten Nettowert im <a href="${baseUrl}${calcPath}" style="color:var(--color-link);text-decoration:none">Lohnsimulator</a> und beziehen Sie auch die Pendelkosten nach ${location} ein.`,
+    p2: `Lohn, Pendeln und worauf in den einzelnen Inseraten zu achten ist. Der reale Nettolohn einer ${typeLabel.toLowerCase()}-Rolle in ${location} hängt vom anwendbaren GAV, vom neuen Steuerabkommen Italien-Schweiz 2024 (konkurrierende Besteuerung, italienische Steuergutschrift bis zu 80 % auf die schweizerische Quellensteuer), den Sozialabgaben (AHV-IV-EO 5,3 %, ALV 1,1 %, BVG variabel 7-18 % nach Alter) und der kantonalen Steuerregelung ab. Der typische Brutto-Netto-Abstand beträgt 18-28 %. Öffnen Sie jedes Inserat für die Stellenbeschreibung, die Anforderungen, den genauen Arbeitsort und die Vertragsart, berechnen Sie dann den exakten Nettowert im <a class="s-U9K6Vf" href="${baseUrl}${calcPath}">Lohnsimulator</a> und beziehen Sie auch die Pendelkosten nach ${location} ein.`,
    },
    fr: {
     h: `${typeLabel} à ${location} pour les frontaliers`,
@@ -3726,14 +3726,14 @@ ${curatedBodyHtml ? curatedBodyHtml + '\n' : `<h1>${esc(copy.heading(companyName
       : isTender
       ? `Les ${jobsCount} concours publics à ${location} sont accessibles aux frontaliers italiens disposant des titres équivalents, mais avec des règles de résidence plus strictes que dans le privé. Pour les rôles dans l'administration cantonale tessinoise, certains postes seniors exigent la résidence suisse à l'engagement (employés de concept, cadres) ; les rôles opérationnels et techniques sont généralement ouverts aux frontaliers. La reconnaissance du titre italien (diplôme, licence) auprès du SBFI/SEFRI prend 3 à 6 mois et doit être lancée en parallèle des candidatures. Les sélections publiques suisses comportent typiquement une épreuve écrite, un entretien et une évaluation psychométrique, avec des délais de clôture de 4-8 semaines après la date limite.`
       : `Les ${jobsCount} postes de ${typeLabel.toLowerCase()} à ${location} sont accessibles aux frontaliers italiens résidant en zone frontalière (à 20 km de la Suisse) via le permis G. La candidature passe par l'employeur suisse, qui demande le permis à l'office cantonal des migrations après la signature du contrat : la première délivrance prend 2-6 semaines, puis le permis est renouvelé chaque année. Depuis Côme, le passage de Brogeda ou Chiasso atteint ${location} en 25-50 minutes aux heures de pointe ; depuis Varèse ou Luino, Stabio ou Gaggiolo offrent des alternatives.`,
-    p2: `Salaire, trajet et points à vérifier dans chaque annonce. Le net réel d'un poste de ${typeLabel.toLowerCase()} à ${location} dépend de la convention collective applicable, du nouvel accord fiscal Italie-Suisse 2024 (imposition concurrente, crédit d'impôt italien jusqu'à 80 % sur la retenue suisse), des charges sociales (AVS-AI-APG 5,3 %, chômage 1,1 %, LPP variable 7-18 % selon l'âge) et du régime fiscal cantonal. L'écart brut-net typique est de 18-28 %. Ouvrez chaque annonce pour le descriptif, les exigences, le lieu et le type de contrat, puis calculez le net exact dans le <a href="${baseUrl}${calcPath}" style="color:var(--color-link);text-decoration:none">simulateur de salaire</a> en tenant compte des coûts du trajet vers ${location}.`,
+    p2: `Salaire, trajet et points à vérifier dans chaque annonce. Le net réel d'un poste de ${typeLabel.toLowerCase()} à ${location} dépend de la convention collective applicable, du nouvel accord fiscal Italie-Suisse 2024 (imposition concurrente, crédit d'impôt italien jusqu'à 80 % sur la retenue suisse), des charges sociales (AVS-AI-APG 5,3 %, chômage 1,1 %, LPP variable 7-18 % selon l'âge) et du régime fiscal cantonal. L'écart brut-net typique est de 18-28 %. Ouvrez chaque annonce pour le descriptif, les exigences, le lieu et le type de contrat, puis calculez le net exact dans le <a class="s-U9K6Vf" href="${baseUrl}${calcPath}">simulateur de salaire</a> en tenant compte des coûts du trajet vers ${location}.`,
    },
   };
   const c = copy[l] || copy.it;
-  return `<section style="margin:0 0 28px" aria-labelledby="locTypeFrontalier">
-   <h2 id="locTypeFrontalier" style="margin:0 0 14px;font-size:24px">${esc(c.h)}</h2>
-   <p style="margin:0 0 14px;color:var(--color-body);line-height:1.7;max-width:860px">${c.p1}</p>
-   <p style="margin:0;color:var(--color-body);line-height:1.7;max-width:860px">${c.p2}</p>
+  return `<section class="s-KZc0LQ" aria-labelledby="locTypeFrontalier">
+   <h2 class="s-iEVPhz" id="locTypeFrontalier">${esc(c.h)}</h2>
+   <p class="s-KwuhOL">${c.p1}</p>
+   <p class="s-E7ZJqo">${c.p2}</p>
   </section>`;
  };
 
@@ -3756,29 +3756,29 @@ ${curatedBodyHtml ? curatedBodyHtml + '\n' : `<h1>${esc(copy.heading(companyName
    it: {
     h: `Lavorare nel settore ${sectorLabel.toLowerCase()} a ${location} da frontaliere`,
     p1: `Le ${jobsCount} offerte ${sectorLabel.toLowerCase()} attive a ${location} si rivolgono in larga parte a frontalieri italiani: il bacino di assunzione naturale dei datori del Sottoceneri include Como, Varese, Mendrisio italiana e i comuni della fascia entro 20 km dal confine. Per candidarsi serve il Permesso G, residenza in un comune italiano dentro la zona di frontiera (Lombardia o Piemonte) e il rientro al domicilio almeno una volta a settimana. Il datore richiede il permesso all'Ufficio della migrazione cantonale dopo la firma del contratto: la prima emissione richiede 2-6 settimane, poi è rinnovato annualmente. Da Como il valico di Brogeda (autostrada A2) o Chiasso-strada porta a ${location} in 25-50 minuti in ora di punta a seconda delle code; da Varese o Luino i valichi di Stabio o Gaggiolo offrono alternative.`,
-    p2: `Stipendio e cosa controllare nei singoli annunci. Le ${jobsCount} offerte di ${sectorLabel.toLowerCase()} a ${location} pubblicano la retribuzione come lordo annuo: il netto reale dipende dal CCL applicato, dal Nuovo Accordo fiscale Italia-Svizzera 2024 (imposta concorrente con credito d'imposta italiano fino all'80 % sulla ritenuta svizzera), dai contributi sociali (AVS-AI-IPG 5,3 %, disoccupazione 1,1 % fino a 148.200 CHF/anno, LPP variabile 7-18 % per età) e dal regime fiscale cantonale. La differenza lordo-netto tipica è 18-28 %. Apri ogni annuncio per leggere mansionario, requisiti, sede precisa e tipologia contrattuale, poi calcola il netto effettivo nel <a href="${BASE_URL}/calcola-stipendio/" style="color:var(--color-link);text-decoration:none">simulatore stipendio</a> tenendo conto anche dei costi di pendolarismo verso ${location} (carburante, usura veicolo, tempo perso ai valichi) per un confronto onesto con un'alternativa italiana.`,
+    p2: `Stipendio e cosa controllare nei singoli annunci. Le ${jobsCount} offerte di ${sectorLabel.toLowerCase()} a ${location} pubblicano la retribuzione come lordo annuo: il netto reale dipende dal CCL applicato, dal Nuovo Accordo fiscale Italia-Svizzera 2024 (imposta concorrente con credito d'imposta italiano fino all'80 % sulla ritenuta svizzera), dai contributi sociali (AVS-AI-IPG 5,3 %, disoccupazione 1,1 % fino a 148.200 CHF/anno, LPP variabile 7-18 % per età) e dal regime fiscale cantonale. La differenza lordo-netto tipica è 18-28 %. Apri ogni annuncio per leggere mansionario, requisiti, sede precisa e tipologia contrattuale, poi calcola il netto effettivo nel <a class="s-U9K6Vf" href="${BASE_URL}/calcola-stipendio/">simulatore stipendio</a> tenendo conto anche dei costi di pendolarismo verso ${location} (carburante, usura veicolo, tempo perso ai valichi) per un confronto onesto con un'alternativa italiana.`,
    },
    en: {
     h: `Working in ${sectorLabel.toLowerCase()} in ${location} as a cross-border worker`,
     p1: `The ${jobsCount} active ${sectorLabel.toLowerCase()} listings in ${location} largely target Italian cross-border workers: the natural hiring catchment for Sottoceneri employers covers Como, Varese, Italian-side Mendrisio and the municipalities within the 20 km border zone. Applying requires a G Permit, residence in an Italian municipality inside the border zone (Lombardy or Piedmont) and returning home at least once a week. The employer files for the permit at the cantonal migration office after the contract is signed: first issuance takes 2-6 weeks and is renewed yearly. From Como the Brogeda (A2 motorway) or Chiasso-strada crossing reaches ${location} in 25-50 minutes at peak times depending on the queue; from Varese or Luino, the Stabio or Gaggiolo crossings offer alternatives.`,
-    p2: `Salary and what to read in each listing. The ${jobsCount} ${sectorLabel.toLowerCase()} openings in ${location} post compensation as gross annual figures: real take-home depends on the applicable collective agreement, the 2024 Italy-Switzerland fiscal agreement (concurrent taxation, Italian tax credit up to 80 % on the Swiss withholding), social charges (AVS-AI-IPG 5.3 %, unemployment 1.1 % up to CHF 148,200/year, LPP rising from 7 % at 25 to 18 % over 55) and the cantonal tax regime. The typical gross-to-net gap is 18-28 %. Open each listing for the job description, requirements, exact location and contract type, then run the actual net figure in the <a href="${BASE_URL}/en/calculate-salary/" style="color:var(--color-link);text-decoration:none">salary simulator</a>, factoring in commute costs to ${location} (fuel, vehicle wear, time lost at the border) for an honest comparison with an Italian alternative.`,
+    p2: `Salary and what to read in each listing. The ${jobsCount} ${sectorLabel.toLowerCase()} openings in ${location} post compensation as gross annual figures: real take-home depends on the applicable collective agreement, the 2024 Italy-Switzerland fiscal agreement (concurrent taxation, Italian tax credit up to 80 % on the Swiss withholding), social charges (AVS-AI-IPG 5.3 %, unemployment 1.1 % up to CHF 148,200/year, LPP rising from 7 % at 25 to 18 % over 55) and the cantonal tax regime. The typical gross-to-net gap is 18-28 %. Open each listing for the job description, requirements, exact location and contract type, then run the actual net figure in the <a class="s-U9K6Vf" href="${BASE_URL}/en/calculate-salary/">salary simulator</a>, factoring in commute costs to ${location} (fuel, vehicle wear, time lost at the border) for an honest comparison with an Italian alternative.`,
    },
    de: {
     h: `Als Grenzgänger im Sektor ${sectorLabel.toLowerCase()} in ${location} arbeiten`,
     p1: `Die ${jobsCount} aktiven ${sectorLabel.toLowerCase()}-Stellen in ${location} richten sich grösstenteils an italienische Grenzgänger: das natürliche Einzugsgebiet der Sottoceneri-Arbeitgeber umfasst Como, Varese, das italienische Mendrisio und die Gemeinden innerhalb der 20-km-Grenzzone. Eine Bewerbung setzt eine G-Bewilligung voraus, Wohnsitz in einer italienischen Gemeinde innerhalb der Grenzzone (Lombardei oder Piemont) und Rückkehr nach Hause mindestens einmal pro Woche. Der Arbeitgeber beantragt die Bewilligung beim kantonalen Migrationsamt nach Vertragsunterzeichnung: die erste Ausstellung dauert 2-6 Wochen, anschliessend erfolgt die jährliche Verlängerung. Von Como erreicht man ${location} über den Grenzübergang Brogeda (Autobahn A2) oder Chiasso-Strasse in 25-50 Minuten in Stosszeiten je nach Wartezeit; von Varese oder Luino bieten Stabio oder Gaggiolo Alternativen.`,
-    p2: `Lohn und worauf in den einzelnen Inseraten zu achten ist. Die ${jobsCount} ${sectorLabel.toLowerCase()}-Stellen in ${location} geben Löhne als Bruttojahresgehalt an: der reale Nettolohn hängt vom anwendbaren GAV, vom neuen Steuerabkommen Italien-Schweiz 2024 (konkurrierende Besteuerung, italienische Steuergutschrift bis zu 80 % auf die schweizerische Quellensteuer), den Sozialabgaben (AHV-IV-EO 5,3 %, ALV 1,1 % bis CHF 148'200/Jahr, BVG variabel von 7 % mit 25 Jahren bis 18 % über 55) und der kantonalen Steuerregelung ab. Der typische Brutto-Netto-Abstand beträgt 18-28 %. Öffnen Sie jedes Inserat für die Stellenbeschreibung, die Anforderungen, den genauen Arbeitsort und die Vertragsart, berechnen Sie dann den exakten Nettowert im <a href="${BASE_URL}/de/gehalt-berechnen/" style="color:var(--color-link);text-decoration:none">Lohnsimulator</a> und beziehen Sie auch die Pendelkosten nach ${location} (Treibstoff, Fahrzeugverschleiss, Wartezeit an der Grenze) ein.`,
+    p2: `Lohn und worauf in den einzelnen Inseraten zu achten ist. Die ${jobsCount} ${sectorLabel.toLowerCase()}-Stellen in ${location} geben Löhne als Bruttojahresgehalt an: der reale Nettolohn hängt vom anwendbaren GAV, vom neuen Steuerabkommen Italien-Schweiz 2024 (konkurrierende Besteuerung, italienische Steuergutschrift bis zu 80 % auf die schweizerische Quellensteuer), den Sozialabgaben (AHV-IV-EO 5,3 %, ALV 1,1 % bis CHF 148'200/Jahr, BVG variabel von 7 % mit 25 Jahren bis 18 % über 55) und der kantonalen Steuerregelung ab. Der typische Brutto-Netto-Abstand beträgt 18-28 %. Öffnen Sie jedes Inserat für die Stellenbeschreibung, die Anforderungen, den genauen Arbeitsort und die Vertragsart, berechnen Sie dann den exakten Nettowert im <a class="s-U9K6Vf" href="${BASE_URL}/de/gehalt-berechnen/">Lohnsimulator</a> und beziehen Sie auch die Pendelkosten nach ${location} (Treibstoff, Fahrzeugverschleiss, Wartezeit an der Grenze) ein.`,
    },
    fr: {
     h: `Travailler dans le secteur ${sectorLabel.toLowerCase()} à ${location} en tant que frontalier`,
     p1: `Les ${jobsCount} offres ${sectorLabel.toLowerCase()} actives à ${location} ciblent en grande partie les frontaliers italiens : le bassin d'embauche naturel des employeurs du Sottoceneri inclut Côme, Varèse, Mendrisio italienne et les communes de la bande des 20 km. Pour postuler, il faut un permis G, une résidence dans une commune italienne située dans la zone frontière (Lombardie ou Piémont) et un retour au domicile au moins une fois par semaine. L'employeur demande le permis à l'office cantonal des migrations après la signature du contrat : la première délivrance prend 2 à 6 semaines, puis le permis est renouvelé chaque année. Depuis Côme, le poste-frontière de Brogeda (autoroute A2) ou Chiasso-route conduit à ${location} en 25-50 minutes aux heures de pointe selon la file ; depuis Varèse ou Luino, les passages de Stabio ou Gaggiolo offrent des alternatives.`,
-    p2: `Salaire et points à vérifier dans chaque annonce. Les ${jobsCount} offres ${sectorLabel.toLowerCase()} à ${location} publient les rémunérations en brut annuel : le net réel dépend de la convention collective applicable, du nouvel accord fiscal Italie-Suisse 2024 (imposition concurrente, crédit d'impôt italien jusqu'à 80 % sur la retenue suisse), des charges sociales (AVS-AI-APG 5,3 %, chômage 1,1 % jusqu'à CHF 148'200/an, LPP variable de 7 % à 25 ans à 18 % au-delà de 55 ans) et du régime fiscal cantonal. L'écart brut-net typique est de 18 à 28 %. Ouvrez chaque annonce pour le descriptif, les exigences, le lieu exact et le type de contrat, puis calculez le net exact dans le <a href="${BASE_URL}/fr/calculer-salaire/" style="color:var(--color-link);text-decoration:none">simulateur de salaire</a> en tenant compte des coûts du trajet vers ${location} (carburant, usure du véhicule, temps perdu à la frontière).`,
+    p2: `Salaire et points à vérifier dans chaque annonce. Les ${jobsCount} offres ${sectorLabel.toLowerCase()} à ${location} publient les rémunérations en brut annuel : le net réel dépend de la convention collective applicable, du nouvel accord fiscal Italie-Suisse 2024 (imposition concurrente, crédit d'impôt italien jusqu'à 80 % sur la retenue suisse), des charges sociales (AVS-AI-APG 5,3 %, chômage 1,1 % jusqu'à CHF 148'200/an, LPP variable de 7 % à 25 ans à 18 % au-delà de 55 ans) et du régime fiscal cantonal. L'écart brut-net typique est de 18 à 28 %. Ouvrez chaque annonce pour le descriptif, les exigences, le lieu exact et le type de contrat, puis calculez le net exact dans le <a class="s-U9K6Vf" href="${BASE_URL}/fr/calculer-salaire/">simulateur de salaire</a> en tenant compte des coûts du trajet vers ${location} (carburant, usure du véhicule, temps perdu à la frontière).`,
    },
   };
   const c = copy[l] || copy.it;
-  return `<section style="margin:0 0 28px" aria-labelledby="locSectorFrontalier">
-   <h2 id="locSectorFrontalier" style="margin:0 0 14px;font-size:24px">${esc(c.h)}</h2>
-   <p style="margin:0 0 14px;color:var(--color-body);line-height:1.7;max-width:860px">${c.p1}</p>
-   <p style="margin:0;color:var(--color-body);line-height:1.7;max-width:860px">${c.p2}</p>
+  return `<section class="s-KZc0LQ" aria-labelledby="locSectorFrontalier">
+   <h2 class="s-iEVPhz" id="locSectorFrontalier">${esc(c.h)}</h2>
+   <p class="s-KwuhOL">${c.p1}</p>
+   <p class="s-E7ZJqo">${c.p2}</p>
   </section>`;
  };
  const buildEditorialJsonLd = (options: {
@@ -3910,10 +3910,10 @@ ${curatedBodyHtml ? curatedBodyHtml + '\n' : `<h1>${esc(copy.heading(companyName
  const openAllHref = `${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionByLocaleCanton(locale)}`.replace(/\/+/g, '/'))}`;
  const cityCards = model.sections.cities.length > 0
  ? model.sections.cities.map((city) => city.href
-     ? `<a href="${city.href}" style="display:flex;justify-content:space-between;gap:12px;padding:12px 14px;border:1px solid var(--color-accent-border);border-radius:16px;background:var(--color-accent-subtle);color:var(--color-heading);text-decoration:none;font-weight:600"><span>${esc(city.name)}</span><span style="color:var(--color-link)">${city.count}</span></a>`
-     : `<div style="display:flex;justify-content:space-between;gap:12px;padding:12px 14px;border:1px solid var(--color-accent-border);border-radius:16px;background:var(--color-accent-subtle);color:var(--color-heading);font-weight:600"><span>${esc(city.name)}</span><span style="color:var(--color-link)">${city.count}</span></div>`).join('')
- : '<p style="margin:0;color:var(--color-subtle);font-size:14px">—</p>';
- const internalLinks = model.internalLinks.map((item) => `<a href="${item.href}" style="display:inline-flex;padding:8px 12px;border-radius:999px;background:var(--color-accent-subtle);color:var(--color-accent);text-decoration:none;font-weight:700;font-size:13px">${esc(item.label)}</a>`).join('');
+     ? `<a class="s-tcCzKK" href="${city.href}"><span>${esc(city.name)}</span><span class="s-IjpSYt">${city.count}</span></a>`
+     : `<div class="s-eRMYnQ"><span>${esc(city.name)}</span><span class="s-IjpSYt">${city.count}</span></div>`).join('')
+ : '<p class="s-heE-6f">—</p>';
+ const internalLinks = model.internalLinks.map((item) => `<a class="s-ero_Qy" href="${item.href}">${esc(item.label)}</a>`).join('');
  const sectionRootUrl = `${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionByLocaleCanton(locale)}`.replace(/\/+/g, '/'))}`;
  const { breadcrumbLd, collectionLd, itemListLd } = buildEditorialJsonLd({
  locale,
@@ -3960,37 +3960,37 @@ ${alternates}
  </head>
  <body>
  <div id="root"></div>
- <main class="seo-static-content" style="max-width:1100px;margin:0 auto;padding:32px 20px 56px">
- <header style="margin-bottom:28px">
- <p style="margin:0 0 8px;color:var(--color-accent);font-size:13px;font-weight:700">${esc(model.updatedLabel)} · ${dateStamp}</p>
- <h1 style="margin:0 0 14px;font-size:clamp(2rem,5vw,3.2rem);line-height:1.05">${esc(model.heading)}</h1>
- <p style="margin:0 0 14px;font-size:18px;line-height:1.6;max-width:860px;color:var(--color-body)">${esc(model.description)}</p>
- <p style="margin:0;color:var(--color-subtle);line-height:1.7;max-width:860px">${esc(model.intro)}</p>
+ <main class="seo-static-content s-xzWvwM">
+ <header class="s-S_0cal">
+ <p class="s-zNiFzy">${esc(model.updatedLabel)} · ${dateStamp}</p>
+ <h1 class="s-P0Hs0W">${esc(model.heading)}</h1>
+ <p class="s-wU5Nrr">${esc(model.description)}</p>
+ <p class="s-rDKEKn">${esc(model.intro)}</p>
  </header>
- <section style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin:0 0 18px">
- <div style="padding:18px;border-radius:22px;background:var(--color-accent-subtle);border:1px solid var(--color-accent-border)"><div style="font-size:12px;color:var(--color-accent);font-weight:700;text-transform:uppercase">${esc(model.countsLabel)}</div><div style="margin-top:8px;font-size:32px;font-weight:800">${model.totalJobs}</div></div>
- <div style="padding:18px;border-radius:22px;background:var(--color-success-subtle);border:1px solid var(--color-success-border)"><div style="font-size:12px;color:var(--color-success);font-weight:700;text-transform:uppercase">${esc(model.sections.last24Hours.label)}</div><div style="margin-top:8px;font-size:32px;font-weight:800">${model.sections.last24Hours.jobs.length}</div></div>
- <div style="padding:18px;border-radius:22px;background:var(--color-success-subtle);border:1px solid var(--color-success-border)"><div style="font-size:12px;color:var(--color-success);font-weight:700;text-transform:uppercase">${esc(model.sections.last3Days.label)}</div><div style="margin-top:8px;font-size:32px;font-weight:800">${model.sections.last3Days.jobs.length}</div></div>
- <div style="padding:18px;border-radius:22px;background:var(--color-warning-subtle);border:1px solid var(--color-warning-border)"><div style="font-size:12px;color:var(--color-warning);font-weight:700;text-transform:uppercase">${esc(model.sections.partTime.label)}</div><div style="margin-top:8px;font-size:32px;font-weight:800">${model.sections.partTime.jobs.length}</div></div>
+ <section class="s-S6PRaY">
+ <div class="s-CGuDZg"><div class="s-JFi4vt">${esc(model.countsLabel)}</div><div class="s-9UotdJ">${model.totalJobs}</div></div>
+ <div class="s-3kP_AL"><div class="s-z4q8yI">${esc(model.sections.last24Hours.label)}</div><div class="s-9UotdJ">${model.sections.last24Hours.jobs.length}</div></div>
+ <div class="s-3kP_AL"><div class="s-z4q8yI">${esc(model.sections.last3Days.label)}</div><div class="s-9UotdJ">${model.sections.last3Days.jobs.length}</div></div>
+ <div class="s-0kclVO"><div class="s-AnMfGC">${esc(model.sections.partTime.label)}</div><div class="s-9UotdJ">${model.sections.partTime.jobs.length}</div></div>
  </section>
- <nav style="display:flex;flex-wrap:wrap;gap:10px;margin:0 0 22px">${internalLinks}</nav>
- <section style="margin:0 0 28px">
- <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:16px;margin:0 0 14px">
- <h2 style="margin:0;font-size:24px">${esc(model.sections.cityHubLabel)}</h2>
- <a href="${openAllHref}" style="color:var(--color-link);text-decoration:none;font-weight:700">${esc(model.openAllLabel)}</a>
+ <nav class="s-BqBw0X">${internalLinks}</nav>
+ <section class="s-KZc0LQ">
+ <div class="s-r2QmTP">
+ <h2 class="s-CqexyJ">${esc(model.sections.cityHubLabel)}</h2>
+ <a class="s-YszcPD" href="${openAllHref}">${esc(model.openAllLabel)}</a>
  </div>
- <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px">${cityCards}</div>
+ <div class="s-J2fKgL">${cityCards}</div>
  </section>
- <section id="last-24-hours" style="margin:0 0 28px;padding:22px;border-radius:28px;border:1px solid var(--color-edge);background:var(--color-surface)">
- <h2 style="margin:0 0 14px;font-size:24px">${esc(model.sections.last24Hours.label)}</h2>
+ <section class="s-4FxAs0" id="last-24-hours">
+ <h2 class="s-iEVPhz">${esc(model.sections.last24Hours.label)}</h2>
  ${renderJobList(model.sections.last24Hours.jobs)}
  </section>
- <section id="last-3-days" style="margin:0 0 28px;padding:22px;border-radius:28px;border:1px solid var(--color-edge);background:var(--color-surface)">
- <h2 style="margin:0 0 14px;font-size:24px">${esc(model.sections.last3Days.label)}</h2>
+ <section class="s-4FxAs0" id="last-3-days">
+ <h2 class="s-iEVPhz">${esc(model.sections.last3Days.label)}</h2>
  ${renderJobList(model.sections.last3Days.jobs)}
  </section>
- <section id="part-time" style="margin:0 0 28px;padding:22px;border-radius:28px;border:1px solid var(--color-edge);background:var(--color-surface)">
- <h2 style="margin:0 0 14px;font-size:24px">${esc(model.sections.partTime.label)}</h2>
+ <section class="s-4FxAs0" id="part-time">
+ <h2 class="s-iEVPhz">${esc(model.sections.partTime.label)}</h2>
  ${renderJobList(model.sections.partTime.jobs)}
  </section>
  ${wrapHubSeoContext(locale as 'it' | 'en' | 'de' | 'fr', renderJobBoardCommuterContext({ locale, location: CANTON_DISPLAY[editorialCanton] || editorialCanton, omitCommute: true, cantonDisplay: CANTON_DISPLAY[editorialCanton] || editorialCanton, cantonSlot: 'editorial-today' }))}
@@ -4083,8 +4083,8 @@ ${alternates}
  },
  })),
  });
- const explainerCards = model.explainerCards.map((card) => `<div style="padding:18px;border-radius:18px;border:1px solid var(--color-edge);background:var(--color-surface)"><h3 style="margin:0 0 8px;font-size:18px;color:var(--color-heading)">${esc(card.title)}</h3><p style="margin:0;color:var(--color-subtle);line-height:1.7">${esc(card.body)}</p></div>`).join('');
- const internalLinks = model.internalLinks.map((item) => `<a href="${item.href}" style="display:inline-flex;padding:8px 12px;border-radius:999px;background:var(--color-accent-subtle);color:var(--color-accent);text-decoration:none;font-weight:700;font-size:13px">${esc(item.label)}</a>`).join('');
+ const explainerCards = model.explainerCards.map((card) => `<div class="s-zYevpg"><h3 class="s-8pnpWY">${esc(card.title)}</h3><p class="s-BoADNW">${esc(card.body)}</p></div>`).join('');
+ const internalLinks = model.internalLinks.map((item) => `<a class="s-ero_Qy" href="${item.href}">${esc(item.label)}</a>`).join('');
  // FAQ block: extract inline styles to a single <style>+3 classes (.jf/.js/.ja).
  // On find-jobs locale variants (Zurich/Bern in DE/EN/FR — 6 pages) and per-
  // canton aggregate landings, each FAQ entry inlined ~280 B of style × N
@@ -4125,37 +4125,37 @@ ${alternates}
  </head>
  <body>
  <div id="root"></div>
- <main class="seo-static-content" style="max-width:1100px;margin:0 auto;padding:32px 20px 56px;color:var(--color-body)">
- <header style="margin-bottom:28px">
- <p style="margin:0 0 8px;color:var(--color-accent);font-size:13px;font-weight:700">${esc(model.updatedLabel)} · ${dateStamp}</p>
- <h1 style="margin:0 0 14px;font-size:clamp(2rem,5vw,3.2rem);line-height:1.05">${esc(model.heading)}</h1>
- <p style="margin:0 0 14px;font-size:18px;line-height:1.6;max-width:860px;color:var(--color-body)">${esc(model.description)}</p>
- <p style="margin:0;color:var(--color-subtle);line-height:1.7;max-width:860px">${esc(model.intro)}</p>
+ <main class="seo-static-content s-it71Rt">
+ <header class="s-S_0cal">
+ <p class="s-zNiFzy">${esc(model.updatedLabel)} · ${dateStamp}</p>
+ <h1 class="s-P0Hs0W">${esc(model.heading)}</h1>
+ <p class="s-wU5Nrr">${esc(model.description)}</p>
+ <p class="s-rDKEKn">${esc(model.intro)}</p>
  </header>
- <section style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin:0 0 18px">
- <div style="padding:18px;border-radius:22px;background:var(--color-accent-subtle);border:1px solid var(--color-accent-border)"><div style="font-size:12px;color:var(--color-accent);font-weight:700;text-transform:uppercase">${esc(model.countsLabel)}</div><div style="margin-top:8px;font-size:32px;font-weight:800">${model.totalJobs}</div></div>
- <div style="padding:18px;border-radius:22px;background:var(--color-success-subtle);border:1px solid var(--color-success-border)"><div style="font-size:12px;color:var(--color-success);font-weight:700;text-transform:uppercase">${esc(model.latestLabel)}</div><div style="margin-top:8px;font-size:32px;font-weight:800">${model.latestJobs.length}</div></div>
- <div style="padding:18px;border-radius:22px;background:var(--color-surface-alt);border:1px solid var(--color-edge)"><div style="font-size:12px;color:var(--color-body);font-weight:700;text-transform:uppercase">${esc(model.officialSourceLabel)}</div><div style="margin-top:8px;font-size:15px;font-weight:800"><a href="${model.officialSourceUrl}" style="color:var(--color-link);text-decoration:none">concorsi.ti.ch</a></div></div>
+ <section class="s-S6PRaY">
+ <div class="s-CGuDZg"><div class="s-JFi4vt">${esc(model.countsLabel)}</div><div class="s-9UotdJ">${model.totalJobs}</div></div>
+ <div class="s-3kP_AL"><div class="s-z4q8yI">${esc(model.latestLabel)}</div><div class="s-9UotdJ">${model.latestJobs.length}</div></div>
+ <div class="s-Fy0wEh"><div class="s-aoTYtA">${esc(model.officialSourceLabel)}</div><div class="s-ahW6q9"><a class="s-U9K6Vf" href="${model.officialSourceUrl}">concorsi.ti.ch</a></div></div>
  </section>
- <nav style="display:flex;flex-wrap:wrap;gap:10px;margin:0 0 22px">${internalLinks}</nav>
- <section style="margin:0 0 28px">
- <h2 style="margin:0 0 14px;font-size:24px">${esc(model.explainerTitle)}</h2>
- <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px">${explainerCards}</div>
+ <nav class="s-BqBw0X">${internalLinks}</nav>
+ <section class="s-KZc0LQ">
+ <h2 class="s-iEVPhz">${esc(model.explainerTitle)}</h2>
+ <div class="s-AiwYEG">${explainerCards}</div>
  </section>
- <section id="official-competitions" style="margin:0 0 28px;padding:22px;border-radius:28px;border:1px solid var(--color-edge);background:var(--color-surface)">
- <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:16px;margin:0 0 14px">
- <h2 style="margin:0;font-size:24px">${esc(model.feed.label)}</h2>
- <a href="${sectionRootUrl}" style="color:var(--color-link);text-decoration:none;font-weight:700">${esc(model.openAllLabel)}</a>
+ <section class="s-4FxAs0" id="official-competitions">
+ <div class="s-r2QmTP">
+ <h2 class="s-CqexyJ">${esc(model.feed.label)}</h2>
+ <a class="s-YszcPD" href="${sectionRootUrl}">${esc(model.openAllLabel)}</a>
  </div>
  ${renderJobList(model.feed.jobs)}
  </section>
- <section style="margin:0 0 28px;padding:22px;border-radius:28px;border:1px solid var(--color-edge);background:var(--color-surface)">
- <h2 style="margin:0 0 14px;font-size:24px">${esc(model.latestLabel)}</h2>
+ <section class="s-4FxAs0">
+ <h2 class="s-iEVPhz">${esc(model.latestLabel)}</h2>
  ${renderJobList(model.latestJobs)}
  </section>
- <section style="margin:0 0 28px">
- <h2 style="margin:0 0 14px;font-size:24px">${locale === 'it' ? 'Domande frequenti' : locale === 'en' ? 'Frequently asked questions' : locale === 'de' ? 'Haufige Fragen' : 'Questions frequentes'}</h2>
- <div style="display:grid;gap:12px">${faqHtml}</div>
+ <section class="s-KZc0LQ">
+ <h2 class="s-iEVPhz">${locale === 'it' ? 'Domande frequenti' : locale === 'en' ? 'Frequently asked questions' : locale === 'de' ? 'Haufige Fragen' : 'Questions frequentes'}</h2>
+ <div class="s-bRaq8r">${faqHtml}</div>
  </section>
  ${wrapHubSeoContext(locale as 'it' | 'en' | 'de' | 'fr', renderJobBoardCommuterContext({ locale, location: 'Ticino', omitCommute: true }))}
  </main>
@@ -4226,9 +4226,9 @@ ${alternates}
   ` <link rel="alternate" hreflang="x-default" href="${_xDefaultAltHref}">`,
  ].join('\n');
  const variantLinks = model.variants.length > 0
- ? model.variants.map((link) => `<a href="${link.href}" style="display:flex;justify-content:space-between;gap:12px;padding:12px 14px;border:1px solid var(--color-accent-border);border-radius:16px;background:var(--color-accent-subtle);color:var(--color-heading);text-decoration:none;font-weight:600"><span>${esc(link.label)}</span><span style="color:var(--color-link)">${link.count}</span></a>`).join('')
- : '<p style="margin:0;color:var(--color-subtle);font-size:14px">—</p>';
- const explainerCards = model.explainerCards.map((card) => `<div style="padding:18px;border-radius:18px;border:1px solid var(--color-edge);background:var(--color-surface)"><h3 style="margin:0 0 8px;font-size:18px;color:var(--color-heading)">${esc(card.title)}</h3><p style="margin:0;color:var(--color-subtle);line-height:1.7">${esc(card.body)}</p></div>`).join('');
+ ? model.variants.map((link) => `<a class="s-tcCzKK" href="${link.href}"><span>${esc(link.label)}</span><span class="s-IjpSYt">${link.count}</span></a>`).join('')
+ : '<p class="s-heE-6f">—</p>';
+ const explainerCards = model.explainerCards.map((card) => `<div class="s-zYevpg"><h3 class="s-8pnpWY">${esc(card.title)}</h3><p class="s-BoADNW">${esc(card.body)}</p></div>`).join('');
  const sectionRootUrl = `${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionByLocaleCanton(locale)}`.replace(/\/+/g, '/'))}`;
  const { breadcrumbLd, collectionLd, itemListLd } = buildEditorialJsonLd({
  locale,
@@ -4296,39 +4296,39 @@ ${alternates}
  </head>
  <body>
  <div id="root"></div>
- <main class="seo-static-content" style="max-width:1100px;margin:0 auto;padding:32px 20px 56px;color:var(--color-body)">
- <header style="margin-bottom:28px">
- <p style="margin:0 0 8px;color:var(--color-accent);font-size:13px;font-weight:700">${esc(model.updatedLabel)} · ${dateStamp}</p>
- <h1 style="margin:0 0 14px;font-size:clamp(2rem,5vw,3.2rem);line-height:1.05">${esc(model.heading)}</h1>
- <p style="margin:0 0 14px;font-size:18px;line-height:1.6;max-width:860px;color:var(--color-body)">${esc(model.description)}</p>
- <p style="margin:0;color:var(--color-subtle);line-height:1.7;max-width:860px">${esc(model.intro)}</p>
+ <main class="seo-static-content s-it71Rt">
+ <header class="s-S_0cal">
+ <p class="s-zNiFzy">${esc(model.updatedLabel)} · ${dateStamp}</p>
+ <h1 class="s-P0Hs0W">${esc(model.heading)}</h1>
+ <p class="s-wU5Nrr">${esc(model.description)}</p>
+ <p class="s-rDKEKn">${esc(model.intro)}</p>
  </header>
- <section style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin:0 0 18px">
- <div style="padding:18px;border-radius:22px;background:var(--color-accent-subtle);border:1px solid var(--color-accent-border)"><div style="font-size:12px;color:var(--color-accent);font-weight:700;text-transform:uppercase">${esc(model.countsLabel)}</div><div style="margin-top:8px;font-size:32px;font-weight:800">${model.totalJobs}</div></div>
- <div style="padding:18px;border-radius:22px;background:var(--color-success-subtle);border:1px solid var(--color-success-border)"><div style="font-size:12px;color:var(--color-success);font-weight:700;text-transform:uppercase">${esc(model.latestLabel)}</div><div style="margin-top:8px;font-size:32px;font-weight:800">${model.latestJobs.length}</div></div>
- <div style="padding:18px;border-radius:22px;background:var(--color-success-subtle);border:1px solid var(--color-success-border)"><div style="font-size:12px;color:var(--color-success);font-weight:700;text-transform:uppercase">${esc(model.variantTitle)}</div><div style="margin-top:8px;font-size:32px;font-weight:800">${model.variants.length}</div></div>
+ <section class="s-S6PRaY">
+ <div class="s-CGuDZg"><div class="s-JFi4vt">${esc(model.countsLabel)}</div><div class="s-9UotdJ">${model.totalJobs}</div></div>
+ <div class="s-3kP_AL"><div class="s-z4q8yI">${esc(model.latestLabel)}</div><div class="s-9UotdJ">${model.latestJobs.length}</div></div>
+ <div class="s-3kP_AL"><div class="s-z4q8yI">${esc(model.variantTitle)}</div><div class="s-9UotdJ">${model.variants.length}</div></div>
  </section>
- <section style="margin:0 0 28px">
- <h2 style="margin:0 0 14px;font-size:24px">${esc(model.variantTitle)}</h2>
- <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px">${variantLinks}</div>
+ <section class="s-KZc0LQ">
+ <h2 class="s-iEVPhz">${esc(model.variantTitle)}</h2>
+ <div class="s-J2fKgL">${variantLinks}</div>
  </section>
- <section style="margin:0 0 28px">
- <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px">${explainerCards}</div>
+ <section class="s-KZc0LQ">
+ <div class="s-AiwYEG">${explainerCards}</div>
  </section>
- <section style="margin:0 0 28px">
- <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:16px;margin:0 0 14px">
- <h2 style="margin:0;font-size:24px">${esc(model.feed.label)}</h2>
- <a href="${sectionRootUrl}" style="color:var(--color-link);text-decoration:none;font-weight:700">${esc(model.openAllLabel)}</a>
+ <section class="s-KZc0LQ">
+ <div class="s-r2QmTP">
+ <h2 class="s-CqexyJ">${esc(model.feed.label)}</h2>
+ <a class="s-YszcPD" href="${sectionRootUrl}">${esc(model.openAllLabel)}</a>
  </div>
  ${renderJobList(model.feed.jobs)}
  </section>
- <section style="margin:0 0 28px;padding:22px;border-radius:28px;border:1px solid var(--color-edge);background:var(--color-surface)">
- <h2 style="margin:0 0 14px;font-size:24px">${esc(model.latestLabel)}</h2>
+ <section class="s-4FxAs0">
+ <h2 class="s-iEVPhz">${esc(model.latestLabel)}</h2>
  ${renderJobList(model.latestJobs)}
  </section>
- <section style="margin:0 0 28px">
- <h2 style="margin:0 0 14px;font-size:24px">${locale === 'it' ? 'Domande frequenti' : locale === 'en' ? 'Frequently asked questions' : locale === 'de' ? 'Haufige Fragen' : 'Questions frequentes'}</h2>
- <div style="display:grid;gap:12px">${faqHtml}</div>
+ <section class="s-KZc0LQ">
+ <h2 class="s-iEVPhz">${locale === 'it' ? 'Domande frequenti' : locale === 'en' ? 'Frequently asked questions' : locale === 'de' ? 'Haufige Fragen' : 'Questions frequentes'}</h2>
+ <div class="s-bRaq8r">${faqHtml}</div>
  </section>
  ${wrapHubSeoContext(locale as 'it' | 'en' | 'de' | 'fr', renderJobBoardCommuterContext({ locale, location: CANTON_DISPLAY[editorialCanton] || editorialCanton, omitCommute: true, cantonDisplay: CANTON_DISPLAY[editorialCanton] || editorialCanton, cantonSlot: 'editorial-nursing' }))}
  </main>
@@ -4410,9 +4410,9 @@ ${alternates}
  const sectionRootUrl = `${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionByLocaleCanton(locale)}`.replace(/\/+/g, '/'))}`;
  const cityCards = model.cityLinks.length > 0
  ? model.cityLinks.map((city) => city.href
-     ? `<a href="${city.href}" style="display:flex;justify-content:space-between;gap:12px;padding:12px 14px;border:1px solid var(--color-accent-border);border-radius:16px;background:var(--color-accent-subtle);color:var(--color-heading);text-decoration:none;font-weight:600"><span>${esc(city.name)}</span><span style="color:var(--color-link)">${city.count}</span></a>`
-     : `<div style="display:flex;justify-content:space-between;gap:12px;padding:12px 14px;border:1px solid var(--color-accent-border);border-radius:16px;background:var(--color-accent-subtle);color:var(--color-heading);font-weight:600"><span>${esc(city.name)}</span><span style="color:var(--color-link)">${city.count}</span></div>`).join('')
- : '<p style="margin:0;color:var(--color-subtle);font-size:14px">—</p>';
+     ? `<a class="s-tcCzKK" href="${city.href}"><span>${esc(city.name)}</span><span class="s-IjpSYt">${city.count}</span></a>`
+     : `<div class="s-eRMYnQ"><span>${esc(city.name)}</span><span class="s-IjpSYt">${city.count}</span></div>`).join('')
+ : '<p class="s-heE-6f">—</p>';
  const { breadcrumbLd, collectionLd, itemListLd } = buildEditorialJsonLd({
  locale,
  name: model.heading,
@@ -4479,35 +4479,35 @@ ${alternates}
  </head>
  <body>
  <div id="root"></div>
- <main class="seo-static-content" style="max-width:1100px;margin:0 auto;padding:32px 20px 56px;color:var(--color-body)">
- <header style="margin-bottom:28px">
- <p style="margin:0 0 8px;color:var(--color-accent);font-size:13px;font-weight:700">${esc(model.updatedLabel)} · ${dateStamp}</p>
- <h1 style="margin:0 0 14px;font-size:clamp(2rem,5vw,3.2rem);line-height:1.05">${esc(model.heading)}</h1>
- <p style="margin:0 0 14px;font-size:18px;line-height:1.6;max-width:860px;color:var(--color-body)">${esc(model.description)}</p>
- <p style="margin:0;color:var(--color-subtle);line-height:1.7;max-width:860px">${esc(model.intro)}</p>
+ <main class="seo-static-content s-it71Rt">
+ <header class="s-S_0cal">
+ <p class="s-zNiFzy">${esc(model.updatedLabel)} · ${dateStamp}</p>
+ <h1 class="s-P0Hs0W">${esc(model.heading)}</h1>
+ <p class="s-wU5Nrr">${esc(model.description)}</p>
+ <p class="s-rDKEKn">${esc(model.intro)}</p>
  </header>
- <section style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin:0 0 18px">
- <div style="padding:18px;border-radius:22px;background:var(--color-accent-subtle);border:1px solid var(--color-accent-border)"><div style="font-size:12px;color:var(--color-accent);font-weight:700;text-transform:uppercase">${esc(model.countsLabel)}</div><div style="margin-top:8px;font-size:32px;font-weight:800">${model.totalJobs}</div></div>
- <div style="padding:18px;border-radius:22px;background:var(--color-success-subtle);border:1px solid var(--color-success-border)"><div style="font-size:12px;color:var(--color-success);font-weight:700;text-transform:uppercase">${esc(model.latestLabel)}</div><div style="margin-top:8px;font-size:32px;font-weight:800">${model.latestJobs.length}</div></div>
+ <section class="s-S6PRaY">
+ <div class="s-CGuDZg"><div class="s-JFi4vt">${esc(model.countsLabel)}</div><div class="s-9UotdJ">${model.totalJobs}</div></div>
+ <div class="s-3kP_AL"><div class="s-z4q8yI">${esc(model.latestLabel)}</div><div class="s-9UotdJ">${model.latestJobs.length}</div></div>
  </section>
- <section style="margin:0 0 28px">
- <h2 style="margin:0 0 14px;font-size:24px">${esc(model.cityHubLabel)}</h2>
- <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px">${cityCards}</div>
+ <section class="s-KZc0LQ">
+ <h2 class="s-iEVPhz">${esc(model.cityHubLabel)}</h2>
+ <div class="s-J2fKgL">${cityCards}</div>
  </section>
- <section style="margin:0 0 28px">
- <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:16px;margin:0 0 14px">
- <h2 style="margin:0;font-size:24px">${esc(model.feed.label)}</h2>
- <a href="${sectionRootUrl}" style="color:var(--color-link);text-decoration:none;font-weight:700">${esc(model.openAllLabel)}</a>
+ <section class="s-KZc0LQ">
+ <div class="s-r2QmTP">
+ <h2 class="s-CqexyJ">${esc(model.feed.label)}</h2>
+ <a class="s-YszcPD" href="${sectionRootUrl}">${esc(model.openAllLabel)}</a>
  </div>
  ${renderJobList(model.feed.jobs)}
  </section>
- <section style="margin:0 0 28px;padding:22px;border-radius:28px;border:1px solid var(--color-edge);background:var(--color-surface)">
- <h2 style="margin:0 0 14px;font-size:24px">${esc(model.latestLabel)}</h2>
+ <section class="s-4FxAs0">
+ <h2 class="s-iEVPhz">${esc(model.latestLabel)}</h2>
  ${renderJobList(model.latestJobs)}
  </section>
- <section style="margin:0 0 28px">
- <h2 style="margin:0 0 14px;font-size:24px">${locale === 'it' ? 'Domande frequenti' : locale === 'en' ? 'Frequently asked questions' : locale === 'de' ? 'Haufige Fragen' : 'Questions frequentes'}</h2>
- <div style="display:grid;gap:12px">${faqHtml}</div>
+ <section class="s-KZc0LQ">
+ <h2 class="s-iEVPhz">${locale === 'it' ? 'Domande frequenti' : locale === 'en' ? 'Frequently asked questions' : locale === 'de' ? 'Haufige Fragen' : 'Questions frequentes'}</h2>
+ <div class="s-bRaq8r">${faqHtml}</div>
  </section>
  ${wrapHubSeoContext(locale as 'it' | 'en' | 'de' | 'fr', renderJobBoardCommuterContext({ locale, location: CANTON_DISPLAY[editorialCanton] || editorialCanton, omitCommute: true, cantonDisplay: CANTON_DISPLAY[editorialCanton] || editorialCanton, cantonSlot: 'editorial-part-time' }))}
  </main>
@@ -4597,8 +4597,8 @@ ${alternates}
   ` <link rel="alternate" hreflang="x-default" href="${_xDefaultAltHref}">`,
  ].join('\n');
  const siblingLinks = model.siblingLinks.length > 0
- ? model.siblingLinks.map((link) => `<a href="${link.href}" style="display:flex;justify-content:space-between;gap:12px;padding:12px 14px;border:1px solid var(--color-accent-border);border-radius:16px;background:var(--color-accent-subtle);color:var(--color-heading);text-decoration:none;font-weight:600"><span>${esc(link.label)}</span><span style="color:var(--color-link)">${link.count}</span></a>`).join('')
- : '<p style="margin:0;color:var(--color-subtle);font-size:14px">—</p>';
+ ? model.siblingLinks.map((link) => `<a class="s-tcCzKK" href="${link.href}"><span>${esc(link.label)}</span><span class="s-IjpSYt">${link.count}</span></a>`).join('')
+ : '<p class="s-heE-6f">—</p>';
  const sectionRootUrl = `${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionByLocaleCanton(locale)}`.replace(/\/+/g, '/'))}`;
  const { breadcrumbLd, collectionLd, itemListLd } = buildEditorialJsonLd({
  locale,
@@ -4647,32 +4647,32 @@ ${alternates}
  </head>
  <body>
  <div id="root"></div>
- <main class="seo-static-content" style="max-width:1100px;margin:0 auto;padding:32px 20px 56px;color:var(--color-body)">
- <header style="margin-bottom:28px">
- <p style="margin:0 0 8px;color:var(--color-accent);font-size:13px;font-weight:700">${esc(model.updatedLabel)} · ${dateStamp}</p>
- <h1 style="margin:0 0 14px;font-size:clamp(2rem,5vw,3.2rem);line-height:1.05">${esc(model.heading)}</h1>
- <p style="margin:0 0 14px;font-size:18px;line-height:1.6;max-width:860px;color:var(--color-body)">${esc(model.description)}</p>
- <p style="margin:0;color:var(--color-subtle);line-height:1.7;max-width:860px">${esc(model.intro)}</p>
- <p style="margin:14px 0 0"><a href="${model.parentHubHref}" style="color:var(--color-link);text-decoration:none;font-weight:700">${esc(backLabel)}</a></p>
+ <main class="seo-static-content s-it71Rt">
+ <header class="s-S_0cal">
+ <p class="s-zNiFzy">${esc(model.updatedLabel)} · ${dateStamp}</p>
+ <h1 class="s-P0Hs0W">${esc(model.heading)}</h1>
+ <p class="s-wU5Nrr">${esc(model.description)}</p>
+ <p class="s-rDKEKn">${esc(model.intro)}</p>
+ <p class="s-drFGhf"><a class="s-YszcPD" href="${model.parentHubHref}">${esc(backLabel)}</a></p>
  </header>
- <section style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin:0 0 18px">
- <div style="padding:18px;border-radius:22px;background:var(--color-accent-subtle);border:1px solid var(--color-accent-border)"><div style="font-size:12px;color:var(--color-accent);font-weight:700;text-transform:uppercase">${esc(model.countsLabel)}</div><div style="margin-top:8px;font-size:32px;font-weight:800">${model.totalJobs}</div></div>
- <div style="padding:18px;border-radius:22px;background:var(--color-success-subtle);border:1px solid var(--color-success-border)"><div style="font-size:12px;color:var(--color-success);font-weight:700;text-transform:uppercase">${esc(model.latestLabel)}</div><div style="margin-top:8px;font-size:32px;font-weight:800">${model.latestJobs.length}</div></div>
+ <section class="s-S6PRaY">
+ <div class="s-CGuDZg"><div class="s-JFi4vt">${esc(model.countsLabel)}</div><div class="s-9UotdJ">${model.totalJobs}</div></div>
+ <div class="s-3kP_AL"><div class="s-z4q8yI">${esc(model.latestLabel)}</div><div class="s-9UotdJ">${model.latestJobs.length}</div></div>
  </section>
- <section style="margin:0 0 28px">
- <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:16px;margin:0 0 14px">
- <h2 style="margin:0;font-size:24px">${esc(model.feed.label)}</h2>
- <a href="${sectionRootUrl}" style="color:var(--color-link);text-decoration:none;font-weight:700">${esc(model.openAllLabel)}</a>
+ <section class="s-KZc0LQ">
+ <div class="s-r2QmTP">
+ <h2 class="s-CqexyJ">${esc(model.feed.label)}</h2>
+ <a class="s-YszcPD" href="${sectionRootUrl}">${esc(model.openAllLabel)}</a>
  </div>
  ${renderJobList(model.feed.jobs)}
  </section>
- <section style="margin:0 0 28px;padding:22px;border-radius:28px;border:1px solid var(--color-edge);background:var(--color-surface)">
- <h2 style="margin:0 0 14px;font-size:24px">${esc(model.latestLabel)}</h2>
+ <section class="s-4FxAs0">
+ <h2 class="s-iEVPhz">${esc(model.latestLabel)}</h2>
  ${renderJobList(model.latestJobs)}
  </section>
- <section style="margin:0 0 28px">
- <h2 style="margin:0 0 14px;font-size:24px">${esc(locale === 'it' ? 'Altri percorsi sanitari' : locale === 'en' ? 'Other care paths' : locale === 'de' ? 'Weitere Pflegepfade' : 'Autres parcours sante')}</h2>
- <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px">${siblingLinks}</div>
+ <section class="s-KZc0LQ">
+ <h2 class="s-iEVPhz">${esc(locale === 'it' ? 'Altri percorsi sanitari' : locale === 'en' ? 'Other care paths' : locale === 'de' ? 'Weitere Pflegepfade' : 'Autres parcours sante')}</h2>
+ <div class="s-J2fKgL">${siblingLinks}</div>
  </section>
  ${wrapHubSeoContext(locale as 'it' | 'en' | 'de' | 'fr', renderJobBoardCommuterContext({ locale, location: CANTON_DISPLAY[editorialCanton] || editorialCanton, omitCommute: true, sectorOrType: locale === 'it' ? 'sanità' : locale === 'en' ? 'healthcare' : locale === 'de' ? 'Gesundheitswesen' : 'santé', cantonDisplay: CANTON_DISPLAY[editorialCanton] || editorialCanton, cantonSlot: 'editorial-clinics' }))}
  </main>
@@ -4776,11 +4776,11 @@ ${alternates}
  ` <link rel="alternate" hreflang="x-default" href="${xDefaultCityHref}">`,
  ].join('\n');
  const typeLinks = model.relatedTypeLinks.length > 0
- ? model.relatedTypeLinks.map((link) => `<a href="${link.href}" style="display:flex;justify-content:space-between;gap:12px;padding:12px 14px;border:1px solid var(--color-accent-border);border-radius:16px;background:var(--color-accent-subtle);color:var(--color-heading);text-decoration:none;font-weight:600"><span>${esc(link.label)}</span><span style="color:var(--color-link)">${link.count}</span></a>`).join('')
- : '<p style="margin:0;color:var(--color-subtle);font-size:14px">—</p>';
+ ? model.relatedTypeLinks.map((link) => `<a class="s-tcCzKK" href="${link.href}"><span>${esc(link.label)}</span><span class="s-IjpSYt">${link.count}</span></a>`).join('')
+ : '<p class="s-heE-6f">—</p>';
  const sectorLinks = model.relatedSectorLinks.length > 0
- ? model.relatedSectorLinks.map((link) => `<a href="${link.href}" style="display:flex;justify-content:space-between;gap:12px;padding:12px 14px;border:1px solid var(--color-success-border);border-radius:16px;background:var(--color-success-subtle);color:var(--color-heading);text-decoration:none;font-weight:600"><span>${esc(link.label)}</span><span style="color:var(--color-success)">${link.count}</span></a>`).join('')
- : '<p style="margin:0;color:var(--color-subtle);font-size:14px">—</p>';
+ ? model.relatedSectorLinks.map((link) => `<a class="s-G9e-ve" href="${link.href}"><span>${esc(link.label)}</span><span class="s-LKM-LI">${link.count}</span></a>`).join('')
+ : '<p class="s-heE-6f">—</p>';
  // For geo-hub cities, override title/description with boosted count+fire
  // copy to target high-intent queries like "lavoro lugano".
  const cityHubSeo = cityHubKey
@@ -4836,35 +4836,35 @@ ${alternates}
  </head>
  <body>
  <div id="root"></div>
- <main class="seo-static-content" style="max-width:1100px;margin:0 auto;padding:32px 20px 56px;color:var(--color-body)">
- <header style="margin-bottom:28px">
- <p style="margin:0 0 8px;color:var(--color-accent);font-size:13px;font-weight:700">${esc(model.updatedLabel)} · ${dateStamp}</p>
- <h1 style="margin:0 0 14px;font-size:clamp(2rem,5vw,3.2rem);line-height:1.05">${esc(pageH1)}</h1>
- <p style="margin:0 0 14px;font-size:18px;line-height:1.6;max-width:860px;color:var(--color-body)">${esc(pageDesc)}</p>
- <p style="margin:0;color:var(--color-subtle);line-height:1.7;max-width:860px">${esc(model.intro)}</p>
+ <main class="seo-static-content s-it71Rt">
+ <header class="s-S_0cal">
+ <p class="s-zNiFzy">${esc(model.updatedLabel)} · ${dateStamp}</p>
+ <h1 class="s-P0Hs0W">${esc(pageH1)}</h1>
+ <p class="s-wU5Nrr">${esc(pageDesc)}</p>
+ <p class="s-rDKEKn">${esc(model.intro)}</p>
  </header>
- <section style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin:0 0 18px">
- <div style="padding:18px;border-radius:22px;background:var(--color-accent-subtle);border:1px solid var(--color-accent-border)"><div style="font-size:12px;color:var(--color-accent);font-weight:700;text-transform:uppercase">${esc(model.countsLabel)}</div><div style="margin-top:8px;font-size:32px;font-weight:800">${model.totalJobs}</div></div>
- <div style="padding:18px;border-radius:22px;background:var(--color-success-subtle);border:1px solid var(--color-success-border)"><div style="font-size:12px;color:var(--color-success);font-weight:700;text-transform:uppercase">${esc(model.latestLabel)}</div><div style="margin-top:8px;font-size:32px;font-weight:800">${model.latestJobs.length}</div></div>
+ <section class="s-S6PRaY">
+ <div class="s-CGuDZg"><div class="s-JFi4vt">${esc(model.countsLabel)}</div><div class="s-9UotdJ">${model.totalJobs}</div></div>
+ <div class="s-3kP_AL"><div class="s-z4q8yI">${esc(model.latestLabel)}</div><div class="s-9UotdJ">${model.latestJobs.length}</div></div>
  </section>
- <section style="margin:0 0 28px">
- <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:16px;margin:0 0 14px">
- <h2 style="margin:0;font-size:24px">${esc(model.feed.label)}</h2>
- <a href="${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionByLocale[locale]}`.replace(/\/+/g, '/'))}" style="color:var(--color-link);text-decoration:none;font-weight:700">${esc(model.openAllLabel)}</a>
+ <section class="s-KZc0LQ">
+ <div class="s-r2QmTP">
+ <h2 class="s-CqexyJ">${esc(model.feed.label)}</h2>
+ <a class="s-YszcPD" href="${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionByLocale[locale]}`.replace(/\/+/g, '/'))}">${esc(model.openAllLabel)}</a>
  </div>
  ${renderJobList(model.feed.jobs)}
  </section>
- <section style="margin:0 0 28px;padding:22px;border-radius:28px;border:1px solid var(--color-edge);background:var(--color-surface)">
- <h2 style="margin:0 0 14px;font-size:24px">${esc(model.latestLabel)}</h2>
+ <section class="s-4FxAs0">
+ <h2 class="s-iEVPhz">${esc(model.latestLabel)}</h2>
  ${renderJobList(model.latestJobs)}
  </section>
- <section style="margin:0 0 28px">
- <h2 style="margin:0 0 14px;font-size:24px">${esc(locale === 'it' ? `Tipi di lavoro a ${location}` : locale === 'en' ? `Job types in ${location}` : locale === 'de' ? `Jobtypen in ${location}` : `Types d'emploi a ${location}`)}</h2>
- <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px">${typeLinks}</div>
+ <section class="s-KZc0LQ">
+ <h2 class="s-iEVPhz">${esc(locale === 'it' ? `Tipi di lavoro a ${location}` : locale === 'en' ? `Job types in ${location}` : locale === 'de' ? `Jobtypen in ${location}` : `Types d'emploi a ${location}`)}</h2>
+ <div class="s-J2fKgL">${typeLinks}</div>
  </section>
- <section style="margin:0 0 28px">
- <h2 style="margin:0 0 14px;font-size:24px">${esc(locale === 'it' ? `Settori a ${location}` : locale === 'en' ? `Sectors in ${location}` : locale === 'de' ? `Branchen in ${location}` : `Secteurs a ${location}`)}</h2>
- <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px">${sectorLinks}</div>
+ <section class="s-KZc0LQ">
+ <h2 class="s-iEVPhz">${esc(locale === 'it' ? `Settori a ${location}` : locale === 'en' ? `Sectors in ${location}` : locale === 'de' ? `Branchen in ${location}` : `Secteurs a ${location}`)}</h2>
+ <div class="s-J2fKgL">${sectorLinks}</div>
  </section>
  ${wrapHubSeoContext(locale as 'it' | 'en' | 'de' | 'fr', renderJobBoardCommuterContext({ locale, location }))}
  </main>
@@ -5008,8 +5008,8 @@ ${alternates}
   ` <link rel="alternate" hreflang="x-default" href="${_xDefaultAltHref}">`,
  ].join('\n');
  const siblingLinks = model.siblingTypeLinks.length > 0
- ? model.siblingTypeLinks.map((link) => `<a href="${link.href}" style="display:flex;justify-content:space-between;gap:12px;padding:12px 14px;border:1px solid var(--color-accent-border);border-radius:16px;background:var(--color-accent-subtle);color:var(--color-heading);text-decoration:none;font-weight:600"><span>${esc(link.label)}</span><span style="color:var(--color-link)">${link.count}</span></a>`).join('')
- : '<p style="margin:0;color:var(--color-subtle);font-size:14px">—</p>';
+ ? model.siblingTypeLinks.map((link) => `<a class="s-tcCzKK" href="${link.href}"><span>${esc(link.label)}</span><span class="s-IjpSYt">${link.count}</span></a>`).join('')
+ : '<p class="s-heE-6f">—</p>';
  const parentLabel = locale === 'it' ? `Torna a lavoro a ${location}` : locale === 'en' ? `Back to jobs in ${location}` : locale === 'de' ? `Zuruck zu Jobs in ${location}` : `Retour aux emplois a ${location}`;
  const sectionRootUrl = `${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionByLocale[locale]}`.replace(/\/+/g, '/'))}`;
  const { breadcrumbLd, collectionLd, itemListLd } = buildEditorialJsonLd({
@@ -5057,33 +5057,33 @@ ${alternates}
  </head>
  <body>
  <div id="root"></div>
- <main class="seo-static-content" style="max-width:1100px;margin:0 auto;padding:32px 20px 56px;color:var(--color-body)">
- <header style="margin-bottom:28px">
- <p style="margin:0 0 8px;color:var(--color-accent);font-size:13px;font-weight:700">${esc(model.updatedLabel)} · ${dateStamp}</p>
- <h1 style="margin:0 0 14px;font-size:clamp(2rem,5vw,3.2rem);line-height:1.05">${esc(model.heading)}</h1>
- <p style="margin:0 0 14px;font-size:18px;line-height:1.6;max-width:860px;color:var(--color-body)">${esc(model.description)}</p>
- <p style="margin:0;color:var(--color-subtle);line-height:1.7;max-width:860px">${esc(model.intro)}</p>
- <p style="margin:14px 0 0"><a href="${model.parentLocationHref}" style="color:var(--color-link);text-decoration:none;font-weight:700">${esc(parentLabel)}</a></p>
+ <main class="seo-static-content s-it71Rt">
+ <header class="s-S_0cal">
+ <p class="s-zNiFzy">${esc(model.updatedLabel)} · ${dateStamp}</p>
+ <h1 class="s-P0Hs0W">${esc(model.heading)}</h1>
+ <p class="s-wU5Nrr">${esc(model.description)}</p>
+ <p class="s-rDKEKn">${esc(model.intro)}</p>
+ <p class="s-drFGhf"><a class="s-YszcPD" href="${model.parentLocationHref}">${esc(parentLabel)}</a></p>
  </header>
- <section style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin:0 0 18px">
- <div style="padding:18px;border-radius:22px;background:var(--color-accent-subtle);border:1px solid var(--color-accent-border)"><div style="font-size:12px;color:var(--color-accent);font-weight:700;text-transform:uppercase">${esc(model.countsLabel)}</div><div style="margin-top:8px;font-size:32px;font-weight:800">${model.totalJobs}</div></div>
- <div style="padding:18px;border-radius:22px;background:var(--color-success-subtle);border:1px solid var(--color-success-border)"><div style="font-size:12px;color:var(--color-success);font-weight:700;text-transform:uppercase">${esc(model.latestLabel)}</div><div style="margin-top:8px;font-size:32px;font-weight:800">${model.latestJobs.length}</div></div>
+ <section class="s-S6PRaY">
+ <div class="s-CGuDZg"><div class="s-JFi4vt">${esc(model.countsLabel)}</div><div class="s-9UotdJ">${model.totalJobs}</div></div>
+ <div class="s-3kP_AL"><div class="s-z4q8yI">${esc(model.latestLabel)}</div><div class="s-9UotdJ">${model.latestJobs.length}</div></div>
  </section>
- <section style="margin:0 0 28px">
- <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:16px;margin:0 0 14px">
- <h2 style="margin:0;font-size:24px">${esc(model.feed.label)}</h2>
- <a href="${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionByLocale[locale]}`.replace(/\/+/g, '/'))}" style="color:var(--color-link);text-decoration:none;font-weight:700">${esc(model.openAllLabel)}</a>
+ <section class="s-KZc0LQ">
+ <div class="s-r2QmTP">
+ <h2 class="s-CqexyJ">${esc(model.feed.label)}</h2>
+ <a class="s-YszcPD" href="${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionByLocale[locale]}`.replace(/\/+/g, '/'))}">${esc(model.openAllLabel)}</a>
  </div>
  ${renderJobList(model.feed.jobs)}
  </section>
- <section style="margin:0 0 28px;padding:22px;border-radius:28px;border:1px solid var(--color-edge);background:var(--color-surface)">
- <h2 style="margin:0 0 14px;font-size:24px">${esc(model.latestLabel)}</h2>
+ <section class="s-4FxAs0">
+ <h2 class="s-iEVPhz">${esc(model.latestLabel)}</h2>
  ${renderJobList(model.latestJobs)}
  </section>
  ${renderLocationTypeFrontalierContext({ locale, typeKey, typeLabel: model.typeLabel, location, jobsCount: model.totalJobs })}
- <section style="margin:0 0 28px">
- <h2 style="margin:0 0 14px;font-size:24px">${esc(locale === 'it' ? `Altri tipi di lavoro a ${location}` : locale === 'en' ? `Other job types in ${location}` : locale === 'de' ? `Weitere Jobtypen in ${location}` : `Autres types d'emploi a ${location}`)}</h2>
- <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px">${siblingLinks}</div>
+ <section class="s-KZc0LQ">
+ <h2 class="s-iEVPhz">${esc(locale === 'it' ? `Altri tipi di lavoro a ${location}` : locale === 'en' ? `Other job types in ${location}` : locale === 'de' ? `Weitere Jobtypen in ${location}` : `Autres types d'emploi a ${location}`)}</h2>
+ <div class="s-J2fKgL">${siblingLinks}</div>
  </section>
  ${wrapHubSeoContext(locale as 'it' | 'en' | 'de' | 'fr', renderJobBoardCommuterContext({ locale, location, sectorOrType: model.typeLabel }))}
  </main>
@@ -5171,8 +5171,8 @@ ${alternates}
   ` <link rel="alternate" hreflang="x-default" href="${_xDefaultAltHref}">`,
  ].join('\n');
  const siblingLinks = model.siblingSectorLinks.length > 0
- ? model.siblingSectorLinks.map((link) => `<a href="${link.href}" style="display:flex;justify-content:space-between;gap:12px;padding:12px 14px;border:1px solid var(--color-success-border);border-radius:16px;background:var(--color-success-subtle);color:var(--color-heading);text-decoration:none;font-weight:600"><span>${esc(link.label)}</span><span style="color:var(--color-success)">${link.count}</span></a>`).join('')
- : '<p style="margin:0;color:var(--color-subtle);font-size:14px">—</p>';
+ ? model.siblingSectorLinks.map((link) => `<a class="s-G9e-ve" href="${link.href}"><span>${esc(link.label)}</span><span class="s-LKM-LI">${link.count}</span></a>`).join('')
+ : '<p class="s-heE-6f">—</p>';
  const parentLabel = locale === 'it' ? `Torna a lavoro a ${location}` : locale === 'en' ? `Back to jobs in ${location}` : locale === 'de' ? `Zuruck zu Jobs in ${location}` : `Retour aux emplois a ${location}`;
  const sectionRootUrl = `${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionByLocale[locale]}`.replace(/\/+/g, '/'))}`;
  const { breadcrumbLd, collectionLd, itemListLd } = buildEditorialJsonLd({
@@ -5220,33 +5220,33 @@ ${alternates}
  </head>
  <body>
  <div id="root"></div>
- <main class="seo-static-content" style="max-width:1100px;margin:0 auto;padding:32px 20px 56px;color:var(--color-body)">
- <header style="margin-bottom:28px">
- <p style="margin:0 0 8px;color:var(--color-accent);font-size:13px;font-weight:700">${esc(model.updatedLabel)} · ${dateStamp}</p>
- <h1 style="margin:0 0 14px;font-size:clamp(2rem,5vw,3.2rem);line-height:1.05">${esc(model.heading)}</h1>
- <p style="margin:0 0 14px;font-size:18px;line-height:1.6;max-width:860px;color:var(--color-body)">${esc(model.description)}</p>
- <p style="margin:0;color:var(--color-subtle);line-height:1.7;max-width:860px">${esc(model.intro)}</p>
- <p style="margin:14px 0 0"><a href="${model.parentLocationHref}" style="color:var(--color-link);text-decoration:none;font-weight:700">${esc(parentLabel)}</a></p>
+ <main class="seo-static-content s-it71Rt">
+ <header class="s-S_0cal">
+ <p class="s-zNiFzy">${esc(model.updatedLabel)} · ${dateStamp}</p>
+ <h1 class="s-P0Hs0W">${esc(model.heading)}</h1>
+ <p class="s-wU5Nrr">${esc(model.description)}</p>
+ <p class="s-rDKEKn">${esc(model.intro)}</p>
+ <p class="s-drFGhf"><a class="s-YszcPD" href="${model.parentLocationHref}">${esc(parentLabel)}</a></p>
  </header>
- <section style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin:0 0 18px">
- <div style="padding:18px;border-radius:22px;background:var(--color-accent-subtle);border:1px solid var(--color-accent-border)"><div style="font-size:12px;color:var(--color-accent);font-weight:700;text-transform:uppercase">${esc(model.countsLabel)}</div><div style="margin-top:8px;font-size:32px;font-weight:800">${model.totalJobs}</div></div>
- <div style="padding:18px;border-radius:22px;background:var(--color-success-subtle);border:1px solid var(--color-success-border)"><div style="font-size:12px;color:var(--color-success);font-weight:700;text-transform:uppercase">${esc(model.latestLabel)}</div><div style="margin-top:8px;font-size:32px;font-weight:800">${model.latestJobs.length}</div></div>
+ <section class="s-S6PRaY">
+ <div class="s-CGuDZg"><div class="s-JFi4vt">${esc(model.countsLabel)}</div><div class="s-9UotdJ">${model.totalJobs}</div></div>
+ <div class="s-3kP_AL"><div class="s-z4q8yI">${esc(model.latestLabel)}</div><div class="s-9UotdJ">${model.latestJobs.length}</div></div>
  </section>
- <section style="margin:0 0 28px">
- <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:16px;margin:0 0 14px">
- <h2 style="margin:0;font-size:24px">${esc(model.feed.label)}</h2>
- <a href="${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionByLocale[locale]}`.replace(/\/+/g, '/'))}" style="color:var(--color-link);text-decoration:none;font-weight:700">${esc(model.openAllLabel)}</a>
+ <section class="s-KZc0LQ">
+ <div class="s-r2QmTP">
+ <h2 class="s-CqexyJ">${esc(model.feed.label)}</h2>
+ <a class="s-YszcPD" href="${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionByLocale[locale]}`.replace(/\/+/g, '/'))}">${esc(model.openAllLabel)}</a>
  </div>
  ${renderJobList(model.feed.jobs)}
  </section>
- <section style="margin:0 0 28px;padding:22px;border-radius:28px;border:1px solid var(--color-edge);background:var(--color-surface)">
- <h2 style="margin:0 0 14px;font-size:24px">${esc(model.latestLabel)}</h2>
+ <section class="s-4FxAs0">
+ <h2 class="s-iEVPhz">${esc(model.latestLabel)}</h2>
  ${renderJobList(model.latestJobs)}
  </section>
  ${renderLocationSectorFrontalierContext({ locale, sectorLabel: model.sectorLabel, location, jobsCount: model.totalJobs })}
- <section style="margin:0 0 28px">
- <h2 style="margin:0 0 14px;font-size:24px">${esc(locale === 'it' ? `Altri settori a ${location}` : locale === 'en' ? `Other sectors in ${location}` : locale === 'de' ? `Weitere Branchen in ${location}` : `Autres secteurs a ${location}`)}</h2>
- <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px">${siblingLinks}</div>
+ <section class="s-KZc0LQ">
+ <h2 class="s-iEVPhz">${esc(locale === 'it' ? `Altri settori a ${location}` : locale === 'en' ? `Other sectors in ${location}` : locale === 'de' ? `Weitere Branchen in ${location}` : `Autres secteurs a ${location}`)}</h2>
+ <div class="s-J2fKgL">${siblingLinks}</div>
  </section>
  ${wrapHubSeoContext(locale as 'it' | 'en' | 'de' | 'fr', renderJobBoardCommuterContext({ locale, location, sectorOrType: model.sectorLabel }))}
  </main>
@@ -5409,7 +5409,7 @@ ${alternates}
  if (locale === 'de') return `<p>Derzeit sind <strong>${cityJobs.length} Stellenangebote</strong> in ${esc(cityDisplay)} (Kanton ${esc(cDisplay)}) verfügbar. Die Anzeigen werden täglich von unserem automatischen Crawler aktualisiert. Für Grenzgänger mit G-Bewilligung erhebt der Kanton ${esc(cDisplay)} eine Quellensteuer auf das Bruttoeinkommen: nutzen Sie unseren <a href="${BASE_URL}/de/">kostenlosen Steuersimulator</a>.</p>`;
  return `<p>${cityJobs.length} <strong>offres d'emploi</strong> sont actuellement disponibles à ${esc(cityDisplay)} (Canton de ${esc(cDisplay)}). Les annonces sont mises à jour quotidiennement. Pour les frontaliers avec un permis G, le Canton de ${esc(cDisplay)} applique un impôt à la source sur le revenu brut : utilisez notre <a href="${BASE_URL}/fr/">simulateur fiscal gratuit</a>.</p>`;
  })();
- const bodyHtml = `<h1>${esc(cityHubSeo.h1)}</h1>\n<p>${esc(pageDesc)}</p>\n${intro}\n<ul style="list-style:none;padding:0;margin:16px 0">${listHtml}</ul>\n<p><a href="${sectionRootUrl}">${esc(backLabel)}</a></p>\n${wrapHubSeoContext(locale as 'it' | 'en' | 'de' | 'fr', renderJobBoardCommuterContext({ locale, location: cityDisplay, cantonDisplay: cDisplay, cantonSlot: 'city-landing', cantonEntityName: cityDisplay }))}`;
+ const bodyHtml = `<h1>${esc(cityHubSeo.h1)}</h1>\n<p>${esc(pageDesc)}</p>\n${intro}\n<ul class="s-0WjlyL">${listHtml}</ul>\n<p><a href="${sectionRootUrl}">${esc(backLabel)}</a></p>\n${wrapHubSeoContext(locale as 'it' | 'en' | 'de' | 'fr', renderJobBoardCommuterContext({ locale, location: cityDisplay, cantonDisplay: cDisplay, cantonSlot: 'city-landing', cantonEntityName: cityDisplay }))}`;
  // Use buildSeoPageHtml (NOT buildSimplePage) so the page emits
  // `<main class="seo-static-content">` OUTSIDE `<div id="root">` +
  // `<div id="footer-root"></div>`. The legacy path (buildSimplePage default
@@ -5537,10 +5537,10 @@ ${alternates}
  { '@type': 'ListItem', position: 3, name: pgCopy.heading(pageNum), item: pgCanonicalUrl },
  ],
  });
- const pgNav: string[] = [`<a href="${pgMainUrl}" style="display:inline-flex;align-items:center;justify-content:center;min-height:44px;min-width:44px;padding:8px 12px">1</a>`];
+ const pgNav: string[] = [`<a class="s-cFXmhu" href="${pgMainUrl}">1</a>`];
  for (let np2 = Math.max(2, pageNum - 2); np2 <= Math.min(totalListingPages, pageNum + 2); np2++) {
  if (np2 === pageNum) { pgNav.push(`<strong>${np2}</strong>`); continue; }
- pgNav.push(`<a href="${BASE_URL}${withSlash(`${pgSectionPath}/${paginationSlugs[locale]}-${np2}`.replace(/\/+/g, '/'))}" style="display:inline-flex;align-items:center;justify-content:center;min-height:44px;min-width:44px;padding:8px 12px">${np2}</a>`);
+ pgNav.push(`<a class="s-cFXmhu" href="${BASE_URL}${withSlash(`${pgSectionPath}/${paginationSlugs[locale]}-${np2}`.replace(/\/+/g, '/'))}">${np2}</a>`);
  }
  const pgBackLabel = locale === 'it' ? 'Torna alla lista completa' : locale === 'en' ? 'Back to full listing' : locale === 'de' ? 'Zur\u00fcck zur Liste' : 'Retour \u00e0 la liste';
  // buildSeoPageHtml (hydration-safe shell). See city-hub fix at line ~5420.
@@ -5553,7 +5553,7 @@ ${alternates}
  hreflangHtml: `${pgAlternates}\n${pgXDefault}`,
  extraHeadHtml: `${pgPrevLink}${pgNextLink}`,
  jsonLdScripts: [pgCollLd, pgItemLd, pgBreadcrumbLd],
- bodyHtml: `<h1>${esc(pgCopy.heading(pageNum))}</h1>\n <p>${esc(pgDesc)}</p>\n <ul style="list-style:none;padding:0;margin:16px 0">${pgListHtml}</ul>\n <nav style="margin:24px 0;text-align:center;font-size:14px">${pgNav.join(' &middot; ')}</nav>\n <p><a href="${pgMainUrl}">${esc(pgBackLabel)}</a></p>\n${renderListingPaginationProse(locale, pageNum)}\n${wrapHubSeoContext(locale as 'it' | 'en' | 'de' | 'fr', renderJobBoardCommuterContext({ locale, location: 'Ticino', omitCommute: true }))}`,
+ bodyHtml: `<h1>${esc(pgCopy.heading(pageNum))}</h1>\n <p>${esc(pgDesc)}</p>\n <ul class="s-0WjlyL">${pgListHtml}</ul>\n <nav class="s-HarBzc">${pgNav.join(' &middot; ')}</nav>\n <p><a href="${pgMainUrl}">${esc(pgBackLabel)}</a></p>\n${renderListingPaginationProse(locale, pageNum)}\n${wrapHubSeoContext(locale as 'it' | 'en' | 'de' | 'fr', renderJobBoardCommuterContext({ locale, location: 'Ticino', omitCommute: true }))}`,
  distDir,
  });
  const pgOutDir = np.join(distDir, pgCanonicalPath.slice(1));
@@ -5657,10 +5657,10 @@ ${alternates}
  { '@type': 'ListItem', position: 3, name: pgHeading, item: pgCanonicalUrl },
  ],
  });
- const pgNav: string[] = [`<a href="${pgMainUrl}" style="display:inline-flex;align-items:center;justify-content:center;min-height:44px;min-width:44px;padding:8px 12px">1</a>`];
+ const pgNav: string[] = [`<a class="s-cFXmhu" href="${pgMainUrl}">1</a>`];
  for (let np2 = Math.max(2, pageNum - 2); np2 <= Math.min(cTotalPages, pageNum + 2); np2++) {
  if (np2 === pageNum) { pgNav.push(`<strong>${np2}</strong>`); continue; }
- pgNav.push(`<a href="${BASE_URL}${withSlash(`${pgSectionPath}/${paginationSlugs[locale]}-${np2}`.replace(/\/+/g, '/'))}" style="display:inline-flex;align-items:center;justify-content:center;min-height:44px;min-width:44px;padding:8px 12px">${np2}</a>`);
+ pgNav.push(`<a class="s-cFXmhu" href="${BASE_URL}${withSlash(`${pgSectionPath}/${paginationSlugs[locale]}-${np2}`.replace(/\/+/g, '/'))}">${np2}</a>`);
  }
  const pgBackLabel = locale === 'it' ? 'Torna alla lista completa' : locale === 'en' ? 'Back to full listing' : locale === 'de' ? 'Zur\u00fcck zur Liste' : 'Retour \u00e0 la liste';
  // buildSeoPageHtml (hydration-safe shell). See city-hub fix at line ~5420.
@@ -5673,7 +5673,7 @@ ${alternates}
  hreflangHtml: `${pgAlternates}\n${pgXDefault}`,
  extraHeadHtml: `${pgPrevLink}${pgNextLink}`,
  jsonLdScripts: [pgCollLd, pgItemLd, pgBreadcrumbLd],
- bodyHtml: `<h1>${esc(pgHeading)}</h1>\n <p>${esc(pgDesc)}</p>\n <ul style="list-style:none;padding:0;margin:16px 0">${pgListHtml}</ul>\n <nav style="margin:24px 0;text-align:center;font-size:14px">${pgNav.join(' &middot; ')}</nav>\n <p><a href="${pgMainUrl}">${esc(pgBackLabel)}</a></p>\n${renderListingPaginationProse(locale, pageNum)}\n${wrapHubSeoContext(locale as 'it' | 'en' | 'de' | 'fr', renderJobBoardCommuterContext({ locale, location: cDisplay, omitCommute: true, cantonDisplay: cDisplay, cantonSlot: 'canton-hub' }))}`,
+ bodyHtml: `<h1>${esc(pgHeading)}</h1>\n <p>${esc(pgDesc)}</p>\n <ul class="s-0WjlyL">${pgListHtml}</ul>\n <nav class="s-HarBzc">${pgNav.join(' &middot; ')}</nav>\n <p><a href="${pgMainUrl}">${esc(pgBackLabel)}</a></p>\n${renderListingPaginationProse(locale, pageNum)}\n${wrapHubSeoContext(locale as 'it' | 'en' | 'de' | 'fr', renderJobBoardCommuterContext({ locale, location: cDisplay, omitCommute: true, cantonDisplay: cDisplay, cantonSlot: 'canton-hub' }))}`,
  distDir,
  });
  const pgOutDir = np.join(distDir, pgCanonicalPath.slice(1));
@@ -5771,7 +5771,7 @@ ${alternates}
  ` <link rel="alternate" hreflang="x-default" href="${catXDefaultHref}">`,
  ].join('\n');
  const catListHtml = catPageJobs.map((job: any) => renderJobCardLi(job, locale)).join('');
- const catOtherLinks = Object.keys(catSlugsMap).filter((k) => k !== catKey).map((k) => { const kSlug = `${catPrefix[locale]}-${catSlugsMap[k][locale]}`; return `<a href="${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionByLocale[locale]}/${kSlug}`.replace(/\/+/g, '/'))}" style="text-decoration:none;color:var(--color-link);display:inline-flex;align-items:center;min-height:44px;padding:8px 4px">${catLabels[k][locale]}</a>`; });
+ const catOtherLinks = Object.keys(catSlugsMap).filter((k) => k !== catKey).map((k) => { const kSlug = `${catPrefix[locale]}-${catSlugsMap[k][locale]}`; return `<a class="s-gcEaMI" href="${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionByLocale[locale]}/${kSlug}`.replace(/\/+/g, '/'))}">${catLabels[k][locale]}</a>`; });
  const catCollLd = JSON.stringify({ '@context': 'https://schema.org', '@type': 'CollectionPage', name: catTitle, url: catCanonicalUrl, description: catDescription, inLanguage: locale, isPartOf: { '@type': 'WebSite', name: 'Frontaliere Ticino', url: BASE_URL } });
  const catSectionUrl = `${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionByLocale[locale]}`.replace(/\/+/g, '/'))}`;
  const catBreadcrumbLd = JSON.stringify({ '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
@@ -5788,10 +5788,10 @@ ${alternates}
  return `<p>${catJobs.length} <strong>offres d'emploi</strong> sont actuellement disponibles dans le secteur ${catLabel.toLowerCase()} au Tessin, publi\u00e9es par ${catUniqueCompanies.length} entreprises dans ${catUniqueLocations.length} localit\u00e9s. Entreprises qui recrutent : ${catTopCompanies}. Les annonces sont mises \u00e0 jour quotidiennement.</p>`;
  })();
  const catMarketSection = (() => {
- if (locale === 'it') return `<section style="margin-top:20px"><h2>Lavorare nel settore ${catLabel.toLowerCase()} in Ticino</h2><p>Il Canton Ticino \u00e8 il principale polo economico della Svizzera italiana con oltre 180.000 posti di lavoro. Il settore ${catLabel.toLowerCase()} rappresenta una delle aree pi\u00f9 attive del mercato ticinese. Per i lavoratori frontalieri con Permesso G, il Ticino applica l'imposta alla fonte sul reddito lordo. Usa il nostro <a href="${BASE_URL}/">simulatore fiscale gratuito</a> per calcolare il tuo stipendio netto come frontaliere.</p></section>`;
- if (locale === 'en') return `<section style="margin-top:20px"><h2>Working in ${catLabel.toLowerCase()} in Ticino</h2><p>The Canton of Ticino is the main economic hub of Italian-speaking Switzerland with over 180,000 jobs. The ${catLabel.toLowerCase()} sector is one of the most active areas in the Ticino job market. For cross-border workers with a G Permit, Ticino applies withholding tax on gross income. Use our <a href="${BASE_URL}/en/">free tax simulator</a> to calculate your net salary as a cross-border worker.</p></section>`;
- if (locale === 'de') return `<section style="margin-top:20px"><h2>Arbeiten im Bereich ${catLabel} im Tessin</h2><p>Der Kanton Tessin ist das wirtschaftliche Zentrum der italienischen Schweiz mit \u00fcber 180.000 Arbeitspl\u00e4tzen. Der Bereich ${catLabel} geh\u00f6rt zu den aktivsten Sektoren des Tessiner Arbeitsmarkts. F\u00fcr Grenzg\u00e4nger mit G-Bewilligung erhebt das Tessin eine Quellensteuer auf das Bruttoeinkommen. Nutzen Sie unseren <a href="${BASE_URL}/de/">kostenlosen Steuersimulator</a>, um Ihr Nettogehalt als Grenzg\u00e4nger zu berechnen.</p></section>`;
- return `<section style="margin-top:20px"><h2>Travailler dans le secteur ${catLabel.toLowerCase()} au Tessin</h2><p>Le Canton du Tessin est le principal p\u00f4le \u00e9conomique de la Suisse italienne avec plus de 180 000 emplois. Le secteur ${catLabel.toLowerCase()} est l'un des domaines les plus actifs du march\u00e9 tessinois. Pour les frontaliers avec un permis G, le Tessin applique un imp\u00f4t \u00e0 la source sur le revenu brut. Utilisez notre <a href="${BASE_URL}/fr/">simulateur fiscal gratuit</a> pour calculer votre salaire net en tant que frontalier.</p></section>`;
+ if (locale === 'it') return `<section class="s-7uP4UM"><h2>Lavorare nel settore ${catLabel.toLowerCase()} in Ticino</h2><p>Il Canton Ticino \u00e8 il principale polo economico della Svizzera italiana con oltre 180.000 posti di lavoro. Il settore ${catLabel.toLowerCase()} rappresenta una delle aree pi\u00f9 attive del mercato ticinese. Per i lavoratori frontalieri con Permesso G, il Ticino applica l'imposta alla fonte sul reddito lordo. Usa il nostro <a href="${BASE_URL}/">simulatore fiscale gratuito</a> per calcolare il tuo stipendio netto come frontaliere.</p></section>`;
+ if (locale === 'en') return `<section class="s-7uP4UM"><h2>Working in ${catLabel.toLowerCase()} in Ticino</h2><p>The Canton of Ticino is the main economic hub of Italian-speaking Switzerland with over 180,000 jobs. The ${catLabel.toLowerCase()} sector is one of the most active areas in the Ticino job market. For cross-border workers with a G Permit, Ticino applies withholding tax on gross income. Use our <a href="${BASE_URL}/en/">free tax simulator</a> to calculate your net salary as a cross-border worker.</p></section>`;
+ if (locale === 'de') return `<section class="s-7uP4UM"><h2>Arbeiten im Bereich ${catLabel} im Tessin</h2><p>Der Kanton Tessin ist das wirtschaftliche Zentrum der italienischen Schweiz mit \u00fcber 180.000 Arbeitspl\u00e4tzen. Der Bereich ${catLabel} geh\u00f6rt zu den aktivsten Sektoren des Tessiner Arbeitsmarkts. F\u00fcr Grenzg\u00e4nger mit G-Bewilligung erhebt das Tessin eine Quellensteuer auf das Bruttoeinkommen. Nutzen Sie unseren <a href="${BASE_URL}/de/">kostenlosen Steuersimulator</a>, um Ihr Nettogehalt als Grenzg\u00e4nger zu berechnen.</p></section>`;
+ return `<section class="s-7uP4UM"><h2>Travailler dans le secteur ${catLabel.toLowerCase()} au Tessin</h2><p>Le Canton du Tessin est le principal p\u00f4le \u00e9conomique de la Suisse italienne avec plus de 180 000 emplois. Le secteur ${catLabel.toLowerCase()} est l'un des domaines les plus actifs du march\u00e9 tessinois. Pour les frontaliers avec un permis G, le Tessin applique un imp\u00f4t \u00e0 la source sur le revenu brut. Utilisez notre <a href="${BASE_URL}/fr/">simulateur fiscal gratuit</a> pour calculer votre salaire net en tant que frontalier.</p></section>`;
  })();
  const catOpenAllLabel = locale === 'it' ? 'Apri il job board completo' : locale === 'en' ? 'Open the full job board' : locale === 'de' ? 'Komplettes Job Board \u00f6ffnen' : 'Ouvrir le job board complet';
  const catNavLabel = locale === 'it' ? 'Altre categorie' : locale === 'en' ? 'Other categories' : locale === 'de' ? 'Weitere Kategorien' : 'Autres cat\u00e9gories';
@@ -5815,7 +5815,7 @@ ${alternates}
  title: catTitle,
  };
  const catH1 = formatSeoH1(catLocaleParts) + (catPage > 1 ? (locale === 'it' ? ` — Pagina ${catPage}` : locale === 'de' ? ` — Seite ${catPage}` : locale === 'fr' ? ` — Page ${catPage}` : ` — Page ${catPage}`) : '');
- return `<h1>${esc(catH1)}</h1>\n <p>${esc(catDescription)}</p>\n ${catIntro}\n <ul style="list-style:none;padding:0;margin:16px 0">${catListHtml}</ul>\n <p><a href="${catSectionUrl}">${esc(catOpenAllLabel)}</a></p>\n ${catMarketSection}\n <nav style="margin:20px 0;font-size:14px">${catNavLabel}: ${catOtherLinks.join(' \u00b7 ')}</nav>\n ${wrapHubSeoContext(locale as 'it' | 'en' | 'de' | 'fr', renderJobBoardCommuterContext({ locale, location: 'Ticino', omitCommute: true, sectorOrType: catLabel }))}`;
+ return `<h1>${esc(catH1)}</h1>\n <p>${esc(catDescription)}</p>\n ${catIntro}\n <ul class="s-0WjlyL">${catListHtml}</ul>\n <p><a href="${catSectionUrl}">${esc(catOpenAllLabel)}</a></p>\n ${catMarketSection}\n <nav class="s-_ZFTu5">${catNavLabel}: ${catOtherLinks.join(' \u00b7 ')}</nav>\n ${wrapHubSeoContext(locale as 'it' | 'en' | 'de' | 'fr', renderJobBoardCommuterContext({ locale, location: 'Ticino', omitCommute: true, sectorOrType: catLabel }))}`;
  })(),
  });
  const catOutDir = np.join(distDir, catCanonicalPath.slice(1));
@@ -5918,7 +5918,7 @@ ${alternates}
  ` <link rel="alternate" hreflang="x-default" href="${catXDefaultHref}">`,
  ].join('\n');
  const catListHtml = catPageJobs.map((job: any) => renderJobCardLi(job, locale)).join('');
- const catOtherLinks = Object.keys(catSlugsMap).filter((k) => k !== catKey).map((k) => { const kSlug = `${catPrefix[locale]}-${catSlugsMap[k][locale]}`; return `<a href="${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionSlug}/${kSlug}`.replace(/\/+/g, '/'))}" style="text-decoration:none;color:var(--color-link);display:inline-flex;align-items:center;min-height:44px;padding:8px 4px">${catLabels[k][locale]}</a>`; });
+ const catOtherLinks = Object.keys(catSlugsMap).filter((k) => k !== catKey).map((k) => { const kSlug = `${catPrefix[locale]}-${catSlugsMap[k][locale]}`; return `<a class="s-gcEaMI" href="${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionSlug}/${kSlug}`.replace(/\/+/g, '/'))}">${catLabels[k][locale]}</a>`; });
  const catCollLd = JSON.stringify({ '@context': 'https://schema.org', '@type': 'CollectionPage', name: catTitle, url: catCanonicalUrl, description: catDescription, inLanguage: locale, isPartOf: { '@type': 'WebSite', name: 'Frontaliere Ticino', url: BASE_URL } });
  const catSectionUrl = `${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionSlug}`.replace(/\/+/g, '/'))}`;
  const sectionLabel = locale === 'it' ? `Cerca lavoro in ${cDisplay}` : locale === 'en' ? `Find jobs in ${cDisplay}` : locale === 'de' ? `Stellen ${cDisplay}` : `Trouver un emploi à ${cDisplay}`;
@@ -5935,10 +5935,10 @@ ${alternates}
  return `<p>${catJobs.length} <strong>offres d'emploi</strong> sont actuellement disponibles dans le secteur ${catLabel.toLowerCase()} à ${cDisplay}, publiées par ${catUniqueCompanies.length} entreprises dans ${catUniqueLocations.length} localités. Entreprises qui recrutent : ${catTopCompanies}.</p>`;
  })();
  const catMarketSection = (() => {
- if (locale === 'it') return `<section style="margin-top:20px"><h2>Lavorare nel settore ${catLabel.toLowerCase()} in ${cDisplay}</h2><p>Il Canton ${cDisplay} fa parte del mercato svizzero del lavoro. Il settore ${catLabel.toLowerCase()} è una delle aree presenti del mercato cantonale. Per i lavoratori frontalieri con Permesso G, la Svizzera applica l'imposta alla fonte sul reddito lordo. Usa il nostro <a href="${BASE_URL}/">simulatore fiscale gratuito</a> per calcolare il tuo stipendio netto come frontaliere.</p></section>`;
- if (locale === 'en') return `<section style="margin-top:20px"><h2>Working in ${catLabel.toLowerCase()} in ${cDisplay}</h2><p>The Canton of ${cDisplay} is part of the Swiss labour market. The ${catLabel.toLowerCase()} sector is one of the active areas in the cantonal job market. For cross-border workers with a G Permit, Switzerland applies withholding tax on gross income. Use our <a href="${BASE_URL}/en/">free tax simulator</a> to calculate your net salary.</p></section>`;
- if (locale === 'de') return `<section style="margin-top:20px"><h2>Arbeiten im Bereich ${catLabel} in ${cDisplay}</h2><p>Der Kanton ${cDisplay} ist Teil des schweizerischen Arbeitsmarkts. Der Bereich ${catLabel} gehört zu den aktiven Sektoren des kantonalen Arbeitsmarkts. Für Grenzgänger mit G-Bewilligung erhebt die Schweiz eine Quellensteuer auf das Bruttoeinkommen. Nutzen Sie unseren <a href="${BASE_URL}/de/">kostenlosen Steuersimulator</a>.</p></section>`;
- return `<section style="margin-top:20px"><h2>Travailler dans le secteur ${catLabel.toLowerCase()} à ${cDisplay}</h2><p>Le Canton de ${cDisplay} fait partie du marché du travail suisse. Le secteur ${catLabel.toLowerCase()} est l'un des domaines actifs du marché cantonal. Pour les frontaliers avec un permis G, la Suisse applique un impôt à la source sur le revenu brut. Utilisez notre <a href="${BASE_URL}/fr/">simulateur fiscal gratuit</a>.</p></section>`;
+ if (locale === 'it') return `<section class="s-7uP4UM"><h2>Lavorare nel settore ${catLabel.toLowerCase()} in ${cDisplay}</h2><p>Il Canton ${cDisplay} fa parte del mercato svizzero del lavoro. Il settore ${catLabel.toLowerCase()} è una delle aree presenti del mercato cantonale. Per i lavoratori frontalieri con Permesso G, la Svizzera applica l'imposta alla fonte sul reddito lordo. Usa il nostro <a href="${BASE_URL}/">simulatore fiscale gratuito</a> per calcolare il tuo stipendio netto come frontaliere.</p></section>`;
+ if (locale === 'en') return `<section class="s-7uP4UM"><h2>Working in ${catLabel.toLowerCase()} in ${cDisplay}</h2><p>The Canton of ${cDisplay} is part of the Swiss labour market. The ${catLabel.toLowerCase()} sector is one of the active areas in the cantonal job market. For cross-border workers with a G Permit, Switzerland applies withholding tax on gross income. Use our <a href="${BASE_URL}/en/">free tax simulator</a> to calculate your net salary.</p></section>`;
+ if (locale === 'de') return `<section class="s-7uP4UM"><h2>Arbeiten im Bereich ${catLabel} in ${cDisplay}</h2><p>Der Kanton ${cDisplay} ist Teil des schweizerischen Arbeitsmarkts. Der Bereich ${catLabel} gehört zu den aktiven Sektoren des kantonalen Arbeitsmarkts. Für Grenzgänger mit G-Bewilligung erhebt die Schweiz eine Quellensteuer auf das Bruttoeinkommen. Nutzen Sie unseren <a href="${BASE_URL}/de/">kostenlosen Steuersimulator</a>.</p></section>`;
+ return `<section class="s-7uP4UM"><h2>Travailler dans le secteur ${catLabel.toLowerCase()} à ${cDisplay}</h2><p>Le Canton de ${cDisplay} fait partie du marché du travail suisse. Le secteur ${catLabel.toLowerCase()} est l'un des domaines actifs du marché cantonal. Pour les frontaliers avec un permis G, la Suisse applique un impôt à la source sur le revenu brut. Utilisez notre <a href="${BASE_URL}/fr/">simulateur fiscal gratuit</a>.</p></section>`;
  })();
  const catOpenAllLabel = locale === 'it' ? 'Apri il job board completo' : locale === 'en' ? 'Open the full job board' : locale === 'de' ? 'Komplettes Job Board öffnen' : 'Ouvrir le job board complet';
  const catNavLabel = locale === 'it' ? 'Altre categorie' : locale === 'en' ? 'Other categories' : locale === 'de' ? 'Weitere Kategorien' : 'Autres catégories';
@@ -5962,7 +5962,7 @@ ${alternates}
  title: catTitle,
  };
  const catH1 = formatSeoH1(catLocaleParts) + (catPage > 1 ? (locale === 'it' ? ` — Pagina ${catPage}` : locale === 'de' ? ` — Seite ${catPage}` : locale === 'fr' ? ` — Page ${catPage}` : ` — Page ${catPage}`) : '');
- return `<h1>${esc(catH1)}</h1>\n <p>${esc(catDescription)}</p>\n ${catIntro}\n <ul style="list-style:none;padding:0;margin:16px 0">${catListHtml}</ul>\n <p><a href="${catSectionUrl}">${esc(catOpenAllLabel)}</a></p>\n ${catMarketSection}\n <nav style="margin:20px 0;font-size:14px">${catNavLabel}: ${catOtherLinks.join(' · ')}</nav>\n ${wrapHubSeoContext(locale as 'it' | 'en' | 'de' | 'fr', renderJobBoardCommuterContext({ locale, location: cDisplay, omitCommute: true, sectorOrType: catLabel, cantonDisplay: cDisplay, cantonSlot: 'sectors-hub' }))}`;
+ return `<h1>${esc(catH1)}</h1>\n <p>${esc(catDescription)}</p>\n ${catIntro}\n <ul class="s-0WjlyL">${catListHtml}</ul>\n <p><a href="${catSectionUrl}">${esc(catOpenAllLabel)}</a></p>\n ${catMarketSection}\n <nav class="s-_ZFTu5">${catNavLabel}: ${catOtherLinks.join(' · ')}</nav>\n ${wrapHubSeoContext(locale as 'it' | 'en' | 'de' | 'fr', renderJobBoardCommuterContext({ locale, location: cDisplay, omitCommute: true, sectorOrType: catLabel, cantonDisplay: cDisplay, cantonSlot: 'sectors-hub' }))}`;
  })(),
  });
  const catOutDir = np.join(distDir, catCanonicalPath.slice(1));
@@ -6124,14 +6124,14 @@ ${alternates}
  return `<p>${sJobs.length} <strong>offres d'emploi</strong> sont actuellement disponibles dans le secteur ${sectorDisplay.toLowerCase()} à ${esc(cDisplay)}, publiées par ${sUniqueCompanies.length} entreprises dans ${sUniqueLocations.length} localités. Entreprises qui recrutent : ${sTopCompanies || '—'}. Annonces mises à jour quotidiennement.</p>`;
  })();
  const marketSection = (() => {
- if (locale === 'it') return `<section style="margin-top:20px"><h2>Lavorare come ${sectorDisplay.toLowerCase()} in ${esc(cDisplay)}</h2><p>Il Canton ${esc(cDisplay)} è parte del mercato svizzero del lavoro. Per i lavoratori frontalieri con Permesso G, la Svizzera applica l'imposta alla fonte sul reddito lordo. Usa il nostro <a href="${BASE_URL}/">simulatore fiscale gratuito</a> per calcolare il tuo stipendio netto.</p></section>`;
- if (locale === 'en') return `<section style="margin-top:20px"><h2>Working as ${sectorDisplay.toLowerCase()} in ${esc(cDisplay)}</h2><p>The Canton of ${esc(cDisplay)} is part of the Swiss labour market. For cross-border workers with a G Permit, Switzerland applies withholding tax on gross income. Use our <a href="${BASE_URL}/en/">free tax simulator</a> to calculate your net salary.</p></section>`;
- if (locale === 'de') return `<section style="margin-top:20px"><h2>Arbeiten als ${sectorDisplay} in ${esc(cDisplay)}</h2><p>Der Kanton ${esc(cDisplay)} ist Teil des schweizerischen Arbeitsmarkts. Für Grenzgänger mit G-Bewilligung erhebt die Schweiz eine Quellensteuer. Nutzen Sie unseren <a href="${BASE_URL}/de/">kostenlosen Steuersimulator</a>.</p></section>`;
- return `<section style="margin-top:20px"><h2>Travailler comme ${sectorDisplay.toLowerCase()} à ${esc(cDisplay)}</h2><p>Le Canton de ${esc(cDisplay)} fait partie du marché du travail suisse. Pour les frontaliers avec un permis G, la Suisse applique un impôt à la source. Utilisez notre <a href="${BASE_URL}/fr/">simulateur fiscal gratuit</a>.</p></section>`;
+ if (locale === 'it') return `<section class="s-7uP4UM"><h2>Lavorare come ${sectorDisplay.toLowerCase()} in ${esc(cDisplay)}</h2><p>Il Canton ${esc(cDisplay)} è parte del mercato svizzero del lavoro. Per i lavoratori frontalieri con Permesso G, la Svizzera applica l'imposta alla fonte sul reddito lordo. Usa il nostro <a href="${BASE_URL}/">simulatore fiscale gratuito</a> per calcolare il tuo stipendio netto.</p></section>`;
+ if (locale === 'en') return `<section class="s-7uP4UM"><h2>Working as ${sectorDisplay.toLowerCase()} in ${esc(cDisplay)}</h2><p>The Canton of ${esc(cDisplay)} is part of the Swiss labour market. For cross-border workers with a G Permit, Switzerland applies withholding tax on gross income. Use our <a href="${BASE_URL}/en/">free tax simulator</a> to calculate your net salary.</p></section>`;
+ if (locale === 'de') return `<section class="s-7uP4UM"><h2>Arbeiten als ${sectorDisplay} in ${esc(cDisplay)}</h2><p>Der Kanton ${esc(cDisplay)} ist Teil des schweizerischen Arbeitsmarkts. Für Grenzgänger mit G-Bewilligung erhebt die Schweiz eine Quellensteuer. Nutzen Sie unseren <a href="${BASE_URL}/de/">kostenlosen Steuersimulator</a>.</p></section>`;
+ return `<section class="s-7uP4UM"><h2>Travailler comme ${sectorDisplay.toLowerCase()} à ${esc(cDisplay)}</h2><p>Le Canton de ${esc(cDisplay)} fait partie du marché du travail suisse. Pour les frontaliers avec un permis G, la Suisse applique un impôt à la source. Utilisez notre <a href="${BASE_URL}/fr/">simulateur fiscal gratuit</a>.</p></section>`;
  })();
  const openAllLabel = locale === 'it' ? `Apri tutte le offerte in ${cDisplay}` : locale === 'en' ? `View all jobs in ${cDisplay}` : locale === 'de' ? `Alle Stellen ${cDisplay}` : `Voir toutes les offres à ${cDisplay}`;
  const listHtml = cappedJobs.map((job: any) => renderJobCardLi(job, locale)).join('');
- const bodyHtml = `<h1>${esc(pageHeading)}</h1>\n<p>${esc(pageDesc)}</p>\n${intro}\n<ul style="list-style:none;padding:0;margin:16px 0">${listHtml}</ul>\n<p><a href="${sectionRootUrl}">${esc(openAllLabel)}</a></p>\n${marketSection}\n${wrapHubSeoContext(locale as 'it' | 'en' | 'de' | 'fr', renderJobBoardCommuterContext({ locale, location: cDisplay, omitCommute: true, sectorOrType: sectorDisplay, cantonDisplay: cDisplay, cantonSlot: 'sectors-hub' }))}`;
+ const bodyHtml = `<h1>${esc(pageHeading)}</h1>\n<p>${esc(pageDesc)}</p>\n${intro}\n<ul class="s-0WjlyL">${listHtml}</ul>\n<p><a href="${sectionRootUrl}">${esc(openAllLabel)}</a></p>\n${marketSection}\n${wrapHubSeoContext(locale as 'it' | 'en' | 'de' | 'fr', renderJobBoardCommuterContext({ locale, location: cDisplay, omitCommute: true, sectorOrType: sectorDisplay, cantonDisplay: cDisplay, cantonSlot: 'sectors-hub' }))}`;
  // buildSeoPageHtml (hydration-safe shell). See city-hub fix at line ~5420.
  const html = buildSeoPageHtml({
  locale,
@@ -6338,13 +6338,13 @@ ${alternates}
  return `<p>${companyJobs.length} <strong>offres d'emploi</strong> sont actuellement disponibles chez ${esc(companyName)} à ${esc(cDisplay)}, sur ${companyLocations.length} site${companyLocations.length === 1 ? '' : 's'}. Mises à jour quotidiennement.</p>`;
  })();
  const marketSection = (() => {
- if (locale === 'it') return `<section style="margin-top:20px"><h2>Lavorare presso ${esc(companyName)} in ${esc(cDisplay)}</h2><p>${esc(companyName)} è una delle aziende che assumono in ${esc(cDisplay)}. Per i lavoratori frontalieri con Permesso G, la Svizzera applica l'imposta alla fonte sul reddito lordo. Usa il nostro <a href="${BASE_URL}/">simulatore fiscale gratuito</a> per calcolare il tuo stipendio netto.</p></section>`;
- if (locale === 'en') return `<section style="margin-top:20px"><h2>Working at ${esc(companyName)} in ${esc(cDisplay)}</h2><p>${esc(companyName)} is among the hiring companies in ${esc(cDisplay)}. For cross-border workers with a G Permit, Switzerland applies withholding tax on gross income. Use our <a href="${BASE_URL}/en/">free tax simulator</a> to calculate your net salary.</p></section>`;
- if (locale === 'de') return `<section style="margin-top:20px"><h2>Arbeiten bei ${esc(companyName)} in ${esc(cDisplay)}</h2><p>${esc(companyName)} gehört zu den einstellenden Unternehmen in ${esc(cDisplay)}. Für Grenzgänger mit G-Bewilligung erhebt die Schweiz eine Quellensteuer. Nutzen Sie unseren <a href="${BASE_URL}/de/">kostenlosen Steuersimulator</a>.</p></section>`;
- return `<section style="margin-top:20px"><h2>Travailler chez ${esc(companyName)} à ${esc(cDisplay)}</h2><p>${esc(companyName)} fait partie des entreprises qui recrutent à ${esc(cDisplay)}. Pour les frontaliers avec un permis G, la Suisse applique un impôt à la source. Utilisez notre <a href="${BASE_URL}/fr/">simulateur fiscal gratuit</a>.</p></section>`;
+ if (locale === 'it') return `<section class="s-7uP4UM"><h2>Lavorare presso ${esc(companyName)} in ${esc(cDisplay)}</h2><p>${esc(companyName)} è una delle aziende che assumono in ${esc(cDisplay)}. Per i lavoratori frontalieri con Permesso G, la Svizzera applica l'imposta alla fonte sul reddito lordo. Usa il nostro <a href="${BASE_URL}/">simulatore fiscale gratuito</a> per calcolare il tuo stipendio netto.</p></section>`;
+ if (locale === 'en') return `<section class="s-7uP4UM"><h2>Working at ${esc(companyName)} in ${esc(cDisplay)}</h2><p>${esc(companyName)} is among the hiring companies in ${esc(cDisplay)}. For cross-border workers with a G Permit, Switzerland applies withholding tax on gross income. Use our <a href="${BASE_URL}/en/">free tax simulator</a> to calculate your net salary.</p></section>`;
+ if (locale === 'de') return `<section class="s-7uP4UM"><h2>Arbeiten bei ${esc(companyName)} in ${esc(cDisplay)}</h2><p>${esc(companyName)} gehört zu den einstellenden Unternehmen in ${esc(cDisplay)}. Für Grenzgänger mit G-Bewilligung erhebt die Schweiz eine Quellensteuer. Nutzen Sie unseren <a href="${BASE_URL}/de/">kostenlosen Steuersimulator</a>.</p></section>`;
+ return `<section class="s-7uP4UM"><h2>Travailler chez ${esc(companyName)} à ${esc(cDisplay)}</h2><p>${esc(companyName)} fait partie des entreprises qui recrutent à ${esc(cDisplay)}. Pour les frontaliers avec un permis G, la Suisse applique un impôt à la source. Utilisez notre <a href="${BASE_URL}/fr/">simulateur fiscal gratuit</a>.</p></section>`;
  })();
  const openAllLabel = locale === 'it' ? `Apri tutte le offerte in ${cDisplay}` : locale === 'en' ? `View all jobs in ${cDisplay}` : locale === 'de' ? `Alle Stellen ${cDisplay}` : `Voir toutes les offres à ${cDisplay}`;
- const bodyHtml = `<h1>${esc(pageHeading)}</h1>\n<p>${esc(pageDesc)}</p>\n${intro}\n<ul style="list-style:none;padding:0;margin:16px 0">${listHtml}</ul>\n<p><a href="${sectionRootUrl}">${esc(openAllLabel)}</a></p>\n${marketSection}\n${wrapHubSeoContext(locale as 'it' | 'en' | 'de' | 'fr', renderJobBoardCommuterContext({ locale, location: cDisplay, omitCommute: true, cantonDisplay: cDisplay, cantonSlot: 'company-landing', cantonEntityName: companyName }))}`;
+ const bodyHtml = `<h1>${esc(pageHeading)}</h1>\n<p>${esc(pageDesc)}</p>\n${intro}\n<ul class="s-0WjlyL">${listHtml}</ul>\n<p><a href="${sectionRootUrl}">${esc(openAllLabel)}</a></p>\n${marketSection}\n${wrapHubSeoContext(locale as 'it' | 'en' | 'de' | 'fr', renderJobBoardCommuterContext({ locale, location: cDisplay, omitCommute: true, cantonDisplay: cDisplay, cantonSlot: 'company-landing', cantonEntityName: companyName }))}`;
  // Use buildSeoPageHtml (NOT buildSimplePage) so the page emits
  // `<main class="seo-static-content">` OUTSIDE `<div id="root">` +
  // `<div id="footer-root"></div>`. The legacy path (buildSimplePage default
@@ -6559,7 +6559,7 @@ ${alternates}
  return `<p>${ccJobs.length} <strong>offres d'emploi</strong> sont actuellement disponibles chez ${esc(companyName)} à ${esc(cityDisplay)} (Canton de ${esc(cDisplay)}). Mises à jour quotidiennement.</p>`;
  })();
  const openAllLabel = locale === 'it' ? `Vedi tutte le offerte presso ${companyName}` : locale === 'en' ? `View all jobs at ${companyName}` : locale === 'de' ? `Alle Stellen bei ${companyName}` : `Voir toutes les offres chez ${companyName}`;
- const bodyHtml = `<h1>${esc(pageHeading)}</h1>\n<p>${esc(pageDesc)}</p>\n${intro}\n<ul style="list-style:none;padding:0;margin:16px 0">${listHtml}</ul>\n<p><a href="${companyHubUrl}">${esc(openAllLabel)}</a></p>\n${wrapHubSeoContext(locale as 'it' | 'en' | 'de' | 'fr', renderJobBoardCommuterContext({ locale, location: cityDisplay, cantonDisplay: cDisplay, cantonSlot: 'company-landing', cantonEntityName: `${companyName} — ${cityDisplay}` }))}`;
+ const bodyHtml = `<h1>${esc(pageHeading)}</h1>\n<p>${esc(pageDesc)}</p>\n${intro}\n<ul class="s-0WjlyL">${listHtml}</ul>\n<p><a href="${companyHubUrl}">${esc(openAllLabel)}</a></p>\n${wrapHubSeoContext(locale as 'it' | 'en' | 'de' | 'fr', renderJobBoardCommuterContext({ locale, location: cityDisplay, cantonDisplay: cDisplay, cantonSlot: 'company-landing', cantonEntityName: `${companyName} — ${cityDisplay}` }))}`;
  // buildSeoPageHtml (hydration-safe shell). See city-hub fix at line ~5420.
  const html = buildSeoPageHtml({
  locale,
@@ -6694,10 +6694,10 @@ ${alternates}
  return `<p>${kwJobs.length} <strong>offres d'emploi</strong> sont actuellement disponibles pour "${esc(kwQueryDisplay)}" au Tessin, publi\u00e9es par ${kwUniqueCompanies.length} entreprises${kwUniqueLocations.length > 1 ? ` dans ${kwUniqueLocations.length} localit\u00e9s` : ''}. Entreprises qui recrutent : ${kwTopCompanies}.</p>`;
  })();
  const kwMarketSection = (() => {
- if (locale === 'it') return `<section style="margin-top:20px"><h2>Il mercato del lavoro in Ticino</h2><p>Il Canton Ticino \u00e8 il principale polo economico della Svizzera italiana con oltre 180.000 posti di lavoro. Per i lavoratori frontalieri con Permesso G, il Ticino applica l'imposta alla fonte sul reddito lordo. Usa il nostro <a href="${BASE_URL}/">simulatore fiscale gratuito</a> per calcolare il tuo stipendio netto come frontaliere.</p></section>`;
- if (locale === 'en') return `<section style="margin-top:20px"><h2>The Ticino job market</h2><p>The Canton of Ticino is the main economic hub of Italian-speaking Switzerland with over 180,000 jobs. For cross-border workers with a G Permit, Ticino applies withholding tax on gross income. Use our <a href="${BASE_URL}/en/">free tax simulator</a> to calculate your net salary as a cross-border worker.</p></section>`;
- if (locale === 'de') return `<section style="margin-top:20px"><h2>Der Arbeitsmarkt im Tessin</h2><p>Der Kanton Tessin ist das wirtschaftliche Zentrum der italienischen Schweiz mit \u00fcber 180.000 Arbeitspl\u00e4tzen. F\u00fcr Grenzg\u00e4nger mit G-Bewilligung erhebt das Tessin eine Quellensteuer auf das Bruttoeinkommen. Nutzen Sie unseren <a href="${BASE_URL}/de/">kostenlosen Steuersimulator</a>, um Ihr Nettogehalt als Grenzg\u00e4nger zu berechnen.</p></section>`;
- return `<section style="margin-top:20px"><h2>Le march\u00e9 de l'emploi au Tessin</h2><p>Le Canton du Tessin est le principal p\u00f4le \u00e9conomique de la Suisse italienne avec plus de 180 000 emplois. Pour les frontaliers avec un permis G, le Tessin applique un imp\u00f4t \u00e0 la source sur le revenu brut. Utilisez notre <a href="${BASE_URL}/fr/">simulateur fiscal gratuit</a> pour calculer votre salaire net en tant que frontalier.</p></section>`;
+ if (locale === 'it') return `<section class="s-7uP4UM"><h2>Il mercato del lavoro in Ticino</h2><p>Il Canton Ticino \u00e8 il principale polo economico della Svizzera italiana con oltre 180.000 posti di lavoro. Per i lavoratori frontalieri con Permesso G, il Ticino applica l'imposta alla fonte sul reddito lordo. Usa il nostro <a href="${BASE_URL}/">simulatore fiscale gratuito</a> per calcolare il tuo stipendio netto come frontaliere.</p></section>`;
+ if (locale === 'en') return `<section class="s-7uP4UM"><h2>The Ticino job market</h2><p>The Canton of Ticino is the main economic hub of Italian-speaking Switzerland with over 180,000 jobs. For cross-border workers with a G Permit, Ticino applies withholding tax on gross income. Use our <a href="${BASE_URL}/en/">free tax simulator</a> to calculate your net salary as a cross-border worker.</p></section>`;
+ if (locale === 'de') return `<section class="s-7uP4UM"><h2>Der Arbeitsmarkt im Tessin</h2><p>Der Kanton Tessin ist das wirtschaftliche Zentrum der italienischen Schweiz mit \u00fcber 180.000 Arbeitspl\u00e4tzen. F\u00fcr Grenzg\u00e4nger mit G-Bewilligung erhebt das Tessin eine Quellensteuer auf das Bruttoeinkommen. Nutzen Sie unseren <a href="${BASE_URL}/de/">kostenlosen Steuersimulator</a>, um Ihr Nettogehalt als Grenzg\u00e4nger zu berechnen.</p></section>`;
+ return `<section class="s-7uP4UM"><h2>Le march\u00e9 de l'emploi au Tessin</h2><p>Le Canton du Tessin est le principal p\u00f4le \u00e9conomique de la Suisse italienne avec plus de 180 000 emplois. Pour les frontaliers avec un permis G, le Tessin applique un imp\u00f4t \u00e0 la source sur le revenu brut. Utilisez notre <a href="${BASE_URL}/fr/">simulateur fiscal gratuit</a> pour calculer votre salaire net en tant que frontalier.</p></section>`;
  })();
  const kwOpenAllLabel = locale === 'it' ? 'Apri il job board completo' : locale === 'en' ? 'Open the full job board' : locale === 'de' ? 'Komplettes Job Board \u00f6ffnen' : 'Ouvrir le job board complet';
  // SEO: text-to-HTML ratio gate. Inject a per-query unique intro (so each
@@ -6736,7 +6736,7 @@ ${alternates}
  ogLocale: localeOg[locale],
  hreflangHtml: kwAlternates,
  jsonLdScripts: [kwBreadcrumbLd, kwCollLd],
- bodyHtml: `<h1>${esc(itCopy.heading)}</h1>\n <p>${esc(kwDesc)}</p>\n ${kwQueryIntro}\n ${kwIntro}\n <p>${esc(kwCta)}</p>\n <ul style="list-style:none;padding:0;margin:16px 0">${kwListHtml}</ul>\n <p><a href="${kwSectionUrl}">${esc(kwOpenAllLabel)}</a></p>\n ${kwMarketSection}\n ${kwCommuterBlock}`,
+ bodyHtml: `<h1>${esc(itCopy.heading)}</h1>\n <p>${esc(kwDesc)}</p>\n ${kwQueryIntro}\n ${kwIntro}\n <p>${esc(kwCta)}</p>\n <ul class="s-0WjlyL">${kwListHtml}</ul>\n <p><a href="${kwSectionUrl}">${esc(kwOpenAllLabel)}</a></p>\n ${kwMarketSection}\n ${kwCommuterBlock}`,
  distDir,
  });
  const kwOutDir = np.join(distDir, kwCanonicalPath.slice(1));
@@ -6847,18 +6847,18 @@ ${alternates}
  } else {
  searchBodyParts.push(`<p>${matchingJobs.length} <strong>offres d'emploi</strong> sont actuellement disponibles pour ${esc(name)} au Tessin, publi\u00e9es par ${uniqueCompanies.length} entreprises dans ${uniqueLocations.length} localit\u00e9s. Les annonces sont mises \u00e0 jour quotidiennement par notre robot qui collecte les offres directement depuis les portails carri\u00e8re des entreprises tessinoises.</p>`);
  }
- searchBodyParts.push(`<ul style="list-style:none;padding:0;margin:16px 0">${listHtml}</ul>`);
+ searchBodyParts.push(`<ul class="s-0WjlyL">${listHtml}</ul>`);
  searchBodyParts.push(`<p><a href="${listingUrl}">${esc(copy.openListing)}</a></p>`);
  if (locale === 'it') {
- searchBodyParts.push(`<section style="margin-top:20px"><h2>Il mercato del lavoro in Ticino</h2><p>Il Canton Ticino \u00e8 il principale polo economico della Svizzera italiana con oltre 180.000 posti di lavoro. I settori pi\u00f9 attivi includono sanit\u00e0, finanza, tecnologia, ingegneria, commercio e amministrazione. Per i lavoratori frontalieri con Permesso G, il Ticino applica l'imposta alla fonte sul reddito lordo. Usa il nostro <a href="${BASE_URL}/">simulatore fiscale gratuito</a> per calcolare il tuo stipendio netto come frontaliere.</p></section>`);
+ searchBodyParts.push(`<section class="s-7uP4UM"><h2>Il mercato del lavoro in Ticino</h2><p>Il Canton Ticino \u00e8 il principale polo economico della Svizzera italiana con oltre 180.000 posti di lavoro. I settori pi\u00f9 attivi includono sanit\u00e0, finanza, tecnologia, ingegneria, commercio e amministrazione. Per i lavoratori frontalieri con Permesso G, il Ticino applica l'imposta alla fonte sul reddito lordo. Usa il nostro <a href="${BASE_URL}/">simulatore fiscale gratuito</a> per calcolare il tuo stipendio netto come frontaliere.</p></section>`);
  } else if (locale === 'en') {
- searchBodyParts.push(`<section style="margin-top:20px"><h2>The Ticino job market</h2><p>The Canton of Ticino is the main economic hub of Italian-speaking Switzerland with over 180,000 jobs. The most active sectors include healthcare, finance, technology, engineering, retail, and administration. For cross-border workers with a G Permit, Ticino applies withholding tax on gross income. Use our <a href="${BASE_URL}/en/">free tax simulator</a> to calculate your net salary as a cross-border worker.</p></section>`);
+ searchBodyParts.push(`<section class="s-7uP4UM"><h2>The Ticino job market</h2><p>The Canton of Ticino is the main economic hub of Italian-speaking Switzerland with over 180,000 jobs. The most active sectors include healthcare, finance, technology, engineering, retail, and administration. For cross-border workers with a G Permit, Ticino applies withholding tax on gross income. Use our <a href="${BASE_URL}/en/">free tax simulator</a> to calculate your net salary as a cross-border worker.</p></section>`);
  } else if (locale === 'de') {
- searchBodyParts.push(`<section style="margin-top:20px"><h2>Der Arbeitsmarkt im Tessin</h2><p>Der Kanton Tessin ist das wirtschaftliche Zentrum der italienischen Schweiz mit \u00fcber 180.000 Arbeitspl\u00e4tzen. Die aktivsten Branchen sind Gesundheitswesen, Finanzen, Technologie, Ingenieurwesen, Handel und Verwaltung. F\u00fcr Grenzg\u00e4nger mit G-Bewilligung erhebt das Tessin eine Quellensteuer auf das Bruttoeinkommen. Nutzen Sie unseren <a href="${BASE_URL}/de/">kostenlosen Steuersimulator</a>, um Ihr Nettogehalt als Grenzg\u00e4nger zu berechnen.</p></section>`);
+ searchBodyParts.push(`<section class="s-7uP4UM"><h2>Der Arbeitsmarkt im Tessin</h2><p>Der Kanton Tessin ist das wirtschaftliche Zentrum der italienischen Schweiz mit \u00fcber 180.000 Arbeitspl\u00e4tzen. Die aktivsten Branchen sind Gesundheitswesen, Finanzen, Technologie, Ingenieurwesen, Handel und Verwaltung. F\u00fcr Grenzg\u00e4nger mit G-Bewilligung erhebt das Tessin eine Quellensteuer auf das Bruttoeinkommen. Nutzen Sie unseren <a href="${BASE_URL}/de/">kostenlosen Steuersimulator</a>, um Ihr Nettogehalt als Grenzg\u00e4nger zu berechnen.</p></section>`);
  } else {
- searchBodyParts.push(`<section style="margin-top:20px"><h2>Le march\u00e9 de l'emploi au Tessin</h2><p>Le Canton du Tessin est le principal p\u00f4le \u00e9conomique de la Suisse italienne avec plus de 180 000 emplois. Les secteurs les plus actifs incluent la sant\u00e9, la finance, la technologie, l'ing\u00e9nierie, le commerce et l'administration. Pour les frontaliers avec un permis G, le Tessin applique un imp\u00f4t \u00e0 la source sur le revenu brut. Utilisez notre <a href="${BASE_URL}/fr/">simulateur fiscal gratuit</a> pour calculer votre salaire net en tant que frontalier.</p></section>`);
+ searchBodyParts.push(`<section class="s-7uP4UM"><h2>Le march\u00e9 de l'emploi au Tessin</h2><p>Le Canton du Tessin est le principal p\u00f4le \u00e9conomique de la Suisse italienne avec plus de 180 000 emplois. Les secteurs les plus actifs incluent la sant\u00e9, la finance, la technologie, l'ing\u00e9nierie, le commerce et l'administration. Pour les frontaliers avec un permis G, le Tessin applique un imp\u00f4t \u00e0 la source sur le revenu brut. Utilisez notre <a href="${BASE_URL}/fr/">simulateur fiscal gratuit</a> pour calculer votre salaire net en tant que frontalier.</p></section>`);
  }
- searchBodyParts.push(`<p style="margin-top:16px;font-size:14px;color:var(--color-subtle);line-height:1.6">${esc(copy.editorial)}</p>`);
+ searchBodyParts.push(`<p class="s-Xxg-ZL">${esc(copy.editorial)}</p>`);
  // SEO: text-to-HTML ratio gate. Append per-query unique intro + the
  // shared commuter-context block (methodology, FAQ, scenario, cross-links).
  // For Ticino cities we use the city-aware commuter row; for non-Ticino
@@ -7000,18 +7000,18 @@ ${alternates}
  } else {
  comboBodyParts.push(`<p>Nous avons trouv\u00e9 <strong>${matchingJobs.length} offres d'emploi</strong> correspondant \u00e0 cette recherche, publi\u00e9es par ${cUniqueCompanies.length} entreprises${cUniqueLocations.length > 1 ? ` dans ${cUniqueLocations.length} localit\u00e9s au Tessin` : cUniqueLocations.length === 1 ? ` \u00e0 ${esc(cUniqueLocations[0])}` : ' au Tessin'}. Chaque annonce renvoie directement \u00e0 la page de candidature officielle de l'entreprise.</p>`);
  }
- comboBodyParts.push(`<ul style="list-style:none;padding:0;margin:16px 0">${listHtml}</ul>`);
+ comboBodyParts.push(`<ul class="s-0WjlyL">${listHtml}</ul>`);
  comboBodyParts.push(`<p><a href="${cListingUrl}">${esc(searchPageCopy[locale].openListing)}</a></p>`);
  if (locale === 'it') {
- comboBodyParts.push(`<section style="margin-top:20px"><h2>Lavorare in Ticino come frontaliere</h2><p>Il Canton Ticino \u00e8 la principale area economica della Svizzera italiana. Per i lavoratori frontalieri con Permesso G, il Ticino applica l'imposta alla fonte con aliquote variabili sul reddito lordo. I principali centri economici sono Lugano, Bellinzona, Mendrisio, Locarno e Chiasso. Usa il nostro <a href="${BASE_URL}/">simulatore fiscale gratuito</a> per calcolare il tuo stipendio netto come frontaliere e confrontare vantaggi e svantaggi tra residenza in Svizzera e pendolarismo dall'Italia.</p></section>`);
+ comboBodyParts.push(`<section class="s-7uP4UM"><h2>Lavorare in Ticino come frontaliere</h2><p>Il Canton Ticino \u00e8 la principale area economica della Svizzera italiana. Per i lavoratori frontalieri con Permesso G, il Ticino applica l'imposta alla fonte con aliquote variabili sul reddito lordo. I principali centri economici sono Lugano, Bellinzona, Mendrisio, Locarno e Chiasso. Usa il nostro <a href="${BASE_URL}/">simulatore fiscale gratuito</a> per calcolare il tuo stipendio netto come frontaliere e confrontare vantaggi e svantaggi tra residenza in Svizzera e pendolarismo dall'Italia.</p></section>`);
  } else if (locale === 'en') {
- comboBodyParts.push(`<section style="margin-top:20px"><h2>Working in Ticino as a cross-border commuter</h2><p>The Canton of Ticino is the main economic area of Italian-speaking Switzerland. For cross-border workers with a G Permit, Ticino applies withholding tax at variable rates on gross income. The main economic centres are Lugano, Bellinzona, Mendrisio, Locarno, and Chiasso. Use our <a href="${BASE_URL}/en/">free tax simulator</a> to calculate your net salary as a cross-border worker and compare the pros and cons of living in Switzerland versus commuting from Italy.</p></section>`);
+ comboBodyParts.push(`<section class="s-7uP4UM"><h2>Working in Ticino as a cross-border commuter</h2><p>The Canton of Ticino is the main economic area of Italian-speaking Switzerland. For cross-border workers with a G Permit, Ticino applies withholding tax at variable rates on gross income. The main economic centres are Lugano, Bellinzona, Mendrisio, Locarno, and Chiasso. Use our <a href="${BASE_URL}/en/">free tax simulator</a> to calculate your net salary as a cross-border worker and compare the pros and cons of living in Switzerland versus commuting from Italy.</p></section>`);
  } else if (locale === 'de') {
- comboBodyParts.push(`<section style="margin-top:20px"><h2>Arbeiten im Tessin als Grenzg\u00e4nger</h2><p>Der Kanton Tessin ist das wirtschaftliche Zentrum der italienischen Schweiz. F\u00fcr Grenzg\u00e4nger mit G-Bewilligung erhebt das Tessin eine Quellensteuer mit variablen S\u00e4tzen auf das Bruttoeinkommen. Die wichtigsten Wirtschaftszentren sind Lugano, Bellinzona, Mendrisio, Locarno und Chiasso. Nutzen Sie unseren <a href="${BASE_URL}/de/">kostenlosen Steuersimulator</a>, um Ihr Nettogehalt als Grenzg\u00e4nger zu berechnen und die Vor- und Nachteile eines Wohnsitzes in der Schweiz gegen\u00fcber dem Pendeln aus Italien zu vergleichen.</p></section>`);
+ comboBodyParts.push(`<section class="s-7uP4UM"><h2>Arbeiten im Tessin als Grenzg\u00e4nger</h2><p>Der Kanton Tessin ist das wirtschaftliche Zentrum der italienischen Schweiz. F\u00fcr Grenzg\u00e4nger mit G-Bewilligung erhebt das Tessin eine Quellensteuer mit variablen S\u00e4tzen auf das Bruttoeinkommen. Die wichtigsten Wirtschaftszentren sind Lugano, Bellinzona, Mendrisio, Locarno und Chiasso. Nutzen Sie unseren <a href="${BASE_URL}/de/">kostenlosen Steuersimulator</a>, um Ihr Nettogehalt als Grenzg\u00e4nger zu berechnen und die Vor- und Nachteile eines Wohnsitzes in der Schweiz gegen\u00fcber dem Pendeln aus Italien zu vergleichen.</p></section>`);
  } else {
- comboBodyParts.push(`<section style="margin-top:20px"><h2>Travailler au Tessin en tant que frontalier</h2><p>Le Canton du Tessin est la principale zone \u00e9conomique de la Suisse italienne. Pour les frontaliers avec un permis G, le Tessin applique un imp\u00f4t \u00e0 la source \u00e0 taux variable sur le revenu brut. Les principaux centres \u00e9conomiques sont Lugano, Bellinzona, Mendrisio, Locarno et Chiasso. Utilisez notre <a href="${BASE_URL}/fr/">simulateur fiscal gratuit</a> pour calculer votre salaire net en tant que frontalier et comparer les avantages et inconv\u00e9nients entre r\u00e9sider en Suisse et faire la navette depuis l'Italie.</p></section>`);
+ comboBodyParts.push(`<section class="s-7uP4UM"><h2>Travailler au Tessin en tant que frontalier</h2><p>Le Canton du Tessin est la principale zone \u00e9conomique de la Suisse italienne. Pour les frontaliers avec un permis G, le Tessin applique un imp\u00f4t \u00e0 la source \u00e0 taux variable sur le revenu brut. Les principaux centres \u00e9conomiques sont Lugano, Bellinzona, Mendrisio, Locarno et Chiasso. Utilisez notre <a href="${BASE_URL}/fr/">simulateur fiscal gratuit</a> pour calculer votre salaire net en tant que frontalier et comparer les avantages et inconv\u00e9nients entre r\u00e9sider en Suisse et faire la navette depuis l'Italie.</p></section>`);
  }
- comboBodyParts.push(`<p style="margin-top:16px;font-size:14px;color:var(--color-subtle);line-height:1.6">${esc(searchPageCopy[locale].editorial)}</p>`);
+ comboBodyParts.push(`<p class="s-Xxg-ZL">${esc(searchPageCopy[locale].editorial)}</p>`);
  // SEO: text-to-HTML ratio gate. Same enrichment as the search-leader
  // template. The combo heading (e.g. "Lavoro Stage a Lugano",
  // "Lavoro Sanità in Ticino") is the user-facing query; we feed it as
@@ -7727,39 +7727,39 @@ ${alternates}
      switch (locale) {
        case 'it':
          return [
-           `<section style="max-width:860px;margin:32px 0 0;color:var(--color-body);line-height:1.65;font-size:15px">`,
-           `<h2 style="font-size:22px;margin:0 0 12px">Lavorare ${display === 'Svizzera' ? 'in Svizzera' : `nel Canton ${display}`} come frontaliere</h2>`,
+           `<section class="s-0P4kC8">`,
+           `<h2 class="s-iZTOT1">Lavorare ${display === 'Svizzera' ? 'in Svizzera' : `nel Canton ${display}`} come frontaliere</h2>`,
            `<p>${display === 'Svizzera' ? 'La Svizzera resta la destinazione più stabile per i lavoratori italiani in cerca di salari competitivi e ammortizzatori sociali solidi.' : `Il cantone ${display} rientra fra le mete principali dei frontalieri italiani in cerca di stipendi più alti rispetto alla media italiana.`} Le posizioni elencate qui coprono tutti i settori — sanità, costruzioni, industria, terziario, IT, logistica — e includono sia ruoli a tempo pieno (100 %) sia part-time (50–80 %), tipici dei contratti svizzeri.</p>`,
            `<p>Per il regime frontaliere occorre rispettare i requisiti del Nuovo Accordo del 2026: residenza italiana entro 20 km dal confine, rientro giornaliero (con eccezione del 25 % delle giornate per smart-working), permesso di lavoro G. Il salario lordo svizzero in CHF, una volta convertito in EUR e dedotti AVS/AI/IPG, LPP (secondo pilastro) e LAINF, va confrontato con il costo della vita in Italia per stimare il guadagno reale.</p>`,
-           `<p>Usa il <a href="${BASE_URL}/calcola-stipendio/" style="color:var(--color-link);font-weight:600">calcolatore di stipendio netto</a> per simulare il netto in mano partendo dal lordo proposto, oppure il <a href="${BASE_URL}/comparatori/cambio-valuta/" style="color:var(--color-link);font-weight:600">confronto cambio CHF/EUR</a> per capire quanto rende oggi un'offerta in franchi svizzeri rispetto ad un equivalente italiano in euro.</p>`,
+           `<p>Usa il <a class="s-EBYcGk" href="${BASE_URL}/calcola-stipendio/">calcolatore di stipendio netto</a> per simulare il netto in mano partendo dal lordo proposto, oppure il <a class="s-EBYcGk" href="${BASE_URL}/comparatori/cambio-valuta/">confronto cambio CHF/EUR</a> per capire quanto rende oggi un'offerta in franchi svizzeri rispetto ad un equivalente italiano in euro.</p>`,
            `</section>`,
          ].join('');
        case 'en':
          return [
-           `<section style="max-width:860px;margin:32px 0 0;color:var(--color-body);line-height:1.65;font-size:15px">`,
-           `<h2 style="font-size:22px;margin:0 0 12px">Working ${display === 'Switzerland' ? 'in Switzerland' : `in the canton of ${display}`} as a cross-border worker</h2>`,
+           `<section class="s-0P4kC8">`,
+           `<h2 class="s-iZTOT1">Working ${display === 'Switzerland' ? 'in Switzerland' : `in the canton of ${display}`} as a cross-border worker</h2>`,
            `<p>${display === 'Switzerland' ? 'Switzerland remains the most attractive destination for Italian workers seeking higher wages and stronger social protection than the Italian average.' : `The canton of ${display} is one of the main destinations for Italian cross-border workers (frontalieri) chasing salaries that exceed the Italian average.`} The positions listed here cover every sector — healthcare, construction, manufacturing, services, IT, logistics — and include both full-time (100 %) and part-time (50–80 %) contracts that are standard in Switzerland.</p>`,
            `<p>To qualify for the cross-border tax regime under the 2026 New Agreement you must reside in Italy within 20 km of the Swiss border, return home daily (with up to 25 % of days allowed in smart-working from Italy), and hold a G-type work permit. The Swiss gross salary in CHF — once converted to EUR and net of AVS/AI/IPG, LPP (second pillar) and LAINF contributions — should be compared against the Italian cost of living to estimate the real take-home.</p>`,
-           `<p>Use the <a href="${BASE_URL}/en/salary-calculator/" style="color:var(--color-link);font-weight:600">net-salary calculator</a> to simulate take-home pay starting from a gross offer, or the <a href="${BASE_URL}/en/comparators/currency-exchange/" style="color:var(--color-link);font-weight:600">CHF/EUR exchange comparator</a> to gauge how much a Swiss offer in francs is worth today versus an Italian equivalent in euros.</p>`,
+           `<p>Use the <a class="s-EBYcGk" href="${BASE_URL}/en/salary-calculator/">net-salary calculator</a> to simulate take-home pay starting from a gross offer, or the <a class="s-EBYcGk" href="${BASE_URL}/en/comparators/currency-exchange/">CHF/EUR exchange comparator</a> to gauge how much a Swiss offer in francs is worth today versus an Italian equivalent in euros.</p>`,
            `</section>`,
          ].join('');
        case 'de':
          return [
-           `<section style="max-width:860px;margin:32px 0 0;color:var(--color-body);line-height:1.65;font-size:15px">`,
-           `<h2 style="font-size:22px;margin:0 0 12px">Arbeiten ${display === 'Schweiz' ? 'in der Schweiz' : `${germanCantonPrep(display)}`} als Grenzgänger</h2>`,
+           `<section class="s-0P4kC8">`,
+           `<h2 class="s-iZTOT1">Arbeiten ${display === 'Schweiz' ? 'in der Schweiz' : `${germanCantonPrep(display)}`} als Grenzgänger</h2>`,
            `<p>${display === 'Schweiz' ? 'Die Schweiz bleibt das attraktivste Ziel für italienische Arbeitnehmer, die höhere Löhne und einen stärkeren Sozialschutz als im italienischen Durchschnitt suchen.' : `Der Kanton ${display} zählt zu den Hauptzielen italienischer Grenzgänger (frontalieri), die ein höheres Gehalt als den italienischen Durchschnitt anstreben.`} Die hier aufgeführten Stellen decken alle Branchen ab — Gesundheitswesen, Bau, Industrie, Dienstleistungen, IT, Logistik — und umfassen sowohl Vollzeit- (100 %) als auch Teilzeitverträge (50–80 %), wie sie in der Schweiz üblich sind.</p>`,
            `<p>Für die Grenzgänger-Besteuerung nach dem neuen Abkommen 2026 müssen Sie innerhalb von 20 km von der Schweizer Grenze in Italien wohnen, täglich nach Hause zurückkehren (mit bis zu 25 % der Tage als Homeoffice aus Italien zulässig) und eine G-Bewilligung besitzen. Der Schweizer Bruttolohn in CHF — nach Umrechnung in EUR und Abzug von AHV/IV/EO, BVG (zweite Säule) und UVG-Beiträgen — sollte den italienischen Lebenshaltungskosten gegenübergestellt werden, um den realen Nettoverdienst abzuschätzen.</p>`,
-           `<p>Nutzen Sie den <a href="${BASE_URL}/de/lohnrechner/" style="color:var(--color-link);font-weight:600">Nettolohnrechner</a>, um den Nettolohn aus einem Bruttoangebot zu simulieren, oder den <a href="${BASE_URL}/de/vergleiche/waehrungsumtausch/" style="color:var(--color-link);font-weight:600">CHF/EUR-Wechselkursrechner</a>, um den heutigen Wert eines Schweizer Angebots in Franken im Vergleich zum italienischen Pendant in Euro zu beurteilen.</p>`,
+           `<p>Nutzen Sie den <a class="s-EBYcGk" href="${BASE_URL}/de/lohnrechner/">Nettolohnrechner</a>, um den Nettolohn aus einem Bruttoangebot zu simulieren, oder den <a class="s-EBYcGk" href="${BASE_URL}/de/vergleiche/waehrungsumtausch/">CHF/EUR-Wechselkursrechner</a>, um den heutigen Wert eines Schweizer Angebots in Franken im Vergleich zum italienischen Pendant in Euro zu beurteilen.</p>`,
            `</section>`,
          ].join('');
        case 'fr':
        default:
          return [
-           `<section style="max-width:860px;margin:32px 0 0;color:var(--color-body);line-height:1.65;font-size:15px">`,
-           `<h2 style="font-size:22px;margin:0 0 12px">Travailler ${display === 'Suisse' ? 'en Suisse' : `${frenchCantonPrep(display)}`} en tant que frontalier</h2>`,
+           `<section class="s-0P4kC8">`,
+           `<h2 class="s-iZTOT1">Travailler ${display === 'Suisse' ? 'en Suisse' : `${frenchCantonPrep(display)}`} en tant que frontalier</h2>`,
            `<p>${display === 'Suisse' ? 'La Suisse reste la destination la plus attractive pour les travailleurs italiens en quête de salaires supérieurs et d\'une protection sociale plus solide que la moyenne italienne.' : `Le canton ${display} compte parmi les principales destinations des frontaliers italiens (frontalieri) en recherche de salaires supérieurs à la moyenne italienne.`} Les postes listés ici couvrent tous les secteurs — santé, construction, industrie, services, informatique, logistique — et incluent à la fois les contrats à temps plein (100 %) et à temps partiel (50–80 %), typiques du marché suisse.</p>`,
            `<p>Pour le régime fiscal frontalier prévu par le nouvel accord 2026, il faut résider en Italie dans un rayon de 20 km de la frontière suisse, rentrer chaque jour au domicile (avec un quota de 25 % de jours autorisés en télétravail depuis l\'Italie) et détenir un permis de travail G. Le salaire brut suisse en CHF — une fois converti en EUR et net des cotisations AVS/AI/APG, LPP (deuxième pilier) et LAA — doit être confronté au coût de la vie italien pour estimer le revenu net réel.</p>`,
-           `<p>Utilisez le <a href="${BASE_URL}/fr/calculer-salaire/" style="color:var(--color-link);font-weight:600">calculateur de salaire net</a> pour simuler le net à partir d'une offre brute, ou le <a href="${BASE_URL}/fr/comparateurs/change-monnaie/" style="color:var(--color-link);font-weight:600">comparateur du change CHF/EUR</a> pour évaluer la valeur actuelle d'une offre suisse en francs face à une offre italienne équivalente en euros.</p>`,
+           `<p>Utilisez le <a class="s-EBYcGk" href="${BASE_URL}/fr/calculer-salaire/">calculateur de salaire net</a> pour simuler le net à partir d'une offre brute, ou le <a class="s-EBYcGk" href="${BASE_URL}/fr/comparateurs/change-monnaie/">comparateur du change CHF/EUR</a> pour évaluer la valeur actuelle d'une offre suisse en francs face à une offre italienne équivalente en euros.</p>`,
            `</section>`,
          ].join('');
      }
@@ -7869,23 +7869,23 @@ ${alternates}
        }
      })();
      const tileGrid =
-       `<section data-stat-tile-grid style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin:0 0 16px;max-width:1080px">` +
-       `<div data-stat-tile="accent" style="background:var(--color-accent-subtle);border:1px solid var(--color-accent-border);border-radius:12px;padding:16px">` +
-       `<div style="font-size:12px;color:var(--color-body);text-transform:uppercase;letter-spacing:0.04em">${esc(tileLabels.open)}</div>` +
-       `<div style="font-size:28px;font-weight:700;color:var(--color-heading);line-height:1.1;margin-top:6px">${totalJobs.toLocaleString('de-CH')}</div>` +
+       `<section class="s-qkhIAD" data-stat-tile-grid>` +
+       `<div class="s-aHhpNC" data-stat-tile="accent">` +
+       `<div class="s-hr1jx1">${esc(tileLabels.open)}</div>` +
+       `<div class="s-I_TRkF">${totalJobs.toLocaleString('de-CH')}</div>` +
        `</div>` +
-       `<div data-stat-tile="success" style="background:var(--color-success-subtle);border:1px solid var(--color-success-border);border-radius:12px;padding:16px">` +
-       `<div style="font-size:12px;color:var(--color-body);text-transform:uppercase;letter-spacing:0.04em">${esc(tileLabels.topSector)}</div>` +
-       `<div style="font-size:18px;font-weight:600;color:var(--color-heading);line-height:1.2;margin-top:6px">${esc(topSector)}</div>` +
+       `<div class="s-ZeLwIZ" data-stat-tile="success">` +
+       `<div class="s-hr1jx1">${esc(tileLabels.topSector)}</div>` +
+       `<div class="s-9is_7q">${esc(topSector)}</div>` +
        `</div>` +
-       `<div data-stat-tile="warning" style="background:var(--color-warning-subtle);border:1px solid var(--color-warning-border);border-radius:12px;padding:16px">` +
-       `<div style="font-size:12px;color:var(--color-body);text-transform:uppercase;letter-spacing:0.04em">${esc(tileLabels.topCity)}</div>` +
-       `<div style="font-size:18px;font-weight:600;color:var(--color-heading);line-height:1.2;margin-top:6px">${esc(topCity)}</div>` +
+       `<div class="s-RWhR1p" data-stat-tile="warning">` +
+       `<div class="s-hr1jx1">${esc(tileLabels.topCity)}</div>` +
+       `<div class="s-9is_7q">${esc(topCity)}</div>` +
        `</div>` +
        (avgSalary
-         ? `<div data-stat-tile="base" style="background:var(--color-surface-alt);border:1px solid var(--color-edge);border-radius:12px;padding:16px">` +
-           `<div style="font-size:12px;color:var(--color-body);text-transform:uppercase;letter-spacing:0.04em">${esc(tileLabels.avgSalary)}</div>` +
-           `<div style="font-size:24px;font-weight:700;color:var(--color-heading);line-height:1.1;margin-top:6px">CHF ${avgSalary.toLocaleString('de-CH')}</div>` +
+         ? `<div class="s-lwTRUc" data-stat-tile="base">` +
+           `<div class="s-hr1jx1">${esc(tileLabels.avgSalary)}</div>` +
+           `<div class="s-Y1GKEe">CHF ${avgSalary.toLocaleString('de-CH')}</div>` +
            `</div>`
          : '') +
        `</section>`;
@@ -7963,10 +7963,10 @@ ${alternates}
      const subLabels = subPageLabels[entry.locale];
      const sectionBase = withSlash(`${localePrefix[entry.locale]}/${entry.section}`.replace(/\/+/g, '/'));
      const subPageNav =
-       `<nav style="display:flex;flex-wrap:wrap;gap:8px;margin:0 0 16px" aria-label="${esc(display)} hubs">` +
-       `<a href="${sectionBase}${subSlugs.all}/" style="padding:8px 14px;border-radius:8px;background:var(--color-accent-subtle);color:var(--color-accent);text-decoration:none;font-weight:600;font-size:14px;border:1px solid var(--color-accent-border)">${esc(subLabels.all)}</a>` +
-       `<a href="${sectionBase}${subSlugs.sectors}/" style="padding:8px 14px;border-radius:8px;background:var(--color-success-subtle);color:var(--color-heading);text-decoration:none;font-weight:600;font-size:14px;border:1px solid var(--color-success-border)">${esc(subLabels.sectors)}</a>` +
-       `<a href="${sectionBase}${subSlugs.companies}/" style="padding:8px 14px;border-radius:8px;background:var(--color-warning-subtle);color:var(--color-heading);text-decoration:none;font-weight:600;font-size:14px;border:1px solid var(--color-warning-border)">${esc(subLabels.companies)}</a>` +
+       `<nav class="s-MdkLkf" aria-label="${esc(display)} hubs">` +
+       `<a class="s-_B_R2g" href="${sectionBase}${subSlugs.all}/">${esc(subLabels.all)}</a>` +
+       `<a class="s-vs4C20" href="${sectionBase}${subSlugs.sectors}/">${esc(subLabels.sectors)}</a>` +
+       `<a class="s-A-Kq2m" href="${sectionBase}${subSlugs.companies}/">${esc(subLabels.companies)}</a>` +
        `</nav>`;
      // P6 — aggregator landing (`/cerca-lavoro-svizzera/`) lists every
      // canton section so the link graph fans out from one root URL.
@@ -7985,12 +7985,12 @@ ${alternates}
          const cSection = buildCantonAwareSection(entry.locale, code);
          const cHref = `${BASE_URL}${withSlash(`${localePrefix[entry.locale]}/${cSection}`.replace(/\/+/g, '/'))}`;
          const cDisplay = getCantonDisplayLabel(code, entry.locale);
-         links.push(`<li><a href="${cHref}" style="color:var(--color-link);text-decoration:none;font-weight:600">${esc(cDisplay)}</a></li>`);
+         links.push(`<li><a class="s-t_pXue" href="${cHref}">${esc(cDisplay)}</a></li>`);
        }
        cantonListSection =
-         `<section style="margin:24px 0">` +
-         `<h2 style="font-size:22px;margin:0 0 12px">${esc(cantonListLabel)}</h2>` +
-         `<ul style="list-style:none;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:8px 16px;margin:0">` +
+         `<section class="s-H1qo5-">` +
+         `<h2 class="s-iZTOT1">${esc(cantonListLabel)}</h2>` +
+         `<ul class="s-k6xotA">` +
          links.join('') +
          `</ul>` +
          `</section>`;
@@ -8025,10 +8025,10 @@ ${alternates}
      const editorialHtml = editorialEntries
        .map((b) => /^<(h[1-6]|p|nav|div|details|section|ul|ol|table|figure|aside|blockquote)\b/.test(b)
          ? b
-         : `<p style="margin:.5rem 0;line-height:1.65;color:var(--color-body)">${b}</p>`)
+         : `<p class="s-L9sOKI">${b}</p>`)
        .join('');
      const cantonEditorialSection =
-       `<section data-canton-editorial style="max-width:860px;margin:32px 0 0;color:var(--color-body);font-size:15px">${editorialHtml}</section>`;
+       `<section class="s-IE_H9o" data-canton-editorial>${editorialHtml}</section>`;
 
      // ── BFS-depth closure (Group A2) — "Esplora" navigator ─────────────
      // Phase 8a introduced ~250 sub-pages per canton (city hubs, category
@@ -8241,59 +8241,59 @@ ${alternates}
        const blocks: string[] = [];
        if (topCityHubs.length > 0) {
          blocks.push(
-           `<div data-explore-cities style="margin:0 0 12px">` +
-           `<h3 style="font-size:15px;margin:0 0 8px;color:var(--color-heading);font-weight:600">${esc(colByCityLabel)}</h3>` +
+           `<div class="s-h0CoDf" data-explore-cities>` +
+           `<h3 class="s-8S_vke">${esc(colByCityLabel)}</h3>` +
            `<div>${renderLinks(topCityHubs)}</div>` +
            `</div>`,
          );
        }
        if (topCategoryHubs.length > 0) {
          blocks.push(
-           `<div data-explore-categories style="margin:0 0 12px">` +
-           `<h3 style="font-size:15px;margin:0 0 8px;color:var(--color-heading);font-weight:600">${esc(colByCategoryLabel)}</h3>` +
+           `<div class="s-h0CoDf" data-explore-categories>` +
+           `<h3 class="s-8S_vke">${esc(colByCategoryLabel)}</h3>` +
            `<div>${renderLinks(topCategoryHubs)}</div>` +
            `</div>`,
          );
        }
        if (editorialSlotPages.length > 0) {
          blocks.push(
-           `<div data-explore-editorial style="margin:0 0 12px">` +
-           `<h3 style="font-size:15px;margin:0 0 8px;color:var(--color-heading);font-weight:600">${esc(colEditorialLabel)}</h3>` +
+           `<div class="s-h0CoDf" data-explore-editorial>` +
+           `<h3 class="s-8S_vke">${esc(colEditorialLabel)}</h3>` +
            `<div>${renderLinks(editorialSlotPages)}</div>` +
            `</div>`,
          );
        }
        if (companyHubs.length > 0) {
          blocks.push(
-           `<div data-explore-companies style="margin:0 0 12px">` +
-           `<h3 style="font-size:15px;margin:0 0 8px;color:var(--color-heading);font-weight:600">${esc(colCompaniesLabel)}</h3>` +
+           `<div class="s-h0CoDf" data-explore-companies>` +
+           `<h3 class="s-8S_vke">${esc(colCompaniesLabel)}</h3>` +
            `<div>${renderLinks(companyHubs)}</div>` +
            `</div>`,
          );
        }
        if (paginationLinks.length > 0) {
          blocks.push(
-           `<div data-explore-pagination style="margin:0 0 12px">` +
-           `<h3 style="font-size:15px;margin:0 0 8px;color:var(--color-heading);font-weight:600">${esc(colPaginationLabel)}</h3>` +
+           `<div class="s-h0CoDf" data-explore-pagination>` +
+           `<h3 class="s-8S_vke">${esc(colPaginationLabel)}</h3>` +
            `<div>${renderLinks(paginationLinks)}</div>` +
            `</div>`,
          );
        }
        if (blocks.length > 0) {
          exploreSection =
-           `<section data-canton-explore style="max-width:1080px;margin:24px 0 0">` +
-           `<h2 style="font-size:20px;margin:0 0 12px;color:var(--color-heading)">${esc(exploreTitle)}</h2>` +
+           `<section class="s-JLedUn" data-canton-explore>` +
+           `<h2 class="s-h0yI7F">${esc(exploreTitle)}</h2>` +
            blocks.join('') +
            `</section>`;
        }
      }
 
      const bodyHtml = [
-       `<main class="seo-static-content" style="max-width:1080px;margin:0 auto;padding:24px 16px">`,
-       `<nav style="margin:0 0 16px;font-size:14px"><a href="${BASE_URL}/" style="color:var(--color-link);text-decoration:none;font-weight:600">${esc(homeLabel[entry.locale])}</a> &rarr; <span aria-current="page">${esc(display)}</span></nav>`,
-       `<header style="max-width:860px;margin:0 0 16px"><h1 style="font-size:32px;line-height:1.15;margin:0 0 8px">${esc(display)}</h1><p style="margin:0;color:var(--color-body);font-size:16px">${esc(labels.lede)}</p></header>`,
+       `<main class="seo-static-content s-LFxJYv">`,
+       `<nav class="s-ZVaIKh"><a class="s-t_pXue" href="${BASE_URL}/">${esc(homeLabel[entry.locale])}</a> &rarr; <span aria-current="page">${esc(display)}</span></nav>`,
+       `<header class="s-TYF4UK"><h1 class="s-Wb8ho2">${esc(display)}</h1><p class="s-b7cYUf">${esc(labels.lede)}</p></header>`,
        tileGrid,
-       `<p style="margin:0 0 24px"><a href="${legacyJobBoardHref}" style="display:inline-block;padding:12px 22px;background:var(--color-accent);color:var(--color-on-accent);border-radius:8px;font-weight:600;text-decoration:none">${esc(labels.ctaLabel)}</a></p>`,
+       `<p class="s-ziawP1"><a class="s-yy370N" href="${legacyJobBoardHref}">${esc(labels.ctaLabel)}</a></p>`,
        subPageNav,
        cantonListSection,
        listingGrid,
@@ -9579,7 +9579,7 @@ ${hreflangLinks}
     de: `Die angegebene Gemeinde (${esc(countryHint)}) ist nicht im Schweizer PLZ-Datensatz enthalten: Wahrscheinlich handelt es sich um eine internationale Remote-Rolle, die wir aber in der Grenzgänger-Archiv-Sitemap behalten.`,
     fr: `La commune indiquée (${esc(countryHint)}) ne figure pas dans le jeu de données PLZ suisse : il s'agit probablement d'un poste international en télétravail, conservé dans la sitemap d'archive frontalière.`,
    };
-   parts.push(`<p style="color:#64748b;font-size:14px">${countryLabel[locale] || countryLabel.it}</p>`);
+   parts.push(`<p class="s-lBqYX_">${countryLabel[locale] || countryLabel.it}</p>`);
   }
   staticBodyParts.push(`<section><h2>${esc(disambiguationHeading[locale] || disambiguationHeading.it)}</h2>${parts.join('')}</section>`);
  }

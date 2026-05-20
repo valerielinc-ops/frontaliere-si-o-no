@@ -850,14 +850,14 @@ function renderProseHtml(p: {
   topCities: readonly string[];
 }): string {
   const cityChips = p.topCities.length > 0
-    ? `<p style="margin:6px 0 0;color:var(--color-body);line-height:1.6"><strong>${escSectorProse(p.headings.topCities)}:</strong> ${escSectorProse(p.topCities.join(', '))}</p>`
+    ? `<p class="s-18sTcS"><strong>${escSectorProse(p.headings.topCities)}:</strong> ${escSectorProse(p.topCities.join(', '))}</p>`
     : '';
   return [
-    `<section class="sector-intro" style="margin:0 0 28px;display:grid;gap:14px;color:var(--color-body)">`,
-    `  <div><h2 style="margin:0 0 6px;font-size:20px;color:var(--color-heading)">${escSectorProse(p.headings.overview)}</h2><p style="margin:0;line-height:1.65">${escSectorProse(p.intro)}</p></div>`,
-    `  <div><h3 style="margin:0 0 4px;font-size:16px;color:var(--color-heading)">${escSectorProse(p.headings.salary)}</h3><p style="margin:0;line-height:1.65">${escSectorProse(p.salaryRange)}</p></div>`,
-    `  <div><h3 style="margin:0 0 4px;font-size:16px;color:var(--color-heading)">${escSectorProse(p.headings.requirements)}</h3><p style="margin:0;line-height:1.65">${escSectorProse(p.requirements)}</p></div>`,
-    `  <div><h3 style="margin:0 0 4px;font-size:16px;color:var(--color-heading)">${escSectorProse(p.headings.trend)}</h3><p style="margin:0;line-height:1.65">${escSectorProse(p.trend)}</p>${cityChips}</div>`,
+    `<section class="sector-intro s-27J-ZF">`,
+    `  <div><h2 class="s-IXVzs6">${escSectorProse(p.headings.overview)}</h2><p class="s-WKULvz">${escSectorProse(p.intro)}</p></div>`,
+    `  <div><h3 class="s-pzE1PP">${escSectorProse(p.headings.salary)}</h3><p class="s-WKULvz">${escSectorProse(p.salaryRange)}</p></div>`,
+    `  <div><h3 class="s-pzE1PP">${escSectorProse(p.headings.requirements)}</h3><p class="s-WKULvz">${escSectorProse(p.requirements)}</p></div>`,
+    `  <div><h3 class="s-pzE1PP">${escSectorProse(p.headings.trend)}</h3><p class="s-WKULvz">${escSectorProse(p.trend)}</p>${cityChips}</div>`,
     `</section>`,
   ].join('\n');
 }
