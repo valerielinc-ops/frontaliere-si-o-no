@@ -55,7 +55,7 @@ import {
   type LamalCantonRow,
 } from './comparisonsHubAggregate';
 import { COMPARISONS_HUB_COPY, type ComparisonsHubCopy } from './comparisonsHubCopy';
-import { imageObjectLd } from '../services/seo/imageObjectLd';
+import { imageObjectLd, breadcrumbListLd, faqPageLd } from '../services/seo/structuredData';
 
 // ── Helpers ──────────────────────────────────────────────────────
 
@@ -425,26 +425,13 @@ function renderPage(opts: {
   const bodyHtml = `<main class="seo-static-content" style="max-width:1100px;margin:0 auto;padding:32px 20px 56px;color:var(--color-body);background:var(--color-surface-alt)">${body}</main>`;
 
   // ── Structured data ────────────────────────────────────────────
-  const breadcrumbLd = JSON.stringify({
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      { '@type': 'ListItem', position: 1, name: copy.breadcrumbHome, item: homeUrl },
-      { '@type': 'ListItem', position: 2, name: copy.breadcrumbHub, item: hubParentUrl },
-      { '@type': 'ListItem', position: 3, name: copy.h1, item: canonicalUrl },
-    ],
-  });
+  const breadcrumbLd = JSON.stringify(breadcrumbListLd([
+    { name: copy.breadcrumbHome, url: homeUrl },
+    { name: copy.breadcrumbHub, url: hubParentUrl },
+    { name: copy.h1, url: canonicalUrl },
+  ]));
 
-  const faqLd = JSON.stringify({
-    '@context': 'https://schema.org',
-    '@type': 'FAQPage',
-    inLanguage: locale,
-    mainEntity: copy.faqs.map((f) => ({
-      '@type': 'Question',
-      name: f.question,
-      acceptedAnswer: { '@type': 'Answer', text: f.answer },
-    })),
-  });
+  const faqLd = JSON.stringify(faqPageLd(copy.faqs.map((f) => ({ question: f.question, answer: f.answer }))));
 
   const articleLd = JSON.stringify({
     '@context': 'https://schema.org',
