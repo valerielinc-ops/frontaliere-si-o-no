@@ -146,6 +146,7 @@ export const CRAWLED_COMPANY_LOGOS: Record<string, string> = {
  'prada': '/images/logos/prada-group.svg',
  'rapelli': cLogo('rapelli.ch'),
  'relewant': cLogo('relewant.com'),
+ 'rfsm-fribourg': cLogo('fr.ch'),
  'richemont': cLogo('richemont.com'),
  'rivopharm': cLogo('rivopharm.com'),
  'roche': cLogo('roche.com'),
