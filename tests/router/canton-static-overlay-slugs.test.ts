@@ -101,6 +101,52 @@ describe('per-canton static-overlay slugs', () => {
     expect(parsed.route.jobSlug).toBe('software-engineer-acme-basel');
   });
 
+  // 2026-05-20: legacy TI parsing branch (the `first === table.jobBoard`
+  // path at ~router.ts:2705) had no isCantonStaticOverlaySlug() check,
+  // so company/category/pagination slugs under /cerca-lavoro-ticino/
+  // fell through to `jobSlug = rawSecond` → JobBoard treated the
+  // azienda- prefix as a runtime company filter via
+  // parseCompanySlugFilter → React main replaced the static main →
+  // user saw an empty filtered SERP instead of the hub page.
+  // Visible bug 2026-05-20 on /cerca-lavoro-ticino/azienda-migros/.
+  // The non-TI canton-aware branch (~router.ts:2542) already had the
+  // guard; this restores parity.
+  it('TI azienda-* hub → staticOverlay (no jobSlug)', () => {
+    const parsed = parsePath('/cerca-lavoro-ticino/azienda-migros/');
+    expect(parsed.route.activeTab).toBe('job-board');
+    expect(parsed.route.jobBoardCanton).toBe('TI');
+    expect(parsed.route.staticOverlay).toBe(true);
+    expect(parsed.route.jobSlug).toBeUndefined();
+  });
+
+  it('TI categoria-* hub → staticOverlay (no jobSlug)', () => {
+    const parsed = parsePath('/cerca-lavoro-ticino/categoria-sanita/');
+    expect(parsed.route.activeTab).toBe('job-board');
+    expect(parsed.route.jobBoardCanton).toBe('TI');
+    expect(parsed.route.staticOverlay).toBe(true);
+    expect(parsed.route.jobSlug).toBeUndefined();
+  });
+
+  it('TI pagina-N pagination → staticOverlay (no jobSlug)', () => {
+    const parsed = parsePath('/cerca-lavoro-ticino/pagina-2/');
+    expect(parsed.route.staticOverlay).toBe(true);
+    expect(parsed.route.jobSlug).toBeUndefined();
+  });
+
+  it('TI hub exact slugs (tutti/settori/aziende) → staticOverlay', () => {
+    for (const slug of ['tutti', 'settori', 'aziende']) {
+      const parsed = parsePath(`/cerca-lavoro-ticino/${slug}/`);
+      expect(parsed.route.staticOverlay).toBe(true);
+      expect(parsed.route.jobSlug).toBeUndefined();
+    }
+  });
+
+  it('TI job-detail still falls through as jobSlug (no false positive)', () => {
+    const parsed = parsePath('/cerca-lavoro-ticino/software-engineer-acme-lugano/');
+    expect(parsed.route.staticOverlay).toBeFalsy();
+    expect(parsed.route.jobSlug).toBe('software-engineer-acme-lugano');
+  });
+
   // 2026-05-19: city hubs now ALSO carry staticOverlay:true (parity with
   // company hubs / categories). The build emits a real per-city HTML
   // (city-jobs-hub plugin) with jobs already filtered to the city and the
