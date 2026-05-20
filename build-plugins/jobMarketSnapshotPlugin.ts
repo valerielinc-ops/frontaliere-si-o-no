@@ -79,7 +79,7 @@ import { CRAWLED_COMPANY_LOGOS } from '../services/jobDataNormalization';
 import { SECTOR_HUB_KEYS, buildSectorHubPath, type SectorHubKey } from './jobSectorLanding';
 import { JOB_RECENCY_LANDING_SLUGS } from './jobRecencyLanding';
 import { adSlotHtml } from './lib/adSlotHtml';
-import { imageObjectLd } from '../services/seo/imageObjectLd';
+import { imageObjectLd, breadcrumbListLd, faqPageLd } from '../services/seo/structuredData';
 import {
   WEEKLY_EMPLOYERS_CURRENT_SLUG,
   WEEKLY_EMPLOYERS_LOCALE_PREFIX,
@@ -1582,20 +1582,11 @@ function renderSnapshotPage(inp: SnapshotPageInputs): string {
   const alternatesHtml = renderHreflangAlternates(alternates);
 
   // JSON-LD
-  const breadcrumbLd = JSON.stringify({
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      { '@type': 'ListItem', position: 1, name: copy.breadcrumbHome, item: `${BASE_URL}/` },
-      {
-        '@type': 'ListItem',
-        position: 2,
-        name: JOB_MARKET_HUB_NAME[locale],
-        item: `${BASE_URL}${buildHubPath(locale)}`,
-      },
-      { '@type': 'ListItem', position: 3, name: h1, item: canonicalUrl },
-    ],
-  });
+  const breadcrumbLd = JSON.stringify(breadcrumbListLd([
+    { name: copy.breadcrumbHome, url: `${BASE_URL}/` },
+    { name: JOB_MARKET_HUB_NAME[locale], url: `${BASE_URL}${buildHubPath(locale)}` },
+    { name: h1, url: canonicalUrl },
+  ]));
 
   const articleLd = JSON.stringify({
     '@context': 'https://schema.org',
@@ -1684,16 +1675,7 @@ function renderSnapshotPage(inp: SnapshotPageInputs): string {
     ],
   });
 
-  const faqLd = JSON.stringify({
-    '@context': 'https://schema.org',
-    '@type': 'FAQPage',
-    inLanguage: locale,
-    mainEntity: copy.faq.map((f) => ({
-      '@type': 'Question',
-      name: f.q,
-      acceptedAnswer: { '@type': 'Answer', text: f.a },
-    })),
-  });
+  const faqLd = JSON.stringify(faqPageLd(copy.faq.map((f) => ({ question: f.q, answer: f.a }))));
 
   // Phase 3A — title vs H1 differentiation (Semrush W2 ≤60 char + W3
   // "Duplicate H1 and title tags"). The H1 is the editorial headline (e.g.
@@ -1889,14 +1871,10 @@ function renderHubPage(inp: HubPageInputs): string {
   const relatedHtml = renderRelatedLinks(copy);
   const alternatesHtml = renderHreflangAlternates(alternates);
 
-  const breadcrumbLd = JSON.stringify({
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      { '@type': 'ListItem', position: 1, name: copy.breadcrumbHome, item: `${BASE_URL}/` },
-      { '@type': 'ListItem', position: 2, name: JOB_MARKET_HUB_NAME[locale], item: canonicalUrl },
-    ],
-  });
+  const breadcrumbLd = JSON.stringify(breadcrumbListLd([
+    { name: copy.breadcrumbHome, url: `${BASE_URL}/` },
+    { name: JOB_MARKET_HUB_NAME[locale], url: canonicalUrl },
+  ]));
 
   const collectionLd = JSON.stringify({
     '@context': 'https://schema.org',
@@ -1972,16 +1950,7 @@ function renderHubPage(inp: HubPageInputs): string {
     ],
   });
 
-  const faqLd = JSON.stringify({
-    '@context': 'https://schema.org',
-    '@type': 'FAQPage',
-    inLanguage: locale,
-    mainEntity: copy.faq.map((f) => ({
-      '@type': 'Question',
-      name: f.q,
-      acceptedAnswer: { '@type': 'Answer', text: f.a },
-    })),
-  });
+  const faqLd = JSON.stringify(faqPageLd(copy.faq.map((f) => ({ question: f.q, answer: f.a }))));
 
   // Hub root: H1 is the editorial heading ("Ticino job market — weekly
   // report"); add a year stamp + brand suffix so SEO <title> stays
@@ -2852,20 +2821,11 @@ function renderSectorPage(inp: SectorPageInputs): string {
 
   const alternatesHtml = renderHreflangAlternates(alternates);
 
-  const breadcrumbLd = JSON.stringify({
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      { '@type': 'ListItem', position: 1, name: copy.breadcrumbHome, item: `${BASE_URL}/` },
-      {
-        '@type': 'ListItem',
-        position: 2,
-        name: JOB_MARKET_HUB_NAME[locale],
-        item: `${BASE_URL}${buildHubPath(locale)}`,
-      },
-      { '@type': 'ListItem', position: 3, name: h1, item: canonicalUrl },
-    ],
-  });
+  const breadcrumbLd = JSON.stringify(breadcrumbListLd([
+    { name: copy.breadcrumbHome, url: `${BASE_URL}/` },
+    { name: JOB_MARKET_HUB_NAME[locale], url: `${BASE_URL}${buildHubPath(locale)}` },
+    { name: h1, url: canonicalUrl },
+  ]));
 
   const webPageLd = JSON.stringify({
     '@context': 'https://schema.org',
@@ -2942,16 +2902,7 @@ function renderSectorPage(inp: SectorPageInputs): string {
     ],
   });
 
-  const faqLd = JSON.stringify({
-    '@context': 'https://schema.org',
-    '@type': 'FAQPage',
-    inLanguage: locale,
-    mainEntity: faqEntries.map((f) => ({
-      '@type': 'Question',
-      name: f.q,
-      acceptedAnswer: { '@type': 'Answer', text: f.a },
-    })),
-  });
+  const faqLd = JSON.stringify(faqPageLd(faqEntries.map((f) => ({ question: f.q, answer: f.a }))));
 
   const frontalierContextHtml = renderSectorFrontalierContext({
     locale,
