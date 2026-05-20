@@ -265,7 +265,10 @@
     "audit:news-sitemap": "node scripts/cleanup-news-sitemap.mjs --dry-run",
     "sanitize:news-sitemap": "node scripts/cleanup-news-sitemap.mjs --apply",
     "probe:5xx": "node scripts/probe-5xx.mjs",
-    "prepush": "true"
+    "prepush": "true",
+    "jobs:update:buergenstock-hotels": "node scripts/update-buergenstock-hotels-jobs.mjs",
+    "jobs:update:klinik-siloah": "node scripts/update-klinik-siloah-jobs.mjs",
+    "jobs:update:klinik-schoenberg": "node scripts/update-klinik-schoenberg-jobs.mjs"
   },
   "dependencies": {
     "@google/genai": "^1.44.0",
