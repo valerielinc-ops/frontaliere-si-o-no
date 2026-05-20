@@ -1,6 +1,12 @@
 /**
  * imageObjectLd — Centralized builder for schema.org ImageObject JSON-LD.
  *
+ * NOTE: Other JSON-LD emitters (JobPosting, Article, FAQPage, BreadcrumbList,
+ * WebPage) now live in `./structuredData.ts` and are schema-derived (Zod-gated).
+ * This module is kept here because the ImageObject contract (license fields)
+ * pre-dates the schema-driven refactor; `structuredData.ts` re-exports
+ * `imageObjectLd` from here so callers can converge on one import path.
+ *
  * Google Search Console reports an "Improve appearance" warning when an
  * ImageObject is missing any of: `acquireLicensePage`, `copyrightNotice`,
  * `license`, `creator`, `creditText`. These five are recommended (not required)
