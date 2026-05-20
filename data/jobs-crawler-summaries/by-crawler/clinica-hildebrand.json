@@ -1,0 +1,56 @@
+{
+  "key": "clinica-hildebrand",
+  "label": "Clinica Hildebrand Centro di riabilitazione",
+  "generatedAt": "2026-05-20T05:41:31.055Z",
+  "total": 1,
+  "newCount": 1,
+  "updatedCount": 0,
+  "removedCount": 0,
+  "unchangedCount": 0,
+  "durationMs": 31526,
+  "avgDurationMs": 31526,
+  "durationHistory": [
+    31526
+  ],
+  "newJobs": [
+    {
+      "id": "clinica-hildebrand-annuncio-medico-assistente-25-914e78c42aec",
+      "slug": "medico-assistente-25-clinica-hildebrand-brissago",
+      "company": "Clinica Hildebrand Centro di riabilitazione",
+      "companyKey": "clinica-hildebrand",
+      "companyDomain": "clinica-hildebrand.ch",
+      "title": "Medico Assistente 25",
+      "needsRetranslation": true,
+      "location": "Brissago",
+      "canton": "TI",
+      "url": "https://www.clinica-hildebrand.ch/uploads/1/4/1/4/141459406/annuncio_medico_assistente_25.pdf",
+      "applyUrl": "https://www.clinica-hildebrand.ch/collaborazione.html",
+      "source": "Clinica Hildebrand Dedicated Parser (HTML + PDF annunci)",
+      "sourceLang": "it",
+      "crawledAt": "2026-05-20T05:41:00.668Z",
+      "addressLocality": "Brissago",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "6614",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "intern",
+      "sector": "Sanità / Riabilitazione",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-20",
+      "_qualityScore": 66,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 4,
+        "completeness": 17
+      }
+    }
+  ],
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": []
+}
