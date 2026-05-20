@@ -248,7 +248,7 @@ jobs:
         if: failure()
         continue-on-error: true
         run: |
-          node scripts/lib/linear-issue-creator.mjs \
+          node scripts/lib/github-issue-creator.mjs \
             --title "Publish post-deploy fallita — run ${{ github.run_number }}" \
             --description "## Publish post-deploy fallita
           **Deploy run:** https://github.com/${{ github.repository }}/actions/runs/${{ inputs.deploy_run_id }}

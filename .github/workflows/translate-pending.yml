@@ -232,7 +232,7 @@ jobs:
         if: failure()
         continue-on-error: true
         run: |
-          node scripts/lib/linear-issue-creator.mjs \
+          node scripts/lib/github-issue-creator.mjs \
             --title "Translation Pipeline Failure" \
             --description "## Pipeline fallita
 

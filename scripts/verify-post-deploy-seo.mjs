@@ -11,7 +11,7 @@
  * - No regressions from previous crawl
  *
  * If any page crawled AFTER the latest deploy shows issues:
- * → Creates a Linear issue
+ * → Creates a GitHub issue
  * → Submits affected URLs via IndexNow for re-crawl
  *
  * Always exits 0 — non-blocking, alerting only.
@@ -20,7 +20,7 @@
  *
  * Environment:
  *   GOOGLE_APPLICATION_CREDENTIALS — path to Service Account JSON
- *   LINEAR_API_KEY — for issue creation (optional)
+ *   GITHUB_TOKEN — for issue creation (optional)
  */
 
 import { readFileSync, existsSync, appendFileSync } from 'node:fs';
@@ -291,7 +291,7 @@ async function main() {
       for (const i of issues) {
         summaryLines.push(`- **${i.issue}**: \`${new URL(i.url).pathname}\` (crawled: ${i.crawlTime || 'unknown'})`);
       }
-      summaryLines.push('', '> ⚠️ SEO regressions detected — Linear issue created');
+      summaryLines.push('', '> ⚠️ SEO regressions detected — GitHub issue created');
     } else {
       summaryLines.push('> ✅ No SEO regressions detected');
     }
@@ -305,18 +305,18 @@ async function main() {
     return;
   }
 
-  // Create Linear issue if there are regressions
-  log('⚠️', `${issues.length} SEO issue(s) detected — creating Linear ticket`);
-  await createLinearIssue(issues);
+  // Create GitHub issue if there are regressions
+  log('⚠️', `${issues.length} SEO issue(s) detected — creating GitHub issue`);
+  await createGithubIssue(issues);
 
   // Submit affected URLs to IndexNow for re-crawl
   await submitToIndexNow(issues.map(i => i.url));
 }
 
-async function createLinearIssue(issues) {
-  const apiKey = process.env.LINEAR_API_KEY;
+async function createGithubIssue(issues) {
+  const apiKey = process.env.GITHUB_TOKEN;
   if (!apiKey) {
-    log('ℹ️', 'LINEAR_API_KEY not set — skipping issue creation');
+    log('ℹ️', 'GITHUB_TOKEN not set — skipping issue creation');
     return;
   }
 
@@ -337,8 +337,8 @@ async function createLinearIssue(issues) {
   ].join('\n');
 
   try {
-    // Use the Linear issue creator module
-    const { createLinearIssue: create } = await import('./lib/linear-issue-creator.mjs');
+    // Use the GitHub issue creator module
+    const { createGithubIssue: create } = await import('./lib/github-issue-creator.mjs');
     await create({
       title: `SEO Regression: ${issues.length} job page(s) with canonical/schema issues`,
       description,
@@ -346,9 +346,9 @@ async function createLinearIssue(issues) {
       labels: ['Bug'],
       project: 'SEO',
     });
-    log('📋', 'Linear issue created');
+    log('📋', 'GitHub issue created');
   } catch (err) {
-    log('⚠️', `Linear issue creation failed: ${err.message}`);
+    log('⚠️', `GitHub issue creation failed: ${err.message}`);
   }
 }
 

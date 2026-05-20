@@ -120,8 +120,7 @@ jobs:
         if: failure()
         continue-on-error: true
         env:
-          LINEAR_API_KEY: ${{ secrets.LINEAR_API_KEY }}
         run: |
-          node scripts/lib/linear-issue-creator.mjs \
+          node scripts/lib/github-issue-creator.mjs \
             --title "CI Failure: cathedral-noindex-flip — run ${{ github.run_number }}" \
             --description "Cathedral noindex flip workflow failed. See https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"

@@ -483,7 +483,7 @@ jobs:
         if: failure()
         continue-on-error: true
         run: |
-          node scripts/lib/linear-issue-creator.mjs \
+          node scripts/lib/github-issue-creator.mjs \
             --title "Validation Failure (dist): post-deploy — run ${{ github.run_number }}" \
             --description "## Dist validation post-deploy fallita
           **Deploy run:** https://github.com/${{ github.repository }}/actions/runs/${{ inputs.deploy_run_id }}

@@ -69,7 +69,7 @@ jobs:
         if: steps.send-alerts.outcome == 'failure'
         continue-on-error: true
         run: |
-          node scripts/lib/linear-issue-creator.mjs \
+          node scripts/lib/github-issue-creator.mjs \
             --title "CI Failure: ${{ github.workflow }} — run ${{ github.run_number }}" \
             --description "## Job Alerts invio fallito
           **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}

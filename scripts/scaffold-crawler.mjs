@@ -800,7 +800,7 @@ ${playwrightTier ? `
         if: failure()
         continue-on-error: true
         run: |
-          node scripts/lib/linear-issue-creator.mjs \\
+          node scripts/lib/github-issue-creator.mjs \\
             --title "Crawler Failure: \${{ github.workflow }}" \\
             --description "## Crawler fallito
           **Run:** https://github.com/\${{ github.repository }}/actions/runs/\${{ github.run_id }}

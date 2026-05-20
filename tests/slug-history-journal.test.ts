@@ -102,7 +102,7 @@ describe('slug-history-journal', () => {
       },
       previousSlugs: ['associate-designer-medacta-castel-san-pietro'],
     }];
-    const active = [{
+    const active: any[] = [{
       id: 'medacta-104173',
       url: 'https://medacta.com/job/104173',
       slug: 'associate-designer-medacta-international-sa-castel-san-pietro-xyz',
