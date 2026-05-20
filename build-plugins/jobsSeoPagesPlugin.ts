@@ -12,6 +12,7 @@ import type { Plugin } from 'vite';
 import { BASE_URL, buildCanonicalBridgePage, SPA_ACTION_REDIRECT_SCRIPT, robotsMetaForContent, countHtmlBodyWords, MIN_INDEXABLE_WORDS, GTAG_SNIPPET, ADSENSE_SNIPPET, FAVICON_LINKS, BUILD_ID, DARK_MODE_SCRIPT } from './constants';
 import { buildSimplePage } from './htmlTemplate';
 import { buildSeoPageHtml } from './shared/seoPageShell';
+import { jobDescriptionTextToHtml } from './shared/jobDescription/toHtml';
 import { WriteCollector } from './batchWrite';
 import { buildFlatBridgeFromSibling } from './flatHtmlRedirectPlugin';
 import { buildTitleWithBrand, truncateHeadline, TITLE_BRAND_SUFFIX, TITLE_MAX_CHARS } from './shared/titleSuffix';
@@ -1212,54 +1213,12 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  .replace(/&#x27;/g, "'")
  .replace(/&#(\d+);/g, (_m, code) => String.fromCharCode(Number(code)))
  .replace(/&[A-Za-z]+;/g, ' ');
- /** Convert a plain-text description to basic HTML.
- * Wraps paragraphs in <p>, converts bullet/numbered lines to <ul>/<ol><li>,
- * recognizes section headings (lines ending with ':' followed by list items),
- * and single newlines to <br>. */
- const plainTextToHtml = (text: string): string => {
- if (!text || /<(p|ul|li|h[1-6]|br|strong|em)\b/i.test(text)) return text;
- const normalized = text.replace(/\r\n/g, '\n').replace(/\r/g, '\n');
- const blocks = normalized.split(/\n{2,}/);
- const htmlParts: string[] = [];
- for (const block of blocks) {
- const trimmed = block.trim();
- if (!trimmed) continue;
- const lines = trimmed.split('\n');
- // Check if this block is a bullet list (all lines start with - or • or *)
- const isBulletList = lines.length > 1 && lines.every((l) => /^\s*[-•*]\s/.test(l));
- // Check if this block is a numbered list (all lines start with digit.)
- const isNumberedList = lines.length > 1 && lines.every((l) => /^\s*\d+[.)]\s/.test(l));
- // Check if this block has a heading line followed by list items
- const hasHeadingWithList = lines.length > 2
- && /[:\u2013\u2014]$/.test(lines[0].trim())
- && lines.slice(1).every((l) => /^\s*[-•*\d]/.test(l));
-
- if (hasHeadingWithList) {
- const heading = lines[0].trim().replace(/[:\u2013\u2014]$/, '').trim();
- htmlParts.push(`<p><strong>${esc(heading)}</strong></p>`);
- const listLines = lines.slice(1);
- const isOl = listLines.every((l) => /^\s*\d+[.)]\s/.test(l));
- const tag = isOl ? 'ol' : 'ul';
- const items = listLines.map((l) => `<li>${esc(l.replace(/^\s*[-•*]\s+/, '').replace(/^\s*\d+[.)]\s+/, ''))}</li>`).join('');
- htmlParts.push(`<${tag}>${items}</${tag}>`);
- } else if (isBulletList) {
- const items = lines.map((l) => `<li>${esc(l.replace(/^\s*[-•*]\s+/, ''))}</li>`).join('');
- htmlParts.push(`<ul>${items}</ul>`);
- } else if (isNumberedList) {
- const items = lines.map((l) => `<li>${esc(l.replace(/^\s*\d+[.)]\s+/, ''))}</li>`).join('');
- htmlParts.push(`<ol>${items}</ol>`);
- } else if (lines.length === 1 && /[:\u2013\u2014]$/.test(trimmed)) {
- // Standalone heading-like line ending with colon
- const heading = trimmed.replace(/[:\u2013\u2014]$/, '').trim();
- htmlParts.push(`<p><strong>${esc(heading)}</strong></p>`);
- } else {
- // Single block — join internal newlines with <br>
- const inner = lines.map((l) => esc(l.trim())).filter(Boolean).join('<br>');
- if (inner) htmlParts.push(`<p>${inner}</p>`);
- }
- }
- return htmlParts.join('');
- };
+ /** Convert plain-text crawler descriptions to HTML via the shared parser
+ * (`build-plugins/shared/jobDescription/parser.ts`). Handles `**bold**` -->
+ * `<strong>`, drops empty bolds, strips separator lines (`______`), dedups
+ * paragraphs (S4), promotes section labels to `<h2>` (S5), and prevents
+ * prose-to-heading mis-promotion (S2). */
+ const plainTextToHtml = jobDescriptionTextToHtml;
  const normalizeText = (s: string) => String(s || '')
  .replace(/\r/g, '\n')
  .replace(/\t/g, ' ')

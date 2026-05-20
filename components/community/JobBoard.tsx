@@ -93,6 +93,11 @@ import JobOrphanView from '@/components/community/JobOrphanView';
 import { AD_SLOTS } from '@/services/adsenseSlots';
 import { useMediaQuery } from '@/hooks/useMediaQuery';
 import { eagerAuth, getAuthEmail, promptOneTap, renderGoogleButton, isLinkedInSignInAvailable, signInWithLinkedIn, saveAuthJobContext } from '@/services/authService';
+import {
+ parseJobDescription,
+ type Block as JobDescBlock,
+ type Inline as JobDescInline,
+} from '@/build-plugins/shared/jobDescription/parser';
 import { useAuthGateHeadlineVariant } from '@/services/authGateExperiment';
 import {
  isMultiLocation,
@@ -748,164 +753,78 @@ function splitFlatTextIntoItems(text: string): string[] {
  return merged.length >= 2 ? merged : [text];
 }
 
-/** Parse crawled markdown-like job description into structured JSX blocks. */
+/** Render an Inline[] from the shared parser AST into React text/strong/em. */
+function renderInlines(inlines: JobDescInline[]): React.ReactNode {
+ return inlines.map((tok, i) => {
+ if (tok.kind === 'strong') return <strong key={i}>{tok.value}</strong>;
+ if (tok.kind === 'em') return <em key={i}>{tok.value}</em>;
+ return <React.Fragment key={i}>{tok.value}</React.Fragment>;
+ });
+}
+
+/** Render a Block[] from the shared parser AST as JSX. */
+function renderJobDescBlocks(blocks: JobDescBlock[]): React.ReactNode[] {
+ return blocks.map((block, i) => {
+ if (block.kind === 'heading') {
+ // S5: real H2 for sections, H3 for sub-sections. S3: no border-l stripe,
+ // hierarchy via type weight + spacing only.
+ if (block.level === 2) {
+ return (
+ <h2
+ key={`h2-${i}`}
+ className="text-base font-semibold font-display text-heading mt-6 mb-2 first:mt-0"
+ >
+ {renderInlines(block.children)}
+ </h2>
+ );
+ }
+ return (
+ <h3
+ key={`h3-${i}`}
+ className="text-sm font-semibold text-heading mt-4 mb-1 first:mt-0"
+ >
+ {renderInlines(block.children)}
+ </h3>
+ );
+ }
+ if (block.kind === 'paragraph') {
+ return (
+ <p key={`p-${i}`} className="text-sm leading-relaxed text-body">
+ {renderInlines(block.children)}
+ </p>
+ );
+ }
+ const ListTag = block.ordered ? 'ol' : 'ul';
+ const listClass = block.ordered
+ ? 'space-y-1.5 pl-5 list-decimal marker:text-accent'
+ : 'space-y-1.5 pl-4 list-disc marker:text-accent';
+ return (
+ <ListTag key={`list-${i}`} className={listClass}>
+ {block.items.map((item, j) => (
+ <li key={j} className="text-sm leading-relaxed text-body">
+ {renderInlines(item)}
+ </li>
+ ))}
+ </ListTag>
+ );
+ });
+}
+
+/** Parse crawled markdown-like job description into structured JSX blocks
+ * via the shared parser (`@/build-plugins/shared/jobDescription/parser`).
+ * The shared parser fixes S1 (literal `**`), S2 (mis-promotion of prose to
+ * heading), S4 (dedup), S8 (separator stripping). The render layer enforces
+ * S3 (no border-l stripe) and S5 (real H2 hierarchy). */
 export function renderFormattedDescription(raw: string): React.ReactNode {
  const text = String(raw || '').trim();
  if (!text) return null;
-
- // Pre-process: inject line breaks for descriptions that lack them
- const normalized = normalizeDescriptionBreaks(text);
-
- // Split into lines, preserving structure
- const lines = normalized.split(/\n/).map(l => l.trim());
- const blocks: React.ReactNode[] = [];
- let bulletBuffer: string[] = [];
- let keyIdx = 0;
-
- const flushBullets = () => {
- if (bulletBuffer.length === 0) return;
- blocks.push(
- <ul key={`ul-${keyIdx++}`} className="space-y-1.5 pl-4 list-disc marker:text-accent">
- {bulletBuffer.map((b, i) => (
- <li key={i} className="text-sm leading-relaxed text-body">{b}</li>
- ))}
- </ul>
- );
- bulletBuffer = [];
- };
-
- for (const line of lines) {
- if (!line) {
- // blank line — flush bullets, skip
- flushBullets();
- continue;
- }
-
- // Bare ## marker with no content (e.g. "##" or "## ") — skip silently
- if (/^#{1,3}\s*$/.test(line)) {
- flushBullets();
- continue;
- }
-
- // ## Section header
- const headerMatch = line.match(/^#{1,3}\s+(.+)/);
- if (headerMatch) {
- flushBullets();
- const headingFull = headerMatch[1].replace(/:$/, '').trim();
-
- // A) Heading contains inline dash-bullets (" - CapitalWord" × 3+) → heading + list
- const dashHits = [...headingFull.matchAll(/ - [A-ZÀ-ÖÙ-Ü]/g)];
- if (dashHits.length >= 3 && (dashHits[0].index ?? 0) > 5) {
- const splitAt = dashHits[0].index!;
- const title = headingFull.substring(0, splitAt).trim();
- const items = headingFull.substring(splitAt)
- .split(/ - /)
- .map(s => s.trim())
- .filter(s => s.length > 0);
- blocks.push(
- <h3 key={`h-${keyIdx++}`} className="text-sm font-bold text-heading border-l-3 border-accent pl-3 mt-4 mb-1 first:mt-0">
- {title}
- </h3>
- );
- if (items.length > 0) {
- blocks.push(
- <ul key={`ul-${keyIdx++}`} className="space-y-1.5 pl-4 list-disc marker:text-accent">
- {items.map((item, i) => (
- <li key={i} className="text-sm leading-relaxed text-body">{item}</li>
- ))}
- </ul>
- );
- }
- continue;
- }
-
- // A-bis) Italian infinitive pattern: lowercase items after dash (" - lowercase")
- const dashHitsLc = [...headingFull.matchAll(/ - [a-zà-öù-ü]/g)];
- if (dashHitsLc.length >= 3 && (dashHitsLc[0].index ?? 0) > 5) {
- const splitAt = dashHitsLc[0].index!;
- const title = headingFull.substring(0, splitAt).trim();
- const items = headingFull.substring(splitAt)
-   .split(/ - /)
-   .map(s => s.trim())
-   .filter(s => s.length > 0);
- blocks.push(
-   <h3 key={`h-${keyIdx++}`} className="text-sm font-bold text-heading border-l-3 border-accent pl-3 mt-4 mb-1 first:mt-0">
-     {title}
-   </h3>
- );
- if (items.length > 0) {
-   blocks.push(
-     <ul key={`ul-${keyIdx++}`} className="space-y-1.5 pl-4 list-disc marker:text-accent">
-       {items.map((item, i) => (
-         <li key={i} className="text-sm leading-relaxed text-body">{item}</li>
-       ))}
-     </ul>
-   );
- }
- continue;
- }
-
- // B) Oversized heading (>150 chars) → split at first sentence boundary → heading + paragraph
- if (headingFull.length > 150) {
- const splitMatch = headingFull.match(/^(.{10,150}?(?:\d+%|[.!?]))\s+([A-ZÀ-ÖÙ-Ü][\s\S]*)/);
- if (splitMatch) {
- blocks.push(
- <h3 key={`h-${keyIdx++}`} className="text-sm font-bold text-heading border-l-3 border-accent pl-3 mt-4 mb-1 first:mt-0">
- {splitMatch[1]}
- </h3>
- );
- blocks.push(
- <p key={`p-${keyIdx++}`} className="text-sm leading-relaxed text-body">{splitMatch[2]}</p>
- );
- continue;
- }
- }
-
- // Normal heading
- blocks.push(
- <h3 key={`h-${keyIdx++}`} className="text-sm font-bold text-heading border-l-3 border-accent pl-3 mt-4 mb-1 first:mt-0">
- {headingFull}
- </h3>
- );
- continue;
- }
-
- // Bullet: starts with - or • or * (optionally followed by space)
- const bulletMatch = line.match(/^[-•*]\s+(.+)/);
- if (bulletMatch) {
- bulletBuffer.push(bulletMatch[1]);
- continue;
- }
-
- // Section-like label ending with : (e.g."Compiti:""Requisiti:")
- if (/^[A-ZÀ-ÖÙ-Ü][^.!?]{2,60}:$/.test(line) && !line.includes(' - ')) {
- flushBullets();
- const heading = line.replace(/:$/, '').trim();
- blocks.push(
- <h3 key={`h-${keyIdx++}`} className="text-sm font-bold text-heading border-l-3 border-accent pl-3 mt-4 mb-1 first:mt-0">
- {heading}
- </h3>
- );
- continue;
- }
-
- // Regular paragraph
- flushBullets();
- blocks.push(
- <p key={`p-${keyIdx++}`} className="text-sm leading-relaxed text-body">{line}</p>
- );
- }
-
- flushBullets();
-
- // Fallback: if we got no blocks (e.g. text had no newlines), split via normalizeParagraphs
+ const blocks = parseJobDescription(text);
  if (blocks.length === 0) {
  return normalizeParagraphs(text).map((p, i) => (
  <p key={i} className="text-sm leading-relaxed text-body">{p}</p>
  ));
  }
-
- return blocks;
+ return renderJobDescBlocks(blocks);
 }
 
 const NOISY_REQUIREMENT_PATTERNS = [
@@ -6364,18 +6283,45 @@ const JobBoard: React.FC<JobBoardProps> = ({
  requirements: canonicalRequirements,
  aiKeywords: canonicalContent.keywords,
  }).filter((term) => sortedJobs.some((job) => indexedQueryMatch(job, term)));
+ // Dedup bullets globally across all timeline sections: when AI enrichment
+ // populates the same item into multiple sections (S4 visual duplication
+ // observed on the casale "Lavora con noi" page where the same filler line
+ // appeared as responsibility, benefit AND process step), keep the first
+ // occurrence and drop later duplicates. Match is whitespace/punctuation
+ // insensitive.
+ const timelineDedupKey = (s: string): string =>
+ String(s || '')
+ .toLowerCase()
+ .replace(/[\p{P}\p{S}]+/gu, ' ')
+ .replace(/\s+/g, ' ')
+ .trim();
+ const seenBullets = new Set<string>();
+ const dedupBullets = (items: string[]): string[] => {
+ const out: string[] = [];
+ for (const item of items) {
+ const key = timelineDedupKey(item);
+ if (!key || seenBullets.has(key)) continue;
+ seenBullets.add(key);
+ out.push(item);
+ }
+ return out;
+ };
+ const dedupResponsibilities = dedupBullets(canonicalContent.responsibilities);
+ const dedupRequirementsList = dedupBullets(canonicalRequirements);
+ const dedupBenefits = dedupBullets(canonicalContent.benefits);
+ const dedupProcess = dedupBullets(canonicalContent.process);
  const timelineSections = [
- ...(canonicalContent.responsibilities.length > 0
- ? [{ id: 'responsibilities', heading: canonicalCopy.responsibilities, paragraphs: [], bullets: canonicalContent.responsibilities }]
+ ...(dedupResponsibilities.length > 0
+ ? [{ id: 'responsibilities', heading: canonicalCopy.responsibilities, paragraphs: [], bullets: dedupResponsibilities }]
  : []),
- ...(canonicalRequirements.length > 0
- ? [{ id: 'requirements', heading: canonicalCopy.requirements, paragraphs: [], bullets: canonicalRequirements }]
+ ...(dedupRequirementsList.length > 0
+ ? [{ id: 'requirements', heading: canonicalCopy.requirements, paragraphs: [], bullets: dedupRequirementsList }]
  : []),
- ...(canonicalContent.benefits.length > 0
- ? [{ id: 'benefits', heading: canonicalCopy.benefits, paragraphs: [], bullets: canonicalContent.benefits }]
+ ...(dedupBenefits.length > 0
+ ? [{ id: 'benefits', heading: canonicalCopy.benefits, paragraphs: [], bullets: dedupBenefits }]
  : []),
- ...(canonicalContent.process.length > 0
- ? [{ id: 'process', heading: canonicalCopy.process, paragraphs: [], bullets: canonicalContent.process }]
+ ...(dedupProcess.length > 0
+ ? [{ id: 'process', heading: canonicalCopy.process, paragraphs: [], bullets: dedupProcess }]
  : []),
  ...canonicalContactSections,
  ...canonicalResidualSections,
@@ -6705,7 +6651,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  <div key={`${section.id}-${index}`} className="timeline-step relative">
  <span className="absolute -left-[23px] top-2 w-3 h-3 rounded-full bg-accent ring-2 ring-surface" />
  <section className="section rounded-2xl border border-edge bg-surface p-4 sm:p-5 space-y-2">
- <h4 className="text-sm font-bold text-heading border-l-4 border-accent pl-3">
+ <h4 className="text-base font-semibold text-heading mb-1">
  {section.heading}
  </h4>
  {section.paragraphs.length > 0 && section.paragraphs.map((line, i) => (

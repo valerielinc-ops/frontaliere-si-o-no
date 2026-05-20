@@ -45,7 +45,7 @@ import {
 } from './lib/crawler-summary-store.mjs';
 import { buildStableJobIdentity } from './lib/job-identity.mjs';
 import { hardenJobsWithStructuredSalary } from './lib/structured-salary.mjs';
-import { normalizeDescriptionBullets } from './lib/crawler-template.mjs';
+import { normalizeDescriptionBullets, cleanCrawlerArtifacts } from './lib/crawler-template.mjs';
 import { computeCrawlerQualityAggregate, computeJobQualityScore, buildStableId, cleanPreviousSlugsPerLocale, isLocationExplicitlyForeign } from './lib/dedicated-crawler-common.mjs';
 import { inferAnyCanton, isKnownSwissCity, isCantonOnlyLabel, findSwissCityInText } from './lib/target-swiss-locations.mjs';
 import { filterFixtureJobs } from './lib/fixture-data-filter.mjs';
@@ -615,15 +615,20 @@ export function writeJobsCrawlerSlice(crawlerKey, jobs) {
   // Centralizing the bullet-recovery step here means every crawler benefits
   // without each parser having to remember to call it. Applied to both the
   // source description and every locale-specific translation. Idempotent.
+  // Apply both normalization passes: cleanCrawlerArtifacts (drops empty bolds,
+  // separator lines, dedups paragraphs) runs FIRST so the bullet-recovery step
+  // sees clean line boundaries. Both are idempotent.
   for (const job of hardened.jobs) {
     if (typeof job.description === 'string' && job.description) {
-      const normalized = normalizeDescriptionBullets(job.description);
+      let normalized = cleanCrawlerArtifacts(job.description);
+      normalized = normalizeDescriptionBullets(normalized);
       if (normalized !== job.description) job.description = normalized;
     }
     if (job.descriptionByLocale && typeof job.descriptionByLocale === 'object') {
       for (const [locale, text] of Object.entries(job.descriptionByLocale)) {
         if (typeof text !== 'string' || !text) continue;
-        const normalized = normalizeDescriptionBullets(text);
+        let normalized = cleanCrawlerArtifacts(text);
+        normalized = normalizeDescriptionBullets(normalized);
         if (normalized !== text) job.descriptionByLocale[locale] = normalized;
       }
     }

@@ -90,7 +90,7 @@ describe('renderFormattedDescription – Check A-bis (Italian lowercase inline d
    const input = '## Compiti - organizzare cose - collaborare con team - accompagnare persone - sviluppare progetti';
    const rendered = renderFormattedDescription(input);
 
-   const headings = collectByType(rendered, 'h3');
+   const headings = collectByType(rendered, 'h2');
    const lists = collectByType(rendered, 'ul');
 
    expect(headings.length).toBeGreaterThanOrEqual(1);
@@ -117,7 +117,7 @@ describe('renderFormattedDescription – Check A-bis (Italian lowercase inline d
    const input = '## Compiti - organizzare cose - collaborare con team - accompagnare persone';
    const rendered = renderFormattedDescription(input);
 
-   const headings = collectByType(rendered, 'h3');
+   const headings = collectByType(rendered, 'h2');
    for (const h of headings) {
      const text = flattenText(h);
      // No heading should contain the inline dash items
