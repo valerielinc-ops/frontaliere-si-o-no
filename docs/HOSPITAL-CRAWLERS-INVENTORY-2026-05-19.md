@@ -1,43 +1,41 @@
 # Analisi preparativa crawler ospedali svizzeri
 
 > **Generato:** 2026-05-19
-> **Fonte ospedali:** `data/swiss-hospitals.json` (463 entries scraped da welches-spital.ch, equivalente tedesco di which-hospital.ch/switzerland)
+> **Ultimo aggiornamento:** 2026-05-20 (post sprint batch 16-21)
+> **Fonte ospedali:** `data/swiss-hospitals.json` (463 entries scraped da welches-spital.ch, 2026-05-10)
 > **Scope:** identificare ospedali svizzeri NON ancora coperti da parser/crawler esistenti, con relative career page e ATS, pronti per implementazione crawler.
 
-## Stato avanzamento (aggiornato 2026-05-19 post-batch 19)
+## Stato attuale (2026-05-20 post sprint batch 16-21)
 
-- Parser esistenti al T0: **31** (vedi §2). Ora: **~145 dedicated + 15 ATS factories**.
-- Batch shippati: 1-19 (PR #399 → #413).
-- **Backlog effettivo residuo:** la stragrande maggioranza degli ospedali listati in §3/§4 è ora coperta, o esclusa per: (a) <5 jobs/PDF only, (b) bot-blocked che richiede Playwright, (c) sito morto/parked, (d) sussidiario di gruppo già coperto.
-- Sprint highlights batch 16-19 (2026-05-19 sera):
-  - **Batch 16** (PR #401-403): SmartRecruiters (Ardentis 38, imad 12, Sobi 7), Workable (Debiopharm 16), SF CSB (Bachem 74, Medartis 16, Tecan 14, Octapharma 8) = **185 jobs**
-  - **Batch 17** (PR #406-408): aarReha 13 + Pallas 9; UKBB 19, PBL 47, Rennbahnklinik 12; Uroviva 9, Forel Klinik 6, Kispi 53 = **168 jobs**
-  - **Batch 18** (PR #409-411): PSGN 10, Kispi-SG 10; IGS Bern 5, Südhang 8, Privatklinik Wyss 7; NSN Medical 10, Klinik Susenberg 5, Vista 9 = **64 jobs**
-  - **Batch 19** (PR #412-413): Cereneo 7, Triaplus 28; OSCAM 3, Klinik Gut 7, Canton Ticino OSC 9 = **54 jobs**
-  - **Plus:** CSL Behring bump (+15), Fielmann backfill script, breadcrumb regression fix
-  - **Totale net unlock: ~471 nuovi job CH** + 29 nuovi crawler.
-- Discovery completamente esaurita: SmartRecruiters/Workable/Lever/Greenhouse, SuccessFactors CSB tail, Personio/Recruitee/Teamtailor/softgarden/onlyfy (Agent D batch 16 = 0 qualified), TG/SH/JU/NE/SZ/GL (Agent K batch 18 = 0 qualified, tutto già coperto via parent groups o sotto threshold).
-- **Deferred (richiedono Playwright o ATS proprietario):** Benteler (SAP SF JS), Nestle (Workday retired), Leukerbad Clinic (Prismic CMS), Clinica Holistica (Cloudflare challenge), AMEOS Brunnen (GWT app), Bürgenstock Waldhotel (Umantis 2850 ma 95% hotel jobs), Klinik Meissenberg (medicus.ch SPA).
-- Follow-up sprint plan: **`docs/plans/crawlers-batch-16-and-followup.md`** — TODO list operativo + L1-L9 lezioni operative.
+- **Parser totali in `scripts/lib/`:** 345 (di cui ~165 hospital-specific)
+- **Inventory entries coperte:** 216/266 (81%) tramite parser dedicato o transitive via parent group
+- **Inventory entries non coperte:** **50/266** — vedi `docs/plans/hospital-crawlers-manual-check.md`
+
+### Sprint shippato (16-21)
+- Batch 16-19: 36 nuovi crawler (~538 jobs) — SmartRecruiters, Workable, SF CSB, Prospective tail, Umantis NSN, niche ATS, PDF parser
+- Batch 20: Playwright per JS-blocked (Hofweissbad, Leukerbad Clinic via Prismic API, GHOL via Beehire, Clinica Holistica via stealth), PDF pipeline (Berit Klinik, Wysshölzli, Le Noirmont)
+- Batch 21: DNS re-discovery (Salina-reha, Villa-im-park via SMN PKV, Sune-Egge via Personio, Adus-Klinik via Teamtailor, Rehaklinik Hasliberg via Jobalino), TI/GR/VS small + ZH/TG/LU small + Bürgenstock Hotels + SMN PKS factory + Klinik Schönberg (Jobalino) + IGS Bern (PastaHR)
+- **Totale nuovi: 51 dedicated crawler + ~634 jobs CH unlock**
 
 ## Documenti correlati
 
-- **`docs/PLANS/crawlers-batch-16-and-followup.md`** — TODO list operativo post-batch 15 (verifica live + 4 agent paralleli batch 16)
-- **`docs/crawler-parametrizzazione-plan.md`** — design originale delle 15 ATS factories (`scripts/lib/*-common.mjs`)
-- **`docs/crawler-expansion-nazionale.md`** — piano espansione iniziale Apr 7 (contesto cantoni e priorità)
+- **`docs/plans/hospital-crawlers-manual-check.md`** — 50 entries residuali per verifica manuale
+- **`docs/crawler-parametrizzazione-plan.md`** — design originale ATS factories (`scripts/lib/*-common.mjs`)
+- **`docs/crawler-expansion-nazionale.md`** — piano espansione iniziale Apr 7
 - **`data/swiss-hospitals.json`** — fonte dati canonica
 
 ## Convenzioni implementative (CRITICAL)
 
-- `ParsedJob.needsRetranslation: true` su ogni nuovo crawler. Factory-based (Refline/Prospective/Umantis/Workday) lo ereditano; verificare comunque.
+- `ParsedJob.needsRetranslation: true` su ogni nuovo crawler. Factory-based (Refline/Prospective/Umantis/Workday/SmartRecruiters/SF) lo ereditano; verificare comunque.
 - MAI modificare `scripts/lib/crawler-location-config.mjs` (skip-worktree, auto-overwritten da cron).
 - MAI committare `data/known-company-slugs.json` (skip-worktree).
 - Crawler template: `runStandardCrawlerPipeline` da `scripts/lib/crawler-template.mjs` (7-step pipeline).
 - Boilerplate guard: `MIN_UNIQUE_WORDS = 30` in `scripts/assemble-jobs-dataset.mjs` → se desc < 30 unique words usa `SKIP_BOILERPLATE_GUARD=1` env nel workflow.
 - Workflow template: copy `.github/workflows/update-jobs-bethesda-spital.yml`.
+- Playwright richiesto per JS-rendered ATS (Vercel checkpoint, Cloudflare passive challenge, GWT app, SAP SF SPA, Jalios JCMS silent). Use `scripts/lib/ats-clients/playwright-runtime.mjs`.
+- PDF parser disponibile via `scripts/lib/pdf-job-content.mjs` (export `buildPdfBackedDescription`, `normalizePdfJobText`). Dep: `pdf-parse@^2.4.5`.
 
 ---
-
 ## 1. Sintesi
 
 | Metrica | Valore |
