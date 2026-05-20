@@ -15,6 +15,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { buildStationSlug } from './lib/fuel-station-slug.mjs';
+import { FuelDailySnapshotSchema } from './lib/schemas/fuelDaily.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -243,6 +244,17 @@ function main() {
     stationsByslug[slug] = entry;
   }
   snapshot.stations = stationsByslug;
+
+  // Gate: validate snapshot against FuelDailySnapshotSchema before writing.
+  // A schema violation here indicates a regression in the producer logic —
+  // exit 1 so the CI workflow surfaces the issue rather than silently writing
+  // a malformed file that the build plugins will later consume.
+  const validation = FuelDailySnapshotSchema.safeParse(snapshot);
+  if (!validation.success) {
+    console.error('[snapshot-fuel-history] SCHEMA VIOLATION — aborting write');
+    console.error(JSON.stringify(validation.error.issues, null, 2));
+    process.exit(1);
+  }
 
   const out = path.join(HISTORY_DIR, `${today}.json`);
   fs.writeFileSync(out, JSON.stringify(snapshot, null, 2), 'utf-8');

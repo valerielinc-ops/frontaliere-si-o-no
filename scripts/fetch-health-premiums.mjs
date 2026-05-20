@@ -41,6 +41,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { HealthPremiumRowSchema } from './lib/schemas/healthPremium.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -630,6 +631,27 @@ async function main() {
   const datasetYear = output.year;
   const resolvedDataOut = path.join(DATA_DIR, `${datasetYear}.json`);
   const resolvedPublicOut = path.join(PUBLIC_DIR, `${datasetYear}.json`);
+
+  // Schema gate: validate every premium entry before writing to disk.
+  // Catches regressions in the BAG CSV structure or parser logic early.
+  const rowViolations = [];
+  for (const [key, row] of Object.entries(output.premiums)) {
+    const r = HealthPremiumRowSchema.safeParse(row);
+    if (!r.success) {
+      rowViolations.push({
+        key,
+        issues: r.error.issues.map(i => i.path.join('.') + ': ' + i.message),
+      });
+    }
+  }
+  if (rowViolations.length > 0) {
+    console.error(`[health-premiums] ${rowViolations.length} premium row(s) failed schema validation:`);
+    for (const v of rowViolations.slice(0, 10)) {
+      console.error(`  - ${v.key}: ${v.issues.join('; ')}`);
+    }
+    process.exit(1);
+  }
+  console.log(`   ✅ All ${Object.keys(output.premiums).length} premium entries passed schema validation`);
 
   const json = JSON.stringify(output, null, 2);
   if (!fs.existsSync(DATA_DIR)) fs.mkdirSync(DATA_DIR, { recursive: true });
