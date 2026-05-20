@@ -20,6 +20,7 @@ import { evaluateAlerts, activeAlerts, dormantAlerts } from '../services/weather
 import { parseWeatherSnapshot, type AlertState, type WeatherSnapshot } from '../services/weather/types';
 import type { Locale } from '../services/weather/wmoCodes';
 import { buildSeoPageHtml } from './shared/seoPageShell';
+import { breadcrumbListLd } from '../services/seo/structuredData';
 
 const LOCALES: readonly Locale[] = Object.freeze(['it', 'en', 'de', 'fr']);
 const TITLE_MAX = 66;
@@ -474,16 +475,7 @@ interface WrapOpts {
 }
 
 function breadcrumbJsonLd(items: Array<{ name: string; url: string }>): Record<string, unknown> {
-  return {
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: items.map((it, i) => ({
-      '@type': 'ListItem',
-      position: i + 1,
-      name: it.name,
-      item: it.url,
-    })),
-  };
+  return breadcrumbListLd(items);
 }
 
 function wrapHtml(opts: WrapOpts & { distDir: string }): string {
