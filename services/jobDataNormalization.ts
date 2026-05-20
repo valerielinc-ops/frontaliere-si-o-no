@@ -159,6 +159,7 @@ export const CRAWLED_COMPANY_LOGOS: Record<string, string> = {
  'spital-thurgau': cLogo('stgag.ch'),
  'stadtspital-zuerich': cLogo('stadtspital.ch'),
  'stiftung-diaconis': cLogo('diaconis.ch'),
+ 'suchthilfe-region-basel': cLogo('suchthilfe.ch'),
  'sulzer': cLogo('sulzer.com'),
  'supsi-dti': 'https://www.supsi.ch/o/supsi-v2-theme/images/favicon/apple-touch-icon.png',
  'swiss-re': cLogo('swissre.ch'),
