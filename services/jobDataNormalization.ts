@@ -88,6 +88,7 @@ export const CRAWLED_COMPANY_LOGOS: Record<string, string> = {
  'citta-di-bellinzona': cLogo('bellinzona.ch'),
  'citta-di-locarno': cLogo('locarno.ch'),
  'citta-di-mendrisio': gFavicon('mendrisio.ch'),
+ 'clinique-de-la-plaine': cLogo('laplaine.ch'),
  'convit-holding': 'https://convit.ch/images/convit-logo.png',
  'coop-ticino': gFavicon('coop.ch'),
  'corner-banca': gFavicon('corner.ch'),
