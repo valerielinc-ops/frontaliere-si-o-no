@@ -43,7 +43,7 @@ import { buildSeoPageHtml } from './shared/seoPageShell';
 import { renderHreflangTags, type HreflangPaths } from './shared/hreflang';
 import { CITY_HUB_KEYS } from './cityJobsHub';
 import { adSlotHtml } from './lib/adSlotHtml';
-import { imageObjectLd } from '../services/seo/imageObjectLd';
+import { imageObjectLd, breadcrumbListLd } from '../services/seo/structuredData';
 import {
   STAT_TILE_BASE,
   STAT_TILE_LABEL,
@@ -548,14 +548,10 @@ function renderReport(opts: {
   // Breadcrumbs
   const homeUrl = locale === 'it' ? `${BASE_URL}/` : `${BASE_URL}/${locale}/`;
 
-  const breadcrumbLd = JSON.stringify({
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      { '@type': 'ListItem', position: 1, name: copy.breadcrumbHome, item: homeUrl },
-      { '@type': 'ListItem', position: 2, name: copy.h1, item: canonicalUrl },
-    ],
-  });
+  const breadcrumbLd = JSON.stringify(breadcrumbListLd([
+    { name: copy.breadcrumbHome, url: homeUrl },
+    { name: copy.h1, url: canonicalUrl },
+  ]));
 
   const articleLd = JSON.stringify({
     '@context': 'https://schema.org',
