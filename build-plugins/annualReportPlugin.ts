@@ -67,7 +67,7 @@ import {
   CTA_PRIMARY_STYLE,
   LINK_ACCENT_STYLE,
 } from './shared/seoContentTokens';
-import { imageObjectLd } from '../services/seo/imageObjectLd';
+import { imageObjectLd, breadcrumbListLd } from '../services/seo/structuredData';
 
 // ── Types ─────────────────────────────────────────────────────────
 
@@ -783,14 +783,10 @@ function renderReport(opts: {
   );
 
   // JSON-LD scripts.
-  const breadcrumbLd = JSON.stringify({
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      { '@type': 'ListItem', position: 1, name: copy.breadcrumbHome, item: homeUrl },
-      { '@type': 'ListItem', position: 2, name: copy.breadcrumbReport, item: canonicalUrl },
-    ],
-  });
+  const breadcrumbLd = JSON.stringify(breadcrumbListLd([
+    { name: copy.breadcrumbHome, url: homeUrl },
+    { name: copy.breadcrumbReport, url: canonicalUrl },
+  ]));
 
   const articleLd = JSON.stringify({
     '@context': 'https://schema.org',
