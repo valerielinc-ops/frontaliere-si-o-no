@@ -62,6 +62,7 @@ import {
 import { generateRelatedLinksBlock } from './shared/relatedLinks';
 import { adSlotHtml } from './lib/adSlotHtml';
 import { cleanNamespaces, cleanSitemapFiles } from './shared/distNamespaceCleanup';
+import { breadcrumbListLd, faqPageLd } from '../services/seo/structuredData';
 import {
   BREADCRUMB_LINK_STYLE,
   BREADCRUMB_STYLE,
@@ -2276,16 +2277,12 @@ function renderLeafPage(inp: LeafInputs): string {
   const comparatorHref = `${HEALTH_PREMIUM_COMPARATOR_PATH[locale]}#canton=${stats.cantonBagCode}&age=${age}`;
 
   // JSON-LD
-  const breadcrumbLd = JSON.stringify({
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      { '@type': 'ListItem', position: 1, name: copy.breadcrumbHome, item: `${BASE_URL}/` },
-      { '@type': 'ListItem', position: 2, name: copy.breadcrumbRoot, item: `${BASE_URL}${buildHealthPremiumsRootPath(locale)}` },
-      { '@type': 'ListItem', position: 3, name: cantonLabel, item: `${BASE_URL}${buildHealthPremiumsCantonPath(locale, canton)}` },
-      { '@type': 'ListItem', position: 4, name: ageLabel, item: canonicalUrl },
-    ],
-  });
+  const breadcrumbLd = JSON.stringify(breadcrumbListLd([
+    { name: copy.breadcrumbHome, url: `${BASE_URL}/` },
+    { name: copy.breadcrumbRoot, url: `${BASE_URL}${buildHealthPremiumsRootPath(locale)}` },
+    { name: cantonLabel, url: `${BASE_URL}${buildHealthPremiumsCantonPath(locale, canton)}` },
+    { name: ageLabel, url: canonicalUrl },
+  ]));
 
   const webPageLd = JSON.stringify({
     '@context': 'https://schema.org',
@@ -2298,16 +2295,10 @@ function renderLeafPage(inp: LeafInputs): string {
     datePublished: today.toISOString(),
   });
 
-  const faqLd = JSON.stringify({
-    '@context': 'https://schema.org',
-    '@type': 'FAQPage',
-    inLanguage: locale,
-    mainEntity: faqItems.map((f) => ({
-      '@type': 'Question',
-      name: f.q(cantonLabel, ageLabel),
-      acceptedAnswer: { '@type': 'Answer', text: f.a(cantonLabel, ageLabel, medFmt, minFmt, maxFmt) },
-    })),
-  });
+  const faqLd = JSON.stringify(faqPageLd(faqItems.map((f) => ({
+    question: f.q(cantonLabel, ageLabel),
+    answer: f.a(cantonLabel, ageLabel, medFmt, minFmt, maxFmt),
+  }))));
 
   const productLd = JSON.stringify({
     '@context': 'https://schema.org',
@@ -2608,15 +2599,11 @@ function renderCantonHubPage(inp: CantonHubInputs): string {
     : '';
   const comparatorHref = `${HEALTH_PREMIUM_COMPARATOR_PATH[locale]}#canton=${stats.cantonBagCode}`;
 
-  const breadcrumbLd = JSON.stringify({
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      { '@type': 'ListItem', position: 1, name: copy.breadcrumbHome, item: `${BASE_URL}/` },
-      { '@type': 'ListItem', position: 2, name: leafCopy.breadcrumbRoot, item: `${BASE_URL}${buildHealthPremiumsRootPath(locale)}` },
-      { '@type': 'ListItem', position: 3, name: cantonLabel, item: canonicalUrl },
-    ],
-  });
+  const breadcrumbLd = JSON.stringify(breadcrumbListLd([
+    { name: copy.breadcrumbHome, url: `${BASE_URL}/` },
+    { name: leafCopy.breadcrumbRoot, url: `${BASE_URL}${buildHealthPremiumsRootPath(locale)}` },
+    { name: cantonLabel, url: canonicalUrl },
+  ]));
 
   const webPageLd = JSON.stringify({
     '@context': 'https://schema.org',
