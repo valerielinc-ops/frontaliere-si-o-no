@@ -15,6 +15,7 @@ import { AD_CLIENT, AD_SLOTS } from '../services/adsenseSlots';
 import { BASE_URL } from './constants';
 import { buildSeoPageHtml } from './shared/seoPageShell';
 import { renderHreflangTags } from './shared/hreflang';
+import { faqPageLd } from '../services/seo/structuredData';
 import {
   renderSalaryLandingShell,
   type SalaryLandingData,
@@ -613,15 +614,7 @@ export function generatePageHtml(
     fr: buildFullPath(scenario, 'fr'),
   });
 
-  const faqSchema = JSON.stringify({
-    '@context': 'https://schema.org',
-    '@type': 'FAQPage',
-    mainEntity: faqs.map(f => ({
-      '@type': 'Question',
-      name: f.q,
-      acceptedAnswer: { '@type': 'Answer', text: f.a },
-    })),
-  });
+  const faqSchema = JSON.stringify(faqPageLd(faqs.map(f => ({ question: f.q, answer: f.a }))));
 
   const breadcrumbSchema = JSON.stringify({
     '@context': 'https://schema.org',
