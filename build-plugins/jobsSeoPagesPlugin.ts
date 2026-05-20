@@ -111,6 +111,7 @@ import {
   ALL_CANTON_CODES as SHARED_ALL_CANTON_CODES,
 } from './shared/cantonSection';
 import { normalizeCitySlug } from './shared/cantonCities';
+import { breadcrumbListLd } from '../services/seo/structuredData';
 
 export const JOB_SEO_LOCALES = ['it', 'en', 'de', 'fr'] as const;
 
@@ -2286,15 +2287,11 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  ...(canonicalRequirements.length > 0 ? { qualifications: canonicalRequirements.join('\n') } : {}),
  ...(job.category && mapCategoryToONet(job.category) ? { occupationalCategory: mapCategoryToONet(job.category) } : {}),
  });
- const breadcrumbLd = JSON.stringify({
- '@context': 'https://schema.org',
- '@type': 'BreadcrumbList',
- itemListElement: [
- { '@type': 'ListItem', position: 1, name: homeLabel[locale], item: `${BASE_URL}${locale === 'it' ? '/' : `/${locale}/`}` },
- { '@type': 'ListItem', position: 2, name: cantonSectionName(locale, dc), item: `${BASE_URL}${withSlash(`${localePrefix[locale]}/${buildCantonAwareSection(locale, jobCanton)}`.replace(/\/+/g, '/'))}` },
- { '@type': 'ListItem', position: 3, name: localizedTitle, item: canonicalUrl },
- ],
- });
+ const breadcrumbLd = JSON.stringify(breadcrumbListLd([
+ { name: homeLabel[locale], url: `${BASE_URL}${locale === 'it' ? '/' : `/${locale}/`}` },
+ { name: cantonSectionName(locale, dc), url: `${BASE_URL}${withSlash(`${localePrefix[locale]}/${buildCantonAwareSection(locale, jobCanton)}`.replace(/\/+/g, '/'))}` },
+ { name: localizedTitle, url: canonicalUrl },
+ ]));
 
  const outDir = np.join(distDir, canonicalPath.slice(1));
  activeJobDirs.add(canonicalPath.slice(1).replace(/\/+$/, ''));
@@ -3015,15 +3012,11 @@ ${hreflangHtml}
 
  const jobListHtml = companyJobs.slice(0, 20).map((job) => renderJobCardLi(job, locale)).join('');
 
- const breadcrumbLd = JSON.stringify({
- '@context': 'https://schema.org',
- '@type': 'BreadcrumbList',
- itemListElement: [
- { '@type': 'ListItem', position: 1, name: homeLabel[locale], item: `${BASE_URL}${locale === 'it' ? '/' : `/${locale}/`}` },
- { '@type': 'ListItem', position: 2, name: copy.sectionName, item: `${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionSlug}`.replace(/\/+/g, '/'))}` },
- { '@type': 'ListItem', position: 3, name: companyName, item: canonicalUrl },
- ],
- });
+ const breadcrumbLd = JSON.stringify(breadcrumbListLd([
+ { name: homeLabel[locale], url: `${BASE_URL}${locale === 'it' ? '/' : `/${locale}/`}` },
+ { name: copy.sectionName, url: `${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionSlug}`.replace(/\/+/g, '/'))}` },
+ { name: companyName, url: canonicalUrl },
+ ]));
 
  // Organization schema for company pages — derived from job data
  const companyLocations = [...new Set(companyJobs.map((j: any) => String(j.location || '')).filter(Boolean))];
@@ -3789,16 +3782,7 @@ ${curatedBodyHtml ? curatedBodyHtml + '\n' : `<h1>${esc(copy.heading(companyName
  breadcrumbs: Array<{ name: string; item: string }>;
  items: Array<{ title: string; href: string }>;
  }) => {
- const breadcrumbLd = JSON.stringify({
- '@context': 'https://schema.org',
- '@type': 'BreadcrumbList',
- itemListElement: options.breadcrumbs.map((crumb, index) => ({
- '@type': 'ListItem',
- position: index + 1,
- name: crumb.name,
- item: crumb.item,
- })),
- });
+ const breadcrumbLd = JSON.stringify(breadcrumbListLd(options.breadcrumbs.map((crumb) => ({ name: crumb.name, url: crumb.item }))));
  const collectionLd = JSON.stringify({
  '@context': 'https://schema.org',
  '@type': 'CollectionPage',
@@ -5370,15 +5354,11 @@ ${alternates}
  ].join('\n');
  const sectionRootUrl = `${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionSlug}`.replace(/\/+/g, '/'))}`;
  const sectionLabel = locale === 'it' ? `Cerca lavoro in ${cDisplay}` : locale === 'en' ? `Find jobs in ${cDisplay}` : locale === 'de' ? `Stellen ${cDisplay}` : `Trouver un emploi à ${cDisplay}`;
- const breadcrumbLd = JSON.stringify({
- '@context': 'https://schema.org',
- '@type': 'BreadcrumbList',
- itemListElement: [
- { '@type': 'ListItem', position: 1, name: homeLabel[locale], item: `${BASE_URL}${locale === 'it' ? '/' : `/${locale}/`}` },
- { '@type': 'ListItem', position: 2, name: sectionLabel, item: sectionRootUrl },
- { '@type': 'ListItem', position: 3, name: cityHubSeo.h1, item: canonicalUrl },
- ],
- });
+ const breadcrumbLd = JSON.stringify(breadcrumbListLd([
+ { name: homeLabel[locale], url: `${BASE_URL}${locale === 'it' ? '/' : `/${locale}/`}` },
+ { name: sectionLabel, url: sectionRootUrl },
+ { name: cityHubSeo.h1, url: canonicalUrl },
+ ]));
  const collectionLd = JSON.stringify({
  '@context': 'https://schema.org',
  '@type': 'CollectionPage',
@@ -5527,15 +5507,11 @@ ${alternates}
  const pgMainUrl = `${BASE_URL}${withSlash(pgSectionPath)}`;
  const pgHomeUrl = `${BASE_URL}${locale === 'it' ? '/' : `/${locale}/`}`;
  const pgListName = locale === 'it' ? 'Lavoro in Ticino' : locale === 'en' ? 'Jobs in Ticino' : locale === 'de' ? 'Jobs im Tessin' : 'Emploi au Tessin';
- const pgBreadcrumbLd = JSON.stringify({
- '@context': 'https://schema.org',
- '@type': 'BreadcrumbList',
- itemListElement: [
- { '@type': 'ListItem', position: 1, name: homeLabel[locale], item: pgHomeUrl },
- { '@type': 'ListItem', position: 2, name: pgListName, item: pgMainUrl },
- { '@type': 'ListItem', position: 3, name: pgCopy.heading(pageNum), item: pgCanonicalUrl },
- ],
- });
+ const pgBreadcrumbLd = JSON.stringify(breadcrumbListLd([
+ { name: homeLabel[locale], url: pgHomeUrl },
+ { name: pgListName, url: pgMainUrl },
+ { name: pgCopy.heading(pageNum), url: pgCanonicalUrl },
+ ]));
  const pgNav: string[] = [`<a href="${pgMainUrl}" style="display:inline-flex;align-items:center;justify-content:center;min-height:44px;min-width:44px;padding:8px 12px">1</a>`];
  for (let np2 = Math.max(2, pageNum - 2); np2 <= Math.min(totalListingPages, pageNum + 2); np2++) {
  if (np2 === pageNum) { pgNav.push(`<strong>${np2}</strong>`); continue; }
@@ -5647,15 +5623,11 @@ ${alternates}
  const pgMainUrl = `${BASE_URL}${withSlash(pgSectionPath)}`;
  const pgHomeUrl = `${BASE_URL}${locale === 'it' ? '/' : `/${locale}/`}`;
  const pgListName = locale === 'it' ? `Lavoro in ${cDisplay}` : locale === 'en' ? `Jobs in ${cDisplay}` : locale === 'de' ? `Stellen ${cDisplay}` : `Emploi \u00e0 ${cDisplay}`;
- const pgBreadcrumbLd = JSON.stringify({
- '@context': 'https://schema.org',
- '@type': 'BreadcrumbList',
- itemListElement: [
- { '@type': 'ListItem', position: 1, name: homeLabel[locale], item: pgHomeUrl },
- { '@type': 'ListItem', position: 2, name: pgListName, item: pgMainUrl },
- { '@type': 'ListItem', position: 3, name: pgHeading, item: pgCanonicalUrl },
- ],
- });
+ const pgBreadcrumbLd = JSON.stringify(breadcrumbListLd([
+ { name: homeLabel[locale], url: pgHomeUrl },
+ { name: pgListName, url: pgMainUrl },
+ { name: pgHeading, url: pgCanonicalUrl },
+ ]));
  const pgNav: string[] = [`<a href="${pgMainUrl}" style="display:inline-flex;align-items:center;justify-content:center;min-height:44px;min-width:44px;padding:8px 12px">1</a>`];
  for (let np2 = Math.max(2, pageNum - 2); np2 <= Math.min(cTotalPages, pageNum + 2); np2++) {
  if (np2 === pageNum) { pgNav.push(`<strong>${np2}</strong>`); continue; }
@@ -5773,11 +5745,11 @@ ${alternates}
  const catOtherLinks = Object.keys(catSlugsMap).filter((k) => k !== catKey).map((k) => { const kSlug = `${catPrefix[locale]}-${catSlugsMap[k][locale]}`; return `<a href="${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionByLocale[locale]}/${kSlug}`.replace(/\/+/g, '/'))}" style="text-decoration:none;color:var(--color-link);display:inline-flex;align-items:center;min-height:44px;padding:8px 4px">${catLabels[k][locale]}</a>`; });
  const catCollLd = JSON.stringify({ '@context': 'https://schema.org', '@type': 'CollectionPage', name: catTitle, url: catCanonicalUrl, description: catDescription, inLanguage: locale, isPartOf: { '@type': 'WebSite', name: 'Frontaliere Ticino', url: BASE_URL } });
  const catSectionUrl = `${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionByLocale[locale]}`.replace(/\/+/g, '/'))}`;
- const catBreadcrumbLd = JSON.stringify({ '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
- { '@type': 'ListItem', position: 1, name: homeLabel[locale], item: `${BASE_URL}${locale === 'it' ? '/' : `/${locale}/`}` },
- { '@type': 'ListItem', position: 2, name: locale === 'it' ? 'Cerca lavoro in Ticino' : locale === 'en' ? 'Find jobs in Ticino' : locale === 'de' ? 'Jobs im Tessin' : 'Trouver un emploi au Tessin', item: catSectionUrl },
- { '@type': 'ListItem', position: 3, name: catTitle.replace(' | Frontaliere Ticino', ''), item: catCanonicalUrl },
- ] });
+ const catBreadcrumbLd = JSON.stringify(breadcrumbListLd([
+ { name: homeLabel[locale], url: `${BASE_URL}${locale === 'it' ? '/' : `/${locale}/`}` },
+ { name: locale === 'it' ? 'Cerca lavoro in Ticino' : locale === 'en' ? 'Find jobs in Ticino' : locale === 'de' ? 'Jobs im Tessin' : 'Trouver un emploi au Tessin', url: catSectionUrl },
+ { name: catTitle.replace(' | Frontaliere Ticino', ''), url: catCanonicalUrl },
+ ]));
  // Build editorial intro and market context paragraphs
  const catTopCompanies = catUniqueCompanies.slice(0, 5).map((c) => esc(c)).join(', ');
  const catIntro = (() => {
@@ -5921,11 +5893,11 @@ ${alternates}
  const catCollLd = JSON.stringify({ '@context': 'https://schema.org', '@type': 'CollectionPage', name: catTitle, url: catCanonicalUrl, description: catDescription, inLanguage: locale, isPartOf: { '@type': 'WebSite', name: 'Frontaliere Ticino', url: BASE_URL } });
  const catSectionUrl = `${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionSlug}`.replace(/\/+/g, '/'))}`;
  const sectionLabel = locale === 'it' ? `Cerca lavoro in ${cDisplay}` : locale === 'en' ? `Find jobs in ${cDisplay}` : locale === 'de' ? `Stellen ${cDisplay}` : `Trouver un emploi à ${cDisplay}`;
- const catBreadcrumbLd = JSON.stringify({ '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
- { '@type': 'ListItem', position: 1, name: homeLabel[locale], item: `${BASE_URL}${locale === 'it' ? '/' : `/${locale}/`}` },
- { '@type': 'ListItem', position: 2, name: sectionLabel, item: catSectionUrl },
- { '@type': 'ListItem', position: 3, name: catTitle.replace(' | Frontaliere Ticino', ''), item: catCanonicalUrl },
- ] });
+ const catBreadcrumbLd = JSON.stringify(breadcrumbListLd([
+ { name: homeLabel[locale], url: `${BASE_URL}${locale === 'it' ? '/' : `/${locale}/`}` },
+ { name: sectionLabel, url: catSectionUrl },
+ { name: catTitle.replace(' | Frontaliere Ticino', ''), url: catCanonicalUrl },
+ ]));
  const catTopCompanies = catUniqueCompanies.slice(0, 5).map((c) => esc(c)).join(', ');
  const catIntro = (() => {
  if (locale === 'it') return `<p>Sono attualmente disponibili <strong>${catJobs.length} offerte di lavoro</strong> nel settore ${catLabel.toLowerCase()} in ${cDisplay}, pubblicate da ${catUniqueCompanies.length} aziende in ${catUniqueLocations.length} località. Tra le aziende che assumono: ${catTopCompanies}. Gli annunci vengono aggiornati quotidianamente dal nostro crawler automatico.</p>`;
@@ -6083,15 +6055,11 @@ ${alternates}
  ].join('\n');
  const sectionRootUrl = `${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionSlug}`.replace(/\/+/g, '/'))}`;
  const sectionLabel = locale === 'it' ? `Cerca lavoro in ${cDisplay}` : locale === 'en' ? `Find jobs in ${cDisplay}` : locale === 'de' ? `Stellen ${cDisplay}` : `Trouver un emploi à ${cDisplay}`;
- const breadcrumbLd = JSON.stringify({
- '@context': 'https://schema.org',
- '@type': 'BreadcrumbList',
- itemListElement: [
- { '@type': 'ListItem', position: 1, name: homeLabel[locale], item: `${BASE_URL}${locale === 'it' ? '/' : `/${locale}/`}` },
- { '@type': 'ListItem', position: 2, name: sectionLabel, item: sectionRootUrl },
- { '@type': 'ListItem', position: 3, name: pageHeading, item: canonicalUrl },
- ],
- });
+ const breadcrumbLd = JSON.stringify(breadcrumbListLd([
+ { name: homeLabel[locale], url: `${BASE_URL}${locale === 'it' ? '/' : `/${locale}/`}` },
+ { name: sectionLabel, url: sectionRootUrl },
+ { name: pageHeading, url: canonicalUrl },
+ ]));
  const collectionLd = JSON.stringify({
  '@context': 'https://schema.org',
  '@type': 'CollectionPage',
@@ -6279,15 +6247,11 @@ ${alternates}
  ].join('\n');
  const sectionRootUrl = `${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionSlug}`.replace(/\/+/g, '/'))}`;
  const sectionLabel = locale === 'it' ? `Cerca lavoro in ${cDisplay}` : locale === 'en' ? `Find jobs in ${cDisplay}` : locale === 'de' ? `Stellen ${cDisplay}` : `Trouver un emploi à ${cDisplay}`;
- const breadcrumbLd = JSON.stringify({
- '@context': 'https://schema.org',
- '@type': 'BreadcrumbList',
- itemListElement: [
- { '@type': 'ListItem', position: 1, name: homeLabel[locale], item: `${BASE_URL}${locale === 'it' ? '/' : `/${locale}/`}` },
- { '@type': 'ListItem', position: 2, name: sectionLabel, item: sectionRootUrl },
- { '@type': 'ListItem', position: 3, name: pageHeading, item: canonicalUrl },
- ],
- });
+ const breadcrumbLd = JSON.stringify(breadcrumbListLd([
+ { name: homeLabel[locale], url: `${BASE_URL}${locale === 'it' ? '/' : `/${locale}/`}` },
+ { name: sectionLabel, url: sectionRootUrl },
+ { name: pageHeading, url: canonicalUrl },
+ ]));
  const collectionLd = JSON.stringify({
  '@context': 'https://schema.org',
  '@type': 'CollectionPage',
@@ -6502,16 +6466,12 @@ ${alternates}
  const companyHubPath = `${localePrefix[locale]}/${sectionSlug}/${prefix}-${cSlug}`.replace(/\/+/g, '/');
  const companyHubUrl = `${BASE_URL}${withSlash(companyHubPath)}`;
  const sectionLabel = locale === 'it' ? `Cerca lavoro in ${cDisplay}` : locale === 'en' ? `Find jobs in ${cDisplay}` : locale === 'de' ? `Stellen ${cDisplay}` : `Trouver un emploi à ${cDisplay}`;
- const breadcrumbLd = JSON.stringify({
- '@context': 'https://schema.org',
- '@type': 'BreadcrumbList',
- itemListElement: [
- { '@type': 'ListItem', position: 1, name: homeLabel[locale], item: `${BASE_URL}${locale === 'it' ? '/' : `/${locale}/`}` },
- { '@type': 'ListItem', position: 2, name: sectionLabel, item: sectionRootUrl },
- { '@type': 'ListItem', position: 3, name: companyName, item: companyHubUrl },
- { '@type': 'ListItem', position: 4, name: cityDisplay, item: canonicalUrl },
- ],
- });
+ const breadcrumbLd = JSON.stringify(breadcrumbListLd([
+ { name: homeLabel[locale], url: `${BASE_URL}${locale === 'it' ? '/' : `/${locale}/`}` },
+ { name: sectionLabel, url: sectionRootUrl },
+ { name: companyName, url: companyHubUrl },
+ { name: cityDisplay, url: canonicalUrl },
+ ]));
  const collectionLd = JSON.stringify({
  '@context': 'https://schema.org',
  '@type': 'CollectionPage',
@@ -6717,15 +6677,11 @@ ${alternates}
  }));
  // BreadcrumbList JSON-LD — required by tests/seo/breadcrumb-coverage.test.ts
  // (D.2 — every non-exempt dist/ HTML page must include a BreadcrumbList).
- const kwBreadcrumbLd = JSON.stringify({
- '@context': 'https://schema.org',
- '@type': 'BreadcrumbList',
- itemListElement: [
- { '@type': 'ListItem', position: 1, name: homeLabel[locale], item: `${BASE_URL}${locale === 'it' ? '/' : `/${locale}/`}` },
- { '@type': 'ListItem', position: 2, name: localeCopy[locale].sectionName, item: kwSectionUrl },
- { '@type': 'ListItem', position: 3, name: kwTitle, item: kwCanonicalUrl },
- ],
- });
+ const kwBreadcrumbLd = JSON.stringify(breadcrumbListLd([
+ { name: homeLabel[locale], url: `${BASE_URL}${locale === 'it' ? '/' : `/${locale}/`}` },
+ { name: localeCopy[locale].sectionName, url: kwSectionUrl },
+ { name: kwTitle, url: kwCanonicalUrl },
+ ]));
  // buildSeoPageHtml (hydration-safe shell). See city-hub fix at line ~5420.
  const kwHtml = buildSeoPageHtml({
  locale,
@@ -6874,15 +6830,11 @@ ${alternates}
  const _sHomeUrl = `${BASE_URL}${locale === 'it' ? '/' : `/${locale}/`}`;
  const _sListUrl = `${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionByLocale[locale]}`.replace(/\/+/g, '/'))}`;
  const _sListName = locale === 'it' ? 'Lavoro in Ticino' : locale === 'en' ? 'Jobs in Ticino' : locale === 'de' ? 'Jobs im Tessin' : 'Emploi au Tessin';
- const searchBreadcrumbLd = JSON.stringify({
- '@context': 'https://schema.org',
- '@type': 'BreadcrumbList',
- itemListElement: [
- { '@type': 'ListItem', position: 1, name: homeLabel[locale], item: _sHomeUrl },
- { '@type': 'ListItem', position: 2, name: _sListName, item: _sListUrl },
- { '@type': 'ListItem', position: 3, name: copy.heading(name), item: canonicalUrl },
- ],
- });
+ const searchBreadcrumbLd = JSON.stringify(breadcrumbListLd([
+ { name: homeLabel[locale], url: _sHomeUrl },
+ { name: _sListName, url: _sListUrl },
+ { name: copy.heading(name), url: canonicalUrl },
+ ]));
  // Cannibalization fix: search-hub slug may be remapped to a winner URL
  // (e.g. `search-lugano-eoc-...` → company hub). Page still emitted at its
  // own path so backlinks resolve.
@@ -7033,15 +6985,11 @@ ${alternates}
  const _cHomeUrl = `${BASE_URL}${locale === 'it' ? '/' : `/${locale}/`}`;
  const _cListUrl = `${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionByLocale[locale]}`.replace(/\/+/g, '/'))}`;
  const _cListName = locale === 'it' ? 'Lavoro in Ticino' : locale === 'en' ? 'Jobs in Ticino' : locale === 'de' ? 'Jobs im Tessin' : 'Emploi au Tessin';
- const comboBreadcrumbLd = JSON.stringify({
- '@context': 'https://schema.org',
- '@type': 'BreadcrumbList',
- itemListElement: [
- { '@type': 'ListItem', position: 1, name: homeLabel[locale], item: _cHomeUrl },
- { '@type': 'ListItem', position: 2, name: _cListName, item: _cListUrl },
- { '@type': 'ListItem', position: 3, name: copy.heading, item: canonicalUrl },
- ],
- });
+ const comboBreadcrumbLd = JSON.stringify(breadcrumbListLd([
+ { name: homeLabel[locale], url: _cHomeUrl },
+ { name: _cListName, url: _cListUrl },
+ { name: copy.heading, url: canonicalUrl },
+ ]));
  // buildSeoPageHtml (hydration-safe shell). See city-hub fix at line ~5420.
  const comboHtml = buildSeoPageHtml({
  locale,
