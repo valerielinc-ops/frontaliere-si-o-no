@@ -74,6 +74,7 @@ import {
 } from './borderWaitHydrationScript';
 import { borderCrossings, type BorderCrossing, type WebcamRef } from '../data/borderCrossings';
 import { cleanNamespaces, cleanSitemapFiles } from './shared/distNamespaceCleanup';
+import { breadcrumbListLd, faqPageLd } from '../services/seo/structuredData';
 import { adSlotHtml } from './lib/adSlotHtml';
 import { imageObjectLdDocument } from '../services/seo/imageObjectLd';
 import {
@@ -1505,31 +1506,16 @@ function renderLeafPage(inp: LeafInputs): string {
   const alternatesHtml = renderHreflangTags(alternates);
 
   // JSON-LD
-  const breadcrumbLd = JSON.stringify({
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      { '@type': 'ListItem', position: 1, name: copy.breadcrumbHome, item: `${BASE_URL}/` },
-      {
-        '@type': 'ListItem',
-        position: 2,
-        name: regionDisplay,
-        item: `${BASE_URL}${buildRegionalHubPath(locale, region)}`,
-      },
-      { '@type': 'ListItem', position: 3, name: crossingDisplay, item: canonicalUrl },
-    ],
-  });
+  const breadcrumbLd = JSON.stringify(breadcrumbListLd([
+    { name: copy.breadcrumbHome, url: `${BASE_URL}/` },
+    { name: regionDisplay, url: `${BASE_URL}${buildRegionalHubPath(locale, region)}` },
+    { name: crossingDisplay, url: canonicalUrl },
+  ]));
 
-  const faqLd = JSON.stringify({
-    '@context': 'https://schema.org',
-    '@type': 'FAQPage',
-    inLanguage: locale,
-    mainEntity: faqItems.map((f) => ({
-      '@type': 'Question',
-      name: f.q(crossingDisplay),
-      acceptedAnswer: { '@type': 'Answer', text: f.a(crossingDisplay) },
-    })),
-  });
+  const faqLd = JSON.stringify(faqPageLd(faqItems.map((f) => ({
+    question: f.q(crossingDisplay),
+    answer: f.a(crossingDisplay),
+  }))));
 
   const webPageLd = JSON.stringify({
     '@context': 'https://schema.org',
