@@ -96,6 +96,7 @@ export const CRAWLED_COMPANY_LOGOS: Record<string, string> = {
  'delvitech-sa': 'https://legacy.delvi.tech/wp-content/uploads/2022/03/cropped-Delvi.tech_favicon.jpg',
  'dxt-commodities': 'https://dxt.com/wp-content/uploads/2025/04/logo-DXT.png',
  'efg-international': '/images/logos/efg-international.svg',
+ 'entero': cLogo('entero.ch'),
  'eoc-ente-ospedaliero-cantonale': gFavicon('eoc.ch'),
  'epfl': cLogo('epfl.ch'),
  'ergolz-klinik': cLogo('cardiance.com'),
