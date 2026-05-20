@@ -23,15 +23,16 @@ const ALLOWLIST = [
   'build-plugins/shared/cantonSection.ts',
 
   // ── jobsSeoPagesPlugin: sectionByLocale legacy preservation (TI default) ──
-  // Lines shifted +1 by the shared jobDescription parser import added at the
-  // top of the file (May 2026 — fix for literal `**` markdown leak).
-  // Prior shifts: +1 from renderJobCardHtml import for canton-index card
-  // swap (2026-05-18), +3 from BFS-depth Explore navigator + Phase 8(g).
-  'build-plugins/jobsSeoPagesPlugin.ts:786',
+  // Lines shifted +1 by the minifyHtml import added at the top of the file
+  // (May 2026 — apply minifier to soft-landing emit path).
+  // Prior shifts: +1 from shared jobDescription parser import,
+  // +1 from renderJobCardHtml import (2026-05-18), +3 from BFS-depth Explore
+  // navigator + Phase 8(g).
   'build-plugins/jobsSeoPagesPlugin.ts:787',
   'build-plugins/jobsSeoPagesPlugin.ts:788',
   'build-plugins/jobsSeoPagesPlugin.ts:789',
-  'build-plugins/jobsSeoPagesPlugin.ts:794',          // jsdoc reference to the legacy slugs
+  'build-plugins/jobsSeoPagesPlugin.ts:790',
+  'build-plugins/jobsSeoPagesPlugin.ts:795',          // jsdoc reference to the legacy slugs
   // (`:7853` removed 2026-05-18 — the breadcrumb-bugfix comment no longer
   // quotes "cerca-lavoro-ticino" directly; rephrased to "TI legacy
   // job-board section name" so the literal-grep stops matching.)

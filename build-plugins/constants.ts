@@ -9,9 +9,21 @@
  */
 
 import { execSync } from 'child_process';
+import crypto from 'node:crypto';
 import { BOT_UA_PATTERNS } from '../services/botPatterns';
 
 export const BUILD_ID = String(Date.now());
+
+/**
+ * Short content hash (8 chars, base64url) used to derive cache-busting
+ * filenames for the externalised boot scripts (early-boot, gtag-init,
+ * adsense-loader, posthog-init). Replaces the `?v=${BUILD_ID}` query-string
+ * cachebuster previously appended to every `<script src>` tag — saves the
+ * 14-byte query repeated across ~822k static pages (~62 MB dist).
+ */
+function shortContentHash(content: string): string {
+  return crypto.createHash('sha256').update(content).digest('base64url').slice(0, 8);
+}
 
 /**
  * Generate a lightweight canonical bridge page for alias URLs.
@@ -41,7 +53,6 @@ export const BUILD_ID = String(Date.now());
  * Externalising this snippet saves ~150 B/page across ~200k SEO pages (~30 MB dist).
  */
 export const SPA_ACTION_REDIRECT_SCRIPT_CONTENT = `(function(){var p=new URLSearchParams(location.search);if(p.get('action')||p.get('at')||p.get('authToken')||p.get('newsletter_autologin')){sessionStorage.redirect=location.href;location.replace('/');}})();`;
-export const SPA_ACTION_REDIRECT_SCRIPT = `<script src="/assets/spa-action-redirect.js?v=${BUILD_ID}"></script>`;
 
 /**
  * Plain JS body for the dark-mode init — written to dist/assets/dark-mode-init.js
@@ -53,7 +64,33 @@ export const SPA_ACTION_REDIRECT_SCRIPT = `<script src="/assets/spa-action-redir
  * styles in seo-static.css apply on first render.
  */
 export const DARK_MODE_INIT_CONTENT = `(function(){if(localStorage.theme==='dark'||((!('theme' in localStorage))&&window.matchMedia('(prefers-color-scheme: dark)').matches)){document.documentElement.classList.add('dark')}})();`;
-export const DARK_MODE_SCRIPT = `<script src="/assets/dark-mode-init.js?v=${BUILD_ID}"></script>`;
+
+/**
+ * Combined early-boot script — concatenates dark-mode-init (which MUST run
+ * before paint to apply the `dark` class) and spa-action-redirect (which is
+ * cheap to run synchronously). Replaces TWO separate `<script src>` tags
+ * per static page (~140 B each) with ONE tag pointing at
+ * `/assets/early-boot-{hash}.js`. Across ~822k SEO static pages this drops
+ * ~80 B/page = ~65 MB dist.
+ *
+ * Order of concatenation matters: dark-mode FIRST (must paint with the
+ * correct theme), then spa-action-redirect (sets sessionStorage and may
+ * `location.replace('/')` away — running it after dark-mode keeps the
+ * theme decision committed for the next page).
+ */
+export const EARLY_BOOT_CONTENT = `${DARK_MODE_INIT_CONTENT}${SPA_ACTION_REDIRECT_SCRIPT_CONTENT}`;
+export const EARLY_BOOT_FILENAME = `early-boot-${shortContentHash(EARLY_BOOT_CONTENT)}.js`;
+export const EARLY_BOOT_SCRIPT = `<script src="/assets/${EARLY_BOOT_FILENAME}"></script>`;
+
+/**
+ * Back-compat shims for callers that still reference the legacy split-script
+ * constants by name (e.g., constants.ts itself in the canonical-bridge / flat
+ * redirect helpers). These now point at the merged EARLY_BOOT_SCRIPT — the
+ * spa-action-redirect behaviour is included, dark-mode is harmless on bridge
+ * pages, and the browser-cached early-boot.js is shared across all surfaces.
+ */
+export const SPA_ACTION_REDIRECT_SCRIPT = EARLY_BOOT_SCRIPT;
+export const DARK_MODE_SCRIPT = EARLY_BOOT_SCRIPT;
 
 export function buildCanonicalBridgePage(options: {
  canonicalUrl: string;
@@ -213,8 +250,9 @@ export const GA4_MEASUREMENT_ID = 'G-LGJ9LE360F';
  * external + async). Saves ~260 B/page across ~200k SEO pages (~52 MB dist).
  */
 export const GTAG_INIT_CONTENT = `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','${GA4_MEASUREMENT_ID}',{transport_type:'beacon'});`;
+export const GTAG_INIT_FILENAME = `gtag-init-${shortContentHash(GTAG_INIT_CONTENT)}.js`;
 export const GTAG_SNIPPET = `<script async crossorigin="anonymous" src="https://www.googletagmanager.com/gtag/js?id=${GA4_MEASUREMENT_ID}"></script>
- <script src="/assets/gtag-init.js?v=${BUILD_ID}"></script>`;
+ <script src="/assets/${GTAG_INIT_FILENAME}"></script>`;
 
 /**
  * PostHog EU Cloud init snippet for standalone static pages that don't load the
@@ -237,7 +275,8 @@ export const POSTHOG_HOST = 'https://t.frontaliereticino.ch';
  * After externalising, per-page cost drops from ~1.2 KB → ~80 B (the <script src> tag).
  */
 export const POSTHOG_INIT_CONTENT = `!function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="init capture register register_once register_for_session unregister unregister_for_session getFeatureFlag getFeatureFlagPayload isFeatureEnabled reloadFeatureFlags identify setPersonProperties group resetGroups reset opt_in_capturing opt_out_capturing".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);posthog.init('${POSTHOG_KEY}',{api_host:'${POSTHOG_HOST}',capture_pageview:true,capture_pageleave:true,autocapture:false,persistence:'localStorage'});`;
-export const POSTHOG_SNIPPET = `<script src="/assets/posthog-init.js?v=${BUILD_ID}"></script>`;
+export const POSTHOG_INIT_FILENAME = `posthog-init-${shortContentHash(POSTHOG_INIT_CONTENT)}.js`;
+export const POSTHOG_SNIPPET = `<script src="/assets/${POSTHOG_INIT_FILENAME}"></script>`;
 
 /**
  * Google AdSense loader snippet. Included in every statically-generated page
@@ -286,7 +325,8 @@ const BOT_PATTERNS_LITERAL = JSON.stringify(BOT_UA_PATTERNS);
  * from ~2200 B to ~90 B (the <script src=...> tag).
  */
 export const ADSENSE_LOADER_CONTENT = `(function(){var ua=(navigator.userAgent||'').toLowerCase();if(!ua||navigator.webdriver===true)return;var P=${BOT_PATTERNS_LITERAL};for(var k=0;k<P.length;k++)if(ua.indexOf(P[k])>=0)return;if(ua.indexOf('chrome')>=0&&!('chrome' in window))return;if(ua.indexOf('chrome')>=0&&ua.indexOf('mobile')<0){var L=navigator.languages;if(L&&L.length===0)return;if(navigator.plugins&&navigator.plugins.length===0)return;if(typeof navigator.permissions==='undefined')return;}var loaded=false;function loadScript(){if(loaded)return;loaded=true;var s=document.createElement('script');s.async=true;s.crossOrigin='anonymous';s.src='${ADSENSE_SCRIPT_SRC}';s.setAttribute('data-overlays','bottom');s.setAttribute('data-ad-frequency-hint','120s');s.onload=function(){var slots=document.querySelectorAll('ins.adsbygoogle:not([data-adsbygoogle-status])');for(var i=0;i<slots.length;i++){try{(window.adsbygoogle=window.adsbygoogle||[]).push({});}catch(e){}}};document.head.appendChild(s);}function observe(){var slots=document.querySelectorAll('ins.adsbygoogle');if(!('IntersectionObserver' in window)||slots.length===0){(window.requestIdleCallback||function(cb){return setTimeout(cb,2000);})(loadScript,{timeout:4000});return;}var io=new IntersectionObserver(function(entries){for(var i=0;i<entries.length;i++){if(entries[i].isIntersecting){io.disconnect();loadScript();return;}}},{rootMargin:'200px 0px'});for(var j=0;j<slots.length;j++)io.observe(slots[j]);(window.requestIdleCallback||function(cb){return setTimeout(cb,3000);})(loadScript,{timeout:6000});}if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',observe,{once:true});}else{observe();}})();`;
-export const ADSENSE_LAZY_LOADER = `<script defer src="/assets/adsense-loader.js?v=${BUILD_ID}"></script>`;
+export const ADSENSE_LOADER_FILENAME = `adsense-loader-${shortContentHash(ADSENSE_LOADER_CONTENT)}.js`;
+export const ADSENSE_LAZY_LOADER = `<script defer src="/assets/${ADSENSE_LOADER_FILENAME}"></script>`;
 
 export const ADSENSE_SNIPPET = `<meta name="google-adsense-account" content="${ADSENSE_CLIENT_ID}">
  <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin>
