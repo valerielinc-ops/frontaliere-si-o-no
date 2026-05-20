@@ -6697,8 +6697,23 @@
       "id": "frontalieri-assemblea-generale-2023",
       "error": "Unterminated string in JSON at position 1943 (line 16 column 350)",
       "at": "2026-05-19T04:41:53.479Z"
+    },
+    {
+      "id": "berna-skopje-scambi-economici-2026",
+      "error": "Unterminated string in JSON at position 256 (line 4 column 123)",
+      "at": "2026-05-20T04:46:16.099Z"
+    },
+    {
+      "id": "fiaccola-sacconago-speranza-amicizia",
+      "error": "Unterminated string in JSON at position 203 (line 4 column 126)",
+      "at": "2026-05-20T04:46:35.603Z"
+    },
+    {
+      "id": "frontalieri-assemblea-generale-2023",
+      "error": "Expected ',' or '}' after property value in JSON at position 1441 (line 12 column 371)",
+      "at": "2026-05-20T04:46:54.561Z"
     }
   ],
   "startedAt": "2026-04-07T14:09:54.940Z",
-  "updatedAt": "2026-05-19T04:41:53.479Z"
+  "updatedAt": "2026-05-20T04:46:54.561Z"
 }
