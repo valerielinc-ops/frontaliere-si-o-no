@@ -168,6 +168,7 @@ export const CRAWLED_COMPANY_LOGOS: Record<string, string> = {
  'swisscom-sede-ticino': gFavicon('swisscom.ch'),
  'swiss-medical-network': cLogo('swissmedical.net'),
  'the-living-circle': 'https://www.thelivingcircle.ch/favicon-tlc.ico',
+ 'thurklinik': cLogo('thurklinik.ch'),
  'tsmg': cLogo('tsmg.co'),
  'unispital-basel': cLogo('unispital-basel.ch'),
  'usi-universita-della-svizzera-italiana': gFavicon('usi.ch'),
