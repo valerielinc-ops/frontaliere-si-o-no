@@ -49,6 +49,7 @@ import { normalizeDescriptionBullets, cleanCrawlerArtifacts } from './lib/crawle
 import { computeCrawlerQualityAggregate, computeJobQualityScore, buildStableId, cleanPreviousSlugsPerLocale, isLocationExplicitlyForeign } from './lib/dedicated-crawler-common.mjs';
 import { inferAnyCanton, isKnownSwissCity, isCantonOnlyLabel, findSwissCityInText } from './lib/target-swiss-locations.mjs';
 import { filterFixtureJobs } from './lib/fixture-data-filter.mjs';
+import { enrichJobForSeo } from './lib/job-enrichment.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -1592,6 +1593,32 @@ export async function assembleJobsDataset({ withStats = false } = {}) {
         writeJson(PUBLIC_JOBS, assembled);
         console.log(`  📮 PostalCode enrichment: filled ${postalFilled}/${assembled.length} jobs`);
       }
+    }
+
+    // --- SEO field enrichment (rule #3): derive hiringOrganization / datePosted /
+    //     jobLocation / streetAddress from flat crawler fields. Runs AFTER the
+    //     postalCode enrichment above so jobLocation can pick up filled postal
+    //     codes, and BEFORE JobSchema validation (Commit B of this task).
+    //     Each helper returns a NEW object — mutate via reassignment, not in place.
+    let seoEnrichedCount = 0;
+    for (let i = 0; i < assembled.length; i++) {
+      const before = assembled[i];
+      const after = enrichJobForSeo(before);
+      // count only when at least one of the four target fields actually changed
+      if (
+        before.hiringOrganization !== after.hiringOrganization ||
+        before.datePosted !== after.datePosted ||
+        before.jobLocation !== after.jobLocation ||
+        before.streetAddress !== after.streetAddress
+      ) {
+        seoEnrichedCount++;
+        assembled[i] = after;
+      }
+    }
+    if (seoEnrichedCount > 0) {
+      writeJson(DATA_JOBS, assembled);
+      writeJson(PUBLIC_JOBS, assembled);
+      console.log(`  🎯 SEO field enrichment: filled fields on ${seoEnrichedCount}/${assembled.length} jobs`);
     }
 
     // --- Quality score enrichment (persisted for frontend sorting) ---
