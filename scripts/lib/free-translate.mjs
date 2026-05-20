@@ -830,6 +830,55 @@ function delay(ms) {
  * @param {string} options.targetLang - Target language (it/en/de/fr)
  * @returns {Promise<string>} Translated text or ''
  */
+/**
+ * Post-process a translator output to make sure `**bold**` markdown markers
+ * stay balanced. AI translators frequently re-flow paragraphs in a way that
+ * leaves orphan `**` (count parity broken) or empty `**…**` runs containing
+ * only whitespace/punctuation. Those artifacts then leak into the rendered
+ * job page as literal `**…**` strings, which is the bug we patched at the
+ * SSG+SPA parser layer in PR #426. This is the upstream root-cause guard:
+ * any translation result with odd `**` count gets its `**` stripped before
+ * we commit it to `descriptionByLocale`.
+ *
+ * Exported so the same balancer can be reused outside the cascade (tests,
+ * upstream sanitizers, retroactive cleanup scripts).
+ *
+ * @param {string} s
+ * @returns {string}
+ */
+export function balanceMarkdownMarkers(s) {
+  if (typeof s !== 'string' || !s) return s;
+  let out = s;
+  // 1. Drop empty / whitespace-only / punctuation-only bolds (e.g. `** **`,
+  //    `**  **`, `** : **`, `** - **`).
+  out = out.replace(/\*\*\s*[\s:;,.\-–—]*\s*\*\*/g, ' ');
+  // 2. If `**` count is odd, the output is unrecoverable as bold structure —
+  //    strip every `**` so the renderer sees plain text instead of a half-
+  //    bold span.
+  const count = (out.match(/\*\*/g) || []).length;
+  if (count % 2 !== 0) {
+    out = out.replace(/\*\*/g, '');
+  }
+  // 3. Strip standalone separator-only lines (`______`, `======`) that some
+  //    translators emit as decoration.
+  out = out
+    .split('\n')
+    .filter((line) => !/^[\s_\-=*•·~]{3,}$/.test(line))
+    .join('\n');
+  // 4. Strip trailing inline separator runs that often hug a line end.
+  out = out
+    .split('\n')
+    .map((line) => line.replace(/\s+[_\-=~*]{3,}\s*$/g, '').trimEnd())
+    .join('\n');
+  // 5. Collapse 3+ consecutive newlines that step 3 may have created when
+  //    a separator line sat between two paragraph breaks (\n\nSEP\n\n →
+  //    \n\n\n after filter).
+  out = out.replace(/\n{3,}/g, '\n\n');
+  // 6. Collapse the consecutive double-spaces that step 1 may have left.
+  out = out.replace(/[ \t]{2,}/g, ' ');
+  return out.trim();
+}
+
 export async function freeTranslate({ text, sourceLang, targetLang }) {
   const clean = normalizeSpace(text);
   if (!clean) return '';
@@ -857,15 +906,15 @@ export async function freeTranslate({ text, sourceLang, targetLang }) {
 
   // Tier 1: DeepL Free API (best quality, if API key set)
   const t1 = await tryTier('deepl', () => translateWithDeepL(clean, sourceLang, targetLang));
-  if (t1) return t1;
+  if (t1) return balanceMarkdownMarkers(t1);
 
   // Tier 2: Azure Translator (F0 Free — 2M chars/month, near-DeepL quality)
   const t1b = await tryTier('azure', () => translateWithAzure(clean, sourceLang, targetLang));
-  if (t1b) return t1b;
+  if (t1b) return balanceMarkdownMarkers(t1b);
 
   // Tier 3: Google Cloud Translation (official API, 500K free/month, hard-capped 16K/day)
   const t2c = await tryTier('googleCloud', () => translateWithGoogleCloud(clean, sourceLang, targetLang));
-  if (t2c) return t2c;
+  if (t2c) return balanceMarkdownMarkers(t2c);
 
   // Tier 4: MyMemory (best EU language quality, 50K chars/day with email param)
   // Short text (≤5000 chars): single call. Long text: chunk at sentence boundaries.
@@ -891,45 +940,45 @@ export async function freeTranslate({ text, sourceLang, targetLang }) {
     if (joined && joined.toLowerCase() !== clean.toLowerCase()) return joined;
     return '';
   });
-  if (t2) return t2;
+  if (t2) return balanceMarkdownMarkers(t2);
 
   // Tier 4a: LibreTranslate self-hosted (CI service container — unlimited, no rate limits)
   const t3b = await tryTier('libreTranslateSelfHosted', () => translateWithLibreTranslateSelfHosted(clean, sourceLang, targetLang));
-  if (t3b) return t3b;
+  if (t3b) return balanceMarkdownMarkers(t3b);
 
   // Tier 4b: LibreTranslate public instances (raced in parallel — reliable from CI)
   const t4 = await tryTier('libreTranslate', () => translateWithLibreTranslate(clean, sourceLang, targetLang));
-  if (t4) return t4;
+  if (t4) return balanceMarkdownMarkers(t4);
 
   // Tier 5: Hugging Face OPUS-MT (Helsinki-NLP open-source, good for short text)
   const t5 = await tryTier('huggingFace', () => translateWithHuggingFace(clean, sourceLang, targetLang));
-  if (t5) return t5;
+  if (t5) return balanceMarkdownMarkers(t5);
 
   // Tier 6: Mozhi+DuckDuckGo (Bing via Mozhi proxy — works sometimes from CI)
   const t6b = await tryTier('mozhiDdg', () => translateWithMozhiEngine(clean, sourceLang, targetLang, 'duckduckgo'));
-  if (t6b) return t6b;
+  if (t6b) return balanceMarkdownMarkers(t6b);
 
   // ── LOCAL/DEV TIERS (blocked from GitHub Actions IPs, work locally) ───────
 
   // Tier 6: Lingva (Google Translate proxy — works locally, blocked in CI)
   const t6 = await tryTier('lingva', () => translateWithLingva(clean, sourceLang, targetLang));
-  if (t6) return t6;
+  if (t6) return balanceMarkdownMarkers(t6);
 
   // Tier 7: Mozhi+Google (Google via Mozhi — works locally, blocked in CI)
   const t7 = await tryTier('mozhiGoogle', () => translateWithMozhiEngine(clean, sourceLang, targetLang, 'google'));
-  if (t7) return t7;
+  if (t7) return balanceMarkdownMarkers(t7);
 
   // Tier 8: Google Translate (unofficial direct endpoint — often blocked)
   const t8 = await tryTier('google', () => translateWithGoogle(clean, sourceLang, targetLang));
-  if (t8) return t8;
+  if (t8) return balanceMarkdownMarkers(t8);
 
   // Tier 9: Mozhi+DeepL (DeepL engine returns empty via proxy — broken since 2026-03)
   const t9 = await tryTier('mozhiDeepL', () => translateWithMozhiEngine(clean, sourceLang, targetLang, 'deepl'));
-  if (t9) return t9;
+  if (t9) return balanceMarkdownMarkers(t9);
 
   // Tier 10: Mozhi+Yandex (slow last resort)
   const t10 = await tryTier('mozhiYandex', () => translateWithMozhiEngine(clean, sourceLang, targetLang, 'yandex'));
-  if (t10) return t10;
+  if (t10) return balanceMarkdownMarkers(t10);
 
   _cascadeStats.failures++;
   return '';
