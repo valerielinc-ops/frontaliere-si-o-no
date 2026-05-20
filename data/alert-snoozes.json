@@ -1,10 +1,15 @@
 {
   "version": 1,
   "snoozes": {
+    "A.1.cluster-monoculture": {
+      "consecutiveDays": 1,
+      "lastSeen": "2026-05-20",
+      "snoozedUntil": null
+    },
     "B.5.cluster-stats-degenerate": {
-      "consecutiveDays": 11,
-      "lastSeen": "2026-05-19",
-      "snoozedUntil": "2026-05-26"
+      "consecutiveDays": 12,
+      "lastSeen": "2026-05-20",
+      "snoozedUntil": "2026-05-27"
     }
   }
 }
