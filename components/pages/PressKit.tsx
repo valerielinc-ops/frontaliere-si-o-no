@@ -132,7 +132,7 @@ const PressKit: React.FC = () => {
         </h2>
         <ul className="space-y-4">
           {QUOTES.map((quote) => (
-            <li key={quote.slice(0, 24)} className="rounded-2xl border-l-4 border-accent bg-surface-alt p-5">
+            <li key={quote.slice(0, 24)} className="rounded-2xl border border-edge bg-surface-alt p-5">
               <p className="text-base italic text-body leading-relaxed">&ldquo;{quote}&rdquo;</p>
               <p className="mt-3 text-xs font-semibold uppercase tracking-wide text-muted">
                 — Redazione Frontaliere Ticino
