@@ -15,6 +15,7 @@ import { resolveStaticPagesFlushed } from './shared/buildSignals';
 import { buildArticleSeoSections, cleanupArticleBodySections } from './articleSeoFallback';
 import { SECTION_EDITORIAL, SECTION_EDITORIAL_KEYS } from './editorialContent';
 import { normalizeStructuredData } from '../services/seo/schema-normalizers';
+import { breadcrumbListLd } from '../services/seo/structuredData';
 import { translateSchema, type SupportedLocale } from '../services/seo/schema-translators';
 import { renderHubChromeSplit, type HubKey, type HubLocale } from './shared/hubChrome';
 import {
@@ -2411,13 +2412,7 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  const readableName = BREADCRUMB_NAMES[seg] || LOCALE_SECTION_TITLES[locale]?.[seg] || seg.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
  breadcrumbs.push({ name: readableName, url: BASE_URL + withTrailingSlash(accumPath) });
  }
- const breadcrumbJsonLd = JSON.stringify({
- '@context': 'https://schema.org',
- '@type': 'BreadcrumbList',
- itemListElement: breadcrumbs.map((b, i) => ({
- '@type': 'ListItem', position: i + 1, name: b.name, item: b.url
- }))
- });
+ const breadcrumbJsonLd = JSON.stringify(breadcrumbListLd(breadcrumbs.map(b => ({ name: b.name, url: b.url }))));
 
  // Navigation links for crawlers (top-level sections + contextual)
  const navLinks = NAV_LABELS[locale] ?? NAV_LABELS['it'];
