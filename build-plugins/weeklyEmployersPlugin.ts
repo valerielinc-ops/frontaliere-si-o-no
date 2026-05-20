@@ -100,6 +100,7 @@ import { renderJobBoardCommuterContext } from './shared/jobBoardCommuterContext'
 import { resolveCantonSection as sharedResolveCantonSection } from './shared/cantonSection';
 import { getCityCanton } from './shared/cantonCities';
 import { EMPLOYER_BRANDS } from '../services/employerBrands';
+import { breadcrumbListLd, faqPageLd } from '../services/seo/structuredData';
 import { CRAWLED_COMPANY_LOGOS, resolveCompanyLogoUrl } from '../services/jobDataNormalization';
 import { renderJobCardHtml, type JobCardJob } from './shared/jobCardHtml';
 // Note: resolveFallbackAddress / deriveCantonFromCity are now used indirectly
@@ -2325,15 +2326,7 @@ export function renderTopHubPage(inp: TopHubPageInputs): string {
     { q: copy.faqDeltaQ, a: copy.faqDeltaA },
     { q: copy.faqApplyQ, a: copy.faqApplyA },
   ];
-  const faqLd = JSON.stringify({
-    '@context': 'https://schema.org',
-    '@type': 'FAQPage',
-    mainEntity: faqEntries.map((qa) => ({
-      '@type': 'Question',
-      name: qa.q,
-      acceptedAnswer: { '@type': 'Answer', text: qa.a },
-    })),
-  });
+  const faqLd = JSON.stringify(faqPageLd(faqEntries.map((qa) => ({ question: qa.q, answer: qa.a }))));
   const faqHtml = faqEntries
     .map(
       (qa) => `    <details style="margin:0 0 12px;padding:14px 16px;border:1px solid var(--color-edge);border-radius:14px;background:var(--color-surface)">
@@ -2343,14 +2336,10 @@ export function renderTopHubPage(inp: TopHubPageInputs): string {
     )
     .join('\n');
 
-  const breadcrumbLd = JSON.stringify({
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      { '@type': 'ListItem', position: 1, name: copy.breadcrumbHome, item: `${BASE_URL}/` },
-      { '@type': 'ListItem', position: 2, name: t.topHubTitle, item: canonicalUrl },
-    ],
-  });
+  const breadcrumbLd = JSON.stringify(breadcrumbListLd([
+    { name: copy.breadcrumbHome, url: `${BASE_URL}/` },
+    { name: t.topHubTitle, url: canonicalUrl },
+  ]));
   const itemListLd = JSON.stringify({
     '@context': 'https://schema.org',
     '@type': 'ItemList',
@@ -2826,23 +2815,17 @@ export function renderWeeklyEmployersPage(inp: WeeklyEmployersPageInputs): strin
     .join('')}</ul>`;
 
   // JSON-LD
-  const breadcrumbLd = JSON.stringify({
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      { '@type': 'ListItem', position: 1, name: copy.breadcrumbHome, item: `${BASE_URL}/` },
-      {
-        '@type': 'ListItem',
-        position: 2,
-        name: copy.sectionLabel,
-        item: `${BASE_URL}${WEEKLY_EMPLOYERS_LOCALE_PREFIX[locale]}/${WEEKLY_EMPLOYERS_SECTION[locale]}/ticino/${WEEKLY_EMPLOYERS_CURRENT_SLUG[locale]}/`.replace(
-          /([^:])\/+/g,
-          '$1/',
-        ),
-      },
-      { '@type': 'ListItem', position: 3, name: cityDisplay, item: canonicalUrl },
-    ],
-  });
+  const breadcrumbLd = JSON.stringify(breadcrumbListLd([
+    { name: copy.breadcrumbHome, url: `${BASE_URL}/` },
+    {
+      name: copy.sectionLabel,
+      url: `${BASE_URL}${WEEKLY_EMPLOYERS_LOCALE_PREFIX[locale]}/${WEEKLY_EMPLOYERS_SECTION[locale]}/ticino/${WEEKLY_EMPLOYERS_CURRENT_SLUG[locale]}/`.replace(
+        /([^:])\/+/g,
+        '$1/',
+      ),
+    },
+    { name: cityDisplay, url: canonicalUrl },
+  ]));
 
   const itemListLd = JSON.stringify({
     '@context': 'https://schema.org',
@@ -2873,16 +2856,11 @@ export function renderWeeklyEmployersPage(inp: WeeklyEmployersPageInputs): strin
     datePublished: today.toISOString(),
   });
 
-  const faqLd = JSON.stringify({
-    '@context': 'https://schema.org',
-    '@type': 'FAQPage',
-    inLanguage: locale,
-    mainEntity: [
-      { '@type': 'Question', name: copy.faqHowOftenQ, acceptedAnswer: { '@type': 'Answer', text: copy.faqHowOftenA } },
-      { '@type': 'Question', name: copy.faqDeltaQ, acceptedAnswer: { '@type': 'Answer', text: copy.faqDeltaA } },
-      { '@type': 'Question', name: copy.faqApplyQ, acceptedAnswer: { '@type': 'Answer', text: copy.faqApplyA } },
-    ],
-  });
+  const faqLd = JSON.stringify(faqPageLd([
+    { question: copy.faqHowOftenQ, answer: copy.faqHowOftenA },
+    { question: copy.faqDeltaQ, answer: copy.faqDeltaA },
+    { question: copy.faqApplyQ, answer: copy.faqApplyA },
+  ]));
 
   const robots = indexable ? 'index,follow' : 'noindex,follow';
   // Phase 3A — Semrush W2 (≤60 char). Build a compact keyword-first title
