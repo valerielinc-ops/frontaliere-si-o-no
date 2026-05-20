@@ -559,90 +559,6 @@
     ]
   },
   {
-    "slug": "tutti",
-    "locale": "it",
-    "path": "/cerca-lavoro-ticino/tutti/",
-    "queries": [
-      {
-        "query": "frontalieri",
-        "clicks": 0,
-        "impressions": 5
-      },
-      {
-        "query": "offerte di lavoro per frontalieri svizzera",
-        "clicks": 0,
-        "impressions": 4
-      },
-      {
-        "query": "offerte lavoro frontaliere svizzera",
-        "clicks": 0,
-        "impressions": 2
-      },
-      {
-        "query": "fontaniere",
-        "clicks": 0,
-        "impressions": 1
-      },
-      {
-        "query": "lavorare in svizzera come frontaliere",
-        "clicks": 0,
-        "impressions": 1
-      },
-      {
-        "query": "lavoro svizzera frontalieri",
-        "clicks": 0,
-        "impressions": 1
-      },
-      {
-        "query": "offerte di lavoro canton ticino per frontalieri",
-        "clicks": 0,
-        "impressions": 1
-      }
-    ],
-    "totalImpressions": 15,
-    "totalClicks": 0,
-    "topQuery": "frontalieri",
-    "title": "Tutti",
-    "titleByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "descriptionByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "company": "",
-    "companyKey": "",
-    "location": "",
-    "sector": "",
-    "salaryMin": 0,
-    "salaryCurrency": "CHF",
-    "slugByLocale": {
-      "it": "tutti",
-      "en": "tutti",
-      "de": "tutti",
-      "fr": "tutti"
-    },
-    "localePaths": {
-      "it": "/cerca-lavoro-ticino/tutti",
-      "en": "/en/find-jobs-ticino/tutti",
-      "de": "/de/jobs-im-tessin/tutti",
-      "fr": "/fr/trouver-emploi-tessin/tutti"
-    },
-    "sourceUrl": "",
-    "googleStatus": "unknown",
-    "googleCanonical": "",
-    "lastCrawlTime": "",
-    "source": [
-      "gsc",
-      "all-known-slugs"
-    ]
-  },
-  {
     "slug": "altenpflege",
     "locale": "de",
     "path": "/de/jobs-im-tessin/altenpflege/",
@@ -1205,165 +1121,6 @@
     "lastCrawlTime": "",
     "source": [
       "gsc"
-    ]
-  },
-  {
-    "slug": "vendite-marketing-e-assistenza-clienti-mercato-tedesco-cambiavalute-ch-ticino",
-    "locale": "it",
-    "path": "/cerca-lavoro-ticino/vendite-marketing-e-assistenza-clienti-mercato-tedesco-cambiavalute-ch-ticino/",
-    "queries": [
-      {
-        "query": "lavori part time ticino",
-        "clicks": 0,
-        "impressions": 2
-      },
-      {
-        "query": "cerco lavoro a chiasso svizzera",
-        "clicks": 0,
-        "impressions": 1
-      },
-      {
-        "query": "lavoro part time ticino",
-        "clicks": 0,
-        "impressions": 1
-      },
-      {
-        "query": "offerte di lavoro chiasso",
-        "clicks": 0,
-        "impressions": 1
-      },
-      {
-        "query": "offerte di lavoro nel settore pubblicitario in svizzera",
-        "clicks": 0,
-        "impressions": 1
-      },
-      {
-        "query": "offerte di lavoro part time ticino",
-        "clicks": 0,
-        "impressions": 1
-      },
-      {
-        "query": "offerte lavoro part time ticino",
-        "clicks": 0,
-        "impressions": 1
-      }
-    ],
-    "totalImpressions": 8,
-    "totalClicks": 0,
-    "topQuery": "lavori part time ticino",
-    "title": "Vendite marketing assistenza clienti mercato tedesco ch",
-    "titleByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "descriptionByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "company": "CambiaValute.ch",
-    "companyKey": "cambiavalute",
-    "location": "Ticino",
-    "sector": "",
-    "salaryMin": 0,
-    "salaryCurrency": "CHF",
-    "slugByLocale": {
-      "it": "vendite-marketing-e-assistenza-clienti-mercato-tedesco-cambiavalute-ch-ticino",
-      "en": "vendite-marketing-e-assistenza-clienti-mercato-tedesco-cambiavalute-ch-ticino",
-      "de": "vendite-marketing-e-assistenza-clienti-mercato-tedesco-cambiavalute-ch-ticino",
-      "fr": "vendite-marketing-e-assistenza-clienti-mercato-tedesco-cambiavalute-ch-ticino"
-    },
-    "localePaths": {
-      "it": "/cerca-lavoro-ticino/vendite-marketing-e-assistenza-clienti-mercato-tedesco-cambiavalute-ch-ticino",
-      "en": "/en/find-jobs-ticino/vendite-marketing-e-assistenza-clienti-mercato-tedesco-cambiavalute-ch-ticino",
-      "de": "/de/jobs-im-tessin/vendite-marketing-e-assistenza-clienti-mercato-tedesco-cambiavalute-ch-ticino",
-      "fr": "/fr/trouver-emploi-tessin/vendite-marketing-e-assistenza-clienti-mercato-tedesco-cambiavalute-ch-ticino"
-    },
-    "sourceUrl": "",
-    "googleStatus": "unknown",
-    "googleCanonical": "",
-    "lastCrawlTime": "",
-    "source": [
-      "gsc",
-      "all-known-slugs",
-      "slug-parsing"
-    ]
-  },
-  {
-    "slug": "alle",
-    "locale": "de",
-    "path": "/de/jobs-im-tessin/alle/",
-    "queries": [
-      {
-        "query": "jobs im tessin für deutschsprachige",
-        "clicks": 0,
-        "impressions": 3
-      },
-      {
-        "query": "arbeiten im tessin",
-        "clicks": 0,
-        "impressions": 1
-      },
-      {
-        "query": "fart job",
-        "clicks": 0,
-        "impressions": 1
-      },
-      {
-        "query": "jobs tessin deutsch",
-        "clicks": 0,
-        "impressions": 1
-      },
-      {
-        "query": "stellenangebot tessin",
-        "clicks": 0,
-        "impressions": 1
-      }
-    ],
-    "totalImpressions": 7,
-    "totalClicks": 0,
-    "topQuery": "jobs im tessin für deutschsprachige",
-    "title": "Alle",
-    "titleByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "descriptionByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "company": "",
-    "companyKey": "",
-    "location": "",
-    "sector": "",
-    "salaryMin": 0,
-    "salaryCurrency": "CHF",
-    "slugByLocale": {
-      "it": "alle",
-      "en": "alle",
-      "de": "alle",
-      "fr": "alle"
-    },
-    "localePaths": {
-      "it": "/cerca-lavoro-ticino/alle",
-      "en": "/en/find-jobs-ticino/alle",
-      "de": "/de/jobs-im-tessin/alle",
-      "fr": "/fr/trouver-emploi-tessin/alle"
-    },
-    "sourceUrl": "",
-    "googleStatus": "unknown",
-    "googleCanonical": "",
-    "lastCrawlTime": "",
-    "source": [
-      "gsc",
-      "all-known-slugs"
     ]
   },
   {
@@ -2012,60 +1769,6 @@
     ]
   },
   {
-    "slug": "settori",
-    "locale": "it",
-    "path": "/cerca-lavoro-ticino/settori/",
-    "queries": [
-      {
-        "query": "frontalieri",
-        "clicks": 0,
-        "impressions": 3
-      }
-    ],
-    "totalImpressions": 3,
-    "totalClicks": 0,
-    "topQuery": "frontalieri",
-    "title": "Settori",
-    "titleByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "descriptionByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "company": "",
-    "companyKey": "",
-    "location": "",
-    "sector": "",
-    "salaryMin": 0,
-    "salaryCurrency": "CHF",
-    "slugByLocale": {
-      "it": "settori",
-      "en": "settori",
-      "de": "settori",
-      "fr": "settori"
-    },
-    "localePaths": {
-      "it": "/cerca-lavoro-ticino/settori",
-      "en": "/en/find-jobs-ticino/settori",
-      "de": "/de/jobs-im-tessin/settori",
-      "fr": "/fr/trouver-emploi-tessin/settori"
-    },
-    "sourceUrl": "",
-    "googleStatus": "unknown",
-    "googleCanonical": "",
-    "lastCrawlTime": "",
-    "source": [
-      "gsc",
-      "all-known-slugs"
-    ]
-  },
-  {
     "slug": "logistics",
     "locale": "en",
     "path": "/en/find-jobs-ticino/logistics/",
@@ -2167,70 +1870,6 @@
     ]
   },
   {
-    "slug": "branchen",
-    "locale": "de",
-    "path": "/de/jobs-im-tessin/branchen/",
-    "queries": [
-      {
-        "query": "jobs im tessin für deutschsprachige",
-        "clicks": 0,
-        "impressions": 1
-      },
-      {
-        "query": "jobs tessin deutsch",
-        "clicks": 0,
-        "impressions": 1
-      },
-      {
-        "query": "süd schweiz",
-        "clicks": 0,
-        "impressions": 1
-      }
-    ],
-    "totalImpressions": 3,
-    "totalClicks": 0,
-    "topQuery": "jobs im tessin für deutschsprachige",
-    "title": "Branchen",
-    "titleByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "descriptionByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "company": "",
-    "companyKey": "",
-    "location": "",
-    "sector": "",
-    "salaryMin": 0,
-    "salaryCurrency": "CHF",
-    "slugByLocale": {
-      "it": "branchen",
-      "en": "branchen",
-      "de": "branchen",
-      "fr": "branchen"
-    },
-    "localePaths": {
-      "it": "/cerca-lavoro-ticino/branchen",
-      "en": "/en/find-jobs-ticino/branchen",
-      "de": "/de/jobs-im-tessin/branchen",
-      "fr": "/fr/trouver-emploi-tessin/branchen"
-    },
-    "sourceUrl": "",
-    "googleStatus": "unknown",
-    "googleCanonical": "",
-    "lastCrawlTime": "",
-    "source": [
-      "gsc",
-      "all-known-slugs"
-    ]
-  },
-  {
     "slug": "ingenieure",
     "locale": "de",
     "path": "/de/jobs-im-tessin/ingenieure/",
@@ -2279,65 +1918,6 @@
     ]
   },
   {
-    "slug": "dr-venditrice-tore-casse-servizi-f-m-d-coop-genossenschaft-caslano",
-    "locale": "it",
-    "path": "/cerca-lavoro-ticino/dr-venditrice-tore-casse-servizi-f-m-d-coop-genossenschaft-caslano/",
-    "queries": [
-      {
-        "query": "offerte di lavoro caslano",
-        "clicks": 0,
-        "impressions": 1
-      },
-      {
-        "query": "supermercati svizzera lavora con noi",
-        "clicks": 0,
-        "impressions": 1
-      }
-    ],
-    "totalImpressions": 2,
-    "totalClicks": 0,
-    "topQuery": "offerte di lavoro caslano",
-    "title": "Dr venditrice tore casse servizi coop genossenschaft caslano",
-    "titleByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "descriptionByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "company": "",
-    "companyKey": "",
-    "location": "",
-    "sector": "",
-    "salaryMin": 0,
-    "salaryCurrency": "CHF",
-    "slugByLocale": {
-      "it": "dr-venditrice-tore-casse-servizi-f-m-d-coop-genossenschaft-caslano",
-      "en": "dr-venditrice-tore-casse-servizi-f-m-d-coop-genossenschaft-caslano",
-      "de": "dr-venditrice-tore-casse-servizi-f-m-d-coop-genossenschaft-caslano",
-      "fr": "dr-venditrice-tore-casse-servizi-f-m-d-coop-genossenschaft-caslano"
-    },
-    "localePaths": {
-      "it": "/cerca-lavoro-ticino/dr-venditrice-tore-casse-servizi-f-m-d-coop-genossenschaft-caslano",
-      "en": "/en/find-jobs-ticino/dr-venditrice-tore-casse-servizi-f-m-d-coop-genossenschaft-caslano",
-      "de": "/de/jobs-im-tessin/dr-venditrice-tore-casse-servizi-f-m-d-coop-genossenschaft-caslano",
-      "fr": "/fr/trouver-emploi-tessin/dr-venditrice-tore-casse-servizi-f-m-d-coop-genossenschaft-caslano"
-    },
-    "sourceUrl": "",
-    "googleStatus": "unknown",
-    "googleCanonical": "",
-    "lastCrawlTime": "",
-    "source": [
-      "gsc",
-      "all-known-slugs"
-    ]
-  },
-  {
     "slug": "mendrisio",
     "locale": "it",
     "path": "/cerca-lavoro-ticino/mendrisio/",
@@ -2379,65 +1959,6 @@
     "source": [
       "gsc",
       "slug-parsing"
-    ]
-  },
-  {
-    "slug": "all",
-    "locale": "en",
-    "path": "/en/find-jobs-ticino/all/",
-    "queries": [
-      {
-        "query": "froneri jobs",
-        "clicks": 0,
-        "impressions": 1
-      },
-      {
-        "query": "job frontalier",
-        "clicks": 0,
-        "impressions": 1
-      }
-    ],
-    "totalImpressions": 2,
-    "totalClicks": 0,
-    "topQuery": "froneri jobs",
-    "title": "All",
-    "titleByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "descriptionByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "company": "",
-    "companyKey": "",
-    "location": "",
-    "sector": "",
-    "salaryMin": 0,
-    "salaryCurrency": "CHF",
-    "slugByLocale": {
-      "it": "all",
-      "en": "all",
-      "de": "all",
-      "fr": "all"
-    },
-    "localePaths": {
-      "it": "/cerca-lavoro-ticino/all",
-      "en": "/en/find-jobs-ticino/all",
-      "de": "/de/jobs-im-tessin/all",
-      "fr": "/fr/trouver-emploi-tessin/all"
-    },
-    "sourceUrl": "",
-    "googleStatus": "unknown",
-    "googleCanonical": "",
-    "lastCrawlTime": "",
-    "source": [
-      "gsc",
-      "all-known-slugs"
     ]
   },
   {
@@ -2749,171 +2270,6 @@
     ]
   },
   {
-    "slug": "tissot-vertriebspartner-the-swatch-group-u-s-inc-ticino",
-    "locale": "de",
-    "path": "/de/jobs-im-tessin/tissot-vertriebspartner-the-swatch-group-u-s-inc-ticino/",
-    "queries": [
-      {
-        "query": "the swatch group jobs",
-        "clicks": 0,
-        "impressions": 1
-      }
-    ],
-    "totalImpressions": 1,
-    "totalClicks": 0,
-    "topQuery": "the swatch group jobs",
-    "title": "Tissot vertriebspartner the swatch group u s inc",
-    "titleByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "descriptionByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "company": "",
-    "companyKey": "",
-    "location": "Ticino",
-    "sector": "",
-    "salaryMin": 0,
-    "salaryCurrency": "CHF",
-    "slugByLocale": {
-      "it": "tissot-vertriebspartner-the-swatch-group-u-s-inc-ticino",
-      "en": "tissot-vertriebspartner-the-swatch-group-u-s-inc-ticino",
-      "de": "tissot-vertriebspartner-the-swatch-group-u-s-inc-ticino",
-      "fr": "tissot-vertriebspartner-the-swatch-group-u-s-inc-ticino"
-    },
-    "localePaths": {
-      "it": "/cerca-lavoro-ticino/tissot-vertriebspartner-the-swatch-group-u-s-inc-ticino",
-      "en": "/en/find-jobs-ticino/tissot-vertriebspartner-the-swatch-group-u-s-inc-ticino",
-      "de": "/de/jobs-im-tessin/tissot-vertriebspartner-the-swatch-group-u-s-inc-ticino",
-      "fr": "/fr/trouver-emploi-tessin/tissot-vertriebspartner-the-swatch-group-u-s-inc-ticino"
-    },
-    "sourceUrl": "",
-    "googleStatus": "unknown",
-    "googleCanonical": "",
-    "lastCrawlTime": "",
-    "source": [
-      "gsc",
-      "all-known-slugs",
-      "slug-parsing"
-    ]
-  },
-  {
-    "slug": "verkaufsberater-in-tessin-coop-genossenschaft-lugano",
-    "locale": "de",
-    "path": "/de/jobs-im-tessin/verkaufsberater-in-tessin-coop-genossenschaft-lugano/",
-    "queries": [
-      {
-        "query": "jobs tessin",
-        "clicks": 0,
-        "impressions": 1
-      }
-    ],
-    "totalImpressions": 1,
-    "totalClicks": 0,
-    "topQuery": "jobs tessin",
-    "title": "Verkaufsberater in tessin coop genossenschaft",
-    "titleByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "descriptionByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "company": "",
-    "companyKey": "",
-    "location": "Lugano",
-    "sector": "",
-    "salaryMin": 0,
-    "salaryCurrency": "CHF",
-    "slugByLocale": {
-      "it": "verkaufsberater-in-tessin-coop-genossenschaft-lugano",
-      "en": "verkaufsberater-in-tessin-coop-genossenschaft-lugano",
-      "de": "verkaufsberater-in-tessin-coop-genossenschaft-lugano",
-      "fr": "verkaufsberater-in-tessin-coop-genossenschaft-lugano"
-    },
-    "localePaths": {
-      "it": "/cerca-lavoro-ticino/verkaufsberater-in-tessin-coop-genossenschaft-lugano",
-      "en": "/en/find-jobs-ticino/verkaufsberater-in-tessin-coop-genossenschaft-lugano",
-      "de": "/de/jobs-im-tessin/verkaufsberater-in-tessin-coop-genossenschaft-lugano",
-      "fr": "/fr/trouver-emploi-tessin/verkaufsberater-in-tessin-coop-genossenschaft-lugano"
-    },
-    "sourceUrl": "",
-    "googleStatus": "unknown",
-    "googleCanonical": "",
-    "lastCrawlTime": "",
-    "source": [
-      "gsc",
-      "all-known-slugs",
-      "slug-parsing"
-    ]
-  },
-  {
-    "slug": "associe-de-vente-tissot-the-swatch-group-u-s-inc-ticino",
-    "locale": "fr",
-    "path": "/fr/trouver-emploi-tessin/associe-de-vente-tissot-the-swatch-group-u-s-inc-ticino/",
-    "queries": [
-      {
-        "query": "swatch emploi",
-        "clicks": 0,
-        "impressions": 1
-      }
-    ],
-    "totalImpressions": 1,
-    "totalClicks": 0,
-    "topQuery": "swatch emploi",
-    "title": "Associe de vente tissot the swatch group u s inc",
-    "titleByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "descriptionByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "company": "",
-    "companyKey": "",
-    "location": "Ticino",
-    "sector": "",
-    "salaryMin": 0,
-    "salaryCurrency": "CHF",
-    "slugByLocale": {
-      "it": "associe-de-vente-tissot-the-swatch-group-u-s-inc-ticino",
-      "en": "associe-de-vente-tissot-the-swatch-group-u-s-inc-ticino",
-      "de": "associe-de-vente-tissot-the-swatch-group-u-s-inc-ticino",
-      "fr": "associe-de-vente-tissot-the-swatch-group-u-s-inc-ticino"
-    },
-    "localePaths": {
-      "it": "/cerca-lavoro-ticino/associe-de-vente-tissot-the-swatch-group-u-s-inc-ticino",
-      "en": "/en/find-jobs-ticino/associe-de-vente-tissot-the-swatch-group-u-s-inc-ticino",
-      "de": "/de/jobs-im-tessin/associe-de-vente-tissot-the-swatch-group-u-s-inc-ticino",
-      "fr": "/fr/trouver-emploi-tessin/associe-de-vente-tissot-the-swatch-group-u-s-inc-ticino"
-    },
-    "sourceUrl": "",
-    "googleStatus": "unknown",
-    "googleCanonical": "",
-    "lastCrawlTime": "",
-    "source": [
-      "gsc",
-      "all-known-slugs",
-      "slug-parsing"
-    ]
-  },
-  {
     "slug": "chauffeurs",
     "locale": "fr",
     "path": "/fr/trouver-emploi-tessin/chauffeurs/",
@@ -3088,102 +2444,6 @@
     ]
   },
   {
-    "slug": "all",
-    "locale": "it",
-    "path": "/cerca-lavoro-ticino/all",
-    "queries": [],
-    "totalImpressions": 0,
-    "totalClicks": 0,
-    "topQuery": null,
-    "title": "All",
-    "titleByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "descriptionByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "company": "",
-    "companyKey": "",
-    "location": "",
-    "sector": "",
-    "salaryMin": 0,
-    "salaryCurrency": "CHF",
-    "slugByLocale": {
-      "it": "all",
-      "en": "all",
-      "de": "all",
-      "fr": "all"
-    },
-    "localePaths": {
-      "it": "/cerca-lavoro-ticino/all",
-      "en": "/en/find-jobs-ticino/all",
-      "de": "/de/jobs-im-tessin/all",
-      "fr": "/fr/trouver-emploi-tessin/all"
-    },
-    "sourceUrl": "",
-    "googleStatus": "unknown",
-    "googleCanonical": "",
-    "lastCrawlTime": "",
-    "source": [
-      "gsc",
-      "all-known-slugs"
-    ]
-  },
-  {
-    "slug": "alle",
-    "locale": "it",
-    "path": "/cerca-lavoro-ticino/alle",
-    "queries": [],
-    "totalImpressions": 0,
-    "totalClicks": 0,
-    "topQuery": null,
-    "title": "Alle",
-    "titleByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "descriptionByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "company": "",
-    "companyKey": "",
-    "location": "",
-    "sector": "",
-    "salaryMin": 0,
-    "salaryCurrency": "CHF",
-    "slugByLocale": {
-      "it": "alle",
-      "en": "alle",
-      "de": "alle",
-      "fr": "alle"
-    },
-    "localePaths": {
-      "it": "/cerca-lavoro-ticino/alle",
-      "en": "/en/find-jobs-ticino/alle",
-      "de": "/de/jobs-im-tessin/alle",
-      "fr": "/fr/trouver-emploi-tessin/alle"
-    },
-    "sourceUrl": "",
-    "googleStatus": "unknown",
-    "googleCanonical": "",
-    "lastCrawlTime": "",
-    "source": [
-      "gsc",
-      "all-known-slugs"
-    ]
-  },
-  {
     "slug": "altenpflege",
     "locale": "it",
     "path": "/cerca-lavoro-ticino/altenpflege",
@@ -3218,54 +2478,6 @@
     "lastCrawlTime": "",
     "source": [
       "gsc"
-    ]
-  },
-  {
-    "slug": "branchen",
-    "locale": "it",
-    "path": "/cerca-lavoro-ticino/branchen",
-    "queries": [],
-    "totalImpressions": 0,
-    "totalClicks": 0,
-    "topQuery": null,
-    "title": "Branchen",
-    "titleByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "descriptionByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "company": "",
-    "companyKey": "",
-    "location": "",
-    "sector": "",
-    "salaryMin": 0,
-    "salaryCurrency": "CHF",
-    "slugByLocale": {
-      "it": "branchen",
-      "en": "branchen",
-      "de": "branchen",
-      "fr": "branchen"
-    },
-    "localePaths": {
-      "it": "/cerca-lavoro-ticino/branchen",
-      "en": "/en/find-jobs-ticino/branchen",
-      "de": "/de/jobs-im-tessin/branchen",
-      "fr": "/fr/trouver-emploi-tessin/branchen"
-    },
-    "sourceUrl": "",
-    "googleStatus": "unknown",
-    "googleCanonical": "",
-    "lastCrawlTime": "",
-    "source": [
-      "gsc",
-      "all-known-slugs"
     ]
   },
   {
@@ -3935,54 +3147,6 @@
     ]
   },
   {
-    "slug": "all",
-    "locale": "de",
-    "path": "/de/jobs-im-tessin/all",
-    "queries": [],
-    "totalImpressions": 0,
-    "totalClicks": 0,
-    "topQuery": null,
-    "title": "All",
-    "titleByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "descriptionByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "company": "",
-    "companyKey": "",
-    "location": "",
-    "sector": "",
-    "salaryMin": 0,
-    "salaryCurrency": "CHF",
-    "slugByLocale": {
-      "it": "all",
-      "en": "all",
-      "de": "all",
-      "fr": "all"
-    },
-    "localePaths": {
-      "it": "/cerca-lavoro-ticino/all",
-      "en": "/en/find-jobs-ticino/all",
-      "de": "/de/jobs-im-tessin/all",
-      "fr": "/fr/trouver-emploi-tessin/all"
-    },
-    "sourceUrl": "",
-    "googleStatus": "unknown",
-    "googleCanonical": "",
-    "lastCrawlTime": "",
-    "source": [
-      "gsc",
-      "all-known-slugs"
-    ]
-  },
-  {
     "slug": "apprendistato",
     "locale": "de",
     "path": "/de/jobs-im-tessin/apprendistato",
@@ -4649,54 +3813,6 @@
     ]
   },
   {
-    "slug": "settori",
-    "locale": "de",
-    "path": "/de/jobs-im-tessin/settori",
-    "queries": [],
-    "totalImpressions": 0,
-    "totalClicks": 0,
-    "topQuery": null,
-    "title": "Settori",
-    "titleByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "descriptionByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "company": "",
-    "companyKey": "",
-    "location": "",
-    "sector": "",
-    "salaryMin": 0,
-    "salaryCurrency": "CHF",
-    "slugByLocale": {
-      "it": "settori",
-      "en": "settori",
-      "de": "settori",
-      "fr": "settori"
-    },
-    "localePaths": {
-      "it": "/cerca-lavoro-ticino/settori",
-      "en": "/en/find-jobs-ticino/settori",
-      "de": "/de/jobs-im-tessin/settori",
-      "fr": "/fr/trouver-emploi-tessin/settori"
-    },
-    "sourceUrl": "",
-    "googleStatus": "unknown",
-    "googleCanonical": "",
-    "lastCrawlTime": "",
-    "source": [
-      "gsc",
-      "all-known-slugs"
-    ]
-  },
-  {
     "slug": "sviluppatori",
     "locale": "de",
     "path": "/de/jobs-im-tessin/sviluppatori",
@@ -4731,102 +3847,6 @@
     "lastCrawlTime": "",
     "source": [
       "gsc"
-    ]
-  },
-  {
-    "slug": "tutti",
-    "locale": "de",
-    "path": "/de/jobs-im-tessin/tutti",
-    "queries": [],
-    "totalImpressions": 0,
-    "totalClicks": 0,
-    "topQuery": null,
-    "title": "Tutti",
-    "titleByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "descriptionByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "company": "",
-    "companyKey": "",
-    "location": "",
-    "sector": "",
-    "salaryMin": 0,
-    "salaryCurrency": "CHF",
-    "slugByLocale": {
-      "it": "tutti",
-      "en": "tutti",
-      "de": "tutti",
-      "fr": "tutti"
-    },
-    "localePaths": {
-      "it": "/cerca-lavoro-ticino/tutti",
-      "en": "/en/find-jobs-ticino/tutti",
-      "de": "/de/jobs-im-tessin/tutti",
-      "fr": "/fr/trouver-emploi-tessin/tutti"
-    },
-    "sourceUrl": "",
-    "googleStatus": "unknown",
-    "googleCanonical": "",
-    "lastCrawlTime": "",
-    "source": [
-      "gsc",
-      "all-known-slugs"
-    ]
-  },
-  {
-    "slug": "alle",
-    "locale": "en",
-    "path": "/en/find-jobs-ticino/alle",
-    "queries": [],
-    "totalImpressions": 0,
-    "totalClicks": 0,
-    "topQuery": null,
-    "title": "Alle",
-    "titleByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "descriptionByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "company": "",
-    "companyKey": "",
-    "location": "",
-    "sector": "",
-    "salaryMin": 0,
-    "salaryCurrency": "CHF",
-    "slugByLocale": {
-      "it": "alle",
-      "en": "alle",
-      "de": "alle",
-      "fr": "alle"
-    },
-    "localePaths": {
-      "it": "/cerca-lavoro-ticino/alle",
-      "en": "/en/find-jobs-ticino/alle",
-      "de": "/de/jobs-im-tessin/alle",
-      "fr": "/fr/trouver-emploi-tessin/alle"
-    },
-    "sourceUrl": "",
-    "googleStatus": "unknown",
-    "googleCanonical": "",
-    "lastCrawlTime": "",
-    "source": [
-      "gsc",
-      "all-known-slugs"
     ]
   },
   {
@@ -4976,54 +3996,6 @@
     "source": [
       "gsc",
       "slug-parsing"
-    ]
-  },
-  {
-    "slug": "branchen",
-    "locale": "en",
-    "path": "/en/find-jobs-ticino/branchen",
-    "queries": [],
-    "totalImpressions": 0,
-    "totalClicks": 0,
-    "topQuery": null,
-    "title": "Branchen",
-    "titleByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "descriptionByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "company": "",
-    "companyKey": "",
-    "location": "",
-    "sector": "",
-    "salaryMin": 0,
-    "salaryCurrency": "CHF",
-    "slugByLocale": {
-      "it": "branchen",
-      "en": "branchen",
-      "de": "branchen",
-      "fr": "branchen"
-    },
-    "localePaths": {
-      "it": "/cerca-lavoro-ticino/branchen",
-      "en": "/en/find-jobs-ticino/branchen",
-      "de": "/de/jobs-im-tessin/branchen",
-      "fr": "/fr/trouver-emploi-tessin/branchen"
-    },
-    "sourceUrl": "",
-    "googleStatus": "unknown",
-    "googleCanonical": "",
-    "lastCrawlTime": "",
-    "source": [
-      "gsc",
-      "all-known-slugs"
     ]
   },
   {
@@ -5732,54 +4704,6 @@
     ]
   },
   {
-    "slug": "settori",
-    "locale": "en",
-    "path": "/en/find-jobs-ticino/settori",
-    "queries": [],
-    "totalImpressions": 0,
-    "totalClicks": 0,
-    "topQuery": null,
-    "title": "Settori",
-    "titleByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "descriptionByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "company": "",
-    "companyKey": "",
-    "location": "",
-    "sector": "",
-    "salaryMin": 0,
-    "salaryCurrency": "CHF",
-    "slugByLocale": {
-      "it": "settori",
-      "en": "settori",
-      "de": "settori",
-      "fr": "settori"
-    },
-    "localePaths": {
-      "it": "/cerca-lavoro-ticino/settori",
-      "en": "/en/find-jobs-ticino/settori",
-      "de": "/de/jobs-im-tessin/settori",
-      "fr": "/fr/trouver-emploi-tessin/settori"
-    },
-    "sourceUrl": "",
-    "googleStatus": "unknown",
-    "googleCanonical": "",
-    "lastCrawlTime": "",
-    "source": [
-      "gsc",
-      "all-known-slugs"
-    ]
-  },
-  {
     "slug": "sviluppatori",
     "locale": "en",
     "path": "/en/find-jobs-ticino/sviluppatori",
@@ -5814,150 +4738,6 @@
     "lastCrawlTime": "",
     "source": [
       "gsc"
-    ]
-  },
-  {
-    "slug": "tutti",
-    "locale": "en",
-    "path": "/en/find-jobs-ticino/tutti",
-    "queries": [],
-    "totalImpressions": 0,
-    "totalClicks": 0,
-    "topQuery": null,
-    "title": "Tutti",
-    "titleByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "descriptionByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "company": "",
-    "companyKey": "",
-    "location": "",
-    "sector": "",
-    "salaryMin": 0,
-    "salaryCurrency": "CHF",
-    "slugByLocale": {
-      "it": "tutti",
-      "en": "tutti",
-      "de": "tutti",
-      "fr": "tutti"
-    },
-    "localePaths": {
-      "it": "/cerca-lavoro-ticino/tutti",
-      "en": "/en/find-jobs-ticino/tutti",
-      "de": "/de/jobs-im-tessin/tutti",
-      "fr": "/fr/trouver-emploi-tessin/tutti"
-    },
-    "sourceUrl": "",
-    "googleStatus": "unknown",
-    "googleCanonical": "",
-    "lastCrawlTime": "",
-    "source": [
-      "gsc",
-      "all-known-slugs"
-    ]
-  },
-  {
-    "slug": "all",
-    "locale": "fr",
-    "path": "/fr/trouver-emploi-tessin/all",
-    "queries": [],
-    "totalImpressions": 0,
-    "totalClicks": 0,
-    "topQuery": null,
-    "title": "All",
-    "titleByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "descriptionByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "company": "",
-    "companyKey": "",
-    "location": "",
-    "sector": "",
-    "salaryMin": 0,
-    "salaryCurrency": "CHF",
-    "slugByLocale": {
-      "it": "all",
-      "en": "all",
-      "de": "all",
-      "fr": "all"
-    },
-    "localePaths": {
-      "it": "/cerca-lavoro-ticino/all",
-      "en": "/en/find-jobs-ticino/all",
-      "de": "/de/jobs-im-tessin/all",
-      "fr": "/fr/trouver-emploi-tessin/all"
-    },
-    "sourceUrl": "",
-    "googleStatus": "unknown",
-    "googleCanonical": "",
-    "lastCrawlTime": "",
-    "source": [
-      "gsc",
-      "all-known-slugs"
-    ]
-  },
-  {
-    "slug": "alle",
-    "locale": "fr",
-    "path": "/fr/trouver-emploi-tessin/alle",
-    "queries": [],
-    "totalImpressions": 0,
-    "totalClicks": 0,
-    "topQuery": null,
-    "title": "Alle",
-    "titleByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "descriptionByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "company": "",
-    "companyKey": "",
-    "location": "",
-    "sector": "",
-    "salaryMin": 0,
-    "salaryCurrency": "CHF",
-    "slugByLocale": {
-      "it": "alle",
-      "en": "alle",
-      "de": "alle",
-      "fr": "alle"
-    },
-    "localePaths": {
-      "it": "/cerca-lavoro-ticino/alle",
-      "en": "/en/find-jobs-ticino/alle",
-      "de": "/de/jobs-im-tessin/alle",
-      "fr": "/fr/trouver-emploi-tessin/alle"
-    },
-    "sourceUrl": "",
-    "googleStatus": "unknown",
-    "googleCanonical": "",
-    "lastCrawlTime": "",
-    "source": [
-      "gsc",
-      "all-known-slugs"
     ]
   },
   {
@@ -6107,54 +4887,6 @@
     "source": [
       "gsc",
       "slug-parsing"
-    ]
-  },
-  {
-    "slug": "branchen",
-    "locale": "fr",
-    "path": "/fr/trouver-emploi-tessin/branchen",
-    "queries": [],
-    "totalImpressions": 0,
-    "totalClicks": 0,
-    "topQuery": null,
-    "title": "Branchen",
-    "titleByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "descriptionByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "company": "",
-    "companyKey": "",
-    "location": "",
-    "sector": "",
-    "salaryMin": 0,
-    "salaryCurrency": "CHF",
-    "slugByLocale": {
-      "it": "branchen",
-      "en": "branchen",
-      "de": "branchen",
-      "fr": "branchen"
-    },
-    "localePaths": {
-      "it": "/cerca-lavoro-ticino/branchen",
-      "en": "/en/find-jobs-ticino/branchen",
-      "de": "/de/jobs-im-tessin/branchen",
-      "fr": "/fr/trouver-emploi-tessin/branchen"
-    },
-    "sourceUrl": "",
-    "googleStatus": "unknown",
-    "googleCanonical": "",
-    "lastCrawlTime": "",
-    "source": [
-      "gsc",
-      "all-known-slugs"
     ]
   },
   {
@@ -6973,9 +5705,882 @@
     ]
   },
   {
-    "slug": "settori",
+    "slug": "sviluppatori",
     "locale": "fr",
-    "path": "/fr/trouver-emploi-tessin/settori",
+    "path": "/fr/trouver-emploi-tessin/sviluppatori",
+    "queries": [],
+    "totalImpressions": 0,
+    "totalClicks": 0,
+    "topQuery": null,
+    "title": "Sviluppatori",
+    "titleByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "descriptionByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "company": "",
+    "companyKey": "",
+    "location": "",
+    "sector": "",
+    "salaryMin": 0,
+    "salaryCurrency": "CHF",
+    "slugByLocale": {},
+    "localePaths": {},
+    "sourceUrl": "",
+    "googleStatus": "unknown",
+    "googleCanonical": "",
+    "lastCrawlTime": "",
+    "source": [
+      "gsc"
+    ]
+  },
+  {
+    "slug": "tutti",
+    "locale": "it",
+    "path": "/cerca-lavoro-ticino/tutti/",
+    "queries": [
+      {
+        "query": "frontalieri",
+        "clicks": 0,
+        "impressions": 5
+      },
+      {
+        "query": "offerte di lavoro per frontalieri svizzera",
+        "clicks": 0,
+        "impressions": 4
+      },
+      {
+        "query": "offerte lavoro frontaliere svizzera",
+        "clicks": 0,
+        "impressions": 2
+      },
+      {
+        "query": "fontaniere",
+        "clicks": 0,
+        "impressions": 1
+      },
+      {
+        "query": "lavorare in svizzera come frontaliere",
+        "clicks": 0,
+        "impressions": 1
+      },
+      {
+        "query": "lavoro svizzera frontalieri",
+        "clicks": 0,
+        "impressions": 1
+      },
+      {
+        "query": "offerte di lavoro canton ticino per frontalieri",
+        "clicks": 0,
+        "impressions": 1
+      }
+    ],
+    "totalImpressions": 15,
+    "totalClicks": 0,
+    "topQuery": "frontalieri",
+    "title": "Tutti",
+    "titleByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "descriptionByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "company": "",
+    "companyKey": "",
+    "location": "",
+    "sector": "",
+    "salaryMin": 0,
+    "salaryCurrency": "CHF",
+    "slugByLocale": {
+      "it": "tutti",
+      "en": "tutti",
+      "de": "tutti",
+      "fr": "tutti"
+    },
+    "localePaths": {
+      "it": "/cerca-lavoro-ticino/tutti",
+      "en": "/en/find-jobs-ticino/tutti",
+      "de": "/de/jobs-im-tessin/tutti",
+      "fr": "/fr/trouver-emploi-tessin/tutti"
+    },
+    "sourceUrl": "",
+    "googleStatus": "unknown",
+    "googleCanonical": "",
+    "lastCrawlTime": "",
+    "source": [
+      "gsc",
+      "all-known-slugs"
+    ]
+  },
+  {
+    "slug": "vendite-marketing-e-assistenza-clienti-mercato-tedesco-cambiavalute-ch-ticino",
+    "locale": "it",
+    "path": "/cerca-lavoro-ticino/vendite-marketing-e-assistenza-clienti-mercato-tedesco-cambiavalute-ch-ticino/",
+    "queries": [
+      {
+        "query": "lavori part time ticino",
+        "clicks": 0,
+        "impressions": 2
+      },
+      {
+        "query": "cerco lavoro a chiasso svizzera",
+        "clicks": 0,
+        "impressions": 1
+      },
+      {
+        "query": "lavoro part time ticino",
+        "clicks": 0,
+        "impressions": 1
+      },
+      {
+        "query": "offerte di lavoro chiasso",
+        "clicks": 0,
+        "impressions": 1
+      },
+      {
+        "query": "offerte di lavoro nel settore pubblicitario in svizzera",
+        "clicks": 0,
+        "impressions": 1
+      },
+      {
+        "query": "offerte di lavoro part time ticino",
+        "clicks": 0,
+        "impressions": 1
+      },
+      {
+        "query": "offerte lavoro part time ticino",
+        "clicks": 0,
+        "impressions": 1
+      }
+    ],
+    "totalImpressions": 8,
+    "totalClicks": 0,
+    "topQuery": "lavori part time ticino",
+    "title": "Vendite marketing assistenza clienti mercato tedesco ch",
+    "titleByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "descriptionByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "company": "CambiaValute.ch",
+    "companyKey": "cambiavalute",
+    "location": "Ticino",
+    "sector": "",
+    "salaryMin": 0,
+    "salaryCurrency": "CHF",
+    "slugByLocale": {
+      "it": "vendite-marketing-e-assistenza-clienti-mercato-tedesco-cambiavalute-ch-ticino",
+      "en": "vendite-marketing-e-assistenza-clienti-mercato-tedesco-cambiavalute-ch-ticino",
+      "de": "vendite-marketing-e-assistenza-clienti-mercato-tedesco-cambiavalute-ch-ticino",
+      "fr": "vendite-marketing-e-assistenza-clienti-mercato-tedesco-cambiavalute-ch-ticino"
+    },
+    "localePaths": {
+      "it": "/cerca-lavoro-ticino/vendite-marketing-e-assistenza-clienti-mercato-tedesco-cambiavalute-ch-ticino",
+      "en": "/en/find-jobs-ticino/vendite-marketing-e-assistenza-clienti-mercato-tedesco-cambiavalute-ch-ticino",
+      "de": "/de/jobs-im-tessin/vendite-marketing-e-assistenza-clienti-mercato-tedesco-cambiavalute-ch-ticino",
+      "fr": "/fr/trouver-emploi-tessin/vendite-marketing-e-assistenza-clienti-mercato-tedesco-cambiavalute-ch-ticino"
+    },
+    "sourceUrl": "",
+    "googleStatus": "unknown",
+    "googleCanonical": "",
+    "lastCrawlTime": "",
+    "source": [
+      "gsc",
+      "all-known-slugs",
+      "slug-parsing"
+    ]
+  },
+  {
+    "slug": "alle",
+    "locale": "de",
+    "path": "/de/jobs-im-tessin/alle/",
+    "queries": [
+      {
+        "query": "jobs im tessin für deutschsprachige",
+        "clicks": 0,
+        "impressions": 3
+      },
+      {
+        "query": "arbeiten im tessin",
+        "clicks": 0,
+        "impressions": 1
+      },
+      {
+        "query": "fart job",
+        "clicks": 0,
+        "impressions": 1
+      },
+      {
+        "query": "jobs tessin deutsch",
+        "clicks": 0,
+        "impressions": 1
+      },
+      {
+        "query": "stellenangebot tessin",
+        "clicks": 0,
+        "impressions": 1
+      }
+    ],
+    "totalImpressions": 7,
+    "totalClicks": 0,
+    "topQuery": "jobs im tessin für deutschsprachige",
+    "title": "Alle",
+    "titleByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "descriptionByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "company": "",
+    "companyKey": "",
+    "location": "",
+    "sector": "",
+    "salaryMin": 0,
+    "salaryCurrency": "CHF",
+    "slugByLocale": {
+      "it": "alle",
+      "en": "alle",
+      "de": "alle",
+      "fr": "alle"
+    },
+    "localePaths": {
+      "it": "/cerca-lavoro-ticino/alle",
+      "en": "/en/find-jobs-ticino/alle",
+      "de": "/de/jobs-im-tessin/alle",
+      "fr": "/fr/trouver-emploi-tessin/alle"
+    },
+    "sourceUrl": "",
+    "googleStatus": "unknown",
+    "googleCanonical": "",
+    "lastCrawlTime": "",
+    "source": [
+      "gsc",
+      "all-known-slugs"
+    ]
+  },
+  {
+    "slug": "settori",
+    "locale": "it",
+    "path": "/cerca-lavoro-ticino/settori/",
+    "queries": [
+      {
+        "query": "frontalieri",
+        "clicks": 0,
+        "impressions": 3
+      }
+    ],
+    "totalImpressions": 3,
+    "totalClicks": 0,
+    "topQuery": "frontalieri",
+    "title": "Settori",
+    "titleByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "descriptionByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "company": "",
+    "companyKey": "",
+    "location": "",
+    "sector": "",
+    "salaryMin": 0,
+    "salaryCurrency": "CHF",
+    "slugByLocale": {
+      "it": "settori",
+      "en": "settori",
+      "de": "settori",
+      "fr": "settori"
+    },
+    "localePaths": {
+      "it": "/cerca-lavoro-ticino/settori",
+      "en": "/en/find-jobs-ticino/settori",
+      "de": "/de/jobs-im-tessin/settori",
+      "fr": "/fr/trouver-emploi-tessin/settori"
+    },
+    "sourceUrl": "",
+    "googleStatus": "unknown",
+    "googleCanonical": "",
+    "lastCrawlTime": "",
+    "source": [
+      "gsc",
+      "all-known-slugs"
+    ]
+  },
+  {
+    "slug": "branchen",
+    "locale": "de",
+    "path": "/de/jobs-im-tessin/branchen/",
+    "queries": [
+      {
+        "query": "jobs im tessin für deutschsprachige",
+        "clicks": 0,
+        "impressions": 1
+      },
+      {
+        "query": "jobs tessin deutsch",
+        "clicks": 0,
+        "impressions": 1
+      },
+      {
+        "query": "süd schweiz",
+        "clicks": 0,
+        "impressions": 1
+      }
+    ],
+    "totalImpressions": 3,
+    "totalClicks": 0,
+    "topQuery": "jobs im tessin für deutschsprachige",
+    "title": "Branchen",
+    "titleByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "descriptionByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "company": "",
+    "companyKey": "",
+    "location": "",
+    "sector": "",
+    "salaryMin": 0,
+    "salaryCurrency": "CHF",
+    "slugByLocale": {
+      "it": "branchen",
+      "en": "branchen",
+      "de": "branchen",
+      "fr": "branchen"
+    },
+    "localePaths": {
+      "it": "/cerca-lavoro-ticino/branchen",
+      "en": "/en/find-jobs-ticino/branchen",
+      "de": "/de/jobs-im-tessin/branchen",
+      "fr": "/fr/trouver-emploi-tessin/branchen"
+    },
+    "sourceUrl": "",
+    "googleStatus": "unknown",
+    "googleCanonical": "",
+    "lastCrawlTime": "",
+    "source": [
+      "gsc",
+      "all-known-slugs"
+    ]
+  },
+  {
+    "slug": "dr-venditrice-tore-casse-servizi-f-m-d-coop-genossenschaft-caslano",
+    "locale": "it",
+    "path": "/cerca-lavoro-ticino/dr-venditrice-tore-casse-servizi-f-m-d-coop-genossenschaft-caslano/",
+    "queries": [
+      {
+        "query": "offerte di lavoro caslano",
+        "clicks": 0,
+        "impressions": 1
+      },
+      {
+        "query": "supermercati svizzera lavora con noi",
+        "clicks": 0,
+        "impressions": 1
+      }
+    ],
+    "totalImpressions": 2,
+    "totalClicks": 0,
+    "topQuery": "offerte di lavoro caslano",
+    "title": "Dr venditrice tore casse servizi coop genossenschaft caslano",
+    "titleByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "descriptionByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "company": "",
+    "companyKey": "",
+    "location": "",
+    "sector": "",
+    "salaryMin": 0,
+    "salaryCurrency": "CHF",
+    "slugByLocale": {
+      "it": "dr-venditrice-tore-casse-servizi-f-m-d-coop-genossenschaft-caslano",
+      "en": "dr-venditrice-tore-casse-servizi-f-m-d-coop-genossenschaft-caslano",
+      "de": "dr-venditrice-tore-casse-servizi-f-m-d-coop-genossenschaft-caslano",
+      "fr": "dr-venditrice-tore-casse-servizi-f-m-d-coop-genossenschaft-caslano"
+    },
+    "localePaths": {
+      "it": "/cerca-lavoro-ticino/dr-venditrice-tore-casse-servizi-f-m-d-coop-genossenschaft-caslano",
+      "en": "/en/find-jobs-ticino/dr-venditrice-tore-casse-servizi-f-m-d-coop-genossenschaft-caslano",
+      "de": "/de/jobs-im-tessin/dr-venditrice-tore-casse-servizi-f-m-d-coop-genossenschaft-caslano",
+      "fr": "/fr/trouver-emploi-tessin/dr-venditrice-tore-casse-servizi-f-m-d-coop-genossenschaft-caslano"
+    },
+    "sourceUrl": "",
+    "googleStatus": "unknown",
+    "googleCanonical": "",
+    "lastCrawlTime": "",
+    "source": [
+      "gsc",
+      "all-known-slugs"
+    ]
+  },
+  {
+    "slug": "all",
+    "locale": "en",
+    "path": "/en/find-jobs-ticino/all/",
+    "queries": [
+      {
+        "query": "froneri jobs",
+        "clicks": 0,
+        "impressions": 1
+      },
+      {
+        "query": "job frontalier",
+        "clicks": 0,
+        "impressions": 1
+      }
+    ],
+    "totalImpressions": 2,
+    "totalClicks": 0,
+    "topQuery": "froneri jobs",
+    "title": "All",
+    "titleByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "descriptionByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "company": "",
+    "companyKey": "",
+    "location": "",
+    "sector": "",
+    "salaryMin": 0,
+    "salaryCurrency": "CHF",
+    "slugByLocale": {
+      "it": "all",
+      "en": "all",
+      "de": "all",
+      "fr": "all"
+    },
+    "localePaths": {
+      "it": "/cerca-lavoro-ticino/all",
+      "en": "/en/find-jobs-ticino/all",
+      "de": "/de/jobs-im-tessin/all",
+      "fr": "/fr/trouver-emploi-tessin/all"
+    },
+    "sourceUrl": "",
+    "googleStatus": "unknown",
+    "googleCanonical": "",
+    "lastCrawlTime": "",
+    "source": [
+      "gsc",
+      "all-known-slugs"
+    ]
+  },
+  {
+    "slug": "tissot-vertriebspartner-the-swatch-group-u-s-inc-ticino",
+    "locale": "de",
+    "path": "/de/jobs-im-tessin/tissot-vertriebspartner-the-swatch-group-u-s-inc-ticino/",
+    "queries": [
+      {
+        "query": "the swatch group jobs",
+        "clicks": 0,
+        "impressions": 1
+      }
+    ],
+    "totalImpressions": 1,
+    "totalClicks": 0,
+    "topQuery": "the swatch group jobs",
+    "title": "Tissot vertriebspartner the swatch group u s inc",
+    "titleByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "descriptionByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "company": "",
+    "companyKey": "",
+    "location": "Ticino",
+    "sector": "",
+    "salaryMin": 0,
+    "salaryCurrency": "CHF",
+    "slugByLocale": {
+      "it": "tissot-vertriebspartner-the-swatch-group-u-s-inc-ticino",
+      "en": "tissot-vertriebspartner-the-swatch-group-u-s-inc-ticino",
+      "de": "tissot-vertriebspartner-the-swatch-group-u-s-inc-ticino",
+      "fr": "tissot-vertriebspartner-the-swatch-group-u-s-inc-ticino"
+    },
+    "localePaths": {
+      "it": "/cerca-lavoro-ticino/tissot-vertriebspartner-the-swatch-group-u-s-inc-ticino",
+      "en": "/en/find-jobs-ticino/tissot-vertriebspartner-the-swatch-group-u-s-inc-ticino",
+      "de": "/de/jobs-im-tessin/tissot-vertriebspartner-the-swatch-group-u-s-inc-ticino",
+      "fr": "/fr/trouver-emploi-tessin/tissot-vertriebspartner-the-swatch-group-u-s-inc-ticino"
+    },
+    "sourceUrl": "",
+    "googleStatus": "unknown",
+    "googleCanonical": "",
+    "lastCrawlTime": "",
+    "source": [
+      "gsc",
+      "all-known-slugs",
+      "slug-parsing"
+    ]
+  },
+  {
+    "slug": "verkaufsberater-in-tessin-coop-genossenschaft-lugano",
+    "locale": "de",
+    "path": "/de/jobs-im-tessin/verkaufsberater-in-tessin-coop-genossenschaft-lugano/",
+    "queries": [
+      {
+        "query": "jobs tessin",
+        "clicks": 0,
+        "impressions": 1
+      }
+    ],
+    "totalImpressions": 1,
+    "totalClicks": 0,
+    "topQuery": "jobs tessin",
+    "title": "Verkaufsberater in tessin coop genossenschaft",
+    "titleByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "descriptionByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "company": "",
+    "companyKey": "",
+    "location": "Lugano",
+    "sector": "",
+    "salaryMin": 0,
+    "salaryCurrency": "CHF",
+    "slugByLocale": {
+      "it": "verkaufsberater-in-tessin-coop-genossenschaft-lugano",
+      "en": "verkaufsberater-in-tessin-coop-genossenschaft-lugano",
+      "de": "verkaufsberater-in-tessin-coop-genossenschaft-lugano",
+      "fr": "verkaufsberater-in-tessin-coop-genossenschaft-lugano"
+    },
+    "localePaths": {
+      "it": "/cerca-lavoro-ticino/verkaufsberater-in-tessin-coop-genossenschaft-lugano",
+      "en": "/en/find-jobs-ticino/verkaufsberater-in-tessin-coop-genossenschaft-lugano",
+      "de": "/de/jobs-im-tessin/verkaufsberater-in-tessin-coop-genossenschaft-lugano",
+      "fr": "/fr/trouver-emploi-tessin/verkaufsberater-in-tessin-coop-genossenschaft-lugano"
+    },
+    "sourceUrl": "",
+    "googleStatus": "unknown",
+    "googleCanonical": "",
+    "lastCrawlTime": "",
+    "source": [
+      "gsc",
+      "all-known-slugs",
+      "slug-parsing"
+    ]
+  },
+  {
+    "slug": "associe-de-vente-tissot-the-swatch-group-u-s-inc-ticino",
+    "locale": "fr",
+    "path": "/fr/trouver-emploi-tessin/associe-de-vente-tissot-the-swatch-group-u-s-inc-ticino/",
+    "queries": [
+      {
+        "query": "swatch emploi",
+        "clicks": 0,
+        "impressions": 1
+      }
+    ],
+    "totalImpressions": 1,
+    "totalClicks": 0,
+    "topQuery": "swatch emploi",
+    "title": "Associe de vente tissot the swatch group u s inc",
+    "titleByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "descriptionByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "company": "",
+    "companyKey": "",
+    "location": "Ticino",
+    "sector": "",
+    "salaryMin": 0,
+    "salaryCurrency": "CHF",
+    "slugByLocale": {
+      "it": "associe-de-vente-tissot-the-swatch-group-u-s-inc-ticino",
+      "en": "associe-de-vente-tissot-the-swatch-group-u-s-inc-ticino",
+      "de": "associe-de-vente-tissot-the-swatch-group-u-s-inc-ticino",
+      "fr": "associe-de-vente-tissot-the-swatch-group-u-s-inc-ticino"
+    },
+    "localePaths": {
+      "it": "/cerca-lavoro-ticino/associe-de-vente-tissot-the-swatch-group-u-s-inc-ticino",
+      "en": "/en/find-jobs-ticino/associe-de-vente-tissot-the-swatch-group-u-s-inc-ticino",
+      "de": "/de/jobs-im-tessin/associe-de-vente-tissot-the-swatch-group-u-s-inc-ticino",
+      "fr": "/fr/trouver-emploi-tessin/associe-de-vente-tissot-the-swatch-group-u-s-inc-ticino"
+    },
+    "sourceUrl": "",
+    "googleStatus": "unknown",
+    "googleCanonical": "",
+    "lastCrawlTime": "",
+    "source": [
+      "gsc",
+      "all-known-slugs",
+      "slug-parsing"
+    ]
+  },
+  {
+    "slug": "all",
+    "locale": "it",
+    "path": "/cerca-lavoro-ticino/all",
+    "queries": [],
+    "totalImpressions": 0,
+    "totalClicks": 0,
+    "topQuery": null,
+    "title": "All",
+    "titleByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "descriptionByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "company": "",
+    "companyKey": "",
+    "location": "",
+    "sector": "",
+    "salaryMin": 0,
+    "salaryCurrency": "CHF",
+    "slugByLocale": {
+      "it": "all",
+      "en": "all",
+      "de": "all",
+      "fr": "all"
+    },
+    "localePaths": {
+      "it": "/cerca-lavoro-ticino/all",
+      "en": "/en/find-jobs-ticino/all",
+      "de": "/de/jobs-im-tessin/all",
+      "fr": "/fr/trouver-emploi-tessin/all"
+    },
+    "sourceUrl": "",
+    "googleStatus": "unknown",
+    "googleCanonical": "",
+    "lastCrawlTime": "",
+    "source": [
+      "gsc",
+      "all-known-slugs"
+    ]
+  },
+  {
+    "slug": "alle",
+    "locale": "it",
+    "path": "/cerca-lavoro-ticino/alle",
+    "queries": [],
+    "totalImpressions": 0,
+    "totalClicks": 0,
+    "topQuery": null,
+    "title": "Alle",
+    "titleByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "descriptionByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "company": "",
+    "companyKey": "",
+    "location": "",
+    "sector": "",
+    "salaryMin": 0,
+    "salaryCurrency": "CHF",
+    "slugByLocale": {
+      "it": "alle",
+      "en": "alle",
+      "de": "alle",
+      "fr": "alle"
+    },
+    "localePaths": {
+      "it": "/cerca-lavoro-ticino/alle",
+      "en": "/en/find-jobs-ticino/alle",
+      "de": "/de/jobs-im-tessin/alle",
+      "fr": "/fr/trouver-emploi-tessin/alle"
+    },
+    "sourceUrl": "",
+    "googleStatus": "unknown",
+    "googleCanonical": "",
+    "lastCrawlTime": "",
+    "source": [
+      "gsc",
+      "all-known-slugs"
+    ]
+  },
+  {
+    "slug": "branchen",
+    "locale": "it",
+    "path": "/cerca-lavoro-ticino/branchen",
+    "queries": [],
+    "totalImpressions": 0,
+    "totalClicks": 0,
+    "topQuery": null,
+    "title": "Branchen",
+    "titleByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "descriptionByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "company": "",
+    "companyKey": "",
+    "location": "",
+    "sector": "",
+    "salaryMin": 0,
+    "salaryCurrency": "CHF",
+    "slugByLocale": {
+      "it": "branchen",
+      "en": "branchen",
+      "de": "branchen",
+      "fr": "branchen"
+    },
+    "localePaths": {
+      "it": "/cerca-lavoro-ticino/branchen",
+      "en": "/en/find-jobs-ticino/branchen",
+      "de": "/de/jobs-im-tessin/branchen",
+      "fr": "/fr/trouver-emploi-tessin/branchen"
+    },
+    "sourceUrl": "",
+    "googleStatus": "unknown",
+    "googleCanonical": "",
+    "lastCrawlTime": "",
+    "source": [
+      "gsc",
+      "all-known-slugs"
+    ]
+  },
+  {
+    "slug": "all",
+    "locale": "de",
+    "path": "/de/jobs-im-tessin/all",
+    "queries": [],
+    "totalImpressions": 0,
+    "totalClicks": 0,
+    "topQuery": null,
+    "title": "All",
+    "titleByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "descriptionByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "company": "",
+    "companyKey": "",
+    "location": "",
+    "sector": "",
+    "salaryMin": 0,
+    "salaryCurrency": "CHF",
+    "slugByLocale": {
+      "it": "all",
+      "en": "all",
+      "de": "all",
+      "fr": "all"
+    },
+    "localePaths": {
+      "it": "/cerca-lavoro-ticino/all",
+      "en": "/en/find-jobs-ticino/all",
+      "de": "/de/jobs-im-tessin/all",
+      "fr": "/fr/trouver-emploi-tessin/all"
+    },
+    "sourceUrl": "",
+    "googleStatus": "unknown",
+    "googleCanonical": "",
+    "lastCrawlTime": "",
+    "source": [
+      "gsc",
+      "all-known-slugs"
+    ]
+  },
+  {
+    "slug": "settori",
+    "locale": "de",
+    "path": "/de/jobs-im-tessin/settori",
     "queries": [],
     "totalImpressions": 0,
     "totalClicks": 0,
@@ -7021,14 +6626,14 @@
     ]
   },
   {
-    "slug": "sviluppatori",
-    "locale": "fr",
-    "path": "/fr/trouver-emploi-tessin/sviluppatori",
+    "slug": "tutti",
+    "locale": "de",
+    "path": "/de/jobs-im-tessin/tutti",
     "queries": [],
     "totalImpressions": 0,
     "totalClicks": 0,
     "topQuery": null,
-    "title": "Sviluppatori",
+    "title": "Tutti",
     "titleByLocale": {
       "it": "",
       "en": "",
@@ -7047,14 +6652,409 @@
     "sector": "",
     "salaryMin": 0,
     "salaryCurrency": "CHF",
-    "slugByLocale": {},
-    "localePaths": {},
+    "slugByLocale": {
+      "it": "tutti",
+      "en": "tutti",
+      "de": "tutti",
+      "fr": "tutti"
+    },
+    "localePaths": {
+      "it": "/cerca-lavoro-ticino/tutti",
+      "en": "/en/find-jobs-ticino/tutti",
+      "de": "/de/jobs-im-tessin/tutti",
+      "fr": "/fr/trouver-emploi-tessin/tutti"
+    },
     "sourceUrl": "",
     "googleStatus": "unknown",
     "googleCanonical": "",
     "lastCrawlTime": "",
     "source": [
-      "gsc"
+      "gsc",
+      "all-known-slugs"
+    ]
+  },
+  {
+    "slug": "alle",
+    "locale": "en",
+    "path": "/en/find-jobs-ticino/alle",
+    "queries": [],
+    "totalImpressions": 0,
+    "totalClicks": 0,
+    "topQuery": null,
+    "title": "Alle",
+    "titleByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "descriptionByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "company": "",
+    "companyKey": "",
+    "location": "",
+    "sector": "",
+    "salaryMin": 0,
+    "salaryCurrency": "CHF",
+    "slugByLocale": {
+      "it": "alle",
+      "en": "alle",
+      "de": "alle",
+      "fr": "alle"
+    },
+    "localePaths": {
+      "it": "/cerca-lavoro-ticino/alle",
+      "en": "/en/find-jobs-ticino/alle",
+      "de": "/de/jobs-im-tessin/alle",
+      "fr": "/fr/trouver-emploi-tessin/alle"
+    },
+    "sourceUrl": "",
+    "googleStatus": "unknown",
+    "googleCanonical": "",
+    "lastCrawlTime": "",
+    "source": [
+      "gsc",
+      "all-known-slugs"
+    ]
+  },
+  {
+    "slug": "branchen",
+    "locale": "en",
+    "path": "/en/find-jobs-ticino/branchen",
+    "queries": [],
+    "totalImpressions": 0,
+    "totalClicks": 0,
+    "topQuery": null,
+    "title": "Branchen",
+    "titleByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "descriptionByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "company": "",
+    "companyKey": "",
+    "location": "",
+    "sector": "",
+    "salaryMin": 0,
+    "salaryCurrency": "CHF",
+    "slugByLocale": {
+      "it": "branchen",
+      "en": "branchen",
+      "de": "branchen",
+      "fr": "branchen"
+    },
+    "localePaths": {
+      "it": "/cerca-lavoro-ticino/branchen",
+      "en": "/en/find-jobs-ticino/branchen",
+      "de": "/de/jobs-im-tessin/branchen",
+      "fr": "/fr/trouver-emploi-tessin/branchen"
+    },
+    "sourceUrl": "",
+    "googleStatus": "unknown",
+    "googleCanonical": "",
+    "lastCrawlTime": "",
+    "source": [
+      "gsc",
+      "all-known-slugs"
+    ]
+  },
+  {
+    "slug": "settori",
+    "locale": "en",
+    "path": "/en/find-jobs-ticino/settori",
+    "queries": [],
+    "totalImpressions": 0,
+    "totalClicks": 0,
+    "topQuery": null,
+    "title": "Settori",
+    "titleByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "descriptionByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "company": "",
+    "companyKey": "",
+    "location": "",
+    "sector": "",
+    "salaryMin": 0,
+    "salaryCurrency": "CHF",
+    "slugByLocale": {
+      "it": "settori",
+      "en": "settori",
+      "de": "settori",
+      "fr": "settori"
+    },
+    "localePaths": {
+      "it": "/cerca-lavoro-ticino/settori",
+      "en": "/en/find-jobs-ticino/settori",
+      "de": "/de/jobs-im-tessin/settori",
+      "fr": "/fr/trouver-emploi-tessin/settori"
+    },
+    "sourceUrl": "",
+    "googleStatus": "unknown",
+    "googleCanonical": "",
+    "lastCrawlTime": "",
+    "source": [
+      "gsc",
+      "all-known-slugs"
+    ]
+  },
+  {
+    "slug": "tutti",
+    "locale": "en",
+    "path": "/en/find-jobs-ticino/tutti",
+    "queries": [],
+    "totalImpressions": 0,
+    "totalClicks": 0,
+    "topQuery": null,
+    "title": "Tutti",
+    "titleByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "descriptionByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "company": "",
+    "companyKey": "",
+    "location": "",
+    "sector": "",
+    "salaryMin": 0,
+    "salaryCurrency": "CHF",
+    "slugByLocale": {
+      "it": "tutti",
+      "en": "tutti",
+      "de": "tutti",
+      "fr": "tutti"
+    },
+    "localePaths": {
+      "it": "/cerca-lavoro-ticino/tutti",
+      "en": "/en/find-jobs-ticino/tutti",
+      "de": "/de/jobs-im-tessin/tutti",
+      "fr": "/fr/trouver-emploi-tessin/tutti"
+    },
+    "sourceUrl": "",
+    "googleStatus": "unknown",
+    "googleCanonical": "",
+    "lastCrawlTime": "",
+    "source": [
+      "gsc",
+      "all-known-slugs"
+    ]
+  },
+  {
+    "slug": "all",
+    "locale": "fr",
+    "path": "/fr/trouver-emploi-tessin/all",
+    "queries": [],
+    "totalImpressions": 0,
+    "totalClicks": 0,
+    "topQuery": null,
+    "title": "All",
+    "titleByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "descriptionByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "company": "",
+    "companyKey": "",
+    "location": "",
+    "sector": "",
+    "salaryMin": 0,
+    "salaryCurrency": "CHF",
+    "slugByLocale": {
+      "it": "all",
+      "en": "all",
+      "de": "all",
+      "fr": "all"
+    },
+    "localePaths": {
+      "it": "/cerca-lavoro-ticino/all",
+      "en": "/en/find-jobs-ticino/all",
+      "de": "/de/jobs-im-tessin/all",
+      "fr": "/fr/trouver-emploi-tessin/all"
+    },
+    "sourceUrl": "",
+    "googleStatus": "unknown",
+    "googleCanonical": "",
+    "lastCrawlTime": "",
+    "source": [
+      "gsc",
+      "all-known-slugs"
+    ]
+  },
+  {
+    "slug": "alle",
+    "locale": "fr",
+    "path": "/fr/trouver-emploi-tessin/alle",
+    "queries": [],
+    "totalImpressions": 0,
+    "totalClicks": 0,
+    "topQuery": null,
+    "title": "Alle",
+    "titleByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "descriptionByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "company": "",
+    "companyKey": "",
+    "location": "",
+    "sector": "",
+    "salaryMin": 0,
+    "salaryCurrency": "CHF",
+    "slugByLocale": {
+      "it": "alle",
+      "en": "alle",
+      "de": "alle",
+      "fr": "alle"
+    },
+    "localePaths": {
+      "it": "/cerca-lavoro-ticino/alle",
+      "en": "/en/find-jobs-ticino/alle",
+      "de": "/de/jobs-im-tessin/alle",
+      "fr": "/fr/trouver-emploi-tessin/alle"
+    },
+    "sourceUrl": "",
+    "googleStatus": "unknown",
+    "googleCanonical": "",
+    "lastCrawlTime": "",
+    "source": [
+      "gsc",
+      "all-known-slugs"
+    ]
+  },
+  {
+    "slug": "branchen",
+    "locale": "fr",
+    "path": "/fr/trouver-emploi-tessin/branchen",
+    "queries": [],
+    "totalImpressions": 0,
+    "totalClicks": 0,
+    "topQuery": null,
+    "title": "Branchen",
+    "titleByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "descriptionByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "company": "",
+    "companyKey": "",
+    "location": "",
+    "sector": "",
+    "salaryMin": 0,
+    "salaryCurrency": "CHF",
+    "slugByLocale": {
+      "it": "branchen",
+      "en": "branchen",
+      "de": "branchen",
+      "fr": "branchen"
+    },
+    "localePaths": {
+      "it": "/cerca-lavoro-ticino/branchen",
+      "en": "/en/find-jobs-ticino/branchen",
+      "de": "/de/jobs-im-tessin/branchen",
+      "fr": "/fr/trouver-emploi-tessin/branchen"
+    },
+    "sourceUrl": "",
+    "googleStatus": "unknown",
+    "googleCanonical": "",
+    "lastCrawlTime": "",
+    "source": [
+      "gsc",
+      "all-known-slugs"
+    ]
+  },
+  {
+    "slug": "settori",
+    "locale": "fr",
+    "path": "/fr/trouver-emploi-tessin/settori",
+    "queries": [],
+    "totalImpressions": 0,
+    "totalClicks": 0,
+    "topQuery": null,
+    "title": "Settori",
+    "titleByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "descriptionByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "company": "",
+    "companyKey": "",
+    "location": "",
+    "sector": "",
+    "salaryMin": 0,
+    "salaryCurrency": "CHF",
+    "slugByLocale": {
+      "it": "settori",
+      "en": "settori",
+      "de": "settori",
+      "fr": "settori"
+    },
+    "localePaths": {
+      "it": "/cerca-lavoro-ticino/settori",
+      "en": "/en/find-jobs-ticino/settori",
+      "de": "/de/jobs-im-tessin/settori",
+      "fr": "/fr/trouver-emploi-tessin/settori"
+    },
+    "sourceUrl": "",
+    "googleStatus": "unknown",
+    "googleCanonical": "",
+    "lastCrawlTime": "",
+    "source": [
+      "gsc",
+      "all-known-slugs"
     ]
   },
   {
@@ -71243,22 +71243,22 @@
     "totalImpressions": 0,
     "totalClicks": 0,
     "topQuery": null,
-    "title": "Operatore reparto raffineria",
+    "title": "Operatore reparto Raffineria",
     "titleByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
+      "it": "Operatore reparto Raffineria",
+      "en": "Operator department Raffineria",
+      "de": "Veranstalter Raffineria",
+      "fr": "Service opérateur Raffineria"
     },
     "descriptionByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
+      "it": "## Descrizione Operatore reparto Raffineria — MKS PAMP SA, Castel San Pietro (TI). ## Missione La risorsa sarà inserita all'interno del reparto di produzione di raffineria, si occuperà della gestione e del controllo del processo di raffinazione di metalli preziosi. ## Principali attività e responsabilità - Conduzione degli impianti di trattamento galvanico - Gestione dei bagni di trattamento e spostamento di anodi, dunque sollevamento di pesi - Manutenzione giornaliera dell'impianto - Collaborazione efficace con colleghi e responsabili di reparto - Applicazione delle direttive impartite dai diretti superiori - Rispetto delle normative e delle procedure in materia di salute e sicurezza sul lavoro ## Formazione ed esperienza richieste - Possesso del diploma di Perito Chimico - Preferibile esperienza pregressa in un settore analogo o metalmeccanico ## Qualifiche e competenze - Senso di responsabilità e spirito di iniziativa - Capacità di lavorare in autonomia - Resistenza allo stress e alla pressione del tempo, con capacità di gestire i periodi di massima attività - Eccellenti capacità interpersonali - Mentalità agile e flessibile, con approccio reattivo alle richieste operative - Attenzione ai dettagli - Capacità di interagire con colleghi di diverse culture - Disponibilità a lavorare su tre turni - Cittadino svizzero o dell'UE o titolare di un permesso di lavoro svizzero valido",
+      "en": "Description Operator of Raffineria department — MKS PAMP SA, Castel San Pietro (TI). ## Mission The resource will be inserted within the refinery production department, will take care of the management and control of the process of refining precious metals. Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â",
+      "de": "Beschreibung Betreiber der Abteilung Raffineria — MKS PAMP SA, Castel San Pietro (TI). Die Mission Die Ressource wird innerhalb der Raffinerie-Produktionsabteilung eingesetzt, kümmert sich um die Verwaltung und Kontrolle des Prozesses der Raffination von Edelmetallen. Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â",
+      "fr": "Description Opérateur du département Raffineria — MKS PAMP SA, Castel San Pietro (TI). Mission La ressource sera insérée dans le département de production de la raffinerie, s'occupera de la gestion et du contrôle du processus de raffinage des métaux précieux. ÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂÂ"
     },
-    "company": "MKS PAMP",
+    "company": "Mks Pamp",
     "companyKey": "mks-pamp",
-    "location": "Castel San Pietro",
+    "location": "",
     "sector": "",
     "salaryMin": 0,
     "salaryCurrency": "CHF",
@@ -71280,9 +71280,9 @@
     "lastCrawlTime": "",
     "source": [
       "gsc",
+      "translation-cache",
       "slug-registry",
-      "all-known-slugs",
-      "slug-parsing"
+      "all-known-slugs"
     ]
   },
   {
