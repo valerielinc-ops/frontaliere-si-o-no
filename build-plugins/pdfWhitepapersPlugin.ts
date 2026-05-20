@@ -2,6 +2,7 @@ import path from 'path';
 import { createHash } from 'node:crypto';
 import type { Plugin } from 'vite';
 import { BASE_URL, ANALYTICS_SNIPPET } from './constants';
+import { breadcrumbListLd } from '../services/seo/structuredData';
 
 /**
  * Cache directory for the PDF content-hash manifest. Mirrors the convention
@@ -461,15 +462,11 @@ function generateLandingPage(guide: PdfGuide, pdfSizeKb: string, dateStamp: stri
  });
 
  // BreadcrumbList — Home → Guide → this guide (D.2 coverage baseline).
- const breadcrumbLd = JSON.stringify({
- '@context': 'https://schema.org',
- '@type': 'BreadcrumbList',
- itemListElement: [
- { '@type': 'ListItem', position: 1, name: 'Home', item: `${BASE_URL}/` },
- { '@type': 'ListItem', position: 2, name: 'Guide', item: `${BASE_URL}/guides/` },
- { '@type': 'ListItem', position: 3, name: guide.title, item: canonical },
- ],
- });
+ const breadcrumbLd = JSON.stringify(breadcrumbListLd([
+ { name: 'Home', url: `${BASE_URL}/` },
+ { name: 'Guide', url: `${BASE_URL}/guides/` },
+ { name: guide.title, url: canonical },
+ ]));
 
  return `<!DOCTYPE html>
 <html lang="it">
