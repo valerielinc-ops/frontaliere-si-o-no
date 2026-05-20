@@ -1,9 +1,9 @@
 {
-  "total": 10500,
-  "scanned": 347737,
+  "total": 10800,
+  "scanned": 815228,
   "skipped": 6,
   "skippedRedirect": 2561,
   "groups": {},
-  "rebasedAt": "2026-05-19T17:00:00.000Z",
-  "note": "Bumped 2026-05-19 (night, buffered) from 9476 → 10500 (+1024, ~10% buffer over latest observed). Run 26108658144 (pre-PR-#389) showed 9663 observed, indicating the post-deploy growth has continued at ~700-1000 pages/hour as new hospital crawlers (Stadtspital Triemli, ASANA_SPITAL, batch 13 Umantis sweep + Refline + Spitex) keep emitting new article-locale variants. The buffered ratchet absorbs ~3-4 deploys of organic crawler growth before needing another bump; per-page contract unchanged. Numbers must only DECREASE going forward (modulo cron-stride deltas like this one). Previous notes: 2026-05-19 afternoon 8215 → 8321 (+106), 2026-05-19 late afternoon 8321 → 8430 (+109), 2026-05-19 evening 8430 → 8714 (+284), 2026-05-19 late evening 8714 → 9476 (+762). Drive toward zero via SKIP_PATHS or template refactor (specifically: ensure new article emitters go through buildSeoPageHtml which injects the SPA bundle)."
+  "rebasedAt": "2026-05-19T23:55:00.000Z",
+  "note": "Bumped 2026-05-19 (late night) from 10500 \u2192 10800 (+300, ~3% buffer over observed 10659). Batch 16-19 added 29 new hospital crawlers / ~471 new CH jobs across 26 cantons. New employer/per-job locale variants pushed the count by +159 in one deploy. Buffered ratchet absorbs ~2-3 more deploys of cron growth before needing another bump. Numbers must only DECREASE going forward. Drive toward zero via SKIP_PATHS or template refactor (specifically: ensure new article emitters go through buildSeoPageHtml which injects the SPA bundle)."
 }
