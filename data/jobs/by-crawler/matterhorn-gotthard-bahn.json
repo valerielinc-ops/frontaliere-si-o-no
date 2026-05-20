@@ -1,6 +1,6 @@
 {
   "crawlerKey": "matterhorn-gotthard-bahn",
-  "assembledAt": "2026-05-19T22:56:10.449Z",
+  "assembledAt": "2026-05-20T10:10:54.906Z",
   "jobs": [
     {
       "id": "matterhorn-gotthard-bahn-7644459024cb",
@@ -1154,107 +1154,6 @@
       },
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-17T10:42:26.005Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "matterhorn-gotthard-bahn-6491c01f42e2",
-      "slug": "tecnico-manutenzione-veicoli-matterhorn-gotthard-bahn-andermatt",
-      "slugByLocale": {
-        "it": "tecnico-manutenzione-veicoli-matterhorn-gotthard-bahn-andermatt",
-        "en": "vehicle-maintenance-technician-matterhorn-gotthard-bahn-andermatt",
-        "de": "techniker-fahrzeuginstandhaltung-m-w-d-matterhorn-gotthard-bahn-ch",
-        "fr": "technicien-maintenance-vehicules-matterhorn-gotthard-bahn-andermatt"
-      },
-      "company": "Matterhorn Gotthard Bahn",
-      "companyKey": "matterhorn-gotthard-bahn",
-      "companyDomain": "bvzholding.ch",
-      "title": "Techniker Fahrzeuginstandhaltung (m/w/d)",
-      "titleByLocale": {
-        "it": "Tecnico Manutenzione Veicoli",
-        "en": "Vehicle Maintenance Technician",
-        "de": "Techniker Fahrzeuginstandhaltung (m/w/d)",
-        "fr": "Technicien Maintenance Véhicules"
-      },
-      "description": "Dein Antrieb\nDas Herzstück der BVZ Holding bilden das Bahnunternehmen Matterhorn Gotthard Bahn und die internationalen Top Marken Gornergrat Bahn und Glacier Express. Leidenschaftliche und qualifizierte Mitarbeitende bilden die Grundlage unseres Erfolges. Täglich engagieren sich rund 700 Mitarbeitende, um unseren Gästen ein erstklassiges Erlebnis zu bieten. Wir leben Vielfalt und haben eines gemeinsam:\n Emotionen sind unser Antrieb. Was ist dein Antrieb? Dein Wirkungsfeld\n \n• Du sorgst mit deinem technischen Know-how dafür, dass unsere Trieb- und Anhängefahrzeuge zuverlässig unterwegs sind \n\n• Durchführung von Unterhalts-, Service- und Reparaturarbeiten an modernen Schienenfahrzeugen \n\n• Analyse und Behebung von elektrischen, pneumatischen und mechanischen Störungen\n\n• Mitarbeit bei technischen Verbesserungen und Optimierungen\n\n• Mitarbeit im Pikett- und Aufgleisteam\n\n• Möglichkeit, Schritt für Schritt mehr Verantwortung zu übernehmen \n Dein Profil\n \n• Abgeschlossene Berufslehre als Automatiker, Elektriker, Elektroniker, Polymechaniker oder in einem verwandten technischen Beruf \n\n• Freude an Technik sowie Interesse an moderner Fahrzeugtechnik \n\n• Kenntnisse in Elektrik, Mechanik oder Pneumatik – Bahnkenntnisse sind ein Plus, aber kein Muss \n\n• Motivation, Neues zu lernen und dich fachlich weiterzuentwickeln \n\n• Bereitschaft für Früh-/Spätschichten und gelegentliche Wochenendeinsätze \n\n• Fahrausweis Kat. B \n\n• Selbständige, zuverlässige und teamorientierte Arbeitsweise\n Deine Vorteile\n \n• Familiäre Unternehmenskultur \n\n• Interne und externe Aus- und Weiterbildungsmöglichkeiten \n\n• Entwicklungsmöglichkeiten in Richtung Spezialist oder Teamverantwortung \n\n• Möglichkeit zur Weiterbildung als Berufsbildner Automatiker \n\n• GA und weitere attraktive Benefits für dich und deine Familie \n\n• 5 Wochen Ferien",
-      "descriptionByLocale": {
-        "it": "Il cuore di BVZ Holding è la compagnia ferroviaria Matterhorn Gotthard Bahn e i migliori marchi internazionali Gornergrat Bahn e Glacier Express. Dipendenti appassionati e qualificati costituiscono la base del nostro successo. Ogni giorno, circa 700 dipendenti sono coinvolti per offrire ai nostri ospiti un'esperienza di prima classe. Viviamo la diversità e abbiamo una cosa in comune: le emozioni sono la nostra unità. Qual e' la tua macchina?\n• Con il tuo know-how tecnico, ti assicurerai che i nostri veicoli e i nostri rimorchi siano in grado di muoversi in modo affidabile\n• Attuazione del lavoro di manutenzione, assistenza e riparazione sui veicoli ferroviari moderni\n• Analisi e eliminazione dei disordini elettrici, pneumatici e meccanici\n• Lavorare con i miglioramenti tecnici e le ottimizzazioni\n• Lavorare con Pikett e Aufgstegam Il tuo profilo\n• L'insegnamento professionale completo come approccio automatico, elettrico, elettronico, polimeccanico o in un piacere tecnico e tecnico. B\n• Lavoro autonomo, affidabile e orientato al team I vostri vantaggi\n• Cultura aziendale familiare\n• Opportunità di formazione e formazione interna ed esterna\n• Opportunità di sviluppo verso responsabilità specialistica o di squadra\n• Possibilità di formazione continua come allenatore professionale automatico\n• GA e altri benefici interessanti per voi e la vostra famiglia\n• 5 settimane di vacanza",
-        "en": "The heart of BVZ Holding is the railway company Matterhorn Gotthard Bahn and the international top brands Gornergrat Bahn and Glacier Express. Passionate and qualified employees form the basis of our success. Every day, around 700 employees are involved to offer our guests a first-class experience. We live diversity and have one thing in common: emotions are our drive. What's your drive? Your field of action\n• With your technical know-how, you will ensure that our vehicles and trailers are reliably on the move\n• Implementation of maintenance, service and repair work on modern rail vehicles\n• Analysis and elimination of electrical, pneumatic and mechanical disorders\n• Working with technical improvements and optimizations\n• Working with Pikett and Aufgstegam Your profile\n• Complete professional teaching as an automatic, electrician, electronic, polymechanical or in a related technical profession\n• pleasure in technology and interest in modern vehicle technology\n• knowledge in electrical engineering, mechanics or pneumatics – Railway knowledge is a plus, but not a must\n• motivation to learn new things and to develop you professionally\n• ready for early/sleet layers and occasional weekend approaches\n• driving pass Kat. B\n• Self-employed, reliable and team-oriented working Your advantages\n• Family corporate culture\n• Internal and external training and training opportunities\n• Development opportunities towards specialist or team responsibility\n• Possibility of continuing training as professional trainer automatic\n• GA and other attractive benefits for you and your family\n• 5 weeks vacation",
-        "de": "Dein Antrieb Das Herzstück der BVZ Holding bilden das Bahnunternehmen Matterhorn Gotthard Bahn und die internationalen Top Marken Gornergrat Bahn und Glacier Express. Leidenschaftliche und qualifizierte Mitarbeitende bilden die Grundlage unseres Erfolges. Täglich engagieren sich rund 700 Mitarbeitende, um unseren Gästen ein erstklassiges Erlebnis zu bieten. Wir leben Vielfalt und haben eines gemeinsam: Emotionen sind unser Antrieb. Was ist dein Antrieb? Dein Wirkungsfeld\n• Du sorgst mit deinem technischen Know-how dafür, dass unsere Trieb- und Anhängefahrzeuge zuverlässig unterwegs sind\n• Durchführung von Unterhalts-, Service- und Reparaturarbeiten an modernen Schienenfahrzeugen\n• Analyse und Behebung von elektrischen, pneumatischen und mechanischen Störungen\n• Mitarbeit bei technischen Verbesserungen und Optimierungen\n• Mitarbeit im Pikett- und Aufgleisteam\n• Möglichkeit, Schritt für Schritt mehr Verantwortung zu übernehmen Dein Profil\n• Abgeschlossene Berufslehre als Automatiker, Elektriker, Elektroniker, Polymechaniker oder in einem verwandten technischen Beruf\n• Freude an Technik sowie Interesse an moderner Fahrzeugtechnik\n• Kenntnisse in Elektrik, Mechanik oder Pneumatik – Bahnkenntnisse sind ein Plus, aber kein Muss\n• Motivation, Neues zu lernen und dich fachlich weiterzuentwickeln\n• Bereitschaft für Früh-/Spätschichten und gelegentliche Wochenendeinsätze\n• Fahrausweis Kat. B\n• Selbständige, zuverlässige und teamorientierte Arbeitsweise Deine Vorteile\n• Familiäre Unternehmenskultur\n• Interne und externe Aus- und Weiterbildungsmöglichkeiten\n• Entwicklungsmöglichkeiten in Richtung Spezialist oder Teamverantwortung\n• Möglichkeit zur Weiterbildung als Berufsbildner Automatiker\n• GA und weitere attraktive Benefits für dich und deine Familie\n• 5 Wochen Ferien",
-        "fr": "Le cœur de BVZ Holding est la compagnie ferroviaire Matterhorn Gotthard Bahn et les grandes marques internationales Gornergrat Bahn et Glacier Express. Des employés passionnés et qualifiés constituent la base de notre succès. Chaque jour, environ 700 employés sont impliqués pour offrir à nos invités une expérience de première classe. Nous vivons la diversité et avons une chose en commun : les émotions sont notre moteur. Quelle est votre conduite ? Votre domaine d'action\n• Grâce à votre savoir-faire technique, vous veillerez à ce que nos véhicules et remorques soient en mouvement de manière fiable\n• Mise en œuvre de travaux d'entretien, de service et de réparation sur des véhicules ferroviaires modernes\n• Analyse et élimination des troubles électriques, pneumatiques et mécaniques\n• Travail avec des améliorations et des optimisations techniques\n• Travail avec Pikett et Aufgstegam Votre profil\n• Enseignement professionnel complet en tant que professionnel automatique, électricien, électronique, polymécanique ou dans une profession technique connexe\n• plaisir dans la technologie et intérêt pour la technologie moderne des véhicules\n• connaissances en génie électrique, mécanique ou pneumatique – La connaissance ferroviaire est un plus, mais pas un must\n• motivation pour apprendre de nouvelles choses et pour vous développer professionnellement\n• prêt pour les couches de départ et les approches occasionnelles du week-end\n• conduite pass Kat. B\n• Travail indépendant, travail fiable et axé sur l'équipe Vos avantages\n• Culture d'entreprise familiale\n• Possibilités internes et externes de formation et de formation\n• Possibilités de développement vers la responsabilité de spécialiste ou d'équipe\n• Possibilité de formation continue en tant que formateur professionnel automatique\n• GA et autres avantages attrayants pour vous et votre famille\n• 5 semaines de vacances"
-      },
-      "location": "Andermatt",
-      "canton": "UR",
-      "url": "https://jobs.bvzholding.ch/Techniker-Fahrzeuginstandhaltung-mwd-de-j581.html",
-      "source": "Matterhorn Gotthard Bahn Dedicated Parser (Rexx Systems)",
-      "sourceLang": "de",
-      "crawledAt": "2026-05-19T12:13:59.061Z",
-      "addressLocality": "Andermatt",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "6490",
-      "streetAddress": "Bahnhofplatz 3",
-      "category": "Ingegneria",
-      "sector": "Trasporti / Ferrovia",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-08",
-      "validThrough": "2026-05-31",
-      "applyUrl": "https://jobs.bvzholding.ch/Techniker-Fahrzeuginstandhaltung-mwd-de-f581.html",
-      "requirements": [
-        "Abgeschlossene Berufslehre als Automatiker, Elektriker, Elektroniker, Polymechaniker oder in einem verwandten technischen Beruf",
-        "Freude an Technik sowie Interesse an moderner Fahrzeugtechnik",
-        "Kenntnisse in Elektrik, Mechanik oder Pneumatik – Bahnkenntnisse sind ein Plus, aber kein Muss",
-        "Motivation, Neues zu lernen und dich fachlich weiterzuentwickeln",
-        "Bereitschaft für Früh-/Spätschichten und gelegentliche Wochenendeinsätze",
-        "Fahrausweis Kat. B",
-        "Selbständige, zuverlässige und teamorientierte Arbeitsweise"
-      ],
-      "requirementsByLocale": {
-        "de": [
-          "Freude an Technik sowie Interesse an moderner Fahrzeugtechnik",
-          "Kenntnisse in Elektrik, Mechanik oder Pneumatik – Bahnkenntnisse sind ein Plus, aber kein Muss",
-          "Motivation, Neues zu lernen und dich fachlich weiterzuentwickeln",
-          "Bereitschaft für Früh-/Spätschichten und gelegentliche Wochenendeinsätze",
-          "Fahrausweis Kat. B",
-          "Selbständige, zuverlässige und teamorientierte Arbeitsweise",
-          "Kenntnisse in Elektrik, Mechanik oder Pneumatik Bahnkenntnisse sind ein Plus, aber kein Muss",
-          "Bereitschaft f r Fr h-/Sp tschichten und gelegentliche Wochenendeins tze"
-        ]
-      },
-      "_mgbMeta": {
-        "rexxId": "581",
-        "identifier": "PERS-369",
-        "hiringOrganization": "Matterhorn Gotthard Bahn"
-      },
-      "previousSlugs": [
-        "techniker-fahrzeuginstandhaltung-m-w-d-matterhorn-gotthard-bahn-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "techniker-fahrzeuginstandhaltung-m-w-d-matterhorn-gotthard-bahn-ch"
-        ],
-        "en": [
-          "techniker-fahrzeuginstandhaltung-m-w-d-matterhorn-gotthard-bahn-ch"
-        ],
-        "fr": [
-          "techniker-fahrzeuginstandhaltung-m-w-d-matterhorn-gotthard-bahn-ch"
-        ]
-      },
-      "firstSeenAt": "2026-05-08T10:18:48.019Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {

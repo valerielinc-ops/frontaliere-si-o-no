@@ -1,6 +1,6 @@
 {
   "crawlerKey": "svar-spitalverbund-ar",
-  "assembledAt": "2026-05-19T23:42:29.244Z",
+  "assembledAt": "2026-05-20T10:20:56.586Z",
   "jobs": [
     {
       "id": "svar-spitalverbund-ar-58a13940518b",
@@ -245,108 +245,6 @@
           "@type": "QuantitativeValue",
           "minValue": 68000,
           "maxValue": 103000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "svar-spitalverbund-ar-2032e9e8c72a",
-      "slug": "collaboratore-peer-in-psichiatria-generale-20-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-psychiatrisches-zentrum-ar",
-      "slugByLocale": {
-        "it": "collaboratore-peer-in-psichiatria-generale-20-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-psychiatrisches-zentrum-ar",
-        "en": "peer-worker-in-general-psychiatry-20-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-psychiatrisches-zentrum-ar",
-        "de": "peer-mitarbeiter-in-allgemeinpsychiatrie-20-m-w-d-svar-spitalverbund-ar-psychiatrisches",
-        "fr": "travailleur-pair-en-psychiatrie-generale-20-h-f-d-spitalverbund-appenzell-ausserrhoden-svar-psychiatrisches-zentrum-ar"
-      },
-      "company": "Spitalverbund Appenzell Ausserrhoden (SVAR)",
-      "companyKey": "svar-spitalverbund-ar",
-      "companyDomain": "svar.ch",
-      "title": "Peer-Mitarbeiter/in Allgemeinpsychiatrie 20% (m/w/d)",
-      "titleByLocale": {
-        "it": "Collaboratore Peer in Psichiatria Generale 20% (m/f/d)",
-        "en": "Peer Worker in General Psychiatry 20% (m/f/d)",
-        "de": "Peer-Mitarbeiter/in Allgemeinpsychiatrie 20% (m/w/d)",
-        "fr": "Travailleur Pair en Psychiatrie Générale 20% (h/f/d)"
-      },
-      "description": "Attraktive Aufgaben\n\n• Für die Patient*innen \"Da-Sein\"\n• Geplante und ungeplante individuelle Beratungsgespräche, bzw. Austausch auf Augenhöhe\n• Begleitung und Unterstützung der Patient*innen bei der Alltagsbewältigung oder bei der Wahrnehmung von internen und externen Terminen\n• Unterstützung und Vernetzung zu Nachsorge-Angeboten, wie z.B. Selbsthilfegruppen\n• Planung, Durchführung und Auswertung von Recovery-Gruppen, Trialog-Veranstaltungen oder Projekten als Öffentlichkeitsarbeit\n\nEintritt: 01. Juli 2026",
-      "descriptionByLocale": {
-        "it": "Compiti interessanti - Per i pazienti \"esserci\" - Colloqui di consulenza individuali pianificati e non pianificati, o scambio alla pari - Accompagnamento e supporto dei pazienti nella gestione della vita quotidiana o nella gestione di appuntamenti interni ed esterni - Supporto e networking per offerte di follow-up, come gruppi di auto-aiuto - Pianificazione, implementazione e valutazione di gruppi di recupero, eventi di trilogo o progetti come pubbliche relazioni Ingresso - 01 luglio 2026",
-        "en": "Attractive tasks - Being there for the patients - Planned and unplanned individual counselling sessions, or exchange on an equal footing - Supporting and supporting the patients in coping with everyday life or in the perception of internal and external appointments - Support and networking for aftercare offers, such as self-help groups - Planning, implementation and evaluation of recovery groups, trialogue events or projects as public relations Admission - 01 July 2026",
-        "de": "Attraktive Aufgaben\n• Für die Patient*innen \"Da-Sein\"\n• Geplante und ungeplante individuelle Beratungsgespräche, bzw. Austausch auf Augenhöhe\n• Begleitung und Unterstützung der Patient*innen bei der Alltagsbewältigung oder bei der Wahrnehmung von internen und externen Terminen\n• Unterstützung und Vernetzung zu Nachsorge-Angeboten, wie z.B. Selbsthilfegruppen\n• Planung, Durchführung und Auswertung von Recovery-Gruppen, Trialog-Veranstaltungen oder Projekten als Öffentlichkeitsarbeit Eintritt: 01. Juli 2026",
-        "fr": "Tâches attrayantes - Pour les patients, « être là » - Entretiens de conseil individuels planifiés et non planifiés, ou échange d'égal à égal - Accompagnement et soutien des patients dans la gestion quotidienne ou dans la prise de rendez-vous internes et externes - Soutien et mise en réseau d'offres de suivi, telles que des groupes de soutien - Planification, mise en œuvre et évaluation de groupes de récupération, d'événements de trialogue ou de projets en tant que relations publiques Entrée - 1er juillet 2026"
-      },
-      "location": "Psychiatrisches Zentrum AR, Herisau",
-      "canton": "AR",
-      "url": "https://live.solique.ch/svar/job/details/4004873",
-      "source": "Spitalverbund Appenzell Ausserrhoden (SVAR) Dedicated Parser (Solique careers portal)",
-      "sourceLang": "de",
-      "crawledAt": "2026-05-19T23:42:25.774Z",
-      "addressLocality": "Psychiatrisches Zentrum AR",
-      "addressRegion": "AR",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "9100",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-19",
-      "applyUrl": "https://live.solique.ch/svar/job/details/4004873",
-      "requirements": [],
-      "requirementsByLocale": {
-        "it": [
-          "Esperienza personale con problemi di salute mentale",
-          "Capacità di comunicazione empatica e alla pari",
-          "Disponibilità a lavorare in un team interdisciplinare",
-          "Flessibilità e capacità di adattamento",
-          "Conoscenza delle risorse di supporto locali",
-          "Interesse per il lavoro di sensibilizzazione pubblica",
-          "Capacità di pianificazione e organizzazione",
-          "Disponibilità a lavorare part-time (20%)"
-        ],
-        "en": [
-          "Personal experience with mental health challenges",
-          "Ability to communicate empathetically and peer-to-peer",
-          "Willingness to work in an interdisciplinary team",
-          "Flexibility and adaptability",
-          "Knowledge of local support resources",
-          "Interest in public outreach work",
-          "Planning and organizational skills",
-          "Willingness to work part-time (20%)"
-        ],
-        "fr": [
-          "Expérience personnelle avec des défis de santé mentale",
-          "Capacité à communiquer avec empathie et d'égal à égal",
-          "Volonté de travailler dans une équipe interdisciplinaire",
-          "Flexibilité et capacité d'adaptation",
-          "Connaissance des ressources locales de soutien",
-          "Intérêt pour le travail de sensibilisation publique",
-          "Compétences en planification et organisation",
-          "Disponibilité pour un travail à temps partiel (20%)"
-        ]
-      },
-      "externalId": "4004873",
-      "previousSlugs": [
-        "peer-mitarbeiter-in-allgemeinpsychiatrie-20-m-w-d-svar-spitalverbund-ar-psychiatrisches"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "peer-mitarbeiter-in-allgemeinpsychiatrie-20-m-w-d-svar-spitalverbund-ar-psychiatrisches"
-        ]
-      },
-      "firstSeenAt": "2026-05-19T14:37:01.116Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
           "unitText": "YEAR"
         }
       }

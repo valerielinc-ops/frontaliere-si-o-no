@@ -1,6 +1,6 @@
 {
   "crawlerKey": "schindler",
-  "assembledAt": "2026-05-19T23:25:03.619Z",
+  "assembledAt": "2026-05-20T10:16:07.285Z",
   "jobs": [
     {
       "id": "schindler-8c9951e4514b",
@@ -893,87 +893,6 @@
         "lift-monster-in-80-100-in-graubunden-schindler-chur",
         "monstre-de-levage-en-80-100-a-graubunden-schindler-chur"
       ]
-    },
-    {
-      "id": "schindler-75a56cb52f43",
-      "slug": "manager-per-cookie-einwilligungen-schindler-winterthur",
-      "slugByLocale": {
-        "de": "manager-fur-cookie-einwilligungen-schindler-winterthur",
-        "it": "manager-per-cookie-einwilligungen-schindler-winterthur",
-        "en": "manager-fur-cookie-einwilligungen-schindler-winterthur",
-        "fr": "manager-fur-cookie-einwilligungen-schindler-winterthur"
-      },
-      "company": "Schindler",
-      "companyKey": "schindler",
-      "companyDomain": "schindler.com",
-      "title": "Manager für Cookie-Einwilligungen",
-      "titleByLocale": {
-        "de": "Manager für Cookie-Einwilligungen",
-        "it": "Manager per Cookie-Einwilligungen",
-        "en": "Manager für Cookie-Einwilligungen",
-        "fr": "Manager für Cookie-Einwilligungen"
-      },
-      "description": "Mobilität | seit 1874 | weltweit im Einsatz\n\r\n\r\n\n\r\nDie Schindler Berufsbildung bildet schweizweit über 300 Lernende aus – du bist somit nie allein. Unser gesamtes Team setzt sich täglich für dich ein, damit du am Ende deiner Lehrzeit eine top ausgebildete Fachkraft bist.\n\r\n\n\r\nSchnupperlehre als Polymechaniker*in EFZ mit Schwerpunkt Liftmontage in Winterthur",
-      "descriptionByLocale": {
-        "de": "Mobilität | seit 1874 | weltweit im Einsatz\n\r\n\r\n\n\r\nDie Schindler Berufsbildung bildet schweizweit über 300 Lernende aus – du bist somit nie allein. Unser gesamtes Team setzt sich täglich für dich ein, damit du am Ende deiner Lehrzeit eine top ausgebildete Fachkraft bist.\n\r\n\n\r\nSchnupperlehre als Anlagen- und Apparatebauer*in EFZ mit Schwerpunkt Liftmontage in Winterthur",
-        "it": "Mobilität | seit 1874 | weltweit im Einsatz\n\r\n\r\n\n\r\nDie Schindler Berufsbildung bildet schweizweit über 300 Lernende aus – du bist somit nie allein. Unser gesamtes Team setzt sich täglich für dich ein, damit du am Ende deiner Lehrzeit eine top ausgebildete Fachkraft bist.\n\r\n\n\r\nSchnupperlehre als Anlagen- und Apparatebauer*in EFZ mit Schwerpunkt Liftmontage in Winterthur",
-        "en": "Mobilität | seit 1874 | weltweit im Einsatz\n\r\n\r\n\n\r\nDie Schindler Berufsbildung bildet schweizweit über 300 Lernende aus – du bist somit nie allein. Unser gesamtes Team setzt sich täglich für dich ein, damit du am Ende deiner Lehrzeit eine top ausgebildete Fachkraft bist.\n\r\n\n\r\nSchnupperlehre als Anlagen- und Apparatebauer*in EFZ mit Schwerpunkt Liftmontage in Winterthur",
-        "fr": "Mobilität | seit 1874 | weltweit im Einsatz\n\r\n\r\n\n\r\nDie Schindler Berufsbildung bildet schweizweit über 300 Lernende aus – du bist somit nie allein. Unser gesamtes Team setzt sich täglich für dich ein, damit du am Ende deiner Lehrzeit eine top ausgebildete Fachkraft bist.\n\r\n\n\r\nSchnupperlehre als Anlagen- und Apparatebauer*in EFZ mit Schwerpunkt Liftmontage in Winterthur"
-      },
-      "location": "Winterthur",
-      "canton": "ZH",
-      "url": "https://job.schindler.com/SBB/job/Winterthur-Schnupperlehre-als-Polymechanikerin-EFZ-mit-Schwerpunkt-Liftmontage-Z%C3%BCri/1254185601/",
-      "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
-      "sourceLang": "de",
-      "crawledAt": "2026-05-19T12:34:23.603Z",
-      "addressLocality": "Winterthur",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Industrial",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-16",
-      "applyUrl": "https://job.schindler.com/talentcommunity/apply/1254185601/?locale=de_DE",
-      "jobReqId": "1254185601",
-      "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "manager-fur-cookie-einwilligungen-schindler-winterthur",
-          "gestione-delle-autorizzazioni-dei-cookie-schindler-winterthur"
-        ],
-        "fr": [
-          "manager-fur-cookie-einwilligungen-schindler-winterthur",
-          "gestionnaire-pour-les-autorisations-de-cookies-schindler-winterthur"
-        ]
-      },
-      "previousSlugs": [
-        "manager-fur-cookie-einwilligungen-schindler-winterthur",
-        "gestionnaire-pour-les-autorisations-de-cookies-schindler-winterthur",
-        "gestione-delle-autorizzazioni-dei-cookie-schindler-winterthur"
-      ],
-      "salaryMin": 68000,
-      "salaryMax": 103000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68000,
-          "maxValue": 103000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Via Industria 11",
-      "postalCode": "6934",
-      "firstSeenAt": "2026-05-19T12:34:23.603Z"
     },
     {
       "id": "schindler-d075d10ff07d",
