@@ -4,10 +4,10 @@
   "jobs": [
     {
       "id": "psgn-41e2d44d74b1",
-      "slug": "medico-specialista-psychiatrie-st-gallen-wil-sg",
+      "slug": "medico-senior-psychiatrie-st-gallen-wil-sg",
       "slugByLocale": {
-        "it": "medico-specialista-psychiatrie-st-gallen-wil-sg",
-        "en": "senior-physician-psychiatrie-st-gallen-wil-sg",
+        "it": "medico-senior-psychiatrie-st-gallen-wil-sg",
+        "en": "senior-doctor-psychiatrie-st-gallen-wil-sg",
         "de": "oberarztin-oberarzt-psychiatrie-st-gallen-wil-sg",
         "fr": "medecin-senior-psychiatrie-st-gallen-wil-sg"
       },
@@ -85,11 +85,17 @@
           "oberarztin-oberarzt-psgn-wil-sg"
         ],
         "it": [
-          "oberarztin-oberarzt-psgn-wil-sg"
+          "oberarztin-oberarzt-psgn-wil-sg",
+          "medico-specialista-psychiatrie-st-gallen-wil-sg"
+        ],
+        "en": [
+          "senior-physician-psychiatrie-st-gallen-wil-sg"
         ]
       },
       "previousSlugs": [
-        "oberarztin-oberarzt-psgn-wil-sg"
+        "oberarztin-oberarzt-psgn-wil-sg",
+        "medico-specialista-psychiatrie-st-gallen-wil-sg",
+        "senior-physician-psychiatrie-st-gallen-wil-sg"
       ],
       "firstSeenAt": "2026-05-19T20:59:53.614Z",
       "salaryMin": 68000,
@@ -315,7 +321,7 @@
         "it": "psicologo-a-assistente-psychiatrie-st-gallen-wil-sg",
         "en": "assistant-psychologist-psychiatrie-st-gallen-wil-sg",
         "de": "assistenzpsychologin-assistenzpsychologe-psychiatrie-st-gallen-wil-sg",
-        "fr": "psychologue-assistant-e-psychiatrie-st-gallen-wil-sg"
+        "fr": "psychologue-adjoint-psychologue-adjoint-psychiatrie-st-gallen-wil-sg"
       },
       "company": "Psychiatrie St.Gallen",
       "companyKey": "psgn",
@@ -393,10 +399,14 @@
         ],
         "it": [
           "assistenzpsychologin-assistenzpsychologe-psgn-wil-sg"
+        ],
+        "fr": [
+          "psychologue-assistant-e-psychiatrie-st-gallen-wil-sg"
         ]
       },
       "previousSlugs": [
-        "assistenzpsychologin-assistenzpsychologe-psgn-wil-sg"
+        "assistenzpsychologin-assistenzpsychologe-psgn-wil-sg",
+        "psychologue-assistant-e-psychiatrie-st-gallen-wil-sg"
       ],
       "firstSeenAt": "2026-05-19T20:59:51.253Z",
       "salaryMin": 49500,

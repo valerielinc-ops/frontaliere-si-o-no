@@ -915,12 +915,12 @@
     },
     {
       "id": "kantonsspital-uri-e0604f21067f",
-      "slug": "operatore-socio-sanitario-oss-m-f-d-60-100-con-funzione-aggiuntiva-di-formatore-professionale-kantonsspital-uri-altdorf",
+      "slug": "specialista-in-salute-fage-uomo-donna-60-100-con-funzione-aggiuntiva-come-formatore-trice-kantonsspital-uri-altdorf",
       "slugByLocale": {
-        "it": "operatore-socio-sanitario-oss-m-f-d-60-100-con-funzione-aggiuntiva-di-formatore-professionale-kantonsspital-uri-altdorf",
-        "en": "healthcare-professional-fage-m-f-d-60-100-with-additional-role-as-vocational-trainer-kantonsspital-uri-altdorf",
+        "it": "specialista-in-salute-fage-uomo-donna-60-100-con-funzione-aggiuntiva-come-formatore-trice-kantonsspital-uri-altdorf",
+        "en": "healthcare-specialist-fage-male-female-60-100-with-additional-function-as-trainer-kantonsspital-uri-altdorf",
         "de": "fachperson-gesundheit-fage-w-m-d-60-100-mit-zusatzfunktion-als-berufsbildner-in",
-        "fr": "assistant-e-en-soins-et-sante-communautaire-assc-h-f-d-60-100-avec-fonction-additionnelle-de-formateur-trice-en"
+        "fr": "specialiste-en-sante-fage-h-f-60-100-avec-fonction-supplementaire-en-tant-que-formateur-trice-kantonsspital-uri-altdorf"
       },
       "company": "Kantonsspital Uri",
       "companyKey": "kantonsspital-uri",
@@ -984,11 +984,21 @@
         ]
       },
       "previousSlugs": [
-        "fachperson-gesundheit-fage-w-m-d-60-100-mit-zusatzfunktion-als-berufsbildner-in"
+        "fachperson-gesundheit-fage-w-m-d-60-100-mit-zusatzfunktion-als-berufsbildner-in",
+        "operatore-socio-sanitario-oss-m-f-d-60-100-con-funzione-aggiuntiva-di-formatore-professionale-kantonsspital-uri-altdorf",
+        "healthcare-professional-fage-m-f-d-60-100-with-additional-role-as-vocational-trainer-kantonsspital-uri-altdorf",
+        "assistant-e-en-soins-et-sante-communautaire-assc-h-f-d-60-100-avec-fonction-additionnelle-de-formateur-trice-en"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachperson-gesundheit-fage-w-m-d-60-100-mit-zusatzfunktion-als-berufsbildner-in"
+          "fachperson-gesundheit-fage-w-m-d-60-100-mit-zusatzfunktion-als-berufsbildner-in",
+          "operatore-socio-sanitario-oss-m-f-d-60-100-con-funzione-aggiuntiva-di-formatore-professionale-kantonsspital-uri-altdorf"
+        ],
+        "en": [
+          "healthcare-professional-fage-m-f-d-60-100-with-additional-role-as-vocational-trainer-kantonsspital-uri-altdorf"
+        ],
+        "fr": [
+          "assistant-e-en-soins-et-sante-communautaire-assc-h-f-d-60-100-avec-fonction-additionnelle-de-formateur-trice-en"
         ]
       },
       "firstSeenAt": "2026-05-19T13:03:23.927Z",
@@ -1105,12 +1115,12 @@
     },
     {
       "id": "kantonsspital-uri-2f895430ecb3",
-      "slug": "dietista-m-f-d-40-kantonsspital-uri-altdorf",
+      "slug": "consulente-alimentare-m-f-d-40-kantonsspital-uri-altdorf",
       "slugByLocale": {
-        "it": "dietista-m-f-d-40-kantonsspital-uri-altdorf",
-        "en": "nutritionist-dietitian-m-f-d-40-kantonsspital-uri-altdorf",
+        "it": "consulente-alimentare-m-f-d-40-kantonsspital-uri-altdorf",
+        "en": "dietician-m-f-d-40-kantonsspital-uri-altdorf",
         "de": "ernahrungsberater-in-m-w-d-40-kantonsspital-uri-altdorf",
-        "fr": "dieteticien-ne-h-f-d-40-kantonsspital-uri-altdorf"
+        "fr": "conseiller-ere-en-nutrition-m-f-d-40-kantonsspital-uri-altdorf"
       },
       "company": "Kantonsspital Uri",
       "companyKey": "kantonsspital-uri",
@@ -1152,11 +1162,21 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "ernahrungsberater-in-m-w-d-40-kantonsspital-uri-altdorf"
+        "ernahrungsberater-in-m-w-d-40-kantonsspital-uri-altdorf",
+        "dietista-m-f-d-40-kantonsspital-uri-altdorf",
+        "nutritionist-dietitian-m-f-d-40-kantonsspital-uri-altdorf",
+        "dieteticien-ne-h-f-d-40-kantonsspital-uri-altdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ernahrungsberater-in-m-w-d-40-kantonsspital-uri-altdorf"
+          "ernahrungsberater-in-m-w-d-40-kantonsspital-uri-altdorf",
+          "dietista-m-f-d-40-kantonsspital-uri-altdorf"
+        ],
+        "en": [
+          "nutritionist-dietitian-m-f-d-40-kantonsspital-uri-altdorf"
+        ],
+        "fr": [
+          "dieteticien-ne-h-f-d-40-kantonsspital-uri-altdorf"
         ]
       },
       "firstSeenAt": "2026-05-19T13:03:22.879Z",

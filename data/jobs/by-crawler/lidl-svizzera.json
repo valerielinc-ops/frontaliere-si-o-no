@@ -51,19 +51,31 @@
       },
       "slugByLocale": {
         "it": "ch-tuttofare-vendita-m-w-d-20-40-lidl-svizzera-lugano-csxpwn",
-        "en": "ch-tuttofare-sales-m-w-d-20-40-lidl-svizzera-lugano-csxpwn",
-        "de": "ch-tuttofare-verkauf-m-w-d-20-40-lidl-svizzera-lugano-csxpwn",
-        "fr": "ch-tuttofare-vente-m-w-d-20-40-lidl-svizzera-lugano-csxpwn"
+        "en": "ch-all-round-sale-m-f-d-20-40-lidl-svizzera-lugano",
+        "de": "ch-allround-verkauf-m-f-d-20-40-lidl-svizzera-lugano",
+        "fr": "ch-vente-integrale-m-f-j-20-40-lidl-svizzera-lugano"
       },
       "country": "CH",
       "sourceLang": "it",
       "previousSlugsByLocale": {
         "it": [
           "ch-tuttofare-vendita-m-w-d-20-40-lidl-svizzera-lugano"
+        ],
+        "en": [
+          "ch-tuttofare-sales-m-w-d-20-40-lidl-svizzera-lugano-csxpwn"
+        ],
+        "de": [
+          "ch-tuttofare-verkauf-m-w-d-20-40-lidl-svizzera-lugano-csxpwn"
+        ],
+        "fr": [
+          "ch-tuttofare-vente-m-w-d-20-40-lidl-svizzera-lugano-csxpwn"
         ]
       },
       "previousSlugs": [
-        "ch-tuttofare-vendita-m-w-d-20-40-lidl-svizzera-lugano"
+        "ch-tuttofare-vendita-m-w-d-20-40-lidl-svizzera-lugano",
+        "ch-tuttofare-sales-m-w-d-20-40-lidl-svizzera-lugano-csxpwn",
+        "ch-tuttofare-verkauf-m-w-d-20-40-lidl-svizzera-lugano-csxpwn",
+        "ch-tuttofare-vente-m-w-d-20-40-lidl-svizzera-lugano-csxpwn"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",

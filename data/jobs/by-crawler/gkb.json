@@ -712,12 +712,12 @@
     },
     {
       "id": "gkb-f18088b38714",
-      "slug": "consulente-clientela-privata-60-graubundner-kantonalbank-thusis",
+      "slug": "consulente-in-clienti-privati-60-graubundner-kantonalbank-thusis",
       "slugByLocale": {
         "de": "berater-in-privatkunden-60-graubundner-kantonalbank-thusis",
-        "it": "consulente-clientela-privata-60-graubundner-kantonalbank-thusis",
-        "en": "private-client-advisor-60-graubundner-kantonalbank-thusis",
-        "fr": "conseiller-ere-clientele-privee-60-graubundner-kantonalbank-thusis"
+        "it": "consulente-in-clienti-privati-60-graubundner-kantonalbank-thusis",
+        "en": "adviser-in-private-customers-60-graubundner-kantonalbank-thusis",
+        "fr": "conseiller-aupres-de-clients-prives-60-graubundner-kantonalbank-thusis"
       },
       "company": "Graubündner Kantonalbank",
       "companyKey": "gkb",
@@ -766,10 +766,22 @@
       "previousSlugsByLocale": {
         "de": [
           "berater-in-privatkunden-60-gkb-ch"
+        ],
+        "it": [
+          "consulente-clientela-privata-60-graubundner-kantonalbank-thusis"
+        ],
+        "en": [
+          "private-client-advisor-60-graubundner-kantonalbank-thusis"
+        ],
+        "fr": [
+          "conseiller-ere-clientele-privee-60-graubundner-kantonalbank-thusis"
         ]
       },
       "previousSlugs": [
-        "berater-in-privatkunden-60-gkb-ch"
+        "berater-in-privatkunden-60-gkb-ch",
+        "consulente-clientela-privata-60-graubundner-kantonalbank-thusis",
+        "private-client-advisor-60-graubundner-kantonalbank-thusis",
+        "conseiller-ere-clientele-privee-60-graubundner-kantonalbank-thusis"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,

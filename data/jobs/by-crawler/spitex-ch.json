@@ -808,7 +808,7 @@
       "slug": "professionista-della-salute-fage-efz-m-f-d-50-90-spitex-burgdorf-oberburg-burgdorf",
       "slugByLocale": {
         "it": "professionista-della-salute-fage-efz-m-f-d-50-90-spitex-burgdorf-oberburg-burgdorf",
-        "en": "health-professional-fage-efz-m-f-d-50-90-spitex-burgdorf-oberburg-burgdorf",
+        "en": "projektmanager-m-w-d-50-90-spitex-burgdorf-oberburg-burgdorf",
         "de": "fachperson-gesundheit-fage-efz-m-w-d-50-90-spitex-ch-burgdorf",
         "fr": "professionnel-de-la-sante-fage-efz-h-f-d-50-90-spitex-burgdorf-oberburg-burgdorf"
       },
@@ -878,11 +878,15 @@
         ]
       },
       "previousSlugs": [
-        "fachperson-gesundheit-fage-efz-m-w-d-50-90-spitex-ch-burgdorf"
+        "fachperson-gesundheit-fage-efz-m-w-d-50-90-spitex-ch-burgdorf",
+        "health-professional-fage-efz-m-f-d-50-90-spitex-burgdorf-oberburg-burgdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fachperson-gesundheit-fage-efz-m-w-d-50-90-spitex-ch-burgdorf"
+        ],
+        "en": [
+          "health-professional-fage-efz-m-f-d-50-90-spitex-burgdorf-oberburg-burgdorf"
         ]
       },
       "firstSeenAt": "2026-05-19T12:21:47.079Z",
@@ -1260,7 +1264,7 @@
         "de": "pflegefachperson-hf-fh-70-90-spitex-ch-thalwil",
         "it": "pflegefachperson-hf-fh-70-90-spitex-zimmerberg-ag-thalwil",
         "en": "pflegefachperson-hf-fh-70-90-spitex-zimmerberg-ag-thalwil",
-        "fr": "pflegefachperson-hf-fh-70-90-spitex-zimmerberg-ag-thalwil"
+        "fr": "specialiste-des-soins-hf-fh-70-90-spitex-zimmerberg-ag-thalwil"
       },
       "company": "Spitex Zimmerberg AG",
       "companyKey": "spitex-ch",
@@ -1328,12 +1332,12 @@
     },
     {
       "id": "spitex-ch-754adc7ded5b",
-      "slug": "fachleute-gesundheit-cfc-per-unseren-pool-a-10-40-auf-stundenbasis-spitex-zurichsee-meilen",
+      "slug": "salute-efz-per-la-nostra-piscina-a-10-40-su-base-oraria-spitex-zurichsee-meilen",
       "slugByLocale": {
         "de": "fachleute-gesundheit-efz-fur-unseren-pool-a-10-40-auf-stundenbasis-spitex-ch-meilen",
-        "it": "fachleute-gesundheit-cfc-per-unseren-pool-a-10-40-auf-stundenbasis-spitex-zurichsee-meilen",
-        "en": "fachleute-gesundheit-efz-fur-unseren-pool-a-10-40-auf-stundenbasis-spitex-ch-meilen",
-        "fr": "fachleute-gesundheit-efz-fur-unseren-pool-a-10-40-auf-stundenbasis-spitex-ch-meilen"
+        "it": "salute-efz-per-la-nostra-piscina-a-10-40-su-base-oraria-spitex-zurichsee-meilen",
+        "en": "health-efz-for-our-pool-a-10-40-on-an-hourly-basis-spitex-zurichsee-meilen",
+        "fr": "sante-efz-pour-notre-pool-a-10-40-sur-une-base-horaire-spitex-zurichsee-meilen"
       },
       "company": "Spitex Zürichsee",
       "companyKey": "spitex-ch",
@@ -1379,11 +1383,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "fachleute-gesundheit-efz-fur-unseren-pool-a-10-40-auf-stundenbasis-spitex-ch-meilen",
+          "fachleute-gesundheit-cfc-per-unseren-pool-a-10-40-auf-stundenbasis-spitex-zurichsee-meilen"
+        ],
+        "en": [
+          "fachleute-gesundheit-efz-fur-unseren-pool-a-10-40-auf-stundenbasis-spitex-ch-meilen"
+        ],
+        "fr": [
           "fachleute-gesundheit-efz-fur-unseren-pool-a-10-40-auf-stundenbasis-spitex-ch-meilen"
         ]
       },
       "previousSlugs": [
-        "fachleute-gesundheit-efz-fur-unseren-pool-a-10-40-auf-stundenbasis-spitex-ch-meilen"
+        "fachleute-gesundheit-efz-fur-unseren-pool-a-10-40-auf-stundenbasis-spitex-ch-meilen",
+        "fachleute-gesundheit-cfc-per-unseren-pool-a-10-40-auf-stundenbasis-spitex-zurichsee-meilen"
       ],
       "salaryMin": 51500,
       "salaryMax": 88000,
@@ -1406,7 +1418,7 @@
         "de": "pflegefachperson-hf-mit-zusatzfunktion-stv-teamleitung-60-100-spitex-ch-sarnen",
         "it": "pflegefachperson-hf-mit-zusatzfunktion-stv-teamleitung-60-100-spitex-ch-sarnen",
         "en": "pflegefachperson-hf-mit-zusatzfunktion-stv-teamleitung-60-100-spitex-ch-sarnen",
-        "fr": "pflegefachperson-hf-mit-zusatzfunktion-stv-teamleitung-60-100-spitex-ch-sarnen"
+        "fr": "specialiste-des-soins-hf-avec-fonction-supplementaire-stv-gestion-d-equipe-60-100-spitex-obwalden-sarnen"
       },
       "company": "Spitex Obwalden",
       "companyKey": "spitex-ch",
@@ -1466,12 +1478,12 @@
     },
     {
       "id": "spitex-ch-e1a2b0da530a",
-      "slug": "dipl-pflegefachperson-hf-specializzazione-kinder-e-jugendpsychiatrie-60-80-spitex-region-birs-gmbh-reinach-bl",
+      "slug": "infermiere-dipl-hf-specializzato-in-psichiatria-infantile-e-juvenile-60-80-spitex-region-birs-gmbh-reinach-bl",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-hf-fachrichtung-kinder-und-jugendpsychiatrie-60-80-spitex-ch-reinach",
-        "it": "dipl-pflegefachperson-hf-specializzazione-kinder-e-jugendpsychiatrie-60-80-spitex-region-birs-gmbh-reinach-bl",
-        "en": "dipl-pflegefachperson-hf-fachrichtung-kinder-und-jugendpsychiatrie-60-80-spitex-ch-reinach",
-        "fr": "dipl-pflegefachperson-hf-fachrichtung-kinder-und-jugendpsychiatrie-60-80-spitex-ch-reinach"
+        "it": "infermiere-dipl-hf-specializzato-in-psichiatria-infantile-e-juvenile-60-80-spitex-region-birs-gmbh-reinach-bl",
+        "en": "registered-nurse-hf-specializing-in-child-and-adolescent-psychiatry-60-80-spitex-region-birs-gmbh-reinach-bl",
+        "fr": "infirmier-dipl-hf-specialise-en-psychiatrie-de-l-enfant-et-de-l-adolescent-60-80-spitex-region-birs-gmbh-reinach-bl"
       },
       "company": "Spitex Region Birs GmbH",
       "companyKey": "spitex-ch",
@@ -1517,11 +1529,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "dipl-pflegefachperson-hf-fachrichtung-kinder-und-jugendpsychiatrie-60-80-spitex-ch-reinach",
+          "dipl-pflegefachperson-hf-specializzazione-kinder-e-jugendpsychiatrie-60-80-spitex-region-birs-gmbh-reinach-bl"
+        ],
+        "en": [
+          "dipl-pflegefachperson-hf-fachrichtung-kinder-und-jugendpsychiatrie-60-80-spitex-ch-reinach"
+        ],
+        "fr": [
           "dipl-pflegefachperson-hf-fachrichtung-kinder-und-jugendpsychiatrie-60-80-spitex-ch-reinach"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-fachrichtung-kinder-und-jugendpsychiatrie-60-80-spitex-ch-reinach"
+        "dipl-pflegefachperson-hf-fachrichtung-kinder-und-jugendpsychiatrie-60-80-spitex-ch-reinach",
+        "dipl-pflegefachperson-hf-specializzazione-kinder-e-jugendpsychiatrie-60-80-spitex-region-birs-gmbh-reinach-bl"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -1543,8 +1563,8 @@
       "slugByLocale": {
         "de": "leiter-in-der-abteilung-unterstutzung-zu-hause-rotes-kreuz-baselland-liestal",
         "it": "responsabile-der-abteilung-unterstutzung-zu-hause-rotes-kreuz-baselland-liestal",
-        "en": "leiter-in-der-abteilung-unterstutzung-zu-hause-spitex-ch-liestal",
-        "fr": "leiter-in-der-abteilung-unterstutzung-zu-hause-spitex-ch-liestal"
+        "en": "head-of-department-home-support-rotes-kreuz-baselland-liestal",
+        "fr": "chef-du-departement-soutien-a-domicile-rotes-kreuz-baselland-liestal"
       },
       "company": "Rotes Kreuz Baselland",
       "companyKey": "spitex-ch",
@@ -1594,6 +1614,12 @@
         ],
         "de": [
           "leiter-in-der-abteilung-unterstutzung-zu-hause-spitex-ch-liestal"
+        ],
+        "en": [
+          "leiter-in-der-abteilung-unterstutzung-zu-hause-spitex-ch-liestal"
+        ],
+        "fr": [
+          "leiter-in-der-abteilung-unterstutzung-zu-hause-spitex-ch-liestal"
         ]
       },
       "previousSlugs": [
@@ -1615,10 +1641,10 @@
     },
     {
       "id": "spitex-ch-2d9bd813b6f8",
-      "slug": "co-teamleitung-pflege-80-100-spitex-ch-thalwil",
+      "slug": "co-team-management-care-80-100-spitex-zimmerberg-ag-thalwil",
       "slugByLocale": {
         "de": "co-teamleitung-pflege-80-100-spitex-ch-thalwil",
-        "it": "co-teamleitung-pflege-80-100-spitex-ch-thalwil",
+        "it": "co-team-management-care-80-100-spitex-zimmerberg-ag-thalwil",
         "en": "co-teamleitung-pflege-80-100-spitex-ch-thalwil",
         "fr": "co-teamleitung-pflege-80-100-spitex-ch-thalwil"
       },
@@ -1676,7 +1702,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-19T23:34:54.276Z"
+      "firstSeenAt": "2026-05-19T23:34:54.276Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "co-teamleitung-pflege-80-100-spitex-ch-thalwil"
+        ]
+      },
+      "previousSlugs": [
+        "co-teamleitung-pflege-80-100-spitex-ch-thalwil"
+      ]
     },
     {
       "id": "spitex-ch-46a8f0aea01f",
@@ -1951,7 +1985,7 @@
         "de": "dipl-pflegefachperson-hf-fh-40-100-spitex-ch-schlieren",
         "it": "dipl-pflegefachperson-hf-fh-40-100-regiospitex-limmattal-schlieren",
         "en": "dipl-pflegefachperson-hf-fh-40-100-regiospitex-limmattal-schlieren",
-        "fr": "dipl-pflegefachperson-hf-fh-40-100-regiospitex-limmattal-schlieren"
+        "fr": "dipl-specialiste-des-soins-hf-fh-40-100-regiospitex-limmattal-schlieren"
       },
       "company": "RegioSpitex Limmattal",
       "companyKey": "spitex-ch",

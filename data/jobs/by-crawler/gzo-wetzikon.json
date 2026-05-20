@@ -1343,12 +1343,12 @@
     },
     {
       "id": "gzo-wetzikon-3d72d2cbfa8c",
-      "slug": "oberarztin-oberarzt-gastroenterologie-80-100-gzo-wetzikon-ch",
+      "slug": "medico-senior-gastroenterologia-80-100-gzo-spital-wetzikon-wetzikon",
       "slugByLocale": {
         "de": "oberarztin-oberarzt-gastroenterologie-80-100-gzo-wetzikon-ch",
-        "it": "oberarztin-oberarzt-gastroenterologie-80-100-gzo-wetzikon-ch",
-        "en": "oberarztin-oberarzt-gastroenterologie-80-100-gzo-wetzikon-ch",
-        "fr": "oberarztin-oberarzt-gastroenterologie-80-100-gzo-wetzikon-ch"
+        "it": "medico-senior-gastroenterologia-80-100-gzo-spital-wetzikon-wetzikon",
+        "en": "senior-physician-gastroenterology-80-100-gzo-spital-wetzikon-wetzikon",
+        "fr": "medecin-principal-gastroenterologie-80-100-gzo-spital-wetzikon-wetzikon"
       },
       "company": "GZO Spital Wetzikon",
       "companyKey": "gzo-wetzikon",
@@ -1405,7 +1405,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-19T22:22:52.049Z"
+      "firstSeenAt": "2026-05-19T22:22:52.049Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "oberarztin-oberarzt-gastroenterologie-80-100-gzo-wetzikon-ch"
+        ],
+        "en": [
+          "oberarztin-oberarzt-gastroenterologie-80-100-gzo-wetzikon-ch"
+        ],
+        "fr": [
+          "oberarztin-oberarzt-gastroenterologie-80-100-gzo-wetzikon-ch"
+        ]
+      },
+      "previousSlugs": [
+        "oberarztin-oberarzt-gastroenterologie-80-100-gzo-wetzikon-ch"
+      ]
     },
     {
       "id": "gzo-wetzikon-5e5734ada38d",

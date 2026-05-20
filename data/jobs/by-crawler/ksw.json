@@ -549,8 +549,8 @@
       "slugByLocale": {
         "de": "pflegefachfrau-pflegefachmann-akutgeriatrie-ksw-ch",
         "it": "pflegefachfrau-pflegefachmann-akutgeriatrie-ksw-ch",
-        "en": "pflegefachfrau-pflegefachmann-akutgeriatrie-ksw-ch",
-        "fr": "pflegefachfrau-pflegefachmann-akutgeriatrie-ksw-ch"
+        "en": "care-specialist-akutgeriatrie-kantonsspital-winterthur-ksw-winterthur",
+        "fr": "infirmier-ere-en-geriatrie-aigue-kantonsspital-winterthur-ksw-winterthur"
       },
       "company": "Kantonsspital Winterthur (KSW)",
       "companyKey": "ksw",
@@ -750,21 +750,7 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-19T22:46:53.993Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "pflegefachfrau-pflegefachmann-im-medizinischen-bereich-ksw-ch"
-        ],
-        "en": [
-          "pflegefachfrau-pflegefachmann-im-medizinischen-bereich-ksw-ch"
-        ],
-        "fr": [
-          "pflegefachfrau-pflegefachmann-im-medizinischen-bereich-ksw-ch"
-        ]
-      },
-      "previousSlugs": [
-        "pflegefachfrau-pflegefachmann-im-medizinischen-bereich-ksw-ch"
-      ]
+      "firstSeenAt": "2026-05-19T22:46:53.993Z"
     },
     {
       "id": "ksw-5081f74594fa",
@@ -4966,9 +4952,9 @@
       "slug": "pflegefachfrau-pflegefachmann-akutgeriatrie-ksw-ch",
       "slugByLocale": {
         "it": "pflegefachfrau-pflegefachmann-akutgeriatrie-ksw-ch",
-        "en": "pflegefachfrau-pflegefachmann-akutgeriatrie-ksw-ch",
+        "en": "care-specialist-akutgeriatrie-kantonsspital-winterthur-ksw-winterthur-7e0b73",
         "de": "pflegefachfrau-pflegefachmann-akutgeriatrie-ksw-ch",
-        "fr": "pflegefachfrau-pflegefachmann-akutgeriatrie-ksw-ch"
+        "fr": "infirmier-ere-en-geriatrie-aigue-kantonsspital-winterthur-ksw-winterthur-7e0b73"
       },
       "company": "Kantonsspital Winterthur (KSW)",
       "companyKey": "ksw",
@@ -5025,9 +5011,9 @@
       "previousSlugs": [
         "pflegefachkraft-akutgeriatrie-kantonsspital-winterthur-ksw-winterthur",
         "nursing-specialist-in-acute-geriatrics-kantonsspital-winterthur-ksw-winterthur",
-        "pflegefachfrau-pflegefachmann-imc-ksw-ch",
         "nurse-acute-geriatrics-kantonsspital-winterthur-ksw-winterthur",
-        "infirmier-ere-en-geriatrie-aigue-kantonsspital-winterthur-ksw-winterthur"
+        "infirmier-ere-en-geriatrie-aigue-kantonsspital-winterthur-ksw-winterthur",
+        "pflegefachfrau-pflegefachmann-imc-ksw-ch"
       ],
       "firstSeenAt": "2026-05-10T21:55:26.417Z",
       "salaryMin": 49500,

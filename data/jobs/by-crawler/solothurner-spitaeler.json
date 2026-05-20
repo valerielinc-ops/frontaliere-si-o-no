@@ -7120,12 +7120,12 @@
     },
     {
       "id": "solothurner-spitaeler-8930d6d07cfe",
-      "slug": "fachfrau-fachmann-operationstechnik-w-m-d-soh-ch-2",
+      "slug": "projektleiter-m-w-solothurner-spitaler-soh-solothurn",
       "slugByLocale": {
         "de": "fachfrau-fachmann-operationstechnik-w-m-d-soh-ch",
-        "it": "fachfrau-fachmann-operationstechnik-w-m-d-soh-ch-2",
+        "it": "projektleiter-m-w-solothurner-spitaler-soh-solothurn",
         "en": "fachfrau-fachmann-operationstechnik-w-m-d-soh-ch-2",
-        "fr": "fachfrau-fachmann-operationstechnik-w-m-d-soh-ch-2"
+        "fr": "projektleiter-m-m-solothurner-spitaler-soh-solothurn"
       },
       "company": "Solothurner Spitäler (soH)",
       "companyKey": "solothurner-spitaeler",
@@ -7182,7 +7182,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-19T23:30:41.281Z"
+      "firstSeenAt": "2026-05-19T23:30:41.281Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachfrau-fachmann-operationstechnik-w-m-d-soh-ch-2"
+        ],
+        "fr": [
+          "fachfrau-fachmann-operationstechnik-w-m-d-soh-ch-2"
+        ]
+      },
+      "previousSlugs": [
+        "fachfrau-fachmann-operationstechnik-w-m-d-soh-ch-2"
+      ]
     },
     {
       "id": "solothurner-spitaeler-1421aaf860b7",

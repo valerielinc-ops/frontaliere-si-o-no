@@ -6940,8 +6940,8 @@
       "slugByLocale": {
         "en": "roche-basel",
         "it": "roche-basel",
-        "de": "roche-basel",
-        "fr": "roche-basel"
+        "de": "lesen-deutlich-und-deutlich-gemessen-stark-roche-basel",
+        "fr": "en-milliers-de-dollars-des-etats-unis-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -6998,11 +6998,10 @@
       },
       "previousSlugs": [
         "roche-ch",
-        "roche-basel",
-        "roche-ch-8",
         "terreno-della-societa-registrazione-della-servizia-locale-roche-basel",
         "tauchen-deckungsgleich-merklich-zerlegt-roche-basel",
-        "en-anglais-seulement-roche-basel"
+        "en-anglais-seulement-roche-basel",
+        "roche-ch-8"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -25132,12 +25131,12 @@
     },
     {
       "id": "roche-fe2cdd75c6c2",
-      "slug": "technical-asset-care-lead-roche-ch",
+      "slug": "assistenza-tecnica-lead-roche-kaiseraugst",
       "slugByLocale": {
         "de": "technical-asset-care-lead-roche-ch",
-        "it": "technical-asset-care-lead-roche-ch",
+        "it": "assistenza-tecnica-lead-roche-kaiseraugst",
         "en": "technical-asset-care-lead-roche-ch",
-        "fr": "technical-asset-care-lead-roche-ch"
+        "fr": "responsable-de-la-prise-en-charge-des-biens-techniques-roche-kaiseraugst"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -25191,7 +25190,18 @@
         }
       },
       "postalCode": "5000",
-      "firstSeenAt": "2026-05-19T23:21:09.961Z"
+      "firstSeenAt": "2026-05-19T23:21:09.961Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "technical-asset-care-lead-roche-ch"
+        ],
+        "fr": [
+          "technical-asset-care-lead-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "technical-asset-care-lead-roche-ch"
+      ]
     },
     {
       "id": "roche-ae82bc6b313f",
@@ -25259,12 +25269,12 @@
     },
     {
       "id": "roche-24f19ea71f39",
-      "slug": "student-internship-in-order-and-distribution-management-w-m-d-starting-july-2026-up-to-12",
+      "slug": "stage-studentesco-in-gestione-dell-ordine-e-della-distribuzione-w-m-d-a-partire-dal-2026-luglio-fino-a-12-mesi-roche",
       "slugByLocale": {
         "en": "student-internship-in-order-and-distribution-management-w-m-d-starting-july-2026-up-to-12",
-        "it": "student-internship-in-order-and-distribution-management-w-m-d-starting-july-2026-up-to-12",
-        "de": "student-internship-in-order-and-distribution-management-w-m-d-starting-july-2026-up-to-12",
-        "fr": "student-internship-in-order-and-distribution-management-w-m-d-starting-july-2026-up-to-12"
+        "it": "stage-studentesco-in-gestione-dell-ordine-e-della-distribuzione-w-m-d-a-partire-dal-2026-luglio-fino-a-12-mesi-roche",
+        "de": "studentenpraktikum-im-order-und-distributionsmanagement-w-m-d-ab-juli-2026-bis-zu-12-monate-roche-kaiseraugst",
+        "fr": "stage-etudiant-en-gestion-de-l-ordre-et-de-la-distribution-en-m-j-a-compter-de-juillet-2026-jusqu-a-12-mois-roche"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -25318,16 +25328,30 @@
         }
       },
       "postalCode": "5000",
-      "firstSeenAt": "2026-05-19T23:21:08.424Z"
+      "firstSeenAt": "2026-05-19T23:21:08.424Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "student-internship-in-order-and-distribution-management-w-m-d-starting-july-2026-up-to-12"
+        ],
+        "de": [
+          "student-internship-in-order-and-distribution-management-w-m-d-starting-july-2026-up-to-12"
+        ],
+        "fr": [
+          "student-internship-in-order-and-distribution-management-w-m-d-starting-july-2026-up-to-12"
+        ]
+      },
+      "previousSlugs": [
+        "student-internship-in-order-and-distribution-management-w-m-d-starting-july-2026-up-to-12"
+      ]
     },
     {
       "id": "roche-74a77d75f0a7",
-      "slug": "drug-product-dp-fleet-lead-roche-ch",
+      "slug": "prodotto-della-droga-dp-roche-basel",
       "slugByLocale": {
         "en": "drug-product-dp-fleet-lead-roche-ch",
-        "it": "drug-product-dp-fleet-lead-roche-ch",
-        "de": "drug-product-dp-fleet-lead-roche-ch",
-        "fr": "drug-product-dp-fleet-lead-roche-ch"
+        "it": "prodotto-della-droga-dp-roche-basel",
+        "de": "arzneimittel-dp-fleet-lead-roche-basel",
+        "fr": "chef-de-la-flotte-de-produits-pharmaceutiques-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -25381,7 +25405,21 @@
         }
       },
       "postalCode": "4001",
-      "firstSeenAt": "2026-05-19T23:21:07.611Z"
+      "firstSeenAt": "2026-05-19T23:21:07.611Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "drug-product-dp-fleet-lead-roche-ch"
+        ],
+        "de": [
+          "drug-product-dp-fleet-lead-roche-ch"
+        ],
+        "fr": [
+          "drug-product-dp-fleet-lead-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "drug-product-dp-fleet-lead-roche-ch"
+      ]
     },
     {
       "id": "roche-457d7da69cd9",
@@ -25513,12 +25551,12 @@
     },
     {
       "id": "roche-c1e9994818be",
-      "slug": "associate-global-medical-science-leader-roche-ch",
+      "slug": "associate-leader-globale-della-scienza-medica-roche-basel",
       "slugByLocale": {
         "en": "associate-global-medical-science-leader-roche-ch",
-        "it": "associate-global-medical-science-leader-roche-ch",
+        "it": "associate-leader-globale-della-scienza-medica-roche-basel",
         "de": "associate-global-medical-science-leader-roche-ch",
-        "fr": "associate-global-medical-science-leader-roche-ch"
+        "fr": "associe-leader-mondial-des-sciences-medicales-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -25572,16 +25610,27 @@
         }
       },
       "postalCode": "4001",
-      "firstSeenAt": "2026-05-19T23:21:05.102Z"
+      "firstSeenAt": "2026-05-19T23:21:05.102Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "associate-global-medical-science-leader-roche-ch"
+        ],
+        "fr": [
+          "associate-global-medical-science-leader-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "associate-global-medical-science-leader-roche-ch"
+      ]
     },
     {
       "id": "roche-922d42268c41",
-      "slug": "commercial-business-lead-foundation-medicine-data-digital-roche-ch",
+      "slug": "commercial-business-lead-fondazione-medicina-dati-digital-roche-basel",
       "slugByLocale": {
         "en": "commercial-business-lead-foundation-medicine-data-digital-roche-ch",
-        "it": "commercial-business-lead-foundation-medicine-data-digital-roche-ch",
-        "de": "commercial-business-lead-foundation-medicine-data-digital-roche-ch",
-        "fr": "commercial-business-lead-foundation-medicine-data-digital-roche-ch"
+        "it": "commercial-business-lead-fondazione-medicina-dati-digital-roche-basel",
+        "de": "geschaftsfuhrende-stiftung-medizin-daten-digital-roche-basel",
+        "fr": "entreprise-commerciale-fondation-principale-medecine-donnees-et-numerique-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -25635,7 +25684,21 @@
         }
       },
       "postalCode": "4001",
-      "firstSeenAt": "2026-05-19T23:21:04.237Z"
+      "firstSeenAt": "2026-05-19T23:21:04.237Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "commercial-business-lead-foundation-medicine-data-digital-roche-ch"
+        ],
+        "de": [
+          "commercial-business-lead-foundation-medicine-data-digital-roche-ch"
+        ],
+        "fr": [
+          "commercial-business-lead-foundation-medicine-data-digital-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "commercial-business-lead-foundation-medicine-data-digital-roche-ch"
+      ]
     },
     {
       "id": "roche-a410dc146bf0",
@@ -25708,7 +25771,7 @@
         "en": "pmo-estimating-and-benchmarking-lead-eu-roche-ch",
         "it": "pmo-estimating-and-benchmarking-lead-eu-roche-ch",
         "de": "pmo-estimating-and-benchmarking-lead-eu-roche-ch",
-        "fr": "pmo-estimating-and-benchmarking-lead-eu-roche-ch"
+        "fr": "pmo-estimation-et-benchmarking-leader-ue-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -25838,12 +25901,12 @@
     },
     {
       "id": "roche-1f8e7a5165b2",
-      "slug": "principal-site-reliability-engineer-roche-ch",
+      "slug": "ingegnere-principale-di-affidabilita-del-sito-roche-basel",
       "slugByLocale": {
         "en": "principal-site-reliability-engineer-roche-ch",
-        "it": "principal-site-reliability-engineer-roche-ch",
-        "de": "principal-site-reliability-engineer-roche-ch",
-        "fr": "principal-site-reliability-engineer-roche-ch"
+        "it": "ingegnere-principale-di-affidabilita-del-sito-roche-basel",
+        "de": "reliability-engineer-des-hauptstandortes-roche-basel",
+        "fr": "ingenieur-principal-de-fiabilite-du-site-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -25897,7 +25960,21 @@
         }
       },
       "postalCode": "4001",
-      "firstSeenAt": "2026-05-19T23:21:00.516Z"
+      "firstSeenAt": "2026-05-19T23:21:00.516Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "principal-site-reliability-engineer-roche-ch"
+        ],
+        "de": [
+          "principal-site-reliability-engineer-roche-ch"
+        ],
+        "fr": [
+          "principal-site-reliability-engineer-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "principal-site-reliability-engineer-roche-ch"
+      ]
     },
     {
       "id": "roche-f7e82c464cbc",
@@ -26232,10 +26309,10 @@
     },
     {
       "id": "roche-63e1ef55b604",
-      "slug": "investigator-relations-technology-informatics-partner-roche-ch",
+      "slug": "partner-informatica-tecnologica-per-le-relazioni-con-gli-investigatori-roche-basel",
       "slugByLocale": {
         "en": "investigator-relations-technology-informatics-partner-roche-ch",
-        "it": "investigator-relations-technology-informatics-partner-roche-ch",
+        "it": "partner-informatica-tecnologica-per-le-relazioni-con-gli-investigatori-roche-basel",
         "de": "investigator-relations-technology-informatics-partner-roche-ch",
         "fr": "investigator-relations-technology-informatics-partner-roche-ch"
       },
@@ -26291,7 +26368,15 @@
         }
       },
       "postalCode": "4001",
-      "firstSeenAt": "2026-05-19T23:20:55.304Z"
+      "firstSeenAt": "2026-05-19T23:20:55.304Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "investigator-relations-technology-informatics-partner-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "investigator-relations-technology-informatics-partner-roche-ch"
+      ]
     },
     {
       "id": "roche-f0bf1168bac0",

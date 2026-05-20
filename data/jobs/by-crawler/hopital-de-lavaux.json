@@ -273,12 +273,12 @@
     },
     {
       "id": "hopital-de-lavaux-5443ed0c2093",
-      "slug": "infirmier-ere-expert-e-conseil-en-diabetologie-40-50-hopital-de-lavaux-bourg-en-lavaux",
+      "slug": "infermiera-esperto-nel-diabete-40-50-hopital-de-lavaux-bourg-en-lavaux",
       "slugByLocale": {
         "fr": "infirmier-ere-expert-e-conseil-en-diabetologie-40-50-hopital-de-lavaux-bourg-en-lavaux",
-        "it": "infirmier-ere-expert-e-conseil-en-diabetologie-40-50-hopital-de-lavaux-bourg-en-lavaux",
-        "en": "infirmier-ere-expert-e-conseil-en-diabetologie-40-50-hopital-de-lavaux-bourg-en-lavaux",
-        "de": "infirmier-ere-expert-e-conseil-en-diabetologie-40-50-hopital-de-lavaux-bourg-en-lavaux"
+        "it": "infermiera-esperto-nel-diabete-40-50-hopital-de-lavaux-bourg-en-lavaux",
+        "en": "nurse-expert-in-diabetes-40-50-hopital-de-lavaux-bourg-en-lavaux",
+        "de": "krankenschwester-experte-fur-diabetes-40-50-hopital-de-lavaux-bourg-en-lavaux"
       },
       "company": "Hôpital de Lavaux",
       "companyKey": "hopital-de-lavaux",
@@ -336,7 +336,21 @@
         }
       },
       "firstSeenAt": "2026-05-19T22:28:49.115Z",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "infirmier-ere-expert-e-conseil-en-diabetologie-40-50-hopital-de-lavaux-bourg-en-lavaux"
+        ],
+        "en": [
+          "infirmier-ere-expert-e-conseil-en-diabetologie-40-50-hopital-de-lavaux-bourg-en-lavaux"
+        ],
+        "de": [
+          "infirmier-ere-expert-e-conseil-en-diabetologie-40-50-hopital-de-lavaux-bourg-en-lavaux"
+        ]
+      },
+      "previousSlugs": [
+        "infirmier-ere-expert-e-conseil-en-diabetologie-40-50-hopital-de-lavaux-bourg-en-lavaux"
+      ]
     }
   ]
 }

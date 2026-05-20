@@ -5821,12 +5821,12 @@
     },
     {
       "id": "ksbl-93722b115d5e",
-      "slug": "berufsbildnerin-berufsbildner-pflege-hf-fh-a-ksbl-liestal",
+      "slug": "formatrice-formatore-di-formazione-infermieristica-hf-fh-kantonsspital-baselland-ksbl-liestal",
       "slugByLocale": {
         "de": "berufsbildnerin-berufsbildner-pflege-hf-fh-a-ksbl-liestal",
-        "it": "berufsbildnerin-berufsbildner-pflege-hf-fh-a-ksbl-liestal",
-        "en": "berufsbildnerin-berufsbildner-pflege-hf-fh-a-ksbl-liestal",
-        "fr": "berufsbildnerin-berufsbildner-pflege-hf-fh-a-ksbl-liestal"
+        "it": "formatrice-formatore-di-formazione-infermieristica-hf-fh-kantonsspital-baselland-ksbl-liestal",
+        "en": "professional-trainer-in-nursing-hf-fh-kantonsspital-baselland-ksbl-liestal",
+        "fr": "formateur-trice-en-soins-infirmiers-hf-fh-kantonsspital-baselland-ksbl-liestal"
       },
       "company": "Kantonsspital Baselland (KSBL)",
       "companyKey": "ksbl",
@@ -5881,15 +5881,29 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-19T22:45:30.615Z"
+      "firstSeenAt": "2026-05-19T22:45:30.615Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "berufsbildnerin-berufsbildner-pflege-hf-fh-a-ksbl-liestal"
+        ],
+        "en": [
+          "berufsbildnerin-berufsbildner-pflege-hf-fh-a-ksbl-liestal"
+        ],
+        "fr": [
+          "berufsbildnerin-berufsbildner-pflege-hf-fh-a-ksbl-liestal"
+        ]
+      },
+      "previousSlugs": [
+        "berufsbildnerin-berufsbildner-pflege-hf-fh-a-ksbl-liestal"
+      ]
     },
     {
       "id": "ksbl-ec1a68fd545a",
-      "slug": "mpa-neurologie-a-ksbl-liestal",
+      "slug": "mpa-neurologia-a-kantonsspital-baselland-ksbl-liestal",
       "slugByLocale": {
         "de": "mpa-neurologie-a-ksbl-liestal",
-        "it": "mpa-neurologie-a-ksbl-liestal",
-        "en": "mpa-neurologie-a-ksbl-liestal",
+        "it": "mpa-neurologia-a-kantonsspital-baselland-ksbl-liestal",
+        "en": "mpa-neurology-a-kantonsspital-baselland-ksbl-liestal",
         "fr": "mpa-neurologie-a-ksbl-liestal"
       },
       "company": "Kantonsspital Baselland (KSBL)",
@@ -5945,7 +5959,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-19T22:45:29.189Z"
+      "firstSeenAt": "2026-05-19T22:45:29.189Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "mpa-neurologie-a-ksbl-liestal"
+        ],
+        "en": [
+          "mpa-neurologie-a-ksbl-liestal"
+        ]
+      },
+      "previousSlugs": [
+        "mpa-neurologie-a-ksbl-liestal"
+      ]
     },
     {
       "id": "ksbl-8b934b914589",

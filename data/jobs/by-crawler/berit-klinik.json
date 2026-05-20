@@ -41,8 +41,8 @@
       "slugByLocale": {
         "de": "logistiker-in-100-berit-klinik",
         "it": "impiegata-impiegato-in-logistica-100-berit-klinik-speicher",
-        "en": "logistiker-in-100-berit-klinik",
-        "fr": "logistiker-in-100-berit-klinik"
+        "en": "logistics-specialist-100-berit-klinik-speicher",
+        "fr": "logisticien-ne-100-berit-klinik-speicher"
       },
       "_meta": {
         "sourceFilename": "stelleninserat_logistiker_in_100__fb375a3261.pdf"
@@ -50,6 +50,12 @@
       "id": "berit-klinik-be5ec3f62e24",
       "previousSlugsByLocale": {
         "it": [
+          "logistiker-in-100-berit-klinik"
+        ],
+        "en": [
+          "logistiker-in-100-berit-klinik"
+        ],
+        "fr": [
           "logistiker-in-100-berit-klinik"
         ]
       },
@@ -73,7 +79,7 @@
     },
     {
       "title": "Dipl. Fachfrau Fachmann Op Technik 60–80%",
-      "slug": "dipl-fachfrau-fachmann-op-technik-60-80-berit-klinik",
+      "slug": "specialista-in-tecnica-op-60-80-berit-klinik-speicher",
       "url": "https://cms-berit-klinik.deployco.de/api/media/file/stelleninserat_dipl._fachfrau_fachmann_op_technik__60_80__1a84a099a7.pdf",
       "applyUrl": "https://www.beritklinik.ch/de/karriere-offene-stellen",
       "company": "Berit Klinik",
@@ -109,8 +115,8 @@
       },
       "slugByLocale": {
         "de": "dipl-fachfrau-fachmann-op-technik-60-80-berit-klinik",
-        "it": "dipl-fachfrau-fachmann-op-technik-60-80-berit-klinik",
-        "en": "dipl-fachfrau-fachmann-op-technik-60-80-berit-klinik",
+        "it": "specialista-in-tecnica-op-60-80-berit-klinik-speicher",
+        "en": "dipl-professional-op-technik-60-80-berit-klinik-speicher",
         "fr": "dipl-fachfrau-fachmann-op-technik-60-80-berit-klinik"
       },
       "_meta": {
@@ -130,7 +136,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-20T05:18:01.368Z"
+      "firstSeenAt": "2026-05-20T05:18:01.368Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-fachfrau-fachmann-op-technik-60-80-berit-klinik"
+        ],
+        "en": [
+          "dipl-fachfrau-fachmann-op-technik-60-80-berit-klinik"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-fachfrau-fachmann-op-technik-60-80-berit-klinik"
+      ]
     },
     {
       "title": "Mitarbeiter:In Technischer Dienst 100% — Fachbereich Sanit R",
@@ -241,7 +258,7 @@
       "slugByLocale": {
         "de": "hotellerie-100-berit-klinik",
         "it": "hotellerie-100-berit-klinik",
-        "en": "hotellerie-100-berit-klinik",
+        "en": "hotel-industry-100-berit-klinik-speicher",
         "fr": "hotellerie-100-berit-klinik"
       },
       "_meta": {
@@ -265,7 +282,7 @@
     },
     {
       "title": "Praktikant:In Berit Sportslab",
-      "slug": "praktikant-in-berit-sportslab-berit-klinik",
+      "slug": "tirocinante-in-berit-sportslab-berit-klinik-st-gallen",
       "url": "https://cms-berit-klinik.deployco.de/api/media/file/stelleninserat_praktikant_in_berit_sportslab_647779f409.pdf",
       "applyUrl": "https://www.beritklinik.ch/de/karriere-offene-stellen",
       "company": "Berit Klinik",
@@ -301,9 +318,9 @@
       },
       "slugByLocale": {
         "de": "praktikant-in-berit-sportslab-berit-klinik",
-        "it": "praktikant-in-berit-sportslab-berit-klinik",
-        "en": "praktikant-in-berit-sportslab-berit-klinik",
-        "fr": "praktikant-in-berit-sportslab-berit-klinik"
+        "it": "tirocinante-in-berit-sportslab-berit-klinik-st-gallen",
+        "en": "intern-in-berit-sportslab-berit-klinik-st-gallen",
+        "fr": "stagiaire-in-berit-sportslab-berit-klinik-st-gallen"
       },
       "_meta": {
         "sourceFilename": "stelleninserat_praktikant_in_berit_sportslab_647779f409.pdf"
@@ -322,11 +339,25 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-20T05:18:01.368Z"
+      "firstSeenAt": "2026-05-20T05:18:01.368Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "praktikant-in-berit-sportslab-berit-klinik"
+        ],
+        "en": [
+          "praktikant-in-berit-sportslab-berit-klinik"
+        ],
+        "fr": [
+          "praktikant-in-berit-sportslab-berit-klinik"
+        ]
+      },
+      "previousSlugs": [
+        "praktikant-in-berit-sportslab-berit-klinik"
+      ]
     },
     {
       "title": "Medizinische/r Praxisassistent/in, 100%",
-      "slug": "medizinische-r-praxisassistent-in-100-berit-klinik",
+      "slug": "assistente-medico-100-berit-klinik-goldach",
       "url": "https://cms-berit-klinik.deployco.de/api/media/file/stelleninserat_mpa__100__71216bc456.pdf",
       "applyUrl": "https://www.beritklinik.ch/de/karriere-offene-stellen",
       "company": "Berit Klinik",
@@ -362,9 +393,9 @@
       },
       "slugByLocale": {
         "de": "medizinische-r-praxisassistent-in-100-berit-klinik",
-        "it": "medizinische-r-praxisassistent-in-100-berit-klinik",
-        "en": "medizinische-r-praxisassistent-in-100-berit-klinik",
-        "fr": "medizinische-r-praxisassistent-in-100-berit-klinik"
+        "it": "assistente-medico-100-berit-klinik-goldach",
+        "en": "medical-practice-assistant-100-berit-klinik-goldach",
+        "fr": "assistant-e-medical-e-100-berit-klinik-goldach"
       },
       "_meta": {
         "sourceFilename": "stelleninserat_mpa__100__71216bc456.pdf"
@@ -383,11 +414,25 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-20T05:18:01.368Z"
+      "firstSeenAt": "2026-05-20T05:18:01.368Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "medizinische-r-praxisassistent-in-100-berit-klinik"
+        ],
+        "en": [
+          "medizinische-r-praxisassistent-in-100-berit-klinik"
+        ],
+        "fr": [
+          "medizinische-r-praxisassistent-in-100-berit-klinik"
+        ]
+      },
+      "previousSlugs": [
+        "medizinische-r-praxisassistent-in-100-berit-klinik"
+      ]
     },
     {
       "title": "Dipl. Pflegefachperson Hf Rehaklinik 80–100%",
-      "slug": "dipl-pflegefachperson-hf-rehaklinik-80-100-berit-klinik",
+      "slug": "infermiere-qualificato-hf-clinica-di-riabilitazione-80-100-berit-klinik-niederteufen",
       "url": "https://cms-berit-klinik.deployco.de/api/media/file/stelleninserat_dipl._pflegefachperson_hf_rehaklinik_80_100__b7b2dc0031.pdf",
       "applyUrl": "https://www.beritklinik.ch/de/karriere-offene-stellen",
       "company": "Berit Klinik",
@@ -423,7 +468,7 @@
       },
       "slugByLocale": {
         "de": "dipl-pflegefachperson-hf-rehaklinik-80-100-berit-klinik",
-        "it": "dipl-pflegefachperson-hf-rehaklinik-80-100-berit-klinik",
+        "it": "infermiere-qualificato-hf-clinica-di-riabilitazione-80-100-berit-klinik-niederteufen",
         "en": "dipl-pflegefachperson-hf-rehaklinik-80-100-berit-klinik",
         "fr": "dipl-pflegefachperson-hf-rehaklinik-80-100-berit-klinik"
       },
@@ -444,7 +489,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-20T05:18:01.368Z"
+      "firstSeenAt": "2026-05-20T05:18:01.368Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-hf-rehaklinik-80-100-berit-klinik"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachperson-hf-rehaklinik-80-100-berit-klinik"
+      ]
     },
     {
       "title": "Zur Dipl. Pflegefachperson Hf",
@@ -547,8 +600,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-in-restaurant-60-80-berit-klinik",
         "it": "collaboratore-trice-restaurant-60-80-berit-klinik-speicher",
-        "en": "mitarbeiter-in-restaurant-60-80-berit-klinik",
-        "fr": "mitarbeiter-in-restaurant-60-80-berit-klinik"
+        "en": "associate-restaurant-60-80-berit-klinik-speicher",
+        "fr": "collaborateur-trice-restaurant-60-80-berit-klinik-speicher"
       },
       "_meta": {
         "sourceFilename": "stelleninserat_mitarbeiter_in_restaurant_60_80__84f364acfb.pdf"
@@ -556,6 +609,12 @@
       "id": "berit-klinik-cf9ff275fd85",
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-restaurant-60-80-berit-klinik"
+        ],
+        "en": [
+          "mitarbeiter-in-restaurant-60-80-berit-klinik"
+        ],
+        "fr": [
           "mitarbeiter-in-restaurant-60-80-berit-klinik"
         ]
       },
@@ -579,7 +638,7 @@
     },
     {
       "title": "Koch, 100%",
-      "slug": "koch-100-berit-klinik",
+      "slug": "cuoco-100-berit-klinik-wattwil",
       "url": "https://cms-berit-klinik.deployco.de/api/media/file/stelleninserat_k_chin_koch_100__3caee99d09.pdf",
       "applyUrl": "https://www.beritklinik.ch/de/karriere-offene-stellen",
       "company": "Berit Klinik",
@@ -615,9 +674,9 @@
       },
       "slugByLocale": {
         "de": "koch-100-berit-klinik",
-        "it": "koch-100-berit-klinik",
-        "en": "koch-100-berit-klinik",
-        "fr": "koch-100-berit-klinik"
+        "it": "cuoco-100-berit-klinik-wattwil",
+        "en": "chef-100-berit-klinik-wattwil",
+        "fr": "cuisinier-100-berit-klinik-wattwil"
       },
       "_meta": {
         "sourceFilename": "stelleninserat_k_chin_koch_100__3caee99d09.pdf"
@@ -636,11 +695,25 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-20T05:18:01.368Z"
+      "firstSeenAt": "2026-05-20T05:18:01.368Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "koch-100-berit-klinik"
+        ],
+        "en": [
+          "koch-100-berit-klinik"
+        ],
+        "fr": [
+          "koch-100-berit-klinik"
+        ]
+      },
+      "previousSlugs": [
+        "koch-100-berit-klinik"
+      ]
     },
     {
       "title": "Pflegefachperson HF/FH, Notfallbettenstation 100%",
-      "slug": "pflegefachperson-hf-fh-notfallbettenstation-100-berit-klinik",
+      "slug": "specialista-infermieristico-hf-fh-reparto-d-emergenza-100-berit-klinik-wattwil",
       "url": "https://cms-berit-klinik.deployco.de/api/media/file/stelleninserat_dipl._pflegefachperson_hf_100__wattwil_9ef08da21f.pdf",
       "applyUrl": "https://www.beritklinik.ch/de/karriere-offene-stellen",
       "company": "Berit Klinik",
@@ -676,7 +749,7 @@
       },
       "slugByLocale": {
         "de": "pflegefachperson-hf-fh-notfallbettenstation-100-berit-klinik",
-        "it": "pflegefachperson-hf-fh-notfallbettenstation-100-berit-klinik",
+        "it": "specialista-infermieristico-hf-fh-reparto-d-emergenza-100-berit-klinik-wattwil",
         "en": "pflegefachperson-hf-fh-notfallbettenstation-100-berit-klinik",
         "fr": "pflegefachperson-hf-fh-notfallbettenstation-100-berit-klinik"
       },
@@ -698,7 +771,15 @@
         }
       },
       "needsRetranslation": true,
-      "firstSeenAt": "2026-05-20T05:18:01.368Z"
+      "firstSeenAt": "2026-05-20T05:18:01.368Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegefachperson-hf-fh-notfallbettenstation-100-berit-klinik"
+        ]
+      },
+      "previousSlugs": [
+        "pflegefachperson-hf-fh-notfallbettenstation-100-berit-klinik"
+      ]
     },
     {
       "title": "Op Dispo Wattwil 50–70%",
@@ -800,7 +881,7 @@
       "slugByLocale": {
         "de": "mpa-arztsekret-rin-wattwil-40-berit-klinik",
         "it": "mpa-arztsekret-rin-wattwil-40-berit-klinik",
-        "en": "mpa-arztsekret-rin-wattwil-40-berit-klinik",
+        "en": "mpa-arztsekretarin-wattwil-40-berit-klinik-wattwil",
         "fr": "mpa-arztsekret-rin-wattwil-40-berit-klinik"
       },
       "_meta": {

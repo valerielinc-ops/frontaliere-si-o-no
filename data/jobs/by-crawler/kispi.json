@@ -4801,12 +4801,12 @@
     },
     {
       "id": "kispi-453522b3637d",
-      "slug": "dipl-pflegefachfrau-dipl-pflegefachmann-per-das-nds-hf-anasthesiepflege-padiatrie-universitats-kinderspital-zurich",
+      "slug": "dipl-carriera-dipl-specialista-infermieristico-per-nds-hf-anestesia-care-paediatrics-universitats-kinderspital-zurich",
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-dipl-pflegefachmann-fur-das-nds-hf-anasthesiepflege-padiatrie-kispi",
-        "it": "dipl-pflegefachfrau-dipl-pflegefachmann-per-das-nds-hf-anasthesiepflege-padiatrie-universitats-kinderspital-zurich",
+        "it": "dipl-carriera-dipl-specialista-infermieristico-per-nds-hf-anestesia-care-paediatrics-universitats-kinderspital-zurich",
         "en": "dipl-pflegefachfrau-dipl-pflegefachmann-fur-das-nds-hf-anasthesiepflege-padiatrie-universitats-kinderspital-zurich",
-        "fr": "dipl-pflegefachfrau-dipl-pflegefachmann-fur-das-nds-hf-anasthesiepflege-padiatrie-universitats-kinderspital-zurich"
+        "fr": "dipl-carriere-dipl-specialiste-des-soins-infirmiers-pour-la-pediatrie-de-la-nds-hf-universitats-kinderspital-zurich"
       },
       "company": "Universitäts-Kinderspital Zürich",
       "companyKey": "kispi",
@@ -4852,11 +4852,17 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachfrau-dipl-pflegefachmann-fur-das-nds-hf-anasthesiepflege-padiatrie-kispi-2"
+          "dipl-pflegefachfrau-dipl-pflegefachmann-fur-das-nds-hf-anasthesiepflege-padiatrie-kispi-2",
+          "dipl-pflegefachfrau-dipl-pflegefachmann-per-das-nds-hf-anasthesiepflege-padiatrie-universitats-kinderspital-zurich"
+        ],
+        "fr": [
+          "dipl-pflegefachfrau-dipl-pflegefachmann-fur-das-nds-hf-anasthesiepflege-padiatrie-universitats-kinderspital-zurich"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachfrau-dipl-pflegefachmann-fur-das-nds-hf-anasthesiepflege-padiatrie-kispi-2"
+        "dipl-pflegefachfrau-dipl-pflegefachmann-fur-das-nds-hf-anasthesiepflege-padiatrie-kispi-2",
+        "dipl-pflegefachfrau-dipl-pflegefachmann-per-das-nds-hf-anasthesiepflege-padiatrie-universitats-kinderspital-zurich",
+        "dipl-pflegefachfrau-dipl-pflegefachmann-fur-das-nds-hf-anasthesiepflege-padiatrie-universitats-kinderspital-zurich"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
