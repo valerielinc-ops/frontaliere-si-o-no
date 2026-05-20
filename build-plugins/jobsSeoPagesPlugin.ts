@@ -2351,6 +2351,41 @@ ${hreflangHtml}
  <span>${esc(`Salario: ${salaryText}`)}</span>
  </div>
  </section>
+ ${(() => {
+ // S6/S9 mobile-first parity with the SPA: above-fold action block on
+ // mobile carrying the Apply CTA + 3 key stats. Mirrors the React
+ // `<section className="lg:hidden">` in components/community/JobBoard.tsx.
+ // Hidden on lg+ via `.mobile-action-block { display:none }` media query
+ // in public/assets/seo-static.css (the desktop hero already shows these
+ // stats inline in `.hero-meta`, and the right rail mirrors them again
+ // once React hydrates).
+ const publishedLabel: Record<'it'|'en'|'de'|'fr', string> = {
+ it: 'Pubblicato', en: 'Posted', de: 'Veröffentlicht', fr: 'Publié',
+ };
+ const daysAgo = (() => {
+ const dateStr = String(job.postedDate ?? job.crawledAt ?? '');
+ if (!dateStr) return '—';
+ const t = new Date(dateStr).getTime();
+ if (!Number.isFinite(t)) return '—';
+ const days = Math.max(0, Math.round((Date.now() - t) / 86400000));
+ const fmt: Record<'it'|'en'|'de'|'fr', (n: number) => string> = {
+ it: (n) => n === 0 ? 'Oggi' : n === 1 ? 'Ieri' : `${n} giorni fa`,
+ en: (n) => n === 0 ? 'Today' : n === 1 ? 'Yesterday' : `${n} days ago`,
+ de: (n) => n === 0 ? 'Heute' : n === 1 ? 'Gestern' : `vor ${n} Tagen`,
+ fr: (n) => n === 0 ? "Aujourd'hui" : n === 1 ? 'Hier' : `il y a ${n} jours`,
+ };
+ return fmt[locale as 'it'|'en'|'de'|'fr'](days);
+ })();
+ const contractText = String(job.contract || 'other');
+ return `<section class="mobile-action-block" aria-label="${esc(localeCopy[locale].quickDetails)}">
+ <a href="${referralUrl(job.url || canonicalUrl, job)}" rel="noopener noreferrer" class="mab-cta">${esc(localeCopy[locale].applyNow)}</a>
+ <dl class="mab-grid">
+ <div class="mab-tile"><dt>${esc(localeCopy[locale].location)}</dt><dd>${esc(addressLocality)}</dd></div>
+ <div class="mab-tile"><dt>${esc(localeCopy[locale].contract)}</dt><dd>${esc(contractText)}</dd></div>
+ <div class="mab-tile"><dt>${esc(publishedLabel[locale as 'it'|'en'|'de'|'fr'])}</dt><dd>${esc(daysAgo)}</dd></div>
+ </dl>
+ </section>`;
+ })()}
  <section class="section">
  <h4>${esc(localeCopy[locale].summaryLabel)}</h4>
  ${summaryHtml}
