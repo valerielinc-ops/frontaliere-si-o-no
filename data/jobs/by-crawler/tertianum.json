@@ -2862,7 +2862,7 @@
       "slugByLocale": {
         "de": "sachbearbeiterin-sachbearbeiter-finanz-und-rechnungswesen-betriebe-tessin-80-100-tertianum",
         "it": "addetto-a-alla-contabilita-e-al-bilancio-settore-operazioni-tessin-80-100-tertianum-dubendorf",
-        "en": "financial-and-accounting-officer-operations-tessin-80-100-tertianum-dubendorf",
+        "en": "sachbearbeiterin-sachbearbeiter-finanz-und-rechnungswesen-betriebe-tessin-80-100-tertianum-dubendorf",
         "fr": "responsable-financier-et-comptable-operations-tessin-80-100-tertianum-dubendorf"
       },
       "company": "Tertianum",
@@ -2932,10 +2932,14 @@
       "previousSlugsByLocale": {
         "it": [
           "sachbearbeiterin-sachbearbeiter-finanz-und-rechnungswesen-betriebe-tessin-80-100-tertianum"
+        ],
+        "en": [
+          "financial-and-accounting-officer-operations-tessin-80-100-tertianum-dubendorf"
         ]
       },
       "previousSlugs": [
-        "sachbearbeiterin-sachbearbeiter-finanz-und-rechnungswesen-betriebe-tessin-80-100-tertianum"
+        "sachbearbeiterin-sachbearbeiter-finanz-und-rechnungswesen-betriebe-tessin-80-100-tertianum",
+        "financial-and-accounting-officer-operations-tessin-80-100-tertianum-dubendorf"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -4048,10 +4052,10 @@
     },
     {
       "id": "tertianum-c897eaf09ba0",
-      "slug": "apprendistato-come-specialista-in-salute-fage-efz-tertianum-wald",
+      "slug": "apprendistato-come-fachfrau-fachmann-gesundheit-fage-cfc-tertianum-wald",
       "slugByLocale": {
         "de": "lehrstelle-als-fachfrau-fachmann-gesundheit-fage-efz-tertianum-wald",
-        "it": "apprendistato-come-specialista-in-salute-fage-efz-tertianum-wald",
+        "it": "apprendistato-come-fachfrau-fachmann-gesundheit-fage-cfc-tertianum-wald",
         "en": "apprenticeship-as-health-care-specialist-fage-efz-tertianum-wald",
         "fr": "apprentissage-en-tant-que-specialiste-en-soins-de-sante-fage-efz-tertianum-wald"
       },
@@ -4125,11 +4129,13 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-fachfrau-fachmann-gesundheit-fage-efz-tertianum-wald"
+          "lehrstelle-als-fachfrau-fachmann-gesundheit-fage-efz-tertianum-wald",
+          "apprendistato-come-specialista-in-salute-fage-efz-tertianum-wald"
         ]
       },
       "previousSlugs": [
-        "lehrstelle-als-fachfrau-fachmann-gesundheit-fage-efz-tertianum-wald"
+        "lehrstelle-als-fachfrau-fachmann-gesundheit-fage-efz-tertianum-wald",
+        "apprendistato-come-specialista-in-salute-fage-efz-tertianum-wald"
       ],
       "salaryMin": 41600,
       "salaryMax": 63000,
@@ -4342,10 +4348,10 @@
     },
     {
       "id": "tertianum-233816426f9c",
-      "slug": "apprendistato-come-specialista-o-specialista-in-salute-fage-efz-tertianum-wald",
+      "slug": "apprendistato-come-fachfrau-fachmann-gesundheit-fage-cfc-tertianum-wald-060e1d",
       "slugByLocale": {
         "de": "lehrstelle-als-fachfrau-fachmann-gesundheit-fage-efz-tertianum-wald",
-        "it": "apprendistato-come-specialista-o-specialista-in-salute-fage-efz-tertianum-wald",
+        "it": "apprendistato-come-fachfrau-fachmann-gesundheit-fage-cfc-tertianum-wald-060e1d",
         "en": "apprenticeship-as-a-health-care-assistant-fage-efz-tertianum-wald",
         "fr": "apprentissage-en-tant-qu-assistant-e-en-soins-de-sante-fage-efz-tertianum-wald"
       },
@@ -4422,11 +4428,13 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-fachfrau-fachmann-gesundheit-fage-efz-tertianum-wald-2"
+          "lehrstelle-als-fachfrau-fachmann-gesundheit-fage-efz-tertianum-wald-2",
+          "apprendistato-come-specialista-o-specialista-in-salute-fage-efz-tertianum-wald"
         ]
       },
       "previousSlugs": [
-        "lehrstelle-als-fachfrau-fachmann-gesundheit-fage-efz-tertianum-wald-2"
+        "lehrstelle-als-fachfrau-fachmann-gesundheit-fage-efz-tertianum-wald-2",
+        "apprendistato-come-specialista-o-specialista-in-salute-fage-efz-tertianum-wald"
       ],
       "salaryMin": 41600,
       "salaryMax": 63000,
@@ -7615,11 +7623,11 @@
     },
     {
       "id": "tertianum-5483f34f4a5c",
-      "slug": "operatore-socio-sanitario-efz-50-nel-turno-notturno-tertianum-orpund",
+      "slug": "salute-professionale-efz-50-di-notte-tertianum-orpund",
       "slugByLocale": {
         "de": "fachfrau-fachmann-gesundheit-efz-50-im-nachtdienst-tertianum-orpund",
-        "it": "operatore-socio-sanitario-efz-50-nel-turno-notturno-tertianum-orpund",
-        "en": "healthcare-assistant-efz-50-night-shift-tertianum-orpund",
+        "it": "salute-professionale-efz-50-di-notte-tertianum-orpund",
+        "en": "professional-health-efz-50-at-night-tertianum-orpund",
         "fr": "assistant-en-soins-de-sante-cfc-50-en-service-de-nuit-tertianum-orpund"
       },
       "company": "Tertianum",
@@ -7690,11 +7698,17 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "fachfrau-fachmann-gesundheit-efz-50-im-nachtdienst-tertianum-orpund"
+          "fachfrau-fachmann-gesundheit-efz-50-im-nachtdienst-tertianum-orpund",
+          "operatore-socio-sanitario-efz-50-nel-turno-notturno-tertianum-orpund"
+        ],
+        "en": [
+          "healthcare-assistant-efz-50-night-shift-tertianum-orpund"
         ]
       },
       "previousSlugs": [
-        "fachfrau-fachmann-gesundheit-efz-50-im-nachtdienst-tertianum-orpund"
+        "fachfrau-fachmann-gesundheit-efz-50-im-nachtdienst-tertianum-orpund",
+        "operatore-socio-sanitario-efz-50-nel-turno-notturno-tertianum-orpund",
+        "healthcare-assistant-efz-50-night-shift-tertianum-orpund"
       ],
       "salaryMin": 51500,
       "salaryMax": 88000,
@@ -7787,10 +7801,10 @@
     },
     {
       "id": "tertianum-3215bf7ae8a9",
-      "slug": "apprendistato-come-specialista-o-specialista-della-salute-fage-efz-tertianum-bern",
+      "slug": "apprendistato-come-fachfrau-fachmann-gesundheit-fage-cfc-tertianum-bern",
       "slugByLocale": {
         "de": "lehrstelle-als-fachfrau-fachmann-gesundheit-fage-efz-tertianum-bern",
-        "it": "apprendistato-come-specialista-o-specialista-della-salute-fage-efz-tertianum-bern",
+        "it": "apprendistato-come-fachfrau-fachmann-gesundheit-fage-cfc-tertianum-bern",
         "en": "apprenticeship-as-a-health-care-assistant-fage-efz-tertianum-bern",
         "fr": "apprentissage-en-tant-que-assistant-e-en-soins-de-sante-fage-efz-tertianum-bern"
       },
@@ -7866,11 +7880,13 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-fachfrau-fachmann-gesundheit-fage-efz-tertianum-bern"
+          "lehrstelle-als-fachfrau-fachmann-gesundheit-fage-efz-tertianum-bern",
+          "apprendistato-come-specialista-o-specialista-della-salute-fage-efz-tertianum-bern"
         ]
       },
       "previousSlugs": [
-        "lehrstelle-als-fachfrau-fachmann-gesundheit-fage-efz-tertianum-bern"
+        "lehrstelle-als-fachfrau-fachmann-gesundheit-fage-efz-tertianum-bern",
+        "apprendistato-come-specialista-o-specialista-della-salute-fage-efz-tertianum-bern"
       ],
       "salaryMin": 41600,
       "salaryMax": 63000,
@@ -9883,10 +9899,10 @@
     },
     {
       "id": "tertianum-b96a2c27f663",
-      "slug": "apprendistato-come-specialista-o-specialista-in-salute-efz-tertianum-emmenbrucke",
+      "slug": "apprendistato-come-fachfrau-fachmann-gesundheit-cfc-tertianum-emmenbrucke",
       "slugByLocale": {
         "de": "lehrstelle-als-fachfrau-fachmann-gesundheit-efz-tertianum-emmenbrucke",
-        "it": "apprendistato-come-specialista-o-specialista-in-salute-efz-tertianum-emmenbrucke",
+        "it": "apprendistato-come-fachfrau-fachmann-gesundheit-cfc-tertianum-emmenbrucke",
         "en": "apprenticeship-as-health-care-assistant-efz-tertianum-emmenbrucke",
         "fr": "apprentissage-en-tant-que-assistant-e-en-soins-de-sante-cfc-tertianum-emmenbrucke"
       },
@@ -9963,11 +9979,13 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-fachfrau-fachmann-gesundheit-efz-tertianum-emmenbrucke"
+          "lehrstelle-als-fachfrau-fachmann-gesundheit-efz-tertianum-emmenbrucke",
+          "apprendistato-come-specialista-o-specialista-in-salute-efz-tertianum-emmenbrucke"
         ]
       },
       "previousSlugs": [
-        "lehrstelle-als-fachfrau-fachmann-gesundheit-efz-tertianum-emmenbrucke"
+        "lehrstelle-als-fachfrau-fachmann-gesundheit-efz-tertianum-emmenbrucke",
+        "apprendistato-come-specialista-o-specialista-in-salute-efz-tertianum-emmenbrucke"
       ],
       "salaryMin": 46000,
       "salaryMax": 78500,
@@ -11602,10 +11620,10 @@
     },
     {
       "id": "tertianum-06aadad2f84c",
-      "slug": "apprendistato-come-specialista-in-salute-efz-tertianum-lenzburg",
+      "slug": "apprendistato-come-fachfrau-fachmann-gesundheit-cfc-tertianum-lenzburg",
       "slugByLocale": {
         "de": "lehrstelle-als-fachfrau-fachmann-gesundheit-efz-tertianum-lenzburg",
-        "it": "apprendistato-come-specialista-in-salute-efz-tertianum-lenzburg",
+        "it": "apprendistato-come-fachfrau-fachmann-gesundheit-cfc-tertianum-lenzburg",
         "en": "apprenticeship-as-health-care-professional-efz-tertianum-lenzburg",
         "fr": "apprentissage-en-tant-que-specialiste-en-sante-efz-tertianum-lenzburg"
       },
@@ -11677,11 +11695,13 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-fachfrau-fachmann-gesundheit-efz-tertianum-lenzburg"
+          "lehrstelle-als-fachfrau-fachmann-gesundheit-efz-tertianum-lenzburg",
+          "apprendistato-come-specialista-in-salute-efz-tertianum-lenzburg"
         ]
       },
       "previousSlugs": [
-        "lehrstelle-als-fachfrau-fachmann-gesundheit-efz-tertianum-lenzburg"
+        "lehrstelle-als-fachfrau-fachmann-gesundheit-efz-tertianum-lenzburg",
+        "apprendistato-come-specialista-in-salute-efz-tertianum-lenzburg"
       ],
       "salaryMin": 46000,
       "salaryMax": 78500,
@@ -13281,7 +13301,7 @@
       "slugByLocale": {
         "de": "lernende-r-koch-kochin-tertianum-luzern",
         "it": "apprendista-cuoco-cuoca-tertianum-luzern",
-        "en": "apprentice-cook-tertianum-luzern",
+        "en": "apprentice-koch-kochin-tertianum-luzern",
         "fr": "apprenti-e-cuisinier-cuisiniere-tertianum-luzern"
       },
       "company": "Tertianum",
@@ -13358,10 +13378,14 @@
       "previousSlugsByLocale": {
         "it": [
           "lernende-r-koch-kochin-tertianum-luzern"
+        ],
+        "en": [
+          "apprentice-cook-tertianum-luzern"
         ]
       },
       "previousSlugs": [
-        "lernende-r-koch-kochin-tertianum-luzern"
+        "lernende-r-koch-kochin-tertianum-luzern",
+        "apprentice-cook-tertianum-luzern"
       ],
       "salaryMin": 41600,
       "salaryMax": 63000,
@@ -13477,10 +13501,10 @@
     },
     {
       "id": "tertianum-e59a7e7861a3",
-      "slug": "apprendistato-come-specialista-in-salute-fage-efz-tertianum-luzern",
+      "slug": "apprendistato-come-fachfrau-fachmann-gesundheit-fage-cfc-tertianum-luzern",
       "slugByLocale": {
         "de": "lehrstelle-als-fachfrau-fachmann-gesundheit-fage-efz-tertianum-luzern",
-        "it": "apprendistato-come-specialista-in-salute-fage-efz-tertianum-luzern",
+        "it": "apprendistato-come-fachfrau-fachmann-gesundheit-fage-cfc-tertianum-luzern",
         "en": "apprenticeship-as-a-health-care-specialist-fage-efz-tertianum-luzern",
         "fr": "apprentissage-en-tant-que-specialiste-en-soins-de-sante-fage-efz-tertianum-luzern"
       },
@@ -13557,11 +13581,13 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-fachfrau-fachmann-gesundheit-fage-efz-tertianum-luzern"
+          "lehrstelle-als-fachfrau-fachmann-gesundheit-fage-efz-tertianum-luzern",
+          "apprendistato-come-specialista-in-salute-fage-efz-tertianum-luzern"
         ]
       },
       "previousSlugs": [
-        "lehrstelle-als-fachfrau-fachmann-gesundheit-fage-efz-tertianum-luzern"
+        "lehrstelle-als-fachfrau-fachmann-gesundheit-fage-efz-tertianum-luzern",
+        "apprendistato-come-specialista-in-salute-fage-efz-tertianum-luzern"
       ],
       "salaryMin": 41600,
       "salaryMax": 63000,
@@ -13579,10 +13605,10 @@
     },
     {
       "id": "tertianum-ecd11bee29c6",
-      "slug": "apprendistato-come-specialista-in-hotellerie-hauswirtschaft-efz-tertianum-rheinfelden",
+      "slug": "apprendistato-come-fachfrau-fachmann-hotellerie-hauswirtschaft-cfc-tertianum-rheinfelden",
       "slugByLocale": {
         "de": "lehrstelle-als-fachfrau-fachmann-hotellerie-hauswirtschaft-efz-tertianum-rheinfelden",
-        "it": "apprendistato-come-specialista-in-hotellerie-hauswirtschaft-efz-tertianum-rheinfelden",
+        "it": "apprendistato-come-fachfrau-fachmann-hotellerie-hauswirtschaft-cfc-tertianum-rheinfelden",
         "en": "apprenticeship-as-a-specialist-in-hotel-and-domestic-economy-efz-tertianum-rheinfelden",
         "fr": "apprentissage-en-tant-que-specialiste-en-hotellerie-et-economie-domestique-efz-tertianum-rheinfelden"
       },
@@ -13659,11 +13685,13 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-fachfrau-fachmann-hotellerie-hauswirtschaft-efz-tertianum-rheinfelden"
+          "lehrstelle-als-fachfrau-fachmann-hotellerie-hauswirtschaft-efz-tertianum-rheinfelden",
+          "apprendistato-come-specialista-in-hotellerie-hauswirtschaft-efz-tertianum-rheinfelden"
         ]
       },
       "previousSlugs": [
-        "lehrstelle-als-fachfrau-fachmann-hotellerie-hauswirtschaft-efz-tertianum-rheinfelden"
+        "lehrstelle-als-fachfrau-fachmann-hotellerie-hauswirtschaft-efz-tertianum-rheinfelden",
+        "apprendistato-come-specialista-in-hotellerie-hauswirtschaft-efz-tertianum-rheinfelden"
       ],
       "salaryMin": 41600,
       "salaryMax": 63000,
@@ -13972,10 +14000,10 @@
     },
     {
       "id": "tertianum-8336b9a54d8f",
-      "slug": "apprendistato-come-specialista-in-hotellerie-hauswirtschaft-efz-tertianum-nidau",
+      "slug": "apprendistato-come-fachfrau-fachmann-hotellerie-hauswirtschaft-cfc-tertianum-nidau",
       "slugByLocale": {
         "de": "lehrstelle-als-fachfrau-fachmann-hotellerie-hauswirtschaft-efz-tertianum-nidau",
-        "it": "apprendistato-come-specialista-in-hotellerie-hauswirtschaft-efz-tertianum-nidau",
+        "it": "apprendistato-come-fachfrau-fachmann-hotellerie-hauswirtschaft-cfc-tertianum-nidau",
         "en": "apprenticeship-as-a-specialist-in-hotel-and-domestic-economy-efz-tertianum-nidau",
         "fr": "apprentissage-en-tant-que-specialiste-en-hotellerie-hauswirtschaft-efz-tertianum-nidau"
       },
@@ -14052,11 +14080,13 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-fachfrau-fachmann-hotellerie-hauswirtschaft-efz-tertianum-nidau"
+          "lehrstelle-als-fachfrau-fachmann-hotellerie-hauswirtschaft-efz-tertianum-nidau",
+          "apprendistato-come-specialista-in-hotellerie-hauswirtschaft-efz-tertianum-nidau"
         ]
       },
       "previousSlugs": [
-        "lehrstelle-als-fachfrau-fachmann-hotellerie-hauswirtschaft-efz-tertianum-nidau"
+        "lehrstelle-als-fachfrau-fachmann-hotellerie-hauswirtschaft-efz-tertianum-nidau",
+        "apprendistato-come-specialista-in-hotellerie-hauswirtschaft-efz-tertianum-nidau"
       ],
       "salaryMin": 41600,
       "salaryMax": 63000,
@@ -14644,7 +14674,7 @@
       "slugByLocale": {
         "de": "lernende-r-hotelfachfrau-mann-tertianum-zurich",
         "it": "apprendista-di-hoteleria-e-servizi-alberghieri-tertianum-zurich",
-        "en": "hotel-services-apprentice-tertianum-zurich",
+        "en": "apprentice-hotelfachfrau-mann-tertianum-zurich",
         "fr": "apprenti-en-service-hotelier-tertianum-zurich"
       },
       "company": "Tertianum",
@@ -14721,10 +14751,14 @@
       "previousSlugsByLocale": {
         "it": [
           "lernende-r-hotelfachfrau-mann-tertianum-zurich"
+        ],
+        "en": [
+          "hotel-services-apprentice-tertianum-zurich"
         ]
       },
       "previousSlugs": [
-        "lernende-r-hotelfachfrau-mann-tertianum-zurich"
+        "lernende-r-hotelfachfrau-mann-tertianum-zurich",
+        "hotel-services-apprentice-tertianum-zurich"
       ],
       "salaryMin": 41600,
       "salaryMax": 63000,
@@ -15202,10 +15236,10 @@
     },
     {
       "id": "tertianum-c75a7ffd6b15",
-      "slug": "addetto-addetta-alle-attivita-domestiche-tertianum-thun",
+      "slug": "collaboratore-trice-collaboratore-trice-hauswirtschaft-tertianum-thun",
       "slugByLocale": {
         "de": "mitarbeiter-mitarbeiter-hauswirtschaft-tertianum-thun",
-        "it": "addetto-addetta-alle-attivita-domestiche-tertianum-thun",
+        "it": "collaboratore-trice-collaboratore-trice-hauswirtschaft-tertianum-thun",
         "en": "housekeeping-assistant-tertianum-thun",
         "fr": "assistant-e-en-gestion-du-menage-tertianum-thun"
       },
@@ -15280,11 +15314,13 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-mitarbeiter-hauswirtschaft-tertianum-thun"
+          "mitarbeiter-mitarbeiter-hauswirtschaft-tertianum-thun",
+          "addetto-addetta-alle-attivita-domestiche-tertianum-thun"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-mitarbeiter-hauswirtschaft-tertianum-thun"
+        "mitarbeiter-mitarbeiter-hauswirtschaft-tertianum-thun",
+        "addetto-addetta-alle-attivita-domestiche-tertianum-thun"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -22341,7 +22377,7 @@
       "slugByLocale": {
         "de": "lernende-r-restorationsangestellte-r-tertianum-horgen",
         "it": "apprendista-di-ristorazione-tertianum-horgen",
-        "en": "restaurant-apprentice-tertianum-horgen",
+        "en": "apprentice-restaurationsangestellte-r-tertianum-horgen",
         "fr": "lernende-r-restaurationsangestellte-r-tertianum-horgen"
       },
       "company": "Tertianum",
@@ -22421,10 +22457,14 @@
         ],
         "de": [
           "lernende-r-restaurationsangestellte-r-tertianum-horgen"
+        ],
+        "en": [
+          "restaurant-apprentice-tertianum-horgen"
         ]
       },
       "previousSlugs": [
-        "lernende-r-restaurationsangestellte-r-tertianum-horgen"
+        "lernende-r-restaurationsangestellte-r-tertianum-horgen",
+        "restaurant-apprentice-tertianum-horgen"
       ],
       "salaryMin": 41600,
       "salaryMax": 63000,

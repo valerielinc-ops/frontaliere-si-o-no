@@ -653,7 +653,7 @@
       "slugByLocale": {
         "de": "betreuende-fachpersonen-nacht-und-wochenende-mna-40-in-z-u00fcrich-uster-m-w-d-caritas",
         "it": "personale-specializzato-responsabile-notturno-e-nei-fine-settimana-mna-40-a-zurigo-uster-m-w-d-caritas-schweiz-zurich",
-        "en": "care-professionals-for-night-and-weekend-shifts-mna-40-in-zurich-uster-m-w-d-caritas-schweiz-zurich",
+        "en": "mna-40-in-z-u00fcrich-uster-m-w-d-caritas-schweiz-zurich",
         "fr": "spcialistes-de-l-accompagnement-de-nuit-et-le-week-end-mna-40-zurich-uster-m-f-d-caritas-schweiz-zurich"
       },
       "company": "Caritas Schweiz",
@@ -703,10 +703,14 @@
       "previousSlugsByLocale": {
         "it": [
           "betreuende-fachpersonen-nacht-und-wochenende-mna-40-in-z-u00fcrich-uster-m-w-d-caritas"
+        ],
+        "en": [
+          "care-professionals-for-night-and-weekend-shifts-mna-40-in-zurich-uster-m-w-d-caritas-schweiz-zurich"
         ]
       },
       "previousSlugs": [
-        "betreuende-fachpersonen-nacht-und-wochenende-mna-40-in-z-u00fcrich-uster-m-w-d-caritas"
+        "betreuende-fachpersonen-nacht-und-wochenende-mna-40-in-z-u00fcrich-uster-m-w-d-caritas",
+        "care-professionals-for-night-and-weekend-shifts-mna-40-in-zurich-uster-m-w-d-caritas-schweiz-zurich"
       ],
       "salaryMin": 68000,
       "salaryMax": 103000,

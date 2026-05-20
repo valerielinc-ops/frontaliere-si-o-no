@@ -263,12 +263,12 @@
         "de": "Settlement Spezialist",
         "fr": "Settlement Spécialiste"
       },
-      "slug": "settlement-specialist-swisscom-olten-b1ztcb",
+      "slug": "settlement-specialista-swisscom-sede-ticino-olten",
       "slugByLocale": {
-        "it": "settlement-specialist-swisscom-olten-b1ztcb",
+        "it": "settlement-specialista-swisscom-sede-ticino-olten",
         "en": "settlement-specialist-swisscom-sede-ticino-olten",
-        "de": "settlement-specialist-swisscom-olten-b1ztcb",
-        "fr": "settlement-specialist-swisscom-olten-b1ztcb"
+        "de": "settlement-spezialist-swisscom-sede-ticino-olten",
+        "fr": "settlement-specialiste-swisscom-sede-ticino-olten"
       },
       "category": "general",
       "datePosted": "2026-05-19",
@@ -302,7 +302,21 @@
       "postalCode": "6500",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "firstSeenAt": "2026-05-19T23:44:51.604Z"
+      "firstSeenAt": "2026-05-19T23:44:51.604Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "settlement-specialist-swisscom-olten-b1ztcb"
+        ],
+        "de": [
+          "settlement-specialist-swisscom-olten-b1ztcb"
+        ],
+        "fr": [
+          "settlement-specialist-swisscom-olten-b1ztcb"
+        ]
+      },
+      "previousSlugs": [
+        "settlement-specialist-swisscom-olten-b1ztcb"
+      ]
     },
     {
       "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Bern/DevOps-Engineer---Ansible_R-0005523",

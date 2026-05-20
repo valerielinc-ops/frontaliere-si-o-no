@@ -224,9 +224,9 @@
     },
     {
       "id": "epfl-794688223d98",
-      "slug": "postdoc-in-photoelectrochemsitry-and-corrosion-epfl-lausanne",
+      "slug": "postdoc-in-fotoelettrochimica-e-corrosione-epfl-lausanne",
       "slugByLocale": {
-        "it": "postdoc-in-photoelectrochemsitry-and-corrosion-epfl-lausanne",
+        "it": "postdoc-in-fotoelettrochimica-e-corrosione-epfl-lausanne",
         "en": "postdoc-in-photoelectrochemsitry-and-corrosion-epfl-lausanne",
         "de": "postdoc-in-photoelektrochemie-und-korrosion-epfl-lausanne",
         "fr": "postdoc-en-photoelectrochimie-et-corrosion-epfl-lausanne"
@@ -273,11 +273,11 @@
       "externalId": "940728674",
       "previousSlugsByLocale": {
         "it": [
-          "postdoc-in-fotoelettrochimica-e-corrosione-epfl-lausanne"
+          "postdoc-in-photoelectrochemsitry-and-corrosion-epfl-lausanne"
         ]
       },
       "previousSlugs": [
-        "postdoc-in-fotoelettrochimica-e-corrosione-epfl-lausanne"
+        "postdoc-in-photoelectrochemsitry-and-corrosion-epfl-lausanne"
       ],
       "firstSeenAt": "2026-05-10T21:32:10.748Z",
       "salaryMin": 49500,
@@ -373,7 +373,7 @@
         "it": "ricercatore-post-dottorato-ingegnere-di-ricerca-epfl-lausanne",
         "en": "postdoctoral-researcher-research-engineer-epfl-lausanne",
         "de": "postdoctoral-researcher-forschungsingenieur-epfl-lausanne",
-        "fr": "postdoctoral-researcher-research-engineer-epfl-lausanne"
+        "fr": "postdoctoral-researcher-recherche-ingenieur-epfl-lausanne"
       },
       "company": "EPFL",
       "companyKey": "epfl",
@@ -418,7 +418,7 @@
       "previousSlugsByLocale": {
         "fr": [
           "chercheur-postdoctoral-ingenieur-de-recherche-epfl-lausanne",
-          "postdoctoral-researcher-recherche-ingenieur-epfl-lausanne"
+          "postdoctoral-researcher-research-engineer-epfl-lausanne"
         ],
         "it": [
           "postdoctoral-researcher-research-engineer-epfl-lausanne"
@@ -429,8 +429,7 @@
       },
       "previousSlugs": [
         "chercheur-postdoctoral-ingenieur-de-recherche-epfl-lausanne",
-        "postdoctoral-researcher-research-engineer-epfl-lausanne",
-        "postdoctoral-researcher-recherche-ingenieur-epfl-lausanne"
+        "postdoctoral-researcher-research-engineer-epfl-lausanne"
       ],
       "firstSeenAt": "2026-05-10T21:32:10.746Z",
       "needsRetranslation": true,
@@ -451,12 +450,12 @@
     },
     {
       "id": "epfl-9666b90cdabb",
-      "slug": "research-collaborator-epfl-fribourg",
+      "slug": "ricerca-collaborator-epfl-fribourg",
       "slugByLocale": {
-        "it": "research-collaborator-epfl-fribourg",
+        "it": "ricerca-collaborator-epfl-fribourg",
         "en": "research-collaborator-epfl-fribourg",
-        "de": "forschungskooperation-epfl-fribourg",
-        "fr": "collaborateur-de-recherche-epfl-fribourg"
+        "de": "forschung-collaborator-epfl-fribourg",
+        "fr": "recherche-collaborator-epfl-fribourg"
       },
       "company": "EPFL",
       "companyKey": "epfl",
@@ -500,15 +499,21 @@
       "externalId": "1164294355",
       "previousSlugsByLocale": {
         "it": [
-          "collaboratore-di-ricerca-epfl-fribourg"
+          "collaboratore-di-ricerca-epfl-fribourg",
+          "research-collaborator-epfl-fribourg"
         ],
         "de": [
-          "forschung-collaborator-epfl-fribourg"
+          "forschungskooperation-epfl-fribourg"
+        ],
+        "fr": [
+          "collaborateur-de-recherche-epfl-fribourg"
         ]
       },
       "previousSlugs": [
         "collaboratore-di-ricerca-epfl-fribourg",
-        "forschung-collaborator-epfl-fribourg"
+        "research-collaborator-epfl-fribourg",
+        "forschungskooperation-epfl-fribourg",
+        "collaborateur-de-recherche-epfl-fribourg"
       ],
       "firstSeenAt": "2026-05-10T21:32:10.745Z",
       "needsRetranslation": true,
@@ -3565,20 +3570,12 @@
       "contractType": "Administratif",
       "externalId": "1164724555",
       "previousSlugs": [
-        "green-labs-sv-praktikum-epfl-lausanne",
-        "stade-green-labs-sv-epfl-lausanne",
-        "stage-green-labs-sv-epfl-lausanne",
         "praktikum-green-labs-sv-epfl-lausanne",
         "internship-green-labs-sv-epfl-lausanne"
       ],
       "previousSlugsByLocale": {
         "de": [
-          "green-labs-sv-praktikum-epfl-lausanne",
           "praktikum-green-labs-sv-epfl-lausanne"
-        ],
-        "fr": [
-          "stade-green-labs-sv-epfl-lausanne",
-          "stage-green-labs-sv-epfl-lausanne"
         ],
         "it": [
           "internship-green-labs-sv-epfl-lausanne"

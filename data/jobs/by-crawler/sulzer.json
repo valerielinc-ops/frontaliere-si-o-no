@@ -412,7 +412,7 @@
       "slugByLocale": {
         "it": "sr-manager-sviluppatore-di-integrazione-sulzer-navi-mumbai",
         "en": "sr-manager-integration-developer-sulzer-ch",
-        "de": "sr-manager-integrationsentwickler-sulzer-navi-mumbai",
+        "de": "sr-manager-integration-entwickler-sulzer-navi-mumbai",
         "fr": "sr-manager-developpeur-d-integration-sulzer-navi-mumbai"
       },
       "company": "Sulzer",
@@ -485,11 +485,15 @@
         ]
       },
       "previousSlugs": [
-        "sr-manager-integration-developer-sulzer-ch"
+        "sr-manager-integration-developer-sulzer-ch",
+        "sr-manager-integrationsentwickler-sulzer-navi-mumbai"
       ],
       "previousSlugsByLocale": {
         "it": [
           "sr-manager-integration-developer-sulzer-ch"
+        ],
+        "de": [
+          "sr-manager-integrationsentwickler-sulzer-navi-mumbai"
         ]
       },
       "firstSeenAt": "2026-05-19T18:34:28.581Z",
@@ -1263,7 +1267,7 @@
       "slugByLocale": {
         "it": "coordinatore-del-centro-riparazioni-sulzer-salt-lake-city",
         "en": "repair-center-coordinator-sulzer-ch",
-        "de": "koordinator-des-reparaturzentrums-sulzer-salt-lake-city",
+        "de": "repair-center-koordinator-sulzer-salt-lake-city",
         "fr": "coordonnateur-du-centre-de-reparation-sulzer-salt-lake-city"
       },
       "company": "Sulzer",
@@ -1329,11 +1333,15 @@
         ]
       },
       "previousSlugs": [
-        "repair-center-coordinator-sulzer-ch"
+        "repair-center-coordinator-sulzer-ch",
+        "koordinator-des-reparaturzentrums-sulzer-salt-lake-city"
       ],
       "previousSlugsByLocale": {
         "it": [
           "repair-center-coordinator-sulzer-ch"
+        ],
+        "de": [
+          "koordinator-des-reparaturzentrums-sulzer-salt-lake-city"
         ]
       },
       "firstSeenAt": "2026-05-19T18:34:20.683Z",
@@ -1676,9 +1684,9 @@
     },
     {
       "id": "sulzer-7c536e5c6473",
-      "slug": "specialista-della-qualita-sulzer-chattanooga",
+      "slug": "quality-assurance-specialista-sulzer-chattanooga",
       "slugByLocale": {
-        "it": "specialista-della-qualita-sulzer-chattanooga",
+        "it": "quality-assurance-specialista-sulzer-chattanooga",
         "en": "quality-assurance-specialist-sulzer-ch",
         "de": "qualitatsicherungsspezialist-sulzer-chattanooga",
         "fr": "specialiste-de-l-assurance-qualite-sulzer-chattanooga"
@@ -1753,11 +1761,13 @@
         ]
       },
       "previousSlugs": [
-        "quality-assurance-specialist-sulzer-ch"
+        "quality-assurance-specialist-sulzer-ch",
+        "specialista-della-qualita-sulzer-chattanooga"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "quality-assurance-specialist-sulzer-ch"
+          "quality-assurance-specialist-sulzer-ch",
+          "specialista-della-qualita-sulzer-chattanooga"
         ]
       },
       "firstSeenAt": "2026-05-19T18:34:16.905Z",
@@ -2515,7 +2525,7 @@
       "slugByLocale": {
         "it": "tecnico-di-laboratorio-sulzer-allschwil",
         "en": "laboratory-technician-sulzer-allschwil",
-        "de": "labortechniker-sulzer-allschwil",
+        "de": "laboratory-techniker-sulzer-allschwil",
         "fr": "technicien-de-laboratoire-sulzer-allschwil"
       },
       "company": "Sulzer",
@@ -2562,10 +2572,14 @@
         ],
         "it": [
           "laboratory-technician-sulzer-ch"
+        ],
+        "de": [
+          "labortechniker-sulzer-allschwil"
         ]
       },
       "previousSlugs": [
-        "laboratory-technician-sulzer-ch"
+        "laboratory-technician-sulzer-ch",
+        "labortechniker-sulzer-allschwil"
       ],
       "firstSeenAt": "2026-05-19T18:34:08.608Z",
       "salaryMin": 49500,
@@ -2944,7 +2958,7 @@
       "slugByLocale": {
         "it": "ingegnere-sviluppo-prodotto-sulzer-thimister",
         "en": "product-development-engineer-sulzer-ch",
-        "de": "produktentwickler-sulzer-thimister",
+        "de": "product-development-ingenieur-sulzer-thimister",
         "fr": "ingenieur-developpement-de-produit-sulzer-thimister"
       },
       "company": "Sulzer",
@@ -3016,11 +3030,15 @@
         ]
       },
       "previousSlugs": [
-        "product-development-engineer-sulzer-ch"
+        "product-development-engineer-sulzer-ch",
+        "produktentwickler-sulzer-thimister"
       ],
       "previousSlugsByLocale": {
         "it": [
           "product-development-engineer-sulzer-ch"
+        ],
+        "de": [
+          "produktentwickler-sulzer-thimister"
         ]
       },
       "firstSeenAt": "2026-05-19T18:34:04.259Z",

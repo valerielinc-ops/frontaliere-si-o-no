@@ -119,8 +119,8 @@
       "slugByLocale": {
         "it": "1-apprendista-impiegato-a-in-logistica-afc-indirizzo-professionale-magazzino-per-il",
         "en": "1-apprentice-employee-in-logistics-afc-indirizzo-professionale-warehouse-per-il-periodo-dal-31-agosto-2026-al-30-agosto",
-        "de": "1-lernende-r-angestellte-r-in-logistik-afc-indirizzo-professionale-lager-per-il-periodo-dal-31-agosto-2026-al-30-agosto-2029-presso-il-servi-213ibh",
-        "fr": "1-apprenti-e-employe-e-in-logistique-afc-indirizzo-professionale-entrepot-per-il-periodo-dal-31-agosto-2026-al-30-agosto-2029-presso-il-serv-213ibh"
+        "de": "lernender-logistikmitarbeiter-afc-berufsausbildung-lager-organizzazione-sociopsichiatrica-cantonale-osc-cantone-ticino",
+        "fr": "apprenti-employe-e-en-logistique-afc-voie-professionnelle-entrepot-organizzazione-sociopsichiatrica-cantonale-osc"
       },
       "company": "Organizzazione Sociopsichiatrica Cantonale (OSC) — Cantone Ticino",
       "companyKey": "canton-ticino-osc",
@@ -196,7 +196,9 @@
       "previousSlugs": [
         "1-apprendista-impiegato-a-in-logistica-afc-indirizzo-professionale-magazzino-per-il-periodo-dal-31-agosto-2026-al-30-agosto-2029-presso-il-s-213ibh",
         "requisiti-amministrazione-cantonale-ticino-mendrisio",
-        "logistics-apprentice-afc-warehouse-professional-path-organizzazione-sociopsichiatrica-cantonale-osc-cantone-ticino"
+        "logistics-apprentice-afc-warehouse-professional-path-organizzazione-sociopsichiatrica-cantonale-osc-cantone-ticino",
+        "1-lernende-r-angestellte-r-in-logistik-afc-indirizzo-professionale-lager-per-il-periodo-dal-31-agosto-2026-al-30-agosto-2029-presso-il-servi-213ibh",
+        "1-apprenti-e-employe-e-in-logistique-afc-indirizzo-professionale-entrepot-per-il-periodo-dal-31-agosto-2026-al-30-agosto-2029-presso-il-serv-213ibh"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -205,6 +207,12 @@
         "en": [
           "requisiti-amministrazione-cantonale-ticino-mendrisio",
           "logistics-apprentice-afc-warehouse-professional-path-organizzazione-sociopsichiatrica-cantonale-osc-cantone-ticino"
+        ],
+        "de": [
+          "1-lernende-r-angestellte-r-in-logistik-afc-indirizzo-professionale-lager-per-il-periodo-dal-31-agosto-2026-al-30-agosto-2029-presso-il-servi-213ibh"
+        ],
+        "fr": [
+          "1-apprenti-e-employe-e-in-logistique-afc-indirizzo-professionale-entrepot-per-il-periodo-dal-31-agosto-2026-al-30-agosto-2029-presso-il-serv-213ibh"
         ]
       },
       "firstSeenAt": "2026-05-19T21:17:18.289Z",
@@ -227,7 +235,7 @@
       "slugByLocale": {
         "it": "psicologo-a-i-oppure-psicologo-a-ii-a-tempo-parziale-30-40-presso-l-organizzazione",
         "en": "psychologist-i-or-ii-part-time-30-40-at-the-cantonal-sociopsychiatric-organization-osc-clinical-psychology-and",
-        "de": "psicologo-a-i-oppure-psicologo-a-ii-a-tempo-parziale-30-40-presso-l-organizzazione-sociopsichiatrica-cantonale-osc-servizio-di-psicologia-cl-213ice",
+        "de": "psychologe-in-i-oder-ii-in-teilzeit-30-40-bei-der-kantonalen-soziopsychiatrischen-organisation-osc-dienst-fur-klinische",
         "fr": "psychologue-i-ou-ii-a-temps-partiel-30-40-aupres-de-l-organisation-sociopsychiatrique-cantonale-osc-service-de"
       },
       "company": "Organizzazione Sociopsichiatrica Cantonale (OSC) — Cantone Ticino",
@@ -271,7 +279,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "psicologo-a-i-oppure-psicologo-a-ii-a-tempo-parziale-30-40-presso-l-organizzazione-sociopsichiatrica-cantonale-osc-servi"
+        "psicologo-a-i-oppure-psicologo-a-ii-a-tempo-parziale-30-40-presso-l-organizzazione-sociopsichiatrica-cantonale-osc-servi",
+        "psicologo-a-i-oppure-psicologo-a-ii-a-tempo-parziale-30-40-presso-l-organizzazione-sociopsichiatrica-cantonale-osc-servizio-di-psicologia-cl-213ice"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -282,6 +291,9 @@
         ],
         "fr": [
           "psicologo-a-i-oppure-psicologo-a-ii-a-tempo-parziale-30-40-presso-l-organizzazione-sociopsichiatrica-cantonale-osc-servi"
+        ],
+        "de": [
+          "psicologo-a-i-oppure-psicologo-a-ii-a-tempo-parziale-30-40-presso-l-organizzazione-sociopsichiatrica-cantonale-osc-servizio-di-psicologia-cl-213ice"
         ]
       },
       "firstSeenAt": "2026-05-19T21:17:16.761Z",
@@ -304,7 +316,7 @@
       "slugByLocale": {
         "it": "psicologo-a-i-oppure-psicologo-a-ii-a-tempo-parziale-30-incaricato-a-art-15-e-16-lord",
         "en": "psychologist-i-or-psychologist-ii-part-time-30-contract-based-art-15-and-16-lord-at-the-cantonal-sociopsychiatric",
-        "de": "psicologo-a-i-oppure-psicologo-a-ii-a-tempo-parziale-30-incaricato-a-art-15-e-16-lord-presso-l-organizzazione-sociopsichiatrica-cantonale-os-213icg",
+        "de": "psychologe-in-i-oder-psychologe-in-ii-in-teilzeit-30-befristet-art-15-und-16-lord-bei-der-kantonalen",
         "fr": "psychologue-i-ou-psychologue-ii-a-temps-partiel-30-sous-contrat-art-15-et-16-lord-aupres-de-l-organisation"
       },
       "company": "Organizzazione Sociopsichiatrica Cantonale (OSC) — Cantone Ticino",
@@ -379,7 +391,8 @@
         ]
       },
       "previousSlugs": [
-        "psicologo-a-i-oppure-psicologo-a-ii-a-tempo-parziale-30-incaricato-a-art-15-e-16-lord-presso-l-organizzazione-sociopsich"
+        "psicologo-a-i-oppure-psicologo-a-ii-a-tempo-parziale-30-incaricato-a-art-15-e-16-lord-presso-l-organizzazione-sociopsich",
+        "psicologo-a-i-oppure-psicologo-a-ii-a-tempo-parziale-30-incaricato-a-art-15-e-16-lord-presso-l-organizzazione-sociopsichiatrica-cantonale-os-213icg"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -390,6 +403,9 @@
         ],
         "fr": [
           "psicologo-a-i-oppure-psicologo-a-ii-a-tempo-parziale-30-incaricato-a-art-15-e-16-lord-presso-l-organizzazione-sociopsich"
+        ],
+        "de": [
+          "psicologo-a-i-oppure-psicologo-a-ii-a-tempo-parziale-30-incaricato-a-art-15-e-16-lord-presso-l-organizzazione-sociopsichiatrica-cantonale-os-213icg"
         ]
       },
       "firstSeenAt": "2026-05-19T21:17:16.171Z",
@@ -412,7 +428,7 @@
       "slugByLocale": {
         "it": "operatore-trice-sociale-i-opzione-educatore-trice-presso-l-organizzazione",
         "en": "social-worker-i-option-educator-cantonal-sociopsychiatric-organization-osc-residential-recreational-and-work-center-carl",
-        "de": "operatore-trice-sociale-i-opzione-educatore-trice-presso-l-organizzazione-sociopsichiatrica-cantonale-osc-centro-abitativo-ricreativo-e-di-l-213ick",
+        "de": "sozialarbeiter-in-i-option-erzieher-in-kantonale-sozialpsychiatrische-organisation-osc-wohn-freizeit-und-arbeitszentrum",
         "fr": "travailleur-euse-social-e-i-option-educateur-trice-organisation-sociopsychiatrique-cantonale-osc-centre-d-habitation-de"
       },
       "company": "Organizzazione Sociopsichiatrica Cantonale (OSC) — Cantone Ticino",
@@ -482,7 +498,8 @@
         ]
       },
       "previousSlugs": [
-        "operatore-trice-sociale-i-opzione-educatore-trice-presso-l-organizzazione-sociopsichiatrica-cantonale-osc-centro-abitati"
+        "operatore-trice-sociale-i-opzione-educatore-trice-presso-l-organizzazione-sociopsichiatrica-cantonale-osc-centro-abitati",
+        "operatore-trice-sociale-i-opzione-educatore-trice-presso-l-organizzazione-sociopsichiatrica-cantonale-osc-centro-abitativo-ricreativo-e-di-l-213ick"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -493,6 +510,9 @@
         ],
         "fr": [
           "operatore-trice-sociale-i-opzione-educatore-trice-presso-l-organizzazione-sociopsichiatrica-cantonale-osc-centro-abitati"
+        ],
+        "de": [
+          "operatore-trice-sociale-i-opzione-educatore-trice-presso-l-organizzazione-sociopsichiatrica-cantonale-osc-centro-abitativo-ricreativo-e-di-l-213ick"
         ]
       },
       "firstSeenAt": "2026-05-19T21:17:15.582Z",
@@ -515,7 +535,7 @@
       "slugByLocale": {
         "it": "operatore-trice-sociale-i-opzione-educatore-trice-a-tempo-parziale-75-presso-l",
         "en": "social-worker-i-option-educator-part-time-75-at-the-cantonal-sociopsychiatric-organization-osc-sociotherapy-service",
-        "de": "operatore-trice-sociale-i-opzione-educatore-trice-a-tempo-parziale-75-presso-l-organizzazione-sociopsichiatrica-cantonale-osc-servizio-di-so-213icl",
+        "de": "sozialarbeiter-in-i-option-erzieher-in-teilzeit-75-bei-der-kantonalen-soziopsychiatrischen-organisation-osc",
         "fr": "travailleur-euse-social-e-i-option-educateur-trice-a-temps-partiel-75-aupres-de-l-organisation-sociopsychiatrique"
       },
       "company": "Organizzazione Sociopsichiatrica Cantonale (OSC) — Cantone Ticino",
@@ -590,7 +610,8 @@
         ]
       },
       "previousSlugs": [
-        "operatore-trice-sociale-i-opzione-educatore-trice-a-tempo-parziale-75-presso-l-organizzazione-sociopsichiatrica-cantonal"
+        "operatore-trice-sociale-i-opzione-educatore-trice-a-tempo-parziale-75-presso-l-organizzazione-sociopsichiatrica-cantonal",
+        "operatore-trice-sociale-i-opzione-educatore-trice-a-tempo-parziale-75-presso-l-organizzazione-sociopsichiatrica-cantonale-osc-servizio-di-so-213icl"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -601,6 +622,9 @@
         ],
         "fr": [
           "operatore-trice-sociale-i-opzione-educatore-trice-a-tempo-parziale-75-presso-l-organizzazione-sociopsichiatrica-cantonal"
+        ],
+        "de": [
+          "operatore-trice-sociale-i-opzione-educatore-trice-a-tempo-parziale-75-presso-l-organizzazione-sociopsichiatrica-cantonale-osc-servizio-di-so-213icl"
         ]
       },
       "firstSeenAt": "2026-05-19T21:17:14.991Z",
@@ -623,7 +647,7 @@
       "slugByLocale": {
         "it": "concorso-generale-2026-medici-assistenti-presso-l-organizzazione-sociopsichiatrica",
         "en": "2026-general-competition-for-assistant-physicians-at-the-cantonal-sociopsychiatric-organization-osc-mendrisio",
-        "de": "concorso-generale-2026-medici-assistenti-presso-l-organizzazione-sociopsichiatrica-cantonale-osc-mendrisio-amministrazione-cantonale-ticino--213j0g",
+        "de": "allgemeiner-wettbewerb-2026-assistenzarzte-bei-der-kantonalen-soziopsychiatrischen-organisation-osc-mendrisio",
         "fr": "concours-general-2026-medecins-assistants-aupres-de-l-organisation-sociopsychiatrique-cantonale-osc-mendrisio"
       },
       "company": "Organizzazione Sociopsichiatrica Cantonale (OSC) — Cantone Ticino",
@@ -709,6 +733,9 @@
           "concorso-generale-2026-medici-assistenti-presso-l-organizzazione-sociopsichiatrica-cantonale-osc-mendrisio-amministrazione-cantonale-ticino--213j0g"
         ],
         "fr": [
+          "concorso-generale-2026-medici-assistenti-presso-l-organizzazione-sociopsichiatrica-cantonale-osc-mendrisio-amministrazione-cantonale-ticino--213j0g"
+        ],
+        "de": [
           "concorso-generale-2026-medici-assistenti-presso-l-organizzazione-sociopsichiatrica-cantonale-osc-mendrisio-amministrazione-cantonale-ticino--213j0g"
         ]
       },
@@ -843,7 +870,7 @@
       "slugByLocale": {
         "it": "concorso-generale-2026-medico-capo-clinica-in-psichiatria-presso-l-organizzazione",
         "en": "general-competition-2026-chief-clinical-psychiatrist-at-the-cantonal-sociopsychiatric-organization-osc-mendrisio",
-        "de": "concorso-generale-2026-medico-capo-clinica-in-psichiatria-presso-l-organizzazione-sociopsichiatrica-cantonale-osc-mendrisio-amministrazione--213j0o",
+        "de": "allgemeiner-wettbewerb-2026-leitender-klinikpsychiater-bei-der-kantonalen-soziopsychiatrischen-organisation-osc",
         "fr": "concours-general-2026-medecin-chef-de-clinique-en-psychiatrie-aupres-de-l-organisation-sociopsychiatrique-cantonale-osc"
       },
       "company": "Organizzazione Sociopsichiatrica Cantonale (OSC) — Cantone Ticino",
@@ -926,6 +953,9 @@
           "concorso-generale-2026-medico-capo-clinica-in-psichiatria-presso-l-organizzazione-sociopsichiatrica-cantonale-osc-mendrisio-amministrazione--213j0o"
         ],
         "fr": [
+          "concorso-generale-2026-medico-capo-clinica-in-psichiatria-presso-l-organizzazione-sociopsichiatrica-cantonale-osc-mendrisio-amministrazione--213j0o"
+        ],
+        "de": [
           "concorso-generale-2026-medico-capo-clinica-in-psichiatria-presso-l-organizzazione-sociopsichiatrica-cantonale-osc-mendrisio-amministrazione--213j0o"
         ]
       },

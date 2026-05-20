@@ -841,10 +841,10 @@
     },
     {
       "id": "gzo-wetzikon-efd8dcf23772",
-      "slug": "assistente-di-studio-medico-mpa-pronto-soccorso-10-20-gzo-spital-wetzikon-wetzikon",
+      "slug": "assistente-medico-pratica-mpa-pratica-di-emergenza-10-20-gzo-spital-wetzikon-wetzikon",
       "slugByLocale": {
         "de": "medizinische-r-praxisassistent-in-mpa-notfallpraxis-10-20-gzo-wetzikon-ch",
-        "it": "assistente-di-studio-medico-mpa-pronto-soccorso-10-20-gzo-spital-wetzikon-wetzikon",
+        "it": "assistente-medico-pratica-mpa-pratica-di-emergenza-10-20-gzo-spital-wetzikon-wetzikon",
         "en": "medical-practice-assistant-mpa-emergency-clinic-10-20-gzo-spital-wetzikon-wetzikon",
         "fr": "assistant-e-de-pratique-medicale-mpa-urgences-10-20-gzo-spital-wetzikon-wetzikon"
       },
@@ -893,11 +893,13 @@
       "pensum": "10 - 20%",
       "previousSlugsByLocale": {
         "it": [
-          "medizinische-r-praxisassistent-in-mpa-notfallpraxis-10-20-gzo-wetzikon-ch"
+          "medizinische-r-praxisassistent-in-mpa-notfallpraxis-10-20-gzo-wetzikon-ch",
+          "assistente-di-studio-medico-mpa-pronto-soccorso-10-20-gzo-spital-wetzikon-wetzikon"
         ]
       },
       "previousSlugs": [
-        "medizinische-r-praxisassistent-in-mpa-notfallpraxis-10-20-gzo-wetzikon-ch"
+        "medizinische-r-praxisassistent-in-mpa-notfallpraxis-10-20-gzo-wetzikon-ch",
+        "assistente-di-studio-medico-mpa-pronto-soccorso-10-20-gzo-spital-wetzikon-wetzikon"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,

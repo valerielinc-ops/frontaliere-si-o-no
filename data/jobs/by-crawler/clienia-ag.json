@@ -7,9 +7,9 @@
       "slug": "medico-specializzando-in-psichiatria-per-adulti-80-100-clienia-ag-pfaffikon",
       "slugByLocale": {
         "it": "medico-specializzando-in-psichiatria-per-adulti-80-100-clienia-ag-pfaffikon",
-        "en": "psychiatry-resident-80-100-clienia-ag-pfaffikon",
+        "en": "junior-psychiatrist-adult-psychiatry-80-100-clienia-ag-pfaffikon-zh",
         "de": "assistenzarztin-assistenzarzt-erwachsenenpsychiatrie-80-100-clienia-ag-pfaffikon",
-        "fr": "medical-interne-en-psychiatrie-pour-adultes-80-100-clienia-ag-pfaffikon"
+        "fr": "medecin-assistante-en-psychiatrie-adultes-80-100-clienia-ag-pfaffikon-zh"
       },
       "company": "Clienia AG",
       "companyKey": "clienia-ag",
@@ -71,10 +71,18 @@
         ],
         "it": [
           "assistenzarztin-assistenzarzt-erwachsenenpsychiatrie-80-100-clienia-ag-zurich"
+        ],
+        "en": [
+          "psychiatry-resident-80-100-clienia-ag-pfaffikon"
+        ],
+        "fr": [
+          "medical-interne-en-psychiatrie-pour-adultes-80-100-clienia-ag-pfaffikon"
         ]
       },
       "previousSlugs": [
-        "assistenzarztin-assistenzarzt-erwachsenenpsychiatrie-80-100-clienia-ag-zurich"
+        "assistenzarztin-assistenzarzt-erwachsenenpsychiatrie-80-100-clienia-ag-zurich",
+        "psychiatry-resident-80-100-clienia-ag-pfaffikon",
+        "medical-interne-en-psychiatrie-pour-adultes-80-100-clienia-ag-pfaffikon"
       ],
       "firstSeenAt": "2026-05-19T15:07:05.588Z",
       "salaryMin": 41600,
@@ -92,12 +100,12 @@
     },
     {
       "id": "clienia-ag-796ccd1a0aeb",
-      "slug": "medico-specialista-80-100-clienia-ag-pfaffikon",
+      "slug": "psichiatra-responsabile-80-100-clienia-ag-pfaffikon-zh",
       "slugByLocale": {
-        "it": "medico-specialista-80-100-clienia-ag-pfaffikon",
-        "en": "senior-physician-80-100-clienia-ag-pfaffikon",
+        "it": "psichiatra-responsabile-80-100-clienia-ag-pfaffikon-zh",
+        "en": "psychiatrist-in-charge-80-100-clienia-ag-pfaffikon-zh",
         "de": "oberarztin-arzt-80-100-clienia-ag-pfaffikon",
-        "fr": "medecin-specialiste-principal-80-100-clienia-ag-pfaffikon"
+        "fr": "medecin-psychiatre-responsable-80-100-clienia-ag-pfaffikon-zh"
       },
       "company": "Clienia AG",
       "companyKey": "clienia-ag",
@@ -170,11 +178,21 @@
           "oberarztin-arzt-80-100-clienia-ag-zurich"
         ],
         "it": [
-          "oberarztin-arzt-80-100-clienia-ag-zurich"
+          "oberarztin-arzt-80-100-clienia-ag-zurich",
+          "medico-specialista-80-100-clienia-ag-pfaffikon"
+        ],
+        "en": [
+          "senior-physician-80-100-clienia-ag-pfaffikon"
+        ],
+        "fr": [
+          "medecin-specialiste-principal-80-100-clienia-ag-pfaffikon"
         ]
       },
       "previousSlugs": [
-        "oberarztin-arzt-80-100-clienia-ag-zurich"
+        "oberarztin-arzt-80-100-clienia-ag-zurich",
+        "medico-specialista-80-100-clienia-ag-pfaffikon",
+        "senior-physician-80-100-clienia-ag-pfaffikon",
+        "medecin-specialiste-principal-80-100-clienia-ag-pfaffikon"
       ],
       "firstSeenAt": "2026-05-19T15:07:04.738Z",
       "salaryMin": 68000,
@@ -272,9 +290,9 @@
     },
     {
       "id": "clienia-ag-8151ece05c9d",
-      "slug": "medico-dirigente-o-primario-a-80-100-clienia-ag-pfaffikon",
+      "slug": "responsabile-medico-80-100-clienia-ag-pfaffikon-zh",
       "slugByLocale": {
-        "it": "medico-dirigente-o-primario-a-80-100-clienia-ag-pfaffikon",
+        "it": "responsabile-medico-80-100-clienia-ag-pfaffikon-zh",
         "en": "leading-physician-80-100-clienia-ag-pfaffikon",
         "de": "leitende-arztin-leitender-arzt-oder-oberarztin-oberarzt-kaderarztinnen-kaderarzte-80-100",
         "fr": "medecin-dirigeant-e-80-100-clienia-ag-pfaffikon"
@@ -319,11 +337,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "leitende-arztin-leitender-arzt-oder-oberarztin-oberarzt-kaderarztinnen-kaderarzte-80-100"
+        "leitende-arztin-leitender-arzt-oder-oberarztin-oberarzt-kaderarztinnen-kaderarzte-80-100",
+        "medico-dirigente-o-primario-a-80-100-clienia-ag-pfaffikon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "leitende-arztin-leitender-arzt-oder-oberarztin-oberarzt-kaderarztinnen-kaderarzte-80-100"
+          "leitende-arztin-leitender-arzt-oder-oberarztin-oberarzt-kaderarztinnen-kaderarzte-80-100",
+          "medico-dirigente-o-primario-a-80-100-clienia-ag-pfaffikon"
         ]
       },
       "firstSeenAt": "2026-05-19T15:07:03.027Z",
@@ -431,12 +451,12 @@
     },
     {
       "id": "clienia-ag-f7ea6e3b63aa",
-      "slug": "consulente-nutrizionale-bsc-60-clienia-ag-pfaffikon",
+      "slug": "consulente-nutrizionale-con-laurea-in-scienze-dell-alimentazione-e-dietetica-60-clienia-ag-pfaffikon-zh",
       "slugByLocale": {
-        "it": "consulente-nutrizionale-bsc-60-clienia-ag-pfaffikon",
-        "en": "nutritionist-bsc-60-clienia-ag-pfaffikon",
+        "it": "consulente-nutrizionale-con-laurea-in-scienze-dell-alimentazione-e-dietetica-60-clienia-ag-pfaffikon-zh",
+        "en": "dietitian-bsc-60-clienia-ag-pfaffikon-zh",
         "de": "ernahrungsberater-in-bsc-60-clienia-ag-pfaffikon",
-        "fr": "conseiller-en-nutrition-bsc-60-seb-clienia-ag-pfaffikon"
+        "fr": "dietetien-ne-bsc-60-clienia-ag-pfaffikon-zh"
       },
       "company": "Clienia AG",
       "companyKey": "clienia-ag",
@@ -512,11 +532,21 @@
           "ernahrungsberater-in-bsc-60-clienia-ag-zurich"
         ],
         "it": [
-          "ernahrungsberater-in-bsc-60-clienia-ag-zurich"
+          "ernahrungsberater-in-bsc-60-clienia-ag-zurich",
+          "consulente-nutrizionale-bsc-60-clienia-ag-pfaffikon"
+        ],
+        "en": [
+          "nutritionist-bsc-60-clienia-ag-pfaffikon"
+        ],
+        "fr": [
+          "conseiller-en-nutrition-bsc-60-seb-clienia-ag-pfaffikon"
         ]
       },
       "previousSlugs": [
-        "ernahrungsberater-in-bsc-60-clienia-ag-zurich"
+        "ernahrungsberater-in-bsc-60-clienia-ag-zurich",
+        "consulente-nutrizionale-bsc-60-clienia-ag-pfaffikon",
+        "nutritionist-bsc-60-clienia-ag-pfaffikon",
+        "conseiller-en-nutrition-bsc-60-seb-clienia-ag-pfaffikon"
       ],
       "firstSeenAt": "2026-05-19T15:07:01.326Z",
       "salaryMin": 49500,
@@ -534,12 +564,12 @@
     },
     {
       "id": "clienia-ag-7a124206f07a",
-      "slug": "medico-specializzando-60-100-clienia-ag-pfaffikon",
+      "slug": "assistente-psichiatra-60-100-clienia-ag-pfaffikon-zh",
       "slugByLocale": {
-        "it": "medico-specializzando-60-100-clienia-ag-pfaffikon",
-        "en": "resident-physician-60-100-clienia-ag-pfaffikon",
+        "it": "assistente-psichiatra-60-100-clienia-ag-pfaffikon-zh",
+        "en": "psychiatry-assistant-60-100-clienia-ag-pfaffikon-zh",
         "de": "assistenzarztin-assistenzarzt-60-100-clienia-ag-pfaffikon",
-        "fr": "medical-interne-60-100-clienia-ag-pfaffikon"
+        "fr": "medecin-assistant-en-psychiatrie-60-100-clienia-ag-pfaffikon-zh"
       },
       "company": "Clienia AG",
       "companyKey": "clienia-ag",
@@ -610,11 +640,21 @@
           "assistenzarztin-assistenzarzt-60-100-clienia-ag-zurich"
         ],
         "it": [
-          "assistenzarztin-assistenzarzt-60-100-clienia-ag-zurich"
+          "assistenzarztin-assistenzarzt-60-100-clienia-ag-zurich",
+          "medico-specializzando-60-100-clienia-ag-pfaffikon"
+        ],
+        "en": [
+          "resident-physician-60-100-clienia-ag-pfaffikon"
+        ],
+        "fr": [
+          "medical-interne-60-100-clienia-ag-pfaffikon"
         ]
       },
       "previousSlugs": [
-        "assistenzarztin-assistenzarzt-60-100-clienia-ag-zurich"
+        "assistenzarztin-assistenzarzt-60-100-clienia-ag-zurich",
+        "medico-specializzando-60-100-clienia-ag-pfaffikon",
+        "resident-physician-60-100-clienia-ag-pfaffikon",
+        "medical-interne-60-100-clienia-ag-pfaffikon"
       ],
       "firstSeenAt": "2026-05-19T15:07:00.468Z",
       "salaryMin": 49500,
@@ -637,7 +677,7 @@
         "it": "infermiere-a-specializzato-a-in-psichiatria-80-90-clienia-ag-pfaffikon",
         "en": "diplomierte-pflegefachperson-80-90-clienia-ag-pfaffikon",
         "de": "diplomierte-pflegefachperson-80-90-clienia-ag-pfaffikon",
-        "fr": "infirmier-ere-specialise-e-en-psychiatrie-80-90-clienia-ag-pfaffikon"
+        "fr": "infirmiere-professionnelle-diplomee-80-90-clienia-ag-pfaffikon-zh"
       },
       "company": "Clienia AG",
       "companyKey": "clienia-ag",
@@ -693,7 +733,8 @@
       },
       "previousSlugs": [
         "diplomierte-pflegefachperson-80-90-clienia-ag-zurich",
-        "diplomierte-pflegefachkraft-80-90-clienia-ag-pfaffikon"
+        "diplomierte-pflegefachkraft-80-90-clienia-ag-pfaffikon",
+        "infirmier-ere-specialise-e-en-psychiatrie-80-90-clienia-ag-pfaffikon"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -702,6 +743,9 @@
         "de": [
           "diplomierte-pflegefachkraft-80-90-clienia-ag-pfaffikon",
           "diplomierte-pflegefachperson-80-90-clienia-ag-zurich"
+        ],
+        "fr": [
+          "infirmier-ere-specialise-e-en-psychiatrie-80-90-clienia-ag-pfaffikon"
         ]
       },
       "firstSeenAt": "2026-05-19T15:06:59.557Z",
@@ -723,9 +767,9 @@
       "slug": "diplomierte-pflegefachperson-come-dauernachtwache-40-100-clienia-ag-pfaffikon",
       "slugByLocale": {
         "it": "diplomierte-pflegefachperson-come-dauernachtwache-40-100-clienia-ag-pfaffikon",
-        "en": "diploma-in-nursing-as-a-permanent-night-shift-40-100-clienia-ag-pfaffikon",
+        "en": "registered-nurse-for-continuous-night-shift-40-100-clienia-ag-pfaffikon-zh",
         "de": "diplomierte-pflegefachperson-als-dauernachtwache-40-100-clienia-ag-pfaffikon",
-        "fr": "infirmier-diplome-comme-veilleur-de-nuit-permanent-40-100-clienia-ag-pfaffikon"
+        "fr": "infirmiere-diplomee-en-nuit-continue-40-100-clienia-ag-pfaffikon-zh"
       },
       "company": "Clienia AG",
       "companyKey": "clienia-ag",
@@ -783,10 +827,18 @@
         ],
         "it": [
           "diplomierte-pflegefachperson-als-dauernachtwache-40-100-clienia-ag-zurich"
+        ],
+        "en": [
+          "diploma-in-nursing-as-a-permanent-night-shift-40-100-clienia-ag-pfaffikon"
+        ],
+        "fr": [
+          "infirmier-diplome-comme-veilleur-de-nuit-permanent-40-100-clienia-ag-pfaffikon"
         ]
       },
       "previousSlugs": [
-        "diplomierte-pflegefachperson-als-dauernachtwache-40-100-clienia-ag-zurich"
+        "diplomierte-pflegefachperson-als-dauernachtwache-40-100-clienia-ag-zurich",
+        "diploma-in-nursing-as-a-permanent-night-shift-40-100-clienia-ag-pfaffikon",
+        "infirmier-diplome-comme-veilleur-de-nuit-permanent-40-100-clienia-ag-pfaffikon"
       ],
       "firstSeenAt": "2026-05-19T15:06:58.697Z",
       "salaryMin": 49500,
@@ -915,12 +967,12 @@
     },
     {
       "id": "clienia-ag-abfd3e9cb6f2",
-      "slug": "primario-a-di-psichiatria-40-60-clienia-ag-pfaffikon",
+      "slug": "psichiatra-seniora-psichiatra-senior-40-60-clienia-ag-pfaffikon-zh",
       "slugByLocale": {
-        "it": "primario-a-di-psichiatria-40-60-clienia-ag-pfaffikon",
+        "it": "psichiatra-seniora-psichiatra-senior-40-60-clienia-ag-pfaffikon-zh",
         "en": "senior-psychiatrist-40-60-clienia-ag-pfaffikon",
         "de": "springer-oberarztin-oberarzt-40-60-clienia-ag-pfaffikon",
-        "fr": "medecin-chef-en-psychiatrie-40-60-clienia-ag-pfaffikon"
+        "fr": "medecin-psychiatre-senior-medecin-psychiatre-senior-40-60-clienia-ag-pfaffikon-zh"
       },
       "company": "Clienia AG",
       "companyKey": "clienia-ag",
@@ -996,11 +1048,17 @@
           "springer-oberarztin-oberarzt-40-60-clienia-ag-zurich"
         ],
         "it": [
-          "springer-oberarztin-oberarzt-40-60-clienia-ag-zurich"
+          "springer-oberarztin-oberarzt-40-60-clienia-ag-zurich",
+          "primario-a-di-psichiatria-40-60-clienia-ag-pfaffikon"
+        ],
+        "fr": [
+          "medecin-chef-en-psychiatrie-40-60-clienia-ag-pfaffikon"
         ]
       },
       "previousSlugs": [
-        "springer-oberarztin-oberarzt-40-60-clienia-ag-zurich"
+        "springer-oberarztin-oberarzt-40-60-clienia-ag-zurich",
+        "primario-a-di-psichiatria-40-60-clienia-ag-pfaffikon",
+        "medecin-chef-en-psychiatrie-40-60-clienia-ag-pfaffikon"
       ],
       "firstSeenAt": "2026-05-19T15:06:56.938Z",
       "salaryMin": 68000,
@@ -1021,9 +1079,9 @@
       "slug": "diplomata-infermiera-professionale-o-assistente-sociale-80-90-clienia-ag-pfaffikon",
       "slugByLocale": {
         "it": "diplomata-infermiera-professionale-o-assistente-sociale-80-90-clienia-ag-pfaffikon",
-        "en": "qualified-nursing-professional-or-social-worker-80-90-clienia-ag-pfaffikon",
+        "en": "registered-nurse-or-social-worker-80-90-clienia-ag-pfaffikon-zh",
         "de": "diplomierte-pflegefachperson-oder-eine-n-sozialpadagogin-sozialpadagogen-80-90-clienia-ag",
-        "fr": "professionnel-de-sante-qualifie-ou-travailleur-social-80-90-clienia-ag-pfaffikon"
+        "fr": "infirmier-e-diplome-e-ou-travailleur-trice-social-ale-80-90-clienia-ag-pfaffikon-zh"
       },
       "company": "Clienia AG",
       "companyKey": "clienia-ag",
@@ -1097,12 +1155,20 @@
       },
       "previousSlugs": [
         "diplomierte-pflegefachperson-oder-eine-n-sozialpadagogin-sozialpadagogen-80-90-clienia-ag",
-        "diplomato-a-in-infermieristica-o-assistente-sociale-80-90-clienia-ag-pfaffikon"
+        "diplomato-a-in-infermieristica-o-assistente-sociale-80-90-clienia-ag-pfaffikon",
+        "qualified-nursing-professional-or-social-worker-80-90-clienia-ag-pfaffikon",
+        "professionnel-de-sante-qualifie-ou-travailleur-social-80-90-clienia-ag-pfaffikon"
       ],
       "previousSlugsByLocale": {
         "it": [
           "diplomierte-pflegefachperson-oder-eine-n-sozialpadagogin-sozialpadagogen-80-90-clienia-ag",
           "diplomato-a-in-infermieristica-o-assistente-sociale-80-90-clienia-ag-pfaffikon"
+        ],
+        "en": [
+          "qualified-nursing-professional-or-social-worker-80-90-clienia-ag-pfaffikon"
+        ],
+        "fr": [
+          "professionnel-de-sante-qualifie-ou-travailleur-social-80-90-clienia-ag-pfaffikon"
         ]
       },
       "firstSeenAt": "2026-05-19T15:06:56.081Z",
@@ -1121,9 +1187,9 @@
     },
     {
       "id": "clienia-ag-f0efd2e91cb0",
-      "slug": "medico-specialista-60-100-clienia-ag-pfaffikon",
+      "slug": "obermedico-a-60-100-clienia-ag-pfaffikon-zh",
       "slugByLocale": {
-        "it": "medico-specialista-60-100-clienia-ag-pfaffikon",
+        "it": "obermedico-a-60-100-clienia-ag-pfaffikon-zh",
         "en": "senior-physician-60-100-clienia-ag-pfaffikon",
         "de": "oberarztin-oberarzt-60-100-clienia-ag-pfaffikon",
         "fr": "medecin-specialiste-60-100-clienia-ag-pfaffikon"
@@ -1188,11 +1254,13 @@
           "oberarztin-oberarzt-60-100-clienia-ag-zurich"
         ],
         "it": [
-          "oberarztin-oberarzt-60-100-clienia-ag-zurich"
+          "oberarztin-oberarzt-60-100-clienia-ag-zurich",
+          "medico-specialista-60-100-clienia-ag-pfaffikon"
         ]
       },
       "previousSlugs": [
-        "oberarztin-oberarzt-60-100-clienia-ag-zurich"
+        "oberarztin-oberarzt-60-100-clienia-ag-zurich",
+        "medico-specialista-60-100-clienia-ag-pfaffikon"
       ],
       "firstSeenAt": "2026-05-19T15:06:55.230Z",
       "salaryMin": 68000,
@@ -1210,9 +1278,9 @@
     },
     {
       "id": "clienia-ag-57f4868acebf",
-      "slug": "infermiere-diplomato-50-80-clienia-ag-pfaffikon",
+      "slug": "diplomata-infermiera-professionale-50-80-clienia-ag-pfaffikon-zh",
       "slugByLocale": {
-        "it": "infermiere-diplomato-50-80-clienia-ag-pfaffikon",
+        "it": "diplomata-infermiera-professionale-50-80-clienia-ag-pfaffikon-zh",
         "en": "diplomierte-pflegefachperson-50-80-clienia-ag-pfaffikon",
         "de": "diplomierte-pflegefachperson-50-80-clienia-ag-pfaffikon",
         "fr": "infirmier-diplome-50-80-clienia-ag-pfaffikon"
@@ -1288,11 +1356,13 @@
         ]
       },
       "previousSlugs": [
-        "diplomierte-pflegefachperson-50-80-clienia-ag-zurich"
+        "diplomierte-pflegefachperson-50-80-clienia-ag-zurich",
+        "infermiere-diplomato-50-80-clienia-ag-pfaffikon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "diplomierte-pflegefachperson-50-80-clienia-ag-zurich"
+          "diplomierte-pflegefachperson-50-80-clienia-ag-zurich",
+          "infermiere-diplomato-50-80-clienia-ag-pfaffikon"
         ],
         "de": [
           "diplomierte-pflegefachperson-50-80-clienia-ag-zurich"
@@ -1314,12 +1384,12 @@
     },
     {
       "id": "clienia-ag-880b3e62ed9b",
-      "slug": "primario-a-di-psichiatria-40-80-clienia-ag-pfaffikon",
+      "slug": "psichiatra-responsabile-40-80-clienia-ag-pfaffikon-zh",
       "slugByLocale": {
-        "it": "primario-a-di-psichiatria-40-80-clienia-ag-pfaffikon",
+        "it": "psichiatra-responsabile-40-80-clienia-ag-pfaffikon-zh",
         "en": "senior-psychiatrist-40-80-clienia-ag-pfaffikon",
         "de": "springer-oberarztin-oberarzt-40-80-clienia-ag-pfaffikon",
-        "fr": "medecin-chef-en-psychiatrie-40-80-clienia-ag-pfaffikon"
+        "fr": "medecin-psychiatre-40-80-clienia-ag-pfaffikon-zh"
       },
       "company": "Clienia AG",
       "companyKey": "clienia-ag",
@@ -1393,11 +1463,17 @@
           "springer-oberarztin-oberarzt-40-80-clienia-ag-zurich"
         ],
         "it": [
-          "springer-oberarztin-oberarzt-40-80-clienia-ag-zurich"
+          "springer-oberarztin-oberarzt-40-80-clienia-ag-zurich",
+          "primario-a-di-psichiatria-40-80-clienia-ag-pfaffikon"
+        ],
+        "fr": [
+          "medecin-chef-en-psychiatrie-40-80-clienia-ag-pfaffikon"
         ]
       },
       "previousSlugs": [
-        "springer-oberarztin-oberarzt-40-80-clienia-ag-zurich"
+        "springer-oberarztin-oberarzt-40-80-clienia-ag-zurich",
+        "primario-a-di-psichiatria-40-80-clienia-ag-pfaffikon",
+        "medecin-chef-en-psychiatrie-40-80-clienia-ag-pfaffikon"
       ],
       "firstSeenAt": "2026-05-19T15:06:53.530Z",
       "salaryMin": 68000,
@@ -1418,9 +1494,9 @@
       "slug": "responsabile-assistenza-infermieristica-80-90-clienia-ag-pfaffikon",
       "slugByLocale": {
         "it": "responsabile-assistenza-infermieristica-80-90-clienia-ag-pfaffikon",
-        "en": "head-nurse-80-90-clienia-ag-pfaffikon",
+        "en": "pflege-responsible-80-90-clienia-ag-pfaffikon-zh",
         "de": "fachverantwortliche-r-pflege-80-90-clienia-ag-pfaffikon",
-        "fr": "responsable-d-equipe-infirmier-80-90-clienia-ag-pfaffikon"
+        "fr": "responsable-des-soins-infirmiers-80-90-clienia-ag-pfaffikon-zh"
       },
       "company": "Clienia AG",
       "companyKey": "clienia-ag",
@@ -1498,11 +1574,19 @@
         "it": [
           "fachverantwortliche-r-pflege-80-90-clienia-ag-zurich",
           "responsabile-di-reparto-infermieristico-80-90-clienia-ag-pfaffikon"
+        ],
+        "en": [
+          "head-nurse-80-90-clienia-ag-pfaffikon"
+        ],
+        "fr": [
+          "responsable-d-equipe-infirmier-80-90-clienia-ag-pfaffikon"
         ]
       },
       "previousSlugs": [
         "fachverantwortliche-r-pflege-80-90-clienia-ag-zurich",
-        "responsabile-di-reparto-infermieristico-80-90-clienia-ag-pfaffikon"
+        "responsabile-di-reparto-infermieristico-80-90-clienia-ag-pfaffikon",
+        "head-nurse-80-90-clienia-ag-pfaffikon",
+        "responsable-d-equipe-infirmier-80-90-clienia-ag-pfaffikon"
       ],
       "firstSeenAt": "2026-05-19T15:06:52.672Z",
       "salaryMin": 68000,
@@ -1598,7 +1682,7 @@
         "it": "operatore-socio-sanitario-per-turni-notturni-nel-pool-di-riserva-10-100-clienia-ag-pfaffikon",
         "en": "registered-nurse-for-night-shifts-in-the-reserve-pool-10-100-clienia-ag-pfaffikon",
         "de": "diplomierte-pflegefachperson-fur-nachtdienste-im-aushilfepool-10-100-clienia-ag-pfaffikon",
-        "fr": "infirmier-diplome-pour-les-services-de-nuit-dans-le-pool-de-reserve-10-100-clienia-ag-pfaffikon"
+        "fr": "infirmiere-diplomee-de-nuit-en-pool-temporaire-10-100-clienia-ag-pfaffikon-zh"
       },
       "company": "Clienia AG",
       "companyKey": "clienia-ag",
@@ -1676,10 +1760,14 @@
         ],
         "it": [
           "diplomierte-pflegefachperson-fur-nachtdienste-im-aushilfepool-10-100-clienia-ag-zurich"
+        ],
+        "fr": [
+          "infirmier-diplome-pour-les-services-de-nuit-dans-le-pool-de-reserve-10-100-clienia-ag-pfaffikon"
         ]
       },
       "previousSlugs": [
-        "diplomierte-pflegefachperson-fur-nachtdienste-im-aushilfepool-10-100-clienia-ag-zurich"
+        "diplomierte-pflegefachperson-fur-nachtdienste-im-aushilfepool-10-100-clienia-ag-zurich",
+        "infirmier-diplome-pour-les-services-de-nuit-dans-le-pool-de-reserve-10-100-clienia-ag-pfaffikon"
       ],
       "firstSeenAt": "2026-05-19T15:06:50.960Z",
       "salaryMin": 49500,
@@ -1702,7 +1790,7 @@
         "it": "infermiere-diplomata-in-servizio-diurno-70-80-clienia-ag-pfaffikon",
         "en": "diplomierte-pflegefachperson-im-tagdienst-70-80-clienia-ag-pfaffikon",
         "de": "diplomierte-pflegefachperson-im-tagesdienst-70-80-clienia-ag-pfaffikon",
-        "fr": "infirmier-diplome-en-service-diurne-70-80-clienia-ag-pfaffikon"
+        "fr": "infirmiere-diplomee-en-service-de-jour-70-80-clienia-ag-pfaffikon-zh"
       },
       "company": "Clienia AG",
       "companyKey": "clienia-ag",
@@ -1775,7 +1863,8 @@
         ]
       },
       "previousSlugs": [
-        "diplomierte-pflegefachperson-im-tagdienst-70-80-clienia-ag-zurich"
+        "diplomierte-pflegefachperson-im-tagdienst-70-80-clienia-ag-zurich",
+        "infirmier-diplome-en-service-diurne-70-80-clienia-ag-pfaffikon"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1783,6 +1872,9 @@
         ],
         "de": [
           "diplomierte-pflegefachperson-im-tagdienst-70-80-clienia-ag-zurich"
+        ],
+        "fr": [
+          "infirmier-diplome-en-service-diurne-70-80-clienia-ag-pfaffikon"
         ]
       },
       "firstSeenAt": "2026-05-19T15:06:50.107Z",
@@ -1801,12 +1893,12 @@
     },
     {
       "id": "clienia-ag-ecf3cc05ce2d",
-      "slug": "infermiere-diplomata-in-servizio-notturno-e-retribuzione-oraria-10-90-clienia-ag-pfaffikon",
+      "slug": "diplomata-infermiera-professionale-in-servizio-notturno-e-a-tempo-parziale-10-90-clienia-ag-pfaffikon-zh",
       "slugByLocale": {
-        "it": "infermiere-diplomata-in-servizio-notturno-e-retribuzione-oraria-10-90-clienia-ag-pfaffikon",
-        "en": "diploma-in-nursing-night-shift-and-hourly-wage-10-90-clienia-ag-pfaffikon",
+        "it": "diplomata-infermiera-professionale-in-servizio-notturno-e-a-tempo-parziale-10-90-clienia-ag-pfaffikon-zh",
+        "en": "registered-nurse-night-shift-and-part-time-10-90-clienia-ag-pfaffikon-zh",
         "de": "diplomierte-pflegefachperson-im-nachtdienst-und-stundenlohn-10-90-clienia-ag-pfaffikon",
-        "fr": "infirmier-diplome-en-service-de-nuit-et-salaire-horaire-10-90-clienia-ag-pfaffikon"
+        "fr": "infirmier-e-diplome-e-en-soins-de-nuit-et-a-temps-partiel-10-90-clienia-ag-pfaffikon-zh"
       },
       "company": "Clienia AG",
       "companyKey": "clienia-ag",
@@ -1880,11 +1972,21 @@
           "diplomierte-pflegefachperson-im-nachtdienst-und-stundenlohn-10-90-clienia-ag-zurich"
         ],
         "it": [
-          "diplomierte-pflegefachperson-im-nachtdienst-und-stundenlohn-10-90-clienia-ag-zurich"
+          "diplomierte-pflegefachperson-im-nachtdienst-und-stundenlohn-10-90-clienia-ag-zurich",
+          "infermiere-diplomata-in-servizio-notturno-e-retribuzione-oraria-10-90-clienia-ag-pfaffikon"
+        ],
+        "en": [
+          "diploma-in-nursing-night-shift-and-hourly-wage-10-90-clienia-ag-pfaffikon"
+        ],
+        "fr": [
+          "infirmier-diplome-en-service-de-nuit-et-salaire-horaire-10-90-clienia-ag-pfaffikon"
         ]
       },
       "previousSlugs": [
-        "diplomierte-pflegefachperson-im-nachtdienst-und-stundenlohn-10-90-clienia-ag-zurich"
+        "diplomierte-pflegefachperson-im-nachtdienst-und-stundenlohn-10-90-clienia-ag-zurich",
+        "infermiere-diplomata-in-servizio-notturno-e-retribuzione-oraria-10-90-clienia-ag-pfaffikon",
+        "diploma-in-nursing-night-shift-and-hourly-wage-10-90-clienia-ag-pfaffikon",
+        "infirmier-diplome-en-service-de-nuit-et-salaire-horaire-10-90-clienia-ag-pfaffikon"
       ],
       "firstSeenAt": "2026-05-19T15:06:49.254Z",
       "salaryMin": 49500,
@@ -1983,12 +2085,12 @@
     },
     {
       "id": "clienia-ag-fd2411c7934c",
-      "slug": "infermiere-diplomata-60-100-clienia-ag-pfaffikon",
+      "slug": "diplomata-infermiera-professionale-60-100-clienia-ag-pfaffikon-zh",
       "slugByLocale": {
-        "it": "infermiere-diplomata-60-100-clienia-ag-pfaffikon",
+        "it": "diplomata-infermiera-professionale-60-100-clienia-ag-pfaffikon-zh",
         "en": "diplomierte-pflegefachperson-60-100-clienia-ag-pfaffikon",
         "de": "diplomierte-pflegefachperson-60-100-clienia-ag-pfaffikon",
-        "fr": "infirmier-diplome-60-100-clienia-ag-pfaffikon"
+        "fr": "infirmiere-diplomee-60-100-clienia-ag-pfaffikon-zh"
       },
       "company": "Clienia AG",
       "companyKey": "clienia-ag",
@@ -2061,14 +2163,20 @@
         ]
       },
       "previousSlugs": [
-        "diplomierte-pflegefachperson-60-100-clienia-ag-zurich"
+        "diplomierte-pflegefachperson-60-100-clienia-ag-zurich",
+        "infermiere-diplomata-60-100-clienia-ag-pfaffikon",
+        "infirmier-diplome-60-100-clienia-ag-pfaffikon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "diplomierte-pflegefachperson-60-100-clienia-ag-zurich"
+          "diplomierte-pflegefachperson-60-100-clienia-ag-zurich",
+          "infermiere-diplomata-60-100-clienia-ag-pfaffikon"
         ],
         "de": [
           "diplomierte-pflegefachperson-60-100-clienia-ag-zurich"
+        ],
+        "fr": [
+          "infirmier-diplome-60-100-clienia-ag-pfaffikon"
         ]
       },
       "firstSeenAt": "2026-05-19T15:06:47.531Z",
@@ -2092,7 +2200,7 @@
         "it": "infermiere-diplomata-in-servizio-diurno-40-100-clienia-ag-pfaffikon",
         "en": "diplomierte-pflegefachperson-im-tagdienst-40-100-clienia-ag-pfaffikon",
         "de": "diplomierte-pflegefachperson-im-tagesdienst-40-100-clienia-ag-pfaffikon",
-        "fr": "infirmier-diplome-en-service-diurne-40-100-clienia-ag-pfaffikon"
+        "fr": "infirmiere-diplomee-en-service-de-jour-40-100-clienia-ag-pfaffikon-zh"
       },
       "company": "Clienia AG",
       "companyKey": "clienia-ag",
@@ -2165,7 +2273,8 @@
         ]
       },
       "previousSlugs": [
-        "diplomierte-pflegefachperson-im-tagdienst-40-100-clienia-ag-zurich"
+        "diplomierte-pflegefachperson-im-tagdienst-40-100-clienia-ag-zurich",
+        "infirmier-diplome-en-service-diurne-40-100-clienia-ag-pfaffikon"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2173,6 +2282,9 @@
         ],
         "de": [
           "diplomierte-pflegefachperson-im-tagdienst-40-100-clienia-ag-zurich"
+        ],
+        "fr": [
+          "infirmier-diplome-en-service-diurne-40-100-clienia-ag-pfaffikon"
         ]
       },
       "firstSeenAt": "2026-05-19T15:06:46.678Z",
@@ -2196,7 +2308,7 @@
         "it": "infermiere-diplomata-60-70-clienia-ag-pfaffikon",
         "en": "diplomierte-pflegefachperson-60-70-clienia-ag-pfaffikon",
         "de": "diplomierte-pflegefachperson-60-70-clienia-ag-pfaffikon",
-        "fr": "diplome-en-soins-infirmiers-60-70-clienia-ag-pfaffikon"
+        "fr": "infirmier-diplome-e-60-70-clienia-ag-pfaffikon-zh"
       },
       "company": "Clienia AG",
       "companyKey": "clienia-ag",
@@ -2269,7 +2381,8 @@
         ]
       },
       "previousSlugs": [
-        "diplomierte-pflegefachperson-60-70-clienia-ag-zurich"
+        "diplomierte-pflegefachperson-60-70-clienia-ag-zurich",
+        "diplome-en-soins-infirmiers-60-70-clienia-ag-pfaffikon"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2277,6 +2390,9 @@
         ],
         "de": [
           "diplomierte-pflegefachperson-60-70-clienia-ag-zurich"
+        ],
+        "fr": [
+          "diplome-en-soins-infirmiers-60-70-clienia-ag-pfaffikon"
         ]
       },
       "firstSeenAt": "2026-05-19T15:06:45.772Z",
@@ -2400,7 +2516,7 @@
         "it": "infermiere-diplomato-a-hf-fh-nel-turno-di-notte-40-50-clienia-ag-pfaffikon",
         "en": "dipl-pflegefachperson-hf-fh-im-nachtdienst-40-50-clienia-ag-pfaffikon",
         "de": "dipl-pflegefachperson-hf-fh-im-nachtdienst-40-50-clienia-ag-pfaffikon",
-        "fr": "infirmier-ere-diplome-e-hf-fh-en-service-de-nuit-40-50-clienia-ag-pfaffikon"
+        "fr": "diplomee-en-soins-infirmiers-hf-fh-service-de-nuit-40-50-clienia-ag-pfaffikon-zh"
       },
       "company": "Clienia AG",
       "companyKey": "clienia-ag",
@@ -2469,7 +2585,8 @@
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-fh-im-nachtdienst-40-50-clienia-ag-zurich"
+        "dipl-pflegefachperson-hf-fh-im-nachtdienst-40-50-clienia-ag-zurich",
+        "infirmier-ere-diplome-e-hf-fh-en-service-de-nuit-40-50-clienia-ag-pfaffikon"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2477,6 +2594,9 @@
         ],
         "de": [
           "dipl-pflegefachperson-hf-fh-im-nachtdienst-40-50-clienia-ag-zurich"
+        ],
+        "fr": [
+          "infirmier-ere-diplome-e-hf-fh-en-service-de-nuit-40-50-clienia-ag-pfaffikon"
         ]
       },
       "firstSeenAt": "2026-05-19T15:06:44.048Z",
@@ -2495,10 +2615,10 @@
     },
     {
       "id": "clienia-ag-da7fdbf0c18e",
-      "slug": "infermiere-a-specializzato-a-in-psichiatria-e-psicoterapia-70-100-clienia-ag-pfaffikon",
+      "slug": "assistente-infermieristica-m-f-d-70-100-clienia-ag-pfaffikon-zh",
       "slugByLocale": {
-        "it": "infermiere-a-specializzato-a-in-psichiatria-e-psicoterapia-70-100-clienia-ag-pfaffikon",
-        "en": "specialized-psychiatric-and-psychotherapy-nurse-70-100-clienia-ag-pfaffikon",
+        "it": "assistente-infermieristica-m-f-d-70-100-clienia-ag-pfaffikon-zh",
+        "en": "nurse-m-w-d-70-100-clienia-ag-pfaffikon-zh",
         "de": "pflegefachkraft-m-w-d-70-100-clienia-ag-pfaffikon",
         "fr": "infirmier-ere-specialise-e-en-psychiatrie-et-psychotherapie-70-100-clienia-ag-pfaffikon"
       },
@@ -2577,11 +2697,17 @@
           "pflegefachkraft-m-w-d-70-100-clienia-ag-zurich"
         ],
         "it": [
-          "pflegefachkraft-m-w-d-70-100-clienia-ag-zurich"
+          "pflegefachkraft-m-w-d-70-100-clienia-ag-zurich",
+          "infermiere-a-specializzato-a-in-psichiatria-e-psicoterapia-70-100-clienia-ag-pfaffikon"
+        ],
+        "en": [
+          "specialized-psychiatric-and-psychotherapy-nurse-70-100-clienia-ag-pfaffikon"
         ]
       },
       "previousSlugs": [
-        "pflegefachkraft-m-w-d-70-100-clienia-ag-zurich"
+        "pflegefachkraft-m-w-d-70-100-clienia-ag-zurich",
+        "infermiere-a-specializzato-a-in-psichiatria-e-psicoterapia-70-100-clienia-ag-pfaffikon",
+        "specialized-psychiatric-and-psychotherapy-nurse-70-100-clienia-ag-pfaffikon"
       ],
       "firstSeenAt": "2026-05-19T15:06:43.195Z",
       "salaryMin": 49500,
@@ -2599,12 +2725,12 @@
     },
     {
       "id": "clienia-ag-00014a907f9e",
-      "slug": "diplomato-a-della-cura-e-assistenza-sociale-assistente-sociale-hf-fh-60-90-clienia-ag-pfaffikon",
+      "slug": "diplomata-assistente-sanitaria-assistente-sociale-60-90-clienia-ag-pfaffikon-zh",
       "slugByLocale": {
-        "it": "diplomato-a-della-cura-e-assistenza-sociale-assistente-sociale-hf-fh-60-90-clienia-ag-pfaffikon",
-        "en": "diploma-in-nursing-social-work-60-90-clienia-ag-pfaffikon",
+        "it": "diplomata-assistente-sanitaria-assistente-sociale-60-90-clienia-ag-pfaffikon-zh",
+        "en": "diploma-nurse-social-worker-60-90-clienia-ag-pfaffikon-zh",
         "de": "dipl-pflegefachperson-sozialpadagoge-in-hf-fh-60-90-clienia-ag-pfaffikon",
-        "fr": "diplome-e-en-soins-infirmiers-travail-social-60-90-clienia-ag-pfaffikon"
+        "fr": "diplome-e-infirmier-ere-de-soins-specialises-social-worker-60-90-clienia-ag-pfaffikon-zh"
       },
       "company": "Clienia AG",
       "companyKey": "clienia-ag",
@@ -2681,11 +2807,21 @@
           "dipl-pflegefachperson-sozialpadagoge-in-hf-fh-60-90-clienia-ag-zurich"
         ],
         "it": [
-          "dipl-pflegefachperson-sozialpadagoge-in-hf-fh-60-90-clienia-ag-zurich"
+          "dipl-pflegefachperson-sozialpadagoge-in-hf-fh-60-90-clienia-ag-zurich",
+          "diplomato-a-della-cura-e-assistenza-sociale-assistente-sociale-hf-fh-60-90-clienia-ag-pfaffikon"
+        ],
+        "en": [
+          "diploma-in-nursing-social-work-60-90-clienia-ag-pfaffikon"
+        ],
+        "fr": [
+          "diplome-e-en-soins-infirmiers-travail-social-60-90-clienia-ag-pfaffikon"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachperson-sozialpadagoge-in-hf-fh-60-90-clienia-ag-zurich"
+        "dipl-pflegefachperson-sozialpadagoge-in-hf-fh-60-90-clienia-ag-zurich",
+        "diplomato-a-della-cura-e-assistenza-sociale-assistente-sociale-hf-fh-60-90-clienia-ag-pfaffikon",
+        "diploma-in-nursing-social-work-60-90-clienia-ag-pfaffikon",
+        "diplome-e-en-soins-infirmiers-travail-social-60-90-clienia-ag-pfaffikon"
       ],
       "firstSeenAt": "2026-05-19T15:06:42.329Z",
       "salaryMin": 49500,
@@ -2703,12 +2839,12 @@
     },
     {
       "id": "clienia-ag-603395ae9285",
-      "slug": "infermiere-diplomata-70-80-clienia-ag-pfaffikon",
+      "slug": "diplomata-infermiera-professionale-70-80-clienia-ag-pfaffikon-zh",
       "slugByLocale": {
-        "it": "infermiere-diplomata-70-80-clienia-ag-pfaffikon",
+        "it": "diplomata-infermiera-professionale-70-80-clienia-ag-pfaffikon-zh",
         "en": "diplomierte-pflegefachperson-70-80-clienia-ag-pfaffikon",
         "de": "diplomierte-pflegefachperson-70-80-clienia-ag-pfaffikon",
-        "fr": "infirmier-diplome-70-80-clienia-ag-pfaffikon"
+        "fr": "infirmiere-diplomee-70-80-clienia-ag-pfaffikon-zh"
       },
       "company": "Clienia AG",
       "companyKey": "clienia-ag",
@@ -2781,14 +2917,20 @@
         ]
       },
       "previousSlugs": [
-        "diplomierte-pflegefachperson-70-80-clienia-ag-zurich"
+        "diplomierte-pflegefachperson-70-80-clienia-ag-zurich",
+        "infermiere-diplomata-70-80-clienia-ag-pfaffikon",
+        "infirmier-diplome-70-80-clienia-ag-pfaffikon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "diplomierte-pflegefachperson-70-80-clienia-ag-zurich"
+          "diplomierte-pflegefachperson-70-80-clienia-ag-zurich",
+          "infermiere-diplomata-70-80-clienia-ag-pfaffikon"
         ],
         "de": [
           "diplomierte-pflegefachperson-70-80-clienia-ag-zurich"
+        ],
+        "fr": [
+          "infirmier-diplome-70-80-clienia-ag-pfaffikon"
         ]
       },
       "firstSeenAt": "2026-05-19T15:06:41.478Z",
@@ -2807,12 +2949,12 @@
     },
     {
       "id": "clienia-ag-9ff706093bbc",
-      "slug": "medico-specialista-di-direzione-o-medico-specialista-di-direzione-senior-in-psichiatria-acuta-90-100-clienia-ag",
+      "slug": "responsabile-medico-senior-psichiatria-d-urgenza-90-100-clienia-ag-pfaffikon-zh",
       "slugByLocale": {
-        "it": "medico-specialista-di-direzione-o-medico-specialista-di-direzione-senior-in-psichiatria-acuta-90-100-clienia-ag",
+        "it": "responsabile-medico-senior-psichiatria-d-urgenza-90-100-clienia-ag-pfaffikon-zh",
         "en": "senior-consultant-psychiatrist-or-consultant-psychiatrist-in-acute-psychiatry-90-100-clienia-ag-pfaffikon",
         "de": "oberarztin-oberarzt-oder-leitende-arztin-leitender-arzt-akutpsychiatrie-90-100-clienia-ag",
-        "fr": "medecin-specialiste-senior-en-psychiatrie-aigue-ou-medecin-specialiste-en-psychiatrie-aigue-90-100-clienia-ag-pfaffikon"
+        "fr": "medecin-senior-psychiatre-senior-service-d-urgence-psychiatrique-90-100-clienia-ag-pfaffikon-zh"
       },
       "company": "Clienia AG",
       "companyKey": "clienia-ag",
@@ -2885,11 +3027,17 @@
         ]
       },
       "previousSlugs": [
-        "oberarztin-oberarzt-oder-leitende-arztin-leitender-arzt-akutpsychiatrie-90-100-clienia-ag"
+        "oberarztin-oberarzt-oder-leitende-arztin-leitender-arzt-akutpsychiatrie-90-100-clienia-ag",
+        "medico-specialista-di-direzione-o-medico-specialista-di-direzione-senior-in-psichiatria-acuta-90-100-clienia-ag",
+        "medecin-specialiste-senior-en-psychiatrie-aigue-ou-medecin-specialiste-en-psychiatrie-aigue-90-100-clienia-ag-pfaffikon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "oberarztin-oberarzt-oder-leitende-arztin-leitender-arzt-akutpsychiatrie-90-100-clienia-ag"
+          "oberarztin-oberarzt-oder-leitende-arztin-leitender-arzt-akutpsychiatrie-90-100-clienia-ag",
+          "medico-specialista-di-direzione-o-medico-specialista-di-direzione-senior-in-psichiatria-acuta-90-100-clienia-ag"
+        ],
+        "fr": [
+          "medecin-specialiste-senior-en-psychiatrie-aigue-ou-medecin-specialiste-en-psychiatrie-aigue-90-100-clienia-ag-pfaffikon"
         ]
       },
       "firstSeenAt": "2026-05-19T15:06:40.621Z",
@@ -2908,12 +3056,12 @@
     },
     {
       "id": "clienia-ag-2abe7ed64991",
-      "slug": "vice-direttore-di-stazione-infermiere-specializzato-m-f-d-80-100-clienia-ag-pfaffikon",
+      "slug": "sostituta-responsabile-di-servizio-e-infermiera-professionista-m-f-d-80-100-clienia-ag-pfaffikon-zh",
       "slugByLocale": {
-        "it": "vice-direttore-di-stazione-infermiere-specializzato-m-f-d-80-100-clienia-ag-pfaffikon",
+        "it": "sostituta-responsabile-di-servizio-e-infermiera-professionista-m-f-d-80-100-clienia-ag-pfaffikon-zh",
         "en": "deputy-station-manager-registered-nurse-m-f-d-80-100-clienia-ag-pfaffikon",
         "de": "stellvertretende-stationsleitung-pflegefachperson-hf-m-w-d-80-100-clienia-ag-pfaffikon",
-        "fr": "responsable-adjoint-de-la-station-infirmier-e-specialise-e-h-f-d-80-100-clienia-ag-pfaffikon"
+        "fr": "adjointe-de-direction-de-service-et-infirmiere-professionnelle-hf-m-f-d-80-100-clienia-ag-pfaffikon-zh"
       },
       "company": "Clienia AG",
       "companyKey": "clienia-ag",
@@ -2990,11 +3138,17 @@
           "stellvertretende-stationsleitung-pflegefachperson-hf-m-w-d-80-100-clienia-ag-zurich"
         ],
         "it": [
-          "stellvertretende-stationsleitung-pflegefachperson-hf-m-w-d-80-100-clienia-ag-zurich"
+          "stellvertretende-stationsleitung-pflegefachperson-hf-m-w-d-80-100-clienia-ag-zurich",
+          "vice-direttore-di-stazione-infermiere-specializzato-m-f-d-80-100-clienia-ag-pfaffikon"
+        ],
+        "fr": [
+          "responsable-adjoint-de-la-station-infirmier-e-specialise-e-h-f-d-80-100-clienia-ag-pfaffikon"
         ]
       },
       "previousSlugs": [
-        "stellvertretende-stationsleitung-pflegefachperson-hf-m-w-d-80-100-clienia-ag-zurich"
+        "stellvertretende-stationsleitung-pflegefachperson-hf-m-w-d-80-100-clienia-ag-zurich",
+        "vice-direttore-di-stazione-infermiere-specializzato-m-f-d-80-100-clienia-ag-pfaffikon",
+        "responsable-adjoint-de-la-station-infirmier-e-specialise-e-h-f-d-80-100-clienia-ag-pfaffikon"
       ],
       "firstSeenAt": "2026-05-19T15:06:38.910Z",
       "salaryMin": 68000,
@@ -3017,7 +3171,7 @@
         "it": "analista-biomedico-a-50-clienia-ag-pfaffikon",
         "en": "biomedical-analyst-50-clienia-ag-pfaffikon",
         "de": "biomedizinische-n-analytiker-in-m-w-d-50-clienia-ag-pfaffikon",
-        "fr": "analyste-biomedical-50-clienia-ag-pfaffikon"
+        "fr": "analyst-e-biomedical-ale-m-f-d-50-clienia-ag-pfaffikon-zh"
       },
       "company": "Clienia AG",
       "companyKey": "clienia-ag",
@@ -3080,10 +3234,14 @@
         ],
         "it": [
           "biomedizinische-n-analytiker-in-m-w-d-50-clienia-ag-zurich"
+        ],
+        "fr": [
+          "analyste-biomedical-50-clienia-ag-pfaffikon"
         ]
       },
       "previousSlugs": [
-        "biomedizinische-n-analytiker-in-m-w-d-50-clienia-ag-zurich"
+        "biomedizinische-n-analytiker-in-m-w-d-50-clienia-ag-zurich",
+        "analyste-biomedical-50-clienia-ag-pfaffikon"
       ],
       "firstSeenAt": "2026-05-19T15:06:38.029Z",
       "salaryMin": 49500,
@@ -3192,9 +3350,9 @@
     },
     {
       "id": "clienia-ag-4be7fb51b67c",
-      "slug": "formatore-a-fage-hf-fh-cure-50-100-clienia-ag-pfaffikon",
+      "slug": "insegnante-fage-hf-fh-in-assistenza-sanitaria-50-100-clienia-ag-pfaffikon-zh",
       "slugByLocale": {
-        "it": "formatore-a-fage-hf-fh-cure-50-100-clienia-ag-pfaffikon",
+        "it": "insegnante-fage-hf-fh-in-assistenza-sanitaria-50-100-clienia-ag-pfaffikon-zh",
         "en": "vocational-trainer-fage-hf-fh-nursing-50-100-clienia-ag-pfaffikon",
         "de": "berufsbildner-in-fage-hf-fh-pflege-50-100-clienia-ag-pfaffikon",
         "fr": "formateur-trice-fage-hf-fh-soins-infirmiers-50-100-clienia-ag-pfaffikon"
@@ -3274,11 +3432,13 @@
           "berufsbildner-in-fage-hf-fh-pflege-50-100-clienia-ag-zurich"
         ],
         "it": [
-          "berufsbildner-in-fage-hf-fh-pflege-50-100-clienia-ag-zurich"
+          "berufsbildner-in-fage-hf-fh-pflege-50-100-clienia-ag-zurich",
+          "formatore-a-fage-hf-fh-cure-50-100-clienia-ag-pfaffikon"
         ]
       },
       "previousSlugs": [
-        "berufsbildner-in-fage-hf-fh-pflege-50-100-clienia-ag-zurich"
+        "berufsbildner-in-fage-hf-fh-pflege-50-100-clienia-ag-zurich",
+        "formatore-a-fage-hf-fh-cure-50-100-clienia-ag-pfaffikon"
       ],
       "firstSeenAt": "2026-05-19T15:06:36.382Z",
       "salaryMin": 49500,
@@ -3296,12 +3456,12 @@
     },
     {
       "id": "clienia-ag-1bbd843ddff2",
-      "slug": "dipl-infermiere-a-hf-fh-m-f-d-45-65-clienia-ag-pfaffikon",
+      "slug": "diplomata-infermiera-professionale-hf-fh-m-f-d-45-65-clienia-ag-pfaffikon-zh",
       "slugByLocale": {
-        "it": "dipl-infermiere-a-hf-fh-m-f-d-45-65-clienia-ag-pfaffikon",
+        "it": "diplomata-infermiera-professionale-hf-fh-m-f-d-45-65-clienia-ag-pfaffikon-zh",
         "en": "dipl-pflegefachperson-hf-fh-m-w-d-45-65-clienia-ag-pfaffikon",
         "de": "dipl-pflegefachperson-hf-fh-m-w-d-45-65-clienia-ag-pfaffikon",
-        "fr": "diplome-e-en-soins-infirmiers-hf-fh-h-f-45-65-clienia-ag-pfaffikon"
+        "fr": "infirmier-e-diplome-e-hf-fh-m-f-d-45-65-clienia-ag-pfaffikon-zh"
       },
       "company": "Clienia AG",
       "companyKey": "clienia-ag",
@@ -3374,14 +3534,20 @@
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-fh-m-w-d-45-65-clienia-ag-zurich"
+        "dipl-pflegefachperson-hf-fh-m-w-d-45-65-clienia-ag-zurich",
+        "dipl-infermiere-a-hf-fh-m-f-d-45-65-clienia-ag-pfaffikon",
+        "diplome-e-en-soins-infirmiers-hf-fh-h-f-45-65-clienia-ag-pfaffikon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-hf-fh-m-w-d-45-65-clienia-ag-zurich"
+          "dipl-pflegefachperson-hf-fh-m-w-d-45-65-clienia-ag-zurich",
+          "dipl-infermiere-a-hf-fh-m-f-d-45-65-clienia-ag-pfaffikon"
         ],
         "de": [
           "dipl-pflegefachperson-hf-fh-m-w-d-45-65-clienia-ag-zurich"
+        ],
+        "fr": [
+          "diplome-e-en-soins-infirmiers-hf-fh-h-f-45-65-clienia-ag-pfaffikon"
         ]
       },
       "firstSeenAt": "2026-05-19T15:06:35.531Z",
@@ -3400,12 +3566,12 @@
     },
     {
       "id": "clienia-ag-4bc1ca527e80",
-      "slug": "dipl-infermiere-a-hf-fh-80-100-clienia-ag-pfaffikon",
+      "slug": "diplomata-infermiera-professionale-hf-fh-m-w-d-80-100-clienia-ag-pfaffikon-zh",
       "slugByLocale": {
-        "it": "dipl-infermiere-a-hf-fh-80-100-clienia-ag-pfaffikon",
+        "it": "diplomata-infermiera-professionale-hf-fh-m-w-d-80-100-clienia-ag-pfaffikon-zh",
         "en": "dipl-pflegefachperson-hf-fh-m-w-d-80-100-clienia-ag-pfaffikon",
         "de": "dipl-pflegefachperson-hf-fh-m-w-d-80-100-clienia-ag-pfaffikon",
-        "fr": "diplome-e-en-soins-infirmiers-hf-fh-80-100-clienia-ag-pfaffikon"
+        "fr": "infirmier-e-diplome-e-hf-fh-m-f-d-80-100-clienia-ag-pfaffikon-zh"
       },
       "company": "Clienia AG",
       "companyKey": "clienia-ag",
@@ -3478,14 +3644,20 @@
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-fh-m-w-d-80-100-clienia-ag-zurich"
+        "dipl-pflegefachperson-hf-fh-m-w-d-80-100-clienia-ag-zurich",
+        "dipl-infermiere-a-hf-fh-80-100-clienia-ag-pfaffikon",
+        "diplome-e-en-soins-infirmiers-hf-fh-80-100-clienia-ag-pfaffikon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-hf-fh-m-w-d-80-100-clienia-ag-zurich"
+          "dipl-pflegefachperson-hf-fh-m-w-d-80-100-clienia-ag-zurich",
+          "dipl-infermiere-a-hf-fh-80-100-clienia-ag-pfaffikon"
         ],
         "de": [
           "dipl-pflegefachperson-hf-fh-m-w-d-80-100-clienia-ag-zurich"
+        ],
+        "fr": [
+          "diplome-e-en-soins-infirmiers-hf-fh-80-100-clienia-ag-pfaffikon"
         ]
       },
       "firstSeenAt": "2026-05-19T15:06:34.676Z",
@@ -3504,12 +3676,12 @@
     },
     {
       "id": "clienia-ag-acd0cb41ddd5",
-      "slug": "dipl-infermiere-a-hf-nel-turno-diurno-m-f-d-50-60-clienia-ag-pfaffikon",
+      "slug": "diplomata-infermiera-professionale-hf-in-servizio-diurno-m-f-d-50-60-clienia-ag-pfaffikon-zh",
       "slugByLocale": {
-        "it": "dipl-infermiere-a-hf-nel-turno-diurno-m-f-d-50-60-clienia-ag-pfaffikon",
+        "it": "diplomata-infermiera-professionale-hf-in-servizio-diurno-m-f-d-50-60-clienia-ag-pfaffikon-zh",
         "en": "dipl-pflegefachperson-hf-im-tagdienst-m-w-d-50-60-clienia-ag-pfaffikon",
         "de": "dipl-pflegefachperson-hf-im-tagdienst-m-w-d-50-60-clienia-ag-pfaffikon",
-        "fr": "infirmier-ere-diplome-e-hf-en-service-de-jour-m-f-d-50-60-clienia-ag-pfaffikon"
+        "fr": "infirmiere-diplomee-hf-en-service-de-jour-m-f-d-50-60-clienia-ag-pfaffikon-zh"
       },
       "company": "Clienia AG",
       "companyKey": "clienia-ag",
@@ -3582,14 +3754,20 @@
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-im-tagdienst-m-w-d-50-60-clienia-ag-zurich"
+        "dipl-pflegefachperson-hf-im-tagdienst-m-w-d-50-60-clienia-ag-zurich",
+        "dipl-infermiere-a-hf-nel-turno-diurno-m-f-d-50-60-clienia-ag-pfaffikon",
+        "infirmier-ere-diplome-e-hf-en-service-de-jour-m-f-d-50-60-clienia-ag-pfaffikon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-hf-im-tagdienst-m-w-d-50-60-clienia-ag-zurich"
+          "dipl-pflegefachperson-hf-im-tagdienst-m-w-d-50-60-clienia-ag-zurich",
+          "dipl-infermiere-a-hf-nel-turno-diurno-m-f-d-50-60-clienia-ag-pfaffikon"
         ],
         "de": [
           "dipl-pflegefachperson-hf-im-tagdienst-m-w-d-50-60-clienia-ag-zurich"
+        ],
+        "fr": [
+          "infirmier-ere-diplome-e-hf-en-service-de-jour-m-f-d-50-60-clienia-ag-pfaffikon"
         ]
       },
       "firstSeenAt": "2026-05-19T15:06:33.811Z",
@@ -3611,9 +3789,9 @@
       "slug": "infermiere-diplomata-come-neolaureato-o-ricollocato-40-100-clienia-ag-pfaffikon",
       "slugByLocale": {
         "it": "infermiere-diplomata-come-neolaureato-o-ricollocato-40-100-clienia-ag-pfaffikon",
-        "en": "qualified-nursing-professional-as-new-or-returning-40-100-clienia-ag-pfaffikon",
+        "en": "registered-nurse-in-psychiatry-40-100-clienia-ag-pfaffikon-zh",
         "de": "diplomierte-pflegefachperson-als-quer-oder-wiedereinsteiger-in-40-100-clienia-ag-pfaffikon",
-        "fr": "infirmier-diplome-e-en-tant-que-debutant-ou-reconverti-e-40-100-clienia-ag-pfaffikon"
+        "fr": "infirmiere-diplomee-en-psychiatrie-40-100-clienia-ag-pfaffikon-zh"
       },
       "company": "Clienia AG",
       "companyKey": "clienia-ag",
@@ -3671,10 +3849,18 @@
         ],
         "it": [
           "diplomierte-pflegefachperson-als-quer-oder-wiedereinsteiger-in-40-100-clienia-ag-zurich"
+        ],
+        "en": [
+          "qualified-nursing-professional-as-new-or-returning-40-100-clienia-ag-pfaffikon"
+        ],
+        "fr": [
+          "infirmier-diplome-e-en-tant-que-debutant-ou-reconverti-e-40-100-clienia-ag-pfaffikon"
         ]
       },
       "previousSlugs": [
-        "diplomierte-pflegefachperson-als-quer-oder-wiedereinsteiger-in-40-100-clienia-ag-zurich"
+        "diplomierte-pflegefachperson-als-quer-oder-wiedereinsteiger-in-40-100-clienia-ag-zurich",
+        "qualified-nursing-professional-as-new-or-returning-40-100-clienia-ag-pfaffikon",
+        "infirmier-diplome-e-en-tant-que-debutant-ou-reconverti-e-40-100-clienia-ag-pfaffikon"
       ],
       "firstSeenAt": "2026-05-19T15:06:32.954Z",
       "salaryMin": 49500,
@@ -3697,7 +3883,7 @@
         "it": "insegnante-scuola-secondaria-i-50-70-clienia-ag-pfaffikon",
         "en": "lehrperson-sekundarstufe-i-50-70-clienia-ag-pfaffikon",
         "de": "lehrperson-sekundarstufe-i-50-70-clienia-ag-pfaffikon",
-        "fr": "enseignant-ecole-secondaire-i-50-70-clienia-ag-pfaffikon"
+        "fr": "enseignante-secondaire-i-50-70-clienia-ag-pfaffikon-zh"
       },
       "company": "Clienia AG",
       "companyKey": "clienia-ag",
@@ -3739,7 +3925,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehrperson-sekundarstufe-i-50-70-clienia-ag-zurich"
+        "lehrperson-sekundarstufe-i-50-70-clienia-ag-zurich",
+        "enseignant-ecole-secondaire-i-50-70-clienia-ag-pfaffikon"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3747,6 +3934,9 @@
         ],
         "de": [
           "lehrperson-sekundarstufe-i-50-70-clienia-ag-zurich"
+        ],
+        "fr": [
+          "enseignant-ecole-secondaire-i-50-70-clienia-ag-pfaffikon"
         ]
       },
       "firstSeenAt": "2026-05-19T15:06:32.096Z",
@@ -3765,12 +3955,12 @@
     },
     {
       "id": "clienia-ag-82bb5facc267",
-      "slug": "terapista-occupazionale-diploma-terapista-occupazionale-diploma-60-90-clienia-ag-pfaffikon",
+      "slug": "diplomata-ergoterapista-60-90-clienia-ag-pfaffikon-zh",
       "slugByLocale": {
-        "it": "terapista-occupazionale-diploma-terapista-occupazionale-diploma-60-90-clienia-ag-pfaffikon",
+        "it": "diplomata-ergoterapista-60-90-clienia-ag-pfaffikon-zh",
         "en": "qualified-occupational-therapist-60-90-clienia-ag-pfaffikon",
         "de": "diplomierte-ergotherapeutin-diplomierten-ergotherapeuten-60-90-clienia-ag-pfaffikon",
-        "fr": "therapeute-occupational-qualifie-60-90-clienia-ag-pfaffikon"
+        "fr": "diplomee-diplome-en-therapie-occupationnelle-60-90-clienia-ag-pfaffikon-zh"
       },
       "company": "Clienia AG",
       "companyKey": "clienia-ag",
@@ -3816,11 +4006,17 @@
           "diplomierte-ergotherapeutin-diplomierten-ergotherapeuten-60-90-clienia-ag-zurich"
         ],
         "it": [
-          "diplomierte-ergotherapeutin-diplomierten-ergotherapeuten-60-90-clienia-ag-zurich"
+          "diplomierte-ergotherapeutin-diplomierten-ergotherapeuten-60-90-clienia-ag-zurich",
+          "terapista-occupazionale-diploma-terapista-occupazionale-diploma-60-90-clienia-ag-pfaffikon"
+        ],
+        "fr": [
+          "therapeute-occupational-qualifie-60-90-clienia-ag-pfaffikon"
         ]
       },
       "previousSlugs": [
-        "diplomierte-ergotherapeutin-diplomierten-ergotherapeuten-60-90-clienia-ag-zurich"
+        "diplomierte-ergotherapeutin-diplomierten-ergotherapeuten-60-90-clienia-ag-zurich",
+        "terapista-occupazionale-diploma-terapista-occupazionale-diploma-60-90-clienia-ag-pfaffikon",
+        "therapeute-occupational-qualifie-60-90-clienia-ag-pfaffikon"
       ],
       "firstSeenAt": "2026-05-19T15:06:31.240Z",
       "salaryMin": 49500,
@@ -3838,12 +4034,12 @@
     },
     {
       "id": "clienia-ag-674a2772ac34",
-      "slug": "formatore-a-di-professione-sovraordinato-a-80-100-clienia-ag-pfaffikon",
+      "slug": "supervisore-di-tirocinio-in-ambito-psichiatrico-80-100-clienia-ag-pfaffikon-zh",
       "slugByLocale": {
-        "it": "formatore-a-di-professione-sovraordinato-a-80-100-clienia-ag-pfaffikon",
-        "en": "senior-vocational-trainer-80-100-clienia-ag-pfaffikon",
+        "it": "supervisore-di-tirocinio-in-ambito-psichiatrico-80-100-clienia-ag-pfaffikon-zh",
+        "en": "supervising-practicum-coordinator-80-100-clienia-ag-pfaffikon-zh",
         "de": "stationsubergeordnete-berufsbildner-in-80-100-clienia-ag-pfaffikon",
-        "fr": "formateur-trice-superieur-e-80-100-clienia-ag-pfaffikon"
+        "fr": "coordinatrice-coordinateur-de-stages-en-psychiatrie-80-100-clienia-ag-pfaffikon-zh"
       },
       "company": "Clienia AG",
       "companyKey": "clienia-ag",
@@ -3920,11 +4116,21 @@
           "stationsubergeordnete-berufsbildner-in-80-100-clienia-ag-zurich"
         ],
         "it": [
-          "stationsubergeordnete-berufsbildner-in-80-100-clienia-ag-zurich"
+          "stationsubergeordnete-berufsbildner-in-80-100-clienia-ag-zurich",
+          "formatore-a-di-professione-sovraordinato-a-80-100-clienia-ag-pfaffikon"
+        ],
+        "en": [
+          "senior-vocational-trainer-80-100-clienia-ag-pfaffikon"
+        ],
+        "fr": [
+          "formateur-trice-superieur-e-80-100-clienia-ag-pfaffikon"
         ]
       },
       "previousSlugs": [
-        "stationsubergeordnete-berufsbildner-in-80-100-clienia-ag-zurich"
+        "stationsubergeordnete-berufsbildner-in-80-100-clienia-ag-zurich",
+        "formatore-a-di-professione-sovraordinato-a-80-100-clienia-ag-pfaffikon",
+        "senior-vocational-trainer-80-100-clienia-ag-pfaffikon",
+        "formateur-trice-superieur-e-80-100-clienia-ag-pfaffikon"
       ],
       "firstSeenAt": "2026-05-19T15:06:30.530Z",
       "salaryMin": 41600,
@@ -3942,9 +4148,9 @@
     },
     {
       "id": "clienia-ag-0d078cdbd1b7",
-      "slug": "infermiere-diplomata-nel-turno-di-giorno-80-100-clienia-ag-pfaffikon",
+      "slug": "diplomata-infermiera-professionale-in-servizio-diurno-80-100-clienia-ag-pfaffikon-zh",
       "slugByLocale": {
-        "it": "infermiere-diplomata-nel-turno-di-giorno-80-100-clienia-ag-pfaffikon",
+        "it": "diplomata-infermiera-professionale-in-servizio-diurno-80-100-clienia-ag-pfaffikon-zh",
         "en": "diplomierte-pflegefachperson-im-tagdienst-80-100-clienia-ag-pfaffikon",
         "de": "diplomierte-pflegefachperson-im-tagesdienst-80-100-clienia-ag-pfaffikon",
         "fr": "infirmier-diplome-en-service-de-jour-80-100-clienia-ag-pfaffikon"
@@ -3997,11 +4203,13 @@
         ]
       },
       "previousSlugs": [
-        "diplomierte-pflegefachperson-im-tagdienst-80-100-clienia-ag-zurich"
+        "diplomierte-pflegefachperson-im-tagdienst-80-100-clienia-ag-zurich",
+        "infermiere-diplomata-nel-turno-di-giorno-80-100-clienia-ag-pfaffikon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "diplomierte-pflegefachperson-im-tagdienst-80-100-clienia-ag-zurich"
+          "diplomierte-pflegefachperson-im-tagdienst-80-100-clienia-ag-zurich",
+          "infermiere-diplomata-nel-turno-di-giorno-80-100-clienia-ag-pfaffikon"
         ],
         "de": [
           "diplomierte-pflegefachperson-im-tagdienst-80-100-clienia-ag-zurich"
@@ -4023,12 +4231,12 @@
     },
     {
       "id": "clienia-ag-0ed8e128b7ed",
-      "slug": "assistente-a-in-salute-e-servizi-sociali-ags-o-aiuto-infermiere-a-srk-10-100-clienia-ag-pfaffikon",
+      "slug": "assistente-sanitaria-e-socio-sanitaria-ags-o-ausiliaria-di-assistenza-srk-10-100-clienia-ag-pfaffikon-zh",
       "slugByLocale": {
-        "it": "assistente-a-in-salute-e-servizi-sociali-ags-o-aiuto-infermiere-a-srk-10-100-clienia-ag-pfaffikon",
+        "it": "assistente-sanitaria-e-socio-sanitaria-ags-o-ausiliaria-di-assistenza-srk-10-100-clienia-ag-pfaffikon-zh",
         "en": "health-and-social-care-assistant-ags-or-srk-care-helper-10-100-clienia-ag-pfaffikon",
         "de": "assistentin-assistent-gesundheit-und-soziales-ags-oder-pflegehelfer-pflegehelferin-srk-10",
-        "fr": "assistant-e-en-sante-et-services-sociaux-ags-ou-aide-soignant-e-srk-10-100-clienia-ag-pfaffikon"
+        "fr": "aide-soignante-et-sociale-ags-ou-aide-de-vie-srk-10-100-clienia-ag-pfaffikon-zh"
       },
       "company": "Clienia AG",
       "companyKey": "clienia-ag",
@@ -4080,11 +4288,17 @@
         ]
       },
       "previousSlugs": [
-        "assistentin-assistent-gesundheit-und-soziales-ags-oder-pflegehelfer-pflegehelferin-srk-10"
+        "assistentin-assistent-gesundheit-und-soziales-ags-oder-pflegehelfer-pflegehelferin-srk-10",
+        "assistente-a-in-salute-e-servizi-sociali-ags-o-aiuto-infermiere-a-srk-10-100-clienia-ag-pfaffikon",
+        "assistant-e-en-sante-et-services-sociaux-ags-ou-aide-soignant-e-srk-10-100-clienia-ag-pfaffikon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistentin-assistent-gesundheit-und-soziales-ags-oder-pflegehelfer-pflegehelferin-srk-10"
+          "assistentin-assistent-gesundheit-und-soziales-ags-oder-pflegehelfer-pflegehelferin-srk-10",
+          "assistente-a-in-salute-e-servizi-sociali-ags-o-aiuto-infermiere-a-srk-10-100-clienia-ag-pfaffikon"
+        ],
+        "fr": [
+          "assistant-e-en-sante-et-services-sociaux-ags-ou-aide-soignant-e-srk-10-100-clienia-ag-pfaffikon"
         ]
       },
       "firstSeenAt": "2026-05-19T15:06:28.826Z",
@@ -4103,12 +4317,12 @@
     },
     {
       "id": "clienia-ag-a3e557c980c9",
-      "slug": "infermiere-diplomata-hf-10-100-clienia-ag-pfaffikon",
+      "slug": "diplomata-infermiera-professionale-con-perito-diploma-federale-10-100-clienia-ag-pfaffikon-zh",
       "slugByLocale": {
-        "it": "infermiere-diplomata-hf-10-100-clienia-ag-pfaffikon",
+        "it": "diplomata-infermiera-professionale-con-perito-diploma-federale-10-100-clienia-ag-pfaffikon-zh",
         "en": "diplomierte-pflegefachperson-hf-10-100-clienia-ag-pfaffikon",
         "de": "diplomierte-pflegefachperson-hf-10-100-clienia-ag-pfaffikon",
-        "fr": "infirmier-e-diplome-e-hf-10-100-clienia-ag-pfaffikon"
+        "fr": "diplome-e-en-soins-infirmiers-hf-10-100-clienia-ag-pfaffikon-zh"
       },
       "company": "Clienia AG",
       "companyKey": "clienia-ag",
@@ -4171,14 +4385,20 @@
         ]
       },
       "previousSlugs": [
-        "diplomierte-pflegefachperson-hf-10-100-clienia-ag-zurich"
+        "diplomierte-pflegefachperson-hf-10-100-clienia-ag-zurich",
+        "infermiere-diplomata-hf-10-100-clienia-ag-pfaffikon",
+        "infirmier-e-diplome-e-hf-10-100-clienia-ag-pfaffikon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "diplomierte-pflegefachperson-hf-10-100-clienia-ag-zurich"
+          "diplomierte-pflegefachperson-hf-10-100-clienia-ag-zurich",
+          "infermiere-diplomata-hf-10-100-clienia-ag-pfaffikon"
         ],
         "de": [
           "diplomierte-pflegefachperson-hf-10-100-clienia-ag-zurich"
+        ],
+        "fr": [
+          "infirmier-e-diplome-e-hf-10-100-clienia-ag-pfaffikon"
         ]
       },
       "firstSeenAt": "2026-05-19T15:06:27.966Z",
@@ -4202,7 +4422,7 @@
         "it": "educatore-sociale-10-100-clienia-ag-pfaffikon",
         "en": "social-worker-10-100-clienia-ag-pfaffikon",
         "de": "sozialpadagogin-sozialpadagogen-10-100-clienia-ag-pfaffikon",
-        "fr": "travailleur-social-10-100-clienia-ag-pfaffikon"
+        "fr": "educatrice-specialisee-educateur-specialise-10-100-clienia-ag-pfaffikon-zh"
       },
       "company": "Clienia AG",
       "companyKey": "clienia-ag",
@@ -4267,10 +4487,14 @@
         ],
         "it": [
           "sozialpadagogin-sozialpadagogen-10-100-clienia-ag-zurich"
+        ],
+        "fr": [
+          "travailleur-social-10-100-clienia-ag-pfaffikon"
         ]
       },
       "previousSlugs": [
-        "sozialpadagogin-sozialpadagogen-10-100-clienia-ag-zurich"
+        "sozialpadagogin-sozialpadagogen-10-100-clienia-ag-zurich",
+        "travailleur-social-10-100-clienia-ag-pfaffikon"
       ],
       "firstSeenAt": "2026-05-19T15:06:27.110Z",
       "salaryMin": 49500,
@@ -4288,9 +4512,9 @@
     },
     {
       "id": "clienia-ag-87d2a4960d67",
-      "slug": "specialista-della-salute-10-100-clienia-ag-pfaffikon",
+      "slug": "assistente-professionale-sanitaria-10-100-clienia-ag-pfaffikon-zh",
       "slugByLocale": {
-        "it": "specialista-della-salute-10-100-clienia-ag-pfaffikon",
+        "it": "assistente-professionale-sanitaria-10-100-clienia-ag-pfaffikon-zh",
         "en": "healthcare-specialist-10-100-clienia-ag-pfaffikon",
         "de": "fachfrau-fachmann-gesundheit-10-100-clienia-ag-pfaffikon",
         "fr": "specialiste-en-sante-10-100-clienia-ag-pfaffikon"
@@ -4347,11 +4571,13 @@
           "fachfrau-fachmann-gesundheit-10-100-clienia-ag-zurich"
         ],
         "it": [
-          "fachfrau-fachmann-gesundheit-10-100-clienia-ag-zurich"
+          "fachfrau-fachmann-gesundheit-10-100-clienia-ag-zurich",
+          "specialista-della-salute-10-100-clienia-ag-pfaffikon"
         ]
       },
       "previousSlugs": [
-        "fachfrau-fachmann-gesundheit-10-100-clienia-ag-zurich"
+        "fachfrau-fachmann-gesundheit-10-100-clienia-ag-zurich",
+        "specialista-della-salute-10-100-clienia-ag-pfaffikon"
       ],
       "firstSeenAt": "2026-05-19T15:06:26.261Z",
       "salaryMin": 51500,
@@ -4369,12 +4595,12 @@
     },
     {
       "id": "clienia-ag-250f58ebd2df",
-      "slug": "primario-a-di-medicina-psichiatrica-infantile-e-adolescenziale-60-100-clienia-ag-pfaffikon",
+      "slug": "psichiatra-senior-ambulatorio-per-bambini-e-adolescenti-60-100-clienia-ag-pfaffikon-zh",
       "slugByLocale": {
-        "it": "primario-a-di-medicina-psichiatrica-infantile-e-adolescenziale-60-100-clienia-ag-pfaffikon",
-        "en": "senior-physician-in-child-and-adolescent-psychiatry-60-100-clienia-ag-pfaffikon",
+        "it": "psichiatra-senior-ambulatorio-per-bambini-e-adolescenti-60-100-clienia-ag-pfaffikon-zh",
+        "en": "senior-psychiatrist-ambulatory-for-children-and-adolescents-60-100-clienia-ag-pfaffikon-zh",
         "de": "oberarztin-oberarzt-kinder-und-jugendpsychiatrie-m-w-d-60-100-clienia-ag-pfaffikon",
-        "fr": "medecin-specialiste-en-psychiatrie-de-l-enfant-et-de-l-adolescent-60-100-clienia-ag-pfaffikon"
+        "fr": "medecin-chef-ambulatoire-en-psychiatrie-de-l-enfance-et-de-l-adolescence-60-100-clienia-ag-pfaffikon-zh"
       },
       "company": "Clienia AG",
       "companyKey": "clienia-ag",
@@ -4437,11 +4663,21 @@
           "oberarztin-oberarzt-kinder-und-jugendpsychiatrie-m-w-d-60-100-clienia-ag-zurich"
         ],
         "it": [
-          "oberarztin-oberarzt-kinder-und-jugendpsychiatrie-m-w-d-60-100-clienia-ag-zurich"
+          "oberarztin-oberarzt-kinder-und-jugendpsychiatrie-m-w-d-60-100-clienia-ag-zurich",
+          "primario-a-di-medicina-psichiatrica-infantile-e-adolescenziale-60-100-clienia-ag-pfaffikon"
+        ],
+        "en": [
+          "senior-physician-in-child-and-adolescent-psychiatry-60-100-clienia-ag-pfaffikon"
+        ],
+        "fr": [
+          "medecin-specialiste-en-psychiatrie-de-l-enfant-et-de-l-adolescent-60-100-clienia-ag-pfaffikon"
         ]
       },
       "previousSlugs": [
-        "oberarztin-oberarzt-kinder-und-jugendpsychiatrie-m-w-d-60-100-clienia-ag-zurich"
+        "oberarztin-oberarzt-kinder-und-jugendpsychiatrie-m-w-d-60-100-clienia-ag-zurich",
+        "primario-a-di-medicina-psichiatrica-infantile-e-adolescenziale-60-100-clienia-ag-pfaffikon",
+        "senior-physician-in-child-and-adolescent-psychiatry-60-100-clienia-ag-pfaffikon",
+        "medecin-specialiste-en-psychiatrie-de-l-enfant-et-de-l-adolescent-60-100-clienia-ag-pfaffikon"
       ],
       "firstSeenAt": "2026-05-19T15:06:25.394Z",
       "salaryMin": 68000,
@@ -4459,12 +4695,12 @@
     },
     {
       "id": "clienia-ag-fcb4588594b2",
-      "slug": "dipl-infermiere-a-hf-nel-turno-di-notte-m-f-d-50-70-clienia-ag-pfaffikon",
+      "slug": "diplomata-infermiera-professionale-hf-nazionale-notturno-50-70-clienia-ag-pfaffikon-zh",
       "slugByLocale": {
-        "it": "dipl-infermiere-a-hf-nel-turno-di-notte-m-f-d-50-70-clienia-ag-pfaffikon",
+        "it": "diplomata-infermiera-professionale-hf-nazionale-notturno-50-70-clienia-ag-pfaffikon-zh",
         "en": "dipl-pflegefachperson-hf-im-nachtdienst-m-w-d-50-70-clienia-ag-pfaffikon",
         "de": "dipl-pflegefachperson-hf-im-nachtdienst-m-w-d-50-70-clienia-ag-pfaffikon",
-        "fr": "infirmier-ere-diplome-e-hf-en-service-de-nuit-h-f-50-70-clienia-ag-pfaffikon"
+        "fr": "diplome-e-en-soins-infirmiers-hf-nuit-50-70-clienia-ag-pfaffikon-zh"
       },
       "company": "Clienia AG",
       "companyKey": "clienia-ag",
@@ -4531,14 +4767,20 @@
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-im-nachtdienst-m-w-d-50-70-clienia-ag-zurich"
+        "dipl-pflegefachperson-hf-im-nachtdienst-m-w-d-50-70-clienia-ag-zurich",
+        "dipl-infermiere-a-hf-nel-turno-di-notte-m-f-d-50-70-clienia-ag-pfaffikon",
+        "infirmier-ere-diplome-e-hf-en-service-de-nuit-h-f-50-70-clienia-ag-pfaffikon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-hf-im-nachtdienst-m-w-d-50-70-clienia-ag-zurich"
+          "dipl-pflegefachperson-hf-im-nachtdienst-m-w-d-50-70-clienia-ag-zurich",
+          "dipl-infermiere-a-hf-nel-turno-di-notte-m-f-d-50-70-clienia-ag-pfaffikon"
         ],
         "de": [
           "dipl-pflegefachperson-hf-im-nachtdienst-m-w-d-50-70-clienia-ag-zurich"
+        ],
+        "fr": [
+          "infirmier-ere-diplome-e-hf-en-service-de-nuit-h-f-50-70-clienia-ag-pfaffikon"
         ]
       },
       "firstSeenAt": "2026-05-19T15:06:24.540Z",
@@ -4557,12 +4799,12 @@
     },
     {
       "id": "clienia-ag-f2cc1df2f53d",
-      "slug": "addetto-a-al-ristorante-m-f-d-60-clienia-ag-pfaffikon",
+      "slug": "collaboratore-trice-restauration-m-w-d-60-clienia-ag-pfaffikon-zh",
       "slugByLocale": {
-        "it": "addetto-a-al-ristorante-m-f-d-60-clienia-ag-pfaffikon",
-        "en": "restaurant-assistant-m-f-d-60-clienia-ag-pfaffikon",
+        "it": "collaboratore-trice-restauration-m-w-d-60-clienia-ag-pfaffikon-zh",
+        "en": "restaurant-attendant-m-w-d-60-clienia-ag-pfaffikon-zh",
         "de": "mitarbeiter-in-restauration-m-w-d-60-clienia-ag-pfaffikon",
-        "fr": "assistant-e-de-restauration-m-f-d-60-clienia-ag-pfaffikon"
+        "fr": "agent-e-restauration-m-f-d-60-clienia-ag-pfaffikon-zh"
       },
       "company": "Clienia AG",
       "companyKey": "clienia-ag",
@@ -4624,11 +4866,21 @@
           "mitarbeiter-in-restauration-m-w-d-60-clienia-ag-zurich"
         ],
         "it": [
-          "mitarbeiter-in-restauration-m-w-d-60-clienia-ag-zurich"
+          "mitarbeiter-in-restauration-m-w-d-60-clienia-ag-zurich",
+          "addetto-a-al-ristorante-m-f-d-60-clienia-ag-pfaffikon"
+        ],
+        "en": [
+          "restaurant-assistant-m-f-d-60-clienia-ag-pfaffikon"
+        ],
+        "fr": [
+          "assistant-e-de-restauration-m-f-d-60-clienia-ag-pfaffikon"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-restauration-m-w-d-60-clienia-ag-zurich"
+        "mitarbeiter-in-restauration-m-w-d-60-clienia-ag-zurich",
+        "addetto-a-al-ristorante-m-f-d-60-clienia-ag-pfaffikon",
+        "restaurant-assistant-m-f-d-60-clienia-ag-pfaffikon",
+        "assistant-e-de-restauration-m-f-d-60-clienia-ag-pfaffikon"
       ],
       "firstSeenAt": "2026-05-19T15:06:23.684Z",
       "salaryMin": 49500,
@@ -4651,7 +4903,7 @@
         "it": "diplomata-infermiera-professionale-hf-fh-m-w-d-80-clienia-ag-pfaffikon",
         "en": "dipl-pflegefachperson-hf-fh-m-w-d-80-clienia-ag-pfaffikon",
         "de": "dipl-pflegefachperson-hf-fh-m-w-d-80-clienia-ag-pfaffikon",
-        "fr": "diplome-e-en-soins-infirmiers-hf-fh-m-f-d-80-clienia-ag-pfaffikon"
+        "fr": "diplome-e-infirmier-ere-professionnel-le-hf-fh-m-w-d-80-clienia-ag-pfaffikon-zh"
       },
       "company": "Clienia AG",
       "companyKey": "clienia-ag",
@@ -4719,7 +4971,8 @@
       },
       "previousSlugs": [
         "dipl-pflegefachperson-hf-fh-m-w-d-80-clienia-ag-zurich",
-        "diplomato-a-in-cure-infermieristica-hf-fh-m-f-d-80-clienia-ag-pfaffikon"
+        "diplomato-a-in-cure-infermieristica-hf-fh-m-f-d-80-clienia-ag-pfaffikon",
+        "diplome-e-en-soins-infirmiers-hf-fh-m-f-d-80-clienia-ag-pfaffikon"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4728,6 +4981,9 @@
         ],
         "de": [
           "dipl-pflegefachperson-hf-fh-m-w-d-80-clienia-ag-zurich"
+        ],
+        "fr": [
+          "diplome-e-en-soins-infirmiers-hf-fh-m-f-d-80-clienia-ag-pfaffikon"
         ]
       },
       "firstSeenAt": "2026-05-19T15:06:22.834Z",
@@ -4746,12 +5002,12 @@
     },
     {
       "id": "clienia-ag-fccf8f2220f3",
-      "slug": "infermiere-diplomata-hf-70-80-clienia-ag-pfaffikon",
+      "slug": "diplomata-infermiera-professionale-con-perito-diploma-federale-70-80-clienia-ag-pfaffikon-zh",
       "slugByLocale": {
-        "it": "infermiere-diplomata-hf-70-80-clienia-ag-pfaffikon",
+        "it": "diplomata-infermiera-professionale-con-perito-diploma-federale-70-80-clienia-ag-pfaffikon-zh",
         "en": "diplomierte-pflegefachperson-hf-70-80-clienia-ag-pfaffikon",
         "de": "diplomierte-pflegefachperson-hf-70-80-clienia-ag-pfaffikon",
-        "fr": "infirmier-diplome-hf-70-80-clienia-ag-pfaffikon"
+        "fr": "infirmiere-diplomee-hf-70-80-clienia-ag-pfaffikon-zh"
       },
       "company": "Clienia AG",
       "companyKey": "clienia-ag",
@@ -4824,14 +5080,20 @@
         ]
       },
       "previousSlugs": [
-        "diplomierte-pflegefachperson-hf-70-80-clienia-ag-zurich"
+        "diplomierte-pflegefachperson-hf-70-80-clienia-ag-zurich",
+        "infermiere-diplomata-hf-70-80-clienia-ag-pfaffikon",
+        "infirmier-diplome-hf-70-80-clienia-ag-pfaffikon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "diplomierte-pflegefachperson-hf-70-80-clienia-ag-zurich"
+          "diplomierte-pflegefachperson-hf-70-80-clienia-ag-zurich",
+          "infermiere-diplomata-hf-70-80-clienia-ag-pfaffikon"
         ],
         "de": [
           "diplomierte-pflegefachperson-hf-70-80-clienia-ag-zurich"
+        ],
+        "fr": [
+          "infirmier-diplome-hf-70-80-clienia-ag-pfaffikon"
         ]
       },
       "firstSeenAt": "2026-05-19T15:06:22.115Z",
@@ -4948,9 +5210,9 @@
       "slug": "medico-assistente-40-100-clienia-ag-pfaffikon",
       "slugByLocale": {
         "it": "medico-assistente-40-100-clienia-ag-pfaffikon",
-        "en": "assistant-physician-40-100-clienia-ag-pfaffikon",
+        "en": "psychiatry-assistant-doctor-m-f-d-40-100-clienia-ag-pfaffikon-zh",
         "de": "assistenzarztin-assistenzarzt-m-w-d-40-100-clienia-ag-pfaffikon",
-        "fr": "medecin-assistant-40-100-clienia-ag-pfaffikon"
+        "fr": "medecin-assistante-en-psychiatrie-h-f-d-40-100-clienia-ag-pfaffikon-zh"
       },
       "company": "Clienia AG",
       "companyKey": "clienia-ag",
@@ -5028,10 +5290,18 @@
         ],
         "it": [
           "assistenzarztin-assistenzarzt-m-w-d-40-100-clienia-ag-zurich"
+        ],
+        "en": [
+          "assistant-physician-40-100-clienia-ag-pfaffikon"
+        ],
+        "fr": [
+          "medecin-assistant-40-100-clienia-ag-pfaffikon"
         ]
       },
       "previousSlugs": [
-        "assistenzarztin-assistenzarzt-m-w-d-40-100-clienia-ag-zurich"
+        "assistenzarztin-assistenzarzt-m-w-d-40-100-clienia-ag-zurich",
+        "assistant-physician-40-100-clienia-ag-pfaffikon",
+        "medecin-assistant-40-100-clienia-ag-pfaffikon"
       ],
       "firstSeenAt": "2026-05-19T15:06:20.396Z",
       "salaryMin": 49500,
@@ -5143,9 +5413,9 @@
     },
     {
       "id": "clienia-ag-6f6bf962ce0d",
-      "slug": "specialista-in-salute-80-100-clienia-ag-pfaffikon",
+      "slug": "persona-sanitaria-80-100-clienia-ag-pfaffikon-zh",
       "slugByLocale": {
-        "it": "specialista-in-salute-80-100-clienia-ag-pfaffikon",
+        "it": "persona-sanitaria-80-100-clienia-ag-pfaffikon-zh",
         "en": "healthcare-specialist-80-100-clienia-ag-pfaffikon",
         "de": "fachperson-gesundheit-80-100-clienia-ag-pfaffikon",
         "fr": "specialiste-en-sante-80-100-clienia-ag-pfaffikon"
@@ -5213,11 +5483,13 @@
           "fachperson-gesundheit-80-100-clienia-ag-zurich"
         ],
         "it": [
-          "fachperson-gesundheit-80-100-clienia-ag-zurich"
+          "fachperson-gesundheit-80-100-clienia-ag-zurich",
+          "specialista-in-salute-80-100-clienia-ag-pfaffikon"
         ]
       },
       "previousSlugs": [
-        "fachperson-gesundheit-80-100-clienia-ag-zurich"
+        "fachperson-gesundheit-80-100-clienia-ag-zurich",
+        "specialista-in-salute-80-100-clienia-ag-pfaffikon"
       ],
       "firstSeenAt": "2026-05-19T15:06:17.795Z",
       "salaryMin": 51500,
@@ -5238,9 +5510,9 @@
       "slug": "specialista-in-psichiatria-e-psicoterapia-per-adulti-40-100-clienia-ag-pfaffikon",
       "slugByLocale": {
         "it": "specialista-in-psichiatria-e-psicoterapia-per-adulti-40-100-clienia-ag-pfaffikon",
-        "en": "specialist-in-adult-psychiatry-and-psychotherapy-40-100-clienia-ag-pfaffikon",
+        "en": "psychiatrist-and-psychotherapist-m-w-d-40-100-clienia-ag-pfaffikon-zh",
         "de": "facharztin-facharzt-fur-erwachsenenpsychiatrie-und-psychotherapie-m-w-d-40-100-clienia-ag",
-        "fr": "specialiste-en-psychiatrie-et-psychotherapie-pour-adultes-40-100-clienia-ag-pfaffikon"
+        "fr": "psychiatre-et-psychotherapeute-m-f-d-40-100-clienia-ag-pfaffikon-zh"
       },
       "company": "Clienia AG",
       "companyKey": "clienia-ag",
@@ -5300,11 +5572,19 @@
         ]
       },
       "previousSlugs": [
-        "facharztin-facharzt-fur-erwachsenenpsychiatrie-und-psychotherapie-m-w-d-40-100-clienia-ag"
+        "facharztin-facharzt-fur-erwachsenenpsychiatrie-und-psychotherapie-m-w-d-40-100-clienia-ag",
+        "specialist-in-adult-psychiatry-and-psychotherapy-40-100-clienia-ag-pfaffikon",
+        "specialiste-en-psychiatrie-et-psychotherapie-pour-adultes-40-100-clienia-ag-pfaffikon"
       ],
       "previousSlugsByLocale": {
         "it": [
           "facharztin-facharzt-fur-erwachsenenpsychiatrie-und-psychotherapie-m-w-d-40-100-clienia-ag"
+        ],
+        "en": [
+          "specialist-in-adult-psychiatry-and-psychotherapy-40-100-clienia-ag-pfaffikon"
+        ],
+        "fr": [
+          "specialiste-en-psychiatrie-et-psychotherapie-pour-adultes-40-100-clienia-ag-pfaffikon"
         ]
       },
       "firstSeenAt": "2026-05-19T15:06:16.904Z",
@@ -5323,9 +5603,9 @@
     },
     {
       "id": "clienia-ag-4b32fb456751",
-      "slug": "medico-specialista-in-psichiatria-e-psichiatria-dell-adolescenza-80-100-clienia-ag-pfaffikon",
+      "slug": "assistente-di-psichiatria-e-psicoterapia-infantile-e-giovanile-80-100-clienia-ag-pfaffikon-zh",
       "slugByLocale": {
-        "it": "medico-specialista-in-psichiatria-e-psichiatria-dell-adolescenza-80-100-clienia-ag-pfaffikon",
+        "it": "assistente-di-psichiatria-e-psicoterapia-infantile-e-giovanile-80-100-clienia-ag-pfaffikon-zh",
         "en": "junior-physician-in-child-and-adolescent-psychiatry-and-psychotherapy-80-100-clienia-ag-pfaffikon",
         "de": "assistenzarztin-assistenzarzt-kinder-und-jugendpsychiatrie-und-psychotherapie-80-100",
         "fr": "medecin-assistant-en-psychiatrie-et-psychotherapie-de-l-enfance-et-de-l-adolescence-80-100-clienia-ag-pfaffikon"
@@ -5370,11 +5650,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "assistenzarztin-assistenzarzt-kinder-und-jugendpsychiatrie-und-psychotherapie-80-100"
+        "assistenzarztin-assistenzarzt-kinder-und-jugendpsychiatrie-und-psychotherapie-80-100",
+        "medico-specialista-in-psichiatria-e-psichiatria-dell-adolescenza-80-100-clienia-ag-pfaffikon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistenzarztin-assistenzarzt-kinder-und-jugendpsychiatrie-und-psychotherapie-80-100"
+          "assistenzarztin-assistenzarzt-kinder-und-jugendpsychiatrie-und-psychotherapie-80-100",
+          "medico-specialista-in-psichiatria-e-psichiatria-dell-adolescenza-80-100-clienia-ag-pfaffikon"
         ]
       },
       "firstSeenAt": "2026-05-19T15:06:16.054Z",
@@ -5393,12 +5675,12 @@
     },
     {
       "id": "clienia-ag-958d72634356",
-      "slug": "medico-specializzando-80-100-clienia-ag-pfaffikon",
+      "slug": "assistente-medico-psichiatria-80-100-clienia-ag-pfaffikon-zh",
       "slugByLocale": {
-        "it": "medico-specializzando-80-100-clienia-ag-pfaffikon",
-        "en": "assistant-physician-80-100-clienia-ag-pfaffikon",
+        "it": "assistente-medico-psichiatria-80-100-clienia-ag-pfaffikon-zh",
+        "en": "psychiatry-assistant-doctor-80-100-clienia-ag-pfaffikon-zh",
         "de": "assistenzarztin-assistenzarzt-80-100-clienia-ag-pfaffikon",
-        "fr": "medical-assistant-80-100-clienia-ag-pfaffikon"
+        "fr": "medecin-assistante-en-psychiatrie-80-100-clienia-ag-pfaffikon-zh"
       },
       "company": "Clienia AG",
       "companyKey": "clienia-ag",
@@ -5444,11 +5726,21 @@
           "assistenzarztin-assistenzarzt-80-100-clienia-ag-zurich"
         ],
         "it": [
-          "assistenzarztin-assistenzarzt-80-100-clienia-ag-zurich"
+          "assistenzarztin-assistenzarzt-80-100-clienia-ag-zurich",
+          "medico-specializzando-80-100-clienia-ag-pfaffikon"
+        ],
+        "en": [
+          "assistant-physician-80-100-clienia-ag-pfaffikon"
+        ],
+        "fr": [
+          "medical-assistant-80-100-clienia-ag-pfaffikon"
         ]
       },
       "previousSlugs": [
-        "assistenzarztin-assistenzarzt-80-100-clienia-ag-zurich"
+        "assistenzarztin-assistenzarzt-80-100-clienia-ag-zurich",
+        "medico-specializzando-80-100-clienia-ag-pfaffikon",
+        "assistant-physician-80-100-clienia-ag-pfaffikon",
+        "medical-assistant-80-100-clienia-ag-pfaffikon"
       ],
       "firstSeenAt": "2026-05-19T15:06:15.204Z",
       "salaryMin": 49500,
@@ -5469,9 +5761,9 @@
       "slug": "specialisti-in-psichiatria-e-psicoterapia-dell-adulto-m-f-d-40-100-clienia-ag-pfaffikon",
       "slugByLocale": {
         "it": "specialisti-in-psichiatria-e-psicoterapia-dell-adulto-m-f-d-40-100-clienia-ag-pfaffikon",
-        "en": "specialists-in-adult-psychiatry-and-psychotherapy-m-f-d-40-100-clienia-ag-pfaffikon",
+        "en": "psychiatrists-and-psychotherapists-m-f-d-for-adult-psychiatry-40-100-clienia-ag-pfaffikon-zh",
         "de": "facharztinnen-und-facharzte-fur-die-erwachsenenpsychiatrie-und-psychotherapie-m-w-d-40-100",
-        "fr": "specialistes-en-psychiatrie-et-psychotherapie-pour-adultes-h-f-40-100-clienia-ag-pfaffikon"
+        "fr": "psychiatres-et-psychotherapeutes-m-f-d-pour-la-psychiatrie-adulte-40-100-clienia-ag-pfaffikon-zh"
       },
       "company": "Clienia AG",
       "companyKey": "clienia-ag",
@@ -5531,11 +5823,19 @@
         ]
       },
       "previousSlugs": [
-        "facharztinnen-und-facharzte-fur-die-erwachsenenpsychiatrie-und-psychotherapie-m-w-d-40-100"
+        "facharztinnen-und-facharzte-fur-die-erwachsenenpsychiatrie-und-psychotherapie-m-w-d-40-100",
+        "specialists-in-adult-psychiatry-and-psychotherapy-m-f-d-40-100-clienia-ag-pfaffikon",
+        "specialistes-en-psychiatrie-et-psychotherapie-pour-adultes-h-f-40-100-clienia-ag-pfaffikon"
       ],
       "previousSlugsByLocale": {
         "it": [
           "facharztinnen-und-facharzte-fur-die-erwachsenenpsychiatrie-und-psychotherapie-m-w-d-40-100"
+        ],
+        "en": [
+          "specialists-in-adult-psychiatry-and-psychotherapy-m-f-d-40-100-clienia-ag-pfaffikon"
+        ],
+        "fr": [
+          "specialistes-en-psychiatrie-et-psychotherapie-pour-adultes-h-f-40-100-clienia-ag-pfaffikon"
         ]
       },
       "firstSeenAt": "2026-05-19T15:06:14.333Z",
@@ -5645,12 +5945,12 @@
     },
     {
       "id": "clienia-ag-4316a283a908",
-      "slug": "specialista-della-salute-in-servizio-notturno-m-f-d-60-80-clienia-ag-pfaffikon",
+      "slug": "persona-sanitaria-di-notte-m-f-d-60-80-clienia-ag-pfaffikon-zh",
       "slugByLocale": {
-        "it": "specialista-della-salute-in-servizio-notturno-m-f-d-60-80-clienia-ag-pfaffikon",
-        "en": "healthcare-professional-night-shift-m-f-d-60-80-clienia-ag-pfaffikon",
+        "it": "persona-sanitaria-di-notte-m-f-d-60-80-clienia-ag-pfaffikon-zh",
+        "en": "night-health-professional-m-f-d-60-80-clienia-ag-pfaffikon-zh",
         "de": "fachperson-gesundheit-im-nachtdienst-m-w-d-60-80-clienia-ag-pfaffikon",
-        "fr": "specialiste-de-la-sante-en-service-de-nuit-m-f-d-60-80-clienia-ag-pfaffikon"
+        "fr": "professionnel-le-de-sante-de-nuit-m-f-d-60-80-clienia-ag-pfaffikon-zh"
       },
       "company": "Clienia AG",
       "companyKey": "clienia-ag",
@@ -5716,11 +6016,21 @@
           "fachperson-gesundheit-im-nachtdienst-m-w-d-60-80-clienia-ag-zurich"
         ],
         "it": [
-          "fachperson-gesundheit-im-nachtdienst-m-w-d-60-80-clienia-ag-zurich"
+          "fachperson-gesundheit-im-nachtdienst-m-w-d-60-80-clienia-ag-zurich",
+          "specialista-della-salute-in-servizio-notturno-m-f-d-60-80-clienia-ag-pfaffikon"
+        ],
+        "en": [
+          "healthcare-professional-night-shift-m-f-d-60-80-clienia-ag-pfaffikon"
+        ],
+        "fr": [
+          "specialiste-de-la-sante-en-service-de-nuit-m-f-d-60-80-clienia-ag-pfaffikon"
         ]
       },
       "previousSlugs": [
-        "fachperson-gesundheit-im-nachtdienst-m-w-d-60-80-clienia-ag-zurich"
+        "fachperson-gesundheit-im-nachtdienst-m-w-d-60-80-clienia-ag-zurich",
+        "specialista-della-salute-in-servizio-notturno-m-f-d-60-80-clienia-ag-pfaffikon",
+        "healthcare-professional-night-shift-m-f-d-60-80-clienia-ag-pfaffikon",
+        "specialiste-de-la-sante-en-service-de-nuit-m-f-d-60-80-clienia-ag-pfaffikon"
       ],
       "firstSeenAt": "2026-05-19T15:06:12.622Z",
       "salaryMin": 51500,
@@ -5843,12 +6153,12 @@
     },
     {
       "id": "clienia-ag-bdc0b3fbe063",
-      "slug": "vice-direttore-di-stazione-80-100-clienia-ag-pfaffikon",
+      "slug": "responsabile-stazione-80-100-clienia-ag-pfaffikon-zh",
       "slugByLocale": {
-        "it": "vice-direttore-di-stazione-80-100-clienia-ag-pfaffikon",
+        "it": "responsabile-stazione-80-100-clienia-ag-pfaffikon-zh",
         "en": "deputy-head-of-station-80-100-clienia-ag-pfaffikon",
         "de": "stellvertretende-r-stationsleiter-in-80-100-clienia-ag-pfaffikon",
-        "fr": "adjoint-e-de-direction-de-station-80-100-clienia-ag-pfaffikon"
+        "fr": "responsable-de-station-80-100-clienia-ag-pfaffikon-zh"
       },
       "company": "Clienia AG",
       "companyKey": "clienia-ag",
@@ -5925,11 +6235,17 @@
           "stellvertretende-r-stationsleiter-in-80-100-clienia-ag-zurich"
         ],
         "it": [
-          "stellvertretende-r-stationsleiter-in-80-100-clienia-ag-zurich"
+          "stellvertretende-r-stationsleiter-in-80-100-clienia-ag-zurich",
+          "vice-direttore-di-stazione-80-100-clienia-ag-pfaffikon"
+        ],
+        "fr": [
+          "adjoint-e-de-direction-de-station-80-100-clienia-ag-pfaffikon"
         ]
       },
       "previousSlugs": [
-        "stellvertretende-r-stationsleiter-in-80-100-clienia-ag-zurich"
+        "stellvertretende-r-stationsleiter-in-80-100-clienia-ag-zurich",
+        "vice-direttore-di-stazione-80-100-clienia-ag-pfaffikon",
+        "adjoint-e-de-direction-de-station-80-100-clienia-ag-pfaffikon"
       ],
       "firstSeenAt": "2026-05-19T15:06:10.910Z",
       "salaryMin": 68000,
@@ -5947,12 +6263,12 @@
     },
     {
       "id": "clienia-ag-7d666b8aade0",
-      "slug": "specialista-della-salute-nel-servizio-diurno-80-100-clienia-ag-pfaffikon",
+      "slug": "esperta-esperto-assistenza-sanitaria-turno-giorno-80-100-clienia-ag-pfaffikon-zh",
       "slugByLocale": {
-        "it": "specialista-della-salute-nel-servizio-diurno-80-100-clienia-ag-pfaffikon",
-        "en": "healthcare-specialist-in-day-service-80-100-clienia-ag-pfaffikon",
+        "it": "esperta-esperto-assistenza-sanitaria-turno-giorno-80-100-clienia-ag-pfaffikon-zh",
+        "en": "healthcare-professional-day-shift-80-100-clienia-ag-pfaffikon-zh",
         "de": "fachfrau-fachmann-gesundheit-im-tagdienst-80-100-clienia-ag-pfaffikon",
-        "fr": "specialiste-en-sante-en-service-diurne-80-100-clienia-ag-pfaffikon"
+        "fr": "professionnel-le-de-sante-service-de-jour-80-100-clienia-ag-pfaffikon-zh"
       },
       "company": "Clienia AG",
       "companyKey": "clienia-ag",
@@ -6019,11 +6335,21 @@
           "fachfrau-fachmann-gesundheit-im-tagdienst-80-100-clienia-ag-zurich"
         ],
         "it": [
-          "fachfrau-fachmann-gesundheit-im-tagdienst-80-100-clienia-ag-zurich"
+          "fachfrau-fachmann-gesundheit-im-tagdienst-80-100-clienia-ag-zurich",
+          "specialista-della-salute-nel-servizio-diurno-80-100-clienia-ag-pfaffikon"
+        ],
+        "en": [
+          "healthcare-specialist-in-day-service-80-100-clienia-ag-pfaffikon"
+        ],
+        "fr": [
+          "specialiste-en-sante-en-service-diurne-80-100-clienia-ag-pfaffikon"
         ]
       },
       "previousSlugs": [
-        "fachfrau-fachmann-gesundheit-im-tagdienst-80-100-clienia-ag-zurich"
+        "fachfrau-fachmann-gesundheit-im-tagdienst-80-100-clienia-ag-zurich",
+        "specialista-della-salute-nel-servizio-diurno-80-100-clienia-ag-pfaffikon",
+        "healthcare-specialist-in-day-service-80-100-clienia-ag-pfaffikon",
+        "specialiste-en-sante-en-service-diurne-80-100-clienia-ag-pfaffikon"
       ],
       "firstSeenAt": "2026-05-19T15:06:09.190Z",
       "salaryMin": 51500,
@@ -6041,12 +6367,12 @@
     },
     {
       "id": "clienia-ag-4f33d5f6ec23",
-      "slug": "medico-specialista-100-clienia-ag-pfaffikon",
+      "slug": "assistente-psichiatra-psichiatra-100-clienia-ag-pfaffikon-zh",
       "slugByLocale": {
-        "it": "medico-specialista-100-clienia-ag-pfaffikon",
-        "en": "resident-physician-100-clienia-ag-pfaffikon",
+        "it": "assistente-psichiatra-psichiatra-100-clienia-ag-pfaffikon-zh",
+        "en": "psychiatrist-psychiatric-assistant-100-clienia-ag-pfaffikon-zh",
         "de": "assistenzarztin-assistenzarzt-100-clienia-ag-pfaffikon",
-        "fr": "medical-100-clienia-ag-pfaffikon"
+        "fr": "medecin-assistant-e-en-psychiatrie-100-clienia-ag-pfaffikon-zh"
       },
       "company": "Clienia AG",
       "companyKey": "clienia-ag",
@@ -6122,11 +6448,21 @@
           "assistenzarztin-assistenzarzt-100-clienia-ag-zurich"
         ],
         "it": [
-          "assistenzarztin-assistenzarzt-100-clienia-ag-zurich"
+          "assistenzarztin-assistenzarzt-100-clienia-ag-zurich",
+          "medico-specialista-100-clienia-ag-pfaffikon"
+        ],
+        "en": [
+          "resident-physician-100-clienia-ag-pfaffikon"
+        ],
+        "fr": [
+          "medical-100-clienia-ag-pfaffikon"
         ]
       },
       "previousSlugs": [
-        "assistenzarztin-assistenzarzt-100-clienia-ag-zurich"
+        "assistenzarztin-assistenzarzt-100-clienia-ag-zurich",
+        "medico-specialista-100-clienia-ag-pfaffikon",
+        "resident-physician-100-clienia-ag-pfaffikon",
+        "medical-100-clienia-ag-pfaffikon"
       ],
       "firstSeenAt": "2026-05-19T15:06:08.339Z",
       "salaryMin": 49500,
@@ -6248,9 +6584,9 @@
     },
     {
       "id": "clienia-ag-84245621494e",
-      "slug": "infermiere-diplomata-60-90-clienia-ag-pfaffikon",
+      "slug": "diplomata-infermiera-professionale-60-90-clienia-ag-pfaffikon-zh",
       "slugByLocale": {
-        "it": "infermiere-diplomata-60-90-clienia-ag-pfaffikon",
+        "it": "diplomata-infermiera-professionale-60-90-clienia-ag-pfaffikon-zh",
         "en": "diplomierte-pflegefachperson-60-90-clienia-ag-pfaffikon",
         "de": "diplomierte-pflegefachperson-60-90-clienia-ag-pfaffikon",
         "fr": "infirmier-e-diplome-e-60-90-clienia-ag-pfaffikon"
@@ -6324,11 +6660,13 @@
         ]
       },
       "previousSlugs": [
-        "diplomierte-pflegefachperson-60-90-clienia-ag-zurich"
+        "diplomierte-pflegefachperson-60-90-clienia-ag-zurich",
+        "infermiere-diplomata-60-90-clienia-ag-pfaffikon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "diplomierte-pflegefachperson-60-90-clienia-ag-zurich"
+          "diplomierte-pflegefachperson-60-90-clienia-ag-zurich",
+          "infermiere-diplomata-60-90-clienia-ag-pfaffikon"
         ],
         "de": [
           "diplomierte-pflegefachperson-60-90-clienia-ag-zurich"
@@ -6350,12 +6688,12 @@
     },
     {
       "id": "clienia-ag-d71bbee2179c",
-      "slug": "dipl-infermiere-a-hf-fh-m-f-d-70-90-clienia-ag-pfaffikon",
+      "slug": "diplomata-infermiera-professionale-hf-fh-m-w-d-70-90-clienia-ag-pfaffikon-zh",
       "slugByLocale": {
-        "it": "dipl-infermiere-a-hf-fh-m-f-d-70-90-clienia-ag-pfaffikon",
+        "it": "diplomata-infermiera-professionale-hf-fh-m-w-d-70-90-clienia-ag-pfaffikon-zh",
         "en": "dipl-pflegefachperson-hf-fh-m-w-d-70-90-clienia-ag-pfaffikon",
         "de": "dipl-pflegefachperson-hf-fh-m-w-d-70-90-clienia-ag-pfaffikon",
-        "fr": "diplome-e-en-soins-infirmiers-hf-fh-m-f-d-70-90-clienia-ag-pfaffikon"
+        "fr": "infirmier-e-diplome-e-hf-fh-m-f-x-70-90-clienia-ag-pfaffikon-zh"
       },
       "company": "Clienia AG",
       "companyKey": "clienia-ag",
@@ -6428,14 +6766,20 @@
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-fh-m-w-d-70-90-clienia-ag-zurich"
+        "dipl-pflegefachperson-hf-fh-m-w-d-70-90-clienia-ag-zurich",
+        "dipl-infermiere-a-hf-fh-m-f-d-70-90-clienia-ag-pfaffikon",
+        "diplome-e-en-soins-infirmiers-hf-fh-m-f-d-70-90-clienia-ag-pfaffikon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-hf-fh-m-w-d-70-90-clienia-ag-zurich"
+          "dipl-pflegefachperson-hf-fh-m-w-d-70-90-clienia-ag-zurich",
+          "dipl-infermiere-a-hf-fh-m-f-d-70-90-clienia-ag-pfaffikon"
         ],
         "de": [
           "dipl-pflegefachperson-hf-fh-m-w-d-70-90-clienia-ag-zurich"
+        ],
+        "fr": [
+          "diplome-e-en-soins-infirmiers-hf-fh-m-f-d-70-90-clienia-ag-pfaffikon"
         ]
       },
       "firstSeenAt": "2026-05-19T15:06:05.779Z",
@@ -6454,12 +6798,12 @@
     },
     {
       "id": "clienia-ag-ec8f13c58a6d",
-      "slug": "dipl-infermiere-a-hf-fh-m-f-d-per-il-turno-notturno-80-100-clienia-ag-pfaffikon",
+      "slug": "diplomata-infermiera-professionale-hf-fh-u-m-d-turno-notturno-80-100-clienia-ag-pfaffikon-zh",
       "slugByLocale": {
-        "it": "dipl-infermiere-a-hf-fh-m-f-d-per-il-turno-notturno-80-100-clienia-ag-pfaffikon",
+        "it": "diplomata-infermiera-professionale-hf-fh-u-m-d-turno-notturno-80-100-clienia-ag-pfaffikon-zh",
         "en": "dipl-pflegefachperson-hf-fh-m-w-d-im-nachtdienst-80-100-clienia-ag-pfaffikon",
         "de": "dipl-pflegefachperson-hf-fh-m-w-d-im-nachtdienst-80-100-clienia-ag-pfaffikon",
-        "fr": "infirmier-dipl-hf-fh-h-f-d-pour-le-service-de-nuit-80-100-clienia-ag-pfaffikon"
+        "fr": "diplome-e-en-soins-infirmiers-hf-fh-h-f-d-service-de-nuit-80-100-clienia-ag-pfaffikon-zh"
       },
       "company": "Clienia AG",
       "companyKey": "clienia-ag",
@@ -6532,14 +6876,20 @@
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-fh-m-w-d-im-nachtdienst-80-100-clienia-ag-zurich"
+        "dipl-pflegefachperson-hf-fh-m-w-d-im-nachtdienst-80-100-clienia-ag-zurich",
+        "dipl-infermiere-a-hf-fh-m-f-d-per-il-turno-notturno-80-100-clienia-ag-pfaffikon",
+        "infirmier-dipl-hf-fh-h-f-d-pour-le-service-de-nuit-80-100-clienia-ag-pfaffikon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-hf-fh-m-w-d-im-nachtdienst-80-100-clienia-ag-zurich"
+          "dipl-pflegefachperson-hf-fh-m-w-d-im-nachtdienst-80-100-clienia-ag-zurich",
+          "dipl-infermiere-a-hf-fh-m-f-d-per-il-turno-notturno-80-100-clienia-ag-pfaffikon"
         ],
         "de": [
           "dipl-pflegefachperson-hf-fh-m-w-d-im-nachtdienst-80-100-clienia-ag-zurich"
+        ],
+        "fr": [
+          "infirmier-dipl-hf-fh-h-f-d-pour-le-service-de-nuit-80-100-clienia-ag-pfaffikon"
         ]
       },
       "firstSeenAt": "2026-05-19T15:06:03.221Z",
@@ -6659,9 +7009,9 @@
     },
     {
       "id": "clienia-ag-2c78489a73b9",
-      "slug": "primario-a-60-100-clienia-ag-pfaffikon",
+      "slug": "responsabile-medico-m-f-d-60-100-clienia-ag-pfaffikon-zh",
       "slugByLocale": {
-        "it": "primario-a-60-100-clienia-ag-pfaffikon",
+        "it": "responsabile-medico-m-f-d-60-100-clienia-ag-pfaffikon-zh",
         "en": "senior-physician-60-100-clienia-ag-pfaffikon",
         "de": "oberarztin-oberarzt-m-w-d-60-100-clienia-ag-pfaffikon",
         "fr": "medecin-chef-60-100-clienia-ag-pfaffikon"
@@ -6741,11 +7091,13 @@
           "oberarztin-oberarzt-m-w-d-60-100-clienia-ag-zurich"
         ],
         "it": [
-          "oberarztin-oberarzt-m-w-d-60-100-clienia-ag-zurich"
+          "oberarztin-oberarzt-m-w-d-60-100-clienia-ag-zurich",
+          "primario-a-60-100-clienia-ag-pfaffikon"
         ]
       },
       "previousSlugs": [
-        "oberarztin-oberarzt-m-w-d-60-100-clienia-ag-zurich"
+        "oberarztin-oberarzt-m-w-d-60-100-clienia-ag-zurich",
+        "primario-a-60-100-clienia-ag-pfaffikon"
       ],
       "firstSeenAt": "2026-05-19T15:06:01.523Z",
       "salaryMin": 68000,
@@ -6763,12 +7115,12 @@
     },
     {
       "id": "clienia-ag-6144b778bc17",
-      "slug": "aiuto-infermiere-aiuto-infermiera-srk-e-o-assistente-in-salute-e-sociale-ags-40-100-clienia-ag-pfaffikon",
+      "slug": "assistente-di-cura-assistente-di-assistenza-sanitaria-e-sociale-40-100-clienia-ag-pfaffikon-zh",
       "slugByLocale": {
-        "it": "aiuto-infermiere-aiuto-infermiera-srk-e-o-assistente-in-salute-e-sociale-ags-40-100-clienia-ag-pfaffikon",
+        "it": "assistente-di-cura-assistente-di-assistenza-sanitaria-e-sociale-40-100-clienia-ag-pfaffikon-zh",
         "en": "care-assistant-care-assistant-srk-and-or-health-and-social-care-assistant-ags-40-100-clienia-ag-pfaffikon",
         "de": "pflegehelfer-pflegehelferin-srk-und-oder-assistentin-assistent-gesundheit-und-soziales-ags",
-        "fr": "assistant-e-en-soins-assistant-e-en-soins-srk-et-ou-assistant-e-en-sante-et-social-ags-40-100-clienia-ag-pfaffikon"
+        "fr": "aide-soignant-e-aide-en-sante-et-services-sociaux-40-100-clienia-ag-pfaffikon-zh"
       },
       "company": "Clienia AG",
       "companyKey": "clienia-ag",
@@ -6810,11 +7162,17 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "pflegehelfer-pflegehelferin-srk-und-oder-assistentin-assistent-gesundheit-und-soziales-ags"
+        "pflegehelfer-pflegehelferin-srk-und-oder-assistentin-assistent-gesundheit-und-soziales-ags",
+        "aiuto-infermiere-aiuto-infermiera-srk-e-o-assistente-in-salute-e-sociale-ags-40-100-clienia-ag-pfaffikon",
+        "assistant-e-en-soins-assistant-e-en-soins-srk-et-ou-assistant-e-en-sante-et-social-ags-40-100-clienia-ag-pfaffikon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "pflegehelfer-pflegehelferin-srk-und-oder-assistentin-assistent-gesundheit-und-soziales-ags"
+          "pflegehelfer-pflegehelferin-srk-und-oder-assistentin-assistent-gesundheit-und-soziales-ags",
+          "aiuto-infermiere-aiuto-infermiera-srk-e-o-assistente-in-salute-e-sociale-ags-40-100-clienia-ag-pfaffikon"
+        ],
+        "fr": [
+          "assistant-e-en-soins-assistant-e-en-soins-srk-et-ou-assistant-e-en-sante-et-social-ags-40-100-clienia-ag-pfaffikon"
         ]
       },
       "firstSeenAt": "2026-05-19T15:06:00.677Z",
@@ -6833,12 +7191,12 @@
     },
     {
       "id": "clienia-ag-e09f6d209a51",
-      "slug": "specialista-della-salute-40-100-clienia-ag-pfaffikon",
+      "slug": "assistente-sanitaria-specializzata-in-assistenza-psichiatrica-40-100-clienia-ag-pfaffikon-zh",
       "slugByLocale": {
-        "it": "specialista-della-salute-40-100-clienia-ag-pfaffikon",
-        "en": "healthcare-specialist-40-100-clienia-ag-pfaffikon",
+        "it": "assistente-sanitaria-specializzata-in-assistenza-psichiatrica-40-100-clienia-ag-pfaffikon-zh",
+        "en": "health-care-professional-psychiatric-care-40-100-clienia-ag-pfaffikon-zh",
         "de": "fachfrau-fachmann-gesundheit-40-100-clienia-ag-pfaffikon",
-        "fr": "specialiste-en-sante-40-100-clienia-ag-pfaffikon"
+        "fr": "professionnel-le-de-sante-soins-psychiatriques-40-100-clienia-ag-pfaffikon-zh"
       },
       "company": "Clienia AG",
       "companyKey": "clienia-ag",
@@ -6915,11 +7273,21 @@
           "fachfrau-fachmann-gesundheit-40-100-clienia-ag-zurich"
         ],
         "it": [
-          "fachfrau-fachmann-gesundheit-40-100-clienia-ag-zurich"
+          "fachfrau-fachmann-gesundheit-40-100-clienia-ag-zurich",
+          "specialista-della-salute-40-100-clienia-ag-pfaffikon"
+        ],
+        "en": [
+          "healthcare-specialist-40-100-clienia-ag-pfaffikon"
+        ],
+        "fr": [
+          "specialiste-en-sante-40-100-clienia-ag-pfaffikon"
         ]
       },
       "previousSlugs": [
-        "fachfrau-fachmann-gesundheit-40-100-clienia-ag-zurich"
+        "fachfrau-fachmann-gesundheit-40-100-clienia-ag-zurich",
+        "specialista-della-salute-40-100-clienia-ag-pfaffikon",
+        "healthcare-specialist-40-100-clienia-ag-pfaffikon",
+        "specialiste-en-sante-40-100-clienia-ag-pfaffikon"
       ],
       "firstSeenAt": "2026-05-19T15:05:59.815Z",
       "salaryMin": 51500,
@@ -6940,7 +7308,7 @@
       "slug": "assistente-di-direzione-clinica-m-f-d-70-80-clienia-ag-pfaffikon",
       "slugByLocale": {
         "it": "assistente-di-direzione-clinica-m-f-d-70-80-clienia-ag-pfaffikon",
-        "en": "assistant-director-of-clinic-m-f-d-70-80-clienia-ag-pfaffikon",
+        "en": "clinical-directorate-assistant-m-w-d-70-80-clienia-ag-pfaffikon-zh",
         "de": "abteilungsleiter-m-w-d-70-80-clienia-ag-pfaffikon",
         "fr": "assistent-in-klinikdirektion-m-w-d-70-80-clienia-ag-pfaffikon"
       },
@@ -7007,7 +7375,8 @@
         ]
       },
       "previousSlugs": [
-        "assistent-in-klinikdirektion-m-w-d-70-80-clienia-ag-zurich"
+        "assistent-in-klinikdirektion-m-w-d-70-80-clienia-ag-zurich",
+        "assistant-director-of-clinic-m-f-d-70-80-clienia-ag-pfaffikon"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -7015,6 +7384,9 @@
         ],
         "de": [
           "assistent-in-klinikdirektion-m-w-d-70-80-clienia-ag-zurich"
+        ],
+        "en": [
+          "assistant-director-of-clinic-m-f-d-70-80-clienia-ag-pfaffikon"
         ]
       },
       "firstSeenAt": "2026-05-19T15:05:58.960Z",
@@ -7033,12 +7405,12 @@
     },
     {
       "id": "clienia-ag-59f508747c08",
-      "slug": "specialista-in-psichiatria-e-psicoterapia-o-medico-specializzando-con-esperienza-nel-campo-m-w-d-30-100-clienia-ag",
+      "slug": "psichiatra-psichiatra-con-esperienza-avanzata-nel-campo-30-100-clienia-ag-pfaffikon-zh",
       "slugByLocale": {
-        "it": "specialista-in-psichiatria-e-psicoterapia-o-medico-specializzando-con-esperienza-nel-campo-m-w-d-30-100-clienia-ag",
-        "en": "specialist-in-psychiatry-and-psychotherapy-or-medical-specialist-with-proven-experience-in-the-field-m-w-d-30-100",
+        "it": "psichiatra-psichiatra-con-esperienza-avanzata-nel-campo-30-100-clienia-ag-pfaffikon-zh",
+        "en": "psychiatrist-with-advanced-experience-in-the-field-30-100-clienia-ag-pfaffikon-zh",
         "de": "facharzt-facharztin-fur-psychiatrie-und-psychotherapie-oder-assistenzarztin-assistenzarzt",
-        "fr": "specialiste-en-psychiatrie-et-psychotherapie-ou-medecin-specialise-avec-une-experience-averee-dans-le-domaine-m-w-d-30"
+        "fr": "psychiatre-avec-experience-avancee-dans-le-domaine-30-100-clienia-ag-pfaffikon-zh"
       },
       "company": "Clienia AG",
       "companyKey": "clienia-ag",
@@ -7080,11 +7452,21 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "facharzt-facharztin-fur-psychiatrie-und-psychotherapie-oder-assistenzarztin-assistenzarzt"
+        "facharzt-facharztin-fur-psychiatrie-und-psychotherapie-oder-assistenzarztin-assistenzarzt",
+        "specialista-in-psichiatria-e-psicoterapia-o-medico-specializzando-con-esperienza-nel-campo-m-w-d-30-100-clienia-ag",
+        "specialist-in-psychiatry-and-psychotherapy-or-medical-specialist-with-proven-experience-in-the-field-m-w-d-30-100",
+        "specialiste-en-psychiatrie-et-psychotherapie-ou-medecin-specialise-avec-une-experience-averee-dans-le-domaine-m-w-d-30"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "facharzt-facharztin-fur-psychiatrie-und-psychotherapie-oder-assistenzarztin-assistenzarzt"
+          "facharzt-facharztin-fur-psychiatrie-und-psychotherapie-oder-assistenzarztin-assistenzarzt",
+          "specialista-in-psichiatria-e-psicoterapia-o-medico-specializzando-con-esperienza-nel-campo-m-w-d-30-100-clienia-ag"
+        ],
+        "en": [
+          "specialist-in-psychiatry-and-psychotherapy-or-medical-specialist-with-proven-experience-in-the-field-m-w-d-30-100"
+        ],
+        "fr": [
+          "specialiste-en-psychiatrie-et-psychotherapie-ou-medecin-specialise-avec-une-experience-averee-dans-le-domaine-m-w-d-30"
         ]
       },
       "firstSeenAt": "2026-05-19T15:05:58.105Z",
@@ -7103,9 +7485,9 @@
     },
     {
       "id": "clienia-ag-8e7b2be92d6c",
-      "slug": "infermiere-diplomata-hf-fh-nel-turno-di-notte-m-f-d-45-clienia-ag-pfaffikon",
+      "slug": "diplomata-infermiera-professionale-con-diploma-federale-higher-education-notturno-m-f-d-45-clienia-ag-pfaffikon-zh",
       "slugByLocale": {
-        "it": "infermiere-diplomata-hf-fh-nel-turno-di-notte-m-f-d-45-clienia-ag-pfaffikon",
+        "it": "diplomata-infermiera-professionale-con-diploma-federale-higher-education-notturno-m-f-d-45-clienia-ag-pfaffikon-zh",
         "en": "dipl-pflegefachperson-hf-fh-im-nachtdienst-m-w-d-45-clienia-ag-pfaffikon",
         "de": "dipl-pflegefachperson-hf-fh-im-nachtdienst-m-w-d-45-clienia-ag-pfaffikon",
         "fr": "infirmier-diplome-hf-fh-de-nuit-m-f-d-45-clienia-ag-pfaffikon"
@@ -7169,11 +7551,13 @@
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-fh-im-nachtdienst-m-w-d-45-clienia-ag-zurich"
+        "dipl-pflegefachperson-hf-fh-im-nachtdienst-m-w-d-45-clienia-ag-zurich",
+        "infermiere-diplomata-hf-fh-nel-turno-di-notte-m-f-d-45-clienia-ag-pfaffikon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-hf-fh-im-nachtdienst-m-w-d-45-clienia-ag-zurich"
+          "dipl-pflegefachperson-hf-fh-im-nachtdienst-m-w-d-45-clienia-ag-zurich",
+          "infermiere-diplomata-hf-fh-nel-turno-di-notte-m-f-d-45-clienia-ag-pfaffikon"
         ],
         "de": [
           "dipl-pflegefachperson-hf-fh-im-nachtdienst-m-w-d-45-clienia-ag-zurich"
@@ -7285,12 +7669,12 @@
     },
     {
       "id": "clienia-ag-af9f9b689f93",
-      "slug": "coach-del-lavoro-50-60-clienia-ag-pfaffikon",
+      "slug": "coach-professionale-50-60-clienia-ag-pfaffikon-zh",
       "slugByLocale": {
-        "it": "coach-del-lavoro-50-60-clienia-ag-pfaffikon",
+        "it": "coach-professionale-50-60-clienia-ag-pfaffikon-zh",
         "en": "job-coach-50-60-clienia-ag-pfaffikon",
         "de": "job-coach-50-60-clienia-ag-pfaffikon",
-        "fr": "coach-d-emploi-50-60-clienia-ag-pfaffikon"
+        "fr": "coach-professionnel-50-60-clienia-ag-pfaffikon-zh"
       },
       "company": "Clienia AG",
       "companyKey": "clienia-ag",
@@ -7363,14 +7747,20 @@
         ]
       },
       "previousSlugs": [
-        "job-coach-50-60-clienia-ag-zurich"
+        "job-coach-50-60-clienia-ag-zurich",
+        "coach-del-lavoro-50-60-clienia-ag-pfaffikon",
+        "coach-d-emploi-50-60-clienia-ag-pfaffikon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "job-coach-50-60-clienia-ag-zurich"
+          "job-coach-50-60-clienia-ag-zurich",
+          "coach-del-lavoro-50-60-clienia-ag-pfaffikon"
         ],
         "de": [
           "job-coach-50-60-clienia-ag-zurich"
+        ],
+        "fr": [
+          "coach-d-emploi-50-60-clienia-ag-pfaffikon"
         ]
       },
       "firstSeenAt": "2026-05-19T15:05:55.538Z",
@@ -7481,9 +7871,9 @@
     },
     {
       "id": "clienia-ag-370840fb45ac",
-      "slug": "assistente-a-alla-pratica-medica-60-100-clienia-ag-pfaffikon",
+      "slug": "assistente-medico-personale-di-assistenza-medica-m-f-d-60-100-clienia-ag-pfaffikon-zh",
       "slugByLocale": {
-        "it": "assistente-a-alla-pratica-medica-60-100-clienia-ag-pfaffikon",
+        "it": "assistente-medico-personale-di-assistenza-medica-m-f-d-60-100-clienia-ag-pfaffikon-zh",
         "en": "medical-practice-assistant-60-100-clienia-ag-pfaffikon",
         "de": "medizinische-r-praxisassistent-in-m-w-d-60-100-clienia-ag-pfaffikon",
         "fr": "assistant-e-medical-e-60-100-clienia-ag-pfaffikon"
@@ -7563,11 +7953,13 @@
           "medizinische-r-praxisassistent-in-m-w-d-60-100-clienia-ag-zurich"
         ],
         "it": [
-          "medizinische-r-praxisassistent-in-m-w-d-60-100-clienia-ag-zurich"
+          "medizinische-r-praxisassistent-in-m-w-d-60-100-clienia-ag-zurich",
+          "assistente-a-alla-pratica-medica-60-100-clienia-ag-pfaffikon"
         ]
       },
       "previousSlugs": [
-        "medizinische-r-praxisassistent-in-m-w-d-60-100-clienia-ag-zurich"
+        "medizinische-r-praxisassistent-in-m-w-d-60-100-clienia-ag-zurich",
+        "assistente-a-alla-pratica-medica-60-100-clienia-ag-pfaffikon"
       ],
       "firstSeenAt": "2026-05-19T15:05:53.829Z",
       "salaryMin": 49500,
@@ -7588,9 +7980,9 @@
       "slug": "addetta-aggiustatore-di-valore-e-lavaggio-100-clienia-ag-pfaffikon",
       "slugByLocale": {
         "it": "addetta-aggiustatore-di-valore-e-lavaggio-100-clienia-ag-pfaffikon",
-        "en": "dishwasher-kitchen-maintenance-staff-100-clienia-ag-pfaffikon",
+        "en": "clery-maintenance-dishwashing-staff-100-clienia-ag-pfaffikon-zh",
         "de": "mitarbeiterin-mitarbeiter-werterhaltung-abwasch-100-clienia-ag-pfaffikon",
-        "fr": "employe-e-d-entretien-et-de-lavage-100-seb-clienia-ag-pfaffikon"
+        "fr": "agent-agente-entretien-nettoyage-100-clienia-ag-pfaffikon-zh"
       },
       "company": "Clienia AG",
       "companyKey": "clienia-ag",
@@ -7637,10 +8029,18 @@
         ],
         "it": [
           "mitarbeiterin-mitarbeiter-werterhaltung-abwasch-100-clienia-ag-zurich"
+        ],
+        "en": [
+          "dishwasher-kitchen-maintenance-staff-100-clienia-ag-pfaffikon"
+        ],
+        "fr": [
+          "employe-e-d-entretien-et-de-lavage-100-seb-clienia-ag-pfaffikon"
         ]
       },
       "previousSlugs": [
-        "mitarbeiterin-mitarbeiter-werterhaltung-abwasch-100-clienia-ag-zurich"
+        "mitarbeiterin-mitarbeiter-werterhaltung-abwasch-100-clienia-ag-zurich",
+        "dishwasher-kitchen-maintenance-staff-100-clienia-ag-pfaffikon",
+        "employe-e-d-entretien-et-de-lavage-100-seb-clienia-ag-pfaffikon"
       ],
       "firstSeenAt": "2026-05-19T15:05:52.979Z",
       "salaryMin": 49500,
@@ -7658,12 +8058,12 @@
     },
     {
       "id": "clienia-ag-455fcdb811b2",
-      "slug": "specialista-della-salute-60-80-clienia-ag-pfaffikon",
+      "slug": "esperta-esperto-assistenza-sanitaria-60-80-clienia-ag-pfaffikon-zh",
       "slugByLocale": {
-        "it": "specialista-della-salute-60-80-clienia-ag-pfaffikon",
-        "en": "healthcare-specialist-60-80-clienia-ag-pfaffikon",
+        "it": "esperta-esperto-assistenza-sanitaria-60-80-clienia-ag-pfaffikon-zh",
+        "en": "healthcare-professional-60-80-clienia-ag-pfaffikon-zh",
         "de": "fachfrau-fachmann-gesundheit-60-80-clienia-ag-pfaffikon",
-        "fr": "specialiste-en-sante-60-80-clienia-ag-pfaffikon"
+        "fr": "professionnel-le-de-sante-60-80-clienia-ag-pfaffikon-zh"
       },
       "company": "Clienia AG",
       "companyKey": "clienia-ag",
@@ -7729,11 +8129,21 @@
           "fachfrau-fachmann-gesundheit-60-80-clienia-ag-zurich"
         ],
         "it": [
-          "fachfrau-fachmann-gesundheit-60-80-clienia-ag-zurich"
+          "fachfrau-fachmann-gesundheit-60-80-clienia-ag-zurich",
+          "specialista-della-salute-60-80-clienia-ag-pfaffikon"
+        ],
+        "en": [
+          "healthcare-specialist-60-80-clienia-ag-pfaffikon"
+        ],
+        "fr": [
+          "specialiste-en-sante-60-80-clienia-ag-pfaffikon"
         ]
       },
       "previousSlugs": [
-        "fachfrau-fachmann-gesundheit-60-80-clienia-ag-zurich"
+        "fachfrau-fachmann-gesundheit-60-80-clienia-ag-zurich",
+        "specialista-della-salute-60-80-clienia-ag-pfaffikon",
+        "healthcare-specialist-60-80-clienia-ag-pfaffikon",
+        "specialiste-en-sante-60-80-clienia-ag-pfaffikon"
       ],
       "firstSeenAt": "2026-05-19T15:05:52.129Z",
       "salaryMin": 51500,
@@ -7754,9 +8164,9 @@
       "slug": "diplomata-infermiera-professionale-o-assistente-sociale-hf-fh-m-w-d-60-90-clienia-ag-pfaffikon",
       "slugByLocale": {
         "it": "diplomata-infermiera-professionale-o-assistente-sociale-hf-fh-m-w-d-60-90-clienia-ag-pfaffikon",
-        "en": "diploma-in-nursing-or-social-work-hf-fh-m-f-d-60-90-clienia-ag-pfaffikon",
+        "en": "diploma-nurse-or-social-worker-hf-fh-m-w-d-60-90-clienia-ag-pfaffikon-zh",
         "de": "dipl-pflegefachperson-oder-sozialpadagoge-in-hf-fh-m-w-d-60-90-clienia-ag-pfaffikon",
-        "fr": "diplome-e-en-soins-infirmiers-ou-en-travail-social-hf-fh-m-f-d-60-90-clienia-ag-pfaffikon"
+        "fr": "diplome-e-infirmier-ere-professionnel-le-ou-assistant-e-social-e-hf-fh-m-f-d-60-90-clienia-ag-pfaffikon-zh"
       },
       "company": "Clienia AG",
       "companyKey": "clienia-ag",
@@ -7826,11 +8236,19 @@
         "it": [
           "dipl-pflegefachperson-oder-sozialpadagoge-in-hf-fh-m-w-d-60-90-clienia-ag-zurich",
           "diplomato-a-in-assistenza-infermieristica-o-assistente-sociale-hf-fh-m-f-d-60-90-clienia-ag-pfaffikon"
+        ],
+        "en": [
+          "diploma-in-nursing-or-social-work-hf-fh-m-f-d-60-90-clienia-ag-pfaffikon"
+        ],
+        "fr": [
+          "diplome-e-en-soins-infirmiers-ou-en-travail-social-hf-fh-m-f-d-60-90-clienia-ag-pfaffikon"
         ]
       },
       "previousSlugs": [
         "dipl-pflegefachperson-oder-sozialpadagoge-in-hf-fh-m-w-d-60-90-clienia-ag-zurich",
-        "diplomato-a-in-assistenza-infermieristica-o-assistente-sociale-hf-fh-m-f-d-60-90-clienia-ag-pfaffikon"
+        "diplomato-a-in-assistenza-infermieristica-o-assistente-sociale-hf-fh-m-f-d-60-90-clienia-ag-pfaffikon",
+        "diploma-in-nursing-or-social-work-hf-fh-m-f-d-60-90-clienia-ag-pfaffikon",
+        "diplome-e-en-soins-infirmiers-ou-en-travail-social-hf-fh-m-f-d-60-90-clienia-ag-pfaffikon"
       ],
       "firstSeenAt": "2026-05-19T15:05:51.282Z",
       "salaryMin": 49500,
@@ -7848,12 +8266,12 @@
     },
     {
       "id": "clienia-ag-b241426cb2ca",
-      "slug": "specialista-della-salute-m-f-d-80-clienia-ag-pfaffikon",
+      "slug": "assistente-sanitaria-m-f-d-80-clienia-ag-pfaffikon-zh",
       "slugByLocale": {
-        "it": "specialista-della-salute-m-f-d-80-clienia-ag-pfaffikon",
+        "it": "assistente-sanitaria-m-f-d-80-clienia-ag-pfaffikon-zh",
         "en": "healthcare-professional-m-f-d-80-clienia-ag-pfaffikon",
         "de": "fachperson-gesundheit-m-w-d-80-clienia-ag-pfaffikon",
-        "fr": "specialiste-de-la-sante-m-f-d-80-clienia-ag-pfaffikon"
+        "fr": "professionnel-le-de-sante-m-f-x-80-clienia-ag-pfaffikon-zh"
       },
       "company": "Clienia AG",
       "companyKey": "clienia-ag",
@@ -7930,11 +8348,17 @@
           "fachperson-gesundheit-m-w-d-80-clienia-ag-zurich"
         ],
         "it": [
-          "fachperson-gesundheit-m-w-d-80-clienia-ag-zurich"
+          "fachperson-gesundheit-m-w-d-80-clienia-ag-zurich",
+          "specialista-della-salute-m-f-d-80-clienia-ag-pfaffikon"
+        ],
+        "fr": [
+          "specialiste-de-la-sante-m-f-d-80-clienia-ag-pfaffikon"
         ]
       },
       "previousSlugs": [
-        "fachperson-gesundheit-m-w-d-80-clienia-ag-zurich"
+        "fachperson-gesundheit-m-w-d-80-clienia-ag-zurich",
+        "specialista-della-salute-m-f-d-80-clienia-ag-pfaffikon",
+        "specialiste-de-la-sante-m-f-d-80-clienia-ag-pfaffikon"
       ],
       "firstSeenAt": "2026-05-19T15:05:50.432Z",
       "salaryMin": 51500,
@@ -7952,9 +8376,9 @@
     },
     {
       "id": "clienia-ag-91cdb432f6fe",
-      "slug": "segretaria-o-di-studio-medico-80-100-clienia-ag-pfaffikon",
+      "slug": "segretaria-medica-80-100-clienia-ag-pfaffikon-zh",
       "slugByLocale": {
-        "it": "segretaria-o-di-studio-medico-80-100-clienia-ag-pfaffikon",
+        "it": "segretaria-medica-80-100-clienia-ag-pfaffikon-zh",
         "en": "medical-secretary-80-100-clienia-ag-pfaffikon",
         "de": "arztsekretarin-arztsekretar-80-100-clienia-ag-pfaffikon",
         "fr": "secretaire-medical-e-80-100-clienia-ag-pfaffikon"
@@ -8034,11 +8458,13 @@
           "arztsekretarin-arztsekretar-80-100-clienia-ag-zurich"
         ],
         "it": [
-          "arztsekretarin-arztsekretar-80-100-clienia-ag-zurich"
+          "arztsekretarin-arztsekretar-80-100-clienia-ag-zurich",
+          "segretaria-o-di-studio-medico-80-100-clienia-ag-pfaffikon"
         ]
       },
       "previousSlugs": [
-        "arztsekretarin-arztsekretar-80-100-clienia-ag-zurich"
+        "arztsekretarin-arztsekretar-80-100-clienia-ag-zurich",
+        "segretaria-o-di-studio-medico-80-100-clienia-ag-pfaffikon"
       ],
       "firstSeenAt": "2026-05-19T15:05:49.582Z",
       "salaryMin": 49500,
@@ -8056,9 +8482,9 @@
     },
     {
       "id": "clienia-ag-cc011ce024d0",
-      "slug": "dipl-infermiere-a-hf-fh-vice-direttore-di-stazione-80-100-clienia-ag-pfaffikon",
+      "slug": "diplomata-infermiera-di-alta-formazione-hf-fh-vicecapo-servizio-80-100-clienia-ag-pfaffikon-zh",
       "slugByLocale": {
-        "it": "dipl-infermiere-a-hf-fh-vice-direttore-di-stazione-80-100-clienia-ag-pfaffikon",
+        "it": "diplomata-infermiera-di-alta-formazione-hf-fh-vicecapo-servizio-80-100-clienia-ag-pfaffikon-zh",
         "en": "dipl-pflegefachperson-hf-fh-stv-stationsleitung-80-100-clienia-ag-pfaffikon",
         "de": "dipl-pflegefachperson-hf-fh-stv-stationsleitung-80-100-clienia-ag-pfaffikon",
         "fr": "diplome-e-en-soins-infirmiers-hf-fh-adjoint-e-de-chef-de-service-80-100-clienia-ag-pfaffikon"
@@ -8110,11 +8536,13 @@
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-fh-stv-stationsleitung-80-100-clienia-ag-zurich"
+        "dipl-pflegefachperson-hf-fh-stv-stationsleitung-80-100-clienia-ag-zurich",
+        "dipl-infermiere-a-hf-fh-vice-direttore-di-stazione-80-100-clienia-ag-pfaffikon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-hf-fh-stv-stationsleitung-80-100-clienia-ag-zurich"
+          "dipl-pflegefachperson-hf-fh-stv-stationsleitung-80-100-clienia-ag-zurich",
+          "dipl-infermiere-a-hf-fh-vice-direttore-di-stazione-80-100-clienia-ag-pfaffikon"
         ],
         "de": [
           "dipl-pflegefachperson-hf-fh-stv-stationsleitung-80-100-clienia-ag-zurich"
@@ -8141,7 +8569,7 @@
         "it": "diplomata-infermiera-professionale-hf-fh-m-w-d-70-90-clienia-ag-pfaffikon",
         "en": "dip-pflegefachperson-hf-fh-m-w-d-70-90-clienia-ag-pfaffikon",
         "de": "dip-pflegefachperson-hf-fh-m-w-d-70-90-clienia-ag-pfaffikon",
-        "fr": "diplome-e-en-soins-infirmiers-hf-fh-h-f-70-90-clienia-ag-pfaffikon"
+        "fr": "diplome-e-infirmier-ere-professionnel-le-hf-fh-m-w-d-70-90-clienia-ag-pfaffikon-zh"
       },
       "company": "Clienia AG",
       "companyKey": "clienia-ag",
@@ -8206,7 +8634,8 @@
       },
       "previousSlugs": [
         "dip-pflegefachperson-hf-fh-m-w-d-70-90-clienia-ag-zurich",
-        "diplomato-a-in-assistenza-infermieristica-hf-fh-m-f-d-70-90-clienia-ag-pfaffikon"
+        "diplomato-a-in-assistenza-infermieristica-hf-fh-m-f-d-70-90-clienia-ag-pfaffikon",
+        "diplome-e-en-soins-infirmiers-hf-fh-h-f-70-90-clienia-ag-pfaffikon"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -8215,6 +8644,9 @@
         ],
         "de": [
           "dip-pflegefachperson-hf-fh-m-w-d-70-90-clienia-ag-zurich"
+        ],
+        "fr": [
+          "diplome-e-en-soins-infirmiers-hf-fh-h-f-70-90-clienia-ag-pfaffikon"
         ]
       },
       "firstSeenAt": "2026-05-19T15:05:47.015Z",
@@ -8238,7 +8670,7 @@
         "it": "diplomata-infermiera-professionale-hf-fh-notturno-50-80-clienia-ag-pfaffikon",
         "en": "dipl-pflegefachperson-hf-fh-im-nachtdienst-m-w-d-50-80-clienia-ag-pfaffikon",
         "de": "dipl-pflegefachperson-hf-fh-im-nachtdienst-m-w-d-50-80-clienia-ag-pfaffikon",
-        "fr": "diplome-e-en-soins-infirmiers-hf-hes-en-service-de-nuit-m-f-d-50-80-clienia-ag-pfaffikon"
+        "fr": "diplome-e-infirmier-ere-professionnel-le-hf-fh-en-service-de-soins-de-nuit-50-80-clienia-ag-pfaffikon-zh"
       },
       "company": "Clienia AG",
       "companyKey": "clienia-ag",
@@ -8308,7 +8740,8 @@
       },
       "previousSlugs": [
         "dipl-pflegefachperson-hf-fh-im-nachtdienst-m-w-d-50-80-clienia-ag-zurich",
-        "diplomato-a-della-cura-infermieristica-hf-fh-nel-turno-di-notte-m-f-d-50-80-clienia-ag-pfaffikon"
+        "diplomato-a-della-cura-infermieristica-hf-fh-nel-turno-di-notte-m-f-d-50-80-clienia-ag-pfaffikon",
+        "diplome-e-en-soins-infirmiers-hf-hes-en-service-de-nuit-m-f-d-50-80-clienia-ag-pfaffikon"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -8317,6 +8750,9 @@
         ],
         "de": [
           "dipl-pflegefachperson-hf-fh-im-nachtdienst-m-w-d-50-80-clienia-ag-zurich"
+        ],
+        "fr": [
+          "diplome-e-en-soins-infirmiers-hf-hes-en-service-de-nuit-m-f-d-50-80-clienia-ag-pfaffikon"
         ]
       },
       "firstSeenAt": "2026-05-19T15:05:46.162Z",
@@ -8335,9 +8771,9 @@
     },
     {
       "id": "clienia-ag-a389cabefc86",
-      "slug": "infermiere-diplomata-hf-fh-nel-turno-di-notte-m-f-d-70-clienia-ag-pfaffikon",
+      "slug": "diplomata-infermiera-professionale-con-diploma-federale-m-f-d-70-turno-notturno-clienia-ag-pfaffikon-zh",
       "slugByLocale": {
-        "it": "infermiere-diplomata-hf-fh-nel-turno-di-notte-m-f-d-70-clienia-ag-pfaffikon",
+        "it": "diplomata-infermiera-professionale-con-diploma-federale-m-f-d-70-turno-notturno-clienia-ag-pfaffikon-zh",
         "en": "dipl-pflegefachperson-hf-fh-im-nachtdienst-m-w-d-70-clienia-ag-pfaffikon",
         "de": "dipl-pflegefachperson-hf-fh-im-nachtdienst-m-w-d-70-clienia-ag-pfaffikon",
         "fr": "infirmier-diplome-hf-fh-en-service-de-nuit-h-f-70-clienia-ag-pfaffikon"
@@ -8403,11 +8839,13 @@
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-fh-im-nachtdienst-m-w-d-70-clienia-ag-zurich"
+        "dipl-pflegefachperson-hf-fh-im-nachtdienst-m-w-d-70-clienia-ag-zurich",
+        "infermiere-diplomata-hf-fh-nel-turno-di-notte-m-f-d-70-clienia-ag-pfaffikon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-hf-fh-im-nachtdienst-m-w-d-70-clienia-ag-zurich"
+          "dipl-pflegefachperson-hf-fh-im-nachtdienst-m-w-d-70-clienia-ag-zurich",
+          "infermiere-diplomata-hf-fh-nel-turno-di-notte-m-f-d-70-clienia-ag-pfaffikon"
         ],
         "de": [
           "dipl-pflegefachperson-hf-fh-im-nachtdienst-m-w-d-70-clienia-ag-zurich"

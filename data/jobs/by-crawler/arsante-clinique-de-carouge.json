@@ -157,9 +157,9 @@
     },
     {
       "id": "arsante-clinique-de-carouge-6b5a4037b33c",
-      "slug": "apprenti-e-assistant-e-medical-e-arsante-clinique-de-carouge-carouge",
+      "slug": "apprendista-assistente-medico-arsante-clinique-de-carouge-apprenti-e-assistant-e-medical-e-carouge",
       "slugByLocale": {
-        "it": "apprenti-e-assistant-e-medical-e-arsante-clinique-de-carouge-carouge",
+        "it": "apprendista-assistente-medico-arsante-clinique-de-carouge-apprenti-e-assistant-e-medical-e-carouge",
         "en": "medical-assistant-apprentice-arsante-clinique-de-carouge-apprenti-e-assistant-e-medical-e-carouge",
         "de": "medizinische-r-assistent-in-lehrling-arsante-clinique-de-carouge-apprenti-e-assistant-e-medical-e-carouge",
         "fr": "apprenti-e-assistant-e-medical-e-arsante-clinique-de-carouge-carouge"
@@ -232,7 +232,15 @@
           "maxValue": 63000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "apprenti-e-assistant-e-medical-e-arsante-clinique-de-carouge-carouge"
+        ]
+      },
+      "previousSlugs": [
+        "apprenti-e-assistant-e-medical-e-arsante-clinique-de-carouge-carouge"
+      ]
     },
     {
       "id": "arsante-clinique-de-carouge-0abae27110ab",

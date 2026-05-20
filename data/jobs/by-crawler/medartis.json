@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "medartis-bb1513c7d9ce",
-      "slug": "group-manager-affari-regolatori-100-medartis-basel",
+      "slug": "responsabile-regulatory-affairs-gruppo-medartis-basel",
       "slugByLocale": {
-        "it": "group-manager-affari-regolatori-100-medartis-basel",
+        "it": "responsabile-regulatory-affairs-gruppo-medartis-basel",
         "en": "group-manager-regulatory-affairs-100-medartis-basel",
         "de": "gruppenleiter-regulatory-affairs-100-medartis-basel",
-        "fr": "responsable-d-equipe-affaires-reglementaires-100-medartis-basel"
+        "fr": "responsable-reglementaire-groupe-medartis-basel"
       },
       "company": "Medartis",
       "companyKey": "medartis",
@@ -87,11 +87,17 @@
           "group-manager-regulatory-affairs-100-medartis-basel"
         ],
         "it": [
-          "group-manager-regulatory-affairs-100-medartis-basel"
+          "group-manager-regulatory-affairs-100-medartis-basel",
+          "group-manager-affari-regolatori-100-medartis-basel"
+        ],
+        "fr": [
+          "responsable-d-equipe-affaires-reglementaires-100-medartis-basel"
         ]
       },
       "previousSlugs": [
-        "group-manager-regulatory-affairs-100-medartis-basel"
+        "group-manager-regulatory-affairs-100-medartis-basel",
+        "group-manager-affari-regolatori-100-medartis-basel",
+        "responsable-d-equipe-affaires-reglementaires-100-medartis-basel"
       ],
       "firstSeenAt": "2026-05-19T19:53:25.039Z",
       "salaryMin": 68000,
@@ -205,7 +211,7 @@
         "it": "responsabile-affari-regolatori-100-medartis-basel",
         "en": "regulatory-affairs-manager-100-medartis-basel",
         "de": "regulatory-affairs-managerin-medartis-basel",
-        "fr": "manager-affaires-reglementaires-medartis-basel"
+        "fr": "responsable-des-affaires-reglementaires-a-100-medartis-basel"
       },
       "company": "Medartis",
       "companyKey": "medartis",
@@ -284,10 +290,14 @@
         ],
         "it": [
           "regulatory-affairs-manager-100-medartis-basel"
+        ],
+        "fr": [
+          "manager-affaires-reglementaires-medartis-basel"
         ]
       },
       "previousSlugs": [
-        "regulatory-affairs-manager-100-medartis-basel"
+        "regulatory-affairs-manager-100-medartis-basel",
+        "manager-affaires-reglementaires-medartis-basel"
       ],
       "firstSeenAt": "2026-05-19T19:53:24.067Z",
       "salaryMin": 68000,
@@ -305,12 +315,12 @@
     },
     {
       "id": "medartis-0963ad27118e",
-      "slug": "apprendistato-come-polimeccanico-a-efz-medartis-basel",
+      "slug": "apprendistato-come-polymechaniker-in-cfc-medartis-basel",
       "slugByLocale": {
-        "it": "apprendistato-come-polimeccanico-a-efz-medartis-basel",
-        "en": "apprenticeship-as-a-polymechanic-efz-medartis-basel",
+        "it": "apprendistato-come-polymechaniker-in-cfc-medartis-basel",
+        "en": "apprenticeship-as-mechanical-engineer-efz-medartis-basel",
         "de": "lehrstelle-als-polymechaniker-in-efz-medartis-basel",
-        "fr": "apprentissage-en-tant-que-polytechnicien-efz-medartis-basel"
+        "fr": "apprentissage-en-technicien-ne-polyvalent-e-en-mecanique-efz-medartis-basel"
       },
       "company": "Medartis",
       "companyKey": "medartis",
@@ -384,11 +394,21 @@
         ]
       },
       "previousSlugs": [
-        "lehrstelle-als-polymechaniker-in-efz-medartis-basel"
+        "lehrstelle-als-polymechaniker-in-efz-medartis-basel",
+        "apprendistato-come-polimeccanico-a-efz-medartis-basel",
+        "apprenticeship-as-a-polymechanic-efz-medartis-basel",
+        "apprentissage-en-tant-que-polytechnicien-efz-medartis-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-polymechaniker-in-efz-medartis-basel"
+          "lehrstelle-als-polymechaniker-in-efz-medartis-basel",
+          "apprendistato-come-polimeccanico-a-efz-medartis-basel"
+        ],
+        "en": [
+          "apprenticeship-as-a-polymechanic-efz-medartis-basel"
+        ],
+        "fr": [
+          "apprentissage-en-tant-que-polytechnicien-efz-medartis-basel"
         ]
       },
       "firstSeenAt": "2026-05-19T19:53:23.610Z",
@@ -407,12 +427,12 @@
     },
     {
       "id": "medartis-c356649c50c7",
-      "slug": "addetto-a-alla-produzione-in-ambiente-pulito-medartis-basel",
+      "slug": "operatore-operatrice-di-laboratorio-sterile-medartis-basel",
       "slugByLocale": {
-        "it": "addetto-a-alla-produzione-in-ambiente-pulito-medartis-basel",
-        "en": "clean-room-production-worker-medartis-basel",
+        "it": "operatore-operatrice-di-laboratorio-sterile-medartis-basel",
+        "en": "cleanroom-operator-medartis-basel",
         "de": "produktionsmitarbeiter-in-reinraum-medartis-basel",
-        "fr": "travailleur-de-production-en-salle-blanche-medartis-basel"
+        "fr": "operateur-operatrice-en-chambre-sterile-medartis-basel"
       },
       "company": "Medartis",
       "companyKey": "medartis",
@@ -474,11 +494,21 @@
         ]
       },
       "previousSlugs": [
-        "produktionsmitarbeiter-in-reinraum-medartis-basel"
+        "produktionsmitarbeiter-in-reinraum-medartis-basel",
+        "addetto-a-alla-produzione-in-ambiente-pulito-medartis-basel",
+        "clean-room-production-worker-medartis-basel",
+        "travailleur-de-production-en-salle-blanche-medartis-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "produktionsmitarbeiter-in-reinraum-medartis-basel"
+          "produktionsmitarbeiter-in-reinraum-medartis-basel",
+          "addetto-a-alla-produzione-in-ambiente-pulito-medartis-basel"
+        ],
+        "en": [
+          "clean-room-production-worker-medartis-basel"
+        ],
+        "fr": [
+          "travailleur-de-production-en-salle-blanche-medartis-basel"
         ]
       },
       "firstSeenAt": "2026-05-19T19:53:23.220Z",
@@ -602,12 +632,12 @@
     },
     {
       "id": "medartis-75aff997a808",
-      "slug": "tirocinio-hr-medartis-basel",
+      "slug": "risorse-umane-praktikum-medartis-basel",
       "slugByLocale": {
-        "it": "tirocinio-hr-medartis-basel",
+        "it": "risorse-umane-praktikum-medartis-basel",
         "en": "hr-internship-medartis-basel",
         "de": "hr-praktikum-medartis-basel",
-        "fr": "stage-rh-medartis-basel"
+        "fr": "ressources-humaines-praktikum-medartis-basel"
       },
       "company": "Medartis",
       "companyKey": "medartis",
@@ -671,11 +701,17 @@
         ]
       },
       "previousSlugs": [
-        "hr-praktikum-medartis-basel"
+        "hr-praktikum-medartis-basel",
+        "tirocinio-hr-medartis-basel",
+        "stage-rh-medartis-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "hr-praktikum-medartis-basel"
+          "hr-praktikum-medartis-basel",
+          "tirocinio-hr-medartis-basel"
+        ],
+        "fr": [
+          "stage-rh-medartis-basel"
         ]
       },
       "firstSeenAt": "2026-05-19T19:53:22.272Z",
@@ -1187,9 +1223,9 @@
     },
     {
       "id": "medartis-05c55927443c",
-      "slug": "specialista-di-vendita-clinica-romandie-medartis-basel",
+      "slug": "clinical-sales-specialista-romandie-medartis-basel",
       "slugByLocale": {
-        "it": "specialista-di-vendita-clinica-romandie-medartis-basel",
+        "it": "clinical-sales-specialista-romandie-medartis-basel",
         "en": "clinical-sales-specialist-romandie-medartis-basel",
         "de": "klinischer-vertriebsmitarbeiter-romandie-medartis-basel",
         "fr": "specialiste-des-ventes-cliniques-romandie-medartis-basel"
@@ -1269,12 +1305,14 @@
           "klinische-verkaufsspezialistin-romandie-medartis-basel"
         ],
         "it": [
-          "clinical-sales-specialist-romandie-medartis-basel"
+          "clinical-sales-specialist-romandie-medartis-basel",
+          "specialista-di-vendita-clinica-romandie-medartis-basel"
         ]
       },
       "previousSlugs": [
         "clinical-sales-specialist-romandie-medartis-basel",
-        "klinische-verkaufsspezialistin-romandie-medartis-basel"
+        "klinische-verkaufsspezialistin-romandie-medartis-basel",
+        "specialista-di-vendita-clinica-romandie-medartis-basel"
       ],
       "firstSeenAt": "2026-05-19T19:53:19.373Z",
       "salaryMin": 49500,
@@ -1292,12 +1330,12 @@
     },
     {
       "id": "medartis-a07977926bcd",
-      "slug": "responsabile-della-validazione-del-sistema-informatico-100-medartis-basel",
+      "slug": "responsabile-validazione-sistemi-informatici-100-medartis-basel",
       "slugByLocale": {
-        "it": "responsabile-della-validazione-del-sistema-informatico-100-medartis-basel",
+        "it": "responsabile-validazione-sistemi-informatici-100-medartis-basel",
         "en": "computer-system-validation-manager-100-medartis-basel",
         "de": "computersystem-validierungs-manager-100-medartis-basel",
-        "fr": "responsable-de-la-validation-du-systeme-informatique-100-medartis-basel"
+        "fr": "responsable-de-validation-des-systemes-informatiques-100-medartis-basel"
       },
       "company": "Medartis",
       "companyKey": "medartis",
@@ -1375,11 +1413,17 @@
           "computer-system-validation-manager-100-medartis-basel"
         ],
         "it": [
-          "computer-system-validation-manager-100-medartis-basel"
+          "computer-system-validation-manager-100-medartis-basel",
+          "responsabile-della-validazione-del-sistema-informatico-100-medartis-basel"
+        ],
+        "fr": [
+          "responsable-de-la-validation-du-systeme-informatique-100-medartis-basel"
         ]
       },
       "previousSlugs": [
-        "computer-system-validation-manager-100-medartis-basel"
+        "computer-system-validation-manager-100-medartis-basel",
+        "responsabile-della-validazione-del-sistema-informatico-100-medartis-basel",
+        "responsable-de-la-validation-du-systeme-informatique-100-medartis-basel"
       ],
       "firstSeenAt": "2026-05-19T19:53:18.881Z",
       "salaryMin": 79500,

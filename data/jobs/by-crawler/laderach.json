@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "laderach-33c0f2a3007e",
-      "slug": "wochenendaushilfe-20-40-chocolaterie-landquart-laderach-landquart",
+      "slug": "aiuto-weekend-20-40-chocolaterie-landquart-laderach-schweiz-ag-landquart",
       "slugByLocale": {
         "de": "wochenendaushilfe-20-40-chocolaterie-landquart-laderach-landquart",
-        "it": "wochenendaushilfe-20-40-chocolaterie-landquart-laderach-landquart",
-        "en": "wochenendaushilfe-20-40-chocolaterie-landquart-laderach-landquart",
-        "fr": "wochenendaushilfe-20-40-chocolaterie-landquart-laderach-landquart"
+        "it": "aiuto-weekend-20-40-chocolaterie-landquart-laderach-schweiz-ag-landquart",
+        "en": "weekend-assistant-20-40-chocolaterie-landquart-laderach-schweiz-ag-landquart",
+        "fr": "assistant-weekend-20-40-chocolaterie-landquart-laderach-schweiz-ag-landquart"
       },
       "company": "Läderach (Schweiz) AG",
       "companyKey": "laderach",
@@ -59,7 +59,21 @@
         }
       },
       "postalCode": "7302",
-      "firstSeenAt": "2026-05-19T12:06:41.532Z"
+      "firstSeenAt": "2026-05-19T12:06:41.532Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "wochenendaushilfe-20-40-chocolaterie-landquart-laderach-landquart"
+        ],
+        "en": [
+          "wochenendaushilfe-20-40-chocolaterie-landquart-laderach-landquart"
+        ],
+        "fr": [
+          "wochenendaushilfe-20-40-chocolaterie-landquart-laderach-landquart"
+        ]
+      },
+      "previousSlugs": [
+        "wochenendaushilfe-20-40-chocolaterie-landquart-laderach-landquart"
+      ]
     },
     {
       "id": "laderach-7e0a2691cb01",

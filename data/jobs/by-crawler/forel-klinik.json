@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "forel-klinik-77e386636f17",
-      "slug": "psychotherapeut-in-m-w-d-80-forel-klinik-ellikon-an-der-thur",
+      "slug": "psicoterapeuta-m-f-d-80-forel-klinik-ellikon-an-der-thur",
       "slugByLocale": {
-        "it": "psychotherapeut-in-m-w-d-80-forel-klinik-ellikon-an-der-thur",
+        "it": "psicoterapeuta-m-f-d-80-forel-klinik-ellikon-an-der-thur",
         "en": "psychotherapeut-in-m-w-d-80-forel-klinik-ellikon-an-der-thur",
         "de": "psychotherapeut-in-m-w-d-80-forel-klinik-ellikon-an-der-thur",
-        "fr": "psychotherapeut-in-m-w-d-80-forel-klinik-ellikon-an-der-thur"
+        "fr": "psychotherapeute-h-f-d-80-forel-klinik-ellikon-an-der-thur"
       },
       "company": "Forel Klinik",
       "companyKey": "forel-klinik",
@@ -81,7 +81,18 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "psychotherapeut-in-m-w-d-80-forel-klinik-ellikon-an-der-thur"
+        ],
+        "fr": [
+          "psychotherapeut-in-m-w-d-80-forel-klinik-ellikon-an-der-thur"
+        ]
+      },
+      "previousSlugs": [
+        "psychotherapeut-in-m-w-d-80-forel-klinik-ellikon-an-der-thur"
+      ]
     },
     {
       "id": "forel-klinik-d5516e54fa3f",

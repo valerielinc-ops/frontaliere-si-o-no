@@ -271,11 +271,11 @@
     },
     {
       "id": "octapharma-43a516573720",
-      "slug": "servizio-clienti-specialisti-associati-di-gruppo-octapharma-lachen",
+      "slug": "group-associate-specialista-servizio-clienti-octapharma-lachen",
       "slugByLocale": {
-        "it": "servizio-clienti-specialisti-associati-di-gruppo-octapharma-lachen",
+        "it": "group-associate-specialista-servizio-clienti-octapharma-lachen",
         "en": "group-associate-specialist-customer-service-octapharma-lachen",
-        "de": "group-associate-specialist-kundenservice-octapharma-lachen",
+        "de": "group-associate-spezialist-kundendienst-octapharma-lachen",
         "fr": "group-associate-specialiste-service-client-octapharma-lachen"
       },
       "company": "Octapharma",
@@ -324,14 +324,20 @@
         ]
       },
       "previousSlugs": [
-        "group-associate-specialist-customer-service-octapharma-lachen"
+        "group-associate-specialist-customer-service-octapharma-lachen",
+        "servizio-clienti-specialisti-associati-di-gruppo-octapharma-lachen",
+        "group-associate-specialist-kundenservice-octapharma-lachen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "group-associate-specialist-customer-service-octapharma-lachen"
+          "group-associate-specialist-customer-service-octapharma-lachen",
+          "servizio-clienti-specialisti-associati-di-gruppo-octapharma-lachen"
         ],
         "fr": [
           "group-associate-specialist-customer-service-octapharma-lachen"
+        ],
+        "de": [
+          "group-associate-specialist-kundenservice-octapharma-lachen"
         ]
       },
       "firstSeenAt": "2026-05-19T19:53:24.731Z",

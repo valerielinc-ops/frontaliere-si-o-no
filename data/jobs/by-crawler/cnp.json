@@ -1605,10 +1605,10 @@
     },
     {
       "id": "cnp-5ac1f21d1b62",
-      "slug": "medico-capo-clinica-tca-centre-neuchatelois-de-psychiatrie-cnp-neuchatel",
+      "slug": "clinical-medical-officer-tca-centre-neuchatelois-de-psychiatrie-cnp-neuchatel",
       "slugByLocale": {
         "fr": "medecin-chef-fe-de-clinique-tca-cnp-neuchatel",
-        "it": "medico-capo-clinica-tca-centre-neuchatelois-de-psychiatrie-cnp-neuchatel",
+        "it": "clinical-medical-officer-tca-centre-neuchatelois-de-psychiatrie-cnp-neuchatel",
         "en": "chief-medical-officer-tca-centre-neuchatelois-de-psychiatrie-cnp-neuchatel",
         "de": "chefarzt-arztin-der-klinik-tca-centre-neuchatelois-de-psychiatrie-cnp-neuchatel"
       },
@@ -1685,11 +1685,13 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "medecin-chef-fe-de-clinique-tca-cnp-neuchatel"
+          "medecin-chef-fe-de-clinique-tca-cnp-neuchatel",
+          "medico-capo-clinica-tca-centre-neuchatelois-de-psychiatrie-cnp-neuchatel"
         ]
       },
       "previousSlugs": [
-        "medecin-chef-fe-de-clinique-tca-cnp-neuchatel"
+        "medecin-chef-fe-de-clinique-tca-cnp-neuchatel",
+        "medico-capo-clinica-tca-centre-neuchatelois-de-psychiatrie-cnp-neuchatel"
       ],
       "salaryMin": 68000,
       "salaryMax": 103000,

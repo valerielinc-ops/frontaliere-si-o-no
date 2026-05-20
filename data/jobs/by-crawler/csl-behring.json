@@ -455,8 +455,8 @@
       "slugByLocale": {
         "it": "senior-biostatistician-csl-behring-ch",
         "en": "senior-biostatistician-csl-behring-ch",
-        "de": "senior-biostatistics-csl-behring-glattbrugg",
-        "fr": "statisticien-senior-csl-behring-glattbrugg"
+        "de": "leitender-biostatistiker-csl-behring-glattbrugg",
+        "fr": "biostatisticien-principal-csl-behring-glattbrugg"
       },
       "company": "CSL Behring",
       "companyKey": "csl-behring",
@@ -542,7 +542,19 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8001"
+      "postalCode": "8001",
+      "previousSlugsByLocale": {
+        "de": [
+          "senior-biostatistics-csl-behring-glattbrugg"
+        ],
+        "fr": [
+          "statisticien-senior-csl-behring-glattbrugg"
+        ]
+      },
+      "previousSlugs": [
+        "senior-biostatistics-csl-behring-glattbrugg",
+        "statisticien-senior-csl-behring-glattbrugg"
+      ]
     },
     {
       "id": "csl-behring-dfa90797345e",
@@ -637,8 +649,8 @@
       "slugByLocale": {
         "it": "responsabile-sicurezza-globale-sicurezza-della-formulazione-csl-behring-bern",
         "en": "global-safety-lead-formulation-safety-csl-behring-ch",
-        "de": "globaler-sicherheitsleiter-formulierungssicherheit-csl-behring-bern",
-        "fr": "responsable-de-la-securite-mondiale-securite-de-la-formulation-csl-behring-bern"
+        "de": "globaler-sicherheitsleiter-formulierungs-sicherheit-csl-behring-bern",
+        "fr": "responsable-mondial-de-la-securite-securite-des-formulations-csl-behring-bern"
       },
       "company": "CSL Behring",
       "companyKey": "csl-behring",
@@ -681,11 +693,19 @@
       "requirementsByLocale": {},
       "jobReqId": "Regular",
       "previousSlugs": [
-        "global-safety-lead-formulation-safety-csl-behring-ch"
+        "global-safety-lead-formulation-safety-csl-behring-ch",
+        "globaler-sicherheitsleiter-formulierungssicherheit-csl-behring-bern",
+        "responsable-de-la-securite-mondiale-securite-de-la-formulation-csl-behring-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "global-safety-lead-formulation-safety-csl-behring-ch"
+        ],
+        "de": [
+          "globaler-sicherheitsleiter-formulierungssicherheit-csl-behring-bern"
+        ],
+        "fr": [
+          "responsable-de-la-securite-mondiale-securite-de-la-formulation-csl-behring-bern"
         ]
       },
       "firstSeenAt": "2026-05-19T17:19:01.122Z",
@@ -1012,12 +1032,12 @@
     },
     {
       "id": "csl-behring-14eef3c573e9",
-      "slug": "responsabile-di-servizi-integrati-di-facility-operazioni-csl-behring-bern",
+      "slug": "responsabile-dei-servizi-integrati-di-struttura-e-operativi-csl-behring-bern",
       "slugByLocale": {
-        "it": "responsabile-di-servizi-integrati-di-facility-operazioni-csl-behring-bern",
+        "it": "responsabile-dei-servizi-integrati-di-struttura-e-operativi-csl-behring-bern",
         "en": "head-of-integrated-facility-operations-services-csl-behring-ch",
         "de": "leiter-fur-integrierte-facility-betriebsservices-csl-behring-bern",
-        "fr": "directeur-des-services-integres-de-facility-operations-csl-behring-bern"
+        "fr": "responsable-des-services-integres-d-installation-et-d-exploitation-csl-behring-bern"
       },
       "company": "CSL Behring",
       "companyKey": "csl-behring",
@@ -1091,11 +1111,17 @@
       },
       "jobReqId": "Regular",
       "previousSlugs": [
-        "head-of-integrated-facility-operations-services-csl-behring-ch"
+        "head-of-integrated-facility-operations-services-csl-behring-ch",
+        "responsabile-di-servizi-integrati-di-facility-operazioni-csl-behring-bern",
+        "directeur-des-services-integres-de-facility-operations-csl-behring-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "head-of-integrated-facility-operations-services-csl-behring-ch"
+          "head-of-integrated-facility-operations-services-csl-behring-ch",
+          "responsabile-di-servizi-integrati-di-facility-operazioni-csl-behring-bern"
+        ],
+        "fr": [
+          "directeur-des-services-integres-de-facility-operations-csl-behring-bern"
         ]
       },
       "firstSeenAt": "2026-05-19T17:18:58.256Z",
@@ -1673,8 +1699,8 @@
       "slugByLocale": {
         "it": "programmatore-principale-oversight-dei-dati-e-standard-csl-behring-bern",
         "en": "principal-programmer-data-oversight-standards-csl-behring-ch",
-        "de": "principal-programmierer-datenuberwachung-und-standards-csl-behring-bern",
-        "fr": "principal-programmer-surveillance-des-donnees-et-normes-csl-behring-bern"
+        "de": "principal-programmer-datenaufsicht-standards-csl-behring-bern",
+        "fr": "programmeur-principal-supervision-des-donnees-et-normes-csl-behring-bern"
       },
       "company": "CSL Behring",
       "companyKey": "csl-behring",
@@ -1748,11 +1774,19 @@
       },
       "jobReqId": "Regular",
       "previousSlugs": [
-        "principal-programmer-data-oversight-standards-csl-behring-ch"
+        "principal-programmer-data-oversight-standards-csl-behring-ch",
+        "principal-programmierer-datenuberwachung-und-standards-csl-behring-bern",
+        "principal-programmer-surveillance-des-donnees-et-normes-csl-behring-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "principal-programmer-data-oversight-standards-csl-behring-ch"
+        ],
+        "de": [
+          "principal-programmierer-datenuberwachung-und-standards-csl-behring-bern"
+        ],
+        "fr": [
+          "principal-programmer-surveillance-des-donnees-et-normes-csl-behring-bern"
         ]
       },
       "firstSeenAt": "2026-05-19T17:18:53.363Z",
@@ -1777,7 +1811,7 @@
         "it": "scienziato-senior-tech-ops-csl-behring-bern",
         "en": "senior-scientist-tech-ops-csl-behring-ch",
         "de": "senior-wissenschaftler-tech-ops-csl-behring-bern",
-        "fr": "scientifique-principal-operations-techniques-csl-behring-bern"
+        "fr": "scientifique-principal-tech-ops-csl-behring-bern"
       },
       "company": "CSL Behring",
       "companyKey": "csl-behring",
@@ -1836,11 +1870,15 @@
       },
       "jobReqId": "Regular",
       "previousSlugs": [
-        "senior-scientist-tech-ops-csl-behring-ch"
+        "senior-scientist-tech-ops-csl-behring-ch",
+        "scientifique-principal-operations-techniques-csl-behring-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "senior-scientist-tech-ops-csl-behring-ch"
+        ],
+        "fr": [
+          "scientifique-principal-operations-techniques-csl-behring-bern"
         ]
       },
       "firstSeenAt": "2026-05-19T17:18:51.859Z",
@@ -3010,7 +3048,7 @@
         "it": "associate-director-programmazione-statistica-m-f-d-csl-behring-bern",
         "en": "associate-director-statistical-programming-w-m-d-csl-behring-ch",
         "de": "stellvertretender-direktor-statistische-programmierung-w-m-d-csl-behring-bern",
-        "fr": "associate-director-programmation-statistique-h-f-d-csl-behring-bern"
+        "fr": "directeur-associe-programmation-statistique-h-f-d-csl-behring-bern"
       },
       "company": "CSL Behring",
       "companyKey": "csl-behring",
@@ -3084,11 +3122,15 @@
       },
       "jobReqId": "Regular",
       "previousSlugs": [
-        "associate-director-statistical-programming-w-m-d-csl-behring-ch"
+        "associate-director-statistical-programming-w-m-d-csl-behring-ch",
+        "associate-director-programmation-statistique-h-f-d-csl-behring-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "associate-director-statistical-programming-w-m-d-csl-behring-ch"
+        ],
+        "fr": [
+          "associate-director-programmation-statistique-h-f-d-csl-behring-bern"
         ]
       },
       "firstSeenAt": "2026-05-19T17:18:42.320Z",
@@ -3112,7 +3154,7 @@
       "slugByLocale": {
         "it": "responsabile-operazioni-aziendali-csl-behring-bern",
         "en": "business-operations-lead-csl-behring-ch",
-        "de": "betriebsleitung-csl-behring-bern",
+        "de": "leiter-business-operations-csl-behring-bern",
         "fr": "responsable-des-operations-commerciales-csl-behring-bern"
       },
       "company": "CSL Behring",
@@ -3187,11 +3229,15 @@
       },
       "jobReqId": "Regular",
       "previousSlugs": [
-        "business-operations-lead-csl-behring-ch"
+        "business-operations-lead-csl-behring-ch",
+        "betriebsleitung-csl-behring-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "business-operations-lead-csl-behring-ch"
+        ],
+        "de": [
+          "betriebsleitung-csl-behring-bern"
         ]
       },
       "firstSeenAt": "2026-05-19T17:18:41.586Z",
@@ -3282,7 +3328,7 @@
         "it": "responsabile-di-progetto-senior-operazioni-tecniche-csl-behring-bern",
         "en": "senior-project-manager-tech-ops-csl-behring-ch",
         "de": "leitender-projektmanager-tech-ops-csl-behring-bern",
-        "fr": "gestionnaire-de-projet-principal-operations-techniques-csl-behring-bern"
+        "fr": "chef-de-projet-senior-tech-ops-csl-behring-bern"
       },
       "company": "CSL Behring",
       "companyKey": "csl-behring",
@@ -3356,11 +3402,15 @@
       },
       "jobReqId": "Regular",
       "previousSlugs": [
-        "senior-project-manager-tech-ops-csl-behring-ch"
+        "senior-project-manager-tech-ops-csl-behring-ch",
+        "gestionnaire-de-projet-principal-operations-techniques-csl-behring-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "senior-project-manager-tech-ops-csl-behring-ch"
+        ],
+        "fr": [
+          "gestionnaire-de-projet-principal-operations-techniques-csl-behring-bern"
         ]
       },
       "firstSeenAt": "2026-05-19T17:18:40.182Z",
@@ -3385,7 +3435,7 @@
         "it": "scienziato-senior-lavorazione-lavoro-lavoro-csl-behring-bern",
         "en": "senior-scientist-w-m-d-csl-behring-ch",
         "de": "wissenschaftlicher-mitarbeiter-w-m-d-csl-behring-bern",
-        "fr": "scientifique-principal-m-m-d-csl-behring-bern"
+        "fr": "scientifique-senior-h-f-d-csl-behring-bern"
       },
       "company": "CSL Behring",
       "companyKey": "csl-behring",
@@ -3459,11 +3509,15 @@
       },
       "jobReqId": "Regular",
       "previousSlugs": [
-        "senior-scientist-w-m-d-csl-behring-ch"
+        "senior-scientist-w-m-d-csl-behring-ch",
+        "scientifique-principal-m-m-d-csl-behring-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "senior-scientist-w-m-d-csl-behring-ch"
+        ],
+        "fr": [
+          "scientifique-principal-m-m-d-csl-behring-bern"
         ]
       },
       "firstSeenAt": "2026-05-19T17:18:39.522Z",

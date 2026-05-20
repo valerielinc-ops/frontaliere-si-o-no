@@ -401,9 +401,9 @@
     },
     {
       "id": "klinik-sonnenhalde-7cbdd2ea7e58",
-      "slug": "cucinare-cucinare-efz-klinik-sonnenhalde-riehen",
+      "slug": "koch-kochin-cfc-klinik-sonnenhalde-riehen",
       "slugByLocale": {
-        "it": "cucinare-cucinare-efz-klinik-sonnenhalde-riehen",
+        "it": "koch-kochin-cfc-klinik-sonnenhalde-riehen",
         "en": "cook-chef-efz-klinik-sonnenhalde-riehen",
         "de": "koch-kochin-efz-klinik-sonnenhalde-riehen",
         "fr": "cuisinier-cuisiniere-efz-klinik-sonnenhalde-riehen"
@@ -451,13 +451,15 @@
       "previousSlugs": [
         "responsabile-vendite-nel-servizio-esterno-f-m-d-100-bellinzona",
         "cuciniere-cuciniera-efz-klinik-sonnenhalde-riehen",
+        "cucinare-cucinare-efz-klinik-sonnenhalde-riehen",
         "manager-vendite-nel-servizio-esterno-f-m-d-100-bellinzona-allianz-suisse-bellinzona",
         "responsable-vendite-nel-servizio-esterno-f-m-d-100-bellinzona-allianz-suisse-bellinzona"
       ],
       "previousSlugsByLocale": {
         "it": [
           "responsabile-vendite-nel-servizio-esterno-f-m-d-100-bellinzona",
-          "cuciniere-cuciniera-efz-klinik-sonnenhalde-riehen"
+          "cuciniere-cuciniera-efz-klinik-sonnenhalde-riehen",
+          "cucinare-cucinare-efz-klinik-sonnenhalde-riehen"
         ],
         "en": [
           "manager-vendite-nel-servizio-esterno-f-m-d-100-bellinzona-allianz-suisse-bellinzona"
@@ -847,10 +849,10 @@
     },
     {
       "id": "klinik-sonnenhalde-c131990acb4e",
-      "slug": "personale-nella-gestione-dei-pazienti-e-nella-contabilita-dei-pazienti-klinik-sonnenhalde-riehen",
+      "slug": "collaboratore-trice-patientenmanagement-patientenabrechnung-klinik-sonnenhalde-riehen",
       "slugByLocale": {
-        "it": "personale-nella-gestione-dei-pazienti-e-nella-contabilita-dei-pazienti-klinik-sonnenhalde-riehen",
-        "en": "staff-in-patient-management-patient-accounting-klinik-sonnenhalde-riehen",
+        "it": "collaboratore-trice-patientenmanagement-patientenabrechnung-klinik-sonnenhalde-riehen",
+        "en": "associate-patientenmanagement-patientenabrechnung-klinik-sonnenhalde-riehen",
         "de": "mitarbeiter-in-patientenmanagement-patientenabrechnung-klinik-sonnenhalde-riehen",
         "fr": "personnel-gestion-des-patients-et-comptabilite-des-patients-klinik-sonnenhalde-riehen"
       },
@@ -897,16 +899,20 @@
       "previousSlugs": [
         "mitarbeiter-in-patientenmanagement-patientenabrechnung-klinik-sonnenhalde-riehen",
         "addetto-a-gestione-pazienti-fatturazione-klinik-sonnenhalde-riehen",
+        "personale-nella-gestione-dei-pazienti-e-nella-contabilita-dei-pazienti-klinik-sonnenhalde-riehen",
         "patient-management-billing-coordinator-klinik-sonnenhalde-riehen",
+        "staff-in-patient-management-patient-accounting-klinik-sonnenhalde-riehen",
         "coordinateur-trice-gestion-des-patients-facturation-klinik-sonnenhalde-riehen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-patientenmanagement-patientenabrechnung-klinik-sonnenhalde-riehen",
-          "addetto-a-gestione-pazienti-fatturazione-klinik-sonnenhalde-riehen"
+          "addetto-a-gestione-pazienti-fatturazione-klinik-sonnenhalde-riehen",
+          "personale-nella-gestione-dei-pazienti-e-nella-contabilita-dei-pazienti-klinik-sonnenhalde-riehen"
         ],
         "en": [
-          "patient-management-billing-coordinator-klinik-sonnenhalde-riehen"
+          "patient-management-billing-coordinator-klinik-sonnenhalde-riehen",
+          "staff-in-patient-management-patient-accounting-klinik-sonnenhalde-riehen"
         ],
         "fr": [
           "coordinateur-trice-gestion-des-patients-facturation-klinik-sonnenhalde-riehen"
@@ -928,12 +934,12 @@
     },
     {
       "id": "klinik-sonnenhalde-479acb3bca8e",
-      "slug": "personale-in-personale-klinik-sonnenhalde-riehen",
+      "slug": "collaboratore-trice-personal-klinik-sonnenhalde-riehen",
       "slugByLocale": {
-        "it": "personale-in-personale-klinik-sonnenhalde-riehen",
-        "en": "staff-in-staff-klinik-sonnenhalde-riehen",
+        "it": "collaboratore-trice-personal-klinik-sonnenhalde-riehen",
+        "en": "associate-personal-klinik-sonnenhalde-riehen",
         "de": "mitarbeiter-in-personal-klinik-sonnenhalde-riehen",
-        "fr": "personnel-en-personnel-klinik-sonnenhalde-riehen"
+        "fr": "collaborateur-trice-personal-klinik-sonnenhalde-riehen"
       },
       "company": "Klinik Sonnenhalde",
       "companyKey": "klinik-sonnenhalde",
@@ -978,23 +984,25 @@
       "previousSlugs": [
         "mitarbeiter-in-personal-klinik-sonnenhalde-riehen",
         "addetto-a-risorse-umane-klinik-sonnenhalde-riehen",
+        "personale-in-personale-klinik-sonnenhalde-riehen",
         "hr-staff-klinik-sonnenhalde-riehen",
-        "associate-personal-klinik-sonnenhalde-riehen",
+        "staff-in-staff-klinik-sonnenhalde-riehen",
         "personnel-klinik-sonnenhalde-riehen",
-        "collaborateur-trice-personal-klinik-sonnenhalde-riehen"
+        "personnel-en-personnel-klinik-sonnenhalde-riehen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-personal-klinik-sonnenhalde-riehen",
-          "addetto-a-risorse-umane-klinik-sonnenhalde-riehen"
+          "addetto-a-risorse-umane-klinik-sonnenhalde-riehen",
+          "personale-in-personale-klinik-sonnenhalde-riehen"
         ],
         "en": [
           "hr-staff-klinik-sonnenhalde-riehen",
-          "associate-personal-klinik-sonnenhalde-riehen"
+          "staff-in-staff-klinik-sonnenhalde-riehen"
         ],
         "fr": [
           "personnel-klinik-sonnenhalde-riehen",
-          "collaborateur-trice-personal-klinik-sonnenhalde-riehen"
+          "personnel-en-personnel-klinik-sonnenhalde-riehen"
         ]
       },
       "firstSeenAt": "2026-05-19T09:58:41.740Z",
@@ -1013,12 +1021,12 @@
     },
     {
       "id": "klinik-sonnenhalde-035f6fcfd730",
-      "slug": "personale-in-ceo-office-klinik-sonnenhalde-riehen",
+      "slug": "collaboratore-trice-ceo-office-klinik-sonnenhalde-riehen",
       "slugByLocale": {
-        "it": "personale-in-ceo-office-klinik-sonnenhalde-riehen",
+        "it": "collaboratore-trice-ceo-office-klinik-sonnenhalde-riehen",
         "en": "mitarbeiter-in-ceo-office-klinik-sonnenhalde-riehen",
         "de": "mitarbeiter-in-ceo-office-klinik-sonnenhalde-riehen",
-        "fr": "mitarbeiter-in-ceo-office-klinik-sonnenhalde-riehen"
+        "fr": "collaborateur-trice-ceo-office-klinik-sonnenhalde-riehen"
       },
       "company": "Klinik Sonnenhalde",
       "companyKey": "klinik-sonnenhalde",
@@ -1062,12 +1070,15 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "mitarbeiter-in-ceo-office-klinik-sonnenhalde-riehen",
-        "collaboratore-trice-ceo-office-klinik-sonnenhalde-riehen"
+        "personale-in-ceo-office-klinik-sonnenhalde-riehen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-ceo-office-klinik-sonnenhalde-riehen",
-          "collaboratore-trice-ceo-office-klinik-sonnenhalde-riehen"
+          "personale-in-ceo-office-klinik-sonnenhalde-riehen"
+        ],
+        "fr": [
+          "mitarbeiter-in-ceo-office-klinik-sonnenhalde-riehen"
         ]
       },
       "firstSeenAt": "2026-05-19T12:02:10.859Z",

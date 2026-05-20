@@ -444,7 +444,7 @@
         "it": "addetti-alle-pulizie-spital-sts-thun",
         "en": "cleaning-staff-spital-sts-thun",
         "de": "mitarbeiter-in-reinigung-spital-sts-thun",
-        "fr": "agent-de-nettoyage-spital-sts-thun"
+        "fr": "collaborateur-trice-reinigung-spital-sts-thun"
       },
       "company": "Spital STS",
       "companyKey": "spital-sts",
@@ -506,11 +506,15 @@
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-reinigung-spital-sts-thun"
+        "mitarbeiter-in-reinigung-spital-sts-thun",
+        "agent-de-nettoyage-spital-sts-thun"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-reinigung-spital-sts-thun"
+        ],
+        "fr": [
+          "agent-de-nettoyage-spital-sts-thun"
         ]
       },
       "firstSeenAt": "2026-05-19T18:25:41.213Z",

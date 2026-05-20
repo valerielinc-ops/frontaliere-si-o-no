@@ -8,7 +8,7 @@
       "slugByLocale": {
         "it": "specialista-analitico-qa-sobi-basel",
         "en": "qa-analytical-specialist-sobi-basel",
-        "de": "qa-analytiker-sobi-basel",
+        "de": "qa-analytical-spezialist-sobi-basel",
         "fr": "specialiste-analytique-qa-sobi-basel"
       },
       "company": "Sobi",
@@ -83,11 +83,15 @@
         ]
       },
       "previousSlugs": [
-        "qa-analytical-specialist-sobi-basel"
+        "qa-analytical-specialist-sobi-basel",
+        "qa-analytiker-sobi-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
           "qa-analytical-specialist-sobi-basel"
+        ],
+        "de": [
+          "qa-analytiker-sobi-basel"
         ]
       },
       "firstSeenAt": "2026-05-19T19:53:23.374Z",
@@ -313,7 +317,7 @@
       "slugByLocale": {
         "it": "direttore-associato-della-supply-chain-europea-contratto-di-6-mesi-sobi-basel",
         "en": "european-supply-chain-associate-director-6-months-contract-sobi-basel",
-        "de": "europaischer-supply-chain-associate-director-6-monatiger-vertrag-sobi-basel",
+        "de": "european-lieferkette-associate-direktor-6-months-contract-sobi-basel",
         "fr": "directeur-associe-de-la-chaine-d-approvisionnement-europeenne-contrat-de-6-mois-sobi-basel"
       },
       "company": "Sobi",
@@ -382,11 +386,15 @@
         ]
       },
       "previousSlugs": [
-        "european-supply-chain-associate-director-6-months-contract-sobi-basel"
+        "european-supply-chain-associate-director-6-months-contract-sobi-basel",
+        "europaischer-supply-chain-associate-director-6-monatiger-vertrag-sobi-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
           "european-supply-chain-associate-director-6-months-contract-sobi-basel"
+        ],
+        "de": [
+          "europaischer-supply-chain-associate-director-6-monatiger-vertrag-sobi-basel"
         ]
       },
       "firstSeenAt": "2026-05-19T19:53:23.347Z",

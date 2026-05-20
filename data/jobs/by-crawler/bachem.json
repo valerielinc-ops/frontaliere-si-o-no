@@ -774,9 +774,9 @@
     },
     {
       "id": "bachem-3e39dc9fc519",
-      "slug": "specialista-hse-80-100-m-w-d-bachem-ag-bubendorf",
+      "slug": "especialista-hse-progetti-m-w-d-bachem-ag-bubendorf",
       "slugByLocale": {
-        "it": "specialista-hse-80-100-m-w-d-bachem-ag-bubendorf",
+        "it": "especialista-hse-progetti-m-w-d-bachem-ag-bubendorf",
         "en": "hse-specialist-80-100-m-w-d-bachem-bubendorf",
         "de": "hse-spezialist-80-100-m-w-d-bachem-ag-bubendorf",
         "fr": "specialiste-hse-80-100-m-w-d-bachem-ag-bubendorf"
@@ -853,11 +853,13 @@
         ]
       },
       "previousSlugs": [
-        "hse-specialist-80-100-m-w-d-bachem-bubendorf"
+        "hse-specialist-80-100-m-w-d-bachem-bubendorf",
+        "specialista-hse-80-100-m-w-d-bachem-ag-bubendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "hse-specialist-80-100-m-w-d-bachem-bubendorf"
+          "hse-specialist-80-100-m-w-d-bachem-bubendorf",
+          "specialista-hse-80-100-m-w-d-bachem-ag-bubendorf"
         ],
         "de": [
           "hse-specialist-80-100-m-w-d-bachem-bubendorf"
@@ -1145,12 +1147,12 @@
     },
     {
       "id": "bachem-cf22e82b4d59",
-      "slug": "revisionista-batchdoc-uomo-donna-bachem-ag-bubendorf",
+      "slug": "verificatore-batchdoc-m-f-d-100-bachem-ag-bubendorf",
       "slugByLocale": {
-        "it": "revisionista-batchdoc-uomo-donna-bachem-ag-bubendorf",
+        "it": "verificatore-batchdoc-m-f-d-100-bachem-ag-bubendorf",
         "en": "batchdoc-reviewer-full-time-bachem-ag-bubendorf",
         "de": "batchdoc-reviewer-w-m-d-100-bachem-bubendorf",
-        "fr": "relecteur-batchdoc-temps-plein-bachem-ag-bubendorf"
+        "fr": "reviseur-de-batchdoc-h-f-e-100-bachem-ag-bubendorf"
       },
       "company": "Bachem AG",
       "companyKey": "bachem",
@@ -1217,11 +1219,17 @@
         ]
       },
       "previousSlugs": [
-        "batchdoc-reviewer-w-m-d-100-bachem-bubendorf"
+        "batchdoc-reviewer-w-m-d-100-bachem-bubendorf",
+        "revisionista-batchdoc-uomo-donna-bachem-ag-bubendorf",
+        "relecteur-batchdoc-temps-plein-bachem-ag-bubendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "batchdoc-reviewer-w-m-d-100-bachem-bubendorf"
+          "batchdoc-reviewer-w-m-d-100-bachem-bubendorf",
+          "revisionista-batchdoc-uomo-donna-bachem-ag-bubendorf"
+        ],
+        "fr": [
+          "relecteur-batchdoc-temps-plein-bachem-ag-bubendorf"
         ]
       },
       "firstSeenAt": "2026-05-19T19:53:49.314Z",
@@ -1776,7 +1784,7 @@
       "slugByLocale": {
         "it": "specialista-ingegneria-qa-al-100-uomo-donna-bachem-ag-bubendorf",
         "en": "specialist-qa-engineering-100-w-m-d-bachem-bubendorf",
-        "de": "spezialisierte-qa-technik-zu-100-w-m-d-bachem-ag-bubendorf",
+        "de": "spezialist-qa-engineering-100-w-m-d-bachem-ag-bubendorf",
         "fr": "specialiste-en-ingenierie-qa-a-100-h-f-bachem-ag-bubendorf"
       },
       "company": "Bachem AG",
@@ -1834,14 +1842,16 @@
         ]
       },
       "previousSlugs": [
-        "specialist-qa-engineering-100-w-m-d-bachem-bubendorf"
+        "specialist-qa-engineering-100-w-m-d-bachem-bubendorf",
+        "spezialisierte-qa-technik-zu-100-w-m-d-bachem-ag-bubendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
           "specialist-qa-engineering-100-w-m-d-bachem-bubendorf"
         ],
         "de": [
-          "specialist-qa-engineering-100-w-m-d-bachem-bubendorf"
+          "specialist-qa-engineering-100-w-m-d-bachem-bubendorf",
+          "spezialisierte-qa-technik-zu-100-w-m-d-bachem-ag-bubendorf"
         ]
       },
       "firstSeenAt": "2026-05-19T19:53:45.598Z",
@@ -2054,10 +2064,10 @@
     },
     {
       "id": "bachem-79d6ebe09de2",
-      "slug": "chimico-a-uomo-donna-100-bachem-ag-bubendorf",
+      "slug": "chemico-m-f-d-full-time-bachem-ag-bubendorf",
       "slugByLocale": {
-        "it": "chimico-a-uomo-donna-100-bachem-ag-bubendorf",
-        "en": "chemist-m-f-d-100-bachem-ag-bubendorf",
+        "it": "chemico-m-f-d-full-time-bachem-ag-bubendorf",
+        "en": "full-time-chemist-m-f-d-bachem-ag-bubendorf",
         "de": "chemiker-in-w-m-d-100-bachem-bubendorf",
         "fr": "chimiste-h-f-100-bachem-ag-bubendorf"
       },
@@ -2124,11 +2134,17 @@
         ]
       },
       "previousSlugs": [
-        "chemiker-in-w-m-d-100-bachem-bubendorf"
+        "chemiker-in-w-m-d-100-bachem-bubendorf",
+        "chimico-a-uomo-donna-100-bachem-ag-bubendorf",
+        "chemist-m-f-d-100-bachem-ag-bubendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "chemiker-in-w-m-d-100-bachem-bubendorf"
+          "chemiker-in-w-m-d-100-bachem-bubendorf",
+          "chimico-a-uomo-donna-100-bachem-ag-bubendorf"
+        ],
+        "en": [
+          "chemist-m-f-d-100-bachem-ag-bubendorf"
         ]
       },
       "firstSeenAt": "2026-05-19T19:53:44.119Z",
@@ -2147,9 +2163,9 @@
     },
     {
       "id": "bachem-b618059fe5ce",
-      "slug": "tecnico-di-produzione-oligo-prod-i-uomo-donna-bachem-ag-bubendorf",
+      "slug": "operatore-produttivo-oligonucleotidi-m-f-d-100-bachem-ag-bubendorf",
       "slugByLocale": {
-        "it": "tecnico-di-produzione-oligo-prod-i-uomo-donna-bachem-ag-bubendorf",
+        "it": "operatore-produttivo-oligonucleotidi-m-f-d-100-bachem-ag-bubendorf",
         "en": "production-technician-oligo-prod-i-w-m-d-100-bachem-bubendorf",
         "de": "produktionstechniker-oligo-prod-ich-w-m-d-zu-100-bachem-ag-bubendorf",
         "fr": "technicien-de-production-oligonucleotides-h-f-d-temps-plein-bachem-ag-bubendorf"
@@ -2226,11 +2242,13 @@
         ]
       },
       "previousSlugs": [
-        "production-technician-oligo-prod-i-w-m-d-100-bachem-bubendorf"
+        "production-technician-oligo-prod-i-w-m-d-100-bachem-bubendorf",
+        "tecnico-di-produzione-oligo-prod-i-uomo-donna-bachem-ag-bubendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "production-technician-oligo-prod-i-w-m-d-100-bachem-bubendorf"
+          "production-technician-oligo-prod-i-w-m-d-100-bachem-bubendorf",
+          "tecnico-di-produzione-oligo-prod-i-uomo-donna-bachem-ag-bubendorf"
         ],
         "de": [
           "production-technician-oligo-prod-i-w-m-d-100-bachem-bubendorf"
@@ -2445,7 +2463,7 @@
         "it": "tecnico-di-magazzino-produzione-fornitura-m-f-d-100-in-turno-bachem-ag-bubendorf",
         "en": "storage-technician-production-supply-m-w-d-100-im-schichtbetrieb-bachem-bubendorf",
         "de": "storage-technician-production-supply-m-w-d-100-im-schichtbetrieb-bachem-bubendorf",
-        "fr": "technicien-de-magasin-alimentation-de-la-production-h-f-d-100-en-service-bachem-ag-bubendorf"
+        "fr": "technicien-ne-de-stockage-et-logistique-production-h-f-d-100-en-horaires-variables-bachem-ag-bubendorf"
       },
       "company": "Bachem AG",
       "companyKey": "bachem",
@@ -2519,11 +2537,15 @@
         ]
       },
       "previousSlugs": [
-        "storage-technician-production-supply-m-w-d-100-im-schichtbetrieb-bachem-bubendorf"
+        "storage-technician-production-supply-m-w-d-100-im-schichtbetrieb-bachem-bubendorf",
+        "technicien-de-magasin-alimentation-de-la-production-h-f-d-100-en-service-bachem-ag-bubendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
           "storage-technician-production-supply-m-w-d-100-im-schichtbetrieb-bachem-bubendorf"
+        ],
+        "fr": [
+          "technicien-de-magasin-alimentation-de-la-production-h-f-d-100-en-service-bachem-ag-bubendorf"
         ]
       },
       "firstSeenAt": "2026-05-19T19:53:41.959Z",
@@ -2546,7 +2568,7 @@
       "slugByLocale": {
         "it": "ingegnere-di-identita-e-accesso-f-m-d-100-bachem-ag-bubendorf",
         "en": "identity-and-access-engineer-f-m-d-100-bachem-bubendorf",
-        "de": "identitats-und-zugriffsingenieur-f-m-d-zu-100-bachem-ag-bubendorf",
+        "de": "identity-and-access-ingenieur-f-m-d-100-bachem-ag-bubendorf",
         "fr": "ingenieur-d-identite-et-d-acces-f-m-d-100-bachem-ag-bubendorf"
       },
       "company": "Bachem AG",
@@ -2621,11 +2643,15 @@
         ]
       },
       "previousSlugs": [
-        "identity-and-access-engineer-f-m-d-100-bachem-bubendorf"
+        "identity-and-access-engineer-f-m-d-100-bachem-bubendorf",
+        "identitats-und-zugriffsingenieur-f-m-d-zu-100-bachem-ag-bubendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
           "identity-and-access-engineer-f-m-d-100-bachem-bubendorf"
+        ],
+        "de": [
+          "identitats-und-zugriffsingenieur-f-m-d-zu-100-bachem-ag-bubendorf"
         ]
       },
       "firstSeenAt": "2026-05-19T19:53:41.447Z",
@@ -3051,9 +3077,9 @@
     },
     {
       "id": "bachem-88078a47fe53",
-      "slug": "senior-technico-di-laboratorio-qc-fase-tarda-100-m-f-d-bachem-ag-bubendorf",
+      "slug": "senior-tecnico-di-laboratorio-qc-fase-tardiva-u-m-d-bachem-ag-bubendorf",
       "slugByLocale": {
-        "it": "senior-technico-di-laboratorio-qc-fase-tarda-100-m-f-d-bachem-ag-bubendorf",
+        "it": "senior-tecnico-di-laboratorio-qc-fase-tardiva-u-m-d-bachem-ag-bubendorf",
         "en": "senior-lab-technician-qc-late-phase-100-m-w-d-bachem-bubendorf",
         "de": "senior-labortechniker-qc-spate-phase-100-m-w-d-bachem-ag-bubendorf",
         "fr": "technicien-de-laboratoire-qc-senior-phase-tardive-100-m-f-d-bachem-ag-bubendorf"
@@ -3130,11 +3156,13 @@
         ]
       },
       "previousSlugs": [
-        "senior-lab-technician-qc-late-phase-100-m-w-d-bachem-bubendorf"
+        "senior-lab-technician-qc-late-phase-100-m-w-d-bachem-bubendorf",
+        "senior-technico-di-laboratorio-qc-fase-tarda-100-m-f-d-bachem-ag-bubendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-lab-technician-qc-late-phase-100-m-w-d-bachem-bubendorf"
+          "senior-lab-technician-qc-late-phase-100-m-w-d-bachem-bubendorf",
+          "senior-technico-di-laboratorio-qc-fase-tarda-100-m-f-d-bachem-ag-bubendorf"
         ]
       },
       "firstSeenAt": "2026-05-19T19:53:38.814Z",
@@ -3365,9 +3393,9 @@
     },
     {
       "id": "bachem-e5b0e22a1b2a",
-      "slug": "operatore-di-supporto-alla-produzione-uomo-donna-bachem-ag-bubendorf",
+      "slug": "supporto-operativo-team-produzione-farmaceutica-u-m-d-bachem-ag-bubendorf",
       "slugByLocale": {
-        "it": "operatore-di-supporto-alla-produzione-uomo-donna-bachem-ag-bubendorf",
+        "it": "supporto-operativo-team-produzione-farmaceutica-u-m-d-bachem-ag-bubendorf",
         "en": "operator-support-team-manufacturing-w-m-d-bachem-bubendorf",
         "de": "fertigung-des-operator-support-teams-w-m-d-bachem-ag-bubendorf",
         "fr": "operateur-de-soutien-a-la-production-homme-femme-bachem-ag-bubendorf"
@@ -3444,11 +3472,13 @@
         ]
       },
       "previousSlugs": [
-        "operator-support-team-manufacturing-w-m-d-bachem-bubendorf"
+        "operator-support-team-manufacturing-w-m-d-bachem-bubendorf",
+        "operatore-di-supporto-alla-produzione-uomo-donna-bachem-ag-bubendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "operator-support-team-manufacturing-w-m-d-bachem-bubendorf"
+          "operator-support-team-manufacturing-w-m-d-bachem-bubendorf",
+          "operatore-di-supporto-alla-produzione-uomo-donna-bachem-ag-bubendorf"
         ],
         "de": [
           "operator-support-team-manufacturing-w-m-d-bachem-bubendorf"
@@ -3579,12 +3609,12 @@
     },
     {
       "id": "bachem-d688bc6cb530",
-      "slug": "addetto-a-alla-dispensazione-uomo-donna-100-in-turni-mattina-pomeriggio-bachem-ag-bubendorf",
+      "slug": "addetto-dispensazione-m-f-d-100-in-turno-turno-mattutino-serale-bachem-ag-bubendorf",
       "slugByLocale": {
-        "it": "addetto-a-alla-dispensazione-uomo-donna-100-in-turni-mattina-pomeriggio-bachem-ag-bubendorf",
-        "en": "dispensing-assistant-male-female-100-shift-operation-morning-afternoon-bachem-ag-bubendorf",
+        "it": "addetto-dispensazione-m-f-d-100-in-turno-turno-mattutino-serale-bachem-ag-bubendorf",
+        "en": "dispensation-assistant-m-f-d-100-shift-work-morning-evening-bachem-ag-bubendorf",
         "de": "mitarbeiter-in-dispensation-w-m-d-100-im-schichtbetrieb-fruh-spatschicht-bachem-bubendorf",
-        "fr": "assistant-en-dispersion-homme-femme-100-en-service-matin-apres-midi-bachem-ag-bubendorf"
+        "fr": "agent-e-de-dispense-m-f-d-100-en-horaires-decales-matin-soir-bachem-ag-bubendorf"
       },
       "company": "Bachem AG",
       "companyKey": "bachem",
@@ -3648,11 +3678,21 @@
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-dispensation-w-m-d-100-im-schichtbetrieb-fruh-spatschicht-bachem-bubendorf"
+        "mitarbeiter-in-dispensation-w-m-d-100-im-schichtbetrieb-fruh-spatschicht-bachem-bubendorf",
+        "addetto-a-alla-dispensazione-uomo-donna-100-in-turni-mattina-pomeriggio-bachem-ag-bubendorf",
+        "dispensing-assistant-male-female-100-shift-operation-morning-afternoon-bachem-ag-bubendorf",
+        "assistant-en-dispersion-homme-femme-100-en-service-matin-apres-midi-bachem-ag-bubendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-dispensation-w-m-d-100-im-schichtbetrieb-fruh-spatschicht-bachem-bubendorf"
+          "mitarbeiter-in-dispensation-w-m-d-100-im-schichtbetrieb-fruh-spatschicht-bachem-bubendorf",
+          "addetto-a-alla-dispensazione-uomo-donna-100-in-turni-mattina-pomeriggio-bachem-ag-bubendorf"
+        ],
+        "en": [
+          "dispensing-assistant-male-female-100-shift-operation-morning-afternoon-bachem-ag-bubendorf"
+        ],
+        "fr": [
+          "assistant-en-dispersion-homme-femme-100-en-service-matin-apres-midi-bachem-ag-bubendorf"
         ]
       },
       "firstSeenAt": "2026-05-19T19:53:36.195Z",
@@ -3770,7 +3810,7 @@
         "it": "category-manager-capacita-investimento-u-v-d-100-area-costruzioni-bachem-ag-bubendorf",
         "en": "category-manager-capex-w-m-d-100-fur-den-bereich-bauleistungen-bachem-bubendorf",
         "de": "category-manager-capex-w-m-d-100-fur-den-bereich-bauleistungen-bachem-bubendorf",
-        "fr": "responsable-de-categorie-capex-h-f-a-100-pour-le-domaine-des-bauleistungen-bachem-ag-bubendorf"
+        "fr": "categoriste-gestion-des-investissements-h-f-d-100-secteur-batiment-bachem-ag-bubendorf"
       },
       "company": "Bachem AG",
       "companyKey": "bachem",
@@ -3814,12 +3854,16 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "category-manager-capex-w-m-d-100-fur-den-bereich-bauleistungen-bachem-bubendorf",
-        "category-manager-capex-m-w-d-100-per-den-bereich-bauleistungen-bachem-ag-bubendorf"
+        "category-manager-capex-m-w-d-100-per-den-bereich-bauleistungen-bachem-ag-bubendorf",
+        "responsable-de-categorie-capex-h-f-a-100-pour-le-domaine-des-bauleistungen-bachem-ag-bubendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
           "category-manager-capex-w-m-d-100-fur-den-bereich-bauleistungen-bachem-bubendorf",
           "category-manager-capex-m-w-d-100-per-den-bereich-bauleistungen-bachem-ag-bubendorf"
+        ],
+        "fr": [
+          "responsable-de-categorie-capex-h-f-a-100-pour-le-domaine-des-bauleistungen-bachem-ag-bubendorf"
         ]
       },
       "firstSeenAt": "2026-05-19T19:53:35.131Z",
@@ -3909,12 +3953,12 @@
     },
     {
       "id": "bachem-58b45b657a81",
-      "slug": "meccanico-uomo-donna-100-con-opzione-per-il-turno-di-lavoro-mattina-pomeriggio-bachem-ag-bubendorf",
+      "slug": "meccanico-u-o-100-con-opzione-a-turni-turno-mattino-sera-bachem-ag-bubendorf",
       "slugByLocale": {
-        "it": "meccanico-uomo-donna-100-con-opzione-per-il-turno-di-lavoro-mattina-pomeriggio-bachem-ag-bubendorf",
+        "it": "meccanico-u-o-100-con-opzione-a-turni-turno-mattino-sera-bachem-ag-bubendorf",
         "en": "mechanic-m-f-d-100-with-option-for-shift-operation-early-late-shift-bachem-ag-bubendorf",
         "de": "mechaniker-w-m-d-100-mit-option-auf-schichtbetrieb-fruh-spatschicht-bachem-bubendorf",
-        "fr": "mecanicien-h-f-100-avec-option-pour-le-travail-en-shifts-matin-apres-midi-bachem-ag-bubendorf"
+        "fr": "mecanicien-h-f-e-100-avec-option-de-travail-en-horaires-decales-debut-fin-de-nuit-bachem-ag-bubendorf"
       },
       "company": "Bachem AG",
       "companyKey": "bachem",
@@ -3979,11 +4023,17 @@
         ]
       },
       "previousSlugs": [
-        "mechaniker-w-m-d-100-mit-option-auf-schichtbetrieb-fruh-spatschicht-bachem-bubendorf"
+        "mechaniker-w-m-d-100-mit-option-auf-schichtbetrieb-fruh-spatschicht-bachem-bubendorf",
+        "meccanico-uomo-donna-100-con-opzione-per-il-turno-di-lavoro-mattina-pomeriggio-bachem-ag-bubendorf",
+        "mecanicien-h-f-100-avec-option-pour-le-travail-en-shifts-matin-apres-midi-bachem-ag-bubendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mechaniker-w-m-d-100-mit-option-auf-schichtbetrieb-fruh-spatschicht-bachem-bubendorf"
+          "mechaniker-w-m-d-100-mit-option-auf-schichtbetrieb-fruh-spatschicht-bachem-bubendorf",
+          "meccanico-uomo-donna-100-con-opzione-per-il-turno-di-lavoro-mattina-pomeriggio-bachem-ag-bubendorf"
+        ],
+        "fr": [
+          "mecanicien-h-f-100-avec-option-pour-le-travail-en-shifts-matin-apres-midi-bachem-ag-bubendorf"
         ]
       },
       "firstSeenAt": "2026-05-19T19:53:34.090Z",
@@ -4086,12 +4136,12 @@
     },
     {
       "id": "bachem-96901c4917c0",
-      "slug": "scheduler-dettagliato-uomo-donna-100-bachem-ag-bubendorf",
+      "slug": "pianificatore-di-produzione-m-f-d-100-bachem-ag-bubendorf",
       "slugByLocale": {
-        "it": "scheduler-dettagliato-uomo-donna-100-bachem-ag-bubendorf",
+        "it": "pianificatore-di-produzione-m-f-d-100-bachem-ag-bubendorf",
         "en": "detailed-scheduler-m-f-d-full-time-bachem-ag-bubendorf",
         "de": "detailed-scheduler-w-m-d-100-bachem-bubendorf",
-        "fr": "planificateur-detaille-h-f-100-bachem-ag-bubendorf"
+        "fr": "planificateur-de-production-m-f-e-temps-plein-bachem-ag-bubendorf"
       },
       "company": "Bachem AG",
       "companyKey": "bachem",
@@ -4165,14 +4215,20 @@
         ]
       },
       "previousSlugs": [
-        "detailed-scheduler-w-m-d-100-bachem-bubendorf"
+        "detailed-scheduler-w-m-d-100-bachem-bubendorf",
+        "scheduler-dettagliato-uomo-donna-100-bachem-ag-bubendorf",
+        "planificateur-detaille-h-f-100-bachem-ag-bubendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "detailed-scheduler-w-m-d-100-bachem-bubendorf"
+          "detailed-scheduler-w-m-d-100-bachem-bubendorf",
+          "scheduler-dettagliato-uomo-donna-100-bachem-ag-bubendorf"
         ],
         "en": [
           "detailed-scheduler-w-m-d-100-bachem-bubendorf"
+        ],
+        "fr": [
+          "planificateur-detaille-h-f-100-bachem-ag-bubendorf"
         ]
       },
       "firstSeenAt": "2026-05-19T19:53:33.034Z",
@@ -4254,9 +4310,9 @@
     },
     {
       "id": "bachem-636309de2400",
-      "slug": "apprendistato-come-tecnico-di-laboratorio-specializzato-in-chimica-efz-uomo-donna-bachem-ag-bubendorf",
+      "slug": "bachem-ag-apprendistato-come-tecnico-chimico-fornitura-chimica-efz-u-d-bachem-ag-bubendorf",
       "slugByLocale": {
-        "it": "apprendistato-come-tecnico-di-laboratorio-specializzato-in-chimica-efz-uomo-donna-bachem-ag-bubendorf",
+        "it": "bachem-ag-apprendistato-come-tecnico-chimico-fornitura-chimica-efz-u-d-bachem-ag-bubendorf",
         "en": "apprenticeship-as-laboratory-technician-in-chemistry-efz-m-f-d-bachem-ag-bubendorf",
         "de": "lehrstelle-als-laborant-in-fachrichtung-chemie-efz-w-m-d-bachem-bubendorf",
         "fr": "apprentissage-en-tant-que-technicien-de-laboratoire-en-chimie-efz-h-f-bachem-ag-bubendorf"
@@ -4333,11 +4389,13 @@
         ]
       },
       "previousSlugs": [
-        "lehrstelle-als-laborant-in-fachrichtung-chemie-efz-w-m-d-bachem-bubendorf"
+        "lehrstelle-als-laborant-in-fachrichtung-chemie-efz-w-m-d-bachem-bubendorf",
+        "apprendistato-come-tecnico-di-laboratorio-specializzato-in-chimica-efz-uomo-donna-bachem-ag-bubendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-laborant-in-fachrichtung-chemie-efz-w-m-d-bachem-bubendorf"
+          "lehrstelle-als-laborant-in-fachrichtung-chemie-efz-w-m-d-bachem-bubendorf",
+          "apprendistato-come-tecnico-di-laboratorio-specializzato-in-chimica-efz-uomo-donna-bachem-ag-bubendorf"
         ]
       },
       "firstSeenAt": "2026-05-19T19:53:31.975Z",
@@ -4356,12 +4414,12 @@
     },
     {
       "id": "bachem-0327544d47b3",
-      "slug": "giornata-di-prova-per-tecnico-di-laboratorio-specializzato-in-chimica-u-m-d-bachem-ag-bubendorf",
+      "slug": "prova-pratica-laborante-a-specializzato-a-in-chimica-u-m-v-bachem-ag-bubendorf",
       "slugByLocale": {
-        "it": "giornata-di-prova-per-tecnico-di-laboratorio-specializzato-in-chimica-u-m-d-bachem-ag-bubendorf",
-        "en": "trial-day-for-laboratory-technician-specializing-in-chemistry-m-f-d-bachem-ag-bubendorf",
+        "it": "prova-pratica-laborante-a-specializzato-a-in-chimica-u-m-v-bachem-ag-bubendorf",
+        "en": "chemistry-laboratory-practicum-male-female-non-binary-bachem-ag-bubendorf",
         "de": "schnuppertag-laborant-in-fachrichtung-chemie-w-m-d-bachem-bubendorf",
-        "fr": "journee-d-essai-pour-technicien-de-laboratoire-specialise-en-chimie-h-f-bachem-ag-bubendorf"
+        "fr": "stage-pratique-technicien-ne-en-chimie-h-f-np-bachem-ag-bubendorf"
       },
       "company": "Bachem AG",
       "companyKey": "bachem",
@@ -4404,11 +4462,21 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "schnuppertag-laborant-in-fachrichtung-chemie-w-m-d-bachem-bubendorf"
+        "schnuppertag-laborant-in-fachrichtung-chemie-w-m-d-bachem-bubendorf",
+        "giornata-di-prova-per-tecnico-di-laboratorio-specializzato-in-chimica-u-m-d-bachem-ag-bubendorf",
+        "trial-day-for-laboratory-technician-specializing-in-chemistry-m-f-d-bachem-ag-bubendorf",
+        "journee-d-essai-pour-technicien-de-laboratoire-specialise-en-chimie-h-f-bachem-ag-bubendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "schnuppertag-laborant-in-fachrichtung-chemie-w-m-d-bachem-bubendorf"
+          "schnuppertag-laborant-in-fachrichtung-chemie-w-m-d-bachem-bubendorf",
+          "giornata-di-prova-per-tecnico-di-laboratorio-specializzato-in-chimica-u-m-d-bachem-ag-bubendorf"
+        ],
+        "en": [
+          "trial-day-for-laboratory-technician-specializing-in-chemistry-m-f-d-bachem-ag-bubendorf"
+        ],
+        "fr": [
+          "journee-d-essai-pour-technicien-de-laboratoire-specialise-en-chimie-h-f-bachem-ag-bubendorf"
         ]
       },
       "firstSeenAt": "2026-05-19T19:53:31.435Z",
@@ -4427,12 +4495,12 @@
     },
     {
       "id": "bachem-ef16252bc8c0",
-      "slug": "giornata-di-prova-per-tecnico-a-di-automazione-bachem-ag-bubendorf",
+      "slug": "prova-pratica-operatore-automatico-u-m-d-bachem-ag-bubendorf",
       "slugByLocale": {
-        "it": "giornata-di-prova-per-tecnico-a-di-automazione-bachem-ag-bubendorf",
+        "it": "prova-pratica-operatore-automatico-u-m-d-bachem-ag-bubendorf",
         "en": "schnuppertag-automatiker-in-w-m-d-bachem-bubendorf",
         "de": "schnuppertag-automatik-w-m-d-bachem-ag-bubendorf",
-        "fr": "journee-d-essai-pour-technicien-ne-en-automatisation-bachem-ag-bubendorf"
+        "fr": "jour-de-decouverte-technicien-ne-automatisation-h-f-d-bachem-ag-bubendorf"
       },
       "company": "Bachem AG",
       "companyKey": "bachem",
@@ -4484,14 +4552,20 @@
         ]
       },
       "previousSlugs": [
-        "schnuppertag-automatiker-in-w-m-d-bachem-bubendorf"
+        "schnuppertag-automatiker-in-w-m-d-bachem-bubendorf",
+        "giornata-di-prova-per-tecnico-a-di-automazione-bachem-ag-bubendorf",
+        "journee-d-essai-pour-technicien-ne-en-automatisation-bachem-ag-bubendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "schnuppertag-automatiker-in-w-m-d-bachem-bubendorf"
+          "schnuppertag-automatiker-in-w-m-d-bachem-bubendorf",
+          "giornata-di-prova-per-tecnico-a-di-automazione-bachem-ag-bubendorf"
         ],
         "de": [
           "schnuppertag-automatiker-in-w-m-d-bachem-bubendorf"
+        ],
+        "fr": [
+          "journee-d-essai-pour-technicien-ne-en-automatisation-bachem-ag-bubendorf"
         ]
       },
       "firstSeenAt": "2026-05-19T19:53:30.905Z",
@@ -4510,12 +4584,12 @@
     },
     {
       "id": "bachem-703132a7fec7",
-      "slug": "giornata-di-prova-per-tecnico-a-di-chimica-e-farmaceutica-bachem-ag-bubendorf",
+      "slug": "tecnologo-chimico-e-farmaceutico-del-giorno-di-degustazione-f-m-d-bachem-ag-bubendorf",
       "slugByLocale": {
-        "it": "giornata-di-prova-per-tecnico-a-di-chimica-e-farmaceutica-bachem-ag-bubendorf",
-        "en": "trial-day-for-chemistry-and-pharmaceutical-technician-m-f-d-bachem-ag-bubendorf",
+        "it": "tecnologo-chimico-e-farmaceutico-del-giorno-di-degustazione-f-m-d-bachem-ag-bubendorf",
+        "en": "taster-day-chemical-and-pharmaceutical-technologist-f-m-d-bachem-ag-bubendorf",
         "de": "schnuppertag-chemie-und-pharmatechnologe-login-w-m-d-bachem-bubendorf",
-        "fr": "journee-d-essai-pour-technicien-ne-en-chimie-et-pharmacie-bachem-ag-bubendorf"
+        "fr": "technologie-chimique-et-pharmaceutique-du-taster-day-f-m-d-bachem-ag-bubendorf"
       },
       "company": "Bachem AG",
       "companyKey": "bachem",
@@ -4565,11 +4639,21 @@
         ]
       },
       "previousSlugs": [
-        "schnuppertag-chemie-und-pharmatechnologe-login-w-m-d-bachem-bubendorf"
+        "schnuppertag-chemie-und-pharmatechnologe-login-w-m-d-bachem-bubendorf",
+        "giornata-di-prova-per-tecnico-a-di-chimica-e-farmaceutica-bachem-ag-bubendorf",
+        "trial-day-for-chemistry-and-pharmaceutical-technician-m-f-d-bachem-ag-bubendorf",
+        "journee-d-essai-pour-technicien-ne-en-chimie-et-pharmacie-bachem-ag-bubendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "schnuppertag-chemie-und-pharmatechnologe-login-w-m-d-bachem-bubendorf"
+          "schnuppertag-chemie-und-pharmatechnologe-login-w-m-d-bachem-bubendorf",
+          "giornata-di-prova-per-tecnico-a-di-chimica-e-farmaceutica-bachem-ag-bubendorf"
+        ],
+        "en": [
+          "trial-day-for-chemistry-and-pharmaceutical-technician-m-f-d-bachem-ag-bubendorf"
+        ],
+        "fr": [
+          "journee-d-essai-pour-technicien-ne-en-chimie-et-pharmacie-bachem-ag-bubendorf"
         ]
       },
       "firstSeenAt": "2026-05-19T19:53:30.387Z",
@@ -4588,12 +4672,12 @@
     },
     {
       "id": "bachem-faa06a222ff6",
-      "slug": "apprendistato-come-chimico-farmaceutico-efz-u-m-d-bachem-ag-bubendorf",
+      "slug": "apprendistato-come-chemie-e-pharmatechnologe-in-cfc-w-m-d-bachem-ag-bubendorf",
       "slugByLocale": {
-        "it": "apprendistato-come-chimico-farmaceutico-efz-u-m-d-bachem-ag-bubendorf",
-        "en": "apprenticeship-as-a-chemistry-and-pharmacy-technician-efz-m-f-d-bachem-ag-bubendorf",
+        "it": "apprendistato-come-chemie-e-pharmatechnologe-in-cfc-w-m-d-bachem-ag-bubendorf",
+        "en": "chemical-and-pharmaceutical-technician-apprenticeship-efz-m-f-d-at-bachem-ag-bachem-ag-bubendorf",
         "de": "lehrstelle-als-chemie-und-pharmatechnologe-in-efz-w-m-d-bachem-bubendorf",
-        "fr": "apprentissage-en-tant-que-technicien-en-chimie-et-en-pharmacie-efz-h-f-bachem-ag-bubendorf"
+        "fr": "apprentissage-de-technicien-ne-chimique-et-pharmaceutique-efz-h-f-e-chez-bachem-ag-bachem-ag-bubendorf"
       },
       "company": "Bachem AG",
       "companyKey": "bachem",
@@ -4664,11 +4748,21 @@
         ]
       },
       "previousSlugs": [
-        "lehrstelle-als-chemie-und-pharmatechnologe-in-efz-w-m-d-bachem-bubendorf"
+        "lehrstelle-als-chemie-und-pharmatechnologe-in-efz-w-m-d-bachem-bubendorf",
+        "apprendistato-come-chimico-farmaceutico-efz-u-m-d-bachem-ag-bubendorf",
+        "apprenticeship-as-a-chemistry-and-pharmacy-technician-efz-m-f-d-bachem-ag-bubendorf",
+        "apprentissage-en-tant-que-technicien-en-chimie-et-en-pharmacie-efz-h-f-bachem-ag-bubendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-chemie-und-pharmatechnologe-in-efz-w-m-d-bachem-bubendorf"
+          "lehrstelle-als-chemie-und-pharmatechnologe-in-efz-w-m-d-bachem-bubendorf",
+          "apprendistato-come-chimico-farmaceutico-efz-u-m-d-bachem-ag-bubendorf"
+        ],
+        "en": [
+          "apprenticeship-as-a-chemistry-and-pharmacy-technician-efz-m-f-d-bachem-ag-bubendorf"
+        ],
+        "fr": [
+          "apprentissage-en-tant-que-technicien-en-chimie-et-en-pharmacie-efz-h-f-bachem-ag-bubendorf"
         ]
       },
       "firstSeenAt": "2026-05-19T19:53:29.843Z",
@@ -4687,12 +4781,12 @@
     },
     {
       "id": "bachem-616c930447c4",
-      "slug": "tecnico-di-manutenzione-impianti-puliti-f-m-d-100-bachem-ag-bubendorf",
+      "slug": "manutentore-responsabile-servizi-puliti-m-f-d-100-bachem-ag-bubendorf",
       "slugByLocale": {
-        "it": "tecnico-di-manutenzione-impianti-puliti-f-m-d-100-bachem-ag-bubendorf",
+        "it": "manutentore-responsabile-servizi-puliti-m-f-d-100-bachem-ag-bubendorf",
         "en": "maintenance-technician-clean-utilities-f-m-d-100-bachem-bubendorf",
         "de": "wartungstechniker-clean-utilities-f-m-d-100-bachem-ag-bubendorf",
-        "fr": "technicien-de-maintenance-des-installations-propres-f-m-d-100-bachem-ag-bubendorf"
+        "fr": "technicien-maintenance-services-propres-m-f-d-temps-plein-bachem-ag-bubendorf"
       },
       "company": "Bachem AG",
       "companyKey": "bachem",
@@ -4745,14 +4839,20 @@
         ]
       },
       "previousSlugs": [
-        "maintenance-technician-clean-utilities-f-m-d-100-bachem-bubendorf"
+        "maintenance-technician-clean-utilities-f-m-d-100-bachem-bubendorf",
+        "tecnico-di-manutenzione-impianti-puliti-f-m-d-100-bachem-ag-bubendorf",
+        "technicien-de-maintenance-des-installations-propres-f-m-d-100-bachem-ag-bubendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "maintenance-technician-clean-utilities-f-m-d-100-bachem-bubendorf"
+          "maintenance-technician-clean-utilities-f-m-d-100-bachem-bubendorf",
+          "tecnico-di-manutenzione-impianti-puliti-f-m-d-100-bachem-ag-bubendorf"
         ],
         "de": [
           "maintenance-technician-clean-utilities-f-m-d-100-bachem-bubendorf"
+        ],
+        "fr": [
+          "technicien-de-maintenance-des-installations-propres-f-m-d-100-bachem-ag-bubendorf"
         ]
       },
       "firstSeenAt": "2026-05-19T19:53:29.299Z",
@@ -4771,9 +4871,9 @@
     },
     {
       "id": "bachem-40b2a7554505",
-      "slug": "tecnico-di-laboro-qc-tardo-fase-100-uomo-donna-bachem-ag-bubendorf",
+      "slug": "tecnico-di-laboratorio-qc-fase-avanzata-100-f-m-d-prima-di-12-monate-bachem-ag-bubendorf",
       "slugByLocale": {
-        "it": "tecnico-di-laboro-qc-tardo-fase-100-uomo-donna-bachem-ag-bubendorf",
+        "it": "tecnico-di-laboratorio-qc-fase-avanzata-100-f-m-d-prima-di-12-monate-bachem-ag-bubendorf",
         "en": "lab-technician-qc-late-phase-100-w-m-d-befristet-12-monate-bachem-bubendorf",
         "de": "labortechniker-qc-spate-phase-100-w-m-d-bachem-ag-bubendorf",
         "fr": "technicien-de-laboratoire-qc-phase-tardive-100-h-f-bachem-ag-bubendorf"
@@ -4848,11 +4948,13 @@
         ]
       },
       "previousSlugs": [
-        "lab-technician-qc-late-phase-100-w-m-d-befristet-12-monate-bachem-bubendorf"
+        "lab-technician-qc-late-phase-100-w-m-d-befristet-12-monate-bachem-bubendorf",
+        "tecnico-di-laboro-qc-tardo-fase-100-uomo-donna-bachem-ag-bubendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lab-technician-qc-late-phase-100-w-m-d-befristet-12-monate-bachem-bubendorf"
+          "lab-technician-qc-late-phase-100-w-m-d-befristet-12-monate-bachem-bubendorf",
+          "tecnico-di-laboro-qc-tardo-fase-100-uomo-donna-bachem-ag-bubendorf"
         ]
       },
       "firstSeenAt": "2026-05-19T19:53:28.745Z",
@@ -4969,12 +5071,12 @@
     },
     {
       "id": "bachem-878dd26747d1",
-      "slug": "leader-di-gruppo-qa-gestione-progetto-100-bachem-ag-bubendorf",
+      "slug": "responsabile-di-gruppo-qa-gestione-progetti-100-bachem-ag-bubendorf",
       "slugByLocale": {
-        "it": "leader-di-gruppo-qa-gestione-progetto-100-bachem-ag-bubendorf",
+        "it": "responsabile-di-gruppo-qa-gestione-progetti-100-bachem-ag-bubendorf",
         "en": "group-leader-qa-project-management-100-f-m-d-bachem-bubendorf",
         "de": "gruppenleiter-qa-projektmanagement-100-bachem-ag-bubendorf",
-        "fr": "chef-de-groupe-qa-gestion-de-projet-100-bachem-ag-bubendorf"
+        "fr": "responsable-de-groupe-qa-gestion-de-projets-100-bachem-ag-bubendorf"
       },
       "company": "Bachem AG",
       "companyKey": "bachem",
@@ -5048,14 +5150,20 @@
         ]
       },
       "previousSlugs": [
-        "group-leader-qa-project-management-100-f-m-d-bachem-bubendorf"
+        "group-leader-qa-project-management-100-f-m-d-bachem-bubendorf",
+        "leader-di-gruppo-qa-gestione-progetto-100-bachem-ag-bubendorf",
+        "chef-de-groupe-qa-gestion-de-projet-100-bachem-ag-bubendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "group-leader-qa-project-management-100-f-m-d-bachem-bubendorf"
+          "group-leader-qa-project-management-100-f-m-d-bachem-bubendorf",
+          "leader-di-gruppo-qa-gestione-progetto-100-bachem-ag-bubendorf"
         ],
         "de": [
           "group-leader-qa-project-management-100-f-m-d-bachem-bubendorf"
+        ],
+        "fr": [
+          "chef-de-groupe-qa-gestion-de-projet-100-bachem-ag-bubendorf"
         ]
       },
       "firstSeenAt": "2026-05-19T19:53:27.671Z",
@@ -5602,7 +5710,7 @@
         "it": "scientist-qc-fase-sviluppo-tardiva-100-u-m-d-bachem-ag-bubendorf",
         "en": "scientist-qc-late-phase-100-m-w-d-bachem-bubendorf",
         "de": "wissenschaftler-qualitatskontrolle-spatphase-100-m-w-d-bachem-ag-bubendorf",
-        "fr": "scientiste-qc-phase-de-developpement-tardive-100-h-f-d-bachem-ag-bubendorf"
+        "fr": "scientifique-qc-phase-avancee-100-l-f-d-bachem-ag-bubendorf"
       },
       "company": "Bachem AG",
       "companyKey": "bachem",
@@ -5676,7 +5784,8 @@
         ]
       },
       "previousSlugs": [
-        "scientist-qc-late-phase-100-m-w-d-bachem-bubendorf"
+        "scientist-qc-late-phase-100-m-w-d-bachem-bubendorf",
+        "scientiste-qc-phase-de-developpement-tardive-100-h-f-d-bachem-ag-bubendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -5684,6 +5793,9 @@
         ],
         "de": [
           "scientist-qc-late-phase-100-m-w-d-bachem-bubendorf"
+        ],
+        "fr": [
+          "scientiste-qc-phase-de-developpement-tardive-100-h-f-d-bachem-ag-bubendorf"
         ]
       },
       "firstSeenAt": "2026-05-19T19:53:24.483Z",
@@ -5702,12 +5814,12 @@
     },
     {
       "id": "bachem-1339958ca0ce",
-      "slug": "chimico-a-oligo-w-m-d-100-bachem-ag-bubendorf",
+      "slug": "chemico-m-f-d-oligonucleotidi-full-time-bachem-ag-bubendorf",
       "slugByLocale": {
-        "it": "chimico-a-oligo-w-m-d-100-bachem-ag-bubendorf",
-        "en": "chemist-oligo-w-m-d-100-bachem-ag-bubendorf",
+        "it": "chemico-m-f-d-oligonucleotidi-full-time-bachem-ag-bubendorf",
+        "en": "chemist-m-f-d-oligonucleotide-full-time-bachem-ag-bubendorf",
         "de": "chemiker-in-oligo-w-m-d-100-bachem-bubendorf",
-        "fr": "chimiste-oligo-w-m-d-100-bachem-ag-bubendorf"
+        "fr": "chimiste-h-f-e-oligonucleotide-temps-plein-bachem-ag-bubendorf"
       },
       "company": "Bachem AG",
       "companyKey": "bachem",
@@ -5781,11 +5893,21 @@
         ]
       },
       "previousSlugs": [
-        "chemiker-in-oligo-w-m-d-100-bachem-bubendorf"
+        "chemiker-in-oligo-w-m-d-100-bachem-bubendorf",
+        "chimico-a-oligo-w-m-d-100-bachem-ag-bubendorf",
+        "chemist-oligo-w-m-d-100-bachem-ag-bubendorf",
+        "chimiste-oligo-w-m-d-100-bachem-ag-bubendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "chemiker-in-oligo-w-m-d-100-bachem-bubendorf"
+          "chemiker-in-oligo-w-m-d-100-bachem-bubendorf",
+          "chimico-a-oligo-w-m-d-100-bachem-ag-bubendorf"
+        ],
+        "en": [
+          "chemist-oligo-w-m-d-100-bachem-ag-bubendorf"
+        ],
+        "fr": [
+          "chimiste-oligo-w-m-d-100-bachem-ag-bubendorf"
         ]
       },
       "firstSeenAt": "2026-05-19T19:53:23.953Z",
@@ -5912,7 +6034,7 @@
         "it": "tecnico-senior-di-logistica-di-produzione-al-100-f-f-d-bachem-ag-bubendorf",
         "en": "senior-production-logistics-technician-100-m-w-d-bachem-bubendorf",
         "de": "logistiktechniker-100-m-w-d-bachem-ag-bubendorf",
-        "fr": "technicien-principal-en-logistique-de-production-100-m-m-j-bachem-ag-bubendorf"
+        "fr": "technicien-logistique-production-senior-a-temps-complet-h-f-d-bachem-ag-bubendorf"
       },
       "company": "Bachem AG",
       "companyKey": "bachem",
@@ -5985,7 +6107,8 @@
         ]
       },
       "previousSlugs": [
-        "senior-production-logistics-technician-100-m-w-d-bachem-bubendorf"
+        "senior-production-logistics-technician-100-m-w-d-bachem-bubendorf",
+        "technicien-principal-en-logistique-de-production-100-m-m-j-bachem-ag-bubendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -5993,6 +6116,9 @@
         ],
         "de": [
           "senior-production-logistics-technician-100-m-w-d-bachem-bubendorf"
+        ],
+        "fr": [
+          "technicien-principal-en-logistique-de-production-100-m-m-j-bachem-ag-bubendorf"
         ]
       },
       "firstSeenAt": "2026-05-19T19:53:22.909Z",
@@ -6201,8 +6327,8 @@
       "slugByLocale": {
         "it": "responsabile-progetti-assicurazione-qualita-f-m-d-100-bachem-ag-bubendorf",
         "en": "manager-qa-projects-f-m-d-100-bachem-bubendorf",
-        "de": "qa-projektleiter-m-w-d-100-bachem-ag-bubendorf",
-        "fr": "responsable-projets-qa-f-m-x-100-bachem-ag-bubendorf"
+        "de": "qa-projekteleiter-m-w-d-100-bachem-ag-bubendorf",
+        "fr": "responsable-projets-qa-h-f-d-temps-plein-bachem-ag-bubendorf"
       },
       "company": "Bachem AG",
       "companyKey": "bachem",
@@ -6276,11 +6402,19 @@
         ]
       },
       "previousSlugs": [
-        "manager-qa-projects-f-m-d-100-bachem-bubendorf"
+        "manager-qa-projects-f-m-d-100-bachem-bubendorf",
+        "qa-projektleiter-m-w-d-100-bachem-ag-bubendorf",
+        "responsable-projets-qa-f-m-x-100-bachem-ag-bubendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
           "manager-qa-projects-f-m-d-100-bachem-bubendorf"
+        ],
+        "de": [
+          "qa-projektleiter-m-w-d-100-bachem-ag-bubendorf"
+        ],
+        "fr": [
+          "responsable-projets-qa-f-m-x-100-bachem-ag-bubendorf"
         ]
       },
       "firstSeenAt": "2026-05-19T19:53:21.341Z",
@@ -6304,7 +6438,7 @@
         "it": "tecnico-di-laboratorio-r-d-u-m-d-100-bachem-ag-bubendorf",
         "en": "lab-technician-r-d-w-m-d-100-bachem-bubendorf",
         "de": "labortechniker-f-e-w-m-d-100-bachem-ag-bubendorf",
-        "fr": "technicien-de-laboratoire-r-d-f-m-d-100-bachem-ag-bubendorf"
+        "fr": "technicien-de-laboratoire-r-d-h-f-e-temps-plein-bachem-ag-bubendorf"
       },
       "company": "Bachem AG",
       "companyKey": "bachem",
@@ -6374,11 +6508,15 @@
         ]
       },
       "previousSlugs": [
-        "lab-technician-r-d-w-m-d-100-bachem-bubendorf"
+        "lab-technician-r-d-w-m-d-100-bachem-bubendorf",
+        "technicien-de-laboratoire-r-d-f-m-d-100-bachem-ag-bubendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lab-technician-r-d-w-m-d-100-bachem-bubendorf"
+        ],
+        "fr": [
+          "technicien-de-laboratoire-r-d-f-m-d-100-bachem-ag-bubendorf"
         ]
       },
       "firstSeenAt": "2026-05-19T19:53:20.771Z",
@@ -6503,7 +6641,7 @@
       "slugByLocale": {
         "it": "responsabile-tecnologico-globale-spray-drying-f-m-d-100-bachem-ag-bubendorf",
         "en": "global-technology-lead-technical-operations-spray-drying-f-m-d-100-bachem-bubendorf",
-        "de": "globales-technologie-leiter-in-spray-trocknung-m-w-d-vollzeit-bachem-ag-bubendorf",
+        "de": "globale-technologieleiter-in-fur-spray-trocknung-f-m-d-vollzeit-bachem-ag-bubendorf",
         "fr": "responsable-technique-globale-spray-sechage-f-m-x-temps-plein-bachem-ag-bubendorf"
       },
       "company": "Bachem AG",
@@ -6578,11 +6716,15 @@
         ]
       },
       "previousSlugs": [
-        "global-technology-lead-technical-operations-spray-drying-f-m-d-100-bachem-bubendorf"
+        "global-technology-lead-technical-operations-spray-drying-f-m-d-100-bachem-bubendorf",
+        "globales-technologie-leiter-in-spray-trocknung-m-w-d-vollzeit-bachem-ag-bubendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
           "global-technology-lead-technical-operations-spray-drying-f-m-d-100-bachem-bubendorf"
+        ],
+        "de": [
+          "globales-technologie-leiter-in-spray-trocknung-m-w-d-vollzeit-bachem-ag-bubendorf"
         ]
       },
       "firstSeenAt": "2026-05-19T19:53:19.692Z",
@@ -6810,7 +6952,7 @@
         "it": "responsabile-progetto-cmc-m-f-d-100-bachem-ag-bubendorf",
         "en": "cmc-project-leader-f-m-d-100-bachem-bubendorf",
         "de": "cmc-projektleiter-m-w-d-100-bachem-ag-bubendorf",
-        "fr": "responsable-de-projet-cmc-h-f-d-temps-plein-bachem-ag-bubendorf"
+        "fr": "chef-de-projet-cmc-f-m-d-100-bachem-ag-bubendorf"
       },
       "company": "Bachem AG",
       "companyKey": "bachem",
@@ -6883,11 +7025,15 @@
         ]
       },
       "previousSlugs": [
-        "cmc-project-leader-f-m-d-100-bachem-bubendorf"
+        "cmc-project-leader-f-m-d-100-bachem-bubendorf",
+        "responsable-de-projet-cmc-h-f-d-temps-plein-bachem-ag-bubendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
           "cmc-project-leader-f-m-d-100-bachem-bubendorf"
+        ],
+        "fr": [
+          "responsable-de-projet-cmc-h-f-d-temps-plein-bachem-ag-bubendorf"
         ]
       },
       "firstSeenAt": "2026-05-19T19:53:18.143Z",

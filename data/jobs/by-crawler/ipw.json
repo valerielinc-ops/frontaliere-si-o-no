@@ -594,9 +594,9 @@
       "slug": "apprendista-logista-efz-integrierte-psychiatrie-winterthur-ipw-winterthur",
       "slugByLocale": {
         "it": "apprendista-logista-efz-integrierte-psychiatrie-winterthur-ipw-winterthur",
-        "en": "logistics-apprentice-efz-integrierte-psychiatrie-winterthur-ipw-winterthur",
+        "en": "apprentice-logistikerin-apprentice-logistiker-efz-integrierte-psychiatrie-winterthur-ipw-winterthur",
         "de": "lernende-logistikerin-lernender-logistiker-efz-ipw-winterthur",
-        "fr": "apprenti-logisticien-efz-integrierte-psychiatrie-winterthur-ipw-winterthur"
+        "fr": "apprenti-e-logistikerin-apprenti-e-logistiker-efz-integrierte-psychiatrie-winterthur-ipw-winterthur"
       },
       "company": "Integrierte Psychiatrie Winterthur (ipw)",
       "companyKey": "ipw",
@@ -639,11 +639,19 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lernende-logistikerin-lernender-logistiker-efz-ipw-winterthur"
+        "lernende-logistikerin-lernender-logistiker-efz-ipw-winterthur",
+        "logistics-apprentice-efz-integrierte-psychiatrie-winterthur-ipw-winterthur",
+        "apprenti-logisticien-efz-integrierte-psychiatrie-winterthur-ipw-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lernende-logistikerin-lernender-logistiker-efz-ipw-winterthur"
+        ],
+        "en": [
+          "logistics-apprentice-efz-integrierte-psychiatrie-winterthur-ipw-winterthur"
+        ],
+        "fr": [
+          "apprenti-logisticien-efz-integrierte-psychiatrie-winterthur-ipw-winterthur"
         ]
       },
       "firstSeenAt": "2026-05-19T18:25:36.156Z",
