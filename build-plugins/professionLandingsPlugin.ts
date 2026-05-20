@@ -41,7 +41,7 @@ import { BASE_URL, MIN_INDEXABLE_WORDS, countHtmlBodyWords } from './constants';
 import { buildSeoPageHtml } from './shared/seoPageShell';
 import { WriteCollector } from './batchWrite';
 import { resolveProfessionLandingsFlushed } from './shared/buildSignals';
-import { imageObjectLd } from '../services/seo/imageObjectLd';
+import { imageObjectLd, breadcrumbListLd, faqPageLd } from '../services/seo/structuredData';
 import {
   BREADCRUMB_LINK_STYLE,
   BREADCRUMB_STYLE,
@@ -415,26 +415,13 @@ function renderPage(opts: {
   const jobBoardUrl = `${BASE_URL}${buildJobBoardUrl(locale)}`;
   const calculatorUrl = `${BASE_URL}${CALCULATOR_URL[locale]}`;
 
-  const breadcrumbLd = JSON.stringify({
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      { '@type': 'ListItem', position: 1, name: copy.breadcrumbHome, item: homeUrl },
-      { '@type': 'ListItem', position: 2, name: copy.breadcrumbJobs, item: jobBoardUrl },
-      { '@type': 'ListItem', position: 3, name: copy.h1, item: canonicalUrl },
-    ],
-  });
+  const breadcrumbLd = JSON.stringify(breadcrumbListLd([
+    { name: copy.breadcrumbHome, url: homeUrl },
+    { name: copy.breadcrumbJobs, url: jobBoardUrl },
+    { name: copy.h1, url: canonicalUrl },
+  ]));
 
-  const faqLd = JSON.stringify({
-    '@context': 'https://schema.org',
-    '@type': 'FAQPage',
-    inLanguage: locale,
-    mainEntity: faqs.map((f) => ({
-      '@type': 'Question',
-      name: f.question,
-      acceptedAnswer: { '@type': 'Answer', text: f.answer },
-    })),
-  });
+  const faqLd = JSON.stringify(faqPageLd(faqs.map((f) => ({ question: f.question, answer: f.answer }))));
 
   const articleLd = JSON.stringify({
     '@context': 'https://schema.org',
