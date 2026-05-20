@@ -325,9 +325,9 @@ export function stripHtml(html = '') {
   // Truncate at first inline JS widget signature — SAP SF / Freeform widgets
   // embed `function NAME(...)` blocks at the end that aren't wrapped in
   // <script> tags and survive the strip.
-  const fnMatch = stripped.match(/\n\s*function\s+\w+\s*\([^)]*\)\s*\{/);
+  const fnMatch = stripped.match(/(?:\n|^)\s*(?:\/\/\s*<!\[CDATA\[|\$\(|jQuery\(|function\s+\w*\s*\(|\(function\s*\()/);
   if (fnMatch && fnMatch.index > 0) return stripped.slice(0, fnMatch.index).trimEnd();
-  const varMatch = stripped.match(/\n\s*var\s+\w+\s*=\s*(?:window|document)\./);
+  const varMatch = stripped.match(/(?:\n|^)\s*var\s+\w+\s*=\s*(?:window|document|new\s+Object|\{)/);
   if (varMatch && varMatch.index > 0) return stripped.slice(0, varMatch.index).trimEnd();
   return stripped;
 }

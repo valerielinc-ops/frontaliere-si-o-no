@@ -71,12 +71,12 @@ export function stripInlineJsCode(text = '') {
   // Match: optional leading whitespace + `function NAME(...)`, with at least
   // one alphanumeric name. Anchored against a newline to avoid mid-sentence
   // false positives like "the function `lookupX(...)` returns".
-  const m = text.match(/\n\s*function\s+\w+\s*\([^)]*\)\s*\{/);
+  const m = text.match(/(?:\n|^)\s*(?:\/\/\s*<!\[CDATA\[|\$\(|jQuery\(|function\s+\w*\s*\(|\(function\s*\()/);
   if (m && m.index > 0) {
     return text.slice(0, m.index).trimEnd();
   }
   // Fallback: orphan `var X = window.` / `var X = document.` declarations
-  const m2 = text.match(/\n\s*var\s+\w+\s*=\s*(?:window|document)\./);
+  const m2 = text.match(/(?:\n|^)\s*var\s+\w+\s*=\s*(?:window|document|new\s+Object|\{)/);
   if (m2 && m2.index > 0) {
     return text.slice(0, m2.index).trimEnd();
   }
