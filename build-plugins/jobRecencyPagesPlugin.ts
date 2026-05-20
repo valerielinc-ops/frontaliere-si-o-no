@@ -46,6 +46,7 @@ import {
 import { renderRecencyHubProse } from './shared/jobListingProse';
 import { renderJobBoardCommuterContext } from './shared/jobBoardCommuterContext';
 import { windowDaysForVariant } from './jobRecencyLanding';
+import { breadcrumbListLd, faqPageLd } from '../services/seo/structuredData';
 
 const LOCALES: ReadonlyArray<JobLandingLocale> = ['it', 'en', 'de', 'fr'];
 
@@ -229,15 +230,11 @@ export function jobRecencyPagesPlugin(rootDir: string): Plugin {
           const sectionRootUrl = `${BASE_URL}${withSlash(
             `${LOCALE_PREFIX[locale]}/${SECTION_BY_LOCALE[locale]}`.replace(/\/+/g, '/'),
           )}`;
-          const breadcrumbLd = JSON.stringify({
-            '@context': 'https://schema.org',
-            '@type': 'BreadcrumbList',
-            itemListElement: [
-              { '@type': 'ListItem', position: 1, name: 'Home', item: `${BASE_URL}/` },
-              { '@type': 'ListItem', position: 2, name: SECTION_NAME[locale], item: sectionRootUrl },
-              { '@type': 'ListItem', position: 3, name: model.heading, item: canonicalUrl },
-            ],
-          });
+          const breadcrumbLd = JSON.stringify(breadcrumbListLd([
+            { name: 'Home', url: `${BASE_URL}/` },
+            { name: SECTION_NAME[locale], url: sectionRootUrl },
+            { name: model.heading, url: canonicalUrl },
+          ]));
 
           const itemListLd = model.jobs.length > 0
             ? JSON.stringify({
@@ -266,15 +263,7 @@ export function jobRecencyPagesPlugin(rootDir: string): Plugin {
           });
 
           const faqLd = model.faq.length > 0
-            ? JSON.stringify({
-                '@context': 'https://schema.org',
-                '@type': 'FAQPage',
-                mainEntity: model.faq.map((f) => ({
-                  '@type': 'Question',
-                  name: f.question,
-                  acceptedAnswer: { '@type': 'Answer', text: f.answer },
-                })),
-              })
+            ? JSON.stringify(faqPageLd(model.faq.map((f) => ({ question: f.question, answer: f.answer }))))
             : '';
 
           const openAllHref = sectionRootUrl;
