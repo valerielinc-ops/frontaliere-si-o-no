@@ -70,6 +70,7 @@ export const CRAWLED_COMPANY_LOGOS: Record<string, string> = {
  'allianz-suisse': cLogo('allianz.ch'),
  'alpiq': cLogo('alpiq.com'),
  'alten-switzerland': gFavicon('alten.ch'),
+ 'ameos-ch': cLogo('karriere.ameos.eu'),
  'amministrazione-cantonale-ti': gFavicon('ti.ch'),
  'artisa-group': gFavicon('artisagroup.com'),
  'avaloq': 'https://www.avaloq.com/_Resources/Static/Packages/Avaloq.AvaloqCom/Images/Brand/Favicons/apple-touch-icon.png',
