@@ -57,7 +57,7 @@ import {
 import { ARTICLES } from '../data/blog-articles-data';
 import { BLOG_SLUGS } from '../services/routerBlogData';
 import type { BlogArticleId } from '../services/router';
-import { imageObjectLd } from '../services/seo/imageObjectLd';
+import { imageObjectLd, breadcrumbListLd } from '../services/seo/structuredData';
 
 // ── Types ─────────────────────────────────────────────────────────
 
@@ -1017,14 +1017,10 @@ function renderSectionPage(opts: {
   );
   const alternates = hreflangLines.join('\n');
 
-  const breadcrumbLd = JSON.stringify({
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      { '@type': 'ListItem', position: 1, name: localeCopy.homeBreadcrumb, item: homeUrl },
-      { '@type': 'ListItem', position: 2, name: copy.h1, item: canonicalUrl },
-    ],
-  });
+  const breadcrumbLd = JSON.stringify(breadcrumbListLd([
+    { name: localeCopy.homeBreadcrumb, url: homeUrl },
+    { name: copy.h1, url: canonicalUrl },
+  ]));
 
   const collectionLd = JSON.stringify({
     '@context': 'https://schema.org',
