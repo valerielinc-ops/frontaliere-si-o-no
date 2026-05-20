@@ -325,7 +325,22 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
+      "previousSlugs": [
+        "administrative-employee-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "administrative-staff-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "verwaltungsmitarbeiter-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "employe-administratif-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "personnel-administratif-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "employee-amministrativo-a-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "employee-amministrativo-a-eoc-ente-ospedaliero-cantonale-bellinzona"
+      ],
       "previousSlugsByLocale": {
+        "it": [
+          "impiegato-a-amministrativo-a-80-eoc-ente-ospedaliero-cantonale-bellinzona",
+          "impiegato-a-amministrativo-a-eoc-ente-ospedaliero-cantonale-bellinzona-bellinzona",
+          "impiegato-a-amministrativo-a-eoc-ente-ospedaliero-cantonale-bellinzona-bellinzona-2",
+          "impiegato-a-amministrativo-a-eoc-ente-ospedaliero-cantonale-bellinzona-bellinzona-3"
+        ],
         "en": [
           "administrative-employee-eoc-ente-ospedaliero-cantonale-bellinzona",
           "administrative-staff-eoc-ente-ospedaliero-cantonale-bellinzona",
@@ -339,16 +354,7 @@
           "personnel-administratif-eoc-ente-ospedaliero-cantonale-bellinzona",
           "employe-e-amministrativo-a-eoc-ente-ospedaliero-cantonale-bellinzona"
         ]
-      },
-      "previousSlugs": [
-        "administrative-employee-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "administrative-staff-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "verwaltungsmitarbeiter-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "employe-administratif-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "personnel-administratif-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "employee-amministrativo-a-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "employee-amministrativo-a-eoc-ente-ospedaliero-cantonale-bellinzona"
-      ]
+      }
     },
     {
       "id": "company-x29n48",
