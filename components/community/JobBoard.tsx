@@ -6588,6 +6588,44 @@ const JobBoard: React.FC<JobBoardProps> = ({
  </div>
  </header>
 
+ {/* S6 — Mobile-only action block above the description. 75 % traffic is
+ * mobile (CLAUDE.md #15/#17); the user must see CTA + key stats + a
+ * money-signal BEFORE scrolling through the prose. Desktop keeps the
+ * sticky right rail so this block is hidden on lg+. */}
+ <section
+ aria-label={t('jobBoard.snapshotTitle')}
+ className="lg:hidden rounded-2xl border border-edge bg-surface p-4 space-y-3"
+ >
+ <button
+ onClick={() => handleApply(selectedJob)}
+ className="w-full inline-flex items-center justify-center gap-2 px-4 py-3 min-h-[48px] text-base font-semibold font-display bg-accent hover:bg-accent-hover text-on-accent rounded-lg transition-colors"
+ >
+ <ArrowUpRight className="w-4 h-4" />
+ {t('jobBoard.apply')}
+ </button>
+ <dl className="grid grid-cols-3 gap-2 text-xs">
+ <div className="rounded-lg bg-surface-alt p-2 text-center">
+ <dt className="uppercase tracking-wide text-[10px] text-muted">{t('jobBoard.snapshot.location')}</dt>
+ <dd className="font-semibold font-display text-strong mt-0.5 leading-tight truncate">
+ {locationSnapshot?.locality || selectedJob.location}
+ </dd>
+ </div>
+ <div className="rounded-lg bg-surface-alt p-2 text-center">
+ <dt className="uppercase tracking-wide text-[10px] text-muted">{t('jobBoard.snapshot.contract')}</dt>
+ <dd className="font-semibold font-display text-strong mt-0.5 leading-tight">
+ {t(contractTranslationKey(selectedJob))}
+ </dd>
+ </div>
+ <div className="rounded-lg bg-surface-alt p-2 text-center">
+ <dt className="uppercase tracking-wide text-[10px] text-muted">{t('jobBoard.snapshot.published')}</dt>
+ <dd className="font-semibold font-display text-strong mt-0.5 leading-tight">
+ {daysSincePosted(selectedJob.postedDate)}
+ </dd>
+ </div>
+ </dl>
+ {salaryEstimateWidget}
+ </section>
+
  <section className="section rounded-2xl border border-edge bg-surface p-4 sm:p-5 space-y-3">
  <h4 className="text-base font-bold text-heading">{canonicalCopy.summary}</h4>
  {enrichmentLoading && canonicalSummary.length === 0 && !detailDescription ? (
