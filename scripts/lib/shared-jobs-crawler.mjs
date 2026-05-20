@@ -85,7 +85,10 @@ import {
   extractRequirementsFromText as _extractRequirementsFromText,
   htmlToStructuredTextDCC as _htmlToStructuredTextDCC,
   sanitizeAiOutput as _sanitizeAiOutput,
+  addPreviousSlugForLocale,
+  captureLostSlugs,
 } from './dedicated-crawler-common.mjs';
+import { recordSlugMutation } from './slug-history-journal.mjs';
 import {
   getJobLocalizationPipelineStats,
   localizeJobContentWithPipeline,
@@ -1706,6 +1709,14 @@ function extractAlternateLocaleUrls(html, currentUrl) {
 
 // FRO-231: slug quality checks → moved to top of file (FRO-359)
 
+function _slugByLocaleDiffer(a = {}, b = {}) {
+  const keys = new Set([...Object.keys(a || {}), ...Object.keys(b || {})]);
+  for (const k of keys) {
+    if (String(a?.[k] || '') !== String(b?.[k] || '')) return true;
+  }
+  return false;
+}
+
 function ensureLocaleFields(job) {
   const out = { ...job };
   const titleByLocale = (out.titleByLocale && typeof out.titleByLocale === 'object') ? { ...out.titleByLocale } : {};
@@ -1884,11 +1895,20 @@ function ensureLocaleFields(job) {
       }));
     // Save old locale slug before discarding so the build plugin can generate bridge/redirect
     // pages for previously-indexed locale URLs (prevents SEO 404s on locale-specific paths).
+    // FRO-prev-slug-attribution (2026-05-20): write to previousSlugsByLocale so the
+    // bridge plugin emits under the correct locale prefix; flat-array-only write was
+    // leaving entries unattributed and cleanPreviousSlugsPerLocale was stripping
+    // cross-locale matches (e.g. EN slug equal to new DE active slug → IT history lost).
     if (willDiscardSlug && currentSlug) {
-      if (!Array.isArray(out.previousSlugs)) out.previousSlugs = [];
-      if (!out.previousSlugs.includes(currentSlug)) {
-        out.previousSlugs.push(currentSlug);
-      }
+      addPreviousSlugForLocale(out, locale, currentSlug, 20, 'ensureLocaleFields/willDiscardSlug');
+      recordSlugMutation({
+        jobId: out.id,
+        locale,
+        slug: currentSlug,
+        action: 'capture',
+        source: 'shared-jobs-crawler.ensureLocaleFields/willDiscardSlug',
+        reason: _slugHasWrongLang ? 'wrong-lang' : (isLowQualityLocalizedSlug(currentSlug) ? 'low-quality' : 'regen'),
+      });
     }
     const cleanCurrentSlug = willDiscardSlug ? '' : currentSlug;
     // Append stable fingerprint hash to new slugs for URL-identified jobs
@@ -5095,7 +5115,17 @@ async function main() {
             if (shouldForceLocalizationForJob(job)) {
               console.log(`🔁 Backfill forced localization ${index + 1}/${selectedQueue.length}: ${job.slug || job.id || 'unknown'}`);
             }
+            // FRO-prev-slug-attribution: snapshot pre-AI slugs so post-AI slug
+            // changes get captured into previousSlugsByLocale. Without this,
+            // AI-driven title rewrites (e.g. needsRetranslation → Turner from
+            // Lathe Operator) lost the old slug because hardenLocalesAcrossFile
+            // is the only path that calls captureLostSlugs.
+            const _preAiSlug = job.slug;
+            const _preAiSlugByLocale = job.slugByLocale ? { ...job.slugByLocale } : {};
             const enriched = await enrichJobLocalesWithRetry(job, crawlerConfig);
+            if (enriched && (enriched.slug !== _preAiSlug || _slugByLocaleDiffer(enriched.slugByLocale, _preAiSlugByLocale))) {
+              captureLostSlugs(enriched, _preAiSlugByLocale, _preAiSlug);
+            }
             return { fp: fingerprintJob(job), enriched };
           },
           localizationConcurrency

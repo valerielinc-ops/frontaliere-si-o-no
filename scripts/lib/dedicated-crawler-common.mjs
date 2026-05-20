@@ -20,6 +20,7 @@ import {
 } from './job-locale-utils.mjs';
 import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
 import { extractStableJobId } from './job-match-key.mjs';
+import { recordSlugMutation } from './slug-history-journal.mjs';
 
 const DEFAULT_LOCALES = DEFAULT_JOB_LOCALES;
 
@@ -4928,7 +4929,7 @@ export function captureLostSlugs(job, prevSlugByLocale = {}, prevSlug = '', cap 
   // Master slug changed → add to IT locale (master slug serves the IT path)
   if (prevSlug && prevSlug !== normalizeSpace(job.slug || '')) {
     lost.push(prevSlug);
-    addPreviousSlugForLocale(job, 'it', prevSlug, cap);
+    addPreviousSlugForLocale(job, 'it', prevSlug, cap, 'captureLostSlugs/master-rename');
   }
 
   // Per-locale slug changes
@@ -4937,7 +4938,7 @@ export function captureLostSlugs(job, prevSlugByLocale = {}, prevSlug = '', cap 
     const newSlug = normalizeSpace((job.slugByLocale || {})[locale] || '');
     if (oldSlug && oldSlug !== newSlug) {
       lost.push(oldSlug);
-      addPreviousSlugForLocale(job, locale, oldSlug, cap);
+      addPreviousSlugForLocale(job, locale, oldSlug, cap, 'captureLostSlugs/locale-rename');
     }
   }
 
@@ -4961,7 +4962,7 @@ export function captureLostSlugs(job, prevSlugByLocale = {}, prevSlug = '', cap 
  * `job.previousSlugs` in sync (union of all locale entries) for
  * backward compatibility with consumers not yet migrated.
  */
-export function addPreviousSlugForLocale(job, locale, slug, cap = 20) {
+export function addPreviousSlugForLocale(job, locale, slug, cap = 20, _source = 'addPreviousSlugForLocale') {
   if (!slug || !locale) return;
   const norm = normalizeSpace(String(slug));
   if (!norm) return;
@@ -4973,12 +4974,30 @@ export function addPreviousSlugForLocale(job, locale, slug, cap = 20) {
   if (!Array.isArray(job.previousSlugsByLocale[locale])) {
     job.previousSlugsByLocale[locale] = [];
   }
+  let captured = false;
   if (!job.previousSlugsByLocale[locale].includes(norm)) {
     job.previousSlugsByLocale[locale].push(norm);
+    captured = true;
   }
   // Cap per-locale
+  let trimmed = 0;
   if (job.previousSlugsByLocale[locale].length > cap) {
+    trimmed = job.previousSlugsByLocale[locale].length - cap;
     job.previousSlugsByLocale[locale] = job.previousSlugsByLocale[locale].slice(-cap);
+  }
+
+  if (captured) {
+    recordSlugMutation({
+      jobId: job.id, locale, slug: norm, action: 'capture',
+      source: `dedicated-crawler-common.${_source}`,
+    });
+  }
+  if (trimmed > 0) {
+    recordSlugMutation({
+      jobId: job.id, locale, slug: '<oldest>', action: 'cap-trim',
+      source: `dedicated-crawler-common.${_source}`,
+      reason: `cap=${cap}, trimmed=${trimmed}`,
+    });
   }
 
   // Sync legacy flat array
@@ -5041,9 +5060,23 @@ export function cleanPreviousSlugsPerLocale(job) {
       const cleaned = arr.filter(s => {
         const norm = normalizeSpace(String(s));
         // Remove if matches THIS locale's active slug (self-redirect)
-        if (norm === activeSlug) return false;
+        if (norm === activeSlug) {
+          recordSlugMutation({
+            jobId: job.id, locale, slug: norm, action: 'drop',
+            source: 'dedicated-crawler-common.cleanPreviousSlugsPerLocale',
+            reason: 'matches-active-locale',
+          });
+          return false;
+        }
         // Remove if matches master slug (always has a live page at IT path)
-        if (norm === masterSlug) return false;
+        if (norm === masterSlug) {
+          recordSlugMutation({
+            jobId: job.id, locale, slug: norm, action: 'drop',
+            source: 'dedicated-crawler-common.cleanPreviousSlugsPerLocale',
+            reason: 'matches-master',
+          });
+          return false;
+        }
         return true;
       });
       if (cleaned.length === 0) {
@@ -5082,7 +5115,15 @@ export function cleanPreviousSlugsPerLocale(job) {
       // If it's in a locale bucket, keep it (locale cleaning already handled it)
       if (localeAwareAll.has(norm)) return true;
       // Otherwise apply the old global cleanup: remove if matches any active slug
-      return !activeSet.has(norm);
+      if (activeSet.has(norm)) {
+        recordSlugMutation({
+          jobId: job.id, locale: null, slug: norm, action: 'drop',
+          source: 'dedicated-crawler-common.cleanPreviousSlugsPerLocale/flat',
+          reason: 'matches-active-any-locale',
+        });
+        return false;
+      }
+      return true;
     });
     if (job.previousSlugs.length === 0) delete job.previousSlugs;
   }
