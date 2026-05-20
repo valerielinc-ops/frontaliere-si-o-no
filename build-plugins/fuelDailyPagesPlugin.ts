@@ -72,6 +72,7 @@ import { adSlotHtml } from './lib/adSlotHtml';
 // and consider adding more methodology / FAQ prose. Do NOT noindex without
 // explicit approval (CLAUDE.md non-negotiable rule #5b).
 import { cleanNamespaces, cleanSitemapFiles } from './shared/distNamespaceCleanup';
+import { breadcrumbListLd, faqPageLd } from '../services/seo/structuredData';
 import {
   JOB_MARKET_LOCALE_PREFIX,
   JOB_MARKET_SECTION_SLUG,
@@ -1740,26 +1741,16 @@ function renderPage(inp: PageInputs): string {
   const alternatesHtml = renderHreflangTags(alternates);
 
   // JSON-LD
-  const breadcrumbLd = JSON.stringify({
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      { '@type': 'ListItem', position: 1, name: copy.breadcrumbHome, item: `${BASE_URL}/` },
-      { '@type': 'ListItem', position: 2, name: fuelLabel, item: `${BASE_URL}${FUEL_LOCALE_PREFIX[locale]}/${FUEL_SECTION_SLUG[locale][fuel]}/` },
-      { '@type': 'ListItem', position: 3, name: zoneLabel, item: canonicalUrl },
-    ],
-  });
+  const breadcrumbLd = JSON.stringify(breadcrumbListLd([
+    { name: copy.breadcrumbHome, url: `${BASE_URL}/` },
+    { name: fuelLabel, url: `${BASE_URL}${FUEL_LOCALE_PREFIX[locale]}/${FUEL_SECTION_SLUG[locale][fuel]}/` },
+    { name: zoneLabel, url: canonicalUrl },
+  ]));
 
-  const faqLd = JSON.stringify({
-    '@context': 'https://schema.org',
-    '@type': 'FAQPage',
-    inLanguage: locale,
-    mainEntity: faqItems.map((f) => ({
-      '@type': 'Question',
-      name: f.q,
-      acceptedAnswer: { '@type': 'Answer', text: f.a(fuelLabel, zoneLabel) },
-    })),
-  });
+  const faqLd = JSON.stringify(faqPageLd(faqItems.map((f) => ({
+    question: f.q,
+    answer: f.a(fuelLabel, zoneLabel),
+  }))));
 
   const webPageLd = JSON.stringify({
     '@context': 'https://schema.org',
@@ -2056,15 +2047,11 @@ function renderArchive(inp: ArchiveInputs): string {
   h1 = differentiateH1FromTitle(h1, title, locale);
   const description = intro.slice(0, 180);
 
-  const breadcrumbLd = JSON.stringify({
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      { '@type': 'ListItem', position: 1, name: copy.breadcrumbHome, item: `${BASE_URL}/` },
-      { '@type': 'ListItem', position: 2, name: fuelLabel, item: `${BASE_URL}${FUEL_LOCALE_PREFIX[locale]}/${FUEL_SECTION_SLUG[locale][fuel]}/` },
-      { '@type': 'ListItem', position: 3, name: `${zoneLabel} ${monthKey}`, item: canonicalUrl },
-    ],
-  });
+  const breadcrumbLd = JSON.stringify(breadcrumbListLd([
+    { name: copy.breadcrumbHome, url: `${BASE_URL}/` },
+    { name: fuelLabel, url: `${BASE_URL}${FUEL_LOCALE_PREFIX[locale]}/${FUEL_SECTION_SLUG[locale][fuel]}/` },
+    { name: `${zoneLabel} ${monthKey}`, url: canonicalUrl },
+  ]));
 
   const webPageLd = JSON.stringify({
     '@context': 'https://schema.org',
