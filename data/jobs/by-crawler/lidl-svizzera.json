@@ -156,6 +156,8 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
+      "salaryMin": 59000,
+      "salaryMax": 90500,
       "previousSlugs": [
         "361-venditore-venditrice-m-f-d-20-40-lidl-svizzera-riazzino",
         "361-venditore-venditrice-m-f-d-20-40-lidl-svizzera-cadenazzo",
@@ -167,10 +169,7 @@
           "361-venditore-venditrice-m-f-d-20-40-lidl-svizzera-cadenazzo",
           "361-venditore-venditrice-m-w-d-20-40-lidl-svizzera-riazzino-xsgkjj"
         ]
-      },
-      "needsRetranslation": true,
-      "salaryMin": 59000,
-      "salaryMax": 90500
+      }
     },
     {
       "id": "company-alqha9",
@@ -613,10 +612,6 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "previousSlugsByLocale": {
-        "it": [
-          "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lidl-svizzera-cadenazzo-minusio-2",
-          "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lidl-svizzera-cadenazzo-minusio-3"
-        ],
         "de": [
           "verkaufslehre-beginn-2026-lidl-svizzera-minusio",
           "lehre-detailhandel-eba-oder-efz-start-2026-lidl-svizzera-minusio",
@@ -625,11 +620,13 @@
         "fr": [
           "apprentissage-en-commerce-de-detail-cfp-ou-afc-debut-2026-lidl-svizzera-minusio",
           "stage-de-vente-debut-2026-lidl-svizzera-minusio"
+        ],
+        "it": [
+          "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lidl-svizzera-cadenazzo-minusio-2",
+          "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lidl-svizzera-cadenazzo-minusio-3"
         ]
       },
       "previousSlugs": [
-        "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lidl-svizzera-cadenazzo-minusio-2",
-        "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lidl-svizzera-cadenazzo-minusio-3",
         "verkaufslehre-beginn-2026-lidl-svizzera-minusio",
         "lehre-detailhandel-eba-oder-efz-start-2026-lidl-svizzera-minusio",
         "lehre-im-einzelhandel-cfp-oder-afc-beginn-2026-lidl-svizzera-minusio",
@@ -645,11 +642,12 @@
         "retail-trade-apprenticeship-cfp-or-afc-start-2026-lidl-svizzera-minusio",
         "einzelhandelslehre-cfp-oder-afc-beginn-2026-lidl-svizzera-minusio",
         "retail-apprentice-cfp-or-afc-starting-2026-lidl-svizzera-minusio",
-        "apprentissage-dans-le-commerce-de-detail-cfp-ou-afc-debut-2026-lidl-svizzera-minusio"
+        "apprentissage-dans-le-commerce-de-detail-cfp-ou-afc-debut-2026-lidl-svizzera-minusio",
+        "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lidl-svizzera-cadenazzo-minusio-2",
+        "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lidl-svizzera-cadenazzo-minusio-3"
       ],
       "firstSeenAt": "2026-04-12T09:43:42.513Z",
       "qualityScore": 97,
-      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000
     },
@@ -746,18 +744,16 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "previousSlugsByLocale": {
-        "it": [
-          "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lidl-svizzera-cadenazzo-biasca-2",
-          "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lidl-svizzera-cadenazzo-biasca-3"
-        ],
         "en": [
           "apprenticeship-in-retail-trade-cfp-or-afc-start-2026-lidl-svizzera-biasca",
           "retail-apprenticeship-vet-or-federal-vet-diploma-starting-2026-lidl-svizzera-biasca"
+        ],
+        "it": [
+          "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lidl-svizzera-cadenazzo-biasca-2",
+          "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lidl-svizzera-cadenazzo-biasca-3"
         ]
       },
       "previousSlugs": [
-        "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lidl-svizzera-cadenazzo-biasca-2",
-        "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lidl-svizzera-cadenazzo-biasca-3",
         "apprenticeship-in-retail-trade-cfp-or-afc-start-2026-lidl-svizzera-biasca",
         "retail-apprenticeship-vet-or-federal-vet-diploma-starting-2026-lidl-svizzera-biasca",
         "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lidl-svizzera-biasca",
@@ -766,11 +762,12 @@
         "retail-apprenticeship-cfp-or-afc-start-2026-lidl-svizzera-biasca",
         "retail-apprenticeship-cfp-or-afc-starting-2026-lidl-svizzera-biasca",
         "apprenticeship-in-retail-cfp-or-afc-start-2026-lidl-svizzera-biasca",
-        "apprentissage-dans-le-commerce-de-detail-cfp-ou-afc-debut-2026-lidl-svizzera-biasca"
+        "apprentissage-dans-le-commerce-de-detail-cfp-ou-afc-debut-2026-lidl-svizzera-biasca",
+        "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lidl-svizzera-cadenazzo-biasca-2",
+        "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lidl-svizzera-cadenazzo-biasca-3"
       ],
       "firstSeenAt": "2026-04-12T09:43:42.513Z",
       "qualityScore": 97,
-      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000
     },
@@ -863,8 +860,6 @@
       "firstSeenAt": "2026-04-12T09:43:42.513Z",
       "qualityScore": 97,
       "previousSlugs": [
-        "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lidl-svizzera-cadenazzo-arbedo-castione-2",
-        "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lidl-svizzera-cadenazzo-arbedo-castione-3",
         "einsteigerlehre-im-einzelhandel-cfp-oder-afc-start-2026-lidl-svizzera-arbedo-castione",
         "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lidl-svizzera-arbedo-castione",
         "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lidl-svizzera-cadenazzo-arbedo-castione",
@@ -876,18 +871,19 @@
         "retail-trade-apprenticeship-cfp-or-afc-starting-2026-lidl-svizzera-arbedo-castione",
         "einzelhandelslehre-cfp-oder-afc-start-2026-lidl-svizzera-arbedo-castione",
         "retail-apprentice-cfp-or-afc-start-2026-lidl-svizzera-arbedo-castione",
-        "apprenti-dans-le-commerce-de-detail-cfp-ou-afc-debut-2026-lidl-svizzera-arbedo-castione"
+        "apprenti-dans-le-commerce-de-detail-cfp-ou-afc-debut-2026-lidl-svizzera-arbedo-castione",
+        "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lidl-svizzera-cadenazzo-arbedo-castione-2",
+        "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lidl-svizzera-cadenazzo-arbedo-castione-3"
       ],
       "previousSlugsByLocale": {
+        "de": [
+          "einsteigerlehre-im-einzelhandel-cfp-oder-afc-start-2026-lidl-svizzera-arbedo-castione"
+        ],
         "it": [
           "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lidl-svizzera-cadenazzo-arbedo-castione-2",
           "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lidl-svizzera-cadenazzo-arbedo-castione-3"
-        ],
-        "de": [
-          "einsteigerlehre-im-einzelhandel-cfp-oder-afc-start-2026-lidl-svizzera-arbedo-castione"
         ]
       },
-      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000
     },
@@ -981,18 +977,16 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "previousSlugsByLocale": {
-        "it": [
-          "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lidl-svizzera-cadenazzo-lugano-2",
-          "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lidl-svizzera-cadenazzo-lugano-3"
-        ],
         "de": [
           "lehre-im-einzelhandel-cfp-oder-efz-beginn-2026-lidl-svizzera-lugano",
           "einsteigerlehre-im-einzelhandel-cfp-oder-afc-start-2026-lidl-svizzera-lugano"
+        ],
+        "it": [
+          "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lidl-svizzera-cadenazzo-lugano-2",
+          "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lidl-svizzera-cadenazzo-lugano-3"
         ]
       },
       "previousSlugs": [
-        "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lidl-svizzera-cadenazzo-lugano-2",
-        "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lidl-svizzera-cadenazzo-lugano-3",
         "lehre-im-einzelhandel-cfp-oder-efz-beginn-2026-lidl-svizzera-lugano",
         "einsteigerlehre-im-einzelhandel-cfp-oder-afc-start-2026-lidl-svizzera-lugano",
         "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lidl-svizzera-cadenazzo-lugano",
@@ -1006,11 +1000,12 @@
         "einzelhandelslehre-cfp-oder-afc-beginn-2026-lidl-svizzera-lugano",
         "retail-apprentice-cfp-or-afc-starting-2026-lidl-svizzera-lugano",
         "apprenti-e-dans-le-commerce-de-detail-cfp-ou-afc-debut-2026-lidl-svizzera-lugano",
-        "apprenticeship-in-retail-trade-cfp-or-efz-start-of-2026-lidl-svizzera-lugano"
+        "apprenticeship-in-retail-trade-cfp-or-efz-start-of-2026-lidl-svizzera-lugano",
+        "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lidl-svizzera-cadenazzo-lugano-2",
+        "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lidl-svizzera-cadenazzo-lugano-3"
       ],
       "firstSeenAt": "2026-04-12T09:43:42.513Z",
       "qualityScore": 97,
-      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000
     },
@@ -1107,21 +1102,19 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "previousSlugsByLocale": {
-        "it": [
-          "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lidl-svizzera-cadenazzo-sant-antonino-2",
-          "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lidl-svizzera-cadenazzo-sant-antonino-3"
-        ],
         "de": [
           "ausbildung-im-einzelhandel-cfp-oder-afc-start-2026-lidl-svizzera-sant-antonino",
           "lehre-im-einzelhandel-cfp-oder-afc-beginn-2026-lidl-svizzera-sant-antonino"
         ],
         "fr": [
           "stage-dans-le-commerce-de-detail-cfp-ou-afc-debut-2026-lidl-svizzera-sant-antonino"
+        ],
+        "it": [
+          "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lidl-svizzera-cadenazzo-sant-antonino-2",
+          "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lidl-svizzera-cadenazzo-sant-antonino-3"
         ]
       },
       "previousSlugs": [
-        "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lidl-svizzera-cadenazzo-sant-antonino-2",
-        "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lidl-svizzera-cadenazzo-sant-antonino-3",
         "ausbildung-im-einzelhandel-cfp-oder-afc-start-2026-lidl-svizzera-sant-antonino",
         "lehre-im-einzelhandel-cfp-oder-afc-beginn-2026-lidl-svizzera-sant-antonino",
         "stage-dans-le-commerce-de-detail-cfp-ou-afc-debut-2026-lidl-svizzera-sant-antonino",
@@ -1138,11 +1131,12 @@
         "retail-trade-apprenticeship-cfp-or-afc-start-2026-lidl-svizzera-sant-antonino",
         "einzelhandelslehre-cfp-oder-afc-start-2026-lidl-svizzera-sant-antonino",
         "retail-apprentice-cfp-or-afc-start-2026-lidl-svizzera-sant-antonino",
-        "apprenti-dans-le-commerce-de-detail-cfp-ou-afc-debut-2026-lidl-svizzera-sant-antonino"
+        "apprenti-dans-le-commerce-de-detail-cfp-ou-afc-debut-2026-lidl-svizzera-sant-antonino",
+        "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lidl-svizzera-cadenazzo-sant-antonino-2",
+        "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lidl-svizzera-cadenazzo-sant-antonino-3"
       ],
       "firstSeenAt": "2026-04-12T09:43:42.513Z",
       "qualityScore": 97,
-      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000
     }
