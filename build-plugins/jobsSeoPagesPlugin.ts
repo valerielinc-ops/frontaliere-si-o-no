@@ -7124,24 +7124,29 @@ ${alternates}
  const comboKey = `${cityKey}-${compKey}`;
  const normCity = normalizeSearchTerm(cityKey);
  const normComp = normalizeSearchTerm(compKey);
+ // Title and heading use STRUCTURALLY DIFFERENT lead words so that when
+ // long company names (e.g. "EOC – Ente Ospedaliero Cantonale") push the
+ // titled+brand past TITLE_MAX_CHARS=66, buildTitleWithBrand drops the
+ // brand and the bare title would otherwise collide with the H1.
+ // audit:h1-title-duplicates is zero-tolerance — guard at source.
  generateComboPage(comboKey, {
  it: {
- title: `Lavoro ${compName} a ${cityName} | Frontaliere Ticino`,
+ title: `Offerte ${compName} a ${cityName} | Frontaliere Ticino`,
  description: (c) => `${c} offerte di lavoro ${compName} a ${cityName}. Scopri le posizioni aperte e candidati subito.`,
  heading: `Lavoro ${compName} a ${cityName}`,
  },
  en: {
- title: `${compName} jobs in ${cityName} | Frontaliere Ticino`,
+ title: `${compName} careers in ${cityName} | Frontaliere Ticino`,
  description: (c) => `${c} ${compName} job openings in ${cityName}. Browse available positions and apply today.`,
  heading: `${compName} jobs in ${cityName}`,
  },
  de: {
- title: `${compName} Jobs in ${cityName} | Frontaliere Ticino`,
+ title: `${compName} Stellenangebote in ${cityName} | Frontaliere Ticino`,
  description: (c) => `${c} offene Stellen bei ${compName} in ${cityName}. Entdecke aktuelle Positionen und bewirb dich direkt.`,
  heading: `${compName} Jobs in ${cityName}`,
  },
  fr: {
- title: `Emploi ${compName} à ${cityName} | Frontaliere Ticino`,
+ title: `Postes ${compName} à ${cityName} | Frontaliere Ticino`,
  description: (c) => `${c} offres d'emploi ${compName} à ${cityName}. Consultez les postes ouverts et postulez directement.`,
  heading: `Emploi ${compName} à ${cityName}`,
  },
