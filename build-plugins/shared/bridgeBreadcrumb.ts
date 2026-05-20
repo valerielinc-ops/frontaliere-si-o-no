@@ -19,6 +19,7 @@
  */
 
 import type { Locale } from '../../services/i18n';
+import { breadcrumbListLd } from '../../services/seo/structuredData';
 
 const HOME_LABEL: Record<Locale, string> = {
   it: 'Home',
@@ -54,15 +55,11 @@ interface BridgeBreadcrumbInput {
 export function buildBridgeBreadcrumbLd(opts: BridgeBreadcrumbInput): string {
   const homeUrl = `${opts.baseUrl}${LOCALE_PREFIX[opts.locale]}/`.replace(/(?<!:)\/+/g, '/');
   const sectionUrl = `${opts.baseUrl}${opts.sectionPath}`.replace(/(?<!:)\/+/g, '/');
-  return JSON.stringify({
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      { '@type': 'ListItem', position: 1, name: HOME_LABEL[opts.locale], item: homeUrl },
-      { '@type': 'ListItem', position: 2, name: opts.sectionLabel, item: sectionUrl },
-      { '@type': 'ListItem', position: 3, name: opts.pageLabel, item: opts.canonicalUrl },
-    ],
-  });
+  return JSON.stringify(breadcrumbListLd([
+    { name: HOME_LABEL[opts.locale], url: homeUrl },
+    { name: opts.sectionLabel, url: sectionUrl },
+    { name: opts.pageLabel, url: opts.canonicalUrl },
+  ]));
 }
 
 /** Locale-aware label for the cross-border jobs section landing. */
