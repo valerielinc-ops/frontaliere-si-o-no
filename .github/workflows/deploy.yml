@@ -711,7 +711,7 @@ jobs:
         if: failure()
         continue-on-error: true
         run: |
-          node scripts/lib/linear-issue-creator.mjs \
+          node scripts/lib/github-issue-creator.mjs \
             --title "CI Failure (build): ${{ github.workflow }} — run ${{ github.run_number }}" \
             --description "## Build fallito
           **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
@@ -839,7 +839,7 @@ jobs:
         if: failure()
         continue-on-error: true
         run: |
-          node scripts/lib/linear-issue-creator.mjs \
+          node scripts/lib/github-issue-creator.mjs \
             --title "CI Failure (deploy): ${{ github.workflow }} — run ${{ github.run_number }}" \
             --description "## Deploy fallito
           **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
@@ -1127,7 +1127,7 @@ jobs:
           **Tentato rollback a run:** ${{ steps.last-good.outputs.run-id }} (sha ${{ steps.last-good.outputs.sha }})
           **Validation run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
           fi
-          node scripts/lib/linear-issue-creator.mjs \
+          node scripts/lib/github-issue-creator.mjs \
             --title "Rollback: post-deploy — run ${{ github.run_number }}" \
             --description "$MSG" \
             --priority 1 \

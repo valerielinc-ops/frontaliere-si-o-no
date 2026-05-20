@@ -8,7 +8,7 @@
  * 1. Queries GSC Search Analytics for top 50 job pages by impressions
  * 2. Runs URL Inspection on 30 sampled pages
  * 3. Categorizes: PASS, FAIL, STALE, UNKNOWN
- * 4. If FAIL > 0 → creates Linear issue (priority 1)
+ * 4. If FAIL > 0 → creates GitHub issue (priority 1)
  * 5. Submits stale URLs via IndexNow for re-crawl
  * 6. Logs summary with trend data
  *
@@ -18,7 +18,7 @@
  *
  * Environment:
  *   GOOGLE_APPLICATION_CREDENTIALS — path to Service Account JSON
- *   LINEAR_API_KEY — for issue creation (optional)
+ *   GITHUB_TOKEN — for issue creation (optional)
  */
 
 import { readFileSync, existsSync, writeFileSync, mkdirSync, appendFileSync } from 'node:fs';
@@ -423,7 +423,7 @@ function writeStepSummary({ results, sample, failedPages, warnPages, persistentF
 
   const failRate = sample.length > 0 ? results.FAIL / sample.length : 0;
   if (results.FAIL > 0) {
-    lines.push(`> ⚠️ **Fail rate: ${(failRate * 100).toFixed(1)}%** — ${persistentFailures?.length > 0 ? 'PERSISTENT issues detected, escalated' : 'Linear issue created'}`);
+    lines.push(`> ⚠️ **Fail rate: ${(failRate * 100).toFixed(1)}%** — ${persistentFailures?.length > 0 ? 'PERSISTENT issues detected, escalated' : 'GitHub issue created'}`);
   } else {
     lines.push('> ✅ All monitored job pages healthy');
   }
@@ -437,7 +437,7 @@ function writeStepSummary({ results, sample, failedPages, warnPages, persistentF
 async function main() {
   log('📊', 'Layer 3: Weekly GSC Job Indexation Monitor\n');
 
-  if (DRY_RUN) log('ℹ️', 'DRY RUN — no Linear issues or IndexNow submissions\n');
+  if (DRY_RUN) log('ℹ️', 'DRY RUN — no GitHub issues or IndexNow submissions\n');
 
   const sa = loadServiceAccount();
   if (!sa) {
@@ -558,8 +558,8 @@ async function main() {
   if (failedPages.length > 0 && !DRY_RUN) {
     const priority = persistentFailures.length > 0 ? 1 : 2;
     const titlePrefix = persistentFailures.length > 0 ? '(PERSISTENT) ' : '';
-    log('🚨', `${failedPages.length} FAIL(s) detected — creating Linear issue (P${priority})`);
-    await createLinearIssue(failedPages, results, priority, titlePrefix);
+    log('🚨', `${failedPages.length} FAIL(s) detected — creating GitHub issue (P${priority})`);
+    await createGithubIssue(failedPages, results, priority, titlePrefix);
 
     // Auto-redeploy for canonical regressions
     await triggerRedeploy(failedPages);
@@ -567,7 +567,7 @@ async function main() {
     // Send email alert
     await sendEmailAlert({ results, failedPages, persistentFailures, sample });
   } else if (failedPages.length > 0 && DRY_RUN) {
-    log('ℹ️', 'DRY RUN — would create Linear issue + send email + trigger redeploy');
+    log('ℹ️', 'DRY RUN — would create GitHub issue + send email + trigger redeploy');
   }
 
   // Re-submit stale pages via IndexNow
@@ -577,11 +577,11 @@ async function main() {
   }
 }
 
-// ── Linear Issue ────────────────────────────────────────────
-async function createLinearIssue(failedPages, results, priority = 1, titlePrefix = '') {
-  const apiKey = process.env.LINEAR_API_KEY;
+// ── GitHub Issue ────────────────────────────────────────────
+async function createGithubIssue(failedPages, results, priority = 1, titlePrefix = '') {
+  const apiKey = process.env.GITHUB_TOKEN;
   if (!apiKey) {
-    log('ℹ️', 'LINEAR_API_KEY not set — skipping');
+    log('ℹ️', 'GITHUB_TOKEN not set — skipping');
     return;
   }
 
@@ -605,7 +605,7 @@ async function createLinearIssue(failedPages, results, priority = 1, titlePrefix
   ].join('\n');
 
   try {
-    const { createLinearIssue: create } = await import('./lib/linear-issue-creator.mjs');
+    const { createGithubIssue: create } = await import('./lib/github-issue-creator.mjs');
     await create({
       title: `[Monitor] ${titlePrefix}${failedPages.length} job page(s) with indexation issues`,
       description,
@@ -613,9 +613,9 @@ async function createLinearIssue(failedPages, results, priority = 1, titlePrefix
       labels: ['Bug'],
       project: 'SEO',
     });
-    log('📋', 'Linear issue created');
+    log('📋', 'GitHub issue created');
   } catch (err) {
-    log('⚠️', `Linear issue creation failed: ${err.message}`);
+    log('⚠️', `GitHub issue creation failed: ${err.message}`);
   }
 }
 
