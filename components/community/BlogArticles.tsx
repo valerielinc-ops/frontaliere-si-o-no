@@ -459,7 +459,7 @@ function renderFormattedContent(
  const h2TableEl = inlineBody ? tryRenderMdTable(inlineBody, `h2tbl-${idx}`, navigators) : null;
  renderedBlocks.push(
  <div key={`heading-${idx}`} className="space-y-2">
- <h2 id={generateHeadingSlug(heading)} className="text-xl font-bold font-display text-heading border-l-4 border-accent pl-3 mt-6 mb-2 scroll-mt-20">
+ <h2 id={generateHeadingSlug(heading)} className="text-xl font-bold font-display text-heading mt-8 mb-3 scroll-mt-20">
  {renderInlineFormatting(heading, navigators)}
  </h2>
  {h2TableEl || (inlineBody && (
@@ -2365,7 +2365,7 @@ function BlogArticles({
  h.level === 3 ? 'pl-3' : ''
  } ${
  activeHeadingId === h.id
- ? 'text-accent font-medium border-l-2 border-accent pl-2'
+ ? 'text-accent font-medium bg-accent-subtle pl-2'
  : `text-subtle hover:text-accent ${h.level === 3 ? 'font-normal' : 'font-medium'}`
  }`}
  >

@@ -240,7 +240,7 @@ export const Correzioni: React.FC = () => {
               {sortedEntries.map((entry, idx) => (
                 <li
                   key={`${entry.date}-${entry.articleId}-${idx}`}
-                  className="border-l-2 border-accent/40 pl-4 py-1"
+                  className="rounded-lg bg-surface-alt px-4 py-3"
                 >
                   <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-muted mb-1">
                     <time dateTime={entry.date} className="font-mono">
