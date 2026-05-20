@@ -1621,6 +1621,49 @@ export async function assembleJobsDataset({ withStats = false } = {}) {
       console.log(`  🎯 SEO field enrichment: filled fields on ${seoEnrichedCount}/${assembled.length} jobs`);
     }
 
+    // --- Inherent-data-gap filter (rule #1: never loosen JobSchema) ---
+    //
+    // After all enrichment, drop jobs whose source data is too incomplete to
+    // satisfy JobSchema (rule #3). Three reasons jobs land here:
+    //   • no addressLocality at all → jobLocation/streetAddress unfillable;
+    //   • datePosted missing or unparseable after enrichDatePosted (invalid
+    //     calendar dates, year-bogus values, missing source field);
+    //   • description < 50 chars (thin-content rule #4) — currently a single
+    //     fielmann outlier where the crawler returned title-as-description.
+    //
+    // We drop these rather than emitting them with synthetic values so the
+    // gate stays honest. Counts are logged so regressions are visible at a
+    // glance.
+    {
+      const beforeFilter = assembled.length;
+      let droppedNoLocality = 0;
+      let droppedNoDatePosted = 0;
+      let droppedThinDescription = 0;
+      const survivors = [];
+      for (const job of assembled) {
+        const locality = typeof job.addressLocality === 'string' ? job.addressLocality.trim() : '';
+        if (!locality) { droppedNoLocality++; continue; }
+        if (typeof job.datePosted !== 'string' || !job.datePosted) { droppedNoDatePosted++; continue; }
+        if (typeof job.description !== 'string' || job.description.length < 50) {
+          droppedThinDescription++;
+          continue;
+        }
+        survivors.push(job);
+      }
+      const totalDropped = beforeFilter - survivors.length;
+      if (totalDropped > 0) {
+        assembled.length = 0;
+        assembled.push(...survivors);
+        writeJson(DATA_JOBS, assembled);
+        writeJson(PUBLIC_JOBS, assembled);
+        console.log(
+          `  🧹 Inherent-gap filter: dropped ${totalDropped}/${beforeFilter} jobs `
+          + `(no-locality=${droppedNoLocality}, no-datePosted=${droppedNoDatePosted}, `
+          + `thin-description=${droppedThinDescription})`
+        );
+      }
+    }
+
     // --- Quality score enrichment (persisted for frontend sorting) ---
     let qsChanged = 0;
     for (const job of assembled) {

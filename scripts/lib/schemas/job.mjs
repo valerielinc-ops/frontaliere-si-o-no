@@ -1,6 +1,5 @@
 // scripts/lib/schemas/job.mjs
 import { z } from 'zod';
-import { SeoTitleSchema } from './seoText.mjs';
 
 // Swiss postal codes are 4 digits (Liechtenstein included).
 const SwissPostalCodeSchema = z.string().regex(/^\d{4}$/, 'postalCode-not-swiss-4-digit');
@@ -40,7 +39,12 @@ export const JobSchema = z
     stableId: z.string().uuid().optional(),  // crawler-derived, may be absent on legacy slices
     slug: z.string().min(1),
     url: z.string().url(),
-    title: SeoTitleSchema,
+    // title is the raw crawler title. The SEO-level 66-char cap is enforced
+    // separately at the <title> HTML rendering layer via composeJobPageTitle
+    // (build-plugins/shared/titleSuffix.ts, JOB_TITLE_MAX = 70 for job-board).
+    // Capping here would force lossy truncation of meaningful job titles
+    // before the renderer has a chance to compose the brand suffix.
+    title: z.string().min(1),
     company: z.string().min(1),
     hiringOrganization: z.object({ name: z.string().min(1) }),
     location: z.string().min(1),

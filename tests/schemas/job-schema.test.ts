@@ -55,9 +55,13 @@ describe('JobSchema', () => {
     expect(JobSchema.safeParse(thin).success).toBe(false);
   });
 
-  it('rejects job with title > 66 chars', () => {
-    const longTitle = { ...validJob, title: 'A'.repeat(67) };
-    expect(JobSchema.safeParse(longTitle).success).toBe(false);
+  it('accepts job with title > 66 chars (cap is page-level, not data-level)', () => {
+    // SEO <title> cap (66) is enforced at HTML render time via composeJobPageTitle
+    // (build-plugins/shared/titleSuffix.ts). The data-layer title must preserve the
+    // raw crawler title so the renderer can compose brand suffix / locale variants
+    // without losing meaningful content.
+    const longTitle = { ...validJob, title: 'A'.repeat(120) };
+    expect(JobSchema.safeParse(longTitle).success).toBe(true);
   });
 
   it('rejects malformed postalCode (must be 4 digits)', () => {

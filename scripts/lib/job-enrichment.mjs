@@ -177,6 +177,67 @@ export function enrichStreetAddress(job) {
 }
 
 /**
+ * Normalize employmentType to the 8-value schema.org enum
+ * (FULL_TIME / PART_TIME / CONTRACTOR / TEMPORARY / INTERN / VOLUNTEER /
+ *  PER_DIEM / OTHER). Crawlers emit a wild variety of lowercase / hyphenated /
+ * percentage-only values (e.g. "full-time", "100%", "80 - 100%",
+ * "apprenticeship", "Vollzeit, Teilzeit möglich"). Anything unmappable
+ * (occupation-rate-only, undefined, unknown enum) buckets to OTHER so
+ * JobSchema clears without lying about the source data.
+ */
+const SCHEMA_EMPLOYMENT_TYPES = new Set([
+  'FULL_TIME', 'PART_TIME', 'CONTRACTOR', 'TEMPORARY',
+  'INTERN', 'VOLUNTEER', 'PER_DIEM', 'OTHER',
+]);
+
+const EMPLOYMENT_TYPE_NORMALIZER = new Map([
+  // FULL_TIME aliases
+  ['full-time', 'FULL_TIME'],
+  ['full_time', 'FULL_TIME'],
+  ['fulltime', 'FULL_TIME'],
+  ['full time', 'FULL_TIME'],
+  ['vollzeit', 'FULL_TIME'],
+  ['vollzeit, teilzeit möglich', 'FULL_TIME'],
+  // PART_TIME aliases
+  ['part-time', 'PART_TIME'],
+  ['part_time', 'PART_TIME'],
+  ['parttime', 'PART_TIME'],
+  ['part time', 'PART_TIME'],
+  ['teilzeit', 'PART_TIME'],
+  // CONTRACTOR aliases
+  ['contractor', 'CONTRACTOR'],
+  ['contract', 'CONTRACTOR'],
+  // TEMPORARY aliases
+  ['temporary', 'TEMPORARY'],
+  ['temp', 'TEMPORARY'],
+  // INTERN aliases
+  ['intern', 'INTERN'],
+  ['internship', 'INTERN'],
+  ['apprentice', 'INTERN'],
+  ['apprenticeship', 'INTERN'],
+  // VOLUNTEER aliases
+  ['volunteer', 'VOLUNTEER'],
+  // PER_DIEM aliases
+  ['per_diem', 'PER_DIEM'],
+  ['per-diem', 'PER_DIEM'],
+  ['per diem', 'PER_DIEM'],
+]);
+
+export function enrichEmploymentType(job) {
+  const out = { ...job };
+  const raw = typeof out.employmentType === 'string' ? out.employmentType : '';
+  // Already a schema-valid enum value → leave untouched.
+  if (SCHEMA_EMPLOYMENT_TYPES.has(raw)) return out;
+  const normalized = raw.trim().toLowerCase();
+  const mapped = EMPLOYMENT_TYPE_NORMALIZER.get(normalized);
+  // Anything else (occupation-rate strings like "80 - 100%", "100%", or
+  // undefined/garbage) buckets to OTHER. Schema clears; semantic precision
+  // would require crawler-level fixes outside this enrichment pass.
+  out.employmentType = mapped || 'OTHER';
+  return out;
+}
+
+/**
  * Compose all enrichers. Call AFTER the existing postalCode enrichment in
  * scripts/assemble-jobs-dataset.mjs and BEFORE JobSchema validation.
  */
@@ -186,5 +247,6 @@ export function enrichJobForSeo(job) {
   out = enrichDatePosted(out);
   out = enrichJobLocation(out);
   out = enrichStreetAddress(out);
+  out = enrichEmploymentType(out);
   return out;
 }

@@ -11,6 +11,7 @@ import {
   enrichDatePosted,
   enrichJobLocation,
   enrichStreetAddress,
+  enrichEmploymentType,
   enrichJobForSeo,
 } from '../scripts/lib/job-enrichment.mjs';
 
@@ -195,14 +196,58 @@ describe('enrichStreetAddress', () => {
   });
 });
 
+describe('enrichEmploymentType', () => {
+  it('leaves an already-valid schema enum untouched (FULL_TIME)', () => {
+    const job = { employmentType: 'FULL_TIME' };
+    const out = enrichEmploymentType(job);
+    expect(out.employmentType).toBe('FULL_TIME');
+  });
+
+  it("normalizes 'full-time' → FULL_TIME", () => {
+    expect(enrichEmploymentType({ employmentType: 'full-time' }).employmentType).toBe('FULL_TIME');
+  });
+
+  it("normalizes 'full_time' and 'fulltime' → FULL_TIME", () => {
+    expect(enrichEmploymentType({ employmentType: 'full_time' }).employmentType).toBe('FULL_TIME');
+    expect(enrichEmploymentType({ employmentType: 'fulltime' }).employmentType).toBe('FULL_TIME');
+  });
+
+  it("normalizes 'part-time' → PART_TIME", () => {
+    expect(enrichEmploymentType({ employmentType: 'part-time' }).employmentType).toBe('PART_TIME');
+  });
+
+  it("normalizes 'apprenticeship' / 'internship' → INTERN", () => {
+    expect(enrichEmploymentType({ employmentType: 'apprenticeship' }).employmentType).toBe('INTERN');
+    expect(enrichEmploymentType({ employmentType: 'internship' }).employmentType).toBe('INTERN');
+  });
+
+  it("buckets occupation-rate-only values ('100%', '80 - 100%') to OTHER", () => {
+    expect(enrichEmploymentType({ employmentType: '100%' }).employmentType).toBe('OTHER');
+    expect(enrichEmploymentType({ employmentType: '80 - 100%' }).employmentType).toBe('OTHER');
+  });
+
+  it('buckets missing/undefined employmentType to OTHER', () => {
+    expect(enrichEmploymentType({}).employmentType).toBe('OTHER');
+    expect(enrichEmploymentType({ employmentType: undefined }).employmentType).toBe('OTHER');
+  });
+
+  it('returns a NEW object (immutability)', () => {
+    const job = { employmentType: 'full-time' };
+    const out = enrichEmploymentType(job);
+    expect(out).not.toBe(job);
+    expect(job.employmentType).toBe('full-time');
+  });
+});
+
 describe('enrichJobForSeo', () => {
-  it('applies all four enrichments in sequence', () => {
+  it('applies all five enrichments in sequence', () => {
     const job = {
       id: 'x',
       company: 'Vaudoise',
       addressLocality: 'Lausanne',
       postalCode: '1003',
       postedDate: '17/04/26',
+      employmentType: 'full-time',
     };
     const out = enrichJobForSeo(job);
     expect(out.hiringOrganization).toEqual({ name: 'Vaudoise' });
@@ -213,6 +258,7 @@ describe('enrichJobForSeo', () => {
       addressCountry: 'CH',
     });
     expect(out.streetAddress).toBe('Lausanne');
+    expect(out.employmentType).toBe('FULL_TIME');
   });
 
   it('does not mutate the input job', () => {
@@ -222,6 +268,7 @@ describe('enrichJobForSeo', () => {
       addressLocality: 'Lausanne',
       postalCode: '1003',
       postedDate: '17/04/26',
+      employmentType: 'full-time',
     };
     const before = JSON.stringify(job);
     enrichJobForSeo(job);
