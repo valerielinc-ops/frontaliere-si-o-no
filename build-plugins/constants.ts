@@ -10,6 +10,8 @@
 
 import { execSync } from 'child_process';
 import crypto from 'node:crypto';
+import fs from 'node:fs';
+import path from 'node:path';
 import { BOT_UA_PATTERNS } from '../services/botPatterns';
 
 export const BUILD_ID = String(Date.now());
@@ -17,13 +19,57 @@ export const BUILD_ID = String(Date.now());
 /**
  * Short content hash (8 chars, base64url) used to derive cache-busting
  * filenames for the externalised boot scripts (early-boot, gtag-init,
- * adsense-loader, posthog-init). Replaces the `?v=${BUILD_ID}` query-string
- * cachebuster previously appended to every `<script src>` tag — saves the
- * 14-byte query repeated across ~822k static pages (~62 MB dist).
+ * adsense-loader, posthog-init) and the externalised stylesheets
+ * (seo-static, bridge). Replaces the `?v=${BUILD_ID}` query-string
+ * cachebuster previously appended to every tag — saves the 14-byte
+ * query repeated across ~822k static pages (~62 MB dist for scripts +
+ * ~17 MB for stylesheets).
  */
 function shortContentHash(content: string): string {
   return crypto.createHash('sha256').update(content).digest('base64url').slice(0, 8);
 }
+
+/**
+ * Compute the content hash of a CSS file that lives in `public/assets/`
+ * (Vite copies the public/ tree to dist/ at the start of the build, so
+ * the file is always present on disk by the time closeBundle runs).
+ *
+ * Reading at module-load time is intentional: every plugin that imports
+ * `SEO_STATIC_CSS_LINK` / `BRIDGE_CSS_LINK` then sees the same hashed
+ * filename, no race against the rename that happens in
+ * `staticScriptsPlugin.closeBundle`. The repo root is resolved by
+ * walking up from this file's directory until we find package.json.
+ */
+function readPublicAssetHash(relPath: string): { content: string; hash: string } {
+  // Walk up from `build-plugins/constants.ts` to the repo root.
+  // process.cwd() is unreliable (depends on how Vite was invoked); the
+  // file's own location is the stable anchor.
+  // __dirname is not available in ESM — resolve via import.meta.url.
+  const here = path.dirname(new URL(import.meta.url).pathname);
+  let dir = here;
+  while (dir !== '/' && !fs.existsSync(path.join(dir, 'package.json'))) {
+    dir = path.dirname(dir);
+  }
+  const absolute = path.join(dir, 'public', 'assets', relPath);
+  const content = fs.readFileSync(absolute, 'utf-8');
+  return { content, hash: shortContentHash(content) };
+}
+
+const { hash: SEO_STATIC_CSS_HASH } = readPublicAssetHash('seo-static.css');
+const { hash: BRIDGE_CSS_HASH } = readPublicAssetHash('bridge.css');
+
+/**
+ * Hashed CSS filenames + ready-made <link> tags for the externalised
+ * stylesheets. `staticScriptsPlugin` renames the unhashed source from
+ * `dist/assets/{name}.css` (copied verbatim by Vite from public/) to
+ * `dist/assets/{name}-{hash}.css` so the per-page tag references match
+ * the actual file on disk. Saves ~17 MB across ~822k SEO pages
+ * (the 14-byte `?v=${BUILD_ID}` query string is dropped).
+ */
+export const SEO_STATIC_CSS_FILENAME = `seo-static-${SEO_STATIC_CSS_HASH}.css`;
+export const SEO_STATIC_CSS_LINK = `<link rel="stylesheet" href="/assets/${SEO_STATIC_CSS_FILENAME}">`;
+export const BRIDGE_CSS_FILENAME = `bridge-${BRIDGE_CSS_HASH}.css`;
+export const BRIDGE_CSS_LINK = `<link rel="stylesheet" href="/assets/${BRIDGE_CSS_FILENAME}">`;
 
 /**
  * Generate a lightweight canonical bridge page for alias URLs.
@@ -131,7 +177,7 @@ export function buildCanonicalBridgePage(options: {
  <link rel="canonical" href="${canonicalUrl}">${hreflangHtml}
  ${ANALYTICS_SNIPPET}
  ${SPA_ACTION_REDIRECT_SCRIPT}
- <link rel="stylesheet" href="/assets/bridge.css?v=${BUILD_ID}">
+ ${BRIDGE_CSS_LINK}
  </head>
  <body>
  <main class="card">
@@ -190,7 +236,7 @@ export function buildFlatRedirect(
  <meta name="robots" content="noindex,follow">
  <link rel="canonical" href="${canonicalUrl}">${ogTags}
  ${ANALYTICS_SNIPPET}
- <link rel="stylesheet" href="/assets/bridge.css?v=${BUILD_ID}">
+ ${BRIDGE_CSS_LINK}
  </head>
  <body>
  <main class="card">
