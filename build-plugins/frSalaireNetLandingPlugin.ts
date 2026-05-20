@@ -61,7 +61,7 @@ import type { Plugin } from 'vite';
 import { BASE_URL, MIN_INDEXABLE_WORDS, countHtmlBodyWords } from './constants';
 import { buildSeoPageHtml } from './shared/seoPageShell';
 import { WriteCollector } from './batchWrite';
-import { imageObjectLd } from '../services/seo/imageObjectLd';
+import { imageObjectLd, breadcrumbListLd, faqPageLd } from '../services/seo/structuredData';
 import {
   BREADCRUMB_STYLE,
   BREADCRUMB_LINK_STYLE,
@@ -358,26 +358,13 @@ function renderPage(opts: RenderOpts): RenderResult {
     (h) => `    <link rel="alternate" hreflang="${h.hreflang}" href="${h.href}">`,
   ).join('\n');
 
-  const breadcrumbLd = JSON.stringify({
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Accueil', item: homeUrl },
-      { '@type': 'ListItem', position: 2, name: 'Calculer le salaire', item: calcUrl },
-      { '@type': 'ListItem', position: 3, name: H1, item: canonicalUrl },
-    ],
-  });
+  const breadcrumbLd = JSON.stringify(breadcrumbListLd([
+    { name: 'Accueil', url: homeUrl },
+    { name: 'Calculer le salaire', url: calcUrl },
+    { name: H1, url: canonicalUrl },
+  ]));
 
-  const faqLd = JSON.stringify({
-    '@context': 'https://schema.org',
-    '@type': 'FAQPage',
-    inLanguage: LOCALE,
-    mainEntity: FAQS.map((f) => ({
-      '@type': 'Question',
-      name: f.question,
-      acceptedAnswer: { '@type': 'Answer', text: f.answer },
-    })),
-  });
+  const faqLd = JSON.stringify(faqPageLd(FAQS.map((f) => ({ question: f.question, answer: f.answer }))));
 
   const articleLd = JSON.stringify({
     '@context': 'https://schema.org',
