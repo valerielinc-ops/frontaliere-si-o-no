@@ -50,6 +50,7 @@ import { computeCrawlerQualityAggregate, computeJobQualityScore, buildStableId, 
 import { inferAnyCanton, isKnownSwissCity, isCantonOnlyLabel, findSwissCityInText } from './lib/target-swiss-locations.mjs';
 import { filterFixtureJobs } from './lib/fixture-data-filter.mjs';
 import { enrichJobForSeo } from './lib/job-enrichment.mjs';
+import { JobSchema } from './lib/schemas/job.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -156,7 +157,12 @@ function assemblerIdentity(job = {}) {
 }
 const ROOT = path.resolve(__dirname, '..');
 
-const JOBS_SLICES_DIR = path.join(ROOT, 'data', 'jobs', 'by-crawler');
+// JOBS_SLICES_DIR can be overridden via SLICES_DIR env var so the schema-gate
+// integration test (tests/assemble-jobs-schema-gate.test.ts) can point the
+// assembler at a tmp slice directory without touching real data/.
+const JOBS_SLICES_DIR = process.env.SLICES_DIR
+  ? path.resolve(process.env.SLICES_DIR)
+  : path.join(ROOT, 'data', 'jobs', 'by-crawler');
 const EXPIRED_SLICES_DIR = path.join(ROOT, 'data', 'jobs', 'expired', 'by-crawler');
 const SUMMARIES_SLICES_DIR = path.join(ROOT, 'data', 'jobs-crawler-summaries', 'by-crawler');
 
@@ -233,7 +239,15 @@ function readJson(filePath, fallback) {
   }
 }
 
+// VALIDATE_ONLY short-circuits every writeJson() call so the schema-gate
+// integration test can run the full assemble + enrich + filter pipeline
+// against a tmp SLICES_DIR without polluting real data/ files. Set from the
+// CLI entry (process.argv parsing) so library importers of this module are
+// unaffected.
+let VALIDATE_ONLY = false;
+
 function writeJson(filePath, value) {
+  if (VALIDATE_ONLY) return;
   fs.mkdirSync(path.dirname(filePath), { recursive: true });
   fs.writeFileSync(filePath, `${JSON.stringify(value, null, 2)}\n`, 'utf8');
 }
@@ -1484,7 +1498,12 @@ export async function assembleJobsDataset({ withStats = false } = {}) {
   const cacheDir = path.join(CACHE_ROOT, cacheKey);
   const manifestPath = path.join(cacheDir, 'manifest.json');
 
-  if (fs.existsSync(manifestPath)) {
+  // VALIDATE_ONLY MUST bypass the cache. The gate's job is to actually
+  // validate the live input; restoring a prior snapshot skips JobSchema.safeParse
+  // entirely and lets a malformed slice pass silently. (Also: there's nothing
+  // to write back from VALIDATE_ONLY, so the cache write at the end is also
+  // suppressed by VALIDATE_ONLY through writeJson's no-op guard.)
+  if (fs.existsSync(manifestPath) && !VALIDATE_ONLY) {
     const t0 = Date.now();
     const restorePairs = [
       [path.join(cacheDir, 'jobs.json'), DATA_JOBS],
@@ -1664,6 +1683,45 @@ export async function assembleJobsDataset({ withStats = false } = {}) {
       }
     }
 
+    // --- JobSchema gate (CLAUDE.md rule #3) ---
+    //
+    // Every assembled job must satisfy JobSchema before the pipeline writes
+    // any downstream artifact. Validation runs AFTER all enrichment + the
+    // inherent-gap filter so the gate measures only schema violations that
+    // enrichment was supposed to fix. Any failure aborts the run with the
+    // first 20 offending ids + per-issue reasons logged for triage.
+    //
+    // Rule #1 forbids loosening JobSchema as a workaround. If a real-data
+    // failure surfaces, fix it in enrichment (data-shape gap) or extend the
+    // inherent-gap filter (unsalvageable source data) — never relax the
+    // schema.
+    {
+      const violations = [];
+      for (const job of assembled) {
+        const r = JobSchema.safeParse(job);
+        if (!r.success) {
+          violations.push({
+            id: job.id,
+            issues: r.error.issues.map((i) => `${i.path.join('.')}: ${i.message}`),
+          });
+        }
+      }
+      if (violations.length > 0) {
+        console.error(`❌ [assemble-jobs] ${violations.length} job(s) failed JobSchema validation:`);
+        for (const v of violations.slice(0, 20)) {
+          console.error(`  - ${v.id}: ${v.issues.join('; ')}`);
+        }
+        if (violations.length > 20) {
+          console.error(`  ... and ${violations.length - 20} more`);
+        }
+        process.exit(1);
+      }
+      if (VALIDATE_ONLY) {
+        console.log(`✅ [assemble-jobs] --validate-only OK: ${assembled.length} jobs pass JobSchema`);
+        process.exit(0);
+      }
+    }
+
     // --- Quality score enrichment (persisted for frontend sorting) ---
     let qsChanged = 0;
     for (const job of assembled) {
@@ -1820,6 +1878,7 @@ export async function assembleJobsDataset({ withStats = false } = {}) {
 
 if (process.argv[1] === fileURLToPath(import.meta.url)) {
   const withStats = process.argv.includes('--stats');
+  VALIDATE_ONLY = process.argv.includes('--validate-only');
   assembleJobsDataset({ withStats }).catch((err) => {
     console.error('❌ Assembly failed:', err?.message || err);
     process.exit(1);
