@@ -2829,14 +2829,10 @@ function renderRootHubPage(inp: RootHubInputs): string {
   const h1 = copy.h1Root(year);
   const intro = copy.introRoot(year);
 
-  const breadcrumbLd = JSON.stringify({
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      { '@type': 'ListItem', position: 1, name: copy.breadcrumbHome, item: `${BASE_URL}/` },
-      { '@type': 'ListItem', position: 2, name: leafCopy.breadcrumbRoot, item: canonicalUrl },
-    ],
-  });
+  const breadcrumbLd = JSON.stringify(breadcrumbListLd([
+    { name: copy.breadcrumbHome, url: `${BASE_URL}/` },
+    { name: leafCopy.breadcrumbRoot, url: canonicalUrl },
+  ]));
 
   const webPageLd = JSON.stringify({
     '@context': 'https://schema.org',

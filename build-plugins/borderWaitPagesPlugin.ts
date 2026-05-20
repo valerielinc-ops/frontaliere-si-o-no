@@ -2256,20 +2256,11 @@ function renderArchivePage(inp: ArchiveInputs): string {
   h1 = differentiateH1FromTitle(h1, title, locale);
   const description = intro.slice(0, 180);
 
-  const breadcrumbLd = JSON.stringify({
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      { '@type': 'ListItem', position: 1, name: copy.breadcrumbHome, item: `${BASE_URL}/` },
-      {
-        '@type': 'ListItem',
-        position: 2,
-        name: crossingDisplay,
-        item: `${BASE_URL}${buildOggiPath(locale, crossing)}`,
-      },
-      { '@type': 'ListItem', position: 3, name: monthKey, item: canonicalUrl },
-    ],
-  });
+  const breadcrumbLd = JSON.stringify(breadcrumbListLd([
+    { name: copy.breadcrumbHome, url: `${BASE_URL}/` },
+    { name: crossingDisplay, url: `${BASE_URL}${buildOggiPath(locale, crossing)}` },
+    { name: monthKey, url: canonicalUrl },
+  ]));
 
   const webPageLd = JSON.stringify({
     '@context': 'https://schema.org',

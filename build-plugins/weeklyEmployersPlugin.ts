@@ -3259,26 +3259,15 @@ export function renderCompanyCityPage(inp: CompanyCityPageInputs): string {
   const siblingsPlaceholder = '<!--SIBLING_LINKS_PLACEHOLDER-->';
 
   // JSON-LD
-  const breadcrumbLd = JSON.stringify({
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      { '@type': 'ListItem', position: 1, name: copy.breadcrumbHome, item: `${BASE_URL}/` },
-      {
-        '@type': 'ListItem',
-        position: 2,
-        name: copy.sectionLabel,
-        item: `${BASE_URL}${WEEKLY_EMPLOYERS_LOCALE_PREFIX[locale]}/${WEEKLY_EMPLOYERS_SECTION[locale]}/ticino/${WEEKLY_EMPLOYERS_CURRENT_SLUG[locale]}/`.replace(/([^:])\/+/g, '$1/'),
-      },
-      {
-        '@type': 'ListItem',
-        position: 3,
-        name: cityDisplay,
-        item: `${BASE_URL}${parentHubHref}`,
-      },
-      { '@type': 'ListItem', position: 4, name: employer, item: canonicalUrl },
-    ],
-  });
+  const breadcrumbLd = JSON.stringify(breadcrumbListLd([
+    { name: copy.breadcrumbHome, url: `${BASE_URL}/` },
+    {
+      name: copy.sectionLabel,
+      url: `${BASE_URL}${WEEKLY_EMPLOYERS_LOCALE_PREFIX[locale]}/${WEEKLY_EMPLOYERS_SECTION[locale]}/ticino/${WEEKLY_EMPLOYERS_CURRENT_SLUG[locale]}/`.replace(/([^:])\/+/g, '$1/'),
+    },
+    { name: cityDisplay, url: `${BASE_URL}${parentHubHref}` },
+    { name: employer, url: canonicalUrl },
+  ]));
 
   const webPageLd = JSON.stringify({
     '@context': 'https://schema.org',
