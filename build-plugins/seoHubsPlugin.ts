@@ -46,6 +46,7 @@ import {
 import { ALL_CANTON_CODES, resolveCantonSection, resolveJobCanton, legacyTiSectionRoot } from './shared/cantonSection';
 import { MIN_JOBS_FOR_CANTON_PAGE } from './weeklyEmployersData';
 import { renderCantonSeoProse, type CantonSeoLocale, type CantonSeoSlot } from './shared/cantonSeoProse';
+import { breadcrumbListLd } from '../services/seo/structuredData';
 
 const LOCALE_OG: Record<HubLocale, string> = {
   it: 'it_IT',
@@ -1041,17 +1042,11 @@ function buildHtml(args: BuildHtmlArgs): string {
     ? SECTION_LABEL[locale].articles
     : SECTION_LABEL[locale].jobBoard;
 
-  const breadcrumbLd = JSON.stringify({
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: `${BASE_URL}/` },
-      { '@type': 'ListItem', position: 2, name: sectionLabel, item: `${BASE_URL}${basePath}` },
-      ...(page > 1
-        ? [{ '@type': 'ListItem', position: 3, name: pageLabel(locale, page), item: canonicalUrl }]
-        : []),
-    ],
-  });
+  const breadcrumbLd = JSON.stringify(breadcrumbListLd([
+    { name: 'Home', url: `${BASE_URL}/` },
+    { name: sectionLabel, url: `${BASE_URL}${basePath}` },
+    ...(page > 1 ? [{ name: pageLabel(locale, page), url: canonicalUrl }] : []),
+  ]));
 
   const collectionLd = JSON.stringify({
     '@context': 'https://schema.org',
@@ -1692,14 +1687,10 @@ function buildThinCantonHubHtml(args: {
 
   const homeLabel = { it: 'Home', en: 'Home', de: 'Start', fr: 'Accueil' }[locale];
 
-  const breadcrumbLd = JSON.stringify({
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      { '@type': 'ListItem', position: 1, name: homeLabel, item: `${BASE_URL}/` },
-      { '@type': 'ListItem', position: 2, name: cantonLabel, item: canonicalUrl },
-    ],
-  });
+  const breadcrumbLd = JSON.stringify(breadcrumbListLd([
+    { name: homeLabel, url: `${BASE_URL}/` },
+    { name: cantonLabel, url: canonicalUrl },
+  ]));
 
   return `<!doctype html>
 <html lang="${locale}">
