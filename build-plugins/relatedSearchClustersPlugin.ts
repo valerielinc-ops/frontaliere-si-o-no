@@ -80,6 +80,7 @@ import {
   type RawJob,
 } from './relatedSearchClustersData';
 import { jobsSeoPagesFlushed } from './shared/buildSignals';
+import { breadcrumbListLd } from '../services/seo/structuredData';
 
 // ── Constants ───────────────────────────────────────────────────────────
 
@@ -854,15 +855,11 @@ function buildJsonLd(opts: {
   // and Google's structured-data policy requires structured data to match
   // visible content. Job listings are still surfaced via the SPA-rendered
   // JobCard grid, which Google indexes after JS execution.
-  const breadcrumb = JSON.stringify({
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      { '@type': 'ListItem', position: 1, name: copy.homeBreadcrumb, item: `${BASE_URL}/` },
-      { '@type': 'ListItem', position: 2, name: copy.jobsBreadcrumb, item: sectionUrl },
-      { '@type': 'ListItem', position: 3, name: headline, item: canonicalUrl },
-    ],
-  });
+  const breadcrumb = JSON.stringify(breadcrumbListLd([
+    { name: copy.homeBreadcrumb, url: `${BASE_URL}/` },
+    { name: copy.jobsBreadcrumb, url: sectionUrl },
+    { name: headline, url: canonicalUrl },
+  ]));
 
   const out = [breadcrumb];
 
@@ -1209,15 +1206,11 @@ function renderHubPage(input: HubPageInput): { urlPath: string; html: string; lo
       })),
     },
   });
-  const breadcrumbLd = JSON.stringify({
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      { '@type': 'ListItem', position: 1, name: copy.homeBreadcrumb, item: `${BASE_URL}/` },
-      { '@type': 'ListItem', position: 2, name: copy.jobsBreadcrumb, item: sectionUrl },
-      { '@type': 'ListItem', position: 3, name: copy.searchBreadcrumb, item: canonicalUrl },
-    ],
-  });
+  const breadcrumbLd = JSON.stringify(breadcrumbListLd([
+    { name: copy.homeBreadcrumb, url: `${BASE_URL}/` },
+    { name: copy.jobsBreadcrumb, url: sectionUrl },
+    { name: copy.searchBreadcrumb, url: canonicalUrl },
+  ]));
 
   const bodyHtml = `<article style="max-width:1100px;margin:0 auto;padding:24px 16px 56px;color:var(--color-body)">
     <nav style="${BREADCRUMB_STYLE}">
