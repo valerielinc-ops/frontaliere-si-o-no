@@ -136,6 +136,7 @@ export const CRAWLED_COMPANY_LOGOS: Record<string, string> = {
  'migros-ticino': gFavicon('migros.ch'),
  'msc-cargo': cLogo('msc.com'),
  'mtic-group': gFavicon('mtic-group.org'),
+ 'nant': cLogo('nant.ch'),
  'nestle': cLogo('nestle.ch'),
  'novartis': cLogo('novartis.ch'),
  'oscam': gFavicon('oscam.ch'),
