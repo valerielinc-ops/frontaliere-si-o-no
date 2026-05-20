@@ -19,7 +19,7 @@
 
 import type fsT from 'node:fs';
 import type npT from 'node:path';
-import { ADSENSE_SNIPPET, BASE_URL, BUILD_ID } from './constants';
+import { ADSENSE_SNIPPET, BASE_URL, SEO_STATIC_CSS_LINK } from './constants';
 import {
   ARTICLES_PAGE_SIZE,
   COMPANIES_PAGE_SIZE,
@@ -1718,7 +1718,7 @@ function buildThinCantonHubHtml(args: {
     <meta property="og:image" content="${BASE_URL}/og-image.png">
     <meta name="twitter:card" content="summary_large_image">
     <link rel="canonical" href="${canonicalUrl}">
-    <link rel="stylesheet" href="/assets/seo-static.css?v=${BUILD_ID}">
+    ${SEO_STATIC_CSS_LINK}
     <script type="application/ld+json">${breadcrumbLd}</script>${hasSpaBundle ? `\n    <link rel="stylesheet" href="/assets/${entryCss}" crossorigin media="all">` : ''}
     ${ADSENSE_SNIPPET}
   </head>

@@ -9,7 +9,7 @@
 
 import path from 'path';
 import type { Plugin } from 'vite';
-import { BASE_URL, buildCanonicalBridgePage, SPA_ACTION_REDIRECT_SCRIPT, robotsMetaForContent, countHtmlBodyWords, MIN_INDEXABLE_WORDS, GTAG_SNIPPET, ADSENSE_SNIPPET, FAVICON_LINKS, BUILD_ID, EARLY_BOOT_SCRIPT } from './constants';
+import { BASE_URL, buildCanonicalBridgePage, SPA_ACTION_REDIRECT_SCRIPT, robotsMetaForContent, countHtmlBodyWords, MIN_INDEXABLE_WORDS, GTAG_SNIPPET, ADSENSE_SNIPPET, FAVICON_LINKS, EARLY_BOOT_SCRIPT, SEO_STATIC_CSS_LINK } from './constants';
 import { buildSimplePage } from './htmlTemplate';
 import { buildSeoPageHtml } from './shared/seoPageShell';
 import { minifyHtml } from './shared/htmlMinify';
@@ -2328,7 +2328,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700&family=Outfit:wght@700;800&display=swap" as="style" crossorigin>
  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700&family=Outfit:wght@700;800&display=swap" media="print" onload="this.media='all'" crossorigin data-clarity-unmask="true"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700&family=Outfit:wght@700;800&display=swap" crossorigin data-clarity-unmask="true"></noscript>
- <link rel="stylesheet" href="/assets/seo-static.css?v=${BUILD_ID}">
+ ${SEO_STATIC_CSS_LINK}
 ${hreflangHtml}
  <script type="application/ld+json">${jobLd}</script>
  <script type="application/ld+json">${breadcrumbLd}</script>
@@ -9138,7 +9138,7 @@ ${alternates}
  // /assets/seo-static.css (loaded via <link> in the template head).
  // Deduplicates ~1 KB of identical CSS across ~98k soft-landing pages
  // → saves ~100 MB across dist.
- const seoStaticCssLink = `<link rel="stylesheet" href="/assets/seo-static.css?v=${BUILD_ID}">`;
+ const seoStaticCssLink = SEO_STATIC_CSS_LINK;
  // Externalised from inline <svg> (~700 B/page) — same logo now served from
  // /assets/logo.svg, cached by browser. Saves ~68 MB across ~98k soft-landing
  // pages. Static path; browser caches first-load globally.
