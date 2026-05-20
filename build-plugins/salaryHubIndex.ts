@@ -48,6 +48,7 @@ import {
 import { BASE_URL } from './constants';
 import { buildSeoPageHtml } from './shared/seoPageShell';
 import { renderHreflangTags } from './shared/hreflang';
+import { breadcrumbListLd, faqPageLd } from '../services/seo/structuredData';
 
 type Locale = 'it' | 'en' | 'de' | 'fr';
 const LOCALES: readonly Locale[] = ['it', 'en', 'de', 'fr'];
@@ -554,15 +555,11 @@ export function buildScenarioIndexHtml(opts: ScenarioIndexPageOpts): string {
   // Breadcrumb + ItemList JSON-LD. ItemList is intentionally summarised at
   // tier-level (18 entries) so the JSON-LD payload stays small while still
   // surfacing the structure to crawlers.
-  const breadcrumbLd = JSON.stringify({
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      { '@type': 'ListItem', position: 1, name: l.home, item: `${BASE_URL}/` },
-      { '@type': 'ListItem', position: 2, name: l.calcSection, item: `${BASE_URL}${calcHubPath}` },
-      { '@type': 'ListItem', position: 3, name: l.scenariosBreadcrumb, item: canonicalUrl },
-    ],
-  });
+  const breadcrumbLd = JSON.stringify(breadcrumbListLd([
+    { name: l.home, url: `${BASE_URL}/` },
+    { name: l.calcSection, url: `${BASE_URL}${calcHubPath}` },
+    { name: l.scenariosBreadcrumb, url: canonicalUrl },
+  ]));
 
   const itemListLd = JSON.stringify({
     '@context': 'https://schema.org',
@@ -577,15 +574,7 @@ export function buildScenarioIndexHtml(opts: ScenarioIndexPageOpts): string {
     })),
   });
 
-  const faqLd = JSON.stringify({
-    '@context': 'https://schema.org',
-    '@type': 'FAQPage',
-    mainEntity: l.faqs.map((f) => ({
-      '@type': 'Question',
-      name: f.q,
-      acceptedAnswer: { '@type': 'Answer', text: f.a },
-    })),
-  });
+  const faqLd = JSON.stringify(faqPageLd(l.faqs.map((f) => ({ question: f.q, answer: f.a }))));
 
   // Cross-locale `<a href>` switcher — BFS only follows <a> tags (not
   // <link rel="alternate">), so without a real anchor to each locale twin
