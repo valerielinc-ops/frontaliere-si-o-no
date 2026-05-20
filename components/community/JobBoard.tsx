@@ -6491,7 +6491,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  {authPendingNoticeJsx}
 
  <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 sm:gap-6">
- <article className="lg:col-span-8 space-y-4 sm:space-y-5">
+ <article className="lg:col-span-8 lg:self-start space-y-4 sm:space-y-5">
  <header className="rounded-3xl border border-edge bg-gradient-to-br from-info-subtle via-surface to-success-subtle p-4 sm:p-6">
  <div className="flex items-start gap-3 sm:gap-4">
  <a

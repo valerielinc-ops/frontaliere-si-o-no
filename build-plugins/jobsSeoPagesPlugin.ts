@@ -2377,13 +2377,22 @@ ${hreflangHtml}
  return fmt[locale as 'it'|'en'|'de'|'fr'](days);
  })();
  const contractText = String(job.contract || 'other');
+ const salaryLabel: Record<'it'|'en'|'de'|'fr', string> = {
+ it: 'Salario', en: 'Salary', de: 'Lohn', fr: 'Salaire',
+ };
+ // Salary line — only when we actually have a number; the "non indicato"
+ // fallback is meaningless as a money signal so we suppress it instead of
+ // rendering a tile that adds zero information.
+ const salaryLineHtml = Number.isFinite(salaryMin)
+ ? `<div class="mab-salary"><span class="mab-salary-label">${esc(salaryLabel[locale as 'it'|'en'|'de'|'fr'])}</span><span class="mab-salary-value">${esc(salaryText)}</span></div>`
+ : '';
  return `<section class="mobile-action-block" aria-label="${esc(localeCopy[locale].quickDetails)}">
  <a href="${referralUrl(job.url || canonicalUrl, job)}" rel="noopener noreferrer" class="mab-cta">${esc(localeCopy[locale].applyNow)}</a>
  <dl class="mab-grid">
  <div class="mab-tile"><dt>${esc(localeCopy[locale].location)}</dt><dd>${esc(addressLocality)}</dd></div>
  <div class="mab-tile"><dt>${esc(localeCopy[locale].contract)}</dt><dd>${esc(contractText)}</dd></div>
  <div class="mab-tile"><dt>${esc(publishedLabel[locale as 'it'|'en'|'de'|'fr'])}</dt><dd>${esc(daysAgo)}</dd></div>
- </dl>
+ </dl>${salaryLineHtml}
  </section>`;
  })()}
  <section class="section">
