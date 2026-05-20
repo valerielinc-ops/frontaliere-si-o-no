@@ -35,6 +35,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { OrphanClusterSchema } from './lib/schemas/orphanCluster.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -329,6 +330,18 @@ function main() {
 
   // Sort by impressions desc for deterministic output
   clusters.sort((a, b) => b.totalImpressions - a.totalImpressions);
+
+  // Schema gate: validate every cluster before writing
+  const clusterViolations = [];
+  for (const c of clusters) {
+    const r = OrphanClusterSchema.safeParse(c);
+    if (!r.success) clusterViolations.push({ id: c.clusterId ?? c.canonicalSlug ?? '?', issues: r.error.issues.map(i => `${i.path.join('.')}: ${i.message}`) });
+  }
+  if (clusterViolations.length > 0) {
+    console.error(`[cluster-orphan-queries] ${clusterViolations.length} cluster(s) failed schema:`);
+    for (const v of clusterViolations.slice(0, 10)) console.error(`  - ${v.id}: ${v.issues.join('; ')}`);
+    process.exit(1);
+  }
 
   const out = {
     generatedAt: new Date().toISOString(),
