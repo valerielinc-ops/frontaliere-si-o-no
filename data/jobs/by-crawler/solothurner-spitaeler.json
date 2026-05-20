@@ -3784,7 +3784,8 @@
           "pflegefachfrau-pflegefachmann-imc-w-m-d-solothurner-spitaler-soh-solothurn"
         ],
         "de": [
-          "pflegefachfrau-pflegefachmann-w-m-d-solothurner-spitaler-soh-solothurn"
+          "pflegefachfrau-pflegefachmann-w-m-d-solothurner-spitaler-soh-solothurn",
+          "dipl-pflegefachfrau-pflegefachmann-bmi-w-m-d-solothurner-spitaler-soh-solothurn"
         ],
         "fr": [
           "pflegefachfrau-pflegefachmann-imc-w-m-d-solothurner-spitaler-soh-solothurn"
@@ -3792,7 +3793,8 @@
       },
       "previousSlugs": [
         "pflegefachfrau-pflegefachmann-imc-w-m-d-solothurner-spitaler-soh-solothurn",
-        "pflegefachfrau-pflegefachmann-w-m-d-solothurner-spitaler-soh-solothurn"
+        "pflegefachfrau-pflegefachmann-w-m-d-solothurner-spitaler-soh-solothurn",
+        "dipl-pflegefachfrau-pflegefachmann-bmi-w-m-d-solothurner-spitaler-soh-solothurn"
       ]
     },
     {
@@ -7366,7 +7368,8 @@
         "radiology-specialist-w-m-d-solothurner-spitaler-soh-solothurn",
         "specialiste-de-radiologie-w-m-d-solothurner-spitaler-soh-solothurn",
         "radiology-fachfrau-radiology-fachmann-w-m-d-60-100-solothurner-spitaler-soh-solothurn",
-        "radiologie-fachfrau-radiologie-fachmann-w-m-d-60-100-solothurner-spitaler-soh-solothurn"
+        "radiologie-fachfrau-radiologie-fachmann-w-m-d-60-100-solothurner-spitaler-soh-solothurn",
+        "technicien-en-radiologie-h-f-d-60-100-solothurner-spitaler-soh-solothurn"
       ],
       "previousSlugsByLocale": {
         "en": [
@@ -7374,6 +7377,9 @@
         ],
         "de": [
           "radiologie-fachfrau-radiologie-fachmann-w-m-d-60-100-solothurner-spitaler-soh-solothurn"
+        ],
+        "fr": [
+          "technicien-en-radiologie-h-f-d-60-100-solothurner-spitaler-soh-solothurn"
         ]
       }
     },

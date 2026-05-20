@@ -2777,10 +2777,12 @@
         "de": [
           "cao-plm-fao-referenz-creo-windchill-panerai-neuchatel",
           "cad-plm-fao-spezialist-creo-windchill-panerai-neuchatel",
-          "referent-e-cao-plm-fao-creo-windchill-richemont-neuchatel"
+          "referent-e-cao-plm-fao-creo-windchill-richemont-neuchatel",
+          "cad-plm-cam-spezialist-creo-windchill-panerai-neuchatel"
         ],
         "it": [
-          "referent-e-cao-plm-fao-creo-windchill-richemont-neuchatel"
+          "referent-e-cao-plm-fao-creo-windchill-richemont-neuchatel",
+          "referente-cad-plm-cam-creo-windchill-panerai-neuchatel"
         ],
         "en": [
           "cao-plm-fao-reference-creo-windchill-panerai-neuchatel"
@@ -2791,7 +2793,9 @@
         "cad-plm-fao-spezialist-creo-windchill-panerai-neuchatel",
         "referent-e-cao-plm-fao-creo-windchill-richemont-neuchatel",
         "cao-plm-fao-reference-creo-windchill-panerai-neuchatel",
-        "responsabile-team-tech-acquisti-a-monte-richemont-meyrin"
+        "responsabile-team-tech-acquisti-a-monte-richemont-meyrin",
+        "referente-cad-plm-cam-creo-windchill-panerai-neuchatel",
+        "cad-plm-cam-spezialist-creo-windchill-panerai-neuchatel"
       ],
       "firstSeenAt": "2026-05-11T13:58:02.547Z",
       "salaryMin": 49500,
@@ -4424,14 +4428,16 @@
           "stage-assistente-o-supply-planner-van-cleef-arpels-geneva",
           "stage-assistente-a-pianificazione-supply-van-cleef-arpels-geneva",
           "traineeship-addestramento-planner-assistente-van-cleef-arpels-geneva",
-          "stage-assistant-e-supply-planner-richemont-geneva"
+          "stage-assistant-e-supply-planner-richemont-geneva",
+          "traineeship-assistente-del-progettista-di-alimentazione-van-cleef-arpels-geneva"
         ]
       },
       "previousSlugs": [
         "stage-assistente-o-supply-planner-van-cleef-arpels-geneva",
         "stage-assistente-a-pianificazione-supply-van-cleef-arpels-geneva",
         "traineeship-addestramento-planner-assistente-van-cleef-arpels-geneva",
-        "stage-assistant-e-supply-planner-richemont-geneva"
+        "stage-assistant-e-supply-planner-richemont-geneva",
+        "traineeship-assistente-del-progettista-di-alimentazione-van-cleef-arpels-geneva"
       ],
       "firstSeenAt": "2026-05-11T13:58:02.533Z",
       "salaryMin": 41600,
@@ -7892,7 +7898,8 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "hse-specialist-richemont-villars-sur-glane"
+          "hse-specialist-richemont-villars-sur-glane",
+          "hse-specialista-richemont-villars-sur-glane"
         ],
         "de": [
           "sicherheits-und-gesundheitsfachkraft-richemont-villars-sur-glane"
@@ -7900,7 +7907,8 @@
       },
       "previousSlugs": [
         "hse-specialist-richemont-villars-sur-glane",
-        "sicherheits-und-gesundheitsfachkraft-richemont-villars-sur-glane"
+        "sicherheits-und-gesundheitsfachkraft-richemont-villars-sur-glane",
+        "hse-specialista-richemont-villars-sur-glane"
       ],
       "firstSeenAt": "2026-05-11T13:58:02.487Z",
       "salaryMin": 49500,
@@ -12709,7 +12717,8 @@
           "stage-group-l-d-richemont-bellevue",
           "gruppo-l-d-richemont-bellevue",
           "stage-l-d-di-gruppo-richemont-bellevue",
-          "group-l-d-intern-richemont-bellevue"
+          "group-l-d-intern-richemont-bellevue",
+          "group-l-d-tirocinante-richemont-bellevue"
         ],
         "de": [
           "gruppe-l-d-praktikant-richemont-bellevue"
@@ -12721,7 +12730,8 @@
         "stage-l-d-di-gruppo-richemont-bellevue",
         "group-l-d-intern-richemont-bellevue",
         "gruppe-l-d-praktikant-richemont-bellevue",
-        "commercio-al-dettaglio-e-partner-piaget-plan-les-ouates"
+        "commercio-al-dettaglio-e-partner-piaget-plan-les-ouates",
+        "group-l-d-tirocinante-richemont-bellevue"
       ],
       "firstSeenAt": "2026-05-11T13:58:02.443Z",
       "salaryMin": 41600,
@@ -14991,10 +15001,14 @@
       "previousSlugsByLocale": {
         "it": [
           "heritage-project-manager-maternity-cover-richemont-plan-les-ouates"
+        ],
+        "fr": [
+          "gestionnaire-de-projet-patrimonial-couverture-maternelle-piaget-plan-les-ouates"
         ]
       },
       "previousSlugs": [
-        "heritage-project-manager-maternity-cover-richemont-plan-les-ouates"
+        "heritage-project-manager-maternity-cover-richemont-plan-les-ouates",
+        "gestionnaire-de-projet-patrimonial-couverture-maternelle-piaget-plan-les-ouates"
       ],
       "firstSeenAt": "2026-05-19T12:39:39.247Z",
       "salaryMin": 68000,
@@ -16466,11 +16480,13 @@
           "e-business-manager-maternity-cover-richemont-plan-les-ouates"
         ],
         "fr": [
-          "e-business-manager-maternity-cover-richemont-plan-les-ouates"
+          "e-business-manager-maternity-cover-richemont-plan-les-ouates",
+          "gestionnaire-d-affaires-electroniques-couverture-maternelle-piaget-plan-les-ouates"
         ]
       },
       "previousSlugs": [
-        "e-business-manager-maternity-cover-richemont-plan-les-ouates"
+        "e-business-manager-maternity-cover-richemont-plan-les-ouates",
+        "gestionnaire-d-affaires-electroniques-couverture-maternelle-piaget-plan-les-ouates"
       ],
       "firstSeenAt": "2026-05-19T12:39:39.226Z",
       "salaryMin": 68000,
