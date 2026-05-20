@@ -43,6 +43,24 @@ if [ -n "${GITHUB_RUN_ID:-}" ] && [ -n "${GITHUB_REPOSITORY:-}" ]; then
 Run: ${RUN_URL}"
 fi
 
+# ── Append previousSlugs delta attribution from slug-history-journal ─────────
+# The journal module (scripts/lib/slug-history-journal.mjs) auto-registers a
+# process.on('exit') hook that writes a one-shot summary to a temp file. We
+# read it here and append to the commit message body, then unlink — zero
+# on-disk footprint, full attribution in the commit history.
+SLUG_HISTORY_SUMMARY_FILE="${SLUG_HISTORY_SUMMARY_FILE:-}"
+if [ -z "$SLUG_HISTORY_SUMMARY_FILE" ]; then
+  # Glob the default pattern (per-pid). Pick the newest if multiple exist.
+  SLUG_HISTORY_SUMMARY_FILE=$(ls -t /tmp/slug-history-summary-*.txt 2>/dev/null | head -1 || true)
+fi
+if [ -n "$SLUG_HISTORY_SUMMARY_FILE" ] && [ -s "$SLUG_HISTORY_SUMMARY_FILE" ]; then
+  SLUG_HISTORY_BODY=$(cat "$SLUG_HISTORY_SUMMARY_FILE")
+  COMMIT_MSG="${COMMIT_MSG}
+
+${SLUG_HISTORY_BODY}"
+  rm -f "$SLUG_HISTORY_SUMMARY_FILE" || true
+fi
+
 # ── Standard data files committed by every crawler ──────────────────────────
 if [ "$SLICE_ONLY" = true ]; then
   # Slice-only mode: only commit per-crawler slice files + ai-cache.

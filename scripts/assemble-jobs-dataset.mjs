@@ -655,6 +655,19 @@ export function writeJobsCrawlerSlice(crawlerKey, jobs) {
     }
   }
 
+  // ── prev-slug safety net (FRO-prev-slug-attribution, 2026-05-20) ───────
+  // Even with the writer fixes (shared-jobs-crawler.ensureLocaleFields →
+  // addPreviousSlugForLocale, pre-AI captureLostSlugs), a missed mutation
+  // site or future regression could drop a historical slug. Compare the
+  // jobs we are about to persist against the prior slice on disk and
+  // restore any previousSlugs the new payload would otherwise lose.
+  if (existingSlice && Array.isArray(existingSlice.jobs) && existingSlice.jobs.length > 0) {
+    const drift = trackSlugHistoryDrift(existingSlice.jobs, hardened.jobs);
+    if (drift.mergedSlugs > 0) {
+      console.log(`  🛟 prev-slug safety-net: restored ${drift.mergedSlugs} slugs across ${drift.driftCount} jobs from prior slice`);
+    }
+  }
+
   const payload = {
     crawlerKey,
     assembledAt: new Date().toISOString(),
@@ -1165,7 +1178,7 @@ function assembleExpiredJobs() {
  * Side-effect: mutates active job entries in place.
  * Returns: { driftCount, mergedSlugs }.
  */
-function trackSlugHistoryDrift(priorJobs, activeJobs) {
+export function trackSlugHistoryDrift(priorJobs, activeJobs) {
   if (!Array.isArray(priorJobs) || priorJobs.length === 0) {
     return { driftCount: 0, mergedSlugs: 0 };
   }
@@ -1248,13 +1261,20 @@ function trackSlugHistoryDrift(priorJobs, activeJobs) {
       for (const [locale, arr] of Object.entries(prior.previousSlugsByLocale)) {
         for (const s of (arr || [])) {
           const sStr = String(s || '');
-          if (!sStr || knownNew.has(sStr)) continue;
+          if (!sStr) continue;
+          // FRO-prev-slug-attribution: do NOT short-circuit on knownNew here —
+          // an entry may already be in the flat array (from the block above)
+          // but still missing from the locale bucket. Bridge-page emission
+          // routes through previousSlugsByLocale[locale] preferentially, so
+          // we must hydrate the locale bucket even when flat already has it.
+          // Dedup per-locale instead.
           if (!job.previousSlugsByLocale || typeof job.previousSlugsByLocale !== 'object') {
             job.previousSlugsByLocale = {};
           }
           if (!Array.isArray(job.previousSlugsByLocale[locale])) {
             job.previousSlugsByLocale[locale] = [];
           }
+          if (job.previousSlugsByLocale[locale].includes(sStr)) continue;
           job.previousSlugsByLocale[locale].push(sStr);
           knownNew.add(sStr);
           mergedSlugs++;
