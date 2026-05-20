@@ -51,6 +51,7 @@ import type { Plugin } from 'vite';
 import { buildSeoPageHtml } from './shared/seoPageShell';
 import { renderBridgePageProse, type BridgePageKind } from './shared/bridgePageProse';
 import type { Locale } from '../services/i18n';
+import { breadcrumbListLd } from '../services/seo/structuredData';
 
 const BASE_URL = 'https://frontaliereticino.ch';
 
@@ -82,14 +83,10 @@ const HOME_PREFIX: Record<Locale, string> = {
  */
 function buildAliasBreadcrumbLd(locale: Locale, pageLabel: string, pageUrl: string): string {
   const homeUrl = `${BASE_URL}${HOME_PREFIX[locale]}/`.replace(/(?<!:)\/+/g, '/');
-  return JSON.stringify({
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      { '@type': 'ListItem', position: 1, name: HOME_LABEL[locale], item: homeUrl },
-      { '@type': 'ListItem', position: 2, name: pageLabel, item: pageUrl },
-    ],
-  });
+  return JSON.stringify(breadcrumbListLd([
+    { name: HOME_LABEL[locale], url: homeUrl },
+    { name: pageLabel, url: pageUrl },
+  ]));
 }
 
 interface AliasEntry {
