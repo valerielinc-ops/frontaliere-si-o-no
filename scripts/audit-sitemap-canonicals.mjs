@@ -162,12 +162,19 @@ function locToHtmlPath(loc) {
  */
 function extractCanonical(html) {
   // Find all <link …> tags, then pick whichever has rel="canonical".
+  // Quote-flexible — PR #478 baked removeAttributeQuotes upstream. URL hrefs
+  // that end in `/` keep their quotes (upstream-rejected to avoid `/>`
+  // collision), so the double/single quote branches still match canonical URLs;
+  // the third branch handles unquoted hrefs for completeness.
   const linkRe = /<link\b[^>]*>/gi;
   let m;
   while ((m = linkRe.exec(html)) !== null) {
     const tag = m[0];
     if (!/rel\s*=\s*["']?canonical["']?/i.test(tag)) continue;
-    const href = tag.match(/href\s*=\s*"([^"]+)"/i) || tag.match(/href\s*=\s*'([^']+)'/i);
+    const href =
+      tag.match(/href\s*=\s*"([^"]+)"/i) ||
+      tag.match(/href\s*=\s*'([^']+)'/i) ||
+      tag.match(/href\s*=\s*([^"'\s>]+)/i);
     if (href && href[1]) return decodeEntities(href[1].trim());
   }
   return null;

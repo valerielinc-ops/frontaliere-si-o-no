@@ -58,9 +58,10 @@ function findHtmlFile(url) {
   return null;
 }
 
-// Extract canonical URL from HTML content
+// Extract canonical URL from HTML content.
+// Quote-flexible — PR #478 baked removeAttributeQuotes upstream.
 function extractCanonical(content) {
-  const match = content.match(/<link\s+rel="canonical"\s+href="([^"]+)"/);
+  const match = content.match(/<link\s+rel=["']?canonical["']?\s+href=["']?([^"'\s>]+)["']?/);
   return match ? match[1] : null;
 }
 

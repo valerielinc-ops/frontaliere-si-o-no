@@ -31,8 +31,12 @@ function sitemapPages() {
 }
 
 function extractInternalLinks(html, pageUrl) {
+ // Quote-flexible — PR #478 baked removeAttributeQuotes upstream. <a href="...">
+ // becomes <a href=...> for URLs without spaces/quotes/=/<>/backtick AND that
+ // don't end in `/` (trailing-slash collision with `/>` self-close is rejected
+ // upstream, so trailing-`/` URLs keep their quotes — both forms appear in dist).
  const out = new Set();
- const regex = /<a\b[^>]*href="([^"]+)"/gi;
+ const regex = /<a\b[^>]*href=["']?([^"'\s>]+)["']?/gi;
  let match;
  while ((match = regex.exec(html)) !== null) {
   const raw = match[1].trim();

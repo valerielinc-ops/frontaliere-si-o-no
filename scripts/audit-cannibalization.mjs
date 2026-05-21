@@ -160,7 +160,8 @@ function extractTitle(html) {
 }
 
 function extractCanonical(html) {
- const m = html.match(/<link\s+rel="canonical"\s+href="([^"]+)"/i);
+ // Quote-flexible — PR #478 baked removeAttributeQuotes upstream.
+ const m = html.match(/<link\s+rel=["']?canonical["']?\s+href=["']?([^"'\s>]+)["']?/i);
  return m ? m[1].trim() : '';
 }
 

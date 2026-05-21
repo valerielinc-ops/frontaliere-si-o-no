@@ -90,8 +90,13 @@ export const DEFAULT_DIST = join(ROOT, 'dist');
 
 const RX_TITLE         = /<title[^>]*>([\s\S]*?)<\/title>/i;
 const RX_H1            = /<h1[^>]*>([\s\S]*?)<\/h1>/i;
-const RX_NOINDEX       = /<meta\s+name=["']robots["']\s+content=["'][^"']*\bnoindex\b/i;
-const RX_META_REFRESH  = /<meta\s+http-equiv=["']refresh["'][^>]*url=/i;
+// Quote-flexible — PR #478 baked removeAttributeQuotes upstream so single-token
+// attribute values lose their quotes in dist/. `name=robots`, `http-equiv=refresh`,
+// `name=author`, etc. — all now appear unquoted. The `application/ld+json` value
+// contains a `/` and `+`, so the upstream minifier keeps its quotes (HTML5 spec
+// rules out unquoted values containing those chars), and that regex stays as-is.
+const RX_NOINDEX       = /<meta\s+name=["']?robots["']?\s+content=["']?[^"'>]*\bnoindex\b/i;
+const RX_META_REFRESH  = /<meta\s+http-equiv=["']?refresh["']?[^>]*url=/i;
 const RX_JSONLD_SCRIPT = /<script\s+[^>]*type=["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi;
 
 /**

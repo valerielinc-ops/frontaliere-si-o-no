@@ -150,10 +150,11 @@ function countWords(text) {
   return text.split(' ').filter(w => w.length > 0).length;
 }
 
-/** soft404 + content-quality both use this exact noindex regex shape. */
+/** soft404 + content-quality both use this exact noindex regex shape.
+ *  Quote-flexible — PR #478 baked removeAttributeQuotes upstream. */
 function hasNoindex(html) {
   // soft404 uses match(); content-quality uses test() — same intent, same outcome.
-  return /<meta[^>]*name=["']robots["'][^>]*content=["'][^"']*noindex/i.test(html);
+  return /<meta[^>]*name=["']?robots["']?[^>]*content=["']?[^"'>]*noindex/i.test(html);
 }
 
 function hasJobPostingSchema(html) {
@@ -281,7 +282,8 @@ function findHtmlFile_vc(url) {
 }
 
 function extractCanonical_vc(content) {
-  const match = content.match(/<link\s+rel="canonical"\s+href="([^"]+)"/);
+  // Quote-flexible — PR #478 baked removeAttributeQuotes upstream.
+  const match = content.match(/<link\s+rel=["']?canonical["']?\s+href=["']?([^"'\s>]+)["']?/);
   return match ? match[1] : null;
 }
 

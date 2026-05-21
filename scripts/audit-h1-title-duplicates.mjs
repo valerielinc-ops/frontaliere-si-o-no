@@ -23,8 +23,9 @@ import { classifyFeature, inferLocale } from './audit-title-length.mjs';
 
 const resolvePath = (p) => (isAbsolute(p) ? p : join(ROOT, p));
 
-const NOINDEX_RE = /<meta[^>]+name=["']robots["'][^>]+content=["'][^"']*noindex/i;
-const META_REFRESH_RE = /<meta[^>]+http-equiv=["']refresh["']/i;
+// Quote-flexible — PR #478 baked removeAttributeQuotes upstream.
+const NOINDEX_RE = /<meta[^>]+name=["']?robots["']?[^>]+content=["']?[^"'>]*noindex/i;
+const META_REFRESH_RE = /<meta[^>]+http-equiv=["']?refresh["']?(?=[\s/>])/i;
 const TITLE_RE = /<title[^>]*>([\s\S]*?)<\/title>/i;
 const H1_RE = /<h1[^>]*>([\s\S]*?)<\/h1>/i;
 

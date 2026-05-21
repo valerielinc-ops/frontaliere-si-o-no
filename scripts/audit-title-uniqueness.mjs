@@ -132,11 +132,12 @@ function extractHeadTitle(head) {
  * into one indexed page via the canonical signal, so counting them as
  * duplicate <title> collisions is a false positive.
  */
+// Quote-flexible — PR #478 baked removeAttributeQuotes upstream.
 function extractCanonical(head) {
-  const m = /<link[^>]+rel=["']canonical["'][^>]*href=["']([^"']+)["']/i.exec(head);
+  const m = /<link[^>]+rel=["']?canonical["']?[^>]*href=["']?([^"'\s>]+)["']?/i.exec(head);
   if (m) return m[1].trim();
   // Alternate attribute order: href before rel.
-  const m2 = /<link[^>]+href=["']([^"']+)["'][^>]*rel=["']canonical["']/i.exec(head);
+  const m2 = /<link[^>]+href=["']?([^"'\s>]+)["']?[^>]*rel=["']?canonical["']?/i.exec(head);
   return m2 ? m2[1].trim() : null;
 }
 
@@ -148,7 +149,8 @@ function extractCanonical(head) {
  * Caller must pass extractHead() output.
  */
 function hasNoindex(head) {
-  const m = /<meta[^>]+name=["']robots["'][^>]*content=["']([^"']+)["']/i.exec(head);
+  // Quote-flexible — PR #478 baked removeAttributeQuotes upstream.
+  const m = /<meta[^>]+name=["']?robots["']?[^>]*content=["']?([^"'>]+?)["']?\s*\/?>/i.exec(head);
   if (!m) return false;
   return /\bnoindex\b/i.test(m[1]);
 }

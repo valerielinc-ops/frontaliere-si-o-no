@@ -37,19 +37,21 @@ function canonicalizeDistPath(relPath) {
   return posix;
 }
 
+// Quote-flexible — PR #478 baked removeAttributeQuotes upstream. URL hrefs and
+// short single-token meta names/contents lose their quotes in dist/.
 function extractCanonical(html) {
   const headMatch = /<head\b[^>]*>([\s\S]*?)<\/head>/i.exec(html);
   const scope = headMatch ? headMatch[1] : html;
-  const m = /<link[^>]+rel=["']canonical["'][^>]*href=["']([^"']+)["']/i.exec(scope);
+  const m = /<link[^>]+rel=["']?canonical["']?[^>]*href=["']?([^"'\s>]+)["']?/i.exec(scope);
   if (m) return m[1].trim();
-  const m2 = /<link[^>]+href=["']([^"']+)["'][^>]*rel=["']canonical["']/i.exec(scope);
+  const m2 = /<link[^>]+href=["']?([^"'\s>]+)["']?[^>]*rel=["']?canonical["']?/i.exec(scope);
   return m2 ? m2[1].trim() : null;
 }
 
 function hasNoindex(html) {
   const headMatch = /<head\b[^>]*>([\s\S]*?)<\/head>/i.exec(html);
   const scope = headMatch ? headMatch[1] : html;
-  const m = /<meta[^>]+name=["']robots["'][^>]*content=["']([^"']+)["']/i.exec(scope);
+  const m = /<meta[^>]+name=["']?robots["']?[^>]*content=["']?([^"'>]+?)["']?\s*\/?>/i.exec(scope);
   if (!m) return false;
   return /\bnoindex\b/i.test(m[1]);
 }

@@ -68,10 +68,11 @@ function walkHtmlFiles(root) {
   return out;
 }
 
-/** Return a Map<hreflang, href> parsed from one HTML file's <head>. */
+/** Return a Map<hreflang, href> parsed from one HTML file's <head>.
+ *  Quote-flexible — PR #478 baked removeAttributeQuotes upstream. */
 function extractAlternates(html) {
   const map = new Map();
-  const regex = /<link\s+rel="alternate"[^>]*hreflang="([^"]+)"[^>]*href="([^"]+)"/gi;
+  const regex = /<link\s+rel=["']?alternate["']?[^>]*hreflang=["']?([^"'\s>]+)["']?[^>]*href=["']?([^"'\s>]+)["']?/gi;
   let match;
   while ((match = regex.exec(html)) !== null) {
     map.set(match[1], match[2]);

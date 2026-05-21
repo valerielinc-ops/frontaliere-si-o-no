@@ -75,9 +75,15 @@ if (!fs.existsSync(DIST)) {
  *   <script type="module" crossorigin [fetchpriority="high"] src="/assets/index-{hash}.js">
  * The hash is content-addressed so it changes between builds. We only require
  * `type="module"` somewhere in the same tag and `src="/assets/index-{hash}.js"`.
+ *
+ * Quote-flexible — PR #478 baked removeAttributeQuotes upstream in htmlMinify.ts.
+ * `type="module"` → `type=module` (single token, no special chars) and
+ * `src="/assets/index-abc.js"` → `src=/assets/index-abc.js` (HTML5 allows
+ * unquoted attr values containing `/`; the only trailing-slash case is rejected
+ * upstream to avoid `/>` self-close collision, and `.js` doesn't end in `/`).
  */
 const SPA_BUNDLE_RX =
-  /<script[^>]*type="module"[^>]*src="\/assets\/index-[A-Za-z0-9_-]+\.js"/;
+  /<script[^>]*type=["']?module["']?[^>]*src=["']?\/assets\/index-[A-Za-z0-9_-]+\.js["']?/;
 
 /**
  * Per-slug index.html files MAY legitimately not contain the SPA bundle when

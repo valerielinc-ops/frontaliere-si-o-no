@@ -23,8 +23,9 @@ import { walkHtmlFiles, ROOT, DEFAULT_DIST } from './lib/audit-runner.mjs';
 
 const resolvePath = (p) => (isAbsolute(p) ? p : join(ROOT, p));
 
-const NOINDEX_RE = /<meta[^>]+name=["']robots["'][^>]+content=["'][^"']*noindex/i;
-const META_REFRESH_RE = /<meta[^>]+http-equiv=["']refresh["']/i;
+// Quote-flexible — PR #478 baked removeAttributeQuotes upstream.
+const NOINDEX_RE = /<meta[^>]+name=["']?robots["']?[^>]+content=["']?[^"'>]*noindex/i;
+const META_REFRESH_RE = /<meta[^>]+http-equiv=["']?refresh["']?(?=[\s/>])/i;
 
 // Single combined strip regex (was 8 sequential .replace() calls). Each
 // alternative captures one strip category: HTML comments, DOCTYPE, opaque

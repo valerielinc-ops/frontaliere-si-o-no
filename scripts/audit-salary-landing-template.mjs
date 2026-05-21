@@ -63,7 +63,8 @@ const PLACEHOLDER_DIV_RE = /<div\s+style="[^"]*;height:38rem;margin-top:1\.5rem"
 // redirects (handled by legacyRedirectsPlugin / shell helpers), NOT
 // salary-landing templates. Same exclusion pattern used by
 // audit-content-duplicates.mjs.
-const CANONICAL_RE = /<link[^>]+rel=["']canonical["'][^>]*href=["']([^"']+)["']/i;
+// Quote-flexible — PR #478 baked removeAttributeQuotes upstream.
+const CANONICAL_RE = /<link[^>]+rel=["']?canonical["']?[^>]*href=["']?([^"'\s>]+)["']?/i;
 
 /**
  * @param {{ limit?: number }} [opts]
