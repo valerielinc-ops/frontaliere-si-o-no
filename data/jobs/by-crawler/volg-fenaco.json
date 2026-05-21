@@ -1,6 +1,6 @@
 {
   "crawlerKey": "volg-fenaco",
-  "assembledAt": "2026-05-19T23:55:31.497Z",
+  "assembledAt": "2026-05-21T13:47:33.673Z",
   "jobs": [
     {
       "title": "Verkäuferin / Verkäufer Wintersaison (w/m/d)",
@@ -22,7 +22,7 @@
       "sector": "Dettaglio & Alimentari",
       "source": "volg-fenaco-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-05-19",
+      "postedDate": "2026-05-21",
       "validThrough": "",
       "employmentType": "full-time",
       "contractType": "fixed-term",
@@ -45,7 +45,7 @@
         "de": "verkauferin-verkaufer-wintersaison-w-m-d-volg-laax",
         "fr": "saison-hivernale-des-vendeurs-en-m-j-volg-laax"
       },
-      "crawledAt": "2026-05-19T23:55:10.518Z",
+      "crawledAt": "2026-05-21T13:47:13.446Z",
       "id": "volg-fenaco-31e24eb514f6",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -96,7 +96,7 @@
       "sector": "Dettaglio & Alimentari",
       "source": "volg-fenaco-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-05-19",
+      "postedDate": "2026-05-21",
       "validThrough": "",
       "employmentType": "part-time",
       "contractType": "fixed-term",
@@ -119,7 +119,7 @@
         "de": "verkauferin-verkaufer-wintersaison-w-m-d-volg-laax-signina",
         "fr": "saison-hivernale-des-vendeurs-en-m-j-volg-laax-signina"
       },
-      "crawledAt": "2026-05-19T23:55:10.520Z",
+      "crawledAt": "2026-05-21T13:47:13.447Z",
       "id": "volg-fenaco-19d8da8af3af",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -170,7 +170,7 @@
       "sector": "Dettaglio & Alimentari",
       "source": "volg-fenaco-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-05-19",
+      "postedDate": "2026-05-21",
       "validThrough": "",
       "employmentType": "part-time",
       "contractType": "permanent",
@@ -193,7 +193,7 @@
         "de": "verkauferin-verkaufer-m-w-d-volg-trin",
         "fr": "directeur-des-ventes-m-m-j-volg-trin"
       },
-      "crawledAt": "2026-05-19T23:55:10.520Z",
+      "crawledAt": "2026-05-21T13:47:13.448Z",
       "id": "volg-fenaco-1146169370df",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -244,7 +244,7 @@
       "sector": "Dettaglio & Alimentari",
       "source": "volg-fenaco-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-05-19",
+      "postedDate": "2026-05-21",
       "validThrough": "",
       "employmentType": "part-time",
       "contractType": "permanent",
@@ -267,7 +267,7 @@
         "de": "verkauferin-verkaufer-m-w-d-volg-andeer",
         "fr": "directeur-des-ventes-m-m-j-volg-andeer"
       },
-      "crawledAt": "2026-05-19T23:55:10.520Z",
+      "crawledAt": "2026-05-21T13:47:13.448Z",
       "id": "volg-fenaco-a1514e9f6b70",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -318,7 +318,7 @@
       "sector": "Dettaglio & Alimentari",
       "source": "volg-fenaco-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-05-19",
+      "postedDate": "2026-05-21",
       "validThrough": "",
       "employmentType": "full-time",
       "contractType": "fixed-term",
@@ -341,7 +341,7 @@
         "de": "verkauferin-verkaufer-wintersaison-w-m-d-volg-splugen",
         "fr": "verkauferin-verkaufer-wintersaison-w-m-d-volg-splugen"
       },
-      "crawledAt": "2026-05-19T23:55:10.520Z",
+      "crawledAt": "2026-05-21T13:47:13.448Z",
       "id": "volg-fenaco-8d9df1847e95",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -364,7 +364,8 @@
         "it": [
           "verkauferin-verkaufer-wintersaison-w-m-d-volg-splugen"
         ]
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "title": "Verkäuferin / Verkäufer (m/w/d)",
@@ -386,7 +387,7 @@
       "sector": "Dettaglio & Alimentari",
       "source": "volg-fenaco-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-05-19",
+      "postedDate": "2026-05-21",
       "validThrough": "",
       "employmentType": "full-time",
       "contractType": "permanent",
@@ -409,7 +410,7 @@
         "de": "verkauferin-verkaufer-m-w-d-volg-splugen",
         "fr": "verkauferin-verkaufer-m-w-d-volg-splugen"
       },
-      "crawledAt": "2026-05-19T23:55:10.520Z",
+      "crawledAt": "2026-05-21T13:47:13.448Z",
       "id": "volg-fenaco-b96b76791c64",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -432,7 +433,8 @@
         "it": [
           "verkauferin-verkaufer-m-w-d-volg-splugen"
         ]
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "title": "Verkäuferin / Verkäufer Sommersaison (w/m/d)",
@@ -454,7 +456,7 @@
       "sector": "Dettaglio & Alimentari",
       "source": "volg-fenaco-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-05-19",
+      "postedDate": "2026-05-21",
       "validThrough": "",
       "employmentType": "part-time",
       "contractType": "fixed-term",
@@ -477,7 +479,7 @@
         "de": "verkauferin-verkaufer-sommersaison-w-m-d-volg-splugen",
         "fr": "verkauferin-verkaufer-sommersaison-w-m-d-volg-splugen"
       },
-      "crawledAt": "2026-05-19T23:55:10.520Z",
+      "crawledAt": "2026-05-21T13:47:13.448Z",
       "id": "volg-fenaco-4b8d79b3b594",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -500,7 +502,8 @@
         "it": [
           "verkauferin-verkaufer-sommersaison-w-m-d-volg-splugen"
         ]
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "title": "Verkäuferin / Verkäufer (m/w/d)",
@@ -522,7 +525,7 @@
       "sector": "Dettaglio & Alimentari",
       "source": "volg-fenaco-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-05-19",
+      "postedDate": "2026-05-21",
       "validThrough": "",
       "employmentType": "part-time",
       "contractType": "permanent",
@@ -545,7 +548,7 @@
         "de": "verkauferin-verkaufer-m-w-d-volg-feldis-veulden",
         "fr": "verkauferin-verkaufer-m-w-d-volg-feldis-veulden"
       },
-      "crawledAt": "2026-05-19T23:55:10.520Z",
+      "crawledAt": "2026-05-21T13:47:13.448Z",
       "id": "volg-fenaco-31acbfca2674",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -568,7 +571,8 @@
         "it": [
           "verkauferin-verkaufer-m-w-d-volg-feldis-veulden"
         ]
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "title": "Verkäuferin / Verkäufer (m/w/d)",
@@ -590,7 +594,7 @@
       "sector": "Dettaglio & Alimentari",
       "source": "volg-fenaco-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-05-19",
+      "postedDate": "2026-05-21",
       "validThrough": "",
       "employmentType": "part-time",
       "contractType": "permanent",
@@ -613,7 +617,7 @@
         "de": "verkauferin-verkaufer-m-w-d-volg-ftan",
         "fr": "verkauferin-verkaufer-m-w-d-volg-ftan"
       },
-      "crawledAt": "2026-05-19T23:55:10.520Z",
+      "crawledAt": "2026-05-21T13:47:13.448Z",
       "id": "volg-fenaco-e06adafbd43c",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -637,7 +641,8 @@
         "it": [
           "verkauferin-verkaufer-m-w-d-volg-ftan"
         ]
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "title": "Verkäuferin / Verkäufer (m/w/d)",
@@ -659,7 +664,7 @@
       "sector": "Dettaglio & Alimentari",
       "source": "volg-fenaco-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-05-19",
+      "postedDate": "2026-05-21",
       "validThrough": "",
       "employmentType": "full-time",
       "contractType": "permanent",
@@ -682,7 +687,7 @@
         "de": "verkauferin-verkaufer-m-w-d-volg-vals",
         "fr": "directeur-des-ventes-m-m-j-volg-vals"
       },
-      "crawledAt": "2026-05-19T23:55:10.521Z",
+      "crawledAt": "2026-05-21T13:47:13.448Z",
       "id": "volg-fenaco-699f9076ff23",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -730,7 +735,7 @@
       "sector": "Dettaglio & Alimentari",
       "source": "volg-fenaco-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-05-19",
+      "postedDate": "2026-05-21",
       "validThrough": "",
       "employmentType": "part-time",
       "contractType": "permanent",
@@ -753,7 +758,7 @@
         "de": "verkauferin-verkaufer-m-w-d-volg-bonaduz",
         "fr": "directeur-des-ventes-m-w-d-volg-bonaduz"
       },
-      "crawledAt": "2026-05-19T23:55:10.521Z",
+      "crawledAt": "2026-05-21T13:47:13.449Z",
       "id": "volg-fenaco-b32683d67c1c",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -804,7 +809,7 @@
       "sector": "Dettaglio & Alimentari",
       "source": "volg-fenaco-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-05-19",
+      "postedDate": "2026-05-21",
       "validThrough": "",
       "employmentType": "part-time",
       "contractType": "permanent",
@@ -827,7 +832,7 @@
         "de": "verkauferin-verkaufer-m-w-d-volg-vals",
         "fr": "directeur-des-ventes-m-m-j-volg-vals-5c52d7"
       },
-      "crawledAt": "2026-05-19T23:55:10.521Z",
+      "crawledAt": "2026-05-21T13:47:13.449Z",
       "id": "volg-fenaco-6778621893b4",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -878,7 +883,7 @@
       "sector": "Dettaglio & Alimentari",
       "source": "volg-fenaco-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-05-19",
+      "postedDate": "2026-05-21",
       "validThrough": "",
       "employmentType": "full-time",
       "contractType": "permanent",
@@ -901,7 +906,7 @@
         "de": "stellvertretende-ladenleitung-m-w-d-volg-vals",
         "fr": "gestion-du-projet-m-w-d-volg-vals"
       },
-      "crawledAt": "2026-05-19T23:55:10.521Z",
+      "crawledAt": "2026-05-21T13:47:13.449Z",
       "id": "volg-fenaco-9978c0ec4386",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -952,7 +957,7 @@
       "sector": "Dettaglio & Alimentari",
       "source": "volg-fenaco-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-05-19",
+      "postedDate": "2026-05-21",
       "validThrough": "",
       "employmentType": "full-time",
       "contractType": "permanent",
@@ -975,7 +980,7 @@
         "de": "stellvertretende-ladenleitung-m-w-d-volg-laax-signina",
         "fr": "gestion-du-projet-m-w-d-volg-laax-signina"
       },
-      "crawledAt": "2026-05-19T23:55:10.521Z",
+      "crawledAt": "2026-05-21T13:47:13.449Z",
       "id": "volg-fenaco-da8684e465d0",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -1026,7 +1031,7 @@
       "sector": "Agricoltura & Dettaglio",
       "source": "volg-fenaco-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-05-19",
+      "postedDate": "2026-05-21",
       "validThrough": "",
       "employmentType": "part-time",
       "contractType": "permanent",
@@ -1049,7 +1054,7 @@
         "de": "verkauferin-verkaufer-topshop-w-m-d-landi-graubunden-ag-landquart",
         "fr": "directeur-des-ventes-m-j-landi-graubunden-ag-landquart"
       },
-      "crawledAt": "2026-05-19T23:55:10.521Z",
+      "crawledAt": "2026-05-21T13:47:13.449Z",
       "id": "volg-fenaco-72cc21e34838",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -1083,82 +1088,6 @@
       ]
     },
     {
-      "title": "Mitarbeiterin / Mitarbeiter Verlad (w/m/d)",
-      "slug": "addetto-a-carico-e-scarico-traveco-transporte-ag-landquart",
-      "url": "https://jobs.fenaco.com/offene-stellen/mitarbeiterin-mitarbeiter-verlad-w-m-d/94b1bc30-ab12-42fc-85c8-4796f8c7a7c2",
-      "applyUrl": "https://jobs.fenaco.com/offene-stellen/mitarbeiterin-mitarbeiter-verlad-w-m-d/94b1bc30-ab12-42fc-85c8-4796f8c7a7c2",
-      "company": "TRAVECO Transporte AG",
-      "companyKey": "volg-fenaco",
-      "companyDomain": "fenaco.com",
-      "location": "Landquart",
-      "addressLocality": "Landquart",
-      "addressRegion": "GR",
-      "addressCountry": "CH",
-      "postalCode": "7302",
-      "streetAddress": "Via Industria 2",
-      "canton": "GR",
-      "country": "CH",
-      "category": "Logistica & Trasporti",
-      "sector": "Trasporti & Logistica",
-      "source": "volg-fenaco-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-05-19",
-      "validThrough": "",
-      "employmentType": "full-time",
-      "contractType": "permanent",
-      "description": "Du suchst eine Herausforderung, in der du täglich dein Wissen und deine Erfahrungen einbringen kannst? Möchtest du Verantwortung übernehmen und dabei mit einem motivierten kollegialen Team zusammenarbeiten? Du wünscht dir einen fortschrittlichen Arbeitgeber, bei welchem Respekt und Wertschätzung gelebt wird? TRAVECO bietet dir diese Möglichkeiten in einer vielseitigen und abwechslungsreichen Funktion als Mitarbeiterin oder Mitarbeiter Verlad.\n\n## Deine neue Herausforderung\n- Be- und Entladen der Fahrzeuge und Bahnwägen\n- Wareneingangskontrolle sowie Warenbereitstellung\n- Ein- und Auslagerung von Paletten\n- Fahren von Deichselgeräten und Flurförderzeuge\n- Ausführen von Rangierbewegungen auf dem Werksareal und Anschlussgleis\n- Verantwortlich für die regelmässige Reinigung der Fahrzeuge\n- Überführen der Fahrzeuge in die Werkstatt und an MFK-Termine\n- Diverse weitere Nebenaufgaben im Lager und auf dem Werksareal\n- Arbeitszeitzen vorwiegen von Montag bis Freitag von 11:00 Uhr - 20:00 Uhr / Bereitschaft zur Sonntagsarbeit von 09:00 Uhr - 13:00 Uhr\n\n## Du bringst mit\n- Sehr gute körperliche Kondition\n- Führerausweis Kat. C\n- Selbständige und exakte Arbeitsweise\n- Gute Deutschkenntnisse\n- Gepflegter und sorgfältiger Umgang mit Maschinen und Hilfsmitteln\n- Zuverlässige, flexible und teamfähige Persönlichkeit\n- Berufserfahrung in Transport- oder Lagerbetrieben von Vorteil\n- Ausbildung VTE 10a von Vorteil\n\n## Wir bieten dir\n- Modern ausgestattete Verladeplattfor\n- Lebhaftes und dynamisches Arbeitsumfeld\n- Zeitgemässe Entlöhnung inkl. 13. Monatslohn\n- Mindestens 5 Wochen Ferien\n- Vorbildliche Sozialleistungen und Gesamtarbeitsvertrag der fenaco\n- Sorgfältige Einführung in ein motiviertes Team",
-      "titleByLocale": {
-        "it": "Addetto/a Carico e Scarico",
-        "en": "Loading and Unloading Staff",
-        "de": "Mitarbeiterin / Mitarbeiter Verlad (w/m/d)",
-        "fr": "Agent/e de Chargement et Déchargement"
-      },
-      "descriptionByLocale": {
-        "it": "Stai cercando una sfida in cui puoi mettere quotidianamente a frutto le tue conoscenze ed esperienze? Vuoi assumerti responsabilità e collaborare con un team motivato e collegiale? Desideri un datore di lavoro progressista, dove rispetto e considerazione sono valori fondamentali? TRAVECO ti offre queste opportunità in una funzione variegata e stimolante come operatore di carico e scarico. ## La tua nuova sfida - Carico e scarico dei veicoli e dei vagoni ferroviari - Controllo delle merci in entrata e preparazione delle merci - Carico e scarico di pallet - Guida di attrezzature di traino e carrelli elevatori - Esecuzione di manovre di manovra nell'area del cantiere e del binario di raccordo - Responsabile della pulizia regolare dei veicoli - Trasferimento dei veicoli in officina e agli appuntamenti MFK - Vari ulteriori compiti secondari nel magazzino e nell'area del cantiere ##\n• Requisiti - Ottima condizione fisica - Disponibilità a lavorare a turni tra le 06:30 e le 20:00 da lunedì a venerdì - Disponibilità a lavorare la domenica - Patente di guida categoria C - Modo di lavorare autonomo e preciso - Buona conoscenza della lingua tedesca - Uso curato e attento delle macchine e degli strumenti - Personalità affidabile, flessibile e in grado di lavorare in team - Esperienza lavorativa in aziende di trasporto o magazzino è un vantaggio - Formazione VTE 10a è un vantaggio ##\n• Offriamo - Piattaforma di carico moderna - Ambiente di lavoro vivace e dinamico - Retribuzione moderna inclusa 13° mese - Almeno 5 settimane di ferie - Prestazioni sociali esemplari e contratto collettivo di lavoro della fenaco - Introduzione accurata in un team motivato",
-        "en": "Are you looking for a challenge where you can daily contribute your knowledge and experience? Do you want to take on responsibility and work with a motivated and collegial team? Do you wish for a progressive employer where respect and appreciation are lived? TRAVECO offers you these opportunities in a diverse and varied role as loading and unloading staff. ## Your new challenge - Loading and unloading of vehicles and railway wagons - Goods receipt inspection and goods preparation - Loading and unloading of pallets - Operating drawbar equipment and forklifts - Performing shunting movements on the factory premises and siding - Responsible for the regular cleaning of the vehicles - Transferring the vehicles to the workshop and MFK appointments - Various other ancillary tasks in the warehouse and on the factory premises ## You bring - Very good physical condition - Willingness to work shifts between 06:30 - 20:00 from Monday to Friday - Willingness to work on Sundays - Driver's license Cat. C - Independent and precise way of working - Good German language skills - Careful and careful handling of machines and tools - Reliable, flexible and team-capable personality - Professional experience in transport or warehouse operations is an advantage - VTE 10a training is an advantage ##\n• We offer you - Modern equipped loading platform - Lively and dynamic working environment - Up-to-date remuneration incl. 13th month's salary - At least 5 weeks of vacation - Exemplary social benefits and collective labor agreement of fenaco - Careful introduction into a motivated team",
-        "de": "Du suchst eine Herausforderung, in der du täglich dein Wissen und deine Erfahrungen einbringen kannst? Möchtest du Verantwortung übernehmen und dabei mit einem motivierten kollegialen Team zusammenarbeiten? Du wünscht dir einen fortschrittlichen Arbeitgeber, bei welchem Respekt und Wertschätzung gelebt wird? TRAVECO bietet dir diese Möglichkeiten in einer vielseitigen und abwechslungsreichen Funktion als Mitarbeiterin oder Mitarbeiter Verlad. ## Deine neue Herausforderung - Be- und Entladen der Fahrzeuge und Bahnwägen - Wareneingangskontrolle sowie Warenbereitstellung - Ein- und Auslagerung von Paletten - Fahren von Deichselgeräten und Flurförderzeuge - Ausführen von Rangierbewegungen auf dem Werksareal und Anschlussgleis - Verantwortlich für die regelmässige Reinigung der Fahrzeuge - Überführen der Fahrzeuge in die Werkstatt und an MFK-Termine - Diverse weitere Nebenaufgaben im Lager und auf dem Werksareal ## Du bringst mit - Sehr gute körperliche Kondition - Bereitschaft für Schichtarbeit zwischen 06:30 Uhr - 20:00 Uhr von Montag bis Freitag - Bereitschaft zur Sonntagsarbeit - Führerausweis Kat. C - Selbständige und exakte Arbeitsweise - Gute Deutschkenntnisse - Gepflegter und sorgfältiger Umgang mit Maschinen und Hilfsmitteln - Zuverlässige, flexible und teamfähige Persönlichkeit - Berufserfahrung in Transport- oder Lagerbetrieben von Vorteil - Ausbildung VTE 10a von Vorteil ##\n• Wir bieten dir - Modern ausgestattete Verladeplattfor - Lebhaftes und dynamisches Arbeitsumfeld - Zeitgemässe Entlohnung inkl. 13. Monatslohn - Mindestens 5 Wochen Ferien - Vorbildliche Sozialleistungen und Gesamtarbeitsvertrag der fenaco - Sorgfältige Einführung in ein motiviertes Team",
-        "fr": "Vous cherchez un défi où vous pouvez quotidiennement mettre à profit vos connaissances et votre expérience? Souhaitez-vous assumer des responsabilités et collaborer avec une équipe motivée et collégiale? Vous souhaitez un employeur progressiste où le respect et la considération sont vécus? TRAVECO vous offre ces possibilités dans une fonction variée et stimulante en tant qu'employé(e) de chargement et déchargement. ## Votre nouveau défi - Chargement et déchargement des véhicules et des wagons ferroviaires - Contrôle des marchandises entrantes et préparation des marchandises - Chargement et déchargement de palettes - Conduite d'équipements de remorquage et de chariots élévateurs - Exécution de manœuvres de manœuvre dans l'aire de l'usine et la voie de raccordement - Responsable du nettoyage régulier des véhicules - Transfert des véhicules à l'atelier et aux rendez-vous MFK - Diverses autres tâches secondaires dans l'entrepôt et sur l'aire de l'usine ## Vous apportez - Très bonne condition physique - Disponibilité à travailler en équipes entre 06:30 - 20:00 du lundi au vendredi - Disponibilité à travailler le dimanche - Permis de conduire Cat. C - Mode de travail indépendant et précis - Bonnes connaissances en allemand - Utilisation soignée et attentive des machines et des outils - Personnalité fiable, flexible et capable de travailler en équipe - Expérience professionnelle dans les entreprises de transport ou d'entreposage est un avantage - Formation VTE 10a est un avantage ##\n• Nous offrons - Plateforme de chargement moderne - Environnement de travail dynamique et animé - Rémunération moderne incluant le 13e mois - Au moins 5 semaines de vacances - Prestations sociales exemplaires et contrat collectif de travail de fenaco - Introduction soignée dans une équipe motivée"
-      },
-      "slugByLocale": {
-        "it": "addetto-a-carico-e-scarico-traveco-transporte-ag-landquart",
-        "en": "loading-and-unloading-staff-traveco-transporte-ag-landquart",
-        "de": "mitarbeiterin-mitarbeiter-verlad-w-m-d-traveco-transporte-ag-landquart",
-        "fr": "agent-e-de-chargement-et-dechargement-traveco-transporte-ag-landquart"
-      },
-      "crawledAt": "2026-05-19T23:55:10.521Z",
-      "id": "volg-fenaco-7464f4cdace6",
-      "previousSlugsByLocale": {
-        "it": [
-          "mitarbeiterin-mitarbeiter-verlad-w-m-d-traveco-transporte-ag-landquart",
-          "mitarbeiterin-collaboratore-trice-verlad-m-w-d-traveco-transporte-ag-landquart"
-        ],
-        "en": [
-          "mitarbeiterin-mitarbeiter-verlad-w-m-d-traveco-transporte-ag-landquart"
-        ],
-        "fr": [
-          "mitarbeiterin-mitarbeiter-verlad-w-m-d-traveco-transporte-ag-landquart"
-        ]
-      },
-      "previousSlugs": [
-        "mitarbeiterin-mitarbeiter-verlad-w-m-d-traveco-transporte-ag-landquart",
-        "mitarbeiterin-collaboratore-trice-verlad-m-w-d-traveco-transporte-ag-landquart"
-      ],
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-04-20T22:30:25.473Z"
-    },
-    {
       "title": "Lehrstelle als Detailhandelsassistent/in EBA Lebensmittel",
       "slug": "apprendistato-come-assistente-del-commercio-al-dettaglio-afc-alimentari-volg-pany",
       "url": "https://jobs.fenaco.com/offene-stellen/lehrstelle-als-detailhandelsassistent-in-eba-lebensmittel/91312013-9c10-416e-b156-aff07ec4a4d5",
@@ -1178,7 +1107,7 @@
       "sector": "Dettaglio & Alimentari",
       "source": "volg-fenaco-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-05-19",
+      "postedDate": "2026-05-21",
       "validThrough": "",
       "employmentType": "full-time",
       "contractType": "fixed-term",
@@ -1201,7 +1130,7 @@
         "de": "lehrstelle-als-detailhandelsassistent-in-eba-lebensmittel-volg-pany",
         "fr": "poste-de-formation-en-vente-au-detail-volg-pany"
       },
-      "crawledAt": "2026-05-19T23:55:10.521Z",
+      "crawledAt": "2026-05-21T13:47:13.449Z",
       "salaryMin": 46500,
       "salaryMax": 62500,
       "currency": "CHF",
@@ -1272,7 +1201,7 @@
       "sector": "Dettaglio & Alimentari",
       "source": "volg-fenaco-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-05-19",
+      "postedDate": "2026-05-21",
       "validThrough": "",
       "employmentType": "full-time",
       "contractType": "fixed-term",
@@ -1295,7 +1224,7 @@
         "de": "lehrstelle-als-detailhandelsfachmann-frau-efz-lebensmittel-volg-pany",
         "fr": "poste-de-vente-efz-alimentaire-volg-pany"
       },
-      "crawledAt": "2026-05-19T23:55:10.521Z",
+      "crawledAt": "2026-05-21T13:47:13.449Z",
       "salaryMin": 46500,
       "salaryMax": 62500,
       "currency": "CHF",
@@ -1373,7 +1302,7 @@
       "sector": "Dettaglio & Alimentari",
       "source": "volg-fenaco-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-05-19",
+      "postedDate": "2026-05-21",
       "validThrough": "",
       "employmentType": "full-time",
       "contractType": "permanent",
@@ -1396,7 +1325,7 @@
         "de": "lehrstelle-als-detailhandelsassistent-in-eba-lebensmittel-volg-disentis-muster",
         "fr": "apprentissage-d-assistant-de-commerce-de-detail-eba-produits-alimentaires-volg-disentis-muster-438yu5"
       },
-      "crawledAt": "2026-05-19T23:55:10.521Z",
+      "crawledAt": "2026-05-21T13:47:13.449Z",
       "salaryMin": 46500,
       "salaryMax": 62500,
       "currency": "CHF",
@@ -1460,7 +1389,7 @@
       "sector": "Dettaglio & Alimentari",
       "source": "volg-fenaco-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-05-19",
+      "postedDate": "2026-05-21",
       "validThrough": "",
       "employmentType": "full-time",
       "contractType": "permanent",
@@ -1483,7 +1412,7 @@
         "de": "lehrstelle-als-detailhandelsfachfrau-mann-efz-lebensmittel-volg-disentis-muster",
         "fr": "apprenti-e-specialiste-du-commerce-de-detail-cfc-produits-alimentaires-volg-disentis-muster-ikn7j6"
       },
-      "crawledAt": "2026-05-19T23:55:10.522Z",
+      "crawledAt": "2026-05-21T13:47:13.449Z",
       "salaryMin": 46500,
       "salaryMax": 62500,
       "currency": "CHF",
@@ -1547,7 +1476,7 @@
       "sector": "Dettaglio & Alimentari",
       "source": "volg-fenaco-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-05-19",
+      "postedDate": "2026-05-21",
       "validThrough": "",
       "employmentType": "full-time",
       "contractType": "permanent",
@@ -1570,7 +1499,7 @@
         "de": "lehrstelle-als-detailhandelsassistent-in-eba-lebensmittel-volg-vals",
         "fr": "apprentissage-d-assistant-de-commerce-de-detail-eba-produits-alimentaires-volg-vals-qsaqy0"
       },
-      "crawledAt": "2026-05-19T23:55:10.522Z",
+      "crawledAt": "2026-05-21T13:47:13.449Z",
       "salaryMin": 46500,
       "salaryMax": 62500,
       "currency": "CHF",
@@ -1638,7 +1567,7 @@
       "sector": "Dettaglio & Alimentari",
       "source": "volg-fenaco-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-05-19",
+      "postedDate": "2026-05-21",
       "validThrough": "",
       "employmentType": "full-time",
       "contractType": "fixed-term",
@@ -1661,7 +1590,7 @@
         "de": "lehrstelle-als-detailhandelsassistent-in-eba-lebensmittel-volg-sils-maria",
         "fr": "stage-en-vente-au-detail-alimentaire-volg-sils-maria"
       },
-      "crawledAt": "2026-05-19T23:55:10.522Z",
+      "crawledAt": "2026-05-21T13:47:13.449Z",
       "salaryMin": 46500,
       "salaryMax": 62500,
       "currency": "CHF",
@@ -1730,7 +1659,7 @@
       "sector": "Dettaglio & Alimentari",
       "source": "volg-fenaco-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-05-19",
+      "postedDate": "2026-05-21",
       "validThrough": "",
       "employmentType": "full-time",
       "contractType": "permanent",
@@ -1753,7 +1682,7 @@
         "de": "lehrstelle-als-detailhandelsfachmann-frau-efz-lebensmittel-volg-vals",
         "fr": "apprenti-e-en-tant-que-specialiste-du-commerce-de-detail-cfc-produits-alimentaires-volg-vals-rg1zqh"
       },
-      "crawledAt": "2026-05-19T23:55:10.522Z",
+      "crawledAt": "2026-05-21T13:47:13.450Z",
       "salaryMin": 46500,
       "salaryMax": 62500,
       "currency": "CHF",
@@ -1815,7 +1744,7 @@
       "sector": "Dettaglio & Alimentari",
       "source": "volg-fenaco-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-05-19",
+      "postedDate": "2026-05-21",
       "validThrough": "",
       "employmentType": "full-time",
       "contractType": "fixed-term",
@@ -1838,7 +1767,7 @@
         "de": "lehrstelle-als-detailhandelsfachmann-frau-efz-lebensmittel-volg-sils-maria",
         "fr": "poste-de-vente-efz-alimentaire-volg-sils-maria"
       },
-      "crawledAt": "2026-05-19T23:55:10.522Z",
+      "crawledAt": "2026-05-21T13:47:13.450Z",
       "salaryMin": 46500,
       "salaryMax": 62500,
       "currency": "CHF",
@@ -1913,7 +1842,7 @@
       "sector": "Dettaglio & Alimentari",
       "source": "volg-fenaco-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-05-19",
+      "postedDate": "2026-05-21",
       "validThrough": "",
       "employmentType": "full-time",
       "contractType": "permanent",
@@ -1936,7 +1865,7 @@
         "de": "lehrstelle-als-detailhandelsassistent-in-eba-lebensmittel-volg-untervaz",
         "fr": "apprentissage-d-assistant-de-commerce-de-detail-eba-produits-alimentaires-volg-untervaz-uiccmi"
       },
-      "crawledAt": "2026-05-19T23:55:10.522Z",
+      "crawledAt": "2026-05-21T13:47:13.450Z",
       "salaryMin": 46500,
       "salaryMax": 62500,
       "currency": "CHF",
@@ -1996,7 +1925,7 @@
       "sector": "Dettaglio & Alimentari",
       "source": "volg-fenaco-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-05-19",
+      "postedDate": "2026-05-21",
       "validThrough": "",
       "employmentType": "full-time",
       "contractType": "permanent",
@@ -2019,7 +1948,7 @@
         "de": "lehrstelle-als-detailhandelsfachmann-frau-efz-lebensmittel-volg-untervaz",
         "fr": "apprenti-e-en-tant-que-specialiste-du-commerce-de-detail-cfc-produits-alimentaires-volg-untervaz-js8uv4"
       },
-      "crawledAt": "2026-05-19T23:55:10.522Z",
+      "crawledAt": "2026-05-21T13:47:13.450Z",
       "salaryMin": 46500,
       "salaryMax": 62500,
       "currency": "CHF",
@@ -2095,7 +2024,7 @@
       "sector": "Dettaglio & Alimentari",
       "source": "volg-fenaco-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-05-19",
+      "postedDate": "2026-05-21",
       "validThrough": "",
       "employmentType": "full-time",
       "contractType": "fixed-term",
@@ -2118,7 +2047,7 @@
         "de": "lehrstelle-als-detailhandelsassistent-in-eba-lebensmittel-volg-eggersriet-sg",
         "fr": "poste-de-formation-en-vente-au-detail-volg-eggersriet-sg"
       },
-      "crawledAt": "2026-05-19T23:55:10.522Z",
+      "crawledAt": "2026-05-21T13:47:13.450Z",
       "salaryMin": 46500,
       "salaryMax": 62500,
       "currency": "CHF",
@@ -2197,16 +2126,16 @@
       "contractType": "permanent",
       "description": "## Vorteile\n- Formations initiales et continues Nous investissons dans le développement professionnel de nos collaborateurs et collaboratrices grâce à de nombreuses formations internes et au soutien à des formations à l'externe. Conditions intéressantes en matière de vacances Selon nos conditions relatives aux vacances, l'ensemble du personnel a droit à 5 semaines de vacances au minimum, ou 6 semaines à partir de 50 ans et 7 semaines dès 60 ans. Il est aussi possible d'acheter des jours de vacances supplémentaires. Congé parental Les mères perçoivent 100 % de leur salaire assuré durant les 18 semaines de congé maternité. L'autre parent bénéficie de 3 semaines de congé parental avec l'intégralité du salaire. Prestations d'assurance Nous assurons à nos collaborateurs et collaboratrices des prestations sociales et de prévoyance supérieures à la moyenne et offrons des conditions spéciales sur les assurances complémentaires de différentes caisses maladie pour toute la famille. Avantages et réductions Nos collaborateurs et collaboratrices bénéficient notamment de réductions sur les achats et le carburant, d'argent REKA à tarif préférentiel ainsi que d'abonnements mobiles à prix réduit pour eux et leur famille. Culture d'entreprise Nous offrons à nos collaborateurs une vision claire et partagée : nos valeurs sont notre boussole au quotidien. Elles structurent nos comportements, renforcent notre esprit d'équipe et contribuent à un environnement de travail clair et équitable, propice à une collaboration constructive. Tu en sauras plus sur nos valeurs lors d'un éventuel entretien : pérennité/durabilité, équité, bienveillance, esprit collaboratif.",
       "titleByLocale": {
-        "fr": "Caissière-vendeuse/caissier-vendeur TopShop station-service 80 % (f/h/d)",
         "it": "Caissière-vendeuse/caissier-vendeur TopShop station-service 80 % (f/m/d)",
         "en": "Cashier-seller/seller TopShop service station 80% (e/h/d)",
-        "de": "Cashier-Verkäufer/Verkäufer TopShop Servicestation 80% (e/h/d)"
+        "de": "Cashier-Verkäufer/Verkäufer TopShop Servicestation 80% (e/h/d)",
+        "fr": "Caissière-vendeuse/caissier-vendeur TopShop station-service 80 % (f/h/d)"
       },
       "descriptionByLocale": {
-        "fr": "## Vorteile\n- Formations initiales et continues Nous investissons dans le développement professionnel de nos collaborateurs et collaboratrices grâce à de nombreuses formations internes et au soutien à des formations à l'externe. Conditions intéressantes en matière de vacances Selon nos conditions relatives aux vacances, l'ensemble du personnel a droit à 5 semaines de vacances au minimum, ou 6 semaines à partir de 50 ans et 7 semaines dès 60 ans. Il est aussi possible d'acheter des jours de vacances supplémentaires. Congé parental Les mères perçoivent 100 % de leur salaire assuré durant les 18 semaines de congé maternité. L'autre parent bénéficie de 3 semaines de congé parental avec l'intégralité du salaire. Prestations d'assurance Nous assurons à nos collaborateurs et collaboratrices des prestations sociales et de prévoyance supérieures à la moyenne et offrons des conditions spéciales sur les assurances complémentaires de différentes caisses maladie pour toute la famille. Avantages et réductions Nos collaborateurs et collaboratrices bénéficient notamment de réductions sur les achats et le carburant, d'argent REKA à tarif préférentiel ainsi que d'abonnements mobiles à prix réduit pour eux et leur famille. Culture d'entreprise Nous offrons à nos collaborateurs une vision claire et partagée : nos valeurs sont notre boussole au quotidien. Elles structurent nos comportements, renforcent notre esprit d'équipe et contribuent à un environnement de travail clair et équitable, propice à une collaboration constructive. Tu en sauras plus sur nos valeurs lors d'un éventuel entretien : pérennité/durabilité, équité, bienveillance, esprit collaboratif.",
-        "it": "Vortex\n- Formazione iniziale e continua Investiamo nello sviluppo professionale dei nostri dipendenti attraverso numerosi corsi di formazione interna e supporto per la formazione esterna. A seconda delle nostre condizioni di vacanza, tutto il personale ha diritto ad un minimo di 5 settimane di vacanza, o 6 settimane da 50 anni e 7 settimane da 60 anni. È anche possibile acquistare giorni di vacanza aggiuntivi. Le madri ricevono il 100 per cento dei loro guadagni assicurati durante le 18 settimane di congedo di maternità. L'altro genitore ha 3 settimane di congedo parentale con piena paga. Prestazioni assicurative Forniamo ai nostri dipendenti prestazioni sociali e assistenziali superiori alla media e offriamo condizioni speciali per l'assicurazione complementare di vari fondi di malattia per tutta la famiglia. Vantaggi e riduzioni I nostri dipendenti beneficiano di sconti su acquisti e carburante, REKA denaro a prezzi preferenziali e abbonamenti mobili a prezzi ridotti per loro e le loro famiglie. Cultura aziendale Offriamo ai nostri dipendenti una visione chiara e condivisa: i nostri valori sono la nostra bussola quotidiana. Essi strutturano il nostro comportamento, rafforzano il nostro lavoro di squadra e contribuiscono ad un ambiente di lavoro chiaro ed equo, favorevole alla collaborazione costruttiva. Saprete di più sui nostri valori durante una possibile intervista: sostenibilità/sostenibilità, equità, benevolenza, spirito collaborativo.",
-        "en": "Vortex\n- Initial and continuing training We invest in the professional development of our employees through numerous in-house training and support for external training. Interesting holiday conditions Depending on our vacation conditions, all staff are entitled to a minimum of 5 weeks of vacation, or 6 weeks from 50 years and 7 weeks from 60 years. It is also possible to buy additional vacation days. Parental leave Mothers receive 100 per cent of their insured earnings during the 18 weeks of maternity leave. The other parent has 3 weeks of parental leave with full pay. Insurance benefits We provide our employees with higher than average social and welfare benefits and offer special conditions on the supplementary insurance of various sickness funds for the whole family. Benefits and reductions Our employees benefit from discounts on purchases and fuel, REKA money at preferential rates and mobile subscriptions at reduced prices for them and their families. Corporate culture We offer our employees a clear and shared vision: our values are our daily compass. They structure our behaviour, strengthen our teamwork and contribute to a clear and equitable work environment conducive to constructive collaboration. You will know more about our values during a possible interview: sustainability/sustainability, equity, benevolence, collaborative spirit.",
-        "de": "Vortex\n- Erstausbildung und Weiterbildung Wir investieren in die berufliche Entwicklung unserer Mitarbeiter durch zahlreiche hausinterne Ausbildung und Unterstützung für externes Training. Interessante Ferienbedingungen Abhängig von unseren Ferienbedingungen haben alle Mitarbeiter Anspruch auf mindestens 5 Wochen Urlaub, oder 6 Wochen ab 50 Jahren und 7 Wochen ab 60 Jahren. Es ist auch möglich, zusätzliche Urlaubstage zu kaufen. Elternurlaub Mütter erhalten während der 18 Wochen des Mutterschaftsurlaubs 100 Prozent ihres versicherten Einkommens. Der andere Elternteil hat 3 Wochen Elternurlaub mit vollem Gehalt. Versicherungsleistungen Wir bieten unseren Mitarbeitern höhere Sozial- und Sozialleistungen und bieten besondere Bedingungen für die Zusatzversicherung verschiedener Krankenkassen für die ganze Familie. Vorteile und Ermäßigungen Unsere Mitarbeiter profitieren von Rabatten auf Käufe und Kraftstoff, REKA-Geld zu günstigen Preisen und mobilen Abonnements zu reduzierten Preisen für sie und ihre Familien. Unternehmenskultur Wir bieten unseren Mitarbeitern eine klare und gemeinsame Vision: unsere Werte sind unser täglicher Kompass. Sie strukturieren unser Verhalten, stärken unsere Teamarbeit und tragen zu einem klaren und gerechten Arbeitsumfeld bei, das zur konstruktiven Zusammenarbeit beiträgt. Während eines möglichen Interviews erfahren Sie mehr über unsere Werte: Nachhaltigkeit/Nachhaltigkeit, Eigenkapital, Wohlwollen, Kooperationsgeist."
+        "it": "Vortex - Formazione iniziale e continua Investiamo nello sviluppo professionale dei nostri dipendenti attraverso numerosi corsi di formazione interna e supporto per la formazione esterna. A seconda delle nostre condizioni di vacanza, tutto il personale ha diritto ad un minimo di 5 settimane di vacanza, o 6 settimane da 50 anni e 7 settimane da 60 anni. È anche possibile acquistare giorni di vacanza aggiuntivi. Le madri ricevono il 100 per cento dei loro guadagni assicurati durante le 18 settimane di congedo di maternità. L'altro genitore ha 3 settimane di congedo parentale con piena paga. Prestazioni assicurative Forniamo ai nostri dipendenti prestazioni sociali e assistenziali superiori alla media e offriamo condizioni speciali per l'assicurazione complementare di vari fondi di malattia per tutta la famiglia. Vantaggi e riduzioni I nostri dipendenti beneficiano di sconti su acquisti e carburante, REKA denaro a prezzi preferenziali e abbonamenti mobili a prezzi ridotti per loro e le loro famiglie. Cultura aziendale \n• Offriamo ai nostri dipendenti una visione chiara e condivisa: i nostri valori sono la nostra bussola quotidiana. Essi strutturano il nostro comportamento, rafforzano il nostro lavoro di squadra e contribuiscono ad un ambiente di lavoro chiaro ed equo, favorevole alla collaborazione costruttiva. Saprete di più sui nostri valori durante una possibile intervista: sostenibilità/sostenibilità, equità, benevolenza, spirito collaborativo.",
+        "en": "Vortex - Initial and continuing training We invest in the professional development of our employees through numerous in-house training and support for external training. Interesting holiday conditions Depending on our vacation conditions, all staff are entitled to a minimum of 5 weeks of vacation, or 6 weeks from 50 years and 7 weeks from 60 years. It is also possible to buy additional vacation days. Parental leave Mothers receive 100 per cent of their insured earnings during the 18 weeks of maternity leave. The other parent has 3 weeks of parental leave with full pay. Insurance benefits We provide our employees with higher than average social and welfare benefits and offer special conditions on the supplementary insurance of various sickness funds for the whole family. Benefits and reductions Our employees benefit from discounts on purchases and fuel, REKA money at preferential rates and mobile subscriptions at reduced prices for them and their families. Corporate culture \n• We offer our employees a clear and shared vision: our values are our daily compass. They structure our behaviour, strengthen our teamwork and contribute to a clear and equitable work environment conducive to constructive collaboration. You will know more about our values during a possible interview: sustainability/sustainability, equity, benevolence, collaborative spirit.",
+        "de": "Vortex - Erstausbildung und Weiterbildung Wir investieren in die berufliche Entwicklung unserer Mitarbeiter durch zahlreiche hausinterne Ausbildung und Unterstützung für externes Training. Interessante Ferienbedingungen Abhängig von unseren Ferienbedingungen haben alle Mitarbeiter Anspruch auf mindestens 5 Wochen Urlaub, oder 6 Wochen ab 50 Jahren und 7 Wochen ab 60 Jahren. Es ist auch möglich, zusätzliche Urlaubstage zu kaufen. Elternurlaub Mütter erhalten während der 18 Wochen des Mutterschaftsurlaubs 100 Prozent ihres versicherten Einkommens. Der andere Elternteil hat 3 Wochen Elternurlaub mit vollem Gehalt. Versicherungsleistungen \n• Wir bieten unseren Mitarbeitern höhere Sozial- und Sozialleistungen und bieten besondere Bedingungen für die Zusatzversicherung verschiedener Krankenkassen für die ganze Familie. Vorteile und Ermäßigungen Unsere Mitarbeiter profitieren von Rabatten auf Käufe und Kraftstoff, REKA-Geld zu günstigen Preisen und mobilen Abonnements zu reduzierten Preisen für sie und ihre Familien. Unternehmenskultur \n• Wir bieten unseren Mitarbeitern eine klare und gemeinsame Vision: unsere Werte sind unser täglicher Kompass. Sie strukturieren unser Verhalten, stärken unsere Teamarbeit und tragen zu einem klaren und gerechten Arbeitsumfeld bei, das zur konstruktiven Zusammenarbeit beiträgt. Während eines möglichen Interviews erfahren Sie mehr über unsere Werte: Nachhaltigkeit/Nachhaltigkeit, Eigenkapital, Wohlwollen, Kooperationsgeist.",
+        "fr": "## Vorteile - Formations initiales et continues Nous investissons dans le développement professionnel de nos collaborateurs et collaboratrices grâce à de nombreuses formations internes et au soutien à des formations à l'externe. Conditions intéressantes en matière de vacances Selon nos conditions relatives aux vacances, l'ensemble du personnel a droit à 5 semaines de vacances au minimum, ou 6 semaines à partir de 50 ans et 7 semaines dès 60 ans. Il est aussi possible d'acheter des jours de vacances supplémentaires. Congé parental Les mères perçoivent 100 % de leur salaire assuré durant les 18 semaines de congé maternité. L'autre parent bénéficie de 3 semaines de congé parental avec l'intégralité du salaire. Prestations d'assurance Nous assurons à nos collaborateurs et collaboratrices des prestations sociales et de prévoyance supérieures à la moyenne et offrons des conditions spéciales sur les assurances complémentaires de différentes caisses maladie pour toute la famille. Avantages et réductions Nos collaborateurs et collaboratrices bénéficient notamment de réductions sur les achats et le carburant, d'argent REKA à tarif préférentiel ainsi que d'abonnements mobiles à prix réduit pour eux et leur famille. Culture d'entreprise \n• Nous offrons à nos collaborateurs une vision claire et partagée : nos valeurs sont notre boussole au quotidien. Elles structurent nos comportements, renforcent notre esprit d'équipe et contribuent à un environnement de travail clair et équitable, propice à une collaboration constructive. Tu en sauras plus sur nos valeurs lors d'un éventuel entretien : pérennité/durabilité, équité, bienveillance, esprit collaboratif."
       },
       "slugByLocale": {
         "it": "caissiere-vendeuse-caissier-vendeur-topshop-station-service-80-f-m-d-landi-rhone-lavaux-sa-saxon",
@@ -2214,7 +2143,7 @@
         "de": "cashier-verkaufer-verkaufer-topshop-servicestation-80-e-h-d-landi-rhone-lavaux-sa-saxon",
         "fr": "caissiere-vendeuse-caissier-vendeur-topshop-station-service-80-f-h-d-landi-rhone-lavaux-sa-saxon"
       },
-      "crawledAt": "2026-05-21T00:42:10.111Z",
+      "crawledAt": "2026-05-21T13:47:13.450Z",
       "id": "volg-fenaco-07ca7fff516e",
       "previousSlugsByLocale": {
         "it": [
@@ -2265,7 +2194,7 @@
       "sector": "Dettaglio & Alimentari",
       "source": "volg-fenaco-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-05-19",
+      "postedDate": "2026-05-21",
       "validThrough": "",
       "employmentType": "full-time",
       "contractType": "fixed-term",
@@ -2288,7 +2217,7 @@
         "de": "verkauferin-verkaufer-w-m-d-volg-binn",
         "fr": "vendeur-vendeur-volg-binn"
       },
-      "crawledAt": "2026-05-19T23:55:10.522Z",
+      "crawledAt": "2026-05-21T13:47:13.450Z",
       "id": "volg-fenaco-ab9fde0b8f3f",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -2339,7 +2268,7 @@
       "sector": "Dettaglio & Alimentari",
       "source": "volg-fenaco-dedicated-crawler",
       "sourceLang": "fr",
-      "postedDate": "2026-05-19",
+      "postedDate": "2026-05-21",
       "validThrough": "",
       "employmentType": "part-time",
       "contractType": "permanent",
@@ -2362,7 +2291,7 @@
         "de": "verkaufer-h-f-d-volg-orsieres",
         "fr": "vendeuse-vendeur-h-f-d-volg-orsieres"
       },
-      "crawledAt": "2026-05-19T23:55:10.522Z",
+      "crawledAt": "2026-05-21T13:47:13.450Z",
       "id": "volg-fenaco-df95902b79a7",
       "previousSlugsByLocale": {
         "it": [
@@ -2413,7 +2342,7 @@
       "sector": "Agricoltura & Dettaglio",
       "source": "volg-fenaco-dedicated-crawler",
       "sourceLang": "fr",
-      "postedDate": "2026-05-19",
+      "postedDate": "2026-05-21",
       "validThrough": "",
       "employmentType": "full-time",
       "contractType": "permanent",
@@ -2436,7 +2365,7 @@
         "de": "mitarbeiter-polyvalent-kollaborateur-polyvalent-secteur-agro-f-h-d-landi-rhone-lavaux-sa-collombey-muraz",
         "fr": "collaboratrice-polyvalente-collaborateur-polyvalent-secteur-agro-f-h-d-landi-rhone-lavaux-sa-collombey-muraz"
       },
-      "crawledAt": "2026-05-19T23:55:10.522Z",
+      "crawledAt": "2026-05-21T13:47:13.450Z",
       "id": "volg-fenaco-7456db6905cb",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -2481,7 +2410,7 @@
       "sector": "Agricoltura & Dettaglio",
       "source": "volg-fenaco-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-05-19",
+      "postedDate": "2026-05-21",
       "validThrough": "",
       "employmentType": "full-time",
       "contractType": "permanent",
@@ -2504,7 +2433,7 @@
         "de": "responsable-de-centre-agro-f-h-d-landi-rhone-lavaux-sa-collombey-muraz",
         "fr": "responsable-de-centre-agro-f-h-d-landi-rhone-lavaux-sa-collombey-muraz"
       },
-      "crawledAt": "2026-05-19T23:55:10.522Z",
+      "crawledAt": "2026-05-21T13:47:13.450Z",
       "id": "volg-fenaco-a3c74c3887e5",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -2527,7 +2456,8 @@
       },
       "previousSlugs": [
         "responsable-de-centre-agro-f-h-d-landi-rhone-lavaux-sa-collombey-muraz"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Verkäuferin / Verkäufer TopShop w/m/d",
@@ -2549,7 +2479,7 @@
       "sector": "Agricoltura & Dettaglio",
       "source": "volg-fenaco-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-05-19",
+      "postedDate": "2026-05-21",
       "validThrough": "",
       "employmentType": "full-time",
       "contractType": "permanent",
@@ -2572,7 +2502,7 @@
         "de": "verkauferin-verkaufer-topshop-w-m-d-landi-oberwallis-ag-steg-hohtenn",
         "fr": "vendeur-vendeur-topshop-w-m-d-landi-oberwallis-ag-steg-hohtenn"
       },
-      "crawledAt": "2026-05-19T23:55:10.522Z",
+      "crawledAt": "2026-05-21T13:47:13.450Z",
       "id": "volg-fenaco-9851cc1c66d6",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -2627,7 +2557,7 @@
       "sector": "Agricoltura & Dettaglio",
       "source": "volg-fenaco-dedicated-crawler",
       "sourceLang": "fr",
-      "postedDate": "2026-05-19",
+      "postedDate": "2026-05-21",
       "validThrough": "",
       "employmentType": "full-time",
       "contractType": "permanent",
@@ -2650,7 +2580,7 @@
         "de": "verkaufer-verkaufer-garten-grun-landi-rhone-lavaux-sa-conthey",
         "fr": "vendeur-vendeuse-jardinerie-secteur-vert-f-h-d-landi-rhone-lavaux-sa-conthey"
       },
-      "crawledAt": "2026-05-19T23:55:10.523Z",
+      "crawledAt": "2026-05-21T13:47:13.450Z",
       "id": "volg-fenaco-8d9b757142de",
       "previousSlugsByLocale": {
         "it": [
@@ -2701,7 +2631,7 @@
       "sector": "Dettaglio & Alimentari",
       "source": "volg-fenaco-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-05-19",
+      "postedDate": "2026-05-21",
       "validThrough": "",
       "employmentType": "full-time",
       "contractType": "permanent",
@@ -2724,7 +2654,7 @@
         "de": "ladenleitung-stellvertretung-m-w-d-volg-reckingen",
         "fr": "direction-du-magasin-remplacement-m-f-d-volg-reckingen-g8e1mw"
       },
-      "crawledAt": "2026-05-19T23:55:10.523Z",
+      "crawledAt": "2026-05-21T13:47:13.450Z",
       "salaryMin": 58000,
       "salaryMax": 78000,
       "currency": "CHF",
@@ -2777,7 +2707,7 @@
       "sector": "Dettaglio & Alimentari",
       "source": "volg-fenaco-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-05-19",
+      "postedDate": "2026-05-21",
       "validThrough": "",
       "employmentType": "full-time",
       "contractType": "permanent",
@@ -2800,7 +2730,7 @@
         "de": "ladenleiterin-ladenleiter-w-m-d-volg-baltschieder",
         "fr": "gerant-e-de-magasin-volg-baltschieder"
       },
-      "crawledAt": "2026-05-19T23:55:10.523Z",
+      "crawledAt": "2026-05-21T13:47:13.451Z",
       "salaryMin": 58000,
       "salaryMax": 78000,
       "currency": "CHF",
@@ -2867,7 +2797,7 @@
       "sector": "Dettaglio & Alimentari",
       "source": "volg-fenaco-dedicated-crawler",
       "sourceLang": "fr",
-      "postedDate": "2026-05-19",
+      "postedDate": "2026-05-21",
       "validThrough": "",
       "employmentType": "full-time",
       "contractType": "permanent",
@@ -2890,7 +2820,7 @@
         "de": "assistenzleiter-in-h-f-d-volg-anniviers",
         "fr": "gerante-adjointe-gerant-adjoint-h-f-d-volg-anniviers"
       },
-      "crawledAt": "2026-05-19T23:55:10.523Z",
+      "crawledAt": "2026-05-21T13:47:13.451Z",
       "salaryMin": 58000,
       "salaryMax": 78000,
       "currency": "CHF",
@@ -2952,7 +2882,7 @@
       "sector": "Dettaglio & Alimentari",
       "source": "volg-fenaco-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-05-19",
+      "postedDate": "2026-05-21",
       "validThrough": "",
       "employmentType": "full-time",
       "contractType": "permanent",
@@ -2975,7 +2905,7 @@
         "de": "ladenleitung-w-m-d-volg-raron",
         "fr": "direction-du-magasin-w-m-d-volg-raron"
       },
-      "crawledAt": "2026-05-19T23:55:10.523Z",
+      "crawledAt": "2026-05-21T13:47:13.451Z",
       "salaryMin": 58000,
       "salaryMax": 78000,
       "currency": "CHF",
@@ -3050,7 +2980,7 @@
       "sector": "Dettaglio & Alimentari",
       "source": "volg-fenaco-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-05-19",
+      "postedDate": "2026-05-21",
       "validThrough": "",
       "employmentType": "full-time",
       "contractType": "permanent",
@@ -3073,7 +3003,7 @@
         "de": "verkauferin-verkaufer-volg-binn",
         "fr": "vendeuse-vendeur-volg-binn"
       },
-      "crawledAt": "2026-05-19T23:55:10.523Z",
+      "crawledAt": "2026-05-21T13:47:13.451Z",
       "salaryMin": 58000,
       "salaryMax": 78000,
       "currency": "CHF",
@@ -3146,7 +3076,7 @@
       "sector": "Dettaglio & Alimentari",
       "source": "volg-fenaco-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-05-19",
+      "postedDate": "2026-05-21",
       "validThrough": "",
       "employmentType": "full-time",
       "contractType": "permanent",
@@ -3169,7 +3099,7 @@
         "de": "place-d-apprentissage-de-gestionnaire-ou-assistent-e-du-commerce-de-detail-volg-orsieres",
         "fr": "place-d-apprentissage-de-gestionnaire-ou-assistant-e-du-commerce-de-detail-volg-orsieres"
       },
-      "crawledAt": "2026-05-19T23:55:10.523Z",
+      "crawledAt": "2026-05-21T13:47:13.451Z",
       "previousSlugs": [
         "retail-management-or-assistant-training-position-volg-orsieres-4o5f3w",
         "luogo-d-apprentissage-de-gestionnaire-ou-assistente-e-du-commerce-de-detail-volg-orsieres",
@@ -3251,7 +3181,7 @@
       "sector": "Dettaglio & Alimentari",
       "source": "volg-fenaco-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-05-19",
+      "postedDate": "2026-05-21",
       "validThrough": "",
       "employmentType": "full-time",
       "contractType": "permanent",
@@ -3274,7 +3204,7 @@
         "de": "place-d-apprentissage-de-gestionnaire-ou-assistent-e-du-commerce-de-detail-volg-veysonnaz",
         "fr": "place-d-apprentissage-de-gestionnaire-ou-assistant-e-du-commerce-de-detail-volg-veysonnaz"
       },
-      "crawledAt": "2026-05-19T23:55:10.523Z",
+      "crawledAt": "2026-05-21T13:47:13.451Z",
       "previousSlugs": [
         "retail-management-or-assistant-training-position-volg-veysonnaz-4wznrh",
         "luogo-d-apprentissage-de-gestionnaire-ou-assistente-e-du-commerce-de-detail-volg-veysonnaz",
@@ -3342,7 +3272,7 @@
       "sector": "Dettaglio & Alimentari",
       "source": "volg-fenaco-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-05-19",
+      "postedDate": "2026-05-21",
       "validThrough": "",
       "employmentType": "full-time",
       "contractType": "permanent",
@@ -3365,7 +3295,7 @@
         "de": "lehrstelle-als-detailhandelsfachmann-frau-oder-detailhandelsassistent-in-volg-baltschieder",
         "fr": "poste-de-vente-ou-de-vendeur-volg-baltschieder"
       },
-      "crawledAt": "2026-05-19T23:55:10.523Z",
+      "crawledAt": "2026-05-21T13:47:13.451Z",
       "salaryMin": 46500,
       "salaryMax": 62500,
       "currency": "CHF",
@@ -3420,7 +3350,7 @@
       "sector": "Dettaglio & Alimentari",
       "source": "volg-fenaco-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-05-19",
+      "postedDate": "2026-05-21",
       "validThrough": "",
       "employmentType": "full-time",
       "contractType": "permanent",
@@ -3443,7 +3373,7 @@
         "de": "lehrstelle-als-detailhandelsfachmann-frau-oder-detailhandelsassistent-in-volg-bettmeralp",
         "fr": "poste-de-vendeur-vendeuse-ou-assistant-vente-volg-bettmeralp"
       },
-      "crawledAt": "2026-05-19T23:55:10.523Z",
+      "crawledAt": "2026-05-21T13:47:13.451Z",
       "salaryMin": 46500,
       "salaryMax": 62500,
       "currency": "CHF",
@@ -3507,7 +3437,7 @@
       "sector": "Dettaglio & Alimentari",
       "source": "volg-fenaco-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-05-19",
+      "postedDate": "2026-05-21",
       "validThrough": "",
       "employmentType": "full-time",
       "contractType": "permanent",
@@ -3530,7 +3460,7 @@
         "de": "lehrstelle-als-detailhandelsfachmann-frau-oder-detailhandelsassistent-in-volg-burchen",
         "fr": "poste-de-vendeur-ou-assistant-vendeur-volg-burchen"
       },
-      "crawledAt": "2026-05-19T23:55:10.523Z",
+      "crawledAt": "2026-05-21T13:47:13.451Z",
       "salaryMin": 46500,
       "salaryMax": 62500,
       "currency": "CHF",
@@ -3592,7 +3522,7 @@
       "sector": "Dettaglio & Alimentari",
       "source": "volg-fenaco-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-05-19",
+      "postedDate": "2026-05-21",
       "validThrough": "",
       "employmentType": "full-time",
       "contractType": "permanent",
@@ -3615,7 +3545,7 @@
         "de": "lehrstelle-als-detailhandelsfachmann-frau-oder-detailhandelsassistent-in-volg-ernen",
         "fr": "poste-de-vendeur-ou-vendeuse-ou-assistant-de-vente-volg-ernen"
       },
-      "crawledAt": "2026-05-19T23:55:10.523Z",
+      "crawledAt": "2026-05-21T13:47:13.451Z",
       "salaryMin": 46500,
       "salaryMax": 62500,
       "currency": "CHF",
@@ -3677,7 +3607,7 @@
       "sector": "Dettaglio & Alimentari",
       "source": "volg-fenaco-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-05-19",
+      "postedDate": "2026-05-21",
       "validThrough": "",
       "employmentType": "full-time",
       "contractType": "permanent",
@@ -3700,7 +3630,7 @@
         "de": "lehrstelle-als-detailhandelsfachmann-frau-oder-detailhandelsassistent-in-volg-grachen",
         "fr": "poste-de-vente-ou-assistant-de-vente-volg-grachen"
       },
-      "crawledAt": "2026-05-19T23:55:10.523Z",
+      "crawledAt": "2026-05-21T13:47:13.451Z",
       "salaryMin": 46500,
       "salaryMax": 62500,
       "currency": "CHF",
@@ -3766,7 +3696,7 @@
       "sector": "Dettaglio & Alimentari",
       "source": "volg-fenaco-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-05-19",
+      "postedDate": "2026-05-21",
       "validThrough": "",
       "employmentType": "full-time",
       "contractType": "permanent",
@@ -3789,7 +3719,7 @@
         "de": "lehrstelle-als-detailhandelsfachmann-frau-oder-detailhandelsassistent-in-volg-obergoms-vs",
         "fr": "lehrstelle-als-detailhandelsfachmann-frau-oder-detailhandelsassistent-in-volg-obergoms-vs"
       },
-      "crawledAt": "2026-05-19T23:55:10.524Z",
+      "crawledAt": "2026-05-21T13:47:13.451Z",
       "id": "volg-fenaco-b5c8510972ce",
       "previousSlugsByLocale": {
         "it": [
@@ -3812,7 +3742,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-17T11:20:21.660Z"
+      "firstSeenAt": "2026-05-17T11:20:21.660Z",
+      "needsRetranslation": true
     },
     {
       "title": "Lehrstelle als Detailhandelsfachmann/-frau oder Detailhandelsassistent/-in",
@@ -3834,7 +3765,7 @@
       "sector": "Dettaglio & Alimentari",
       "source": "volg-fenaco-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-05-19",
+      "postedDate": "2026-05-21",
       "validThrough": "",
       "employmentType": "full-time",
       "contractType": "fixed-term",
@@ -3857,7 +3788,7 @@
         "de": "lehrstelle-als-detailhandelsfachmann-frau-oder-detailhandelsassistent-in-volg-unterbach",
         "fr": "poste-de-vendeur-ou-assistant-vendeur-volg-unterbach"
       },
-      "crawledAt": "2026-05-19T23:55:10.524Z",
+      "crawledAt": "2026-05-21T13:47:13.451Z",
       "salaryMin": 46500,
       "salaryMax": 62500,
       "currency": "CHF",
@@ -3919,7 +3850,7 @@
       "sector": "Dettaglio & Alimentari",
       "source": "volg-fenaco-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-05-19",
+      "postedDate": "2026-05-21",
       "validThrough": "",
       "employmentType": "full-time",
       "contractType": "permanent",
@@ -3942,7 +3873,7 @@
         "de": "lehrstelle-als-detailhandelsfachmann-frau-oder-detailhandelsassistent-in-volg-visperterminen",
         "fr": "poste-de-vendeur-ou-assistante-vendeur-volg-visperterminen"
       },
-      "crawledAt": "2026-05-19T23:55:10.524Z",
+      "crawledAt": "2026-05-21T13:47:13.452Z",
       "salaryMin": 46500,
       "salaryMax": 62500,
       "currency": "CHF",
@@ -4004,7 +3935,7 @@
       "sector": "Dettaglio & Alimentari",
       "source": "volg-fenaco-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-05-19",
+      "postedDate": "2026-05-21",
       "validThrough": "",
       "employmentType": "full-time",
       "contractType": "permanent",
@@ -4027,7 +3958,7 @@
         "de": "lehrstelle-als-detailhandelsfachmann-frau-oder-detailhandelsassistent-in-volg-wiler-lotschen",
         "fr": "poste-de-vente-ou-assistant-de-vente-volg-wiler-lotschen"
       },
-      "crawledAt": "2026-05-19T23:55:10.524Z",
+      "crawledAt": "2026-05-21T13:47:13.452Z",
       "salaryMin": 46500,
       "salaryMax": 62500,
       "currency": "CHF",
