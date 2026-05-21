@@ -1,21 +1,22 @@
 {
   "key": "migros-ticino",
   "label": "Migros",
-  "generatedAt": "2026-05-21T12:45:18.460Z",
+  "generatedAt": "2026-05-21T23:14:47.079Z",
   "total": 28,
-  "newCount": 3,
-  "updatedCount": 23,
+  "newCount": 0,
+  "updatedCount": 26,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 41564,
-  "avgDurationMs": 41564,
+  "durationMs": 38323,
+  "avgDurationMs": 38323,
   "durationHistory": [
-    41564
+    38323
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "company-uaypmp",
-      "slug": "insegnante-zumba-m-w-d-scuola-club-bellinzona-scuola-club-migros-bellinzona",
+      "slug": "insegnante-zumba-m-w-d-scuola-club-bellinzona-scuola-club-migros-bellinzona-uaypmp",
       "company": "Scuola Club Migros",
       "title": "Insegnante Zumba (f/m/d) - Scuola Club Bellinzona",
       "location": "Bellinzona",
@@ -49,17 +50,25 @@
       "firstSeenAt": "2026-05-21T12:45:16.032Z",
       "needsRetranslation": true,
       "sourceLang": "it",
-      "_qualityScore": 68,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "streetAddress": "Via Lugano 2",
+      "postalCode": "6500",
+      "addressLocality": "Bellinzona",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 4,
-        "completeness": 14
+        "translation": 10,
+        "completeness": 25
       }
     },
     {
       "id": "company-vls1ix",
-      "slug": "insegnante-hip-hop-m-w-d-scuola-club-bellinzona-scuola-club-migros-bellinzona",
+      "slug": "insegnante-hip-hop-m-w-d-scuola-club-bellinzona-scuola-club-migros-bellinzona-vls1ix",
       "company": "Scuola Club Migros",
       "title": "Insegnante Hip Hop (f/m/d) - Scuola Club Bellinzona",
       "location": "Bellinzona",
@@ -93,17 +102,25 @@
       "firstSeenAt": "2026-05-21T12:45:16.032Z",
       "needsRetranslation": true,
       "sourceLang": "it",
-      "_qualityScore": 68,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "streetAddress": "Via Lugano 2",
+      "postalCode": "6500",
+      "addressLocality": "Bellinzona",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 4,
-        "completeness": 14
+        "translation": 10,
+        "completeness": 25
       }
     },
     {
       "id": "company-bzi9dh",
-      "slug": "insegnante-disegno-e-pittura-m-w-d-scuola-club-bellinzona-scuola-club-migros-bellinzona",
+      "slug": "insegnante-disegno-e-pittura-m-w-d-scuola-club-bellinzona-scuola-club-migros-bellinzona-bzi9dh",
       "company": "Scuola Club Migros",
       "title": "Insegnante Disegno e pittura (f/m/d) - Scuola Club Bellinzona",
       "location": "Bellinzona",
@@ -137,16 +154,22 @@
       "firstSeenAt": "2026-05-21T12:45:16.032Z",
       "needsRetranslation": true,
       "sourceLang": "it",
-      "_qualityScore": 68,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "streetAddress": "Via Lugano 2",
+      "postalCode": "6500",
+      "addressLocality": "Bellinzona",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 4,
-        "completeness": 14
+        "translation": 10,
+        "completeness": 25
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "company-kqhv7y",
       "slug": "konditor-in-confiseur-in-genossenschaft-migros-ostschweiz-mels-kqhv7y",
