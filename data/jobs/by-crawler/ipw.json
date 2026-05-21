@@ -1,7 +1,80 @@
 {
   "crawlerKey": "ipw",
-  "assembledAt": "2026-05-21T12:17:17.879Z",
+  "assembledAt": "2026-05-21T22:47:32.671Z",
   "jobs": [
+    {
+      "id": "ipw-28800879e026",
+      "slug": "dipl-pflegefachfrau-pflegefachmann-per-la-zentrale-berufsbildung-60-integrierte-psychiatrie-winterthur-ipw-winterthur",
+      "slugByLocale": {
+        "de": "dipl-pflegefachfrau-pflegefachmann-fur-die-zentrale-berufsbildung-60-ipw-winterthur",
+        "it": "dipl-pflegefachfrau-pflegefachmann-per-la-zentrale-berufsbildung-60-integrierte-psychiatrie-winterthur-ipw-winterthur",
+        "en": "dipl-pflegefachfrau-pflegefachmann-fur-die-zentrale-berufsbildung-60-ipw-winterthur",
+        "fr": "dipl-pflegefachfrau-pflegefachmann-fur-die-zentrale-berufsbildung-60-ipw-winterthur"
+      },
+      "company": "Integrierte Psychiatrie Winterthur (ipw)",
+      "companyKey": "ipw",
+      "companyDomain": "ipw.ch",
+      "title": "Dipl. Pflegefachfrau / Pflegefachmann für die zentrale Berufsbildung 60 %",
+      "titleByLocale": {
+        "de": "Dipl. Pflegefachfrau / Pflegefachmann für die zentrale Berufsbildung 60 %",
+        "it": "Dipl. Pflegefachfrau / Pflegefachmann per la zentrale Berufsbildung 60 %",
+        "en": "Dipl. Pflegefachfrau / Pflegefachmann für die zentrale Berufsbildung 60 %",
+        "fr": "Dipl. Pflegefachfrau / Pflegefachmann für die zentrale Berufsbildung 60 %"
+      },
+      "description": "Dipl. Pflegefachfrau / Pflegefachmann für die zentrale Berufsbildung 60 % bei Integrierte Psychiatrie Winterthur - Zürcher Unterland, Winterthur (8408, ZH), Schweiz. Befristung: Unbefristet. Bewerbung über das Umantis-Karriereportal von Integrierte Psychiatrie Winterthur (ipw).",
+      "descriptionByLocale": {
+        "de": "Dipl. Pflegefachfrau / Pflegefachmann für die zentrale Berufsbildung 60 % bei Integrierte Psychiatrie Winterthur - Zürcher Unterland, Winterthur (8408, ZH), Schweiz. Befristung: Unbefristet. Bewerbung über das Umantis-Karriereportal von Integrierte Psychiatrie Winterthur (ipw).",
+        "it": "Dipl. Pflegefachfrau / Pflegefachmann für die zentrale Berufsbildung 60 % bei Integrierte Psychiatrie Winterthur - Zürcher Unterland, Winterthur (8408, ZH), Schweiz. Befristung: Unbefristet. Bewerbung über das Umantis-Karriereportal von Integrierte Psychiatrie Winterthur (ipw).",
+        "en": "Dipl. Pflegefachfrau / Pflegefachmann für die zentrale Berufsbildung 60 % bei Integrierte Psychiatrie Winterthur - Zürcher Unterland, Winterthur (8408, ZH), Schweiz. Befristung: Unbefristet. Bewerbung über das Umantis-Karriereportal von Integrierte Psychiatrie Winterthur (ipw).",
+        "fr": "Dipl. Pflegefachfrau / Pflegefachmann für die zentrale Berufsbildung 60 % bei Integrierte Psychiatrie Winterthur - Zürcher Unterland, Winterthur (8408, ZH), Schweiz. Befristung: Unbefristet. Bewerbung über das Umantis-Karriereportal von Integrierte Psychiatrie Winterthur (ipw)."
+      },
+      "needsRetranslation": true,
+      "location": "Winterthur",
+      "canton": "ZH",
+      "url": "https://recruitingapp-2906.umantis.com/Vacancies/3794/Description/1",
+      "source": "Integrierte Psychiatrie Winterthur (ipw) Dedicated Parser (Umantis listing tenant 2906)",
+      "sourceLang": "de",
+      "crawledAt": "2026-05-21T22:47:30.943Z",
+      "addressLocality": "Winterthur",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8408",
+      "category": "Sanità / Ospedali",
+      "contract": "temporary",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-21",
+      "applyUrl": "https://recruitingapp-2906.umantis.com/Vacancies/3794/Application/CheckLogin/1",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachfrau-pflegefachmann-fur-die-zentrale-berufsbildung-60-ipw-winterthur"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachfrau-pflegefachmann-fur-die-zentrale-berufsbildung-60-ipw-winterthur"
+      ],
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-05-21T22:47:30.943Z"
+    },
     {
       "id": "ipw-98af632c7194",
       "slug": "psicologa-o-capo-60-80-integrierte-psychiatrie-winterthur-ipw-winterthur",
@@ -28,12 +101,13 @@
         "de": "Oberpsychologin / Oberpsychologe 60-80 % bei Integrierte Psychiatrie Winterthur - Zürcher Unterland, Winterthur (8408, ZH), Schweiz. Befristung: Unbefristet. Bewerbung über das Umantis-Karriereportal von Integrierte Psychiatrie Winterthur (ipw).",
         "fr": "Mansioni - Responsabili per la valutazione e il trattamento di pazienti con disturbi psichiatrici - Collaborazione con il team multidisciplinare per la definizione del piano di trattamento - Partecipazione alle riunioni di équipe e alla programmazione delle attività terapeutiche - Svoluzione di attività di ricerca e di formazione\n• Requisiti - Laurea in psicologia o in una disciplina affine - Specializzazione in psicoterapia o in psichiatria - Esperienza professionale nel campo della salute mentale - Conoscenza della lingua tedesca a livello professionale\n• Cosa offriamo - Contratto a tempo indeterminato - Lavoro a tempo parziale (60-80%) - Ambiente di lavoro dinamico e multiculturale - Opportunità di formazione e di svuppo professionaleatto - Contro candidarsisi, sia di utili porzzale delle di carriat (iw)"
       },
+      "needsRetranslation": true,
       "location": "Winterthur",
       "canton": "ZH",
       "url": "https://recruitingapp-2906.umantis.com/Vacancies/3634/Description/1",
       "source": "Integrierte Psychiatrie Winterthur (ipw) Dedicated Parser (Umantis listing tenant 2906)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-21T12:17:16.114Z",
+      "crawledAt": "2026-05-21T22:47:30.306Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -98,12 +172,13 @@
         "de": "Pflegefachfrau / Pflegefachmann HF oder FH 80-100 % bei Integrierte Psychiatrie Winterthur - Zürcher Unterland, Winterthur (8408, ZH), Schweiz. Befristung: Unbefristet. Bewerbung über das Umantis-Karriereportal von Integrierte Psychiatrie Winterthur (ipw).",
         "fr": "Descrizione Infirmière / Infirmier ES ou HES 80-100 % en psychiatrie intégrée Winterthour - Unterland zurichois, Winterthour (8408, ZH), Suisse. - Limitation dans le temps : durée indéterminée. - Candidature via le portail de carrière Umantis de la psychiatrie intégrée de Winterthour (IPW)."
       },
+      "needsRetranslation": true,
       "location": "Winterthur",
       "canton": "ZH",
       "url": "https://recruitingapp-2906.umantis.com/Vacancies/3799/Description/1",
       "source": "Integrierte Psychiatrie Winterthur (ipw) Dedicated Parser (Umantis listing tenant 2906)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-21T12:17:15.518Z",
+      "crawledAt": "2026-05-21T22:47:29.733Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -168,12 +243,13 @@
         "de": "Dipl. Pflegefachfrau / Pflegefachmann FH / HF 80-100 % bei Integrierte Psychiatrie Winterthur - Zürcher Unterland, Winterthur (8408, ZH), Schweiz. Befristung: Unbefristet. Bewerbung über das Umantis-Karriereportal von Integrierte Psychiatrie Winterthur (ipw).",
         "fr": "Mansioni - Infirmière diplômée HES / HF 80-100 % Dati della posizione - Psychiatrie intégrée Winterthour - Unterland zurichois, Winterthour (8408, ZH), Suisse - Limite de temps : Modalità di candidatura indéfinie - Candidature via le portail de carrière Umantis de Psychiatrie intégrée Winterthour (IPW)"
       },
+      "needsRetranslation": true,
       "location": "Winterthur",
       "canton": "ZH",
       "url": "https://recruitingapp-2906.umantis.com/Vacancies/3755/Description/1",
       "source": "Integrierte Psychiatrie Winterthur (ipw) Dedicated Parser (Umantis listing tenant 2906)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-21T12:17:14.849Z",
+      "crawledAt": "2026-05-21T22:47:28.963Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -238,12 +314,13 @@
         "de": "Sozialarbeiterin / Sozialarbeiter 60 % bei Integrierte Psychiatrie Winterthur - Zürcher Unterland, Winterthur (8408, ZH), Schweiz. Befristung: Unbefristet. Bewerbung über das Umantis-Karriereportal von Integrierte Psychiatrie Winterthur (ipw).",
         "fr": "Mansioni - Travailleur social 60 % chez Integrated Psychiatry Winterthur - Zürcher Unterland, Winterthur (8408, ZH), Suisse - Emploi à durée indéterminée\n• Requisiti - Candidature via le portail de carrière Umantis de Integrated Psychiatry Winterthur (ipw)"
       },
+      "needsRetranslation": true,
       "location": "Winterthur",
       "canton": "ZH",
       "url": "https://recruitingapp-2906.umantis.com/Vacancies/3815/Description/1",
       "source": "Integrierte Psychiatrie Winterthur (ipw) Dedicated Parser (Umantis listing tenant 2906)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-21T12:17:14.193Z",
+      "crawledAt": "2026-05-21T22:47:28.387Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -283,95 +360,6 @@
       }
     },
     {
-      "id": "ipw-183a9b4ae1d4",
-      "slug": "assistente-sanitario-specializzato-a-60-100-integrierte-psychiatrie-winterthur-ipw-winterthur",
-      "slugByLocale": {
-        "it": "assistente-sanitario-specializzato-a-60-100-integrierte-psychiatrie-winterthur-ipw-winterthur",
-        "en": "healthcare-specialist-60-100-integrierte-psychiatrie-winterthur-ipw-winterthur",
-        "de": "fachangestellte-fachangestellter-gesundheit-60-100-ipw-winterthur",
-        "fr": "specialiste-en-sante-60-100-integrierte-psychiatrie-winterthur-ipw-winterthur"
-      },
-      "company": "Integrierte Psychiatrie Winterthur (ipw)",
-      "companyKey": "ipw",
-      "companyDomain": "ipw.ch",
-      "title": "Fachangestellte / Fachangestellter Gesundheit 60-100 %",
-      "titleByLocale": {
-        "it": "Assistente Sanitario Specializzato/a 60-100%",
-        "en": "Healthcare Specialist 60-100%",
-        "de": "Fachangestellte / Fachangestellter Gesundheit 60-100 %",
-        "fr": "Spécialiste en santé 60-100%"
-      },
-      "description": "Fachangestellte / Fachangestellter Gesundheit 60-100 % bei Integrierte Psychiatrie Winterthur - Zürcher Unterland, Winterthur (8408, ZH), Schweiz. Befristung: Unbefristet. Bewerbung über das Umantis-Karriereportal von Integrierte Psychiatrie Winterthur (ipw).",
-      "descriptionByLocale": {
-        "it": "Mansioni - Assistente di salute specializzata/a al 60-100% presso la Psychiatria Integrata Winterthur - Zürcher Unterland, Winterthur (8408, ZH), Svizzera - Contratto a tempo indeterminato\n• Requisiti - Esperienza professionale in campo sanitario - Conoscenza delle lingue tedesca e inglese - Capacità di lavorare in team e in modo autonomo - Disponibilità a lavorare su turni Contatto - Candidatura tramite il portale carriere di Integraerte Psychiatrie Winterthur (ipw)",
-        "en": "Mansioni - Assistente di salute specializzato/a al 60-100% presso la Psychiatria Integrata Winterthur - Zürcher Unterland, Winterthur (8408, ZH), Svizzera - Contratto a tempo indeterminato\n• Requisiti - Esperienza professionale in campo sanitario - Conoscenza delle lingue tedesca e inglese - Capacità di lavorare in team e in modo autonomo - Disponibilità a lavorare su turni Contatto - Candidatura tramite il portale carriere di Integrated Psychiatry Winterthur (ipw)",
-        "de": "Fachangestellte / Fachangestellter Gesundheit 60-100 % bei Integrierte Psychiatrie Winterthur - Zürcher Unterland, Winterthur (8408, ZH), Schweiz. Befristung: Unbefristet. Bewerbung über das Umantis-Karriereportal von Integrierte Psychiatrie Winterthur (ipw).",
-        "fr": "Mansioni - Assistente di salute specializzato/a al 60-100% presso la Psychiatria Integrata Winterthur - Unterland zurichois, Winterthur (8408, ZH), Svizzera - Contratto a tempo indeterminato\n• Requisiti - Esperienza professionale in campo sanitario - Conoscenza delle lingue tedesca e inglese - Capacità di lavorare in team e in modo autonomo - Disponibilità a lavorare su turni Contatto - Candidatura tramite il portale carriere di Psychiatrie intégrée Winterthur (ipw)"
-      },
-      "location": "Winterthur",
-      "canton": "ZH",
-      "url": "https://recruitingapp-2906.umantis.com/Vacancies/3808/Description/1",
-      "source": "Integrierte Psychiatrie Winterthur (ipw) Dedicated Parser (Umantis listing tenant 2906)",
-      "sourceLang": "de",
-      "crawledAt": "2026-05-21T12:17:13.638Z",
-      "addressLocality": "Winterthur",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8408",
-      "category": "Sanità / Ospedali",
-      "contract": "temporary",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-19",
-      "applyUrl": "https://recruitingapp-2906.umantis.com/Vacancies/3808/Application/CheckLogin/1",
-      "requirements": [],
-      "requirementsByLocale": {
-        "it": [
-          "Esperienza professionale in campo sanitario",
-          "Conoscenza delle lingue tedesca e inglese",
-          "Capacità di lavorare in team e in modo autonomo",
-          "Disponibilità a lavorare su turni"
-        ],
-        "en": [
-          "Professional experience in the healthcare field",
-          "Knowledge of German and English languages",
-          "Ability to work in a team and independently",
-          "Availability to work in shifts"
-        ],
-        "fr": [
-          "Expérience professionnelle dans le domaine de la santé",
-          "Connaissance des langues allemande et anglaise",
-          "Capacité de travailler en équipe et de manière autonome",
-          "Disponibilité pour travailler en horaires décalés"
-        ]
-      },
-      "previousSlugs": [
-        "fachangestellte-fachangestellter-gesundheit-60-100-ipw-winterthur"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "fachangestellte-fachangestellter-gesundheit-60-100-ipw-winterthur"
-        ]
-      },
-      "firstSeenAt": "2026-05-19T18:25:38.812Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "ipw-facb5a38e288",
       "slug": "dipl-pflegefachfrau-pflegefachmann-hf-fh-60-100-ipw-winterthur",
       "slugByLocale": {
@@ -397,12 +385,13 @@
         "de": "Dipl. Pflegefachfrau / Pflegefachmann HF / FH 60-100 % bei Integrierte Psychiatrie Winterthur - Zürcher Unterland, Winterthur (8408, ZH), Schweiz. Befristung: Unbefristet. Bewerbung über das Umantis-Karriereportal von Integrierte Psychiatrie Winterthur (ipw).",
         "fr": "Mansioni - Infirmière diplômée HF / FH 60-100 % Luogo di lavoro - Psychiatrie intégrée Winterthour - Unterland zurichois, Winterthour (8408, ZH), Suisse Tipo di contratto - Modalità di candidatura indéfinie - Candidature via le portail de carrière Umantis de Psychiatrie intégrée Winterthour (IPW)"
       },
+      "needsRetranslation": true,
       "location": "Winterthur",
       "canton": "ZH",
       "url": "https://recruitingapp-2906.umantis.com/Vacancies/3703/Description/1",
       "source": "Integrierte Psychiatrie Winterthur (ipw) Dedicated Parser (Umantis listing tenant 2906)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-21T12:17:12.977Z",
+      "crawledAt": "2026-05-21T22:47:27.801Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -467,12 +456,13 @@
         "de": "Arztsekretärin / Arztsekretär 50-80 % bei Integrierte Psychiatrie Winterthur - Zürcher Unterland, Winterthur (8408, ZH), Schweiz. Befristung: Unbefristet. Bewerbung über das Umantis-Karriereportal von Integrierte Psychiatrie Winterthur (ipw).",
         "fr": "Mansioni - secrétaire médicale / secrétaire médicale 50-80 % Azienda - Psychiatrie intégrée de Winterthour - Unterland zurichois Luogo - Winterthour (8408, ZH), Suisse Tipo di contratto - indéfiniment Come candidarsi - candidature via le portail de carrière Umantis de Psychiatrie intégrée de Winterthour (IPW)"
       },
+      "needsRetranslation": true,
       "location": "Winterthur",
       "canton": "ZH",
       "url": "https://recruitingapp-2906.umantis.com/Vacancies/3819/Description/1",
       "source": "Integrierte Psychiatrie Winterthur (ipw) Dedicated Parser (Umantis listing tenant 2906)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-21T12:17:12.317Z",
+      "crawledAt": "2026-05-21T22:47:27.053Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -537,12 +527,13 @@
         "de": "HR Praktikantin / HR Praktikant 80 - 100 % bei Integrierte Psychiatrie Winterthur - Zürcher Unterland, Winterthur (8408, ZH), Schweiz. Art: Vollzeit. Befristung: Befristet. Bewerbung über das Umantis-Karriereportal von Integrierte Psychiatrie Winterthur (ipw).",
         "fr": "Mansioni - Stagiaire RH 80 - 100 % Azienda - Psychiatrie intégrée Winterthour - Unterland zurichois Luogo - Winterthour (8408, ZH), Suisse Tipo di impiego - Temps plein Durata - Durée limitée Come candidarsi - Candidature via le portail de carrière Umantis de Psychiatrie intégrée Winterthour (IPW)"
       },
+      "needsRetranslation": true,
       "location": "Winterthur",
       "canton": "ZH",
       "url": "https://recruitingapp-2906.umantis.com/Vacancies/3753/Description/1",
       "source": "Integrierte Psychiatrie Winterthur (ipw) Dedicated Parser (Umantis listing tenant 2906)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-21T12:17:11.738Z",
+      "crawledAt": "2026-05-21T22:47:26.482Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -607,12 +598,13 @@
         "de": "Lernende Logistikerin / Lernender Logistiker EFZ bei Integrierte Psychiatrie Winterthur - Zürcher Unterland, Winterthur (8408, ZH), Schweiz. Befristung: Befristet. Bewerbung über das Umantis-Karriereportal von Integrierte Psychiatrie Winterthur (ipw).",
         "fr": "Descrizione Apprentie logisticienne / apprenti logisticien CFC en psychiatrie intégrée Winterthour - Unterland zurichois, Winterthour (8408, ZH), Suisse. - Limite de temps : Limite de temps - Candidature via le portail de carrière Umantis de la psychiatrie intégrée de Winterthour (IPW)"
       },
+      "needsRetranslation": true,
       "location": "Winterthur",
       "canton": "ZH",
       "url": "https://recruitingapp-2906.umantis.com/Vacancies/3665/Description/1",
       "source": "Integrierte Psychiatrie Winterthur (ipw) Dedicated Parser (Umantis listing tenant 2906)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-21T12:17:11.051Z",
+      "crawledAt": "2026-05-21T22:47:25.867Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -685,12 +677,13 @@
         "de": "Oberärztin / Oberarzt oder Oberpsychologin / Oberpsychologe 50 - 100 % bei Integrierte Psychiatrie Winterthur - Zürcher Unterland, Winterthur (8408, ZH), Schweiz. Befristung: Unbefristet. Bewerbung über das Umantis-Karriereportal von Integrierte Psychiatrie Winterthur (ipw).",
         "fr": "Mansioni - Médecin-chef ou psychologue-chef 50 - 100 % Azienda - Psychiatrie intégrée Winterthur - Unterland zurichois Luogo - Winterthur (8408, ZH), Suisse Tipo di contratto - Durée indéterminée Come candidarsi - Candidature via le portail de carrière Umantis de Psychiatrie intégrée Winterthur (IPW)"
       },
+      "needsRetranslation": true,
       "location": "Winterthur",
       "canton": "ZH",
       "url": "https://recruitingapp-2906.umantis.com/Vacancies/3820/Description/1",
       "source": "Integrierte Psychiatrie Winterthur (ipw) Dedicated Parser (Umantis listing tenant 2906)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-21T12:17:10.144Z",
+      "crawledAt": "2026-05-21T22:47:23.961Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
