@@ -1,18 +1,19 @@
 {
   "key": "klinik-aadorf",
   "label": "Klinik Aadorf",
-  "generatedAt": "2026-05-20T06:05:48.220Z",
+  "generatedAt": "2026-05-21T12:21:58.928Z",
   "total": 4,
-  "newCount": 4,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 4,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 28629,
-  "avgDurationMs": 28629,
+  "durationMs": 4516,
+  "avgDurationMs": 4516,
   "durationHistory": [
-    28629
+    4516
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "klinik-aadorf-036e5900dc7c",
       "slug": "assistenzarztin-assistenzarzt-70-100-klinik-aadorf-aadorf",
@@ -26,7 +27,7 @@
       "url": "https://jobs.dualoo.com/portal/3ibnwlo9/b83b7258-5abb-43a0-bcf0-4cf836b8d140/detail?lang=DE",
       "source": "Klinik Aadorf Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-20T06:05:20.906Z",
+      "crawledAt": "2026-05-21T12:21:55.494Z",
       "addressLocality": "Aadorf",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -41,11 +42,12 @@
       "featured": false,
       "postedDate": "2026-05-20",
       "applyUrl": "https://jobs.dualoo.com/portal/3ibnwlo9/b83b7258-5abb-43a0-bcf0-4cf836b8d140/detail?lang=DE",
-      "_qualityScore": 61,
+      "firstSeenAt": "2026-05-20T06:05:20.906Z",
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -62,7 +64,7 @@
       "url": "https://jobs.dualoo.com/portal/3ibnwlo9/3ad10aff-6faf-49e6-850a-ef073d05bd7b/detail?lang=DE",
       "source": "Klinik Aadorf Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-20T06:05:21.407Z",
+      "crawledAt": "2026-05-21T12:21:55.963Z",
       "addressLocality": "Aadorf",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -77,11 +79,12 @@
       "featured": false,
       "postedDate": "2026-05-20",
       "applyUrl": "https://jobs.dualoo.com/portal/3ibnwlo9/3ad10aff-6faf-49e6-850a-ef073d05bd7b/detail?lang=DE",
-      "_qualityScore": 61,
+      "firstSeenAt": "2026-05-20T06:05:21.407Z",
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -98,7 +101,7 @@
       "url": "https://jobs.dualoo.com/portal/3ibnwlo9/1727a35a-ab32-4a43-a153-c4de9cf74c12/detail?lang=DE",
       "source": "Klinik Aadorf Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-20T06:05:21.925Z",
+      "crawledAt": "2026-05-21T12:21:56.434Z",
       "addressLocality": "Aadorf",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -113,11 +116,12 @@
       "featured": false,
       "postedDate": "2026-05-20",
       "applyUrl": "https://jobs.dualoo.com/portal/3ibnwlo9/1727a35a-ab32-4a43-a153-c4de9cf74c12/detail?lang=DE",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-20T06:05:21.925Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -134,7 +138,7 @@
       "url": "https://jobs.dualoo.com/portal/3ibnwlo9/fdb14f3b-867c-4c86-b15d-6eb7fbdf338d/detail?lang=DE",
       "source": "Klinik Aadorf Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-20T06:05:22.431Z",
+      "crawledAt": "2026-05-21T12:21:56.909Z",
       "addressLocality": "Aadorf",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -149,16 +153,16 @@
       "featured": false,
       "postedDate": "2026-05-20",
       "applyUrl": "https://jobs.dualoo.com/portal/3ibnwlo9/fdb14f3b-867c-4c86-b15d-6eb7fbdf338d/detail?lang=DE",
-      "_qualityScore": 61,
+      "firstSeenAt": "2026-05-20T06:05:22.431Z",
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": []
 }
