@@ -1,16 +1,16 @@
 {
   "key": "damiani-group",
   "label": "Damiani Group",
-  "generatedAt": "2026-05-19T22:03:14.854Z",
+  "generatedAt": "2026-05-21T11:43:38.384Z",
   "total": 3,
   "newCount": 0,
   "updatedCount": 2,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 3675,
-  "avgDurationMs": 3675,
+  "durationMs": 4356,
+  "avgDurationMs": 4356,
   "durationHistory": [
-    3675
+    4356
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -35,7 +35,7 @@
       "postedDate": "2026-05-07",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "2026-05-19",
+      "validThrough": "2026-05-21",
       "id": "damiani-group-1b9e5efdfbd8",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -89,45 +89,7 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "title": "CONSOLIDATION AND REPORTING SPECIALIST",
-      "slug": "consolidazione-e-relazione-speciale-damiani-group-mendrisio",
-      "url": "https://careers.damianigroup.com/job/Mendrisio-CONSOLIDATION-AND-REPORTING-SPECIALIST/1351467455/",
-      "applyUrl": "https://careers.damianigroup.com/talentcommunity/apply/1351467455/?locale=en_US",
-      "company": "Damiani Group",
-      "companyKey": "damiani-group",
-      "companyDomain": "damianigroup.com",
-      "location": "Mendrisio",
-      "addressLocality": "Mendrisio",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "finance",
-      "sector": "Lusso & Gioielleria",
-      "source": "damiani-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "2026-05-07",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "2026-05-19",
-      "id": "damiani-group-dca72d045243",
-      "salaryMin": 85500,
-      "salaryMax": 150000,
-      "currency": "CHF",
-      "streetAddress": "Via Penate 12",
-      "postalCode": "6850",
-      "firstSeenAt": "2026-05-07T10:51:48.044Z",
-      "_qualityScore": 99,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 25,
-        "completeness": 25
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "title": "Sales Assistant",
@@ -150,7 +112,7 @@
       "postedDate": "2026-05-16",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "2026-05-19",
+      "validThrough": "2026-05-21",
       "id": "damiani-group-1e3bfdd1100f",
       "salaryMin": 59000,
       "salaryMax": 90500,
