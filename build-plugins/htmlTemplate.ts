@@ -7,7 +7,7 @@
  *
  * Phase 3 optimization: reduces string concatenation overhead for 55k+ pages.
  */
-import { FAVICON_LINKS, GTAG_SNIPPET, ADSENSE_SNIPPET, BASE_URL, SPA_ACTION_REDIRECT_SCRIPT } from './constants';
+import { FAVICON_LINKS, GTAG_SNIPPET, ADSENSE_SNIPPET, BASE_URL, SPA_ACTION_REDIRECT_SCRIPT, SEO_STATIC_CSS_LINK } from './constants';
 
 /**
  * Common <head> prefix: charset + viewport + favicon + security meta.
@@ -197,6 +197,15 @@ export function buildSimplePage(opts: SimplePageOpts): string {
  const extraHead = extraHeadHtml ? `\n${extraHeadHtml}` : '';
  const ldTags = jsonLdScripts.map(ld => ` <script type="application/ld+json">${ld}</script>`).join('\n');
  const cssLink = entryCss ? `\n <link rel="stylesheet" href="/assets/${entryCss}" crossorigin media="all">` : '';
+ // PR #454 extracted ~3 920 static inline `style=` attributes into content-
+ // hashed CSS classes (s-{6char}) appended to public/assets/seo-static.css.
+ // The hand-rolled HTML in jobsSeoPagesPlugin / seoHubsPlugin already inlines
+ // ${SEO_STATIC_CSS_LINK}, but every page going through buildSimplePage was
+ // missing the link → ~50 plugins emit class-only s-* anchors with no CSS
+ // file behind them. Visible regression on staticOverlay pages
+ // (weekly-employers, fuel-daily, health-premiums, border-wait, ...) whose
+ // static content is rendered to end users.
+ const seoStaticLink = `\n ${SEO_STATIC_CSS_LINK}`;
  const jsScript = entryJs ? `\n <script type="module" crossorigin src="/assets/${entryJs}"></script>` : '';
 
  // Body composition — three modes:
@@ -251,7 +260,7 @@ ${skipMainWrap ? bodyHtml : ` <main class="static-job-page">\n ${bodyHtml}\n </m
  <meta name="twitter:image" content="${esc(ogImage ?? `${BASE_URL}/og-image.png`)}">
  <link rel="canonical" href="${canonicalUrl}">
 ${hreflangHtml}${extraHead}
-${ldTags}${cssLink}
+${ldTags}${cssLink}${seoStaticLink}
  ${GTAG_SNIPPET}
  ${ADSENSE_SNIPPET}
  </head>
