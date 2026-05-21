@@ -24365,4 +24365,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'ffs-cargo-chiasso-riorganizzazione',
+ category: 'novita',
+ date: '2026-05-21T09:31:47.341Z',
+ image: '/images/blog/ffs-cargo-chiasso-riorganizzazione.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

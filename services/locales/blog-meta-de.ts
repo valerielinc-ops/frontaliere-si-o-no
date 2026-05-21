@@ -7662,6 +7662,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.ffs-riorganizza-traffico-a-carri-isolati-40-collaboratori-toccati-in-ticino.title': 'SBB reorganisiert den Einzelwagenverkehr, 40 Mitarbeiter im Tessin betroffen',
     'blog.article.ffs-riorganizza-traffico-a-carri-isolati-40-collaboratori-toccati-in-ticino.excerpt': 'Die SBB reorganisieren den Einzelwagenverkehr, was für 40 Mitarbeiter im Tessin Konsequenzen hat',
     'blog.article.ffs-riorganizza-traffico-a-carri-isolati-40-collaboratori-toccati-in-ticino.imageAlt': 'Isolierte Güterwagen der FFS in Chiasso, Tessin',
+    'blog.article.ffs-cargo-chiasso-riorganizzazione.title': 'Lega fordert Garantien für Chiasso und Arbeitsplätze bei FFS Cargo',
+    'blog.article.ffs-cargo-chiasso-riorganizzazione.excerpt': 'Die Lega fordert Garantien für die Bahnpräsenz in Chiasso und den Erhalt der Arbeitsplätze im Zuge der Umstrukturierung von FFS Cargo.',
+    'blog.article.ffs-cargo-chiasso-riorganizzazione.imageAlt': 'Eisenbahnverkehr in Chiasso, Ticino',
 };
 
 export default blogMetaDe;

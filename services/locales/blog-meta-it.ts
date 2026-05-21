@@ -7664,6 +7664,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.ffs-riorganizza-traffico-a-carri-isolati-40-collaboratori-toccati-in-ticino.title': 'FFS riorganizza il traffico a carri isolati, 40 collaboratori toccati in Ticino',
     'blog.article.ffs-riorganizza-traffico-a-carri-isolati-40-collaboratori-toccati-in-ticino.excerpt': 'Le FFS riorganizzano il traffico a carri isolati, con conseguenze per 40 collaboratori in Ticino',
     'blog.article.ffs-riorganizza-traffico-a-carri-isolati-40-collaboratori-toccati-in-ticino.imageAlt': 'Carri isolati delle FFS a Chiasso, Ticino',
+    'blog.article.ffs-cargo-chiasso-riorganizzazione.title': 'Lega chiede garanzie per Chiasso e lavoro in FFS Cargo',
+    'blog.article.ffs-cargo-chiasso-riorganizzazione.excerpt': 'La Lega chiede garanzie per la presenza ferroviaria a Chiasso e la salvaguardia dei posti di lavoro in seguito alla riorganizzazione di FFS Cargo.',
+    'blog.article.ffs-cargo-chiasso-riorganizzazione.imageAlt': 'Traffico ferroviario a Chiasso, Ticino',
 };
 
 export default blogMetaIt;

@@ -7663,6 +7663,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.ffs-riorganizza-traffico-a-carri-isolati-40-collaboratori-toccati-in-ticino.title': 'SBB reorganizes single-car traffic, 40 jobs affected in Ticino',
     'blog.article.ffs-riorganizza-traffico-a-carri-isolati-40-collaboratori-toccati-in-ticino.excerpt': 'SBB is reorganizing single-car traffic, affecting 40 jobs in Ticino',
     'blog.article.ffs-riorganizza-traffico-a-carri-isolati-40-collaboratori-toccati-in-ticino.imageAlt': 'Isolated freight cars of FFS in Chiasso, Ticino',
+    'blog.article.ffs-cargo-chiasso-riorganizzazione.title': 'Lega seeks guarantees for Chiasso\'s railway presence and FFS Cargo jobs',
+    'blog.article.ffs-cargo-chiasso-riorganizzazione.excerpt': 'The Lega party is seeking guarantees for the continued presence of the railway in Chiasso and the preservation of jobs following the reorganization of FFS Cargo.',
+    'blog.article.ffs-cargo-chiasso-riorganizzazione.imageAlt': 'Train traffic in Chiasso, Ticino',
 };
 
 export default blogMetaEn;

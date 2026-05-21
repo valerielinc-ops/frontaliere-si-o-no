@@ -7664,6 +7664,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.ffs-riorganizza-traffico-a-carri-isolati-40-collaboratori-toccati-in-ticino.title': 'FFS réorganise le trafic de wagons isolés, 40 collaborateurs touchés en Suisse',
     'blog.article.ffs-riorganizza-traffico-a-carri-isolati-40-collaboratori-toccati-in-ticino.excerpt': 'Les FFS réorganisent le trafic de wagons isolés, avec des conséquences pour 40 collaborateurs en Suisse',
     'blog.article.ffs-riorganizza-traffico-a-carri-isolati-40-collaboratori-toccati-in-ticino.imageAlt': 'Wagons isolés des FFS à Chiasso, Tessin',
+    'blog.article.ffs-cargo-chiasso-riorganizzazione.title': 'Lega chiede garanzie per Chiasso e FFS Cargo',
+    'blog.article.ffs-cargo-chiasso-riorganizzazione.excerpt': 'La Lega demande des garanties pour la présence ferroviaire à Chiasso et la sauvegarde des emplois suite à la réorganisation de FFS Cargo.',
+    'blog.article.ffs-cargo-chiasso-riorganizzazione.imageAlt': 'Trafic ferroviaire à Chiasso, Ticino',
 };
 
 export default blogMetaFr;

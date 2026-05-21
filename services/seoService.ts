@@ -3797,6 +3797,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-lgbtqia-lavoro-sondaggio-unia-imbarco-immediato': { name: 'Lavoro e discriminazioni', path: '/articoli-frontaliere/lgbtqia-lavoro-sondaggio-unia-imbarco-immediato', parent: 'blog' },
     'blog-tensioni-tassa-lombarda-ipotesi-blocco-ristorni-cassis-ticino': { name: 'Tensioni su tassa lombarda e ipotesi', path: '/articoli-frontaliere/tensioni-tassa-lombarda-ipotesi-blocco-ristorni-cassis-ticino', parent: 'blog' },
     'blog-ffs-riorganizza-traffico-a-carri-isolati-40-collaboratori-toccati-in-ticino': { name: 'FFS', path: '/articoli-frontaliere/ffs-riorganizza-traffico-a-carri-isolati-40-collaboratori-toccati-in-ticino', parent: 'blog' },
+    'blog-ffs-cargo-chiasso-riorganizzazione': { name: 'Riorganizzazione FFS Cargo', path: '/articoli-frontaliere/ffs-cargo-chiasso-riorganizzazione', parent: 'blog' },
  };
 
  const info = sectionNames[section];
