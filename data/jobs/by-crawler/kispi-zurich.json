@@ -761,6 +761,282 @@
           "unitText": "YEAR"
         }
       }
+<<<<<<< Updated upstream
+=======
+    },
+    {
+      "id": "kispi-zurich-8dab6d28c585",
+      "slug": "oberarztin-oberarzt-80-100-kispi-zurich-zurich",
+      "slugByLocale": {
+        "de": "oberarztin-oberarzt-80-100-kispi-zurich-zurich",
+        "it": "oberarztin-oberarzt-80-100-kispi-zurich-zurich",
+        "en": "oberarztin-oberarzt-80-100-kispi-zurich-zurich",
+        "fr": "oberarztin-oberarzt-80-100-kispi-zurich-zurich"
+      },
+      "company": "Universitäts-Kinderspital Zürich (Kispi)",
+      "companyKey": "kispi-zurich",
+      "companyDomain": "kispi.uzh.ch",
+      "title": "Oberärztin / Oberarzt 80-100%",
+      "titleByLocale": {
+        "de": "Oberärztin / Oberarzt 80-100%",
+        "it": "Oberärztin / Oberarzt 80-100%",
+        "en": "Oberärztin / Oberarzt 80-100%",
+        "fr": "Oberärztin / Oberarzt 80-100%"
+      },
+      "description": "Kinderspital Zürich Eleonorenstiftung | online seit : 20.05.2026 Kinderradiologie Deine Aufgaben\n• Du arbeitest eigenverantwortlich in der gesamten pädiatrischen Bildgebung (Ultraschall, Röntgen, MRI, CT, Intervention).\n\nArt: Teilzeit\n\nBefristung: unbefristet",
+      "descriptionByLocale": {
+        "de": "Kinderspital Zürich Eleonorenstiftung | online seit : 20.05.2026 Kinderradiologie Deine Aufgaben\n• Du arbeitest eigenverantwortlich in der gesamten pädiatrischen Bildgebung (Ultraschall, Röntgen, MRI, CT, Intervention).\n\nArt: Teilzeit\n\nBefristung: unbefristet",
+        "it": "Kinderspital Zürich Eleonorenstiftung | online seit : 20.05.2026 Kinderradiologie Deine Aufgaben\n• Du arbeitest eigenverantwortlich in der gesamten pädiatrischen Bildgebung (Ultraschall, Röntgen, MRI, CT, Intervention).\n\nArt: Teilzeit\n\nBefristung: unbefristet",
+        "en": "Kinderspital Zürich Eleonorenstiftung | online seit : 20.05.2026 Kinderradiologie Deine Aufgaben\n• Du arbeitest eigenverantwortlich in der gesamten pädiatrischen Bildgebung (Ultraschall, Röntgen, MRI, CT, Intervention).\n\nArt: Teilzeit\n\nBefristung: unbefristet",
+        "fr": "Kinderspital Zürich Eleonorenstiftung | online seit : 20.05.2026 Kinderradiologie Deine Aufgaben\n• Du arbeitest eigenverantwortlich in der gesamten pädiatrischen Bildgebung (Ultraschall, Röntgen, MRI, CT, Intervention).\n\nArt: Teilzeit\n\nBefristung: unbefristet"
+      },
+      "needsRetranslation": true,
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://recruitingapp-2316.umantis.com/Vacancies/3668/Description/1",
+      "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
+      "sourceLang": "de",
+      "crawledAt": "2026-05-20T23:19:35.937Z",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8032",
+      "category": "Sanità / Ospedali",
+      "contract": "temporary",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "senior",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-20",
+      "applyUrl": "https://recruitingapp-2316.umantis.com/Vacancies/3668/Application/CheckLogin/1",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-05-20T23:19:35.937Z"
+    },
+    {
+      "id": "kispi-zurich-e984252b332b",
+      "slug": "assistente-di-studio-medico-efz-m-f-40-60-universitats-kinderspital-zurich-kispi-zurich",
+      "slugByLocale": {
+        "it": "assistente-di-studio-medico-efz-m-f-40-60-universitats-kinderspital-zurich-kispi-zurich",
+        "en": "medical-practice-assistant-efz-m-f-40-60-universitats-kinderspital-zurich-kispi-zurich",
+        "de": "medizinische-praxisassistentin-efz-m-w-40-60-kispi-zurich-zurich",
+        "fr": "assistant-e-medical-e-efz-h-f-40-60-universitats-kinderspital-zurich-kispi-zurich"
+      },
+      "company": "Universitäts-Kinderspital Zürich (Kispi)",
+      "companyKey": "kispi-zurich",
+      "companyDomain": "kispi.uzh.ch",
+      "title": "Medizinische Praxisassistentin EFZ (m/w) 40-60%",
+      "titleByLocale": {
+        "it": "Assistente di studio medico EFZ (m/f) 40-60%",
+        "en": "Medical Practice Assistant EFZ (m/f) 40-60%",
+        "de": "Medizinische Praxisassistentin EFZ (m/w) 40-60%",
+        "fr": "Assistant(e) médical(e) EFZ (h/f) 40-60%"
+      },
+      "description": "Kinderspital Zürich Eleonorenstiftung | online seit : 20.05.2026 Polikliniken Montag bis Freitag im Tagdienst Deine Aufgaben\n• Du betreust Kinder und Jugendliche aller Altersstufen sowie deren Angehörige.\n\nArt: Teilzeit\n\nBefristung: unbefristet",
+      "descriptionByLocale": {
+        "it": "Ospedale pediatrico di Zurigo Fondazione Eleonora online dal : 19.05.2026 Poliambulatori 1,4,5 - dal lunedì al venerdì nel servizio diurno Descrizione - Ti occupi di bambini e adolescenti di tutte le età e dei loro familiari. Dettagli lavoro - Tipo: part-time - Tempo determinato: tempo indeterminato",
+        "en": "Children's Hospital Zurich Eleonorenstiftung online since : 05/19/2026 Polyclinics 1,4,5 - Monday to Friday in the day service Descrizione - You look after children and adolescents of all ages as well as their relatives. Dettagli lavoro - Type: Part-time - Fixed-term: indefinite",
+        "de": "Kinderspital Zürich Eleonorenstiftung | online seit : 20.05.2026 Polikliniken Montag bis Freitag im Tagdienst Deine Aufgaben\n• Du betreust Kinder und Jugendliche aller Altersstufen sowie deren Angehörige. Art: Teilzeit Befristung: unbefristet",
+        "fr": "Kinderspital Zürich Eleonorenstiftung en ligne depuis : 19/05/2026 Polycliniques 1,4,5 - du lundi au vendredi en service de jour Descrizione - Tu t'occupes d'enfants et d'adolescents de tous âges ainsi que de leurs proches. Dettagli lavoro - Type : temps partiel - Durée : indéterminée"
+      },
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://recruitingapp-2316.umantis.com/Vacancies/3446/Description/1",
+      "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
+      "sourceLang": "de",
+      "crawledAt": "2026-05-20T23:19:34.947Z",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8032",
+      "category": "Sanità / Ospedali",
+      "contract": "temporary",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-19",
+      "applyUrl": "https://recruitingapp-2316.umantis.com/Vacancies/3446/Application/CheckLogin/1",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "medizinische-praxisassistentin-efz-m-w-40-60-kispi-zurich-zurich"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "medizinische-praxisassistentin-efz-m-w-40-60-kispi-zurich-zurich"
+        ]
+      },
+      "firstSeenAt": "2026-05-19T14:37:00.069Z",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "kispi-zurich-f2e0b8b7d974",
+      "slug": "arztsekretarin-m-w-60-80-kispi-zurich-zurich",
+      "slugByLocale": {
+        "de": "arztsekretarin-m-w-60-80-universitats-kinderspital-zurich-kispi-zurich",
+        "it": "arztsekretarin-m-w-60-80-kispi-zurich-zurich",
+        "en": "arztsekretarin-m-w-60-80-kispi-zurich-zurich",
+        "fr": "arztsekretarin-m-w-60-80-kispi-zurich-zurich"
+      },
+      "company": "Universitäts-Kinderspital Zürich (Kispi)",
+      "companyKey": "kispi-zurich",
+      "companyDomain": "kispi.uzh.ch",
+      "title": "Arztsekretärin (m/w) 60-80%",
+      "titleByLocale": {
+        "de": "Arztsekretärin (m/w) 60-80%",
+        "it": "Arztsekretärin (m/w) 60-80%",
+        "en": "Arztsekretärin (m/w) 60-80%",
+        "fr": "Arztsekretärin (m/w) 60-80%"
+      },
+      "description": "Kinderspital Zürich Eleonorenstiftung | online seit : 20.05.2026 Logopädie Deine Aufgaben\n• Das Verfassen und Versenden von Sprechstundenberichten liegt in deiner Verantwortung und bietet den Ärzten sowie dem Team wertvolle Unterstützung.\n\nArt: Teilzeit\n\nBefristung: unbefristet",
+      "descriptionByLocale": {
+        "de": "Kinderspital Zürich Eleonorenstiftung | online seit : 20.05.2026 Logopädie Deine Aufgaben\n• Das Verfassen und Versenden von Sprechstundenberichten liegt in deiner Verantwortung und bietet den Ärzten sowie dem Team wertvolle Unterstützung.\n\nArt: Teilzeit\n\nBefristung: unbefristet",
+        "it": "Kinderspital Zürich Eleonorenstiftung | online seit : 20.05.2026 Logopädie Deine Aufgaben\n• Das Verfassen und Versenden von Sprechstundenberichten liegt in deiner Verantwortung und bietet den Ärzten sowie dem Team wertvolle Unterstützung.\n\nArt: Teilzeit\n\nBefristung: unbefristet",
+        "en": "Kinderspital Zürich Eleonorenstiftung | online seit : 20.05.2026 Logopädie Deine Aufgaben\n• Das Verfassen und Versenden von Sprechstundenberichten liegt in deiner Verantwortung und bietet den Ärzten sowie dem Team wertvolle Unterstützung.\n\nArt: Teilzeit\n\nBefristung: unbefristet",
+        "fr": "Kinderspital Zürich Eleonorenstiftung | online seit : 20.05.2026 Logopädie Deine Aufgaben\n• Das Verfassen und Versenden von Sprechstundenberichten liegt in deiner Verantwortung und bietet den Ärzten sowie dem Team wertvolle Unterstützung.\n\nArt: Teilzeit\n\nBefristung: unbefristet"
+      },
+      "needsRetranslation": true,
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://recruitingapp-2316.umantis.com/Vacancies/3672/Description/1",
+      "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
+      "sourceLang": "de",
+      "crawledAt": "2026-05-20T23:19:34.031Z",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8032",
+      "category": "Sanità / Ospedali",
+      "contract": "temporary",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-20",
+      "applyUrl": "https://recruitingapp-2316.umantis.com/Vacancies/3672/Application/CheckLogin/1",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-05-20T23:19:34.031Z"
+    },
+    {
+      "id": "kispi-zurich-3ece0151b0c7",
+      "slug": "senior-businessanalystin-release-e-demandmanagerin-m-w-d-80-100-universitats-kinderspital-zurich-kispi-zurich",
+      "slugByLocale": {
+        "de": "senior-businessanalystin-release-und-demandmanagerin-m-w-80-100-kispi-zurich-zurich",
+        "it": "senior-businessanalystin-release-e-demandmanagerin-m-w-d-80-100-universitats-kinderspital-zurich-kispi-zurich",
+        "en": "senior-businessanalystin-release-und-demandmanagerin-m-w-80-100-kispi-zurich-zurich",
+        "fr": "senior-businessanalystin-release-und-demandmanagerin-m-w-80-100-kispi-zurich-zurich"
+      },
+      "company": "Universitäts-Kinderspital Zürich (Kispi)",
+      "companyKey": "kispi-zurich",
+      "companyDomain": "kispi.uzh.ch",
+      "title": "Senior Businessanalystin / Release- und Demandmanagerin (m/w) 80-100%",
+      "titleByLocale": {
+        "de": "Senior Businessanalystin / Release- und Demandmanagerin (m/w) 80-100%",
+        "it": "Senior Businessanalystin / Release- e Demandmanagerin (m/w) 80-100%",
+        "en": "Senior Businessanalystin / Release- und Demandmanagerin (m/w) 80-100%",
+        "fr": "Senior Businessanalystin / Release- und Demandmanagerin (m/w) 80-100%"
+      },
+      "description": "Kinderspital Zürich Eleonorenstiftung | online seit : 20.05.2026 Deine Aufgaben\n• Du erfasst, analysierst und priorisierst Anforderungen aus den Fachbereichen, verstehst deren geschäftliche Relevanz und übersetzt sie in klare fachliche und technische Anforderungen.\n\nArt: Vollzeit\n\nBefristung: unbefristet",
+      "descriptionByLocale": {
+        "de": "Kinderspital Zürich Eleonorenstiftung | online seit : 20.05.2026 Deine Aufgaben\n• Du erfasst, analysierst und priorisierst Anforderungen aus den Fachbereichen, verstehst deren geschäftliche Relevanz und übersetzt sie in klare fachliche und technische Anforderungen.\n\nArt: Vollzeit\n\nBefristung: unbefristet",
+        "it": "Kinderspital Zürich Eleonorenstiftung | online seit : 20.05.2026 Deine Aufgaben\n• Du erfasst, analysierst und priorisierst Anforderungen aus den Fachbereichen, verstehst deren geschäftliche Relevanz und übersetzt sie in klare fachliche und technische Anforderungen.\n\nArt: Vollzeit\n\nBefristung: unbefristet",
+        "en": "Kinderspital Zürich Eleonorenstiftung | online seit : 20.05.2026 Deine Aufgaben\n• Du erfasst, analysierst und priorisierst Anforderungen aus den Fachbereichen, verstehst deren geschäftliche Relevanz und übersetzt sie in klare fachliche und technische Anforderungen.\n\nArt: Vollzeit\n\nBefristung: unbefristet",
+        "fr": "Kinderspital Zürich Eleonorenstiftung | online seit : 20.05.2026 Deine Aufgaben\n• Du erfasst, analysierst und priorisierst Anforderungen aus den Fachbereichen, verstehst deren geschäftliche Relevanz und übersetzt sie in klare fachliche und technische Anforderungen.\n\nArt: Vollzeit\n\nBefristung: unbefristet"
+      },
+      "needsRetranslation": true,
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://recruitingapp-2316.umantis.com/Vacancies/3670/Description/1",
+      "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
+      "sourceLang": "de",
+      "crawledAt": "2026-05-20T23:19:32.907Z",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8032",
+      "category": "Sanità / Ospedali",
+      "contract": "temporary",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-20",
+      "applyUrl": "https://recruitingapp-2316.umantis.com/Vacancies/3670/Application/CheckLogin/1",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-businessanalystin-release-und-demandmanagerin-m-w-80-100-kispi-zurich-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "senior-businessanalystin-release-und-demandmanagerin-m-w-80-100-kispi-zurich-zurich"
+      ],
+      "salaryMin": 68000,
+      "salaryMax": 103000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68000,
+          "maxValue": 103000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-05-20T23:19:32.907Z"
+>>>>>>> Stashed changes
     }
   ]
 }

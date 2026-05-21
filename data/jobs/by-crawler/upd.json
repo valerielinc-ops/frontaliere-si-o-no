@@ -719,6 +719,143 @@
           "unitText": "YEAR"
         }
       }
+<<<<<<< Updated upstream
+=======
+    },
+    {
+      "id": "upd-05faef012a51",
+      "slug": "forschungspraktikum-bridge-upd-bern",
+      "slugByLocale": {
+        "de": "forschungspraktikum-bridge-upd-bern",
+        "it": "forschungspraktikum-bridge-upd-bern",
+        "en": "forschungspraktikum-bridge-upd-bern",
+        "fr": "forschungspraktikum-bridge-upd-bern"
+      },
+      "company": "Universitäre Psychiatrische Dienste Bern (UPD)",
+      "companyKey": "upd",
+      "companyDomain": "upd.ch",
+      "title": "Forschungspraktikum Bridge",
+      "titleByLocale": {
+        "de": "Forschungspraktikum Bridge",
+        "it": "Stage di ricerca a Bridge",
+        "en": "Research internship at Bridge",
+        "fr": "Stage de recherche à Bridge"
+      },
+      "description": "Sie sehen gerade einen Platzhalterinhalt von Facebook . Um auf den eigentlichen Inhalt zuzugreifen, klicken Sie auf die Schaltfläche unten. Bitte beachten Sie, dass dabei Daten an Drittanbieter weitergegeben werden.\n\nSie sehen gerade einen Platzhalterinhalt von Instagram . Um auf den eigentlichen Inhalt zuzugreifen, klicken Sie auf die Schaltfläche unten. Bitte beachten Sie, dass dabei Daten an Drittanbieter weitergegeben werden.\n\nSie sehen gerade einen Platzhalterinhalt von X . Um auf den eigentlichen Inhalt zuzugreifen, klicken Sie auf die Schaltfläche unten. Bitte beachten Sie, dass dabei Daten an Drittanbieter weitergegeben werden.\n\nBereich: Psychologie\n\nArt: Teilzeit\n\nBefristung: Befristet",
+      "descriptionByLocale": {
+        "de": "Sie sehen gerade einen Platzhalterinhalt von Facebook . Um auf den eigentlichen Inhalt zuzugreifen, klicken Sie auf die Schaltfläche unten. Bitte beachten Sie, dass dabei Daten an Drittanbieter weitergegeben werden.\n\nSie sehen gerade einen Platzhalterinhalt von Instagram . Um auf den eigentlichen Inhalt zuzugreifen, klicken Sie auf die Schaltfläche unten. Bitte beachten Sie, dass dabei Daten an Drittanbieter weitergegeben werden.\n\nSie sehen gerade einen Platzhalterinhalt von X . Um auf den eigentlichen Inhalt zuzugreifen, klicken Sie auf die Schaltfläche unten. Bitte beachten Sie, dass dabei Daten an Drittanbieter weitergegeben werden.\n\nBereich: Psychologie\n\nArt: Teilzeit\n\nBefristung: Befristet",
+        "it": "Stai visualizzando un contenuto segnaposto da Facebook . Per accedere al contenuto effettivo, fare clic sul pulsante qui sotto. Si prega di notare che i dati saranno trasmessi a terzi.\n\nBasta vedere un contenuto segnaposto di Instagram . Per accedere al contenuto effettivo, fare clic sul pulsante qui sotto. Si prega di notare che i dati saranno trasmessi a terzi.\n\nStai visualizzando un contenuto segnaposto di X . Per accedere al contenuto effettivo, fare clic sul pulsante qui sotto. Si prega di notare che i dati saranno trasmessi a terzi.\n\nArea: Psicologia\n\nTipo: Parttime\n\nDurata: Limitata",
+        "en": "You are viewing a placeholder content from Facebook . To access the actual content, click the button below. Please note that data will be passed on to third parties.\n\nYou just see a placeholder content of Instagram . To access the actual content, click the button below. Please note that data will be passed on to third parties.\n\nYou are currently viewing a placeholder content of X . To access the actual content, click the button below. Please note that data will be passed on to third parties.\n\nArea: Psychology\n\nType: Parttime\n\nDuration: Limited",
+        "fr": "Vous regardez un contenu de placeholder depuis Facebook . Pour accéder au contenu réel, cliquez sur le bouton ci-dessous. Veuillez noter que les données seront transmises à des tiers.\n\nVous venez de voir un contenu de placeholder d'Instagram. Pour accéder au contenu réel, cliquez sur le bouton ci-dessous. Veuillez noter que les données seront transmises à des tiers.\n\nVous regardez actuellement un contenu de placeholder de X . Pour accéder au contenu réel, cliquez sur le bouton ci-dessous. Veuillez noter que les données seront transmises à des tiers.\n\nDomaine: Psychologie\n\nType: Temps partiel\n\nDurée: limitée"
+      },
+      "location": "Bern",
+      "canton": "BE",
+      "url": "https://recruitingapp-2908.umantis.com/Vacancies/3178/Description/1",
+      "source": "Universitäre Psychiatrische Dienste Bern (UPD) Dedicated Parser (Umantis listing tenant 2908)",
+      "sourceLang": "de",
+      "crawledAt": "2026-05-21T00:37:57.748Z",
+      "addressLocality": "Bern",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "3000",
+      "category": "Sanità / Ospedali",
+      "contract": "temporary",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-21",
+      "applyUrl": "https://recruitingapp-2908.umantis.com/Vacancies/3178/Application/CheckLogin/1",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-05-21T00:37:57.748Z"
+    },
+    {
+      "id": "upd-ada8cb9747eb",
+      "slug": "segretaria-o-medico-universitare-psychiatrische-dienste-bern-upd-bern",
+      "slugByLocale": {
+        "it": "segretaria-o-medico-universitare-psychiatrische-dienste-bern-upd-bern",
+        "en": "medical-secretary-universitare-psychiatrische-dienste-bern-upd-bern",
+        "de": "medizinische-sekretarin-medizinischer-sekretar-upd-bern",
+        "fr": "secretaire-medical-universitare-psychiatrische-dienste-bern-upd-bern"
+      },
+      "company": "Universitäre Psychiatrische Dienste Bern (UPD)",
+      "companyKey": "upd",
+      "companyDomain": "upd.ch",
+      "title": "Medizinische Sekretärin / Medizinischer Sekretär",
+      "titleByLocale": {
+        "it": "Segretaria/o Medico",
+        "en": "Medical Secretary",
+        "de": "Medizinische Sekretärin / Medizinischer Sekretär",
+        "fr": "Secrétaire médical"
+      },
+      "description": "Sie sehen gerade einen Platzhalterinhalt von Facebook . Um auf den eigentlichen Inhalt zuzugreifen, klicken Sie auf die Schaltfläche unten. Bitte beachten Sie, dass dabei Daten an Drittanbieter weitergegeben werden.\n\nSie sehen gerade einen Platzhalterinhalt von Instagram . Um auf den eigentlichen Inhalt zuzugreifen, klicken Sie auf die Schaltfläche unten. Bitte beachten Sie, dass dabei Daten an Drittanbieter weitergegeben werden.\n\nSie sehen gerade einen Platzhalterinhalt von X . Um auf den eigentlichen Inhalt zuzugreifen, klicken Sie auf die Schaltfläche unten. Bitte beachten Sie, dass dabei Daten an Drittanbieter weitergegeben werden.\n\nBereich: Finanzen | HR | Marketing | Administration | Bildung\n\nArt: Vollzeit\n\nBefristung: Unbefristet",
+      "descriptionByLocale": {
+        "it": "Stai visualizzando un contenuto segnaposto da Facebook . Per accedere al contenuto vero e proprio, cliccare sul pulsante sottostante. Si prega di notare che i dati vengono trasmessi a fornitori terzi. Stai visualizzando un contenuto segnaposto di Instagram . Per accedere al contenuto vero e proprio, cliccare sul pulsante sottostante. Si prega di notare che i dati vengono trasmessi a fornitori terzi. Stai visualizzando un contenuto segnaposto di X. Per accedere al contenuto vero e proprio, cliccare sul pulsante sottostante. Si prega di notare che i dati vengono trasmessi a fornitori terzi. Settore: Finanza | HR | Marketing | Amministrazione | Formazione Tipo: Tempo pieno Tempo determinato: A tempo indeterminato",
+        "en": "You are currently viewing a placeholder content from Facebook . To access the actual content, click the button below. Please note that data will be passed on to third parties. You are currently viewing a placeholder content from Instagram . To access the actual content, click the button below. Please note that data will be passed on to third parties. You are currently viewing a placeholder content of X. To access the actual content, click the button below. Please note that data will be passed on to third parties. Area: Finance | HR | Marketing | Administration | Education Type: Full-time Fixed-term: Permanent",
+        "de": "Sie sehen gerade einen Platzhalterinhalt von Facebook . Um auf den eigentlichen Inhalt zuzugreifen, klicken Sie auf die Schaltfläche unten. Bitte beachten Sie, dass dabei Daten an Drittanbieter weitergegeben werden. Sie sehen gerade einen Platzhalterinhalt von Instagram . Um auf den eigentlichen Inhalt zuzugreifen, klicken Sie auf die Schaltfläche unten. Bitte beachten Sie, dass dabei Daten an Drittanbieter weitergegeben werden. Sie sehen gerade einen Platzhalterinhalt von X . Um auf den eigentlichen Inhalt zuzugreifen, klicken Sie auf die Schaltfläche unten. Bitte beachten Sie, dass dabei Daten an Drittanbieter weitergegeben werden. Bereich: Finanzen | HR | Marketing | Administration | Bildung Art: Vollzeit Befristung: Unbefristet",
+        "fr": "Vous voyez actuellement un contenu d'espace réservé de Facebook . Pour accéder au contenu réel, cliquez sur le bouton ci-dessous. Veuillez noter que les données sont transmises à des fournisseurs tiers. Vous voyez actuellement un contenu d'espace réservé d'Instagram . Pour accéder au contenu réel, cliquez sur le bouton ci-dessous. Veuillez noter que les données sont transmises à des fournisseurs tiers. Vous voyez actuellement un contenu d'espace réservé de X. Pour accéder au contenu réel, cliquez sur le bouton ci-dessous. Veuillez noter que les données sont transmises à des fournisseurs tiers. Domaine : Finances | RH | Marketing | Administration | Éducation Type : Temps plein Durée : Durée indéterminée"
+      },
+      "location": "Bern",
+      "canton": "BE",
+      "url": "https://recruitingapp-2908.umantis.com/Vacancies/3166/Description/1",
+      "source": "Universitäre Psychiatrische Dienste Bern (UPD) Dedicated Parser (Umantis listing tenant 2908)",
+      "sourceLang": "de",
+      "crawledAt": "2026-05-21T00:37:56.815Z",
+      "addressLocality": "Bern",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "3000",
+      "category": "Sanità / Ospedali",
+      "contract": "temporary",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-19",
+      "applyUrl": "https://recruitingapp-2908.umantis.com/Vacancies/3166/Application/CheckLogin/1",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "medizinische-sekretarin-medizinischer-sekretar-upd-bern"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "medizinische-sekretarin-medizinischer-sekretar-upd-bern"
+        ]
+      },
+      "firstSeenAt": "2026-05-19T14:36:57.267Z",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      }
+>>>>>>> Stashed changes
     }
   ]
 }
