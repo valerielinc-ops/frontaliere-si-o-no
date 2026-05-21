@@ -1,16 +1,16 @@
 {
   "key": "vaxcyte",
   "label": "Vaxcyte",
-  "generatedAt": "2026-05-19T23:52:51.163Z",
-  "total": 2,
+  "generatedAt": "2026-05-21T13:44:40.849Z",
+  "total": 1,
   "newCount": 0,
-  "updatedCount": 2,
-  "removedCount": 0,
+  "updatedCount": 1,
+  "removedCount": 1,
   "unchangedCount": 0,
-  "durationMs": 2133,
-  "avgDurationMs": 2133,
+  "durationMs": 2071,
+  "avgDurationMs": 2071,
   "durationHistory": [
-    2133
+    2071
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -26,7 +26,7 @@
       "url": "https://boards.greenhouse.io/vaxcyte/jobs/5193056008?gh_jid=5193056008",
       "source": "Vaxcyte Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-19T23:52:49.436Z",
+      "crawledAt": "2026-05-21T13:44:39.158Z",
       "addressLocality": "Visp",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -54,10 +54,12 @@
         "translation": 25,
         "completeness": 17
       }
-    },
+    }
+  ],
+  "removedJobs": [
     {
       "id": "vaxcyte-7041ea0fbe48",
-      "slug": "director-business-operations-global-quality-control-vaxcyte-ch",
+      "slug": "direttore-business-operations-controllo-qualita-globale-vaxcyte-visp",
       "company": "Vaxcyte",
       "companyKey": "vaxcyte",
       "companyDomain": "vaxcyte.com",
@@ -88,15 +90,16 @@
         "location": "Visp"
       },
       "firstSeenAt": "2026-04-13T11:29:03.138Z",
-      "_qualityScore": 74,
+      "salaryMin": 68000,
+      "salaryMax": 103000,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
-        "cleanliness": 12,
+        "cleanliness": 17,
         "richness": 20,
         "translation": 25,
-        "completeness": 17
+        "completeness": 22
       }
     }
   ],
-  "removedJobs": [],
   "unchangedJobs": []
 }
