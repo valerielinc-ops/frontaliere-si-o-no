@@ -55,10 +55,12 @@ describe('canton landing mobile-first element order (CLAUDE.md #17)', () => {
 
       const h1 = html.indexOf('<h1');
       const tiles = html.indexOf('data-stat-tile-grid');
-      // Primary CTA = the inline-styled anchor with the accent background.
-      // Match the exact P4 style fragment so we don't pick up the prose's
-      // inline body links by accident.
-      const cta = html.search(/<a [^>]*style="[^"]*background:var\(--color-accent\)[^"]*"/);
+      // Primary CTA = the anchor explicitly marked with `data-primary-cta`
+      // in build-plugins/jobsSeoPagesPlugin.ts. Stable marker independent of
+      // CSS implementation: PR #454 extracted inline styles to content-hashed
+      // classes, so the previous `style="...background:var(--color-accent)..."`
+      // selector no longer matched.
+      const cta = html.search(/<a [^>]*\bdata-primary-cta\b/);
       const listing = html.indexOf('data-listing-grid');
       // Prose anchor — first user-facing H2 of the buildCantonContextProse
       // section. The four locales use different lead-words so we search

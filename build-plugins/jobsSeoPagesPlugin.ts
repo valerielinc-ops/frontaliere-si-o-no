@@ -8293,7 +8293,7 @@ ${alternates}
        `<nav class="s-ZVaIKh"><a class="s-t_pXue" href="${BASE_URL}/">${esc(homeLabel[entry.locale])}</a> &rarr; <span aria-current="page">${esc(display)}</span></nav>`,
        `<header class="s-TYF4UK"><h1 class="s-Wb8ho2">${esc(display)}</h1><p class="s-b7cYUf">${esc(labels.lede)}</p></header>`,
        tileGrid,
-       `<p class="s-ziawP1"><a class="s-yy370N" href="${legacyJobBoardHref}">${esc(labels.ctaLabel)}</a></p>`,
+       `<p class="s-ziawP1"><a class="s-yy370N" data-primary-cta href="${legacyJobBoardHref}">${esc(labels.ctaLabel)}</a></p>`,
        subPageNav,
        cantonListSection,
        listingGrid,
