@@ -249,7 +249,6 @@
     "audit:active-jobs-regression": "node scripts/check-active-jobs-regression.mjs",
     "audit:active-jobs-regression:rebaseline": "node scripts/check-active-jobs-regression.mjs --rebaseline",
     "recover:conflict-markers": "node scripts/recover-conflict-marker-slices.mjs",
-    "prune:known-slugs": "node scripts/prune-known-slugs.mjs",
     "audit:salary-landing-template": "node scripts/audit-salary-landing-template.mjs",
     "audit:jsonld-no-nested-scripts": "node scripts/audit-jsonld-no-nested-scripts.mjs",
     "audit:sitemap-canonicals": "node scripts/audit-sitemap-canonicals.mjs",
