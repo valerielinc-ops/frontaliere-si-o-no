@@ -1,6 +1,6 @@
 {
   "crawlerKey": "spital-zofingen",
-  "assembledAt": "2026-05-21T13:22:44.962Z",
+  "assembledAt": "2026-05-21T23:50:56.431Z",
   "jobs": [
     {
       "id": "spital-zofingen-3cc5e9e43914",
@@ -23,9 +23,9 @@
       },
       "description": "Pflegefachperson HF in Ausbildung bei Spital Zofingen AG, Zofingen (4800, AG), Schweiz. Bereich: Bildung Pflege. Art: Vollzeit. Befristung: befristet. Bewerbung über das Umantis-Karriereportal von Spital Zofingen.",
       "descriptionByLocale": {
-        "de": "Pflegefachperson HF in Ausbildung bei Spital Zofingen AG, Zofingen (4800, AG), Schweiz. Bereich: Bildung Pflege. Art: Vollzeit. Befristung: befristet. Bewerbung über das Umantis-Karriereportal von Spital Zofingen.",
         "it": "Pflegefachperson HF in Ausbildung bei Spital Zofingen AG, Zofingen (4800, AG), Schweiz. Bereich: Bildung Pflege. Art: Vollzeit. Befristung: befristet. Bewerbung über das Umantis-Karriereportal von Spital Zofingen.",
         "en": "Pflegefachperson HF in Ausbildung bei Spital Zofingen AG, Zofingen (4800, AG), Schweiz. Bereich: Bildung Pflege. Art: Vollzeit. Befristung: befristet. Bewerbung über das Umantis-Karriereportal von Spital Zofingen.",
+        "de": "Pflegefachperson HF in Ausbildung bei Spital Zofingen AG, Zofingen (4800, AG), Schweiz. Bereich: Bildung Pflege. Art: Vollzeit. Befristung: befristet. Bewerbung über das Umantis-Karriereportal von Spital Zofingen.",
         "fr": "Pflegefachperson HF in Ausbildung bei Spital Zofingen AG, Zofingen (4800, AG), Schweiz. Bereich: Bildung Pflege. Art: Vollzeit. Befristung: befristet. Bewerbung über das Umantis-Karriereportal von Spital Zofingen."
       },
       "needsRetranslation": true,
@@ -34,7 +34,7 @@
       "url": "https://recruitingapp-22707.umantis.com/Vacancies/1896/Description/1",
       "source": "Spital Zofingen Dedicated Parser (Umantis listing tenant 22707)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-21T13:22:42.743Z",
+      "crawledAt": "2026-05-21T23:50:54.636Z",
       "addressLocality": "Zofingen",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -51,6 +51,10 @@
       "applyUrl": "https://recruitingapp-22707.umantis.com/Vacancies/1896/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "pflegefachkraft-hf-in-ausbildung-spital-zofingen-zofingen",
+        "specialiste-des-soins-hf-en-formation-spital-zofingen-zofingen"
+      ],
       "previousSlugsByLocale": {
         "de": [
           "pflegefachkraft-hf-in-ausbildung-spital-zofingen-zofingen"
@@ -59,10 +63,6 @@
           "specialiste-des-soins-hf-en-formation-spital-zofingen-zofingen"
         ]
       },
-      "previousSlugs": [
-        "pflegefachkraft-hf-in-ausbildung-spital-zofingen-zofingen",
-        "specialiste-des-soins-hf-en-formation-spital-zofingen-zofingen"
-      ],
       "firstSeenAt": "2026-05-19T11:37:51.164Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -98,9 +98,9 @@
       },
       "description": "Praktikant/in für Pflegezentrum bei Spital Zofingen AG, Zofingen (4800, AG), Schweiz. Bereich: Pflegezentrum. Art: Vollzeit. Befristung: befristet. Bewerbung über das Umantis-Karriereportal von Spital Zofingen.",
       "descriptionByLocale": {
-        "de": "Praktikant/in für Pflegezentrum bei Spital Zofingen AG, Zofingen (4800, AG), Schweiz. Bereich: Pflegezentrum. Art: Vollzeit. Befristung: befristet. Bewerbung über das Umantis-Karriereportal von Spital Zofingen.",
         "it": "Praktikant/in für Pflegezentrum bei Spital Zofingen AG, Zofingen (4800, AG), Schweiz. Bereich: Pflegezentrum. Art: Vollzeit. Befristung: befristet. Bewerbung über das Umantis-Karriereportal von Spital Zofingen.",
         "en": "Praktikant/in für Pflegezentrum bei Spital Zofingen AG, Zofingen (4800, AG), Schweiz. Bereich: Pflegezentrum. Art: Vollzeit. Befristung: befristet. Bewerbung über das Umantis-Karriereportal von Spital Zofingen.",
+        "de": "Praktikant/in für Pflegezentrum bei Spital Zofingen AG, Zofingen (4800, AG), Schweiz. Bereich: Pflegezentrum. Art: Vollzeit. Befristung: befristet. Bewerbung über das Umantis-Karriereportal von Spital Zofingen.",
         "fr": "Praktikant/in für Pflegezentrum bei Spital Zofingen AG, Zofingen (4800, AG), Schweiz. Bereich: Pflegezentrum. Art: Vollzeit. Befristung: befristet. Bewerbung über das Umantis-Karriereportal von Spital Zofingen."
       },
       "needsRetranslation": true,
@@ -109,7 +109,7 @@
       "url": "https://recruitingapp-22707.umantis.com/Vacancies/2311/Description/1",
       "source": "Spital Zofingen Dedicated Parser (Umantis listing tenant 22707)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-21T13:22:42.043Z",
+      "crawledAt": "2026-05-21T23:50:54.022Z",
       "addressLocality": "Zofingen",
       "addressRegion": "AG",
       "addressCountry": "CH",
