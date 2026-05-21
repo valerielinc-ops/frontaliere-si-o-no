@@ -25,7 +25,11 @@ const ROOT = path.resolve(process.cwd());
 const SOURCE_TS = path.join(ROOT, 'services', 'jobDataNormalization.ts');
 const OUT_DIR = path.join(ROOT, 'public', 'images', 'brands');
 const MANIFEST = path.join(ROOT, 'data', 'company-logos-manifest.json');
-const AUDIT_PAGE = path.join(ROOT, 'public', 'logos-audit.html');
+// Local-only dev audit page. NEVER under public/ — Vite would copy it
+// into dist/ and ship a noindex page to prod. `.audit-pages/` is
+// gitignored. Run `node scripts/download-company-logos.mjs` to refresh.
+const AUDIT_DIR = path.join(ROOT, '.audit-pages');
+const AUDIT_PAGE = path.join(AUDIT_DIR, 'logos-audit.html');
 
 const FETCH_TIMEOUT_MS = 12_000;
 const CONCURRENCY = 8;
@@ -370,6 +374,7 @@ async function main() {
   // Audit page only regenerated on full runs (single-slug runs would emit a
   // misleading 1-entry page). Skip explicitly via --skip-audit if desired.
   if (!opts.slug && !opts.skipAudit) {
+    await mkdir(AUDIT_DIR, { recursive: true });
     await writeFile(AUDIT_PAGE, renderAudit(results, counts));
     console.log(`[download-company-logos] Audit page: ${AUDIT_PAGE}`);
   }

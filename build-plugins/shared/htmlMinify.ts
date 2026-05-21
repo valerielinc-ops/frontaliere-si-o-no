@@ -24,7 +24,13 @@
 //      `<a>foo</a>bar`).
 //   4. Strip leading whitespace at the start of each line and trailing
 //      whitespace before `\n`. Output uses LF endings.
-//   5. Restore masked blocks verbatim.
+//   5. Drop optional attribute quotes per the HTML5 spec — `attr="val"`
+//      → `attr=val` when `val` contains no whitespace/quotes/=/</>/backtick
+//      AND doesn't end in `/` (would collide with `/>` self-close marker).
+//      Added 2026-05-21 to bake in the 91% of dist-shrink savings at
+//      build time instead of at post-build (post-deploy run #26250403558
+//      attributed 91.2% of all dist-shrink saving to removeAttributeQuotes).
+//   6. Restore masked blocks verbatim.
 //
 // Output is DOM-equivalent + content-equivalent to the input. The
 // text-html-ratio gate IMPROVES (HTML byte count drops by ~9-10 %, text
@@ -72,6 +78,28 @@ const BLOCK_GAP_RX = new RegExp(
 const NL_INDENT_RX = /\n[ \t]+/g;        // leading whitespace per line
 const TRAILING_WS_RX = /[ \t]+\n/g;      // trailing whitespace per line
 const CRLF_RX = /\r\n/g;                 // normalize CRLF → LF
+
+// Step 5: HTML5 unquoted attribute eligibility. The HTML5 spec says
+// `attr="value"` may be written as `attr=value` IFF the value contains
+// none of: whitespace, `"`, `'`, `=`, `<`, `>`, backtick. We also reject
+// values ending in `/` so `<link href="https://x/">` doesn't become
+// `<link href=https://x/>` which the parser splits at the `/` into the
+// void-element self-close marker (the actual breakage was caught when
+// PR #473 first enabled removeAttributeQuotes at the dist layer — see
+// tests/seo/dist-shrink.test.ts "canonical/hreflang/robots regexes").
+//
+// `\b` on the leading boundary keeps us off attribute-name suffixes —
+// e.g. `data-id="foo"` ATTR matches `data-id`, not `id`. The pre-attr
+// char is captured (`\s` typically — the space between `<tag` and
+// `attr=`) so we can write it back unchanged.
+//
+// Attribute name pattern matches names with `-`, `_`, `:` (latter for
+// xlink:href / xml:lang etc.). Anything starting with a digit is
+// rejected (HTML5 disallows). The opening `<` of a tag is matched by
+// the `(?<=<[^<>]*?)` lookbehind to ensure we only rewrite attribute
+// quotes INSIDE a tag, never content text that looks like `="value"`.
+const ATTR_UNQUOTE_RX =
+  /(?<=<[a-zA-Z][^<>]*?\s)([a-zA-Z][a-zA-Z0-9:_-]*)="([^"'\s=<>`]+)"/g;
 
 /**
  * Minify HTML produced by buildSimplePage / buildSeoPageHtml.
@@ -135,7 +163,16 @@ export function minifyHtml(html: string): string {
     masked = masked.replace(BLOCK_GAP_RX, '$1$2');
   } while (masked !== prev);
 
-  // --- Step 5: restore masked blocks.
+  // --- Step 5: drop optional attribute quotes (HTML5 spec — see
+  // ATTR_UNQUOTE_RX comment above). Values ending in `/` are explicitly
+  // preserved with quotes because `attr=value/` clashes with the void-
+  // element self-close marker `/>`.
+  masked = masked.replace(ATTR_UNQUOTE_RX, (m, attr, val) => {
+    if (val.endsWith('/')) return m;
+    return `${attr}=${val}`;
+  });
+
+  // --- Step 6: restore masked blocks.
   if (safe.length > 0) {
     masked = masked.replace(/\x00MINIF_SAFE_(\d+)\x00/g, (_, i) => safe[Number(i)]);
   }

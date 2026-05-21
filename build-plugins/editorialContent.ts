@@ -423,7 +423,13 @@ function buildPontiHero(locale: PontiLocale): string {
  const bridgesSectionHeading = 'margin:0 0 1.1rem;font-size:clamp(1.05rem,2.4vw,1.25rem);font-weight:700;color:var(--color-heading);letter-spacing:-.01em';
  const bridgeListStyle = 'list-style:none;padding:0;margin:0 0 2.5rem;border-top:1px solid var(--color-edge)';
  const bridgeItemStyle = 'display:grid;grid-template-columns:auto auto 1fr;align-items:center;column-gap:1rem;padding:1rem 0;border-bottom:1px solid var(--color-edge)';
- const bridgeNumStyle = 'font-size:clamp(2rem,5vw,2.75rem);font-weight:700;color:var(--color-section-vita);font-variant-numeric:tabular-nums;line-height:1;letter-spacing:-.04em;font-feature-settings:"tnum"';
+ // CSS `font-feature-settings` requires a quoted string. Use SINGLE
+ // quotes so the value survives interpolation into `<span style="...">`
+ // — embedding `"tnum"` would close the outer style attribute early
+ // (caught 2026-05-21 by dist-shrink parse-error report on 33 ponti
+ // pages; the visible regression was the tabular-numerals CSS feature
+ // not actually applying because the style attribute was malformed).
+ const bridgeNumStyle = "font-size:clamp(2rem,5vw,2.75rem);font-weight:700;color:var(--color-section-vita);font-variant-numeric:tabular-nums;line-height:1;letter-spacing:-.04em;font-feature-settings:'tnum'";
  const bridgeEmojiStyle = 'font-size:1.625rem;line-height:1;text-align:center;width:2.25rem';
  const bridgeBodyStyle = 'min-width:0';
  const bridgeNameStyle = 'font-weight:700;color:var(--color-heading);font-size:1rem;line-height:1.3';

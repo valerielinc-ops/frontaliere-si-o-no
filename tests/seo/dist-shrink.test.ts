@@ -35,15 +35,22 @@ describe('dist-shrink: html-minifier-terser opts', () => {
     expect(stripped).toContain('Hello world');
   });
 
-  it('drops HTML comments but preserves IE conditional comments', async () => {
+  it('does NOT strip HTML comments (delegated to upstream htmlMinify.ts)', async () => {
+    // Per the May 21 2026 production-sample diagnostic, removeComments
+    // contributed 0 B (the prior `build-plugins/shared/htmlMinify.ts`
+    // pass already stripped every collapsible comment). We disabled
+    // `removeComments` here to save the per-file CPU. IE conditional
+    // comments survive trivially because they were already preserved
+    // by the upstream pass.
     const input =
       '<!DOCTYPE html><html><head>' +
       '<!-- ordinary -->' +
       '<!--[if IE]><script>x</script><![endif]-->' +
       '</head><body></body></html>';
     const out = await minify(input, MINIFY_OPTS);
-    expect(out).not.toContain('ordinary');
     expect(out).toContain('<![endif]');
+    // Ordinary comments pass through dist-shrink; that's by design.
+    expect(out).toContain('ordinary');
   });
 
   // Regression — PR #473 incident: `removeAttributeQuotes: true` rewrote
