@@ -1,18 +1,19 @@
 {
   "key": "jumbo",
   "label": "JUMBO",
-  "generatedAt": "2026-05-21T12:18:18.553Z",
+  "generatedAt": "2026-05-21T22:48:30.251Z",
   "total": 7,
-  "newCount": 1,
-  "updatedCount": 6,
+  "newCount": 0,
+  "updatedCount": 7,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 3011,
-  "avgDurationMs": 3011,
+  "durationMs": 2678,
+  "avgDurationMs": 2678,
   "durationHistory": [
-    3011
+    2678
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "jumbo-c9cdcd13-7b6",
       "slug": "caissiere-caissier-f-h-d-jumbo-sierre",
@@ -25,7 +26,7 @@
       "url": "https://jobs.coopjobs.ch/postes-vacantes/caissiere-caissier-f-h-d/c9cdcd13-7b67-4eba-bd10-b6a3d09d621f",
       "source": "JUMBO Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-21T12:18:16.291Z",
+      "crawledAt": "2026-05-21T22:48:28.323Z",
       "addressLocality": "Sierre",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -42,16 +43,16 @@
       "postedDate": "2026-05-20",
       "pensum": "8-20%",
       "applyUrl": "https://career2.successfactors.eu/career?company=Coop&career_ns=job_application&career_job_req_id=165916",
-      "_qualityScore": 74,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-21T12:18:16.291Z",
+      "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 4,
+        "translation": 19,
         "completeness": 20
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "jumbo-4149462b-53b",
       "slug": "rayonleiter-in-do-it-inkl-stellvertretung-der-geschaftsfuhrung-jumbo-eyholz",
@@ -64,7 +65,7 @@
       "url": "https://jobs.coopjobs.ch/offene-stellen/rayonleiter-in-do-it-inkl-stellvertretung-der-geschaeftsfuehrung/4149462b-53bc-440b-85e0-d2773303c3c5",
       "source": "JUMBO Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-21T12:18:16.292Z",
+      "crawledAt": "2026-05-21T22:48:28.324Z",
       "addressLocality": "Eyholz",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -102,7 +103,7 @@
       "url": "https://jobs.coopjobs.ch/offene-stellen/verkaufsberater-in-deco/5020b7ed-25d5-4c66-80ba-4a9214f8531e",
       "source": "JUMBO Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-21T12:18:16.293Z",
+      "crawledAt": "2026-05-21T22:48:28.325Z",
       "addressLocality": "Brig-Glis",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -140,7 +141,7 @@
       "url": "https://jobs.coopjobs.ch/offene-stellen/verkaufsberater-in-garten/f282ec2f-1438-43c5-9b32-f1862c79be45",
       "source": "JUMBO Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-21T12:18:16.293Z",
+      "crawledAt": "2026-05-21T22:48:28.325Z",
       "addressLocality": "Eyholz",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -178,7 +179,7 @@
       "url": "https://jobs.coopjobs.ch/postes-vacantes/apprentissage-de-gestionnaire-du-commerce-de-detail-conception-et-realisation-d-experiences-d-achat/890c5910-af33-4f69-8100-307051dff257",
       "source": "JUMBO Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-21T12:18:16.294Z",
+      "crawledAt": "2026-05-21T22:48:28.326Z",
       "addressLocality": "Sierre",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -214,7 +215,7 @@
       "url": "https://jobs.coopjobs.ch/offene-stellen/detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen/cb72777c-d77c-4e8b-bf4a-23f23f88709a",
       "source": "JUMBO Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-21T12:18:16.294Z",
+      "crawledAt": "2026-05-21T22:48:28.327Z",
       "addressLocality": "Brig",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -250,7 +251,7 @@
       "url": "https://jobs.coopjobs.ch/postes-vacantes/apprentissage-de-gestionnaire-du-commerce-de-detail-conception-et-realisation-d-experiences-d-achat/1c670883-34ce-4a84-b01a-e1726167bc5c",
       "source": "JUMBO Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-21T12:18:16.295Z",
+      "crawledAt": "2026-05-21T22:48:28.328Z",
       "addressLocality": "Conthey",
       "addressRegion": "VS",
       "addressCountry": "CH",
