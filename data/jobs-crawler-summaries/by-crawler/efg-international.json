@@ -1,16 +1,16 @@
 {
   "key": "efg-international",
   "label": "EFG",
-  "generatedAt": "2026-05-19T22:07:09.077Z",
-  "total": 33,
+  "generatedAt": "2026-05-21T11:47:33.461Z",
+  "total": 34,
   "newCount": 0,
   "updatedCount": 29,
   "removedCount": 0,
-  "unchangedCount": 4,
-  "durationMs": 27346,
-  "avgDurationMs": 27346,
+  "unchangedCount": 5,
+  "durationMs": 29245,
+  "avgDurationMs": 29245,
   "durationHistory": [
-    27346
+    29245
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -133,7 +133,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-19T22:07:06.843Z",
+      "crawledAt": "2026-05-21T11:47:31.203Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-04-17",
@@ -250,7 +250,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-19T22:07:06.842Z",
+      "crawledAt": "2026-05-21T11:47:31.202Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "datePosted": "2026-03-31",
@@ -365,7 +365,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-19T22:07:06.841Z",
+      "crawledAt": "2026-05-21T11:47:31.200Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-04-15",
@@ -419,7 +419,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-19T22:07:06.839Z",
+      "crawledAt": "2026-05-21T11:47:31.199Z",
       "addressLocality": "St. Moritz",
       "addressCountry": "CH",
       "datePosted": "2026-04-01",
@@ -548,7 +548,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-19T22:07:06.838Z",
+      "crawledAt": "2026-05-21T11:47:31.197Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-04-01",
@@ -680,7 +680,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-19T22:07:06.837Z",
+      "crawledAt": "2026-05-21T11:47:31.196Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-04-09",
@@ -691,6 +691,87 @@
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
       "firstSeenAt": "2026-04-13T21:36:50.620Z",
+      "needsRetranslation": true,
+      "_qualityScore": 100,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
+        "translation": 25,
+        "completeness": 25
+      }
+    },
+    {
+      "id": "efg-6150",
+      "slug": "bi-solution-specialist-efg-geneve",
+      "company": "EFG International AG",
+      "title": "BI Solution Specialist",
+      "location": "Geneve",
+      "canton": "GE",
+      "category": "finance",
+      "contract": "permanent",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-02",
+      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6150",
+      "source": "Oracle HCM API",
+      "sourceLang": "en",
+      "companyKey": "efg-international",
+      "companyDomain": "efginternational.com",
+      "canonicalContent": {
+        "byLocale": {
+          "en": {
+            "summary": [],
+            "responsibilities": [
+              "Designing, building and maintaining business and management information data infrastructure",
+              "Developing reporting and analytics solutions to turn data into actionable business insights",
+              "Playing a key role in enhancing the team’s data mining capabilities and acting as a data expert, providing guidance on data processing and analysis",
+              "Staying abreast of key technical developments and trends (e.g. AI, cloud technologies) and assessing their relevance for the Group’s data and analytics landscape"
+            ],
+            "requirements": [
+              "University degree in Business, Data Science, Computer Science or Engineering",
+              "Advanced level in data visualisation tools such as Power Query, Power BI, Tableau or similar",
+              "Advanced knowledge of SQL and Python for database querying and data extraction",
+              "Analytical and structured mindset with strong communication skills",
+              "Practical, hands‑on and problem‑solving aptitude",
+              "Future‑oriented mindset and proactive approach to technical developments and trends in a dynamic environment"
+            ],
+            "benefits": [],
+            "process": [],
+            "highlights": [
+              "Designing, building and maintaining business and management information data infrastructure",
+              "Developing reporting and analytics solutions to turn data into actionable business insights",
+              "Playing a key role in enhancing the team’s data mining capabilities and acting as a data expert, providing guidance on data processing and analysis",
+              "University degree in Business, Data Science, Computer Science or Engineering",
+              "Advanced level in data visualisation tools such as Power Query, Power BI, Tableau or similar",
+              "Advanced knowledge of SQL and Python for database querying and data extraction"
+            ],
+            "keywords": [
+              "University degree in Business",
+              "Advanced level in data visualisation tools such as Power Query",
+              "Advanced knowledge of SQL and Python for database querying and data extraction",
+              "Analytical and structured mindset with strong communication skills",
+              "Practical",
+              "Designing",
+              "Developing reporting and analytics solutions to turn data into actionable business insights",
+              "Playing a key role in enhancing the team’s data mining capabilities and acting as a data expert",
+              "Staying abreast of key technical developments and trends (e.g. AI"
+            ],
+            "sections": [],
+            "readingMinutes": 1
+          }
+        }
+      },
+      "crawledAt": "2026-05-21T11:47:31.194Z",
+      "addressLocality": "Geneve",
+      "addressCountry": "CH",
+      "datePosted": "2026-04-02",
+      "salaryMin": 85500,
+      "salaryMax": 150000,
+      "streetAddress": "Via Pretorio 22",
+      "postalCode": "6900",
+      "addressRegion": "TI",
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-05-10T21:30:00.898Z",
       "needsRetranslation": true,
       "_qualityScore": 100,
       "_qualityBreakdown": {
@@ -780,7 +861,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-19T22:07:06.835Z",
+      "crawledAt": "2026-05-21T11:47:31.194Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "sourceLang": "en",
@@ -792,87 +873,6 @@
       "employmentType": "FULL_TIME",
       "datePosted": "2026-03-11",
       "firstSeenAt": "2026-04-13T10:28:21.959Z",
-      "_qualityScore": 100,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 25,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
-    {
-      "id": "efg-6150",
-      "slug": "bi-solution-specialist-efg-geneve",
-      "company": "EFG International AG",
-      "title": "BI Solution Specialist",
-      "location": "Geneve",
-      "canton": "GE",
-      "category": "finance",
-      "contract": "permanent",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-02",
-      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6150",
-      "source": "Oracle HCM API",
-      "sourceLang": "en",
-      "companyKey": "efg-international",
-      "companyDomain": "efginternational.com",
-      "canonicalContent": {
-        "byLocale": {
-          "en": {
-            "summary": [],
-            "responsibilities": [
-              "Designing, building and maintaining business and management information data infrastructure",
-              "Developing reporting and analytics solutions to turn data into actionable business insights",
-              "Playing a key role in enhancing the team’s data mining capabilities and acting as a data expert, providing guidance on data processing and analysis",
-              "Staying abreast of key technical developments and trends (e.g. AI, cloud technologies) and assessing their relevance for the Group’s data and analytics landscape"
-            ],
-            "requirements": [
-              "University degree in Business, Data Science, Computer Science or Engineering",
-              "Advanced level in data visualisation tools such as Power Query, Power BI, Tableau or similar",
-              "Advanced knowledge of SQL and Python for database querying and data extraction",
-              "Analytical and structured mindset with strong communication skills",
-              "Practical, hands‑on and problem‑solving aptitude",
-              "Future‑oriented mindset and proactive approach to technical developments and trends in a dynamic environment"
-            ],
-            "benefits": [],
-            "process": [],
-            "highlights": [
-              "Designing, building and maintaining business and management information data infrastructure",
-              "Developing reporting and analytics solutions to turn data into actionable business insights",
-              "Playing a key role in enhancing the team’s data mining capabilities and acting as a data expert, providing guidance on data processing and analysis",
-              "University degree in Business, Data Science, Computer Science or Engineering",
-              "Advanced level in data visualisation tools such as Power Query, Power BI, Tableau or similar",
-              "Advanced knowledge of SQL and Python for database querying and data extraction"
-            ],
-            "keywords": [
-              "University degree in Business",
-              "Advanced level in data visualisation tools such as Power Query",
-              "Advanced knowledge of SQL and Python for database querying and data extraction",
-              "Analytical and structured mindset with strong communication skills",
-              "Practical",
-              "Designing",
-              "Developing reporting and analytics solutions to turn data into actionable business insights",
-              "Playing a key role in enhancing the team’s data mining capabilities and acting as a data expert",
-              "Staying abreast of key technical developments and trends (e.g. AI"
-            ],
-            "sections": [],
-            "readingMinutes": 1
-          }
-        }
-      },
-      "crawledAt": "2026-05-19T22:07:06.834Z",
-      "addressLocality": "Geneve",
-      "addressCountry": "CH",
-      "datePosted": "2026-04-02",
-      "salaryMin": 85500,
-      "salaryMax": 150000,
-      "streetAddress": "Via Pretorio 22",
-      "postalCode": "6900",
-      "addressRegion": "TI",
-      "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-05-10T21:30:00.898Z",
-      "needsRetranslation": true,
       "_qualityScore": 100,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -978,7 +978,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-19T22:07:06.834Z",
+      "crawledAt": "2026-05-21T11:47:31.193Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "sourceLang": "en",
@@ -1092,7 +1092,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-19T22:07:06.833Z",
+      "crawledAt": "2026-05-21T11:47:31.192Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-03-25",
@@ -1145,7 +1145,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-19T22:07:06.830Z",
+      "crawledAt": "2026-05-21T11:47:31.190Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-04-07",
@@ -1223,7 +1223,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-19T22:07:06.829Z",
+      "crawledAt": "2026-05-21T11:47:31.188Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "datePosted": "2026-04-02",
@@ -1277,7 +1277,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-19T22:07:06.827Z",
+      "crawledAt": "2026-05-21T11:47:31.187Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "datePosted": "2026-04-08",
@@ -1330,7 +1330,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-19T22:07:06.827Z",
+      "crawledAt": "2026-05-21T11:47:31.186Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-04-08",
@@ -1452,7 +1452,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-19T22:07:06.825Z",
+      "crawledAt": "2026-05-21T11:47:31.185Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "sourceLang": "en",
@@ -1580,7 +1580,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-19T22:07:06.824Z",
+      "crawledAt": "2026-05-21T11:47:31.184Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "sourceLang": "en",
@@ -1635,7 +1635,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-19T22:07:06.823Z",
+      "crawledAt": "2026-05-21T11:47:31.183Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2025-12-10",
@@ -1688,7 +1688,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-19T22:07:06.822Z",
+      "crawledAt": "2026-05-21T11:47:31.182Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "datePosted": "2026-04-08",
@@ -1801,7 +1801,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-19T22:07:06.822Z",
+      "crawledAt": "2026-05-21T11:47:31.182Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2025-12-02",
@@ -1923,7 +1923,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-19T22:07:06.821Z",
+      "crawledAt": "2026-05-21T11:47:31.181Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-04-14",
@@ -2071,7 +2071,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-19T22:07:06.820Z",
+      "crawledAt": "2026-05-21T11:47:31.180Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-02-11",
@@ -2163,7 +2163,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-19T22:07:06.818Z",
+      "crawledAt": "2026-05-21T11:47:31.178Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-05-08",
@@ -2216,7 +2216,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-19T22:07:06.817Z",
+      "crawledAt": "2026-05-21T11:47:31.177Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-05-15",
@@ -2343,7 +2343,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-19T22:07:06.815Z",
+      "crawledAt": "2026-05-21T11:47:31.175Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-05-15",
@@ -2429,7 +2429,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-19T22:07:06.813Z",
+      "crawledAt": "2026-05-21T11:47:31.173Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "datePosted": "2026-05-18",
@@ -2755,7 +2755,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-19T22:07:06.844Z",
+      "crawledAt": "2026-05-21T11:47:31.204Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-04-17",
@@ -2850,7 +2850,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-19T22:07:06.841Z",
+      "crawledAt": "2026-05-21T11:47:31.201Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "datePosted": "2026-04-09",
@@ -2973,7 +2973,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-19T22:07:06.831Z",
+      "crawledAt": "2026-05-21T11:47:31.191Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-01-19",
@@ -3027,7 +3027,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-19T22:07:06.828Z",
+      "crawledAt": "2026-05-21T11:47:31.188Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "datePosted": "2026-04-21",
@@ -3044,6 +3044,60 @@
         "cleanliness": 25,
         "richness": 24,
         "translation": 25,
+        "completeness": 25
+      }
+    },
+    {
+      "id": "efg-6219",
+      "slug": "data-ops-engineer-efg-geneve",
+      "company": "EFG International AG",
+      "title": "Data Ops Engineer",
+      "location": "Geneve",
+      "canton": "GE",
+      "category": "tech",
+      "contract": "permanent",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-20",
+      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6219",
+      "source": "Oracle HCM API",
+      "sourceLang": "en",
+      "companyKey": "efg-international",
+      "companyDomain": "efginternational.com",
+      "canonicalContent": {
+        "byLocale": {
+          "en": {
+            "summary": [
+              "<p><span lang=\"DE\"><strong>General Info</strong></span></p><ul style=\"list-style-type: disc;\"><li><span lang=\"EN-GB\">Department: IT Data Departement</span></li><li><span lang=\"EN-GB\">Work time Percentage: 100%</span></li><li><span lang=\"EN-GB\">Location: Geneva</span></li></ul><p> </p><p><span lang=\"IT-CH\"><strong>Our Company</strong></span></p><p><span lang=\"EN-GB\">EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice. </span></p><p><span lang=\"EN-GB\">EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation.</span></p><p><span><strong>Our Purpose and Mission</strong></span></p><p><span lang=\"EN-GB\">Empowering entrepreneurial minds to create value – today and for the future.</span></p><p><span lang=\"EN-GB\">We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value.</span></p><p><span lang=\"EN-GB\"><strong>Job Description</strong></span></p><p><span lang=\"EN-GB\">DataOps platform team mission is to ensure a reliable service level across each technological component of the EFG data platform (Databricks, Kafka, Spark, Elastic Search, Apache MQ, uServices stack). </span></p><p><span lang=\"EN-GB\">We are building and evolving the CI/CD Platform that supports data pipeline deployments, bringing implementation expertise and working closely with project teams to get deliverables across the line. </span></p><p><span lang=\"EN-GB\">Key team responsibilities includes, CI/CD governance of data pipelines, pipeline deployment support and certification and monitoring of platform level operations.</span></p><p><span lang=\"EN-GB\"><strong>Main Responsibilities</strong></span></p><p><span lang=\"EN-GB\"> As our platform and data landscape evolve, we would like to strengthen our team with a skilled CI/CD engineer specialised in data pipeline implementations.</span></p><ul style=\"list-style-type: disc;\"><li><span lang=\"EN-GB\">Expectations on data quality are constantly increasing with the need for a extremely stable service delivery. We must ensure that our delivery processes are controlled and visible to our stakeholders. </span></li><li><span lang=\"EN-GB\">We are particularly interested in someone comfortable driving Kafka, Spark and Databricks operations with Python </span></li><li><span lang=\"EN-GB\">By reinforcing our team, you will greatly contribute to the continuity and quality of our operations.</span></li><li><span lang=\"EN-GB\">Take operational ownership of specific data services (change management, quality insurance management, SLA, SOP) </span></li><li><span lang=\"EN-GB\">track and ensure the smooth operation of critical data pipelines during Asian hours, acting as the primary point of contact for critical issues in a follow-the sun support model.</span></li><li><span lang=\"EN-GB\">Design, implement, and optimize data pipeline in batch and streaming mode.</span></li><li><span lang=\"EN-GB\">Follow and apply CI/CD practice to automate and streamline deployments and integrations.</span></li><li><span lang=\"EN-GB\">Create, maintain, and improve documentation and operational procedures for which operationnal ownership is ensured.</span></li><li><span lang=\"EN-GB\">Collaborate with cross-functional teams to improve and review governance around integration operations.</span></li><li><span lang=\"EN-GB\">Maintain high standards of data quality, reliability, and performance.</span></li><li><span lang=\"EN-GB\">Stay current with advancements in data engineering, of dataops tech stack, to support continuous improvement</span></li></ul><p><span lang=\"EN-GB\"><strong>Requirements and Qualifications</strong></span></p><ul style=\"list-style-type: disc;\"><li><span lang=\"EN-GB\">At least 5 Years of proven hands-on experience in data engineering and data pipeline deployment rooted in devops practice.</span></li><li><span lang=\"EN-GB\">Comfortable working with Python, SQL, PySpark and Databricks</span></li><li><span lang=\"EN-GB\">Robust experience of any leading CI/CD platforms and processes in hybrid environment (e.g., Azure DevOps, GitLab CI, GitHub Actions ).</span></li><li><span lang=\"EN-GB\">Familiarity with microservices architecture, API management and observability is a real plus </span></li><li><span lang=\"EN-GB\">Experienced with Azure databricks.</span></li><li><span lang=\"EN-GB\">Good communication and collaboration skills.</span></li><li><span lang=\"EN-GB\">Rigorous and methodical in documentation and process creation</span></li><li><span lang=\"EN-GB\">High interest for convergence, normalization and reusability.</span></li><li><span lang=\"EN-GB\">Curious, enthusiastic and proactive</span></li><li><span lang=\"EN-GB\">Passionate about data processing technologies, with a strong desire to learn and grow in a demanding environment</span></li><li><span lang=\"EN-GB\">Fluent in spoken and written English, French is an asset.</span></li></ul><p><span lang=\"EN-GB\"> </span></p><p><span lang=\"EN-GB\"><strong>Our Values</strong></span></p><ul style=\"list-style-type: disc;\"><li><span lang=\"EN-GB\">Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement</span></li><li><span lang=\"EN-GB\">Hands-on: Being proactive to rapidly deliver high-quality results</span></li><li><span lang=\"EN-GB\">Passionate: Being committed and striving for excellence</span></li><li><span lang=\"EN-GB\">Solution-driven: Focusing on client outcomes and treating clients fairly with a risk-aware mindset</span></li><li><span lang=\"EN-GB\">Partnership-oriented: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.</span></li></ul><p><span lang=\"EN-GB\"><strong>Please ensure to attach a cover letter to your CV when filling the application.</strong></span></p><p><span lang=\"EN-GB\">Application</span></p><p><span lang=\"EN-GB\">Should you wish to apply for this position use this link to apply.</span></p><p> </p>"
+            ],
+            "responsibilities": [],
+            "requirements": [],
+            "benefits": [],
+            "process": [],
+            "highlights": [],
+            "keywords": [],
+            "sections": [],
+            "readingMinutes": 4
+          }
+        }
+      },
+      "crawledAt": "2026-05-21T11:47:31.169Z",
+      "addressLocality": "Geneve",
+      "addressCountry": "CH",
+      "needsRetranslation": true,
+      "datePosted": "2026-05-20",
+      "salaryMin": 51500,
+      "salaryMax": 88000,
+      "streetAddress": "Via Pretorio 22",
+      "postalCode": "6900",
+      "addressRegion": "TI",
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-05-20T22:46:49.521Z",
+      "_qualityScore": 95,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 21,
         "completeness": 25
       }
     }
