@@ -78,6 +78,13 @@
       "impressions": 1
     }
   ],
+  "chiasso": [
+    {
+      "query": "job chiasso",
+      "clicks": 0,
+      "impressions": 1
+    }
+  ],
   "lugano": [
     {
       "query": "concorsi lugano",
@@ -101,13 +108,6 @@
     },
     {
       "query": "tutti.ch lavoro lugano",
-      "clicks": 0,
-      "impressions": 1
-    }
-  ],
-  "chiasso": [
-    {
-      "query": "job chiasso",
       "clicks": 0,
       "impressions": 1
     }
@@ -208,23 +208,6 @@
       "impressions": 1
     }
   ],
-  "fahrer": [
-    {
-      "query": "fahrer locarno",
-      "clicks": 0,
-      "impressions": 10
-    },
-    {
-      "query": "fahrer jobs lugano",
-      "clicks": 0,
-      "impressions": 2
-    },
-    {
-      "query": "datumstempel migros",
-      "clicks": 0,
-      "impressions": 1
-    }
-  ],
   "bellinzona": [
     {
       "query": "jobs bellinzona",
@@ -238,6 +221,23 @@
     },
     {
       "query": "nebenjobs bellinzona",
+      "clicks": 0,
+      "impressions": 1
+    }
+  ],
+  "fahrer": [
+    {
+      "query": "fahrer locarno",
+      "clicks": 0,
+      "impressions": 10
+    },
+    {
+      "query": "fahrer jobs lugano",
+      "clicks": 0,
+      "impressions": 2
+    },
+    {
+      "query": "datumstempel migros",
       "clicks": 0,
       "impressions": 1
     }
@@ -372,33 +372,6 @@
       "impressions": 2
     }
   ],
-  "nurses": [
-    {
-      "query": "nursing jobs",
-      "clicks": 0,
-      "impressions": 4
-    },
-    {
-      "query": "english speaking nursing jobs in switzerland",
-      "clicks": 0,
-      "impressions": 1
-    },
-    {
-      "query": "nurses job vacancy in switzerland",
-      "clicks": 0,
-      "impressions": 1
-    },
-    {
-      "query": "nursing job opportunities in switzerland",
-      "clicks": 0,
-      "impressions": 1
-    },
-    {
-      "query": "switzerland nurses vacancy",
-      "clicks": 0,
-      "impressions": 1
-    }
-  ],
   "pflegepersonal": [
     {
       "query": "pflegejobs regionalspital surselva ag",
@@ -429,6 +402,33 @@
     },
     {
       "query": "posti vacanti ticino",
+      "clicks": 0,
+      "impressions": 1
+    }
+  ],
+  "nurses": [
+    {
+      "query": "nursing jobs",
+      "clicks": 0,
+      "impressions": 4
+    },
+    {
+      "query": "english speaking nursing jobs in switzerland",
+      "clicks": 0,
+      "impressions": 1
+    },
+    {
+      "query": "nurses job vacancy in switzerland",
+      "clicks": 0,
+      "impressions": 1
+    },
+    {
+      "query": "nursing job opportunities in switzerland",
+      "clicks": 0,
+      "impressions": 1
+    },
+    {
+      "query": "switzerland nurses vacancy",
       "clicks": 0,
       "impressions": 1
     }
@@ -484,23 +484,6 @@
       "impressions": 1
     }
   ],
-  "store-manager-apprendista-a-80-100-per-la-filiale-seewen-jysk-schwyz": [
-    {
-      "query": "store manager svizzera",
-      "clicks": 0,
-      "impressions": 2
-    },
-    {
-      "query": "jysk lavora con noi",
-      "clicks": 0,
-      "impressions": 1
-    },
-    {
-      "query": "offerte apprendistato ticino",
-      "clicks": 0,
-      "impressions": 1
-    }
-  ],
   "apprendistato": [
     {
       "query": "apprendistato in ticino per italiani",
@@ -526,13 +509,6 @@
     },
     {
       "query": "ingegnere ticino",
-      "clicks": 0,
-      "impressions": 1
-    }
-  ],
-  "mendrisio": [
-    {
-      "query": "revolut hypotheken",
       "clicks": 0,
       "impressions": 1
     }
@@ -566,23 +542,6 @@
       "impressions": 1
     }
   ],
-  "tissot-sales-associate-the-swatch-group-u-s-inc-ticino": [
-    {
-      "query": "swatch emploi",
-      "clicks": 0,
-      "impressions": 1
-    },
-    {
-      "query": "swatch job",
-      "clicks": 0,
-      "impressions": 1
-    },
-    {
-      "query": "swatch jobs",
-      "clicks": 0,
-      "impressions": 1
-    }
-  ],
   "ingenieure": [
     {
       "query": "ingenieure stellenvermittlung",
@@ -595,35 +554,11 @@
       "impressions": 1
     }
   ],
-  "stv-branch-manager-in-denner-schaffhausen": [
+  "mendrisio": [
     {
-      "query": "denner job",
+      "query": "revolut hypotheken",
       "clicks": 0,
       "impressions": 1
-    },
-    {
-      "query": "denner lavora con noi",
-      "clicks": 0,
-      "impressions": 1
-    }
-  ],
-  "swatch-tempo-pieno-keyholder-ny-ny-hotel-las-vegas-the-swatch-group-u-s-inc-ticino": [
-    {
-      "query": "stage ticino",
-      "clicks": 0,
-      "impressions": 1
-    },
-    {
-      "query": "swatch emploi",
-      "clicks": 0,
-      "impressions": 1
-    }
-  ],
-  "tecnico-di-ascensori-m-f-d-otis-sa-kriens": [
-    {
-      "query": "installazione ascensori ticino",
-      "clicks": 0,
-      "impressions": 2
     }
   ],
   "gastronomie": [
@@ -663,20 +598,6 @@
     {
       "query": "offerte di lavoro",
       "clicks": 1,
-      "impressions": 1
-    }
-  ],
-  "omega-client-advisor-perth-the-swatch-group-australia-pty-ltd-ticino": [
-    {
-      "query": "customer service ticino",
-      "clicks": 0,
-      "impressions": 1
-    }
-  ],
-  "omega-luxusuhren-vertriebsmitarbeiter-dallas-the-swatch-group-u-s-inc-ticino": [
-    {
-      "query": "omega stage",
-      "clicks": 0,
       "impressions": 1
     }
   ],
@@ -3694,6 +3615,92 @@
   "apprenti-e-operatrice-operatore-socioassistenziale-afc-indirizzo-infanzia-supsi-dti-manno": [
     {
       "query": "osa offerte di lavoro",
+      "clicks": 0,
+      "impressions": 1
+    }
+  ],
+  "store-manager-apprendista-a-80-100-per-la-filiale-seewen-jysk-schwyz": [
+    {
+      "query": "store manager svizzera",
+      "clicks": 0,
+      "impressions": 2
+    },
+    {
+      "query": "jysk lavora con noi",
+      "clicks": 0,
+      "impressions": 1
+    },
+    {
+      "query": "offerte apprendistato ticino",
+      "clicks": 0,
+      "impressions": 1
+    }
+  ],
+  "tissot-sales-associate-the-swatch-group-u-s-inc-ticino": [
+    {
+      "query": "swatch emploi",
+      "clicks": 0,
+      "impressions": 1
+    },
+    {
+      "query": "swatch job",
+      "clicks": 0,
+      "impressions": 1
+    },
+    {
+      "query": "swatch jobs",
+      "clicks": 0,
+      "impressions": 1
+    }
+  ],
+  "stv-branch-manager-in-denner-schaffhausen": [
+    {
+      "query": "denner job",
+      "clicks": 0,
+      "impressions": 1
+    },
+    {
+      "query": "denner lavora con noi",
+      "clicks": 0,
+      "impressions": 1
+    }
+  ],
+  "swatch-tempo-pieno-keyholder-ny-ny-hotel-las-vegas-the-swatch-group-u-s-inc-ticino": [
+    {
+      "query": "stage ticino",
+      "clicks": 0,
+      "impressions": 1
+    },
+    {
+      "query": "swatch emploi",
+      "clicks": 0,
+      "impressions": 1
+    }
+  ],
+  "tecnico-di-ascensori-m-f-d-otis-sa-kriens": [
+    {
+      "query": "installazione ascensori ticino",
+      "clicks": 0,
+      "impressions": 2
+    }
+  ],
+  "omega-client-advisor-perth-the-swatch-group-australia-pty-ltd-ticino": [
+    {
+      "query": "customer service ticino",
+      "clicks": 0,
+      "impressions": 1
+    }
+  ],
+  "omega-luxusuhren-vertriebsmitarbeiter-dallas-the-swatch-group-u-s-inc-ticino": [
+    {
+      "query": "omega stage",
+      "clicks": 0,
+      "impressions": 1
+    }
+  ],
+  "betriebsmechaniker-betriebsmechanikerin-neubau-oensingen-hilcona-undefined": [
+    {
+      "query": "bell jobs oensingen",
       "clicks": 0,
       "impressions": 1
     }
