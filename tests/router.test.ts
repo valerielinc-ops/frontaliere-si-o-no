@@ -1,5 +1,5 @@
 import { describe, it, expect, vi, beforeEach, afterEach, afterAll } from 'vitest';
-import { buildPath, parsePath, pushRoute, replaceRoute, updatePathForLocale, registerJobSlugMap } from '@/services/router';
+import { buildPath, parsePath, pushRoute, replaceRoute, updatePathForLocale, registerJobSlugMap, getJobMetaForSlug } from '@/services/router';
 
 const SEO_LANDINGS = [
   'salary-60000',
@@ -848,5 +848,34 @@ describe('Router — SPA equivalent wins over static landing', () => {
     const { route } = parsePath('/fr/calculer-salaire/scenarios');
     expect(route.activeTab).toBe('calculator');
     expect(route.staticOverlay).toBe(true);
+  });
+});
+
+describe('Router — registerJobSlugMap protects against slim-payload wipe', () => {
+  it('does not overwrite a populated slug map when called with slim jobs that lack slugByLocale', () => {
+    const slug = 'responsabile-pulizie-manutenzione-60-100-spital-schwyz-schwyz';
+    registerJobSlugMap([
+      {
+        id: 'spital-schwyz-a273343ebd6e',
+        canton: 'SZ',
+        slug,
+        slugByLocale: {
+          it: slug,
+          de: 'stv-leitung-reinigung-unterhalt-60-100-spital-schwyz-schwyz',
+        },
+      },
+    ]);
+    expect(getJobMetaForSlug(slug)).toMatchObject({ canton: 'SZ', id: 'spital-schwyz-a273343ebd6e' });
+
+    // Second call mimics JobBoard.finalize() invoking registerJobSlugMap
+    // with the size-trimmed /data/jobs-${locale}-index.json payload, which
+    // carries `slug` + `previousSlugs` but no `slugByLocale`.
+    registerJobSlugMap([
+      { id: 'spital-schwyz-a273343ebd6e', canton: 'SZ', slug },
+    ]);
+
+    // Bridge resolution would break here if the empty payload wiped the
+    // full map loaded from /data/jobs-slug-map.json.
+    expect(getJobMetaForSlug(slug)).toMatchObject({ canton: 'SZ', id: 'spital-schwyz-a273343ebd6e' });
   });
 });
