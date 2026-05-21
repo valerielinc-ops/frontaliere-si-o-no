@@ -1,54 +1,18 @@
 {
   "key": "berit-klinik",
   "label": "Berit Klinik",
-  "generatedAt": "2026-05-21T11:16:09.385Z",
-  "total": 14,
-  "newCount": 1,
+  "generatedAt": "2026-05-21T21:47:23.034Z",
+  "total": 13,
+  "newCount": 0,
   "updatedCount": 13,
-  "removedCount": 0,
+  "removedCount": 1,
   "unchangedCount": 0,
-  "durationMs": 5225,
-  "avgDurationMs": 5225,
+  "durationMs": 6268,
+  "avgDurationMs": 6268,
   "durationHistory": [
-    5225
+    6268
   ],
-  "newJobs": [
-    {
-      "title": "Mitarbeiter Technischer Dienst, 100%",
-      "slug": "mitarbeiter-technischer-dienst-100-berit-klinik",
-      "url": "https://cms-berit-klinik.deployco.de/api/media/file/stelleninserat_mitarbeiter_in_technischer_dienst_100__ae8a56c176.pdf",
-      "applyUrl": "https://www.beritklinik.ch/de/karriere-offene-stellen",
-      "company": "Berit Klinik",
-      "companyKey": "berit-klinik",
-      "companyDomain": "beritklinik.ch",
-      "location": "Speicher",
-      "addressLocality": "Speicher",
-      "addressRegion": "AR",
-      "postalCode": "9042",
-      "addressCountry": "CH",
-      "canton": "AR",
-      "country": "CH",
-      "category": "health",
-      "sector": "Gesundheitswesen / Klinik",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "source": "berit-klinik-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-05-21",
-      "validThrough": "",
-      "needsRetranslation": true,
-      "_meta": {
-        "sourceFilename": "stelleninserat_mitarbeiter_in_technischer_dienst_100__ae8a56c176.pdf"
-      },
-      "_qualityScore": 64,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 4,
-        "completeness": 17
-      }
-    }
-  ],
+  "newJobs": [],
   "updatedJobs": [
     {
       "title": "Logistiker:in, 100%",
@@ -115,43 +79,6 @@
         "sourceFilename": "stelleninserat_dipl._fachfrau_fachmann_op_technik__60_80__1a84a099a7.pdf"
       },
       "id": "berit-klinik-bc1b34bee37c",
-      "firstSeenAt": "2026-05-20T05:18:01.368Z",
-      "_qualityScore": 85,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 17
-      }
-    },
-    {
-      "title": "Hotellerie, 100%",
-      "slug": "hotellerie-100-berit-klinik",
-      "url": "https://cms-berit-klinik.deployco.de/api/media/file/stelleninserat_mitarbeiter_in_hotellerie_100__ea649357ba.pdf",
-      "applyUrl": "https://www.beritklinik.ch/de/karriere-offene-stellen",
-      "company": "Berit Klinik",
-      "companyKey": "berit-klinik",
-      "companyDomain": "beritklinik.ch",
-      "location": "Speicher",
-      "addressLocality": "Speicher",
-      "addressRegion": "AR",
-      "postalCode": "9042",
-      "addressCountry": "CH",
-      "canton": "AR",
-      "country": "CH",
-      "category": "health",
-      "sector": "Gesundheitswesen / Klinik",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "source": "berit-klinik-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-05-20",
-      "validThrough": "",
-      "needsRetranslation": true,
-      "_meta": {
-        "sourceFilename": "stelleninserat_mitarbeiter_in_hotellerie_100__ea649357ba.pdf"
-      },
-      "id": "berit-klinik-866e3eebd557",
       "firstSeenAt": "2026-05-20T05:18:01.368Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -347,6 +274,43 @@
       }
     },
     {
+      "title": "Mitarbeiter Technischer Dienst, 100%",
+      "slug": "mitarbeiter-technischer-dienst-100-berit-klinik",
+      "url": "https://cms-berit-klinik.deployco.de/api/media/file/stelleninserat_mitarbeiter_in_technischer_dienst_100__ae8a56c176.pdf",
+      "applyUrl": "https://www.beritklinik.ch/de/karriere-offene-stellen",
+      "company": "Berit Klinik",
+      "companyKey": "berit-klinik",
+      "companyDomain": "beritklinik.ch",
+      "location": "Speicher",
+      "addressLocality": "Speicher",
+      "addressRegion": "AR",
+      "postalCode": "9042",
+      "addressCountry": "CH",
+      "canton": "AR",
+      "country": "CH",
+      "category": "health",
+      "sector": "Gesundheitswesen / Klinik",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "source": "berit-klinik-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-05-21",
+      "validThrough": "",
+      "needsRetranslation": true,
+      "_meta": {
+        "sourceFilename": "stelleninserat_mitarbeiter_in_technischer_dienst_100__ae8a56c176.pdf"
+      },
+      "id": "berit-klinik-e76e0190ac50",
+      "firstSeenAt": "2026-05-21T11:16:09.383Z",
+      "_qualityScore": 85,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 17
+      }
+    },
+    {
       "title": "Teamleitung Fakturierung, 100%",
       "slug": "teamleitung-fakturierung-100-berit-klinik",
       "url": "https://cms-berit-klinik.deployco.de/api/media/file/stelleninserat_stv._teamleitung_fakturierung_100__8a984a3fa8.pdf",
@@ -532,6 +496,46 @@
       }
     }
   ],
-  "removedJobs": [],
+  "removedJobs": [
+    {
+      "title": "Hotellerie, 100%",
+      "slug": "hotellerie-100-berit-klinik",
+      "url": "https://cms-berit-klinik.deployco.de/api/media/file/stelleninserat_mitarbeiter_in_hotellerie_100__ea649357ba.pdf",
+      "applyUrl": "https://www.beritklinik.ch/de/karriere-offene-stellen",
+      "company": "Berit Klinik",
+      "companyKey": "berit-klinik",
+      "companyDomain": "beritklinik.ch",
+      "location": "Speicher",
+      "addressLocality": "Speicher",
+      "addressRegion": "AR",
+      "postalCode": "9042",
+      "addressCountry": "CH",
+      "canton": "AR",
+      "country": "CH",
+      "category": "health",
+      "sector": "Gesundheitswesen / Klinik",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "source": "berit-klinik-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-05-20",
+      "validThrough": "",
+      "_meta": {
+        "sourceFilename": "stelleninserat_mitarbeiter_in_hotellerie_100__ea649357ba.pdf"
+      },
+      "id": "berit-klinik-866e3eebd557",
+      "firstSeenAt": "2026-05-20T05:18:01.368Z",
+      "salaryMin": 70500,
+      "salaryMax": 98500,
+      "currency": "CHF",
+      "_qualityScore": 90,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 22
+      }
+    }
+  ],
   "unchangedJobs": []
 }
