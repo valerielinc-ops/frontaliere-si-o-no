@@ -1,18 +1,53 @@
 {
   "key": "postfinance",
   "label": "PostFinance",
-  "generatedAt": "2026-05-19T23:11:53.149Z",
-  "total": 7,
-  "newCount": 0,
+  "generatedAt": "2026-05-21T12:58:33.525Z",
+  "total": 8,
+  "newCount": 1,
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 5,
-  "durationMs": 11085,
-  "avgDurationMs": 11085,
+  "durationMs": 13389,
+  "avgDurationMs": 13389,
   "durationHistory": [
-    11085
+    13389
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "url": "https://job.post.ch/PostFinance/job/Bern-Homeoffice-Lead-Developer-%28wmd%29/1381588933/",
+      "applyUrl": "https://job.post.ch/PostFinance/job/Bern-Homeoffice-Lead-Developer-%28wmd%29/1381588933/",
+      "title": "Lead Developer (w/m/d)",
+      "company": "PostFinance",
+      "companyKey": "postfinance",
+      "location": "Bern",
+      "canton": "BE",
+      "country": "CH",
+      "slug": "lead-developer-w-m-d-postfinance",
+      "sourceLang": "de",
+      "department": "",
+      "category": "servizi-finanziari",
+      "datePosted": "2026-05-21",
+      "validThrough": "",
+      "source": "postfinance-careers-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "",
+      "sector": "IT",
+      "workload": "",
+      "needsRetranslation": true,
+      "_targetScope": {
+        "canton": "BE",
+        "location": "Bern"
+      },
+      "crawledAt": "",
+      "_qualityScore": 60,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 6,
+        "completeness": 9
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "url": "https://job.post.ch/PostFinance/job/Bern-Homeoffice-Architecture-Owner-Telefonie-und-KOP-%28wmd%29/1384004633/",
@@ -137,6 +172,46 @@
       }
     },
     {
+      "url": "https://job.post.ch/PostFinance/job/Lausanne-Conseiller%C3%A8re-client%C3%A8le-priv%C3%A9e%2C-Lausanne/1280543401/",
+      "applyUrl": "https://job.post.ch/PostFinance/job/Lausanne-Conseiller%C3%A8re-client%C3%A8le-priv%C3%A9e%2C-Lausanne/1280543401/",
+      "title": "Conseiller:ère clientèle privée, Lausanne",
+      "company": "PostFinance",
+      "companyKey": "postfinance",
+      "location": "Lausanne",
+      "canton": "VD",
+      "country": "CH",
+      "slug": "consigliere-era-cliente-privato-losanna-postfinance-lausanne",
+      "sourceLang": "fr",
+      "department": "",
+      "category": "servizi-finanziari",
+      "datePosted": "2026-05-16",
+      "validThrough": "",
+      "source": "postfinance-careers-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "",
+      "sector": "Servizi Finanziari",
+      "workload": "",
+      "_targetScope": {
+        "canton": "VD",
+        "location": "Lausanne"
+      },
+      "crawledAt": "",
+      "id": "postfinance-1ee349fcd573",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "postalCode": "1003",
+      "firstSeenAt": "2026-05-16T10:49:06.770Z",
+      "needsRetranslation": true,
+      "_qualityScore": 85,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 17
+      }
+    },
+    {
       "url": "https://job.post.ch/PostFinance/job/Lausanne-Conseiller%C3%A8re-client%C3%A8le-en-placement%2C-Lausanne/1280550201/",
       "applyUrl": "https://job.post.ch/PostFinance/job/Lausanne-Conseiller%C3%A8re-client%C3%A8le-en-placement%2C-Lausanne/1280550201/",
       "title": "Conseiller:ère clientèle en placement, Lausanne",
@@ -172,46 +247,6 @@
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 25,
-        "completeness": 17
-      }
-    },
-    {
-      "url": "https://job.post.ch/PostFinance/job/Bulle-Collaborateurtrice-Compliance-Office-Client%C3%A8le-Commerciale/1374021633/",
-      "applyUrl": "https://job.post.ch/PostFinance/job/Bulle-Collaborateurtrice-Compliance-Office-Client%C3%A8le-Commerciale/1374021633/",
-      "title": "Collaborateur:trice Compliance Office Clientèle Commerciale",
-      "company": "PostFinance",
-      "companyKey": "postfinance",
-      "location": "Bulle",
-      "canton": "FR",
-      "country": "CH",
-      "slug": "collaboratore-trice-compliance-ufficio-clientela-commerciale-postfinance-bulle",
-      "sourceLang": "fr",
-      "department": "",
-      "category": "servizi-finanziari",
-      "datePosted": "2026-05-16",
-      "validThrough": "",
-      "source": "postfinance-careers-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "",
-      "sector": "Finanza",
-      "workload": "",
-      "_targetScope": {
-        "canton": "FR",
-        "location": "Bulle"
-      },
-      "crawledAt": "",
-      "id": "postfinance-97dc609ae987",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "postalCode": "1630",
-      "firstSeenAt": "2026-05-16T10:49:06.770Z",
-      "needsRetranslation": true,
-      "_qualityScore": 87,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
         "translation": 25,
         "completeness": 17
       }
@@ -257,15 +292,15 @@
       }
     },
     {
-      "url": "https://job.post.ch/PostFinance/job/Lausanne-Conseiller%C3%A8re-client%C3%A8le-priv%C3%A9e%2C-Lausanne/1280543401/",
-      "applyUrl": "https://job.post.ch/PostFinance/job/Lausanne-Conseiller%C3%A8re-client%C3%A8le-priv%C3%A9e%2C-Lausanne/1280543401/",
-      "title": "Conseiller:ère clientèle privée, Lausanne",
+      "url": "https://job.post.ch/PostFinance/job/Bulle-Collaborateurtrice-Compliance-Office-Client%C3%A8le-Commerciale/1374021633/",
+      "applyUrl": "https://job.post.ch/PostFinance/job/Bulle-Collaborateurtrice-Compliance-Office-Client%C3%A8le-Commerciale/1374021633/",
+      "title": "Collaborateur:trice Compliance Office Clientèle Commerciale",
       "company": "PostFinance",
       "companyKey": "postfinance",
-      "location": "Lausanne",
-      "canton": "VD",
+      "location": "Bulle",
+      "canton": "FR",
       "country": "CH",
-      "slug": "consigliere-era-cliente-privato-losanna-postfinance-lausanne",
+      "slug": "collaboratore-trice-compliance-ufficio-clientela-commerciale-postfinance-bulle",
       "sourceLang": "fr",
       "department": "",
       "category": "servizi-finanziari",
@@ -274,24 +309,24 @@
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "",
-      "sector": "Servizi Finanziari",
+      "sector": "Finanza",
       "workload": "",
       "_targetScope": {
-        "canton": "VD",
-        "location": "Lausanne"
+        "canton": "FR",
+        "location": "Bulle"
       },
       "crawledAt": "",
-      "id": "postfinance-1ee349fcd573",
+      "id": "postfinance-97dc609ae987",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
-      "postalCode": "1003",
+      "postalCode": "1630",
       "firstSeenAt": "2026-05-16T10:49:06.770Z",
       "needsRetranslation": true,
-      "_qualityScore": 85,
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 18,
+        "richness": 20,
         "translation": 25,
         "completeness": 17
       }
