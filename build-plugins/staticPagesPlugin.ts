@@ -4344,6 +4344,7 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  <meta name="twitter:image" content="${BASE_URL}/og-image.png">
 ${hrefTags}
  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+ ${SEO_STATIC_CSS_LINK}
  ${ANALYTICS_SNIPPET}
  <style>body{font-family:Inter,system-ui,sans-serif;max-width:800px;margin:0 auto;padding:2rem 1rem;background:#f8fafc;color:var(--color-heading)}a{color:var(--color-link);text-decoration:underline}a:hover{color:#1d4ed8}h1{font-size:1.5rem;font-weight:700;margin-bottom:0.5rem}h2{font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem}nav{margin-top:2rem;padding-top:1rem;border-top:1px solid #e2e8f0;font-size:0.9rem}nav a{margin-right:1rem}.byline{font-size:0.85rem;color:var(--color-subtle);margin-bottom:1rem}</style>
  </head>
@@ -4486,6 +4487,7 @@ ${hrefTags}
 ${hrefTags}
  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
  <noscript><meta http-equiv="refresh" content="0;url=/?p=${pp}"></noscript>
+ ${SEO_STATIC_CSS_LINK}
  ${ANALYTICS_SNIPPET}
  </head>
  <body>

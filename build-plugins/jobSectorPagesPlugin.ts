@@ -18,6 +18,7 @@ import {
   FAVICON_LINKS,
   GTAG_SNIPPET,
   ADSENSE_SNIPPET,
+  SEO_STATIC_CSS_LINK,
 } from './constants';
 import {
   STAT_TILE_ACCENT,
@@ -328,6 +329,7 @@ ${alternates}
     <link rel="alternate" hreflang="x-default" href="${BASE_URL}${xDefaultPath}">
     <script type="application/ld+json">${breadcrumbLd}</script>
     <script type="application/ld+json">${collectionLd}</script>${itemListLd ? `\n    <script type="application/ld+json">${itemListLd}</script>` : ''}${faqLd ? `\n    <script type="application/ld+json">${faqLd}</script>` : ''}${hasSpaBundle ? `\n    <link rel="stylesheet" href="/assets/${entryCss}" crossorigin media="all">` : ''}
+    ${SEO_STATIC_CSS_LINK}
     ${GTAG_SNIPPET}
     ${ADSENSE_SNIPPET}
   </head>
