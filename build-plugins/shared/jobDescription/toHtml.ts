@@ -69,11 +69,43 @@ export function jobDescriptionTextToHtml(text: string): string {
  * Render a single line/paragraph string to safe inline HTML — HTML-escapes
  * the text while converting `**bold**` → `<strong>` and `*em*` → `<em>`.
  * Strips literal markdown so audit:no-literal-markdown stays at 0.
- * If the input already carries structural tags, pass it through untouched.
+ *
+ * If the input already carries structural tags (strong/em/a/span/br),
+ * we pass it through but FIRST sanitize attributes:
+ *   - `<span>` and `<br>` are stripped of ALL attributes (no semantic
+ *     attributes; the MS-Word-paste `<span style="font-family:"Times
+ *     New Roman", serif">` pattern breaks html-minifier-terser AND
+ *     silently malforms the rendered styles because inner double-
+ *     quotes close the outer style attribute early — caught
+ *     2026-05-21 by dist-shrink parse-error report on 28 Bachem
+ *     job pages, runs #26250403558 + #26255102850)
+ *   - `<a>` keeps ONLY `href` (drops class/style/target/etc that
+ *     external sources inject)
+ *   - `<strong>` / `<em>` are stripped of attributes (none have
+ *     semantic value in our context)
+ * The tag itself is preserved so visible text flow stays intact.
+ *
+ * Why regex (not a real HTML sanitizer): the input is malformed
+ * enough that DOMParser would re-balance tags and change the visible
+ * text flow. Each regex below targets one tag at a time so a broken
+ * span doesn't eat into adjacent elements.
  */
+function stripExternalHtmlAttributes(s: string): string {
+  return s
+    // <span ... >  →  <span>      (always drop everything between tag name and `>`)
+    .replace(/<(span|br|strong|em)(\s[^>]*)?(\/?)>/gi, '<$1$3>')
+    // <a ... href="X" ... > → <a href="X">    (keep ONLY href)
+    .replace(/<a\s[^>]*>/gi, (m) => {
+      const hrefMatch = m.match(/\bhref\s*=\s*["']?([^"'>\s]+)["']?/i);
+      return hrefMatch ? `<a href="${hrefMatch[1]}">` : '<a>';
+    });
+}
+
 export function inlineTextToHtml(text: string): string {
   if (!text) return '';
   const s = String(text);
-  if (/<(strong|em|a|span|br)\b/i.test(s)) return s;
+  if (/<(strong|em|a|span|br)\b/i.test(s)) {
+    return stripExternalHtmlAttributes(s);
+  }
   return inlinesToHtml(parseInline(s));
 }

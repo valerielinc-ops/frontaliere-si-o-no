@@ -168,10 +168,10 @@ describe('minifyHtml — real-world structure', () => {
 </html>`;
     const out = minifyHtml(input);
 
-    // Structural assertions. Attribute values may now be unquoted per
-    // HTML5 (Step 5 in minifyHtml — added 2026-05-21 to capture the
-    // dist-shrink-attributed quote-removal upstream), so we use
-    // quote-flexible matchers for those.
+    // Structural assertions. Quote-flexible matchers retained from the
+    // PR #478 quote-removal experiment so the test still passes if quote
+    // removal is re-enabled in the future (after the audit-quote-flex
+    // migration described in build-plugins/shared/htmlMinify.ts).
     expect(out).toContain('<!DOCTYPE html>');
     expect(out).toMatch(/<html\s+lang=["']?it["']?>/);
     expect(out).toContain('<title>Test · rif. stabio</title>');
@@ -197,10 +197,18 @@ describe('minifyHtml — real-world structure', () => {
   });
 });
 
-describe('minifyHtml — Step 5: drop optional attribute quotes (HTML5)', () => {
-  it('unquotes safe simple values', () => {
-    expect(minifyHtml('<div class="hero" id="main"></div>'))
-      .toContain('<div class=hero id=main>');
+describe('minifyHtml — Step 5 REMOVED 2026-05-22 (attribute-quote removal disabled)', () => {
+  // PR #478 added a Step 5 attribute-quote-removal pass here that
+  // broke ~14 dist-walking audits with quote-strict regexes
+  // (run #26255102850: 438k+ false-positive regressions). Reverted in
+  // round-2 source fixes. These tests now pin the QUOTED-FORM output
+  // so a future re-introduction would have to update them deliberately
+  // alongside the audit-quote-flex migration.
+
+  it('preserves attribute quotes on safe simple values', () => {
+    const out = minifyHtml('<div class="hero" id="main"></div>');
+    expect(out).toContain('class="hero"');
+    expect(out).toContain('id="main"');
   });
 
   it('preserves quotes when value has whitespace', () => {
@@ -208,23 +216,9 @@ describe('minifyHtml — Step 5: drop optional attribute quotes (HTML5)', () => 
     expect(out).toContain('class="hero big"');
   });
 
-  it('preserves quotes when value ends in `/` (void-element self-close clash)', () => {
+  it('preserves URL quotes (no premature self-close clash)', () => {
     const out = minifyHtml('<link rel="canonical" href="https://example.com/">');
-    // `href=https://example.com/` would let the parser read `>` as part
-    // of `/>` self-close — keep the quotes.
     expect(out).toContain('href="https://example.com/"');
-  });
-
-  it('unquotes URL values that do NOT end in `/`', () => {
-    const out = minifyHtml('<link rel="stylesheet" href="https://example.com/a.css">');
-    expect(out).toContain('href=https://example.com/a.css');
-  });
-
-  it('preserves quotes when value contains `=` (parse boundary)', () => {
-    const out = minifyHtml(
-      '<script src="https://example.com/?foo=bar"></script>',
-    );
-    expect(out).toContain('"https://example.com/?foo=bar"');
   });
 
   it('preserves quotes inside JSON-LD body (opaque)', () => {
@@ -234,21 +228,12 @@ describe('minifyHtml — Step 5: drop optional attribute quotes (HTML5)', () => 
     expect(out).toContain('{"@type":"Foo","key":"value"}');
   });
 
-  it('never strips quotes inside content text that looks like attrs', () => {
-    // `<p>foo="bar"</p>` must NOT become `<p>foo=bar</p>` — the regex
-    // is anchored to attribute position via lookbehind on the open-tag.
+  it('never touches content text that looks like attrs', () => {
     const out = minifyHtml('<p>foo="bar"</p>');
     expect(out).toContain('foo="bar"');
   });
 
-  it('handles multiple attributes on one tag', () => {
-    const out = minifyHtml('<a class="cta" href="/about" rel="noopener">x</a>');
-    expect(out).toContain('class=cta');
-    expect(out).toContain('href=/about');
-    expect(out).toContain('rel=noopener');
-  });
-
-  it('preserves canonical/hreflang/robots regex match (quote-flex contract)', () => {
+  it('preserves canonical/hreflang/robots — quote-flex matchers still work', () => {
     const out = minifyHtml(
       '<link rel="canonical" href="https://x.test/page">' +
       '<link rel="alternate" hreflang="en" href="https://x.test/en/page">' +
