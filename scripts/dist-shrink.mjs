@@ -70,6 +70,16 @@ const DIST = resolve(args.get('dist') || 'dist');
 const CONCURRENCY = Number(args.get('concurrency') || Math.max(2, cpus().length));
 const DRY = args.get('dry') === true || args.get('dry') === 'true';
 const SAMPLE_SIZE = Number(args.get('sample') || 200);
+// Top-N rows printed for "biggest file" leaderboards.
+const TOP_N = Number(args.get('top') || 15);
+// Min saved bytes for a file to be tracked individually. Below this we
+// only keep aggregate counts. 500 B filters out near-empty SPA fallback
+// shells whose noise drowns the actionable "fix this template" signal.
+const TRACK_SAVED_MIN = Number(args.get('track-min') || 500);
+// Ratio leaderboard ignores files smaller than this — a 200 B file that
+// shrinks to 80 B is 60% saving but tells us nothing useful about
+// where to spend refactor time.
+const RATIO_MIN_BYTES = Number(args.get('ratio-min-bytes') || 5 * 1024);
 
 // ─────────────────────────────────────────────────────────────────────────────
 // Constants
@@ -171,7 +181,32 @@ function topDir(file) {
   return i < 0 ? '(root)' : rel.slice(0, i);
 }
 
-async function shrinkHtmlFile(file, stats, byDir) {
+// Locale bucket. Italian root = `it`; everything under en/, de/, fr/
+// keeps its locale prefix. Lets the human compare per-locale waste so a
+// locale-specific template can be patched in isolation.
+function localeOf(file) {
+  const rel = relative(DIST, file);
+  const i = rel.indexOf('/');
+  const first = i < 0 ? rel : rel.slice(0, i);
+  return (first === 'en' || first === 'de' || first === 'fr') ? first : 'it';
+}
+
+// Pre-defined size buckets (ascending). The minifier behaves very
+// differently on a 1 KB SPA shell vs a 50 KB SEO landing — splitting by
+// size shows whether we're paying CPU time for low-yield small files.
+const SIZE_BUCKETS = [
+  { name: '< 1 KB',       max: 1024 },
+  { name: '1 - 5 KB',     max: 5 * 1024 },
+  { name: '5 - 20 KB',    max: 20 * 1024 },
+  { name: '20 - 100 KB',  max: 100 * 1024 },
+  { name: '> 100 KB',     max: Infinity },
+];
+function sizeBucketName(bytes) {
+  for (const b of SIZE_BUCKETS) if (bytes < b.max) return b.name;
+  return SIZE_BUCKETS[SIZE_BUCKETS.length - 1].name;
+}
+
+async function shrinkHtmlFile(file, stats, buckets) {
   const before = await readFile(file, 'utf8');
   const beforeBytes = Buffer.byteLength(before, 'utf8');
 
@@ -180,8 +215,14 @@ async function shrinkHtmlFile(file, stats, byDir) {
     minified = await htmlMinify(before, MINIFY_OPTS);
   } catch (err) {
     stats.htmlErrors++;
-    if (stats.htmlErrorExamples.length < 5) {
-      stats.htmlErrorExamples.push({ file, msg: String(err.message || err).slice(0, 200) });
+    // Keep all errors (up to a sanity cap so a runaway pattern can't
+    // exhaust memory). Print FULL message — `pgb903fvy5l…` placeholders
+    // in the prior 200-char truncation hid the actual line context.
+    if (stats.htmlErrorExamples.length < 200) {
+      stats.htmlErrorExamples.push({
+        file,
+        msg: String(err.message || err),
+      });
     }
     return;
   }
@@ -189,16 +230,46 @@ async function shrinkHtmlFile(file, stats, byDir) {
 
   stats.htmlFilesSeen++;
   stats.htmlBytesBefore += beforeBytes;
+  const savedBytes = beforeBytes - afterBytes;
   if (afterBytes < beforeBytes) {
     if (!DRY) await writeFile(file, minified, 'utf8');
     stats.htmlBytesAfter += afterBytes;
     stats.htmlFilesShrunk++;
+
+    // Per-directory aggregation (kept from PR #475).
     const d = topDir(file);
-    const e = byDir.get(d);
-    if (e) { e.saved += beforeBytes - afterBytes; e.files += 1; }
-    else byDir.set(d, { saved: beforeBytes - afterBytes, files: 1 });
+    const de = buckets.byDir.get(d);
+    if (de) { de.saved += savedBytes; de.files += 1; }
+    else buckets.byDir.set(d, { saved: savedBytes, files: 1 });
+
+    // Per-locale aggregation (it/en/de/fr).
+    const loc = localeOf(file);
+    const le = buckets.byLocale.get(loc);
+    if (le) { le.saved += savedBytes; le.files += 1; le.beforeBytes += beforeBytes; }
+    else buckets.byLocale.set(loc, { saved: savedBytes, files: 1, beforeBytes });
+
+    // Size bucket histogram (bucket by pre-shrink size — the minifier
+    // cost scales with input size, the saving with input size and
+    // template slop).
+    const bucket = sizeBucketName(beforeBytes);
+    const be = buckets.bySize.get(bucket);
+    if (be) { be.saved += savedBytes; be.files += 1; be.beforeBytes += beforeBytes; }
+    else buckets.bySize.set(bucket, { saved: savedBytes, files: 1, beforeBytes });
+
+    // Per-file leaderboard: only track files with material saving so
+    // memory stays bounded on 800k-file builds. The leaderboard is what
+    // tells you "this exact template needs a source patch".
+    if (savedBytes >= TRACK_SAVED_MIN) {
+      buckets.bigFiles.push({ file, before: beforeBytes, saved: savedBytes });
+    }
   } else {
     stats.htmlBytesAfter += beforeBytes;
+    // Even when nothing was saved, count the file in its size bucket so
+    // the histogram totals are honest.
+    const bucket = sizeBucketName(beforeBytes);
+    const be = buckets.bySize.get(bucket);
+    if (be) { be.files += 1; be.beforeBytes += beforeBytes; }
+    else buckets.bySize.set(bucket, { saved: 0, files: 1, beforeBytes });
   }
 }
 
@@ -315,10 +386,18 @@ async function main() {
     jsonFilesSeen: 0, jsonFilesShrunk: 0, jsonBytesBefore: 0, jsonBytesAfter: 0,
     jsonErrors: 0,
   };
-  const byDir = new Map();
+  // All per-bucket aggregates flow through this single object so the
+  // shrinkHtmlFile signature stays clean as new dimensions are added.
+  const buckets = {
+    byDir: new Map(),
+    byLocale: new Map(),
+    bySize: new Map(),
+    bigFiles: [],     // {file, before, saved} for files with saved ≥ TRACK_SAVED_MIN
+  };
 
-  await pool(htmlFiles, (f) => shrinkHtmlFile(f, stats, byDir), CONCURRENCY);
+  await pool(htmlFiles, (f) => shrinkHtmlFile(f, stats, buckets), CONCURRENCY);
   await pool(jsonFiles, (f) => shrinkJsonFile(f, stats), CONCURRENCY);
+  const byDir = buckets.byDir;
 
   // Per-rule attribution runs on the frozen sample. Independent of the
   // main pass; safe to do after.
@@ -403,10 +482,112 @@ async function main() {
     }
   }
 
+  // Per-locale aggregation. If one locale's templates are bloated
+  // disproportionately the fix is locale-specific (e.g. a localized
+  // string composition that emits redundant attributes).
+  if (buckets.byLocale.size > 0) {
+    console.log('');
+    console.log('Per-locale HTML saving:');
+    const localeOrder = ['it', 'en', 'de', 'fr'];
+    const present = localeOrder.filter((l) => buckets.byLocale.has(l));
+    const maxLocLen = Math.max(...present.map((l) => l.length), 2);
+    for (const loc of present) {
+      const e = buckets.byLocale.get(loc);
+      const pctOfInput = e.beforeBytes > 0
+        ? (e.saved * 100 / e.beforeBytes).toFixed(2) : '0.00';
+      const avgPerFile = e.files > 0 ? Math.round(e.saved / e.files) : 0;
+      console.log(
+        `  ${loc.padEnd(maxLocLen)}  ${fmtBytes(e.saved).padStart(10)}` +
+        `  ${pctOfInput.padStart(5)}% of ${fmtBytes(e.beforeBytes).padStart(8)}` +
+        `  across ${String(e.files).padStart(7)} files` +
+        `  avg ${avgPerFile} B/file`,
+      );
+    }
+  }
+
+  // Size-bucket histogram. If 80% of saving comes from files >20 KB and
+  // the <1 KB bucket contributes negligible bytes, we could SKIP small
+  // files in the next iteration of dist-shrink to recover CI minutes.
+  if (buckets.bySize.size > 0) {
+    console.log('');
+    console.log('Saving by HTML file-size bucket:');
+    const totalShrunkSaved = [...buckets.bySize.values()].reduce((s, e) => s + e.saved, 0);
+    const maxBucketLen = Math.max(...SIZE_BUCKETS.map((b) => b.name.length), 5);
+    // Preserve fixed ascending order from SIZE_BUCKETS.
+    for (const b of SIZE_BUCKETS) {
+      const e = buckets.bySize.get(b.name);
+      if (!e) continue;
+      const avgPerFile = e.files > 0 ? Math.round(e.saved / e.files) : 0;
+      const pct = totalShrunkSaved > 0 ? (e.saved * 100 / totalShrunkSaved).toFixed(1) : '0.0';
+      console.log(
+        `  ${b.name.padEnd(maxBucketLen)}  ${fmtBytes(e.saved).padStart(10)}` +
+        `  (${pct.padStart(5)}%)` +
+        `  across ${String(e.files).padStart(7)} files` +
+        `  avg ${avgPerFile} B/file`,
+      );
+    }
+  }
+
+  // Per-file leaderboard — absolute. The single files contributing most
+  // bytes. Each is a concrete refactor target ("open this template,
+  // tighten it once, save these bytes on every build forever").
+  if (buckets.bigFiles.length > 0) {
+    const byAbs = [...buckets.bigFiles].sort((a, b) => b.saved - a.saved).slice(0, TOP_N);
+    console.log('');
+    console.log(`Top ${byAbs.length} HTML files by absolute saving (refactor candidates):`);
+    for (const f of byAbs) {
+      const rel = relative(DIST, f.file);
+      const ratio = f.before > 0 ? (f.saved * 100 / f.before).toFixed(1) : '0.0';
+      console.log(
+        `  ${fmtBytes(f.saved).padStart(10)}` +
+        `  ${fmtBytes(f.before).padStart(10)} → ${fmtBytes(f.before - f.saved).padStart(10)}` +
+        `  (${ratio.padStart(5)}%)  ${rel}`,
+      );
+    }
+  }
+
+  // Per-file leaderboard — ratio. Files whose template is proportionally
+  // most bloated. Ignores small files (RATIO_MIN_BYTES) so a 200 B SPA
+  // shell that shrinks 60% doesn't crowd the actionable signal.
+  if (buckets.bigFiles.length > 0) {
+    const candidates = buckets.bigFiles.filter((f) => f.before >= RATIO_MIN_BYTES);
+    if (candidates.length > 0) {
+      const byRatio = candidates
+        .sort((a, b) => (b.saved / b.before) - (a.saved / a.before))
+        .slice(0, TOP_N);
+      console.log('');
+      console.log(
+        `Top ${byRatio.length} HTML files by saving ratio` +
+        ` (only files ≥ ${fmtBytes(RATIO_MIN_BYTES)} — bloat density):`,
+      );
+      for (const f of byRatio) {
+        const rel = relative(DIST, f.file);
+        const ratio = (f.saved * 100 / f.before).toFixed(1);
+        console.log(
+          `  ${ratio.padStart(5)}%` +
+          `  ${fmtBytes(f.saved).padStart(10)} of ${fmtBytes(f.before).padStart(10)}` +
+          `  ${rel}`,
+        );
+      }
+    }
+  }
+
+  // Full error dump (replaces the "First 5" preview). The previous
+  // version truncated each error to 200 chars, which cut the actual
+  // line context away — making source-fix triage impossible. Each error
+  // now shows the full message; the path tells which template to grep
+  // in build-plugins/*.ts.
   if (stats.htmlErrors > 0) {
     console.log('');
-    console.log('First HTML errors:');
-    for (const e of stats.htmlErrorExamples) console.log(`  ${e.file}: ${e.msg}`);
+    console.log(`HTML parse errors (${stats.htmlErrors} total, showing ${stats.htmlErrorExamples.length}):`);
+    for (const e of stats.htmlErrorExamples) {
+      const rel = relative(DIST, e.file);
+      console.log(`  ${rel}`);
+      // Indent error message; clip only at \n so we don't bury the
+      // useful line/col info that html-minifier-terser puts on line 1.
+      const firstLine = e.msg.split('\n')[0];
+      console.log(`    └─ ${firstLine}`);
+    }
   }
 }
 
