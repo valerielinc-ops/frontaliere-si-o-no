@@ -1168,7 +1168,6 @@ function buildHtml(args: BuildHtmlArgs): string {
     <meta property="og:description" content="${esc(description)}">
     <meta property="og:url" content="${canonicalUrl}">
     <meta property="og:image" content="${BASE_URL}/og-image.png">
-    <meta name="twitter:card" content="summary_large_image">
     <link rel="canonical" href="${canonicalUrl}">
 ${hreflangs}${xDefault}${prevLink}${nextLink}
     <script type="application/ld+json">${breadcrumbLd}</script>
@@ -1717,7 +1716,6 @@ function buildThinCantonHubHtml(args: {
     <meta property="og:description" content="${esc(intro)}">
     <meta property="og:url" content="${canonicalUrl}">
     <meta property="og:image" content="${BASE_URL}/og-image.png">
-    <meta name="twitter:card" content="summary_large_image">
     <link rel="canonical" href="${canonicalUrl}">
     ${SEO_STATIC_CSS_LINK}
     <script type="application/ld+json">${breadcrumbLd}</script>${hasSpaBundle ? `\n    <link rel="stylesheet" href="/assets/${entryCss}" crossorigin media="all">` : ''}

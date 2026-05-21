@@ -1863,9 +1863,7 @@ function renderPage(inp: PageInputs): string {
   // pre-shell-wrap emission so social-share previews are unchanged.
   const extraHead = `    <meta property="og:image" content="${BASE_URL}/og-image.png">
     <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:site" content="@frontaliereticino">`;
+    <meta property="og:image:height" content="630">`;
 
   const jsonLdScripts = [breadcrumbLd, webPageLd, faqLd];
 
@@ -3230,9 +3228,7 @@ function renderStationPage(opts: {
 
   const extraHead = `    <meta property="og:image" content="${BASE_URL}/og-image.png">
     <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:site" content="@frontaliereticino">`;
+    <meta property="og:image:height" content="630">`;
 
   return buildSeoPageHtml({
     disableAutoAds: false,
@@ -3743,9 +3739,7 @@ function renderItalianCityPage(opts: {
 
   const extraHead = `    <meta property="og:image" content="${BASE_URL}/og-image.png">
     <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:site" content="@frontaliereticino">`;
+    <meta property="og:image:height" content="630">`;
 
   return buildSeoPageHtml({
     disableAutoAds: false,
@@ -4637,9 +4631,7 @@ function renderItalianStationPage(opts: {
 
   const extraHead = `    <meta property="og:image" content="${BASE_URL}/og-image.png">
     <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:site" content="@frontaliereticino">`;
+    <meta property="og:image:height" content="630">`;
 
   return buildSeoPageHtml({
     disableAutoAds: false,

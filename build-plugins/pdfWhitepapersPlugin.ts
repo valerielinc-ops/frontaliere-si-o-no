@@ -489,7 +489,6 @@ ${hreflangLinks}
 <meta property="og:image" content="${BASE_URL}/icons/icon-512x512.png">
 <meta property="og:image:width" content="512">
 <meta property="og:image:height" content="512">
-<meta name="twitter:card" content="summary">
 <script type="application/ld+json">${jsonLd}</script>
 <script type="application/ld+json">${breadcrumbLd}</script>
 ${ANALYTICS_SNIPPET}

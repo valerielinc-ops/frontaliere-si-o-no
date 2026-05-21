@@ -46,24 +46,20 @@ describe('dist-shrink: html-minifier-terser opts', () => {
     expect(out).toContain('<![endif]');
   });
 
-  it('preserves og:* and the safe twitter:* allow-list', async () => {
+  it('preserves all og:* meta tags', async () => {
     const input =
       '<!DOCTYPE html><html><head>' +
       '<meta property="og:title" content="T">' +
       '<meta property="og:description" content="D">' +
-      '<meta property="og:image" content="https://x.com/i.png">' +
-      '<meta name="twitter:card" content="summary_large_image">' +
-      '<meta name="twitter:site" content="@x">' +
-      '<meta name="twitter:creator" content="@y">' +
-      '<meta name="twitter:image:alt" content="alt">' +
+      '<meta property="og:image" content="https://example.com/i.png">' +
+      '<meta property="og:image:alt" content="alt">' +
+      '<meta property="og:url" content="https://example.com/">' +
       '</head><body></body></html>';
     const out = await minify(input, MINIFY_OPTS);
     expect(out).toMatch(/og:title/);
     expect(out).toMatch(/og:description/);
     expect(out).toMatch(/og:image/);
-    expect(out).toMatch(/twitter:card/);
-    expect(out).toMatch(/twitter:site/);
-    expect(out).toMatch(/twitter:creator/);
-    expect(out).toMatch(/twitter:image:alt/);
+    expect(out).toMatch(/og:image:alt/);
+    expect(out).toMatch(/og:url/);
   });
 });

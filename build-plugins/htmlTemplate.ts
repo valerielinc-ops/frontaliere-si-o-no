@@ -256,7 +256,6 @@ ${skipMainWrap ? bodyHtml : ` <main class="static-job-page">\n ${bodyHtml}\n </m
  <meta property="og:image:width" content="${ogImageWidth ?? 1200}">
  <meta property="og:image:height" content="${ogImageHeight ?? 630}">
  <meta property="og:image:type" content="${esc(ogImageType ?? 'image/png')}">${ogImageAlt ? `\n <meta property="og:image:alt" content="${esc(ogImageAlt)}">` : ''}
- <meta name="twitter:card" content="summary_large_image">
  <link rel="canonical" href="${canonicalUrl}">
 ${hreflangHtml}${extraHead}
 ${ldTags}${cssLink}${seoStaticLink}

@@ -969,8 +969,6 @@ export function ogPagesPlugin(rootDir: string): Plugin {
  <meta property="article:modified_time" content="${esc(normalizeDateTime(en.dateMod || en.datePub || todayIso))}">
  <meta property="article:section" content="Frontalieri Ticino">
  <meta property="article:author" content="${BASE_URL}/chi-siamo/">
- <meta name="twitter:card" content="summary_large_image">
- <meta name="twitter:site" content="@frontaliereticino">
 ${href}
  <link rel="alternate" type="application/rss+xml" title="Frontaliere Ticino" href="${BASE_URL}/rss.xml">
  <script type="application/ld+json">${ldJsonStr}</script>

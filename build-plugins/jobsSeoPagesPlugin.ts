@@ -1981,10 +1981,10 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  ? pickJobDisambiguator(job as Record<string, unknown>, locale, baseTitleProbe)
  : '';
  const title = composeJobPageTitle(localizedTitle, String(job.company || ''), jobLocation, locale, disambiguatorToken);
- // Clean variant for og:title / twitter:title — same as `title` minus
- // the trailing " · {disambiguator}". The disambig is needed in the
- // HTML <title> for SEO uniqueness, but the social cards look better
- // without the trailing extra metadata.
+ // Clean variant for og:title — same as `title` minus the trailing
+ // " · {disambiguator}". The disambig is needed in the HTML <title>
+ // for SEO uniqueness, but the social cards look better without the
+ // trailing extra metadata.
  const ogTitle = composeJobPageTitle(localizedTitle, String(job.company || ''), jobLocation, locale, '');
  const localizedDescriptionRaw = String(job?.descriptionByLocale?.[locale] || job.description || '');
  const localizedDescription = normalizeText(localizedDescriptionRaw);
@@ -2323,8 +2323,6 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  <meta property="og:image:width" content="1200">
  <meta property="og:image:height" content="630">
  <meta property="og:image:type" content="${perLocaleSlug.it ? 'image/webp' : 'image/png'}">
- <meta name="twitter:card" content="summary_large_image">
- <meta name="twitter:site" content="@frontaliereticino">
  <link rel="canonical" href="${effectiveCanonicalUrl}">
  <link rel="preconnect" href="https://fonts.googleapis.com">
  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -3949,8 +3947,6 @@ ${curatedBodyHtml ? curatedBodyHtml + '\n' : `<h1>${esc(copy.heading(companyName
  <meta property="og:image:width" content="1200">
  <meta property="og:image:height" content="630">
  <meta property="og:image:type" content="image/png">
- <meta name="twitter:card" content="summary_large_image">
- <meta name="twitter:site" content="@frontaliereticino">
  <link rel="canonical" href="${canonicalUrl}">
 ${alternates}
  <script type="application/ld+json">${breadcrumbLd}</script>
@@ -4112,8 +4108,6 @@ ${alternates}
  <meta property="og:image:width" content="1200">
  <meta property="og:image:height" content="630">
  <meta property="og:image:type" content="image/png">
- <meta name="twitter:card" content="summary_large_image">
- <meta name="twitter:site" content="@frontaliereticino">
  <link rel="canonical" href="${canonicalUrl}">
 ${alternates}
  <script type="application/ld+json">${breadcrumbLd}</script>
@@ -4282,8 +4276,6 @@ ${alternates}
  <meta property="og:image:width" content="1200">
  <meta property="og:image:height" content="630">
  <meta property="og:image:type" content="image/png">
- <meta name="twitter:card" content="summary_large_image">
- <meta name="twitter:site" content="@frontaliereticino">
  <link rel="canonical" href="${canonicalUrl}">
 ${alternates}
  <script type="application/ld+json">${breadcrumbLd}</script>
@@ -4464,8 +4456,6 @@ ${alternates}
  <meta property="og:image:width" content="1200">
  <meta property="og:image:height" content="630">
  <meta property="og:image:type" content="image/png">
- <meta name="twitter:card" content="summary_large_image">
- <meta name="twitter:site" content="@frontaliereticino">
  <link rel="canonical" href="${canonicalUrl}">
 ${alternates}
  <script type="application/ld+json">${breadcrumbLd}</script>
@@ -4632,8 +4622,6 @@ ${alternates}
  <meta property="og:image:width" content="1200">
  <meta property="og:image:height" content="630">
  <meta property="og:image:type" content="image/png">
- <meta name="twitter:card" content="summary_large_image">
- <meta name="twitter:site" content="@frontaliereticino">
  <link rel="canonical" href="${canonicalUrl}">
 ${alternates}
  <script type="application/ld+json">${breadcrumbLd}</script>
@@ -4820,8 +4808,6 @@ ${alternates}
  <meta property="og:image:width" content="1200">
  <meta property="og:image:height" content="630">
  <meta property="og:image:type" content="image/png">
- <meta name="twitter:card" content="summary_large_image">
- <meta name="twitter:site" content="@frontaliereticino">
  <link rel="canonical" href="${canonicalUrl}">
 ${alternates}
  <script type="application/ld+json">${breadcrumbLd}</script>
@@ -5040,8 +5026,6 @@ ${alternates}
  <meta property="og:image:width" content="1200">
  <meta property="og:image:height" content="630">
  <meta property="og:image:type" content="image/png">
- <meta name="twitter:card" content="summary_large_image">
- <meta name="twitter:site" content="@frontaliereticino">
  <link rel="canonical" href="${canonicalUrl}">
 ${alternates}
  <script type="application/ld+json">${breadcrumbLd}</script>
@@ -5202,8 +5186,6 @@ ${alternates}
  <meta property="og:image:width" content="1200">
  <meta property="og:image:height" content="630">
  <meta property="og:image:type" content="image/png">
- <meta name="twitter:card" content="summary_large_image">
- <meta name="twitter:site" content="@frontaliereticino">
  <link rel="canonical" href="${canonicalUrl}">
 ${alternates}
  <script type="application/ld+json">${breadcrumbLd}</script>
@@ -6967,7 +6949,6 @@ ${alternates}
  ].join('\n');
  const listHtml = matchingJobs.map((job: any) => renderJobCardLi(job, locale)).join('');
 
- const twitterCards = ` <meta name="twitter:card" content="summary_large_image">\n <meta name="twitter:site" content="@frontaliereticino">`;
  const searchBodyParts: string[] = [];
  {
  const listingUrl = `${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionByLocale[locale]}`.replace(/\/+/g, '/'))}`;
@@ -7042,7 +7023,6 @@ ${alternates}
  robots: 'index,follow',
  ogLocale: localeOg[locale],
  hreflangHtml: alternates,
- extraHeadHtml: twitterCards,
  jsonLdScripts: [searchBreadcrumbLd],
  bodyHtml: `<h1>${esc(copy.heading(name))}</h1>\n <p>${esc(description)}</p>\n${searchBodyParts.join('\n')}`,
  distDir,

@@ -1,27 +1,29 @@
 /**
- * Regression gate: forbid `<meta name="twitter:(title|description|url|image|image:src)">`
- * emissions in build-plugins/*.ts.
+ * Regression gate: forbid ANY `<meta name="twitter:*">` emission in
+ * build-plugins/*.ts and services/*.ts.
  *
- * Why: X (Twitter) falls back to og:title / og:description / og:url /
- * og:image when the twitter:* equivalent is absent. Emitting both
- * doubles the meta bytes on every page (~140 MB across 825k pages on
- * the May 21 2026 artifact). The codemod that removed these from the
- * 26 plugins must not be reverted file-by-file as new plugins land.
+ * Why: X (Twitter) is not a meaningful traffic source for this site
+ * (SEO funnel for Swiss-Italian frontalieri). LinkedIn / Facebook /
+ * WhatsApp / Discord / Slack all use og:* — twitter:* tags add bytes
+ * to every page (~48 MB across 825k HTML pages on the May 21 2026
+ * artifact) without value.
  *
- * Allow-list — these stay because they have NO og:* fallback:
- *   - twitter:card           — controls X card layout (summary vs. summary_large_image)
- *   - twitter:site           — X account attribution
- *   - twitter:creator        — content author attribution
- *   - twitter:image:alt      — accessibility for the X card image
- *   - twitter:player, twitter:app:* — distinct surfaces
+ * Also forbids client-side `updateOrCreateMetaTag('name', 'twitter:*', ...)`
+ * in services/*.ts — the SPA's runtime meta injection had the same
+ * cost (per-route DOM mutation) for zero benefit.
+ *
+ * If X ever becomes a relevant traffic source, re-introduce these by
+ * deleting this test AND adding them centrally in
+ * build-plugins/htmlTemplate.ts so all pages emit them consistently
+ * (the prior fragmented per-plugin pattern is what caused the original
+ * duplication problem — see PR #473).
  */
-import { readdirSync, readFileSync, statSync } from 'node:fs';
+import { readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
 
-const ROOT = 'build-plugins';
-
-const FORBIDDEN = /<meta\s+name="twitter:(?:title|description|url|image|image:src)"/g;
+const STATIC_META_RE = /<meta\s+name="twitter:[a-z][a-z0-9:_-]*"/g;
+const RUNTIME_META_RE = /updateOrCreateMetaTag\(\s*['"]name['"]\s*,\s*['"]twitter:[a-z][a-z0-9:_-]*['"]/g;
 
 function walkTs(root: string): string[] {
   const out: string[] = [];
@@ -40,28 +42,44 @@ function walkTs(root: string): string[] {
   return out;
 }
 
-describe('no twitter:* duplicates in build-plugins/*.ts', () => {
-  it('forbids twitter:title/description/url/image/image:src in any plugin', () => {
-    const offenders: { file: string; lines: string[] }[] = [];
-    for (const file of walkTs(ROOT)) {
-      const src = readFileSync(file, 'utf8');
-      const matches = [...src.matchAll(FORBIDDEN)];
-      if (matches.length === 0) continue;
-      const lines = src.split('\n');
-      const hits = matches.map((m) => {
-        const upto = src.slice(0, m.index ?? 0);
-        const lineNo = upto.split('\n').length;
-        return `${lineNo}: ${lines[lineNo - 1]?.trim() ?? ''}`;
-      });
-      offenders.push({ file, lines: hits });
-    }
+function findOffenders(root: string, re: RegExp) {
+  const offenders: { file: string; lines: string[] }[] = [];
+  for (const file of walkTs(root)) {
+    const src = readFileSync(file, 'utf8');
+    re.lastIndex = 0;
+    const matches = [...src.matchAll(re)];
+    if (matches.length === 0) continue;
+    const lines = src.split('\n');
+    const hits = matches.map((m) => {
+      const upto = src.slice(0, m.index ?? 0);
+      const lineNo = upto.split('\n').length;
+      return `${lineNo}: ${lines[lineNo - 1]?.trim() ?? ''}`;
+    });
+    offenders.push({ file, lines: hits });
+  }
+  return offenders;
+}
+
+describe('no twitter:* meta in source', () => {
+  it('forbids static <meta name="twitter:*"> in build-plugins/*.ts', () => {
+    const offenders = findOffenders('build-plugins', STATIC_META_RE);
     if (offenders.length > 0) {
-      const report = offenders.map((o) =>
-        `${o.file}:\n  ${o.lines.join('\n  ')}`,
-      ).join('\n');
+      const report = offenders.map((o) => `${o.file}:\n  ${o.lines.join('\n  ')}`).join('\n');
       throw new Error(
-        `twitter:* duplicates re-introduced in build-plugins/*.ts:\n${report}\n` +
-        `X falls back to og:* — remove these meta tags. See tests/seo/no-twitter-meta-dupes.test.ts.`,
+        `twitter:* meta re-introduced in build-plugins/*.ts:\n${report}\n` +
+        `X is not a traffic source — see tests/seo/no-twitter-meta-dupes.test.ts.`,
+      );
+    }
+    expect(offenders).toEqual([]);
+  });
+
+  it('forbids client-side updateOrCreateMetaTag("name","twitter:*",…) in services/*.ts', () => {
+    const offenders = findOffenders('services', RUNTIME_META_RE);
+    if (offenders.length > 0) {
+      const report = offenders.map((o) => `${o.file}:\n  ${o.lines.join('\n  ')}`).join('\n');
+      throw new Error(
+        `Client-side twitter:* meta re-introduced in services/*.ts:\n${report}\n` +
+        `X is not a traffic source — see tests/seo/no-twitter-meta-dupes.test.ts.`,
       );
     }
     expect(offenders).toEqual([]);

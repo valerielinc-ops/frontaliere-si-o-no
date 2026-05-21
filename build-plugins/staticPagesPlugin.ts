@@ -4338,7 +4338,6 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  <meta property="og:image:type" content="image/png">
  <meta property="og:locale" content="${LOC_TAG[locale] ?? 'it_IT'}">
  <meta property="og:site_name" content="Frontaliere Ticino">
- <meta name="twitter:card" content="summary_large_image">
 ${hrefTags}
  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
  ${SEO_STATIC_CSS_LINK}
@@ -4450,8 +4449,6 @@ ${hubChromeSplit.bodyHtml}
  <meta property="og:locale" content="${LOC_TAG[locale] ?? 'it_IT'}">
  <meta property="og:site_name" content="Frontaliere Ticino">
  <meta property="fb:app_id" content="891036063797338">
- <meta name="twitter:card" content="summary_large_image">
- <meta name="twitter:site" content="@frontaliereticino">
 ${hrefTags}
  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
  ${DARK_MODE_SCRIPT}
@@ -4491,8 +4488,6 @@ ${hrefTags}
  <meta property="og:locale" content="${LOC_TAG[locale] ?? 'it_IT'}">
  <meta property="og:site_name" content="Frontaliere Ticino">
  <meta property="fb:app_id" content="891036063797338">
- <meta name="twitter:card" content="summary_large_image">
- <meta name="twitter:site" content="@frontaliereticino">
 ${hrefTags}
  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
  <noscript><meta http-equiv="refresh" content="0;url=/?p=${pp}"></noscript>
