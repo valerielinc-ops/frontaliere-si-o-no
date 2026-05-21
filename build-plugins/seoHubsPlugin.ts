@@ -45,6 +45,7 @@ import {
 } from './shared/seoContentTokens';
 import { ALL_CANTON_CODES, resolveCantonSection, resolveJobCanton, legacyTiSectionRoot } from './shared/cantonSection';
 import { MIN_JOBS_FOR_CANTON_PAGE } from './weeklyEmployersData';
+import { isCantonNoindex } from './shared/cantonNoindexRegistry';
 import { renderCantonSeoProse, type CantonSeoLocale, type CantonSeoSlot } from './shared/cantonSeoProse';
 
 const LOCALE_OG: Record<HubLocale, string> = {
@@ -1848,14 +1849,24 @@ function emitThinCantonHubs(args: ThinCantonHubArgs): void {
     // appenzello/{tutti,settori,aziende}/ +3 unreachable).
     if (jobs.length < MIN_JOBS_FOR_CANTON_PAGE) continue;
 
-    // Dedup-aware gate (2026-05-21): jobsSeoPagesPlugin emits the canton
-    // landing as `noindex,follow` when its dedup-grouped count is below
-    // MIN_JOBS_FOR_CANTON_PAGE (groups jobs sharing `id` or `title|company`).
-    // BFS skips noindex bridges, so seoHubs sub-pages
-    // (`/tutti/`, `/settori/`, `/aziende/`) become unreachable from `/`.
-    // Mirror that dedup heuristic here so both plugins agree on which
-    // cantons get the full sub-page tree. Audit: sitemap-seo-hubs.xml
-    // BFS regression 2026-05-21 (Appenzello/Neuchatel +6 unreachable).
+    // Authoritative noindex check (2026-05-21 follow-up): the local dedup
+    // heuristic below could not access `job.id` (snapshot-history rows carry
+    // only `role`/`employerKey`), so it disagreed with jobsSeoPagesPlugin's
+    // id-aware dedup for cantons where a single vacancy is posted across
+    // multiple cities (e.g. HFR Fribourg: 1 job × N locations). When the two
+    // disagree, the canton landing ships `noindex,follow` (jobsSeoPagesPlugin
+    // wins) while seoHubsPlugin still emits `/tutti/`, `/settori/`, `/aziende/`
+    // — and `audit-bfs-depth.mjs` flags them as orphans because BFS stops at
+    // noindex parents. The cross-plugin registry (populated by
+    // jobsSeoPagesPlugin earlier in the same closeBundle pass) is the source
+    // of truth. Audit: sitemap-seo-hubs.xml BFS regression 2026-05-21
+    // (appenzello/sciaffusa/uri × 3 facets = 9 orphans).
+    if (isCantonNoindex(canton)) continue;
+
+    // Local dedup fallback gate kept as a defense-in-depth check: covers the
+    // case where the registry was never populated (e.g. jobsSeoPagesPlugin
+    // disabled via FAST_BUILD). Mirrors jobsSeoPagesPlugin's MIN gate on the
+    // best-effort signal available here (role+employerKey).
     {
       const dedupKeys = new Set<string>();
       for (const j of jobs) {

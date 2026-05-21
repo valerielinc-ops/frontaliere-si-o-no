@@ -14,6 +14,7 @@ import { buildSimplePage } from './htmlTemplate';
 import { buildSeoPageHtml } from './shared/seoPageShell';
 import { minifyHtml } from './shared/htmlMinify';
 import { jobDescriptionTextToHtml, inlineTextToHtml } from './shared/jobDescription/toHtml';
+import { markCantonNoindex } from './shared/cantonNoindexRegistry';
 import { WriteCollector } from './batchWrite';
 import { buildFlatBridgeFromSibling } from './flatHtmlRedirectPlugin';
 import { buildTitleWithBrand, truncateHeadline, TITLE_BRAND_SUFFIX, TITLE_MAX_CHARS } from './shared/titleSuffix';
@@ -7930,6 +7931,13 @@ ${alternates}
      const meetsThreshold = entry.key === AGGREGATE_KEY || cantonCount >= MIN_JOBS_FOR_CANTON_PAGE;
      const robotsValue: 'index,follow' | 'noindex,follow' = meetsThreshold ? 'index,follow' : 'noindex,follow';
      if (meetsThreshold) cantonIndexIndexable++; else cantonIndexNoindex++;
+     // BFS-depth closure (2026-05-21): publish the noindex decision to the
+     // cross-plugin registry so `seoHubsPlugin.emitThinCantonHubs` can skip
+     // emitting `/tutti/`, `/settori/`, `/aziende/` sub-hubs for cantons
+     // whose parent landing ships `noindex,follow`. Otherwise the sub-hubs
+     // become BFS-orphaned (audit-bfs-depth.mjs treats noindex as a dead
+     // end — see line 276 of that script).
+     if (!meetsThreshold) markCantonNoindex(entry.key);
      const labels = buildCantonLocaleLabels(entry.locale, display);
      // P4 — CTA points to the canton-filtered job board (entry.section is
      // already the canton-aware locale URL segment, e.g. `cerca-lavoro-zurigo`

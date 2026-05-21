@@ -88,6 +88,21 @@ describe('parseJobDescription — noise removal', () => {
     expect(html('Some text ----')).toBe('<p>Some text</p>');
   });
 
+  it('strips mid-line separator runs (HFR-style ref + flattened paragraph break)', () => {
+    // Real HFR (Hôpital Fribourgeois) pattern: ref number + 64 underscores +
+    // body text, all on one line because AI translation flattened the source
+    // <p>/<br> structure. Audit `no-literal-markdown` is 0-tolerance and
+    // failed on 3 such pages on 2026-05-21.
+    const raw =
+      'Ref.: HFR-MTS-255203 ________________________________________________________________ Per completare il suo team.';
+    expect(html(raw)).toBe(
+      '<p>Ref.: HFR-MTS-255203</p><p>Per completare il suo team.</p>',
+    );
+    // Same pattern with `=` and `~` separators
+    expect(html('Foo bar ==== Baz qux.')).toBe('<p>Foo bar</p><p>Baz qux.</p>');
+    expect(html('Foo bar ~~~~ Baz qux.')).toBe('<p>Foo bar</p><p>Baz qux.</p>');
+  });
+
   it('deduplicates consecutive identical paragraphs (S4: Panoramica == Descrizione)', () => {
     const raw = 'Same paragraph here.\n\nSame paragraph here.\n\nDifferent one.';
     expect(html(raw)).toBe('<p>Same paragraph here.</p><p>Different one.</p>');
