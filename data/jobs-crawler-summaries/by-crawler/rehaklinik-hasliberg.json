@@ -1,18 +1,19 @@
 {
   "key": "rehaklinik-hasliberg",
   "label": "Rehaklinik Hasliberg",
-  "generatedAt": "2026-05-21T13:04:59.899Z",
+  "generatedAt": "2026-05-21T23:33:53.246Z",
   "total": 6,
-  "newCount": 2,
-  "updatedCount": 4,
-  "removedCount": 1,
+  "newCount": 0,
+  "updatedCount": 6,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 6068,
-  "avgDurationMs": 6068,
+  "durationMs": 6384,
+  "avgDurationMs": 6384,
   "durationHistory": [
-    6068
+    6384
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "rehaklinik-hasliberg-ba4c3e10e4ca",
       "slug": "sommer-2027-lehrstelle-kauffrau-efz-kaufmann-efz-branche-dienstleistung-und-administration",
@@ -26,7 +27,7 @@
       "url": "https://my.jobalino.ch/job/0d5cdd617ae37f60af684d79b11f57eb/sommer-2027-lehrstelle-kauffrau-efz-kaufmann-efz-branche-dienstleistung-und-administration",
       "source": "Rehaklinik Hasliberg Dedicated Parser (Jobalino)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-21T13:04:55.043Z",
+      "crawledAt": "2026-05-21T23:33:48.150Z",
       "addressLocality": "Hasliberg Hohfluh",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -47,11 +48,12 @@
       "pensum": "100%",
       "contractDuration": "permanent",
       "department": "Lehrstellen / Ausbildung",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-21T13:04:55.043Z",
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 19,
         "completeness": 17
       }
     },
@@ -68,7 +70,7 @@
       "url": "https://my.jobalino.ch/job/ed48f951d00e4632c942a146cff54532/sommer-2027-lehrstelle-fachfrau-gesundheit-efz-fachmann-gesundheit-efz-versorgungsbereich-rehabilitation",
       "source": "Rehaklinik Hasliberg Dedicated Parser (Jobalino)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-21T13:04:55.614Z",
+      "crawledAt": "2026-05-21T23:33:48.742Z",
       "addressLocality": "Hasliberg Hohfluh",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -88,16 +90,15 @@
       "pensumMax": 100,
       "pensum": "100%",
       "department": "Lehrstellen / Ausbildung",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-21T13:04:55.614Z",
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 19,
         "completeness": 17
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "rehaklinik-hasliberg-905eb7fe97e0",
       "slug": "facharztin-facharzt-allgemeine-innere-medizin-mit-schwerpunkt-psychosomatische-und",
@@ -111,7 +112,7 @@
       "url": "https://my.jobalino.ch/job/0798fc0f23c3efe03549d0b768bf7c59/fachaerztin-facharzt-allgemeine-innere-medizin-mit-schwerpunkt-psychosomatische-und-psychosoziale-medizin-fuer-das-zentr",
       "source": "Rehaklinik Hasliberg Dedicated Parser (Jobalino)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-21T13:04:56.746Z",
+      "crawledAt": "2026-05-21T23:33:49.924Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -154,7 +155,7 @@
       "url": "https://my.jobalino.ch/job/94c876ec822c2a7b70de4943e26ad1c0/fachaerztin-facharzt-psychiatrie-und-psychotherapie-mit-schwerpunkt-psychosomatische-und-psychosoziale-medizin-fuer-das-",
       "source": "Rehaklinik Hasliberg Dedicated Parser (Jobalino)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-21T13:04:57.311Z",
+      "crawledAt": "2026-05-21T23:33:50.514Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -197,7 +198,7 @@
       "url": "https://my.jobalino.ch/job/04fe70518c3a1575d3ff9ce80cb2b95a/pflegefachpersonal-fuer-pflegepool",
       "source": "Rehaklinik Hasliberg Dedicated Parser (Jobalino)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-21T13:04:57.877Z",
+      "crawledAt": "2026-05-21T23:33:51.102Z",
       "addressLocality": "Hasliberg Hohfluh",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -240,7 +241,7 @@
       "url": "https://my.jobalino.ch/job/53ff50726a1e24bc7c44745ab07a30a4/assistenzaerztin-assistenzarzt-psychosomatische-medizin-muskuloskelettale-rehabilitation-oder-innere-medizin",
       "source": "Rehaklinik Hasliberg Dedicated Parser (Jobalino)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-21T13:04:56.180Z",
+      "crawledAt": "2026-05-21T23:33:49.333Z",
       "addressLocality": "Hasliberg Hohfluh",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -271,51 +272,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "id": "rehaklinik-hasliberg-4a4e7f122818",
-      "slug": "coordinatore-trice-terapia-80-rehaklinik-hasliberg-hasliberg-hohfluh",
-      "company": "Rehaklinik Hasliberg",
-      "companyKey": "rehaklinik-hasliberg",
-      "companyDomain": "rehaklinik-hasliberg.ch",
-      "title": "Mitarbeiter:in Therapiekoordination / 80%",
-      "location": "Hasliberg Hohfluh",
-      "canton": "BE",
-      "url": "https://my.jobalino.ch/job/50b4ebd28271b99070586870b5006990/mitarbeiter-in-therapiekoordination",
-      "source": "Rehaklinik Hasliberg Dedicated Parser (Jobalino)",
-      "sourceLang": "de",
-      "crawledAt": "2026-05-20T06:03:29.489Z",
-      "addressLocality": "Hasliberg Hohfluh",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "6083",
-      "category": "Amministrazione",
-      "contract": "full-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-23",
-      "applyUrl": "https://my.jobalino.ch/job/50b4ebd28271b99070586870b5006990/mitarbeiter-in-therapiekoordination",
-      "externalId": "50b4ebd28271b99070586870b5006990",
-      "pensumMin": 80,
-      "pensumMax": 80,
-      "pensum": "80%",
-      "contractDuration": "permanent",
-      "department": "Administration",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "firstSeenAt": "2026-05-20T06:03:29.489Z",
-      "_qualityScore": 94,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 22
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
