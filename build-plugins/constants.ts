@@ -221,9 +221,6 @@ export function buildFlatRedirect(
  <meta property="og:site_name" content="Frontaliere Ticino">
  <meta property="fb:app_id" content="891036063797338">
  <meta name="twitter:card" content="summary_large_image">
- <meta name="twitter:title" content="${esc(og.title)}">
- <meta name="twitter:description" content="${desc}">
- <meta name="twitter:image" content="${esc(og.image)}">
  <meta name="twitter:site" content="@frontaliereticino">`
  : '';
  return `<!DOCTYPE html>

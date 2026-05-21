@@ -540,9 +540,7 @@ function renderPage(opts: {
   const extraHead = `    <meta property="og:image" content="${BASE_URL}/og-image.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="${esc(h1)}">
-    <meta name="twitter:description" content="${esc(description)}">`;
+    <meta name="twitter:card" content="summary_large_image">`;
 
   const wordCount = countHtmlBodyWords(body);
 

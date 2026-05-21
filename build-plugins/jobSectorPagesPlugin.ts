@@ -321,8 +321,6 @@ export function buildSectorLandingHtml(opts: BuildSectorLandingHtmlOptions): str
     <meta property="og:image:height" content="630">
     <meta property="og:image:type" content="image/png">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="${esc(seo.ogT)}">
-    <meta name="twitter:description" content="${esc(seo.ogD)}">
     <meta name="twitter:site" content="@frontaliereticino">
     <link rel="canonical" href="${canonicalUrl}">
 ${alternates}

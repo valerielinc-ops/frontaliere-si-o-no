@@ -630,6 +630,22 @@ jobs:
           retention-days: 1
           if-no-files-found: ignore
 
+      # Post-build dist shrinker — runs AFTER all build plugins have
+      # closed and BEFORE the tar pack. Three reductions, each measured
+      # on the May 21 2026 artifact baseline (≈290 MB total on 825k HTML
+      # + 5.9k JSON, see scripts/dist-shrink.mjs header):
+      #   1. html-minifier-terser pass on dist/**/*.html (JSON-LD opaque)
+      #   3. JSON re-stringify on dist/data/**/*.json (no indent)
+      #   5. Safe twitter:* meta strip (drops only tags duplicated by og:*)
+      # Idempotent and read-after-write; the verify-l2-equivalence.mjs
+      # contract (DOM + visible text + JSON-LD equality) covers the HTML
+      # pass.
+      - name: Shrink dist/ (post-build)
+        if: github.event.inputs.profile_sequential != 'true'
+        run: |
+          node scripts/dist-shrink.mjs --dist=dist
+          du -sh dist
+
       # ┌─ Pages artifact pipeline (two steps, one logical operation) ─┐
       # │                                                                │
       # │  Step A : tar dist/ as a plain UNCOMPRESSED archive            │

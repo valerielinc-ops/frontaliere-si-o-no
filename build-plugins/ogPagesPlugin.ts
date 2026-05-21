@@ -970,9 +970,6 @@ export function ogPagesPlugin(rootDir: string): Plugin {
  <meta property="article:section" content="Frontalieri Ticino">
  <meta property="article:author" content="${BASE_URL}/chi-siamo/">
  <meta name="twitter:card" content="summary_large_image">
- <meta name="twitter:title" content="${esc(localizedTitle)}">
- <meta name="twitter:description" content="${esc(localizedDesc)}">
- <meta name="twitter:image" content="${imgU}">
  <meta name="twitter:site" content="@frontaliereticino">
 ${href}
  <link rel="alternate" type="application/rss+xml" title="Frontaliere Ticino" href="${BASE_URL}/rss.xml">

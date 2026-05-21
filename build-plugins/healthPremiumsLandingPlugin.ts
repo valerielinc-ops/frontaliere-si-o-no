@@ -2383,8 +2383,6 @@ function renderLeafPage(inp: LeafInputs): string {
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="${esc(title)}">
-    <meta name="twitter:description" content="${esc(description)}">
     <meta name="twitter:site" content="@frontaliereticino">`;
 
   return buildSeoPageHtml({
@@ -2699,8 +2697,6 @@ function renderCantonHubPage(inp: CantonHubInputs): string {
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="${esc(title)}">
-    <meta name="twitter:description" content="${esc(description)}">
     <meta name="twitter:site" content="@frontaliereticino">`;
 
   return buildSeoPageHtml({
@@ -2972,8 +2968,6 @@ function renderRootHubPage(inp: RootHubInputs): string {
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="${esc(title)}">
-    <meta name="twitter:description" content="${esc(description)}">
     <meta name="twitter:site" content="@frontaliereticino">`;
 
   return buildSeoPageHtml({
