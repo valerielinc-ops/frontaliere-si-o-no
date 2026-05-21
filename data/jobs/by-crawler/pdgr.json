@@ -2005,10 +2005,10 @@
     },
     {
       "id": "pdgr-d2d0c50f1811",
-      "slug": "medico-specializzando-in-psichiatria-psychiatrische-dienste-graubunden-cazis-chur",
+      "slug": "medico-assistente-psychiatrische-dienste-graubunden-cazis-chur",
       "slugByLocale": {
         "de": "assistenzarztin-assistenzarzt-psychiatrische-dienste-graubunden-cazis-chur",
-        "it": "medico-specializzando-in-psichiatria-psychiatrische-dienste-graubunden-cazis-chur",
+        "it": "medico-assistente-psychiatrische-dienste-graubunden-cazis-chur",
         "en": "resident-psychiatrist-psychiatrische-dienste-graubunden-cazis-chur",
         "fr": "medecin-specialiste-en-psychiatrie-psychiatrische-dienste-graubunden-cazis-chur"
       },
@@ -2061,10 +2061,14 @@
       "previousSlugsByLocale": {
         "de": [
           "assistenzarztin-assistenzarzt-pdgr-ch"
+        ],
+        "it": [
+          "medico-specializzando-in-psichiatria-psychiatrische-dienste-graubunden-cazis-chur"
         ]
       },
       "previousSlugs": [
-        "assistenzarztin-assistenzarzt-pdgr-ch"
+        "assistenzarztin-assistenzarzt-pdgr-ch",
+        "medico-specializzando-in-psichiatria-psychiatrische-dienste-graubunden-cazis-chur"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -2831,10 +2835,10 @@
     },
     {
       "id": "pdgr-931f5642c1d2",
-      "slug": "oberarztin-oberarzt-pdgr-ch",
+      "slug": "primario-psychiatrische-dienste-graubunden-ilanz",
       "slugByLocale": {
         "de": "oberarztin-oberarzt-psychiatrische-dienste-graubunden-ilanz",
-        "it": "oberarztin-oberarzt-pdgr-ch",
+        "it": "primario-psychiatrische-dienste-graubunden-ilanz",
         "en": "oberarztin-oberarzt-pdgr-ch",
         "fr": "oberarztin-oberarzt-pdgr-ch"
       },
@@ -2896,7 +2900,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-19T23:09:25.343Z"
+      "firstSeenAt": "2026-05-19T23:09:25.343Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "oberarztin-oberarzt-pdgr-ch"
+        ]
+      },
+      "previousSlugs": [
+        "oberarztin-oberarzt-pdgr-ch"
+      ]
     },
     {
       "id": "pdgr-4c55e9af737c",

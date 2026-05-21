@@ -1182,12 +1182,12 @@
     },
     {
       "id": "klinik-lengg-cb7263a1fca7",
-      "slug": "consulente-alimentare-consulente-alimentare-svde-a-klinik-lengg-zurich",
+      "slug": "nutrizionista-nutrizionista-svde-a-klinik-lengg-zurich",
       "slugByLocale": {
-        "it": "consulente-alimentare-consulente-alimentare-svde-a-klinik-lengg-zurich",
+        "it": "nutrizionista-nutrizionista-svde-a-klinik-lengg-zurich",
         "en": "nutritionist-nutritionist-svde-a-klinik-lengg-zurich",
         "de": "ernahrungsberaterin-ernahrungsberater-svde-a-klinik-lengg-zurich",
-        "fr": "conseiller-en-nutrition-conseiller-en-nutrition-svde-a-klinik-lengg-zurich"
+        "fr": "nutritionniste-nutritionniste-svde-a-klinik-lengg-zurich"
       },
       "company": "Klinik Lengg",
       "companyKey": "klinik-lengg",
@@ -1260,11 +1260,17 @@
         ]
       },
       "previousSlugs": [
-        "ernahrungsberaterin-ernahrungsberater-svde-a-klinik-lengg-zurich"
+        "ernahrungsberaterin-ernahrungsberater-svde-a-klinik-lengg-zurich",
+        "consulente-alimentare-consulente-alimentare-svde-a-klinik-lengg-zurich",
+        "conseiller-en-nutrition-conseiller-en-nutrition-svde-a-klinik-lengg-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ernahrungsberaterin-ernahrungsberater-svde-a-klinik-lengg-zurich"
+          "ernahrungsberaterin-ernahrungsberater-svde-a-klinik-lengg-zurich",
+          "consulente-alimentare-consulente-alimentare-svde-a-klinik-lengg-zurich"
+        ],
+        "fr": [
+          "conseiller-en-nutrition-conseiller-en-nutrition-svde-a-klinik-lengg-zurich"
         ]
       },
       "firstSeenAt": "2026-05-19T12:22:17.515Z",
@@ -1373,9 +1379,9 @@
     },
     {
       "id": "klinik-lengg-aef0561ac03d",
-      "slug": "segretaria-medica-segretario-medico-klinik-lengg-zurich",
+      "slug": "segreto-medico-segretario-medico-klinik-lengg-zurich",
       "slugByLocale": {
-        "it": "segretaria-medica-segretario-medico-klinik-lengg-zurich",
+        "it": "segreto-medico-segretario-medico-klinik-lengg-zurich",
         "en": "medical-secretary-klinik-lengg-zurich",
         "de": "medizinische-sekretarin-medizinischer-sekretar-klinik-lengg-zurich",
         "fr": "secretaire-medical-secretaire-medicale-klinik-lengg-zurich"
@@ -1433,11 +1439,13 @@
         ]
       },
       "previousSlugs": [
-        "medizinische-sekretarin-medizinischer-sekretar-klinik-lengg-zurich"
+        "medizinische-sekretarin-medizinischer-sekretar-klinik-lengg-zurich",
+        "segretaria-medica-segretario-medico-klinik-lengg-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "medizinische-sekretarin-medizinischer-sekretar-klinik-lengg-zurich"
+          "medizinische-sekretarin-medizinischer-sekretar-klinik-lengg-zurich",
+          "segretaria-medica-segretario-medico-klinik-lengg-zurich"
         ]
       },
       "firstSeenAt": "2026-05-19T12:22:17.493Z",

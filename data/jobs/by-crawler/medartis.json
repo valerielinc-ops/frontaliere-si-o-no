@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "medartis-bb1513c7d9ce",
-      "slug": "group-manager-affari-regolatori-100-medartis-basel",
+      "slug": "gestione-del-gruppo-regolatori-100-medartis-basel",
       "slugByLocale": {
-        "it": "group-manager-affari-regolatori-100-medartis-basel",
+        "it": "gestione-del-gruppo-regolatori-100-medartis-basel",
         "en": "group-manager-regulatory-affairs-100-medartis-basel",
         "de": "gruppenleiter-regulatory-affairs-100-medartis-basel",
-        "fr": "responsable-d-equipe-affaires-reglementaires-100-medartis-basel"
+        "fr": "gestionnaire-de-groupe-affaires-reglementaires-100-medartis-basel"
       },
       "company": "Medartis",
       "companyKey": "medartis",
@@ -87,16 +87,20 @@
         ],
         "it": [
           "group-manager-regulatory-affairs-100-medartis-basel",
-          "responsabile-regulatory-affairs-gruppo-medartis-basel"
+          "responsabile-regulatory-affairs-gruppo-medartis-basel",
+          "group-manager-affari-regolatori-100-medartis-basel"
         ],
         "fr": [
-          "responsable-reglementaire-groupe-medartis-basel"
+          "responsable-reglementaire-groupe-medartis-basel",
+          "responsable-d-equipe-affaires-reglementaires-100-medartis-basel"
         ]
       },
       "previousSlugs": [
         "group-manager-regulatory-affairs-100-medartis-basel",
         "responsabile-regulatory-affairs-gruppo-medartis-basel",
-        "responsable-reglementaire-groupe-medartis-basel"
+        "group-manager-affari-regolatori-100-medartis-basel",
+        "responsable-reglementaire-groupe-medartis-basel",
+        "responsable-d-equipe-affaires-reglementaires-100-medartis-basel"
       ],
       "firstSeenAt": "2026-05-19T19:53:25.039Z",
       "salaryMin": 68000,

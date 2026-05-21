@@ -180,7 +180,7 @@
         "it": "assistente-sociale-bsc-job-coach-klinik-sudhang-kirchlindach",
         "en": "sozialarbeiter-in-bsc-job-coach-klinik-sudhang-kirchlindach",
         "de": "sozialarbeiter-in-bsc-job-coach-suedhang-ch",
-        "fr": "travailleur-social-bsc-coach-de-carriere-klinik-sudhang-kirchlindach"
+        "fr": "travailleur-social-en-bsc-entraineur-d-emploi-klinik-sudhang-kirchlindach"
       },
       "company": "Klinik Südhang",
       "companyKey": "suedhang",
@@ -233,11 +233,15 @@
         ],
         "it": [
           "sozialarbeiter-in-bsc-job-coach-suedhang-ch"
+        ],
+        "fr": [
+          "travailleur-social-bsc-coach-de-carriere-klinik-sudhang-kirchlindach"
         ]
       },
       "previousSlugs": [
+        "sozialarbeiter-in-bsc-jobcoach-klinik-sudhang-kirchlindach",
         "sozialarbeiter-in-bsc-job-coach-suedhang-ch",
-        "sozialarbeiter-in-bsc-jobcoach-klinik-sudhang-kirchlindach"
+        "travailleur-social-bsc-coach-de-carriere-klinik-sudhang-kirchlindach"
       ],
       "firstSeenAt": "2026-05-19T21:02:16.254Z",
       "salaryMin": 49500,
@@ -255,12 +259,12 @@
     },
     {
       "id": "suedhang-3a1e35768983",
-      "slug": "fachfrau-fachmann-gesundheit-efz-im-nachtdienst-suedhang-ch",
+      "slug": "salute-professionale-efz-al-servizio-notturno-klinik-sudhang-kirchlindach",
       "slugByLocale": {
         "de": "fachfrau-fachmann-gesundheit-efz-im-nachtdienst-klinik-sudhang-kirchlindach",
-        "it": "fachfrau-fachmann-gesundheit-efz-im-nachtdienst-suedhang-ch",
-        "en": "fachfrau-fachmann-gesundheit-efz-im-nachtdienst-suedhang-ch",
-        "fr": "fachfrau-fachmann-gesundheit-efz-im-nachtdienst-suedhang-ch"
+        "it": "salute-professionale-efz-al-servizio-notturno-klinik-sudhang-kirchlindach",
+        "en": "professional-health-efz-at-night-service-klinik-sudhang-kirchlindach",
+        "fr": "sante-professionnelle-efz-au-service-de-nuit-klinik-sudhang-kirchlindach"
       },
       "company": "Klinik Südhang",
       "companyKey": "suedhang",
@@ -317,7 +321,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-21T00:25:20.697Z"
+      "firstSeenAt": "2026-05-21T00:25:20.697Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachfrau-fachmann-gesundheit-efz-im-nachtdienst-suedhang-ch"
+        ],
+        "en": [
+          "fachfrau-fachmann-gesundheit-efz-im-nachtdienst-suedhang-ch"
+        ],
+        "fr": [
+          "fachfrau-fachmann-gesundheit-efz-im-nachtdienst-suedhang-ch"
+        ]
+      },
+      "previousSlugs": [
+        "fachfrau-fachmann-gesundheit-efz-im-nachtdienst-suedhang-ch"
+      ]
     },
     {
       "id": "suedhang-cda44d9a8858",

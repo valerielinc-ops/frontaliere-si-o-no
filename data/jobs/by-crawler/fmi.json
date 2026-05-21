@@ -4,10 +4,10 @@
   "jobs": [
     {
       "id": "fmi-0ac06fbabc27",
-      "slug": "stage-a-tempo-pieno-per-la-cura-a-lungo-termine-spitaler-fmi-ag-unterseen",
+      "slug": "interno-nella-cura-a-lungo-termine-100-spitaler-fmi-ag-unterseen",
       "slugByLocale": {
-        "it": "stage-a-tempo-pieno-per-la-cura-a-lungo-termine-spitaler-fmi-ag-unterseen",
-        "en": "full-time-long-term-care-trainee-spitaler-fmi-ag-unterseen",
+        "it": "interno-nella-cura-a-lungo-termine-100-spitaler-fmi-ag-unterseen",
+        "en": "intern-in-long-term-care-100-spitaler-fmi-ag-unterseen",
         "de": "praktikant-in-langzeitpflege-100-fmi-unterseen",
         "fr": "stagiaire-en-soins-de-longue-duree-a-temps-plein-spitaler-fmi-ag-unterseen"
       },
@@ -70,11 +70,17 @@
         ]
       },
       "previousSlugs": [
-        "praktikant-in-langzeitpflege-100-fmi-unterseen"
+        "praktikant-in-langzeitpflege-100-fmi-unterseen",
+        "stage-a-tempo-pieno-per-la-cura-a-lungo-termine-spitaler-fmi-ag-unterseen",
+        "full-time-long-term-care-trainee-spitaler-fmi-ag-unterseen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "praktikant-in-langzeitpflege-100-fmi-unterseen"
+          "praktikant-in-langzeitpflege-100-fmi-unterseen",
+          "stage-a-tempo-pieno-per-la-cura-a-lungo-termine-spitaler-fmi-ag-unterseen"
+        ],
+        "en": [
+          "full-time-long-term-care-trainee-spitaler-fmi-ag-unterseen"
         ]
       },
       "firstSeenAt": "2026-05-19T15:33:00.312Z",
@@ -163,12 +169,12 @@
     },
     {
       "id": "fmi-9248d622cef4",
-      "slug": "infermiere-a-di-psichiatria-spitaler-fmi-ag-unterseen",
+      "slug": "specializzato-infermieristica-psichiatria-stazionario-60-100-spitaler-fmi-ag-unterseen",
       "slugByLocale": {
-        "it": "infermiere-a-di-psichiatria-spitaler-fmi-ag-unterseen",
-        "en": "psychiatric-nurse-spitaler-fmi-ag-unterseen",
+        "it": "specializzato-infermieristica-psichiatria-stazionario-60-100-spitaler-fmi-ag-unterseen",
+        "en": "nursing-specialist-psychiatry-stationary-60-100-spitaler-fmi-ag-unterseen",
         "de": "pflegefachperson-psychiatrie-stationar-60-100-fmi-unterseen",
-        "fr": "infirmier-infirmiere-en-psychiatrie-spitaler-fmi-ag-unterseen"
+        "fr": "specialiste-des-soins-infirmiers-psychiatrie-stationnaire-60-100-spitaler-fmi-ag-unterseen"
       },
       "company": "Spitäler fmi AG",
       "companyKey": "fmi",
@@ -210,11 +216,21 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "pflegefachperson-psychiatrie-stationar-60-100-fmi-unterseen"
+        "pflegefachperson-psychiatrie-stationar-60-100-fmi-unterseen",
+        "infermiere-a-di-psichiatria-spitaler-fmi-ag-unterseen",
+        "psychiatric-nurse-spitaler-fmi-ag-unterseen",
+        "infirmier-infirmiere-en-psychiatrie-spitaler-fmi-ag-unterseen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "pflegefachperson-psychiatrie-stationar-60-100-fmi-unterseen"
+          "pflegefachperson-psychiatrie-stationar-60-100-fmi-unterseen",
+          "infermiere-a-di-psichiatria-spitaler-fmi-ag-unterseen"
+        ],
+        "en": [
+          "psychiatric-nurse-spitaler-fmi-ag-unterseen"
+        ],
+        "fr": [
+          "infirmier-infirmiere-en-psychiatrie-spitaler-fmi-ag-unterseen"
         ]
       },
       "firstSeenAt": "2026-05-19T15:32:58.752Z",
@@ -670,7 +686,7 @@
       "slug": "apprendista-assistente-alla-salute-e-sociale-eba-seniorenpark-frutigen-2026-spitaler-fmi-ag-frutigen",
       "slugByLocale": {
         "it": "apprendista-assistente-alla-salute-e-sociale-eba-seniorenpark-frutigen-2026-spitaler-fmi-ag-frutigen",
-        "en": "apprentice-r-assistent-in-gesundheit-und-soziales-eba-seniorenpark-frutigen-2026-spitaler-fmi-ag-frutigen",
+        "en": "learning-r-assistant-in-health-and-social-eba-seniorenpark-frutigen-2026-spitaler-fmi-ag-frutigen",
         "de": "lernende-r-assistent-in-gesundheit-und-soziales-eba-seniorenpark-frutigen-2026-fmi",
         "fr": "apprenti-assistant-e-en-sante-et-social-eba-seniorenpark-frutigen-2026-spitaler-fmi-ag-frutigen"
       },
@@ -734,14 +750,16 @@
       },
       "previousSlugs": [
         "lernende-r-assistent-in-gesundheit-und-soziales-eba-seniorenpark-frutigen-2026-fmi",
-        "apprentice-health-and-social-care-assistant-eba-seniorenpark-frutigen-2026-spitaler-fmi-ag-frutigen"
+        "apprentice-health-and-social-care-assistant-eba-seniorenpark-frutigen-2026-spitaler-fmi-ag-frutigen",
+        "apprentice-r-assistent-in-gesundheit-und-soziales-eba-seniorenpark-frutigen-2026-spitaler-fmi-ag-frutigen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lernende-r-assistent-in-gesundheit-und-soziales-eba-seniorenpark-frutigen-2026-fmi"
         ],
         "en": [
-          "apprentice-health-and-social-care-assistant-eba-seniorenpark-frutigen-2026-spitaler-fmi-ag-frutigen"
+          "apprentice-health-and-social-care-assistant-eba-seniorenpark-frutigen-2026-spitaler-fmi-ag-frutigen",
+          "apprentice-r-assistent-in-gesundheit-und-soziales-eba-seniorenpark-frutigen-2026-spitaler-fmi-ag-frutigen"
         ]
       },
       "firstSeenAt": "2026-05-19T15:32:54.410Z",
@@ -1077,9 +1095,9 @@
     },
     {
       "id": "fmi-8b78a18edfd1",
-      "slug": "infermiere-specializzato-in-psichiatria-nel-turno-di-notte-50-100-spitaler-fmi-ag-frutigen",
+      "slug": "psichiatria-hf-in-servizio-notturno-50-100-spitaler-fmi-ag-frutigen",
       "slugByLocale": {
-        "it": "infermiere-specializzato-in-psichiatria-nel-turno-di-notte-50-100-spitaler-fmi-ag-frutigen",
+        "it": "psichiatria-hf-in-servizio-notturno-50-100-spitaler-fmi-ag-frutigen",
         "en": "pflegefachperson-hf-psychiatrie-im-nachtdienst-50-100-fmi-frutigen",
         "de": "pflegefachperson-hf-psychiatrie-im-nachtdienst-50-100-fmi-frutigen",
         "fr": "infirmier-specialise-en-psychiatrie-en-service-de-nuit-50-100-spitaler-fmi-ag-frutigen"
@@ -1150,12 +1168,14 @@
           "pflegefachkraft-hf-psychiatrie-nachtdienst-50-100-spitaler-fmi-ag-frutigen"
         ],
         "it": [
-          "pflegefachperson-hf-psychiatrie-im-nachtdienst-50-100-fmi-frutigen"
+          "pflegefachperson-hf-psychiatrie-im-nachtdienst-50-100-fmi-frutigen",
+          "infermiere-specializzato-in-psichiatria-nel-turno-di-notte-50-100-spitaler-fmi-ag-frutigen"
         ]
       },
       "previousSlugs": [
+        "pflegefachkraft-hf-psychiatrie-nachtdienst-50-100-spitaler-fmi-ag-frutigen",
         "pflegefachperson-hf-psychiatrie-im-nachtdienst-50-100-fmi-frutigen",
-        "pflegefachkraft-hf-psychiatrie-nachtdienst-50-100-spitaler-fmi-ag-frutigen"
+        "infermiere-specializzato-in-psichiatria-nel-turno-di-notte-50-100-spitaler-fmi-ag-frutigen"
       ],
       "firstSeenAt": "2026-05-19T15:32:50.671Z",
       "salaryMin": 49500,
@@ -1776,10 +1796,10 @@
     },
     {
       "id": "fmi-4f3e05b2d8ac",
-      "slug": "medico-specialista-di-psichiatria-80-100-spitaler-fmi-ag-frutigen",
+      "slug": "psichiatria-superiore-80-100-spitaler-fmi-ag-frutigen",
       "slugByLocale": {
-        "it": "medico-specialista-di-psichiatria-80-100-spitaler-fmi-ag-frutigen",
-        "en": "senior-psychiatrist-80-100-spitaler-fmi-ag-frutigen",
+        "it": "psichiatria-superiore-80-100-spitaler-fmi-ag-frutigen",
+        "en": "senior-physician-psychiatry-80-100-spitaler-fmi-ag-frutigen",
         "de": "oberarztin-oberarzt-psychiatrie-80-100-fmi-frutigen",
         "fr": "medecin-specialiste-en-psychiatrie-80-100-spitaler-fmi-ag-frutigen"
       },
@@ -1845,11 +1865,17 @@
         ]
       },
       "previousSlugs": [
-        "oberarztin-oberarzt-psychiatrie-80-100-fmi-frutigen"
+        "oberarztin-oberarzt-psychiatrie-80-100-fmi-frutigen",
+        "medico-specialista-di-psichiatria-80-100-spitaler-fmi-ag-frutigen",
+        "senior-psychiatrist-80-100-spitaler-fmi-ag-frutigen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "oberarztin-oberarzt-psychiatrie-80-100-fmi-frutigen"
+          "oberarztin-oberarzt-psychiatrie-80-100-fmi-frutigen",
+          "medico-specialista-di-psichiatria-80-100-spitaler-fmi-ag-frutigen"
+        ],
+        "en": [
+          "senior-psychiatrist-80-100-spitaler-fmi-ag-frutigen"
         ]
       },
       "firstSeenAt": "2026-05-19T15:32:44.308Z",
@@ -5128,12 +5154,12 @@
     },
     {
       "id": "fmi-d2c3915bcbf3",
-      "slug": "assistenzarztin-assistenzarzt-80-100-fmi-unterseen-2",
+      "slug": "assistente-medico-80-100-spitaler-fmi-ag-unterseen",
       "slugByLocale": {
         "de": "assistenzarztin-assistenzarzt-80-100-fmi-unterseen",
-        "it": "assistenzarztin-assistenzarzt-80-100-fmi-unterseen-2",
-        "en": "assistenzarztin-assistenzarzt-80-100-fmi-unterseen-2",
-        "fr": "assistenzarztin-assistenzarzt-80-100-fmi-unterseen-2"
+        "it": "assistente-medico-80-100-spitaler-fmi-ag-unterseen",
+        "en": "assistant-physician-80-100-spitaler-fmi-ag-unterseen-995a0a",
+        "fr": "medecin-adjoint-80-100-spitaler-fmi-ag-unterseen"
       },
       "company": "Spitäler fmi AG",
       "companyKey": "fmi",
@@ -5188,7 +5214,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-19T22:14:28.074Z"
+      "firstSeenAt": "2026-05-19T22:14:28.074Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistenzarztin-assistenzarzt-80-100-fmi-unterseen-2"
+        ],
+        "en": [
+          "assistenzarztin-assistenzarzt-80-100-fmi-unterseen-2"
+        ],
+        "fr": [
+          "assistenzarztin-assistenzarzt-80-100-fmi-unterseen-2"
+        ]
+      },
+      "previousSlugs": [
+        "assistenzarztin-assistenzarzt-80-100-fmi-unterseen-2"
+      ]
     },
     {
       "id": "fmi-220580d4c881",

@@ -1289,10 +1289,10 @@
     },
     {
       "id": "senevita-8b76af87a526",
-      "slug": "koch-kochin-100-im-tagesdienst-senevita-basel-bs",
+      "slug": "cook-kochin-100-in-servizio-giornaliero-senevita-basel-bs",
       "slugByLocale": {
         "de": "koch-kochin-100-im-tagesdienst-senevita-basel-bs",
-        "it": "koch-kochin-100-im-tagesdienst-senevita-basel-bs",
+        "it": "cook-kochin-100-in-servizio-giornaliero-senevita-basel-bs",
         "en": "koch-kochin-100-im-tagesdienst-senevita-basel-bs",
         "fr": "koch-kochin-100-im-tagesdienst-senevita-basel-bs"
       },
@@ -1351,7 +1351,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-19T23:25:22.594Z"
+      "firstSeenAt": "2026-05-19T23:25:22.594Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "koch-kochin-100-im-tagesdienst-senevita-basel-bs"
+        ]
+      },
+      "previousSlugs": [
+        "koch-kochin-100-im-tagesdienst-senevita-basel-bs"
+      ]
     },
     {
       "id": "senevita-3abf90bbd095",

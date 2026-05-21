@@ -883,12 +883,12 @@
     },
     {
       "id": "spital-sts-bc19f72617d9",
-      "slug": "assistent-in-gesundheit-e-soziales-spital-sts-thun",
+      "slug": "assistente-in-salute-e-sociale-spital-sts-thun",
       "slugByLocale": {
         "de": "assistent-in-gesundheit-und-soziales-spital-sts-thun",
-        "it": "assistent-in-gesundheit-e-soziales-spital-sts-thun",
-        "en": "assistent-in-gesundheit-und-soziales-spital-sts-thun",
-        "fr": "assistent-in-gesundheit-und-soziales-spital-sts-thun"
+        "it": "assistente-in-salute-e-sociale-spital-sts-thun",
+        "en": "assistant-in-health-and-social-spital-sts-thun",
+        "fr": "assistant-en-sante-et-social-spital-sts-thun"
       },
       "company": "Spital STS",
       "companyKey": "spital-sts",
@@ -933,11 +933,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "assistent-in-gesundheit-und-soziales-spital-sts-thun",
+          "assistent-in-gesundheit-e-soziales-spital-sts-thun"
+        ],
+        "en": [
+          "assistent-in-gesundheit-und-soziales-spital-sts-thun"
+        ],
+        "fr": [
           "assistent-in-gesundheit-und-soziales-spital-sts-thun"
         ]
       },
       "previousSlugs": [
-        "assistent-in-gesundheit-und-soziales-spital-sts-thun"
+        "assistent-in-gesundheit-und-soziales-spital-sts-thun",
+        "assistent-in-gesundheit-e-soziales-spital-sts-thun"
       ],
       "salaryMin": 51500,
       "salaryMax": 88000,
@@ -955,12 +963,12 @@
     },
     {
       "id": "spital-sts-c18ddf031aae",
-      "slug": "sachbearbeiter-in-payroll-spital-sts-thun",
+      "slug": "editore-in-payroll-spital-sts-thun",
       "slugByLocale": {
         "de": "sachbearbeiter-in-payroll-spital-sts-thun",
-        "it": "sachbearbeiter-in-payroll-spital-sts-thun",
-        "en": "sachbearbeiter-in-payroll-spital-sts-thun",
-        "fr": "sachbearbeiter-in-payroll-spital-sts-thun"
+        "it": "editore-in-payroll-spital-sts-thun",
+        "en": "editor-in-payroll-spital-sts-thun",
+        "fr": "editeur-dans-payroll-spital-sts-thun"
       },
       "company": "Spital STS",
       "companyKey": "spital-sts",
@@ -1015,7 +1023,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-21T00:17:53.230Z"
+      "firstSeenAt": "2026-05-21T00:17:53.230Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-in-payroll-spital-sts-thun"
+        ],
+        "en": [
+          "sachbearbeiter-in-payroll-spital-sts-thun"
+        ],
+        "fr": [
+          "sachbearbeiter-in-payroll-spital-sts-thun"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeiter-in-payroll-spital-sts-thun"
+      ]
     }
   ]
 }

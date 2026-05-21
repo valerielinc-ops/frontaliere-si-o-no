@@ -4,10 +4,10 @@
   "jobs": [
     {
       "id": "mobiliar-3c483b7f1166",
-      "slug": "fachspezialist-produktmanagement-mobilitatsversicherung-w-m-d-mobiliar-ch",
+      "slug": "specialista-in-gestione-dei-prodotti-assicurazione-di-mobilita-f-m-d-die-mobiliar-bern",
       "slugByLocale": {
         "de": "fachspezialist-produktmanagement-mobilitatsversicherung-w-m-d-mobiliar-ch",
-        "it": "fachspezialist-produktmanagement-mobilitatsversicherung-w-m-d-mobiliar-ch",
+        "it": "specialista-in-gestione-dei-prodotti-assicurazione-di-mobilita-f-m-d-die-mobiliar-bern",
         "en": "fachspezialist-produktmanagement-mobilitatsversicherung-w-m-d-mobiliar-ch",
         "fr": "fachspezialist-produktmanagement-mobilitatsversicherung-w-m-d-mobiliar-ch"
       },
@@ -68,7 +68,15 @@
         }
       },
       "postalCode": "3001",
-      "firstSeenAt": "2026-05-19T12:20:08.098Z"
+      "firstSeenAt": "2026-05-19T12:20:08.098Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachspezialist-produktmanagement-mobilitatsversicherung-w-m-d-mobiliar-ch"
+        ]
+      },
+      "previousSlugs": [
+        "fachspezialist-produktmanagement-mobilitatsversicherung-w-m-d-mobiliar-ch"
+      ]
     },
     {
       "id": "mobiliar-cfa2c552e0a6",

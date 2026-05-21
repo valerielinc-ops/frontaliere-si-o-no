@@ -448,12 +448,12 @@
     },
     {
       "id": "epfl-9666b90cdabb",
-      "slug": "ricerca-collaborator-epfl-fribourg",
+      "slug": "collaboratore-di-ricerca-epfl-fribourg",
       "slugByLocale": {
-        "it": "ricerca-collaborator-epfl-fribourg",
+        "it": "collaboratore-di-ricerca-epfl-fribourg",
         "en": "research-collaborator-epfl-fribourg",
-        "de": "forschung-collaborator-epfl-fribourg",
-        "fr": "recherche-collaborator-epfl-fribourg"
+        "de": "forschungskooperation-epfl-fribourg",
+        "fr": "collaborateur-de-recherche-epfl-fribourg"
       },
       "company": "EPFL",
       "companyKey": "epfl",
@@ -497,21 +497,21 @@
       "externalId": "1164294355",
       "previousSlugsByLocale": {
         "it": [
-          "collaboratore-di-ricerca-epfl-fribourg",
-          "research-collaborator-epfl-fribourg"
+          "research-collaborator-epfl-fribourg",
+          "ricerca-collaborator-epfl-fribourg"
         ],
         "de": [
-          "forschungskooperation-epfl-fribourg"
+          "forschung-collaborator-epfl-fribourg"
         ],
         "fr": [
-          "collaborateur-de-recherche-epfl-fribourg"
+          "recherche-collaborator-epfl-fribourg"
         ]
       },
       "previousSlugs": [
-        "collaboratore-di-ricerca-epfl-fribourg",
         "research-collaborator-epfl-fribourg",
-        "forschungskooperation-epfl-fribourg",
-        "collaborateur-de-recherche-epfl-fribourg"
+        "ricerca-collaborator-epfl-fribourg",
+        "forschung-collaborator-epfl-fribourg",
+        "recherche-collaborator-epfl-fribourg"
       ],
       "firstSeenAt": "2026-05-10T21:32:10.745Z",
       "salaryMin": 49500,
@@ -2942,7 +2942,7 @@
         "it": "postdoc-nella-biofisica-sperimentale-epfl-lausanne",
         "en": "postdoc-in-experimental-biophysics-epfl-lausanne",
         "de": "postdoc-in-experimenteller-biophysik-epfl-lausanne",
-        "fr": "postdoc-in-experimental-biophysics-epfl-lausanne"
+        "fr": "postdoc-en-biophysique-experimentale-epfl-lausanne"
       },
       "company": "EPFL",
       "companyKey": "epfl",
@@ -2986,7 +2986,6 @@
       "externalId": "1164715455",
       "previousSlugsByLocale": {
         "fr": [
-          "postdoc-en-biophysique-experimentale-epfl-lausanne",
           "postdoc-in-experimental-biophysics-epfl-lausanne"
         ],
         "it": [
@@ -2997,8 +2996,7 @@
         ]
       },
       "previousSlugs": [
-        "postdoc-in-experimental-biophysics-epfl-lausanne",
-        "postdoc-en-biophysique-experimentale-epfl-lausanne"
+        "postdoc-in-experimental-biophysics-epfl-lausanne"
       ],
       "firstSeenAt": "2026-05-11T22:00:31.569Z",
       "salaryMin": 49500,
@@ -3470,12 +3468,12 @@
     },
     {
       "id": "epfl-72dc2390befc",
-      "slug": "phd-position-in-computational-x-ray-imaging-and-semiconductor-metrology-epfl-villigen",
+      "slug": "phd-posizione-nella-metrologia-di-imaging-e-semiconduttore-a-raggi-x-computazionali-epfl-villigen",
       "slugByLocale": {
         "en": "phd-position-in-computational-x-ray-imaging-and-semiconductor-metrology-epfl-villigen",
-        "it": "phd-position-in-computational-x-ray-imaging-and-semiconductor-metrology-epfl-villigen",
-        "de": "phd-position-in-computational-x-ray-imaging-and-semiconductor-metrology-epfl-villigen",
-        "fr": "phd-position-in-computational-x-ray-imaging-and-semiconductor-metrology-epfl-villigen"
+        "it": "phd-posizione-nella-metrologia-di-imaging-e-semiconduttore-a-raggi-x-computazionali-epfl-villigen",
+        "de": "phd-position-in-der-computergestutzten-rontgenbildgebung-und-halbleitermesstechnik-epfl-villigen",
+        "fr": "poste-de-doctorat-en-imagerie-par-rayons-x-et-metrologie-des-semi-conducteurs-epfl-villigen"
       },
       "company": "EPFL",
       "companyKey": "epfl",
@@ -3532,7 +3530,21 @@
         }
       },
       "postalCode": "5000",
-      "firstSeenAt": "2026-05-20T22:49:53.220Z"
+      "firstSeenAt": "2026-05-20T22:49:53.220Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "phd-position-in-computational-x-ray-imaging-and-semiconductor-metrology-epfl-villigen"
+        ],
+        "de": [
+          "phd-position-in-computational-x-ray-imaging-and-semiconductor-metrology-epfl-villigen"
+        ],
+        "fr": [
+          "phd-position-in-computational-x-ray-imaging-and-semiconductor-metrology-epfl-villigen"
+        ]
+      },
+      "previousSlugs": [
+        "phd-position-in-computational-x-ray-imaging-and-semiconductor-metrology-epfl-villigen"
+      ]
     }
   ]
 }

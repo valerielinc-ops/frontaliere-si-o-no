@@ -8,8 +8,8 @@
       "slugByLocale": {
         "it": "specialista-del-servizio-tecnico-m-w-d-medtronic-bern",
         "en": "technical-service-specialist-m-w-d-medtronic-ch",
-        "de": "technischer-servicemitarbeiter-m-w-d-medtronic-bern",
-        "fr": "specialiste-du-service-technique-h-f-medtronic-bern"
+        "de": "technischer-mitarbeiter-m-w-d-medtronic-bern",
+        "fr": "specialiste-des-services-techniques-m-w-d-medtronic-bern"
       },
       "company": "Medtronic",
       "companyKey": "medtronic",
@@ -79,11 +79,19 @@
       },
       "jobReqId": "R58182",
       "previousSlugs": [
-        "technical-service-specialist-m-w-d-medtronic-ch"
+        "technical-service-specialist-m-w-d-medtronic-ch",
+        "technischer-servicemitarbeiter-m-w-d-medtronic-bern",
+        "specialiste-du-service-technique-h-f-medtronic-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "technical-service-specialist-m-w-d-medtronic-ch"
+        ],
+        "de": [
+          "technischer-servicemitarbeiter-m-w-d-medtronic-bern"
+        ],
+        "fr": [
+          "specialiste-du-service-technique-h-f-medtronic-bern"
         ]
       },
       "firstSeenAt": "2026-05-19T17:18:40.418Z",
@@ -205,12 +213,12 @@
     },
     {
       "id": "medtronic-4e0812af1ba0",
-      "slug": "digital-health-delivery-lead-dach-francia-medtronic-tolochenaz",
+      "slug": "consegna-digitale-della-salute-dach-francia-m-f-d-medtronic-tolochenaz",
       "slugByLocale": {
-        "it": "digital-health-delivery-lead-dach-francia-medtronic-tolochenaz",
+        "it": "consegna-digitale-della-salute-dach-francia-m-f-d-medtronic-tolochenaz",
         "en": "digital-health-delivery-lead-dach-france-m-f-d-medtronic-ch",
         "de": "digital-health-delivery-lead-dach-frankreich-medtronic-tolochenaz",
-        "fr": "responsable-de-la-livraison-de-la-sante-numerique-dach-france-medtronic-tolochenaz"
+        "fr": "dach-et-france-m-f-d-medtronic-tolochenaz"
       },
       "company": "Medtronic",
       "companyKey": "medtronic",
@@ -252,11 +260,17 @@
       "requirementsByLocale": {},
       "jobReqId": "R63943",
       "previousSlugs": [
-        "digital-health-delivery-lead-dach-france-m-f-d-medtronic-ch"
+        "digital-health-delivery-lead-dach-france-m-f-d-medtronic-ch",
+        "digital-health-delivery-lead-dach-francia-medtronic-tolochenaz",
+        "responsable-de-la-livraison-de-la-sante-numerique-dach-france-medtronic-tolochenaz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "digital-health-delivery-lead-dach-france-m-f-d-medtronic-ch"
+          "digital-health-delivery-lead-dach-france-m-f-d-medtronic-ch",
+          "digital-health-delivery-lead-dach-francia-medtronic-tolochenaz"
+        ],
+        "fr": [
+          "responsable-de-la-livraison-de-la-sante-numerique-dach-france-medtronic-tolochenaz"
         ]
       },
       "firstSeenAt": "2026-05-19T17:18:38.950Z",

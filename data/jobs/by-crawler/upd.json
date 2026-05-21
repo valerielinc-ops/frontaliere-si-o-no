@@ -722,12 +722,12 @@
     },
     {
       "id": "upd-05faef012a51",
-      "slug": "forschungspraktikum-bridge-upd-bern",
+      "slug": "stage-di-ricerca-a-bridge-universitare-psychiatrische-dienste-bern-upd-bern",
       "slugByLocale": {
         "de": "forschungspraktikum-bridge-upd-bern",
-        "it": "forschungspraktikum-bridge-upd-bern",
-        "en": "forschungspraktikum-bridge-upd-bern",
-        "fr": "forschungspraktikum-bridge-upd-bern"
+        "it": "stage-di-ricerca-a-bridge-universitare-psychiatrische-dienste-bern-upd-bern",
+        "en": "research-internship-at-bridge-universitare-psychiatrische-dienste-bern-upd-bern",
+        "fr": "stage-de-recherche-a-bridge-universitare-psychiatrische-dienste-bern-upd-bern"
       },
       "company": "Universitäre Psychiatrische Dienste Bern (UPD)",
       "companyKey": "upd",
@@ -782,7 +782,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-21T00:37:57.748Z"
+      "firstSeenAt": "2026-05-21T00:37:57.748Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "forschungspraktikum-bridge-upd-bern"
+        ],
+        "en": [
+          "forschungspraktikum-bridge-upd-bern"
+        ],
+        "fr": [
+          "forschungspraktikum-bridge-upd-bern"
+        ]
+      },
+      "previousSlugs": [
+        "forschungspraktikum-bridge-upd-bern"
+      ]
     }
   ]
 }

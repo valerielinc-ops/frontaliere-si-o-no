@@ -304,10 +304,10 @@
     },
     {
       "id": "hfr-hopital-fribourgeois-ab7297895d04",
-      "slug": "medico-internista-senior-vice-direttore-medico-internista-60-100-capo-clinica-o-vice-capo-clinica-60-100-medicina",
+      "slug": "primario-a-o-vice-primario-a-di-clinica-60-100-medicina-interna-hopital-fribourgeois-hfr-fribourg",
       "slugByLocale": {
-        "it": "medico-internista-senior-vice-direttore-medico-internista-60-100-capo-clinica-o-vice-capo-clinica-60-100-medicina",
-        "en": "senior-internist-deputy-medical-director-60-100-chief-of-clinic-or-deputy-chief-of-clinic-60-100-internal-medicine",
+        "it": "primario-a-o-vice-primario-a-di-clinica-60-100-medicina-interna-hopital-fribourgeois-hfr-fribourg",
+        "en": "senior-physician-or-deputy-senior-physician-60-100-internal-medicine-hopital-fribourgeois-hfr-fribourg",
         "de": "oberarztin-oberarzt-oder-stellvertretende-n-oberarztin-oberarzt-60-100-chef-fe-de-clinique",
         "fr": "medecin-interniste-senior-chef-de-clinique-ou-chef-de-clinique-adjoint-60-100-medecine-interne-hopital-fribourgeois-hfr"
       },
@@ -352,11 +352,17 @@
       "requirementsByLocale": {},
       "externalId": "c2eb0e06320a",
       "previousSlugs": [
-        "oberarztin-oberarzt-oder-stellvertretende-n-oberarztin-oberarzt-60-100-chef-fe-de-clinique"
+        "oberarztin-oberarzt-oder-stellvertretende-n-oberarztin-oberarzt-60-100-chef-fe-de-clinique",
+        "medico-internista-senior-vice-direttore-medico-internista-60-100-capo-clinica-o-vice-capo-clinica-60-100-medicina",
+        "senior-internist-deputy-medical-director-60-100-chief-of-clinic-or-deputy-chief-of-clinic-60-100-internal-medicine"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "oberarztin-oberarzt-oder-stellvertretende-n-oberarztin-oberarzt-60-100-chef-fe-de-clinique"
+          "oberarztin-oberarzt-oder-stellvertretende-n-oberarztin-oberarzt-60-100-chef-fe-de-clinique",
+          "medico-internista-senior-vice-direttore-medico-internista-60-100-capo-clinica-o-vice-capo-clinica-60-100-medicina"
+        ],
+        "en": [
+          "senior-internist-deputy-medical-director-60-100-chief-of-clinic-or-deputy-chief-of-clinic-60-100-internal-medicine"
         ]
       },
       "firstSeenAt": "2026-05-19T13:03:34.323Z",
@@ -2367,7 +2373,7 @@
       "slug": "assistente-tecnica-specializzata-in-sala-operatoria-atsso-90-100-tecnico-a-di-sala-operatoria-90-100-hopital",
       "slugByLocale": {
         "it": "assistente-tecnica-specializzata-in-sala-operatoria-atsso-90-100-tecnico-a-di-sala-operatoria-90-100-hopital",
-        "en": "specialized-operating-room-technical-assistant-atsso-90-100-operating-room-technician-90-100-hopital-fribourgeois-hfr",
+        "en": "assistant-e-technique-specialise-e-en-salle-d-operation-atsso-90-100-technical-operations-assistant-technical-operations",
         "de": "assistant-e-technique-specialise-e-en-salle-d-operation-atsso-90-100-technische",
         "fr": "assistant-e-technique-specialise-e-en-salle-d-operation-atsso-90-100-technische"
       },
@@ -2436,11 +2442,15 @@
         ],
         "it": [
           "assistant-e-technique-specialise-e-en-salle-d-operation-atsso-90-100-technische"
+        ],
+        "en": [
+          "specialized-operating-room-technical-assistant-atsso-90-100-operating-room-technician-90-100-hopital-fribourgeois-hfr"
         ]
       },
       "previousSlugs": [
+        "technischer-assistent-spezialisiert-auf-betriebszimmer-atsso-90-100-technische-operationsassistentin-technischen",
         "assistant-e-technique-specialise-e-en-salle-d-operation-atsso-90-100-technische",
-        "technischer-assistent-spezialisiert-auf-betriebszimmer-atsso-90-100-technische-operationsassistentin-technischen"
+        "specialized-operating-room-technical-assistant-atsso-90-100-operating-room-technician-90-100-hopital-fribourgeois-hfr"
       ],
       "firstSeenAt": "2026-05-19T13:03:17.431Z",
       "salaryMin": 49500,

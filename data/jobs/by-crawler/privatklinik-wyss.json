@@ -169,12 +169,12 @@
     },
     {
       "id": "privatklinik-wyss-4b97f140aa04",
-      "slug": "formazione-diplomata-in-infermieristica-hf-in-azienda-m-f-d-privatklinik-wyss-munchenbuchsee",
+      "slug": "consulente-per-l-istruzione-superiore-w-m-d-privatklinik-wyss-munchenbuchsee",
       "slugByLocale": {
-        "it": "formazione-diplomata-in-infermieristica-hf-in-azienda-m-f-d-privatklinik-wyss-munchenbuchsee",
-        "en": "training-as-a-qualified-nurse-hf-in-employment-m-f-d-privatklinik-wyss-munchenbuchsee",
+        "it": "consulente-per-l-istruzione-superiore-w-m-d-privatklinik-wyss-munchenbuchsee",
+        "en": "education-senior-consultant-w-m-d-privatklinik-wyss-munchenbuchsee",
         "de": "ausbildung-dipl-pflegefachperson-hf-in-betriebsanstellung-w-m-d-privatklinik-wyss-ch",
-        "fr": "formation-en-tant-qu-infirmier-diplome-hf-en-entreprise-h-f-d-privatklinik-wyss-munchenbuchsee"
+        "fr": "consultant-principal-en-education-m-s-privatklinik-wyss-munchenbuchsee"
       },
       "company": "Privatklinik Wyss",
       "companyKey": "privatklinik-wyss",
@@ -245,11 +245,21 @@
       "pensumMax": 100,
       "pensum": "100%",
       "previousSlugs": [
-        "ausbildung-dipl-pflegefachperson-hf-in-betriebsanstellung-w-m-d-privatklinik-wyss-ch"
+        "ausbildung-dipl-pflegefachperson-hf-in-betriebsanstellung-w-m-d-privatklinik-wyss-ch",
+        "formazione-diplomata-in-infermieristica-hf-in-azienda-m-f-d-privatklinik-wyss-munchenbuchsee",
+        "training-as-a-qualified-nurse-hf-in-employment-m-f-d-privatklinik-wyss-munchenbuchsee",
+        "formation-en-tant-qu-infirmier-diplome-hf-en-entreprise-h-f-d-privatklinik-wyss-munchenbuchsee"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ausbildung-dipl-pflegefachperson-hf-in-betriebsanstellung-w-m-d-privatklinik-wyss-ch"
+          "ausbildung-dipl-pflegefachperson-hf-in-betriebsanstellung-w-m-d-privatklinik-wyss-ch",
+          "formazione-diplomata-in-infermieristica-hf-in-azienda-m-f-d-privatklinik-wyss-munchenbuchsee"
+        ],
+        "en": [
+          "training-as-a-qualified-nurse-hf-in-employment-m-f-d-privatklinik-wyss-munchenbuchsee"
+        ],
+        "fr": [
+          "formation-en-tant-qu-infirmier-diplome-hf-en-entreprise-h-f-d-privatklinik-wyss-munchenbuchsee"
         ]
       },
       "firstSeenAt": "2026-05-19T21:02:10.286Z",

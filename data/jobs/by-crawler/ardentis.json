@@ -3246,10 +3246,10 @@
     },
     {
       "id": "ardentis-bf119e96b8ae",
-      "slug": "charge-e-de-relation-patient-60-80-suisse-romande-ardentis-puidoux",
+      "slug": "responsabile-delle-relazioni-con-i-pazienti-60-80-svizzera-romanda-ardentis-puidoux",
       "slugByLocale": {
         "fr": "charge-e-de-relation-patient-60-80-suisse-romande-ardentis-puidoux",
-        "it": "charge-e-de-relation-patient-60-80-suisse-romande-ardentis-puidoux",
+        "it": "responsabile-delle-relazioni-con-i-pazienti-60-80-svizzera-romanda-ardentis-puidoux",
         "en": "charge-e-de-relation-patient-60-80-suisse-romande-ardentis-puidoux",
         "de": "charge-e-de-relation-patient-60-80-suisse-romande-ardentis-puidoux"
       },
@@ -3308,7 +3308,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-21T11:07:50.435Z"
+      "firstSeenAt": "2026-05-21T11:07:50.435Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "charge-e-de-relation-patient-60-80-suisse-romande-ardentis-puidoux"
+        ]
+      },
+      "previousSlugs": [
+        "charge-e-de-relation-patient-60-80-suisse-romande-ardentis-puidoux"
+      ]
     },
     {
       "id": "ardentis-c80afbc4fdfb",

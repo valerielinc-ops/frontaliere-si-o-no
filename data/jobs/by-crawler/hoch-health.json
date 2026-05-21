@@ -972,10 +972,10 @@
     },
     {
       "id": "hoch-health-f4cb6b5ea948",
-      "slug": "dipl-pflegefachfrau-mann-80-100-hoch-health-ostschweiz-wil",
+      "slug": "infermiere-a-diplomato-a-80-100-hoch-health-ostschweiz-wil",
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-mann-80-100-hoch-health-wil",
-        "it": "dipl-pflegefachfrau-mann-80-100-hoch-health-ostschweiz-wil",
+        "it": "infermiere-a-diplomato-a-80-100-hoch-health-ostschweiz-wil",
         "en": "dipl-pflegefachfrau-mann-80-100-hoch-health-wil",
         "fr": "dipl-pflegefachfrau-mann-80-100-hoch-health-wil"
       },
@@ -1023,11 +1023,13 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachfrau-mann-80-100-hoch-health-wil"
+          "dipl-pflegefachfrau-mann-80-100-hoch-health-wil",
+          "dipl-pflegefachfrau-mann-80-100-hoch-health-ostschweiz-wil"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachfrau-mann-80-100-hoch-health-wil"
+        "dipl-pflegefachfrau-mann-80-100-hoch-health-wil",
+        "dipl-pflegefachfrau-mann-80-100-hoch-health-ostschweiz-wil"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -1115,10 +1117,10 @@
     },
     {
       "id": "hoch-health-8532d00e4c8e",
-      "slug": "unterassistent-in-2028-hoch-health-grabs",
+      "slug": "sub-assistente-2028-hoch-health-ostschweiz-grabs",
       "slugByLocale": {
         "de": "unterassistent-in-2028-hoch-health-grabs",
-        "it": "unterassistent-in-2028-hoch-health-grabs",
+        "it": "sub-assistente-2028-hoch-health-ostschweiz-grabs",
         "en": "unterassistent-in-2028-hoch-health-grabs",
         "fr": "unterassistent-in-2028-hoch-health-grabs"
       },
@@ -1176,7 +1178,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-19T22:29:17.794Z"
+      "firstSeenAt": "2026-05-19T22:29:17.794Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "unterassistent-in-2028-hoch-health-grabs"
+        ]
+      },
+      "previousSlugs": [
+        "unterassistent-in-2028-hoch-health-grabs"
+      ]
     },
     {
       "id": "hoch-health-cd9ce7f6c46b",
@@ -1279,10 +1289,10 @@
     },
     {
       "id": "hoch-health-3ccbbc2ede17",
-      "slug": "unterassistent-in-2028-hoch-health-wil",
+      "slug": "sub-assistente-2028-hoch-health-ostschweiz-wil",
       "slugByLocale": {
         "de": "unterassistent-in-2028-hoch-health-wil",
-        "it": "unterassistent-in-2028-hoch-health-wil",
+        "it": "sub-assistente-2028-hoch-health-ostschweiz-wil",
         "en": "unterassistent-in-2028-hoch-health-wil",
         "fr": "unterassistent-in-2028-hoch-health-wil"
       },
@@ -1340,14 +1350,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-19T22:29:16.889Z"
+      "firstSeenAt": "2026-05-19T22:29:16.889Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "unterassistent-in-2028-hoch-health-wil"
+        ]
+      },
+      "previousSlugs": [
+        "unterassistent-in-2028-hoch-health-wil"
+      ]
     },
     {
       "id": "hoch-health-341f0a87fcf1",
-      "slug": "unterassistent-in-2028-hoch-health-uznach",
+      "slug": "sub-assistente-2028-hoch-health-ostschweiz-uznach",
       "slugByLocale": {
         "de": "unterassistent-in-2028-hoch-health-uznach",
-        "it": "unterassistent-in-2028-hoch-health-uznach",
+        "it": "sub-assistente-2028-hoch-health-ostschweiz-uznach",
         "en": "unterassistent-in-2028-hoch-health-uznach",
         "fr": "unterassistent-in-2028-hoch-health-uznach"
       },
@@ -1405,7 +1423,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-19T22:29:16.438Z"
+      "firstSeenAt": "2026-05-19T22:29:16.438Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "unterassistent-in-2028-hoch-health-uznach"
+        ]
+      },
+      "previousSlugs": [
+        "unterassistent-in-2028-hoch-health-uznach"
+      ]
     },
     {
       "id": "hoch-health-5797b3654608",
@@ -3084,10 +3110,10 @@
     },
     {
       "id": "hoch-health-a31808a97453",
-      "slug": "unterassistent-in-2026-hoch-health-uznach",
+      "slug": "sub-assistente-2026-hoch-health-ostschweiz-uznach",
       "slugByLocale": {
         "de": "unterassistent-in-2026-hoch-health-uznach",
-        "it": "unterassistent-in-2026-hoch-health-uznach",
+        "it": "sub-assistente-2026-hoch-health-ostschweiz-uznach",
         "en": "unterassistent-in-2026-hoch-health-uznach",
         "fr": "unterassistent-in-2026-hoch-health-uznach"
       },
@@ -3145,7 +3171,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-19T22:29:07.482Z"
+      "firstSeenAt": "2026-05-19T22:29:07.482Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "unterassistent-in-2026-hoch-health-uznach"
+        ]
+      },
+      "previousSlugs": [
+        "unterassistent-in-2026-hoch-health-uznach"
+      ]
     },
     {
       "id": "hoch-health-7ce4cbfe0c5e",
@@ -3858,10 +3892,10 @@
     },
     {
       "id": "hoch-health-9eb3155a590d",
-      "slug": "ausbildung-dipl-radiologiefachperson-hf-september-2026-hoch-health-uznach",
+      "slug": "formazione-specialistica-in-radiologia-sss-settembre-2026-hoch-health-ostschweiz-uznach",
       "slugByLocale": {
         "de": "ausbildung-dipl-radiologiefachperson-hf-september-2026-hoch-health-uznach",
-        "it": "ausbildung-dipl-radiologiefachperson-hf-september-2026-hoch-health-uznach",
+        "it": "formazione-specialistica-in-radiologia-sss-settembre-2026-hoch-health-ostschweiz-uznach",
         "en": "ausbildung-dipl-radiologiefachperson-hf-september-2026-hoch-health-uznach",
         "fr": "ausbildung-dipl-radiologiefachperson-hf-september-2026-hoch-health-uznach"
       },
@@ -3919,7 +3953,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-19T22:29:03.386Z"
+      "firstSeenAt": "2026-05-19T22:29:03.386Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "ausbildung-dipl-radiologiefachperson-hf-september-2026-hoch-health-uznach"
+        ]
+      },
+      "previousSlugs": [
+        "ausbildung-dipl-radiologiefachperson-hf-september-2026-hoch-health-uznach"
+      ]
     },
     {
       "id": "hoch-health-fdbbeba69ab9",
@@ -4014,10 +4056,10 @@
     },
     {
       "id": "hoch-health-68499d26ecd3",
-      "slug": "unterassistent-in-2026-hoch-health-wil",
+      "slug": "sub-assistente-2026-hoch-health-ostschweiz-wil",
       "slugByLocale": {
         "de": "unterassistent-in-2026-hoch-health-wil",
-        "it": "unterassistent-in-2026-hoch-health-wil",
+        "it": "sub-assistente-2026-hoch-health-ostschweiz-wil",
         "en": "unterassistent-in-2026-hoch-health-wil",
         "fr": "unterassistent-in-2026-hoch-health-wil"
       },
@@ -4075,7 +4117,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-19T22:29:02.465Z"
+      "firstSeenAt": "2026-05-19T22:29:02.465Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "unterassistent-in-2026-hoch-health-wil"
+        ]
+      },
+      "previousSlugs": [
+        "unterassistent-in-2026-hoch-health-wil"
+      ]
     },
     {
       "id": "hoch-health-c26d4b0b59b7",
@@ -4709,10 +4759,10 @@
     },
     {
       "id": "hoch-health-e5b5df95e8fd",
-      "slug": "unterassistent-in-hoch-health-wil",
+      "slug": "assistente-secondario-hoch-health-ostschweiz-wil",
       "slugByLocale": {
         "de": "unterassistent-in-hoch-health-wil",
-        "it": "unterassistent-in-hoch-health-wil",
+        "it": "assistente-secondario-hoch-health-ostschweiz-wil",
         "en": "unterassistent-in-hoch-health-wil",
         "fr": "unterassistent-in-hoch-health-wil"
       },
@@ -4770,14 +4820,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-19T22:28:58.296Z"
+      "firstSeenAt": "2026-05-19T22:28:58.296Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "unterassistent-in-hoch-health-wil"
+        ]
+      },
+      "previousSlugs": [
+        "unterassistent-in-hoch-health-wil"
+      ]
     },
     {
       "id": "hoch-health-69ec332d0335",
-      "slug": "unterassistent-in-hoch-health-uznach",
+      "slug": "assistente-secondario-hoch-health-ostschweiz-uznach",
       "slugByLocale": {
         "de": "unterassistent-in-hoch-health-uznach",
-        "it": "unterassistent-in-hoch-health-uznach",
+        "it": "assistente-secondario-hoch-health-ostschweiz-uznach",
         "en": "unterassistent-in-hoch-health-uznach",
         "fr": "unterassistent-in-hoch-health-uznach"
       },
@@ -4835,7 +4893,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-19T22:28:57.816Z"
+      "firstSeenAt": "2026-05-19T22:28:57.816Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "unterassistent-in-hoch-health-uznach"
+        ]
+      },
+      "previousSlugs": [
+        "unterassistent-in-hoch-health-uznach"
+      ]
     },
     {
       "id": "hoch-health-6787027068bd",
@@ -5544,10 +5610,10 @@
     },
     {
       "id": "hoch-health-2d0ca407141f",
-      "slug": "dipl-pflegefachfrau-mann-60-100-hoch-health-ostschweiz-grabs",
+      "slug": "infermiere-a-diplomato-a-60-100-hoch-health-ostschweiz-grabs",
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-mann-60-100-hoch-health-grabs",
-        "it": "dipl-pflegefachfrau-mann-60-100-hoch-health-ostschweiz-grabs",
+        "it": "infermiere-a-diplomato-a-60-100-hoch-health-ostschweiz-grabs",
         "en": "dipl-pflegefachfrau-mann-60-100-hoch-health-grabs",
         "fr": "dipl-pflegefachfrau-mann-60-100-hoch-health-grabs"
       },
@@ -5595,11 +5661,13 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachfrau-mann-60-100-hoch-health-grabs"
+          "dipl-pflegefachfrau-mann-60-100-hoch-health-grabs",
+          "dipl-pflegefachfrau-mann-60-100-hoch-health-ostschweiz-grabs"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachfrau-mann-60-100-hoch-health-grabs"
+        "dipl-pflegefachfrau-mann-60-100-hoch-health-grabs",
+        "dipl-pflegefachfrau-mann-60-100-hoch-health-ostschweiz-grabs"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -5905,10 +5973,10 @@
     },
     {
       "id": "hoch-health-f216c9e0fd0d",
-      "slug": "fachfrau-mann-gesundheit-80-100-hoch-health-ostschweiz-st-gallen",
+      "slug": "professionista-della-salute-80-100-hoch-health-ostschweiz-st-gallen",
       "slugByLocale": {
         "de": "fachfrau-mann-gesundheit-80-100-hoch-health-st-gallen",
-        "it": "fachfrau-mann-gesundheit-80-100-hoch-health-ostschweiz-st-gallen",
+        "it": "professionista-della-salute-80-100-hoch-health-ostschweiz-st-gallen",
         "en": "fachfrau-mann-gesundheit-80-100-hoch-health-st-gallen",
         "fr": "fachfrau-mann-gesundheit-80-100-hoch-health-st-gallen"
       },
@@ -5956,11 +6024,13 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "fachfrau-mann-gesundheit-80-100-hoch-health-st-gallen"
+          "fachfrau-mann-gesundheit-80-100-hoch-health-st-gallen",
+          "fachfrau-mann-gesundheit-80-100-hoch-health-ostschweiz-st-gallen"
         ]
       },
       "previousSlugs": [
-        "fachfrau-mann-gesundheit-80-100-hoch-health-st-gallen"
+        "fachfrau-mann-gesundheit-80-100-hoch-health-st-gallen",
+        "fachfrau-mann-gesundheit-80-100-hoch-health-ostschweiz-st-gallen"
       ],
       "salaryMin": 51500,
       "salaryMax": 88000,
@@ -7355,10 +7425,10 @@
     },
     {
       "id": "hoch-health-c63bf7efdbd8",
-      "slug": "fachfrau-mann-gesundheit-80-100-hoch-health-ostschweiz-wil",
+      "slug": "professionista-della-salute-80-100-hoch-health-ostschweiz-wil",
       "slugByLocale": {
         "de": "fachfrau-mann-gesundheit-80-100-hoch-health-wil",
-        "it": "fachfrau-mann-gesundheit-80-100-hoch-health-ostschweiz-wil",
+        "it": "professionista-della-salute-80-100-hoch-health-ostschweiz-wil",
         "en": "fachfrau-mann-gesundheit-80-100-hoch-health-wil",
         "fr": "fachfrau-mann-gesundheit-80-100-hoch-health-wil"
       },
@@ -7406,11 +7476,13 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "fachfrau-mann-gesundheit-80-100-hoch-health-wil"
+          "fachfrau-mann-gesundheit-80-100-hoch-health-wil",
+          "fachfrau-mann-gesundheit-80-100-hoch-health-ostschweiz-wil"
         ]
       },
       "previousSlugs": [
-        "fachfrau-mann-gesundheit-80-100-hoch-health-wil"
+        "fachfrau-mann-gesundheit-80-100-hoch-health-wil",
+        "fachfrau-mann-gesundheit-80-100-hoch-health-ostschweiz-wil"
       ],
       "salaryMin": 51500,
       "salaryMax": 88000,
@@ -8735,10 +8807,10 @@
     },
     {
       "id": "hoch-health-69a33c4d978b",
-      "slug": "ausbildung-zur-dipl-pflegefachperson-hf-3-jahrige-ausbildung-marz-2027-hoch-health-uznach",
+      "slug": "formazione-come-infermiere-diplomato-sss-formazione-triennale-marzo-2027-hoch-health-ostschweiz-uznach",
       "slugByLocale": {
         "de": "ausbildung-zur-dipl-pflegefachperson-hf-3-jahrige-ausbildung-marz-2027-hoch-health-uznach",
-        "it": "ausbildung-zur-dipl-pflegefachperson-hf-3-jahrige-ausbildung-marz-2027-hoch-health-uznach",
+        "it": "formazione-come-infermiere-diplomato-sss-formazione-triennale-marzo-2027-hoch-health-ostschweiz-uznach",
         "en": "ausbildung-zur-dipl-pflegefachperson-hf-3-jahrige-ausbildung-marz-2027-hoch-health-uznach",
         "fr": "ausbildung-zur-dipl-pflegefachperson-hf-3-jahrige-ausbildung-marz-2027-hoch-health-uznach"
       },
@@ -8796,14 +8868,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-19T22:28:36.360Z"
+      "firstSeenAt": "2026-05-19T22:28:36.360Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "ausbildung-zur-dipl-pflegefachperson-hf-3-jahrige-ausbildung-marz-2027-hoch-health-uznach"
+        ]
+      },
+      "previousSlugs": [
+        "ausbildung-zur-dipl-pflegefachperson-hf-3-jahrige-ausbildung-marz-2027-hoch-health-uznach"
+      ]
     },
     {
       "id": "hoch-health-0ec78a8be7ad",
-      "slug": "ausbildung-zur-dipl-pflegefachperson-hf-3-jahrige-ausbildung-marz-2027-hoch-health-grabs",
+      "slug": "formazione-come-infermiere-diplomato-sss-formazione-triennale-marzo-2027-hoch-health-ostschweiz-grabs",
       "slugByLocale": {
         "de": "ausbildung-zur-dipl-pflegefachperson-hf-3-jahrige-ausbildung-marz-2027-hoch-health-grabs",
-        "it": "ausbildung-zur-dipl-pflegefachperson-hf-3-jahrige-ausbildung-marz-2027-hoch-health-grabs",
+        "it": "formazione-come-infermiere-diplomato-sss-formazione-triennale-marzo-2027-hoch-health-ostschweiz-grabs",
         "en": "ausbildung-zur-dipl-pflegefachperson-hf-3-jahrige-ausbildung-marz-2027-hoch-health-grabs",
         "fr": "ausbildung-zur-dipl-pflegefachperson-hf-3-jahrige-ausbildung-marz-2027-hoch-health-grabs"
       },
@@ -8863,20 +8943,26 @@
       },
       "firstSeenAt": "2026-05-19T22:28:35.899Z",
       "previousSlugs": [
+        "ausbildung-zur-dipl-pflegefachperson-hf-3-jahrige-ausbildung-marz-2027-hoch-health-grabs",
         "formazione-per-infermiere-professionale-diplomato-hf-3-anni-di-formazione-marzo-202-kdylym",
         "ausbildung-zur-dipl-pflegefachperson-hf-3-jahrige-ausbildung-marz-2027-hoch-health-st",
         "training-for-certified-nursing-professional-hf-3-year-training-march-2027-hoch-health-ostschweiz-st-gallen",
         "formation-pour-professionnel-de-sante-diplome-hf-formation-de-3-ans-mars-2027-hoch-health-ostschweiz-st-gallen",
         "ausbildung-zur-dipl-pflegefachperson-hf-3-jahrige-ausbildung-marz-2027-hoch-health-st-2",
         "formazione-per-infermiere-professionale-diplomato-hf-3-anni-di-formazione-marzo-2027-hoch-health-ostschweiz-st-gallen"
-      ]
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "ausbildung-zur-dipl-pflegefachperson-hf-3-jahrige-ausbildung-marz-2027-hoch-health-grabs"
+        ]
+      }
     },
     {
       "id": "hoch-health-a231463533e4",
-      "slug": "ausbildung-zur-dipl-pflegefachperson-hf-3-jahrige-ausbildung-marz-2027-hoch-health-wil",
+      "slug": "formazione-come-infermiere-diplomato-sss-formazione-triennale-marzo-2027-hoch-health-ostschweiz-wil",
       "slugByLocale": {
         "de": "ausbildung-zur-dipl-pflegefachperson-hf-3-jahrige-ausbildung-marz-2027-hoch-health-wil",
-        "it": "ausbildung-zur-dipl-pflegefachperson-hf-3-jahrige-ausbildung-marz-2027-hoch-health-wil",
+        "it": "formazione-come-infermiere-diplomato-sss-formazione-triennale-marzo-2027-hoch-health-ostschweiz-wil",
         "en": "ausbildung-zur-dipl-pflegefachperson-hf-3-jahrige-ausbildung-marz-2027-hoch-health-wil",
         "fr": "ausbildung-zur-dipl-pflegefachperson-hf-3-jahrige-ausbildung-marz-2027-hoch-health-wil"
       },
@@ -8934,7 +9020,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-19T22:28:35.430Z"
+      "firstSeenAt": "2026-05-19T22:28:35.430Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "ausbildung-zur-dipl-pflegefachperson-hf-3-jahrige-ausbildung-marz-2027-hoch-health-wil"
+        ]
+      },
+      "previousSlugs": [
+        "ausbildung-zur-dipl-pflegefachperson-hf-3-jahrige-ausbildung-marz-2027-hoch-health-wil"
+      ]
     },
     {
       "id": "hoch-health-1ce45aa7a61f",
@@ -10444,10 +10538,10 @@
     },
     {
       "id": "hoch-health-a95bb53cbb12",
-      "slug": "berufspraktikum-fachmittelschule-pflege-hf-hoch-health-uznach",
+      "slug": "tirocinio-professionale-scuola-media-professionale-infermieristica-sss-hoch-health-ostschweiz-uznach",
       "slugByLocale": {
         "de": "berufspraktikum-fachmittelschule-pflege-hf-hoch-health-uznach",
-        "it": "berufspraktikum-fachmittelschule-pflege-hf-hoch-health-uznach",
+        "it": "tirocinio-professionale-scuola-media-professionale-infermieristica-sss-hoch-health-ostschweiz-uznach",
         "en": "berufspraktikum-fachmittelschule-pflege-hf-hoch-health-uznach",
         "fr": "berufspraktikum-fachmittelschule-pflege-hf-hoch-health-uznach"
       },
@@ -10507,13 +10601,19 @@
       },
       "firstSeenAt": "2026-05-19T22:28:24.584Z",
       "previousSlugs": [
+        "berufspraktikum-fachmittelschule-pflege-hf-hoch-health-uznach",
         "stage-professionale-per-scuola-professionale-assistenza-hf-hoch-health-ostschweiz-s-ix4q43",
         "berufspraktikum-fachmittelschule-pflege-hf-hoch-health-st-gallen",
         "professional-practice-for-vocational-school-hf-nursing-hoch-health-ostschweiz-st-gallen",
         "stage-professionnel-pour-ecole-professionnelle-soins-if-hoch-health-ostschweiz-st-gallen",
         "berufspraktikum-fachmittelschule-pflege-hf-hoch-health-st-gallen-2",
         "stage-professionale-per-scuola-professionale-assistenza-hf-hoch-health-ostschweiz-st-gallen"
-      ]
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "berufspraktikum-fachmittelschule-pflege-hf-hoch-health-uznach"
+        ]
+      }
     },
     {
       "id": "hoch-health-501eeeb1b869",
@@ -11076,10 +11176,10 @@
     },
     {
       "id": "hoch-health-6ea9c257469a",
-      "slug": "dipl-pflegefachfrau-mann-40-100-hoch-health-ostschweiz-uznach",
+      "slug": "infermiere-a-diplomato-a-40-100-hoch-health-ostschweiz-uznach",
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-mann-40-100-hoch-health-uznach",
-        "it": "dipl-pflegefachfrau-mann-40-100-hoch-health-ostschweiz-uznach",
+        "it": "infermiere-a-diplomato-a-40-100-hoch-health-ostschweiz-uznach",
         "en": "dipl-pflegefachfrau-mann-40-100-hoch-health-uznach",
         "fr": "dipl-pflegefachfrau-mann-40-100-hoch-health-uznach"
       },
@@ -11127,11 +11227,13 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachfrau-mann-40-100-hoch-health-uznach"
+          "dipl-pflegefachfrau-mann-40-100-hoch-health-uznach",
+          "dipl-pflegefachfrau-mann-40-100-hoch-health-ostschweiz-uznach"
         ]
       },
       "previousSlugs": [
         "dipl-pflegefachfrau-mann-40-100-hoch-health-uznach",
+        "dipl-pflegefachfrau-mann-40-100-hoch-health-ostschweiz-uznach",
         "dipl-pflegefachfrau-mann-60-100-hoch-health-ostschweiz-st-gallen-lr7lrp",
         "dipl-pflegefachfrau-mann-60-100-hoch-health-st-gallen",
         "dipl-pflegefachfrau-mann-60-100-hoch-health-ostschweiz-st-gallen",
@@ -11519,10 +11621,10 @@
     },
     {
       "id": "hoch-health-4621873e0985",
-      "slug": "fachfrau-mann-gesundheit-40-100-hoch-health-ostschweiz-st-gallen",
+      "slug": "professionista-della-salute-40-100-hoch-health-ostschweiz-st-gallen",
       "slugByLocale": {
         "de": "fachfrau-mann-gesundheit-40-100-hoch-health-st-gallen",
-        "it": "fachfrau-mann-gesundheit-40-100-hoch-health-ostschweiz-st-gallen",
+        "it": "professionista-della-salute-40-100-hoch-health-ostschweiz-st-gallen",
         "en": "fachfrau-mann-gesundheit-40-100-hoch-health-st-gallen",
         "fr": "fachfrau-mann-gesundheit-40-100-hoch-health-st-gallen"
       },
@@ -11570,11 +11672,13 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "fachfrau-mann-gesundheit-40-100-hoch-health-st-gallen"
+          "fachfrau-mann-gesundheit-40-100-hoch-health-st-gallen",
+          "fachfrau-mann-gesundheit-40-100-hoch-health-ostschweiz-st-gallen"
         ]
       },
       "previousSlugs": [
-        "fachfrau-mann-gesundheit-40-100-hoch-health-st-gallen"
+        "fachfrau-mann-gesundheit-40-100-hoch-health-st-gallen",
+        "fachfrau-mann-gesundheit-40-100-hoch-health-ostschweiz-st-gallen"
       ],
       "salaryMin": 51500,
       "salaryMax": 88000,
@@ -12046,10 +12150,10 @@
     },
     {
       "id": "hoch-health-51b573a328db",
-      "slug": "kurzpraktikum-im-berufsfeld-pflege-hoch-health-uznach",
+      "slug": "tirocinio-breve-nel-settore-professionale-infermieristico-hoch-health-ostschweiz-uznach",
       "slugByLocale": {
         "de": "kurzpraktikum-im-berufsfeld-pflege-hoch-health-uznach",
-        "it": "kurzpraktikum-im-berufsfeld-pflege-hoch-health-uznach",
+        "it": "tirocinio-breve-nel-settore-professionale-infermieristico-hoch-health-ostschweiz-uznach",
         "en": "kurzpraktikum-im-berufsfeld-pflege-hoch-health-uznach",
         "fr": "kurzpraktikum-im-berufsfeld-pflege-hoch-health-uznach"
       },
@@ -12107,7 +12211,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-19T22:28:16.446Z"
+      "firstSeenAt": "2026-05-19T22:28:16.446Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "kurzpraktikum-im-berufsfeld-pflege-hoch-health-uznach"
+        ]
+      },
+      "previousSlugs": [
+        "kurzpraktikum-im-berufsfeld-pflege-hoch-health-uznach"
+      ]
     },
     {
       "id": "hoch-health-4c4cb4bbaa61",
@@ -12209,10 +12321,10 @@
     },
     {
       "id": "hoch-health-b66159df7a5f",
-      "slug": "praktikum-in-der-pflege-hoch-health-uznach",
+      "slug": "tirocinio-infermieristico-hoch-health-ostschweiz-uznach",
       "slugByLocale": {
         "de": "praktikum-in-der-pflege-hoch-health-uznach",
-        "it": "praktikum-in-der-pflege-hoch-health-uznach",
+        "it": "tirocinio-infermieristico-hoch-health-ostschweiz-uznach",
         "en": "praktikum-in-der-pflege-hoch-health-uznach",
         "fr": "praktikum-in-der-pflege-hoch-health-uznach"
       },
@@ -12270,7 +12382,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-19T22:28:15.556Z"
+      "firstSeenAt": "2026-05-19T22:28:15.556Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "praktikum-in-der-pflege-hoch-health-uznach"
+        ]
+      },
+      "previousSlugs": [
+        "praktikum-in-der-pflege-hoch-health-uznach"
+      ]
     },
     {
       "id": "hoch-health-d2a520178651",
@@ -12546,10 +12666,10 @@
     },
     {
       "id": "hoch-health-25c8e9a3b85b",
-      "slug": "fachfrau-mann-gesundheit-60-100-hoch-health-ostschweiz-st-gallen",
+      "slug": "professionista-della-salute-60-100-hoch-health-ostschweiz-st-gallen",
       "slugByLocale": {
         "de": "fachfrau-mann-gesundheit-60-100-hoch-health-st-gallen",
-        "it": "fachfrau-mann-gesundheit-60-100-hoch-health-ostschweiz-st-gallen",
+        "it": "professionista-della-salute-60-100-hoch-health-ostschweiz-st-gallen",
         "en": "fachfrau-mann-gesundheit-60-100-hoch-health-st-gallen-2",
         "fr": "fachfrau-mann-gesundheit-60-100-hoch-health-st-gallen-2"
       },
@@ -12597,11 +12717,13 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "fachfrau-mann-gesundheit-60-100-hoch-health-st-gallen-2"
+          "fachfrau-mann-gesundheit-60-100-hoch-health-st-gallen-2",
+          "fachfrau-mann-gesundheit-60-100-hoch-health-ostschweiz-st-gallen"
         ]
       },
       "previousSlugs": [
-        "fachfrau-mann-gesundheit-60-100-hoch-health-st-gallen-2"
+        "fachfrau-mann-gesundheit-60-100-hoch-health-st-gallen-2",
+        "fachfrau-mann-gesundheit-60-100-hoch-health-ostschweiz-st-gallen"
       ],
       "salaryMin": 51500,
       "salaryMax": 88000,
@@ -12619,10 +12741,10 @@
     },
     {
       "id": "hoch-health-b846f16b077b",
-      "slug": "fachfrau-mann-gesundheit-40-100-hoch-health-ostschweiz-uznach",
+      "slug": "professionista-della-salute-40-100-hoch-health-ostschweiz-uznach",
       "slugByLocale": {
         "de": "fachfrau-mann-gesundheit-40-100-hoch-health-uznach",
-        "it": "fachfrau-mann-gesundheit-40-100-hoch-health-ostschweiz-uznach",
+        "it": "professionista-della-salute-40-100-hoch-health-ostschweiz-uznach",
         "en": "fachfrau-mann-gesundheit-40-100-hoch-health-uznach-2",
         "fr": "fachfrau-mann-gesundheit-40-100-hoch-health-uznach-2"
       },
@@ -12670,11 +12792,13 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "fachfrau-mann-gesundheit-40-100-hoch-health-uznach-2"
+          "fachfrau-mann-gesundheit-40-100-hoch-health-uznach-2",
+          "fachfrau-mann-gesundheit-40-100-hoch-health-ostschweiz-uznach"
         ]
       },
       "previousSlugs": [
         "fachfrau-mann-gesundheit-40-100-hoch-health-uznach-2",
+        "fachfrau-mann-gesundheit-40-100-hoch-health-ostschweiz-uznach",
         "specialista-della-salute-60-100-hoch-health-ostschweiz-st-gallen-m8w10n",
         "fachfrau-mann-gesundheit-60-100-hoch-health-st-gallen",
         "healthcare-specialist-60-100-hoch-health-ostschweiz-st-gallen",
@@ -13612,10 +13736,10 @@
     },
     {
       "id": "hoch-health-f84ba86b943a",
-      "slug": "stationsleiter-in-80-100-hoch-health-uznach-2",
+      "slug": "capo-reparto-80-100-hoch-health-ostschweiz-uznach",
       "slugByLocale": {
         "de": "stationsleiter-in-80-100-hoch-health-uznach",
-        "it": "stationsleiter-in-80-100-hoch-health-uznach-2",
+        "it": "capo-reparto-80-100-hoch-health-ostschweiz-uznach",
         "en": "stationsleiter-in-80-100-hoch-health-uznach-2",
         "fr": "stationsleiter-in-80-100-hoch-health-uznach-2"
       },
@@ -13673,14 +13797,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-19T22:28:04.719Z"
+      "firstSeenAt": "2026-05-19T22:28:04.719Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "stationsleiter-in-80-100-hoch-health-uznach-2"
+        ]
+      },
+      "previousSlugs": [
+        "stationsleiter-in-80-100-hoch-health-uznach-2"
+      ]
     },
     {
       "id": "hoch-health-438d27fe344c",
-      "slug": "dipl-pflegefachfrau-mann-50-100-hoch-health-ostschweiz-st-gallen",
+      "slug": "infermiere-a-diplomato-a-50-100-hoch-health-ostschweiz-st-gallen",
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-mann-50-100-hoch-health-st-gallen",
-        "it": "dipl-pflegefachfrau-mann-50-100-hoch-health-ostschweiz-st-gallen",
+        "it": "infermiere-a-diplomato-a-50-100-hoch-health-ostschweiz-st-gallen",
         "en": "dipl-pflegefachfrau-mann-50-100-hoch-health-st-gallen",
         "fr": "dipl-pflegefachfrau-mann-50-100-hoch-health-st-gallen"
       },
@@ -13728,11 +13860,13 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachfrau-mann-50-100-hoch-health-st-gallen"
+          "dipl-pflegefachfrau-mann-50-100-hoch-health-st-gallen",
+          "dipl-pflegefachfrau-mann-50-100-hoch-health-ostschweiz-st-gallen"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachfrau-mann-50-100-hoch-health-st-gallen"
+        "dipl-pflegefachfrau-mann-50-100-hoch-health-st-gallen",
+        "dipl-pflegefachfrau-mann-50-100-hoch-health-ostschweiz-st-gallen"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -14031,10 +14165,10 @@
     },
     {
       "id": "hoch-health-b699cabd8ee3",
-      "slug": "strukturiertes-praxisjahr-fachmaturitat-gesundheit-2026-hoch-health-wil",
+      "slug": "anno-di-pratica-strutturato-maturita-specialistica-salute-2026-hoch-health-ostschweiz-wil",
       "slugByLocale": {
         "de": "strukturiertes-praxisjahr-fachmaturitat-gesundheit-2026-hoch-health-wil",
-        "it": "strukturiertes-praxisjahr-fachmaturitat-gesundheit-2026-hoch-health-wil",
+        "it": "anno-di-pratica-strutturato-maturita-specialistica-salute-2026-hoch-health-ostschweiz-wil",
         "en": "strukturiertes-praxisjahr-fachmaturitat-gesundheit-2026-hoch-health-wil",
         "fr": "strukturiertes-praxisjahr-fachmaturitat-gesundheit-2026-hoch-health-wil"
       },
@@ -14092,7 +14226,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-19T22:28:01.996Z"
+      "firstSeenAt": "2026-05-19T22:28:01.996Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "strukturiertes-praxisjahr-fachmaturitat-gesundheit-2026-hoch-health-wil"
+        ]
+      },
+      "previousSlugs": [
+        "strukturiertes-praxisjahr-fachmaturitat-gesundheit-2026-hoch-health-wil"
+      ]
     },
     {
       "id": "hoch-health-ca6b1d9042d1",
@@ -14468,10 +14610,10 @@
     },
     {
       "id": "hoch-health-82074efd0443",
-      "slug": "dipl-fachfrau-mann-operationstechnik-80-100-hoch-health-ostschweiz-grabs",
+      "slug": "specialista-in-tecnica-chirurgica-80-100-hoch-health-ostschweiz-grabs",
       "slugByLocale": {
         "de": "dipl-fachfrau-mann-operationstechnik-80-100-hoch-health-grabs",
-        "it": "dipl-fachfrau-mann-operationstechnik-80-100-hoch-health-ostschweiz-grabs",
+        "it": "specialista-in-tecnica-chirurgica-80-100-hoch-health-ostschweiz-grabs",
         "en": "dipl-fachfrau-mann-operationstechnik-80-100-hoch-health-grabs",
         "fr": "dipl-fachfrau-mann-operationstechnik-80-100-hoch-health-grabs"
       },
@@ -14519,11 +14661,13 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "dipl-fachfrau-mann-operationstechnik-80-100-hoch-health-grabs"
+          "dipl-fachfrau-mann-operationstechnik-80-100-hoch-health-grabs",
+          "dipl-fachfrau-mann-operationstechnik-80-100-hoch-health-ostschweiz-grabs"
         ]
       },
       "previousSlugs": [
-        "dipl-fachfrau-mann-operationstechnik-80-100-hoch-health-grabs"
+        "dipl-fachfrau-mann-operationstechnik-80-100-hoch-health-grabs",
+        "dipl-fachfrau-mann-operationstechnik-80-100-hoch-health-ostschweiz-grabs"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -14619,10 +14763,10 @@
     },
     {
       "id": "hoch-health-a9024a91039e",
-      "slug": "logistiker-in-100-hoch-health-ostschweiz-grabs",
+      "slug": "operatore-logistico-a-100-hoch-health-ostschweiz-grabs",
       "slugByLocale": {
         "de": "logistiker-in-100-hoch-health-grabs",
-        "it": "logistiker-in-100-hoch-health-ostschweiz-grabs",
+        "it": "operatore-logistico-a-100-hoch-health-ostschweiz-grabs",
         "en": "logistiker-in-100-hoch-health-grabs",
         "fr": "logistiker-in-100-hoch-health-grabs"
       },
@@ -14670,11 +14814,13 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "logistiker-in-100-hoch-health-grabs"
+          "logistiker-in-100-hoch-health-grabs",
+          "logistiker-in-100-hoch-health-ostschweiz-grabs"
         ]
       },
       "previousSlugs": [
-        "logistiker-in-100-hoch-health-grabs"
+        "logistiker-in-100-hoch-health-grabs",
+        "logistiker-in-100-hoch-health-ostschweiz-grabs"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -14692,10 +14838,10 @@
     },
     {
       "id": "hoch-health-be365be66c28",
-      "slug": "logistiker-in-100-hoch-health-ostschweiz-uznach",
+      "slug": "operatore-logistico-a-100-hoch-health-ostschweiz-uznach",
       "slugByLocale": {
         "de": "logistiker-in-100-hoch-health-uznach",
-        "it": "logistiker-in-100-hoch-health-ostschweiz-uznach",
+        "it": "operatore-logistico-a-100-hoch-health-ostschweiz-uznach",
         "en": "logistiker-in-100-hoch-health-uznach",
         "fr": "logistiker-in-100-hoch-health-uznach"
       },
@@ -14743,11 +14889,13 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "logistiker-in-100-hoch-health-uznach"
+          "logistiker-in-100-hoch-health-uznach",
+          "logistiker-in-100-hoch-health-ostschweiz-uznach"
         ]
       },
       "previousSlugs": [
-        "logistiker-in-100-hoch-health-uznach"
+        "logistiker-in-100-hoch-health-uznach",
+        "logistiker-in-100-hoch-health-ostschweiz-uznach"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,

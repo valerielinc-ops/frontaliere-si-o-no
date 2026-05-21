@@ -241,12 +241,12 @@
     },
     {
       "id": "ksgl-3257cbe3dfda",
-      "slug": "addetto-a-all-assistenza-ai-pazienti-kantonsspital-glarus-ksgl-glarus",
+      "slug": "specialista-nei-pazienti-kantonsspital-glarus-ksgl-glarus",
       "slugByLocale": {
-        "it": "addetto-a-all-assistenza-ai-pazienti-kantonsspital-glarus-ksgl-glarus",
-        "en": "patient-services-clerk-kantonsspital-glarus-ksgl-glarus",
+        "it": "specialista-nei-pazienti-kantonsspital-glarus-ksgl-glarus",
+        "en": "specialist-in-patients-kantonsspital-glarus-ksgl-glarus",
         "de": "sachbearbeiter-in-patientenwesen-ksgl-glarus",
-        "fr": "agent-e-des-services-aux-patients-kantonsspital-glarus-ksgl-glarus"
+        "fr": "specialiste-chez-les-patients-kantonsspital-glarus-ksgl-glarus"
       },
       "company": "Kantonsspital Glarus (KSGL)",
       "companyKey": "ksgl",
@@ -288,11 +288,21 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "sachbearbeiter-in-patientenwesen-ksgl-glarus"
+        "sachbearbeiter-in-patientenwesen-ksgl-glarus",
+        "addetto-a-all-assistenza-ai-pazienti-kantonsspital-glarus-ksgl-glarus",
+        "patient-services-clerk-kantonsspital-glarus-ksgl-glarus",
+        "agent-e-des-services-aux-patients-kantonsspital-glarus-ksgl-glarus"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeiter-in-patientenwesen-ksgl-glarus"
+          "sachbearbeiter-in-patientenwesen-ksgl-glarus",
+          "addetto-a-all-assistenza-ai-pazienti-kantonsspital-glarus-ksgl-glarus"
+        ],
+        "en": [
+          "patient-services-clerk-kantonsspital-glarus-ksgl-glarus"
+        ],
+        "fr": [
+          "agent-e-des-services-aux-patients-kantonsspital-glarus-ksgl-glarus"
         ]
       },
       "firstSeenAt": "2026-05-19T13:03:37.223Z",
@@ -409,12 +419,12 @@
     },
     {
       "id": "ksgl-9a21fc5e1781",
-      "slug": "esperta-esperto-di-infermieristica-intensiva-nds-hf-kantonsspital-glarus-ksgl-glarus",
+      "slug": "dipl-assistenza-intensiva-per-esperti-nds-hf-kantonsspital-glarus-ksgl-glarus",
       "slugByLocale": {
-        "it": "esperta-esperto-di-infermieristica-intensiva-nds-hf-kantonsspital-glarus-ksgl-glarus",
+        "it": "dipl-assistenza-intensiva-per-esperti-nds-hf-kantonsspital-glarus-ksgl-glarus",
         "en": "dipl-expertin-experte-intensivpflege-nds-hf-ksgl-glarus",
         "de": "dipl-expertin-experte-intensivpflege-nds-hf-ksgl-glarus",
-        "fr": "diplomee-diplome-en-soins-intensifs-nds-hf-kantonsspital-glarus-ksgl-glarus"
+        "fr": "dipl-expert-expert-soins-intensifs-nds-hf-kantonsspital-glarus-ksgl-glarus"
       },
       "company": "Kantonsspital Glarus (KSGL)",
       "companyKey": "ksgl",
@@ -463,11 +473,17 @@
         ]
       },
       "previousSlugs": [
-        "dipl-expertin-experte-intensivpflege-nds-hf-ksgl-glarus"
+        "dipl-expertin-experte-intensivpflege-nds-hf-ksgl-glarus",
+        "esperta-esperto-di-infermieristica-intensiva-nds-hf-kantonsspital-glarus-ksgl-glarus",
+        "diplomee-diplome-en-soins-intensifs-nds-hf-kantonsspital-glarus-ksgl-glarus"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-expertin-experte-intensivpflege-nds-hf-ksgl-glarus"
+          "dipl-expertin-experte-intensivpflege-nds-hf-ksgl-glarus",
+          "esperta-esperto-di-infermieristica-intensiva-nds-hf-kantonsspital-glarus-ksgl-glarus"
+        ],
+        "fr": [
+          "diplomee-diplome-en-soins-intensifs-nds-hf-kantonsspital-glarus-ksgl-glarus"
         ]
       },
       "firstSeenAt": "2026-05-19T13:03:35.895Z",
@@ -667,12 +683,12 @@
     },
     {
       "id": "ksgl-300063a52aab",
-      "slug": "infermiere-a-diplomato-a-sss-o-assistente-di-studio-medico-mpa-in-endoscopia-kantonsspital-glarus-ksgl-glarus",
+      "slug": "dipl-specialista-di-cura-mann-hf-o-assistente-medico-in-endoscopia-kantonsspital-glarus-ksgl-glarus",
       "slugByLocale": {
-        "it": "infermiere-a-diplomato-a-sss-o-assistente-di-studio-medico-mpa-in-endoscopia-kantonsspital-glarus-ksgl-glarus",
-        "en": "qualified-nurse-hf-or-medical-assistant-mpa-for-endoscopy-kantonsspital-glarus-ksgl-glarus",
+        "it": "dipl-specialista-di-cura-mann-hf-o-assistente-medico-in-endoscopia-kantonsspital-glarus-ksgl-glarus",
+        "en": "dipl-care-specialist-mann-hf-or-medical-assistant-in-endoscopy-kantonsspital-glarus-ksgl-glarus",
         "de": "dipl-pflegefachfrau-mann-hf-oder-medizinische-r-praxisassistent-in-endoskopie-ksgl-glarus",
-        "fr": "infirmier-ere-diplome-e-es-ou-assistant-e-medical-e-en-endoscopie-kantonsspital-glarus-ksgl-glarus"
+        "fr": "dipl-specialiste-des-soins-mann-hf-ou-assistant-medical-en-endoscopie-kantonsspital-glarus-ksgl-glarus"
       },
       "company": "Kantonsspital Glarus (KSGL)",
       "companyKey": "ksgl",
@@ -739,11 +755,21 @@
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachfrau-mann-hf-oder-medizinische-r-praxisassistent-in-endoskopie-ksgl-glarus"
+        "dipl-pflegefachfrau-mann-hf-oder-medizinische-r-praxisassistent-in-endoskopie-ksgl-glarus",
+        "infermiere-a-diplomato-a-sss-o-assistente-di-studio-medico-mpa-in-endoscopia-kantonsspital-glarus-ksgl-glarus",
+        "qualified-nurse-hf-or-medical-assistant-mpa-for-endoscopy-kantonsspital-glarus-ksgl-glarus",
+        "infirmier-ere-diplome-e-es-ou-assistant-e-medical-e-en-endoscopie-kantonsspital-glarus-ksgl-glarus"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachfrau-mann-hf-oder-medizinische-r-praxisassistent-in-endoskopie-ksgl-glarus"
+          "dipl-pflegefachfrau-mann-hf-oder-medizinische-r-praxisassistent-in-endoskopie-ksgl-glarus",
+          "infermiere-a-diplomato-a-sss-o-assistente-di-studio-medico-mpa-in-endoscopia-kantonsspital-glarus-ksgl-glarus"
+        ],
+        "en": [
+          "qualified-nurse-hf-or-medical-assistant-mpa-for-endoscopy-kantonsspital-glarus-ksgl-glarus"
+        ],
+        "fr": [
+          "infirmier-ere-diplome-e-es-ou-assistant-e-medical-e-en-endoscopie-kantonsspital-glarus-ksgl-glarus"
         ]
       },
       "firstSeenAt": "2026-05-19T13:03:34.121Z",

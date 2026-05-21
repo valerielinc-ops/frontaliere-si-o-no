@@ -1631,10 +1631,10 @@
     },
     {
       "id": "sanatorium-kilchberg-52c41d83b64f",
-      "slug": "sachbearbeiter-in-patientenadministration-sanatorium-kilchberg-kilchberg-2",
+      "slug": "specialista-nella-somministrazione-di-pazienti-sanatorium-kilchberg-kilchberg",
       "slugByLocale": {
         "de": "sachbearbeiter-in-patientenadministration-sanatorium-kilchberg-kilchberg",
-        "it": "sachbearbeiter-in-patientenadministration-sanatorium-kilchberg-kilchberg-2",
+        "it": "specialista-nella-somministrazione-di-pazienti-sanatorium-kilchberg-kilchberg",
         "en": "sachbearbeiter-in-patientenadministration-sanatorium-kilchberg-kilchberg-2",
         "fr": "sachbearbeiter-in-patientenadministration-sanatorium-kilchberg-kilchberg-2"
       },
@@ -1692,7 +1692,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-19T23:21:35.874Z"
+      "firstSeenAt": "2026-05-19T23:21:35.874Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-in-patientenadministration-sanatorium-kilchberg-kilchberg-2"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeiter-in-patientenadministration-sanatorium-kilchberg-kilchberg-2"
+      ]
     }
   ]
 }

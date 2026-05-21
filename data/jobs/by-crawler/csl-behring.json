@@ -3691,10 +3691,10 @@
     },
     {
       "id": "csl-behring-2ffc1db2cebf",
-      "slug": "senior-scientist-albumin-csl-behring-ch",
+      "slug": "album-degli-scienziati-senior-csl-behring-bern",
       "slugByLocale": {
         "en": "senior-scientist-albumin-csl-behring-ch",
-        "it": "senior-scientist-albumin-csl-behring-ch",
+        "it": "album-degli-scienziati-senior-csl-behring-bern",
         "de": "senior-scientist-albumin-csl-behring-ch",
         "fr": "senior-scientist-albumin-csl-behring-ch"
       },
@@ -3752,7 +3752,15 @@
         }
       },
       "postalCode": "3001",
-      "firstSeenAt": "2026-05-20T22:41:32.870Z"
+      "firstSeenAt": "2026-05-20T22:41:32.870Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-scientist-albumin-csl-behring-ch"
+        ]
+      },
+      "previousSlugs": [
+        "senior-scientist-albumin-csl-behring-ch"
+      ]
     },
     {
       "id": "csl-behring-83bec43db2ee",
@@ -3761,7 +3769,7 @@
         "en": "senior-laboratory-specialist-albumin-csl-behring-ch",
         "it": "senior-laboratory-specialist-albumin-csl-behring-ch",
         "de": "senior-laboratory-specialist-albumin-csl-behring-ch",
-        "fr": "senior-laboratory-specialist-albumin-csl-behring-ch"
+        "fr": "albumin-specialiste-de-laboratoire-senior-csl-behring-bern"
       },
       "company": "CSL Behring",
       "companyKey": "csl-behring",
@@ -3821,12 +3829,12 @@
     },
     {
       "id": "csl-behring-53e7608be2b5",
-      "slug": "senior-scientist-molecular-characterization-and-method-development-w-m-d-csl-behring-ch",
+      "slug": "scienziato-senior-caratterizzazione-molecolare-e-sviluppo-del-metodo-w-m-d-csl-behring-bern",
       "slugByLocale": {
         "en": "senior-scientist-molecular-characterization-and-method-development-w-m-d-csl-behring-ch",
-        "it": "senior-scientist-molecular-characterization-and-method-development-w-m-d-csl-behring-ch",
-        "de": "senior-scientist-molecular-characterization-and-method-development-w-m-d-csl-behring-ch",
-        "fr": "senior-scientist-molecular-characterization-and-method-development-w-m-d-csl-behring-ch"
+        "it": "scienziato-senior-caratterizzazione-molecolare-e-sviluppo-del-metodo-w-m-d-csl-behring-bern",
+        "de": "senior-scientist-molekulare-charakterisierung-und-methodenentwicklung-w-m-d-csl-behring-bern",
+        "fr": "scientifique-principale-caracterisation-moleculaire-et-elaboration-de-methodes-p-m-d-csl-behring-bern"
       },
       "company": "CSL Behring",
       "companyKey": "csl-behring",
@@ -3882,16 +3890,30 @@
         }
       },
       "postalCode": "3001",
-      "firstSeenAt": "2026-05-20T22:41:31.337Z"
+      "firstSeenAt": "2026-05-20T22:41:31.337Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-scientist-molecular-characterization-and-method-development-w-m-d-csl-behring-ch"
+        ],
+        "de": [
+          "senior-scientist-molecular-characterization-and-method-development-w-m-d-csl-behring-ch"
+        ],
+        "fr": [
+          "senior-scientist-molecular-characterization-and-method-development-w-m-d-csl-behring-ch"
+        ]
+      },
+      "previousSlugs": [
+        "senior-scientist-molecular-characterization-and-method-development-w-m-d-csl-behring-ch"
+      ]
     },
     {
       "id": "csl-behring-912a4477fb10",
-      "slug": "global-product-leader-csl-behring-ch",
+      "slug": "leader-mondiale-del-prodotto-csl-behring-bern",
       "slugByLocale": {
         "en": "global-product-leader-csl-behring-ch",
-        "it": "global-product-leader-csl-behring-ch",
-        "de": "global-product-leader-csl-behring-ch",
-        "fr": "global-product-leader-csl-behring-ch"
+        "it": "leader-mondiale-del-prodotto-csl-behring-bern",
+        "de": "globaler-produktfuhrer-csl-behring-bern",
+        "fr": "leader-mondial-des-produits-csl-behring-bern"
       },
       "company": "CSL Behring",
       "companyKey": "csl-behring",
@@ -3947,7 +3969,21 @@
         }
       },
       "postalCode": "3001",
-      "firstSeenAt": "2026-05-20T22:41:30.503Z"
+      "firstSeenAt": "2026-05-20T22:41:30.503Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "global-product-leader-csl-behring-ch"
+        ],
+        "de": [
+          "global-product-leader-csl-behring-ch"
+        ],
+        "fr": [
+          "global-product-leader-csl-behring-ch"
+        ]
+      },
+      "previousSlugs": [
+        "global-product-leader-csl-behring-ch"
+      ]
     },
     {
       "id": "csl-behring-fa0e13bf3233",
@@ -3956,7 +3992,7 @@
         "en": "director-regional-ecosystem-lead-northern-europe-uk-csl-behring-ch",
         "it": "director-regional-ecosystem-lead-northern-europe-uk-csl-behring-ch",
         "de": "director-regional-ecosystem-lead-northern-europe-uk-csl-behring-ch",
-        "fr": "director-regional-ecosystem-lead-northern-europe-uk-csl-behring-ch"
+        "fr": "directeur-responsable-des-ecosystemes-regionaux-europe-du-nord-et-royaume-uni-csl-behring-bern"
       },
       "company": "CSL Behring",
       "companyKey": "csl-behring",
@@ -4021,7 +4057,7 @@
         "en": "senior-scientist-bioassays-m-f-x-csl-behring-ch",
         "it": "senior-scientist-bioassays-m-f-x-csl-behring-ch",
         "de": "senior-scientist-bioassays-m-f-x-csl-behring-ch",
-        "fr": "senior-scientist-bioassays-m-f-x-csl-behring-ch"
+        "fr": "chercheur-principal-bioassays-m-f-x-csl-behring-bern"
       },
       "company": "CSL Behring",
       "companyKey": "csl-behring",
@@ -4081,12 +4117,12 @@
     },
     {
       "id": "csl-behring-61080c557bb3",
-      "slug": "scientist-method-development-m-f-x-csl-behring-ch",
+      "slug": "scienziato-sviluppo-del-metodo-m-f-x-csl-behring-bern",
       "slugByLocale": {
         "en": "scientist-method-development-m-f-x-csl-behring-ch",
-        "it": "scientist-method-development-m-f-x-csl-behring-ch",
-        "de": "scientist-method-development-m-f-x-csl-behring-ch",
-        "fr": "scientist-method-development-m-f-x-csl-behring-ch"
+        "it": "scienziato-sviluppo-del-metodo-m-f-x-csl-behring-bern",
+        "de": "wissenschaftler-methodenentwicklung-m-f-x-csl-behring-bern",
+        "fr": "scientifique-elaboration-de-methodes-m-f-x-csl-behring-bern"
       },
       "company": "CSL Behring",
       "companyKey": "csl-behring",
@@ -4142,7 +4178,21 @@
         }
       },
       "postalCode": "3001",
-      "firstSeenAt": "2026-05-20T22:41:27.515Z"
+      "firstSeenAt": "2026-05-20T22:41:27.515Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "scientist-method-development-m-f-x-csl-behring-ch"
+        ],
+        "de": [
+          "scientist-method-development-m-f-x-csl-behring-ch"
+        ],
+        "fr": [
+          "scientist-method-development-m-f-x-csl-behring-ch"
+        ]
+      },
+      "previousSlugs": [
+        "scientist-method-development-m-f-x-csl-behring-ch"
+      ]
     }
   ]
 }

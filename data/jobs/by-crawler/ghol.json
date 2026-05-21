@@ -469,10 +469,10 @@
     },
     {
       "id": "ghol-9a829c624cc1",
-      "slug": "electricien-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+      "slug": "elettricista-groupement-hospitalier-de-l-ouest-lemanique-nyon",
       "slugByLocale": {
         "fr": "electricien-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "it": "electricien-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "it": "elettricista-groupement-hospitalier-de-l-ouest-lemanique-nyon",
         "en": "electrician-groupement-hospitalier-de-l-ouest-lemanique-nyon",
         "de": "elektriker-groupement-hospitalier-de-l-ouest-lemanique-nyon"
       },
@@ -527,7 +527,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-20T05:15:42.709Z"
+      "firstSeenAt": "2026-05-20T05:15:42.709Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "electricien-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+        ]
+      },
+      "previousSlugs": [
+        "electricien-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+      ]
     },
     {
       "id": "ghol-9359ea0e7c70",

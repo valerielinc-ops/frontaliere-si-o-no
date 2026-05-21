@@ -168,7 +168,6 @@
       "previousSlugs": [
         "stv-filialleiter-in-denner",
         "stv-filialleiter-in-denner-basel",
-        "filialleiter-in-denner-basel",
         "responsabile-di-filiale-denner-schluein",
         "filialleiter-in-denner",
         "filialleiter-in-denner-schluein-7k8gx6",
@@ -185,9 +184,6 @@
         ],
         "fr": [
           "stv-filialleiter-in-denner"
-        ],
-        "de": [
-          "filialleiter-in-denner-basel"
         ]
       },
       "firstSeenAt": "2026-05-19T11:34:20.277Z",
@@ -827,9 +823,9 @@
     },
     {
       "id": "denner-2ae02198261a",
-      "slug": "student-in-im-stundenlohn-denner",
+      "slug": "studentecon-retribuzione-oraria-denner-niederuzwil",
       "slugByLocale": {
-        "it": "student-in-im-stundenlohn-denner",
+        "it": "studentecon-retribuzione-oraria-denner-niederuzwil",
         "en": "student-in-im-stundenlohn-denner-niederuzwil",
         "de": "student-in-im-stundenlohn-denner",
         "fr": "student-in-im-stundenlohn-denner"
@@ -893,10 +889,14 @@
       "previousSlugsByLocale": {
         "en": [
           "student-in-im-stundenlohn-denner-biel-bienne"
+        ],
+        "it": [
+          "student-in-im-stundenlohn-denner"
         ]
       },
       "previousSlugs": [
-        "student-in-im-stundenlohn-denner-biel-bienne"
+        "student-in-im-stundenlohn-denner-biel-bienne",
+        "student-in-im-stundenlohn-denner"
       ],
       "salaryMin": 59000,
       "salaryMax": 90500,
@@ -1199,9 +1199,9 @@
     },
     {
       "id": "denner-15307eb35311",
-      "slug": "filialleiter-in-in-ausbildung-denner-horw",
+      "slug": "responsabiledi-filiale-in-formazione-denner-horw",
       "slugByLocale": {
-        "it": "filialleiter-in-in-ausbildung-denner-horw",
+        "it": "responsabiledi-filiale-in-formazione-denner-horw",
         "en": "filialleiter-in-in-ausbildung-denner-horw",
         "de": "filialleiter-in-in-ausbildung-denner-horw",
         "fr": "filialleiter-in-in-ausbildung-denner-horw"
@@ -1264,7 +1264,8 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "filialleiter-in-in-ausbildung-denner"
+          "filialleiter-in-in-ausbildung-denner",
+          "filialleiter-in-in-ausbildung-denner-horw"
         ],
         "en": [
           "filialleiter-in-in-ausbildung-denner"
@@ -1277,6 +1278,9 @@
         ]
       },
       "previousSlugs": [
+        "filialleiter-in-in-ausbildung-denner",
+        "filialleiter-in-in-ausbildung-denner-horw",
+        "filialleiter-in-in-ausbildung-denner-allschwil",
         "studente-studentessa-denner-murten",
         "etudiant-etudiante-denner",
         "etudiant-etudiante-denner-murten-mvukct"
@@ -1388,9 +1392,9 @@
     },
     {
       "id": "denner-a3b6fd22c11d",
-      "slug": "filialleiter-in-denner-schluein",
+      "slug": "direttoredifiliale-denner-schluein",
       "slugByLocale": {
-        "it": "filialleiter-in-denner-schluein",
+        "it": "direttoredifiliale-denner-schluein",
         "en": "filialleiter-in-denner-schluein",
         "de": "filialleiter-in-denner-schluein",
         "fr": "filialleiter-in-denner-schluein"
@@ -1454,7 +1458,8 @@
       "previousSlugsByLocale": {
         "it": [
           "responsabile-di-filiale-denner-schluein",
-          "filialleiter-in-denner"
+          "filialleiter-in-denner",
+          "filialleiter-in-denner-schluein"
         ],
         "en": [
           "filialleiter-in-denner-schluein-7k8gx6"
@@ -1467,6 +1472,10 @@
         ]
       },
       "previousSlugs": [
+        "responsabile-di-filiale-denner-schluein",
+        "filialleiter-in-denner",
+        "filialleiter-in-denner-schluein",
+        "filialleiter-in-denner-schluein-7k8gx6",
         "commesso-a-turno-serale-denner-flims-dorf",
         "verkaufer-in-spatschicht-denner",
         "verkaufer-in-spatschicht-denner-flims-dorf",

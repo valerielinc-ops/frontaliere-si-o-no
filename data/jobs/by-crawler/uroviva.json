@@ -380,12 +380,12 @@
     },
     {
       "id": "uroviva-8fcc4721e453",
-      "slug": "medizinische-r-praxisassistent-in-uroviva-baar",
+      "slug": "assistente-medico-pratico-uroviva-baar",
       "slugByLocale": {
         "de": "medizinische-r-praxisassistent-in-uroviva-baar",
-        "it": "medizinische-r-praxisassistent-in-uroviva-baar",
-        "en": "medizinische-r-praxisassistent-in-uroviva-baar",
-        "fr": "medizinische-r-praxisassistent-in-uroviva-baar"
+        "it": "assistente-medico-pratico-uroviva-baar",
+        "en": "medical-practice-assistant-uroviva-baar",
+        "fr": "assistant-medical-et-professionnel-uroviva-baar"
       },
       "company": "Uroviva",
       "companyKey": "uroviva",
@@ -440,7 +440,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-21T00:38:16.724Z"
+      "firstSeenAt": "2026-05-21T00:38:16.724Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "medizinische-r-praxisassistent-in-uroviva-baar"
+        ],
+        "en": [
+          "medizinische-r-praxisassistent-in-uroviva-baar"
+        ],
+        "fr": [
+          "medizinische-r-praxisassistent-in-uroviva-baar"
+        ]
+      },
+      "previousSlugs": [
+        "medizinische-r-praxisassistent-in-uroviva-baar"
+      ]
     },
     {
       "id": "uroviva-1f66d9dbbf33",

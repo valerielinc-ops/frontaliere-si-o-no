@@ -1728,9 +1728,9 @@
     },
     {
       "id": "unispital-basel-88a6f1d8d6af",
-      "slug": "dipl-pflegefachfrau-pflegefachmann-hf-fh-universitatsspital-basel-basel",
+      "slug": "dipl-specialista-di-cura-hf-fh-universitatsspital-basel-basel",
       "slugByLocale": {
-        "it": "dipl-pflegefachfrau-pflegefachmann-hf-fh-universitatsspital-basel-basel",
+        "it": "dipl-specialista-di-cura-hf-fh-universitatsspital-basel-basel",
         "en": "dipl-pflegefachfrau-pflegefachmann-hf-fh-unispital-basel-ch",
         "de": "dipl-pflegefachfrau-pflegefachmann-hf-fh-unispital-basel-ch",
         "fr": "dipl-pflegefachfrau-pflegefachmann-hf-fh-unispital-basel-ch"
@@ -1778,10 +1778,10 @@
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-lungenstation-universitatsspital-basel-basel",
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-universitatsspital-basel-basel-4f1zbs",
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-universitatsspital-basel-basel-2ficdk",
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-universitatsspital-basel-basel",
         "dipl-nursing-specialist-hf-fh-universitatsspital-basel-basel",
         "dipl-care-specialist-hf-fh-universitatsspital-basel-basel",
         "dipl-specialiste-des-soins-hf-fh-universitatsspital-basel-basel",
-        "dipl-specialista-di-cura-hf-fh-universitatsspital-basel-basel",
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-unispital-basel-ch-2",
         "assistente-di-pratica-medica-assistente-di-pratica-medica-mpa-anestesiologia-universitatsspital-basel-basel"
       ],
@@ -1789,11 +1789,11 @@
         "it": [
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-lungenstation-universitatsspital-basel-basel",
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-universitatsspital-basel-basel-4f1zbs",
-          "dipl-pflegefachfrau-pflegefachmann-hf-fh-universitatsspital-basel-basel-2ficdk"
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-universitatsspital-basel-basel-2ficdk",
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-universitatsspital-basel-basel"
         ],
         "en": [
-          "dipl-nursing-specialist-hf-fh-universitatsspital-basel-basel",
-          "dipl-pflegefachfrau-pflegefachmann-hf-fh-unispital-basel-ch"
+          "dipl-nursing-specialist-hf-fh-universitatsspital-basel-basel"
         ]
       },
       "firstSeenAt": "2026-05-19T12:50:29.688Z",
@@ -1906,10 +1906,10 @@
     },
     {
       "id": "unispital-basel-3300abe6a187",
-      "slug": "dipl-pflegefachfrau-pflegefachmann-hf-fh-universitatsspital-basel-basel",
+      "slug": "dipl-specialista-di-cura-hf-fh-universitatsspital-basel-basel-6873e4",
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-pflegefachmann-hf-fh-unispital-basel-ch",
-        "it": "dipl-pflegefachfrau-pflegefachmann-hf-fh-universitatsspital-basel-basel",
+        "it": "dipl-specialista-di-cura-hf-fh-universitatsspital-basel-basel-6873e4",
         "en": "dipl-pflegefachfrau-pflegefachmann-hf-fh-unispital-basel-ch",
         "fr": "dipl-pflegefachfrau-pflegefachmann-hf-fh-unispital-basel-ch"
       },
@@ -1967,7 +1967,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-19T23:50:50.063Z"
+      "firstSeenAt": "2026-05-19T23:50:50.063Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-universitatsspital-basel-basel"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-universitatsspital-basel-basel"
+      ]
     },
     {
       "id": "unispital-basel-e287fdb78612",

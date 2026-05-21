@@ -303,10 +303,10 @@
     },
     {
       "id": "gz-dielsdorf-025eb3c86b65",
-      "slug": "studio-infermiere-iinfermiere-hf-specializzazione-cure-a-lungo-termine-gesundheitszentrum-dielsdorf-dielsdorf",
+      "slug": "studi-pflegefachfrau-mann-hf-dipartimento-di-cura-a-lungo-termine-gesundheitszentrum-dielsdorf-dielsdorf",
       "slugByLocale": {
-        "it": "studio-infermiere-iinfermiere-hf-specializzazione-cure-a-lungo-termine-gesundheitszentrum-dielsdorf-dielsdorf",
-        "en": "health-care-assistant-hf-specialization-in-long-term-care-gesundheitszentrum-dielsdorf-dielsdorf",
+        "it": "studi-pflegefachfrau-mann-hf-dipartimento-di-cura-a-lungo-termine-gesundheitszentrum-dielsdorf-dielsdorf",
+        "en": "studie-pflegefachfrau-mann-hf-department-of-long-term-care-gesundheitszentrum-dielsdorf-dielsdorf",
         "de": "studium-pflegefachfrau-mann-hf-fachrichtung-langzeitpflege-gz-dielsdorf-dielsdorf",
         "fr": "assistant-en-soins-de-sante-hf-specialisation-en-soins-de-longue-duree-gesundheitszentrum-dielsdorf-dielsdorf"
       },
@@ -381,11 +381,17 @@
         ]
       },
       "previousSlugs": [
-        "studium-pflegefachfrau-mann-hf-fachrichtung-langzeitpflege-gz-dielsdorf-dielsdorf"
+        "studium-pflegefachfrau-mann-hf-fachrichtung-langzeitpflege-gz-dielsdorf-dielsdorf",
+        "studio-infermiere-iinfermiere-hf-specializzazione-cure-a-lungo-termine-gesundheitszentrum-dielsdorf-dielsdorf",
+        "health-care-assistant-hf-specialization-in-long-term-care-gesundheitszentrum-dielsdorf-dielsdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "studium-pflegefachfrau-mann-hf-fachrichtung-langzeitpflege-gz-dielsdorf-dielsdorf"
+          "studium-pflegefachfrau-mann-hf-fachrichtung-langzeitpflege-gz-dielsdorf-dielsdorf",
+          "studio-infermiere-iinfermiere-hf-specializzazione-cure-a-lungo-termine-gesundheitszentrum-dielsdorf-dielsdorf"
+        ],
+        "en": [
+          "health-care-assistant-hf-specialization-in-long-term-care-gesundheitszentrum-dielsdorf-dielsdorf"
         ]
       },
       "firstSeenAt": "2026-05-19T17:51:20.861Z",

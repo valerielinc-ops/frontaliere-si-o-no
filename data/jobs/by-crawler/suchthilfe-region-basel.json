@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "suchthilfe-region-basel-7823c0041db7",
-      "slug": "hauswirtschaftliche-r-collaboratore-trice-in-cfc-60-80-suchthilfe-region-basel-reinach",
+      "slug": "addetto-a-alle-faccende-domestiche-efz-60-80-suchthilfe-region-basel-reinach",
       "slugByLocale": {
         "de": "hauswirtschaftliche-r-mitarbeiter-in-efz-60-80-suchthilfe-region-basel-reinach",
-        "it": "hauswirtschaftliche-r-collaboratore-trice-in-cfc-60-80-suchthilfe-region-basel-reinach",
-        "en": "hauswirtschaftliche-r-mitarbeiter-in-efz-60-80-suchthilfe-region-basel-reinach",
-        "fr": "hauswirtschaftliche-r-mitarbeiter-in-efz-60-80-suchthilfe-region-basel-reinach"
+        "it": "addetto-a-alle-faccende-domestiche-efz-60-80-suchthilfe-region-basel-reinach",
+        "en": "housekeeping-assistant-efz-60-80-suchthilfe-region-basel-reinach",
+        "fr": "assistant-e-en-economie-domestique-cfc-60-80-suchthilfe-region-basel-reinach"
       },
       "company": "Suchthilfe Region Basel",
       "companyKey": "suchthilfe-region-basel",
@@ -54,11 +54,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "hauswirtschaftliche-r-mitarbeiter-in-efz-60-80-suchthilfe-region-basel-reinach",
+          "hauswirtschaftliche-r-collaboratore-trice-in-cfc-60-80-suchthilfe-region-basel-reinach"
+        ],
+        "en": [
+          "hauswirtschaftliche-r-mitarbeiter-in-efz-60-80-suchthilfe-region-basel-reinach"
+        ],
+        "fr": [
           "hauswirtschaftliche-r-mitarbeiter-in-efz-60-80-suchthilfe-region-basel-reinach"
         ]
       },
       "previousSlugs": [
-        "hauswirtschaftliche-r-mitarbeiter-in-efz-60-80-suchthilfe-region-basel-reinach"
+        "hauswirtschaftliche-r-mitarbeiter-in-efz-60-80-suchthilfe-region-basel-reinach",
+        "hauswirtschaftliche-r-collaboratore-trice-in-cfc-60-80-suchthilfe-region-basel-reinach"
       ],
       "salaryMin": 51500,
       "salaryMax": 88000,
@@ -76,12 +84,12 @@
     },
     {
       "id": "suchthilfe-region-basel-25f9d49ff756",
-      "slug": "collaboratore-trice-in-klinikadministration-80-100-suchthilfe-region-basel-reinach",
+      "slug": "membro-dello-staff-dell-amministrazione-clinica-al-80-100-suchthilfe-region-basel-reinach",
       "slugByLocale": {
         "de": "mitarbeiter-in-klinikadministration-80-100-suchthilfe-region-basel-reinach",
-        "it": "collaboratore-trice-in-klinikadministration-80-100-suchthilfe-region-basel-reinach",
-        "en": "mitarbeiter-in-klinikadministration-80-100-suchthilfe-region-basel-reinach",
-        "fr": "mitarbeiter-in-klinikadministration-80-100-suchthilfe-region-basel-reinach"
+        "it": "membro-dello-staff-dell-amministrazione-clinica-al-80-100-suchthilfe-region-basel-reinach",
+        "en": "clinic-administration-staff-member-80-100-suchthilfe-region-basel-reinach",
+        "fr": "membre-du-personnel-de-l-administration-clinique-80-100-suchthilfe-region-basel-reinach"
       },
       "company": "Suchthilfe Region Basel",
       "companyKey": "suchthilfe-region-basel",
@@ -126,11 +134,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-klinikadministration-80-100-suchthilfe-region-basel-reinach",
+          "collaboratore-trice-in-klinikadministration-80-100-suchthilfe-region-basel-reinach"
+        ],
+        "en": [
+          "mitarbeiter-in-klinikadministration-80-100-suchthilfe-region-basel-reinach"
+        ],
+        "fr": [
           "mitarbeiter-in-klinikadministration-80-100-suchthilfe-region-basel-reinach"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-klinikadministration-80-100-suchthilfe-region-basel-reinach"
+        "mitarbeiter-in-klinikadministration-80-100-suchthilfe-region-basel-reinach",
+        "collaboratore-trice-in-klinikadministration-80-100-suchthilfe-region-basel-reinach"
       ],
       "salaryMin": 51500,
       "salaryMax": 88000,
@@ -148,12 +164,12 @@
     },
     {
       "id": "suchthilfe-region-basel-43102fd8f94b",
-      "slug": "gastfamilien-per-spektrum-therapie-in-gastfamilien-suchthilfe-region-basel",
+      "slug": "famiglie-ospitanti-per-spektrum-terapia-nelle-famiglie-ospitanti-suchthilfe-region-basel-basel",
       "slugByLocale": {
         "de": "gastfamilien-fur-spektrum-therapie-in-gastfamilien-suchthilfe-region-basel-basel",
-        "it": "gastfamilien-per-spektrum-therapie-in-gastfamilien-suchthilfe-region-basel",
-        "en": "gastfamilien-fur-spektrum-therapie-in-gastfamilien-suchthilfe-region-basel-basel",
-        "fr": "gastfamilien-fur-spektrum-therapie-in-gastfamilien-suchthilfe-region-basel-basel"
+        "it": "famiglie-ospitanti-per-spektrum-terapia-nelle-famiglie-ospitanti-suchthilfe-region-basel-basel",
+        "en": "host-families-for-spektrum-therapy-in-host-families-suchthilfe-region-basel-basel",
+        "fr": "familles-d-accueil-pour-spektrum-therapie-dans-les-familles-d-accueil-suchthilfe-region-basel-basel"
       },
       "company": "Suchthilfe Region Basel",
       "companyKey": "suchthilfe-region-basel",
@@ -198,11 +214,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "gastfamilien-fur-spektrum-therapie-in-gastfamilien-suchthilfe-region-basel-basel",
+          "gastfamilien-per-spektrum-therapie-in-gastfamilien-suchthilfe-region-basel"
+        ],
+        "en": [
+          "gastfamilien-fur-spektrum-therapie-in-gastfamilien-suchthilfe-region-basel-basel"
+        ],
+        "fr": [
           "gastfamilien-fur-spektrum-therapie-in-gastfamilien-suchthilfe-region-basel-basel"
         ]
       },
       "previousSlugs": [
-        "gastfamilien-fur-spektrum-therapie-in-gastfamilien-suchthilfe-region-basel-basel"
+        "gastfamilien-fur-spektrum-therapie-in-gastfamilien-suchthilfe-region-basel-basel",
+        "gastfamilien-per-spektrum-therapie-in-gastfamilien-suchthilfe-region-basel"
       ],
       "salaryMin": 51500,
       "salaryMax": 88000,
@@ -220,12 +244,12 @@
     },
     {
       "id": "suchthilfe-region-basel-22d6801388b3",
-      "slug": "pflegefachperson-nachtdienst-40-80-suchthilfe-region-basel-reinach",
+      "slug": "infermiere-di-notte-40-80-suchthilfe-region-basel-reinach",
       "slugByLocale": {
         "de": "pflegefachperson-nachtdienst-40-80-suchthilfe-region-basel-reinach",
-        "it": "pflegefachperson-nachtdienst-40-80-suchthilfe-region-basel-reinach",
-        "en": "pflegefachperson-nachtdienst-40-80-suchthilfe-region-basel-reinach",
-        "fr": "pflegefachperson-nachtdienst-40-80-suchthilfe-region-basel-reinach"
+        "it": "infermiere-di-notte-40-80-suchthilfe-region-basel-reinach",
+        "en": "night-shift-nursing-professional-40-80-suchthilfe-region-basel-reinach",
+        "fr": "infirmier-de-nuit-40-80-suchthilfe-region-basel-reinach"
       },
       "company": "Suchthilfe Region Basel",
       "companyKey": "suchthilfe-region-basel",
@@ -280,16 +304,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-21T00:25:07.039Z"
+      "firstSeenAt": "2026-05-21T00:25:07.039Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegefachperson-nachtdienst-40-80-suchthilfe-region-basel-reinach"
+        ],
+        "en": [
+          "pflegefachperson-nachtdienst-40-80-suchthilfe-region-basel-reinach"
+        ],
+        "fr": [
+          "pflegefachperson-nachtdienst-40-80-suchthilfe-region-basel-reinach"
+        ]
+      },
+      "previousSlugs": [
+        "pflegefachperson-nachtdienst-40-80-suchthilfe-region-basel-reinach"
+      ]
     },
     {
       "id": "suchthilfe-region-basel-6cc8b3d83a7a",
-      "slug": "psycholog-in-60-70-im-beratungszentrum-suchthilfe-region-basel-basel",
+      "slug": "psicologo-60-70-nel-centro-di-consulenza-suchthilfe-region-basel-basel",
       "slugByLocale": {
         "de": "psycholog-in-60-70-im-beratungszentrum-suchthilfe-region-basel-basel",
-        "it": "psycholog-in-60-70-im-beratungszentrum-suchthilfe-region-basel-basel",
-        "en": "psycholog-in-60-70-im-beratungszentrum-suchthilfe-region-basel-basel",
-        "fr": "psycholog-in-60-70-im-beratungszentrum-suchthilfe-region-basel-basel"
+        "it": "psicologo-60-70-nel-centro-di-consulenza-suchthilfe-region-basel-basel",
+        "en": "psychologist-60-70-at-the-counseling-center-suchthilfe-region-basel-basel",
+        "fr": "psychologue-60-70-au-centre-de-conseils-suchthilfe-region-basel-basel"
       },
       "company": "Suchthilfe Region Basel",
       "companyKey": "suchthilfe-region-basel",
@@ -344,16 +382,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-21T00:25:06.426Z"
+      "firstSeenAt": "2026-05-21T00:25:06.426Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "psycholog-in-60-70-im-beratungszentrum-suchthilfe-region-basel-basel"
+        ],
+        "en": [
+          "psycholog-in-60-70-im-beratungszentrum-suchthilfe-region-basel-basel"
+        ],
+        "fr": [
+          "psycholog-in-60-70-im-beratungszentrum-suchthilfe-region-basel-basel"
+        ]
+      },
+      "previousSlugs": [
+        "psycholog-in-60-70-im-beratungszentrum-suchthilfe-region-basel-basel"
+      ]
     },
     {
       "id": "suchthilfe-region-basel-742759cefe74",
-      "slug": "pflegefachperson-hf-fh-70-90-suchthilfe-region-basel-reinach",
+      "slug": "professionista-sanitario-hf-fh-70-90-suchthilfe-region-basel-reinach",
       "slugByLocale": {
         "de": "pflegefachperson-hf-fh-70-90-suchthilfe-region-basel-reinach",
-        "it": "pflegefachperson-hf-fh-70-90-suchthilfe-region-basel-reinach",
+        "it": "professionista-sanitario-hf-fh-70-90-suchthilfe-region-basel-reinach",
         "en": "pflegefachperson-hf-fh-70-90-suchthilfe-region-basel-reinach",
-        "fr": "pflegefachperson-hf-fh-70-90-suchthilfe-region-basel-reinach"
+        "fr": "professionnel-de-la-sante-hf-fh-70-90-suchthilfe-region-basel-reinach"
       },
       "company": "Suchthilfe Region Basel",
       "companyKey": "suchthilfe-region-basel",
@@ -408,7 +460,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-21T00:25:05.475Z"
+      "firstSeenAt": "2026-05-21T00:25:05.475Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegefachperson-hf-fh-70-90-suchthilfe-region-basel-reinach"
+        ],
+        "fr": [
+          "pflegefachperson-hf-fh-70-90-suchthilfe-region-basel-reinach"
+        ]
+      },
+      "previousSlugs": [
+        "pflegefachperson-hf-fh-70-90-suchthilfe-region-basel-reinach"
+      ]
     }
   ]
 }

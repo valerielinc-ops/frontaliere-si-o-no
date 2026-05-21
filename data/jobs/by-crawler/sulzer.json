@@ -3534,10 +3534,10 @@
     },
     {
       "id": "sulzer-867962d72fb7",
-      "slug": "journey-level-machinist-sulzer-ch",
+      "slug": "macchinista-a-livello-di-viaggio-sulzer-chattanooga",
       "slugByLocale": {
         "en": "journey-level-machinist-sulzer-ch",
-        "it": "journey-level-machinist-sulzer-ch",
+        "it": "macchinista-a-livello-di-viaggio-sulzer-chattanooga",
         "de": "journey-level-machinist-sulzer-ch",
         "fr": "journey-level-machinist-sulzer-ch"
       },
@@ -3594,14 +3594,22 @@
         }
       },
       "postalCode": "8001",
-      "firstSeenAt": "2026-05-19T23:39:40.889Z"
+      "firstSeenAt": "2026-05-19T23:39:40.889Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "journey-level-machinist-sulzer-ch"
+        ]
+      },
+      "previousSlugs": [
+        "journey-level-machinist-sulzer-ch"
+      ]
     },
     {
       "id": "sulzer-24a1fdb25cf3",
-      "slug": "journey-level-machinist-sulzer-ch-2",
+      "slug": "macchinista-a-livello-di-viaggio-sulzer-chattanooga-cea36b",
       "slugByLocale": {
         "en": "journey-level-machinist-sulzer-ch",
-        "it": "journey-level-machinist-sulzer-ch-2",
+        "it": "macchinista-a-livello-di-viaggio-sulzer-chattanooga-cea36b",
         "de": "journey-level-machinist-sulzer-ch-2",
         "fr": "journey-level-machinist-sulzer-ch-2"
       },
@@ -3656,16 +3664,24 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8001"
+      "postalCode": "8001",
+      "previousSlugsByLocale": {
+        "it": [
+          "journey-level-machinist-sulzer-ch-2"
+        ]
+      },
+      "previousSlugs": [
+        "journey-level-machinist-sulzer-ch-2"
+      ]
     },
     {
       "id": "sulzer-04ff45245420",
-      "slug": "r-d-intern-sulzer-ch",
+      "slug": "r-d-tirocinante-sulzer-singapore",
       "slugByLocale": {
         "en": "r-d-intern-sulzer-singapore",
-        "it": "r-d-intern-sulzer-ch",
-        "de": "r-d-intern-sulzer-ch",
-        "fr": "r-d-intern-sulzer-ch"
+        "it": "r-d-tirocinante-sulzer-singapore",
+        "de": "r-d-praktikant-sulzer-singapore",
+        "fr": "r-d-stagiaire-sulzer-singapore"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -3720,14 +3736,28 @@
         }
       },
       "postalCode": "8001",
-      "firstSeenAt": "2026-05-21T00:25:57.094Z"
+      "firstSeenAt": "2026-05-21T00:25:57.094Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "r-d-intern-sulzer-ch"
+        ],
+        "de": [
+          "r-d-intern-sulzer-ch"
+        ],
+        "fr": [
+          "r-d-intern-sulzer-ch"
+        ]
+      },
+      "previousSlugs": [
+        "r-d-intern-sulzer-ch"
+      ]
     },
     {
       "id": "sulzer-0a48cdcf617c",
-      "slug": "ingenieur-qualite-projets-sulzer-ch",
+      "slug": "progetti-qualita-dell-ingegnere-sulzer-buchelay",
       "slugByLocale": {
         "fr": "ingenieur-qualite-projets-sulzer-ch",
-        "it": "ingenieur-qualite-projets-sulzer-ch",
+        "it": "progetti-qualita-dell-ingegnere-sulzer-buchelay",
         "en": "ingenieur-qualite-projets-sulzer-ch",
         "de": "ingenieur-qualite-projets-sulzer-ch"
       },
@@ -3784,7 +3814,15 @@
         }
       },
       "postalCode": "8001",
-      "firstSeenAt": "2026-05-21T00:25:56.155Z"
+      "firstSeenAt": "2026-05-21T00:25:56.155Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "ingenieur-qualite-projets-sulzer-ch"
+        ]
+      },
+      "previousSlugs": [
+        "ingenieur-qualite-projets-sulzer-ch"
+      ]
     },
     {
       "id": "sulzer-b24339bd16d3",

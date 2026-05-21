@@ -288,10 +288,10 @@
     },
     {
       "id": "klinik-sgm-ad579663636b",
-      "slug": "facharztin-facharzt-psychiatrie-ambulatorium-langenthal-klinik-sgm-langenthal",
+      "slug": "medico-specialista-psichiatria-ambulatorio-langenthal-klinik-sgm-langenthal-langenthal",
       "slugByLocale": {
         "de": "facharztin-facharzt-psychiatrie-ambulatorium-langenthal-klinik-sgm-langenthal",
-        "it": "facharztin-facharzt-psychiatrie-ambulatorium-langenthal-klinik-sgm-langenthal",
+        "it": "medico-specialista-psichiatria-ambulatorio-langenthal-klinik-sgm-langenthal-langenthal",
         "en": "facharztin-facharzt-psychiatrie-ambulatorium-langenthal-klinik-sgm-langenthal",
         "fr": "facharztin-facharzt-psychiatrie-ambulatorium-langenthal-klinik-sgm-langenthal"
       },
@@ -348,7 +348,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-19T22:42:10.580Z"
+      "firstSeenAt": "2026-05-19T22:42:10.580Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "facharztin-facharzt-psychiatrie-ambulatorium-langenthal-klinik-sgm-langenthal"
+        ]
+      },
+      "previousSlugs": [
+        "facharztin-facharzt-psychiatrie-ambulatorium-langenthal-klinik-sgm-langenthal"
+      ]
     },
     {
       "id": "klinik-sgm-1e07f67741b2",

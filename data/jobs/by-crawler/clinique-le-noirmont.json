@@ -41,7 +41,7 @@
       "slugByLocale": {
         "fr": "medecin-chef-readaptation-cardiovasculaire-f-h-clinique-le-noirmont",
         "it": "medico-capo-riabilitazione-cardiovascolare-f-h-clinique-le-noirmont-le-noirmont",
-        "en": "chief-medical-officer-cardiovascular-rehabilitation-f-m-clinique-le-noirmont-le-noirmont",
+        "en": "physician-head-cardiovascular-rehabilitation-f-h-clinique-le-noirmont-le-noirmont",
         "de": "chefarzt-herz-kreislauf-rehabilitation-f-h-clinique-le-noirmont-le-noirmont"
       },
       "_meta": {
@@ -67,19 +67,21 @@
           "medecin-chef-readaptation-cardiovasculaire-f-h-clinique-le-noirmont"
         ],
         "en": [
-          "medecin-chef-readaptation-cardiovasculaire-f-h-clinique-le-noirmont"
+          "medecin-chef-readaptation-cardiovasculaire-f-h-clinique-le-noirmont",
+          "chief-medical-officer-cardiovascular-rehabilitation-f-m-clinique-le-noirmont-le-noirmont"
         ],
         "de": [
           "medecin-chef-readaptation-cardiovasculaire-f-h-clinique-le-noirmont"
         ]
       },
       "previousSlugs": [
-        "medecin-chef-readaptation-cardiovasculaire-f-h-clinique-le-noirmont"
+        "medecin-chef-readaptation-cardiovasculaire-f-h-clinique-le-noirmont",
+        "chief-medical-officer-cardiovascular-rehabilitation-f-m-clinique-le-noirmont-le-noirmont"
       ]
     },
     {
       "title": "Médecin adjoint en cardiologie, chef de clinique (F/H)",
-      "slug": "medecin-adjoint-en-cardiologie-chef-de-clinique-m-w-d-clinique-le-noirmont",
+      "slug": "assistente-cardiologia-medica-responsabile-clinica-f-h-clinique-le-noirmont-le-noirmont",
       "url": "https://www.cliniquelenoirmont.ch/File/405/Annonce%20M%C3%A9decin%20adjoint%20en%20cardiologie_chef%20de%20clinique_2022_FR.pdf",
       "applyUrl": "https://www.cliniquelenoirmont.ch/La-clinique/Offres-demploi",
       "company": "Clinique Le Noirmont",
@@ -115,9 +117,9 @@
       },
       "slugByLocale": {
         "fr": "medecin-adjoint-en-cardiologie-chef-de-clinique-f-h-clinique-le-noirmont",
-        "it": "assistente-medico-cardiologo-primario-di-clinica-f-h-clinique-le-noirmont-le-noirmont",
+        "it": "assistente-cardiologia-medica-responsabile-clinica-f-h-clinique-le-noirmont-le-noirmont",
         "en": "assistant-physician-in-cardiology-head-of-clinic-f-m-clinique-le-noirmont-le-noirmont",
-        "de": "assistenzarzt-kardiologie-oberarzt-m-w-clinique-le-noirmont-le-noirmont"
+        "de": "assistent-kardiologie-physiker-leiter-der-klinik-f-h-clinique-le-noirmont-le-noirmont"
       },
       "_meta": {
         "sourceIdentifier": "file:405"
@@ -125,17 +127,23 @@
       "id": "clinique-le-noirmont-901509512411",
       "previousSlugsByLocale": {
         "it": [
-          "medecin-adjoint-en-cardiologie-chef-de-clinique-f-h-clinique-le-noirmont"
+          "medecin-adjoint-en-cardiologie-chef-de-clinique-f-h-clinique-le-noirmont",
+          "assistente-medico-cardiologo-primario-di-clinica-f-h-clinique-le-noirmont-le-noirmont",
+          "medecin-adjoint-en-cardiologie-chef-de-clinique-m-w-d-clinique-le-noirmont"
         ],
         "en": [
           "medecin-adjoint-en-cardiologie-chef-de-clinique-f-h-clinique-le-noirmont"
         ],
         "de": [
-          "medecin-adjoint-en-cardiologie-chef-de-clinique-f-h-clinique-le-noirmont"
+          "medecin-adjoint-en-cardiologie-chef-de-clinique-f-h-clinique-le-noirmont",
+          "assistenzarzt-kardiologie-oberarzt-m-w-clinique-le-noirmont-le-noirmont"
         ]
       },
       "previousSlugs": [
-        "medecin-adjoint-en-cardiologie-chef-de-clinique-f-h-clinique-le-noirmont"
+        "medecin-adjoint-en-cardiologie-chef-de-clinique-f-h-clinique-le-noirmont",
+        "assistente-medico-cardiologo-primario-di-clinica-f-h-clinique-le-noirmont-le-noirmont",
+        "medecin-adjoint-en-cardiologie-chef-de-clinique-m-w-d-clinique-le-noirmont",
+        "assistenzarzt-kardiologie-oberarzt-m-w-clinique-le-noirmont-le-noirmont"
       ],
       "salaryMin": 95000,
       "salaryMax": 132500,

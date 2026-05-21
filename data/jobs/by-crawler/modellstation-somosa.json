@@ -76,10 +76,10 @@
     },
     {
       "id": "modellstation-somosa-f22fe242006f",
-      "slug": "tirocinio-per-studenti-di-educazione-sociale-modulo-pratico-modellstation-somosa-winterthur",
+      "slug": "stage-per-gli-studenti-educazione-sociale-modulo-di-pratica-modellstation-somosa-winterthur",
       "slugByLocale": {
         "de": "praktikum-fur-studierende-sozialpadagogik-praxismodul-modellstation-somosa-winterthur",
-        "it": "tirocinio-per-studenti-di-educazione-sociale-modulo-pratico-modellstation-somosa-winterthur",
+        "it": "stage-per-gli-studenti-educazione-sociale-modulo-di-pratica-modellstation-somosa-winterthur",
         "en": "internship-for-social-pedagogy-students-practical-module-modellstation-somosa-winterthur",
         "fr": "stage-pour-etudiants-en-education-sociale-module-pratique-modellstation-somosa-winterthur"
       },
@@ -126,11 +126,13 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "praktikum-fur-studierende-sozialpadagogik-praxismodul-modellstation-somosa-winterthur"
+          "praktikum-fur-studierende-sozialpadagogik-praxismodul-modellstation-somosa-winterthur",
+          "tirocinio-per-studenti-di-educazione-sociale-modulo-pratico-modellstation-somosa-winterthur"
         ]
       },
       "previousSlugs": [
-        "praktikum-fur-studierende-sozialpadagogik-praxismodul-modellstation-somosa-winterthur"
+        "praktikum-fur-studierende-sozialpadagogik-praxismodul-modellstation-somosa-winterthur",
+        "tirocinio-per-studenti-di-educazione-sociale-modulo-pratico-modellstation-somosa-winterthur"
       ],
       "salaryMin": 41600,
       "salaryMax": 63000,
@@ -152,8 +154,8 @@
       "slugByLocale": {
         "de": "sozialarbeiter-sozialarbeiterin-oder-sozialpadagoge-sozialpadagogin-fur-unser-wohntraining",
         "it": "assistente-sociale-assistente-sociale-o-educatore-sociale-per-il-nostro-programma-di-residenza-60-modellstation-somosa",
-        "en": "social-worker-or-social-pedagogue-for-our-residential-training-program-60-modellstation-somosa-winterthur",
-        "fr": "assistant-social-assistante-sociale-ou-educateur-educatrice-sociale-pour-notre-programme-de-residence-60-modellstation"
+        "en": "social-worker-social-worker-social-teacher-social-teacher-for-our-housing-training-60-modellstation-somosa-winterthur",
+        "fr": "travailleurs-sociaux-travailleurs-sociaux-enseignants-sociaux-enseignants-sociaux-pour-notre-formation-au-logement-60"
       },
       "company": "Modellstation SOMOSA",
       "companyKey": "modellstation-somosa",
@@ -199,10 +201,18 @@
       "previousSlugsByLocale": {
         "it": [
           "sozialarbeiter-sozialarbeiterin-oder-sozialpadagoge-sozialpadagogin-fur-unser-wohntraining"
+        ],
+        "en": [
+          "social-worker-or-social-pedagogue-for-our-residential-training-program-60-modellstation-somosa-winterthur"
+        ],
+        "fr": [
+          "assistant-social-assistante-sociale-ou-educateur-educatrice-sociale-pour-notre-programme-de-residence-60-modellstation"
         ]
       },
       "previousSlugs": [
-        "sozialarbeiter-sozialarbeiterin-oder-sozialpadagoge-sozialpadagogin-fur-unser-wohntraining"
+        "sozialarbeiter-sozialarbeiterin-oder-sozialpadagoge-sozialpadagogin-fur-unser-wohntraining",
+        "social-worker-or-social-pedagogue-for-our-residential-training-program-60-modellstation-somosa-winterthur",
+        "assistant-social-assistante-sociale-ou-educateur-educatrice-sociale-pour-notre-programme-de-residence-60-modellstation"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,

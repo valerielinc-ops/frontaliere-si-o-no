@@ -3361,9 +3361,9 @@
     },
     {
       "id": "ehc-vd-3f2542c1a015",
-      "slug": "physiotherapeute-ctr-ehc-vd-aubonne",
+      "slug": "fisioterapista-ctr-ensemble-hospitalier-de-la-cote-ehc-aubonne-7b828b",
       "slugByLocale": {
-        "it": "physiotherapeute-ctr-ehc-vd-aubonne",
+        "it": "fisioterapista-ctr-ensemble-hospitalier-de-la-cote-ehc-aubonne-7b828b",
         "en": "physiotherapeute-ctr-ehc-vd-aubonne",
         "de": "physiotherapeute-ctr-ehc-vd-aubonne",
         "fr": "physiotherapeute-ctr-ehc-vd-aubonne"
@@ -3420,7 +3420,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "physiotherapeute-ctr-ehc-vd-aubonne"
+        ]
+      },
+      "previousSlugs": [
+        "physiotherapeute-ctr-ehc-vd-aubonne"
+      ]
     },
     {
       "id": "ehc-vd-f0a17ca7b4dc",

@@ -3638,9 +3638,9 @@
     },
     {
       "id": "hib-broye-3c82eed86fd0",
-      "slug": "codificateur-trice-medical-e-80-100-hib-broye-estavayer-le-lac",
+      "slug": "codificatore-trice-medicale-e-80-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac",
       "slugByLocale": {
-        "it": "codificateur-trice-medical-e-80-100-hib-broye-estavayer-le-lac",
+        "it": "codificatore-trice-medicale-e-80-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac",
         "en": "codificateur-trice-medical-e-80-100-hib-broye-estavayer-le-lac",
         "de": "codificateur-trice-medical-e-80-100-hib-broye-estavayer-le-lac",
         "fr": "codificateur-trice-medical-e-80-100-hib-broye-estavayer-le-lac"
@@ -3697,7 +3697,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "codificateur-trice-medical-e-80-100-hib-broye-estavayer-le-lac"
+        ]
+      },
+      "previousSlugs": [
+        "codificateur-trice-medical-e-80-100-hib-broye-estavayer-le-lac"
+      ]
     }
   ]
 }

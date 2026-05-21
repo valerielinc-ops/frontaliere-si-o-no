@@ -39,7 +39,7 @@
       "crawledAt": "2026-05-19T22:56:40.117Z",
       "slugByLocale": {
         "it": "manutentore-elettromeccanico-medacta-international-sa-castel-san-pietro-rancate-srobch",
-        "en": "manutentore-elettromeccanico-medacta-international-sa-castel-san-pietro-rancate-srobch",
+        "en": "electromechanical-maintenance-technician-medacta-international-sa-castel-san-pietro-rancate",
         "de": "manutentore-elettromeccanico-medacta-international-sa-castel-san-pietro-rancate-srobch",
         "fr": "manutentore-elettromeccanico-medacta-international-sa-castel-san-pietro-rancate-srobch"
       },
@@ -111,7 +111,7 @@
       "crawledAt": "2026-05-19T22:56:39.893Z",
       "slugByLocale": {
         "it": "demand-planner-medacta-international-sa-castel-san-pietro-mendrisio-q27ftk",
-        "en": "demand-planner-medacta-international-sa-castel-san-pietro-mendrisio-q27ftk",
+        "en": "demand-planning-medacta-international-sa-castel-san-pietro-mendrisio",
         "de": "demand-planner-medacta-international-sa-castel-san-pietro-mendrisio-q27ftk",
         "fr": "demand-planner-medacta-international-sa-castel-san-pietro-mendrisio-q27ftk"
       },
@@ -184,7 +184,7 @@
       "slugByLocale": {
         "it": "thesis-r-d-orthopedics-medacta-international-sa-castel-san-pietro",
         "en": "thesis-r-d-orthopedics-medacta-international-sa-rancate",
-        "de": "diplomarbeit-f-e-orthopadie-medacta-international-sa-rancate",
+        "de": "thesis-r-d-orthopadie-medacta-international-sa-rancate",
         "fr": "these-r-d-orthopedie-medacta-international-sa-rancate"
       },
       "sourceLang": "it",
@@ -208,7 +208,15 @@
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
       "firstSeenAt": "2026-05-19T12:15:03.985Z",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "de": [
+          "diplomarbeit-f-e-orthopadie-medacta-international-sa-rancate"
+        ]
+      },
+      "previousSlugs": [
+        "diplomarbeit-f-e-orthopadie-medacta-international-sa-rancate"
+      ]
     },
     {
       "id": "medacta-99252",

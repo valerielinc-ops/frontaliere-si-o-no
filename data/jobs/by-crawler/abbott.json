@@ -8,7 +8,7 @@
       "slugByLocale": {
         "it": "cloud-architetto-abbott-basel",
         "en": "cloud-architect-abbott-basel",
-        "de": "cloud-architekt-abbott-basel",
+        "de": "architektur-und-architektur-abbott-basel",
         "fr": "architecte-cloud-abbott-basel"
       },
       "company": "Abbott",
@@ -75,11 +75,15 @@
         "it": [
           "cloud-architect-abbott-ch",
           "cloud-architect-abbott-basel"
+        ],
+        "de": [
+          "cloud-architekt-abbott-basel"
         ]
       },
       "previousSlugs": [
         "cloud-architect-abbott-ch",
-        "cloud-architect-abbott-basel"
+        "cloud-architect-abbott-basel",
+        "cloud-architekt-abbott-basel"
       ],
       "firstSeenAt": "2026-05-19T17:18:45.224Z",
       "salaryMin": 51500,
@@ -201,12 +205,12 @@
     },
     {
       "id": "abbott-ebecdcea6f02",
-      "slug": "esperto-it-abbott-basel",
+      "slug": "finanza-it-expert-abbott-basel",
       "slugByLocale": {
-        "it": "esperto-it-abbott-basel",
+        "it": "finanza-it-expert-abbott-basel",
         "en": "finance-it-expert-abbott-basel",
         "de": "finanzen-it-expert-abbott-basel",
-        "fr": "expert-it-finance-abbott-basel"
+        "fr": "expert-en-informatique-financiere-abbott-basel"
       },
       "company": "Abbott",
       "companyKey": "abbott",
@@ -285,16 +289,22 @@
         ],
         "it": [
           "finance-it-expert-abbott-ch",
-          "esperto-it-finanza-abbott-basel"
+          "esperto-it-finanza-abbott-basel",
+          "esperto-it-abbott-basel"
         ],
         "de": [
           "finance-it-experte-abbott-basel"
+        ],
+        "fr": [
+          "expert-it-finance-abbott-basel"
         ]
       },
       "previousSlugs": [
         "finance-it-expert-abbott-ch",
         "esperto-it-finanza-abbott-basel",
-        "finance-it-experte-abbott-basel"
+        "esperto-it-abbott-basel",
+        "finance-it-experte-abbott-basel",
+        "expert-it-finance-abbott-basel"
       ],
       "firstSeenAt": "2026-05-19T17:18:43.426Z",
       "salaryMin": 49500,
@@ -978,7 +988,7 @@
         "it": "ingegneria-manifatturiera-manutenzione-e-controllo-della-facilita-abbott-zurich",
         "en": "manufacturing-engineering-maintenance-facility-control-abbott-ch",
         "de": "produktionsingenieur-wartung-und-gebaudesteuerung-abbott-zurich",
-        "fr": "ingenieur-de-production-entretien-et-controle-des-installations-abbott-zurich"
+        "fr": "ingenierie-de-fabrication-maintenance-et-controle-des-installations-abbott-zurich"
       },
       "company": "Abbott",
       "companyKey": "abbott",
@@ -1050,12 +1060,16 @@
       "jobReqId": "31142513",
       "previousSlugs": [
         "manufacturing-engineering-maintenance-facility-control-abbott-ch",
-        "ingegnere-di-produzione-manutenzione-e-controllo-dell-edificio-abbott-zurich"
+        "ingegnere-di-produzione-manutenzione-e-controllo-dell-edificio-abbott-zurich",
+        "ingenieur-de-production-entretien-et-controle-des-installations-abbott-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "manufacturing-engineering-maintenance-facility-control-abbott-ch",
           "ingegnere-di-produzione-manutenzione-e-controllo-dell-edificio-abbott-zurich"
+        ],
+        "fr": [
+          "ingenieur-de-production-entretien-et-controle-des-installations-abbott-zurich"
         ]
       },
       "firstSeenAt": "2026-05-19T17:18:36.331Z",

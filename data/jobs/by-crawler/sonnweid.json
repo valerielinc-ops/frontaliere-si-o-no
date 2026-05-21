@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "sonnweid-b9f771afc509",
-      "slug": "diplomato-a-della-cura-hf-pflegezentrum-sonnweid-wetzikon",
+      "slug": "dipl-specialista-di-cura-hf-pflegezentrum-sonnweid-wetzikon",
       "slugByLocale": {
-        "it": "diplomato-a-della-cura-hf-pflegezentrum-sonnweid-wetzikon",
+        "it": "dipl-specialista-di-cura-hf-pflegezentrum-sonnweid-wetzikon",
         "en": "dipl-pflegefachperson-hf-sonnweid-wetzikon",
         "de": "dipl-pflegefachperson-hf-sonnweid-wetzikon",
-        "fr": "diplome-e-en-soins-infirmiers-hf-pflegezentrum-sonnweid-wetzikon"
+        "fr": "dipl-specialiste-des-soins-hf-pflegezentrum-sonnweid-wetzikon"
       },
       "company": "Pflegezentrum Sonnweid",
       "companyKey": "sonnweid",
@@ -51,11 +51,17 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-sonnweid-wetzikon"
+        "dipl-pflegefachperson-hf-sonnweid-wetzikon",
+        "diplomato-a-della-cura-hf-pflegezentrum-sonnweid-wetzikon",
+        "diplome-e-en-soins-infirmiers-hf-pflegezentrum-sonnweid-wetzikon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-hf-sonnweid-wetzikon"
+          "dipl-pflegefachperson-hf-sonnweid-wetzikon",
+          "diplomato-a-della-cura-hf-pflegezentrum-sonnweid-wetzikon"
+        ],
+        "fr": [
+          "diplome-e-en-soins-infirmiers-hf-pflegezentrum-sonnweid-wetzikon"
         ]
       },
       "firstSeenAt": "2026-05-19T15:19:25.130Z",
@@ -74,12 +80,12 @@
     },
     {
       "id": "sonnweid-1c414d3bb8dd",
-      "slug": "operatore-sanitario-o-assistenziale-pflegezentrum-sonnweid-wetzikon",
+      "slug": "soggetto-salute-o-cura-efz-pflegezentrum-sonnweid-wetzikon",
       "slugByLocale": {
-        "it": "operatore-sanitario-o-assistenziale-pflegezentrum-sonnweid-wetzikon",
-        "en": "healthcare-or-care-assistant-pflegezentrum-sonnweid-wetzikon",
+        "it": "soggetto-salute-o-cura-efz-pflegezentrum-sonnweid-wetzikon",
+        "en": "subject-health-or-care-efz-pflegezentrum-sonnweid-wetzikon",
         "de": "fachperson-gesundheit-oder-betreuung-efz-sonnweid-wetzikon",
-        "fr": "assistant-e-en-sante-ou-en-soins-pflegezentrum-sonnweid-wetzikon"
+        "fr": "sujet-sante-ou-soins-efz-pflegezentrum-sonnweid-wetzikon"
       },
       "company": "Pflegezentrum Sonnweid",
       "companyKey": "sonnweid",
@@ -121,11 +127,21 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fachperson-gesundheit-oder-betreuung-efz-sonnweid-wetzikon"
+        "fachperson-gesundheit-oder-betreuung-efz-sonnweid-wetzikon",
+        "operatore-sanitario-o-assistenziale-pflegezentrum-sonnweid-wetzikon",
+        "healthcare-or-care-assistant-pflegezentrum-sonnweid-wetzikon",
+        "assistant-e-en-sante-ou-en-soins-pflegezentrum-sonnweid-wetzikon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachperson-gesundheit-oder-betreuung-efz-sonnweid-wetzikon"
+          "fachperson-gesundheit-oder-betreuung-efz-sonnweid-wetzikon",
+          "operatore-sanitario-o-assistenziale-pflegezentrum-sonnweid-wetzikon"
+        ],
+        "en": [
+          "healthcare-or-care-assistant-pflegezentrum-sonnweid-wetzikon"
+        ],
+        "fr": [
+          "assistant-e-en-sante-ou-en-soins-pflegezentrum-sonnweid-wetzikon"
         ]
       },
       "firstSeenAt": "2026-05-19T15:19:24.514Z",
@@ -144,10 +160,10 @@
     },
     {
       "id": "sonnweid-378cc64a24bc",
-      "slug": "professionista-della-cura-hf-come-vice-responsabile-di-stazione-pflegezentrum-sonnweid-wetzikon",
+      "slug": "carriera-hf-come-vice-direttore-della-stazione-pflegezentrum-sonnweid-wetzikon",
       "slugByLocale": {
-        "it": "professionista-della-cura-hf-come-vice-responsabile-di-stazione-pflegezentrum-sonnweid-wetzikon",
-        "en": "nursing-professional-hf-as-deputy-ward-manager-pflegezentrum-sonnweid-wetzikon",
+        "it": "carriera-hf-come-vice-direttore-della-stazione-pflegezentrum-sonnweid-wetzikon",
+        "en": "career-hf-as-deputy-station-manager-pflegezentrum-sonnweid-wetzikon",
         "de": "pflegefachperson-hf-als-stellvertretende-stationsleitung-sonnweid-wetzikon",
         "fr": "professionnel-en-soins-hf-en-tant-qu-adjoint-e-au-responsable-d-unite-pflegezentrum-sonnweid-wetzikon"
       },
@@ -213,11 +229,17 @@
         ]
       },
       "previousSlugs": [
-        "pflegefachperson-hf-als-stellvertretende-stationsleitung-sonnweid-wetzikon"
+        "pflegefachperson-hf-als-stellvertretende-stationsleitung-sonnweid-wetzikon",
+        "professionista-della-cura-hf-come-vice-responsabile-di-stazione-pflegezentrum-sonnweid-wetzikon",
+        "nursing-professional-hf-as-deputy-ward-manager-pflegezentrum-sonnweid-wetzikon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "pflegefachperson-hf-als-stellvertretende-stationsleitung-sonnweid-wetzikon"
+          "pflegefachperson-hf-als-stellvertretende-stationsleitung-sonnweid-wetzikon",
+          "professionista-della-cura-hf-come-vice-responsabile-di-stazione-pflegezentrum-sonnweid-wetzikon"
+        ],
+        "en": [
+          "nursing-professional-hf-as-deputy-ward-manager-pflegezentrum-sonnweid-wetzikon"
         ]
       },
       "firstSeenAt": "2026-05-19T15:19:23.836Z",
@@ -236,12 +258,12 @@
     },
     {
       "id": "sonnweid-d5425eda6b65",
-      "slug": "infermiere-a-diplomato-a-hf-come-responsabile-di-reparto-pflegezentrum-sonnweid-wetzikon",
+      "slug": "specialista-di-cura-hf-come-linea-di-stazione-pflegezentrum-sonnweid-wetzikon",
       "slugByLocale": {
-        "it": "infermiere-a-diplomato-a-hf-come-responsabile-di-reparto-pflegezentrum-sonnweid-wetzikon",
+        "it": "specialista-di-cura-hf-come-linea-di-stazione-pflegezentrum-sonnweid-wetzikon",
         "en": "pflegefachperson-hf-als-stationsleitung-sonnweid-wetzikon",
         "de": "pflegefachperson-hf-als-stationsleitung-sonnweid-wetzikon",
-        "fr": "infirmier-ere-diplome-e-es-en-tant-que-responsable-d-unite-pflegezentrum-sonnweid-wetzikon"
+        "fr": "specialiste-des-soins-hf-comme-ligne-de-station-pflegezentrum-sonnweid-wetzikon"
       },
       "company": "Pflegezentrum Sonnweid",
       "companyKey": "sonnweid",
@@ -309,12 +331,18 @@
           "stationsleitung-pflege-hf-pflegezentrum-sonnweid-wetzikon"
         ],
         "it": [
-          "pflegefachperson-hf-als-stationsleitung-sonnweid-wetzikon"
+          "pflegefachperson-hf-als-stationsleitung-sonnweid-wetzikon",
+          "infermiere-a-diplomato-a-hf-come-responsabile-di-reparto-pflegezentrum-sonnweid-wetzikon"
+        ],
+        "fr": [
+          "infirmier-ere-diplome-e-es-en-tant-que-responsable-d-unite-pflegezentrum-sonnweid-wetzikon"
         ]
       },
       "previousSlugs": [
+        "stationsleitung-pflege-hf-pflegezentrum-sonnweid-wetzikon",
         "pflegefachperson-hf-als-stationsleitung-sonnweid-wetzikon",
-        "stationsleitung-pflege-hf-pflegezentrum-sonnweid-wetzikon"
+        "infermiere-a-diplomato-a-hf-come-responsabile-di-reparto-pflegezentrum-sonnweid-wetzikon",
+        "infirmier-ere-diplome-e-es-en-tant-que-responsable-d-unite-pflegezentrum-sonnweid-wetzikon"
       ],
       "firstSeenAt": "2026-05-19T15:19:23.163Z",
       "salaryMin": 68000,
