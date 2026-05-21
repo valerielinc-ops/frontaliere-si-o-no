@@ -1,18 +1,19 @@
 {
   "key": "stiftung-kind-autismus",
   "label": "Stiftung Kind und Autismus",
-  "generatedAt": "2026-05-21T13:28:08.333Z",
+  "generatedAt": "2026-05-21T23:56:14.121Z",
   "total": 5,
-  "newCount": 1,
-  "updatedCount": 4,
+  "newCount": 0,
+  "updatedCount": 5,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 5817,
-  "avgDurationMs": 5817,
+  "durationMs": 7062,
+  "avgDurationMs": 7062,
   "durationHistory": [
-    5817
+    7062
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "stiftung-kind-autismus-a33cf8d303bf",
       "slug": "mitarbeiter-in-fahrdienst-fahrer-in-fahrbegleitung-im-stundenlohn-stiftung-kind-autismus",
@@ -26,7 +27,7 @@
       "url": "https://app.reflinejobs.io/2044/0096/pub/93/index.html",
       "source": "Stiftung Kind und Autismus Dedicated Parser (Refline 2044)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-21T13:28:06.230Z",
+      "crawledAt": "2026-05-21T23:56:11.982Z",
       "addressLocality": "Urdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -42,16 +43,15 @@
       "postedDate": "2026-05-21",
       "applyUrl": "https://app.reflinejobs.io/2044/0096/pub/93/index.html",
       "externalId": "0096",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-21T13:28:06.230Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "stiftung-kind-autismus-f7cbaaf9aa8a",
       "slug": "sozialpadagogin-oder-sozialpadagoge-padagogische-mitarbeiterin-oder-padagogischer",
@@ -65,7 +65,7 @@
       "url": "https://app.reflinejobs.io/2044/0027/pub/55/index.html",
       "source": "Stiftung Kind und Autismus Dedicated Parser (Refline 2044)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-21T13:28:04.057Z",
+      "crawledAt": "2026-05-21T23:56:09.745Z",
       "addressLocality": "Urdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -103,7 +103,7 @@
       "url": "https://app.reflinejobs.io/2044/0054/pub/63/index.html",
       "source": "Stiftung Kind und Autismus Dedicated Parser (Refline 2044)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-21T13:28:04.659Z",
+      "crawledAt": "2026-05-21T23:56:10.355Z",
       "addressLocality": "Urdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -141,7 +141,7 @@
       "url": "https://app.reflinejobs.io/2044/0081/pub/68/index.html",
       "source": "Stiftung Kind und Autismus Dedicated Parser (Refline 2044)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-21T13:28:05.197Z",
+      "crawledAt": "2026-05-21T23:56:10.905Z",
       "addressLocality": "Urdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -179,7 +179,7 @@
       "url": "https://app.reflinejobs.io/2044/0093/pub/80/index.html",
       "source": "Stiftung Kind und Autismus Dedicated Parser (Refline 2044)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-21T13:28:05.720Z",
+      "crawledAt": "2026-05-21T23:56:11.451Z",
       "addressLocality": "Urdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
