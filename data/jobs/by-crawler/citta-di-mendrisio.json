@@ -1,6 +1,6 @@
 {
   "crawlerKey": "citta-di-mendrisio",
-  "assembledAt": "2026-05-19T22:57:49.112Z",
+  "assembledAt": "2026-05-21T12:43:01.503Z",
   "jobs": [
     {
       "url": "https://mendrisio.ch/downloadConcorsiPdf?uuid=acb2b6db-ea90-4281-acdf-1c2cc3a025cb",
@@ -20,14 +20,14 @@
       },
       "titleByLocale": {
         "it": "Operatrice o operatore in automazione al 100%",
-        "en": "Operator or operator in 100% automation",
+        "en": "Operatrice o operatore in automazione al 100%",
         "de": "Operatrice o operatore in automazione al 100%",
         "fr": "Operatrice o operatore in automazione al 100%"
       },
       "slug": "operatrice-o-operatore-in-automazione-al-100-mendrisio",
       "slugByLocale": {
         "it": "operatrice-o-operatore-in-automazione-al-100-mendrisio",
-        "en": "operator-or-operator-in-100-automation-citta-di-mendrisio-mendrisio",
+        "en": "operatrice-o-operatore-in-automazione-al-100-mendrisio",
         "de": "operatrice-o-operatore-in-automazione-al-100-mendrisio",
         "fr": "operatrice-o-operatore-in-automazione-al-100-mendrisio"
       },
@@ -64,7 +64,12 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "firstSeenAt": "2026-05-17T22:08:19.495Z",
-      "needsRetranslation": true
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "en": [
+          "operator-or-operator-in-100-automation-citta-di-mendrisio-mendrisio"
+        ]
+      }
     },
     {
       "url": "https://mendrisio.ch/downloadConcorsiPdf?uuid=2ead5e7c-bb2d-4f2a-9dad-0ddfa9ca9e21",
