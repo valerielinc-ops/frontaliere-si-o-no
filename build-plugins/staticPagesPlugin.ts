@@ -8,7 +8,7 @@
  */
 
 import type { Plugin } from 'vite';
-import { BASE_URL, ANALYTICS_SNIPPET, DARK_MODE_SCRIPT } from './constants';
+import { BASE_URL, ANALYTICS_SNIPPET, DARK_MODE_SCRIPT, SEO_STATIC_CSS_LINK } from './constants';
 import { WriteCollector } from './batchWrite';
 import { resolveSpaBundle } from './spaBundleResolver';
 import { resolveStaticPagesFlushed } from './shared/buildSignals';
@@ -4445,6 +4445,7 @@ ${hrefTags}
  <style>${criticalCSS}</style>
  <link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
  ${stylesheetMarkup}${preloadTag}${getPagePreloads(urlPath, locale)}
+ ${SEO_STATIC_CSS_LINK}
  <style>${skeletonAnim}</style>
  ${ANALYTICS_SNIPPET}
  </head>
