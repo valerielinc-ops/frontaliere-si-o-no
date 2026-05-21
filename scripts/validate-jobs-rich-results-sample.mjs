@@ -191,7 +191,15 @@ function validateJobPosting(jobPosting, html, job, localeCode) {
 
   const expectedSlug = resolveSlugForLocale(job, localeCode);
   const canonicalNeedle = `/` + (localeCode === 'it' ? '' : `${localeCode}/`) + `${LOCALES.find((l) => l.code === localeCode).segment}/${expectedSlug}/`;
-  if (!html.includes(`<link rel="canonical" href="${BASE_URL}${canonicalNeedle}">`)) {
+  // Quote-flexible — PR #478 baked removeAttributeQuotes upstream. Canonical
+  // URLs ending in `/` keep their quotes (the upstream `/`-trailing rejection
+  // avoids `/>` self-close collision), so both `href="…/"` and `href=…/` are
+  // valid shapes in dist/.
+  const canonicalUrl = `${BASE_URL}${canonicalNeedle}`;
+  const canonicalRe = new RegExp(
+    `<link\\s+rel=["']?canonical["']?\\s+href=["']?${canonicalUrl.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}["']?`,
+  );
+  if (!canonicalRe.test(html)) {
     warnings.push('canonical:mismatch_or_missing');
   }
 

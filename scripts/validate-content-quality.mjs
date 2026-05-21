@@ -87,7 +87,8 @@ function isIndividualJobPage(path) {
 }
 
 function hasNoindex(html) {
-  return /<meta[^>]*name=["']robots["'][^>]*content=["'][^"']*noindex/i.test(html);
+  // Quote-flexible — PR #478 baked removeAttributeQuotes upstream.
+  return /<meta[^>]*name=["']?robots["']?[^>]*content=["']?[^"'>]*noindex/i.test(html);
 }
 
 function main() {

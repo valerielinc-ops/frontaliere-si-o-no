@@ -87,9 +87,11 @@ const SD_INLANGUAGE_WHITELIST = new Set(TYPES_ACCEPT_IN_LANGUAGE_LIST);
 const SD_WEBAPP_TYPES = new Set(['WebApplication', 'SoftwareApplication']);
 const SD_UNIQUE_TYPES = ['FAQPage', 'HowTo', 'Article', 'NewsArticle', 'BlogPosting'];
 
-// ───── shared regexes (verbatim from the originals) ──────────────────────────
-const NOINDEX_RE = /<meta[^>]+name=["']robots["'][^>]+content=["'][^"']*noindex/i;
-const META_REFRESH_RE = /<meta[^>]+http-equiv=["']refresh["']/i;
+// ───── shared regexes ────────────────────────────────────────────────────────
+// Quote-flexible — PR #478 baked removeAttributeQuotes upstream so dist HTML
+// has unquoted single-token attribute values (`name=robots`, `http-equiv=refresh`).
+const NOINDEX_RE = /<meta[^>]+name=["']?robots["']?[^>]+content=["']?[^"'>]*noindex/i;
+const META_REFRESH_RE = /<meta[^>]+http-equiv=["']?refresh["']?(?=[\s/>])/i;
 const TITLE_RE = /<title[^>]*>([\s\S]*?)<\/title>/i;
 const H1_RE = /<h1\b[^>]*>([\s\S]*?)<\/h1>/i;
 const HEAD_RE = /<head\b[^>]*>([\s\S]*?)<\/head>/i;
@@ -209,13 +211,13 @@ function inferRootLocale(relPath) {
   return 'it';
 }
 
-/** From audit-content-duplicates.extractCanonical. */
+/** From audit-content-duplicates.extractCanonical. Quote-flexible (PR #478). */
 function extractCanonical(html) {
   const headMatch = HEAD_RE.exec(html);
   const scope = headMatch ? headMatch[1] : html;
-  const m = /<link[^>]+rel=["']canonical["'][^>]*href=["']([^"']+)["']/i.exec(scope);
+  const m = /<link[^>]+rel=["']?canonical["']?[^>]*href=["']?([^"'\s>]+)["']?/i.exec(scope);
   if (m) return m[1].trim();
-  const m2 = /<link[^>]+href=["']([^"']+)["'][^>]*rel=["']canonical["']/i.exec(scope);
+  const m2 = /<link[^>]+href=["']?([^"'\s>]+)["']?[^>]*rel=["']?canonical["']?/i.exec(scope);
   return m2 ? m2[1].trim() : null;
 }
 
@@ -223,7 +225,7 @@ function extractCanonical(html) {
 function hasNoindexDup(html) {
   const headMatch = HEAD_RE.exec(html);
   const scope = headMatch ? headMatch[1] : html;
-  const m = /<meta[^>]+name=["']robots["'][^>]*content=["']([^"']+)["']/i.exec(scope);
+  const m = /<meta[^>]+name=["']?robots["']?[^>]*content=["']?([^"'>]+?)["']?\s*\/?>/i.exec(scope);
   if (!m) return false;
   return /\bnoindex\b/i.test(m[1]);
 }
@@ -472,10 +474,10 @@ class PageWeightAudit {
 
 // ───── audit-hreflang helpers (verbatim) ─────────────────────────────────────
 
-/** From audit-hreflang.extractAlternates. */
+/** From audit-hreflang.extractAlternates. Quote-flexible (PR #478). */
 function extractAlternates(html) {
   const map = new Map();
-  const regex = /<link\s+rel="alternate"[^>]*hreflang="([^"]+)"[^>]*href="([^"]+)"/gi;
+  const regex = /<link\s+rel=["']?alternate["']?[^>]*hreflang=["']?([^"'\s>]+)["']?[^>]*href=["']?([^"'\s>]+)["']?/gi;
   let match;
   while ((match = regex.exec(html)) !== null) {
     map.set(match[1], match[2]);

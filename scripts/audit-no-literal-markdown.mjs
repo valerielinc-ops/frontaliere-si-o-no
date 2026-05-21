@@ -27,6 +27,10 @@ import { join, relative } from 'node:path';
 import { walkHtmlFiles, ROOT, DEFAULT_DIST } from './lib/audit-runner.mjs';
 import { writeAuditReport } from './lib/auditReport.mjs';
 
+// Quote-flexible only for single-token attrs (`id`, `rel`, `name`, etc).
+// `class="..."` values are space-separated Tailwind utility classes so
+// removeAttributeQuotes (PR #478) preserves the quotes — this regex stays
+// quote-mandatory.
 const SEO_STATIC_OPEN = /<main\b[^>]*class=["'][^"']*\bseo-static-content\b[^>]*>/i;
 const MAIN_CLOSE = /<\/main>/i;
 

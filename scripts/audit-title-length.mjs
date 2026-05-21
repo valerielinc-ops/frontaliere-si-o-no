@@ -36,8 +36,10 @@ import { walkHtmlFiles, ROOT, DEFAULT_DIST } from './lib/audit-runner.mjs';
 
 const resolvePath = (p) => (isAbsolute(p) ? p : join(ROOT, p));
 
-const NOINDEX_RE = /<meta[^>]+name=["']robots["'][^>]+content=["'][^"']*noindex/i;
-const META_REFRESH_RE = /<meta[^>]+http-equiv=["']refresh["']/i;
+// Quote-flexible — PR #478 baked removeAttributeQuotes upstream, so single-
+// token attribute values lose their quotes in dist/. See audit-footer-root-presence.mjs.
+const NOINDEX_RE = /<meta[^>]+name=["']?robots["']?[^>]+content=["']?[^"'>]*noindex/i;
+const META_REFRESH_RE = /<meta[^>]+http-equiv=["']?refresh["']?(?=[\s/>])/i;
 const TITLE_RE = /<title[^>]*>([\s\S]*?)<\/title>/i;
 
 function normalizeText(raw) {

@@ -72,9 +72,10 @@ function extractVisibleText(html) {
     .trim();
 }
 
-/** Check if a page has noindex in its robots meta tag. */
+/** Check if a page has noindex in its robots meta tag.
+ *  Quote-flexible — PR #478 baked removeAttributeQuotes upstream. */
 function hasNoindex(html) {
-  const match = html.match(/<meta\s+name=["']robots["']\s+content=["']([^"']+)["']/i);
+  const match = html.match(/<meta\s+name=["']?robots["']?\s+content=["']?([^"'>]+?)["']?\s*\/?>/i);
   return match ? match[1].toLowerCase().includes('noindex') : false;
 }
 
