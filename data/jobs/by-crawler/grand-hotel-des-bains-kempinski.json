@@ -154,9 +154,7 @@
         "de": [
           "pizza-chef-w-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz"
         ]
-      },
-      "needsRetranslation": true,
-      "retranslationAttempts": 2
+      }
     },
     {
       "title": "Chef de Partie (f/m/d)",
@@ -229,9 +227,7 @@
         "de": [
           "chef-de-partie-w-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz"
         ]
-      },
-      "needsRetranslation": true,
-      "retranslationAttempts": 2
+      }
     },
     {
       "title": "In-Room Dining Supervisor (f/m/d)",
@@ -375,9 +371,7 @@
         "it": [
           "steward-f-m-d-499214"
         ]
-      },
-      "needsRetranslation": true,
-      "retranslationAttempts": 2
+      }
     },
     {
       "title": "Room Attendant (f/m/d)",
@@ -447,9 +441,7 @@
         "it": [
           "room-attendant-f-m-d-500592"
         ]
-      },
-      "needsRetranslation": true,
-      "retranslationAttempts": 2
+      }
     },
     {
       "title": "Assistant Food & Beverage Manager",
@@ -567,7 +559,6 @@
       },
       "crawledAt": "2026-05-19T12:00:48.573Z",
       "id": "grand-hotel-des-bains-kempinski-518a105f7d7c",
-      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "currency": "CHF",
@@ -584,7 +575,6 @@
       "streetAddress": "Via Mezdi 27",
       "postalCode": "7500",
       "firstSeenAt": "2026-05-19T12:00:48.573Z",
-      "retranslationAttempts": 2,
       "previousSlugsByLocale": {
         "it": [
           "sales-manager-uk-europe-luxury-leisure-510854",
@@ -671,7 +661,7 @@
       "postalCode": "7500",
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-19T22:37:17.857Z",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "title": "Apprentice \"Hotel-Kommunikationsfach EFZ\" (f/m/d) from August 2027",
@@ -742,7 +732,7 @@
       "postalCode": "7500",
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-19T22:37:17.858Z",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "title": "Apprentice \"Koch EFZ\" (f/m/d) from August 2027",
@@ -805,7 +795,7 @@
       "postalCode": "7500",
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-19T22:37:17.858Z",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     }
   ]
 }
