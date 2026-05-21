@@ -727,8 +727,6 @@ function renderPage(opts: {
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="${esc(editorialH1)}">
-    <meta name="twitter:description" content="${esc(description)}">
     <meta name="twitter:site" content="@frontaliereticino">`;
 
   const jsonLdScripts = [breadcrumbLd, webPageLd];

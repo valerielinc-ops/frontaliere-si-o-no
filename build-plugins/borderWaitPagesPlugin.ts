@@ -1729,12 +1729,11 @@ function renderLeafPage(inp: LeafInputs): string {
             : `Live webcam — ${crossingDisplay}`)
     : title;
 
-  // og:image is delivered via buildSeoPageHtml's ogImage param to avoid
-  // duplicate <meta og:image> tags. Only twitter title/description (which
-  // the shell defaults to og: equivalents) need extraHead override.
-  const extraHead = `    <meta name="twitter:title" content="${esc(title)}">
-    <meta name="twitter:description" content="${esc(description)}">
-    <meta name="twitter:site" content="@frontaliereticino">`;
+  // og:image is delivered via buildSeoPageHtml's ogImage param. X falls
+  // back to og:title / og:description when twitter:* equivalents are
+  // absent, so only twitter:site (the X attribution, no og:* fallback)
+  // needs an explicit emission here.
+  const extraHead = `    <meta name="twitter:site" content="@frontaliereticino">`;
 
   const jsonLdScripts = [breadcrumbLd, webPageLd, faqLd];
   if (placeLd) jsonLdScripts.push(placeLd);

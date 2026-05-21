@@ -299,8 +299,6 @@ export function jobRecencyPagesPlugin(rootDir: string): Plugin {
     <meta property="og:image:height" content="630">
     <meta property="og:image:type" content="image/png">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="${esc(model.title)}">
-    <meta name="twitter:description" content="${esc(model.description)}">
     <meta name="twitter:site" content="@frontaliereticino">
     <link rel="canonical" href="${canonicalUrl}">
 ${alternates}

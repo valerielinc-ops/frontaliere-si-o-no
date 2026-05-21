@@ -2324,9 +2324,6 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  <meta property="og:image:height" content="630">
  <meta property="og:image:type" content="${perLocaleSlug.it ? 'image/webp' : 'image/png'}">
  <meta name="twitter:card" content="summary_large_image">
- <meta name="twitter:title" content="${esc(ogTitle)}">
- <meta name="twitter:description" content="${esc(description)}">
- <meta name="twitter:image" content="${perLocaleSlug.it ? `${BASE_URL}/og/jobs/${perLocaleSlug.it}.webp` : `${BASE_URL}/og-image.png`}">
  <meta name="twitter:site" content="@frontaliereticino">
  <link rel="canonical" href="${effectiveCanonicalUrl}">
  <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -3953,8 +3950,6 @@ ${curatedBodyHtml ? curatedBodyHtml + '\n' : `<h1>${esc(copy.heading(companyName
  <meta property="og:image:height" content="630">
  <meta property="og:image:type" content="image/png">
  <meta name="twitter:card" content="summary_large_image">
- <meta name="twitter:title" content="${esc(model.title)}">
- <meta name="twitter:description" content="${esc(model.description)}">
  <meta name="twitter:site" content="@frontaliereticino">
  <link rel="canonical" href="${canonicalUrl}">
 ${alternates}
@@ -4118,8 +4113,6 @@ ${alternates}
  <meta property="og:image:height" content="630">
  <meta property="og:image:type" content="image/png">
  <meta name="twitter:card" content="summary_large_image">
- <meta name="twitter:title" content="${esc(model.title)}">
- <meta name="twitter:description" content="${esc(model.description)}">
  <meta name="twitter:site" content="@frontaliereticino">
  <link rel="canonical" href="${canonicalUrl}">
 ${alternates}
@@ -4290,8 +4283,6 @@ ${alternates}
  <meta property="og:image:height" content="630">
  <meta property="og:image:type" content="image/png">
  <meta name="twitter:card" content="summary_large_image">
- <meta name="twitter:title" content="${esc(model.title)}">
- <meta name="twitter:description" content="${esc(model.description)}">
  <meta name="twitter:site" content="@frontaliereticino">
  <link rel="canonical" href="${canonicalUrl}">
 ${alternates}
@@ -4474,8 +4465,6 @@ ${alternates}
  <meta property="og:image:height" content="630">
  <meta property="og:image:type" content="image/png">
  <meta name="twitter:card" content="summary_large_image">
- <meta name="twitter:title" content="${esc(model.title)}">
- <meta name="twitter:description" content="${esc(model.description)}">
  <meta name="twitter:site" content="@frontaliereticino">
  <link rel="canonical" href="${canonicalUrl}">
 ${alternates}
@@ -4644,8 +4633,6 @@ ${alternates}
  <meta property="og:image:height" content="630">
  <meta property="og:image:type" content="image/png">
  <meta name="twitter:card" content="summary_large_image">
- <meta name="twitter:title" content="${esc(model.title)}">
- <meta name="twitter:description" content="${esc(model.description)}">
  <meta name="twitter:site" content="@frontaliereticino">
  <link rel="canonical" href="${canonicalUrl}">
 ${alternates}
@@ -4834,8 +4821,6 @@ ${alternates}
  <meta property="og:image:height" content="630">
  <meta property="og:image:type" content="image/png">
  <meta name="twitter:card" content="summary_large_image">
- <meta name="twitter:title" content="${esc(pageOgTitle)}">
- <meta name="twitter:description" content="${esc(pageOgDesc)}">
  <meta name="twitter:site" content="@frontaliereticino">
  <link rel="canonical" href="${canonicalUrl}">
 ${alternates}
@@ -5056,8 +5041,6 @@ ${alternates}
  <meta property="og:image:height" content="630">
  <meta property="og:image:type" content="image/png">
  <meta name="twitter:card" content="summary_large_image">
- <meta name="twitter:title" content="${esc(model.title)}">
- <meta name="twitter:description" content="${esc(model.description)}">
  <meta name="twitter:site" content="@frontaliereticino">
  <link rel="canonical" href="${canonicalUrl}">
 ${alternates}
@@ -5220,8 +5203,6 @@ ${alternates}
  <meta property="og:image:height" content="630">
  <meta property="og:image:type" content="image/png">
  <meta name="twitter:card" content="summary_large_image">
- <meta name="twitter:title" content="${esc(model.title)}">
- <meta name="twitter:description" content="${esc(model.description)}">
  <meta name="twitter:site" content="@frontaliereticino">
  <link rel="canonical" href="${canonicalUrl}">
 ${alternates}
@@ -6986,7 +6967,7 @@ ${alternates}
  ].join('\n');
  const listHtml = matchingJobs.map((job: any) => renderJobCardLi(job, locale)).join('');
 
- const twitterCards = ` <meta name="twitter:card" content="summary_large_image">\n <meta name="twitter:title" content="${esc(title)}">\n <meta name="twitter:description" content="${esc(description)}">\n <meta name="twitter:site" content="@frontaliereticino">`;
+ const twitterCards = ` <meta name="twitter:card" content="summary_large_image">\n <meta name="twitter:site" content="@frontaliereticino">`;
  const searchBodyParts: string[] = [];
  {
  const listingUrl = `${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionByLocale[locale]}`.replace(/\/+/g, '/'))}`;

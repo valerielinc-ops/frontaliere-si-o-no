@@ -490,8 +490,6 @@ ${hreflangLinks}
 <meta property="og:image:width" content="512">
 <meta property="og:image:height" content="512">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="${esc(guide.title)}">
-<meta name="twitter:description" content="${esc(guide.subtitle)}">
 <script type="application/ld+json">${jsonLd}</script>
 <script type="application/ld+json">${breadcrumbLd}</script>
 ${ANALYTICS_SNIPPET}

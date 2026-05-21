@@ -4339,9 +4339,6 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  <meta property="og:locale" content="${LOC_TAG[locale] ?? 'it_IT'}">
  <meta property="og:site_name" content="Frontaliere Ticino">
  <meta name="twitter:card" content="summary_large_image">
- <meta name="twitter:title" content="${esc(seoData.ogT)}">
- <meta name="twitter:description" content="${esc(seoData.ogD)}">
- <meta name="twitter:image" content="${BASE_URL}/og-image.png">
 ${hrefTags}
  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
  ${SEO_STATIC_CSS_LINK}
@@ -4454,9 +4451,6 @@ ${hubChromeSplit.bodyHtml}
  <meta property="og:site_name" content="Frontaliere Ticino">
  <meta property="fb:app_id" content="891036063797338">
  <meta name="twitter:card" content="summary_large_image">
- <meta name="twitter:title" content="${esc(seoData.ogT)}">
- <meta name="twitter:description" content="${esc(seoData.ogD)}">
- <meta name="twitter:image" content="${BASE_URL}/og-image.png">
  <meta name="twitter:site" content="@frontaliereticino">
 ${hrefTags}
  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
@@ -4498,9 +4492,6 @@ ${hrefTags}
  <meta property="og:site_name" content="Frontaliere Ticino">
  <meta property="fb:app_id" content="891036063797338">
  <meta name="twitter:card" content="summary_large_image">
- <meta name="twitter:title" content="${esc(seoData.ogT)}">
- <meta name="twitter:description" content="${esc(seoData.ogD)}">
- <meta name="twitter:image" content="${BASE_URL}/og-image.png">
  <meta name="twitter:site" content="@frontaliereticino">
 ${hrefTags}
  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
