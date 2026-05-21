@@ -84,12 +84,12 @@
     },
     {
       "id": "spitex-ch-5ea53aa41735",
-      "slug": "infermiere-infermiera-professionale-efz-60-90-spitex-region-bulach-bulach",
+      "slug": "salute-professionale-o-cura-efz-60-90-spitex-region-bulach-bulach",
       "slugByLocale": {
         "de": "fachfrau-fachmann-gesundheit-oder-betreuung-efz-60-90-spitex-ch-bulach",
-        "it": "infermiere-infermiera-professionale-efz-60-90-spitex-region-bulach-bulach",
+        "it": "salute-professionale-o-cura-efz-60-90-spitex-region-bulach-bulach",
         "en": "registered-nurse-care-professional-efz-60-90-spitex-region-bulach-bulach",
-        "fr": "infirmier-infirmiere-diplome-e-efz-60-90-spitex-region-bulach-bulach"
+        "fr": "sante-ou-soins-professionnels-efz-60-90-spitex-region-bulach-bulach"
       },
       "company": "Spitex Region Bülach",
       "companyKey": "spitex-ch",
@@ -145,7 +145,19 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-21T13:24:12.428Z"
+      "firstSeenAt": "2026-05-21T13:24:12.428Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "infermiere-infermiera-professionale-efz-60-90-spitex-region-bulach-bulach"
+        ],
+        "fr": [
+          "infirmier-infirmiere-diplome-e-efz-60-90-spitex-region-bulach-bulach"
+        ]
+      },
+      "previousSlugs": [
+        "infermiere-infermiera-professionale-efz-60-90-spitex-region-bulach-bulach",
+        "infirmier-infirmiere-diplome-e-efz-60-90-spitex-region-bulach-bulach"
+      ]
     },
     {
       "id": "spitex-ch-c897776d150b",
@@ -235,10 +247,10 @@
     },
     {
       "id": "spitex-ch-40ab72f66e0d",
-      "slug": "pflegefachperson-hf-mit-zusatzfunktion-stv-teamleitung-60-100-spitex-ch-sarnen",
+      "slug": "specialista-hf-con-funzione-aggiuntiva-stv-team-management-60-100-spitex-obwalden-sarnen",
       "slugByLocale": {
         "de": "pflegefachperson-hf-mit-zusatzfunktion-stv-teamleitung-60-100-spitex-ch-sarnen",
-        "it": "pflegefachperson-hf-mit-zusatzfunktion-stv-teamleitung-60-100-spitex-ch-sarnen",
+        "it": "specialista-hf-con-funzione-aggiuntiva-stv-team-management-60-100-spitex-obwalden-sarnen",
         "en": "pflegefachperson-hf-mit-zusatzfunktion-stv-teamleitung-60-100-spitex-ch-sarnen",
         "fr": "pflegefachperson-hf-mit-zusatzfunktion-stv-teamleitung-60-100-spitex-ch-sarnen"
       },
@@ -296,14 +308,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-21T13:24:10.243Z"
+      "firstSeenAt": "2026-05-21T13:24:10.243Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegefachperson-hf-mit-zusatzfunktion-stv-teamleitung-60-100-spitex-ch-sarnen"
+        ]
+      },
+      "previousSlugs": [
+        "pflegefachperson-hf-mit-zusatzfunktion-stv-teamleitung-60-100-spitex-ch-sarnen"
+      ]
     },
     {
       "id": "spitex-ch-2d9bd813b6f8",
-      "slug": "co-teamleitung-pflege-80-100-spitex-ch-thalwil",
+      "slug": "co-team-management-care-80-100-spitex-zimmerberg-ag-thalwil",
       "slugByLocale": {
         "de": "co-teamleitung-pflege-80-100-spitex-ch-thalwil",
-        "it": "co-teamleitung-pflege-80-100-spitex-ch-thalwil",
+        "it": "co-team-management-care-80-100-spitex-zimmerberg-ag-thalwil",
         "en": "co-teamleitung-pflege-80-100-spitex-ch-thalwil",
         "fr": "co-teamleitung-pflege-80-100-spitex-ch-thalwil"
       },
@@ -361,7 +381,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-21T13:24:09.448Z"
+      "firstSeenAt": "2026-05-21T13:24:09.448Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "co-teamleitung-pflege-80-100-spitex-ch-thalwil"
+        ]
+      },
+      "previousSlugs": [
+        "co-teamleitung-pflege-80-100-spitex-ch-thalwil"
+      ]
     },
     {
       "id": "spitex-ch-6bfd09bb1d3a",
@@ -760,12 +788,12 @@
     },
     {
       "id": "spitex-ch-b790c0cfe48c",
-      "slug": "personalverantwortliche-m-w-d-80-100-mitglied-der-geschaftsleitung-spitex-ch",
+      "slug": "responsabile-delle-risorse-umane-m-f-d-80-100-membro-della-direzione-spitex-region-konolfingen-grosshochstetten",
       "slugByLocale": {
         "de": "personalverantwortliche-m-w-d-80-100-mitglied-der-geschaftsleitung-spitex-ch",
-        "it": "personalverantwortliche-m-w-d-80-100-mitglied-der-geschaftsleitung-spitex-ch",
-        "en": "personalverantwortliche-m-w-d-80-100-mitglied-der-geschaftsleitung-spitex-ch",
-        "fr": "personalverantwortliche-m-w-d-80-100-mitglied-der-geschaftsleitung-spitex-ch"
+        "it": "responsabile-delle-risorse-umane-m-f-d-80-100-membro-della-direzione-spitex-region-konolfingen-grosshochstetten",
+        "en": "human-resources-manager-m-f-d-80-100-member-of-the-management-spitex-region-konolfingen-grosshochstetten",
+        "fr": "responsable-des-ressources-humaines-h-f-80-100-membre-de-la-direction-spitex-region-konolfingen-grosshochstetten"
       },
       "company": "Spitex Region Konolfingen",
       "companyKey": "spitex-ch",
@@ -821,16 +849,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-21T13:24:04.483Z"
+      "firstSeenAt": "2026-05-21T13:24:04.483Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "personalverantwortliche-m-w-d-80-100-mitglied-der-geschaftsleitung-spitex-ch"
+        ],
+        "en": [
+          "personalverantwortliche-m-w-d-80-100-mitglied-der-geschaftsleitung-spitex-ch"
+        ],
+        "fr": [
+          "personalverantwortliche-m-w-d-80-100-mitglied-der-geschaftsleitung-spitex-ch"
+        ]
+      },
+      "previousSlugs": [
+        "personalverantwortliche-m-w-d-80-100-mitglied-der-geschaftsleitung-spitex-ch"
+      ]
     },
     {
       "id": "spitex-ch-26838a8f5ff0",
-      "slug": "fachperson-gesundheit-efz-arbeitspensum-40-80-spitex-ch-wattwil",
+      "slug": "specialist-health-efz-arbeitspensum-40-80-spitex-toggenburg-wattwil",
       "slugByLocale": {
         "de": "fachperson-gesundheit-efz-arbeitspensum-40-80-spitex-ch-wattwil",
-        "it": "fachperson-gesundheit-efz-arbeitspensum-40-80-spitex-ch-wattwil",
+        "it": "specialist-health-efz-arbeitspensum-40-80-spitex-toggenburg-wattwil",
         "en": "fachperson-gesundheit-efz-arbeitspensum-40-80-spitex-ch-wattwil",
-        "fr": "fachperson-gesundheit-efz-arbeitspensum-40-80-spitex-ch-wattwil"
+        "fr": "specialiste-de-la-sante-efz-arbeitspensum-40-80-spitex-toggenburg-wattwil"
       },
       "company": "Spitex Toggenburg",
       "companyKey": "spitex-ch",
@@ -886,7 +928,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-21T13:24:03.819Z"
+      "firstSeenAt": "2026-05-21T13:24:03.819Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachperson-gesundheit-efz-arbeitspensum-40-80-spitex-ch-wattwil"
+        ],
+        "fr": [
+          "fachperson-gesundheit-efz-arbeitspensum-40-80-spitex-ch-wattwil"
+        ]
+      },
+      "previousSlugs": [
+        "fachperson-gesundheit-efz-arbeitspensum-40-80-spitex-ch-wattwil"
+      ]
     },
     {
       "id": "spitex-ch-7159fd819c30",
@@ -965,12 +1018,12 @@
     },
     {
       "id": "spitex-ch-ac1cc1d81c14",
-      "slug": "fachperson-gesundheit-fage-40-80-spitex-ch-rupperswil",
+      "slug": "specialista-della-salute-fage-40-80-spitex-rupperswil-hunzenschwil-auenstein-rupperswil",
       "slugByLocale": {
         "de": "fachperson-gesundheit-fage-40-80-spitex-ch-rupperswil",
-        "it": "fachperson-gesundheit-fage-40-80-spitex-ch-rupperswil",
-        "en": "fachperson-gesundheit-fage-40-80-spitex-ch-rupperswil",
-        "fr": "fachperson-gesundheit-fage-40-80-spitex-ch-rupperswil"
+        "it": "specialista-della-salute-fage-40-80-spitex-rupperswil-hunzenschwil-auenstein-rupperswil",
+        "en": "healthcare-professional-fage-40-80-spitex-rupperswil-hunzenschwil-auenstein-rupperswil",
+        "fr": "specialiste-de-la-sante-fage-40-80-spitex-rupperswil-hunzenschwil-auenstein-rupperswil"
       },
       "company": "Spitex Rupperswil/Hunzenschwil/Auenstein",
       "companyKey": "spitex-ch",
@@ -1026,16 +1079,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-21T13:24:02.519Z"
+      "firstSeenAt": "2026-05-21T13:24:02.519Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachperson-gesundheit-fage-40-80-spitex-ch-rupperswil"
+        ],
+        "en": [
+          "fachperson-gesundheit-fage-40-80-spitex-ch-rupperswil"
+        ],
+        "fr": [
+          "fachperson-gesundheit-fage-40-80-spitex-ch-rupperswil"
+        ]
+      },
+      "previousSlugs": [
+        "fachperson-gesundheit-fage-40-80-spitex-ch-rupperswil"
+      ]
     },
     {
       "id": "spitex-ch-a5b439af396f",
-      "slug": "collaboratore-trice-hauswirtschaft-70-80-spitex-limmat-aare-reuss-ag-untersiggenthal",
+      "slug": "capofamiglia-70-80-spitex-limmat-aare-reuss-ag-untersiggenthal",
       "slugByLocale": {
         "de": "mitarbeiter-in-hauswirtschaft-70-80-spitex-ch-untersiggenthal",
-        "it": "collaboratore-trice-hauswirtschaft-70-80-spitex-limmat-aare-reuss-ag-untersiggenthal",
-        "en": "mitarbeiter-in-hauswirtschaft-70-80-spitex-ch-untersiggenthal",
-        "fr": "mitarbeiter-in-hauswirtschaft-70-80-spitex-ch-untersiggenthal"
+        "it": "capofamiglia-70-80-spitex-limmat-aare-reuss-ag-untersiggenthal",
+        "en": "head-of-household-70-80-spitex-limmat-aare-reuss-ag-untersiggenthal",
+        "fr": "chef-de-menage-70-80-spitex-limmat-aare-reuss-ag-untersiggenthal"
       },
       "company": "Spitex Limmat Aare Reuss AG",
       "companyKey": "spitex-ch",
@@ -1081,11 +1148,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-hauswirtschaft-70-80-spitex-ch-untersiggenthal",
+          "collaboratore-trice-hauswirtschaft-70-80-spitex-limmat-aare-reuss-ag-untersiggenthal"
+        ],
+        "en": [
+          "mitarbeiter-in-hauswirtschaft-70-80-spitex-ch-untersiggenthal"
+        ],
+        "fr": [
           "mitarbeiter-in-hauswirtschaft-70-80-spitex-ch-untersiggenthal"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-hauswirtschaft-70-80-spitex-ch-untersiggenthal"
+        "mitarbeiter-in-hauswirtschaft-70-80-spitex-ch-untersiggenthal",
+        "collaboratore-trice-hauswirtschaft-70-80-spitex-limmat-aare-reuss-ag-untersiggenthal"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -1103,12 +1178,12 @@
     },
     {
       "id": "spitex-ch-881e9abbb8d2",
-      "slug": "fachfrau-mann-gesundheit-cfc-psychiatrie-m-w-d-pensum-zw-30-50-spitex-nord-ost-aargau-noa-ag-ehrendingen",
+      "slug": "salute-professionale-efz-psichiatria-m-w-d-pensum-zw-30-50-spitex-nord-ost-aargau-noa-ag-ehrendingen",
       "slugByLocale": {
         "de": "fachfrau-mann-gesundheit-efz-psychiatrie-m-w-d-pensum-zw-30-50-spitex-ch-ehrendingen",
-        "it": "fachfrau-mann-gesundheit-cfc-psychiatrie-m-w-d-pensum-zw-30-50-spitex-nord-ost-aargau-noa-ag-ehrendingen",
-        "en": "fachfrau-mann-gesundheit-efz-psychiatrie-m-w-d-pensum-zw-30-50-spitex-ch-ehrendingen",
-        "fr": "fachfrau-mann-gesundheit-efz-psychiatrie-m-w-d-pensum-zw-30-50-spitex-ch-ehrendingen"
+        "it": "salute-professionale-efz-psichiatria-m-w-d-pensum-zw-30-50-spitex-nord-ost-aargau-noa-ag-ehrendingen",
+        "en": "professional-health-efz-psychiatry-m-w-d-pensum-zw-30-50-spitex-nord-ost-aargau-noa-ag-ehrendingen",
+        "fr": "sante-professionnelle-efz-psychiatrie-m-p-j-pensum-zw-30-50-spitex-nord-ost-aargau-noa-ag-ehrendingen"
       },
       "company": "Spitex Nord Ost Aargau (NOA) AG",
       "companyKey": "spitex-ch",
@@ -1154,11 +1229,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "fachfrau-mann-gesundheit-efz-psychiatrie-m-w-d-pensum-zw-30-50-spitex-ch-ehrendingen",
+          "fachfrau-mann-gesundheit-cfc-psychiatrie-m-w-d-pensum-zw-30-50-spitex-nord-ost-aargau-noa-ag-ehrendingen"
+        ],
+        "en": [
+          "fachfrau-mann-gesundheit-efz-psychiatrie-m-w-d-pensum-zw-30-50-spitex-ch-ehrendingen"
+        ],
+        "fr": [
           "fachfrau-mann-gesundheit-efz-psychiatrie-m-w-d-pensum-zw-30-50-spitex-ch-ehrendingen"
         ]
       },
       "previousSlugs": [
-        "fachfrau-mann-gesundheit-efz-psychiatrie-m-w-d-pensum-zw-30-50-spitex-ch-ehrendingen"
+        "fachfrau-mann-gesundheit-efz-psychiatrie-m-w-d-pensum-zw-30-50-spitex-ch-ehrendingen",
+        "fachfrau-mann-gesundheit-cfc-psychiatrie-m-w-d-pensum-zw-30-50-spitex-nord-ost-aargau-noa-ag-ehrendingen"
       ],
       "salaryMin": 51500,
       "salaryMax": 88000,
@@ -1176,12 +1259,12 @@
     },
     {
       "id": "spitex-ch-a2b37a2c8ed5",
-      "slug": "fachfrau-mann-gesundheit-cfc-m-w-d-pensum-zw-50-80-spitex-nord-ost-aargau-noa-ag-ehrendingen",
+      "slug": "salute-professionale-efz-m-w-d-pensum-zw-50-80-spitex-nord-ost-aargau-noa-ag-ehrendingen",
       "slugByLocale": {
         "de": "fachfrau-mann-gesundheit-efz-m-w-d-pensum-zw-50-80-spitex-ch-ehrendingen",
-        "it": "fachfrau-mann-gesundheit-cfc-m-w-d-pensum-zw-50-80-spitex-nord-ost-aargau-noa-ag-ehrendingen",
-        "en": "fachfrau-mann-gesundheit-efz-m-w-d-pensum-zw-50-80-spitex-ch-ehrendingen",
-        "fr": "fachfrau-mann-gesundheit-efz-m-w-d-pensum-zw-50-80-spitex-ch-ehrendingen"
+        "it": "salute-professionale-efz-m-w-d-pensum-zw-50-80-spitex-nord-ost-aargau-noa-ag-ehrendingen",
+        "en": "professional-health-efz-m-w-d-pensum-zw-50-80-spitex-nord-ost-aargau-noa-ag-ehrendingen",
+        "fr": "sante-professionnelle-efz-m-p-j-pensum-zw-50-80-spitex-nord-ost-aargau-noa-ag-ehrendingen"
       },
       "company": "Spitex Nord Ost Aargau (NOA) AG",
       "companyKey": "spitex-ch",
@@ -1227,11 +1310,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "fachfrau-mann-gesundheit-efz-m-w-d-pensum-zw-50-80-spitex-ch-ehrendingen",
+          "fachfrau-mann-gesundheit-cfc-m-w-d-pensum-zw-50-80-spitex-nord-ost-aargau-noa-ag-ehrendingen"
+        ],
+        "en": [
+          "fachfrau-mann-gesundheit-efz-m-w-d-pensum-zw-50-80-spitex-ch-ehrendingen"
+        ],
+        "fr": [
           "fachfrau-mann-gesundheit-efz-m-w-d-pensum-zw-50-80-spitex-ch-ehrendingen"
         ]
       },
       "previousSlugs": [
-        "fachfrau-mann-gesundheit-efz-m-w-d-pensum-zw-50-80-spitex-ch-ehrendingen"
+        "fachfrau-mann-gesundheit-efz-m-w-d-pensum-zw-50-80-spitex-ch-ehrendingen",
+        "fachfrau-mann-gesundheit-cfc-m-w-d-pensum-zw-50-80-spitex-nord-ost-aargau-noa-ag-ehrendingen"
       ],
       "salaryMin": 51500,
       "salaryMax": 88000,
@@ -1253,8 +1344,8 @@
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-mann-hf-m-w-d-pensum-zw-30-80-spitex-ch-ehrendingen",
         "it": "dipl-pflegefachfrau-mann-hf-m-w-d-pensum-zw-30-80-spitex-nord-ost-aargau-noa-ehrendingen",
-        "en": "dipl-pflegefachfrau-mann-hf-m-w-d-pensum-zw-30-80-spitex-ch-ehrendingen",
-        "fr": "dipl-pflegefachfrau-mann-hf-m-w-d-pensum-zw-30-80-spitex-ch-ehrendingen"
+        "en": "dipl-senior-consultant-m-w-d-pensum-zw-30-80-spitex-nord-ost-aargau-noa-ehrendingen",
+        "fr": "dipl-consultant-principal-m-m-j-pensum-zw-30-80-spitex-nord-ost-aargau-noa-ehrendingen"
       },
       "company": "Spitex Nord Ost Aargau (NOA)",
       "companyKey": "spitex-ch",
@@ -1301,6 +1392,12 @@
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-mann-hf-m-w-d-pensum-zw-30-80-spitex-ch-ehrendingen"
+        ],
+        "en": [
+          "dipl-pflegefachfrau-mann-hf-m-w-d-pensum-zw-30-80-spitex-ch-ehrendingen"
+        ],
+        "fr": [
+          "dipl-pflegefachfrau-mann-hf-m-w-d-pensum-zw-30-80-spitex-ch-ehrendingen"
         ]
       },
       "previousSlugs": [
@@ -1322,12 +1419,12 @@
     },
     {
       "id": "spitex-ch-139152fbae31",
-      "slug": "dipl-pflegefachfrau-pflegefachmann-hf-m-w-d-come-bildungsverantwortliche-r-60-100-spitex-nord-ost-aargau-noa-ag-ehrendingen",
+      "slug": "diplomata-in-assistenza-infermieristica-hf-m-f-d-come-responsabile-della-formazione-60-100-spitex-nord-ost-aargau-noa-ag",
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-pflegefachmann-hf-m-w-d-als-bildungsverantwortliche-r-60-100-spitex-ch",
-        "it": "dipl-pflegefachfrau-pflegefachmann-hf-m-w-d-come-bildungsverantwortliche-r-60-100-spitex-nord-ost-aargau-noa-ag-ehrendingen",
-        "en": "dipl-pflegefachfrau-pflegefachmann-hf-m-w-d-als-bildungsverantwortliche-r-60-100-spitex-ch",
-        "fr": "dipl-pflegefachfrau-pflegefachmann-hf-m-w-d-als-bildungsverantwortliche-r-60-100-spitex-ch"
+        "it": "diplomata-in-assistenza-infermieristica-hf-m-f-d-come-responsabile-della-formazione-60-100-spitex-nord-ost-aargau-noa-ag",
+        "en": "dipl-care-nurse-hf-m-w-d-as-education-manager-60-100-spitex-nord-ost-aargau-noa-ag-ehrendingen",
+        "fr": "diplome-e-en-soins-infirmiers-hf-m-w-d-en-tant-que-responsable-de-la-formation-60-100-spitex-nord-ost-aargau-noa-ag"
       },
       "company": "Spitex Nord Ost Aargau (NOA) AG",
       "companyKey": "spitex-ch",
@@ -1373,11 +1470,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "dipl-pflegefachfrau-pflegefachmann-hf-m-w-d-als-bildungsverantwortliche-r-60-100-spitex-ch",
+          "dipl-pflegefachfrau-pflegefachmann-hf-m-w-d-come-bildungsverantwortliche-r-60-100-spitex-nord-ost-aargau-noa-ag-ehrendingen"
+        ],
+        "en": [
+          "dipl-pflegefachfrau-pflegefachmann-hf-m-w-d-als-bildungsverantwortliche-r-60-100-spitex-ch"
+        ],
+        "fr": [
           "dipl-pflegefachfrau-pflegefachmann-hf-m-w-d-als-bildungsverantwortliche-r-60-100-spitex-ch"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachfrau-pflegefachmann-hf-m-w-d-als-bildungsverantwortliche-r-60-100-spitex-ch"
+        "dipl-pflegefachfrau-pflegefachmann-hf-m-w-d-als-bildungsverantwortliche-r-60-100-spitex-ch",
+        "dipl-pflegefachfrau-pflegefachmann-hf-m-w-d-come-bildungsverantwortliche-r-60-100-spitex-nord-ost-aargau-noa-ag-ehrendingen"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -1399,8 +1504,8 @@
       "slugByLocale": {
         "de": "fachfrau-fachmann-gesundheit-m-w-d-als-berufsbildner-in-60-80-spitex-ch-ehrendingen",
         "it": "fachfrau-fachmann-gesundheit-m-w-d-come-berufsbildner-in-60-80-spitex-nord-ost-aargau-noa-ag-ehrendingen",
-        "en": "fachfrau-fachmann-gesundheit-m-w-d-als-berufsbildner-in-60-80-spitex-ch-ehrendingen",
-        "fr": "fachfrau-fachmann-gesundheit-m-w-d-als-berufsbildner-in-60-80-spitex-ch-ehrendingen"
+        "en": "senior-consultant-m-w-d-spitex-nord-ost-aargau-noa-ag-ehrendingen",
+        "fr": "consultant-principal-m-m-j-spitex-nord-ost-aargau-noa-ag-ehrendingen"
       },
       "company": "Spitex Nord Ost Aargau (NOA) AG",
       "companyKey": "spitex-ch",
@@ -1447,6 +1552,12 @@
       "previousSlugsByLocale": {
         "it": [
           "fachfrau-fachmann-gesundheit-m-w-d-als-berufsbildner-in-60-80-spitex-ch-ehrendingen"
+        ],
+        "en": [
+          "fachfrau-fachmann-gesundheit-m-w-d-als-berufsbildner-in-60-80-spitex-ch-ehrendingen"
+        ],
+        "fr": [
+          "fachfrau-fachmann-gesundheit-m-w-d-als-berufsbildner-in-60-80-spitex-ch-ehrendingen"
         ]
       },
       "previousSlugs": [
@@ -1468,12 +1579,12 @@
     },
     {
       "id": "spitex-ch-6452379eade9",
-      "slug": "geschaftsleiter-in-80-100-spitex-ch-ehrendingen",
+      "slug": "direttore-generale-80-100-spitex-nord-ost-aargau-noa-ag-ehrendingen",
       "slugByLocale": {
         "de": "geschaftsleiter-in-80-100-spitex-ch-ehrendingen",
-        "it": "geschaftsleiter-in-80-100-spitex-ch-ehrendingen",
-        "en": "geschaftsleiter-in-80-100-spitex-ch-ehrendingen",
-        "fr": "geschaftsleiter-in-80-100-spitex-ch-ehrendingen"
+        "it": "direttore-generale-80-100-spitex-nord-ost-aargau-noa-ag-ehrendingen",
+        "en": "managing-director-80-100-spitex-nord-ost-aargau-noa-ag-ehrendingen",
+        "fr": "directeur-trice-general-e-80-100-spitex-nord-ost-aargau-noa-ag-ehrendingen"
       },
       "company": "Spitex Nord Ost Aargau (NOA) AG",
       "companyKey": "spitex-ch",
@@ -1529,16 +1640,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-21T13:23:57.381Z"
+      "firstSeenAt": "2026-05-21T13:23:57.381Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "geschaftsleiter-in-80-100-spitex-ch-ehrendingen"
+        ],
+        "en": [
+          "geschaftsleiter-in-80-100-spitex-ch-ehrendingen"
+        ],
+        "fr": [
+          "geschaftsleiter-in-80-100-spitex-ch-ehrendingen"
+        ]
+      },
+      "previousSlugs": [
+        "geschaftsleiter-in-80-100-spitex-ch-ehrendingen"
+      ]
     },
     {
       "id": "spitex-ch-d725284479be",
-      "slug": "pflegefachperson-hf-o-fage-cfc-50-bis-60-auf-wunsch-con-fachverantwortung-z-b-come-berufsbildner-in-spitex-matzingen-stettfurt-thundorf-matzingen",
+      "slug": "career-hf-o-fage-efz-da-50-a-60-su-richiesta-con-responsabilita-specialistica-ad-esempio-come-designer-professionista-in",
       "slugByLocale": {
         "de": "pflegefachperson-hf-oder-fage-efz-50-bis-60-auf-wunsch-mit-fachverantwortung-z-b-als",
-        "it": "pflegefachperson-hf-o-fage-cfc-50-bis-60-auf-wunsch-con-fachverantwortung-z-b-come-berufsbildner-in-spitex-matzingen-stettfurt-thundorf-matzingen",
-        "en": "pflegefachperson-hf-oder-fage-efz-50-bis-60-auf-wunsch-mit-fachverantwortung-z-b-als",
-        "fr": "pflegefachperson-hf-oder-fage-efz-50-bis-60-auf-wunsch-mit-fachverantwortung-z-b-als"
+        "it": "career-hf-o-fage-efz-da-50-a-60-su-richiesta-con-responsabilita-specialistica-ad-esempio-come-designer-professionista-in",
+        "en": "career-hf-or-fage-efz-50-to-60-on-request-with-specialist-responsibility-e-g-as-a-professional-designer-in-spitex",
+        "fr": "aide-aux-personnes-agees-hf-ou-fage-efz-50-a-60-sur-demande-avec-une-responsabilite-specialisee-p-ex-en-tant-qu"
       },
       "company": "Spitex Matzingen Stettfurt Thundorf",
       "companyKey": "spitex-ch",
@@ -1584,11 +1709,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "pflegefachperson-hf-oder-fage-efz-50-bis-60-auf-wunsch-mit-fachverantwortung-z-b-als",
+          "pflegefachperson-hf-o-fage-cfc-50-bis-60-auf-wunsch-con-fachverantwortung-z-b-come-berufsbildner-in-spitex-matzingen-stettfurt-thundorf-matzingen"
+        ],
+        "en": [
+          "pflegefachperson-hf-oder-fage-efz-50-bis-60-auf-wunsch-mit-fachverantwortung-z-b-als"
+        ],
+        "fr": [
           "pflegefachperson-hf-oder-fage-efz-50-bis-60-auf-wunsch-mit-fachverantwortung-z-b-als"
         ]
       },
       "previousSlugs": [
-        "pflegefachperson-hf-oder-fage-efz-50-bis-60-auf-wunsch-mit-fachverantwortung-z-b-als"
+        "pflegefachperson-hf-oder-fage-efz-50-bis-60-auf-wunsch-mit-fachverantwortung-z-b-als",
+        "pflegefachperson-hf-o-fage-cfc-50-bis-60-auf-wunsch-con-fachverantwortung-z-b-come-berufsbildner-in-spitex-matzingen-stettfurt-thundorf-matzingen"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -1611,7 +1744,7 @@
         "de": "dipl-pflegefachperson-hf-fh-40-100-spitex-ch-schlieren",
         "it": "dipl-pflegefachperson-hf-fh-40-100-regiospitex-limmattal-schlieren",
         "en": "dipl-pflegefachperson-hf-fh-40-100-regiospitex-limmattal-schlieren",
-        "fr": "dipl-pflegefachperson-hf-fh-40-100-regiospitex-limmattal-schlieren"
+        "fr": "diplome-e-en-soins-infirmiers-hf-fh-40-100-regiospitex-limmattal-schlieren"
       },
       "company": "RegioSpitex Limmattal",
       "companyKey": "spitex-ch",

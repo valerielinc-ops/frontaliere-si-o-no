@@ -93,8 +93,8 @@
       "slugByLocale": {
         "de": "kv-lehrstelle-efz-2027-generalagentur-affoltern-am-albis-mobiliar-ch",
         "it": "kv-apprendistato-cfc-2027-agenzia-generale-affoltern-am-albis-die-mobiliar-affoltern",
-        "en": "kv-lehrstelle-efz-2027-generalagentur-affoltern-am-albis-mobiliar-ch",
-        "fr": "kv-lehrstelle-efz-2027-generalagentur-affoltern-am-albis-mobiliar-ch"
+        "en": "efz-2027-general-agency-affoltern-am-albis-die-mobiliar-affoltern",
+        "fr": "efz-2027-agence-generale-affoltern-am-albis-die-mobiliar-affoltern"
       },
       "company": "die Mobiliar",
       "companyKey": "mobiliar",
@@ -151,6 +151,12 @@
       "sfJobId": "940912874",
       "previousSlugsByLocale": {
         "it": [
+          "kv-lehrstelle-efz-2027-generalagentur-affoltern-am-albis-mobiliar-ch"
+        ],
+        "en": [
+          "kv-lehrstelle-efz-2027-generalagentur-affoltern-am-albis-mobiliar-ch"
+        ],
+        "fr": [
           "kv-lehrstelle-efz-2027-generalagentur-affoltern-am-albis-mobiliar-ch"
         ]
       },
@@ -267,12 +273,12 @@
     },
     {
       "id": "mobiliar-d72bf238b4a9",
-      "slug": "fachspezialist-wetterversicherung-per-den-ackerbau-m-w-d-die-mobiliar-bern",
+      "slug": "specialista-di-assicurazione-meteorologica-per-l-agricoltura-uomo-donna-die-mobiliar-bern",
       "slugByLocale": {
         "de": "fachspezialist-wetterversicherung-fur-den-ackerbau-w-m-d-mobiliar-ch",
-        "it": "fachspezialist-wetterversicherung-per-den-ackerbau-m-w-d-die-mobiliar-bern",
-        "en": "fachspezialist-wetterversicherung-fur-den-ackerbau-w-m-d-mobiliar-ch",
-        "fr": "fachspezialist-wetterversicherung-fur-den-ackerbau-w-m-d-mobiliar-ch"
+        "it": "specialista-di-assicurazione-meteorologica-per-l-agricoltura-uomo-donna-die-mobiliar-bern",
+        "en": "agricultural-meteorological-insurance-specialist-male-female-die-mobiliar-bern",
+        "fr": "specialiste-d-assurance-meteo-pour-l-agriculture-homme-femme-die-mobiliar-bern"
       },
       "company": "die Mobiliar",
       "companyKey": "mobiliar",
@@ -331,11 +337,19 @@
       "sfJobId": "1164251355",
       "previousSlugsByLocale": {
         "it": [
+          "fachspezialist-wetterversicherung-fur-den-ackerbau-w-m-d-mobiliar-ch",
+          "fachspezialist-wetterversicherung-per-den-ackerbau-m-w-d-die-mobiliar-bern"
+        ],
+        "en": [
+          "fachspezialist-wetterversicherung-fur-den-ackerbau-w-m-d-mobiliar-ch"
+        ],
+        "fr": [
           "fachspezialist-wetterversicherung-fur-den-ackerbau-w-m-d-mobiliar-ch"
         ]
       },
       "previousSlugs": [
-        "fachspezialist-wetterversicherung-fur-den-ackerbau-w-m-d-mobiliar-ch"
+        "fachspezialist-wetterversicherung-fur-den-ackerbau-w-m-d-mobiliar-ch",
+        "fachspezialist-wetterversicherung-per-den-ackerbau-m-w-d-die-mobiliar-bern"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -354,12 +368,12 @@
     },
     {
       "id": "mobiliar-3b1bb65a5791",
-      "slug": "developpeuse-it-f-h-d-travailler-en-parallele-de-ses-etudes-mobiliar-ch",
+      "slug": "sviluppatrice-it-f-m-d-lavorare-parallelamente-agli-studi-die-mobiliar-nyon",
       "slugByLocale": {
         "fr": "developpeuse-it-f-h-d-travailler-en-parallele-de-ses-etudes-mobiliar-ch",
-        "it": "developpeuse-it-f-h-d-travailler-en-parallele-de-ses-etudes-mobiliar-ch",
-        "en": "developpeuse-it-f-h-d-travailler-en-parallele-de-ses-etudes-mobiliar-ch",
-        "de": "developpeuse-it-f-h-d-travailler-en-parallele-de-ses-etudes-mobiliar-ch"
+        "it": "sviluppatrice-it-f-m-d-lavorare-parallelamente-agli-studi-die-mobiliar-nyon",
+        "en": "it-developer-f-m-d-study-and-work-in-parallel-die-mobiliar-nyon",
+        "de": "it-entwicklerin-f-m-d-studium-und-arbeit-parallel-die-mobiliar-nyon"
       },
       "company": "die Mobiliar",
       "companyKey": "mobiliar",
@@ -415,7 +429,21 @@
         }
       },
       "postalCode": "1260",
-      "firstSeenAt": "2026-05-21T12:48:44.901Z"
+      "firstSeenAt": "2026-05-21T12:48:44.901Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "developpeuse-it-f-h-d-travailler-en-parallele-de-ses-etudes-mobiliar-ch"
+        ],
+        "en": [
+          "developpeuse-it-f-h-d-travailler-en-parallele-de-ses-etudes-mobiliar-ch"
+        ],
+        "de": [
+          "developpeuse-it-f-h-d-travailler-en-parallele-de-ses-etudes-mobiliar-ch"
+        ]
+      },
+      "previousSlugs": [
+        "developpeuse-it-f-h-d-travailler-en-parallele-de-ses-etudes-mobiliar-ch"
+      ]
     },
     {
       "id": "mobiliar-24c3b4a0c512",
@@ -602,12 +630,12 @@
     },
     {
       "id": "mobiliar-392c41197447",
-      "slug": "collaboratore-trice-verkaufssupport-m-w-d-agenzia-generale-affoltern-am-albis-die-mobiliar-affoltern-am-albis",
+      "slug": "impiegato-support-vendite-u-m-d-agenzia-generale-affoltern-am-albis-die-mobiliar-affoltern-am-albis",
       "slugByLocale": {
         "de": "mitarbeiter-verkaufssupport-w-m-d-generalagentur-affoltern-am-albis-mobiliar-ch",
-        "it": "collaboratore-trice-verkaufssupport-m-w-d-agenzia-generale-affoltern-am-albis-die-mobiliar-affoltern-am-albis",
-        "en": "mitarbeiter-verkaufssupport-w-m-d-generalagentur-affoltern-am-albis-mobiliar-ch",
-        "fr": "mitarbeiter-verkaufssupport-w-m-d-generalagentur-affoltern-am-albis-mobiliar-ch"
+        "it": "impiegato-support-vendite-u-m-d-agenzia-generale-affoltern-am-albis-die-mobiliar-affoltern-am-albis",
+        "en": "sales-support-employee-m-f-d-general-agency-affoltern-am-albis-die-mobiliar-affoltern-am-albis",
+        "fr": "employe-support-vente-h-f-x-agence-generale-affoltern-am-albis-die-mobiliar-affoltern-am-albis"
       },
       "company": "die Mobiliar",
       "companyKey": "mobiliar",
@@ -653,11 +681,19 @@
       "sfJobId": "1163881455",
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-verkaufssupport-w-m-d-generalagentur-affoltern-am-albis-mobiliar-ch",
+          "collaboratore-trice-verkaufssupport-m-w-d-agenzia-generale-affoltern-am-albis-die-mobiliar-affoltern-am-albis"
+        ],
+        "en": [
+          "mitarbeiter-verkaufssupport-w-m-d-generalagentur-affoltern-am-albis-mobiliar-ch"
+        ],
+        "fr": [
           "mitarbeiter-verkaufssupport-w-m-d-generalagentur-affoltern-am-albis-mobiliar-ch"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-verkaufssupport-w-m-d-generalagentur-affoltern-am-albis-mobiliar-ch"
+        "mitarbeiter-verkaufssupport-w-m-d-generalagentur-affoltern-am-albis-mobiliar-ch",
+        "collaboratore-trice-verkaufssupport-m-w-d-agenzia-generale-affoltern-am-albis-die-mobiliar-affoltern-am-albis"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -755,9 +791,9 @@
       "slug": "specialista-in-gestione-dei-prodotti-assicurazione-di-mobilita-f-m-d-die-mobiliar-bern",
       "slugByLocale": {
         "it": "specialista-in-gestione-dei-prodotti-assicurazione-di-mobilita-f-m-d-die-mobiliar-bern",
-        "en": "fachspezialist-produktmanagement-mobilitatsversicherung-w-m-d-mobiliar-ch",
+        "en": "product-management-mobility-insurance-w-m-d-die-mobiliar-bern",
         "de": "fachspezialist-produktmanagement-mobilitatsversicherung-w-m-d-mobiliar-ch",
-        "fr": "fachspezialist-produktmanagement-mobilitatsversicherung-w-m-d-mobiliar-ch"
+        "fr": "gestion-des-produits-assurance-mobilite-p-m-d-die-mobiliar-bern"
       },
       "company": "die Mobiliar",
       "companyKey": "mobiliar",
@@ -819,6 +855,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "fachspezialist-produktmanagement-mobilitatsversicherung-w-m-d-mobiliar-ch"
+        ],
+        "en": [
+          "fachspezialist-produktmanagement-mobilitatsversicherung-w-m-d-mobiliar-ch"
+        ],
+        "fr": [
           "fachspezialist-produktmanagement-mobilitatsversicherung-w-m-d-mobiliar-ch"
         ]
       },
@@ -1301,8 +1343,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-verkaufssupport-w-m-generalagentur-emmental-mobiliar-ch",
         "it": "collaboratore-trice-verkaufssupport-m-w-d-agenzia-generale-emmental-die-mobiliar-worb",
-        "en": "mitarbeiter-verkaufssupport-w-m-generalagentur-emmental-mobiliar-ch",
-        "fr": "mitarbeiter-verkaufssupport-w-m-generalagentur-emmental-mobiliar-ch"
+        "en": "senior-consultant-m-w-projektmanagement-die-mobiliar-worb",
+        "fr": "consultant-principal-m-m-die-mobiliar-worb"
       },
       "company": "die Mobiliar",
       "companyKey": "mobiliar",
@@ -1364,6 +1406,12 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-verkaufssupport-w-m-generalagentur-emmental-mobiliar-ch"
+        ],
+        "en": [
+          "mitarbeiter-verkaufssupport-w-m-generalagentur-emmental-mobiliar-ch"
+        ],
+        "fr": [
+          "mitarbeiter-verkaufssupport-w-m-generalagentur-emmental-mobiliar-ch"
         ]
       },
       "previousSlugs": [
@@ -1390,7 +1438,7 @@
       "slugByLocale": {
         "de": "schadenmitarbeiter-w-m-d-generalagentur-lenzburg-mobiliar-ch",
         "it": "schadenmitarbeiter-m-w-d-agenzia-generale-lenzburg-die-mobiliar-lenzburg",
-        "en": "schadenmitarbeiter-w-m-d-generalagentur-lenzburg-mobiliar-ch",
+        "en": "projektleiter-m-d-die-mobiliar-lenzburg",
         "fr": "schadenmitarbeiter-w-m-d-generalagentur-lenzburg-mobiliar-ch"
       },
       "company": "die Mobiliar",
@@ -1454,6 +1502,9 @@
       "previousSlugsByLocale": {
         "it": [
           "schadenmitarbeiter-w-m-d-generalagentur-lenzburg-mobiliar-ch"
+        ],
+        "en": [
+          "schadenmitarbeiter-w-m-d-generalagentur-lenzburg-mobiliar-ch"
         ]
       },
       "previousSlugs": [
@@ -1479,8 +1530,8 @@
       "slugByLocale": {
         "de": "kv-lehrstelle-efz-2027-generalagentur-bern-west-mobiliar-ch",
         "it": "kv-apprendistato-cfc-2027-agenzia-generale-bern-west-die-mobiliar-bern",
-        "en": "kv-lehrstelle-efz-2027-generalagentur-bern-west-mobiliar-ch",
-        "fr": "kv-lehrstelle-efz-2027-generalagentur-bern-west-mobiliar-ch"
+        "en": "kv-apprenticeship-efz-2027-general-agency-bern-west-die-mobiliar-bern",
+        "fr": "apprentissage-kv-efz-2027-agence-generale-berne-ouest-die-mobiliar-bern"
       },
       "company": "die Mobiliar",
       "companyKey": "mobiliar",
@@ -1536,7 +1587,18 @@
         }
       },
       "postalCode": "3001",
-      "firstSeenAt": "2026-05-21T12:48:35.047Z"
+      "firstSeenAt": "2026-05-21T12:48:35.047Z",
+      "previousSlugsByLocale": {
+        "en": [
+          "kv-lehrstelle-efz-2027-generalagentur-bern-west-mobiliar-ch"
+        ],
+        "fr": [
+          "kv-lehrstelle-efz-2027-generalagentur-bern-west-mobiliar-ch"
+        ]
+      },
+      "previousSlugs": [
+        "kv-lehrstelle-efz-2027-generalagentur-bern-west-mobiliar-ch"
+      ]
     },
     {
       "id": "mobiliar-fea122f628f5",

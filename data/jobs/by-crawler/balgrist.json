@@ -4015,7 +4015,7 @@
       "slugByLocale": {
         "de": "studierende-studierenden-anasthesiepflege-nds-hf-m-w-d-100-balgrist-zurich",
         "it": "studenti-studentesse-cure-anestetiche-nds-hf-m-f-d-100-universitatsklinik-balgrist-zurich",
-        "en": "studierende-studierenden-anasthesiepflege-nds-hf-m-w-d-100-balgrist-zurich",
+        "en": "nds-hf-m-w-d-100-universitatsklinik-balgrist-zurich",
         "fr": "studierende-studierenden-anasthesiepflege-nds-hf-m-w-d-100-balgrist-zurich"
       },
       "company": "Universitätsklinik Balgrist",
@@ -4075,6 +4075,9 @@
       "previousSlugsByLocale": {
         "it": [
           "studierende-studierenden-anasthesiepflege-nds-hf-m-w-d-100-balgrist-zurich"
+        ],
+        "en": [
+          "studierende-studierenden-anasthesiepflege-nds-hf-m-w-d-100-balgrist-zurich"
         ]
       },
       "previousSlugs": [
@@ -4083,12 +4086,12 @@
     },
     {
       "id": "balgrist-28aae0d36479",
-      "slug": "medizinische-praxisassistentin-medizinischer-praxisassistent-mpa-per-la-radiologie-80-100-universitatsklinik-balgrist-zurich",
+      "slug": "assistente-medico-mpa-per-la-radiologia-80-100-universitatsklinik-balgrist-zurich",
       "slugByLocale": {
         "de": "medizinische-praxisassistentin-medizinischer-praxisassistent-mpa-fur-die-radiologie-80-100",
-        "it": "medizinische-praxisassistentin-medizinischer-praxisassistent-mpa-per-la-radiologie-80-100-universitatsklinik-balgrist-zurich",
-        "en": "medizinische-praxisassistentin-medizinischer-praxisassistent-mpa-fur-die-radiologie-80-100",
-        "fr": "medizinische-praxisassistentin-medizinischer-praxisassistent-mpa-fur-die-radiologie-80-100"
+        "it": "assistente-medico-mpa-per-la-radiologia-80-100-universitatsklinik-balgrist-zurich",
+        "en": "medical-practice-assistant-mpa-for-radiology-80-100-universitatsklinik-balgrist-zurich",
+        "fr": "assistant-de-medecine-mpa-pour-la-radiologie-80-100-universitatsklinik-balgrist-zurich"
       },
       "company": "Universitätsklinik Balgrist",
       "companyKey": "balgrist",
@@ -4133,11 +4136,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "medizinische-praxisassistentin-medizinischer-praxisassistent-mpa-fur-die-radiologie-80-100",
+          "medizinische-praxisassistentin-medizinischer-praxisassistent-mpa-per-la-radiologie-80-100-universitatsklinik-balgrist-zurich"
+        ],
+        "en": [
+          "medizinische-praxisassistentin-medizinischer-praxisassistent-mpa-fur-die-radiologie-80-100"
+        ],
+        "fr": [
           "medizinische-praxisassistentin-medizinischer-praxisassistent-mpa-fur-die-radiologie-80-100"
         ]
       },
       "previousSlugs": [
-        "medizinische-praxisassistentin-medizinischer-praxisassistent-mpa-fur-die-radiologie-80-100"
+        "medizinische-praxisassistentin-medizinischer-praxisassistent-mpa-fur-die-radiologie-80-100",
+        "medizinische-praxisassistentin-medizinischer-praxisassistent-mpa-per-la-radiologie-80-100-universitatsklinik-balgrist-zurich"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,

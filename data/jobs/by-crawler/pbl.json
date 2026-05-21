@@ -4031,12 +4031,12 @@
     },
     {
       "id": "pbl-ee12bdee5f24",
-      "slug": "fachmann-fachfrau-betreuung-cfc-o-dipl-pflegefachfrau-per-nachtwache-m-w-d-60-80-psychiatrie-baselland-liestal",
+      "slug": "personale-qualificato-specialista-efz-o-dipl-carriera-dipl-infermiere-per-l-orologio-notturno-m-w-d-60-80-psychiatrie",
       "slugByLocale": {
         "de": "fachmann-fachfrau-betreuung-efz-oder-dipl-pflegefachfrau-dipl-pflegefachfrau-fur",
-        "it": "fachmann-fachfrau-betreuung-cfc-o-dipl-pflegefachfrau-per-nachtwache-m-w-d-60-80-psychiatrie-baselland-liestal",
-        "en": "fachmann-fachfrau-betreuung-efz-oder-dipl-pflegefachfrau-dipl-pflegefachfrau-fur",
-        "fr": "fachmann-fachfrau-betreuung-efz-oder-dipl-pflegefachfrau-dipl-pflegefachfrau-fur"
+        "it": "personale-qualificato-specialista-efz-o-dipl-carriera-dipl-infermiere-per-l-orologio-notturno-m-w-d-60-80-psychiatrie",
+        "en": "person-skilled-specialist-care-efz-or-dipl-career-dipl-nurse-for-night-watch-m-w-d-60-80-psychiatrie-baselland-liestal",
+        "fr": "personne-qualifiee-soins-specialises-efz-ou-dipl-carriere-dipl-infirmiere-pour-veille-de-nuit-m-w-d-60-80-psychiatrie"
       },
       "company": "Psychiatrie Baselland",
       "companyKey": "pbl",
@@ -4081,11 +4081,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "fachmann-fachfrau-betreuung-efz-oder-dipl-pflegefachfrau-dipl-pflegefachfrau-fur",
+          "fachmann-fachfrau-betreuung-cfc-o-dipl-pflegefachfrau-per-nachtwache-m-w-d-60-80-psychiatrie-baselland-liestal"
+        ],
+        "en": [
+          "fachmann-fachfrau-betreuung-efz-oder-dipl-pflegefachfrau-dipl-pflegefachfrau-fur"
+        ],
+        "fr": [
           "fachmann-fachfrau-betreuung-efz-oder-dipl-pflegefachfrau-dipl-pflegefachfrau-fur"
         ]
       },
       "previousSlugs": [
-        "fachmann-fachfrau-betreuung-efz-oder-dipl-pflegefachfrau-dipl-pflegefachfrau-fur"
+        "fachmann-fachfrau-betreuung-efz-oder-dipl-pflegefachfrau-dipl-pflegefachfrau-fur",
+        "fachmann-fachfrau-betreuung-cfc-o-dipl-pflegefachfrau-per-nachtwache-m-w-d-60-80-psychiatrie-baselland-liestal"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -4103,12 +4111,12 @@
     },
     {
       "id": "pbl-3678085a141c",
-      "slug": "fachfrau-fachmann-betreuung-tagesstruktur-m-w-d-80-pbl-liestal",
+      "slug": "consulente-senior-m-w-d-80-psychiatrie-baselland-liestal",
       "slugByLocale": {
         "de": "fachfrau-fachmann-betreuung-tagesstruktur-m-w-d-80-psychiatrie-baselland-liestal",
-        "it": "fachfrau-fachmann-betreuung-tagesstruktur-m-w-d-80-pbl-liestal",
-        "en": "fachfrau-fachmann-betreuung-tagesstruktur-m-w-d-80-pbl-liestal",
-        "fr": "fachfrau-fachmann-betreuung-tagesstruktur-m-w-d-80-pbl-liestal"
+        "it": "consulente-senior-m-w-d-80-psychiatrie-baselland-liestal",
+        "en": "senior-consultant-m-w-d-80-psychiatrie-baselland-liestal",
+        "fr": "consultant-principal-m-m-j-80-psychiatrie-baselland-liestal"
       },
       "company": "Psychiatrie Baselland",
       "companyKey": "pbl",
@@ -4163,7 +4171,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-21T12:55:02.559Z"
+      "firstSeenAt": "2026-05-21T12:55:02.559Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachfrau-fachmann-betreuung-tagesstruktur-m-w-d-80-pbl-liestal"
+        ],
+        "en": [
+          "fachfrau-fachmann-betreuung-tagesstruktur-m-w-d-80-pbl-liestal"
+        ],
+        "fr": [
+          "fachfrau-fachmann-betreuung-tagesstruktur-m-w-d-80-pbl-liestal"
+        ]
+      },
+      "previousSlugs": [
+        "fachfrau-fachmann-betreuung-tagesstruktur-m-w-d-80-pbl-liestal"
+      ]
     }
   ]
 }

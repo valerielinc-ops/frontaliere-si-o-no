@@ -3029,12 +3029,12 @@
     },
     {
       "id": "sulzer-6ad4bf8581ad",
-      "slug": "trainee-sulzer-ch",
+      "slug": "apprendista-sulzer-bahrain",
       "slugByLocale": {
         "en": "trainee-sulzer-bahrain",
-        "it": "trainee-sulzer-ch",
-        "de": "trainee-sulzer-ch",
-        "fr": "trainee-sulzer-ch"
+        "it": "apprendista-sulzer-bahrain",
+        "de": "auszubildender-sulzer-bahrain",
+        "fr": "apprenti-sulzer-bahrain"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -3089,15 +3089,29 @@
         }
       },
       "postalCode": "8001",
-      "firstSeenAt": "2026-05-21T13:30:02.146Z"
+      "firstSeenAt": "2026-05-21T13:30:02.146Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "trainee-sulzer-ch"
+        ],
+        "de": [
+          "trainee-sulzer-ch"
+        ],
+        "fr": [
+          "trainee-sulzer-ch"
+        ]
+      },
+      "previousSlugs": [
+        "trainee-sulzer-ch"
+      ]
     },
     {
       "id": "sulzer-93f81e633155",
-      "slug": "mechanical-engineer-sulzer-ch",
+      "slug": "mechanical-ingegnere-sulzer-navi-mumbai",
       "slugByLocale": {
         "en": "mechanical-engineer-sulzer-navi-mumbai",
-        "it": "mechanical-engineer-sulzer-ch",
-        "de": "mechanical-engineer-sulzer-ch",
+        "it": "mechanical-ingegnere-sulzer-navi-mumbai",
+        "de": "mechanical-ingenieur-sulzer-navi-mumbai",
         "fr": "mechanical-engineer-sulzer-ch"
       },
       "company": "Sulzer",
@@ -3153,7 +3167,18 @@
         }
       },
       "postalCode": "8001",
-      "firstSeenAt": "2026-05-21T13:30:01.087Z"
+      "firstSeenAt": "2026-05-21T13:30:01.087Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "mechanical-engineer-sulzer-ch"
+        ],
+        "de": [
+          "mechanical-engineer-sulzer-ch"
+        ]
+      },
+      "previousSlugs": [
+        "mechanical-engineer-sulzer-ch"
+      ]
     },
     {
       "id": "sulzer-8c2d30e04fa5",
@@ -3221,11 +3246,11 @@
     },
     {
       "id": "sulzer-cab6fe601674",
-      "slug": "application-engineer-sulzer-ch",
+      "slug": "application-ingegnere-sulzer-navi-mumbai",
       "slugByLocale": {
         "en": "application-engineer-sulzer-navi-mumbai",
-        "it": "application-engineer-sulzer-ch",
-        "de": "application-engineer-sulzer-ch",
+        "it": "application-ingegnere-sulzer-navi-mumbai",
+        "de": "application-ingenieur-sulzer-navi-mumbai",
         "fr": "application-engineer-sulzer-ch"
       },
       "company": "Sulzer",
@@ -3281,7 +3306,18 @@
         }
       },
       "postalCode": "8001",
-      "firstSeenAt": "2026-05-21T13:29:58.987Z"
+      "firstSeenAt": "2026-05-21T13:29:58.987Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "application-engineer-sulzer-ch"
+        ],
+        "de": [
+          "application-engineer-sulzer-ch"
+        ]
+      },
+      "previousSlugs": [
+        "application-engineer-sulzer-ch"
+      ]
     },
     {
       "id": "sulzer-d50d3a10a153",

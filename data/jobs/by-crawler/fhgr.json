@@ -374,12 +374,12 @@
     },
     {
       "id": "fhgr-01cb259d67d0",
-      "slug": "lehrauftrag-per-das-modul-it-development-and-operations-devops-fachhochschule-graubunden-chur",
+      "slug": "insegnamento-per-il-modulo-it-development-and-operations-devops-fachhochschule-graubunden-chur",
       "slugByLocale": {
         "de": "lehrauftrag-fur-das-modul-it-development-and-operations-devops-fhgr-ch",
-        "it": "lehrauftrag-per-das-modul-it-development-and-operations-devops-fachhochschule-graubunden-chur",
+        "it": "insegnamento-per-il-modulo-it-development-and-operations-devops-fachhochschule-graubunden-chur",
         "en": "lehrauftrag-fur-das-modul-it-development-and-operations-devops-fachhochschule-graubunden-chur",
-        "fr": "lehrauftrag-fur-das-modul-it-development-and-operations-devops-fhgr-ch"
+        "fr": "attribution-d-enseignement-pour-le-module-developpement-et-operations-de-l-it-devops-fachhochschule-graubunden-chur"
       },
       "company": "Fachhochschule Graubünden",
       "companyKey": "fhgr",
@@ -425,11 +425,16 @@
       "contractDuration": "temporary",
       "previousSlugsByLocale": {
         "it": [
+          "lehrauftrag-fur-das-modul-it-development-and-operations-devops-fhgr-ch",
+          "lehrauftrag-per-das-modul-it-development-and-operations-devops-fachhochschule-graubunden-chur"
+        ],
+        "fr": [
           "lehrauftrag-fur-das-modul-it-development-and-operations-devops-fhgr-ch"
         ]
       },
       "previousSlugs": [
-        "lehrauftrag-fur-das-modul-it-development-and-operations-devops-fhgr-ch"
+        "lehrauftrag-fur-das-modul-it-development-and-operations-devops-fhgr-ch",
+        "lehrauftrag-per-das-modul-it-development-and-operations-devops-fachhochschule-graubunden-chur"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -447,12 +452,12 @@
     },
     {
       "id": "fhgr-6a110610b53d",
-      "slug": "lehrauftrag-per-la-module-betriebssysteme-e-computernetzwerke-fachhochschule-graubunden-chur",
+      "slug": "incarico-didattico-per-i-moduli-sistemi-operativi-e-reti-informatiche-fachhochschule-graubunden-chur",
       "slugByLocale": {
         "de": "lehrauftrag-fur-die-module-betriebssysteme-und-computernetzwerke-fachhochschule-graubunden-chur",
-        "it": "lehrauftrag-per-la-module-betriebssysteme-e-computernetzwerke-fachhochschule-graubunden-chur",
-        "en": "lehrauftrag-fur-die-module-betriebssysteme-und-computernetzwerke-fachhochschule-graubunden-chur",
-        "fr": "lehrauftrag-fur-die-module-betriebssysteme-und-computernetzwerke-fachhochschule-graubunden-chur"
+        "it": "incarico-didattico-per-i-moduli-sistemi-operativi-e-reti-informatiche-fachhochschule-graubunden-chur",
+        "en": "teaching-assignment-for-the-modules-operating-systems-and-computer-networks-fachhochschule-graubunden-chur",
+        "fr": "attribution-d-enseignement-pour-les-modules-systemes-d-exploitation-et-reseaux-informatiques-fachhochschule-graubunden"
       },
       "company": "Fachhochschule Graubünden",
       "companyKey": "fhgr",
@@ -498,14 +503,23 @@
       "contractDuration": "temporary",
       "previousSlugsByLocale": {
         "it": [
-          "lehrauftrag-fur-die-module-betriebssysteme-und-computernetzwerke-fhgr-ch"
+          "lehrauftrag-fur-die-module-betriebssysteme-und-computernetzwerke-fhgr-ch",
+          "lehrauftrag-per-la-module-betriebssysteme-e-computernetzwerke-fachhochschule-graubunden-chur"
         ],
         "de": [
           "lehrauftrag-fur-die-module-betriebssysteme-und-computernetzwerke-fhgr-ch"
+        ],
+        "en": [
+          "lehrauftrag-fur-die-module-betriebssysteme-und-computernetzwerke-fachhochschule-graubunden-chur"
+        ],
+        "fr": [
+          "lehrauftrag-fur-die-module-betriebssysteme-und-computernetzwerke-fachhochschule-graubunden-chur"
         ]
       },
       "previousSlugs": [
-        "lehrauftrag-fur-die-module-betriebssysteme-und-computernetzwerke-fhgr-ch"
+        "lehrauftrag-fur-die-module-betriebssysteme-und-computernetzwerke-fhgr-ch",
+        "lehrauftrag-per-la-module-betriebssysteme-e-computernetzwerke-fachhochschule-graubunden-chur",
+        "lehrauftrag-fur-die-module-betriebssysteme-und-computernetzwerke-fachhochschule-graubunden-chur"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -523,12 +537,12 @@
     },
     {
       "id": "fhgr-8560684a5cda",
-      "slug": "lehrauftrag-per-das-modul-digitales-design-e-computerarchitektur-fachhochschule-graubunden-chur",
+      "slug": "insegnamento-per-il-modulo-digital-design-and-computer-architecture-fachhochschule-graubunden-chur",
       "slugByLocale": {
         "de": "lehrauftrag-fur-das-modul-digitales-design-und-computerarchitektur-fachhochschule-graubunden-chur",
-        "it": "lehrauftrag-per-das-modul-digitales-design-e-computerarchitektur-fachhochschule-graubunden-chur",
-        "en": "lehrauftrag-fur-das-modul-digitales-design-und-computerarchitektur-fachhochschule-graubunden-chur",
-        "fr": "lehrauftrag-fur-das-modul-digitales-design-und-computerarchitektur-fachhochschule-graubunden-chur"
+        "it": "insegnamento-per-il-modulo-digital-design-and-computer-architecture-fachhochschule-graubunden-chur",
+        "en": "teaching-assignment-for-the-module-digital-design-and-computer-architecture-fachhochschule-graubunden-chur",
+        "fr": "attribution-d-enseignement-au-module-conception-numerique-et-architecture-informatique-fachhochschule-graubunden-chur"
       },
       "company": "Fachhochschule Graubünden",
       "companyKey": "fhgr",
@@ -574,14 +588,23 @@
       "contractDuration": "temporary",
       "previousSlugsByLocale": {
         "it": [
-          "lehrauftrag-fur-das-modul-digitales-design-und-computerarchitektur-fhgr-ch"
+          "lehrauftrag-fur-das-modul-digitales-design-und-computerarchitektur-fhgr-ch",
+          "lehrauftrag-per-das-modul-digitales-design-e-computerarchitektur-fachhochschule-graubunden-chur"
         ],
         "de": [
           "lehrauftrag-fur-das-modul-digitales-design-und-computerarchitektur-fhgr-ch"
+        ],
+        "en": [
+          "lehrauftrag-fur-das-modul-digitales-design-und-computerarchitektur-fachhochschule-graubunden-chur"
+        ],
+        "fr": [
+          "lehrauftrag-fur-das-modul-digitales-design-und-computerarchitektur-fachhochschule-graubunden-chur"
         ]
       },
       "previousSlugs": [
-        "lehrauftrag-fur-das-modul-digitales-design-und-computerarchitektur-fhgr-ch"
+        "lehrauftrag-fur-das-modul-digitales-design-und-computerarchitektur-fhgr-ch",
+        "lehrauftrag-per-das-modul-digitales-design-e-computerarchitektur-fachhochschule-graubunden-chur",
+        "lehrauftrag-fur-das-modul-digitales-design-und-computerarchitektur-fachhochschule-graubunden-chur"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -599,12 +622,12 @@
     },
     {
       "id": "fhgr-39c0671cea6a",
-      "slug": "lehrauftrag-per-das-modul-softwaremanagement-fachhochschule-graubunden-chur",
+      "slug": "ordine-didattico-per-il-modulo-software-management-fachhochschule-graubunden-chur",
       "slugByLocale": {
         "de": "lehrauftrag-fur-das-modul-softwaremanagement-fachhochschule-graubunden-chur",
-        "it": "lehrauftrag-per-das-modul-softwaremanagement-fachhochschule-graubunden-chur",
-        "en": "lehrauftrag-fur-das-modul-softwaremanagement-fachhochschule-graubunden-chur",
-        "fr": "lehrauftrag-fur-das-modul-softwaremanagement-fachhochschule-graubunden-chur"
+        "it": "ordine-didattico-per-il-modulo-software-management-fachhochschule-graubunden-chur",
+        "en": "teaching-order-for-the-module-software-management-fachhochschule-graubunden-chur",
+        "fr": "ordre-d-enseignement-du-module-gestion-des-logiciels-fachhochschule-graubunden-chur"
       },
       "company": "Fachhochschule Graubünden",
       "companyKey": "fhgr",
@@ -650,14 +673,23 @@
       "contractDuration": "temporary",
       "previousSlugsByLocale": {
         "it": [
-          "lehrauftrag-fur-das-modul-softwaremanagement-fhgr-ch"
+          "lehrauftrag-fur-das-modul-softwaremanagement-fhgr-ch",
+          "lehrauftrag-per-das-modul-softwaremanagement-fachhochschule-graubunden-chur"
         ],
         "de": [
           "lehrauftrag-fur-das-modul-softwaremanagement-fhgr-ch"
+        ],
+        "en": [
+          "lehrauftrag-fur-das-modul-softwaremanagement-fachhochschule-graubunden-chur"
+        ],
+        "fr": [
+          "lehrauftrag-fur-das-modul-softwaremanagement-fachhochschule-graubunden-chur"
         ]
       },
       "previousSlugs": [
-        "lehrauftrag-fur-das-modul-softwaremanagement-fhgr-ch"
+        "lehrauftrag-fur-das-modul-softwaremanagement-fhgr-ch",
+        "lehrauftrag-per-das-modul-softwaremanagement-fachhochschule-graubunden-chur",
+        "lehrauftrag-fur-das-modul-softwaremanagement-fachhochschule-graubunden-chur"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -675,12 +707,12 @@
     },
     {
       "id": "fhgr-d00f3d668541",
-      "slug": "programmkoordinator-in-weiterbildung-fachhochschule-graubunden-zurich",
+      "slug": "coordinatore-del-programma-formazione-continua-fachhochschule-graubunden-zurich",
       "slugByLocale": {
         "de": "programmkoordinator-in-weiterbildung-fachhochschule-graubunden-zurich",
-        "it": "programmkoordinator-in-weiterbildung-fachhochschule-graubunden-zurich",
-        "en": "programmkoordinator-in-weiterbildung-fachhochschule-graubunden-zurich",
-        "fr": "programmkoordinator-in-weiterbildung-fachhochschule-graubunden-zurich"
+        "it": "coordinatore-del-programma-formazione-continua-fachhochschule-graubunden-zurich",
+        "en": "programme-coordinator-in-continuing-training-fachhochschule-graubunden-zurich",
+        "fr": "coordinateur-du-programme-formation-continue-fachhochschule-graubunden-zurich"
       },
       "company": "Fachhochschule Graubünden",
       "companyKey": "fhgr",
@@ -726,14 +758,22 @@
       "contractDuration": "permanent",
       "previousSlugsByLocale": {
         "it": [
-          "programmkoordinator-in-weiterbildung-fhgr-ch"
+          "programmkoordinator-in-weiterbildung-fhgr-ch",
+          "programmkoordinator-in-weiterbildung-fachhochschule-graubunden-zurich"
         ],
         "de": [
           "programmkoordinator-in-weiterbildung-fhgr-ch"
+        ],
+        "en": [
+          "programmkoordinator-in-weiterbildung-fachhochschule-graubunden-zurich"
+        ],
+        "fr": [
+          "programmkoordinator-in-weiterbildung-fachhochschule-graubunden-zurich"
         ]
       },
       "previousSlugs": [
-        "programmkoordinator-in-weiterbildung-fhgr-ch"
+        "programmkoordinator-in-weiterbildung-fhgr-ch",
+        "programmkoordinator-in-weiterbildung-fachhochschule-graubunden-zurich"
       ],
       "salaryMin": 51500,
       "salaryMax": 88000,

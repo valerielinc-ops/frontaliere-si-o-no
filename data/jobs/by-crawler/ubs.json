@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "ubs-c0371bce6b47",
-      "slug": "research-analyst-global-growth-equity-ubs",
+      "slug": "ricerca-analista-global-growth-equity-ubs",
       "slugByLocale": {
         "en": "research-analyst-global-growth-equity-ubs",
-        "it": "research-analyst-global-growth-equity-ubs",
+        "it": "ricerca-analista-global-growth-equity-ubs",
         "de": "research-analyst-global-growth-equity-ubs",
-        "fr": "research-analyst-global-growth-equity-ubs"
+        "fr": "recherche-analyste-global-growth-equity-ubs"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -72,7 +72,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-21T13:41:53.355Z"
+      "firstSeenAt": "2026-05-21T13:41:53.355Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "research-analyst-global-growth-equity-ubs"
+        ],
+        "fr": [
+          "research-analyst-global-growth-equity-ubs"
+        ]
+      },
+      "previousSlugs": [
+        "research-analyst-global-growth-equity-ubs"
+      ]
     },
     {
       "id": "ubs-4dd0c1110d98",
@@ -367,7 +378,7 @@
         "it": "greater-china-financials-analista-ubs",
         "en": "research-apac-equity-china-financials-analyst-ubs",
         "de": "greater-china-financials-analyst-ubs",
-        "fr": "greater-china-financials-analyste-ubs"
+        "fr": "recherche-apac-equity-china-financials-analyste-ubs"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -421,12 +432,14 @@
           "research-apac-equity-china-financials-analyst-ubs"
         ],
         "fr": [
-          "greater-china-financials-analyst-ubs"
+          "greater-china-financials-analyst-ubs",
+          "greater-china-financials-analyste-ubs"
         ]
       },
       "previousSlugs": [
         "greater-china-financials-analyst-ubs",
-        "research-apac-equity-china-financials-analyst-ubs"
+        "research-apac-equity-china-financials-analyst-ubs",
+        "greater-china-financials-analyste-ubs"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-19T12:50:18.866Z",
@@ -1547,12 +1560,12 @@
     },
     {
       "id": "ubs-7ef9a69c719b",
-      "slug": "research-analyst-asia-equities-ubs",
+      "slug": "ricerca-analista-asia-equities-ubs",
       "slugByLocale": {
         "en": "research-analyst-asia-equities-ubs",
-        "it": "research-analyst-asia-equities-ubs",
+        "it": "ricerca-analista-asia-equities-ubs",
         "de": "research-analyst-asia-equities-ubs",
-        "fr": "research-analyst-asia-equities-ubs"
+        "fr": "recherche-analyste-asia-equities-ubs"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -1615,7 +1628,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-21T13:41:53.326Z"
+      "firstSeenAt": "2026-05-21T13:41:53.326Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "research-analyst-asia-equities-ubs"
+        ],
+        "fr": [
+          "research-analyst-asia-equities-ubs"
+        ]
+      },
+      "previousSlugs": [
+        "research-analyst-asia-equities-ubs"
+      ]
     },
     {
       "id": "ubs-d37e22dfed85",
@@ -3215,12 +3239,12 @@
     },
     {
       "id": "ubs-3130f24e8fe1",
-      "slug": "fund-accountant-ubs",
+      "slug": "fund-contabile-ubs",
       "slugByLocale": {
         "en": "fund-accountant-ubs",
-        "it": "fund-accountant-ubs",
+        "it": "fund-contabile-ubs",
         "de": "fund-accountant-ubs",
-        "fr": "fund-accountant-ubs"
+        "fr": "fund-comptable-ubs"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -3283,7 +3307,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-21T13:41:53.298Z"
+      "firstSeenAt": "2026-05-21T13:41:53.298Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fund-accountant-ubs"
+        ],
+        "fr": [
+          "fund-accountant-ubs"
+        ]
+      },
+      "previousSlugs": [
+        "fund-accountant-ubs"
+      ]
     },
     {
       "id": "ubs-d9e1919346ba",

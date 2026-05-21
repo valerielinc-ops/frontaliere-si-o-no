@@ -566,12 +566,12 @@
     },
     {
       "id": "schulthess-klinik-a8427269ab05",
-      "slug": "teamleitung-med-massage-schulthess-klinik-zurich",
+      "slug": "team-management-med-massage-schulthess-klinik-zurich",
       "slugByLocale": {
         "de": "teamleitung-med-massage-schulthess-klinik-zurich",
-        "it": "teamleitung-med-massage-schulthess-klinik-zurich",
+        "it": "team-management-med-massage-schulthess-klinik-zurich",
         "en": "teamleitung-med-massage-schulthess-klinik-zurich",
-        "fr": "teamleitung-med-massage-schulthess-klinik-zurich"
+        "fr": "gestion-d-equipe-med-massage-schulthess-klinik-zurich"
       },
       "company": "Schulthess Klinik",
       "companyKey": "schulthess-klinik",
@@ -626,7 +626,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-21T13:13:00.837Z"
+      "firstSeenAt": "2026-05-21T13:13:00.837Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "teamleitung-med-massage-schulthess-klinik-zurich"
+        ],
+        "fr": [
+          "teamleitung-med-massage-schulthess-klinik-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "teamleitung-med-massage-schulthess-klinik-zurich"
+      ]
     }
   ]
 }

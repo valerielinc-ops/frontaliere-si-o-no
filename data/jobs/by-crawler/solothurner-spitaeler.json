@@ -2348,8 +2348,7 @@
       "workplace": "Kantonsspital Olten",
       "previousSlugsByLocale": {
         "de": [
-          "radiologiefachfrau-radiologiefachmann-w-m-d-soh-solothurner-spitaeler-olten",
-          "radiologiefachfrau-radiologiefachmann-w-m-d-soh-ch"
+          "radiologiefachfrau-radiologiefachmann-w-m-d-soh-solothurner-spitaeler-olten"
         ],
         "it": [
           "radiologiefachfrau-radiologiefachmann-w-m-d-soh-ch"
@@ -11306,10 +11305,10 @@
     },
     {
       "id": "solothurner-spitaeler-bb01d76f6171",
-      "slug": "addetto-a-alla-pulizia-di-manutenzione-uomo-donna-solothurner-spitaler-soh-olten",
+      "slug": "mitarbeiterin-collaboratore-trice-unterhaltsreinigung-w-m-d-solothurner-spitaler-soh-olten",
       "slugByLocale": {
         "de": "mitarbeiterin-mitarbeiter-unterhaltsreinigung-w-m-d-soh-ch",
-        "it": "addetto-a-alla-pulizia-di-manutenzione-uomo-donna-solothurner-spitaler-soh-olten",
+        "it": "mitarbeiterin-collaboratore-trice-unterhaltsreinigung-w-m-d-solothurner-spitaler-soh-olten",
         "en": "maintenance-cleaning-assistant-male-female-solothurner-spitaler-soh-olten",
         "fr": "assistante-d-entretien-homme-femme-solothurner-spitaler-soh-olten"
       },
@@ -11369,7 +11368,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-21T13:19:26.031Z"
+      "firstSeenAt": "2026-05-21T13:19:26.031Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "addetto-a-alla-pulizia-di-manutenzione-uomo-donna-solothurner-spitaler-soh-olten"
+        ]
+      },
+      "previousSlugs": [
+        "addetto-a-alla-pulizia-di-manutenzione-uomo-donna-solothurner-spitaler-soh-olten"
+      ]
     },
     {
       "id": "solothurner-spitaeler-9876939a6b2a",

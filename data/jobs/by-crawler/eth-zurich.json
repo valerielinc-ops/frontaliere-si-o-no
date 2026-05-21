@@ -8926,12 +8926,12 @@
     },
     {
       "id": "eth-zurich-208ac0a844eb",
-      "slug": "gruppenleitung-compute-storage-m-w-d-eth-zurich-ch",
+      "slug": "projektmanager-m-w-d-eth-zurich-zurich",
       "slugByLocale": {
         "de": "gruppenleitung-compute-storage-m-w-d-eth-zurich-ch",
-        "it": "gruppenleitung-compute-storage-m-w-d-eth-zurich-ch",
+        "it": "projektmanager-m-w-d-eth-zurich-zurich",
         "en": "gruppenleitung-compute-storage-m-w-d-eth-zurich-ch",
-        "fr": "gruppenleitung-compute-storage-m-w-d-eth-zurich-ch"
+        "fr": "projektmanager-m-m-j-eth-zurich-zurich"
       },
       "company": "ETH Zürich",
       "companyKey": "eth-zurich",
@@ -8985,16 +8985,27 @@
         }
       },
       "postalCode": "8001",
-      "firstSeenAt": "2026-05-21T11:52:06.903Z"
+      "firstSeenAt": "2026-05-21T11:52:06.903Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "gruppenleitung-compute-storage-m-w-d-eth-zurich-ch"
+        ],
+        "fr": [
+          "gruppenleitung-compute-storage-m-w-d-eth-zurich-ch"
+        ]
+      },
+      "previousSlugs": [
+        "gruppenleitung-compute-storage-m-w-d-eth-zurich-ch"
+      ]
     },
     {
       "id": "eth-zurich-73d84cecb78e",
-      "slug": "collaboratore-trice-finanzen-bachelor-humanmedizin-m-w-d-eth-zurich",
+      "slug": "impiegato-a-finanza-laurea-in-medicina-umana-m-f-d-eth-zurich-zurich",
       "slugByLocale": {
         "de": "mitarbeiter-in-finanzen-bachelor-humanmedizin-m-w-d-eth-zurich-ch",
-        "it": "collaboratore-trice-finanzen-bachelor-humanmedizin-m-w-d-eth-zurich",
-        "en": "mitarbeiter-in-finanzen-bachelor-humanmedizin-m-w-d-eth-zurich-ch",
-        "fr": "mitarbeiter-in-finanzen-bachelor-humanmedizin-m-w-d-eth-zurich-ch"
+        "it": "impiegato-a-finanza-laurea-in-medicina-umana-m-f-d-eth-zurich-zurich",
+        "en": "finance-assistant-bachelor-in-human-medicine-m-f-d-eth-zurich-zurich",
+        "fr": "assistant-financier-en-licence-de-medecine-humaine-h-f-eth-zurich-zurich"
       },
       "company": "ETH Zürich",
       "companyKey": "eth-zurich",
@@ -9037,11 +9048,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-finanzen-bachelor-humanmedizin-m-w-d-eth-zurich-ch",
+          "collaboratore-trice-finanzen-bachelor-humanmedizin-m-w-d-eth-zurich"
+        ],
+        "en": [
+          "mitarbeiter-in-finanzen-bachelor-humanmedizin-m-w-d-eth-zurich-ch"
+        ],
+        "fr": [
           "mitarbeiter-in-finanzen-bachelor-humanmedizin-m-w-d-eth-zurich-ch"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-finanzen-bachelor-humanmedizin-m-w-d-eth-zurich-ch"
+        "mitarbeiter-in-finanzen-bachelor-humanmedizin-m-w-d-eth-zurich-ch",
+        "collaboratore-trice-finanzen-bachelor-humanmedizin-m-w-d-eth-zurich"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -9060,12 +9079,12 @@
     },
     {
       "id": "eth-zurich-0e83b8fa7d92",
-      "slug": "phd-position-in-microfluidics-for-assembly-of-synthetic-cells-for-energy-production",
+      "slug": "phd-posizione-in-microfluidics-per-l-assemblaggio-di-celle-sintetiche-per-la-produzione-di-energia-il-metabolismo",
       "slugByLocale": {
         "en": "phd-position-in-microfluidics-for-assembly-of-synthetic-cells-for-energy-production",
-        "it": "phd-position-in-microfluidics-for-assembly-of-synthetic-cells-for-energy-production",
-        "de": "phd-position-in-microfluidics-for-assembly-of-synthetic-cells-for-energy-production",
-        "fr": "phd-position-in-microfluidics-for-assembly-of-synthetic-cells-for-energy-production"
+        "it": "phd-posizione-in-microfluidics-per-l-assemblaggio-di-celle-sintetiche-per-la-produzione-di-energia-il-metabolismo",
+        "de": "phd-position-in-der-mikrofluidik-fur-die-montage-von-synthetischen-zellen-fur-die-energieerzeugung-nahrstoffmetabolismus",
+        "fr": "doctorat-en-microfluidique-pour-l-assemblage-de-cellules-synthetiques-pour-la-production-d-energie-le-metabolisme-des"
       },
       "company": "ETH Zürich",
       "companyKey": "eth-zurich",
@@ -9119,7 +9138,21 @@
         }
       },
       "postalCode": "8001",
-      "firstSeenAt": "2026-05-21T11:52:05.887Z"
+      "firstSeenAt": "2026-05-21T11:52:05.887Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "phd-position-in-microfluidics-for-assembly-of-synthetic-cells-for-energy-production"
+        ],
+        "de": [
+          "phd-position-in-microfluidics-for-assembly-of-synthetic-cells-for-energy-production"
+        ],
+        "fr": [
+          "phd-position-in-microfluidics-for-assembly-of-synthetic-cells-for-energy-production"
+        ]
+      },
+      "previousSlugs": [
+        "phd-position-in-microfluidics-for-assembly-of-synthetic-cells-for-energy-production"
+      ]
     }
   ]
 }

@@ -578,7 +578,7 @@
     },
     {
       "title": "Mitarbeiter Technischer Dienst, 100%",
-      "slug": "collaboratore-trice-technischer-dienst-100-berit-klinik-speicher",
+      "slug": "servizio-tecnico-personale-100-berit-klinik-speicher",
       "url": "https://cms-berit-klinik.deployco.de/api/media/file/stelleninserat_mitarbeiter_in_technischer_dienst_100__ae8a56c176.pdf",
       "applyUrl": "https://www.beritklinik.ch/de/karriere-offene-stellen",
       "company": "Berit Klinik",
@@ -614,9 +614,9 @@
       },
       "slugByLocale": {
         "de": "mitarbeiter-technischer-dienst-100-berit-klinik",
-        "it": "collaboratore-trice-technischer-dienst-100-berit-klinik-speicher",
-        "en": "mitarbeiter-technischer-dienst-100-berit-klinik",
-        "fr": "mitarbeiter-technischer-dienst-100-berit-klinik"
+        "it": "servizio-tecnico-personale-100-berit-klinik-speicher",
+        "en": "staff-technical-service-100-berit-klinik-speicher",
+        "fr": "service-technique-du-personnel-100-berit-klinik-speicher"
       },
       "_meta": {
         "sourceFilename": "stelleninserat_mitarbeiter_in_technischer_dienst_100__ae8a56c176.pdf"
@@ -624,11 +624,19 @@
       "id": "berit-klinik-e76e0190ac50",
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-technischer-dienst-100-berit-klinik",
+          "collaboratore-trice-technischer-dienst-100-berit-klinik-speicher"
+        ],
+        "en": [
+          "mitarbeiter-technischer-dienst-100-berit-klinik"
+        ],
+        "fr": [
           "mitarbeiter-technischer-dienst-100-berit-klinik"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-technischer-dienst-100-berit-klinik"
+        "mitarbeiter-technischer-dienst-100-berit-klinik",
+        "collaboratore-trice-technischer-dienst-100-berit-klinik-speicher"
       ],
       "salaryMin": 70500,
       "salaryMax": 98500,

@@ -507,12 +507,12 @@
         "de": "Lead Entwickler (w/m/d)",
         "fr": "Lead Développeur (w/m/d)"
       },
-      "slug": "lead-developer-w-m-d-postfinance",
+      "slug": "lead-sviluppatore-w-m-d-postfinance-bern",
       "slugByLocale": {
-        "it": "lead-developer-w-m-d-postfinance",
+        "it": "lead-sviluppatore-w-m-d-postfinance-bern",
         "en": "lead-developer-w-m-d-postfinance-bern",
         "de": "lead-developer-w-m-d-postfinance",
-        "fr": "lead-developer-w-m-d-postfinance"
+        "fr": "lead-developpeur-w-m-d-postfinance-bern"
       },
       "sourceLang": "de",
       "department": "",
@@ -545,7 +545,18 @@
         }
       },
       "postalCode": "3001",
-      "firstSeenAt": "2026-05-21T12:58:33.524Z"
+      "firstSeenAt": "2026-05-21T12:58:33.524Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "lead-developer-w-m-d-postfinance"
+        ],
+        "fr": [
+          "lead-developer-w-m-d-postfinance"
+        ]
+      },
+      "previousSlugs": [
+        "lead-developer-w-m-d-postfinance"
+      ]
     }
   ]
 }

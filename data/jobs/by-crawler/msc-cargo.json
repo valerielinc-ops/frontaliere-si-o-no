@@ -844,11 +844,11 @@
     },
     {
       "id": "msc-cargo-027165218aff",
-      "slug": "crm-director-msc-geneva",
+      "slug": "crm-direttore-msc-group-geneva",
       "slugByLocale": {
         "en": "crm-director-msc-geneva",
-        "it": "crm-director-msc-geneva",
-        "de": "crm-director-msc-geneva",
+        "it": "crm-direttore-msc-group-geneva",
+        "de": "crm-direktor-msc-group-geneva",
         "fr": "crm-director-msc-geneva"
       },
       "company": "MSC Group",
@@ -905,7 +905,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-21T12:51:57.137Z"
+      "firstSeenAt": "2026-05-21T12:51:57.137Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "crm-director-msc-geneva"
+        ],
+        "de": [
+          "crm-director-msc-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "crm-director-msc-geneva"
+      ]
     },
     {
       "id": "msc-cargo-32cf9574722c",

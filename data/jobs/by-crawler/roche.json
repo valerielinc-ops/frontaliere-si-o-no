@@ -409,8 +409,7 @@
       "previousSlugsByLocale": {
         "it": [
           "technical-maintenance-assessor-puerto-montt-roche-ch",
-          "valutatore-della-manutenzione-tecnica-puerto-montt-roche-rm",
-          "technical-maintenance-assessor-puerto-montt-roche-rm"
+          "valutatore-della-manutenzione-tecnica-puerto-montt-roche-rm"
         ]
       },
       "needsRetranslation": true,
@@ -481,8 +480,7 @@
       "previousSlugsByLocale": {
         "it": [
           "technical-maintenance-assessor-osorno-roche-ch",
-          "assessore-tecnico-alla-manutenzione-osorno-roche-rm",
-          "technical-maintenance-assessor-osorno-roche-rm"
+          "assessore-tecnico-alla-manutenzione-osorno-roche-rm"
         ]
       },
       "needsRetranslation": true,
@@ -23032,8 +23030,7 @@
       "previousSlugsByLocale": {
         "it": [
           "especialista-en-licitaciones-roche-ch",
-          "specialist-en-licitaciones-roche-mexico-city",
-          "especialista-en-licitaciones-roche-mexico-city"
+          "specialist-en-licitaciones-roche-mexico-city"
         ]
       },
       "needsRetranslation": true,
@@ -23662,8 +23659,7 @@
         ],
         "it": [
           "histotechnician-roche-ch",
-          "istotecnico-roche-tucson",
-          "histotechnician-roche-tucson"
+          "istotecnico-roche-tucson"
         ]
       },
       "previousSlugs": [
@@ -24112,12 +24108,12 @@
     },
     {
       "id": "roche-4ee79841267a",
-      "slug": "analyst-roche-ch",
+      "slug": "analista-roche-basel",
       "slugByLocale": {
         "en": "analyst-roche-basel",
-        "it": "analyst-roche-ch",
+        "it": "analista-roche-basel",
         "de": "analyst-roche-ch",
-        "fr": "analyst-roche-ch"
+        "fr": "analyste-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -24172,7 +24168,18 @@
         }
       },
       "postalCode": "4001",
-      "firstSeenAt": "2026-05-21T13:09:51.529Z"
+      "firstSeenAt": "2026-05-21T13:09:51.529Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "analyst-roche-ch"
+        ],
+        "fr": [
+          "analyst-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "analyst-roche-ch"
+      ]
     },
     {
       "id": "roche-65f844160aab",
@@ -25958,12 +25965,12 @@
     },
     {
       "id": "roche-235c2392c502",
-      "slug": "marketing-intern-w-m-d-roche-ch",
+      "slug": "marketing-tirocinante-w-m-d-roche-vienna",
       "slugByLocale": {
         "de": "marketing-intern-w-m-d-roche-ch",
-        "it": "marketing-intern-w-m-d-roche-ch",
+        "it": "marketing-tirocinante-w-m-d-roche-vienna",
         "en": "marketing-intern-w-m-d-roche-vienna",
-        "fr": "marketing-intern-w-m-d-roche-ch"
+        "fr": "marketing-stagiaire-w-m-d-roche-vienna"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -26017,7 +26024,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-21T13:09:10.635Z"
+      "firstSeenAt": "2026-05-21T13:09:10.635Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "marketing-intern-w-m-d-roche-ch"
+        ],
+        "fr": [
+          "marketing-intern-w-m-d-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "marketing-intern-w-m-d-roche-ch"
+      ]
     },
     {
       "id": "roche-594ec9634b03",

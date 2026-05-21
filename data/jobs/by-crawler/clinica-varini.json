@@ -7,9 +7,9 @@
       "slug": "concorso-direttore-direttrice-sanitario-clinica-varini-orselina",
       "slugByLocale": {
         "it": "concorso-direttore-direttrice-sanitario-clinica-varini-orselina",
-        "en": "director-of-health-clinica-varini-orselina",
-        "de": "gesundheitsdirektor-in-clinica-varini-orselina",
-        "fr": "directeur-directrice-de-la-sante-clinica-varini-orselina"
+        "en": "competition-director-clinica-varini-orselina",
+        "de": "wettbewerb-direktor-clinica-varini-orselina",
+        "fr": "concours-directeur-clinica-varini-orselina"
       },
       "company": "Clinica Varini",
       "companyKey": "clinica-varini",
@@ -64,7 +64,23 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-21T11:31:18.518Z"
+      "firstSeenAt": "2026-05-21T11:31:18.518Z",
+      "previousSlugsByLocale": {
+        "en": [
+          "director-of-health-clinica-varini-orselina"
+        ],
+        "de": [
+          "gesundheitsdirektor-in-clinica-varini-orselina"
+        ],
+        "fr": [
+          "directeur-directrice-de-la-sante-clinica-varini-orselina"
+        ]
+      },
+      "previousSlugs": [
+        "director-of-health-clinica-varini-orselina",
+        "gesundheitsdirektor-in-clinica-varini-orselina",
+        "directeur-directrice-de-la-sante-clinica-varini-orselina"
+      ]
     },
     {
       "id": "clinica-varini-20260508-concorso-contabile-08a5da55c5e3",

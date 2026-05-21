@@ -4272,12 +4272,12 @@
     },
     {
       "id": "tether-42210c90ad9d",
-      "slug": "financial-analyst-tether-ch",
+      "slug": "financial-analista-tether-operations-london-greater-london",
       "slugByLocale": {
         "en": "financial-analyst-tether-operations-london",
-        "it": "financial-analyst-tether-ch",
+        "it": "financial-analista-tether-operations-london-greater-london",
         "de": "financial-analyst-tether-ch",
-        "fr": "financial-analyst-tether-ch"
+        "fr": "financial-analyste-tether-operations-london-greater-london"
       },
       "company": "Tether Operations",
       "companyKey": "tether",
@@ -4336,7 +4336,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-21T13:36:42.921Z"
+      "firstSeenAt": "2026-05-21T13:36:42.921Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "financial-analyst-tether-ch"
+        ],
+        "fr": [
+          "financial-analyst-tether-ch"
+        ]
+      },
+      "previousSlugs": [
+        "financial-analyst-tether-ch"
+      ]
     },
     {
       "id": "tether-d8c03b122add",

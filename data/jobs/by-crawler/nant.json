@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "nant-131c4a56f15e",
-      "slug": "infirmier-ere-remplacant-e-de-nuit-a-taux-variable-nant-corsier-sur-vevey",
+      "slug": "sostituzione-dell-infermiera-di-notte-a-prezzi-variabili-fondation-de-nant-corsier-sur-vevey",
       "slugByLocale": {
         "fr": "infirmier-ere-remplacant-e-de-nuit-a-taux-variable-nant-corsier-sur-vevey",
-        "it": "infirmier-ere-remplacant-e-de-nuit-a-taux-variable-nant-corsier-sur-vevey",
-        "en": "infirmier-ere-remplacant-e-de-nuit-a-taux-variable-nant-corsier-sur-vevey",
-        "de": "infirmier-ere-remplacant-e-de-nuit-a-taux-variable-nant-corsier-sur-vevey"
+        "it": "sostituzione-dell-infermiera-di-notte-a-prezzi-variabili-fondation-de-nant-corsier-sur-vevey",
+        "en": "replacement-nurse-at-night-at-variable-rates-fondation-de-nant-corsier-sur-vevey",
+        "de": "ersatzschwester-bei-nacht-zu-variablen-preisen-fondation-de-nant-corsier-sur-vevey"
       },
       "company": "Fondation de Nant",
       "companyKey": "nant",
@@ -65,16 +65,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-21T12:49:36.397Z"
+      "firstSeenAt": "2026-05-21T12:49:36.397Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "infirmier-ere-remplacant-e-de-nuit-a-taux-variable-nant-corsier-sur-vevey"
+        ],
+        "en": [
+          "infirmier-ere-remplacant-e-de-nuit-a-taux-variable-nant-corsier-sur-vevey"
+        ],
+        "de": [
+          "infirmier-ere-remplacant-e-de-nuit-a-taux-variable-nant-corsier-sur-vevey"
+        ]
+      },
+      "previousSlugs": [
+        "infirmier-ere-remplacant-e-de-nuit-a-taux-variable-nant-corsier-sur-vevey"
+      ]
     },
     {
       "id": "nant-79c214c0e5a8",
-      "slug": "adjoint-e-responsable-d-intendance-a-100-fondation-de-nant-corsier-sur-vevey",
+      "slug": "capo-aggiunto-del-100-fondation-de-nant-corsier-sur-vevey",
       "slugByLocale": {
         "fr": "adjoint-e-responsable-d-intendance-a-100-nant-corsier-sur-vevey",
-        "it": "adjoint-e-responsable-d-intendance-a-100-fondation-de-nant-corsier-sur-vevey",
-        "en": "adjoint-e-responsable-d-intendance-a-100-nant-corsier-sur-vevey",
-        "de": "adjoint-e-responsable-d-intendance-a-100-nant-corsier-sur-vevey"
+        "it": "capo-aggiunto-del-100-fondation-de-nant-corsier-sur-vevey",
+        "en": "deputy-head-of-100-stewardship-fondation-de-nant-corsier-sur-vevey",
+        "de": "stellvertretender-leiter-100-stewardship-fondation-de-nant-corsier-sur-vevey"
       },
       "company": "Fondation de Nant",
       "companyKey": "nant",
@@ -120,11 +134,19 @@
       "careerSiteUrl": "https://nant.ch/carrieres/",
       "previousSlugsByLocale": {
         "it": [
+          "adjoint-e-responsable-d-intendance-a-100-nant-corsier-sur-vevey",
+          "adjoint-e-responsable-d-intendance-a-100-fondation-de-nant-corsier-sur-vevey"
+        ],
+        "en": [
+          "adjoint-e-responsable-d-intendance-a-100-nant-corsier-sur-vevey"
+        ],
+        "de": [
           "adjoint-e-responsable-d-intendance-a-100-nant-corsier-sur-vevey"
         ]
       },
       "previousSlugs": [
-        "adjoint-e-responsable-d-intendance-a-100-nant-corsier-sur-vevey"
+        "adjoint-e-responsable-d-intendance-a-100-nant-corsier-sur-vevey",
+        "adjoint-e-responsable-d-intendance-a-100-fondation-de-nant-corsier-sur-vevey"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -142,12 +164,12 @@
     },
     {
       "id": "nant-443ebdb017d3",
-      "slug": "apprentissage-de-cuisinier-ere-fondation-de-nant-corsier-sur-vevey",
+      "slug": "apprendistato-di-cucina-fondation-de-nant-corsier-sur-vevey",
       "slugByLocale": {
         "fr": "apprentissage-de-cuisinier-ere-nant-corsier-sur-vevey",
-        "it": "apprentissage-de-cuisinier-ere-fondation-de-nant-corsier-sur-vevey",
-        "en": "apprentissage-de-cuisinier-ere-nant-corsier-sur-vevey",
-        "de": "apprentissage-de-cuisinier-ere-nant-corsier-sur-vevey"
+        "it": "apprendistato-di-cucina-fondation-de-nant-corsier-sur-vevey",
+        "en": "cooking-apprenticeship-fondation-de-nant-corsier-sur-vevey",
+        "de": "auszubildende-kochen-fondation-de-nant-corsier-sur-vevey"
       },
       "company": "Fondation de Nant",
       "companyKey": "nant",
@@ -193,11 +215,19 @@
       "careerSiteUrl": "https://nant.ch/carrieres/",
       "previousSlugsByLocale": {
         "it": [
+          "apprentissage-de-cuisinier-ere-nant-corsier-sur-vevey",
+          "apprentissage-de-cuisinier-ere-fondation-de-nant-corsier-sur-vevey"
+        ],
+        "en": [
+          "apprentissage-de-cuisinier-ere-nant-corsier-sur-vevey"
+        ],
+        "de": [
           "apprentissage-de-cuisinier-ere-nant-corsier-sur-vevey"
         ]
       },
       "previousSlugs": [
-        "apprentissage-de-cuisinier-ere-nant-corsier-sur-vevey"
+        "apprentissage-de-cuisinier-ere-nant-corsier-sur-vevey",
+        "apprentissage-de-cuisinier-ere-fondation-de-nant-corsier-sur-vevey"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -215,11 +245,11 @@
     },
     {
       "id": "nant-97add1ba138c",
-      "slug": "infirmier-ere-80-molaine-nant-corsier-sur-vevey",
+      "slug": "infermiera-80-molaine-fondation-de-nant-corsier-sur-vevey",
       "slugByLocale": {
         "fr": "infirmier-ere-80-molaine-nant-corsier-sur-vevey",
-        "it": "infirmier-ere-80-molaine-nant-corsier-sur-vevey",
-        "en": "infirmier-ere-80-molaine-nant-corsier-sur-vevey",
+        "it": "infermiera-80-molaine-fondation-de-nant-corsier-sur-vevey",
+        "en": "nurse-80-molaine-fondation-de-nant-corsier-sur-vevey",
         "de": "infirmier-ere-80-molaine-nant-corsier-sur-vevey"
       },
       "company": "Fondation de Nant",
@@ -276,16 +306,27 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-21T12:49:36.394Z"
+      "firstSeenAt": "2026-05-21T12:49:36.394Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "infirmier-ere-80-molaine-nant-corsier-sur-vevey"
+        ],
+        "en": [
+          "infirmier-ere-80-molaine-nant-corsier-sur-vevey"
+        ]
+      },
+      "previousSlugs": [
+        "infirmier-ere-80-molaine-nant-corsier-sur-vevey"
+      ]
     },
     {
       "id": "nant-8046bbc6cb9c",
-      "slug": "psychologue-associe-e-a-80-nant-vevey",
+      "slug": "psicologo-associato-all-80-fondation-de-nant-vevey",
       "slugByLocale": {
         "fr": "psychologue-associe-e-a-80-nant-vevey",
-        "it": "psychologue-associe-e-a-80-nant-vevey",
-        "en": "psychologue-associe-e-a-80-nant-vevey",
-        "de": "psychologue-associe-e-a-80-nant-vevey"
+        "it": "psicologo-associato-all-80-fondation-de-nant-vevey",
+        "en": "psychologist-associated-with-80-fondation-de-nant-vevey",
+        "de": "psychologin-associated-mit-80-fondation-de-nant-vevey"
       },
       "company": "Fondation de Nant",
       "companyKey": "nant",
@@ -341,7 +382,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-21T12:49:36.393Z"
+      "firstSeenAt": "2026-05-21T12:49:36.393Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "psychologue-associe-e-a-80-nant-vevey"
+        ],
+        "en": [
+          "psychologue-associe-e-a-80-nant-vevey"
+        ],
+        "de": [
+          "psychologue-associe-e-a-80-nant-vevey"
+        ]
+      },
+      "previousSlugs": [
+        "psychologue-associe-e-a-80-nant-vevey"
+      ]
     },
     {
       "id": "nant-466f15d99955",
@@ -412,12 +467,12 @@
     },
     {
       "id": "nant-568a6864405b",
-      "slug": "infirmier-ere-a-80-cdm-spaul-nant-rennaz",
+      "slug": "infermiera-all-80-cdm-spaul-fondation-de-nant-rennaz",
       "slugByLocale": {
         "fr": "infirmier-ere-a-80-cdm-spaul-nant-rennaz",
-        "it": "infirmier-ere-a-80-cdm-spaul-nant-rennaz",
-        "en": "infirmier-ere-a-80-cdm-spaul-nant-rennaz",
-        "de": "infirmier-ere-a-80-cdm-spaul-nant-rennaz"
+        "it": "infermiera-all-80-cdm-spaul-fondation-de-nant-rennaz",
+        "en": "nurse-at-80-cdm-spaul-fondation-de-nant-rennaz",
+        "de": "krankenschwester-bei-80-cdm-spaul-fondation-de-nant-rennaz"
       },
       "company": "Fondation de Nant",
       "companyKey": "nant",
@@ -473,16 +528,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-21T12:49:36.391Z"
+      "firstSeenAt": "2026-05-21T12:49:36.391Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "infirmier-ere-a-80-cdm-spaul-nant-rennaz"
+        ],
+        "en": [
+          "infirmier-ere-a-80-cdm-spaul-nant-rennaz"
+        ],
+        "de": [
+          "infirmier-ere-a-80-cdm-spaul-nant-rennaz"
+        ]
+      },
+      "previousSlugs": [
+        "infirmier-ere-a-80-cdm-spaul-nant-rennaz"
+      ]
     },
     {
       "id": "nant-b3da686a83bc",
-      "slug": "medecin-assistant-e-a-100-au-spaul-nant-rennaz",
+      "slug": "100-assistente-medico-presso-spaul-fondation-de-nant-rennaz",
       "slugByLocale": {
         "fr": "medecin-assistant-e-a-100-au-spaul-nant-rennaz",
-        "it": "medecin-assistant-e-a-100-au-spaul-nant-rennaz",
+        "it": "100-assistente-medico-presso-spaul-fondation-de-nant-rennaz",
         "en": "medecin-assistant-e-a-100-au-spaul-nant-rennaz",
-        "de": "medecin-assistant-e-a-100-au-spaul-nant-rennaz"
+        "de": "100-assistenzarzt-bei-spaul-fondation-de-nant-rennaz"
       },
       "company": "Fondation de Nant",
       "companyKey": "nant",
@@ -538,15 +607,26 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-21T12:49:36.390Z"
+      "firstSeenAt": "2026-05-21T12:49:36.390Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "medecin-assistant-e-a-100-au-spaul-nant-rennaz"
+        ],
+        "de": [
+          "medecin-assistant-e-a-100-au-spaul-nant-rennaz"
+        ]
+      },
+      "previousSlugs": [
+        "medecin-assistant-e-a-100-au-spaul-nant-rennaz"
+      ]
     },
     {
       "id": "nant-bb2fad818121",
-      "slug": "infirmier-ere-a-100-mistral-nant-vevey",
+      "slug": "100-mistral-infermiera-fondation-de-nant-vevey",
       "slugByLocale": {
         "fr": "infirmier-ere-a-100-mistral-nant-vevey",
-        "it": "infirmier-ere-a-100-mistral-nant-vevey",
-        "en": "infirmier-ere-a-100-mistral-nant-vevey",
+        "it": "100-mistral-infermiera-fondation-de-nant-vevey",
+        "en": "100-mistral-nurse-fondation-de-nant-vevey",
         "de": "infirmier-ere-a-100-mistral-nant-vevey"
       },
       "company": "Fondation de Nant",
@@ -603,16 +683,27 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-21T12:49:36.389Z"
+      "firstSeenAt": "2026-05-21T12:49:36.389Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "infirmier-ere-a-100-mistral-nant-vevey"
+        ],
+        "en": [
+          "infirmier-ere-a-100-mistral-nant-vevey"
+        ]
+      },
+      "previousSlugs": [
+        "infirmier-ere-a-100-mistral-nant-vevey"
+      ]
     },
     {
       "id": "nant-41cf90ce4beb",
-      "slug": "infirmier-ere-a-90-emir-nant-rennaz",
+      "slug": "90-infermiera-emir-fondation-de-nant-rennaz",
       "slugByLocale": {
         "fr": "infirmier-ere-a-90-emir-nant-rennaz",
-        "it": "infirmier-ere-a-90-emir-nant-rennaz",
-        "en": "infirmier-ere-a-90-emir-nant-rennaz",
-        "de": "infirmier-ere-a-90-emir-nant-rennaz"
+        "it": "90-infermiera-emir-fondation-de-nant-rennaz",
+        "en": "90-nurse-emir-fondation-de-nant-rennaz",
+        "de": "90-krankenschwester-emir-fondation-de-nant-rennaz"
       },
       "company": "Fondation de Nant",
       "companyKey": "nant",
@@ -668,7 +759,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-21T12:49:36.388Z"
+      "firstSeenAt": "2026-05-21T12:49:36.388Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "infirmier-ere-a-90-emir-nant-rennaz"
+        ],
+        "en": [
+          "infirmier-ere-a-90-emir-nant-rennaz"
+        ],
+        "de": [
+          "infirmier-ere-a-90-emir-nant-rennaz"
+        ]
+      },
+      "previousSlugs": [
+        "infirmier-ere-a-90-emir-nant-rennaz"
+      ]
     }
   ]
 }

@@ -5034,10 +5034,10 @@
     },
     {
       "id": "kispi-8a69bf6165ac",
-      "slug": "arztsekretarin-m-w-60-80-logopadie-kispi-zurich",
+      "slug": "arztsekretarin-m-w-60-80-logopala-universitats-kinderspital-zurich-zurich",
       "slugByLocale": {
         "de": "arztsekretarin-m-w-60-80-logopadie-universitats-kinderspital-zurich-zurich",
-        "it": "arztsekretarin-m-w-60-80-logopadie-kispi-zurich",
+        "it": "arztsekretarin-m-w-60-80-logopala-universitats-kinderspital-zurich-zurich",
         "en": "arztsekretarin-m-w-60-80-logopadie-kispi-zurich",
         "fr": "arztsekretarin-m-w-60-80-logopadie-kispi-zurich"
       },
@@ -5096,7 +5096,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-21T12:21:29.512Z"
+      "firstSeenAt": "2026-05-21T12:21:29.512Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "arztsekretarin-m-w-60-80-logopadie-kispi-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "arztsekretarin-m-w-60-80-logopadie-kispi-zurich"
+      ]
     },
     {
       "id": "kispi-d05672ef72b5",
