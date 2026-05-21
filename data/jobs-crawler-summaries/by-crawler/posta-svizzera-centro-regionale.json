@@ -1,16 +1,16 @@
 {
   "key": "posta-svizzera-centro-regionale",
   "label": "Post.ch",
-  "generatedAt": "2026-05-21T12:58:19.453Z",
+  "generatedAt": "2026-05-21T23:27:17.225Z",
   "total": 4,
   "newCount": 0,
-  "updatedCount": 2,
-  "removedCount": 4,
-  "unchangedCount": 2,
-  "durationMs": 19736,
-  "avgDurationMs": 19736,
+  "updatedCount": 4,
+  "removedCount": 0,
+  "unchangedCount": 0,
+  "durationMs": 15982,
+  "avgDurationMs": 15982,
   "durationHistory": [
-    19736
+    15982
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -102,187 +102,7 @@
         "translation": 16,
         "completeness": 20
       }
-    }
-  ],
-  "removedJobs": [
-    {
-      "url": "https://job.post.ch/default/job/Zustellerin-Briefe-und-Pakete/73542-de_DE",
-      "applyUrl": "https://job.post.ch/default/job/Zustellerin-Briefe-und-Pakete/73542-de_DE",
-      "title": "Zusteller:in Briefe und Pakete",
-      "company": "Die Schweizerische Post",
-      "companyKey": "posta-svizzera-centro-regionale",
-      "location": "Samedan",
-      "canton": "GR",
-      "country": "CH",
-      "slug": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-samedan",
-      "sourceLang": "de",
-      "department": "",
-      "category": "servizi-postali",
-      "datePosted": "2026-04-29",
-      "validThrough": "2026-05-20",
-      "source": "postch-careers-crawler",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "",
-      "sector": "Servizi Postali",
-      "workload": "60-80%",
-      "_targetScope": {
-        "canton": "GR",
-        "location": "Samedan"
-      },
-      "crawledAt": "",
-      "id": "posta-svizzera-centro-regionale-26e166c0a5d1",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "streetAddress": "Via la Santa 1",
-      "postalCode": "6500",
-      "addressLocality": "Samedan",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "firstSeenAt": "2026-05-13T11:42:33.116Z",
-      "needsRetranslation": true,
-      "_qualityScore": 92,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 20
-      }
     },
-    {
-      "url": "https://job.post.ch/default/job/Ticketkontrolleurin-und-Kundenberatung/73537-de_DE",
-      "applyUrl": "https://job.post.ch/default/job/Ticketkontrolleurin-und-Kundenberatung/73537-de_DE",
-      "title": "Ticketkontrolleur:in und Kundenberatung",
-      "company": "PostAuto",
-      "companyKey": "posta-svizzera-centro-regionale",
-      "location": "Chur",
-      "canton": "GR",
-      "country": "CH",
-      "slug": "ticketkontrolleur-in-e-kundenberatung-postauto-chur",
-      "sourceLang": "de",
-      "department": "",
-      "category": "servizi-postali",
-      "datePosted": "2026-04-29",
-      "validThrough": "2026-05-20",
-      "source": "postch-careers-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "",
-      "sector": "Servizi Postali",
-      "workload": "40-100%",
-      "_targetScope": {
-        "canton": "GR",
-        "location": "Chur"
-      },
-      "crawledAt": "",
-      "id": "posta-svizzera-centro-regionale-4a516de3ee04",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "streetAddress": "Via la Santa 1",
-      "postalCode": "6500",
-      "addressLocality": "Chur",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "firstSeenAt": "2026-05-13T11:42:33.116Z",
-      "needsRetranslation": true,
-      "_qualityScore": 92,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 20
-      }
-    },
-    {
-      "url": "https://job.post.ch/default/job/Ticketkontrolleurin-und-Kundenberatung/73538-de_DE",
-      "applyUrl": "https://job.post.ch/default/job/Ticketkontrolleurin-und-Kundenberatung/73538-de_DE",
-      "title": "Ticketkontrolleur:in und Kundenberatung",
-      "company": "PostAuto",
-      "companyKey": "posta-svizzera-centro-regionale",
-      "location": "Scuol",
-      "canton": "GR",
-      "country": "CH",
-      "slug": "ticketkontrolleur-in-e-kundenberatung-postauto-scuol",
-      "sourceLang": "de",
-      "department": "",
-      "category": "servizi-postali",
-      "datePosted": "2026-04-29",
-      "validThrough": "2026-05-20",
-      "source": "postch-careers-crawler",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "",
-      "sector": "Servizi Postali",
-      "workload": "50%",
-      "_targetScope": {
-        "canton": "GR",
-        "location": "Scuol"
-      },
-      "crawledAt": "",
-      "id": "posta-svizzera-centro-regionale-890e79c1b976",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "streetAddress": "Via la Santa 1",
-      "postalCode": "6500",
-      "addressLocality": "Scuol",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "firstSeenAt": "2026-05-13T11:42:33.116Z",
-      "needsRetranslation": true,
-      "_qualityScore": 92,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 20
-      }
-    },
-    {
-      "url": "https://job.post.ch/default/job/Lehre-als-Logistikerin-EFZ-Distribution-gemischte-Zustellung-%28Briefe-und-Pakete%29/73223-de_DE",
-      "applyUrl": "https://job.post.ch/default/job/Lehre-als-Logistikerin-EFZ-Distribution-gemischte-Zustellung-%28Briefe-und-Pakete%29/73223-de_DE",
-      "title": "Lehre als Logistiker:in EFZ Distribution gemischte Zustellung (Briefe und Pakete)",
-      "company": "Die Schweizerische Post",
-      "companyKey": "posta-svizzera-centro-regionale",
-      "location": "Davos Platz",
-      "canton": "GR",
-      "country": "CH",
-      "slug": "apprendistato-come-impiegata-impiegato-in-logistica-cfc-distribuzione-recapito-misto-lettere-e-pacchi-die-schweizerische-post-davos-platz",
-      "sourceLang": "de",
-      "department": "",
-      "category": "servizi-postali",
-      "datePosted": "2026-05-13",
-      "validThrough": "",
-      "source": "postch-careers-crawler",
-      "employmentType": "INTERN",
-      "experienceLevel": "",
-      "sector": "Logistica",
-      "workload": "",
-      "_targetScope": {
-        "canton": "GR",
-        "location": "Davos Platz"
-      },
-      "crawledAt": "",
-      "id": "posta-svizzera-centro-regionale-374c1ef0e3a2",
-      "salaryMin": 41600,
-      "salaryMax": 63000,
-      "currency": "CHF",
-      "streetAddress": "Via la Santa 1",
-      "postalCode": "6500",
-      "addressLocality": "Davos Platz",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "firstSeenAt": "2026-05-13T11:42:33.116Z",
-      "needsRetranslation": true,
-      "_qualityScore": 92,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 20
-      }
-    }
-  ],
-  "unchangedJobs": [
     {
       "url": "https://job.post.ch/default/job/PostAuto-Fahrerin/73636-de_DE",
       "applyUrl": "https://job.post.ch/default/job/PostAuto-Fahrerin/73636-de_DE",
@@ -372,5 +192,7 @@
         "completeness": 20
       }
     }
-  ]
+  ],
+  "removedJobs": [],
+  "unchangedJobs": []
 }
