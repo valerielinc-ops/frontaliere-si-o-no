@@ -182,7 +182,11 @@ async function main() {
   const diff = computeCrawlDiff(beforeSnapshot, afterSnapshot);
   printCrawlChangeSummary(diff, COMPANY_NAME); writeCrawlChangeSummaryToGH(diff, COMPANY_NAME);
   const _dur = getCrawlerElapsedMs();
-  const _sliceJobs = (readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS)).filter(isCompanyJob);
+  // Read from data/jobs.json (just written by mergeJobs above) — NOT via
+  // readExistingCrawlerJobs which prefers the slice and would otherwise echo
+  // back the stale committed slice, losing this run's fetches entirely.
+  const _afterMerge = fs.existsSync(DATA_JOBS) ? JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8')) : [];
+  const _sliceJobs = (Array.isArray(_afterMerge) ? _afterMerge : []).filter(isCompanyJob);
   writeJobsCrawlerSlice(COMPANY_KEY, _sliceJobs);
   writeSummaryCrawlerSlice({ key: COMPANY_KEY, label: COMPANY_NAME, generatedAt: new Date().toISOString(), total: _sliceJobs.length, newCount: diff.newJobs.length, updatedCount: diff.updatedJobs.length, removedCount: diff.removedJobs.length, unchangedCount: diff.unchangedCount, durationMs: _dur, avgDurationMs: _dur, durationHistory: [_dur], newJobs: diff.newJobs.slice(0, 30), updatedJobs: diff.updatedJobs.slice(0, 30), removedJobs: diff.removedJobs.slice(0, 30), unchangedJobs: _sliceJobs.slice(0, 30) });
   await assembleJobsDataset();

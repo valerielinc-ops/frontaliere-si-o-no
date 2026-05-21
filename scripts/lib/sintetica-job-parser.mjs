@@ -135,8 +135,10 @@ const NCORE_CLOSED_RE = /\b(Siamo spiacenti|risulta essere chiusa|non è più po
 
 // Privacy-policy modal text leaks into the body when the primary container is
 // missing — NCore renders a GDPR modal as a sibling div that the "largest div"
-// fallback would otherwise pick. Reject any candidate matching these markers.
-const PRIVACY_MODAL_RE = /Tipologie di Dati raccolti|Types of Data collected|Regolamento\s*\(UE\)\s*n\.?\s*679\/2016|Pursuant to Article 13|Art\.\s*13\b.*\bGDPR\b|\bDSGVO\b|Cookie Policy|Privacy Policy/i;
+// fallback would otherwise pick. Markers must be unambiguous (the literal
+// "Privacy Policy" string also appears as a form-checkbox label on legit job
+// pages, so it cannot be a marker on its own).
+const PRIVACY_MODAL_RE = /Tipologie di Dati raccolti|Types of Data collected|Regolamento\s*\(UE\)\s*n\.?\s*679\/2016|Pursuant to Article 13|Art\.\s*13\b.*\bGDPR\b|\bDSGVO\b/i;
 
 export function parseDetailPage(html = '') {
   if (!html) return { title: '', body: '', location: '', sourceBodyLength: 0, closed: false };
