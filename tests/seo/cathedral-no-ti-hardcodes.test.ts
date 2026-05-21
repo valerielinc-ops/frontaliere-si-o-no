@@ -72,10 +72,8 @@ const ALLOWLIST = [
   'build-plugins/jobOrphanBridgePlugin.ts:86',
   'build-plugins/jobOrphanBridgePlugin.ts:87',
   'build-plugins/jobOrphanBridgePlugin.ts:88',
-  'build-plugins/jobRecencyPagesPlugin.ts:53',
-  'build-plugins/jobRecencyPagesPlugin.ts:54',
-  'build-plugins/jobRecencyPagesPlugin.ts:55',
-  'build-plugins/jobRecencyPagesPlugin.ts:56',
+  // (jobRecencyPagesPlugin.ts: migrated to inline `cathedral-allow` markers on
+  // the 4 SECTION_BY_LOCALE entries, 2026-05-21 — drift-proof.)
   'build-plugins/jobSectorLanding.ts:103',
   'build-plugins/jobSectorLanding.ts:104',
   'build-plugins/jobSectorLanding.ts:105',

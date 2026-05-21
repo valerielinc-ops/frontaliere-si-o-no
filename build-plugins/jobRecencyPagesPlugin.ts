@@ -51,10 +51,10 @@ import { windowDaysForVariant } from './jobRecencyLanding';
 const LOCALES: ReadonlyArray<JobLandingLocale> = ['it', 'en', 'de', 'fr'];
 
 const SECTION_BY_LOCALE: Record<JobLandingLocale, string> = {
-  it: 'cerca-lavoro-ticino',
-  en: 'find-jobs-ticino',
-  de: 'jobs-im-tessin',
-  fr: 'trouver-emploi-tessin',
+  it: 'cerca-lavoro-ticino', // cathedral-allow: TI legacy section fallback (per-plugin SECTION_SLUG table)
+  en: 'find-jobs-ticino', // cathedral-allow: TI legacy section fallback (per-plugin SECTION_SLUG table)
+  de: 'jobs-im-tessin', // cathedral-allow: TI legacy section fallback (per-plugin SECTION_SLUG table)
+  fr: 'trouver-emploi-tessin', // cathedral-allow: TI legacy section fallback (per-plugin SECTION_SLUG table)
 };
 
 const LOCALE_PREFIX: Record<JobLandingLocale, string> = {
