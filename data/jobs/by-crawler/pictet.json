@@ -488,11 +488,11 @@
     },
     {
       "id": "pictet-b8a80a2ce023",
-      "slug": "hr-business-partner-pictet-london",
+      "slug": "risorse-umane-officer-pictet-group-london",
       "slugByLocale": {
-        "it": "hr-business-partner-pictet-london",
+        "it": "risorse-umane-officer-pictet-group-london",
         "en": "hr-officer-pictet-group-london",
-        "de": "hr-business-partner-pictet-london",
+        "de": "personalwesen-officer-pictet-group-london",
         "fr": "hr-business-partner-pictet-london"
       },
       "company": "Pictet Group",
@@ -539,11 +539,16 @@
           "hr-officer-pictet-london"
         ],
         "it": [
-          "hr-officer-pictet-london"
+          "hr-officer-pictet-london",
+          "hr-business-partner-pictet-london"
+        ],
+        "de": [
+          "hr-business-partner-pictet-london"
         ]
       },
       "previousSlugs": [
-        "hr-officer-pictet-london"
+        "hr-officer-pictet-london",
+        "hr-business-partner-pictet-london"
       ],
       "firstSeenAt": "2026-05-19T12:24:53.140Z",
       "salaryMin": 49500,
@@ -632,7 +637,7 @@
         "en": "chef-de-rang-fixed-term-pictet-zurich",
         "it": "chef-de-rang-fixed-term-pictet-zurich",
         "de": "chef-de-rang-fixed-term-pictet-zurich",
-        "fr": "chef-de-rang-fixed-term-pictet-zurich"
+        "fr": "chef-de-rang-terme-fixe-pictet-group-zurich"
       },
       "company": "Pictet Group",
       "companyKey": "pictet",

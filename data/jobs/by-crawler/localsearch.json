@@ -2832,12 +2832,12 @@
     },
     {
       "id": "localsearch-bfd2a8f160bb",
-      "slug": "verkauferin-verkaufer-im-aussendienst-localsearch-ch-6",
+      "slug": "venditore-venditore-nel-campo-localsearch-buchrain",
       "slugByLocale": {
         "de": "verkauferin-verkaufer-im-aussendienst-localsearch-ch",
-        "it": "verkauferin-verkaufer-im-aussendienst-localsearch-ch-6",
-        "en": "verkauferin-verkaufer-im-aussendienst-localsearch-ch-6",
-        "fr": "verkauferin-verkaufer-im-aussendienst-localsearch-ch-6"
+        "it": "venditore-venditore-nel-campo-localsearch-buchrain",
+        "en": "seller-seller-in-the-field-localsearch-buchrain",
+        "fr": "vendeur-vendeur-dans-le-champ-localsearch-buchrain"
       },
       "company": "localsearch",
       "companyKey": "localsearch",
@@ -2893,21 +2893,23 @@
       "postalCode": "6003",
       "firstSeenAt": "2026-05-21T12:36:22.620Z",
       "previousSlugs": [
-        "verkauferin-verkaufer-im-aussendienst-localsearch-ch",
-        "verkauferin-verkaufer-im-aussendienst-localsearch-ch-6",
         "venditore-esterno-localsearch-bremgarten",
+        "verkauferin-verkaufer-im-aussendienst-localsearch-ch-6",
         "field-sales-representative-localsearch-bremgarten",
         "representant-commercial-en-terrain-localsearch-bremgarten"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "venditore-esterno-localsearch-bremgarten"
+          "venditore-esterno-localsearch-bremgarten",
+          "verkauferin-verkaufer-im-aussendienst-localsearch-ch-6"
         ],
         "en": [
-          "field-sales-representative-localsearch-bremgarten"
+          "field-sales-representative-localsearch-bremgarten",
+          "verkauferin-verkaufer-im-aussendienst-localsearch-ch-6"
         ],
         "fr": [
-          "representant-commercial-en-terrain-localsearch-bremgarten"
+          "representant-commercial-en-terrain-localsearch-bremgarten",
+          "verkauferin-verkaufer-im-aussendienst-localsearch-ch-6"
         ]
       }
     }

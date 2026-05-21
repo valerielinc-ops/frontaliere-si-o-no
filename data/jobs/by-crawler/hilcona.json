@@ -76,12 +76,12 @@
     },
     {
       "id": "hilcona-f0d6476d0e94",
-      "slug": "collaboratore-trice-qulitaetskontrolle-m-w-d-hugli-nahrmittel-ag-steinach",
+      "slug": "staff-qulitaetcontrol-m-w-d-hugli-nahrmittel-ag-steinach",
       "slugByLocale": {
         "de": "mitarbeiter-qulitaetskontrolle-m-w-d-hugli-nahrmittel-ag-steinach",
-        "it": "collaboratore-trice-qulitaetskontrolle-m-w-d-hugli-nahrmittel-ag-steinach",
+        "it": "staff-qulitaetcontrol-m-w-d-hugli-nahrmittel-ag-steinach",
         "en": "mitarbeiter-qulitaetskontrolle-m-w-d-hugli-nahrmittel-ag-steinach",
-        "fr": "mitarbeiter-qulitaetskontrolle-m-w-d-hugli-nahrmittel-ag-steinach"
+        "fr": "personnel-qulitaetcontrol-m-w-d-hugli-nahrmittel-ag-steinach"
       },
       "company": "Hügli Nährmittel AG",
       "companyKey": "hilcona",
@@ -120,14 +120,20 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-qulitaetskontrolle-m-w-d-hilcona-steinach"
+          "mitarbeiter-qulitaetskontrolle-m-w-d-hilcona-steinach",
+          "collaboratore-trice-qulitaetskontrolle-m-w-d-hugli-nahrmittel-ag-steinach"
         ],
         "de": [
           "mitarbeiter-qulitaetskontrolle-m-w-d-hilcona-steinach"
+        ],
+        "fr": [
+          "mitarbeiter-qulitaetskontrolle-m-w-d-hugli-nahrmittel-ag-steinach"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-qulitaetskontrolle-m-w-d-hilcona-steinach"
+        "mitarbeiter-qulitaetskontrolle-m-w-d-hilcona-steinach",
+        "collaboratore-trice-qulitaetskontrolle-m-w-d-hugli-nahrmittel-ag-steinach",
+        "mitarbeiter-qulitaetskontrolle-m-w-d-hugli-nahrmittel-ag-steinach"
       ],
       "salaryMin": 55500,
       "salaryMax": 75000,
@@ -492,12 +498,12 @@
     },
     {
       "id": "hilcona-3fb305c8651c",
-      "slug": "schichtleiter-produktion-m-w-d-eisberg-osterreich-gmbh-marchtrenk",
+      "slug": "capo-turno-produktion-m-w-d-eisberg-osterreich-gmbh-marchtrenk",
       "slugByLocale": {
         "de": "schichtleiter-produktion-m-w-d-eisberg-osterreich-gmbh-marchtrenk",
-        "it": "schichtleiter-produktion-m-w-d-eisberg-osterreich-gmbh-marchtrenk",
-        "en": "schichtleiter-produktion-m-w-d-eisberg-osterreich-gmbh-marchtrenk",
-        "fr": "schichtleiter-produktion-m-w-d-eisberg-osterreich-gmbh-marchtrenk"
+        "it": "capo-turno-produktion-m-w-d-eisberg-osterreich-gmbh-marchtrenk",
+        "en": "shift-leader-produktion-m-w-d-eisberg-osterreich-gmbh-marchtrenk",
+        "fr": "chef-d-equipe-produktion-m-w-d-eisberg-osterreich-gmbh-marchtrenk"
       },
       "company": "Eisberg Österreich GmbH",
       "companyKey": "hilcona",
@@ -537,14 +543,22 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "schichtleiter-produktion-m-w-d-hilcona-marchtrenk"
+          "schichtleiter-produktion-m-w-d-hilcona-marchtrenk",
+          "schichtleiter-produktion-m-w-d-eisberg-osterreich-gmbh-marchtrenk"
         ],
         "de": [
           "schichtleiter-produktion-m-w-d-hilcona-marchtrenk"
+        ],
+        "en": [
+          "schichtleiter-produktion-m-w-d-eisberg-osterreich-gmbh-marchtrenk"
+        ],
+        "fr": [
+          "schichtleiter-produktion-m-w-d-eisberg-osterreich-gmbh-marchtrenk"
         ]
       },
       "previousSlugs": [
-        "schichtleiter-produktion-m-w-d-hilcona-marchtrenk"
+        "schichtleiter-produktion-m-w-d-hilcona-marchtrenk",
+        "schichtleiter-produktion-m-w-d-eisberg-osterreich-gmbh-marchtrenk"
       ],
       "salaryMin": 55500,
       "salaryMax": 75000,
@@ -4758,10 +4772,10 @@
     },
     {
       "id": "hilcona-9ddf5cc57bc3",
-      "slug": "sap-sd-inhouse-consultant-m-w-d-hilcona-undefined",
+      "slug": "sap-sd-inhouse-consulente-m-w-d-hugli-nahrungsmittel-gmbh-radolfzell",
       "slugByLocale": {
         "de": "sap-sd-inhouse-consultant-m-w-d-hilcona-radolfzell",
-        "it": "sap-sd-inhouse-consultant-m-w-d-hilcona-undefined",
+        "it": "sap-sd-inhouse-consulente-m-w-d-hugli-nahrungsmittel-gmbh-radolfzell",
         "en": "sap-sd-inhouse-consultant-m-w-d-hugli-nahrungsmittel-gmbh-radolfzell",
         "fr": "sap-sd-inhouse-consultant-m-w-d-hilcona-undefined"
       },
@@ -4804,10 +4818,14 @@
       "previousSlugsByLocale": {
         "en": [
           "sap-sd-inhouse-consultant-m-w-d-hilcona-ag-bell-food-group-landquart"
+        ],
+        "it": [
+          "sap-sd-inhouse-consultant-m-w-d-hilcona-undefined"
         ]
       },
       "previousSlugs": [
-        "sap-sd-inhouse-consultant-m-w-d-hilcona-ag-bell-food-group-landquart"
+        "sap-sd-inhouse-consultant-m-w-d-hilcona-ag-bell-food-group-landquart",
+        "sap-sd-inhouse-consultant-m-w-d-hilcona-undefined"
       ],
       "salaryMin": 55500,
       "salaryMax": 75000,
@@ -5058,12 +5076,12 @@
     },
     {
       "id": "hilcona-3b4247b73806",
-      "slug": "collaboratore-trice-mitarbeiterin-sdm-projekte-e-support-bell-schweiz-ag-basel",
+      "slug": "progetti-e-supporto-dei-dipendenti-bell-schweiz-ag-basel",
       "slugByLocale": {
         "de": "mitarbeiter-mitarbeiterin-sdm-projekte-und-support-bell-schweiz-ag-basel",
-        "it": "collaboratore-trice-mitarbeiterin-sdm-projekte-e-support-bell-schweiz-ag-basel",
-        "en": "mitarbeiter-mitarbeiterin-sdm-projekte-und-support-bell-schweiz-ag-basel",
-        "fr": "mitarbeiter-mitarbeiterin-sdm-projekte-und-support-bell-schweiz-ag-basel"
+        "it": "progetti-e-supporto-dei-dipendenti-bell-schweiz-ag-basel",
+        "en": "employee-sdm-projects-and-support-bell-schweiz-ag-basel",
+        "fr": "projets-de-sdm-des-employes-et-soutien-bell-schweiz-ag-basel"
       },
       "company": "Bell Schweiz AG",
       "companyKey": "hilcona",
@@ -5103,10 +5121,21 @@
       "previousSlugsByLocale": {
         "de": [
           "mitarbeiter-mitarbeiterin-sdm-projekte-und-support-hilcona-basel"
+        ],
+        "it": [
+          "collaboratore-trice-mitarbeiterin-sdm-projekte-e-support-bell-schweiz-ag-basel"
+        ],
+        "en": [
+          "mitarbeiter-mitarbeiterin-sdm-projekte-und-support-bell-schweiz-ag-basel"
+        ],
+        "fr": [
+          "mitarbeiter-mitarbeiterin-sdm-projekte-und-support-bell-schweiz-ag-basel"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-mitarbeiterin-sdm-projekte-und-support-hilcona-basel"
+        "mitarbeiter-mitarbeiterin-sdm-projekte-und-support-hilcona-basel",
+        "collaboratore-trice-mitarbeiterin-sdm-projekte-e-support-bell-schweiz-ag-basel",
+        "mitarbeiter-mitarbeiterin-sdm-projekte-und-support-bell-schweiz-ag-basel"
       ],
       "salaryMin": 55500,
       "salaryMax": 75000,

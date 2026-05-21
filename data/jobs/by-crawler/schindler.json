@@ -242,7 +242,7 @@
       "slugByLocale": {
         "de": "manager-fur-cookie-einwilligungen-schindler-bern",
         "it": "gestione-delle-autorizzazioni-dei-cookie-schindler-bern",
-        "en": "manager-fur-cookie-einwilligungen-schindler-bern",
+        "en": "manager-for-cookie-permissions-schindler-st-gallen",
         "fr": "gestionnaire-pour-les-autorisations-de-cookies-schindler-bern"
       },
       "company": "Schindler",
@@ -291,7 +291,8 @@
           "manager-fur-cookie-einwilligungen-schindler-st-gallen"
         ],
         "en": [
-          "manager-fur-cookie-einwilligungen-schindler-st-gallen"
+          "manager-fur-cookie-einwilligungen-schindler-st-gallen",
+          "manager-fur-cookie-einwilligungen-schindler-bern"
         ],
         "de": [
           "manager-fur-cookie-einwilligungen-schindler-st-gallen"
@@ -304,8 +305,7 @@
         "manager-fur-cookie-einwilligungen-schindler-st-gallen",
         "manager-fur-cookie-einwilligungen-schindler-bern",
         "manager-per-cookie-einwilligungen-schindler-bern",
-        "manager-per-cookie-einwilligungen-schindler-st-gallen-oi7jl7",
-        "manager-per-cookie-einwilligungen-schindler-st-gallen"
+        "manager-per-cookie-einwilligungen-schindler-st-gallen-oi7jl7"
       ],
       "salaryMin": 68000,
       "salaryMax": 103000,
@@ -800,10 +800,10 @@
     },
     {
       "id": "schindler-cfa7ef0ace82",
-      "slug": "servicetechniker-in-m-w-d-region-linkes-zurichseeufer-80-100-schindler-zurich",
+      "slug": "servicetechniker-in-m-w-d-regione-sinistra-zurichseeufer-80-100-schindler-zurich",
       "slugByLocale": {
         "de": "servicetechniker-in-m-w-d-region-linkes-zurichseeufer-80-100-schindler-zurich",
-        "it": "servicetechniker-in-m-w-d-region-linkes-zurichseeufer-80-100-schindler-zurich",
+        "it": "servicetechniker-in-m-w-d-regione-sinistra-zurichseeufer-80-100-schindler-zurich",
         "en": "servicetechniker-in-m-w-d-region-linkes-zurichseeufer-80-100-schindler-zurich",
         "fr": "servicetechniker-in-m-w-d-region-linkes-zurichseeufer-80-100-schindler-zurich"
       },
@@ -862,7 +862,15 @@
       },
       "streetAddress": "Via Industria 11",
       "postalCode": "6934",
-      "firstSeenAt": "2026-05-21T13:13:26.872Z"
+      "firstSeenAt": "2026-05-21T13:13:26.872Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "servicetechniker-in-m-w-d-region-linkes-zurichseeufer-80-100-schindler-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "servicetechniker-in-m-w-d-region-linkes-zurichseeufer-80-100-schindler-zurich"
+      ]
     },
     {
       "id": "schindler-edab4d4f6924",
@@ -1362,16 +1370,14 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "manager-fur-cookie-einwilligungen-schindler-ebikon",
-          "manager-per-cookie-einwilligungen-schindler-ebikon"
+          "manager-fur-cookie-einwilligungen-schindler-ebikon"
         ],
         "fr": [
           "manager-fur-cookie-einwilligungen-schindler-ebikon"
         ]
       },
       "previousSlugs": [
-        "manager-fur-cookie-einwilligungen-schindler-ebikon",
-        "manager-per-cookie-einwilligungen-schindler-ebikon"
+        "manager-fur-cookie-einwilligungen-schindler-ebikon"
       ],
       "salaryMin": 68000,
       "salaryMax": 103000,
@@ -2018,12 +2024,12 @@
     },
     {
       "id": "schindler-75a56cb52f43",
-      "slug": "manager-per-cookie-einwilligungen-schindler-winterthur",
+      "slug": "gestione-delle-autorizzazioni-dei-cookie-schindler-winterthur",
       "slugByLocale": {
         "de": "manager-fur-cookie-einwilligungen-schindler-winterthur",
-        "it": "manager-per-cookie-einwilligungen-schindler-winterthur",
+        "it": "gestione-delle-autorizzazioni-dei-cookie-schindler-winterthur",
         "en": "manager-fur-cookie-einwilligungen-schindler-winterthur",
-        "fr": "manager-fur-cookie-einwilligungen-schindler-winterthur"
+        "fr": "gestionnaire-pour-les-autorisations-de-cookies-schindler-winterthur"
       },
       "company": "Schindler",
       "companyKey": "schindler",
@@ -2080,7 +2086,19 @@
       },
       "streetAddress": "Via Industria 11",
       "postalCode": "6934",
-      "firstSeenAt": "2026-05-21T13:13:12.343Z"
+      "firstSeenAt": "2026-05-21T13:13:12.343Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "manager-per-cookie-einwilligungen-schindler-winterthur"
+        ],
+        "fr": [
+          "manager-fur-cookie-einwilligungen-schindler-winterthur"
+        ]
+      },
+      "previousSlugs": [
+        "manager-per-cookie-einwilligungen-schindler-winterthur",
+        "manager-fur-cookie-einwilligungen-schindler-winterthur"
+      ]
     },
     {
       "id": "schindler-7beb5802b366",
@@ -2360,8 +2378,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "manager-fur-cookie-einwilligungen-schindler-oberentfelden",
-        "manager-per-cookie-einwilligungen-schindler-oberentfelden-2",
-        "manager-per-cookie-einwilligungen-schindler-oberentfelden"
+        "manager-per-cookie-einwilligungen-schindler-oberentfelden-2"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2907,11 +2924,6 @@
       },
       "streetAddress": "Via Industria 11",
       "postalCode": "6934",
-      "previousSlugsByLocale": {
-        "fr": [
-          "hydraulics-technicien-m-w-d-80-100-schindler-st-gallen"
-        ]
-      },
       "retranslationAttempts": 1
     },
     {
@@ -3115,7 +3127,6 @@
       "previousSlugs": [
         "manager-fur-cookie-einwilligungen-schindler-bern",
         "manager-per-cookie-einwilligungen-schindler-bern-2",
-        "manager-per-cookie-einwilligungen-schindler-bern",
         "manager-per-cookie-einwilligungen-schindler-st-gallen-oi7jl7",
         "manager-fur-cookie-einwilligungen-schindler-st-gallen",
         "manager-per-cookie-einwilligungen-schindler-st-gallen"
@@ -3393,7 +3404,7 @@
       "id": "schindler-9f5b8c1ba816",
       "slug": "projektleiter-m-w-d-schindler-bern",
       "slugByLocale": {
-        "it": "tecnico-ascensorista-regione-berna-m-f-d-80-100-schindler-bern",
+        "it": "projektleiter-m-w-d-schindler-bern",
         "en": "elevator-technician-region-bern-m-f-d-80-100-schindler-bern",
         "de": "aufzugsmonteur-in-region-berner-oberland-m-w-d-80-100-schindler-bern",
         "fr": "technicien-ascensoriste-region-berne-h-f-d-80-100-schindler-bern"
@@ -3440,13 +3451,14 @@
       "previousSlugs": [
         "aufzugsmonteur-in-region-berner-oberland-m-w-d-80-100-schindler-bern",
         "projektleiter-m-w-d-schindler-bern-7ab342",
-        "aufzugsmonteur-in-region-bern-m-w-d-80-100-schindler-bern",
-        "projektleiter-m-w-d-schindler-bern"
+        "tecnico-ascensorista-regione-berna-m-f-d-80-100-schindler-bern",
+        "aufzugsmonteur-in-region-bern-m-w-d-80-100-schindler-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "aufzugsmonteur-in-region-berner-oberland-m-w-d-80-100-schindler-bern",
-          "projektleiter-m-w-d-schindler-bern-7ab342"
+          "projektleiter-m-w-d-schindler-bern-7ab342",
+          "tecnico-ascensorista-regione-berna-m-f-d-80-100-schindler-bern"
         ],
         "en": [
           "aufzugsmonteur-in-region-berner-oberland-m-w-d-80-100-schindler-bern"
@@ -5956,8 +5968,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "venditore-nuova-regione-di-installazione-svizzera-centrale-m-w-d-80-100-schindler-wettswil",
-          "salesperson-new-installation-region-zentralschweiz-m-w-d-80-100-schindler-wettswil"
+          "venditore-nuova-regione-di-installazione-svizzera-centrale-m-w-d-80-100-schindler-wettswil"
         ]
       },
       "needsRetranslation": true,

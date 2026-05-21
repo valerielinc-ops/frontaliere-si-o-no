@@ -6,10 +6,10 @@
       "id": "bachem-a5d7a03e9e13",
       "slug": "hse-manager-bsf-site-development-100-sisslerfeld-f-m-d-bachem-stein-ag",
       "slugByLocale": {
-        "de": "hse-manager-bsf-site-development-100-sisslerfeld-f-m-d-bachem-stein-ag",
+        "de": "hse-leiter-in-standortentwicklung-bachem-stein-100-vollzeit-bachem-ag-stein-ag",
         "it": "hse-manager-bsf-site-development-100-sisslerfeld-f-m-d-bachem-stein-ag",
         "en": "hse-manager-bsf-site-development-100-sisslerfeld-f-m-d-bachem-stein-ag",
-        "fr": "hse-manager-bsf-site-development-100-sisslerfeld-f-m-d-bachem-stein-ag"
+        "fr": "responsable-hse-developpement-du-site-bachem-stein-100-temps-plein-bachem-ag-stein-ag"
       },
       "company": "Bachem AG",
       "companyKey": "bachem",
@@ -170,12 +170,12 @@
     },
     {
       "id": "bachem-fe1267f7ed38",
-      "slug": "storage-technician-logistiker-in-cfc-inbound-technical-m-w-d-100-bachem-ag-bubendorf",
+      "slug": "tecnico-technica-logistico-inbound-tecnico-m-f-d-100-bachem-ag-bubendorf",
       "slugByLocale": {
         "de": "storage-technician-logistiker-in-efz-inbound-technical-w-m-d-100-bachem-bubendorf",
-        "it": "storage-technician-logistiker-in-cfc-inbound-technical-m-w-d-100-bachem-ag-bubendorf",
+        "it": "tecnico-technica-logistico-inbound-tecnico-m-f-d-100-bachem-ag-bubendorf",
         "en": "storage-technician-logistiker-in-efz-inbound-technical-w-m-d-100-bachem-bubendorf",
-        "fr": "storage-technician-logistiker-in-efz-inbound-technical-w-m-d-100-bachem-bubendorf"
+        "fr": "technicien-technicienne-logistique-inbound-technique-h-f-d-cdi-bachem-ag-bubendorf"
       },
       "company": "Bachem AG",
       "companyKey": "bachem",
@@ -220,11 +220,16 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "storage-technician-logistiker-in-efz-inbound-technical-w-m-d-100-bachem-bubendorf",
+          "storage-technician-logistiker-in-cfc-inbound-technical-m-w-d-100-bachem-ag-bubendorf"
+        ],
+        "fr": [
           "storage-technician-logistiker-in-efz-inbound-technical-w-m-d-100-bachem-bubendorf"
         ]
       },
       "previousSlugs": [
-        "storage-technician-logistiker-in-efz-inbound-technical-w-m-d-100-bachem-bubendorf"
+        "storage-technician-logistiker-in-efz-inbound-technical-w-m-d-100-bachem-bubendorf",
+        "storage-technician-logistiker-in-cfc-inbound-technical-m-w-d-100-bachem-ag-bubendorf"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -242,12 +247,12 @@
     },
     {
       "id": "bachem-ce0945493789",
-      "slug": "storage-technician-bereich-tankfarm-w-m-d-100-bachem-bubendorf",
+      "slug": "area-tecnica-di-stoccaggio-tankfarm-w-m-d-100-bachem-ag-bubendorf",
       "slugByLocale": {
         "de": "storage-technician-bereich-tankfarm-w-m-d-100-bachem-bubendorf",
-        "it": "storage-technician-bereich-tankfarm-w-m-d-100-bachem-bubendorf",
+        "it": "area-tecnica-di-stoccaggio-tankfarm-w-m-d-100-bachem-ag-bubendorf",
         "en": "storage-technician-bereich-tankfarm-w-m-d-100-bachem-bubendorf",
-        "fr": "storage-technician-bereich-tankfarm-w-m-d-100-bachem-bubendorf"
+        "fr": "zone-de-stockage-technicien-ferme-citerne-m-j-100-bachem-ag-bubendorf"
       },
       "company": "Bachem AG",
       "companyKey": "bachem",
@@ -302,7 +307,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-21T11:13:40.753Z"
+      "firstSeenAt": "2026-05-21T11:13:40.753Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "storage-technician-bereich-tankfarm-w-m-d-100-bachem-bubendorf"
+        ],
+        "fr": [
+          "storage-technician-bereich-tankfarm-w-m-d-100-bachem-bubendorf"
+        ]
+      },
+      "previousSlugs": [
+        "storage-technician-bereich-tankfarm-w-m-d-100-bachem-bubendorf"
+      ]
     },
     {
       "id": "bachem-3e39dc9fc519",
@@ -415,7 +431,7 @@
       "id": "bachem-05358fbc887c",
       "slug": "partner-commerciale-di-comunicazione-f-m-g-80-100-bachem-ag-bubendorf",
       "slugByLocale": {
-        "de": "communications-business-partner-f-m-d-80-100-bachem-bubendorf",
+        "de": "kommunikationspartner-w-m-d-80-100-bachem-ag-bubendorf",
         "it": "partner-commerciale-di-comunicazione-f-m-g-80-100-bachem-ag-bubendorf",
         "en": "communications-business-partner-f-m-d-80-100-bachem-bubendorf",
         "fr": "communications-business-partner-f-m-d-80-100-bachem-bubendorf"
@@ -476,6 +492,9 @@
       "firstSeenAt": "2026-05-21T11:13:39.779Z",
       "previousSlugsByLocale": {
         "it": [
+          "communications-business-partner-f-m-d-80-100-bachem-bubendorf"
+        ],
+        "de": [
           "communications-business-partner-f-m-d-80-100-bachem-bubendorf"
         ]
       },
@@ -5288,7 +5307,7 @@
       "slugByLocale": {
         "it": "leader-del-gruppo-qa-project-management-100-f-m-d-bachem-ag-bubendorf",
         "en": "group-leader-qa-project-management-100-f-m-d-bachem-bubendorf",
-        "de": "group-leader-qa-project-management-100-f-m-d-bachem-bubendorf",
+        "de": "gruppenleiter-qa-projektmanagement-100-w-m-d-bachem-ag-bubendorf",
         "fr": "aq-du-chef-de-groupe-gestion-de-projet-100-f-m-j-bachem-ag-bubendorf"
       },
       "company": "Bachem AG",
@@ -5376,7 +5395,8 @@
           "responsabile-di-gruppo-qa-gestione-progetti-100-bachem-ag-bubendorf"
         ],
         "de": [
-          "gruppenleiter-qa-projektmanagement-100-bachem-ag-bubendorf"
+          "gruppenleiter-qa-projektmanagement-100-bachem-ag-bubendorf",
+          "group-leader-qa-project-management-100-f-m-d-bachem-bubendorf"
         ],
         "fr": [
           "chef-de-groupe-qa-gestion-de-projet-100-bachem-ag-bubendorf",
