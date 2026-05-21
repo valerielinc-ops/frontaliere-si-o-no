@@ -1,99 +1,19 @@
 {
   "key": "lidl-svizzera",
   "label": "Lidl",
-  "generatedAt": "2026-05-19T22:49:47.979Z",
+  "generatedAt": "2026-05-21T12:34:57.296Z",
   "total": 11,
   "newCount": 0,
-  "updatedCount": 11,
+  "updatedCount": 9,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 10513,
-  "avgDurationMs": 10513,
+  "unchangedCount": 2,
+  "durationMs": 18104,
+  "avgDurationMs": 18104,
   "durationHistory": [
-    10513
+    18104
   ],
   "newJobs": [],
   "updatedJobs": [
-    {
-      "id": "company-csxpwn",
-      "slug": "ch-tuttofare-vendita-m-w-d-20-40-lidl-svizzera-lugano",
-      "company": "Lidl Svizzera",
-      "title": "CH_ Tuttofare vendita (m/f/d) 20-40%",
-      "location": "Lugano",
-      "canton": "ti",
-      "category": "sales",
-      "contract": "part-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-19",
-      "url": "https://team.lidl.ch/it/jobs/ch-tuttofare-vendita-m-f-d-20-40-lugano-691648",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Lugano",
-        "canton": "TI"
-      },
-      "companyKey": "lidl-svizzera",
-      "companyDomain": "lidl.ch",
-      "crawledAt": "2026-05-19T12:08:00.396Z",
-      "firstSeenAt": "2026-05-19T12:08:00.396Z",
-      "needsRetranslation": true,
-      "country": "CH",
-      "sourceLang": "it",
-      "streetAddress": "Via Industria 7",
-      "postalCode": "6593",
-      "addressLocality": "Lugano",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 25,
-        "translation": 15,
-        "completeness": 25
-      }
-    },
-    {
-      "id": "company-xsgkjj",
-      "slug": "361-venditore-venditrice-m-f-d-20-40-lidl-svizzera-riazzino-xsgkjj",
-      "company": "Lidl Svizzera",
-      "title": "361_Venditore / Venditrice (m/f/d) 20-40%",
-      "location": "Riazzino",
-      "canton": "ti",
-      "category": "sales",
-      "contract": "part-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-18",
-      "url": "https://team.lidl.ch/it/jobs/361-venditore-venditrice-m-f-d-20-40-riazzino-674241",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Riazzino",
-        "canton": "TI"
-      },
-      "companyKey": "lidl-svizzera",
-      "companyDomain": "lidl.ch",
-      "crawledAt": "2026-05-18T12:44:46.790Z",
-      "firstSeenAt": "2026-05-18T12:44:46.790Z",
-      "country": "CH",
-      "sourceLang": "it",
-      "streetAddress": "Via Industria 7",
-      "postalCode": "6593",
-      "addressLocality": "Riazzino",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
-      "_qualityScore": 100,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 25,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
     {
       "id": "company-alqha9",
       "slug": "verkaufer-verkauferin-m-w-d-20-40-lidl-svizzera-st-moritz-alqha9",
@@ -126,12 +46,12 @@
       "addressRegion": "GR",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "retranslationAttempts": 1,
-      "_qualityScore": 81,
+      "retranslationAttempts": 2,
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 9,
+        "translation": 15,
         "completeness": 25
       }
     },
@@ -167,12 +87,12 @@
       "addressRegion": "GR",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "retranslationAttempts": 1,
-      "_qualityScore": 81,
+      "retranslationAttempts": 2,
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 9,
+        "translation": 15,
         "completeness": 25
       }
     },
@@ -461,5 +381,90 @@
     }
   ],
   "removedJobs": [],
-  "unchangedJobs": []
+  "unchangedJobs": [
+    {
+      "id": "company-csxpwn",
+      "slug": "ch-tuttofare-vendita-m-w-d-20-40-lidl-svizzera-lugano-csxpwn",
+      "company": "Lidl Svizzera",
+      "title": "CH_ Tuttofare vendita (m/f/d) 20-40%",
+      "location": "Lugano",
+      "canton": "ti",
+      "category": "sales",
+      "contract": "part-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-19",
+      "url": "https://team.lidl.ch/it/jobs/ch-tuttofare-vendita-m-f-d-20-40-lugano-691648",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Lugano",
+        "canton": "TI"
+      },
+      "companyKey": "lidl-svizzera",
+      "companyDomain": "lidl.ch",
+      "crawledAt": "2026-05-19T12:08:00.396Z",
+      "firstSeenAt": "2026-05-19T12:08:00.396Z",
+      "country": "CH",
+      "sourceLang": "it",
+      "streetAddress": "Via Industria 7",
+      "postalCode": "6593",
+      "addressLocality": "Lugano",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "salaryMin": 59000,
+      "salaryMax": 90500,
+      "needsRetranslation": true,
+      "_qualityScore": 100,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
+        "translation": 25,
+        "completeness": 25
+      }
+    },
+    {
+      "id": "company-xsgkjj",
+      "slug": "361-venditore-venditrice-m-f-d-20-40-lidl-svizzera-riazzino-xsgkjj",
+      "company": "Lidl Svizzera",
+      "title": "361_Venditore / Venditrice (m/f/d) 20-40%",
+      "location": "Riazzino",
+      "canton": "ti",
+      "category": "sales",
+      "contract": "part-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-18",
+      "url": "https://team.lidl.ch/it/jobs/361-venditore-venditrice-m-f-d-20-40-riazzino-674241",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Riazzino",
+        "canton": "TI"
+      },
+      "companyKey": "lidl-svizzera",
+      "companyDomain": "lidl.ch",
+      "crawledAt": "2026-05-18T12:44:46.790Z",
+      "firstSeenAt": "2026-05-18T12:44:46.790Z",
+      "country": "CH",
+      "sourceLang": "it",
+      "streetAddress": "Via Industria 7",
+      "postalCode": "6593",
+      "addressLocality": "Riazzino",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "salaryMin": 59000,
+      "salaryMax": 90500,
+      "needsRetranslation": true,
+      "_qualityScore": 100,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
+        "translation": 25,
+        "completeness": 25
+      }
+    }
+  ]
 }
