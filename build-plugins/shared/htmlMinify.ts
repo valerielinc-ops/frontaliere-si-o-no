@@ -24,13 +24,13 @@
 //      `<a>foo</a>bar`).
 //   4. Strip leading whitespace at the start of each line and trailing
 //      whitespace before `\n`. Output uses LF endings.
-//   5. Drop optional attribute quotes per the HTML5 spec — `attr="val"`
-//      → `attr=val` when `val` contains no whitespace/quotes/=/</>/backtick
-//      AND doesn't end in `/` (would collide with `/>` self-close marker).
-//      Added 2026-05-21 to bake in the 91% of dist-shrink savings at
-//      build time instead of at post-build (post-deploy run #26250403558
-//      attributed 91.2% of all dist-shrink saving to removeAttributeQuotes).
-//   6. Restore masked blocks verbatim.
+//   5. Restore masked blocks verbatim.
+//
+// Reverted 2026-05-22: PR #478 added attribute-quote removal as Step 5
+// here. ~14 dist-walking audits had quote-strict regex baselines; the
+// upstream change broke validate-dist with 438k+ false-positive
+// regressions in run #26255102850. See the ATTR_UNQUOTE_RX comment
+// further down for the re-enable checklist.
 //
 // Output is DOM-equivalent + content-equivalent to the input. The
 // text-html-ratio gate IMPROVES (HTML byte count drops by ~9-10 %, text
@@ -79,27 +79,22 @@ const NL_INDENT_RX = /\n[ \t]+/g;        // leading whitespace per line
 const TRAILING_WS_RX = /[ \t]+\n/g;      // trailing whitespace per line
 const CRLF_RX = /\r\n/g;                 // normalize CRLF → LF
 
-// Step 5: HTML5 unquoted attribute eligibility. The HTML5 spec says
-// `attr="value"` may be written as `attr=value` IFF the value contains
-// none of: whitespace, `"`, `'`, `=`, `<`, `>`, backtick. We also reject
-// values ending in `/` so `<link href="https://x/">` doesn't become
-// `<link href=https://x/>` which the parser splits at the `/` into the
-// void-element self-close marker (the actual breakage was caught when
-// PR #473 first enabled removeAttributeQuotes at the dist layer — see
-// tests/seo/dist-shrink.test.ts "canonical/hreflang/robots regexes").
+// Step 5 (REMOVED 2026-05-22) — was: HTML5 unquoted-attribute eligibility.
+// PR #478 added an attribute-quote-removal step here. While correct per
+// HTML5 spec, ~14 dist-walking audits (footer-root-presence,
+// spa-bundle-injection, h1-title-duplicates, sitemap-canonicals,
+// title-length, salary-landing-template, content-duplicates,
+// no-literal-markdown, …) carry quote-strict regexes baked into their
+// baseline snapshots. Removing quotes upstream caused 438k+ false-
+// positive audit regressions in run #26255102850.
 //
-// `\b` on the leading boundary keeps us off attribute-name suffixes —
-// e.g. `data-id="foo"` ATTR matches `data-id`, not `id`. The pre-attr
-// char is captured (`\s` typically — the space between `<tag` and
-// `attr=`) so we can write it back unchanged.
-//
-// Attribute name pattern matches names with `-`, `_`, `:` (latter for
-// xlink:href / xml:lang etc.). Anything starting with a digit is
-// rejected (HTML5 disallows). The opening `<` of a tag is matched by
-// the `(?<=<[^<>]*?)` lookbehind to ensure we only rewrite attribute
-// quotes INSIDE a tag, never content text that looks like `="value"`.
-const ATTR_UNQUOTE_RX =
-  /(?<=<[a-zA-Z][^<>]*?\s)([a-zA-Z][a-zA-Z0-9:_-]*)="([^"'\s=<>`]+)"/g;
+// Re-enable order when picking this up again:
+//   1. Migrate every audit in scripts/audit-*.mjs + scripts/lib/audit-*.mjs
+//      to quote-flex regexes (the canonical pattern lives in
+//      tests/seo/dist-shrink.test.ts "canonical/hreflang/robots regexes").
+//   2. Re-run validate-dist on a non-baseline deploy to confirm zero
+//      regression counts attributable to quote removal.
+//   3. Re-add Step 5 + ATTR_UNQUOTE_RX + the per-tag call below.
 
 /**
  * Minify HTML produced by buildSimplePage / buildSeoPageHtml.
@@ -163,14 +158,8 @@ export function minifyHtml(html: string): string {
     masked = masked.replace(BLOCK_GAP_RX, '$1$2');
   } while (masked !== prev);
 
-  // --- Step 5: drop optional attribute quotes (HTML5 spec — see
-  // ATTR_UNQUOTE_RX comment above). Values ending in `/` are explicitly
-  // preserved with quotes because `attr=value/` clashes with the void-
-  // element self-close marker `/>`.
-  masked = masked.replace(ATTR_UNQUOTE_RX, (m, attr, val) => {
-    if (val.endsWith('/')) return m;
-    return `${attr}=${val}`;
-  });
+  // --- Step 5 (REMOVED 2026-05-22) — was attribute-quote removal.
+  // See ATTR_UNQUOTE_RX comment above for the re-enable checklist.
 
   // --- Step 6: restore masked blocks.
   if (safe.length > 0) {

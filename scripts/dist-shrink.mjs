@@ -97,15 +97,25 @@ const RATIO_MIN_BYTES = Number(args.get('ratio-min-bytes') || 5 * 1024);
 //   - minifyCSS                : almost no inline CSS in our output (one
 //                                 sample saved 12 B total → not worth the
 //                                 CSS-AST parsing cost across 841k files)
-// Keeping these enabled costs ~50% of the per-file parse time for zero
-// bytes saved. They can be re-enabled if dist-shrink's `Per-rule
-// contribution` block starts attributing non-zero bytes to them again.
+//
+// Disabled 2026-05-22 due to audit incompatibility:
+//   - removeAttributeQuotes    : ~14 dist-walking audits carry quote-strict
+//                                 regexes baked into their baseline snapshots
+//                                 (footer-root-presence, spa-bundle-injection,
+//                                 h1-title-duplicates, sitemap-canonicals,
+//                                 title-length, salary-landing-template,
+//                                 content-duplicates, no-literal-markdown, …).
+//                                 Run #26255102850 surfaced 438k+ false-
+//                                 positive regressions. Re-enable once those
+//                                 audits migrate to the quote-flex pattern
+//                                 already used in tests/seo/dist-shrink.test.ts
+//                                 ("canonical/hreflang/robots regexes").
 const MINIFY_OPTS = {
   collapseWhitespace: true,
   conservativeCollapse: true,
   collapseInlineTagWhitespace: false,
   removeComments: false,
-  removeAttributeQuotes: true,           // 91.2% of measured saving — the lever
+  removeAttributeQuotes: false,          // reverted — audits depend on quoted attrs
   removeRedundantAttributes: false,
   removeEmptyAttributes: false,
   removeOptionalTags: false,             // SEO-risk: kept off
