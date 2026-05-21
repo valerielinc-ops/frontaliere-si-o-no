@@ -1,6 +1,6 @@
 {
   "crawlerKey": "bitfinex",
-  "assembledAt": "2026-05-21T11:17:25.488Z",
+  "assembledAt": "2026-05-21T21:48:31.615Z",
   "jobs": [
     {
       "id": "bitfinex-c4e4e25c75af",
@@ -33,7 +33,7 @@
       "url": "https://bitfinex.recruitee.com/o/junior-risk-monitoring-analyst-100-remote-cet-timezone",
       "source": "bitfinex-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-05-21T11:17:23.511Z",
+      "crawledAt": "2026-05-21T21:48:29.420Z",
       "addressLocality": "London",
       "addressRegion": "England",
       "addressCountry": "",
@@ -110,7 +110,7 @@
       "url": "https://bitfinex.recruitee.com/o/senior-backend-developer-nodejs-fully-remote-worldwide-31",
       "source": "bitfinex-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-05-21T11:17:23.489Z",
+      "crawledAt": "2026-05-21T21:48:29.393Z",
       "addressLocality": "Mexico City",
       "addressRegion": "Ciudad de México",
       "addressCountry": "",
@@ -198,7 +198,7 @@
       "url": "https://bitfinex.recruitee.com/o/content-marketing-manager-remote-100-worldwide-cet-timezone-7",
       "source": "bitfinex-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-05-21T11:17:23.469Z",
+      "crawledAt": "2026-05-21T21:48:29.368Z",
       "addressLocality": "Sydney",
       "addressRegion": "New South Wales",
       "addressCountry": "",
@@ -290,7 +290,7 @@
       "url": "https://bitfinex.recruitee.com/o/project-manager-content-manager-100-worldwide-remote-6-months-contract-with-potential-extension-cet-timezone-3",
       "source": "bitfinex-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-05-21T11:17:23.448Z",
+      "crawledAt": "2026-05-21T21:48:29.341Z",
       "addressLocality": "Ha Noi",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -310,6 +310,14 @@
       "department": "Marketing",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "project-manager-content-manager-100-worldwide-remote-6-months-contract-with-potential"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "project-manager-content-manager-100-worldwide-remote-6-months-contract-with-potential"
+        ]
+      },
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-20T11:04:51.635Z",
       "salaryMin": 68000,
@@ -323,15 +331,7 @@
           "maxValue": 103000,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "project-manager-content-manager-100-worldwide-remote-6-months-contract-with-potential"
-        ]
-      },
-      "previousSlugs": [
-        "project-manager-content-manager-100-worldwide-remote-6-months-contract-with-potential"
-      ]
+      }
     },
     {
       "id": "bitfinex-0b5fcf7e1f36",
@@ -364,7 +364,7 @@
       "url": "https://bitfinex.recruitee.com/o/senior-nodejs-backend-developer-100-remote-worldwide",
       "source": "bitfinex-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-05-21T11:17:23.445Z",
+      "crawledAt": "2026-05-21T21:48:29.337Z",
       "addressLocality": "London",
       "addressRegion": "England",
       "addressCountry": "",
@@ -430,7 +430,7 @@
       "url": "https://bitfinex.recruitee.com/o/mobile-developer-react-native-100-remote-worldwide-12",
       "source": "bitfinex-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-05-21T11:17:23.418Z",
+      "crawledAt": "2026-05-21T21:48:29.304Z",
       "addressLocality": "Budapest",
       "addressRegion": "Budapest",
       "addressCountry": "",
@@ -520,7 +520,7 @@
       "url": "https://bitfinex.recruitee.com/o/junior-risk-monitoring-analyst-100-remote-worldwide-5",
       "source": "bitfinex-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-05-21T11:17:23.414Z",
+      "crawledAt": "2026-05-21T21:48:29.299Z",
       "addressLocality": "Barcelona",
       "addressRegion": "Catalunya [Cataluña]",
       "addressCountry": "",
@@ -596,7 +596,7 @@
       "url": "https://bitfinex.recruitee.com/o/payment-processing-specialist-taiwan",
       "source": "bitfinex-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-05-21T11:17:23.410Z",
+      "crawledAt": "2026-05-21T21:48:29.294Z",
       "addressLocality": "Taipei",
       "addressRegion": "TI",
       "addressCountry": "CH",
