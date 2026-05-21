@@ -1,6 +1,6 @@
 {
   "crawlerKey": "vaudoise",
-  "assembledAt": "2026-05-20T10:24:24.097Z",
+  "assembledAt": "2026-05-21T13:44:53.875Z",
   "jobs": [
     {
       "id": "vaudoise-9fccffa4b3df",
@@ -33,7 +33,7 @@
       "url": "https://vaudoise.softgarden.io/job/62200694/Area-Lead-Assurances-IAG-h-f-x-100-?jobDbPVId=270775698&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-19T23:53:03.544Z",
+      "crawledAt": "2026-05-21T13:44:51.648Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -50,6 +50,7 @@
       "requirementsByLocale": {},
       "jobCategory": "Assicurazioni Direzione",
       "firstSeenAt": "2026-05-18T13:27:27.359Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -95,7 +96,7 @@
       "url": "https://vaudoise.softgarden.io/job/62226199/Brokerbetreuer-in-m-w-d-100-?jobDbPVId=271499348&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T23:53:03.293Z",
+      "crawledAt": "2026-05-21T13:44:51.391Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -174,7 +175,7 @@
       "url": "https://vaudoise.softgarden.io/job/63569294/Key-Account-Manager-in-Tierversicherungen-m-w-d-80-100-?jobDbPVId=270775748&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T23:53:03.049Z",
+      "crawledAt": "2026-05-21T13:44:51.135Z",
       "addressLocality": "Berne",
       "addressCountry": "CH",
       "country": "CH",
@@ -202,6 +203,7 @@
         ]
       },
       "firstSeenAt": "2026-05-18T13:27:26.801Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -247,7 +249,7 @@
       "url": "https://vaudoise.softgarden.io/job/60881362/Gestionnaire-Prestations-Sinistres-%E2%80%93-dans-les-branches-de-l%E2%80%99assurance-patrimoine-h-f-x-80-100-?jobDbPVId=271519083&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-19T23:53:02.802Z",
+      "crawledAt": "2026-05-21T13:44:50.878Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -325,7 +327,7 @@
       "url": "https://vaudoise.softgarden.io/job/64303278/Ing%C3%A9nieur-Ing%C3%A9nieure-en-S%C3%A9curit%C3%A9-de-l-Information-h-f-x-80-100-?jobDbPVId=270969003&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-19T23:53:02.450Z",
+      "crawledAt": "2026-05-21T13:44:50.618Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -401,7 +403,7 @@
       "url": "https://vaudoise.softgarden.io/job/46867204/Chef-fe-de-groupe-des-Architectes-Solutions-IT-h-f-x-80-100-?jobDbPVId=271033433&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-19T23:53:02.200Z",
+      "crawledAt": "2026-05-21T13:44:50.352Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -477,7 +479,7 @@
       "url": "https://vaudoise.softgarden.io/job/53100444/Sachbearbeiter-in-Leistungen-Animalia-Hunde-und-Katzenversicherungen-m-w-d-80-100-?jobDbPVId=271033503&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T23:53:01.950Z",
+      "crawledAt": "2026-05-21T13:44:50.090Z",
       "addressLocality": "Suisse",
       "addressCountry": "CH",
       "country": "CH",
@@ -547,7 +549,7 @@
       "url": "https://vaudoise.softgarden.io/job/57064548/Conseiller-Conseill%C3%A8re-h-f-x-100-?jobDbPVId=271033548&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-19T23:53:01.705Z",
+      "crawledAt": "2026-05-21T13:44:49.829Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -623,7 +625,7 @@
       "url": "https://vaudoise.softgarden.io/job/64317263/%C3%9Cbersetzungspraktikant-in-Universit%C3%A4t-oder-Fachhochschule-m-w-x-%E2%80%93-100-?jobDbPVId=271087463&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T23:53:01.458Z",
+      "crawledAt": "2026-05-21T13:44:49.561Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -656,6 +658,7 @@
         ]
       },
       "firstSeenAt": "2026-05-18T13:27:25.121Z",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -701,7 +704,7 @@
       "url": "https://vaudoise.softgarden.io/job/63771389/Expert-Experte-en-Gouvernance-des-Donn%C3%A9es-h-f-x-80-100-?jobDbPVId=271274263&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-19T23:53:01.212Z",
+      "crawledAt": "2026-05-21T13:44:49.299Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -747,79 +750,6 @@
       "postalCode": "1003"
     },
     {
-      "id": "vaudoise-cb6971dd11db",
-      "slug": "esperto-esperto-danno-rc-costruzione-h-f-x-80-100-vaudoise-assurances-lausanne",
-      "slugByLocale": {
-        "it": "esperto-esperto-danno-rc-costruzione-h-f-x-80-100-vaudoise-assurances-lausanne",
-        "en": "expert-experte-dommages-rc-construction-h-f-x-80-100-vaudoise-ch",
-        "de": "experte-experte-dommages-rc-construction-h-f-x-80-100-vaudoise-assurances-lausanne",
-        "fr": "expert-experte-dommages-rc-construction-h-f-x-80-100-vaudoise-ch"
-      },
-      "company": "Vaudoise Assurances",
-      "companyKey": "vaudoise",
-      "companyDomain": "vaudoise.ch",
-      "title": "Expert / Experte dommages RC & construction (h/f/x) - 80-100%",
-      "titleByLocale": {
-        "it": "Esperto / Esperto danno RC & costruzione (h/f/x) - 80-100%",
-        "en": "Expert / Experte dommages RC & construction (h/f/x) - 80-100%",
-        "de": "Experte / Experte dommages RC & construction (h/f/x) - 80-100%",
-        "fr": "Expert / Experte dommages RC & construction (h/f/x) - 80-100%"
-      },
-      "description": "Employeur solide et tourné vers l’avenir, la Vaudoise est l’un des assureurs leaders en Suisse. Fidèle à sa nature coopérative et à ses valeurs, elle encourage la création d’un environnement de travail sain, inclusif et inspirant, idéal pour développer votre talent. Afin de renforcer notre ​Département P&C​, qui propose à nos clients des services de haut niveau dans ​la gestion des sinistres​, nous recherchons un/e ​Expert/Experte en dommages RC & Construction principalement​ pour la région La Côte - Genève. Les diverses missions qui vous attendent :\n• ​​Exécuter les missions confiées, à savoir essentiellement des entretiens avec les parties concernées (clients, assurés, lésés, autorités, etc.), ainsi que des clarifications et des investigations sur place​\n• ​​Gérer intégralement des dossiers d’assurance choses et responsabilité civile, conformément aux directives et instructions dans le cadre de vos compétences​\n• ​​Négocier des règlements et solutions amiables avec des avocats, assurés, lésés, autres assureurs, etc.​\n• ​​Organiser des expertises techniques et collaborer avec d’autres inspecteurs et experts (internes ou externes)​\n• Apporter un soutien technique et participer à la formation continue des collaborateurs des services prestations internes ainsi que des collaborateurs des agences​\n• Établir et entretenir des relations avec des entreprises opérant dans votre secteur géographique de compétence​ Ce qui vous rend unique :\n• ​​CFC d'employé de commerce ou équivalent, formation complémentaire et/ou brevet de spécialiste en assurances (un atout important)​\n• Idéalement expérience précédente en tant qu’inspecteur des sinistres, alternativement expérience professionnelle confirmée dans la gestion des sinistres RC & Constructions complexes ​\n• ​​Maîtrise des outils informatiques usuels (MS Office)​\n• Parfaite maîtrise du français parlé et écrit​ Vous êtes également ​une personnalité communicative, sociable​, ​dotée d'un esprit d’entreprise​ et vous aimez négocier​, alors vous êtes la personne que nous recherchons ! Nous vous offrons :\n• Un environnement de travail sain dans une entreprise mutualiste certifiée \"Great Place to Work\"\n• Des avantages sociaux multiples, dont la flexibilité dans l'organisation du travail et de nombreux rabais collaborateurs\n• ​​Un soutien dans le développement et la formation​\n• Des valeurs humaines centrées sur le bien-être des collaborateurs​ Nous nous réjouissons de recevoir votre dossier de candidature complet par voie digitale (avec curriculum vitae, lettre de motivation, copie des certificats de travail et diplômes).",
-      "descriptionByLocale": {
-        "it": "Descrizione Un datore di lavoro forte e preesistente, Vaudoise è uno dei principali assicuratori in Svizzera. Fedele alla sua natura cooperativa e ai suoi valori, incoraggia la creazione di un ambiente di lavoro sano, inclusivo e stimolante, ideale per sviluppare il tuo talento. Al fine di rafforzare il nostro P&C Department , che fornisce ai nostri clienti servizi di alto livello nella gestione dei disastri, stiamo cercando un esperto / esperto in danni RC & Construction principalmente per la regione La Côte - Genève. Le varie missioni che vi aspettano: - per l'esecuzione dei compiti affidati, principalmente colloqui con le parti interessate (clienti, assicurati, feriti, autorità, ecc.), nonché chiarimenti e indagini in loco - Gestisci completamente i registri delle assicurazioni aziendali e di responsabilità, in conformità con le istruzioni e le istruzioni all'interno della tua giurisdizione - Negoziati e soluzioni amichevoli con avvocati, assicurati, feriti, altri assicuratori, ecc. - Organizzare competenze tecniche e collaborare con altri ispettori ed esperti (interni o esterni) - Fornire assistenza tecnica e partecipare alla formazione continua dei dipendenti dei servizi interni e dei dipendenti delle agenzie - Stabilire e mantenere i rapporti con le aziende operanti nella vostra area geografica di competenza Cosa ti rende unico: - Impiegato commerciale CFC o equivalente, la formazione complementare e/o il certificato specialista di assicurazione (un bene significativo) - Esperienza idealmente precedente come ispettore di rivendicazioni, alternativamente confermata esperienza professionale nella gestione complessa di crediti RC & Construction - Mastery of common IT tools (MS Office) - perfetta padronanza del francese parlato e scritto Sei anche una personalità comunicativa e socievole con uno spirito imprenditoriale E ti piace negoziare, quindi sei la persona che cerchiamo! Vi offriamo: - Un ambiente di lavoro sano in una società comune certificata \"Great Place to Work\" - Più vantaggi sociali, compresa la flessibilità nell'organizzazione del lavoro e numerosi sconti per i dipendenti - Supporto per lo sviluppo e la formazione - Valori umani focalizzati sul benessere dei dipendenti Non vediamo l'ora di ricevere il tuo pacchetto completo di applicazioni digitalmente (con curriculum vitae, lettera di copertura, copie di certificati di lavoro e diplomi).",
-        "en": "Descrizione A strong and forward-looking employer, Vaudoise is one of the leading insurers in Switzerland. True to its cooperative nature and values, it encourages the creation of a healthy, inclusive and inspiring work environment, ideal for developing your talent. In order to strengthen our P&C Department , which provides our clients with high-level services in disaster management , we are looking for an expert/expert in damage RC & Construction mainly for the La Côte - Genève region. The various missions that await you: - To carry out the tasks entrusted, mainly interviews with the parties concerned (clients, insured persons, injured persons, authorities, etc.), as well as clarifications and on-site investigations - Fully manage business and liability insurance records, in accordance with the instructions and instructions within your jurisdiction - Negotiate settlements and amicable solutions with lawyers, insured, injured, other insurers, etc. - Organize technical expertise and collaborate with other inspectors and experts (internal or external) - Provide technical support and participate in the continuing training of employees of the internal services as well as employees of the agencies - Establish and maintain relationships with companies operating in your geographic area of competence What makes you unique: - Commercial employee CFC or equivalent, supplementary training and/or insurance specialist certificate (a significant asset) - Ideally previous experience as a claims inspector, alternatively confirmed professional experience in complex RC & Construction claims management - Mastery of common IT tools (MS Office) - Perfect mastery of spoken and written French You are also a communicative, sociable personality with an entrepreneurial spirit And you like to negotiate, so you're the person we're looking for!\n• We offer you : - A healthy working environment in a mutual company certified \"Great Place to Work\" - Multiple social benefits, including flexibility in the organisation of work and numerous employee discounts - Support in development and training - Human values focused on the well-being of employees We look forward to receiving your complete application package digitally (with curriculum vitae, cover letter, copies of work certificates and diplomas).",
-        "de": "Beschreibung Vaudoise ist einer der führenden Versicherer in der Schweiz. Getreu seiner kooperativen Natur und ihren Werten fördert sie die Schaffung eines gesunden, inklusiven und inspirierenden Arbeitsumfelds, ideal für die Entwicklung Ihres Talents. Um unsere P&C-Abteilung zu stärken, die unseren Kunden hochrangige Dienstleistungen im Katastrophenmanagement zur Verfügung stellt, suchen wir einen Experten/Experten im Bereich Schadensforschung und Bau vor allem für die Region La Côte - Genève. Die verschiedenen Missionen, die Sie erwarten: - Zur Durchführung der übertragenen\n• Aufgaben, hauptsächlich Interviews mit den betroffenen Parteien (Klients, Versicherte, Verletzte, Behörden usw.), sowie Klärungen und Vor-Ort-Untersuchungen - Vollständige Verwaltung von Geschäfts- und Haftpflichtversicherungen, entsprechend den Anweisungen und Anweisungen in Ihrer Gerichtsbarkeit - Verhandlungsabwicklungen und akzeptable Lösungen mit Anwälten, Versicherten, Verletzten, anderen Versicherern usw. - Organisation technischer Expertise und Zusammenarbeit mit anderen Inspektoren und Experten (intern oder extern) - Bereitstellung technischer Unterstützung und Teilnahme an der Weiterbildung von Mitarbeitern der internen Dienstleistungen sowie von Mitarbeitern der Agenturen - Aufbau und Pflege von Beziehungen zu Unternehmen, die in Ihrem geografischen Kompetenzbereich tätig sind Was macht Sie einzigartig: - Gewerbeangestellte CFC oder gleichwertige, ergänzende Ausbildungs- und/oder Versicherungsfachkunde (ein wesentlicher Vermögenswert) - Ideal frühere Erfahrung als Patentinspektor, alternativ bestätigte Berufserfahrung im komplexen RC & Construction Claim Management - Mastery of Common IT Tools (MS Office) - Perfekte Meisterschaft des gesprochenen und geschriebenen Französisch Sie sind auch eine kommunikative, gesellschaftliche Persönlichkeit mit Unternehmergeist Und Sie verhandeln gerne, also sind Sie die Person, die wir suchen!\n• Wir bieten Ihnen an: - Eine gesunde Arbeitsumgebung in einem gemeinsamen Unternehmen zertifiziert \"Great Place to Work\" - Mehrere soziale Vorteile, einschließlich Flexibilität in der Organisation der Arbeit und zahlreiche Mitarbeiterrabatte - Unterstützung bei der Entwicklung und Ausbildung - Menschenwerte konzentrierten sich auf das Wohl der Mitarbeiter Wir freuen uns darauf, Ihr komplettes Bewerbungspaket digital zu erhalten (mit Lehrplan, Brief, Kopien von Arbeitszeugnissen und Diplomen).",
-        "fr": "Employeur solide et tourné vers l’avenir, la Vaudoise est l’un des assureurs leaders en Suisse. Fidèle à sa nature coopérative et à ses valeurs, elle encourage la création d’un environnement de travail sain, inclusif et inspirant, idéal pour développer votre talent. Afin de renforcer notre ​Département P&C​, qui propose à nos clients des services de haut niveau dans ​la gestion des sinistres​, nous recherchons un/e ​Expert/Experte en dommages RC & Construction principalement​ pour la région La Côte - Genève. Les diverses missions qui vous attendent :\n• ​​Exécuter les missions confiées, à savoir essentiellement des entretiens avec les parties concernées (clients, assurés, lésés, autorités, etc.), ainsi que des clarifications et des investigations sur place​\n• ​​Gérer intégralement des dossiers d’assurance choses et responsabilité civile, conformément aux directives et instructions dans le cadre de vos compétences​\n• ​​Négocier des règlements et solutions amiables avec des avocats, assurés, lésés, autres assureurs, etc.​\n• ​​Organiser des expertises techniques et collaborer avec d’autres inspecteurs et experts (internes ou externes)​\n• Apporter un soutien technique et participer à la formation continue des collaborateurs des services prestations internes ainsi que des collaborateurs des agences​\n• Établir et entretenir des relations avec des entreprises opérant dans votre secteur géographique de compétence​ Ce qui vous rend unique :\n• ​​CFC d'employé de commerce ou équivalent, formation complémentaire et/ou brevet de spécialiste en assurances (un atout important)​\n• Idéalement expérience précédente en tant qu’inspecteur des sinistres, alternativement expérience professionnelle confirmée dans la gestion des sinistres RC & Constructions complexes ​\n• ​​Maîtrise des outils informatiques usuels (MS Office)​\n• Parfaite maîtrise du français parlé et écrit​ Vous êtes également ​une personnalité communicative, sociable​, ​dotée d'un esprit d’entreprise​ et vous aimez négocier​, alors vous êtes la personne que nous recherchons ! Nous vous offrons :\n• Un environnement de travail sain dans une entreprise mutualiste certifiée \"Great Place to Work\"\n• Des avantages sociaux multiples, dont la flexibilité dans l'organisation du travail et de nombreux rabais collaborateurs\n• ​​Un soutien dans le développement et la formation​\n• Des valeurs humaines centrées sur le bien-être des collaborateurs​ Nous nous réjouissons de recevoir votre dossier de candidature complet par voie digitale (avec curriculum vitae, lettre de motivation, copie des certificats de travail et diplômes)."
-      },
-      "location": "Lausanne",
-      "canton": "VD",
-      "url": "https://vaudoise.softgarden.io/job/63095189/Expert-Experte-dommages-RC-construction-h-f-x-80-100-?jobDbPVId=271274293&l=it",
-      "source": "Vaudoise Assurances Dedicated Parser",
-      "sourceLang": "fr",
-      "crawledAt": "2026-05-19T23:53:00.962Z",
-      "addressLocality": "Lausanne",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Assicurazioni",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "26/04/26",
-      "applyUrl": "https://vaudoise.softgarden.io/job/63095189/Expert-Experte-dommages-RC-construction-h-f-x-80-100-?jobDbPVId=271274293&l=it",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "jobCategory": "Diritto e compliance",
-      "previousSlugs": [
-        "expert-experte-dommages-rc-construction-h-f-x-80-100-vaudoise-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "expert-experte-dommages-rc-construction-h-f-x-80-100-vaudoise-ch"
-        ],
-        "de": [
-          "expert-experte-dommages-rc-construction-h-f-x-80-100-vaudoise-ch"
-        ]
-      },
-      "firstSeenAt": "2026-05-18T13:27:24.561Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "1003"
-    },
-    {
       "id": "vaudoise-1c50ac373c7c",
       "slug": "projektleiter-m-w-d-vaudoise-assurances-berne",
       "slugByLocale": {
@@ -850,7 +780,7 @@
       "url": "https://vaudoise.softgarden.io/job/63760414/Sachbearbeiter-in-Leistungen-Unfall-m-w-d-60-100-?jobDbPVId=271274328&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T23:53:00.713Z",
+      "crawledAt": "2026-05-21T13:44:49.039Z",
       "addressLocality": "Berne",
       "addressCountry": "CH",
       "country": "CH",
@@ -926,7 +856,7 @@
       "url": "https://vaudoise.softgarden.io/job/63764914/Chef-Cheffe-de-service-Souscription-Choses-h-f-x-80-100-?jobDbPVId=271274438&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-19T23:53:00.465Z",
+      "crawledAt": "2026-05-21T13:44:48.777Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -972,79 +902,6 @@
       "postalCode": "1003"
     },
     {
-      "id": "vaudoise-bdb345293eb4",
-      "slug": "piombo-tecnico-principale-h-f-x-80-100-vaudoise-assurances-lausanne",
-      "slugByLocale": {
-        "it": "piombo-tecnico-principale-h-f-x-80-100-vaudoise-assurances-lausanne",
-        "en": "principal-technical-lead-h-f-x-80-100-vaudoise-ch",
-        "de": "technischer-leiter-h-f-x-80-100-vaudoise-assurances-lausanne",
-        "fr": "principal-technical-lead-h-f-x-80-100-vaudoise-ch"
-      },
-      "company": "Vaudoise Assurances",
-      "companyKey": "vaudoise",
-      "companyDomain": "vaudoise.ch",
-      "title": "Principal Technical Lead (h/f/x) - 80-100%",
-      "titleByLocale": {
-        "it": "Piombo tecnico principale (h/f/x) - 80-100%",
-        "en": "Principal Technical Lead (h/f/x) - 80-100%",
-        "de": "Technischer Leiter (h/f/x) - 80-100%",
-        "fr": "Principal Responsable technique (h/f/x) - 80-100%"
-      },
-      "description": "Employeur solide et tourné vers l’avenir, la Vaudoise Assurances est l’un des assureurs leaders en Suisse. Fidèle à sa nature coopérative et à ses valeurs, elle encourage la création d’un environnement de travail sain, inclusif et inspirant, idéal pour développer votre talent. Afin de renforcer nos équipes IT, nous recherchons un·e Principal Technical Lead (80–100 %) pour nos solutions « Distribution et Expérience Client ». À ce poste clé, vous rejoignez une unité dynamique de plus de 40 collaborateurs – Business Analysts et développeurs – et jouez un rôle central dans l’évolution de nos plateformes et systèmes stratégiques. Les missions qui vous attendent:\n• Concevoir et diriger le design de l’architecture technique de nos solutions\n• Interagir avec les équipes d’architecture afin de challenger l'architecture proposée, et définir un LLD réalisable répondant aux besoins métier\n• Travailler avec les PO & BA afin d’anticiper les importants challenges techniques\n• Contribuer aux activités d'implémentation des solutions (hands-on coding ~30%)\n• Définir et promouvoir les standards de développement (Clean Code, architecture, patterns cloud-native) au sein de l’écosystème .NET, Angular, Kafka et Azure\n• Élaborer la roadmap technologique du domaine et piloter la stratégie de gestion de la dette technique pour garantir la scalabilité et la pérennité des solutions\n• Assurer le coaching et le mentorat des différents Lead Developers de la division afin de favoriser l'élévation des compétences techniques globales Votre profil:\n• Détenir une formation de niveau supérieur de type HES, universitaire ou EPF en informatique, ou justifier d’une équivalence\n• Cumuler au minimum 5 ans d’expérience en tant que expert technique / technical lead ou architecte\n• Cumuler au minimum 3 ans d’expérience sur Azure\n• Avoir de l’expérience dans l'implémentation des principes DevOps et des architectures orientées streaming (Kafka), en veillant à l'automatisation du cycle de vie des applications et à la robustesse des intégrations\n• Travailler selon la méthodologie Scrum et collaborer efficacement au sein d’équipes agiles\n• Communiquer couramment en français et en anglais (niveau C1 minimum) Nous vous offrons:\n• Un environnement de travail sain au sein d’une entreprise mutualiste certifiée Great Place to Work\n• Des conditions attractives et des avantages sociaux compétitifs\n• Une flexibilité dans l’organisation du travail\n• Un cadre stimulant favorisant le développement des compétences et l’amélioration continue Nous nous réjouissons de recevoir votre dossier de candidature complet par voie digitale (avec curriculum vitae, lettre de motivation, copie des certificats de travail et diplômes).",
-      "descriptionByLocale": {
-        "it": "Descrizione Un datore di lavoro forte e preesistente, Vaudoise Assurances è uno dei principali assicuratori in Svizzera. Fedele alla sua natura cooperativa e ai suoi valori, incoraggia la creazione di un ambiente di lavoro sano, inclusivo e stimolante, ideale per sviluppare il tuo talento. Per rafforzare i nostri team IT, stiamo cercando un Main Technical Lead (80-100%) per le nostre soluzioni \"Distribution and Customer Experience\". In questa posizione chiave, unisciti a un'unità dinamica di oltre 40 dipendenti – Business Analysts and Developers – e gioca un ruolo centrale nell'evoluzione delle nostre piattaforme e sistemi strategici. Le missioni che vi aspettano: - Design e design diretto dell'architettura tecnica delle nostre soluzioni - Interagire con i team architettonici per sfidare l'architettura proposta e definire un LLD realizzabile per soddisfare le esigenze aziendali - Lavorare con PO & BA per anticipare importanti sfide tecniche - Contribuire alle attività di implementazione della soluzione (codifica manuale ~30%) - Definire e promuovere gli standard di sviluppo (Codice Clean, architettura, modelli cloud-native) all'interno dell'ecosistema .NET, Angular, Kafka e Azure - Sviluppare la roadmap tecnologica del dominio e pilotare la strategia di gestione del debito tecnico per garantire scalabilità e sostenibilità delle soluzioni - Fornire coaching e mentoring alle varie Division Lead Developers al fine di aumentare le competenze tecniche generali Profilo - Tenere un livello superiore HES, l'università o la formazione di computer EPF, o giustificare l'equivalenza - Un minimo di 5 anni di esperienza come guida tecnica/tecnica o architetto - Bruciare almeno 3 anni di esperienza su Azure - Esperienza nell'implementazione dei principi DevOps e delle architetture orientate allo streaming (Kafka), assicurando l'automazione del ciclo di vita delle applicazioni e la solida integrazione - Lavorare secondo la metodologia Scrum e collaborare efficacemente ai team agili - Comunicare fluentemente in francese e inglese (livello minimo C1) Offerta - Un ambiente di lavoro sano all'interno di un'azienda comune certificata Great Place to Work - Condizioni interessanti e vantaggi sociali competitivi - Flessibilità nell'organizzazione del lavoro - Un quadro stimolante per lo sviluppo delle competenze e il miglioramento continuo Candidato Non vediamo l'ora di ricevere il tuo pacchetto completo di applicazioni digitalmente (con curriculum vitae, lettera di copertura, copie di certificati di lavoro e diplomi).",
-        "en": "Descrizione A strong and forward-looking employer, Vaudoise Assurances is one of the leading insurers in Switzerland. True to its cooperative nature and values, it encourages the creation of a healthy, inclusive and inspiring work environment, ideal for developing your talent. In order to strengthen our IT teams, we are looking for a Main Technical Lead (80–100%) for our \"Distribution and Customer Experience\" solutions. In this key position, you join a dynamic unit of more than 40 employees – Business Analysts and Developers – and play a central role in the evolution of our strategic platforms and systems. The missions that await you: - Design and direct the design of the technical architecture of our solutions - Interact with architectural teams to challenge the proposed architecture, and define an achievable LLD to meet business needs - Work with PO & BA to anticipate important technical challenges - Contribute to solution implementation activities (hands-on coding ~30%) - Define and promote development standards (Clean Code, architecture, cloud-native patterns) within the .NET, Angular, Kafka and Azure ecosystem - Develop the domain's technological roadmap and pilot the technical debt management strategy to ensure scalability and sustainability of solutions - Provide coaching and mentoring to the various Division Lead Developers in order to increase overall technical skills\n• Profile - Hold a higher level HES, university or EPF computer training, or justify equivalence - A minimum of 5 years of experience as a technical/technical lead or architect - Burn at least 3 years experience on Azure - Experience in implementing DevOps principles and streaming-oriented architectures (Kafka), ensuring application life cycle automation and robust integration - Work according to Scrum methodology and collaborate effectively in agile teams - Communicate fluently in French and English (minimum C1 level) Offerta - A healthy working environment within a mutual company certified Great Place to Work - Attractive conditions and competitive social benefits - Flexibility in work organisation - A stimulating framework for skills development and continuous improvement Candidate We look forward to receiving your complete application package digitally (with curriculum vitae, cover letter, copies of work certificates and diplomas).",
-        "de": "Beschreibung Vaudoise Assurances ist einer der führenden Versicherer der Schweiz. Getreu seiner kooperativen Natur und ihren Werten fördert sie die Schaffung eines gesunden, inklusiven und inspirierenden Arbeitsumfelds, ideal für die Entwicklung Ihres Talents. Um unsere IT-Teams zu stärken, suchen wir nach einem Main Technical Lead (80–100%) für unsere Lösungen \"Distribution and Customer Experience\". In dieser Schlüsselposition stoßen Sie auf eine dynamische Einheit von mehr als 40 Mitarbeitern – Business Analysten und Entwickler – und spielen eine zentrale Rolle in der Entwicklung unserer strategischen Plattformen und Systeme. Die Missionen, die Sie erwarten: - Design und Regie der technischen Architektur unserer Lösungen - Interagieren Sie mit architektonischen Teams, um die vorgeschlagene Architektur herauszufordern und eine erzielbare LLD zu definieren, um die Geschäftsanforderungen zu erfüllen - Arbeiten Sie mit PO & BA an wichtigen technischen Herausforderungen - Beitrag zur Lösungsimplementierung (Hand-on-Codierung ~30%) - Definieren und fördern Entwicklungsstandards (Clean Code, Architektur, cloud-native Muster) innerhalb des .NET, Angular, Kafka und Azure Ökosystems - Entwicklung der technologischen Roadmap der Domain und Pilot der technischen Schuldenverwaltungsstrategie, um Skalierbarkeit und Nachhaltigkeit von Lösungen zu gewährleisten - Bereitstellung von Coaching und Mentoring an die verschiedenen Division Lead Developers, um allgemeine technische Fähigkeiten zu erhöhen Profil - Halten Sie ein höheres Niveau HES, Universität oder EPF Computertraining oder rechtfertigen Äquivalenz - Mindestens 5 Jahre Erfahrung als technischer/technischer Leiter oder Architekt - Brennen mindestens 3 Jahre Erfahrung auf Azure - Erfahrung bei der Umsetzung von DevOps-Prinzipien und streaming-orientierten Architekturen (Kafka), Sicherstellung der Anwendungslebenszyklusautomatisierung und robuster Integration - Arbeiten nach Scrum-Methodik und arbeiten effektiv in agilen Teams - Kommunikation fließend auf Französisch und Englisch (mindestens C1-Ebene) Angebot - Ein gesundes Arbeitsumfeld in einem gemeinsamen Unternehmen zertifiziert Great Place to Work - Attraktive Bedingungen und wettbewerbsfähige soziale Vorteile - Flexibilität in der Arbeitsorganisation - Ein anregender Rahmen für die Kompetenzentwicklung und kontinuierliche Verbesserung Kandidaten Wir freuen uns darauf, Ihr komplettes Bewerbungspaket digital zu erhalten (mit Lehrplan, Brief, Kopien von Arbeitszeugnissen und Diplomen).",
-        "fr": "Employeur solide et tourné vers l’avenir, la Vaudoise Assurances est l’un des assureurs leaders en Suisse. Fidèle à sa nature coopérative et à ses valeurs, elle encourage la création d’un environnement de travail sain, inclusif et inspirant, idéal pour développer votre talent. Afin de renforcer nos équipes IT, nous recherchons un·e Principal Technical Lead (80–100 %) pour nos solutions « Distribution et Expérience Client ». À ce poste clé, vous rejoignez une unité dynamique de plus de 40 collaborateurs – Business Analysts et développeurs – et jouez un rôle central dans l’évolution de nos plateformes et systèmes stratégiques. Les missions qui vous attendent:\n• Concevoir et diriger le design de l’architecture technique de nos solutions\n• Interagir avec les équipes d’architecture afin de challenger l'architecture proposée, et définir un LLD réalisable répondant aux besoins métier\n• Travailler avec les PO & BA afin d’anticiper les importants challenges techniques\n• Contribuer aux activités d'implémentation des solutions (hands-on coding ~30%)\n• Définir et promouvoir les standards de développement (Clean Code, architecture, patterns cloud-native) au sein de l’écosystème .NET, Angular, Kafka et Azure\n• Élaborer la roadmap technologique du domaine et piloter la stratégie de gestion de la dette technique pour garantir la scalabilité et la pérennité des solutions\n• Assurer le coaching et le mentorat des différents Lead Developers de la division afin de favoriser l'élévation des compétences techniques globales Votre profil:\n• Détenir une formation de niveau supérieur de type HES, universitaire ou EPF en informatique, ou justifier d’une équivalence\n• Cumuler au minimum 5 ans d’expérience en tant que expert technique / technical lead ou architecte\n• Cumuler au minimum 3 ans d’expérience sur Azure\n• Avoir de l’expérience dans l'implémentation des principes DevOps et des architectures orientées streaming (Kafka), en veillant à l'automatisation du cycle de vie des applications et à la robustesse des intégrations\n• Travailler selon la méthodologie Scrum et collaborer efficacement au sein d’équipes agiles\n• Communiquer couramment en français et en anglais (niveau C1 minimum) Nous vous offrons:\n• Un environnement de travail sain au sein d’une entreprise mutualiste certifiée Great Place to Work\n• Des conditions attractives et des avantages sociaux compétitifs\n• Une flexibilité dans l’organisation du travail\n• Un cadre stimulant favorisant le développement des compétences et l’amélioration continue Nous nous réjouissons de recevoir votre dossier de candidature complet par voie digitale (avec curriculum vitae, lettre de motivation, copie des certificats de travail et diplômes)."
-      },
-      "location": "Lausanne",
-      "canton": "VD",
-      "url": "https://vaudoise.softgarden.io/job/64477208/Principal-Technical-Lead-h-f-x-80-100-?jobDbPVId=271638938&l=it",
-      "source": "Vaudoise Assurances Dedicated Parser",
-      "sourceLang": "fr",
-      "crawledAt": "2026-05-19T23:53:00.217Z",
-      "addressLocality": "Lausanne",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Tecnica",
-      "contract": "full-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "senior",
-      "sector": "Assicurazioni",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "29/04/26",
-      "applyUrl": "https://vaudoise.softgarden.io/job/64477208/Principal-Technical-Lead-h-f-x-80-100-?jobDbPVId=271638938&l=it",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "jobCategory": "Informatica e tecnologia",
-      "previousSlugs": [
-        "principal-technical-lead-h-f-x-80-100-vaudoise-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "principal-technical-lead-h-f-x-80-100-vaudoise-ch"
-        ],
-        "de": [
-          "principal-technical-lead-h-f-x-80-100-vaudoise-ch"
-        ]
-      },
-      "firstSeenAt": "2026-05-18T13:27:23.438Z",
-      "salaryMin": 68000,
-      "salaryMax": 103000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68000,
-          "maxValue": 103000,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "1003"
-    },
-    {
       "id": "vaudoise-3a0f67aa3621",
       "slug": "consigliere-consigliere-h-f-x-100-vaudoise-assurances-chatel-saint-denis",
       "slugByLocale": {
@@ -1075,7 +932,7 @@
       "url": "https://vaudoise.softgarden.io/job/60419000/Conseiller-Conseill%C3%A8re-h-f-x-100-?jobDbPVId=271665968&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-19T23:52:59.971Z",
+      "crawledAt": "2026-05-21T13:44:48.510Z",
       "addressLocality": "Châtel-Saint-Denis",
       "addressCountry": "CH",
       "country": "CH",
@@ -1150,7 +1007,7 @@
       "url": "https://vaudoise.softgarden.io/job/64512583/Gestionnaire-backoffice-service-hypoth%C3%A8ques-h-f-x-%E2%80%93-100-%E2%80%93-CDD-de-9-mois-%C3%A0-partir-de-juillet-?jobDbPVId=271790973&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-19T23:52:59.729Z",
+      "crawledAt": "2026-05-21T13:44:48.249Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -1228,7 +1085,7 @@
       "url": "https://vaudoise.softgarden.io/job/63140024/Sp%C3%A9cialiste-prestations-cas-complexes-LAA-fran%C3%A7ais-allemand-h-f-x-80-?jobDbPVId=271794228&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-19T23:52:59.484Z",
+      "crawledAt": "2026-05-21T13:44:47.988Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -1304,7 +1161,7 @@
       "url": "https://vaudoise.softgarden.io/job/53667621/Gestionnaire-Prestations-Animalia-charg%C3%A9-des-assurances-pour-chiens-et-chats-h-f-x-80-100-?jobDbPVId=271794243&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-19T23:52:59.242Z",
+      "crawledAt": "2026-05-21T13:44:47.728Z",
       "addressLocality": "Suisse",
       "addressCountry": "CH",
       "country": "CH",
@@ -1376,7 +1233,7 @@
       "url": "https://vaudoise.softgarden.io/job/63138754/Gestionnaire-senior-prestations-cas-complexes-LAA-h-f-x-80-?jobDbPVId=271794388&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-19T23:52:58.991Z",
+      "crawledAt": "2026-05-21T13:44:47.463Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -1454,7 +1311,7 @@
       "url": "https://vaudoise.softgarden.io/job/64517448/Mitarbeiter-in-Schaden-m-w-d-60-100-?jobDbPVId=271836713&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T23:52:58.745Z",
+      "crawledAt": "2026-05-21T13:44:47.204Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1530,7 +1387,7 @@
       "url": "https://vaudoise.softgarden.io/job/63106694/Versicherungs-Traineeprogramm-Young-Insurance-Professional-VBV-?jobDbPVId=271853363&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T23:52:58.499Z",
+      "crawledAt": "2026-05-21T13:44:46.945Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1606,7 +1463,7 @@
       "url": "https://vaudoise.softgarden.io/job/63296089/Chef-de-groupe-sp%C3%A9cialis%C3%A9-en-gestion-contrats-Cheffe-de-groupe-sp%C3%A9cialis%C3%A9e-en-gestion-contrats-h-f-x-100-?jobDbPVId=272176718&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-19T23:52:58.167Z",
+      "crawledAt": "2026-05-21T13:44:46.686Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -1682,7 +1539,7 @@
       "url": "https://vaudoise.softgarden.io/job/56620544/Versicherungs-und-Vorsorgeberater-in-m-w-d-100-?jobDbPVId=272176738&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T23:52:57.916Z",
+      "crawledAt": "2026-05-21T13:44:46.426Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1715,6 +1572,7 @@
         ]
       },
       "firstSeenAt": "2026-05-18T13:27:20.941Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -1760,7 +1618,7 @@
       "url": "https://vaudoise.softgarden.io/job/63349219/Generalagent-in-Berner-Oberland-m-w-d-100-?jobDbPVId=272318123&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T23:52:57.669Z",
+      "crawledAt": "2026-05-21T13:44:46.162Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1833,7 +1691,7 @@
       "url": "https://vaudoise.softgarden.io/job/64599938/Product-Manager-Pr%C3%A9voyance-h-f-x-80-100-?jobDbPVId=272320768&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-19T23:52:57.421Z",
+      "crawledAt": "2026-05-21T13:44:45.902Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -1858,6 +1716,7 @@
         ]
       },
       "firstSeenAt": "2026-05-18T13:27:20.379Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -1903,7 +1762,7 @@
       "url": "https://vaudoise.softgarden.io/job/63990868/Business-Analyst-RH-h-f-x-80-100-?jobDbPVId=272444193&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-19T23:52:57.116Z",
+      "crawledAt": "2026-05-21T13:44:45.642Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -1928,6 +1787,7 @@
         ]
       },
       "firstSeenAt": "2026-05-18T13:27:20.094Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1973,7 +1833,7 @@
       "url": "https://vaudoise.softgarden.io/job/61638467/Conseiller-Conseill%C3%A8re-h-f-x-100-?jobDbPVId=272486453&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-19T23:52:56.871Z",
+      "crawledAt": "2026-05-21T13:44:45.378Z",
       "addressLocality": "Fribourg",
       "addressCountry": "CH",
       "country": "CH",
@@ -2019,82 +1879,6 @@
       "postalCode": "1700"
     },
     {
-      "id": "vaudoise-004be3e282c0",
-      "slug": "assicurazione-legale-e-compliance-esperienza-h-f-x-80-100-vaudoise-assurances-lausanne",
-      "slugByLocale": {
-        "it": "assicurazione-legale-e-compliance-esperienza-h-f-x-80-100-vaudoise-assurances-lausanne",
-        "en": "legal-insurance-and-experienced-compliance-h-f-x-80-100-vaudoise-assurances-lausanne",
-        "de": "legal-insurance-and-experienced-compliance-h-f-x-80-100-vaudoise-assurances-lausanne",
-        "fr": "juriste-assurances-et-conformite-experimente-e-h-f-x-80-100-vaudoise-ch"
-      },
-      "company": "Vaudoise Assurances",
-      "companyKey": "vaudoise",
-      "companyDomain": "vaudoise.ch",
-      "title": "Juriste assurances et conformité expérimenté/e (h/f/x) – 80-100%",
-      "titleByLocale": {
-        "it": "Assicurazione Legale e Compliance Esperienza (h/f/x) – 80-100%",
-        "en": "Legal Insurance and Experienced Compliance (h/f/x) – 80-100%",
-        "de": "Legal Insurance and Experienced Compliance (h/f/x) – 80-100%",
-        "fr": "Juriste assurances et conformité expérimenté/e (h/f/x) – 80-100%"
-      },
-      "description": "Employeur solide et tourné vers l’avenir, la Vaudoise est l’un des assureurs leaders en Suisse. Fidèle à sa nature coopérative et à ses valeurs, elle encourage la création d’un environnement de travail sain, inclusif et inspirant, idéal pour développer votre talent. Afin de renforcer notre Département Secrétariat général, qui propose à nos unités internes des services juridiques et de conformité de haut niveau, nous recherchons un/e Juriste assurances et conformité expérimenté/e, entre 80 et 100%. Les diverses missions qui vous attendent :\n• Grâce à vos connaissances et à votre expérience du secteur de l’assurance privée en Suisse, identifier et apporter votre soutien juridique aux métiers dans l’analyse des nouveautés légales pertinentes pour notre compagnie d’assurances, garantir le suivi de leur mise en œuvre pour assurer la conformité de nos opérations dans la durée, de même que faire bénéficier de votre expertise juridique les projets métier concernant ces aspects\n• Effectuer les analyses et les préparatifs internes nécessaires pour coordonner et répondre aux demandes des autorités de surveillance, accompagner leurs contrôles sur place et faire les communications nécessaires aux autorités en temps utile pour garantir la régularité de nos activités\n• Contribuer à la conformité durable de nos activités en assurant l’actualité des directives internes, le suivi des évolutions réglementaires, la gestion des risques de conformité et des contrôles rattachés, les reportings périodiques à la direction et au conseil d’administration, ainsi que la préparation et l’animation de nos comités juridiques internes\n• En collaboration avec des collègues métier : planifier, développer et conduire, en français et allemand, des formations et des sensibilisations sur des sujets pertinents pour la Vaudoise Assurances\n• Recueillir, identifier et traiter les signalements d’infractions à notre réglementation interne, en compagnie des autres parties prenantes de l’entreprise Ce qui vous rend unique :\n• Master en droit suisse obligatoire, formation complémentaire ou postgrade en assurances et/ou conformité, un atout\n• Expérience professionnelle de 5 ans minimum dans le secteur des assurances en Suisse indispensable\n• Langue maternelle française et excellente maîtrise de la langue allemande (minimum niveau C1) Vous êtes également pragmatique, à l’aise dans vos contacts avec vos collègues et les intervenants externes. Vous faites preuve d’un bel esprit d’équipe et savez accomplir vos missions en toute autonomie. Nous vous offrons :\n• Un environnement de travail sain dans une entreprise mutualiste certifiée \"Great Place to Work\"\n• Des avantages sociaux multiples, dont la flexibilité dans l'organisation du travail\n• Un soutien dans le développement et la formation\n• Des valeurs humaines centrées sur le bien-être des collaborateurs Nous nous réjouissons de recevoir votre dossier de candidature complet par voie digitale (avec curriculum vitae, lettre de motivation, copie des certificats de travail et diplômes).",
-      "descriptionByLocale": {
-        "it": "Un datore di lavoro forte e preesistente, Vaudoise è uno dei principali assicuratori in Svizzera. Fedele alla sua natura cooperativa e ai suoi valori, incoraggia la creazione di un ambiente di lavoro sano, inclusivo e stimolante, ideale per sviluppare il tuo talento. Al fine di rafforzare il nostro Dipartimento di Segreteria Generale, che fornisce le nostre unità interne con servizi legali e di conformità di alto livello, stiamo cercando un esperto Legal Insurance e Compliance Officer, tra 80 e 100%. Le varie missioni che vi aspettano:\n• Grazie alla vostra conoscenza ed esperienza nel settore assicurativo privato in Svizzera, identificate e fornite il vostro supporto legale alle professioni nell'analisi degli sviluppi legali rilevanti per la nostra società di assicurazioni, garantite il monitoraggio della loro attuazione per garantire la conformità delle nostre operazioni a lungo termine, nonché per fornire la vostra competenza legale a progetti aziendali riguardanti questi aspetti\n• Condurre le analisi e i preparati interni necessari per coordinare e rispondere alle richieste delle autorità di vigilanza, accompagnare i loro controlli in loco e fare le comunicazioni necessarie alle autorità in tempo per garantire la regolarità delle nostre attività\n• contribuire alla conformità sostenibile delle nostre attività garantendo la tempestività delle direttive interne, il monitoraggio degli sviluppi normativi, la gestione dei rischi di conformità e dei controlli correlati, la segnalazione periodica alla gestione e al consiglio di amministrazione, la preparazione e la facilitazione dei nostri comitati legali interni\n• In collaborazione con colleghi professionali: pianificazione, sviluppo e conduzione della formazione e della sensibilizzazione in francese e in tedesco su argomenti rilevanti per le assicurazioni di Vaudoise\n• Raccogliere, identificare e elaborare rapporti di violazioni delle nostre normative interne, insieme ad altri stakeholder aziendali Cosa ti rende unico:\n• Master in diritto svizzero obbligatorio, formazione ulteriore o post-laurea in assicurazione e/o conformità, un bene\n• Esperienza professionale minima di 5 anni nel settore assicurativo in Svizzera\n• Lingua madre francese e ottima conoscenza della lingua tedesca (livello minimo C1) Sei anche pragmatico, confortevole nei tuoi contatti con i tuoi colleghi e gli stakeholder esterni. Hai un grande spirito di squadra e sai come svolgere le tue missioni indipendentemente. Vi offriamo:\n• Un ambiente di lavoro sano in una società mutualista certificata \"Great Place to Work\"\n• Vantaggi sociali multipli, compresa la flessibilità nell'organizzazione del lavoro\n• Supporto per lo sviluppo e la formazione\n• Valori umani focalizzati sul benessere dei dipendenti Non vediamo l'ora di ricevere il tuo pacchetto completo di applicazioni digitalmente (con curriculum vitae, lettera di copertura, copie di certificati di lavoro e diplomi).",
-        "en": "A strong and forward-looking employer, Vaudoise is one of the leading insurers in Switzerland. True to its cooperative nature and values, it encourages the creation of a healthy, inclusive and inspiring work environment, ideal for developing your talent. In order to strengthen our General Secretariat Department, which provides our internal units with high-level legal and compliance services, we are looking for an experienced Legal Insurance and Compliance Officer, between 80 and 100%. The various missions that await you:\n• Thanks to your knowledge and experience in the private insurance sector in Switzerland, identify and provide your legal support to the professions in the analysis of the legal developments relevant to our insurance company, guarantee the monitoring of their implementation to ensure the conformity of our operations over the long term, as well as to provide your legal expertise with business projects concerning these aspects\n• Conduct the analyses and internal preparations necessary to coordinate and respond to the requests of the supervisory authorities, accompany their on-the-spot checks and make the necessary communications to the authorities in time to ensure the regularity of our activities\n• To contribute to the sustainable compliance of our activities by ensuring the timeliness of internal directives, the monitoring of regulatory developments, the management of compliance risks and related controls, the periodic reporting to management and the board of directors, and the preparation and facilitation of our internal legal committees\n• In collaboration with professional colleagues: planning, developing and conducting training and awareness raising in French and German on topics relevant to Vaudoise Assurances\n• Collect, identify and process reports of breaches of our internal regulations, together with other business stakeholders What makes you unique:\n• Master in compulsory Swiss law, further or post-graduate training in insurance and/or compliance, an asset\n• Minimum 5-year professional experience in the insurance sector in Switzerland\n• French mother tongue and excellent German language proficiency (minimum level C1) You are also pragmatic, comfortable in your contacts with your colleagues and external stakeholders. You have a great team spirit and know how to carry out your missions independently. We offer you :\n• A healthy working environment in a mutualist company certified \"Great Place to Work\"\n• Multiple social benefits, including flexibility in work organisation\n• Support in development and training\n• Human values focused on the well-being of employees We look forward to receiving your complete application package digitally (with curriculum vitae, cover letter, copies of work certificates and diplomas).",
-        "de": "Vaudoise ist einer der führenden Versicherer in der Schweiz. Getreu seiner kooperativen Natur und ihren Werten fördert sie die Schaffung eines gesunden, inklusiven und inspirierenden Arbeitsumfelds, ideal für die Entwicklung Ihres Talents. Um unser Generalsekretariat zu stärken, das unseren internen Einheiten hochrangige Rechts- und Compliance-Dienste anbietet, suchen wir einen erfahrenen Juristischen Versicherungs- und Compliance Officer zwischen 80 und 100 %. Die verschiedenen Missionen, die Sie erwarten:\n• Durch Ihr Wissen und Ihre Erfahrung im Bereich der Privatversicherung in der Schweiz können Sie die Berufe bei der Analyse der für unser Versicherungsunternehmen relevanten rechtlichen Entwicklungen legal unterstützen, die Überwachung ihrer Umsetzung garantieren, um die Konformität unserer Geschäfte langfristig zu gewährleisten sowie Ihre rechtliche Expertise mit Geschäftsprojekten zu diesen Aspekten bereitzustellen.\n• Durchführung der Analysen und internen Vorbereitungen, die erforderlich sind, um die Anträge der Aufsichtsbehörden zu koordinieren und zu beantworten, ihre Vor-Ort-Kontrollen zu begleiten und die erforderlichen Mitteilungen an die Behörden rechtzeitig zu machen, um die Ordnungsmäßigkeit unserer Tätigkeiten sicherzustellen\n• Beitrag zur nachhaltigen Einhaltung unserer Aktivitäten durch Gewährleistung der Aktualität interner Richtlinien, der Überwachung regulatorischer Entwicklungen, der Bewältigung von Compliance-Risiken und damit zusammenhängenden Kontrollen, der regelmäßigen Berichterstattung an das Management und den Verwaltungsrat sowie der Vorbereitung und Erleichterung unserer internen Rechtsausschüsse\n• In Zusammenarbeit mit Berufskollegen: Planung, Entwicklung und Durchführung von Ausbildung und Sensibilisierung in Französisch und Deutsch zu Themen, die für Vaudoise Assurances relevant sind\n• Sammeln, Erkennen und Verarbeiten von Berichten über Verletzungen unserer internen Vorschriften zusammen mit anderen Geschäftspartnern Was macht Sie einzigartig:\n• Master in obligatorischem Schweizer Recht, weitere oder postgraduale Ausbildung in Versicherung und/oder Compliance, ein Vermögen\n• Mindeste 5-jährige Berufserfahrung im Versicherungssektor in der Schweiz\n• Französische Muttersprache und ausgezeichnete deutsche Sprachkenntnisse (Mindeststufe C1) Sie sind auch pragmatisch, komfortabel in Ihren Kontakten mit Ihren Kollegen und externen Interessenvertretern. Sie haben einen großen Teamgeist und wissen, wie Sie Ihre Missionen unabhängig durchführen können. Wir bieten Ihnen an:\n• Ein gesundes Arbeitsumfeld in einem gemeinsamen Unternehmen zertifiziert \"Great Place to Work\"\n• Mehrere soziale Vorteile, einschließlich Flexibilität in der Arbeitsorganisation\n• Unterstützung bei der Entwicklung und Ausbildung\n• Humanwerte konzentrierten sich auf das Wohlbefinden der Mitarbeiter Wir freuen uns darauf, Ihr komplettes Bewerbungspaket digital zu erhalten (mit Lehrplan, Brief, Kopien von Arbeitszeugnissen und Diplomen).",
-        "fr": "Employeur solide et tourné vers l’avenir, la Vaudoise est l’un des assureurs leaders en Suisse. Fidèle à sa nature coopérative et à ses valeurs, elle encourage la création d’un environnement de travail sain, inclusif et inspirant, idéal pour développer votre talent. Afin de renforcer notre Département Secrétariat général, qui propose à nos unités internes des services juridiques et de conformité de haut niveau, nous recherchons un/e Juriste assurances et conformité expérimenté/e, entre 80 et 100%. Les diverses missions qui vous attendent :\n• Grâce à vos connaissances et à votre expérience du secteur de l’assurance privée en Suisse, identifier et apporter votre soutien juridique aux métiers dans l’analyse des nouveautés légales pertinentes pour notre compagnie d’assurances, garantir le suivi de leur mise en œuvre pour assurer la conformité de nos opérations dans la durée, de même que faire bénéficier de votre expertise juridique les projets métier concernant ces aspects\n• Effectuer les analyses et les préparatifs internes nécessaires pour coordonner et répondre aux demandes des autorités de surveillance, accompagner leurs contrôles sur place et faire les communications nécessaires aux autorités en temps utile pour garantir la régularité de nos activités\n• Contribuer à la conformité durable de nos activités en assurant l’actualité des directives internes, le suivi des évolutions réglementaires, la gestion des risques de conformité et des contrôles rattachés, les reportings périodiques à la direction et au conseil d’administration, ainsi que la préparation et l’animation de nos comités juridiques internes\n• En collaboration avec des collègues métier : planifier, développer et conduire, en français et allemand, des formations et des sensibilisations sur des sujets pertinents pour la Vaudoise Assurances\n• Recueillir, identifier et traiter les signalements d’infractions à notre réglementation interne, en compagnie des autres parties prenantes de l’entreprise Ce qui vous rend unique :\n• Master en droit suisse obligatoire, formation complémentaire ou postgrade en assurances et/ou conformité, un atout\n• Expérience professionnelle de 5 ans minimum dans le secteur des assurances en Suisse indispensable\n• Langue maternelle française et excellente maîtrise de la langue allemande (minimum niveau C1) Vous êtes également pragmatique, à l’aise dans vos contacts avec vos collègues et les intervenants externes. Vous faites preuve d’un bel esprit d’équipe et savez accomplir vos missions en toute autonomie. Nous vous offrons :\n• Un environnement de travail sain dans une entreprise mutualiste certifiée \"Great Place to Work\"\n• Des avantages sociaux multiples, dont la flexibilité dans l'organisation du travail\n• Un soutien dans le développement et la formation\n• Des valeurs humaines centrées sur le bien-être des collaborateurs Nous nous réjouissons de recevoir votre dossier de candidature complet par voie digitale (avec curriculum vitae, lettre de motivation, copie des certificats de travail et diplômes)."
-      },
-      "location": "Lausanne",
-      "canton": "VD",
-      "url": "https://vaudoise.softgarden.io/job/64019188/Juriste-assurances-et-conformit%C3%A9-exp%C3%A9riment%C3%A9-e-h-f-x-%E2%80%93-80-100-?jobDbPVId=272557612&l=it",
-      "source": "Vaudoise Assurances Dedicated Parser",
-      "sourceLang": "fr",
-      "crawledAt": "2026-05-19T23:52:56.628Z",
-      "addressLocality": "Lausanne",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Assicurazioni",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "08/05/26",
-      "applyUrl": "https://vaudoise.softgarden.io/job/64019188/Juriste-assurances-et-conformit%C3%A9-exp%C3%A9riment%C3%A9-e-h-f-x-%E2%80%93-80-100-?jobDbPVId=272557612&l=it",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "jobCategory": "Diritto e compliance",
-      "previousSlugs": [
-        "juriste-assurances-et-conformite-experimente-e-h-f-x-80-100-vaudoise-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "juriste-assurances-et-conformite-experimente-e-h-f-x-80-100-vaudoise-ch"
-        ],
-        "en": [
-          "juriste-assurances-et-conformite-experimente-e-h-f-x-80-100-vaudoise-ch"
-        ],
-        "de": [
-          "juriste-assurances-et-conformite-experimente-e-h-f-x-80-100-vaudoise-ch"
-        ]
-      },
-      "firstSeenAt": "2026-05-18T13:27:19.533Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "1003"
-    },
-    {
       "id": "vaudoise-4482311a0a1a",
       "slug": "formazione-responsabile-formazione-assicurativa-h-f-x-80-100-vaudoise-assurances-lausanne",
       "slugByLocale": {
@@ -2125,7 +1909,7 @@
       "url": "https://vaudoise.softgarden.io/job/62654354/Responsable-Formation-%E2%80%93-Insurance-Training-h-f-x-80-100-?jobDbPVId=272557648&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-19T23:52:56.381Z",
+      "crawledAt": "2026-05-21T13:44:45.118Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -2201,7 +1985,7 @@
       "url": "https://vaudoise.softgarden.io/job/64652474/Business-Analyst-Atlassian-h-f-x-80-100-?jobDbPVId=272566284&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-19T23:52:56.128Z",
+      "crawledAt": "2026-05-21T13:44:44.839Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -2226,82 +2010,7 @@
         ]
       },
       "firstSeenAt": "2026-05-18T13:27:18.970Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "1003"
-    },
-    {
-      "id": "vaudoise-8c0425667a13",
-      "slug": "tecnico-tecnico-tecnico-ict-h-f-x-80-100-vaudoise-assurances-lausanne",
-      "slugByLocale": {
-        "it": "tecnico-tecnico-tecnico-ict-h-f-x-80-100-vaudoise-assurances-lausanne",
-        "en": "technician-ict-technician-h-f-x-80-100-vaudoise-assurances-lausanne",
-        "de": "techniker-ikt-techniker-h-f-x-80-100-vaudoise-assurances-lausanne",
-        "fr": "technicien-technicienne-ict-h-f-x-80-100-vaudoise-ch"
-      },
-      "company": "Vaudoise Assurances",
-      "companyKey": "vaudoise",
-      "companyDomain": "vaudoise.ch",
-      "title": "Technicien / Technicienne ICT (h/f/x) - 80-100%",
-      "titleByLocale": {
-        "it": "Tecnico tecnico/tecnico ICT (h/f/x) - 80-100%",
-        "en": "Technician / ICT Technician (h/f/x) - 80-100%",
-        "de": "Techniker / IKT Techniker (h/f/x) - 80-100%",
-        "fr": "Technicien / Technicienne ICT (h/f/x) - 80-100%"
-      },
-      "description": "Employeur solide et tourné vers l’avenir, la Vaudoise est l’un des assureurs leaders en Suisse. Fidèle à sa nature coopérative et à ses valeurs, elle encourage la création d’un environnement de travail sain, inclusif et inspirant, propice au développement de ses talents. Afin de renforcer nos équipes IT, nous recherchons un Technicien / Technicienne ICT (h/f/x) entre 80 et 100% pour accompagner nos collaboratrices et collaborateurs au quotidien dans l’utilisation de nos services informatiques. Les missions qui vous attendent:\n• Assurer le support informatique de 2ème niveau auprès des utilisateurs et équipes L1, en intervenant sur des incidents et demandes complexes ou non résolus au premier niveau\n• Réaliser des analyses approfondies afin d’identifier les causes racines et mettre en œuvre des solutions durables pour les environnements hardware, software, réseau et applications métiers.\n• Agir en tant que référent technique pour le ServiceDesk et coordonner la résolution des incidents majeurs ou sensibles avec les équipes d’expertise (infrastructure, sécurité, applications)\n• Garantir la qualité de traitement des tickets dans l’outil ITSM, dans le respect des standards ITIL et des SLA\n• Communiquer de manière proactive avec les utilisateurs sur l’avancement et la résolution de leurs problèmes\n• Contribuer à l’enrichissement de la base de connaissances et à l’amélioration continue du service Votre profil:\n• Formation en informatique (CFC, ES, HES) ou expérience significative en support IT 2ème niveau\n• Excellente maîtrise des environnements Microsoft modernes (Windows 11, Microsoft 365, outils collaboratifs, etc.)\n• Très bonnes connaissances en infrastructure IT (poste de travail, réseau, serveurs, sauvegarde, impression sécurisée, etc.)\n• Aisance avec les outils ITSM et compréhension des processus ITIL\n• Français courant, allemand courant, anglais technique requis\n• Orienté client, proactif et doté d’un bon esprit d’équipe, avec une communication claire et une bonne résistance au stress. Nous vous offrons:\n• Un environnement de travail sain au sein d’une entreprise mutualiste certifiée Great Place to Work\n• Des conditions attractives et des avantages sociaux compétitifs\n• Une flexibilité dans l’organisation du travail\n• Un cadre stimulant favorisant le développement des compétences et l’amélioration continue Nous nous réjouissons de recevoir votre dossier de candidature complet par voie digitale (avec curriculum vitae, lettre de motivation, copie des certificats de travail et diplômes).",
-      "descriptionByLocale": {
-        "it": "Un datore di lavoro forte e preesistente, Vaudoise è uno dei principali assicuratori in Svizzera. Fedele alla sua natura cooperativa e ai suoi valori, incoraggia la creazione di un ambiente di lavoro sano, inclusivo e stimolante che favorisca lo sviluppo dei suoi talenti. Al fine di rafforzare i nostri team IT, stiamo cercando un tecnico ICT (h/f/x) tra 80 e 100% per supportare i nostri dipendenti giornalieri nell'uso dei nostri servizi IT. Le missioni che vi aspettano:\n• Fornire supporto IT di secondo livello agli utenti e ai team L1 intervenendo su incidenti complessi o non risolti e richieste al primo livello\n• Condurre analisi approfondite per identificare le cause principali e implementare soluzioni sostenibili per applicazioni hardware, software, rete e business.\n• Agire come punto focale tecnico per il Servizio Scrivania e coordinare la risoluzione di incidenti importanti o sensibili con team esperti (infrastruttura, sicurezza, applicazioni)\n• Assicurare la qualità dell'elaborazione dei biglietti nello strumento ITSM, nel rispetto degli standard ITIL e SLA\n• Comunicare proattivamente con gli utenti sul progresso e la risoluzione dei loro problemi\n• Contribuisci alla valorizzazione della base di conoscenza e al miglioramento continuo del servizio Il tuo profilo:\n• Formazione informatica (CFC, ES, HES) o esperienza significativa nel supporto IT 2 ° livello\n• Eccellente padronanza degli ambienti Microsoft moderni (Windows 11, Microsoft 365, strumenti collaborativi, ecc.)\n• Ottima conoscenza dell'infrastruttura IT (workstation, rete, server, backup, stampa sicura, ecc.)\n• Accesso agli strumenti ITSM e comprensione dei processi ITIL\n• Francese attuale, tedesco attuale, inglese tecnico richiesto\n• Con una comunicazione chiara e una buona resistenza allo stress. Vi offriamo:\n• Un ambiente di lavoro sano all'interno di una società comune certificata Great Place to Work\n• Condizioni interessanti e vantaggi sociali competitivi\n• Flessibilità nell'organizzazione del lavoro\n• Un quadro stimolante per lo sviluppo delle competenze e il miglioramento continuo Non vediamo l'ora di ricevere digitalmente il pacchetto completo delle applicazioni (con curriculum vitae, lettera di copertura, copie dei certificati di lavoro e dei diplomi).",
-        "en": "A strong and forward-looking employer, Vaudoise is one of the leading insurers in Switzerland. True to its cooperative nature and values, it encourages the creation of a healthy, inclusive and inspiring work environment conducive to the development of its talents. In order to strengthen our IT teams, we are looking for an ICT Technician (h/f/x) between 80 and 100% to support our daily employees in the use of our IT services. The missions that await you:\n• Provide 2nd level IT support to L1 users and teams by intervening on complex or unresolved incidents and requests at the first level\n• Conduct in-depth analysis to identify root causes and implement sustainable solutions for hardware, software, network and business applications.\n• Acting as technical focal point for the Desk Service and coordinating the resolution of major or sensitive incidents with expert teams (infrastructure, security, applications)\n• Ensure the quality of ticket processing in the ITSM tool, in compliance with ITIL and SLA standards\n• Communicate proactively with users on the progress and resolution of their problems\n• Contribute to the enhancement of the knowledge base and continuous service improvement Your profile:\n• Computer training (CFC, ES, HES) or significant experience in IT support 2nd level\n• Excellent mastery of modern Microsoft environments (Windows 11, Microsoft 365, collaborative tools, etc.)\n• Very good knowledge of IT infrastructure (workstation, network, servers, backup, secure printing, etc.)\n• Access to ITSM tools and understanding ITIL processes\n• Current French, current German, technical English required\n• Customer-oriented, proactive and team-minded, with clear communication and good stress resistance. We offer you:\n• A healthy work environment within a mutual company certified Great Place to Work\n• Attractive conditions and competitive social benefits\n• Flexibility in work organisation\n• A stimulating framework for skills development and continuous improvement We look forward to receiving your complete application package digitally (with curriculum vitae, cover letter, copies of work certificates and diplomas).",
-        "de": "Vaudoise ist einer der führenden Versicherer in der Schweiz. Sie fördert die Schaffung eines gesunden, inklusiven und inspirierenden Arbeitsumfelds, das der Entwicklung seiner Talente förderlich ist. Um unsere IT-Teams zu stärken, suchen wir einen ICT-Techniker (h/f/x) zwischen 80 und 100 %, um unsere täglichen Mitarbeiter bei der Nutzung unserer IT-Dienste zu unterstützen. Die Missionen, die Sie erwarten:\n• Bereitstellung von IT-Unterstützung auf der 2. Ebene für L1 Benutzer und Teams, indem sie auf komplexe oder ungelöste Zwischenfälle und Anfragen auf der ersten Ebene intervenieren\n• Führen Sie eingehende Analysen durch, um Ursachen zu identifizieren und nachhaltige Lösungen für Hardware-, Software-, Netzwerk- und Geschäftsanwendungen umzusetzen.\n• Als technischer Schwerpunkt für den Schreibtischdienst fungieren und die Auflösung von wichtigen oder sensiblen Zwischenfällen mit Expertenteams (Infrastruktur, Sicherheit, Anwendungen) koordinieren\n• Gewährleistung der Qualität der Fahrkartenverarbeitung im ITSM-Tool, entsprechend ITIL- und SLA-Standards\n• Proaktiv mit den Benutzern über den Fortschritt und die Lösung ihrer Probleme kommunizieren\n• Beitrag zur Verbesserung der Wissensbasis und der kontinuierlichen Verbesserung Ihres Profils:\n• Computertraining (CFC, ES, HES) oder signifikante Erfahrung in der IT-Unterstützung 2. Ebene\n• Ausgezeichnete Beherrschung moderner Microsoft-Umgebungen (Windows 11, Microsoft 365, kollaborative Tools, etc.)\n• Sehr gute Kenntnisse der IT-Infrastruktur (Workstation, Netzwerk, Server, Backup, sicheres Drucken usw.)\n• Zugang zu ITSM-Tools und Verständnis ITIL-Prozesse\n• Aktuelles Französisch, aktuelles Deutsch, technisches Englisch erforderlich\n• Kundenorientierte, proaktive und teamorientierte, mit klarer Kommunikation und guter Spannungsfestigkeit. Wir bieten Ihnen:\n• Ein gesundes Arbeitsumfeld in einem gemeinsamen Unternehmen zertifiziert Great Place to Work\n• Attraktive Bedingungen und wettbewerbsfähige soziale Vorteile\n• Flexibilität in der Arbeitsorganisation\n• Ein anregender Rahmen für die Kompetenzentwicklung und kontinuierliche Verbesserung Wir freuen uns auf den Erhalt Ihres kompletten Bewerbungspakets digital (mit Curriculum vitae, Cover Letter, Kopien von Arbeitszeugnissen und Diplomen).",
-        "fr": "Employeur solide et tourné vers l’avenir, la Vaudoise est l’un des assureurs leaders en Suisse. Fidèle à sa nature coopérative et à ses valeurs, elle encourage la création d’un environnement de travail sain, inclusif et inspirant, propice au développement de ses talents. Afin de renforcer nos équipes IT, nous recherchons un Technicien / Technicienne ICT (h/f/x) entre 80 et 100% pour accompagner nos collaboratrices et collaborateurs au quotidien dans l’utilisation de nos services informatiques. Les missions qui vous attendent:\n• Assurer le support informatique de 2ème niveau auprès des utilisateurs et équipes L1, en intervenant sur des incidents et demandes complexes ou non résolus au premier niveau\n• Réaliser des analyses approfondies afin d’identifier les causes racines et mettre en œuvre des solutions durables pour les environnements hardware, software, réseau et applications métiers.\n• Agir en tant que référent technique pour le ServiceDesk et coordonner la résolution des incidents majeurs ou sensibles avec les équipes d’expertise (infrastructure, sécurité, applications)\n• Garantir la qualité de traitement des tickets dans l’outil ITSM, dans le respect des standards ITIL et des SLA\n• Communiquer de manière proactive avec les utilisateurs sur l’avancement et la résolution de leurs problèmes\n• Contribuer à l’enrichissement de la base de connaissances et à l’amélioration continue du service Votre profil:\n• Formation en informatique (CFC, ES, HES) ou expérience significative en support IT 2ème niveau\n• Excellente maîtrise des environnements Microsoft modernes (Windows 11, Microsoft 365, outils collaboratifs, etc.)\n• Très bonnes connaissances en infrastructure IT (poste de travail, réseau, serveurs, sauvegarde, impression sécurisée, etc.)\n• Aisance avec les outils ITSM et compréhension des processus ITIL\n• Français courant, allemand courant, anglais technique requis\n• Orienté client, proactif et doté d’un bon esprit d’équipe, avec une communication claire et une bonne résistance au stress. Nous vous offrons:\n• Un environnement de travail sain au sein d’une entreprise mutualiste certifiée Great Place to Work\n• Des conditions attractives et des avantages sociaux compétitifs\n• Une flexibilité dans l’organisation du travail\n• Un cadre stimulant favorisant le développement des compétences et l’amélioration continue Nous nous réjouissons de recevoir votre dossier de candidature complet par voie digitale (avec curriculum vitae, lettre de motivation, copie des certificats de travail et diplômes)."
-      },
-      "location": "Lausanne",
-      "canton": "VD",
-      "url": "https://vaudoise.softgarden.io/job/64652719/Technicien-Technicienne-ICT-h-f-x-80-100-?jobDbPVId=272568299&l=it",
-      "source": "Vaudoise Assurances Dedicated Parser",
-      "sourceLang": "fr",
-      "crawledAt": "2026-05-19T23:52:55.875Z",
-      "addressLocality": "Lausanne",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Tecnica",
-      "contract": "full-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Assicurazioni",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "08/05/26",
-      "applyUrl": "https://vaudoise.softgarden.io/job/64652719/Technicien-Technicienne-ICT-h-f-x-80-100-?jobDbPVId=272568299&l=it",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "jobCategory": "Informatica e tecnologia",
-      "previousSlugs": [
-        "technicien-technicienne-ict-h-f-x-80-100-vaudoise-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "technicien-technicienne-ict-h-f-x-80-100-vaudoise-ch"
-        ],
-        "en": [
-          "technicien-technicienne-ict-h-f-x-80-100-vaudoise-ch"
-        ],
-        "de": [
-          "technicien-technicienne-ict-h-f-x-80-100-vaudoise-ch"
-        ]
-      },
-      "firstSeenAt": "2026-05-18T13:27:18.689Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2347,7 +2056,7 @@
       "url": "https://vaudoise.softgarden.io/job/64653009/Product-Manager-in-Vorsorge-m-w-d-80-100-?jobDbPVId=273312666&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T23:52:55.623Z",
+      "crawledAt": "2026-05-21T13:44:44.574Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -2377,6 +2086,7 @@
         ]
       },
       "firstSeenAt": "2026-05-18T13:27:18.413Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -2422,7 +2132,7 @@
       "url": "https://vaudoise.softgarden.io/job/64060783/Sachbearbeiter-in-Inkasso-m-w-d-80-100-?jobDbPVId=272625909&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T23:52:55.382Z",
+      "crawledAt": "2026-05-21T13:44:44.309Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -2439,6 +2149,7 @@
       "requirementsByLocale": {},
       "jobCategory": "Assicurazioni Direzione",
       "firstSeenAt": "2026-05-18T13:27:18.134Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2484,7 +2195,7 @@
       "url": "https://vaudoise.softgarden.io/job/64060113/Gestionnaire-contentieux-FR-DE-f-h-x-%E2%80%93-80-100-?jobDbPVId=272625939&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-19T23:52:55.124Z",
+      "crawledAt": "2026-05-21T13:44:44.047Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -2559,7 +2270,7 @@
       "url": "https://vaudoise.softgarden.io/job/64674339/Expert-Technique-Microsoft-365-h-f-x-80-100-?jobDbPVId=272695629&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-19T23:52:54.866Z",
+      "crawledAt": "2026-05-21T13:44:43.788Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -2632,7 +2343,7 @@
       "url": "https://vaudoise.softgarden.io/job/63905289/Quality-FinOps-Manager-h-f-x-80-100-?jobDbPVId=272750784&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-19T23:52:54.614Z",
+      "crawledAt": "2026-05-21T13:44:43.522Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -2660,6 +2371,7 @@
         ]
       },
       "firstSeenAt": "2026-05-18T13:27:17.298Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -2705,7 +2417,7 @@
       "url": "https://vaudoise.softgarden.io/job/64702594/Interne-r-Autoexperte-in-m-w-d-80-100-?jobDbPVId=272809744&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T23:52:54.358Z",
+      "crawledAt": "2026-05-21T13:44:43.250Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -2722,6 +2434,7 @@
       "requirementsByLocale": {},
       "jobCategory": "Assicurazioni Direzione",
       "firstSeenAt": "2026-05-18T13:27:17.020Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2767,7 +2480,7 @@
       "url": "https://vaudoise.softgarden.io/job/63422144/-Ing%C3%A9nieur-Ing%C3%A9nieure-Int%C3%A9gration-80-100-?jobDbPVId=272848334&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-19T23:52:54.105Z",
+      "crawledAt": "2026-05-21T13:44:42.973Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -2843,7 +2556,7 @@
       "url": "https://vaudoise.softgarden.io/job/62554964/Juriste-junior-italophone-h-f-x-60-?jobDbPVId=272848364&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-19T23:52:53.846Z",
+      "crawledAt": "2026-05-21T13:44:42.715Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -2860,6 +2573,7 @@
       "requirementsByLocale": {},
       "jobCategory": "Diritto e compliance",
       "firstSeenAt": "2026-05-18T13:27:16.467Z",
+      "needsRetranslation": true,
       "salaryMin": 46000,
       "salaryMax": 78500,
       "baseSalary": {
@@ -2905,7 +2619,7 @@
       "url": "https://vaudoise.softgarden.io/job/62293159/Business-Analyst-h-f-x-80-100-?jobDbPVId=272908229&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-19T23:52:53.595Z",
+      "crawledAt": "2026-05-21T13:44:42.453Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -2930,6 +2644,7 @@
         ]
       },
       "firstSeenAt": "2026-05-18T13:27:16.184Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2975,7 +2690,7 @@
       "url": "https://vaudoise.softgarden.io/job/64122238/Test-Manager-Dataspace-Data-Platform-h-f-x-80%E2%80%93100-?jobDbPVId=273026086&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-19T23:52:53.336Z",
+      "crawledAt": "2026-05-21T13:44:42.184Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -3003,6 +2718,7 @@
         ]
       },
       "firstSeenAt": "2026-05-18T13:27:15.898Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -3048,7 +2764,7 @@
       "url": "https://vaudoise.softgarden.io/job/64097443/Mitarbeiter-in-Kundensupport-m-w-d-80-100-?jobDbPVId=273312596&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T23:52:53.090Z",
+      "crawledAt": "2026-05-21T13:44:41.917Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -3124,7 +2840,7 @@
       "url": "https://vaudoise.softgarden.io/job/64140823/Sp%C3%A9cialiste-Prestations-Accident-h-f-x-80-100-?jobDbPVId=273123496&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-19T23:52:52.840Z",
+      "crawledAt": "2026-05-21T13:44:41.652Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -3200,7 +2916,7 @@
       "url": "https://vaudoise.softgarden.io/job/60739262/Conseiller-Conseill%C3%A8re-h-f-x-100-?jobDbPVId=273413846&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-19T23:52:52.595Z",
+      "crawledAt": "2026-05-21T13:44:41.390Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -3276,7 +2992,7 @@
       "url": "https://vaudoise.softgarden.io/job/60446395/Chef-Cheffe-de-groupe-Perte-de-gain-maladie-80-100-h-f-x-?jobDbPVId=273413886&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-19T23:52:52.332Z",
+      "crawledAt": "2026-05-21T13:44:41.131Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -3304,6 +3020,7 @@
         ]
       },
       "firstSeenAt": "2026-05-18T13:27:27.916Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -3349,7 +3066,7 @@
       "url": "https://vaudoise.softgarden.io/job/60801417/Sachbearbeiter-in-Leistungen-Krankentaggeld-m-w-d-80-100-?jobDbPVId=273413916&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T23:52:52.064Z",
+      "crawledAt": "2026-05-21T13:44:40.864Z",
       "addressLocality": "Berne",
       "addressCountry": "CH",
       "country": "CH",
@@ -3393,6 +3110,212 @@
         }
       },
       "postalCode": "3001"
+    },
+    {
+      "id": "vaudoise-45277c35fa7d",
+      "slug": "sales-effectiveness-manager-h-f-x-80-100-vaudoise-ch",
+      "slugByLocale": {
+        "fr": "sales-effectiveness-manager-h-f-x-80-100-vaudoise-ch",
+        "it": "sales-effectiveness-manager-h-f-x-80-100-vaudoise-ch",
+        "en": "sales-effectiveness-manager-h-f-x-80-100-vaudoise-ch",
+        "de": "sales-effectiveness-manager-h-f-x-80-100-vaudoise-ch"
+      },
+      "company": "Vaudoise Assurances",
+      "companyKey": "vaudoise",
+      "companyDomain": "vaudoise.ch",
+      "title": "Sales Effectiveness Manager (h/f/x) - 80-100%",
+      "titleByLocale": {
+        "fr": "Sales Effectiveness Manager (h/f/x) - 80-100%",
+        "en": "Sales Effectiveness Manager (h/f/x) - 80-100%",
+        "it": "Sales Effectiveness Manager (h/f/x) - 80-100%",
+        "de": "Sales Effectiveness Manager (h/f/x) - 80-100%"
+      },
+      "description": "Employeur solide et tourné vers l’avenir, la Vaudoise est l’un des assureurs leaders en Suisse. Fidèle à sa nature coopérative et à ses valeurs, elle encourage la création d’un environnement de travail sain, inclusif et inspirant, idéal pour développer votre talent. Dans le cadre du développement ciblé de notre marché Suisse romande et Tessin, nous recherchons une personnalité engagée pour renforcer la performance de notre organisation commerciale. En tant que Sales Effectiveness Manager, vous êtes responsable du pilotage de la performance commerciale et de l’optimisation de l’efficacité des forces de vente. Vous contribuez activement au développement des ventes en vous appuyant sur l’analyse des données, l’amélioration des pratiques et l’utilisation optimale des outils (notamment CRM). Les diverses missions qui vous attendent :\n• Suivre, analyser et piloter les indicateurs de performance de vente (KPI)\n• Identifier des leviers de croissance et proposer des actions concrètes - Rythme commercial\n• Accompagner et coacher les équipes terrains dans l’utilisation des outils de pilotage (CRM)\n• Contribuer aux programmes de formation et de développement des compétences de vente\n• Participer à des projets transverses et à l’amélioration continue des pratiques commerciales Votre profil :\n• Formation supérieure en assurance, finance ou marketing\n• Expérience confirmée en vente et en pilotage de la performance commerciale dans le domaine assurantiel de préférence\n• Maîtrise des outils digitaux de vente, en particulier CRM (indispensable)\n• Forte capacité d’analyse, orientation résultats et esprit structuré\n• Excellentes compétences relationnelles et sens de l’influence\n• Langue maternelle française, bonnes connaissances en allemand un atout\n• Disponibilité à effectuer des déplacements sur l’ensemble du marché Suisse romande et Tessin Vous vous distinguez par d’excellentes compétences sociales, un sens de l’influence marqué et une forte capacité de communication. Vous appréciez le travail dans un environnement de management ainsi qu’au sein de réseaux interdisciplinaires. Vous analysez les situations avec vision et précision et agissez de manière autonome, avec un haut degré d’initiative. Grâce à votre orientation claire vers les résultats et les clients, vous êtes reconnu·e comme une personne de référence, capable de faire avancer les projets de manière efficace et durable au moyen de recommandations solides et pragmatiques. Nous vous offrons :\n• Un environnement de travail sain dans une entreprise mutualiste certifiée \"Great Place to Work\"\n• Des avantages sociaux multiples, dont la flexibilité dans l'organisation du travail\n• Un environnement de travail stimulant et orienté performance\n• Des conditions attractives et des possibilités de développement\n• Une culture d’entreprise fondée sur la collaboration et l’engagement Nous nous réjouissons de recevoir votre dossier de candidature complet par voie digitale (avec curriculum vitae, lettre de motivation, copie des certificats de travail et diplômes).",
+      "descriptionByLocale": {
+        "fr": "Employeur solide et tourné vers l’avenir, la Vaudoise est l’un des assureurs leaders en Suisse. Fidèle à sa nature coopérative et à ses valeurs, elle encourage la création d’un environnement de travail sain, inclusif et inspirant, idéal pour développer votre talent. Dans le cadre du développement ciblé de notre marché Suisse romande et Tessin, nous recherchons une personnalité engagée pour renforcer la performance de notre organisation commerciale. En tant que Sales Effectiveness Manager, vous êtes responsable du pilotage de la performance commerciale et de l’optimisation de l’efficacité des forces de vente. Vous contribuez activement au développement des ventes en vous appuyant sur l’analyse des données, l’amélioration des pratiques et l’utilisation optimale des outils (notamment CRM). Les diverses missions qui vous attendent :\n• Suivre, analyser et piloter les indicateurs de performance de vente (KPI)\n• Identifier des leviers de croissance et proposer des actions concrètes - Rythme commercial\n• Accompagner et coacher les équipes terrains dans l’utilisation des outils de pilotage (CRM)\n• Contribuer aux programmes de formation et de développement des compétences de vente\n• Participer à des projets transverses et à l’amélioration continue des pratiques commerciales Votre profil :\n• Formation supérieure en assurance, finance ou marketing\n• Expérience confirmée en vente et en pilotage de la performance commerciale dans le domaine assurantiel de préférence\n• Maîtrise des outils digitaux de vente, en particulier CRM (indispensable)\n• Forte capacité d’analyse, orientation résultats et esprit structuré\n• Excellentes compétences relationnelles et sens de l’influence\n• Langue maternelle française, bonnes connaissances en allemand un atout\n• Disponibilité à effectuer des déplacements sur l’ensemble du marché Suisse romande et Tessin Vous vous distinguez par d’excellentes compétences sociales, un sens de l’influence marqué et une forte capacité de communication. Vous appréciez le travail dans un environnement de management ainsi qu’au sein de réseaux interdisciplinaires. Vous analysez les situations avec vision et précision et agissez de manière autonome, avec un haut degré d’initiative. Grâce à votre orientation claire vers les résultats et les clients, vous êtes reconnu·e comme une personne de référence, capable de faire avancer les projets de manière efficace et durable au moyen de recommandations solides et pragmatiques. Nous vous offrons :\n• Un environnement de travail sain dans une entreprise mutualiste certifiée \"Great Place to Work\"\n• Des avantages sociaux multiples, dont la flexibilité dans l'organisation du travail\n• Un environnement de travail stimulant et orienté performance\n• Des conditions attractives et des possibilités de développement\n• Une culture d’entreprise fondée sur la collaboration et l’engagement Nous nous réjouissons de recevoir votre dossier de candidature complet par voie digitale (avec curriculum vitae, lettre de motivation, copie des certificats de travail et diplômes).",
+        "it": "Employeur solide et tourné vers l’avenir, la Vaudoise est l’un des assureurs leaders en Suisse. Fidèle à sa nature coopérative et à ses valeurs, elle encourage la création d’un environnement de travail sain, inclusif et inspirant, idéal pour développer votre talent. Dans le cadre du développement ciblé de notre marché Suisse romande et Tessin, nous recherchons une personnalité engagée pour renforcer la performance de notre organisation commerciale. En tant que Sales Effectiveness Manager, vous êtes responsable du pilotage de la performance commerciale et de l’optimisation de l’efficacité des forces de vente. Vous contribuez activement au développement des ventes en vous appuyant sur l’analyse des données, l’amélioration des pratiques et l’utilisation optimale des outils (notamment CRM). Les diverses missions qui vous attendent :\n• Suivre, analyser et piloter les indicateurs de performance de vente (KPI)\n• Identifier des leviers de croissance et proposer des actions concrètes - Rythme commercial\n• Accompagner et coacher les équipes terrains dans l’utilisation des outils de pilotage (CRM)\n• Contribuer aux programmes de formation et de développement des compétences de vente\n• Participer à des projets transverses et à l’amélioration continue des pratiques commerciales Votre profil :\n• Formation supérieure en assurance, finance ou marketing\n• Expérience confirmée en vente et en pilotage de la performance commerciale dans le domaine assurantiel de préférence\n• Maîtrise des outils digitaux de vente, en particulier CRM (indispensable)\n• Forte capacité d’analyse, orientation résultats et esprit structuré\n• Excellentes compétences relationnelles et sens de l’influence\n• Langue maternelle française, bonnes connaissances en allemand un atout\n• Disponibilité à effectuer des déplacements sur l’ensemble du marché Suisse romande et Tessin Vous vous distinguez par d’excellentes compétences sociales, un sens de l’influence marqué et une forte capacité de communication. Vous appréciez le travail dans un environnement de management ainsi qu’au sein de réseaux interdisciplinaires. Vous analysez les situations avec vision et précision et agissez de manière autonome, avec un haut degré d’initiative. Grâce à votre orientation claire vers les résultats et les clients, vous êtes reconnu·e comme une personne de référence, capable de faire avancer les projets de manière efficace et durable au moyen de recommandations solides et pragmatiques. Nous vous offrons :\n• Un environnement de travail sain dans une entreprise mutualiste certifiée \"Great Place to Work\"\n• Des avantages sociaux multiples, dont la flexibilité dans l'organisation du travail\n• Un environnement de travail stimulant et orienté performance\n• Des conditions attractives et des possibilités de développement\n• Une culture d’entreprise fondée sur la collaboration et l’engagement Nous nous réjouissons de recevoir votre dossier de candidature complet par voie digitale (avec curriculum vitae, lettre de motivation, copie des certificats de travail et diplômes).",
+        "en": "Employeur solide et tourné vers l’avenir, la Vaudoise est l’un des assureurs leaders en Suisse. Fidèle à sa nature coopérative et à ses valeurs, elle encourage la création d’un environnement de travail sain, inclusif et inspirant, idéal pour développer votre talent. Dans le cadre du développement ciblé de notre marché Suisse romande et Tessin, nous recherchons une personnalité engagée pour renforcer la performance de notre organisation commerciale. En tant que Sales Effectiveness Manager, vous êtes responsable du pilotage de la performance commerciale et de l’optimisation de l’efficacité des forces de vente. Vous contribuez activement au développement des ventes en vous appuyant sur l’analyse des données, l’amélioration des pratiques et l’utilisation optimale des outils (notamment CRM). Les diverses missions qui vous attendent :\n• Suivre, analyser et piloter les indicateurs de performance de vente (KPI)\n• Identifier des leviers de croissance et proposer des actions concrètes - Rythme commercial\n• Accompagner et coacher les équipes terrains dans l’utilisation des outils de pilotage (CRM)\n• Contribuer aux programmes de formation et de développement des compétences de vente\n• Participer à des projets transverses et à l’amélioration continue des pratiques commerciales Votre profil :\n• Formation supérieure en assurance, finance ou marketing\n• Expérience confirmée en vente et en pilotage de la performance commerciale dans le domaine assurantiel de préférence\n• Maîtrise des outils digitaux de vente, en particulier CRM (indispensable)\n• Forte capacité d’analyse, orientation résultats et esprit structuré\n• Excellentes compétences relationnelles et sens de l’influence\n• Langue maternelle française, bonnes connaissances en allemand un atout\n• Disponibilité à effectuer des déplacements sur l’ensemble du marché Suisse romande et Tessin Vous vous distinguez par d’excellentes compétences sociales, un sens de l’influence marqué et une forte capacité de communication. Vous appréciez le travail dans un environnement de management ainsi qu’au sein de réseaux interdisciplinaires. Vous analysez les situations avec vision et précision et agissez de manière autonome, avec un haut degré d’initiative. Grâce à votre orientation claire vers les résultats et les clients, vous êtes reconnu·e comme une personne de référence, capable de faire avancer les projets de manière efficace et durable au moyen de recommandations solides et pragmatiques. Nous vous offrons :\n• Un environnement de travail sain dans une entreprise mutualiste certifiée \"Great Place to Work\"\n• Des avantages sociaux multiples, dont la flexibilité dans l'organisation du travail\n• Un environnement de travail stimulant et orienté performance\n• Des conditions attractives et des possibilités de développement\n• Une culture d’entreprise fondée sur la collaboration et l’engagement Nous nous réjouissons de recevoir votre dossier de candidature complet par voie digitale (avec curriculum vitae, lettre de motivation, copie des certificats de travail et diplômes).",
+        "de": "Employeur solide et tourné vers l’avenir, la Vaudoise est l’un des assureurs leaders en Suisse. Fidèle à sa nature coopérative et à ses valeurs, elle encourage la création d’un environnement de travail sain, inclusif et inspirant, idéal pour développer votre talent. Dans le cadre du développement ciblé de notre marché Suisse romande et Tessin, nous recherchons une personnalité engagée pour renforcer la performance de notre organisation commerciale. En tant que Sales Effectiveness Manager, vous êtes responsable du pilotage de la performance commerciale et de l’optimisation de l’efficacité des forces de vente. Vous contribuez activement au développement des ventes en vous appuyant sur l’analyse des données, l’amélioration des pratiques et l’utilisation optimale des outils (notamment CRM). Les diverses missions qui vous attendent :\n• Suivre, analyser et piloter les indicateurs de performance de vente (KPI)\n• Identifier des leviers de croissance et proposer des actions concrètes - Rythme commercial\n• Accompagner et coacher les équipes terrains dans l’utilisation des outils de pilotage (CRM)\n• Contribuer aux programmes de formation et de développement des compétences de vente\n• Participer à des projets transverses et à l’amélioration continue des pratiques commerciales Votre profil :\n• Formation supérieure en assurance, finance ou marketing\n• Expérience confirmée en vente et en pilotage de la performance commerciale dans le domaine assurantiel de préférence\n• Maîtrise des outils digitaux de vente, en particulier CRM (indispensable)\n• Forte capacité d’analyse, orientation résultats et esprit structuré\n• Excellentes compétences relationnelles et sens de l’influence\n• Langue maternelle française, bonnes connaissances en allemand un atout\n• Disponibilité à effectuer des déplacements sur l’ensemble du marché Suisse romande et Tessin Vous vous distinguez par d’excellentes compétences sociales, un sens de l’influence marqué et une forte capacité de communication. Vous appréciez le travail dans un environnement de management ainsi qu’au sein de réseaux interdisciplinaires. Vous analysez les situations avec vision et précision et agissez de manière autonome, avec un haut degré d’initiative. Grâce à votre orientation claire vers les résultats et les clients, vous êtes reconnu·e comme une personne de référence, capable de faire avancer les projets de manière efficace et durable au moyen de recommandations solides et pragmatiques. Nous vous offrons :\n• Un environnement de travail sain dans une entreprise mutualiste certifiée \"Great Place to Work\"\n• Des avantages sociaux multiples, dont la flexibilité dans l'organisation du travail\n• Un environnement de travail stimulant et orienté performance\n• Des conditions attractives et des possibilités de développement\n• Une culture d’entreprise fondée sur la collaboration et l’engagement Nous nous réjouissons de recevoir votre dossier de candidature complet par voie digitale (avec curriculum vitae, lettre de motivation, copie des certificats de travail et diplômes)."
+      },
+      "location": "Lausanne",
+      "canton": "VD",
+      "url": "https://vaudoise.softgarden.io/job/64816341/Sales-Effectiveness-Manager-h-f-x-80-100-?jobDbPVId=273500066&l=it",
+      "source": "Vaudoise Assurances Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-05-21T13:44:40.604Z",
+      "addressLocality": "Lausanne",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Commerciale",
+      "contract": "full-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Assicurazioni",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "20/05/26",
+      "applyUrl": "https://vaudoise.softgarden.io/job/64816341/Sales-Effectiveness-Manager-h-f-x-80-100-?jobDbPVId=273500066&l=it",
+      "requirements": [],
+      "requirementsByLocale": {
+        "fr": []
+      },
+      "jobCategory": "Vendita, commercio e servizio alla clientela",
+      "needsRetranslation": true,
+      "salaryMin": 68000,
+      "salaryMax": 103000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68000,
+          "maxValue": 103000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "1003",
+      "firstSeenAt": "2026-05-21T13:44:40.604Z"
+    },
+    {
+      "id": "vaudoise-fafa4ad31e60",
+      "slug": "gruppenleiter-in-autoexpert-in-deutschschweiz-m-w-d-80-100-vaudoise-ch",
+      "slugByLocale": {
+        "de": "gruppenleiter-in-autoexpert-in-deutschschweiz-m-w-d-80-100-vaudoise-ch",
+        "it": "gruppenleiter-in-autoexpert-in-deutschschweiz-m-w-d-80-100-vaudoise-ch",
+        "en": "gruppenleiter-in-autoexpert-in-deutschschweiz-m-w-d-80-100-vaudoise-ch",
+        "fr": "gruppenleiter-in-autoexpert-in-deutschschweiz-m-w-d-80-100-vaudoise-ch"
+      },
+      "company": "Vaudoise Assurances",
+      "companyKey": "vaudoise",
+      "companyDomain": "vaudoise.ch",
+      "title": "Gruppenleiter/in autoexpert/in Deutschschweiz (m/w/d) 80-100%",
+      "titleByLocale": {
+        "de": "Gruppenleiter/in autoexpert/in Deutschschweiz (m/w/d) 80-100%",
+        "it": "Gruppenleiter/in autoexpert/in Deutschschweiz (m/w/d) 80-100%",
+        "en": "Gruppenleiter/in autoexpert/in Deutschschweiz (m/w/d) 80-100%",
+        "fr": "Gruppenleiter/in autoexpert/in Deutschschweiz (m/w/d) 80-100%"
+      },
+      "description": "Die Vaudoise ist eine der führenden Schweizer Versicherungen und eine attraktive und zukunftsorientierte Arbeitgeberin. Ganz im Sinne ihrer genossenschaftlichen Identität und ihrer Werte schafft die Vaudoise ein gesundes, inklusives und inspirierendes Arbeitsumfeld, in dem Sie sich weiterentwickeln können. Zur Verstärkung unseres Teams Fahrzeugexperten suchen wir einen Gruppenleiter / eine Gruppenleiterin Autoexpert/in Deutschschweiz, die aktiv zur Führung und Weiterentwicklung des Teams sowie zur Mitgestaltung einer agilen, digitalen und kundenorientierten Organisation beiträgt, dies in einem dynamischen und kollaborativen Umfeld. Folgende spannende Aufgaben erwarten Sie:\n• Begleitung und Unterstützung Ihres Teams bei operativen Herausforderungen\n• Schaffung eines motivierendes Arbeitsumfeld mit Eigenverantwortung und Lösungsorientierung\n• Aktive Begleitung von Veränderungen sowie Förderung der Weiterentwicklung von Arbeitsweisen\n• Kontinuierliche Optimierung von Prozessen und Arbeitsmethoden\n• Mitarbeit in bereichsübergreifenden Projekten in den Bereichen Organisation, Digitalisierung und Innovation\n• Förderung der Zusammenarbeit mit internen und externen Partnern\n• Unterstützung und Weiterentwicklung des Nachwuchses im Bereich Fahrzeugexpertise Das zeichnet Sie aus:\n• Mehrjährige Erfahrung in der Führung und Koordination von Teams in einem dynamischen Umfeld\n• Fähigkeit, Mitarbeitende für gemeinsame Ziele zu gewinnen und eine konstruktive Teamdynamik zu fördern\n• Sicherer Umgang mit Veränderungen sowie ein pragmatischer, lösungsorientierter Arbeitsstil\n• Fähigkeit, Themen auch in komplexen Situationen voranzutreiben und Entscheidungen zu treffen\n• Ausgeprägte Kommunikationsfähigkeiten mit klarem, diplomatischem und glaubwürdigem Auftreten\n• Ganzheitlicher Blick auf Zusammenhänge bei gleichzeitig hoher Nähe zum operativen Geschäft\n• Starkes Interesse an kontinuierlicher Verbesserung, digitalen Tools, neuen Arbeitsmethoden und Projektarbeit\n• Freude an einem dynamischen Umfeld, in dem Flexibilität und Reaktionsfähigkeit\n• Höhere Ausbildung im Automobilbereich\n• Deutsch als Muttersprache mit guten Französischkenntnissen Sie verbinden Menschlichkeit mit Organisationsgeschick und begleiten Veränderungen aktiv und lösungsorientiert. Dabei arbeiten Sie gerne im Team, übernehmen Verantwortung und fühlen sich in einem dynamischen Umfeld wohl. Wir bieten Ihnen:\n• Ein angenehmes Arbeitsumfeld in einem genossenschaftlich geprägten Unternehmen, das mehrfach zum besten Arbeitgeber gewählt wurde\n• Zahlreiche Sozialleistungen und Mitarbeitervorteile, darunter Flexibilität bei der Arbeitsorganisation\n• Das Wohlbefinden der Mitarbeitenden als erste Priorität\n• Moderne Büroräumlichkeiten inkl. Fitness Wir freuen uns auf Ihre vollständigen Bewerbungsunterlagen auf elektronischem Weg (mit Lebenslauf, Motivationsschreiben, Kopie der Arbeitszeugnisse und Diplome).",
+      "descriptionByLocale": {
+        "de": "Die Vaudoise ist eine der führenden Schweizer Versicherungen und eine attraktive und zukunftsorientierte Arbeitgeberin. Ganz im Sinne ihrer genossenschaftlichen Identität und ihrer Werte schafft die Vaudoise ein gesundes, inklusives und inspirierendes Arbeitsumfeld, in dem Sie sich weiterentwickeln können. Zur Verstärkung unseres Teams Fahrzeugexperten suchen wir einen Gruppenleiter / eine Gruppenleiterin Autoexpert/in Deutschschweiz, die aktiv zur Führung und Weiterentwicklung des Teams sowie zur Mitgestaltung einer agilen, digitalen und kundenorientierten Organisation beiträgt, dies in einem dynamischen und kollaborativen Umfeld. Folgende spannende Aufgaben erwarten Sie:\n• Begleitung und Unterstützung Ihres Teams bei operativen Herausforderungen\n• Schaffung eines motivierendes Arbeitsumfeld mit Eigenverantwortung und Lösungsorientierung\n• Aktive Begleitung von Veränderungen sowie Förderung der Weiterentwicklung von Arbeitsweisen\n• Kontinuierliche Optimierung von Prozessen und Arbeitsmethoden\n• Mitarbeit in bereichsübergreifenden Projekten in den Bereichen Organisation, Digitalisierung und Innovation\n• Förderung der Zusammenarbeit mit internen und externen Partnern\n• Unterstützung und Weiterentwicklung des Nachwuchses im Bereich Fahrzeugexpertise Das zeichnet Sie aus:\n• Mehrjährige Erfahrung in der Führung und Koordination von Teams in einem dynamischen Umfeld\n• Fähigkeit, Mitarbeitende für gemeinsame Ziele zu gewinnen und eine konstruktive Teamdynamik zu fördern\n• Sicherer Umgang mit Veränderungen sowie ein pragmatischer, lösungsorientierter Arbeitsstil\n• Fähigkeit, Themen auch in komplexen Situationen voranzutreiben und Entscheidungen zu treffen\n• Ausgeprägte Kommunikationsfähigkeiten mit klarem, diplomatischem und glaubwürdigem Auftreten\n• Ganzheitlicher Blick auf Zusammenhänge bei gleichzeitig hoher Nähe zum operativen Geschäft\n• Starkes Interesse an kontinuierlicher Verbesserung, digitalen Tools, neuen Arbeitsmethoden und Projektarbeit\n• Freude an einem dynamischen Umfeld, in dem Flexibilität und Reaktionsfähigkeit\n• Höhere Ausbildung im Automobilbereich\n• Deutsch als Muttersprache mit guten Französischkenntnissen Sie verbinden Menschlichkeit mit Organisationsgeschick und begleiten Veränderungen aktiv und lösungsorientiert. Dabei arbeiten Sie gerne im Team, übernehmen Verantwortung und fühlen sich in einem dynamischen Umfeld wohl. Wir bieten Ihnen:\n• Ein angenehmes Arbeitsumfeld in einem genossenschaftlich geprägten Unternehmen, das mehrfach zum besten Arbeitgeber gewählt wurde\n• Zahlreiche Sozialleistungen und Mitarbeitervorteile, darunter Flexibilität bei der Arbeitsorganisation\n• Das Wohlbefinden der Mitarbeitenden als erste Priorität\n• Moderne Büroräumlichkeiten inkl. Fitness Wir freuen uns auf Ihre vollständigen Bewerbungsunterlagen auf elektronischem Weg (mit Lebenslauf, Motivationsschreiben, Kopie der Arbeitszeugnisse und Diplome).",
+        "it": "Die Vaudoise ist eine der führenden Schweizer Versicherungen und eine attraktive und zukunftsorientierte Arbeitgeberin. Ganz im Sinne ihrer genossenschaftlichen Identität und ihrer Werte schafft die Vaudoise ein gesundes, inklusives und inspirierendes Arbeitsumfeld, in dem Sie sich weiterentwickeln können. Zur Verstärkung unseres Teams Fahrzeugexperten suchen wir einen Gruppenleiter / eine Gruppenleiterin Autoexpert/in Deutschschweiz, die aktiv zur Führung und Weiterentwicklung des Teams sowie zur Mitgestaltung einer agilen, digitalen und kundenorientierten Organisation beiträgt, dies in einem dynamischen und kollaborativen Umfeld. Folgende spannende Aufgaben erwarten Sie:\n• Begleitung und Unterstützung Ihres Teams bei operativen Herausforderungen\n• Schaffung eines motivierendes Arbeitsumfeld mit Eigenverantwortung und Lösungsorientierung\n• Aktive Begleitung von Veränderungen sowie Förderung der Weiterentwicklung von Arbeitsweisen\n• Kontinuierliche Optimierung von Prozessen und Arbeitsmethoden\n• Mitarbeit in bereichsübergreifenden Projekten in den Bereichen Organisation, Digitalisierung und Innovation\n• Förderung der Zusammenarbeit mit internen und externen Partnern\n• Unterstützung und Weiterentwicklung des Nachwuchses im Bereich Fahrzeugexpertise Das zeichnet Sie aus:\n• Mehrjährige Erfahrung in der Führung und Koordination von Teams in einem dynamischen Umfeld\n• Fähigkeit, Mitarbeitende für gemeinsame Ziele zu gewinnen und eine konstruktive Teamdynamik zu fördern\n• Sicherer Umgang mit Veränderungen sowie ein pragmatischer, lösungsorientierter Arbeitsstil\n• Fähigkeit, Themen auch in komplexen Situationen voranzutreiben und Entscheidungen zu treffen\n• Ausgeprägte Kommunikationsfähigkeiten mit klarem, diplomatischem und glaubwürdigem Auftreten\n• Ganzheitlicher Blick auf Zusammenhänge bei gleichzeitig hoher Nähe zum operativen Geschäft\n• Starkes Interesse an kontinuierlicher Verbesserung, digitalen Tools, neuen Arbeitsmethoden und Projektarbeit\n• Freude an einem dynamischen Umfeld, in dem Flexibilität und Reaktionsfähigkeit\n• Höhere Ausbildung im Automobilbereich\n• Deutsch als Muttersprache mit guten Französischkenntnissen Sie verbinden Menschlichkeit mit Organisationsgeschick und begleiten Veränderungen aktiv und lösungsorientiert. Dabei arbeiten Sie gerne im Team, übernehmen Verantwortung und fühlen sich in einem dynamischen Umfeld wohl. Wir bieten Ihnen:\n• Ein angenehmes Arbeitsumfeld in einem genossenschaftlich geprägten Unternehmen, das mehrfach zum besten Arbeitgeber gewählt wurde\n• Zahlreiche Sozialleistungen und Mitarbeitervorteile, darunter Flexibilität bei der Arbeitsorganisation\n• Das Wohlbefinden der Mitarbeitenden als erste Priorität\n• Moderne Büroräumlichkeiten inkl. Fitness Wir freuen uns auf Ihre vollständigen Bewerbungsunterlagen auf elektronischem Weg (mit Lebenslauf, Motivationsschreiben, Kopie der Arbeitszeugnisse und Diplome).",
+        "en": "Die Vaudoise ist eine der führenden Schweizer Versicherungen und eine attraktive und zukunftsorientierte Arbeitgeberin. Ganz im Sinne ihrer genossenschaftlichen Identität und ihrer Werte schafft die Vaudoise ein gesundes, inklusives und inspirierendes Arbeitsumfeld, in dem Sie sich weiterentwickeln können. Zur Verstärkung unseres Teams Fahrzeugexperten suchen wir einen Gruppenleiter / eine Gruppenleiterin Autoexpert/in Deutschschweiz, die aktiv zur Führung und Weiterentwicklung des Teams sowie zur Mitgestaltung einer agilen, digitalen und kundenorientierten Organisation beiträgt, dies in einem dynamischen und kollaborativen Umfeld. Folgende spannende Aufgaben erwarten Sie:\n• Begleitung und Unterstützung Ihres Teams bei operativen Herausforderungen\n• Schaffung eines motivierendes Arbeitsumfeld mit Eigenverantwortung und Lösungsorientierung\n• Aktive Begleitung von Veränderungen sowie Förderung der Weiterentwicklung von Arbeitsweisen\n• Kontinuierliche Optimierung von Prozessen und Arbeitsmethoden\n• Mitarbeit in bereichsübergreifenden Projekten in den Bereichen Organisation, Digitalisierung und Innovation\n• Förderung der Zusammenarbeit mit internen und externen Partnern\n• Unterstützung und Weiterentwicklung des Nachwuchses im Bereich Fahrzeugexpertise Das zeichnet Sie aus:\n• Mehrjährige Erfahrung in der Führung und Koordination von Teams in einem dynamischen Umfeld\n• Fähigkeit, Mitarbeitende für gemeinsame Ziele zu gewinnen und eine konstruktive Teamdynamik zu fördern\n• Sicherer Umgang mit Veränderungen sowie ein pragmatischer, lösungsorientierter Arbeitsstil\n• Fähigkeit, Themen auch in komplexen Situationen voranzutreiben und Entscheidungen zu treffen\n• Ausgeprägte Kommunikationsfähigkeiten mit klarem, diplomatischem und glaubwürdigem Auftreten\n• Ganzheitlicher Blick auf Zusammenhänge bei gleichzeitig hoher Nähe zum operativen Geschäft\n• Starkes Interesse an kontinuierlicher Verbesserung, digitalen Tools, neuen Arbeitsmethoden und Projektarbeit\n• Freude an einem dynamischen Umfeld, in dem Flexibilität und Reaktionsfähigkeit\n• Höhere Ausbildung im Automobilbereich\n• Deutsch als Muttersprache mit guten Französischkenntnissen Sie verbinden Menschlichkeit mit Organisationsgeschick und begleiten Veränderungen aktiv und lösungsorientiert. Dabei arbeiten Sie gerne im Team, übernehmen Verantwortung und fühlen sich in einem dynamischen Umfeld wohl. Wir bieten Ihnen:\n• Ein angenehmes Arbeitsumfeld in einem genossenschaftlich geprägten Unternehmen, das mehrfach zum besten Arbeitgeber gewählt wurde\n• Zahlreiche Sozialleistungen und Mitarbeitervorteile, darunter Flexibilität bei der Arbeitsorganisation\n• Das Wohlbefinden der Mitarbeitenden als erste Priorität\n• Moderne Büroräumlichkeiten inkl. Fitness Wir freuen uns auf Ihre vollständigen Bewerbungsunterlagen auf elektronischem Weg (mit Lebenslauf, Motivationsschreiben, Kopie der Arbeitszeugnisse und Diplome).",
+        "fr": "Die Vaudoise ist eine der führenden Schweizer Versicherungen und eine attraktive und zukunftsorientierte Arbeitgeberin. Ganz im Sinne ihrer genossenschaftlichen Identität und ihrer Werte schafft die Vaudoise ein gesundes, inklusives und inspirierendes Arbeitsumfeld, in dem Sie sich weiterentwickeln können. Zur Verstärkung unseres Teams Fahrzeugexperten suchen wir einen Gruppenleiter / eine Gruppenleiterin Autoexpert/in Deutschschweiz, die aktiv zur Führung und Weiterentwicklung des Teams sowie zur Mitgestaltung einer agilen, digitalen und kundenorientierten Organisation beiträgt, dies in einem dynamischen und kollaborativen Umfeld. Folgende spannende Aufgaben erwarten Sie:\n• Begleitung und Unterstützung Ihres Teams bei operativen Herausforderungen\n• Schaffung eines motivierendes Arbeitsumfeld mit Eigenverantwortung und Lösungsorientierung\n• Aktive Begleitung von Veränderungen sowie Förderung der Weiterentwicklung von Arbeitsweisen\n• Kontinuierliche Optimierung von Prozessen und Arbeitsmethoden\n• Mitarbeit in bereichsübergreifenden Projekten in den Bereichen Organisation, Digitalisierung und Innovation\n• Förderung der Zusammenarbeit mit internen und externen Partnern\n• Unterstützung und Weiterentwicklung des Nachwuchses im Bereich Fahrzeugexpertise Das zeichnet Sie aus:\n• Mehrjährige Erfahrung in der Führung und Koordination von Teams in einem dynamischen Umfeld\n• Fähigkeit, Mitarbeitende für gemeinsame Ziele zu gewinnen und eine konstruktive Teamdynamik zu fördern\n• Sicherer Umgang mit Veränderungen sowie ein pragmatischer, lösungsorientierter Arbeitsstil\n• Fähigkeit, Themen auch in komplexen Situationen voranzutreiben und Entscheidungen zu treffen\n• Ausgeprägte Kommunikationsfähigkeiten mit klarem, diplomatischem und glaubwürdigem Auftreten\n• Ganzheitlicher Blick auf Zusammenhänge bei gleichzeitig hoher Nähe zum operativen Geschäft\n• Starkes Interesse an kontinuierlicher Verbesserung, digitalen Tools, neuen Arbeitsmethoden und Projektarbeit\n• Freude an einem dynamischen Umfeld, in dem Flexibilität und Reaktionsfähigkeit\n• Höhere Ausbildung im Automobilbereich\n• Deutsch als Muttersprache mit guten Französischkenntnissen Sie verbinden Menschlichkeit mit Organisationsgeschick und begleiten Veränderungen aktiv und lösungsorientiert. Dabei arbeiten Sie gerne im Team, übernehmen Verantwortung und fühlen sich in einem dynamischen Umfeld wohl. Wir bieten Ihnen:\n• Ein angenehmes Arbeitsumfeld in einem genossenschaftlich geprägten Unternehmen, das mehrfach zum besten Arbeitgeber gewählt wurde\n• Zahlreiche Sozialleistungen und Mitarbeitervorteile, darunter Flexibilität bei der Arbeitsorganisation\n• Das Wohlbefinden der Mitarbeitenden als erste Priorität\n• Moderne Büroräumlichkeiten inkl. Fitness Wir freuen uns auf Ihre vollständigen Bewerbungsunterlagen auf elektronischem Weg (mit Lebenslauf, Motivationsschreiben, Kopie der Arbeitszeugnisse und Diplome)."
+      },
+      "location": "Bern",
+      "canton": "BE",
+      "url": "https://vaudoise.softgarden.io/job/64831661/Gruppenleiter-in-autoexpert-in-Deutschschweiz-m-w-d-80-100-?jobDbPVId=273561716&l=it",
+      "source": "Vaudoise Assurances Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-05-21T13:44:40.327Z",
+      "addressLocality": "Bern",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Assicurazioni",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "20/05/26",
+      "applyUrl": "https://vaudoise.softgarden.io/job/64831661/Gruppenleiter-in-autoexpert-in-Deutschschweiz-m-w-d-80-100-?jobDbPVId=273561716&l=it",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "jobCategory": "Assicurazioni Direzione",
+      "needsRetranslation": true,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "3001",
+      "firstSeenAt": "2026-05-21T13:44:40.327Z"
+    },
+    {
+      "id": "vaudoise-004be3e282c0",
+      "slug": "assicurazione-legale-e-compliance-esperienza-h-f-x-80-100-vaudoise-assurances-lausanne",
+      "slugByLocale": {
+        "it": "assicurazione-legale-e-compliance-esperienza-h-f-x-80-100-vaudoise-assurances-lausanne",
+        "en": "legal-insurance-and-experienced-compliance-h-f-x-80-100-vaudoise-assurances-lausanne",
+        "de": "legal-insurance-and-experienced-compliance-h-f-x-80-100-vaudoise-assurances-lausanne",
+        "fr": "juriste-assurances-et-conformite-experimente-e-h-f-x-80-100-vaudoise-ch"
+      },
+      "company": "Vaudoise Assurances",
+      "companyKey": "vaudoise",
+      "companyDomain": "vaudoise.ch",
+      "title": "Juriste assurances et conformité expérimenté/e (h/f/x) – 80-100%",
+      "titleByLocale": {
+        "it": "Assicurazione Legale e Compliance Esperienza (h/f/x) – 80-100%",
+        "en": "Legal Insurance and Experienced Compliance (h/f/x) – 80-100%",
+        "de": "Legal Insurance and Experienced Compliance (h/f/x) – 80-100%",
+        "fr": "Juriste assurances et conformité expérimenté/e (h/f/x) – 80-100%"
+      },
+      "description": "Employeur solide et tourné vers l’avenir, la Vaudoise est l’un des assureurs leaders en Suisse. Fidèle à sa nature coopérative et à ses valeurs, elle encourage la création d’un environnement de travail sain, inclusif et inspirant, idéal pour développer votre talent. Afin de renforcer notre Département Secrétariat général, qui propose à nos unités internes des services juridiques et de conformité de haut niveau, nous recherchons un/e Juriste assurances et conformité expérimenté/e, entre 80 et 100%. Les diverses missions qui vous attendent :\n• Grâce à vos connaissances et à votre expérience du secteur de l’assurance privée en Suisse, identifier et apporter votre soutien juridique aux métiers dans l’analyse des nouveautés légales pertinentes pour notre compagnie d’assurances, garantir le suivi de leur mise en œuvre pour assurer la conformité de nos opérations dans la durée, de même que faire bénéficier de votre expertise juridique les projets métier concernant ces aspects\n• Effectuer les analyses et les préparatifs internes nécessaires pour coordonner et répondre aux demandes des autorités de surveillance, accompagner leurs contrôles sur place et faire les communications nécessaires aux autorités en temps utile pour garantir la régularité de nos activités\n• Contribuer à la conformité durable de nos activités en assurant l’actualité des directives internes, le suivi des évolutions réglementaires, la gestion des risques de conformité et des contrôles rattachés, les reportings périodiques à la direction et au conseil d’administration, ainsi que la préparation et l’animation de nos comités juridiques internes\n• En collaboration avec des collègues métier : planifier, développer et conduire, en français et allemand, des formations et des sensibilisations sur des sujets pertinents pour la Vaudoise Assurances\n• Recueillir, identifier et traiter les signalements d’infractions à notre réglementation interne, en compagnie des autres parties prenantes de l’entreprise Ce qui vous rend unique :\n• Master en droit suisse obligatoire, formation complémentaire ou postgrade en assurances et/ou conformité, un atout\n• Expérience professionnelle de 5 ans minimum dans le secteur des assurances en Suisse indispensable\n• Langue maternelle française et excellente maîtrise de la langue allemande (minimum niveau C1) Vous êtes également pragmatique, à l’aise dans vos contacts avec vos collègues et les intervenants externes. Vous faites preuve d’un bel esprit d’équipe et savez accomplir vos missions en toute autonomie. Nous vous offrons :\n• Un environnement de travail sain dans une entreprise mutualiste certifiée \"Great Place to Work\"\n• Des avantages sociaux multiples, dont la flexibilité dans l'organisation du travail\n• Un soutien dans le développement et la formation\n• Des valeurs humaines centrées sur le bien-être des collaborateurs Nous nous réjouissons de recevoir votre dossier de candidature complet par voie digitale (avec curriculum vitae, lettre de motivation, copie des certificats de travail et diplômes).",
+      "descriptionByLocale": {
+        "it": "Un datore di lavoro forte e preesistente, Vaudoise è uno dei principali assicuratori in Svizzera. Fedele alla sua natura cooperativa e ai suoi valori, incoraggia la creazione di un ambiente di lavoro sano, inclusivo e stimolante, ideale per sviluppare il tuo talento. Al fine di rafforzare il nostro Dipartimento di Segreteria Generale, che fornisce le nostre unità interne con servizi legali e di conformità di alto livello, stiamo cercando un esperto Legal Insurance e Compliance Officer, tra 80 e 100%. Le varie missioni che vi aspettano:\n• Grazie alla vostra conoscenza ed esperienza nel settore assicurativo privato in Svizzera, identificate e fornite il vostro supporto legale alle professioni nell'analisi degli sviluppi legali rilevanti per la nostra società di assicurazioni, garantite il monitoraggio della loro attuazione per garantire la conformità delle nostre operazioni a lungo termine, nonché per fornire la vostra competenza legale a progetti aziendali riguardanti questi aspetti\n• Condurre le analisi e i preparati interni necessari per coordinare e rispondere alle richieste delle autorità di vigilanza, accompagnare i loro controlli in loco e fare le comunicazioni necessarie alle autorità in tempo per garantire la regolarità delle nostre attività\n• contribuire alla conformità sostenibile delle nostre attività garantendo la tempestività delle direttive interne, il monitoraggio degli sviluppi normativi, la gestione dei rischi di conformità e dei controlli correlati, la segnalazione periodica alla gestione e al consiglio di amministrazione, la preparazione e la facilitazione dei nostri comitati legali interni\n• In collaborazione con colleghi professionali: pianificazione, sviluppo e conduzione della formazione e della sensibilizzazione in francese e in tedesco su argomenti rilevanti per le assicurazioni di Vaudoise\n• Raccogliere, identificare e elaborare rapporti di violazioni delle nostre normative interne, insieme ad altri stakeholder aziendali Cosa ti rende unico:\n• Master in diritto svizzero obbligatorio, formazione ulteriore o post-laurea in assicurazione e/o conformità, un bene\n• Esperienza professionale minima di 5 anni nel settore assicurativo in Svizzera\n• Lingua madre francese e ottima conoscenza della lingua tedesca (livello minimo C1) Sei anche pragmatico, confortevole nei tuoi contatti con i tuoi colleghi e gli stakeholder esterni. Hai un grande spirito di squadra e sai come svolgere le tue missioni indipendentemente. Vi offriamo:\n• Un ambiente di lavoro sano in una società mutualista certificata \"Great Place to Work\"\n• Vantaggi sociali multipli, compresa la flessibilità nell'organizzazione del lavoro\n• Supporto per lo sviluppo e la formazione\n• Valori umani focalizzati sul benessere dei dipendenti Non vediamo l'ora di ricevere il tuo pacchetto completo di applicazioni digitalmente (con curriculum vitae, lettera di copertura, copie di certificati di lavoro e diplomi).",
+        "en": "A strong and forward-looking employer, Vaudoise is one of the leading insurers in Switzerland. True to its cooperative nature and values, it encourages the creation of a healthy, inclusive and inspiring work environment, ideal for developing your talent. In order to strengthen our General Secretariat Department, which provides our internal units with high-level legal and compliance services, we are looking for an experienced Legal Insurance and Compliance Officer, between 80 and 100%. The various missions that await you:\n• Thanks to your knowledge and experience in the private insurance sector in Switzerland, identify and provide your legal support to the professions in the analysis of the legal developments relevant to our insurance company, guarantee the monitoring of their implementation to ensure the conformity of our operations over the long term, as well as to provide your legal expertise with business projects concerning these aspects\n• Conduct the analyses and internal preparations necessary to coordinate and respond to the requests of the supervisory authorities, accompany their on-the-spot checks and make the necessary communications to the authorities in time to ensure the regularity of our activities\n• To contribute to the sustainable compliance of our activities by ensuring the timeliness of internal directives, the monitoring of regulatory developments, the management of compliance risks and related controls, the periodic reporting to management and the board of directors, and the preparation and facilitation of our internal legal committees\n• In collaboration with professional colleagues: planning, developing and conducting training and awareness raising in French and German on topics relevant to Vaudoise Assurances\n• Collect, identify and process reports of breaches of our internal regulations, together with other business stakeholders What makes you unique:\n• Master in compulsory Swiss law, further or post-graduate training in insurance and/or compliance, an asset\n• Minimum 5-year professional experience in the insurance sector in Switzerland\n• French mother tongue and excellent German language proficiency (minimum level C1) You are also pragmatic, comfortable in your contacts with your colleagues and external stakeholders. You have a great team spirit and know how to carry out your missions independently. We offer you :\n• A healthy working environment in a mutualist company certified \"Great Place to Work\"\n• Multiple social benefits, including flexibility in work organisation\n• Support in development and training\n• Human values focused on the well-being of employees We look forward to receiving your complete application package digitally (with curriculum vitae, cover letter, copies of work certificates and diplomas).",
+        "de": "Vaudoise ist einer der führenden Versicherer in der Schweiz. Getreu seiner kooperativen Natur und ihren Werten fördert sie die Schaffung eines gesunden, inklusiven und inspirierenden Arbeitsumfelds, ideal für die Entwicklung Ihres Talents. Um unser Generalsekretariat zu stärken, das unseren internen Einheiten hochrangige Rechts- und Compliance-Dienste anbietet, suchen wir einen erfahrenen Juristischen Versicherungs- und Compliance Officer zwischen 80 und 100 %. Die verschiedenen Missionen, die Sie erwarten:\n• Durch Ihr Wissen und Ihre Erfahrung im Bereich der Privatversicherung in der Schweiz können Sie die Berufe bei der Analyse der für unser Versicherungsunternehmen relevanten rechtlichen Entwicklungen legal unterstützen, die Überwachung ihrer Umsetzung garantieren, um die Konformität unserer Geschäfte langfristig zu gewährleisten sowie Ihre rechtliche Expertise mit Geschäftsprojekten zu diesen Aspekten bereitzustellen.\n• Durchführung der Analysen und internen Vorbereitungen, die erforderlich sind, um die Anträge der Aufsichtsbehörden zu koordinieren und zu beantworten, ihre Vor-Ort-Kontrollen zu begleiten und die erforderlichen Mitteilungen an die Behörden rechtzeitig zu machen, um die Ordnungsmäßigkeit unserer Tätigkeiten sicherzustellen\n• Beitrag zur nachhaltigen Einhaltung unserer Aktivitäten durch Gewährleistung der Aktualität interner Richtlinien, der Überwachung regulatorischer Entwicklungen, der Bewältigung von Compliance-Risiken und damit zusammenhängenden Kontrollen, der regelmäßigen Berichterstattung an das Management und den Verwaltungsrat sowie der Vorbereitung und Erleichterung unserer internen Rechtsausschüsse\n• In Zusammenarbeit mit Berufskollegen: Planung, Entwicklung und Durchführung von Ausbildung und Sensibilisierung in Französisch und Deutsch zu Themen, die für Vaudoise Assurances relevant sind\n• Sammeln, Erkennen und Verarbeiten von Berichten über Verletzungen unserer internen Vorschriften zusammen mit anderen Geschäftspartnern Was macht Sie einzigartig:\n• Master in obligatorischem Schweizer Recht, weitere oder postgraduale Ausbildung in Versicherung und/oder Compliance, ein Vermögen\n• Mindeste 5-jährige Berufserfahrung im Versicherungssektor in der Schweiz\n• Französische Muttersprache und ausgezeichnete deutsche Sprachkenntnisse (Mindeststufe C1) Sie sind auch pragmatisch, komfortabel in Ihren Kontakten mit Ihren Kollegen und externen Interessenvertretern. Sie haben einen großen Teamgeist und wissen, wie Sie Ihre Missionen unabhängig durchführen können. Wir bieten Ihnen an:\n• Ein gesundes Arbeitsumfeld in einem gemeinsamen Unternehmen zertifiziert \"Great Place to Work\"\n• Mehrere soziale Vorteile, einschließlich Flexibilität in der Arbeitsorganisation\n• Unterstützung bei der Entwicklung und Ausbildung\n• Humanwerte konzentrierten sich auf das Wohlbefinden der Mitarbeiter Wir freuen uns darauf, Ihr komplettes Bewerbungspaket digital zu erhalten (mit Lehrplan, Brief, Kopien von Arbeitszeugnissen und Diplomen).",
+        "fr": "Employeur solide et tourné vers l’avenir, la Vaudoise est l’un des assureurs leaders en Suisse. Fidèle à sa nature coopérative et à ses valeurs, elle encourage la création d’un environnement de travail sain, inclusif et inspirant, idéal pour développer votre talent. Afin de renforcer notre Département Secrétariat général, qui propose à nos unités internes des services juridiques et de conformité de haut niveau, nous recherchons un/e Juriste assurances et conformité expérimenté/e, entre 80 et 100%. Les diverses missions qui vous attendent :\n• Grâce à vos connaissances et à votre expérience du secteur de l’assurance privée en Suisse, identifier et apporter votre soutien juridique aux métiers dans l’analyse des nouveautés légales pertinentes pour notre compagnie d’assurances, garantir le suivi de leur mise en œuvre pour assurer la conformité de nos opérations dans la durée, de même que faire bénéficier de votre expertise juridique les projets métier concernant ces aspects\n• Effectuer les analyses et les préparatifs internes nécessaires pour coordonner et répondre aux demandes des autorités de surveillance, accompagner leurs contrôles sur place et faire les communications nécessaires aux autorités en temps utile pour garantir la régularité de nos activités\n• Contribuer à la conformité durable de nos activités en assurant l’actualité des directives internes, le suivi des évolutions réglementaires, la gestion des risques de conformité et des contrôles rattachés, les reportings périodiques à la direction et au conseil d’administration, ainsi que la préparation et l’animation de nos comités juridiques internes\n• En collaboration avec des collègues métier : planifier, développer et conduire, en français et allemand, des formations et des sensibilisations sur des sujets pertinents pour la Vaudoise Assurances\n• Recueillir, identifier et traiter les signalements d’infractions à notre réglementation interne, en compagnie des autres parties prenantes de l’entreprise Ce qui vous rend unique :\n• Master en droit suisse obligatoire, formation complémentaire ou postgrade en assurances et/ou conformité, un atout\n• Expérience professionnelle de 5 ans minimum dans le secteur des assurances en Suisse indispensable\n• Langue maternelle française et excellente maîtrise de la langue allemande (minimum niveau C1) Vous êtes également pragmatique, à l’aise dans vos contacts avec vos collègues et les intervenants externes. Vous faites preuve d’un bel esprit d’équipe et savez accomplir vos missions en toute autonomie. Nous vous offrons :\n• Un environnement de travail sain dans une entreprise mutualiste certifiée \"Great Place to Work\"\n• Des avantages sociaux multiples, dont la flexibilité dans l'organisation du travail\n• Un soutien dans le développement et la formation\n• Des valeurs humaines centrées sur le bien-être des collaborateurs Nous nous réjouissons de recevoir votre dossier de candidature complet par voie digitale (avec curriculum vitae, lettre de motivation, copie des certificats de travail et diplômes)."
+      },
+      "location": "Lausanne",
+      "canton": "VD",
+      "url": "https://vaudoise.softgarden.io/job/64019188/Juriste-assurances-et-conformit%C3%A9-exp%C3%A9riment%C3%A9-e-h-f-x-%E2%80%93-80-100-?jobDbPVId=273567166&l=it",
+      "source": "Vaudoise Assurances Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-05-21T13:44:40.061Z",
+      "addressLocality": "Lausanne",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Assicurazioni",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "08/05/26",
+      "applyUrl": "https://vaudoise.softgarden.io/job/64019188/Juriste-assurances-et-conformit%C3%A9-exp%C3%A9riment%C3%A9-e-h-f-x-%E2%80%93-80-100-?jobDbPVId=273567166&l=it",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "jobCategory": "Diritto e compliance",
+      "previousSlugs": [
+        "juriste-assurances-et-conformite-experimente-e-h-f-x-80-100-vaudoise-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "juriste-assurances-et-conformite-experimente-e-h-f-x-80-100-vaudoise-ch"
+        ],
+        "en": [
+          "juriste-assurances-et-conformite-experimente-e-h-f-x-80-100-vaudoise-ch"
+        ],
+        "de": [
+          "juriste-assurances-et-conformite-experimente-e-h-f-x-80-100-vaudoise-ch"
+        ]
+      },
+      "firstSeenAt": "2026-05-18T13:27:19.533Z",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "1003"
     }
   ]
 }
