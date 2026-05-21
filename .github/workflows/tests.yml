@@ -39,6 +39,14 @@ jobs:
       - name: npm ci
         run: npm ci
 
+      - name: Audit no merge conflict markers
+        # 0-tolerance gate: blocks any commit that contains unresolved
+        # <<<<<<< / ======= / >>>>>>> markers. Added after the 2026-05-21
+        # incident where 92 job slice files were committed with raw
+        # `git stash pop` conflicts and silently dropped ~3.5k jobs from
+        # production via assemble-jobs-dataset.mjs.
+        run: npm run audit:no-merge-markers
+
       - name: Assemble data/jobs.json
         # Several tests read data/jobs.json (job-locale-completeness,
         # job-cross-locale-guard, sitemap-slug-integrity, search-console-compat,
