@@ -29,17 +29,23 @@
  *   PRUNE_KNOWN_SLUGS_CAP=15000 node scripts/prune-known-slugs.mjs
  *   MAX_PREVIOUS_SLUGS_PER_JOB=3 node scripts/prune-known-slugs.mjs
  *
- * Pass 3 (previousSlugs cap):
+ * Pass 3 (previousSlugs traffic-aware trim):
  *   Each active job's `previousSlugs` + `previousSlugsByLocale[locale]` arrays
  *   feed jobsSeoPagesPlugin's full-content bridge emission — up to ~8 pages
  *   per old slug (4 locales × canton-aware + legacy-TI). 97 jobs had ≥10
- *   previousSlugs after the 2026-05-21 recovery, producing 32k extra pages
- *   that crossed the GitHub Pages artifact limit. The cap keeps the most
- *   RECENT N old slugs (`slice(-N)`) — those are the most likely to still
- *   carry GSC indexing — and drops the rest. Default N = 3 (covers 77% of
- *   jobs without trimming; the long tail beyond 3 renames is rarely worth
- *   the bridge maintenance — most over-cap entries are bot-generated slug
- *   churn from PwC/Workday vendor APIs).
+ *   previousSlugs after the 2026-05-21 recovery, producing 32k extra pages.
+ *
+ *   Trim rule (user-stated, 2026-05-21):
+ *     1. Keep ALL old slugs with GSC impressions > 0 (no upper limit).
+ *        These are the slugs Google has actually indexed; dropping them
+ *        loses real SEO equity.
+ *     2. If NONE of a job's old slugs has impressions > 0 (entire history
+ *        is "dark" — vendor-API churn, never indexed), fallback to the
+ *        MOST RECENT N (`MAX_PREVIOUS_SLUGS_PER_JOB`, default 3).
+ *
+ *   GSC data sourced from `data/orphan-enriched-data.json` (1.7k entries
+ *   today; refreshed by `sync-gsc-orphans.yml`). Slugs absent from the
+ *   enrichment file are treated as 0 impressions (worst-case).
  */
 
 import fs from "node:fs";
@@ -87,34 +93,82 @@ function collectGscPriority(orphanEnriched) {
   return priority;
 }
 
-function capJobPreviousSlugs(activeJobs, maxPerJob) {
-  // Mutates the active jobs in place: keeps the LAST `maxPerJob` entries of
-  // `previousSlugs` (newest renames win) and each per-locale array.
+function loadGscImpressions() {
+  // Per-slug aggregated GSC impressions. Sourced from
+  // data/orphan-enriched-data.json (refreshed by sync-gsc-orphans.yml).
+  // Returns Map<slug, impressions>. Slugs absent from the map are treated
+  // as 0 impressions (worst-case assumption when GSC data is missing).
+  const map = new Map();
+  let data;
+  try {
+    data = JSON.parse(fs.readFileSync(GSC_ENRICHED_PATH, "utf8"));
+  } catch {
+    return map;
+  }
+  const arr = Array.isArray(data) ? data : Object.values(data);
+  for (const entry of arr) {
+    if (!entry?.slug) continue;
+    const imp = Number(entry.totalImpressions) || 0;
+    // Multiple entries may share a slug (per-locale rows) — keep the max.
+    const prev = map.get(entry.slug) ?? 0;
+    if (imp > prev) map.set(entry.slug, imp);
+  }
+  return map;
+}
+
+function trimSlugArray(slugs, gscImp, fallbackCap) {
+  // Strategy (user-stated, 2026-05-21):
+  //   1. Keep ALL slugs with GSC impressions > 0.
+  //   2. If NONE has impressions > 0 (whole array is dark), keep the MOST
+  //      RECENT `fallbackCap` entries — most likely to still carry
+  //      indexing that hasn't surfaced in our GSC sync yet.
+  // A slug missing from `gscImp` is treated as 0 impressions.
+  const withTraffic = slugs.filter((s) => (gscImp.get(s) ?? 0) > 0);
+  if (withTraffic.length > 0) return withTraffic;
+  return slugs.slice(-fallbackCap);
+}
+
+function capJobPreviousSlugs(activeJobs, fallbackCap, gscImp) {
+  // Mutates active jobs in place. See `trimSlugArray` for the rule.
   const arr = Array.isArray(activeJobs) ? activeJobs : (activeJobs?.jobs ?? []);
   let flatTrimmed = 0;
   let localeTrimmed = 0;
   let jobsAffected = 0;
+  let jobsKeptByTraffic = 0;
+  let jobsFallbackTopN = 0;
   for (const j of arr) {
     if (!j || typeof j !== "object") continue;
     let touched = false;
-    if (Array.isArray(j.previousSlugs) && j.previousSlugs.length > maxPerJob) {
-      flatTrimmed += j.previousSlugs.length - maxPerJob;
-      j.previousSlugs = j.previousSlugs.slice(-maxPerJob);
-      touched = true;
+    let trafficWin = false;
+    if (Array.isArray(j.previousSlugs) && j.previousSlugs.length > 0) {
+      const trimmed = trimSlugArray(j.previousSlugs, gscImp, fallbackCap);
+      if (trimmed.length !== j.previousSlugs.length) {
+        flatTrimmed += j.previousSlugs.length - trimmed.length;
+        j.previousSlugs = trimmed;
+        touched = true;
+      }
+      if (trimmed.some((s) => (gscImp.get(s) ?? 0) > 0)) trafficWin = true;
     }
     if (j.previousSlugsByLocale && typeof j.previousSlugsByLocale === "object") {
       for (const locale of Object.keys(j.previousSlugsByLocale)) {
         const v = j.previousSlugsByLocale[locale];
-        if (Array.isArray(v) && v.length > maxPerJob) {
-          localeTrimmed += v.length - maxPerJob;
-          j.previousSlugsByLocale[locale] = v.slice(-maxPerJob);
+        if (!Array.isArray(v) || v.length === 0) continue;
+        const trimmed = trimSlugArray(v, gscImp, fallbackCap);
+        if (trimmed.length !== v.length) {
+          localeTrimmed += v.length - trimmed.length;
+          j.previousSlugsByLocale[locale] = trimmed;
           touched = true;
         }
+        if (trimmed.some((s) => (gscImp.get(s) ?? 0) > 0)) trafficWin = true;
       }
     }
-    if (touched) jobsAffected++;
+    if (touched) {
+      jobsAffected++;
+      if (trafficWin) jobsKeptByTraffic++;
+      else jobsFallbackTopN++;
+    }
   }
-  return { flatTrimmed, localeTrimmed, jobsAffected };
+  return { flatTrimmed, localeTrimmed, jobsAffected, jobsKeptByTraffic, jobsFallbackTopN };
 }
 
 function main() {
@@ -202,16 +256,25 @@ function main() {
 
   const finalCount = Object.keys(tracking).length;
 
-  // PASS 3: cap per-job previousSlugs / previousSlugsByLocale arrays. Mutates
-  // data/jobs.json in place (gitignored, regenerated by assemble each deploy).
-  const pslReport = capJobPreviousSlugs(activeJobs, pslCap);
+  // PASS 3: prune per-job previousSlugs / previousSlugsByLocale arrays.
+  // Traffic-aware: keep all slugs with GSC impressions > 0; fallback to
+  // most-recent `pslCap` per array when the entire history is dark.
+  // Mutates data/jobs.json in place (gitignored, regenerated by assemble
+  // each deploy — full history preserved in committed slice files).
+  const gscImp = loadGscImpressions();
+  const pslReport = capJobPreviousSlugs(activeJobs, pslCap, gscImp);
 
   console.log("prune-known-slugs:");
   console.log(`  before:                          ${beforeCount}`);
   console.log(`  active-dedup:                    -${dedupRemoved}`);
   console.log(`  tail-cap (≤${cap}):              -${capRemoved}`);
   console.log(`  after:                           ${finalCount}`);
-  console.log(`  previousSlugs cap (≤${pslCap}/job):     ${pslReport.jobsAffected} jobs affected, -${pslReport.flatTrimmed} flat, -${pslReport.localeTrimmed} per-locale entries`);
+  console.log(`  GSC enrichment loaded:           ${gscImp.size} slugs`);
+  console.log(`  previousSlugs (keep-if-traffic, else top-${pslCap}):`);
+  console.log(`    jobs affected:                 ${pslReport.jobsAffected}`);
+  console.log(`      kept ≥1 by GSC traffic:      ${pslReport.jobsKeptByTraffic}`);
+  console.log(`      fallback to top-${pslCap} (all dark):  ${pslReport.jobsFallbackTopN}`);
+  console.log(`    entries removed:               -${pslReport.flatTrimmed} flat, -${pslReport.localeTrimmed} per-locale`);
   if (dedupRemoved > 0) {
     console.log(`  active-dedup samples (first 5): ${dedupSamples.slice(0, 5).join(", ")}`);
   }
