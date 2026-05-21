@@ -1,16 +1,16 @@
 {
   "key": "pwc",
   "label": "PwC Switzerland",
-  "generatedAt": "2026-05-19T23:14:37.483Z",
-  "total": 141,
+  "generatedAt": "2026-05-21T13:01:21.025Z",
+  "total": 136,
   "newCount": 1,
-  "updatedCount": 105,
-  "removedCount": 0,
+  "updatedCount": 102,
+  "removedCount": 2,
   "unchangedCount": 11,
-  "durationMs": 2446,
-  "avgDurationMs": 2446,
+  "durationMs": 2509,
+  "avgDurationMs": 2509,
   "durationHistory": [
-    2446
+    2509
   ],
   "newJobs": [
     {
@@ -111,11 +111,11 @@
       "postalCode": "8001",
       "firstSeenAt": "2026-05-19T12:26:40.275Z",
       "retranslationAttempts": 1,
-      "_qualityScore": 76,
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 16,
+        "translation": 19,
         "completeness": 22
       }
     },
@@ -218,42 +218,6 @@
       "currency": "CHF",
       "postalCode": "8001",
       "firstSeenAt": "2026-05-15T11:40:23.088Z",
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 22
-      }
-    },
-    {
-      "title": "Career Start in Audit as Environmental, Social and Governance (ESG) Auditor",
-      "slug": "career-start-in-audit-as-environmental-social-and-governance-esg-auditor-pwc-basel",
-      "url": "https://jobs.pwc.ch/job-vacancies/career-start-in-audit-as-environmental-social-and-governance-esg-auditor/4122fe0e-4e19-403d-89ff-59ef9823865b",
-      "applyUrl": "https://pwc.wd3.myworkdayjobs.com/Global_Campus_Careers/job/Zrich/Career-Start-in-Audit-as-Environmental--Social-and-Governance--ESG--Auditor_712674WD-1/apply",
-      "company": "PwC Switzerland",
-      "companyKey": "pwc",
-      "companyDomain": "pwc.ch",
-      "location": "Basel",
-      "addressLocality": "Basel",
-      "addressRegion": "BS",
-      "addressCountry": "CH",
-      "canton": "BS",
-      "country": "CH",
-      "category": "audit",
-      "sector": "Consulenza",
-      "source": "pwc-dedicated-crawler",
-      "sourceLang": "en",
-      "postedDate": "2026-05-11",
-      "validThrough": "2036-05-07",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "id": "pwc-cbd87979f741",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "postalCode": "4001",
-      "firstSeenAt": "2026-05-11T12:21:25.187Z",
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1111,9 +1075,117 @@
         "translation": 16,
         "completeness": 14
       }
+    },
+    {
+      "title": "Senior Associate / Manager in SAP Supply Chain Operations Consulting",
+      "slug": "senior-associate-manager-in-sap-supply-chain-operations-consulting-pwc-zurich",
+      "url": "https://jobs.pwc.ch/job-vacancies/senior-associate-manager-in-sap-supply-chain-operations-consulting/6b6a8348-1adf-4367-9c9a-d4df81e92fb6",
+      "applyUrl": "https://pwc.wd3.myworkdayjobs.com/Global_Experienced_Careers/job/Zrich/Senior-Associate-Manager-in-SAP-Supply-Chain-Operations-Consulting_666781WD/apply",
+      "company": "PwC Switzerland",
+      "companyKey": "pwc",
+      "companyDomain": "pwc.ch",
+      "location": "Zürich",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "canton": "ZH",
+      "country": "CH",
+      "category": "consulting",
+      "sector": "Consulenza",
+      "source": "pwc-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-04-20",
+      "validThrough": "2036-04-17",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "id": "pwc-1b7c1b8da60b",
+      "salaryMin": 75500,
+      "salaryMax": 120500,
+      "currency": "CHF",
+      "postalCode": "8001",
+      "firstSeenAt": "2026-04-21T22:13:20.002Z",
+      "_qualityScore": 90,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 22
+      }
     }
   ],
-  "removedJobs": [],
+  "removedJobs": [
+    {
+      "title": "Career Start in Audit as Environmental, Social and Governance (ESG) Auditor",
+      "slug": "avviare-in-audit-come-auditor-ambientale-sociale-e-di-governo-esg-pwc-switzerland-basel",
+      "url": "https://jobs.pwc.ch/job-vacancies/career-start-in-audit-as-environmental-social-and-governance-esg-auditor/4122fe0e-4e19-403d-89ff-59ef9823865b",
+      "applyUrl": "https://pwc.wd3.myworkdayjobs.com/Global_Campus_Careers/job/Zrich/Career-Start-in-Audit-as-Environmental--Social-and-Governance--ESG--Auditor_712674WD-1/apply",
+      "company": "PwC Switzerland",
+      "companyKey": "pwc",
+      "companyDomain": "pwc.ch",
+      "location": "Basel",
+      "addressLocality": "Basel",
+      "addressRegion": "BS",
+      "addressCountry": "CH",
+      "canton": "BS",
+      "country": "CH",
+      "category": "audit",
+      "sector": "Consulenza",
+      "source": "pwc-dedicated-crawler",
+      "sourceLang": "en",
+      "postedDate": "2026-05-11",
+      "validThrough": "2036-05-07",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "id": "pwc-cbd87979f741",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "postalCode": "4001",
+      "firstSeenAt": "2026-05-11T12:21:25.187Z",
+      "_qualityScore": 90,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 22
+      }
+    },
+    {
+      "title": "Career Start in Audit – Asset Management – Herbst 2026",
+      "slug": "inizio-carriera-in-audit-asset-management-autunno-2026-pwc-switzerland-zug",
+      "url": "https://jobs.pwc.ch/job-vacancies/career-start-in-audit-asset-management-herbst-2026/7934c456-7ad6-45f5-a1f2-f04cf7b44c61",
+      "applyUrl": "https://pwc.wd3.myworkdayjobs.com/Global_Campus_Careers/job/Zrich/Career-Start-in-Audit---Asset-Management---Herbst-2026_675730WD-1/apply",
+      "company": "PwC Switzerland",
+      "companyKey": "pwc",
+      "companyDomain": "pwc.ch",
+      "location": "Zug",
+      "addressLocality": "Zug",
+      "addressRegion": "ZG",
+      "addressCountry": "CH",
+      "canton": "ZG",
+      "country": "CH",
+      "category": "audit",
+      "sector": "Consulenza",
+      "source": "pwc-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2025-10-22",
+      "validThrough": "2035-10-19",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "id": "pwc-217cff9ce717",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "firstSeenAt": "2026-04-13T22:16:12.621Z",
+      "_qualityScore": 89,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 25,
+        "completeness": 19
+      }
+    }
+  ],
   "unchangedJobs": [
     {
       "title": "Senior Associate - Junior Proposal Manager (Advisory Major Pursuits)",
@@ -1392,11 +1464,11 @@
       "salaryMax": 103000,
       "currency": "CHF",
       "firstSeenAt": "2026-04-30T11:20:06.387Z",
-      "_qualityScore": 81,
+      "_qualityScore": 83,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 19,
+        "translation": 21,
         "completeness": 19
       }
     },
@@ -1428,11 +1500,11 @@
       "currency": "CHF",
       "postalCode": "9000",
       "firstSeenAt": "2026-05-17T10:54:12.475Z",
-      "_qualityScore": 81,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 19,
         "completeness": 22
       }
     },
