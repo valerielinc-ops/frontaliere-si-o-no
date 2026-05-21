@@ -1044,7 +1044,7 @@ console.log(`
        '${companyKey}': { city: 'TODO', canton: 'TODO', postalCode: 'TODO', addressRegion: 'TODO' },
 
      (Logo is already registered + mirrored to public/images/brands/${companyKey}.* —
-     verify it in public/logos-audit.html. If wrong, edit CRAWLED_COMPANY_LOGOS in
+     verify it in .audit-pages/logos-audit.html. If wrong, edit CRAWLED_COMPANY_LOGOS in
      services/jobDataNormalization.ts and rerun:
        node scripts/download-company-logos.mjs --slug ${companyKey})
 

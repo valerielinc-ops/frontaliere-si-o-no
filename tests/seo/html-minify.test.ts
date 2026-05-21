@@ -168,12 +168,15 @@ describe('minifyHtml — real-world structure', () => {
 </html>`;
     const out = minifyHtml(input);
 
-    // Structural assertions
+    // Structural assertions. Attribute values may now be unquoted per
+    // HTML5 (Step 5 in minifyHtml — added 2026-05-21 to capture the
+    // dist-shrink-attributed quote-removal upstream), so we use
+    // quote-flexible matchers for those.
     expect(out).toContain('<!DOCTYPE html>');
-    expect(out).toContain('<html lang="it">');
+    expect(out).toMatch(/<html\s+lang=["']?it["']?>/);
     expect(out).toContain('<title>Test · rif. stabio</title>');
-    expect(out).toContain('<script type="application/ld+json">{"@type":"WebPage"}</script>');
-    expect(out).toContain('<link rel="canonical"');
+    expect(out).toMatch(/<script\s+type=["']?application\/ld\+json["']?>\{"@type":"WebPage"}<\/script>/);
+    expect(out).toMatch(/<link\s+rel=["']?canonical["']?/);
     expect(out).toContain('<!--SIBLING_LINKS_PLACEHOLDER-->');
     expect(out).toContain('<h1>Title</h1>');
     expect(out).toContain('</a> in it');
@@ -191,5 +194,68 @@ describe('minifyHtml — real-world structure', () => {
     const once = minifyHtml(input);
     const twice = minifyHtml(once);
     expect(twice).toBe(once);
+  });
+});
+
+describe('minifyHtml — Step 5: drop optional attribute quotes (HTML5)', () => {
+  it('unquotes safe simple values', () => {
+    expect(minifyHtml('<div class="hero" id="main"></div>'))
+      .toContain('<div class=hero id=main>');
+  });
+
+  it('preserves quotes when value has whitespace', () => {
+    const out = minifyHtml('<div class="hero big"></div>');
+    expect(out).toContain('class="hero big"');
+  });
+
+  it('preserves quotes when value ends in `/` (void-element self-close clash)', () => {
+    const out = minifyHtml('<link rel="canonical" href="https://example.com/">');
+    // `href=https://example.com/` would let the parser read `>` as part
+    // of `/>` self-close — keep the quotes.
+    expect(out).toContain('href="https://example.com/"');
+  });
+
+  it('unquotes URL values that do NOT end in `/`', () => {
+    const out = minifyHtml('<link rel="stylesheet" href="https://example.com/a.css">');
+    expect(out).toContain('href=https://example.com/a.css');
+  });
+
+  it('preserves quotes when value contains `=` (parse boundary)', () => {
+    const out = minifyHtml(
+      '<script src="https://example.com/?foo=bar"></script>',
+    );
+    expect(out).toContain('"https://example.com/?foo=bar"');
+  });
+
+  it('preserves quotes inside JSON-LD body (opaque)', () => {
+    const out = minifyHtml(
+      '<script type="application/ld+json">{"@type":"Foo","key":"value"}</script>',
+    );
+    expect(out).toContain('{"@type":"Foo","key":"value"}');
+  });
+
+  it('never strips quotes inside content text that looks like attrs', () => {
+    // `<p>foo="bar"</p>` must NOT become `<p>foo=bar</p>` — the regex
+    // is anchored to attribute position via lookbehind on the open-tag.
+    const out = minifyHtml('<p>foo="bar"</p>');
+    expect(out).toContain('foo="bar"');
+  });
+
+  it('handles multiple attributes on one tag', () => {
+    const out = minifyHtml('<a class="cta" href="/about" rel="noopener">x</a>');
+    expect(out).toContain('class=cta');
+    expect(out).toContain('href=/about');
+    expect(out).toContain('rel=noopener');
+  });
+
+  it('preserves canonical/hreflang/robots regex match (quote-flex contract)', () => {
+    const out = minifyHtml(
+      '<link rel="canonical" href="https://x.test/page">' +
+      '<link rel="alternate" hreflang="en" href="https://x.test/en/page">' +
+      '<meta name="robots" content="noindex,follow">',
+    );
+    expect(out).toMatch(/<link\s+rel=["']?canonical["']?\s+href=["']?https:\/\/x\.test\/page["']?\s*>/);
+    expect(out).toMatch(/<link\s+rel=["']?alternate["']?\s+hreflang=["']?en["']?\s+href=["']?https:\/\/x\.test\/en\/page["']?\s*>/);
+    expect(out).toMatch(/<meta[^>]*name=["']?robots["']?[^>]*content=["']?[^"'>]*noindex/i);
   });
 });

@@ -84,8 +84,9 @@ describe('weekly-employers — archive list block keeps BFS depth ≤ 3', () => 
     });
     // Extract only the archive-list block so self-link checks ignore
     // canonical/og:url/breadcrumb/hreflang occurrences of the page's own URL.
+    // Quote-flexible: htmlMinify.ts Step 5 may drop optional quotes.
     const blockMatch = html.match(
-      /<section[^>]*aria-labelledby="weArchives"[\s\S]*?<\/section>/,
+      /<section[^>]*aria-labelledby=["']?weArchives["']?[\s\S]*?<\/section>/,
     );
     expect(blockMatch, 'archive list section must be rendered').not.toBeNull();
     const block = blockMatch![0];

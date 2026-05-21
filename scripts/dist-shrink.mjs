@@ -87,20 +87,33 @@ const RATIO_MIN_BYTES = Number(args.get('ratio-min-bytes') || 5 * 1024);
 
 // html-minifier-terser options. JSON-LD is left opaque via
 // ignoreCustomFragments — exact same contract as build-plugins/shared/htmlMinify.ts.
+//
+// Disabled-by-design (each measured at 0% contribution on the May 21
+// 2026 production sample, run #26250403558):
+//   - removeComments           : prior `htmlMinify.ts` pass already strips them
+//   - removeRedundantAttributes: build plugins never emit redundant attrs
+//   - removeEmptyAttributes    : build plugins never emit empty attrs
+//   - useShortDoctype          : `htmlTemplate.ts` already emits short doctype
+//   - minifyCSS                : almost no inline CSS in our output (one
+//                                 sample saved 12 B total → not worth the
+//                                 CSS-AST parsing cost across 841k files)
+// Keeping these enabled costs ~50% of the per-file parse time for zero
+// bytes saved. They can be re-enabled if dist-shrink's `Per-rule
+// contribution` block starts attributing non-zero bytes to them again.
 const MINIFY_OPTS = {
   collapseWhitespace: true,
   conservativeCollapse: true,
   collapseInlineTagWhitespace: false,
-  removeComments: true,
-  removeAttributeQuotes: true,
-  removeRedundantAttributes: true,
-  removeEmptyAttributes: true,
-  removeOptionalTags: false,
-  collapseBooleanAttributes: true,
-  useShortDoctype: true,
-  minifyCSS: true,
-  minifyJS: false,
-  processConditionalComments: true,
+  removeComments: false,
+  removeAttributeQuotes: true,           // 91.2% of measured saving — the lever
+  removeRedundantAttributes: false,
+  removeEmptyAttributes: false,
+  removeOptionalTags: false,             // SEO-risk: kept off
+  collapseBooleanAttributes: true,       // 1.5% — cheap, keep
+  useShortDoctype: false,
+  minifyCSS: false,
+  minifyJS: false,                       // Vite already esbuild-minifies
+  processConditionalComments: false,
   sortAttributes: false,
   sortClassName: false,
   ignoreCustomFragments: [

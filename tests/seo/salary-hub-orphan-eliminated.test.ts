@@ -288,14 +288,17 @@ describe('Scenario index page — anchor coverage', () => {
       });
       // Cheap-and-cheerful: count occurrences of `class="scenarios"` lists.
       // Every tier has at least one — 18 tiers with at least 1 group each.
-      const tierMatches = (html.match(/data-tier="(\d+)"/g) ?? []).length;
+      // Quote-flexible: htmlMinify.ts Step 5 may drop optional quotes
+      // around safe attribute values.
+      const tierMatches = (html.match(/data-tier=["']?\d+["']?/g) ?? []).length;
       expect(tierMatches).toBeGreaterThanOrEqual(15);
 
       // Every scenario must have a corresponding href in this locale.
       let missing = 0;
       for (const s of scenarios) {
         const href = buildFullPath(s, loc);
-        if (!html.includes(`href="${href}"`)) missing += 1;
+        const hrefRe = new RegExp(`href=["']?${href.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}["']?`);
+        if (!hrefRe.test(html)) missing += 1;
       }
       expect(missing, `${loc}: ${missing} scenarios not linked`).toBe(0);
     }
