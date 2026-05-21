@@ -1211,9 +1211,9 @@ interface LeafInputs {
   /**
    * Absolute URL for the per-crossing OG image (webcam snapshot). When
    * provided and the snapshot exists on disk, the page emits it as
-   * `og:image` / `twitter:image` at 640×360 — a live preview of the
-   * crossing traffic state that drives viral social sharing. When omitted,
-   * the page falls back to the site default OG image (`/og-image.png`).
+   * `og:image` at 640×360 — a live preview of the crossing traffic
+   * state that drives viral social sharing. When omitted, the page
+   * falls back to the site default OG image (`/og-image.png`).
    */
   ogImageUrl?: string;
 }
@@ -1729,12 +1729,6 @@ function renderLeafPage(inp: LeafInputs): string {
             : `Live webcam — ${crossingDisplay}`)
     : title;
 
-  // og:image is delivered via buildSeoPageHtml's ogImage param. X falls
-  // back to og:title / og:description when twitter:* equivalents are
-  // absent, so only twitter:site (the X attribution, no og:* fallback)
-  // needs an explicit emission here.
-  const extraHead = `    <meta name="twitter:site" content="@frontaliereticino">`;
-
   const jsonLdScripts = [breadcrumbLd, webPageLd, faqLd];
   if (placeLd) jsonLdScripts.push(placeLd);
   if (imageLd) jsonLdScripts.push(imageLd);
@@ -1754,7 +1748,6 @@ function renderLeafPage(inp: LeafInputs): string {
     ogImageHeight: Number(ogImageHeight),
     ogImageType: hasWebcamOg ? 'image/jpeg' : 'image/png',
     ogImageAlt,
-    extraHeadHtml: extraHead,
     jsonLdScripts,
     bodyHtml,
     distDir,

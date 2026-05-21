@@ -1758,9 +1758,7 @@ function renderSnapshotPage(inp: SnapshotPageInputs): string {
 
   const extraHead = `    <meta property="og:image" content="${BASE_URL}/og-image.png">
     <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:site" content="@frontaliereticino">`;
+    <meta property="og:image:height" content="630">`;
 
   return buildSeoPageHtml({
     locale,
@@ -2034,9 +2032,7 @@ function renderHubPage(inp: HubPageInputs): string {
 
   const extraHead = `    <meta property="og:image" content="${BASE_URL}/og-image.png">
     <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:site" content="@frontaliereticino">`;
+    <meta property="og:image:height" content="630">`;
 
   return buildSeoPageHtml({
     locale,
@@ -3001,9 +2997,7 @@ function renderSectorPage(inp: SectorPageInputs): string {
 
   const extraHead = `    <meta property="og:image" content="${BASE_URL}/og-image.png">
     <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:site" content="@frontaliereticino">`;
+    <meta property="og:image:height" content="630">`;
 
   return buildSeoPageHtml({
     locale,

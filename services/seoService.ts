@@ -3880,7 +3880,7 @@ export async function updateMetaTags(section: string): Promise<void> {
  // tab root (e.g. `/cerca-lavoro-ticino/`) because the route only carries
  // `{ activeTab: 'job-board', staticOverlay: true }` — the specific landing
  // slug is not stored in AppRoute. Use `window.location.pathname` directly
- // so og:url, twitter:url, and canonical reflect the actual page URL.
+ // so og:url and canonical reflect the actual page URL.
  const localePath = route.staticOverlay
  ? window.location.pathname
  : buildPath(route, locale);
@@ -4056,12 +4056,10 @@ export async function updateMetaTags(section: string): Promise<void> {
  ? (sd.image.caption || metaOgTitle)
  : metaOgTitle;
  updateOrCreateMetaTag('property', 'og:image:alt', imgAlt);
- updateOrCreateMetaTag('name', 'twitter:image', resolvedImgUrl);
  } else {
  updateOrCreateMetaTag('property', 'og:image', `${BASE_URL}/og-image.png`);
  updateOrCreateMetaTag('property', 'og:image:width', '1200');
  updateOrCreateMetaTag('property', 'og:image:height', '630');
- updateOrCreateMetaTag('name', 'twitter:image', `${BASE_URL}/og-image.png`);
  }
  } else {
  if (jobSeo) {
@@ -4071,13 +4069,11 @@ export async function updateMetaTags(section: string): Promise<void> {
  updateOrCreateMetaTag('property', 'og:image:width', '1200');
  updateOrCreateMetaTag('property', 'og:image:height', '630');
  updateOrCreateMetaTag('property', 'og:image:alt', metaOgTitle);
- updateOrCreateMetaTag('name', 'twitter:image', `${BASE_URL}/og-image.png`);
  } else {
  updateOrCreateMetaTag('property', 'og:image', `${BASE_URL}/og-image.png`);
  updateOrCreateMetaTag('property', 'og:image:width', '1200');
  updateOrCreateMetaTag('property', 'og:image:height', '630');
  updateOrCreateMetaTag('property', 'og:image:alt', metaOgTitle);
- updateOrCreateMetaTag('name', 'twitter:image', `${BASE_URL}/og-image.png`);
  }
  }
 
@@ -4095,12 +4091,6 @@ export async function updateMetaTags(section: string): Promise<void> {
  if (el) el.remove();
  });
  }
-
- // Update Twitter Card tags
- updateOrCreateMetaTag('name', 'twitter:card', 'summary_large_image');
- updateOrCreateMetaTag('name', 'twitter:title', metaOgTitle);
- updateOrCreateMetaTag('name', 'twitter:description', metaOgDescription);
- updateOrCreateMetaTag('name', 'twitter:url', `${BASE_URL}${canonicalLocalePath}`);
 
  // Update canonical URL (uses current locale path)
  updateCanonicalLink(`${BASE_URL}${canonicalLocalePath}`);

@@ -2446,9 +2446,7 @@ ${faqHtml}
   const description = lede[locale].slice(0, 180);
   const extraHead = `    <meta property="og:image" content="${BASE_URL}/og-image.png">
     <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:site" content="@frontaliereticino">`;
+    <meta property="og:image:height" content="630">`;
 
   return buildSeoPageHtml({
     locale,
@@ -2989,9 +2987,7 @@ export function renderWeeklyEmployersPage(inp: WeeklyEmployersPageInputs): strin
   // Extra head: OG image dims + twitter card — matches pre-shell-wrap output.
   const extraHead = `    <meta property="og:image" content="${BASE_URL}/og-image.png">
     <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:site" content="@frontaliereticino">`;
+    <meta property="og:image:height" content="630">`;
 
   // `alternatesHtml` already includes x-default via the shared helper.
   const hreflangHtml = alternatesHtml;
@@ -3533,9 +3529,7 @@ export function renderCompanyCityPage(inp: CompanyCityPageInputs): string {
 
   const extraHead = `    <meta property="og:image" content="${BASE_URL}/og-image.png">
     <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:site" content="@frontaliereticino">`;
+    <meta property="og:image:height" content="630">`;
 
   return buildSeoPageHtml({
     locale,

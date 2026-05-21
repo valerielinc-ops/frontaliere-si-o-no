@@ -320,8 +320,6 @@ export function buildSectorLandingHtml(opts: BuildSectorLandingHtmlOptions): str
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:image:type" content="image/png">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:site" content="@frontaliereticino">
     <link rel="canonical" href="${canonicalUrl}">
 ${alternates}
     <link rel="alternate" hreflang="x-default" href="${BASE_URL}${xDefaultPath}">
