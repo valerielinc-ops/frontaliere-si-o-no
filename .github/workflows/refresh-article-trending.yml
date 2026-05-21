@@ -72,7 +72,6 @@ jobs:
       - name: Report failure to Linear
         if: failure()
         continue-on-error: true
-        env:
         run: |
           node scripts/lib/github-issue-creator.mjs \
             --title "CI Failure: Refresh Article Trending — run ${{ github.run_number }}" \
