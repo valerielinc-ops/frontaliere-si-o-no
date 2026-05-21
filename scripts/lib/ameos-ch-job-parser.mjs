@@ -131,16 +131,25 @@ export function parseDetail(html = '') {
   let body = '';
   if (openMatch) {
     const start = openMatch.index + openMatch[0].length;
-    const tail = html.slice(start);
+    // Strip <script>/<style>/<noscript> on the full tail FIRST. The next-frame
+    // search and the 16000-char fallback would otherwise truncate INSIDE an
+    // inline script block, leaving an unclosed `<script>` whose closing tag
+    // sits past the slice — the strip regex can't match it, and the keSearch
+    // autocomplete JS leaks into the job body as plain text.
+    const tail = html
+      .slice(start)
+      .replace(/<script[\s\S]*?<\/script>/gi, ' ')
+      .replace(/<noscript[\s\S]*?<\/noscript>/gi, ' ')
+      .replace(/<style[\s\S]*?<\/style>/gi, ' ');
+    // Bound by `</section>` when present (the ameosjobs frame lives inside a
+    // <section> that closes before the global footer); fall back to next
+    // non-ameosjobs frame-type, then to a 16k cap.
+    const sectionCloseIdx = tail.search(/<\/section\s*>/i);
     const nextFrame = tail.search(/<div[^>]*class="[^"]*\bframe-type-(?!ameosjobs)/i);
-    const inner = nextFrame > 0 ? tail.slice(0, nextFrame) : tail.slice(0, 16000);
-    let text = decodeEntities(
-      inner
-        .replace(/<script[\s\S]*?<\/script>/gi, ' ')
-        .replace(/<noscript[\s\S]*?<\/noscript>/gi, ' ')
-        .replace(/<style[\s\S]*?<\/style>/gi, ' ')
-        .replace(/<[^>]+>/g, ' ')
-    );
+    const bounds = [sectionCloseIdx, nextFrame].filter((n) => n > 0);
+    const cut = bounds.length > 0 ? Math.min(...bounds) : 16000;
+    const inner = tail.slice(0, cut);
+    let text = decodeEntities(inner.replace(/<[^>]+>/g, ' '));
     text = normalizeSpace(text);
     // TYPO3 sometimes inlines a CSS rule block before the body content; if
     // the text starts with selectors ending in `} text`, drop everything up

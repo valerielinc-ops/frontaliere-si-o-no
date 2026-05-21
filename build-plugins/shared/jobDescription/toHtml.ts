@@ -52,7 +52,15 @@ export function blocksToHtml(blocks: Block[]): string {
  * already contains structural tags. */
 export function jobDescriptionTextToHtml(text: string): string {
   if (!text) return '';
-  if (/<(p|ul|ol|li|h[1-6]|br|strong|em)\b/i.test(text)) return text;
+  if (/<(p|ul|ol|li|h[1-6]|br|strong|em)\b/i.test(text)) {
+    // Pre-structured HTML still needs literal-markdown scrub — descriptions
+    // mixing `<br>`/`<strong>` with `**bold**` would otherwise leak `**` tokens
+    // into the rendered body and trip `audit:no-literal-markdown` (0-tolerance).
+    return text
+      .replace(/\*\*\s*[\s:;,.\-–—]*\s*\*\*/g, ' ')
+      .replace(/\*\*([^*\n]{1,200}?)\*\*/g, '<strong>$1</strong>')
+      .replace(/(^|[\s>])[_=~]{3,}(?=[\s<]|$)/g, '$1');
+  }
   const blocks = parseJobDescription(text);
   return blocksToHtml(blocks);
 }
