@@ -1,6 +1,6 @@
 {
   "crawlerKey": "lis-lugano-istituti-sociali",
-  "assembledAt": "2026-05-21T12:36:09.103Z",
+  "assembledAt": "2026-05-21T23:05:40.840Z",
   "jobs": [
     {
       "title": "Capireparto",
@@ -175,7 +175,8 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-05-14T22:20:25.346Z"
+      "firstSeenAt": "2026-05-14T22:20:25.346Z",
+      "needsRetranslation": true
     },
     {
       "title": "Operatori Sociosanitari",
@@ -262,7 +263,8 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-05-14T11:20:10.630Z"
+      "firstSeenAt": "2026-05-14T11:20:10.630Z",
+      "needsRetranslation": true
     },
     {
       "title": "Assistenti di cura",
@@ -587,7 +589,8 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-05-14T11:20:10.630Z"
+      "firstSeenAt": "2026-05-14T11:20:10.630Z",
+      "needsRetranslation": true
     },
     {
       "title": "Fisioterapisti / Ergoterapisti",
@@ -892,7 +895,8 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-05-14T11:20:10.630Z"
+      "firstSeenAt": "2026-05-14T11:20:10.630Z",
+      "needsRetranslation": true
     },
     {
       "title": "Educatori dell'infanzia",
@@ -979,7 +983,8 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-05-14T22:20:25.346Z"
+      "firstSeenAt": "2026-05-14T22:20:25.346Z",
+      "needsRetranslation": true
     },
     {
       "title": "Capisquadra - chef di cucina",
@@ -1066,7 +1071,8 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-05-14T22:20:25.346Z"
+      "firstSeenAt": "2026-05-14T22:20:25.346Z",
+      "needsRetranslation": true
     },
     {
       "title": "Cuochi",
@@ -1154,7 +1160,8 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-05-14T22:20:25.346Z"
+      "firstSeenAt": "2026-05-14T22:20:25.346Z",
+      "needsRetranslation": true
     },
     {
       "title": "Addetti servizi alla casa",
@@ -1230,7 +1237,8 @@
         "it": [
           "addetti-servizi-alla-casa-lis-lugano-istituti-sociali-pregassona"
         ]
-      }
+      },
+      "needsRetranslation": true
     }
   ]
 }
