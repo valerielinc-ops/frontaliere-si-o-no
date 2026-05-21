@@ -7,7 +7,12 @@
       {
         "query": "case anziani ticino offerte di lavoro",
         "clicks": 1,
-        "impressions": 23
+        "impressions": 25
+      },
+      {
+        "query": "offerte di lavoro casa di riposo svizzera",
+        "clicks": 2,
+        "impressions": 16
       },
       {
         "query": "case anziani lugano posti di lavoro",
@@ -15,29 +20,34 @@
         "impressions": 14
       },
       {
-        "query": "offerte di lavoro casa di riposo svizzera",
-        "clicks": 1,
-        "impressions": 10
-      },
-      {
         "query": "offerte lavoro casa di riposo svizzera",
-        "clicks": 0,
-        "impressions": 8
+        "clicks": 1,
+        "impressions": 13
       },
       {
         "query": "case di riposo ticino lavora con noi",
         "clicks": 0,
-        "impressions": 4
+        "impressions": 8
       },
       {
         "query": "casa anziani paradiso offerta lavoro",
         "clicks": 0,
-        "impressions": 3
+        "impressions": 4
       },
       {
         "query": "casa anziani mendrisio lavoro",
         "clicks": 0,
-        "impressions": 1
+        "impressions": 2
+      },
+      {
+        "query": "lavoro casa anziani ticino",
+        "clicks": 0,
+        "impressions": 2
+      },
+      {
+        "query": "offerte di lavoro casa anziani ticino",
+        "clicks": 0,
+        "impressions": 2
       },
       {
         "query": "casa anziani sementina offerte di lavoro",
@@ -50,18 +60,13 @@
         "impressions": 1
       },
       {
-        "query": "lavoro casa anziani ticino",
-        "clicks": 0,
-        "impressions": 1
-      },
-      {
-        "query": "offerte di lavoro casa anziani ticino",
+        "query": "offerte di lavoro casa di riposo per anziani",
         "clicks": 0,
         "impressions": 1
       }
     ],
-    "totalImpressions": 67,
-    "totalClicks": 2,
+    "totalImpressions": 89,
+    "totalClicks": 4,
     "topQuery": "case anziani ticino offerte di lavoro",
     "title": "Case anziani",
     "titleByLocale": {
@@ -100,12 +105,12 @@
       {
         "query": "help me find ticino caregiver jobs for elderly care with live in option and clear legal contract terms.",
         "clicks": 0,
-        "impressions": 29
+        "impressions": 30
       },
       {
         "query": "i am searching for caregiver jobs in ticino for elderly support.",
         "clicks": 0,
-        "impressions": 26
+        "impressions": 27
       },
       {
         "query": "نعم ابحث",
@@ -113,7 +118,7 @@
         "impressions": 1
       }
     ],
-    "totalImpressions": 56,
+    "totalImpressions": 58,
     "totalClicks": 1,
     "topQuery": "help me find ticino caregiver jobs for elderly care with live in option and clear legal contract terms.",
     "title": "Elderly care",
@@ -143,6 +148,120 @@
     "lastCrawlTime": "",
     "source": [
       "gsc"
+    ]
+  },
+  {
+    "slug": "lugano",
+    "locale": "de",
+    "path": "/de/jobs-im-tessin/lugano/",
+    "queries": [
+      {
+        "query": "stellen lugano",
+        "clicks": 0,
+        "impressions": 5
+      },
+      {
+        "query": "stellenangebot lugano",
+        "clicks": 0,
+        "impressions": 5
+      },
+      {
+        "query": "bestatter jobs lugano",
+        "clicks": 0,
+        "impressions": 3
+      },
+      {
+        "query": "rettungssanitäter jobs lugano",
+        "clicks": 0,
+        "impressions": 3
+      },
+      {
+        "query": "taetigkeitsfelder jobs lugano",
+        "clicks": 0,
+        "impressions": 3
+      },
+      {
+        "query": "alltagsbegleiter jobs lugano",
+        "clicks": 0,
+        "impressions": 2
+      },
+      {
+        "query": "altenpfleger jobs lugano",
+        "clicks": 0,
+        "impressions": 2
+      },
+      {
+        "query": "assistent jobs lugano",
+        "clicks": 0,
+        "impressions": 2
+      },
+      {
+        "query": "jobs lugano",
+        "clicks": 0,
+        "impressions": 2
+      },
+      {
+        "query": "lehre jobs lugano",
+        "clicks": 0,
+        "impressions": 2
+      },
+      {
+        "query": "bundesverwaltung jobs lugano",
+        "clicks": 0,
+        "impressions": 1
+      },
+      {
+        "query": "lugano jobs deutsch",
+        "clicks": 0,
+        "impressions": 1
+      },
+      {
+        "query": "pharmareferent jobs lugano",
+        "clicks": 0,
+        "impressions": 1
+      },
+      {
+        "query": "teamleiter jobs lugano",
+        "clicks": 0,
+        "impressions": 1
+      },
+      {
+        "query": "technische jobs lugano",
+        "clicks": 0,
+        "impressions": 1
+      }
+    ],
+    "totalImpressions": 34,
+    "totalClicks": 0,
+    "topQuery": "stellen lugano",
+    "title": "lugano",
+    "titleByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "descriptionByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "company": "",
+    "companyKey": "",
+    "location": "Lugano",
+    "sector": "",
+    "salaryMin": 0,
+    "salaryCurrency": "CHF",
+    "slugByLocale": {},
+    "localePaths": {},
+    "sourceUrl": "",
+    "googleStatus": "unknown",
+    "googleCanonical": "",
+    "lastCrawlTime": "",
+    "source": [
+      "gsc",
+      "slug-parsing"
     ]
   },
   {
@@ -225,115 +344,6 @@
     "company": "",
     "companyKey": "",
     "location": "Chiasso",
-    "sector": "",
-    "salaryMin": 0,
-    "salaryCurrency": "CHF",
-    "slugByLocale": {},
-    "localePaths": {},
-    "sourceUrl": "",
-    "googleStatus": "unknown",
-    "googleCanonical": "",
-    "lastCrawlTime": "",
-    "source": [
-      "gsc",
-      "slug-parsing"
-    ]
-  },
-  {
-    "slug": "lugano",
-    "locale": "de",
-    "path": "/de/jobs-im-tessin/lugano/",
-    "queries": [
-      {
-        "query": "stellen lugano",
-        "clicks": 0,
-        "impressions": 5
-      },
-      {
-        "query": "stellenangebot lugano",
-        "clicks": 0,
-        "impressions": 4
-      },
-      {
-        "query": "bestatter jobs lugano",
-        "clicks": 0,
-        "impressions": 3
-      },
-      {
-        "query": "rettungssanitäter jobs lugano",
-        "clicks": 0,
-        "impressions": 3
-      },
-      {
-        "query": "taetigkeitsfelder jobs lugano",
-        "clicks": 0,
-        "impressions": 3
-      },
-      {
-        "query": "alltagsbegleiter jobs lugano",
-        "clicks": 0,
-        "impressions": 2
-      },
-      {
-        "query": "altenpfleger jobs lugano",
-        "clicks": 0,
-        "impressions": 2
-      },
-      {
-        "query": "assistent jobs lugano",
-        "clicks": 0,
-        "impressions": 2
-      },
-      {
-        "query": "lehre jobs lugano",
-        "clicks": 0,
-        "impressions": 2
-      },
-      {
-        "query": "bundesverwaltung jobs lugano",
-        "clicks": 0,
-        "impressions": 1
-      },
-      {
-        "query": "lugano jobs deutsch",
-        "clicks": 0,
-        "impressions": 1
-      },
-      {
-        "query": "pharmareferent jobs lugano",
-        "clicks": 0,
-        "impressions": 1
-      },
-      {
-        "query": "teamleiter jobs lugano",
-        "clicks": 0,
-        "impressions": 1
-      },
-      {
-        "query": "technische jobs lugano",
-        "clicks": 0,
-        "impressions": 1
-      }
-    ],
-    "totalImpressions": 31,
-    "totalClicks": 0,
-    "topQuery": "stellen lugano",
-    "title": "lugano",
-    "titleByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "descriptionByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "company": "",
-    "companyKey": "",
-    "location": "Lugano",
     "sector": "",
     "salaryMin": 0,
     "salaryCurrency": "CHF",
@@ -523,10 +533,10 @@
       {
         "query": "teaching jobs in the canton of ticino",
         "clicks": 0,
-        "impressions": 16
+        "impressions": 17
       }
     ],
-    "totalImpressions": 16,
+    "totalImpressions": 17,
     "totalClicks": 0,
     "topQuery": "teaching jobs in the canton of ticino",
     "title": "Educators",
@@ -627,6 +637,118 @@
     ]
   },
   {
+    "slug": "fahrer",
+    "locale": "de",
+    "path": "/de/jobs-im-tessin/fahrer/",
+    "queries": [
+      {
+        "query": "fahrer locarno",
+        "clicks": 0,
+        "impressions": 10
+      },
+      {
+        "query": "fahrer jobs lugano",
+        "clicks": 0,
+        "impressions": 2
+      },
+      {
+        "query": "datumstempel migros",
+        "clicks": 0,
+        "impressions": 1
+      }
+    ],
+    "totalImpressions": 13,
+    "totalClicks": 0,
+    "topQuery": "fahrer locarno",
+    "title": "Fahrer",
+    "titleByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "descriptionByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "company": "",
+    "companyKey": "",
+    "location": "",
+    "sector": "",
+    "salaryMin": 0,
+    "salaryCurrency": "CHF",
+    "slugByLocale": {},
+    "localePaths": {},
+    "sourceUrl": "",
+    "googleStatus": "unknown",
+    "googleCanonical": "",
+    "lastCrawlTime": "",
+    "source": [
+      "gsc"
+    ]
+  },
+  {
+    "slug": "bellinzona",
+    "locale": "it",
+    "path": "/cerca-lavoro-ticino/bellinzona/",
+    "queries": [
+      {
+        "query": "offerte di lavoro bellinzona",
+        "clicks": 0,
+        "impressions": 4
+      },
+      {
+        "query": "offerte lavoro bellinzona",
+        "clicks": 0,
+        "impressions": 4
+      },
+      {
+        "query": "lavoro bellinzona",
+        "clicks": 0,
+        "impressions": 2
+      },
+      {
+        "query": "bellinzona lavoro",
+        "clicks": 0,
+        "impressions": 1
+      }
+    ],
+    "totalImpressions": 11,
+    "totalClicks": 0,
+    "topQuery": "offerte di lavoro bellinzona",
+    "title": "bellinzona",
+    "titleByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "descriptionByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "company": "",
+    "companyKey": "",
+    "location": "Bellinzona",
+    "sector": "",
+    "salaryMin": 0,
+    "salaryCurrency": "CHF",
+    "slugByLocale": {},
+    "localePaths": {},
+    "sourceUrl": "",
+    "googleStatus": "unknown",
+    "googleCanonical": "",
+    "lastCrawlTime": "",
+    "source": [
+      "gsc",
+      "slug-parsing"
+    ]
+  },
+  {
     "slug": "bellinzona",
     "locale": "de",
     "path": "/de/jobs-im-tessin/bellinzona/",
@@ -678,59 +800,6 @@
     "source": [
       "gsc",
       "slug-parsing"
-    ]
-  },
-  {
-    "slug": "fahrer",
-    "locale": "de",
-    "path": "/de/jobs-im-tessin/fahrer/",
-    "queries": [
-      {
-        "query": "fahrer locarno",
-        "clicks": 0,
-        "impressions": 7
-      },
-      {
-        "query": "fahrer jobs lugano",
-        "clicks": 0,
-        "impressions": 2
-      },
-      {
-        "query": "datumstempel migros",
-        "clicks": 0,
-        "impressions": 1
-      }
-    ],
-    "totalImpressions": 10,
-    "totalClicks": 0,
-    "topQuery": "fahrer locarno",
-    "title": "Fahrer",
-    "titleByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "descriptionByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "company": "",
-    "companyKey": "",
-    "location": "",
-    "sector": "",
-    "salaryMin": 0,
-    "salaryCurrency": "CHF",
-    "slugByLocale": {},
-    "localePaths": {},
-    "sourceUrl": "",
-    "googleStatus": "unknown",
-    "googleCanonical": "",
-    "lastCrawlTime": "",
-    "source": [
-      "gsc"
     ]
   },
   {
@@ -939,35 +1008,30 @@
     ]
   },
   {
-    "slug": "bellinzona",
+    "slug": "chiasso",
     "locale": "it",
-    "path": "/cerca-lavoro-ticino/bellinzona/",
+    "path": "/cerca-lavoro-ticino/chiasso/",
     "queries": [
       {
-        "query": "offerte di lavoro bellinzona",
+        "query": "lavoro a chiasso",
         "clicks": 0,
-        "impressions": 3
+        "impressions": 7
       },
       {
-        "query": "offerte lavoro bellinzona",
+        "query": "offerte di lavoro a chiasso svizzera",
         "clicks": 0,
-        "impressions": 3
+        "impressions": 1
       },
       {
-        "query": "lavoro bellinzona",
-        "clicks": 0,
-        "impressions": 2
-      },
-      {
-        "query": "bellinzona lavoro",
+        "query": "offerte lavoro chiasso per italiani",
         "clicks": 0,
         "impressions": 1
       }
     ],
     "totalImpressions": 9,
     "totalClicks": 0,
-    "topQuery": "offerte di lavoro bellinzona",
-    "title": "bellinzona",
+    "topQuery": "lavoro a chiasso",
+    "title": "chiasso",
     "titleByLocale": {
       "it": "",
       "en": "",
@@ -982,7 +1046,7 @@
     },
     "company": "",
     "companyKey": "",
-    "location": "Bellinzona",
+    "location": "Chiasso",
     "sector": "",
     "salaryMin": 0,
     "salaryCurrency": "CHF",
@@ -1124,6 +1188,69 @@
     ]
   },
   {
+    "slug": "nurses",
+    "locale": "en",
+    "path": "/en/find-jobs-ticino/nurses/",
+    "queries": [
+      {
+        "query": "nursing jobs",
+        "clicks": 0,
+        "impressions": 4
+      },
+      {
+        "query": "english speaking nursing jobs in switzerland",
+        "clicks": 0,
+        "impressions": 1
+      },
+      {
+        "query": "nurses job vacancy in switzerland",
+        "clicks": 0,
+        "impressions": 1
+      },
+      {
+        "query": "nursing job opportunities in switzerland",
+        "clicks": 0,
+        "impressions": 1
+      },
+      {
+        "query": "switzerland nurses vacancy",
+        "clicks": 0,
+        "impressions": 1
+      }
+    ],
+    "totalImpressions": 8,
+    "totalClicks": 0,
+    "topQuery": "nursing jobs",
+    "title": "Nurses",
+    "titleByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "descriptionByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "company": "",
+    "companyKey": "",
+    "location": "",
+    "sector": "",
+    "salaryMin": 0,
+    "salaryCurrency": "CHF",
+    "slugByLocale": {},
+    "localePaths": {},
+    "sourceUrl": "",
+    "googleStatus": "unknown",
+    "googleCanonical": "",
+    "lastCrawlTime": "",
+    "source": [
+      "gsc"
+    ]
+  },
+  {
     "slug": "lugano",
     "locale": "en",
     "path": "/en/find-jobs-ticino/lugano/",
@@ -1228,60 +1355,6 @@
     "lastCrawlTime": "",
     "source": [
       "gsc"
-    ]
-  },
-  {
-    "slug": "chiasso",
-    "locale": "it",
-    "path": "/cerca-lavoro-ticino/chiasso/",
-    "queries": [
-      {
-        "query": "lavoro a chiasso",
-        "clicks": 0,
-        "impressions": 3
-      },
-      {
-        "query": "offerte di lavoro a chiasso svizzera",
-        "clicks": 0,
-        "impressions": 1
-      },
-      {
-        "query": "offerte lavoro chiasso per italiani",
-        "clicks": 0,
-        "impressions": 1
-      }
-    ],
-    "totalImpressions": 5,
-    "totalClicks": 0,
-    "topQuery": "lavoro a chiasso",
-    "title": "chiasso",
-    "titleByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "descriptionByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "company": "",
-    "companyKey": "",
-    "location": "Chiasso",
-    "sector": "",
-    "salaryMin": 0,
-    "salaryCurrency": "CHF",
-    "slugByLocale": {},
-    "localePaths": {},
-    "sourceUrl": "",
-    "googleStatus": "unknown",
-    "googleCanonical": "",
-    "lastCrawlTime": "",
-    "source": [
-      "gsc",
-      "slug-parsing"
     ]
   },
   {
@@ -1432,54 +1505,6 @@
     "totalClicks": 0,
     "topQuery": "web developer ticino",
     "title": "Sviluppatori",
-    "titleByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "descriptionByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "company": "",
-    "companyKey": "",
-    "location": "",
-    "sector": "",
-    "salaryMin": 0,
-    "salaryCurrency": "CHF",
-    "slugByLocale": {},
-    "localePaths": {},
-    "sourceUrl": "",
-    "googleStatus": "unknown",
-    "googleCanonical": "",
-    "lastCrawlTime": "",
-    "source": [
-      "gsc"
-    ]
-  },
-  {
-    "slug": "nurses",
-    "locale": "en",
-    "path": "/en/find-jobs-ticino/nurses/",
-    "queries": [
-      {
-        "query": "nursing jobs",
-        "clicks": 0,
-        "impressions": 4
-      },
-      {
-        "query": "nurses job vacancy in switzerland",
-        "clicks": 0,
-        "impressions": 1
-      }
-    ],
-    "totalImpressions": 5,
-    "totalClicks": 0,
-    "topQuery": "nursing jobs",
-    "title": "Nurses",
     "titleByLocale": {
       "it": "",
       "en": "",
@@ -1668,6 +1693,71 @@
     ]
   },
   {
+    "slug": "store-manager-apprendista-a-80-100-per-la-filiale-seewen-jysk-schwyz",
+    "locale": "it",
+    "path": "/cerca-lavoro-ticino/store-manager-apprendista-a-80-100-per-la-filiale-seewen-jysk-schwyz/",
+    "queries": [
+      {
+        "query": "store manager svizzera",
+        "clicks": 0,
+        "impressions": 2
+      },
+      {
+        "query": "jysk lavora con noi",
+        "clicks": 0,
+        "impressions": 1
+      },
+      {
+        "query": "offerte apprendistato ticino",
+        "clicks": 0,
+        "impressions": 1
+      }
+    ],
+    "totalImpressions": 4,
+    "totalClicks": 0,
+    "topQuery": "store manager svizzera",
+    "title": "Store manager apprendista per la filiale seewen schwyz",
+    "titleByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "descriptionByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "company": "JYSK",
+    "companyKey": "jysk",
+    "location": "",
+    "sector": "",
+    "salaryMin": 0,
+    "salaryCurrency": "CHF",
+    "slugByLocale": {
+      "it": "store-manager-apprendista-a-80-100-per-la-filiale-seewen-jysk-schwyz",
+      "en": "store-manager-apprendista-a-80-100-per-la-filiale-seewen-jysk-schwyz",
+      "de": "store-manager-apprendista-a-80-100-per-la-filiale-seewen-jysk-schwyz",
+      "fr": "store-manager-apprendista-a-80-100-per-la-filiale-seewen-jysk-schwyz"
+    },
+    "localePaths": {
+      "it": "/cerca-lavoro-ticino/store-manager-apprendista-a-80-100-per-la-filiale-seewen-jysk-schwyz",
+      "en": "/en/find-jobs-ticino/store-manager-apprendista-a-80-100-per-la-filiale-seewen-jysk-schwyz",
+      "de": "/de/jobs-im-tessin/store-manager-apprendista-a-80-100-per-la-filiale-seewen-jysk-schwyz",
+      "fr": "/fr/trouver-emploi-tessin/store-manager-apprendista-a-80-100-per-la-filiale-seewen-jysk-schwyz"
+    },
+    "sourceUrl": "",
+    "googleStatus": "unknown",
+    "googleCanonical": "",
+    "lastCrawlTime": "",
+    "source": [
+      "gsc",
+      "all-known-slugs",
+      "slug-parsing"
+    ]
+  },
+  {
     "slug": "apprendistato",
     "locale": "it",
     "path": "/cerca-lavoro-ticino/apprendistato/",
@@ -1766,6 +1856,55 @@
     "lastCrawlTime": "",
     "source": [
       "gsc"
+    ]
+  },
+  {
+    "slug": "mendrisio",
+    "locale": "it",
+    "path": "/cerca-lavoro-ticino/mendrisio/",
+    "queries": [
+      {
+        "query": "lavoro mendrisio",
+        "clicks": 0,
+        "impressions": 2
+      },
+      {
+        "query": "offerte di lavoro ticino",
+        "clicks": 0,
+        "impressions": 1
+      }
+    ],
+    "totalImpressions": 3,
+    "totalClicks": 0,
+    "topQuery": "lavoro mendrisio",
+    "title": "mendrisio",
+    "titleByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "descriptionByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "company": "",
+    "companyKey": "",
+    "location": "Mendrisio",
+    "sector": "",
+    "salaryMin": 0,
+    "salaryCurrency": "CHF",
+    "slugByLocale": {},
+    "localePaths": {},
+    "sourceUrl": "",
+    "googleStatus": "unknown",
+    "googleCanonical": "",
+    "lastCrawlTime": "",
+    "source": [
+      "gsc",
+      "slug-parsing"
     ]
   },
   {
@@ -1870,6 +2009,71 @@
     ]
   },
   {
+    "slug": "tissot-sales-associate-the-swatch-group-u-s-inc-ticino",
+    "locale": "en",
+    "path": "/en/find-jobs-ticino/tissot-sales-associate-the-swatch-group-u-s-inc-ticino/",
+    "queries": [
+      {
+        "query": "swatch emploi",
+        "clicks": 0,
+        "impressions": 1
+      },
+      {
+        "query": "swatch job",
+        "clicks": 0,
+        "impressions": 1
+      },
+      {
+        "query": "swatch jobs",
+        "clicks": 0,
+        "impressions": 1
+      }
+    ],
+    "totalImpressions": 3,
+    "totalClicks": 0,
+    "topQuery": "swatch emploi",
+    "title": "Tissot sales associate the swatch group u s inc",
+    "titleByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "descriptionByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "company": "",
+    "companyKey": "",
+    "location": "Ticino",
+    "sector": "",
+    "salaryMin": 0,
+    "salaryCurrency": "CHF",
+    "slugByLocale": {
+      "it": "tissot-sales-associate-the-swatch-group-u-s-inc-ticino",
+      "en": "tissot-sales-associate-the-swatch-group-u-s-inc-ticino",
+      "de": "tissot-sales-associate-the-swatch-group-u-s-inc-ticino",
+      "fr": "tissot-sales-associate-the-swatch-group-u-s-inc-ticino"
+    },
+    "localePaths": {
+      "it": "/cerca-lavoro-ticino/tissot-sales-associate-the-swatch-group-u-s-inc-ticino",
+      "en": "/en/find-jobs-ticino/tissot-sales-associate-the-swatch-group-u-s-inc-ticino",
+      "de": "/de/jobs-im-tessin/tissot-sales-associate-the-swatch-group-u-s-inc-ticino",
+      "fr": "/fr/trouver-emploi-tessin/tissot-sales-associate-the-swatch-group-u-s-inc-ticino"
+    },
+    "sourceUrl": "",
+    "googleStatus": "unknown",
+    "googleCanonical": "",
+    "lastCrawlTime": "",
+    "source": [
+      "gsc",
+      "all-known-slugs",
+      "slug-parsing"
+    ]
+  },
+  {
     "slug": "ingenieure",
     "locale": "de",
     "path": "/de/jobs-im-tessin/ingenieure/",
@@ -1918,20 +2122,85 @@
     ]
   },
   {
-    "slug": "mendrisio",
+    "slug": "stv-branch-manager-in-denner-schaffhausen",
     "locale": "it",
-    "path": "/cerca-lavoro-ticino/mendrisio/",
+    "path": "/cerca-lavoro-ticino/stv-branch-manager-in-denner-schaffhausen/",
     "queries": [
       {
-        "query": "lavoro mendrisio",
+        "query": "denner job",
         "clicks": 0,
-        "impressions": 2
+        "impressions": 1
+      },
+      {
+        "query": "denner lavora con noi",
+        "clicks": 0,
+        "impressions": 1
       }
     ],
     "totalImpressions": 2,
     "totalClicks": 0,
-    "topQuery": "lavoro mendrisio",
-    "title": "mendrisio",
+    "topQuery": "denner job",
+    "title": "Stv branch manager in",
+    "titleByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "descriptionByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "company": "Denner",
+    "companyKey": "denner",
+    "location": "Schaffhausen",
+    "sector": "",
+    "salaryMin": 0,
+    "salaryCurrency": "CHF",
+    "slugByLocale": {
+      "it": "stv-branch-manager-in-denner-schaffhausen",
+      "en": "stv-branch-manager-in-denner-schaffhausen",
+      "de": "stv-branch-manager-in-denner-schaffhausen",
+      "fr": "stv-branch-manager-in-denner-schaffhausen"
+    },
+    "localePaths": {
+      "it": "/cerca-lavoro-ticino/stv-branch-manager-in-denner-schaffhausen",
+      "en": "/en/find-jobs-ticino/stv-branch-manager-in-denner-schaffhausen",
+      "de": "/de/jobs-im-tessin/stv-branch-manager-in-denner-schaffhausen",
+      "fr": "/fr/trouver-emploi-tessin/stv-branch-manager-in-denner-schaffhausen"
+    },
+    "sourceUrl": "",
+    "googleStatus": "unknown",
+    "googleCanonical": "",
+    "lastCrawlTime": "",
+    "source": [
+      "gsc",
+      "all-known-slugs",
+      "slug-parsing"
+    ]
+  },
+  {
+    "slug": "swatch-tempo-pieno-keyholder-ny-ny-hotel-las-vegas-the-swatch-group-u-s-inc-ticino",
+    "locale": "it",
+    "path": "/cerca-lavoro-ticino/swatch-tempo-pieno-keyholder-ny-ny-hotel-las-vegas-the-swatch-group-u-s-inc-ticino/",
+    "queries": [
+      {
+        "query": "stage ticino",
+        "clicks": 0,
+        "impressions": 1
+      },
+      {
+        "query": "swatch emploi",
+        "clicks": 0,
+        "impressions": 1
+      }
+    ],
+    "totalImpressions": 2,
+    "totalClicks": 0,
+    "topQuery": "stage ticino",
+    "title": "Swatch tempo pieno keyholder ny ny hotel las vegas the swatch group u s inc",
     "titleByLocale": {
       "it": "",
       "en": "",
@@ -1946,19 +2215,84 @@
     },
     "company": "",
     "companyKey": "",
-    "location": "Mendrisio",
+    "location": "Ticino",
     "sector": "",
     "salaryMin": 0,
     "salaryCurrency": "CHF",
-    "slugByLocale": {},
-    "localePaths": {},
+    "slugByLocale": {
+      "it": "swatch-tempo-pieno-keyholder-ny-ny-hotel-las-vegas-the-swatch-group-u-s-inc-ticino",
+      "en": "swatch-tempo-pieno-keyholder-ny-ny-hotel-las-vegas-the-swatch-group-u-s-inc-ticino",
+      "de": "swatch-tempo-pieno-keyholder-ny-ny-hotel-las-vegas-the-swatch-group-u-s-inc-ticino",
+      "fr": "swatch-tempo-pieno-keyholder-ny-ny-hotel-las-vegas-the-swatch-group-u-s-inc-ticino"
+    },
+    "localePaths": {
+      "it": "/cerca-lavoro-ticino/swatch-tempo-pieno-keyholder-ny-ny-hotel-las-vegas-the-swatch-group-u-s-inc-ticino",
+      "en": "/en/find-jobs-ticino/swatch-tempo-pieno-keyholder-ny-ny-hotel-las-vegas-the-swatch-group-u-s-inc-ticino",
+      "de": "/de/jobs-im-tessin/swatch-tempo-pieno-keyholder-ny-ny-hotel-las-vegas-the-swatch-group-u-s-inc-ticino",
+      "fr": "/fr/trouver-emploi-tessin/swatch-tempo-pieno-keyholder-ny-ny-hotel-las-vegas-the-swatch-group-u-s-inc-ticino"
+    },
     "sourceUrl": "",
     "googleStatus": "unknown",
     "googleCanonical": "",
     "lastCrawlTime": "",
     "source": [
       "gsc",
+      "all-known-slugs",
       "slug-parsing"
+    ]
+  },
+  {
+    "slug": "tecnico-di-ascensori-m-f-d-otis-sa-kriens",
+    "locale": "it",
+    "path": "/cerca-lavoro-ticino/tecnico-di-ascensori-m-f-d-otis-sa-kriens/",
+    "queries": [
+      {
+        "query": "installazione ascensori ticino",
+        "clicks": 0,
+        "impressions": 2
+      }
+    ],
+    "totalImpressions": 2,
+    "totalClicks": 0,
+    "topQuery": "installazione ascensori ticino",
+    "title": "Tecnico di ascensori otis sa kriens",
+    "titleByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "descriptionByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "company": "",
+    "companyKey": "",
+    "location": "",
+    "sector": "",
+    "salaryMin": 0,
+    "salaryCurrency": "CHF",
+    "slugByLocale": {
+      "it": "tecnico-di-ascensori-m-f-d-otis-sa-kriens",
+      "en": "tecnico-di-ascensori-m-f-d-otis-sa-kriens",
+      "de": "tecnico-di-ascensori-m-f-d-otis-sa-kriens",
+      "fr": "tecnico-di-ascensori-m-f-d-otis-sa-kriens"
+    },
+    "localePaths": {
+      "it": "/cerca-lavoro-ticino/tecnico-di-ascensori-m-f-d-otis-sa-kriens",
+      "en": "/en/find-jobs-ticino/tecnico-di-ascensori-m-f-d-otis-sa-kriens",
+      "de": "/de/jobs-im-tessin/tecnico-di-ascensori-m-f-d-otis-sa-kriens",
+      "fr": "/fr/trouver-emploi-tessin/tecnico-di-ascensori-m-f-d-otis-sa-kriens"
+    },
+    "sourceUrl": "",
+    "googleStatus": "unknown",
+    "googleCanonical": "",
+    "lastCrawlTime": "",
+    "source": [
+      "gsc",
+      "all-known-slugs"
     ]
   },
   {
@@ -2182,6 +2516,61 @@
     ]
   },
   {
+    "slug": "omega-client-advisor-perth-the-swatch-group-australia-pty-ltd-ticino",
+    "locale": "en",
+    "path": "/en/find-jobs-ticino/omega-client-advisor-perth-the-swatch-group-australia-pty-ltd-ticino/",
+    "queries": [
+      {
+        "query": "customer service ticino",
+        "clicks": 0,
+        "impressions": 1
+      }
+    ],
+    "totalImpressions": 1,
+    "totalClicks": 0,
+    "topQuery": "customer service ticino",
+    "title": "Omega client advisor perth the swatch group australia pty ltd",
+    "titleByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "descriptionByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "company": "",
+    "companyKey": "",
+    "location": "Ticino",
+    "sector": "",
+    "salaryMin": 0,
+    "salaryCurrency": "CHF",
+    "slugByLocale": {
+      "it": "omega-client-advisor-perth-the-swatch-group-australia-pty-ltd-ticino",
+      "en": "omega-client-advisor-perth-the-swatch-group-australia-pty-ltd-ticino",
+      "de": "omega-client-advisor-perth-the-swatch-group-australia-pty-ltd-ticino",
+      "fr": "omega-client-advisor-perth-the-swatch-group-australia-pty-ltd-ticino"
+    },
+    "localePaths": {
+      "it": "/cerca-lavoro-ticino/omega-client-advisor-perth-the-swatch-group-australia-pty-ltd-ticino",
+      "en": "/en/find-jobs-ticino/omega-client-advisor-perth-the-swatch-group-australia-pty-ltd-ticino",
+      "de": "/de/jobs-im-tessin/omega-client-advisor-perth-the-swatch-group-australia-pty-ltd-ticino",
+      "fr": "/fr/trouver-emploi-tessin/omega-client-advisor-perth-the-swatch-group-australia-pty-ltd-ticino"
+    },
+    "sourceUrl": "",
+    "googleStatus": "unknown",
+    "googleCanonical": "",
+    "lastCrawlTime": "",
+    "source": [
+      "gsc",
+      "all-known-slugs",
+      "slug-parsing"
+    ]
+  },
+  {
     "slug": "chiasso",
     "locale": "de",
     "path": "/de/jobs-im-tessin/chiasso/",
@@ -2266,6 +2655,61 @@
     "lastCrawlTime": "",
     "source": [
       "gsc",
+      "slug-parsing"
+    ]
+  },
+  {
+    "slug": "omega-luxusuhren-vertriebsmitarbeiter-dallas-the-swatch-group-u-s-inc-ticino",
+    "locale": "de",
+    "path": "/de/jobs-im-tessin/omega-luxusuhren-vertriebsmitarbeiter-dallas-the-swatch-group-u-s-inc-ticino/",
+    "queries": [
+      {
+        "query": "omega stage",
+        "clicks": 0,
+        "impressions": 1
+      }
+    ],
+    "totalImpressions": 1,
+    "totalClicks": 0,
+    "topQuery": "omega stage",
+    "title": "Omega luxusuhren vertriebsmitarbeiter dallas the swatch group u s inc",
+    "titleByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "descriptionByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "company": "",
+    "companyKey": "",
+    "location": "Ticino",
+    "sector": "",
+    "salaryMin": 0,
+    "salaryCurrency": "CHF",
+    "slugByLocale": {
+      "it": "omega-luxusuhren-vertriebsmitarbeiter-dallas-the-swatch-group-u-s-inc-ticino",
+      "en": "omega-luxusuhren-vertriebsmitarbeiter-dallas-the-swatch-group-u-s-inc-ticino",
+      "de": "omega-luxusuhren-vertriebsmitarbeiter-dallas-the-swatch-group-u-s-inc-ticino",
+      "fr": "omega-luxusuhren-vertriebsmitarbeiter-dallas-the-swatch-group-u-s-inc-ticino"
+    },
+    "localePaths": {
+      "it": "/cerca-lavoro-ticino/omega-luxusuhren-vertriebsmitarbeiter-dallas-the-swatch-group-u-s-inc-ticino",
+      "en": "/en/find-jobs-ticino/omega-luxusuhren-vertriebsmitarbeiter-dallas-the-swatch-group-u-s-inc-ticino",
+      "de": "/de/jobs-im-tessin/omega-luxusuhren-vertriebsmitarbeiter-dallas-the-swatch-group-u-s-inc-ticino",
+      "fr": "/fr/trouver-emploi-tessin/omega-luxusuhren-vertriebsmitarbeiter-dallas-the-swatch-group-u-s-inc-ticino"
+    },
+    "sourceUrl": "",
+    "googleStatus": "unknown",
+    "googleCanonical": "",
+    "lastCrawlTime": "",
+    "source": [
+      "gsc",
+      "all-known-slugs",
       "slug-parsing"
     ]
   },
@@ -79743,10 +80187,10 @@
       "fr": "Technicien/ne de service ÖL - OBERWALLIS"
     },
     "descriptionByLocale": {
-      "it": "ELCO bietet Heizlösungen im Premiumbereich mit erstklassigem Service, der darauf ausgerichtet ist die Wünsche unserer Kunden durch den gesamten Lebenszyklus der Produkte und Heizsysteme zu erfüllen. Dabei liegt der Fokus auf einer ausgezeichneten Beratung sowie überzeugenden Produkten und Heizsystemen. ELCO ist seit Jahrzehnten führend in der Brenner-, Brennwert- und Solartechnik und ist europaweit mit 1,7 Millionen installierten Heizungsanlagen vertreten. Seit 1928 ist ELCO eine führende europäische Marke, die intelligente Lösungen und Technologien anbietet, welche auf die Bedürfnisse von privaten und gewerblichen Projekten zugeschnitten sind und eine maximale Energieeinsparung gewährleisten.. Gemeinsam gestalten wir die Energiezukunft! Für das Oberwallis suchen wir Sie als Servicetechniker (m/w) ## Das erwarten Sie bei uns: - Inbetriebnahme, Wartung und Störungsbehebung von Anlagen im regionalen Einsatzgebiet - Selbständige Durchführung von Wartungen, Reparaturen und Störungsbehebungen - Technische Verantwortung bei komplexen Anlagen - Beratung unserer Kundinnen und Kunden bei der optimalen Einstellung ihrer Heizsysteme - Enge Zusammenarbeit mit Installateuren sowie dem Verkaufs- und Serviceteam Was Sie mitbringen sollten: - Erfahrung als Servicetechniker von Vorteil - Abgeschlossene Ausbildung EFZ, z.B. als Elektro-, Heizungs- oder Sanitärinstallateur, Autogewerbe oder vergleichbare technische Berufslehre im HLK- oder elektrotechnischen Bereich - Freude am Kundenkontakt, strukturiertes und selbständiges Arbeiten - Bereitschaft für Pikettdienst - Wohnort Oberwallis oder angrenzend Darauf dürfen Sie sich freuen: - Modernes Servicefahrzeug – auch für den privaten Gebrauch - Arbeit mit innovativen und zukunftsorientierten Produkten im Premiumbereich - Weiterbildungsmöglichkeiten und gezielte persönliche Förderung - Attraktive Sozialleistungen und faire Anstellungsbedingungen - Ein motiviertes Team, das Sie unterstützt, fördert und willkommen heisst Bereit für den nächsten Schritt? Wir freuen uns auf Ihre Bewerbung und ein persönliches Kennenlernen. Bitte senden Sie uns Ihre Unterlagen ausschliesslich über unser Online-Bewerbungstool. Per E-Mail oder auf dem Postweg eingehende Dossiers werden nicht berücksichtig Wir verpflichten uns dem Grundsatz der gleiche Beschäftigungschancen aller Menschen, indem wir ein zugängliches, einladendes und integratives Arbeitsumfeld in Übereinstimmung mit den gesetzlichen Verpflichtungen bieten.",
-      "en": "ELCO bietet Heizlösungen im Premiumbereich mit erstklassigem Service, der darauf ausgerichtet ist die Wünsche unserer Kunden durch den gesamten Lebenszyklus der Produkte und Heizsysteme zu erfüllen. Dabei liegt der Fokus auf einer ausgezeichneten Beratung sowie überzeugenden Produkten und Heizsystemen. ELCO ist seit Jahrzehnten führend in der Brenner-, Brennwert- und Solartechnik und ist europaweit mit 1,7 Millionen installierten Heizungsanlagen vertreten. Seit 1928 ist ELCO eine führende europäische Marke, die intelligente Lösungen und Technologien anbietet, welche auf die Bedürfnisse von privaten und gewerblichen Projekten zugeschnitten sind und eine maximale Energieeinsparung gewährleisten.. Gemeinsam gestalten wir die Energiezukunft! Für das Oberwallis suchen wir Sie als Servicetechniker (m/w) ## Das erwarten Sie bei uns: - Inbetriebnahme, Wartung und Störungsbehebung von Anlagen im regionalen Einsatzgebiet - Selbständige Durchführung von Wartungen, Reparaturen und Störungsbehebungen - Technische Verantwortung bei komplexen Anlagen - Beratung unserer Kundinnen und Kunden bei der optimalen Einstellung ihrer Heizsysteme - Enge Zusammenarbeit mit Installateuren sowie dem Verkaufs- und Serviceteam Was Sie mitbringen sollten: - Erfahrung als Servicetechniker von Vorteil - Abgeschlossene Ausbildung EFZ, z.B. als Elektro-, Heizungs- oder Sanitärinstallateur, Autogewerbe oder vergleichbare technische Berufslehre im HLK- oder elektrotechnischen Bereich - Freude am Kundenkontakt, strukturiertes und selbständiges Arbeiten - Bereitschaft für Pikettdienst - Wohnort Oberwallis oder angrenzend Darauf dürfen Sie sich freuen: - Modernes Servicefahrzeug – auch für den privaten Gebrauch - Arbeit mit innovativen und zukunftsorientierten Produkten im Premiumbereich - Weiterbildungsmöglichkeiten und gezielte persönliche Förderung - Attraktive Sozialleistungen und faire Anstellungsbedingungen - Ein motiviertes Team, das Sie unterstützt, fördert und willkommen heisst Bereit für den nächsten Schritt? Wir freuen uns auf Ihre Bewerbung und ein persönliches Kennenlernen. Bitte senden Sie uns Ihre Unterlagen ausschliesslich über unser Online-Bewerbungstool. Per E-Mail oder auf dem Postweg eingehende Dossiers werden nicht berücksichtig Wir verpflichten uns dem Grundsatz der gleiche Beschäftigungschancen aller Menschen, indem wir ein zugängliches, einladendes und integratives Arbeitsumfeld in Übereinstimmung mit den gesetzlichen Verpflichtungen bieten.",
-      "de": "ELCO bietet Heizlösungen im Premiumbereich mit erstklassigem Service, der darauf ausgerichtet ist die Wünsche unserer Kunden durch den gesamten Lebenszyklus der Produkte und Heizsysteme zu erfüllen. Dabei liegt der Fokus auf einer ausgezeichneten Beratung sowie überzeugenden Produkten und Heizsystemen. ELCO ist seit Jahrzehnten führend in der Brenner-, Brennwert- und Solartechnik und ist europaweit mit 1,7 Millionen installierten Heizungsanlagen vertreten. Seit 1928 ist ELCO eine führende europäische Marke, die intelligente Lösungen und Technologien anbietet, welche auf die Bedürfnisse von privaten und gewerblichen Projekten zugeschnitten sind und eine maximale Energieeinsparung gewährleisten.. Gemeinsam gestalten wir die Energiezukunft! Für das Oberwallis suchen wir Sie als Servicetechniker (m/w) ## Das erwarten Sie bei uns: - Inbetriebnahme, Wartung und Störungsbehebung von Anlagen im regionalen Einsatzgebiet - Selbständige Durchführung von Wartungen, Reparaturen und Störungsbehebungen - Technische Verantwortung bei komplexen Anlagen - Beratung unserer Kundinnen und Kunden bei der optimalen Einstellung ihrer Heizsysteme - Enge Zusammenarbeit mit Installateuren sowie dem Verkaufs- und Serviceteam Was Sie mitbringen sollten: - Erfahrung als Servicetechniker von Vorteil - Abgeschlossene Ausbildung EFZ, z.B. als Elektro-, Heizungs- oder Sanitärinstallateur, Autogewerbe oder vergleichbare technische Berufslehre im HLK- oder elektrotechnischen Bereich - Freude am Kundenkontakt, strukturiertes und selbständiges Arbeiten - Bereitschaft für Pikettdienst - Wohnort Oberwallis oder angrenzend Darauf dürfen Sie sich freuen: - Modernes Servicefahrzeug – auch für den privaten Gebrauch - Arbeit mit innovativen und zukunftsorientierten Produkten im Premiumbereich - Weiterbildungsmöglichkeiten und gezielte persönliche Förderung - Attraktive Sozialleistungen und faire Anstellungsbedingungen - Ein motiviertes Team, das Sie unterstützt, fördert und willkommen heisst Bereit für den nächsten Schritt? Wir freuen uns auf Ihre Bewerbung und ein persönliches Kennenlernen. Bitte senden Sie uns Ihre Unterlagen ausschliesslich über unser Online-Bewerbungstool. Per E-Mail oder auf dem Postweg eingehende Dossiers werden nicht berücksichtig Wir verpflichten uns dem Grundsatz der gleiche Beschäftigungschancen aller Menschen, indem wir ein zugängliches, einladendes und integratives Arbeitsumfeld in Übereinstimmung mit den gesetzlichen Verpflichtungen bieten.",
-      "fr": "ELCO bietet Heizlösungen im Premiumbereich mit erstklassigem Service, der darauf ausgerichtet ist die Wünsche unserer Kunden durch den gesamten Lebenszyklus der Produkte und Heizsysteme zu erfüllen. Dabei liegt der Fokus auf einer ausgezeichneten Beratung sowie überzeugenden Produkten und Heizsystemen. ELCO ist seit Jahrzehnten führend in der Brenner-, Brennwert- und Solartechnik und ist europaweit mit 1,7 Millionen installierten Heizungsanlagen vertreten. Seit 1928 ist ELCO eine führende europäische Marke, die intelligente Lösungen und Technologien anbietet, welche auf die Bedürfnisse von privaten und gewerblichen Projekten zugeschnitten sind und eine maximale Energieeinsparung gewährleisten.. Gemeinsam gestalten wir die Energiezukunft! Für das Oberwallis suchen wir Sie als Servicetechniker (m/w) ## Das erwarten Sie bei uns: - Inbetriebnahme, Wartung und Störungsbehebung von Anlagen im regionalen Einsatzgebiet - Selbständige Durchführung von Wartungen, Reparaturen und Störungsbehebungen - Technische Verantwortung bei komplexen Anlagen - Beratung unserer Kundinnen und Kunden bei der optimalen Einstellung ihrer Heizsysteme - Enge Zusammenarbeit mit Installateuren sowie dem Verkaufs- und Serviceteam Was Sie mitbringen sollten: - Erfahrung als Servicetechniker von Vorteil - Abgeschlossene Ausbildung EFZ, z.B. als Elektro-, Heizungs- oder Sanitärinstallateur, Autogewerbe oder vergleichbare technische Berufslehre im HLK- oder elektrotechnischen Bereich - Freude am Kundenkontakt, strukturiertes und selbständiges Arbeiten - Bereitschaft für Pikettdienst - Wohnort Oberwallis oder angrenzend Darauf dürfen Sie sich freuen: - Modernes Servicefahrzeug – auch für den privaten Gebrauch - Arbeit mit innovativen und zukunftsorientierten Produkten im Premiumbereich - Weiterbildungsmöglichkeiten und gezielte persönliche Förderung - Attraktive Sozialleistungen und faire Anstellungsbedingungen - Ein motiviertes Team, das Sie unterstützt, fördert und willkommen heisst Bereit für den nächsten Schritt? Wir freuen uns auf Ihre Bewerbung und ein persönliches Kennenlernen. Bitte senden Sie uns Ihre Unterlagen ausschliesslich über unser Online-Bewerbungstool. Per E-Mail oder auf dem Postweg eingehende Dossiers werden nicht berücksichtig Wir verpflichten uns dem Grundsatz der gleiche Beschäftigungschancen aller Menschen, indem wir ein zugängliches, einladendes und integratives Arbeitsumfeld in Übereinstimmung mit den gesetzlichen Verpflichtungen bieten."
+      "it": "ELCO bietet Heizlösungen im Premiumbereich mit erstklassigem Service, der darauf ausgerichtet ist die Wünsche unserer Kunden durch den gesamten Lebenszyklus der Produkte und Heizsysteme zu erfüllen. Dabei liegt der Fokus auf einer ausgezeichneten Beratung sowie überzeugenden Produkten und Heizsystemen. ELCO ist seit Jahrzehnten führend in der Brenner-, Brennwert- und Solartechnik und ist europaweit mit 1,7 Millionen installierten Heizungsanlagen vertreten. Seit 1928 ist ELCO eine führende europäische Marke, die intelligente Lösungen und Technologien anbietet, welche auf die Bedürfnisse von privaten und gewerblichen Projekten zugeschnitten sind und eine maximale Energieeinsparung gewährleisten..\n\nGemeinsam gestalten wir die Energiezukunft! Für das Oberwallis suchen wir Sie als Servicetechniker (m/w)\n\n## Das erwarten Sie bei uns:\n\n- Inbetriebnahme, Wartung und Störungsbehebung von Anlagen im regionalen Einsatzgebiet\n- Selbständige Durchführung von Wartungen, Reparaturen und Störungsbehebungen\n- Technische Verantwortung bei komplexen Anlagen\n- Beratung unserer Kundinnen und Kunden bei der optimalen Einstellung ihrer Heizsysteme\n- Enge Zusammenarbeit mit Installateuren sowie dem Verkaufs- und Serviceteam\n\nWas Sie mitbringen sollten:\n\n- Erfahrung als Servicetechniker von Vorteil\n- Abgeschlossene Ausbildung EFZ, z.B. als Elektro-, Heizungs- oder Sanitärinstallateur, Autogewerbe oder vergleichbare technische Berufslehre im HLK- oder elektrotechnischen Bereich\n- Freude am Kundenkontakt, strukturiertes und selbständiges Arbeiten\n- Bereitschaft für Pikettdienst\n- Wohnort Oberwallis oder angrenzend\n\nDarauf dürfen Sie sich freuen:\n\n- Modernes Servicefahrzeug – auch für den privaten Gebrauch\n- Arbeit mit innovativen und zukunftsorientierten Produkten im Premiumbereich\n- Weiterbildungsmöglichkeiten und gezielte persönliche Förderung\n- Attraktive Sozialleistungen und faire Anstellungsbedingungen\n- Ein motiviertes Team, das Sie unterstützt, fördert und willkommen heisst\n\nBereit für den nächsten Schritt? Wir freuen uns auf Ihre Bewerbung und ein persönliches Kennenlernen.\n\nBitte senden Sie uns Ihre Unterlagen ausschliesslich über unser Online-Bewerbungstool. Per E-Mail oder auf dem Postweg eingehende Dossiers werden nicht berücksichtig\n\nWir verpflichten uns dem Grundsatz der gleiche Beschäftigungschancen aller Menschen, indem wir ein zugängliches, einladendes und integratives Arbeitsumfeld in Übereinstimmung mit den gesetzlichen Verpflichtungen bieten.",
+      "en": "ELCO bietet Heizlösungen im Premiumbereich mit erstklassigem Service, der darauf ausgerichtet ist die Wünsche unserer Kunden durch den gesamten Lebenszyklus der Produkte und Heizsysteme zu erfüllen. Dabei liegt der Fokus auf einer ausgezeichneten Beratung sowie überzeugenden Produkten und Heizsystemen. ELCO ist seit Jahrzehnten führend in der Brenner-, Brennwert- und Solartechnik und ist europaweit mit 1,7 Millionen installierten Heizungsanlagen vertreten. Seit 1928 ist ELCO eine führende europäische Marke, die intelligente Lösungen und Technologien anbietet, welche auf die Bedürfnisse von privaten und gewerblichen Projekten zugeschnitten sind und eine maximale Energieeinsparung gewährleisten..\n\nGemeinsam gestalten wir die Energiezukunft! Für das Oberwallis suchen wir Sie als Servicetechniker (m/w)\n\n## Das erwarten Sie bei uns:\n\n- Inbetriebnahme, Wartung und Störungsbehebung von Anlagen im regionalen Einsatzgebiet\n- Selbständige Durchführung von Wartungen, Reparaturen und Störungsbehebungen\n- Technische Verantwortung bei komplexen Anlagen\n- Beratung unserer Kundinnen und Kunden bei der optimalen Einstellung ihrer Heizsysteme\n- Enge Zusammenarbeit mit Installateuren sowie dem Verkaufs- und Serviceteam\n\nWas Sie mitbringen sollten:\n\n- Erfahrung als Servicetechniker von Vorteil\n- Abgeschlossene Ausbildung EFZ, z.B. als Elektro-, Heizungs- oder Sanitärinstallateur, Autogewerbe oder vergleichbare technische Berufslehre im HLK- oder elektrotechnischen Bereich\n- Freude am Kundenkontakt, strukturiertes und selbständiges Arbeiten\n- Bereitschaft für Pikettdienst\n- Wohnort Oberwallis oder angrenzend\n\nDarauf dürfen Sie sich freuen:\n\n- Modernes Servicefahrzeug – auch für den privaten Gebrauch\n- Arbeit mit innovativen und zukunftsorientierten Produkten im Premiumbereich\n- Weiterbildungsmöglichkeiten und gezielte persönliche Förderung\n- Attraktive Sozialleistungen und faire Anstellungsbedingungen\n- Ein motiviertes Team, das Sie unterstützt, fördert und willkommen heisst\n\nBereit für den nächsten Schritt? Wir freuen uns auf Ihre Bewerbung und ein persönliches Kennenlernen.\n\nBitte senden Sie uns Ihre Unterlagen ausschliesslich über unser Online-Bewerbungstool. Per E-Mail oder auf dem Postweg eingehende Dossiers werden nicht berücksichtig\n\nWir verpflichten uns dem Grundsatz der gleiche Beschäftigungschancen aller Menschen, indem wir ein zugängliches, einladendes und integratives Arbeitsumfeld in Übereinstimmung mit den gesetzlichen Verpflichtungen bieten.",
+      "de": "ELCO bietet Heizlösungen im Premiumbereich mit erstklassigem Service, der darauf ausgerichtet ist die Wünsche unserer Kunden durch den gesamten Lebenszyklus der Produkte und Heizsysteme zu erfüllen. Dabei liegt der Fokus auf einer ausgezeichneten Beratung sowie überzeugenden Produkten und Heizsystemen. ELCO ist seit Jahrzehnten führend in der Brenner-, Brennwert- und Solartechnik und ist europaweit mit 1,7 Millionen installierten Heizungsanlagen vertreten. Seit 1928 ist ELCO eine führende europäische Marke, die intelligente Lösungen und Technologien anbietet, welche auf die Bedürfnisse von privaten und gewerblichen Projekten zugeschnitten sind und eine maximale Energieeinsparung gewährleisten..\n\nGemeinsam gestalten wir die Energiezukunft! Für das Oberwallis suchen wir Sie als Servicetechniker (m/w)\n\n## Das erwarten Sie bei uns:\n\n- Inbetriebnahme, Wartung und Störungsbehebung von Anlagen im regionalen Einsatzgebiet\n- Selbständige Durchführung von Wartungen, Reparaturen und Störungsbehebungen\n- Technische Verantwortung bei komplexen Anlagen\n- Beratung unserer Kundinnen und Kunden bei der optimalen Einstellung ihrer Heizsysteme\n- Enge Zusammenarbeit mit Installateuren sowie dem Verkaufs- und Serviceteam\n\nWas Sie mitbringen sollten:\n\n- Erfahrung als Servicetechniker von Vorteil\n- Abgeschlossene Ausbildung EFZ, z.B. als Elektro-, Heizungs- oder Sanitärinstallateur, Autogewerbe oder vergleichbare technische Berufslehre im HLK- oder elektrotechnischen Bereich\n- Freude am Kundenkontakt, strukturiertes und selbständiges Arbeiten\n- Bereitschaft für Pikettdienst\n- Wohnort Oberwallis oder angrenzend\n\nDarauf dürfen Sie sich freuen:\n\n- Modernes Servicefahrzeug – auch für den privaten Gebrauch\n- Arbeit mit innovativen und zukunftsorientierten Produkten im Premiumbereich\n- Weiterbildungsmöglichkeiten und gezielte persönliche Förderung\n- Attraktive Sozialleistungen und faire Anstellungsbedingungen\n- Ein motiviertes Team, das Sie unterstützt, fördert und willkommen heisst\n\nBereit für den nächsten Schritt? Wir freuen uns auf Ihre Bewerbung und ein persönliches Kennenlernen.\n\nBitte senden Sie uns Ihre Unterlagen ausschliesslich über unser Online-Bewerbungstool. Per E-Mail oder auf dem Postweg eingehende Dossiers werden nicht berücksichtig\n\nWir verpflichten uns dem Grundsatz der gleiche Beschäftigungschancen aller Menschen, indem wir ein zugängliches, einladendes und integratives Arbeitsumfeld in Übereinstimmung mit den gesetzlichen Verpflichtungen bieten.",
+      "fr": "ELCO bietet Heizlösungen im Premiumbereich mit erstklassigem Service, der darauf ausgerichtet ist die Wünsche unserer Kunden durch den gesamten Lebenszyklus der Produkte und Heizsysteme zu erfüllen. Dabei liegt der Fokus auf einer ausgezeichneten Beratung sowie überzeugenden Produkten und Heizsystemen. ELCO ist seit Jahrzehnten führend in der Brenner-, Brennwert- und Solartechnik und ist europaweit mit 1,7 Millionen installierten Heizungsanlagen vertreten. Seit 1928 ist ELCO eine führende europäische Marke, die intelligente Lösungen und Technologien anbietet, welche auf die Bedürfnisse von privaten und gewerblichen Projekten zugeschnitten sind und eine maximale Energieeinsparung gewährleisten..\n\nGemeinsam gestalten wir die Energiezukunft! Für das Oberwallis suchen wir Sie als Servicetechniker (m/w)\n\n## Das erwarten Sie bei uns:\n\n- Inbetriebnahme, Wartung und Störungsbehebung von Anlagen im regionalen Einsatzgebiet\n- Selbständige Durchführung von Wartungen, Reparaturen und Störungsbehebungen\n- Technische Verantwortung bei komplexen Anlagen\n- Beratung unserer Kundinnen und Kunden bei der optimalen Einstellung ihrer Heizsysteme\n- Enge Zusammenarbeit mit Installateuren sowie dem Verkaufs- und Serviceteam\n\nWas Sie mitbringen sollten:\n\n- Erfahrung als Servicetechniker von Vorteil\n- Abgeschlossene Ausbildung EFZ, z.B. als Elektro-, Heizungs- oder Sanitärinstallateur, Autogewerbe oder vergleichbare technische Berufslehre im HLK- oder elektrotechnischen Bereich\n- Freude am Kundenkontakt, strukturiertes und selbständiges Arbeiten\n- Bereitschaft für Pikettdienst\n- Wohnort Oberwallis oder angrenzend\n\nDarauf dürfen Sie sich freuen:\n\n- Modernes Servicefahrzeug – auch für den privaten Gebrauch\n- Arbeit mit innovativen und zukunftsorientierten Produkten im Premiumbereich\n- Weiterbildungsmöglichkeiten und gezielte persönliche Förderung\n- Attraktive Sozialleistungen und faire Anstellungsbedingungen\n- Ein motiviertes Team, das Sie unterstützt, fördert und willkommen heisst\n\nBereit für den nächsten Schritt? Wir freuen uns auf Ihre Bewerbung und ein persönliches Kennenlernen.\n\nBitte senden Sie uns Ihre Unterlagen ausschliesslich über unser Online-Bewerbungstool. Per E-Mail oder auf dem Postweg eingehende Dossiers werden nicht berücksichtig\n\nWir verpflichten uns dem Grundsatz der gleiche Beschäftigungschancen aller Menschen, indem wir ein zugängliches, einladendes und integratives Arbeitsumfeld in Übereinstimmung mit den gesetzlichen Verpflichtungen bieten."
     },
     "company": "Ariston Group",
     "companyKey": "ariston-group",
