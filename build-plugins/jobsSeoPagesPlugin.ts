@@ -5295,10 +5295,12 @@ ${alternates}
  /* ── Per-canton city hubs (Phase 3.1) ────────────────────────
   * Additive: for every non-TI canton with >= MIN_JOBS_FOR_CANTON_PAGE jobs,
   * emit /cerca-lavoro-{cantonSlug}/{citySlug}/ for EVERY canon city in the
-  * canton (data/canton-municipalities.json) that has at least one active job.
-  * Previously capped to top-5 by job count; the cap created blank pages for
-  * cities #6+ because the router treats every canon city as a city hub
-  * (isKnownCityHub → staticOverlay:true) and the 404 fallback serves the
+  * canton (data/canton-municipalities.json), regardless of whether the
+  * city currently has active jobs. Cities with 0 jobs render with the
+  * canton-wide latest jobs as a "0 results → expand to canton" fallback,
+  * so the URL is never a dead end. This closes the blank-page bug where
+  * the router treats every canon city as a city hub
+  * (isKnownCityHub → staticOverlay:true) and the 404 fallback served the
   * SPA shell with no static <main class="seo-static-content"> body.
   * TI city hubs are emitted by the editorial location-landing loop above
   * and are byte-identical with the legacy pre-cathedral output.
@@ -5360,12 +5362,26 @@ ${alternates}
  const dispByCity = cityDisplayByCantonCity.get(canton)!;
  if (!dispByCity.has(citySlug)) dispByCity.set(citySlug, canonical.display);
  }
- // Also compute total active jobs per canton (gate by MIN_JOBS_FOR_CANTON_PAGE).
+ // Also compute total active jobs per canton (gate by MIN_JOBS_FOR_CANTON_PAGE)
+ // and a canton-wide latest-jobs feed used as the fallback list on 0-jobs
+ // city pages ("nessuna offerta a {city}, ecco le ultime nel Canton {X}").
  const cantonJobTotals: Map<string, number> = new Map();
+ const cantonLatestJobs: Map<string, typeof validJobs> = new Map();
  for (const [canton, byCity] of jobsByCantonCity) {
  let total = 0;
- for (const arr of byCity.values()) total += arr.length;
+ const flat: typeof validJobs = [] as typeof validJobs;
+ for (const arr of byCity.values()) {
+   total += arr.length;
+   for (const j of arr) flat.push(j);
+ }
  cantonJobTotals.set(canton, total);
+ flat.sort((a: any, b: any) => {
+   const da = new Date(b.crawledAt || b.datePosted || 0).getTime();
+   const db = new Date(a.crawledAt || a.datePosted || 0).getTime();
+   if (da !== db) return da - db;
+   return (b.qualityScore ?? 0) - (a.qualityScore ?? 0);
+ });
+ cantonLatestJobs.set(canton, flat);
  }
  const cantonDisplayLocalCity = (canton: string, locale: typeof localeList[number]): string => {
  const dn = CANTON_DISPLAY?.[canton];
@@ -5382,28 +5398,49 @@ ${alternates}
  if (cantonTotal < MIN_JOBS_FOR_CANTON_PAGE) continue;
  const byCity = jobsByCantonCity.get(canton);
  if (!byCity) continue;
- // Emit one hub per canon-canton city with at least one active job.
- // Previously capped to top-5 by job count, which created URLs like
- // /cerca-lavoro-basilea/pratteln/ that fell through to the 404 →
- // SPA-shell handoff and rendered blank (App.tsx skips React <main>
- // when staticOverlay:true and there is no `<main class="seo-static-content">`
- // in the served HTML). Stable order: job count desc, then slug asc.
- const allCities = [...byCity.entries()]
- .sort((a, b) => {
-   const diff = b[1].length - a[1].length;
-   return diff !== 0 ? diff : a[0].localeCompare(b[0]);
+ // Emit one hub per canon-canton city, regardless of whether it has
+ // active jobs. Previously gated on cityJobs.length > 0, which meant
+ // URLs like /cerca-lavoro-basilea/pratteln/ for cities with 0 jobs
+ // fell through to the 404 → SPA-shell handoff and rendered blank
+ // (App.tsx skips React <main> when staticOverlay:true and the served
+ // HTML has no `<main class="seo-static-content">` body). For cities
+ // without jobs the page expands the search to canton scope (shows the
+ // latest canton-wide jobs as a fallback) so the user still has
+ // something useful to act on — never a dead end.
+ const allCantonLatest = cantonLatestJobs.get(canton) ?? ([] as typeof validJobs);
+ const cantonCityList: Array<{ citySlug: string; cityDisplay: string }> = [];
+ const seenCitySlugs = new Set<string>();
+ for (const cityName of getCantonCities(canton)) {
+   const citySlug = normalizeCitySlug(cityName);
+   if (!citySlug || seenCitySlugs.has(citySlug)) continue;
+   seenCitySlugs.add(citySlug);
+   const cityDisplay = String(cityName).replace(/\s*\([^)]*\)\s*$/, '').trim();
+   cantonCityList.push({ citySlug, cityDisplay });
+ }
+ // Sort cities: jobs desc first, then alphabetical for 0-job cities.
+ cantonCityList.sort((a, b) => {
+   const ca = byCity.get(a.citySlug)?.length ?? 0;
+   const cb = byCity.get(b.citySlug)?.length ?? 0;
+   if (ca !== cb) return cb - ca;
+   return a.citySlug.localeCompare(b.citySlug);
  });
- for (const [citySlug, cityJobs] of allCities) {
- if (cityJobs.length === 0) continue;
- const cityDisplay = cityDisplayByCantonCity.get(canton)?.get(citySlug) ?? citySlug;
- // Sort jobs for stable feed order
- const sortedCityJobs = [...cityJobs].sort((a: any, b: any) => {
- const da = new Date(b.crawledAt || b.datePosted || 0).getTime();
- const db = new Date(a.crawledAt || a.datePosted || 0).getTime();
- if (da !== db) return da - db;
- return (b.qualityScore ?? 0) - (a.qualityScore ?? 0);
- });
+ for (const { citySlug, cityDisplay: canonCityDisplay } of cantonCityList) {
+ const cityJobs = byCity.get(citySlug) ?? ([] as typeof validJobs);
+ const cityDisplay = cityDisplayByCantonCity.get(canton)?.get(citySlug) ?? canonCityDisplay;
+ // Sort jobs for stable feed order. When the city has 0 active jobs,
+ // expand the search to canton scope: show the latest canton-wide jobs
+ // as a "0 results" fallback so the page is never a dead end.
+ const sortedCityJobs = cityJobs.length > 0
+   ? [...cityJobs].sort((a: any, b: any) => {
+     const da = new Date(b.crawledAt || b.datePosted || 0).getTime();
+     const db = new Date(a.crawledAt || a.datePosted || 0).getTime();
+     if (da !== db) return da - db;
+     return (b.qualityScore ?? 0) - (a.qualityScore ?? 0);
+   })
+   : allCantonLatest;
  const cappedJobs = sortedCityJobs.slice(0, CITY_HUB_JOB_LIST_CAP);
+ const isCityEmpty = cityJobs.length === 0;
+ const fallbackCount = isCityEmpty ? cappedJobs.length : 0;
  for (const locale of localeList) {
  const sectionSlug = sharedResolveCantonSection(locale, canton);
  const canonicalPath = withSlash(`${localePrefix[locale]}/${sectionSlug}/${citySlug}`.replace(/\/+/g, '/'));
@@ -5459,6 +5496,14 @@ ${alternates}
  const listHtml = cappedJobs.map((job: any) => renderJobCardLi(job, locale)).join('');
  const backLabel = locale === 'it' ? `Apri tutte le offerte in ${cDisplay}` : locale === 'en' ? `View all jobs in ${cDisplay}` : locale === 'de' ? `Alle Stellen ${cDisplay}` : `Voir toutes les offres à ${cDisplay}`;
  const intro = (() => {
+ if (isCityEmpty) {
+ // 0-jobs city: explain the expansion to canton scope so the visible
+ // job list (canton-wide latest) matches the on-page messaging.
+ if (locale === 'it') return `<p>Al momento <strong>nessuna offerta attiva a ${esc(cityDisplay)}</strong>. Abbiamo esteso la ricerca all'intero Canton ${esc(cDisplay)}: qui sotto trovi le ultime <strong>${fallbackCount} offerte di lavoro</strong> nel cantone, aggiornate quotidianamente. Per i lavoratori frontalieri con Permesso G, il canton ${esc(cDisplay)} applica l'imposta alla fonte sul reddito lordo: usa il nostro <a href="${BASE_URL}/">simulatore fiscale gratuito</a> per calcolare il tuo stipendio netto.</p>`;
+ if (locale === 'en') return `<p>Currently <strong>no active openings in ${esc(cityDisplay)}</strong>. We expanded the search to the whole Canton of ${esc(cDisplay)} — the latest <strong>${fallbackCount} jobs</strong> in the canton are listed below, refreshed daily. For cross-border workers with a G Permit, the Canton of ${esc(cDisplay)} applies withholding tax on gross income: use our <a href="${BASE_URL}/en/">free tax simulator</a> to calculate your net salary.</p>`;
+ if (locale === 'de') return `<p>Derzeit <strong>keine offenen Stellen in ${esc(cityDisplay)}</strong>. Wir haben die Suche auf den gesamten Kanton ${esc(cDisplay)} erweitert: unten finden Sie die neuesten <strong>${fallbackCount} Stellenangebote</strong> im Kanton, täglich aktualisiert. Für Grenzgänger mit G-Bewilligung erhebt der Kanton ${esc(cDisplay)} eine Quellensteuer auf das Bruttoeinkommen: nutzen Sie unseren <a href="${BASE_URL}/de/">kostenlosen Steuersimulator</a>.</p>`;
+ return `<p>Actuellement <strong>aucune offre active à ${esc(cityDisplay)}</strong>. Nous avons étendu la recherche à tout le Canton de ${esc(cDisplay)} : voici les dernières <strong>${fallbackCount} offres d'emploi</strong> dans le canton, mises à jour quotidiennement. Pour les frontaliers avec un permis G, le Canton de ${esc(cDisplay)} applique un impôt à la source sur le revenu brut : utilisez notre <a href="${BASE_URL}/fr/">simulateur fiscal gratuit</a>.</p>`;
+ }
  if (locale === 'it') return `<p>Sono attualmente disponibili <strong>${cityJobs.length} offerte di lavoro</strong> a ${esc(cityDisplay)} (Canton ${esc(cDisplay)}). Le offerte vengono aggiornate quotidianamente dal nostro crawler automatico. Per i lavoratori frontalieri con Permesso G, il canton ${esc(cDisplay)} applica l'imposta alla fonte sul reddito lordo: usa il nostro <a href="${BASE_URL}/">simulatore fiscale gratuito</a> per calcolare il tuo stipendio netto.</p>`;
  if (locale === 'en') return `<p>There are currently <strong>${cityJobs.length} job openings</strong> in ${esc(cityDisplay)} (Canton of ${esc(cDisplay)}). Listings are refreshed daily by our automated crawler. For cross-border workers with a G Permit, the Canton of ${esc(cDisplay)} applies withholding tax on gross income: use our <a href="${BASE_URL}/en/">free tax simulator</a> to calculate your net salary.</p>`;
  if (locale === 'de') return `<p>Derzeit sind <strong>${cityJobs.length} Stellenangebote</strong> in ${esc(cityDisplay)} (Kanton ${esc(cDisplay)}) verfügbar. Die Anzeigen werden täglich von unserem automatischen Crawler aktualisiert. Für Grenzgänger mit G-Bewilligung erhebt der Kanton ${esc(cDisplay)} eine Quellensteuer auf das Bruttoeinkommen: nutzen Sie unseren <a href="${BASE_URL}/de/">kostenlosen Steuersimulator</a>.</p>`;
