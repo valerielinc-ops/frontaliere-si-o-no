@@ -1,19 +1,18 @@
 {
   "key": "privatklinik-hohenegg",
   "label": "Privatklinik Hohenegg",
-  "generatedAt": "2026-05-21T12:59:08.251Z",
+  "generatedAt": "2026-05-21T23:28:14.654Z",
   "total": 3,
-  "newCount": 0,
-  "updatedCount": 3,
+  "newCount": 2,
+  "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 4326,
-  "avgDurationMs": 4326,
+  "durationMs": 3704,
+  "avgDurationMs": 3704,
   "durationHistory": [
-    4326
+    3704
   ],
-  "newJobs": [],
-  "updatedJobs": [
+  "newJobs": [
     {
       "id": "privatklinik-hohenegg-7be8cb70eb70",
       "slug": "dipl-pflegefachfrau-mann-hf-in-ausbildung-privatklinik-hohenegg-ch",
@@ -27,7 +26,7 @@
       "url": "https://apply.refline.ch/640332/0052/pub/1/index.html",
       "source": "Privatklinik Hohenegg Dedicated Parser (Refline 640332)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-21T12:59:04.867Z",
+      "crawledAt": "2026-05-21T23:28:11.662Z",
       "addressLocality": "Meilen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -67,7 +66,7 @@
       "url": "https://apply.refline.ch/640332/0047/pub/10/index.html",
       "source": "Privatklinik Hohenegg Dedicated Parser (Refline 640332)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-21T12:59:05.366Z",
+      "crawledAt": "2026-05-21T23:28:12.119Z",
       "addressLocality": "Meilen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -93,7 +92,9 @@
         "translation": 25,
         "completeness": 17
       }
-    },
+    }
+  ],
+  "updatedJobs": [
     {
       "id": "privatklinik-hohenegg-7be8cb70eb70",
       "slug": "pflegefachperson-hf-mit-schwerpunkt-psychiatrie-60-100-privatklinik-hohenegg-ch",
@@ -107,7 +108,7 @@
       "url": "https://apply.refline.ch/640332/0038/pub/12/index.html",
       "source": "Privatklinik Hohenegg Dedicated Parser (Refline 640332)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-21T12:59:05.843Z",
+      "crawledAt": "2026-05-21T23:28:12.556Z",
       "addressLocality": "Meilen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
