@@ -1577,6 +1577,14 @@ export function registerJobSlugMap(jobs: Array<{ id?: string; canton?: string; s
  }
  }
  }
+ // Skip overwrite when the new map is empty. The slim job-index payload
+ // (`/data/jobs-${locale}-index.json`) was size-trimmed to drop
+ // `slugByLocale`, so calling this with slim jobs produces an empty map
+ // and was wiping out the full map previously loaded from
+ // `/data/jobs-slug-map.json` — breaking cross-canton bridge resolution
+ // (e.g. /cerca-lavoro-ticino/<SZ-job-slug>/ rendered JobOrphanView even
+ // though the job is alive in another canton).
+ if (map.size === 0 && _jobSlugMap && _jobSlugMap.size > 0) return;
  _jobSlugMap = map;
 
  // Do NOT rewrite the browser URL when the slug belongs to a different
