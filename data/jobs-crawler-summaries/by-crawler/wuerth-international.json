@@ -1,16 +1,16 @@
 {
   "key": "wuerth-international",
   "label": "Würth International",
-  "generatedAt": "2026-05-19T23:57:05.546Z",
-  "total": 4,
+  "generatedAt": "2026-05-21T13:49:23.219Z",
+  "total": 2,
   "newCount": 0,
-  "updatedCount": 4,
-  "removedCount": 0,
+  "updatedCount": 2,
+  "removedCount": 2,
   "unchangedCount": 0,
-  "durationMs": 4453,
-  "avgDurationMs": 4453,
+  "durationMs": 3408,
+  "avgDurationMs": 3408,
   "durationHistory": [
-    4453
+    3408
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -40,7 +40,7 @@
       "applyUrl": "https://www.wurth-international.com/CH-WINT/Karriere/Job-Portal/Bewerbungsformular_StrategischerEinkauf.php",
       "source": "Wuerth International Dedicated Parser (HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T23:57:03.414Z",
+      "crawledAt": "2026-05-21T13:49:21.149Z",
       "firstSeenAt": "2026-05-08T22:44:58.843Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
@@ -76,7 +76,7 @@
       "applyUrl": "https://www.wurth-international.com/CH-WINT/Karriere/Job-Portal/Bewerbungsformular_SBRechnungswesen.php",
       "source": "Wuerth International Dedicated Parser (HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T23:57:02.990Z",
+      "crawledAt": "2026-05-21T13:49:20.723Z",
       "firstSeenAt": "2026-05-05T11:39:02.805Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
@@ -85,10 +85,12 @@
         "translation": 25,
         "completeness": 20
       }
-    },
+    }
+  ],
+  "removedJobs": [
     {
       "id": "wuerth-international-c6a8efa5a3f3",
-      "slug": "steuerexperte-w-m-d-oder-sehr-erfahrener-steuerspezialist-wuerth-international-chur",
+      "slug": "esperto-fiscale-w-m-d-o-specialista-fiscale-con-esperienza-wurth-international-chur",
       "company": "Würth International",
       "companyKey": "wuerth-international",
       "companyDomain": "wurth-international.com",
@@ -114,17 +116,20 @@
       "sourceLang": "de",
       "crawledAt": "2026-05-19T23:57:02.569Z",
       "firstSeenAt": "2026-04-13T11:31:48.734Z",
-      "_qualityScore": 88,
+      "salaryMin": 142000,
+      "salaryMax": 249500,
+      "currency": "CHF",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 25
       }
     },
     {
       "id": "wuerth-international-9ec791ef701c",
-      "slug": "berufspraktikum-empfang-a-wuerth-international-chur",
+      "slug": "tirocinio-professionale-reception-a-wurth-international-chur",
       "company": "Würth International",
       "companyKey": "wuerth-international",
       "companyDomain": "wurth-international.com",
@@ -150,15 +155,17 @@
       "sourceLang": "de",
       "crawledAt": "2026-05-19T23:57:02.142Z",
       "firstSeenAt": "2026-04-13T11:31:48.270Z",
-      "_qualityScore": 88,
+      "salaryMin": 41600,
+      "salaryMax": 63000,
+      "currency": "CHF",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 25
       }
     }
   ],
-  "removedJobs": [],
   "unchangedJobs": []
 }
