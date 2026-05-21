@@ -1,16 +1,16 @@
 {
   "key": "sintetica",
   "label": "Sintetica SA",
-  "generatedAt": "2026-05-21T13:14:53.348Z",
+  "generatedAt": "2026-05-21T23:43:25.487Z",
   "total": 13,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 11,
-  "durationMs": 8407,
-  "avgDurationMs": 8407,
+  "unchangedCount": 13,
+  "durationMs": 10310,
+  "avgDurationMs": 10310,
   "durationHistory": [
-    8407
+    10310
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -30,7 +30,7 @@
       "addressCountry": "CH",
       "postalCode": "6850",
       "streetAddress": "Via Penate 5",
-      "slug": "customer-service-logistics-specialist-maternity-cover-50-mendrisio-site-ticino-sintetica",
+      "slug": "servizio-clienti-logistica-specialista-sostituzione-maternita-50-mendrisio-site-ticino-sintetica-sa-mendrisio",
       "category": "logistics",
       "datePosted": "2026-05-21",
       "source": "sintetica-careers-crawler",
@@ -48,6 +48,7 @@
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
+      "firstSeenAt": "2026-05-21T13:14:53.346Z",
       "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -252,6 +253,7 @@
       "salaryMin": 68000,
       "salaryMax": 103000,
       "currency": "CHF",
+      "firstSeenAt": "2026-05-21T13:14:53.346Z",
       "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -326,16 +328,16 @@
         "location": "Mendrisio"
       },
       "crawledAt": "",
-      "sourceLang": "it",
+      "sourceLang": "en",
       "salaryMin": 72000,
       "salaryMax": 97000,
       "currency": "CHF",
       "firstSeenAt": "2026-04-13T22:24:00.330Z",
       "id": "sintetica-f40c8151f417",
-      "_qualityScore": 84,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 14,
+        "richness": 18,
         "translation": 25,
         "completeness": 20
       }
@@ -492,8 +494,8 @@
       "salaryMax": 78000,
       "currency": "CHF",
       "firstSeenAt": "2026-04-13T22:24:00.330Z",
-      "needsRetranslation": true,
       "id": "sintetica-2161482f648c",
+      "needsRetranslation": true,
       "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
