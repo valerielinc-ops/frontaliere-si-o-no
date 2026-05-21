@@ -170,6 +170,16 @@ jobs:
         if: steps.node-modules-cache.outputs.cache-hit != 'true'
         run: npm ci
 
+      - name: Audit no merge conflict markers
+        # 0-tolerance gate: blocks the deploy if any tracked file contains
+        # unresolved <<<<<<< / ======= / >>>>>>> markers. Added after the
+        # 2026-05-21 incident where a concurrent cron committed 92 job slice
+        # files with raw `git stash pop` conflicts. assemble-jobs-dataset.mjs
+        # silently skipped them and production shipped with 2603 jobs
+        # instead of 5922 (-57%). Runs ~3s, fails fast before any expensive
+        # build step.
+        run: npm run audit:no-merge-markers
+
       - name: Prepare Firebase credentials
         env:
           FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
@@ -235,6 +245,14 @@ jobs:
 
       - name: Assemble jobs dataset from per-crawler slices
         run: node scripts/assemble-jobs-dataset.mjs --stats
+
+      - name: Active-jobs regression check
+        # Block deploy if active jobs dropped >25% vs baseline. Catches mass
+        # job loss that slips past the assemble hard-fail (crawler outages,
+        # over-eager housekeeping prunes, expired-jobs leaks). Baseline at
+        # data/active-jobs-baseline.json auto-ratchets UP only — manual
+        # commit required to lower (see CLAUDE.md rule #1).
+        run: npm run audit:active-jobs-regression
 
       - name: Housekeeping (cross-crawler dedup + locale hardening)
         env:
@@ -776,6 +794,16 @@ jobs:
         if: steps.node-modules-cache.outputs.cache-hit != 'true'
         run: npm ci
 
+      - name: Audit no merge conflict markers
+        # 0-tolerance gate: blocks the deploy if any tracked file contains
+        # unresolved <<<<<<< / ======= / >>>>>>> markers. Added after the
+        # 2026-05-21 incident where a concurrent cron committed 92 job slice
+        # files with raw `git stash pop` conflicts. assemble-jobs-dataset.mjs
+        # silently skipped them and production shipped with 2603 jobs
+        # instead of 5922 (-57%). Runs ~3s, fails fast before any expensive
+        # build step.
+        run: npm run audit:no-merge-markers
+
       - name: Prepare Firebase credentials
         env:
           FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
@@ -964,6 +992,16 @@ jobs:
       - name: Install dependencies
         if: steps.node-modules-cache.outputs.cache-hit != 'true'
         run: npm ci
+
+      - name: Audit no merge conflict markers
+        # 0-tolerance gate: blocks the deploy if any tracked file contains
+        # unresolved <<<<<<< / ======= / >>>>>>> markers. Added after the
+        # 2026-05-21 incident where a concurrent cron committed 92 job slice
+        # files with raw `git stash pop` conflicts. assemble-jobs-dataset.mjs
+        # silently skipped them and production shipped with 2603 jobs
+        # instead of 5922 (-57%). Runs ~3s, fails fast before any expensive
+        # build step.
+        run: npm run audit:no-merge-markers
 
       - name: Prepare Firebase credentials
         env:

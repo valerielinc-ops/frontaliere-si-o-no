@@ -595,6 +595,37 @@ echo "📝 Changes detected:"
 git status --short
 [ -n "${GITHUB_OUTPUT:-}" ] && echo "has_changes=true" >> "$GITHUB_OUTPUT"
 
+# ── Reusable guard: refuse to commit files with merge conflict markers ──────
+# Called right before every `git commit` invocation below. Added 2026-05-21
+# after the translate-pending cron committed 92 slices with raw `git stash pop`
+# conflict markers, silently dropping ~3.5k jobs from production via the
+# downstream assemble-jobs-dataset.mjs.
+abort_if_conflict_markers_staged() {
+  local label="${1:-pre-commit}"
+  local dirty=""
+  # Scan only staged text files; markers in binary blobs aren't a thing we
+  # care about. `git diff --cached --name-only -z` is null-delimited safe.
+  while IFS= read -r -d '' file; do
+    [ -n "$file" ] || continue
+    [ -f "$file" ] || continue
+    case "$file" in
+      *.png|*.jpg|*.jpeg|*.gif|*.webp|*.avif|*.ico|*.woff|*.woff2|*.ttf|*.otf|*.eot|*.mp4|*.mp3|*.pdf|*.zip|*.gz|*.tgz|*.tar|*.bin)
+        continue
+        ;;
+    esac
+    if grep -qE '^(<<<<<<< |======= ?$|>>>>>>> )' "$file" 2>/dev/null; then
+      dirty="${dirty}${file}\n"
+    fi
+  done < <(git diff --cached --name-only -z)
+  if [ -n "$dirty" ]; then
+    echo "❌ ${label}: refusing to commit — unresolved merge conflict markers in staged file(s):"
+    printf '%b' "$dirty" | sed 's/^/   - /'
+    echo "   Resolve before retrying. For job slice files specifically:"
+    echo "     node scripts/recover-conflict-marker-slices.mjs"
+    exit 1
+  fi
+}
+
 # ── 2. Configure git identity ──────────────────────────────────────────────
 git config user.name  "github-actions[bot]"
 git config user.email "github-actions[bot]@users.noreply.github.com"
@@ -719,6 +750,7 @@ if git diff --cached --quiet; then
   exit 0
 fi
 
+abort_if_conflict_markers_staged "pre-commit"
 git commit -m "$COMMIT_MSG"
 
 # Last-moment rebase: fetch latest remote right before push to minimise race window
@@ -754,7 +786,8 @@ if ! git rebase origin/main 2>/dev/null; then
     echo "ℹ️ No effective changes after last-moment sync — already up to date"
     exit 0
   fi
-  git commit -m "$COMMIT_MSG"
+  abort_if_conflict_markers_staged "pre-commit"
+git commit -m "$COMMIT_MSG"
   # Fall through to the push below
 fi
 

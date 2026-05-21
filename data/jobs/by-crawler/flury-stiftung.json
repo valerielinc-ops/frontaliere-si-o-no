@@ -601,8 +601,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:33:20.233Z",
-<<<<<<< Updated upstream
-=======
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -682,7 +680,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:33:20.233Z",
->>>>>>> Stashed changes
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -766,88 +763,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:33:20.233Z",
-<<<<<<< Updated upstream
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "flury-stiftung-9abb701f01a8",
-      "slug": "formatore-in-cura-50-casa-di-riposo-schiers-flury-stiftung-schiers",
-      "slugByLocale": {
-        "it": "formatore-in-cura-50-casa-di-riposo-schiers-flury-stiftung-schiers",
-        "en": "vocational-trainer-nursing-50-schiers-retirement-home-flury-stiftung-schiers",
-        "de": "berufsbildner-in-pflege-50-altersheim-schiers-flury-stiftung-ch",
-        "fr": "formateur-triceen-soins-infirmiers-50-maison-de-retraite-schiers-flury-stiftung-schiers"
-      },
-      "company": "Flury Stiftung",
-      "companyKey": "flury-stiftung",
-      "companyDomain": "flurystiftung.ch",
-      "title": "Berufsbildner*in Pflege 50%, Altersheim Schiers",
-      "titleByLocale": {
-        "it": "Formatore*in cura 50%, casa di riposo Schiers",
-        "en": "Vocational trainer nursing 50%, Schiers retirement home",
-        "de": "Berufsbildner*in Pflege 50%, Altersheim Schiers",
-        "fr": "Formateur· triceen soins infirmiers 50 %, maison de retraite Schiers"
-      },
-      "description": "Berufsbildner*in Pflege 50%, Altersheim Schiers — Flury Stiftung. Bereich: Altersheime. Arbeitsort: Schiers (GR). Die Flury Stiftung ist ein regionaler Gesundheitsversorger im Prättigau, Kanton Graubünden, und betreibt das Spital Schiers, zwei Altersheime in Schiers und Jenaz, eine Spitex-Organisation, das Medizinische Zentrum Klosters sowie Kinderkrippen. \n• Wir bieten vielfältige Karrieremöglichkeiten, moderne Arbeitsbedingungen und ein kollegiales Arbeitsumfeld in einer attraktiven Bergregion. Wir suchen engagierte Fachkräfte, die mit Kompetenz und Leidenschaft zur Gesundheitsversorgung in unserer Region beitragen möchten",
-      "descriptionByLocale": {
-        "it": "Descrizione - Job designer*in Care 50%, Altersheim Schiers — Flury Foundation - Area: Old age houses - Posto di lavoro: Schiers (GR) - La Flury Foundation è un fornitore regionale di assistenza sanitaria nel Prättigau, cantone di Grigioni, e gestisce il Spital Schiers, due vecchie case di età a Schiers e Jenaz, un'organizzazione Spitex, il Medical Center Klosters e i presepi per bambini diversi -",
-        "en": "Descrizione - Job designer*in Care 50%, Altersheim Schiers — Flury Foundation - Area: Old age homes - Working place: Schiers (GR) - The Flury Foundation is a regional health care provider in the Prättigau, canton of Graubünden, and operates the Spital Schiers, two old age homes in Schiers and Jenaz, a Spitex organization, the Medical Center Klosters and children's cribs - we offer diverse career opportunities",
-        "de": "Berufsbildner*in Pflege 50%, Altersheim Schiers — Flury Stiftung. Bereich: Altersheime. Arbeitsort: Schiers (GR). Die Flury Stiftung ist ein regionaler Gesundheitsversorger im Prättigau, Kanton Graubünden, und betreibt das Spital Schiers, zwei Altersheime in Schiers und Jenaz, eine Spitex-Organisation, das Medizinische Zentrum Klosters sowie Kinderkrippen. \n• Wir bieten vielfältige Karrieremöglichkeiten, moderne Arbeitsbedingungen und ein kollegiales Arbeitsumfeld in einer attraktiven Bergregion. Wir suchen engagierte Fachkräfte, die mit Kompetenz und Leidenschaft zur Gesundheitsversorgung in unserer Region beitragen möchten",
-        "fr": "Descrizione - Job designer*in Care 50%, Altersheim Schiers — Fondation Flury - Zone: Maisons de vieillesse - Lieu de travail: Schiers (GR) - La Fondation Flury est un prestataire régional de soins de santé dans le Prättigau, canton des Grisons, et exploite les Spital Schiers, deux maisons de vieillesse à Schiers et Jenaz, une organisation Spitex, le Centre médical Klosters et les crèches pour enfants - nous offrons diverses possibilités de carrière"
-      },
-      "location": "Schiers",
-      "canton": "GR",
-      "url": "https://www.flurystiftung.ch/sites/default/files/2026-03/Berufsbildung%20Pflege%2050%25%20Altersheim%20Schiers.pdf",
-      "source": "Flury Stiftung Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-05-19T22:14:03.765Z",
-      "addressLocality": "Schiers",
-      "postalCode": "7220",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Infermieristica",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Assistenza",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-27",
-      "applyUrl": "https://www.flurystiftung.ch/sites/default/files/2026-03/Berufsbildung%20Pflege%2050%25%20Altersheim%20Schiers.pdf",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "department": "Altersheime",
-      "pensum": "50%",
-      "pensumMin": 50,
-      "pensumMax": 50,
-      "previousSlugs": [
-        "berufsbildner-in-pflege-50-altersheim-schiers-flury-stiftung-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "berufsbildner-in-pflege-50-altersheim-schiers-flury-stiftung-ch"
-        ],
-        "en": [
-          "berufsbildner-in-pflege-50-altersheim-schiers-flury-stiftung-ch"
-        ],
-        "fr": [
-          "berufsbildner-in-pflege-50-altersheim-schiers-flury-stiftung-ch"
-        ]
-      },
-      "firstSeenAt": "2026-04-13T10:33:20.233Z",
-=======
->>>>>>> Stashed changes
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {

@@ -761,14 +761,26 @@ async function assembleJobs() {
   // to the legacy single-threaded path).
   const parsed = await parseSlicesInParallel(sliceFiles);
   const slices = [];
+  const malformed = [];
   for (const { path: slicePath, parsed: slice, error } of parsed) {
     if (!slice || !Array.isArray(slice.jobs)) {
       const reason = error ? ` (${error})` : '';
-      console.warn(`⚠️  Skipping malformed slice: ${path.basename(slicePath)}${reason}`);
+      malformed.push(`${path.basename(slicePath)}${reason}`);
       continue;
     }
     slices.push(slice);
     console.log(`  📄 ${path.basename(slicePath)}: ${slice.jobs.length} jobs (assembledAt: ${slice.assembledAt || '?'})`);
+  }
+  if (malformed.length > 0) {
+    // Hard-fail: silently dropping slices has caused production incidents
+    // (see incident 2026-05-21 — 92 slices skipped, ~3.5k jobs lost).
+    // Run `node scripts/recover-conflict-marker-slices.mjs` if these contain
+    // unresolved git merge markers.
+    const list = malformed.map((m) => `  - ${m}`).join('\n');
+    throw new Error(
+      `Refusing to assemble: ${malformed.length} malformed slice(s) detected.\n${list}\n` +
+      `Resolve before re-running (do not silently skip — see CLAUDE.md rule #1).`,
+    );
   }
 
   if (slices.length === 0) return null;
@@ -1041,13 +1053,21 @@ function assembleSummaries() {
 
   // Collect all slice entries
   const sliceEntries = [];
+  const malformedSummary = [];
   for (const slicePath of sliceFiles) {
     const entry = readJson(slicePath, null);
     if (!entry || typeof entry.key !== 'string') {
-      console.warn(`⚠️  Skipping malformed summary slice: ${path.basename(slicePath)}`);
+      malformedSummary.push(path.basename(slicePath));
       continue;
     }
     sliceEntries.push(entry);
+  }
+  if (malformedSummary.length > 0) {
+    throw new Error(
+      `Refusing to assemble crawler summaries: ${malformedSummary.length} malformed slice(s):\n` +
+      malformedSummary.map((m) => `  - ${m}`).join('\n') +
+      `\nResolve before re-running.`,
+    );
   }
 
   // Merge with existing global summaries: slice entries take precedence over
@@ -1119,11 +1139,12 @@ function assembleExpiredJobs() {
 
   const bySlug = new Map();
   let totalSliceEntries = 0;
+  const malformedExpired = [];
 
   for (const slicePath of sliceFiles) {
     const entries = readJson(slicePath, null);
     if (!Array.isArray(entries)) {
-      console.warn(`⚠️  Skipping malformed expired slice: ${path.basename(slicePath)}`);
+      malformedExpired.push(path.basename(slicePath));
       continue;
     }
     totalSliceEntries += entries.length;
@@ -1135,6 +1156,13 @@ function assembleExpiredJobs() {
         bySlug.set(entry.slug, entry);
       }
     }
+  }
+  if (malformedExpired.length > 0) {
+    throw new Error(
+      `Refusing to assemble expired slices: ${malformedExpired.length} malformed:\n` +
+      malformedExpired.map((m) => `  - ${m}`).join('\n') +
+      `\nResolve before re-running.`,
+    );
   }
 
   // Also merge any existing aggregated expired-jobs.json (from deploy-time cleanup)
