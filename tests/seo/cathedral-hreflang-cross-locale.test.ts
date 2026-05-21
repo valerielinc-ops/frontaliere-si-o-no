@@ -17,9 +17,16 @@ describe('hreflang round-trip non-TI canton (P3-B)', () => {
     const sample = slugs.find((s) => fs.existsSync(path.join(zhDir, s, 'index.html')));
     if (!sample) return;
     const html = fs.readFileSync(path.join(zhDir, sample, 'index.html'), 'utf8');
-    // The hreflang block must reference each non-IT locale's ZH section
-    expect(html, 'EN alt missing').toMatch(/hreflang="en"[^>]*href="[^"]*\/en\/find-jobs-zurich\//);
-    expect(html, 'DE alt missing').toMatch(/hreflang="de"[^>]*href="[^"]*\/de\/jobs-in-zurich\//);
-    expect(html, 'FR alt missing').toMatch(/hreflang="fr"[^>]*href="[^"]*\/fr\/trouver-emploi-zurich\//);
+    // Quote-flexible: scripts/dist-shrink.mjs strips attribute quotes.
+    // `hreflang="en" href="…"` is DOM-equivalent to `hreflang=en href=…`.
+    expect(html, 'EN alt missing').toMatch(
+      /hreflang=["']?en["']?[^>]*href=["']?[^"'\s>]*\/en\/find-jobs-zurich\//,
+    );
+    expect(html, 'DE alt missing').toMatch(
+      /hreflang=["']?de["']?[^>]*href=["']?[^"'\s>]*\/de\/jobs-in-zurich\//,
+    );
+    expect(html, 'FR alt missing').toMatch(
+      /hreflang=["']?fr["']?[^>]*href=["']?[^"'\s>]*\/fr\/trouver-emploi-zurich\//,
+    );
   });
 });

@@ -46,6 +46,44 @@ describe('dist-shrink: html-minifier-terser opts', () => {
     expect(out).toContain('<![endif]');
   });
 
+  // Regression — PR #473 incident: `removeAttributeQuotes: true` rewrote
+  // `<link rel="canonical" href="https://x/">` to
+  // `<link rel=canonical href=https://x/>` in dist/, breaking the
+  // quoted-only SEO regex gates in tests/seo/{brand-dedup,
+  // breadcrumb-coverage, cathedral-hreflang-cross-locale,
+  // cathedral-sector-hubs, legacy-city-hub-hreflang}. Those tests have
+  // since been switched to quote-flexible regexes, but the contract is:
+  // the canonical SEO patterns below MUST match minifier output for both
+  // the plain quoted form (unminified) and the unquoted form (minified).
+  // This test pins both shapes so future minifier-opt changes can't
+  // silently defeat the SEO gates again.
+  it('canonical/hreflang/robots regexes (quote-flex) match before AND after minify', async () => {
+    const canonicalRe =
+      /<link\s+rel=["']?canonical["']?\s+href=["']?([^"'\s>]+)["']?/i;
+    const hreflangRe =
+      /<link\s+rel=["']?alternate["']?\s+hreflang=["']?en["']?\s+href=["']?([^"'\s>]+)["']?/i;
+    const noindexRe =
+      /<meta[^>]*\bname\s*=\s*["']?robots["']?[^>]*\bcontent\s*=\s*["']?[^"'>]*noindex/i;
+
+    const input =
+      '<!DOCTYPE html><html lang="it"><head>' +
+      '<link rel="canonical" href="https://frontaliereticino.ch/test/">' +
+      '<link rel="alternate" hreflang="en" href="https://frontaliereticino.ch/en/test/">' +
+      '<meta name="robots" content="noindex,follow">' +
+      '</head><body><h1>x</h1></body></html>';
+
+    // Quoted (pre-minify) shape matches.
+    expect(canonicalRe.exec(input)?.[1]).toBe('https://frontaliereticino.ch/test/');
+    expect(hreflangRe.exec(input)?.[1]).toBe('https://frontaliereticino.ch/en/test/');
+    expect(noindexRe.test(input)).toBe(true);
+
+    // Minified (post-shrink) shape ALSO matches — this is the contract.
+    const out = await minify(input, MINIFY_OPTS);
+    expect(canonicalRe.exec(out)?.[1]).toBe('https://frontaliereticino.ch/test/');
+    expect(hreflangRe.exec(out)?.[1]).toBe('https://frontaliereticino.ch/en/test/');
+    expect(noindexRe.test(out)).toBe(true);
+  });
+
   it('preserves all og:* meta tags', async () => {
     const input =
       '<!DOCTYPE html><html><head>' +

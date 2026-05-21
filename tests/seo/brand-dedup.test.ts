@@ -140,13 +140,16 @@ function readHtml(relPath: string): string | null {
   return fs.readFileSync(abs, 'utf-8');
 }
 
+// Quote-flexible regexes — see scripts/dist-shrink.mjs (PR #473) which strips
+// attribute quotes from dist/ HTML at minify time. DOM-equivalent but text-shape
+// changes: `rel="canonical"` → `rel=canonical`, `href="…"` → `href=…`.
 function extractCanonical(html: string): string | null {
-  const m = /<link\s+rel="canonical"\s+href="([^"]+)"/i.exec(html);
+  const m = /<link\s+rel=["']?canonical["']?\s+href=["']?([^"'\s>]+)["']?/i.exec(html);
   return m ? m[1] : null;
 }
 
 function extractRobots(html: string): string | null {
-  const m = /<meta\s+name="robots"\s+content="([^"]+)"/i.exec(html);
+  const m = /<meta\s+name=["']?robots["']?\s+content=["']?([^"'>]+?)["']?\s*\/?>/i.exec(html);
   return m ? m[1] : null;
 }
 
