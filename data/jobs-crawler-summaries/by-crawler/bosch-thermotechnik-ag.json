@@ -1,19 +1,87 @@
 {
   "key": "bosch-thermotechnik-ag",
   "label": "Bosch Thermotechnik AG",
-  "generatedAt": "2026-05-21T11:19:49.322Z",
+  "generatedAt": "2026-05-21T21:50:57.035Z",
   "total": 8,
-  "newCount": 0,
+  "newCount": 1,
   "updatedCount": 7,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 17650,
-  "avgDurationMs": 17650,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 17320,
+  "avgDurationMs": 17320,
   "durationHistory": [
-    17650
+    17320
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "title": "Praktikum - Sales der Robert Bosch AG (w/m/div.) REF286882S",
+      "slug": "praktikum-sales-der-robert-bosch-ag-w-m-div-ref286882s-bosch-solothurn-zuchwil",
+      "url": "https://jobs.bosch.com/en/job/REF286882S-praktikum-sales-der-robert-bosch-ag-w-m-div-ref286882s",
+      "applyUrl": "https://jobs.smartrecruiters.com/BoschGroup/744000127726419-praktikum-sales-der-robert-bosch-ag-w-m-div-ref286882s?oga=true&trid=3e439658-2a75-4ae1-8885-0fd195fb6ee0",
+      "company": "Bosch Thermotechnik AG",
+      "companyKey": "bosch-thermotechnik-ag",
+      "companyDomain": "bosch.ch",
+      "location": "Solothurn/Zuchwil",
+      "addressLocality": "Solothurn/Zuchwil",
+      "addressRegion": "AG",
+      "addressCountry": "CH",
+      "canton": "AG",
+      "country": "CH",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "category": "sales",
+      "sector": "Energia",
+      "source": "bosch-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-05-21",
+      "validThrough": "",
+      "_qualityScore": 77,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 16,
+        "completeness": 14
+      }
+    }
+  ],
   "updatedJobs": [
+    {
+      "title": "Werkstudententätigkeit im Bereich Finance und Accounting Schweiz (w.m.div.) REF285688G",
+      "slug": "werkstudententatigkeit-im-bereich-finance-und-accounting-schweiz-w-m-div-ref285688g-bosch-solothurn-zuchwil",
+      "url": "https://jobs.bosch.com/en/job/REF285688G-werkstudententaetigkeit-im-bereich-finance-und-accounting-schweiz-w-m-div-ref285688g",
+      "applyUrl": "https://jobs.smartrecruiters.com/BoschGroup/744000127727219-werkstudententatigkeit-im-bereich-finance-und-accounting-schweiz-w-m-div-ref285688g?oga=true&trid=3e439658-2a75-4ae1-8885-0fd195fb6ee0",
+      "company": "Bosch Thermotechnik AG",
+      "companyKey": "bosch-thermotechnik-ag",
+      "companyDomain": "bosch.ch",
+      "location": "Solothurn/Zuchwil",
+      "addressLocality": "Solothurn/Zuchwil",
+      "addressRegion": "SO",
+      "addressCountry": "CH",
+      "canton": "SO",
+      "country": "CH",
+      "employmentType": "part-time",
+      "contractType": "part-time",
+      "category": "sales",
+      "sector": "Energia",
+      "source": "bosch-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-05-21",
+      "validThrough": "",
+      "id": "bosch-thermotechnik-ag-32c744378e61",
+      "salaryMin": 59000,
+      "salaryMax": 90500,
+      "currency": "CHF",
+      "postalCode": "4500",
+      "firstSeenAt": "2026-05-17T09:49:02.274Z",
+      "needsRetranslation": true,
+      "_qualityScore": 88,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 19,
+        "completeness": 22
+      }
+    },
     {
       "title": "PreMaster Human Resources (w/m/div.) REF286482A",
       "slug": "premaster-human-resources-w-m-div-ref286482a-bosch-frauenfeld",
@@ -160,43 +228,6 @@
       }
     },
     {
-      "title": "Werkstudententätigkeit im Bereich Finance und Accounting Schweiz (w.m.div) REF285688G",
-      "slug": "werkstudententatigkeit-im-bereich-finance-und-accounting-schweiz-w-m-div-ref285688g-bosch-solothurn-zuchwil",
-      "url": "https://jobs.bosch.com/en/job/REF285688G-werkstudententaetigkeit-im-bereich-finance-und-accounting-schweiz-w-m-div-ref285688g",
-      "applyUrl": "https://jobs.smartrecruiters.com/BoschGroup/744000125371364-werkstudententatigkeit-im-bereich-finance-und-accounting-schweiz-w-m-div-ref285688g?oga=true&trid=3e439658-2a75-4ae1-8885-0fd195fb6ee0",
-      "company": "Bosch Thermotechnik AG",
-      "companyKey": "bosch-thermotechnik-ag",
-      "companyDomain": "bosch.ch",
-      "location": "Solothurn/Zuchwil",
-      "addressLocality": "Solothurn/Zuchwil",
-      "addressRegion": "SO",
-      "addressCountry": "CH",
-      "canton": "SO",
-      "country": "CH",
-      "employmentType": "part-time",
-      "contractType": "part-time",
-      "category": "sales",
-      "sector": "Energia",
-      "source": "bosch-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-05-08",
-      "validThrough": "",
-      "id": "bosch-thermotechnik-ag-32c744378e61",
-      "salaryMin": 59000,
-      "salaryMax": 90500,
-      "currency": "CHF",
-      "postalCode": "4500",
-      "firstSeenAt": "2026-05-17T09:49:02.274Z",
-      "needsRetranslation": true,
-      "_qualityScore": 88,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 19,
-        "completeness": 22
-      }
-    },
-    {
       "title": "Instandhaltung (w/m/div.) - REF285547A",
       "slug": "instandhaltung-w-m-div-ref285547a-bosch-st-niklaus",
       "url": "https://jobs.bosch.com/en/job/REF285547A-instandhaltung-w-m-div-ref285547a",
@@ -270,8 +301,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "title": "Teamleader Production 100% (w/m/div.) - REF284854K",
       "slug": "teamleader-production-100-w-m-div-ref284854k-bosch-st-niklaus",
@@ -309,5 +339,6 @@
         "completeness": 22
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
