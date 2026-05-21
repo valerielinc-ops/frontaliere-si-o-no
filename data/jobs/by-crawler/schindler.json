@@ -159,7 +159,8 @@
         }
       },
       "streetAddress": "Via Industria 11",
-      "postalCode": "6934"
+      "postalCode": "6934",
+      "retranslationAttempts": 1
     },
     {
       "id": "schindler-34d2f8c1f13f",
@@ -232,16 +233,17 @@
         }
       },
       "streetAddress": "Via Industria 11",
-      "postalCode": "6934"
+      "postalCode": "6934",
+      "retranslationAttempts": 1
     },
     {
       "id": "schindler-1085922c4581",
       "slug": "manager-per-cookie-einwilligungen-schindler-st-gallen",
       "slugByLocale": {
-        "de": "manager-fur-cookie-einwilligungen-schindler-st-gallen",
-        "it": "manager-per-cookie-einwilligungen-schindler-st-gallen",
-        "en": "manager-fur-cookie-einwilligungen-schindler-st-gallen",
-        "fr": "manager-fur-cookie-einwilligungen-schindler-st-gallen"
+        "de": "manager-fur-cookie-einwilligungen-schindler-bern",
+        "it": "gestione-delle-autorizzazioni-dei-cookie-schindler-bern",
+        "en": "manager-fur-cookie-einwilligungen-schindler-bern",
+        "fr": "gestionnaire-pour-les-autorisations-de-cookies-schindler-bern"
       },
       "company": "Schindler",
       "companyKey": "schindler",
@@ -250,15 +252,15 @@
       "titleByLocale": {
         "de": "Manager für Cookie-Einwilligungen",
         "it": "Manager per Cookie-Einwilligungen",
-        "en": "Manager für Cookie-Einwilligungen",
-        "fr": "Manager für Cookie-Einwilligungen"
+        "en": "Manager for cookie permissions",
+        "fr": "Gestionnaire pour les autorisations de cookies"
       },
       "description": "Mobilität | seit 1874 | weltweit im Einsatz\n\nDie Schindler Berufsbildung bildet schweizweit über 300 Lernende aus – du bist somit nie allein. Unser gesamtes Team setzt sich täglich für dich ein, damit du am Ende deiner Lehrzeit eine top ausgebildete Fachkraft bist.\n\nSchnupperlehre als Polymechaniker*in EFZ mit Schwerpunkt Liftmontage in St. Gallen",
       "descriptionByLocale": {
-        "de": "Mobilität | seit 1874 | weltweit im Einsatz\n\nDie Schindler Berufsbildung bildet schweizweit über 300 Lernende aus – du bist somit nie allein. Unser gesamtes Team setzt sich täglich für dich ein, damit du am Ende deiner Lehrzeit eine top ausgebildete Fachkraft bist.\n\nSchnupperlehre als Polymechaniker*in EFZ mit Schwerpunkt Liftmontage in St. Gallen",
-        "it": "Mobilität | seit 1874 | weltweit im Einsatz\n\nDie Schindler Berufsbildung bildet schweizweit über 300 Lernende aus – du bist somit nie allein. Unser gesamtes Team setzt sich täglich für dich ein, damit du am Ende deiner Lehrzeit eine top ausgebildete Fachkraft bist.\n\nSchnupperlehre als Polymechaniker*in EFZ mit Schwerpunkt Liftmontage in St. Gallen",
-        "en": "Mobilität | seit 1874 | weltweit im Einsatz\n\nDie Schindler Berufsbildung bildet schweizweit über 300 Lernende aus – du bist somit nie allein. Unser gesamtes Team setzt sich täglich für dich ein, damit du am Ende deiner Lehrzeit eine top ausgebildete Fachkraft bist.\n\nSchnupperlehre als Polymechaniker*in EFZ mit Schwerpunkt Liftmontage in St. Gallen",
-        "fr": "Mobilität | seit 1874 | weltweit im Einsatz\n\nDie Schindler Berufsbildung bildet schweizweit über 300 Lernende aus – du bist somit nie allein. Unser gesamtes Team setzt sich täglich für dich ein, damit du am Ende deiner Lehrzeit eine top ausgebildete Fachkraft bist.\n\nSchnupperlehre als Polymechaniker*in EFZ mit Schwerpunkt Liftmontage in St. Gallen"
+        "de": "Mobilität | seit 1874 | weltweit im Einsatz Die Schindler Berufsbildung bildet schweizweit über 300 Lernende aus – du bist somit nie allein. Unser gesamtes Team setzt sich täglich für dich ein, damit du am Ende deiner Lehrzeit eine top ausgebildete Fachkraft bist. Schnupperlehre als Kaufmann*frau EFZ (Lehrstart 2027) in Bern",
+        "it": "Mobility | dal 1874 | in tutto il mondo in uso Lo Schindler Formazione Professionale e forma oltre 300 studenti in tutta la Svizzera – non sei mai solo. Tutto il nostro team si impegna ogni giorno per voi in modo da essere uno specialista altamente qualificato alla fine del vostro periodo di insegnamento. Schnupperlehre als Kaufmann*frau EFZ (Leehrstart 2027) a Berna",
+        "en": "Mobility | since 1874 | worldwide in use The Schindler Vocational Education and Training forms over 300 learners throughout Switzerland – you are never alone. Our entire team is committed to you every day so that you are a highly trained specialist at the end of your teaching period. Schnupperlehre als Kaufmann*frau EFZ (Leehrstart 2027) in Bern",
+        "fr": "Mobilité à travers le monde depuis 1874 L'enseignement et la formation professionnels Schindler forment plus de 300 apprenants en Suisse – vous n'êtes jamais seul. Toute notre équipe s'engage pour vous tous les jours afin que vous soyez un spécialiste hautement qualifié à la fin de votre période d'enseignement. Schnupperlehre als Kaufmann*frau EFZ (Leehrstart 2027) à Berne"
       },
       "location": "St. Gallen",
       "canton": "SG",
@@ -284,14 +286,26 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "manager-fur-cookie-einwilligungen-schindler-st-gallen"
+        ],
+        "en": [
+          "manager-fur-cookie-einwilligungen-schindler-st-gallen"
+        ],
+        "de": [
+          "manager-fur-cookie-einwilligungen-schindler-st-gallen"
+        ],
+        "fr": [
           "manager-fur-cookie-einwilligungen-schindler-st-gallen"
         ]
       },
       "previousSlugs": [
-        "manager-fur-cookie-einwilligungen-schindler-st-gallen"
+        "manager-fur-cookie-einwilligungen-schindler-st-gallen",
+        "manager-fur-cookie-einwilligungen-schindler-bern",
+        "manager-per-cookie-einwilligungen-schindler-bern",
+        "manager-per-cookie-einwilligungen-schindler-st-gallen-oi7jl7",
+        "manager-per-cookie-einwilligungen-schindler-st-gallen"
       ],
       "salaryMin": 68000,
       "salaryMax": 103000,
@@ -378,7 +392,6 @@
         ]
       },
       "firstSeenAt": "2026-05-19T12:34:10.207Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -455,7 +468,6 @@
         ]
       },
       "firstSeenAt": "2026-05-19T12:34:10.949Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -615,7 +627,6 @@
         ]
       },
       "firstSeenAt": "2026-05-19T12:34:28.777Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -785,7 +796,8 @@
         }
       },
       "streetAddress": "Via Industria 11",
-      "postalCode": "6934"
+      "postalCode": "6934",
+      "retranslationAttempts": 1
     },
     {
       "id": "schindler-cfa7ef0ace82",
@@ -802,16 +814,16 @@
       "title": "Servicetechniker*in (m/w/d) Region linkes Zürichseeufer, 80-100%",
       "titleByLocale": {
         "de": "Servicetechniker*in (m/w/d) Region linkes Zürichseeufer, 80-100%",
-        "it": "Servicetechniker*in (m/w/d) Region linkes Zürichseeufer, 80-100%",
-        "en": "Servicetechniker*in (m/w/d) Region linkes Zürichseeufer, 80-100%",
-        "fr": "Servicetechniker*in (m/w/d) Region linkes Zürichseeufer, 80-100%"
+        "it": "Servicetechniker*in (m/w/d) Regione sinistra Zürichseeufer, 80-100 %",
+        "en": "Service Technician (m/w/d) Left Shore of Lake Zurich, 80-100%",
+        "fr": "Technicien de service (h/f/m) Côte gauche du lac de Zurich, 80–100%"
       },
       "description": "Über zwei Milliarden Menschen vertrauen täglich auf Schindler. Unsere langjährige Erfahrung und Innovationskraft machen uns zur Nummer eins im Schweizer Aufzugs- und Fahrtreppengeschäft. Als Teil der Schindler Familie gestaltest du Orte für alle barrierefreier, inklusiver und nachhaltiger. Wir kombinieren Innovation, Sicherheit sowie Inklusion und Diversität innerhalb des Unternehmens. Werde Teil unserer 150-jährigen Erfolgsgeschichte und gestalte die Zukunft der Mobilität mit.\n\nGemeinsam ein Stockwerk nach oben als\n\nServicetechniker*in (m/w/d) Region linkes Zürichseeufer, 80-100%\n\nDein Tag – dein Plan! Gestalte deine 40-Stunden-Woche nach deinen Bedürfnissen. Mit deinem (E-)Geschäftsauto, welches du auch privat nutzen darfst, bist du flexibel unterwegs. Mehr erfährst du in diesem Video\n\nDeine neuen Herausforderungen:\n\n• Selbstständige Planung und Ausführung von Wartungsarbeiten nach vorgegebenem Turnus\n\n• Behebung von Störungen\n\n• Ausführung von kleineren Reparaturen\n\n• Interessante Piketteinsätze\n\n• Kundenkommunikation\n\nDeine idealen Voraussetzungen:\n\n• Abgeschlossene Berufslehre im mechanischen, elektrischen oder hydraulischen Bereich (z. B. Polymechaniker*in, Automechaniker*in, Anlagen- und Apparatebauer*in oder Elektroinstallateur*in)\n\n• Einige Jahre Berufserfahrung, idealerweise mit Kundenkontakt\n\n• Erfahrung im elektrotechnischen Bereich\n\n• Tadellose Umgangsformen und hohe Lernbereitschaft\n\n• Gute Deutschkenntnisse, weitere Sprachen von Vorteil\n\n• Gültiger Führerschein – ohne geht’s nicht\n\nUnsere Benefits:\n\n• 2-monatige Einarbeitung bei vollem Lohn in unserem Lift Camp für deine optimale Vorbereitung auf deinen neuen Job.\n\n• Eigenes Firmenfahrzeug , welches du auch privat nutzen darfst.\n\n• Entschädigung für deine Mittagsverpflegung, faire Bereitschaftsentschädigung für Pikett und die Reinigung deiner Arbeitskleider, welche dir selbstverständlich von uns kostenlos zur Verfügung gestellt werden.\n\n• Exzellente Entwicklungsmöglichkeiten: Personalentwicklung wird bei uns gelebt. Unseren Mitarbeitenden stellen wir verschiedene nationale und internationale Talentprogramme zur Verfügung und unterstützen sie zeitlich sowie finanziell bei Aus- und Weiterbildungen.\n\n• Work-Life-Balance: 40h Woche, 25 bis 30 Ferientage, flexible Arbeitszeiten, Teilzeitpensum und unbezahlter Urlaub.\n\n• Gesunde Arbeitsumgebung: Hohe Gesundheits- & Sicherheitsstandards und eigenes betriebliches Gesundheitsmanagement inklusive Sozialberatung und Gesundheitsförderung.\n\n• Mitarbeitervergünstigungen: Grosszügige Beteiligung am ÖV- und Fitness-Abo, Flottenrabatte, vergünstigter Bezug von Reka-Geld, vergünstigte Versicherungsprämien sowie diverse Vergünstigungen.\n\nStarte jetzt deine Karriere bei Schindler!\n\nBist du bereit, neue Wege zu gehen? Werde Teil von #TeamSchindler! Bei Fragen steht dir Regina Lorusso, unter (+41) 444041536 oder gerne zur Verfügung.\n\nWeitere Informationen findest du unter: www.schindler.ch/karriere",
       "descriptionByLocale": {
-        "de": "Über zwei Milliarden Menschen vertrauen täglich auf Schindler. Unsere langjährige Erfahrung und Innovationskraft machen uns zur Nummer eins im Schweizer Aufzugs- und Fahrtreppengeschäft. Als Teil der Schindler Familie gestaltest du Orte für alle barrierefreier, inklusiver und nachhaltiger. Wir kombinieren Innovation, Sicherheit sowie Inklusion und Diversität innerhalb des Unternehmens. Werde Teil unserer 150-jährigen Erfolgsgeschichte und gestalte die Zukunft der Mobilität mit.\n\nGemeinsam ein Stockwerk nach oben als\n\nServicetechniker*in (m/w/d) Region linkes Zürichseeufer, 80-100%\n\nDein Tag – dein Plan! Gestalte deine 40-Stunden-Woche nach deinen Bedürfnissen. Mit deinem (E-)Geschäftsauto, welches du auch privat nutzen darfst, bist du flexibel unterwegs. Mehr erfährst du in diesem Video\n\nDeine neuen Herausforderungen:\n\n• Selbstständige Planung und Ausführung von Wartungsarbeiten nach vorgegebenem Turnus\n\n• Behebung von Störungen\n\n• Ausführung von kleineren Reparaturen\n\n• Interessante Piketteinsätze\n\n• Kundenkommunikation\n\nDeine idealen Voraussetzungen:\n\n• Abgeschlossene Berufslehre im mechanischen, elektrischen oder hydraulischen Bereich (z. B. Polymechaniker*in, Automechaniker*in, Anlagen- und Apparatebauer*in oder Elektroinstallateur*in)\n\n• Einige Jahre Berufserfahrung, idealerweise mit Kundenkontakt\n\n• Erfahrung im elektrotechnischen Bereich\n\n• Tadellose Umgangsformen und hohe Lernbereitschaft\n\n• Gute Deutschkenntnisse, weitere Sprachen von Vorteil\n\n• Gültiger Führerschein – ohne geht’s nicht\n\nUnsere Benefits:\n\n• 2-monatige Einarbeitung bei vollem Lohn in unserem Lift Camp für deine optimale Vorbereitung auf deinen neuen Job.\n\n• Eigenes Firmenfahrzeug , welches du auch privat nutzen darfst.\n\n• Entschädigung für deine Mittagsverpflegung, faire Bereitschaftsentschädigung für Pikett und die Reinigung deiner Arbeitskleider, welche dir selbstverständlich von uns kostenlos zur Verfügung gestellt werden.\n\n• Exzellente Entwicklungsmöglichkeiten: Personalentwicklung wird bei uns gelebt. Unseren Mitarbeitenden stellen wir verschiedene nationale und internationale Talentprogramme zur Verfügung und unterstützen sie zeitlich sowie finanziell bei Aus- und Weiterbildungen.\n\n• Work-Life-Balance: 40h Woche, 25 bis 30 Ferientage, flexible Arbeitszeiten, Teilzeitpensum und unbezahlter Urlaub.\n\n• Gesunde Arbeitsumgebung: Hohe Gesundheits- & Sicherheitsstandards und eigenes betriebliches Gesundheitsmanagement inklusive Sozialberatung und Gesundheitsförderung.\n\n• Mitarbeitervergünstigungen: Grosszügige Beteiligung am ÖV- und Fitness-Abo, Flottenrabatte, vergünstigter Bezug von Reka-Geld, vergünstigte Versicherungsprämien sowie diverse Vergünstigungen.\n\nStarte jetzt deine Karriere bei Schindler!\n\nBist du bereit, neue Wege zu gehen? Werde Teil von #TeamSchindler! Bei Fragen steht dir Regina Lorusso, unter (+41) 444041536 oder gerne zur Verfügung.\n\nWeitere Informationen findest du unter: www.schindler.ch/karriere",
-        "it": "Über zwei Milliarden Menschen vertrauen täglich auf Schindler. Unsere langjährige Erfahrung und Innovationskraft machen uns zur Nummer eins im Schweizer Aufzugs- und Fahrtreppengeschäft. Als Teil der Schindler Familie gestaltest du Orte für alle barrierefreier, inklusiver und nachhaltiger. Wir kombinieren Innovation, Sicherheit sowie Inklusion und Diversität innerhalb des Unternehmens. Werde Teil unserer 150-jährigen Erfolgsgeschichte und gestalte die Zukunft der Mobilität mit.\n\nGemeinsam ein Stockwerk nach oben als\n\nServicetechniker*in (m/w/d) Region linkes Zürichseeufer, 80-100%\n\nDein Tag – dein Plan! Gestalte deine 40-Stunden-Woche nach deinen Bedürfnissen. Mit deinem (E-)Geschäftsauto, welches du auch privat nutzen darfst, bist du flexibel unterwegs. Mehr erfährst du in diesem Video\n\nDeine neuen Herausforderungen:\n\n• Selbstständige Planung und Ausführung von Wartungsarbeiten nach vorgegebenem Turnus\n\n• Behebung von Störungen\n\n• Ausführung von kleineren Reparaturen\n\n• Interessante Piketteinsätze\n\n• Kundenkommunikation\n\nDeine idealen Voraussetzungen:\n\n• Abgeschlossene Berufslehre im mechanischen, elektrischen oder hydraulischen Bereich (z. B. Polymechaniker*in, Automechaniker*in, Anlagen- und Apparatebauer*in oder Elektroinstallateur*in)\n\n• Einige Jahre Berufserfahrung, idealerweise mit Kundenkontakt\n\n• Erfahrung im elektrotechnischen Bereich\n\n• Tadellose Umgangsformen und hohe Lernbereitschaft\n\n• Gute Deutschkenntnisse, weitere Sprachen von Vorteil\n\n• Gültiger Führerschein – ohne geht’s nicht\n\nUnsere Benefits:\n\n• 2-monatige Einarbeitung bei vollem Lohn in unserem Lift Camp für deine optimale Vorbereitung auf deinen neuen Job.\n\n• Eigenes Firmenfahrzeug , welches du auch privat nutzen darfst.\n\n• Entschädigung für deine Mittagsverpflegung, faire Bereitschaftsentschädigung für Pikett und die Reinigung deiner Arbeitskleider, welche dir selbstverständlich von uns kostenlos zur Verfügung gestellt werden.\n\n• Exzellente Entwicklungsmöglichkeiten: Personalentwicklung wird bei uns gelebt. Unseren Mitarbeitenden stellen wir verschiedene nationale und internationale Talentprogramme zur Verfügung und unterstützen sie zeitlich sowie finanziell bei Aus- und Weiterbildungen.\n\n• Work-Life-Balance: 40h Woche, 25 bis 30 Ferientage, flexible Arbeitszeiten, Teilzeitpensum und unbezahlter Urlaub.\n\n• Gesunde Arbeitsumgebung: Hohe Gesundheits- & Sicherheitsstandards und eigenes betriebliches Gesundheitsmanagement inklusive Sozialberatung und Gesundheitsförderung.\n\n• Mitarbeitervergünstigungen: Grosszügige Beteiligung am ÖV- und Fitness-Abo, Flottenrabatte, vergünstigter Bezug von Reka-Geld, vergünstigte Versicherungsprämien sowie diverse Vergünstigungen.\n\nStarte jetzt deine Karriere bei Schindler!\n\nBist du bereit, neue Wege zu gehen? Werde Teil von #TeamSchindler! Bei Fragen steht dir Regina Lorusso, unter (+41) 444041536 oder gerne zur Verfügung.\n\nWeitere Informationen findest du unter: www.schindler.ch/karriere",
-        "en": "Über zwei Milliarden Menschen vertrauen täglich auf Schindler. Unsere langjährige Erfahrung und Innovationskraft machen uns zur Nummer eins im Schweizer Aufzugs- und Fahrtreppengeschäft. Als Teil der Schindler Familie gestaltest du Orte für alle barrierefreier, inklusiver und nachhaltiger. Wir kombinieren Innovation, Sicherheit sowie Inklusion und Diversität innerhalb des Unternehmens. Werde Teil unserer 150-jährigen Erfolgsgeschichte und gestalte die Zukunft der Mobilität mit.\n\nGemeinsam ein Stockwerk nach oben als\n\nServicetechniker*in (m/w/d) Region linkes Zürichseeufer, 80-100%\n\nDein Tag – dein Plan! Gestalte deine 40-Stunden-Woche nach deinen Bedürfnissen. Mit deinem (E-)Geschäftsauto, welches du auch privat nutzen darfst, bist du flexibel unterwegs. Mehr erfährst du in diesem Video\n\nDeine neuen Herausforderungen:\n\n• Selbstständige Planung und Ausführung von Wartungsarbeiten nach vorgegebenem Turnus\n\n• Behebung von Störungen\n\n• Ausführung von kleineren Reparaturen\n\n• Interessante Piketteinsätze\n\n• Kundenkommunikation\n\nDeine idealen Voraussetzungen:\n\n• Abgeschlossene Berufslehre im mechanischen, elektrischen oder hydraulischen Bereich (z. B. Polymechaniker*in, Automechaniker*in, Anlagen- und Apparatebauer*in oder Elektroinstallateur*in)\n\n• Einige Jahre Berufserfahrung, idealerweise mit Kundenkontakt\n\n• Erfahrung im elektrotechnischen Bereich\n\n• Tadellose Umgangsformen und hohe Lernbereitschaft\n\n• Gute Deutschkenntnisse, weitere Sprachen von Vorteil\n\n• Gültiger Führerschein – ohne geht’s nicht\n\nUnsere Benefits:\n\n• 2-monatige Einarbeitung bei vollem Lohn in unserem Lift Camp für deine optimale Vorbereitung auf deinen neuen Job.\n\n• Eigenes Firmenfahrzeug , welches du auch privat nutzen darfst.\n\n• Entschädigung für deine Mittagsverpflegung, faire Bereitschaftsentschädigung für Pikett und die Reinigung deiner Arbeitskleider, welche dir selbstverständlich von uns kostenlos zur Verfügung gestellt werden.\n\n• Exzellente Entwicklungsmöglichkeiten: Personalentwicklung wird bei uns gelebt. Unseren Mitarbeitenden stellen wir verschiedene nationale und internationale Talentprogramme zur Verfügung und unterstützen sie zeitlich sowie finanziell bei Aus- und Weiterbildungen.\n\n• Work-Life-Balance: 40h Woche, 25 bis 30 Ferientage, flexible Arbeitszeiten, Teilzeitpensum und unbezahlter Urlaub.\n\n• Gesunde Arbeitsumgebung: Hohe Gesundheits- & Sicherheitsstandards und eigenes betriebliches Gesundheitsmanagement inklusive Sozialberatung und Gesundheitsförderung.\n\n• Mitarbeitervergünstigungen: Grosszügige Beteiligung am ÖV- und Fitness-Abo, Flottenrabatte, vergünstigter Bezug von Reka-Geld, vergünstigte Versicherungsprämien sowie diverse Vergünstigungen.\n\nStarte jetzt deine Karriere bei Schindler!\n\nBist du bereit, neue Wege zu gehen? Werde Teil von #TeamSchindler! Bei Fragen steht dir Regina Lorusso, unter (+41) 444041536 oder gerne zur Verfügung.\n\nWeitere Informationen findest du unter: www.schindler.ch/karriere",
-        "fr": "Über zwei Milliarden Menschen vertrauen täglich auf Schindler. Unsere langjährige Erfahrung und Innovationskraft machen uns zur Nummer eins im Schweizer Aufzugs- und Fahrtreppengeschäft. Als Teil der Schindler Familie gestaltest du Orte für alle barrierefreier, inklusiver und nachhaltiger. Wir kombinieren Innovation, Sicherheit sowie Inklusion und Diversität innerhalb des Unternehmens. Werde Teil unserer 150-jährigen Erfolgsgeschichte und gestalte die Zukunft der Mobilität mit.\n\nGemeinsam ein Stockwerk nach oben als\n\nServicetechniker*in (m/w/d) Region linkes Zürichseeufer, 80-100%\n\nDein Tag – dein Plan! Gestalte deine 40-Stunden-Woche nach deinen Bedürfnissen. Mit deinem (E-)Geschäftsauto, welches du auch privat nutzen darfst, bist du flexibel unterwegs. Mehr erfährst du in diesem Video\n\nDeine neuen Herausforderungen:\n\n• Selbstständige Planung und Ausführung von Wartungsarbeiten nach vorgegebenem Turnus\n\n• Behebung von Störungen\n\n• Ausführung von kleineren Reparaturen\n\n• Interessante Piketteinsätze\n\n• Kundenkommunikation\n\nDeine idealen Voraussetzungen:\n\n• Abgeschlossene Berufslehre im mechanischen, elektrischen oder hydraulischen Bereich (z. B. Polymechaniker*in, Automechaniker*in, Anlagen- und Apparatebauer*in oder Elektroinstallateur*in)\n\n• Einige Jahre Berufserfahrung, idealerweise mit Kundenkontakt\n\n• Erfahrung im elektrotechnischen Bereich\n\n• Tadellose Umgangsformen und hohe Lernbereitschaft\n\n• Gute Deutschkenntnisse, weitere Sprachen von Vorteil\n\n• Gültiger Führerschein – ohne geht’s nicht\n\nUnsere Benefits:\n\n• 2-monatige Einarbeitung bei vollem Lohn in unserem Lift Camp für deine optimale Vorbereitung auf deinen neuen Job.\n\n• Eigenes Firmenfahrzeug , welches du auch privat nutzen darfst.\n\n• Entschädigung für deine Mittagsverpflegung, faire Bereitschaftsentschädigung für Pikett und die Reinigung deiner Arbeitskleider, welche dir selbstverständlich von uns kostenlos zur Verfügung gestellt werden.\n\n• Exzellente Entwicklungsmöglichkeiten: Personalentwicklung wird bei uns gelebt. Unseren Mitarbeitenden stellen wir verschiedene nationale und internationale Talentprogramme zur Verfügung und unterstützen sie zeitlich sowie finanziell bei Aus- und Weiterbildungen.\n\n• Work-Life-Balance: 40h Woche, 25 bis 30 Ferientage, flexible Arbeitszeiten, Teilzeitpensum und unbezahlter Urlaub.\n\n• Gesunde Arbeitsumgebung: Hohe Gesundheits- & Sicherheitsstandards und eigenes betriebliches Gesundheitsmanagement inklusive Sozialberatung und Gesundheitsförderung.\n\n• Mitarbeitervergünstigungen: Grosszügige Beteiligung am ÖV- und Fitness-Abo, Flottenrabatte, vergünstigter Bezug von Reka-Geld, vergünstigte Versicherungsprämien sowie diverse Vergünstigungen.\n\nStarte jetzt deine Karriere bei Schindler!\n\nBist du bereit, neue Wege zu gehen? Werde Teil von #TeamSchindler! Bei Fragen steht dir Regina Lorusso, unter (+41) 444041536 oder gerne zur Verfügung.\n\nWeitere Informationen findest du unter: www.schindler.ch/karriere"
+        "de": "Warenbezeichnung\n\nÜber zwei Milliarden Menschen verlassen sich jeden Tag auf Schindler. Unsere langjährige Erfahrung und innovative Kapazität machen uns zu einem führenden Anbieter in der Aufzugs- und Mobilfunkbranche in der Schweiz. Im Rahmen der Familie Schindler helfen Sie, die Räume zugänglicher, inklusiver und nachhaltiger zu gestalten. Wir kombinieren Innovation, Sicherheit, Inklusion und Vielfalt im Unternehmen. Werden Sie Teil unserer 150-jährigen Erfolgsgeschichte und helfen, die Zukunft der Mobilität zu gestalten.\n\nSendungen\n\nServicetechniker*in (m/w/d) Zürichsee linke Bankregion, 80-100%\n\nDein Tag - dein Plan! Verwalten Sie Ihre 40-Stunden-Woche nach Ihren Bedürfnissen. Mit Ihrem Firmenwagen (E), das Sie auch für den privaten Gebrauch nutzen können, sind Sie flexibel. Erfahren Sie mehr über dieses Video\n\nIhre neuen Herausforderungen:\n\n- Autonome Planung und Durchführung von Wartungsarbeiten nach dem geplanten Programm\n- Reparatur von Fehlern\n- Ausführung kleiner Reparaturen\n- Interessante Serviceverschiebungen\n- Kommunikation mit Kunden\n\nAnforderungen\n\n- Berufsbildung im mechanischen, elektrischen oder hydraulischen Bereich (z.B. polymechanischer, automechanischer, pflanzlicher und elektrischer Gerätehersteller)\n- Einige Jahre Berufserfahrung, vorzugsweise mit Kontakten mit Kunden\n- Erfahrung im elektrotechnischen Sektor\n- Ausgezeichnete Manieren und hohe Verfügbarkeit zu lernen\n- Gute deutsche Sprachkenntnisse, andere Sprachen sind ein Vorteil\n- gültiger Führerschein - ohne Sie können nicht\n\nWas wir bieten\n\n- Zwei Monate Training in unserem Lift Camp für Ihre beste Vorbereitung für neue Arbeit mit vollem Gehalt\n- Corporate Car, das Sie auch für den privaten Gebrauch nutzen können\n- Entschädigung für Mittagsmahlzeit, faire Zulage für Schichtdienst und freie Reinigung der Arbeitseinheit\n- Außergewöhnliche Entwicklungschancen: Personalausbildung wird von uns gelebt. Wir stellen unseren Mitarbeitern verschiedene nationale und internationale Talentprogramme zur Verfügung und unterstützen sie zeitnah und finanziell für die Ausbildung und Verbesserung\n- Balance zwischen Arbeit und Privatleben: 40 Stunden pro Woche, 25-30 Tage Urlaub, flexible Arbeitszeit, Teilzeit- und unbezahlte Ferien\n- Gesundes Arbeitsumfeld: hohe Gesundheits- und Sicherheitsstandards und unsere eigenen",
+        "it": "Descrizione\n\nÜber due miliardi di persone si affidano ogni giorno a Schindler. La nostra lunga esperienza e la nostra capacità innovativa ci rendono leader nel settore degli ascensori e delle scale mobili in Svizzera. Come parte della famiglia Schindler, contribuirai a rendere gli spazi più accessibili, inclusivi e sostenibili. Uniamo innovazione, sicurezza, inclusione e diversità all'interno dell'azienda. Diventa parte della nostra storia di successo di 150 anni e contribuisci a plasmare il futuro della mobilità.\n\nMansioni\n\nServicetechniker*in (m/w/d) Regione sponda sinistra del lago di Zurigo, 80-100%\n\nIl tuo giorno - il tuo piano! Gestisci la tua settimana di 40 ore secondo le tue esigenze. Con la tua auto aziendale (E), che puoi utilizzare anche per uso privato, sei flessibile. Scopri di più in questo video\n\nLe tue nuove sfide:\n\n- Pianificazione e attuazione autonoma delle attività di manutenzione secondo il programma prestabilito\n- Riparazione dei guasti\n- Esecuzione di piccole riparazioni\n- Interessanti turni di servizio\n- Comunicazione con i clienti\n\nRequisiti\n\n- Formazione professionale completata nel settore meccanico, elettrico o idraulico (ad esempio polimeccanico, automeccanico, costruttore di impianti e apparecchiature o elettricista)\n- Alcuni anni di esperienza professionale, preferibilmente con contatti con i clienti\n- Esperienza nel settore elettrotecnico\n- Ottime maniere e alta disponibilità ad imparare\n- Buone conoscenze linguistiche tedesche, altre lingue sono un vantaggio\n- Patente di guida valida - senza non si può fare\n\nCosa offriamo\n\n- Due mesi di formazione presso il nostro Lift Camp per la tua migliore preparazione al nuovo lavoro con stipendio pieno\n- Auto aziendale, che puoi utilizzare anche per uso privato\n- Indennizzo per il pasto di mezzogiorno, equa indennità per il servizio di turno e pulizia gratuita dell'uniforme da lavoro\n- Eccezionali opportunità di sviluppo: la formazione del personale viene vissuta da noi. Mettiamo a disposizione dei nostri dipendenti diversi programmi di talento nazionali e internazionali e li sosteniamo temporalmente e finanziariamente per la formazione e il perfezionamento\n- Bilanciamento tra lavoro e vita privata: 40 ore settimanali, 25-30 giorni di ferie, orari di lavoro flessibili, part-time e ferie non retribuite\n- Ambiente di lavoro sano: alti standard di salute e sicurezza e nostro proprio",
+        "en": "Description\n\nÜber two billion people rely on Schindler every day. Our long experience and innovative capacity make us a leader in the lift and mobile scale industry in Switzerland. As part of the Schindler family, you will help make the spaces more accessible, inclusive and sustainable. We combine innovation, security, inclusion and diversity within the company. Become part of our 150-year success story and help shape the future of mobility.\n\nShipments\n\nServicetechniker*in (m/w/d) Lake Zurich left bank region, 80-100%\n\nYour day - your plan! Manage your 40-hour week according to your needs. With your company car (E), which you can also use for private use, you are flexible. Learn more about this video\n\nYour new challenges:\n\n- Autonomous planning and implementation of maintenance activities according to the planned programme\n- Repair of faults\n- execution of small repairs\n- Interesting service shifts\n- Communication with customers\n\nRequirements\n\n- Vocational training completed in the mechanical, electrical or hydraulic sector (e.g. polymechanical, automechanical, plant and electrical equipment manufacturer)\n- Some years of professional experience, preferably with contacts with customers\n- Experience in the electrotechnical sector\n- Excellent manners and high availability to learn\n- Good German language knowledge, other languages are an advantage\n- Valid driving license - without you can not do\n\nWhat we offer\n\n- Two months of training at our Lift Camp for your best preparation for new work with full salary\n- Corporate car, which you can also use for private use\n- Compensation for midday meal, fair allowance for shift service and free cleaning of work uniform\n- Exceptional development opportunities: staff training is lived by us. We make available to our employees different national and international talent programs and support them timely and financially for training and improvement\n- Balance between work and private life: 40 hours per week, 25-30 days of holidays, flexible working hours, part-time and unpaid holidays\n- Healthy working environment: high health and safety standards and our own",
+        "fr": "Désignation des marchandises\n\nÜber deux milliards de personnes dépendent de Schindler chaque jour. Notre longue expérience et notre capacité d'innovation font de nous un leader dans l'industrie de l'ascenseur et de l'échelle mobile en Suisse. Dans le cadre de la famille Schindler, vous aiderez à rendre les espaces plus accessibles, inclusifs et durables. Nous combinons innovation, sécurité, inclusion et diversité au sein de l'entreprise. Faites partie de notre réussite de 150 ans et aidez à façonner l'avenir de la mobilité.\n\nExpéditions\n\nServicetechniker*in (m/w/d) Région de la rive gauche du lac Zurich, 80-100%\n\nVotre journée - votre plan! Gérez votre semaine de 40 heures selon vos besoins. Avec votre voiture d'entreprise (E), que vous pouvez également utiliser pour un usage privé, vous êtes flexible. En savoir plus sur cette vidéo\n\nVos nouveaux défis :\n\n- Planification autonome et exécution des activités d ' entretien conformément au programme prévu\n- Réparation des défauts\n- réalisation de petites réparations\n- Changements de service intéressants\n- Communication avec les clients\n\nExigences\n\n- Formation professionnelle dans le secteur mécanique, électrique ou hydraulique (par exemple, fabricant d'équipements polymécaniques, automécaniques, d'installations et électriques)\n- Quelques années d'expérience professionnelle, de préférence avec les contacts avec les clients\n- Expérience dans le secteur électrotechnique\n- Excellentes manières et grande disponibilité pour apprendre\n- Bonne connaissance de la langue allemande, d'autres langues sont un avantage\n- Permis de conduire valide - sans vous ne pouvez pas faire\n\nCe que nous offrons\n\n- Deux mois d'entraînement dans notre camp de levage pour votre meilleure préparation pour un nouveau travail à plein salaire\n- Voiture d'entreprise, que vous pouvez également utiliser pour un usage privé\n- Indemnisation pour les repas de midi, allocation équitable pour service posté et nettoyage gratuit de l'uniforme de travail\n- Possibilités exceptionnelles de développement : la formation du personnel est vécue par nous. Nous mettons à la disposition de nos employés différents programmes nationaux et internationaux de talents et les soutenons en temps opportun et financièrement pour la formation et l'amélioration\n- Equilibre entre le travail et la vie privée : 40 heures par semaine, 25-30 jours de vacances, horaires flexibles, temps partiel et congés non payés\n- Environnement de travail sain : normes élevées en matière de santé et de sécurité"
       },
       "location": "Zürich",
       "canton": "ZH",
@@ -837,7 +849,6 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1009,7 +1020,8 @@
         }
       },
       "streetAddress": "Via Industria 11",
-      "postalCode": "6934"
+      "postalCode": "6934",
+      "retranslationAttempts": 1
     },
     {
       "id": "schindler-9574921475f9",
@@ -1076,7 +1088,8 @@
       },
       "streetAddress": "Via Industria 11",
       "postalCode": "6934",
-      "firstSeenAt": "2026-05-21T13:13:24.744Z"
+      "firstSeenAt": "2026-05-21T13:13:24.744Z",
+      "retranslationAttempts": 1
     },
     {
       "id": "schindler-2691b4dab6c9",
@@ -1093,16 +1106,16 @@
       "title": "Servicetechniker*in Fahrtreppen Zentralschweiz (m/w/d) 80-100%",
       "titleByLocale": {
         "de": "Servicetechniker*in Fahrtreppen Zentralschweiz (m/w/d) 80-100%",
-        "it": "Servicetechniker*in Fahrtreppen Zentralschweiz (m/w/d) 80-100%",
-        "en": "Servicetechniker*in Fahrtreppen Zentralschweiz (m/w/d) 80-100%",
-        "fr": "Servicetechniker*in Fahrtreppen Zentralschweiz (m/w/d) 80-100%"
+        "it": "Servicetechniker* in Reisereppen Zentralschweiz (m/w/d) 80-100 %",
+        "en": "Servicetechniker*in Reisereppen Zentralschweiz (m/w/d) 80-100 %",
+        "fr": "Servicetechniker* in Reisereppen Zentralschweiz (m/w/d) 80-100 %"
       },
       "description": "Über zwei Milliarden Menschen vertrauen täglich auf Schindler. Unsere langjährige Erfahrung und Innovationskraft machen uns zur Nummer eins im Schweizer Aufzugs- und Fahrtreppengeschäft. Als Teil der Schindler Familie gestaltest du Orte für alle barrierefreier, inklusiver und nachhaltiger. Wir kombinieren Innovation, Sicherheit sowie Inklusion und Diversität innerhalb des Unternehmens. Werde Teil unserer 150-jährigen Erfolgsgeschichte und gestalte die Zukunft der Mobilität mit.\n\nGemeinsam ein Stockwerk nach oben als\n\nServicetechniker*in Fahrtreppen Zentralschweiz (m/w/d) 80-100%\n\nDein Tag – dein Plan! Gestalte deine 40-Stunden-Woche nach deinen Bedürfnissen. Wir legen grossen Wert auf deine Weiterentwicklung und bieten dir genau das, was du brauchst. Mehr über uns erfährst du in diesem Video\n\nDeine neuen Herausforderungen:\n\nDich erwartet ein vielseitiger Arbeitsalltag mit viel Eigenverantwortung. An Tagen mit hohem Besucheraufkommen startest du früh am Morgen – dafür profitierst du von einem frühen Feierabend am Nachmittag.",
       "descriptionByLocale": {
         "de": "Über zwei Milliarden Menschen vertrauen täglich auf Schindler. Unsere langjährige Erfahrung und Innovationskraft machen uns zur Nummer eins im Schweizer Aufzugs- und Fahrtreppengeschäft. Als Teil der Schindler Familie gestaltest du Orte für alle barrierefreier, inklusiver und nachhaltiger. Wir kombinieren Innovation, Sicherheit sowie Inklusion und Diversität innerhalb des Unternehmens. Werde Teil unserer 150-jährigen Erfolgsgeschichte und gestalte die Zukunft der Mobilität mit.\n\nGemeinsam ein Stockwerk nach oben als\n\nServicetechniker*in Fahrtreppen Zentralschweiz (m/w/d) 80-100%\n\nDein Tag – dein Plan! Gestalte deine 40-Stunden-Woche nach deinen Bedürfnissen. Wir legen grossen Wert auf deine Weiterentwicklung und bieten dir genau das, was du brauchst. Mehr über uns erfährst du in diesem Video\n\nDeine neuen Herausforderungen:\n\nDich erwartet ein vielseitiger Arbeitsalltag mit viel Eigenverantwortung. An Tagen mit hohem Besucheraufkommen startest du früh am Morgen – dafür profitierst du von einem frühen Feierabend am Nachmittag.",
-        "it": "Über zwei Milliarden Menschen vertrauen täglich auf Schindler. Unsere langjährige Erfahrung und Innovationskraft machen uns zur Nummer eins im Schweizer Aufzugs- und Fahrtreppengeschäft. Als Teil der Schindler Familie gestaltest du Orte für alle barrierefreier, inklusiver und nachhaltiger. Wir kombinieren Innovation, Sicherheit sowie Inklusion und Diversität innerhalb des Unternehmens. Werde Teil unserer 150-jährigen Erfolgsgeschichte und gestalte die Zukunft der Mobilität mit.\n\nGemeinsam ein Stockwerk nach oben als\n\nServicetechniker*in Fahrtreppen Zentralschweiz (m/w/d) 80-100%\n\nDein Tag – dein Plan! Gestalte deine 40-Stunden-Woche nach deinen Bedürfnissen. Wir legen grossen Wert auf deine Weiterentwicklung und bieten dir genau das, was du brauchst. Mehr über uns erfährst du in diesem Video\n\nDeine neuen Herausforderungen:\n\nDich erwartet ein vielseitiger Arbeitsalltag mit viel Eigenverantwortung. An Tagen mit hohem Besucheraufkommen startest du früh am Morgen – dafür profitierst du von einem frühen Feierabend am Nachmittag.",
-        "en": "Über zwei Milliarden Menschen vertrauen täglich auf Schindler. Unsere langjährige Erfahrung und Innovationskraft machen uns zur Nummer eins im Schweizer Aufzugs- und Fahrtreppengeschäft. Als Teil der Schindler Familie gestaltest du Orte für alle barrierefreier, inklusiver und nachhaltiger. Wir kombinieren Innovation, Sicherheit sowie Inklusion und Diversität innerhalb des Unternehmens. Werde Teil unserer 150-jährigen Erfolgsgeschichte und gestalte die Zukunft der Mobilität mit.\n\nGemeinsam ein Stockwerk nach oben als\n\nServicetechniker*in Fahrtreppen Zentralschweiz (m/w/d) 80-100%\n\nDein Tag – dein Plan! Gestalte deine 40-Stunden-Woche nach deinen Bedürfnissen. Wir legen grossen Wert auf deine Weiterentwicklung und bieten dir genau das, was du brauchst. Mehr über uns erfährst du in diesem Video\n\nDeine neuen Herausforderungen:\n\nDich erwartet ein vielseitiger Arbeitsalltag mit viel Eigenverantwortung. An Tagen mit hohem Besucheraufkommen startest du früh am Morgen – dafür profitierst du von einem frühen Feierabend am Nachmittag.",
-        "fr": "Über zwei Milliarden Menschen vertrauen täglich auf Schindler. Unsere langjährige Erfahrung und Innovationskraft machen uns zur Nummer eins im Schweizer Aufzugs- und Fahrtreppengeschäft. Als Teil der Schindler Familie gestaltest du Orte für alle barrierefreier, inklusiver und nachhaltiger. Wir kombinieren Innovation, Sicherheit sowie Inklusion und Diversität innerhalb des Unternehmens. Werde Teil unserer 150-jährigen Erfolgsgeschichte und gestalte die Zukunft der Mobilität mit.\n\nGemeinsam ein Stockwerk nach oben als\n\nServicetechniker*in Fahrtreppen Zentralschweiz (m/w/d) 80-100%\n\nDein Tag – dein Plan! Gestalte deine 40-Stunden-Woche nach deinen Bedürfnissen. Wir legen grossen Wert auf deine Weiterentwicklung und bieten dir genau das, was du brauchst. Mehr über uns erfährst du in diesem Video\n\nDeine neuen Herausforderungen:\n\nDich erwartet ein vielseitiger Arbeitsalltag mit viel Eigenverantwortung. An Tagen mit hohem Besucheraufkommen startest du früh am Morgen – dafür profitierst du von einem frühen Feierabend am Nachmittag."
+        "it": "Più di due miliardi di persone si fidano di Schindler ogni giorno. I nostri molti anni di esperienza e di forza innovativa ci rendono il numero uno nel settore dell'ascensore e delle scale mobili svizzere. Come parte della famiglia Schindler, si creano posti per tutti senza barriere, inclusi e sostenibili. Uniamo innovazione, sicurezza e inclusione e diversità all'interno dell'azienda. Partecipa alla nostra storia di successo di 150 anni e modella il futuro della mobilità.\n\nInsieme un pavimento come\n\nServicetechniker* in Reisereppen Zentralschweiz (m/w/d) 80-100 %\n\nLa tua giornata – il tuo piano! Progetta la tua settimana di 40 ore secondo le tue esigenze. Alleghiamo grande importanza per il vostro sviluppo e vi offriamo esattamente ciò di cui avete bisogno. Scopri di più su di noi in questo video\n\nLe nuove sfide:\n\nVi aspettate una giornata lavorativa versatile con un sacco di auto-responsabilità. Si inizia presto la mattina nei giorni con arrivi di visitatori alti – per questo si beneficia di una sera presto nel pomeriggio.",
+        "en": "Over two billion people trust Schindler every day. Our many years of experience and innovative strength make us the number one in the Swiss elevator and escalator business. As part of the Schindler family, you create places for all barrier-free, inclusive and sustainable. We combine innovation, security and inclusion and diversity within the company. Be part of our 150-year success story and shape the future of mobility.\n\nTogether a floor up as\n\nServicetechniker*in Reisereppen Zentralschweiz (m/w/d) 80-100 %\n\nYour day – your plan! Design your 40-hour week according to your needs. We attach great importance to your development and offer you exactly what you need. Learn more about us in this video\n\nYour new challenges:\n\nYou expect a versatile working day with a lot of self-responsibility. You start early in the morning on days with high visitor arrivals – for this you benefit from an early evening in the afternoon.",
+        "fr": "Plus de deux milliards de personnes font confiance à Schindler chaque jour. Nos nombreuses années d'expérience et de force innovante font de nous le numéro un de l'entreprise suisse de l'ascenseur et de l'escalator. Dans le cadre de la famille Schindler, vous créez des endroits pour tous sans obstacles, inclusifs et durables. Nous combinons innovation, sécurité, inclusion et diversité au sein de l'entreprise. Faites partie de notre réussite de 150 ans et façonnez l'avenir de la mobilité.\n\nEnsemble, un étage vers le haut\n\nServicetechniker* in Reisereppen Zentralschweiz (m/w/d) 80-100 %\n\nVotre journée – votre plan! Concevez votre semaine de 40 heures selon vos besoins. Nous attachons une grande importance à votre développement et vous offrons exactement ce dont vous avez besoin. En savoir plus sur nous dans cette vidéo\n\nVos nouveaux défis :\n\nVous vous attendez à une journée de travail polyvalente avec beaucoup d'auto-responsabilité. Vous commencez tôt le matin les jours avec des arrivées de visiteurs élevées – pour cela vous bénéficiez d'une soirée tôt dans l'après-midi."
       },
       "location": "Ebikon",
       "canton": "LU",
@@ -1128,7 +1141,6 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1218,7 +1230,8 @@
         }
       },
       "streetAddress": "Via Industria 11",
-      "postalCode": "6934"
+      "postalCode": "6934",
+      "retranslationAttempts": 1
     },
     {
       "id": "schindler-9a76658efd3b",
@@ -1304,9 +1317,9 @@
       "slug": "manager-per-cookie-einwilligungen-schindler-ebikon",
       "slugByLocale": {
         "de": "manager-fur-cookie-einwilligungen-schindler-ebikon",
-        "it": "manager-per-cookie-einwilligungen-schindler-ebikon",
+        "it": "gestione-delle-autorizzazioni-dei-cookie-schindler-ebikon",
         "en": "manager-fur-cookie-einwilligungen-schindler-ebikon",
-        "fr": "manager-fur-cookie-einwilligungen-schindler-ebikon"
+        "fr": "gestionnaire-pour-les-autorisations-de-cookies-schindler-ebikon"
       },
       "company": "Schindler",
       "companyKey": "schindler",
@@ -1314,16 +1327,16 @@
       "title": "Manager für Cookie-Einwilligungen",
       "titleByLocale": {
         "de": "Manager für Cookie-Einwilligungen",
-        "it": "Manager per Cookie-Einwilligungen",
-        "en": "Manager für Cookie-Einwilligungen",
-        "fr": "Manager für Cookie-Einwilligungen"
+        "it": "Gestione delle autorizzazioni dei cookie",
+        "en": "Manager for cookie permissions",
+        "fr": "Gestionnaire pour les autorisations de cookies"
       },
       "description": "Mobilität | seit 1874 | weltweit im Einsatz\n\nDie Schindler Berufsbildung bildet schweizweit über 300 Lernende aus – du bist somit nie allein. Unser gesamtes Team setzt sich täglich für dich ein, damit du am Ende deiner Lehrzeit eine top ausgebildete Fachkraft bist.\n\nSchnupperlehre als Anlagen- und Apparatebauer*in EFZ (Lehrstart 2027) in Ebikon",
       "descriptionByLocale": {
-        "de": "Mobilität | seit 1874 | weltweit im Einsatz\n\nDie Schindler Berufsbildung bildet schweizweit über 300 Lernende aus – du bist somit nie allein. Unser gesamtes Team setzt sich täglich für dich ein, damit du am Ende deiner Lehrzeit eine top ausgebildete Fachkraft bist.\n\nSchnupperlehre als Anlagen- und Apparatebauer*in EFZ (Lehrstart 2027) in Ebikon",
-        "it": "Mobilität | seit 1874 | weltweit im Einsatz\n\nDie Schindler Berufsbildung bildet schweizweit über 300 Lernende aus – du bist somit nie allein. Unser gesamtes Team setzt sich täglich für dich ein, damit du am Ende deiner Lehrzeit eine top ausgebildete Fachkraft bist.\n\nSchnupperlehre als Anlagen- und Apparatebauer*in EFZ (Lehrstart 2027) in Ebikon",
-        "en": "Mobilität | seit 1874 | weltweit im Einsatz\n\nDie Schindler Berufsbildung bildet schweizweit über 300 Lernende aus – du bist somit nie allein. Unser gesamtes Team setzt sich täglich für dich ein, damit du am Ende deiner Lehrzeit eine top ausgebildete Fachkraft bist.\n\nSchnupperlehre als Anlagen- und Apparatebauer*in EFZ (Lehrstart 2027) in Ebikon",
-        "fr": "Mobilität | seit 1874 | weltweit im Einsatz\n\nDie Schindler Berufsbildung bildet schweizweit über 300 Lernende aus – du bist somit nie allein. Unser gesamtes Team setzt sich täglich für dich ein, damit du am Ende deiner Lehrzeit eine top ausgebildete Fachkraft bist.\n\nSchnupperlehre als Anlagen- und Apparatebauer*in EFZ (Lehrstart 2027) in Ebikon"
+        "de": "Mobilität | seit 1874 | weltweit im Einsatz Die Schindler Berufsbildung bildet schweizweit über 300 Lernende aus – du bist somit nie allein. Unser gesamtes Team setzt sich täglich für dich ein, damit du am Ende deiner Lehrzeit eine top ausgebildete Fachkraft bist. Lehrstelle als Anlagen- und Apparatebauer*in EFZ mit Schwerpunkt Liftmontage für 2026 in Ebikon",
+        "it": "Mobility | dal 1874 | in tutto il mondo in uso Lo Schindler Formazione Professionale e forma oltre 300 studenti in tutta la Svizzera – non sei mai solo. Tutto il nostro team si impegna ogni giorno per voi in modo da essere uno specialista altamente qualificato alla fine del vostro periodo di insegnamento. Apprendistato come produttore di impianti e attrezzature* in EFZ con enfasi ascensore montaggio per 2026 in Ebikon",
+        "en": "Mobility | since 1874 | worldwide in use The Schindler Vocational Education and Training forms over 300 learners throughout Switzerland – you are never alone. Our entire team is committed to you every day so that you are a highly trained specialist at the end of your teaching period. Apprenticeship as plant and equipment manufacturer*in EFZ with emphasis lift assembly for 2026 in Ebikon",
+        "fr": "Mobilité à travers le monde depuis 1874 L'enseignement et la formation professionnels Schindler forment plus de 300 apprenants en Suisse – vous n'êtes jamais seul. Toute notre équipe s'engage pour vous tous les jours afin que vous soyez un spécialiste hautement qualifié à la fin de votre période d'enseignement. Apprentissage en tant que fabricant d'usines et d'équipements* en EFZ avec montage de levage pour 2026 à Ebikon"
       },
       "location": "Ebikon",
       "canton": "LU",
@@ -1349,14 +1362,18 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "manager-fur-cookie-einwilligungen-schindler-ebikon",
+          "manager-per-cookie-einwilligungen-schindler-ebikon"
+        ],
+        "fr": [
           "manager-fur-cookie-einwilligungen-schindler-ebikon"
         ]
       },
       "previousSlugs": [
-        "manager-fur-cookie-einwilligungen-schindler-ebikon"
+        "manager-fur-cookie-einwilligungen-schindler-ebikon",
+        "manager-per-cookie-einwilligungen-schindler-ebikon"
       ],
       "salaryMin": 68000,
       "salaryMax": 103000,
@@ -1445,7 +1462,8 @@
         }
       },
       "streetAddress": "Via Industria 11",
-      "postalCode": "6934"
+      "postalCode": "6934",
+      "retranslationAttempts": 1
     },
     {
       "id": "schindler-4bd42971eb23",
@@ -1510,7 +1528,6 @@
         ]
       },
       "firstSeenAt": "2026-05-19T12:33:55.922Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1673,7 +1690,6 @@
         ]
       },
       "firstSeenAt": "2026-05-19T12:34:27.280Z",
-      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -1751,7 +1767,6 @@
         ]
       },
       "firstSeenAt": "2026-05-19T12:34:26.547Z",
-      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -1827,7 +1842,6 @@
         ]
       },
       "firstSeenAt": "2026-05-19T12:34:25.810Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1905,7 +1919,6 @@
         ]
       },
       "firstSeenAt": "2026-05-19T12:34:25.077Z",
-      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -2020,16 +2033,16 @@
       "title": "Manager für Cookie-Einwilligungen",
       "titleByLocale": {
         "de": "Manager für Cookie-Einwilligungen",
-        "it": "Manager per Cookie-Einwilligungen",
-        "en": "Manager für Cookie-Einwilligungen",
-        "fr": "Manager für Cookie-Einwilligungen"
+        "it": "Gestione delle autorizzazioni dei cookie",
+        "en": "Manager for cookie permissions",
+        "fr": "Gestionnaire pour les autorisations de cookies"
       },
       "description": "Mobilität | seit 1874 | weltweit im Einsatz\n\nDie Schindler Berufsbildung bildet schweizweit über 300 Lernende aus – du bist somit nie allein. Unser gesamtes Team setzt sich täglich für dich ein, damit du am Ende deiner Lehrzeit eine top ausgebildete Fachkraft bist.\n\nSchnupperlehre als Polymechaniker*in EFZ mit Schwerpunkt Liftmontage in Winterthur",
       "descriptionByLocale": {
         "de": "Mobilität | seit 1874 | weltweit im Einsatz\n\nDie Schindler Berufsbildung bildet schweizweit über 300 Lernende aus – du bist somit nie allein. Unser gesamtes Team setzt sich täglich für dich ein, damit du am Ende deiner Lehrzeit eine top ausgebildete Fachkraft bist.\n\nSchnupperlehre als Polymechaniker*in EFZ mit Schwerpunkt Liftmontage in Winterthur",
-        "it": "Mobilität | seit 1874 | weltweit im Einsatz\n\nDie Schindler Berufsbildung bildet schweizweit über 300 Lernende aus – du bist somit nie allein. Unser gesamtes Team setzt sich täglich für dich ein, damit du am Ende deiner Lehrzeit eine top ausgebildete Fachkraft bist.\n\nSchnupperlehre als Polymechaniker*in EFZ mit Schwerpunkt Liftmontage in Winterthur",
-        "en": "Mobilität | seit 1874 | weltweit im Einsatz\n\nDie Schindler Berufsbildung bildet schweizweit über 300 Lernende aus – du bist somit nie allein. Unser gesamtes Team setzt sich täglich für dich ein, damit du am Ende deiner Lehrzeit eine top ausgebildete Fachkraft bist.\n\nSchnupperlehre als Polymechaniker*in EFZ mit Schwerpunkt Liftmontage in Winterthur",
-        "fr": "Mobilität | seit 1874 | weltweit im Einsatz\n\nDie Schindler Berufsbildung bildet schweizweit über 300 Lernende aus – du bist somit nie allein. Unser gesamtes Team setzt sich täglich für dich ein, damit du am Ende deiner Lehrzeit eine top ausgebildete Fachkraft bist.\n\nSchnupperlehre als Polymechaniker*in EFZ mit Schwerpunkt Liftmontage in Winterthur"
+        "it": "Mobility | dal 1874 | in tutto il mondo in uso\n\nLo Schindler Formazione Professionale e forma oltre 300 studenti in tutta la Svizzera – non sei mai solo. Tutto il nostro team si impegna ogni giorno per te, in modo che tu sia uno specialista altamente qualificato alla fine del tuo periodo di insegnamento.\n\nSchnupperlehre als Polymechaniker* in EFZ con montaggio a fuoco in Winterthur",
+        "en": "Mobility | since 1874 | worldwide in use\n\nThe Schindler Vocational Education and Training forms over 300 learners throughout Switzerland – you are never alone. Our entire team is committed to you every day, so that you are a highly trained specialist at the end of your teaching period.\n\nSchnupperlehre als Polymechaniker*in EFZ with focus lift assembly in Winterthur",
+        "fr": "Mobilité à travers le monde depuis 1874\n\nL'enseignement et la formation professionnels Schindler forment plus de 300 apprenants en Suisse – vous n'êtes jamais seul. Toute notre équipe s'engage pour vous tous les jours, afin que vous soyez un spécialiste hautement qualifié à la fin de votre période d'enseignement.\n\nSchnupperlehre als Polymechaniker* dans l'EFZ avec montage de lifting à Winterthur"
       },
       "location": "Winterthur",
       "canton": "ZH",
@@ -2055,7 +2068,6 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -2143,7 +2155,8 @@
         }
       },
       "streetAddress": "Via Industria 11",
-      "postalCode": "6934"
+      "postalCode": "6934",
+      "retranslationAttempts": 1
     },
     {
       "id": "schindler-cb89735d4ad5",
@@ -2303,27 +2316,27 @@
       "id": "schindler-3a8dc89d7e9f",
       "slug": "manager-per-cookie-einwilligungen-schindler-oberentfelden",
       "slugByLocale": {
-        "it": "manager-per-cookie-einwilligungen-schindler-oberentfelden",
+        "it": "gestione-delle-autorizzazioni-dei-cookie-schindler-oberentfelden",
         "en": "manager-fur-cookie-einwilligungen-schindler-oberentfelden",
         "de": "manager-fur-cookie-einwilligungen-schindler-oberentfelden",
-        "fr": "manager-fur-cookie-einwilligungen-schindler-oberentfelden"
+        "fr": "gestionnaire-pour-les-autorisations-de-cookies-schindler-oberentfelden"
       },
       "company": "Schindler",
       "companyKey": "schindler",
       "companyDomain": "schindler.com",
       "title": "Manager für Cookie-Einwilligungen",
       "titleByLocale": {
-        "it": "Manager per Cookie-Einwilligungen",
-        "en": "Manager für Cookie-Einwilligungen",
+        "it": "Gestione delle autorizzazioni dei cookie",
+        "en": "Manager for cookie permissions",
         "de": "Manager für Cookie-Einwilligungen",
-        "fr": "Manager für Cookie-Einwilligungen"
+        "fr": "Gestionnaire pour les autorisations de cookies"
       },
       "description": "Mobilität | seit 1874 | weltweit im Einsatz\n\nDie Schindler Berufsbildung bildet schweizweit über 300 Lernende aus – du bist somit nie allein. Unser gesamtes Team setzt sich täglich für dich ein, damit du am Ende deiner Lehrzeit eine top ausgebildete Fachkraft bist.\n\nSchnupperlehre als Anlagen- und Apparatebauer*in EFZ mit Schwerpunkt Liftmontage (Lehrstart 2027) in Oberentfelden",
       "descriptionByLocale": {
-        "it": "Mobilität | seit 1874 | weltweit im Einsatz Die Schindler Berufsbildung bildet schweizweit über 300 Lernende aus – du bist somit nie allein. Unser gesamtes Team setzt sich täglich für dich ein, damit du am Ende deiner Lehrzeit eine top ausgebildete Fachkraft bist. Schnupperlehre als Anlagen- und Apparatebauer*in EFZ mit Schwerpunkt Liftmontage (Lehrstart 2027) in Oberentfelden",
-        "en": "Mobilität | seit 1874 | weltweit im Einsatz Die Schindler Berufsbildung bildet schweizweit über 300 Lernende aus – du bist somit nie allein. Unser gesamtes Team setzt sich täglich für dich ein, damit du am Ende deiner Lehrzeit eine top ausgebildete Fachkraft bist. Schnupperlehre als Anlagen- und Apparatebauer*in EFZ mit Schwerpunkt Liftmontage (Lehrstart 2027) in Oberentfelden",
-        "de": "Mobilität | seit 1874 | weltweit im Einsatz Die Schindler Berufsbildung bildet schweizweit über 300 Lernende aus – du bist somit nie allein. Unser gesamtes Team setzt sich täglich für dich ein, damit du am Ende deiner Lehrzeit eine top ausgebildete Fachkraft bist. Schnupperlehre als Anlagen- und Apparatebauer*in EFZ mit Schwerpunkt Liftmontage (Lehrstart 2027) in Oberentfelden",
-        "fr": "Mobilität | seit 1874 | weltweit im Einsatz Die Schindler Berufsbildung bildet schweizweit über 300 Lernende aus – du bist somit nie allein. Unser gesamtes Team setzt sich täglich für dich ein, damit du am Ende deiner Lehrzeit eine top ausgebildete Fachkraft bist. Schnupperlehre als Anlagen- und Apparatebauer*in EFZ mit Schwerpunkt Liftmontage (Lehrstart 2027) in Oberentfelden"
+        "it": "Mobility | dal 1874 | in tutto il mondo in uso Lo Schindler Formazione Professionale e forma oltre 300 studenti in tutta la Svizzera – non sei mai solo. Tutto il nostro team si impegna ogni giorno per voi in modo da essere uno specialista altamente qualificato alla fine del vostro periodo di insegnamento. Schnupperlehre als Polymechaniker* in EFZ con focus sul montaggio degli ascensori (Leehrstart 2027) a Oberentfelden",
+        "en": "Mobility | since 1874 | worldwide in use The Schindler Vocational Education and Training forms over 300 learners throughout Switzerland – you are never alone. Our entire team is committed to you every day so that you are a highly trained specialist at the end of your teaching period. Schnupperlehre als Polymechaniker*in EFZ with focus on lift assembly (Leehrstart 2027) in Oberentfelden",
+        "de": "Mobilität | seit 1874 | weltweit im Einsatz Die Schindler Berufsbildung bildet schweizweit über 300 Lernende aus – du bist somit nie allein. Unser gesamtes Team setzt sich täglich für dich ein, damit du am Ende deiner Lehrzeit eine top ausgebildete Fachkraft bist. Schnupperlehre als Polymechaniker*in EFZ mit Schwerpunkt Liftmontage (Lehrstart 2027) in Oberentfelden",
+        "fr": "Mobilité à travers le monde depuis 1874 L'enseignement et la formation professionnels Schindler forment plus de 300 apprenants en Suisse – vous n'êtes jamais seul. Toute notre équipe s'engage pour vous tous les jours afin que vous soyez un spécialiste hautement qualifié à la fin de votre période d'enseignement. Schnupperlehre als Polymechaniker* dans EFZ avec l'accent sur le montage de levage (Leehrstart 2027) à Oberentfelden"
       },
       "location": "Oberentfelden",
       "canton": "AG",
@@ -2349,15 +2362,18 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "manager-fur-cookie-einwilligungen-schindler-oberentfelden",
-        "manager-per-cookie-einwilligungen-schindler-oberentfelden-2"
+        "manager-per-cookie-einwilligungen-schindler-oberentfelden-2",
+        "manager-per-cookie-einwilligungen-schindler-oberentfelden"
       ],
       "previousSlugsByLocale": {
         "it": [
           "manager-fur-cookie-einwilligungen-schindler-oberentfelden",
           "manager-per-cookie-einwilligungen-schindler-oberentfelden-2"
+        ],
+        "fr": [
+          "manager-fur-cookie-einwilligungen-schindler-oberentfelden"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-05-19T23:24:44.904Z",
       "salaryMin": 68000,
       "salaryMax": 103000,
@@ -2588,7 +2604,6 @@
         ]
       },
       "firstSeenAt": "2026-05-19T12:34:17.660Z",
-      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -2753,7 +2768,8 @@
         }
       },
       "streetAddress": "Via Industria 11",
-      "postalCode": "6934"
+      "postalCode": "6934",
+      "retranslationAttempts": 1
     },
     {
       "id": "schindler-2ded0aaa1b5e",
@@ -2826,7 +2842,8 @@
         }
       },
       "streetAddress": "Via Industria 11",
-      "postalCode": "6934"
+      "postalCode": "6934",
+      "retranslationAttempts": 1
     },
     {
       "id": "schindler-65144c70dea6",
@@ -2896,7 +2913,8 @@
         "fr": [
           "hydraulics-technicien-m-w-d-80-100-schindler-st-gallen"
         ]
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "schindler-8bb822cdf4a2",
@@ -2961,7 +2979,8 @@
         }
       },
       "streetAddress": "Via Industria 11",
-      "postalCode": "6934"
+      "postalCode": "6934",
+      "retranslationAttempts": 1
     },
     {
       "id": "schindler-bf36cb9b336f",
@@ -3032,7 +3051,6 @@
         ]
       },
       "firstSeenAt": "2026-05-19T12:34:08.710Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -3052,27 +3070,27 @@
       "id": "schindler-604676bbf76f",
       "slug": "manager-per-cookie-einwilligungen-schindler-bern",
       "slugByLocale": {
-        "it": "manager-per-cookie-einwilligungen-schindler-bern",
+        "it": "gestione-delle-autorizzazioni-dei-cookie-schindler-bern",
         "en": "manager-fur-cookie-einwilligungen-schindler-bern",
         "de": "manager-fur-cookie-einwilligungen-schindler-bern",
-        "fr": "manager-fur-cookie-einwilligungen-schindler-bern"
+        "fr": "gestionnaire-pour-les-autorisations-de-cookies-schindler-bern"
       },
       "company": "Schindler",
       "companyKey": "schindler",
       "companyDomain": "schindler.com",
       "title": "Manager für Cookie-Einwilligungen",
       "titleByLocale": {
-        "it": "Manager per Cookie-Einwilligungen",
-        "en": "Manager für Cookie-Einwilligungen",
+        "it": "Gestione delle autorizzazioni dei cookie",
+        "en": "Manager for cookie permissions",
         "de": "Manager für Cookie-Einwilligungen",
-        "fr": "Manager für Cookie-Einwilligungen"
+        "fr": "Gestionnaire pour les autorisations de cookies"
       },
       "description": "Mobilität | seit 1874 | weltweit im Einsatz\n\nDie Schindler Berufsbildung bildet schweizweit über 300 Lernende aus – du bist somit nie allein. Unser gesamtes Team setzt sich täglich für dich ein, damit du am Ende deiner Lehrzeit eine top ausgebildete Fachkraft bist.\n\nSchnupperlehre als Anlagen- und Apparatebauer*in EFZ mit Schwerpunkt Liftmontage (Lehrstart 2027) in Bern",
       "descriptionByLocale": {
-        "it": "Mobilität | seit 1874 | weltweit im Einsatz Die Schindler Berufsbildung bildet schweizweit über 300 Lernende aus – du bist somit nie allein. Unser gesamtes Team setzt sich täglich für dich ein, damit du am Ende deiner Lehrzeit eine top ausgebildete Fachkraft bist. Schnupperlehre als Anlagen- und Apparatebauer*in EFZ mit Schwerpunkt Liftmontage (Lehrstart 2027) in Bern",
-        "en": "Mobilität | seit 1874 | weltweit im Einsatz Die Schindler Berufsbildung bildet schweizweit über 300 Lernende aus – du bist somit nie allein. Unser gesamtes Team setzt sich täglich für dich ein, damit du am Ende deiner Lehrzeit eine top ausgebildete Fachkraft bist. Schnupperlehre als Anlagen- und Apparatebauer*in EFZ mit Schwerpunkt Liftmontage (Lehrstart 2027) in Bern",
-        "de": "Mobilität | seit 1874 | weltweit im Einsatz Die Schindler Berufsbildung bildet schweizweit über 300 Lernende aus – du bist somit nie allein. Unser gesamtes Team setzt sich täglich für dich ein, damit du am Ende deiner Lehrzeit eine top ausgebildete Fachkraft bist. Schnupperlehre als Anlagen- und Apparatebauer*in EFZ mit Schwerpunkt Liftmontage (Lehrstart 2027) in Bern",
-        "fr": "Mobilität | seit 1874 | weltweit im Einsatz Die Schindler Berufsbildung bildet schweizweit über 300 Lernende aus – du bist somit nie allein. Unser gesamtes Team setzt sich täglich für dich ein, damit du am Ende deiner Lehrzeit eine top ausgebildete Fachkraft bist. Schnupperlehre als Anlagen- und Apparatebauer*in EFZ mit Schwerpunkt Liftmontage (Lehrstart 2027) in Bern"
+        "it": "Mobility | dal 1874 | in tutto il mondo in uso Lo Schindler Formazione Professionale e forma oltre 300 studenti in tutta la Svizzera – non sei mai solo. Tutto il nostro team si impegna ogni giorno per voi in modo da essere uno specialista altamente qualificato alla fine del vostro periodo di insegnamento. Schnupperlehre als Kaufmann*frau EFZ (Leehrstart 2027) a Berna",
+        "en": "Mobility | since 1874 | worldwide in use The Schindler Vocational Education and Training forms over 300 learners throughout Switzerland – you are never alone. Our entire team is committed to you every day so that you are a highly trained specialist at the end of your teaching period. Schnupperlehre als Kaufmann*frau EFZ (Leehrstart 2027) in Bern",
+        "de": "Mobilität | seit 1874 | weltweit im Einsatz Die Schindler Berufsbildung bildet schweizweit über 300 Lernende aus – du bist somit nie allein. Unser gesamtes Team setzt sich täglich für dich ein, damit du am Ende deiner Lehrzeit eine top ausgebildete Fachkraft bist. Schnupperlehre als Kaufmann*frau EFZ (Lehrstart 2027) in Bern",
+        "fr": "Mobilité à travers le monde depuis 1874 L'enseignement et la formation professionnels Schindler forment plus de 300 apprenants en Suisse – vous n'êtes jamais seul. Toute notre équipe s'engage pour vous tous les jours afin que vous soyez un spécialiste hautement qualifié à la fin de votre période d'enseignement. Schnupperlehre als Kaufmann*frau EFZ (Leehrstart 2027) à Berne"
       },
       "location": "Bern",
       "canton": "BE",
@@ -3098,15 +3116,21 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "manager-fur-cookie-einwilligungen-schindler-bern",
-        "manager-per-cookie-einwilligungen-schindler-bern-2"
+        "manager-per-cookie-einwilligungen-schindler-bern-2",
+        "manager-per-cookie-einwilligungen-schindler-bern",
+        "manager-per-cookie-einwilligungen-schindler-st-gallen-oi7jl7",
+        "manager-fur-cookie-einwilligungen-schindler-st-gallen",
+        "manager-per-cookie-einwilligungen-schindler-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "manager-fur-cookie-einwilligungen-schindler-bern",
           "manager-per-cookie-einwilligungen-schindler-bern-2"
+        ],
+        "fr": [
+          "manager-fur-cookie-einwilligungen-schindler-bern"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-05-19T23:24:34.518Z",
       "salaryMin": 68000,
       "salaryMax": 103000,
@@ -3268,7 +3292,6 @@
         ]
       },
       "firstSeenAt": "2026-05-19T12:34:04.959Z",
-      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -3372,10 +3395,10 @@
       "id": "schindler-9f5b8c1ba816",
       "slug": "projektleiter-m-w-d-schindler-bern",
       "slugByLocale": {
-        "it": "projektleiter-m-w-d-schindler-bern",
-        "en": "projektleiter-m-w-d-schindler-bern",
+        "it": "tecnico-ascensorista-regione-berna-m-f-d-80-100-schindler-bern",
+        "en": "elevator-technician-region-bern-m-f-d-80-100-schindler-bern",
         "de": "aufzugsmonteur-in-region-berner-oberland-m-w-d-80-100-schindler-bern",
-        "fr": "projektleiter-m-w-d-schindler-bern"
+        "fr": "technicien-ascensoriste-region-berne-h-f-d-80-100-schindler-bern"
       },
       "company": "Schindler",
       "companyKey": "schindler",
@@ -3418,7 +3441,9 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "aufzugsmonteur-in-region-berner-oberland-m-w-d-80-100-schindler-bern",
-        "projektleiter-m-w-d-schindler-bern-7ab342"
+        "projektleiter-m-w-d-schindler-bern-7ab342",
+        "aufzugsmonteur-in-region-bern-m-w-d-80-100-schindler-bern",
+        "projektleiter-m-w-d-schindler-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3515,7 +3540,6 @@
         ]
       },
       "firstSeenAt": "2026-05-19T12:34:02.683Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -3754,7 +3778,6 @@
         ]
       },
       "firstSeenAt": "2026-05-19T12:33:59.655Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -3841,7 +3864,6 @@
         ]
       },
       "firstSeenAt": "2026-05-19T12:33:58.173Z",
-      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -3994,7 +4016,6 @@
         ]
       },
       "firstSeenAt": "2026-05-19T12:33:56.687Z",
-      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -4073,7 +4094,6 @@
         ]
       },
       "firstSeenAt": "2026-05-19T12:33:55.194Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -4138,7 +4158,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-05-19T12:33:50.719Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -4217,7 +4236,6 @@
         ]
       },
       "firstSeenAt": "2026-05-19T12:33:49.986Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -4290,7 +4308,6 @@
         ]
       },
       "firstSeenAt": "2026-05-19T12:33:47.721Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -4355,7 +4372,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-05-19T12:33:46.988Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -4576,7 +4592,6 @@
         ]
       },
       "firstSeenAt": "2026-05-19T12:33:44.765Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -4719,7 +4734,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-05-19T12:33:43.279Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -5216,7 +5230,8 @@
         }
       },
       "streetAddress": "Via Industria 11",
-      "postalCode": "6934"
+      "postalCode": "6934",
+      "retranslationAttempts": 1
     },
     {
       "id": "schindler-f2450ccabb86",
@@ -5289,7 +5304,8 @@
         }
       },
       "streetAddress": "Via Industria 11",
-      "postalCode": "6934"
+      "postalCode": "6934",
+      "retranslationAttempts": 1
     },
     {
       "id": "schindler-4d9b959b6a91",
@@ -5502,7 +5518,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-05-19T12:33:34.533Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -5673,7 +5688,8 @@
         }
       },
       "streetAddress": "Via Industria 11",
-      "postalCode": "6934"
+      "postalCode": "6934",
+      "retranslationAttempts": 1
     },
     {
       "id": "schindler-1108939d5959",
@@ -5746,7 +5762,8 @@
         }
       },
       "streetAddress": "Via Industria 11",
-      "postalCode": "6934"
+      "postalCode": "6934",
+      "retranslationAttempts": 1
     },
     {
       "id": "schindler-a0263678dc22",
@@ -5811,7 +5828,8 @@
         }
       },
       "streetAddress": "Via Industria 11",
-      "postalCode": "6934"
+      "postalCode": "6934",
+      "retranslationAttempts": 1
     },
     {
       "id": "schindler-9fc566323467",
@@ -5884,7 +5902,8 @@
         }
       },
       "streetAddress": "Via Industria 11",
-      "postalCode": "6934"
+      "postalCode": "6934",
+      "retranslationAttempts": 1
     },
     {
       "id": "schindler-b0e6ea9b760b",
@@ -5958,7 +5977,8 @@
         }
       },
       "streetAddress": "Via Industria 11",
-      "postalCode": "6934"
+      "postalCode": "6934",
+      "retranslationAttempts": 1
     },
     {
       "id": "schindler-e825851e47cd",
@@ -6031,7 +6051,8 @@
         }
       },
       "streetAddress": "Via Industria 11",
-      "postalCode": "6934"
+      "postalCode": "6934",
+      "retranslationAttempts": 1
     },
     {
       "id": "schindler-3d99f92c8102",
@@ -6104,7 +6125,8 @@
         }
       },
       "streetAddress": "Via Industria 11",
-      "postalCode": "6934"
+      "postalCode": "6934",
+      "retranslationAttempts": 1
     },
     {
       "id": "schindler-101723fba7fd",
@@ -6177,7 +6199,8 @@
         }
       },
       "streetAddress": "Via Industria 11",
-      "postalCode": "6934"
+      "postalCode": "6934",
+      "retranslationAttempts": 1
     }
   ]
 }

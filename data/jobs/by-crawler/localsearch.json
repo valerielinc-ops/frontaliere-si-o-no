@@ -90,7 +90,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:55:19.132Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -191,7 +190,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:55:18.129Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -292,7 +290,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:55:16.719Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -393,7 +390,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:55:15.782Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -494,7 +490,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:55:14.891Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -592,7 +587,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:55:13.170Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -836,7 +830,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:55:07.844Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -936,7 +929,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:55:03.826Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1036,7 +1028,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:55:02.889Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1137,7 +1128,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:55:00.973Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1236,7 +1226,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:55:00.086Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1336,7 +1325,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:54:59.193Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1436,7 +1424,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:54:56.002Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1537,7 +1524,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:54:54.880Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1713,7 +1699,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:54:47.599Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1812,7 +1797,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:54:43.923Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1887,7 +1871,6 @@
         ]
       },
       "firstSeenAt": "2026-04-15T21:57:39.187Z",
-      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -1958,7 +1941,6 @@
         ]
       },
       "firstSeenAt": "2026-04-27T11:14:18.246Z",
-      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "baseSalary": {
@@ -2020,7 +2002,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-04-27T11:14:17.258Z",
-      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "baseSalary": {
@@ -2232,7 +2213,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-05-04T11:13:12.721Z",
-      "needsRetranslation": true,
       "salaryMin": 75500,
       "salaryMax": 133000,
       "baseSalary": {
@@ -2326,7 +2306,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "5000"
+      "postalCode": "5000",
+      "retranslationAttempts": 1
     },
     {
       "id": "localsearch-4fe13b918f05",
@@ -2402,7 +2383,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8001"
+      "postalCode": "8001",
+      "retranslationAttempts": 1
     },
     {
       "id": "localsearch-90cc2bda49a8",
@@ -2563,7 +2545,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "7000"
+      "postalCode": "7000",
+      "retranslationAttempts": 1
     },
     {
       "id": "localsearch-36f721160a26",
@@ -2620,7 +2603,6 @@
         ]
       },
       "firstSeenAt": "2026-05-13T22:35:32.758Z",
-      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -2693,7 +2675,6 @@
         ]
       },
       "firstSeenAt": "2026-05-13T22:35:32.019Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2766,7 +2747,6 @@
         ]
       },
       "firstSeenAt": "2026-05-13T22:35:31.265Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2836,7 +2816,6 @@
         ]
       },
       "firstSeenAt": "2026-05-18T12:46:04.001Z",
-      "needsRetranslation": true,
       "salaryMin": 79500,
       "salaryMax": 135000,
       "baseSalary": {
@@ -2866,16 +2845,16 @@
       "title": "Verkäuferin / Verkäufer im Aussendienst",
       "titleByLocale": {
         "de": "Verkäuferin / Verkäufer im Aussendienst",
-        "it": "Verkäuferin / Verkäufer im Aussendienst",
-        "en": "Verkäuferin / Verkäufer im Aussendienst",
-        "fr": "Verkäuferin / Verkäufer im Aussendienst"
+        "it": "Venditore / venditore nel campo",
+        "en": "Seller / seller in the field",
+        "fr": "Vendeur / vendeur dans le champ"
       },
       "description": "Region: Luzern & Agglomeration – Innerschweiz, Nid- und Obwalden\n\nlocalsearch ist der führende Marketing- und Werbepartner für Schweizer KMU.\nWir machen Kunden erfolgreich in der digitalen Welt.\n\nVerkaufen ist deine Passion? Schlägt dein Herz für digitales Marketing? Bist du gerne unterwegs und möchtest in die KMU-Welt eintauchen? Und willst du deinen Verdienst selbst beeinflussen? Dann bist du hier genau richtig!\n\nWir suchen dich als   Verkaufstalent im Aussendienst\n\nDu besuchst sowohl bestehende KMU-Kunden als auch potenzielle Neukunden und präsentierst ihnen massgeschneiderte digitale Marketinglösungen. Dein Ziel ist es, nachhaltige Mehrwerte zu schaffen und so KMU digital erfolgreich zu machen.\n\nSkills und Anforderungen\n\nDas bringst du mit, um bei uns erfolgreich zu sein:\n\n• Freude am Verkaufen und Beraten: Du brennst für den persönlichen und telefonischen Kundenkontakt und legst grossen Wert darauf, unsere Kunden wirklich zu verstehen.\n\n• Kundenorientierung : Du baust vertrauensvolle Beziehungen zu deinen Kunden auf und erklärst erfolgreich den Nutzen unserer Online-Marketing-Lösungen.\n\n• Erfolgsorientierung : Deine Eigenmotivation und dein Ehrgeiz sind deine Erfolgsfaktoren. Auch in turbulenten Zeiten bleibst du fokussiert und zielstrebig.\n\n• Kommunikativ : Du sprichst fliessend Deutsch und beherrschst die gängigen Kommunikationsmittel.\n\n• Ausstrahlung : Du hast Humor und zeigst gerne deine Persönlichkeit.\n\n• Mobilität:  Du besitzt einen gültigen Führerausweis (Kat. B) und ein eigenes Auto, sodass du unsere Kunden zuverlässig vor Ort besuchen kannst.\n\n• Verantwortungsvolles Handeln : Dein Auftritt ist professionell und dein Ruf einwandfrei (Leumund)\n\n• Flexibilität:  Teilzeitarbeit ist grundsätzlich möglich, jedoch erst ab dem zweiten Anstellungsmonat. Im ersten Monat ist die Teilnahme an der Grundausbildung an unserem Hauptsitz in Zürich erforderlich.\n\nDas bieten wir dir\n\nDarum willst du Teil von localsearch werden:\n\n• Teamwork:  Du bist integriert in einem lebhaften Team, das sich gegenseitig unterstützt und sich zu regelmässigen Meetings trifft.\n\n• Eigenes Verkaufsgebiet: Dir wird ein Gebiet mit bestehenden KMU-Kunden und potenziellen Neukunden zugeteilt.\n\n• Marketinglösungen:  Dir steht eine abwechslungsreiche Produktepalette aus dem digitalen Marketing zur Verfügung.\n\n• Selbstständiges Arbeiten:  Du übernimmst Verantwortung für deine Aufgaben, planst deine Kundentermine eigenverantwortlich und handelst mit einem hohen Mass an Eigeninitiative.\n\n• Umfassende Schulungen und Weiterentwicklung:  Du startest mit einer mehrwöchigen Ausbildung und erhältst regelmässig Begleitungen und Schulungen im Bereich Verkauf und Produkte.\n\n• Ein attraktives Provisionierungsmodell:  Dein Erfolg wird unmittelbar belohnt – jede gute Beratung, die zu einem Auftrag führt, bestimmt dein Einkommen.\n\n• Auslagenpauschale:  Dein eigenes Fahrzeug bringt dich sicher zum Kundentermin und wir entschädigen dich hierfür zeitgemäss.\n\nKontakt & Bewerbung\n\nBei fachlichen Fragen zur Stelle kannst du dich direkt an unseren Sales Manager Marcos Romero wenden: +41 79 962 83 81.\n\nWir freuen uns darauf, dich kennenzulernen!\n\nZusätzliche Informationen über die Stelle und localsearch findest du hier .",
       "descriptionByLocale": {
-        "de": "Region: Luzern & Agglomeration – Innerschweiz, Nid- und Obwalden\n\nlocalsearch ist der führende Marketing- und Werbepartner für Schweizer KMU.\nWir machen Kunden erfolgreich in der digitalen Welt.\n\nVerkaufen ist deine Passion? Schlägt dein Herz für digitales Marketing? Bist du gerne unterwegs und möchtest in die KMU-Welt eintauchen? Und willst du deinen Verdienst selbst beeinflussen? Dann bist du hier genau richtig!\n\nWir suchen dich als   Verkaufstalent im Aussendienst\n\nDu besuchst sowohl bestehende KMU-Kunden als auch potenzielle Neukunden und präsentierst ihnen massgeschneiderte digitale Marketinglösungen. Dein Ziel ist es, nachhaltige Mehrwerte zu schaffen und so KMU digital erfolgreich zu machen.\n\nSkills und Anforderungen\n\nDas bringst du mit, um bei uns erfolgreich zu sein:\n\n• Freude am Verkaufen und Beraten: Du brennst für den persönlichen und telefonischen Kundenkontakt und legst grossen Wert darauf, unsere Kunden wirklich zu verstehen.\n\n• Kundenorientierung : Du baust vertrauensvolle Beziehungen zu deinen Kunden auf und erklärst erfolgreich den Nutzen unserer Online-Marketing-Lösungen.\n\n• Erfolgsorientierung : Deine Eigenmotivation und dein Ehrgeiz sind deine Erfolgsfaktoren. Auch in turbulenten Zeiten bleibst du fokussiert und zielstrebig.\n\n• Kommunikativ : Du sprichst fliessend Deutsch und beherrschst die gängigen Kommunikationsmittel.\n\n• Ausstrahlung : Du hast Humor und zeigst gerne deine Persönlichkeit.\n\n• Mobilität:  Du besitzt einen gültigen Führerausweis (Kat. B) und ein eigenes Auto, sodass du unsere Kunden zuverlässig vor Ort besuchen kannst.\n\n• Verantwortungsvolles Handeln : Dein Auftritt ist professionell und dein Ruf einwandfrei (Leumund)\n\n• Flexibilität:  Teilzeitarbeit ist grundsätzlich möglich, jedoch erst ab dem zweiten Anstellungsmonat. Im ersten Monat ist die Teilnahme an der Grundausbildung an unserem Hauptsitz in Zürich erforderlich.\n\nDas bieten wir dir\n\nDarum willst du Teil von localsearch werden:\n\n• Teamwork:  Du bist integriert in einem lebhaften Team, das sich gegenseitig unterstützt und sich zu regelmässigen Meetings trifft.\n\n• Eigenes Verkaufsgebiet: Dir wird ein Gebiet mit bestehenden KMU-Kunden und potenziellen Neukunden zugeteilt.\n\n• Marketinglösungen:  Dir steht eine abwechslungsreiche Produktepalette aus dem digitalen Marketing zur Verfügung.\n\n• Selbstständiges Arbeiten:  Du übernimmst Verantwortung für deine Aufgaben, planst deine Kundentermine eigenverantwortlich und handelst mit einem hohen Mass an Eigeninitiative.\n\n• Umfassende Schulungen und Weiterentwicklung:  Du startest mit einer mehrwöchigen Ausbildung und erhältst regelmässig Begleitungen und Schulungen im Bereich Verkauf und Produkte.\n\n• Ein attraktives Provisionierungsmodell:  Dein Erfolg wird unmittelbar belohnt – jede gute Beratung, die zu einem Auftrag führt, bestimmt dein Einkommen.\n\n• Auslagenpauschale:  Dein eigenes Fahrzeug bringt dich sicher zum Kundentermin und wir entschädigen dich hierfür zeitgemäss.\n\nKontakt & Bewerbung\n\nBei fachlichen Fragen zur Stelle kannst du dich direkt an unseren Sales Manager Marcos Romero wenden: +41 79 962 83 81.\n\nWir freuen uns darauf, dich kennenzulernen!\n\nZusätzliche Informationen über die Stelle und localsearch findest du hier .",
-        "it": "Region: Luzern & Agglomeration – Innerschweiz, Nid- und Obwalden\n\nlocalsearch ist der führende Marketing- und Werbepartner für Schweizer KMU.\nWir machen Kunden erfolgreich in der digitalen Welt.\n\nVerkaufen ist deine Passion? Schlägt dein Herz für digitales Marketing? Bist du gerne unterwegs und möchtest in die KMU-Welt eintauchen? Und willst du deinen Verdienst selbst beeinflussen? Dann bist du hier genau richtig!\n\nWir suchen dich als   Verkaufstalent im Aussendienst\n\nDu besuchst sowohl bestehende KMU-Kunden als auch potenzielle Neukunden und präsentierst ihnen massgeschneiderte digitale Marketinglösungen. Dein Ziel ist es, nachhaltige Mehrwerte zu schaffen und so KMU digital erfolgreich zu machen.\n\nSkills und Anforderungen\n\nDas bringst du mit, um bei uns erfolgreich zu sein:\n\n• Freude am Verkaufen und Beraten: Du brennst für den persönlichen und telefonischen Kundenkontakt und legst grossen Wert darauf, unsere Kunden wirklich zu verstehen.\n\n• Kundenorientierung : Du baust vertrauensvolle Beziehungen zu deinen Kunden auf und erklärst erfolgreich den Nutzen unserer Online-Marketing-Lösungen.\n\n• Erfolgsorientierung : Deine Eigenmotivation und dein Ehrgeiz sind deine Erfolgsfaktoren. Auch in turbulenten Zeiten bleibst du fokussiert und zielstrebig.\n\n• Kommunikativ : Du sprichst fliessend Deutsch und beherrschst die gängigen Kommunikationsmittel.\n\n• Ausstrahlung : Du hast Humor und zeigst gerne deine Persönlichkeit.\n\n• Mobilität:  Du besitzt einen gültigen Führerausweis (Kat. B) und ein eigenes Auto, sodass du unsere Kunden zuverlässig vor Ort besuchen kannst.\n\n• Verantwortungsvolles Handeln : Dein Auftritt ist professionell und dein Ruf einwandfrei (Leumund)\n\n• Flexibilität:  Teilzeitarbeit ist grundsätzlich möglich, jedoch erst ab dem zweiten Anstellungsmonat. Im ersten Monat ist die Teilnahme an der Grundausbildung an unserem Hauptsitz in Zürich erforderlich.\n\nDas bieten wir dir\n\nDarum willst du Teil von localsearch werden:\n\n• Teamwork:  Du bist integriert in einem lebhaften Team, das sich gegenseitig unterstützt und sich zu regelmässigen Meetings trifft.\n\n• Eigenes Verkaufsgebiet: Dir wird ein Gebiet mit bestehenden KMU-Kunden und potenziellen Neukunden zugeteilt.\n\n• Marketinglösungen:  Dir steht eine abwechslungsreiche Produktepalette aus dem digitalen Marketing zur Verfügung.\n\n• Selbstständiges Arbeiten:  Du übernimmst Verantwortung für deine Aufgaben, planst deine Kundentermine eigenverantwortlich und handelst mit einem hohen Mass an Eigeninitiative.\n\n• Umfassende Schulungen und Weiterentwicklung:  Du startest mit einer mehrwöchigen Ausbildung und erhältst regelmässig Begleitungen und Schulungen im Bereich Verkauf und Produkte.\n\n• Ein attraktives Provisionierungsmodell:  Dein Erfolg wird unmittelbar belohnt – jede gute Beratung, die zu einem Auftrag führt, bestimmt dein Einkommen.\n\n• Auslagenpauschale:  Dein eigenes Fahrzeug bringt dich sicher zum Kundentermin und wir entschädigen dich hierfür zeitgemäss.\n\nKontakt & Bewerbung\n\nBei fachlichen Fragen zur Stelle kannst du dich direkt an unseren Sales Manager Marcos Romero wenden: +41 79 962 83 81.\n\nWir freuen uns darauf, dich kennenzulernen!\n\nZusätzliche Informationen über die Stelle und localsearch findest du hier .",
-        "en": "Region: Luzern & Agglomeration – Innerschweiz, Nid- und Obwalden\n\nlocalsearch ist der führende Marketing- und Werbepartner für Schweizer KMU.\nWir machen Kunden erfolgreich in der digitalen Welt.\n\nVerkaufen ist deine Passion? Schlägt dein Herz für digitales Marketing? Bist du gerne unterwegs und möchtest in die KMU-Welt eintauchen? Und willst du deinen Verdienst selbst beeinflussen? Dann bist du hier genau richtig!\n\nWir suchen dich als   Verkaufstalent im Aussendienst\n\nDu besuchst sowohl bestehende KMU-Kunden als auch potenzielle Neukunden und präsentierst ihnen massgeschneiderte digitale Marketinglösungen. Dein Ziel ist es, nachhaltige Mehrwerte zu schaffen und so KMU digital erfolgreich zu machen.\n\nSkills und Anforderungen\n\nDas bringst du mit, um bei uns erfolgreich zu sein:\n\n• Freude am Verkaufen und Beraten: Du brennst für den persönlichen und telefonischen Kundenkontakt und legst grossen Wert darauf, unsere Kunden wirklich zu verstehen.\n\n• Kundenorientierung : Du baust vertrauensvolle Beziehungen zu deinen Kunden auf und erklärst erfolgreich den Nutzen unserer Online-Marketing-Lösungen.\n\n• Erfolgsorientierung : Deine Eigenmotivation und dein Ehrgeiz sind deine Erfolgsfaktoren. Auch in turbulenten Zeiten bleibst du fokussiert und zielstrebig.\n\n• Kommunikativ : Du sprichst fliessend Deutsch und beherrschst die gängigen Kommunikationsmittel.\n\n• Ausstrahlung : Du hast Humor und zeigst gerne deine Persönlichkeit.\n\n• Mobilität:  Du besitzt einen gültigen Führerausweis (Kat. B) und ein eigenes Auto, sodass du unsere Kunden zuverlässig vor Ort besuchen kannst.\n\n• Verantwortungsvolles Handeln : Dein Auftritt ist professionell und dein Ruf einwandfrei (Leumund)\n\n• Flexibilität:  Teilzeitarbeit ist grundsätzlich möglich, jedoch erst ab dem zweiten Anstellungsmonat. Im ersten Monat ist die Teilnahme an der Grundausbildung an unserem Hauptsitz in Zürich erforderlich.\n\nDas bieten wir dir\n\nDarum willst du Teil von localsearch werden:\n\n• Teamwork:  Du bist integriert in einem lebhaften Team, das sich gegenseitig unterstützt und sich zu regelmässigen Meetings trifft.\n\n• Eigenes Verkaufsgebiet: Dir wird ein Gebiet mit bestehenden KMU-Kunden und potenziellen Neukunden zugeteilt.\n\n• Marketinglösungen:  Dir steht eine abwechslungsreiche Produktepalette aus dem digitalen Marketing zur Verfügung.\n\n• Selbstständiges Arbeiten:  Du übernimmst Verantwortung für deine Aufgaben, planst deine Kundentermine eigenverantwortlich und handelst mit einem hohen Mass an Eigeninitiative.\n\n• Umfassende Schulungen und Weiterentwicklung:  Du startest mit einer mehrwöchigen Ausbildung und erhältst regelmässig Begleitungen und Schulungen im Bereich Verkauf und Produkte.\n\n• Ein attraktives Provisionierungsmodell:  Dein Erfolg wird unmittelbar belohnt – jede gute Beratung, die zu einem Auftrag führt, bestimmt dein Einkommen.\n\n• Auslagenpauschale:  Dein eigenes Fahrzeug bringt dich sicher zum Kundentermin und wir entschädigen dich hierfür zeitgemäss.\n\nKontakt & Bewerbung\n\nBei fachlichen Fragen zur Stelle kannst du dich direkt an unseren Sales Manager Marcos Romero wenden: +41 79 962 83 81.\n\nWir freuen uns darauf, dich kennenzulernen!\n\nZusätzliche Informationen über die Stelle und localsearch findest du hier .",
-        "fr": "Region: Luzern & Agglomeration – Innerschweiz, Nid- und Obwalden\n\nlocalsearch ist der führende Marketing- und Werbepartner für Schweizer KMU.\nWir machen Kunden erfolgreich in der digitalen Welt.\n\nVerkaufen ist deine Passion? Schlägt dein Herz für digitales Marketing? Bist du gerne unterwegs und möchtest in die KMU-Welt eintauchen? Und willst du deinen Verdienst selbst beeinflussen? Dann bist du hier genau richtig!\n\nWir suchen dich als   Verkaufstalent im Aussendienst\n\nDu besuchst sowohl bestehende KMU-Kunden als auch potenzielle Neukunden und präsentierst ihnen massgeschneiderte digitale Marketinglösungen. Dein Ziel ist es, nachhaltige Mehrwerte zu schaffen und so KMU digital erfolgreich zu machen.\n\nSkills und Anforderungen\n\nDas bringst du mit, um bei uns erfolgreich zu sein:\n\n• Freude am Verkaufen und Beraten: Du brennst für den persönlichen und telefonischen Kundenkontakt und legst grossen Wert darauf, unsere Kunden wirklich zu verstehen.\n\n• Kundenorientierung : Du baust vertrauensvolle Beziehungen zu deinen Kunden auf und erklärst erfolgreich den Nutzen unserer Online-Marketing-Lösungen.\n\n• Erfolgsorientierung : Deine Eigenmotivation und dein Ehrgeiz sind deine Erfolgsfaktoren. Auch in turbulenten Zeiten bleibst du fokussiert und zielstrebig.\n\n• Kommunikativ : Du sprichst fliessend Deutsch und beherrschst die gängigen Kommunikationsmittel.\n\n• Ausstrahlung : Du hast Humor und zeigst gerne deine Persönlichkeit.\n\n• Mobilität:  Du besitzt einen gültigen Führerausweis (Kat. B) und ein eigenes Auto, sodass du unsere Kunden zuverlässig vor Ort besuchen kannst.\n\n• Verantwortungsvolles Handeln : Dein Auftritt ist professionell und dein Ruf einwandfrei (Leumund)\n\n• Flexibilität:  Teilzeitarbeit ist grundsätzlich möglich, jedoch erst ab dem zweiten Anstellungsmonat. Im ersten Monat ist die Teilnahme an der Grundausbildung an unserem Hauptsitz in Zürich erforderlich.\n\nDas bieten wir dir\n\nDarum willst du Teil von localsearch werden:\n\n• Teamwork:  Du bist integriert in einem lebhaften Team, das sich gegenseitig unterstützt und sich zu regelmässigen Meetings trifft.\n\n• Eigenes Verkaufsgebiet: Dir wird ein Gebiet mit bestehenden KMU-Kunden und potenziellen Neukunden zugeteilt.\n\n• Marketinglösungen:  Dir steht eine abwechslungsreiche Produktepalette aus dem digitalen Marketing zur Verfügung.\n\n• Selbstständiges Arbeiten:  Du übernimmst Verantwortung für deine Aufgaben, planst deine Kundentermine eigenverantwortlich und handelst mit einem hohen Mass an Eigeninitiative.\n\n• Umfassende Schulungen und Weiterentwicklung:  Du startest mit einer mehrwöchigen Ausbildung und erhältst regelmässig Begleitungen und Schulungen im Bereich Verkauf und Produkte.\n\n• Ein attraktives Provisionierungsmodell:  Dein Erfolg wird unmittelbar belohnt – jede gute Beratung, die zu einem Auftrag führt, bestimmt dein Einkommen.\n\n• Auslagenpauschale:  Dein eigenes Fahrzeug bringt dich sicher zum Kundentermin und wir entschädigen dich hierfür zeitgemäss.\n\nKontakt & Bewerbung\n\nBei fachlichen Fragen zur Stelle kannst du dich direkt an unseren Sales Manager Marcos Romero wenden: +41 79 962 83 81.\n\nWir freuen uns darauf, dich kennenzulernen!\n\nZusätzliche Informationen über die Stelle und localsearch findest du hier ."
+        "de": "# Mansioni\n\nVenditore nel servizio esterno\n\n# Descrizione\n\nlocalsearch è il principale partner di marketing e pubblicità per le PMI svizzere.\nRendiamo i nostri clienti di successo nel mondo digitale.\n\nLa vendita è la tua passione? Il tuo cuore batte per il marketing digitale? Ti piace viaggiare e vuoi immergerti nel mondo delle PMI? E vuoi influenzare il tuo reddito? Allora sei nel posto giusto!\n\nCerchiamo un talento venditore nel servizio esterno\n\nVisiterai sia i clienti esistenti delle PMI che i potenziali nuovi clienti e presenterai loro soluzioni di marketing digitale su misura. Il tuo obiettivo è creare valore a lungo termine e rendere le PMI di successo nel digitale.\n\n# Skills e Requisiti\n\nCiò che ti serve per avere successo con noi:\n\n* Passione per la vendita e il consiglio: Ami il contatto personale e telefonico con i clienti e dai grande importanza a capire veramente i nostri clienti.\n* Orientamento al cliente: Costruisci relazioni fiduciarie con i tuoi clienti e spieghi con successo il valore delle nostre soluzioni di marketing online.\n* Orientamento al successo: La tua motivazione e ambizione sono i tuoi fattori di successo. Rimani concentrato e mirato anche in tempi turbolenti.\n* Comunicativo: Parli fluentemente tedesco e padroneggi i mezzi di comunicazione comuni.\n* Carisma: Hai senso dell'umorismo e mostri volentieri la tua personalità.\n* Mobilità: Possiedi una patente di guida valida (categoria B) e un'auto propria, in modo da poter visitare i nostri clienti in modo affidabile.\n* Comportamento responsabile: Il tuo aspetto è professionale e la tua reputazione è impeccabile (certificato di buona condotta).\n* Flessibilità: Il lavoro part-time è generalmente possibile, ma solo dal secondo mese di assunzione. Nel primo mese è richiesta la partecipazione alla formazione di base presso la nostra sede principale di Zurigo.\n\n# Cosa offriamo\n\nPerchè vuoi diventare parte di localsearch:\n\n* Lavoro di squadra: Sei integrato in un team vivace che si sostiene a vicenda e si riunisce regolarmente.\n* Territorio di vendita: Ti viene assegnato un territorio con clienti esistenti delle PMI e potenziali nuovi clienti.\n* Soluzioni di marketing: Ti viene offerta una vasta gamma di prodotti nel marketing digitale.\n* Lavoro autonomo: Assumi la responsabilità delle tue attività, pianifica i tuoi appuntamenti con i clienti in modo autonomo e agisci con un alto livello di iniziativa.\n* Formazione completa e sviluppo: Inizi con una formazione di diverse settimane e ricevi regolarmente assistenza e formazione nel campo delle vendite e dei prodotti.\n* Modello di provvigioni attraente: Il tuo successo viene premiato direttamente - ogni buona consulenza che porta a un ordine determina il tuo reddito.\n* Indennità di spese: Il tuo veicolo ti porta in modo sicuro all'appuntamento con il cliente e ti compensiamo in modo adeguato.\n\n# Contatto\n\nPer domande sulla posizione, contatta direttamente il nostro Sales Manager Marcos Romero: +41 79 962 83 81.\n\nSiamo lieti di conoscerti!\n\nPer ulteriori informazioni sulla posizione e su localsearch, consulta qui .",
+        "it": "Mansioni\n\nL'amore del mondo\n\nDescrizione\n\nlocalsearch è il principale partner di marketing e pubblicità per le PMI svizzere.\nRendiamo i nostri clienti di successo nel mondo digitale.\n\nLa vendita è la tua passione? Il tuo cuore ha chiesto per il marketing digitale? Ti piace viaggiare e vuoi immergerti nel mondo delle PMI? E vuoi influenzare il tuo reddito? Allora sia nel posto giusto!\n\nCerchiamo un talento venditore nel servizio esterno\n\nVisiterai sia i clienti esistenti delle PMI che i potenzialii nuovi clienti e presentirai loro soluzioni di marketing digitale su misura. Il tuo obiettivo è creare valore a lungo termine e render le PMI di successo nel digitale.\n\nCompetenze e requisiti\n\nCiò che ti serve per avere successo con noi:\n\n* Passione per la vendita e il consiglio: Ami il contatto personale e telefonico con i clienti e dai grandi importanza a veramente i nostri clienti.\n* Orientamento al cliente: Costruisci relazioni fiduciarie con i tuoi clienti e spieghi con successo il valore delle nostre soluzioni di marketing online.\n* Orientamento al successo: La tua motivazione e ambizione sono i tuoi fattori di successo. Rimani concentrato e mirato anche in tempi turbolenti.\n* Comunicativo: Parli fluentemente tedesco e padroneggi i mezzi di comunicazione comuni.\n* Carisma: Hai sensori dell'umorismo e mostri felici la tua personalità.\n* Mobilità: Possiedi una patente di guida valida (categoria B) e un'auto propria, in modo da poter visitare i nostri clienti in modo affidabile.\n* Comportamento responsabile: Il tuo aspetto è professionale e la tua reputazione è impeccabile (certificato di buona condotta).\n* Flessibilità: Il lavoro part-time è generalmente possibile, ma solo dal secondo mese di assunzione. Nel primo mese è richiesta la partecipazione alla formazione di base presso la nostra sede principale di Zurigo.\n\nCosa?\n\nPerché vuoi diventare parte di localsearch:\n\n* Lavoro di squadra: Be integrato in un team vivace che si sostiene a vicenda e si riunisce regolarmente.\n* Territorio di vendita: Ti viene assegnato un territorio con clienti esistenti delle PMI e potenzialii nuovi clienti.\n* Soluzioni di marketing: Ti viene offerta una vasta gamma di prodotti nel marketing digitale.\n* Lavoro autonomo: Assumi la responsabilità delle do attività, pianificazione i tuoi appuntamenti con i clienti in modo autonomo e agisci con un alto livello di iniziativa.\n* Formazione completa e sviluppo: Inizi con una formazione di diverse settimane e ricevi regolarmente assistenza e formazione nel campo delle vendite e dei prodotti.\n* Modelo di provvigioni : Il tuo successo viene premiato direttamente - ogni buona consulenza che porta a un ordine determina il tuo reddito.\n* Indennità di spese: Il tuo veicolo ti porta in modo sicuro all'appuntamento con il cliente e ti compensiamo in modo adeguato.\n\nContatto\n\nPer domande sulla posizione, contatta direttamente il nostro Sales Manager Marcos Romero: +41 79 962 83 81.\n\nSiamo lieti di conoscerti!\n\nPer ulteriori informazioni sulla posizione e su localsearch, consulta qui .",
+        "en": "Mansioni\n\nVenditore nel servizio esterno\n\ndescrizione\n\nlocalsearch è il principale partner di marketing e pubblicità per le PMI svizzere.\nRendiamo i nostri clienti di successo nel mondo digital.\n\nLa vendita è la tua passione? Il tuo cuore asked per il marketing digital? Ti piace viaggiare e vuoi immergerti nel mondo delle PMI? E vuoi influenzare il tuo reddito? Allora be nel posto giusto!\n\nCerchiamo un talento venditore nel servizio esterno\n\nVisiterai sia i clienti esistenti delle PMI che i potentiali nuovi clienti e presenterai loro soluzioni di marketing digital su misura. Il tuo obiettivo è creare valore a lungo termine e rendere le PMI di successo nel digital.\n\nSkills e Requisiti\n\nCiò che ti serve per avere successo con noi:\n\n* Passione per la vendita e il consiglio: Ami il contatto personale e telefonico con i clienti e dai grande importanza a capire veramente i nostri clienti.\n* Orientamento al cliente: Costruisci relazioni fiduciarie con i tuoi clienti e spieghi con successo il valore delle nostre soluzioni di marketing online.\n* Orientamento al successo: La tua motivazione e ambizione sono i tuoi fattori di successo. Rimani concentrato e mirato anche in tempi turbolenti.\n* Comunicativo: Parli fluentemente tedesco e padroneggi i mezzi di comunicazione comuni.\n* Carisma: Hai senso dell'umorismo e mostri volentieri la tua personalità.\n* Mobilità: Possiedi una patente di guida valida (categoria B) e un'auto propria, in modo da poter visitare i nostri clienti in modo affidabile.\n* Comportamento responsabile: Il tuo aspetto è professionale e la tua reputazione è impeccabile (certificato di buona condotta).\n* Flessibilità: Il lavoro part-time è generalmente possibile, ma solo dal secondo mese di assunzione. Nel primo mese è richiesta la partecipazione alla formazione di base presso la nostra sede principale di Zurigo.\n\nCosa offriamo\n\nPerchè vuoi diventare parte di localsearch:\n\n* Lavoro di squadra: Be integrato in un team vivace che si sostiene a vicenda e si riunisce regolarmente.\n* Territorio di vendita: Ti viene assegnato un territorio con clienti esistenti delle PMI e potentiali nuovi clienti.\n* Soluzioni di marketing: Ti viene offeringta una vasta gamma di prodotti nel marketing digital.\n* Lavoro autonomo: Assumi la responsabilità delle do attività, pianifica i tuoi appuntamenti con i clienti in modo autonomo e agisci con un alto livello di iniziativa.\n* Formazione completa e sviluppo: Inizi con una formazione di diverse settimane e ricevi regolarmente assistenza e formazione nel campo delle vendite e dei prodotti.\n* Modelo di provvigioni attraente: Il tuo successo viene premiato direttamente - ogni buona consulenza che porta a un ordine determina il tuo reddito.\n* Indennità di spese: Il tuo veicolo ti porta in modo sicuro all'appuntamento con il cliente e ti compensiamo in modo adeguato.\n\nContatto\n\nPer domande sulla posizione, contatta direttamente il nostro Sales Manager Marcos Romero: +41 79 962 83 81.\n\nSiamo lieti di conoscerti!\n\nPer ulteriori informazioni sulla posizione e su localsearch, consulta qui .",
+        "fr": "Mansioni\n\nVenditore nel servizio esterno\n\ndescrizione\n\nlocalsearch è il principale partenaire di marketing e pubblicità per le PMI svizzere.\nRendiamo i nostri clienti di successo nel mondo digital.\n\nLa vendita è la tua passione? Il tuo cuore demandé par il marketing numérique? Je ne sais pas. Est-ce que vous avez vu influenzare il tuo redito? Allora sera nel posto giusto !\n\nCerchiamo un talento vendiore nel servizio esterno\n\nVisiterai sia i clienti esistancei delle PMI che i potentiali nuovi clienti e presenterai loro soluzioni di marketing digital su misura. Il tuo obiettivo è creare valore a lungo termine e rendee le PMI di successo nel digital.\n\nCompétences e Requisiti\n\nCiò che ti serve per avere successo con noi:\n\n* Passione per la vendita e il consiglio: Ami il contatto personale e telefonico con i clienti e dai grande importanza a capire veramente i nostri clienti.\n* Orientamento al cliente: Costruisci relazioni fiduciarie con i tuoi clienti e spieghi con successo il valore delle nostre soluzioni di marketing online.\n* Orientamento al successo: La tua motivazione e ambizione sono i tuoi fattori di successo. Rimani concentrato e mirato anche in tempi turbolenti.\n* Comunicativo: Parli lexicalemente tedesco e padroneggi i mezzi di comunicazione comuni.\n* Carisma: Hai senso dell'umorismo e mostri volenteri la tua personnalità.\n* Mobilità: Possiedi una brevete di guida valida (categoria B) e un'auto propria, in modo da poter visitare i nostri clienti in modo affidabile.\n* Comportamento responsabile: Il tuo aspetto è professionelle e la tua reputazione è impeccabile (certificat di buona condotta).\n* Flessibilità: Il lavoro à temps partiel è generalmente possibile, ma solo dal secondo mese di assunzione. Nel primo mese è richiesta la partecipiazione alla formazione di base presso la nostra sede principale di Zurigo.\n\nCosa offriamo\n\nPerchè vuoi diventare parte di localsearch:\n\n* Lavoro di scoupara: Soyez intégré dans une équipe vivace che si sostiene a vicenda e si riunisce regolarmente.\n* Territorio di vendita: Ti viene assegnato un territorio con clienti esistancei delle PMI e potentiali nuovi clienti.\n* Soluzioni di marketing: Ti viene offeringta una vasta gamma di prodotti nel marketing numérique.\n* Lavoro autonomo: Assumi la responsabilità delle do attività, pianifica i tuoi appuntamenti con i clienti in modo autonomo e agisci con un alto livello di iniziativa.\n* Formazione complète e sviluppo: Inizi con una formazione di divers settimane e ricevi regolarmente assistenza e formazione nel campo delle vendite e dei prodotti.\n* Modelo di provvigioni attraente: Il tuo successo vienee premiato direttamente - ogni buona consulenza che porta a un ordine determina il tuo redito.\n* Indennità di spese: Il tuo veicolo ti porta in modo sicuro all'appuntammento con il cliente e ti compensiamo in modo adeguato.\n\nContatto\n\nPar domande sulla posizione, contatta direttamente il nostro Sales Manager Marcos Romero: +41 79 962 83 81.\n\nSiamo lieti di conoscerti !\n\nPar ulteriori informazioni sulla posizione e su localsearch, consulta qui ."
       },
       "location": "Buchrain",
       "canton": "LU",
@@ -2899,7 +2878,6 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2913,7 +2891,25 @@
         }
       },
       "postalCode": "6003",
-      "firstSeenAt": "2026-05-21T12:36:22.620Z"
+      "firstSeenAt": "2026-05-21T12:36:22.620Z",
+      "previousSlugs": [
+        "verkauferin-verkaufer-im-aussendienst-localsearch-ch",
+        "verkauferin-verkaufer-im-aussendienst-localsearch-ch-6",
+        "venditore-esterno-localsearch-bremgarten",
+        "field-sales-representative-localsearch-bremgarten",
+        "representant-commercial-en-terrain-localsearch-bremgarten"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "venditore-esterno-localsearch-bremgarten"
+        ],
+        "en": [
+          "field-sales-representative-localsearch-bremgarten"
+        ],
+        "fr": [
+          "representant-commercial-en-terrain-localsearch-bremgarten"
+        ]
+      }
     }
   ]
 }

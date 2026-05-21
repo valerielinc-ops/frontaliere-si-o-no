@@ -68,7 +68,6 @@
         ]
       },
       "firstSeenAt": "2026-04-28T22:16:13.090Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -148,7 +147,6 @@
         ]
       },
       "firstSeenAt": "2026-04-28T22:16:13.089Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -220,7 +218,6 @@
         "publishEndDate": "2026-06-12T11:17:00.000Z"
       },
       "firstSeenAt": "2026-04-28T22:16:13.087Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -303,7 +300,6 @@
         ]
       },
       "firstSeenAt": "2026-04-28T22:16:13.088Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -391,7 +387,6 @@
         ]
       },
       "firstSeenAt": "2026-04-30T22:11:20.522Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -482,7 +477,6 @@
         ]
       },
       "firstSeenAt": "2026-04-30T11:09:31.158Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -554,11 +548,14 @@
         "publishEndDate": "2026-05-28T12:40:00.000Z"
       },
       "previousSlugs": [
-        "cameriera-barre-inverno-26-27-w-verbier-marriott-international-verbier",
-        "svizzera-programma-voyage-settembre-2026-ristorazione-marriott-international-geneva"
+        "svizzera-programma-voyage-settembre-2026-ristorazione-marriott-international-geneva",
+        "responsabile-revenue-management-marriott-international-geneva",
+        "waiter-tress-brasserie-u-yama-winter-26-27-w-verbier-marriott-verbier",
+        "umsatzmanager-marriott-international-geneva",
+        "responsable-revenue-management-marriott-international-geneva",
+        "cameriera-barre-inverno-26-27-w-verbier-marriott-international-verbier"
       ],
       "firstSeenAt": "2026-04-30T11:09:31.159Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -570,6 +567,11 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "cameriera-barre-inverno-26-27-w-verbier-marriott-international-verbier"
+        ]
       }
     },
     {
@@ -641,7 +643,6 @@
         ]
       },
       "firstSeenAt": "2026-05-19T22:55:38.171Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -746,16 +747,20 @@
       "previousSlugs": [
         "switzerland-voyage-program-september-2026-food-beverage-marriott-geneva",
         "waiter-tress-brasserie-u-yama-winter-26-27-w-verbier-marriott-verbier",
+        "responsabile-revenue-management-marriott-international-geneva",
+        "umsatzmanager-marriott-international-geneva",
+        "responsable-revenue-management-marriott-international-geneva",
+        "svizzera-programma-voyage-settembre-2026-ristorazione-marriott-international-geneva",
         "cameriera-barre-inverno-26-27-w-verbier-marriott-international-verbier"
       ],
       "previousSlugsByLocale": {
         "it": [
           "switzerland-voyage-program-september-2026-food-beverage-marriott-geneva",
-          "waiter-tress-brasserie-u-yama-winter-26-27-w-verbier-marriott-verbier"
+          "waiter-tress-brasserie-u-yama-winter-26-27-w-verbier-marriott-verbier",
+          "cameriera-barre-inverno-26-27-w-verbier-marriott-international-verbier"
         ]
       },
       "firstSeenAt": "2026-04-13T10:57:29.152Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -839,7 +844,6 @@
         ]
       },
       "firstSeenAt": "2026-04-30T11:09:31.156Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -929,7 +933,6 @@
         ]
       },
       "firstSeenAt": "2026-04-14T22:04:53.489Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1012,7 +1015,6 @@
       },
       "previousSlugs": [
         "stagiaire-superviseur-housekeeping-marriott-geneva",
-        "sushiman-inverno-26-27-w-verbier-marriott-international-verbier",
         "housekeeping-supervisor-intern-marriott-international-geneva",
         "praktikant-hausdienstleiter-marriott-international-geneva",
         "praktikant-housekeeping-supervisor-marriott-international-geneva",
@@ -1023,7 +1025,9 @@
         "concierge-winter-26-27-w-verbier-marriott-verbier",
         "mezzo-capopartita-marriott-international-verbier",
         "partiekoch-marriott-international-verbier",
-        "ristoranti-inverno-26-27-w-verbier-marriott-international-verbier"
+        "ristoranti-inverno-26-27-w-verbier-marriott-international-verbier",
+        "tirocinante-supervisore-housekeeping-marriott-international-geneva",
+        "sushiman-inverno-26-27-w-verbier-marriott-international-verbier"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1039,7 +1043,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:57:29.149Z",
-      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -1227,7 +1230,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:57:29.148Z",
-      "needsRetranslation": true,
       "salaryMin": 47658,
       "salaryMax": 57200,
       "baseSalary": {
@@ -1315,7 +1317,6 @@
         ]
       },
       "firstSeenAt": "2026-05-06T22:21:00.982Z",
-      "needsRetranslation": true,
       "salaryMin": 47658,
       "salaryMax": 57200,
       "baseSalary": {
@@ -1480,7 +1481,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:57:29.147Z",
-      "needsRetranslation": true,
       "salaryMin": 47658,
       "salaryMax": 57200,
       "baseSalary": {
@@ -1552,7 +1552,6 @@
         "publishEndDate": ""
       },
       "firstSeenAt": "2026-04-30T11:09:31.149Z",
-      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -1635,7 +1634,6 @@
         ]
       },
       "firstSeenAt": "2026-05-05T22:12:49.948Z",
-      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -1746,7 +1744,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:57:29.147Z",
-      "needsRetranslation": true,
       "salaryMin": 59500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -1821,7 +1818,6 @@
         "terapeuta-spa-welcome-agent-spa-inverno-26-27-w-verbier-marriott-international-verbier"
       ],
       "firstSeenAt": "2026-04-30T11:09:31.147Z",
-      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -1989,7 +1985,6 @@
         ]
       },
       "firstSeenAt": "2026-05-07T22:13:51.894Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2132,7 +2127,6 @@
         "publishEndDate": "2026-05-28T07:01:00.000Z"
       },
       "firstSeenAt": "2026-04-30T11:09:31.140Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2204,7 +2198,6 @@
         "publishEndDate": "2026-05-25T07:27:00.000Z"
       },
       "firstSeenAt": "2026-04-30T11:09:31.141Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2284,7 +2277,6 @@
         ]
       },
       "firstSeenAt": "2026-04-30T11:09:31.139Z",
-      "needsRetranslation": true,
       "salaryMin": 72000,
       "salaryMax": 90500,
       "baseSalary": {
@@ -2373,7 +2365,6 @@
         ]
       },
       "firstSeenAt": "2026-04-30T22:11:20.500Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2456,7 +2447,6 @@
         ]
       },
       "firstSeenAt": "2026-05-19T22:55:38.153Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2793,7 +2783,6 @@
         ]
       },
       "firstSeenAt": "2026-04-24T22:00:12.165Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2811,7 +2800,7 @@
       "id": "marriott-5404a16f4356",
       "slug": "esperto-di-supporto-f-b-stewarding-marriott-international-zurich",
       "slugByLocale": {
-        "it": "esperto-di-supporto-f-b-stewarding-marriott-international-zurich",
+        "it": "esperienza-degli-ospiti-marriott-international-zurich",
         "en": "f-b-support-expert-stewarding-marriott-zurich",
         "de": "f-b-support-experte-stewarding-marriott-international-zurich",
         "fr": "expert-en-soutien-aux-f-b-et-intendant-marriott-international-zurich"
@@ -2866,13 +2855,12 @@
       },
       "previousSlugs": [
         "f-b-support-expert-stewarding-marriott-zurich",
-        "esperienza-degli-ospiti-marriott-international-zurich",
-        "guest-experience-expert-marriott-zurich"
+        "guest-experience-expert-marriott-zurich",
+        "esperto-di-supporto-f-b-stewarding-marriott-international-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "f-b-support-expert-stewarding-marriott-zurich",
-          "esperienza-degli-ospiti-marriott-international-zurich"
+          "f-b-support-expert-stewarding-marriott-zurich"
         ],
         "de": [
           "f-b-support-expert-stewarding-marriott-zurich"
@@ -2967,7 +2955,6 @@
         ]
       },
       "firstSeenAt": "2026-05-11T22:31:56.023Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -3078,7 +3065,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:57:29.136Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -3150,7 +3136,6 @@
         "publishEndDate": "2026-05-29T07:39:00.000Z"
       },
       "firstSeenAt": "2026-05-15T22:15:54.729Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -3233,7 +3218,6 @@
         ]
       },
       "firstSeenAt": "2026-05-11T22:31:56.020Z",
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 150000,
       "baseSalary": {
@@ -3316,7 +3300,6 @@
         ]
       },
       "firstSeenAt": "2026-05-19T22:55:38.140Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -3399,7 +3382,6 @@
         ]
       },
       "firstSeenAt": "2026-04-30T11:09:31.126Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -3482,7 +3464,6 @@
         ]
       },
       "firstSeenAt": "2026-04-28T22:16:13.055Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -3562,7 +3543,6 @@
         ]
       },
       "firstSeenAt": "2026-04-30T11:09:31.123Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -3645,7 +3625,6 @@
         ]
       },
       "firstSeenAt": "2026-04-30T11:09:31.124Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -3717,7 +3696,6 @@
         "publishEndDate": "2026-06-12T11:13:00.000Z"
       },
       "firstSeenAt": "2026-04-30T11:09:31.123Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -3802,7 +3780,6 @@
         ]
       },
       "firstSeenAt": "2026-05-15T11:28:13.218Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -3969,7 +3946,6 @@
         ]
       },
       "firstSeenAt": "2026-04-30T11:09:31.120Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -4082,17 +4058,17 @@
       "companyDomain": "marriott.com",
       "title": "Apprenti(e) en Communication hôtelière",
       "titleByLocale": {
-        "en": "Apprenti(e) en Communication hôtelière",
+        "en": "Apprenticeship in Hotel Communication",
         "fr": "Apprenti(e) en Communication hôtelière",
-        "it": "Apprenti(e) en Communication hôtelière",
-        "de": "Apprenti(e) en Communication hôtelière"
+        "it": "Apprenti(e) en Comunicazione hôtelière",
+        "de": "Ausbildung in der Hotelkommunikation"
       },
       "description": "Build upon your classroom studies through our Hotel Internship Program opportunities. You will learn first-hand about a hotel's operations. Our Hotel Internship Program allows you to truly experience the industry from the ground up, where our founders and many of our leaders began. You will get immersed in Marriott's culture and business and find your true calling in the travel industry. Our internships are typically available in many different areas of the hotel. By gaining hands-on experience in the exciting world of hotel management, you�ll be better prepared to pursue opportunities post graduation. Here�s to exploring, kickstarting your dream career, and joining us on your journey!\n\nTo be considered for an internship, you must be a current college or university student. Want to join us? Apply now!\n\nMarriott International is the world�s largest hotel company, with more brands, more hotels and more opportunities for associates to grow and succeed. We believe a great career is a journey of discovery and exploration. So, we ask, where will your journey take you?\n\nmarriotthotelinternship\n\nAt Marriott International, we are dedicated to being an equal opportunity employer, welcoming all and providing access to opportunity. We actively foster an environment where the unique backgrounds of our associates are valued and celebrated. Our greatest strength lies in the rich blend of culture, talent, and experiences of our associates. We are committed to non-discrimination on any protected basis, including disability, veteran status, or other basis protected by applicable law.\n\nAt more than 100 award-winning properties worldwide, The Ritz-Carlton Ladies and Gentlemen create experiences so exceptional that long after a guest stays with us, the experience stays with them. Attracting the world’s top hospitality professionals who curate lifelong memories, we believe that everyone succeeds when they are empowered to be creative, thoughtful and compassionate.\nEvery day, we set the standard for rare and special luxury service the world over and pride ourselves on delivering excellence in the care and comfort of our guests.\n\nYour role will be to ensure that the “Gold Standards” of The Ritz-Carlton are delivered graciously and thoughtfully every day. The Gold Standards are the foundation of The Ritz-Carlton and are what guides us each day to be better than the next. It is this foundation and our belief that our culture drives success by which The Ritz Carlton has earned the reputation as a global brand leader in luxury hospitality. As part of our team, you will learn and exemplify the Gold Standards, such as our Employee Promise, Credo and our Service Values. And our promise to you is that we offer the chance to be proud of the work you do and who you work with.\n\nIn joining The Ritz-Carlton, you join a portfolio of brands with Marriott International. Be where you can do your best work, begin your purpose, belong to an amazing global team, and become the best version of you.",
       "descriptionByLocale": {
-        "en": "Build upon your classroom studies through our Hotel Internship Program opportunities. You will learn first-hand about a hotel's operations. Our Hotel Internship Program allows you to truly experience the industry from the ground up, where our founders and many of our leaders began. You will get immersed in Marriott's culture and business and find your true calling in the travel industry. Our internships are typically available in many different areas of the hotel. By gaining hands-on experience in the exciting world of hotel management, you�ll be better prepared to pursue opportunities post graduation. Here�s to exploring, kickstarting your dream career, and joining us on your journey!\n\nTo be considered for an internship, you must be a current college or university student. Want to join us? Apply now!\n\nMarriott International is the world�s largest hotel company, with more brands, more hotels and more opportunities for associates to grow and succeed. We believe a great career is a journey of discovery and exploration. So, we ask, where will your journey take you?\n\nmarriotthotelinternship\n\nAt Marriott International, we are dedicated to being an equal opportunity employer, welcoming all and providing access to opportunity. We actively foster an environment where the unique backgrounds of our associates are valued and celebrated. Our greatest strength lies in the rich blend of culture, talent, and experiences of our associates. We are committed to non-discrimination on any protected basis, including disability, veteran status, or other basis protected by applicable law.\n\nAt more than 100 award-winning properties worldwide, The Ritz-Carlton Ladies and Gentlemen create experiences so exceptional that long after a guest stays with us, the experience stays with them. Attracting the world’s top hospitality professionals who curate lifelong memories, we believe that everyone succeeds when they are empowered to be creative, thoughtful and compassionate.\nEvery day, we set the standard for rare and special luxury service the world over and pride ourselves on delivering excellence in the care and comfort of our guests.\n\nYour role will be to ensure that the “Gold Standards” of The Ritz-Carlton are delivered graciously and thoughtfully every day. The Gold Standards are the foundation of The Ritz-Carlton and are what guides us each day to be better than the next. It is this foundation and our belief that our culture drives success by which The Ritz Carlton has earned the reputation as a global brand leader in luxury hospitality. As part of our team, you will learn and exemplify the Gold Standards, such as our Employee Promise, Credo and our Service Values. And our promise to you is that we offer the chance to be proud of the work you do and who you work with.\n\nIn joining The Ritz-Carlton, you join a portfolio of brands with Marriott International. Be where you can do your best work, begin your purpose, belong to an amazing global team, and become the best version of you.",
-        "it": "Build upon your classroom studies through our Hotel Internship Program opportunities. You will learn first-hand about a hotel's operations. Our Hotel Internship Program allows you to truly experience the industry from the ground up, where our founders and many of our leaders began. You will get immersed in Marriott's culture and business and find your true calling in the travel industry. Our internships are typically available in many different areas of the hotel. By gaining hands-on experience in the exciting world of hotel management, you�ll be better prepared to pursue opportunities post graduation. Here�s to exploring, kickstarting your dream career, and joining us on your journey!\n\nTo be considered for an internship, you must be a current college or university student. Want to join us? Apply now!\n\nMarriott International is the world�s largest hotel company, with more brands, more hotels and more opportunities for associates to grow and succeed. We believe a great career is a journey of discovery and exploration. So, we ask, where will your journey take you?\n\nmarriotthotelinternship\n\nAt Marriott International, we are dedicated to being an equal opportunity employer, welcoming all and providing access to opportunity. We actively foster an environment where the unique backgrounds of our associates are valued and celebrated. Our greatest strength lies in the rich blend of culture, talent, and experiences of our associates. We are committed to non-discrimination on any protected basis, including disability, veteran status, or other basis protected by applicable law.\n\nAt more than 100 award-winning properties worldwide, The Ritz-Carlton Ladies and Gentlemen create experiences so exceptional that long after a guest stays with us, the experience stays with them. Attracting the world’s top hospitality professionals who curate lifelong memories, we believe that everyone succeeds when they are empowered to be creative, thoughtful and compassionate.\nEvery day, we set the standard for rare and special luxury service the world over and pride ourselves on delivering excellence in the care and comfort of our guests.\n\nYour role will be to ensure that the “Gold Standards” of The Ritz-Carlton are delivered graciously and thoughtfully every day. The Gold Standards are the foundation of The Ritz-Carlton and are what guides us each day to be better than the next. It is this foundation and our belief that our culture drives success by which The Ritz Carlton has earned the reputation as a global brand leader in luxury hospitality. As part of our team, you will learn and exemplify the Gold Standards, such as our Employee Promise, Credo and our Service Values. And our promise to you is that we offer the chance to be proud of the work you do and who you work with.\n\nIn joining The Ritz-Carlton, you join a portfolio of brands with Marriott International. Be where you can do your best work, begin your purpose, belong to an amazing global team, and become the best version of you.",
-        "de": "Build upon your classroom studies through our Hotel Internship Program opportunities. You will learn first-hand about a hotel's operations. Our Hotel Internship Program allows you to truly experience the industry from the ground up, where our founders and many of our leaders began. You will get immersed in Marriott's culture and business and find your true calling in the travel industry. Our internships are typically available in many different areas of the hotel. By gaining hands-on experience in the exciting world of hotel management, you�ll be better prepared to pursue opportunities post graduation. Here�s to exploring, kickstarting your dream career, and joining us on your journey!\n\nTo be considered for an internship, you must be a current college or university student. Want to join us? Apply now!\n\nMarriott International is the world�s largest hotel company, with more brands, more hotels and more opportunities for associates to grow and succeed. We believe a great career is a journey of discovery and exploration. So, we ask, where will your journey take you?\n\nmarriotthotelinternship\n\nAt Marriott International, we are dedicated to being an equal opportunity employer, welcoming all and providing access to opportunity. We actively foster an environment where the unique backgrounds of our associates are valued and celebrated. Our greatest strength lies in the rich blend of culture, talent, and experiences of our associates. We are committed to non-discrimination on any protected basis, including disability, veteran status, or other basis protected by applicable law.\n\nAt more than 100 award-winning properties worldwide, The Ritz-Carlton Ladies and Gentlemen create experiences so exceptional that long after a guest stays with us, the experience stays with them. Attracting the world’s top hospitality professionals who curate lifelong memories, we believe that everyone succeeds when they are empowered to be creative, thoughtful and compassionate.\nEvery day, we set the standard for rare and special luxury service the world over and pride ourselves on delivering excellence in the care and comfort of our guests.\n\nYour role will be to ensure that the “Gold Standards” of The Ritz-Carlton are delivered graciously and thoughtfully every day. The Gold Standards are the foundation of The Ritz-Carlton and are what guides us each day to be better than the next. It is this foundation and our belief that our culture drives success by which The Ritz Carlton has earned the reputation as a global brand leader in luxury hospitality. As part of our team, you will learn and exemplify the Gold Standards, such as our Employee Promise, Credo and our Service Values. And our promise to you is that we offer the chance to be proud of the work you do and who you work with.\n\nIn joining The Ritz-Carlton, you join a portfolio of brands with Marriott International. Be where you can do your best work, begin your purpose, belong to an amazing global team, and become the best version of you.",
-        "fr": "Build upon your classroom studies through our Hotel Internship Program opportunities. You will learn first-hand about a hotel's operations. Our Hotel Internship Program allows you to truly experience the industry from the ground up, where our founders and many of our leaders began. You will get immersed in Marriott's culture and business and find your true calling in the travel industry. Our internships are typically available in many different areas of the hotel. By gaining hands-on experience in the exciting world of hotel management, you�ll be better prepared to pursue opportunities post graduation. Here�s to exploring, kickstarting your dream career, and joining us on your journey!\n\nTo be considered for an internship, you must be a current college or university student. Want to join us? Apply now!\n\nMarriott International is the world�s largest hotel company, with more brands, more hotels and more opportunities for associates to grow and succeed. We believe a great career is a journey of discovery and exploration. So, we ask, where will your journey take you?\n\nmarriotthotelinternship\n\nAt Marriott International, we are dedicated to being an equal opportunity employer, welcoming all and providing access to opportunity. We actively foster an environment where the unique backgrounds of our associates are valued and celebrated. Our greatest strength lies in the rich blend of culture, talent, and experiences of our associates. We are committed to non-discrimination on any protected basis, including disability, veteran status, or other basis protected by applicable law.\n\nAt more than 100 award-winning properties worldwide, The Ritz-Carlton Ladies and Gentlemen create experiences so exceptional that long after a guest stays with us, the experience stays with them. Attracting the world’s top hospitality professionals who curate lifelong memories, we believe that everyone succeeds when they are empowered to be creative, thoughtful and compassionate.\nEvery day, we set the standard for rare and special luxury service the world over and pride ourselves on delivering excellence in the care and comfort of our guests.\n\nYour role will be to ensure that the “Gold Standards” of The Ritz-Carlton are delivered graciously and thoughtfully every day. The Gold Standards are the foundation of The Ritz-Carlton and are what guides us each day to be better than the next. It is this foundation and our belief that our culture drives success by which The Ritz Carlton has earned the reputation as a global brand leader in luxury hospitality. As part of our team, you will learn and exemplify the Gold Standards, such as our Employee Promise, Credo and our Service Values. And our promise to you is that we offer the chance to be proud of the work you do and who you work with.\n\nIn joining The Ritz-Carlton, you join a portfolio of brands with Marriott International. Be where you can do your best work, begin your purpose, belong to an amazing global team, and become the best version of you."
+        "en": "# Internship Program in Hotel Management\n\n## Descrizione\nBuild upon your classroom studies through our Hotel Internship Program opportunities. You will learn first-hand about a hotel's operations. Our Hotel Internship Program allows you to truly experience the industry from the ground up, where our founders and many of our leaders began. You will get immersed in Marriott's culture and business and find your true calling in the travel industry. Our internships are typically available in many different areas of the hotel. By gaining hands-on experience in the exciting world of hotel management, you'll be better prepared to pursue opportunities post graduation. Here's to exploring, kickstarting your dream career, and joining us on your journey!\n\n## Requisiti\n- Being a current college or university student\n\n## Mansioni\n- Ensuring the \"Gold Standards\" of The Ritz-Carlton are delivered graciously and thoughtfully every day\n- Learning and exemplifying the Gold Standards, such as our Employee Promise, Credo and our Service Values\n\n## Cosa offriamo\n- The chance to be proud of the work you do and who you work with\n- The opportunity to belong to an amazing global team and become the best version of you\n\n## Contatto\n- Apply now!\n\n## Chi siamo\n- Marriott International is the world's largest hotel company, with more brands, more hotels and more opportunities for associates to grow and succeed. We believe a great career is a journey of discovery and exploration. So, we ask, where will your journey take you?\n- At Marriott International, we are dedicated to being an equal opportunity employer, welcoming all and providing access to opportunity. We actively foster an environment where the unique backgrounds of our associates are valued and celebrated. Our greatest strength lies in the rich blend of culture, talent, and experiences of our associates. We are committed to non-discrimination on any protected basis, including disability, veteran status, or other basis protected by applicable law.\n- At more than 100 award-winning properties worldwide, The Ritz-Carlton Ladies and Gentlemen create experiences so exceptional that long after a guest stays with us, the experience stays with them. We believe that everyone succeeds when they are empowered to be creative, thoughtful and compassionate.",
+        "it": "Programma di stage in gestione alberghiera\n\nDescrizione\nCostruire sui vostri studi di classe attraverso le nostre opportunità di programma di stage dell'hotel. Imparerete di prima mano sulle operazioni di un hotel. Il nostro Hotel Internship Program ti permette di sperimentare veramente l'industria da zero, dove i nostri fondatori e molti dei nostri leader hanno cominciato. Ti immergerai nella cultura e nel business di Marriott e troverai la tua vera vocazione nel settore dei viaggi. I nostri stage sono tipicamente disponibili in molte diverse aree dell'hotel. Guadagnando esperienza pratica nel mondo emozionante della gestione alberghiera, sarete meglio preparati a perseguire opportunità post laurea. Ecco per esplorare, iniziare la tua carriera da sogno, e unirsi a noi nel tuo viaggio!\n\nRequisiti\n- Essere uno studente universitario o universitario\n\nMansioni\n- Assicurare i \"Gold Standards\" di The Ritz-Carlton vengono consegnati con gentilezza e con cura ogni giorno\n- Imparare ed esemplificare gli standard dell'oro, come la nostra promessa dei dipendenti, il credo e i nostri valori di servizio\n\nCosa?\n- La possibilità di essere orgoglioso del lavoro che fai e con chi lavori\n- L'opportunità di appartenere a un team globale incredibile e diventare la migliore versione di voi\n\nContatto\n- Applica ora!\n\nChi siamo\n- Marriott International è la più grande società alberghiera del mondo, con più marchi, più hotel e più opportunità per i soci di crescere e avere successo. Crediamo che una grande carriera sia un viaggio di scoperta ed esplorazione. Allora, chiediamo, dove vi portera' il vostro viaggio?\n- A Marriott International, siamo dedicati ad essere un datore di lavoro pari opportunità, accogliendo tutti e fornendo l'accesso all'opportunità. Promuoviamo attivamente un ambiente in cui gli sfondi unici dei nostri associati sono apprezzati e celebrati. La nostra più grande forza risiede nella ricca miscela di cultura, talento ed esperienze dei nostri associati. Ci impegniamo a non discriminazione su base protetta, tra cui disabilità, status di veterano, o altre basi protette dalla legge applicabile.\n- In oltre 100 strutture premiate in tutto il mondo, The Ritz-Carlton Signore e Signori creano esperienze così eccezionali che a lungo dopo un ospite soggiorna con noi, l'esperienza rimane con loro. Crediamo che tutti abbiano successo quando hanno il potere di essere creativi, riflessivi e compassionevoli.",
+        "de": "Praktikumsprogramm im Hotelmanagement\n\nBeschreibung\nAufbauen Sie auf Ihre Klassenzimmer-Studien durch unsere Hotel Internship-Programm Möglichkeiten. Sie werden zuerst über den Betrieb eines Hotels erfahren. Unser Hotel Internship Program ermöglicht es Ihnen, die Branche von Grund auf zu erleben, wo unsere Gründer und viele unserer Führer begannen. Sie werden in Marriotts Kultur und Geschäft eingetaucht und finden Ihren richtigen Ruf in der Reisebranche. Unsere Praktika sind in der Regel in vielen verschiedenen Bereichen des Hotels verfügbar. Indem Sie in der spannenden Welt des Hotelmanagements praktische Erfahrungen sammeln, werden Sie besser darauf vorbereitet sein, Möglichkeiten nach Abschluss zu verfolgen. Hier ist zu erkunden, Ihre Traumkarriere zu starten und uns auf Ihrer Reise zu begleiten!\n\nVoraussetzungen\n- Ein aktuelles College oder Universitätsstudent sein\n\nMansion\n- Die \"Gold-Standards\" von The Ritz-Carlton werden jeden Tag gnädig und nachdenklich geliefert\n- Erlernen und Ausführen der Goldstandards, wie unsere Mitarbeiterversprechen, Credo und unsere Servicewerte\n\nCosa offriamo\n- Die Chance, stolz auf die Arbeit zu sein, mit der du arbeitest\n- Die Möglichkeit, zu einem erstaunlichen globalen Team gehören und die beste Version von Ihnen werden\n\nContattoo\n- Jetzt bewerben!\n\nChi siamo\n- Marriott International ist das weltweit größte Hotelunternehmen, mit mehr Marken, mehr Hotels und mehr Möglichkeiten für Mitarbeiter wachsen und erfolgreich. Wir glauben, dass eine große Karriere eine Reise von Entdeckung und Exploration ist. Also fragen wir, wo wird Ihre Reise Sie mitnehmen?\n- Bei Marriott International widmen wir uns als Arbeitgeber der Chancengleichheit, begrüßen alle und bieten Zugang zur Gelegenheit. Wir fördern aktiv eine Umgebung, in der die einzigartigen Hintergründe unserer Mitarbeiter geschätzt und gefeiert werden. Unsere größte Stärke liegt in der reichen Mischung aus Kultur, Talent und Erfahrungen unserer Mitarbeiter. Wir verpflichten uns zur Nichtdiskriminierung auf jeder geschützten Grundlage, einschließlich Behinderung, veteranischer Status oder anderer durch geltendes Recht geschützter Grundlage.\n- Bei mehr als 100 preisgekrönten Immobilien weltweit schaffen die Ritz-Carlton Damen und Herren so außergewöhnliche Erlebnisse, dass die Erfahrung lange nach einem Gast bei uns bleibt. Wir glauben, dass jeder Erfolg hat, wenn er befugt ist, kreativ, nachdenklich und mitfühlend zu sein.",
+        "fr": "Programme de stages en gestion hôtelière\n\nDescrizione\nFaites fond sur vos études en classe grâce à nos possibilités de stage en hôtel. Vous apprendrez directement les opérations d'un hôtel. Notre programme de stages hôteliers vous permet d'expérimenter l'industrie depuis le début, où nos fondateurs et beaucoup de nos leaders ont commencé. Vous vous plongerez dans la culture et les affaires de Marriott et trouverez votre véritable vocation dans l'industrie du voyage. Nos stages sont généralement disponibles dans de nombreuses zones de l'hôtel. En acquérant une expérience pratique dans le monde passionnant de la gestion hôtelière, vous serez mieux préparé à poursuivre des opportunités après l'obtention du diplôme. Voici pour explorer, démarrer votre carrière de rêve, et nous rejoindre dans votre voyage!\n\nRequisiti\n- Être étudiant au collège ou à l'université\n\nMansioni\n- Assurer les \"Normes d'Or\" du Ritz-Carlton sont délivrés gracieusement et avec soin chaque jour\n- Apprentissage et mise en valeur des normes d'or, comme notre promesse de l'employé, Credo et nos valeurs de service\n\nCosa offriamo\n- La chance d'être fier du travail que vous faites et avec qui vous travaillez\n- L'occasion d'appartenir à une équipe mondiale incroyable et de devenir la meilleure version de vous\n\nContatto\n- Présentez-vous !\n\nChi siamo\n- Marriott International est la plus grande entreprise hôtelière au monde, avec plus de marques, plus d'hôtels et plus de possibilités pour les associés de croître et de réussir. Nous croyons qu'une grande carrière est un voyage de découverte et d'exploration. Alors, nous demandons, où va vous mener votre voyage ?\n- Chez Marriott International, nous nous engageons à être un employeur à égalité des chances, accueillant tous et offrant l'accès aux opportunités. Nous favorisons activement un environnement où les origines uniques de nos associés sont appréciées et célébrées. Notre plus grande force réside dans le riche mélange de culture, de talent et d'expériences de nos associés. Nous sommes attachés à la non-discrimination sur toute base protégée, y compris le handicap, le statut d'ancien combattant ou toute autre base protégée par la loi applicable.\n- Dans plus de 100 établissements primés dans le monde entier, Les Dames et Messieurs Ritz-Carlton créent des expériences si exceptionnelles qu'après qu'un invité reste avec nous, l'expérience reste avec eux. Nous croyons que tout le monde réussit quand il est habilité à être créatif, réfléchi et compatissant."
       },
       "location": "Geneva",
       "canton": "GE",
@@ -4127,7 +4103,6 @@
         "accountName": "Non-Management",
         "publishEndDate": ""
       },
-      "needsRetranslation": true,
       "salaryMin": 50500,
       "salaryMax": 89000,
       "baseSalary": {
@@ -4211,7 +4186,6 @@
         ]
       },
       "firstSeenAt": "2026-05-15T11:28:13.213Z",
-      "needsRetranslation": true,
       "salaryMin": 47658,
       "salaryMax": 57200,
       "baseSalary": {
@@ -4291,7 +4265,6 @@
         ]
       },
       "firstSeenAt": "2026-04-30T11:09:31.116Z",
-      "needsRetranslation": true,
       "salaryMin": 53500,
       "salaryMax": 67000,
       "baseSalary": {
