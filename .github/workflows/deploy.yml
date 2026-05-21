@@ -254,6 +254,15 @@ jobs:
         # commit required to lower (see CLAUDE.md rule #1).
         run: npm run audit:active-jobs-regression
 
+      - name: Prune all-known-job-slugs tracking (size + soft-landing dedup)
+        # 2-pass prune to keep dist/ under GitHub Pages artifact limit:
+        #   Pass 1: drop tracking entries whose slug is now ACTIVE (recovery
+        #           dedup — see incident 2026-05-21).
+        #   Pass 2: cap to PRUNE_KNOWN_SLUGS_CAP entries by GSC impressions.
+        # Without this, soft-landing emission produces 50k+ pages and the
+        # github-pages artifact crosses ~2 GB → Pages refuses to deploy.
+        run: npm run prune:known-slugs
+
       - name: Housekeeping (cross-crawler dedup + locale hardening)
         env:
           JOBS_SKIP_URL_VALIDATION: '1'
