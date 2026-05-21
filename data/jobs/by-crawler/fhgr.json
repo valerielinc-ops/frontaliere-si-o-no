@@ -1,6 +1,6 @@
 {
   "crawlerKey": "fhgr",
-  "assembledAt": "2026-05-19T22:13:06.530Z",
+  "assembledAt": "2026-05-21T11:54:14.739Z",
   "jobs": [
     {
       "id": "fhgr-7309b549f3fa",
@@ -33,7 +33,7 @@
       "url": "https://jobs.fhgr.ch/Vacancies/739/Description/1",
       "source": "Fachhochschule Graubünden Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T22:13:04.079Z",
+      "crawledAt": "2026-05-21T11:54:12.587Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -94,6 +94,7 @@
         "lehrstelle-architekturmodellbauer-in-efz-fhgr-ch"
       ],
       "firstSeenAt": "2026-04-13T10:32:28.055Z",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -138,7 +139,7 @@
       "url": "https://jobs.fhgr.ch/Vacancies/749/Description/1",
       "source": "Fachhochschule Graubünden Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T22:13:02.941Z",
+      "crawledAt": "2026-05-21T11:54:11.702Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -196,6 +197,7 @@
         "bauingenieur-in-fhgr-ch"
       ],
       "firstSeenAt": "2026-04-13T10:32:26.327Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -240,7 +242,7 @@
       "url": "https://jobs.fhgr.ch/Vacancies/784/Description/1",
       "source": "Fachhochschule Graubünden Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T22:13:01.790Z",
+      "crawledAt": "2026-05-21T11:54:10.834Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -321,7 +323,7 @@
       "url": "https://jobs.fhgr.ch/Vacancies/785/Description/1",
       "source": "Fachhochschule Graubünden Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T22:13:00.642Z",
+      "crawledAt": "2026-05-21T11:54:09.867Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -371,6 +373,388 @@
           "unitText": "YEAR"
         }
       }
+    },
+    {
+      "id": "fhgr-01cb259d67d0",
+      "slug": "lehrauftrag-per-das-modul-it-development-and-operations-devops-fachhochschule-graubunden-chur",
+      "slugByLocale": {
+        "de": "lehrauftrag-fur-das-modul-it-development-and-operations-devops-fhgr-ch",
+        "it": "lehrauftrag-per-das-modul-it-development-and-operations-devops-fachhochschule-graubunden-chur",
+        "en": "lehrauftrag-fur-das-modul-it-development-and-operations-devops-fachhochschule-graubunden-chur",
+        "fr": "lehrauftrag-fur-das-modul-it-development-and-operations-devops-fhgr-ch"
+      },
+      "company": "Fachhochschule Graubünden",
+      "companyKey": "fhgr",
+      "companyDomain": "fhgr.ch",
+      "title": "Lehrauftrag für das Modul «IT Development and Operations (DevOps)»",
+      "titleByLocale": {
+        "de": "Lehrauftrag für das Modul «IT Development and Operations (DevOps)»",
+        "en": "Lehrauftrag für das Modul «IT Development and Operations (DevOps)»",
+        "it": "Lehrauftrag per das Modul «IT Development and Operations (DevOps)»",
+        "fr": "Lehrauftrag für das Modul «IT Development and Operations (DevOps)»"
+      },
+      "description": "Als agile Hochschule setzt die Fachhochschule Graubünden auf dynamisches Denken und proaktives Handeln. Wir bilden über 2300 Studierende zu hochqualifizierten und verantwortungsvollen Persönlichkeiten aus. Unsere Lehre und Forschung sind interdisziplinär und orientieren sich an praktischen Herausforderungen in Wirtschaft und Gesellschaft. Als Arbeitgeberin fördern wir die Chancengleichheit und Vielfalt. Zur Verstärkung unseres Teams im Institut für Data Analysis, Artificial Intelligence, Visualization und Simulation (DAViS) vergeben wir für das Herbstsemester 2026 einen | Als Lehrbeauftragte:r engagieren Sie sich mit Begeisterung in der Lehre im Bachelor-Studiengang «Computational and Data Science» für das Modul «IT Development and Operations (DevOps)». Das Modul wird neu als Blended Learning vollständig online angeboten. Sie produzieren die Vorlesungen als Videos, welche die Studierenden zeitlich flexibel konsumieren, und stellen Übungen online zur Verfügung. Bei Bedarf vereinbaren Sie Online-Sprechstunden oder Live-Sessions mit den Studierenden, dabei ist eine Anwesenheit vor Ort in Chur nicht erforderlich. Sie sind für den inhaltlichen und didaktischen Aufbau des Moduls verantwortlich – vom Betrieb von IT-Infrastrukturen, Datenbanken und Linux-Serverdiensten über Continuous Integration und Delivery, Microservices und Infrastructure as Code bis hin zu Monitoring und Automatisierung von Prozessen. Das Modul entwickeln Sie eigenständig in Abstimmung mit der Studienleitung und unterrichten dieses im Herbstsemester 2026. | Ihr Profil\n• Hochschulabschluss in Informatik oder verwandtem Bereich\n• Mehrjährige Praxiserfahrung oder akademische Erfahrung im Bereich DevOps, IT-Operations und Betrieb komplexer IT-Infrastrukturen\n• Fundierte Kenntnisse in CI/CD, Containerisierung, Microservices, Infrastructure as Code (z. B. Terraform) und Monitoring\n• Erfahrung im Betrieb von Linux-Serverdiensten, Datenbanken und Anwendungen\n• Erfahrung in der Informatiklehre sowie in der Produktion von Lehrvideos und der Gestaltung von Online-Übungen\n• Kommunikative Persönlichkeit, Freude am Unterrichten und an der Vermittlung von Wissen und Fähigkeiten | Wir begeistern Sie mit\n• unserem dynamischen Teamspirit und unserer offenen Hochschulkultur\n• einem familiären Studiengang mit einer kleinen Gruppe Studierender\n• einem Studiengang, der modern und praxisorientiert ausgerichtet ist\n• Gestaltungsfreiheit bei Modul, Inhalt und Projekten\n• ortsunabhängigem Arbeiten dank vollständig online durchgeführtem Modul",
+      "descriptionByLocale": {
+        "de": "Als agile Hochschule setzt die Fachhochschule Graubünden auf dynamisches Denken und proaktives Handeln. Wir bilden über 2300 Studierende zu hochqualifizierten und verantwortungsvollen Persönlichkeiten aus. Unsere Lehre und Forschung sind interdisziplinär und orientieren sich an praktischen Herausforderungen in Wirtschaft und Gesellschaft. Als Arbeitgeberin fördern wir die Chancengleichheit und Vielfalt. Zur Verstärkung unseres Teams im Institut für Data Analysis, Artificial Intelligence, Visualization und Simulation (DAViS) vergeben wir für das Herbstsemester 2026 einen | Als Lehrbeauftragte:r engagieren Sie sich mit Begeisterung in der Lehre im Bachelor-Studiengang «Computational and Data Science» für das Modul «IT Development and Operations (DevOps)». Das Modul wird neu als Blended Learning vollständig online angeboten. Sie produzieren die Vorlesungen als Videos, welche die Studierenden zeitlich flexibel konsumieren, und stellen Übungen online zur Verfügung. Bei Bedarf vereinbaren Sie Online-Sprechstunden oder Live-Sessions mit den Studierenden, dabei ist eine Anwesenheit vor Ort in Chur nicht erforderlich. Sie sind für den inhaltlichen und didaktischen Aufbau des Moduls verantwortlich – vom Betrieb von IT-Infrastrukturen, Datenbanken und Linux-Serverdiensten über Continuous Integration und Delivery, Microservices und Infrastructure as Code bis hin zu Monitoring und Automatisierung von Prozessen. Das Modul entwickeln Sie eigenständig in Abstimmung mit der Studienleitung und unterrichten dieses im Herbstsemester 2026. | Ihr Profil\n• Hochschulabschluss in Informatik oder verwandtem Bereich\n• Mehrjährige Praxiserfahrung oder akademische Erfahrung im Bereich DevOps, IT-Operations und Betrieb komplexer IT-Infrastrukturen\n• Fundierte Kenntnisse in CI/CD, Containerisierung, Microservices, Infrastructure as Code (z. B. Terraform) und Monitoring\n• Erfahrung im Betrieb von Linux-Serverdiensten, Datenbanken und Anwendungen\n• Erfahrung in der Informatiklehre sowie in der Produktion von Lehrvideos und der Gestaltung von Online-Übungen\n• Kommunikative Persönlichkeit, Freude am Unterrichten und an der Vermittlung von Wissen und Fähigkeiten | Wir begeistern Sie mit\n• unserem dynamischen Teamspirit und unserer offenen Hochschulkultur\n• einem familiären Studiengang mit einer kleinen Gruppe Studierender\n• einem Studiengang, der modern und praxisorientiert ausgerichtet ist\n• Gestaltungsfreiheit bei Modul, Inhalt und Projekten\n• ortsunabhängigem Arbeiten dank vollständig online durchgeführtem Modul",
+        "it": "Als agile Hochschule setzt die Fachhochschule Graubünden auf dynamisches Denken und proaktives Handeln. Wir bilden über 2300 Studierende zu hochqualifizierten und verantwortungsvollen Persönlichkeiten aus. Unsere Lehre und Forschung sind interdisziplinär und orientieren sich an praktischen Herausforderungen in Wirtschaft und Gesellschaft. Als Arbeitgeberin fördern wir die Chancengleichheit und Vielfalt. Zur Verstärkung unseres Teams im Institut für Data Analysis, Artificial Intelligence, Visualization und Simulation (DAViS) vergeben wir für das Herbstsemester 2026 einen | Als Lehrbeauftragte:r engagieren Sie sich mit Begeisterung in der Lehre im Bachelor-Studiengang «Computational and Data Science» für das Modul «IT Development and Operations (DevOps)». Das Modul wird neu als Blended Learning vollständig online angeboten. Sie produzieren die Vorlesungen als Videos, welche die Studierenden zeitlich flexibel konsumieren, und stellen Übungen online zur Verfügung. Bei Bedarf vereinbaren Sie Online-Sprechstunden oder Live-Sessions mit den Studierenden, dabei ist eine Anwesenheit vor Ort in Chur nicht erforderlich. Sie sind für den inhaltlichen und didaktischen Aufbau des Moduls verantwortlich – vom Betrieb von IT-Infrastrukturen, Datenbanken und Linux-Serverdiensten über Continuous Integration und Delivery, Microservices und Infrastructure as Code bis hin zu Monitoring und Automatisierung von Prozessen. Das Modul entwickeln Sie eigenständig in Abstimmung mit der Studienleitung und unterrichten dieses im Herbstsemester 2026. | Ihr Profil\n• Hochschulabschluss in Informatik oder verwandtem Bereich\n• Mehrjährige Praxiserfahrung oder akademische Erfahrung im Bereich DevOps, IT-Operations und Betrieb komplexer IT-Infrastrukturen\n• Fundierte Kenntnisse in CI/CD, Containerisierung, Microservices, Infrastructure as Code (z. B. Terraform) und Monitoring\n• Erfahrung im Betrieb von Linux-Serverdiensten, Datenbanken und Anwendungen\n• Erfahrung in der Informatiklehre sowie in der Produktion von Lehrvideos und der Gestaltung von Online-Übungen\n• Kommunikative Persönlichkeit, Freude am Unterrichten und an der Vermittlung von Wissen und Fähigkeiten | Wir begeistern Sie mit\n• unserem dynamischen Teamspirit und unserer offenen Hochschulkultur\n• einem familiären Studiengang mit einer kleinen Gruppe Studierender\n• einem Studiengang, der modern und praxisorientiert ausgerichtet ist\n• Gestaltungsfreiheit bei Modul, Inhalt und Projekten\n• ortsunabhängigem Arbeiten dank vollständig online durchgeführtem Modul",
+        "en": "Als agile Hochschule setzt die Fachhochschule Graubünden auf dynamisches Denken und proaktives Handeln. Wir bilden über 2300 Studierende zu hochqualifizierten und verantwortungsvollen Persönlichkeiten aus. Unsere Lehre und Forschung sind interdisziplinär und orientieren sich an praktischen Herausforderungen in Wirtschaft und Gesellschaft. Als Arbeitgeberin fördern wir die Chancengleichheit und Vielfalt. Zur Verstärkung unseres Teams im Institut für Data Analysis, Artificial Intelligence, Visualization und Simulation (DAViS) vergeben wir für das Herbstsemester 2026 einen | Als Lehrbeauftragte:r engagieren Sie sich mit Begeisterung in der Lehre im Bachelor-Studiengang «Computational and Data Science» für das Modul «IT Development and Operations (DevOps)». Das Modul wird neu als Blended Learning vollständig online angeboten. Sie produzieren die Vorlesungen als Videos, welche die Studierenden zeitlich flexibel konsumieren, und stellen Übungen online zur Verfügung. Bei Bedarf vereinbaren Sie Online-Sprechstunden oder Live-Sessions mit den Studierenden, dabei ist eine Anwesenheit vor Ort in Chur nicht erforderlich. Sie sind für den inhaltlichen und didaktischen Aufbau des Moduls verantwortlich – vom Betrieb von IT-Infrastrukturen, Datenbanken und Linux-Serverdiensten über Continuous Integration und Delivery, Microservices und Infrastructure as Code bis hin zu Monitoring und Automatisierung von Prozessen. Das Modul entwickeln Sie eigenständig in Abstimmung mit der Studienleitung und unterrichten dieses im Herbstsemester 2026. | Ihr Profil\n• Hochschulabschluss in Informatik oder verwandtem Bereich\n• Mehrjährige Praxiserfahrung oder akademische Erfahrung im Bereich DevOps, IT-Operations und Betrieb komplexer IT-Infrastrukturen\n• Fundierte Kenntnisse in CI/CD, Containerisierung, Microservices, Infrastructure as Code (z. B. Terraform) und Monitoring\n• Erfahrung im Betrieb von Linux-Serverdiensten, Datenbanken und Anwendungen\n• Erfahrung in der Informatiklehre sowie in der Produktion von Lehrvideos und der Gestaltung von Online-Übungen\n• Kommunikative Persönlichkeit, Freude am Unterrichten und an der Vermittlung von Wissen und Fähigkeiten | Wir begeistern Sie mit\n• unserem dynamischen Teamspirit und unserer offenen Hochschulkultur\n• einem familiären Studiengang mit einer kleinen Gruppe Studierender\n• einem Studiengang, der modern und praxisorientiert ausgerichtet ist\n• Gestaltungsfreiheit bei Modul, Inhalt und Projekten\n• ortsunabhängigem Arbeiten dank vollständig online durchgeführtem Modul",
+        "fr": "Als agile Hochschule setzt die Fachhochschule Graubünden auf dynamisches Denken und proaktives Handeln. Wir bilden über 2300 Studierende zu hochqualifizierten und verantwortungsvollen Persönlichkeiten aus. Unsere Lehre und Forschung sind interdisziplinär und orientieren sich an praktischen Herausforderungen in Wirtschaft und Gesellschaft. Als Arbeitgeberin fördern wir die Chancengleichheit und Vielfalt. Zur Verstärkung unseres Teams im Institut für Data Analysis, Artificial Intelligence, Visualization und Simulation (DAViS) vergeben wir für das Herbstsemester 2026 einen | Als Lehrbeauftragte:r engagieren Sie sich mit Begeisterung in der Lehre im Bachelor-Studiengang «Computational and Data Science» für das Modul «IT Development and Operations (DevOps)». Das Modul wird neu als Blended Learning vollständig online angeboten. Sie produzieren die Vorlesungen als Videos, welche die Studierenden zeitlich flexibel konsumieren, und stellen Übungen online zur Verfügung. Bei Bedarf vereinbaren Sie Online-Sprechstunden oder Live-Sessions mit den Studierenden, dabei ist eine Anwesenheit vor Ort in Chur nicht erforderlich. Sie sind für den inhaltlichen und didaktischen Aufbau des Moduls verantwortlich – vom Betrieb von IT-Infrastrukturen, Datenbanken und Linux-Serverdiensten über Continuous Integration und Delivery, Microservices und Infrastructure as Code bis hin zu Monitoring und Automatisierung von Prozessen. Das Modul entwickeln Sie eigenständig in Abstimmung mit der Studienleitung und unterrichten dieses im Herbstsemester 2026. | Ihr Profil\n• Hochschulabschluss in Informatik oder verwandtem Bereich\n• Mehrjährige Praxiserfahrung oder akademische Erfahrung im Bereich DevOps, IT-Operations und Betrieb komplexer IT-Infrastrukturen\n• Fundierte Kenntnisse in CI/CD, Containerisierung, Microservices, Infrastructure as Code (z. B. Terraform) und Monitoring\n• Erfahrung im Betrieb von Linux-Serverdiensten, Datenbanken und Anwendungen\n• Erfahrung in der Informatiklehre sowie in der Produktion von Lehrvideos und der Gestaltung von Online-Übungen\n• Kommunikative Persönlichkeit, Freude am Unterrichten und an der Vermittlung von Wissen und Fähigkeiten | Wir begeistern Sie mit\n• unserem dynamischen Teamspirit und unserer offenen Hochschulkultur\n• einem familiären Studiengang mit einer kleinen Gruppe Studierender\n• einem Studiengang, der modern und praxisorientiert ausgerichtet ist\n• Gestaltungsfreiheit bei Modul, Inhalt und Projekten\n• ortsunabhängigem Arbeiten dank vollständig online durchgeführtem Modul"
+      },
+      "location": "Chur",
+      "canton": "GR",
+      "url": "https://jobs.fhgr.ch/Vacancies/788/Description/1",
+      "source": "Fachhochschule Graubünden Dedicated Parser (Umantis)",
+      "sourceLang": "de",
+      "crawledAt": "2026-05-21T11:54:08.911Z",
+      "addressLocality": "Chur",
+      "postalCode": "7000",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Formazione / Ricerca",
+      "contract": "full-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Formazione / Ricerca",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-21",
+      "applyUrl": "https://jobs.fhgr.ch/Vacancies/788/Application/CheckLogin/1",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "department": "Institut für Data Analysis, Artificial Intelligence, Visualization und Simulation (DAViS)",
+      "contractDuration": "temporary",
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "lehrauftrag-fur-das-modul-it-development-and-operations-devops-fhgr-ch"
+        ]
+      },
+      "previousSlugs": [
+        "lehrauftrag-fur-das-modul-it-development-and-operations-devops-fhgr-ch"
+      ],
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-05-21T11:54:08.911Z"
+    },
+    {
+      "id": "fhgr-6a110610b53d",
+      "slug": "lehrauftrag-per-la-module-betriebssysteme-e-computernetzwerke-fachhochschule-graubunden-chur",
+      "slugByLocale": {
+        "de": "lehrauftrag-fur-die-module-betriebssysteme-und-computernetzwerke-fachhochschule-graubunden-chur",
+        "it": "lehrauftrag-per-la-module-betriebssysteme-e-computernetzwerke-fachhochschule-graubunden-chur",
+        "en": "lehrauftrag-fur-die-module-betriebssysteme-und-computernetzwerke-fachhochschule-graubunden-chur",
+        "fr": "lehrauftrag-fur-die-module-betriebssysteme-und-computernetzwerke-fachhochschule-graubunden-chur"
+      },
+      "company": "Fachhochschule Graubünden",
+      "companyKey": "fhgr",
+      "companyDomain": "fhgr.ch",
+      "title": "Lehrauftrag für die Module «Betriebssysteme und Computernetzwerke»",
+      "titleByLocale": {
+        "de": "Lehrauftrag für die Module «Betriebssysteme und Computernetzwerke»",
+        "it": "Lehrauftrag per la Module «Betriebssysteme e Computernetzwerke»",
+        "en": "Lehrauftrag für die Module «Betriebssysteme und Computernetzwerke»",
+        "fr": "Lehrauftrag für die Module «Betriebssysteme und Computernetzwerke»"
+      },
+      "description": "Als agile Hochschule setzt die Fachhochschule Graubünden auf dynamisches Denken und proaktives Handeln. Wir bilden über 2300 Studierende zu hochqualifizierten und verantwortungsvollen Persönlichkeiten aus. Unsere Lehre und Forschung sind interdisziplinär und orientieren sich an praktischen Herausforderungen in Wirtschaft und Gesellschaft. Als Arbeitgeberin fördern wir die Chancengleichheit und Vielfalt. Zur Verstärkung unseres Teams im Institut für Data Analysis, Artificial Intelligence, Visualization und Simulation (DAViS) vergeben wir für das Herbstsemester 2026 einen | Als Lehrbeauftragte:r engagieren Sie sich mit Begeisterung in der Lehre im Bachelor-Studiengang «Computational and Data Science» für die Module «Betriebssysteme und Computernetzwerke». Sie sind für den inhaltlichen und didaktischen Aufbau beider Module verantwortlich – von der praxisorientierten Einführung in Linux und Computernetzwerke auf dem Raspberry Pi bis hin zur Vertiefung in Netzwerkprotokollen, Sicherheit, Webserver-Administration und Cloud Computing. Sie entwickeln die Module eigenständig in Abstimmung mit der Studienleitung weiter und unterrichten sie im Herbstsemester 2026 sowie im Frühlingssemester 2027. | Ihr Profil\n• Hochschulabschluss in Informatik oder verwandtem Bereich\n• Mehrjährige Praxis- oder akademische Erfahrung im Bereich Linux-Systemadministration, Computernetzwerke, Netzwerksicherheit und Serveradministration\n• Erfahrung mit Raspberry Pi, Shell-Scripting, SSH, nginx und Netzwerkanalyse-Tools (Wireshark, tcpdump)\n• Erfahrung in der Informatiklehre\n• Kommunikative Persönlichkeit, Freude am Unterrichten und an der Vermittlung von Wissen und Fähigkeiten | Wir begeistern Sie mit\n• unserem dynamischen Teamspirit und unserer offenen Hochschulkultur\n• einem familiären Studiengang mit einer kleinen Gruppe Studierender\n• einem Studiengang, der modern und praxisorientiert ausgerichtet ist\n• Gestaltungsfreiheit bei Modul, Inhalt und Projekten",
+      "descriptionByLocale": {
+        "de": "Als agile Hochschule setzt die Fachhochschule Graubünden auf dynamisches Denken und proaktives Handeln. Wir bilden über 2300 Studierende zu hochqualifizierten und verantwortungsvollen Persönlichkeiten aus. Unsere Lehre und Forschung sind interdisziplinär und orientieren sich an praktischen Herausforderungen in Wirtschaft und Gesellschaft. Als Arbeitgeberin fördern wir die Chancengleichheit und Vielfalt. Zur Verstärkung unseres Teams im Institut für Data Analysis, Artificial Intelligence, Visualization und Simulation (DAViS) vergeben wir für das Herbstsemester 2026 einen | Als Lehrbeauftragte:r engagieren Sie sich mit Begeisterung in der Lehre im Bachelor-Studiengang «Computational and Data Science» für die Module «Betriebssysteme und Computernetzwerke». Sie sind für den inhaltlichen und didaktischen Aufbau beider Module verantwortlich – von der praxisorientierten Einführung in Linux und Computernetzwerke auf dem Raspberry Pi bis hin zur Vertiefung in Netzwerkprotokollen, Sicherheit, Webserver-Administration und Cloud Computing. Sie entwickeln die Module eigenständig in Abstimmung mit der Studienleitung weiter und unterrichten sie im Herbstsemester 2026 sowie im Frühlingssemester 2027. | Ihr Profil\n• Hochschulabschluss in Informatik oder verwandtem Bereich\n• Mehrjährige Praxis- oder akademische Erfahrung im Bereich Linux-Systemadministration, Computernetzwerke, Netzwerksicherheit und Serveradministration\n• Erfahrung mit Raspberry Pi, Shell-Scripting, SSH, nginx und Netzwerkanalyse-Tools (Wireshark, tcpdump)\n• Erfahrung in der Informatiklehre\n• Kommunikative Persönlichkeit, Freude am Unterrichten und an der Vermittlung von Wissen und Fähigkeiten | Wir begeistern Sie mit\n• unserem dynamischen Teamspirit und unserer offenen Hochschulkultur\n• einem familiären Studiengang mit einer kleinen Gruppe Studierender\n• einem Studiengang, der modern und praxisorientiert ausgerichtet ist\n• Gestaltungsfreiheit bei Modul, Inhalt und Projekten",
+        "it": "Als agile Hochschule setzt die Fachhochschule Graubünden auf dynamisches Denken und proaktives Handeln. Wir bilden über 2300 Studierende zu hochqualifizierten und verantwortungsvollen Persönlichkeiten aus. Unsere Lehre und Forschung sind interdisziplinär und orientieren sich an praktischen Herausforderungen in Wirtschaft und Gesellschaft. Als Arbeitgeberin fördern wir die Chancengleichheit und Vielfalt. Zur Verstärkung unseres Teams im Institut für Data Analysis, Artificial Intelligence, Visualization und Simulation (DAViS) vergeben wir für das Herbstsemester 2026 einen | Als Lehrbeauftragte:r engagieren Sie sich mit Begeisterung in der Lehre im Bachelor-Studiengang «Computational and Data Science» für die Module «Betriebssysteme und Computernetzwerke». Sie sind für den inhaltlichen und didaktischen Aufbau beider Module verantwortlich – von der praxisorientierten Einführung in Linux und Computernetzwerke auf dem Raspberry Pi bis hin zur Vertiefung in Netzwerkprotokollen, Sicherheit, Webserver-Administration und Cloud Computing. Sie entwickeln die Module eigenständig in Abstimmung mit der Studienleitung weiter und unterrichten sie im Herbstsemester 2026 sowie im Frühlingssemester 2027. | Ihr Profil\n• Hochschulabschluss in Informatik oder verwandtem Bereich\n• Mehrjährige Praxis- oder akademische Erfahrung im Bereich Linux-Systemadministration, Computernetzwerke, Netzwerksicherheit und Serveradministration\n• Erfahrung mit Raspberry Pi, Shell-Scripting, SSH, nginx und Netzwerkanalyse-Tools (Wireshark, tcpdump)\n• Erfahrung in der Informatiklehre\n• Kommunikative Persönlichkeit, Freude am Unterrichten und an der Vermittlung von Wissen und Fähigkeiten | Wir begeistern Sie mit\n• unserem dynamischen Teamspirit und unserer offenen Hochschulkultur\n• einem familiären Studiengang mit einer kleinen Gruppe Studierender\n• einem Studiengang, der modern und praxisorientiert ausgerichtet ist\n• Gestaltungsfreiheit bei Modul, Inhalt und Projekten",
+        "en": "Als agile Hochschule setzt die Fachhochschule Graubünden auf dynamisches Denken und proaktives Handeln. Wir bilden über 2300 Studierende zu hochqualifizierten und verantwortungsvollen Persönlichkeiten aus. Unsere Lehre und Forschung sind interdisziplinär und orientieren sich an praktischen Herausforderungen in Wirtschaft und Gesellschaft. Als Arbeitgeberin fördern wir die Chancengleichheit und Vielfalt. Zur Verstärkung unseres Teams im Institut für Data Analysis, Artificial Intelligence, Visualization und Simulation (DAViS) vergeben wir für das Herbstsemester 2026 einen | Als Lehrbeauftragte:r engagieren Sie sich mit Begeisterung in der Lehre im Bachelor-Studiengang «Computational and Data Science» für die Module «Betriebssysteme und Computernetzwerke». Sie sind für den inhaltlichen und didaktischen Aufbau beider Module verantwortlich – von der praxisorientierten Einführung in Linux und Computernetzwerke auf dem Raspberry Pi bis hin zur Vertiefung in Netzwerkprotokollen, Sicherheit, Webserver-Administration und Cloud Computing. Sie entwickeln die Module eigenständig in Abstimmung mit der Studienleitung weiter und unterrichten sie im Herbstsemester 2026 sowie im Frühlingssemester 2027. | Ihr Profil\n• Hochschulabschluss in Informatik oder verwandtem Bereich\n• Mehrjährige Praxis- oder akademische Erfahrung im Bereich Linux-Systemadministration, Computernetzwerke, Netzwerksicherheit und Serveradministration\n• Erfahrung mit Raspberry Pi, Shell-Scripting, SSH, nginx und Netzwerkanalyse-Tools (Wireshark, tcpdump)\n• Erfahrung in der Informatiklehre\n• Kommunikative Persönlichkeit, Freude am Unterrichten und an der Vermittlung von Wissen und Fähigkeiten | Wir begeistern Sie mit\n• unserem dynamischen Teamspirit und unserer offenen Hochschulkultur\n• einem familiären Studiengang mit einer kleinen Gruppe Studierender\n• einem Studiengang, der modern und praxisorientiert ausgerichtet ist\n• Gestaltungsfreiheit bei Modul, Inhalt und Projekten",
+        "fr": "Als agile Hochschule setzt die Fachhochschule Graubünden auf dynamisches Denken und proaktives Handeln. Wir bilden über 2300 Studierende zu hochqualifizierten und verantwortungsvollen Persönlichkeiten aus. Unsere Lehre und Forschung sind interdisziplinär und orientieren sich an praktischen Herausforderungen in Wirtschaft und Gesellschaft. Als Arbeitgeberin fördern wir die Chancengleichheit und Vielfalt. Zur Verstärkung unseres Teams im Institut für Data Analysis, Artificial Intelligence, Visualization und Simulation (DAViS) vergeben wir für das Herbstsemester 2026 einen | Als Lehrbeauftragte:r engagieren Sie sich mit Begeisterung in der Lehre im Bachelor-Studiengang «Computational and Data Science» für die Module «Betriebssysteme und Computernetzwerke». Sie sind für den inhaltlichen und didaktischen Aufbau beider Module verantwortlich – von der praxisorientierten Einführung in Linux und Computernetzwerke auf dem Raspberry Pi bis hin zur Vertiefung in Netzwerkprotokollen, Sicherheit, Webserver-Administration und Cloud Computing. Sie entwickeln die Module eigenständig in Abstimmung mit der Studienleitung weiter und unterrichten sie im Herbstsemester 2026 sowie im Frühlingssemester 2027. | Ihr Profil\n• Hochschulabschluss in Informatik oder verwandtem Bereich\n• Mehrjährige Praxis- oder akademische Erfahrung im Bereich Linux-Systemadministration, Computernetzwerke, Netzwerksicherheit und Serveradministration\n• Erfahrung mit Raspberry Pi, Shell-Scripting, SSH, nginx und Netzwerkanalyse-Tools (Wireshark, tcpdump)\n• Erfahrung in der Informatiklehre\n• Kommunikative Persönlichkeit, Freude am Unterrichten und an der Vermittlung von Wissen und Fähigkeiten | Wir begeistern Sie mit\n• unserem dynamischen Teamspirit und unserer offenen Hochschulkultur\n• einem familiären Studiengang mit einer kleinen Gruppe Studierender\n• einem Studiengang, der modern und praxisorientiert ausgerichtet ist\n• Gestaltungsfreiheit bei Modul, Inhalt und Projekten"
+      },
+      "location": "Chur",
+      "canton": "GR",
+      "url": "https://jobs.fhgr.ch/Vacancies/789/Description/1",
+      "source": "Fachhochschule Graubünden Dedicated Parser (Umantis)",
+      "sourceLang": "de",
+      "crawledAt": "2026-05-21T11:54:07.947Z",
+      "addressLocality": "Chur",
+      "postalCode": "7000",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Formazione / Ricerca",
+      "contract": "full-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Formazione / Ricerca",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-21",
+      "applyUrl": "https://jobs.fhgr.ch/Vacancies/789/Application/CheckLogin/1",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "department": "Institut für Data Analysis, Artificial Intelligence, Visualization und Simulation (DAViS)",
+      "contractDuration": "temporary",
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "lehrauftrag-fur-die-module-betriebssysteme-und-computernetzwerke-fhgr-ch"
+        ],
+        "de": [
+          "lehrauftrag-fur-die-module-betriebssysteme-und-computernetzwerke-fhgr-ch"
+        ]
+      },
+      "previousSlugs": [
+        "lehrauftrag-fur-die-module-betriebssysteme-und-computernetzwerke-fhgr-ch"
+      ],
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-05-21T11:54:07.947Z"
+    },
+    {
+      "id": "fhgr-8560684a5cda",
+      "slug": "lehrauftrag-per-das-modul-digitales-design-e-computerarchitektur-fachhochschule-graubunden-chur",
+      "slugByLocale": {
+        "de": "lehrauftrag-fur-das-modul-digitales-design-und-computerarchitektur-fachhochschule-graubunden-chur",
+        "it": "lehrauftrag-per-das-modul-digitales-design-e-computerarchitektur-fachhochschule-graubunden-chur",
+        "en": "lehrauftrag-fur-das-modul-digitales-design-und-computerarchitektur-fachhochschule-graubunden-chur",
+        "fr": "lehrauftrag-fur-das-modul-digitales-design-und-computerarchitektur-fachhochschule-graubunden-chur"
+      },
+      "company": "Fachhochschule Graubünden",
+      "companyKey": "fhgr",
+      "companyDomain": "fhgr.ch",
+      "title": "Lehrauftrag für das Modul «Digitales Design und Computerarchitektur»",
+      "titleByLocale": {
+        "de": "Lehrauftrag für das Modul «Digitales Design und Computerarchitektur»",
+        "it": "Lehrauftrag per das Modul «Digitales Design e Computerarchitektur»",
+        "en": "Lehrauftrag für das Modul «Digitales Design und Computerarchitektur»",
+        "fr": "Lehrauftrag für das Modul «Digitales Design und Computerarchitektur»"
+      },
+      "description": "Als agile Hochschule setzt die Fachhochschule Graubünden auf dynamisches Denken und proaktives Handeln. Wir bilden über 2300 Studierende zu hochqualifizierten und verantwortungsvollen Persönlichkeiten aus. Unsere Lehre und Forschung sind interdisziplinär und orientieren sich an praktischen Herausforderungen in Wirtschaft und Gesellschaft. Als Arbeitgeberin fördern wir die Chancengleichheit und Vielfalt. Zur Verstärkung unseres Teams im Institut für Data Analysis, Artificial Intelligence, Visualization und Simulation (DAViS) vergeben wir für das Herbstsemester 2026 einen | Als Lehrbeauftragte:r engagieren Sie sich mit Begeisterung in der Lehre im Bachelor-Studiengang «Computational and Data Science» für das Modul «Digitales Design und Computerarchitektur». Sie sind für den inhaltlichen und didaktischen Aufbau des Moduls verantwortlich – von Zahlensystemen und Boolescher Algebra über logische Gatter und sequentielle Schaltungen bis hin zur CPU-Architektur, Speicherhierarchien und praktischen Übungen mit Raspberry Pi und GPIO. Das Modul entwickeln Sie eigenständig in Abstimmung mit der Studienleitung und unterrichten dieses im Herbstsemester 2026. | Ihr Profil\n• Hochschulabschluss in Informatik, Elektrotechnik oder verwandtem Bereich (Promotion von Vorteil)\n• Mehrjährige Praxiserfahrung oder akademische Erfahrung in Digitaltechnik, Computerarchitektur, Boolescher Algebra und hardwarenahem Programmieren\n• Erfahrung mit Raspberry Pi, GPIO-Programmierung und Digitalschaltungen\n• Erfahrung in der Informatiklehre\n• Kommunikative Persönlichkeit, Freude am Unterrichten und an der Vermittlung von Wissen und Fähigkeiten | Wir begeistern Sie mit\n• unserem dynamischen Teamspirit und unserer offenen Hochschulkultur\n• einem familiären Studiengang mit einer kleinen Gruppe Studierender\n• einem Studiengang, der modern und praxisorientiert ausgerichtet ist\n• Gestaltungsfreiheit bei Modul, Inhalt und Projekten",
+      "descriptionByLocale": {
+        "de": "Als agile Hochschule setzt die Fachhochschule Graubünden auf dynamisches Denken und proaktives Handeln. Wir bilden über 2300 Studierende zu hochqualifizierten und verantwortungsvollen Persönlichkeiten aus. Unsere Lehre und Forschung sind interdisziplinär und orientieren sich an praktischen Herausforderungen in Wirtschaft und Gesellschaft. Als Arbeitgeberin fördern wir die Chancengleichheit und Vielfalt. Zur Verstärkung unseres Teams im Institut für Data Analysis, Artificial Intelligence, Visualization und Simulation (DAViS) vergeben wir für das Herbstsemester 2026 einen | Als Lehrbeauftragte:r engagieren Sie sich mit Begeisterung in der Lehre im Bachelor-Studiengang «Computational and Data Science» für das Modul «Digitales Design und Computerarchitektur». Sie sind für den inhaltlichen und didaktischen Aufbau des Moduls verantwortlich – von Zahlensystemen und Boolescher Algebra über logische Gatter und sequentielle Schaltungen bis hin zur CPU-Architektur, Speicherhierarchien und praktischen Übungen mit Raspberry Pi und GPIO. Das Modul entwickeln Sie eigenständig in Abstimmung mit der Studienleitung und unterrichten dieses im Herbstsemester 2026. | Ihr Profil\n• Hochschulabschluss in Informatik, Elektrotechnik oder verwandtem Bereich (Promotion von Vorteil)\n• Mehrjährige Praxiserfahrung oder akademische Erfahrung in Digitaltechnik, Computerarchitektur, Boolescher Algebra und hardwarenahem Programmieren\n• Erfahrung mit Raspberry Pi, GPIO-Programmierung und Digitalschaltungen\n• Erfahrung in der Informatiklehre\n• Kommunikative Persönlichkeit, Freude am Unterrichten und an der Vermittlung von Wissen und Fähigkeiten | Wir begeistern Sie mit\n• unserem dynamischen Teamspirit und unserer offenen Hochschulkultur\n• einem familiären Studiengang mit einer kleinen Gruppe Studierender\n• einem Studiengang, der modern und praxisorientiert ausgerichtet ist\n• Gestaltungsfreiheit bei Modul, Inhalt und Projekten",
+        "it": "Als agile Hochschule setzt die Fachhochschule Graubünden auf dynamisches Denken und proaktives Handeln. Wir bilden über 2300 Studierende zu hochqualifizierten und verantwortungsvollen Persönlichkeiten aus. Unsere Lehre und Forschung sind interdisziplinär und orientieren sich an praktischen Herausforderungen in Wirtschaft und Gesellschaft. Als Arbeitgeberin fördern wir die Chancengleichheit und Vielfalt. Zur Verstärkung unseres Teams im Institut für Data Analysis, Artificial Intelligence, Visualization und Simulation (DAViS) vergeben wir für das Herbstsemester 2026 einen | Als Lehrbeauftragte:r engagieren Sie sich mit Begeisterung in der Lehre im Bachelor-Studiengang «Computational and Data Science» für das Modul «Digitales Design und Computerarchitektur». Sie sind für den inhaltlichen und didaktischen Aufbau des Moduls verantwortlich – von Zahlensystemen und Boolescher Algebra über logische Gatter und sequentielle Schaltungen bis hin zur CPU-Architektur, Speicherhierarchien und praktischen Übungen mit Raspberry Pi und GPIO. Das Modul entwickeln Sie eigenständig in Abstimmung mit der Studienleitung und unterrichten dieses im Herbstsemester 2026. | Ihr Profil\n• Hochschulabschluss in Informatik, Elektrotechnik oder verwandtem Bereich (Promotion von Vorteil)\n• Mehrjährige Praxiserfahrung oder akademische Erfahrung in Digitaltechnik, Computerarchitektur, Boolescher Algebra und hardwarenahem Programmieren\n• Erfahrung mit Raspberry Pi, GPIO-Programmierung und Digitalschaltungen\n• Erfahrung in der Informatiklehre\n• Kommunikative Persönlichkeit, Freude am Unterrichten und an der Vermittlung von Wissen und Fähigkeiten | Wir begeistern Sie mit\n• unserem dynamischen Teamspirit und unserer offenen Hochschulkultur\n• einem familiären Studiengang mit einer kleinen Gruppe Studierender\n• einem Studiengang, der modern und praxisorientiert ausgerichtet ist\n• Gestaltungsfreiheit bei Modul, Inhalt und Projekten",
+        "en": "Als agile Hochschule setzt die Fachhochschule Graubünden auf dynamisches Denken und proaktives Handeln. Wir bilden über 2300 Studierende zu hochqualifizierten und verantwortungsvollen Persönlichkeiten aus. Unsere Lehre und Forschung sind interdisziplinär und orientieren sich an praktischen Herausforderungen in Wirtschaft und Gesellschaft. Als Arbeitgeberin fördern wir die Chancengleichheit und Vielfalt. Zur Verstärkung unseres Teams im Institut für Data Analysis, Artificial Intelligence, Visualization und Simulation (DAViS) vergeben wir für das Herbstsemester 2026 einen | Als Lehrbeauftragte:r engagieren Sie sich mit Begeisterung in der Lehre im Bachelor-Studiengang «Computational and Data Science» für das Modul «Digitales Design und Computerarchitektur». Sie sind für den inhaltlichen und didaktischen Aufbau des Moduls verantwortlich – von Zahlensystemen und Boolescher Algebra über logische Gatter und sequentielle Schaltungen bis hin zur CPU-Architektur, Speicherhierarchien und praktischen Übungen mit Raspberry Pi und GPIO. Das Modul entwickeln Sie eigenständig in Abstimmung mit der Studienleitung und unterrichten dieses im Herbstsemester 2026. | Ihr Profil\n• Hochschulabschluss in Informatik, Elektrotechnik oder verwandtem Bereich (Promotion von Vorteil)\n• Mehrjährige Praxiserfahrung oder akademische Erfahrung in Digitaltechnik, Computerarchitektur, Boolescher Algebra und hardwarenahem Programmieren\n• Erfahrung mit Raspberry Pi, GPIO-Programmierung und Digitalschaltungen\n• Erfahrung in der Informatiklehre\n• Kommunikative Persönlichkeit, Freude am Unterrichten und an der Vermittlung von Wissen und Fähigkeiten | Wir begeistern Sie mit\n• unserem dynamischen Teamspirit und unserer offenen Hochschulkultur\n• einem familiären Studiengang mit einer kleinen Gruppe Studierender\n• einem Studiengang, der modern und praxisorientiert ausgerichtet ist\n• Gestaltungsfreiheit bei Modul, Inhalt und Projekten",
+        "fr": "Als agile Hochschule setzt die Fachhochschule Graubünden auf dynamisches Denken und proaktives Handeln. Wir bilden über 2300 Studierende zu hochqualifizierten und verantwortungsvollen Persönlichkeiten aus. Unsere Lehre und Forschung sind interdisziplinär und orientieren sich an praktischen Herausforderungen in Wirtschaft und Gesellschaft. Als Arbeitgeberin fördern wir die Chancengleichheit und Vielfalt. Zur Verstärkung unseres Teams im Institut für Data Analysis, Artificial Intelligence, Visualization und Simulation (DAViS) vergeben wir für das Herbstsemester 2026 einen | Als Lehrbeauftragte:r engagieren Sie sich mit Begeisterung in der Lehre im Bachelor-Studiengang «Computational and Data Science» für das Modul «Digitales Design und Computerarchitektur». Sie sind für den inhaltlichen und didaktischen Aufbau des Moduls verantwortlich – von Zahlensystemen und Boolescher Algebra über logische Gatter und sequentielle Schaltungen bis hin zur CPU-Architektur, Speicherhierarchien und praktischen Übungen mit Raspberry Pi und GPIO. Das Modul entwickeln Sie eigenständig in Abstimmung mit der Studienleitung und unterrichten dieses im Herbstsemester 2026. | Ihr Profil\n• Hochschulabschluss in Informatik, Elektrotechnik oder verwandtem Bereich (Promotion von Vorteil)\n• Mehrjährige Praxiserfahrung oder akademische Erfahrung in Digitaltechnik, Computerarchitektur, Boolescher Algebra und hardwarenahem Programmieren\n• Erfahrung mit Raspberry Pi, GPIO-Programmierung und Digitalschaltungen\n• Erfahrung in der Informatiklehre\n• Kommunikative Persönlichkeit, Freude am Unterrichten und an der Vermittlung von Wissen und Fähigkeiten | Wir begeistern Sie mit\n• unserem dynamischen Teamspirit und unserer offenen Hochschulkultur\n• einem familiären Studiengang mit einer kleinen Gruppe Studierender\n• einem Studiengang, der modern und praxisorientiert ausgerichtet ist\n• Gestaltungsfreiheit bei Modul, Inhalt und Projekten"
+      },
+      "location": "Chur",
+      "canton": "GR",
+      "url": "https://jobs.fhgr.ch/Vacancies/790/Description/1",
+      "source": "Fachhochschule Graubünden Dedicated Parser (Umantis)",
+      "sourceLang": "de",
+      "crawledAt": "2026-05-21T11:54:06.972Z",
+      "addressLocality": "Chur",
+      "postalCode": "7000",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Formazione / Ricerca",
+      "contract": "full-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Formazione / Ricerca",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-21",
+      "applyUrl": "https://jobs.fhgr.ch/Vacancies/790/Application/CheckLogin/1",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "department": "Institut für Data Analysis, Artificial Intelligence, Visualization und Simulation (DAViS)",
+      "contractDuration": "temporary",
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "lehrauftrag-fur-das-modul-digitales-design-und-computerarchitektur-fhgr-ch"
+        ],
+        "de": [
+          "lehrauftrag-fur-das-modul-digitales-design-und-computerarchitektur-fhgr-ch"
+        ]
+      },
+      "previousSlugs": [
+        "lehrauftrag-fur-das-modul-digitales-design-und-computerarchitektur-fhgr-ch"
+      ],
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-05-21T11:54:06.972Z"
+    },
+    {
+      "id": "fhgr-39c0671cea6a",
+      "slug": "lehrauftrag-per-das-modul-softwaremanagement-fachhochschule-graubunden-chur",
+      "slugByLocale": {
+        "de": "lehrauftrag-fur-das-modul-softwaremanagement-fachhochschule-graubunden-chur",
+        "it": "lehrauftrag-per-das-modul-softwaremanagement-fachhochschule-graubunden-chur",
+        "en": "lehrauftrag-fur-das-modul-softwaremanagement-fachhochschule-graubunden-chur",
+        "fr": "lehrauftrag-fur-das-modul-softwaremanagement-fachhochschule-graubunden-chur"
+      },
+      "company": "Fachhochschule Graubünden",
+      "companyKey": "fhgr",
+      "companyDomain": "fhgr.ch",
+      "title": "Lehrauftrag für das Modul «Softwaremanagement»",
+      "titleByLocale": {
+        "de": "Lehrauftrag für das Modul «Softwaremanagement»",
+        "it": "Lehrauftrag per das Modul «Softwaremanagement»",
+        "en": "Lehrauftrag für das Modul «Softwaremanagement»",
+        "fr": "Lehrauftrag für das Modul «Softwaremanagement»"
+      },
+      "description": "Als agile Hochschule setzt die Fachhochschule Graubünden auf dynamisches Denken und proaktives Handeln. Wir bilden über 2300 Studierende zu hochqualifizierten und verantwortungsvollen Persönlichkeiten aus. Unsere Lehre und Forschung sind interdisziplinär und orientieren sich an praktischen Herausforderungen in Wirtschaft und Gesellschaft. Als Arbeitgeberin fördern wir die Chancengleichheit und Vielfalt. Zur Verstärkung unseres Teams im Institut für Data Analysis, Artificial Intelligence, Visualization und Simulation (DAViS) vergeben wir für das Herbstsemester 2026 einen | Als Lehrbeauftragte:r engagieren Sie sich mit Begeisterung in der Lehre im Bachelor-Studiengang «Computational and Data Science» mit Studienrichtung «Artificial Intelligence in Software Engineering» für das Modul «Softwaremanagement». Sie sind für den inhaltlichen und didaktischen Aufbau des Moduls verantwortlich – von Projektplanung und agilen Methoden (Scrum, Kanban) über Teamführung, Risiko- und Qualitätsmanagement bis hin zu Stakeholder-Kommunikation und Microservices-Architekturen. Das Modul entwickeln Sie eigenständig in Abstimmung mit der Studienleitung und unterrichten dieses im Herbstsemester 2026. | Ihr Profil\n• Hochschulabschluss in Informatik, Wirtschaftsinformatik oder verwandtem Bereich (Promotion von Vorteil)\n• Mehrjährige Praxiserfahrung in der Leitung von Softwareprojekten, idealerweise mit agilen Methoden (Scrum, Kanban)\n• Fundierte Kenntnisse in Projektplanung, Risiko- und Qualitätsmanagement sowie Stakeholder-Kommunikation\n• Erfahrung in der Informatiklehre\n• Kommunikative Persönlichkeit, Freude am Unterrichten und an der Vermittlung von Wissen und Fähigkeiten | Wir begeistern Sie mit\n• unserem dynamischen Teamspirit und unserer offenen Hochschulkultur\n• einem familiären Studiengang mit einer kleinen Gruppe Studierender\n• einem Studiengang, der modern und praxisorientiert ausgerichtet ist\n• Gestaltungsfreiheit bei Modul, Inhalt und Projekten",
+      "descriptionByLocale": {
+        "de": "Als agile Hochschule setzt die Fachhochschule Graubünden auf dynamisches Denken und proaktives Handeln. Wir bilden über 2300 Studierende zu hochqualifizierten und verantwortungsvollen Persönlichkeiten aus. Unsere Lehre und Forschung sind interdisziplinär und orientieren sich an praktischen Herausforderungen in Wirtschaft und Gesellschaft. Als Arbeitgeberin fördern wir die Chancengleichheit und Vielfalt. Zur Verstärkung unseres Teams im Institut für Data Analysis, Artificial Intelligence, Visualization und Simulation (DAViS) vergeben wir für das Herbstsemester 2026 einen | Als Lehrbeauftragte:r engagieren Sie sich mit Begeisterung in der Lehre im Bachelor-Studiengang «Computational and Data Science» mit Studienrichtung «Artificial Intelligence in Software Engineering» für das Modul «Softwaremanagement». Sie sind für den inhaltlichen und didaktischen Aufbau des Moduls verantwortlich – von Projektplanung und agilen Methoden (Scrum, Kanban) über Teamführung, Risiko- und Qualitätsmanagement bis hin zu Stakeholder-Kommunikation und Microservices-Architekturen. Das Modul entwickeln Sie eigenständig in Abstimmung mit der Studienleitung und unterrichten dieses im Herbstsemester 2026. | Ihr Profil\n• Hochschulabschluss in Informatik, Wirtschaftsinformatik oder verwandtem Bereich (Promotion von Vorteil)\n• Mehrjährige Praxiserfahrung in der Leitung von Softwareprojekten, idealerweise mit agilen Methoden (Scrum, Kanban)\n• Fundierte Kenntnisse in Projektplanung, Risiko- und Qualitätsmanagement sowie Stakeholder-Kommunikation\n• Erfahrung in der Informatiklehre\n• Kommunikative Persönlichkeit, Freude am Unterrichten und an der Vermittlung von Wissen und Fähigkeiten | Wir begeistern Sie mit\n• unserem dynamischen Teamspirit und unserer offenen Hochschulkultur\n• einem familiären Studiengang mit einer kleinen Gruppe Studierender\n• einem Studiengang, der modern und praxisorientiert ausgerichtet ist\n• Gestaltungsfreiheit bei Modul, Inhalt und Projekten",
+        "it": "Als agile Hochschule setzt die Fachhochschule Graubünden auf dynamisches Denken und proaktives Handeln. Wir bilden über 2300 Studierende zu hochqualifizierten und verantwortungsvollen Persönlichkeiten aus. Unsere Lehre und Forschung sind interdisziplinär und orientieren sich an praktischen Herausforderungen in Wirtschaft und Gesellschaft. Als Arbeitgeberin fördern wir die Chancengleichheit und Vielfalt. Zur Verstärkung unseres Teams im Institut für Data Analysis, Artificial Intelligence, Visualization und Simulation (DAViS) vergeben wir für das Herbstsemester 2026 einen | Als Lehrbeauftragte:r engagieren Sie sich mit Begeisterung in der Lehre im Bachelor-Studiengang «Computational and Data Science» mit Studienrichtung «Artificial Intelligence in Software Engineering» für das Modul «Softwaremanagement». Sie sind für den inhaltlichen und didaktischen Aufbau des Moduls verantwortlich – von Projektplanung und agilen Methoden (Scrum, Kanban) über Teamführung, Risiko- und Qualitätsmanagement bis hin zu Stakeholder-Kommunikation und Microservices-Architekturen. Das Modul entwickeln Sie eigenständig in Abstimmung mit der Studienleitung und unterrichten dieses im Herbstsemester 2026. | Ihr Profil\n• Hochschulabschluss in Informatik, Wirtschaftsinformatik oder verwandtem Bereich (Promotion von Vorteil)\n• Mehrjährige Praxiserfahrung in der Leitung von Softwareprojekten, idealerweise mit agilen Methoden (Scrum, Kanban)\n• Fundierte Kenntnisse in Projektplanung, Risiko- und Qualitätsmanagement sowie Stakeholder-Kommunikation\n• Erfahrung in der Informatiklehre\n• Kommunikative Persönlichkeit, Freude am Unterrichten und an der Vermittlung von Wissen und Fähigkeiten | Wir begeistern Sie mit\n• unserem dynamischen Teamspirit und unserer offenen Hochschulkultur\n• einem familiären Studiengang mit einer kleinen Gruppe Studierender\n• einem Studiengang, der modern und praxisorientiert ausgerichtet ist\n• Gestaltungsfreiheit bei Modul, Inhalt und Projekten",
+        "en": "Als agile Hochschule setzt die Fachhochschule Graubünden auf dynamisches Denken und proaktives Handeln. Wir bilden über 2300 Studierende zu hochqualifizierten und verantwortungsvollen Persönlichkeiten aus. Unsere Lehre und Forschung sind interdisziplinär und orientieren sich an praktischen Herausforderungen in Wirtschaft und Gesellschaft. Als Arbeitgeberin fördern wir die Chancengleichheit und Vielfalt. Zur Verstärkung unseres Teams im Institut für Data Analysis, Artificial Intelligence, Visualization und Simulation (DAViS) vergeben wir für das Herbstsemester 2026 einen | Als Lehrbeauftragte:r engagieren Sie sich mit Begeisterung in der Lehre im Bachelor-Studiengang «Computational and Data Science» mit Studienrichtung «Artificial Intelligence in Software Engineering» für das Modul «Softwaremanagement». Sie sind für den inhaltlichen und didaktischen Aufbau des Moduls verantwortlich – von Projektplanung und agilen Methoden (Scrum, Kanban) über Teamführung, Risiko- und Qualitätsmanagement bis hin zu Stakeholder-Kommunikation und Microservices-Architekturen. Das Modul entwickeln Sie eigenständig in Abstimmung mit der Studienleitung und unterrichten dieses im Herbstsemester 2026. | Ihr Profil\n• Hochschulabschluss in Informatik, Wirtschaftsinformatik oder verwandtem Bereich (Promotion von Vorteil)\n• Mehrjährige Praxiserfahrung in der Leitung von Softwareprojekten, idealerweise mit agilen Methoden (Scrum, Kanban)\n• Fundierte Kenntnisse in Projektplanung, Risiko- und Qualitätsmanagement sowie Stakeholder-Kommunikation\n• Erfahrung in der Informatiklehre\n• Kommunikative Persönlichkeit, Freude am Unterrichten und an der Vermittlung von Wissen und Fähigkeiten | Wir begeistern Sie mit\n• unserem dynamischen Teamspirit und unserer offenen Hochschulkultur\n• einem familiären Studiengang mit einer kleinen Gruppe Studierender\n• einem Studiengang, der modern und praxisorientiert ausgerichtet ist\n• Gestaltungsfreiheit bei Modul, Inhalt und Projekten",
+        "fr": "Als agile Hochschule setzt die Fachhochschule Graubünden auf dynamisches Denken und proaktives Handeln. Wir bilden über 2300 Studierende zu hochqualifizierten und verantwortungsvollen Persönlichkeiten aus. Unsere Lehre und Forschung sind interdisziplinär und orientieren sich an praktischen Herausforderungen in Wirtschaft und Gesellschaft. Als Arbeitgeberin fördern wir die Chancengleichheit und Vielfalt. Zur Verstärkung unseres Teams im Institut für Data Analysis, Artificial Intelligence, Visualization und Simulation (DAViS) vergeben wir für das Herbstsemester 2026 einen | Als Lehrbeauftragte:r engagieren Sie sich mit Begeisterung in der Lehre im Bachelor-Studiengang «Computational and Data Science» mit Studienrichtung «Artificial Intelligence in Software Engineering» für das Modul «Softwaremanagement». Sie sind für den inhaltlichen und didaktischen Aufbau des Moduls verantwortlich – von Projektplanung und agilen Methoden (Scrum, Kanban) über Teamführung, Risiko- und Qualitätsmanagement bis hin zu Stakeholder-Kommunikation und Microservices-Architekturen. Das Modul entwickeln Sie eigenständig in Abstimmung mit der Studienleitung und unterrichten dieses im Herbstsemester 2026. | Ihr Profil\n• Hochschulabschluss in Informatik, Wirtschaftsinformatik oder verwandtem Bereich (Promotion von Vorteil)\n• Mehrjährige Praxiserfahrung in der Leitung von Softwareprojekten, idealerweise mit agilen Methoden (Scrum, Kanban)\n• Fundierte Kenntnisse in Projektplanung, Risiko- und Qualitätsmanagement sowie Stakeholder-Kommunikation\n• Erfahrung in der Informatiklehre\n• Kommunikative Persönlichkeit, Freude am Unterrichten und an der Vermittlung von Wissen und Fähigkeiten | Wir begeistern Sie mit\n• unserem dynamischen Teamspirit und unserer offenen Hochschulkultur\n• einem familiären Studiengang mit einer kleinen Gruppe Studierender\n• einem Studiengang, der modern und praxisorientiert ausgerichtet ist\n• Gestaltungsfreiheit bei Modul, Inhalt und Projekten"
+      },
+      "location": "Chur",
+      "canton": "GR",
+      "url": "https://jobs.fhgr.ch/Vacancies/791/Description/1",
+      "source": "Fachhochschule Graubünden Dedicated Parser (Umantis)",
+      "sourceLang": "de",
+      "crawledAt": "2026-05-21T11:54:06.003Z",
+      "addressLocality": "Chur",
+      "postalCode": "7000",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Formazione / Ricerca",
+      "contract": "full-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Formazione / Ricerca",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-21",
+      "applyUrl": "https://jobs.fhgr.ch/Vacancies/791/Application/CheckLogin/1",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "department": "Institut für Data Analysis, Artificial Intelligence, Visualization und Simulation (DAViS)",
+      "contractDuration": "temporary",
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "lehrauftrag-fur-das-modul-softwaremanagement-fhgr-ch"
+        ],
+        "de": [
+          "lehrauftrag-fur-das-modul-softwaremanagement-fhgr-ch"
+        ]
+      },
+      "previousSlugs": [
+        "lehrauftrag-fur-das-modul-softwaremanagement-fhgr-ch"
+      ],
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-05-21T11:54:06.003Z"
+    },
+    {
+      "id": "fhgr-d00f3d668541",
+      "slug": "programmkoordinator-in-weiterbildung-fachhochschule-graubunden-zurich",
+      "slugByLocale": {
+        "de": "programmkoordinator-in-weiterbildung-fachhochschule-graubunden-zurich",
+        "it": "programmkoordinator-in-weiterbildung-fachhochschule-graubunden-zurich",
+        "en": "programmkoordinator-in-weiterbildung-fachhochschule-graubunden-zurich",
+        "fr": "programmkoordinator-in-weiterbildung-fachhochschule-graubunden-zurich"
+      },
+      "company": "Fachhochschule Graubünden",
+      "companyKey": "fhgr",
+      "companyDomain": "fhgr.ch",
+      "title": "Programmkoordinator/-in Weiterbildung",
+      "titleByLocale": {
+        "de": "Programmkoordinator/-in Weiterbildung",
+        "it": "Programmkoordinator/-in Weiterbildung",
+        "en": "Programmkoordinator/-in Weiterbildung",
+        "fr": "Programmkoordinator/-in Weiterbildung"
+      },
+      "description": "Als Hochschule setzt die FH Graubünden auf dynamisches Denken und proaktives Handeln. Unsere über 2400 Studierenden in Aus- und Weiterbildung entwickeln wir zu verantwortungsvollen Persönlichkeiten. In unserer inter- und transdisziplinären Forschung fokussieren wir auf die Themen angewandte Zukunftstechnologien, Entwicklung im alpinen Raum und unternehmerisches Handeln. Als Arbeitgeberin fördern wir die Chancengleichheit und Vielfalt. Für das Departement Zentrale Dienste suchen wir zur Verstärkung unseres Teams per 1. August oder nach Vereinbarung eine/n | Sie sind Teil eines kleinen Teams und übernehmen anspruchsvolle koordinative Aufgaben für unsere innovativen Weiterbildungsangebote . Als erste Ansprechperson für Studieninteressierte, Studierende sowie Dozierende erwartet Sie eine abwechslungsreiche Funktion, in welcher Ihr dienstleistungsorientiertes Verhalten und Ihre kommunikativen Fähigkeiten gefragt sind. Dabei arbeiten Sie eng mit der Studienleitung zusammen. Weiter sind Sie im First Support Level Team des Schulverwaltungsprogrammes Evento sowie die interne Kontaktperson für Anliegen aus den Bereichen IT-Support und Facility-Services. Ausserdem planen Sie die Organisation von Veranstaltungen mit und unterstützen das Team in weiteren koordinativen Belangen. | Ihr Profil\n• Kaufmännische Ausbildung mit mehrjähriger Berufserfahrung\n• Offene und kommunikative Persönlichkeit mit einem ausgeprägten Dienstleistungsverständnis\n• Rasche Auffassungsgabe für komplexe Zusammenhänge sowie Freude an organisatorischen Aufgaben\n• Sehr gute Deutsch- und MS-Office-Applikations-Kenntnisse\n• Erfahrung im Umgang mit Evento (von Vorteil)\n• Bereitschaft für Einsätze an gelegentlichen Events ausserhalb der üblichen Geschäftszeiten | Wir begeistern Sie mit\n• Einem modernen Arbeitsplatz beim Hauptbahnhof Zürich\n• Unserem dynamischen Teamspirit und unserer offenen Unternehmenskultur\n• Einem bestens eingespielten und kollegialen Team\n• Unserer Unterstützung in der persönlichen Weiterbildung\n• Modernen Anstellungsbedingungen und vielen Sport- und Kulturangeboten",
+      "descriptionByLocale": {
+        "de": "Als Hochschule setzt die FH Graubünden auf dynamisches Denken und proaktives Handeln. Unsere über 2400 Studierenden in Aus- und Weiterbildung entwickeln wir zu verantwortungsvollen Persönlichkeiten. In unserer inter- und transdisziplinären Forschung fokussieren wir auf die Themen angewandte Zukunftstechnologien, Entwicklung im alpinen Raum und unternehmerisches Handeln. Als Arbeitgeberin fördern wir die Chancengleichheit und Vielfalt. Für das Departement Zentrale Dienste suchen wir zur Verstärkung unseres Teams per 1. August oder nach Vereinbarung eine/n | Sie sind Teil eines kleinen Teams und übernehmen anspruchsvolle koordinative Aufgaben für unsere innovativen Weiterbildungsangebote . Als erste Ansprechperson für Studieninteressierte, Studierende sowie Dozierende erwartet Sie eine abwechslungsreiche Funktion, in welcher Ihr dienstleistungsorientiertes Verhalten und Ihre kommunikativen Fähigkeiten gefragt sind. Dabei arbeiten Sie eng mit der Studienleitung zusammen. Weiter sind Sie im First Support Level Team des Schulverwaltungsprogrammes Evento sowie die interne Kontaktperson für Anliegen aus den Bereichen IT-Support und Facility-Services. Ausserdem planen Sie die Organisation von Veranstaltungen mit und unterstützen das Team in weiteren koordinativen Belangen. | Ihr Profil\n• Kaufmännische Ausbildung mit mehrjähriger Berufserfahrung\n• Offene und kommunikative Persönlichkeit mit einem ausgeprägten Dienstleistungsverständnis\n• Rasche Auffassungsgabe für komplexe Zusammenhänge sowie Freude an organisatorischen Aufgaben\n• Sehr gute Deutsch- und MS-Office-Applikations-Kenntnisse\n• Erfahrung im Umgang mit Evento (von Vorteil)\n• Bereitschaft für Einsätze an gelegentlichen Events ausserhalb der üblichen Geschäftszeiten | Wir begeistern Sie mit\n• Einem modernen Arbeitsplatz beim Hauptbahnhof Zürich\n• Unserem dynamischen Teamspirit und unserer offenen Unternehmenskultur\n• Einem bestens eingespielten und kollegialen Team\n• Unserer Unterstützung in der persönlichen Weiterbildung\n• Modernen Anstellungsbedingungen und vielen Sport- und Kulturangeboten",
+        "it": "Als Hochschule setzt die FH Graubünden auf dynamisches Denken und proaktives Handeln. Unsere über 2400 Studierenden in Aus- und Weiterbildung entwickeln wir zu verantwortungsvollen Persönlichkeiten. In unserer inter- und transdisziplinären Forschung fokussieren wir auf die Themen angewandte Zukunftstechnologien, Entwicklung im alpinen Raum und unternehmerisches Handeln. Als Arbeitgeberin fördern wir die Chancengleichheit und Vielfalt. Für das Departement Zentrale Dienste suchen wir zur Verstärkung unseres Teams per 1. August oder nach Vereinbarung eine/n | Sie sind Teil eines kleinen Teams und übernehmen anspruchsvolle koordinative Aufgaben für unsere innovativen Weiterbildungsangebote . Als erste Ansprechperson für Studieninteressierte, Studierende sowie Dozierende erwartet Sie eine abwechslungsreiche Funktion, in welcher Ihr dienstleistungsorientiertes Verhalten und Ihre kommunikativen Fähigkeiten gefragt sind. Dabei arbeiten Sie eng mit der Studienleitung zusammen. Weiter sind Sie im First Support Level Team des Schulverwaltungsprogrammes Evento sowie die interne Kontaktperson für Anliegen aus den Bereichen IT-Support und Facility-Services. Ausserdem planen Sie die Organisation von Veranstaltungen mit und unterstützen das Team in weiteren koordinativen Belangen. | Ihr Profil\n• Kaufmännische Ausbildung mit mehrjähriger Berufserfahrung\n• Offene und kommunikative Persönlichkeit mit einem ausgeprägten Dienstleistungsverständnis\n• Rasche Auffassungsgabe für komplexe Zusammenhänge sowie Freude an organisatorischen Aufgaben\n• Sehr gute Deutsch- und MS-Office-Applikations-Kenntnisse\n• Erfahrung im Umgang mit Evento (von Vorteil)\n• Bereitschaft für Einsätze an gelegentlichen Events ausserhalb der üblichen Geschäftszeiten | Wir begeistern Sie mit\n• Einem modernen Arbeitsplatz beim Hauptbahnhof Zürich\n• Unserem dynamischen Teamspirit und unserer offenen Unternehmenskultur\n• Einem bestens eingespielten und kollegialen Team\n• Unserer Unterstützung in der persönlichen Weiterbildung\n• Modernen Anstellungsbedingungen und vielen Sport- und Kulturangeboten",
+        "en": "Als Hochschule setzt die FH Graubünden auf dynamisches Denken und proaktives Handeln. Unsere über 2400 Studierenden in Aus- und Weiterbildung entwickeln wir zu verantwortungsvollen Persönlichkeiten. In unserer inter- und transdisziplinären Forschung fokussieren wir auf die Themen angewandte Zukunftstechnologien, Entwicklung im alpinen Raum und unternehmerisches Handeln. Als Arbeitgeberin fördern wir die Chancengleichheit und Vielfalt. Für das Departement Zentrale Dienste suchen wir zur Verstärkung unseres Teams per 1. August oder nach Vereinbarung eine/n | Sie sind Teil eines kleinen Teams und übernehmen anspruchsvolle koordinative Aufgaben für unsere innovativen Weiterbildungsangebote . Als erste Ansprechperson für Studieninteressierte, Studierende sowie Dozierende erwartet Sie eine abwechslungsreiche Funktion, in welcher Ihr dienstleistungsorientiertes Verhalten und Ihre kommunikativen Fähigkeiten gefragt sind. Dabei arbeiten Sie eng mit der Studienleitung zusammen. Weiter sind Sie im First Support Level Team des Schulverwaltungsprogrammes Evento sowie die interne Kontaktperson für Anliegen aus den Bereichen IT-Support und Facility-Services. Ausserdem planen Sie die Organisation von Veranstaltungen mit und unterstützen das Team in weiteren koordinativen Belangen. | Ihr Profil\n• Kaufmännische Ausbildung mit mehrjähriger Berufserfahrung\n• Offene und kommunikative Persönlichkeit mit einem ausgeprägten Dienstleistungsverständnis\n• Rasche Auffassungsgabe für komplexe Zusammenhänge sowie Freude an organisatorischen Aufgaben\n• Sehr gute Deutsch- und MS-Office-Applikations-Kenntnisse\n• Erfahrung im Umgang mit Evento (von Vorteil)\n• Bereitschaft für Einsätze an gelegentlichen Events ausserhalb der üblichen Geschäftszeiten | Wir begeistern Sie mit\n• Einem modernen Arbeitsplatz beim Hauptbahnhof Zürich\n• Unserem dynamischen Teamspirit und unserer offenen Unternehmenskultur\n• Einem bestens eingespielten und kollegialen Team\n• Unserer Unterstützung in der persönlichen Weiterbildung\n• Modernen Anstellungsbedingungen und vielen Sport- und Kulturangeboten",
+        "fr": "Als Hochschule setzt die FH Graubünden auf dynamisches Denken und proaktives Handeln. Unsere über 2400 Studierenden in Aus- und Weiterbildung entwickeln wir zu verantwortungsvollen Persönlichkeiten. In unserer inter- und transdisziplinären Forschung fokussieren wir auf die Themen angewandte Zukunftstechnologien, Entwicklung im alpinen Raum und unternehmerisches Handeln. Als Arbeitgeberin fördern wir die Chancengleichheit und Vielfalt. Für das Departement Zentrale Dienste suchen wir zur Verstärkung unseres Teams per 1. August oder nach Vereinbarung eine/n | Sie sind Teil eines kleinen Teams und übernehmen anspruchsvolle koordinative Aufgaben für unsere innovativen Weiterbildungsangebote . Als erste Ansprechperson für Studieninteressierte, Studierende sowie Dozierende erwartet Sie eine abwechslungsreiche Funktion, in welcher Ihr dienstleistungsorientiertes Verhalten und Ihre kommunikativen Fähigkeiten gefragt sind. Dabei arbeiten Sie eng mit der Studienleitung zusammen. Weiter sind Sie im First Support Level Team des Schulverwaltungsprogrammes Evento sowie die interne Kontaktperson für Anliegen aus den Bereichen IT-Support und Facility-Services. Ausserdem planen Sie die Organisation von Veranstaltungen mit und unterstützen das Team in weiteren koordinativen Belangen. | Ihr Profil\n• Kaufmännische Ausbildung mit mehrjähriger Berufserfahrung\n• Offene und kommunikative Persönlichkeit mit einem ausgeprägten Dienstleistungsverständnis\n• Rasche Auffassungsgabe für komplexe Zusammenhänge sowie Freude an organisatorischen Aufgaben\n• Sehr gute Deutsch- und MS-Office-Applikations-Kenntnisse\n• Erfahrung im Umgang mit Evento (von Vorteil)\n• Bereitschaft für Einsätze an gelegentlichen Events ausserhalb der üblichen Geschäftszeiten | Wir begeistern Sie mit\n• Einem modernen Arbeitsplatz beim Hauptbahnhof Zürich\n• Unserem dynamischen Teamspirit und unserer offenen Unternehmenskultur\n• Einem bestens eingespielten und kollegialen Team\n• Unserer Unterstützung in der persönlichen Weiterbildung\n• Modernen Anstellungsbedingungen und vielen Sport- und Kulturangeboten"
+      },
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://jobs.fhgr.ch/Vacancies/786/Description/1",
+      "source": "Fachhochschule Graubünden Dedicated Parser (Umantis)",
+      "sourceLang": "de",
+      "crawledAt": "2026-05-21T11:54:05.028Z",
+      "addressLocality": "Zürich",
+      "postalCode": "7000",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "IT",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Formazione / Ricerca",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-21",
+      "applyUrl": "https://jobs.fhgr.ch/Vacancies/786/Application/CheckLogin/1",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "department": "Administration",
+      "contractDuration": "permanent",
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "programmkoordinator-in-weiterbildung-fhgr-ch"
+        ],
+        "de": [
+          "programmkoordinator-in-weiterbildung-fhgr-ch"
+        ]
+      },
+      "previousSlugs": [
+        "programmkoordinator-in-weiterbildung-fhgr-ch"
+      ],
+      "salaryMin": 51500,
+      "salaryMax": 88000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 51500,
+          "maxValue": 88000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-05-21T11:54:05.028Z"
     }
   ]
 }
