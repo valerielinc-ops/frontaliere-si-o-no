@@ -373,6 +373,9 @@ const BOILERPLATE_MARKER_PHRASES = [
   'Candidati online su',
   'transizione energetica e industriale',
   'offre servizi di ingegneria',
+  'Tipologie di Dati raccolti',
+  'Types of Data collected',
+  'Pursuant to Article 13',
 ];
 
 const BOILERPLATE_MARKER_REGEX = /cerca .+ con sede a/i;

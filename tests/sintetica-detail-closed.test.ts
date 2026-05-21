@@ -35,4 +35,36 @@ describe('parseDetailPage — closed-position detection', () => {
     expect(parseDetailPage('').closed).toBe(false);
     expect(parseDetailPage('<html><body></body></html>').closed).toBe(false);
   });
+
+  it('extracts NCore .singlePosition container as body (regression: PR fix)', () => {
+    const realBody = 'Founded in 1921 and headquartered in Mendrisio (Switzerland), Sintetica designs and manufactures sterile injectable pharmaceuticals. The Front Desk role manages reception duties at our Mendrisio site, supporting visitors, vendors and internal staff.';
+    const html = `<html><body>
+      <div class="singlePosition"><p>${realBody}</p></div>
+    </body></html>`;
+    const result = parseDetailPage(html);
+    expect(result.body).toContain('Sintetica designs and manufactures');
+    expect(result.body.length).toBeGreaterThan(100);
+  });
+
+  it('rejects the privacy-policy modal as job body (GDPR contamination guard)', () => {
+    const privacyText = 'Tipologie di Dati raccolti Ai sensi dell\'art. 13 del Regolamento (UE) n. 679/2016 (GDPR) ' +
+      'Il Titolare del Trattamento raccoglie dati personali. '.repeat(50);
+    const realBody = 'Founded in 1921 and headquartered in Mendrisio (Switzerland), Sintetica designs and manufactures sterile injectable pharmaceuticals. The Front Desk role manages reception duties at our Mendrisio site.';
+    const html = `<html><body>
+      <div class="singlePosition"><p>${realBody}</p></div>
+      <div class="privacy-modal"><p>${privacyText}</p></div>
+    </body></html>`;
+    const result = parseDetailPage(html);
+    expect(result.body).toContain('Sintetica designs and manufactures');
+    expect(result.body).not.toMatch(/Tipologie di Dati|Regolamento.*679\/2016/);
+  });
+
+  it('rejects privacy modal even when it is the largest div on the page', () => {
+    const privacyText = ('Tipologie di Dati raccolti Pursuant to Article 13 GDPR. ').repeat(200);
+    const html = `<html><body><h1>Job Title</h1>
+      <div class="privacy"><p>${privacyText}</p></div>
+    </body></html>`;
+    const result = parseDetailPage(html);
+    expect(result.body).not.toMatch(/Tipologie di Dati|Pursuant to Article 13/);
+  });
 });

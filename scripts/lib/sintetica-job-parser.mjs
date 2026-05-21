@@ -133,6 +133,11 @@ export function parseListingPage(html = '') {
  */
 const NCORE_CLOSED_RE = /\b(Siamo spiacenti|risulta essere chiusa|non è più possibile inoltrare|position(?: is)? closed|no longer available|Position non disponibile)\b/i;
 
+// Privacy-policy modal text leaks into the body when the primary container is
+// missing — NCore renders a GDPR modal as a sibling div that the "largest div"
+// fallback would otherwise pick. Reject any candidate matching these markers.
+const PRIVACY_MODAL_RE = /Tipologie di Dati raccolti|Types of Data collected|Regolamento\s*\(UE\)\s*n\.?\s*679\/2016|Pursuant to Article 13|Art\.\s*13\b.*\bGDPR\b|\bDSGVO\b|Cookie Policy|Privacy Policy/i;
+
 export function parseDetailPage(html = '') {
   if (!html) return { title: '', body: '', location: '', sourceBodyLength: 0, closed: false };
 
@@ -154,8 +159,11 @@ export function parseDetailPage(html = '') {
     if (text && text.length < 100) { location = text; break; }
   }
 
-  // Body
+  // Body. `.singlePosition` is NCore Platform's native container — must come
+  // first so the privacy-modal fallback never wins. Without it, every detail
+  // page fell through to "largest div by text" which is the GDPR modal.
   const BODY_SELECTORS = [
+    '.singlePosition',
     '.job-description',
     '.position-description',
     '.detail-content',
@@ -170,6 +178,7 @@ export function parseDetailPage(html = '') {
     const el = document.querySelector(sel);
     if (!el) continue;
     const candidate = stripTags(el.innerHTML || '');
+    if (PRIVACY_MODAL_RE.test(candidate)) continue;
     if (candidate.length > body.length) body = candidate;
     if (candidate.length >= MIN_DESC_LENGTH) break;
   }
@@ -179,7 +188,9 @@ export function parseDetailPage(html = '') {
     let best = null;
     let bestLen = 0;
     for (const el of document.querySelectorAll('div, section, article')) {
-      const len = (el.textContent || '').trim().length;
+      const text = (el.textContent || '').trim();
+      if (PRIVACY_MODAL_RE.test(text)) continue;
+      const len = text.length;
       if (len > bestLen) { best = el; bestLen = len; }
     }
     if (best && bestLen > body.length) {
