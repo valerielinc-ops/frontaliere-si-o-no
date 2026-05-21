@@ -1848,6 +1848,24 @@ function emitThinCantonHubs(args: ThinCantonHubArgs): void {
     // appenzello/{tutti,settori,aziende}/ +3 unreachable).
     if (jobs.length < MIN_JOBS_FOR_CANTON_PAGE) continue;
 
+    // Dedup-aware gate (2026-05-21): jobsSeoPagesPlugin emits the canton
+    // landing as `noindex,follow` when its dedup-grouped count is below
+    // MIN_JOBS_FOR_CANTON_PAGE (groups jobs sharing `id` or `title|company`).
+    // BFS skips noindex bridges, so seoHubs sub-pages
+    // (`/tutti/`, `/settori/`, `/aziende/`) become unreachable from `/`.
+    // Mirror that dedup heuristic here so both plugins agree on which
+    // cantons get the full sub-page tree. Audit: sitemap-seo-hubs.xml
+    // BFS regression 2026-05-21 (Appenzello/Neuchatel +6 unreachable).
+    {
+      const dedupKeys = new Set<string>();
+      for (const j of jobs) {
+        const role = String(j.role || '').toLowerCase().replace(/\s+/g, ' ').trim();
+        const empKey = String(j.employerKey || j.employer || '').toLowerCase().replace(/\s+/g, ' ').trim();
+        dedupKeys.add(`tc|${role}|${empKey}`);
+      }
+      if (dedupKeys.size < MIN_JOBS_FOR_CANTON_PAGE) continue;
+    }
+
     const empCounts = cantonEmployerCounts.get(canton) ?? new Map<string, number>();
 
     for (const locale of HUB_LOCALES) {

@@ -134,7 +134,13 @@ export function parseDetail(html = '') {
     const tail = html.slice(start);
     const nextFrame = tail.search(/<div[^>]*class="[^"]*\bframe-type-(?!ameosjobs)/i);
     const inner = nextFrame > 0 ? tail.slice(0, nextFrame) : tail.slice(0, 16000);
-    let text = decodeEntities(inner.replace(/<style[\s\S]*?<\/style>/gi, ' ').replace(/<[^>]+>/g, ' '));
+    let text = decodeEntities(
+      inner
+        .replace(/<script[\s\S]*?<\/script>/gi, ' ')
+        .replace(/<noscript[\s\S]*?<\/noscript>/gi, ' ')
+        .replace(/<style[\s\S]*?<\/style>/gi, ' ')
+        .replace(/<[^>]+>/g, ' ')
+    );
     text = normalizeSpace(text);
     // TYPO3 sometimes inlines a CSS rule block before the body content; if
     // the text starts with selectors ending in `} text`, drop everything up

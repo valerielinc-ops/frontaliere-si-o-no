@@ -335,7 +335,20 @@ export function cleanCrawlerArtifacts(text) {
     .map((line) => line.replace(/\s+[_\-=~*]{3,}\s*$/g, '').trimEnd())
     .join('\n');
 
-  // 4. Dedup consecutive identical paragraphs (Panoramica/Descrizione artifact)
+  // 4. Truncate at first inline JS widget signature. SAP SF, TYPO3 ke_search,
+  // Freeform widgets and similar parsers occasionally leak `<script>` content
+  // when callers strip tags without first deleting `<script>...</script>`
+  // blocks. The body text starts with the JS source which the
+  // validate-jobs-quality gate flags as code_in_description. Cut everything
+  // from that boundary onward — defensive mirror of stripHtml() above.
+  {
+    const fnMatch = s.match(/(?:\n|^|\s)(?:\/\/\s*<!\[CDATA\[|\$\(|jQuery\(|function\s+\w*\s*\(|\(function\s*\()/);
+    if (fnMatch && fnMatch.index > 0) s = s.slice(0, fnMatch.index).trimEnd();
+    const varMatch = s.match(/(?:\n|^|\s)(?:const|let|var)\s+\w+\s*=\s*(?:window|document|new\s+Object|\{|\[|document\.querySelectorAll|new\s+XMLHttpRequest)/);
+    if (varMatch && varMatch.index > 0) s = s.slice(0, varMatch.index).trimEnd();
+  }
+
+  // 5. Dedup consecutive identical paragraphs (Panoramica/Descrizione artifact)
   const paragraphs = s.split(/\n{2,}/);
   const out = [];
   const norm = (p) =>

@@ -5,7 +5,7 @@
  */
 
 import type { Block, Inline } from './parser';
-import { parseJobDescription } from './parser';
+import { parseJobDescription, parseInline } from './parser';
 
 function esc(s: string): string {
   return String(s || '')
@@ -55,4 +55,17 @@ export function jobDescriptionTextToHtml(text: string): string {
   if (/<(p|ul|ol|li|h[1-6]|br|strong|em)\b/i.test(text)) return text;
   const blocks = parseJobDescription(text);
   return blocksToHtml(blocks);
+}
+
+/**
+ * Render a single line/paragraph string to safe inline HTML — HTML-escapes
+ * the text while converting `**bold**` → `<strong>` and `*em*` → `<em>`.
+ * Strips literal markdown so audit:no-literal-markdown stays at 0.
+ * If the input already carries structural tags, pass it through untouched.
+ */
+export function inlineTextToHtml(text: string): string {
+  if (!text) return '';
+  const s = String(text);
+  if (/<(strong|em|a|span|br)\b/i.test(s)) return s;
+  return inlinesToHtml(parseInline(s));
 }

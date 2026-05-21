@@ -13,7 +13,7 @@ import { BASE_URL, buildCanonicalBridgePage, SPA_ACTION_REDIRECT_SCRIPT, robotsM
 import { buildSimplePage } from './htmlTemplate';
 import { buildSeoPageHtml } from './shared/seoPageShell';
 import { minifyHtml } from './shared/htmlMinify';
-import { jobDescriptionTextToHtml } from './shared/jobDescription/toHtml';
+import { jobDescriptionTextToHtml, inlineTextToHtml } from './shared/jobDescription/toHtml';
 import { WriteCollector } from './batchWrite';
 import { buildFlatBridgeFromSibling } from './flatHtmlRedirectPlugin';
 import { buildTitleWithBrand, truncateHeadline, TITLE_BRAND_SUFFIX, TITLE_MAX_CHARS } from './shared/titleSuffix';
@@ -2115,14 +2115,18 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  return `<li class="rj"><a href="${href}" aria-label="${esc(relatedTitle)} — ${esc(r.company)}" class="rja">${rLogoImg}<div class="rjw"><div class="rjt">${esc(relatedTitle)}</div><div class="rjs">${esc(r.company)} · ${esc(r.location)}${r.canton ? ` (${esc(r.canton)})` : ''}</div>${rSalary ? `<div class="rjp">${esc(rSalary)}</div>` : ''}</div></a></li>`;
  })
  .join('');
+ // Visible body paragraphs / bullets go through `inlineTextToHtml` so
+ // literal markdown bold (`**foo**`) and italic markers from
+ // AI-translated descriptions render as <strong>/<em> instead of leaking
+ // as plain text. audit:no-literal-markdown is a 0-tolerance gate.
  const summaryHtml = summaryParagraphs
- .map((p) => `<p>${esc(p)}</p>`)
+ .map((p) => `<p>${inlineTextToHtml(p)}</p>`)
  .join('');
  const isSubheadItem = (value: string) => /^(requisiti necessari|requisiti auspicati|required|preferred)$/i.test(normalizeText(value));
  const sectionHtml = (heading: string, paragraphs: string[], bullets: string[]) => {
- const paragraphsHtml = paragraphs.map((p) => `<p>${esc(p)}</p>`).join('');
+ const paragraphsHtml = paragraphs.map((p) => `<p>${inlineTextToHtml(p)}</p>`).join('');
  const bulletsHtml = bullets.length > 0
- ? `<ul>${bullets.map((item) => `<li${isSubheadItem(item) ? ' class="subhead"' : ''}>${esc(item)}</li>`).join('')}</ul>`
+ ? `<ul>${bullets.map((item) => `<li${isSubheadItem(item) ? ' class="subhead"' : ''}>${inlineTextToHtml(item)}</li>`).join('')}</ul>`
  : '';
  return `<section class="section"><h4>${esc(heading)}</h4>${paragraphsHtml}${bulletsHtml}</section>`;
  };
@@ -5531,6 +5535,11 @@ ${alternates}
  jsonLdScripts: [breadcrumbLd, collectionLd, itemListLd],
  bodyHtml,
  distDir,
+ // 0-job city pages exist as 404-rescue fallbacks (so the SPA-overlay
+ // route doesn't render blank) but offer no city-specific signal to
+ // Google. Flip to noindex,follow so they don't compete for indexing
+ // with the canton hub. Pages with ≥1 active job stay index,follow.
+ robots: isCityEmpty ? 'noindex,follow' : 'index,follow',
  });
  // Hard-fail guard mirroring TI city hubs (195 KB budget)
  const CITY_HUB_HARD_BUDGET_BYTES = 195 * 1024;
@@ -5550,7 +5559,14 @@ ${alternates}
  if (flatPath) { const flatFile = np.join(distDir, flatPath.slice(1) + '.html'); _md(np.dirname(flatFile)); _qwFlat(flatFile, html); }
  cityHubCantonPagesCount++;
  }
- // Sitemap entry (priority 0.85 mirroring TI city hubs).
+ // Sitemap entry (priority 0.85 mirroring TI city hubs). Only emit
+ // for cities with ≥1 active job — 0-job city pages are noindex,follow
+ // 404-rescue fallbacks (above) and would land as orphans in
+ // sitemap-jobs.xml because the canton hub's "Esplora" navigator only
+ // links the top 8 city hubs. Adding all canon-city URLs to the sitemap
+ // without inbound links violated audit:orphan-sitemap-pages and
+ // audit:max-bfs-depth gates (PR #463 follow-up).
+ if (!isCityEmpty) {
  const itSection = sharedResolveCantonSection('it', canton);
  const itPath = `/${itSection}/${citySlug}/`.replace(/\/+/g, '/');
  const smAlternates = localeList.map((l) => {
@@ -5559,6 +5575,7 @@ ${alternates}
  return ` <xhtml:link rel="alternate" hreflang="${l}" href="${BASE_URL}${lp}" />`;
  }).join('\n');
  cityHubSitemapEntries.push(` <url>\n <loc>${BASE_URL}${itPath}</loc>\n${smAlternates}\n <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}${itPath}" />\n <lastmod>${dateStamp}</lastmod>\n <changefreq>daily</changefreq>\n <priority>0.85</priority>\n </url>`);
+ }
  }
  }
  if (cityHubCantonPagesCount > 0) {
