@@ -111,7 +111,7 @@ import {
   resolveJobCanton as sharedResolveJobCanton,
   ALL_CANTON_CODES as SHARED_ALL_CANTON_CODES,
 } from './shared/cantonSection';
-import { normalizeCitySlug } from './shared/cantonCities';
+import { getCantonCities, normalizeCitySlug } from './shared/cantonCities';
 
 export const JOB_SEO_LOCALES = ['it', 'en', 'de', 'fr'] as const;
 
@@ -4121,6 +4121,7 @@ ${alternates}
  <script type="application/ld+json">${breadcrumbLd}</script>
  <script type="application/ld+json">${collectionLd}</script>${itemListLd ? `\n <script type="application/ld+json">${itemListLd}</script>` : ''}
  <script type="application/ld+json">${faqLd}</script>${hasSpaBundle ? `\n <link rel="stylesheet" href="/assets/${entryCss}" crossorigin media="all" data-clarity-unmask="true">` : ''}
+ ${SEO_STATIC_CSS_LINK}
  ${GTAG_SNIPPET}
  ${ADSENSE_SNIPPET}
  </head>
@@ -4292,6 +4293,7 @@ ${alternates}
  <script type="application/ld+json">${breadcrumbLd}</script>
  <script type="application/ld+json">${collectionLd}</script>${itemListLd ? `\n <script type="application/ld+json">${itemListLd}</script>` : ''}
  <script type="application/ld+json">${faqLd}</script>${hasSpaBundle ? `\n <link rel="stylesheet" href="/assets/${entryCss}" crossorigin media="all" data-clarity-unmask="true">` : ''}
+ ${SEO_STATIC_CSS_LINK}
  ${GTAG_SNIPPET}
  ${ADSENSE_SNIPPET}
  </head>
@@ -4475,6 +4477,7 @@ ${alternates}
  <script type="application/ld+json">${breadcrumbLd}</script>
  <script type="application/ld+json">${collectionLd}</script>${itemListLd ? `\n <script type="application/ld+json">${itemListLd}</script>` : ''}
  <script type="application/ld+json">${faqLd}</script>${hasSpaBundle ? `\n <link rel="stylesheet" href="/assets/${entryCss}" crossorigin media="all" data-clarity-unmask="true">` : ''}
+ ${SEO_STATIC_CSS_LINK}
  ${GTAG_SNIPPET}
  ${ADSENSE_SNIPPET}
  </head>
@@ -4643,6 +4646,7 @@ ${alternates}
 ${alternates}
  <script type="application/ld+json">${breadcrumbLd}</script>
  <script type="application/ld+json">${collectionLd}</script>${itemListLd ? `\n <script type="application/ld+json">${itemListLd}</script>` : ''}${hasSpaBundle ? `\n <link rel="stylesheet" href="/assets/${entryCss}" crossorigin media="all" data-clarity-unmask="true">` : ''}
+ ${SEO_STATIC_CSS_LINK}
  ${GTAG_SNIPPET}
  ${ADSENSE_SNIPPET}
  </head>
@@ -4832,6 +4836,7 @@ ${alternates}
 ${alternates}
  <script type="application/ld+json">${breadcrumbLd}</script>
  <script type="application/ld+json">${collectionLd}</script>${itemListLd ? `\n <script type="application/ld+json">${itemListLd}</script>` : ''}${hasSpaBundle ? `\n <link rel="stylesheet" href="/assets/${entryCss}" crossorigin media="all" data-clarity-unmask="true">` : ''}
+ ${SEO_STATIC_CSS_LINK}
  ${GTAG_SNIPPET}
  ${ADSENSE_SNIPPET}
  </head>
@@ -5053,6 +5058,7 @@ ${alternates}
 ${alternates}
  <script type="application/ld+json">${breadcrumbLd}</script>
  <script type="application/ld+json">${collectionLd}</script>${itemListLd ? `\n <script type="application/ld+json">${itemListLd}</script>` : ''}${hasSpaBundle ? `\n <link rel="stylesheet" href="/assets/${entryCss}" crossorigin media="all" data-clarity-unmask="true">` : ''}
+ ${SEO_STATIC_CSS_LINK}
  ${GTAG_SNIPPET}
  ${ADSENSE_SNIPPET}
  </head>
@@ -5216,6 +5222,7 @@ ${alternates}
 ${alternates}
  <script type="application/ld+json">${breadcrumbLd}</script>
  <script type="application/ld+json">${collectionLd}</script>${itemListLd ? `\n <script type="application/ld+json">${itemListLd}</script>` : ''}${hasSpaBundle ? `\n <link rel="stylesheet" href="/assets/${entryCss}" crossorigin media="all" data-clarity-unmask="true">` : ''}
+ ${SEO_STATIC_CSS_LINK}
  ${GTAG_SNIPPET}
  ${ADSENSE_SNIPPET}
  </head>
@@ -5287,15 +5294,54 @@ ${alternates}
 
  /* ── Per-canton city hubs (Phase 3.1) ────────────────────────
   * Additive: for every non-TI canton with >= MIN_JOBS_FOR_CANTON_PAGE jobs,
-  * emit /cerca-lavoro-{cantonSlug}/{citySlug}/ for the top 5 cities by
-  * job count in that canton. TI city hubs are emitted by the editorial
-  * location-landing loop above and are byte-identical with the legacy
-  * pre-cathedral output.
+  * emit /cerca-lavoro-{cantonSlug}/{citySlug}/ for EVERY canon city in the
+  * canton (data/canton-municipalities.json) that has at least one active job.
+  * Previously capped to top-5 by job count; the cap created blank pages for
+  * cities #6+ because the router treats every canon city as a city hub
+  * (isKnownCityHub → staticOverlay:true) and the 404 fallback serves the
+  * SPA shell with no static <main class="seo-static-content"> body.
+  * TI city hubs are emitted by the editorial location-landing loop above
+  * and are byte-identical with the legacy pre-cathedral output.
   */
  {
- // Per-canton job index keyed by normalised city slug (from the job's
- // location field via getCityCanton/normalizeCitySlug). The canton key is
+ // Per-canton job index keyed by canonical city slug. The canton key is
  // taken from sharedResolveJobCanton (job.canton or location lookup).
+ // The raw location field is canonicalized against the canton's
+ // municipality list (data/canton-municipalities.json) so that variants
+ // like "Pratteln BL" and "Pratteln" land in the same bucket — and only
+ // cities the router can resolve via isKnownCityHub() get emitted.
+ // Cities outside the canton municipality list (foreign locations,
+ // garbled values) are skipped: emitting them would create URLs that
+ // SPA navigation routes to a job-detail handler ("Annuncio non
+ // trovato") because isKnownCityHub() returns false for them.
+ const cantonCityCanonical: Map<string, Map<string, { slug: string; display: string }>> = new Map();
+ const cantonCityCanonicalize = (canton: string, rawLocation: string): { slug: string; display: string } | null => {
+   const rawSlug = normalizeCitySlug(rawLocation);
+   if (!rawSlug) return null;
+   let lookup = cantonCityCanonical.get(canton);
+   if (!lookup) {
+     lookup = new Map();
+     const cantonCities = getCantonCities(canton);
+     for (const city of cantonCities) {
+       const slug = normalizeCitySlug(city);
+       if (!slug) continue;
+       // Strip the parenthetical disambiguator from display ("Aesch (BL)" → "Aesch").
+       const display = String(city).replace(/\s*\([^)]*\)\s*$/, '').trim();
+       if (!lookup.has(slug)) lookup.set(slug, { slug, display });
+     }
+     cantonCityCanonical.set(canton, lookup);
+   }
+   const direct = lookup.get(rawSlug);
+   if (direct) return direct;
+   // Fallback: location like "Pratteln BL" / "Lugano-Paradiso" — first
+   // hyphen-separated token usually matches the canonical city.
+   const head = rawSlug.split('-')[0];
+   if (head && head !== rawSlug) {
+     const headHit = lookup.get(head);
+     if (headHit) return headHit;
+   }
+   return null;
+ };
  const jobsByCantonCity: Map<string, Map<string, typeof validJobs>> = new Map();
  const cityDisplayByCantonCity: Map<string, Map<string, string>> = new Map();
  for (const job of validJobs) {
@@ -5303,15 +5349,16 @@ ${alternates}
  if (canton === 'TI') continue;
  const rawLocation = String((job as any).location || '').split(/[,(]/)[0].trim();
  if (!rawLocation) continue;
- const citySlug = normalizeCitySlug(rawLocation);
- if (!citySlug) continue;
+ const canonical = cantonCityCanonicalize(canton, rawLocation);
+ if (!canonical) continue;
+ const citySlug = canonical.slug;
  if (!jobsByCantonCity.has(canton)) jobsByCantonCity.set(canton, new Map());
  const byCity = jobsByCantonCity.get(canton)!;
  if (!byCity.has(citySlug)) byCity.set(citySlug, []);
  byCity.get(citySlug)!.push(job);
  if (!cityDisplayByCantonCity.has(canton)) cityDisplayByCantonCity.set(canton, new Map());
  const dispByCity = cityDisplayByCantonCity.get(canton)!;
- if (!dispByCity.has(citySlug)) dispByCity.set(citySlug, rawLocation);
+ if (!dispByCity.has(citySlug)) dispByCity.set(citySlug, canonical.display);
  }
  // Also compute total active jobs per canton (gate by MIN_JOBS_FOR_CANTON_PAGE).
  const cantonJobTotals: Map<string, number> = new Map();
@@ -5335,11 +5382,18 @@ ${alternates}
  if (cantonTotal < MIN_JOBS_FOR_CANTON_PAGE) continue;
  const byCity = jobsByCantonCity.get(canton);
  if (!byCity) continue;
- // Top 5 cities by job count
- const topCities = [...byCity.entries()]
- .sort((a, b) => b[1].length - a[1].length)
- .slice(0, 5);
- for (const [citySlug, cityJobs] of topCities) {
+ // Emit one hub per canon-canton city with at least one active job.
+ // Previously capped to top-5 by job count, which created URLs like
+ // /cerca-lavoro-basilea/pratteln/ that fell through to the 404 →
+ // SPA-shell handoff and rendered blank (App.tsx skips React <main>
+ // when staticOverlay:true and there is no `<main class="seo-static-content">`
+ // in the served HTML). Stable order: job count desc, then slug asc.
+ const allCities = [...byCity.entries()]
+ .sort((a, b) => {
+   const diff = b[1].length - a[1].length;
+   return diff !== 0 ? diff : a[0].localeCompare(b[0]);
+ });
+ for (const [citySlug, cityJobs] of allCities) {
  if (cityJobs.length === 0) continue;
  const cityDisplay = cityDisplayByCantonCity.get(canton)?.get(citySlug) ?? citySlug;
  // Sort jobs for stable feed order

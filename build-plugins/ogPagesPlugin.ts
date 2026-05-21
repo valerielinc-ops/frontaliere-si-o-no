@@ -9,7 +9,7 @@
 
 import path from 'path';
 import type { Plugin } from 'vite';
-import { BASE_URL, GTAG_SNIPPET, ADSENSE_SNIPPET, FAVICON_LINKS } from './constants';
+import { BASE_URL, GTAG_SNIPPET, ADSENSE_SNIPPET, FAVICON_LINKS, SEO_STATIC_CSS_LINK } from './constants';
 import { buildArticleSeoSections, cleanupArticleBodySections } from './articleSeoFallback';
 import { WriteCollector } from './batchWrite';
 import { buildTitleWithBrand, truncateHeadline, TITLE_BRAND_SUFFIX, TITLE_MAX_CHARS } from './shared/titleSuffix';
@@ -1022,6 +1022,7 @@ ${headTags}
  <link rel="stylesheet" href="/assets/${entryCss}" crossorigin media="print" onload="this.media='all'" data-clarity-unmask="true">
  <noscript><link rel="stylesheet" crossorigin href="/assets/${entryCss}" data-clarity-unmask="true"></noscript>
  <script>setTimeout(function(){var l=document.querySelector('link[media="print"][href*="/assets/"]');if(l){l.media='all';try{sessionStorage.setItem('_cssFallbackInfo',JSON.stringify({href:l.href,delayMs:3000,pagePath:location.pathname+location.search,ts:new Date().toISOString()}))}catch(e){}}},3000)</script>${preloadTag}
+ ${SEO_STATIC_CSS_LINK}
  ${GTAG_SNIPPET}
  ${ADSENSE_SNIPPET}
  </head>

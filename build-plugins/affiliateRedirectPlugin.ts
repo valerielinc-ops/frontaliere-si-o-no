@@ -11,7 +11,7 @@
 import path from 'node:path';
 import type { Plugin } from 'vite';
 import { PARTNERS, buildAffiliateUrl } from '../services/affiliateService';
-import { ANALYTICS_SNIPPET, BASE_URL } from './constants';
+import { ANALYTICS_SNIPPET, BASE_URL, SEO_STATIC_CSS_LINK } from './constants';
 import { WriteCollector } from './batchWrite';
 
 function buildRedirectPage(partner: typeof PARTNERS[number]): string {
@@ -27,6 +27,7 @@ function buildRedirectPage(partner: typeof PARTNERS[number]): string {
  <title>${esc(partner.name)} | Frontaliere Ticino</title>
  <meta name="robots" content="noindex,nofollow">
  <link rel="canonical" href="${BASE_URL}/go/${partner.id}/">
+ ${SEO_STATIC_CSS_LINK}
  ${ANALYTICS_SNIPPET}
  <script>window.location.replace(${JSON.stringify(targetUrl)})</script>
  </head>
