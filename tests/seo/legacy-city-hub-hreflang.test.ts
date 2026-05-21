@@ -64,8 +64,12 @@ const LEGACY_CITY_HUB_PATHS: ReadonlyArray<{
   },
 ];
 
-const HREFLANG_RE = /<link\s+rel="alternate"\s+hreflang=/i;
-const CANONICAL_RE = /<link\s+rel="canonical"\s+href="([^"]+)"/i;
+// Quote-flexible: scripts/dist-shrink.mjs runs html-minifier-terser with
+// removeAttributeQuotes=true on dist/, so `rel="canonical"` becomes
+// `rel=canonical` and `href="https://x/"` becomes `href=https://x/`.
+// The DOM is equivalent but a quoted-only regex breaks. See PR #473.
+const HREFLANG_RE = /<link\s+rel=["']?alternate["']?\s+hreflang=/i;
+const CANONICAL_RE = /<link\s+rel=["']?canonical["']?\s+href=["']?([^"'\s>]+)["']?/i;
 
 describeBuild('legacy city-hub duplicates — no hreflang on canonicalized pages', () => {
   for (const { description, legacyPath, canonicalPath } of LEGACY_CITY_HUB_PATHS) {

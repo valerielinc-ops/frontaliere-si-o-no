@@ -44,10 +44,13 @@ describe('cathedral — per-canton sector hubs (Phase 3.2)', () => {
         const f = path.join(dir, slug, 'index.html');
         if (fs.existsSync(f)) {
           anyHub = true;
-          // Verify canonical points at itself (self-canonical for per-canton hub)
+          // Verify canonical points at itself (self-canonical for per-canton hub).
+          // Quote-flexible: dist-shrink (PR #473) strips attribute quotes.
           const html = fs.readFileSync(f, 'utf-8');
           expect(html, `${sec}/${slug} must self-canonicalize`).toMatch(
-            new RegExp(`<link rel="canonical" href="https://frontaliereticino\\.ch/${sec}/${slug}/"`),
+            new RegExp(
+              `<link\\s+rel=["']?canonical["']?\\s+href=["']?https://frontaliereticino\\.ch/${sec}/${slug}/["']?`,
+            ),
           );
           // Verify it embeds at least one job-card structure
           expect(html, `${sec}/${slug} must have a job listing grid`).toMatch(
@@ -69,7 +72,7 @@ describe('cathedral — per-canton sector hubs (Phase 3.2)', () => {
     if (!fs.existsSync(f)) return;
     const html = fs.readFileSync(f, 'utf-8');
     expect(html).toMatch(
-      /<link rel="canonical" href="https:\/\/frontaliereticino\.ch\/cerca-lavoro-ticino\/infermieri\/"/,
+      /<link\s+rel=["']?canonical["']?\s+href=["']?https:\/\/frontaliereticino\.ch\/cerca-lavoro-ticino\/infermieri\/["']?/,
     );
   });
 });
@@ -109,7 +112,7 @@ describe('cathedral — per-canton company hubs (Phase 3.3)', () => {
       const html = fs.readFileSync(f, 'utf-8');
       expect(html, 'per-canton company hub must self-canonicalize').toMatch(
         new RegExp(
-          `<link rel="canonical" href="https://frontaliereticino\\.ch/${anyCompanyHub.section}/${anyCompanyHub.entry}/"`,
+          `<link\\s+rel=["']?canonical["']?\\s+href=["']?https://frontaliereticino\\.ch/${anyCompanyHub.section}/${anyCompanyHub.entry}/["']?`,
         ),
       );
     }
@@ -133,7 +136,7 @@ describe('cathedral — per-canton company hubs (Phase 3.3)', () => {
     // company hub (BRAND_CANONICAL_MAP rerouting). Either way, never a
     // non-TI section.
     expect(html, 'TI legacy company hub canonical must stay under /cerca-lavoro-ticino/').toMatch(
-      /<link rel="canonical" href="https:\/\/frontaliereticino\.ch\/cerca-lavoro-ticino\/azienda-/,
+      /<link\s+rel=["']?canonical["']?\s+href=["']?https:\/\/frontaliereticino\.ch\/cerca-lavoro-ticino\/azienda-/,
     );
   });
 });

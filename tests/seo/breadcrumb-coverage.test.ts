@@ -43,7 +43,12 @@ const ALLOWED_MISSING: ReadonlySet<string> = new Set([
 ]);
 
 const BREADCRUMB_JSONLD_RE = /"@type"\s*:\s*"BreadcrumbList"/;
-const NOINDEX_RE = /<meta[^>]*\bname\s*=\s*["']robots["'][^>]*\bcontent\s*=\s*["'][^"']*noindex/i;
+// Quote-flexible: scripts/dist-shrink.mjs removes attribute quotes, so
+// `name="robots" content="noindex,follow"` becomes
+// `name=robots content="noindex,follow"` (commas force quotes, plain
+// `name=robots` does not). Match both shapes.
+const NOINDEX_RE =
+  /<meta[^>]*\bname\s*=\s*["']?robots["']?[^>]*\bcontent\s*=\s*["']?[^"'>]*noindex/i;
 // Canonical bridge pages (built via `buildCanonicalBridgePage` in
 // build-plugins/constants.ts) ship the signature hero string
 // "Questa URL legacy" (or its localised variant) + a `<link rel="canonical">`
