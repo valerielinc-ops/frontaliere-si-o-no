@@ -108,10 +108,10 @@ export const CITY_HUB_SLUG: Record<JobBoardLocale, Record<string, string>> = {
 
 /** Section root slug per locale (same as job-board landing). */
 export const CITY_HUB_SECTION: Record<JobBoardLocale, string> = {
-  it: 'cerca-lavoro-ticino',
-  en: 'find-jobs-ticino',
-  de: 'jobs-im-tessin',
-  fr: 'trouver-emploi-tessin',
+  it: 'cerca-lavoro-ticino', // cathedral-allow: TI legacy section (it)
+  en: 'find-jobs-ticino', // cathedral-allow: TI legacy section (en)
+  de: 'jobs-im-tessin', // cathedral-allow: TI legacy section (de)
+  fr: 'trouver-emploi-tessin', // cathedral-allow: TI legacy section (fr)
 };
 
 export const CITY_HUB_LOCALE_PREFIX: Record<JobBoardLocale, string> = {

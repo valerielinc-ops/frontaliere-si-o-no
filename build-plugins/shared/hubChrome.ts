@@ -112,7 +112,7 @@ const HUB_SLUGS: Record<HubLocale, HubSlugs> = {
     guida: 'guida-frontaliere',
     vita: 'vivere-in-ticino',
     stats: 'statistiche',
-    jobBoard: 'cerca-lavoro-ticino',
+    jobBoard: 'cerca-lavoro-ticino', // cathedral-allow: TI hub-chrome registry key
     exchange: 'cambio-franco-euro',
     banks: 'confronta-banche',
     health: 'confronta-casse-malati',
@@ -153,7 +153,7 @@ const HUB_SLUGS: Record<HubLocale, HubSlugs> = {
     guida: 'cross-border-guide',
     vita: 'living-in-ticino',
     stats: 'statistics',
-    jobBoard: 'find-jobs-ticino',
+    jobBoard: 'find-jobs-ticino', // cathedral-allow: TI hub-chrome registry key
     exchange: 'chf-eur-exchange-rate',
     banks: 'compare-banks',
     health: 'compare-health-insurance',
@@ -194,7 +194,7 @@ const HUB_SLUGS: Record<HubLocale, HubSlugs> = {
     guida: 'grenzgaenger-ratgeber',
     vita: 'leben-im-tessin',
     stats: 'statistiken',
-    jobBoard: 'jobs-im-tessin',
+    jobBoard: 'jobs-im-tessin', // cathedral-allow: TI hub-chrome registry key
     exchange: 'chf-eur-wechselkurs',
     banks: 'banken-vergleichen',
     health: 'krankenkassen-vergleichen',
@@ -235,7 +235,7 @@ const HUB_SLUGS: Record<HubLocale, HubSlugs> = {
     guida: 'guide-frontalier',
     vita: 'vivre-au-tessin',
     stats: 'statistiques',
-    jobBoard: 'trouver-emploi-tessin',
+    jobBoard: 'trouver-emploi-tessin', // cathedral-allow: TI hub-chrome registry key
     exchange: 'taux-change-chf-eur',
     banks: 'comparer-banques',
     health: 'comparer-caisses-maladie',

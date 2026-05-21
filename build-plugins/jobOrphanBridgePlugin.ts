@@ -82,10 +82,10 @@ const BASE_URL = 'https://frontaliereticino.ch';
 // when no slug context is available. Per-slug paths use `sectionForSlug()` below
 // so non-TI jobs land on their canton URL.
 const SECTION_SLUG: Record<Locale, string> = {
-  it: 'cerca-lavoro-ticino',
-  en: 'find-jobs-ticino',
-  de: 'jobs-im-tessin',
-  fr: 'trouver-emploi-tessin',
+  it: 'cerca-lavoro-ticino', // cathedral-allow: TI legacy section (it)
+  en: 'find-jobs-ticino', // cathedral-allow: TI legacy section (en)
+  de: 'jobs-im-tessin', // cathedral-allow: TI legacy section (de)
+  fr: 'trouver-emploi-tessin', // cathedral-allow: TI legacy section (fr)
 };
 
 /**

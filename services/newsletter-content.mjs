@@ -365,7 +365,7 @@ function keywordRelevanceScore(job, subscriberKeywords, subscriberCompany) {
  */
 /** Locale-specific job board URL path prefix */
 const JOB_BOARD_PATH = {
-  it: 'cerca-lavoro-ticino',
+  it: 'cerca-lavoro-ticino', // cathedral-allow: TI legacy section (it)
   en: 'en/find-jobs-ticino',
   de: 'de/jobs-im-tessin',
   fr: 'fr/trouver-emploi-tessin',

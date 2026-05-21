@@ -785,15 +785,15 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  // Default search-section route slugs — these are actual URL paths that must exist in the router.
  // They use "Ticino/Tessin" because that is the primary/branded section; other cantons share it.
  const sectionByLocale: Record<'it' | 'en' | 'de' | 'fr', string> = {
- it: 'cerca-lavoro-ticino',
- en: 'find-jobs-ticino',
- de: 'jobs-im-tessin',
- fr: 'trouver-emploi-tessin',
+ it: 'cerca-lavoro-ticino', // cathedral-allow: TI legacy section (it)
+ en: 'find-jobs-ticino', // cathedral-allow: TI legacy section (en)
+ de: 'jobs-im-tessin', // cathedral-allow: TI legacy section (de)
+ fr: 'trouver-emploi-tessin', // cathedral-allow: TI legacy section (fr)
  };
 
  /**
   * Section URL prefix per (locale, canton). For TI in any locale this returns
-  * the LEGACY section slug (e.g. 'cerca-lavoro-ticino', 'find-jobs-ticino')
+  * the LEGACY section slug (e.g. 'cerca-lavoro-ticino', 'find-jobs-ticino') cathedral-allow: jsdoc reference to TI legacy slug
   * because the entire plugin's HTML graph (breadcrumbs / company-hub /
   * city-hub markup) is wired against those frozen slugs. For every other
   * canton this returns the canton-aware section ('cerca-lavoro-zurigo',

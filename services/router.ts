@@ -1045,7 +1045,7 @@ const SLUG_TABLES: Record<Locale, SlugTable> = {
  partners: 'servizi-partner',
  consulting: 'consulenza',
  pressKit: 'stampa',
- jobBoard: 'cerca-lavoro-ticino',
+ jobBoard: 'cerca-lavoro-ticino', // cathedral-allow: TI legacy router slug
  profile: 'profilo',
  dashboard: 'dashboard',
  whatif: 'cosa-cambia-se',
@@ -1146,7 +1146,7 @@ const SLUG_TABLES: Record<Locale, SlugTable> = {
  partners: 'partner-services',
  consulting: 'consulting',
  pressKit: 'press-kit',
- jobBoard: 'find-jobs-ticino',
+ jobBoard: 'find-jobs-ticino', // cathedral-allow: TI legacy router slug
  profile: 'profile',
  dashboard: 'dashboard',
  whatif: 'what-if-scenarios',
@@ -1247,7 +1247,7 @@ const SLUG_TABLES: Record<Locale, SlugTable> = {
  partners: 'partner-dienste',
  consulting: 'beratung',
  pressKit: 'pressekit',
- jobBoard: 'jobs-im-tessin',
+ jobBoard: 'jobs-im-tessin', // cathedral-allow: TI legacy router slug
  profile: 'profil',
  dashboard: 'dashboard',
  whatif: 'was-waere-wenn',
@@ -1348,7 +1348,7 @@ const SLUG_TABLES: Record<Locale, SlugTable> = {
  partners: 'services-partenaires',
  consulting: 'consultation',
  pressKit: 'kit-presse',
- jobBoard: 'trouver-emploi-tessin',
+ jobBoard: 'trouver-emploi-tessin', // cathedral-allow: TI legacy router slug
  profile: 'profil',
  dashboard: 'tableau-de-bord',
  whatif: 'scenarios-hypothetiques',

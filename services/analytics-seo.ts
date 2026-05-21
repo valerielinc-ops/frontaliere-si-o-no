@@ -106,10 +106,10 @@ const ORPHAN_LANDING_SECTIONS: readonly string[] = [
 
 /** Job-board top-level sections (covers F3a title optimization + sub-hubs). */
 const JOB_BOARD_SECTIONS: readonly string[] = [
-  'cerca-lavoro-ticino',         // IT
-  'find-jobs-ticino',            // EN
-  'jobs-im-tessin',              // DE
-  'trouver-emploi-tessin',       // FR
+  'cerca-lavoro-ticino',         // IT cathedral-allow: TI section-name analytics whitelist
+  'find-jobs-ticino',            // EN cathedral-allow: TI section-name analytics whitelist
+  'jobs-im-tessin',              // DE cathedral-allow: TI section-name analytics whitelist
+  'trouver-emploi-tessin',       // FR cathedral-allow: TI section-name analytics whitelist
 ];
 
 /** Salary calculator long-tail SEO hubs. */

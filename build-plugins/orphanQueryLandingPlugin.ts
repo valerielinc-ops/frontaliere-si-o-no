@@ -433,10 +433,10 @@ async function loadLocaleStrings(rootDir: string, locale: OrphanLandingLocale): 
 
 function jobLocalizedUrl(job: OrphanCountableJob, locale: OrphanLandingLocale): string {
   const section: Record<OrphanLandingLocale, string> = {
-    it: 'cerca-lavoro-ticino',
-    en: 'find-jobs-ticino',
-    de: 'jobs-im-tessin',
-    fr: 'trouver-emploi-tessin',
+    it: 'cerca-lavoro-ticino', // cathedral-allow: TI legacy section (it)
+    en: 'find-jobs-ticino', // cathedral-allow: TI legacy section (en)
+    de: 'jobs-im-tessin', // cathedral-allow: TI legacy section (de)
+    fr: 'trouver-emploi-tessin', // cathedral-allow: TI legacy section (fr)
   };
   const prefix = ORPHAN_LANDING_LOCALE_PREFIX[locale];
   const slug = job.slugByLocale?.[locale] || job.slug || '';

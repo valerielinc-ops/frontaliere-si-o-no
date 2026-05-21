@@ -61,10 +61,10 @@ export function getSearchSlugPrefix(locale: Locale): string {
 
 // BLOCK-B: Regionalize for national expansion — currently hardcodes Ticino/Tessin text
 export function getJobBoardSectionSlug(locale: Locale): string {
- if (locale === 'en') return 'find-jobs-ticino';
- if (locale === 'de') return 'jobs-im-tessin';
- if (locale === 'fr') return 'trouver-emploi-tessin';
- return 'cerca-lavoro-ticino';
+ if (locale === 'en') return 'find-jobs-ticino'; // cathedral-allow: TI legacy section default
+ if (locale === 'de') return 'jobs-im-tessin'; // cathedral-allow: TI legacy section default
+ if (locale === 'fr') return 'trouver-emploi-tessin'; // cathedral-allow: TI legacy section default
+ return 'cerca-lavoro-ticino'; // cathedral-allow: TI legacy section default
 }
 
 export function buildSearchSlug(term: string, locale: Locale): string {

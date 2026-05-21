@@ -8,10 +8,10 @@ type SupportedLocale = CantonLocale;
 // (listing fallback when no slug is present). Per-slug job redirects use
 // `inferTargetSection()` below which inspects the slug-registry/jobs cantons.
 const JOB_BOARD_SECTION_BY_LOCALE: Record<SupportedLocale, string> = {
- it: 'cerca-lavoro-ticino',
- en: 'find-jobs-ticino',
- de: 'jobs-im-tessin',
- fr: 'trouver-emploi-tessin',
+ it: 'cerca-lavoro-ticino', // cathedral-allow: TI legacy section (it)
+ en: 'find-jobs-ticino', // cathedral-allow: TI legacy section (en)
+ de: 'jobs-im-tessin', // cathedral-allow: TI legacy section (de)
+ fr: 'trouver-emploi-tessin', // cathedral-allow: TI legacy section (fr)
 };
 
 /**

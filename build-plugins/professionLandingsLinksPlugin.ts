@@ -204,19 +204,19 @@ function patchFile(target: InjectionTarget): PatchResult {
 function buildTargets(distDir: string): InjectionTarget[] {
   const hubPaths: Record<ProfessionLocale, { index: string; flat: string }> = {
     it: {
-      index: np.join(distDir, 'cerca-lavoro-ticino', 'index.html'),
+      index: np.join(distDir, 'cerca-lavoro-ticino', 'index.html'), // cathedral-allow: TI hub injection target
       flat: np.join(distDir, 'cerca-lavoro-ticino.html'),
     },
     en: {
-      index: np.join(distDir, 'en', 'find-jobs-ticino', 'index.html'),
+      index: np.join(distDir, 'en', 'find-jobs-ticino', 'index.html'), // cathedral-allow: TI hub injection target
       flat: np.join(distDir, 'en', 'find-jobs-ticino.html'),
     },
     de: {
-      index: np.join(distDir, 'de', 'jobs-im-tessin', 'index.html'),
+      index: np.join(distDir, 'de', 'jobs-im-tessin', 'index.html'), // cathedral-allow: TI hub injection target
       flat: np.join(distDir, 'de', 'jobs-im-tessin.html'),
     },
     fr: {
-      index: np.join(distDir, 'fr', 'trouver-emploi-tessin', 'index.html'),
+      index: np.join(distDir, 'fr', 'trouver-emploi-tessin', 'index.html'), // cathedral-allow: TI hub injection target
       flat: np.join(distDir, 'fr', 'trouver-emploi-tessin.html'),
     },
   };
