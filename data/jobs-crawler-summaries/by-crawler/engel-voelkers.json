@@ -1,49 +1,18 @@
 {
   "key": "engel-voelkers",
   "label": "Engel & Völkers",
-  "generatedAt": "2026-05-21T11:49:35.741Z",
+  "generatedAt": "2026-05-21T22:20:38.325Z",
   "total": 9,
-  "newCount": 1,
+  "newCount": 0,
   "updatedCount": 8,
-  "removedCount": 1,
-  "unchangedCount": 0,
-  "durationMs": 20192,
-  "avgDurationMs": 20192,
+  "removedCount": 0,
+  "unchangedCount": 1,
+  "durationMs": 20448,
+  "avgDurationMs": 20448,
   "durationHistory": [
-    20192
+    20448
   ],
-  "newJobs": [
-    {
-      "title": "Trainee (m/w/d)",
-      "slug": "trainee-m-w-d-engel-voelkers-zermatt",
-      "url": "https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro/40fe5090-09a6-4fb2-bc17-76ca7f5d9ac4",
-      "applyUrl": "https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro/40fe5090-09a6-4fb2-bc17-76ca7f5d9ac4",
-      "company": "Engel & Völkers Wohnen Schweiz AG",
-      "companyKey": "engel-voelkers",
-      "companyDomain": "engelvoelkers.com",
-      "location": "Zermatt",
-      "addressLocality": "Zermatt",
-      "addressRegion": "AG",
-      "addressCountry": "CH",
-      "canton": "AG",
-      "country": "CH",
-      "category": "internship",
-      "sector": "Immobiliare",
-      "source": "engelvoelkers-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "2026-05-21",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "",
-      "_qualityScore": 73,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 16,
-        "completeness": 14
-      }
-    }
-  ],
+  "newJobs": [],
   "updatedJobs": [
     {
       "title": "Immobilienberater (m/w/d) Zürich Nord 100%",
@@ -344,44 +313,44 @@
       }
     }
   ],
-  "removedJobs": [
+  "removedJobs": [],
+  "unchangedJobs": [
     {
-      "title": "Junior Immobilienmakler/in 50-100%",
-      "slug": "agente-immobiliare-junior-50-100-buutiq-immobilien-ag-schaffhausen",
-      "url": "https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro/d73b3b54-fa87-47ce-b04b-ed260187c751",
-      "applyUrl": "https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro/d73b3b54-fa87-47ce-b04b-ed260187c751",
-      "company": "buutiq Immobilien AG",
+      "title": "Trainee (m/w/d)",
+      "slug": "trainee-m-w-d-engel-voelkers-zermatt",
+      "url": "https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro/40fe5090-09a6-4fb2-bc17-76ca7f5d9ac4",
+      "applyUrl": "https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro/40fe5090-09a6-4fb2-bc17-76ca7f5d9ac4",
+      "company": "Engel & Völkers Wohnen Schweiz AG",
       "companyKey": "engel-voelkers",
       "companyDomain": "engelvoelkers.com",
-      "location": "Schaffhausen",
-      "addressLocality": "Schaffhausen",
+      "location": "Zermatt",
+      "addressLocality": "Zermatt",
       "addressRegion": "AG",
       "addressCountry": "CH",
       "canton": "AG",
       "country": "CH",
-      "category": "sales",
+      "category": "internship",
       "sector": "Immobiliare",
       "source": "engelvoelkers-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-05-19",
+      "sourceLang": "it",
+      "postedDate": "2026-05-21",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
-      "id": "engel-voelkers-5229fd478d86",
-      "salaryMin": 46500,
-      "salaryMax": 71500,
+      "id": "engel-voelkers-07ce3915473f",
+      "salaryMin": 41600,
+      "salaryMax": 63000,
       "currency": "CHF",
       "streetAddress": "Via Nassa 17",
       "postalCode": "6900",
-      "firstSeenAt": "2026-05-10T21:31:05.019Z",
-      "_qualityScore": 93,
+      "firstSeenAt": "2026-05-21T11:49:35.739Z",
+      "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 25,
+        "translation": 21,
         "completeness": 25
       }
     }
-  ],
-  "unchangedJobs": []
+  ]
 }
