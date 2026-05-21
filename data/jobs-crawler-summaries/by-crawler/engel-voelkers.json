@@ -1,18 +1,49 @@
 {
   "key": "engel-voelkers",
   "label": "Engel & Völkers",
-  "generatedAt": "2026-05-19T22:09:09.018Z",
+  "generatedAt": "2026-05-21T11:49:35.741Z",
   "total": 9,
-  "newCount": 0,
-  "updatedCount": 9,
-  "removedCount": 0,
+  "newCount": 1,
+  "updatedCount": 8,
+  "removedCount": 1,
   "unchangedCount": 0,
-  "durationMs": 19714,
-  "avgDurationMs": 19714,
+  "durationMs": 20192,
+  "avgDurationMs": 20192,
   "durationHistory": [
-    19714
+    20192
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "title": "Trainee (m/w/d)",
+      "slug": "trainee-m-w-d-engel-voelkers-zermatt",
+      "url": "https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro/40fe5090-09a6-4fb2-bc17-76ca7f5d9ac4",
+      "applyUrl": "https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro/40fe5090-09a6-4fb2-bc17-76ca7f5d9ac4",
+      "company": "Engel & Völkers Wohnen Schweiz AG",
+      "companyKey": "engel-voelkers",
+      "companyDomain": "engelvoelkers.com",
+      "location": "Zermatt",
+      "addressLocality": "Zermatt",
+      "addressRegion": "AG",
+      "addressCountry": "CH",
+      "canton": "AG",
+      "country": "CH",
+      "category": "internship",
+      "sector": "Immobiliare",
+      "source": "engelvoelkers-dedicated-crawler",
+      "sourceLang": "it",
+      "postedDate": "2026-05-21",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "",
+      "_qualityScore": 73,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 16,
+        "completeness": 14
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "title": "Immobilienberater (m/w/d) Zürich Nord 100%",
@@ -32,7 +63,7 @@
       "sector": "Immobiliare",
       "source": "engelvoelkers-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-05-19",
+      "postedDate": "2026-05-21",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -69,7 +100,7 @@
       "sector": "Immobiliare",
       "source": "engelvoelkers-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-05-19",
+      "postedDate": "2026-05-21",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -106,7 +137,7 @@
       "sector": "Immobiliare",
       "source": "engelvoelkers-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-05-19",
+      "postedDate": "2026-05-21",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -143,7 +174,7 @@
       "sector": "Immobiliare",
       "source": "engelvoelkers-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-05-19",
+      "postedDate": "2026-05-21",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -180,7 +211,7 @@
       "sector": "Immobiliare",
       "source": "engelvoelkers-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-05-19",
+      "postedDate": "2026-05-21",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -217,7 +248,7 @@
       "sector": "Immobiliare",
       "source": "engelvoelkers-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-05-19",
+      "postedDate": "2026-05-21",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -254,7 +285,7 @@
       "sector": "Immobiliare",
       "source": "engelvoelkers-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-05-19",
+      "postedDate": "2026-05-21",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -293,7 +324,7 @@
       "sector": "Immobiliare",
       "source": "engelvoelkers-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-05-19",
+      "postedDate": "2026-05-21",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -311,10 +342,12 @@
         "translation": 25,
         "completeness": 25
       }
-    },
+    }
+  ],
+  "removedJobs": [
     {
       "title": "Junior Immobilienmakler/in 50-100%",
-      "slug": "junior-immobilienmakler-in-50-100-engel-voelkers-schaffhausen",
+      "slug": "agente-immobiliare-junior-50-100-buutiq-immobilien-ag-schaffhausen",
       "url": "https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro/d73b3b54-fa87-47ce-b04b-ed260187c751",
       "applyUrl": "https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro/d73b3b54-fa87-47ce-b04b-ed260187c751",
       "company": "buutiq Immobilien AG",
@@ -350,6 +383,5 @@
       }
     }
   ],
-  "removedJobs": [],
   "unchangedJobs": []
 }
