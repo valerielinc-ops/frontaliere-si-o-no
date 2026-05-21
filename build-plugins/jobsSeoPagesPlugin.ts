@@ -3955,6 +3955,7 @@ ${curatedBodyHtml ? curatedBodyHtml + '\n' : `<h1>${esc(copy.heading(companyName
 ${alternates}
  <script type="application/ld+json">${breadcrumbLd}</script>
  <script type="application/ld+json">${collectionLd}</script>${itemListLd ? `\n <script type="application/ld+json">${itemListLd}</script>` : ''}${hasSpaBundle ? `\n <link rel="stylesheet" href="/assets/${entryCss}" crossorigin media="all" data-clarity-unmask="true">` : ''}
+ ${SEO_STATIC_CSS_LINK}
  ${GTAG_SNIPPET}
  ${ADSENSE_SNIPPET}
  </head>
