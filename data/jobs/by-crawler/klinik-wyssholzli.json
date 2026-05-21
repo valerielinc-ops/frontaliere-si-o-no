@@ -1,6 +1,6 @@
 {
   "crawlerKey": "klinik-wyssholzli",
-  "assembledAt": "2026-05-21T12:27:18.417Z",
+  "assembledAt": "2026-05-21T22:57:20.216Z",
   "jobs": [
     {
       "title": "Stv. Leitung Behandlung 02/2026",
@@ -220,7 +220,8 @@
           "maxValue": 98500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "title": "Psychiater In Ambulant 2025–60% 80",
@@ -268,7 +269,9 @@
         "sourceFilename": "Inserat-Psychiater_in-ambulant_2025_60-80.pdf"
       },
       "id": "klinik-wyssholzli-491031fe725a",
-      "firstSeenAt": "2026-05-20T05:18:02.474Z",
+      "previousSlugs": [
+        "psychiater-in-ambulant-2025-60-80-klinik-wyssholzli"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "psychiater-in-ambulant-2025-60-80-klinik-wyssholzli"
@@ -277,9 +280,7 @@
           "psychiater-in-ambulant-2025-60-80-klinik-wyssholzli"
         ]
       },
-      "previousSlugs": [
-        "psychiater-in-ambulant-2025-60-80-klinik-wyssholzli"
-      ],
+      "firstSeenAt": "2026-05-20T05:18:02.474Z",
       "salaryMin": 70500,
       "salaryMax": 98500,
       "currency": "CHF",
@@ -292,7 +293,8 @@
           "maxValue": 98500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "title": "Pflegefachfrau Hf 60–80% 012026",
@@ -439,7 +441,8 @@
           "maxValue": 98500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "title": "Personalassistentin 60–100%",
