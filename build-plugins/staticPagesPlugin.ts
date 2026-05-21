@@ -4371,14 +4371,10 @@ ${hrefTags}
  }
 
  if (hasSpaBundle) {
- const useBlockingHomeCss = isHomeCriticalStaticPath(canonicalPath);
- const stylesheetMarkup = useBlockingHomeCss
- ? `<link rel="stylesheet" href="/assets/${entryCss}" crossorigin data-clarity-unmask="true">`
- : `<link rel="preload" as="style" crossorigin href="/assets/${entryCss}" data-clarity-unmask="true">
- <link rel="stylesheet" href="/assets/${entryCss}" crossorigin media="print" onload="this.media='all'" data-clarity-unmask="true">
- <noscript><link rel="stylesheet" crossorigin href="/assets/${entryCss}" data-clarity-unmask="true"></noscript>
- <script>setTimeout(function(){var l=document.querySelector('link[media="print"][href*="/assets/"]');if(l){l.media='all';try{sessionStorage.setItem('_cssFallbackInfo',JSON.stringify({href:l.href,delayMs:3000,pagePath:location.pathname+location.search,ts:new Date().toISOString()}))}catch(e){}}},3000)</script>`;
-
+ // Hub-chrome detection moved above stylesheetMarkup so the blocking-CSS
+ // gate below can include every staticOverlay SEO-landing path, not just
+ // the 12 home/hub roots in HOME_CRITICAL_STATIC_PATHS.
+ //
  // BUG-1 / BUG-2 parity: SEMRUSH + editorial staticOverlay landings must
  // expose `<main class="seo-static-content">` as a SIBLING of `<div id="root">`
  // (so React's hydration into #root cannot visually replace it) and include
@@ -4388,6 +4384,28 @@ ${hrefTags}
  // so crawlers see the full editorial + FAQ content even when the SPA never
  // hydrates (noscript environments, AI crawlers, server-side snapshots).
  const hubChromeSpec = lookupStaticOverlayHubChrome(canonicalPath);
+
+ // FOUC fix (2026-05-21): the async-CSS pattern (`media="print"` +
+ // onload swap + 3s setTimeout fallback) defeats every `var(--color-*)`
+ // token reference until the swap fires. The SPA bundle CSS defines
+ // `:root,:host { --color-heading: ... }` etc. inside @layer theme,
+ // so while the stylesheet sits on media="print" the browser does NOT
+ // apply those rules to screen — inline styles like
+ // `background:var(--color-warning-subtle)` resolve to empty, tiles lose
+ // their colored backgrounds, headings collapse to default browser sizes,
+ // and the page renders visibly unstyled. Real-world repro:
+ // /calcola-stipendio/nuovi-frontalieri-oltre-20-km/ (every salary-hub
+ // long-tail), /prezzi-benzina-svizzera/oggi/ (fuel-daily), etc.
+ // Every staticOverlay SEO landing renders the SSG body as primary content
+ // (App.tsx skips React <main>) — there's nothing to defer for, so we
+ // load the bundle CSS synchronously like home + hub roots already do.
+ const useBlockingHomeCss = isHomeCriticalStaticPath(canonicalPath) || hubChromeSpec !== null;
+ const stylesheetMarkup = useBlockingHomeCss
+ ? `<link rel="stylesheet" href="/assets/${entryCss}" crossorigin data-clarity-unmask="true">`
+ : `<link rel="preload" as="style" crossorigin href="/assets/${entryCss}" data-clarity-unmask="true">
+ <link rel="stylesheet" href="/assets/${entryCss}" crossorigin media="print" onload="this.media='all'" data-clarity-unmask="true">
+ <noscript><link rel="stylesheet" crossorigin href="/assets/${entryCss}" data-clarity-unmask="true"></noscript>
+ <script>setTimeout(function(){var l=document.querySelector('link[media="print"][href*="/assets/"]');if(l){l.media='all';try{sessionStorage.setItem('_cssFallbackInfo',JSON.stringify({href:l.href,delayMs:3000,pagePath:location.pathname+location.search,ts:new Date().toISOString()}))}catch(e){}}},3000)</script>`;
  // Hub sub-nav is hoisted OUT of <main> so it renders as a sibling (matching
  // the SPA DOM shape) — otherwise the max-width / padding of
  // `main.seo-static-content` squishes the sub-nav at wide viewports.

@@ -5513,7 +5513,37 @@ ${alternates}
  if (locale === 'de') return `<p>Derzeit sind <strong>${cityJobs.length} Stellenangebote</strong> in ${esc(cityDisplay)} (Kanton ${esc(cDisplay)}) verfügbar. Die Anzeigen werden täglich von unserem automatischen Crawler aktualisiert. Für Grenzgänger mit G-Bewilligung erhebt der Kanton ${esc(cDisplay)} eine Quellensteuer auf das Bruttoeinkommen: nutzen Sie unseren <a href="${BASE_URL}/de/">kostenlosen Steuersimulator</a>.</p>`;
  return `<p>${cityJobs.length} <strong>offres d'emploi</strong> sont actuellement disponibles à ${esc(cityDisplay)} (Canton de ${esc(cDisplay)}). Les annonces sont mises à jour quotidiennement. Pour les frontaliers avec un permis G, le Canton de ${esc(cDisplay)} applique un impôt à la source sur le revenu brut : utilisez notre <a href="${BASE_URL}/fr/">simulateur fiscal gratuit</a>.</p>`;
  })();
- const bodyHtml = `<h1>${esc(cityHubSeo.h1)}</h1>\n<p>${esc(pageDesc)}</p>\n${intro}\n<ul class="s-0WjlyL">${listHtml}</ul>\n<p><a href="${sectionRootUrl}">${esc(backLabel)}</a></p>\n${wrapHubSeoContext(locale as 'it' | 'en' | 'de' | 'fr', renderJobBoardCommuterContext({ locale, location: cityDisplay, cantonDisplay: cDisplay, cantonSlot: 'city-landing', cantonEntityName: cityDisplay }))}`;
+ // SEO-landing template (CLAUDE.md rule #17) shared with TI city hubs:
+ // <header> eyebrow + H1 + lede → <section> stat tiles → <section> data
+ // area with heading + job list → long prose below. Mirrors the s-*
+ // classes used by the TI city hub renderer above (s-S_0cal, s-P0Hs0W,
+ // s-S6PRaY, s-CGuDZg, s-KZc0LQ, s-CqexyJ, s-YszcPD) so seo-static.css
+ // styles bind without per-page CSS. Before this template the body was
+ // a bare `<h1><p><p><ul>` which rendered visibly unstyled next to TI
+ // siblings.
+ const updatedDate = new Date().toISOString().slice(0, 10);
+ const updatedLabel = locale === 'it' ? 'Aggiornato'
+   : locale === 'en' ? 'Updated'
+   : locale === 'de' ? 'Aktualisiert'
+   : 'Mis à jour';
+ const jobCountLabel = locale === 'it' ? 'Offerte attive'
+   : locale === 'en' ? 'Open positions'
+   : locale === 'de' ? 'Offene Stellen'
+   : 'Offres actives';
+ const cantonTileLabel = locale === 'it' ? 'Cantone'
+   : locale === 'en' ? 'Canton'
+   : locale === 'de' ? 'Kanton'
+   : 'Canton';
+ const permitTileLabel = locale === 'it' ? 'Permesso'
+   : locale === 'en' ? 'Permit'
+   : locale === 'de' ? 'Bewilligung'
+   : 'Permis';
+ const listHeading = locale === 'it' ? `Offerte di lavoro a ${cityDisplay}`
+   : locale === 'en' ? `Job openings in ${cityDisplay}`
+   : locale === 'de' ? `Stellenangebote in ${cityDisplay}`
+   : `Offres d'emploi à ${cityDisplay}`;
+ const tilesHtml = `<section class="s-S6PRaY"><div class="s-CGuDZg"><div class="s-JFi4vt">${esc(jobCountLabel)}</div><div class="s-9UotdJ">${cityJobs.length}</div></div><div class="s-3kP_AL"><div class="s-z4q8yI">${esc(cantonTileLabel)}</div><div class="s-9UotdJ">${esc(canton)}</div></div><div class="s-3kP_AL"><div class="s-z4q8yI">${esc(permitTileLabel)}</div><div class="s-9UotdJ">G</div></div></section>`;
+ const bodyHtml = `<header class="s-S_0cal"><p class="s-zNiFzy">${esc(updatedLabel)} · ${updatedDate}</p><h1 class="s-P0Hs0W">${esc(cityHubSeo.h1)}</h1><p class="s-wU5Nrr">${esc(pageDesc)}</p>${intro}</header>${tilesHtml}<section class="s-KZc0LQ"><div class="s-r2QmTP"><h2 class="s-CqexyJ">${esc(listHeading)}</h2><a class="s-YszcPD" href="${sectionRootUrl}">${esc(backLabel)}</a></div><ul class="s-0WjlyL">${listHtml}</ul></section>${wrapHubSeoContext(locale as 'it' | 'en' | 'de' | 'fr', renderJobBoardCommuterContext({ locale, location: cityDisplay, cantonDisplay: cDisplay, cantonSlot: 'city-landing', cantonEntityName: cityDisplay }))}`;
  // Use buildSeoPageHtml (NOT buildSimplePage) so the page emits
  // `<main class="seo-static-content">` OUTSIDE `<div id="root">` +
  // `<div id="footer-root"></div>`. The legacy path (buildSimplePage default
@@ -5525,6 +5555,11 @@ ${alternates}
  // /cerca-lavoro-basilea/basel/ (and every other non-TI canton city hub).
  // The company-hub sibling at line ~6344 already received the same fix in
  // PR #376; this aligns per-canton city hubs to the same hydration-safe shell.
+ //
+ // hubChrome restores the job-board sub-nav (rendered as `confronti` fallback
+ // per HUB_FALLBACK in hubChrome.ts) above <main>, matching every other
+ // job-board staticOverlay landing (weeklyEmployers, orphanQueryLanding,
+ // career/profession landings).
  const html = buildSeoPageHtml({
  locale,
  title: pageTitle,
@@ -5534,6 +5569,7 @@ ${alternates}
  hreflangHtml: alternates,
  jsonLdScripts: [breadcrumbLd, collectionLd, itemListLd],
  bodyHtml,
+ hubChrome: { hubKey: 'job-board', activeSubTab: 'jobs' },
  distDir,
  // 0-job city pages exist as 404-rescue fallbacks (so the SPA-overlay
  // route doesn't render blank) but offer no city-specific signal to
