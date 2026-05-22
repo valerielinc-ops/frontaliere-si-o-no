@@ -996,6 +996,19 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v5
 
+      # See post-deploy-validate-dist.yml: same OOM root cause on rollback —
+      # downloading the last-known-good github-pages artifact (~1.8 GB) on top
+      # of the failed run's leftovers blows the 14 GB partition. Reclaim
+      # preinstalled SDKs before any heavy I/O.
+      - name: Free disk space on runner
+        run: |
+          df -h /
+          sudo rm -rf /usr/share/dotnet /usr/local/lib/android /opt/ghc \
+            /opt/hostedtoolcache/CodeQL /usr/local/share/powershell \
+            /usr/local/share/chromium /usr/local/lib/node_modules 2>/dev/null || true
+          sudo docker image prune -af 2>/dev/null || true
+          df -h /
+
       - name: Setup Node.js
         uses: actions/setup-node@v5
         with:
