@@ -32,6 +32,12 @@ import {
  isKnownTicinoCommuterCity,
 } from './shared/jobBoardCommuterContext';
 import { renderCompanyHubFrontalierContext } from './shared/companyHubFrontalierContext';
+import {
+ renderHeroBadges,
+ renderMobileActionBlock,
+ renderHighlightsChips,
+ renderRightRail,
+} from './shared/jobDetailHtml';
 import { deriveJobPostalCode } from '../services/jobLocationSnapshot';
 import {
  loadWinners,
@@ -2397,39 +2403,7 @@ ${hreflangHtml}
  <article class="proposal">
  <section class="hero">
  <h1 class="hero-title">${esc(composeJobPageH1(localizedTitle, String(job.company || '')))}</h1>
- ${(() => {
- // SPA-parity hero badges. Mirrors the Featured ★ badge, "Nuovo" badge,
- // and salary pill rendered in components/community/JobBoard.tsx so the
- // static (crawler-facing) HTML stops looking visibly stale next to the
- // hydrated React view. Each badge gates on its own signal — when all
- // three are false we emit nothing (no empty wrapper).
- const isFeatured = job.featured === true;
- const isNew = (() => {
- const dateStr = String(job.postedDate ?? job.crawledAt ?? '');
- if (!dateStr) return false;
- const t = new Date(dateStr).getTime();
- if (!Number.isFinite(t)) return false;
- return (Date.now() - t) < 7 * 86400000;
- })();
- const hasSalaryPill = Number.isFinite(salaryMin);
- if (!isFeatured && !isNew && !hasSalaryPill) return '';
- const featuredLabel: Record<'it'|'en'|'de'|'fr', string> = {
- it: '★ In evidenza', en: '★ Featured', de: '★ Empfohlen', fr: '★ En vedette',
- };
- const newLabel: Record<'it'|'en'|'de'|'fr', string> = {
- it: 'Nuovo', en: 'New', de: 'Neu', fr: 'Nouveau',
- };
- const featuredHtml = isFeatured
- ? `<span class="badge badge-featured">${esc(featuredLabel[locale as 'it'|'en'|'de'|'fr'])}</span>`
- : '';
- const newHtml = isNew
- ? `<span class="badge badge-new">${esc(newLabel[locale as 'it'|'en'|'de'|'fr'])}</span>`
- : '';
- const salaryPillHtml = hasSalaryPill
- ? `<span class="badge badge-salary">${esc(salaryText)}</span>`
- : '';
- return `<div class="hero-badges">${featuredHtml}${newHtml}${salaryPillHtml}</div>`;
- })()}
+ ${renderHeroBadges({ job, locale, salaryMin, salaryText, esc })}
  <div class="hero-sub">${esc(job.company)} · ${esc(job.location)} (${esc(job.canton || DEFAULT_CANTON)})</div>
  <div class="hero-meta">
  <span>${esc(`Categoria: ${String(job.category || 'other')}`)}</span>
@@ -2437,130 +2411,18 @@ ${hreflangHtml}
  <span>${esc(`Salario: ${salaryText}`)}</span>
  </div>
  </section>
- ${(() => {
- // S6/S9 mobile-first parity with the SPA: above-fold action block on
- // mobile carrying the Apply CTA + 3 key stats. Mirrors the React
- // `<section className="lg:hidden">` in components/community/JobBoard.tsx.
- // Hidden on lg+ via `.mobile-action-block { display:none }` media query
- // in public/assets/seo-static.css (the desktop hero already shows these
- // stats inline in `.hero-meta`, and the right rail mirrors them again
- // once React hydrates).
- const publishedLabel: Record<'it'|'en'|'de'|'fr', string> = {
- it: 'Pubblicato', en: 'Posted', de: 'Veröffentlicht', fr: 'Publié',
- };
- const daysAgo = (() => {
- const dateStr = String(job.postedDate ?? job.crawledAt ?? '');
- if (!dateStr) return '—';
- const t = new Date(dateStr).getTime();
- if (!Number.isFinite(t)) return '—';
- const days = Math.max(0, Math.round((Date.now() - t) / 86400000));
- const fmt: Record<'it'|'en'|'de'|'fr', (n: number) => string> = {
- it: (n) => n === 0 ? 'Oggi' : n === 1 ? 'Ieri' : `${n} giorni fa`,
- en: (n) => n === 0 ? 'Today' : n === 1 ? 'Yesterday' : `${n} days ago`,
- de: (n) => n === 0 ? 'Heute' : n === 1 ? 'Gestern' : `vor ${n} Tagen`,
- fr: (n) => n === 0 ? "Aujourd'hui" : n === 1 ? 'Hier' : `il y a ${n} jours`,
- };
- return fmt[locale as 'it'|'en'|'de'|'fr'](days);
- })();
- const contractText = String(job.contract || 'other');
- const salaryLabel: Record<'it'|'en'|'de'|'fr', string> = {
- it: 'Salario', en: 'Salary', de: 'Lohn', fr: 'Salaire',
- };
- // Salary line — only when we actually have a number; the "non indicato"
- // fallback is meaningless as a money signal so we suppress it instead of
- // rendering a tile that adds zero information.
- const salaryLineHtml = Number.isFinite(salaryMin)
- ? `<div class="mab-salary"><span class="mab-salary-label">${esc(salaryLabel[locale as 'it'|'en'|'de'|'fr'])}</span><span class="mab-salary-value">${esc(salaryText)}</span></div>`
- : '';
- return `<section class="mobile-action-block" aria-label="${esc(localeCopy[locale].quickDetails)}">
- <a href="${referralUrl(job.url || canonicalUrl, job)}" rel="noopener noreferrer" class="mab-cta">${esc(localeCopy[locale].applyNow)}</a>
- <dl class="mab-grid">
- <div class="mab-tile"><dt>${esc(localeCopy[locale].location)}</dt><dd>${esc(addressLocality)}</dd></div>
- <div class="mab-tile"><dt>${esc(localeCopy[locale].contract)}</dt><dd>${esc(contractText)}</dd></div>
- <div class="mab-tile"><dt>${esc(publishedLabel[locale as 'it'|'en'|'de'|'fr'])}</dt><dd>${esc(daysAgo)}</dd></div>
- </dl>${salaryLineHtml}
- </section>`;
- })()}
+ ${renderMobileActionBlock({ job, locale, canonicalUrl, addressLocality, salaryMin, salaryText, localeLabels: { applyNow: localeCopy[locale].applyNow, quickDetails: localeCopy[locale].quickDetails, location: localeCopy[locale].location, contract: localeCopy[locale].contract }, referralUrl, esc })}
  <section class="section">
  <h4>${esc(localeCopy[locale].summaryLabel)}</h4>
  ${summaryHtml}
  </section>
- ${(() => {
- // SPA-parity highlights chips. The React JobBoard renders canonical
- // keywords / skills as pills under the Panoramica heading; backport
- // here so crawlers and the static flash see the same signals.
- // Source priority: canonicalLocale.highlights → canonicalKeywords. Cap 6.
- const rawHighlights = Array.isArray((canonicalLocale as { highlights?: unknown })?.highlights)
- ? ((canonicalLocale as { highlights?: unknown[] }).highlights as unknown[])
- .map((h) => String(h ?? '').trim())
- .filter((h) => h.length > 0)
- : [];
- const source = rawHighlights.length > 0 ? rawHighlights : canonicalKeywords;
- const chips = source.slice(0, 6);
- if (chips.length === 0) return '';
- const ariaLabel: Record<'it'|'en'|'de'|'fr', string> = {
- it: 'Competenze chiave', en: 'Key skills', de: 'Schlüsselkompetenzen', fr: 'Compétences clés',
- };
- const items = chips.map((c) => `<li class="chip">${esc(String(c))}</li>`).join('');
- return `<ul class="highlights" aria-label="${esc(ariaLabel[locale as 'it'|'en'|'de'|'fr'])}">${items}</ul>`;
- })()}
+ ${renderHighlightsChips({ locale, canonicalLocale, canonicalKeywords, esc })}
  <div class="timeline">
  ${timelineHtml || (hasCanonical ? `<div class="timeline-step">${sectionHtml(localeCopy[locale].descriptionLabel, bodyParagraphs, [])}</div>` : '')}
  </div>
  <a href="${referralUrl(job.url || canonicalUrl, job)}" rel="noopener noreferrer" class="cta">${esc(localeCopy[locale].applyNow)}</a>
  </article>
- ${(() => {
- // SPA-parity desktop right rail. Mirrors the sticky sidebar from
- // components/community/JobBoard.tsx so the crawler-facing HTML (and the
- // pre-hydration flash) carry the same location/salary/sector/related
- // signals as the React view. Hidden on <1024px via seo-static.css; the
- // mobile-action-block already covers small screens.
- const railLabels: Record<'it'|'en'|'de'|'fr', {
- location: string;
- city: string;
- canton: string;
- postal: string;
- salary: string;
- sector: string;
- related: string;
- }> = {
- it: { location: 'Posizione', city: 'Città', canton: 'Cantone', postal: 'CAP', salary: 'Range salariale', sector: 'Settore', related: 'Ricerche correlate' },
- en: { location: 'Location', city: 'City', canton: 'Canton', postal: 'Postal code', salary: 'Salary range', sector: 'Sector', related: 'Related searches' },
- de: { location: 'Standort', city: 'Stadt', canton: 'Kanton', postal: 'PLZ', salary: 'Gehaltsspanne', sector: 'Branche', related: 'Verwandte Suchen' },
- fr: { location: 'Lieu', city: 'Ville', canton: 'Canton', postal: 'Code postal', salary: 'Fourchette salariale', sector: 'Secteur', related: 'Recherches associées' },
- };
- const L = railLabels[locale as 'it'|'en'|'de'|'fr'];
- const locationRows: string[] = [];
- if (addressLocality) locationRows.push(`<dt>${esc(L.city)}</dt><dd>${esc(addressLocality)}</dd>`);
- if (addressRegion) locationRows.push(`<dt>${esc(L.canton)}</dt><dd>${esc(addressRegion)}</dd>`);
- if (postalCode) locationRows.push(`<dt>${esc(L.postal)}</dt><dd>${esc(postalCode)}</dd>`);
- const locationCard = locationRows.length > 0
- ? `<div class="rail-card"><h3>${esc(L.location)}</h3><dl class="rail-dl">${locationRows.join('')}</dl></div>`
- : '';
- const salaryCard = Number.isFinite(salaryMin)
- ? `<div class="rail-card"><h3>${esc(L.salary)}</h3><div class="rail-salary">${esc(salaryText)}</div></div>`
- : '';
- // Minimal sector lookup — duplicates the small map used a few lines down
- // for the frontalier paragraphs (intentionally kept local to avoid
- // touching the protected Panoramica/timeline block above).
- const railSectorMap: Record<string, Record<string, string>> = {
- it: { healthcare: 'sanità', technology: 'tecnologia', finance: 'servizi finanziari', engineering: 'ingegneria', hospitality: 'ospitalità', retail: 'commercio', manufacturing: 'manifattura', education: 'formazione', construction: 'edilizia', logistics: 'logistica', sales: 'vendite', administration: 'amministrazione' },
- en: { healthcare: 'healthcare', technology: 'technology', finance: 'financial services', engineering: 'engineering', hospitality: 'hospitality', retail: 'retail', manufacturing: 'manufacturing', education: 'education', construction: 'construction', logistics: 'logistics', sales: 'sales', administration: 'administration' },
- de: { healthcare: 'Gesundheitswesen', technology: 'Technologie', finance: 'Finanzdienstleistungen', engineering: 'Ingenieurwesen', hospitality: 'Gastgewerbe', retail: 'Einzelhandel', manufacturing: 'Fertigung', education: 'Bildung', construction: 'Bauwesen', logistics: 'Logistik', sales: 'Vertrieb', administration: 'Verwaltung' },
- fr: { healthcare: 'santé', technology: 'technologie', finance: 'services financiers', engineering: 'ingénierie', hospitality: 'hôtellerie', retail: 'commerce', manufacturing: 'industrie', education: 'formation', construction: 'construction', logistics: 'logistique', sales: 'ventes', administration: 'administration' },
- };
- const railCat = String(job.category || '').toLowerCase();
- const sectorValue = railSectorMap[locale]?.[railCat] || String(job.category || '');
- const sectorCard = sectorValue
- ? `<div class="rail-card"><h3>${esc(L.sector)}</h3><div class="rail-sector">${esc(sectorValue)}</div></div>`
- : '';
- const relatedChipsHtml = canonicalKeywords.length > 0
- ? `<div class="rail-card"><h3>${esc(L.related)}</h3><ul class="rail-chips">${canonicalKeywords.slice(0, 6).map((k) => `<li class="chip">${esc(String(k))}</li>`).join('')}</ul></div>`
- : '';
- const cards = locationCard + salaryCard + sectorCard + relatedChipsHtml;
- if (!cards) return '';
- return `<aside class="job-detail-rail" aria-label="${esc(L.location)}">${cards}</aside>`;
- })()}
+ ${renderRightRail({ job, locale, addressLocality, addressRegion, postalCode, salaryMin, salaryText, canonicalKeywords, esc })}
  ${(() => {
  const cSlugBanner = canonicalCompanySlugBuild(job.company, job.companyKey);
  const cHref = `${BASE_URL}${withSlash(`${localePrefix[locale]}/${buildCantonAwareSection(locale, jobCanton)}/${companyRoutePrefix[locale]}-${cSlugBanner}`.replace(/\/+/g, '/'))}`;
