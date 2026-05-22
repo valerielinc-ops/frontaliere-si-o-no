@@ -1,6 +1,6 @@
 {
   "crawlerKey": "tschuggen",
-  "assembledAt": "2026-05-22T00:08:43.056Z",
+  "assembledAt": "2026-05-22T13:23:25.134Z",
   "jobs": [
     {
       "id": "tschuggen-61a4e72f1c3c",
@@ -33,7 +33,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1332/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-22T00:08:40.748Z",
+      "crawledAt": "2026-05-22T13:23:22.730Z",
       "addressLocality": "Arosa",
       "postalCode": "7050",
       "addressCountry": "CH",
@@ -87,9 +87,9 @@
     },
     {
       "id": "tschuggen-f6bf7211a6a1",
-      "slug": "auditore-notturno-m-w-d-stagione-invernale-2026-2027-tschuggen-collection-st-moritz",
+      "slug": "night-auditor-m-w-d-wintersaison-2026-2027-tschuggen-collection-st-moritz",
       "slugByLocale": {
-        "it": "auditore-notturno-m-w-d-stagione-invernale-2026-2027-tschuggen-collection-st-moritz",
+        "it": "night-auditor-m-w-d-wintersaison-2026-2027-tschuggen-collection-st-moritz",
         "en": "night-auditor-m-w-d-wintersaison-2026-2027-tschuggen-ch",
         "de": "night-auditor-m-w-d-wintersaison-2026-2027-tschuggen-ch",
         "fr": "night-auditor-m-w-d-wintersaison-2026-2027-tschuggen-ch"
@@ -99,7 +99,7 @@
       "companyDomain": "tschuggencollection.ch",
       "title": "Night Auditor (m/w/d) Wintersaison 2026/2027",
       "titleByLocale": {
-        "it": "Auditore notturno (m/w/d) Stagione invernale 2026/2027",
+        "it": "Night Auditor (m/w/d) Wintersaison 2026/2027",
         "en": "Night Auditor (m/w/d) Wintersaison 2026/2027",
         "de": "Night Auditor (m/w/d) Wintersaison 2026/2027",
         "fr": "Night Auditor (m/w/d) Wintersaison 2026/2027"
@@ -116,7 +116,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1336/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-22T00:08:39.969Z",
+      "crawledAt": "2026-05-22T13:23:21.811Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -136,11 +136,12 @@
       "hotelName": "Carlton Hotel St. Moritz",
       "previousSlugs": [
         "night-auditor-m-w-d-wintersaison-2026-2027-tschuggen-ch",
-        "night-auditor-m-w-d-wintersaison-2026-2027-tschuggen-collection-st-moritz"
+        "auditore-notturno-m-w-d-stagione-invernale-2026-2027-tschuggen-collection-st-moritz"
       ],
       "previousSlugsByLocale": {
         "it": [
           "night-auditor-m-w-d-wintersaison-2026-2027-tschuggen-ch",
+          "auditore-notturno-m-w-d-stagione-invernale-2026-2027-tschuggen-collection-st-moritz",
           "night-auditor-m-w-d-wintersaison-2026-2027-tschuggen-collection-st-moritz"
         ]
       },
@@ -190,7 +191,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1339/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-22T00:08:38.956Z",
+      "crawledAt": "2026-05-22T13:23:20.868Z",
       "addressLocality": "Arosa",
       "postalCode": "7050",
       "addressCountry": "CH",
@@ -209,6 +210,7 @@
       "department": "Küche",
       "hotelName": "Tschuggen Grand Hotel",
       "firstSeenAt": "2026-04-21T22:32:28.567Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -253,7 +255,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1335/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-22T00:08:37.945Z",
+      "crawledAt": "2026-05-22T13:23:19.964Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -317,7 +319,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1340/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-22T00:08:36.937Z",
+      "crawledAt": "2026-05-22T13:23:19.057Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -381,7 +383,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1341/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-22T00:08:35.907Z",
+      "crawledAt": "2026-05-22T13:23:18.139Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -454,7 +456,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1342/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-22T00:08:34.894Z",
+      "crawledAt": "2026-05-22T13:23:17.443Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -527,7 +529,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1337/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-22T00:08:33.884Z",
+      "crawledAt": "2026-05-22T13:23:16.524Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -600,7 +602,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1256/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-22T00:08:32.857Z",
+      "crawledAt": "2026-05-22T13:23:15.653Z",
       "addressLocality": "Arosa",
       "postalCode": "7050",
       "addressCountry": "CH",
@@ -675,7 +677,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1348/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-22T00:08:31.830Z",
+      "crawledAt": "2026-05-22T13:23:14.743Z",
       "addressLocality": "Ascona",
       "postalCode": "6612",
       "addressCountry": "CH",
