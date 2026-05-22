@@ -1,21 +1,22 @@
 {
   "key": "lidl-svizzera",
   "label": "Lidl",
-  "generatedAt": "2026-05-22T12:17:48.899Z",
+  "generatedAt": "2026-05-22T22:49:23.339Z",
   "total": 11,
-  "newCount": 2,
-  "updatedCount": 9,
+  "newCount": 0,
+  "updatedCount": 11,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 14752,
-  "avgDurationMs": 14752,
+  "durationMs": 12943,
+  "avgDurationMs": 12943,
   "durationHistory": [
-    14752
+    12943
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "company-t8rd0w",
-      "slug": "ch-tuttofare-vendita-m-w-d-20-40-1-lidl-svizzera-gravesano",
+      "slug": "ch-tuttofare-vendita-m-w-d-20-40-1-lidl-svizzera-gravesano-t8rd0w",
       "company": "Lidl Svizzera",
       "title": "CH_ Tuttofare vendita (m/f/d) 20-40% 1",
       "location": "Gravesano",
@@ -36,15 +37,21 @@
       "companyDomain": "lidl.ch",
       "crawledAt": "2026-05-22T12:17:47.196Z",
       "firstSeenAt": "2026-05-22T12:17:47.196Z",
-      "needsRetranslation": true,
       "country": "CH",
       "sourceLang": "it",
-      "_qualityScore": 79,
+      "streetAddress": "Via Industria 7",
+      "postalCode": "6593",
+      "addressLocality": "Gravesano",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
+      "_qualityScore": 100,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 15,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 25
       }
     },
     {
@@ -70,19 +77,23 @@
       "companyDomain": "lidl.ch",
       "crawledAt": "2026-05-22T12:17:47.196Z",
       "firstSeenAt": "2026-05-22T12:17:47.196Z",
-      "needsRetranslation": true,
       "country": "CH",
       "sourceLang": "it",
-      "_qualityScore": 79,
+      "streetAddress": "Via Industria 7",
+      "postalCode": "6593",
+      "addressLocality": "Lugano",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
+      "_qualityScore": 100,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 15,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 25
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "company-alqha9",
       "slug": "verkaufer-verkauferin-m-w-d-20-40-lidl-svizzera-st-moritz-alqha9",
@@ -106,7 +117,6 @@
       "companyDomain": "lidl.ch",
       "crawledAt": "2026-05-17T10:36:40.425Z",
       "firstSeenAt": "2026-05-17T10:36:40.425Z",
-      "needsRetranslation": true,
       "country": "CH",
       "sourceLang": "de",
       "streetAddress": "Via Industria 7",
@@ -115,12 +125,12 @@
       "addressRegion": "GR",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "retranslationAttempts": 2,
-      "_qualityScore": 87,
+      "needsRetranslation": true,
+      "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 15,
+        "translation": 9,
         "completeness": 25
       }
     },
@@ -147,7 +157,6 @@
       "companyDomain": "lidl.ch",
       "crawledAt": "2026-05-17T10:36:40.425Z",
       "firstSeenAt": "2026-05-17T10:36:40.425Z",
-      "needsRetranslation": true,
       "country": "CH",
       "sourceLang": "de",
       "streetAddress": "Via Industria 7",
@@ -156,12 +165,12 @@
       "addressRegion": "GR",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "retranslationAttempts": 2,
-      "_qualityScore": 87,
+      "needsRetranslation": true,
+      "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 15,
+        "translation": 9,
         "completeness": 25
       }
     },
