@@ -45,13 +45,11 @@
       "source": "Otis Dedicated Parser (Workday)",
       "crawledAt": "2026-05-21T23:23:02.933Z",
       "previousSlugs": [
-        "aufzugsmonteur-modernisierung-und-ersatzanlagen-m-w-d-otis-reinach",
-        "aufzugsmonteur-modernisierung-e-ersatzanlagen-m-w-d-otis-sa-reinach"
+        "aufzugsmonteur-modernisierung-und-ersatzanlagen-m-w-d-otis-reinach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "aufzugsmonteur-modernisierung-und-ersatzanlagen-m-w-d-otis-reinach",
-          "aufzugsmonteur-modernisierung-e-ersatzanlagen-m-w-d-otis-sa-reinach"
+          "aufzugsmonteur-modernisierung-und-ersatzanlagen-m-w-d-otis-reinach"
         ],
         "en": [
           "aufzugsmonteur-modernisierung-und-ersatzanlagen-m-w-d-otis-reinach"
@@ -76,12 +74,12 @@
     },
     {
       "id": "otis-8f8ccf8d9768",
-      "slug": "aufzugsmonteur-modernisierung-e-ersatzanlagen-m-w-d-otis-sa-kriens",
+      "slug": "montatore-di-ascensori-modernizzazione-e-impianti-di-sostituzione-m-w-d-otis-sa-kriens",
       "slugByLocale": {
-        "it": "aufzugsmonteur-modernisierung-e-ersatzanlagen-m-w-d-otis-sa-kriens",
-        "en": "aufzugsmonteur-modernisierung-und-ersatzanlagen-m-w-d-otis-kriens",
+        "it": "montatore-di-ascensori-modernizzazione-e-impianti-di-sostituzione-m-w-d-otis-sa-kriens",
+        "en": "elevator-technician-modernization-and-replacement-plants-m-f-d-otis-sa-kriens",
         "de": "aufzugsmonteur-modernisierung-und-ersatzanlagen-m-w-d-otis-kriens",
-        "fr": "aufzugsmonteur-modernisierung-und-ersatzanlagen-m-w-d-otis-kriens"
+        "fr": "technicien-d-ascenseur-modernisation-et-installations-de-remplacement-h-f-otis-sa-kriens"
       },
       "company": "Otis SA",
       "companyKey": "otis",
@@ -117,10 +115,18 @@
       "source": "Otis Dedicated Parser (Workday)",
       "crawledAt": "2026-05-21T23:23:02.501Z",
       "previousSlugs": [
-        "aufzugsmonteur-modernisierung-und-ersatzanlagen-m-w-d-otis-kriens"
+        "aufzugsmonteur-modernisierung-und-ersatzanlagen-m-w-d-otis-kriens",
+        "aufzugsmonteur-modernisierung-e-ersatzanlagen-m-w-d-otis-sa-kriens"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "aufzugsmonteur-modernisierung-und-ersatzanlagen-m-w-d-otis-kriens",
+          "aufzugsmonteur-modernisierung-e-ersatzanlagen-m-w-d-otis-sa-kriens"
+        ],
+        "en": [
+          "aufzugsmonteur-modernisierung-und-ersatzanlagen-m-w-d-otis-kriens"
+        ],
+        "fr": [
           "aufzugsmonteur-modernisierung-und-ersatzanlagen-m-w-d-otis-kriens"
         ]
       },
@@ -533,7 +539,6 @@
       "crawledAt": "2026-05-21T23:23:00.014Z",
       "previousSlugs": [
         "expert-technique-h-f-otis-sa-belp",
-        "technical-expert-m-w-d-otis-belp",
         "esperto-tecnico-m-f-d-otis-sa-belp"
       ],
       "previousSlugsByLocale": {
@@ -639,10 +644,10 @@
     },
     {
       "id": "otis-699626bb9054",
-      "slug": "servicetechniker-otis-sa-martigny",
+      "slug": "serventecnico-di-ascensori-otis-sa-martigny",
       "slugByLocale": {
-        "en": "servicetechniker-otis-martigny",
-        "it": "servicetechniker-otis-sa-martigny",
+        "en": "elevator-service-technician-otis-sa-martigny",
+        "it": "serventecnico-di-ascensori-otis-sa-martigny",
         "de": "servicetechniker-otis-rue-des-sablons-15",
         "fr": "servicetechniker-otis-sa-martigny"
       },
@@ -683,15 +688,21 @@
       "crawledAt": "2026-05-21T23:22:59.126Z",
       "previousSlugsByLocale": {
         "it": [
-          "servicetechniker-otis-sa-rue-des-sablons-15"
+          "servicetechniker-otis-sa-rue-des-sablons-15",
+          "servicetechniker-otis-sa-martigny"
         ],
         "fr": [
           "servicetechniker-otis-rue-des-sablons-15"
+        ],
+        "en": [
+          "servicetechniker-otis-martigny"
         ]
       },
       "previousSlugs": [
         "servicetechniker-otis-sa-rue-des-sablons-15",
-        "servicetechniker-otis-rue-des-sablons-15"
+        "servicetechniker-otis-sa-martigny",
+        "servicetechniker-otis-rue-des-sablons-15",
+        "servicetechniker-otis-martigny"
       ],
       "salaryMin": 55500,
       "salaryMax": 75000,

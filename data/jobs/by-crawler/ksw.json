@@ -473,8 +473,8 @@
       "slugByLocale": {
         "de": "pflegefachfrau-pflegefachmann-traumatologie-hand-plastische-chirurgie-ksw-ch",
         "it": "pflegefachfrau-pflegefachmann-traumatologie-hand-plastische-chirurgie-ksw-ch",
-        "en": "pflegefachfrau-pflegefachmann-traumatologie-hand-plastische-chirurgie-ksw-ch",
-        "fr": "pflegefachfrau-pflegefachmann-traumatologie-hand-plastische-chirurgie-ksw-ch"
+        "en": "care-specialist-traumatology-hand-plastic-surgery-kantonsspital-winterthur-ksw-winterthur",
+        "fr": "specialiste-en-traumatologie-chirurgie-manuelle-plastique-kantonsspital-winterthur-ksw-winterthur"
       },
       "company": "Kantonsspital Winterthur (KSW)",
       "companyKey": "ksw",
@@ -4254,12 +4254,12 @@
     },
     {
       "id": "ksw-30e074a40365",
-      "slug": "ausbildung-pflegefachfrau-pflegefachmann-hf-ksw-ch",
+      "slug": "formazione-infermiere-a-specializzata-a-hf-kantonsspital-winterthur-ksw-winterthur",
       "slugByLocale": {
-        "it": "ausbildung-pflegefachfrau-pflegefachmann-hf-ksw-ch",
-        "en": "ausbildung-pflegefachfrau-pflegefachmann-hf-ksw-ch",
+        "it": "formazione-infermiere-a-specializzata-a-hf-kantonsspital-winterthur-ksw-winterthur",
+        "en": "education-nursing-specialist-hf-kantonsspital-winterthur-ksw-winterthur",
         "de": "ausbildung-pflegefachfrau-pflegefachmann-hf-ksw-ch",
-        "fr": "ausbildung-pflegefachfrau-pflegefachmann-hf-ksw-ch"
+        "fr": "enseignement-specialiste-des-soins-infirmiers-hf-kantonsspital-winterthur-ksw-winterthur"
       },
       "company": "Kantonsspital Winterthur (KSW)",
       "companyKey": "ksw",
@@ -4313,13 +4313,27 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "ausbildung-pflegefachfrau-pflegefachmann-hf-ksw-ch"
+        ],
+        "en": [
+          "ausbildung-pflegefachfrau-pflegefachmann-hf-ksw-ch"
+        ],
+        "fr": [
+          "ausbildung-pflegefachfrau-pflegefachmann-hf-ksw-ch"
+        ]
+      },
+      "previousSlugs": [
+        "ausbildung-pflegefachfrau-pflegefachmann-hf-ksw-ch"
+      ]
     },
     {
       "id": "ksw-da54f11b0c98",
       "slug": "segretario-del-dottore-kantonsspital-winterthur-ksw-winterthur",
       "slugByLocale": {
-        "it": "segretaria-medica-kantonsspital-winterthur-ksw-winterthur",
+        "it": "segretario-del-dottore-kantonsspital-winterthur-ksw-winterthur",
         "en": "doctor-s-secretary-kantonsspital-winterthur-ksw-winterthur",
         "de": "arztsekretarin-arztsekretar-kantonsspital-winterthur-ksw-winterthur",
         "fr": "secretaire-du-docteur-kantonsspital-winterthur-ksw-winterthur"
@@ -4371,7 +4385,8 @@
         "it": [
           "arztsekretarin-arztsekretar-ksw-ch-2",
           "arztsekretarin-arztsekretar-ksw-ch",
-          "segretario-del-dottore-kantonsspital-winterthur-ksw-winterthur-193910"
+          "segretario-del-dottore-kantonsspital-winterthur-ksw-winterthur-193910",
+          "segretaria-medica-kantonsspital-winterthur-ksw-winterthur"
         ],
         "en": [
           "arztsekretarin-arztsekretar-ksw-ch-2",
@@ -4388,11 +4403,9 @@
         "arztsekretarin-arztsekretar-ksw-ch",
         "arztsekretarin-arztsekretar-ksw-ch-2",
         "segretario-del-dottore-kantonsspital-winterthur-ksw-winterthur-193910",
+        "segretaria-medica-kantonsspital-winterthur-ksw-winterthur",
         "doctor-s-secretary-kantonsspital-winterthur-ksw-winterthur-193910",
-        "secretaire-du-docteur-kantonsspital-winterthur-ksw-winterthur-193910",
-        "segretario-del-dottore-kantonsspital-winterthur-ksw-winterthur",
-        "doctor-s-secretary-kantonsspital-winterthur-ksw-winterthur",
-        "secretaire-du-docteur-kantonsspital-winterthur-ksw-winterthur"
+        "secretaire-du-docteur-kantonsspital-winterthur-ksw-winterthur-193910"
       ],
       "firstSeenAt": "2026-05-19T12:05:42.041Z",
       "salaryMin": 49500,

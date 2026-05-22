@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "palliativklinik-377ce6673bae",
-      "slug": "medizinstudent-innen-unterassistenzstellen-100-palliativklinik-arlesheim",
+      "slug": "studenti-medici-underassistant-100-palliativklinik-im-park-arlesheim",
       "slugByLocale": {
-        "it": "medizinstudent-innen-unterassistenzstellen-100-palliativklinik-arlesheim",
-        "en": "medizinstudent-innen-unterassistenzstellen-100-palliativklinik-arlesheim",
+        "it": "studenti-medici-underassistant-100-palliativklinik-im-park-arlesheim",
+        "en": "medical-students-internships-100-palliativklinik-im-park-arlesheim",
         "de": "medizinstudent-innen-unterassistenzstellen-100-palliativklinik-arlesheim",
-        "fr": "medizinstudent-innen-unterassistenzstellen-100-palliativklinik-arlesheim"
+        "fr": "stages-pour-etudiants-en-medecine-100-palliativklinik-im-park-arlesheim"
       },
       "company": "Palliativklinik im Park",
       "companyKey": "palliativklinik",
@@ -64,16 +64,30 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "medizinstudent-innen-unterassistenzstellen-100-palliativklinik-arlesheim"
+        ],
+        "en": [
+          "medizinstudent-innen-unterassistenzstellen-100-palliativklinik-arlesheim"
+        ],
+        "fr": [
+          "medizinstudent-innen-unterassistenzstellen-100-palliativklinik-arlesheim"
+        ]
+      },
+      "previousSlugs": [
+        "medizinstudent-innen-unterassistenzstellen-100-palliativklinik-arlesheim"
+      ]
     },
     {
       "id": "palliativklinik-929d0b56fc50",
       "slug": "dipl-pflegefachpersonen-hf-o-fachpersonen-gesundheit-fage-come-pool-collaboratore-trice-innen-palliativklinik-im-park-arlesheim",
       "slugByLocale": {
         "it": "dipl-pflegefachpersonen-hf-o-fachpersonen-gesundheit-fage-come-pool-collaboratore-trice-innen-palliativklinik-im-park-arlesheim",
-        "en": "dipl-pflegefachpersonen-hf-oder-fachpersonen-gesundheit-fage-als-pool-mitarbeiter-innen",
+        "en": "dipl-care-professionals-hf-or-professionals-health-fage-as-pool-staff-inside-palliativklinik-im-park-arlesheim",
         "de": "dipl-pflegefachpersonen-hf-oder-fachpersonen-gesundheit-fage-als-pool-mitarbeiter-innen",
-        "fr": "dipl-pflegefachpersonen-hf-oder-fachpersonen-gesundheit-fage-als-pool-mitarbeiter-innen"
+        "fr": "dipl-professionnels-de-la-sante-hf-ou-professionnels-de-la-sante-fage-comme-pool-personnel-palliativklinik-im-park"
       },
       "company": "Palliativklinik im Park",
       "companyKey": "palliativklinik",
@@ -119,6 +133,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "dipl-pflegefachpersonen-hf-oder-fachpersonen-gesundheit-fage-als-pool-mitarbeiter-innen"
+        ],
+        "en": [
+          "dipl-pflegefachpersonen-hf-oder-fachpersonen-gesundheit-fage-als-pool-mitarbeiter-innen"
+        ],
+        "fr": [
           "dipl-pflegefachpersonen-hf-oder-fachpersonen-gesundheit-fage-als-pool-mitarbeiter-innen"
         ]
       },
@@ -200,12 +220,12 @@
     },
     {
       "id": "palliativklinik-a1a4ff133072",
-      "slug": "spitalarztin-spitalarzt-palliative-care-palliativklinik-arlesheim",
+      "slug": "medico-ospedaliero-cura-pallitiva-palliativklinik-im-park-arlesheim",
       "slugByLocale": {
-        "it": "spitalarztin-spitalarzt-palliative-care-palliativklinik-arlesheim",
-        "en": "spitalarztin-spitalarzt-palliative-care-palliativklinik-arlesheim",
+        "it": "medico-ospedaliero-cura-pallitiva-palliativklinik-im-park-arlesheim",
+        "en": "hospital-physician-palliative-care-palliativklinik-im-park-arlesheim",
         "de": "spitalarztin-spitalarzt-palliative-care-palliativklinik-arlesheim",
-        "fr": "spitalarztin-spitalarzt-palliative-care-palliativklinik-arlesheim"
+        "fr": "soins-palliatifs-palliativklinik-im-park-arlesheim"
       },
       "company": "Palliativklinik im Park",
       "companyKey": "palliativklinik",
@@ -258,16 +278,30 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "spitalarztin-spitalarzt-palliative-care-palliativklinik-arlesheim"
+        ],
+        "en": [
+          "spitalarztin-spitalarzt-palliative-care-palliativklinik-arlesheim"
+        ],
+        "fr": [
+          "spitalarztin-spitalarzt-palliative-care-palliativklinik-arlesheim"
+        ]
+      },
+      "previousSlugs": [
+        "spitalarztin-spitalarzt-palliative-care-palliativklinik-arlesheim"
+      ]
     },
     {
       "id": "palliativklinik-b10d570313ba",
-      "slug": "spitalarztin-spitalarzt-40-80-palliativklinik-arlesheim",
+      "slug": "medico-ospedaliero-40-80-palliativklinik-im-park-arlesheim",
       "slugByLocale": {
-        "it": "spitalarztin-spitalarzt-40-80-palliativklinik-arlesheim",
-        "en": "spitalarztin-spitalarzt-40-80-palliativklinik-arlesheim",
+        "it": "medico-ospedaliero-40-80-palliativklinik-im-park-arlesheim",
+        "en": "hospital-doctor-40-80-palliativklinik-im-park-arlesheim",
         "de": "spitalarztin-spitalarzt-40-80-palliativklinik-arlesheim",
-        "fr": "spitalarztin-spitalarzt-40-80-palliativklinik-arlesheim"
+        "fr": "medecin-hospitalier-40-80-palliativklinik-im-park-arlesheim"
       },
       "company": "Palliativklinik im Park",
       "companyKey": "palliativklinik",
@@ -320,7 +354,21 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "spitalarztin-spitalarzt-40-80-palliativklinik-arlesheim"
+        ],
+        "en": [
+          "spitalarztin-spitalarzt-40-80-palliativklinik-arlesheim"
+        ],
+        "fr": [
+          "spitalarztin-spitalarzt-40-80-palliativklinik-arlesheim"
+        ]
+      },
+      "previousSlugs": [
+        "spitalarztin-spitalarzt-40-80-palliativklinik-arlesheim"
+      ]
     }
   ]
 }

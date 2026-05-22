@@ -695,12 +695,12 @@
     },
     {
       "id": "medtronic-5f2aef608ab8",
-      "slug": "product-portfolio-marketing-specialist-medtronic-ch",
+      "slug": "specialista-marketing-del-portafoglio-prodotto-medtronic-tolochenaz",
       "slugByLocale": {
         "en": "product-portfolio-marketing-specialist-medtronic-ch",
-        "it": "product-portfolio-marketing-specialist-medtronic-ch",
-        "de": "product-portfolio-marketing-specialist-medtronic-ch",
-        "fr": "product-portfolio-marketing-specialist-medtronic-ch"
+        "it": "specialista-marketing-del-portafoglio-prodotto-medtronic-tolochenaz",
+        "de": "produkt-portfolio-marketing-spezialist-medtronic-tolochenaz",
+        "fr": "specialiste-du-marketing-du-portefeuille-de-produits-medtronic-tolochenaz"
       },
       "company": "Medtronic",
       "companyKey": "medtronic",
@@ -757,7 +757,21 @@
         }
       },
       "firstSeenAt": "2026-05-21T23:12:06.615Z",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "product-portfolio-marketing-specialist-medtronic-ch"
+        ],
+        "de": [
+          "product-portfolio-marketing-specialist-medtronic-ch"
+        ],
+        "fr": [
+          "product-portfolio-marketing-specialist-medtronic-ch"
+        ]
+      },
+      "previousSlugs": [
+        "product-portfolio-marketing-specialist-medtronic-ch"
+      ]
     }
   ]
 }

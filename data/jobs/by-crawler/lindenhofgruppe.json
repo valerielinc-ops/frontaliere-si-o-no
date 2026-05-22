@@ -2167,12 +2167,12 @@
     },
     {
       "id": "lindenhofgruppe-bdd89c3c6be7",
-      "slug": "fachfrau-mann-gesundheit-lindenhofgruppe-bern",
+      "slug": "specialista-della-salute-lindenhofgruppe-bern",
       "slugByLocale": {
-        "it": "fachfrau-mann-gesundheit-lindenhofgruppe-bern",
-        "en": "fachfrau-mann-gesundheit-lindenhofgruppe-ch",
+        "it": "specialista-della-salute-lindenhofgruppe-bern",
+        "en": "healthcare-specialist-lindenhofgruppe-bern",
         "de": "fachfrau-mann-gesundheit-lindenhofgruppe-ch",
-        "fr": "fachfrau-mann-gesundheit-lindenhofgruppe-ch"
+        "fr": "specialiste-en-soins-de-sante-lindenhofgruppe-bern"
       },
       "company": "Lindenhofgruppe",
       "companyKey": "lindenhofgruppe",
@@ -2214,10 +2214,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fachfrau-mann-gesundheit-lindenhofgruppe-ch"
+        "fachfrau-mann-gesundheit-lindenhofgruppe-ch",
+        "fachfrau-mann-gesundheit-lindenhofgruppe-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "fachfrau-mann-gesundheit-lindenhofgruppe-ch",
+          "fachfrau-mann-gesundheit-lindenhofgruppe-bern"
+        ],
+        "en": [
+          "fachfrau-mann-gesundheit-lindenhofgruppe-ch"
+        ],
+        "fr": [
           "fachfrau-mann-gesundheit-lindenhofgruppe-ch"
         ]
       },

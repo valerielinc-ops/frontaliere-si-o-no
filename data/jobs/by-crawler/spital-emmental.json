@@ -4,10 +4,10 @@
   "jobs": [
     {
       "id": "spital-emmental-c64a1db18449",
-      "slug": "ingegnere-di-reti-ict-a-spital-emmental-burgdorf",
+      "slug": "ingegnere-del-sistema-di-rete-ict-a-spital-emmental-burgdorf",
       "slugByLocale": {
         "de": "ict-system-engineer-network-a-spital-emmental-burgdorf",
-        "it": "ingegnere-di-reti-ict-a-spital-emmental-burgdorf",
+        "it": "ingegnere-del-sistema-di-rete-ict-a-spital-emmental-burgdorf",
         "en": "ict-system-engineer-network-a-spital-emmental-burgdorf",
         "fr": "ingenieur-systemes-ict-reseau-a-spital-emmental-burgdorf"
       },
@@ -70,16 +70,24 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-21T23:48:37.444Z"
+      "firstSeenAt": "2026-05-21T23:48:37.444Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "ingegnere-di-reti-ict-a-spital-emmental-burgdorf"
+        ]
+      },
+      "previousSlugs": [
+        "ingegnere-di-reti-ict-a-spital-emmental-burgdorf"
+      ]
     },
     {
       "id": "spital-emmental-411b07e29d39",
-      "slug": "fachista-radiologia-hf-a-spital-emmental-burgdorf",
+      "slug": "dipl-persona-di-radiologia-hf-a-spital-emmental-burgdorf-langnau",
       "slugByLocale": {
         "de": "dipl-radiologiefachperson-hf-a-spital-emmental-burgdorf",
-        "it": "fachista-radiologia-hf-a-spital-emmental-burgdorf",
+        "it": "dipl-persona-di-radiologia-hf-a-spital-emmental-burgdorf-langnau",
         "en": "dipl-radiologiefachperson-hf-a-spital-emmental-burgdorf",
-        "fr": "professionnel-en-radiologie-hf-a-spital-emmental-burgdorf"
+        "fr": "dipl-radiologiefachperson-hf-a-spital-emmental-burgdorf-langnau"
       },
       "company": "Spital Emmental",
       "companyKey": "spital-emmental",
@@ -140,7 +148,19 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-21T23:48:36.784Z"
+      "firstSeenAt": "2026-05-21T23:48:36.784Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachista-radiologia-hf-a-spital-emmental-burgdorf"
+        ],
+        "fr": [
+          "professionnel-en-radiologie-hf-a-spital-emmental-burgdorf"
+        ]
+      },
+      "previousSlugs": [
+        "fachista-radiologia-hf-a-spital-emmental-burgdorf",
+        "professionnel-en-radiologie-hf-a-spital-emmental-burgdorf"
+      ]
     },
     {
       "id": "spital-emmental-b705a1225882",
@@ -4390,12 +4410,12 @@
     },
     {
       "id": "spital-emmental-178df99b2afd",
-      "slug": "dipl-infermiere-a-a-spital-emmental-burgdorf",
+      "slug": "diplomato-di-assistenza-infermieristica-a-spital-emmental-burgdorf",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-a-spital-emmental-burgdorf",
-        "it": "dipl-infermiere-a-a-spital-emmental-burgdorf",
+        "it": "diplomato-di-assistenza-infermieristica-a-spital-emmental-burgdorf",
         "en": "dipl-pflegefachperson-a-spital-emmental-burgdorf-2",
-        "fr": "infirmier-ere-diplome-e-a-spital-emmental-burgdorf"
+        "fr": "diplome-en-soins-infirmiers-a-spital-emmental-burgdorf"
       },
       "company": "Spital Emmental",
       "companyKey": "spital-emmental",
@@ -4458,18 +4478,22 @@
       },
       "firstSeenAt": "2026-05-21T23:48:11.197Z",
       "previousSlugs": [
-        "dipl-pflegefachperson-a-spital-emmental-burgdorf",
+        "diplomata-infermiera-professionale-a-spital-emmental-burgdorf",
+        "dipl-infermiere-a-a-spital-emmental-burgdorf",
+        "infirmier-ere-diplome-e-a-spital-emmental-burgdorf",
         "infermiera-professionale-dipl-a-spital-emmental-burgdorf",
         "diplomato-a-della-cura-infermieristica-a-spital-emmental-burgdorf",
         "diplomato-infermiere-a-a-spital-emmental-burgdorf",
-        "dipl-infermiere-a-a-spital-emmental-burgdorf",
         "infirmier-diplome-e-spital-emmental-burgdorf",
-        "diplome-e-en-soins-infirmiers-a-spital-emmental-burgdorf",
-        "diplomata-infermiera-professionale-a-spital-emmental-burgdorf"
+        "diplome-e-en-soins-infirmiers-a-spital-emmental-burgdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "diplomata-infermiera-professionale-a-spital-emmental-burgdorf"
+          "diplomata-infermiera-professionale-a-spital-emmental-burgdorf",
+          "dipl-infermiere-a-a-spital-emmental-burgdorf"
+        ],
+        "fr": [
+          "infirmier-ere-diplome-e-a-spital-emmental-burgdorf"
         ]
       }
     },
@@ -4480,7 +4504,7 @@
         "it": "infermiere-a-diplomato-a-a-spital-emmental-burgdorf",
         "en": "dipl-pflegefachperson-a-spital-emmental-burgdorf-3",
         "de": "dipl-pflegefachperson-a-spital-emmental-burgdorf",
-        "fr": "infirmier-ere-diplome-e-a-spital-emmental-burgdorf"
+        "fr": "diplome-en-soins-infirmiers-a-spital-emmental-burgdorf-247514"
       },
       "company": "Spital Emmental",
       "companyKey": "spital-emmental",
@@ -4539,7 +4563,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "fr": [
+          "infirmier-ere-diplome-e-a-spital-emmental-burgdorf"
+        ]
+      },
+      "previousSlugs": [
+        "infirmier-ere-diplome-e-a-spital-emmental-burgdorf"
+      ]
     },
     {
       "id": "spital-emmental-02b00f0327fa",
@@ -5323,12 +5355,12 @@
     },
     {
       "id": "spital-emmental-36492dc0274d",
-      "slug": "fachperson-per-neurophysiologische-diagnostik-a-spital-emmental-burgdorf",
+      "slug": "specialista-in-diagnostica-neurofisiologica-a-spital-emmental-burgdorf",
       "slugByLocale": {
-        "it": "fachperson-per-neurophysiologische-diagnostik-a-spital-emmental-burgdorf",
-        "en": "fachperson-fur-neurophysiologische-diagnostik-a-spital-emmental-burgdorf",
+        "it": "specialista-in-diagnostica-neurofisiologica-a-spital-emmental-burgdorf",
+        "en": "neurophysiological-diagnostic-specialist-a-spital-emmental-burgdorf",
         "de": "fachperson-fur-neurophysiologische-diagnostik-a-spital-emmental-burgdorf",
-        "fr": "fachperson-fur-neurophysiologische-diagnostik-a-spital-emmental-burgdorf"
+        "fr": "specialiste-en-diagnostic-neurophysiologique-a-spital-emmental-burgdorf"
       },
       "company": "Spital Emmental",
       "companyKey": "spital-emmental",
@@ -5387,16 +5419,31 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "fachperson-per-neurophysiologische-diagnostik-a-spital-emmental-burgdorf"
+        ],
+        "en": [
+          "fachperson-fur-neurophysiologische-diagnostik-a-spital-emmental-burgdorf"
+        ],
+        "fr": [
+          "fachperson-fur-neurophysiologische-diagnostik-a-spital-emmental-burgdorf"
+        ]
+      },
+      "previousSlugs": [
+        "fachperson-per-neurophysiologische-diagnostik-a-spital-emmental-burgdorf",
+        "fachperson-fur-neurophysiologische-diagnostik-a-spital-emmental-burgdorf"
+      ]
     },
     {
       "id": "spital-emmental-168813c5d31b",
-      "slug": "chief-executive-officer-a-spital-emmental-burgdorf",
+      "slug": "amministratore-delegato-a-spital-emmental-burgdorf-langnau",
       "slugByLocale": {
-        "it": "chief-executive-officer-a-spital-emmental-burgdorf",
+        "it": "amministratore-delegato-a-spital-emmental-burgdorf-langnau",
         "en": "chief-executive-officer-a-spital-emmental-burgdorf",
         "de": "chief-executive-officer-a-spital-emmental-burgdorf",
-        "fr": "chief-executive-officer-a-spital-emmental-burgdorf"
+        "fr": "directeur-general-e-spital-emmental-burgdorf-langnau"
       },
       "company": "Spital Emmental",
       "companyKey": "spital-emmental",
@@ -5455,7 +5502,18 @@
           "maxValue": 103000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "chief-executive-officer-a-spital-emmental-burgdorf"
+        ],
+        "fr": [
+          "chief-executive-officer-a-spital-emmental-burgdorf"
+        ]
+      },
+      "previousSlugs": [
+        "chief-executive-officer-a-spital-emmental-burgdorf"
+      ]
     }
   ]
 }

@@ -7,9 +7,9 @@
       "slug": "wiedereinstiegerinnen-come-dipl-pflegefachperson-fachperson-gesundheit-sro-ag-spital-region-oberaargau-langenthal",
       "slugByLocale": {
         "it": "wiedereinstiegerinnen-come-dipl-pflegefachperson-fachperson-gesundheit-sro-ag-spital-region-oberaargau-langenthal",
-        "en": "wiedereinstiegerinnen-als-dipl-pflegefachperson-fachperson-gesundheit-sro-langenthal",
+        "en": "restarters-as-dipl-care-specialist-specialist-health-sro-ag-spital-region-oberaargau-langenthal",
         "de": "wiedereinstiegerinnen-als-dipl-pflegefachperson-fachperson-gesundheit-sro-langenthal",
-        "fr": "wiedereinstiegerinnen-als-dipl-pflegefachperson-fachperson-gesundheit-sro-langenthal"
+        "fr": "redemarrer-en-tant-que-dipl-specialiste-des-soins-specialiste-de-la-sante-sro-ag-spital-region-oberaargau-langenthal"
       },
       "company": "SRO AG (Spital Region Oberaargau)",
       "companyKey": "sro",
@@ -64,7 +64,18 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "en": [
+          "wiedereinstiegerinnen-als-dipl-pflegefachperson-fachperson-gesundheit-sro-langenthal"
+        ],
+        "fr": [
+          "wiedereinstiegerinnen-als-dipl-pflegefachperson-fachperson-gesundheit-sro-langenthal"
+        ]
+      },
+      "previousSlugs": [
+        "wiedereinstiegerinnen-als-dipl-pflegefachperson-fachperson-gesundheit-sro-langenthal"
+      ]
     },
     {
       "id": "sro-9661d6a4bc93",
@@ -2121,9 +2132,9 @@
       "slug": "dipl-rettungssanitater-in-hf-60-100-sro-langenthal",
       "slugByLocale": {
         "it": "dipl-rettungssanitater-in-hf-60-100-sro-langenthal",
-        "en": "dipl-rettungssanitater-in-hf-60-100-sro-langenthal",
+        "en": "dipl-emergency-medical-technician-hf-60-100-sro-ag-spital-region-oberaargau-langenthal",
         "de": "dipl-rettungssanitater-in-hf-60-100-sro-langenthal",
-        "fr": "dipl-rettungssanitater-in-hf-60-100-sro-langenthal"
+        "fr": "diplome-e-en-techniques-d-urgence-hf-60-100-sro-ag-spital-region-oberaargau-langenthal"
       },
       "company": "SRO AG (Spital Region Oberaargau)",
       "companyKey": "sro",
@@ -2789,12 +2800,12 @@
     },
     {
       "id": "sro-f8262c7ddea8",
-      "slug": "dipl-pflegefachperson-hf-fh-40-100-br-medizin-palliativ-care-sro-langenthal-2",
+      "slug": "infermiere-diplomata-hf-fh-40-100-sro-ag-spital-region-oberaargau-langenthal",
       "slugByLocale": {
-        "it": "dipl-pflegefachperson-hf-fh-40-100-br-medizin-palliativ-care-sro-langenthal-2",
+        "it": "infermiere-diplomata-hf-fh-40-100-sro-ag-spital-region-oberaargau-langenthal",
         "en": "dipl-pflegefachperson-hf-fh-40-100-br-medizin-palliativ-care-sro-langenthal-2",
         "de": "dipl-pflegefachperson-hf-fh-40-100-br-medizin-palliativ-care-sro-langenthal",
-        "fr": "dipl-pflegefachperson-hf-fh-40-100-br-medizin-palliativ-care-sro-langenthal-2"
+        "fr": "diplome-e-en-soins-infirmiers-hf-fh-40-100-sro-ag-spital-region-oberaargau-langenthal"
       },
       "company": "SRO AG (Spital Region Oberaargau)",
       "companyKey": "sro",
@@ -2852,7 +2863,18 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-hf-fh-40-100-br-medizin-palliativ-care-sro-langenthal-2"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-hf-fh-40-100-br-medizin-palliativ-care-sro-langenthal-2"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachperson-hf-fh-40-100-br-medizin-palliativ-care-sro-langenthal-2"
+      ]
     },
     {
       "id": "sro-ae3f7f2450d6",

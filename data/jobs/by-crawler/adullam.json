@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "adullam-d4e6006b1274",
-      "slug": "assistent-in-gesundheit-e-soziales-in-der-gerontopsychiatrie-adullam-stiftung-basel",
+      "slug": "assistente-in-salute-e-affari-sociali-nella-gerontopsychiatrie-adullam-stiftung-basel",
       "slugByLocale": {
         "de": "assistent-in-gesundheit-und-soziales-in-der-gerontopsychiatrie-adullam-basel",
-        "it": "assistent-in-gesundheit-e-soziales-in-der-gerontopsychiatrie-adullam-stiftung-basel",
-        "en": "assistent-in-gesundheit-und-soziales-in-der-gerontopsychiatrie-adullam-basel",
-        "fr": "assistent-in-gesundheit-und-soziales-in-der-gerontopsychiatrie-adullam-basel"
+        "it": "assistente-in-salute-e-affari-sociali-nella-gerontopsychiatrie-adullam-stiftung-basel",
+        "en": "assistant-in-health-and-social-affairs-in-the-gerontopsychiatrie-adullam-stiftung-basel",
+        "fr": "assistant-en-sante-et-affaires-sociales-en-gerontopsychiatrie-adullam-stiftung-basel"
       },
       "company": "Adullam-Stiftung",
       "companyKey": "adullam",
@@ -54,11 +54,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "assistent-in-gesundheit-und-soziales-in-der-gerontopsychiatrie-adullam-basel",
+          "assistent-in-gesundheit-e-soziales-in-der-gerontopsychiatrie-adullam-stiftung-basel"
+        ],
+        "en": [
+          "assistent-in-gesundheit-und-soziales-in-der-gerontopsychiatrie-adullam-basel"
+        ],
+        "fr": [
           "assistent-in-gesundheit-und-soziales-in-der-gerontopsychiatrie-adullam-basel"
         ]
       },
       "previousSlugs": [
-        "assistent-in-gesundheit-und-soziales-in-der-gerontopsychiatrie-adullam-basel"
+        "assistent-in-gesundheit-und-soziales-in-der-gerontopsychiatrie-adullam-basel",
+        "assistent-in-gesundheit-e-soziales-in-der-gerontopsychiatrie-adullam-stiftung-basel"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,

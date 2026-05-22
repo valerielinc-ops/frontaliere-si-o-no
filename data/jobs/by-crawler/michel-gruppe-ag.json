@@ -398,12 +398,12 @@
     },
     {
       "id": "michel-gruppe-ag-fe91d2bc7d35",
-      "slug": "sommer-2027-apprendistato-fachfrau-fachmann-betreuung-cfc-specializzazione-kinder-100-michel-gruppe-ag-meiringen",
+      "slug": "estate-2027-specialista-centro-di-insegnamento-specialita-efz-bambini-100-michel-gruppe-ag-meiringen",
       "slugByLocale": {
-        "it": "sommer-2027-apprendistato-fachfrau-fachmann-betreuung-cfc-specializzazione-kinder-100-michel-gruppe-ag-meiringen",
-        "en": "sommer-2027-lehrstelle-fachfrau-fachmann-betreuung-efz-fachrichtung-kinder-100-michel",
+        "it": "estate-2027-specialista-centro-di-insegnamento-specialita-efz-bambini-100-michel-gruppe-ag-meiringen",
+        "en": "summer-2027-teaching-centre-specialist-professional-care-efz-speciality-children-100-michel-gruppe-ag-meiringen",
         "de": "sommer-2027-lehrstelle-fachfrau-fachmann-betreuung-efz-fachrichtung-kinder-100-michel",
-        "fr": "sommer-2027-lehrstelle-fachfrau-fachmann-betreuung-efz-fachrichtung-kinder-100-michel"
+        "fr": "ete-2027-specialiste-du-centre-d-enseignement-soins-professionnels-efz-specialite-enfants-100-michel-gruppe-ag-meiringen"
       },
       "company": "Michel Gruppe AG",
       "companyKey": "michel-gruppe-ag",
@@ -450,10 +450,18 @@
       "pensum": "100%",
       "department": "Lehrstellen / Ausbildung",
       "previousSlugs": [
-        "sommer-2027-lehrstelle-fachfrau-fachmann-betreuung-efz-fachrichtung-kinder-100-michel"
+        "sommer-2027-lehrstelle-fachfrau-fachmann-betreuung-efz-fachrichtung-kinder-100-michel",
+        "sommer-2027-apprendistato-fachfrau-fachmann-betreuung-cfc-specializzazione-kinder-100-michel-gruppe-ag-meiringen"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "sommer-2027-lehrstelle-fachfrau-fachmann-betreuung-efz-fachrichtung-kinder-100-michel",
+          "sommer-2027-apprendistato-fachfrau-fachmann-betreuung-cfc-specializzazione-kinder-100-michel-gruppe-ag-meiringen"
+        ],
+        "en": [
+          "sommer-2027-lehrstelle-fachfrau-fachmann-betreuung-efz-fachrichtung-kinder-100-michel"
+        ],
+        "fr": [
           "sommer-2027-lehrstelle-fachfrau-fachmann-betreuung-efz-fachrichtung-kinder-100-michel"
         ]
       },

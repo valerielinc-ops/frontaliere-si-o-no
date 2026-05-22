@@ -604,9 +604,9 @@
       "slug": "logistikerin-logistiker-op-merian-iselin-klinik-basel",
       "slugByLocale": {
         "it": "logistikerin-logistiker-op-merian-iselin-klinik-basel",
-        "en": "logistikerin-logistiker-op-merian-iselin-basel",
+        "en": "operating-room-logistician-merian-iselin-klinik-basel",
         "de": "logistikerin-logistiker-op-merian-iselin-basel",
-        "fr": "logistikerin-logistiker-op-merian-iselin-basel"
+        "fr": "logisticien-logisticienne-en-salle-d-operation-merian-iselin-klinik-basel"
       },
       "company": "Merian Iselin Klinik",
       "companyKey": "merian-iselin",
@@ -652,6 +652,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "logistikerin-logistiker-op-merian-iselin-basel"
+        ],
+        "en": [
+          "logistikerin-logistiker-op-merian-iselin-basel"
+        ],
+        "fr": [
           "logistikerin-logistiker-op-merian-iselin-basel"
         ]
       },
@@ -917,8 +923,7 @@
       "previousSlugsByLocale": {
         "it": [
           "fachfrau-fachmann-gesundheit-efz-merian-iselin-basel",
-          "specialista-della-salute-efz-merian-iselin-klinik-basel",
-          "fachfrau-fachmann-gesundheit-cfc-merian-iselin-klinik-basel"
+          "specialista-della-salute-efz-merian-iselin-klinik-basel"
         ]
       },
       "firstSeenAt": "2026-05-19T10:44:13.113Z",
