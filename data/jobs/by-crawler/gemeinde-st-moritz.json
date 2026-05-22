@@ -1,6 +1,6 @@
 {
   "crawlerKey": "gemeinde-st-moritz",
-  "assembledAt": "2026-05-22T11:41:55.782Z",
+  "assembledAt": "2026-05-22T22:14:16.372Z",
   "jobs": [
     {
       "id": "gemeinde-st-moritz-26220aaafb72",
@@ -33,7 +33,7 @@
       "url": "https://www.gemeinde-stmoritz.ch/aktuelles/aktuelles/offene-stellen/detail/gemeindepolizist-100-m-w-1",
       "source": "Gemeinde St. Moritz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-22T11:41:53.336Z",
+      "crawledAt": "2026-05-22T22:14:13.982Z",
       "addressLocality": "St. Moritz",
       "addressCountry": "CH",
       "country": "CH",
@@ -105,7 +105,7 @@
       "url": "https://www.gemeinde-stmoritz.ch/aktuelles/aktuelles/offene-stellen/detail/abteilungsleiter-in-hochbau-100",
       "source": "Gemeinde St. Moritz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-22T11:41:51.496Z",
+      "crawledAt": "2026-05-22T22:14:12.195Z",
       "addressLocality": "St. Moritz",
       "addressCountry": "CH",
       "country": "CH",
@@ -121,6 +121,14 @@
       "applyUrl": "https://www.gemeinde-stmoritz.ch/aktuelles/aktuelles/offene-stellen/detail/abteilungsleiter-in-hochbau-100",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "wichtige-kontakte-gemeinde-st-moritz-ch-2"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "wichtige-kontakte-gemeinde-st-moritz-ch-2"
+        ]
+      },
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-21T11:58:30.323Z",
       "salaryMin": 49500,
@@ -134,15 +142,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "wichtige-kontakte-gemeinde-st-moritz-ch-2"
-        ]
-      },
-      "previousSlugs": [
-        "wichtige-kontakte-gemeinde-st-moritz-ch-2"
-      ]
+      }
     }
   ]
 }
