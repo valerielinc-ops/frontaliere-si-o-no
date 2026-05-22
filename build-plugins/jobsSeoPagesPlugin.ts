@@ -2080,13 +2080,20 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  const canonicalProcess = cleanItems(canonicalLocale?.process, 8);
  const canonicalKeywords = cleanItems(canonicalLocale?.keywords, 8);
  const fallbackParagraphs = [cantonPracticalNote0(locale, dc), ...localeCopy[locale].practicalNotes.slice(1)];
+ // When _canonical is missing we ARE the only body content — keep the full
+ // paragraph set (capped at 10 to match `descriptionParagraphs`) so jobs
+ // with a real markdown description (headings + bullets + sede/contract
+ // footer) don't lose Nutanix/VDI/Sede/Tempo indeterminato signals.
+ // When canonical IS present, summary is a short lede so 3-4 paragraphs is
+ // plenty and we stay byte-budget friendly.
+ const hasCanonical = canonicalSummary.length > 0;
  const bodyParagraphs = (descriptionParagraphs.length >= 3
- ? descriptionParagraphs.slice(0, 3)
+ ? (hasCanonical ? descriptionParagraphs.slice(0, 3) : descriptionParagraphs.slice(0, 10))
  : [localizedDescription, ...fallbackParagraphs]
  )
  .filter((p) => p && p.length > 25)
- .slice(0, 4);
- const summaryParagraphs = canonicalSummary.length > 0 ? canonicalSummary : bodyParagraphs;
+ .slice(0, hasCanonical ? 4 : 10);
+ const summaryParagraphs = hasCanonical ? canonicalSummary : bodyParagraphs;
  const mergedRequirements = canonicalRequirements.length > 0 ? canonicalRequirements : requirements;
  const logoUrl = companyLogo(job);
  // Related jobs cross-link block — densifies BFS reachability so the
@@ -2157,16 +2164,20 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  return `<li class="rj"><a href="${href}" aria-label="${esc(relatedTitle)} — ${esc(r.company)}" class="rja">${rLogoImg}<div class="rjw"><div class="rjt">${esc(relatedTitle)}</div><div class="rjs">${esc(r.company)} · ${esc(r.location)}${r.canton ? ` (${esc(r.canton)})` : ''}</div>${rSalary ? `<div class="rjp">${esc(rSalary)}</div>` : ''}</div></a></li>`;
  })
  .join('');
- // Visible body paragraphs / bullets go through `inlineTextToHtml` so
- // literal markdown bold (`**foo**`) and italic markers from
- // AI-translated descriptions render as <strong>/<em> instead of leaking
- // as plain text. audit:no-literal-markdown is a 0-tolerance gate.
+ // Body paragraphs go through `jobDescriptionTextToHtml` (full block-level
+ // parser) so AI-untouched descriptions with `### Heading` / `**bold**` /
+ // `• bullet` markdown render as proper <h3>/<strong>/<ul>. `inlineTextToHtml`
+ // only handles inline markers so headings/lists would leak as literal text
+ // and trip audit:no-literal-markdown (0-tolerance, CLAUDE.md rule #1).
+ // The parser already emits its own block wrappers (<p>/<h3>/<ul>), so we
+ // do NOT add an outer <p>; canonical summary items (clean one-sentence
+ // strings) still render as a single <p> via the parser.
  const summaryHtml = summaryParagraphs
- .map((p) => `<p>${inlineTextToHtml(p)}</p>`)
+ .map((p) => jobDescriptionTextToHtml(p))
  .join('');
  const isSubheadItem = (value: string) => /^(requisiti necessari|requisiti auspicati|required|preferred)$/i.test(normalizeText(value));
  const sectionHtml = (heading: string, paragraphs: string[], bullets: string[]) => {
- const paragraphsHtml = paragraphs.map((p) => `<p>${inlineTextToHtml(p)}</p>`).join('');
+ const paragraphsHtml = paragraphs.map((p) => jobDescriptionTextToHtml(p)).join('');
  const bulletsHtml = bullets.length > 0
  ? `<ul>${bullets.map((item) => `<li${isSubheadItem(item) ? ' class="subhead"' : ''}>${inlineTextToHtml(item)}</li>`).join('')}</ul>`
  : '';
@@ -2442,7 +2453,7 @@ ${hreflangHtml}
  ${summaryHtml}
  </section>
  <div class="timeline">
- ${timelineHtml || `<div class="timeline-step">${sectionHtml(localeCopy[locale].descriptionLabel, bodyParagraphs, [])}</div>`}
+ ${timelineHtml || (hasCanonical ? `<div class="timeline-step">${sectionHtml(localeCopy[locale].descriptionLabel, bodyParagraphs, [])}</div>` : '')}
  </div>
  <a href="${referralUrl(job.url || canonicalUrl, job)}" rel="noopener noreferrer" class="cta">${esc(localeCopy[locale].applyNow)}</a>
  </article>
