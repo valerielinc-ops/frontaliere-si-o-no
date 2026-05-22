@@ -1,53 +1,18 @@
 {
   "key": "posta-svizzera-centro-regionale",
   "label": "Post.ch",
-  "generatedAt": "2026-05-22T12:41:23.195Z",
+  "generatedAt": "2026-05-22T23:12:15.638Z",
   "total": 4,
-  "newCount": 1,
+  "newCount": 0,
   "updatedCount": 3,
-  "removedCount": 1,
-  "unchangedCount": 0,
-  "durationMs": 21010,
-  "avgDurationMs": 21010,
+  "removedCount": 0,
+  "unchangedCount": 1,
+  "durationMs": 18111,
+  "avgDurationMs": 18111,
   "durationHistory": [
-    21010
+    18111
   ],
-  "newJobs": [
-    {
-      "url": "https://job.post.ch/default/job/Senior-Product-Managerin-Digital-Collaboration/73651-de_DE",
-      "applyUrl": "https://job.post.ch/default/job/Senior-Product-Managerin-Digital-Collaboration/73651-de_DE",
-      "title": "Senior Product Manager:in Digital Collaboration",
-      "company": "Die Schweizerische Post",
-      "companyKey": "posta-svizzera-centro-regionale",
-      "location": "Bellinzona",
-      "canton": "TI",
-      "country": "CH",
-      "slug": "senior-product-manager-in-digital-collaboration-post",
-      "sourceLang": "de",
-      "department": "",
-      "category": "servizi-postali",
-      "datePosted": "2026-05-22",
-      "validThrough": "2026-06-12",
-      "source": "postch-careers-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "",
-      "sector": "Servizi Postali",
-      "workload": "70-100%",
-      "_targetScope": {
-        "canton": "TI",
-        "location": "Bellinzona"
-      },
-      "crawledAt": "",
-      "needsRetranslation": true,
-      "_qualityScore": 64,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 6,
-        "completeness": 9
-      }
-    }
-  ],
+  "newJobs": [],
   "updatedJobs": [
     {
       "url": "https://job.post.ch/default/job/Teamleiterin-Fahrausweiskontrolle-und-Kundenberatung-Chur/73411-de_DE",
@@ -184,51 +149,51 @@
       }
     }
   ],
-  "removedJobs": [
+  "removedJobs": [],
+  "unchangedJobs": [
     {
-      "url": "https://job.post.ch/default/job/Zustellerin-Pakete/73486-de_DE",
-      "applyUrl": "https://job.post.ch/default/job/Zustellerin-Pakete/73486-de_DE",
-      "title": "Zusteller:in Pakete",
+      "url": "https://job.post.ch/default/job/Senior-Product-Managerin-Digital-Collaboration/73651-de_DE",
+      "applyUrl": "https://job.post.ch/default/job/Senior-Product-Managerin-Digital-Collaboration/73651-de_DE",
+      "title": "Senior Product Manager:in Digital Collaboration",
       "company": "Die Schweizerische Post",
       "companyKey": "posta-svizzera-centro-regionale",
-      "location": "Untervaz",
-      "canton": "GR",
+      "location": "Bellinzona",
+      "canton": "TI",
       "country": "CH",
-      "slug": "zusteller-in-pakete-post",
+      "slug": "senior-product-manager-in-digital-collaboration-post",
       "sourceLang": "de",
       "department": "",
       "category": "servizi-postali",
-      "datePosted": "2026-05-13",
-      "validThrough": "2026-06-03",
+      "datePosted": "2026-05-22",
+      "validThrough": "2026-06-12",
       "source": "postch-careers-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "",
       "sector": "Servizi Postali",
-      "workload": "80-100%",
+      "workload": "70-100%",
       "_targetScope": {
-        "canton": "GR",
-        "location": "Untervaz"
+        "canton": "TI",
+        "location": "Bellinzona"
       },
       "crawledAt": "",
-      "id": "posta-svizzera-centro-regionale-946e766a9940",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "needsRetranslation": true,
+      "id": "posta-svizzera-centro-regionale-fd1ef5f7b796",
+      "salaryMin": 68000,
+      "salaryMax": 103000,
       "currency": "CHF",
       "streetAddress": "Via la Santa 1",
       "postalCode": "6500",
-      "addressLocality": "Untervaz",
+      "addressLocality": "Bellinzona",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "firstSeenAt": "2026-05-13T11:42:33.116Z",
-      "needsRetranslation": true,
-      "_qualityScore": 92,
+      "firstSeenAt": "2026-05-22T12:41:23.194Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
+        "richness": 24,
+        "translation": 16,
         "completeness": 20
       }
     }
-  ],
-  "unchangedJobs": []
+  ]
 }
