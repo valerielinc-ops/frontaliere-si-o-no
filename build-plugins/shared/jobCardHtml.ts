@@ -25,6 +25,26 @@ import {
 
 export { resolveJobCardLogo, escHtml };
 
+/**
+ * Strip literal markdown markers from a job title before it lands in <h3>.
+ * The shared description parser only runs on body text — titles flow through
+ * `escHtml()` raw, so AI-translation leaks like `**Title**` survive into the
+ * card markup and trigger the 0-tolerance `audit-no-literal-markdown` gate.
+ * Mirrors the helper of the same name in build-plugins/jobsSeoPagesPlugin.ts
+ * (kept duplicated to avoid a circular import between the plugin and this
+ * shared file). Contract: `**X**` → `X`, separator runs (3+ of `_`/`=`/`~`) → space,
+ * orphan leading/trailing `*` removed, double-spaces collapsed. Idempotent.
+ */
+function stripLiteralMarkdownFromTitle(title: string): string {
+  if (!title) return title;
+  let t = String(title);
+  t = t.replace(/\*\*([^*\n]+?)\*\*/g, '$1');
+  t = t.replace(/[_=~]{3,}/g, ' ');
+  t = t.replace(/^\s*\*+\s*/, '').replace(/\s*\*+\s*$/, '');
+  t = t.replace(/[ \t]{2,}/g, ' ');
+  return t.trim();
+}
+
 export type JobCardLocale = 'it' | 'en' | 'de' | 'fr';
 
 /**
@@ -221,7 +241,9 @@ export function renderJobCardHtml(
 
   const titleSource =
     (job.titleByLocale && job.titleByLocale[locale]) || job.title || '';
-  const title = String(titleSource).replace(/\s+/g, ' ').trim();
+  const title = stripLiteralMarkdownFromTitle(
+    String(titleSource).replace(/\s+/g, ' ').trim(),
+  );
   const company = String(job.company || '').trim();
   const rawLocation = String(job.location || job.addressLocality || '').trim();
   const cantonStr = job.canton ? ` (${escHtml(String(job.canton))})` : '';
