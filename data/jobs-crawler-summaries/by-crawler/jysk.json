@@ -1,21 +1,21 @@
 {
   "key": "jysk",
   "label": "JYSK",
-  "generatedAt": "2026-05-21T22:49:27.547Z",
+  "generatedAt": "2026-05-22T12:02:16.153Z",
   "total": 17,
   "newCount": 1,
   "updatedCount": 6,
   "removedCount": 1,
   "unchangedCount": 10,
-  "durationMs": 36264,
-  "avgDurationMs": 36264,
+  "durationMs": 37264,
+  "avgDurationMs": 37264,
   "durationHistory": [
-    36264
+    37264
   ],
   "newJobs": [
     {
-      "id": "company-esp7om",
-      "slug": "apprendista-impiegato-a-del-commercio-al-dettaglio-cfc-a-in-der-filiale-schattdorf-jysk-schattdorf-esp7om",
+      "id": "company-qrsmyr",
+      "slug": "apprendista-impiegato-a-del-commercio-al-dettaglio-cfc-a-in-der-filiale-schattdorf-jysk-schattdorf-qrsmyr",
       "company": "JYSK",
       "title": "Lernende Detailhandelsfachfrau/-mann EFZ (a) in der Filiale Schattdorf",
       "location": "Schattdorf",
@@ -24,13 +24,13 @@
       "contract": "full-time",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-05-18",
-      "url": "https://jobs.de.jysk.ch/offene-stellen/lernende-detailhandelsfachfrau-mann-efz-der-filiale-schattdorf-0",
+      "postedDate": "2026-04-25",
+      "url": "https://jobs.de.jysk.ch/offene-stellen/lernende-detailhandelsfachfrau-mann-efz-der-filiale-schattdorf",
       "source": "Company Careers Crawler",
       "companyKey": "jysk",
       "companyDomain": "jysk.ch",
-      "crawledAt": "2026-05-21T22:49:27.105Z",
-      "firstSeenAt": "2026-05-21T22:49:27.105Z",
+      "crawledAt": "2026-05-22T12:02:15.719Z",
+      "firstSeenAt": "2026-05-22T12:02:15.719Z",
       "sourceLang": "de",
       "_qualityScore": 82,
       "_qualityBreakdown": {
@@ -44,7 +44,7 @@
   "updatedJobs": [
     {
       "id": "company-i1lex3",
-      "slug": "verkaufsleiter-in-apprendista-a-100-per-la-region-zentralschweiz-jysk-schwyz-i1lex3",
+      "slug": "responsabile-vendite-a-100-per-la-svizzera-centrale-jysk-schwyz",
       "company": "JYSK",
       "title": "Verkaufsleiter/in Trainee (a) 100% für die Region Zentralschweiz",
       "location": "Schwyz",
@@ -62,17 +62,17 @@
       "firstSeenAt": "2026-05-21T12:19:15.664Z",
       "sourceLang": "de",
       "employmentType": "FULL_TIME",
-      "_qualityScore": 87,
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 21,
+        "translation": 25,
         "completeness": 19
       }
     },
     {
       "id": "company-t9nhwx",
-      "slug": "facility-coordinatore-a-80-jysk-zofingen-t9nhwx",
+      "slug": "coordinatore-della-facility-a-80-jysk-zofingen",
       "company": "JYSK",
       "title": "Facility Coordinator (a) 80%",
       "location": "Zofingen",
@@ -91,11 +91,11 @@
       "sourceLang": "de",
       "employmentType": "FULL_TIME",
       "postalCode": "5000",
-      "_qualityScore": 90,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 21,
+        "translation": 25,
         "completeness": 22
       }
     },
@@ -215,8 +215,8 @@
   ],
   "removedJobs": [
     {
-      "id": "company-qrsmyr",
-      "slug": "apprendista-impiegato-a-del-commercio-al-dettaglio-cfc-a-in-der-filiale-schattdorf-jysk-schattdorf-qrsmyr",
+      "id": "company-esp7om",
+      "slug": "efz-a-nel-ramo-schattdorf-jysk-schattdorf",
       "company": "JYSK",
       "title": "Lernende Detailhandelsfachfrau/-mann EFZ (a) in der Filiale Schattdorf",
       "location": "Schattdorf",
@@ -225,22 +225,22 @@
       "contract": "full-time",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-04-25",
-      "url": "https://jobs.de.jysk.ch/offene-stellen/lernende-detailhandelsfachfrau-mann-efz-der-filiale-schattdorf",
+      "postedDate": "2026-05-18",
+      "url": "https://jobs.de.jysk.ch/offene-stellen/lernende-detailhandelsfachfrau-mann-efz-der-filiale-schattdorf-0",
       "source": "Company Careers Crawler",
       "companyKey": "jysk",
       "companyDomain": "jysk.ch",
-      "crawledAt": "2026-05-21T12:19:15.664Z",
-      "firstSeenAt": "2026-05-21T12:19:15.664Z",
+      "crawledAt": "2026-05-21T22:49:27.105Z",
+      "firstSeenAt": "2026-05-21T22:49:27.105Z",
       "sourceLang": "de",
       "salaryMin": 41600,
       "salaryMax": 63000,
       "employmentType": "FULL_TIME",
-      "_qualityScore": 87,
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 21,
+        "translation": 25,
         "completeness": 19
       }
     }
