@@ -1,18 +1,55 @@
 {
   "key": "kispi-zurich",
   "label": "Universitäts-Kinderspital Zürich (Kispi)",
-  "generatedAt": "2026-05-22T12:04:19.280Z",
+  "generatedAt": "2026-05-22T22:36:22.896Z",
   "total": 10,
-  "newCount": 0,
-  "updatedCount": 10,
-  "removedCount": 0,
+  "newCount": 1,
+  "updatedCount": 9,
+  "removedCount": 1,
   "unchangedCount": 0,
-  "durationMs": 12671,
-  "avgDurationMs": 12671,
+  "durationMs": 13659,
+  "avgDurationMs": 13659,
   "durationHistory": [
-    12671
+    13659
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "id": "kispi-zurich-967714a9f1bc",
+      "slug": "leiterin-assistenzpool-medizinische-direktion-m-w-80-100-kispi-zurich-zurich",
+      "company": "Universitäts-Kinderspital Zürich (Kispi)",
+      "companyKey": "kispi-zurich",
+      "companyDomain": "kispi.uzh.ch",
+      "title": "Leiterin Assistenzpool Medizinische Direktion (m/w) 80-100%",
+      "needsRetranslation": true,
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://recruitingapp-2316.umantis.com/Vacancies/3676/Description/1",
+      "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
+      "sourceLang": "de",
+      "crawledAt": "2026-05-22T22:36:12.259Z",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8032",
+      "category": "Sanità / Ospedali",
+      "contract": "temporary",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-22",
+      "applyUrl": "https://recruitingapp-2316.umantis.com/Vacancies/3676/Application/CheckLogin/1",
+      "_qualityScore": 56,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 10,
+        "translation": 4,
+        "completeness": 17
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "id": "kispi-zurich-3ebcdfc4c0f4",
@@ -27,7 +64,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3673/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-22T12:04:09.574Z",
+      "crawledAt": "2026-05-22T22:36:13.336Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -64,7 +101,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3671/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-22T12:04:10.463Z",
+      "crawledAt": "2026-05-22T22:36:14.223Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -101,7 +138,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3670/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-22T12:04:11.354Z",
+      "crawledAt": "2026-05-22T22:36:15.107Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -117,10 +154,10 @@
       "postedDate": "2026-05-20",
       "applyUrl": "https://recruitingapp-2316.umantis.com/Vacancies/3670/Application/CheckLogin/1",
       "firstSeenAt": "2026-05-20T23:19:32.907Z",
-      "_qualityScore": 79,
+      "_qualityScore": 77,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 12,
+        "richness": 10,
         "translation": 25,
         "completeness": 17
       }
@@ -138,7 +175,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3672/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-22T12:04:12.278Z",
+      "crawledAt": "2026-05-22T22:36:15.991Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -175,7 +212,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3668/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-22T12:04:14.027Z",
+      "crawledAt": "2026-05-22T22:36:17.794Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -212,7 +249,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3446/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-22T12:04:13.163Z",
+      "crawledAt": "2026-05-22T22:36:16.893Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -249,7 +286,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3599/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-22T12:04:14.873Z",
+      "crawledAt": "2026-05-22T22:36:18.699Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -286,7 +323,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3665/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-22T12:04:15.746Z",
+      "crawledAt": "2026-05-22T22:36:19.736Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -302,10 +339,10 @@
       "postedDate": "2026-05-19",
       "applyUrl": "https://recruitingapp-2316.umantis.com/Vacancies/3665/Application/CheckLogin/1",
       "firstSeenAt": "2026-05-19T14:36:57.021Z",
-      "_qualityScore": 81,
+      "_qualityScore": 77,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 14,
+        "richness": 10,
         "translation": 25,
         "completeness": 17
       }
@@ -323,7 +360,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3340/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-22T12:04:16.616Z",
+      "crawledAt": "2026-05-22T22:36:20.789Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -339,22 +376,23 @@
       "postedDate": "2026-05-19",
       "applyUrl": "https://recruitingapp-2316.umantis.com/Vacancies/3340/Application/CheckLogin/1",
       "firstSeenAt": "2026-05-19T14:36:58.040Z",
-      "_qualityScore": 73,
+      "_qualityScore": 77,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 6,
+        "richness": 10,
         "translation": 25,
         "completeness": 17
       }
-    },
+    }
+  ],
+  "removedJobs": [
     {
       "id": "kispi-zurich-82318d6e3455",
-      "slug": "dipl-fachfrau-dipl-fachmann-operationstechnik-60-100-kispi-zurich-zurich",
+      "slug": "dipl-tecnico-a-di-sala-operatoria-60-100-universitats-kinderspital-zurich-kispi-zurich",
       "company": "Universitäts-Kinderspital Zürich (Kispi)",
       "companyKey": "kispi-zurich",
       "companyDomain": "kispi.uzh.ch",
       "title": "Dipl. Fachfrau / Dipl. Fachmann Operationstechnik 60-100%",
-      "needsRetranslation": true,
       "location": "Zürich",
       "canton": "ZH",
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3576/Description/1",
@@ -376,15 +414,16 @@
       "postedDate": "2026-05-19",
       "applyUrl": "https://recruitingapp-2316.umantis.com/Vacancies/3576/Application/CheckLogin/1",
       "firstSeenAt": "2026-05-19T14:36:59.052Z",
-      "_qualityScore": 77,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 10,
         "translation": 25,
-        "completeness": 17
+        "completeness": 22
       }
     }
   ],
-  "removedJobs": [],
   "unchangedJobs": []
 }
