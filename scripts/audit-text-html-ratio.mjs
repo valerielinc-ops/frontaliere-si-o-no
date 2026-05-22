@@ -99,11 +99,15 @@ export function createAuditor(opts = {}) {
       if (!html) return;
       const htmlBytes = Buffer.byteLength(html, 'utf8');
       if (htmlBytes === 0) return;
-      // Expired-job pages whose SEO prose was deliberately stripped via the
-      // STRIP_EXPIRED_JOB_PROSE flag carry this marker. The low text/HTML
-      // ratio on those pages is by design (dist size reduction for the
-      // GitHub Pages 10 GB cap), so skip them — see build-plugins/jobsSeoPagesPlugin.ts.
-      if (html.includes('<!--ejp-stripped-->')) {
+      // Expired-job / active-job / bridge pages whose SEO prose was
+      // deliberately stripped via STRIP_EXPIRED_JOB_PROSE /
+      // STRIP_ACTIVE_JOB_PROSE / STRIP_BRIDGE_PAGE_PROSE carry this marker.
+      // The low text/HTML ratio is by design (dist size reduction for the
+      // GitHub Pages 10 GB cap), so skip them. Marker is UPPERCASE so it
+      // survives the HTML minifier's comment-strip pass (which only
+      // preserves <!--[A-Z][A-Z0-9_]*-->); accept the legacy lowercase
+      // form as well for backward compat with un-minified test fixtures.
+      if (html.includes('<!--EJP_STRIPPED-->') || html.includes('<!--ejp-stripped-->')) {
         skippedEjpStripped++;
         return;
       }

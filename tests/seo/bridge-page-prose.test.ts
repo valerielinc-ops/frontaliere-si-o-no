@@ -43,7 +43,7 @@ import {
 } from '../../build-plugins/shared/bridgePageProse';
 
 // The default behaviour of renderBridgePageProse is now to return only the
-// `<!--ejp-stripped-->` marker (STRIP_BRIDGE_PAGE_PROSE=1, default ON, dist
+// `<!--EJP_STRIPPED-->` marker (STRIP_BRIDGE_PAGE_PROSE=1, default ON, dist
 // shrinkage). The original prose-content assertions below validate the
 // opt-out path, so each block opts out via vi.stubEnv before running and
 // restores afterwards.
@@ -196,7 +196,7 @@ describe('bridgePageProse — STRIP_BRIDGE_PAGE_PROSE default-on behaviour', () 
     for (const locale of LOCALES) {
       for (const kind of KINDS) {
         const html = renderBridgePageProse({ locale, bridgeKind: kind });
-        expect(html).toBe('<!--ejp-stripped-->');
+        expect(html).toBe('<!--EJP_STRIPPED-->');
       }
     }
   });
@@ -205,7 +205,7 @@ describe('bridgePageProse — STRIP_BRIDGE_PAGE_PROSE default-on behaviour', () 
     vi.unstubAllEnvs();
     expect(process.env.STRIP_BRIDGE_PAGE_PROSE).toBeUndefined();
     const html = renderBridgePageProse({ locale: 'it', bridgeKind: 'generic' });
-    expect(html).toBe('<!--ejp-stripped-->');
+    expect(html).toBe('<!--EJP_STRIPPED-->');
     // Restore the outer beforeAll state so subsequent tests still see flag=0.
     vi.stubEnv('STRIP_BRIDGE_PAGE_PROSE', '0');
   });

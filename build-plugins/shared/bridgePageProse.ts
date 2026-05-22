@@ -57,7 +57,11 @@
 // vi.stubEnv() — module-load reads cannot be overridden by tests.
 const isStripBridgeProse = (): boolean =>
   (process.env.STRIP_BRIDGE_PAGE_PROSE ?? '1') !== '0';
-const EJP_STRIPPED_MARKER = '<!--ejp-stripped-->';
+// Use UPPERCASE placeholder-comment form so it survives the HTML minifier's
+// comment-strip pass (htmlMinify.ts preserves only <!--[A-Z][A-Z0-9_]*-->;
+// the prior lowercase `<!--ejp-stripped-->` was being stripped, defeating
+// the audit-text-html-ratio skip).
+const EJP_STRIPPED_MARKER = '<!--EJP_STRIPPED-->';
 
 export type BridgeProseLocale = 'it' | 'en' | 'de' | 'fr';
 
