@@ -573,6 +573,15 @@ export function pickJobDisambiguator(
  return '';
 }
 
+// Local feature flag: strip generic SEO prose ("Informazioni per frontalieri",
+// "Domande frequenti", "Mercato del lavoro in Ticino") from expired-job
+// static pages. Default ON (set STRIP_EXPIRED_JOB_PROSE=0 to keep prose).
+// Goal: shrink dist below the 10 GB GitHub Pages limit. When stripped, each
+// expired-job HTML carries the marker below; audits use the same marker to
+// skip text-html-ratio and other content-quality gates on these pages.
+const STRIP_EXPIRED_JOB_PROSE = (process.env.STRIP_EXPIRED_JOB_PROSE ?? '1') !== '0';
+const EJP_STRIPPED_MARKER = '<!--ejp-stripped-->';
+
 export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  return {
  name: 'jobs-seo-pages',
@@ -9775,6 +9784,8 @@ ${hreflangLinks}
  // page carries substantive contextual content. ~2 KB of visible text per
  // locale; uses jobCompany / jobLocation / displayCanton so pages stay
  // distinct and Google won't see boilerplate. ---
+ // Gated by STRIP_EXPIRED_JOB_PROSE (default on) — see top of file.
+ if (!STRIP_EXPIRED_JOB_PROSE) {
  const taxUrl = locale === 'it' ? `${BASE_URL}/` : `${BASE_URL}/${locale}/`;
  if (locale === 'it') {
  staticBodyParts.push(`<section><h2>Informazioni per frontalieri</h2><p>${jobCompany ? `${esc(jobCompany)} si trova` : 'Questa posizione si trovava'}${jobLocation ? ` a ${esc(jobLocation)}` : ''} in Canton ${esc(displayCanton)}. Per lavorare come frontaliere in Svizzera serve il <strong>Permesso G</strong>, rinnovabile annualmente. Il Canton ${esc(displayCanton)} applica l'<strong>imposta alla fonte</strong> con aliquote variabili sul reddito lordo, mentre i frontalieri dal 2024 sono soggetti al <strong>Nuovo Accordo fiscale</strong> che prevede una tassazione concorrente Italia-Svizzera.</p><p>I contributi sociali svizzeri includono AVS (5,3%), assicurazione disoccupazione (1,1%) e LPP (previdenza professionale). Usa il nostro <a href="${taxUrl}">simulatore fiscale gratuito</a> per calcolare il tuo stipendio netto e confrontare i costi della vita tra Svizzera e Italia.</p><p><strong>Permesso G e residenza.</strong> Per candidarti a questa posizione come frontaliere devi risiedere in un comune italiano entro la fascia di 20 km dal confine svizzero (Lombardia o Piemonte) e rientrare al domicilio almeno una volta a settimana. Il datore di lavoro richiede il Permesso G all'Ufficio della migrazione cantonale dopo la firma del contratto: la prima emissione richiede 2-6 settimane, poi viene rinnovato annualmente fino al limite contrattuale. Il telelavoro a tempo pieno dall'Italia non è compatibile con lo status di frontaliere; assenze prolungate dal domicilio italiano (più di una settimana lavorativa senza rientro) compromettono il regime fiscale.</p><p><strong>Stipendio netto e Nuovo Accordo 2024.</strong> Lo stipendio lordo indicato in questa offerta viene tassato alla fonte dal datore svizzero con aliquote effettive che nel Canton ${esc(displayCanton)} variano fra il 5 % e il 19 % a seconda del reddito, dello stato civile e dei figli. Per i frontalieri assunti dal 1° gennaio 2024 si applica il regime concorrente Italia-Svizzera del Nuovo Accordo: l'Italia tassa il reddito da lavoro estero ma riconosce un credito d'imposta sulle ritenute svizzere fino all'80 %, da dichiarare nel quadro RW. Sommando imposta alla fonte e contributi sociali, la differenza fra lordo annuale e netto incassato è tipicamente del 18-28 %. Per il calcolo personalizzato sul lordo offerto da ${jobCompany ? esc(jobCompany) : 'questa azienda'} apri il simulatore stipendio.</p><p><strong>Pendolarismo e qualità della vita.</strong> ${jobLocation ? `Lavorare a ${esc(jobLocation)} significa ` : `Lavorare nel Canton ${esc(displayCanton)} significa `}un tragitto giornaliero che dipende dal valico scelto: Brogeda (autostrada A2) e Chiasso-strada coprono le destinazioni del Mendrisiotto e del Luganese; Stabio e Gaggiolo servono chi parte dal Varesotto; Ponte Tresa è l'opzione storica per Luino e il Verbano. In ora di punta un tragitto Como-Lugano si esaurisce in 25-50 minuti; da Varese verso Lugano servono tipicamente 35-60 minuti. Per chi valuta il trasferimento in Ticino, l'affitto medio per un 3.5 locali a Lugano è 1.500-2.200 CHF/mese, contro 600-900 EUR per un appartamento equivalente in provincia di Como. La rete sanitaria svizzera (LAMal) offre tempi di accesso più brevi del SSN italiano ma con un premio mensile di 350-500 CHF/adulto, voce che pesa nel confronto netto-netto.</p></section>`);
@@ -9786,18 +9797,19 @@ ${hreflangLinks}
  staticBodyParts.push(`<section><h2>Informations pour les frontaliers</h2><p>${jobCompany ? `${esc(jobCompany)} se trouve` : 'Ce poste se trouvait'}${jobLocation ? ` \u00e0 ${esc(jobLocation)}` : ''} dans le Canton du ${esc(displayCanton)}. Les travailleurs frontaliers ont besoin d'un <strong>permis G</strong> (renouvelable annuellement) pour travailler en Suisse. Le Canton du ${esc(displayCanton)} applique un <strong>imp\u00f4t \u00e0 la source</strong> \u00e0 taux variable sur le revenu brut. Depuis 2024, le <strong>Nouvel Accord fiscal</strong> introduit une imposition concurrente entre l'Italie et la Suisse.</p><p>Les cotisations sociales suisses comprennent l'AVS (5,3%), l'assurance ch\u00f4mage (1,1%) et la LPP (pr\u00e9voyance professionnelle). Utilisez notre <a href="${taxUrl}">simulateur fiscal gratuit</a> pour calculer votre salaire net et comparer le co\u00fbt de la vie entre la Suisse et l'Italie.</p><p><strong>Permis G et r\u00e9sidence.</strong> Pour postuler \u00e0 ce poste en tant que frontalier, vous devez r\u00e9sider dans une commune italienne situ\u00e9e dans la zone fronti\u00e8re des 20 km (Lombardie ou Pi\u00e9mont) et rentrer chez vous au moins une fois par semaine. L'employeur d\u00e9pose la demande de permis G \u00e0 l'office cantonal des migrations apr\u00e8s la signature du contrat : la premi\u00e8re d\u00e9livrance prend 2 \u00e0 6 semaines, le renouvellement est ensuite annuel. Le t\u00e9l\u00e9travail \u00e0 plein temps depuis l'Italie n'est pas compatible avec le statut de frontalier ; des absences prolong\u00e9es du domicile italien (plus d'une semaine de travail sans retour) compromettent le r\u00e9gime fiscal.</p><p><strong>Salaire net et nouvel accord fiscal 2024.</strong> Le salaire brut annonc\u00e9 ici est retenu \u00e0 la source par l'employeur suisse \u00e0 des taux effectifs compris entre 5 % et 19 % dans le Canton du ${esc(displayCanton)} selon le revenu, l'\u00e9tat civil et les personnes \u00e0 charge. Les frontaliers engag\u00e9s \u00e0 partir du 1er janvier 2024 rel\u00e8vent du nouveau r\u00e9gime concurrent Italie-Suisse : l'Italie impose le revenu de source \u00e9trang\u00e8re tout en accordant un cr\u00e9dit d'imp\u00f4t sur la retenue suisse jusqu'\u00e0 80 %, d\u00e9clar\u00e9 dans le cadre RW de la d\u00e9claration italienne. En ajoutant les charges sociales, l'\u00e9cart brut-net typique est de 18 \u00e0 28 %. Pour un calcul personnalis\u00e9 sur le brut propos\u00e9 par ${jobCompany ? esc(jobCompany) : 'cet employeur'}, ouvrez le simulateur de salaire.</p><p><strong>Trajet et qualit\u00e9 de vie.</strong> ${jobLocation ? `Travailler \u00e0 ${esc(jobLocation)} signifie ` : `Travailler dans le Canton du ${esc(displayCanton)} signifie `}un trajet quotidien qui d\u00e9pend du poste-fronti\u00e8re choisi : Brogeda (autoroute A2) et Chiasso-route couvrent le Mendrisiotto et le Luganese ; Stabio et Gaggiolo desservent les pendulaires partant de la province de Var\u00e8se ; Ponte Tresa est l'acc\u00e8s historique pour Luino et la r\u00e9gion du Verbano. En heure de pointe, un trajet C\u00f4me-Lugano dure 25-50 minutes ; Var\u00e8se-Lugano typiquement 35-60. Pour qui envisage un d\u00e9m\u00e9nagement au Tessin, le loyer moyen d'un 3,5 pi\u00e8ces \u00e0 Lugano est de CHF 1'500-2'200/mois, contre EUR 600-900 pour un appartement \u00e9quivalent en province de C\u00f4me. Le r\u00e9seau de soins suisse (LAMal) offre des temps d'acc\u00e8s plus courts que le SSN italien, mais avec une prime mensuelle de CHF 350-500 par adulte — un poste de d\u00e9pense significatif \u00e0 int\u00e9grer dans toute comparaison net-net.</p></section>`);
  }
 
- // --- FAQ section (always shown — adds ~80 words of unique Q&A content) ---
+ } // end STRIP_EXPIRED_JOB_PROSE guard (Informazioni per frontalieri)
+
+ // --- FAQ section — gated by STRIP_EXPIRED_JOB_PROSE (default off = stripped).
+ // 5 Q&A per locale (net salary, LAMal, G permit, statutory pay, documents). ---
+ if (!STRIP_EXPIRED_JOB_PROSE) {
  const lamalUrl: Record<string, string> = {
  it: `${BASE_URL}/premi-cassa-malati/`,
  en: `${BASE_URL}/en/health-insurance-premiums/`,
  de: `${BASE_URL}/de/krankenkassenpraemien/`,
  fr: `${BASE_URL}/fr/primes-assurance-maladie/`,
  };
- // FAQ section — 5 Q&A per locale covering net salary, LAMal, G permit
- // mechanics, statutory pay (13th + holidays + overtime) and required
- // documentation. ~1.5 KB additional visible text per page on top of the
- // previous 2-Q&A block.
  staticBodyParts.push(getExpiredFaqHtml(locale, escDisplayCanton, lamalUrl[locale] || lamalUrl.it));
+ }
 
  // --- Fallback: recent active jobs when no same-company jobs were shown ---
  // This ensures even pages without ejData have cross-links to active listings,
@@ -9823,7 +9835,10 @@ ${hreflangLinks}
  // --- Fallback enrichment for pages without expired-jobs.json data ---
  // Ensures pages without rich ejData still have enough content (>= 50 words)
  // by adding general info about the Ticino cross-border job market.
- if (!ejData?.title && !gscInfo?.title) {
+ // Also gated by STRIP_EXPIRED_JOB_PROSE: when stripping, the page falls back
+ // to whatever Dettaglio/Dettagli/Recent/Related sections produce and the
+ // robotsMetaForContent() helper below auto-noindexes if it lands < 50 words.
+ if (!STRIP_EXPIRED_JOB_PROSE && !ejData?.title && !gscInfo?.title) {
  if (locale === 'it') {
  staticBodyParts.push(`<section><h2>Mercato del lavoro in Ticino</h2><p>Il Canton Ticino offre numerose opportunit\u00e0 per i lavoratori frontalieri provenienti dall'Italia. Con oltre 70.000 frontalieri attivi, il Ticino rappresenta una delle principali destinazioni per chi cerca lavoro in Svizzera dalla regione insubrica. I settori pi\u00f9 attivi includono industria, servizi finanziari, sanit\u00e0, commercio e tecnologia. Lo stipendio medio in Ticino \u00e8 significativamente pi\u00f9 alto rispetto alle regioni italiane di confine, rendendo il lavoro transfrontaliero un'opzione molto attraente per i residenti di Lombardia, Piemonte e altre province vicine.</p></section>`);
  } else if (locale === 'en') {
@@ -9855,6 +9870,9 @@ ${hreflangLinks}
  }
 
  staticBodyParts.push(`<p><a href="${BASE_URL}${listingPath}">${esc(archiveRelatedLabel[locale] || archiveRelatedLabel.it)} \u2192</a></p>`);
+ // Audit opt-out marker: text-html-ratio (and other content-quality gates)
+ // skip pages carrying this marker, since prose has been deliberately stripped.
+ if (STRIP_EXPIRED_JOB_PROSE) staticBodyParts.push(EJP_STRIPPED_MARKER);
  const staticBody = staticBodyParts.join('\n');
 
  // Track IT word count for sitemap inclusion decision

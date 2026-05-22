@@ -91,6 +91,7 @@ export function createAuditor(opts = {}) {
 
   const samples = [];
   let skippedNoindex = 0;
+  let skippedEjpStripped = 0;
 
   return {
     name: 'text-html-ratio',
@@ -98,6 +99,14 @@ export function createAuditor(opts = {}) {
       if (!html) return;
       const htmlBytes = Buffer.byteLength(html, 'utf8');
       if (htmlBytes === 0) return;
+      // Expired-job pages whose SEO prose was deliberately stripped via the
+      // STRIP_EXPIRED_JOB_PROSE flag carry this marker. The low text/HTML
+      // ratio on those pages is by design (dist size reduction for the
+      // GitHub Pages 10 GB cap), so skip them — see build-plugins/jobsSeoPagesPlugin.ts.
+      if (html.includes('<!--ejp-stripped-->')) {
+        skippedEjpStripped++;
+        return;
+      }
       if (!includeNoindex && (NOINDEX_RE.test(html) || META_REFRESH_RE.test(html))) {
         skippedNoindex++;
         return;
@@ -146,7 +155,7 @@ export function createAuditor(opts = {}) {
               ratio: Number(r.ratio.toFixed(2)), htmlBytes: r.htmlBytes, textBytes: r.textBytes,
             })),
             threshold: { metric: 'ratio', value: threshold, comparator: '>=' },
-            extra: { scanned: samples.length, skippedNoindex, baselineError: err.message },
+            extra: { scanned: samples.length, skippedNoindex, skippedEjpStripped, baselineError: err.message },
             humanSummary: `cannot read baseline ${baselinePath}: ${err.message}`,
           };
         }
@@ -182,7 +191,7 @@ export function createAuditor(opts = {}) {
         baselineFile: relBaseline(baselinePath),
         baselineDelta,
         byFeature,
-        extra: { scanned: samples.length, skippedNoindex, regressedFeatures, limit, threshold, rawSamples: samples },
+        extra: { scanned: samples.length, skippedNoindex, skippedEjpStripped, regressedFeatures, limit, threshold, rawSamples: samples },
         humanSummary,
       };
     },
