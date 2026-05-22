@@ -2,15 +2,16 @@
  * expired-job-prose-marker.test.ts
  *
  * Verifies that the text-html-ratio auditor skips pages carrying the
- * `<!--ejp-stripped-->` marker emitted by jobsSeoPagesPlugin when the
- * STRIP_EXPIRED_JOB_PROSE flag is on (default). Those pages have their
- * SEO prose deliberately removed to keep dist under the 10 GB GitHub
- * Pages limit; their low text/HTML ratio is by design, so they must
- * not be counted as offenders.
+ * `<!--ejp-stripped-->` marker emitted by jobsSeoPagesPlugin when either
+ * STRIP_EXPIRED_JOB_PROSE (default ON, soft-landing pages) or
+ * STRIP_ACTIVE_JOB_PROSE (default OFF, opt-in for active job-detail) is set.
+ * Those pages have their SEO prose deliberately removed to keep dist under
+ * the 10 GB GitHub Pages limit; their low text/HTML ratio is by design, so
+ * they must not be counted as offenders.
  */
 
 import { describe, expect, it } from 'vitest';
-// @ts-expect-error: importing from an .mjs script with no .d.ts
+// @ts-ignore: importing from an .mjs script with no .d.ts (works at runtime via vitest)
 import { createAuditor } from '../../scripts/audit-text-html-ratio.mjs';
 
 const STRIPPED_PAGE = `<!doctype html><html><head>

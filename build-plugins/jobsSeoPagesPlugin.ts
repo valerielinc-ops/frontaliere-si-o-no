@@ -580,6 +580,12 @@ export function pickJobDisambiguator(
 // expired-job HTML carries the marker below; audits use the same marker to
 // skip text-html-ratio and other content-quality gates on these pages.
 const STRIP_EXPIRED_JOB_PROSE = (process.env.STRIP_EXPIRED_JOB_PROSE ?? '1') !== '0';
+// Same idea for ACTIVE job-detail pages (h4 variant: ~2.4 KB/locale of
+// "Informazioni per frontalieri" + "Domande frequenti"). Default OFF — those
+// pages are the SEO primary surface and their text-html-ratio depends on the
+// prose, so opt-in only (set STRIP_ACTIVE_JOB_PROSE=1). When on, the same
+// marker is emitted and audits skip the page just like for expired pages.
+const STRIP_ACTIVE_JOB_PROSE = process.env.STRIP_ACTIVE_JOB_PROSE === '1';
 const EJP_STRIPPED_MARKER = '<!--ejp-stripped-->';
 
 export function jobsSeoPagesPlugin(rootDir: string): Plugin {
@@ -2659,6 +2665,10 @@ ${hreflangHtml}
  }
  return `<section class="section"><h4>${esc(heading[locale] || heading.it)}</h4><div class="pillrow">${links.join('')}</div></section>`;
  })();
+ // STRIP_ACTIVE_JOB_PROSE: when on, drop the two prose sections and emit the
+ // audit-skip marker so text-html-ratio (and other content gates) ignore the
+ // page. hubLinks (internal-linking chips) stays — it's UI, not filler prose.
+ if (STRIP_ACTIVE_JOB_PROSE) return EJP_STRIPPED_MARKER + hubLinks;
  return (frontalierInfo[locale] || '') + (faqSection[locale] || '') + hubLinks;
  })()}
  <nav class="fn">
