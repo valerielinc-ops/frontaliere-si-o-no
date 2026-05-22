@@ -1,16 +1,16 @@
 {
   "key": "wuerth-international",
   "label": "Würth International",
-  "generatedAt": "2026-05-21T13:49:23.219Z",
+  "generatedAt": "2026-05-22T00:16:59.004Z",
   "total": 2,
   "newCount": 0,
   "updatedCount": 2,
-  "removedCount": 2,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 3408,
-  "avgDurationMs": 3408,
+  "durationMs": 3864,
+  "avgDurationMs": 3864,
   "durationHistory": [
-    3408
+    3864
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -40,7 +40,7 @@
       "applyUrl": "https://www.wurth-international.com/CH-WINT/Karriere/Job-Portal/Bewerbungsformular_StrategischerEinkauf.php",
       "source": "Wuerth International Dedicated Parser (HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-21T13:49:21.149Z",
+      "crawledAt": "2026-05-22T00:16:56.620Z",
       "firstSeenAt": "2026-05-08T22:44:58.843Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
@@ -76,7 +76,7 @@
       "applyUrl": "https://www.wurth-international.com/CH-WINT/Karriere/Job-Portal/Bewerbungsformular_SBRechnungswesen.php",
       "source": "Wuerth International Dedicated Parser (HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-21T13:49:20.723Z",
+      "crawledAt": "2026-05-22T00:16:56.141Z",
       "firstSeenAt": "2026-05-05T11:39:02.805Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
@@ -87,85 +87,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "id": "wuerth-international-c6a8efa5a3f3",
-      "slug": "esperto-fiscale-w-m-d-o-specialista-fiscale-con-esperienza-wurth-international-chur",
-      "company": "Würth International",
-      "companyKey": "wuerth-international",
-      "companyDomain": "wurth-international.com",
-      "title": "Steuerexperte (W/M/D) oder sehr erfahrener Steuerspezialist",
-      "location": "Chur",
-      "canton": "GR",
-      "addressLocality": "Chur",
-      "addressRegion": "GR",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "7000",
-      "streetAddress": "Chur, Graubünden",
-      "category": "finance",
-      "sector": "Industria / Distribuzione",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "featured": false,
-      "postedDate": "2026-03-26",
-      "url": "https://www.wurth-international.com/wurth-international-group/Karriere/Job-Portal/Job-details_17216.php",
-      "applyUrl": "https://www.wurth-international.com/CH-WINT/Karriere/Job-Portal/Bewerbungsformular_Steuerexperte.php",
-      "source": "Wuerth International Dedicated Parser (HTML)",
-      "sourceLang": "de",
-      "crawledAt": "2026-05-19T23:57:02.569Z",
-      "firstSeenAt": "2026-04-13T11:31:48.734Z",
-      "salaryMin": 142000,
-      "salaryMax": 249500,
-      "currency": "CHF",
-      "_qualityScore": 93,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
-    {
-      "id": "wuerth-international-9ec791ef701c",
-      "slug": "tirocinio-professionale-reception-a-wurth-international-chur",
-      "company": "Würth International",
-      "companyKey": "wuerth-international",
-      "companyDomain": "wurth-international.com",
-      "title": "Berufspraktikum Empfang (a)",
-      "location": "Chur",
-      "canton": "GR",
-      "addressLocality": "Chur",
-      "addressRegion": "GR",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "7000",
-      "streetAddress": "Chur, Graubünden",
-      "category": "logistics",
-      "sector": "Industria / Distribuzione",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "intern",
-      "featured": false,
-      "postedDate": "2026-03-04",
-      "url": "https://www.wurth-international.com/wurth-international-group/Karriere/Job-Portal/Job-details_17088.php",
-      "applyUrl": "https://www.wurth-international.com/CH-WINT/Karriere/Job-Portal/Bewerbungsformular-Praktikum-Empfang.php",
-      "source": "Wuerth International Dedicated Parser (HTML)",
-      "sourceLang": "de",
-      "crawledAt": "2026-05-19T23:57:02.142Z",
-      "firstSeenAt": "2026-04-13T11:31:48.270Z",
-      "salaryMin": 41600,
-      "salaryMax": 63000,
-      "currency": "CHF",
-      "_qualityScore": 93,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 25
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
