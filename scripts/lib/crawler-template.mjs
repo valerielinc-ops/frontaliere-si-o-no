@@ -323,6 +323,17 @@ export function cleanCrawlerArtifacts(text) {
   // 1. Drop empty / whitespace-only bolds (e.g. "** **", "**  **", "** : **")
   s = s.replace(/\*\*\s*[\s:;,.\-–—]*\s*\*\*/g, ' ');
 
+  // 1b. Convert mid-line separator runs (6+ `_`/`=`/`~`) to paragraph breaks.
+  // AI-translation flattening occasionally collapses paragraph boundaries
+  // around visual dividers, producing patterns like
+  // `Ref.: HFR-M-251801 _______________________________________ Le Département…`
+  // on a single line. Step 2 below only catches WHOLE separator-only lines,
+  // step 3 only TRAILING runs — neither catches mid-line. Splitting here
+  // restores the original paragraph structure so the rest of the pipeline
+  // (and audit:no-literal-markdown, CLAUDE.md rule #1, 0-tolerance) stays
+  // clean even when the runtime parser is bypassed.
+  s = s.replace(/[_=~]{6,}/g, '\n\n');
+
   // 2. Strip standalone separator-only lines ("______", "===", "----")
   s = s
     .split('\n')
