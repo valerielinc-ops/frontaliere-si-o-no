@@ -750,7 +750,8 @@
     "lpp-nigri-country-manager-italia",
     "frontaliere-pensione-avs-inps-2026",
     "direttrice-unispital-zurigo-whistleblower",
-    "frontalieri-ticino-calo-2026"
+    "frontalieri-ticino-calo-2026",
+    "frontalieri-assemblea-generale-2023"
   ],
   "failed": [
     {
@@ -6712,8 +6713,18 @@
       "id": "frontalieri-assemblea-generale-2023",
       "error": "Expected ',' or '}' after property value in JSON at position 1441 (line 12 column 371)",
       "at": "2026-05-20T04:46:54.561Z"
+    },
+    {
+      "id": "berna-skopje-scambi-economici-2026",
+      "error": "Unterminated string in JSON at position 253 (line 4 column 136)",
+      "at": "2026-05-22T04:47:48.376Z"
+    },
+    {
+      "id": "fiaccola-sacconago-speranza-amicizia",
+      "error": "Unterminated string in JSON at position 1785 (line 20 column 195)",
+      "at": "2026-05-22T04:48:07.756Z"
     }
   ],
   "startedAt": "2026-04-07T14:09:54.940Z",
-  "updatedAt": "2026-05-20T04:46:54.561Z"
+  "updatedAt": "2026-05-22T04:48:25.444Z"
 }
