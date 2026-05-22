@@ -1,16 +1,16 @@
 {
   "key": "supsi-dti",
   "label": "SUPSI",
-  "generatedAt": "2026-05-21T13:33:23.782Z",
-  "total": 17,
-  "newCount": 17,
+  "generatedAt": "2026-05-22T00:01:20.462Z",
+  "total": 16,
+  "newCount": 16,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 46780,
-  "avgDurationMs": 46780,
+  "durationMs": 44517,
+  "avgDurationMs": 44517,
   "durationHistory": [
-    46780
+    44517
   ],
   "newJobs": [
     {
@@ -220,48 +220,6 @@
         "cleanliness": 25,
         "richness": 25,
         "translation": 20,
-        "completeness": 25
-      }
-    },
-    {
-      "id": "company-l4rl59",
-      "slug": "assistente-con-bachelor-in-formazione-master-of-arts-in-interaction-design-supsi-dti-mendrisio",
-      "company": "SUPSI / DTI",
-      "title": "Assistente con Bachelor in formazione Master of Arts in Interaction design",
-      "location": "Mendrisio",
-      "canton": "TI",
-      "category": "tech",
-      "contract": "part-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-21",
-      "url": "https://www.supsi.ch/bando26_1011",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Mendrisio",
-        "canton": "TI"
-      },
-      "companyKey": "supsi-dti",
-      "companyDomain": "supsi.ch",
-      "crawledAt": "2026-05-21T00:28:42.108Z",
-      "firstSeenAt": "2026-05-21T00:28:42.108Z",
-      "country": "CH",
-      "sourceLang": "it",
-      "salaryMin": 51500,
-      "salaryMax": 88000,
-      "streetAddress": "Via Cantonale 2C",
-      "postalCode": "6928",
-      "addressLocality": "Mendrisio",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
-      "_qualityScore": 98,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 25,
-        "translation": 23,
         "completeness": 25
       }
     },
