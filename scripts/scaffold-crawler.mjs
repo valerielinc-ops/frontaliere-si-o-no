@@ -799,6 +799,8 @@ ${playwrightTier ? `
       - name: Report failure to Linear
         if: failure()
         continue-on-error: true
+        env:
+          GH_TOKEN: \${{ secrets.GITHUB_TOKEN }}
         run: |
           node scripts/lib/github-issue-creator.mjs \\
             --title "Crawler Failure: \${{ github.workflow }}" \\
