@@ -130,6 +130,8 @@ jobs:
       - name: Read deploy metadata from Firestore
         id: deploy-meta
         continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           DATA=$(node scripts/deploy-registry.mjs get \
             --run-id="${{ inputs.deploy_run_id }}" 2>/dev/null || echo '{}')

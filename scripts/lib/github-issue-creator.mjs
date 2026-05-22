@@ -164,7 +164,17 @@ export async function createGithubIssue({
     const m = url.match(/\/issues\/(\d+)/);
     return { number: m ? Number(m[1]) : null, title, url };
   } catch (err) {
+    // Why: this helper runs in `if: failure()` reporter steps. If posting to
+    // GH fails (missing GH_TOKEN, API outage, perms), we must NOT lose the
+    // diagnostics — dump them so the workflow log preserves the upstream
+    // error context. Callers should still treat this as best-effort (CLI
+    // mode exits 0 below).
     console.error(`[github-issue-creator] Failed to create issue: ${err.message}`);
+    console.error('[github-issue-creator] --- begin issue body fallback ---');
+    console.error(`Title: ${title}`);
+    if (workflow) console.error(`Workflow: ${workflow}`);
+    console.error(body);
+    console.error('[github-issue-creator] --- end issue body fallback ---');
     return null;
   }
 }
@@ -201,11 +211,15 @@ if (process.argv[1]?.endsWith('github-issue-creator.mjs')) {
       return many.length > 0 ? many : (single ? [single] : ['bug']);
     })(),
     workflow: get('--workflow'),
-  }).then((issue) => {
-    process.exit(issue ? 0 : 1);
+  }).then(() => {
+    // Why: this CLI is a best-effort reporter invoked from `if: failure()`
+    // steps after the real failure has already been recorded. Exiting non-zero
+    // here would add a second red step and risk hiding the upstream cause —
+    // the body fallback above keeps the diagnostics in the workflow log.
+    process.exit(0);
   }).catch((err) => {
     console.error(`[github-issue-creator] Error: ${err.message}`);
-    process.exit(1);
+    process.exit(0);
   });
 }
 

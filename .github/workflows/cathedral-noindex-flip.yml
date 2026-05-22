@@ -119,6 +119,8 @@ jobs:
       - name: Report failure to Linear
         if: failure()
         continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           node scripts/lib/github-issue-creator.mjs \
             --title "CI Failure: cathedral-noindex-flip — run ${{ github.run_number }}" \
