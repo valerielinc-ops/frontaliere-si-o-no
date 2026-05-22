@@ -1,16 +1,16 @@
 {
   "key": "vaxcyte",
   "label": "Vaxcyte",
-  "generatedAt": "2026-05-21T13:44:40.849Z",
+  "generatedAt": "2026-05-22T00:12:17.093Z",
   "total": 1,
   "newCount": 0,
   "updatedCount": 1,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 2071,
-  "avgDurationMs": 2071,
+  "durationMs": 2505,
+  "avgDurationMs": 2505,
   "durationHistory": [
-    2071
+    2505
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -26,7 +26,7 @@
       "url": "https://boards.greenhouse.io/vaxcyte/jobs/5193056008?gh_jid=5193056008",
       "source": "Vaxcyte Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-21T13:44:39.158Z",
+      "crawledAt": "2026-05-22T00:12:15.075Z",
       "addressLocality": "Visp",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -56,50 +56,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "id": "vaxcyte-7041ea0fbe48",
-      "slug": "direttore-business-operations-controllo-qualita-globale-vaxcyte-visp",
-      "company": "Vaxcyte",
-      "companyKey": "vaxcyte",
-      "companyDomain": "vaxcyte.com",
-      "title": "Director, Business Operations (Global Quality Control)",
-      "location": "Visp",
-      "canton": "VS",
-      "url": "https://boards.greenhouse.io/vaxcyte/jobs/5026185008?gh_jid=5026185008",
-      "source": "Vaxcyte Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-05-19T23:52:49.338Z",
-      "addressLocality": "Visp",
-      "addressRegion": "VS",
-      "addressCountry": "CH",
-      "postalCode": "1950",
-      "country": "CH",
-      "category": "Produzione",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "Biotecnologia / Farmaceutica",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-02-02",
-      "applyUrl": "https://boards.greenhouse.io/vaxcyte/jobs/5026185008?gh_jid=5026185008",
-      "department": "Analytical",
-      "_targetScope": {
-        "canton": "VS",
-        "location": "Visp"
-      },
-      "firstSeenAt": "2026-04-13T11:29:03.138Z",
-      "salaryMin": 68000,
-      "salaryMax": 103000,
-      "_qualityScore": 84,
-      "_qualityBreakdown": {
-        "cleanliness": 17,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 22
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
