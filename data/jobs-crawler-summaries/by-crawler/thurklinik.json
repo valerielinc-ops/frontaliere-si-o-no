@@ -1,18 +1,19 @@
 {
   "key": "thurklinik",
   "label": "Thurklinik",
-  "generatedAt": "2026-05-21T13:37:30.951Z",
+  "generatedAt": "2026-05-22T00:05:31.757Z",
   "total": 9,
-  "newCount": 9,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 9,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 9519,
-  "avgDurationMs": 9519,
+  "durationMs": 10963,
+  "avgDurationMs": 10963,
   "durationHistory": [
-    9519
+    10963
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "thurklinik-ddc394a1052e",
       "slug": "belegarzte-gynakologie-urologie-hno-orthopadie-viszeralchirurgie-und-handchirurgie",
@@ -26,7 +27,7 @@
       "url": "https://thurklinik.ch/wp-content/uploads/2025/07/Gynaekologie-Urologie-HNO-Orthopaedie-Viszeralchirurgie-und-Handchirurgie.-Anaesthesie-und-Schmerztherapie-.pdf",
       "source": "Thurklinik Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-21T13:37:23.180Z",
+      "crawledAt": "2026-05-22T00:05:22.747Z",
       "addressLocality": "Niederuzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -41,17 +42,18 @@
       "featured": false,
       "postedDate": "2026-05-21",
       "applyUrl": "https://thurklinik.ch/stellen/",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-21T13:37:23.180Z",
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 19,
         "completeness": 17
       }
     },
     {
       "id": "thurklinik-b9859977d2b1",
-      "slug": "dipl-anasthesiepflegerin-oder-anasthesiepfleger-60-80-thurklinik-niederuzwil",
+      "slug": "dipl-anasthesiepflegerin-o-anasthesiepfleger-60-80-thurklinik-niederuzwil",
       "company": "Thurklinik",
       "companyKey": "thurklinik",
       "companyDomain": "thurklinik.ch",
@@ -62,7 +64,7 @@
       "url": "https://thurklinik.ch/wp-content/uploads/2025/11/Dipl.-Anaesthesiepflegerin-oder-Anaesthesiepfleger-60-–-80.pdf",
       "source": "Thurklinik Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-21T13:37:23.944Z",
+      "crawledAt": "2026-05-22T00:05:23.489Z",
       "addressLocality": "Niederuzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -77,17 +79,18 @@
       "featured": false,
       "postedDate": "2026-05-21",
       "applyUrl": "https://thurklinik.ch/stellen/",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-21T13:37:23.944Z",
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 19,
         "completeness": 17
       }
     },
     {
       "id": "thurklinik-f812f9e035a7",
-      "slug": "dipl-fachfrau-mann-operationstechnik-hf-oder-toa-resp-gleichwertig-20-80-thurklinik",
+      "slug": "dipl-fachfrau-mann-operationstechnik-hf-o-toa-resp-gleichwertig-20-80-thurklinik-niederuzwil",
       "company": "Thurklinik",
       "companyKey": "thurklinik",
       "companyDomain": "thurklinik.ch",
@@ -98,7 +101,7 @@
       "url": "https://thurklinik.ch/wp-content/uploads/2025/10/Dipl.-Fachfrau-oder-Fachmann-Operatioinstechnik-HF-oder-TOA_Thurklinik_UZWIL.pdf",
       "source": "Thurklinik Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-21T13:37:24.587Z",
+      "crawledAt": "2026-05-22T00:05:24.212Z",
       "addressLocality": "Niederuzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -113,17 +116,18 @@
       "featured": false,
       "postedDate": "2026-05-21",
       "applyUrl": "https://thurklinik.ch/stellen/",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-21T13:37:24.587Z",
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 19,
         "completeness": 17
       }
     },
     {
       "id": "thurklinik-e714e5bc9c4c",
-      "slug": "dipl-fachperson-operationstechnik-hf-oder-toa-resp-gleichwertig-20-80-mit-optionalen",
+      "slug": "dipl-fachperson-operationstechnik-hf-o-toa-resp-gleichwertig-20-80-con-optionalen-koordination-e-organisationsaufgaben-thurklinik-niederuzwil",
       "company": "Thurklinik",
       "companyKey": "thurklinik",
       "companyDomain": "thurklinik.ch",
@@ -134,7 +138,7 @@
       "url": "https://thurklinik.ch/wp-content/uploads/2025/12/Dipl.-Fachfrau-oder-Fachmann-Operatioinstechnik-HF-oder-TOA-mit-optionalen-Koordinationsaufgaben_Thurklinik.pdf",
       "source": "Thurklinik Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-21T13:37:25.227Z",
+      "crawledAt": "2026-05-22T00:05:24.933Z",
       "addressLocality": "Niederuzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -149,11 +153,12 @@
       "featured": false,
       "postedDate": "2026-05-21",
       "applyUrl": "https://thurklinik.ch/stellen/",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-21T13:37:25.227Z",
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 19,
         "completeness": 17
       }
     },
@@ -170,7 +175,7 @@
       "url": "https://thurklinik.ch/wp-content/uploads/2026/03/Dipl.-Pflegefachperson-HF-20–80-_Thurklinik.pdf",
       "source": "Thurklinik Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-21T13:37:25.864Z",
+      "crawledAt": "2026-05-22T00:05:25.660Z",
       "addressLocality": "Niederuzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -185,11 +190,12 @@
       "featured": false,
       "postedDate": "2026-05-21",
       "applyUrl": "https://thurklinik.ch/stellen/",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-21T13:37:25.864Z",
+      "_qualityScore": 76,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 16,
         "completeness": 17
       }
     },
@@ -206,7 +212,7 @@
       "url": "https://thurklinik.ch/wp-content/uploads/2025/01/Stellenbeschreibung-GYN.pdf",
       "source": "Thurklinik Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-21T13:37:26.487Z",
+      "crawledAt": "2026-05-22T00:05:26.367Z",
       "addressLocality": "Niederuzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -221,11 +227,12 @@
       "featured": false,
       "postedDate": "2026-05-21",
       "applyUrl": "https://thurklinik.ch/stellen/",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-21T13:37:26.487Z",
+      "_qualityScore": 76,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 16,
         "completeness": 17
       }
     },
@@ -242,7 +249,7 @@
       "url": "https://thurklinik.ch/wp-content/uploads/2025/02/Stellenbeschreibung-Hausarzt_Praxis.pdf",
       "source": "Thurklinik Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-21T13:37:27.118Z",
+      "crawledAt": "2026-05-22T00:05:27.076Z",
       "addressLocality": "Niederuzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -257,11 +264,12 @@
       "featured": false,
       "postedDate": "2026-05-21",
       "applyUrl": "https://thurklinik.ch/stellen/",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-21T13:37:27.118Z",
+      "_qualityScore": 76,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 16,
         "completeness": 17
       }
     },
@@ -278,7 +286,7 @@
       "url": "https://thurklinik.ch/wp-content/uploads/2026/03/Lagerungspflege-Springer-m_w_d-20-80_Thurklinik.pdf",
       "source": "Thurklinik Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-21T13:37:27.758Z",
+      "crawledAt": "2026-05-22T00:05:27.791Z",
       "addressLocality": "Niederuzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -293,17 +301,18 @@
       "featured": false,
       "postedDate": "2026-05-21",
       "applyUrl": "https://thurklinik.ch/stellen/",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-21T13:37:27.758Z",
+      "_qualityScore": 76,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 16,
         "completeness": 17
       }
     },
     {
       "id": "thurklinik-01dd561b4a47",
-      "slug": "schmerzspezialist-ssipm-beleg-oder-facharzt-thurklinik-niederuzwil",
+      "slug": "schmerzspezialist-ssipm-beleg-o-facharzt-thurklinik-niederuzwil",
       "company": "Thurklinik",
       "companyKey": "thurklinik",
       "companyDomain": "thurklinik.ch",
@@ -314,7 +323,7 @@
       "url": "https://test.thurklinik.ch/wp-content/uploads/2025/01/Stellenbeschreibung-SChmerz.pdf",
       "source": "Thurklinik Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-21T13:37:29.058Z",
+      "crawledAt": "2026-05-22T00:05:29.657Z",
       "addressLocality": "Niederuzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -329,16 +338,16 @@
       "featured": false,
       "postedDate": "2026-05-21",
       "applyUrl": "https://thurklinik.ch/stellen/",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-21T13:37:29.058Z",
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 19,
         "completeness": 17
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": []
 }
