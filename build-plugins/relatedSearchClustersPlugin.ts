@@ -115,6 +115,23 @@ const MIN_MATCHING_JOBS = 0;
 const MAX_JOBS_PER_PAGE = 30;
 const HUB_PAGE_SIZE = 200;
 
+// STRIP_CLUSTER_SEO_PROSE: when ON (default), drops the per-cluster
+// commuter-context block (~5 KB raw: crawler methodology + Permesso G +
+// tax formula + esempio + 4 visible <details> FAQ + tools links) AND the
+// FAQPage JSON-LD on cluster landing pages. Across the ~102,827 cluster
+// pages this surface emits, the saved per-page payload sums to ~150 MB
+// gzip — enough to push the github-pages artifact back under the soft
+// cap that started rejecting deploys ~14:00 UTC 2026-05-22. The
+// cluster-specific H1, AI intro paragraphs (mention real employers /
+// keyword / city), and Ricerche correlate cross-link nav are KEPT —
+// they're the only parts that meaningfully differentiate one cluster
+// page from another. Marker mirrors STRIP_EXPIRED_JOB_PROSE so
+// audit:text-html-ratio skips matching pages via EJP_STRIPPED_MARKER.
+// Opt out with STRIP_CLUSTER_SEO_PROSE=0 to re-emit the full prose
+// (e.g. for an A/B test of organic CTR vs. SERP impressions).
+const STRIP_CLUSTER_SEO_PROSE = (process.env.STRIP_CLUSTER_SEO_PROSE ?? '1') !== '0';
+const EJP_STRIPPED_MARKER = '<!--EJP_STRIPPED-->';
+
 // ── Utilities ───────────────────────────────────────────────────────────
 
 function esc(value: unknown): string {
@@ -883,7 +900,17 @@ function buildJsonLd(opts: {
     location: commuterLocation,
     sectorOrType: sectorLabel,
   });
-  const faqMainEntity = [...aiFaqItems, ...commuterFaqItems];
+  // When STRIP_CLUSTER_SEO_PROSE is ON, the commuter-context block in the
+  // <body> is dropped — so its FAQPage JSON-LD must go too (otherwise
+  // Google reports "Field 'mainEntity' references missing content" for
+  // questions whose visible answers no longer exist on the page). The AI
+  // FAQ JSON-LD goes for the same reason (its visible <details> is
+  // dropped). Net per cluster: -~1.5 KB raw JSON-LD on top of the
+  // ~5 KB raw HTML strip, for ~6.5 KB raw total = ~150 MB gzip on the
+  // github-pages artifact across the 102,827-page cluster surface.
+  const faqMainEntity = STRIP_CLUSTER_SEO_PROSE
+    ? []
+    : [...aiFaqItems, ...commuterFaqItems];
   if (faqMainEntity.length > 0) {
     out.push(JSON.stringify({
       '@context': 'https://schema.org',
@@ -1050,7 +1077,28 @@ export function renderClusterPage(inputs: PageInputs): PageOutput {
       </nav>`
     : '';
 
-  const seoContextBlock = `<details class="cluster-seo-context s-mxdIN0">
+  // STRIP_CLUSTER_SEO_PROSE (default ON): drop the heaviest, fully-
+  // generic chunks — the visible AI <details> 4-FAQ block and the
+  // commuter-context section (crawler methodology + Permesso G explainer
+  // + tax formula + esempio + 4 duplicate <details> FAQ + tools links).
+  // Together they're ~5-6 KB raw per cluster page; across the ~102,827
+  // pages this surface emits, that's ~150 MB gzip on the github-pages
+  // artifact. The cluster-specific AI intro (mentions real employers /
+  // keyword / city) and Ricerche correlate cross-link nav are KEPT — they
+  // are the only parts that meaningfully differentiate one cluster page
+  // from another. EJP_STRIPPED_MARKER lets audit:text-html-ratio skip
+  // these pages (its ratio is by-design low when we drop the prose).
+  const seoContextBlock = STRIP_CLUSTER_SEO_PROSE
+    ? `${EJP_STRIPPED_MARKER}<details class="cluster-seo-context s-mxdIN0">
+    <summary class="s-1yn7b_">${esc(chrome.contextSummary)}</summary>
+    <div class="s-yZU6bn">
+      <section class="s-p_RJwm">
+        ${aiIntroHtml}
+      </section>
+      ${relatedHtml}
+    </div>
+  </details>`
+    : `<details class="cluster-seo-context s-mxdIN0">
     <summary class="s-1yn7b_">${esc(chrome.contextSummary)}</summary>
     <div class="s-yZU6bn">
       <section class="s-p_RJwm">
