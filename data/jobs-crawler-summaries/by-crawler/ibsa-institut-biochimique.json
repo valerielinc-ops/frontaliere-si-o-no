@@ -1,16 +1,16 @@
 {
   "key": "ibsa-institut-biochimique",
   "label": "IBSA",
-  "generatedAt": "2026-05-22T11:57:06.443Z",
+  "generatedAt": "2026-05-22T22:29:14.508Z",
   "total": 10,
   "newCount": 10,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 12752,
-  "avgDurationMs": 12752,
+  "durationMs": 13626,
+  "avgDurationMs": 13626,
   "durationHistory": [
-    12752
+    13626
   ],
   "newJobs": [
     {
@@ -47,11 +47,11 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "_qualityScore": 90,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 18,
+        "translation": 21,
         "completeness": 25
       }
     },
