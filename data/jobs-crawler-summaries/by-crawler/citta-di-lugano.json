@@ -1,16 +1,16 @@
 {
   "key": "citta-di-lugano",
   "label": "Città di Lugano",
-  "generatedAt": "2026-05-22T11:11:09.170Z",
+  "generatedAt": "2026-05-22T21:43:54.294Z",
   "total": 17,
   "newCount": 0,
   "updatedCount": 17,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 15774,
-  "avgDurationMs": 15774,
+  "durationMs": 11536,
+  "avgDurationMs": 11536,
   "durationHistory": [
-    15774
+    11536
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -77,17 +77,16 @@
         "location": "Lugano"
       },
       "crawledAt": "",
-      "needsRetranslation": true,
       "id": "citta-di-lugano-232fc4e16977",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
       "firstSeenAt": "2026-05-21T11:27:42.414Z",
-      "_qualityScore": 87,
+      "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 16,
+        "translation": 25,
         "completeness": 22
       }
     },
@@ -116,17 +115,16 @@
         "location": "Lugano"
       },
       "crawledAt": "",
-      "needsRetranslation": true,
       "id": "citta-di-lugano-e228650e0436",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
       "firstSeenAt": "2026-05-21T11:27:42.414Z",
-      "_qualityScore": 87,
+      "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 16,
+        "translation": 25,
         "completeness": 22
       }
     },
@@ -161,11 +159,12 @@
       "salaryMax": 75000,
       "currency": "CHF",
       "firstSeenAt": "2026-05-21T11:27:42.414Z",
-      "_qualityScore": 87,
+      "retranslationAttempts": 2,
+      "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 16,
+        "translation": 25,
         "completeness": 22
       }
     },
@@ -200,11 +199,12 @@
       "salaryMax": 88000,
       "currency": "CHF",
       "firstSeenAt": "2026-05-21T11:27:42.414Z",
-      "_qualityScore": 92,
+      "retranslationAttempts": 2,
+      "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 21,
+        "translation": 25,
         "completeness": 22
       }
     },
@@ -233,17 +233,16 @@
         "location": "Lugano"
       },
       "crawledAt": "",
-      "needsRetranslation": true,
       "id": "citta-di-lugano-3619e28dde7f",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
       "firstSeenAt": "2026-05-21T11:27:42.414Z",
-      "_qualityScore": 92,
+      "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 21,
+        "translation": 25,
         "completeness": 22
       }
     },
@@ -272,17 +271,16 @@
         "location": "Lugano"
       },
       "crawledAt": "",
-      "needsRetranslation": true,
       "id": "citta-di-lugano-0ac3f36499dc",
       "salaryMin": 68000,
       "salaryMax": 103000,
       "currency": "CHF",
       "firstSeenAt": "2026-05-21T11:27:42.414Z",
-      "_qualityScore": 92,
+      "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 21,
+        "translation": 25,
         "completeness": 22
       }
     },
@@ -311,17 +309,16 @@
         "location": "Lugano"
       },
       "crawledAt": "",
-      "needsRetranslation": true,
       "id": "citta-di-lugano-cce4d5c9be3e",
       "salaryMin": 42000,
       "salaryMax": 77500,
       "currency": "CHF",
       "firstSeenAt": "2026-05-21T11:27:42.414Z",
-      "_qualityScore": 87,
+      "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 16,
+        "translation": 25,
         "completeness": 22
       }
     },
@@ -350,17 +347,16 @@
         "location": "Lugano"
       },
       "crawledAt": "",
-      "needsRetranslation": true,
       "id": "citta-di-lugano-c1109605b8ae",
       "salaryMin": 58000,
       "salaryMax": 88000,
       "currency": "CHF",
       "firstSeenAt": "2026-05-21T11:27:42.414Z",
-      "_qualityScore": 92,
+      "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 21,
+        "translation": 25,
         "completeness": 22
       }
     },
@@ -734,17 +730,17 @@
         "location": "Lugano"
       },
       "crawledAt": "",
-      "needsRetranslation": true,
       "id": "citta-di-lugano-232fc4e16977",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
       "firstSeenAt": "2026-05-21T11:27:42.414Z",
-      "_qualityScore": 87,
+      "needsRetranslation": true,
+      "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 16,
+        "translation": 25,
         "completeness": 22
       }
     },
@@ -773,17 +769,17 @@
         "location": "Lugano"
       },
       "crawledAt": "",
-      "needsRetranslation": true,
       "id": "citta-di-lugano-e228650e0436",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
       "firstSeenAt": "2026-05-21T11:27:42.414Z",
-      "_qualityScore": 87,
+      "needsRetranslation": true,
+      "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 16,
+        "translation": 25,
         "completeness": 22
       }
     },
@@ -818,11 +814,12 @@
       "salaryMax": 75000,
       "currency": "CHF",
       "firstSeenAt": "2026-05-21T11:27:42.414Z",
-      "_qualityScore": 87,
+      "retranslationAttempts": 2,
+      "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 16,
+        "translation": 25,
         "completeness": 22
       }
     },
@@ -857,11 +854,12 @@
       "salaryMax": 88000,
       "currency": "CHF",
       "firstSeenAt": "2026-05-21T11:27:42.414Z",
-      "_qualityScore": 92,
+      "retranslationAttempts": 2,
+      "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 21,
+        "translation": 25,
         "completeness": 22
       }
     },
@@ -890,17 +888,17 @@
         "location": "Lugano"
       },
       "crawledAt": "",
-      "needsRetranslation": true,
       "id": "citta-di-lugano-3619e28dde7f",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
       "firstSeenAt": "2026-05-21T11:27:42.414Z",
-      "_qualityScore": 92,
+      "needsRetranslation": true,
+      "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 21,
+        "translation": 25,
         "completeness": 22
       }
     },
@@ -929,17 +927,17 @@
         "location": "Lugano"
       },
       "crawledAt": "",
-      "needsRetranslation": true,
       "id": "citta-di-lugano-0ac3f36499dc",
       "salaryMin": 68000,
       "salaryMax": 103000,
       "currency": "CHF",
       "firstSeenAt": "2026-05-21T11:27:42.414Z",
-      "_qualityScore": 92,
+      "needsRetranslation": true,
+      "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 21,
+        "translation": 25,
         "completeness": 22
       }
     },
@@ -968,17 +966,17 @@
         "location": "Lugano"
       },
       "crawledAt": "",
-      "needsRetranslation": true,
       "id": "citta-di-lugano-cce4d5c9be3e",
       "salaryMin": 42000,
       "salaryMax": 77500,
       "currency": "CHF",
       "firstSeenAt": "2026-05-21T11:27:42.414Z",
-      "_qualityScore": 87,
+      "needsRetranslation": true,
+      "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 16,
+        "translation": 25,
         "completeness": 22
       }
     },
@@ -1007,17 +1005,17 @@
         "location": "Lugano"
       },
       "crawledAt": "",
-      "needsRetranslation": true,
       "id": "citta-di-lugano-c1109605b8ae",
       "salaryMin": 58000,
       "salaryMax": 88000,
       "currency": "CHF",
       "firstSeenAt": "2026-05-21T11:27:42.414Z",
-      "_qualityScore": 92,
+      "needsRetranslation": true,
+      "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 21,
+        "translation": 25,
         "completeness": 22
       }
     },
