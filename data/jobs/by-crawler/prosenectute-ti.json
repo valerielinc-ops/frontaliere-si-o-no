@@ -1,7 +1,78 @@
 {
   "crawlerKey": "prosenectute-ti",
-  "assembledAt": "2026-05-22T12:43:02.586Z",
+  "assembledAt": "2026-05-22T23:14:07.253Z",
   "jobs": [
+    {
+      "id": "prosenectute-ti-f22cb6ddd434",
+      "slug": "concorso-generale-2025-assistenti-sociali-pro-senectute-ticino-e-moesano-lugano",
+      "slugByLocale": {
+        "it": "concorso-generale-2025-assistenti-sociali-pro-senectute-ticino-e-moesano-lugano",
+        "en": "general-contest-2025-social-workers-pro-senectute-ticino-e-moesano-lugano",
+        "de": "allgemeine-ausschreibung-2025-sozialarbeiter-pro-senectute-ticino-e-moesano-lugano",
+        "fr": "concours-general-2025-assistants-sociaux-pro-senectute-ticino-e-moesano-lugano"
+      },
+      "company": "Pro Senectute Ticino e Moesano",
+      "companyKey": "prosenectute-ti",
+      "companyDomain": "ti.prosenectute.ch",
+      "title": "Concorso generale 2025 Assistenti Sociali",
+      "titleByLocale": {
+        "it": "Concorso generale 2025 Assistenti Sociali",
+        "en": "General Contest 2025 Social Workers",
+        "de": "Allgemeine Ausschreibung 2025 Sozialarbeiter",
+        "fr": "Concours général 2025 Assistants sociaux"
+      },
+      "description": "Concorso generale 2025 Assistenti Sociali.\n\nPro Senectute Ticino e Moesano pubblica concorsi annuali aperti anche in assenza di un effettivo fabbisogno di personale: le candidature ricevute vengono valutate ed eventualmente richiamate nel corso dell’anno.\n\nBando completo (PDF): https://ti.prosenectute.ch/dam/jcr:10d8a9dc-b56e-4720-8fac-80477410a90e/Concorso%20generale%202025_Assistenti%20Sociali.pdf\n\nPro Senectute Ticino e Moesano — Sede di Lugano, attiva su tutto il Cantone Ticino e nella regione Moesano (GR).",
+      "descriptionByLocale": {
+        "it": "Concorso generale 2025 Assistenti Sociali. Pro Senectute Ticino e Moesano pubblica concorsi annuali aperti anche in assenza di un effettivo fabbisogno di personale: le candidature ricevute vengono valutate ed eventualmente richiamate nel corso dell’anno. Bando completo (PDF): https://ti.prosenectute.ch/dam/jcr:10d8a9dc-b56e-4720-8fac-80477410a90e/Concorso%20generale%202025_Assistenti%20Sociali.pdf Pro Senectute Ticino e Moesano — Sede di Lugano, attiva su tutto il Cantone Ticino e nella regione Moesano (GR).",
+        "en": "General competition 2025 Social Workers Pro Senectute Ticino and Moesano publish annual competitions open even in the absence of an actual need for personnel: the applications received are evaluated and possibly recalled during the year. Full call Link to PDF Pro Senectute Ticino and Moesano - Headquarters in Lugano - Active throughout the Canton of Ticino and in the Moesano region (GR)",
+        "de": "Allgemeiner Wettbewerb 2025 Sozialarbeiter Pro Senectute Tessin und Moesano veröffentlicht jährliche Wettbewerbe, die auch ohne tatsächlichen Personalbedarf eröffnet werden: Die eingegangenen Bewerbungen werden im Laufe des Jahres bewertet und gegebenenfalls abgerufen. Vollständige Ausschreibung Link zum PDF Pro Senectute Ticino e Moesano - Sitz Lugano - Aktiv im gesamten Kanton Tessin und in der Region Moesano (GR)",
+        "fr": "Concours général 2025 Assistants sociaux Pro Senectute Tessin et Moesano publie des concours annuels ouverts même en l'absence de besoins effectifs en personnel : les candidatures reçues sont évaluées et éventuellement rappelées au cours de l'année. Avis complet Lien vers le PDF Pro Senectute Ticino et Moesano - Siège de Lugano - Active dans tout le canton du Tessin et dans la région de Moesano (GR)"
+      },
+      "needsRetranslation": true,
+      "location": "Lugano",
+      "canton": "TI",
+      "url": "https://ti.prosenectute.ch/dam/jcr:10d8a9dc-b56e-4720-8fac-80477410a90e/Concorso%20generale%202025_Assistenti%20Sociali.pdf",
+      "source": "Pro Senectute Ticino Dedicated Parser (AEM HTML)",
+      "sourceLang": "it",
+      "crawledAt": "2026-05-22T23:14:05.459Z",
+      "addressLocality": "Lugano",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "6900",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "junior",
+      "sector": "Sanità / Assistenza / Sociale",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-19",
+      "applyUrl": "https://ti.prosenectute.ch/dam/jcr:10d8a9dc-b56e-4720-8fac-80477410a90e/Concorso%20generale%202025_Assistenti%20Sociali.pdf",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugsByLocale": {
+        "it": [
+          "concorso-generale-2025-assistenti-sociali-prosenectute-ti"
+        ]
+      },
+      "previousSlugs": [
+        "concorso-generale-2025-assistenti-sociali-prosenectute-ti"
+      ],
+      "firstSeenAt": "2026-05-19T16:48:11.688Z",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      }
+    },
     {
       "id": "prosenectute-ti-26870867c960",
       "slug": "concorso-generale-2026-infermieri-pro-senectute-ticino-e-moesano-lugano",
@@ -28,12 +99,13 @@
         "de": "Beschreibung des allgemeinen Wettbewerbs 2026 Krankenschwestern. Pro Senectute Ticino e Moesano veröffentlicht jährliche Wettbewerbe, die auch ohne tatsächlichen Personalbedarf eröffnet werden: Die eingegangenen Bewerbungen werden im Laufe des Jahres bewertet und gegebenenfalls abgerufen. Vollständige Ausschreibung (PDF): https://ti.prosenectute.ch/dam/jcr:78c23a82-c1e9-4123-8646-ad1601cf62be/Concorso%20generale%202026_Infermieri.pdf Pro Senectute Ticino e Moesano — Sede di Lugano, im gesamten Kanton Tessin und in der Region Moesano (GR) tätig.",
         "fr": "Description Concours général 2026 Infirmiers. Pro Senectute Ticino et Moesano publient des concours annuels ouverts même en l'absence de besoins effectifs en personnel : les candidatures reçues sont évaluées et éventuellement rappelées au cours de l'année. Avis complet (PDF) : https://ti.prosenectute.ch/dam/jcr : 78c23a82-c1e9-4123-8646-ad1601cf62be/Concours% 20generale%202026_Infermieri.pdfPro Senectute Ticino e Moesano — Siège de Lugano, actif dans tout le canton du Tessin et dans la région de Moesano (GR)."
       },
+      "needsRetranslation": true,
       "location": "Lugano",
       "canton": "TI",
       "url": "https://ti.prosenectute.ch/dam/jcr:78c23a82-c1e9-4123-8646-ad1601cf62be/Concorso%20generale%202026_Infermieri.pdf",
       "source": "Pro Senectute Ticino Dedicated Parser (AEM HTML)",
       "sourceLang": "it",
-      "crawledAt": "2026-05-22T12:43:00.586Z",
+      "crawledAt": "2026-05-22T23:14:05.459Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -98,12 +170,13 @@
         "de": "Allgemeiner Wettbewerb 2026 Sozialhilfeoption Pro Senectute Tessin und Moesano veröffentlicht jährliche Wettbewerbe, die auch ohne tatsächlichen Personalbedarf eröffnet werden: Die eingegangenen Bewerbungen werden im Laufe des Jahres bewertet und gegebenenfalls abgerufen. Vollständige Ausschreibung Vollständige Ausschreibung (PDF) Pro Senectute Ticino und Moesano — Sitz Lugano, im gesamten Kanton Tessin und in der Region Moesano (GR) tätig.",
         "fr": "Concours général 2026 Op. socio-assistance Pro Senectute Tessin et Moesano publie des concours annuels ouverts même en l'absence de besoins effectifs en personnel : les candidatures reçues sont évaluées et éventuellement rappelées au cours de l'année. Avis complet Avis complet (PDF) Pro Senectute Ticino e Moesano — Siège de Lugano, actif dans tout le canton du Tessin et dans la région de Moesano (GR)."
       },
+      "needsRetranslation": true,
       "location": "Lugano",
       "canton": "TI",
       "url": "https://ti.prosenectute.ch/dam/jcr:cfa32a7b-6cf6-4e4d-a149-f05c25e772cf/Concorso%20generale%202026_Op.%20socio-assistenziali.pdf",
       "source": "Pro Senectute Ticino Dedicated Parser (AEM HTML)",
       "sourceLang": "it",
-      "crawledAt": "2026-05-22T12:43:00.586Z",
+      "crawledAt": "2026-05-22T23:14:05.459Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -127,76 +200,6 @@
       },
       "previousSlugs": [
         "concorso-generale-2026-op-socio-assistenziali-prosenectute-ti"
-      ],
-      "firstSeenAt": "2026-05-19T16:48:11.688Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "prosenectute-ti-f22cb6ddd434",
-      "slug": "concorso-generale-2025-assistenti-sociali-pro-senectute-ticino-e-moesano-lugano",
-      "slugByLocale": {
-        "it": "concorso-generale-2025-assistenti-sociali-pro-senectute-ticino-e-moesano-lugano",
-        "en": "general-contest-2025-social-workers-pro-senectute-ticino-e-moesano-lugano",
-        "de": "allgemeine-ausschreibung-2025-sozialarbeiter-pro-senectute-ticino-e-moesano-lugano",
-        "fr": "concours-general-2025-assistants-sociaux-pro-senectute-ticino-e-moesano-lugano"
-      },
-      "company": "Pro Senectute Ticino e Moesano",
-      "companyKey": "prosenectute-ti",
-      "companyDomain": "ti.prosenectute.ch",
-      "title": "Concorso generale 2025 Assistenti Sociali",
-      "titleByLocale": {
-        "it": "Concorso generale 2025 Assistenti Sociali",
-        "en": "General Contest 2025 Social Workers",
-        "de": "Allgemeine Ausschreibung 2025 Sozialarbeiter",
-        "fr": "Concours général 2025 Assistants sociaux"
-      },
-      "description": "Concorso generale 2025 Assistenti Sociali.\n\nPro Senectute Ticino e Moesano pubblica concorsi annuali aperti anche in assenza di un effettivo fabbisogno di personale: le candidature ricevute vengono valutate ed eventualmente richiamate nel corso dell’anno.\n\nBando completo (PDF): https://ti.prosenectute.ch/dam/jcr:10d8a9dc-b56e-4720-8fac-80477410a90e/Concorso%20generale%202025_Assistenti%20Sociali.pdf\n\nPro Senectute Ticino e Moesano — Sede di Lugano, attiva su tutto il Cantone Ticino e nella regione Moesano (GR).",
-      "descriptionByLocale": {
-        "it": "Concorso generale 2025 Assistenti Sociali. Pro Senectute Ticino e Moesano pubblica concorsi annuali aperti anche in assenza di un effettivo fabbisogno di personale: le candidature ricevute vengono valutate ed eventualmente richiamate nel corso dell’anno. Bando completo (PDF): https://ti.prosenectute.ch/dam/jcr:10d8a9dc-b56e-4720-8fac-80477410a90e/Concorso%20generale%202025_Assistenti%20Sociali.pdf Pro Senectute Ticino e Moesano — Sede di Lugano, attiva su tutto il Cantone Ticino e nella regione Moesano (GR).",
-        "en": "General competition 2025 Social Workers Pro Senectute Ticino and Moesano publish annual competitions open even in the absence of an actual need for personnel: the applications received are evaluated and possibly recalled during the year. Full call Link to PDF Pro Senectute Ticino and Moesano - Headquarters in Lugano - Active throughout the Canton of Ticino and in the Moesano region (GR)",
-        "de": "Allgemeiner Wettbewerb 2025 Sozialarbeiter Pro Senectute Tessin und Moesano veröffentlicht jährliche Wettbewerbe, die auch ohne tatsächlichen Personalbedarf eröffnet werden: Die eingegangenen Bewerbungen werden im Laufe des Jahres bewertet und gegebenenfalls abgerufen. Vollständige Ausschreibung Link zum PDF Pro Senectute Ticino e Moesano - Sitz Lugano - Aktiv im gesamten Kanton Tessin und in der Region Moesano (GR)",
-        "fr": "Concours général 2025 Assistants sociaux Pro Senectute Tessin et Moesano publie des concours annuels ouverts même en l'absence de besoins effectifs en personnel : les candidatures reçues sont évaluées et éventuellement rappelées au cours de l'année. Avis complet Lien vers le PDF Pro Senectute Ticino et Moesano - Siège de Lugano - Active dans tout le canton du Tessin et dans la région de Moesano (GR)"
-      },
-      "location": "Lugano",
-      "canton": "TI",
-      "url": "https://ti.prosenectute.ch/dam/jcr:10d8a9dc-b56e-4720-8fac-80477410a90e/Concorso%20generale%202025_Assistenti%20Sociali.pdf",
-      "source": "Pro Senectute Ticino Dedicated Parser (AEM HTML)",
-      "sourceLang": "it",
-      "crawledAt": "2026-05-22T12:43:00.585Z",
-      "addressLocality": "Lugano",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "6900",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "junior",
-      "sector": "Sanità / Assistenza / Sociale",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-19",
-      "applyUrl": "https://ti.prosenectute.ch/dam/jcr:10d8a9dc-b56e-4720-8fac-80477410a90e/Concorso%20generale%202025_Assistenti%20Sociali.pdf",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugsByLocale": {
-        "it": [
-          "concorso-generale-2025-assistenti-sociali-prosenectute-ti"
-        ]
-      },
-      "previousSlugs": [
-        "concorso-generale-2025-assistenti-sociali-prosenectute-ti"
       ],
       "firstSeenAt": "2026-05-19T16:48:11.688Z",
       "salaryMin": 49500,
@@ -238,12 +241,13 @@
         "de": "Beschreibung des allgemeinen Auswahlverfahrens 2026 für Erzieher. Pro Senectute Ticino e Moesano veröffentlicht jährliche Wettbewerbe, die auch ohne tatsächlichen Personalbedarf eröffnet werden: Die eingegangenen Bewerbungen werden im Laufe des Jahres bewertet und gegebenenfalls abgerufen. Vollständige Ausschreibung (PDF): https://ti.prosenectute.ch/dam/jcr:a2bbf7fb-c3b9-447e-bae6-e7a915b23c1f/Wettbewerb%20general%202026%20educatori.pdf Pro Senectute Ticino e Moesano — Sitz Lugano, im gesamten Kanton Tessin und in der Region Moesano (GR) tätig.",
         "fr": "Description Concours général 2026 éducateurs. Pro Senectute Ticino et Moesano publient des concours annuels ouverts même en l'absence de besoins effectifs en personnel : les candidatures reçues sont évaluées et éventuellement rappelées au cours de l'année. Avis complet (PDF) : https://ti.prosenectute.ch/dam/jcr : a2bbf7fb-c3b9-447e-bae6-e7a915b23c1f/Concours% 20général%202026%20educatori.pdf Pro Senectute Tessin et Moesano — Siège de Lugano, actif dans tout le canton du Tessin et dans la région de Moesano (GR)."
       },
+      "needsRetranslation": true,
       "location": "Lugano",
       "canton": "TI",
       "url": "https://ti.prosenectute.ch/dam/jcr:a2bbf7fb-c3b9-447e-bae6-e7a915b23c1f/Concorso%20generale%202026%20educatori.pdf",
       "source": "Pro Senectute Ticino Dedicated Parser (AEM HTML)",
       "sourceLang": "it",
-      "crawledAt": "2026-05-22T12:43:00.584Z",
+      "crawledAt": "2026-05-22T23:14:05.457Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
