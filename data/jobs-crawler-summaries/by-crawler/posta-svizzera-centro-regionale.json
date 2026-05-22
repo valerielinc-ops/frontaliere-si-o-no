@@ -1,18 +1,53 @@
 {
   "key": "posta-svizzera-centro-regionale",
   "label": "Post.ch",
-  "generatedAt": "2026-05-21T23:27:17.225Z",
+  "generatedAt": "2026-05-22T12:41:23.195Z",
   "total": 4,
-  "newCount": 0,
-  "updatedCount": 4,
-  "removedCount": 0,
+  "newCount": 1,
+  "updatedCount": 3,
+  "removedCount": 1,
   "unchangedCount": 0,
-  "durationMs": 15982,
-  "avgDurationMs": 15982,
+  "durationMs": 21010,
+  "avgDurationMs": 21010,
   "durationHistory": [
-    15982
+    21010
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "url": "https://job.post.ch/default/job/Senior-Product-Managerin-Digital-Collaboration/73651-de_DE",
+      "applyUrl": "https://job.post.ch/default/job/Senior-Product-Managerin-Digital-Collaboration/73651-de_DE",
+      "title": "Senior Product Manager:in Digital Collaboration",
+      "company": "Die Schweizerische Post",
+      "companyKey": "posta-svizzera-centro-regionale",
+      "location": "Bellinzona",
+      "canton": "TI",
+      "country": "CH",
+      "slug": "senior-product-manager-in-digital-collaboration-post",
+      "sourceLang": "de",
+      "department": "",
+      "category": "servizi-postali",
+      "datePosted": "2026-05-22",
+      "validThrough": "2026-06-12",
+      "source": "postch-careers-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "",
+      "sector": "Servizi Postali",
+      "workload": "70-100%",
+      "_targetScope": {
+        "canton": "TI",
+        "location": "Bellinzona"
+      },
+      "crawledAt": "",
+      "needsRetranslation": true,
+      "_qualityScore": 64,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 6,
+        "completeness": 9
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "url": "https://job.post.ch/default/job/Teamleiterin-Fahrausweiskontrolle-und-Kundenberatung-Chur/73411-de_DE",
@@ -147,7 +182,9 @@
         "translation": 25,
         "completeness": 20
       }
-    },
+    }
+  ],
+  "removedJobs": [
     {
       "url": "https://job.post.ch/default/job/Zustellerin-Pakete/73486-de_DE",
       "applyUrl": "https://job.post.ch/default/job/Zustellerin-Pakete/73486-de_DE",
@@ -193,6 +230,5 @@
       }
     }
   ],
-  "removedJobs": [],
   "unchangedJobs": []
 }
