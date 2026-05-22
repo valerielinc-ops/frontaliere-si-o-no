@@ -44,6 +44,21 @@
  * Pure: identical (locale, bridgeKind) inputs produce identical HTML.
  */
 
+// Local feature flag: skip the prose entirely on bridge pages (slug rename
+// / legacy alias redirects). Default ON because bridges are pure redirect
+// vehicles — Google de-duplicates via canonical, and these pages add bulk
+// to the dist without SEO value. When stripped each bridge HTML carries
+// the marker below; scripts/audit-text-html-ratio.mjs already skips pages
+// matching this marker (mirrors STRIP_EXPIRED_JOB_PROSE in jobsSeoPagesPlugin).
+// Opt out with STRIP_BRIDGE_PAGE_PROSE=0 (re-enables the original prose
+// that was added to keep bridges above the 10 % text-html-ratio gate).
+//
+// Read lazily inside renderBridgePageProse() so unit tests can override via
+// vi.stubEnv() — module-load reads cannot be overridden by tests.
+const isStripBridgeProse = (): boolean =>
+  (process.env.STRIP_BRIDGE_PAGE_PROSE ?? '1') !== '0';
+const EJP_STRIPPED_MARKER = '<!--ejp-stripped-->';
+
 export type BridgeProseLocale = 'it' | 'en' | 'de' | 'fr';
 
 /**
@@ -284,6 +299,10 @@ const PROSE_CACHE = new Map<string, string>();
  * embedding it within its own `<main>`.
  */
 export function renderBridgePageProse(opts: BridgePageProseOpts): string {
+  // Default-on strip: bridges become near-empty (just the marker), and the
+  // text-html-ratio audit ignores them via the EJP_STRIPPED_MARKER match.
+  if (isStripBridgeProse()) return EJP_STRIPPED_MARKER;
+
   const { locale, bridgeKind } = opts;
   const cacheKey = `${locale}::${bridgeKind}`;
   const cached = PROSE_CACHE.get(cacheKey);

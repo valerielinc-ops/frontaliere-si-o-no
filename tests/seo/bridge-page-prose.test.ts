@@ -34,13 +34,25 @@
  * gate on the bridge pages.
  */
 
-import { describe, it, expect, beforeEach } from 'vitest';
+import { afterAll, beforeAll, describe, it, expect, beforeEach, vi } from 'vitest';
 import {
   renderBridgePageProse,
   __resetBridgeProseCache,
   type BridgePageKind,
   type BridgePageLocale,
 } from '../../build-plugins/shared/bridgePageProse';
+
+// The default behaviour of renderBridgePageProse is now to return only the
+// `<!--ejp-stripped-->` marker (STRIP_BRIDGE_PAGE_PROSE=1, default ON, dist
+// shrinkage). The original prose-content assertions below validate the
+// opt-out path, so each block opts out via vi.stubEnv before running and
+// restores afterwards.
+beforeAll(() => {
+  vi.stubEnv('STRIP_BRIDGE_PAGE_PROSE', '0');
+});
+afterAll(() => {
+  vi.unstubAllEnvs();
+});
 
 const LOCALES: BridgePageLocale[] = ['it', 'en', 'de', 'fr'];
 const KINDS: BridgePageKind[] = [
@@ -170,5 +182,31 @@ describe('bridgePageProse helper', () => {
         expect(a).toBe(b);
       }
     }
+  });
+});
+
+describe('bridgePageProse — STRIP_BRIDGE_PAGE_PROSE default-on behaviour', () => {
+  beforeEach(() => {
+    vi.unstubAllEnvs();
+    vi.stubEnv('STRIP_BRIDGE_PAGE_PROSE', '1');
+    __resetBridgeProseCache();
+  });
+
+  it('returns only the audit-skip marker when flag is on (default)', () => {
+    for (const locale of LOCALES) {
+      for (const kind of KINDS) {
+        const html = renderBridgePageProse({ locale, bridgeKind: kind });
+        expect(html).toBe('<!--ejp-stripped-->');
+      }
+    }
+  });
+
+  it('absent env var also strips (default ON)', () => {
+    vi.unstubAllEnvs();
+    expect(process.env.STRIP_BRIDGE_PAGE_PROSE).toBeUndefined();
+    const html = renderBridgePageProse({ locale: 'it', bridgeKind: 'generic' });
+    expect(html).toBe('<!--ejp-stripped-->');
+    // Restore the outer beforeAll state so subsequent tests still see flag=0.
+    vi.stubEnv('STRIP_BRIDGE_PAGE_PROSE', '0');
   });
 });

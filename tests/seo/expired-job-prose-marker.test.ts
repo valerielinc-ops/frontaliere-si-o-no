@@ -2,12 +2,15 @@
  * expired-job-prose-marker.test.ts
  *
  * Verifies that the text-html-ratio auditor skips pages carrying the
- * `<!--ejp-stripped-->` marker emitted by jobsSeoPagesPlugin when either
- * STRIP_EXPIRED_JOB_PROSE (default ON, soft-landing pages) or
- * STRIP_ACTIVE_JOB_PROSE (default OFF, opt-in for active job-detail) is set.
- * Those pages have their SEO prose deliberately removed to keep dist under
- * the 10 GB GitHub Pages limit; their low text/HTML ratio is by design, so
- * they must not be counted as offenders.
+ * `<!--ejp-stripped-->` marker emitted when prose is intentionally
+ * stripped via one of:
+ *   - STRIP_EXPIRED_JOB_PROSE (default ON, soft-landing job pages)
+ *   - STRIP_ACTIVE_JOB_PROSE  (default OFF, opt-in for active job-detail)
+ *   - STRIP_BRIDGE_PAGE_PROSE (default ON, slug-rename / legacy alias bridges)
+ *
+ * In all three cases the page's low text/HTML ratio is by design (dist
+ * shrinkage toward the 10 GB GitHub Pages cap), so it must not count as
+ * an offender against the Semrush gate.
  */
 
 import { describe, expect, it } from 'vitest';
