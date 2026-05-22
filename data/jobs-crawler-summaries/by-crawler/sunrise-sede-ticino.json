@@ -1,18 +1,81 @@
 {
   "key": "sunrise-sede-ticino",
   "label": "Sunrise Communications AG",
-  "generatedAt": "2026-05-21T23:58:54.990Z",
-  "total": 1,
-  "newCount": 0,
+  "generatedAt": "2026-05-22T13:13:47.310Z",
+  "total": 3,
+  "newCount": 2,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 2363,
-  "avgDurationMs": 2363,
+  "durationMs": 3656,
+  "avgDurationMs": 3656,
   "durationHistory": [
-    2363
+    3656
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "title": "Sales Agent Bellinzona 60-100%",
+      "slug": "sales-agent-bellinzona-60-100-sunrise-bellinzona",
+      "url": "https://careers.sunrise.ch/it/it/job/REQ_30036616/sales-agent-bellinzona-60-100",
+      "applyUrl": "https://sunrise.wd3.myworkdayjobs.com/Sunrise/job/Bellinzona-CH/Sales-Agent-Bellinzona-60-100-_REQ_30036616-1/apply",
+      "company": "Sunrise Communications AG",
+      "companyKey": "sunrise-sede-ticino",
+      "companyDomain": "sunrise.ch",
+      "location": "Bellinzona",
+      "addressLocality": "Bellinzona",
+      "addressRegion": "",
+      "addressCountry": "CH",
+      "postalCode": "6500",
+      "canton": "",
+      "country": "CH",
+      "category": "sales",
+      "sector": "Tecnologia & IT",
+      "source": "sunrise-dedicated-crawler",
+      "sourceLang": "it",
+      "postedDate": "2026-05-22",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "",
+      "_qualityScore": 74,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 10,
+        "completeness": 17
+      }
+    },
+    {
+      "title": "Sales Agent Sant'Antonino 60-100%",
+      "slug": "sales-agent-sant-antonino-60-100-sunrise-ticino",
+      "url": "https://careers.sunrise.ch/it/it/job/REQ_30036617/sales-agent-sant-antonino-60-100",
+      "applyUrl": "https://sunrise.wd3.myworkdayjobs.com/Sunrise/job/Ticino/Sales-Agent-Sant-Antonino-60-100-_REQ_30036617-1/apply",
+      "company": "Sunrise Communications AG",
+      "companyKey": "sunrise-sede-ticino",
+      "companyDomain": "sunrise.ch",
+      "location": "Ticino",
+      "addressLocality": "Ticino",
+      "addressRegion": "",
+      "addressCountry": "CH",
+      "postalCode": "6982",
+      "canton": "",
+      "country": "CH",
+      "category": "sales",
+      "sector": "Tecnologia & IT",
+      "source": "sunrise-dedicated-crawler",
+      "sourceLang": "it",
+      "postedDate": "2026-05-22",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "",
+      "_qualityScore": 74,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 10,
+        "completeness": 17
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "title": "Sales Agent Lugano 60-100%",
