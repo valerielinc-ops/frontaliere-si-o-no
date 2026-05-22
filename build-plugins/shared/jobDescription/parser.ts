@@ -150,9 +150,14 @@ function preprocess(raw: string): string {
   // BOTH sides. AMEOS / Hôpital Fribourgeois descriptions sometimes flatten
   // to literal `text________________…________________text` (64+ chars, no
   // surrounding whitespace) — those slip through and trip
-  // audit-no-literal-markdown. Any run of 6+ `_`/`=`/`~` is unambiguously a
-  // visual divider (no real identifier has that long a run), strip wholesale.
-  s = s.replace(/[_=~]{6,}/g, '\n\n');
+  // audit-no-literal-markdown. Threshold lowered from 6+ to 3+ (matches
+  // `SEPARATOR_RUN_RE` in scripts/audit-no-literal-markdown.mjs and mirrors
+  // the same fix PR #500 applied to `inlineTextToHtml`): with the fallback
+  // splitter wired on 100% of jobs (PR #498), 3-5 char runs (`===`, `~~~~`)
+  // mid-paragraph leaked into 156 job pages in validate-dist run
+  // 26312619412. A real text identifier never carries 3+ `_=~` in a row, so
+  // collapsing to `\n\n` (paragraph break) is always safe.
+  s = s.replace(/[_=~]{3,}/g, '\n\n');
 
   s = s.replace(/;\s*([A-ZÀ-ÖØ-Þ][^.;!?\n]{1,80}[:：])/g, '\n$1');
   s = s.replace(/([a-zà-öø-þ.0-9%])\s*;\s*([A-ZÀ-ÖØ-Þ][a-zà-öø-þ])/g, '$1\n- $2');

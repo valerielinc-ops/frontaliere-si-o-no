@@ -1088,12 +1088,24 @@ export function renderClusterPage(inputs: PageInputs): PageOutput {
   // are the only parts that meaningfully differentiate one cluster page
   // from another. EJP_STRIPPED_MARKER lets audit:text-html-ratio skip
   // these pages (its ratio is by-design low when we drop the prose).
+  //
+  // `paddingHtml`: a ~60-word inline-link paragraph emitted alongside
+  // the strip so the rendered body always crosses the 50-word floor that
+  // `validate:content-quality` enforces on every sitemap URL (block
+  // observed in validate-dist run 26312619412 for `ricerca-sowie-bern`
+  // at 49 words — a single sparse-AI-intro cluster slipped under). The
+  // padding also rebuilds three crawl-graph edges the dropped
+  // commuter-context block was carrying (calculator + cassemalati + valuta
+  // comparators), so BFS-depth stays flat. Per-page cost: ~250 B raw,
+  // ~80 B gzip — keeps the savings at ~143 MB gzip (was 150 MB).
+  const paddingHtml = `<p class="s-clIDbe">Per confrontare lo stipendio CHF lordo dell'annuncio con il netto reale (vecchio vs nuovo accordo Italia-Svizzera 2024, zona di frontiera, telelavoro fino al 25 %), apri il <a class="s-U9K6Vf" href="/">calcolatore stipendio netto frontaliere</a>. Strumenti correlati: <a class="s-U9K6Vf" href="/comparatori/casse-malati/">comparatore casse malati LAMal</a>, <a class="s-U9K6Vf" href="/comparatori/cambio-valuta/">comparatore cambio CHF/EUR</a>.</p>`;
   const seoContextBlock = STRIP_CLUSTER_SEO_PROSE
     ? `${EJP_STRIPPED_MARKER}<details class="cluster-seo-context s-mxdIN0">
     <summary class="s-1yn7b_">${esc(chrome.contextSummary)}</summary>
     <div class="s-yZU6bn">
       <section class="s-p_RJwm">
         ${aiIntroHtml}
+        ${paddingHtml}
       </section>
       ${relatedHtml}
     </div>
