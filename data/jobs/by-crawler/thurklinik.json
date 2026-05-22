@@ -1,6 +1,6 @@
 {
   "crawlerKey": "thurklinik",
-  "assembledAt": "2026-05-22T00:05:31.756Z",
+  "assembledAt": "2026-05-22T13:20:15.615Z",
   "jobs": [
     {
       "id": "thurklinik-01dd561b4a47",
@@ -34,7 +34,7 @@
       "url": "https://test.thurklinik.ch/wp-content/uploads/2025/01/Stellenbeschreibung-SChmerz.pdf",
       "source": "Thurklinik Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-22T00:05:29.657Z",
+      "crawledAt": "2026-05-22T13:20:13.389Z",
       "addressLocality": "Niederuzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -105,7 +105,7 @@
       "url": "https://thurklinik.ch/wp-content/uploads/2026/03/Lagerungspflege-Springer-m_w_d-20-80_Thurklinik.pdf",
       "source": "Thurklinik Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-22T00:05:27.791Z",
+      "crawledAt": "2026-05-22T13:20:11.433Z",
       "addressLocality": "Niederuzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -122,6 +122,14 @@
       "applyUrl": "https://thurklinik.ch/stellen/",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "lagerungspflege-springer-20-80-thurklinik-niederuzwil"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "lagerungspflege-springer-20-80-thurklinik-niederuzwil"
+        ]
+      },
       "firstSeenAt": "2026-05-21T13:37:27.758Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -134,15 +142,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "lagerungspflege-springer-20-80-thurklinik-niederuzwil"
-        ]
-      },
-      "previousSlugs": [
-        "lagerungspflege-springer-20-80-thurklinik-niederuzwil"
-      ]
+      }
     },
     {
       "id": "thurklinik-9d78e4193085",
@@ -176,7 +176,7 @@
       "url": "https://thurklinik.ch/wp-content/uploads/2025/02/Stellenbeschreibung-Hausarzt_Praxis.pdf",
       "source": "Thurklinik Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-22T00:05:27.076Z",
+      "crawledAt": "2026-05-22T13:20:10.679Z",
       "addressLocality": "Niederuzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -193,6 +193,14 @@
       "applyUrl": "https://thurklinik.ch/stellen/",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "hausarzte-gesucht-arbeiten-sie-ohne-finanzielles-risiko-in-der-thurklinik-thurklinik"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "hausarzte-gesucht-arbeiten-sie-ohne-finanzielles-risiko-in-der-thurklinik-thurklinik"
+        ]
+      },
       "firstSeenAt": "2026-05-21T13:37:27.118Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -205,15 +213,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "hausarzte-gesucht-arbeiten-sie-ohne-finanzielles-risiko-in-der-thurklinik-thurklinik"
-        ]
-      },
-      "previousSlugs": [
-        "hausarzte-gesucht-arbeiten-sie-ohne-finanzielles-risiko-in-der-thurklinik-thurklinik"
-      ]
+      }
     },
     {
       "id": "thurklinik-445c1b2998f9",
@@ -247,7 +247,7 @@
       "url": "https://thurklinik.ch/wp-content/uploads/2025/01/Stellenbeschreibung-GYN.pdf",
       "source": "Thurklinik Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-22T00:05:26.367Z",
+      "crawledAt": "2026-05-22T13:20:09.929Z",
       "addressLocality": "Niederuzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -264,6 +264,14 @@
       "applyUrl": "https://thurklinik.ch/stellen/",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "facharzt-arztin-gynakologie-thurklinik-niederuzwil"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "facharzt-arztin-gynakologie-thurklinik-niederuzwil"
+        ]
+      },
       "firstSeenAt": "2026-05-21T13:37:26.487Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -276,15 +284,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "facharzt-arztin-gynakologie-thurklinik-niederuzwil"
-        ]
-      },
-      "previousSlugs": [
-        "facharzt-arztin-gynakologie-thurklinik-niederuzwil"
-      ]
+      }
     },
     {
       "id": "thurklinik-5725ce478f37",
@@ -318,7 +318,7 @@
       "url": "https://thurklinik.ch/wp-content/uploads/2026/03/Dipl.-Pflegefachperson-HF-20–80-_Thurklinik.pdf",
       "source": "Thurklinik Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-22T00:05:25.660Z",
+      "crawledAt": "2026-05-22T13:20:09.187Z",
       "addressLocality": "Niederuzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -335,6 +335,14 @@
       "applyUrl": "https://thurklinik.ch/stellen/",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "dipl-pflegefachperson-hf-20-80-thurklinik-niederuzwil"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-hf-20-80-thurklinik-niederuzwil"
+        ]
+      },
       "firstSeenAt": "2026-05-21T13:37:25.864Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -347,15 +355,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "dipl-pflegefachperson-hf-20-80-thurklinik-niederuzwil"
-        ]
-      },
-      "previousSlugs": [
-        "dipl-pflegefachperson-hf-20-80-thurklinik-niederuzwil"
-      ]
+      }
     },
     {
       "id": "thurklinik-e714e5bc9c4c",
@@ -389,7 +389,7 @@
       "url": "https://thurklinik.ch/wp-content/uploads/2025/12/Dipl.-Fachfrau-oder-Fachmann-Operatioinstechnik-HF-oder-TOA-mit-optionalen-Koordinationsaufgaben_Thurklinik.pdf",
       "source": "Thurklinik Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-22T00:05:24.933Z",
+      "crawledAt": "2026-05-22T13:20:08.439Z",
       "addressLocality": "Niederuzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -460,7 +460,7 @@
       "url": "https://thurklinik.ch/wp-content/uploads/2025/10/Dipl.-Fachfrau-oder-Fachmann-Operatioinstechnik-HF-oder-TOA_Thurklinik_UZWIL.pdf",
       "source": "Thurklinik Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-22T00:05:24.212Z",
+      "crawledAt": "2026-05-22T13:20:07.680Z",
       "addressLocality": "Niederuzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -531,7 +531,7 @@
       "url": "https://thurklinik.ch/wp-content/uploads/2025/11/Dipl.-Anaesthesiepflegerin-oder-Anaesthesiepfleger-60-–-80.pdf",
       "source": "Thurklinik Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-22T00:05:23.489Z",
+      "crawledAt": "2026-05-22T13:20:06.887Z",
       "addressLocality": "Niederuzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -602,7 +602,7 @@
       "url": "https://thurklinik.ch/wp-content/uploads/2025/07/Gynaekologie-Urologie-HNO-Orthopaedie-Viszeralchirurgie-und-Handchirurgie.-Anaesthesie-und-Schmerztherapie-.pdf",
       "source": "Thurklinik Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-22T00:05:22.747Z",
+      "crawledAt": "2026-05-22T13:20:05.916Z",
       "addressLocality": "Niederuzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
