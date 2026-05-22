@@ -198,12 +198,12 @@
     },
     {
       "id": "tertianum-07dffedac253",
-      "slug": "pflegehelfer-in-srk-im-tag-e-o-nachtdienst-tertianum-pfaffikon",
+      "slug": "assistente-di-cura-nel-servizio-diurno-e-o-notte-tertianum-pfaffikon",
       "slugByLocale": {
         "de": "pflegehelfer-in-srk-im-tag-und-oder-nachtdienst-tertianum-pfaffikon",
-        "it": "pflegehelfer-in-srk-im-tag-e-o-nachtdienst-tertianum-pfaffikon",
-        "en": "pflegehelfer-in-srk-im-tag-und-oder-nachtdienst-tertianum-pfaffikon",
-        "fr": "pflegehelfer-in-srk-im-tag-und-oder-nachtdienst-tertianum-pfaffikon"
+        "it": "assistente-di-cura-nel-servizio-diurno-e-o-notte-tertianum-pfaffikon",
+        "en": "care-assistant-in-the-day-and-or-night-service-tertianum-pfaffikon",
+        "fr": "assistant-dans-le-service-de-jour-et-ou-de-nuit-tertianum-pfaffikon"
       },
       "company": "Tertianum",
       "companyKey": "tertianum",
@@ -249,11 +249,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "pflegehelfer-in-srk-im-tag-und-oder-nachtdienst-tertianum-pfaffikon",
+          "pflegehelfer-in-srk-im-tag-e-o-nachtdienst-tertianum-pfaffikon"
+        ],
+        "en": [
+          "pflegehelfer-in-srk-im-tag-und-oder-nachtdienst-tertianum-pfaffikon"
+        ],
+        "fr": [
           "pflegehelfer-in-srk-im-tag-und-oder-nachtdienst-tertianum-pfaffikon"
         ]
       },
       "previousSlugs": [
-        "pflegehelfer-in-srk-im-tag-und-oder-nachtdienst-tertianum-pfaffikon"
+        "pflegehelfer-in-srk-im-tag-und-oder-nachtdienst-tertianum-pfaffikon",
+        "pflegehelfer-in-srk-im-tag-e-o-nachtdienst-tertianum-pfaffikon"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -5859,8 +5867,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "specialista-della-cura-tertianum-unterterzen",
-          "pflegefachfrau-mann-tertianum-unterterzen"
+          "specialista-della-cura-tertianum-unterterzen"
         ]
       },
       "firstSeenAt": "2026-05-19T23:48:30.250Z",

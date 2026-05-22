@@ -778,12 +778,12 @@
     },
     {
       "id": "paraplegie-5b5aa580fd31",
-      "slug": "phd-candidate-in-neuroscience-psychology-biology-biomedical-engineering-or-similar",
+      "slug": "dottorato-di-ricerca-in-neuroscienza-psicologia-biologia-ingegneria-biomedica-o-simile-schweizer-paraplegiker-gruppe",
       "slugByLocale": {
         "de": "phd-candidate-in-neuroscience-psychology-biology-biomedical-engineering-or-similar",
-        "it": "phd-candidate-in-neuroscience-psychology-biology-biomedical-engineering-or-similar",
+        "it": "dottorato-di-ricerca-in-neuroscienza-psicologia-biologia-ingegneria-biomedica-o-simile-schweizer-paraplegiker-gruppe",
         "en": "phd-candidate-in-neuroscience-psychology-biology-biomedical-engineering-or-similar",
-        "fr": "phd-candidate-in-neuroscience-psychology-biology-biomedical-engineering-or-similar"
+        "fr": "candidat-au-doctorat-en-neurosciences-psychologie-biologie-genie-biomedical-ou-similaire-schweizer-paraplegiker-gruppe"
       },
       "company": "Schweizer Paraplegiker-Gruppe",
       "companyKey": "paraplegie",
@@ -838,7 +838,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-22T12:37:34.226Z"
+      "firstSeenAt": "2026-05-22T12:37:34.226Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "phd-candidate-in-neuroscience-psychology-biology-biomedical-engineering-or-similar"
+        ],
+        "fr": [
+          "phd-candidate-in-neuroscience-psychology-biology-biomedical-engineering-or-similar"
+        ]
+      },
+      "previousSlugs": [
+        "phd-candidate-in-neuroscience-psychology-biology-biomedical-engineering-or-similar"
+      ]
     }
   ]
 }

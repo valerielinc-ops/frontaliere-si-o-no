@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "csl-behring-49adef22be8f",
-      "slug": "senior-direttore-global-clinical-program-lead-cardiovascular-renal-csl-behring-bern",
+      "slug": "direttore-senior-programma-clinico-globale-lead-cardiovascular-renal-csl-behring-bern",
       "slugByLocale": {
         "en": "senior-director-global-clinical-program-lead-cardiovascular-renal-csl-behring-ch",
-        "it": "senior-direttore-global-clinical-program-lead-cardiovascular-renal-csl-behring-bern",
+        "it": "direttore-senior-programma-clinico-globale-lead-cardiovascular-renal-csl-behring-bern",
         "de": "senior-director-global-clinical-program-lead-herz-kreislauf-niere-csl-behring-bern",
-        "fr": "senior-director-global-clinical-program-lead-cardiovasculaire-et-renal-csl-behring-bern"
+        "fr": "directeur-principal-programme-clinique-mondial-chef-de-file-cardiopathie-et-renale-csl-behring-bern"
       },
       "company": "CSL Behring",
       "companyKey": "csl-behring",
@@ -65,7 +65,19 @@
         }
       },
       "postalCode": "3001",
-      "firstSeenAt": "2026-05-22T11:25:50.772Z"
+      "firstSeenAt": "2026-05-22T11:25:50.772Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-direttore-global-clinical-program-lead-cardiovascular-renal-csl-behring-bern"
+        ],
+        "fr": [
+          "senior-director-global-clinical-program-lead-cardiovasculaire-et-renal-csl-behring-bern"
+        ]
+      },
+      "previousSlugs": [
+        "senior-direttore-global-clinical-program-lead-cardiovascular-renal-csl-behring-bern",
+        "senior-director-global-clinical-program-lead-cardiovasculaire-et-renal-csl-behring-bern"
+      ]
     },
     {
       "id": "csl-behring-5d3c8961fbef",
@@ -3339,11 +3351,11 @@
     },
     {
       "id": "csl-behring-35bec53255ea",
-      "slug": "director-pathogen-safety-csl-behring-ch",
+      "slug": "direttore-sicurezza-patogena-csl-behring-bern",
       "slugByLocale": {
         "en": "director-pathogen-safety-csl-behring-ch",
-        "it": "director-pathogen-safety-csl-behring-ch",
-        "de": "director-pathogen-safety-csl-behring-ch",
+        "it": "direttore-sicurezza-patogena-csl-behring-bern",
+        "de": "direktor-pathogensicherheit-csl-behring-bern",
         "fr": "director-pathogen-safety-csl-behring-ch"
       },
       "company": "CSL Behring",
@@ -3400,7 +3412,18 @@
         }
       },
       "postalCode": "3001",
-      "firstSeenAt": "2026-05-22T11:25:21.850Z"
+      "firstSeenAt": "2026-05-22T11:25:21.850Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "director-pathogen-safety-csl-behring-ch"
+        ],
+        "de": [
+          "director-pathogen-safety-csl-behring-ch"
+        ]
+      },
+      "previousSlugs": [
+        "director-pathogen-safety-csl-behring-ch"
+      ]
     },
     {
       "id": "csl-behring-0811333f4154",

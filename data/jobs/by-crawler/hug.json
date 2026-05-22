@@ -4970,12 +4970,12 @@
     },
     {
       "id": "hug-384122b99081",
-      "slug": "medecin-interne-en-pediatrie-100-hug-geneve",
+      "slug": "medico-interno-in-pediatria-100-hug-geneve",
       "slugByLocale": {
         "fr": "medecin-interne-en-pediatrie-100-hug-geneve",
-        "it": "medecin-interne-en-pediatrie-100-hug-geneve",
-        "en": "medecin-interne-en-pediatrie-100-hug-geneve",
-        "de": "medecin-interne-en-pediatrie-100-hug-geneve"
+        "it": "medico-interno-in-pediatria-100-hug-geneve",
+        "en": "internal-physician-in-paediatrics-100-hug-geneve",
+        "de": "interner-arzt-in-kinderarzten-100-hug-geneve"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -5031,16 +5031,30 @@
         }
       },
       "postalCode": "1201",
-      "firstSeenAt": "2026-05-22T11:56:05.846Z"
+      "firstSeenAt": "2026-05-22T11:56:05.846Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "medecin-interne-en-pediatrie-100-hug-geneve"
+        ],
+        "en": [
+          "medecin-interne-en-pediatrie-100-hug-geneve"
+        ],
+        "de": [
+          "medecin-interne-en-pediatrie-100-hug-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "medecin-interne-en-pediatrie-100-hug-geneve"
+      ]
     },
     {
       "id": "hug-fb4d78654570",
-      "slug": "producteur-ou-productrice-audio-visuelle-80-hug-geneve",
+      "slug": "produttore-o-produttore-audiovisivo-80-hug-geneve",
       "slugByLocale": {
         "fr": "producteur-ou-productrice-audio-visuelle-80-hug-geneve",
-        "it": "producteur-ou-productrice-audio-visuelle-80-hug-geneve",
-        "en": "producteur-ou-productrice-audio-visuelle-80-hug-geneve",
-        "de": "producteur-ou-productrice-audio-visuelle-80-hug-geneve"
+        "it": "produttore-o-produttore-audiovisivo-80-hug-geneve",
+        "en": "audio-visual-producer-or-producer-80-hug-geneve",
+        "de": "audiovisueller-produzent-oder-produzent-80-hug-geneve"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -5096,16 +5110,30 @@
         }
       },
       "postalCode": "1201",
-      "firstSeenAt": "2026-05-22T11:56:05.845Z"
+      "firstSeenAt": "2026-05-22T11:56:05.845Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "producteur-ou-productrice-audio-visuelle-80-hug-geneve"
+        ],
+        "en": [
+          "producteur-ou-productrice-audio-visuelle-80-hug-geneve"
+        ],
+        "de": [
+          "producteur-ou-productrice-audio-visuelle-80-hug-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "producteur-ou-productrice-audio-visuelle-80-hug-geneve"
+      ]
     },
     {
       "id": "hug-f98c45a7fa8c",
-      "slug": "ergotherapeute-en-psychiatrie-geriatrique-hospitaliere-80-hug-chene-bourg",
+      "slug": "ergoterapista-in-psichiatria-dell-ospedale-geriatrico-80-hug-chene-bourg",
       "slugByLocale": {
         "fr": "ergotherapeute-en-psychiatrie-geriatrique-hospitaliere-80-hug-chene-bourg",
-        "it": "ergotherapeute-en-psychiatrie-geriatrique-hospitaliere-80-hug-chene-bourg",
-        "en": "ergotherapeute-en-psychiatrie-geriatrique-hospitaliere-80-hug-chene-bourg",
-        "de": "ergotherapeute-en-psychiatrie-geriatrique-hospitaliere-80-hug-chene-bourg"
+        "it": "ergoterapista-in-psichiatria-dell-ospedale-geriatrico-80-hug-chene-bourg",
+        "en": "ergotherapist-in-geriatric-hospital-psychiatry-80-hug-chene-bourg",
+        "de": "ergotherapist-in-geriatric-hospital-psychiatrie-80-hug-chene-bourg"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -5160,16 +5188,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-22T11:56:05.843Z"
+      "firstSeenAt": "2026-05-22T11:56:05.843Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "ergotherapeute-en-psychiatrie-geriatrique-hospitaliere-80-hug-chene-bourg"
+        ],
+        "en": [
+          "ergotherapeute-en-psychiatrie-geriatrique-hospitaliere-80-hug-chene-bourg"
+        ],
+        "de": [
+          "ergotherapeute-en-psychiatrie-geriatrique-hospitaliere-80-hug-chene-bourg"
+        ]
+      },
+      "previousSlugs": [
+        "ergotherapeute-en-psychiatrie-geriatrique-hospitaliere-80-hug-chene-bourg"
+      ]
     },
     {
       "id": "hug-d58fd28f4612",
-      "slug": "technicien-ou-technicienne-en-analyses-biomedicales-70-hug-geneve",
+      "slug": "tecnico-a-in-analisi-biomediche-70-hug-geneve",
       "slugByLocale": {
         "fr": "technicien-ou-technicienne-en-analyses-biomedicales-70-hug-geneve",
-        "it": "technicien-ou-technicienne-en-analyses-biomedicales-70-hug-geneve",
-        "en": "technicien-ou-technicienne-en-analyses-biomedicales-70-hug-geneve",
-        "de": "technicien-ou-technicienne-en-analyses-biomedicales-70-hug-geneve"
+        "it": "tecnico-a-in-analisi-biomediche-70-hug-geneve",
+        "en": "biomedical-analyst-70-hug-geneve",
+        "de": "biomedizinischer-analyst-in-70-hug-geneve"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -5225,7 +5267,21 @@
         }
       },
       "postalCode": "1201",
-      "firstSeenAt": "2026-05-22T11:56:05.832Z"
+      "firstSeenAt": "2026-05-22T11:56:05.832Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "technicien-ou-technicienne-en-analyses-biomedicales-70-hug-geneve"
+        ],
+        "en": [
+          "technicien-ou-technicienne-en-analyses-biomedicales-70-hug-geneve"
+        ],
+        "de": [
+          "technicien-ou-technicienne-en-analyses-biomedicales-70-hug-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "technicien-ou-technicienne-en-analyses-biomedicales-70-hug-geneve"
+      ]
     }
   ]
 }

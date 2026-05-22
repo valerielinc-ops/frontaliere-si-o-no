@@ -13497,8 +13497,7 @@
       "previousSlugsByLocale": {
         "it": [
           "m-odszy-specjalista-m-odsza-specjalistka-ds-logistyki-magazynowej-roche-ch",
-          "specialista-junior-specialista-di-logistica-di-magazzino-junior-roche-warsaw",
-          "m-odszy-specjalista-m-odsza-specjalistka-ds-logistyki-magazynowej-roche-warsaw"
+          "specialista-junior-specialista-di-logistica-di-magazzino-junior-roche-warsaw"
         ]
       },
       "needsRetranslation": true,
@@ -15725,8 +15724,7 @@
       "previousSlugsByLocale": {
         "it": [
           "practicante-de-business-center-roche-ch",
-          "centro-praticante-de-business-roche-lima",
-          "practicante-de-business-center-roche-lima"
+          "centro-praticante-de-business-roche-lima"
         ]
       },
       "needsRetranslation": true,
@@ -19690,8 +19688,7 @@
       "previousSlugsByLocale": {
         "it": [
           "especialista-en-licitaciones-roche-ch",
-          "specialist-en-licitaciones-roche-mexico-city",
-          "especialista-en-licitaciones-roche-mexico-city"
+          "specialist-en-licitaciones-roche-mexico-city"
         ]
       },
       "needsRetranslation": true,
@@ -20328,8 +20325,7 @@
         ],
         "it": [
           "histotechnician-roche-ch",
-          "istotecnico-roche-tucson",
-          "histotechnician-roche-tucson"
+          "istotecnico-roche-tucson"
         ]
       },
       "previousSlugs": [
@@ -24884,12 +24880,12 @@
     },
     {
       "id": "roche-e75ac26a74f1",
-      "slug": "head-of-commercial-strategy-marketing-diagnostics-roche-ch",
+      "slug": "responsabile-della-strategia-commerciale-marketing-diagnostica-roche-basel",
       "slugByLocale": {
         "en": "head-of-commercial-strategy-marketing-diagnostics-roche-ch",
-        "it": "head-of-commercial-strategy-marketing-diagnostics-roche-ch",
-        "de": "head-of-commercial-strategy-marketing-diagnostics-roche-ch",
-        "fr": "head-of-commercial-strategy-marketing-diagnostics-roche-ch"
+        "it": "responsabile-della-strategia-commerciale-marketing-diagnostica-roche-basel",
+        "de": "leiter-handelsstrategie-marketing-diagnostik-roche-basel",
+        "fr": "responsable-de-la-strategie-commerciale-et-du-marketing-diagnostics-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -24943,7 +24939,21 @@
         }
       },
       "postalCode": "4001",
-      "firstSeenAt": "2026-05-22T12:52:06.547Z"
+      "firstSeenAt": "2026-05-22T12:52:06.547Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "head-of-commercial-strategy-marketing-diagnostics-roche-ch"
+        ],
+        "de": [
+          "head-of-commercial-strategy-marketing-diagnostics-roche-ch"
+        ],
+        "fr": [
+          "head-of-commercial-strategy-marketing-diagnostics-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "head-of-commercial-strategy-marketing-diagnostics-roche-ch"
+      ]
     },
     {
       "id": "roche-52eb22729eba",
@@ -25227,10 +25237,10 @@
     },
     {
       "id": "roche-00b0dd1835f3",
-      "slug": "praktikant-in-im-service-au-endienst-medizintechnik-im-raum-pforzheim-ludwigsburg",
+      "slug": "interno-in-servizio-medizintechnik-im-raum-pforzheim-ludwigsburg-stoccarda-offenburg-tuttlingen-ulm-m-w-d-roche-basel",
       "slugByLocale": {
         "de": "praktikant-in-im-service-au-endienst-medizintechnik-im-raum-pforzheim-ludwigsburg",
-        "it": "praktikant-in-im-service-au-endienst-medizintechnik-im-raum-pforzheim-ludwigsburg",
+        "it": "interno-in-servizio-medizintechnik-im-raum-pforzheim-ludwigsburg-stoccarda-offenburg-tuttlingen-ulm-m-w-d-roche-basel",
         "en": "praktikant-in-im-service-au-endienst-medizintechnik-im-raum-pforzheim-ludwigsburg",
         "fr": "praktikant-in-im-service-au-endienst-medizintechnik-im-raum-pforzheim-ludwigsburg"
       },
@@ -25286,16 +25296,24 @@
         }
       },
       "postalCode": "4001",
-      "firstSeenAt": "2026-05-22T12:52:02.260Z"
+      "firstSeenAt": "2026-05-22T12:52:02.260Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "praktikant-in-im-service-au-endienst-medizintechnik-im-raum-pforzheim-ludwigsburg"
+        ]
+      },
+      "previousSlugs": [
+        "praktikant-in-im-service-au-endienst-medizintechnik-im-raum-pforzheim-ludwigsburg"
+      ]
     },
     {
       "id": "roche-cef80a412f3a",
-      "slug": "medizintechnik-praktikum-im-installations-team-des-service-au-endiensts-deutschlandweit-m",
+      "slug": "percorso-di-tirocinio-in-medizintecnica-nel-team-di-installazione-del-servizio-esterno-germania-u-m-d-roche-basel",
       "slugByLocale": {
         "de": "medizintechnik-praktikum-im-installations-team-des-service-au-endiensts-deutschlandweit-m",
-        "it": "medizintechnik-praktikum-im-installations-team-des-service-au-endiensts-deutschlandweit-m",
-        "en": "medizintechnik-praktikum-im-installations-team-des-service-au-endiensts-deutschlandweit-m",
-        "fr": "medizintechnik-praktikum-im-installations-team-des-service-au-endiensts-deutschlandweit-m"
+        "it": "percorso-di-tirocinio-in-medizintecnica-nel-team-di-installazione-del-servizio-esterno-germania-u-m-d-roche-basel",
+        "en": "medical-device-internship-in-installation-team-roche-service-external-germany-wide-roche-basel",
+        "fr": "stage-en-medicale-et-technologie-de-l-information-equipe-d-installation-du-service-externe-allemagne-large-echelle-roche"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -25349,16 +25367,30 @@
         }
       },
       "postalCode": "4001",
-      "firstSeenAt": "2026-05-22T12:52:01.421Z"
+      "firstSeenAt": "2026-05-22T12:52:01.421Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "medizintechnik-praktikum-im-installations-team-des-service-au-endiensts-deutschlandweit-m"
+        ],
+        "en": [
+          "medizintechnik-praktikum-im-installations-team-des-service-au-endiensts-deutschlandweit-m"
+        ],
+        "fr": [
+          "medizintechnik-praktikum-im-installations-team-des-service-au-endiensts-deutschlandweit-m"
+        ]
+      },
+      "previousSlugs": [
+        "medizintechnik-praktikum-im-installations-team-des-service-au-endiensts-deutschlandweit-m"
+      ]
     },
     {
       "id": "roche-70178e1dcd68",
-      "slug": "itot-engineer-intern-roche-ch",
+      "slug": "itot-ingegnere-tirocinante-roche-central-singapore",
       "slugByLocale": {
         "en": "itot-engineer-intern-roche-ch",
-        "it": "itot-engineer-intern-roche-ch",
-        "de": "itot-engineer-intern-roche-ch",
-        "fr": "itot-engineer-intern-roche-ch"
+        "it": "itot-ingegnere-tirocinante-roche-central-singapore",
+        "de": "itot-ingenieur-praktikant-roche-central-singapore",
+        "fr": "itot-ingenieur-stagiaire-roche-central-singapore"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -25413,7 +25445,21 @@
         }
       },
       "firstSeenAt": "2026-05-22T12:52:00.577Z",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "itot-engineer-intern-roche-ch"
+        ],
+        "de": [
+          "itot-engineer-intern-roche-ch"
+        ],
+        "fr": [
+          "itot-engineer-intern-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "itot-engineer-intern-roche-ch"
+      ]
     },
     {
       "id": "roche-eecb482bd010",
@@ -26329,11 +26375,11 @@
     },
     {
       "id": "roche-a6b8f50ab507",
-      "slug": "commercial-business-partner-roche-ch",
+      "slug": "partner-commerciale-roche-basel",
       "slugByLocale": {
         "en": "commercial-business-partner-roche-ch",
-        "it": "commercial-business-partner-roche-ch",
-        "de": "commercial-business-partner-roche-ch",
+        "it": "partner-commerciale-roche-basel",
+        "de": "handelspartner-roche-basel",
         "fr": "commercial-business-partner-roche-ch"
       },
       "company": "Roche",
@@ -26388,7 +26434,18 @@
         }
       },
       "postalCode": "4001",
-      "firstSeenAt": "2026-05-22T12:51:48.378Z"
+      "firstSeenAt": "2026-05-22T12:51:48.378Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "commercial-business-partner-roche-ch"
+        ],
+        "de": [
+          "commercial-business-partner-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "commercial-business-partner-roche-ch"
+      ]
     },
     {
       "id": "roche-0945d6d34ab8",
@@ -26525,7 +26582,7 @@
         "en": "team-lead-office-workplace-experience-m-f-d-roche-ch",
         "it": "team-lead-office-workplace-experience-m-f-d-roche-ch",
         "de": "team-lead-office-workplace-experience-m-f-d-roche-ch",
-        "fr": "team-lead-office-workplace-experience-m-f-d-roche-ch"
+        "fr": "chef-d-equipe-office-workplace-experience-m-f-d-roche-vienna"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -26904,12 +26961,12 @@
     },
     {
       "id": "roche-5a9a074d622a",
-      "slug": "praktikum-per-studierende-im-bereich-manufacturing-support-in-der-manufacturing-unit-assembly-packaging-ab-september-2026-12-monate-roche-kaiseraugst",
+      "slug": "prakticante-per-support-manufacturing-nell-unita-di-assemblaggio-e-confezionamento-da-settembre-2026-12-mesi-roche",
       "slugByLocale": {
         "de": "praktikum-fur-studierende-im-bereich-manufacturing-support-in-der-manufacturing-unit",
-        "it": "praktikum-per-studierende-im-bereich-manufacturing-support-in-der-manufacturing-unit-assembly-packaging-ab-september-2026-12-monate-roche-kaiseraugst",
-        "en": "praktikum-fur-studierende-im-bereich-manufacturing-support-in-der-manufacturing-unit",
-        "fr": "praktikum-fur-studierende-im-bereich-manufacturing-support-in-der-manufacturing-unit"
+        "it": "prakticante-per-support-manufacturing-nell-unita-di-assemblaggio-e-confezionamento-da-settembre-2026-12-mesi-roche",
+        "en": "practical-internship-in-manufacturing-support-assembly-packaging-september-2026-12-months-roche-kaiseraugst",
+        "fr": "stage-en-soutien-manufacturing-assemblage-emballage-septembre-2026-12-mois-roche-kaiseraugst"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -26952,11 +27009,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "praktikum-fur-studierende-im-bereich-manufacturing-support-in-der-manufacturing-unit",
+          "praktikum-per-studierende-im-bereich-manufacturing-support-in-der-manufacturing-unit-assembly-packaging-ab-september-2026-12-monate-roche-kaiseraugst"
+        ],
+        "en": [
+          "praktikum-fur-studierende-im-bereich-manufacturing-support-in-der-manufacturing-unit"
+        ],
+        "fr": [
           "praktikum-fur-studierende-im-bereich-manufacturing-support-in-der-manufacturing-unit"
         ]
       },
       "previousSlugs": [
-        "praktikum-fur-studierende-im-bereich-manufacturing-support-in-der-manufacturing-unit"
+        "praktikum-fur-studierende-im-bereich-manufacturing-support-in-der-manufacturing-unit",
+        "praktikum-per-studierende-im-bereich-manufacturing-support-in-der-manufacturing-unit-assembly-packaging-ab-september-2026-12-monate-roche-kaiseraugst"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -27039,12 +27104,12 @@
     },
     {
       "id": "roche-1f72160cf945",
-      "slug": "product-specialist-rcsc-roche-ch",
+      "slug": "specialista-del-prodotto-rcsc-roche-basel",
       "slugByLocale": {
         "en": "product-specialist-rcsc-roche-ch",
-        "it": "product-specialist-rcsc-roche-ch",
-        "de": "product-specialist-rcsc-roche-ch",
-        "fr": "product-specialist-rcsc-roche-ch"
+        "it": "specialista-del-prodotto-rcsc-roche-basel",
+        "de": "produktspezialist-rcsc-roche-basel",
+        "fr": "specialiste-des-produits-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -27098,7 +27163,21 @@
         }
       },
       "postalCode": "4001",
-      "firstSeenAt": "2026-05-22T12:51:39.181Z"
+      "firstSeenAt": "2026-05-22T12:51:39.181Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "product-specialist-rcsc-roche-ch"
+        ],
+        "de": [
+          "product-specialist-rcsc-roche-ch"
+        ],
+        "fr": [
+          "product-specialist-rcsc-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "product-specialist-rcsc-roche-ch"
+      ]
     },
     {
       "id": "roche-ea6494461efe",

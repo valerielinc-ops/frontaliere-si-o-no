@@ -844,12 +844,12 @@
     },
     {
       "id": "pzm-muensingen-ce8c5ca597e0",
-      "slug": "dipl-pflegefachperson-im-tagdienst-psychiatriezentrum-munsingen-munsingen",
+      "slug": "dipl-day-care-professionale-psychiatriezentrum-munsingen-munsingen-8ccc73",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-im-tagdienst-psychiatriezentrum-munsingen-munsingen",
-        "it": "dipl-pflegefachperson-im-tagdienst-psychiatriezentrum-munsingen-munsingen",
-        "en": "dipl-pflegefachperson-im-tagdienst-psychiatriezentrum-munsingen-munsingen",
-        "fr": "dipl-pflegefachperson-im-tagdienst-psychiatriezentrum-munsingen-munsingen"
+        "it": "dipl-day-care-professionale-psychiatriezentrum-munsingen-munsingen-8ccc73",
+        "en": "dipl-day-care-professional-psychiatriezentrum-munsingen-munsingen",
+        "fr": "dipl-professionnel-de-garderie-psychiatriezentrum-munsingen-munsingen"
       },
       "company": "Psychiatriezentrum Münsingen",
       "companyKey": "pzm-muensingen",
@@ -894,14 +894,22 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-im-tagdienst-pzm-muensingen-munsingen"
+          "dipl-pflegefachperson-im-tagdienst-pzm-muensingen-munsingen",
+          "dipl-pflegefachperson-im-tagdienst-psychiatriezentrum-munsingen-munsingen"
         ],
         "de": [
           "dipl-pflegefachperson-im-tagdienst-pzm-muensingen-munsingen"
+        ],
+        "en": [
+          "dipl-pflegefachperson-im-tagdienst-psychiatriezentrum-munsingen-munsingen"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-im-tagdienst-psychiatriezentrum-munsingen-munsingen"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachperson-im-tagdienst-pzm-muensingen-munsingen"
+        "dipl-pflegefachperson-im-tagdienst-pzm-muensingen-munsingen",
+        "dipl-pflegefachperson-im-tagdienst-psychiatriezentrum-munsingen-munsingen"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -1010,12 +1018,12 @@
     },
     {
       "id": "pzm-muensingen-6955ec19e78f",
-      "slug": "dipl-day-care-professionale-psychiatriezentrum-munsingen-munsingen",
+      "slug": "diplomata-infermiera-professionale-nel-servizio-diurno-psychiatriezentrum-munsingen-munsingen",
       "slugByLocale": {
-        "it": "dipl-day-care-professionale-psychiatriezentrum-munsingen-munsingen",
-        "en": "dipl-pflegefachperson-im-tagdienst-psychiatriezentrum-munsingen-munsingen",
+        "it": "diplomata-infermiera-professionale-nel-servizio-diurno-psychiatriezentrum-munsingen-munsingen",
+        "en": "diploma-nursing-professional-in-day-service-psychiatriezentrum-munsingen-munsingen",
         "de": "dipl-pflegefachperson-im-tagdienst-psychiatriezentrum-munsingen-munsingen",
-        "fr": "dipl-pflegefachperson-im-tagdienst-psychiatriezentrum-munsingen-munsingen"
+        "fr": "diplomee-e-infirmiere-professionnelle-au-service-de-jour-psychiatriezentrum-munsingen-munsingen"
       },
       "company": "Psychiatriezentrum Münsingen",
       "companyKey": "pzm-muensingen",
@@ -1063,13 +1071,21 @@
         "it": [
           "dipl-pflegefachperson-im-tagdienst-pzm-muensingen-munsingen",
           "dipl-pflegefachperson-im-tagdienst-psychiatriezentrum-munsingen-munsingen",
-          "dipl-pflegefachperson-im-tagdienst-pzm-muensingen-munsingen-2"
+          "dipl-pflegefachperson-im-tagdienst-pzm-muensingen-munsingen-2",
+          "dipl-day-care-professionale-psychiatriezentrum-munsingen-munsingen"
+        ],
+        "en": [
+          "dipl-pflegefachperson-im-tagdienst-psychiatriezentrum-munsingen-munsingen"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-im-tagdienst-psychiatriezentrum-munsingen-munsingen"
         ]
       },
       "previousSlugs": [
         "dipl-pflegefachperson-im-tagdienst-pzm-muensingen-munsingen",
         "dipl-pflegefachperson-im-tagdienst-psychiatriezentrum-munsingen-munsingen",
-        "dipl-pflegefachperson-im-tagdienst-pzm-muensingen-munsingen-2"
+        "dipl-pflegefachperson-im-tagdienst-pzm-muensingen-munsingen-2",
+        "dipl-day-care-professionale-psychiatriezentrum-munsingen-munsingen"
       ],
       "firstSeenAt": "2026-05-21T23:30:34.012Z",
       "salaryMin": 49500,
@@ -1176,9 +1192,9 @@
     },
     {
       "id": "pzm-muensingen-564a85ec8571",
-      "slug": "medico-capo-medico-capo-di-clinica-psychiatriezentrum-munsingen-bienne",
+      "slug": "chief-medical-officer-chief-medical-officer-psychiatriezentrum-munsingen-bienne",
       "slugByLocale": {
-        "it": "medico-capo-medico-capo-di-clinica-psychiatriezentrum-munsingen-bienne",
+        "it": "chief-medical-officer-chief-medical-officer-psychiatriezentrum-munsingen-bienne",
         "en": "chief-psychiatrist-chief-of-clinic-psychiatriezentrum-munsingen-bienne",
         "de": "leitende-psychiatriearztin-leitender-kliniker-psychiatriezentrum-munsingen-bienne",
         "fr": "medecin-cheffe-medecin-chef-de-clinique-psychiatriezentrum-munsingen-bienne"
@@ -1240,11 +1256,13 @@
           "medecin-cheffe-medecin-chef-de-clinique-pzm-muensingen-bienne"
         ],
         "it": [
-          "medecin-cheffe-medecin-chef-de-clinique-pzm-muensingen-bienne"
+          "medecin-cheffe-medecin-chef-de-clinique-pzm-muensingen-bienne",
+          "medico-capo-medico-capo-di-clinica-psychiatriezentrum-munsingen-bienne"
         ]
       },
       "previousSlugs": [
-        "medecin-cheffe-medecin-chef-de-clinique-pzm-muensingen-bienne"
+        "medecin-cheffe-medecin-chef-de-clinique-pzm-muensingen-bienne",
+        "medico-capo-medico-capo-di-clinica-psychiatriezentrum-munsingen-bienne"
       ],
       "firstSeenAt": "2026-05-19T17:51:32.748Z",
       "salaryMin": 68000,
@@ -1262,9 +1280,9 @@
     },
     {
       "id": "pzm-muensingen-74dacc7e432e",
-      "slug": "dipl-infermiere-a-specializzato-a-in-demenza-e-delirio-psychiatriezentrum-munsingen-munsingen",
+      "slug": "diplomata-infermiera-professionale-specializzazione-demenza-e-delirio-psychiatriezentrum-munsingen-munsingen",
       "slugByLocale": {
-        "it": "dipl-infermiere-a-specializzato-a-in-demenza-e-delirio-psychiatriezentrum-munsingen-munsingen",
+        "it": "diplomata-infermiera-professionale-specializzazione-demenza-e-delirio-psychiatriezentrum-munsingen-munsingen",
         "en": "diploma-in-nursing-specialization-in-dementia-and-delirium-psychiatriezentrum-munsingen-munsingen",
         "de": "dipl-pflegefachperson-schwerpunkt-demenz-und-delir-psychiatriezentrum-munsingen-munsingen",
         "fr": "diplome-e-en-soins-infirmiers-specialisation-en-demence-et-delire-psychiatriezentrum-munsingen-munsingen"
@@ -1335,11 +1353,13 @@
           "dipl-pflegefachperson-schwerpunkt-demenz-und-delir-pzm-muensingen-munsingen"
         ],
         "it": [
-          "dipl-pflegefachperson-schwerpunkt-demenz-und-delir-pzm-muensingen-munsingen"
+          "dipl-pflegefachperson-schwerpunkt-demenz-und-delir-pzm-muensingen-munsingen",
+          "dipl-infermiere-a-specializzato-a-in-demenza-e-delirio-psychiatriezentrum-munsingen-munsingen"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachperson-schwerpunkt-demenz-und-delir-pzm-muensingen-munsingen"
+        "dipl-pflegefachperson-schwerpunkt-demenz-und-delir-pzm-muensingen-munsingen",
+        "dipl-infermiere-a-specializzato-a-in-demenza-e-delirio-psychiatriezentrum-munsingen-munsingen"
       ],
       "firstSeenAt": "2026-05-19T17:51:32.748Z",
       "salaryMin": 49500,
@@ -2019,12 +2039,12 @@
     },
     {
       "id": "pzm-muensingen-0ba7ef9c17c7",
-      "slug": "psycholog-in-alterspsychiatrie-psychiatriezentrum-munsingen-munsingen",
+      "slug": "psichiatria-dell-eta-psychiatriezentrum-munsingen-munsingen",
       "slugByLocale": {
         "de": "psycholog-in-alterspsychiatrie-psychiatriezentrum-munsingen-munsingen",
-        "it": "psycholog-in-alterspsychiatrie-psychiatriezentrum-munsingen-munsingen",
-        "en": "psycholog-in-alterspsychiatrie-psychiatriezentrum-munsingen-munsingen",
-        "fr": "psycholog-in-alterspsychiatrie-psychiatriezentrum-munsingen-munsingen"
+        "it": "psichiatria-dell-eta-psychiatriezentrum-munsingen-munsingen",
+        "en": "psycholog-in-age-psychiatry-psychiatriezentrum-munsingen-munsingen",
+        "fr": "psychologique-en-psychiatrie-de-l-age-psychiatriezentrum-munsingen-munsingen"
       },
       "company": "Psychiatriezentrum Münsingen",
       "companyKey": "pzm-muensingen",
@@ -2069,14 +2089,22 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "psycholog-in-alterspsychiatrie-pzm-muensingen-munsingen"
+          "psycholog-in-alterspsychiatrie-pzm-muensingen-munsingen",
+          "psycholog-in-alterspsychiatrie-psychiatriezentrum-munsingen-munsingen"
         ],
         "de": [
           "psycholog-in-alterspsychiatrie-pzm-muensingen-munsingen"
+        ],
+        "en": [
+          "psycholog-in-alterspsychiatrie-psychiatriezentrum-munsingen-munsingen"
+        ],
+        "fr": [
+          "psycholog-in-alterspsychiatrie-psychiatriezentrum-munsingen-munsingen"
         ]
       },
       "previousSlugs": [
-        "psycholog-in-alterspsychiatrie-pzm-muensingen-munsingen"
+        "psycholog-in-alterspsychiatrie-pzm-muensingen-munsingen",
+        "psycholog-in-alterspsychiatrie-psychiatriezentrum-munsingen-munsingen"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,

@@ -158,12 +158,12 @@
     },
     {
       "id": "spitex-ch-bef5f06be22e",
-      "slug": "team-leader-assistenza-m-f-d-spitex-dienste-rutu-oberhofen-am-thunersee",
+      "slug": "teamleiter-m-w-d-spitex-dienste-rutu-oberhofen-am-thunersee",
       "slugByLocale": {
         "de": "teamleitung-pflege-m-w-d-spitex-ch-oberhofen-am-thunersee",
-        "it": "team-leader-assistenza-m-f-d-spitex-dienste-rutu-oberhofen-am-thunersee",
+        "it": "teamleiter-m-w-d-spitex-dienste-rutu-oberhofen-am-thunersee",
         "en": "team-leader-care-m-f-d-spitex-dienste-rutu-oberhofen-am-thunersee",
-        "fr": "responsable-equipe-soins-h-f-d-spitex-dienste-rutu-oberhofen-am-thunersee"
+        "fr": "equipeur-m-m-j-spitex-dienste-rutu-oberhofen-am-thunersee"
       },
       "company": "SPITEX-Dienste RUTU",
       "companyKey": "spitex-ch",
@@ -219,7 +219,19 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-22T13:06:43.630Z"
+      "firstSeenAt": "2026-05-22T13:06:43.630Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "team-leader-assistenza-m-f-d-spitex-dienste-rutu-oberhofen-am-thunersee"
+        ],
+        "fr": [
+          "responsable-equipe-soins-h-f-d-spitex-dienste-rutu-oberhofen-am-thunersee"
+        ]
+      },
+      "previousSlugs": [
+        "team-leader-assistenza-m-f-d-spitex-dienste-rutu-oberhofen-am-thunersee",
+        "responsable-equipe-soins-h-f-d-spitex-dienste-rutu-oberhofen-am-thunersee"
+      ]
     },
     {
       "id": "spitex-ch-922cddbe19cb",
@@ -1175,12 +1187,12 @@
     },
     {
       "id": "spitex-ch-6134af2d98fc",
-      "slug": "fachfrau-fachmann-gesundheit-cfc-teilzeit-o-vollzeit-spitex-region-mullheim",
+      "slug": "salute-professionale-efz-a-tempo-parziale-o-a-tempo-pieno-spitex-region-mullheim-mullheim",
       "slugByLocale": {
         "de": "fachfrau-fachmann-gesundheit-efz-teilzeit-oder-vollzeit-spitex-ch-mullheim",
-        "it": "fachfrau-fachmann-gesundheit-cfc-teilzeit-o-vollzeit-spitex-region-mullheim",
-        "en": "fachfrau-fachmann-gesundheit-efz-teilzeit-oder-vollzeit-spitex-ch-mullheim",
-        "fr": "fachfrau-fachmann-gesundheit-efz-teilzeit-oder-vollzeit-spitex-ch-mullheim"
+        "it": "salute-professionale-efz-a-tempo-parziale-o-a-tempo-pieno-spitex-region-mullheim-mullheim",
+        "en": "professional-health-efz-part-time-or-full-time-spitex-region-mullheim-mullheim",
+        "fr": "sante-professionnelle-efz-temps-partiel-ou-temps-plein-spitex-region-mullheim-mullheim"
       },
       "company": "Spitex Region Müllheim",
       "companyKey": "spitex-ch",
@@ -1226,11 +1238,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "fachfrau-fachmann-gesundheit-efz-teilzeit-oder-vollzeit-spitex-ch-mullheim",
+          "fachfrau-fachmann-gesundheit-cfc-teilzeit-o-vollzeit-spitex-region-mullheim"
+        ],
+        "en": [
+          "fachfrau-fachmann-gesundheit-efz-teilzeit-oder-vollzeit-spitex-ch-mullheim"
+        ],
+        "fr": [
           "fachfrau-fachmann-gesundheit-efz-teilzeit-oder-vollzeit-spitex-ch-mullheim"
         ]
       },
       "previousSlugs": [
-        "fachfrau-fachmann-gesundheit-efz-teilzeit-oder-vollzeit-spitex-ch-mullheim"
+        "fachfrau-fachmann-gesundheit-efz-teilzeit-oder-vollzeit-spitex-ch-mullheim",
+        "fachfrau-fachmann-gesundheit-cfc-teilzeit-o-vollzeit-spitex-region-mullheim"
       ],
       "salaryMin": 51500,
       "salaryMax": 88000,
@@ -1248,12 +1268,12 @@
     },
     {
       "id": "spitex-ch-15f302d8672d",
-      "slug": "studienplatz-zur-pflegefachperson-hf-fuhrerausweis-o-ga-e-pc-ausrustung-inklusive-spitex-region-mullheim",
+      "slug": "luogo-di-studio-per-l-allattamento-professionale-hf-scheda-guida-o-ga-e-attrezzature-pc-inclusi-spitex-region-mullheim",
       "slugByLocale": {
         "de": "studienplatz-zur-pflegefachperson-hf-fuhrerausweis-oder-ga-und-pc-ausrustung-inklusive",
-        "it": "studienplatz-zur-pflegefachperson-hf-fuhrerausweis-o-ga-e-pc-ausrustung-inklusive-spitex-region-mullheim",
-        "en": "studienplatz-zur-pflegefachperson-hf-fuhrerausweis-oder-ga-und-pc-ausrustung-inklusive",
-        "fr": "studienplatz-zur-pflegefachperson-hf-fuhrerausweis-oder-ga-und-pc-ausrustung-inklusive"
+        "it": "luogo-di-studio-per-l-allattamento-professionale-hf-scheda-guida-o-ga-e-attrezzature-pc-inclusi-spitex-region-mullheim",
+        "en": "study-place-for-nursing-professional-hf-guide-card-or-ga-and-pc-equipment-included-spitex-region-mullheim-mullheim",
+        "fr": "lieu-d-etude-pour-les-infirmiers-professionnels-hf-carte-guide-ou-ga-et-equipement-pc-inclus-spitex-region-mullheim"
       },
       "company": "Spitex Region Müllheim",
       "companyKey": "spitex-ch",
@@ -1299,11 +1319,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "studienplatz-zur-pflegefachperson-hf-fuhrerausweis-oder-ga-und-pc-ausrustung-inklusive",
+          "studienplatz-zur-pflegefachperson-hf-fuhrerausweis-o-ga-e-pc-ausrustung-inklusive-spitex-region-mullheim"
+        ],
+        "en": [
+          "studienplatz-zur-pflegefachperson-hf-fuhrerausweis-oder-ga-und-pc-ausrustung-inklusive"
+        ],
+        "fr": [
           "studienplatz-zur-pflegefachperson-hf-fuhrerausweis-oder-ga-und-pc-ausrustung-inklusive"
         ]
       },
       "previousSlugs": [
-        "studienplatz-zur-pflegefachperson-hf-fuhrerausweis-oder-ga-und-pc-ausrustung-inklusive"
+        "studienplatz-zur-pflegefachperson-hf-fuhrerausweis-oder-ga-und-pc-ausrustung-inklusive",
+        "studienplatz-zur-pflegefachperson-hf-fuhrerausweis-o-ga-e-pc-ausrustung-inklusive-spitex-region-mullheim"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -1400,8 +1428,8 @@
       "slugByLocale": {
         "de": "spitex-nahe-winterthur-fachperson-gesundheit-fage-fur-den-spatdienst-pensum-40-60-spitex",
         "it": "spitex-nahe-winterthur-fachperson-gesundheit-fage-per-den-spatdienst-pensum-40-60-spitex-regioseuzach-seuzach",
-        "en": "spitex-nahe-winterthur-fachperson-gesundheit-fage-fur-den-spatdienst-pensum-40-60-spitex",
-        "fr": "spitex-nahe-winterthur-fachperson-gesundheit-fage-fur-den-spatdienst-pensum-40-60-spitex"
+        "en": "spitex-near-winterthur-specialist-health-fage-for-late-service-pensum-40-60-spitex-regioseuzach-seuzach",
+        "fr": "spitex-pres-de-winterthur-specialiste-de-la-sante-fage-pour-service-tardif-pensum-40-60-spitex-regioseuzach-seuzach"
       },
       "company": "Spitex RegioSeuzach",
       "companyKey": "spitex-ch",
@@ -1449,6 +1477,12 @@
       "previousSlugsByLocale": {
         "it": [
           "spitex-nahe-winterthur-fachperson-gesundheit-fage-fur-den-spatdienst-pensum-40-60-spitex"
+        ],
+        "en": [
+          "spitex-nahe-winterthur-fachperson-gesundheit-fage-fur-den-spatdienst-pensum-40-60-spitex"
+        ],
+        "fr": [
+          "spitex-nahe-winterthur-fachperson-gesundheit-fage-fur-den-spatdienst-pensum-40-60-spitex"
         ]
       },
       "previousSlugs": [
@@ -1471,12 +1505,12 @@
     },
     {
       "id": "spitex-ch-53f9d3d18376",
-      "slug": "spitex-nahe-winterthur-sucht-dich-fage-m-w-d-40-100-fixe-tage-moglich-spitex-ch-seuzach",
+      "slug": "spitex-vicino-winterthur-alla-ricerca-di-dich-fage-m-w-d-40-100-giorni-fissi-possibili-spitex-regioseuzach-seuzach",
       "slugByLocale": {
         "de": "spitex-nahe-winterthur-sucht-dich-fage-m-w-d-40-100-fixe-tage-moglich-spitex-ch-seuzach",
-        "it": "spitex-nahe-winterthur-sucht-dich-fage-m-w-d-40-100-fixe-tage-moglich-spitex-ch-seuzach",
-        "en": "spitex-nahe-winterthur-sucht-dich-fage-m-w-d-40-100-fixe-tage-moglich-spitex-ch-seuzach",
-        "fr": "spitex-nahe-winterthur-sucht-dich-fage-m-w-d-40-100-fixe-tage-moglich-spitex-ch-seuzach"
+        "it": "spitex-vicino-winterthur-alla-ricerca-di-dich-fage-m-w-d-40-100-giorni-fissi-possibili-spitex-regioseuzach-seuzach",
+        "en": "spitex-near-winterthur-looking-for-dich-fage-m-w-d-40-100-fixed-days-possible-spitex-regioseuzach-seuzach",
+        "fr": "spitex-pres-de-winterthur-a-la-recherche-de-dich-fage-m-p-j-40-100-jours-fixes-possibles-spitex-regioseuzach-seuzach"
       },
       "company": "Spitex RegioSeuzach",
       "companyKey": "spitex-ch",
@@ -1532,7 +1566,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-22T13:06:29.519Z"
+      "firstSeenAt": "2026-05-22T13:06:29.519Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "spitex-nahe-winterthur-sucht-dich-fage-m-w-d-40-100-fixe-tage-moglich-spitex-ch-seuzach"
+        ],
+        "en": [
+          "spitex-nahe-winterthur-sucht-dich-fage-m-w-d-40-100-fixe-tage-moglich-spitex-ch-seuzach"
+        ],
+        "fr": [
+          "spitex-nahe-winterthur-sucht-dich-fage-m-w-d-40-100-fixe-tage-moglich-spitex-ch-seuzach"
+        ]
+      },
+      "previousSlugs": [
+        "spitex-nahe-winterthur-sucht-dich-fage-m-w-d-40-100-fixe-tage-moglich-spitex-ch-seuzach"
+      ]
     },
     {
       "id": "spitex-ch-7159fd819c30",
