@@ -1,16 +1,16 @@
 {
   "key": "spital-zofingen",
   "label": "Spital Zofingen",
-  "generatedAt": "2026-05-22T13:05:20.399Z",
+  "generatedAt": "2026-05-22T23:35:50.319Z",
   "total": 2,
   "newCount": 0,
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 5076,
-  "avgDurationMs": 5076,
+  "durationMs": 6523,
+  "avgDurationMs": 6523,
   "durationHistory": [
-    5076
+    6523
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -27,7 +27,7 @@
       "url": "https://recruitingapp-22707.umantis.com/Vacancies/2311/Description/1",
       "source": "Spital Zofingen Dedicated Parser (Umantis listing tenant 22707)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-22T13:05:18.167Z",
+      "crawledAt": "2026-05-22T23:35:47.755Z",
       "addressLocality": "Zofingen",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -43,11 +43,11 @@
       "postedDate": "2026-05-19",
       "applyUrl": "https://recruitingapp-22707.umantis.com/Vacancies/2311/Application/CheckLogin/1",
       "firstSeenAt": "2026-05-19T11:37:50.460Z",
-      "_qualityScore": 69,
+      "_qualityScore": 75,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 6,
-        "translation": 21,
+        "richness": 10,
+        "translation": 23,
         "completeness": 17
       }
     },
@@ -64,7 +64,7 @@
       "url": "https://recruitingapp-22707.umantis.com/Vacancies/1896/Description/1",
       "source": "Spital Zofingen Dedicated Parser (Umantis listing tenant 22707)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-22T13:05:18.638Z",
+      "crawledAt": "2026-05-22T23:35:48.403Z",
       "addressLocality": "Zofingen",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -80,11 +80,11 @@
       "postedDate": "2026-05-19",
       "applyUrl": "https://recruitingapp-22707.umantis.com/Vacancies/1896/Application/CheckLogin/1",
       "firstSeenAt": "2026-05-19T11:37:51.164Z",
-      "_qualityScore": 73,
+      "_qualityScore": 75,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 10,
-        "translation": 21,
+        "translation": 23,
         "completeness": 17
       }
     }
