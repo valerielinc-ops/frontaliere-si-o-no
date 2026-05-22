@@ -85,11 +85,13 @@ export async function fetchAllRehabBaselJobs() {
   const jobs = [];
   for (const it of items) {
     const title = it.title;
-    const description = [
-      it.fullTitle,
-      it.ref ? `Referenz: ${it.ref}` : '',
-      'REHAB Basel — Klinik für Neurorehabilitation und Paraplegiologie.',
-    ].filter(Boolean).join('\n\n');
+    const intro = `${title} bei REHAB Basel — Klinik für Neurorehabilitation und Paraplegiologie, Basel (4055, BS), Schweiz.`;
+    const bullets = [];
+    if (it.ref) bullets.push(`• Referenz: ${it.ref}`);
+    bullets.push('• Standort: Basel (BS)');
+    bullets.push('• Fachgebiet: Neurorehabilitation und Paraplegiologie');
+    bullets.push('• Bewerbung über das Talentsoft-Karriereportal von REHAB Basel');
+    const description = `${intro}\n\n${bullets.join('\n')}`;
     const postedDate = parseSwissDate(it.dateText) || todayIso;
     const sourceLang = detectLang(description || title, 'de');
     const jobSlug = slugify(`${title} ${REHAB_BASEL_KEY} basel`);
