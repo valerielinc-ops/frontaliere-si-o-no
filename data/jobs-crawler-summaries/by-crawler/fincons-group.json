@@ -1,16 +1,16 @@
 {
   "key": "fincons-group",
   "label": "Fincons Group",
-  "generatedAt": "2026-05-22T11:38:09.168Z",
-  "total": 7,
+  "generatedAt": "2026-05-22T22:10:26.312Z",
+  "total": 6,
   "newCount": 0,
-  "updatedCount": 7,
-  "removedCount": 0,
+  "updatedCount": 6,
+  "removedCount": 1,
   "unchangedCount": 0,
-  "durationMs": 2293,
-  "avgDurationMs": 2293,
+  "durationMs": 1107,
+  "avgDurationMs": 1107,
   "durationHistory": [
-    2293
+    1107
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -53,49 +53,6 @@
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
-    {
-      "title": "Data Engineer - GCP",
-      "slug": "data-engineer-gcp-fincons-group-lugano-switzerland",
-      "url": "https://fincons.applytojob.com/apply/Ic9RQRZpu3/Data-Engineer-GCP",
-      "applyUrl": "https://fincons.applytojob.com/apply/Ic9RQRZpu3/Data-Engineer-GCP",
-      "company": "Fincons Group",
-      "companyKey": "fincons-group",
-      "companyDomain": "finconsgroup.com",
-      "location": "Lugano",
-      "addressLocality": "Lugano",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "postalCode": "6900",
-      "canton": "TI",
-      "country": "CH",
-      "category": "tech",
-      "sector": "Tecnologia & IT",
-      "source": "fincons-dedicated-crawler",
-      "sourceLang": "en",
-      "postedDate": "2026-05-11",
-      "validThrough": "2026-08-09",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "metadata": {
-        "experienceRequirements": "Mid Level",
-        "uniqueJobCode": "job_20260511145544_RCCXWTDQLBCSXB2V",
-        "listingLocation": "Lugano, Switzerland",
-        "listingDepartment": ""
-      },
-      "id": "fincons-group-ac7998391a14",
-      "salaryMin": 51500,
-      "salaryMax": 88000,
-      "currency": "CHF",
-      "streetAddress": "Via Industria 3",
-      "firstSeenAt": "2026-05-11T22:03:51.012Z",
-      "_qualityScore": 99,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
         "translation": 25,
         "completeness": 25
       }
@@ -316,6 +273,50 @@
       }
     }
   ],
-  "removedJobs": [],
+  "removedJobs": [
+    {
+      "title": "Data Engineer - GCP",
+      "slug": "ingegnere-dati-gcp-fincons-group-lugano",
+      "url": "https://fincons.applytojob.com/apply/Ic9RQRZpu3/Data-Engineer-GCP",
+      "applyUrl": "https://fincons.applytojob.com/apply/Ic9RQRZpu3/Data-Engineer-GCP",
+      "company": "Fincons Group",
+      "companyKey": "fincons-group",
+      "companyDomain": "finconsgroup.com",
+      "location": "Lugano",
+      "addressLocality": "Lugano",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "postalCode": "6900",
+      "canton": "TI",
+      "country": "CH",
+      "category": "tech",
+      "sector": "Tecnologia & IT",
+      "source": "fincons-dedicated-crawler",
+      "sourceLang": "en",
+      "postedDate": "2026-05-11",
+      "validThrough": "2026-08-09",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "metadata": {
+        "experienceRequirements": "Mid Level",
+        "uniqueJobCode": "job_20260511145544_RCCXWTDQLBCSXB2V",
+        "listingLocation": "Lugano, Switzerland",
+        "listingDepartment": ""
+      },
+      "id": "fincons-group-ac7998391a14",
+      "salaryMin": 51500,
+      "salaryMax": 88000,
+      "currency": "CHF",
+      "streetAddress": "Via Industria 3",
+      "firstSeenAt": "2026-05-11T22:03:51.012Z",
+      "_qualityScore": 99,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 25,
+        "completeness": 25
+      }
+    }
+  ],
   "unchangedJobs": []
 }
