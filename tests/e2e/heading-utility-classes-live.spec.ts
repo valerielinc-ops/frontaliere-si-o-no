@@ -49,13 +49,20 @@ const TAILWIND_FONT_SIZE_PX: Record<string, string> = {
 };
 
 // URLs cover the surfaces where the regression was reported: job-detail
-// (mobile snapshot block area), the currency comparator hub (Confronto
-// Cambio Valuta h1), and home (Hub rapidi / Aziende che assumono footer
-// blocks). Each is fairly stable in terms of layout structure; we only
-// read computed font-sizes, never pixels, so cron churn is irrelevant.
+// (mobile snapshot block area) and the canonical currency comparator
+// (Confronto Cambio Valuta h1). Home is included as a regression sanity
+// case — historically it doesn't link seo-static.css, so a failure there
+// would mean a new SPA-wide stylesheet started clobbering Tailwind.
+//
+// We intentionally do NOT target redirect/legacy aliases like
+// `/comparatori/cambio-valuta/`: those resolve to bridge stub pages
+// (`<main class="card">` + bridge.css, no SPA bundle), and probing
+// Tailwind utility classes there is meaningless — Tailwind isn't shipped.
+// The runtime skip below handles future cases where a URL silently
+// becomes a bridge.
 const TARGETS: ReadonlyArray<{ name: string; path: string }> = [
   { name: 'home', path: '/' },
-  { name: 'currency-comparator', path: '/comparatori/cambio-valuta/' },
+  { name: 'currency-comparator', path: '/compara-servizi/cambio-franco-euro/' },
   // Job-detail mobile is the exact surface from the bug report. Use a
   // long-lived listing URL (Tether Operations Lugano remote — published
   // 82 days ago at incident time, still indexed). If the slug ever
@@ -75,6 +82,32 @@ for (const target of TARGETS) {
     const url = `${LIVE_BASE_URL}${target.path}`;
     await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 30_000 });
     await page.locator('main').first().waitFor({ state: 'attached', timeout: 30_000 });
+
+    // Skip redirect/legacy bridge stub pages — they ship bridge.css only,
+    // no Tailwind bundle. This test asserts Tailwind utilities resolve, so
+    // it's a category error to assert on a page that has no Tailwind.
+    const isBridge = await page.evaluate(() => !!document.querySelector('body > main.card'));
+    test.skip(isBridge, `${target.path} is a bridge/redirect stub (no Tailwind)`);
+
+    // Wait until Tailwind utilities are actually active. The SPA loads
+    // `index-{hash}.css` with `media="print" onload="this.media='all'"`
+    // (PR #467 async-CSS pattern) — between `domcontentloaded` and the
+    // onload swap, `.text-xs` resolves to the browser default. Polling
+    // a synthetic node is the only reliable signal: it goes from a
+    // non-12px value to 12px the instant the SPA bundle becomes active.
+    await page.waitForFunction(
+      () => {
+        const probe = document.createElement('div');
+        probe.className = 'text-xs';
+        document.body.appendChild(probe);
+        const fs = getComputedStyle(probe).fontSize;
+        probe.remove();
+        return fs === '12px';
+      },
+      undefined,
+      { timeout: 15_000 },
+    );
+
     await page.evaluate(() => document.fonts.ready);
     // Brief settle for any late-mounting CSS (async stylesheet load).
     await page.waitForTimeout(500);
