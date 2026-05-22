@@ -5828,6 +5828,18 @@ const JobBoard: React.FC<JobBoardProps> = ({
  if (robotsMeta?.getAttribute('content')?.includes('noindex')) {
  robotsMeta.remove();
  }
+ // Bridge-in-flight guard: if the slug-map knows this slug points to a real
+ // job (different canton, slug-rename alias, or cross-locale), the bridge
+ // fallback effect above is still merging it into `jobs`. Show a skeleton
+ // instead of flashing JobOrphanView ("Questo annuncio non è più disponibile")
+ // for the few hundred ms between hydration and bridge resolve — the
+ // pre-rendered static body shows the real content during that window, so
+ // any flip to Orphan is a visible regression.
+ const bridgeTargetForRender = bridgeTargetSlug || initialJobSlug;
+ const bridgeMeta = getJobMetaForSlug(bridgeTargetForRender);
+ if (bridgeMeta?.id && bridgeFetchAttempted !== bridgeTargetForRender) {
+ return <SkeletonJobDetail />;
+ }
  // Expired: slug found in expired-jobs.json — show metadata + sign-in + related
  if (expiredJobLoading) return <SkeletonJobDetail />;
  if (expiredJob) {

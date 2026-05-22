@@ -1644,11 +1644,41 @@ export async function ensureJobSlugMapLoaded(): Promise<void> {
 // The JobBoard component will trigger loading via registerJobSlugMap().
 // This saves ~800ms of main-thread blocking on initial page load.
 if (typeof window !== 'undefined') {
+ // Job-detail URLs (e.g. /cerca-lavoro-ticino/<slug>/) need the slug map
+ // eagerly to resolve cross-canton bridges before render. Without it, the
+ // SPA flashes JobOrphanView ("Questo annuncio non è più disponibile") for
+ // the few hundred ms between hydration and bridge fetch — see
+ // JobBoard.tsx bridge-in-flight guard. Detect via path shape: any segment
+ // matching a known job-board slug prefix followed by another non-empty
+ // segment is a candidate detail page.
+ const isJobDetailUrl = (): boolean => {
+ try {
+ const segments = window.location.pathname.split('/').filter(Boolean);
+ if (segments.length < 2) return false;
+ // Strip optional locale prefix
+ const start = ['en', 'de', 'fr'].includes(segments[0]) ? 1 : 0;
+ const candidate = segments[start];
+ if (!candidate) return false;
+ // Match "cerca-lavoro-*" (IT), "find-jobs-*" (EN), "jobs-in-*" (DE),
+ // "trouver-emploi-*" (FR) — see SLUG_TABLES and getJobBoardSlug.
+ if (!/^(cerca-lavoro|find-jobs|jobs-in|trouver-emploi)/.test(candidate)) return false;
+ // Must have at least one more segment (the job slug or city/sector)
+ return segments.length > start + 1;
+ } catch {
+ return false;
+ }
+ };
+ if (isJobDetailUrl()) {
+ // Eager: kick the fetch right away. Cheap parallel work; the network is
+ // mostly idle while the JS bundle parses.
+ ensureJobSlugMapLoaded().catch(() => { /* non-critical — JobBoard will register later */ });
+ } else {
  // Use requestIdleCallback (or setTimeout fallback) so it doesn't block LCP
  const deferLoad = typeof requestIdleCallback === 'function' ? requestIdleCallback : (cb: () => void) => setTimeout(cb, 4000);
  deferLoad(() => {
  ensureJobSlugMapLoaded().catch(() => { /* non-critical — JobBoard will register later */ });
  });
+ }
 }
 
 // ── Lazy-loaded blog data (code-split into routerBlogData.ts) ──
