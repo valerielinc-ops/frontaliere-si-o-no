@@ -80,6 +80,31 @@ describe('inlineTextToHtml — passthrough HTML attribute sanitization', () => {
     expect(out).toBe('<span>a</span> <a href="/x">b</a> <br>');
   });
 
+  // Regression: HFR-style flattened bilingual descriptions where the
+  // original paragraph break became a 60+ underscore divider.
+  // audit:no-literal-markdown (0-tolerance) failed on 4 job pages in
+  // workflow run #26264463075 because `inlineTextToHtml` left these
+  // separator runs in the body of `<main class="seo-static-content">`.
+  // See build-plugins/shared/jobDescription/toHtml.ts.
+  describe('separator-run scrub (audit:no-literal-markdown 0-tol)', () => {
+    it('drops 6+ underscore runs (HFR pattern)', () => {
+      const sixtyThree = '_'.repeat(63);
+      const input = `Ref.: HFR-M-251801 ${sixtyThree} Le Département`;
+      const out = inlineTextToHtml(input);
+      expect(out).not.toMatch(/_{3,}/);
+      expect(out).toContain('Ref.: HFR-M-251801');
+      expect(out).toContain('Le Département');
+    });
+    it('drops 6+ equals/tilde runs', () => {
+      expect(inlineTextToHtml('a =========== b')).not.toMatch(/={3,}/);
+      expect(inlineTextToHtml('a ~~~~~~~~~~ b')).not.toMatch(/~{3,}/);
+    });
+    it('leaves short underscore tokens alone (real text, not dividers)', () => {
+      expect(inlineTextToHtml('snake_case identifier')).toContain('snake_case');
+      expect(inlineTextToHtml('a __b__ c')).toContain('__b__');
+    });
+  });
+
   it('Bachem real-world fixture', () => {
     const input =
       'Ihre Aufgaben:\n\n<span style="font-size:12.0pt;line-height:107%;font-family:"Times New Roman", serif;">' +

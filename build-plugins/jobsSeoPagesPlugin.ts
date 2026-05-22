@@ -1284,13 +1284,19 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  return s;
  };
  const splitIntoParagraphs = (s: string): string[] => {
- const viaBreaks = String(s || '')
+ // AI-translation flattening collapses paragraph breaks around visual
+ // dividers (e.g. HFR `Ref.: HFR-M-251801 ____________ Le Département`).
+ // Treat any run of 6+ `_`/`=`/`~` as an explicit paragraph break before
+ // splitting so the divider doesn't leak into a paragraph body and trip
+ // audit:no-literal-markdown (CLAUDE.md rule #1, 0-tolerance).
+ const normalized = String(s || '').replace(/[_=~]{6,}/g, '\n\n');
+ const viaBreaks = normalized
  .replace(/\r/g, '\n')
  .split(/\n{2,}/)
  .map((p) => p.trim())
  .filter((p) => p.length > 40);
  if (viaBreaks.length >= 2) return viaBreaks;
- return normalizeText(s)
+ return normalizeText(normalized)
  .split(/(?<=[.!?])\s+/)
  .map((p) => p.trim())
  .filter((p) => p.length > 40);
