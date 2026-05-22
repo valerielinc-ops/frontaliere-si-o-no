@@ -1,6 +1,6 @@
 {
   "crawlerKey": "supsi-dti",
-  "assembledAt": "2026-05-22T13:17:02.422Z",
+  "assembledAt": "2026-05-22T23:46:23.724Z",
   "jobs": [
     {
       "id": "company-l4rl59",
@@ -125,7 +125,8 @@
       "addressLocality": "Mendrisio",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-l4ti33",
@@ -371,7 +372,8 @@
         ]
       },
       "previousSlugs": [
-        "phd-student-in-dynamic-of-advanced-composite-materials-for-drones-supsi-dti-mendrisio-grado-d"
+        "phd-student-in-dynamic-of-advanced-composite-materials-for-drones-supsi-dti-mendrisio-grado-d",
+        "doktorand-im-bereich-dynamik-fortgeschrittener-verbundwerkstoffe-fur-drohnen-supsi-dti-mendrisio-grado-d"
       ],
       "salaryMin": 85500,
       "salaryMax": 150000,
@@ -764,7 +766,10 @@
         ]
       },
       "previousSlugs": [
-        "assistente-in-formazione-master-of-science-in-engineering-mse-con-profilo-in-civil-engineering-corso-di-laurea-in-ingegneria-civile-supsi-dt"
+        "assistente-in-formazione-master-of-science-in-engineering-mse-con-profilo-in-civil-engineering-corso-di-laurea-in-ingegneria-civile-supsi-dt",
+        "master-of-science-in-engineering-mse-with-profile-in-civil-engineering-bachelor-of-science-in-civil-engineering-supsi",
+        "master-of-science-in-engineering-mse-mit-profil-in-bauingenieurwesen-bachelor-of-science-in-bauingenieurwesen-supsi-dti",
+        "maitrise-en-ingenierie-mse-avec-profil-en-genie-civil-baccalaureat-en-ingenierie-civile-supsi-dti-mendrisio"
       ],
       "salaryMin": 58000,
       "salaryMax": 88000,
@@ -1533,7 +1538,8 @@
       "addressLocality": "Servizi amministrativi SUPSI",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-l4u548",
@@ -1890,7 +1896,8 @@
       },
       "previousSlugs": [
         "assistente-con-master-nell-area-del-controllo-intelligente-per-sistemi-e-reti-supsi-dti-manno"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "company-l4wp0m",
@@ -2019,7 +2026,8 @@
           "lernende-r-operatrice-informatica-operatore-informatico-afc-supsi-dti-ticino",
           "apprendista-operatrice-informatica-operatore-informatico-afc-supsi-dti-manno"
         ]
-      }
+      },
+      "needsRetranslation": true
     }
   ]
 }
