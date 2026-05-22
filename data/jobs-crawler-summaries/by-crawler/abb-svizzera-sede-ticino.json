@@ -1,18 +1,53 @@
 {
   "key": "abb-svizzera-sede-ticino",
   "label": "ABB",
-  "generatedAt": "2026-05-22T10:42:13.758Z",
-  "total": 12,
-  "newCount": 0,
+  "generatedAt": "2026-05-22T21:15:10.355Z",
+  "total": 13,
+  "newCount": 1,
   "updatedCount": 12,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 46104,
-  "avgDurationMs": 46104,
+  "durationMs": 35288,
+  "avgDurationMs": 35288,
   "durationHistory": [
-    46104
+    35288
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "id": "company-ujl61l",
+      "slug": "customer-quality-specialist-abb-svizzera-sede-ticino-quartino-ticino",
+      "company": "ABB Svizzera (sede Ticino)",
+      "title": "Customer Quality Specialist",
+      "location": "Quartino, Ticino",
+      "canton": "TI",
+      "category": "finance",
+      "contract": "part-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-22",
+      "url": "https://careers.abb/global/en/job/ABB1GLOBALJR00034241EXTERNALENGLOBAL/Customer-Quality-Specialist",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Quartino, Ticino, Switzerland",
+        "canton": "TI"
+      },
+      "companyKey": "abb-svizzera-sede-ticino",
+      "companyDomain": "abb.ch",
+      "crawledAt": "2026-05-22T21:15:09.640Z",
+      "firstSeenAt": "2026-05-22T21:15:09.640Z",
+      "needsRetranslation": true,
+      "country": "CH",
+      "sourceLang": "en",
+      "_qualityScore": 64,
+      "_qualityBreakdown": {
+        "cleanliness": 17,
+        "richness": 18,
+        "translation": 15,
+        "completeness": 14
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "id": "company-6a4mil",
