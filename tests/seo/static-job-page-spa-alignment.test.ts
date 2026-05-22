@@ -1,4 +1,4 @@
-import { readFileSync } from 'node:fs';
+import { existsSync, readFileSync, readdirSync, statSync } from 'node:fs';
 import path from 'node:path';
 
 import { describe, expect, it } from 'vitest';
@@ -17,12 +17,46 @@ import { describe, expect, it } from 'vitest';
  * highlights chip row under "Panoramica", and the desktop sticky sidebar
  * were all missing from the crawler-facing HTML. See the commit body of
  * the PR that introduced this test for the original drift report.
+ *
+ * Source scope (L3 refactor): individual SPA-parity blocks were extracted
+ * out of jobsSeoPagesPlugin.ts into pure-TS emitters under
+ * `build-plugins/shared/jobDetailHtml/`. The assertions below are
+ * path-agnostic — they concatenate the plugin file with every `.ts` file
+ * under the emitters directory before matching, so they survive the
+ * extraction without weakening intent: the blocks must still exist
+ * *somewhere* in the static-emit pipeline.
  */
 describe('static job-detail page SPA alignment', () => {
-  const pluginSource = readFileSync(
-    path.resolve(__dirname, '..', '..', 'build-plugins', 'jobsSeoPagesPlugin.ts'),
-    'utf-8',
+  function collectTsFiles(dir: string): string[] {
+    if (!existsSync(dir)) return [];
+    const out: string[] = [];
+    for (const name of readdirSync(dir)) {
+      const full = path.join(dir, name);
+      const st = statSync(full);
+      if (st.isDirectory()) out.push(...collectTsFiles(full));
+      else if (st.isFile() && /\.ts$/.test(name)) out.push(full);
+    }
+    return out;
+  }
+  const pluginPath = path.resolve(
+    __dirname,
+    '..',
+    '..',
+    'build-plugins',
+    'jobsSeoPagesPlugin.ts',
   );
+  const emittersDir = path.resolve(
+    __dirname,
+    '..',
+    '..',
+    'build-plugins',
+    'shared',
+    'jobDetailHtml',
+  );
+  const sourceFiles = [pluginPath, ...collectTsFiles(emittersDir)];
+  const pluginSource = sourceFiles
+    .map((p) => readFileSync(p, 'utf-8'))
+    .join('\n');
   const cssSource = readFileSync(
     path.resolve(__dirname, '..', '..', 'public', 'assets', 'seo-static.css'),
     'utf-8',
