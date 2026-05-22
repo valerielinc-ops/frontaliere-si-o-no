@@ -103,7 +103,16 @@ function stripExternalHtmlAttributes(s: string): string {
 
 export function inlineTextToHtml(text: string): string {
   if (!text) return '';
-  const s = String(text);
+  // Strip separator runs (6+ `_`/`=`/`~`) that AI-translation flattening
+  // sometimes leaves mid-paragraph. The full parser preprocess catches
+  // these for block-level rendering, but `inlineTextToHtml` runs on
+  // already-split paragraphs (jobsSeoPagesPlugin#summaryHtml /
+  // sectionHtml) and must scrub them itself or they leak into
+  // `<main class="seo-static-content">` and trip
+  // audit:no-literal-markdown (0-tolerance, CLAUDE.md rule #1).
+  // Real example: HFR ("Hôpital fribourgeois") descriptions flatten
+  // bilingual DE/FR copy to `Ref.: HFR-M-251801 ____________ Le Département…`.
+  const s = String(text).replace(/[_=~]{6,}/g, ' ').replace(/ {2,}/g, ' ');
   if (/<(strong|em|a|span|br)\b/i.test(s)) {
     return stripExternalHtmlAttributes(s);
   }
