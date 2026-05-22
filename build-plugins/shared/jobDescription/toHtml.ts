@@ -103,16 +103,21 @@ function stripExternalHtmlAttributes(s: string): string {
 
 export function inlineTextToHtml(text: string): string {
   if (!text) return '';
-  // Strip separator runs (6+ `_`/`=`/`~`) that AI-translation flattening
+  // Strip separator runs (3+ `_`/`=`/`~`) that AI-translation flattening
   // sometimes leaves mid-paragraph. The full parser preprocess catches
   // these for block-level rendering, but `inlineTextToHtml` runs on
   // already-split paragraphs (jobsSeoPagesPlugin#summaryHtml /
   // sectionHtml) and must scrub them itself or they leak into
   // `<main class="seo-static-content">` and trip
   // audit:no-literal-markdown (0-tolerance, CLAUDE.md rule #1).
-  // Real example: HFR ("Hôpital fribourgeois") descriptions flatten
-  // bilingual DE/FR copy to `Ref.: HFR-M-251801 ____________ Le Département…`.
-  const s = String(text).replace(/[_=~]{6,}/g, ' ').replace(/ {2,}/g, ' ');
+  // Threshold matches `SEPARATOR_RUN_RE` in scripts/audit-no-literal-markdown.mjs
+  // (`[_=~]{3,}`): the previous 6+ threshold left 3-5 char runs (e.g. `===`,
+  // `~~~~`) untouched, surfaced after PR #498 wired the fallback splitter on
+  // 100% of jobs and surfaced 149 offender pages in validate-dist run 26300359056.
+  // Real examples: HFR job ads flatten bilingual copy to
+  // `Ref.: HFR-M-251801 ____________ Le Département…`; Tether-style postings
+  // wrap section headers in `===== Cosa offriamo: =====`.
+  const s = String(text).replace(/[_=~]{3,}/g, ' ').replace(/ {2,}/g, ' ');
   if (/<(strong|em|a|span|br)\b/i.test(s)) {
     return stripExternalHtmlAttributes(s);
   }
