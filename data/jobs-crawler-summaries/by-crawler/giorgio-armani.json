@@ -1,19 +1,21 @@
 {
   "key": "giorgio-armani",
   "label": "giorgio-armani",
-  "generatedAt": "2026-05-22T11:43:45.333Z",
+  "generatedAt": "2026-05-22T22:15:59.464Z",
   "total": 1,
   "newCount": 0,
-  "updatedCount": 1,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 12891,
-  "avgDurationMs": 12891,
+  "unchangedCount": 1,
+  "durationMs": 12096,
+  "avgDurationMs": 12096,
   "durationHistory": [
-    12891
+    12096
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "title": "Sales Associate - Armani Outlet Mendrisio Seasonal Contract",
       "slug": "sales-associate-armani-outlet-mendrisio-seasonal-contract-giorgio-armani-s-p-a-mendrisio-seasonal-contract",
@@ -42,15 +44,13 @@
       "salaryMax": 90500,
       "currency": "CHF",
       "firstSeenAt": "2026-05-21T12:00:36.685Z",
-      "_qualityScore": 84,
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 16,
+        "translation": 19,
         "completeness": 19
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }

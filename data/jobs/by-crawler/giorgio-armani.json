@@ -1,6 +1,6 @@
 {
   "crawlerKey": "giorgio-armani",
-  "assembledAt": "2026-05-22T11:43:45.332Z",
+  "assembledAt": "2026-05-22T22:15:59.464Z",
   "jobs": [
     {
       "title": "Sales Associate - Armani Outlet Mendrisio Seasonal Contract",
@@ -44,7 +44,6 @@
         "fr": "sales-associate-armani-outlet-mendrisio-seasonal-contract-giorgio-armani-s-p-a-mendrisio-seasonal-contract"
       },
       "id": "giorgio-armani-bd99884585c2",
-      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 90500,
       "currency": "CHF",
@@ -58,7 +57,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-21T12:00:36.685Z"
+      "firstSeenAt": "2026-05-21T12:00:36.685Z",
+      "needsRetranslation": true
     }
   ]
 }
