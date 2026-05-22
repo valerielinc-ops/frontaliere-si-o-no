@@ -39,6 +39,7 @@ import {
  renderRightRail,
 } from './shared/jobDetailHtml';
 import { deriveJobPostalCode } from '../services/jobLocationSnapshot';
+import { buildFallbackCanonicalContent } from '../services/jobs/canonicalFallback';
 import {
  loadWinners,
  saveWinners,
@@ -2094,7 +2095,29 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  : truncMetaDesc(`${metaIntro}${metaSalarySnippet}${metaBody}`));
  const descriptionParagraphs = splitIntoParagraphs(localizedDescriptionRaw).slice(0, 10);
  const requirements = firstItems(job?.requirementsByLocale?.[locale] || job?.requirements, 8);
- const canonicalLocale = readCanonicalByLocale(job, locale);
+ // 100% of crawled jobs ship without `_canonical` (no AI pipeline produces it
+ // today — translate-pending.yml only relocalises text). Without a fallback,
+ // every static job page emits an empty `<div class="timeline">` while the
+ // hydrated SPA renders 6 sections from the raw description. Run the same
+ // heuristic splitter the SPA uses (services/jobs/canonicalFallback) so
+ // crawlers see the same sectioned body users see.
+ const canonicalLocaleRaw = readCanonicalByLocale(job, locale);
+ const hasCanonicalSignal = !!canonicalLocaleRaw && (
+ cleanItems(canonicalLocaleRaw?.summary, 4).length > 0
+ || cleanItems(canonicalLocaleRaw?.responsibilities, 10).length > 0
+ || cleanItems(canonicalLocaleRaw?.requirements, 12).length > 0
+ || cleanItems(canonicalLocaleRaw?.benefits, 10).length > 0
+ || cleanItems(canonicalLocaleRaw?.process, 8).length > 0
+ || parseCanonicalSections(canonicalLocaleRaw?.sections, 8).length > 0
+ );
+ const fallbackRequirements: string[] = Array.isArray(job?.requirementsByLocale?.[locale])
+ ? (job.requirementsByLocale[locale] as unknown[]).map((x) => String(x || '')).filter((x) => x.length > 0)
+ : Array.isArray(job?.requirements)
+ ? (job.requirements as unknown[]).map((x) => String(x || '')).filter((x) => x.length > 0)
+ : [];
+ const canonicalLocale = hasCanonicalSignal
+ ? canonicalLocaleRaw
+ : buildFallbackCanonicalContent(localizedDescriptionRaw, fallbackRequirements, locale);
  const canonicalSummary = cleanItems(canonicalLocale?.summary, 4);
  const canonicalSections = parseCanonicalSections(canonicalLocale?.sections, 8)
  .filter((section) => !['requirements', 'benefits', 'process'].includes(section.id));
