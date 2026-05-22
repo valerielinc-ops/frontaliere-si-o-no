@@ -376,6 +376,41 @@ export function composeJobPageH1(jobTitle: string, company: string): string {
  return cleanCompany ? `${jobTitle} — ${cleanCompany}` : jobTitle;
 }
 
+/**
+ * Strip literal markdown bold/separator tokens that leak from AI-translated
+ * crawler titles. The shared description parser only runs on body text — job
+ * titles flow through `esc()` (HTML-escape only) into <h1>, related-jobs
+ * sidebar, and aria-labels. When a crawler/translation leaves `**Title**`
+ * intact, the literal asterisks render in <main>, blowing the 0-tolerance
+ * `audit-no-literal-markdown` gate (PR #480 incident — 27 job-detail pages
+ * with `**Diplomierte Pflegefachperson HF / FH (40-100%)**` leaked from
+ * `titleByLocale`/`title`).
+ *
+ * Contract:
+ *  - `**X**` → `X` (single pair). Repeats for chained bold runs.
+ *  - `_X_`   → `X` (only when both delimiters touch the title's edges or
+ *               whitespace, to avoid mangling identifiers like `HFR_M_42`).
+ *  - `===…`, `___…`, `~~~…` separator runs (3+ chars) → stripped wholesale.
+ *  - Single leading/trailing `*` chars (orphan asterisks from unbalanced
+ *    bold runs that survived odd-count stripping in parseInline) → removed.
+ *  - Collapses any double-spaces left over from stripping.
+ *
+ * Idempotent (running twice produces the same output).
+ */
+export function stripLiteralMarkdownFromTitle(title: string): string {
+ if (!title) return title;
+ let t = String(title);
+ // Bold pairs — non-greedy body, no newline (titles are single-line).
+ t = t.replace(/\*\*([^*\n]+?)\*\*/g, '$1');
+ // Separator runs (3+ of `_`, `=`, `~`) — drop.
+ t = t.replace(/[_=~]{3,}/g, ' ');
+ // Orphan leading/trailing single `*` and double `**` (unbalanced survivors).
+ t = t.replace(/^\s*\*+\s*/, '').replace(/\s*\*+\s*$/, '');
+ // Collapse any double-spaces created by the strips.
+ t = t.replace(/[ \t]{2,}/g, ' ');
+ return t.trim();
+}
+
 // ─── Human-readable disambiguator cascade ─────────────────────────────────
 //
 // When two job postings share the same `<title>` base (job-title + company
@@ -1957,7 +1992,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  // The page itself is still emitted with its own URL (breadcrumbs,
  // JobPosting, etc. describe THIS page) so existing backlinks resolve.
  const effectiveCanonicalUrl = resolveCanonicalUrl(perLocaleSlug[locale], canonicalUrl);
- const localizedTitle = String(job?.titleByLocale?.[locale] || job.title || '');
+ const localizedTitle = stripLiteralMarkdownFromTitle(String(job?.titleByLocale?.[locale] || job.title || ''));
  const jobLocation = String(job.location || '').trim();
  const dc = CANTON_DISPLAY[String(job.canton || DEFAULT_CANTON)] || String(job.canton || DEFAULT_CANTON);
  // City-aware title: always includes location when available, then truncates
@@ -2098,7 +2133,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  .map((r: any) => {
  const rp = `${localePrefix[locale]}/${buildCantonAwareSection(locale, jobCanton)}/${localizedSlug(r, locale)}`.replace(/\/+/g, '/');
  const href = `${BASE_URL}${withSlash(rp)}`;
- const relatedTitle = String(r?.titleByLocale?.[locale] || r.title || '');
+ const relatedTitle = stripLiteralMarkdownFromTitle(String(r?.titleByLocale?.[locale] || r.title || ''));
  const rLogo = companyLogo(r);
  const rSalary = (() => {
  if (!r.salaryMin) return '';
