@@ -28,7 +28,7 @@
       "slugByLocale": {
         "it": "store-manager-100-shop-in-shop-manor-lausanne-the-swatch-group-les-boutiques-ltd-rue-pichard-3-1002-lausanne-vaud-suisse-adresse-de-l-entrep-7uaw44",
         "en": "store-manager-100-shop-in-shop-manor-lausanne-the-swatch-group-les-boutiques-ltd-rue-pichard-3-1002-lausanne-vaud-suisse-adresse-de-l-entrep-7uaw44",
-        "de": "store-manager-100-shop-in-shop-manor-lausanne-the-swatch-group-les-boutiques-ltd-rue-pichard-3-1002-lausanne-vaud-suisse-adresse-de-l-entrep-7uaw44",
+        "de": "filialleiter-100-shop-in-shop-manor-lausanne-the-swatch-group-les-boutiques-ltd-rue-pichard-3-1002-lausanne-vaud-suisse",
         "fr": "store-manager-100-shop-in-shop-manor-lausanne-the-swatch-group-les-boutiques-ltd-rue-pichard-3-1002-lausanne-vaud-suisse-adresse-de-l-entrep-7uaw44"
       },
       "titleByLocale": {
@@ -74,7 +74,7 @@
     },
     {
       "id": "company-7uaw50",
-      "slug": "sales-consulente-100-geneve-the-swatch-group-les-boutiques-ltd-1215-geneve-geneva-switzerland-company-address-the-swatch-group-les-boutiques-7uaw50",
+      "slug": "consulente-vendite-100-ginevra-the-swatch-group-les-boutiques-ltd-1215-geneve-geneva-switzerland-company-address-the",
       "company": "The Swatch Group Les Boutiques Ltd",
       "title": "Sales Advisor 100% - Genève",
       "location": "1215 Genève (Geneva) Switzerland Company address The Swatch Group Les Boutiques",
@@ -119,19 +119,25 @@
         ]
       },
       "slugByLocale": {
-        "it": "sales-consulente-100-geneve-the-swatch-group-les-boutiques-ltd-1215-geneve-geneva-switzerland-company-address-the-swatch-group-les-boutiques-7uaw50",
+        "it": "consulente-vendite-100-ginevra-the-swatch-group-les-boutiques-ltd-1215-geneve-geneva-switzerland-company-address-the",
         "en": "sales-advisor-100-geneve-the-swatch-group-les-boutiques-ltd-1215-geneve-geneva-switzerland-company-address-the-swatch-group-les-boutiques-7uaw50",
-        "de": "sales-berater-100-geneve-the-swatch-group-les-boutiques-ltd-1215-geneve-geneva-switzerland-company-address-the-swatch-group-les-boutiques-7uaw50",
+        "de": "vertriebsberater-100-genf-the-swatch-group-les-boutiques-ltd-1215-geneve-geneva-switzerland-company-address-the-swatch",
         "fr": "sales-conseiller-100-geneve-the-swatch-group-les-boutiques-ltd-1215-geneve-geneva-switzerland-company-address-the-swatch-group-les-boutiques-7uaw50"
       },
       "sourceLang": "fr",
       "previousSlugsByLocale": {
         "it": [
-          "sales-advisor-100-geneve-the-swatch-group-les-boutiques-ltd-1215-geneve-geneva-switzerland-company-address-the-swatch-group-les-boutiques"
+          "sales-advisor-100-geneve-the-swatch-group-les-boutiques-ltd-1215-geneve-geneva-switzerland-company-address-the-swatch-group-les-boutiques",
+          "sales-consulente-100-geneve-the-swatch-group-les-boutiques-ltd-1215-geneve-geneva-switzerland-company-address-the-swatch-group-les-boutiques-7uaw50"
+        ],
+        "de": [
+          "sales-berater-100-geneve-the-swatch-group-les-boutiques-ltd-1215-geneve-geneva-switzerland-company-address-the-swatch-group-les-boutiques-7uaw50"
         ]
       },
       "previousSlugs": [
-        "sales-advisor-100-geneve-the-swatch-group-les-boutiques-ltd-1215-geneve-geneva-switzerland-company-address-the-swatch-group-les-boutiques"
+        "sales-advisor-100-geneve-the-swatch-group-les-boutiques-ltd-1215-geneve-geneva-switzerland-company-address-the-swatch-group-les-boutiques",
+        "sales-consulente-100-geneve-the-swatch-group-les-boutiques-ltd-1215-geneve-geneva-switzerland-company-address-the-swatch-group-les-boutiques-7uaw50",
+        "sales-berater-100-geneve-the-swatch-group-les-boutiques-ltd-1215-geneve-geneva-switzerland-company-address-the-swatch-group-les-boutiques-7uaw50"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -208,7 +214,7 @@
         "it": "omega-luxury-timepieces-assistant-store-manager-bellagio-the-swatch-group-u-s-inc-job-location-south-las-vegas-boulevard-3600-89109-las-vega-7uaw4z",
         "en": "omega-luxury-timepieces-assistant-store-manager-bellagio-the-swatch-group-u-s-inc-job-location-south-las-vegas-boulevard-3600-89109-las-vega-7uaw4z",
         "de": "omega-luxury-timepieces-assistent-store-manager-bellagio-the-swatch-group-u-s-inc-job-location-south-las-vegas-boulevard-3600-89109-las-vega-7uaw4z",
-        "fr": "omega-luxury-timepieces-assistant-store-manager-bellagio-the-swatch-group-u-s-inc-job-location-south-las-vegas-boulevard-3600-89109-las-vega-7uaw4z"
+        "fr": "montres-de-luxe-omega-assistant-store-manager-bellagio-the-swatch-group-u-s-inc-job-location-south-las-vegas-boulevard"
       },
       "sourceLang": "en",
       "previousSlugsByLocale": {
@@ -240,7 +246,7 @@
     },
     {
       "id": "company-7uaw4v",
-      "slug": "business-development-manager-electronic-modules-em-microelectronic-marin-ltd-2074-marin-neuchatel-switzerland-company-address-em-microelectr-7uaw4v",
+      "slug": "business-development-manager-moduli-elettronici-em-microelectronic-marin-ltd-2074-marin-neuchatel-switzerland-company",
       "company": "EM Microelectronic-Marin Ltd",
       "title": "Business Development Manager - Electronic Modules",
       "location": "2074 Marin (Neuchatel) Switzerland Company address EM Microelectronic-Marin Ltd",
@@ -272,19 +278,27 @@
       },
       "requirementsByLocale": {},
       "slugByLocale": {
-        "it": "business-development-manager-electronic-modules-em-microelectronic-marin-ltd-2074-marin-neuchatel-switzerland-company-address-em-microelectr-7uaw4v",
+        "it": "business-development-manager-moduli-elettronici-em-microelectronic-marin-ltd-2074-marin-neuchatel-switzerland-company",
         "en": "business-development-manager-electronic-modules-em-microelectronic-marin-ltd-2074-marin-neuchatel-switzerland-company-address-em-microelectr-7uaw4v",
-        "de": "business-development-manager-electronic-modules-em-microelectronic-marin-ltd-2074-marin-neuchatel-switzerland-company-address-em-microelectr-7uaw4v",
-        "fr": "business-development-manager-electronic-modules-em-microelectronic-marin-ltd-2074-marin-neuchatel-switzerland-company-address-em-microelectr-7uaw4v"
+        "de": "business-development-manager-elektronische-module-em-microelectronic-marin-ltd-2074-marin-neuchatel-switzerland-company",
+        "fr": "gestionnaire-du-developpement-des-affaires-modules-electroniques-em-microelectronic-marin-ltd-2074-marin-neuchatel"
       },
       "sourceLang": "en",
       "previousSlugsByLocale": {
         "it": [
-          "business-development-manager-electronic-modules-em-microelectronic-marin-ltd-2074-marin-neuchatel-switzerland-company-address-em-microelectr"
+          "business-development-manager-electronic-modules-em-microelectronic-marin-ltd-2074-marin-neuchatel-switzerland-company-address-em-microelectr",
+          "business-development-manager-electronic-modules-em-microelectronic-marin-ltd-2074-marin-neuchatel-switzerland-company-address-em-microelectr-7uaw4v"
+        ],
+        "de": [
+          "business-development-manager-electronic-modules-em-microelectronic-marin-ltd-2074-marin-neuchatel-switzerland-company-address-em-microelectr-7uaw4v"
+        ],
+        "fr": [
+          "business-development-manager-electronic-modules-em-microelectronic-marin-ltd-2074-marin-neuchatel-switzerland-company-address-em-microelectr-7uaw4v"
         ]
       },
       "previousSlugs": [
-        "business-development-manager-electronic-modules-em-microelectronic-marin-ltd-2074-marin-neuchatel-switzerland-company-address-em-microelectr"
+        "business-development-manager-electronic-modules-em-microelectronic-marin-ltd-2074-marin-neuchatel-switzerland-company-address-em-microelectr",
+        "business-development-manager-electronic-modules-em-microelectronic-marin-ltd-2074-marin-neuchatel-switzerland-company-address-em-microelectr-7uaw4v"
       ],
       "salaryMin": 95000,
       "salaryMax": 132500,

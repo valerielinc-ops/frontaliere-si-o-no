@@ -42,9 +42,9 @@
       "requirementsByLocale": {},
       "slugByLocale": {
         "it": "spezialist-in-elektrotechnik-swiss-armed-forces-vtg-bern-9lhprp",
-        "en": "spezialist-in-elektrotechnik-swiss-armed-forces-vtg-bern-9lhprp",
+        "en": "specialist-in-electrical-engineering-swiss-armed-forces-vtg-bern",
         "de": "spezialist-in-elektrotechnik-swiss-armed-forces-vtg-bern-9lhprp",
-        "fr": "spezialist-in-elektrotechnik-swiss-armed-forces-vtg-bern-9lhprp"
+        "fr": "specialiste-en-genie-electrique-swiss-armed-forces-vtg-bern"
       },
       "sourceLang": "de",
       "previousSlugsByLocale": {
@@ -76,7 +76,7 @@
     },
     {
       "id": "company-tbkyw4",
-      "slug": "offizier-in-rustung-e-weiterentwicklung-swiss-armed-forces-vtg-bern-tbkyw4",
+      "slug": "ufficiale-in-armor-e-sviluppo-swiss-armed-forces-vtg-bern",
       "company": "Swiss Armed Forces (VTG)",
       "title": "Offizier/-in Rüstung und Weiterentwicklung",
       "location": "Bern",
@@ -113,19 +113,28 @@
       },
       "requirementsByLocale": {},
       "slugByLocale": {
-        "it": "offizier-in-rustung-e-weiterentwicklung-swiss-armed-forces-vtg-bern-tbkyw4",
-        "en": "offizier-in-rustung-und-weiterentwicklung-swiss-armed-forces-vtg-bern-tbkyw4",
+        "it": "ufficiale-in-armor-e-sviluppo-swiss-armed-forces-vtg-bern",
+        "en": "officer-in-armor-and-development-swiss-armed-forces-vtg-bern",
         "de": "offizier-in-rustung-und-weiterentwicklung-swiss-armed-forces-vtg-bern-tbkyw4",
-        "fr": "offizier-in-rustung-und-weiterentwicklung-swiss-armed-forces-vtg-bern-tbkyw4"
+        "fr": "officier-in-armor-et-developpement-swiss-armed-forces-vtg-bern"
       },
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "offizier-in-rustung-und-weiterentwicklung-swiss-armed-forces-vtg-bern"
+          "offizier-in-rustung-und-weiterentwicklung-swiss-armed-forces-vtg-bern",
+          "offizier-in-rustung-e-weiterentwicklung-swiss-armed-forces-vtg-bern-tbkyw4"
+        ],
+        "en": [
+          "offizier-in-rustung-und-weiterentwicklung-swiss-armed-forces-vtg-bern-tbkyw4"
+        ],
+        "fr": [
+          "offizier-in-rustung-und-weiterentwicklung-swiss-armed-forces-vtg-bern-tbkyw4"
         ]
       },
       "previousSlugs": [
-        "offizier-in-rustung-und-weiterentwicklung-swiss-armed-forces-vtg-bern"
+        "offizier-in-rustung-und-weiterentwicklung-swiss-armed-forces-vtg-bern",
+        "offizier-in-rustung-e-weiterentwicklung-swiss-armed-forces-vtg-bern-tbkyw4",
+        "offizier-in-rustung-und-weiterentwicklung-swiss-armed-forces-vtg-bern-tbkyw4"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -186,9 +195,9 @@
       "requirementsByLocale": {},
       "slugByLocale": {
         "it": "spezialist-in-technik-hlks-swiss-armed-forces-vtg-bern-ssbfdj",
-        "en": "spezialist-in-technik-hlks-swiss-armed-forces-vtg-bern-ssbfdj",
+        "en": "specialist-in-technology-hlks-swiss-armed-forces-vtg-bern",
         "de": "spezialist-in-technik-hlks-swiss-armed-forces-vtg-bern-ssbfdj",
-        "fr": "spezialist-in-technik-hlks-swiss-armed-forces-vtg-bern-ssbfdj"
+        "fr": "specialiste-en-technologie-hlks-swiss-armed-forces-vtg-bern"
       },
       "sourceLang": "de",
       "previousSlugsByLocale": {

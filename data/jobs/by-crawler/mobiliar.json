@@ -8,8 +8,8 @@
       "slugByLocale": {
         "de": "jurist-wohnen-w-m-d-mobiliar-ch",
         "it": "jurist-wohnen-w-m-d-die-mobiliar-bern",
-        "en": "jurist-wohnen-w-m-d-mobiliar-ch",
-        "fr": "jurist-wohnen-w-m-d-mobiliar-ch"
+        "en": "projektmanagement-m-d-die-mobiliar-bern",
+        "fr": "juriste-wohnen-m-j-die-mobiliar-bern"
       },
       "company": "die Mobiliar",
       "companyKey": "mobiliar",
@@ -69,6 +69,12 @@
       "previousSlugsByLocale": {
         "it": [
           "jurist-wohnen-w-m-d-mobiliar-ch"
+        ],
+        "en": [
+          "jurist-wohnen-w-m-d-mobiliar-ch"
+        ],
+        "fr": [
+          "jurist-wohnen-w-m-d-mobiliar-ch"
         ]
       },
       "previousSlugs": [
@@ -91,12 +97,12 @@
     },
     {
       "id": "mobiliar-ad9838597032",
-      "slug": "responsable-team-sinistres-de-personnes-f-h-d-mobiliar-ch",
+      "slug": "responsabile-team-sinistri-persone-f-h-d-die-mobiliar-nyon",
       "slugByLocale": {
         "fr": "responsable-team-sinistres-de-personnes-f-h-d-mobiliar-ch",
-        "it": "responsable-team-sinistres-de-personnes-f-h-d-mobiliar-ch",
-        "en": "responsable-team-sinistres-de-personnes-f-h-d-mobiliar-ch",
-        "de": "responsable-team-sinistres-de-personnes-f-h-d-mobiliar-ch"
+        "it": "responsabile-team-sinistri-persone-f-h-d-die-mobiliar-nyon",
+        "en": "head-of-personal-injury-claims-team-f-h-d-die-mobiliar-nyon",
+        "de": "leiter-in-team-personenschaden-f-h-d-die-mobiliar-nyon"
       },
       "company": "die Mobiliar",
       "companyKey": "mobiliar",
@@ -152,7 +158,21 @@
         }
       },
       "postalCode": "1260",
-      "firstSeenAt": "2026-05-21T23:18:22.106Z"
+      "firstSeenAt": "2026-05-21T23:18:22.106Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "responsable-team-sinistres-de-personnes-f-h-d-mobiliar-ch"
+        ],
+        "en": [
+          "responsable-team-sinistres-de-personnes-f-h-d-mobiliar-ch"
+        ],
+        "de": [
+          "responsable-team-sinistres-de-personnes-f-h-d-mobiliar-ch"
+        ]
+      },
+      "previousSlugs": [
+        "responsable-team-sinistres-de-personnes-f-h-d-mobiliar-ch"
+      ]
     },
     {
       "id": "mobiliar-24c3b4a0c512",
@@ -254,12 +274,12 @@
     },
     {
       "id": "mobiliar-1874233c7db0",
-      "slug": "product-owner-w-m-d-mobiliar-ch",
+      "slug": "proprietario-del-prodotto-w-m-d-die-mobiliar-bern",
       "slugByLocale": {
         "de": "product-owner-w-m-d-mobiliar-ch",
-        "it": "product-owner-w-m-d-mobiliar-ch",
+        "it": "proprietario-del-prodotto-w-m-d-die-mobiliar-bern",
         "en": "product-owner-w-m-d-die-mobiliar-bern",
-        "fr": "product-owner-w-m-d-mobiliar-ch"
+        "fr": "proprietaire-du-produit-p-m-d-die-mobiliar-bern"
       },
       "company": "die Mobiliar",
       "companyKey": "mobiliar",
@@ -335,7 +355,18 @@
         }
       },
       "postalCode": "3001",
-      "firstSeenAt": "2026-05-21T23:18:20.503Z"
+      "firstSeenAt": "2026-05-21T23:18:20.503Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "product-owner-w-m-d-mobiliar-ch"
+        ],
+        "fr": [
+          "product-owner-w-m-d-mobiliar-ch"
+        ]
+      },
+      "previousSlugs": [
+        "product-owner-w-m-d-mobiliar-ch"
+      ]
     },
     {
       "id": "mobiliar-abfe60173fa1",
@@ -865,9 +896,9 @@
     },
     {
       "id": "mobiliar-392c41197447",
-      "slug": "support-vendita-assicurativo-u-m-d-generalagentura-affoltern-am-albis-die-mobiliar-affoltern-am-albis",
+      "slug": "collaboratore-trice-verkaufssupport-w-m-d-agenzia-generale-affoltern-am-albis-die-mobiliar-affoltern-am-albis",
       "slugByLocale": {
-        "it": "support-vendita-assicurativo-u-m-d-generalagentura-affoltern-am-albis-die-mobiliar-affoltern-am-albis",
+        "it": "collaboratore-trice-verkaufssupport-w-m-d-agenzia-generale-affoltern-am-albis-die-mobiliar-affoltern-am-albis",
         "en": "sales-support-specialist-m-f-d-general-agency-affoltern-am-albis-die-mobiliar-affoltern-am-albis",
         "de": "mitarbeiter-verkaufssupport-w-m-d-generalagentur-affoltern-am-albis-mobiliar-ch",
         "fr": "support-commercial-h-f-d-agence-generale-affoltern-am-albis-die-mobiliar-affoltern-am-albis"
@@ -914,12 +945,14 @@
       "sfJobId": "1163881455",
       "previousSlugs": [
         "mitarbeiter-verkaufssupport-w-m-d-generalagentur-affoltern-am-albis-mobiliar-ch",
-        "collaboratore-trice-verkaufssupport-m-w-d-agenzia-generale-affoltern-am-albis-die-mobiliar-affoltern-am-albis"
+        "collaboratore-trice-verkaufssupport-m-w-d-agenzia-generale-affoltern-am-albis-die-mobiliar-affoltern-am-albis",
+        "support-vendita-assicurativo-u-m-d-generalagentura-affoltern-am-albis-die-mobiliar-affoltern-am-albis"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-verkaufssupport-w-m-d-generalagentur-affoltern-am-albis-mobiliar-ch",
-          "collaboratore-trice-verkaufssupport-m-w-d-agenzia-generale-affoltern-am-albis-die-mobiliar-affoltern-am-albis"
+          "collaboratore-trice-verkaufssupport-m-w-d-agenzia-generale-affoltern-am-albis-die-mobiliar-affoltern-am-albis",
+          "support-vendita-assicurativo-u-m-d-generalagentura-affoltern-am-albis-die-mobiliar-affoltern-am-albis"
         ],
         "en": [
           "mitarbeiter-verkaufssupport-w-m-d-generalagentur-affoltern-am-albis-mobiliar-ch"

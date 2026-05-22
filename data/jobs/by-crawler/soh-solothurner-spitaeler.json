@@ -2519,7 +2519,6 @@
       },
       "previousSlugsByLocale": {
         "de": [
-          "radiologiefachfrau-radiologiefachmann-w-m-d-soh-ch",
           "radiologiefachfrau-radiologiefachmann-w-m-d-soh-solothurner-spitaeler-olten"
         ],
         "en": [
@@ -2532,7 +2531,6 @@
         ]
       },
       "previousSlugs": [
-        "radiologiefachfrau-radiologiefachmann-w-m-d-soh-ch",
         "radiology-specialist-w-m-d-solothurner-spitaler-soh-olten",
         "radiology-technician-male-female-solothurner-spitaler-ag-soh-olten",
         "specialiste-de-radiologie-w-m-d-solothurner-spitaler-soh-olten",
@@ -6393,14 +6391,6 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "en": [
-          "dipl-pflegefachfrau-pflegefachmann-imc-w-m-d-soh-ch"
-        ],
-        "fr": [
-          "dipl-pflegefachfrau-pflegefachmann-imc-w-m-d-soh-ch"
-        ]
       }
     },
     {
@@ -8505,17 +8495,14 @@
       },
       "previousSlugs": [
         "diploma-in-nursing-gastroenterology-m-f-d-solothurner-spitaler-ag-soh-schweiz",
-        "diploma-in-nursing-gastroenterology-male-female-solothurner-spitaler-soh-solothurn",
         "dipl-pflegefachfrau-pflegefachmann-gastroenterologie-w-m-d-soh-solothurner-spitaeler",
         "diplome-e-en-soins-infirmiers-en-gastroenterologie-h-f-solothurner-spitaler-ag-soh-schweiz",
-        "infirmier-ere-specialise-e-en-gastroenterologie-h-f-solothurner-spitaler-soh-solothurn",
         "diploma-in-nursing-gastroenterology-male-female-solothurner-spitaler-ag-soh-schweiz",
         "infirmier-ere-specialise-e-en-gastroenterologie-h-f-solothurner-spitaler-ag-soh-schweiz"
       ],
       "previousSlugsByLocale": {
         "en": [
           "diploma-in-nursing-gastroenterology-m-f-d-solothurner-spitaler-ag-soh-schweiz",
-          "diploma-in-nursing-gastroenterology-male-female-solothurner-spitaler-soh-solothurn",
           "diploma-in-nursing-gastroenterology-male-female-solothurner-spitaler-ag-soh-schweiz"
         ],
         "de": [
@@ -8523,7 +8510,6 @@
         ],
         "fr": [
           "diplome-e-en-soins-infirmiers-en-gastroenterologie-h-f-solothurner-spitaler-ag-soh-schweiz",
-          "infirmier-ere-specialise-e-en-gastroenterologie-h-f-solothurner-spitaler-soh-solothurn",
           "infirmier-ere-specialise-e-en-gastroenterologie-h-f-solothurner-spitaler-ag-soh-schweiz"
         ]
       },
@@ -11637,7 +11623,7 @@
       "slug": "radiologiefachfrau-radiologiefachmann-hf-nuklearmedizin-w-m-d-soh-ch",
       "slugByLocale": {
         "it": "radiologiefachfrau-radiologiefachmann-hf-nuklearmedizin-w-m-d-soh-ch",
-        "en": "radiologiefachfrau-radiologiefachmann-hf-nuklearmedizin-w-m-d-soh-ch",
+        "en": "radiology-specialist-w-m-d-solothurner-spitaler-ag-soh-solothurn",
         "de": "radiologiefachfrau-radiologiefachmann-hf-nuklearmedizin-w-m-d-soh-ch",
         "fr": "radiologiefachfrau-radiologiefachmann-hf-nuklearmedizin-w-m-d-soh-ch"
       },
@@ -11706,12 +11692,12 @@
     },
     {
       "id": "soh-solothurner-spitaeler-45cc3c3a4605",
-      "slug": "nachdiplomstudium-hf-intensivpflege-w-m-d-soh-solothurner-spitaeler-olten",
+      "slug": "consulente-senior-w-m-d-solothurner-spitaler-ag-soh-olten",
       "slugByLocale": {
-        "it": "nachdiplomstudium-hf-intensivpflege-w-m-d-soh-solothurner-spitaeler-olten",
-        "en": "nachdiplomstudium-hf-intensivpflege-w-m-d-soh-solothurner-spitaeler-olten",
+        "it": "consulente-senior-w-m-d-solothurner-spitaler-ag-soh-olten",
+        "en": "senior-consultant-w-m-d-solothurner-spitaler-ag-soh-olten",
         "de": "nachdiplomstudium-hf-intensivpflege-w-m-d-soh-solothurner-spitaeler-olten",
-        "fr": "nachdiplomstudium-hf-intensivpflege-w-m-d-soh-solothurner-spitaeler-olten"
+        "fr": "consultant-principal-m-j-solothurner-spitaler-ag-soh-olten"
       },
       "company": "Solothurner Spitäler AG (soH)",
       "companyKey": "soh-solothurner-spitaeler",
@@ -11764,7 +11750,21 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "nachdiplomstudium-hf-intensivpflege-w-m-d-soh-solothurner-spitaeler-olten"
+        ],
+        "en": [
+          "nachdiplomstudium-hf-intensivpflege-w-m-d-soh-solothurner-spitaeler-olten"
+        ],
+        "fr": [
+          "nachdiplomstudium-hf-intensivpflege-w-m-d-soh-solothurner-spitaeler-olten"
+        ]
+      },
+      "previousSlugs": [
+        "nachdiplomstudium-hf-intensivpflege-w-m-d-soh-solothurner-spitaeler-olten"
+      ]
     },
     {
       "id": "soh-solothurner-spitaeler-71a999de6ff5",
@@ -11832,12 +11832,12 @@
     },
     {
       "id": "soh-solothurner-spitaeler-e0038529f7c1",
-      "slug": "nachdiplomstudium-hf-intensivpflege-w-m-d-solothurner-spitaler-ag-soh-olten",
+      "slug": "consulente-senior-w-m-d-solothurner-spitaler-ag-soh-olten-f6ffe7",
       "slugByLocale": {
-        "it": "nachdiplomstudium-hf-intensivpflege-w-m-d-solothurner-spitaler-ag-soh-olten",
-        "en": "nachdiplomstudium-hf-intensivpflege-w-m-d-solothurner-spitaler-ag-soh-olten",
+        "it": "consulente-senior-w-m-d-solothurner-spitaler-ag-soh-olten-f6ffe7",
+        "en": "senior-consultant-w-m-d-solothurner-spitaler-ag-soh-olten-f6ffe7",
         "de": "nachdiplomstudium-hf-intensivpflege-w-m-d-soh-solothurner-spitaeler-olten",
-        "fr": "nachdiplomstudium-hf-intensivpflege-w-m-d-solothurner-spitaler-ag-soh-olten"
+        "fr": "consultant-principal-m-j-solothurner-spitaler-ag-soh-olten-f6ffe7"
       },
       "company": "Solothurner Spitäler AG (soH)",
       "companyKey": "soh-solothurner-spitaeler",
@@ -11879,11 +11879,19 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "nachdiplomstudium-hf-intensivpflege-w-m-d-soh-solothurner-spitaeler-olten-2"
+        "nachdiplomstudium-hf-intensivpflege-w-m-d-soh-solothurner-spitaeler-olten-2",
+        "nachdiplomstudium-hf-intensivpflege-w-m-d-solothurner-spitaler-ag-soh-olten"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "nachdiplomstudium-hf-intensivpflege-w-m-d-soh-solothurner-spitaeler-olten-2"
+          "nachdiplomstudium-hf-intensivpflege-w-m-d-soh-solothurner-spitaeler-olten-2",
+          "nachdiplomstudium-hf-intensivpflege-w-m-d-solothurner-spitaler-ag-soh-olten"
+        ],
+        "en": [
+          "nachdiplomstudium-hf-intensivpflege-w-m-d-solothurner-spitaler-ag-soh-olten"
+        ],
+        "fr": [
+          "nachdiplomstudium-hf-intensivpflege-w-m-d-solothurner-spitaler-ag-soh-olten"
         ]
       },
       "firstSeenAt": "2026-05-21T13:16:28.979Z",

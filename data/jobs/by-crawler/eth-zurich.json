@@ -9078,12 +9078,12 @@
     },
     {
       "id": "eth-zurich-6f2211237b64",
-      "slug": "postdoctoral-position-in-stakeholder-engagement-eth-zurich-ch",
+      "slug": "posizione-post-dottorale-in-engagement-stakeholder-eth-zurich-zurich",
       "slugByLocale": {
         "en": "postdoctoral-position-in-stakeholder-engagement-eth-zurich-ch",
-        "it": "postdoctoral-position-in-stakeholder-engagement-eth-zurich-ch",
+        "it": "posizione-post-dottorale-in-engagement-stakeholder-eth-zurich-zurich",
         "de": "postdoctoral-position-in-stakeholder-engagement-eth-zurich-ch",
-        "fr": "postdoctoral-position-in-stakeholder-engagement-eth-zurich-ch"
+        "fr": "position-postdoctorale-dans-l-engagement-des-intervenants-eth-zurich-zurich"
       },
       "company": "ETH Zürich",
       "companyKey": "eth-zurich",
@@ -9137,7 +9137,18 @@
         }
       },
       "postalCode": "8001",
-      "firstSeenAt": "2026-05-21T22:22:51.246Z"
+      "firstSeenAt": "2026-05-21T22:22:51.246Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "postdoctoral-position-in-stakeholder-engagement-eth-zurich-ch"
+        ],
+        "fr": [
+          "postdoctoral-position-in-stakeholder-engagement-eth-zurich-ch"
+        ]
+      },
+      "previousSlugs": [
+        "postdoctoral-position-in-stakeholder-engagement-eth-zurich-ch"
+      ]
     }
   ]
 }

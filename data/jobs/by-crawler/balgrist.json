@@ -4094,7 +4094,7 @@
         "de": "senior-social-media-manager-in-m-w-d-80-100-balgrist-zurich",
         "it": "senior-social-media-manager-in-m-w-d-80-100-balgrist-zurich",
         "en": "senior-social-media-manager-in-m-w-d-80-100-balgrist-zurich",
-        "fr": "senior-social-media-manager-in-m-w-d-80-100-balgrist-zurich"
+        "fr": "gestionnaire-principal-des-medias-sociaux-en-m-m-j-80-100-universitatsklinik-balgrist-zurich"
       },
       "company": "Universitätsklinik Balgrist",
       "companyKey": "balgrist",
@@ -4231,12 +4231,12 @@
     },
     {
       "id": "balgrist-db7b5217bcf1",
-      "slug": "mitarbeiterin-collaboratore-trice-hauswirtschaft-op-am-tag-m-w-d-45-universitatsklinik-balgrist-zurich",
+      "slug": "consulente-senior-m-w-d-45-universitatsklinik-balgrist-zurich",
       "slugByLocale": {
         "de": "mitarbeiterin-mitarbeiter-hauswirtschaft-op-am-tag-m-w-d-45-balgrist-zurich",
-        "it": "mitarbeiterin-collaboratore-trice-hauswirtschaft-op-am-tag-m-w-d-45-universitatsklinik-balgrist-zurich",
-        "en": "mitarbeiterin-mitarbeiter-hauswirtschaft-op-am-tag-m-w-d-45-balgrist-zurich",
-        "fr": "mitarbeiterin-mitarbeiter-hauswirtschaft-op-am-tag-m-w-d-45-balgrist-zurich"
+        "it": "consulente-senior-m-w-d-45-universitatsklinik-balgrist-zurich",
+        "en": "senior-consultant-m-w-d-45-universitatsklinik-balgrist-zurich",
+        "fr": "consultant-principal-m-m-j-45-universitatsklinik-balgrist-zurich"
       },
       "company": "Universitätsklinik Balgrist",
       "companyKey": "balgrist",
@@ -4281,11 +4281,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiterin-mitarbeiter-hauswirtschaft-op-am-tag-m-w-d-45-balgrist-zurich",
+          "mitarbeiterin-collaboratore-trice-hauswirtschaft-op-am-tag-m-w-d-45-universitatsklinik-balgrist-zurich"
+        ],
+        "en": [
+          "mitarbeiterin-mitarbeiter-hauswirtschaft-op-am-tag-m-w-d-45-balgrist-zurich"
+        ],
+        "fr": [
           "mitarbeiterin-mitarbeiter-hauswirtschaft-op-am-tag-m-w-d-45-balgrist-zurich"
         ]
       },
       "previousSlugs": [
-        "mitarbeiterin-mitarbeiter-hauswirtschaft-op-am-tag-m-w-d-45-balgrist-zurich"
+        "mitarbeiterin-mitarbeiter-hauswirtschaft-op-am-tag-m-w-d-45-balgrist-zurich",
+        "mitarbeiterin-collaboratore-trice-hauswirtschaft-op-am-tag-m-w-d-45-universitatsklinik-balgrist-zurich"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,

@@ -410,12 +410,12 @@
     },
     {
       "id": "clinica-holistica-engiadina-4d9896d97d11",
-      "slug": "hr-assistent-in-40-60-clinica-holistica-engiadina-susch",
+      "slug": "risorse-umane-assistent-in-40-60-clinica-holistica-engiadina-susch",
       "slugByLocale": {
         "de": "hr-assistent-in-40-60-clinica-holistica-engiadina-susch",
-        "it": "hr-assistent-in-40-60-clinica-holistica-engiadina-susch",
+        "it": "risorse-umane-assistent-in-40-60-clinica-holistica-engiadina-susch",
         "en": "hr-assistent-in-40-60-clinica-holistica-engiadina-susch",
-        "fr": "hr-assistent-in-40-60-clinica-holistica-engiadina-susch"
+        "fr": "ressources-humaines-assistent-in-40-60-clinica-holistica-engiadina-susch"
       },
       "company": "Clinica Holistica Engiadina",
       "companyKey": "clinica-holistica-engiadina",
@@ -467,7 +467,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-21T22:02:28.980Z"
+      "firstSeenAt": "2026-05-21T22:02:28.980Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "hr-assistent-in-40-60-clinica-holistica-engiadina-susch"
+        ],
+        "fr": [
+          "hr-assistent-in-40-60-clinica-holistica-engiadina-susch"
+        ]
+      },
+      "previousSlugs": [
+        "hr-assistent-in-40-60-clinica-holistica-engiadina-susch"
+      ]
     }
   ]
 }

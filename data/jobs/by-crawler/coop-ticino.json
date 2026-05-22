@@ -52,9 +52,9 @@
       },
       "slugByLocale": {
         "it": "verkaufer-in-food-coop-felsberg-graubunden-9fezrn",
-        "en": "verkaufer-in-food-coop-felsberg-graubunden-9fezrn",
+        "en": "seller-in-food-coop-genossenschaft-felsberg",
         "de": "verkaufer-in-food-coop-felsberg-graubunden-9fezrn",
-        "fr": "verkaufer-in-food-coop-felsberg-graubunden-9fezrn"
+        "fr": "vendeur-dans-la-nourriture-coop-genossenschaft-felsberg"
       },
       "addressLocality": "Felsberg",
       "salaryMin": 49500,
@@ -69,7 +69,18 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "en": [
+          "verkaufer-in-food-coop-felsberg-graubunden-9fezrn"
+        ],
+        "fr": [
+          "verkaufer-in-food-coop-felsberg-graubunden-9fezrn"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufer-in-food-coop-felsberg-graubunden-9fezrn"
+      ]
     },
     {
       "id": "company-onj02s",
@@ -679,9 +690,9 @@
       "firstSeenAt": "2026-05-21T11:40:15.231Z",
       "slugByLocale": {
         "it": "verkaufer-in-food-coop-felsberg-graubunden-9fezrn",
-        "en": "verkaufer-in-food-coop-felsberg-graubunden-9fezrn",
+        "en": "seller-in-food-coop-genossenschaft-felsberg-339410",
         "de": "verkaufer-in-food-coop-felsberg-graubunden-9fezrn",
-        "fr": "verkaufer-in-food-coop-felsberg-graubunden-9fezrn"
+        "fr": "vendeur-dans-la-nourriture-coop-genossenschaft-felsberg-339410"
       },
       "titleByLocale": {
         "de": "Verkäufer:in Food",
@@ -721,11 +732,13 @@
       "previousSlugsByLocale": {
         "en": [
           "verkaufer-in-food-coop-felsberg-graubunden-lzsoh3",
-          "seller-in-food-coop-genossenschaft-felsberg"
+          "seller-in-food-coop-genossenschaft-felsberg",
+          "verkaufer-in-food-coop-felsberg-graubunden-9fezrn"
         ],
         "fr": [
           "verkaufer-in-food-coop-felsberg-graubunden-lzsoh3",
-          "vendeur-dans-la-nourriture-coop-genossenschaft-felsberg"
+          "vendeur-dans-la-nourriture-coop-genossenschaft-felsberg",
+          "verkaufer-in-food-coop-felsberg-graubunden-9fezrn"
         ],
         "de": [
           "verkaufer-in-food-coop-felsberg-graubunden-lzsoh3",
@@ -738,6 +751,7 @@
       "previousSlugs": [
         "verkaufer-in-food-coop-felsberg-graubunden-lzsoh3",
         "seller-in-food-coop-genossenschaft-felsberg",
+        "verkaufer-in-food-coop-felsberg-graubunden-9fezrn",
         "vendeur-dans-la-nourriture-coop-genossenschaft-felsberg",
         "verkaufer-in-food-coop-genossenschaft-felsberg-lzsoh3"
       ]
@@ -1037,9 +1051,9 @@
       "firstSeenAt": "2026-05-19T11:31:14.522Z",
       "slugByLocale": {
         "it": "verkaufer-in-food-coop-felsberg-graubunden-9fezrn",
-        "en": "verkaufer-in-food-coop-felsberg-graubunden-9fezrn",
+        "en": "seller-in-food-coop-genossenschaft-felsberg-6dde92",
         "de": "verkaufer-in-food-coop-felsberg-graubunden-9fezrn",
-        "fr": "verkaufer-in-food-coop-felsberg-graubunden-9fezrn"
+        "fr": "vendeur-dans-la-nourriture-coop-genossenschaft-felsberg-6dde92"
       },
       "titleByLocale": {
         "de": "Verkäufer:in Food",
@@ -1083,7 +1097,7 @@
           "verkaufer-in-food-coop-felsberg-graubunden-metayj",
           "seller-in-food-coop-genossenschaft-felsberg",
           "verkaufer-in-food-coop-felsberg-graubunden-lzsoh3",
-          "seller-in-food-coop-genossenschaft-felsberg-6dde92"
+          "verkaufer-in-food-coop-felsberg-graubunden-9fezrn"
         ],
         "de": [
           "verkaufer-in-food-coop-felsberg-graubunden-metayj",
@@ -1095,18 +1109,17 @@
           "verkaufer-in-food-coop-felsberg-graubunden-metayj",
           "vendeur-dans-la-nourriture-coop-genossenschaft-felsberg",
           "verkaufer-in-food-coop-felsberg-graubunden-lzsoh3",
-          "vendeur-dans-la-nourriture-coop-genossenschaft-felsberg-6dde92"
+          "verkaufer-in-food-coop-felsberg-graubunden-9fezrn"
         ]
       },
       "previousSlugs": [
         "verkaufer-in-food-coop-felsberg-graubunden-metayj",
         "verkaufer-in-food-coop-felsberg-graubunden-lzsoh3",
         "seller-in-food-coop-genossenschaft-felsberg",
-        "seller-in-food-coop-genossenschaft-felsberg-6dde92",
+        "verkaufer-in-food-coop-felsberg-graubunden-9fezrn",
         "verkaufer-in-food-coop-genossenschaft-felsberg-lzsoh3",
         "verkaufer-in-food-coop-genossenschaft-felsberg-metayj",
-        "vendeur-dans-la-nourriture-coop-genossenschaft-felsberg",
-        "vendeur-dans-la-nourriture-coop-genossenschaft-felsberg-6dde92"
+        "vendeur-dans-la-nourriture-coop-genossenschaft-felsberg"
       ],
       "needsRetranslation": true,
       "retranslationAttempts": 1
@@ -2969,8 +2982,7 @@
         "impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-jumbo-lenzburg-1",
         "impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-jumbo-lenzburg-1-2",
         "impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-jumbo-lenzburg-1-3",
-        "impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-jumbo-lenzburg-1-4",
-        "impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-jumbo-lenzburg-1-c62qk9"
+        "impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-jumbo-lenzburg-1-4"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3271,8 +3283,7 @@
         }
       },
       "previousSlugs": [
-        "detailhandelsfachfrau-mann-assistent-in-coop-grigioni-3",
-        "impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-coop-city-lenzburg-1-tu6208"
+        "detailhandelsfachfrau-mann-assistent-in-coop-grigioni-3"
       ]
     },
     {
@@ -4680,8 +4691,7 @@
         "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-coop-grigioni-9",
         "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-coop-grigioni-pd7xlx",
         "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-coop-grigioni-pd7xlx",
-        "detailhandelsfachfrau-mann-interdiscount-grigioni-d5xyy2",
-        "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-coop-grigioni-15"
+        "detailhandelsfachfrau-mann-interdiscount-grigioni-d5xyy2"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -5024,8 +5034,7 @@
         "retailer-man-coop-gossau-2cf7c7",
         "detaillant-homme-coop-gossau-2cf7c7",
         "detailhandelsassistent-in-afp-coop-grigioni-uglo11",
-        "detailhandelsfachfrau-mann-interdiscount-jegensdorf",
-        "detailhandelsfachfrau-mann-interdiscount-grigioni-5"
+        "detailhandelsfachfrau-mann-interdiscount-jegensdorf"
       ]
     },
     {
@@ -5243,8 +5252,7 @@
         "detailhandelsassistent-in-eba-coop-grigioni-8",
         "detailhandelsassistent-in-afp-coop-grigioni-6y8rn9",
         "detailhandelsassistent-in-eba-coop-grigioni-6y8rn9",
-        "detailhandelsfachfrau-mann-interdiscount-jegensdorf-h9i811",
-        "detailhandelsassistent-in-eba-coop-grigioni-15"
+        "detailhandelsfachfrau-mann-interdiscount-jegensdorf-h9i811"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -5413,8 +5421,7 @@
         "detailhandelsassistent-in-afp-coop-grigioni-6y8rn9",
         "detailhandelsassistent-in-eba-coop-grigioni-6y8rn9",
         "detailhandelsfachfrau-mann-interdiscount-jegensdorf-h9i811",
-        "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-coop-grigioni-fgt457",
-        "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-coop-grigioni-12"
+        "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-coop-grigioni-fgt457"
       ],
       "previousSlugsByLocale": {
         "en": [
@@ -5651,9 +5658,7 @@
         "detailhandelsassistent-in-eba-coop-grigioni-2zdn0o",
         "detailhandelsassistent-in-afp-coop-grigioni-6y8rn9",
         "detailhandelsassistent-in-eba-coop-grigioni-6y8rn9",
-        "detailhandelsfachfrau-mann-interdiscount-jegensdorf-h9i811",
-        "detailhandelsassistent-in-eba-coop-grigioni-sz1j6n",
-        "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-coop-grigioni-11"
+        "detailhandelsfachfrau-mann-interdiscount-jegensdorf-h9i811"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -5741,8 +5746,7 @@
         "detailhandelsassistent-in-eba-coop-grigioni-2zdn0o",
         "detailhandelsassistent-in-afp-coop-grigioni-6y8rn9",
         "detailhandelsassistent-in-eba-coop-grigioni-6y8rn9",
-        "detailhandelsfachfrau-mann-interdiscount-jegensdorf-h9i811",
-        "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-coop-grigioni-13"
+        "detailhandelsfachfrau-mann-interdiscount-jegensdorf-h9i811"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -5822,7 +5826,6 @@
         "detailhandelsassistent-in-eba-coop-grigioni-10",
         "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-coop-grigioni-jeizv7",
         "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-coop-grigioni-jeizv7",
-        "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-coop-grigioni-8",
         "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-coop-grigioni-ymbv0r",
         "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-coop-grigioni-ymbv0r",
         "detailhandelsfachfrau-mann-assistent-in-coop-gossau-ataxgb",
@@ -6502,8 +6505,7 @@
         "retailer-man-assistant-in-coop-gossau-611c2c",
         "detaillant-homme-assistant-in-coop-gossau-611c2c",
         "detailhandelsfachfrau-mann-assistent-in-coop-grigioni-k1bc5i",
-        "detailhandelsfachfrau-mann-assistent-in-coop-gossau-k1bc5i",
-        "detailhandelsfachfrau-mann-interdiscount-grigioni-4"
+        "detailhandelsfachfrau-mann-assistent-in-coop-gossau-k1bc5i"
       ]
     },
     {
@@ -6596,7 +6598,6 @@
         "retailer-man-assistant-in-coop-gossau-611c2c",
         "detaillant-homme-assistant-in-coop-gossau-611c2c",
         "detailhandelsfachfrau-mann-assistent-in-coop-grigioni-k1bc5i",
-        "venditore-di-dettaglio-interdiscount-grigioni",
         "detailhandelsfachfrau-mann-assistent-in-coop-gossau-k1bc5i"
       ]
     },
@@ -6805,9 +6806,7 @@
         "detailhandelsfachfrau-mann-assistent-in-coop-gossau-hwivop",
         "detailhandelsfachfrau-mann-assistent-in-coop-grigioni-4",
         "retail-salesperson-interdiscount-grigioni",
-        "vendeur-e-en-detail-interdiscount-grigioni",
-        "detailhandelsfachfrau-mann-assistent-in-coop-gossau-1ceqqh",
-        "detailhandelsfachfrau-mann-assistent-in-coop-grigioni-10"
+        "vendeur-e-en-detail-interdiscount-grigioni"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -6888,8 +6887,7 @@
         "detailhandelsfachfrau-mann-assistent-in-coop-grigioni-hwivop",
         "detailhandelsfachfrau-mann-assistent-in-coop-gossau-hwivop",
         "retail-salesperson-interdiscount-grigioni",
-        "vendeur-e-en-detail-interdiscount-grigioni",
-        "detailhandelsfachfrau-mann-assistent-in-coop-grigioni-4"
+        "vendeur-e-en-detail-interdiscount-grigioni"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -7993,7 +7991,7 @@
     },
     {
       "id": "company-7jjh6d",
-      "slug": "verkaufer-in-food-coop-chur-graubunden",
+      "slug": "venditore-in-food-coop-genossenschaft-chur",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Food",
       "location": "Chur",
@@ -8019,7 +8017,7 @@
       "crawledAt": "2026-05-10T09:58:53.007Z",
       "firstSeenAt": "2026-05-10T09:58:53.007Z",
       "slugByLocale": {
-        "it": "verkaufer-in-food-coop-chur-graubunden-vnskkx",
+        "it": "venditore-in-food-coop-genossenschaft-chur",
         "en": "seller-in-food-coop-genossenschaft-chur",
         "de": "verkaufer-in-food-coop-genossenschaft-chur-vnskkx",
         "fr": "vendeur-dans-la-nourriture-coop-genossenschaft-chur"
@@ -8060,21 +8058,18 @@
       "previousSlugsByLocale": {
         "en": [
           "verkaufer-in-food-coop-chur-graubunden-7jjh6d",
-          "seller-in-food-coop-genossenschaft-chur",
           "verkaufer-in-food-coop-chur-graubunden-vnskkx",
           "seller-in-food-coop-genossenschaft-chur-62c54a"
         ],
         "fr": [
           "verkaufer-in-food-coop-chur-graubunden-7jjh6d",
-          "vendeur-dans-la-nourriture-coop-genossenschaft-chur",
           "verkaufer-in-food-coop-chur-graubunden-vnskkx",
           "vendeur-dans-la-nourriture-coop-genossenschaft-chur-62c54a"
         ],
         "it": [
           "verkaufer-in-food-coop-chur-graubunden-7jjh6d",
           "verkaufer-in-food-coop-chur-graubunden-vnskkx",
-          "verkaufer-in-food-coop-chur-graubunden",
-          "venditore-in-food-coop-genossenschaft-chur"
+          "verkaufer-in-food-coop-chur-graubunden"
         ],
         "de": [
           "verkaufer-in-food-coop-genossenschaft-chur-7jjh6d",
@@ -8083,14 +8078,11 @@
       },
       "previousSlugs": [
         "verkaufer-in-food-coop-chur-graubunden-7jjh6d",
-        "seller-in-food-coop-genossenschaft-chur",
         "verkaufer-in-food-coop-chur-graubunden-vnskkx",
-        "vendeur-dans-la-nourriture-coop-genossenschaft-chur",
-        "verkaufer-in-food-coop-genossenschaft-chur-7jjh6d",
         "seller-in-food-coop-genossenschaft-chur-62c54a",
         "vendeur-dans-la-nourriture-coop-genossenschaft-chur-62c54a",
         "verkaufer-in-food-coop-chur-graubunden",
-        "venditore-in-food-coop-genossenschaft-chur"
+        "verkaufer-in-food-coop-genossenschaft-chur-7jjh6d"
       ],
       "sourceLang": "de"
     },
@@ -8581,8 +8573,7 @@
         "retail-sales-specialist-efz-shaping-shopping-experiences-interdiscount-grigioni",
         "specialiste-de-vente-au-detail-efz-creer-des-experiences-d-achat-interdiscount-grigioni",
         "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-interdiscount-jegensdorf",
-        "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-interdiscount-grigioni-3",
-        "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-interdiscount-grigioni"
+        "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-interdiscount-grigioni-3"
       ],
       "sourceLang": "de"
     },
@@ -8664,8 +8655,7 @@
         "detailhandelsfachfrau-mann-assistent-in-coop-grigioni-hwivop",
         "detailhandelsfachfrau-mann-assistent-in-coop-gossau-hwivop",
         "retail-salesperson-interdiscount-grigioni",
-        "vendeur-e-en-detail-interdiscount-grigioni",
-        "specialista-del-commercio-al-dettaglio-afc-creazione-di-esperienze-di-acquisto-jumbo-grigioni"
+        "vendeur-e-en-detail-interdiscount-grigioni"
       ],
       "sourceLang": "de"
     },
@@ -9875,8 +9865,7 @@
         "collaborateur-trice-inventuren-coop-grigioni-4whh8x",
         "personnel-en-inventaire-coop-genossenschaft-basel",
         "mitarbeiter-in-inventuren-coop-grigioni-4whh8x",
-        "associate-inventuren-coop-genossenschaft-basel-arot84",
-        "verkaufer-in-frischprodukte-brot-backwaren-coop-klosters-serneus-graubunden"
+        "associate-inventuren-coop-genossenschaft-basel-arot84"
       ]
     },
     {
@@ -10211,7 +10200,7 @@
     },
     {
       "id": "company-632dx5",
-      "slug": "mitarbeiter-in-gastronomie-coop-landquart-graubunden",
+      "slug": "personale-nella-gastronomia-coop-genossenschaft-landquart",
       "company": "Coop Genossenschaft",
       "title": "Mitarbeiter:in Gastronomie",
       "location": "Landquart",
@@ -10257,7 +10246,7 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "collaboratore-trice-gastronomie-coop-landquart-graubunden-puhd11",
+        "it": "personale-nella-gastronomia-coop-genossenschaft-landquart",
         "en": "staff-in-gastronomy-coop-genossenschaft-landquart",
         "de": "mitarbeiter-in-gastronomie-coop-landquart-graubunden-puhd11",
         "fr": "personnel-en-gastronomie-coop-genossenschaft-landquart"
@@ -10280,12 +10269,10 @@
         "it": [
           "collaboratore-trice-gastronomie-coop-landquart-graubunden-632dx5",
           "collaboratore-trice-gastronomie-coop-landquart-graubunden-puhd11",
-          "mitarbeiter-in-gastronomie-coop-landquart-graubunden",
-          "personale-nella-gastronomia-coop-genossenschaft-landquart"
+          "mitarbeiter-in-gastronomie-coop-landquart-graubunden"
         ],
         "en": [
           "associate-gastronomie-coop-landquart-graubunden-632dx5",
-          "staff-in-gastronomy-coop-genossenschaft-landquart",
           "associate-gastronomie-coop-genossenschaft-landquart",
           "associate-gastronomie-coop-landquart-graubunden-puhd11",
           "staff-in-gastronomy-coop-genossenschaft-landquart-3f05ba"
@@ -10303,23 +10290,21 @@
       "previousSlugs": [
         "collaboratore-trice-gastronomie-coop-landquart-graubunden-632dx5",
         "collaboratore-trice-gastronomie-coop-landquart-graubunden-puhd11",
+        "mitarbeiter-in-gastronomie-coop-landquart-graubunden",
         "associate-gastronomie-coop-landquart-graubunden-632dx5",
-        "staff-in-gastronomy-coop-genossenschaft-landquart",
         "associate-gastronomie-coop-genossenschaft-landquart",
         "associate-gastronomie-coop-landquart-graubunden-puhd11",
+        "staff-in-gastronomy-coop-genossenschaft-landquart-3f05ba",
         "mitarbeiter-in-gastronomie-coop-landquart-graubunden-632dx5",
         "mitarbeiter-in-gastronomie-coop-genossenschaft-landquart",
         "collaborateur-trice-gastronomie-coop-landquart-graubunden-632dx5",
         "collaborateur-trice-gastronomie-coop-landquart-graubunden-puhd11",
-        "mitarbeiter-in-gastronomie-coop-landquart-graubunden",
-        "personale-nella-gastronomia-coop-genossenschaft-landquart",
-        "staff-in-gastronomy-coop-genossenschaft-landquart-3f05ba",
         "personnel-en-gastronomie-coop-genossenschaft-landquart-3f05ba"
       ]
     },
     {
       "id": "company-zb8ot5",
-      "slug": "metzger-in-fleischfachfrau-fleischfachmann-coop-chur-graubunden",
+      "slug": "macellaio-a-specialista-in-carne-coop-genossenschaft-chur",
       "company": "Coop Genossenschaft",
       "title": "Metzger:in (Fleischfachfrau / Fleischfachmann)",
       "location": "Chur",
@@ -10356,7 +10341,7 @@
       },
       "requirementsByLocale": {},
       "slugByLocale": {
-        "it": "metzger-in-fleischfachfrau-fleischfachmann-coop-chur-graubunden-xl6rrf",
+        "it": "macellaio-a-specialista-in-carne-coop-genossenschaft-chur",
         "en": "butcher-meat-specialist-coop-genossenschaft-chur",
         "de": "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-chur-xl6rrf",
         "fr": "boucher-specialiste-de-la-viande-coop-genossenschaft-chur"
@@ -10381,8 +10366,7 @@
           "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-chur-v2cid8",
           "metzger-in-fleischfachfrau-fleischfachmann-coop-chur-graubunden-xl6rrf",
           "macellaio-specialista-della-carne-coop-genossenschaft-chur",
-          "metzger-in-fleischfachfrau-fleischfachmann-coop-chur-graubunden",
-          "macellaio-a-specialista-in-carne-coop-genossenschaft-chur"
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-chur-graubunden"
         ],
         "en": [
           "metzger-in-fleischfachfrau-fleischfachmann-coop-chur-graubunden-zb8ot5",
@@ -10405,11 +10389,10 @@
         "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-chur-v2cid8",
         "metzger-in-fleischfachfrau-fleischfachmann-coop-chur-graubunden-xl6rrf",
         "macellaio-specialista-della-carne-coop-genossenschaft-chur",
+        "metzger-in-fleischfachfrau-fleischfachmann-coop-chur-graubunden",
         "butcher-meat-specialist-coop-genossenschaft-chur-f448d4",
         "boucher-specialiste-de-la-viande-coop-genossenschaft-chur-f448d4",
-        "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-chur",
-        "metzger-in-fleischfachfrau-fleischfachmann-coop-chur-graubunden",
-        "macellaio-a-specialista-in-carne-coop-genossenschaft-chur"
+        "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-chur"
       ]
     },
     {

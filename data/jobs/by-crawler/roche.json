@@ -24725,7 +24725,7 @@
         "en": "team-lead-pt-insights-data-delivery-roche-ch",
         "it": "team-lead-pt-insights-data-delivery-roche-ch",
         "de": "team-lead-pt-insights-data-delivery-roche-ch",
-        "fr": "team-lead-pt-insights-data-delivery-roche-ch"
+        "fr": "chef-d-equipe-pt-insights-data-delivery-roche-madrid"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -24846,11 +24846,11 @@
     },
     {
       "id": "roche-1c76aa4362fa",
-      "slug": "maintenance-engineer-roche-ch",
+      "slug": "maintenance-ingegnere-roche-basel",
       "slugByLocale": {
         "en": "maintenance-engineer-roche-basel",
-        "it": "maintenance-engineer-roche-ch",
-        "de": "maintenance-engineer-roche-ch",
+        "it": "maintenance-ingegnere-roche-basel",
+        "de": "maintenance-ingenieur-roche-basel",
         "fr": "maintenance-engineer-roche-ch"
       },
       "company": "Roche",
@@ -24906,7 +24906,18 @@
         }
       },
       "postalCode": "4001",
-      "firstSeenAt": "2026-05-21T23:38:01.006Z"
+      "firstSeenAt": "2026-05-21T23:38:01.006Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "maintenance-engineer-roche-ch"
+        ],
+        "de": [
+          "maintenance-engineer-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "maintenance-engineer-roche-ch"
+      ]
     },
     {
       "id": "roche-8e74cab933e1",

@@ -3229,11 +3229,11 @@
     },
     {
       "id": "sulzer-72cda1302c27",
-      "slug": "sales-engineer-sulzer-ch",
+      "slug": "sales-ingegnere-sulzer-winterthur",
       "slugByLocale": {
         "en": "sales-engineer-sulzer-winterthur",
-        "it": "sales-engineer-sulzer-ch",
-        "de": "sales-engineer-sulzer-ch",
+        "it": "sales-ingegnere-sulzer-winterthur",
+        "de": "sales-ingenieur-sulzer-winterthur",
         "fr": "sales-engineer-sulzer-ch"
       },
       "company": "Sulzer",
@@ -3289,7 +3289,18 @@
         }
       },
       "postalCode": "8400",
-      "firstSeenAt": "2026-05-21T23:58:00.571Z"
+      "firstSeenAt": "2026-05-21T23:58:00.571Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sales-engineer-sulzer-ch"
+        ],
+        "de": [
+          "sales-engineer-sulzer-ch"
+        ]
+      },
+      "previousSlugs": [
+        "sales-engineer-sulzer-ch"
+      ]
     }
   ]
 }

@@ -2068,11 +2068,11 @@
     },
     {
       "id": "ubs-ecca48809086",
-      "slug": "intern-in-group-finance-ubs",
+      "slug": "tirocinante-in-group-finanza-ubs",
       "slugByLocale": {
         "en": "intern-in-group-finance-ubs",
-        "it": "intern-in-group-finance-ubs",
-        "de": "intern-in-group-finance-ubs",
+        "it": "tirocinante-in-group-finanza-ubs",
+        "de": "praktikant-in-group-finanzen-ubs",
         "fr": "intern-in-group-finance-ubs"
       },
       "company": "UBS",
@@ -2136,7 +2136,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-22T00:09:39.553Z"
+      "firstSeenAt": "2026-05-22T00:09:39.553Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "intern-in-group-finance-ubs"
+        ],
+        "de": [
+          "intern-in-group-finance-ubs"
+        ]
+      },
+      "previousSlugs": [
+        "intern-in-group-finance-ubs"
+      ]
     },
     {
       "id": "ubs-5f76edd79bc4",

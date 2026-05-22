@@ -776,12 +776,12 @@
     },
     {
       "id": "ghol-703dfa6bf50e",
-      "slug": "infirmiere-en-charge-de-la-surveillance-des-infections-du-site-chirurgical-ssi-swissnoso",
+      "slug": "infermiera-responsabile-della-sorveglianza-delle-infezioni-del-sito-chirurgico-ssi-swissnoso-groupement-hospitalier-de-l",
       "slugByLocale": {
         "fr": "infirmiere-en-charge-de-la-surveillance-des-infections-du-site-chirurgical-ssi-swissnoso",
-        "it": "infirmiere-en-charge-de-la-surveillance-des-infections-du-site-chirurgical-ssi-swissnoso",
+        "it": "infermiera-responsabile-della-sorveglianza-delle-infezioni-del-sito-chirurgico-ssi-swissnoso-groupement-hospitalier-de-l",
         "en": "infirmiere-en-charge-de-la-surveillance-des-infections-du-site-chirurgical-ssi-swissnoso",
-        "de": "infirmiere-en-charge-de-la-surveillance-des-infections-du-site-chirurgical-ssi-swissnoso"
+        "de": "krankenschwester-fur-die-uberwachung-von-chirurgischen-infektionen-vor-ort-ssi-swissnoso-groupement-hospitalier-de-l"
       },
       "company": "Groupement Hospitalier de l'Ouest Lémanique",
       "companyKey": "ghol",
@@ -832,16 +832,27 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-21T22:30:21.753Z"
+      "firstSeenAt": "2026-05-21T22:30:21.753Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "infirmiere-en-charge-de-la-surveillance-des-infections-du-site-chirurgical-ssi-swissnoso"
+        ],
+        "de": [
+          "infirmiere-en-charge-de-la-surveillance-des-infections-du-site-chirurgical-ssi-swissnoso"
+        ]
+      },
+      "previousSlugs": [
+        "infirmiere-en-charge-de-la-surveillance-des-infections-du-site-chirurgical-ssi-swissnoso"
+      ]
     },
     {
       "id": "ghol-775f604b290f",
-      "slug": "maitre-en-activites-physiques-adaptees-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+      "slug": "mater-in-adapted-physical-attivita-groupement-hospitalier-de-l-ouest-lemanique-nyon",
       "slugByLocale": {
         "fr": "maitre-en-activites-physiques-adaptees-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "it": "maitre-en-activites-physiques-adaptees-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "en": "maitre-en-activites-physiques-adaptees-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "de": "maitre-en-activites-physiques-adaptees-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+        "it": "mater-in-adapted-physical-attivita-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "en": "mater-in-adapted-physical-activities-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "de": "mater-in-adaped-physischen-tatigkeiten-groupement-hospitalier-de-l-ouest-lemanique-nyon"
       },
       "company": "Groupement Hospitalier de l'Ouest Lémanique",
       "companyKey": "ghol",
@@ -892,7 +903,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-21T22:30:21.752Z"
+      "firstSeenAt": "2026-05-21T22:30:21.752Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "maitre-en-activites-physiques-adaptees-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+        ],
+        "en": [
+          "maitre-en-activites-physiques-adaptees-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+        ],
+        "de": [
+          "maitre-en-activites-physiques-adaptees-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+        ]
+      },
+      "previousSlugs": [
+        "maitre-en-activites-physiques-adaptees-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+      ]
     }
   ]
 }

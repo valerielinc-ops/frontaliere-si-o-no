@@ -126,8 +126,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "posto-di-studio-esperto-a-in-terapia-intensiva-nds-sss-primavera-2027-spital-schwyz-schwyz",
-          "studienplatz-dipl-expert-in-intensivpflege-nds-hf-fruhling-2027-spital-schwyz-schwyz"
+          "posto-di-studio-esperto-a-in-terapia-intensiva-nds-sss-primavera-2027-spital-schwyz-schwyz"
         ]
       },
       "firstSeenAt": "2026-05-19T13:03:33.571Z",
@@ -934,11 +933,11 @@
     },
     {
       "id": "spital-schwyz-a7201c981168",
-      "slug": "hr-assistent-in-100-spital-schwyz-schwyz",
+      "slug": "assistente-hr-100-spital-schwyz-schwyz",
       "slugByLocale": {
         "de": "hr-assistent-in-100-spital-schwyz-schwyz",
-        "it": "hr-assistent-in-100-spital-schwyz-schwyz",
-        "en": "hr-assistent-in-100-spital-schwyz-schwyz",
+        "it": "assistente-hr-100-spital-schwyz-schwyz",
+        "en": "hr-assistant-100-spital-schwyz-schwyz",
         "fr": "hr-assistent-in-100-spital-schwyz-schwyz"
       },
       "company": "Spital Schwyz",
@@ -994,7 +993,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-21T23:49:35.681Z"
+      "firstSeenAt": "2026-05-21T23:49:35.681Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "hr-assistent-in-100-spital-schwyz-schwyz"
+        ],
+        "en": [
+          "hr-assistent-in-100-spital-schwyz-schwyz"
+        ]
+      },
+      "previousSlugs": [
+        "hr-assistent-in-100-spital-schwyz-schwyz"
+      ]
     },
     {
       "id": "spital-schwyz-8dd73fe4d1c0",

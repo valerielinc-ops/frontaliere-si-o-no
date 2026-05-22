@@ -552,7 +552,6 @@
         "responsabile-revenue-management-marriott-international-geneva",
         "umsatzmanager-marriott-international-geneva",
         "responsable-revenue-management-marriott-international-geneva",
-        "waiter-tress-brasserie-u-yama-winter-26-27-w-verbier-marriott-verbier",
         "cameriera-barre-inverno-26-27-w-verbier-marriott-international-verbier"
       ],
       "firstSeenAt": "2026-04-30T11:09:31.159Z",
@@ -839,7 +838,6 @@
         "responsabile-revenue-management-marriott-international-geneva",
         "umsatzmanager-marriott-international-geneva",
         "responsable-revenue-management-marriott-international-geneva",
-        "svizzera-programma-voyage-settembre-2026-ristorazione-marriott-international-geneva",
         "cameriera-barre-inverno-26-27-w-verbier-marriott-international-verbier"
       ],
       "previousSlugsByLocale": {
@@ -1026,7 +1024,6 @@
         "mezzo-capopartita-marriott-international-verbier",
         "partiekoch-marriott-international-verbier",
         "ristoranti-inverno-26-27-w-verbier-marriott-international-verbier",
-        "tirocinante-supervisore-housekeeping-marriott-international-geneva",
         "sushiman-inverno-26-27-w-verbier-marriott-international-verbier"
       ],
       "previousSlugsByLocale": {
@@ -1833,11 +1830,11 @@
     },
     {
       "id": "marriott-da07a119cc99",
-      "slug": "welcome-ambassador-bellboy-winter-26-27-w-verbier-marriott-verbier",
+      "slug": "supervisore-ristorante-marriott-international-geneva",
       "slugByLocale": {
         "en": "restaurant-supervisor-marriott-geneva",
-        "it": "welcome-ambassador-bellboy-winter-26-27-w-verbier-marriott-verbier",
-        "de": "willkommensambassador-portier-winter-26-27-w-verbier-marriott-international-verbier",
+        "it": "supervisore-ristorante-marriott-international-geneva",
+        "de": "restaurant-vorgesetzter-marriott-international-geneva",
         "fr": "restaurant-supervisor-marriott-international-geneva"
       },
       "company": "Marriott International",
@@ -1893,10 +1890,18 @@
       "previousSlugsByLocale": {
         "fr": [
           "ambassadeur-d-accueil-concierge-hiver-26-27-w-verbier-marriott-international-verbier"
+        ],
+        "it": [
+          "welcome-ambassador-bellboy-winter-26-27-w-verbier-marriott-verbier"
+        ],
+        "de": [
+          "willkommensambassador-portier-winter-26-27-w-verbier-marriott-international-verbier"
         ]
       },
       "previousSlugs": [
-        "ambassadeur-d-accueil-concierge-hiver-26-27-w-verbier-marriott-international-verbier"
+        "ambassadeur-d-accueil-concierge-hiver-26-27-w-verbier-marriott-international-verbier",
+        "welcome-ambassador-bellboy-winter-26-27-w-verbier-marriott-verbier",
+        "willkommensambassador-portier-winter-26-27-w-verbier-marriott-international-verbier"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -2798,7 +2803,7 @@
       "id": "marriott-5404a16f4356",
       "slug": "esperto-di-supporto-f-b-stewarding-marriott-international-zurich",
       "slugByLocale": {
-        "it": "esperienza-degli-ospiti-marriott-international-zurich",
+        "it": "esperto-di-supporto-f-b-stewarding-marriott-international-zurich",
         "en": "f-b-support-expert-stewarding-marriott-zurich",
         "de": "f-b-support-experte-stewarding-marriott-international-zurich",
         "fr": "expert-en-soutien-aux-f-b-et-intendant-marriott-international-zurich"
@@ -2853,12 +2858,13 @@
       },
       "previousSlugs": [
         "f-b-support-expert-stewarding-marriott-zurich",
-        "guest-experience-expert-marriott-zurich",
-        "esperto-di-supporto-f-b-stewarding-marriott-international-zurich"
+        "esperienza-degli-ospiti-marriott-international-zurich",
+        "guest-experience-expert-marriott-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "f-b-support-expert-stewarding-marriott-zurich"
+          "f-b-support-expert-stewarding-marriott-zurich",
+          "esperienza-degli-ospiti-marriott-international-zurich"
         ],
         "de": [
           "f-b-support-expert-stewarding-marriott-zurich"

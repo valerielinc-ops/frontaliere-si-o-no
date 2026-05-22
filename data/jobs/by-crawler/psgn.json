@@ -732,12 +732,12 @@
     },
     {
       "id": "psgn-8e4400972fe0",
-      "slug": "kaufmannisches-praktikum-psgn-wil-sg",
+      "slug": "stage-commerciale-psychiatrie-st-gallen-wil-sg",
       "slugByLocale": {
-        "it": "kaufmannisches-praktikum-psgn-wil-sg",
-        "en": "kaufmannisches-praktikum-psgn-wil-sg",
+        "it": "stage-commerciale-psychiatrie-st-gallen-wil-sg",
+        "en": "commercial-internship-psychiatrie-st-gallen-wil-sg",
         "de": "kaufmannisches-praktikum-psychiatrie-st-gallen-wil-sg",
-        "fr": "kaufmannisches-praktikum-psgn-wil-sg"
+        "fr": "stage-commercial-psychiatrie-st-gallen-wil-sg"
       },
       "company": "Psychiatrie St.Gallen",
       "companyKey": "psgn",
@@ -790,16 +790,30 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "kaufmannisches-praktikum-psgn-wil-sg"
+        ],
+        "en": [
+          "kaufmannisches-praktikum-psgn-wil-sg"
+        ],
+        "fr": [
+          "kaufmannisches-praktikum-psgn-wil-sg"
+        ]
+      },
+      "previousSlugs": [
+        "kaufmannisches-praktikum-psgn-wil-sg"
+      ]
     },
     {
       "id": "psgn-efd50961ddc4",
-      "slug": "assistenzarztin-assistenzarzt-psychiatrie-st-gallen-wil-sg",
+      "slug": "assistente-medico-psychiatrie-st-gallen-wil-sg",
       "slugByLocale": {
-        "it": "assistenzarztin-assistenzarzt-psychiatrie-st-gallen-wil-sg",
-        "en": "assistenzarztin-assistenzarzt-psychiatrie-st-gallen-wil-sg",
+        "it": "assistente-medico-psychiatrie-st-gallen-wil-sg",
+        "en": "assistant-doctor-psychiatrie-st-gallen-wil-sg",
         "de": "assistenzarztin-assistenzarzt-psychiatrie-st-gallen-wil-sg",
-        "fr": "assistenzarztin-assistenzarzt-psychiatrie-st-gallen-wil-sg"
+        "fr": "assistant-medecin-psychiatrie-st-gallen-wil-sg"
       },
       "company": "Psychiatrie St.Gallen",
       "companyKey": "psgn",
@@ -845,11 +859,19 @@
           "assistenzarztin-assistenzarzt-psgn-wil-sg"
         ],
         "it": [
-          "assistenzarztin-assistenzarzt-psgn-wil-sg"
+          "assistenzarztin-assistenzarzt-psgn-wil-sg",
+          "assistenzarztin-assistenzarzt-psychiatrie-st-gallen-wil-sg"
+        ],
+        "en": [
+          "assistenzarztin-assistenzarzt-psychiatrie-st-gallen-wil-sg"
+        ],
+        "fr": [
+          "assistenzarztin-assistenzarzt-psychiatrie-st-gallen-wil-sg"
         ]
       },
       "previousSlugs": [
-        "assistenzarztin-assistenzarzt-psgn-wil-sg"
+        "assistenzarztin-assistenzarzt-psgn-wil-sg",
+        "assistenzarztin-assistenzarzt-psychiatrie-st-gallen-wil-sg"
       ],
       "firstSeenAt": "2026-05-21T13:00:33.927Z",
       "salaryMin": 49500,
@@ -867,12 +889,12 @@
     },
     {
       "id": "psgn-945c1e1a12a8",
-      "slug": "oberarztin-oberarzt-psgn-wil-sg",
+      "slug": "medico-senior-psychiatrie-st-gallen-wil-sg",
       "slugByLocale": {
-        "it": "oberarztin-oberarzt-psgn-wil-sg",
-        "en": "oberarztin-oberarzt-psgn-wil-sg",
+        "it": "medico-senior-psychiatrie-st-gallen-wil-sg",
+        "en": "senior-doctor-psychiatrie-st-gallen-wil-sg",
         "de": "oberarztin-oberarzt-psychiatrie-st-gallen-wil-sg",
-        "fr": "oberarztin-oberarzt-psgn-wil-sg"
+        "fr": "medecin-principal-psychiatrie-st-gallen-wil-sg"
       },
       "company": "Psychiatrie St.Gallen",
       "companyKey": "psgn",
@@ -925,7 +947,21 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "oberarztin-oberarzt-psgn-wil-sg"
+        ],
+        "en": [
+          "oberarztin-oberarzt-psgn-wil-sg"
+        ],
+        "fr": [
+          "oberarztin-oberarzt-psgn-wil-sg"
+        ]
+      },
+      "previousSlugs": [
+        "oberarztin-oberarzt-psgn-wil-sg"
+      ]
     }
   ]
 }

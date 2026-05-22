@@ -642,11 +642,11 @@
     },
     {
       "id": "schulthess-klinik-d6348116b28d",
-      "slug": "med-masseurin-med-masseur-schulthess-klinik-zurich",
+      "slug": "med-massaggiatore-med-massaggiatore-schulthess-klinik-zurich",
       "slugByLocale": {
         "de": "med-masseurin-med-masseur-schulthess-klinik-zurich",
-        "it": "med-masseurin-med-masseur-schulthess-klinik-zurich",
-        "en": "med-masseurin-med-masseur-schulthess-klinik-zurich",
+        "it": "med-massaggiatore-med-massaggiatore-schulthess-klinik-zurich",
+        "en": "med-masseuse-med-mass-schulthess-klinik-zurich",
         "fr": "med-masseurin-med-masseur-schulthess-klinik-zurich"
       },
       "company": "Schulthess Klinik",
@@ -704,16 +704,18 @@
       },
       "firstSeenAt": "2026-05-21T23:41:32.003Z",
       "previousSlugs": [
-        "med-masseurin-med-masseur-schulthess-klinik-zurich",
         "masseur-medico-masseur-medico-schulthess-klinik-zurich",
+        "med-masseurin-med-masseur-schulthess-klinik-zurich",
         "medical-massage-therapist-schulthess-klinik-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "masseur-medico-masseur-medico-schulthess-klinik-zurich"
+          "masseur-medico-masseur-medico-schulthess-klinik-zurich",
+          "med-masseurin-med-masseur-schulthess-klinik-zurich"
         ],
         "en": [
-          "medical-massage-therapist-schulthess-klinik-zurich"
+          "medical-massage-therapist-schulthess-klinik-zurich",
+          "med-masseurin-med-masseur-schulthess-klinik-zurich"
         ]
       }
     }
