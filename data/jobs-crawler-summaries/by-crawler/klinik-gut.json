@@ -1,16 +1,16 @@
 {
   "key": "klinik-gut",
   "label": "Klinik Gut AG",
-  "generatedAt": "2026-05-21T22:53:26.518Z",
+  "generatedAt": "2026-05-22T12:06:27.877Z",
   "total": 7,
   "newCount": 0,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 3203,
-  "avgDurationMs": 3203,
+  "durationMs": 3000,
+  "avgDurationMs": 3000,
   "durationHistory": [
-    3203
+    3000
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -27,7 +27,7 @@
       "url": "https://www.klinik-gut.ch/de/offene-stellen#drz-accordion-id-1581",
       "source": "Klinik Gut Dedicated Parser (Drupal accordion)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-21T22:53:24.309Z",
+      "crawledAt": "2026-05-22T12:06:25.694Z",
       "addressLocality": "Fläsch",
       "addressRegion": "GR",
       "addressCountry": "CH",
