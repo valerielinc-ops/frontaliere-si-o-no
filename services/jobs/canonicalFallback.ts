@@ -6,8 +6,11 @@
 //
 // Keep this module pure: no React, no DOM, no Node-only APIs.
 
-import type { Locale } from '@/services/i18n';
-import { cleanCanonicalItems } from '@/services/relatedSearchClusters';
+// Use relative imports (not the `@/...` Vite alias): this module is
+// transitively required by build-plugins loaded during `vite.config.ts`
+// evaluation, where Node ESM resolves before Vite installs alias support.
+import type { Locale } from '../i18n';
+import { cleanCanonicalItems } from '../relatedSearchClusters';
 
 export type CanonicalLocaleContent = {
  summary: string[];
