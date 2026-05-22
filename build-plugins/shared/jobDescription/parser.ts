@@ -146,6 +146,13 @@ function preprocess(raw: string): string {
   // paragraph break first so the subsequent SEPARATOR_LINE_RE filter drops
   // them. Audit: no-literal-markdown 0-tol (CLAUDE.md rule #1).
   s = s.replace(/[ \t]+[_=~]{3,}[ \t]+/g, '\n\n');
+  // PR #481 follow-up: above only catches separator runs with whitespace on
+  // BOTH sides. AMEOS / Hôpital Fribourgeois descriptions sometimes flatten
+  // to literal `text________________…________________text` (64+ chars, no
+  // surrounding whitespace) — those slip through and trip
+  // audit-no-literal-markdown. Any run of 6+ `_`/`=`/`~` is unambiguously a
+  // visual divider (no real identifier has that long a run), strip wholesale.
+  s = s.replace(/[_=~]{6,}/g, '\n\n');
 
   s = s.replace(/;\s*([A-ZÀ-ÖØ-Þ][^.;!?\n]{1,80}[:：])/g, '\n$1');
   s = s.replace(/([a-zà-öø-þ.0-9%])\s*;\s*([A-ZÀ-ÖØ-Þ][a-zà-öø-þ])/g, '$1\n- $2');
