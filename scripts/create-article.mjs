@@ -2215,6 +2215,43 @@ async function _runSingleFactCheck(model, prompt) {
 // The LLM understands context ("73,2% dei frontalieri" is likely fabricated vs
 // "5,3% AVS" is a real rate) far better than regex pattern matching.
 
+// ── LLM JSON repair (handles common LLM output quirks) ────────────────
+// Why: GitHub Models / Groq / Mistral occasionally emit markdown bold
+// markers (`**` / `***`) between JSON properties instead of commas, or
+// wrap the payload in ```json fences, or stick a preamble before the
+// opening `{`. The bare `JSON.parse(raw.replace(/^```.../).trim())`
+// pattern that previously guarded the IT-generation parse and the
+// body2-validation loop blew up at attempts × N when the model wrote
+// `"value"***"nextKey"`. The repair walks the string once, preserves
+// asterisks INSIDE quoted strings (markdown bold in body1/body2 is
+// load-bearing), and replaces runs of stray `*` OUTSIDE strings with a
+// single comma. Truncated payloads still throw — callers detect that
+// via `parseErr.message` and retry with a larger `maxTokens`.
+function repairLlmJson(raw) {
+  let c = String(raw).replace(/^```(?:json)?\s*/m, '').replace(/\s*```\s*$/m, '').trim();
+  const start = c.indexOf('{');
+  const end = c.lastIndexOf('}');
+  if (start !== -1 && end !== -1 && end > start) c = c.slice(start, end + 1);
+  let out = '';
+  let inStr = false;
+  let esc = false;
+  for (let i = 0; i < c.length; i++) {
+    const ch = c[i];
+    if (esc) { out += ch; esc = false; continue; }
+    if (ch === '\\') { out += ch; esc = true; continue; }
+    if (ch === '"') { inStr = !inStr; out += ch; continue; }
+    if (inStr && ch === '\n') { out += '\\n'; continue; }
+    if (inStr && ch === '\r') { continue; }
+    if (!inStr && ch === '*') {
+      while (i + 1 < c.length && c[i + 1] === '*') i++;
+      out += ',';
+      continue;
+    }
+    out += ch;
+  }
+  return out.replace(/,(\s*,)+/g, ',').replace(/,(\s*[}\]])/g, '$1');
+}
+
 // ── LLM call with body2 validation (model fallback via centralized ai-models.mjs) ──
 async function callLLM(messages, opts = {}) {
   const maxBody2Retries = 5;
@@ -2225,7 +2262,7 @@ async function callLLM(messages, opts = {}) {
     if (isBody2Check) {
       let itContent = null;
       try {
-        const parsed = JSON.parse(result.replace(/^```(?:json)?\s*/, '').replace(/\s*```$/, '').trim());
+        const parsed = JSON.parse(repairLlmJson(result));
         itContent = normalizeItalianContentFromPayload(parsed);
       } catch {
         itContent = null;
@@ -3360,11 +3397,26 @@ Rispondi SOLO con JSON valido, senza markdown.` },
   }
   let itData;
   try {
-    itData = JSON.parse(itRaw.replace(/^```(?:json)?\s*/, '').replace(/\s*```$/, '').trim());
+    itData = JSON.parse(repairLlmJson(itRaw));
   } catch (parseErr) {
+    // One repair-aware regenerate before giving up. Truncation (output cap
+    // hit) gets 2× tokens; structural corruption keeps the same budget so
+    // we don't pay double for a transient `***`-between-properties glitch.
     console.error(`❌ JSON parse error: ${parseErr.message}`);
     console.error(`   Raw response (last 200 chars): ...${itRaw.slice(-200)}`);
-    throw new Error(`JSON non valido dalla generazione IT: ${parseErr.message}`);
+    const isTruncation = /Unterminated|Unexpected end/i.test(parseErr.message);
+    const retryTokens = isTruncation ? 16000 : 8000;
+    console.error(`  🔄 Retry IT con maxTokens=${retryTokens}${isTruncation ? ' (troncamento rilevato)' : ''}...`);
+    try {
+      const itRaw2 = useGeminiDirect
+        ? await callLLM(llmMessages, { model: AI_MODELS.GEMINI_FLASH, temperature: 0.3, maxTokens: retryTokens, jsonMode: true, jsonSchema: articleSchema })
+        : await callLLM(llmMessages, { model: forceModel || GH_MODEL_HEAVY, temperature: 0.3, maxTokens: retryTokens, jsonMode: true, jsonSchema: articleSchema });
+      itData = JSON.parse(repairLlmJson(itRaw2));
+      console.error(`  ✅ Retry IT riuscito`);
+    } catch (retryErr) {
+      console.error(`  ❌ Retry IT fallito: ${retryErr.message}`);
+      throw new Error(`JSON non valido dalla generazione IT: ${parseErr.message}`);
+    }
   }
 
   // ── REGOLA #0 abort gate ──
@@ -3412,7 +3464,7 @@ Rispondi SOLO con JSON valido, senza markdown.` },
           ],
           { model: forceModel || GH_MODEL_HEAVY, temperature: 0.3, maxTokens: 200, jsonMode: true, timeout: 30_000 },
         );
-        const retryParsed = JSON.parse(String(retryRaw).replace(/^```(?:json)?\s*/, '').replace(/\s*```$/, '').trim());
+        const retryParsed = JSON.parse(repairLlmJson(retryRaw));
         if (retryParsed?.title && typeof retryParsed.title === 'string') {
           itContent.title = retryParsed.title;
           console.error(`  ✅ [title-cap] IT title ritornato a ${retryParsed.title.length} caratteri`);
@@ -3564,44 +3616,13 @@ ISTRUZIONI:
  * Called AFTER duplicate check to avoid wasting API calls on duplicates.
  */
 async function translateArticle(data) {
-  // repairJson: strips fences, extracts the JSON object, and escapes literal
-  // newlines/carriage-returns inside string values (common LLM output issue).
-  const repairJson = (s) => {
-    let c = s.replace(/^```(?:json)?\s*/m, '').replace(/\s*```\s*$/m, '').trim();
-    const start = c.indexOf('{'); const end = c.lastIndexOf('}');
-    if (start !== -1 && end !== -1 && end > start) c = c.slice(start, end + 1);
-    let out = ''; let inStr = false; let esc = false;
-    for (let i = 0; i < c.length; i++) {
-      const ch = c[i];
-      if (esc) { out += ch; esc = false; continue; }
-      if (ch === '\\') { out += ch; esc = true; continue; }
-      if (ch === '"') { inStr = !inStr; out += ch; continue; }
-      if (inStr && ch === '\n') { out += '\\n'; continue; }
-      if (inStr && ch === '\r') { continue; }
-      // Some models emit markdown bold markers (`**` / `***`) between JSON
-      // properties instead of commas — collapse a run of stray `*` outside
-      // strings into a single comma so the structure stays valid.
-      if (!inStr && ch === '*') {
-        while (i + 1 < c.length && c[i + 1] === '*') i++;
-        out += ',';
-        continue;
-      }
-      out += ch;
-    }
-    // Normalize accidental double commas introduced by the `***` → `,` swap
-    // when a comma already separated the properties, and trim trailing commas
-    // before closers.
-    out = out.replace(/,(\s*,)+/g, ',').replace(/,(\s*[}\]])/g, '$1');
-    return out;
-  };
-
   async function callWithRetry(prompt, maxTokens, label) {
     const raw = await callLLM(
       [{ role: 'user', content: prompt }],
       { temperature: 0.5, maxTokens, jsonMode: true },
     );
     try {
-      return JSON.parse(repairJson(raw));
+      return JSON.parse(repairLlmJson(raw));
     } catch (parseErr) {
       console.error(`  ⚠️  JSON parse error (${label}): ${parseErr.message}`);
       console.error(`     Raw (last 200 chars): ...${raw.slice(-200)}`);
@@ -3614,7 +3635,7 @@ async function translateArticle(data) {
         { temperature: 0.5, maxTokens: retry1Tokens, jsonMode: true },
       );
       try {
-        const result = JSON.parse(repairJson(raw2));
+        const result = JSON.parse(repairLlmJson(raw2));
         console.error(`  ✅ Retry riuscito per ${label}`);
         return result;
       } catch (retryErr) {
@@ -3626,7 +3647,7 @@ async function translateArticle(data) {
           { temperature: 0.3, maxTokens: retry2Tokens, jsonMode: true },
         );
         try {
-          const result3 = JSON.parse(repairJson(raw3));
+          const result3 = JSON.parse(repairLlmJson(raw3));
           console.error(`  ✅ Retry 2 riuscito per ${label}`);
           return result3;
         } catch (retry2Err) {
