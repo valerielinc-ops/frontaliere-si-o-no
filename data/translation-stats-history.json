@@ -11086,5 +11086,117 @@
         "pending": 9
       }
     ]
+  },
+  {
+    "timestamp": "2026-05-22T17:11:12.618Z",
+    "label": "before",
+    "total": 8520,
+    "needsRetranslation": 6325,
+    "incomplete": 682,
+    "complete": 7838,
+    "missingByLocale": {
+      "it": 499,
+      "en": 395,
+      "de": 268,
+      "fr": 500
+    },
+    "topPending": [
+      {
+        "company": "IWC",
+        "pending": 113
+      },
+      {
+        "company": "Hügli Nahrungsmittel GmbH",
+        "pending": 81
+      },
+      {
+        "company": "CHRIST Uhren & Schmuck AG",
+        "pending": 68
+      },
+      {
+        "company": "Roche",
+        "pending": 44
+      },
+      {
+        "company": "UBS",
+        "pending": 30
+      },
+      {
+        "company": "EOC – Ente Ospedaliero Cantonale",
+        "pending": 24
+      },
+      {
+        "company": "VF International (The North Face, Timberland)",
+        "pending": 20
+      },
+      {
+        "company": "Regionalspital Surselva",
+        "pending": 15
+      },
+      {
+        "company": "Sulzer",
+        "pending": 14
+      },
+      {
+        "company": "SUPSI / DTI",
+        "pending": 12
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-05-22T20:27:36.124Z",
+    "label": "after",
+    "total": 8520,
+    "needsRetranslation": 1759,
+    "incomplete": 473,
+    "complete": 8047,
+    "missingByLocale": {
+      "it": 384,
+      "en": 275,
+      "de": 208,
+      "fr": 367
+    },
+    "topPending": [
+      {
+        "company": "Hügli Nahrungsmittel GmbH",
+        "pending": 80
+      },
+      {
+        "company": "CHRIST Uhren & Schmuck AG",
+        "pending": 68
+      },
+      {
+        "company": "Roche",
+        "pending": 37
+      },
+      {
+        "company": "UBS",
+        "pending": 30
+      },
+      {
+        "company": "IWC",
+        "pending": 23
+      },
+      {
+        "company": "VF International (The North Face, Timberland)",
+        "pending": 20
+      },
+      {
+        "company": "Regionalspital Surselva",
+        "pending": 15
+      },
+      {
+        "company": "Sulzer",
+        "pending": 14
+      },
+      {
+        "company": "SUPSI / DTI",
+        "pending": 12
+      },
+      {
+        "company": "ABB Svizzera (sede Ticino)",
+        "pending": 9
+      }
+    ]
   }
 ]
