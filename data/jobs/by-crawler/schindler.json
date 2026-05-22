@@ -159,7 +159,8 @@
         }
       },
       "streetAddress": "Via Industria 11",
-      "postalCode": "6934"
+      "postalCode": "6934",
+      "retranslationAttempts": 1
     },
     {
       "id": "schindler-34d2f8c1f13f",
@@ -232,7 +233,8 @@
         }
       },
       "streetAddress": "Via Industria 11",
-      "postalCode": "6934"
+      "postalCode": "6934",
+      "retranslationAttempts": 1
     },
     {
       "id": "schindler-1085922c4581",
@@ -395,7 +397,8 @@
       },
       "streetAddress": "Via Industria 11",
       "postalCode": "6934",
-      "firstSeenAt": "2026-05-21T23:42:10.297Z"
+      "firstSeenAt": "2026-05-21T23:42:10.297Z",
+      "retranslationAttempts": 1
     },
     {
       "id": "schindler-f97349d91827",
@@ -466,7 +469,6 @@
         ]
       },
       "firstSeenAt": "2026-05-19T12:34:10.207Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -543,7 +545,6 @@
         ]
       },
       "firstSeenAt": "2026-05-19T12:34:10.949Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -703,7 +704,6 @@
         ]
       },
       "firstSeenAt": "2026-05-19T12:34:28.777Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -955,7 +955,8 @@
         }
       },
       "streetAddress": "Via Industria 11",
-      "postalCode": "6934"
+      "postalCode": "6934",
+      "retranslationAttempts": 1
     },
     {
       "id": "schindler-cfa7ef0ace82",
@@ -1184,7 +1185,8 @@
         }
       },
       "streetAddress": "Via Industria 11",
-      "postalCode": "6934"
+      "postalCode": "6934",
+      "retranslationAttempts": 1
     },
     {
       "id": "schindler-9574921475f9",
@@ -1249,7 +1251,8 @@
         }
       },
       "streetAddress": "Via Industria 11",
-      "postalCode": "6934"
+      "postalCode": "6934",
+      "retranslationAttempts": 1
     },
     {
       "id": "schindler-2691b4dab6c9",
@@ -1396,7 +1399,8 @@
         }
       },
       "streetAddress": "Via Industria 11",
-      "postalCode": "6934"
+      "postalCode": "6934",
+      "retranslationAttempts": 1
     },
     {
       "id": "schindler-9a76658efd3b",
@@ -1558,9 +1562,9 @@
       "slug": "manager-per-cookie-einwilligungen-schindler-ebikon",
       "slugByLocale": {
         "de": "manager-fur-cookie-einwilligungen-schindler-ebikon",
-        "it": "manager-per-cookie-einwilligungen-schindler-ebikon",
+        "it": "gestione-delle-autorizzazioni-dei-cookie-schindler-ebikon",
         "en": "manager-fur-cookie-einwilligungen-schindler-ebikon",
-        "fr": "manager-fur-cookie-einwilligungen-schindler-ebikon"
+        "fr": "gestionnaire-pour-les-autorisations-de-cookies-schindler-ebikon"
       },
       "company": "Schindler",
       "companyKey": "schindler",
@@ -1568,16 +1572,16 @@
       "title": "Manager für Cookie-Einwilligungen",
       "titleByLocale": {
         "de": "Manager für Cookie-Einwilligungen",
-        "it": "Manager per Cookie-Einwilligungen",
-        "en": "Manager für Cookie-Einwilligungen",
-        "fr": "Manager für Cookie-Einwilligungen"
+        "it": "Gestione delle autorizzazioni dei cookie",
+        "en": "Manager for cookie permissions",
+        "fr": "Gestionnaire pour les autorisations de cookies"
       },
       "description": "Mobilität | seit 1874 | weltweit im Einsatz\n\nDie Schindler Berufsbildung bildet schweizweit über 300 Lernende aus – du bist somit nie allein. Unser gesamtes Team setzt sich täglich für dich ein, damit du am Ende deiner Lehrzeit eine top ausgebildete Fachkraft bist.\n\nSchnupperlehre als Polymechaniker*in EFZ Way Up (Lehrstart 2027) in Ebikon",
       "descriptionByLocale": {
-        "de": "Mobilität | seit 1874 | weltweit im Einsatz\n\nDie Schindler Berufsbildung bildet schweizweit über 300 Lernende aus – du bist somit nie allein. Unser gesamtes Team setzt sich täglich für dich ein, damit du am Ende deiner Lehrzeit eine top ausgebildete Fachkraft bist.\n\nSchnupperlehre als Polymechaniker*in EFZ Way Up (Lehrstart 2027) in Ebikon",
-        "it": "Mobilität | seit 1874 | weltweit im Einsatz\n\nDie Schindler Berufsbildung bildet schweizweit über 300 Lernende aus – du bist somit nie allein. Unser gesamtes Team setzt sich täglich für dich ein, damit du am Ende deiner Lehrzeit eine top ausgebildete Fachkraft bist.\n\nSchnupperlehre als Polymechaniker*in EFZ Way Up (Lehrstart 2027) in Ebikon",
-        "en": "Mobilität | seit 1874 | weltweit im Einsatz\n\nDie Schindler Berufsbildung bildet schweizweit über 300 Lernende aus – du bist somit nie allein. Unser gesamtes Team setzt sich täglich für dich ein, damit du am Ende deiner Lehrzeit eine top ausgebildete Fachkraft bist.\n\nSchnupperlehre als Polymechaniker*in EFZ Way Up (Lehrstart 2027) in Ebikon",
-        "fr": "Mobilität | seit 1874 | weltweit im Einsatz\n\nDie Schindler Berufsbildung bildet schweizweit über 300 Lernende aus – du bist somit nie allein. Unser gesamtes Team setzt sich täglich für dich ein, damit du am Ende deiner Lehrzeit eine top ausgebildete Fachkraft bist.\n\nSchnupperlehre als Polymechaniker*in EFZ Way Up (Lehrstart 2027) in Ebikon"
+        "de": "Mobilität | seit 1874 | weltweit im Einsatz Die Schindler Berufsbildung bildet schweizweit über 300 Lernende aus – du bist somit nie allein. Unser gesamtes Team setzt sich täglich für dich ein, damit du am Ende deiner Lehrzeit eine top ausgebildete Fachkraft bist. Schnupperlehre als Anlagen- und Apparatebauer*in EFZ (Lehrstart 2027) in Ebikon",
+        "it": "Mobility | dal 1874 | in tutto il mondo in uso Lo Schindler Formazione Professionale e forma oltre 300 studenti in tutta la Svizzera – non sei mai solo. Tutto il nostro team si impegna ogni giorno per voi in modo da essere uno specialista altamente qualificato alla fine del vostro periodo di insegnamento. Apprendistato come produttore di impianti e attrezzature* in EFZ con enfasi ascensore montaggio per 2026 in Ebikon",
+        "en": "Mobility | since 1874 | worldwide in use The Schindler Vocational Education and Training forms over 300 learners throughout Switzerland – you are never alone. Our entire team is committed to you every day so that you are a highly trained specialist at the end of your teaching period. Apprenticeship as plant and equipment manufacturer*in EFZ with emphasis lift assembly for 2026 in Ebikon",
+        "fr": "Mobilité à travers le monde depuis 1874 L'enseignement et la formation professionnels Schindler forment plus de 300 apprenants en Suisse – vous n'êtes jamais seul. Toute notre équipe s'engage pour vous tous les jours afin que vous soyez un spécialiste hautement qualifié à la fin de votre période d'enseignement. Apprentissage en tant que fabricant d'usines et d'équipements* en EFZ avec montage de levage pour 2026 à Ebikon"
       },
       "location": "Ebikon",
       "canton": "LU",
@@ -1603,14 +1607,17 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "manager-fur-cookie-einwilligungen-schindler-ebikon"
+        ],
+        "fr": [
           "manager-fur-cookie-einwilligungen-schindler-ebikon"
         ]
       },
       "previousSlugs": [
-        "manager-fur-cookie-einwilligungen-schindler-ebikon"
+        "manager-fur-cookie-einwilligungen-schindler-ebikon",
+        "manager-per-cookie-einwilligungen-schindler-ebikon"
       ],
       "salaryMin": 68000,
       "salaryMax": 103000,
@@ -1699,7 +1706,8 @@
         }
       },
       "streetAddress": "Via Industria 11",
-      "postalCode": "6934"
+      "postalCode": "6934",
+      "retranslationAttempts": 1
     },
     {
       "id": "schindler-4bd42971eb23",
@@ -1764,7 +1772,6 @@
         ]
       },
       "firstSeenAt": "2026-05-19T12:33:55.922Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1927,7 +1934,6 @@
         ]
       },
       "firstSeenAt": "2026-05-19T12:34:27.280Z",
-      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -2005,7 +2011,6 @@
         ]
       },
       "firstSeenAt": "2026-05-19T12:34:26.547Z",
-      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -2081,7 +2086,6 @@
         ]
       },
       "firstSeenAt": "2026-05-19T12:34:25.810Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2159,7 +2163,6 @@
         ]
       },
       "firstSeenAt": "2026-05-19T12:34:25.077Z",
-      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -2340,9 +2343,9 @@
       "slug": "manager-per-cookie-einwilligungen-schindler-winterthur",
       "slugByLocale": {
         "de": "manager-fur-cookie-einwilligungen-schindler-winterthur",
-        "it": "manager-per-cookie-einwilligungen-schindler-winterthur",
+        "it": "gestione-delle-autorizzazioni-dei-cookie-schindler-winterthur",
         "en": "manager-fur-cookie-einwilligungen-schindler-winterthur",
-        "fr": "manager-fur-cookie-einwilligungen-schindler-winterthur"
+        "fr": "gestionnaire-pour-les-autorisations-de-cookies-schindler-winterthur"
       },
       "company": "Schindler",
       "companyKey": "schindler",
@@ -2350,16 +2353,16 @@
       "title": "Manager für Cookie-Einwilligungen",
       "titleByLocale": {
         "de": "Manager für Cookie-Einwilligungen",
-        "it": "Manager per Cookie-Einwilligungen",
-        "en": "Manager für Cookie-Einwilligungen",
-        "fr": "Manager für Cookie-Einwilligungen"
+        "it": "Gestione delle autorizzazioni dei cookie",
+        "en": "Manager for cookie permissions",
+        "fr": "Gestionnaire pour les autorisations de cookies"
       },
       "description": "Mobilität | seit 1874 | weltweit im Einsatz\n\nDie Schindler Berufsbildung bildet schweizweit über 300 Lernende aus – du bist somit nie allein. Unser gesamtes Team setzt sich täglich für dich ein, damit du am Ende deiner Lehrzeit eine top ausgebildete Fachkraft bist.\n\nSchnupperlehre als Anlagen- und Apparatebauer*in EFZ mit Schwerpunkt Liftmontage in Winterthur",
       "descriptionByLocale": {
-        "de": "Mobilität | seit 1874 | weltweit im Einsatz\n\nDie Schindler Berufsbildung bildet schweizweit über 300 Lernende aus – du bist somit nie allein. Unser gesamtes Team setzt sich täglich für dich ein, damit du am Ende deiner Lehrzeit eine top ausgebildete Fachkraft bist.\n\nSchnupperlehre als Anlagen- und Apparatebauer*in EFZ mit Schwerpunkt Liftmontage in Winterthur",
-        "it": "Mobilität | seit 1874 | weltweit im Einsatz\n\nDie Schindler Berufsbildung bildet schweizweit über 300 Lernende aus – du bist somit nie allein. Unser gesamtes Team setzt sich täglich für dich ein, damit du am Ende deiner Lehrzeit eine top ausgebildete Fachkraft bist.\n\nSchnupperlehre als Anlagen- und Apparatebauer*in EFZ mit Schwerpunkt Liftmontage in Winterthur",
-        "en": "Mobilität | seit 1874 | weltweit im Einsatz\n\nDie Schindler Berufsbildung bildet schweizweit über 300 Lernende aus – du bist somit nie allein. Unser gesamtes Team setzt sich täglich für dich ein, damit du am Ende deiner Lehrzeit eine top ausgebildete Fachkraft bist.\n\nSchnupperlehre als Anlagen- und Apparatebauer*in EFZ mit Schwerpunkt Liftmontage in Winterthur",
-        "fr": "Mobilität | seit 1874 | weltweit im Einsatz\n\nDie Schindler Berufsbildung bildet schweizweit über 300 Lernende aus – du bist somit nie allein. Unser gesamtes Team setzt sich täglich für dich ein, damit du am Ende deiner Lehrzeit eine top ausgebildete Fachkraft bist.\n\nSchnupperlehre als Anlagen- und Apparatebauer*in EFZ mit Schwerpunkt Liftmontage in Winterthur"
+        "de": "Mobilität | seit 1874 | weltweit im Einsatz Die Schindler Berufsbildung bildet schweizweit über 300 Lernende aus – du bist somit nie allein. Unser gesamtes Team setzt sich täglich für dich ein, damit du am Ende deiner Lehrzeit eine top ausgebildete Fachkraft bist. Schnupperlehre als Polymechaniker*in EFZ mit Schwerpunkt Liftmontage in Winterthur",
+        "it": "Mobility | dal 1874 | in tutto il mondo in uso Lo Schindler Formazione Professionale e forma oltre 300 studenti in tutta la Svizzera – non sei mai solo. Tutto il nostro team si impegna ogni giorno per te, in modo che tu sia uno specialista altamente qualificato alla fine del tuo periodo di insegnamento. Schnupperlehre als Polymechaniker* in EFZ con montaggio a fuoco in Winterthur",
+        "en": "Mobility | since 1874 | worldwide in use The Schindler Vocational Education and Training forms over 300 learners throughout Switzerland – you are never alone. Our entire team is committed to you every day, so that you are a highly trained specialist at the end of your teaching period. Schnupperlehre als Polymechaniker*in EFZ with focus lift assembly in Winterthur",
+        "fr": "Mobilité à travers le monde depuis 1874 L'enseignement et la formation professionnels Schindler forment plus de 300 apprenants en Suisse – vous n'êtes jamais seul. Toute notre équipe s'engage pour vous tous les jours, afin que vous soyez un spécialiste hautement qualifié à la fin de votre période d'enseignement. Schnupperlehre als Polymechaniker* dans l'EFZ avec montage de lifting à Winterthur"
       },
       "location": "Winterthur",
       "canton": "ZH",
@@ -2385,14 +2388,17 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "manager-fur-cookie-einwilligungen-schindler-winterthur"
+        ],
+        "fr": [
           "manager-fur-cookie-einwilligungen-schindler-winterthur"
         ]
       },
       "previousSlugs": [
-        "manager-fur-cookie-einwilligungen-schindler-winterthur"
+        "manager-fur-cookie-einwilligungen-schindler-winterthur",
+        "manager-per-cookie-einwilligungen-schindler-winterthur"
       ],
       "salaryMin": 68000,
       "salaryMax": 103000,
@@ -2481,7 +2487,8 @@
         }
       },
       "streetAddress": "Via Industria 11",
-      "postalCode": "6934"
+      "postalCode": "6934",
+      "retranslationAttempts": 1
     },
     {
       "id": "schindler-cb89735d4ad5",
@@ -2694,7 +2701,6 @@
         ]
       },
       "firstSeenAt": "2026-05-19T12:34:17.660Z",
-      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -2853,7 +2859,8 @@
       },
       "streetAddress": "Via Industria 11",
       "postalCode": "6934",
-      "firstSeenAt": "2026-05-21T23:41:41.044Z"
+      "firstSeenAt": "2026-05-21T23:41:41.044Z",
+      "retranslationAttempts": 1
     },
     {
       "id": "schindler-5413bd75ca7a",
@@ -2926,7 +2933,8 @@
         }
       },
       "streetAddress": "Via Industria 11",
-      "postalCode": "6934"
+      "postalCode": "6934",
+      "retranslationAttempts": 1
     },
     {
       "id": "schindler-65144c70dea6",
@@ -2991,7 +2999,8 @@
         }
       },
       "streetAddress": "Via Industria 11",
-      "postalCode": "6934"
+      "postalCode": "6934",
+      "retranslationAttempts": 1
     },
     {
       "id": "schindler-8bb822cdf4a2",
@@ -3056,7 +3065,8 @@
         }
       },
       "streetAddress": "Via Industria 11",
-      "postalCode": "6934"
+      "postalCode": "6934",
+      "retranslationAttempts": 1
     },
     {
       "id": "schindler-bf36cb9b336f",
@@ -3127,7 +3137,6 @@
         ]
       },
       "firstSeenAt": "2026-05-19T12:34:08.710Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -3147,7 +3156,7 @@
       "id": "schindler-2c13857b0f8e",
       "slug": "tecnico-ascensorista-regione-berna-m-f-d-80-100-schindler-bern",
       "slugByLocale": {
-        "it": "tecnico-ascensorista-regione-berna-m-f-d-80-100-schindler-bern",
+        "it": "projektleiter-m-w-d-schindler-bern",
         "en": "elevator-technician-region-bern-m-f-d-80-100-schindler-bern",
         "de": "aufzugsmonteur-in-region-bern-m-w-d-80-100-schindler-bern",
         "fr": "technicien-ascensoriste-region-berne-h-f-d-80-100-schindler-bern"
@@ -3193,12 +3202,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "aufzugsmonteur-in-region-bern-m-w-d-80-100-schindler-bern",
-        "projektleiter-m-w-d-schindler-bern"
+        "aufzugsmonteur-in-region-berner-oberland-m-w-d-80-100-schindler-bern",
+        "projektleiter-m-w-d-schindler-bern-7ab342",
+        "tecnico-ascensorista-regione-berna-m-f-d-80-100-schindler-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "aufzugsmonteur-in-region-bern-m-w-d-80-100-schindler-bern",
-          "projektleiter-m-w-d-schindler-bern"
+          "aufzugsmonteur-in-region-bern-m-w-d-80-100-schindler-bern"
         ],
         "en": [
           "aufzugsmonteur-in-region-bern-m-w-d-80-100-schindler-bern"
@@ -3238,16 +3248,16 @@
       "title": "Manager für Cookie-Einwilligungen",
       "titleByLocale": {
         "de": "Manager für Cookie-Einwilligungen",
-        "it": "Manager per Cookie-Einwilligungen",
-        "en": "Manager für Cookie-Einwilligungen",
-        "fr": "Manager für Cookie-Einwilligungen"
+        "it": "Gestione delle autorizzazioni dei cookie",
+        "en": "Manager for cookie permissions",
+        "fr": "Gestionnaire pour les autorisations de cookies"
       },
       "description": "Mobilität | seit 1874 | weltweit im Einsatz\n\nDie Schindler Berufsbildung bildet schweizweit über 300 Lernende aus – du bist somit nie allein. Unser gesamtes Team setzt sich täglich für dich ein, damit du am Ende deiner Lehrzeit eine top ausgebildete Fachkraft bist.\n\nSchnupperlehre als Polymechaniker*in EFZ mit Schwerpunkt Liftmontage (Lehrstart 2027) in Bern",
       "descriptionByLocale": {
         "de": "Mobilität | seit 1874 | weltweit im Einsatz\n\nDie Schindler Berufsbildung bildet schweizweit über 300 Lernende aus – du bist somit nie allein. Unser gesamtes Team setzt sich täglich für dich ein, damit du am Ende deiner Lehrzeit eine top ausgebildete Fachkraft bist.\n\nSchnupperlehre als Polymechaniker*in EFZ mit Schwerpunkt Liftmontage (Lehrstart 2027) in Bern",
-        "it": "Mobilität | seit 1874 | weltweit im Einsatz\n\nDie Schindler Berufsbildung bildet schweizweit über 300 Lernende aus – du bist somit nie allein. Unser gesamtes Team setzt sich täglich für dich ein, damit du am Ende deiner Lehrzeit eine top ausgebildete Fachkraft bist.\n\nSchnupperlehre als Polymechaniker*in EFZ mit Schwerpunkt Liftmontage (Lehrstart 2027) in Bern",
-        "en": "Mobilität | seit 1874 | weltweit im Einsatz\n\nDie Schindler Berufsbildung bildet schweizweit über 300 Lernende aus – du bist somit nie allein. Unser gesamtes Team setzt sich täglich für dich ein, damit du am Ende deiner Lehrzeit eine top ausgebildete Fachkraft bist.\n\nSchnupperlehre als Polymechaniker*in EFZ mit Schwerpunkt Liftmontage (Lehrstart 2027) in Bern",
-        "fr": "Mobilität | seit 1874 | weltweit im Einsatz\n\nDie Schindler Berufsbildung bildet schweizweit über 300 Lernende aus – du bist somit nie allein. Unser gesamtes Team setzt sich täglich für dich ein, damit du am Ende deiner Lehrzeit eine top ausgebildete Fachkraft bist.\n\nSchnupperlehre als Polymechaniker*in EFZ mit Schwerpunkt Liftmontage (Lehrstart 2027) in Bern"
+        "it": "Mobility | dal 1874 | in tutto il mondo in uso\n\nLo Schindler Formazione Professionale e forma oltre 300 studenti in tutta la Svizzera – non sei mai solo. Tutto il nostro team si impegna ogni giorno per te, in modo che tu sia uno specialista altamente qualificato alla fine del tuo periodo di insegnamento.\n\nSchnupperlehre als Polymechaniker* in EFZ con assemblaggio di sollevamento (Leehrstart 2027) a Berna",
+        "en": "Mobility | since 1874 | worldwide in use\n\nThe Schindler Vocational Education and Training forms over 300 learners throughout Switzerland – you are never alone. Our entire team is committed to you every day, so that you are a highly trained specialist at the end of your teaching period.\n\nSchnupperlehre als Polymechaniker*in EFZ with emphasis lift assembly (Leehrstart 2027) in Bern",
+        "fr": "Mobilité à travers le monde depuis 1874\n\nL'enseignement et la formation professionnels Schindler forment plus de 300 apprenants en Suisse – vous n'êtes jamais seul. Toute notre équipe s'engage pour vous tous les jours, afin que vous soyez un spécialiste hautement qualifié à la fin de votre période d'enseignement.\n\nSchnupperlehre als Polymechaniker* dans l'EFZ avec montage de levage d'accent (Leehrstart 2027) à Berne"
       },
       "location": "Bern",
       "canton": "BE",
@@ -3273,7 +3283,6 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "manager-fur-cookie-einwilligungen-schindler-bern"
@@ -3363,7 +3372,6 @@
         ]
       },
       "firstSeenAt": "2026-05-19T12:34:04.959Z",
-      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -3530,7 +3538,6 @@
         ]
       },
       "firstSeenAt": "2026-05-19T12:34:02.683Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -3769,7 +3776,6 @@
         ]
       },
       "firstSeenAt": "2026-05-19T12:33:59.655Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -3856,7 +3862,6 @@
         ]
       },
       "firstSeenAt": "2026-05-19T12:33:58.173Z",
-      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -4009,7 +4014,6 @@
         ]
       },
       "firstSeenAt": "2026-05-19T12:33:56.687Z",
-      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -4088,7 +4092,6 @@
         ]
       },
       "firstSeenAt": "2026-05-19T12:33:55.194Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -4153,7 +4156,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-05-19T12:33:50.719Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -4232,7 +4234,6 @@
         ]
       },
       "firstSeenAt": "2026-05-19T12:33:49.986Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -4305,7 +4306,6 @@
         ]
       },
       "firstSeenAt": "2026-05-19T12:33:47.721Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -4370,7 +4370,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-05-19T12:33:46.988Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -4513,7 +4512,6 @@
         ]
       },
       "firstSeenAt": "2026-05-19T12:33:44.765Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -4656,7 +4654,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-05-19T12:33:43.279Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -5153,7 +5150,8 @@
         }
       },
       "streetAddress": "Via Industria 11",
-      "postalCode": "6934"
+      "postalCode": "6934",
+      "retranslationAttempts": 1
     },
     {
       "id": "schindler-f2450ccabb86",
@@ -5226,7 +5224,8 @@
         }
       },
       "streetAddress": "Via Industria 11",
-      "postalCode": "6934"
+      "postalCode": "6934",
+      "retranslationAttempts": 1
     },
     {
       "id": "schindler-4d9b959b6a91",
@@ -5439,7 +5438,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-05-19T12:33:34.533Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -5610,7 +5608,8 @@
         }
       },
       "streetAddress": "Via Industria 11",
-      "postalCode": "6934"
+      "postalCode": "6934",
+      "retranslationAttempts": 1
     },
     {
       "id": "schindler-1108939d5959",
@@ -5683,7 +5682,8 @@
         }
       },
       "streetAddress": "Via Industria 11",
-      "postalCode": "6934"
+      "postalCode": "6934",
+      "retranslationAttempts": 1
     },
     {
       "id": "schindler-a0263678dc22",
@@ -5748,7 +5748,8 @@
         }
       },
       "streetAddress": "Via Industria 11",
-      "postalCode": "6934"
+      "postalCode": "6934",
+      "retranslationAttempts": 1
     },
     {
       "id": "schindler-9fc566323467",
@@ -5821,7 +5822,8 @@
         }
       },
       "streetAddress": "Via Industria 11",
-      "postalCode": "6934"
+      "postalCode": "6934",
+      "retranslationAttempts": 1
     },
     {
       "id": "schindler-b0e6ea9b760b",
@@ -5894,7 +5896,8 @@
         }
       },
       "streetAddress": "Via Industria 11",
-      "postalCode": "6934"
+      "postalCode": "6934",
+      "retranslationAttempts": 1
     },
     {
       "id": "schindler-e825851e47cd",
@@ -5967,7 +5970,8 @@
         }
       },
       "streetAddress": "Via Industria 11",
-      "postalCode": "6934"
+      "postalCode": "6934",
+      "retranslationAttempts": 1
     },
     {
       "id": "schindler-3d99f92c8102",
@@ -6040,7 +6044,8 @@
         }
       },
       "streetAddress": "Via Industria 11",
-      "postalCode": "6934"
+      "postalCode": "6934",
+      "retranslationAttempts": 1
     },
     {
       "id": "schindler-101723fba7fd",
@@ -6113,7 +6118,8 @@
         }
       },
       "streetAddress": "Via Industria 11",
-      "postalCode": "6934"
+      "postalCode": "6934",
+      "retranslationAttempts": 1
     }
   ]
 }

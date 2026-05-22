@@ -1,229 +1,5 @@
 [
   {
-    "timestamp": "2026-05-06T04:11:25.438Z",
-    "label": "before",
-    "total": 2613,
-    "needsRetranslation": 107,
-    "incomplete": 37,
-    "complete": 2576,
-    "missingByLocale": {
-      "it": 31,
-      "en": 17,
-      "de": 15,
-      "fr": 32
-    },
-    "topPending": [
-      {
-        "company": "Lonza",
-        "pending": 13
-      },
-      {
-        "company": "EFG International AG",
-        "pending": 6
-      },
-      {
-        "company": "Bell Schweiz AG",
-        "pending": 5
-      },
-      {
-        "company": "Regionalspital Surselva",
-        "pending": 2
-      },
-      {
-        "company": "ALDI SUISSE",
-        "pending": 1
-      },
-      {
-        "company": "Bitfinex",
-        "pending": 1
-      },
-      {
-        "company": "Bosch Thermotechnik AG",
-        "pending": 1
-      },
-      {
-        "company": "Denner",
-        "pending": 1
-      },
-      {
-        "company": "Ferrovia Retica (RhB)",
-        "pending": 1
-      },
-      {
-        "company": "Heineken Switzerland",
-        "pending": 1
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-05-06T04:27:52.377Z",
-    "label": "after",
-    "total": 2613,
-    "needsRetranslation": 74,
-    "incomplete": 37,
-    "complete": 2576,
-    "missingByLocale": {
-      "it": 31,
-      "en": 17,
-      "de": 15,
-      "fr": 32
-    },
-    "topPending": [
-      {
-        "company": "Lonza",
-        "pending": 13
-      },
-      {
-        "company": "EFG International AG",
-        "pending": 6
-      },
-      {
-        "company": "Bell Schweiz AG",
-        "pending": 5
-      },
-      {
-        "company": "Regionalspital Surselva",
-        "pending": 2
-      },
-      {
-        "company": "ALDI SUISSE",
-        "pending": 1
-      },
-      {
-        "company": "Bitfinex",
-        "pending": 1
-      },
-      {
-        "company": "Bosch Thermotechnik AG",
-        "pending": 1
-      },
-      {
-        "company": "Denner",
-        "pending": 1
-      },
-      {
-        "company": "Ferrovia Retica (RhB)",
-        "pending": 1
-      },
-      {
-        "company": "Heineken Switzerland",
-        "pending": 1
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-05-06T06:15:42.647Z",
-    "label": "before",
-    "total": 2613,
-    "needsRetranslation": 74,
-    "incomplete": 37,
-    "complete": 2576,
-    "missingByLocale": {
-      "it": 31,
-      "en": 17,
-      "de": 15,
-      "fr": 32
-    },
-    "topPending": [
-      {
-        "company": "Lonza",
-        "pending": 13
-      },
-      {
-        "company": "EFG International AG",
-        "pending": 6
-      },
-      {
-        "company": "Bell Schweiz AG",
-        "pending": 5
-      },
-      {
-        "company": "Regionalspital Surselva",
-        "pending": 2
-      },
-      {
-        "company": "ALDI SUISSE",
-        "pending": 1
-      },
-      {
-        "company": "Bitfinex",
-        "pending": 1
-      },
-      {
-        "company": "Bosch Thermotechnik AG",
-        "pending": 1
-      },
-      {
-        "company": "Denner",
-        "pending": 1
-      },
-      {
-        "company": "Ferrovia Retica (RhB)",
-        "pending": 1
-      },
-      {
-        "company": "Heineken Switzerland",
-        "pending": 1
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-05-06T06:27:43.964Z",
-    "label": "after",
-    "total": 2613,
-    "needsRetranslation": 103,
-    "incomplete": 37,
-    "complete": 2576,
-    "missingByLocale": {
-      "it": 31,
-      "en": 17,
-      "de": 15,
-      "fr": 32
-    },
-    "topPending": [
-      {
-        "company": "Lonza",
-        "pending": 13
-      },
-      {
-        "company": "EFG International AG",
-        "pending": 6
-      },
-      {
-        "company": "Bell Schweiz AG",
-        "pending": 5
-      },
-      {
-        "company": "Regionalspital Surselva",
-        "pending": 2
-      },
-      {
-        "company": "ALDI SUISSE",
-        "pending": 1
-      },
-      {
-        "company": "Bitfinex",
-        "pending": 1
-      },
-      {
-        "company": "Bosch Thermotechnik AG",
-        "pending": 1
-      },
-      {
-        "company": "Denner",
-        "pending": 1
-      },
-      {
-        "company": "Ferrovia Retica (RhB)",
-        "pending": 1
-      },
-      {
-        "company": "Heineken Switzerland",
-        "pending": 1
-      }
-    ]
-  },
-  {
     "timestamp": "2026-05-06T08:52:51.249Z",
     "label": "before",
     "total": 2547,
@@ -11188,6 +10964,118 @@
       {
         "company": "VF International (The North Face, Timberland)",
         "pending": 21
+      },
+      {
+        "company": "PwC Switzerland",
+        "pending": 17
+      },
+      {
+        "company": "Regionalspital Surselva",
+        "pending": 15
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-05-22T00:23:45.484Z",
+    "label": "before",
+    "total": 8552,
+    "needsRetranslation": 6441,
+    "incomplete": 981,
+    "complete": 7571,
+    "missingByLocale": {
+      "it": 429,
+      "en": 520,
+      "de": 368,
+      "fr": 569
+    },
+    "topPending": [
+      {
+        "company": "EOC – Ente Ospedaliero Cantonale",
+        "pending": 166
+      },
+      {
+        "company": "IWC",
+        "pending": 115
+      },
+      {
+        "company": "Hügli Nahrungsmittel GmbH",
+        "pending": 80
+      },
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 73
+      },
+      {
+        "company": "Roche",
+        "pending": 53
+      },
+      {
+        "company": "UBS",
+        "pending": 31
+      },
+      {
+        "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
+        "pending": 21
+      },
+      {
+        "company": "VF International (The North Face, Timberland)",
+        "pending": 20
+      },
+      {
+        "company": "PwC Switzerland",
+        "pending": 17
+      },
+      {
+        "company": "Regionalspital Surselva",
+        "pending": 15
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-05-22T03:27:48.064Z",
+    "label": "after",
+    "total": 8552,
+    "needsRetranslation": 1986,
+    "incomplete": 817,
+    "complete": 7735,
+    "missingByLocale": {
+      "it": 350,
+      "en": 458,
+      "de": 330,
+      "fr": 501
+    },
+    "topPending": [
+      {
+        "company": "EOC – Ente Ospedaliero Cantonale",
+        "pending": 166
+      },
+      {
+        "company": "Hügli Nahrungsmittel GmbH",
+        "pending": 80
+      },
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 72
+      },
+      {
+        "company": "Roche",
+        "pending": 53
+      },
+      {
+        "company": "UBS",
+        "pending": 31
+      },
+      {
+        "company": "IWC",
+        "pending": 23
+      },
+      {
+        "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
+        "pending": 21
+      },
+      {
+        "company": "VF International (The North Face, Timberland)",
+        "pending": 20
       },
       {
         "company": "PwC Switzerland",
