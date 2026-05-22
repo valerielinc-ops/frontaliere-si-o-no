@@ -11,7 +11,6 @@ const EXACT_FILES = [
   'data/jobs-source-match-audit.json',
   'data/jobs-stats-history.json',
   'public/data/jobs.json',
-  'public/jobs.json',
 ];
 
 const ADAPTERS_DIR = path.join(ROOT, 'data', 'jobs-crawler-adapters', 'adapters');
