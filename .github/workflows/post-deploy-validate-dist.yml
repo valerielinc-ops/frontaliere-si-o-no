@@ -37,6 +37,21 @@ jobs:
       - name: Checkout (same SHA as deploy — invariant in workflow_call)
         uses: actions/checkout@v5
 
+      # Reclaim ~25 GB of preinstalled SDKs we never use (dotnet, android,
+      # haskell, CodeQL, powershell). Run 26287421188 OOM'd the runner mid
+      # artifact-extract because the github-pages tarball (~1.8 GB) + dist
+      # extraction + node_modules + Playwright report leftovers crowded a
+      # 14 GB default partition. Best-effort: `|| true` keeps the build
+      # green if a path was already pruned by a future image refresh.
+      - name: Free disk space on runner
+        run: |
+          df -h /
+          sudo rm -rf /usr/share/dotnet /usr/local/lib/android /opt/ghc \
+            /opt/hostedtoolcache/CodeQL /usr/local/share/powershell \
+            /usr/local/share/chromium /usr/local/lib/node_modules 2>/dev/null || true
+          sudo docker image prune -af 2>/dev/null || true
+          df -h /
+
       - name: Setup Node.js
         uses: actions/setup-node@v5
         with:
