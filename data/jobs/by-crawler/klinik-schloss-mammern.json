@@ -1,6 +1,6 @@
 {
   "crawlerKey": "klinik-schloss-mammern",
-  "assembledAt": "2026-05-21T22:55:03.166Z",
+  "assembledAt": "2026-05-22T09:06:50.372Z",
   "jobs": [
     {
       "id": "klinik-schloss-mammern-975aec961b52",
@@ -687,76 +687,6 @@
           "@type": "QuantitativeValue",
           "minValue": 68000,
           "maxValue": 103000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "klinik-schloss-mammern-d9324cd3fef6",
-      "slug": "dipl-pflegefachfrau-mann-80-100-klinik-schloss-mammern",
-      "slugByLocale": {
-        "it": "dipl-pflegefachfrau-mann-80-100-klinik-schloss-mammern",
-        "en": "dipl-pflegefachfrau-mann-80-100-klinik-schloss-mammern-mammern",
-        "de": "dipl-pflegefachfrau-mann-80-100-klinik-schloss-mammern-mammern",
-        "fr": "dipl-pflegefachfrau-mann-80-100-klinik-schloss-mammern-mammern"
-      },
-      "company": "Klinik Schloss Mammern",
-      "companyKey": "klinik-schloss-mammern",
-      "companyDomain": "klinik-schloss-mammern.ch",
-      "title": "Dipl. Pflegefachfrau Mann 80 100",
-      "titleByLocale": {
-        "it": "Dipl. Pflegefachfrau Mann 80 100",
-        "en": "Dipl. Pflegefachfrau Mann 80 100",
-        "de": "Dipl. Pflegefachfrau",
-        "fr": "Dipl. Pflegefachfrau Hommes 80 100"
-      },
-      "description": "Dipl. Pflegefachfrau Mann 80 100 — Klinik Schloss Mammern, Mammern (TG). Privatklinik für Rehabilitation am Untersee, seit 1889 im Familienbesitz.",
-      "descriptionByLocale": {
-        "it": "Posizione Infermiere qualificato 80 100 - Klinik Schloss Mammern, Mammern (TG). Clinica privata per la riabilitazione sull'Untersee, a conduzione familiare dal 1889.",
-        "en": "Dipl. Pflegefachfrau Mann 80 100 — Klinik Schloss Mammern, Mammern (TG). Privatklinik für Rehabilitation am Untersee, seit 1889 im Familienbesitz.",
-        "de": "Stelle Dipl. Pflegefachfrau Mann 80 100 - Klinik Schloss Mammern, Mammern (TG). Privatklinik für Rehabilitation am Untersee, seit 1889 im Familienbesitz.",
-        "fr": "Stelle Dipl. Pflegefachfrau Mann 80 100 — Klinik Schloss Mammern, Mammern (TG). Clinique privée de réadaptation à Untersee, depuis 1889 dans Familienbesitz."
-      },
-      "location": "Mammern",
-      "canton": "TG",
-      "url": "https://ksm-jobs.ch/job/dipl.-pflegefachfrau-mann-80-100/",
-      "source": "Klinik Schloss Mammern Dedicated Parser (WordPress sitemap + Elementor detail)",
-      "sourceLang": "en",
-      "crawledAt": "2026-05-21T22:54:39.831Z",
-      "addressLocality": "Mammern",
-      "addressRegion": "TG",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8265",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-19",
-      "applyUrl": "https://ksm-jobs.ch/job/dipl.-pflegefachfrau-mann-80-100/",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "dipl-pflegefachfrau-mann-80-100-klinik-schloss-mammern-mammern"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "dipl-pflegefachfrau-mann-80-100-klinik-schloss-mammern-mammern"
-        ]
-      },
-      "firstSeenAt": "2026-05-19T13:03:48.168Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
           "unitText": "YEAR"
         }
       }

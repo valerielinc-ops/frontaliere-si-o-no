@@ -1,6 +1,6 @@
 {
   "crawlerKey": "schulthess-klinik",
-  "assembledAt": "2026-05-21T23:41:34.435Z",
+  "assembledAt": "2026-05-22T09:17:27.763Z",
   "jobs": [
     {
       "id": "schulthess-klinik-91130a6d552e",
@@ -267,100 +267,6 @@
         ]
       },
       "firstSeenAt": "2026-05-19T15:48:42.219Z",
-      "salaryMin": 68000,
-      "salaryMax": 103000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68000,
-          "maxValue": 103000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "schulthess-klinik-cb6027f4da1d",
-      "slug": "segretaria-o-del-capo-medico-segretaria-o-del-capo-medico-di-spalla-ed-elbow-chirurgia-schulthess-klinik-lengghalde-2",
-      "slugByLocale": {
-        "it": "segretaria-o-del-capo-medico-segretaria-o-del-capo-medico-di-spalla-ed-elbow-chirurgia-schulthess-klinik-lengghalde-2",
-        "en": "head-of-medical-secretary-head-of-medical-secretary-shoulder-and-elbow-surgery-schulthess-klinik-lengghalde-2-zurich",
-        "de": "chefarztsekretarin-chefarztsekretar-schulter-und-ellbogenchirurgie-schulthess-klinik",
-        "fr": "secretaire-en-chef-secretaire-en-chef-de-la-chirurgie-de-l-epaule-et-du-coude-schulthess-klinik-lengghalde-2-zurich"
-      },
-      "company": "Schulthess Klinik",
-      "companyKey": "schulthess-klinik",
-      "companyDomain": "schulthess-klinik.ch",
-      "title": "Chefarztsekretärin / Chefarztsekretär Schulter- und Ellbogenchirurgie",
-      "titleByLocale": {
-        "it": "Segretaria/o del Capo Medico / Segretaria/o del Capo Medico di Spalla ed Elbow Chirurgia",
-        "en": "Head of Medical Secretary / Head of Medical Secretary Shoulder and Elbow Surgery",
-        "de": "Chefarztsekretärin / Chefarztsekretär Schulter- und Ellbogenchirurgie",
-        "fr": "Secrétaire en chef / Secrétaire en chef de la chirurgie de l'épaule et du coude"
-      },
-      "description": "Aufgaben:\n• Zuständig für die Sprechstunde sowie Agenda-Planung unseres Chefarztes\n\n• Schreiben von Konsultations-, Operations- und sonstigen Berichten ab Diktaphon und eingeben der entsprechenden Abrechnungsdaten inkl. Codierung im System\n\n• Telefonische und schriftliche Auskünfte sowie Triage an die zuständige Instanz\n\n• Persönliche Betreuung der Patienten und deren Anliegen\n\n• Weitere abwechslungsreiche administrative und organisatorische Aufgaben\n\nAnforderungen:\n• Abschluss als med. Praxisassistentin (MPA) und/oder Zusatzausbildung als Arzt-/Chefarztsekretärin mit Berufserfahrung in einer vergleichbaren Funktion\n\n• Freude am Schreiben ab Diktaphon sowie die sichere Anwendung der medizinischen Terminologie\n\n• Dienstleistungsorientiert und Freude am Umgang mit Patienten und Angehörigen\n\n• Freundliche, vertrauensvolle und selbstständige Persönlichkeit\n\n• Teamorientierte und flexible Arbeitsweise mit eigenen Ideen und Eigeninitiative\n\n• Versierte PC-Kenntnisse\n\n• Stilsichere Deutsch- und gute Englischkenntnisse, weiter Sprachkenntisse von Vorteil\n\nWir bieten:\n• 40 Stundenwoche\n\n• Attraktive Sozialleistungen und zahlreiche Benefits\n\n• Teamspirit\n\n• Work-Life-Balance / Familienfreundlichkeit\n\n• Günstige Verpflegung im Personalrestaurant\n\nDie Schulthess Klinik in Zürich ist eine der führenden orthopädischen Kliniken Europas mit über 1'100 Mitarbeitenden. Unser zentrales Anliegen ist es, Menschen von ihren Schmerzen zu befreien und ihre Mobilität wiederherzustellen. Als Spezialklinik konzentrieren wir uns auf chirurgische Orthopädie, Neurologie, Rheumatologie und Sportmedizin. Die Schulthess Klinik ist Swiss Olympic Medical Center.",
-      "descriptionByLocale": {
-        "it": "Mansioni - Responsabile della segretaria del capo medico e della pianificazione dell'agenda - Redazione di rapporti di consultazione, operazioni e altri da dettato e inserimento dei dati di fatturazione corrispondenti, inclusa la codifica nel sistema - Fornire informazioni telefoniche e scritte e triage all'istituzione competente - Assistenza personale ai pazienti e gestione delle loro richieste - Altre interessanti attività amministrative e organizzative\n• Requisiti - Diploma di assistente medico (MPA) e/o formazione supplementare come segretario/a di medico/capo medico medico con esperienza in una funzione simile - Piacere nel dettare e nell'uso della terminologia medica - Orientamento al servizio e piacere nel trattare con i pazienti e i loro familiari - Personalità amichevole, affidabile e autonoma - Lavoro di squadra e flessibilità con idee proprie ed iniziativa - Buone conoscenze del PC - Conoscenza sicura del tedesco e buona conoscenza dell'inglese, ulteriori conoscenze linguistiche sono un vantaggio\n• Cosa offriamo - Orario di lavoro a tempo pieno di 40 ore alla settimana - Interessanti benefit sociali e numerosi vantaggi - Spirito di squadra - Bilanciamento tra lavoro e vita privata / amichevole per la famiglia - Cibo conveniente nel ristorante del personale La Clinica Schulthess di Zurigo è una delle principali cliniche ortopediche d'Europa con oltre 1.100 dipendenti. Il nostro obiettivo principale è liberare le persone dal dolore e ripristinare la loro mobilità.",
-        "en": "Mansioni - Responsabile della segretaria del capo medico e della pianificazione dell 'agenda - Redazione di rapporti di consultazione, operazioni e altri da dettato e inserimento dei dati di fatturazione corrispondenti, inclusa la codifica nel sistema - Fornire informazioni telefoniche e scritte e triage all 'istituzione competente - Assistenza personale ai pazienti e gestione delle loro richieste - Altre interessanti attività amministrative e organizzative\n• Requisiti - Diploma di assistente medico (MPA) e/o formazione supplementare come segretario/a di medico/capo medico con esperienza in una funzione simile - Piacere nel dettare e nell 'utilizzo della terminologia medica - Orientamento al servizio e piacere nel trattare con i pazienti e i loro familiari - Personalità amichevole, affidabile e autonoma - Lavoro di squadra e flessibilità con idee proprie ed iniziativa - Buone conoscenze del PC - Conoscenza sicura del tedesco e buona conoscenza dell 'ingglese, ulteriori conoscenze linguistiche sono un vantaggio\n• Cosa offriamo - Orario di lavoro a tempo pieno di 40 ore alla settimana - Interessanti benefit sociali e numerosi vantaggi - Spirito di squadra - Bilanciamento tra lavoro e vita privata / amichevole per la famiglia - Cibo conveniente nel ristorante del personale La Clinica Schulthess di Zurigo è una delle principali cliniche ortopediche d'Europe con oltre 1,100 dipendenti. Il nostro obiettivo principale è liberare le persone dal dolore e ripristinare la loro mobilità.",
-        "de": "Aufgaben:\n• Zuständig für die Sprechstunde sowie Agenda-Planung unseres Chefarztes\n• Schreiben von Konsultations-, Operations- und sonstigen Berichten ab Diktaphon und eingeben der entsprechenden Abrechnungsdaten inkl. Codierung im System\n• Telefonische und schriftliche Auskünfte sowie Triage an die zuständige Instanz\n• Persönliche Betreuung der Patienten und deren Anliegen\n• Weitere abwechslungsreiche administrative und organisatorische Aufgaben Anforderungen:\n• Abschluss als med. Praxisassistentin (MPA) und/oder Zusatzausbildung als Arzt-/Chefarztsekretärin mit Berufserfahrung in einer vergleichbaren Funktion\n• Freude am Schreiben ab Diktaphon sowie die sichere Anwendung der medizinischen Terminologie\n• Dienstleistungsorientiert und Freude am Umgang mit Patienten und Angehörigen\n• Freundliche, vertrauensvolle und selbstständige Persönlichkeit\n• Teamorientierte und flexible Arbeitsweise mit eigenen Ideen und Eigeninitiative\n• Versierte PC-Kenntnisse\n• Stilsichere Deutsch- und gute Englischkenntnisse, weiter Sprachkenntisse von Vorteil Wir bieten:\n• 40 Stundenwoche\n• Attraktive Sozialleistungen und zahlreiche Benefits\n• Teamspirit\n• Work-Life-Balance / Familienfreundlichkeit\n• Günstige Verpflegung im Personalrestaurant Die Schulthess Klinik in Zürich ist eine der führenden orthopädischen Kliniken Europas mit über 1'100 Mitarbeitenden. Unser zentrales Anliegen ist es, Menschen von ihren Schmerzen zu befreien und ihre Mobilität wiederherzustellen. Als Spezialklinik konzentrieren wir uns auf chirurgische Orthopädie, Neurologie, Rheumatologie und Sportmedizin. Die Schulthess Klinik ist Swiss Olympic Medical Center.",
-        "fr": "Mansioni - Responsabile della segretaria del capo medico e della pianificazione dell' agenda - Redazione di rapporti di consultazione, operazioni e altri da dettato e inserimento dei dati di fatturazione corrispondenti, inclusa la codifica nel sistema - Fornire informazioni telefoniche e scritte e triage all'istituzione competente - Assistenza personale ai pazienti e gestione delle loro richieste - Altre interessantiità amministrative e organizzative\n• Requisiti - Diploma di assistente medico (MPA) e/o formazione supplementare come segretario/a di medico/capo medico esperienza in una funzione simile - Piacere nel dettare e nell' utilizzo della terminologia medica - Orientamento al servizio e piacere nel trattare con i pazienti e i loro familiari - Personalità amichevole, affidabile e autonoma - Lavoro di squadra e flessibilità con idee proprie ed iniziativa - Buone conoscenze del PC - Conoscenza sicura del tedesco e buona conoscenza dell'inglese, ulteriori conoscenze linguistiche sono un vantaggio\n• Cosa offriamo - Orario di lavoro a tempo pieno di 40 ore alla settimana - Interestanti benefit sociali e numerosi vantaggi - Spirito di squadra - Bilanciamento travoro e vita privata /amichevole per famiglia - Cibo conveniente nel ristorante del personale La Clinica Schulthess di Zurigo è una delle principali cliniche ortopediche d'Europa con oltre 1.100 dipendenti. Il nostro obiettivo principale è liberare le persone dal dolore e ripristinare la loro mobilità."
-      },
-      "location": "Lengghalde 2, Zürich",
-      "canton": "ZH",
-      "url": "https://job.schulthess-klinik.ch/offene-stellen/chefarztsekretaerin-chefarztsekretaer-schulter-und-ellbogenchirurgie/00b56bec-e220-490c-861e-f3446fa1c0f8",
-      "source": "Schulthess Klinik Dedicated Parser (Prospective medium 1007262)",
-      "sourceLang": "de",
-      "crawledAt": "2026-05-21T23:41:32.036Z",
-      "addressLocality": "Lengghalde 2, Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8008",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-06",
-      "applyUrl": "https://job.schulthess-klinik.ch/successfactors/EMEA_ROT/SchulthessK/de/apply?id=1964",
-      "requirements": [],
-      "requirementsByLocale": {
-        "it": [
-          "Piacere nel dettare e nell'utilizzo della terminologia medica",
-          "Orientamento al servizio e piacere nel trattare con i pazienti e i loro familiari",
-          "Personalità amichevole, affidabile e autonoma",
-          "Lavoro di squadra e flessibilità con idee proprie ed iniziativa",
-          "Buone conoscenze del PC",
-          "Conoscenza sicura del tedesco e buona conoscenza dell'inglese, ulteriori conoscenze linguistiche sono un vantaggio"
-        ],
-        "en": [
-          "Enjoyment of dictation and use of medical terminology",
-          "Service-oriented and enjoyment of dealing with patients and their families",
-          "Friendly, reliable and independent personality",
-          "Teamwork and flexibility with own ideas and initiative",
-          "Good PC skills",
-          "Proficiency in German and good knowledge of English, additional language skills are an advantage"
-        ],
-        "fr": [
-          "Plaisir à dicter et à utiliser la terminologie médicale",
-          "Orienté vers le service et plaisir à traiter avec les patients et leur famille",
-          "Personnalité amicale, fiable et autonome",
-          "Travail d'équipe et flexibilité avec ses propres idées et initiatives",
-          "Bonne connaissance de l'ordinateur"
-        ]
-      },
-      "previousSlugs": [
-        "chefarztsekretarin-chefarztsekretar-schulter-und-ellbogenchirurgie-schulthess-klinik"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "chefarztsekretarin-chefarztsekretar-schulter-und-ellbogenchirurgie-schulthess-klinik"
-        ]
-      },
-      "firstSeenAt": "2026-05-19T15:48:42.216Z",
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
