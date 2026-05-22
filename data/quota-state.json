@@ -2,7 +2,7 @@
   "version": 1,
   "runCounter": 270,
   "currentQuota": 80,
-  "lastTune": "2026-05-21T07:52:39.922Z",
+  "lastTune": "2026-05-22T07:45:11.747Z",
   "history": [
     {
       "tunedAt": "2026-05-07T20:55:05.776Z",
@@ -317,6 +317,26 @@
         "proven": {
           "winners": 0,
           "total": 0
+        },
+        "discovery": {
+          "winners": 0,
+          "total": 0
+        }
+      }
+    },
+    {
+      "tunedAt": "2026-05-22T07:45:11.747Z",
+      "prevQuota": 80,
+      "newQuota": 80,
+      "decision": "hold",
+      "reason": "insufficient sample proven=10 discovery=0",
+      "provenWinRate": 0.9,
+      "discoveryWinRate": 0,
+      "ratio": null,
+      "samples": {
+        "proven": {
+          "winners": 9,
+          "total": 10
         },
         "discovery": {
           "winners": 0,
