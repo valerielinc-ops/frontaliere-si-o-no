@@ -1,16 +1,16 @@
 {
   "key": "efg-international",
   "label": "EFG",
-  "generatedAt": "2026-05-22T11:30:47.139Z",
+  "generatedAt": "2026-05-22T22:03:11.593Z",
   "total": 34,
   "newCount": 0,
   "updatedCount": 29,
   "removedCount": 0,
   "unchangedCount": 5,
-  "durationMs": 27468,
-  "avgDurationMs": 27468,
+  "durationMs": 27425,
+  "avgDurationMs": 27425,
   "durationHistory": [
-    27468
+    27425
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -133,7 +133,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-22T11:30:44.944Z",
+      "crawledAt": "2026-05-22T22:03:09.456Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-04-17",
@@ -250,7 +250,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-22T11:30:44.943Z",
+      "crawledAt": "2026-05-22T22:03:09.455Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "datePosted": "2026-03-31",
@@ -365,7 +365,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-22T11:30:44.941Z",
+      "crawledAt": "2026-05-22T22:03:09.454Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-04-15",
@@ -419,7 +419,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-22T11:30:44.940Z",
+      "crawledAt": "2026-05-22T22:03:09.453Z",
       "addressLocality": "St. Moritz",
       "addressCountry": "CH",
       "datePosted": "2026-04-01",
@@ -431,6 +431,7 @@
       "employmentType": "FULL_TIME",
       "firstSeenAt": "2026-05-17T10:08:35.143Z",
       "needsRetranslation": true,
+      "retranslationAttempts": 1,
       "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -548,7 +549,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-22T11:30:44.938Z",
+      "crawledAt": "2026-05-22T22:03:09.451Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-04-01",
@@ -680,7 +681,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-22T11:30:44.937Z",
+      "crawledAt": "2026-05-22T22:03:09.450Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-04-09",
@@ -780,7 +781,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-22T11:30:44.936Z",
+      "crawledAt": "2026-05-22T22:03:09.449Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "sourceLang": "en",
@@ -861,7 +862,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-22T11:30:44.935Z",
+      "crawledAt": "2026-05-22T22:03:09.448Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-04-02",
@@ -978,7 +979,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-22T11:30:44.934Z",
+      "crawledAt": "2026-05-22T22:03:09.447Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "sourceLang": "en",
@@ -1032,7 +1033,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-22T11:30:44.932Z",
+      "crawledAt": "2026-05-22T22:03:09.445Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-04-07",
@@ -1110,7 +1111,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-22T11:30:44.931Z",
+      "crawledAt": "2026-05-22T22:03:09.444Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "datePosted": "2026-04-02",
@@ -1164,7 +1165,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-22T11:30:44.929Z",
+      "crawledAt": "2026-05-22T22:03:09.442Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "datePosted": "2026-04-08",
@@ -1217,7 +1218,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-22T11:30:44.928Z",
+      "crawledAt": "2026-05-22T22:03:09.441Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-04-08",
@@ -1339,7 +1340,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-22T11:30:44.927Z",
+      "crawledAt": "2026-05-22T22:03:09.440Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "sourceLang": "en",
@@ -1467,7 +1468,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-22T11:30:44.926Z",
+      "crawledAt": "2026-05-22T22:03:09.439Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "sourceLang": "en",
@@ -1484,59 +1485,6 @@
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
-    {
-      "id": "efg-5877",
-      "slug": "back-office-cash-reconciliation-specialist-efg-geneve",
-      "company": "EFG International AG",
-      "title": "Back-Office Cash reconciliation specialist",
-      "location": "Geneve",
-      "canton": "GE",
-      "category": "admin",
-      "contract": "permanent",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2025-12-10",
-      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/5877",
-      "source": "Oracle HCM API",
-      "sourceLang": "en",
-      "companyKey": "efg-international",
-      "companyDomain": "efginternational.com",
-      "canonicalContent": {
-        "byLocale": {
-          "en": {
-            "summary": [
-              "<p><span>General Info</span></p> <ul> <li><span>Department</span>: <span>Back Office Cash Reconciliation Specialist</span></li> <li><span>Work</span><span> </span><span>time</span><span> </span><span>Percentage</span><span>: 100%</span></li> <li><span>Location</span><span>: Geneva</span></li> </ul>Our Company <p>EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice. </p> <p>EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation.</p> <p><span>Our Purpose and Mission</span></p> <p><span>Empowering entrepreneurial minds to create value – today and for the future.</span></p> <p><span>We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value.</span></p>Job Description <p><span>We are seeking a skilled Back Office Cash Reconciliation Specialist to join our team in Geneva. This position offers the opportunity to contribute to a dynamic environment where precision, collaboration, and proactive problem-solving are highly valued. Main duties include</span></p> <ul> <li><span>Cash Reconciliation</span> <ul> <li><span>Perform reconciliation of cash correspondents for all EFG entities</span></li> <li><span>Manually input statements from correspondents not automatically reconciled</span></li> <li><span>Monitor, check, and investigate cash differences on a daily basis</span> <ul> <li><span>Establish and maintain a list of pending cash amounts</span></li> </ul></li> <li><span>Manage treatment and follow-up of current files</span></li> <li><span>Claim and recover missing statements from counterparties</span></li> </ul></li> <li><span>Investigation on Customer Wires</span> <ul> <li><span>Demonstrate strong knowledge of cash transfer activities (e.g., MT103, MT202, etc.)</span></li> <li><span>Understand the roles of each counterparty involved in wire payments</span></li> <li><span>Draft and send SWIFT messages (e.g., MTx99, MTx95, MTx96, etc.) as needed</span></li> <li><span>Take responsibility for managing investigations from start to finish</span></li> <li><span>Apply familiarity with compliance requirements throughout investigations</span></li> <li><span>Communicate effectively in English, both orally and in writing</span></li> </ul></li> </ul>Skills and experience <ul> <li><span>Minimum of 2 years’ experience in cash reconciliation and/or investigation of customer wire transfers </span></li> <li><span>General understanding of Back-Office operations within banking </span></li> <li><span>French mother tongue and fluent English (spoken and written); additional languages are an asset </span></li> <li><span>Knowledge of GTMatch, GTExchange, and Globus is advantageous </span></li> <li><span>Proficient in MS Office suite </span></li> <li><span>Solution-oriented, pragmatic, and precise </span></li> <li><span>Strong team player, comfortable working in open space environments </span></li> <li><span>Resilient under pressure, flexible, and adaptable </span></li> <li><span>Proactive with excellent attention to detail</span></li> </ul>Our Values <ul> <li><span>Accountability</span><span>: Taking ownership for tasks and challenges, as well as seeking continuous improvement</span></li> <li><span>Hands-on</span><span>: Being proactive to rapidly deliver high-quality results</span></li> <li><span>Passionate</span><span>: Being committed and striving for excellence</span></li> <li><span>Solution-driven</span><span>: Focusing on client outcomes and treating clients fairly with a risk-aware mindset</span></li> <li><span>Partnership-oriented</span><span>: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.</span></li> </ul> <ol> <li><span><b>Please ensure to attach a cover letter to your CV when filling the application.</b></span></li> </ol>Application <ol> <li><span>Should you wish to apply for this position use this link to apply.</span></li> </ol>"
-            ],
-            "responsibilities": [],
-            "requirements": [],
-            "benefits": [],
-            "process": [],
-            "highlights": [],
-            "keywords": [],
-            "sections": [],
-            "readingMinutes": 3
-          }
-        }
-      },
-      "crawledAt": "2026-05-22T11:30:44.925Z",
-      "addressLocality": "Geneve",
-      "addressCountry": "CH",
-      "datePosted": "2025-12-10",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "streetAddress": "Via Pretorio 22",
-      "postalCode": "6900",
-      "addressRegion": "TI",
-      "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-05-10T21:30:00.887Z",
-      "_qualityScore": 99,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
         "translation": 25,
         "completeness": 25
       }
@@ -1575,7 +1523,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-22T11:30:44.924Z",
+      "crawledAt": "2026-05-22T22:03:09.437Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "datePosted": "2026-04-08",
@@ -1590,6 +1538,59 @@
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
+        "translation": 25,
+        "completeness": 25
+      }
+    },
+    {
+      "id": "efg-5877",
+      "slug": "back-office-cash-reconciliation-specialist-efg-geneve",
+      "company": "EFG International AG",
+      "title": "Back-Office Cash reconciliation specialist",
+      "location": "Geneve",
+      "canton": "GE",
+      "category": "admin",
+      "contract": "permanent",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2025-12-10",
+      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/5877",
+      "source": "Oracle HCM API",
+      "sourceLang": "en",
+      "companyKey": "efg-international",
+      "companyDomain": "efginternational.com",
+      "canonicalContent": {
+        "byLocale": {
+          "en": {
+            "summary": [
+              "<p><span>General Info</span></p> <ul> <li><span>Department</span>: <span>Back Office Cash Reconciliation Specialist</span></li> <li><span>Work</span><span> </span><span>time</span><span> </span><span>Percentage</span><span>: 100%</span></li> <li><span>Location</span><span>: Geneva</span></li> </ul>Our Company <p>EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice. </p> <p>EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation.</p> <p><span>Our Purpose and Mission</span></p> <p><span>Empowering entrepreneurial minds to create value – today and for the future.</span></p> <p><span>We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value.</span></p>Job Description <p><span>We are seeking a skilled Back Office Cash Reconciliation Specialist to join our team in Geneva. This position offers the opportunity to contribute to a dynamic environment where precision, collaboration, and proactive problem-solving are highly valued. Main duties include</span></p> <ul> <li><span>Cash Reconciliation</span> <ul> <li><span>Perform reconciliation of cash correspondents for all EFG entities</span></li> <li><span>Manually input statements from correspondents not automatically reconciled</span></li> <li><span>Monitor, check, and investigate cash differences on a daily basis</span> <ul> <li><span>Establish and maintain a list of pending cash amounts</span></li> </ul></li> <li><span>Manage treatment and follow-up of current files</span></li> <li><span>Claim and recover missing statements from counterparties</span></li> </ul></li> <li><span>Investigation on Customer Wires</span> <ul> <li><span>Demonstrate strong knowledge of cash transfer activities (e.g., MT103, MT202, etc.)</span></li> <li><span>Understand the roles of each counterparty involved in wire payments</span></li> <li><span>Draft and send SWIFT messages (e.g., MTx99, MTx95, MTx96, etc.) as needed</span></li> <li><span>Take responsibility for managing investigations from start to finish</span></li> <li><span>Apply familiarity with compliance requirements throughout investigations</span></li> <li><span>Communicate effectively in English, both orally and in writing</span></li> </ul></li> </ul>Skills and experience <ul> <li><span>Minimum of 2 years’ experience in cash reconciliation and/or investigation of customer wire transfers </span></li> <li><span>General understanding of Back-Office operations within banking </span></li> <li><span>French mother tongue and fluent English (spoken and written); additional languages are an asset </span></li> <li><span>Knowledge of GTMatch, GTExchange, and Globus is advantageous </span></li> <li><span>Proficient in MS Office suite </span></li> <li><span>Solution-oriented, pragmatic, and precise </span></li> <li><span>Strong team player, comfortable working in open space environments </span></li> <li><span>Resilient under pressure, flexible, and adaptable </span></li> <li><span>Proactive with excellent attention to detail</span></li> </ul>Our Values <ul> <li><span>Accountability</span><span>: Taking ownership for tasks and challenges, as well as seeking continuous improvement</span></li> <li><span>Hands-on</span><span>: Being proactive to rapidly deliver high-quality results</span></li> <li><span>Passionate</span><span>: Being committed and striving for excellence</span></li> <li><span>Solution-driven</span><span>: Focusing on client outcomes and treating clients fairly with a risk-aware mindset</span></li> <li><span>Partnership-oriented</span><span>: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.</span></li> </ul> <ol> <li><span><b>Please ensure to attach a cover letter to your CV when filling the application.</b></span></li> </ol>Application <ol> <li><span>Should you wish to apply for this position use this link to apply.</span></li> </ol>"
+            ],
+            "responsibilities": [],
+            "requirements": [],
+            "benefits": [],
+            "process": [],
+            "highlights": [],
+            "keywords": [],
+            "sections": [],
+            "readingMinutes": 3
+          }
+        }
+      },
+      "crawledAt": "2026-05-22T22:03:09.437Z",
+      "addressLocality": "Geneve",
+      "addressCountry": "CH",
+      "datePosted": "2025-12-10",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "streetAddress": "Via Pretorio 22",
+      "postalCode": "6900",
+      "addressRegion": "TI",
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-05-10T21:30:00.887Z",
+      "_qualityScore": 99,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
         "translation": 25,
         "completeness": 25
       }
@@ -1697,7 +1698,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-22T11:30:44.923Z",
+      "crawledAt": "2026-05-22T22:03:09.436Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-04-14",
@@ -1845,7 +1846,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-22T11:30:44.922Z",
+      "crawledAt": "2026-05-22T22:03:09.435Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-02-11",
@@ -1937,7 +1938,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-22T11:30:44.920Z",
+      "crawledAt": "2026-05-22T22:03:09.433Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-05-08",
@@ -1990,7 +1991,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-22T11:30:44.919Z",
+      "crawledAt": "2026-05-22T22:03:09.432Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-05-15",
@@ -2076,7 +2077,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-22T11:30:44.918Z",
+      "crawledAt": "2026-05-22T22:03:09.431Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "datePosted": "2026-05-18",
@@ -2203,7 +2204,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-22T11:30:44.916Z",
+      "crawledAt": "2026-05-22T22:03:09.429Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-05-15",
@@ -2256,7 +2257,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-22T11:30:44.910Z",
+      "crawledAt": "2026-05-22T22:03:09.423Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "sourceLang": "en",
@@ -2548,7 +2549,6 @@
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
       "firstSeenAt": "2026-04-13T21:36:50.620Z",
-      "needsRetranslation": true,
       "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -2755,7 +2755,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-22T11:30:44.944Z",
+      "crawledAt": "2026-05-22T22:03:09.457Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-04-17",
@@ -2850,7 +2850,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-22T11:30:44.942Z",
+      "crawledAt": "2026-05-22T22:03:09.455Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "datePosted": "2026-04-09",
@@ -2973,7 +2973,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-22T11:30:44.933Z",
+      "crawledAt": "2026-05-22T22:03:09.446Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-01-19",
@@ -3027,7 +3027,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-22T11:30:44.930Z",
+      "crawledAt": "2026-05-22T22:03:09.443Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "datePosted": "2026-04-21",
@@ -3081,10 +3081,9 @@
           }
         }
       },
-      "crawledAt": "2026-05-22T11:30:44.912Z",
+      "crawledAt": "2026-05-22T22:03:09.425Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
-      "needsRetranslation": true,
       "datePosted": "2026-05-20",
       "salaryMin": 51500,
       "salaryMax": 88000,
@@ -3093,11 +3092,12 @@
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
       "firstSeenAt": "2026-05-20T22:46:49.521Z",
-      "_qualityScore": 95,
+      "needsRetranslation": true,
+      "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 21,
+        "translation": 25,
         "completeness": 25
       }
     }
