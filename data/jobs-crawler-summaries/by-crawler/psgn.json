@@ -1,18 +1,55 @@
 {
   "key": "psgn",
   "label": "Psychiatrie St.Gallen",
-  "generatedAt": "2026-05-21T23:29:45.418Z",
+  "generatedAt": "2026-05-22T12:43:54.852Z",
   "total": 10,
-  "newCount": 0,
-  "updatedCount": 10,
-  "removedCount": 0,
+  "newCount": 1,
+  "updatedCount": 9,
+  "removedCount": 1,
   "unchangedCount": 0,
-  "durationMs": 13398,
-  "avgDurationMs": 13398,
+  "durationMs": 10085,
+  "avgDurationMs": 10085,
   "durationHistory": [
-    13398
+    10085
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "id": "psgn-93e88f85cf65",
+      "slug": "ausbildungsverantwortliche-ausbildungsverantwortlicher-pflege-hf-psgn-wil-sg",
+      "company": "Psychiatrie St.Gallen",
+      "companyKey": "psgn",
+      "companyDomain": "psychiatrie-sg.ch",
+      "title": "Ausbildungsverantwortliche / Ausbildungsverantwortlicher Pflege HF",
+      "needsRetranslation": true,
+      "location": "Wil SG",
+      "canton": "SG",
+      "url": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/ausbildungsverantwortliche-ausbildungsverantwortlicher-pflege-hf/1d6a033a-45dd-4533-9529-b2f2f3cf9aa2",
+      "source": "Psychiatrie St.Gallen Dedicated Parser (Prospective careercenter HTML)",
+      "sourceLang": "de",
+      "crawledAt": "2026-05-22T12:43:46.337Z",
+      "addressLocality": "Wil SG",
+      "addressRegion": "SG",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "9500",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "senior",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-22",
+      "applyUrl": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/ausbildungsverantwortliche-ausbildungsverantwortlicher-pflege-hf/1d6a033a-45dd-4533-9529-b2f2f3cf9aa2",
+      "_qualityScore": 66,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 4,
+        "completeness": 17
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "id": "psgn-945c1e1a12a8",
@@ -27,7 +64,7 @@
       "url": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/oberaerztin-oberarzt/f0e902ce-ad0d-44d6-b011-c6689d5a8e9e",
       "source": "Psychiatrie St.Gallen Dedicated Parser (Prospective careercenter HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-21T23:29:34.367Z",
+      "crawledAt": "2026-05-22T12:43:47.080Z",
       "addressLocality": "Wil SG",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -43,11 +80,11 @@
       "postedDate": "2026-05-21",
       "applyUrl": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/oberaerztin-oberarzt/f0e902ce-ad0d-44d6-b011-c6689d5a8e9e",
       "firstSeenAt": "2026-05-21T13:00:33.161Z",
-      "_qualityScore": 80,
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 18,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -64,7 +101,7 @@
       "url": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/assistenzaerztin-assistenzarzt/77cbe473-bce1-4c58-8999-fabbd85e4848",
       "source": "Psychiatrie St.Gallen Dedicated Parser (Prospective careercenter HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-21T23:29:35.521Z",
+      "crawledAt": "2026-05-22T12:43:47.848Z",
       "addressLocality": "Wil SG",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -80,11 +117,11 @@
       "postedDate": "2026-05-21",
       "applyUrl": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/assistenzaerztin-assistenzarzt/77cbe473-bce1-4c58-8999-fabbd85e4848",
       "firstSeenAt": "2026-05-21T13:00:33.927Z",
-      "_qualityScore": 80,
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 18,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -101,7 +138,7 @@
       "url": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/kaufmaennisches-praktikum/0bb1a334-5ea3-484e-a2ea-0f54342365b5",
       "source": "Psychiatrie St.Gallen Dedicated Parser (Prospective careercenter HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-21T23:29:36.658Z",
+      "crawledAt": "2026-05-22T12:43:48.559Z",
       "addressLocality": "Wil SG",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -117,11 +154,11 @@
       "postedDate": "2026-05-21",
       "applyUrl": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/kaufmaennisches-praktikum/0bb1a334-5ea3-484e-a2ea-0f54342365b5",
       "firstSeenAt": "2026-05-21T13:00:34.690Z",
-      "_qualityScore": 80,
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 18,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -138,7 +175,7 @@
       "url": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/hr-praktikantin-hr-praktikant/2d0f47a5-0fd6-4e55-9c94-6df8609a14b6",
       "source": "Psychiatrie St.Gallen Dedicated Parser (Prospective careercenter HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-21T23:29:37.678Z",
+      "crawledAt": "2026-05-22T12:43:49.284Z",
       "addressLocality": "Wil SG",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -175,7 +212,7 @@
       "url": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/chefaerztin-chefarzt/6fa8f9ef-bb87-4531-b043-d4dd350f0b99",
       "source": "Psychiatrie St.Gallen Dedicated Parser (Prospective careercenter HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-21T23:29:38.456Z",
+      "crawledAt": "2026-05-22T12:43:50.004Z",
       "addressLocality": "Wil SG",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -212,7 +249,7 @@
       "url": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/dipl-pflegefachperson-hf-fh/f815f6b6-daab-4928-8258-4b68180a8fdf",
       "source": "Psychiatrie St.Gallen Dedicated Parser (Prospective careercenter HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-21T23:29:40.152Z",
+      "crawledAt": "2026-05-22T12:43:50.797Z",
       "addressLocality": "Wil SG",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -249,7 +286,7 @@
       "url": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/dipl-pflegefachperson-hf-fh-intensivbetreuung/bc4b60ef-745b-4198-8b0a-1082c1af3e43",
       "source": "Psychiatrie St.Gallen Dedicated Parser (Prospective careercenter HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-21T23:29:40.922Z",
+      "crawledAt": "2026-05-22T12:43:51.581Z",
       "addressLocality": "Wil SG",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -286,7 +323,7 @@
       "url": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/mitarbeiterin-mitarbeiter-reinigung-befristet/816cff4d-5d61-42d8-a7b7-38e65fb748e5",
       "source": "Psychiatrie St.Gallen Dedicated Parser (Prospective careercenter HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-21T23:29:41.652Z",
+      "crawledAt": "2026-05-22T12:43:52.264Z",
       "addressLocality": "Wil SG",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -323,7 +360,7 @@
       "url": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/fachperson-gesundheit/ff5981a5-1534-48d2-804e-02048db34599",
       "source": "Psychiatrie St.Gallen Dedicated Parser (Prospective careercenter HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-21T23:29:42.532Z",
+      "crawledAt": "2026-05-22T12:43:52.968Z",
       "addressLocality": "Wil SG",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -346,15 +383,16 @@
         "translation": 25,
         "completeness": 17
       }
-    },
+    }
+  ],
+  "removedJobs": [
     {
       "id": "psgn-70bf3375a2a8",
-      "slug": "assistenzpsychologin-assistenzpsychologe-psgn-wil-sg",
+      "slug": "psicologo-a-assistente-psychiatrie-st-gallen-wil-sg",
       "company": "Psychiatrie St.Gallen",
       "companyKey": "psgn",
       "companyDomain": "psychiatrie-sg.ch",
       "title": "Assistenzpsychologin/ Assistenzpsychologe",
-      "needsRetranslation": true,
       "location": "Wil SG",
       "canton": "SG",
       "url": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/assistenzpsychologin-assistenzpsychologe/0b9c658b-89f2-47a3-883c-0b8928df87dd",
@@ -376,15 +414,16 @@
       "postedDate": "2026-05-19",
       "applyUrl": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/assistenzpsychologin-assistenzpsychologe/0b9c658b-89f2-47a3-883c-0b8928df87dd",
       "firstSeenAt": "2026-05-19T20:59:51.253Z",
-      "_qualityScore": 87,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 17
+        "completeness": 22
       }
     }
   ],
-  "removedJobs": [],
   "unchangedJobs": []
 }
