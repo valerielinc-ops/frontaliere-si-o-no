@@ -581,11 +581,10 @@ export function pickJobDisambiguator(
 // skip text-html-ratio and other content-quality gates on these pages.
 const STRIP_EXPIRED_JOB_PROSE = (process.env.STRIP_EXPIRED_JOB_PROSE ?? '1') !== '0';
 // Same idea for ACTIVE job-detail pages (h4 variant: ~2.4 KB/locale of
-// "Informazioni per frontalieri" + "Domande frequenti"). Default OFF — those
-// pages are the SEO primary surface and their text-html-ratio depends on the
-// prose, so opt-in only (set STRIP_ACTIVE_JOB_PROSE=1). When on, the same
-// marker is emitted and audits skip the page just like for expired pages.
-const STRIP_ACTIVE_JOB_PROSE = process.env.STRIP_ACTIVE_JOB_PROSE === '1';
+// "Informazioni per frontalieri" + "Domande frequenti"). Default ON
+// (set STRIP_ACTIVE_JOB_PROSE=0 to keep prose). When on, the same marker
+// is emitted and audits skip the page just like for expired pages.
+const STRIP_ACTIVE_JOB_PROSE = (process.env.STRIP_ACTIVE_JOB_PROSE ?? '1') !== '0';
 const EJP_STRIPPED_MARKER = '<!--ejp-stripped-->';
 
 export function jobsSeoPagesPlugin(rootDir: string): Plugin {
