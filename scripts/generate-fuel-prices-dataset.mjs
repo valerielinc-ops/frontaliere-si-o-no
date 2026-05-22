@@ -15,12 +15,19 @@ const PUBLIC_OUT = path.join(ROOT, 'public', 'data', 'fuel-prices.json');
 const ITALY_PRICES_URL = 'https://www.mimit.gov.it/images/exportCSV/prezzo_alle_8.csv';
 const ITALY_STATIONS_URL = 'https://www.mimit.gov.it/images/exportCSV/anagrafica_impianti_attivi.csv';
 const ECB_DAILY_URL = 'https://www.ecb.europa.eu/stats/eurofxref/eurofxref-daily.xml';
-const SWISS_FIRESTORE_KEY = 'AIzaSyCQ8f6sXb1gYIiv5rlHKeZ2EVMzC-anzIU';
-const SWISS_FIRESTORE_URL = 'https://firestore.googleapis.com/v1/projects/gas-prices-prod/databases/(default)/documents/stations';
+// TCS deprecated direct Firestore reads on 2026-05-22 (App Check + anon-auth
+// enforcement). Their web app now hits a public Cloud Function in
+// europe-west6 — no auth, no App Check, just a Referer check. The function
+// returns clustered or unclustered stations for a given bbox + fuel filter.
+const SWISS_TCS_BBOX_URL = 'https://europe-west6-tcs-digitalbackend.cloudfunctions.net/benzinGetStationByBbox';
+const SWISS_TCS_REFERER = 'https://gas-prices-prod.firebaseapp.com/';
+// Single bbox covering all CH within 25 km of the Italian border (Geneva to
+// Mustair). At zoom 18 the server returns no clusters even for this span.
+const SWISS_TCS_BBOX = [6.0, 45.7, 10.7, 47.0];
+const SWISS_TCS_ZOOM = 18;
 const SWISS_SEARCH_RADIUS_KM = 20;
 const SWISS_BORDER_FILTER_KM = 25;
 const TOP_SWISS_OPTIONS = 5;
-const SWISS_MAX_PRICE_AGE_DAYS = 30;
 
 function readMunicipalities() {
   const source = fs.readFileSync(MUNICIPALITIES_PATH, 'utf8');
@@ -125,31 +132,12 @@ function extractEcbRate(xml) {
   };
 }
 
-function unwrapFirestoreValue(node) {
-  if (!node || typeof node !== 'object') return null;
-  if ('stringValue' in node) return node.stringValue;
-  if ('integerValue' in node) return Number(node.integerValue);
-  if ('doubleValue' in node) return Number(node.doubleValue);
-  if ('booleanValue' in node) return Boolean(node.booleanValue);
-  if ('timestampValue' in node) return node.timestampValue;
-  if ('mapValue' in node) {
-    const out = {};
-    for (const [key, value] of Object.entries(node.mapValue.fields || {})) {
-      out[key] = unwrapFirestoreValue(value);
-    }
-    return out;
-  }
-  if ('arrayValue' in node) {
-    return (node.arrayValue.values || []).map(unwrapFirestoreValue);
-  }
-  return null;
-}
-
-async function fetchJsonWithRetry(url, retries = 3) {
+async function fetchJsonWithRetry(url, retries = 3, init = {}) {
   for (let attempt = 1; attempt <= retries; attempt++) {
     try {
       const res = await fetch(url, {
-        headers: { 'user-agent': 'FrontaliereTicino/1.0' },
+        ...init,
+        headers: { 'user-agent': 'FrontaliereTicino/1.0', ...(init.headers || {}) },
         signal: AbortSignal.timeout(30_000),
       });
       if (!res.ok) throw new Error(`HTTP ${res.status} for ${url}`);
@@ -163,75 +151,80 @@ async function fetchJsonWithRetry(url, retries = 3) {
   }
 }
 
+// `fiability` is the TCS proxy for price freshness. The previous direct-
+// Firestore feed exposed a per-fuel timestamp; the public Cloud Function only
+// returns this categorical signal. We drop OUTDATED_LAST_PRICE_UPDATE (matches
+// the spirit of the old 30-day max-age cutoff) and keep the rest.
+const STALE_FIABILITY = new Set(['OUTDATED_LAST_PRICE_UPDATE']);
+
+async function fetchSwissStationsByFuel(fuel) {
+  const body = {
+    zoom: SWISS_TCS_ZOOM,
+    pixelRatio: 1,
+    bbox: SWISS_TCS_BBOX,
+    filters: { fuel, brands: [] },
+  };
+  const json = await fetchJsonWithRetry(SWISS_TCS_BBOX_URL, 3, {
+    method: 'POST',
+    headers: {
+      'content-type': 'application/json',
+      referer: SWISS_TCS_REFERER,
+    },
+    body: JSON.stringify(body),
+  });
+  if (!Array.isArray(json)) throw new Error(`Unexpected response shape from ${SWISS_TCS_BBOX_URL}`);
+  return json;
+}
+
 async function fetchSwissStations() {
-  const now = Date.now();
-  const docs = [];
-  let pageToken = '';
-  while (true) {
-    const url = new URL(SWISS_FIRESTORE_URL);
-    url.searchParams.set('pageSize', '300');
-    url.searchParams.set('key', SWISS_FIRESTORE_KEY);
-    url.searchParams.set('mask.fieldPaths', 'displayName');
-    url.searchParams.append('mask.fieldPaths', 'brand');
-    url.searchParams.append('mask.fieldPaths', 'formattedAddress');
-    url.searchParams.append('mask.fieldPaths', 'fuelCollection');
-    url.searchParams.append('mask.fieldPaths', 'location');
-    url.searchParams.append('mask.fieldPaths', 'isDeleted');
-    if (pageToken) url.searchParams.set('pageToken', pageToken);
-    const json = await fetchJsonWithRetry(url.toString());
-    for (const doc of json.documents || []) {
-      docs.push(doc);
-    }
-    if (!json.nextPageToken) break;
-    pageToken = json.nextPageToken;
+  // Two calls: SP95 (mandatory) + DIESEL (best-effort). Join by station id.
+  const [sp95Raw, dieselRaw] = await Promise.all([
+    fetchSwissStationsByFuel('SP95'),
+    fetchSwissStationsByFuel('DIESEL').catch((err) => {
+      console.warn(`⚠️ DIESEL fetch failed (continuing without diesel): ${err.message}`);
+      return [];
+    }),
+  ]);
+  const dieselById = new Map();
+  for (const station of dieselRaw) {
+    if (station.cluster || !station.id) continue;
+    if (STALE_FIABILITY.has(station.fiability)) continue;
+    if (!Number.isFinite(Number(station.price))) continue;
+    dieselById.set(station.id, station);
   }
-  return docs
-    .map((doc) => {
-      const fields = unwrapFirestoreValue({ mapValue: { fields: doc.fields || {} } }) || {};
-      const sp95 = fields.fuelCollection?.SP95;
-      const diesel = fields.fuelCollection?.DIESEL;
-      const lat = fields.location?.lat;
-      const lng = fields.location?.lng;
-      if (!sp95 || sp95.isDeleted || fields.isDeleted || !Number.isFinite(lat) || !Number.isFinite(lng)) return null;
-      const updatedAt = sp95.fiability?.lastPriceUpdate || sp95.lastCachedPriceRefresh || null;
-      if (updatedAt) {
-        const ageMs = now - new Date(updatedAt).getTime();
-        if (Number.isFinite(ageMs) && ageMs > SWISS_MAX_PRICE_AGE_DAYS * 24 * 60 * 60 * 1000) return null;
-      }
 
-      // Diesel is opt-in per station in the TCS feed. Include it when the
-      // station publishes a non-deleted DIESEL record with a fresh price; this
-      // is the authoritative per-station value — no SP95+offset approximation.
-      let dieselPriceChf = null;
-      let dieselSource = 'unknown';
-      let dieselUpdatedAt = null;
-      if (diesel && !diesel.isDeleted && Number.isFinite(Number(diesel.displayPrice))) {
-        const dUpdate = diesel.fiability?.lastPriceUpdate || diesel.lastCachedPriceRefresh || null;
-        const dAgeMs = dUpdate ? now - new Date(dUpdate).getTime() : 0;
-        const withinWindow = !dUpdate || (Number.isFinite(dAgeMs) && dAgeMs <= SWISS_MAX_PRICE_AGE_DAYS * 24 * 60 * 60 * 1000);
-        if (withinWindow) {
-          dieselPriceChf = Number(diesel.displayPrice);
-          dieselSource = 'api';
-          dieselUpdatedAt = dUpdate;
-        }
-      }
+  const generatedAtIso = new Date().toISOString();
+  const out = [];
+  for (const station of sp95Raw) {
+    if (station.cluster || !station.id) continue;
+    if (STALE_FIABILITY.has(station.fiability)) continue;
+    const lat = Number(station.latitude);
+    const lng = Number(station.longitude);
+    const sp95Price = Number(station.price);
+    if (!Number.isFinite(lat) || !Number.isFinite(lng) || !Number.isFinite(sp95Price)) continue;
 
-      const name = String(doc.name || '').split('/').pop() || '';
-      return {
-        id: name,
-        name: fields.displayName || fields.brand || 'Station',
-        brand: fields.brand || '',
-        address: fields.formattedAddress || '',
-        lat,
-        lng,
-        sp95PriceChf: Number(sp95.displayPrice),
-        dieselPriceChf,
-        dieselSource,
-        dieselUpdatedAt,
-        updatedAt,
-      };
-    })
-    .filter(Boolean);
+    const diesel = dieselById.get(station.id);
+    const dieselPriceChf = diesel ? Number(diesel.price) : null;
+
+    out.push({
+      id: String(station.id),
+      name: station.displayName || station.brand || 'Station',
+      brand: station.brand && station.brand !== 'UNDEFINED' ? station.brand : '',
+      address: station.formattedAddress || '',
+      lat,
+      lng,
+      sp95PriceChf: sp95Price,
+      dieselPriceChf: Number.isFinite(dieselPriceChf) ? dieselPriceChf : null,
+      dieselSource: diesel ? 'api' : 'unknown',
+      // The CF response no longer carries a per-station lastPriceUpdate. We
+      // record the snapshot time so dedup tiebreaks remain meaningful and the
+      // UI's "ultimo aggiornamento" label keeps showing a date instead of
+      // disappearing.
+      dieselUpdatedAt: diesel ? generatedAtIso : null,
+      updatedAt: generatedAtIso,
+    });
+  }
+  return out;
 }
 
 function buildItalyStations(municipalities, stationsRows, pricesRows) {
@@ -435,8 +428,8 @@ function buildDataset({
         providerUrl: 'https://benzin.tcs.ch/de/map/SP95',
         stationCount: swissStations.length,
         latestObservedUpdate: swissUpdatedAtValues[swissUpdatedAtValues.length - 1] || null,
-        // F6 — real-diesel ingestion. See scripts/generate-fuel-prices-dataset.mjs
-        // `fetchSwissStations` for the DIESEL unwrap from the TCS Firestore feed.
+        // F6 — real-diesel ingestion. See `fetchSwissStations` above for the
+        // dual SP95 + DIESEL pull from the TCS Cloud Function.
         dieselStationCount: swissWithDiesel,
         dieselCoveragePct: swissDieselCoveragePct,
       },
