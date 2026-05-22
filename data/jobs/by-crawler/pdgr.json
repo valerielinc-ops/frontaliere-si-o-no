@@ -1,6 +1,6 @@
 {
   "crawlerKey": "pdgr",
-  "assembledAt": "2026-05-22T12:39:36.360Z",
+  "assembledAt": "2026-05-22T23:10:41.570Z",
   "jobs": [
     {
       "id": "pdgr-f5bd59e961b0",
@@ -33,7 +33,7 @@
       "url": "https://www.pdgr.ch/jobs/koechin-koch-3/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-22T12:39:34.112Z",
+      "crawledAt": "2026-05-22T23:10:39.296Z",
       "addressLocality": "Cazis / Chur / Rothenbrunnen",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -111,7 +111,7 @@
       "url": "https://www.pdgr.ch/jobs/praktikantin-praktikanten-5/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-22T12:39:32.971Z",
+      "crawledAt": "2026-05-22T23:10:38.173Z",
       "addressLocality": "Cazis / Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -186,7 +186,7 @@
       "url": "https://www.pdgr.ch/jobs/fachpsychologe-in-5/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-22T12:39:31.855Z",
+      "crawledAt": "2026-05-22T23:10:37.074Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -249,6 +249,7 @@
         "psicologo-specializzato-psychiatrische-dienste-graubunden-chur"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -293,7 +294,7 @@
       "url": "https://www.pdgr.ch/jobs/assistenzaerztin-assistenzarzt-6/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-22T12:39:30.748Z",
+      "crawledAt": "2026-05-22T23:10:35.966Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -346,6 +347,7 @@
         "resident-physician-psychiatrische-dienste-graubunden-chur"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -390,7 +392,7 @@
       "url": "https://www.pdgr.ch/jobs/unterassistent-in/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-22T12:39:29.635Z",
+      "crawledAt": "2026-05-22T23:10:34.839Z",
       "addressLocality": "Cazis / Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -465,7 +467,7 @@
       "url": "https://www.pdgr.ch/jobs/dipl-pflegefachperson-hf-10/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-22T12:39:28.528Z",
+      "crawledAt": "2026-05-22T23:10:33.723Z",
       "addressLocality": "Cazis / Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -541,7 +543,7 @@
       "url": "https://www.pdgr.ch/jobs/oberaerztin-oberarzt-4-7/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-22T12:39:27.376Z",
+      "crawledAt": "2026-05-22T23:10:32.598Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -610,6 +612,7 @@
         "medecin-specialiste-en-psychiatrie-psychiatrische-dienste-graubunden-cazis"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -654,7 +657,7 @@
       "url": "https://www.pdgr.ch/jobs/oberpsychologe-in-3-2/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-22T12:39:26.251Z",
+      "crawledAt": "2026-05-22T23:10:31.484Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -718,103 +721,7 @@
         "oberpsychologe-in-pdgr-ch"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
-      "salaryMin": 68000,
-      "salaryMax": 103000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68000,
-          "maxValue": 103000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "pdgr-00699d20e087",
-      "slug": "medico-specialista-in-pediatria-e-psichiatria-infantile-psychiatrische-dienste-graubunden-chur",
-      "slugByLocale": {
-        "it": "medico-specialista-in-pediatria-e-psichiatria-infantile-psychiatrische-dienste-graubunden-chur",
-        "en": "senior-physician-in-child-and-adolescent-psychiatry-psychiatrische-dienste-graubunden-chur",
-        "de": "oberarztin-oberarzt-psychiatrische-dienste-graubunden-chur",
-        "fr": "medecin-specialiste-en-pediatrie-et-psychiatrie-infantile-psychiatrische-dienste-graubunden-chur"
-      },
-      "company": "Psychiatrische Dienste Graubünden",
-      "companyKey": "pdgr",
-      "companyDomain": "pdgr.ch",
-      "title": "Oberärztin / Oberarzt",
-      "titleByLocale": {
-        "it": "Medico specialista in pediatria e psichiatria infantile",
-        "en": "Senior Physician in Child and Adolescent Psychiatry",
-        "de": "Oberärztin / Oberarzt",
-        "fr": "Médecin spécialiste en pédiatrie et psychiatrie infantile"
-      },
-      "description": "Ihre Umgebung:\nIm Ambulatorium Chur arbeiten Sie in einem modernen, überregional vernetzten Fachbereich für Kinder- und Jugendpsychiatrie. Wir begleiten vom Kleinkindsalter bis ins junge Erwachsenenalter bei psychischen und neuropsychologischen Anliegen, ergänzt durch Konsiliar- und Liaisondienste sowie forensische Expertise.\n\nIhre Aufgaben:\n- Sie führen ambulante kinder- und jugendpsychiatrische Behandlungen durch\n\n- Sie nehmen teil an der konsiliar- und liaisonpsychiatrischen Versorgung in der Pädiatrie sowie in den Sonderschulen\n\n- Sie pflegen Kontakt zu unseren interdisziplinären Netzwerk-Partnern\n\n- Sie wirken in der Weiter- und Fortbildung mit und betreuen Assistenzärzte in Weiterbildung\n\nUnser Anforderungsprofil:\n- Sie verfügen über einen FMH anerkannten Facharzttitel in Kinder- und Jugendpsychiatrie oder stehen kurz vor dem Abschluss\n\n- Sie haben bereits Führungserfahrung gesammelt oder möchten sich dahingehend entwickeln\n\n- Sie sind motiviert und bereit Verantwortung zu übernehmen\n\n- Sie arbeiten gerne prozessorientiert mit einem multidisziplinären und motivierten Team zusammen\n\nWir bieten Ihnen:\n- Eine interessante und vielseitige Tätigkeit in der Kinder- und Jugendpsychiatrie mit der Möglichkeit zur langfristigen beruflichen Weiterentwicklung\n\n- Das Angebot eines internen Führungs-Curriculums mit Zertifikat und Unterstützung bei Ihren externen Fortbildungsanliegen\n\n- Ein angenehmes und kollegiales Arbeitsklima in einer attraktiven Region\n\n- Mit Teilzeitarbeitsmodellen, regelmässigen Arbeitszeiten und unbezahlten Urlauben eine optimale Work-Life-Balance\n\n- Die Möglichkeit sich an der Forschung zu beteiligen und auf Wunsch Unterstützung bei Ihrer Dissertation",
-      "descriptionByLocale": {
-        "it": "Il tuo ambiente - Nel reparto ambulatoriale di Chur, lavori in un moderno, ampiamente connesso reparto per la pediatria e la psichiatria infantile - Ti occupi di problemi psicologici e neuropsicologici dall'infanzia fino all'età adulta - Completato da servizi di consulenza e collegamento, nonché esperti forensi ## Le tue attività - Esegui trattamenti ambulatoriali per la pediatria e la psichiatria infantile - Partecipi alla consulenza e al collegamento psichiatrici nella pediatria e nelle scuole speciali - Mantieni i contatti con i nostri partner del network interdisciplinare - Partecipi alla formazione continua e mentori gli specializzandi ## Il nostro profilo richiesto - Possiedi un titolo di specializzazione FMH riconosciuto in pediatria e psichiatria infantile o sei in procinto di ottenerlo - Hai già esperienza di leadership o desideri svilupparla - Sei motivato e pronto ad assumere responsabilità - Lavorare in modo orientato ai processi con un team multidisciplinare e motivato ## Ti offriamo - Un'attività interessante e versatile nella pediatria e psichiatria infantile con la possibilità di un lungo sviluppo professionale - L'offerta di un curriculum di leadership interno con certificazione e supporto per le tue esigenze di formazione esterna - Un ambiente di lavoro piacevole e collettivo in una regione attraente - Con modelli di tempo parziale, orari regolari e ferie non retribuite, un ottimo equilibrio tra lavoro e vita privata - La possibilità di partecipare alla ricerca e, se desiderato, supporto per la tua tesi di dottorato",
-        "en": "Your Environment - In the Chur outpatient clinic, you work in a modern, regionally interconnected department for child and adolescent psychiatry - We support from early childhood to young adulthood with psychological and neuropsychological issues - Complemented by consultative and liaison services, as well as forensic expertise ## Your Tasks - You conduct ambulatory child and adolescent psychiatric treatments - You participate in consultative and liaison psychiatric care in pediatrics and special schools - You maintain contact with our interdisciplinary network partners - You are involved in continuing education and mentor resident physicians in training ## Our\n• Requirements\n• Profile - You hold an FMH-recognized specialist title in child and adolescent psychiatry or are close to completing it - You have already gathered leadership experience or wish to develop it - You are motivated and ready to take on responsibility - You work well process-oriented with a multidisciplinary and motivated team ## We Offer You - An interesting and versatile role in child and adolescent psychiatry with the possibility of long-term professional development - The offer of an internal leadership curriculum with certification and support for your external training needs - A pleasant and collegial work environment in an attractive region - With part-time work models, regular working hours, and unpaid leave, an optimal work-life balance - The opportunity to participate in research and, if desired, support for your dissertation",
-        "de": "Ihre Umgebung: Im Ambulatorium Chur arbeiten Sie in einem modernen, überregional vernetzten Fachbereich für Kinder- und Jugendpsychiatrie. Wir begleiten vom Kleinkindsalter bis ins junge Erwachsenenalter bei psychischen und neuropsychologischen Anliegen, ergänzt durch Konsiliar- und Liaisondienste sowie forensische Expertise. \n• Ihre Aufgaben: - Sie führen ambulante kinder- und jugendpsychiatrische Behandlungen durch - Sie nehmen teil an der konsiliar- und liaisonpsychiatrischen Versorgung in der Pädiatrie sowie in den Sonderschulen - Sie pflegen Kontakt zu unseren interdisziplinären Netzwerk-Partnern - Sie wirken in der Weiter- und Fortbildung mit und betreuen Assistenzärzte in Weiterbildung Unser Anforderungsprofil: - Sie verfügen über einen FMH anerkannten Facharzttitel in Kinder- und Jugendpsychiatrie oder stehen kurz vor dem Abschluss - Sie haben bereits Führungserfahrung gesammelt oder möchten sich dahingehend entwickeln - Sie sind motiviert und bereit Verantwortung zu übernehmen - Sie arbeiten gerne prozessorientiert mit einem multidisziplinären und motivierten Team zusammen \n• Wir bieten Ihnen: - Eine interessante und vielseitige Tätigkeit in der Kinder- und Jugendpsychiatrie mit der Möglichkeit zur langfristigen beruflichen Weiterentwicklung - Das Angebot eines internen Führungs-Curriculums mit Zertifikat und Unterstützung bei Ihren externen Fortbildungsanliegen - Ein angenehmes und kollegiales Arbeitsklima in einer attraktiven Region - Mit Teilzeitarbeitsmodellen, regelmässigen Arbeitszeiten und unbezahlten Urlauben eine optimale Work-Life-Balance - Die Möglichkeit sich an der Forschung zu beteiligen und auf Wunsch Unterstützung bei Ihrer Dissertation",
-        "fr": "Votre environnement - Dans le cabinet d'ambulatoire de Chur, vous travaillez dans un service moderne et interconnecté à l'échelle régionale pour la pédiatrie et la psychiatrie infantile - Nous accompagnons depuis l'enfance jusqu'à l'âge adulte avec des problèmes psychologiques et neuropsychologiques - Complété par des services de consultation et de liaison, ainsi que par une expertise médico-légale ##\n• Vos tâches - Vous effectuez des traitements ambulatoires en pédiatrie et psychiatrie infantile - Vous participez à la consultation et à la liaison psychiatrique en pédiatrie et dans les écoles spéciales - Vous entretenez des contacts avec nos partenaires du réseau interdisciplinaire - Vous participez à la formation continue et encadrez les internes en formation ## Notre profil de compétences - Vous possédez un titre de spécialiste FMH reconnu en pédiatrie et psychiatrie infantile ou vous êtes sur le point de l'obtenir - Vous avez déjà acquis de l'expérience en leadership ou souhaitez vous y former - Vous êtes motivé et prêt à assumer des responsabilités - Vous travaillez bien en mode orienté processus avec une équipe multidisciplinaire et motivée ## Nous vous proposons - Un poste intéressant et polyvalent en pédiatrie et psychiatrie infantile avec la possibilité d'une évolution professionnelle à long terme - L'offre d'un cursus de leadership interne avec certification et soutien pour vos besoins de formation externe - Un environnement de travail agréable et collectif dans une région attractive - Avec des modèles de temps partiel, des horaires réguliers et des congés non rémunérés, un équilibre optimal travail-vie personnelle - La possibilité de participer à la recherche et, si désiré, un soutien pour votre thèse de doctorat"
-      },
-      "location": "Chur",
-      "canton": "GR",
-      "url": "https://www.pdgr.ch/jobs/oberaerztin-oberarzt-10/",
-      "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-05-22T12:39:25.104Z",
-      "addressLocality": "Chur",
-      "postalCode": "7000",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Medicina",
-      "contract": "full-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "senior",
-      "sector": "Sanità / Psichiatria",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2025-06-12",
-      "applyUrl": "https://www.pdgr.ch/jobs/oberaerztin-oberarzt-10/",
-      "requirements": [],
-      "requirementsByLocale": {
-        "it": [
-          "Titolo di specializzazione FMH riconosciuto in pediatria e psichiatria infantile",
-          "Esperienza di leadership o desiderio di svilupparla",
-          "Motivazione e prontezza ad assumere responsabilità",
-          "Lavoro orientato ai processi con un team multidisciplinare e motivato"
-        ],
-        "en": [
-          "FMH-recognized specialist title in child and adolescent psychiatry",
-          "Leadership experience or desire to develop it",
-          "Motivation and readiness to take on responsibility",
-          "Process-oriented work with a multidisciplinary and motivated team"
-        ],
-        "fr": [
-          "Titre de spécialiste FMH reconnu en pédiatrie et psychiatrie infantile",
-          "Expérience en leadership ou désir de s'y former",
-          "Motivation et capacité à assumer des responsabilités",
-          "Travail orienté processus avec une équipe multidisciplinaire et motivée"
-        ]
-      },
-      "department": "Kinder- und Jugendpsychiatrie",
-      "facility": "Ambulanter Psychiatrischer Dienst",
-      "pensumMin": 80,
-      "pensumMax": 100,
-      "pensum": "80 - 100%",
-      "previousSlugsByLocale": {
-        "de": [
-          "oberarztin-oberarzt-pdgr-ch"
-        ],
-        "it": [
-          "oberarztin-oberarzt-pdgr-ch-2"
-        ]
-      },
-      "previousSlugs": [
-        "oberarztin-oberarzt-pdgr-ch",
-        "oberarztin-oberarzt-pdgr-ch-2"
-      ],
-      "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -859,7 +766,7 @@
       "url": "https://www.pdgr.ch/jobs/dipl-pflegefachperson-hf-fuer-die-nachtwache-9/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-22T12:39:23.956Z",
+      "crawledAt": "2026-05-22T23:10:30.342Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -913,6 +820,7 @@
         "dipl-pflegefachperson-hf-fur-die-nachtwache-pdgr-ch"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -957,7 +865,7 @@
       "url": "https://www.pdgr.ch/jobs/dipl-pflegefachperson-hf-2-8/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-22T12:39:22.837Z",
+      "crawledAt": "2026-05-22T23:10:29.198Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -1012,6 +920,7 @@
         ]
       },
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1056,7 +965,7 @@
       "url": "https://www.pdgr.ch/jobs/dipl-pflegefachperson-hf-4__trashed/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-22T12:39:21.713Z",
+      "crawledAt": "2026-05-22T23:10:28.037Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -1107,6 +1016,7 @@
         ]
       },
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1119,6 +1029,75 @@
           "unitText": "YEAR"
         }
       }
+    },
+    {
+      "id": "pdgr-72c42eafd6ec",
+      "slug": "oberarztin-oberarzt-pdgr-ch",
+      "slugByLocale": {
+        "de": "oberarztin-oberarzt-psychiatrische-dienste-graubunden-chur",
+        "it": "oberarztin-oberarzt-pdgr-ch",
+        "en": "oberarztin-oberarzt-pdgr-ch",
+        "fr": "oberarztin-oberarzt-pdgr-ch"
+      },
+      "company": "Psychiatrische Dienste Graubünden",
+      "companyKey": "pdgr",
+      "companyDomain": "pdgr.ch",
+      "title": "Oberärztin / Oberarzt",
+      "titleByLocale": {
+        "de": "Oberärztin / Oberarzt",
+        "it": "Oberärztin / Oberarzt",
+        "en": "Oberärztin / Oberarzt",
+        "fr": "Oberärztin / Oberarzt"
+      },
+      "description": "Ihre Umgebung:\nIhr zukünftiger Arbeitsplatz ist eine Jugend- oder die Kinderstation in der neuen Klinik für Kinder- und Jugendpsychiatrie, welche per Frühling 2026 neu eröffnet wird.\n\nIhre Aufgaben:\n- Sie führen ambulante kinder- und jugendpsychiatrische Behandlungen durch\n\n- Sie pflegen Kontakt zu unseren interdisziplinären Netzwerk-Partnern\n\n- Sie wirken in der Weiter- und Fortbildung mit und betreuen Assistenzärzte in Weiterbildung\n\nUnser Anforderungsprofil:\n- Sie verfügen über einen FMH anerkannten Facharzttitel in Kinder- und Jugendpsychiatrie oder stehen kurz vor dem Abschluss\n\n- Sie sind motiviert und bereit Verantwortung zu übernehmen\n\n- Sie arbeiten gerne prozessorientiert mit einem multidisziplinären und motivierten Team zusammen\n\nWir bieten Ihnen:\n- Eine interessante und vielseitige Tätigkeit in der Kinder- und Jugendpsychiatrie mit der Möglichkeit zur langfristigen beruflichen Weiterentwicklung\n\n- Das Angebot eines internen Führungs-Curriculums mit Zertifikat und Unterstützung bei Ihren externen Fortbildungsanliegen\n\n- Ein angenehmes und kollegiales Arbeitsklima in einer attraktiven Region\n\n- Mit Teilzeitarbeitsmodellen und unbezahlten Urlauben eine optimale Work-Life-Balance\n\n- Die Möglichkeit sich an der Forschung zu beteiligen und auf Wunsch Unterstützung bei Ihrer Dissertation",
+      "descriptionByLocale": {
+        "de": "Ihre Umgebung:\nIhr zukünftiger Arbeitsplatz ist eine Jugend- oder die Kinderstation in der neuen Klinik für Kinder- und Jugendpsychiatrie, welche per Frühling 2026 neu eröffnet wird.\n\nIhre Aufgaben:\n- Sie führen ambulante kinder- und jugendpsychiatrische Behandlungen durch\n\n- Sie pflegen Kontakt zu unseren interdisziplinären Netzwerk-Partnern\n\n- Sie wirken in der Weiter- und Fortbildung mit und betreuen Assistenzärzte in Weiterbildung\n\nUnser Anforderungsprofil:\n- Sie verfügen über einen FMH anerkannten Facharzttitel in Kinder- und Jugendpsychiatrie oder stehen kurz vor dem Abschluss\n\n- Sie sind motiviert und bereit Verantwortung zu übernehmen\n\n- Sie arbeiten gerne prozessorientiert mit einem multidisziplinären und motivierten Team zusammen\n\nWir bieten Ihnen:\n- Eine interessante und vielseitige Tätigkeit in der Kinder- und Jugendpsychiatrie mit der Möglichkeit zur langfristigen beruflichen Weiterentwicklung\n\n- Das Angebot eines internen Führungs-Curriculums mit Zertifikat und Unterstützung bei Ihren externen Fortbildungsanliegen\n\n- Ein angenehmes und kollegiales Arbeitsklima in einer attraktiven Region\n\n- Mit Teilzeitarbeitsmodellen und unbezahlten Urlauben eine optimale Work-Life-Balance\n\n- Die Möglichkeit sich an der Forschung zu beteiligen und auf Wunsch Unterstützung bei Ihrer Dissertation",
+        "it": "Ihre Umgebung:\nIhr zukünftiger Arbeitsplatz ist eine Jugend- oder die Kinderstation in der neuen Klinik für Kinder- und Jugendpsychiatrie, welche per Frühling 2026 neu eröffnet wird.\n\nIhre Aufgaben:\n- Sie führen ambulante kinder- und jugendpsychiatrische Behandlungen durch\n\n- Sie pflegen Kontakt zu unseren interdisziplinären Netzwerk-Partnern\n\n- Sie wirken in der Weiter- und Fortbildung mit und betreuen Assistenzärzte in Weiterbildung\n\nUnser Anforderungsprofil:\n- Sie verfügen über einen FMH anerkannten Facharzttitel in Kinder- und Jugendpsychiatrie oder stehen kurz vor dem Abschluss\n\n- Sie sind motiviert und bereit Verantwortung zu übernehmen\n\n- Sie arbeiten gerne prozessorientiert mit einem multidisziplinären und motivierten Team zusammen\n\nWir bieten Ihnen:\n- Eine interessante und vielseitige Tätigkeit in der Kinder- und Jugendpsychiatrie mit der Möglichkeit zur langfristigen beruflichen Weiterentwicklung\n\n- Das Angebot eines internen Führungs-Curriculums mit Zertifikat und Unterstützung bei Ihren externen Fortbildungsanliegen\n\n- Ein angenehmes und kollegiales Arbeitsklima in einer attraktiven Region\n\n- Mit Teilzeitarbeitsmodellen und unbezahlten Urlauben eine optimale Work-Life-Balance\n\n- Die Möglichkeit sich an der Forschung zu beteiligen und auf Wunsch Unterstützung bei Ihrer Dissertation",
+        "en": "Ihre Umgebung:\nIhr zukünftiger Arbeitsplatz ist eine Jugend- oder die Kinderstation in der neuen Klinik für Kinder- und Jugendpsychiatrie, welche per Frühling 2026 neu eröffnet wird.\n\nIhre Aufgaben:\n- Sie führen ambulante kinder- und jugendpsychiatrische Behandlungen durch\n\n- Sie pflegen Kontakt zu unseren interdisziplinären Netzwerk-Partnern\n\n- Sie wirken in der Weiter- und Fortbildung mit und betreuen Assistenzärzte in Weiterbildung\n\nUnser Anforderungsprofil:\n- Sie verfügen über einen FMH anerkannten Facharzttitel in Kinder- und Jugendpsychiatrie oder stehen kurz vor dem Abschluss\n\n- Sie sind motiviert und bereit Verantwortung zu übernehmen\n\n- Sie arbeiten gerne prozessorientiert mit einem multidisziplinären und motivierten Team zusammen\n\nWir bieten Ihnen:\n- Eine interessante und vielseitige Tätigkeit in der Kinder- und Jugendpsychiatrie mit der Möglichkeit zur langfristigen beruflichen Weiterentwicklung\n\n- Das Angebot eines internen Führungs-Curriculums mit Zertifikat und Unterstützung bei Ihren externen Fortbildungsanliegen\n\n- Ein angenehmes und kollegiales Arbeitsklima in einer attraktiven Region\n\n- Mit Teilzeitarbeitsmodellen und unbezahlten Urlauben eine optimale Work-Life-Balance\n\n- Die Möglichkeit sich an der Forschung zu beteiligen und auf Wunsch Unterstützung bei Ihrer Dissertation",
+        "fr": "Ihre Umgebung:\nIhr zukünftiger Arbeitsplatz ist eine Jugend- oder die Kinderstation in der neuen Klinik für Kinder- und Jugendpsychiatrie, welche per Frühling 2026 neu eröffnet wird.\n\nIhre Aufgaben:\n- Sie führen ambulante kinder- und jugendpsychiatrische Behandlungen durch\n\n- Sie pflegen Kontakt zu unseren interdisziplinären Netzwerk-Partnern\n\n- Sie wirken in der Weiter- und Fortbildung mit und betreuen Assistenzärzte in Weiterbildung\n\nUnser Anforderungsprofil:\n- Sie verfügen über einen FMH anerkannten Facharzttitel in Kinder- und Jugendpsychiatrie oder stehen kurz vor dem Abschluss\n\n- Sie sind motiviert und bereit Verantwortung zu übernehmen\n\n- Sie arbeiten gerne prozessorientiert mit einem multidisziplinären und motivierten Team zusammen\n\nWir bieten Ihnen:\n- Eine interessante und vielseitige Tätigkeit in der Kinder- und Jugendpsychiatrie mit der Möglichkeit zur langfristigen beruflichen Weiterentwicklung\n\n- Das Angebot eines internen Führungs-Curriculums mit Zertifikat und Unterstützung bei Ihren externen Fortbildungsanliegen\n\n- Ein angenehmes und kollegiales Arbeitsklima in einer attraktiven Region\n\n- Mit Teilzeitarbeitsmodellen und unbezahlten Urlauben eine optimale Work-Life-Balance\n\n- Die Möglichkeit sich an der Forschung zu beteiligen und auf Wunsch Unterstützung bei Ihrer Dissertation"
+      },
+      "location": "Chur",
+      "canton": "GR",
+      "url": "https://www.pdgr.ch/jobs/oberaerztin-oberarzt-7-2/",
+      "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-05-22T23:10:25.817Z",
+      "addressLocality": "Chur",
+      "postalCode": "7000",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Medicina",
+      "contract": "full-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "senior",
+      "sector": "Sanità / Psichiatria",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2025-10-03",
+      "applyUrl": "https://www.pdgr.ch/jobs/oberaerztin-oberarzt-7-2/",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "department": "Kinder- und Jugendpsychiatrie",
+      "facility": "Stationär",
+      "pensumMin": 80,
+      "pensumMax": 100,
+      "pensum": "80 - 100%",
+      "needsRetranslation": true,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-05-22T23:10:25.817Z"
     },
     {
       "id": "pdgr-0e801e3124af",
@@ -1151,7 +1130,7 @@
       "url": "https://www.pdgr.ch/jobs/fachpsychologe-in-2-3/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-22T12:39:18.313Z",
+      "crawledAt": "2026-05-22T23:10:24.684Z",
       "addressLocality": "Ilanz",
       "postalCode": "7130",
       "addressCountry": "CH",
@@ -1230,7 +1209,7 @@
       "url": "https://www.pdgr.ch/jobs/fachfrau-fachmann-gesundheit-2/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-22T12:39:17.105Z",
+      "crawledAt": "2026-05-22T23:10:23.441Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1284,6 +1263,7 @@
         "fachperson-gesundheit-pdgr-ch"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1328,7 +1308,7 @@
       "url": "https://www.pdgr.ch/jobs/assistenzaerztin-assistenzarzt-4-4/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-22T12:39:15.995Z",
+      "crawledAt": "2026-05-22T23:10:22.230Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -1393,6 +1373,7 @@
         "assistenzarztin-assistenzarzt-pdgr-ch-2"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1437,7 +1418,7 @@
       "url": "https://www.pdgr.ch/jobs/nachtaerztin-nachtarzt/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-22T12:39:14.870Z",
+      "crawledAt": "2026-05-22T23:10:21.091Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1495,6 +1476,7 @@
         "nachtarztin-nachtarzt-pdgr-ch"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1539,7 +1521,7 @@
       "url": "https://www.pdgr.ch/jobs/dipl-pflegefachperson-hf-5-6/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-22T12:39:13.762Z",
+      "crawledAt": "2026-05-22T23:10:19.908Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1595,6 +1577,7 @@
         ]
       },
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1639,7 +1622,7 @@
       "url": "https://www.pdgr.ch/jobs/assistenz-oder-fachpsychologe-in-6/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-22T12:39:11.510Z",
+      "crawledAt": "2026-05-22T23:10:17.559Z",
       "addressLocality": "Samedan",
       "postalCode": "7503",
       "addressCountry": "CH",
@@ -1693,6 +1676,7 @@
         "assistenz-oder-fachpsychologe-in-psychiatrische-dienste-graubunden-davos"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1737,7 +1721,7 @@
       "url": "https://www.pdgr.ch/jobs/fachperson-gesundheit-9/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-22T12:39:10.363Z",
+      "crawledAt": "2026-05-22T23:10:16.405Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -1790,6 +1774,7 @@
         "fachperson-gesundheit-pdgr-ch-2"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1799,102 +1784,6 @@
           "@type": "QuantitativeValue",
           "minValue": 49500,
           "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "pdgr-02463e6ed865",
-      "slug": "praktikant-in-praxismodul-i-ii-o-vorpraktikum-psychiatrische-dienste-graubunden-chur",
-      "slugByLocale": {
-        "it": "praktikant-in-praxismodul-i-ii-o-vorpraktikum-psychiatrische-dienste-graubunden-chur",
-        "en": "intern-practice-module-i-ii-or-pre-internship-psychiatrische-dienste-graubunden-chur",
-        "de": "praktikant-in-praxismodul-i-ii-oder-vorpraktikum-psychiatrische-dienste-graubunden-chur",
-        "fr": "stagiaire-module-pratique-i-ii-ou-pre-stage-psychiatrische-dienste-graubunden-chur"
-      },
-      "company": "Psychiatrische Dienste Graubünden",
-      "companyKey": "pdgr",
-      "companyDomain": "pdgr.ch",
-      "title": "Praktikant/in (Praxismodul I & II oder Vorpraktikum)",
-      "titleByLocale": {
-        "it": "Praktikant/in (Praxismodul I & II o Vorpraktikum)",
-        "en": "Intern (Practice Module I & II or Pre-internship)",
-        "de": "Praktikant/in (Praxismodul I & II oder Vorpraktikum)",
-        "fr": "Stagiaire (Module pratique I & II ou Pré-stage)"
-      },
-      "description": "Ihre Umgebung:\nDas Therapiehaus Fürstenwald in Chur ist eine Sonderschule mit Externats- und Internatsbetrieb für schulpflichtige Kinder und Jugendliche, die vorübergehend die öffentliche Schule aus psychischen Gründen nicht besuchen können.\n\nIhre Aufgaben:\n- Sie fördern und betreuen die anvertrauten Schüler\n\n- Sie beteiligen sich an der Aufrechterhaltung eines fördernden Milieus als Voraussetzung für eine Stärkung\n\n- Sie wirken an der Umsetzung und laufenden Anpassung der Erziehungsplanung mit\n\n- Sie gestalten den Tagesablauf der Kinder und Jugendlichen unter Berücksichtigung der Bereiche Therapie und Schule mit\n\n- Sie arbeiten interdisziplinär mit anderen Berufsgruppen zusammen\n\n- Sie übernehmen administrative Arbeiten\n\n- Sie arbeiten in der Bezugspersonenarbeit mit\n\nUnser Anforderungsprofil:\n- Sie sind mind. 20 Jahre jung und haben Interesse am Sonderschulbereich\n\n- Das Arbeiten mit Menschen bereitet Ihnen Freude\n\n- Sie sind offen und kommunikativ\n\nWir bieten Ihnen:\n- Ein Praktikum bei uns bietet Ihnen einen guten Einstieg in die Arbeitswelt\n\n- Wir fördern Talent und Engagement und bieten Ihnen die Möglichkeit, sich in einem dynamischen und vielseitigen Umfeld weiterzuentwickeln\n\n- Sie werden von einer ausgebildeten Praxisanleitung in wöchentlichen Gesprächen begleitet",
-      "descriptionByLocale": {
-        "it": "Descrizione Il vostro ambiente: La casa terapeutica Fürstenwald a Chur è una scuola speciale con servizio di esterno e interno per bambini e giovani obbligati alla scuola che, per motivi psicologici, non possono frequentare temporaneamente la scuola pubblica. ## Le vostre attività - Supportate e accompagnate i ragazzi affidati - Partecipate alla manutenzione di un ambiente di sostegno come prerequisito per un rafforzamento - Partecipate alla realizzazione e all'adattamento continuo del piano educativo - Progettate il ciclo quotidiano dei bambini e dei giovani tenendo conto delle aree di terapia e scuola - Collaborate in modo interdisciplinare con altre professioni - Svolgete attività amministrative - Partecipate alla lavoro con le figure di riferimento ## Il nostro profilo richiesto - Avete almeno 20 anni e siete interessati al settore scolastico speciale - Vi piace lavorare con le persone - Siete aperti e comunicativi ## Vi offriamo - Un tirocinio da noi vi offre un buon ingresso nel mondo del lavoro - Promuoviamo il talento e l'impegno e vi offriamo la possibilità di svilupparvi in un ambiente dinamico e variegato - Siete accompagnati da un supervisore qualificato in incontri settimanali",
-        "en": "Description Your environment: The Therapy House Fürstenwald in Chur is a special school with external and internal boarding for school-aged children and young people who, for psychological reasons, cannot temporarily attend public school. ##\n• Your tasks - You support and care for the entrusted pupils - You participate in maintaining a supportive environment as a prerequisite for strengthening - You contribute to the implementation and ongoing adaptation of the education plan - You design the daily routine of children and young people taking into account the areas of therapy and school - You work interdisciplinarily with other professions - You perform administrative tasks - You work in the reference person work ## Our requirements profile - You are at least 20 years old and have an interest in the special school sector - Working with people brings you joy - You are open and communicative ##\n• We offer you - An internship with us offers you a good entry into the working world - We promote talent and commitment and offer you the opportunity to develop in a dynamic and versatile environment - You are accompanied by a qualified practice supervisor in weekly meetings",
-        "de": "Ihre Umgebung: Das Therapiehaus Fürstenwald in Chur ist eine Sonderschule mit Externats- und Internatsbetrieb für schulpflichtige Kinder und Jugendliche, die vorübergehend die öffentliche Schule aus psychischen Gründen nicht besuchen können. \n• Ihre Aufgaben: - Sie fördern und betreuen die anvertrauten Schüler - Sie beteiligen sich an der Aufrechterhaltung eines fördernden Milieus als Voraussetzung für eine Stärkung - Sie wirken an der Umsetzung und laufenden Anpassung der Erziehungsplanung mit - Sie gestalten den Tagesablauf der Kinder und Jugendlichen unter Berücksichtigung der Bereiche Therapie und Schule mit - Sie arbeiten interdisziplinär mit anderen Berufsgruppen zusammen - Sie übernehmen administrative Arbeiten - Sie arbeiten in der Bezugspersonenarbeit mit Unser Anforderungsprofil: - Sie sind mind. 20 Jahre jung und haben Interesse am Sonderschulbereich - Das Arbeiten mit Menschen bereitet Ihnen Freude - Sie sind offen und kommunikativ \n• Wir bieten Ihnen: - Ein Praktikum bei uns bietet Ihnen einen guten Einstieg in die Arbeitswelt - Wir fördern Talent und Engagement und bieten Ihnen die Möglichkeit, sich in einem dynamischen und vielseitigen Umfeld weiterzuentwickeln - Sie werden von einer ausgebildeten Praxisanleitung in wöchentlichen Gesprächen begleitet",
-        "fr": "Description Votre environnement : La maison de thérapie Fürstenwald à Chur est une école spéciale avec internat et externat pour les enfants et jeunes obligés de fréquenter l'école qui, pour des raisons psychologiques, ne peuvent temporairement pas assister à l'école publique. ##\n• Vos tâches - Vous soutenez et accompagnez les élèves confiés - Vous participez à la maintenance d'un environnement de soutien comme condition préalable à un renforcement - Vous contribuez à la mise en œuvre et à l'adaptation continue du plan d'éducation - Vous concevez la routine quotidienne des enfants et des jeunes en tenant compte des domaines de la thérapie et de l'école - Vous travaillez de manière interdisciplinaire avec d'autres professions - Vous effectuez des tâches administratives - Vous travaillez dans le cadre de la personne de référence ## Notre profil de compétences - Vous avez au moins 20 ans et vous êtes intéressé par le secteur de l'école spéciale - Travailler avec des personnes vous procure du plaisir - Vous êtes ouvert et communicatif ## Nous vous offrons - Un stage chez nous vous offre une bonne entrée dans le monde du travail - Nous favorisons le talent et l'engagement et vous offrons la possibilité de vous développer dans un environnement dynamique et polyvalent - Vous êtes accompagné par un superviseur de pratique qualifié lors de réunions hebdomadaires"
-      },
-      "location": "Chur",
-      "canton": "GR",
-      "url": "https://www.pdgr.ch/jobs/praktikant-in-praxismodul-i-ii-oder-vorpraktikum-4/",
-      "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-05-22T12:39:09.265Z",
-      "addressLocality": "Chur",
-      "postalCode": "7000",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Sanità",
-      "contract": "full-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "intern",
-      "sector": "Sanità / Psichiatria",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-01-29",
-      "applyUrl": "https://www.pdgr.ch/jobs/praktikant-in-praxismodul-i-ii-oder-vorpraktikum-4/",
-      "requirements": [],
-      "requirementsByLocale": {
-        "it": [
-          "Avete almeno 20 anni e siete interessati al settore scolastico speciale",
-          "Vi piace lavorare con le persone",
-          "Siete aperti e comunicativi"
-        ],
-        "en": [
-          "You are at least 20 years old and have an interest in the special school sector",
-          "Working with people brings you joy",
-          "You are open and communicative"
-        ],
-        "fr": [
-          "Vous avez au moins 20 ans et vous êtes intéressé par le secteur de l'école spéciale",
-          "Travailler avec des personnes vous procure du plaisir",
-          "Vous êtes ouvert et communicatif"
-        ]
-      },
-      "department": "Kinder- und Jugendpsychiatrie",
-      "facility": "Therapiehaus Fürstenwald",
-      "pensumMin": 80,
-      "pensumMax": 100,
-      "pensum": "80 - 100%",
-      "previousSlugsByLocale": {
-        "de": [
-          "praktikant-in-praxismodul-i-ii-oder-vorpraktikum-pdgr-ch"
-        ],
-        "it": [
-          "praktikant-in-praxismodul-i-ii-oder-vorpraktikum-pdgr-ch",
-          "tirocinante-modulo-pratico-i-ii-o-pre-tirocinio-psychiatrische-dienste-graubunden-chur"
-        ]
-      },
-      "previousSlugs": [
-        "praktikant-in-praxismodul-i-ii-oder-vorpraktikum-pdgr-ch",
-        "tirocinante-modulo-pratico-i-ii-o-pre-tirocinio-psychiatrische-dienste-graubunden-chur",
-        "specialista-in-salute-per-il-turno-di-notte-psychiatrische-dienste-graubunden-chur"
-      ],
-      "firstSeenAt": "2026-04-14T10:28:30.371Z",
-      "salaryMin": 41600,
-      "salaryMax": 63000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 41600,
-          "maxValue": 63000,
           "unitText": "YEAR"
         }
       }
@@ -1930,7 +1819,7 @@
       "url": "https://www.pdgr.ch/jobs/fachperson-gesundheit-fuer-die-nachtwache-4-2/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-22T12:39:07.002Z",
+      "crawledAt": "2026-05-22T23:10:14.069Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1990,6 +1879,7 @@
         "tirocinante-modulo-pratico-i-ii-o-pre-tirocinio-psychiatrische-dienste-graubunden-chur"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2034,7 +1924,7 @@
       "url": "https://www.pdgr.ch/jobs/assistenzaerztin-assistenzarzt-3-9/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-22T12:39:04.751Z",
+      "crawledAt": "2026-05-22T23:10:11.851Z",
       "addressLocality": "Cazis / Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2113,7 +2003,7 @@
       "url": "https://www.pdgr.ch/jobs/oberaerztin-oberarzt-3-9/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-22T12:39:03.586Z",
+      "crawledAt": "2026-05-22T23:10:10.732Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2200,7 +2090,7 @@
       "url": "https://www.pdgr.ch/jobs/leiter-in-controlling/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-22T12:39:02.421Z",
+      "crawledAt": "2026-05-22T23:10:09.573Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2263,6 +2153,7 @@
         "leiter-in-controlling-pdgr-ch"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -2307,7 +2198,7 @@
       "url": "https://www.pdgr.ch/jobs/stationsleiter-in-2-2/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-22T12:39:01.088Z",
+      "crawledAt": "2026-05-22T23:10:08.383Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2373,6 +2264,7 @@
         "kochin-koch-pdgr-ch"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -2382,112 +2274,6 @@
           "@type": "QuantitativeValue",
           "minValue": 68000,
           "maxValue": 103000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "pdgr-12451701d2ea",
-      "slug": "assistente-o-psicologo-clinico-psychiatrische-dienste-graubunden-chur",
-      "slugByLocale": {
-        "it": "assistente-o-psicologo-clinico-psychiatrische-dienste-graubunden-chur",
-        "en": "assistant-or-clinical-psychologist-psychiatrische-dienste-graubunden-chur",
-        "de": "assistenz-oder-fachpsychologe-in-psychiatrische-dienste-graubunden-chur",
-        "fr": "assistant-ou-psychologue-clinicien-psychiatrische-dienste-graubunden-chur"
-      },
-      "company": "Psychiatrische Dienste Graubünden",
-      "companyKey": "pdgr",
-      "companyDomain": "pdgr.ch",
-      "title": "Assistenz- oder Fachpsychologe/in",
-      "titleByLocale": {
-        "it": "Assistente o psicologo clinico",
-        "en": "Assistant or clinical psychologist",
-        "de": "Assistenz- oder Fachpsychologe/in",
-        "fr": "Assistant ou psychologue clinicien"
-      },
-      "description": "Ihre Umgebung:\nDas Therapiehaus Fürstenwald in Chur ist eine Sonderschule mit Externats- und Internatsbetrieb für schulpflichtige Kinder und Jugendliche, die vorübergehend die öffentliche Schule aus psychischen Gründen nicht besuchen können.\n\nIhre Aufgaben:\n- Sie planen und setzen die psychotherapeutische Behandlung von Kindern und Jugendlichen unter Einbezug der Familien um\n\n- Sie arbeiten im multidisziplinären Team und sind dabei in regelmässigem und engem Austausch mit Sozialpädagogen, Lehrpersonen, Logopäden und Ergotherapeuten\n\nUnser Anforderungsprofil:\n- Sie verfügen über ein abgeschlossenes Studium der Psychologie\n\n- Sie sind in der Therapieausbildung mit eidg. Anerkennung, planen diese zeitnahe zu beginnen oder haben sie bereits abgeschlossen\n\n- Sie besitzen berufliche Erfahrung im Bereich Psychotherapie mit Kindern, Jugendlichen sowie Familien und in der Arbeit mit dem weiteren Umfeld von Familien inkl. Fachpersonen und Fachstellen\n\n- Sie arbeiten gerne im multiprofessionellen Team und mit Gruppen\n\n- Sie verfügen über eine hohe Sozial- und Handlungskompetenz\n\n- Sie sind bereit Ihre Jahresarbeitszeit entsprechend dem Rhythmus einer Schule zu planen\n\nWir bieten Ihnen:\n- Die Arbeit in der Kinder- und Jugendpsychiatrie Graubünden bietet ein breites fachliches Tätigkeitsfeld\n\n- Fortschrittliche Arbeitsbedingungen sind uns für Sie wichtig\n\n- Nutzen Sie unser internes Fort- und Weiterbildungsangebot – wir unterstützen auch Ihre externen Fortbildungsanliegen",
-      "descriptionByLocale": {
-        "it": "Il tuo ambiente: La casa della terapia Fürstenwald a Chur è una scuola speciale con servizio di esterni e interni per bambini e giovani obbligati a scuola che, per motivi psicologici, non possono temporaneamente frequentare la scuola pubblica. | Le tue responsabilità: Pianifichi e metti in pratica la terapia psicologica per bambini e giovani, coinvolgendo le loro famiglie. Lavorerai in un team multidisciplinare, mantenendo un contatto regolare e stretto con gli educatori sociali, gli insegnanti, i logopedisti e gli ergoterapisti. | Il nostro profilo richiesto: Hai completato uno studio di psicologia. Sei in formazione per la terapia con riconoscimento federale, pianifichi di iniziare presto o l'hai già completata. Hai esperienza professionale nel campo della terapia psicologica con bambini, giovani e famiglie, e nel lavoro con l'ambiente familiare esteso, inclusi professionisti e istituzioni. Lavorerai volentieri in un team multiprofessionale e con gruppi. Hai una alta competenza sociale e di azione. Sei pronto a pianificare il tuo tempo di lavoro annuale in base al ritmo di una scuola. | Ti offriamo: Il lavoro nella psicologia infantile e giovanile del Canton Grigioni offre un ampio campo di attività professionale. Per noi sono importanti condizioni di lavoro avanzate. Fai uso del nostro interno offerta di formazione e sviluppo - ti supportiamo anche nei tuoi obiettivi di formazione esterna.",
-        "en": "Your environment: The Therapy House Fürstenwald in Chur is a special school with external and internal boarding for school-aged children and adolescents who, for psychological reasons, cannot temporarily attend public school. |\n• Your tasks: You plan and implement the psychotherapeutic treatment of children and adolescents, involving their families. You work in a multidisciplinary team, maintaining regular and close contact with social educators, teachers, speech therapists, and occupational therapists. | Our requirements profile: You have completed a psychology degree. You are in therapy training with federal recognition, planning to start soon or have already completed it. You have professional experience in the field of psychotherapy with children, adolescents, and families, and in working with the extended family environment, including professionals and institutions. You enjoy working in a multiprofessional team and with groups. You have high social and action competence. You are ready to plan your annual working hours according to the rhythm of a school. |\n• We offer you: The work in the child and adolescent psychiatry of Graubünden offers a broad field of professional activity. Advanced working conditions are important to us. Make use of our internal training and development offer - we also support your external training goals.",
-        "de": "Ihre Umgebung: Das Therapiehaus Fürstenwald in Chur ist eine Sonderschule mit Externats- und Internatsbetrieb für schulpflichtige Kinder und Jugendliche, die vorübergehend die öffentliche Schule aus psychischen Gründen nicht besuchen können. \n• Ihre Aufgaben: - Sie planen und setzen die psychotherapeutische Behandlung von Kindern und Jugendlichen unter Einbezug der Familien um - Sie arbeiten im multidisziplinären Team und sind dabei in regelmässigem und engem Austausch mit Sozialpädagogen, Lehrpersonen, Logopäden und Ergotherapeuten Unser Anforderungsprofil: - Sie verfügen über ein abgeschlossenes Studium der Psychologie - Sie sind in der Therapieausbildung mit eidg. Anerkennung, planen diese zeitnahe zu beginnen oder haben sie bereits abgeschlossen - Sie besitzen berufliche Erfahrung im Bereich Psychotherapie mit Kindern, Jugendlichen sowie Familien und in der Arbeit mit dem weiteren Umfeld von Familien inkl. Fachpersonen und Fachstellen - Sie arbeiten gerne im multiprofessionellen Team und mit Gruppen - Sie verfügen über eine hohe Sozial- und Handlungskompetenz - Sie sind bereit Ihre Jahresarbeitszeit entsprechend dem Rhythmus einer Schule zu planen \n• Wir bieten Ihnen: - Die Arbeit in der Kinder- und Jugendpsychiatrie Graubünden bietet ein breites fachliches Tätigkeitsfeld - Fortschrittliche Arbeitsbedingungen sind uns für Sie wichtig - Nutzen Sie unser internes Fort- und Weiterbildungsangebot – wir unterstützen auch Ihre externen Fortbildungsanliegen",
-        "fr": "Votre environnement: La maison de thérapie Fürstenwald à Chur est une école spéciale avec internat et externat pour enfants et adolescents de l'école obligatoire qui, pour des raisons psychologiques, ne peuvent temporairement pas fréquenter l'école publique. |\n• Vos tâches: Vous planifiez et mettez en œuvre le traitement psychothérapeutique d'enfants et d'adolescents, en impliquant leurs familles. Vous travaillez dans une équipe multidisciplinaire, en maintenant un contact régulier et étroit avec les éducateurs sociaux, les enseignants, les logopèdes et les ergothérapeutes. | Notre profil de compétences: Vous avez terminé des études de psychologie. Vous êtes en formation en thérapie avec reconnaissance fédérale, prévoyez de commencer bientôt ou l'avez déjà terminée. Vous avez une expérience professionnelle dans le domaine de la psychothérapie avec des enfants, des adolescents et des familles, et dans le travail avec l'environnement familial élargi, y compris les professionnels et les institutions. Vous aimez travailler dans une équipe multiprofessionnelle et avec des groupes. Vous avez une haute compétence sociale et d'action. Vous êtes prêt à planifier votre temps de travail annuel selon le rythme d'une école. | Nous vous offrons: Le travail dans la psychiatrie infantile et juvénile du canton des Grisons offre un large champ d'activité professionnelle. Des conditions de travail avancées sont importantes pour nous. Profitez de notre offre interne de formation et de développement - nous soutenons également vos objectifs de formation externe."
-      },
-      "location": "Chur",
-      "canton": "GR",
-      "url": "https://www.pdgr.ch/jobs/assistenz-oder-fachpsychologe-in-3-2/",
-      "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-05-22T12:38:59.966Z",
-      "addressLocality": "Chur",
-      "postalCode": "7000",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Psicologia",
-      "contract": "full-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Psichiatria",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-09",
-      "applyUrl": "https://www.pdgr.ch/jobs/assistenz-oder-fachpsychologe-in-3-2/",
-      "requirements": [],
-      "requirementsByLocale": {
-        "it": [
-          "Studio di psicologia completato",
-          "Formazione in terapia con riconoscimento federale, da iniziare presto o già completata",
-          "Esperienza professionale in terapia psicologica con bambini, giovani e famiglie",
-          "Lavoro con l'ambiente familiare esteso, inclusi professionisti e istituzioni",
-          "Lavoro in team multiprofessionale e con gruppi",
-          "Alta competenza sociale e di azione",
-          "Pronto a pianificare il tempo di lavoro annuale in base al ritmo di una scuola"
-        ],
-        "en": [
-          "Completed psychology degree",
-          "Therapy training with federal recognition, to be started soon or already completed",
-          "Professional experience in psychotherapy with children, adolescents, and families",
-          "Work with the extended family environment, including professionals and institutions",
-          "Work in a multiprofessional team and with groups",
-          "High social and action competence",
-          "Ready to plan annual working hours according to the rhythm of a school"
-        ],
-        "fr": [
-          "Diplôme de psychologie obtenu",
-          "Formation en thérapie avec reconnaissance fédérale, à commencer bientôt ou déjà terminée",
-          "Expérience professionnelle en psychothérapie avec enfants, adolescents et familles",
-          "Travail avec l'environnement familial élargi, y compris les professionnels et les institutions",
-          "Travail dans une équipe multiprofessionnelle et avec des groupes",
-          "Haute compétence sociale et d'action",
-          "Prêt à planifier le temps de travail annuel selon le rythme d'une école"
-        ]
-      },
-      "department": "Kinder- und Jugendpsychiatrie",
-      "facility": "Therapiehaus Fürstenwald",
-      "pensumMin": 80,
-      "pensumMax": 80,
-      "pensum": "80%",
-      "previousSlugsByLocale": {
-        "de": [
-          "assistenz-oder-fachpsychologe-in-pdgr-ch"
-        ],
-        "it": [
-          "assistenz-oder-fachpsychologe-in-pdgr-ch-3"
-        ]
-      },
-      "previousSlugs": [
-        "assistenz-oder-fachpsychologe-in-pdgr-ch",
-        "assistenz-oder-fachpsychologe-in-pdgr-ch-3"
-      ],
-      "firstSeenAt": "2026-04-14T10:28:30.371Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
           "unitText": "YEAR"
         }
       }
@@ -2523,7 +2309,7 @@
       "url": "https://www.pdgr.ch/jobs/dipl-pflegefachperson-hf-fuer-den-tag-und-nachtdienst/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-22T12:38:56.584Z",
+      "crawledAt": "2026-05-22T23:10:04.932Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -2565,6 +2351,7 @@
         "dipl-pflegefachperson-hf-per-den-tag-e-nachtdienst-psychiatrische-dienste-graubunden-cazis"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2609,7 +2396,7 @@
       "url": "https://www.pdgr.ch/jobs/betreuer-in-11/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-22T12:38:55.473Z",
+      "crawledAt": "2026-05-22T23:10:03.755Z",
       "addressLocality": "Landquart",
       "postalCode": "7302",
       "addressCountry": "CH",
@@ -2701,7 +2488,7 @@
       "url": "https://www.pdgr.ch/jobs/assistenzpsychologe-in-6/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-22T12:38:54.331Z",
+      "crawledAt": "2026-05-22T23:10:02.461Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -2742,6 +2529,7 @@
         "assistenzpsychologe-in-psychiatrische-dienste-graubunden-cazis"
       ],
       "firstSeenAt": "2026-04-21T22:10:58.899Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2786,7 +2574,7 @@
       "url": "https://www.pdgr.ch/jobs/mitarbeiter-in-hotellerie-3-13/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-22T12:38:53.194Z",
+      "crawledAt": "2026-05-22T23:10:01.150Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -2868,7 +2656,7 @@
       "url": "https://www.pdgr.ch/jobs/oberaerztin-oberarzt-6-3/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-22T12:38:52.084Z",
+      "crawledAt": "2026-05-22T23:10:00.036Z",
       "addressLocality": "Ilanz",
       "postalCode": "7130",
       "addressCountry": "CH",
@@ -2946,7 +2734,7 @@
       "url": "https://www.pdgr.ch/jobs/dipl-pflegefachperson-hf-3-10/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-22T12:38:50.921Z",
+      "crawledAt": "2026-05-22T23:09:58.934Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -2981,6 +2769,7 @@
         ]
       },
       "firstSeenAt": "2026-05-07T11:33:07.021Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -3025,7 +2814,7 @@
       "url": "https://www.pdgr.ch/jobs/mitarbeiter-in-hotellerie-4-9/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-22T12:38:49.799Z",
+      "crawledAt": "2026-05-22T23:09:57.832Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -3102,7 +2891,7 @@
       "url": "https://www.pdgr.ch/jobs/dipl-pflegefachperson-hf-fuer-die-nachtwache-2-11/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-22T12:38:48.679Z",
+      "crawledAt": "2026-05-22T23:09:56.724Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -3188,7 +2977,7 @@
       "url": "https://www.pdgr.ch/jobs/betreuer-in-2-8/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-22T12:38:47.580Z",
+      "crawledAt": "2026-05-22T23:09:55.630Z",
       "addressLocality": "Rothenbrunnen",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -3283,7 +3072,7 @@
       "url": "https://www.pdgr.ch/jobs/leiter-in-textil-2/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-22T12:38:46.420Z",
+      "crawledAt": "2026-05-22T23:09:54.540Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -3368,7 +3157,7 @@
       "url": "https://www.pdgr.ch/jobs/oberaerztin-oberarzt-8-4/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-22T12:38:44.219Z",
+      "crawledAt": "2026-05-22T23:09:52.330Z",
       "addressLocality": "Samedan / Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -3447,7 +3236,7 @@
       "url": "https://www.pdgr.ch/jobs/fachpsychologe-in-3-5/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-22T12:38:43.093Z",
+      "crawledAt": "2026-05-22T23:09:51.220Z",
       "addressLocality": "Samedan / Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
