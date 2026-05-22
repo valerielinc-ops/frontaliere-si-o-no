@@ -771,12 +771,12 @@
     },
     {
       "id": "medtronic-f78f692e009a",
-      "slug": "sales-representative-ii-medtronic-ch",
+      "slug": "rappresentante-commerciale-ii-ablazione-svizzera-medtronic-tolochenaz",
       "slugByLocale": {
         "de": "sales-representative-ii-medtronic-ch",
-        "it": "sales-representative-ii-medtronic-ch",
+        "it": "rappresentante-commerciale-ii-ablazione-svizzera-medtronic-tolochenaz",
         "en": "sales-representative-ii-medtronic-tolochenaz",
-        "fr": "sales-representative-ii-medtronic-ch"
+        "fr": "representant-e-commercial-e-ii-ablation-suisse-medtronic-tolochenaz"
       },
       "company": "Medtronic",
       "companyKey": "medtronic",
@@ -831,7 +831,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-22T12:25:33.778Z"
+      "firstSeenAt": "2026-05-22T12:25:33.778Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sales-representative-ii-medtronic-ch"
+        ],
+        "fr": [
+          "sales-representative-ii-medtronic-ch"
+        ]
+      },
+      "previousSlugs": [
+        "sales-representative-ii-medtronic-ch"
+      ]
     }
   ]
 }

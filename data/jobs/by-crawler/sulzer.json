@@ -2036,7 +2036,7 @@
       "slugByLocale": {
         "it": "ingegnere-di-vendita-sulzer-winterthur",
         "en": "sales-engineer-sulzer-winterthur",
-        "de": "vertriebsingenieur-sulzer-winterthur",
+        "de": "sales-ingenieur-sulzer-winterthur",
         "fr": "ingenieur-commercial-sulzer-winterthur"
       },
       "company": "Sulzer",
@@ -2086,7 +2086,7 @@
         ],
         "de": [
           "sales-engineer-sulzer-ch",
-          "sales-ingenieur-sulzer-winterthur"
+          "vertriebsingenieur-sulzer-winterthur"
         ],
         "fr": [
           "sales-engineer-sulzer-ch"
@@ -2095,7 +2095,7 @@
       "previousSlugs": [
         "sales-engineer-sulzer-ch",
         "sales-ingegnere-sulzer-winterthur",
-        "sales-ingenieur-sulzer-winterthur"
+        "vertriebsingenieur-sulzer-winterthur"
       ],
       "firstSeenAt": "2026-05-21T23:58:00.571Z",
       "salaryMin": 49500,
@@ -2114,11 +2114,11 @@
     },
     {
       "id": "sulzer-e7ec1e83ce78",
-      "slug": "process-engineer-sulzer-ch",
+      "slug": "process-ingegnere-sulzer-shanghai",
       "slugByLocale": {
         "en": "process-engineer-sulzer-shanghai",
-        "it": "process-engineer-sulzer-ch",
-        "de": "process-engineer-sulzer-ch",
+        "it": "process-ingegnere-sulzer-shanghai",
+        "de": "process-ingenieur-sulzer-shanghai",
         "fr": "process-engineer-sulzer-ch"
       },
       "company": "Sulzer",
@@ -2174,15 +2174,26 @@
         }
       },
       "postalCode": "8001",
-      "firstSeenAt": "2026-05-22T13:12:41.624Z"
+      "firstSeenAt": "2026-05-22T13:12:41.624Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "process-engineer-sulzer-ch"
+        ],
+        "de": [
+          "process-engineer-sulzer-ch"
+        ]
+      },
+      "previousSlugs": [
+        "process-engineer-sulzer-ch"
+      ]
     },
     {
       "id": "sulzer-2cdfd08a83c1",
-      "slug": "apt-engineer-sulzer-ch",
+      "slug": "apt-ingegnere-sulzer-shanghai",
       "slugByLocale": {
         "en": "apt-engineer-sulzer-shanghai",
-        "it": "apt-engineer-sulzer-ch",
-        "de": "apt-engineer-sulzer-ch",
+        "it": "apt-ingegnere-sulzer-shanghai",
+        "de": "apt-ingenieur-sulzer-shanghai",
         "fr": "apt-engineer-sulzer-ch"
       },
       "company": "Sulzer",
@@ -2238,7 +2249,18 @@
         }
       },
       "postalCode": "8001",
-      "firstSeenAt": "2026-05-22T13:12:40.742Z"
+      "firstSeenAt": "2026-05-22T13:12:40.742Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "apt-engineer-sulzer-ch"
+        ],
+        "de": [
+          "apt-engineer-sulzer-ch"
+        ]
+      },
+      "previousSlugs": [
+        "apt-engineer-sulzer-ch"
+      ]
     },
     {
       "id": "sulzer-d361bd21625a",
@@ -2306,11 +2328,11 @@
     },
     {
       "id": "sulzer-71274d165ad6",
-      "slug": "senior-e-i-engineer-sulzer-ch",
+      "slug": "senior-e-i-ingegnere-sulzer-shanghai",
       "slugByLocale": {
         "en": "senior-e-i-engineer-sulzer-shanghai",
-        "it": "senior-e-i-engineer-sulzer-ch",
-        "de": "senior-e-i-engineer-sulzer-ch",
+        "it": "senior-e-i-ingegnere-sulzer-shanghai",
+        "de": "senior-e-i-ingenieur-sulzer-shanghai",
         "fr": "senior-e-i-engineer-sulzer-ch"
       },
       "company": "Sulzer",
@@ -2366,7 +2388,18 @@
         }
       },
       "postalCode": "8001",
-      "firstSeenAt": "2026-05-22T13:12:39.093Z"
+      "firstSeenAt": "2026-05-22T13:12:39.093Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-e-i-engineer-sulzer-ch"
+        ],
+        "de": [
+          "senior-e-i-engineer-sulzer-ch"
+        ]
+      },
+      "previousSlugs": [
+        "senior-e-i-engineer-sulzer-ch"
+      ]
     },
     {
       "id": "sulzer-915cb7b1bef7",
@@ -2374,8 +2407,8 @@
       "slugByLocale": {
         "en": "senior-supply-chain-management-purchasing-engineer-sulzer-ch",
         "it": "senior-supply-chain-management-purchasing-engineer-sulzer-ch",
-        "de": "senior-supply-chain-management-purchasing-engineer-sulzer-ch",
-        "fr": "senior-supply-chain-management-purchasing-engineer-sulzer-ch"
+        "de": "senior-lieferkette-management-purchasing-ingenieur-sulzer-shanghai",
+        "fr": "senior-chaine-d-approvisionnement-management-purchasing-ingenieur-sulzer-shanghai"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -2498,11 +2531,11 @@
     },
     {
       "id": "sulzer-e7c2de675dc4",
-      "slug": "esh-engineer-sulzer-ch",
+      "slug": "esh-ingegnere-sulzer-shanghai",
       "slugByLocale": {
         "en": "esh-engineer-sulzer-shanghai",
-        "it": "esh-engineer-sulzer-ch",
-        "de": "esh-engineer-sulzer-ch",
+        "it": "esh-ingegnere-sulzer-shanghai",
+        "de": "esh-ingenieur-sulzer-shanghai",
         "fr": "esh-engineer-sulzer-ch"
       },
       "company": "Sulzer",
@@ -2558,7 +2591,18 @@
         }
       },
       "postalCode": "8001",
-      "firstSeenAt": "2026-05-22T13:12:36.733Z"
+      "firstSeenAt": "2026-05-22T13:12:36.733Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "esh-engineer-sulzer-ch"
+        ],
+        "de": [
+          "esh-engineer-sulzer-ch"
+        ]
+      },
+      "previousSlugs": [
+        "esh-engineer-sulzer-ch"
+      ]
     },
     {
       "id": "sulzer-30128da68007",
@@ -2754,12 +2798,12 @@
     },
     {
       "id": "sulzer-e8b6d2a4b030",
-      "slug": "process-engineer-sulzer-ch-2",
+      "slug": "process-ingegnere-sulzer-shanghai-3e7113",
       "slugByLocale": {
         "en": "process-engineer-sulzer-shanghai",
-        "it": "process-engineer-sulzer-ch-2",
-        "de": "process-engineer-sulzer-ch-2",
-        "fr": "process-engineer-sulzer-ch-2"
+        "it": "process-ingegnere-sulzer-shanghai-3e7113",
+        "de": "process-ingenieur-sulzer-shanghai-3e7113",
+        "fr": "process-ingenieur-sulzer-shanghai"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -2804,10 +2848,20 @@
       "previousSlugsByLocale": {
         "en": [
           "process-engineer-sulzer-ch"
+        ],
+        "it": [
+          "process-engineer-sulzer-ch-2"
+        ],
+        "de": [
+          "process-engineer-sulzer-ch-2"
+        ],
+        "fr": [
+          "process-engineer-sulzer-ch-2"
         ]
       },
       "previousSlugs": [
-        "process-engineer-sulzer-ch"
+        "process-engineer-sulzer-ch",
+        "process-engineer-sulzer-ch-2"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -2890,11 +2944,11 @@
     },
     {
       "id": "sulzer-fa03fb891ae1",
-      "slug": "sales-engineer-sulzer-ch",
+      "slug": "sales-ingegnere-sulzer-jakarta",
       "slugByLocale": {
         "en": "sales-engineer-sulzer-jakarta",
-        "it": "sales-engineer-sulzer-ch",
-        "de": "sales-engineer-sulzer-ch",
+        "it": "sales-ingegnere-sulzer-jakarta",
+        "de": "sales-ingenieur-sulzer-jakarta",
         "fr": "sales-engineer-sulzer-ch"
       },
       "company": "Sulzer",
@@ -2950,7 +3004,18 @@
         }
       },
       "postalCode": "8001",
-      "firstSeenAt": "2026-05-22T13:12:31.654Z"
+      "firstSeenAt": "2026-05-22T13:12:31.654Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sales-engineer-sulzer-ch"
+        ],
+        "de": [
+          "sales-engineer-sulzer-ch"
+        ]
+      },
+      "previousSlugs": [
+        "sales-engineer-sulzer-ch"
+      ]
     },
     {
       "id": "sulzer-978840e3c77c",

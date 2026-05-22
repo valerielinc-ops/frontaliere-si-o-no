@@ -165,7 +165,7 @@
       "slug": "contatto-del-team-personale-di-ricerca-hopital-du-valais-sion",
       "slugByLocale": {
         "it": "contatto-del-team-personale-di-ricerca-hopital-du-valais-sion",
-        "en": "rejoins-l-equipe-de-personnel-de-reserve-hopital-du-valais-sion",
+        "en": "contact-the-reserve-personnel-team-hopital-du-valais-sion",
         "de": "trete-der-reservepersonal-mitglieder-bei-hopital-du-valais-sion",
         "fr": "rejoins-l-equipe-de-personnel-de-reserve-hopital-du-valais-sion"
       },
@@ -213,8 +213,7 @@
       "previousSlugs": [
         "rejoins-l-equipe-de-personnel-de-reserve-hopital-du-valais-sion",
         "unisciti-al-team-del-personale-di-riserva-hopital-du-valais-sion",
-        "join-the-reserve-staff-team-hopital-du-valais-sion",
-        "contact-the-reserve-personnel-team-hopital-du-valais-sion"
+        "join-the-reserve-staff-team-hopital-du-valais-sion"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -223,7 +222,6 @@
         ],
         "en": [
           "join-the-reserve-staff-team-hopital-du-valais-sion",
-          "contact-the-reserve-personnel-team-hopital-du-valais-sion",
           "rejoins-l-equipe-de-personnel-de-reserve-hopital-du-valais-sion"
         ],
         "de": [
@@ -560,9 +558,9 @@
     },
     {
       "id": "hopital-du-valais-7e819bc76a04",
-      "slug": "medecin-adjoint-e-specialiste-en-radiologie-a-100-hopital-du-valais-sion",
+      "slug": "100-assistant-x-ray-specialist-hopital-du-valais-sion",
       "slugByLocale": {
-        "it": "medecin-adjoint-e-specialiste-en-radiologie-a-100-hopital-du-valais-sion",
+        "it": "100-assistant-x-ray-specialist-hopital-du-valais-sion",
         "en": "associate-physician-specialist-in-radiology-at-100-hopital-du-valais-sion",
         "de": "oberarzt-oberarztin-fur-radiologie-zu-100-hopital-du-valais-sion",
         "fr": "medecin-adjoint-e-specialiste-en-radiologie-a-100-hopital-du-valais-sion"
@@ -610,12 +608,11 @@
       },
       "previousSlugs": [
         "medico-aggiunto-specialista-in-radiologia-al-100-hopital-du-valais-sion",
-        "100-assistant-x-ray-specialist-hopital-du-valais-sion"
+        "medecin-adjoint-e-specialiste-en-radiologie-a-100-hopital-du-valais-sion"
       ],
       "previousSlugsByLocale": {
         "it": [
           "medico-aggiunto-specialista-in-radiologia-al-100-hopital-du-valais-sion",
-          "100-assistant-x-ray-specialist-hopital-du-valais-sion",
           "medecin-adjoint-e-specialiste-en-radiologie-a-100-hopital-du-valais-sion"
         ]
       },
@@ -2127,7 +2124,6 @@
       },
       "previousSlugs": [
         "oberarztin-arzt-80-100-hopital-du-valais-brig",
-        "collaborateur-trice-sante-numerique-80-100-hopital-du-valais-sion",
         "medico-specialista-in-psichiatria-infantile-e-adolescenziale-hopital-du-valais-brig"
       ],
       "previousSlugsByLocale": {
@@ -3622,12 +3618,12 @@
     },
     {
       "id": "hopital-du-valais-d3ac5409e511",
-      "slug": "assistant-e-technique-en-sterilisation-hopital-du-valais-martigny",
+      "slug": "assistente-tecnico-in-sterilizzazione-hopital-du-valais-martigny",
       "slugByLocale": {
         "fr": "assistant-e-technique-en-sterilisation-hopital-du-valais-martigny",
-        "it": "assistant-e-technique-en-sterilisation-hopital-du-valais-martigny",
-        "en": "assistant-e-technique-en-sterilisation-hopital-du-valais-martigny",
-        "de": "assistant-e-technique-en-sterilisation-hopital-du-valais-martigny"
+        "it": "assistente-tecnico-in-sterilizzazione-hopital-du-valais-martigny",
+        "en": "technical-assistant-in-sterilization-hopital-du-valais-martigny",
+        "de": "technischer-assistent-fur-sterilisation-hopital-du-valais-martigny"
       },
       "company": "Hôpital du Valais",
       "companyKey": "hopital-du-valais",
@@ -3683,7 +3679,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-22T11:54:30.607Z"
+      "firstSeenAt": "2026-05-22T11:54:30.607Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistant-e-technique-en-sterilisation-hopital-du-valais-martigny"
+        ],
+        "en": [
+          "assistant-e-technique-en-sterilisation-hopital-du-valais-martigny"
+        ],
+        "de": [
+          "assistant-e-technique-en-sterilisation-hopital-du-valais-martigny"
+        ]
+      },
+      "previousSlugs": [
+        "assistant-e-technique-en-sterilisation-hopital-du-valais-martigny"
+      ]
     }
   ]
 }

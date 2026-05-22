@@ -5360,12 +5360,12 @@
     },
     {
       "id": "spital-emmental-75c9bca43f74",
-      "slug": "ict-infrastruktur-projektleitung-a-spital-emmental-burgdorf",
+      "slug": "responsabile-progetto-ict-infrastruttura-a-spital-emmental-burgdorf",
       "slugByLocale": {
         "de": "ict-infrastruktur-projektleitung-a-spital-emmental-burgdorf",
-        "it": "ict-infrastruktur-projektleitung-a-spital-emmental-burgdorf",
-        "en": "ict-infrastruktur-projektleitung-a-spital-emmental-burgdorf",
-        "fr": "ict-infrastruktur-projektleitung-a-spital-emmental-burgdorf"
+        "it": "responsabile-progetto-ict-infrastruttura-a-spital-emmental-burgdorf",
+        "en": "ict-infrastructure-project-lead-spital-emmental-burgdorf",
+        "fr": "responsable-de-projet-infrastructure-ict-spital-emmental-burgdorf"
       },
       "company": "Spital Emmental",
       "companyKey": "spital-emmental",
@@ -5426,16 +5426,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-22T13:02:17.584Z"
+      "firstSeenAt": "2026-05-22T13:02:17.584Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "ict-infrastruktur-projektleitung-a-spital-emmental-burgdorf"
+        ],
+        "en": [
+          "ict-infrastruktur-projektleitung-a-spital-emmental-burgdorf"
+        ],
+        "fr": [
+          "ict-infrastruktur-projektleitung-a-spital-emmental-burgdorf"
+        ]
+      },
+      "previousSlugs": [
+        "ict-infrastruktur-projektleitung-a-spital-emmental-burgdorf"
+      ]
     },
     {
       "id": "spital-emmental-f23a4e695885",
-      "slug": "chief-executive-officer-a-spital-emmental-burgdorf",
+      "slug": "amministratore-delegato-a-spital-emmental-burgdorf-langnau",
       "slugByLocale": {
         "de": "chief-executive-officer-a-spital-emmental-burgdorf",
-        "it": "chief-executive-officer-a-spital-emmental-burgdorf",
+        "it": "amministratore-delegato-a-spital-emmental-burgdorf-langnau",
         "en": "chief-executive-officer-a-spital-emmental-burgdorf",
-        "fr": "chief-executive-officer-a-spital-emmental-burgdorf"
+        "fr": "directeur-general-e-spital-emmental-burgdorf-langnau"
       },
       "company": "Spital Emmental",
       "companyKey": "spital-emmental",
@@ -5498,9 +5512,16 @@
       },
       "firstSeenAt": "2026-05-22T13:02:16.897Z",
       "previousSlugs": [
-        "amministratore-delegato-a-spital-emmental-burgdorf-langnau",
-        "directeur-general-e-spital-emmental-burgdorf-langnau"
-      ]
+        "chief-executive-officer-a-spital-emmental-burgdorf"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "chief-executive-officer-a-spital-emmental-burgdorf"
+        ],
+        "fr": [
+          "chief-executive-officer-a-spital-emmental-burgdorf"
+        ]
+      }
     }
   ]
 }

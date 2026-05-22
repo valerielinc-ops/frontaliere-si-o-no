@@ -211,9 +211,9 @@
       "slug": "vice-direttoredifiliale-denner-riehen",
       "slugByLocale": {
         "it": "vice-direttoredifiliale-denner-riehen",
-        "en": "stv-filialleiter-in-denner-riehen",
+        "en": "stv-branch-manager-in-denner-riehen",
         "de": "stv-filialleiter-in-denner-riehen",
-        "fr": "stv-filialleiter-in-denner-riehen"
+        "fr": "directeur-de-succursale-stv-denner-riehen"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -276,13 +276,15 @@
           "stv-filialleiter-in-denner-riehen"
         ],
         "en": [
-          "stv-filialleiter-in-denner"
+          "stv-filialleiter-in-denner",
+          "stv-filialleiter-in-denner-riehen"
         ],
         "de": [
           "stv-filialleiter-in-denner-basel"
         ],
         "fr": [
-          "stv-filialleiter-in-denner"
+          "stv-filialleiter-in-denner",
+          "stv-filialleiter-in-denner-riehen"
         ]
       },
       "previousSlugs": [
@@ -309,9 +311,9 @@
       "slug": "venditore-denner-allschwil",
       "slugByLocale": {
         "it": "venditore-denner-allschwil",
-        "en": "verkaufer-in-denner-allschwil",
+        "en": "seller-in-denner-allschwil",
         "de": "verkaufer-in-denner-allschwil",
-        "fr": "verkaufer-in-denner-allschwil"
+        "fr": "vendeur-denner-allschwil"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -374,13 +376,15 @@
           "verkaufer-in-denner-allschwil"
         ],
         "en": [
-          "verkaufer-in-denner"
+          "verkaufer-in-denner",
+          "verkaufer-in-denner-allschwil"
         ],
         "de": [
           "verkaufer-in-denner-rubigen"
         ],
         "fr": [
-          "verkaufer-in-denner"
+          "verkaufer-in-denner",
+          "verkaufer-in-denner-allschwil"
         ]
       },
       "previousSlugs": [
@@ -786,9 +790,9 @@
       "slug": "venditore-con-retribuzione-oraria-denner-grosswangen",
       "slugByLocale": {
         "it": "venditore-con-retribuzione-oraria-denner-grosswangen",
-        "en": "verkaufer-in-im-stundenlohn-denner-grosswangen",
+        "en": "seller-in-in-hourly-wage-denner-grosswangen",
         "de": "verkaufer-in-im-stundenlohn-denner-grosswangen",
-        "fr": "verkaufer-in-im-stundenlohn-denner-grosswangen"
+        "fr": "vendeur-en-salaire-horaire-denner-grosswangen"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -851,13 +855,15 @@
           "verkaufer-in-im-stundenlohn-denner-grosswangen"
         ],
         "en": [
-          "verkaufer-in-im-stundenlohn-denner"
+          "verkaufer-in-im-stundenlohn-denner",
+          "verkaufer-in-im-stundenlohn-denner-grosswangen"
         ],
         "de": [
           "verkaufer-in-im-stundenlohn-denner-worb"
         ],
         "fr": [
-          "verkaufer-in-im-stundenlohn-denner"
+          "verkaufer-in-im-stundenlohn-denner",
+          "verkaufer-in-im-stundenlohn-denner-grosswangen"
         ]
       },
       "previousSlugs": [
@@ -884,9 +890,9 @@
       "slug": "direttoredifiliale-denner-horgen",
       "slugByLocale": {
         "it": "direttoredifiliale-denner-horgen",
-        "en": "filialleiter-in-denner-horgen",
+        "en": "head-of-branch-in-denner-horgen",
         "de": "filialleiter-in-denner-horgen",
-        "fr": "filialleiter-in-denner-horgen"
+        "fr": "chef-de-branche-denner-horgen"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -950,13 +956,15 @@
           "filialleiter-in-denner-horgen"
         ],
         "en": [
-          "filialleiter-in-denner-schluein-7k8gx6"
+          "filialleiter-in-denner-schluein-7k8gx6",
+          "filialleiter-in-denner-horgen"
         ],
         "de": [
           "filialleiter-in-denner-schluein-7k8gx6"
         ],
         "fr": [
-          "filialleiter-in-denner-schluein-7k8gx6"
+          "filialleiter-in-denner-schluein-7k8gx6",
+          "filialleiter-in-denner-horgen"
         ]
       },
       "previousSlugs": [
@@ -984,9 +992,9 @@
       "slug": "assistente-nella-direzione-della-filiale-denner-langnau-am-albis",
       "slugByLocale": {
         "it": "assistente-nella-direzione-della-filiale-denner-langnau-am-albis",
-        "en": "assistent-in-filialleitung-denner-flims-dorf-gzl76k",
+        "en": "assistant-in-branch-management-denner-langnau-am-albis",
         "de": "assistent-in-filialleitung-denner-langnau-am-albis",
-        "fr": "assistent-in-filialleitung-denner-flims-dorf-gzl76k"
+        "fr": "assistant-dans-la-gestion-des-directions-generales-denner-langnau-am-albis"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -1049,11 +1057,18 @@
         ],
         "it": [
           "assistent-in-filialleitung-denner"
+        ],
+        "en": [
+          "assistent-in-filialleitung-denner-flims-dorf-gzl76k"
+        ],
+        "fr": [
+          "assistent-in-filialleitung-denner-flims-dorf-gzl76k"
         ]
       },
       "previousSlugs": [
         "assistent-in-filialleitung-denner-flims-dorf",
-        "assistent-in-filialleitung-denner"
+        "assistent-in-filialleitung-denner",
+        "assistent-in-filialleitung-denner-flims-dorf-gzl76k"
       ],
       "salaryMin": 59000,
       "salaryMax": 90500,

@@ -9083,12 +9083,12 @@
     },
     {
       "id": "eth-zurich-9509550a1d54",
-      "slug": "leitung-brand-e-explosionsschutz-m-w-d-eth-zurich",
+      "slug": "responsabile-protezione-antincendio-ed-esplosioni-m-f-d-eth-zurich-zurich",
       "slugByLocale": {
         "de": "leitung-brand-und-explosionsschutz-m-w-d-eth-zurich-ch",
-        "it": "leitung-brand-e-explosionsschutz-m-w-d-eth-zurich",
-        "en": "leitung-brand-und-explosionsschutz-m-w-d-eth-zurich-ch",
-        "fr": "leitung-brand-und-explosionsschutz-m-w-d-eth-zurich-ch"
+        "it": "responsabile-protezione-antincendio-ed-esplosioni-m-f-d-eth-zurich-zurich",
+        "en": "head-of-fire-and-explosion-protection-m-f-d-eth-zurich-zurich",
+        "fr": "responsable-de-la-protection-contre-les-incendies-et-les-explosions-h-f-eth-zurich-zurich"
       },
       "company": "ETH Zürich",
       "companyKey": "eth-zurich",
@@ -9131,11 +9131,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "leitung-brand-und-explosionsschutz-m-w-d-eth-zurich-ch",
+          "leitung-brand-e-explosionsschutz-m-w-d-eth-zurich"
+        ],
+        "en": [
+          "leitung-brand-und-explosionsschutz-m-w-d-eth-zurich-ch"
+        ],
+        "fr": [
           "leitung-brand-und-explosionsschutz-m-w-d-eth-zurich-ch"
         ]
       },
       "previousSlugs": [
-        "leitung-brand-und-explosionsschutz-m-w-d-eth-zurich-ch"
+        "leitung-brand-und-explosionsschutz-m-w-d-eth-zurich-ch",
+        "leitung-brand-e-explosionsschutz-m-w-d-eth-zurich"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -9154,11 +9162,11 @@
     },
     {
       "id": "eth-zurich-62f45cbae93b",
-      "slug": "proteomics-laboratory-assistant-eth-zurich-ch",
+      "slug": "assistente-di-laboratorio-proteomics-eth-zurich-zurich",
       "slugByLocale": {
         "en": "proteomics-laboratory-assistant-eth-zurich-ch",
-        "it": "proteomics-laboratory-assistant-eth-zurich-ch",
-        "de": "proteomics-laboratory-assistant-eth-zurich-ch",
+        "it": "assistente-di-laboratorio-proteomics-eth-zurich-zurich",
+        "de": "proteomics-laborassistent-eth-zurich-zurich",
         "fr": "proteomics-laboratory-assistant-eth-zurich-ch"
       },
       "company": "ETH Zürich",
@@ -9213,14 +9221,25 @@
         }
       },
       "postalCode": "8001",
-      "firstSeenAt": "2026-05-22T11:35:19.493Z"
+      "firstSeenAt": "2026-05-22T11:35:19.493Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "proteomics-laboratory-assistant-eth-zurich-ch"
+        ],
+        "de": [
+          "proteomics-laboratory-assistant-eth-zurich-ch"
+        ]
+      },
+      "previousSlugs": [
+        "proteomics-laboratory-assistant-eth-zurich-ch"
+      ]
     },
     {
       "id": "eth-zurich-7a6bbd9e3678",
-      "slug": "communication-specialista-eth-zurich-zurich",
+      "slug": "specialista-della-comunicazione-eth-zurich-zurich",
       "slugByLocale": {
         "en": "communication-specialist-eth-zurich-ch",
-        "it": "communication-specialista-eth-zurich-zurich",
+        "it": "specialista-della-comunicazione-eth-zurich-zurich",
         "de": "communication-spezialist-eth-zurich-zurich",
         "fr": "communication-specialiste-eth-zurich-zurich"
       },
@@ -9279,7 +9298,8 @@
       "firstSeenAt": "2026-05-22T11:35:18.954Z",
       "previousSlugsByLocale": {
         "it": [
-          "communication-specialist-eth-zurich-ch"
+          "communication-specialist-eth-zurich-ch",
+          "communication-specialista-eth-zurich-zurich"
         ],
         "de": [
           "communication-specialist-eth-zurich-ch"
@@ -9289,7 +9309,8 @@
         ]
       },
       "previousSlugs": [
-        "communication-specialist-eth-zurich-ch"
+        "communication-specialist-eth-zurich-ch",
+        "communication-specialista-eth-zurich-zurich"
       ]
     },
     {
@@ -9298,8 +9319,8 @@
       "slugByLocale": {
         "en": "programme-manager-eth-zurich-ch",
         "it": "responsabile-del-programma-eth-zurich-zurich",
-        "de": "programme-manager-eth-zurich-ch",
-        "fr": "programme-manager-eth-zurich-ch"
+        "de": "programmleiter-eth-zurich-zurich",
+        "fr": "gestionnaire-de-programme-eth-zurich-zurich"
       },
       "company": "ETH Zürich",
       "companyKey": "eth-zurich",
@@ -9356,6 +9377,12 @@
       "firstSeenAt": "2026-05-22T11:35:18.398Z",
       "previousSlugsByLocale": {
         "it": [
+          "programme-manager-eth-zurich-ch"
+        ],
+        "de": [
+          "programme-manager-eth-zurich-ch"
+        ],
+        "fr": [
           "programme-manager-eth-zurich-ch"
         ]
       },

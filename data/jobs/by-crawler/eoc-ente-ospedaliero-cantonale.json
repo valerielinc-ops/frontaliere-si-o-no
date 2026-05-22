@@ -461,7 +461,7 @@
       "slugByLocale": {
         "it": "stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-bellinzona",
         "en": "nursing-internship-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "de": "pflegepraktikum-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "de": "krankenpflegepraktikum-eoc-ente-ospedaliero-cantonale-bellinzona",
         "fr": "stage-en-soins-infirmiers-eoc-ente-ospedaliero-cantonale-bellinzona"
       },
       "titleByLocale": {
@@ -502,7 +502,15 @@
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugsByLocale": {
+        "de": [
+          "pflegepraktikum-eoc-ente-ospedaliero-cantonale-bellinzona"
+        ]
+      },
+      "previousSlugs": [
+        "pflegepraktikum-eoc-ente-ospedaliero-cantonale-bellinzona"
+      ]
     },
     {
       "id": "company-uil17y",
@@ -527,8 +535,8 @@
       "slugByLocale": {
         "it": "infermiere-a-in-cure-generali-eoc-ente-ospedaliero-cantonale-novaggio",
         "en": "general-care-nurse-eoc-ente-ospedaliero-cantonale-novaggio",
-        "de": "krankenpfleger-in-in-allgemeiner-pflege-eoc-ente-ospedaliero-cantonale-novaggio",
-        "fr": "infirmier-ere-en-soins-generaux-eoc-ente-ospedaliero-cantonale-novaggio"
+        "de": "krankenschwestern-im-allgemeinen-eoc-ente-ospedaliero-cantonale-novaggio",
+        "fr": "infirmieres-en-general-eoc-ente-ospedaliero-cantonale-novaggio"
       },
       "titleByLocale": {
         "it": "Infermiere/a in cure generali",
@@ -561,7 +569,19 @@
       "addressLocality": "Novaggio",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugsByLocale": {
+        "de": [
+          "krankenpfleger-in-in-allgemeiner-pflege-eoc-ente-ospedaliero-cantonale-novaggio"
+        ],
+        "fr": [
+          "infirmier-ere-en-soins-generaux-eoc-ente-ospedaliero-cantonale-novaggio"
+        ]
+      },
+      "previousSlugs": [
+        "krankenpfleger-in-in-allgemeiner-pflege-eoc-ente-ospedaliero-cantonale-novaggio",
+        "infirmier-ere-en-soins-generaux-eoc-ente-ospedaliero-cantonale-novaggio"
+      ]
     },
     {
       "id": "company-uil172",
@@ -588,7 +608,7 @@
       "slugByLocale": {
         "it": "stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-bellinzona",
         "en": "nursing-internship-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "de": "pflegepraktikum-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "de": "krankenpflegepraktikum-eoc-ente-ospedaliero-cantonale-bellinzona-c86b40",
         "fr": "stage-en-soins-infirmiers-eoc-ente-ospedaliero-cantonale-bellinzona"
       },
       "titleByLocale": {
@@ -629,7 +649,15 @@
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugsByLocale": {
+        "de": [
+          "pflegepraktikum-eoc-ente-ospedaliero-cantonale-bellinzona"
+        ]
+      },
+      "previousSlugs": [
+        "pflegepraktikum-eoc-ente-ospedaliero-cantonale-bellinzona"
+      ]
     },
     {
       "id": "company-x29n4d",
@@ -731,9 +759,9 @@
       "firstSeenAt": "2026-05-22T11:37:04.637Z",
       "slugByLocale": {
         "it": "operatore-trice-socio-sanitario-a-eoc-ente-ospedaliero-cantonale-novaggio",
-        "en": "healthcare-partner-operator-eoc-ente-ospedaliero-cantonale-novaggio",
-        "de": "sozialarbeiter-eoc-ente-ospedaliero-cantonale-novaggio",
-        "fr": "agent-de-sante-sociale-eoc-ente-ospedaliero-cantonale-novaggio"
+        "en": "healthcare-worker-employee-eoc-ente-ospedaliero-cantonale-novaggio",
+        "de": "gesundheitsarbeiter-arbeitnehmer-eoc-ente-ospedaliero-cantonale-novaggio",
+        "fr": "travailleurs-de-la-sante-employes-eoc-ente-ospedaliero-cantonale-novaggio"
       },
       "titleByLocale": {
         "it": "Operatore/trice socio sanitario/a",
@@ -769,11 +797,21 @@
       "employmentType": "FULL_TIME",
       "previousSlugsByLocale": {
         "en": [
-          "social-health-worker-eoc-ente-ospedaliero-cantonale-novaggio"
+          "social-health-worker-eoc-ente-ospedaliero-cantonale-novaggio",
+          "healthcare-partner-operator-eoc-ente-ospedaliero-cantonale-novaggio"
+        ],
+        "de": [
+          "sozialarbeiter-eoc-ente-ospedaliero-cantonale-novaggio"
+        ],
+        "fr": [
+          "agent-de-sante-sociale-eoc-ente-ospedaliero-cantonale-novaggio"
         ]
       },
       "previousSlugs": [
-        "social-health-worker-eoc-ente-ospedaliero-cantonale-novaggio"
+        "social-health-worker-eoc-ente-ospedaliero-cantonale-novaggio",
+        "healthcare-partner-operator-eoc-ente-ospedaliero-cantonale-novaggio",
+        "sozialarbeiter-eoc-ente-ospedaliero-cantonale-novaggio",
+        "agent-de-sante-sociale-eoc-ente-ospedaliero-cantonale-novaggio"
       ]
     },
     {
@@ -798,9 +836,9 @@
       "firstSeenAt": "2026-05-22T11:37:04.637Z",
       "slugByLocale": {
         "it": "operatore-trice-socio-sanitario-a-eoc-ente-ospedaliero-cantonale-novaggio",
-        "en": "healthcare-partner-operator-eoc-ente-ospedaliero-cantonale-novaggio",
-        "de": "sozialarbeiter-eoc-ente-ospedaliero-cantonale-novaggio",
-        "fr": "agent-de-sante-sociale-eoc-ente-ospedaliero-cantonale-novaggio"
+        "en": "healthcare-worker-employee-eoc-ente-ospedaliero-cantonale-novaggio-8c2d0e",
+        "de": "gesundheitsarbeiter-arbeitnehmer-eoc-ente-ospedaliero-cantonale-novaggio-8c2d0e",
+        "fr": "travailleurs-de-la-sante-employes-eoc-ente-ospedaliero-cantonale-novaggio-8c2d0e"
       },
       "titleByLocale": {
         "it": "Operatore/trice socio sanitario/a",
@@ -837,20 +875,26 @@
       "previousSlugsByLocale": {
         "en": [
           "socio-sanitary-operator-operator-eoc-ente-ospedaliero-cantonale-novaggio",
-          "healthcare-partner-operator-eoc-ente-ospedaliero-cantonale-novaggio-8c2d0e"
+          "healthcare-partner-operator-eoc-ente-ospedaliero-cantonale-novaggio-8c2d0e",
+          "healthcare-partner-operator-eoc-ente-ospedaliero-cantonale-novaggio"
         ],
         "de": [
-          "socio-sanitater-sanitaterin-eoc-ente-ospedaliero-cantonale-novaggio"
+          "socio-sanitater-sanitaterin-eoc-ente-ospedaliero-cantonale-novaggio",
+          "sozialarbeiter-eoc-ente-ospedaliero-cantonale-novaggio"
         ],
         "fr": [
-          "operateur-operatrice-socio-sanitaire-eoc-ente-ospedaliero-cantonale-novaggio"
+          "operateur-operatrice-socio-sanitaire-eoc-ente-ospedaliero-cantonale-novaggio",
+          "agent-de-sante-sociale-eoc-ente-ospedaliero-cantonale-novaggio"
         ]
       },
       "previousSlugs": [
         "socio-sanitary-operator-operator-eoc-ente-ospedaliero-cantonale-novaggio",
         "healthcare-partner-operator-eoc-ente-ospedaliero-cantonale-novaggio-8c2d0e",
+        "healthcare-partner-operator-eoc-ente-ospedaliero-cantonale-novaggio",
         "socio-sanitater-sanitaterin-eoc-ente-ospedaliero-cantonale-novaggio",
+        "sozialarbeiter-eoc-ente-ospedaliero-cantonale-novaggio",
         "operateur-operatrice-socio-sanitaire-eoc-ente-ospedaliero-cantonale-novaggio",
+        "agent-de-sante-sociale-eoc-ente-ospedaliero-cantonale-novaggio",
         "social-health-worker-eoc-ente-ospedaliero-cantonale-novaggio"
       ]
     },
@@ -876,9 +920,9 @@
       "firstSeenAt": "2026-05-22T11:37:04.637Z",
       "slugByLocale": {
         "it": "assistente-di-cura-eoc-ente-ospedaliero-cantonale-novaggio",
-        "en": "care-assistant-eoc-ente-ospedaliero-cantonale-novaggio",
-        "de": "pflegeassistent-eoc-ente-ospedaliero-cantonale-novaggio",
-        "fr": "assistant-de-soins-eoc-ente-ospedaliero-cantonale-novaggio"
+        "en": "career-eoc-ente-ospedaliero-cantonale-novaggio",
+        "de": "karriere-eoc-ente-ospedaliero-cantonale-novaggio",
+        "fr": "carriere-eoc-ente-ospedaliero-cantonale-novaggio"
       },
       "titleByLocale": {
         "it": "Assistente di cura",
@@ -914,11 +958,21 @@
       "employmentType": "FULL_TIME",
       "previousSlugsByLocale": {
         "en": [
-          "assistente-di-cura-eoc-ente-ospedaliero-cantonale-novaggio-x29n57"
+          "assistente-di-cura-eoc-ente-ospedaliero-cantonale-novaggio-x29n57",
+          "care-assistant-eoc-ente-ospedaliero-cantonale-novaggio"
+        ],
+        "de": [
+          "pflegeassistent-eoc-ente-ospedaliero-cantonale-novaggio"
+        ],
+        "fr": [
+          "assistant-de-soins-eoc-ente-ospedaliero-cantonale-novaggio"
         ]
       },
       "previousSlugs": [
-        "assistente-di-cura-eoc-ente-ospedaliero-cantonale-novaggio-x29n57"
+        "assistente-di-cura-eoc-ente-ospedaliero-cantonale-novaggio-x29n57",
+        "care-assistant-eoc-ente-ospedaliero-cantonale-novaggio",
+        "pflegeassistent-eoc-ente-ospedaliero-cantonale-novaggio",
+        "assistant-de-soins-eoc-ente-ospedaliero-cantonale-novaggio"
       ]
     },
     {
@@ -1743,9 +1797,9 @@
       "firstSeenAt": "2026-05-22T11:37:04.637Z",
       "slugByLocale": {
         "it": "collaboratore-trice-economia-domestica-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "en": "collaborator-trice-home-economics-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "de": "mitarbeiter-im-bereich-hauswirtschaft-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "fr": "collaborateur-en-economie-domestique-eoc-ente-ospedaliero-cantonale-bellinzona"
+        "en": "contributor-trice-domestic-economy-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "de": "beitrags-inlandswirtschaft-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "fr": "contributeurs-grace-a-l-economie-nationale-eoc-ente-ospedaliero-cantonale-bellinzona"
       },
       "titleByLocale": {
         "it": "Collaboratore/trice economia domestica",
@@ -1781,11 +1835,21 @@
       "employmentType": "FULL_TIME",
       "previousSlugsByLocale": {
         "en": [
-          "collaboratore-trice-economia-domestica-eoc-ente-ospedaliero-cantonale-bellinzona-uil171"
+          "collaboratore-trice-economia-domestica-eoc-ente-ospedaliero-cantonale-bellinzona-uil171",
+          "collaborator-trice-home-economics-eoc-ente-ospedaliero-cantonale-bellinzona"
+        ],
+        "de": [
+          "mitarbeiter-im-bereich-hauswirtschaft-eoc-ente-ospedaliero-cantonale-bellinzona"
+        ],
+        "fr": [
+          "collaborateur-en-economie-domestique-eoc-ente-ospedaliero-cantonale-bellinzona"
         ]
       },
       "previousSlugs": [
-        "collaboratore-trice-economia-domestica-eoc-ente-ospedaliero-cantonale-bellinzona-uil171"
+        "collaboratore-trice-economia-domestica-eoc-ente-ospedaliero-cantonale-bellinzona-uil171",
+        "collaborator-trice-home-economics-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "mitarbeiter-im-bereich-hauswirtschaft-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "collaborateur-en-economie-domestique-eoc-ente-ospedaliero-cantonale-bellinzona"
       ]
     },
     {
@@ -1810,9 +1874,9 @@
       "firstSeenAt": "2026-05-22T11:37:04.637Z",
       "slugByLocale": {
         "it": "impiegato-a-amministrativo-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "en": "employee-amministrativo-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "de": "angestellte-r-amministrativo-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "fr": "employe-e-amministrativo-eoc-ente-ospedaliero-cantonale-bellinzona"
+        "en": "administrative-expenditure-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "de": "verwaltungsausgaben-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "fr": "depenses-administratives-eoc-ente-ospedaliero-cantonale-bellinzona"
       },
       "titleByLocale": {
         "it": "Impiegato/a amministrativo",
@@ -1848,19 +1912,25 @@
       "employmentType": "FULL_TIME",
       "previousSlugsByLocale": {
         "en": [
-          "administrative-employee-eoc-ente-ospedaliero-cantonale-bellinzona"
+          "administrative-employee-eoc-ente-ospedaliero-cantonale-bellinzona",
+          "employee-amministrativo-eoc-ente-ospedaliero-cantonale-bellinzona"
         ],
         "de": [
-          "verwaltungsmitarbeiter-eoc-ente-ospedaliero-cantonale-bellinzona"
+          "verwaltungsmitarbeiter-eoc-ente-ospedaliero-cantonale-bellinzona",
+          "angestellte-r-amministrativo-eoc-ente-ospedaliero-cantonale-bellinzona"
         ],
         "fr": [
-          "employe-administratif-eoc-ente-ospedaliero-cantonale-bellinzona"
+          "employe-administratif-eoc-ente-ospedaliero-cantonale-bellinzona",
+          "employe-e-amministrativo-eoc-ente-ospedaliero-cantonale-bellinzona"
         ]
       },
       "previousSlugs": [
         "administrative-employee-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "employee-amministrativo-eoc-ente-ospedaliero-cantonale-bellinzona",
         "verwaltungsmitarbeiter-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "employe-administratif-eoc-ente-ospedaliero-cantonale-bellinzona"
+        "angestellte-r-amministrativo-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "employe-administratif-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "employe-e-amministrativo-eoc-ente-ospedaliero-cantonale-bellinzona"
       ]
     },
     {
@@ -1885,9 +1955,9 @@
       "firstSeenAt": "2026-05-22T11:37:04.637Z",
       "slugByLocale": {
         "it": "collaboratore-trice-economia-domestica-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "en": "collaborator-trice-home-economics-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "de": "mitarbeiter-im-bereich-hauswirtschaft-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "fr": "collaborateur-en-economie-domestique-eoc-ente-ospedaliero-cantonale-bellinzona"
+        "en": "contributor-trice-domestic-economy-eoc-ente-ospedaliero-cantonale-bellinzona-29e60b",
+        "de": "beitrags-inlandswirtschaft-eoc-ente-ospedaliero-cantonale-bellinzona-29e60b",
+        "fr": "contributeurs-grace-a-l-economie-nationale-eoc-ente-ospedaliero-cantonale-bellinzona-29e60b"
       },
       "titleByLocale": {
         "it": "Collaboratore/trice economia domestica",
@@ -1924,18 +1994,24 @@
       "previousSlugsByLocale": {
         "en": [
           "collaboratore-trice-economia-domestica-eoc-ente-ospedaliero-cantonale-bellinzona-uikzow",
-          "collaborator-trice-home-economics-eoc-ente-ospedaliero-cantonale-bellinzona-29e60b"
+          "collaborator-trice-home-economics-eoc-ente-ospedaliero-cantonale-bellinzona-29e60b",
+          "collaborator-trice-home-economics-eoc-ente-ospedaliero-cantonale-bellinzona"
         ],
         "de": [
-          "collaboratore-trice-economia-domestica-eoc-ente-ospedaliero-cantonale-bellinzona-uikzow"
+          "collaboratore-trice-economia-domestica-eoc-ente-ospedaliero-cantonale-bellinzona-uikzow",
+          "mitarbeiter-im-bereich-hauswirtschaft-eoc-ente-ospedaliero-cantonale-bellinzona"
         ],
         "fr": [
-          "collaboratore-trice-economia-domestica-eoc-ente-ospedaliero-cantonale-bellinzona-uikzow"
+          "collaboratore-trice-economia-domestica-eoc-ente-ospedaliero-cantonale-bellinzona-uikzow",
+          "collaborateur-en-economie-domestique-eoc-ente-ospedaliero-cantonale-bellinzona"
         ]
       },
       "previousSlugs": [
         "collaboratore-trice-economia-domestica-eoc-ente-ospedaliero-cantonale-bellinzona-uikzow",
         "collaborator-trice-home-economics-eoc-ente-ospedaliero-cantonale-bellinzona-29e60b",
+        "collaborator-trice-home-economics-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "mitarbeiter-im-bereich-hauswirtschaft-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "collaborateur-en-economie-domestique-eoc-ente-ospedaliero-cantonale-bellinzona",
         "collaboratore-trice-economia-domestica-eoc-ente-ospedaliero-cantonale-bellinzona-uil171"
       ]
     },
@@ -8276,9 +8352,9 @@
       "firstSeenAt": "2026-05-21T11:53:54.295Z",
       "slugByLocale": {
         "it": "collaboratore-trice-economia-domestica-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "en": "collaborator-trice-home-economics-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "de": "mitarbeiter-im-bereich-hauswirtschaft-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "fr": "collaborateur-en-economie-domestique-eoc-ente-ospedaliero-cantonale-bellinzona"
+        "en": "contributor-trice-domestic-economy-eoc-ente-ospedaliero-cantonale-bellinzona-a2634c",
+        "de": "beitrags-inlandswirtschaft-eoc-ente-ospedaliero-cantonale-bellinzona-a2634c",
+        "fr": "contributeurs-grace-a-l-economie-nationale-eoc-ente-ospedaliero-cantonale-bellinzona-a2634c"
       },
       "titleByLocale": {
         "it": "Collaboratore/trice economia domestica",
@@ -8315,7 +8391,8 @@
       "previousSlugsByLocale": {
         "en": [
           "collaboratore-trice-economia-domestica-eoc-ente-ospedaliero-cantonale-bellinzona-uil171",
-          "contributor-trice-domestic-economy-eoc-ente-ospedaliero-cantonale-bellinzona"
+          "contributor-trice-domestic-economy-eoc-ente-ospedaliero-cantonale-bellinzona",
+          "collaborator-trice-home-economics-eoc-ente-ospedaliero-cantonale-bellinzona"
         ],
         "de": [
           "mitarbeiter-im-bereich-hauswirtschaft-eoc-ente-ospedaliero-cantonale-bellinzona",
@@ -8328,10 +8405,11 @@
       },
       "previousSlugs": [
         "collaboratore-trice-economia-domestica-eoc-ente-ospedaliero-cantonale-bellinzona-uil171",
-        "mitarbeiter-im-bereich-hauswirtschaft-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "collaborateur-en-economie-domestique-eoc-ente-ospedaliero-cantonale-bellinzona",
         "contributor-trice-domestic-economy-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "collaborator-trice-home-economics-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "mitarbeiter-im-bereich-hauswirtschaft-eoc-ente-ospedaliero-cantonale-bellinzona",
         "beitrags-inlandswirtschaft-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "collaborateur-en-economie-domestique-eoc-ente-ospedaliero-cantonale-bellinzona",
         "contributeurs-grace-a-l-economie-nationale-eoc-ente-ospedaliero-cantonale-bellinzona"
       ]
     },
@@ -8431,7 +8509,7 @@
       "slugByLocale": {
         "it": "stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-bellinzona",
         "en": "nursing-internship-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "de": "pflegepraktikum-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "de": "krankenpflegepraktikum-eoc-ente-ospedaliero-cantonale-bellinzona-0c98de",
         "fr": "stage-en-soins-infirmiers-eoc-ente-ospedaliero-cantonale-bellinzona"
       },
       "titleByLocale": {
@@ -8479,7 +8557,8 @@
         ],
         "de": [
           "praktikum-im-pflegedienst-eoc-ente-ospedaliero-cantonale-bellinzona",
-          "krankenpflegepraktikum-eoc-ente-ospedaliero-cantonale-bellinzona-c86b40"
+          "krankenpflegepraktikum-eoc-ente-ospedaliero-cantonale-bellinzona-c86b40",
+          "pflegepraktikum-eoc-ente-ospedaliero-cantonale-bellinzona"
         ],
         "fr": [
           "stage-en-service-infirmier-eoc-ente-ospedaliero-cantonale-bellinzona"
@@ -8488,9 +8567,9 @@
       "previousSlugs": [
         "nursing-service-internship-eoc-ente-ospedaliero-cantonale-bellinzona",
         "praktikum-im-pflegedienst-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "stage-en-service-infirmier-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "krankenpflegepraktikum-eoc-ente-ospedaliero-cantonale-bellinzona-c86b40",
         "pflegepraktikum-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "krankenpflegepraktikum-eoc-ente-ospedaliero-cantonale-bellinzona-c86b40"
+        "stage-en-service-infirmier-eoc-ente-ospedaliero-cantonale-bellinzona"
       ]
     },
     {
@@ -8516,8 +8595,8 @@
       "slugByLocale": {
         "it": "infermiere-a-in-cure-generali-eoc-ente-ospedaliero-cantonale-novaggio",
         "en": "general-care-nurse-eoc-ente-ospedaliero-cantonale-novaggio",
-        "de": "krankenpfleger-in-in-allgemeiner-pflege-eoc-ente-ospedaliero-cantonale-novaggio",
-        "fr": "infirmier-ere-en-soins-generaux-eoc-ente-ospedaliero-cantonale-novaggio"
+        "de": "krankenschwestern-im-allgemeinen-eoc-ente-ospedaliero-cantonale-novaggio-f2b1d1",
+        "fr": "infirmieres-en-general-eoc-ente-ospedaliero-cantonale-novaggio-f2b1d1"
       },
       "titleByLocale": {
         "it": "Infermiere/a in cure generali",
@@ -8538,22 +8617,25 @@
         ],
         "de": [
           "infermiere-a-in-cure-generali-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offert-uil17z",
-          "krankenschwestern-im-allgemeinen-eoc-ente-ospedaliero-cantonale-novaggio"
+          "krankenschwestern-im-allgemeinen-eoc-ente-ospedaliero-cantonale-novaggio",
+          "krankenpfleger-in-in-allgemeiner-pflege-eoc-ente-ospedaliero-cantonale-novaggio"
         ],
         "fr": [
           "infermiere-a-in-cure-generali-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offert-uil17z",
-          "infirmieres-en-general-eoc-ente-ospedaliero-cantonale-novaggio"
+          "infirmieres-en-general-eoc-ente-ospedaliero-cantonale-novaggio",
+          "infirmier-ere-en-soins-generaux-eoc-ente-ospedaliero-cantonale-novaggio"
         ]
       },
       "previousSlugs": [
+        "infermiere-a-in-cure-generali-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offert-uil17z",
+        "krankenschwestern-im-allgemeinen-eoc-ente-ospedaliero-cantonale-novaggio",
+        "krankenpfleger-in-in-allgemeiner-pflege-eoc-ente-ospedaliero-cantonale-novaggio",
+        "infirmieres-en-general-eoc-ente-ospedaliero-cantonale-novaggio",
         "infirmier-ere-en-soins-generaux-eoc-ente-ospedaliero-cantonale-novaggio",
         "infermiere-a-in-cure-generali-diploma-in-corso-eoc-ente-ospedaliero-cantonale-mendrisio",
         "nurse-in-general-care-diploma-in-progress-eoc-ente-ospedaliero-cantonale-mendrisio",
         "krankenschwester-in-der-allgemeinen-pflege-diplom-in-bearbeitung-eoc-ente-ospedaliero-cantonale-mendrisio",
-        "infirmiere-en-soins-generaux-diplome-en-cours-eoc-ente-ospedaliero-cantonale-mendrisio",
-        "infermiere-a-in-cure-generali-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offert-uil17z",
-        "krankenschwestern-im-allgemeinen-eoc-ente-ospedaliero-cantonale-novaggio",
-        "infirmieres-en-general-eoc-ente-ospedaliero-cantonale-novaggio"
+        "infirmiere-en-soins-generaux-diplome-en-cours-eoc-ente-ospedaliero-cantonale-mendrisio"
       ],
       "sourceLang": "it",
       "salaryMin": 70500,
@@ -9208,9 +9290,9 @@
       "firstSeenAt": "2026-05-21T11:53:54.295Z",
       "slugByLocale": {
         "it": "operatore-trice-socio-sanitario-a-eoc-ente-ospedaliero-cantonale-novaggio",
-        "en": "healthcare-partner-operator-eoc-ente-ospedaliero-cantonale-novaggio",
-        "de": "sozialarbeiter-eoc-ente-ospedaliero-cantonale-novaggio",
-        "fr": "agent-de-sante-sociale-eoc-ente-ospedaliero-cantonale-novaggio"
+        "en": "healthcare-worker-employee-eoc-ente-ospedaliero-cantonale-novaggio-4cb009",
+        "de": "gesundheitsarbeiter-arbeitnehmer-eoc-ente-ospedaliero-cantonale-novaggio-4cb009",
+        "fr": "travailleurs-de-la-sante-employes-eoc-ente-ospedaliero-cantonale-novaggio-4cb009"
       },
       "titleByLocale": {
         "it": "Operatore/trice socio sanitario/a",
@@ -9247,7 +9329,8 @@
       "previousSlugsByLocale": {
         "en": [
           "social-and-health-worker-eoc-ente-ospedaliero-cantonale-novaggio",
-          "healthcare-worker-employee-eoc-ente-ospedaliero-cantonale-novaggio"
+          "healthcare-worker-employee-eoc-ente-ospedaliero-cantonale-novaggio",
+          "healthcare-partner-operator-eoc-ente-ospedaliero-cantonale-novaggio"
         ],
         "de": [
           "sozialarbeiter-eoc-ente-ospedaliero-cantonale-novaggio",
@@ -9260,13 +9343,14 @@
       },
       "previousSlugs": [
         "social-and-health-worker-eoc-ente-ospedaliero-cantonale-novaggio",
-        "sozialarbeiter-eoc-ente-ospedaliero-cantonale-novaggio",
-        "agent-de-sante-sociale-eoc-ente-ospedaliero-cantonale-novaggio",
-        "operatore-trice-socio-sanitario-a-eoc-ente-ospedaliero-cantonale-novaggio-x29n56",
-        "social-health-worker-eoc-ente-ospedaliero-cantonale-novaggio",
         "healthcare-worker-employee-eoc-ente-ospedaliero-cantonale-novaggio",
+        "healthcare-partner-operator-eoc-ente-ospedaliero-cantonale-novaggio",
+        "sozialarbeiter-eoc-ente-ospedaliero-cantonale-novaggio",
         "gesundheitsarbeiter-arbeitnehmer-eoc-ente-ospedaliero-cantonale-novaggio",
-        "travailleurs-employes-de-la-sante-eoc-ente-ospedaliero-cantonale-novaggio"
+        "agent-de-sante-sociale-eoc-ente-ospedaliero-cantonale-novaggio",
+        "travailleurs-employes-de-la-sante-eoc-ente-ospedaliero-cantonale-novaggio",
+        "operatore-trice-socio-sanitario-a-eoc-ente-ospedaliero-cantonale-novaggio-x29n56",
+        "social-health-worker-eoc-ente-ospedaliero-cantonale-novaggio"
       ]
     },
     {
@@ -9291,9 +9375,9 @@
       "firstSeenAt": "2026-05-21T11:53:54.295Z",
       "slugByLocale": {
         "it": "assistente-di-cura-eoc-ente-ospedaliero-cantonale-novaggio",
-        "en": "care-assistant-eoc-ente-ospedaliero-cantonale-novaggio",
-        "de": "pflegeassistent-eoc-ente-ospedaliero-cantonale-novaggio",
-        "fr": "assistant-de-soins-eoc-ente-ospedaliero-cantonale-novaggio"
+        "en": "career-eoc-ente-ospedaliero-cantonale-novaggio-9a0613",
+        "de": "karriere-eoc-ente-ospedaliero-cantonale-novaggio-9a0613",
+        "fr": "carriere-eoc-ente-ospedaliero-cantonale-novaggio-9a0613"
       },
       "titleByLocale": {
         "it": "Assistente di cura",
@@ -9311,25 +9395,29 @@
       "previousSlugsByLocale": {
         "en": [
           "assistente-di-cura-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-ospedalie-x29n58",
-          "career-eoc-ente-ospedaliero-cantonale-novaggio"
+          "career-eoc-ente-ospedaliero-cantonale-novaggio",
+          "care-assistant-eoc-ente-ospedaliero-cantonale-novaggio"
         ],
         "de": [
           "assistente-di-cura-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-ospedalie-x29n58",
-          "karriere-eoc-ente-ospedaliero-cantonale-novaggio"
+          "karriere-eoc-ente-ospedaliero-cantonale-novaggio",
+          "pflegeassistent-eoc-ente-ospedaliero-cantonale-novaggio"
         ],
         "fr": [
           "assistente-di-cura-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-ospedalie-x29n58",
-          "carriere-eoc-ente-ospedaliero-cantonale-novaggio"
+          "carriere-eoc-ente-ospedaliero-cantonale-novaggio",
+          "assistant-de-soins-eoc-ente-ospedaliero-cantonale-novaggio"
         ]
       },
       "previousSlugs": [
         "assistente-di-cura-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-ospedalie-x29n58",
-        "assistente-di-cura-eoc-ente-ospedaliero-cantonale-novaggio-x29n57",
-        "pflegeassistent-eoc-ente-ospedaliero-cantonale-novaggio",
-        "assistant-de-soins-eoc-ente-ospedaliero-cantonale-novaggio",
         "career-eoc-ente-ospedaliero-cantonale-novaggio",
+        "care-assistant-eoc-ente-ospedaliero-cantonale-novaggio",
         "karriere-eoc-ente-ospedaliero-cantonale-novaggio",
-        "carriere-eoc-ente-ospedaliero-cantonale-novaggio"
+        "pflegeassistent-eoc-ente-ospedaliero-cantonale-novaggio",
+        "carriere-eoc-ente-ospedaliero-cantonale-novaggio",
+        "assistant-de-soins-eoc-ente-ospedaliero-cantonale-novaggio",
+        "assistente-di-cura-eoc-ente-ospedaliero-cantonale-novaggio-x29n57"
       ],
       "sourceLang": "it",
       "salaryMin": 70500,
@@ -11020,9 +11108,9 @@
       "firstSeenAt": "2026-05-21T11:53:54.295Z",
       "slugByLocale": {
         "it": "impiegato-a-amministrativo-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "en": "employee-amministrativo-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "de": "angestellte-r-amministrativo-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "fr": "employe-e-amministrativo-eoc-ente-ospedaliero-cantonale-bellinzona"
+        "en": "administrative-expenditure-eoc-ente-ospedaliero-cantonale-bellinzona-af270e",
+        "de": "verwaltungsausgaben-eoc-ente-ospedaliero-cantonale-bellinzona-af270e",
+        "fr": "depenses-administratives-eoc-ente-ospedaliero-cantonale-bellinzona-af270e"
       },
       "titleByLocale": {
         "it": "Impiegato/a amministrativo",
@@ -11077,17 +11165,17 @@
         ]
       },
       "previousSlugs": [
-        "angestellte-r-amministrativo-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "angestellte-r-amministrativo-eoc-ente-ospedaliero-cantonale-bellinzona-db0aa4",
-        "employe-administratif-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "employe-e-amministrativo-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "employe-e-amministrativo-eoc-ente-ospedaliero-cantonale-bellinzona-db0aa4",
         "administrative-employee-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "verwaltungsmitarbeiter-eoc-ente-ospedaliero-cantonale-bellinzona",
         "employee-amministrativo-eoc-ente-ospedaliero-cantonale-bellinzona",
         "employee-amministrativo-eoc-ente-ospedaliero-cantonale-bellinzona-db0aa4",
         "administrative-expenditure-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "verwaltungsmitarbeiter-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "angestellte-r-amministrativo-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "angestellte-r-amministrativo-eoc-ente-ospedaliero-cantonale-bellinzona-db0aa4",
         "verwaltungsausgaben-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "employe-administratif-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "employe-e-amministrativo-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "employe-e-amministrativo-eoc-ente-ospedaliero-cantonale-bellinzona-db0aa4",
         "depenses-administratives-eoc-ente-ospedaliero-cantonale-bellinzona"
       ]
     },
@@ -12223,8 +12311,8 @@
       "slugByLocale": {
         "it": "infermiere-a-in-cure-generali-attualmente-in-formazione-diploma-ancora-da-ottenere-eoc-ente-ospedaliero-cantonale-lugano",
         "en": "pflegeassistenzperson-im-nachtdienst-als-springer-50-adullam-stiftung-basel",
-        "de": "pflegeassistenzperson-im-nachtdienst-als-springer-50-adullam-basel",
-        "fr": "infirmiere-en-soins-generaux-actuellement-en-formation-diplome-a-obtenir-eoc-ente-ospedaliero-cantonale-lugano"
+        "de": "pflegeassistentin-im-nachtdienst-als-sprinter-50-eoc-ente-ospedaliero-cantonale-lugano",
+        "fr": "assistante-infirmiere-en-service-de-nuit-comme-springer-50-eoc-ente-ospedaliero-cantonale-lugano"
       },
       "titleByLocale": {
         "it": "Assistente infermieristico nel servizio notturno - come Springer (50%)",
@@ -12261,16 +12349,22 @@
       "previousSlugsByLocale": {
         "de": [
           "krankenpfleger-in-in-der-allgemeinpflege-derzeit-in-ausbildung-diplom-noch-ausstehend-eoc-ente-ospedaliero-cantonale-lugano",
-          "krankenschwestern-im-allgemeinen-derzeit-in-der-ausbildung-noch-zu-erwerbendes-diplom-eoc-ente-ospedaliero-1053bc"
+          "krankenschwestern-im-allgemeinen-derzeit-in-der-ausbildung-noch-zu-erwerbendes-diplom-eoc-ente-ospedaliero-1053bc",
+          "pflegeassistenzperson-im-nachtdienst-als-springer-50-adullam-basel"
         ],
         "en": [
           "nurse-in-general-care-currently-in-training-diploma-yet-to-be-obtained-eoc-ente-ospedaliero-cantonale-lugano"
+        ],
+        "fr": [
+          "infirmiere-en-soins-generaux-actuellement-en-formation-diplome-a-obtenir-eoc-ente-ospedaliero-cantonale-lugano"
         ]
       },
       "previousSlugs": [
         "krankenpfleger-in-in-der-allgemeinpflege-derzeit-in-ausbildung-diplom-noch-ausstehend-eoc-ente-ospedaliero-cantonale-lugano",
         "krankenschwestern-im-allgemeinen-derzeit-in-der-ausbildung-noch-zu-erwerbendes-diplom-eoc-ente-ospedaliero-1053bc",
-        "nurse-in-general-care-currently-in-training-diploma-yet-to-be-obtained-eoc-ente-ospedaliero-cantonale-lugano"
+        "pflegeassistenzperson-im-nachtdienst-als-springer-50-adullam-basel",
+        "nurse-in-general-care-currently-in-training-diploma-yet-to-be-obtained-eoc-ente-ospedaliero-cantonale-lugano",
+        "infirmiere-en-soins-generaux-actuellement-en-formation-diplome-a-obtenir-eoc-ente-ospedaliero-cantonale-lugano"
       ]
     },
     {

@@ -863,12 +863,12 @@
     },
     {
       "id": "psgn-93e88f85cf65",
-      "slug": "ausbildungsverantwortliche-ausbildungsverantwortlicher-pflege-hf-psychiatrie-st-gallen-wil-sg",
+      "slug": "training-manager-training-manager-care-hf-psychiatrie-st-gallen-wil-sg",
       "slugByLocale": {
         "de": "ausbildungsverantwortliche-ausbildungsverantwortlicher-pflege-hf-psychiatrie-st-gallen-wil-sg",
-        "it": "ausbildungsverantwortliche-ausbildungsverantwortlicher-pflege-hf-psychiatrie-st-gallen-wil-sg",
+        "it": "training-manager-training-manager-care-hf-psychiatrie-st-gallen-wil-sg",
         "en": "ausbildungsverantwortliche-ausbildungsverantwortlicher-pflege-hf-psychiatrie-st-gallen-wil-sg",
-        "fr": "ausbildungsverantwortliche-ausbildungsverantwortlicher-pflege-hf-psychiatrie-st-gallen-wil-sg"
+        "fr": "gestionnaire-de-formation-gestionnaire-de-formation-care-hf-psychiatrie-st-gallen-wil-sg"
       },
       "company": "Psychiatrie St.Gallen",
       "companyKey": "psgn",
@@ -913,14 +913,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "ausbildungsverantwortliche-ausbildungsverantwortlicher-pflege-hf-psgn-wil-sg"
+          "ausbildungsverantwortliche-ausbildungsverantwortlicher-pflege-hf-psgn-wil-sg",
+          "ausbildungsverantwortliche-ausbildungsverantwortlicher-pflege-hf-psychiatrie-st-gallen-wil-sg"
         ],
         "de": [
           "ausbildungsverantwortliche-ausbildungsverantwortlicher-pflege-hf-psgn-wil-sg"
+        ],
+        "fr": [
+          "ausbildungsverantwortliche-ausbildungsverantwortlicher-pflege-hf-psychiatrie-st-gallen-wil-sg"
         ]
       },
       "previousSlugs": [
-        "ausbildungsverantwortliche-ausbildungsverantwortlicher-pflege-hf-psgn-wil-sg"
+        "ausbildungsverantwortliche-ausbildungsverantwortlicher-pflege-hf-psgn-wil-sg",
+        "ausbildungsverantwortliche-ausbildungsverantwortlicher-pflege-hf-psychiatrie-st-gallen-wil-sg"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,

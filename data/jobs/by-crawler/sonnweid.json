@@ -362,12 +362,12 @@
     },
     {
       "id": "sonnweid-c748bd78add4",
-      "slug": "fachperson-gesundheit-per-la-oase-pflegezentrum-sonnweid-wetzikon",
+      "slug": "salute-specialistica-per-oasis-pflegezentrum-sonnweid-wetzikon",
       "slugByLocale": {
         "de": "fachperson-gesundheit-fur-die-oase-sonnweid-wetzikon",
-        "it": "fachperson-gesundheit-per-la-oase-pflegezentrum-sonnweid-wetzikon",
-        "en": "fachperson-gesundheit-fur-die-oase-sonnweid-wetzikon",
-        "fr": "fachperson-gesundheit-fur-die-oase-sonnweid-wetzikon"
+        "it": "salute-specialistica-per-oasis-pflegezentrum-sonnweid-wetzikon",
+        "en": "specialist-health-for-oasis-pflegezentrum-sonnweid-wetzikon",
+        "fr": "specialiste-de-la-sante-pour-oasis-pflegezentrum-sonnweid-wetzikon"
       },
       "company": "Pflegezentrum Sonnweid",
       "companyKey": "sonnweid",
@@ -412,11 +412,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "fachperson-gesundheit-fur-die-oase-sonnweid-wetzikon",
+          "fachperson-gesundheit-per-la-oase-pflegezentrum-sonnweid-wetzikon"
+        ],
+        "en": [
+          "fachperson-gesundheit-fur-die-oase-sonnweid-wetzikon"
+        ],
+        "fr": [
           "fachperson-gesundheit-fur-die-oase-sonnweid-wetzikon"
         ]
       },
       "previousSlugs": [
-        "fachperson-gesundheit-fur-die-oase-sonnweid-wetzikon"
+        "fachperson-gesundheit-fur-die-oase-sonnweid-wetzikon",
+        "fachperson-gesundheit-per-la-oase-pflegezentrum-sonnweid-wetzikon"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,

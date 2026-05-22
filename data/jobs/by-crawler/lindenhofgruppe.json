@@ -2248,12 +2248,12 @@
     },
     {
       "id": "lindenhofgruppe-03599883618c",
-      "slug": "techn-sterilisationsassistent-in-lindenhofgruppe-bern",
+      "slug": "techn-assistente-di-sterilizzazione-lindenhofgruppe-bern",
       "slugByLocale": {
         "de": "techn-sterilisationsassistent-in-lindenhofgruppe-bern",
-        "it": "techn-sterilisationsassistent-in-lindenhofgruppe-bern",
-        "en": "techn-sterilisationsassistent-in-lindenhofgruppe-bern",
-        "fr": "techn-sterilisationsassistent-in-lindenhofgruppe-bern"
+        "it": "techn-assistente-di-sterilizzazione-lindenhofgruppe-bern",
+        "en": "techn-sterilization-assistant-lindenhofgruppe-bern",
+        "fr": "assistant-technique-a-la-sterilisation-lindenhofgruppe-bern"
       },
       "company": "Lindenhofgruppe",
       "companyKey": "lindenhofgruppe",
@@ -2298,14 +2298,22 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "techn-sterilisationsassistent-in-lindenhofgruppe-ch"
+          "techn-sterilisationsassistent-in-lindenhofgruppe-ch",
+          "techn-sterilisationsassistent-in-lindenhofgruppe-bern"
         ],
         "de": [
           "techn-sterilisationsassistent-in-lindenhofgruppe-ch"
+        ],
+        "en": [
+          "techn-sterilisationsassistent-in-lindenhofgruppe-bern"
+        ],
+        "fr": [
+          "techn-sterilisationsassistent-in-lindenhofgruppe-bern"
         ]
       },
       "previousSlugs": [
-        "techn-sterilisationsassistent-in-lindenhofgruppe-ch"
+        "techn-sterilisationsassistent-in-lindenhofgruppe-ch",
+        "techn-sterilisationsassistent-in-lindenhofgruppe-bern"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
