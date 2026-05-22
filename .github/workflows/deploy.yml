@@ -630,22 +630,25 @@ jobs:
           retention-days: 1
           if-no-files-found: ignore
 
-      # Post-build dist shrinker — runs AFTER all build plugins have
-      # closed and BEFORE the tar pack. Three reductions, each measured
-      # on the May 21 2026 artifact baseline (≈290 MB total on 825k HTML
-      # + 5.9k JSON, see scripts/dist-shrink.mjs header):
-      #   1. html-minifier-terser pass on dist/**/*.html (JSON-LD opaque)
-      #   3. JSON re-stringify on dist/data/**/*.json (no indent)
-      #   5. Safe twitter:* meta strip (drops only tags duplicated by og:*)
-      # Idempotent and read-after-write; the verify-l2-equivalence.mjs
-      # contract (DOM + visible text + JSON-LD equality) covers the HTML
-      # pass.
-      - name: Shrink dist/ (post-build)
-        if: github.event.inputs.profile_sequential != 'true'
-        run: |
-          node scripts/dist-shrink.mjs --dist=dist
-          du -sh dist
-
+      # Post-build dist shrinker REMOVED 2026-05-22 (PR #480).
+      # Originally added (PRs #473+#475+#476+#478) to recover ~190 MB
+      # of HTML byte slop. After Round-2 source fixes:
+      #   - htmlMinify.ts strips whitespace + comments + boolean attrs
+      #     directly in every SEO build plugin
+      #   - inlineTextToHtml strips inline style/class from imported
+      #     job descriptions (Bachem MS-Word HTML pattern)
+      #   - 3 dev pages purged from public/
+      #   - tnum CSS-string quote bug fixed in editorialContent.ts
+      # …dist-shrink saving collapsed to 32 MB (16 MB JSON + 16 MB
+      # whitespace residue) at a cost of 28-35 min CI per deploy.
+      # ROI = ~1 MB/min CI → not worth the wall-clock.
+      #
+      # The script + tests + npm scripts (`npm run dist:shrink`) are
+      # kept for ad-hoc diagnostic runs ("how much could we save if we
+      # re-enabled X?"). The per-rule + per-dir + per-locale + top-N
+      # breakdowns remain a useful refactor compass when investigating
+      # template bloat.
+      #
       # ┌─ Pages artifact pipeline (two steps, one logical operation) ─┐
       # │                                                                │
       # │  Step A : tar dist/ as a plain UNCOMPRESSED archive            │
