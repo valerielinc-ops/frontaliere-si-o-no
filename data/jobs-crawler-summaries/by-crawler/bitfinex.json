@@ -1,18 +1,19 @@
 {
   "key": "bitfinex",
   "label": "Bitfinex",
-  "generatedAt": "2026-05-22T11:00:29.687Z",
+  "generatedAt": "2026-05-22T21:33:28.642Z",
   "total": 9,
-  "newCount": 2,
-  "updatedCount": 7,
-  "removedCount": 1,
+  "newCount": 0,
+  "updatedCount": 9,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 2855,
-  "avgDurationMs": 2855,
+  "durationMs": 2601,
+  "avgDurationMs": 2601,
   "durationHistory": [
-    2855
+    2601
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "bitfinex-e1b8daedc04f",
       "slug": "project-manager-content-manager-100-worldwide-remote-6-months-contract-with-potential",
@@ -25,7 +26,7 @@
       "url": "https://bitfinex.recruitee.com/o/project-manager-content-manager-100-worldwide-remote-6-months-contract-with-potential-extension-cet-timezone-2-4",
       "source": "bitfinex-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-05-22T11:00:27.383Z",
+      "crawledAt": "2026-05-22T21:33:26.489Z",
       "addressLocality": "Warsaw",
       "addressRegion": "Mazowieckie",
       "addressCountry": "",
@@ -43,11 +44,13 @@
       "postedDate": "2026-05-22",
       "applyUrl": "https://careers.bitfinex.com/o/project-manager-content-manager-100-worldwide-remote-6-months-contract-with-potential-extension-cet-timezone-2-4/c/new",
       "department": "Marketing",
-      "_qualityScore": 61,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-22T11:00:27.383Z",
+      "_qualityScore": 76,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 19,
         "completeness": 14
       }
     },
@@ -63,7 +66,7 @@
       "url": "https://bitfinex.recruitee.com/o/project-manager-content-manager-100-worldwide-remote-6-months-contract-with-potential-extension-cet-timezone-7",
       "source": "bitfinex-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-05-22T11:00:27.390Z",
+      "crawledAt": "2026-05-22T21:33:26.496Z",
       "addressLocality": "Lisboa",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -81,16 +84,16 @@
       "postedDate": "2026-05-22",
       "applyUrl": "https://careers.bitfinex.com/o/project-manager-content-manager-100-worldwide-remote-6-months-contract-with-potential-extension-cet-timezone-7/c/new",
       "department": "Marketing",
-      "_qualityScore": 61,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-22T11:00:27.390Z",
+      "_qualityScore": 76,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 19,
         "completeness": 14
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "bitfinex-6f0df7365fbc",
       "slug": "payment-processing-specialist-taiwan-bitfinex-ch",
@@ -103,7 +106,7 @@
       "url": "https://bitfinex.recruitee.com/o/payment-processing-specialist-taiwan",
       "source": "bitfinex-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-05-22T11:00:27.394Z",
+      "crawledAt": "2026-05-22T21:33:26.501Z",
       "addressLocality": "Taipei",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -143,7 +146,7 @@
       "url": "https://bitfinex.recruitee.com/o/junior-risk-monitoring-analyst-100-remote-worldwide-5",
       "source": "bitfinex-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-05-22T11:00:27.398Z",
+      "crawledAt": "2026-05-22T21:33:26.506Z",
       "addressLocality": "Barcelona",
       "addressRegion": "Catalunya [Cataluña]",
       "addressCountry": "",
@@ -183,7 +186,7 @@
       "url": "https://bitfinex.recruitee.com/o/junior-risk-monitoring-analyst-100-remote-cet-timezone",
       "source": "bitfinex-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-05-22T11:00:27.532Z",
+      "crawledAt": "2026-05-22T21:33:26.630Z",
       "addressLocality": "London",
       "addressRegion": "England",
       "addressCountry": "",
@@ -223,7 +226,7 @@
       "url": "https://bitfinex.recruitee.com/o/mobile-developer-react-native-100-remote-worldwide-12",
       "source": "bitfinex-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-05-22T11:00:27.402Z",
+      "crawledAt": "2026-05-22T21:33:26.511Z",
       "addressLocality": "Budapest",
       "addressRegion": "Budapest",
       "addressCountry": "",
@@ -263,7 +266,7 @@
       "url": "https://bitfinex.recruitee.com/o/senior-nodejs-backend-developer-100-remote-worldwide",
       "source": "bitfinex-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-05-22T11:00:27.434Z",
+      "crawledAt": "2026-05-22T21:33:26.543Z",
       "addressLocality": "London",
       "addressRegion": "England",
       "addressCountry": "",
@@ -303,7 +306,7 @@
       "url": "https://bitfinex.recruitee.com/o/content-marketing-manager-remote-100-worldwide-cet-timezone-7",
       "source": "bitfinex-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-05-22T11:00:27.464Z",
+      "crawledAt": "2026-05-22T21:33:26.574Z",
       "addressLocality": "Sydney",
       "addressRegion": "New South Wales",
       "addressCountry": "",
@@ -343,7 +346,7 @@
       "url": "https://bitfinex.recruitee.com/o/senior-backend-developer-nodejs-fully-remote-worldwide-31",
       "source": "bitfinex-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-05-22T11:00:27.492Z",
+      "crawledAt": "2026-05-22T21:33:26.601Z",
       "addressLocality": "Mexico City",
       "addressRegion": "Ciudad de México",
       "addressCountry": "",
@@ -372,49 +375,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "id": "bitfinex-c5665082b9fb",
-      "slug": "project-manager-content-manager-100-in-tutto-il-mondo-remoto-6-mesi-contratto-con-estensione-potenziale-cet-timezone",
-      "company": "Bitfinex",
-      "companyKey": "bitfinex",
-      "companyDomain": "bitfinex.com",
-      "title": "Project Manager / Content Manager (100% Worldwide remote - 6 months contract with potential extension - CET Timezone)",
-      "location": "Ha Noi, Hà Nội",
-      "canton": "TI",
-      "url": "https://bitfinex.recruitee.com/o/project-manager-content-manager-100-worldwide-remote-6-months-contract-with-potential-extension-cet-timezone-3",
-      "source": "bitfinex-careers-crawler",
-      "sourceLang": "en",
-      "crawledAt": "2026-05-21T21:48:29.341Z",
-      "addressLocality": "Ha Noi",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "postalCode": "6500",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "remote",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "workModel": "remote",
-      "sector": "Fintech / Blockchain",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-03-11",
-      "postedDate": "2026-03-11",
-      "applyUrl": "https://careers.bitfinex.com/o/project-manager-content-manager-100-worldwide-remote-6-months-contract-with-potential-extension-cet-timezone-3/c/new",
-      "department": "Marketing",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-05-20T11:04:51.635Z",
-      "salaryMin": 68000,
-      "salaryMax": 103000,
-      "_qualityScore": 84,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 19,
-        "completeness": 22
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
