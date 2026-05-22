@@ -305,15 +305,19 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "fr": [
-          "sales-manager-richemont-geneva"
+          "sales-manager-richemont-geneva",
+          "responsable-des-ventes-cartier-geneva"
         ],
         "de": [
-          "sales-managerin-cartier-geneva"
+          "sales-managerin-cartier-geneva",
+          "verkaufsleiter-cartier-geneva"
         ]
       },
       "previousSlugs": [
         "sales-manager-richemont-geneva",
-        "sales-managerin-cartier-geneva"
+        "sales-managerin-cartier-geneva",
+        "responsable-des-ventes-cartier-geneva",
+        "verkaufsleiter-cartier-geneva"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-21T13:16:42.799Z",
@@ -645,7 +649,8 @@
       "previousSlugsByLocale": {
         "fr": [
           "associe-principal-aux-ventes-roger-dubuis-geneva",
-          "senior-sales-associate-richemont-geneva"
+          "senior-sales-associate-richemont-geneva",
+          "associe-des-ventes-senior-roger-dubuis-geneva"
         ],
         "it": [
           "senior-sales-associate-richemont-geneva"
@@ -653,7 +658,8 @@
       },
       "previousSlugs": [
         "associe-principal-aux-ventes-roger-dubuis-geneva",
-        "senior-sales-associate-richemont-geneva"
+        "senior-sales-associate-richemont-geneva",
+        "associe-des-ventes-senior-roger-dubuis-geneva"
       ],
       "firstSeenAt": "2026-05-11T13:58:02.568Z",
       "salaryMin": 68000,
@@ -16539,17 +16545,23 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "fr": [
-          "client-services-project-manager-europe-cis-richemont-geneva"
+          "client-services-project-manager-europe-cis-richemont-geneva",
+          "responsable-projets-services-clients-europe-cis-van-cleef-arpels-geneva"
         ],
         "it": [
-          "client-services-project-manager-europe-cis-richemont-geneva"
+          "client-services-project-manager-europe-cis-richemont-geneva",
+          "responsabile-progetti-servizi-clienti-europa-cis-van-cleef-arpels-geneva"
         ],
         "de": [
-          "client-services-project-manager-europe-cis-richemont-geneva"
+          "client-services-project-manager-europe-cis-richemont-geneva",
+          "projektleiter-in-client-services-europa-cis-van-cleef-arpels-geneva"
         ]
       },
       "previousSlugs": [
-        "client-services-project-manager-europe-cis-richemont-geneva"
+        "client-services-project-manager-europe-cis-richemont-geneva",
+        "responsabile-progetti-servizi-clienti-europa-cis-van-cleef-arpels-geneva",
+        "responsable-projets-services-clients-europe-cis-van-cleef-arpels-geneva",
+        "projektleiter-in-client-services-europa-cis-van-cleef-arpels-geneva"
       ],
       "firstSeenAt": "2026-05-21T13:16:42.596Z",
       "salaryMin": 68000,

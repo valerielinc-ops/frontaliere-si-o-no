@@ -12009,17 +12009,19 @@
       "employmentType": "FULL_TIME",
       "previousSlugsByLocale": {
         "en": [
-          "medical-practice-assistant-eoc-ente-ospedaliero-cantonale-lugano"
+          "medical-practice-assistant-eoc-ente-ospedaliero-cantonale-lugano",
+          "medecin-assistant-en-geriatrie-eoc-ente-ospedaliero-cantonale-lugano"
         ],
         "de": [
           "arzthelfer-in-eoc-ente-ospedaliero-cantonale-lugano"
+        ],
+        "it": [
+          "medico-assistente-geriatria-eoc-ente-ospedaliero-cantonale-lugano",
+          "medico-assistente-geriatria-eoc-ente-ospedaliero-cantonale-lugano-uilmk6",
+          "assistenzarzt-fur-geriatrie-eoc-ente-ospedaliero-cantonale-lugano"
         ]
       },
       "previousSlugs": [
-        "assistant-d-etude-medicale-service-de-soins-infirmiers-eoc-ente-ospedaliero-cantonale-mendrisio",
-        "medico-assistente-anestesia-eoc-ente-ospedaliero-cantonale-lugano",
-        "medico-assistente-anestesia-eoc-ente-ospedaliero-cantonale-lugano-uilm18",
-        "anasthesie-assistent-arzt-eoc-ente-ospedaliero-cantonale-lugano",
         "medecin-assistant-en-anesthesie-eoc-ente-ospedaliero-cantonale-lugano",
         "medico-assistente-chirurgia-ortopedica-eoc-ente-ospedaliero-cantonale-lugano",
         "medico-assistente-chirurgia-ortopedica-eoc-ente-ospedaliero-cantonale-lugano-uilm13",
@@ -12035,7 +12037,11 @@
         "medizinischer-studienassistent-pflegedienst-eoc-ente-ospedaliero-cantonale-mendrisio",
         "medico-assistente-eoc-ente-ospedaliero-cantonale-lugano-uilm0d",
         "assistenzarzt-eoc-ente-ospedaliero-cantonale-lugano",
-        "medecin-adjoint-eoc-ente-ospedaliero-cantonale-lugano"
+        "medecin-adjoint-eoc-ente-ospedaliero-cantonale-lugano",
+        "medico-assistente-geriatria-eoc-ente-ospedaliero-cantonale-lugano",
+        "medico-assistente-geriatria-eoc-ente-ospedaliero-cantonale-lugano-uilmk6",
+        "assistenzarzt-fur-geriatrie-eoc-ente-ospedaliero-cantonale-lugano",
+        "medecin-assistant-en-geriatrie-eoc-ente-ospedaliero-cantonale-lugano"
       ],
       "needsRetranslation": true
     },
