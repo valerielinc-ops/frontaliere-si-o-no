@@ -1789,12 +1789,12 @@
     },
     {
       "id": "ksgl-db1b3ab59fd5",
-      "slug": "dipl-pflegefachfrau-mann-hf-familienabteilung-kantonsspital-glarus-ksgl-glarus",
+      "slug": "dipl-senior-caregiver-hf-family-department-kantonsspital-glarus-ksgl-glarus",
       "slugByLocale": {
-        "it": "dipl-pflegefachfrau-mann-hf-familienabteilung-kantonsspital-glarus-ksgl-glarus",
+        "it": "dipl-senior-caregiver-hf-family-department-kantonsspital-glarus-ksgl-glarus",
         "en": "dipl-pflegefachfrau-mann-hf-familienabteilung-ksgl-glarus",
         "de": "dipl-pflegefachfrau-mann-hf-familienabteilung-ksgl-glarus",
-        "fr": "dipl-pflegefachfrau-mann-hf-familienabteilung-ksgl-glarus"
+        "fr": "dipl-soins-aux-aines-hf-departement-de-la-famille-kantonsspital-glarus-ksgl-glarus"
       },
       "company": "Kantonsspital Glarus (KSGL)",
       "companyKey": "ksgl",
@@ -1836,10 +1836,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "dipl-pflegefachfrau-mann-hf-familienabteilung-ksgl-glarus"
+        "dipl-pflegefachfrau-mann-hf-familienabteilung-ksgl-glarus",
+        "dipl-pflegefachfrau-mann-hf-familienabteilung-kantonsspital-glarus-ksgl-glarus"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "dipl-pflegefachfrau-mann-hf-familienabteilung-ksgl-glarus",
+          "dipl-pflegefachfrau-mann-hf-familienabteilung-kantonsspital-glarus-ksgl-glarus"
+        ],
+        "fr": [
           "dipl-pflegefachfrau-mann-hf-familienabteilung-ksgl-glarus"
         ]
       },

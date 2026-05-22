@@ -163,7 +163,7 @@
       "slugByLocale": {
         "it": "ingegnere-autorizzazioni-sap-richemont-meyrin",
         "en": "sap-authorizations-engineer-richemont-meyrin",
-        "de": "sap-berechtigungsingenieur-richemont-meyrin",
+        "de": "sap-autorisierungen-ingenieur-richemont-meyrin",
         "fr": "ingenieur-autorisations-sap-richemont-meyrin"
       },
       "company": "Richemont",
@@ -234,11 +234,15 @@
         ]
       },
       "previousSlugs": [
-        "sap-authorizations-engineer-richemont-meyrin"
+        "sap-authorizations-engineer-richemont-meyrin",
+        "sap-berechtigungsingenieur-richemont-meyrin"
       ],
       "previousSlugsByLocale": {
         "it": [
           "sap-authorizations-engineer-richemont-meyrin"
+        ],
+        "de": [
+          "sap-berechtigungsingenieur-richemont-meyrin"
         ]
       },
       "firstSeenAt": "2026-05-11T13:58:02.573Z",
@@ -485,7 +489,7 @@
       "id": "richemont-7d49e9e9e2fc",
       "slug": "incastonatore-m-f-jaeger-lecoultre-le-sentier",
       "slugByLocale": {
-        "it": "dwp-comunicazione-unificata-interno-messaggistica-richemont-meyrin",
+        "it": "incastonatore-m-f-jaeger-lecoultre-le-sentier",
         "en": "dwp-unified-communications-messaging-intern-richemont-meyrin",
         "de": "dwp-unified-communications-messaging-intern-richemont-meyrin",
         "fr": "sertisseur-h-f-jaeger-lecoultre-le-sentier"
@@ -535,7 +539,8 @@
           "communications-unifiees-dwp-stagiaire-en-messagerie-richemont-meyrin"
         ],
         "it": [
-          "sertisseur-h-f-richemont-le-sentier"
+          "sertisseur-h-f-richemont-le-sentier",
+          "dwp-comunicazione-unificata-interno-messaggistica-richemont-meyrin"
         ],
         "en": [
           "sertisseur-h-f-richemont-le-sentier"
@@ -547,9 +552,8 @@
       "previousSlugs": [
         "sertisseur-h-f-richemont-le-sentier",
         "communications-unifiees-dwp-stagiaire-en-messagerie-richemont-meyrin",
-        "comunicazioni-unificate-dwp-stagista-di-messaggistica-richemont-meyrin",
-        "dwp-unified-communications-messaging-intern-richemont-meyrin",
-        "incastonatore-m-f-jaeger-lecoultre-le-sentier"
+        "dwp-comunicazione-unificata-interno-messaggistica-richemont-meyrin",
+        "comunicazioni-unificate-dwp-stagista-di-messaggistica-richemont-meyrin"
       ],
       "firstSeenAt": "2026-05-17T11:06:21.186Z",
       "salaryMin": 41600,
@@ -1189,7 +1193,7 @@
       "id": "richemont-7de2c39fb4b5",
       "slug": "ingegnere-di-software-cartier-villars-sur-glane",
       "slugByLocale": {
-        "it": "analista-senior-dati-automazione-finanza-richemont-villars-sur-glane",
+        "it": "ingegnere-di-software-cartier-villars-sur-glane",
         "en": "software-engineer-richemont-villars-sur-glane",
         "de": "softwaretechniker-cartier-villars-sur-glane",
         "fr": "ingenieur-logiciel-cartier-villars-sur-glane"
@@ -1238,7 +1242,8 @@
           "ingegnere-del-software-cartier-villars-sur-glane",
           "ingegnere-software-cartier-villars-sur-glane",
           "apprendistato-cadranografo-h-f-x-corso-di-2-anni-procadrans-la-chaux-de-fonds",
-          "software-engineer-richemont-villars-sur-glane"
+          "software-engineer-richemont-villars-sur-glane",
+          "analista-senior-dati-automazione-finanza-richemont-villars-sur-glane"
         ],
         "de": [
           "software-ingenieur-cartier-villars-sur-glane",
@@ -1250,6 +1255,7 @@
         "ingegnere-software-cartier-villars-sur-glane",
         "apprendistato-cadranografo-h-f-x-corso-di-2-anni-procadrans-la-chaux-de-fonds",
         "software-engineer-richemont-villars-sur-glane",
+        "analista-senior-dati-automazione-finanza-richemont-villars-sur-glane",
         "software-ingenieur-cartier-villars-sur-glane",
         "softwareingenieur-cartier-villars-sur-glane",
         "apprentissage-cadranographe-h-f-x-cursus-2-ans-richemont-la-chaux-de-fonds",
@@ -1258,8 +1264,7 @@
         "data-automation-senior-analyst-finance-richemont-villars-sur-glane",
         "analista-senior-di-dati-e-automazione-finanza-richemont-villars-sur-glane",
         "data-automation-senior-analyst-finanza-richemont-villars-sur-glane",
-        "analyste-principal-des-donnees-et-de-l-automatisation-finances-richemont-villars-sur-glane",
-        "ingegnere-di-software-cartier-villars-sur-glane"
+        "analyste-principal-des-donnees-et-de-l-automatisation-finances-richemont-villars-sur-glane"
       ],
       "firstSeenAt": "2026-05-11T13:58:02.561Z",
       "salaryMin": 49500,
@@ -2017,7 +2022,6 @@
         "movement-constructor-h-f-van-cleef-arpels-meyrin",
         "bewegungsbauer-h-f-van-cleef-arpels-meyrin",
         "team-leader-pick-pack-richemont-villars-sur-glane",
-        "costruttore-movimento-h-f-van-cleef-arpels-meyrin",
         "pick-pack-capo-squadra-richemont-villars-sur-glane"
       ],
       "firstSeenAt": "2026-05-11T13:58:02.555Z",
@@ -2345,7 +2349,7 @@
       "id": "richemont-ef1447d5c244",
       "slug": "responsabile-progetti-sste-valfleurier-buttes",
       "slugByLocale": {
-        "it": "responsabile-progetti-sistemi-e-operazioni-talent-di-gruppo-richemont-bellevue",
+        "it": "responsabile-progetti-sste-valfleurier-buttes",
         "en": "group-talent-systems-operations-project-manager-richemont-bellevue",
         "de": "gruppentalent-system-operations-projektmanager-richemont-bellevue",
         "fr": "chef-de-projet-des-systemes-de-gestion-des-talents-et-des-operations-du-groupe-richemont-bellevue"
@@ -2394,7 +2398,8 @@
           "charge-de-projets-sste-richemont-buttes"
         ],
         "it": [
-          "charge-de-projets-sste-richemont-buttes"
+          "charge-de-projets-sste-richemont-buttes",
+          "responsabile-progetti-sistemi-e-operazioni-talent-di-gruppo-richemont-bellevue"
         ],
         "en": [
           "charge-de-projets-sste-richemont-buttes"
@@ -2405,11 +2410,10 @@
       },
       "previousSlugs": [
         "charge-de-projets-sste-richemont-buttes",
+        "responsabile-progetti-sistemi-e-operazioni-talent-di-gruppo-richemont-bellevue",
         "charge-de-projets-sste-valfleurier-buttes",
         "group-talent-systems-operations-projektmanager-richemont-bellevue",
-        "responsabile-del-team-di-definizione-e-integrazione-dei-processi-di-produzione-richemont-meyrin",
-        "group-talent-systems-operations-project-manager-richemont-bellevue",
-        "responsabile-progetti-sste-valfleurier-buttes"
+        "responsabile-del-team-di-definizione-e-integrazione-dei-processi-di-produzione-richemont-meyrin"
       ],
       "firstSeenAt": "2026-05-17T11:06:21.168Z",
       "salaryMin": 68000,
@@ -2510,7 +2514,6 @@
         "group-talent-systems-operations-project-manager-richemont-bellevue",
         "group-talent-systems-operations-projektmanager-richemont-bellevue",
         "responsabile-progetti-sste-valfleurier-buttes",
-        "responsabile-del-team-di-definizione-e-integrazione-dei-processi-di-produzione-richemont-meyrin",
         "responsabile-progetti-sistemi-e-operazioni-talent-di-gruppo-richemont-bellevue"
       ],
       "previousSlugsByLocale": {
@@ -2738,7 +2741,7 @@
       "id": "richemont-f5002a78c9dd",
       "slug": "responsabile-team-tech-acquisti-a-monte-richemont-meyrin",
       "slugByLocale": {
-        "it": "riferimento-cao-plm-fao-creo-windchill-panerai-neuchatel",
+        "it": "responsabile-team-tech-acquisti-a-monte-richemont-meyrin",
         "en": "upstream-procurement-product-tech-team-lead-richemont-meyrin",
         "de": "produktleiter-upstream-beschaffung-tech-team-richemont-meyrin",
         "fr": "responsable-equipe-tech-achats-en-amont-richemont-meyrin"
@@ -2787,6 +2790,7 @@
         "responsabile-team-prodotto-tech-approvvigionamenti-upstream-richemont-meyrin",
         "conduce-il-team-di-tecnologia-di-prodotto-richemont-meyrin",
         "referente-cad-plm-cam-creo-windchill-panerai-neuchatel",
+        "riferimento-cao-plm-fao-creo-windchill-panerai-neuchatel",
         "leiter-des-upstream-procurement-produkttechnik-teams-richemont-meyrin",
         "produkt-tech-team-lead-richemont-meyrin",
         "responsable-de-l-equipe-technique-des-produits-d-approvisionnement-en-amont-richemont-meyrin",
@@ -2795,15 +2799,15 @@
         "referent-e-cao-plm-fao-creo-windchill-richemont-neuchatel",
         "cad-plm-fao-referenz-creo-windchill-panerai-neuchatel",
         "cao-plm-fao-reference-creo-windchill-panerai-neuchatel",
-        "cad-plm-cam-spezialist-creo-windchill-panerai-neuchatel",
-        "responsabile-team-tech-acquisti-a-monte-richemont-meyrin"
+        "cad-plm-cam-spezialist-creo-windchill-panerai-neuchatel"
       ],
       "previousSlugsByLocale": {
         "it": [
           "upstream-procurement-product-tech-team-lead-richemont-meyrin",
           "responsabile-team-prodotto-tech-approvvigionamenti-upstream-richemont-meyrin",
           "conduce-il-team-di-tecnologia-di-prodotto-richemont-meyrin",
-          "referente-cad-plm-cam-creo-windchill-panerai-neuchatel"
+          "referente-cad-plm-cam-creo-windchill-panerai-neuchatel",
+          "riferimento-cao-plm-fao-creo-windchill-panerai-neuchatel"
         ],
         "de": [
           "leiter-des-upstream-procurement-produkttechnik-teams-richemont-meyrin",
@@ -3449,7 +3453,6 @@
         "intern-concept-dressing-watchmaker-cartier-manufacture-la-chaux-de-fonds",
         "stage-concept-abbigliamento-orologeria-cartier-manufacture-la-chaux-de-fonds",
         "praktikum-konzept-uhrendesign-cartier-manufacture-la-chaux-de-fonds",
-        "tirocinante-sviluppo-web-visualizzazione-dati-cartier-manufacture-la-chaux-de-fonds",
         "stagista-concept-abbigliamento-orologiero-cartier-manufacture-la-chaux-de-fonds"
       ],
       "previousSlugsByLocale": {
@@ -4211,9 +4214,9 @@
     },
     {
       "id": "richemont-8bc19c774345",
-      "slug": "stage-r-i-analyse-de-signal-optique-et-acoustique-richemont-buttes",
+      "slug": "corso-r-i-analisi-ottica-e-acustica-del-segnale-richemont-buttes",
       "slugByLocale": {
-        "it": "stage-r-i-analyse-de-signal-optique-et-acoustique-richemont-buttes",
+        "it": "corso-r-i-analisi-ottica-e-acustica-del-segnale-richemont-buttes",
         "en": "stage-r-i-analyse-de-signal-optique-et-acoustique-richemont-buttes",
         "de": "stage-r-i-analyse-de-signal-optique-et-acoustique-richemont-buttes",
         "fr": "stage-r-i-analyse-de-signal-optique-et-acoustique-richemont-buttes"
@@ -4269,13 +4272,21 @@
           "maxValue": 63000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "stage-r-i-analyse-de-signal-optique-et-acoustique-richemont-buttes"
+        ]
+      },
+      "previousSlugs": [
+        "stage-r-i-analyse-de-signal-optique-et-acoustique-richemont-buttes"
+      ]
     },
     {
       "id": "richemont-f4f86db3dbc0",
-      "slug": "stage-r-i-developpement-firmware-et-applications-mobiles-ios-richemont-buttes",
+      "slug": "corso-r-i-firmware-development-and-mobile-applications-ios-richemont-buttes",
       "slugByLocale": {
-        "it": "stage-r-i-developpement-firmware-et-applications-mobiles-ios-richemont-buttes",
+        "it": "corso-r-i-firmware-development-and-mobile-applications-ios-richemont-buttes",
         "en": "stage-r-i-developpement-firmware-et-applications-mobiles-ios-richemont-buttes",
         "de": "stage-r-i-developpement-firmware-et-applications-mobiles-ios-richemont-buttes",
         "fr": "stage-r-i-developpement-firmware-et-applications-mobiles-ios-richemont-buttes"
@@ -4331,7 +4342,15 @@
           "maxValue": 63000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "stage-r-i-developpement-firmware-et-applications-mobiles-ios-richemont-buttes"
+        ]
+      },
+      "previousSlugs": [
+        "stage-r-i-developpement-firmware-et-applications-mobiles-ios-richemont-buttes"
+      ]
     },
     {
       "id": "richemont-829674cbd34a",
@@ -4522,7 +4541,7 @@
       "id": "richemont-fd939e29e6e6",
       "slug": "stage-r-i-comprensione-dell-organo-motore-di-un-orologio-meccanico-richemont-buttes",
       "slugByLocale": {
-        "it": "tirocinante-in-program-management-richemont-meyrin",
+        "it": "stage-r-i-comprensione-dell-organo-motore-di-un-orologio-meccanico-richemont-buttes",
         "en": "program-management-intern-richemont-meyrin",
         "de": "program-management-praktikant-richemont-meyrin",
         "fr": "stage-r-i-comprehension-de-l-organe-moteur-d-une-montre-mecanique-richemont-buttes"
@@ -4568,16 +4587,17 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "stage-r-i-comprehension-de-l-organe-moteur-d-une-montre-mecanique-richemont-buttes",
+        "tirocinante-in-program-management-richemont-meyrin",
         "program-management-intern-richemont-meyrin",
         "stage-in-program-management-richemont-meyrin",
         "praktikum-im-programmmanagement-richemont-meyrin",
         "stagiaire-en-gestion-de-programme-richemont-meyrin",
-        "stagiaire-en-gestion-de-programmes-richemont-meyrin",
-        "stage-r-i-comprensione-dell-organo-motore-di-un-orologio-meccanico-richemont-buttes"
+        "stagiaire-en-gestion-de-programmes-richemont-meyrin"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "stage-r-i-comprehension-de-l-organe-moteur-d-une-montre-mecanique-richemont-buttes"
+          "stage-r-i-comprehension-de-l-organe-moteur-d-une-montre-mecanique-richemont-buttes",
+          "tirocinante-in-program-management-richemont-meyrin"
         ],
         "en": [
           "stage-r-i-comprehension-de-l-organe-moteur-d-une-montre-mecanique-richemont-buttes"
@@ -4680,9 +4700,9 @@
     },
     {
       "id": "richemont-73176cd8ff8b",
-      "slug": "stage-r-i-stagiaire-ingenieur-ml-richemont-buttes",
+      "slug": "corso-r-i-trainee-engineer-ml-richemont-buttes",
       "slugByLocale": {
-        "it": "stage-r-i-stagiaire-ingenieur-ml-richemont-buttes",
+        "it": "corso-r-i-trainee-engineer-ml-richemont-buttes",
         "en": "stage-r-i-stagiaire-ingenieur-ml-richemont-buttes",
         "de": "stage-r-i-stagiaire-ingenieur-ml-richemont-buttes",
         "fr": "stage-r-i-stagiaire-ingenieur-ml-richemont-buttes"
@@ -4738,13 +4758,21 @@
           "maxValue": 63000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "stage-r-i-stagiaire-ingenieur-ml-richemont-buttes"
+        ]
+      },
+      "previousSlugs": [
+        "stage-r-i-stagiaire-ingenieur-ml-richemont-buttes"
+      ]
     },
     {
       "id": "richemont-39a07181b97f",
-      "slug": "stage-r-i-data-science-industrielle-richemont-buttes",
+      "slug": "corso-r-i-industrial-data-science-richemont-buttes",
       "slugByLocale": {
-        "it": "stage-r-i-data-science-industrielle-richemont-buttes",
+        "it": "corso-r-i-industrial-data-science-richemont-buttes",
         "en": "stage-r-i-data-science-industrielle-richemont-buttes",
         "de": "stage-r-i-data-science-industrielle-richemont-buttes",
         "fr": "stage-r-i-data-science-industrielle-richemont-buttes"
@@ -4800,7 +4828,15 @@
           "maxValue": 78500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "stage-r-i-data-science-industrielle-richemont-buttes"
+        ]
+      },
+      "previousSlugs": [
+        "stage-r-i-data-science-industrielle-richemont-buttes"
+      ]
     },
     {
       "id": "richemont-d129ac6e6d1d",
@@ -5700,9 +5736,9 @@
     },
     {
       "id": "richemont-44bc160e0888",
-      "slug": "stagiaire-archiviste-richemont-le-sentier",
+      "slug": "intern-archivist-jaeger-lecoultre-le-sentier",
       "slugByLocale": {
-        "it": "stagiaire-archiviste-richemont-le-sentier",
+        "it": "intern-archivist-jaeger-lecoultre-le-sentier",
         "en": "stagiaire-archiviste-richemont-le-sentier",
         "de": "stagiaire-archiviste-richemont-le-sentier",
         "fr": "stagiaire-archiviste-jaeger-lecoultre-le-sentier"
@@ -5758,7 +5794,15 @@
           "maxValue": 63000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "stagiaire-archiviste-richemont-le-sentier"
+        ]
+      },
+      "previousSlugs": [
+        "stagiaire-archiviste-richemont-le-sentier"
+      ]
     },
     {
       "id": "richemont-bcb238deb327",
@@ -7276,9 +7320,9 @@
     },
     {
       "id": "richemont-975ca5939f9b",
-      "slug": "termineur-en-habillage-horloger-richemont-le-sentier",
+      "slug": "finitore-in-abbigliamento-jaeger-lecoultre-le-sentier",
       "slugByLocale": {
-        "it": "termineur-en-habillage-horloger-richemont-le-sentier",
+        "it": "finitore-in-abbigliamento-jaeger-lecoultre-le-sentier",
         "en": "termineur-en-habillage-horloger-richemont-le-sentier",
         "de": "termineur-en-habillage-horloger-richemont-le-sentier",
         "fr": "termineur-en-habillage-horloger-jaeger-lecoultre-le-sentier"
@@ -7334,7 +7378,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "termineur-en-habillage-horloger-richemont-le-sentier"
+        ]
+      },
+      "previousSlugs": [
+        "termineur-en-habillage-horloger-richemont-le-sentier"
+      ]
     },
     {
       "id": "richemont-8eac67b7aafa",
@@ -8793,7 +8845,7 @@
       "id": "richemont-31697e54915b",
       "slug": "ospitalita-interno-richemont-meyrin",
       "slugByLocale": {
-        "it": "hris-specialist-cdd-richemont-meyrin",
+        "it": "ospitalita-interno-richemont-meyrin",
         "en": "hospitality-intern-richemont-meyrin",
         "de": "krankenhaus-intern-richemont-meyrin",
         "fr": "stagiaire-de-reception-richemont-meyrin"
@@ -8839,7 +8891,8 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
-          "hospitality-intern-richemont-meyrin"
+          "hospitality-intern-richemont-meyrin",
+          "hris-specialist-cdd-richemont-meyrin"
         ],
         "de": [
           "hospitality-praktikant-richemont-meyrin"
@@ -8850,10 +8903,10 @@
       },
       "previousSlugs": [
         "hospitality-intern-richemont-meyrin",
+        "hris-specialist-cdd-richemont-meyrin",
         "hospitality-praktikant-richemont-meyrin",
         "stagiaire-en-hotellerie-richemont-meyrin",
-        "specialista-hris-cdd-richemont-meyrin",
-        "ospitalita-interno-richemont-meyrin"
+        "specialista-hris-cdd-richemont-meyrin"
       ],
       "firstSeenAt": "2026-05-21T13:16:42.709Z",
       "salaryMin": 41600,
@@ -9396,9 +9449,9 @@
     },
     {
       "id": "richemont-0857022e9376",
-      "slug": "chef-de-projets-services-techniques-richemont-buttes",
+      "slug": "project-manager-servizi-tecnici-valfleurier-buttes",
       "slugByLocale": {
-        "it": "chef-de-projets-services-techniques-richemont-buttes",
+        "it": "project-manager-servizi-tecnici-valfleurier-buttes",
         "en": "chef-de-projets-services-techniques-richemont-buttes",
         "de": "chef-de-projets-services-techniques-richemont-buttes",
         "fr": "chef-de-projets-services-techniques-richemont-buttes"
@@ -9454,7 +9507,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "chef-de-projets-services-techniques-richemont-buttes"
+        ]
+      },
+      "previousSlugs": [
+        "chef-de-projets-services-techniques-richemont-buttes"
+      ]
     },
     {
       "id": "richemont-2a7b1817dabd",
@@ -9912,7 +9973,7 @@
       "id": "richemont-387ef2b9e61b",
       "slug": "responsabile-meccanica-e-prototipazione-valfleurier-buttes",
       "slugByLocale": {
-        "it": "fornitore-master-data-specialist-richemont-villars-sur-glane",
+        "it": "responsabile-meccanica-e-prototipazione-valfleurier-buttes",
         "en": "vendor-master-data-specialist-richemont-villars-sur-glane",
         "de": "vendor-master-data-spezialist-valfleurier-buttes",
         "fr": "responsable-mecanique-et-prototypage-valfleurier-buttes"
@@ -9962,7 +10023,8 @@
           "specialiste-principal-des-donnees-du-fournisseur-richemont-villars-sur-glane"
         ],
         "it": [
-          "responsable-mecanique-et-prototypage-richemont-buttes"
+          "responsable-mecanique-et-prototypage-richemont-buttes",
+          "fornitore-master-data-specialist-richemont-villars-sur-glane"
         ],
         "en": [
           "responsable-mecanique-et-prototypage-richemont-buttes"
@@ -9975,14 +10037,14 @@
       "previousSlugs": [
         "responsable-mecanique-et-prototypage-richemont-buttes",
         "specialiste-principal-des-donnees-du-fournisseur-richemont-villars-sur-glane",
+        "fornitore-master-data-specialist-richemont-villars-sur-glane",
         "vendor-master-data-specialist-richemont-villars-sur-glane",
         "responsabile-mecanico-e-prototipazione-valfleurier-buttes",
         "specialista-dati-principali-fornitori-richemont-villars-sur-glane",
         "vendor-master-data-specialista-richemont-villars-sur-glane",
         "fachkraft-fur-lieferant-stammdaten-richemont-villars-sur-glane",
         "kreditorenstammdatenspezialist-richemont-villars-sur-glane",
-        "specialiste-des-donnees-de-base-des-fournisseurs-richemont-villars-sur-glane",
-        "responsabile-meccanica-e-prototipazione-valfleurier-buttes"
+        "specialiste-des-donnees-de-base-des-fournisseurs-richemont-villars-sur-glane"
       ],
       "firstSeenAt": "2026-05-17T11:06:21.080Z",
       "salaryMin": 68000,
@@ -10100,9 +10162,9 @@
     },
     {
       "id": "richemont-10223e9fe238",
-      "slug": "charge-d-ordonnancement-richemont-buttes",
+      "slug": "ordine-ufficiale-valfleurier-buttes",
       "slugByLocale": {
-        "it": "charge-d-ordonnancement-richemont-buttes",
+        "it": "ordine-ufficiale-valfleurier-buttes",
         "en": "charge-d-ordonnancement-richemont-buttes",
         "de": "charge-d-ordonnancement-richemont-buttes",
         "fr": "charge-d-ordonnancement-valfleurier-buttes"
@@ -10158,13 +10220,21 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "charge-d-ordonnancement-richemont-buttes"
+        ]
+      },
+      "previousSlugs": [
+        "charge-d-ordonnancement-richemont-buttes"
+      ]
     },
     {
       "id": "richemont-b0edae726565",
-      "slug": "stagiaire-charge-de-projets-process-richemont-buttes",
+      "slug": "addestratore-responsabile-del-processo-di-progetto-valfleurier-buttes",
       "slugByLocale": {
-        "it": "stagiaire-charge-de-projets-process-richemont-buttes",
+        "it": "addestratore-responsabile-del-processo-di-progetto-valfleurier-buttes",
         "en": "stagiaire-charge-de-projets-process-richemont-buttes",
         "de": "stagiaire-charge-de-projets-process-richemont-buttes",
         "fr": "stagiaire-charge-de-projets-process-richemont-buttes"
@@ -10220,7 +10290,15 @@
           "maxValue": 63000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "stagiaire-charge-de-projets-process-richemont-buttes"
+        ]
+      },
+      "previousSlugs": [
+        "stagiaire-charge-de-projets-process-richemont-buttes"
+      ]
     },
     {
       "id": "richemont-9d2d10576804",
@@ -13792,9 +13870,9 @@
     },
     {
       "id": "richemont-6a34e5160c8d",
-      "slug": "stagiaire-charge-de-projets-qualite-richemont-buttes",
+      "slug": "addestramento-responsabile-dei-progetti-di-qualita-valfleurier-buttes",
       "slugByLocale": {
-        "it": "stagiaire-charge-de-projets-qualite-richemont-buttes",
+        "it": "addestramento-responsabile-dei-progetti-di-qualita-valfleurier-buttes",
         "en": "stagiaire-charge-de-projets-qualite-richemont-buttes",
         "de": "stagiaire-charge-de-projets-qualite-richemont-buttes",
         "fr": "stagiaire-charge-de-projets-qualite-richemont-buttes"
@@ -13850,7 +13928,15 @@
           "maxValue": 63000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "stagiaire-charge-de-projets-qualite-richemont-buttes"
+        ]
+      },
+      "previousSlugs": [
+        "stagiaire-charge-de-projets-qualite-richemont-buttes"
+      ]
     },
     {
       "id": "richemont-7cd0c375e123",
@@ -14198,7 +14284,7 @@
       "id": "richemont-fa60ec6074bb",
       "slug": "risorse-umane-admin-specialista-richemont-meyrin",
       "slugByLocale": {
-        "it": "specialista-internazionale-dei-premi-cartier-meyrin",
+        "it": "risorse-umane-admin-specialista-richemont-meyrin",
         "en": "hr-admin-specialist-richemont-meyrin",
         "de": "personalwesen-admin-spezialist-richemont-meyrin",
         "fr": "specialiste-des-ressources-humaines-richemont-meyrin"
@@ -14244,13 +14330,14 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
-          "hr-admin-specialist-richemont-meyrin"
+          "hr-admin-specialist-richemont-meyrin",
+          "specialista-internazionale-dei-premi-cartier-meyrin"
         ]
       },
       "previousSlugs": [
         "hr-admin-specialist-richemont-meyrin",
-        "international-rewards-specialist-richemont-meyrin",
-        "risorse-umane-admin-specialista-richemont-meyrin"
+        "specialista-internazionale-dei-premi-cartier-meyrin",
+        "international-rewards-specialist-richemont-meyrin"
       ],
       "firstSeenAt": "2026-05-12T22:59:06.734Z",
       "salaryMin": 49500,
@@ -14348,9 +14435,9 @@
     },
     {
       "id": "richemont-e9965008b21d",
-      "slug": "stagiaire-rh-richemont-buttes",
+      "slug": "addestramento-hr-valfleurier-buttes",
       "slugByLocale": {
-        "it": "stagiaire-rh-richemont-buttes",
+        "it": "addestramento-hr-valfleurier-buttes",
         "en": "stagiaire-rh-richemont-buttes",
         "de": "stagiaire-rh-richemont-buttes",
         "fr": "stagiaire-rh-valfleurier-buttes"
@@ -14406,7 +14493,15 @@
           "maxValue": 63000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "stagiaire-rh-richemont-buttes"
+        ]
+      },
+      "previousSlugs": [
+        "stagiaire-rh-richemont-buttes"
+      ]
     },
     {
       "id": "richemont-a3bf1a407fcd",
@@ -14864,7 +14959,7 @@
       "slugByLocale": {
         "it": "stagiaire-ingenieur-richemont-le-sentier",
         "en": "stagiaire-ingenieur-richemont-le-sentier",
-        "de": "stagiaire-ingenieur-richemont-le-sentier",
+        "de": "regie-ingenieur-jaeger-lecoultre-le-sentier",
         "fr": "stagiaire-ingenieur-jaeger-lecoultre-le-sentier"
       },
       "company": "Jaeger-LeCoultre",
@@ -15068,9 +15163,9 @@
     },
     {
       "id": "richemont-a99aaa7fd19d",
-      "slug": "controleur-qualite-richemont-le-sentier",
+      "slug": "controllo-qualita-jaeger-lecoultre-le-sentier",
       "slugByLocale": {
-        "it": "controleur-qualite-richemont-le-sentier",
+        "it": "controllo-qualita-jaeger-lecoultre-le-sentier",
         "en": "controleur-qualite-richemont-le-sentier",
         "de": "controleur-qualite-richemont-le-sentier",
         "fr": "controleur-qualite-jaeger-lecoultre-le-sentier"
@@ -15126,7 +15221,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "controleur-qualite-richemont-le-sentier"
+        ]
+      },
+      "previousSlugs": [
+        "controleur-qualite-richemont-le-sentier"
+      ]
     },
     {
       "id": "richemont-52ff9ee263ef",
@@ -16256,9 +16359,9 @@
     },
     {
       "id": "richemont-f1f5988d32d1",
-      "slug": "technicien-de-laboratoire-horloger-richemont-le-sentier",
+      "slug": "laboratorio-tecnico-orologiera-jaeger-lecoultre-le-sentier",
       "slugByLocale": {
-        "it": "technicien-de-laboratoire-horloger-richemont-le-sentier",
+        "it": "laboratorio-tecnico-orologiera-jaeger-lecoultre-le-sentier",
         "en": "technicien-de-laboratoire-horloger-richemont-le-sentier",
         "de": "technicien-de-laboratoire-horloger-richemont-le-sentier",
         "fr": "technicien-de-laboratoire-horloger-jaeger-lecoultre-le-sentier"
@@ -16314,13 +16417,21 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "technicien-de-laboratoire-horloger-richemont-le-sentier"
+        ]
+      },
+      "previousSlugs": [
+        "technicien-de-laboratoire-horloger-richemont-le-sentier"
+      ]
     },
     {
       "id": "richemont-7063b92209ed",
-      "slug": "planificateur-h-f-richemont-buttes",
+      "slug": "planner-h-f-valfleurier-buttes",
       "slugByLocale": {
-        "it": "planificateur-h-f-richemont-buttes",
+        "it": "planner-h-f-valfleurier-buttes",
         "en": "planificateur-h-f-richemont-buttes",
         "de": "planificateur-h-f-richemont-buttes",
         "fr": "planificateur-h-f-valfleurier-buttes"
@@ -16376,7 +16487,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "planificateur-h-f-richemont-buttes"
+        ]
+      },
+      "previousSlugs": [
+        "planificateur-h-f-richemont-buttes"
+      ]
     },
     {
       "id": "richemont-fa7f80e54812",

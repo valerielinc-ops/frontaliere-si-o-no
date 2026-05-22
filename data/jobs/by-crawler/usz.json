@@ -3886,9 +3886,9 @@
     },
     {
       "id": "usz-73056cfbea0c",
-      "slug": "spezialpflege-nachdiplomstudium-nds-notfallpflege-universitatsspital-zurich-usz-campus",
+      "slug": "assistenza-speciale-studi-post-laurea-nds-assistenza-di-emergenza-universitatsspital-zurich-usz-campus",
       "slugByLocale": {
-        "it": "spezialpflege-nachdiplomstudium-nds-notfallpflege-universitatsspital-zurich-usz-campus",
+        "it": "assistenza-speciale-studi-post-laurea-nds-assistenza-di-emergenza-universitatsspital-zurich-usz-campus",
         "en": "spezialpflege-nachdiplomstudium-nds-notfallpflege-usz-ch",
         "de": "spezialpflege-nachdiplomstudium-nds-notfallpflege-usz-ch",
         "fr": "spezialpflege-nachdiplomstudium-nds-notfallpflege-usz-ch"
@@ -3935,13 +3935,13 @@
       "previousSlugs": [
         "spezialpflege-nachdiplomstudium-nds-notfallpflege-usz-ch",
         "cure-speciali-post-laurea-nds-cure-di-emergenza-universitatsspital-zurich-usz-campus",
-        "assistenza-speciale-studi-post-laurea-nds-assistenza-di-emergenza-universitatsspital-zurich-usz-campus"
+        "spezialpflege-nachdiplomstudium-nds-notfallpflege-universitatsspital-zurich-usz-campus"
       ],
       "previousSlugsByLocale": {
         "it": [
           "spezialpflege-nachdiplomstudium-nds-notfallpflege-usz-ch",
           "cure-speciali-post-laurea-nds-cure-di-emergenza-universitatsspital-zurich-usz-campus",
-          "assistenza-speciale-studi-post-laurea-nds-assistenza-di-emergenza-universitatsspital-zurich-usz-campus"
+          "spezialpflege-nachdiplomstudium-nds-notfallpflege-universitatsspital-zurich-usz-campus"
         ]
       },
       "needsRetranslation": true,
@@ -7622,9 +7622,9 @@
     },
     {
       "id": "usz-70a5792a755a",
-      "slug": "pflegefachperson-dermatologie-orl-mkg-50-100-universitatsspital-zurich-usz-campus",
+      "slug": "dermatologia-della-cura-orl-mkg-50-100-universitatsspital-zurich-usz-campus",
       "slugByLocale": {
-        "it": "pflegefachperson-dermatologie-orl-mkg-50-100-universitatsspital-zurich-usz-campus",
+        "it": "dermatologia-della-cura-orl-mkg-50-100-universitatsspital-zurich-usz-campus",
         "en": "pflegefachperson-dermatologie-orl-mkg-50-100-usz-ch",
         "de": "pflegefachperson-dermatologie-orl-mkg-50-100-usz-ch",
         "fr": "pflegefachperson-dermatologie-orl-mkg-50-100-usz-ch"
@@ -7671,13 +7671,13 @@
       "previousSlugs": [
         "pflegefachperson-dermatologie-orl-mkg-50-100-usz-ch",
         "infermiere-dermatologo-orl-mkg-50-100-universitatsspital-zurich-usz-campus",
-        "dermatologia-della-cura-orl-mkg-50-100-universitatsspital-zurich-usz-campus"
+        "pflegefachperson-dermatologie-orl-mkg-50-100-universitatsspital-zurich-usz-campus"
       ],
       "previousSlugsByLocale": {
         "it": [
           "pflegefachperson-dermatologie-orl-mkg-50-100-usz-ch",
           "infermiere-dermatologo-orl-mkg-50-100-universitatsspital-zurich-usz-campus",
-          "dermatologia-della-cura-orl-mkg-50-100-universitatsspital-zurich-usz-campus"
+          "pflegefachperson-dermatologie-orl-mkg-50-100-universitatsspital-zurich-usz-campus"
         ]
       },
       "needsRetranslation": true,
@@ -13115,9 +13115,9 @@
     },
     {
       "id": "usz-d306703c7bc7",
-      "slug": "fachperson-betreuung-kind-80-100-usz-ch",
+      "slug": "cura-specialistica-bambino-80-100-universitatsspital-zurich-usz-campus",
       "slugByLocale": {
-        "it": "fachperson-betreuung-kind-80-100-usz-ch",
+        "it": "cura-specialistica-bambino-80-100-universitatsspital-zurich-usz-campus",
         "en": "fachperson-betreuung-kind-80-100-usz-ch",
         "de": "fachperson-betreuung-kind-80-100-usz-ch",
         "fr": "fachperson-betreuung-kind-80-100-usz-ch"
@@ -13174,13 +13174,21 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "fachperson-betreuung-kind-80-100-usz-ch"
+        ]
+      },
+      "previousSlugs": [
+        "fachperson-betreuung-kind-80-100-usz-ch"
+      ]
     },
     {
       "id": "usz-42110ae7cb30",
-      "slug": "psychologin-psychologe-psycholog-in-psychoonkologie-70-90-usz-ch",
+      "slug": "psicologo-psicologo-in-psicooncologia-70-90-universitatsspital-zurich-usz-campus",
       "slugByLocale": {
-        "it": "psychologin-psychologe-psycholog-in-psychoonkologie-70-90-usz-ch",
+        "it": "psicologo-psicologo-in-psicooncologia-70-90-universitatsspital-zurich-usz-campus",
         "en": "psychologin-psychologe-psycholog-in-psychoonkologie-70-90-usz-ch",
         "de": "psychologin-psychologe-psycholog-in-psychoonkologie-70-90-usz-ch",
         "fr": "psychologin-psychologe-psycholog-in-psychoonkologie-70-90-usz-ch"
@@ -13237,7 +13245,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "psychologin-psychologe-psycholog-in-psychoonkologie-70-90-usz-ch"
+        ]
+      },
+      "previousSlugs": [
+        "psychologin-psychologe-psycholog-in-psychoonkologie-70-90-usz-ch"
+      ]
     },
     {
       "id": "usz-99de7a238391",
@@ -13744,9 +13760,9 @@
     },
     {
       "id": "usz-1cb78cfc5222",
-      "slug": "gruppenleitung-pflege-bettenstation-kardiologie-amp-herzchirurgie-80-100-usz-ch",
+      "slug": "gestione-del-gruppo-cura-posti-di-lavoro-cardiologia-e-chirurgia-cardiaca-80-100-universitatsspital-zurich-usz-campus",
       "slugByLocale": {
-        "it": "gruppenleitung-pflege-bettenstation-kardiologie-amp-herzchirurgie-80-100-usz-ch",
+        "it": "gestione-del-gruppo-cura-posti-di-lavoro-cardiologia-e-chirurgia-cardiaca-80-100-universitatsspital-zurich-usz-campus",
         "en": "gruppenleitung-pflege-bettenstation-kardiologie-amp-herzchirurgie-80-100-usz-ch",
         "de": "gruppenleitung-pflege-bettenstation-kardiologie-herzchirurgie-80-100-universitatsspital-zurich-usz-campus",
         "fr": "gruppenleitung-pflege-bettenstation-kardiologie-amp-herzchirurgie-80-100-usz-ch"
@@ -13803,7 +13819,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "gruppenleitung-pflege-bettenstation-kardiologie-amp-herzchirurgie-80-100-usz-ch"
+        ]
+      },
+      "previousSlugs": [
+        "gruppenleitung-pflege-bettenstation-kardiologie-amp-herzchirurgie-80-100-usz-ch"
+      ]
     },
     {
       "id": "usz-e57a4ddd7c3e",

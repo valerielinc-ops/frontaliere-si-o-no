@@ -60,12 +60,12 @@
     },
     {
       "id": "laderach-6b7776e5c79b",
-      "slug": "global-product-manager-m-w-d-laderach-bilten",
+      "slug": "responsabile-prodotto-globale-mercoledi-mercredolo-laderach-schweiz-ag-bilten",
       "slugByLocale": {
-        "it": "global-product-manager-m-w-d-laderach-bilten",
+        "it": "responsabile-prodotto-globale-mercoledi-mercredolo-laderach-schweiz-ag-bilten",
         "en": "global-product-manager-m-w-d-laderach-bilten",
         "de": "global-product-manager-m-w-d-laderach-bilten",
-        "fr": "global-product-manager-m-w-d-laderach-bilten"
+        "fr": "gestionnaire-mondial-de-produits-m-w-d-laderach-schweiz-ag-bilten"
       },
       "company": "Läderach (Schweiz) AG",
       "companyKey": "laderach",
@@ -112,7 +112,18 @@
           "maxValue": 132000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "global-product-manager-m-w-d-laderach-bilten"
+        ],
+        "fr": [
+          "global-product-manager-m-w-d-laderach-bilten"
+        ]
+      },
+      "previousSlugs": [
+        "global-product-manager-m-w-d-laderach-bilten"
+      ]
     },
     {
       "id": "laderach-33c0f2a3007e",

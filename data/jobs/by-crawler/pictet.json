@@ -355,9 +355,9 @@
     },
     {
       "id": "pictet-0b640cd32851",
-      "slug": "business-compliance-liaison-officer-contrat-a-duree-limitee-18-mois-pictet-geneva",
+      "slug": "compliance-liaison-officer-contratto-a-termine-limitato-18-mesi-pictet-group-geneva",
       "slugByLocale": {
-        "it": "business-compliance-liaison-officer-contrat-a-duree-limitee-18-mois-pictet-geneva",
+        "it": "compliance-liaison-officer-contratto-a-termine-limitato-18-mesi-pictet-group-geneva",
         "en": "business-compliance-liaison-officer-contrat-a-duree-limitee-18-mois-pictet-geneva",
         "de": "business-compliance-liaison-officer-contrat-a-duree-limitee-18-mois-pictet-geneva",
         "fr": "business-compliance-liaison-officer-contrat-a-duree-limitee-18-mois-pictet-geneva"
@@ -414,7 +414,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "business-compliance-liaison-officer-contrat-a-duree-limitee-18-mois-pictet-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "business-compliance-liaison-officer-contrat-a-duree-limitee-18-mois-pictet-geneva"
+      ]
     },
     {
       "id": "pictet-5066a12ee39a",

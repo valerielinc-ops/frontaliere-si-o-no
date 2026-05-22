@@ -7391,9 +7391,9 @@
     },
     {
       "id": "lups-56c94048c9f6",
-      "slug": "oberarztin-w-m-d-80-100-lups-st-urban",
+      "slug": "senior-w-m-d-80-100-luzerner-psychiatrie-lups-st-urban",
       "slugByLocale": {
-        "it": "oberarztin-w-m-d-80-100-lups-st-urban",
+        "it": "senior-w-m-d-80-100-luzerner-psychiatrie-lups-st-urban",
         "en": "oberarztin-w-m-d-80-100-lups-st-urban",
         "de": "oberarztin-w-m-d-80-100-lups-st-urban",
         "fr": "oberarztin-w-m-d-80-100-lups-st-urban"
@@ -7450,7 +7450,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "oberarztin-w-m-d-80-100-lups-st-urban"
+        ]
+      },
+      "previousSlugs": [
+        "oberarztin-w-m-d-80-100-lups-st-urban"
+      ]
     }
   ]
 }

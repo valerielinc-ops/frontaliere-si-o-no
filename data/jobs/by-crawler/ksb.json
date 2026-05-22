@@ -3550,12 +3550,12 @@
     },
     {
       "id": "ksb-e0b94fcd3da4",
-      "slug": "arztsekretar-in-radiologie-80-100-ksb-ch",
+      "slug": "segretario-del-dottore-radiologia-80-100-kantonsspital-baden-ksb-baden",
       "slugByLocale": {
-        "it": "arztsekretar-in-radiologie-80-100-ksb-ch",
-        "en": "arztsekretar-in-radiologie-80-100-ksb-ch",
+        "it": "segretario-del-dottore-radiologia-80-100-kantonsspital-baden-ksb-baden",
+        "en": "doctor-s-secretary-radiology-80-100-kantonsspital-baden-ksb-baden",
         "de": "arztsekretar-in-radiologie-80-100-ksb-ch",
-        "fr": "arztsekretar-in-radiologie-80-100-ksb-ch"
+        "fr": "secretaire-du-docteur-radiologie-80-100-kantonsspital-baden-ksb-baden"
       },
       "company": "Kantonsspital Baden (KSB)",
       "companyKey": "ksb",
@@ -3608,7 +3608,21 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "arztsekretar-in-radiologie-80-100-ksb-ch"
+        ],
+        "en": [
+          "arztsekretar-in-radiologie-80-100-ksb-ch"
+        ],
+        "fr": [
+          "arztsekretar-in-radiologie-80-100-ksb-ch"
+        ]
+      },
+      "previousSlugs": [
+        "arztsekretar-in-radiologie-80-100-ksb-ch"
+      ]
     },
     {
       "id": "ksb-afcab07765e0",

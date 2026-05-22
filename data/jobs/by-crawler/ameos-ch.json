@@ -58,8 +58,7 @@
       "previousSlugsByLocale": {
         "it": [
           "ausbildungsplatz-als-rettungssanitater-m-w-d-ameos-einsiedeln",
-          "projektleiter-m-w-d-ameos-schweiz-einsiedeln",
-          "ausbildungsplatz-come-rettungssanitater-m-w-d-ameos-schweiz-einsiedeln"
+          "projektleiter-m-w-d-ameos-schweiz-einsiedeln"
         ],
         "en": [
           "ausbildungsplatz-als-rettungssanitater-m-w-d-ameos-einsiedeln"
@@ -388,10 +387,10 @@
     },
     {
       "id": "ameos-ch-8c9c6eb36a77",
-      "slug": "stv-stationsleitung-m-w-d-interdisziplinare-bettenstation-ameos-einsiedeln",
+      "slug": "vice-capo-reparto-m-f-d-reparto-letto-interdisciplinare-ameos-schweiz-einsiedeln",
       "slugByLocale": {
         "de": "stv-stationsleitung-m-w-d-interdisziplinare-bettenstation-ameos-einsiedeln",
-        "it": "stv-stationsleitung-m-w-d-interdisziplinare-bettenstation-ameos-einsiedeln",
+        "it": "vice-capo-reparto-m-f-d-reparto-letto-interdisciplinare-ameos-schweiz-einsiedeln",
         "en": "stv-stationsleitung-m-w-d-interdisziplinare-bettenstation-ameos-einsiedeln",
         "fr": "stv-stationsleitung-m-w-d-interdisziplinare-bettenstation-ameos-einsiedeln"
       },
@@ -449,14 +448,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-22T10:50:24.726Z"
+      "firstSeenAt": "2026-05-22T10:50:24.726Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "stv-stationsleitung-m-w-d-interdisziplinare-bettenstation-ameos-einsiedeln"
+        ]
+      },
+      "previousSlugs": [
+        "stv-stationsleitung-m-w-d-interdisziplinare-bettenstation-ameos-einsiedeln"
+      ]
     },
     {
       "id": "ameos-ch-ebfddf4aec95",
-      "slug": "medizinischen-masseur-m-w-d-ameos-einsiedeln",
+      "slug": "medico-massaggiatore-m-f-d-ameos-schweiz-einsiedeln",
       "slugByLocale": {
         "de": "medizinischen-masseur-m-w-d-ameos-einsiedeln",
-        "it": "medizinischen-masseur-m-w-d-ameos-einsiedeln",
+        "it": "medico-massaggiatore-m-f-d-ameos-schweiz-einsiedeln",
         "en": "medizinischen-masseur-m-w-d-ameos-einsiedeln",
         "fr": "medizinischen-masseur-m-w-d-ameos-einsiedeln"
       },
@@ -514,7 +521,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-22T10:50:23.956Z"
+      "firstSeenAt": "2026-05-22T10:50:23.956Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "medizinischen-masseur-m-w-d-ameos-einsiedeln"
+        ]
+      },
+      "previousSlugs": [
+        "medizinischen-masseur-m-w-d-ameos-einsiedeln"
+      ]
     },
     {
       "id": "ameos-ch-5246b29e796b",
@@ -749,10 +764,10 @@
     },
     {
       "id": "ameos-ch-8a0d5a0d7377",
-      "slug": "leitung-m-w-d-anasthesie-uberwachungseinheit-ameos-einsiedeln",
+      "slug": "linea-m-f-d-anestesia-unita-di-monitoraggio-ameos-schweiz-einsiedeln",
       "slugByLocale": {
         "de": "leitung-m-w-d-anasthesie-uberwachungseinheit-ameos-einsiedeln",
-        "it": "leitung-m-w-d-anasthesie-uberwachungseinheit-ameos-einsiedeln",
+        "it": "linea-m-f-d-anestesia-unita-di-monitoraggio-ameos-schweiz-einsiedeln",
         "en": "leitung-m-w-d-anasthesie-uberwachungseinheit-ameos-einsiedeln",
         "fr": "leitung-m-w-d-anasthesie-uberwachungseinheit-ameos-einsiedeln"
       },
@@ -810,7 +825,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-22T10:50:19.632Z"
+      "firstSeenAt": "2026-05-22T10:50:19.632Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "leitung-m-w-d-anasthesie-uberwachungseinheit-ameos-einsiedeln"
+        ]
+      },
+      "previousSlugs": [
+        "leitung-m-w-d-anasthesie-uberwachungseinheit-ameos-einsiedeln"
+      ]
     },
     {
       "id": "ameos-ch-0ec0846fb3f4",
@@ -945,12 +968,10 @@
           "lernende-als-kauffrau-kaufmann-gesundheit-efz-m-w-d-ameos-brunnen"
         ],
         "en": [
-          "lernende-als-kauffrau-kaufmann-gesundheit-efz-m-w-d-ameos-brunnen",
-          "apprentice-als-kauffrau-kaufmann-gesundheit-efz-m-w-d-ameos-schweiz-brunnen"
+          "lernende-als-kauffrau-kaufmann-gesundheit-efz-m-w-d-ameos-brunnen"
         ],
         "fr": [
-          "lernende-als-kauffrau-kaufmann-gesundheit-efz-m-w-d-ameos-brunnen",
-          "apprenti-e-als-kauffrau-kaufmann-gesundheit-efz-m-w-d-ameos-schweiz-brunnen"
+          "lernende-als-kauffrau-kaufmann-gesundheit-efz-m-w-d-ameos-brunnen"
         ]
       },
       "firstSeenAt": "2026-05-20T10:54:36.818Z",

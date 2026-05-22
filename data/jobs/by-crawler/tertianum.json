@@ -4020,9 +4020,9 @@
     },
     {
       "id": "tertianum-dc6ade045ebf",
-      "slug": "sous-chef-in-tertianum-unterterzen",
+      "slug": "sous-boss-tertianum-unterterzen",
       "slugByLocale": {
-        "it": "sous-chef-in-tertianum-unterterzen",
+        "it": "sous-boss-tertianum-unterterzen",
         "en": "sous-chef-in-tertianum-unterterzen",
         "de": "sous-chef-in-tertianum-unterterzen",
         "fr": "sous-chef-in-tertianum-unterterzen"
@@ -4079,13 +4079,21 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "sous-chef-in-tertianum-unterterzen"
+        ]
+      },
+      "previousSlugs": [
+        "sous-chef-in-tertianum-unterterzen"
+      ]
     },
     {
       "id": "tertianum-8c530cd436be",
-      "slug": "pflegefachfrau-mann-tertianum-unterterzen",
+      "slug": "specialista-della-cura-tertianum-unterterzen",
       "slugByLocale": {
-        "it": "pflegefachfrau-mann-tertianum-unterterzen",
+        "it": "specialista-della-cura-tertianum-unterterzen",
         "en": "pflegefachfrau-mann-tertianum-unterterzen",
         "de": "pflegefachfrau-mann-tertianum-unterterzen",
         "fr": "pflegefachfrau-mann-tertianum-unterterzen"
@@ -4131,11 +4139,10 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "specialista-della-cura-tertianum-unterterzen"
+        "pflegefachfrau-mann-tertianum-unterterzen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "specialista-della-cura-tertianum-unterterzen",
           "pflegefachfrau-mann-tertianum-unterterzen"
         ]
       },

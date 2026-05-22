@@ -4,9 +4,9 @@
   "jobs": [
     {
       "id": "ubs-c83df50759cc",
-      "slug": "branch-office-administrator-ubs",
+      "slug": "amministratore-di-ufficio-di-filiale-ubs",
       "slugByLocale": {
-        "it": "branch-office-administrator-ubs",
+        "it": "amministratore-di-ufficio-di-filiale-ubs",
         "en": "branch-office-administrator-ubs",
         "de": "branch-office-administrator-ubs",
         "fr": "branch-office-administrator-ubs"
@@ -70,7 +70,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "branch-office-administrator-ubs"
+        ]
+      },
+      "previousSlugs": [
+        "branch-office-administrator-ubs"
+      ]
     },
     {
       "id": "ubs-bf8f211d0b6c",
@@ -152,9 +160,9 @@
     },
     {
       "id": "ubs-1e17b14c2fab",
-      "slug": "branch-office-administrator-ubs-2",
+      "slug": "amministratore-di-ufficio-di-filiale-ubs-b8240e",
       "slugByLocale": {
-        "it": "branch-office-administrator-ubs-2",
+        "it": "amministratore-di-ufficio-di-filiale-ubs-b8240e",
         "en": "branch-office-administrator-ubs",
         "de": "branch-office-administrator-ubs-2",
         "fr": "branch-office-administrator-ubs-2"
@@ -218,13 +226,21 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "branch-office-administrator-ubs-2"
+        ]
+      },
+      "previousSlugs": [
+        "branch-office-administrator-ubs-2"
+      ]
     },
     {
       "id": "ubs-7095a4a6fc8d",
-      "slug": "registered-client-associate-ubs-2",
+      "slug": "cliente-associato-registrato-ubs",
       "slugByLocale": {
-        "it": "registered-client-associate-ubs-2",
+        "it": "cliente-associato-registrato-ubs",
         "en": "registered-client-associate-ubs",
         "de": "registered-client-associate-ubs-2",
         "fr": "registered-client-associate-ubs-2"
@@ -288,13 +304,21 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "registered-client-associate-ubs-2"
+        ]
+      },
+      "previousSlugs": [
+        "registered-client-associate-ubs-2"
+      ]
     },
     {
       "id": "ubs-4e77f2356249",
-      "slug": "client-associate-ubs",
+      "slug": "cliente-associato-ubs",
       "slugByLocale": {
-        "it": "client-associate-ubs",
+        "it": "cliente-associato-ubs",
         "en": "client-associate-ubs",
         "de": "client-associate-ubs",
         "fr": "client-associate-ubs"
@@ -358,13 +382,21 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "client-associate-ubs"
+        ]
+      },
+      "previousSlugs": [
+        "client-associate-ubs"
+      ]
     },
     {
       "id": "ubs-ee2d0439fbd7",
-      "slug": "client-associate-ubs-2",
+      "slug": "cliente-associato-ubs-a23d98",
       "slugByLocale": {
-        "it": "client-associate-ubs-2",
+        "it": "cliente-associato-ubs-a23d98",
         "en": "client-associate-ubs",
         "de": "client-associate-ubs-2",
         "fr": "client-associate-ubs-2"
@@ -428,7 +460,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "client-associate-ubs-2"
+        ]
+      },
+      "previousSlugs": [
+        "client-associate-ubs-2"
+      ]
     },
     {
       "id": "ubs-93b09d129c64",
@@ -580,9 +620,9 @@
     },
     {
       "id": "ubs-b1d0b9057fcf",
-      "slug": "client-associate-ubs-3",
+      "slug": "cliente-associato-ubs-821b14",
       "slugByLocale": {
-        "it": "client-associate-ubs-3",
+        "it": "cliente-associato-ubs-821b14",
         "en": "client-associate-ubs",
         "de": "client-associate-ubs-3",
         "fr": "client-associate-ubs-3"
@@ -646,7 +686,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "client-associate-ubs-3"
+        ]
+      },
+      "previousSlugs": [
+        "client-associate-ubs-3"
+      ]
     },
     {
       "id": "ubs-73db2d5b9a77",
@@ -720,9 +768,9 @@
     },
     {
       "id": "ubs-dcb0bb8a5622",
-      "slug": "registered-client-associate-ubs",
+      "slug": "cliente-associato-registrato-ubs-29913b",
       "slugByLocale": {
-        "it": "registered-client-associate-ubs",
+        "it": "cliente-associato-registrato-ubs-29913b",
         "en": "registered-client-associate-ubs",
         "de": "registered-client-associate-ubs",
         "fr": "registered-client-associate-ubs"
@@ -786,7 +834,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "registered-client-associate-ubs"
+        ]
+      },
+      "previousSlugs": [
+        "registered-client-associate-ubs"
+      ]
     },
     {
       "id": "ubs-7ef9a69c719b",
@@ -1124,9 +1180,9 @@
     },
     {
       "id": "ubs-10831a25ddf3",
-      "slug": "specialiste-credits-80-100-ubs",
+      "slug": "stanziamenti-specializzati-80-100-ubs",
       "slugByLocale": {
-        "it": "specialiste-credits-80-100-ubs",
+        "it": "stanziamenti-specializzati-80-100-ubs",
         "en": "specialiste-credits-80-100-ubs",
         "de": "specialiste-credits-80-100-ubs",
         "fr": "specialiste-credits-80-100-ubs"
@@ -1190,7 +1246,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "specialiste-credits-80-100-ubs"
+        ]
+      },
+      "previousSlugs": [
+        "specialiste-credits-80-100-ubs"
+      ]
     },
     {
       "id": "ubs-74c9dadfdb50",
@@ -1278,9 +1342,9 @@
     },
     {
       "id": "ubs-b04e24e6b919",
-      "slug": "client-associate-ubs-4",
+      "slug": "cliente-associato-ubs-624d63",
       "slugByLocale": {
-        "it": "client-associate-ubs-4",
+        "it": "cliente-associato-ubs-624d63",
         "en": "client-associate-ubs",
         "de": "client-associate-ubs-4",
         "fr": "client-associate-ubs-4"
@@ -1344,13 +1408,21 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "client-associate-ubs-4"
+        ]
+      },
+      "previousSlugs": [
+        "client-associate-ubs-4"
+      ]
     },
     {
       "id": "ubs-e11099f00e5c",
-      "slug": "team-administrator-ubs",
+      "slug": "amministratore-di-squadra-ubs",
       "slugByLocale": {
-        "it": "team-administrator-ubs",
+        "it": "amministratore-di-squadra-ubs",
         "en": "team-administrator-ubs",
         "de": "team-administrator-ubs",
         "fr": "team-administrator-ubs"
@@ -1414,13 +1486,21 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "team-administrator-ubs"
+        ]
+      },
+      "previousSlugs": [
+        "team-administrator-ubs"
+      ]
     },
     {
       "id": "ubs-d37e22dfed85",
-      "slug": "conseiller-ere-clientele-privee-affluent-monthey-ubs",
+      "slug": "advisor-ere-private-clientele-affluente-monthey-ubs",
       "slugByLocale": {
-        "it": "conseiller-ere-clientele-privee-affluent-monthey-ubs",
+        "it": "advisor-ere-private-clientele-affluente-monthey-ubs",
         "en": "conseiller-ere-clientele-privee-affluent-monthey-ubs",
         "de": "conseiller-ere-clientele-privee-affluent-monthey-ubs",
         "fr": "conseiller-ere-clientele-privee-affluent-monthey-ubs"
@@ -1484,7 +1564,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "conseiller-ere-clientele-privee-affluent-monthey-ubs"
+        ]
+      },
+      "previousSlugs": [
+        "conseiller-ere-clientele-privee-affluent-monthey-ubs"
+      ]
     },
     {
       "id": "ubs-830f7750340e",
@@ -1572,9 +1660,9 @@
     },
     {
       "id": "ubs-d08f5ad8ca8f",
-      "slug": "quantitative-risk-internship-corporate-retail-credit-scenario-mode-ubs",
+      "slug": "internship-di-rischio-quantitativo-modalita-scenario-di-credito-aziendale-e-al-dettaglio-ubs",
       "slugByLocale": {
-        "it": "quantitative-risk-internship-corporate-retail-credit-scenario-mode-ubs",
+        "it": "internship-di-rischio-quantitativo-modalita-scenario-di-credito-aziendale-e-al-dettaglio-ubs",
         "en": "quantitative-risk-internship-corporate-retail-credit-scenario-mode-ubs",
         "de": "quantitative-risk-internship-corporate-retail-credit-scenario-mode-ubs",
         "fr": "quantitative-risk-internship-corporate-retail-credit-scenario-mode-ubs"
@@ -1638,7 +1726,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "quantitative-risk-internship-corporate-retail-credit-scenario-mode-ubs"
+        ]
+      },
+      "previousSlugs": [
+        "quantitative-risk-internship-corporate-retail-credit-scenario-mode-ubs"
+      ]
     },
     {
       "id": "ubs-4dd0c1110d98",
@@ -1782,10 +1878,10 @@
     },
     {
       "id": "ubs-a5c3d550a306",
-      "slug": "market-administrative-officer-ubs",
+      "slug": "responsabile-amministrativo-del-mercato-ubs",
       "slugByLocale": {
         "en": "market-administrative-officer-ubs",
-        "it": "market-administrative-officer-ubs",
+        "it": "responsabile-amministrativo-del-mercato-ubs",
         "de": "market-administrative-officer-ubs",
         "fr": "market-administrative-officer-ubs"
       },
@@ -1850,14 +1946,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-22T00:09:39.559Z"
+      "firstSeenAt": "2026-05-22T00:09:39.559Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "market-administrative-officer-ubs"
+        ]
+      },
+      "previousSlugs": [
+        "market-administrative-officer-ubs"
+      ]
     },
     {
       "id": "ubs-74c07ee216a7",
-      "slug": "market-supervisory-officer-ubs-2",
+      "slug": "responsabile-del-controllo-di-mercato-ubs-18ae63",
       "slugByLocale": {
         "en": "market-supervisory-officer-ubs",
-        "it": "market-supervisory-officer-ubs-2",
+        "it": "responsabile-del-controllo-di-mercato-ubs-18ae63",
         "de": "market-supervisory-officer-ubs-2",
         "fr": "market-supervisory-officer-ubs-2"
       },
@@ -1922,7 +2026,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-22T00:09:39.557Z"
+      "firstSeenAt": "2026-05-22T00:09:39.557Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "market-supervisory-officer-ubs-2"
+        ]
+      },
+      "previousSlugs": [
+        "market-supervisory-officer-ubs-2"
+      ]
     },
     {
       "id": "ubs-39f91050d551",
@@ -1998,9 +2110,9 @@
     },
     {
       "id": "ubs-66ed33d490ec",
-      "slug": "global-markets-content-advisory-sales-ubs",
+      "slug": "global-markets-contenuti-e-vendite-consultive-ubs",
       "slugByLocale": {
-        "it": "global-markets-content-advisory-sales-ubs",
+        "it": "global-markets-contenuti-e-vendite-consultive-ubs",
         "en": "global-markets-content-advisory-sales-ubs",
         "de": "global-markets-content-advisory-sales-ubs",
         "fr": "global-markets-content-advisory-sales-ubs"
@@ -2064,7 +2176,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "global-markets-content-advisory-sales-ubs"
+        ]
+      },
+      "previousSlugs": [
+        "global-markets-content-advisory-sales-ubs"
+      ]
     },
     {
       "id": "ubs-ecca48809086",
@@ -2235,9 +2355,9 @@
     },
     {
       "id": "ubs-90c355f9ed70",
-      "slug": "us-economist-ubs",
+      "slug": "economista-americano-ubs",
       "slugByLocale": {
-        "it": "us-economist-ubs",
+        "it": "economista-americano-ubs",
         "en": "us-economist-ubs",
         "de": "us-economist-ubs",
         "fr": "us-economist-ubs"
@@ -2301,13 +2421,21 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "us-economist-ubs"
+        ]
+      },
+      "previousSlugs": [
+        "us-economist-ubs"
+      ]
     },
     {
       "id": "ubs-3bfdf15c1115",
-      "slug": "global-markets-electronic-trading-risk-management-ubs",
+      "slug": "global-markets-gestione-dei-rischi-di-trading-elettronico-ubs",
       "slugByLocale": {
-        "it": "global-markets-electronic-trading-risk-management-ubs",
+        "it": "global-markets-gestione-dei-rischi-di-trading-elettronico-ubs",
         "en": "global-markets-electronic-trading-risk-management-ubs",
         "de": "global-markets-electronic-trading-risk-management-ubs",
         "fr": "global-markets-electronic-trading-risk-management-ubs"
@@ -2371,13 +2499,21 @@
           "maxValue": 89000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "global-markets-electronic-trading-risk-management-ubs"
+        ]
+      },
+      "previousSlugs": [
+        "global-markets-electronic-trading-risk-management-ubs"
+      ]
     },
     {
       "id": "ubs-9d0d08cb630a",
-      "slug": "product-manager-ubs",
+      "slug": "responsabile-del-prodotto-ubs",
       "slugByLocale": {
-        "it": "product-manager-ubs",
+        "it": "responsabile-del-prodotto-ubs",
         "en": "product-manager-ubs",
         "de": "product-manager-ubs",
         "fr": "product-manager-ubs"
@@ -2441,7 +2577,15 @@
           "maxValue": 135000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "product-manager-ubs"
+        ]
+      },
+      "previousSlugs": [
+        "product-manager-ubs"
+      ]
     },
     {
       "id": "ubs-f2853ddea7d9",
@@ -2667,10 +2811,10 @@
     },
     {
       "id": "ubs-40352ebd5774",
-      "slug": "investment-banker-m-a-ubs",
+      "slug": "banchiere-d-investimento-m-a-ubs",
       "slugByLocale": {
         "en": "investment-banker-m-a-ubs",
-        "it": "investment-banker-m-a-ubs",
+        "it": "banchiere-d-investimento-m-a-ubs",
         "de": "investment-banker-m-a-ubs",
         "fr": "investment-banker-m-a-ubs"
       },
@@ -2735,13 +2879,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-22T00:09:39.542Z"
+      "firstSeenAt": "2026-05-22T00:09:39.542Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "investment-banker-m-a-ubs"
+        ]
+      },
+      "previousSlugs": [
+        "investment-banker-m-a-ubs"
+      ]
     },
     {
       "id": "ubs-c84c7cb76c1d",
-      "slug": "internship-corporate-actions-income-processing-ubs",
+      "slug": "internship-azioni-aziendali-e-elaborazione-dei-redditi-ubs",
       "slugByLocale": {
-        "it": "internship-corporate-actions-income-processing-ubs",
+        "it": "internship-azioni-aziendali-e-elaborazione-dei-redditi-ubs",
         "en": "internship-corporate-actions-income-processing-ubs",
         "de": "internship-corporate-actions-income-processing-ubs",
         "fr": "internship-corporate-actions-income-processing-ubs"
@@ -2805,13 +2957,21 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "internship-corporate-actions-income-processing-ubs"
+        ]
+      },
+      "previousSlugs": [
+        "internship-corporate-actions-income-processing-ubs"
+      ]
     },
     {
       "id": "ubs-54c494b885c6",
-      "slug": "internship-corporate-action-income-processing-ubs",
+      "slug": "internship-corporate-azione-e-reddito-ubs",
       "slugByLocale": {
-        "it": "internship-corporate-action-income-processing-ubs",
+        "it": "internship-corporate-azione-e-reddito-ubs",
         "en": "internship-corporate-action-income-processing-ubs",
         "de": "internship-corporate-action-income-processing-ubs",
         "fr": "internship-corporate-action-income-processing-ubs"
@@ -2875,7 +3035,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "internship-corporate-action-income-processing-ubs"
+        ]
+      },
+      "previousSlugs": [
+        "internship-corporate-action-income-processing-ubs"
+      ]
     },
     {
       "id": "ubs-8d68c66b688a",
@@ -3251,9 +3419,9 @@
     },
     {
       "id": "ubs-d9e1919346ba",
-      "slug": "kundenberater-in-privatkunden-affluent-muri-ag-80-100-ubs",
+      "slug": "affluente-muri-ag-80-100-ubs",
       "slugByLocale": {
-        "it": "kundenberater-in-privatkunden-affluent-muri-ag-80-100-ubs",
+        "it": "affluente-muri-ag-80-100-ubs",
         "en": "kundenberater-in-privatkunden-affluent-muri-ag-80-100-ubs",
         "de": "kundenberater-in-privatkunden-affluent-muri-ag-80-100-ubs",
         "fr": "kundenberater-in-privatkunden-affluent-muri-ag-80-100-ubs"
@@ -3317,13 +3485,21 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "kundenberater-in-privatkunden-affluent-muri-ag-80-100-ubs"
+        ]
+      },
+      "previousSlugs": [
+        "kundenberater-in-privatkunden-affluent-muri-ag-80-100-ubs"
+      ]
     },
     {
       "id": "ubs-5657b9e84ca1",
-      "slug": "fintech-apprentice-ubs-2",
+      "slug": "apprendista-fintech-ubs",
       "slugByLocale": {
-        "it": "fintech-apprentice-ubs-2",
+        "it": "apprendista-fintech-ubs",
         "en": "fintech-apprentice-ubs",
         "de": "fintech-apprentice-ubs-2",
         "fr": "fintech-apprentice-ubs-2"
@@ -3387,7 +3563,15 @@
           "maxValue": 63000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "fintech-apprentice-ubs-2"
+        ]
+      },
+      "previousSlugs": [
+        "fintech-apprentice-ubs-2"
+      ]
     },
     {
       "id": "ubs-69cbc807a7d3",
@@ -3475,9 +3659,9 @@
     },
     {
       "id": "ubs-938cc52fb26f",
-      "slug": "fixed-income-fx-trader-ubs",
+      "slug": "risolto-reddito-fx-trader-ubs",
       "slugByLocale": {
-        "it": "fixed-income-fx-trader-ubs",
+        "it": "risolto-reddito-fx-trader-ubs",
         "en": "fixed-income-fx-trader-ubs",
         "de": "fixed-income-fx-trader-ubs",
         "fr": "fixed-income-fx-trader-ubs"
@@ -3541,13 +3725,21 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "fixed-income-fx-trader-ubs"
+        ]
+      },
+      "previousSlugs": [
+        "fixed-income-fx-trader-ubs"
+      ]
     },
     {
       "id": "ubs-2cfa6be958ab",
-      "slug": "fintech-apprentice-ubs",
+      "slug": "apprendista-fintech-ubs-2a1430",
       "slugByLocale": {
-        "it": "fintech-apprentice-ubs",
+        "it": "apprendista-fintech-ubs-2a1430",
         "en": "fintech-apprentice-ubs",
         "de": "fintech-apprentice-ubs",
         "fr": "fintech-apprentice-ubs"
@@ -3611,7 +3803,15 @@
           "maxValue": 63000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "fintech-apprentice-ubs"
+        ]
+      },
+      "previousSlugs": [
+        "fintech-apprentice-ubs"
+      ]
     }
   ]
 }

@@ -3679,9 +3679,9 @@
     },
     {
       "id": "hib-broye-519afb9b0cc6",
-      "slug": "medecin-chef-fe-en-radiologie-a-80-hib-broye-payerne",
+      "slug": "medico-capo-in-radiologia-80-hopital-intercantonal-de-la-broye-hib-payerne",
       "slugByLocale": {
-        "it": "medecin-chef-fe-en-radiologie-a-80-hib-broye-payerne",
+        "it": "medico-capo-in-radiologia-80-hopital-intercantonal-de-la-broye-hib-payerne",
         "en": "medecin-chef-fe-en-radiologie-a-80-hib-broye-payerne",
         "de": "medecin-chef-fe-en-radiologie-a-80-hib-broye-payerne",
         "fr": "medecin-chef-fe-en-radiologie-a-80-hib-broye-payerne"
@@ -3738,7 +3738,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "medecin-chef-fe-en-radiologie-a-80-hib-broye-payerne"
+        ]
+      },
+      "previousSlugs": [
+        "medecin-chef-fe-en-radiologie-a-80-hib-broye-payerne"
+      ]
     },
     {
       "id": "hib-broye-3c82eed86fd0",

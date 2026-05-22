@@ -9242,12 +9242,12 @@
     },
     {
       "id": "eth-zurich-7a6bbd9e3678",
-      "slug": "communication-specialist-eth-zurich-ch",
+      "slug": "communication-specialista-eth-zurich-zurich",
       "slugByLocale": {
         "en": "communication-specialist-eth-zurich-ch",
-        "it": "communication-specialist-eth-zurich-ch",
-        "de": "communication-specialist-eth-zurich-ch",
-        "fr": "communication-specialist-eth-zurich-ch"
+        "it": "communication-specialista-eth-zurich-zurich",
+        "de": "communication-spezialist-eth-zurich-zurich",
+        "fr": "communication-specialiste-eth-zurich-zurich"
       },
       "company": "ETH Zürich",
       "companyKey": "eth-zurich",
@@ -9302,14 +9302,28 @@
         }
       },
       "postalCode": "8001",
-      "firstSeenAt": "2026-05-22T11:35:18.954Z"
+      "firstSeenAt": "2026-05-22T11:35:18.954Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "communication-specialist-eth-zurich-ch"
+        ],
+        "de": [
+          "communication-specialist-eth-zurich-ch"
+        ],
+        "fr": [
+          "communication-specialist-eth-zurich-ch"
+        ]
+      },
+      "previousSlugs": [
+        "communication-specialist-eth-zurich-ch"
+      ]
     },
     {
       "id": "eth-zurich-0f24e4a037f5",
-      "slug": "programme-manager-eth-zurich-ch",
+      "slug": "responsabile-del-programma-eth-zurich-zurich",
       "slugByLocale": {
         "en": "programme-manager-eth-zurich-ch",
-        "it": "programme-manager-eth-zurich-ch",
+        "it": "responsabile-del-programma-eth-zurich-zurich",
         "de": "programme-manager-eth-zurich-ch",
         "fr": "programme-manager-eth-zurich-ch"
       },
@@ -9366,7 +9380,15 @@
         }
       },
       "postalCode": "8001",
-      "firstSeenAt": "2026-05-22T11:35:18.398Z"
+      "firstSeenAt": "2026-05-22T11:35:18.398Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "programme-manager-eth-zurich-ch"
+        ]
+      },
+      "previousSlugs": [
+        "programme-manager-eth-zurich-ch"
+      ]
     }
   ]
 }

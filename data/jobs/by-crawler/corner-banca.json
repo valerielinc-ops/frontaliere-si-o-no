@@ -1018,12 +1018,12 @@
     },
     {
       "id": "corner-banca-6797d5ab57f3",
-      "slug": "fi-administration-e-business-support-corner-banca-lugano",
+      "slug": "amministrazione-fi-e-supporto-commerciale-corner-banca-lugano",
       "slugByLocale": {
-        "it": "fi-administration-e-business-support-corner-banca-lugano",
+        "it": "amministrazione-fi-e-supporto-commerciale-corner-banca-lugano",
         "en": "fi-administration-e-business-support-corner-banca-lugano",
         "de": "fi-administration-e-business-support-corner-banca-lugano",
-        "fr": "fi-administration-e-business-support-corner-banca-lugano"
+        "fr": "fi-administration-et-soutien-aux-entreprises-corner-banca-lugano"
       },
       "company": "Cornèr Banca",
       "companyKey": "corner-banca",
@@ -1101,7 +1101,18 @@
       "streetAddress": "Via Canova 16",
       "postalCode": "6901",
       "addressRegion": "TI",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugsByLocale": {
+        "it": [
+          "fi-administration-e-business-support-corner-banca-lugano"
+        ],
+        "fr": [
+          "fi-administration-e-business-support-corner-banca-lugano"
+        ]
+      },
+      "previousSlugs": [
+        "fi-administration-e-business-support-corner-banca-lugano"
+      ]
     },
     {
       "id": "corner-banca-f52a05ad44cc",

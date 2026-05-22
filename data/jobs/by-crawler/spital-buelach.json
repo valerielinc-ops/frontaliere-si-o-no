@@ -1444,8 +1444,7 @@
           "unterassistentin-unterassistent-radiologie-spital-buelach-bulach"
         ],
         "de": [
-          "assistentin-assistent-radiologie-spital-bulach-bulach",
-          "unterassistentin-unterassistent-radiologie-spital-buelach-bulach"
+          "assistentin-assistent-radiologie-spital-bulach-bulach"
         ]
       },
       "firstSeenAt": "2026-05-19T12:20:48.640Z",
@@ -1566,9 +1565,9 @@
     },
     {
       "id": "spital-buelach-f2cc077f7436",
-      "slug": "studente-di-radiologia-hf-spital-bulach-bulach",
+      "slug": "studenti-specialista-radiologia-hf-spital-bulach-bulach",
       "slugByLocale": {
-        "it": "studente-di-radiologia-hf-spital-bulach-bulach",
+        "it": "studenti-specialista-radiologia-hf-spital-bulach-bulach",
         "en": "students-radiology-specialist-hf-spital-bulach-bulach",
         "de": "studierende-radiologiefachperson-hf-spital-buelach-bulach",
         "fr": "etudiants-specialiste-en-radiologie-hf-spital-bulach-bulach"
@@ -1644,12 +1643,14 @@
       },
       "previousSlugs": [
         "studierende-radiologiefachperson-hf-spital-buelach-bulach",
+        "studente-di-radiologia-hf-spital-bulach-bulach",
         "radiology-student-hf-spital-bulach-bulach",
         "etudiant-en-radiologie-hf-spital-bulach-bulach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "studierende-radiologiefachperson-hf-spital-buelach-bulach"
+          "studierende-radiologiefachperson-hf-spital-buelach-bulach",
+          "studente-di-radiologia-hf-spital-bulach-bulach"
         ],
         "en": [
           "radiology-student-hf-spital-bulach-bulach"
@@ -2114,8 +2115,7 @@
           "fachperson-endoskopie-dipl-mpa-spital-buelach-bulach"
         ],
         "de": [
-          "fachkraft-fur-endoskopie-dipl-mpa-spital-bulach-bulach",
-          "fachperson-endoskopie-dipl-mpa-spital-buelach-bulach"
+          "fachkraft-fur-endoskopie-dipl-mpa-spital-bulach-bulach"
         ]
       },
       "firstSeenAt": "2026-05-19T12:20:48.625Z",
@@ -3445,12 +3445,12 @@
     },
     {
       "id": "spital-buelach-963dc314638b",
-      "slug": "abteilungsleitung-o-co-leitung-pflegeabteilung-medizin-spital-bulach",
+      "slug": "responsabile-del-dipartimento-o-della-medicina-del-co-guide-spital-bulach-bulach",
       "slugByLocale": {
-        "it": "abteilungsleitung-o-co-leitung-pflegeabteilung-medizin-spital-bulach",
-        "en": "abteilungsleitung-oder-co-leitung-pflegeabteilung-medizin-spital-buelach-bulach",
+        "it": "responsabile-del-dipartimento-o-della-medicina-del-co-guide-spital-bulach-bulach",
+        "en": "head-of-department-or-co-guide-care-department-medicine-spital-bulach-bulach",
         "de": "abteilungsleitung-oder-co-leitung-pflegeabteilung-medizin-spital-buelach-bulach",
-        "fr": "abteilungsleitung-oder-co-leitung-pflegeabteilung-medizin-spital-buelach-bulach"
+        "fr": "chef-de-departement-ou-co-guide-departement-de-soins-medecine-spital-bulach-bulach"
       },
       "company": "Spital Bülach",
       "companyKey": "spital-buelach",
@@ -3492,10 +3492,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "abteilungsleitung-oder-co-leitung-pflegeabteilung-medizin-spital-buelach-bulach"
+        "abteilungsleitung-oder-co-leitung-pflegeabteilung-medizin-spital-buelach-bulach",
+        "abteilungsleitung-o-co-leitung-pflegeabteilung-medizin-spital-bulach"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "abteilungsleitung-oder-co-leitung-pflegeabteilung-medizin-spital-buelach-bulach",
+          "abteilungsleitung-o-co-leitung-pflegeabteilung-medizin-spital-bulach"
+        ],
+        "en": [
+          "abteilungsleitung-oder-co-leitung-pflegeabteilung-medizin-spital-buelach-bulach"
+        ],
+        "fr": [
           "abteilungsleitung-oder-co-leitung-pflegeabteilung-medizin-spital-buelach-bulach"
         ]
       },

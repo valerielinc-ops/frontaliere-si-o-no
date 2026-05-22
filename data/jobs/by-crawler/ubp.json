@@ -3673,9 +3673,9 @@
     },
     {
       "id": "ubp-6d12d11f467a",
-      "slug": "wm-business-reporting-analytics-6-months-internship-ubp-ch",
+      "slug": "relazione-funzionali-e-analitici-6-mesi-di-stage-union-bancaire-privee-geneva-switzerland",
       "slugByLocale": {
-        "it": "wm-business-reporting-analytics-6-months-internship-ubp-ch",
+        "it": "relazione-funzionali-e-analitici-6-mesi-di-stage-union-bancaire-privee-geneva-switzerland",
         "en": "wm-business-reporting-analytics-6-months-internship-union-bancaire-privee-geneva-switzerland",
         "de": "wm-business-reporting-analytics-6-months-internship-ubp-ch",
         "fr": "wm-business-reporting-analytics-6-months-internship-ubp-ch"
@@ -3732,13 +3732,21 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "wm-business-reporting-analytics-6-months-internship-ubp-ch"
+        ]
+      },
+      "previousSlugs": [
+        "wm-business-reporting-analytics-6-months-internship-ubp-ch"
+      ]
     },
     {
       "id": "ubp-a98ca2f3d610",
-      "slug": "graduate-programme-investment-services-ubp-ch",
+      "slug": "programma-di-laurea-servizi-di-investimento-union-bancaire-privee-singapore-singapore",
       "slugByLocale": {
-        "it": "graduate-programme-investment-services-ubp-ch",
+        "it": "programma-di-laurea-servizi-di-investimento-union-bancaire-privee-singapore-singapore",
         "en": "graduate-programme-investment-services-ubp-ch",
         "de": "graduate-programme-investment-services-ubp-ch",
         "fr": "graduate-programme-investment-services-union-bancaire-privee-singapore-singapore"
@@ -3795,7 +3803,15 @@
           "maxValue": 88000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "graduate-programme-investment-services-ubp-ch"
+        ]
+      },
+      "previousSlugs": [
+        "graduate-programme-investment-services-ubp-ch"
+      ]
     }
   ]
 }

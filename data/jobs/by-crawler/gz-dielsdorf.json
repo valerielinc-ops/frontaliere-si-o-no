@@ -1902,9 +1902,9 @@
       "slug": "salute-specialistica-efz-spitex-gesundheitszentrum-dielsdorf-regensdorf",
       "slugByLocale": {
         "it": "salute-specialistica-efz-spitex-gesundheitszentrum-dielsdorf-regensdorf",
-        "en": "fachperson-gesundheit-efz-spitex-gz-dielsdorf-regensdorf",
+        "en": "specialist-health-efz-spitex-gesundheitszentrum-dielsdorf-regensdorf",
         "de": "fachperson-gesundheit-efz-spitex-gz-dielsdorf-regensdorf",
-        "fr": "fachperson-gesundheit-efz-spitex-gz-dielsdorf-regensdorf"
+        "fr": "specialiste-de-la-sante-efz-spitex-gesundheitszentrum-dielsdorf-regensdorf"
       },
       "company": "Gesundheitszentrum Dielsdorf",
       "companyKey": "gz-dielsdorf",
@@ -1954,6 +1954,12 @@
         "it": [
           "fachperson-gesundheit-efz-spitex-gz-dielsdorf-regensdorf",
           "fachperson-gesundheit-cfc-spitex-gesundheitszentrum-dielsdorf-regensdorf"
+        ],
+        "en": [
+          "fachperson-gesundheit-efz-spitex-gz-dielsdorf-regensdorf"
+        ],
+        "fr": [
+          "fachperson-gesundheit-efz-spitex-gz-dielsdorf-regensdorf"
         ]
       },
       "firstSeenAt": "2026-05-21T12:04:09.226Z",

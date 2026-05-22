@@ -1213,12 +1213,12 @@
     },
     {
       "id": "rennbahnklinik-134ba6c09d44",
-      "slug": "collaboratore-trice-biomechanik-80-rennbahnklinik-muttenz",
+      "slug": "dipendenti-in-biomechanik-80-rennbahnklinik-muttenz",
       "slugByLocale": {
-        "it": "collaboratore-trice-biomechanik-80-rennbahnklinik-muttenz",
-        "en": "mitarbeiter-in-biomechanik-80-rennbahnklinik-muttenz",
+        "it": "dipendenti-in-biomechanik-80-rennbahnklinik-muttenz",
+        "en": "employee-in-biomechanik-80-rennbahnklinik-muttenz",
         "de": "mitarbeiter-in-biomechanik-80-rennbahnklinik-muttenz",
-        "fr": "mitarbeiter-in-biomechanik-80-rennbahnklinik-muttenz"
+        "fr": "employe-a-biomechanik-80-rennbahnklinik-muttenz"
       },
       "company": "Rennbahnklinik",
       "companyKey": "rennbahnklinik",
@@ -1261,10 +1261,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-in-biomechanik-80-rennbahnklinik-muttenz"
+        "mitarbeiter-in-biomechanik-80-rennbahnklinik-muttenz",
+        "collaboratore-trice-biomechanik-80-rennbahnklinik-muttenz"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-biomechanik-80-rennbahnklinik-muttenz",
+          "collaboratore-trice-biomechanik-80-rennbahnklinik-muttenz"
+        ],
+        "en": [
+          "mitarbeiter-in-biomechanik-80-rennbahnklinik-muttenz"
+        ],
+        "fr": [
           "mitarbeiter-in-biomechanik-80-rennbahnklinik-muttenz"
         ]
       },

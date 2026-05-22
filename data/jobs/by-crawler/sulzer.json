@@ -2552,9 +2552,9 @@
     },
     {
       "id": "sulzer-9241880f47b0",
-      "slug": "senior-project-manager-sulzer-ch",
+      "slug": "responsabile-del-progetto-senior-sulzer-cumming",
       "slugByLocale": {
-        "it": "senior-project-manager-sulzer-ch",
+        "it": "responsabile-del-progetto-senior-sulzer-cumming",
         "en": "senior-project-manager-sulzer-ch",
         "de": "senior-project-manager-sulzer-ch",
         "fr": "senior-project-manager-sulzer-ch"
@@ -2611,13 +2611,21 @@
         }
       },
       "postalCode": "8001",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-project-manager-sulzer-ch"
+        ]
+      },
+      "previousSlugs": [
+        "senior-project-manager-sulzer-ch"
+      ]
     },
     {
       "id": "sulzer-5d6290679d52",
-      "slug": "sales-manager-south-china-sulzer-ch",
+      "slug": "responsabile-vendite-sud-cina-sulzer-suzhou",
       "slugByLocale": {
-        "it": "sales-manager-south-china-sulzer-ch",
+        "it": "responsabile-vendite-sud-cina-sulzer-suzhou",
         "en": "sales-manager-south-china-sulzer-ch",
         "de": "sales-manager-south-china-sulzer-ch",
         "fr": "sales-manager-south-china-sulzer-ch"
@@ -2674,7 +2682,15 @@
         }
       },
       "postalCode": "8001",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "sales-manager-south-china-sulzer-ch"
+        ]
+      },
+      "previousSlugs": [
+        "sales-manager-south-china-sulzer-ch"
+      ]
     },
     {
       "id": "sulzer-162098d3b924",
@@ -2990,9 +3006,9 @@
     },
     {
       "id": "sulzer-d50d3a10a153",
-      "slug": "procurement-administrator-sulzer-ch",
+      "slug": "amministratore-di-appalti-sulzer-aberdeen-netherley",
       "slugByLocale": {
-        "it": "procurement-administrator-sulzer-ch",
+        "it": "amministratore-di-appalti-sulzer-aberdeen-netherley",
         "en": "procurement-administrator-sulzer-aberdeen-netherley",
         "de": "procurement-administrator-sulzer-ch",
         "fr": "procurement-administrator-sulzer-ch"
@@ -3049,14 +3065,22 @@
         }
       },
       "postalCode": "8001",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "procurement-administrator-sulzer-ch"
+        ]
+      },
+      "previousSlugs": [
+        "procurement-administrator-sulzer-ch"
+      ]
     },
     {
       "id": "sulzer-dcf84410e999",
-      "slug": "serviceleder-sulzer-ch",
+      "slug": "servitore-sulzer-asker",
       "slugByLocale": {
         "en": "serviceleder-sulzer-ch",
-        "it": "serviceleder-sulzer-ch",
+        "it": "servitore-sulzer-asker",
         "de": "serviceleder-sulzer-asker",
         "fr": "serviceleder-sulzer-ch"
       },
@@ -3114,7 +3138,15 @@
       },
       "postalCode": "8001",
       "firstSeenAt": "2026-05-21T23:58:03.203Z",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "serviceleder-sulzer-ch"
+        ]
+      },
+      "previousSlugs": [
+        "serviceleder-sulzer-ch"
+      ]
     },
     {
       "id": "sulzer-c67df49bec4b",
@@ -3248,12 +3280,12 @@
     },
     {
       "id": "sulzer-72cda1302c27",
-      "slug": "sales-ingegnere-sulzer-winterthur",
+      "slug": "ingegnere-di-vendita-sulzer-winterthur",
       "slugByLocale": {
         "en": "sales-engineer-sulzer-winterthur",
-        "it": "sales-ingegnere-sulzer-winterthur",
-        "de": "sales-ingenieur-sulzer-winterthur",
-        "fr": "sales-engineer-sulzer-ch"
+        "it": "ingegnere-di-vendita-sulzer-winterthur",
+        "de": "vertriebsingenieur-sulzer-winterthur",
+        "fr": "ingenieur-commercial-sulzer-winterthur"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -3310,14 +3342,21 @@
       "firstSeenAt": "2026-05-21T23:58:00.571Z",
       "previousSlugsByLocale": {
         "it": [
-          "sales-engineer-sulzer-ch"
+          "sales-engineer-sulzer-ch",
+          "sales-ingegnere-sulzer-winterthur"
         ],
         "de": [
+          "sales-engineer-sulzer-ch",
+          "sales-ingenieur-sulzer-winterthur"
+        ],
+        "fr": [
           "sales-engineer-sulzer-ch"
         ]
       },
       "previousSlugs": [
-        "sales-engineer-sulzer-ch"
+        "sales-engineer-sulzer-ch",
+        "sales-ingegnere-sulzer-winterthur",
+        "sales-ingenieur-sulzer-winterthur"
       ]
     }
   ]

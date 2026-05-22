@@ -149,12 +149,12 @@
     },
     {
       "id": "klinik-schuetzen-a12cef6fc64c",
-      "slug": "oberarztin-oberarzt-80-100-facharztin-facharzt-per-psychiatrie-e-psychotherapie-klinik-schutzen-rheinfelden",
+      "slug": "medico-senior-80-100-specialista-specialista-in-psichiatria-e-psicoterapia-klinik-schutzen-rheinfelden-rheinfelden",
       "slugByLocale": {
-        "it": "oberarztin-oberarzt-80-100-facharztin-facharzt-per-psychiatrie-e-psychotherapie-klinik-schutzen-rheinfelden",
-        "en": "oberarztin-oberarzt-80-100-facharztin-facharzt-fur-psychiatrie-und-psychotherapie-klinik-2",
+        "it": "medico-senior-80-100-specialista-specialista-in-psichiatria-e-psicoterapia-klinik-schutzen-rheinfelden-rheinfelden",
+        "en": "senior-physician-80-100-specialist-specialist-in-psychiatry-and-psychotherapy-klinik-schutzen-rheinfelden-rheinfelden",
         "de": "oberarztin-oberarzt-80-100-facharztin-facharzt-fur-psychiatrie-und-psychotherapie-klinik",
-        "fr": "oberarztin-oberarzt-80-100-facharztin-facharzt-fur-psychiatrie-und-psychotherapie-klinik-2"
+        "fr": "medecin-principal-80-100-klinik-schutzen-rheinfelden-rheinfelden"
       },
       "company": "Klinik Schützen Rheinfelden",
       "companyKey": "klinik-schuetzen",
@@ -196,10 +196,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "oberarztin-oberarzt-80-100-facharztin-facharzt-fur-psychiatrie-und-psychotherapie-klinik-2"
+        "oberarztin-oberarzt-80-100-facharztin-facharzt-fur-psychiatrie-und-psychotherapie-klinik-2",
+        "oberarztin-oberarzt-80-100-facharztin-facharzt-per-psychiatrie-e-psychotherapie-klinik-schutzen-rheinfelden"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "oberarztin-oberarzt-80-100-facharztin-facharzt-fur-psychiatrie-und-psychotherapie-klinik-2",
+          "oberarztin-oberarzt-80-100-facharztin-facharzt-per-psychiatrie-e-psychotherapie-klinik-schutzen-rheinfelden"
+        ],
+        "en": [
+          "oberarztin-oberarzt-80-100-facharztin-facharzt-fur-psychiatrie-und-psychotherapie-klinik-2"
+        ],
+        "fr": [
           "oberarztin-oberarzt-80-100-facharztin-facharzt-fur-psychiatrie-und-psychotherapie-klinik-2"
         ]
       },
@@ -287,8 +295,7 @@
           "psychotherapeutin-psychotherapeuten-80-100-klinik-schuetzen-rheinfelden"
         ],
         "de": [
-          "psychotherapeutin-psychotherapeutin-80-100-klinik-schutzen-rheinfelden-rheinfelden",
-          "psychotherapeutin-psychotherapeuten-80-100-klinik-schuetzen-rheinfelden"
+          "psychotherapeutin-psychotherapeutin-80-100-klinik-schutzen-rheinfelden-rheinfelden"
         ]
       },
       "firstSeenAt": "2026-05-19T12:20:46.883Z",
@@ -530,12 +537,12 @@
     },
     {
       "id": "klinik-schuetzen-bbb172ed09e0",
-      "slug": "operatore-socio-sanitario-oss-su-base-oraria-klinik-schutzen-rheinfelden-rheinfelden",
+      "slug": "specialista-esperto-nell-arte-klinik-schutzen-rheinfelden-rheinfelden",
       "slugByLocale": {
-        "it": "operatore-socio-sanitario-oss-su-base-oraria-klinik-schutzen-rheinfelden-rheinfelden",
-        "en": "healthcare-specialist-fage-on-an-hourly-basis-klinik-schutzen-rheinfelden-rheinfelden",
+        "it": "specialista-esperto-nell-arte-klinik-schutzen-rheinfelden-rheinfelden",
+        "en": "specialist-skilled-in-the-art-klinik-schutzen-rheinfelden-rheinfelden",
         "de": "fachfrau-fachmann-gesundheit-auf-stundenlohnbasis-klinik-schuetzen-rheinfelden",
-        "fr": "assistant-e-en-soins-et-sante-communautaire-assc-sur-base-horaire-klinik-schutzen-rheinfelden-rheinfelden"
+        "fr": "specialiste-de-l-art-klinik-schutzen-rheinfelden-rheinfelden"
       },
       "company": "Klinik Schützen Rheinfelden",
       "companyKey": "klinik-schuetzen",
@@ -604,11 +611,21 @@
         ]
       },
       "previousSlugs": [
-        "fachfrau-fachmann-gesundheit-auf-stundenlohnbasis-klinik-schuetzen-rheinfelden"
+        "fachfrau-fachmann-gesundheit-auf-stundenlohnbasis-klinik-schuetzen-rheinfelden",
+        "operatore-socio-sanitario-oss-su-base-oraria-klinik-schutzen-rheinfelden-rheinfelden",
+        "healthcare-specialist-fage-on-an-hourly-basis-klinik-schutzen-rheinfelden-rheinfelden",
+        "assistant-e-en-soins-et-sante-communautaire-assc-sur-base-horaire-klinik-schutzen-rheinfelden-rheinfelden"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachfrau-fachmann-gesundheit-auf-stundenlohnbasis-klinik-schuetzen-rheinfelden"
+          "fachfrau-fachmann-gesundheit-auf-stundenlohnbasis-klinik-schuetzen-rheinfelden",
+          "operatore-socio-sanitario-oss-su-base-oraria-klinik-schutzen-rheinfelden-rheinfelden"
+        ],
+        "en": [
+          "healthcare-specialist-fage-on-an-hourly-basis-klinik-schutzen-rheinfelden-rheinfelden"
+        ],
+        "fr": [
+          "assistant-e-en-soins-et-sante-communautaire-assc-sur-base-horaire-klinik-schutzen-rheinfelden-rheinfelden"
         ]
       },
       "firstSeenAt": "2026-05-19T12:20:46.879Z",

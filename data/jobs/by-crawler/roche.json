@@ -6977,9 +6977,9 @@
     },
     {
       "id": "roche-02bb8c50e193",
-      "slug": "roche-beijing",
+      "slug": "direzione-us-desercizi-locali-roche-beijing",
       "slugByLocale": {
-        "it": "roche-beijing",
+        "it": "direzione-us-desercizi-locali-roche-beijing",
         "en": "roche-beijing",
         "de": "roche-beijing",
         "fr": "roche-beijing"
@@ -7026,12 +7026,14 @@
           "roche-ch"
         ],
         "it": [
-          "roche-ch-26"
+          "roche-ch-26",
+          "roche-beijing"
         ]
       },
       "previousSlugs": [
         "roche-ch",
-        "roche-ch-26"
+        "roche-ch-26",
+        "roche-beijing"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-21T13:14:11.324Z",
@@ -8721,9 +8723,9 @@
     },
     {
       "id": "roche-529cf387c78d",
-      "slug": "roche-guangzhou",
+      "slug": "organizzazione-della-pesca-roche-guangzhou",
       "slugByLocale": {
-        "it": "roche-guangzhou",
+        "it": "organizzazione-della-pesca-roche-guangzhou",
         "en": "roche-guangzhou",
         "de": "roche-guangzhou",
         "fr": "roche-guangzhou"
@@ -8770,12 +8772,14 @@
           "roche-ch"
         ],
         "it": [
-          "roche-ch-53"
+          "roche-ch-53",
+          "roche-guangzhou"
         ]
       },
       "previousSlugs": [
         "roche-ch",
-        "roche-ch-53"
+        "roche-ch-53",
+        "roche-guangzhou"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-21T13:13:40.372Z",
@@ -10660,9 +10664,9 @@
     },
     {
       "id": "roche-90337973d438",
-      "slug": "service-owner-for-digital-solutions-roche-ch",
+      "slug": "titolare-del-servizio-per-le-soluzioni-digitali-roche-sant-cugat-del-valles",
       "slugByLocale": {
-        "it": "service-owner-for-digital-solutions-roche-ch",
+        "it": "titolare-del-servizio-per-le-soluzioni-digitali-roche-sant-cugat-del-valles",
         "en": "service-owner-for-digital-solutions-roche-ch",
         "de": "service-owner-for-digital-solutions-roche-ch",
         "fr": "service-owner-for-digital-solutions-roche-ch"
@@ -10718,7 +10722,15 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "service-owner-for-digital-solutions-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "service-owner-for-digital-solutions-roche-ch"
+      ]
     },
     {
       "id": "roche-0f302b10915a",
@@ -15166,9 +15178,9 @@
     },
     {
       "id": "roche-16795ea7d8cb",
-      "slug": "roche-ningbo",
+      "slug": "registrati-locali-alcuni-locali-roche-ningbo",
       "slugByLocale": {
-        "it": "roche-ningbo",
+        "it": "registrati-locali-alcuni-locali-roche-ningbo",
         "en": "roche-ningbo",
         "de": "roche-ningbo",
         "fr": "roche-ningbo"
@@ -15215,12 +15227,14 @@
           "roche-ch"
         ],
         "it": [
-          "roche-ch-75"
+          "roche-ch-75",
+          "roche-ningbo"
         ]
       },
       "previousSlugs": [
         "roche-ch",
-        "roche-ch-75"
+        "roche-ch-75",
+        "roche-ningbo"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-21T13:11:53.887Z",
@@ -15310,9 +15324,9 @@
     },
     {
       "id": "roche-bf61acc42c54",
-      "slug": "m-odszy-specjalista-m-odsza-specjalistka-ds-logistyki-magazynowej-roche-warsaw",
+      "slug": "specialista-junior-specialista-di-logistica-di-magazzino-junior-roche-warsaw",
       "slugByLocale": {
-        "it": "m-odszy-specjalista-m-odsza-specjalistka-ds-logistyki-magazynowej-roche-warsaw",
+        "it": "specialista-junior-specialista-di-logistica-di-magazzino-junior-roche-warsaw",
         "en": "m-odszy-specjalista-m-odsza-specjalistka-ds-logistyki-magazynowej-roche-ch",
         "de": "m-odszy-specjalista-m-odsza-specjalistka-ds-logistyki-magazynowej-roche-ch",
         "fr": "m-odszy-specjalista-m-odsza-specjalistka-ds-logistyki-magazynowej-roche-ch"
@@ -15356,12 +15370,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "m-odszy-specjalista-m-odsza-specjalistka-ds-logistyki-magazynowej-roche-ch",
-        "specialista-junior-specialista-di-logistica-di-magazzino-junior-roche-warsaw"
+        "m-odszy-specjalista-m-odsza-specjalistka-ds-logistyki-magazynowej-roche-warsaw"
       ],
       "previousSlugsByLocale": {
         "it": [
           "m-odszy-specjalista-m-odsza-specjalistka-ds-logistyki-magazynowej-roche-ch",
-          "specialista-junior-specialista-di-logistica-di-magazzino-junior-roche-warsaw"
+          "m-odszy-specjalista-m-odsza-specjalistka-ds-logistyki-magazynowej-roche-warsaw"
         ]
       },
       "needsRetranslation": true,
@@ -17537,9 +17551,9 @@
     },
     {
       "id": "roche-59ed7233ae8c",
-      "slug": "practicante-de-business-center-roche-lima",
+      "slug": "centro-praticante-de-business-roche-lima",
       "slugByLocale": {
-        "it": "practicante-de-business-center-roche-lima",
+        "it": "centro-praticante-de-business-roche-lima",
         "en": "practicante-de-business-center-roche-ch",
         "de": "practicante-de-business-center-roche-ch",
         "fr": "practicante-de-business-center-roche-ch"
@@ -17583,12 +17597,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "practicante-de-business-center-roche-ch",
-        "centro-praticante-de-business-roche-lima"
+        "practicante-de-business-center-roche-lima"
       ],
       "previousSlugsByLocale": {
         "it": [
           "practicante-de-business-center-roche-ch",
-          "centro-praticante-de-business-roche-lima"
+          "practicante-de-business-center-roche-lima"
         ]
       },
       "needsRetranslation": true,
@@ -20904,9 +20918,9 @@
     },
     {
       "id": "roche-a65e97882d74",
-      "slug": "roche-tianjin",
+      "slug": "terreno-della-societa-regiona-locale-roche-tianjin",
       "slugByLocale": {
-        "it": "roche-tianjin",
+        "it": "terreno-della-societa-regiona-locale-roche-tianjin",
         "en": "roche-tianjin",
         "de": "roche-tianjin",
         "fr": "roche-tianjin"
@@ -20953,12 +20967,14 @@
           "roche-ch"
         ],
         "it": [
-          "roche-ch-85"
+          "roche-ch-85",
+          "roche-tianjin"
         ]
       },
       "previousSlugs": [
         "roche-ch",
-        "roche-ch-85"
+        "roche-ch-85",
+        "roche-tianjin"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-21T13:10:19.296Z",
@@ -21638,9 +21654,9 @@
     },
     {
       "id": "roche-aaffe197f44e",
-      "slug": "especialista-en-licitaciones-roche-mexico-city",
+      "slug": "specialist-en-licitaciones-roche-mexico-city",
       "slugByLocale": {
-        "it": "especialista-en-licitaciones-roche-mexico-city",
+        "it": "specialist-en-licitaciones-roche-mexico-city",
         "en": "especialista-en-licitaciones-roche-ch",
         "de": "especialista-en-licitaciones-roche-ch",
         "fr": "especialista-en-licitaciones-roche-ch"
@@ -21684,12 +21700,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "especialista-en-licitaciones-roche-ch",
-        "specialist-en-licitaciones-roche-mexico-city"
+        "especialista-en-licitaciones-roche-mexico-city"
       ],
       "previousSlugsByLocale": {
         "it": [
           "especialista-en-licitaciones-roche-ch",
-          "specialist-en-licitaciones-roche-mexico-city"
+          "especialista-en-licitaciones-roche-mexico-city"
         ]
       },
       "needsRetranslation": true,
@@ -22276,9 +22292,9 @@
     },
     {
       "id": "roche-24190952f429",
-      "slug": "histotechnician-roche-tucson",
+      "slug": "istotecnico-roche-tucson",
       "slugByLocale": {
-        "it": "histotechnician-roche-tucson",
+        "it": "istotecnico-roche-tucson",
         "en": "histotechnician-roche-tucson",
         "de": "histotechnician-roche-ch",
         "fr": "histotechnician-roche-tucson"
@@ -22326,12 +22342,12 @@
         ],
         "it": [
           "histotechnician-roche-ch",
-          "istotecnico-roche-tucson"
+          "histotechnician-roche-tucson"
         ]
       },
       "previousSlugs": [
         "histotechnician-roche-ch",
-        "istotecnico-roche-tucson"
+        "histotechnician-roche-tucson"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-21T00:05:52.402Z",
@@ -22653,9 +22669,9 @@
     },
     {
       "id": "roche-e2b1a0cca427",
-      "slug": "patient-solution-manager-roche-ch",
+      "slug": "gestione-delle-soluzioni-paziente-roche-shanghai",
       "slugByLocale": {
-        "it": "patient-solution-manager-roche-ch",
+        "it": "gestione-delle-soluzioni-paziente-roche-shanghai",
         "en": "patient-solution-manager-roche-ch",
         "de": "patient-solution-manager-roche-ch",
         "fr": "patient-solution-manager-roche-ch"
@@ -22711,7 +22727,15 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "patient-solution-manager-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "patient-solution-manager-roche-ch"
+      ]
     },
     {
       "id": "roche-6b04cc0d3ce9",
@@ -22791,11 +22815,11 @@
     },
     {
       "id": "roche-4ee79841267a",
-      "slug": "analista-roche-basel",
+      "slug": "analisi-roche-basel",
       "slugByLocale": {
-        "it": "analista-roche-basel",
+        "it": "analisi-roche-basel",
         "en": "analyst-roche-basel",
-        "de": "analyst-roche-ch",
+        "de": "analysten-roche-basel",
         "fr": "analyste-roche-basel"
       },
       "company": "Roche",
@@ -22840,14 +22864,19 @@
           "analyst-roche-ch"
         ],
         "it": [
-          "analyst-roche-ch"
+          "analyst-roche-ch",
+          "analista-roche-basel"
         ],
         "fr": [
+          "analyst-roche-ch"
+        ],
+        "de": [
           "analyst-roche-ch"
         ]
       },
       "previousSlugs": [
-        "analyst-roche-ch"
+        "analyst-roche-ch",
+        "analista-roche-basel"
       ],
       "firstSeenAt": "2026-05-21T13:09:51.529Z",
       "salaryMin": 49500,
@@ -23159,12 +23188,12 @@
     },
     {
       "id": "roche-6a22d86ce3f8",
-      "slug": "employer-brand-content-creation-tirocinante-as-of-july-2026-for-9-12-month-in-basel-roche-basel",
+      "slug": "interno-di-creazione-di-marchi-e-contenuti-dal-2026-luglio-per-9-12-mesi-a-basilea-roche-basel",
       "slugByLocale": {
-        "it": "employer-brand-content-creation-tirocinante-as-of-july-2026-for-9-12-month-in-basel-roche-basel",
+        "it": "interno-di-creazione-di-marchi-e-contenuti-dal-2026-luglio-per-9-12-mesi-a-basilea-roche-basel",
         "en": "employer-brand-content-creation-intern-as-of-july-2026-for-9-12-month-in-basel-roche-ch",
         "de": "employer-brand-content-creation-praktikant-as-of-july-2026-for-9-12-month-in-basel-roche-basel",
-        "fr": "employer-brand-content-creation-stagiaire-as-of-july-2026-for-9-12-month-in-basel-roche-basel"
+        "fr": "stage-de-creation-de-marque-et-de-contenu-de-l-employeur-en-date-de-juillet-2026-pour-9-12-mois-a-bale-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -23206,17 +23235,21 @@
       "firstSeenAt": "2026-05-21T13:09:46.810Z",
       "previousSlugsByLocale": {
         "it": [
-          "employer-brand-content-creation-intern-as-of-july-2026-for-9-12-month-in-basel-roche-ch"
+          "employer-brand-content-creation-intern-as-of-july-2026-for-9-12-month-in-basel-roche-ch",
+          "employer-brand-content-creation-tirocinante-as-of-july-2026-for-9-12-month-in-basel-roche-basel"
         ],
         "de": [
           "employer-brand-content-creation-intern-as-of-july-2026-for-9-12-month-in-basel-roche-ch"
         ],
         "fr": [
-          "employer-brand-content-creation-intern-as-of-july-2026-for-9-12-month-in-basel-roche-ch"
+          "employer-brand-content-creation-intern-as-of-july-2026-for-9-12-month-in-basel-roche-ch",
+          "employer-brand-content-creation-stagiaire-as-of-july-2026-for-9-12-month-in-basel-roche-basel"
         ]
       },
       "previousSlugs": [
-        "employer-brand-content-creation-intern-as-of-july-2026-for-9-12-month-in-basel-roche-ch"
+        "employer-brand-content-creation-intern-as-of-july-2026-for-9-12-month-in-basel-roche-ch",
+        "employer-brand-content-creation-tirocinante-as-of-july-2026-for-9-12-month-in-basel-roche-basel",
+        "employer-brand-content-creation-stagiaire-as-of-july-2026-for-9-12-month-in-basel-roche-basel"
       ],
       "salaryMin": 41600,
       "salaryMax": 63000,
@@ -23380,12 +23413,12 @@
     },
     {
       "id": "roche-0b2023f2a9d7",
-      "slug": "data-information-architetto-data-platforms-roche-basel",
+      "slug": "data-information-architect-piattaforme-di-dati-roche-basel",
       "slugByLocale": {
-        "it": "data-information-architetto-data-platforms-roche-basel",
+        "it": "data-information-architect-piattaforme-di-dati-roche-basel",
         "en": "data-information-architect-data-platforms-roche-ch",
         "de": "data-information-architect-data-platforms-roche-ch",
-        "fr": "data-information-architecte-data-platforms-roche-basel"
+        "fr": "architecte-de-donnees-d-information-plateformes-de-donnees-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -23427,14 +23460,18 @@
       "firstSeenAt": "2026-05-21T13:09:43.644Z",
       "previousSlugsByLocale": {
         "it": [
-          "data-information-architect-data-platforms-roche-ch"
+          "data-information-architect-data-platforms-roche-ch",
+          "data-information-architetto-data-platforms-roche-basel"
         ],
         "fr": [
-          "data-information-architect-data-platforms-roche-ch"
+          "data-information-architect-data-platforms-roche-ch",
+          "data-information-architecte-data-platforms-roche-basel"
         ]
       },
       "previousSlugs": [
-        "data-information-architect-data-platforms-roche-ch"
+        "data-information-architect-data-platforms-roche-ch",
+        "data-information-architetto-data-platforms-roche-basel",
+        "data-information-architecte-data-platforms-roche-basel"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -23452,9 +23489,9 @@
     },
     {
       "id": "roche-2d4aafdc8986",
-      "slug": "account-executive-roche-ch",
+      "slug": "account-esecutivo-roche-jakarta",
       "slugByLocale": {
-        "it": "account-executive-roche-ch",
+        "it": "account-esecutivo-roche-jakarta",
         "en": "account-executive-roche-jakarta",
         "de": "account-executive-roche-ch",
         "fr": "account-executive-roche-ch"
@@ -23510,13 +23547,21 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "account-executive-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "account-executive-roche-ch"
+      ]
     },
     {
       "id": "roche-ac6742c31de7",
-      "slug": "accounting-tax-integration-roche-ch",
+      "slug": "integrazione-fiscale-contabile-roche-petaling-jaya",
       "slugByLocale": {
-        "it": "accounting-tax-integration-roche-ch",
+        "it": "integrazione-fiscale-contabile-roche-petaling-jaya",
         "en": "accounting-tax-integration-roche-ch",
         "de": "accounting-tax-integration-roche-ch",
         "fr": "accounting-tax-integration-roche-ch"
@@ -23572,7 +23617,15 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "accounting-tax-integration-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "accounting-tax-integration-roche-ch"
+      ]
     },
     {
       "id": "roche-b8c3f6029dc1",
@@ -23638,9 +23691,9 @@
     },
     {
       "id": "roche-6833b88b9444",
-      "slug": "disease-area-lead-oncology-lung-roche-ch",
+      "slug": "area-malattia-piombo-oncologia-polmone-roche-istanbul",
       "slugByLocale": {
-        "it": "disease-area-lead-oncology-lung-roche-ch",
+        "it": "area-malattia-piombo-oncologia-polmone-roche-istanbul",
         "en": "disease-area-lead-oncology-lung-roche-ch",
         "de": "disease-area-lead-oncology-lung-roche-ch",
         "fr": "disease-area-lead-oncology-lung-roche-ch"
@@ -23696,13 +23749,21 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "disease-area-lead-oncology-lung-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "disease-area-lead-oncology-lung-roche-ch"
+      ]
     },
     {
       "id": "roche-df9bbec63c2a",
-      "slug": "strategischer-leiter-bau-governance-projekt-manager-capex-roche-rotkreuz",
+      "slug": "responsabile-strategico-della-governance-delle-costruzioni-project-manager-capex-roche-rotkreuz",
       "slugByLocale": {
-        "it": "strategischer-leiter-bau-governance-projekt-manager-capex-roche-rotkreuz",
+        "it": "responsabile-strategico-della-governance-delle-costruzioni-project-manager-capex-roche-rotkreuz",
         "en": "strategischer-leiter-bau-governance-projekt-manager-capex-roche-ch",
         "de": "strategischer-leiter-bau-governance-projekt-manager-capex-roche-ch",
         "fr": "strategischer-leiter-bau-governance-projekt-manager-capex-roche-ch"
@@ -23745,11 +23806,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "strategischer-leiter-bau-governance-projekt-manager-capex-roche-ch"
+        "strategischer-leiter-bau-governance-projekt-manager-capex-roche-ch",
+        "strategischer-leiter-bau-governance-projekt-manager-capex-roche-rotkreuz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "strategischer-leiter-bau-governance-projekt-manager-capex-roche-ch"
+          "strategischer-leiter-bau-governance-projekt-manager-capex-roche-ch",
+          "strategischer-leiter-bau-governance-projekt-manager-capex-roche-rotkreuz"
         ]
       },
       "needsRetranslation": true,
@@ -23770,9 +23833,9 @@
     },
     {
       "id": "roche-132b7ba0e431",
-      "slug": "facharbeiter-ansatz-abfullung-roche-ch",
+      "slug": "approccio-specialistico-riempimento-roche-mannheim",
       "slugByLocale": {
-        "it": "facharbeiter-ansatz-abfullung-roche-ch",
+        "it": "approccio-specialistico-riempimento-roche-mannheim",
         "en": "facharbeiter-ansatz-abfullung-roche-ch",
         "de": "facharbeiter-ansatz-abfullung-roche-ch",
         "fr": "facharbeiter-ansatz-abfullung-roche-ch"
@@ -23828,7 +23891,15 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "facharbeiter-ansatz-abfullung-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "facharbeiter-ansatz-abfullung-roche-ch"
+      ]
     },
     {
       "id": "roche-313440836ebc",
@@ -23837,7 +23908,7 @@
         "it": "senior-packaging-ingegnere-roche-basel",
         "en": "senior-packaging-engineer-roche-ch",
         "de": "senior-packaging-ingenieur-roche-basel",
-        "fr": "senior-packaging-ingenieur-roche-basel"
+        "fr": "ingenieur-principal-en-emballage-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -23885,11 +23956,13 @@
           "senior-packaging-engineer-roche-ch"
         ],
         "fr": [
-          "senior-packaging-engineer-roche-ch"
+          "senior-packaging-engineer-roche-ch",
+          "senior-packaging-ingenieur-roche-basel"
         ]
       },
       "previousSlugs": [
-        "senior-packaging-engineer-roche-ch"
+        "senior-packaging-engineer-roche-ch",
+        "senior-packaging-ingenieur-roche-basel"
       ],
       "salaryMin": 68000,
       "salaryMax": 103000,
@@ -23907,9 +23980,9 @@
     },
     {
       "id": "roche-ca690e80abff",
-      "slug": "roche-hefei",
+      "slug": "traduzione-roche-hefei",
       "slugByLocale": {
-        "it": "roche-hefei",
+        "it": "traduzione-roche-hefei",
         "en": "roche-hefei",
         "de": "roche-hefei",
         "fr": "roche-hefei"
@@ -23956,12 +24029,14 @@
           "roche-ch"
         ],
         "it": [
-          "roche-ch-87"
+          "roche-ch-87",
+          "roche-hefei"
         ]
       },
       "previousSlugs": [
         "roche-ch",
-        "roche-ch-87"
+        "roche-ch-87",
+        "roche-hefei"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-21T13:09:34.874Z",
@@ -23981,9 +24056,9 @@
     },
     {
       "id": "roche-ef1740bf2832",
-      "slug": "product-manager-roche-ch",
+      "slug": "responsabile-del-prodotto-roche-almaty",
       "slugByLocale": {
-        "it": "product-manager-roche-ch",
+        "it": "responsabile-del-prodotto-roche-almaty",
         "en": "product-manager-roche-almaty",
         "de": "product-manager-roche-ch",
         "fr": "product-manager-roche-ch"
@@ -24039,13 +24114,21 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "product-manager-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "product-manager-roche-ch"
+      ]
     },
     {
       "id": "roche-ea0924f2540a",
-      "slug": "internship-account-payable-roche-ch",
+      "slug": "tirocinio-conti-fornitori-roche-petaling-jaya",
       "slugByLocale": {
-        "it": "internship-account-payable-roche-ch",
+        "it": "tirocinio-conti-fornitori-roche-petaling-jaya",
         "en": "internship-account-payable-roche-ch",
         "de": "internship-account-payable-roche-ch",
         "fr": "internship-account-payable-roche-ch"
@@ -24101,7 +24184,15 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "internship-account-payable-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "internship-account-payable-roche-ch"
+      ]
     },
     {
       "id": "roche-2b168b1b8e10",
@@ -24245,9 +24336,9 @@
       "slug": "collaboratore-trice-asset-care-sut-adc-mu-basel-temporar-auf-2-jahre-roche-basel",
       "slugByLocale": {
         "it": "collaboratore-trice-asset-care-sut-adc-mu-basel-temporar-auf-2-jahre-roche-basel",
-        "en": "mitarbeiter-asset-care-sut-adc-mu-basel-temporar-auf-2-jahre-roche-ch",
+        "en": "staff-asset-care-sut-adc-mu-basel-temporary-at-2-years-roche-basel",
         "de": "mitarbeiter-asset-care-sut-adc-mu-basel-temporar-auf-2-jahre-roche-ch",
-        "fr": "mitarbeiter-asset-care-sut-adc-mu-basel-temporar-auf-2-jahre-roche-ch"
+        "fr": "sut-adc-mu-bale-temporaire-a-2-ans-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -24291,6 +24382,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-asset-care-sut-adc-mu-basel-temporar-auf-2-jahre-roche-ch"
+        ],
+        "en": [
+          "mitarbeiter-asset-care-sut-adc-mu-basel-temporar-auf-2-jahre-roche-ch"
+        ],
+        "fr": [
           "mitarbeiter-asset-care-sut-adc-mu-basel-temporar-auf-2-jahre-roche-ch"
         ]
       },
@@ -24387,9 +24484,9 @@
     },
     {
       "id": "roche-98fd400af89a",
-      "slug": "senior-scientist-chemistry-w-m-d-r-d-electrochemical-sensor-formulation-design-roche-ch",
+      "slug": "scienziato-senior-in-chimica-f-m-d-r-d-formulazione-e-progettazione-di-sensori-elettrochimici-roche-mannheim",
       "slugByLocale": {
-        "it": "senior-scientist-chemistry-w-m-d-r-d-electrochemical-sensor-formulation-design-roche-ch",
+        "it": "scienziato-senior-in-chimica-f-m-d-r-d-formulazione-e-progettazione-di-sensori-elettrochimici-roche-mannheim",
         "en": "senior-scientist-chemistry-w-m-d-r-d-electrochemical-sensor-formulation-design-roche-ch",
         "de": "senior-scientist-chemistry-w-m-d-r-d-electrochemical-sensor-formulation-design-roche-ch",
         "fr": "senior-scientist-chemistry-w-m-d-r-d-electrochemical-sensor-formulation-design-roche-ch"
@@ -24445,13 +24542,21 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-scientist-chemistry-w-m-d-r-d-electrochemical-sensor-formulation-design-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "senior-scientist-chemistry-w-m-d-r-d-electrochemical-sensor-formulation-design-roche-ch"
+      ]
     },
     {
       "id": "roche-86193c6c0338",
-      "slug": "senior-scientist-biological-interface-engineering-m-f-d-roche-ch",
+      "slug": "scienziato-senior-ingegneria-delle-interfacce-biologiche-m-f-d-roche-mannheim",
       "slugByLocale": {
-        "it": "senior-scientist-biological-interface-engineering-m-f-d-roche-ch",
+        "it": "scienziato-senior-ingegneria-delle-interfacce-biologiche-m-f-d-roche-mannheim",
         "en": "senior-scientist-biological-interface-engineering-m-f-d-roche-ch",
         "de": "senior-scientist-biological-interface-engineering-m-f-d-roche-ch",
         "fr": "senior-scientist-biological-interface-engineering-m-f-d-roche-ch"
@@ -24507,13 +24612,21 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-scientist-biological-interface-engineering-m-f-d-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "senior-scientist-biological-interface-engineering-m-f-d-roche-ch"
+      ]
     },
     {
       "id": "roche-3611f4a4fd84",
-      "slug": "postdoc-position-in-bioorganic-chemistry-m-f-d-roche-ch",
+      "slug": "posizione-postdoc-in-chimica-bioorganica-m-f-d-roche-penzberg",
       "slugByLocale": {
-        "it": "postdoc-position-in-bioorganic-chemistry-m-f-d-roche-ch",
+        "it": "posizione-postdoc-in-chimica-bioorganica-m-f-d-roche-penzberg",
         "en": "postdoc-position-in-bioorganic-chemistry-m-f-d-roche-ch",
         "de": "postdoc-position-in-bioorganic-chemistry-m-f-d-roche-ch",
         "fr": "postdoc-position-in-bioorganic-chemistry-m-f-d-roche-ch"
@@ -24569,7 +24682,15 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "postdoc-position-in-bioorganic-chemistry-m-f-d-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "postdoc-position-in-bioorganic-chemistry-m-f-d-roche-ch"
+      ]
     },
     {
       "id": "roche-235c2392c502",
@@ -24646,9 +24767,9 @@
     },
     {
       "id": "roche-594ec9634b03",
-      "slug": "senior-partner-business-excellence-roche-ch",
+      "slug": "eccellenza-aziendale-senior-partner-roche-karachi",
       "slugByLocale": {
-        "it": "senior-partner-business-excellence-roche-ch",
+        "it": "eccellenza-aziendale-senior-partner-roche-karachi",
         "en": "senior-partner-business-excellence-roche-ch",
         "de": "senior-partner-business-excellence-roche-ch",
         "fr": "senior-partner-business-excellence-roche-ch"
@@ -24704,13 +24825,21 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-partner-business-excellence-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "senior-partner-business-excellence-roche-ch"
+      ]
     },
     {
       "id": "roche-ad8362026e48",
-      "slug": "patient-safety-partner-roche-ch",
+      "slug": "partner-della-sicurezza-paziente-roche-dublin",
       "slugByLocale": {
-        "it": "patient-safety-partner-roche-ch",
+        "it": "partner-della-sicurezza-paziente-roche-dublin",
         "en": "patient-safety-partner-roche-ch",
         "de": "patient-safety-partner-roche-ch",
         "fr": "patient-safety-partner-roche-ch"
@@ -24766,13 +24895,21 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "patient-safety-partner-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "patient-safety-partner-roche-ch"
+      ]
     },
     {
       "id": "roche-4716cb8666e2",
-      "slug": "ingenieur-service-guadeloupe-d-f-m-roche-ch",
+      "slug": "servizio-ingegnere-guadalupa-d-f-m-roche-france",
       "slugByLocale": {
-        "it": "ingenieur-service-guadeloupe-d-f-m-roche-ch",
+        "it": "servizio-ingegnere-guadalupa-d-f-m-roche-france",
         "en": "ingenieur-service-guadeloupe-d-f-m-roche-ch",
         "de": "ingenieur-service-guadeloupe-d-f-m-roche-ch",
         "fr": "ingenieur-service-guadeloupe-d-f-m-roche-ch"
@@ -24828,7 +24965,15 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "ingenieur-service-guadeloupe-d-f-m-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "ingenieur-service-guadeloupe-d-f-m-roche-ch"
+      ]
     },
     {
       "id": "roche-ae1e9e232d3e",
@@ -25104,10 +25249,10 @@
     },
     {
       "id": "roche-1c76aa4362fa",
-      "slug": "maintenance-ingegnere-roche-basel",
+      "slug": "ingegnere-di-manutenzione-roche-basel",
       "slugByLocale": {
         "en": "maintenance-engineer-roche-basel",
-        "it": "maintenance-ingegnere-roche-basel",
+        "it": "ingegnere-di-manutenzione-roche-basel",
         "de": "maintenance-ingenieur-roche-basel",
         "fr": "maintenance-engineer-roche-ch"
       },
@@ -25166,21 +25311,23 @@
       "firstSeenAt": "2026-05-21T23:38:01.006Z",
       "previousSlugsByLocale": {
         "it": [
-          "maintenance-engineer-roche-ch"
+          "maintenance-engineer-roche-ch",
+          "maintenance-ingegnere-roche-basel"
         ],
         "de": [
           "maintenance-engineer-roche-ch"
         ]
       },
       "previousSlugs": [
-        "maintenance-engineer-roche-ch"
+        "maintenance-engineer-roche-ch",
+        "maintenance-ingegnere-roche-basel"
       ]
     },
     {
       "id": "roche-8e74cab933e1",
-      "slug": "praktikum-im-bereich-partikeltechnologie-m-w-d-roche-ch",
+      "slug": "praktikant-m-w-d-roche-penzberg",
       "slugByLocale": {
-        "it": "praktikum-im-bereich-partikeltechnologie-m-w-d-roche-ch",
+        "it": "praktikant-m-w-d-roche-penzberg",
         "en": "praktikum-im-bereich-partikeltechnologie-m-w-d-roche-ch",
         "de": "praktikum-im-bereich-partikeltechnologie-m-w-d-roche-ch",
         "fr": "praktikum-im-bereich-partikeltechnologie-m-w-d-roche-ch"
@@ -25236,7 +25383,15 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "praktikum-im-bereich-partikeltechnologie-m-w-d-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "praktikum-im-bereich-partikeltechnologie-m-w-d-roche-ch"
+      ]
     },
     {
       "id": "roche-55f648578a8c",
@@ -25311,10 +25466,10 @@
     },
     {
       "id": "roche-61c948c56d8a",
-      "slug": "key-account-manager-comptes-publics-d-f-m-roche-ch",
+      "slug": "key-account-manager-conti-pubblici-d-f-m-roche-france",
       "slugByLocale": {
         "fr": "key-account-manager-comptes-publics-d-f-m-roche-ch",
-        "it": "key-account-manager-comptes-publics-d-f-m-roche-ch",
+        "it": "key-account-manager-conti-pubblici-d-f-m-roche-france",
         "en": "key-account-manager-comptes-publics-d-f-m-roche-ch",
         "de": "key-account-manager-comptes-publics-d-f-m-roche-ch"
       },
@@ -25371,7 +25526,15 @@
         }
       },
       "firstSeenAt": "2026-05-21T23:37:57.743Z",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "key-account-manager-comptes-publics-d-f-m-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "key-account-manager-comptes-publics-d-f-m-roche-ch"
+      ]
     },
     {
       "id": "roche-89352877c226",
@@ -25447,10 +25610,10 @@
     },
     {
       "id": "roche-85dc64320163",
-      "slug": "global-digital-campaign-expert-talent-pool-roche-ch",
+      "slug": "esperto-globale-di-campagne-digitali-talent-pool-roche-budapest",
       "slugByLocale": {
         "en": "global-digital-campaign-expert-talent-pool-roche-ch",
-        "it": "global-digital-campaign-expert-talent-pool-roche-ch",
+        "it": "esperto-globale-di-campagne-digitali-talent-pool-roche-budapest",
         "de": "global-digital-campaign-expert-talent-pool-roche-ch",
         "fr": "global-digital-campaign-expert-talent-pool-roche-ch"
       },
@@ -25507,7 +25670,15 @@
         }
       },
       "firstSeenAt": "2026-05-21T23:37:55.997Z",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "global-digital-campaign-expert-talent-pool-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "global-digital-campaign-expert-talent-pool-roche-ch"
+      ]
     },
     {
       "id": "roche-138fb3f52d84",
@@ -25766,11 +25937,11 @@
     },
     {
       "id": "roche-0481c12981e8",
-      "slug": "qa-manager-qualifizierung-e-validierung-von-anlagen-geraten-e-systemen-roche-basel",
+      "slug": "qa-manager-qualificazione-e-convalida-di-sistemi-dispositivi-e-sistemi-roche-basel",
       "slugByLocale": {
         "de": "qa-manager-qualifizierung-und-validierung-von-anlagen-geraten-und-systemen-roche-ch",
-        "it": "qa-manager-qualifizierung-e-validierung-von-anlagen-geraten-e-systemen-roche-basel",
-        "en": "qa-manager-qualifizierung-und-validierung-von-anlagen-geraten-und-systemen-roche-ch",
+        "it": "qa-manager-qualificazione-e-convalida-di-sistemi-dispositivi-e-sistemi-roche-basel",
+        "en": "qa-manager-qualification-and-validation-of-systems-devices-and-systems-roche-basel",
         "fr": "qa-manager-qualifizierung-und-validierung-von-anlagen-geraten-und-systemen-roche-ch"
       },
       "company": "Roche",
@@ -25814,11 +25985,16 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "qa-manager-qualifizierung-und-validierung-von-anlagen-geraten-und-systemen-roche-ch",
+          "qa-manager-qualifizierung-e-validierung-von-anlagen-geraten-e-systemen-roche-basel"
+        ],
+        "en": [
           "qa-manager-qualifizierung-und-validierung-von-anlagen-geraten-und-systemen-roche-ch"
         ]
       },
       "previousSlugs": [
-        "qa-manager-qualifizierung-und-validierung-von-anlagen-geraten-und-systemen-roche-ch"
+        "qa-manager-qualifizierung-und-validierung-von-anlagen-geraten-und-systemen-roche-ch",
+        "qa-manager-qualifizierung-e-validierung-von-anlagen-geraten-e-systemen-roche-basel"
       ],
       "salaryMin": 68000,
       "salaryMax": 103000,
@@ -25841,8 +26017,8 @@
       "slugByLocale": {
         "de": "medizintechnik-praktikum-im-service-au-endienst-fur-labordiagnostik-im-raum-jena-nurnberg",
         "it": "medizintechnik-praktikum-im-service-au-endienst-per-labordiagnostik-im-raum-jena-nurnberg-dresden-wurzburg-m-w-d-roche-basel",
-        "en": "medizintechnik-praktikum-im-service-au-endienst-fur-labordiagnostik-im-raum-jena-nurnberg",
-        "fr": "medizintechnik-praktikum-im-service-au-endienst-fur-labordiagnostik-im-raum-jena-nurnberg"
+        "en": "medical-technology-internship-in-service-department-for-laboratory-diagnostics-in-jena-nuremberg-dresden-wurzburg-m-w-d",
+        "fr": "stage-en-technologie-medicale-dans-le-departement-de-service-pour-le-diagnostic-en-laboratoire-a-jena-nuremberg-dresde"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -25886,6 +26062,12 @@
       "previousSlugsByLocale": {
         "it": [
           "medizintechnik-praktikum-im-service-au-endienst-fur-labordiagnostik-im-raum-jena-nurnberg"
+        ],
+        "en": [
+          "medizintechnik-praktikum-im-service-au-endienst-fur-labordiagnostik-im-raum-jena-nurnberg"
+        ],
+        "fr": [
+          "medizintechnik-praktikum-im-service-au-endienst-fur-labordiagnostik-im-raum-jena-nurnberg"
         ]
       },
       "previousSlugs": [
@@ -25908,10 +26090,10 @@
     },
     {
       "id": "roche-9c40489b07a8",
-      "slug": "medical-manager-oncology-roche-ch",
+      "slug": "responsabile-medico-oncologia-roche-mexico-city",
       "slugByLocale": {
         "fr": "medical-manager-oncology-roche-ch",
-        "it": "medical-manager-oncology-roche-ch",
+        "it": "responsabile-medico-oncologia-roche-mexico-city",
         "en": "medical-manager-oncology-roche-ch",
         "de": "medical-manager-oncology-roche-ch"
       },
@@ -25968,16 +26150,24 @@
         }
       },
       "firstSeenAt": "2026-05-21T23:37:47.192Z",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "medical-manager-oncology-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "medical-manager-oncology-roche-ch"
+      ]
     },
     {
       "id": "roche-42574da2a623",
-      "slug": "field-applications-scientist-sequencing-roche-ch",
+      "slug": "applicazioni-sul-campo-roche-basel",
       "slugByLocale": {
         "en": "field-applications-scientist-sequencing-roche-ch",
-        "it": "field-applications-scientist-sequencing-roche-ch",
-        "de": "field-applications-scientist-sequencing-roche-ch",
-        "fr": "field-applications-scientist-sequencing-roche-ch"
+        "it": "applicazioni-sul-campo-roche-basel",
+        "de": "feldanwendungen-wissenschaftler-sequencing-roche-basel",
+        "fr": "applications-sur-le-terrain-scientist-sequencage-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -26031,7 +26221,21 @@
         }
       },
       "postalCode": "4001",
-      "firstSeenAt": "2026-05-21T23:37:46.363Z"
+      "firstSeenAt": "2026-05-21T23:37:46.363Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "field-applications-scientist-sequencing-roche-ch"
+        ],
+        "de": [
+          "field-applications-scientist-sequencing-roche-ch"
+        ],
+        "fr": [
+          "field-applications-scientist-sequencing-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "field-applications-scientist-sequencing-roche-ch"
+      ]
     },
     {
       "id": "roche-a8f08ae323f2",
@@ -26100,7 +26304,7 @@
         "en": "field-engineering-specialist-scranton-pennsylvania-roche-ch",
         "it": "field-engineering-specialist-scranton-pennsylvania-roche-ch",
         "de": "field-engineering-specialist-scranton-pennsylvania-roche-ch",
-        "fr": "field-engineering-specialist-scranton-pennsylvania-roche-ch"
+        "fr": "specialiste-en-genie-de-terrain-scranton-pennsylvanie-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -26284,10 +26488,10 @@
     },
     {
       "id": "roche-bae7749ac47e",
-      "slug": "coordinador-de-almacen-roche-ch",
+      "slug": "coordinator-de-almacen-roche-el-coyol",
       "slugByLocale": {
         "en": "coordinador-de-almacen-roche-ch",
-        "it": "coordinador-de-almacen-roche-ch",
+        "it": "coordinator-de-almacen-roche-el-coyol",
         "de": "coordinador-de-almacen-roche-ch",
         "fr": "coordinador-de-almacen-roche-el-coyol"
       },
@@ -26344,7 +26548,15 @@
         }
       },
       "firstSeenAt": "2026-05-21T23:37:42.418Z",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "coordinador-de-almacen-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "coordinador-de-almacen-roche-ch"
+      ]
     },
     {
       "id": "roche-1427e12cc294",
@@ -26412,12 +26624,12 @@
     },
     {
       "id": "roche-9371ee733d1b",
-      "slug": "medical-access-partner-roche-ch",
+      "slug": "partner-medico-e-di-accesso-roche-basel",
       "slugByLocale": {
         "fr": "medical-access-partner-roche-ch",
-        "it": "medical-access-partner-roche-ch",
-        "en": "medical-access-partner-roche-ch",
-        "de": "medical-access-partner-roche-ch"
+        "it": "partner-medico-e-di-accesso-roche-basel",
+        "en": "medico-y-acceso-socio-roche-basel",
+        "de": "medizin-und-zugang-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -26471,16 +26683,30 @@
         }
       },
       "postalCode": "4001",
-      "firstSeenAt": "2026-05-21T23:37:40.735Z"
+      "firstSeenAt": "2026-05-21T23:37:40.735Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "medical-access-partner-roche-ch"
+        ],
+        "en": [
+          "medical-access-partner-roche-ch"
+        ],
+        "de": [
+          "medical-access-partner-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "medical-access-partner-roche-ch"
+      ]
     },
     {
       "id": "roche-f9949dd922f9",
-      "slug": "digital-sales-specialist-central-lab-roche-ch",
+      "slug": "specialista-di-vendita-digitale-laboratorio-centrale-roche-basel",
       "slugByLocale": {
         "en": "digital-sales-specialist-central-lab-roche-ch",
-        "it": "digital-sales-specialist-central-lab-roche-ch",
+        "it": "specialista-di-vendita-digitale-laboratorio-centrale-roche-basel",
         "de": "digital-sales-specialist-central-lab-roche-ch",
-        "fr": "digital-sales-specialist-central-lab-roche-ch"
+        "fr": "specialiste-des-ventes-numeriques-central-lab-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -26534,16 +26760,27 @@
         }
       },
       "postalCode": "4001",
-      "firstSeenAt": "2026-05-21T23:37:40.020Z"
+      "firstSeenAt": "2026-05-21T23:37:40.020Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "digital-sales-specialist-central-lab-roche-ch"
+        ],
+        "fr": [
+          "digital-sales-specialist-central-lab-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "digital-sales-specialist-central-lab-roche-ch"
+      ]
     },
     {
       "id": "roche-578ceaee8009",
-      "slug": "anatomic-pathology-solutions-manager-roche-ch",
+      "slug": "responsabile-soluzioni-anatomia-patologica-roche-basel",
       "slugByLocale": {
         "en": "anatomic-pathology-solutions-manager-roche-ch",
-        "it": "anatomic-pathology-solutions-manager-roche-ch",
-        "de": "anatomic-pathology-solutions-manager-roche-ch",
-        "fr": "anatomic-pathology-solutions-manager-roche-ch"
+        "it": "responsabile-soluzioni-anatomia-patologica-roche-basel",
+        "de": "anatomische-pathologie-solutions-manager-roche-basel",
+        "fr": "gestionnaire-de-solutions-de-pathologie-anatomique-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -26597,7 +26834,21 @@
         }
       },
       "postalCode": "4001",
-      "firstSeenAt": "2026-05-21T23:37:39.230Z"
+      "firstSeenAt": "2026-05-21T23:37:39.230Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "anatomic-pathology-solutions-manager-roche-ch"
+        ],
+        "de": [
+          "anatomic-pathology-solutions-manager-roche-ch"
+        ],
+        "fr": [
+          "anatomic-pathology-solutions-manager-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "anatomic-pathology-solutions-manager-roche-ch"
+      ]
     }
   ]
 }

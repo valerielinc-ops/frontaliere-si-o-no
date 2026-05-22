@@ -584,12 +584,12 @@
     },
     {
       "id": "stgag-69c86a92d5a3",
-      "slug": "assistenzarzte-innen-psychiatrie-e-psychotherapie-spital-thurgau-stgag-munsterlingen",
+      "slug": "assistenti-medici-psichiatria-e-psicoterapia-spital-thurgau-stgag-munsterlingen-22a717",
       "slugByLocale": {
-        "it": "assistenzarzte-innen-psychiatrie-e-psychotherapie-spital-thurgau-stgag-munsterlingen",
-        "en": "assistenzarzte-innen-psychiatrie-und-psychotherapie-stgag-ch",
+        "it": "assistenti-medici-psichiatria-e-psicoterapia-spital-thurgau-stgag-munsterlingen-22a717",
+        "en": "assistant-physicians-psychiatry-and-psychotherapy-spital-thurgau-stgag-munsterlingen-22a717",
         "de": "assistenzarzte-innen-psychiatrie-und-psychotherapie-stgag-munsterlingen",
-        "fr": "assistenzarzte-innen-psychiatrie-und-psychotherapie-stgag-ch"
+        "fr": "medecins-adjoints-psychiatrie-et-psychotherapie-spital-thurgau-stgag-munsterlingen-22a717"
       },
       "company": "Spital Thurgau (STGAG)",
       "companyKey": "stgag",
@@ -642,16 +642,31 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "assistenzarzte-innen-psychiatrie-e-psychotherapie-spital-thurgau-stgag-munsterlingen"
+        ],
+        "en": [
+          "assistenzarzte-innen-psychiatrie-und-psychotherapie-stgag-ch"
+        ],
+        "fr": [
+          "assistenzarzte-innen-psychiatrie-und-psychotherapie-stgag-ch"
+        ]
+      },
+      "previousSlugs": [
+        "assistenzarzte-innen-psychiatrie-e-psychotherapie-spital-thurgau-stgag-munsterlingen",
+        "assistenzarzte-innen-psychiatrie-und-psychotherapie-stgag-ch"
+      ]
     },
     {
       "id": "stgag-9602659c37b0",
-      "slug": "assistenzarzt-arztin-in-facharztweiterbildung-kinder-e-jugendpsychiatrie-e-psychotherapie-spital-thurgau-stgag-munsterlingen",
+      "slug": "assistente-medico-nell-ulteriore-educazione-psichiatria-infantile-e-giovanile-e-psicoterapia-spital-thurgau-stgag",
       "slugByLocale": {
-        "it": "assistenzarzt-arztin-in-facharztweiterbildung-kinder-e-jugendpsychiatrie-e-psychotherapie-spital-thurgau-stgag-munsterlingen",
-        "en": "assistenzarzt-arztin-in-facharztweiterbildung-kinder-und-jugendpsychiatrie-und",
+        "it": "assistente-medico-nell-ulteriore-educazione-psichiatria-infantile-e-giovanile-e-psicoterapia-spital-thurgau-stgag",
+        "en": "assistant-physician-in-further-education-child-and-youth-psychiatry-and-psychotherapy-spital-thurgau-stgag-munsterlingen",
         "de": "assistenzarzt-arztin-in-facharztweiterbildung-kinder-und-jugendpsychiatrie-und",
-        "fr": "assistenzarzt-arztin-in-facharztweiterbildung-kinder-und-jugendpsychiatrie-und"
+        "fr": "medecin-adjoint-en-psychiatrie-et-psychotherapie-des-enfants-et-des-jeunes-spital-thurgau-stgag-munsterlingen"
       },
       "company": "Spital Thurgau (STGAG)",
       "companyKey": "stgag",
@@ -693,10 +708,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "assistenzarzt-arztin-in-facharztweiterbildung-kinder-und-jugendpsychiatrie-und"
+        "assistenzarzt-arztin-in-facharztweiterbildung-kinder-und-jugendpsychiatrie-und",
+        "assistenzarzt-arztin-in-facharztweiterbildung-kinder-e-jugendpsychiatrie-e-psychotherapie-spital-thurgau-stgag-munsterlingen"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "assistenzarzt-arztin-in-facharztweiterbildung-kinder-und-jugendpsychiatrie-und",
+          "assistenzarzt-arztin-in-facharztweiterbildung-kinder-e-jugendpsychiatrie-e-psychotherapie-spital-thurgau-stgag-munsterlingen"
+        ],
+        "en": [
+          "assistenzarzt-arztin-in-facharztweiterbildung-kinder-und-jugendpsychiatrie-und"
+        ],
+        "fr": [
           "assistenzarzt-arztin-in-facharztweiterbildung-kinder-und-jugendpsychiatrie-und"
         ]
       },
@@ -716,12 +739,12 @@
     },
     {
       "id": "stgag-77deeff17c65",
-      "slug": "projektassistent-in-bauadministration-stgag-munsterlingen",
+      "slug": "assistente-in-bauadministrazioni-spital-thurgau-stgag-munsterlingen",
       "slugByLocale": {
-        "it": "projektassistent-in-bauadministration-stgag-munsterlingen",
-        "en": "projektassistent-in-bauadministration-stgag-munsterlingen",
+        "it": "assistente-in-bauadministrazioni-spital-thurgau-stgag-munsterlingen",
+        "en": "project-assistant-in-bauadministration-spital-thurgau-stgag-munsterlingen",
         "de": "projektassistent-in-bauadministration-stgag-munsterlingen",
-        "fr": "projektassistent-in-bauadministration-stgag-munsterlingen"
+        "fr": "assistant-de-projet-a-bauadministration-spital-thurgau-stgag-munsterlingen"
       },
       "company": "Spital Thurgau (STGAG)",
       "companyKey": "stgag",
@@ -774,7 +797,21 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "projektassistent-in-bauadministration-stgag-munsterlingen"
+        ],
+        "en": [
+          "projektassistent-in-bauadministration-stgag-munsterlingen"
+        ],
+        "fr": [
+          "projektassistent-in-bauadministration-stgag-munsterlingen"
+        ]
+      },
+      "previousSlugs": [
+        "projektassistent-in-bauadministration-stgag-munsterlingen"
+      ]
     }
   ]
 }

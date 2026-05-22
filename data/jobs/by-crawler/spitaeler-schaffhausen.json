@@ -1363,12 +1363,12 @@
     },
     {
       "id": "spitaeler-schaffhausen-a0af7b3e9701",
-      "slug": "zivildienstleistender-technischer-dienst-spitaler-schaffhausen-schaffhausen",
+      "slug": "fornitore-di-servizi-civili-di-servizio-tecnico-spitaler-schaffhausen-schaffhausen",
       "slugByLocale": {
-        "it": "zivildienstleistender-technischer-dienst-spitaler-schaffhausen-schaffhausen",
-        "en": "zivildienstleistender-technischer-dienst-spitaler-schaffhausen-schaffhausen",
+        "it": "fornitore-di-servizi-civili-di-servizio-tecnico-spitaler-schaffhausen-schaffhausen",
+        "en": "civil-service-provider-of-technical-service-spitaler-schaffhausen-schaffhausen",
         "de": "zivildienstleistender-technischer-dienst-spitaler-schaffhausen-schaffhausen",
-        "fr": "zivildienstleistender-technischer-dienst-spitaler-schaffhausen-schaffhausen"
+        "fr": "fournisseur-de-services-techniques-de-la-fonction-publique-spitaler-schaffhausen-schaffhausen"
       },
       "company": "Spitäler Schaffhausen",
       "companyKey": "spitaeler-schaffhausen",
@@ -1414,11 +1414,19 @@
           "zivildienstleistender-technischer-dienst-spitaeler-schaffhausen-schaffhausen"
         ],
         "it": [
-          "zivildienstleistender-technischer-dienst-spitaeler-schaffhausen-schaffhausen"
+          "zivildienstleistender-technischer-dienst-spitaeler-schaffhausen-schaffhausen",
+          "zivildienstleistender-technischer-dienst-spitaler-schaffhausen-schaffhausen"
+        ],
+        "en": [
+          "zivildienstleistender-technischer-dienst-spitaler-schaffhausen-schaffhausen"
+        ],
+        "fr": [
+          "zivildienstleistender-technischer-dienst-spitaler-schaffhausen-schaffhausen"
         ]
       },
       "previousSlugs": [
-        "zivildienstleistender-technischer-dienst-spitaeler-schaffhausen-schaffhausen"
+        "zivildienstleistender-technischer-dienst-spitaeler-schaffhausen-schaffhausen",
+        "zivildienstleistender-technischer-dienst-spitaler-schaffhausen-schaffhausen"
       ],
       "firstSeenAt": "2026-05-21T13:18:10.840Z",
       "salaryMin": 49500,
@@ -2769,12 +2777,12 @@
     },
     {
       "id": "spitaeler-schaffhausen-e5e97bac6694",
-      "slug": "fachmann-frau-gesundheit-cfc-spitaler-schaffhausen",
+      "slug": "salute-professionale-moglie-efz-spitaler-schaffhausen-schaffhausen",
       "slugByLocale": {
-        "it": "fachmann-frau-gesundheit-cfc-spitaler-schaffhausen",
-        "en": "fachmann-frau-gesundheit-efz-spitaeler-schaffhausen-schaffhausen-3",
+        "it": "salute-professionale-moglie-efz-spitaler-schaffhausen-schaffhausen",
+        "en": "professional-wife-health-efz-spitaler-schaffhausen-schaffhausen",
         "de": "fachmann-frau-gesundheit-efz-spitaeler-schaffhausen-schaffhausen",
-        "fr": "fachmann-frau-gesundheit-efz-spitaeler-schaffhausen-schaffhausen-3"
+        "fr": "professionnel-femme-sante-efz-spitaler-schaffhausen-schaffhausen"
       },
       "company": "Spitäler Schaffhausen",
       "companyKey": "spitaeler-schaffhausen",
@@ -2817,12 +2825,20 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "fachmann-frau-gesundheit-efz-spitaeler-schaffhausen-schaffhausen-3",
-        "fachmann-frau-gesundheit-efz-spitaeler-schaffhausen-schaffhausen-2"
+        "fachmann-frau-gesundheit-efz-spitaeler-schaffhausen-schaffhausen-2",
+        "fachmann-frau-gesundheit-cfc-spitaler-schaffhausen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fachmann-frau-gesundheit-efz-spitaeler-schaffhausen-schaffhausen-3",
-          "fachmann-frau-gesundheit-efz-spitaeler-schaffhausen-schaffhausen-2"
+          "fachmann-frau-gesundheit-efz-spitaeler-schaffhausen-schaffhausen-2",
+          "fachmann-frau-gesundheit-cfc-spitaler-schaffhausen"
+        ],
+        "en": [
+          "fachmann-frau-gesundheit-efz-spitaeler-schaffhausen-schaffhausen-3"
+        ],
+        "fr": [
+          "fachmann-frau-gesundheit-efz-spitaeler-schaffhausen-schaffhausen-3"
         ]
       },
       "firstSeenAt": "2026-05-19T23:29:30.981Z",
@@ -2841,12 +2857,12 @@
     },
     {
       "id": "spitaeler-schaffhausen-5d257a2159b1",
-      "slug": "specialista-della-salute-efz-con-opzione-per-la-formazione-professionale-spitaler-schaffhausen-schaffhausen",
+      "slug": "professional-wife-health-efz-con-opzione-su-trainer-in-professionale-spitaler-schaffhausen-schaffhausen",
       "slugByLocale": {
-        "it": "specialista-della-salute-efz-con-opzione-per-la-formazione-professionale-spitaler-schaffhausen-schaffhausen",
-        "en": "healthcare-specialist-efz-with-option-for-vocational-training-spitaler-schaffhausen-schaffhausen",
+        "it": "professional-wife-health-efz-con-opzione-su-trainer-in-professionale-spitaler-schaffhausen-schaffhausen",
+        "en": "professional-wife-health-efz-with-option-on-professional-trainer-in-spitaler-schaffhausen-schaffhausen",
         "de": "fachmann-frau-gesundheit-efz-mit-option-auf-berufsbildner-in-spitaeler-schaffhausen",
-        "fr": "specialiste-en-sante-efz-avec-option-pour-la-formation-professionnelle-spitaler-schaffhausen-schaffhausen"
+        "fr": "professionnel-femme-sante-efz-avec-option-sur-formateur-professionnel-in-spitaler-schaffhausen-schaffhausen"
       },
       "company": "Spitäler Schaffhausen",
       "companyKey": "spitaeler-schaffhausen",
@@ -2910,11 +2926,21 @@
         ]
       },
       "previousSlugs": [
-        "fachmann-frau-gesundheit-efz-mit-option-auf-berufsbildner-in-spitaeler-schaffhausen"
+        "fachmann-frau-gesundheit-efz-mit-option-auf-berufsbildner-in-spitaeler-schaffhausen",
+        "specialista-della-salute-efz-con-opzione-per-la-formazione-professionale-spitaler-schaffhausen-schaffhausen",
+        "healthcare-specialist-efz-with-option-for-vocational-training-spitaler-schaffhausen-schaffhausen",
+        "specialiste-en-sante-efz-avec-option-pour-la-formation-professionnelle-spitaler-schaffhausen-schaffhausen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachmann-frau-gesundheit-efz-mit-option-auf-berufsbildner-in-spitaeler-schaffhausen"
+          "fachmann-frau-gesundheit-efz-mit-option-auf-berufsbildner-in-spitaeler-schaffhausen",
+          "specialista-della-salute-efz-con-opzione-per-la-formazione-professionale-spitaler-schaffhausen-schaffhausen"
+        ],
+        "en": [
+          "healthcare-specialist-efz-with-option-for-vocational-training-spitaler-schaffhausen-schaffhausen"
+        ],
+        "fr": [
+          "specialiste-en-sante-efz-avec-option-pour-la-formation-professionnelle-spitaler-schaffhausen-schaffhausen"
         ]
       },
       "firstSeenAt": "2026-05-19T12:21:35.621Z",
@@ -3480,8 +3506,7 @@
           "security-engineer-spitaeler-schaffhausen-schaffhausen"
         ],
         "de": [
-          "sicherheitsingenieur-spitaler-schaffhausen-schaffhausen",
-          "security-engineer-spitaeler-schaffhausen-schaffhausen"
+          "sicherheitsingenieur-spitaler-schaffhausen-schaffhausen"
         ]
       },
       "firstSeenAt": "2026-05-19T12:21:35.612Z",
@@ -3577,8 +3602,7 @@
           "stv-stationsleitung-schwerpunkt-ressourcenmanagement-spitaeler-schaffhausen-schaffhausen"
         ],
         "de": [
-          "stv-stationenleitung-schwerpunktressourcenmanagement-spitaler-schaffhausen-schaffhausen",
-          "stv-stationsleitung-schwerpunkt-ressourcenmanagement-spitaeler-schaffhausen-schaffhausen"
+          "stv-stationenleitung-schwerpunktressourcenmanagement-spitaler-schaffhausen-schaffhausen"
         ]
       },
       "firstSeenAt": "2026-05-19T12:21:35.610Z",
@@ -3672,8 +3696,7 @@
           "dipl-pflegefachfrau-mann-hf-spitaeler-schaffhausen-schaffhausen"
         ],
         "de": [
-          "dipl-ing-pflegefachfrau-mann-hf-spitaler-schaffhausen-schaffhausen",
-          "dipl-pflegefachfrau-mann-hf-spitaeler-schaffhausen-schaffhausen"
+          "dipl-ing-pflegefachfrau-mann-hf-spitaler-schaffhausen-schaffhausen"
         ]
       },
       "firstSeenAt": "2026-05-19T12:21:35.609Z",
@@ -3965,8 +3988,7 @@
           "dipl-expertin-experten-notfallpflege-nds-hf-spitaeler-schaffhausen-schaffhausen"
         ],
         "de": [
-          "dipl-ing-expertin-experten-notfallpflege-nds-hf-spitaler-schaffhausen-schaffhausen",
-          "dipl-expertin-experten-notfallpflege-nds-hf-spitaeler-schaffhausen-schaffhausen"
+          "dipl-ing-expertin-experten-notfallpflege-nds-hf-spitaler-schaffhausen-schaffhausen"
         ]
       },
       "firstSeenAt": "2026-05-19T12:21:35.606Z",
@@ -4157,8 +4179,7 @@
           "dipl-pflegefachmann-frau-hf-spitaeler-schaffhausen-schaffhausen"
         ],
         "de": [
-          "dipl-ing-pflegefachmann-frau-hf-spitaler-schaffhausen-schaffhausen",
-          "dipl-pflegefachmann-frau-hf-spitaeler-schaffhausen-schaffhausen"
+          "dipl-ing-pflegefachmann-frau-hf-spitaler-schaffhausen-schaffhausen"
         ]
       },
       "firstSeenAt": "2026-05-19T12:21:35.602Z",
@@ -4443,8 +4464,7 @@
           "fachapotheker-in-spitalpharmazie-spitaeler-schaffhausen-schaffhausen"
         ],
         "de": [
-          "fachapotheker-in-spitalapotheken-spitaler-schaffhausen-schaffhausen",
-          "fachapotheker-in-spitalpharmazie-spitaeler-schaffhausen-schaffhausen"
+          "fachapotheker-in-spitalapotheken-spitaler-schaffhausen-schaffhausen"
         ]
       },
       "firstSeenAt": "2026-05-19T12:21:35.597Z",
@@ -4662,12 +4682,12 @@
     },
     {
       "id": "spitaeler-schaffhausen-f5e180b17a19",
-      "slug": "leitung-notfall-pflege-spitaeler-schaffhausen-schaffhausen",
+      "slug": "direzione-assistenza-di-emergenza-spitaler-schaffhausen-schaffhausen",
       "slugByLocale": {
-        "it": "leitung-notfall-pflege-spitaeler-schaffhausen-schaffhausen",
-        "en": "leitung-notfall-pflege-spitaeler-schaffhausen-schaffhausen",
+        "it": "direzione-assistenza-di-emergenza-spitaler-schaffhausen-schaffhausen",
+        "en": "emergency-care-leadership-spitaler-schaffhausen-schaffhausen",
         "de": "leitung-notfall-pflege-spitaler-schaffhausen-schaffhausen",
-        "fr": "leitung-notfall-pflege-spitaeler-schaffhausen-schaffhausen"
+        "fr": "direction-des-soins-d-urgence-spitaler-schaffhausen-schaffhausen"
       },
       "company": "Spitäler Schaffhausen",
       "companyKey": "spitaeler-schaffhausen",
@@ -4720,16 +4740,30 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "leitung-notfall-pflege-spitaeler-schaffhausen-schaffhausen"
+        ],
+        "en": [
+          "leitung-notfall-pflege-spitaeler-schaffhausen-schaffhausen"
+        ],
+        "fr": [
+          "leitung-notfall-pflege-spitaeler-schaffhausen-schaffhausen"
+        ]
+      },
+      "previousSlugs": [
+        "leitung-notfall-pflege-spitaeler-schaffhausen-schaffhausen"
+      ]
     },
     {
       "id": "spitaeler-schaffhausen-f91879bc6e65",
-      "slug": "dipl-expertin-experte-intensivpflege-nds-hf-spitaeler-schaffhausen-schaffhausen",
+      "slug": "dipl-expert-assistenza-intensiva-per-esperti-nds-hf-spitaler-schaffhausen-schaffhausen",
       "slugByLocale": {
-        "it": "dipl-expertin-experte-intensivpflege-nds-hf-spitaeler-schaffhausen-schaffhausen",
+        "it": "dipl-expert-assistenza-intensiva-per-esperti-nds-hf-spitaler-schaffhausen-schaffhausen",
         "en": "dipl-expertin-experte-intensivpflege-nds-hf-spitaeler-schaffhausen-schaffhausen",
         "de": "dipl-expertin-experte-intensivpflege-nds-hf-spitaeler-schaffhausen-schaffhausen",
-        "fr": "dipl-expertin-experte-intensivpflege-nds-hf-spitaeler-schaffhausen-schaffhausen"
+        "fr": "dipl-expert-expert-soins-intensifs-nds-hf-spitaler-schaffhausen-schaffhausen"
       },
       "company": "Spitäler Schaffhausen",
       "companyKey": "spitaeler-schaffhausen",
@@ -4784,17 +4818,18 @@
         }
       },
       "previousSlugs": [
+        "esperto-a-diplomato-a-in-cure-intense-spd-sss-salario-orario-spitaler-schaffhausen-schaffhausen",
+        "dipl-expertin-experte-intensivpflege-nds-hf-spitaeler-schaffhausen-schaffhausen",
         "dipl-expertin-experte-intensivpflege-nds-hf-stundenlohn-spitaeler-schaffhausen",
+        "expert-e-diplome-e-en-soins-intensifs-epd-es-salaire-horaire-spitaler-schaffhausen-schaffhausen",
         "esperta-esperto-di-cure-intensive-dipl-nds-hf-spitaler-schaffhausen-schaffhausen",
         "dipl-ing-expertin-experte-intensivpflege-nds-hf-spitaler-schaffhausen-schaffhausen",
-        "dipl-expertin-experte-intensivpflege-nds-hf-spitaeler-schaffhausen-schaffhausen",
-        "diplome-e-en-soins-intensifs-nds-hf-spitaler-schaffhausen-schaffhausen",
-        "esperto-a-diplomato-a-in-cure-intense-spd-sss-salario-orario-spitaler-schaffhausen-schaffhausen",
-        "expert-e-diplome-e-en-soins-intensifs-epd-es-salaire-horaire-spitaler-schaffhausen-schaffhausen"
+        "diplome-e-en-soins-intensifs-nds-hf-spitaler-schaffhausen-schaffhausen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "esperto-a-diplomato-a-in-cure-intense-spd-sss-salario-orario-spitaler-schaffhausen-schaffhausen"
+          "esperto-a-diplomato-a-in-cure-intense-spd-sss-salario-orario-spitaler-schaffhausen-schaffhausen",
+          "dipl-expertin-experte-intensivpflege-nds-hf-spitaeler-schaffhausen-schaffhausen"
         ],
         "en": [
           "dipl-expertin-experte-intensivpflege-nds-hf-stundenlohn-spitaeler-schaffhausen"
@@ -4803,18 +4838,19 @@
           "dipl-expertin-experte-intensivpflege-nds-hf-stundenlohn-spitaeler-schaffhausen"
         ],
         "fr": [
-          "expert-e-diplome-e-en-soins-intensifs-epd-es-salaire-horaire-spitaler-schaffhausen-schaffhausen"
+          "expert-e-diplome-e-en-soins-intensifs-epd-es-salaire-horaire-spitaler-schaffhausen-schaffhausen",
+          "dipl-expertin-experte-intensivpflege-nds-hf-spitaeler-schaffhausen-schaffhausen"
         ]
       }
     },
     {
       "id": "spitaeler-schaffhausen-d568ea7a7e3c",
-      "slug": "dipl-pflegefachfrau-pflegefachmann-hf-langzeitpsychiatrie-spitaeler-schaffhausen",
+      "slug": "dipl-specialista-hf-psichiatria-a-lungo-termine-spitaler-schaffhausen-schaffhausen",
       "slugByLocale": {
-        "it": "dipl-pflegefachfrau-pflegefachmann-hf-langzeitpsychiatrie-spitaeler-schaffhausen",
-        "en": "dipl-pflegefachfrau-pflegefachmann-hf-langzeitpsychiatrie-spitaeler-schaffhausen",
+        "it": "dipl-specialista-hf-psichiatria-a-lungo-termine-spitaler-schaffhausen-schaffhausen",
+        "en": "dipl-care-specialist-hf-long-term-psychiatry-spitaler-schaffhausen-schaffhausen",
         "de": "dipl-pflegefachfrau-pflegefachmann-hf-langzeitpsychiatrie-spitaeler-schaffhausen",
-        "fr": "dipl-pflegefachfrau-pflegefachmann-hf-langzeitpsychiatrie-spitaeler-schaffhausen"
+        "fr": "dipl-specialiste-des-soins-hf-psychiatrie-de-longue-duree-spitaler-schaffhausen-schaffhausen"
       },
       "company": "Spitäler Schaffhausen",
       "companyKey": "spitaeler-schaffhausen",
@@ -4869,27 +4905,30 @@
         }
       },
       "previousSlugs": [
-        "dipl-pflegefachfrau-pflegefachmann-hf-2-jahrige-ausbildung-spitaeler-schaffhausen",
-        "diplomata-di-assistenza-infermieristica-infermiere-professionale-hf-in-psichiatria-a-lungo-termine-spitaler-schaffhausen",
-        "dipl-pflegefachfrau-pflegefachmann-hf-langzeitpsychiatrie-spitaeler-schaffhausen",
-        "diploma-in-nursing-hf-nursing-in-long-term-psychiatry-spitaler-schaffhausen-schaffhausen",
-        "diplome-e-en-soins-infirmiers-hf-en-psychiatrie-de-longue-duree-spitaler-schaffhausen-schaffhausen",
         "diplomata-di-assistenza-infermieristica-diplomati-di-assistenza-infermieristica-hf-formazione-di-2-anni-spitaler",
+        "dipl-pflegefachfrau-pflegefachmann-hf-langzeitpsychiatrie-spitaeler-schaffhausen",
         "diploma-in-nursing-diploma-in-nursing-hf-2-year-training-spitaler-schaffhausen-schaffhausen",
-        "diplome-e-en-soins-infirmiers-diplome-e-en-soins-infirmiers-hf-formation-de-2-ans-spitaler-schaffhausen-schaffhausen"
+        "dipl-pflegefachfrau-pflegefachmann-hf-2-jahrige-ausbildung-spitaeler-schaffhausen",
+        "diplome-e-en-soins-infirmiers-diplome-e-en-soins-infirmiers-hf-formation-de-2-ans-spitaler-schaffhausen-schaffhausen",
+        "diplomata-di-assistenza-infermieristica-infermiere-professionale-hf-in-psichiatria-a-lungo-termine-spitaler-schaffhausen",
+        "diploma-in-nursing-hf-nursing-in-long-term-psychiatry-spitaler-schaffhausen-schaffhausen",
+        "diplome-e-en-soins-infirmiers-hf-en-psychiatrie-de-longue-duree-spitaler-schaffhausen-schaffhausen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "diplomata-di-assistenza-infermieristica-diplomati-di-assistenza-infermieristica-hf-formazione-di-2-anni-spitaler"
+          "diplomata-di-assistenza-infermieristica-diplomati-di-assistenza-infermieristica-hf-formazione-di-2-anni-spitaler",
+          "dipl-pflegefachfrau-pflegefachmann-hf-langzeitpsychiatrie-spitaeler-schaffhausen"
         ],
         "en": [
-          "diploma-in-nursing-diploma-in-nursing-hf-2-year-training-spitaler-schaffhausen-schaffhausen"
+          "diploma-in-nursing-diploma-in-nursing-hf-2-year-training-spitaler-schaffhausen-schaffhausen",
+          "dipl-pflegefachfrau-pflegefachmann-hf-langzeitpsychiatrie-spitaeler-schaffhausen"
         ],
         "de": [
           "dipl-pflegefachfrau-pflegefachmann-hf-2-jahrige-ausbildung-spitaeler-schaffhausen"
         ],
         "fr": [
-          "diplome-e-en-soins-infirmiers-diplome-e-en-soins-infirmiers-hf-formation-de-2-ans-spitaler-schaffhausen-schaffhausen"
+          "diplome-e-en-soins-infirmiers-diplome-e-en-soins-infirmiers-hf-formation-de-2-ans-spitaler-schaffhausen-schaffhausen",
+          "dipl-pflegefachfrau-pflegefachmann-hf-langzeitpsychiatrie-spitaeler-schaffhausen"
         ]
       }
     },
@@ -4898,9 +4937,9 @@
       "slug": "dipl-pflegefachfrau-pflegefachmann-hf-spitaler-schaffhausen-schaffhausen",
       "slugByLocale": {
         "it": "dipl-pflegefachfrau-pflegefachmann-hf-spitaler-schaffhausen-schaffhausen",
-        "en": "dipl-pflegefachfrau-pflegefachmann-hf-spitaeler-schaffhausen-schaffhausen",
+        "en": "dipl-care-specialist-hf-spitaler-schaffhausen-schaffhausen",
         "de": "dipl-pflegefachfrau-pflegefachmann-hf-spitaeler-schaffhausen-schaffhausen",
-        "fr": "dipl-pflegefachfrau-pflegefachmann-hf-spitaeler-schaffhausen-schaffhausen"
+        "fr": "dipl-specialiste-des-soins-hf-spitaler-schaffhausen-schaffhausen"
       },
       "company": "Spitäler Schaffhausen",
       "companyKey": "spitaeler-schaffhausen",
@@ -4947,6 +4986,12 @@
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-pflegefachmann-hf-spitaeler-schaffhausen-schaffhausen"
+        ],
+        "en": [
+          "dipl-pflegefachfrau-pflegefachmann-hf-spitaeler-schaffhausen-schaffhausen"
+        ],
+        "fr": [
+          "dipl-pflegefachfrau-pflegefachmann-hf-spitaeler-schaffhausen-schaffhausen"
         ]
       },
       "firstSeenAt": "2026-05-21T13:18:10.793Z",
@@ -4965,12 +5010,12 @@
     },
     {
       "id": "spitaeler-schaffhausen-be229b4d6d08",
-      "slug": "fachmann-frau-gesundheit-cfc-erwachsenenbildung-nach-art-32-bbv-spitaler-schaffhausen",
+      "slug": "salute-professionale-efz-istruzione-per-adulti-secondo-l-art-32-bbv-spitaler-schaffhausen-schaffhausen",
       "slugByLocale": {
-        "it": "fachmann-frau-gesundheit-cfc-erwachsenenbildung-nach-art-32-bbv-spitaler-schaffhausen",
-        "en": "fachmann-frau-gesundheit-efz-erwachsenenbildung-nach-art-32-bbv-spitaeler-schaffhausen",
+        "it": "salute-professionale-efz-istruzione-per-adulti-secondo-l-art-32-bbv-spitaler-schaffhausen-schaffhausen",
+        "en": "professional-health-efz-adult-education-according-to-art-32-bbv-spitaler-schaffhausen-schaffhausen",
         "de": "fachmann-frau-gesundheit-efz-erwachsenenbildung-nach-art-32-bbv-spitaeler-schaffhausen",
-        "fr": "fachmann-frau-gesundheit-efz-erwachsenenbildung-nach-art-32-bbv-spitaeler-schaffhausen"
+        "fr": "sante-professionnelle-efz-education-des-adultes-selon-l-art-32-bbv-spitaler-schaffhausen-schaffhausen"
       },
       "company": "Spitäler Schaffhausen",
       "companyKey": "spitaeler-schaffhausen",
@@ -5012,10 +5057,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fachmann-frau-gesundheit-efz-erwachsenenbildung-nach-art-32-bbv-spitaeler-schaffhausen"
+        "fachmann-frau-gesundheit-efz-erwachsenenbildung-nach-art-32-bbv-spitaeler-schaffhausen",
+        "fachmann-frau-gesundheit-cfc-erwachsenenbildung-nach-art-32-bbv-spitaler-schaffhausen"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "fachmann-frau-gesundheit-efz-erwachsenenbildung-nach-art-32-bbv-spitaeler-schaffhausen",
+          "fachmann-frau-gesundheit-cfc-erwachsenenbildung-nach-art-32-bbv-spitaler-schaffhausen"
+        ],
+        "en": [
+          "fachmann-frau-gesundheit-efz-erwachsenenbildung-nach-art-32-bbv-spitaeler-schaffhausen"
+        ],
+        "fr": [
           "fachmann-frau-gesundheit-efz-erwachsenenbildung-nach-art-32-bbv-spitaeler-schaffhausen"
         ]
       },
@@ -5035,12 +5088,12 @@
     },
     {
       "id": "spitaeler-schaffhausen-782ffee2bb1d",
-      "slug": "sachbearbeiter-in-payroll-hr-administration-spitaler-schaffhausen-schaffhausen",
+      "slug": "personale-in-payroll-hr-amministrazione-spitaler-schaffhausen-schaffhausen",
       "slugByLocale": {
-        "it": "sachbearbeiter-in-payroll-hr-administration-spitaler-schaffhausen-schaffhausen",
+        "it": "personale-in-payroll-hr-amministrazione-spitaler-schaffhausen-schaffhausen",
         "en": "sachbearbeiter-in-payroll-hr-administration-spitaler-schaffhausen-schaffhausen",
         "de": "sachbearbeiter-in-payroll-hr-administration-spitaler-schaffhausen-schaffhausen",
-        "fr": "sachbearbeiter-in-payroll-hr-administration-spitaler-schaffhausen-schaffhausen"
+        "fr": "personnel-et-administration-de-la-paye-et-des-rh-spitaler-schaffhausen-schaffhausen"
       },
       "company": "Spitäler Schaffhausen",
       "companyKey": "spitaeler-schaffhausen",
@@ -5086,11 +5139,16 @@
           "sachbearbeiter-in-payroll-amp-hr-administration-spitaeler-schaffhausen-schaffhausen"
         ],
         "it": [
-          "sachbearbeiter-in-payroll-amp-hr-administration-spitaeler-schaffhausen-schaffhausen"
+          "sachbearbeiter-in-payroll-amp-hr-administration-spitaeler-schaffhausen-schaffhausen",
+          "sachbearbeiter-in-payroll-hr-administration-spitaler-schaffhausen-schaffhausen"
+        ],
+        "fr": [
+          "sachbearbeiter-in-payroll-hr-administration-spitaler-schaffhausen-schaffhausen"
         ]
       },
       "previousSlugs": [
-        "sachbearbeiter-in-payroll-amp-hr-administration-spitaeler-schaffhausen-schaffhausen"
+        "sachbearbeiter-in-payroll-amp-hr-administration-spitaeler-schaffhausen-schaffhausen",
+        "sachbearbeiter-in-payroll-hr-administration-spitaler-schaffhausen-schaffhausen"
       ],
       "firstSeenAt": "2026-05-21T13:18:10.786Z",
       "salaryMin": 49500,
@@ -5108,12 +5166,12 @@
     },
     {
       "id": "spitaeler-schaffhausen-292ff4595674",
-      "slug": "collaboratore-trice-in-technischer-dienst-spitaler-schaffhausen",
+      "slug": "staff-in-servizio-tecnico-spitaler-schaffhausen-schaffhausen",
       "slugByLocale": {
-        "it": "collaboratore-trice-in-technischer-dienst-spitaler-schaffhausen",
-        "en": "mitarbeiter-in-technischer-dienst-spitaler-schaffhausen-schaffhausen",
+        "it": "staff-in-servizio-tecnico-spitaler-schaffhausen-schaffhausen",
+        "en": "staff-in-technical-service-spitaler-schaffhausen-schaffhausen",
         "de": "mitarbeiter-in-technischer-dienst-spitaler-schaffhausen-schaffhausen",
-        "fr": "mitarbeiter-in-technischer-dienst-spitaler-schaffhausen-schaffhausen"
+        "fr": "personnel-en-service-technique-spitaler-schaffhausen-schaffhausen"
       },
       "company": "Spitäler Schaffhausen",
       "companyKey": "spitaeler-schaffhausen",
@@ -5159,11 +5217,20 @@
           "mitarbeiter-in-technischer-dienst-spitaeler-schaffhausen-schaffhausen"
         ],
         "it": [
-          "mitarbeiter-in-technischer-dienst-spitaeler-schaffhausen-schaffhausen"
+          "mitarbeiter-in-technischer-dienst-spitaeler-schaffhausen-schaffhausen",
+          "collaboratore-trice-in-technischer-dienst-spitaler-schaffhausen"
+        ],
+        "en": [
+          "mitarbeiter-in-technischer-dienst-spitaler-schaffhausen-schaffhausen"
+        ],
+        "fr": [
+          "mitarbeiter-in-technischer-dienst-spitaler-schaffhausen-schaffhausen"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-technischer-dienst-spitaeler-schaffhausen-schaffhausen"
+        "mitarbeiter-in-technischer-dienst-spitaeler-schaffhausen-schaffhausen",
+        "collaboratore-trice-in-technischer-dienst-spitaler-schaffhausen",
+        "mitarbeiter-in-technischer-dienst-spitaler-schaffhausen-schaffhausen"
       ],
       "firstSeenAt": "2026-05-21T13:18:10.784Z",
       "salaryMin": 49500,
@@ -5181,12 +5248,12 @@
     },
     {
       "id": "spitaeler-schaffhausen-6c91ac86c86c",
-      "slug": "collaboratore-trice-technischer-dienst-spitaler-schaffhausen",
+      "slug": "personale-in-servizio-tecnico-spitaler-schaffhausen-schaffhausen",
       "slugByLocale": {
-        "it": "collaboratore-trice-technischer-dienst-spitaler-schaffhausen",
-        "en": "mitarbeiter-in-technischer-dienst-spitaler-schaffhausen-schaffhausen",
+        "it": "personale-in-servizio-tecnico-spitaler-schaffhausen-schaffhausen",
+        "en": "staff-in-technical-service-spitaler-schaffhausen-schaffhausen-099511",
         "de": "mitarbeiter-in-technischer-dienst-spitaler-schaffhausen-schaffhausen",
-        "fr": "mitarbeiter-in-technischer-dienst-spitaler-schaffhausen-schaffhausen"
+        "fr": "personnel-des-services-techniques-spitaler-schaffhausen-schaffhausen"
       },
       "company": "Spitäler Schaffhausen",
       "companyKey": "spitaeler-schaffhausen",
@@ -5232,12 +5299,21 @@
           "mitarbeiter-in-technischer-dienst-spitaeler-schaffhausen-schaffhausen"
         ],
         "it": [
-          "mitarbeiter-in-technischer-dienst-spitaeler-schaffhausen-schaffhausen-2"
+          "mitarbeiter-in-technischer-dienst-spitaeler-schaffhausen-schaffhausen-2",
+          "collaboratore-trice-technischer-dienst-spitaler-schaffhausen"
+        ],
+        "en": [
+          "mitarbeiter-in-technischer-dienst-spitaler-schaffhausen-schaffhausen"
+        ],
+        "fr": [
+          "mitarbeiter-in-technischer-dienst-spitaler-schaffhausen-schaffhausen"
         ]
       },
       "previousSlugs": [
         "mitarbeiter-in-technischer-dienst-spitaeler-schaffhausen-schaffhausen",
-        "mitarbeiter-in-technischer-dienst-spitaeler-schaffhausen-schaffhausen-2"
+        "mitarbeiter-in-technischer-dienst-spitaeler-schaffhausen-schaffhausen-2",
+        "collaboratore-trice-technischer-dienst-spitaler-schaffhausen",
+        "mitarbeiter-in-technischer-dienst-spitaler-schaffhausen-schaffhausen"
       ],
       "firstSeenAt": "2026-05-21T13:18:10.769Z",
       "salaryMin": 49500,

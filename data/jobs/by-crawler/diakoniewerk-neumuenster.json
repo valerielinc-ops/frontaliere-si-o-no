@@ -60,8 +60,7 @@
           "dipl-pflegefachfrau-dipl-pflegefachmann-kinder-permanence-diakoniewerk-neumuenster"
         ],
         "de": [
-          "dipl-pflegefachfrau-dipl-pflegefachmann-kinder-permanenz-diakoniewerk-neumunster-gesundheitswelt-zollikerberg-spital",
-          "dipl-pflegefachfrau-dipl-pflegefachmann-kinder-permanence-diakoniewerk-neumuenster"
+          "dipl-pflegefachfrau-dipl-pflegefachmann-kinder-permanenz-diakoniewerk-neumunster-gesundheitswelt-zollikerberg-spital"
         ]
       },
       "firstSeenAt": "2026-05-19T15:19:47.620Z",
@@ -151,9 +150,9 @@
     },
     {
       "id": "diakoniewerk-neumuenster-93f3d01d7f39",
-      "slug": "dipl-pflegefachfrau-dipl-pflegefachmann-mitarbeitende-im-fokus-diakoniewerk-neumuenster",
+      "slug": "infermiere-diplomato-infermiere-diplomato-collaboratori-in-primo-piano-diakoniewerk-neumunster-gesundheitswelt",
       "slugByLocale": {
-        "it": "dipl-pflegefachfrau-dipl-pflegefachmann-mitarbeitende-im-fokus-diakoniewerk-neumuenster",
+        "it": "infermiere-diplomato-infermiere-diplomato-collaboratori-in-primo-piano-diakoniewerk-neumunster-gesundheitswelt",
         "en": "dipl-pflegefachfrau-dipl-pflegefachmann-mitarbeitende-im-fokus-diakoniewerk-neumuenster",
         "de": "dipl-pflegefachfrau-dipl-pflegefachmann-mitarbeitende-im-fokus-diakoniewerk-neumunster-gesundheitswelt-zollikerberg",
         "fr": "dipl-pflegefachfrau-dipl-pflegefachmann-mitarbeitende-im-fokus-diakoniewerk-neumuenster"
@@ -210,13 +209,21 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachfrau-dipl-pflegefachmann-mitarbeitende-im-fokus-diakoniewerk-neumuenster"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachfrau-dipl-pflegefachmann-mitarbeitende-im-fokus-diakoniewerk-neumuenster"
+      ]
     },
     {
       "id": "diakoniewerk-neumuenster-4190e6bb395b",
-      "slug": "service-desk-support-agent-middle-office-diakoniewerk-neumuenster-zollikerberg",
+      "slug": "service-desk-supporto-agente-centrale-diakoniewerk-neumunster-gesundheitswelt-zollikerberg-spital-zollikerberg",
       "slugByLocale": {
-        "it": "service-desk-support-agent-middle-office-diakoniewerk-neumuenster-zollikerberg",
+        "it": "service-desk-supporto-agente-centrale-diakoniewerk-neumunster-gesundheitswelt-zollikerberg-spital-zollikerberg",
         "en": "service-desk-support-agent-middle-office-diakoniewerk-neumunster-gesundheitswelt-zollikerberg-spital-zollikerberg",
         "de": "service-desk-support-agent-middle-office-diakoniewerk-neumuenster-zollikerberg",
         "fr": "service-desk-support-agent-middle-office-diakoniewerk-neumuenster-zollikerberg"
@@ -273,13 +280,21 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "service-desk-support-agent-middle-office-diakoniewerk-neumuenster-zollikerberg"
+        ]
+      },
+      "previousSlugs": [
+        "service-desk-support-agent-middle-office-diakoniewerk-neumuenster-zollikerberg"
+      ]
     },
     {
       "id": "diakoniewerk-neumuenster-104fdc32a914",
-      "slug": "dipl-fachfrau-dipl-fachmann-operationstechnik-medizintechnische-bereiche-diakoniewerk",
+      "slug": "specialista-specialista-in-tecnica-chirurgica-settori-tecnico-medicali-diakoniewerk-neumunster-gesundheitswelt",
       "slugByLocale": {
-        "it": "dipl-fachfrau-dipl-fachmann-operationstechnik-medizintechnische-bereiche-diakoniewerk",
+        "it": "specialista-specialista-in-tecnica-chirurgica-settori-tecnico-medicali-diakoniewerk-neumunster-gesundheitswelt",
         "en": "dipl-fachfrau-dipl-fachmann-operationstechnik-medizintechnische-bereiche-diakoniewerk",
         "de": "dipl-fachfrau-dipl-fachmann-operationstechnik-medizintechnische-bereiche-diakoniewerk",
         "fr": "dipl-fachfrau-dipl-fachmann-operationstechnik-medizintechnische-bereiche-diakoniewerk"
@@ -336,7 +351,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-fachfrau-dipl-fachmann-operationstechnik-medizintechnische-bereiche-diakoniewerk"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-fachfrau-dipl-fachmann-operationstechnik-medizintechnische-bereiche-diakoniewerk"
+      ]
     },
     {
       "id": "diakoniewerk-neumuenster-80297f7dae35",

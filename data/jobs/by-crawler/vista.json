@@ -486,9 +486,9 @@
     },
     {
       "id": "vista-96ed5f5f958c",
-      "slug": "medizinische-praxisassistenz-m-w-100-vista-binningen",
+      "slug": "consulente-senior-m-w-vista-augenpraxen-kliniken-binningen",
       "slugByLocale": {
-        "it": "medizinische-praxisassistenz-m-w-100-vista-binningen",
+        "it": "consulente-senior-m-w-vista-augenpraxen-kliniken-binningen",
         "en": "medizinische-praxisassistenz-m-w-100-vista-binningen",
         "de": "medizinische-praxisassistenz-m-w-100-vista-binningen",
         "fr": "medizinische-praxisassistenz-m-w-100-vista-binningen"
@@ -550,7 +550,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "medizinische-praxisassistenz-m-w-100-vista-binningen"
+        ]
+      },
+      "previousSlugs": [
+        "medizinische-praxisassistenz-m-w-100-vista-binningen"
+      ]
     },
     {
       "id": "vista-906bca422992",

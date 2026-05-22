@@ -75,9 +75,9 @@
     },
     {
       "id": "spital-zollikerberg-1b130afdc522",
-      "slug": "dipl-pflegefachfrau-dipl-pflegefachmann-mitarbeitende-im-fokus-spital-zollikerberg",
+      "slug": "dipl-carriera-dipl-specialista-della-cura-dipendenti-in-focus-spital-zollikerberg-zollikerberg",
       "slugByLocale": {
-        "it": "dipl-pflegefachfrau-dipl-pflegefachmann-mitarbeitende-im-fokus-spital-zollikerberg",
+        "it": "dipl-carriera-dipl-specialista-della-cura-dipendenti-in-focus-spital-zollikerberg-zollikerberg",
         "en": "dipl-pflegefachfrau-dipl-pflegefachmann-mitarbeitende-im-fokus-spital-zollikerberg",
         "de": "dipl-pflegefachfrau-dipl-pflegefachmann-mitarbeitende-im-fokus-spital-zollikerberg",
         "fr": "dipl-pflegefachfrau-dipl-pflegefachmann-mitarbeitende-im-fokus-spital-zollikerberg"
@@ -134,7 +134,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachfrau-dipl-pflegefachmann-mitarbeitende-im-fokus-spital-zollikerberg"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachfrau-dipl-pflegefachmann-mitarbeitende-im-fokus-spital-zollikerberg"
+      ]
     },
     {
       "id": "spital-zollikerberg-fea953c247d9",
@@ -282,9 +290,9 @@
     },
     {
       "id": "spital-zollikerberg-71c8df8346a9",
-      "slug": "service-desk-support-agent-middle-office-spital-zollikerberg-zollikerberg",
+      "slug": "service-desk-supporto-agente-centrale-spital-zollikerberg-zollikerberg",
       "slugByLocale": {
-        "it": "service-desk-support-agent-middle-office-spital-zollikerberg-zollikerberg",
+        "it": "service-desk-supporto-agente-centrale-spital-zollikerberg-zollikerberg",
         "en": "service-desk-support-agent-middle-office-spital-zollikerberg-zollikerberg",
         "de": "service-desk-support-agent-middle-office-spital-zollikerberg-zollikerberg",
         "fr": "service-desk-support-agent-middle-office-spital-zollikerberg-zollikerberg"
@@ -341,14 +349,22 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "service-desk-support-agent-middle-office-spital-zollikerberg-zollikerberg"
+        ]
+      },
+      "previousSlugs": [
+        "service-desk-support-agent-middle-office-spital-zollikerberg-zollikerberg"
+      ]
     },
     {
       "id": "spital-zollikerberg-49647145c807",
-      "slug": "dipl-fachfrau-dipl-fachmann-operationstechnik-medizintechnische-bereiche-spital",
+      "slug": "dipl-specialista-dipl-tecnologia-chirurgica-specialistica-tecnologia-medica-spital-zollikerberg-zollikerberg",
       "slugByLocale": {
         "de": "dipl-fachfrau-dipl-fachmann-operationstechnik-medizintechnische-bereiche-spital",
-        "it": "dipl-fachfrau-dipl-fachmann-operationstechnik-medizintechnische-bereiche-spital",
+        "it": "dipl-specialista-dipl-tecnologia-chirurgica-specialistica-tecnologia-medica-spital-zollikerberg-zollikerberg",
         "en": "dipl-fachfrau-dipl-fachmann-operationstechnik-medizintechnische-bereiche-spital",
         "fr": "dipl-fachfrau-dipl-fachmann-operationstechnik-medizintechnische-bereiche-spital"
       },
@@ -406,7 +422,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-19T12:20:47.142Z"
+      "firstSeenAt": "2026-05-19T12:20:47.142Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-fachfrau-dipl-fachmann-operationstechnik-medizintechnische-bereiche-spital"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-fachfrau-dipl-fachmann-operationstechnik-medizintechnische-bereiche-spital"
+      ]
     }
   ]
 }

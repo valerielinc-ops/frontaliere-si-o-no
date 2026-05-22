@@ -310,7 +310,7 @@
       "id": "flury-stiftung-ccf7fd962c44",
       "slug": "assistenza-pratica-medicina-generale-m-f-50-100-flury-stiftung-klosters",
       "slugByLocale": {
-        "it": "assistente-sanitaria-e-sociale-eba-da-estate-2027-flury-stiftung-schiers",
+        "it": "assistenza-pratica-medicina-generale-m-f-50-100-flury-stiftung-klosters",
         "en": "practice-assistance-general-medicine-m-w-50-100-flury-stiftung-klosters",
         "de": "praxisassistenz-hausarztmedizin-m-w-50-100-flury-stiftung-ch",
         "fr": "assistance-pratique-medecine-generale-m-f-50-100-flury-stiftung-klosters"
@@ -360,17 +360,18 @@
       "previousSlugs": [
         "praxisassistenz-hausarztmedizin-m-w-50-100-flury-stiftung-ch",
         "assistente-ambulatoriale-medicina-di-famiglia-m-f-50-100-flury-stiftung-klosters",
+        "assistente-sanitaria-e-sociale-eba-da-estate-2027-flury-stiftung-schiers",
         "practice-assistant-general-practitioner-m-f-50-100-flury-stiftung-klosters",
         "assistant-au-cabinet-medical-medecin-de-famille-h-f-50-100-flury-stiftung-klosters",
         "apprendistato-impiegato-a-di-commercio-afc-da-estate-2027-flury-stiftung-schiers",
         "lehrstellen-assistenzperson-gesundheit-und-soziales-eba-ab-sommer-2027-flury-stiftung-ch",
-        "lehrstellen-assistenzperson-gesundheit-e-soziales-afp-ab-sommer-2027-flury-stiftung-schiers",
-        "assistenza-pratica-medicina-generale-m-f-50-100-flury-stiftung-klosters"
+        "lehrstellen-assistenzperson-gesundheit-e-soziales-afp-ab-sommer-2027-flury-stiftung-schiers"
       ],
       "previousSlugsByLocale": {
         "it": [
           "praxisassistenz-hausarztmedizin-m-w-50-100-flury-stiftung-ch",
-          "assistente-ambulatoriale-medicina-di-famiglia-m-f-50-100-flury-stiftung-klosters"
+          "assistente-ambulatoriale-medicina-di-famiglia-m-f-50-100-flury-stiftung-klosters",
+          "assistente-sanitaria-e-sociale-eba-da-estate-2027-flury-stiftung-schiers"
         ],
         "en": [
           "praxisassistenz-hausarztmedizin-m-w-50-100-flury-stiftung-ch",
@@ -508,12 +509,12 @@
     },
     {
       "id": "flury-stiftung-ace0dffcf928",
-      "slug": "fachperson-gesundheit-o-pflegefachperson-40-100-altersheim-jenaz-flury-stiftung-jenaz",
+      "slug": "specialista-salute-o-cura-professionale-40-100-casa-di-cura-jenaz-flury-stiftung-jenaz",
       "slugByLocale": {
-        "it": "fachperson-gesundheit-o-pflegefachperson-40-100-altersheim-jenaz-flury-stiftung-jenaz",
-        "en": "fachperson-gesundheit-oder-pflegefachperson-40-100-altersheim-jenaz-flury-stiftung-ch",
+        "it": "specialista-salute-o-cura-professionale-40-100-casa-di-cura-jenaz-flury-stiftung-jenaz",
+        "en": "specialist-health-or-care-professional-40-100-nursing-home-jenaz-flury-stiftung-jenaz",
         "de": "fachperson-gesundheit-oder-pflegefachperson-40-100-altersheim-jenaz-flury-stiftung-ch",
-        "fr": "fachperson-gesundheit-oder-pflegefachperson-40-100-altersheim-jenaz-flury-stiftung-ch"
+        "fr": "specialiste-de-la-sante-ou-professionnel-de-soins-40-100-maison-de-soins-jenaz-flury-stiftung-jenaz"
       },
       "company": "Flury Stiftung",
       "companyKey": "flury-stiftung",
@@ -558,10 +559,18 @@
       "pensumMin": 40,
       "pensumMax": 100,
       "previousSlugs": [
-        "fachperson-gesundheit-oder-pflegefachperson-40-100-altersheim-jenaz-flury-stiftung-ch"
+        "fachperson-gesundheit-oder-pflegefachperson-40-100-altersheim-jenaz-flury-stiftung-ch",
+        "fachperson-gesundheit-o-pflegefachperson-40-100-altersheim-jenaz-flury-stiftung-jenaz"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "fachperson-gesundheit-oder-pflegefachperson-40-100-altersheim-jenaz-flury-stiftung-ch",
+          "fachperson-gesundheit-o-pflegefachperson-40-100-altersheim-jenaz-flury-stiftung-jenaz"
+        ],
+        "en": [
+          "fachperson-gesundheit-oder-pflegefachperson-40-100-altersheim-jenaz-flury-stiftung-ch"
+        ],
+        "fr": [
           "fachperson-gesundheit-oder-pflegefachperson-40-100-altersheim-jenaz-flury-stiftung-ch"
         ]
       },
@@ -1345,7 +1354,7 @@
       "id": "flury-stiftung-4309b061e85f",
       "slug": "assistente-chirurgico-flury-stiftung-schiers",
       "slugByLocale": {
-        "it": "dipl-assistente-sanitario-hf-fh-40-90-flury-stiftung-schiers",
+        "it": "assistente-chirurgico-flury-stiftung-schiers",
         "en": "assistant-surgeon-flury-stiftung-schiers",
         "de": "assistenzarztin-assistenzarzt-chirurgie-flury-stiftung-ch",
         "fr": "assistant-chirurgien-flury-stiftung-schiers"
@@ -1395,17 +1404,18 @@
       "previousSlugs": [
         "assistenzarztin-assistenzarzt-chirurgie-flury-stiftung-ch",
         "medico-assistente-chirurgia-flury-stiftung-schiers",
+        "dipl-assistente-sanitario-hf-fh-40-90-flury-stiftung-schiers",
         "assistant-physician-surgery-flury-stiftung-schiers",
         "medecin-assistant-en-chirurgie-flury-stiftung-schiers",
         "dipl-pflegefachperson-hf-fh-40-90-flury-stiftung-ch",
         "specialista-infermieristico-qualificato-hf-fh-40-90-flury-stiftung-schiers",
-        "assistente-chirurgico-flury-stiftung-schiers",
         "assistente-farmaceutico-al-50-80-flury-stiftung-schiers"
       ],
       "previousSlugsByLocale": {
         "it": [
           "assistenzarztin-assistenzarzt-chirurgie-flury-stiftung-ch",
-          "medico-assistente-chirurgia-flury-stiftung-schiers"
+          "medico-assistente-chirurgia-flury-stiftung-schiers",
+          "dipl-assistente-sanitario-hf-fh-40-90-flury-stiftung-schiers"
         ],
         "en": [
           "assistenzarztin-assistenzarzt-chirurgie-flury-stiftung-ch",

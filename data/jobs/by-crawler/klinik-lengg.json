@@ -1534,9 +1534,9 @@
     },
     {
       "id": "klinik-lengg-f80dc8f7bbd2",
-      "slug": "berufsbildner-in-fachfrau-fachmann-gesundheit-a-klinik-lengg-zurich",
+      "slug": "professione-in-uno-specialista-a-klinik-lengg-zurich",
       "slugByLocale": {
-        "it": "berufsbildner-in-fachfrau-fachmann-gesundheit-a-klinik-lengg-zurich",
+        "it": "professione-in-uno-specialista-a-klinik-lengg-zurich",
         "en": "berufsbildner-in-fachfrau-fachmann-gesundheit-a-klinik-lengg-zurich",
         "de": "berufsbildner-in-fachfrau-fachmann-gesundheit-a-klinik-lengg-zurich",
         "fr": "berufsbildner-in-fachfrau-fachmann-gesundheit-a-klinik-lengg-zurich"
@@ -1593,13 +1593,21 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "berufsbildner-in-fachfrau-fachmann-gesundheit-a-klinik-lengg-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "berufsbildner-in-fachfrau-fachmann-gesundheit-a-klinik-lengg-zurich"
+      ]
     },
     {
       "id": "klinik-lengg-1b3443d54937",
-      "slug": "assistenzarztin-assistenzarzt-neurorehabilitation-a-klinik-lengg-zurich",
+      "slug": "assistente-medico-assistente-medico-neuroreabilitazione-a-klinik-lengg-zurich",
       "slugByLocale": {
-        "it": "assistenzarztin-assistenzarzt-neurorehabilitation-a-klinik-lengg-zurich",
+        "it": "assistente-medico-assistente-medico-neuroreabilitazione-a-klinik-lengg-zurich",
         "en": "assistenzarztin-assistenzarzt-neurorehabilitation-a-klinik-lengg-zurich",
         "de": "assistenzarztin-assistenzarzt-neurorehabilitation-a-klinik-lengg-zurich",
         "fr": "assistenzarztin-assistenzarzt-neurorehabilitation-a-klinik-lengg-zurich"
@@ -1656,13 +1664,21 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "assistenzarztin-assistenzarzt-neurorehabilitation-a-klinik-lengg-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "assistenzarztin-assistenzarzt-neurorehabilitation-a-klinik-lengg-zurich"
+      ]
     },
     {
       "id": "klinik-lengg-bfbf9986c848",
-      "slug": "oberarztin-oberarzt-neurorehabilitation-a-klinik-lengg-zurich",
+      "slug": "medico-senior-medico-senior-neurorehabilitation-a-klinik-lengg-zurich",
       "slugByLocale": {
-        "it": "oberarztin-oberarzt-neurorehabilitation-a-klinik-lengg-zurich",
+        "it": "medico-senior-medico-senior-neurorehabilitation-a-klinik-lengg-zurich",
         "en": "oberarztin-oberarzt-neurorehabilitation-a-klinik-lengg-zurich",
         "de": "oberarztin-oberarzt-neurorehabilitation-a-klinik-lengg-zurich",
         "fr": "oberarztin-oberarzt-neurorehabilitation-a-klinik-lengg-zurich"
@@ -1719,7 +1735,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "oberarztin-oberarzt-neurorehabilitation-a-klinik-lengg-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "oberarztin-oberarzt-neurorehabilitation-a-klinik-lengg-zurich"
+      ]
     },
     {
       "id": "klinik-lengg-5217631b4902",

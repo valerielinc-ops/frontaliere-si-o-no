@@ -4,9 +4,9 @@
   "jobs": [
     {
       "id": "clinique-de-la-plaine-9f68d5dc6b73",
-      "slug": "un-e-aide-de-salle-a-80-100-clinique-de-la-plaine-geneve",
+      "slug": "un-aiuto-di-sala-all-80-100-clinique-de-la-plaine-geneve",
       "slugByLocale": {
-        "it": "un-e-aide-de-salle-a-80-100-clinique-de-la-plaine-geneve",
+        "it": "un-aiuto-di-sala-all-80-100-clinique-de-la-plaine-geneve",
         "en": "un-e-aide-de-salle-a-80-100-clinique-de-la-plaine-geneve",
         "de": "un-e-aide-de-salle-a-80-100-clinique-de-la-plaine-geneve",
         "fr": "un-e-aide-de-salle-a-80-100-clinique-de-la-plaine-geneve"
@@ -63,7 +63,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "un-e-aide-de-salle-a-80-100-clinique-de-la-plaine-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "un-e-aide-de-salle-a-80-100-clinique-de-la-plaine-geneve"
+      ]
     }
   ]
 }

@@ -3339,9 +3339,9 @@
     },
     {
       "id": "pdgr-138450293b05",
-      "slug": "oberarztin-oberarzt-pdgr-ch-2",
+      "slug": "medico-senior-psychiatrische-dienste-graubunden-samedan-scuol",
       "slugByLocale": {
-        "it": "oberarztin-oberarzt-pdgr-ch-2",
+        "it": "medico-senior-psychiatrische-dienste-graubunden-samedan-scuol",
         "en": "oberarztin-oberarzt-pdgr-ch-2",
         "de": "oberarztin-oberarzt-psychiatrische-dienste-graubunden-samedan-scuol",
         "fr": "oberarztin-oberarzt-pdgr-ch-2"
@@ -3392,10 +3392,14 @@
       "previousSlugsByLocale": {
         "de": [
           "oberarztin-oberarzt-pdgr-ch"
+        ],
+        "it": [
+          "oberarztin-oberarzt-pdgr-ch-2"
         ]
       },
       "previousSlugs": [
-        "oberarztin-oberarzt-pdgr-ch"
+        "oberarztin-oberarzt-pdgr-ch",
+        "oberarztin-oberarzt-pdgr-ch-2"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-21T12:55:50.615Z",
@@ -3414,9 +3418,9 @@
     },
     {
       "id": "pdgr-b39aa7c0be7e",
-      "slug": "fachpsychologe-in-pdgr-ch",
+      "slug": "specialista-psicologo-psychiatrische-dienste-graubunden-samedan-scuol",
       "slugByLocale": {
-        "it": "fachpsychologe-in-pdgr-ch",
+        "it": "specialista-psicologo-psychiatrische-dienste-graubunden-samedan-scuol",
         "en": "fachpsychologe-in-pdgr-ch",
         "de": "fachpsychologe-in-psychiatrische-dienste-graubunden-samedan-scuol",
         "fr": "fachpsychologe-in-pdgr-ch"
@@ -3477,7 +3481,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "fachpsychologe-in-pdgr-ch"
+        ]
+      },
+      "previousSlugs": [
+        "fachpsychologe-in-pdgr-ch"
+      ]
     }
   ]
 }

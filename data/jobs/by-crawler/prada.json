@@ -4,9 +4,9 @@
   "jobs": [
     {
       "id": "prada-9e7e707c469c",
-      "slug": "prada-outlet-floor-manager-m-f-d-prada-group-roermond",
+      "slug": "prada-outlet-responsabile-del-reparto-lunedi-venerdi-d-prada-group-roermond",
       "slugByLocale": {
-        "it": "prada-outlet-floor-manager-m-f-d-prada-group-roermond",
+        "it": "prada-outlet-responsabile-del-reparto-lunedi-venerdi-d-prada-group-roermond",
         "en": "prada-outlet-floor-manager-m-f-d-prada-group-roermond",
         "de": "prada-outlet-floor-manager-m-f-d-prada-group-roermond",
         "fr": "prada-outlet-floor-manager-m-f-d-prada-group-roermond"
@@ -58,7 +58,15 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "6500"
+      "postalCode": "6500",
+      "previousSlugsByLocale": {
+        "it": [
+          "prada-outlet-floor-manager-m-f-d-prada-group-roermond"
+        ]
+      },
+      "previousSlugs": [
+        "prada-outlet-floor-manager-m-f-d-prada-group-roermond"
+      ]
     },
     {
       "id": "prada-332f237b0ca4",

@@ -1620,10 +1620,10 @@
     },
     {
       "id": "sanatorium-kilchberg-17f0422ed559",
-      "slug": "pflegefachperson-hf-fh-im-nachtdienst-sanatorium-kilchberg-kilchberg",
+      "slug": "specialista-hf-fh-in-servizio-notturno-sanatorium-kilchberg-kilchberg",
       "slugByLocale": {
         "de": "pflegefachperson-hf-fh-im-nachtdienst-sanatorium-kilchberg-kilchberg",
-        "it": "pflegefachperson-hf-fh-im-nachtdienst-sanatorium-kilchberg-kilchberg",
+        "it": "specialista-hf-fh-in-servizio-notturno-sanatorium-kilchberg-kilchberg",
         "en": "pflegefachperson-hf-fh-im-nachtdienst-sanatorium-kilchberg-kilchberg",
         "fr": "pflegefachperson-hf-fh-im-nachtdienst-sanatorium-kilchberg-kilchberg"
       },
@@ -1681,7 +1681,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-21T23:38:42.180Z"
+      "firstSeenAt": "2026-05-21T23:38:42.180Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegefachperson-hf-fh-im-nachtdienst-sanatorium-kilchberg-kilchberg"
+        ]
+      },
+      "previousSlugs": [
+        "pflegefachperson-hf-fh-im-nachtdienst-sanatorium-kilchberg-kilchberg"
+      ]
     }
   ]
 }

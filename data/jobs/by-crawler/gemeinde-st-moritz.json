@@ -76,9 +76,9 @@
     },
     {
       "id": "gemeinde-st-moritz-6a983a6851de",
-      "slug": "wichtige-kontakte-gemeinde-st-moritz-ch-2",
+      "slug": "contatti-importanti-gemeinde-st-moritz-st-moritz-64a633",
       "slugByLocale": {
-        "it": "wichtige-kontakte-gemeinde-st-moritz-ch-2",
+        "it": "contatti-importanti-gemeinde-st-moritz-st-moritz-64a633",
         "en": "wichtige-kontakte-gemeinde-st-moritz-ch-2",
         "de": "wichtige-kontakte-gemeinde-st-moritz-ch",
         "fr": "wichtige-kontakte-gemeinde-st-moritz-ch-2"
@@ -134,7 +134,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "wichtige-kontakte-gemeinde-st-moritz-ch-2"
+        ]
+      },
+      "previousSlugs": [
+        "wichtige-kontakte-gemeinde-st-moritz-ch-2"
+      ]
     }
   ]
 }

@@ -2202,10 +2202,10 @@
     },
     {
       "id": "cnp-7744a640687d",
-      "slug": "musicotherapeute-cnp-marin-epagnier",
+      "slug": "terapista-musicale-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier",
       "slugByLocale": {
         "fr": "musicotherapeute-cnp-marin-epagnier",
-        "it": "musicotherapeute-cnp-marin-epagnier",
+        "it": "terapista-musicale-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier",
         "en": "musicotherapeute-cnp-marin-epagnier",
         "de": "musicotherapeute-cnp-marin-epagnier"
       },
@@ -2263,7 +2263,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-22T11:16:24.792Z"
+      "firstSeenAt": "2026-05-22T11:16:24.792Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "musicotherapeute-cnp-marin-epagnier"
+        ]
+      },
+      "previousSlugs": [
+        "musicotherapeute-cnp-marin-epagnier"
+      ]
     }
   ]
 }

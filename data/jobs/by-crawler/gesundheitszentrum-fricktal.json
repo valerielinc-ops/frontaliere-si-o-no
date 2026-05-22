@@ -422,12 +422,12 @@
     },
     {
       "id": "gesundheitszentrum-fricktal-03ae3048eb02",
-      "slug": "dipl-pflegefachperson-hf-w-m-d-gesundheitszentrum-fricktal-rheinfelden",
+      "slug": "diplomato-a-in-infermieristica-m-f-d-gesundheitszentrum-fricktal-rheinfelden",
       "slugByLocale": {
-        "it": "dipl-pflegefachperson-hf-w-m-d-gesundheitszentrum-fricktal-rheinfelden",
+        "it": "diplomato-a-in-infermieristica-m-f-d-gesundheitszentrum-fricktal-rheinfelden",
         "en": "dipl-pflegefachperson-hf-w-m-d-gesundheitszentrum-fricktal-rheinfelden",
         "de": "dipl-pflegefachperson-hf-w-m-d-gesundheitszentrum-fricktal-rheinfelden",
-        "fr": "dipl-pflegefachperson-hf-w-m-d-gesundheitszentrum-fricktal-rheinfelden"
+        "fr": "professionnel-de-sante-h-f-gesundheitszentrum-fricktal-rheinfelden"
       },
       "company": "Gesundheitszentrum Fricktal",
       "companyKey": "gesundheitszentrum-fricktal",
@@ -482,27 +482,29 @@
         }
       },
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-w-m-d-gesundheitszentrum-fricktal-rheinfelden",
         "infermiere-diplomata-hf-u-m-d-gesundheitszentrum-fricktal-rheinfelden",
+        "dipl-pflegefachperson-hf-w-m-d-gesundheitszentrum-fricktal-rheinfelden",
         "diplome-en-soins-infirmiers-hf-h-f-x-gesundheitszentrum-fricktal-rheinfelden"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "infermiere-diplomata-hf-u-m-d-gesundheitszentrum-fricktal-rheinfelden"
+          "infermiere-diplomata-hf-u-m-d-gesundheitszentrum-fricktal-rheinfelden",
+          "dipl-pflegefachperson-hf-w-m-d-gesundheitszentrum-fricktal-rheinfelden"
         ],
         "fr": [
-          "diplome-en-soins-infirmiers-hf-h-f-x-gesundheitszentrum-fricktal-rheinfelden"
+          "diplome-en-soins-infirmiers-hf-h-f-x-gesundheitszentrum-fricktal-rheinfelden",
+          "dipl-pflegefachperson-hf-w-m-d-gesundheitszentrum-fricktal-rheinfelden"
         ]
       }
     },
     {
       "id": "gesundheitszentrum-fricktal-ad82b7a891ce",
-      "slug": "ceo-assistent-in-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
+      "slug": "amministratore-delegato-in-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
       "slugByLocale": {
-        "it": "ceo-assistent-in-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
-        "en": "ceo-assistent-in-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
+        "it": "amministratore-delegato-in-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
+        "en": "ceo-assistant-in-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
         "de": "ceo-assistent-in-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
-        "fr": "ceo-assistent-in-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
+        "fr": "directeur-general-adjoint-en-m-m-j-gesundheitszentrum-fricktal-rheinfelden"
       },
       "company": "Gesundheitszentrum Fricktal",
       "companyKey": "gesundheitszentrum-fricktal",
@@ -555,16 +557,30 @@
           "maxValue": 103000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "ceo-assistent-in-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
+        ],
+        "en": [
+          "ceo-assistent-in-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
+        ],
+        "fr": [
+          "ceo-assistent-in-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
+        ]
+      },
+      "previousSlugs": [
+        "ceo-assistent-in-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
+      ]
     },
     {
       "id": "gesundheitszentrum-fricktal-22fbfe71235b",
-      "slug": "geschaftsfuhrer-in-praxen-w-m-d-gesundheitszentrum-fricktal-rheinfelden",
+      "slug": "amministratore-delegato-in-praxen-w-m-d-gesundheitszentrum-fricktal-rheinfelden",
       "slugByLocale": {
-        "it": "geschaftsfuhrer-in-praxen-w-m-d-gesundheitszentrum-fricktal-rheinfelden",
-        "en": "geschaftsfuhrer-in-praxen-w-m-d-gesundheitszentrum-fricktal-rheinfelden",
+        "it": "amministratore-delegato-in-praxen-w-m-d-gesundheitszentrum-fricktal-rheinfelden",
+        "en": "managing-director-in-praxen-w-m-d-gesundheitszentrum-fricktal-rheinfelden",
         "de": "geschaftsfuhrer-in-praxen-w-m-d-gesundheitszentrum-fricktal-rheinfelden",
-        "fr": "geschaftsfuhrer-in-praxen-w-m-d-gesundheitszentrum-fricktal-rheinfelden"
+        "fr": "directeur-general-in-praxen-w-m-d-gesundheitszentrum-fricktal-rheinfelden"
       },
       "company": "Gesundheitszentrum Fricktal",
       "companyKey": "gesundheitszentrum-fricktal",
@@ -617,7 +633,21 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "geschaftsfuhrer-in-praxen-w-m-d-gesundheitszentrum-fricktal-rheinfelden"
+        ],
+        "en": [
+          "geschaftsfuhrer-in-praxen-w-m-d-gesundheitszentrum-fricktal-rheinfelden"
+        ],
+        "fr": [
+          "geschaftsfuhrer-in-praxen-w-m-d-gesundheitszentrum-fricktal-rheinfelden"
+        ]
+      },
+      "previousSlugs": [
+        "geschaftsfuhrer-in-praxen-w-m-d-gesundheitszentrum-fricktal-rheinfelden"
+      ]
     },
     {
       "id": "gesundheitszentrum-fricktal-f233a1a05822",

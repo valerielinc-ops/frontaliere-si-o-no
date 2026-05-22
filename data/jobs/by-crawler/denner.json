@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "denner-55238b581587",
-      "slug": "filialleiter-in-in-ausbildung-region-basel-denner",
+      "slug": "capogruppo-in-regione-formazione-basilea-denner-binningen",
       "slugByLocale": {
-        "it": "filialleiter-in-in-ausbildung-region-basel-denner",
-        "en": "filialleiter-in-in-ausbildung-region-basel-denner",
+        "it": "capogruppo-in-regione-formazione-basilea-denner-binningen",
+        "en": "head-of-branch-in-training-region-basel-denner-binningen",
         "de": "filialleiter-in-in-ausbildung-region-basel-denner",
-        "fr": "filialleiter-in-in-ausbildung-region-basel-denner"
+        "fr": "chef-de-division-dans-la-region-de-formation-bale-denner-binningen"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -72,11 +72,9 @@
         "stv-filialleiter-in-denner-basel",
         "directeur-de-succursale-stv-in-denner-basel",
         "stv-filialleiter-in-denner",
-        "capogruppo-in-regione-formazione-basilea-denner-binningen",
+        "filialleiter-in-in-ausbildung-region-basel-denner",
         "filialleiter-in-denner-schluein-7k8gx6",
-        "stv-branch-manager-in-denner-basel",
-        "head-of-branch-in-training-region-basel-denner-binningen",
-        "chef-de-division-dans-la-region-de-formation-bale-denner-binningen"
+        "stv-branch-manager-in-denner-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -86,15 +84,15 @@
           "stv-filialleiter-in-denner-basel",
           "directeur-de-succursale-stv-in-denner-basel",
           "stv-filialleiter-in-denner",
-          "capogruppo-in-regione-formazione-basilea-denner-binningen"
+          "filialleiter-in-in-ausbildung-region-basel-denner"
         ],
         "en": [
           "filialleiter-in-denner-schluein-7k8gx6",
           "stv-branch-manager-in-denner-basel",
-          "head-of-branch-in-training-region-basel-denner-binningen"
+          "filialleiter-in-in-ausbildung-region-basel-denner"
         ],
         "fr": [
-          "chef-de-division-dans-la-region-de-formation-bale-denner-binningen"
+          "filialleiter-in-in-ausbildung-region-basel-denner"
         ]
       },
       "firstSeenAt": "2026-05-21T11:45:35.377Z",
@@ -211,9 +209,9 @@
     },
     {
       "id": "denner-7120c02e9ea7",
-      "slug": "stv-filialleiter-in-denner-riehen",
+      "slug": "vice-direttoredifiliale-denner-riehen",
       "slugByLocale": {
-        "it": "stv-filialleiter-in-denner-riehen",
+        "it": "vice-direttoredifiliale-denner-riehen",
         "en": "stv-filialleiter-in-denner-riehen",
         "de": "stv-filialleiter-in-denner-riehen",
         "fr": "stv-filialleiter-in-denner-riehen"
@@ -276,7 +274,8 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "stv-filialleiter-in-denner"
+          "stv-filialleiter-in-denner",
+          "stv-filialleiter-in-denner-riehen"
         ],
         "en": [
           "stv-filialleiter-in-denner"
@@ -290,6 +289,7 @@
       },
       "previousSlugs": [
         "stv-filialleiter-in-denner",
+        "stv-filialleiter-in-denner-riehen",
         "stv-filialleiter-in-denner-basel"
       ],
       "salaryMin": 59000,
@@ -308,9 +308,9 @@
     },
     {
       "id": "denner-0c7ecf9894cb",
-      "slug": "verkaufer-in-denner-allschwil",
+      "slug": "venditore-denner-allschwil",
       "slugByLocale": {
-        "it": "verkaufer-in-denner-allschwil",
+        "it": "venditore-denner-allschwil",
         "en": "verkaufer-in-denner-allschwil",
         "de": "verkaufer-in-denner-allschwil",
         "fr": "verkaufer-in-denner-allschwil"
@@ -373,7 +373,8 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-denner"
+          "verkaufer-in-denner",
+          "verkaufer-in-denner-allschwil"
         ],
         "en": [
           "verkaufer-in-denner"
@@ -387,6 +388,7 @@
       },
       "previousSlugs": [
         "verkaufer-in-denner",
+        "verkaufer-in-denner-allschwil",
         "verkaufer-in-denner-rubigen"
       ],
       "salaryMin": 59000,
@@ -597,9 +599,9 @@
       "slug": "responsabiledi-filiale-in-formazione-denner-horw",
       "slugByLocale": {
         "it": "responsabiledi-filiale-in-formazione-denner-horw",
-        "en": "filialleiter-in-in-ausbildung-denner-horw",
+        "en": "head-of-branch-in-education-denner-horw",
         "de": "filialleiter-in-in-ausbildung-denner-horw",
-        "fr": "filialleiter-in-in-ausbildung-denner-horw"
+        "fr": "chef-de-division-en-education-denner-horw"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -669,13 +671,15 @@
           "filialleiter-in-in-ausbildung-denner-horw"
         ],
         "en": [
-          "filialleiter-in-in-ausbildung-denner"
+          "filialleiter-in-in-ausbildung-denner",
+          "filialleiter-in-in-ausbildung-denner-horw"
         ],
         "de": [
           "filialleiter-in-in-ausbildung-denner-allschwil"
         ],
         "fr": [
-          "filialleiter-in-in-ausbildung-denner"
+          "filialleiter-in-in-ausbildung-denner",
+          "filialleiter-in-in-ausbildung-denner-horw"
         ]
       },
       "firstSeenAt": "2026-05-19T22:05:06.909Z",
@@ -784,9 +788,9 @@
     },
     {
       "id": "denner-e4ba3db8b68d",
-      "slug": "verkaufer-in-im-stundenlohn-denner-grosswangen",
+      "slug": "venditore-con-retribuzione-oraria-denner-grosswangen",
       "slugByLocale": {
-        "it": "verkaufer-in-im-stundenlohn-denner-grosswangen",
+        "it": "venditore-con-retribuzione-oraria-denner-grosswangen",
         "en": "verkaufer-in-im-stundenlohn-denner-grosswangen",
         "de": "verkaufer-in-im-stundenlohn-denner-grosswangen",
         "fr": "verkaufer-in-im-stundenlohn-denner-grosswangen"
@@ -849,7 +853,8 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-im-stundenlohn-denner"
+          "verkaufer-in-im-stundenlohn-denner",
+          "verkaufer-in-im-stundenlohn-denner-grosswangen"
         ],
         "en": [
           "verkaufer-in-im-stundenlohn-denner"
@@ -863,6 +868,7 @@
       },
       "previousSlugs": [
         "verkaufer-in-im-stundenlohn-denner",
+        "verkaufer-in-im-stundenlohn-denner-grosswangen",
         "verkaufer-in-im-stundenlohn-denner-worb"
       ],
       "salaryMin": 59000,
@@ -881,9 +887,9 @@
     },
     {
       "id": "denner-dcc2cc8b61c6",
-      "slug": "filialleiter-in-denner-horgen",
+      "slug": "direttoredifiliale-denner-horgen",
       "slugByLocale": {
-        "it": "filialleiter-in-denner-horgen",
+        "it": "direttoredifiliale-denner-horgen",
         "en": "filialleiter-in-denner-horgen",
         "de": "filialleiter-in-denner-horgen",
         "fr": "filialleiter-in-denner-horgen"
@@ -947,7 +953,8 @@
       "previousSlugsByLocale": {
         "it": [
           "responsabile-di-filiale-denner-schluein",
-          "filialleiter-in-denner"
+          "filialleiter-in-denner",
+          "filialleiter-in-denner-horgen"
         ],
         "en": [
           "filialleiter-in-denner-schluein-7k8gx6"
@@ -962,6 +969,7 @@
       "previousSlugs": [
         "responsabile-di-filiale-denner-schluein",
         "filialleiter-in-denner",
+        "filialleiter-in-denner-horgen",
         "filialleiter-in-denner-schluein-7k8gx6"
       ],
       "salaryMin": 59000,
@@ -980,9 +988,9 @@
     },
     {
       "id": "denner-d4d3027bb396",
-      "slug": "assistent-in-filialleitung-denner",
+      "slug": "assistente-nella-direzione-della-filiale-denner-langnau-am-albis",
       "slugByLocale": {
-        "it": "assistent-in-filialleitung-denner",
+        "it": "assistente-nella-direzione-della-filiale-denner-langnau-am-albis",
         "en": "assistent-in-filialleitung-denner-flims-dorf-gzl76k",
         "de": "assistent-in-filialleitung-denner-langnau-am-albis",
         "fr": "assistent-in-filialleitung-denner-flims-dorf-gzl76k"
@@ -1046,10 +1054,14 @@
       "previousSlugsByLocale": {
         "de": [
           "assistent-in-filialleitung-denner-flims-dorf"
+        ],
+        "it": [
+          "assistent-in-filialleitung-denner"
         ]
       },
       "previousSlugs": [
-        "assistent-in-filialleitung-denner-flims-dorf"
+        "assistent-in-filialleitung-denner-flims-dorf",
+        "assistent-in-filialleitung-denner"
       ],
       "salaryMin": 59000,
       "salaryMax": 90500,
@@ -1262,12 +1274,12 @@
     },
     {
       "id": "denner-3cf2417bd104",
-      "slug": "verkaufer-in-im-stundenlohn-denner-uzwil",
+      "slug": "venditore-in-salario-orario-denner-uzwil",
       "slugByLocale": {
-        "it": "verkaufer-in-im-stundenlohn-denner-uzwil",
-        "en": "verkaufer-in-im-stundenlohn-denner-uzwil",
+        "it": "venditore-in-salario-orario-denner-uzwil",
+        "en": "seller-in-in-hourly-wage-denner-uzwil",
         "de": "verkaufer-in-im-stundenlohn-denner-uzwil",
-        "fr": "verkaufer-in-im-stundenlohn-denner-uzwil"
+        "fr": "vendeur-en-salaire-horaire-denner-uzwil"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -1325,20 +1337,24 @@
       "crawledAt": "2026-05-21T22:16:30.738Z",
       "previousSlugs": [
         "verkaufer-in-im-stundenlohn-denner",
+        "verkaufer-in-im-stundenlohn-denner-uzwil",
         "verkaufer-in-im-stundenlohn-denner-worb"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-im-stundenlohn-denner"
+          "verkaufer-in-im-stundenlohn-denner",
+          "verkaufer-in-im-stundenlohn-denner-uzwil"
         ],
         "en": [
-          "verkaufer-in-im-stundenlohn-denner"
+          "verkaufer-in-im-stundenlohn-denner",
+          "verkaufer-in-im-stundenlohn-denner-uzwil"
         ],
         "de": [
           "verkaufer-in-im-stundenlohn-denner-worb"
         ],
         "fr": [
-          "verkaufer-in-im-stundenlohn-denner"
+          "verkaufer-in-im-stundenlohn-denner",
+          "verkaufer-in-im-stundenlohn-denner-uzwil"
         ]
       },
       "firstSeenAt": "2026-05-21T11:45:36.006Z",
@@ -1357,12 +1373,12 @@
     },
     {
       "id": "denner-5fe6816b5688",
-      "slug": "verkaufer-in-denner-basel",
+      "slug": "vendita-denner-basel",
       "slugByLocale": {
-        "it": "verkaufer-in-denner-basel",
-        "en": "verkaufer-in-denner-basel",
+        "it": "vendita-denner-basel",
+        "en": "seller-in-denner-basel",
         "de": "verkaufer-in-denner-basel",
-        "fr": "verkaufer-in-denner-basel"
+        "fr": "vendeur-denner-basel"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -1420,20 +1436,24 @@
       "crawledAt": "2026-05-21T22:16:30.736Z",
       "previousSlugs": [
         "verkaufer-in-denner",
+        "verkaufer-in-denner-basel",
         "verkaufer-in-denner-rubigen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-denner"
+          "verkaufer-in-denner",
+          "verkaufer-in-denner-basel"
         ],
         "en": [
-          "verkaufer-in-denner"
+          "verkaufer-in-denner",
+          "verkaufer-in-denner-basel"
         ],
         "de": [
           "verkaufer-in-denner-rubigen"
         ],
         "fr": [
-          "verkaufer-in-denner"
+          "verkaufer-in-denner",
+          "verkaufer-in-denner-basel"
         ]
       },
       "firstSeenAt": "2026-05-21T11:45:36.005Z",
@@ -1455,9 +1475,9 @@
       "slug": "direttoredifiliale-denner-schluein",
       "slugByLocale": {
         "it": "direttoredifiliale-denner-schluein",
-        "en": "filialleiter-in-denner-schluein",
+        "en": "head-of-branch-in-denner-schluein",
         "de": "filialleiter-in-denner-schluein",
-        "fr": "filialleiter-in-denner-schluein"
+        "fr": "chef-de-branche-denner-schluein"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -1530,13 +1550,15 @@
           "filialleiter-in-denner-schluein"
         ],
         "en": [
-          "filialleiter-in-denner-schluein-7k8gx6"
+          "filialleiter-in-denner-schluein-7k8gx6",
+          "filialleiter-in-denner-schluein"
         ],
         "de": [
           "filialleiter-in-denner-schluein-7k8gx6"
         ],
         "fr": [
-          "filialleiter-in-denner-schluein-7k8gx6"
+          "filialleiter-in-denner-schluein-7k8gx6",
+          "filialleiter-in-denner-schluein"
         ]
       },
       "firstSeenAt": "2026-05-19T11:34:19.291Z",
@@ -1555,12 +1577,12 @@
     },
     {
       "id": "denner-d6673fb90a2b",
-      "slug": "assistent-in-filialleitung-denner",
+      "slug": "assistente-nella-gestione-delle-branche-denner-flims-dorf",
       "slugByLocale": {
-        "it": "assistent-in-filialleitung-denner",
-        "en": "assistent-in-filialleitung-denner-flims-dorf-gzl76k",
+        "it": "assistente-nella-gestione-delle-branche-denner-flims-dorf",
+        "en": "assistant-in-branch-management-denner-flims-dorf",
         "de": "assistent-in-filialleitung-denner-flims-dorf",
-        "fr": "assistent-in-filialleitung-denner-flims-dorf-gzl76k"
+        "fr": "assistant-dans-la-gestion-de-la-succursale-denner-flims-dorf"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -1629,7 +1651,22 @@
           "maxValue": 90500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "assistent-in-filialleitung-denner"
+        ],
+        "en": [
+          "assistent-in-filialleitung-denner-flims-dorf-gzl76k"
+        ],
+        "fr": [
+          "assistent-in-filialleitung-denner-flims-dorf-gzl76k"
+        ]
+      },
+      "previousSlugs": [
+        "assistent-in-filialleitung-denner",
+        "assistent-in-filialleitung-denner-flims-dorf-gzl76k"
+      ]
     }
   ]
 }

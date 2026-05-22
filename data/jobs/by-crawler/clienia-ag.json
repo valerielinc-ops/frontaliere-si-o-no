@@ -1704,10 +1704,10 @@
     },
     {
       "id": "clienia-ag-528a510b9e1e",
-      "slug": "diplomierte-pflegefachperson-80-90-clienia-ag-pfaffikon",
+      "slug": "infermiere-diplomato-80-90-clienia-ag-pfaffikon-zh",
       "slugByLocale": {
         "de": "diplomierte-pflegefachperson-80-90-clienia-ag-zurich",
-        "it": "diplomierte-pflegefachperson-80-90-clienia-ag-pfaffikon",
+        "it": "infermiere-diplomato-80-90-clienia-ag-pfaffikon-zh",
         "en": "diplomierte-pflegefachperson-80-90-clienia-ag-pfaffikon",
         "fr": "diplomierte-pflegefachperson-80-90-clienia-ag-pfaffikon"
       },
@@ -1755,11 +1755,13 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "diplomierte-pflegefachperson-80-90-clienia-ag-zurich"
+          "diplomierte-pflegefachperson-80-90-clienia-ag-zurich",
+          "diplomierte-pflegefachperson-80-90-clienia-ag-pfaffikon"
         ]
       },
       "previousSlugs": [
-        "diplomierte-pflegefachperson-80-90-clienia-ag-zurich"
+        "diplomierte-pflegefachperson-80-90-clienia-ag-zurich",
+        "diplomierte-pflegefachperson-80-90-clienia-ag-pfaffikon"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -6779,10 +6781,10 @@
     },
     {
       "id": "clienia-ag-9fa498d43608",
-      "slug": "arztsekretarin-arztsekretar-80-100-clienia-ag-zurich",
+      "slug": "segretaria-medica-segretario-medico-80-100-clienia-ag-pfaffikon-zh",
       "slugByLocale": {
         "de": "arztsekretarin-arztsekretar-80-100-clienia-ag-pfaffikon",
-        "it": "arztsekretarin-arztsekretar-80-100-clienia-ag-zurich",
+        "it": "segretaria-medica-segretario-medico-80-100-clienia-ag-pfaffikon-zh",
         "en": "arztsekretarin-arztsekretar-80-100-clienia-ag-zurich",
         "fr": "arztsekretarin-arztsekretar-80-100-clienia-ag-zurich"
       },
@@ -6840,7 +6842,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-22T11:13:48.879Z"
+      "firstSeenAt": "2026-05-22T11:13:48.879Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "arztsekretarin-arztsekretar-80-100-clienia-ag-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "arztsekretarin-arztsekretar-80-100-clienia-ag-zurich"
+      ]
     },
     {
       "id": "clienia-ag-cc011ce024d0",
@@ -7237,10 +7247,10 @@
     },
     {
       "id": "clienia-ag-1a40af10ad83",
-      "slug": "pflegehelfende-n-srk-m-w-d-60-100-clienia-ag-zurich",
+      "slug": "assistente-sanitario-crs-m-f-d-60-100-clienia-ag-pfaffikon-zh",
       "slugByLocale": {
         "de": "pflegehelfende-n-srk-m-w-d-60-100-clienia-ag-pfaffikon",
-        "it": "pflegehelfende-n-srk-m-w-d-60-100-clienia-ag-zurich",
+        "it": "assistente-sanitario-crs-m-f-d-60-100-clienia-ag-pfaffikon-zh",
         "en": "pflegehelfende-n-srk-m-w-d-60-100-clienia-ag-zurich",
         "fr": "pflegehelfende-n-srk-m-w-d-60-100-clienia-ag-zurich"
       },
@@ -7298,7 +7308,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-22T11:13:44.944Z"
+      "firstSeenAt": "2026-05-22T11:13:44.944Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegehelfende-n-srk-m-w-d-60-100-clienia-ag-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "pflegehelfende-n-srk-m-w-d-60-100-clienia-ag-zurich"
+      ]
     }
   ]
 }

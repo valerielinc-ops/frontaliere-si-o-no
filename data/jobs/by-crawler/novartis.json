@@ -1612,9 +1612,9 @@
     },
     {
       "id": "novartis-5066956f857b",
-      "slug": "regulatory-affairs-postgraduate-program-switzerland-novartis-ch",
+      "slug": "programma-post-laurea-in-svizzera-novartis-basel-city",
       "slugByLocale": {
-        "it": "regulatory-affairs-postgraduate-program-switzerland-novartis-ch",
+        "it": "programma-post-laurea-in-svizzera-novartis-basel-city",
         "en": "regulatory-affairs-postgraduate-program-switzerland-novartis-ch",
         "de": "regulatory-affairs-postgraduate-program-switzerland-novartis-ch",
         "fr": "regulatory-affairs-postgraduate-program-switzerland-novartis-ch"
@@ -1669,13 +1669,21 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "regulatory-affairs-postgraduate-program-switzerland-novartis-ch"
+        ]
+      },
+      "previousSlugs": [
+        "regulatory-affairs-postgraduate-program-switzerland-novartis-ch"
+      ]
     },
     {
       "id": "novartis-2a6f9a235032",
-      "slug": "head-global-medical-affairs-oncology-novartis-ch",
+      "slug": "capo-global-medical-affairs-oncologia-novartis-basel-city",
       "slugByLocale": {
-        "it": "head-global-medical-affairs-oncology-novartis-ch",
+        "it": "capo-global-medical-affairs-oncologia-novartis-basel-city",
         "en": "head-global-medical-affairs-oncology-novartis-ch",
         "de": "head-global-medical-affairs-oncology-novartis-ch",
         "fr": "head-global-medical-affairs-oncology-novartis-ch"
@@ -1730,13 +1738,21 @@
           "maxValue": 103000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "head-global-medical-affairs-oncology-novartis-ch"
+        ]
+      },
+      "previousSlugs": [
+        "head-global-medical-affairs-oncology-novartis-ch"
+      ]
     },
     {
       "id": "novartis-7580267ae6f4",
-      "slug": "head-evidence-generation-novartis-ch",
+      "slug": "testa-generazione-di-prove-novartis-basel-city",
       "slugByLocale": {
-        "it": "head-evidence-generation-novartis-ch",
+        "it": "testa-generazione-di-prove-novartis-basel-city",
         "en": "head-evidence-generation-novartis-ch",
         "de": "head-evidence-generation-novartis-ch",
         "fr": "head-evidence-generation-novartis-ch"
@@ -1791,13 +1807,21 @@
           "maxValue": 103000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "head-evidence-generation-novartis-ch"
+        ]
+      },
+      "previousSlugs": [
+        "head-evidence-generation-novartis-ch"
+      ]
     },
     {
       "id": "novartis-24669a73950e",
-      "slug": "clinical-program-leader-novartis-ch",
+      "slug": "leader-del-programma-clinico-novartis-basel-city",
       "slugByLocale": {
-        "it": "clinical-program-leader-novartis-ch",
+        "it": "leader-del-programma-clinico-novartis-basel-city",
         "en": "clinical-program-leader-novartis-ch",
         "de": "clinical-program-leader-novartis-ch",
         "fr": "clinical-program-leader-novartis-ch"
@@ -1852,13 +1876,21 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "clinical-program-leader-novartis-ch"
+        ]
+      },
+      "previousSlugs": [
+        "clinical-program-leader-novartis-ch"
+      ]
     },
     {
       "id": "novartis-cbfbdb599685",
-      "slug": "workflow-automation-expert-novartis-ch",
+      "slug": "esperto-di-automazione-del-flusso-di-lavoro-novartis-basel-city",
       "slugByLocale": {
-        "it": "workflow-automation-expert-novartis-ch",
+        "it": "esperto-di-automazione-del-flusso-di-lavoro-novartis-basel-city",
         "en": "workflow-automation-expert-novartis-ch",
         "de": "workflow-automation-expert-novartis-ch",
         "fr": "workflow-automation-expert-novartis-ch"
@@ -1913,7 +1945,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "workflow-automation-expert-novartis-ch"
+        ]
+      },
+      "previousSlugs": [
+        "workflow-automation-expert-novartis-ch"
+      ]
     },
     {
       "id": "novartis-e89df323abb9",

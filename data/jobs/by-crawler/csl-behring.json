@@ -135,10 +135,10 @@
     },
     {
       "id": "csl-behring-cd9ad4877033",
-      "slug": "responsabile-dell-ecosistema-di-manutenzione-remote-csl-behring-bern",
+      "slug": "manutenzione-ecosystem-lead-rimozione-csl-behring-bern",
       "slugByLocale": {
         "en": "maintenance-ecosystem-lead-remote-csl-behring-ch",
-        "it": "responsabile-dell-ecosistema-di-manutenzione-remote-csl-behring-bern",
+        "it": "manutenzione-ecosystem-lead-rimozione-csl-behring-bern",
         "de": "fuhrender-wartungssystem-manager-remote-csl-behring-bern",
         "fr": "responsable-de-l-ecosysteme-de-maintenance-a-distance-csl-behring-bern"
       },
@@ -196,7 +196,15 @@
         }
       },
       "postalCode": "3001",
-      "firstSeenAt": "2026-05-21T22:13:29.671Z"
+      "firstSeenAt": "2026-05-21T22:13:29.671Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "responsabile-dell-ecosistema-di-manutenzione-remote-csl-behring-bern"
+        ]
+      },
+      "previousSlugs": [
+        "responsabile-dell-ecosistema-di-manutenzione-remote-csl-behring-bern"
+      ]
     },
     {
       "id": "csl-behring-dfa90797345e",
@@ -2732,12 +2740,12 @@
     },
     {
       "id": "csl-behring-9bf100e26280",
-      "slug": "design-technology-lead-csl-behring-ch",
+      "slug": "progettazione-e-tecnologia-lead-csl-behring-bern",
       "slugByLocale": {
-        "it": "design-technology-lead-csl-behring-ch",
+        "it": "progettazione-e-tecnologia-lead-csl-behring-bern",
         "en": "design-technology-lead-csl-behring-ch",
         "de": "design-technology-lead-csl-behring-ch",
-        "fr": "design-technology-lead-csl-behring-ch"
+        "fr": "responsable-de-la-conception-et-de-la-technologie-csl-behring-bern"
       },
       "company": "CSL Behring",
       "companyKey": "csl-behring",
@@ -2791,7 +2799,18 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "3001"
+      "postalCode": "3001",
+      "previousSlugsByLocale": {
+        "it": [
+          "design-technology-lead-csl-behring-ch"
+        ],
+        "fr": [
+          "design-technology-lead-csl-behring-ch"
+        ]
+      },
+      "previousSlugs": [
+        "design-technology-lead-csl-behring-ch"
+      ]
     },
     {
       "id": "csl-behring-2ffc1db2cebf",

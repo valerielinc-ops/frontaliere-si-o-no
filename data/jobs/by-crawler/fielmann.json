@@ -2852,9 +2852,9 @@
       "slug": "audioprotesista-f-m-d-fielmann-group-aarau",
       "slugByLocale": {
         "it": "audioprotesista-f-m-d-fielmann-group-aarau",
-        "en": "horakustikermeister-w-m-d-fielmann-group-aarau",
+        "en": "studio-manager-m-f-d-fielmann-group-aarau",
         "de": "leitung-eines-horakustikstudios-w-m-d-fielmann-ch",
-        "fr": "horakustikermeister-w-m-d-fielmann-group-aarau"
+        "fr": "direction-d-un-studio-d-audition-h-f-fielmann-group-aarau"
       },
       "company": "Fielmann Group",
       "companyKey": "fielmann",
@@ -2909,6 +2909,12 @@
         "de": [
           "horakustikermeister-w-m-d-fielmann-ch",
           "horakustikermeister-w-m-d-fielmann-group-aarau"
+        ],
+        "en": [
+          "horakustikermeister-w-m-d-fielmann-group-aarau"
+        ],
+        "fr": [
+          "horakustikermeister-w-m-d-fielmann-group-aarau"
         ]
       },
       "firstSeenAt": "2026-05-19T22:13:24.580Z",
@@ -2927,10 +2933,10 @@
     },
     {
       "id": "fielmann-66571f1b06d6",
-      "slug": "optometriste-maitre-opticien-ne-h-f-d-fielmann-ch",
+      "slug": "optometrista-maestro-oftenziale-h-f-d-fielmann-group-lausanne",
       "slugByLocale": {
-        "it": "optometriste-maitre-opticien-ne-h-f-d-fielmann-ch",
-        "en": "optometriste-maitre-opticien-ne-h-f-d-fielmann-ch",
+        "it": "optometrista-maestro-oftenziale-h-f-d-fielmann-group-lausanne",
+        "en": "optometrist-optential-master-h-f-d-fielmann-group-lausanne",
         "de": "optometriste-maitre-opticien-ne-h-f-d-fielmann-ch",
         "fr": "optometriste-maitre-opticien-ne-h-f-d-fielmann-ch"
       },
@@ -2986,7 +2992,18 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "optometriste-maitre-opticien-ne-h-f-d-fielmann-ch"
+        ],
+        "en": [
+          "optometriste-maitre-opticien-ne-h-f-d-fielmann-ch"
+        ]
+      },
+      "previousSlugs": [
+        "optometriste-maitre-opticien-ne-h-f-d-fielmann-ch"
+      ]
     },
     {
       "id": "fielmann-39c75e87eadf",

@@ -4780,12 +4780,12 @@
     },
     {
       "id": "kispi-70350ee20b12",
-      "slug": "oberarztin-oberarzt-80-100-kinderradiologie-universitats-kinderspital-zurich-zurich",
+      "slug": "medico-senior-80-100-kinderradiologie-universitats-kinderspital-zurich-zurich",
       "slugByLocale": {
-        "it": "oberarztin-oberarzt-80-100-kinderradiologie-universitats-kinderspital-zurich-zurich",
-        "en": "oberarztin-oberarzt-80-100-kinderradiologie-universitats-kinderspital-zurich-zurich",
+        "it": "medico-senior-80-100-kinderradiologie-universitats-kinderspital-zurich-zurich",
+        "en": "senior-physician-80-100-kinderradiologie-universitats-kinderspital-zurich-zurich",
         "de": "oberarztin-oberarzt-80-100-kinderradiologie-universitats-kinderspital-zurich-zurich",
-        "fr": "oberarztin-oberarzt-80-100-kinderradiologie-universitats-kinderspital-zurich-zurich"
+        "fr": "medecin-senior-80-100-kinderradiologie-universitats-kinderspital-zurich-zurich"
       },
       "company": "Universitäts-Kinderspital Zürich",
       "companyKey": "kispi",
@@ -4832,11 +4832,19 @@
           "oberarztin-oberarzt-80-100-kinderradiologie-kispi-zurich"
         ],
         "it": [
-          "oberarztin-oberarzt-80-100-kinderradiologie-kispi-zurich"
+          "oberarztin-oberarzt-80-100-kinderradiologie-kispi-zurich",
+          "oberarztin-oberarzt-80-100-kinderradiologie-universitats-kinderspital-zurich-zurich"
+        ],
+        "en": [
+          "oberarztin-oberarzt-80-100-kinderradiologie-universitats-kinderspital-zurich-zurich"
+        ],
+        "fr": [
+          "oberarztin-oberarzt-80-100-kinderradiologie-universitats-kinderspital-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "oberarztin-oberarzt-80-100-kinderradiologie-kispi-zurich"
+        "oberarztin-oberarzt-80-100-kinderradiologie-kispi-zurich",
+        "oberarztin-oberarzt-80-100-kinderradiologie-universitats-kinderspital-zurich-zurich"
       ],
       "firstSeenAt": "2026-05-21T12:21:30.891Z",
       "salaryMin": 49500,
@@ -4854,12 +4862,12 @@
     },
     {
       "id": "kispi-0d3f3524829a",
-      "slug": "senior-businessanalystin-release-e-demandmanagerin-m-w-d-80-100-universitats-kinderspital-zurich",
+      "slug": "senior-business-analyst-release-and-demand-manager-m-w-80-100-universitats-kinderspital-zurich-zurich",
       "slugByLocale": {
-        "it": "senior-businessanalystin-release-e-demandmanagerin-m-w-d-80-100-universitats-kinderspital-zurich",
+        "it": "senior-business-analyst-release-and-demand-manager-m-w-80-100-universitats-kinderspital-zurich-zurich",
         "en": "senior-businessanalystin-release-und-demandmanagerin-m-w-80-100-universitats-kinderspital-zurich-zurich",
         "de": "senior-businessanalystin-release-und-demandmanagerin-m-w-80-100-universitats-kinderspital-zurich-zurich",
-        "fr": "senior-businessanalystin-release-und-demandmanagerin-m-w-80-100-universitats-kinderspital-zurich-zurich"
+        "fr": "analyste-principal-des-affaires-gestionnaire-de-la-publication-et-de-la-demande-m-p-80-100-universitats-kinderspital"
       },
       "company": "Universitäts-Kinderspital Zürich",
       "companyKey": "kispi",
@@ -4906,11 +4914,17 @@
           "senior-businessanalystin-release-und-demandmanagerin-m-w-80-100-kispi-zurich"
         ],
         "it": [
-          "senior-businessanalystin-release-und-demandmanagerin-m-w-80-100-kispi-zurich"
+          "senior-businessanalystin-release-und-demandmanagerin-m-w-80-100-kispi-zurich",
+          "senior-businessanalystin-release-e-demandmanagerin-m-w-d-80-100-universitats-kinderspital-zurich"
+        ],
+        "fr": [
+          "senior-businessanalystin-release-und-demandmanagerin-m-w-80-100-universitats-kinderspital-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "senior-businessanalystin-release-und-demandmanagerin-m-w-80-100-kispi-zurich"
+        "senior-businessanalystin-release-und-demandmanagerin-m-w-80-100-kispi-zurich",
+        "senior-businessanalystin-release-e-demandmanagerin-m-w-d-80-100-universitats-kinderspital-zurich",
+        "senior-businessanalystin-release-und-demandmanagerin-m-w-80-100-universitats-kinderspital-zurich-zurich"
       ],
       "firstSeenAt": "2026-05-21T12:21:30.091Z",
       "salaryMin": 68000,
@@ -4928,12 +4942,12 @@
     },
     {
       "id": "kispi-8a69bf6165ac",
-      "slug": "arztsekretarin-m-w-60-80-logopala-universitats-kinderspital-zurich-zurich",
+      "slug": "consulente-senior-m-w-universitats-kinderspital-zurich-zurich",
       "slugByLocale": {
-        "it": "arztsekretarin-m-w-60-80-logopala-universitats-kinderspital-zurich-zurich",
-        "en": "arztsekretarin-m-w-60-80-logopadie-kispi-zurich",
+        "it": "consulente-senior-m-w-universitats-kinderspital-zurich-zurich",
+        "en": "senior-consultant-m-w-universitats-kinderspital-zurich-zurich",
         "de": "arztsekretarin-m-w-60-80-logopadie-universitats-kinderspital-zurich-zurich",
-        "fr": "arztsekretarin-m-w-60-80-logopadie-kispi-zurich"
+        "fr": "consultant-principal-m-m-universitats-kinderspital-zurich-zurich"
       },
       "company": "Universitäts-Kinderspital Zürich",
       "companyKey": "kispi",
@@ -4980,11 +4994,19 @@
           "arztsekretarin-m-w-60-80-logopadie-kispi-zurich"
         ],
         "it": [
+          "arztsekretarin-m-w-60-80-logopadie-kispi-zurich",
+          "arztsekretarin-m-w-60-80-logopala-universitats-kinderspital-zurich-zurich"
+        ],
+        "en": [
+          "arztsekretarin-m-w-60-80-logopadie-kispi-zurich"
+        ],
+        "fr": [
           "arztsekretarin-m-w-60-80-logopadie-kispi-zurich"
         ]
       },
       "previousSlugs": [
-        "arztsekretarin-m-w-60-80-logopadie-kispi-zurich"
+        "arztsekretarin-m-w-60-80-logopadie-kispi-zurich",
+        "arztsekretarin-m-w-60-80-logopala-universitats-kinderspital-zurich-zurich"
       ],
       "firstSeenAt": "2026-05-21T12:21:29.512Z",
       "salaryMin": 49500,
@@ -5002,12 +5024,12 @@
     },
     {
       "id": "kispi-d05672ef72b5",
-      "slug": "biomedizinische-analytikerin-m-w-80-100-universitats-kinderspital-zurich-zurich",
+      "slug": "analista-biomedicale-m-w-80-100-universitats-kinderspital-zurich-zurich",
       "slugByLocale": {
-        "it": "biomedizinische-analytikerin-m-w-80-100-universitats-kinderspital-zurich-zurich",
-        "en": "biomedizinische-analytikerin-m-w-80-100-universitats-kinderspital-zurich-zurich",
+        "it": "analista-biomedicale-m-w-80-100-universitats-kinderspital-zurich-zurich",
+        "en": "biomedical-analyst-m-w-80-100-universitats-kinderspital-zurich-zurich",
         "de": "biomedizinische-analytikerin-m-w-80-100-universitats-kinderspital-zurich-zurich",
-        "fr": "biomedizinische-analytikerin-m-w-80-100-universitats-kinderspital-zurich-zurich"
+        "fr": "analyste-biomedical-m-m-80-100-universitats-kinderspital-zurich-zurich"
       },
       "company": "Universitäts-Kinderspital Zürich",
       "companyKey": "kispi",
@@ -5054,11 +5076,19 @@
           "biomedizinische-analytikerin-m-w-80-100-kispi-zurich"
         ],
         "it": [
-          "biomedizinische-analytikerin-m-w-80-100-kispi-zurich"
+          "biomedizinische-analytikerin-m-w-80-100-kispi-zurich",
+          "biomedizinische-analytikerin-m-w-80-100-universitats-kinderspital-zurich-zurich"
+        ],
+        "en": [
+          "biomedizinische-analytikerin-m-w-80-100-universitats-kinderspital-zurich-zurich"
+        ],
+        "fr": [
+          "biomedizinische-analytikerin-m-w-80-100-universitats-kinderspital-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "biomedizinische-analytikerin-m-w-80-100-kispi-zurich"
+        "biomedizinische-analytikerin-m-w-80-100-kispi-zurich",
+        "biomedizinische-analytikerin-m-w-80-100-universitats-kinderspital-zurich-zurich"
       ],
       "firstSeenAt": "2026-05-21T12:21:28.918Z",
       "salaryMin": 49500,
@@ -5079,9 +5109,9 @@
       "slug": "op-koordinatorin-m-w-80-100-universitats-kinderspital-zurich-zurich",
       "slugByLocale": {
         "it": "op-koordinatorin-m-w-80-100-universitats-kinderspital-zurich-zurich",
-        "en": "op-koordinatorin-m-w-80-100-kispi-zurich",
+        "en": "senior-consultant-m-w-80-100-universitats-kinderspital-zurich-zurich",
         "de": "op-koordinatorin-m-w-80-100-kispi-zurich",
-        "fr": "op-koordinatorin-m-w-80-100-kispi-zurich"
+        "fr": "op-coordinatorin-m-m-80-100-universitats-kinderspital-zurich-zurich"
       },
       "company": "Universitäts-Kinderspital Zürich",
       "companyKey": "kispi",
@@ -5128,6 +5158,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "op-koordinatorin-m-w-80-100-kispi-zurich"
+        ],
+        "en": [
+          "op-koordinatorin-m-w-80-100-kispi-zurich"
+        ],
+        "fr": [
           "op-koordinatorin-m-w-80-100-kispi-zurich"
         ]
       },

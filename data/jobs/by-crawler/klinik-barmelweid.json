@@ -725,8 +725,7 @@
       "previousSlugsByLocale": {
         "it": [
           "musiktherapeutin-musiktherapeut-befristet-fur-mutterschaftsvertretung-a-klinik-barmelweid",
-          "musicoterapista-a-tempo-determinato-per-sostituzione-maternita-a-klinik-barmelweid-barmelweid",
-          "musiktherapeutin-musiktherapeut-befristet-per-mutterschaftsvertretung-a-klinik-barmelweid"
+          "musicoterapista-a-tempo-determinato-per-sostituzione-maternita-a-klinik-barmelweid-barmelweid"
         ]
       },
       "firstSeenAt": "2026-05-19T12:21:28.675Z",
@@ -2265,8 +2264,7 @@
       "previousSlugsByLocale": {
         "it": [
           "fachfrau-fachmann-gesundheit-efz-a-interdisziplinare-rehabilitation-innere-medizin-klinik",
-          "specialista-della-salute-efz-a-riabilitazione-interdisciplinare-medicina-interna-klinik-barmelweid-barmelweid",
-          "fachfrau-fachmann-gesundheit-cfc-a-interdisziplinare-rehabilitation-innere-medizin-klinik-barmelweid-barmelweid"
+          "specialista-della-salute-efz-a-riabilitazione-interdisciplinare-medicina-interna-klinik-barmelweid-barmelweid"
         ]
       },
       "firstSeenAt": "2026-05-19T12:21:07.824Z",
@@ -3119,9 +3117,9 @@
     },
     {
       "id": "klinik-barmelweid-5dbcaa0d8675",
-      "slug": "oberarztin-oberarzt-geriatrie-a-klinik-barmelweid-barmelweid",
+      "slug": "medico-senior-geriatrie-a-klinik-barmelweid-barmelweid",
       "slugByLocale": {
-        "it": "oberarztin-oberarzt-geriatrie-a-klinik-barmelweid-barmelweid",
+        "it": "medico-senior-geriatrie-a-klinik-barmelweid-barmelweid",
         "en": "oberarztin-oberarzt-geriatrie-a-klinik-barmelweid-barmelweid",
         "de": "oberarztin-oberarzt-geriatrie-a-klinik-barmelweid-barmelweid",
         "fr": "oberarztin-oberarzt-geriatrie-a-klinik-barmelweid-barmelweid"
@@ -3178,7 +3176,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "oberarztin-oberarzt-geriatrie-a-klinik-barmelweid-barmelweid"
+        ]
+      },
+      "previousSlugs": [
+        "oberarztin-oberarzt-geriatrie-a-klinik-barmelweid-barmelweid"
+      ]
     },
     {
       "id": "klinik-barmelweid-96199bd66b01",
@@ -3352,8 +3358,7 @@
           "ergotherapeutin-ergotherapeut-a-klinik-barmelweid-barmelweid"
         ],
         "de": [
-          "ergotherapeutin-ergotherapeutin-a-klinik-barmelweid-barmelweid",
-          "ergotherapeutin-ergotherapeut-a-klinik-barmelweid-barmelweid"
+          "ergotherapeutin-ergotherapeutin-a-klinik-barmelweid-barmelweid"
         ]
       },
       "firstSeenAt": "2026-05-19T12:21:05.623Z",
