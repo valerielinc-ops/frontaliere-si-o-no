@@ -7688,6 +7688,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.richiami-fiscali-errati-ticino.title': 'Fisco, richiami inviati per errore a chi ha già dichiarato',
     'blog.article.richiami-fiscali-errati-ticino.excerpt': 'Diverse persone in Ticino hanno ricevuto un richiamo dalle autorità cantonali per non aver inviato la dichiarazione d\'imposta entro i termini previsti, anche se avevano già provveduto. La Divisione delle contribuzioni del DFE ha spiegato che si tratta di un problema tecnico circoscritto solo alle dichiarazioni cartacee.',
     'blog.article.richiami-fiscali-errati-ticino.imageAlt': 'Ascona, Ticino',
+    'blog.article.assegno-inclusione-maggio-2026-ricarica-ordinaria.title': 'Assegno Inclusione: date lavorazioni e pagamenti maggio 2026',
+    'blog.article.assegno-inclusione-maggio-2026-ricarica-ordinaria.excerpt': 'Le lavorazioni e la ricarica ordinaria dell’Assegno di Inclusione di fine maggio 2026 sono ormai vicine, ma tra i beneficiari continuano ad esserci molti dubbi.',
+    'blog.article.assegno-inclusione-maggio-2026-ricarica-ordinaria.imageAlt': 'Il paesaggio montano di Monte Brè con il lago di Lugano in lontananza',
 };
 
 export default blogMetaIt;

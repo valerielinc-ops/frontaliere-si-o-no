@@ -3805,6 +3805,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-ucraini-in-svizzera-permesso-s-b-timori-dei-cantoni': { name: 'Ucraini in Svizzera', path: '/articoli-frontaliere/ucraini-in-svizzera-permesso-s-b-timori-dei-cantoni', parent: 'blog' },
     'blog-ffs-2027-ticino': { name: 'Novità FFS 2027', path: '/articoli-frontaliere/ffs-2027-ticino', parent: 'blog' },
     'blog-richiami-fiscali-errati-ticino': { name: 'Fisco', path: '/articoli-frontaliere/richiami-fiscali-errati-ticino', parent: 'blog' },
+    'blog-assegno-inclusione-maggio-2026-ricarica-ordinaria': { name: 'Assegno di Inclusione', path: '/articoli-frontaliere/assegno-inclusione-maggio-2026-ricarica-ordinaria', parent: 'blog' },
  };
 
  const info = sectionNames[section];

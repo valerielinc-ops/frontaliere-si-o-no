@@ -24437,4 +24437,13 @@ export const ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'assegno-inclusione-maggio-2026-ricarica-ordinaria',
+ category: 'pratico',
+ date: '2026-05-23T13:50:22.787Z',
+ image: '/images/blog/assegno-inclusione-maggio-2026-ricarica-ordinaria.webp',
+ hasCalculator: false,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

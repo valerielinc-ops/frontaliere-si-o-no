@@ -7687,6 +7687,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.richiami-fiscali-errati-ticino.title': 'Tax Errors: Wrong Reminders Sent to Those Who Already Filed',
     'blog.article.richiami-fiscali-errati-ticino.excerpt': 'Several people in Ticino received reminders from cantonal authorities for not sending their tax declaration on time, even though they had already done so. The Division of Contributions of the DFE explained that this is a technical issue limited to paper declarations only.',
     'blog.article.richiami-fiscali-errati-ticino.imageAlt': 'Ascona, Ticino',
+    'blog.article.assegno-inclusione-maggio-2026-ricarica-ordinaria.title': 'Inclusion Allowance: Processing and Payments May 2026',
+    'blog.article.assegno-inclusione-maggio-2026-ricarica-ordinaria.excerpt': 'The processing and regular recharge of the Inclusion Allowance for late May 2026 are approaching, but many beneficiaries still have doubts.',
+    'blog.article.assegno-inclusione-maggio-2026-ricarica-ordinaria.imageAlt': 'The mountainous landscape of Monte Brè with Lake Lugano in the distance',
 };
 
 export default blogMetaEn;

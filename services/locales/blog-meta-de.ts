@@ -7686,6 +7686,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.richiami-fiscali-errati-ticino.title': 'Steuern, irrt├╝mlich Erinnerung an diejenigen, die bereits erkl├Ąrt haben',
     'blog.article.richiami-fiscali-errati-ticino.excerpt': 'Verschiedene Personen im Tessin haben eine Erinnerung von den kantonalen Beh├Ârden erhalten, weil sie die Steuererkl├Ąrung nicht innerhalb der vorgegebenen Frist eingereicht haben, obwohl sie dies bereits getan hatten. Die Abteilung der Beitr├Ąge des DFE hat erkl├Ąrt, dass es sich um ein technisches Problem handelt, das nur auf papierbasierte Erkl├Ąrungen begrenzt ist.',
     'blog.article.richiami-fiscali-errati-ticino.imageAlt': 'Ascona, Tessin',
+    'blog.article.assegno-inclusione-maggio-2026-ricarica-ordinaria.title': 'G-Bewilligung: Verarbeitungs- und Zahlungstermine Mai 2026',
+    'blog.article.assegno-inclusione-maggio-2026-ricarica-ordinaria.excerpt': 'Die Verarbeitung und die regelmäßige Aufladung der Eingliederungshilfe Ende Mai 2026 stehen bevor, aber unter den Begünstigten gibt es immer noch viele Zweifel.',
+    'blog.article.assegno-inclusione-maggio-2026-ricarica-ordinaria.imageAlt': 'Die Berglandschaft von Monte Brè mit dem Lago Lugano in der Ferne',
 };
 
 export default blogMetaDe;
