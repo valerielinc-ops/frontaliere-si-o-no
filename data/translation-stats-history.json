@@ -1,61 +1,5 @@
 [
   {
-    "timestamp": "2026-05-07T09:00:28.672Z",
-    "label": "before",
-    "total": 2561,
-    "needsRetranslation": 155,
-    "incomplete": 90,
-    "complete": 2471,
-    "missingByLocale": {
-      "it": 29,
-      "en": 18,
-      "de": 14,
-      "fr": 28
-    },
-    "topPending": [
-      {
-        "company": "Convit Holding GmbH",
-        "pending": 52
-      },
-      {
-        "company": "EFG International AG",
-        "pending": 6
-      },
-      {
-        "company": "Hilcona AG",
-        "pending": 6
-      },
-      {
-        "company": "Lonza",
-        "pending": 5
-      },
-      {
-        "company": "Denner",
-        "pending": 3
-      },
-      {
-        "company": "Bosch Thermotechnik AG",
-        "pending": 2
-      },
-      {
-        "company": "Regionalspital Surselva",
-        "pending": 2
-      },
-      {
-        "company": "Union Bancaire Privée",
-        "pending": 2
-      },
-      {
-        "company": "ALDI SUISSE",
-        "pending": 1
-      },
-      {
-        "company": "AXA Svizzera",
-        "pending": 1
-      }
-    ]
-  },
-  {
     "timestamp": "2026-05-07T09:18:53.056Z",
     "label": "after",
     "total": 2561,
@@ -11155,6 +11099,62 @@
       "en": 224,
       "de": 186,
       "fr": 295
+    },
+    "topPending": [
+      {
+        "company": "Hügli Nahrungsmittel GmbH",
+        "pending": 82
+      },
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 66
+      },
+      {
+        "company": "Roche",
+        "pending": 37
+      },
+      {
+        "company": "UBS",
+        "pending": 30
+      },
+      {
+        "company": "IWC",
+        "pending": 26
+      },
+      {
+        "company": "VF International (The North Face, Timberland)",
+        "pending": 21
+      },
+      {
+        "company": "Regionalspital Surselva",
+        "pending": 15
+      },
+      {
+        "company": "ABB Svizzera (sede Ticino)",
+        "pending": 10
+      },
+      {
+        "company": "Lonza",
+        "pending": 9
+      },
+      {
+        "company": "PostFinance",
+        "pending": 8
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-05-23T09:26:12.572Z",
+    "label": "after",
+    "total": 8471,
+    "needsRetranslation": 1622,
+    "incomplete": 456,
+    "complete": 8015,
+    "missingByLocale": {
+      "it": 331,
+      "en": 241,
+      "de": 190,
+      "fr": 311
     },
     "topPending": [
       {
