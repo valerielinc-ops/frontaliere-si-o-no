@@ -27,16 +27,38 @@ export type HighlightsChipsContext = Pick<
   'locale' | 'canonicalLocale' | 'canonicalKeywords' | 'esc'
 >;
 
+// Strip residual markdown markers (`**bold**`, `*em*`, leading `#+`, mid-string
+// `[_=~]{3,}` separator runs) before HTML-escaping into <li class="chip">. The
+// chip renderer feeds `canonicalLocale.highlights` / `canonicalKeywords` (often
+// produced by the fallback splitter at services/jobs/canonicalFallback.ts, which
+// preserves source `**bold**` markers verbatim) through `esc()` only — so
+// `**Flexible Arbeitszeiten**` survived as literal text and tripped
+// audit:no-literal-markdown (166 offenders in validate-dist run 26316291019,
+// pattern observed: Axpo benefit chips + Casale SA `** e **` + Fonte
+// `**luglio 2026**`). Markers don't render as bold inside chips anyway — they
+// just leak as visible asterisks — so unwrap to plain text.
+function stripChipMarkdown(value: string): string {
+  return String(value || '')
+    .replace(/\*\*([^*\n]+?)\*\*/g, '$1')
+    .replace(/\*([^*\n]+?)\*/g, '$1')
+    .replace(/^#+\s*/, '')
+    .replace(/[_=~]{3,}/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
 export function renderHighlightsChips(ctx: HighlightsChipsContext): string {
   const { locale, canonicalLocale, canonicalKeywords, esc } = ctx;
   const rawHighlights = Array.isArray(
     (canonicalLocale as { highlights?: unknown })?.highlights,
   )
     ? ((canonicalLocale as { highlights?: unknown[] }).highlights as unknown[])
-        .map((h) => String(h ?? '').trim())
+        .map((h) => stripChipMarkdown(String(h ?? '')))
         .filter((h) => h.length > 0)
     : [];
-  const source = rawHighlights.length > 0 ? rawHighlights : canonicalKeywords;
+  const source = rawHighlights.length > 0
+    ? rawHighlights
+    : canonicalKeywords.map((c) => stripChipMarkdown(String(c))).filter((c) => c.length > 0);
   const chips = source.slice(0, 6);
   if (chips.length === 0) return '';
   const items = chips
