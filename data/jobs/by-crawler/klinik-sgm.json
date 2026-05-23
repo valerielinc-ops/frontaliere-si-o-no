@@ -197,12 +197,12 @@
     },
     {
       "id": "klinik-sgm-ad579663636b",
-      "slug": "medico-specialista-psichiatria-ambulatorio-langenthal-klinik-sgm-langenthal-langenthal",
+      "slug": "specialista-in-psychiatrie-ambulatorium-langenthal-klinik-sgm-langenthal-langenthal",
       "slugByLocale": {
-        "it": "medico-specialista-psichiatria-ambulatorio-langenthal-klinik-sgm-langenthal-langenthal",
-        "en": "facharztin-facharzt-psychiatrie-ambulatorium-langenthal-klinik-sgm-langenthal",
+        "it": "specialista-in-psychiatrie-ambulatorium-langenthal-klinik-sgm-langenthal-langenthal",
+        "en": "specialist-in-psychiatrie-ambulatorium-langenthal-klinik-sgm-langenthal-langenthal",
         "de": "facharztin-facharzt-psychiatrie-ambulatorium-langenthal-klinik-sgm-langenthal",
-        "fr": "facharztin-facharzt-psychiatrie-ambulatorium-langenthal-klinik-sgm-langenthal"
+        "fr": "specialiste-en-psychiatrie-ambulatorium-langenthal-klinik-sgm-langenthal-langenthal"
       },
       "company": "Klinik SGM Langenthal",
       "companyKey": "klinik-sgm",
@@ -244,10 +244,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "facharztin-facharzt-psychiatrie-ambulatorium-langenthal-klinik-sgm-langenthal"
+        "facharztin-facharzt-psychiatrie-ambulatorium-langenthal-klinik-sgm-langenthal",
+        "medico-specialista-psichiatria-ambulatorio-langenthal-klinik-sgm-langenthal-langenthal"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "facharztin-facharzt-psychiatrie-ambulatorium-langenthal-klinik-sgm-langenthal",
+          "medico-specialista-psichiatria-ambulatorio-langenthal-klinik-sgm-langenthal-langenthal"
+        ],
+        "en": [
+          "facharztin-facharzt-psychiatrie-ambulatorium-langenthal-klinik-sgm-langenthal"
+        ],
+        "fr": [
           "facharztin-facharzt-psychiatrie-ambulatorium-langenthal-klinik-sgm-langenthal"
         ]
       },

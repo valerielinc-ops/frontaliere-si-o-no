@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "denner-0851c2a2772b",
-      "slug": "verkaufer-in-denner-binningen",
+      "slug": "vendita-denner-binningen",
       "slugByLocale": {
-        "it": "verkaufer-in-denner-binningen",
-        "en": "verkaufer-in-denner-binningen",
+        "it": "vendita-denner-binningen",
+        "en": "seller-in-denner-binningen",
         "de": "verkaufer-in-denner-binningen",
-        "fr": "verkaufer-in-denner-binningen"
+        "fr": "vendeur-denner-binningen"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -68,20 +68,24 @@
       "crawledAt": "2026-05-22T22:01:13.831Z",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-denner"
+          "verkaufer-in-denner",
+          "verkaufer-in-denner-binningen"
         ],
         "en": [
-          "verkaufer-in-denner"
+          "verkaufer-in-denner",
+          "verkaufer-in-denner-binningen"
         ],
         "de": [
           "verkaufer-in-denner-rubigen"
         ],
         "fr": [
-          "verkaufer-in-denner"
+          "verkaufer-in-denner",
+          "verkaufer-in-denner-binningen"
         ]
       },
       "previousSlugs": [
         "verkaufer-in-denner",
+        "verkaufer-in-denner-binningen",
         "verkaufer-in-denner-rubigen"
       ],
       "salaryMin": 59000,
@@ -308,11 +312,11 @@
     },
     {
       "id": "denner-729df8d7ea25",
-      "slug": "vendeur-vendeuse-denner-verbier",
+      "slug": "venditore-venditore-denner-verbier",
       "slugByLocale": {
-        "it": "vendeur-vendeuse-denner-verbier",
-        "en": "vendeur-vendeuse-denner",
-        "de": "vendeur-vendeuse-denner",
+        "it": "venditore-venditore-denner-verbier",
+        "en": "seller-seller-denner-verbier",
+        "de": "verkaufer-denner-verbier",
         "fr": "vendeur-vendeuse-denner-verbier"
       },
       "company": "Denner",
@@ -373,15 +377,23 @@
       "previousSlugsByLocale": {
         "it": [
           "vendeur-vendeuse-denner-geneve",
-          "vendeur-vendeuse-denner"
+          "vendeur-vendeuse-denner",
+          "vendeur-vendeuse-denner-verbier"
         ],
         "fr": [
           "vendeur-vendeuse-denner-geneve"
+        ],
+        "en": [
+          "vendeur-vendeuse-denner"
+        ],
+        "de": [
+          "vendeur-vendeuse-denner"
         ]
       },
       "previousSlugs": [
         "vendeur-vendeuse-denner-geneve",
-        "vendeur-vendeuse-denner"
+        "vendeur-vendeuse-denner",
+        "vendeur-vendeuse-denner-verbier"
       ],
       "salaryMin": 59000,
       "salaryMax": 90500,

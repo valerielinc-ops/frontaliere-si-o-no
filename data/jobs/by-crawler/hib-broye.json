@@ -3639,11 +3639,11 @@
     },
     {
       "id": "hib-broye-519afb9b0cc6",
-      "slug": "medico-capo-in-radiologia-80-hopital-intercantonal-de-la-broye-hib-payerne",
+      "slug": "80-chief-medical-officer-di-radiologia-hopital-intercantonal-de-la-broye-hib-payerne",
       "slugByLocale": {
-        "it": "medico-capo-in-radiologia-80-hopital-intercantonal-de-la-broye-hib-payerne",
-        "en": "medecin-chef-fe-en-radiologie-a-80-hib-broye-payerne",
-        "de": "medecin-chef-fe-en-radiologie-a-80-hib-broye-payerne",
+        "it": "80-chief-medical-officer-di-radiologia-hopital-intercantonal-de-la-broye-hib-payerne",
+        "en": "80-chief-medical-officer-of-radiology-hopital-intercantonal-de-la-broye-hib-payerne",
+        "de": "80-chief-medical-officer-der-radiologie-hopital-intercantonal-de-la-broye-hib-payerne",
         "fr": "medecin-chef-fe-en-radiologie-a-80-hib-broye-payerne"
       },
       "company": "Hôpital Intercantonal de la Broye (HIB)",
@@ -3686,10 +3686,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "medecin-chef-fe-en-radiologie-a-80-hib-broye-payerne"
+        "medecin-chef-fe-en-radiologie-a-80-hib-broye-payerne",
+        "medico-capo-in-radiologia-80-hopital-intercantonal-de-la-broye-hib-payerne"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "medecin-chef-fe-en-radiologie-a-80-hib-broye-payerne",
+          "medico-capo-in-radiologia-80-hopital-intercantonal-de-la-broye-hib-payerne"
+        ],
+        "en": [
+          "medecin-chef-fe-en-radiologie-a-80-hib-broye-payerne"
+        ],
+        "de": [
           "medecin-chef-fe-en-radiologie-a-80-hib-broye-payerne"
         ]
       },
