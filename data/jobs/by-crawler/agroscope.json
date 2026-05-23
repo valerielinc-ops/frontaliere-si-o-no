@@ -39,9 +39,9 @@
       },
       "slugByLocale": {
         "it": "artigiano-a-del-cuoio-e-dei-tessili-afc-indirizzo-articoli-da-equitazione-agroscope-avenches",
-        "en": "afc-leather-and-textile-craftsman-address-horse-riding-articles-agroscope-1580-avenches",
-        "de": "artigiano-a-del-cuoio-e-dei-tessili-afc-indirizzo-articoli-da-equitazione-agroscope-avenches",
-        "fr": "artigiano-a-del-cuoio-e-dei-tessili-afc-indirizzo-articoli-da-equitazione-agroscope-avenches"
+        "en": "saddlery-specialist-afc-equitation-items-specialization-agroscope-1580-avenches",
+        "de": "sattlermeister-in-afc-fachrichtung-reitartikel-agroscope-1580-avenches",
+        "fr": "artisan-du-cuir-et-des-textiles-afc-specialisation-en-articles-d-equitation-agroscope-1580-avenches"
       },
       "id": "agroscope-e820e48bc2ab",
       "salaryMin": 49500,
@@ -59,7 +59,15 @@
       },
       "streetAddress": "Via Ramon Bentina 16",
       "postalCode": "6593",
-      "firstSeenAt": "2026-05-21T11:00:28.108Z"
+      "firstSeenAt": "2026-05-21T11:00:28.108Z",
+      "previousSlugsByLocale": {
+        "en": [
+          "afc-leather-and-textile-craftsman-address-horse-riding-articles-agroscope-1580-avenches"
+        ]
+      },
+      "previousSlugs": [
+        "afc-leather-and-textile-craftsman-address-horse-riding-articles-agroscope-1580-avenches"
+      ]
     },
     {
       "title": "Dottorando/a - Trasferimento dei PFAS da suolo e foraggi a latte e carne di ruminanti",

@@ -625,12 +625,12 @@
     },
     {
       "id": "weisse-arena-d0e750111a4a",
-      "slug": "collaboratore-trice-pr-e-corporate-communication-weisse-arena-gruppe-laax",
+      "slug": "addetto-a-pr-e-comunicazione-aziendale-weisse-arena-gruppe-laax",
       "slugByLocale": {
-        "it": "collaboratore-trice-pr-e-corporate-communication-weisse-arena-gruppe-laax",
-        "en": "associate-pr-und-corporate-communication-weisse-arena-gruppe-laax",
+        "it": "addetto-a-pr-e-comunicazione-aziendale-weisse-arena-gruppe-laax",
+        "en": "pr-and-corporate-communications-specialist-weisse-arena-gruppe-laax",
         "de": "mitarbeiter-in-pr-und-corporate-communication-weisse-arena-ch",
-        "fr": "collaborateur-trice-pr-und-corporate-communication-weisse-arena-gruppe-laax"
+        "fr": "specialiste-en-communication-pr-et-d-entreprise-weisse-arena-gruppe-laax"
       },
       "company": "Weisse Arena Gruppe",
       "companyKey": "weisse-arena",
@@ -675,17 +675,23 @@
       "pensum": "40 - 60%",
       "contractLabel": "Festanstellung",
       "previousSlugs": [
-        "mitarbeiter-in-pr-und-corporate-communication-weisse-arena-ch"
+        "mitarbeiter-in-pr-und-corporate-communication-weisse-arena-ch",
+        "collaboratore-trice-pr-e-corporate-communication-weisse-arena-gruppe-laax",
+        "associate-pr-und-corporate-communication-weisse-arena-gruppe-laax",
+        "collaborateur-trice-pr-und-corporate-communication-weisse-arena-gruppe-laax"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-pr-und-corporate-communication-weisse-arena-ch"
+          "mitarbeiter-in-pr-und-corporate-communication-weisse-arena-ch",
+          "collaboratore-trice-pr-e-corporate-communication-weisse-arena-gruppe-laax"
         ],
         "en": [
-          "mitarbeiter-in-pr-und-corporate-communication-weisse-arena-ch"
+          "mitarbeiter-in-pr-und-corporate-communication-weisse-arena-ch",
+          "associate-pr-und-corporate-communication-weisse-arena-gruppe-laax"
         ],
         "fr": [
-          "mitarbeiter-in-pr-und-corporate-communication-weisse-arena-ch"
+          "mitarbeiter-in-pr-und-corporate-communication-weisse-arena-ch",
+          "collaborateur-trice-pr-und-corporate-communication-weisse-arena-gruppe-laax"
         ]
       },
       "firstSeenAt": "2026-05-21T13:48:55.914Z",
@@ -704,12 +710,12 @@
     },
     {
       "id": "weisse-arena-faeb9def7024",
-      "slug": "installatore-trice-elettrico-a-in-techniker-in-infrastruktur-weisse-arena-gruppe-laax",
+      "slug": "tecnico-a-di-infrastruttura-elettrica-ingegnere-weisse-arena-gruppe-laax",
       "slugByLocale": {
-        "it": "installatore-trice-elettrico-a-in-techniker-in-infrastruktur-weisse-arena-gruppe-laax",
-        "en": "elektroinstallateur-in-techniker-in-infrastruktur-weisse-arena-ch",
+        "it": "tecnico-a-di-infrastruttura-elettrica-ingegnere-weisse-arena-gruppe-laax",
+        "en": "electrical-infrastructure-technician-engineer-weisse-arena-gruppe-laax",
         "de": "elektroinstallateur-in-techniker-in-infrastruktur-weisse-arena-ch",
-        "fr": "elektroinstallateur-in-techniker-in-infrastruktur-weisse-arena-ch"
+        "fr": "technicien-ne-d-infrastructure-electrique-ingenieur-weisse-arena-gruppe-laax"
       },
       "company": "Weisse Arena Gruppe",
       "companyKey": "weisse-arena",
@@ -754,10 +760,18 @@
       "pensum": "80 - 100%",
       "contractLabel": "Festanstellung",
       "previousSlugs": [
-        "elektroinstallateur-in-techniker-in-infrastruktur-weisse-arena-ch"
+        "elektroinstallateur-in-techniker-in-infrastruktur-weisse-arena-ch",
+        "installatore-trice-elettrico-a-in-techniker-in-infrastruktur-weisse-arena-gruppe-laax"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "elektroinstallateur-in-techniker-in-infrastruktur-weisse-arena-ch",
+          "installatore-trice-elettrico-a-in-techniker-in-infrastruktur-weisse-arena-gruppe-laax"
+        ],
+        "en": [
+          "elektroinstallateur-in-techniker-in-infrastruktur-weisse-arena-ch"
+        ],
+        "fr": [
           "elektroinstallateur-in-techniker-in-infrastruktur-weisse-arena-ch"
         ]
       },
