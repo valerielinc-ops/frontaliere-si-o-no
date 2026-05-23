@@ -1863,7 +1863,7 @@
       "slug": "medico-pediatra-con-interesse-per-lo-sviluppo-neurologico-f-m-ensemble-hospitalier-de-la-cote-ehc-lavigny",
       "slugByLocale": {
         "it": "medico-pediatra-con-interesse-per-lo-sviluppo-neurologico-f-m-ensemble-hospitalier-de-la-cote-ehc-lavigny",
-        "en": "pediatrician-with-interest-in-neurodevelopment-f-m-ensemble-hospitalier-de-la-cote-ehc-lavigny",
+        "en": "pediatric-doctor-with-interest-in-neurodevelopment-f-h-ensemble-hospitalier-de-la-cote-ehc-lavigny",
         "de": "padiater-mit-interesse-an-der-neuroentwicklung-f-m-ensemble-hospitalier-de-la-cote-ehc-lavigny",
         "fr": "medecin-pediatre-avec-interet-pour-le-neurodeveloppement-f-h-ehc-vd-lavigny"
       },
@@ -1917,11 +1917,15 @@
         ]
       },
       "previousSlugs": [
-        "medecin-pediatre-avec-interet-pour-le-neurodeveloppement-f-h-ehc-vd-lavigny"
+        "medecin-pediatre-avec-interet-pour-le-neurodeveloppement-f-h-ehc-vd-lavigny",
+        "pediatrician-with-interest-in-neurodevelopment-f-m-ensemble-hospitalier-de-la-cote-ehc-lavigny"
       ],
       "previousSlugsByLocale": {
         "it": [
           "medecin-pediatre-avec-interet-pour-le-neurodeveloppement-f-h-ehc-vd-lavigny"
+        ],
+        "en": [
+          "pediatrician-with-interest-in-neurodevelopment-f-m-ensemble-hospitalier-de-la-cote-ehc-lavigny"
         ]
       },
       "firstSeenAt": "2026-05-19T09:58:50.954Z",
@@ -3438,8 +3442,8 @@
       "slug": "fisioterapista-ctr-ensemble-hospitalier-de-la-cote-ehc-aubonne-7b828b",
       "slugByLocale": {
         "it": "fisioterapista-ctr-ensemble-hospitalier-de-la-cote-ehc-aubonne-7b828b",
-        "en": "physiotherapeute-ctr-ehc-vd-aubonne",
-        "de": "physiotherapeute-ctr-ehc-vd-aubonne",
+        "en": "ctr-physiotherapist-ensemble-hospitalier-de-la-cote-ehc-aubonne",
+        "de": "ctr-physiotherapeut-ensemble-hospitalier-de-la-cote-ehc-aubonne",
         "fr": "physiotherapeute-ctr-ehc-vd-aubonne"
       },
       "company": "Ensemble hospitalier de la Côte (EHC)",
@@ -3486,6 +3490,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "physiotherapeute-ctr-ehc-vd-aubonne"
+        ],
+        "en": [
+          "physiotherapeute-ctr-ehc-vd-aubonne"
+        ],
+        "de": [
           "physiotherapeute-ctr-ehc-vd-aubonne"
         ]
       },

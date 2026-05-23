@@ -74,12 +74,12 @@
     },
     {
       "id": "claraspital-cee381dc4333",
-      "slug": "casi-manager-ambulatoriale-pneumologia-chirurgia-toracica-segretario-medico-st-claraspital-basel",
+      "slug": "expatient-n-case-manager-in-pneumology-thorax-surgery-st-claraspital-basel",
       "slugByLocale": {
-        "it": "casi-manager-ambulatoriale-pneumologia-chirurgia-toracica-segretario-medico-st-claraspital-basel",
+        "it": "expatient-n-case-manager-in-pneumology-thorax-surgery-st-claraspital-basel",
         "en": "ambulante-n-case-manager-in-pneumologie-thoraxchirurgie-arztsekretar-in-claraspital-basel",
         "de": "ambulante-n-case-manager-in-pneumologie-thoraxchirurgie-arztsekretar-in-claraspital-basel",
-        "fr": "ambulante-n-case-manager-in-pneumologie-thoraxchirurgie-arztsekretar-in-claraspital-basel"
+        "fr": "patients-externes-n-gestionnaire-de-cas-en-pneumologie-chirurgie-thoracique-st-claraspital-basel"
       },
       "company": "St. Claraspital",
       "companyKey": "claraspital",
@@ -121,10 +121,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "ambulante-n-case-manager-in-pneumologie-thoraxchirurgie-arztsekretar-in-claraspital-basel"
+        "ambulante-n-case-manager-in-pneumologie-thoraxchirurgie-arztsekretar-in-claraspital-basel",
+        "casi-manager-ambulatoriale-pneumologia-chirurgia-toracica-segretario-medico-st-claraspital-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "ambulante-n-case-manager-in-pneumologie-thoraxchirurgie-arztsekretar-in-claraspital-basel",
+          "casi-manager-ambulatoriale-pneumologia-chirurgia-toracica-segretario-medico-st-claraspital-basel"
+        ],
+        "fr": [
           "ambulante-n-case-manager-in-pneumologie-thoraxchirurgie-arztsekretar-in-claraspital-basel"
         ]
       },
@@ -958,9 +963,9 @@
       "slug": "medico-specializzando-aim-st-claraspital-basel",
       "slugByLocale": {
         "it": "medico-specializzando-aim-st-claraspital-basel",
-        "en": "medical-internist-assistant-st-claraspital-basel",
+        "en": "assistant-physician-aim-st-claraspital-basel",
         "de": "assistenzarztin-assistenzarzt-aim-claraspital-basel",
-        "fr": "assistant-en-medecine-interne-st-claraspital-basel"
+        "fr": "medecin-adjoint-aim-st-claraspital-basel"
       },
       "company": "St. Claraspital",
       "companyKey": "claraspital",
@@ -1027,11 +1032,19 @@
         ]
       },
       "previousSlugs": [
-        "assistenzarztin-assistenzarzt-aim-claraspital-basel"
+        "assistenzarztin-assistenzarzt-aim-claraspital-basel",
+        "medical-internist-assistant-st-claraspital-basel",
+        "assistant-en-medecine-interne-st-claraspital-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
           "assistenzarztin-assistenzarzt-aim-claraspital-basel"
+        ],
+        "en": [
+          "medical-internist-assistant-st-claraspital-basel"
+        ],
+        "fr": [
+          "assistant-en-medecine-interne-st-claraspital-basel"
         ]
       },
       "firstSeenAt": "2026-05-19T12:23:42.142Z",
@@ -1616,7 +1629,7 @@
       "slug": "assistente-farmaceutico-a-st-claraspital-basel",
       "slugByLocale": {
         "it": "assistente-farmaceutico-a-st-claraspital-basel",
-        "en": "pharmacy-assistant-st-claraspital-basel",
+        "en": "pharmaceutical-assistant-st-claraspital-basel",
         "de": "pharma-assistent-in-claraspital-basel",
         "fr": "assistant-en-pharmacie-st-claraspital-basel"
       },
@@ -1688,11 +1701,15 @@
         ]
       },
       "previousSlugs": [
-        "pharma-assistent-in-claraspital-basel"
+        "pharma-assistent-in-claraspital-basel",
+        "pharmacy-assistant-st-claraspital-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
           "pharma-assistent-in-claraspital-basel"
+        ],
+        "en": [
+          "pharmacy-assistant-st-claraspital-basel"
         ]
       },
       "firstSeenAt": "2026-05-19T12:23:42.135Z",
@@ -1914,7 +1931,7 @@
         "it": "case-manager-ambulatoriale-endocrinologia-e-centro-nutrizionale-st-claraspital-basel",
         "en": "outpatient-case-manager-in-endocrinology-and-nutrition-center-st-claraspital-basel",
         "de": "ambulante-n-case-manager-in-endokrinologie-und-ernahrungszentrum-claraspital-basel",
-        "fr": "gestionnaire-de-dossiers-ambulatoire-en-endocrinologie-et-centre-nutritionnel-st-claraspital-basel"
+        "fr": "patients-externes-n-gestionnaire-de-cas-centre-d-endocrinologie-et-de-nutrition-st-claraspital-basel"
       },
       "company": "St. Claraspital",
       "companyKey": "claraspital",
@@ -1979,11 +1996,15 @@
         ]
       },
       "previousSlugs": [
-        "ambulante-n-case-manager-in-endokrinologie-und-ernahrungszentrum-claraspital-basel"
+        "ambulante-n-case-manager-in-endokrinologie-und-ernahrungszentrum-claraspital-basel",
+        "gestionnaire-de-dossiers-ambulatoire-en-endocrinologie-et-centre-nutritionnel-st-claraspital-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
           "ambulante-n-case-manager-in-endokrinologie-und-ernahrungszentrum-claraspital-basel"
+        ],
+        "fr": [
+          "gestionnaire-de-dossiers-ambulatoire-en-endocrinologie-et-centre-nutritionnel-st-claraspital-basel"
         ]
       },
       "firstSeenAt": "2026-05-19T12:23:42.131Z",
@@ -2002,9 +2023,9 @@
     },
     {
       "id": "claraspital-fd1cefa66653",
-      "slug": "case-manager-per-radiologia-nucleare-st-claraspital-basel",
+      "slug": "responsabile-ambulante-caso-in-radiologia-medicina-nucleare-st-claraspital-basel",
       "slugByLocale": {
-        "it": "case-manager-per-radiologia-nucleare-st-claraspital-basel",
+        "it": "responsabile-ambulante-caso-in-radiologia-medicina-nucleare-st-claraspital-basel",
         "en": "ambulante-r-case-manager-in-radiologie-nuklearmedizin-claraspital-basel",
         "de": "ambulante-r-case-manager-in-radiologie-nuklearmedizin-claraspital-basel",
         "fr": "gestionnaire-de-cas-en-radiologie-medecine-nucleaire-ambulatoire-st-claraspital-basel"
@@ -2075,11 +2096,13 @@
       },
       "previousSlugs": [
         "ambulante-r-case-manager-in-radiologie-nuklearmedizin-claraspital-basel",
+        "case-manager-per-radiologia-nucleare-st-claraspital-basel",
         "ambulante-r-fallmanager-in-radiologie-nuklearmedizin-st-claraspital-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ambulante-r-case-manager-in-radiologie-nuklearmedizin-claraspital-basel"
+          "ambulante-r-case-manager-in-radiologie-nuklearmedizin-claraspital-basel",
+          "case-manager-per-radiologia-nucleare-st-claraspital-basel"
         ],
         "de": [
           "ambulante-r-fallmanager-in-radiologie-nuklearmedizin-st-claraspital-basel"

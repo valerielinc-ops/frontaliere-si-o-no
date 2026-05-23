@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "clienia-ag-f0efd2e91cb0",
-      "slug": "oberarztin-oberarzt-60-100-clienia-ag-zurich",
+      "slug": "medico-senior-60-100-clienia-ag-pfaffikon-zh",
       "slugByLocale": {
         "de": "oberarztin-oberarzt-60-100-clienia-ag-pfaffikon",
-        "it": "oberarztin-oberarzt-60-100-clienia-ag-zurich",
-        "en": "oberarztin-oberarzt-60-100-clienia-ag-zurich",
-        "fr": "oberarztin-oberarzt-60-100-clienia-ag-zurich"
+        "it": "medico-senior-60-100-clienia-ag-pfaffikon-zh",
+        "en": "senior-physician-60-100-clienia-ag-pfaffikon-zh",
+        "fr": "medecin-principal-60-100-clienia-ag-pfaffikon-zh"
       },
       "company": "Clienia AG",
       "companyKey": "clienia-ag",
@@ -64,7 +64,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-22T21:47:14.006Z"
+      "firstSeenAt": "2026-05-22T21:47:14.006Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "oberarztin-oberarzt-60-100-clienia-ag-zurich"
+        ],
+        "en": [
+          "oberarztin-oberarzt-60-100-clienia-ag-zurich"
+        ],
+        "fr": [
+          "oberarztin-oberarzt-60-100-clienia-ag-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "oberarztin-oberarzt-60-100-clienia-ag-zurich"
+      ]
     },
     {
       "id": "clienia-ag-57f4868acebf",

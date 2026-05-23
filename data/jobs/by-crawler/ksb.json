@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "ksb-2d47834d9557",
-      "slug": "mpa-clinica-ginecologica-100-kantonsspital-baden-ksb-baden",
+      "slug": "ospedale-femminile-mpa-100-kantonsspital-baden-ksb-baden",
       "slugByLocale": {
         "de": "mpa-frauenklinik-100-ksb-ch",
-        "it": "mpa-clinica-ginecologica-100-kantonsspital-baden-ksb-baden",
+        "it": "ospedale-femminile-mpa-100-kantonsspital-baden-ksb-baden",
         "en": "mpa-women-s-clinic-100-kantonsspital-baden-ksb-baden",
-        "fr": "mpa-clinique-de-gynecologie-100-kantonsspital-baden-ksb-baden"
+        "fr": "mpa-hopital-pour-femmes-100-kantonsspital-baden-ksb-baden"
       },
       "company": "Kantonsspital Baden (KSB)",
       "companyKey": "ksb",
@@ -64,7 +64,19 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-22T22:44:55.825Z"
+      "firstSeenAt": "2026-05-22T22:44:55.825Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "mpa-clinica-ginecologica-100-kantonsspital-baden-ksb-baden"
+        ],
+        "fr": [
+          "mpa-clinique-de-gynecologie-100-kantonsspital-baden-ksb-baden"
+        ]
+      },
+      "previousSlugs": [
+        "mpa-clinica-ginecologica-100-kantonsspital-baden-ksb-baden",
+        "mpa-clinique-de-gynecologie-100-kantonsspital-baden-ksb-baden"
+      ]
     },
     {
       "id": "ksb-668597b1fc1a",
