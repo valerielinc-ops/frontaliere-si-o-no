@@ -41,15 +41,9 @@ jobs:
     timeout-minutes: 360
     steps:
       # Free ~25-30 GB on the ubuntu-latest runner before any cache restore
-      # or build output lands on disk. Without this the runner ships with
-      # only ~14 GB free on /, and the build:prod step (Vite emitting ~3-5 k
-      # static HTML/JS files for jobs + SEO landings) crashes mid-emit with
-      # "No space left on device". The worker dies before logs flush, so the
-      # only visible error in the run archive is "runner has received a
-      # shutdown signal" (see runs 26149600283, 26141061841 — 2026-05-20).
-      # Mirror deploy.yml's cleanup: delete toolchains this repo never uses
-      # (Android SDK, .NET, Haskell, CodeQL, Swift, Boost). Node 22, npm
-      # cache, and Python tooling stay intact.
+      # or generated media lands on disk. Mirror deploy.yml's cleanup: delete
+      # toolchains this repo never uses (Android SDK, .NET, Haskell, CodeQL,
+      # Swift, Boost). Node 22, npm cache, and Python tooling stay intact.
       - name: Free disk space (remove unused toolchains)
         shell: bash
         run: |
@@ -115,6 +109,7 @@ jobs:
       - name: Create-article final report
         if: always()
         run: |
+          # shellcheck disable=SC2016
           node -e '
             const fs = require("fs");
             const p = ".tmp/create-article-run-report.json";
@@ -152,10 +147,10 @@ jobs:
         id: changes
         run: |
           if git diff --quiet && git diff --cached --quiet; then
-            echo "has_changes=false" >> $GITHUB_OUTPUT
+            echo "has_changes=false" >> "$GITHUB_OUTPUT"
             echo "ℹ️  No new article generated (no relevant news or duplicate detected)"
           else
-            echo "has_changes=true" >> $GITHUB_OUTPUT
+            echo "has_changes=true" >> "$GITHUB_OUTPUT"
             echo "📝 New article files detected:"
             git status --short
           fi
@@ -180,22 +175,12 @@ jobs:
         if: steps.changes.outputs.has_changes == 'true'
         run: node scripts/generate-image-thumbnails.mjs
 
-      # 2026-05-11 23:19 CEST commit c7c6ac6292 (cathedral redirect canton-inference)
-      # added non-optional `import jobsFile from '../data/jobs.json'` to
-      # build-plugins/legacyRedirectsPlugin.ts and build-plugins/shared/slugCantonIndex.ts.
-      # data/jobs.json is gitignored — it must be assembled at runtime before
-      # any `vite build` runs. Three articles (23:33, 00:05, 04:01 UTC on 2026-05-12)
-      # were generated successfully but LOST because build:prod could not resolve
-      # the import. Mirror the prepush hook's assemble step.
-      - name: Assemble jobs dataset (build prerequisite)
-        if: steps.changes.outputs.has_changes == 'true'
-        run: node scripts/assemble-jobs-dataset.mjs --stats
-
-      - name: Build for production
-        if: steps.changes.outputs.has_changes == 'true'
-        env:
-          NODE_OPTIONS: '--max-old-space-size=4096'
-        run: npm run build:prod
+      # Do not run `npm run build:prod` here. This workflow commits generated
+      # article source and dispatches deploy.yml, which already assembles the
+      # jobs dataset and performs the full Vite/GitHub Pages build. Running the
+      # same production build inside article generation duplicates 20+ minutes
+      # of CPU work and has caused runner shutdowns before the article can be
+      # committed (run 26324239287, 2026-05-23).
 
       - name: Commit and push
         id: commit
@@ -287,7 +272,7 @@ jobs:
             exit 0
           fi
 
-      - name: Verify article exists in committed source and dist
+      - name: Verify article exists in committed source
         if: steps.commit.outputs.committed == 'true' && steps.generate.outputs.article_id != ''
         id: verify_article
         run: |
@@ -303,28 +288,7 @@ jobs:
           fi
           echo "  ✅ Found in data/blog-articles-data.ts"
 
-          # Check 2: Static HTML was generated in dist/
-          ARTICLE_URL="${{ steps.generate.outputs.article_url }}"
-          # Extract path from URL (e.g., /articoli-frontaliere/my-slug)
-          # FRO-348: handle both www and non-www URLs
-          ARTICLE_PATH=$(echo "$ARTICLE_URL" | sed 's|https://\(www\.\)\{0,1\}frontaliereticino\.ch||')
-          DIST_FILE="dist${ARTICLE_PATH}/index.html"
-          if [ ! -f "$DIST_FILE" ]; then
-            echo "❌ Static page NOT found at $DIST_FILE"
-            echo "exists=false" >> "$GITHUB_OUTPUT"
-            exit 0
-          fi
-          echo "  ✅ Static page exists: $DIST_FILE"
-
-          # Check 3: Static HTML has correct <title> (not empty shell)
-          if ! grep -q "<title>" "$DIST_FILE"; then
-            echo "❌ Static page $DIST_FILE has no <title> tag"
-            echo "exists=false" >> "$GITHUB_OUTPUT"
-            exit 0
-          fi
-          echo "  ✅ Static page has <title>"
-
-          echo "✅ All checks passed for '$ARTICLE_ID'"
+          echo "✅ Source checks passed for '$ARTICLE_ID'"
           echo "exists=true" >> "$GITHUB_OUTPUT"
 
       # Trigger deploy.yml (GITHUB_TOKEN pushes don't trigger other workflows)
@@ -392,10 +356,10 @@ jobs:
 
           # Determine final status
           if [ "$VERIFIED" == "true" ] && [ "$DEPLOY_DISPATCHED" == "true" ]; then
-            STATUS="✅ Committed, verified in build, deploy triggered"
+            STATUS="✅ Committed, verified in source, deploy triggered"
             ICON="🟢"
           elif [ "$VERIFIED" == "true" ] && [ "$DEPLOY_DISPATCHED" != "true" ]; then
-            STATUS="⚠️ Committed and verified in build, but deploy dispatch was not confirmed"
+            STATUS="⚠️ Committed and verified in source, but deploy dispatch was not confirmed"
             ICON="🟠"
           elif [ "$COMMITTED" == "true" ] && [ "$VERIFIED" != "true" ]; then
             STATUS="⚠️ Committed but verification FAILED — article may be broken"
@@ -404,7 +368,7 @@ jobs:
             STATUS="❌ DEFERRED — commit/push failed (rebase conflict or push race). Article is LOST."
             ICON="🔴"
           elif [ "$HAS_CHANGES" == "true" ]; then
-            STATUS="❌ BLOCKED — tests or build failed before commit. Article is LOST."
+            STATUS="❌ BLOCKED — tests failed before commit. Article is LOST."
             ICON="🔴"
           elif [ "$HAS_CHANGES" == "false" ]; then
             STATUS="ℹ️ No changes detected (article generation produced no file changes)"
@@ -434,7 +398,7 @@ jobs:
             echo "| Status | **$STATUS** |"
             echo "| Changes detected | $HAS_CHANGES |"
             echo "| Committed to main | $COMMITTED |"
-            echo "| Verified in dist | $VERIFIED |"
+            echo "| Verified in source | $VERIFIED |"
             echo "| Deploy dispatched | $DEPLOY_DISPATCHED |"
           } >> "$GITHUB_STEP_SUMMARY"
 
@@ -446,8 +410,10 @@ jobs:
               echo ""
               echo "🔁 To retry this article, trigger a manual workflow_dispatch with URL:"
               echo "   $SOURCE_URL"
-              echo "" >> "$GITHUB_STEP_SUMMARY"
-              echo "> **🔁 Retry**: trigger \`workflow_dispatch\` with URL: \`$SOURCE_URL\`" >> "$GITHUB_STEP_SUMMARY"
+              {
+                echo ""
+                echo "> **🔁 Retry**: trigger \`workflow_dispatch\` with URL: \`$SOURCE_URL\`"
+              } >> "$GITHUB_STEP_SUMMARY"
             fi
           fi
 
@@ -473,7 +439,7 @@ jobs:
           # ✅ verified=true → self-trigger immediately, retry_count=0, streak=0
           # ⚪ has_changes=false (no source / all duplicates) → back-off based on streak length
           # 🟠 committed=false (rebase/push race) → self-trigger after 60s, retry_count=0
-          # 🟠 verified=false (committed but not in dist) → RETRY with backoff
+          # 🟠 verified=false (committed but missing from source) → RETRY with backoff
           # 🔴 generate step failure → RETRY with backoff
           # Backoff schedule (failures): 60s → 300s → 1800s, max 3 retries
           # Back-off schedule (no_changes streak): 0,1,2 → 0s ; 3-5 → 600s ; 6-9 → 1800s ; 10+ → stop, cron resumes
@@ -518,7 +484,7 @@ jobs:
             NEXT_RETRY="0"
             NEXT_STREAK="0"
           else
-            # Failure path: verify_failed OR generate_failed OR build_failed
+            # Failure path: verify_failed OR generate_failed
             CUR_RETRY="${RETRY_COUNT:-0}"
             if [ "$CUR_RETRY" -lt 3 ]; then
               NEXT_RETRY=$((CUR_RETRY + 1))
@@ -536,11 +502,13 @@ jobs:
             NEXT_STREAK="0"
           fi
 
-          echo "should_trigger=$SHOULD_TRIGGER" >> "$GITHUB_OUTPUT"
-          echo "delay=$DELAY" >> "$GITHUB_OUTPUT"
-          echo "reason=$REASON" >> "$GITHUB_OUTPUT"
-          echo "next_retry=$NEXT_RETRY" >> "$GITHUB_OUTPUT"
-          echo "next_streak=$NEXT_STREAK" >> "$GITHUB_OUTPUT"
+          {
+            echo "should_trigger=$SHOULD_TRIGGER"
+            echo "delay=$DELAY"
+            echo "reason=$REASON"
+            echo "next_retry=$NEXT_RETRY"
+            echo "next_streak=$NEXT_STREAK"
+          } >> "$GITHUB_OUTPUT"
 
           {
             echo "## 🔁 Self-trigger decision"
