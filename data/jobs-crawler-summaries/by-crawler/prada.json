@@ -1,18 +1,49 @@
 {
   "key": "prada",
   "label": "Prada Group",
-  "generatedAt": "2026-05-22T23:12:48.142Z",
-  "total": 5,
-  "newCount": 3,
-  "updatedCount": 2,
-  "removedCount": 0,
+  "generatedAt": "2026-05-23T11:30:44.976Z",
+  "total": 4,
+  "newCount": 1,
+  "updatedCount": 3,
+  "removedCount": 2,
   "unchangedCount": 0,
-  "durationMs": 6497,
-  "avgDurationMs": 6497,
+  "durationMs": 6483,
+  "avgDurationMs": 6483,
   "durationHistory": [
-    6497
+    6483
   ],
   "newJobs": [
+    {
+      "id": "prada-f8847aeb2dc8",
+      "slug": "performance-apparel-product-developer-prada-linea-rossa-prada-group-milano-performance-apparel-product-developer-prada-linea-rossa",
+      "company": "Prada Group",
+      "companyKey": "prada",
+      "companyDomain": "pradagroup.com",
+      "title": "Performance Apparel Product Developer - Prada Linea Rossa",
+      "location": "Milano Performance Apparel Product Developer Prada Linea Rossa",
+      "canton": "GR",
+      "addressLocality": "Milano Performance Apparel Product Developer Prada Linea Rossa",
+      "addressCountry": "CH",
+      "category": "fashion",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-23",
+      "url": "https://jobs.pradagroup.com/job/Milano-Performance-Apparel-Product-Developer-Prada-Linea-Rossa/1377514833/",
+      "source": "Prada Group Dedicated Parser",
+      "sourceLang": "it",
+      "crawledAt": "2026-05-23T11:30:41.165Z",
+      "_qualityScore": 63,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 4,
+        "completeness": 14
+      }
+    }
+  ],
+  "updatedJobs": [
     {
       "id": "prada-6a5352f5132c",
       "slug": "client-advisor-h-f-cannes-cdd-prada-group-cannes-client-advisor-hf-cannes",
@@ -33,75 +64,17 @@
       "url": "https://jobs.pradagroup.com/job/Cannes-Client-Advisor-%28hf%29-Cannes-CDD/1287187901/",
       "source": "Prada Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-22T23:12:44.403Z",
-      "_qualityScore": 61,
+      "crawledAt": "2026-05-23T11:30:43.062Z",
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-22T23:12:44.403Z",
+      "_qualityScore": 78,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 21,
         "completeness": 14
       }
     },
-    {
-      "id": "prada-64995bda5ddc",
-      "slug": "purchasing-intern-prada-group-arezzo-purchasing-intern",
-      "company": "Prada Group",
-      "companyKey": "prada",
-      "companyDomain": "pradagroup.com",
-      "title": "Purchasing intern",
-      "location": "Arezzo Purchasing intern",
-      "canton": "TI",
-      "addressLocality": "Arezzo Purchasing intern",
-      "addressCountry": "CH",
-      "category": "fashion",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-22",
-      "url": "https://jobs.pradagroup.com/job/Arezzo-Purchasing-intern/1387030233/",
-      "source": "Prada Group Dedicated Parser",
-      "sourceLang": "it",
-      "crawledAt": "2026-05-22T23:12:45.489Z",
-      "_qualityScore": 63,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 4,
-        "completeness": 14
-      }
-    },
-    {
-      "id": "prada-9aaacfa2c27e",
-      "slug": "prada-assistant-store-manager-prada-group-macau",
-      "company": "Prada Group",
-      "companyKey": "prada",
-      "companyDomain": "pradagroup.com",
-      "title": "PRADA Assistant Store Manager",
-      "location": "Macau",
-      "canton": "TI",
-      "addressLocality": "Macau",
-      "addressCountry": "CH",
-      "category": "fashion",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-22",
-      "url": "https://jobs.pradagroup.com/job/Macau-PRADA-Assistant-Store-Manager/1377212233/",
-      "source": "Prada Group Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-05-22T23:12:45.848Z",
-      "_qualityScore": 61,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 4,
-        "completeness": 14
-      }
-    }
-  ],
-  "updatedJobs": [
     {
       "id": "prada-332f237b0ca4",
       "slug": "store-manager-miu-miu-saint-moritz-prada-group-st-moritz",
@@ -122,7 +95,7 @@
       "url": "https://jobs.pradagroup.com/job/St_-Moritz-MIU-MIU-Store-Manager-Saint-Moritz/1281959601/",
       "source": "Prada Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-22T23:12:44.040Z",
+      "crawledAt": "2026-05-23T11:30:40.804Z",
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-17T10:53:53.278Z",
       "_qualityScore": 76,
@@ -153,7 +126,7 @@
       "url": "https://jobs.pradagroup.com/job/Zurich-PRADA-Store-Manager%2C-Zurich/1255193301/",
       "source": "Prada Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-22T23:12:43.660Z",
+      "crawledAt": "2026-05-23T11:30:40.377Z",
       "firstSeenAt": "2026-05-16T10:49:17.374Z",
       "_qualityScore": 82,
       "_qualityBreakdown": {
@@ -164,8 +137,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "prada-9aaacfa2c27e",
       "slug": "prada-assistant-store-manager-prada-group-macau",
@@ -191,6 +163,7 @@
       "salaryMin": 68000,
       "salaryMax": 103000,
       "postalCode": "6500",
+      "firstSeenAt": "2026-05-22T23:12:45.848Z",
       "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -224,6 +197,7 @@
       "salaryMin": 41600,
       "salaryMax": 63000,
       "postalCode": "6500",
+      "firstSeenAt": "2026-05-22T23:12:45.489Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -231,7 +205,9 @@
         "translation": 21,
         "completeness": 22
       }
-    },
+    }
+  ],
+  "unchangedJobs": [
     {
       "id": "prada-6a5352f5132c",
       "slug": "client-advisor-h-f-cannes-cdd-prada-group-cannes-client-advisor-hf-cannes",
@@ -252,8 +228,9 @@
       "url": "https://jobs.pradagroup.com/job/Cannes-Client-Advisor-%28hf%29-Cannes-CDD/1287187901/",
       "source": "Prada Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-22T23:12:44.403Z",
+      "crawledAt": "2026-05-23T11:30:43.062Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-05-22T23:12:44.403Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "postalCode": "6500",
@@ -261,6 +238,39 @@
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
+        "translation": 21,
+        "completeness": 22
+      }
+    },
+    {
+      "id": "prada-f8847aeb2dc8",
+      "slug": "performance-apparel-product-developer-prada-linea-rossa-prada-group-milano-performance-apparel-product-developer-prada-linea-rossa",
+      "company": "Prada Group",
+      "companyKey": "prada",
+      "companyDomain": "pradagroup.com",
+      "title": "Performance Apparel Product Developer - Prada Linea Rossa",
+      "location": "Milano Performance Apparel Product Developer Prada Linea Rossa",
+      "canton": "GR",
+      "addressLocality": "Milano Performance Apparel Product Developer Prada Linea Rossa",
+      "addressCountry": "CH",
+      "category": "fashion",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-23",
+      "url": "https://jobs.pradagroup.com/job/Milano-Performance-Apparel-Product-Developer-Prada-Linea-Rossa/1377514833/",
+      "source": "Prada Group Dedicated Parser",
+      "sourceLang": "it",
+      "crawledAt": "2026-05-23T11:30:41.165Z",
+      "needsRetranslation": true,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "postalCode": "7000",
+      "_qualityScore": 88,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
         "translation": 21,
         "completeness": 22
       }
@@ -285,7 +295,7 @@
       "url": "https://jobs.pradagroup.com/job/St_-Moritz-MIU-MIU-Store-Manager-Saint-Moritz/1281959601/",
       "source": "Prada Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-22T23:12:44.040Z",
+      "crawledAt": "2026-05-23T11:30:40.804Z",
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-17T10:53:53.278Z",
       "salaryMin": 68000,
@@ -319,7 +329,7 @@
       "url": "https://jobs.pradagroup.com/job/Zurich-PRADA-Store-Manager%2C-Zurich/1255193301/",
       "source": "Prada Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-22T23:12:43.660Z",
+      "crawledAt": "2026-05-23T11:30:40.377Z",
       "firstSeenAt": "2026-05-16T10:49:17.374Z",
       "salaryMin": 68000,
       "salaryMax": 103000,
