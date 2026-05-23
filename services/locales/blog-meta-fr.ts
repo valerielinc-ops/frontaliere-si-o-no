@@ -7679,6 +7679,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.pensioni-svizzere-all-estero-numerose-ma-modeste.title': 'Les pensions suisses versées à l\'étranger sont nombreuses, mais modestes',
     'blog.article.pensioni-svizzere-all-estero-numerose-ma-modeste.excerpt': 'Les pensions suisses versées à l\'étranger s\'élèvent à environ 1 milliard de francs suisses par an, mais sont en moyenne plutôt basses',
     'blog.article.pensioni-svizzere-all-estero-numerose-ma-modeste.imageAlt': 'Frontalier recevant la pension suisse à Lugano',
+    'blog.article.ucraini-in-svizzera-permesso-s-b-timori-dei-cantoni.title': 'Ukrainiens en Suisse: du permis S au permis B, les craintes des cantons',
+    'blog.article.ucraini-in-svizzera-permesso-s-b-timori-dei-cantoni.excerpt': 'Les cantons redoutent le changement de statut des Ukrainiens en Suisse du permis S au permis B. Voici ce qui change pour les travailleurs frontaliers du Tessin.',
+    'blog.article.ucraini-in-svizzera-permesso-s-b-timori-dei-cantoni.imageAlt': 'Bellinzona, Tessin, Suisse',
 };
 
 export default blogMetaFr;

@@ -24410,4 +24410,13 @@ export const ARTICLES = [
  authorSlug: 'laura-bianchi',
  authorName: 'Laura Bianchi',
  },
+ {
+ id: 'ucraini-in-svizzera-permesso-s-b-timori-dei-cantoni',
+ category: 'novita',
+ date: '2026-05-23T13:25:03.077Z',
+ image: '/images/blog/ucraini-in-svizzera-permesso-s-b-timori-dei-cantoni.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

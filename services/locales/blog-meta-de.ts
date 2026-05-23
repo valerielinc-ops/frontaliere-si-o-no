@@ -7677,6 +7677,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.pensioni-svizzere-all-estero-numerose-ma-modeste.title': 'Schweizer Renten im Ausland zahlreich, aber bescheiden',
     'blog.article.pensioni-svizzere-all-estero-numerose-ma-modeste.excerpt': 'Schweizer Renten im Ausland betragen jährlich rund 1 Milliarde Franken, sind jedoch im Durchschnitt eher niedrig',
     'blog.article.pensioni-svizzere-all-estero-numerose-ma-modeste.imageAlt': 'Frontalier, der die Schweizer Rente in Lugano erhält',
+    'blog.article.ucraini-in-svizzera-permesso-s-b-timori-dei-cantoni.title': 'Ukrainer in der Schweiz: S- zu B-Bewilligung, Kantone besorgt',
+    'blog.article.ucraini-in-svizzera-permesso-s-b-timori-dei-cantoni.excerpt': 'Die Kantone fürchten den Statuswechsel der Ukrainer in der Schweiz von der G-Bewilligung zur B-Bewilligung. Hier ändert sich für die Grenzpendler aus dem Tessin.',
+    'blog.article.ucraini-in-svizzera-permesso-s-b-timori-dei-cantoni.imageAlt': 'Bellinzona, Tessin, Schweiz',
 };
 
 export default blogMetaDe;

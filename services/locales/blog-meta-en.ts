@@ -7678,6 +7678,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.pensioni-svizzere-all-estero-numerose-ma-modeste.title': 'Swiss Pensions Abroad: Many, but Modest',
     'blog.article.pensioni-svizzere-all-estero-numerose-ma-modeste.excerpt': 'Annual Swiss pensions abroad total around 1 billion Swiss francs, but are relatively low on average',
     'blog.article.pensioni-svizzere-all-estero-numerose-ma-modeste.imageAlt': 'Frontalier receiving Swiss pension in Lugano',
+    'blog.article.ucraini-in-svizzera-permesso-s-b-timori-dei-cantoni.title': 'Ukrainians in Switzerland: From S Permit to B Permit, Cantonal Concerns',
+    'blog.article.ucraini-in-svizzera-permesso-s-b-timori-dei-cantoni.excerpt': 'The cantons worry about the status change of Ukrainians in Switzerland from S permit to B permit. Here\'s what changes for Ticino cross-border workers.',
+    'blog.article.ucraini-in-svizzera-permesso-s-b-timori-dei-cantoni.imageAlt': 'Bellinzona, Ticino, Switzerland',
 };
 
 export default blogMetaEn;

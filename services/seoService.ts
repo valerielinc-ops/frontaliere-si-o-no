@@ -3802,6 +3802,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-doppia-imposizione-frontalieri-sud-grigion': { name: 'Doppia imposizione dei frontalieri', path: '/articoli-frontaliere/doppia-imposizione-frontalieri-sud-grigion', parent: 'blog' },
     'blog-casanova-pressione-aziende': { name: 'Economia', path: '/articoli-frontaliere/casanova-pressione-aziende', parent: 'blog' },
     'blog-pensioni-svizzere-all-estero-numerose-ma-modeste': { name: 'Pensioni svizzere all’estero', path: '/articoli-frontaliere/pensioni-svizzere-all-estero-numerose-ma-modeste', parent: 'blog' },
+    'blog-ucraini-in-svizzera-permesso-s-b-timori-dei-cantoni': { name: 'Ucraini in Svizzera', path: '/articoli-frontaliere/ucraini-in-svizzera-permesso-s-b-timori-dei-cantoni', parent: 'blog' },
  };
 
  const info = sectionNames[section];

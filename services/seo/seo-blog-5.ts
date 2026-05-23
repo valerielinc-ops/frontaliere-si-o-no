@@ -38684,6 +38684,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-ucraini-in-svizzera-permesso-s-b-timori-dei-cantoni': {
+    title: 'Ucraini in Svizzera: dal permesso S a quello B, i timori dei cantoni',
+    description: 'Il Cantone del Ticino esprime preoccupazione per il cambiamento di status degli ucraini in Svizzera dal permesso S a quello B. Ecco cosa cambia per i',
+    keywords: 'frontalieri, ticino, svizzera, italia, ucraini, permesso, quello, timori',
+    ogTitle: 'Ucraini in Svizzera: dal permesso S a quello B, i timori dei cantoni',
+    ogDescription: 'Il Cantone del Ticino esprime preoccupazione per il cambiamento di status degli ucraini in Svizzera dal permesso S a quello B. Ecco cosa cambia per i',
+    canonicalPath: '/articoli-frontaliere/ucraini-in-svizzera-permesso-s-b-timori-dei-cantoni',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Ucraini in Svizzera: dal permesso S a quello B, i timori dei cantoni",
+      "description": "Il Cantone del Ticino esprime preoccupazione per il cambiamento di status degli ucraini in Svizzera dal permesso S a quello B. Ecco cosa cambia per i",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/ucraini-in-svizzera-permesso-s-b-timori-dei-cantoni.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Bellinzona, Ticino, Svizzera"
+      },
+      "datePublished": "2026-05-23T13:25:03+00:00",
+      "dateModified": "2026-05-23T13:25:03+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ucraini-in-svizzera-permesso-s-b-timori-dei-cantoni`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

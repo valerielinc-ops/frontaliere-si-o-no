@@ -7679,6 +7679,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.pensioni-svizzere-all-estero-numerose-ma-modeste.title': 'Le pensioni svizzere versate all’estero sono numerose, ma modeste',
     'blog.article.pensioni-svizzere-all-estero-numerose-ma-modeste.excerpt': 'Le pensioni svizzere versate all’estero ammontano a circa 1 miliardo di franchi svizzeri all’anno, ma sono in media piuttosto basse',
     'blog.article.pensioni-svizzere-all-estero-numerose-ma-modeste.imageAlt': 'Frontaliere che riceve la pensione svizzera a Lugano',
+    'blog.article.ucraini-in-svizzera-permesso-s-b-timori-dei-cantoni.title': 'Ucraini in Svizzera: dal permesso S a quello B, i timori dei cantoni',
+    'blog.article.ucraini-in-svizzera-permesso-s-b-timori-dei-cantoni.excerpt': 'I cantoni temono il cambio di status degli ucraini in Svizzera dal permesso S a quello B. Ecco cosa cambia per i frontalieri ticinesi.',
+    'blog.article.ucraini-in-svizzera-permesso-s-b-timori-dei-cantoni.imageAlt': 'Bellinzona, Ticino, Svizzera',
 };
 
 export default blogMetaIt;
