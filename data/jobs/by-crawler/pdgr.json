@@ -1,6 +1,6 @@
 {
   "crawlerKey": "pdgr",
-  "assembledAt": "2026-05-23T11:28:36.018Z",
+  "assembledAt": "2026-05-23T22:52:35.085Z",
   "jobs": [
     {
       "id": "pdgr-f5bd59e961b0",
@@ -33,7 +33,7 @@
       "url": "https://www.pdgr.ch/jobs/koechin-koch-3/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-23T11:28:34.077Z",
+      "crawledAt": "2026-05-23T22:52:32.957Z",
       "addressLocality": "Cazis / Chur / Rothenbrunnen",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -78,8 +78,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 1
+      }
     },
     {
       "id": "pdgr-a093480a1d37",
@@ -112,7 +111,7 @@
       "url": "https://www.pdgr.ch/jobs/praktikantin-praktikanten-5/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-23T11:28:33.063Z",
+      "crawledAt": "2026-05-23T22:52:31.815Z",
       "addressLocality": "Cazis / Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -154,8 +153,7 @@
           "maxValue": 63000,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 1
+      }
     },
     {
       "id": "pdgr-4f88a64e2238",
@@ -188,7 +186,7 @@
       "url": "https://www.pdgr.ch/jobs/fachpsychologe-in-5/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-23T11:28:32.034Z",
+      "crawledAt": "2026-05-23T22:52:30.721Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -251,6 +249,7 @@
         "psicologo-specializzato-psychiatrische-dienste-graubunden-chur"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -295,7 +294,7 @@
       "url": "https://www.pdgr.ch/jobs/assistenzaerztin-assistenzarzt-6/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-23T11:28:30.998Z",
+      "crawledAt": "2026-05-23T22:52:29.608Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -348,6 +347,7 @@
         "resident-physician-psychiatrische-dienste-graubunden-chur"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -392,7 +392,7 @@
       "url": "https://www.pdgr.ch/jobs/unterassistent-in/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-23T11:28:29.950Z",
+      "crawledAt": "2026-05-23T22:52:28.532Z",
       "addressLocality": "Cazis / Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -434,8 +434,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 1
+      }
     },
     {
       "id": "pdgr-3e30d3c7f59d",
@@ -468,7 +467,7 @@
       "url": "https://www.pdgr.ch/jobs/dipl-pflegefachperson-hf-10/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-23T11:28:28.904Z",
+      "crawledAt": "2026-05-23T22:52:27.467Z",
       "addressLocality": "Cazis / Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -511,8 +510,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 1
+      }
     },
     {
       "id": "pdgr-6bea78edbd79",
@@ -545,7 +543,7 @@
       "url": "https://www.pdgr.ch/jobs/oberaerztin-oberarzt-4-7/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-23T11:28:27.854Z",
+      "crawledAt": "2026-05-23T22:52:26.351Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -614,6 +612,7 @@
         "medecin-specialiste-en-psychiatrie-psychiatrische-dienste-graubunden-cazis"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -658,7 +657,7 @@
       "url": "https://www.pdgr.ch/jobs/oberpsychologe-in-3-2/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-23T11:28:26.816Z",
+      "crawledAt": "2026-05-23T22:52:25.279Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -722,6 +721,7 @@
         "oberpsychologe-in-pdgr-ch"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -766,7 +766,7 @@
       "url": "https://www.pdgr.ch/jobs/dipl-pflegefachperson-hf-fuer-die-nachtwache-9/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-23T11:28:25.800Z",
+      "crawledAt": "2026-05-23T22:52:24.203Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -820,6 +820,7 @@
         "dipl-pflegefachperson-hf-fur-die-nachtwache-pdgr-ch"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -864,7 +865,7 @@
       "url": "https://www.pdgr.ch/jobs/dipl-pflegefachperson-hf-2-8/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-23T11:28:24.758Z",
+      "crawledAt": "2026-05-23T22:52:23.086Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -919,6 +920,7 @@
         ]
       },
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -963,7 +965,7 @@
       "url": "https://www.pdgr.ch/jobs/dipl-pflegefachperson-hf-4__trashed/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-23T11:28:23.646Z",
+      "crawledAt": "2026-05-23T22:52:21.978Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -1014,6 +1016,7 @@
         ]
       },
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1049,16 +1052,16 @@
       "description": "Ihre Umgebung:\nIhr zukünftiger Arbeitsplatz ist eine Jugend- oder die Kinderstation in der neuen Klinik für Kinder- und Jugendpsychiatrie, welche per Frühling 2026 neu eröffnet wird.\n\nIhre Aufgaben:\n- Sie führen ambulante kinder- und jugendpsychiatrische Behandlungen durch\n\n- Sie pflegen Kontakt zu unseren interdisziplinären Netzwerk-Partnern\n\n- Sie wirken in der Weiter- und Fortbildung mit und betreuen Assistenzärzte in Weiterbildung\n\nUnser Anforderungsprofil:\n- Sie verfügen über einen FMH anerkannten Facharzttitel in Kinder- und Jugendpsychiatrie oder stehen kurz vor dem Abschluss\n\n- Sie sind motiviert und bereit Verantwortung zu übernehmen\n\n- Sie arbeiten gerne prozessorientiert mit einem multidisziplinären und motivierten Team zusammen\n\nWir bieten Ihnen:\n- Eine interessante und vielseitige Tätigkeit in der Kinder- und Jugendpsychiatrie mit der Möglichkeit zur langfristigen beruflichen Weiterentwicklung\n\n- Das Angebot eines internen Führungs-Curriculums mit Zertifikat und Unterstützung bei Ihren externen Fortbildungsanliegen\n\n- Ein angenehmes und kollegiales Arbeitsklima in einer attraktiven Region\n\n- Mit Teilzeitarbeitsmodellen und unbezahlten Urlauben eine optimale Work-Life-Balance\n\n- Die Möglichkeit sich an der Forschung zu beteiligen und auf Wunsch Unterstützung bei Ihrer Dissertation",
       "descriptionByLocale": {
         "it": "I dintorni: Il vostro futuro posto di lavoro è una stazione giovanile o per bambini nella nuova clinica per la psichiatria infantile e giovanile, che sarà riaperto nella primavera 2026. I vostri compiti: - Effettuano trattamenti esterni per bambini e giovani-psichiatrici - Contatta i nostri partner di rete interdisciplinari - Contribuiscono ad un'ulteriore formazione e forniscono assistenza ai medici in un'ulteriore formazione Il nostro profilo di requisito: - Hai un titolo specialistico riconosciuto da FMH in psichiatria infantile e giovanile o sono vicino al completamento - Sei motivato e disposto a assumerti la responsabilità - Sei felice di lavorare con un team multidisciplinare e motivato Vi offriamo: - Un'attività interessante e versatile nella psichiatria infantile e giovanile con possibilità di sviluppo professionale a lungo termine - L'offerta di un curriculum di gestione interno con certificato e supporto per le vostre esigenze di formazione esterna - Un clima di lavoro piacevole e collegiale in una regione attraente - Con modelli di lavoro part-time e vacanze non retribuite un equilibrio ottimale della vita lavorativa - La possibilità di partecipare alla ricerca e, se lo si desidera, il sostegno alla vostra tesi",
-        "en": "Your surroundings: Your future workplace is a youth or children's station in the new clinic for child and youth psychiatry, which will be reopened in spring 2026. \n• Your tasks: - They carry out out out out outpatient child- and youth-psychiatric treatments - Contact our interdisciplinary network partners - They contribute to further and further training and provide assistance doctors in further training Our requirement profile: - You have an FMH-recognized specialist title in children's and youth psychiatry or are close to completion - You are motivated and willing to take responsibility - You are happy to work with a multidisciplinary and motivated team \n• We offer you: - An interesting and versatile activity in child and youth psychiatry with the possibility of long-term professional development - The offer of an internal management curriculum with certificate and support for your external training needs - A pleasant and collegial working climate in an attractive region - With part-time work models and unpaid holidays an optimal work-life balance - The possibility to participate in research and, if desired, support in your dissertation",
+        "en": "Your surroundings: Your future workplace is a youth or children's station in the new clinic for child and youth psychiatry, which will be reopened in spring 2026.\n• Your tasks: - They carry out out out out outpatient child- and youth-psychiatric treatments - Contact our interdisciplinary network partners - They contribute to further and further training and provide assistance doctors in further training Our requirement profile: - You have an FMH-recognized specialist title in children's and youth psychiatry or are close to completion - You are motivated and willing to take responsibility - You are happy to work with a multidisciplinary and motivated team\n• We offer you: - An interesting and versatile activity in child and youth psychiatry with the possibility of long-term professional development - The offer of an internal management curriculum with certificate and support for your external training needs - A pleasant and collegial working climate in an attractive region - With part-time work models and unpaid holidays an optimal work-life balance - The possibility to participate in research and, if desired, support in your dissertation",
         "de": "Ihre Umgebung: Ihr zukünftiger Arbeitsplatz ist eine Jugend- oder die Kinderstation in der neuen Klinik für Kinder- und Jugendpsychiatrie, welche per Frühling 2026 neu eröffnet wird. \n• Ihre Aufgaben: - Sie führen ambulante kinder- und jugendpsychiatrische Behandlungen durch - Sie pflegen Kontakt zu unseren interdisziplinären Netzwerk-Partnern - Sie wirken in der Weiter- und Fortbildung mit und betreuen Assistenzärzte in Weiterbildung Unser Anforderungsprofil: - Sie verfügen über einen FMH anerkannten Facharzttitel in Kinder- und Jugendpsychiatrie oder stehen kurz vor dem Abschluss - Sie sind motiviert und bereit Verantwortung zu übernehmen - Sie arbeiten gerne prozessorientiert mit einem multidisziplinären und motivierten Team zusammen \n• Wir bieten Ihnen: - Eine interessante und vielseitige Tätigkeit in der Kinder- und Jugendpsychiatrie mit der Möglichkeit zur langfristigen beruflichen Weiterentwicklung - Das Angebot eines internen Führungs-Curriculums mit Zertifikat und Unterstützung bei Ihren externen Fortbildungsanliegen - Ein angenehmes und kollegiales Arbeitsklima in einer attraktiven Region - Mit Teilzeitarbeitsmodellen und unbezahlten Urlauben eine optimale Work-Life-Balance - Die Möglichkeit sich an der Forschung zu beteiligen und auf Wunsch Unterstützung bei Ihrer Dissertation",
-        "fr": "Votre environnement: Votre futur lieu de travail est un poste pour jeunes ou enfants dans la nouvelle clinique de psychiatrie des enfants et des jeunes, qui sera rouvert au printemps 2026. \n• Vos tâches: - Ils effectuent des traitements ambulatoires pour les enfants et les adolescents - Contactez nos partenaires interdisciplinaires - Ils contribuent à la formation continue et à l'assistance aux médecins en matière de formation continue Notre profil d'exigence: - Vous avez un titre de spécialiste reconnu par la FMH en psychiatrie des enfants et des jeunes ou êtes sur le point d'être complété - Vous êtes motivé et prêt à prendre la responsabilité - Vous êtes heureux de travailler avec une équipe multidisciplinaire et motivée Nous vous offrons: - Une activité intéressante et polyvalente en psychiatrie des enfants et des jeunes avec possibilité de développement professionnel à long terme - L'offre d'un programme de gestion interne avec certificat et soutien pour vos besoins de formation externes - Un climat de travail agréable et collégial dans une région attractive - Avec des modèles de travail à temps partiel et des congés non rémunérés un équilibre optimal entre travail et vie privée - La possibilité de participer à la recherche et, si désiré, de soutenir votre thèse"
+        "fr": "Votre environnement: Votre futur lieu de travail est un poste pour jeunes ou enfants dans la nouvelle clinique de psychiatrie des enfants et des jeunes, qui sera rouvert au printemps 2026.\n• Vos tâches: - Ils effectuent des traitements ambulatoires pour les enfants et les adolescents - Contactez nos partenaires interdisciplinaires - Ils contribuent à la formation continue et à l'assistance aux médecins en matière de formation continue Notre profil d'exigence: - Vous avez un titre de spécialiste reconnu par la FMH en psychiatrie des enfants et des jeunes ou êtes sur le point d'être complété - Vous êtes motivé et prêt à prendre la responsabilité - Vous êtes heureux de travailler avec une équipe multidisciplinaire et motivée Nous vous offrons: - Une activité intéressante et polyvalente en psychiatrie des enfants et des jeunes avec possibilité de développement professionnel à long terme - L'offre d'un programme de gestion interne avec certificat et soutien pour vos besoins de formation externes - Un climat de travail agréable et collégial dans une région attractive - Avec des modèles de travail à temps partiel et des congés non rémunérés un équilibre optimal entre travail et vie privée - La possibilité de participer à la recherche et, si désiré, de soutenir votre thèse"
       },
       "location": "Chur",
       "canton": "GR",
       "url": "https://www.pdgr.ch/jobs/oberaerztin-oberarzt-7-2/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-23T11:28:21.493Z",
+      "crawledAt": "2026-05-23T22:52:19.700Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1152,7 +1155,7 @@
       "url": "https://www.pdgr.ch/jobs/fachpsychologe-in-2-3/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-23T11:28:20.435Z",
+      "crawledAt": "2026-05-23T22:52:18.552Z",
       "addressLocality": "Ilanz",
       "postalCode": "7130",
       "addressCountry": "CH",
@@ -1198,8 +1201,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 1
+      }
     },
     {
       "id": "pdgr-80501bd9710d",
@@ -1232,7 +1234,7 @@
       "url": "https://www.pdgr.ch/jobs/fachfrau-fachmann-gesundheit-2/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-23T11:28:19.352Z",
+      "crawledAt": "2026-05-23T22:52:17.384Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1286,6 +1288,7 @@
         "fachperson-gesundheit-pdgr-ch"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1330,7 +1333,7 @@
       "url": "https://www.pdgr.ch/jobs/assistenzaerztin-assistenzarzt-4-4/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-23T11:28:18.261Z",
+      "crawledAt": "2026-05-23T22:52:16.233Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -1395,6 +1398,7 @@
         "assistenzarztin-assistenzarzt-pdgr-ch-2"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1439,7 +1443,7 @@
       "url": "https://www.pdgr.ch/jobs/nachtaerztin-nachtarzt/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-23T11:28:17.220Z",
+      "crawledAt": "2026-05-23T22:52:15.093Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1497,6 +1501,7 @@
         "nachtarztin-nachtarzt-pdgr-ch"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1541,7 +1546,7 @@
       "url": "https://www.pdgr.ch/jobs/dipl-pflegefachperson-hf-5-6/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-23T11:28:16.175Z",
+      "crawledAt": "2026-05-23T22:52:13.987Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1597,6 +1602,7 @@
         ]
       },
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1641,7 +1647,7 @@
       "url": "https://www.pdgr.ch/jobs/assistenz-oder-fachpsychologe-in-6/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-23T11:28:14.051Z",
+      "crawledAt": "2026-05-23T22:52:11.793Z",
       "addressLocality": "Samedan",
       "postalCode": "7503",
       "addressCountry": "CH",
@@ -1695,6 +1701,7 @@
         "assistenz-oder-fachpsychologe-in-psychiatrische-dienste-graubunden-davos"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1739,7 +1746,7 @@
       "url": "https://www.pdgr.ch/jobs/fachperson-gesundheit-9/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-23T11:28:13.036Z",
+      "crawledAt": "2026-05-23T22:52:10.617Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -1792,6 +1799,7 @@
         "fachperson-gesundheit-pdgr-ch-2"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1836,7 +1844,7 @@
       "url": "https://www.pdgr.ch/jobs/fachperson-gesundheit-fuer-die-nachtwache-4-2/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-23T11:28:10.935Z",
+      "crawledAt": "2026-05-23T22:52:08.434Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1896,6 +1904,7 @@
         "tirocinante-modulo-pratico-i-ii-o-pre-tirocinio-psychiatrische-dienste-graubunden-chur"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1940,7 +1949,7 @@
       "url": "https://www.pdgr.ch/jobs/assistenzaerztin-assistenzarzt-3-9/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-23T11:28:08.837Z",
+      "crawledAt": "2026-05-23T22:52:06.227Z",
       "addressLocality": "Cazis / Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1986,8 +1995,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 1
+      }
     },
     {
       "id": "pdgr-d7f7612b1400",
@@ -2013,14 +2021,14 @@
         "it": "I dintorni: basso-percentuale, concentrarsi sui fine settimana (daily) Una funzione per specialisti (esperti) che sono alla ricerca di un compito clinico chiaramente strutturato e pianificabile con elevata auto-responsabilità – ben compatibile con una pratica o altri obblighi professionali. L'AKI è strettamente connesso con le offerte stazionarie e ambulatoriale e fa parte di una moderna struttura di approvvigionamento integrata. I vostri compiti: - Adotti valutazioni psichiatriche acute e interventi di crisi in ambienti ambulatoriali - Tratta i pazienti che camminano - Conducono valutazioni consiliari, se necessario anche interventi di crisi prospettico - Sei coinvolto nella formazione e formazione di colleghi più giovani e supervisiona medici assistenti / medici assistenti e psicologi / psicologi - Lavori con infermieri esperti nel processo e prendi il controllo del caso. - Sviluppano insieme piani di trattamento pragmatici e sostenibili Il nostro profilo di requisito: - Hanno completato gli studi in medicina umana e hanno completato la loro formazione specialistica in psichiatria e psicoterapia - Forniscono sicurezza nella valutazione di situazioni psichiatriche acute con - Si gode di lavoro autonomo mentre allo stesso tempo chiude il voto del team - Hanno un chiaro processo decisionale e uno stile di comunicazione collegiale Vi offriamo: - Un'attività di fine settimana prevista durante il giorno senza obbligo di notte - Alta flessibilità e opzioni di progettazione individuale nella pianificazione dei servizi - Un carico di lavoro che può essere combinato bene con una pratica o altri obblighi - Un'aggiunta mirata a un team consolidato e consolidato - Breve procedure e collaborazione diretta con assistenza e assistenza medica - Integrazione nella moderna struttura di fornitura del PDGR",
         "en": "Your surroundings: low-percentage, focus on weekends (daily) A",
         "de": "Ihre Umgebung: niederprozentig, schwerpunktmässig Wochenende (tagsüber) Eine Funktion für (erfahrene) Fachärztinnen / Fachärzte, die eine klar strukturierte, planbare klinische Aufgabe mit hoher Eigenverantwortung suchen – gut vereinbar mit einer Praxistätigkeit oder weiteren beruflichen Verpflichtungen. Die AKI ist eng mit stationären und ambulanten Angeboten vernetzt und Teil einer modernen, integrierten Versorgungsstruktur. \n• Ihre Aufgaben: - Sie übernehmen akutpsychiatrische Beurteilungen und Kriseninterventionen im ambulanten Setting - Sie behandeln Walk-in Patientinnen und Patienten - Sie führen konsiliarische Beurteilungen durch, bei Bedarf auch aufsuchende Krisenintervention - Sie engagieren sich in der Aus- und Weiterbildung jüngerer Kolleginnen und Kollegen und supervidieren Assistenzärztinnen / Assistenzärzten und Psychologinnen / Psychologen - Sie arbeiten mit erfahrenen Pflegefachpersonen in der Triage zusammen und übernehmen die Fallführung - Sie entwickeln gemeinsam pragmatische und tragfähige Behandlungspläne Unser Anforderungsprofil: - Sie verfügen über ein abgeschlossenes Studium der Humanmedizin und haben die Facharztausbildung in Psychiatrie und Psychotherapie abgeschlossen - Sie bringen Sicherheit in der Einschätzung akuter psychiatrischer Situationen mit - Sie haben Freude an selbständigem Arbeiten bei gleichzeitig enger Teamabstimmung - Sie verfügen über eine klare Entscheidungsfindung und einen kollegialen Kommunikationsstil \n• Wir bieten Ihnen: - Eine planbare Wochenendtätigkeit tagsüber ohne Nachtverpflichtung - Hohe Flexibilität und individuelle Gestaltungsmöglichkeiten in der Dienstplanung - Ein Arbeitspensum, das sich gut mit einer Praxistätigkeit oder anderen Verpflichtungen kombinieren lässt - Eine gezielte Ergänzung eines etablierten, gut eingespielten Teams - Kurze Entscheidungswege und direkte Zusammenarbeit mit Pflege und ärztlicher Leitung - Einbettung in die moderne Versorgungsstruktur der PDGR",
-        "fr": "Votre environnement: faible pourcentage, se concentrer sur les week-ends (par jour) Une fonction pour les spécialistes (expérimentés) qui cherchent une tâche clinique clairement structurée et planable avec une grande responsabilité d'auto-responsabilité – bien compatible avec une pratique ou d'autres obligations professionnelles. L'AKI est étroitement relié aux offres fixes et externes et fait partie d'une structure d'approvisionnement intégrée moderne. \n• Vos tâches: - Vous adoptez des évaluations psychiatriques aiguës et des interventions de crise en milieu ambulatoire - Vous traitez les patients ambulants - Ils effectuent des évaluations consiliaires, si nécessaire aussi des interventions de crise prospectives - Vous participez à la formation et à la formation de jeunes collègues et supervisez des médecins adjoints / médecins adjoints et psychologues / psychologues - Vous travaillez avec des infirmières expérimentées dans le procès et prenez le contrôle de l'affaire - Ils élaborent ensemble des plans de traitement pragmatiques et durables Notre profil d'exigence: - Ils ont terminé leurs études en médecine humaine et ont terminé leur formation spécialisée en psychiatrie et psychothérapie - Ils assurent la sécurité dans l'évaluation des situations psychiatriques aiguës avec - Vous aimez le travail indépendant tout en fermant le vote en équipe - Ils ont un processus décisionnel clair et un style de communication collégial Nous vous offrons: - Une activité prévue le week-end pendant la journée sans obligation de nuit - Flexibilité élevée et options de conception individuelles dans la planification des services - Une charge de travail qui peut être bien associée à une pratique ou à d'autres obligations - Un ajout ciblé à une équipe bien établie - Procédures courtes et coopération directe avec les soins et les soins médicaux - Intégrer la structure d'approvisionnement moderne du PDGR"
+        "fr": "Votre environnement: faible pourcentage, se concentrer sur les week-ends (par jour) Une fonction pour les spécialistes (expérimentés) qui cherchent une tâche clinique clairement structurée et planable avec une grande responsabilité d'auto-responsabilité – bien compatible avec une pratique ou d'autres obligations professionnelles. L'AKI est étroitement relié aux offres fixes et externes et fait partie d'une structure d'approvisionnement intégrée moderne.\n• Vos tâches: - Vous adoptez des évaluations psychiatriques aiguës et des interventions de crise en milieu ambulatoire - Vous traitez les patients ambulants - Ils effectuent des évaluations consiliaires, si nécessaire aussi des interventions de crise prospectives - Vous participez à la formation et à la formation de jeunes collègues et supervisez des médecins adjoints / médecins adjoints et psychologues / psychologues - Vous travaillez avec des infirmières expérimentées dans le procès et prenez le contrôle de l'affaire - Ils élaborent ensemble des plans de traitement pragmatiques et durables Notre profil d'exigence: - Ils ont terminé leurs études en médecine humaine et ont terminé leur formation spécialisée en psychiatrie et psychothérapie - Ils assurent la sécurité dans l'évaluation des situations psychiatriques aiguës avec - Vous aimez le travail indépendant tout en fermant le vote en équipe - Ils ont un processus décisionnel clair et un style de communication collégial Nous vous offrons: - Une activité prévue le week-end pendant la journée sans obligation de nuit - Flexibilité élevée et options de conception individuelles dans la planification des services - Une charge de travail qui peut être bien associée à une pratique ou à d'autres obligations - Un ajout ciblé à une équipe bien établie - Procédures courtes et coopération directe avec les soins et les soins médicaux - Intégrer la structure d'approvisionnement moderne du PDGR"
       },
       "location": "Chur",
       "canton": "GR",
       "url": "https://www.pdgr.ch/jobs/oberaerztin-oberarzt-3-9/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-23T11:28:07.815Z",
+      "crawledAt": "2026-05-23T22:52:05.118Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2062,6 +2070,7 @@
         "psychiatre-psychiatrische-dienste-graubunden-chur"
       ],
       "firstSeenAt": "2026-05-17T10:51:43.094Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -2106,7 +2115,7 @@
       "url": "https://www.pdgr.ch/jobs/leiter-in-controlling/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-23T11:28:06.756Z",
+      "crawledAt": "2026-05-23T22:52:04.005Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2169,6 +2178,7 @@
         "leiter-in-controlling-pdgr-ch"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -2213,7 +2223,7 @@
       "url": "https://www.pdgr.ch/jobs/stationsleiter-in-2-2/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-23T11:28:05.677Z",
+      "crawledAt": "2026-05-23T22:52:02.882Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2279,6 +2289,7 @@
         "kochin-koch-pdgr-ch"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -2323,7 +2334,7 @@
       "url": "https://www.pdgr.ch/jobs/dipl-pflegefachperson-hf-fuer-den-tag-und-nachtdienst/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-23T11:28:02.501Z",
+      "crawledAt": "2026-05-23T22:51:59.488Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -2365,6 +2376,7 @@
         "dipl-pflegefachperson-hf-per-den-tag-e-nachtdienst-psychiatrische-dienste-graubunden-cazis"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2409,7 +2421,7 @@
       "url": "https://www.pdgr.ch/jobs/betreuer-in-11/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-23T11:28:01.359Z",
+      "crawledAt": "2026-05-23T22:51:58.406Z",
       "addressLocality": "Landquart",
       "postalCode": "7302",
       "addressCountry": "CH",
@@ -2501,7 +2513,7 @@
       "url": "https://www.pdgr.ch/jobs/assistenzpsychologe-in-6/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-23T11:28:00.309Z",
+      "crawledAt": "2026-05-23T22:51:57.312Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -2542,6 +2554,7 @@
         "assistenzpsychologe-in-psychiatrische-dienste-graubunden-cazis"
       ],
       "firstSeenAt": "2026-04-21T22:10:58.899Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2586,7 +2599,7 @@
       "url": "https://www.pdgr.ch/jobs/mitarbeiter-in-hotellerie-3-13/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-23T11:27:59.296Z",
+      "crawledAt": "2026-05-23T22:51:56.229Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -2668,7 +2681,7 @@
       "url": "https://www.pdgr.ch/jobs/oberaerztin-oberarzt-6-3/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-23T11:27:58.269Z",
+      "crawledAt": "2026-05-23T22:51:55.148Z",
       "addressLocality": "Ilanz",
       "postalCode": "7130",
       "addressCountry": "CH",
@@ -2713,8 +2726,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 1
+      }
     },
     {
       "id": "pdgr-4c55e9af737c",
@@ -2747,7 +2759,7 @@
       "url": "https://www.pdgr.ch/jobs/dipl-pflegefachperson-hf-3-10/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-23T11:27:57.203Z",
+      "crawledAt": "2026-05-23T22:51:54.053Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -2782,6 +2794,7 @@
         ]
       },
       "firstSeenAt": "2026-05-07T11:33:07.021Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2817,16 +2830,16 @@
       "description": "Ihre Umgebung:\nSie arbeiten in einem modernen Umfeld auf den Stationen der Klinik Waldhaus in Chur und sind Teil eines engagierten Hotellerie-Teams. In direktem Kontakt mit unseren Patientinnen und Patienten gestalten Sie den Aufenthalt mit, übernehmen eigenverantwortlich hauswirtschaftliche Aufgaben und profitieren von einem unterstützenden, kollegialen Arbeitsumfeld.\n\nIhre Aufgaben:\n- Sie betreuen unsere Patienten zum Thema Verpflegung (Mahlzeitenbestellung, Mahlzeiten servieren etc.)\n\n- Sie führen alle anfallenden hauswirtschaftlichen Tätigkeiten inkl. Grundreinigungen auf der Station selbstständig und fachgerecht aus\n\n- Ihr Tätigkeitsbereich sind Arbeiten im Aufenthaltsraum, Zimmer sowie in der Stationsküche\n\n- Sie sind verantwortlich für die Einhaltung unserer hohen Qualitätsstandards im Bereich Verpflegung und Raumpflege, Sauberkeit sowie Ordnungssinn\n\n- Mit Ihrer engagierten und herzlichen Art sind Sie eine Bereicherung für den Betrieb und somit für unsere Patienten\n\n- Ihre Arbeitszeiten variieren von Montag bis Sonntag von 10.00 – 12.45 Uhr / 14.15 – 18.30 Uhr\n\n- Bei Vertretungen von Arbeitskollegen/innen auf anderen Stationen variieren die Arbeitszeiten von Montag bis Sonntag von 06.30 – 12.30 Uhr oder 11.30 – 18.30 Uhr oder 09.30 – 12.30 Uhr und 16.30 – 18.30 Uhr\n\nUnser Anforderungsprofil:\n- Sie verfügen vorzugsweise über eine abgeschlossene Ausbildung und bereits Erfahrung in der Hotellerie/Gatronomie\n\n- Sie sind eine körperlich robuste Persönlichkeit mit einem hohen Engagement und Dienstleistungsbewusstsein\n\n- Hohe Einsatzbereitschaft und Flexibilität in einem 7-Tage Betrieb und somit auch an den Wochenenden, sind für Sie selbstverständlich\n\n- Teamarbeit, Loyalität und Flexibilität wird bei Ihnen grossgeschrieben\n\n- Sie sind zuverlässig, pflichtbewusst und arbeiten speditiv\n\n- Sie verfügen über ein gepflegtes Erscheinungsbild sowie über sehr gute Deutsch- und EDV-Kenntnisse\n\nWir bieten Ihnen:\n- Sie erwartet eine vielseitige Tätigkeit in einem lebhaften Betrieb\n\n- Sie arbeiten in einem interessanten, abwechslungsreichen und sozialen Umfeld\n\n- Sie können Ihre Erfahrungen einbringen\n\n- Sie profitieren von fortschrittlichen Arbeitsbedingungen\n\n- Fort- und Weiterbildungsmöglichkeiten\n\n- Wir fördern die Vereinbarkeit von Berufs- und Privatleben",
       "descriptionByLocale": {
         "it": "I dintorni: Lavorano in un ambiente moderno alle stazioni della Waldhaus Clinic di Chur e fanno parte di un team dedicato all'industria alberghiera. A contatto diretto con i nostri pazienti, parteciperai al soggiorno, assumerai compiti economici auto-responsabili e beneficierai di un ambiente di lavoro solidale e collegiale. I vostri compiti: - Servono i nostri pazienti sul tema della ristorazione (incontro, pasti di servizio ecc.) - Effettuano tutte le attività commerciali connesse tra cui la pulizia di base sulla stazione in modo indipendente e professionale - Il vostro campo di attività è il lavoro nel salone, nelle camere e nella cucina della stazione - Sei responsabile del rispetto dei nostri standard di alta qualità nel campo della cura del cibo e della stanza, pulizia e senso dell'ordine - Con il vostro modo dedicato e caldo, siete un arricchimento per l'operazione e quindi per i nostri pazienti - Le ore di lavoro variano da lunedì a domenica dalle 10.00 alle 12.45 / 14.15 – 18.30 - Per le rappresentanze dei colleghi di lavoro di altre stazioni, le ore di lavoro variano da lunedì a domenica dalle 06.30 alle 12.30 o dalle 11.30 alle 18.30 o dalle 09.30 alle 12.30 e alle 16.30 – 6.30 Il nostro profilo di requisito: - Preferibilmente hanno completato la formazione e già l'esperienza nell'industria alberghiera/Gatronomy - Sono una personalità fisicamente robusta con un alto impegno e una consapevolezza del servizio - Alta flessibilità e pronto all'uso in un'operazione di 7 giorni e quindi anche nei fine settimana, sono ovviamente per voi - Lavoro di squadra, lealtà e flessibilità sono importanti per voi - Sono affidabili, convincenti e lavoranti speditive - Hanno un aspetto ben mantenuto così come ottime competenze tedesche e IT Vi offriamo: - Si aspetta un'attività versatile in un'operazione vivace - Lavori in un ambiente interessante, vario e sociale - Puoi inserire le tue esperienze - Lei beneficia di condizioni di lavoro avanzate - Formazione continua e continua - Promuoviamo la riconciliazione della vita professionale e privata",
-        "en": "Your surroundings: They work in a modern environment at the stations of the Waldhaus Clinic in Chur and are part of a dedicated hotel industry team. In direct contact with our patients, you will take part in the stay, take over self-responsibly economic tasks and benefit from a supportive, collegial working environment. \n• Your tasks: - They serve our patients on the topic of catering (meeting, serving meals etc.) - They carry out all related business activities including Basic cleaning on the station independently and professionally - Your field of activity is work in the lounge, rooms and in the station kitchen - You are responsible for compliance with our high quality standards in the field of food and room care, cleanliness and sense of order - With your dedicated and warm way, you are an enrichment for the operation and therefore for our patients - Your working hours vary from Monday to Sunday from 10.00 – 12.45 / 14.15 – 18.30 - For representations of work colleagues on other stations, working hours vary from Monday to Sunday from 06.30 to 12.30 or 11.30 – 18.30 or 09.30 – 12.30 and 16.30 – 6.30 Our requirement profile: - They preferably have completed training and already experience in hotel industry/Gatronomy - They are a physically robust personality with a high commitment and service awareness - High ready-to-use and flexibility in a 7-day operation and thus also on weekends, are of course for you - Teamwork, loyalty and flexibility are important to you - They are reliable, compelling and working speditive - They have a well-maintained appearance as well as very good German and IT skills \n• We offer you: - It expects a versatile activity in a lively operation - You work in an interesting, varied and social environment - You can enter your experiences - You benefit from advanced working conditions - Continuing and continuing training - We promote the reconciliation of professional and private life",
+        "en": "Your surroundings: They work in a modern environment at the stations of the Waldhaus Clinic in Chur and are part of a dedicated hotel industry team. In direct contact with our patients, you will take part in the stay, take over self-responsibly economic tasks and benefit from a supportive, collegial working environment.\n• Your tasks: - They serve our patients on the topic of catering (meeting, serving meals etc.) - They carry out all related business activities including Basic cleaning on the station independently and professionally - Your field of activity is work in the lounge, rooms and in the station kitchen - You are responsible for compliance with our high quality standards in the field of food and room care, cleanliness and sense of order - With your dedicated and warm way, you are an enrichment for the operation and therefore for our patients - Your working hours vary from Monday to Sunday from 10.00 – 12.45 / 14.15 – 18.30 - For representations of work colleagues on other stations, working hours vary from Monday to Sunday from 06.30 to 12.30 or 11.30 – 18.30 or 09.30 – 12.30 and 16.30 – 6.30 Our requirement profile: - They preferably have completed training and already experience in hotel industry/Gatronomy - They are a physically robust personality with a high commitment and service awareness - High ready-to-use and flexibility in a 7-day operation and thus also on weekends, are of course for you - Teamwork, loyalty and flexibility are important to you - They are reliable, compelling and working speditive - They have a well-maintained appearance as well as very good German and IT skills\n• We offer you: - It expects a versatile activity in a lively operation - You work in an interesting, varied and social environment - You can enter your experiences - You benefit from advanced working conditions - Continuing and continuing training - We promote the reconciliation of professional and private life",
         "de": "Ihre Umgebung: Sie arbeiten in einem modernen Umfeld auf den Stationen der Klinik Waldhaus in Chur und sind Teil eines engagierten Hotellerie-Teams. In direktem Kontakt mit unseren Patientinnen und Patienten gestalten Sie den Aufenthalt mit, übernehmen eigenverantwortlich hauswirtschaftliche \n• Aufgaben und profitieren von einem unterstützenden, kollegialen Arbeitsumfeld. \n• Ihre Aufgaben: - Sie betreuen unsere Patienten zum Thema Verpflegung (Mahlzeitenbestellung, Mahlzeiten servieren etc.) - Sie führen alle anfallenden hauswirtschaftlichen Tätigkeiten inkl. Grundreinigungen auf der Station selbstständig und fachgerecht aus - Ihr Tätigkeitsbereich sind Arbeiten im Aufenthaltsraum, Zimmer sowie in der Stationsküche - Sie sind verantwortlich für die Einhaltung unserer hohen Qualitätsstandards im Bereich Verpflegung und Raumpflege, Sauberkeit sowie Ordnungssinn - Mit Ihrer engagierten und herzlichen Art sind Sie eine Bereicherung für den Betrieb und somit für unsere Patienten - Ihre Arbeitszeiten variieren von Montag bis Sonntag von 10.00 – 12.45 Uhr / 14.15 – 18.30 Uhr - Bei Vertretungen von Arbeitskollegen/innen auf anderen Stationen variieren die Arbeitszeiten von Montag bis Sonntag von 06.30 – 12.30 Uhr oder 11.30 – 18.30 Uhr oder 09.30 – 12.30 Uhr und 16.30 – 18.30 Uhr Unser Anforderungsprofil: - Sie verfügen vorzugsweise über eine abgeschlossene Ausbildung und bereits Erfahrung in der Hotellerie/Gatronomie - Sie sind eine körperlich robuste Persönlichkeit mit einem hohen Engagement und Dienstleistungsbewusstsein - Hohe Einsatzbereitschaft und Flexibilität in einem 7-Tage Betrieb und somit auch an den Wochenenden, sind für Sie selbstverständlich - Teamarbeit, Loyalität und Flexibilität wird bei Ihnen grossgeschrieben - Sie sind zuverlässig, pflichtbewusst und arbeiten speditiv - Sie verfügen über ein gepflegtes Erscheinungsbild sowie über sehr gute Deutsch- und EDV-Kenntnisse \n• Wir bieten Ihnen: - Sie erwartet eine vielseitige Tätigkeit in einem lebhaften Betrieb - Sie arbeiten in einem interessanten, abwechslungsreichen und sozialen Umfeld - Sie können Ihre Erfahrungen einbringen - Sie profitieren von fortschrittlichen Arbeitsbedingungen - Fort- und Weiterbildungsmöglichkeiten - Wir fördern die Vereinbarkeit von Berufs- und Privatleben",
-        "fr": "Votre environnement: Ils travaillent dans un environnement moderne aux stations de la Waldhaus Clinic à Chur et font partie d'une équipe dédiée de l'industrie hôtelière. En contact direct avec nos patients, vous prendrez part au séjour, assumerez des tâches économiques et bénéficierez d'un environnement de travail collégial et solidaire. \n• Vos tâches: - Ils servent nos patients sur le thème de la restauration (réunion, repas, etc.) - Ils exercent toutes les activités commerciales connexes, y compris le nettoyage de base sur la station de façon indépendante et professionnelle - Votre domaine d'activité est le travail dans le salon, les chambres et la cuisine de la gare - Vous êtes responsable du respect de nos normes de qualité dans le domaine de la nourriture et des soins de chambre, de la propreté et du sens de l'ordre - Avec votre façon dédiée et chaleureuse, vous êtes un enrichissement pour l'opération et donc pour nos patients - Vos heures de travail varient du lundi au dimanche de 10.00 à 12.45 / 14.15 à 18.30 - Pour les représentations de collègues de travail sur d'autres stations, les heures de travail varient du lundi au dimanche de 06.30 à 12.30 ou 11.30 à 18.30 ou 09.30 à 12.30 et 16.30 à 6.30 Notre profil d'exigence: - Ils ont de préférence suivi une formation et déjà une expérience dans l'hôtellerie/la gastronomie - Ils sont une personnalité physiquement robuste avec un engagement élevé et une sensibilisation au service - Haute disponibilité et flexibilité dans une opération de 7 jours et donc aussi le week-end, sont bien sûr pour vous - Le travail d'équipe, la loyauté et la flexibilité sont importants pour vous - Ils sont fiables, convaincants et fonctionnels - Ils ont une apparence bien entretenue ainsi que de très bonnes compétences en allemand et en informatique Nous vous offrons: - Il s'attend à une activité polyvalente dans une opération animée - Vous travaillez dans un environnement intéressant, varié et social - Vous pouvez entrer vos expériences - Vous bénéficiez de conditions de travail avancées - Formation continue et continue - Nous favorisons la conciliation de la vie professionnelle et privée"
+        "fr": "Votre environnement: Ils travaillent dans un environnement moderne aux stations de la Waldhaus Clinic à Chur et font partie d'une équipe dédiée de l'industrie hôtelière. En contact direct avec nos patients, vous prendrez part au séjour, assumerez des tâches économiques et bénéficierez d'un environnement de travail collégial et solidaire.\n• Vos tâches: - Ils servent nos patients sur le thème de la restauration (réunion, repas, etc.) - Ils exercent toutes les activités commerciales connexes, y compris le nettoyage de base sur la station de façon indépendante et professionnelle - Votre domaine d'activité est le travail dans le salon, les chambres et la cuisine de la gare - Vous êtes responsable du respect de nos normes de qualité dans le domaine de la nourriture et des soins de chambre, de la propreté et du sens de l'ordre - Avec votre façon dédiée et chaleureuse, vous êtes un enrichissement pour l'opération et donc pour nos patients - Vos heures de travail varient du lundi au dimanche de 10.00 à 12.45 / 14.15 à 18.30 - Pour les représentations de collègues de travail sur d'autres stations, les heures de travail varient du lundi au dimanche de 06.30 à 12.30 ou 11.30 à 18.30 ou 09.30 à 12.30 et 16.30 à 6.30 Notre profil d'exigence: - Ils ont de préférence suivi une formation et déjà une expérience dans l'hôtellerie/la gastronomie - Ils sont une personnalité physiquement robuste avec un engagement élevé et une sensibilisation au service - Haute disponibilité et flexibilité dans une opération de 7 jours et donc aussi le week-end, sont bien sûr pour vous - Le travail d'équipe, la loyauté et la flexibilité sont importants pour vous - Ils sont fiables, convaincants et fonctionnels - Ils ont une apparence bien entretenue ainsi que de très bonnes compétences en allemand et en informatique Nous vous offrons: - Il s'attend à une activité polyvalente dans une opération animée - Vous travaillez dans un environnement intéressant, varié et social - Vous pouvez entrer vos expériences - Vous bénéficiez de conditions de travail avancées - Formation continue et continue - Nous favorisons la conciliation de la vie professionnelle et privée"
       },
       "location": "Chur",
       "canton": "GR",
       "url": "https://www.pdgr.ch/jobs/mitarbeiter-in-hotellerie-4-9/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-23T11:27:56.075Z",
+      "crawledAt": "2026-05-23T22:51:52.932Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2908,7 +2921,7 @@
       "url": "https://www.pdgr.ch/jobs/dipl-pflegefachperson-hf-fuer-die-nachtwache-2-11/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-23T11:27:54.992Z",
+      "crawledAt": "2026-05-23T22:51:51.824Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -2994,7 +3007,7 @@
       "url": "https://www.pdgr.ch/jobs/betreuer-in-2-8/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-23T11:27:53.824Z",
+      "crawledAt": "2026-05-23T22:51:50.725Z",
       "addressLocality": "Rothenbrunnen",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -3089,7 +3102,7 @@
       "url": "https://www.pdgr.ch/jobs/leiter-in-textil-2/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-23T11:27:52.710Z",
+      "crawledAt": "2026-05-23T22:51:49.617Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -3174,7 +3187,7 @@
       "url": "https://www.pdgr.ch/jobs/oberaerztin-oberarzt-8-4/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-23T11:27:50.664Z",
+      "crawledAt": "2026-05-23T22:51:47.439Z",
       "addressLocality": "Samedan / Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -3220,8 +3233,7 @@
           "maxValue": 103000,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 1
+      }
     },
     {
       "id": "pdgr-b39aa7c0be7e",
@@ -3254,7 +3266,7 @@
       "url": "https://www.pdgr.ch/jobs/fachpsychologe-in-3-5/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-23T11:27:49.629Z",
+      "crawledAt": "2026-05-23T22:51:46.342Z",
       "addressLocality": "Samedan / Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -3299,16 +3311,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 1
+      }
     },
     {
       "id": "pdgr-8b7dbfbdea53",
       "slug": "interno-modulo-di-pratica-i-ii-o-stage-psychiatrische-dienste-graubunden-chur",
       "slugByLocale": {
-        "de": "praktikant-in-praxismodul-i-ii-oder-vorpraktikum-psychiatrische-dienste-graubunden-chur",
         "it": "interno-modulo-di-pratica-i-ii-o-stage-psychiatrische-dienste-graubunden-chur",
         "en": "intern-practice-module-i-ii-or-internship-psychiatrische-dienste-graubunden-chur",
+        "de": "praktikant-in-praxismodul-i-ii-oder-vorpraktikum-psychiatrische-dienste-graubunden-chur",
         "fr": "stage-module-pratique-i-ii-ou-stage-psychiatrische-dienste-graubunden-chur"
       },
       "company": "Psychiatrische Dienste Graubünden",
@@ -3316,24 +3327,24 @@
       "companyDomain": "pdgr.ch",
       "title": "Praktikant/in (Praxismodul I & II oder Vorpraktikum)",
       "titleByLocale": {
-        "de": "Praktikant/in (Praxismodul I & II oder Vorpraktikum)",
         "it": "Interno (modulo di pratica I & II o stage)",
         "en": "Intern (practice module I & II or internship)",
+        "de": "Praktikant/in (Praxismodul I & II oder Vorpraktikum)",
         "fr": "Stage (module pratique I & II ou stage)"
       },
       "description": "Ihre Umgebung:\nDas Therapiehaus Fürstenwald in Chur ist eine Sonderschule mit Externats- und Internatsbetrieb für schulpflichtige Kinder und Jugendliche, die vorübergehend die öffentliche Schule aus psychischen Gründen nicht besuchen können.\n\nIhre Aufgaben:\n- Sie fördern und betreuen die anvertrauten Schüler\n\n- Sie beteiligen sich an der Aufrechterhaltung eines fördernden Milieus als Voraussetzung für eine Stärkung\n\n- Sie wirken an der Umsetzung und laufenden Anpassung der Erziehungsplanung mit\n\n- Sie gestalten den Tagesablauf der Kinder und Jugendlichen unter Berücksichtigung der Bereiche Therapie und Schule mit\n\n- Sie arbeiten interdisziplinär mit anderen Berufsgruppen zusammen\n\n- Sie übernehmen administrative Arbeiten\n\n- Sie arbeiten in der Bezugspersonenarbeit mit\n\nUnser Anforderungsprofil:\n- Sie sind mind. 20 Jahre jung und haben Interesse am Sonderschulbereich\n\n- Das Arbeiten mit Menschen bereitet Ihnen Freude\n\n- Sie sind offen und kommunikativ\n\nWir bieten Ihnen:\n- Ein Praktikum bei uns bietet Ihnen einen guten Einstieg in die Arbeitswelt\n\n- Wir fördern Talent und Engagement und bieten Ihnen die Möglichkeit, sich in einem dynamischen und vielseitigen Umfeld weiterzuentwickeln\n\n- Sie werden von einer ausgebildeten Praxisanleitung in wöchentlichen Gesprächen begleitet",
       "descriptionByLocale": {
-        "de": "Ihre Umgebung:\nDas Therapiehaus Fürstenwald in Chur ist eine Sonderschule mit Externats- und Internatsbetrieb für schulpflichtige Kinder und Jugendliche, die vorübergehend die öffentliche Schule aus psychischen Gründen nicht besuchen können.\n\nIhre Aufgaben:\n- Sie fördern und betreuen die anvertrauten Schüler\n\n- Sie beteiligen sich an der Aufrechterhaltung eines fördernden Milieus als Voraussetzung für eine Stärkung\n\n- Sie wirken an der Umsetzung und laufenden Anpassung der Erziehungsplanung mit\n\n- Sie gestalten den Tagesablauf der Kinder und Jugendlichen unter Berücksichtigung der Bereiche Therapie und Schule mit\n\n- Sie arbeiten interdisziplinär mit anderen Berufsgruppen zusammen\n\n- Sie übernehmen administrative Arbeiten\n\n- Sie arbeiten in der Bezugspersonenarbeit mit\n\nUnser Anforderungsprofil:\n- Sie sind mind. 20 Jahre jung und haben Interesse am Sonderschulbereich\n\n- Das Arbeiten mit Menschen bereitet Ihnen Freude\n\n- Sie sind offen und kommunikativ\n\nWir bieten Ihnen:\n- Ein Praktikum bei uns bietet Ihnen einen guten Einstieg in die Arbeitswelt\n\n- Wir fördern Talent und Engagement und bieten Ihnen die Möglichkeit, sich in einem dynamischen und vielseitigen Umfeld weiterzuentwickeln\n\n- Sie werden von einer ausgebildeten Praxisanleitung in wöchentlichen Gesprächen begleitet",
-        "it": "I dintorni:\nLa casa di terapia di Fürstenwald a Chur è una scuola speciale con stage esterni e per bambini e giovani temporaneamente incapaci di visitare la scuola pubblica per motivi psicologici.\n\nI vostri compiti:\n- Promuovano e sostengono gli studenti affidati\n\n- Partecipano a mantenere un ambiente di affido come prerequisito per il rafforzamento\n\n- Essi contribuiscono all'attuazione e all'adeguamento continuo della pianificazione dell'istruzione\n\n- Disegnano la routine quotidiana di bambini e giovani tenendo conto delle aree di terapia e scuola con\n\n- Lavorano interdisciplinari con altri gruppi professionali\n\n- il lavoro amministrativo\n\n- Lavorano nel lavoro di riferimento con\n\nIl nostro profilo di requisito:\n- Almeno lo sei. 20 anni giovani e interessati all'istruzione speciale\n\n- Lavorare con la gente ti prepara la gioia\n\n- Sono aperti e comunicativi\n\nVi offriamo:\n- Un tirocinio con noi ti offre un buon ingresso nel mondo del lavoro\n\n- Promuoviamo talento e impegno e vi offriamo l'opportunità di sviluppare in un ambiente dinamico e versatile\n\n- Sono accompagnati da un insegnamento pratico addestrato nelle conversazioni settimanali",
-        "en": "Your surroundings:\nThe Fürstenwald therapy house in Chur is a special school with external and internships for children and young people who are temporarily unable to visit the public school for psychological reasons.\n\nYour tasks:\n- They promote and support the entrusted students\n\n- They participate in maintaining a fostering environment as a prerequisite for strengthening\n\n- They contribute to the implementation and ongoing adaptation of education planning\n\n- They design the daily routine of children and young people taking into account the areas of therapy and school with\n\n- They work interdisciplinary with other professional groups\n\n- take over administrative work\n\n- They work in reference work with\n\nOur requirement profile:\n- You're at least. 20 years young and interested in special education\n\n- Working with people prepares you joy\n\n- They are open and communicative\n\nWe offer you:\n- An internship with us offers you a good entry into the world of work\n\n- We promote talent and commitment and offer you the opportunity to develop in a dynamic and versatile environment\n\n- They are accompanied by a trained practical instruction in weekly conversations",
-        "fr": "Votre environnement:\nLa maison de thérapie Fürstenwald à Chur est une école spéciale avec des stages externes pour les enfants et les jeunes qui sont temporairement incapables de visiter l'école publique pour des raisons psychologiques.\n\nVos tâches:\n- Ils promeuvent et soutiennent les étudiants confiés\n\n- Ils participent au maintien d'un environnement favorable comme condition préalable au renforcement\n\n- Ils contribuent à la mise en œuvre et à l ' adaptation continue de la planification de l ' éducation\n\n- Ils conçoivent la routine quotidienne des enfants et des jeunes en tenant compte des domaines de la thérapie et de l'école avec\n\n- Ils travaillent interdisciplinairement avec d'autres groupes professionnels\n\n- prendre en charge les travaux administratifs\n\n- Ils travaillent en référence avec\n\nNotre profil d'exigence:\n- Au moins. 20 ans et intéressés par l'éducation spéciale\n\n- Travailler avec les gens vous prépare la joie\n\n- Ils sont ouverts et communicatifs\n\nNous vous offrons:\n- Un stage avec nous vous offre une bonne entrée dans le monde du travail\n\n- Nous promouvons le talent et l'engagement et vous offrons la possibilité de se développer dans un environnement dynamique et polyvalent\n\n- Ils sont accompagnés d'une formation pratique à la conversation hebdomadaire"
+        "it": "I dintorni: La casa di terapia di Fürstenwald a Chur è una scuola speciale con stage esterni e per bambini e giovani temporaneamente incapaci di visitare la scuola pubblica per motivi psicologici. I vostri compiti: - Promuovano e sostengono gli studenti affidati - Partecipano a mantenere un ambiente di affido come prerequisito per il rafforzamento - Essi contribuiscono all'attuazione e all'adeguamento continuo della pianificazione dell'istruzione - Disegnano la routine quotidiana di bambini e giovani tenendo conto delle aree di terapia e scuola con - Lavorano interdisciplinari con altri gruppi professionali - il lavoro amministrativo - Lavorano nel lavoro di riferimento con Il nostro profilo di requisito: - Almeno lo sei. 20 anni giovani e interessati all'istruzione speciale - Lavorare con la gente ti prepara la gioia - Sono aperti e comunicativi Vi offriamo: - Un tirocinio con noi ti offre un buon ingresso nel mondo del lavoro - Promuoviamo talento e impegno e vi offriamo l'opportunità di sviluppare in un ambiente dinamico e versatile - Sono accompagnati da un insegnamento pratico addestrato nelle conversazioni settimanali",
+        "en": "Your surroundings: The Fürstenwald therapy house in Chur is a special school with external and internships for children and young people who are temporarily unable to visit the public school for psychological reasons. \n• Your tasks: - They promote and support the entrusted students - They participate in maintaining a fostering environment as a prerequisite for strengthening - They contribute to the implementation and ongoing adaptation of education planning - They design the daily routine of children and young people taking into account the areas of therapy and school with - They work interdisciplinary with other professional groups - take over administrative work - They work in reference work with Our requirement profile: - You're at least. 20 years young and interested in special education - Working with people prepares you joy - They are open and communicative \n• We offer you: - An internship with us offers you a good entry into the world of work - We promote talent and commitment and offer you the opportunity to develop in a dynamic and versatile environment - They are accompanied by a trained practical instruction in weekly conversations",
+        "de": "Ihre Umgebung: Das Therapiehaus Fürstenwald in Chur ist eine Sonderschule mit Externats- und Internatsbetrieb für schulpflichtige Kinder und Jugendliche, die vorübergehend die öffentliche Schule aus psychischen Gründen nicht besuchen können. \n• Ihre Aufgaben: - Sie fördern und betreuen die anvertrauten Schüler - Sie beteiligen sich an der Aufrechterhaltung eines fördernden Milieus als Voraussetzung für eine Stärkung - Sie wirken an der Umsetzung und laufenden Anpassung der Erziehungsplanung mit - Sie gestalten den Tagesablauf der Kinder und Jugendlichen unter Berücksichtigung der Bereiche Therapie und Schule mit - Sie arbeiten interdisziplinär mit anderen Berufsgruppen zusammen - Sie übernehmen administrative Arbeiten - Sie arbeiten in der Bezugspersonenarbeit mit Unser Anforderungsprofil: - Sie sind mind. 20 Jahre jung und haben Interesse am Sonderschulbereich - Das Arbeiten mit Menschen bereitet Ihnen Freude - Sie sind offen und kommunikativ \n• Wir bieten Ihnen: - Ein Praktikum bei uns bietet Ihnen einen guten Einstieg in die Arbeitswelt - Wir fördern Talent und Engagement und bieten Ihnen die Möglichkeit, sich in einem dynamischen und vielseitigen Umfeld weiterzuentwickeln - Sie werden von einer ausgebildeten Praxisanleitung in wöchentlichen Gesprächen begleitet",
+        "fr": "Votre environnement: La maison de thérapie Fürstenwald à Chur est une école spéciale avec des stages externes pour les enfants et les jeunes qui sont temporairement incapables de visiter l'école publique pour des raisons psychologiques. \n• Vos tâches: - Ils promeuvent et soutiennent les étudiants confiés - Ils participent au maintien d'un environnement favorable comme condition préalable au renforcement - Ils contribuent à la mise en œuvre et à l ' adaptation continue de la planification de l ' éducation - Ils conçoivent la routine quotidienne des enfants et des jeunes en tenant compte des domaines de la thérapie et de l'école avec - Ils travaillent interdisciplinairement avec d'autres groupes professionnels - prendre en charge les travaux administratifs - Ils travaillent en référence avec Notre profil d'exigence: - Au moins. 20 ans et intéressés par l'éducation spéciale - Travailler avec les gens vous prépare la joie - Ils sont ouverts et communicatifs Nous vous offrons: - Un stage avec nous vous offre une bonne entrée dans le monde du travail - Nous promouvons le talent et l'engagement et vous offrons la possibilité de se développer dans un environnement dynamique et polyvalent - Ils sont accompagnés d'une formation pratique à la conversation hebdomadaire"
       },
       "location": "Chur",
       "canton": "GR",
       "url": "https://www.pdgr.ch/jobs/praktikant-in-praxismodul-i-ii-oder-vorpraktikum-5/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-23T11:27:47.548Z",
+      "crawledAt": "2026-05-23T22:51:44.153Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -3348,23 +3359,21 @@
       "postedDate": "2026-05-23",
       "applyUrl": "https://www.pdgr.ch/jobs/praktikant-in-praxismodul-i-ii-oder-vorpraktikum-5/",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "department": "Kinder- und Jugendpsychiatrie",
       "facility": "Therapiehaus Fürstenwald",
       "pensumMin": 80,
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "previousSlugsByLocale": {
+        "de": [
+          "praktikant-in-praxismodul-i-ii-oder-vorpraktikum-pdgr-ch",
+          "fachperson-gesundheit-fur-die-nachtwache-psychiatrische-dienste-graubunden-chur"
+        ],
         "it": [
           "praktikant-in-praxismodul-i-ii-oder-vorpraktikum-pdgr-ch",
           "specialista-in-salute-per-il-turno-di-notte-psychiatrische-dienste-graubunden-chur",
           "praktikant-in-praxismodul-i-ii-o-vorpraktikum-psychiatrische-dienste-graubunden-chur"
-        ],
-        "de": [
-          "praktikant-in-praxismodul-i-ii-oder-vorpraktikum-pdgr-ch",
-          "fachperson-gesundheit-fur-die-nachtwache-psychiatrische-dienste-graubunden-chur"
         ],
         "en": [
           "praktikant-in-praxismodul-i-ii-oder-vorpraktikum-pdgr-ch",
@@ -3377,9 +3386,9 @@
       },
       "previousSlugs": [
         "praktikant-in-praxismodul-i-ii-oder-vorpraktikum-pdgr-ch",
+        "fachperson-gesundheit-fur-die-nachtwache-psychiatrische-dienste-graubunden-chur",
         "specialista-in-salute-per-il-turno-di-notte-psychiatrische-dienste-graubunden-chur",
         "praktikant-in-praxismodul-i-ii-o-vorpraktikum-psychiatrische-dienste-graubunden-chur",
-        "fachperson-gesundheit-fur-die-nachtwache-psychiatrische-dienste-graubunden-chur",
         "healthcare-specialist-for-night-shift-psychiatrische-dienste-graubunden-chur",
         "specialiste-en-sante-pour-le-service-de-nuit-psychiatrische-dienste-graubunden-chur",
         "fachperson-gesundheit-fur-die-nachtwache-pdgr-ch",
@@ -3387,6 +3396,7 @@
         "medico-specializzando-in-psichiatria-psychiatrische-dienste-graubunden-cazis-chur",
         "tirocinante-modulo-pratico-i-ii-o-pre-tirocinio-psychiatrische-dienste-graubunden-chur"
       ],
+      "firstSeenAt": "2026-05-23T11:27:47.548Z",
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -3398,8 +3408,7 @@
           "maxValue": 63000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-05-23T11:27:47.548Z"
+      }
     }
   ]
 }
