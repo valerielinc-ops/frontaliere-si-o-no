@@ -1,16 +1,16 @@
 {
   "key": "badrutts-palace",
   "label": "Badrutt's Palace Hotel",
-  "generatedAt": "2026-05-22T21:29:54.567Z",
+  "generatedAt": "2026-05-23T09:47:27.623Z",
   "total": 6,
   "newCount": 2,
   "updatedCount": 4,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 2203,
-  "avgDurationMs": 2203,
+  "durationMs": 2401,
+  "avgDurationMs": 2401,
   "durationHistory": [
-    2203
+    2401
   ],
   "newJobs": [
     {
@@ -25,7 +25,7 @@
       "url": "https://jobs.badruttscareers.com/en-GB/jobs/7627802-commis-patissier-m-w-d",
       "source": "Badrutt's Palace Hotel Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-22T21:29:52.790Z",
+      "crawledAt": "2026-05-23T09:47:25.773Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -59,7 +59,7 @@
       "url": "https://jobs.badruttscareers.com/en-GB/jobs/7377432-guest-experience-executive-m-w-d-teilzeit-50",
       "source": "Badrutt's Palace Hotel Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-22T21:29:52.809Z",
+      "crawledAt": "2026-05-23T09:47:25.789Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -95,7 +95,7 @@
       "url": "https://jobs.badruttscareers.com/en-GB/jobs/7506059-head-of-technical-services-m-w-d",
       "source": "Badrutt's Palace Hotel Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-22T21:29:52.806Z",
+      "crawledAt": "2026-05-23T09:47:25.785Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -131,7 +131,7 @@
       "url": "https://jobs.badruttscareers.com/en-GB/jobs/6987633-reservations-manager-m-w-d",
       "source": "Badrutt's Palace Hotel Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-22T21:29:52.812Z",
+      "crawledAt": "2026-05-23T09:47:25.793Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -167,7 +167,7 @@
       "url": "https://jobs.badruttscareers.com/en-GB/jobs/6955753-it-manager-m-w-d",
       "source": "Badrutt's Palace Hotel Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-22T21:29:52.813Z",
+      "crawledAt": "2026-05-23T09:47:25.795Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -203,7 +203,7 @@
       "url": "https://jobs.badruttscareers.com/en-GB/jobs/3724328-beauty-therapist-m-w-d",
       "source": "Badrutt's Palace Hotel Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-22T21:29:52.816Z",
+      "crawledAt": "2026-05-23T09:47:25.798Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -228,45 +228,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "id": "badrutts-palace-b8c57ceab4f1",
-      "slug": "risorse-umane-recruiting-assistant-badrutt-s-palace-hotel-st-moritz",
-      "company": "Badrutt's Palace Hotel",
-      "companyKey": "badrutts-palace",
-      "companyDomain": "badruttscareers.com",
-      "title": "HR Recruiting Assistant",
-      "location": "St. Moritz",
-      "canton": "GR",
-      "url": "https://jobs.badruttscareers.com/en-GB/jobs/7693799-hr-recruiting-assistant",
-      "source": "Badrutt's Palace Hotel Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-05-22T10:57:01.876Z",
-      "addressLocality": "St. Moritz",
-      "postalCode": "7500",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Amministrazione",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Ospitalità / Hotellerie",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-06",
-      "applyUrl": "https://jobs.badruttscareers.com/en-GB/jobs/7693799-hr-recruiting-assistant",
-      "needsRetranslation": true,
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "firstSeenAt": "2026-05-22T10:57:01.876Z",
-      "_qualityScore": 78,
-      "_qualityBreakdown": {
-        "cleanliness": 17,
-        "richness": 18,
-        "translation": 21,
-        "completeness": 22
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
