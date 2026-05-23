@@ -1800,8 +1800,8 @@
       "slugByLocale": {
         "de": "zivildienstleistende-als-hilfspfleger-notfallzentrum-pflichtenheft-101140-luks-luzern",
         "it": "zivildienstleistende-come-hilfspfleger-notfallzentrum-pflichtenheft-101140-luzerner-kantonsspital-luks-luzern",
-        "en": "civilian-service-employees-as-care-assistants-emergency-center-requirements-101140-luzerner-kantonsspital-luks-luzern",
-        "fr": "employes-de-service-civil-comme-assistants-soignants-centre-d-urgence-exigences-101140-luzerner-kantonsspital-luks"
+        "en": "civil-service-provider-as-an-auxiliary-care-provider-emergency-centre-compulsory-issue-101140-luzerner-kantonsspital",
+        "fr": "fournisseur-de-services-publics-en-tant-que-prestataire-de-soins-auxiliaires-centre-d-urgence-numero-obligatoire-101140"
       },
       "company": "Luzerner Kantonsspital (LUKS)",
       "companyKey": "luks",
@@ -1847,10 +1847,18 @@
       "previousSlugsByLocale": {
         "it": [
           "zivildienstleistende-come-assistenti-alla-cura-centro-di-emergenza-requisiti-101140-luzerner-kantonsspital-luks-luzern"
+        ],
+        "en": [
+          "civilian-service-employees-as-care-assistants-emergency-center-requirements-101140-luzerner-kantonsspital-luks-luzern"
+        ],
+        "fr": [
+          "employes-de-service-civil-comme-assistants-soignants-centre-d-urgence-exigences-101140-luzerner-kantonsspital-luks"
         ]
       },
       "previousSlugs": [
-        "zivildienstleistende-come-assistenti-alla-cura-centro-di-emergenza-requisiti-101140-luzerner-kantonsspital-luks-luzern"
+        "zivildienstleistende-come-assistenti-alla-cura-centro-di-emergenza-requisiti-101140-luzerner-kantonsspital-luks-luzern",
+        "civilian-service-employees-as-care-assistants-emergency-center-requirements-101140-luzerner-kantonsspital-luks-luzern",
+        "employes-de-service-civil-comme-assistants-soignants-centre-d-urgence-exigences-101140-luzerner-kantonsspital-luks"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -1872,8 +1880,8 @@
       "slugByLocale": {
         "de": "zivildienstleistende-als-koch-pflichtenheft-101150-luks-luzern",
         "it": "personale-di-servizio-civile-come-cuoco-posizione-101150-luzerner-kantonsspital-luks-luzern",
-        "en": "civilian-service-personnel-as-cook-position-101150-luzerner-kantonsspital-luks-luzern",
-        "fr": "personnel-de-service-civil-en-tant-que-cuisinier-poste-101150-luzerner-kantonsspital-luks-luzern"
+        "en": "civil-service-provider-as-a-chef-duty-number-101150-luzerner-kantonsspital-luks-luzern",
+        "fr": "fournisseur-de-services-publics-en-qualite-de-chef-service-numero-101150-luzerner-kantonsspital-luks-luzern"
       },
       "company": "Luzerner Kantonsspital (LUKS)",
       "companyKey": "luks",
@@ -1928,16 +1936,28 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-23T11:12:00.387Z"
+      "firstSeenAt": "2026-05-23T11:12:00.387Z",
+      "previousSlugsByLocale": {
+        "en": [
+          "civilian-service-personnel-as-cook-position-101150-luzerner-kantonsspital-luks-luzern"
+        ],
+        "fr": [
+          "personnel-de-service-civil-en-tant-que-cuisinier-poste-101150-luzerner-kantonsspital-luks-luzern"
+        ]
+      },
+      "previousSlugs": [
+        "civilian-service-personnel-as-cook-position-101150-luzerner-kantonsspital-luks-luzern",
+        "personnel-de-service-civil-en-tant-que-cuisinier-poste-101150-luzerner-kantonsspital-luks-luzern"
+      ]
     },
     {
       "id": "luks-4059b692f9d5",
-      "slug": "posti-di-formazione-per-diploma-di-esperto-a-in-cure-d-emergenza-nds-hf-luzerner-kantonsspital-luks-luzern",
+      "slug": "luoghi-di-formazione-per-il-dipl-experts-emergency-care-nds-hf-luzerner-kantonsspital-luks-luzern",
       "slugByLocale": {
         "de": "weiterbildungsplatze-zur-zum-dipl-expertin-experten-notfallpflege-nds-hf-luks-luzern",
-        "it": "posti-di-formazione-per-diploma-di-esperto-a-in-cure-d-emergenza-nds-hf-luzerner-kantonsspital-luks-luzern",
-        "en": "training-positions-for-diploma-in-emergency-nursing-nds-hf-luzerner-kantonsspital-luks-luzern",
-        "fr": "postes-de-formation-pour-le-diplome-d-experte-en-soins-d-urgence-nds-hf-luzerner-kantonsspital-luks-luzern"
+        "it": "luoghi-di-formazione-per-il-dipl-experts-emergency-care-nds-hf-luzerner-kantonsspital-luks-luzern",
+        "en": "training-places-for-the-dipl-experts-emergency-care-nds-hf-luzerner-kantonsspital-luks-luzern",
+        "fr": "lieux-de-formation-du-dipl-experts-emergency-care-nds-hf-luzerner-kantonsspital-luks-luzern"
       },
       "company": "Luzerner Kantonsspital (LUKS)",
       "companyKey": "luks",
@@ -1992,16 +2012,32 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-23T11:12:00.386Z"
+      "firstSeenAt": "2026-05-23T11:12:00.386Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "posti-di-formazione-per-diploma-di-esperto-a-in-cure-d-emergenza-nds-hf-luzerner-kantonsspital-luks-luzern"
+        ],
+        "en": [
+          "training-positions-for-diploma-in-emergency-nursing-nds-hf-luzerner-kantonsspital-luks-luzern"
+        ],
+        "fr": [
+          "postes-de-formation-pour-le-diplome-d-experte-en-soins-d-urgence-nds-hf-luzerner-kantonsspital-luks-luzern"
+        ]
+      },
+      "previousSlugs": [
+        "posti-di-formazione-per-diploma-di-esperto-a-in-cure-d-emergenza-nds-hf-luzerner-kantonsspital-luks-luzern",
+        "training-positions-for-diploma-in-emergency-nursing-nds-hf-luzerner-kantonsspital-luks-luzern",
+        "postes-de-formation-pour-le-diplome-d-experte-en-soins-d-urgence-nds-hf-luzerner-kantonsspital-luks-luzern"
+      ]
     },
     {
       "id": "luks-fa9036cca9dd",
-      "slug": "operatore-di-servizio-civile-come-professionista-sanitario-assistente-sanitario-centro-di-emergenza-pflichtenheft-101139",
+      "slug": "fornitore-di-servizi-civili-come-esperto-di-salute-centro-di-emergenza-luzerner-kantonsspital-luks-luzern",
       "slugByLocale": {
         "de": "zivildienstleistende-als-pflegefachmann-fachmann-gesundheit-notfallzentrum-pflichtenheft",
-        "it": "operatore-di-servizio-civile-come-professionista-sanitario-assistente-sanitario-centro-di-emergenza-pflichtenheft-101139",
-        "en": "civil-service-worker-as-healthcare-professional-emergency-center-pflichtenheft-101139-luzerner-kantonsspital-luks-luzern",
-        "fr": "benevole-en-service-civil-en-tant-que-professionnel-de-sante-centre-d-urgence-pflichtenheft-101139-luzerner"
+        "it": "fornitore-di-servizi-civili-come-esperto-di-salute-centro-di-emergenza-luzerner-kantonsspital-luks-luzern",
+        "en": "civil-service-provider-as-nursing-expert-health-emergency-centre-luzerner-kantonsspital-luks-luzern",
+        "fr": "fournisseur-de-services-civils-en-tant-qu-expert-en-soins-infirmiers-luzerner-kantonsspital-luks-luzern"
       },
       "company": "Luzerner Kantonsspital (LUKS)",
       "companyKey": "luks",
@@ -2056,7 +2092,23 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-23T11:12:00.386Z"
+      "firstSeenAt": "2026-05-23T11:12:00.386Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "operatore-di-servizio-civile-come-professionista-sanitario-assistente-sanitario-centro-di-emergenza-pflichtenheft-101139"
+        ],
+        "en": [
+          "civil-service-worker-as-healthcare-professional-emergency-center-pflichtenheft-101139-luzerner-kantonsspital-luks-luzern"
+        ],
+        "fr": [
+          "benevole-en-service-civil-en-tant-que-professionnel-de-sante-centre-d-urgence-pflichtenheft-101139-luzerner"
+        ]
+      },
+      "previousSlugs": [
+        "operatore-di-servizio-civile-come-professionista-sanitario-assistente-sanitario-centro-di-emergenza-pflichtenheft-101139",
+        "civil-service-worker-as-healthcare-professional-emergency-center-pflichtenheft-101139-luzerner-kantonsspital-luks-luzern",
+        "benevole-en-service-civil-en-tant-que-professionnel-de-sante-centre-d-urgence-pflichtenheft-101139-luzerner"
+      ]
     },
     {
       "id": "luks-f71f709c0382",
@@ -2064,8 +2116,8 @@
       "slugByLocale": {
         "de": "zivildienstleistende-als-assistenzarzt-chirurgische-klinik-pflichtenheft-101138-luks",
         "it": "prestatore-di-servizio-civile-come-assistente-medico-clinica-chirurgica-requisiti-101138-luzerner-kantonsspital-luks",
-        "en": "civilian-service-provider-as-assistant-physician-surgical-clinic-requirements-101138-luzerner-kantonsspital-luks-luzern",
-        "fr": "prestataire-de-service-civil-comme-medecin-assistant-clinique-chirurgicale-exigences-101138-luzerner-kantonsspital-luks"
+        "en": "civil-servant-as-an-assistant-physician-chirurgical-clinic-luzerner-kantonsspital-luks-luzern",
+        "fr": "fonctionnaire-en-tant-que-medecin-adjoint-clinique-luzerner-kantonsspital-luks-luzern"
       },
       "company": "Luzerner Kantonsspital (LUKS)",
       "companyKey": "luks",
@@ -2120,7 +2172,19 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-23T11:12:00.385Z"
+      "firstSeenAt": "2026-05-23T11:12:00.385Z",
+      "previousSlugsByLocale": {
+        "en": [
+          "civilian-service-provider-as-assistant-physician-surgical-clinic-requirements-101138-luzerner-kantonsspital-luks-luzern"
+        ],
+        "fr": [
+          "prestataire-de-service-civil-comme-medecin-assistant-clinique-chirurgicale-exigences-101138-luzerner-kantonsspital-luks"
+        ]
+      },
+      "previousSlugs": [
+        "civilian-service-provider-as-assistant-physician-surgical-clinic-requirements-101138-luzerner-kantonsspital-luks-luzern",
+        "prestataire-de-service-civil-comme-medecin-assistant-clinique-chirurgicale-exigences-101138-luzerner-kantonsspital-luks"
+      ]
     },
     {
       "id": "luks-ea384123c6e3",
@@ -2128,8 +2192,8 @@
       "slugByLocale": {
         "de": "zivildienstleistende-als-hilfspfleger-op-management-pflichtenheft-101140-luks-luzern",
         "it": "zivildienstleistende-come-hilfspfleger-op-management-pflichtenheft-101140-luzerner-kantonsspital-luks-luzern",
-        "en": "civilian-service-provider-as-a-nursing-assistant-op-management-requirements-101140-luzerner-kantonsspital-luks-luzern",
-        "fr": "prestataire-de-service-civil-comme-assistant-en-soins-infirmiers-gestion-op-exigences-101140-luzerner-kantonsspital-luks"
+        "en": "civil-servant-as-an-assistant-op-management-luzerner-kantonsspital-luks-luzern",
+        "fr": "fonctionnaire-assistant-gestion-des-op-luzerner-kantonsspital-luks-luzern"
       },
       "company": "Luzerner Kantonsspital (LUKS)",
       "companyKey": "luks",
@@ -2175,10 +2239,18 @@
       "previousSlugsByLocale": {
         "it": [
           "prestatore-di-servizio-civile-come-assistente-infermieristico-op-management-requisiti-101140-luzerner-kantonsspital-luks"
+        ],
+        "en": [
+          "civilian-service-provider-as-a-nursing-assistant-op-management-requirements-101140-luzerner-kantonsspital-luks-luzern"
+        ],
+        "fr": [
+          "prestataire-de-service-civil-comme-assistant-en-soins-infirmiers-gestion-op-exigences-101140-luzerner-kantonsspital-luks"
         ]
       },
       "previousSlugs": [
-        "prestatore-di-servizio-civile-come-assistente-infermieristico-op-management-requisiti-101140-luzerner-kantonsspital-luks"
+        "prestatore-di-servizio-civile-come-assistente-infermieristico-op-management-requisiti-101140-luzerner-kantonsspital-luks",
+        "civilian-service-provider-as-a-nursing-assistant-op-management-requirements-101140-luzerner-kantonsspital-luks-luzern",
+        "prestataire-de-service-civil-comme-assistant-en-soins-infirmiers-gestion-op-exigences-101140-luzerner-kantonsspital-luks"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -17201,8 +17273,8 @@
       "slugByLocale": {
         "de": "leiter-in-physiotherapie-auch-jobsharing-moglich-100-luks-stans",
         "it": "responsabile-physiotherapie-auch-jobsharing-moglich-100-luzerner-kantonsspital-luks-stans",
-        "en": "leiter-in-physiotherapie-auch-jobsharing-moglich-100-luks-stans-2",
-        "fr": "leiter-in-physiotherapie-auch-jobsharing-moglich-100-luks-stans-2"
+        "en": "head-of-physiotherapy-also-jobsharing-possible-100-luzerner-kantonsspital-luks-stans",
+        "fr": "responsable-de-la-physiotherapie-egalement-le-partage-d-emploi-possible-100-luzerner-kantonsspital-luks-stans"
       },
       "company": "Luzerner Kantonsspital (LUKS)",
       "companyKey": "luks",
@@ -17273,14 +17345,12 @@
       },
       "previousSlugs": [
         "leiter-in-physiotherapie-auch-jobsharing-moglich-100-luks-stans-2",
-        "leiter-in-physiotherapie-auch-jobsharing-moglich-100-luks-stans",
-        "capo-capo-di-fisioterapia-possibilita-di-lavoro-in-condivisione-100-luzerner-kantonsspital-luks-stans",
-        "responsabile-physiotherapie-auch-jobsharing-moglich-100-luzerner-kantonsspital-luks-stans",
-        "head-of-physiotherapy-job-sharing-possible-100-luzerner-kantonsspital-luks-stans",
-        "responsable-de-la-kinesitherapie-possibilite-de-travail-en-partage-100-luzerner-kantonsspital-luks-stans",
         "physiotherapy-manager-also-part-time-possible-luzerner-kantonsspital-luks-stans",
         "responsable-de-physiotherapie-teletravail-partiel-possible-luzerner-kantonsspital-luks-stans",
-        "responsabile-fisioterapia-anche-con-lavoro-a-turni-luzerner-kantonsspital-luks-stans"
+        "responsabile-fisioterapia-anche-con-lavoro-a-turni-luzerner-kantonsspital-luks-stans",
+        "capo-capo-di-fisioterapia-possibilita-di-lavoro-in-condivisione-100-luzerner-kantonsspital-luks-stans",
+        "head-of-physiotherapy-job-sharing-possible-100-luzerner-kantonsspital-luks-stans",
+        "responsable-de-la-kinesitherapie-possibilite-de-travail-en-partage-100-luzerner-kantonsspital-luks-stans"
       ]
     },
     {
