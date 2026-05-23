@@ -7682,6 +7682,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.ucraini-in-svizzera-permesso-s-b-timori-dei-cantoni.title': 'Ucraini in Svizzera: dal permesso S a quello B, i timori dei cantoni',
     'blog.article.ucraini-in-svizzera-permesso-s-b-timori-dei-cantoni.excerpt': 'I cantoni temono il cambio di status degli ucraini in Svizzera dal permesso S a quello B. Ecco cosa cambia per i frontalieri ticinesi.',
     'blog.article.ucraini-in-svizzera-permesso-s-b-timori-dei-cantoni.imageAlt': 'Bellinzona, Ticino, Svizzera',
+    'blog.article.ffs-2027-ticino.title': 'FFS 2027: novità per i frontalieri del Ticino',
+    'blog.article.ffs-2027-ticino.excerpt': 'Nuovi collegamenti e miglioramenti per i pendolari e i turisti',
+    'blog.article.ffs-2027-ticino.imageAlt': 'Treni in partenza alla stazione di Lugano',
 };
 
 export default blogMetaIt;

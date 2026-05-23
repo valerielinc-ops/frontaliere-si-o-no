@@ -7681,6 +7681,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.ucraini-in-svizzera-permesso-s-b-timori-dei-cantoni.title': 'Ukrainians in Switzerland: From S Permit to B Permit, Cantonal Concerns',
     'blog.article.ucraini-in-svizzera-permesso-s-b-timori-dei-cantoni.excerpt': 'The cantons worry about the status change of Ukrainians in Switzerland from S permit to B permit. Here\'s what changes for Ticino cross-border workers.',
     'blog.article.ucraini-in-svizzera-permesso-s-b-timori-dei-cantoni.imageAlt': 'Bellinzona, Ticino, Switzerland',
+    'blog.article.ffs-2027-ticino.title': 'FFS 2027: New Links & Improvements for Ticino Cross-Border Workers',
+    'blog.article.ffs-2027-ticino.excerpt': 'New connections and enhancements for commuters and tourists',
+    'blog.article.ffs-2027-ticino.imageAlt': 'Trains departing from Lugano station',
 };
 
 export default blogMetaEn;

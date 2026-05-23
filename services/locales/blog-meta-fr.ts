@@ -7682,6 +7682,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.ucraini-in-svizzera-permesso-s-b-timori-dei-cantoni.title': 'Ukrainiens en Suisse: du permis S au permis B, les craintes des cantons',
     'blog.article.ucraini-in-svizzera-permesso-s-b-timori-dei-cantoni.excerpt': 'Les cantons redoutent le changement de statut des Ukrainiens en Suisse du permis S au permis B. Voici ce qui change pour les travailleurs frontaliers du Tessin.',
     'blog.article.ucraini-in-svizzera-permesso-s-b-timori-dei-cantoni.imageAlt': 'Bellinzona, Tessin, Suisse',
+    'blog.article.ffs-2027-ticino.title': 'FFS 2027: noveltés pour les frontaliers du Tessin',
+    'blog.article.ffs-2027-ticino.excerpt': 'Nouvelles liaisons et améliorations pour les pendulaires et les touristes',
+    'blog.article.ffs-2027-ticino.imageAlt': 'Trains partant de la gare de Lugano',
 };
 
 export default blogMetaFr;

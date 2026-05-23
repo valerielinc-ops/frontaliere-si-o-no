@@ -24419,4 +24419,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'ffs-2027-ticino',
+ category: 'novita',
+ date: '2026-05-23T13:32:20.379Z',
+ image: '/images/blog/ffs-2027-ticino.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

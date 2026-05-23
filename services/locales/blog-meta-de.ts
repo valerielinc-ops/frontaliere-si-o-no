@@ -7680,6 +7680,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.ucraini-in-svizzera-permesso-s-b-timori-dei-cantoni.title': 'Ukrainer in der Schweiz: S- zu B-Bewilligung, Kantone besorgt',
     'blog.article.ucraini-in-svizzera-permesso-s-b-timori-dei-cantoni.excerpt': 'Die Kantone fürchten den Statuswechsel der Ukrainer in der Schweiz von der G-Bewilligung zur B-Bewilligung. Hier ändert sich für die Grenzpendler aus dem Tessin.',
     'blog.article.ucraini-in-svizzera-permesso-s-b-timori-dei-cantoni.imageAlt': 'Bellinzona, Tessin, Schweiz',
+    'blog.article.ffs-2027-ticino.title': 'FFS 2027: Neuigkeiten für Grenzgänger im Tessin',
+    'blog.article.ffs-2027-ticino.excerpt': 'Neue Verbindungen und Verbesserungen für Pendler und Touristen',
+    'blog.article.ffs-2027-ticino.imageAlt': 'Züge, die von Lugano abfahren',
 };
 
 export default blogMetaDe;
