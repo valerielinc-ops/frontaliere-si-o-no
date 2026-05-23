@@ -1,16 +1,16 @@
 {
   "key": "pemsa",
   "label": "PEMSA",
-  "generatedAt": "2026-05-22T23:13:04.708Z",
+  "generatedAt": "2026-05-23T11:30:44.186Z",
   "total": 71,
   "newCount": 0,
   "updatedCount": 4,
-  "removedCount": 2,
+  "removedCount": 0,
   "unchangedCount": 67,
-  "durationMs": 170848,
-  "avgDurationMs": 170848,
+  "durationMs": 155136,
+  "avgDurationMs": 155136,
   "durationHistory": [
-    170848
+    155136
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -163,82 +163,7 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "title": "MONTATORE MECCANICO DI MACCHINARI INDUSTRIALI",
-      "slug": "montatore-meccanico-di-macchinari-industriali-pemsa-lugano",
-      "url": "https://www.pemsa.ch/it/job/montatore-meccanico-di-macchinari-industriali-2673743/",
-      "applyUrl": "https://www.pemsa.ch/it/job/montatore-meccanico-di-macchinari-industriali-2673743/",
-      "company": "PEMSA",
-      "companyKey": "pemsa",
-      "companyDomain": "pemsa.ch",
-      "location": "Lugano",
-      "addressLocality": "Lugano",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "meccanica",
-      "sector": "Edilizia e tecnica",
-      "source": "pemsa-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "2026-05-07",
-      "employmentType": "full-time",
-      "contractType": "temporary",
-      "validThrough": "2026-05-22",
-      "id": "pemsa-9a269097d319",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "streetAddress": "Via Industria 20",
-      "postalCode": "6807",
-      "firstSeenAt": "2026-05-07T22:23:51.852Z",
-      "_qualityScore": 97,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
-    {
-      "title": "MONTATORE/POSATORE DI BARRIERE DI SICUREZZA (AUTOSTRADALI)",
-      "slug": "montatore-posatore-di-barriere-di-sicurezza-autostradali-pemsa-cadempino",
-      "url": "https://www.pemsa.ch/it/job/montatore-posatore-di-barriere-di-sicurezza-autostradali-2673697/",
-      "applyUrl": "https://www.pemsa.ch/it/job/montatore-posatore-di-barriere-di-sicurezza-autostradali-2673697/",
-      "company": "PEMSA",
-      "companyKey": "pemsa",
-      "companyDomain": "pemsa.ch",
-      "location": "Cadempino",
-      "addressLocality": "Cadempino",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "meccanica",
-      "sector": "Edilizia e tecnica",
-      "source": "pemsa-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "2026-05-07",
-      "employmentType": "full-time",
-      "contractType": "temporary",
-      "validThrough": "2026-05-22",
-      "id": "pemsa-5c3797a75e87",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "streetAddress": "Via Industria 20",
-      "postalCode": "6807",
-      "firstSeenAt": "2026-05-07T22:23:51.852Z",
-      "_qualityScore": 97,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 25
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "title": "Autista addetto alla distribuzione",
@@ -676,6 +601,7 @@
       "streetAddress": "Via Industria 20",
       "postalCode": "6807",
       "firstSeenAt": "2026-05-19T23:12:33.521Z",
+      "needsRetranslation": true,
       "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
