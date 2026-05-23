@@ -1,16 +1,16 @@
 {
   "key": "ibsa-institut-biochimique",
   "label": "IBSA",
-  "generatedAt": "2026-05-22T22:29:14.508Z",
-  "total": 10,
-  "newCount": 10,
+  "generatedAt": "2026-05-23T10:47:09.475Z",
+  "total": 9,
+  "newCount": 9,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 13626,
-  "avgDurationMs": 13626,
+  "durationMs": 21599,
+  "avgDurationMs": 21599,
   "durationHistory": [
-    13626
+    21599
   ],
   "newJobs": [
     {
@@ -275,7 +275,7 @@
       "contract": "internship",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-05-22",
+      "postedDate": "2026-05-23",
       "url": "https://career.ibsagroup.com/job/Collina-d'Oro-Clinical-Research-Officer-TI-6926/1348468855/",
       "source": "Company Careers Crawler",
       "_targetScope": {
@@ -302,47 +302,6 @@
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
-    {
-      "id": "company-q2u6mq",
-      "slug": "procurement-category-specialista-ibsa-institut-biochimique-all-area-all-clear-apply-now-procurement-category-specialist",
-      "company": "IBSA Institut Biochimique",
-      "title": "Procurement Category Specialist",
-      "location": "All Area All Clear Apply now » Procurement Category Specialist Location: Grancia",
-      "canton": "AG",
-      "category": "engineering",
-      "contract": "internship",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-10",
-      "url": "https://career.ibsagroup.com/job/Grancia-Procurement-Category-Specialist-TI-6916/1344998255/",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Ticino",
-        "canton": "AG"
-      },
-      "companyKey": "ibsa-institut-biochimique",
-      "companyDomain": "ibsa.ch",
-      "crawledAt": "2026-03-31T21:23:52.685Z",
-      "country": "CH",
-      "sourceLang": "en",
-      "salaryMin": 72000,
-      "salaryMax": 97000,
-      "streetAddress": "Via del Piano 29",
-      "postalCode": "6926",
-      "addressLocality": "Grancia",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-03-31T21:23:52.685Z",
-      "_qualityScore": 99,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
         "translation": 25,
         "completeness": 25
       }
