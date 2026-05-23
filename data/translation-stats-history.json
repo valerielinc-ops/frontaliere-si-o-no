@@ -1,173 +1,5 @@
 [
   {
-    "timestamp": "2026-05-07T09:18:53.056Z",
-    "label": "after",
-    "total": 2561,
-    "needsRetranslation": 150,
-    "incomplete": 89,
-    "complete": 2472,
-    "missingByLocale": {
-      "it": 28,
-      "en": 17,
-      "de": 14,
-      "fr": 27
-    },
-    "topPending": [
-      {
-        "company": "Convit Holding GmbH",
-        "pending": 52
-      },
-      {
-        "company": "EFG International AG",
-        "pending": 6
-      },
-      {
-        "company": "Hilcona AG",
-        "pending": 6
-      },
-      {
-        "company": "Lonza",
-        "pending": 5
-      },
-      {
-        "company": "Denner",
-        "pending": 3
-      },
-      {
-        "company": "Bosch Thermotechnik AG",
-        "pending": 2
-      },
-      {
-        "company": "Regionalspital Surselva",
-        "pending": 2
-      },
-      {
-        "company": "Union Bancaire Privée",
-        "pending": 2
-      },
-      {
-        "company": "ALDI SUISSE",
-        "pending": 1
-      },
-      {
-        "company": "AXA Svizzera",
-        "pending": 1
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-05-07T12:02:55.896Z",
-    "label": "before",
-    "total": 2637,
-    "needsRetranslation": 1094,
-    "incomplete": 132,
-    "complete": 2505,
-    "missingByLocale": {
-      "it": 59,
-      "en": 102,
-      "de": 85,
-      "fr": 115
-    },
-    "topPending": [
-      {
-        "company": "EOC – Ente Ospedaliero Cantonale",
-        "pending": 49
-      },
-      {
-        "company": "EFG International AG",
-        "pending": 7
-      },
-      {
-        "company": "Kantonale Verwaltung Graubünden",
-        "pending": 7
-      },
-      {
-        "company": "Hilcona AG",
-        "pending": 6
-      },
-      {
-        "company": "AGIE Charmilles SA",
-        "pending": 5
-      },
-      {
-        "company": "Lonza",
-        "pending": 5
-      },
-      {
-        "company": "Città di Mendrisio",
-        "pending": 4
-      },
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 4
-      },
-      {
-        "company": "Läderach (Schweiz) AG",
-        "pending": 4
-      },
-      {
-        "company": "SUPSI / DTI",
-        "pending": 4
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-05-07T13:11:35.203Z",
-    "label": "after",
-    "total": 2637,
-    "needsRetranslation": 171,
-    "incomplete": 39,
-    "complete": 2598,
-    "missingByLocale": {
-      "it": 26,
-      "en": 22,
-      "de": 18,
-      "fr": 30
-    },
-    "topPending": [
-      {
-        "company": "EFG International AG",
-        "pending": 7
-      },
-      {
-        "company": "Hilcona AG",
-        "pending": 6
-      },
-      {
-        "company": "Lonza",
-        "pending": 5
-      },
-      {
-        "company": "Città di Mendrisio",
-        "pending": 4
-      },
-      {
-        "company": "Hôpital du Valais",
-        "pending": 2
-      },
-      {
-        "company": "Regionalspital Surselva",
-        "pending": 2
-      },
-      {
-        "company": "ALDI SUISSE",
-        "pending": 1
-      },
-      {
-        "company": "Ariston Group",
-        "pending": 1
-      },
-      {
-        "company": "AXA Svizzera",
-        "pending": 1
-      },
-      {
-        "company": "Confederazione Svizzera",
-        "pending": 1
-      }
-    ]
-  },
-  {
     "timestamp": "2026-05-07T14:41:20.738Z",
     "label": "before",
     "total": 2637,
@@ -11196,6 +11028,62 @@
       {
         "company": "PostFinance",
         "pending": 8
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-05-23T12:22:51.166Z",
+    "label": "after",
+    "total": 8500,
+    "needsRetranslation": 5800,
+    "incomplete": 578,
+    "complete": 7922,
+    "missingByLocale": {
+      "it": 334,
+      "en": 290,
+      "de": 187,
+      "fr": 343
+    },
+    "topPending": [
+      {
+        "company": "IWC",
+        "pending": 114
+      },
+      {
+        "company": "Hügli Nahrungsmittel GmbH",
+        "pending": 82
+      },
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 70
+      },
+      {
+        "company": "UBS",
+        "pending": 32
+      },
+      {
+        "company": "Roche",
+        "pending": 26
+      },
+      {
+        "company": "EOC – Ente Ospedaliero Cantonale",
+        "pending": 24
+      },
+      {
+        "company": "VF International (The North Face, Timberland)",
+        "pending": 21
+      },
+      {
+        "company": "Regionalspital Surselva",
+        "pending": 15
+      },
+      {
+        "company": "ABB Svizzera (sede Ticino)",
+        "pending": 10
+      },
+      {
+        "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
+        "pending": 9
       }
     ]
   }
