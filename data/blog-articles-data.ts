@@ -24383,4 +24383,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'doppia-imposizione-frontalieri-sud-grigion',
+ category: 'fiscale',
+ date: '2026-05-23T12:31:48.982Z',
+ image: '/images/blog/doppia-imposizione-frontalieri-sud-grigion.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];

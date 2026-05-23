@@ -7670,6 +7670,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.il-ticino-ha-1200-securini-4-su-10-sono-frontalieri-434090.title': 'Il Ticino ha 1.200 \'securini\', 4 su 10 sono frontalieri',
     'blog.article.il-ticino-ha-1200-securini-4-su-10-sono-frontalieri-434090.excerpt': 'Il Consiglio di Stato del Ticino ha fornito i dati aggiornati sul numero di agenti di sicurezza privata autorizzati e il loro status di frontalieri.',
     'blog.article.il-ticino-ha-1200-securini-4-su-10-sono-frontalieri-434090.imageAlt': 'Polizia Cantonale Ticino in uniforme che controlla documenti ai frontalieri in un valico di frontiera.',
+    'blog.article.doppia-imposizione-frontalieri-sud-grigion.title': 'Doppia imposizione dei frontalieri, le preoccupazioni a sud dei Grigioni',
+    'blog.article.doppia-imposizione-frontalieri-sud-grigion.excerpt': 'Le nuove regole fiscali per i frontalieri creano preoccupazione e difficoltà di reclutamento in specifici settori del Grigioni italiano, come l\'edilizia e la sanità.',
+    'blog.article.doppia-imposizione-frontalieri-sud-grigion.imageAlt': 'Frontaliere che cammina lungo la riva del Lago di Ascona',
 };
 
 export default blogMetaIt;

@@ -7670,6 +7670,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.il-ticino-ha-1200-securini-4-su-10-sono-frontalieri-434090.title': 'Le Tessin compte 1.200 \'securini\', 4 sur 10 sont frontalieri',
     'blog.article.il-ticino-ha-1200-securini-4-su-10-sono-frontalieri-434090.excerpt': 'Le Conseil d\'État du Tessin a fourni les données mises à jour sur le nombre d\'agents de sécurité privée autorisés et leur statut de frontalier.',
     'blog.article.il-ticino-ha-1200-securini-4-su-10-sono-frontalieri-434090.imageAlt': 'Police cantonale du Tessin en uniforme qui contrôle les documents des travailleurs frontaliers à une frontière.',
+    'blog.article.doppia-imposizione-frontalieri-sud-grigion.title': 'Double imposition des frontaliers, les préoccupations dans le sud des Grisons',
+    'blog.article.doppia-imposizione-frontalieri-sud-grigion.excerpt': 'Les nouvelles règles fiscales pour les frontaliers créent des préoccupations et des difficultés de recrutement dans des secteurs spécifiques du Grigioni italien, comme la construction et la santé.',
+    'blog.article.doppia-imposizione-frontalieri-sud-grigion.imageAlt': 'Frontalier se promenant le long de la rive du Lac d\'Ascona',
 };
 
 export default blogMetaFr;

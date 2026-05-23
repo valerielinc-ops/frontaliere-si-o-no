@@ -7669,6 +7669,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.il-ticino-ha-1200-securini-4-su-10-sono-frontalieri-434090.title': 'Ticino Has 1,200 \'Securini\', 4 in 10 are Cross-Border Workers',
     'blog.article.il-ticino-ha-1200-securini-4-su-10-sono-frontalieri-434090.excerpt': 'The Ticino Council of State has provided updated data on the number of authorized private security agents and their cross-border worker status.',
     'blog.article.il-ticino-ha-1200-securini-4-su-10-sono-frontalieri-434090.imageAlt': 'Cantonal Police of Ticino in uniform checking documents of frontaliers at a border crossing.',
+    'blog.article.doppia-imposizione-frontalieri-sud-grigion.title': 'Double Taxation of Cross-Border Workers: Concerns in Southern Graubünden',
+    'blog.article.doppia-imposizione-frontalieri-sud-grigion.excerpt': 'New tax rules for cross-border workers cause concern and recruitment difficulties in specific sectors of Italian Graubünden, such as construction and healthcare.',
+    'blog.article.doppia-imposizione-frontalieri-sud-grigion.imageAlt': 'Frontalier walking along the shore of Lake Ascona',
 };
 
 export default blogMetaEn;

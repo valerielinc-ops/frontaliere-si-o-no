@@ -38567,6 +38567,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-doppia-imposizione-frontalieri-sud-grigion': {
+    title: 'Doppia imposizione dei frontalieri, le preoccupazioni a sud dei Grigioni',
+    description: 'Le nuove regole fiscali per i frontalieri creano preoccupazione e difficoltà di reclutamento in specifici settori del Grigioni italiano, come l\'edilizia e la',
+    keywords: 'frontalieri, ticino, svizzera, italia, doppia, imposizione, preoccupazioni, grigioni',
+    ogTitle: 'Doppia imposizione dei frontalieri, le preoccupazioni a sud dei Grigioni',
+    ogDescription: 'Le nuove regole fiscali per i frontalieri creano preoccupazione e difficoltà di reclutamento in specifici settori del Grigioni italiano, come l\'edilizia e la',
+    canonicalPath: '/articoli-frontaliere/doppia-imposizione-frontalieri-sud-grigion',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Doppia imposizione dei frontalieri, le preoccupazioni a sud dei Grigioni",
+      "description": "Le nuove regole fiscali per i frontalieri creano preoccupazione e difficoltà di reclutamento in specifici settori del Grigioni italiano, come l'edilizia e la",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/doppia-imposizione-frontalieri-sud-grigion.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Frontaliere che cammina lungo la riva del Lago di Ascona"
+      },
+      "datePublished": "2026-05-23T12:31:49+00:00",
+      "dateModified": "2026-05-23T12:31:49+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/doppia-imposizione-frontalieri-sud-grigion`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

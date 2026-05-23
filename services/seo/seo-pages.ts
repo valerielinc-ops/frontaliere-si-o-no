@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2611,
+ "numberOfItems": 2612,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7251,7 +7251,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2608, "name": "Tensioni su tassa lombarda e ipotesi blocco ris...", "url": `${BASE_URL}/articoli-frontaliere/tensioni-tassa-lombarda-ipotesi-blocco-ristorni-cassis-ticino` },
           { "@type": "ListItem", "position": 2609, "name": "FFS riorganizza il traffico a carri isolati, 40...", "url": `${BASE_URL}/articoli-frontaliere/ffs-riorganizza-traffico-a-carri-isolati-40-collaboratori-toccati-in-ticino` },
           { "@type": "ListItem", "position": 2610, "name": "Lega chiede garanzie per Chiasso e lavoro in FF...", "url": `${BASE_URL}/articoli-frontaliere/ffs-cargo-chiasso-riorganizzazione` },
-          { "@type": "ListItem", "position": 2611, "name": "Il Ticino ha 1.200 'securini', 4 su 10 sono fro...", "url": `${BASE_URL}/articoli-frontaliere/il-ticino-ha-1200-securini-4-su-10-sono-frontalieri-434090` }
+          { "@type": "ListItem", "position": 2611, "name": "Il Ticino ha 1.200 'securini', 4 su 10 sono fro...", "url": `${BASE_URL}/articoli-frontaliere/il-ticino-ha-1200-securini-4-su-10-sono-frontalieri-434090` },
+          { "@type": "ListItem", "position": 2612, "name": "Doppia imposizione dei frontalieri, le preoccup...", "url": `${BASE_URL}/articoli-frontaliere/doppia-imposizione-frontalieri-sud-grigion` }
  ]
  },
  {

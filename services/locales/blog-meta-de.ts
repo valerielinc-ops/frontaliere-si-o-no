@@ -7668,6 +7668,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.il-ticino-ha-1200-securini-4-su-10-sono-frontalieri-434090.title': 'Tessin hat 1.200 \'Sicherheitsleute\', 4 von 10 sind Grenzgänger',
     'blog.article.il-ticino-ha-1200-securini-4-su-10-sono-frontalieri-434090.excerpt': 'Der Staatsrat des Tessins hat aktualisierte Daten zum Thema autorisierte Sicherheitsleute und deren Grenzgängertum veröffentlicht.',
     'blog.article.il-ticino-ha-1200-securini-4-su-10-sono-frontalieri-434090.imageAlt': 'Kantonspolizei des Kantons Tessin in Uniform, die Dokumente von Grenzpendlern an einer Grenzübergangsstelle kontrolliert.',
+    'blog.article.doppia-imposizione-frontalieri-sud-grigion.title': 'Doppelte Besteuerung von Grenzgängern: Sorgen im italienischen Graubünden',
+    'blog.article.doppia-imposizione-frontalieri-sud-grigion.excerpt': 'Die neuen steuerlichen Regelungen für Grenzgänger sorgen für Besorgnis und Schwierigkeiten bei der Rekrutierung in bestimmten Sektoren des italienischen Graubündens, wie dem Baugewerbe und der Gesundheit.',
+    'blog.article.doppia-imposizione-frontalieri-sud-grigion.imageAlt': 'Frontalier, der am Ufer des Lago di Ascona spazieren geht',
 };
 
 export default blogMetaDe;
