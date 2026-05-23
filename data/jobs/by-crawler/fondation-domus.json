@@ -1,6 +1,6 @@
 {
   "crawlerKey": "fondation-domus",
-  "assembledAt": "2026-05-23T10:29:38.447Z",
+  "assembledAt": "2026-05-23T21:54:13.684Z",
   "jobs": [
     {
       "id": "fondation-domus-cd4e6137acc9",
@@ -33,7 +33,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/4b67888f-8a12-48ef-ad75-eb0b672156bf/?source=[platform]",
       "source": "Fondation Domus Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-23T10:29:36.401Z",
+      "crawledAt": "2026-05-23T21:54:11.582Z",
       "addressLocality": "Ardon",
       "postalCode": "1957",
       "addressCountry": "CH",
@@ -58,6 +58,7 @@
         ]
       },
       "firstSeenAt": "2026-05-01T10:12:37.791Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -102,7 +103,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/355a479a-747a-4fa2-8358-6cc0324a2e2f/?source=[platform]",
       "source": "Fondation Domus Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-23T10:29:36.084Z",
+      "crawledAt": "2026-05-23T21:54:10.898Z",
       "addressLocality": "Ardon",
       "postalCode": "1957",
       "addressCountry": "CH",
@@ -179,7 +180,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/8dd6425d-bfab-43de-8817-200922be7821/?source=[platform]",
       "source": "Fondation Domus Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-23T10:29:35.749Z",
+      "crawledAt": "2026-05-23T21:54:10.140Z",
       "addressLocality": "Ardon",
       "postalCode": "1957",
       "addressCountry": "CH",
