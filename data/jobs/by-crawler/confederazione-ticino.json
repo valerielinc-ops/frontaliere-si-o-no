@@ -1,6 +1,6 @@
 {
   "crawlerKey": "confederazione-ticino",
-  "assembledAt": "2026-05-23T10:08:16.036Z",
+  "assembledAt": "2026-05-23T21:32:59.400Z",
   "jobs": [
     {
       "title": "Nebenamtliche/r Richter/in der Berufungskammer mit Hauptsprache Französisch",
@@ -131,7 +131,8 @@
       },
       "streetAddress": "Piazza Governo",
       "postalCode": "6501",
-      "firstSeenAt": "2026-05-21T11:34:57.137Z"
+      "firstSeenAt": "2026-05-21T11:34:57.137Z",
+      "needsRetranslation": true
     },
     {
       "title": "Polymechaniker/-in / Waffenmechaniker/-in",
@@ -198,7 +199,8 @@
       },
       "previousSlugs": [
         "polymechaniker-in-waffenmechaniker-in-confederazione-rivera"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Hochschulpraktikant/in Digitale Transformation",
@@ -340,7 +342,8 @@
       "previousSlugs": [
         "spezialist-in-elektrotechnik-confederazione-rivera",
         "specialista-in-elettrotecnica-confederazione-svizzera-rivera"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Offizier/-in Rüstung und Weiterentwicklung",
@@ -407,7 +410,8 @@
       },
       "streetAddress": "Piazza Governo",
       "postalCode": "6501",
-      "firstSeenAt": "2026-05-21T22:05:37.638Z"
+      "firstSeenAt": "2026-05-21T22:05:37.638Z",
+      "needsRetranslation": true
     },
     {
       "title": "Spezialist/-in Technik / HLKS",
@@ -476,7 +480,8 @@
       "previousSlugs": [
         "spezialist-in-technik-hlks-confederazione-rivera",
         "tecnico-specializzato-hvac-confederazione-svizzera-rivera"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Polizeiliche/-r Fachspezialist/-in",
@@ -616,7 +621,8 @@
       },
       "previousSlugs": [
         "assistent-in-der-centerleitung-alc-monteceneri-confederazione-monteceneri"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Raus aus der Routine? Werde Berufsoffizier/-in",
@@ -688,7 +694,8 @@
       },
       "streetAddress": "Piazza Governo",
       "postalCode": "6501",
-      "firstSeenAt": "2026-05-17T09:57:57.728Z"
+      "firstSeenAt": "2026-05-17T09:57:57.728Z",
+      "needsRetranslation": true
     },
     {
       "title": "Dein Beruf sollte mehr bieten? Werde Berufsunteroffizier/-in",
@@ -758,7 +765,8 @@
       },
       "streetAddress": "Piazza Governo",
       "postalCode": "6501",
-      "firstSeenAt": "2026-05-17T09:57:57.728Z"
+      "firstSeenAt": "2026-05-17T09:57:57.728Z",
+      "needsRetranslation": true
     },
     {
       "title": "Asyl-Dolmetscher/-in",
@@ -830,7 +838,8 @@
         "de": [
           "asyl-dolmetscher-in-confederazione-svizzera-alle-standorte-des-sem"
         ]
-      }
+      },
+      "needsRetranslation": true
     }
   ]
 }
