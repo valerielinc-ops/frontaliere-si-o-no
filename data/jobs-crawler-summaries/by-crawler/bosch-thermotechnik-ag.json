@@ -1,16 +1,16 @@
 {
   "key": "bosch-thermotechnik-ag",
   "label": "Bosch Thermotechnik AG",
-  "generatedAt": "2026-05-22T21:35:42.898Z",
-  "total": 8,
+  "generatedAt": "2026-05-23T09:53:09.839Z",
+  "total": 5,
   "newCount": 0,
-  "updatedCount": 8,
-  "removedCount": 0,
+  "updatedCount": 5,
+  "removedCount": 3,
   "unchangedCount": 0,
-  "durationMs": 13300,
-  "avgDurationMs": 13300,
+  "durationMs": 11284,
+  "avgDurationMs": 11284,
   "durationHistory": [
-    13300
+    11284
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -109,13 +109,13 @@
       "postedDate": "2026-05-21",
       "validThrough": "",
       "id": "bosch-thermotechnik-ag-0b75de651e5b",
-      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 90500,
       "currency": "CHF",
       "postalCode": "4500",
       "firstSeenAt": "2026-05-21T21:50:57.033Z",
       "retranslationAttempts": 1,
+      "needsRetranslation": true,
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -195,10 +195,12 @@
         "translation": 25,
         "completeness": 22
       }
-    },
+    }
+  ],
+  "removedJobs": [
     {
       "title": "Praktikum in der Prozessoptimierung (w/m/div.) REF286038O",
-      "slug": "praktikum-in-der-prozessoptimierung-w-m-div-ref286038o-bosch-frauenfeld",
+      "slug": "internship-in-process-optimization-w-m-div-ref286038o-bosch-thermotechnik-ag-frauenfeld",
       "url": "https://jobs.bosch.com/en/job/REF286038O-praktikum-in-der-prozessoptimierung-w-m-div-ref286038o",
       "applyUrl": "https://jobs.smartrecruiters.com/BoschGroup/744000126259890-praktikum-in-der-prozessoptimierung-w-m-div-ref286038o?oga=true&trid=3e439658-2a75-4ae1-8885-0fd195fb6ee0",
       "company": "Bosch Thermotechnik AG",
@@ -234,7 +236,7 @@
     },
     {
       "title": "Entwicklungsingenieur - Bereich Oszillierende Multifunktionswerkzeuge & Säbelsägeblätter 100% (w/m/div.) REF281021P",
-      "slug": "entwicklungsingenieur-bereich-oszillierende-multifunktionswerkzeuge-sabelsageblatter-100-w-m-div-ref281021p-bosch-solothurn-zuchwil",
+      "slug": "ingegnere-di-sviluppo-area-utensili-multifunzione-oscillanti-e-lame-per-sega-a-sciabola-100-f-m-div-ref281021p-bosch",
       "url": "https://jobs.bosch.com/en/job/REF281021P-entwicklungsingenieur-bereich-oszillierende-multifunktionswerkzeuge-saebelsaegeblaetter-100-w-m-div-ref281021p",
       "applyUrl": "https://jobs.smartrecruiters.com/BoschGroup/744000125766230-entwicklungsingenieur-bereich-oszillierende-multifunktionswerkzeuge-sabelsageblatter-100-w-m-div-ref281021p?oga=true&trid=3e439658-2a75-4ae1-8885-0fd195fb6ee0",
       "company": "Bosch Thermotechnik AG",
@@ -271,7 +273,7 @@
     },
     {
       "title": "Instandhaltung (w/m/div.) - REF285547A",
-      "slug": "instandhaltung-w-m-div-ref285547a-bosch-st-niklaus",
+      "slug": "manutenzione-f-m-div-ref285547a-bosch-thermotechnik-ag-st-niklaus",
       "url": "https://jobs.bosch.com/en/job/REF285547A-instandhaltung-w-m-div-ref285547a",
       "applyUrl": "https://jobs.smartrecruiters.com/BoschGroup/744000125158826-instandhaltung-w-m-div-ref285547a?oga=true&trid=3e439658-2a75-4ae1-8885-0fd195fb6ee0",
       "company": "Bosch Thermotechnik AG",
@@ -297,8 +299,8 @@
       "currency": "CHF",
       "postalCode": "1950",
       "firstSeenAt": "2026-05-17T09:49:02.274Z",
-      "needsRetranslation": true,
       "retranslationAttempts": 1,
+      "needsRetranslation": true,
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -308,6 +310,5 @@
       }
     }
   ],
-  "removedJobs": [],
   "unchangedJobs": []
 }
