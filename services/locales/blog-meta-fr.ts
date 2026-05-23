@@ -7685,6 +7685,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.ffs-2027-ticino.title': 'FFS 2027: noveltés pour les frontaliers du Tessin',
     'blog.article.ffs-2027-ticino.excerpt': 'Nouvelles liaisons et améliorations pour les pendulaires et les touristes',
     'blog.article.ffs-2027-ticino.imageAlt': 'Trains partant de la gare de Lugano',
+    'blog.article.richiami-fiscali-errati-ticino.title': 'Fiscalité, rappels envoyés par erreur aux déclarants',
+    'blog.article.richiami-fiscali-errati-ticino.excerpt': 'Plusieurs personnes dans le canton du Tessin ont reçu un rappel des autorités cantonales pour ne pas avoir envoyé leur déclaration d\'impôt dans les délais impartis, même si elles l\'avaient déjà fait. La Division des contributions du DFE a expliqué que cela était dû à un problème technique limité aux déclarations papier.',
+    'blog.article.richiami-fiscali-errati-ticino.imageAlt': 'Ascona, Tessin',
 };
 
 export default blogMetaFr;

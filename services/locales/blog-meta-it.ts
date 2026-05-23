@@ -7685,6 +7685,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.ffs-2027-ticino.title': 'FFS 2027: novità per i frontalieri del Ticino',
     'blog.article.ffs-2027-ticino.excerpt': 'Nuovi collegamenti e miglioramenti per i pendolari e i turisti',
     'blog.article.ffs-2027-ticino.imageAlt': 'Treni in partenza alla stazione di Lugano',
+    'blog.article.richiami-fiscali-errati-ticino.title': 'Fisco, richiami inviati per errore a chi ha già dichiarato',
+    'blog.article.richiami-fiscali-errati-ticino.excerpt': 'Diverse persone in Ticino hanno ricevuto un richiamo dalle autorità cantonali per non aver inviato la dichiarazione d\'imposta entro i termini previsti, anche se avevano già provveduto. La Divisione delle contribuzioni del DFE ha spiegato che si tratta di un problema tecnico circoscritto solo alle dichiarazioni cartacee.',
+    'blog.article.richiami-fiscali-errati-ticino.imageAlt': 'Ascona, Ticino',
 };
 
 export default blogMetaIt;

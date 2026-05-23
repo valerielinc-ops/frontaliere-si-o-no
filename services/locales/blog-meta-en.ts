@@ -7684,6 +7684,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.ffs-2027-ticino.title': 'FFS 2027: New Links & Improvements for Ticino Cross-Border Workers',
     'blog.article.ffs-2027-ticino.excerpt': 'New connections and enhancements for commuters and tourists',
     'blog.article.ffs-2027-ticino.imageAlt': 'Trains departing from Lugano station',
+    'blog.article.richiami-fiscali-errati-ticino.title': 'Tax Errors: Wrong Reminders Sent to Those Who Already Filed',
+    'blog.article.richiami-fiscali-errati-ticino.excerpt': 'Several people in Ticino received reminders from cantonal authorities for not sending their tax declaration on time, even though they had already done so. The Division of Contributions of the DFE explained that this is a technical issue limited to paper declarations only.',
+    'blog.article.richiami-fiscali-errati-ticino.imageAlt': 'Ascona, Ticino',
 };
 
 export default blogMetaEn;

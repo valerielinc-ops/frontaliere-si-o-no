@@ -7683,6 +7683,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.ffs-2027-ticino.title': 'FFS 2027: Neuigkeiten für Grenzgänger im Tessin',
     'blog.article.ffs-2027-ticino.excerpt': 'Neue Verbindungen und Verbesserungen für Pendler und Touristen',
     'blog.article.ffs-2027-ticino.imageAlt': 'Züge, die von Lugano abfahren',
+    'blog.article.richiami-fiscali-errati-ticino.title': 'Steuern, irrt├╝mlich Erinnerung an diejenigen, die bereits erkl├Ąrt haben',
+    'blog.article.richiami-fiscali-errati-ticino.excerpt': 'Verschiedene Personen im Tessin haben eine Erinnerung von den kantonalen Beh├Ârden erhalten, weil sie die Steuererkl├Ąrung nicht innerhalb der vorgegebenen Frist eingereicht haben, obwohl sie dies bereits getan hatten. Die Abteilung der Beitr├Ąge des DFE hat erkl├Ąrt, dass es sich um ein technisches Problem handelt, das nur auf papierbasierte Erkl├Ąrungen begrenzt ist.',
+    'blog.article.richiami-fiscali-errati-ticino.imageAlt': 'Ascona, Tessin',
 };
 
 export default blogMetaDe;

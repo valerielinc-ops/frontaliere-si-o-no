@@ -3804,6 +3804,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-pensioni-svizzere-all-estero-numerose-ma-modeste': { name: 'Pensioni svizzere all’estero', path: '/articoli-frontaliere/pensioni-svizzere-all-estero-numerose-ma-modeste', parent: 'blog' },
     'blog-ucraini-in-svizzera-permesso-s-b-timori-dei-cantoni': { name: 'Ucraini in Svizzera', path: '/articoli-frontaliere/ucraini-in-svizzera-permesso-s-b-timori-dei-cantoni', parent: 'blog' },
     'blog-ffs-2027-ticino': { name: 'Novità FFS 2027', path: '/articoli-frontaliere/ffs-2027-ticino', parent: 'blog' },
+    'blog-richiami-fiscali-errati-ticino': { name: 'Fisco', path: '/articoli-frontaliere/richiami-fiscali-errati-ticino', parent: 'blog' },
  };
 
  const info = sectionNames[section];

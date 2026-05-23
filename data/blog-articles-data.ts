@@ -24428,4 +24428,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'richiami-fiscali-errati-ticino',
+ category: 'fiscale',
+ date: '2026-05-23T13:44:09.385Z',
+ image: '/images/blog/richiami-fiscali-errati-ticino.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];

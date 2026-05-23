@@ -38762,6 +38762,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-richiami-fiscali-errati-ticino': {
+    title: 'Fisco, richiami inviati per errore a chi ha già dichiarato',
+    description: 'Centinaia di contribuenti ticinesi hanno ricevuto un richiamo dalle autorità cantonali per non aver inviato la dichiarazione d\'imposta entro i termini previsti',
+    keywords: 'frontalieri, ticino, svizzera, italia, fisco, richiami, inviati, errore',
+    ogTitle: 'Fisco, richiami inviati per errore a chi ha già dichiarato',
+    ogDescription: 'Centinaia di contribuenti ticinesi hanno ricevuto un richiamo dalle autorità cantonali per non aver inviato la dichiarazione d\'imposta entro i termini previsti',
+    canonicalPath: '/articoli-frontaliere/richiami-fiscali-errati-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Fisco, richiami inviati per errore a chi ha già dichiarato",
+      "description": "Centinaia di contribuenti ticinesi hanno ricevuto un richiamo dalle autorità cantonali per non aver inviato la dichiarazione d'imposta entro i termini previsti",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/richiami-fiscali-errati-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ascona, Ticino"
+      },
+      "datePublished": "2026-05-23T13:44:09+00:00",
+      "dateModified": "2026-05-23T13:44:09+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/richiami-fiscali-errati-ticino`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
