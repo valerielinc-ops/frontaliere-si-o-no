@@ -1,16 +1,16 @@
 {
   "key": "clinique-de-la-plaine",
   "label": "Clinique de la Plaine",
-  "generatedAt": "2026-05-22T21:47:49.153Z",
+  "generatedAt": "2026-05-23T10:05:26.131Z",
   "total": 1,
   "newCount": 0,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 2773,
-  "avgDurationMs": 2773,
+  "durationMs": 2618,
+  "avgDurationMs": 2618,
   "durationHistory": [
-    2773
+    2618
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -27,7 +27,7 @@
       "url": "https://laplaine.ch/emploi/une-aide-de-salle-agent-de-sterilisation-a-80-100/",
       "source": "Clinique de la Plaine Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-22T21:47:47.329Z",
+      "crawledAt": "2026-05-23T10:05:24.385Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -43,11 +43,11 @@
       "postedDate": "2026-04-23",
       "applyUrl": "https://laplaine.ch/emploi/une-aide-de-salle-agent-de-sterilisation-a-80-100/",
       "firstSeenAt": "2026-05-21T11:31:55.808Z",
-      "_qualityScore": 79,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 19,
+        "translation": 25,
         "completeness": 17
       }
     }
