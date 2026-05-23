@@ -41,6 +41,17 @@ function stripChipMarkdown(value: string): string {
   return String(value || '')
     .replace(/\*\*([^*\n]+?)\*\*/g, '$1')
     .replace(/\*([^*\n]+?)\*/g, '$1')
+    // After the pair-strip above, orphan markers may remain at one end of
+    // the chip text (e.g. `**Mansioni` with no closing pair, or
+    // `Rennbahnklinik è leader…**` with no opening pair). These slip
+    // through the audit because two consecutive chips of the form
+    // `<li>FOO**</li><li>**BAR</li>` produce the cross-chip regex match
+    // `**</li><li class="chip">**` that audit:no-literal-markdown flags
+    // (13 such offenders seen in run 26318775434 — all
+    // Rennbahnklinik / Clienia / NSN Medical / PBL chip rows).
+    // Asterisks have no semantic role inside a chip label anyway, so
+    // nuke any remaining `*` run wholesale.
+    .replace(/\*+/g, '')
     .replace(/^#+\s*/, '')
     .replace(/[_=~]{3,}/g, ' ')
     .replace(/\s+/g, ' ')
