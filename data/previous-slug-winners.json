@@ -261,12 +261,12 @@
     "canton": "BASILEA"
   },
   "BASILEA::de::dipl-care-specialist-hf-fh-universitatsspital-basel-basel": {
-    "winnerJobIdentifier": "unispital-basel-88a6f1d8d6af",
-    "winnerCanonical": "dipl-pflegefachfrau-pflegefachmann-hf-fh-unispital-basel-ch",
+    "winnerJobIdentifier": "unispital-basel-0cb5c3aab548",
+    "winnerCanonical": "med-praxisassistentin-praxisassistent-mpa-anasthesiologie-universitatsspital-basel-basel",
     "decidedAt": "2026-05-23T00:00:00.000Z",
     "lastSeenAt": "2026-05-23T00:00:00.000Z",
-    "score": 0.3636,
-    "candidatesCount": 2,
+    "score": 0.1667,
+    "candidatesCount": 1,
     "canton": "BASILEA"
   },
   "BASILEA::de::dipl-nursing-specialist-hf-fh-universitatsspital-basel-basel": {
@@ -549,12 +549,12 @@
     "canton": "BASILEA"
   },
   "BASILEA::en::dipl-care-specialist-hf-fh-universitatsspital-basel-basel": {
-    "winnerJobIdentifier": "unispital-basel-88a6f1d8d6af",
-    "winnerCanonical": "dipl-pflegefachfrau-pflegefachmann-hf-fh-unispital-basel-ch",
+    "winnerJobIdentifier": "unispital-basel-0cb5c3aab548",
+    "winnerCanonical": "medical-practice-assistant-medical-practice-assistant-mpa-anesthesiology-universitatsspital-basel-basel",
     "decidedAt": "2026-05-23T00:00:00.000Z",
     "lastSeenAt": "2026-05-23T00:00:00.000Z",
-    "score": 0.3636,
-    "candidatesCount": 2,
+    "score": 0.1667,
+    "candidatesCount": 1,
     "canton": "BASILEA"
   },
   "BASILEA::en::dipl-nursing-specialist-hf-fh-universitatsspital-basel-basel": {
@@ -846,12 +846,12 @@
     "canton": "BASILEA"
   },
   "BASILEA::fr::dipl-care-specialist-hf-fh-universitatsspital-basel-basel": {
-    "winnerJobIdentifier": "unispital-basel-88a6f1d8d6af",
-    "winnerCanonical": "dipl-pflegefachfrau-pflegefachmann-hf-fh-unispital-basel-ch",
+    "winnerJobIdentifier": "unispital-basel-0cb5c3aab548",
+    "winnerCanonical": "assistant-de-pratique-medicale-assistant-de-pratique-medicale-mpa-anesthesiologie-universitatsspital-basel-basel",
     "decidedAt": "2026-05-23T00:00:00.000Z",
     "lastSeenAt": "2026-05-23T00:00:00.000Z",
-    "score": 0.3636,
-    "candidatesCount": 2,
+    "score": 0.1538,
+    "candidatesCount": 1,
     "canton": "BASILEA"
   },
   "BASILEA::fr::dipl-nursing-specialist-hf-fh-universitatsspital-basel-basel": {
@@ -1260,12 +1260,12 @@
     "canton": "BASILEA"
   },
   "BASILEA::it::dipl-care-specialist-hf-fh-universitatsspital-basel-basel": {
-    "winnerJobIdentifier": "unispital-basel-88a6f1d8d6af",
-    "winnerCanonical": "dipl-pflegefachfrau-pflegefachmann-hf-fh-universitatsspital-basel-basel",
+    "winnerJobIdentifier": "unispital-basel-0cb5c3aab548",
+    "winnerCanonical": "assistente-di-pratica-medica-assistente-di-pratica-medica-mpa-anestesiologia-universitatsspital-basel-basel",
     "decidedAt": "2026-05-23T00:00:00.000Z",
     "lastSeenAt": "2026-05-23T00:00:00.000Z",
-    "score": 0.5556,
-    "candidatesCount": 2,
+    "score": 0.1538,
+    "candidatesCount": 1,
     "canton": "BASILEA"
   },
   "BASILEA::it::dipl-nursing-specialist-hf-fh-universitatsspital-basel-basel": {
@@ -4049,6 +4049,15 @@
     "candidatesCount": 2,
     "canton": "GE"
   },
+  "GE::it::client-services-officer-geneva-talent-pool-efg-international-ag-geneve": {
+    "winnerJobIdentifier": "efg-6066",
+    "winnerCanonical": "client-services-officer-geneva-talent-pool-efg-geneve",
+    "decidedAt": "2026-05-23T00:00:00.000Z",
+    "lastSeenAt": "2026-05-23T00:00:00.000Z",
+    "score": 0.8,
+    "candidatesCount": 2,
+    "canton": "GE"
+  },
   "GE::it::commercio-al-dettaglio-e-partner-piaget-plan-les-ouates": {
     "winnerJobIdentifier": "richemont-c4a05a134548",
     "winnerCanonical": "gruppo-l-d-intern-richemont-bellevue",
@@ -4985,6 +4994,15 @@
     "candidatesCount": 2,
     "canton": "GR"
   },
+  "GR::en::chief-psychiatrist-psychiatrische-dienste-graubunden-cazis": {
+    "winnerJobIdentifier": "pdgr-6bea78edbd79",
+    "winnerCanonical": "senior-doctor-psychiatrische-dienste-graubunden-cazis",
+    "decidedAt": "2026-05-23T00:00:00.000Z",
+    "lastSeenAt": "2026-05-23T00:00:00.000Z",
+    "score": 0.5,
+    "candidatesCount": 2,
+    "canton": "GR"
+  },
   "GR::en::collaboratore-trice-in-betreuungs-e-sicherheitsdienst-kantonale-verwaltung-graubunden-cazis": {
     "winnerJobIdentifier": "kanton-gr-5cc4b885f1fe",
     "winnerCanonical": "become-a-police-officer-at-kapo-gr-kantonale-verwaltung-graubunden-chur",
@@ -5549,6 +5567,15 @@
     "decidedAt": "2026-05-22T00:00:00.000Z",
     "lastSeenAt": "2026-05-23T00:00:00.000Z",
     "score": 0.125,
+    "candidatesCount": 2,
+    "canton": "GR"
+  },
+  "GR::fr::medecin-specialiste-en-psychiatrie-psychiatrische-dienste-graubunden-cazis": {
+    "winnerJobIdentifier": "pdgr-6bea78edbd79",
+    "winnerCanonical": "medecin-principal-psychiatrische-dienste-graubunden-cazis",
+    "decidedAt": "2026-05-23T00:00:00.000Z",
+    "lastSeenAt": "2026-05-23T00:00:00.000Z",
+    "score": 0.5556,
     "candidatesCount": 2,
     "canton": "GR"
   },
@@ -6189,6 +6216,15 @@
     "lastSeenAt": "2026-05-23T00:00:00.000Z",
     "score": 0.3571,
     "candidatesCount": 1,
+    "canton": "GR"
+  },
+  "GR::it::medico-specialista-in-psichiatria-psychiatrische-dienste-graubunden-cazis": {
+    "winnerJobIdentifier": "pdgr-6bea78edbd79",
+    "winnerCanonical": "medico-senior-psychiatrische-dienste-graubunden-cazis",
+    "decidedAt": "2026-05-23T00:00:00.000Z",
+    "lastSeenAt": "2026-05-23T00:00:00.000Z",
+    "score": 0.5556,
+    "candidatesCount": 2,
     "canton": "GR"
   },
   "GR::it::mitarbeiter-in-gastronomie-chasa-puntota-50-cseb-ch": {
