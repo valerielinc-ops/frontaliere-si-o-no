@@ -1,21 +1,21 @@
 {
   "key": "rado",
   "label": "rado",
-  "generatedAt": "2026-05-22T23:46:36.367Z",
+  "generatedAt": "2026-05-23T12:04:47.062Z",
   "total": 4,
   "newCount": 14,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 23645,
-  "avgDurationMs": 23645,
+  "durationMs": 25160,
+  "avgDurationMs": 25160,
   "durationHistory": [
-    23645
+    25160
   ],
   "newJobs": [
     {
       "id": "company-7ubc97",
-      "slug": "sales-representative-omega-boutique-zurich-m-w-d-omega-ltd-bahnhofstrasse-48-8001-zurich-schweiz-firmenadresse-omega-ag-jakob-stam",
+      "slug": "sales-representative-omega-boutique-zurich-m-w-d-omega-ltd-bahnhofstrasse-48-8001-zurich-schweiz-firmenadresse-omega-ag-jakob-stam-7ubc97",
       "company": "Omega Ltd.",
       "title": "SALES REPRESENTATIVE - OMEGA BOUTIQUE ZÜRICH (M/W)",
       "location": "Bahnhofstrasse 48 8001 Zürich (Zurich) Schweiz Firmenadresse Omega AG Jakob-Stäm",
@@ -31,19 +31,26 @@
       "companyDomain": "swatchgroup.com",
       "crawledAt": "2026-05-22T23:46:35.739Z",
       "firstSeenAt": "2026-05-22T23:46:35.739Z",
-      "needsRetranslation": true,
       "sourceLang": "de",
-      "_qualityScore": 61,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "streetAddress": "Bielstrasse 45",
+      "postalCode": "2543",
+      "addressLocality": "Bahnhofstrasse 48 8001 Zürich (Zurich) Schweiz Firmenadresse Omega AG Jakob-Stäm",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 2,
-        "completeness": 14
+        "translation": 19,
+        "completeness": 25
       }
     },
     {
       "id": "company-7ubc98",
-      "slug": "sales-representative-m-w-d-80-omega-boutique-bern-omega-ltd-marktgasse-7-3011-berne-bern-schweiz-firmenadresse-omega-ag-jakob-stampflistra",
+      "slug": "sales-representative-m-w-d-80-omega-boutique-bern-omega-ltd-marktgasse-7-3011-berne-bern-schweiz-firmenadresse-omega-ag-jakob-stampflistra-7ubc98",
       "company": "Omega Ltd.",
       "title": "SALES REPRESENTATIVE (M/W) 80% - OMEGA BOUTIQUE BERN",
       "location": "Marktgasse 7 3011 Berne (Bern) Schweiz Firmenadresse Omega AG Jakob-Stämpflistra",
@@ -59,14 +66,21 @@
       "companyDomain": "swatchgroup.com",
       "crawledAt": "2026-05-22T23:46:35.739Z",
       "firstSeenAt": "2026-05-22T23:46:35.739Z",
-      "needsRetranslation": true,
       "sourceLang": "de",
-      "_qualityScore": 61,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "streetAddress": "Bielstrasse 45",
+      "postalCode": "2543",
+      "addressLocality": "Marktgasse 7 3011 Berne (Bern) Schweiz Firmenadresse Omega AG Jakob-Stämpflistra",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 2,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 25
       }
     },
     {
@@ -97,6 +111,7 @@
       "addressRegion": "BE",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
+      "retranslationAttempts": 1,
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -133,6 +148,7 @@
       "addressRegion": "BE",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
+      "retranslationAttempts": 1,
       "_qualityScore": 83,
       "_qualityBreakdown": {
         "cleanliness": 25,
