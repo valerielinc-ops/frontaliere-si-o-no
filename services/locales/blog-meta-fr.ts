@@ -7691,6 +7691,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.assegno-inclusione-maggio-2026-ricarica-ordinaria.title': 'Allocation d\'inclusion: dates de traitement et de paiement mai 2026',
     'blog.article.assegno-inclusione-maggio-2026-ricarica-ordinaria.excerpt': 'Les traitements et le rechargement ordinaire de l\'Allocation d\'inclusion de fin mai 2026 approchent, mais les bénéficiaires ont toujours de nombreuses questions.',
     'blog.article.assegno-inclusione-maggio-2026-ricarica-ordinaria.imageAlt': 'Le paysage montagneux de Monte Brè avec le lac de Lugano en arrière-plan',
+    'blog.article.il-municipio-e-le-aziende-per-conoscersi-meglio.title': 'La municipalité et les entreprises, pour se connaître mieux',
+    'blog.article.il-municipio-e-le-aziende-per-conoscersi-meglio.excerpt': 'La municipalité de Vezia organise un événement pour renforcer le dialogue avec les entreprises actives sur le territoire',
+    'blog.article.il-municipio-e-le-aziende-per-conoscersi-meglio.imageAlt': 'La municipalité de Vezia rencontre les entreprises locales',
 };
 
 export default blogMetaFr;

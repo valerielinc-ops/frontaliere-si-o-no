@@ -7691,6 +7691,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.assegno-inclusione-maggio-2026-ricarica-ordinaria.title': 'Assegno Inclusione: date lavorazioni e pagamenti maggio 2026',
     'blog.article.assegno-inclusione-maggio-2026-ricarica-ordinaria.excerpt': 'Le lavorazioni e la ricarica ordinaria dell’Assegno di Inclusione di fine maggio 2026 sono ormai vicine, ma tra i beneficiari continuano ad esserci molti dubbi.',
     'blog.article.assegno-inclusione-maggio-2026-ricarica-ordinaria.imageAlt': 'Il paesaggio montano di Monte Brè con il lago di Lugano in lontananza',
+    'blog.article.il-municipio-e-le-aziende-per-conoscersi-meglio.title': 'Il municipio e le aziende, per conoscersi meglio',
+    'blog.article.il-municipio-e-le-aziende-per-conoscersi-meglio.excerpt': 'Il municipio di Vezia organizza un evento per rafforzare il dialogo con le realtà aziendali attive sul territorio',
+    'blog.article.il-municipio-e-le-aziende-per-conoscersi-meglio.imageAlt': 'Il municipio di Vezia incontra le aziende locali',
 };
 
 export default blogMetaIt;

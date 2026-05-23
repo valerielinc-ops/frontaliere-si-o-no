@@ -38840,6 +38840,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-il-municipio-e-le-aziende-per-conoscersi-meglio': {
+    title: 'Il municipio e le aziende, per conoscersi meglio',
+    description: 'Il municipio di Vezia organizza un evento per rafforzare il dialogo con le realtà aziendali attive sul territorio. L\'incontro ha visto la partecipazione di una',
+    keywords: 'frontalieri, ticino, svizzera, italia, municipio, aziende, conoscersi, meglio',
+    ogTitle: 'Il municipio e le aziende, per conoscersi meglio',
+    ogDescription: 'Il municipio di Vezia organizza un evento per rafforzare il dialogo con le realtà aziendali attive sul territorio. L\'incontro ha visto la partecipazione di una',
+    canonicalPath: '/articoli-frontaliere/il-municipio-e-le-aziende-per-conoscersi-meglio',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Il municipio e le aziende, per conoscersi meglio",
+      "description": "Il municipio di Vezia organizza un evento per rafforzare il dialogo con le realtà aziendali attive sul territorio. L'incontro ha visto la partecipazione di una",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/il-municipio-e-le-aziende-per-conoscersi-meglio.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Il municipio di Vezia incontra le aziende locali"
+      },
+      "datePublished": "2026-05-23T13:56:25+00:00",
+      "dateModified": "2026-05-23T13:56:25+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/il-municipio-e-le-aziende-per-conoscersi-meglio`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

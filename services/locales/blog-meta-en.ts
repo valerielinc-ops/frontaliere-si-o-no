@@ -7690,6 +7690,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.assegno-inclusione-maggio-2026-ricarica-ordinaria.title': 'Inclusion Allowance: Processing and Payments May 2026',
     'blog.article.assegno-inclusione-maggio-2026-ricarica-ordinaria.excerpt': 'The processing and regular recharge of the Inclusion Allowance for late May 2026 are approaching, but many beneficiaries still have doubts.',
     'blog.article.assegno-inclusione-maggio-2026-ricarica-ordinaria.imageAlt': 'The mountainous landscape of Monte Brè with Lake Lugano in the distance',
+    'blog.article.il-municipio-e-le-aziende-per-conoscersi-meglio.title': 'Municipality and Businesses: Getting to Know Each Other',
+    'blog.article.il-municipio-e-le-aziende-per-conoscersi-meglio.excerpt': 'Vezia Municipality hosts an event to strengthen dialogue with local businesses',
+    'blog.article.il-municipio-e-le-aziende-per-conoscersi-meglio.imageAlt': 'The municipality of Vezia meets local businesses',
 };
 
 export default blogMetaEn;

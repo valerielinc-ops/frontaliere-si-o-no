@@ -7689,6 +7689,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.assegno-inclusione-maggio-2026-ricarica-ordinaria.title': 'G-Bewilligung: Verarbeitungs- und Zahlungstermine Mai 2026',
     'blog.article.assegno-inclusione-maggio-2026-ricarica-ordinaria.excerpt': 'Die Verarbeitung und die regelmäßige Aufladung der Eingliederungshilfe Ende Mai 2026 stehen bevor, aber unter den Begünstigten gibt es immer noch viele Zweifel.',
     'blog.article.assegno-inclusione-maggio-2026-ricarica-ordinaria.imageAlt': 'Die Berglandschaft von Monte Brè mit dem Lago Lugano in der Ferne',
+    'blog.article.il-municipio-e-le-aziende-per-conoscersi-meglio.title': 'Die Gemeinde und die Unternehmen, um sich besser kennenzulernen',
+    'blog.article.il-municipio-e-le-aziende-per-conoscersi-meglio.excerpt': 'Die Gemeinde Vezia organisiert ein Event, um den Dialog mit den auf dem Gebiet tätigen Unternehmen zu stärken',
+    'blog.article.il-municipio-e-le-aziende-per-conoscersi-meglio.imageAlt': 'Die Gemeinde Vezia trifft lokale Unternehmen',
 };
 
 export default blogMetaDe;

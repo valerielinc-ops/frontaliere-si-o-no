@@ -24446,4 +24446,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'il-municipio-e-le-aziende-per-conoscersi-meglio',
+ category: 'novita',
+ date: '2026-05-23T13:56:25.884Z',
+ image: '/images/blog/il-municipio-e-le-aziende-per-conoscersi-meglio.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
