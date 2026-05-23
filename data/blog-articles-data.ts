@@ -24374,4 +24374,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'il-ticino-ha-1200-securini-4-su-10-sono-frontalieri-434090',
+ category: 'novita',
+ date: '2026-05-23T11:10:30.924Z',
+ image: '/images/blog/il-ticino-ha-1200-securini-4-su-10-sono-frontalieri-434090.webp',
+ hasCalculator: false,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

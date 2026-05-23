@@ -7667,6 +7667,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.ffs-cargo-chiasso-riorganizzazione.title': 'Lega chiede garanzie per Chiasso e lavoro in FFS Cargo',
     'blog.article.ffs-cargo-chiasso-riorganizzazione.excerpt': 'La Lega chiede garanzie per la presenza ferroviaria a Chiasso e la salvaguardia dei posti di lavoro in seguito alla riorganizzazione di FFS Cargo.',
     'blog.article.ffs-cargo-chiasso-riorganizzazione.imageAlt': 'Traffico ferroviario a Chiasso, Ticino',
+    'blog.article.il-ticino-ha-1200-securini-4-su-10-sono-frontalieri-434090.title': 'Il Ticino ha 1.200 \'securini\', 4 su 10 sono frontalieri',
+    'blog.article.il-ticino-ha-1200-securini-4-su-10-sono-frontalieri-434090.excerpt': 'Il Consiglio di Stato del Ticino ha fornito i dati aggiornati sul numero di agenti di sicurezza privata autorizzati e il loro status di frontalieri.',
+    'blog.article.il-ticino-ha-1200-securini-4-su-10-sono-frontalieri-434090.imageAlt': 'Polizia Cantonale Ticino in uniforme che controlla documenti ai frontalieri in un valico di frontiera.',
 };
 
 export default blogMetaIt;

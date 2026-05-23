@@ -7665,6 +7665,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.ffs-cargo-chiasso-riorganizzazione.title': 'Lega fordert Garantien für Chiasso und Arbeitsplätze bei FFS Cargo',
     'blog.article.ffs-cargo-chiasso-riorganizzazione.excerpt': 'Die Lega fordert Garantien für die Bahnpräsenz in Chiasso und den Erhalt der Arbeitsplätze im Zuge der Umstrukturierung von FFS Cargo.',
     'blog.article.ffs-cargo-chiasso-riorganizzazione.imageAlt': 'Eisenbahnverkehr in Chiasso, Ticino',
+    'blog.article.il-ticino-ha-1200-securini-4-su-10-sono-frontalieri-434090.title': 'Tessin hat 1.200 \'Sicherheitsleute\', 4 von 10 sind Grenzgänger',
+    'blog.article.il-ticino-ha-1200-securini-4-su-10-sono-frontalieri-434090.excerpt': 'Der Staatsrat des Tessins hat aktualisierte Daten zum Thema autorisierte Sicherheitsleute und deren Grenzgängertum veröffentlicht.',
+    'blog.article.il-ticino-ha-1200-securini-4-su-10-sono-frontalieri-434090.imageAlt': 'Kantonspolizei des Kantons Tessin in Uniform, die Dokumente von Grenzpendlern an einer Grenzübergangsstelle kontrolliert.',
 };
 
 export default blogMetaDe;

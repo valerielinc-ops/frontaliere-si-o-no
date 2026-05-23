@@ -3798,6 +3798,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-tensioni-tassa-lombarda-ipotesi-blocco-ristorni-cassis-ticino': { name: 'Tensioni su tassa lombarda e ipotesi', path: '/articoli-frontaliere/tensioni-tassa-lombarda-ipotesi-blocco-ristorni-cassis-ticino', parent: 'blog' },
     'blog-ffs-riorganizza-traffico-a-carri-isolati-40-collaboratori-toccati-in-ticino': { name: 'FFS', path: '/articoli-frontaliere/ffs-riorganizza-traffico-a-carri-isolati-40-collaboratori-toccati-in-ticino', parent: 'blog' },
     'blog-ffs-cargo-chiasso-riorganizzazione': { name: 'Riorganizzazione FFS Cargo', path: '/articoli-frontaliere/ffs-cargo-chiasso-riorganizzazione', parent: 'blog' },
+    'blog-il-ticino-ha-1200-securini-4-su-10-sono-frontalieri-434090': { name: 'Novità', path: '/articoli-frontaliere/il-ticino-ha-1200-securini-4-su-10-sono-frontalieri-434090', parent: 'blog' },
  };
 
  const info = sectionNames[section];

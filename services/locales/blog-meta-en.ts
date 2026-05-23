@@ -7666,6 +7666,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.ffs-cargo-chiasso-riorganizzazione.title': 'Lega seeks guarantees for Chiasso\'s railway presence and FFS Cargo jobs',
     'blog.article.ffs-cargo-chiasso-riorganizzazione.excerpt': 'The Lega party is seeking guarantees for the continued presence of the railway in Chiasso and the preservation of jobs following the reorganization of FFS Cargo.',
     'blog.article.ffs-cargo-chiasso-riorganizzazione.imageAlt': 'Train traffic in Chiasso, Ticino',
+    'blog.article.il-ticino-ha-1200-securini-4-su-10-sono-frontalieri-434090.title': 'Ticino Has 1,200 \'Securini\', 4 in 10 are Cross-Border Workers',
+    'blog.article.il-ticino-ha-1200-securini-4-su-10-sono-frontalieri-434090.excerpt': 'The Ticino Council of State has provided updated data on the number of authorized private security agents and their cross-border worker status.',
+    'blog.article.il-ticino-ha-1200-securini-4-su-10-sono-frontalieri-434090.imageAlt': 'Cantonal Police of Ticino in uniform checking documents of frontaliers at a border crossing.',
 };
 
 export default blogMetaEn;
