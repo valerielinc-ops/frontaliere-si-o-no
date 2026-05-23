@@ -1,6 +1,6 @@
 {
   "crawlerKey": "pictet",
-  "assembledAt": "2026-05-22T23:11:00.152Z",
+  "assembledAt": "2026-05-23T11:29:04.041Z",
   "jobs": [
     {
       "id": "pictet-de351a5ddda6",
@@ -30,10 +30,10 @@
       },
       "location": "Geneva",
       "canton": "GE",
-      "url": "https://career012.successfactors.eu/career?career%5fns=job%5flisting&company=banquepict&navBarLevel=JOB%5fSEARCH&rcm%5fsite%5flocale=en%5fGB&career_job_req_id=124280&selected_lang=en_GB&jobAlertController_jobAlertId=&jobAlertController_jobAlertName=&browserTimeZone=Europe/Zurich&_s.crb=U%2fhc1iMEvc%2fWJXrjftBhfps6SDeJ9aWgkA0iPwHtYVw%3d",
+      "url": "https://career012.successfactors.eu/career?career%5fns=job%5flisting&company=banquepict&navBarLevel=JOB%5fSEARCH&rcm%5fsite%5flocale=en%5fGB&career_job_req_id=124280&selected_lang=en_GB&jobAlertController_jobAlertId=&jobAlertController_jobAlertName=&browserTimeZone=Europe/Zurich&_s.crb=IModEpyTB20uu0P%2fq5njsDy547b%2bIlD1dwR%2bt4nLL%2b4%3d",
       "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-22T23:10:58.265Z",
+      "crawledAt": "2026-05-23T11:29:01.901Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -46,7 +46,7 @@
       "currency": "CHF",
       "featured": false,
       "postedDate": "2026-05-18",
-      "applyUrl": "https://career012.successfactors.eu/career?career%5fns=job%5flisting&company=banquepict&navBarLevel=JOB%5fSEARCH&rcm%5fsite%5flocale=en%5fGB&career_job_req_id=124280&selected_lang=en_GB&jobAlertController_jobAlertId=&jobAlertController_jobAlertName=&browserTimeZone=Europe/Zurich&_s.crb=U%2fhc1iMEvc%2fWJXrjftBhfps6SDeJ9aWgkA0iPwHtYVw%3d",
+      "applyUrl": "https://career012.successfactors.eu/career?career%5fns=job%5flisting&company=banquepict&navBarLevel=JOB%5fSEARCH&rcm%5fsite%5flocale=en%5fGB&career_job_req_id=124280&selected_lang=en_GB&jobAlertController_jobAlertId=&jobAlertController_jobAlertName=&browserTimeZone=Europe/Zurich&_s.crb=IModEpyTB20uu0P%2fq5njsDy547b%2bIlD1dwR%2bt4nLL%2b4%3d",
       "jobReqId": "124280",
       "requirements": [],
       "requirementsByLocale": {},
@@ -101,10 +101,10 @@
       },
       "location": "Geneva",
       "canton": "GE",
-      "url": "https://career012.successfactors.eu/career?career%5fns=job%5flisting&company=banquepict&navBarLevel=JOB%5fSEARCH&rcm%5fsite%5flocale=en%5fGB&career_job_req_id=124346&selected_lang=en_GB&jobAlertController_jobAlertId=&jobAlertController_jobAlertName=&browserTimeZone=Europe/Zurich&_s.crb=U%2fhc1iMEvc%2fWJXrjftBhfps6SDeJ9aWgkA0iPwHtYVw%3d",
+      "url": "https://career012.successfactors.eu/career?career%5fns=job%5flisting&company=banquepict&navBarLevel=JOB%5fSEARCH&rcm%5fsite%5flocale=en%5fGB&career_job_req_id=124346&selected_lang=en_GB&jobAlertController_jobAlertId=&jobAlertController_jobAlertName=&browserTimeZone=Europe/Zurich&_s.crb=IModEpyTB20uu0P%2fq5njsDy547b%2bIlD1dwR%2bt4nLL%2b4%3d",
       "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-22T23:10:57.665Z",
+      "crawledAt": "2026-05-23T11:29:01.191Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -117,7 +117,7 @@
       "currency": "CHF",
       "featured": false,
       "postedDate": "2026-05-18",
-      "applyUrl": "https://career012.successfactors.eu/career?career%5fns=job%5flisting&company=banquepict&navBarLevel=JOB%5fSEARCH&rcm%5fsite%5flocale=en%5fGB&career_job_req_id=124346&selected_lang=en_GB&jobAlertController_jobAlertId=&jobAlertController_jobAlertName=&browserTimeZone=Europe/Zurich&_s.crb=U%2fhc1iMEvc%2fWJXrjftBhfps6SDeJ9aWgkA0iPwHtYVw%3d",
+      "applyUrl": "https://career012.successfactors.eu/career?career%5fns=job%5flisting&company=banquepict&navBarLevel=JOB%5fSEARCH&rcm%5fsite%5flocale=en%5fGB&career_job_req_id=124346&selected_lang=en_GB&jobAlertController_jobAlertId=&jobAlertController_jobAlertName=&browserTimeZone=Europe/Zurich&_s.crb=IModEpyTB20uu0P%2fq5njsDy547b%2bIlD1dwR%2bt4nLL%2b4%3d",
       "jobReqId": "124346",
       "requirements": [],
       "requirementsByLocale": {},
@@ -130,6 +130,7 @@
         ]
       },
       "firstSeenAt": "2026-05-18T13:00:17.931Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -171,10 +172,10 @@
       },
       "location": "Geneva",
       "canton": "GE",
-      "url": "https://career012.successfactors.eu/career?career%5fns=job%5flisting&company=banquepict&navBarLevel=JOB%5fSEARCH&rcm%5fsite%5flocale=en%5fGB&career_job_req_id=124362&selected_lang=en_GB&jobAlertController_jobAlertId=&jobAlertController_jobAlertName=&browserTimeZone=Europe/Zurich&_s.crb=U%2fhc1iMEvc%2fWJXrjftBhfps6SDeJ9aWgkA0iPwHtYVw%3d",
+      "url": "https://career012.successfactors.eu/career?career%5fns=job%5flisting&company=banquepict&navBarLevel=JOB%5fSEARCH&rcm%5fsite%5flocale=en%5fGB&career_job_req_id=124362&selected_lang=en_GB&jobAlertController_jobAlertId=&jobAlertController_jobAlertName=&browserTimeZone=Europe/Zurich&_s.crb=IModEpyTB20uu0P%2fq5njsDy547b%2bIlD1dwR%2bt4nLL%2b4%3d",
       "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-22T23:10:57.063Z",
+      "crawledAt": "2026-05-23T11:29:00.482Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -187,7 +188,7 @@
       "currency": "CHF",
       "featured": false,
       "postedDate": "2026-05-21",
-      "applyUrl": "https://career012.successfactors.eu/career?career%5fns=job%5flisting&company=banquepict&navBarLevel=JOB%5fSEARCH&rcm%5fsite%5flocale=en%5fGB&career_job_req_id=124362&selected_lang=en_GB&jobAlertController_jobAlertId=&jobAlertController_jobAlertName=&browserTimeZone=Europe/Zurich&_s.crb=U%2fhc1iMEvc%2fWJXrjftBhfps6SDeJ9aWgkA0iPwHtYVw%3d",
+      "applyUrl": "https://career012.successfactors.eu/career?career%5fns=job%5flisting&company=banquepict&navBarLevel=JOB%5fSEARCH&rcm%5fsite%5flocale=en%5fGB&career_job_req_id=124362&selected_lang=en_GB&jobAlertController_jobAlertId=&jobAlertController_jobAlertName=&browserTimeZone=Europe/Zurich&_s.crb=IModEpyTB20uu0P%2fq5njsDy547b%2bIlD1dwR%2bt4nLL%2b4%3d",
       "jobReqId": "124362",
       "requirements": [],
       "requirementsByLocale": {},
@@ -242,10 +243,10 @@
       },
       "location": "Luxembourg",
       "canton": "GE",
-      "url": "https://career012.successfactors.eu/career?career%5fns=job%5flisting&company=banquepict&navBarLevel=JOB%5fSEARCH&rcm%5fsite%5flocale=en%5fGB&career_job_req_id=123722&selected_lang=en_GB&jobAlertController_jobAlertId=&jobAlertController_jobAlertName=&browserTimeZone=Europe/Zurich&_s.crb=U%2fhc1iMEvc%2fWJXrjftBhfps6SDeJ9aWgkA0iPwHtYVw%3d",
+      "url": "https://career012.successfactors.eu/career?career%5fns=job%5flisting&company=banquepict&navBarLevel=JOB%5fSEARCH&rcm%5fsite%5flocale=en%5fGB&career_job_req_id=123722&selected_lang=en_GB&jobAlertController_jobAlertId=&jobAlertController_jobAlertName=&browserTimeZone=Europe/Zurich&_s.crb=IModEpyTB20uu0P%2fq5njsDy547b%2bIlD1dwR%2bt4nLL%2b4%3d",
       "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-22T23:10:56.375Z",
+      "crawledAt": "2026-05-23T11:28:59.944Z",
       "addressLocality": "Luxembourg",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -258,7 +259,7 @@
       "currency": "CHF",
       "featured": false,
       "postedDate": "2026-05-21",
-      "applyUrl": "https://career012.successfactors.eu/career?career%5fns=job%5flisting&company=banquepict&navBarLevel=JOB%5fSEARCH&rcm%5fsite%5flocale=en%5fGB&career_job_req_id=123722&selected_lang=en_GB&jobAlertController_jobAlertId=&jobAlertController_jobAlertName=&browserTimeZone=Europe/Zurich&_s.crb=U%2fhc1iMEvc%2fWJXrjftBhfps6SDeJ9aWgkA0iPwHtYVw%3d",
+      "applyUrl": "https://career012.successfactors.eu/career?career%5fns=job%5flisting&company=banquepict&navBarLevel=JOB%5fSEARCH&rcm%5fsite%5flocale=en%5fGB&career_job_req_id=123722&selected_lang=en_GB&jobAlertController_jobAlertId=&jobAlertController_jobAlertName=&browserTimeZone=Europe/Zurich&_s.crb=IModEpyTB20uu0P%2fq5njsDy547b%2bIlD1dwR%2bt4nLL%2b4%3d",
       "jobReqId": "123722",
       "requirements": [],
       "requirementsByLocale": {},
@@ -313,10 +314,10 @@
       },
       "location": "London",
       "canton": "GE",
-      "url": "https://career012.successfactors.eu/career?career%5fns=job%5flisting&company=banquepict&navBarLevel=JOB%5fSEARCH&rcm%5fsite%5flocale=en%5fGB&career_job_req_id=124307&selected_lang=en_GB&jobAlertController_jobAlertId=&jobAlertController_jobAlertName=&browserTimeZone=Europe/Zurich&_s.crb=U%2fhc1iMEvc%2fWJXrjftBhfps6SDeJ9aWgkA0iPwHtYVw%3d",
+      "url": "https://career012.successfactors.eu/career?career%5fns=job%5flisting&company=banquepict&navBarLevel=JOB%5fSEARCH&rcm%5fsite%5flocale=en%5fGB&career_job_req_id=124307&selected_lang=en_GB&jobAlertController_jobAlertId=&jobAlertController_jobAlertName=&browserTimeZone=Europe/Zurich&_s.crb=IModEpyTB20uu0P%2fq5njsDy547b%2bIlD1dwR%2bt4nLL%2b4%3d",
       "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-22T23:10:55.795Z",
+      "crawledAt": "2026-05-23T11:28:59.189Z",
       "addressLocality": "London",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -329,7 +330,7 @@
       "currency": "CHF",
       "featured": false,
       "postedDate": "2026-05-19",
-      "applyUrl": "https://career012.successfactors.eu/career?career%5fns=job%5flisting&company=banquepict&navBarLevel=JOB%5fSEARCH&rcm%5fsite%5flocale=en%5fGB&career_job_req_id=124307&selected_lang=en_GB&jobAlertController_jobAlertId=&jobAlertController_jobAlertName=&browserTimeZone=Europe/Zurich&_s.crb=U%2fhc1iMEvc%2fWJXrjftBhfps6SDeJ9aWgkA0iPwHtYVw%3d",
+      "applyUrl": "https://career012.successfactors.eu/career?career%5fns=job%5flisting&company=banquepict&navBarLevel=JOB%5fSEARCH&rcm%5fsite%5flocale=en%5fGB&career_job_req_id=124307&selected_lang=en_GB&jobAlertController_jobAlertId=&jobAlertController_jobAlertName=&browserTimeZone=Europe/Zurich&_s.crb=IModEpyTB20uu0P%2fq5njsDy547b%2bIlD1dwR%2bt4nLL%2b4%3d",
       "jobReqId": "124307",
       "requirements": [],
       "requirementsByLocale": {},
@@ -350,6 +351,7 @@
         "hr-business-partner-pictet-london"
       ],
       "firstSeenAt": "2026-05-19T12:24:53.140Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -391,10 +393,10 @@
       },
       "location": "Geneva",
       "canton": "GE",
-      "url": "https://career012.successfactors.eu/career?career%5fns=job%5flisting&company=banquepict&navBarLevel=JOB%5fSEARCH&rcm%5fsite%5flocale=en%5fGB&career_job_req_id=124377&selected_lang=en_GB&jobAlertController_jobAlertId=&jobAlertController_jobAlertName=&browserTimeZone=Europe/Zurich&_s.crb=U%2fhc1iMEvc%2fWJXrjftBhfps6SDeJ9aWgkA0iPwHtYVw%3d",
+      "url": "https://career012.successfactors.eu/career?career%5fns=job%5flisting&company=banquepict&navBarLevel=JOB%5fSEARCH&rcm%5fsite%5flocale=en%5fGB&career_job_req_id=124377&selected_lang=en_GB&jobAlertController_jobAlertId=&jobAlertController_jobAlertName=&browserTimeZone=Europe/Zurich&_s.crb=IModEpyTB20uu0P%2fq5njsDy547b%2bIlD1dwR%2bt4nLL%2b4%3d",
       "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-22T23:10:55.204Z",
+      "crawledAt": "2026-05-23T11:28:58.649Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -407,7 +409,7 @@
       "currency": "CHF",
       "featured": false,
       "postedDate": "2026-05-21",
-      "applyUrl": "https://career012.successfactors.eu/career?career%5fns=job%5flisting&company=banquepict&navBarLevel=JOB%5fSEARCH&rcm%5fsite%5flocale=en%5fGB&career_job_req_id=124377&selected_lang=en_GB&jobAlertController_jobAlertId=&jobAlertController_jobAlertName=&browserTimeZone=Europe/Zurich&_s.crb=U%2fhc1iMEvc%2fWJXrjftBhfps6SDeJ9aWgkA0iPwHtYVw%3d",
+      "applyUrl": "https://career012.successfactors.eu/career?career%5fns=job%5flisting&company=banquepict&navBarLevel=JOB%5fSEARCH&rcm%5fsite%5flocale=en%5fGB&career_job_req_id=124377&selected_lang=en_GB&jobAlertController_jobAlertId=&jobAlertController_jobAlertName=&browserTimeZone=Europe/Zurich&_s.crb=IModEpyTB20uu0P%2fq5njsDy547b%2bIlD1dwR%2bt4nLL%2b4%3d",
       "jobReqId": "124377",
       "requirements": [],
       "requirementsByLocale": {},
@@ -468,10 +470,10 @@
       },
       "location": "Zurich",
       "canton": "ZH",
-      "url": "https://career012.successfactors.eu/career?career%5fns=job%5flisting&company=banquepict&navBarLevel=JOB%5fSEARCH&rcm%5fsite%5flocale=en%5fGB&career_job_req_id=124382&selected_lang=en_GB&jobAlertController_jobAlertId=&jobAlertController_jobAlertName=&browserTimeZone=Europe/Zurich&_s.crb=U%2fhc1iMEvc%2fWJXrjftBhfps6SDeJ9aWgkA0iPwHtYVw%3d",
+      "url": "https://career012.successfactors.eu/career?career%5fns=job%5flisting&company=banquepict&navBarLevel=JOB%5fSEARCH&rcm%5fsite%5flocale=en%5fGB&career_job_req_id=124382&selected_lang=en_GB&jobAlertController_jobAlertId=&jobAlertController_jobAlertName=&browserTimeZone=Europe/Zurich&_s.crb=IModEpyTB20uu0P%2fq5njsDy547b%2bIlD1dwR%2bt4nLL%2b4%3d",
       "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-22T23:10:54.701Z",
+      "crawledAt": "2026-05-23T11:28:57.889Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -484,7 +486,7 @@
       "currency": "CHF",
       "featured": false,
       "postedDate": "2026-05-21",
-      "applyUrl": "https://career012.successfactors.eu/career?career%5fns=job%5flisting&company=banquepict&navBarLevel=JOB%5fSEARCH&rcm%5fsite%5flocale=en%5fGB&career_job_req_id=124382&selected_lang=en_GB&jobAlertController_jobAlertId=&jobAlertController_jobAlertName=&browserTimeZone=Europe/Zurich&_s.crb=U%2fhc1iMEvc%2fWJXrjftBhfps6SDeJ9aWgkA0iPwHtYVw%3d",
+      "applyUrl": "https://career012.successfactors.eu/career?career%5fns=job%5flisting&company=banquepict&navBarLevel=JOB%5fSEARCH&rcm%5fsite%5flocale=en%5fGB&career_job_req_id=124382&selected_lang=en_GB&jobAlertController_jobAlertId=&jobAlertController_jobAlertName=&browserTimeZone=Europe/Zurich&_s.crb=IModEpyTB20uu0P%2fq5njsDy547b%2bIlD1dwR%2bt4nLL%2b4%3d",
       "jobReqId": "124382",
       "requirements": [],
       "requirementsByLocale": {},
@@ -497,6 +499,7 @@
         ]
       },
       "firstSeenAt": "2026-05-21T12:57:02.617Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -539,10 +542,10 @@
       },
       "location": "Luxembourg",
       "canton": "GE",
-      "url": "https://career012.successfactors.eu/career?career%5fns=job%5flisting&company=banquepict&navBarLevel=JOB%5fSEARCH&rcm%5fsite%5flocale=en%5fGB&career_job_req_id=124352&selected_lang=en_GB&jobAlertController_jobAlertId=&jobAlertController_jobAlertName=&browserTimeZone=Europe/Zurich&_s.crb=U%2fhc1iMEvc%2fWJXrjftBhfps6SDeJ9aWgkA0iPwHtYVw%3d",
+      "url": "https://career012.successfactors.eu/career?career%5fns=job%5flisting&company=banquepict&navBarLevel=JOB%5fSEARCH&rcm%5fsite%5flocale=en%5fGB&career_job_req_id=124352&selected_lang=en_GB&jobAlertController_jobAlertId=&jobAlertController_jobAlertName=&browserTimeZone=Europe/Zurich&_s.crb=IModEpyTB20uu0P%2fq5njsDy547b%2bIlD1dwR%2bt4nLL%2b4%3d",
       "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-22T23:10:53.987Z",
+      "crawledAt": "2026-05-23T11:28:57.028Z",
       "addressLocality": "Luxembourg",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -555,12 +558,13 @@
       "currency": "CHF",
       "featured": false,
       "postedDate": "2026-05-22",
-      "applyUrl": "https://career012.successfactors.eu/career?career%5fns=job%5flisting&company=banquepict&navBarLevel=JOB%5fSEARCH&rcm%5fsite%5flocale=en%5fGB&career_job_req_id=124352&selected_lang=en_GB&jobAlertController_jobAlertId=&jobAlertController_jobAlertName=&browserTimeZone=Europe/Zurich&_s.crb=U%2fhc1iMEvc%2fWJXrjftBhfps6SDeJ9aWgkA0iPwHtYVw%3d",
+      "applyUrl": "https://career012.successfactors.eu/career?career%5fns=job%5flisting&company=banquepict&navBarLevel=JOB%5fSEARCH&rcm%5fsite%5flocale=en%5fGB&career_job_req_id=124352&selected_lang=en_GB&jobAlertController_jobAlertId=&jobAlertController_jobAlertName=&browserTimeZone=Europe/Zurich&_s.crb=IModEpyTB20uu0P%2fq5njsDy547b%2bIlD1dwR%2bt4nLL%2b4%3d",
       "jobReqId": "124352",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-05-22T12:39:50.695Z",
+      "previousSlugs": [
+        "trainee-client-register-12-months-pictet-luxembourg"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "trainee-client-register-12-months-pictet-luxembourg"
@@ -572,9 +576,8 @@
           "trainee-client-register-12-months-pictet-luxembourg"
         ]
       },
-      "previousSlugs": [
-        "trainee-client-register-12-months-pictet-luxembourg"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-22T12:39:50.695Z",
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -616,10 +619,10 @@
       },
       "location": "Geneva",
       "canton": "GE",
-      "url": "https://career012.successfactors.eu/career?career%5fns=job%5flisting&company=banquepict&navBarLevel=JOB%5fSEARCH&rcm%5fsite%5flocale=en%5fGB&career_job_req_id=124384&selected_lang=en_GB&jobAlertController_jobAlertId=&jobAlertController_jobAlertName=&browserTimeZone=Europe/Zurich&_s.crb=U%2fhc1iMEvc%2fWJXrjftBhfps6SDeJ9aWgkA0iPwHtYVw%3d",
+      "url": "https://career012.successfactors.eu/career?career%5fns=job%5flisting&company=banquepict&navBarLevel=JOB%5fSEARCH&rcm%5fsite%5flocale=en%5fGB&career_job_req_id=124384&selected_lang=en_GB&jobAlertController_jobAlertId=&jobAlertController_jobAlertName=&browserTimeZone=Europe/Zurich&_s.crb=IModEpyTB20uu0P%2fq5njsDy547b%2bIlD1dwR%2bt4nLL%2b4%3d",
       "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-22T23:10:53.265Z",
+      "crawledAt": "2026-05-23T11:28:56.214Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -632,7 +635,7 @@
       "currency": "CHF",
       "featured": false,
       "postedDate": "2026-05-22",
-      "applyUrl": "https://career012.successfactors.eu/career?career%5fns=job%5flisting&company=banquepict&navBarLevel=JOB%5fSEARCH&rcm%5fsite%5flocale=en%5fGB&career_job_req_id=124384&selected_lang=en_GB&jobAlertController_jobAlertId=&jobAlertController_jobAlertName=&browserTimeZone=Europe/Zurich&_s.crb=U%2fhc1iMEvc%2fWJXrjftBhfps6SDeJ9aWgkA0iPwHtYVw%3d",
+      "applyUrl": "https://career012.successfactors.eu/career?career%5fns=job%5flisting&company=banquepict&navBarLevel=JOB%5fSEARCH&rcm%5fsite%5flocale=en%5fGB&career_job_req_id=124384&selected_lang=en_GB&jobAlertController_jobAlertId=&jobAlertController_jobAlertName=&browserTimeZone=Europe/Zurich&_s.crb=IModEpyTB20uu0P%2fq5njsDy547b%2bIlD1dwR%2bt4nLL%2b4%3d",
       "jobReqId": "124384",
       "requirements": [],
       "requirementsByLocale": {},
@@ -655,8 +658,8 @@
       "id": "pictet-375a5d44b243",
       "slug": "middle-officer-hedge-funds-6-months-fixed-term-contract-pictet-geneva",
       "slugByLocale": {
-        "en": "middle-officer-hedge-funds-6-months-fixed-term-contract-pictet-geneva",
         "it": "middle-officer-hedge-funds-6-months-fixed-term-contract-pictet-geneva",
+        "en": "middle-officer-hedge-funds-6-months-fixed-term-contract-pictet-geneva",
         "de": "middle-officer-hedge-funds-6-months-fixed-term-contract-pictet-geneva",
         "fr": "middle-officer-hedge-funds-6-months-fixed-term-contract-pictet-geneva"
       },
@@ -665,24 +668,24 @@
       "companyDomain": "pictet.com",
       "title": "Middle Officer Hedge Funds (6 months - Fixed Term Contract)",
       "titleByLocale": {
+        "it": "Middle Officer Hedge Funds (6 months - Fixed Term Contract)",
         "en": "Middle Officer Hedge Funds (6 months - Fixed Term Contract)",
         "de": "Middle Officer Hedge Funds (6 months - Fixed Term Contract)",
-        "it": "Middle Officer Hedge Funds (6 months - Fixed Term Contract)",
         "fr": "Middle Officer Hedge Funds (6 months - Fixed Term Contract)"
       },
       "description": "Your team\n\nPictet Alternative Advisors (PAA) is a leading alternative investment specialist and wholly owned subsidiary of the Pictet Group, with expertise in hedge funds, private equity and global real estate. With teams based around the world, the PAA teams construct, manage and advise on portfolios of alternative investment solutions for institutional and private clients.\n\nThe Group has strong growth ambitions for PAA for the years ahead, notably to expand its product offering to include additional asset classes and to further develop its institutional client base.\n\nBased in Geneva, you will become part of a dynamic five-person team on a six-month temporary contract, assisting with a rise in workload and activity. Your role will involve offering operational support for both hedge fund portfolios and managed accounts.\n\nYour role\n\n• Managing and coordinating operations linked to PAA’s hedge fund products and mandates (NAV calculations, reporting, transactions and client services).\n• Providing support to the investment teams, management and internal clients.\n• Coordinating with all service providers (legal, tax, compliance, administrators, back office, etc.).\n• Monitoring risks and investment constraints.\n• Working on various occasional and recurrent projects (e.g. TER calculations).\n\nYour profile\n\n• At least five years’ experience in a similar role in a fund department or with an asset manager.\n• Proven practical knowledge of hedge fund operations management.\n• Rigorous, with excellent numeracy skills and a keen attention to detail.\n• A certain ability to deal with issues/topics with specialists from various businesses (investment managers, tax, compliance, etc.), with excellent verbal and writing skills in these particular situations.\n• Advanced user of Excel and generally at ease with new IT systems. Use of Webfolio is a plus.\n• At ease expressing yourself in both French and English, with the relevant written proficiency to draft documentation and discuss complex matters with both internal and external parties, whether native speakers or not.\n• A strong interest in and/or experience with AI would be an asset.\n• Must be resident in Switzerland or willing to relocate.\n\nNote\n\nWe will not accept any CVs via agencies\n\nDiversity & Inclusion\n\nPictet is an equal opportunity employer and is committed to creating a diverse environment. We respect all individuals and seek their inclusion in the workplace.\n\nApply\n\nSave Job\n\nEmail to a contact\n\nReturn to List\n\n•\n\n\n\n\n\nThe job has been sent to\n\nPlease provide the information below",
       "descriptionByLocale": {
-        "en": "Your team\n\nPictet Alternative Advisors (PAA) is a leading alternative investment specialist and wholly owned subsidiary of the Pictet Group, with expertise in hedge funds, private equity and global real estate. With teams based around the world, the PAA teams construct, manage and advise on portfolios of alternative investment solutions for institutional and private clients.\n\nThe Group has strong growth ambitions for PAA for the years ahead, notably to expand its product offering to include additional asset classes and to further develop its institutional client base.\n\nBased in Geneva, you will become part of a dynamic five-person team on a six-month temporary contract, assisting with a rise in workload and activity. Your role will involve offering operational support for both hedge fund portfolios and managed accounts.\n\nYour role\n\n• Managing and coordinating operations linked to PAA’s hedge fund products and mandates (NAV calculations, reporting, transactions and client services).\n• Providing support to the investment teams, management and internal clients.\n• Coordinating with all service providers (legal, tax, compliance, administrators, back office, etc.).\n• Monitoring risks and investment constraints.\n• Working on various occasional and recurrent projects (e.g. TER calculations).\n\nYour profile\n\n• At least five years’ experience in a similar role in a fund department or with an asset manager.\n• Proven practical knowledge of hedge fund operations management.\n• Rigorous, with excellent numeracy skills and a keen attention to detail.\n• A certain ability to deal with issues/topics with specialists from various businesses (investment managers, tax, compliance, etc.), with excellent verbal and writing skills in these particular situations.\n• Advanced user of Excel and generally at ease with new IT systems. Use of Webfolio is a plus.\n• At ease expressing yourself in both French and English, with the relevant written proficiency to draft documentation and discuss complex matters with both internal and external parties, whether native speakers or not.\n• A strong interest in and/or experience with AI would be an asset.\n• Must be resident in Switzerland or willing to relocate.\n\nNote\n\nWe will not accept any CVs via agencies\n\nDiversity & Inclusion\n\nPictet is an equal opportunity employer and is committed to creating a diverse environment. We respect all individuals and seek their inclusion in the workplace.\n\nApply\n\nSave Job\n\nEmail to a contact\n\nReturn to List\n\n•\n\n\n\n\n\nThe job has been sent to\n\nPlease provide the information below",
-        "it": "Your team\n\nPictet Alternative Advisors (PAA) is a leading alternative investment specialist and wholly owned subsidiary of the Pictet Group, with expertise in hedge funds, private equity and global real estate. With teams based around the world, the PAA teams construct, manage and advise on portfolios of alternative investment solutions for institutional and private clients.\n\nThe Group has strong growth ambitions for PAA for the years ahead, notably to expand its product offering to include additional asset classes and to further develop its institutional client base.\n\nBased in Geneva, you will become part of a dynamic five-person team on a six-month temporary contract, assisting with a rise in workload and activity. Your role will involve offering operational support for both hedge fund portfolios and managed accounts.\n\nYour role\n\n• Managing and coordinating operations linked to PAA’s hedge fund products and mandates (NAV calculations, reporting, transactions and client services).\n• Providing support to the investment teams, management and internal clients.\n• Coordinating with all service providers (legal, tax, compliance, administrators, back office, etc.).\n• Monitoring risks and investment constraints.\n• Working on various occasional and recurrent projects (e.g. TER calculations).\n\nYour profile\n\n• At least five years’ experience in a similar role in a fund department or with an asset manager.\n• Proven practical knowledge of hedge fund operations management.\n• Rigorous, with excellent numeracy skills and a keen attention to detail.\n• A certain ability to deal with issues/topics with specialists from various businesses (investment managers, tax, compliance, etc.), with excellent verbal and writing skills in these particular situations.\n• Advanced user of Excel and generally at ease with new IT systems. Use of Webfolio is a plus.\n• At ease expressing yourself in both French and English, with the relevant written proficiency to draft documentation and discuss complex matters with both internal and external parties, whether native speakers or not.\n• A strong interest in and/or experience with AI would be an asset.\n• Must be resident in Switzerland or willing to relocate.\n\nNote\n\nWe will not accept any CVs via agencies\n\nDiversity & Inclusion\n\nPictet is an equal opportunity employer and is committed to creating a diverse environment. We respect all individuals and seek their inclusion in the workplace.\n\nApply\n\nSave Job\n\nEmail to a contact\n\nReturn to List\n\n•\n\n\n\n\n\nThe job has been sent to\n\nPlease provide the information below",
-        "de": "Your team\n\nPictet Alternative Advisors (PAA) is a leading alternative investment specialist and wholly owned subsidiary of the Pictet Group, with expertise in hedge funds, private equity and global real estate. With teams based around the world, the PAA teams construct, manage and advise on portfolios of alternative investment solutions for institutional and private clients.\n\nThe Group has strong growth ambitions for PAA for the years ahead, notably to expand its product offering to include additional asset classes and to further develop its institutional client base.\n\nBased in Geneva, you will become part of a dynamic five-person team on a six-month temporary contract, assisting with a rise in workload and activity. Your role will involve offering operational support for both hedge fund portfolios and managed accounts.\n\nYour role\n\n• Managing and coordinating operations linked to PAA’s hedge fund products and mandates (NAV calculations, reporting, transactions and client services).\n• Providing support to the investment teams, management and internal clients.\n• Coordinating with all service providers (legal, tax, compliance, administrators, back office, etc.).\n• Monitoring risks and investment constraints.\n• Working on various occasional and recurrent projects (e.g. TER calculations).\n\nYour profile\n\n• At least five years’ experience in a similar role in a fund department or with an asset manager.\n• Proven practical knowledge of hedge fund operations management.\n• Rigorous, with excellent numeracy skills and a keen attention to detail.\n• A certain ability to deal with issues/topics with specialists from various businesses (investment managers, tax, compliance, etc.), with excellent verbal and writing skills in these particular situations.\n• Advanced user of Excel and generally at ease with new IT systems. Use of Webfolio is a plus.\n• At ease expressing yourself in both French and English, with the relevant written proficiency to draft documentation and discuss complex matters with both internal and external parties, whether native speakers or not.\n• A strong interest in and/or experience with AI would be an asset.\n• Must be resident in Switzerland or willing to relocate.\n\nNote\n\nWe will not accept any CVs via agencies\n\nDiversity & Inclusion\n\nPictet is an equal opportunity employer and is committed to creating a diverse environment. We respect all individuals and seek their inclusion in the workplace.\n\nApply\n\nSave Job\n\nEmail to a contact\n\nReturn to List\n\n•\n\n\n\n\n\nThe job has been sent to\n\nPlease provide the information below",
-        "fr": "Your team\n\nPictet Alternative Advisors (PAA) is a leading alternative investment specialist and wholly owned subsidiary of the Pictet Group, with expertise in hedge funds, private equity and global real estate. With teams based around the world, the PAA teams construct, manage and advise on portfolios of alternative investment solutions for institutional and private clients.\n\nThe Group has strong growth ambitions for PAA for the years ahead, notably to expand its product offering to include additional asset classes and to further develop its institutional client base.\n\nBased in Geneva, you will become part of a dynamic five-person team on a six-month temporary contract, assisting with a rise in workload and activity. Your role will involve offering operational support for both hedge fund portfolios and managed accounts.\n\nYour role\n\n• Managing and coordinating operations linked to PAA’s hedge fund products and mandates (NAV calculations, reporting, transactions and client services).\n• Providing support to the investment teams, management and internal clients.\n• Coordinating with all service providers (legal, tax, compliance, administrators, back office, etc.).\n• Monitoring risks and investment constraints.\n• Working on various occasional and recurrent projects (e.g. TER calculations).\n\nYour profile\n\n• At least five years’ experience in a similar role in a fund department or with an asset manager.\n• Proven practical knowledge of hedge fund operations management.\n• Rigorous, with excellent numeracy skills and a keen attention to detail.\n• A certain ability to deal with issues/topics with specialists from various businesses (investment managers, tax, compliance, etc.), with excellent verbal and writing skills in these particular situations.\n• Advanced user of Excel and generally at ease with new IT systems. Use of Webfolio is a plus.\n• At ease expressing yourself in both French and English, with the relevant written proficiency to draft documentation and discuss complex matters with both internal and external parties, whether native speakers or not.\n• A strong interest in and/or experience with AI would be an asset.\n• Must be resident in Switzerland or willing to relocate.\n\nNote\n\nWe will not accept any CVs via agencies\n\nDiversity & Inclusion\n\nPictet is an equal opportunity employer and is committed to creating a diverse environment. We respect all individuals and seek their inclusion in the workplace.\n\nApply\n\nSave Job\n\nEmail to a contact\n\nReturn to List\n\n•\n\n\n\n\n\nThe job has been sent to\n\nPlease provide the information below"
+        "it": "Your team Pictet Alternative Advisors (PAA) is a leading alternative investment specialist and wholly owned subsidiary of the Pictet Group, with expertise in hedge funds, private equity and global real estate. With teams based around the world, the PAA teams construct, manage and advise on portfolios of alternative investment solutions for institutional and private clients. The Group has strong growth ambitions for PAA for the years ahead, notably to expand its product offering to include additional asset classes and to further develop its institutional client base. Based in Geneva, you will become part of a dynamic five-person team on a six-month temporary contract, assisting with a rise in workload and activity. Your role will involve offering operational support for both hedge fund portfolios and managed accounts. Your role\n• Managing and coordinating operations linked to PAA’s hedge fund products and mandates (NAV calculations, reporting, transactions and client services).\n• Providing support to the investment teams, management and internal clients.\n• Coordinating with all service providers (legal, tax, compliance, administrators, back office, etc.).\n• Monitoring risks and investment constraints.\n• Working on various occasional and recurrent projects (e.g. TER calculations). Your profile\n• At least five years’ experience in a similar role in a fund department or with an asset manager.\n• Proven practical knowledge of hedge fund operations management.\n• Rigorous, with excellent numeracy skills and a keen attention to detail.\n• A certain ability to deal with issues/topics with specialists from various businesses (investment managers, tax, compliance, etc.), with excellent verbal and writing skills in these particular situations.\n• Advanced user of Excel and generally at ease with new IT systems. Use of Webfolio is a plus.\n• At ease expressing yourself in both French and English, with the relevant written proficiency to draft documentation and discuss complex matters with both internal and external parties, whether native speakers or not.\n• A strong interest in and/or experience with AI would be an asset.\n• Must be resident in Switzerland or willing to relocate. Note We will not accept any CVs via agencies Diversity & Inclusion Pictet is an equal opportunity employer and is committed to creating a diverse environment. We respect all individuals and seek their inclusion in the workplace. Apply Save Job Email to a contact Return to List\n•   The job has been sent to Please provide the information below",
+        "en": "Your team Pictet Alternative Advisors (PAA) is a leading alternative investment specialist and wholly owned subsidiary of the Pictet Group, with expertise in hedge funds, private equity and global real estate. With teams based around the world, the PAA teams construct, manage and advise on portfolios of alternative investment solutions for institutional and private clients. The Group has strong growth ambitions for PAA for the years ahead, notably to expand its product offering to include additional asset classes and to further develop its institutional client base. Based in Geneva, you will become part of a dynamic five-person team on a six-month temporary contract, assisting with a rise in workload and activity. Your role will involve offering operational support for both hedge fund portfolios and managed accounts. Your role\n• Managing and coordinating operations linked to PAA’s hedge fund products and mandates (NAV calculations, reporting, transactions and client services).\n• Providing support to the investment teams, management and internal clients.\n• Coordinating with all service providers (legal, tax, compliance, administrators, back office, etc.).\n• Monitoring risks and investment constraints.\n• Working on various occasional and recurrent projects (e.g. TER calculations). Your profile\n• At least five years’ experience in a similar role in a fund department or with an asset manager.\n• Proven practical knowledge of hedge fund operations management.\n• Rigorous, with excellent numeracy skills and a keen attention to detail.\n• A certain ability to deal with issues/topics with specialists from various businesses (investment managers, tax, compliance, etc.), with excellent verbal and writing skills in these particular situations.\n• Advanced user of Excel and generally at ease with new IT systems. Use of Webfolio is a plus.\n• At ease expressing yourself in both French and English, with the relevant written proficiency to draft documentation and discuss complex matters with both internal and external parties, whether native speakers or not.\n• A strong interest in and/or experience with AI would be an asset.\n• Must be resident in Switzerland or willing to relocate. Note We will not accept any CVs via agencies Diversity & Inclusion Pictet is an equal opportunity employer and is committed to creating a diverse environment. We respect all individuals and seek their inclusion in the workplace. Apply Save Job Email to a contact Return to List\n• • Email to a contact   The job has been sent to Please provide the information below",
+        "de": "Your team Pictet Alternative Advisors (PAA) is a leading alternative investment specialist and wholly owned subsidiary of the Pictet Group, with expertise in hedge funds, private equity and global real estate. With teams based around the world, the PAA teams construct, manage and advise on portfolios of alternative investment solutions for institutional and private clients. The Group has strong growth ambitions for PAA for the years ahead, notably to expand its product offering to include additional asset classes and to further develop its institutional client base. Based in Geneva, you will become part of a dynamic five-person team on a six-month temporary contract, assisting with a rise in workload and activity. Your role will involve offering operational support for both hedge fund portfolios and managed accounts. Your role\n• Managing and coordinating operations linked to PAA’s hedge fund products and mandates (NAV calculations, reporting, transactions and client services).\n• Providing support to the investment teams, management and internal clients.\n• Coordinating with all service providers (legal, tax, compliance, administrators, back office, etc.).\n• Monitoring risks and investment constraints.\n• Working on various occasional and recurrent projects (e.g. TER calculations). Your profile\n• At least five years’ experience in a similar role in a fund department or with an asset manager.\n• Proven practical knowledge of hedge fund operations management.\n• Rigorous, with excellent numeracy skills and a keen attention to detail.\n• A certain ability to deal with issues/topics with specialists from various businesses (investment managers, tax, compliance, etc.), with excellent verbal and writing skills in these particular situations.\n• Advanced user of Excel and generally at ease with new IT systems. Use of Webfolio is a plus.\n• At ease expressing yourself in both French and English, with the relevant written proficiency to draft documentation and discuss complex matters with both internal and external parties, whether native speakers or not.\n• A strong interest in and/or experience with AI would be an asset.\n• Must be resident in Switzerland or willing to relocate. Note We will not accept any CVs via agencies Diversity & Inclusion Pictet is an equal opportunity employer and is committed to creating a diverse environment. We respect all individuals and seek their inclusion in the workplace. Apply Save Job Email to a contact Return to List\n•   The job has been sent to Please provide the information below",
+        "fr": "Your team Pictet Alternative Advisors (PAA) is a leading alternative investment specialist and wholly owned subsidiary of the Pictet Group, with expertise in hedge funds, private equity and global real estate. With teams based around the world, the PAA teams construct, manage and advise on portfolios of alternative investment solutions for institutional and private clients. The Group has strong growth ambitions for PAA for the years ahead, notably to expand its product offering to include additional asset classes and to further develop its institutional client base. Based in Geneva, you will become part of a dynamic five-person team on a six-month temporary contract, assisting with a rise in workload and activity. Your role will involve offering operational support for both hedge fund portfolios and managed accounts. Your role\n• Managing and coordinating operations linked to PAA’s hedge fund products and mandates (NAV calculations, reporting, transactions and client services).\n• Providing support to the investment teams, management and internal clients.\n• Coordinating with all service providers (legal, tax, compliance, administrators, back office, etc.).\n• Monitoring risks and investment constraints.\n• Working on various occasional and recurrent projects (e.g. TER calculations). Your profile\n• At least five years’ experience in a similar role in a fund department or with an asset manager.\n• Proven practical knowledge of hedge fund operations management.\n• Rigorous, with excellent numeracy skills and a keen attention to detail.\n• A certain ability to deal with issues/topics with specialists from various businesses (investment managers, tax, compliance, etc.), with excellent verbal and writing skills in these particular situations.\n• Advanced user of Excel and generally at ease with new IT systems. Use of Webfolio is a plus.\n• At ease expressing yourself in both French and English, with the relevant written proficiency to draft documentation and discuss complex matters with both internal and external parties, whether native speakers or not.\n• A strong interest in and/or experience with AI would be an asset.\n• Must be resident in Switzerland or willing to relocate. Note We will not accept any CVs via agencies Diversity & Inclusion Pictet is an equal opportunity employer and is committed to creating a diverse environment. We respect all individuals and seek their inclusion in the workplace. Apply Save Job Email to a contact Return to List\n•   The job has been sent to Please provide the information below"
       },
       "location": "Geneva",
       "canton": "GE",
-      "url": "https://career012.successfactors.eu/career?career%5fns=job%5flisting&company=banquepict&navBarLevel=JOB%5fSEARCH&rcm%5fsite%5flocale=en%5fGB&career_job_req_id=124374&selected_lang=en_GB&jobAlertController_jobAlertId=&jobAlertController_jobAlertName=&browserTimeZone=Europe/Zurich&_s.crb=U%2fhc1iMEvc%2fWJXrjftBhfps6SDeJ9aWgkA0iPwHtYVw%3d",
+      "url": "https://career012.successfactors.eu/career?career%5fns=job%5flisting&company=banquepict&navBarLevel=JOB%5fSEARCH&rcm%5fsite%5flocale=en%5fGB&career_job_req_id=124374&selected_lang=en_GB&jobAlertController_jobAlertId=&jobAlertController_jobAlertName=&browserTimeZone=Europe/Zurich&_s.crb=IModEpyTB20uu0P%2fq5njsDy547b%2bIlD1dwR%2bt4nLL%2b4%3d",
       "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-22T23:10:52.019Z",
+      "crawledAt": "2026-05-23T11:28:54.883Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -695,13 +698,12 @@
       "currency": "CHF",
       "featured": false,
       "postedDate": "2026-05-22",
-      "applyUrl": "https://career012.successfactors.eu/career?career%5fns=job%5flisting&company=banquepict&navBarLevel=JOB%5fSEARCH&rcm%5fsite%5flocale=en%5fGB&career_job_req_id=124374&selected_lang=en_GB&jobAlertController_jobAlertId=&jobAlertController_jobAlertName=&browserTimeZone=Europe/Zurich&_s.crb=U%2fhc1iMEvc%2fWJXrjftBhfps6SDeJ9aWgkA0iPwHtYVw%3d",
+      "applyUrl": "https://career012.successfactors.eu/career?career%5fns=job%5flisting&company=banquepict&navBarLevel=JOB%5fSEARCH&rcm%5fsite%5flocale=en%5fGB&career_job_req_id=124374&selected_lang=en_GB&jobAlertController_jobAlertId=&jobAlertController_jobAlertName=&browserTimeZone=Europe/Zurich&_s.crb=IModEpyTB20uu0P%2fq5njsDy547b%2bIlD1dwR%2bt4nLL%2b4%3d",
       "jobReqId": "124374",
       "requirements": [],
-      "requirementsByLocale": {
-        "en": []
-      },
+      "requirementsByLocale": {},
       "needsRetranslation": true,
+      "firstSeenAt": "2026-05-22T23:10:52.019Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -713,8 +715,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-05-22T23:10:52.019Z"
+      }
     }
   ]
 }
