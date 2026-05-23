@@ -7693,6 +7693,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.il-municipio-e-le-aziende-per-conoscersi-meglio.title': 'Municipality and Businesses: Getting to Know Each Other',
     'blog.article.il-municipio-e-le-aziende-per-conoscersi-meglio.excerpt': 'Vezia Municipality hosts an event to strengthen dialogue with local businesses',
     'blog.article.il-municipio-e-le-aziende-per-conoscersi-meglio.imageAlt': 'The municipality of Vezia meets local businesses',
+    'blog.article.orario-lavoro-settimanale-svizzera-2025.title': 'Weekly Working Hours in Switzerland: 40 Hours 3 Minutes in 2025',
+    'blog.article.orario-lavoro-settimanale-svizzera-2025.excerpt': 'Weekly working hours in Switzerland remained stable in 2025 at 40 hours and 3 minutes, marking a significant increase from 2020',
+    'blog.article.orario-lavoro-settimanale-svizzera-2025.imageAlt': 'Clock showing 40 hours and 3 minutes with Monte San Salvatore in the background',
 };
 
 export default blogMetaEn;

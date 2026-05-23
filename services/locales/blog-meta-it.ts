@@ -7694,6 +7694,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.il-municipio-e-le-aziende-per-conoscersi-meglio.title': 'Il municipio e le aziende, per conoscersi meglio',
     'blog.article.il-municipio-e-le-aziende-per-conoscersi-meglio.excerpt': 'Il municipio di Vezia organizza un evento per rafforzare il dialogo con le realtà aziendali attive sul territorio',
     'blog.article.il-municipio-e-le-aziende-per-conoscersi-meglio.imageAlt': 'Il municipio di Vezia incontra le aziende locali',
+    'blog.article.orario-lavoro-settimanale-svizzera-2025.title': 'Orario di lavoro settimanale in Svizzera: 40 ore e 3 minuti nel 2025',
+    'blog.article.orario-lavoro-settimanale-svizzera-2025.excerpt': 'L\'orario di lavoro settimanale in Svizzera si è mantenuto stabile nel 2025 a 40 ore e 3 minuti, segnando però un forte aumento rispetto al 2020',
+    'blog.article.orario-lavoro-settimanale-svizzera-2025.imageAlt': 'Orologio che mostra le 40 ore e 3 minuti con il Monte San Salvatore sullo sfondo',
 };
 
 export default blogMetaIt;

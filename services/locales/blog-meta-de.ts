@@ -7692,6 +7692,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.il-municipio-e-le-aziende-per-conoscersi-meglio.title': 'Die Gemeinde und die Unternehmen, um sich besser kennenzulernen',
     'blog.article.il-municipio-e-le-aziende-per-conoscersi-meglio.excerpt': 'Die Gemeinde Vezia organisiert ein Event, um den Dialog mit den auf dem Gebiet tätigen Unternehmen zu stärken',
     'blog.article.il-municipio-e-le-aziende-per-conoscersi-meglio.imageAlt': 'Die Gemeinde Vezia trifft lokale Unternehmen',
+    'blog.article.orario-lavoro-settimanale-svizzera-2025.title': 'Arbeitszeit in der Schweiz: 40 Stunden und 3 Minuten im Jahr 2025',
+    'blog.article.orario-lavoro-settimanale-svizzera-2025.excerpt': 'Die Arbeitszeit in der Schweiz blieb im Jahr 2025 stabil bei 40 Stunden und 3 Minuten, zeigte jedoch einen starken Anstieg gegenüber dem Jahr 2020',
+    'blog.article.orario-lavoro-settimanale-svizzera-2025.imageAlt': 'Uhr, die 40 Stunden und 3 Minuten anzeigt, mit dem Monte San Salvatore im Hintergrund',
 };
 
 export default blogMetaDe;

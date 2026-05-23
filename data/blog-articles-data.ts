@@ -24455,4 +24455,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'orario-lavoro-settimanale-svizzera-2025',
+ category: 'novita',
+ date: '2026-05-23T14:02:51.312Z',
+ image: '/images/blog/orario-lavoro-settimanale-svizzera-2025.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

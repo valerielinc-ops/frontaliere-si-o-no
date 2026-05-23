@@ -7694,6 +7694,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.il-municipio-e-le-aziende-per-conoscersi-meglio.title': 'La municipalité et les entreprises, pour se connaître mieux',
     'blog.article.il-municipio-e-le-aziende-per-conoscersi-meglio.excerpt': 'La municipalité de Vezia organise un événement pour renforcer le dialogue avec les entreprises actives sur le territoire',
     'blog.article.il-municipio-e-le-aziende-per-conoscersi-meglio.imageAlt': 'La municipalité de Vezia rencontre les entreprises locales',
+    'blog.article.orario-lavoro-settimanale-svizzera-2025.title': 'Heures de travail hebdomadaires en Suisse : 40 heures et 3 minutes en 2025',
+    'blog.article.orario-lavoro-settimanale-svizzera-2025.excerpt': 'Le nombre d\'heures de travail hebdomadaire en Suisse est resté stable en 2025 à 40 heures et 3 minutes, mais a connu une forte augmentation par rapport à 2020',
+    'blog.article.orario-lavoro-settimanale-svizzera-2025.imageAlt': 'Horloge affichant 40 heures et 3 minutes avec le Monte San Salvatore en arrière-plan',
 };
 
 export default blogMetaFr;
