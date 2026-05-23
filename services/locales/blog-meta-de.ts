@@ -7671,6 +7671,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.doppia-imposizione-frontalieri-sud-grigion.title': 'Doppelte Besteuerung von Grenzgängern: Sorgen im italienischen Graubünden',
     'blog.article.doppia-imposizione-frontalieri-sud-grigion.excerpt': 'Die neuen steuerlichen Regelungen für Grenzgänger sorgen für Besorgnis und Schwierigkeiten bei der Rekrutierung in bestimmten Sektoren des italienischen Graubündens, wie dem Baugewerbe und der Gesundheit.',
     'blog.article.doppia-imposizione-frontalieri-sud-grigion.imageAlt': 'Frontalier, der am Ufer des Lago di Ascona spazieren geht',
+    'blog.article.casanova-pressione-aziende.title': 'Casanova: \'Es gibt viel Druck auf die Unternehmen, Zusammenarbeit ist notwendig\'',
+    'blog.article.casanova-pressione-aziende.excerpt': 'Die Unternehmen im Tessin müssen Herausforderungen wie Geopolitik, Zölle und Arbeitskräftemangel bewältigen.',
+    'blog.article.casanova-pressione-aziende.imageAlt': 'Tessinische Unternehmen, die globale Markt Herausforderungen angehen',
 };
 
 export default blogMetaDe;

@@ -7673,6 +7673,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.doppia-imposizione-frontalieri-sud-grigion.title': 'Doppia imposizione dei frontalieri, le preoccupazioni a sud dei Grigioni',
     'blog.article.doppia-imposizione-frontalieri-sud-grigion.excerpt': 'Le nuove regole fiscali per i frontalieri creano preoccupazione e difficoltà di reclutamento in specifici settori del Grigioni italiano, come l\'edilizia e la sanità.',
     'blog.article.doppia-imposizione-frontalieri-sud-grigion.imageAlt': 'Frontaliere che cammina lungo la riva del Lago di Ascona',
+    'blog.article.casanova-pressione-aziende.title': 'Casanova: «C\'è tanta pressione sulle aziende, serve collaborazione»',
+    'blog.article.casanova-pressione-aziende.excerpt': 'Le aziende ticinesi affrontano sfide come geopolitica, dazi e carenza di manodopera.',
+    'blog.article.casanova-pressione-aziende.imageAlt': 'Aziende ticinesi che affrontano le sfide del mercato globale',
 };
 
 export default blogMetaIt;

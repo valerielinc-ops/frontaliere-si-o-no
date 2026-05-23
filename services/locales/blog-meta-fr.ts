@@ -7673,6 +7673,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.doppia-imposizione-frontalieri-sud-grigion.title': 'Double imposition des frontaliers, les préoccupations dans le sud des Grisons',
     'blog.article.doppia-imposizione-frontalieri-sud-grigion.excerpt': 'Les nouvelles règles fiscales pour les frontaliers créent des préoccupations et des difficultés de recrutement dans des secteurs spécifiques du Grigioni italien, comme la construction et la santé.',
     'blog.article.doppia-imposizione-frontalieri-sud-grigion.imageAlt': 'Frontalier se promenant le long de la rive du Lac d\'Ascona',
+    'blog.article.casanova-pressione-aziende.title': 'Casanova: «Il y a beaucoup de pression sur les entreprises, il faut collaborer»',
+    'blog.article.casanova-pressione-aziende.excerpt': 'Les entreprises tessinoises font face à des défis tels que la géopolitique, les droits de douane et la pénurie de main-d\'œuvre.',
+    'blog.article.casanova-pressione-aziende.imageAlt': 'Entreprises tessinoises faisant face aux défis du marché mondial',
 };
 
 export default blogMetaFr;

@@ -7672,6 +7672,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.doppia-imposizione-frontalieri-sud-grigion.title': 'Double Taxation of Cross-Border Workers: Concerns in Southern Graubünden',
     'blog.article.doppia-imposizione-frontalieri-sud-grigion.excerpt': 'New tax rules for cross-border workers cause concern and recruitment difficulties in specific sectors of Italian Graubünden, such as construction and healthcare.',
     'blog.article.doppia-imposizione-frontalieri-sud-grigion.imageAlt': 'Frontalier walking along the shore of Lake Ascona',
+    'blog.article.casanova-pressione-aziende.title': 'Casanova: \'High Pressure on Companies, Collaboration Needed\'',
+    'blog.article.casanova-pressione-aziende.excerpt': 'Ticino companies face challenges such as geopolitics, tariffs, and labor shortages.',
+    'blog.article.casanova-pressione-aziende.imageAlt': 'Ticino businesses facing global market challenges',
 };
 
 export default blogMetaEn;

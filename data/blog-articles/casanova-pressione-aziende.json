@@ -1,0 +1,19 @@
+{
+  "id": "casanova-pressione-aziende",
+  "slug": "casanova-pressione-aziende",
+  "publishedAt": "2026-05-23T12:45:41.208Z",
+  "cluster": "generic",
+  "_pool": "proven",
+  "_pool_source": "ticinonews.ch",
+  "_score_breakdown": {
+    "stage": "gsc",
+    "rawScore": 74.49106622222223,
+    "confidence": 1,
+    "finalScore": 74.49106622222223,
+    "matchedQuery": "offerte di lavoro ticino",
+    "score": 74.49106622222223,
+    "clusterDiversityBonus": 1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "generic"
+  }
+}

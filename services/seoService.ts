@@ -3800,6 +3800,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-ffs-cargo-chiasso-riorganizzazione': { name: 'Riorganizzazione FFS Cargo', path: '/articoli-frontaliere/ffs-cargo-chiasso-riorganizzazione', parent: 'blog' },
     'blog-il-ticino-ha-1200-securini-4-su-10-sono-frontalieri-434090': { name: 'Novità', path: '/articoli-frontaliere/il-ticino-ha-1200-securini-4-su-10-sono-frontalieri-434090', parent: 'blog' },
     'blog-doppia-imposizione-frontalieri-sud-grigion': { name: 'Doppia imposizione dei frontalieri', path: '/articoli-frontaliere/doppia-imposizione-frontalieri-sud-grigion', parent: 'blog' },
+    'blog-casanova-pressione-aziende': { name: 'Economia', path: '/articoli-frontaliere/casanova-pressione-aziende', parent: 'blog' },
  };
 
  const info = sectionNames[section];
