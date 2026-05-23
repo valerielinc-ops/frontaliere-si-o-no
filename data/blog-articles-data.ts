@@ -24401,4 +24401,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'pensioni-svizzere-all-estero-numerose-ma-modeste',
+ category: 'pratico',
+ date: '2026-05-23T12:51:12.560Z',
+ image: '/images/blog/pensioni-svizzere-all-estero-numerose-ma-modeste.webp',
+ hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
+ },
 ] satisfies Article[];

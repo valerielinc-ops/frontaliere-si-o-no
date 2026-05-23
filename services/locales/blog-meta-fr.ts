@@ -7676,6 +7676,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.casanova-pressione-aziende.title': 'Casanova: «Il y a beaucoup de pression sur les entreprises, il faut collaborer»',
     'blog.article.casanova-pressione-aziende.excerpt': 'Les entreprises tessinoises font face à des défis tels que la géopolitique, les droits de douane et la pénurie de main-d\'œuvre.',
     'blog.article.casanova-pressione-aziende.imageAlt': 'Entreprises tessinoises faisant face aux défis du marché mondial',
+    'blog.article.pensioni-svizzere-all-estero-numerose-ma-modeste.title': 'Les pensions suisses versées à l\'étranger sont nombreuses, mais modestes',
+    'blog.article.pensioni-svizzere-all-estero-numerose-ma-modeste.excerpt': 'Les pensions suisses versées à l\'étranger s\'élèvent à environ 1 milliard de francs suisses par an, mais sont en moyenne plutôt basses',
+    'blog.article.pensioni-svizzere-all-estero-numerose-ma-modeste.imageAlt': 'Frontalier recevant la pension suisse à Lugano',
 };
 
 export default blogMetaFr;

@@ -7674,6 +7674,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.casanova-pressione-aziende.title': 'Casanova: \'Es gibt viel Druck auf die Unternehmen, Zusammenarbeit ist notwendig\'',
     'blog.article.casanova-pressione-aziende.excerpt': 'Die Unternehmen im Tessin müssen Herausforderungen wie Geopolitik, Zölle und Arbeitskräftemangel bewältigen.',
     'blog.article.casanova-pressione-aziende.imageAlt': 'Tessinische Unternehmen, die globale Markt Herausforderungen angehen',
+    'blog.article.pensioni-svizzere-all-estero-numerose-ma-modeste.title': 'Schweizer Renten im Ausland zahlreich, aber bescheiden',
+    'blog.article.pensioni-svizzere-all-estero-numerose-ma-modeste.excerpt': 'Schweizer Renten im Ausland betragen jährlich rund 1 Milliarde Franken, sind jedoch im Durchschnitt eher niedrig',
+    'blog.article.pensioni-svizzere-all-estero-numerose-ma-modeste.imageAlt': 'Frontalier, der die Schweizer Rente in Lugano erhält',
 };
 
 export default blogMetaDe;

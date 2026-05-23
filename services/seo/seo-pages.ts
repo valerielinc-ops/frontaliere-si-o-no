@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2613,
+ "numberOfItems": 2614,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7253,7 +7253,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2610, "name": "Lega chiede garanzie per Chiasso e lavoro in FF...", "url": `${BASE_URL}/articoli-frontaliere/ffs-cargo-chiasso-riorganizzazione` },
           { "@type": "ListItem", "position": 2611, "name": "Il Ticino ha 1.200 'securini', 4 su 10 sono fro...", "url": `${BASE_URL}/articoli-frontaliere/il-ticino-ha-1200-securini-4-su-10-sono-frontalieri-434090` },
           { "@type": "ListItem", "position": 2612, "name": "Doppia imposizione dei frontalieri, le preoccup...", "url": `${BASE_URL}/articoli-frontaliere/doppia-imposizione-frontalieri-sud-grigion` },
-          { "@type": "ListItem", "position": 2613, "name": "Casanova: «C'è tanta pressione sulle aziende, s...", "url": `${BASE_URL}/articoli-frontaliere/casanova-pressione-aziende` }
+          { "@type": "ListItem", "position": 2613, "name": "Casanova: «C'è tanta pressione sulle aziende, s...", "url": `${BASE_URL}/articoli-frontaliere/casanova-pressione-aziende` },
+          { "@type": "ListItem", "position": 2614, "name": "Le pensioni svizzere versate all’estero sono nu...", "url": `${BASE_URL}/articoli-frontaliere/pensioni-svizzere-all-estero-numerose-ma-modeste` }
  ]
  },
  {

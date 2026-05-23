@@ -7675,6 +7675,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.casanova-pressione-aziende.title': 'Casanova: \'High Pressure on Companies, Collaboration Needed\'',
     'blog.article.casanova-pressione-aziende.excerpt': 'Ticino companies face challenges such as geopolitics, tariffs, and labor shortages.',
     'blog.article.casanova-pressione-aziende.imageAlt': 'Ticino businesses facing global market challenges',
+    'blog.article.pensioni-svizzere-all-estero-numerose-ma-modeste.title': 'Swiss Pensions Abroad: Many, but Modest',
+    'blog.article.pensioni-svizzere-all-estero-numerose-ma-modeste.excerpt': 'Annual Swiss pensions abroad total around 1 billion Swiss francs, but are relatively low on average',
+    'blog.article.pensioni-svizzere-all-estero-numerose-ma-modeste.imageAlt': 'Frontalier receiving Swiss pension in Lugano',
 };
 
 export default blogMetaEn;

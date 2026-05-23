@@ -38645,6 +38645,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-pensioni-svizzere-all-estero-numerose-ma-modeste': {
+    title: 'Le pensioni svizzere versate all’estero sono numerose, ma modeste',
+    description: 'Le pensioni svizzere versate all’estero ammontano a circa 1 miliardo di franchi svizzeri all’anno, ma sono in media piuttosto basse. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, pensioni, svizzere, versate, estero',
+    ogTitle: 'Le pensioni svizzere versate all’estero sono numerose, ma modeste',
+    ogDescription: 'Le pensioni svizzere versate all’estero ammontano a circa 1 miliardo di franchi svizzeri all’anno, ma sono in media piuttosto basse',
+    canonicalPath: '/articoli-frontaliere/pensioni-svizzere-all-estero-numerose-ma-modeste',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Le pensioni svizzere versate all’estero sono numerose, ma modeste",
+      "description": "Le pensioni svizzere versate all’estero ammontano a circa 1 miliardo di franchi svizzeri all’anno, ma sono in media piuttosto basse. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/pensioni-svizzere-all-estero-numerose-ma-modeste.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Frontaliere che riceve la pensione svizzera a Lugano"
+      },
+      "datePublished": "2026-05-23T12:51:12+00:00",
+      "dateModified": "2026-05-23T12:51:12+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/pensioni-svizzere-all-estero-numerose-ma-modeste`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

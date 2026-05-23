@@ -7676,6 +7676,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.casanova-pressione-aziende.title': 'Casanova: «C\'è tanta pressione sulle aziende, serve collaborazione»',
     'blog.article.casanova-pressione-aziende.excerpt': 'Le aziende ticinesi affrontano sfide come geopolitica, dazi e carenza di manodopera.',
     'blog.article.casanova-pressione-aziende.imageAlt': 'Aziende ticinesi che affrontano le sfide del mercato globale',
+    'blog.article.pensioni-svizzere-all-estero-numerose-ma-modeste.title': 'Le pensioni svizzere versate all’estero sono numerose, ma modeste',
+    'blog.article.pensioni-svizzere-all-estero-numerose-ma-modeste.excerpt': 'Le pensioni svizzere versate all’estero ammontano a circa 1 miliardo di franchi svizzeri all’anno, ma sono in media piuttosto basse',
+    'blog.article.pensioni-svizzere-all-estero-numerose-ma-modeste.imageAlt': 'Frontaliere che riceve la pensione svizzera a Lugano',
 };
 
 export default blogMetaIt;
