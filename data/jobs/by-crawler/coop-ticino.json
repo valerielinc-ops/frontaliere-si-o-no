@@ -1,6 +1,6 @@
 {
   "crawlerKey": "coop-ticino",
-  "assembledAt": "2026-05-23T10:16:07.539Z",
+  "assembledAt": "2026-05-23T21:42:23.691Z",
   "jobs": [
     {
       "id": "company-vnskkx",
@@ -120,7 +120,7 @@
       "slugByLocale": {
         "it": "verkaufer-in-food-coop-felsberg-graubunden-9fezrn",
         "en": "seller-in-food-coop-genossenschaft-felsberg",
-        "de": "verkaufer-in-food-coop-felsberg-graubunden-9fezrn",
+        "de": "verkaufer-in-food-coop-genossenschaft-felsberg-9fezrn",
         "fr": "vendeur-dans-la-nourriture-coop-genossenschaft-felsberg"
       },
       "titleByLocale": {
@@ -163,6 +163,9 @@
           "verkaufer-in-food-coop-felsberg-graubunden-9fezrn"
         ],
         "fr": [
+          "verkaufer-in-food-coop-felsberg-graubunden-9fezrn"
+        ],
+        "de": [
           "verkaufer-in-food-coop-felsberg-graubunden-9fezrn"
         ]
       },
@@ -453,7 +456,7 @@
       "slugByLocale": {
         "it": "verkaufer-in-food-coop-felsberg-graubunden-9fezrn",
         "en": "seller-in-food-coop-genossenschaft-felsberg-339410",
-        "de": "verkaufer-in-food-coop-felsberg-graubunden-9fezrn",
+        "de": "verkaufer-in-food-coop-genossenschaft-felsberg-lzsoh3",
         "fr": "vendeur-dans-la-nourriture-coop-genossenschaft-felsberg-339410"
       },
       "titleByLocale": {
@@ -500,7 +503,8 @@
         ],
         "de": [
           "verkaufer-in-food-coop-felsberg-graubunden-lzsoh3",
-          "verkaufer-in-food-coop-genossenschaft-felsberg-9fezrn"
+          "verkaufer-in-food-coop-genossenschaft-felsberg-9fezrn",
+          "verkaufer-in-food-coop-felsberg-graubunden-9fezrn"
         ],
         "fr": [
           "verkaufer-in-food-coop-felsberg-graubunden-lzsoh3",
@@ -1904,7 +1908,8 @@
         "impiegata-o-di-gastronomia-standardizzata-addettao-digastronomia-standardizzata-marche-dietlikon-2",
         "impiegata-o-di-gastronomia-standardizzata-addettao-digastronomia-standardizzata-marche-ticino",
         "impiegata-o-di-gastronomia-standardizzata-addettao-digastronomia-standardizzata-marche-mezzovico"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "company-j301yl",
@@ -7778,7 +7783,8 @@
         "verkaufer-in-nonfood-coop-chur-graubunden-j9odwp"
       ],
       "retranslationAttempts": 1,
-      "sourceLang": "de"
+      "sourceLang": "de",
+      "needsRetranslation": true
     },
     {
       "id": "company-o367qu",
@@ -7873,7 +7879,8 @@
         "responsable-du-rayon-nonfood-coop-genossenschaft-klosters-serneus"
       ],
       "retranslationAttempts": 2,
-      "sourceLang": "de"
+      "sourceLang": "de",
+      "needsRetranslation": true
     },
     {
       "id": "company-6azqre",
@@ -8029,7 +8036,8 @@
         "kochin-koch-w-m-d-coop-genossenschaft-davos"
       ],
       "retranslationAttempts": 1,
-      "sourceLang": "de"
+      "sourceLang": "de",
+      "needsRetranslation": true
     },
     {
       "id": "company-pa5qt0",
@@ -8120,7 +8128,8 @@
         "mitarbeiter-in-gastronomie-coop-ristorante-davos-platz-pa5qt0"
       ],
       "retranslationAttempts": 1,
-      "sourceLang": "de"
+      "sourceLang": "de",
+      "needsRetranslation": true
     },
     {
       "id": "company-4c7u4w",
@@ -8300,7 +8309,8 @@
         "verkaufer-in-food-coop-genossenschaft-chur-7jjh6d",
         "verkaufer-in-food-coop-genossenschaft-chur-vnskkx"
       ],
-      "sourceLang": "de"
+      "sourceLang": "de",
+      "needsRetranslation": true
     },
     {
       "id": "company-i63w01",
@@ -8433,7 +8443,8 @@
           "unitText": "YEAR"
         }
       },
-      "sourceLang": "it"
+      "sourceLang": "it",
+      "needsRetranslation": true
     },
     {
       "id": "company-8xgtc3",
@@ -8980,7 +8991,8 @@
         "cambio-carriera-collaboratore-trice-fleisch-e-fisch-coop-genossenschaft-muttenz",
         "quereinstieg-mitarbeiter-in-fleisch-und-fisch-coop-grigioni-ncbhm0"
       ],
-      "sourceLang": "de"
+      "sourceLang": "de",
+      "needsRetranslation": true
     },
     {
       "id": "company-hsy2pf",
@@ -9067,7 +9079,8 @@
       },
       "previousSlugs": [
         "stv-rayonleiter-in-wein-getranke-coop-chur-graubunden-hsy2pf"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "company-46qgy7",
@@ -9164,7 +9177,8 @@
         "verkaufer-in-kassen-services-jumbo-division-der-coop-genossenschaft-chur",
         "vendeur-en-especes-services-jumbo-division-der-coop-genossenschaft-chur",
         "verkaufer-in-kassen-services-jumbo-chur-graubunden-zg79zk"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "company-xnczpj",
@@ -9492,7 +9506,8 @@
         "sales-consultant-in-coop-genossenschaft-chur",
         "verkaufsberater-in-import-parfumerie-chur-graubunden-rjepid",
         "consultant-en-ventes-coop-genossenschaft-chur"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "company-bqi6wr",
@@ -9577,7 +9592,8 @@
       },
       "previousSlugs": [
         "rayonleiter-in-frischprodukte-coop-davos-platz-bqi6wr"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "company-uwtky9",
@@ -9742,7 +9758,8 @@
       },
       "previousSlugs": [
         "geschaftsfuhrer-in-kublis-coop-kublis-graubunden-gzq9bg"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "company-29z0lf",
@@ -9912,7 +9929,8 @@
       },
       "previousSlugs": [
         "verkaufer-in-food-coop-disentis-muster-graubunden-pxuu97"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "company-4whh8x",
@@ -10008,7 +10026,8 @@
         "mitarbeiter-in-inventuren-coop-grigioni-4whh8x",
         "associate-inventuren-coop-genossenschaft-basel-arot84",
         "verkaufer-in-frischprodukte-brot-backwaren-coop-klosters-serneus-graubunden"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "company-ghhl6m",
@@ -10101,7 +10120,8 @@
         "personnel-en-inventaire-coop-genossenschaft-basel",
         "mitarbeiter-in-inventuren-coop-grigioni-4whh8x",
         "associate-inventuren-coop-genossenschaft-basel-arot84"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "company-cjrnr",
@@ -10346,7 +10366,8 @@
       "previousSlugs": [
         "verkaufsberater-in-inkl-stellvertretung-der-geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-a9zoqf",
         "verkaufsberater-in-inkl-stellvertretung-der-geschaftsfuhrer-in-christ-uhren-schmuck-ag-chur-n3eyyx"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "company-qvpnyt",
@@ -10448,7 +10469,8 @@
           "koch-kochin-mit-zusatzfunktion-stv-geschaftsfuhrer-in-coop-ristorante-chur-graubunden-qvpnyt"
         ]
       },
-      "firstSeenAt": "2026-04-03T07:12:02.917Z"
+      "firstSeenAt": "2026-04-03T07:12:02.917Z",
+      "needsRetranslation": true
     },
     {
       "id": "company-nn7tsc",
@@ -10546,7 +10568,8 @@
           "stv-geschaftsfuhrer-in-coop-genossenschaft-arosa-nn7tsc"
         ]
       },
-      "firstSeenAt": "2026-03-31T07:18:28.826Z"
+      "firstSeenAt": "2026-03-31T07:18:28.826Z",
+      "needsRetranslation": true
     },
     {
       "id": "company-3jfhc8",
@@ -11555,7 +11578,8 @@
           "specialiste-en-gastronomie-stagiaire-coop-ristorante-grigioni"
         ]
       },
-      "firstSeenAt": "2026-03-31T07:18:28.826Z"
+      "firstSeenAt": "2026-03-31T07:18:28.826Z",
+      "needsRetranslation": true
     },
     {
       "id": "company-k0r51z",
