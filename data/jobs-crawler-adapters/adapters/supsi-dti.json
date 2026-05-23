@@ -13,7 +13,7 @@
     "https://www.supsi.ch/lavora-con-noi"
   ],
   "notes": "Dedicated SUPSI crawler seeds from lavora-con-noi (including pagination via POST) and canonicalizes job URLs under supsi.ch.",
-  "updatedAt": "2026-05-22T23:45:33.478Z",
+  "updatedAt": "2026-05-23T23:27:20.725Z",
   "seedDetailUrls": [
     "https://www.supsi.ch/bando26_5018",
     "https://www.supsi.ch/bando26_4004",
@@ -25,12 +25,11 @@
     "https://www.supsi.ch/bando26_1011",
     "https://www.supsi.ch/bando26_1012",
     "https://www.supsi.ch/bando26_1010",
+    "https://www.supsi.ch/bando26_5025",
     "https://www.supsi.ch/bando26_1009",
     "https://www.supsi.ch/bando26_5020",
     "https://www.supsi.ch/bando26_5021",
-    "https://www.supsi.ch/bando26_5022",
-    "https://www.supsi.ch/bando26_5023",
-    "https://www.supsi.ch/bando26_4001"
+    "https://www.supsi.ch/bando26_5022"
   ],
   "seedMetaByUrl": {
     "https://www.supsi.ch/bando26_5018": {
@@ -119,6 +118,15 @@
       "contract": "Full-time",
       "expiresAt": "2026-06-30"
     },
+    "https://www.supsi.ch/bando26_5025": {
+      "location": "Lugano",
+      "canton": "TI",
+      "country": "CH",
+      "company": "SUPSI / DTI",
+      "companyDomain": "supsi.ch",
+      "contract": "Full-time",
+      "expiresAt": "2026-06-30"
+    },
     "https://www.supsi.ch/bando26_1009": {
       "location": "Dipartimento ambiente costruzioni e design (DACD)",
       "canton": "TI",
@@ -154,23 +162,6 @@
       "companyDomain": "supsi.ch",
       "contract": "Part-time",
       "expiresAt": "2026-08-31"
-    },
-    "https://www.supsi.ch/bando26_5023": {
-      "location": "Lugano",
-      "canton": "TI",
-      "country": "CH",
-      "company": "SUPSI / DTI",
-      "companyDomain": "supsi.ch",
-      "contract": "Part-time",
-      "expiresAt": "2026-08-31"
-    },
-    "https://www.supsi.ch/bando26_4001": {
-      "location": "Ticino",
-      "canton": "TI",
-      "country": "CH",
-      "company": "SUPSI / DTI",
-      "companyDomain": "supsi.ch",
-      "expiresAt": "2026-12-31"
     }
   }
 }
