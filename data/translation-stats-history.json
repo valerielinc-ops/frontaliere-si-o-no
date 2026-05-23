@@ -1,117 +1,5 @@
 [
   {
-    "timestamp": "2026-05-07T06:21:26.612Z",
-    "label": "before",
-    "total": 2654,
-    "needsRetranslation": 140,
-    "incomplete": 90,
-    "complete": 2564,
-    "missingByLocale": {
-      "it": 29,
-      "en": 18,
-      "de": 14,
-      "fr": 28
-    },
-    "topPending": [
-      {
-        "company": "Convit Holding GmbH",
-        "pending": 52
-      },
-      {
-        "company": "EFG International AG",
-        "pending": 6
-      },
-      {
-        "company": "Bell Schweiz AG",
-        "pending": 6
-      },
-      {
-        "company": "Lonza",
-        "pending": 5
-      },
-      {
-        "company": "Denner",
-        "pending": 3
-      },
-      {
-        "company": "Bosch Thermotechnik AG",
-        "pending": 2
-      },
-      {
-        "company": "Regionalspital Surselva",
-        "pending": 2
-      },
-      {
-        "company": "Union Bancaire Privée",
-        "pending": 2
-      },
-      {
-        "company": "ALDI SUISSE",
-        "pending": 1
-      },
-      {
-        "company": "AXA Svizzera",
-        "pending": 1
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-05-07T06:31:47.129Z",
-    "label": "after",
-    "total": 2654,
-    "needsRetranslation": 157,
-    "incomplete": 90,
-    "complete": 2564,
-    "missingByLocale": {
-      "it": 29,
-      "en": 18,
-      "de": 14,
-      "fr": 28
-    },
-    "topPending": [
-      {
-        "company": "Convit Holding GmbH",
-        "pending": 52
-      },
-      {
-        "company": "EFG International AG",
-        "pending": 6
-      },
-      {
-        "company": "Bell Schweiz AG",
-        "pending": 6
-      },
-      {
-        "company": "Lonza",
-        "pending": 5
-      },
-      {
-        "company": "Denner",
-        "pending": 3
-      },
-      {
-        "company": "Bosch Thermotechnik AG",
-        "pending": 2
-      },
-      {
-        "company": "Regionalspital Surselva",
-        "pending": 2
-      },
-      {
-        "company": "Union Bancaire Privée",
-        "pending": 2
-      },
-      {
-        "company": "ALDI SUISSE",
-        "pending": 1
-      },
-      {
-        "company": "AXA Svizzera",
-        "pending": 1
-      }
-    ]
-  },
-  {
     "timestamp": "2026-05-07T09:00:28.672Z",
     "label": "before",
     "total": 2561,
@@ -11164,6 +11052,118 @@
       {
         "company": "Coop Genossenschaft",
         "pending": 70
+      },
+      {
+        "company": "Roche",
+        "pending": 37
+      },
+      {
+        "company": "UBS",
+        "pending": 30
+      },
+      {
+        "company": "IWC",
+        "pending": 26
+      },
+      {
+        "company": "VF International (The North Face, Timberland)",
+        "pending": 21
+      },
+      {
+        "company": "Regionalspital Surselva",
+        "pending": 15
+      },
+      {
+        "company": "ABB Svizzera (sede Ticino)",
+        "pending": 10
+      },
+      {
+        "company": "Lonza",
+        "pending": 9
+      },
+      {
+        "company": "PostFinance",
+        "pending": 8
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-05-23T07:36:59.084Z",
+    "label": "before",
+    "total": 8511,
+    "needsRetranslation": 1628,
+    "incomplete": 460,
+    "complete": 8051,
+    "missingByLocale": {
+      "it": 331,
+      "en": 241,
+      "de": 194,
+      "fr": 311
+    },
+    "topPending": [
+      {
+        "company": "Hügli Nahrungsmittel GmbH",
+        "pending": 82
+      },
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 70
+      },
+      {
+        "company": "Roche",
+        "pending": 37
+      },
+      {
+        "company": "UBS",
+        "pending": 30
+      },
+      {
+        "company": "IWC",
+        "pending": 26
+      },
+      {
+        "company": "VF International (The North Face, Timberland)",
+        "pending": 21
+      },
+      {
+        "company": "Regionalspital Surselva",
+        "pending": 15
+      },
+      {
+        "company": "ABB Svizzera (sede Ticino)",
+        "pending": 10
+      },
+      {
+        "company": "Lonza",
+        "pending": 9
+      },
+      {
+        "company": "PostFinance",
+        "pending": 8
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-05-23T08:50:12.559Z",
+    "label": "after",
+    "total": 8511,
+    "needsRetranslation": 1509,
+    "incomplete": 437,
+    "complete": 8074,
+    "missingByLocale": {
+      "it": 316,
+      "en": 224,
+      "de": 186,
+      "fr": 295
+    },
+    "topPending": [
+      {
+        "company": "Hügli Nahrungsmittel GmbH",
+        "pending": 82
+      },
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 66
       },
       {
         "company": "Roche",
