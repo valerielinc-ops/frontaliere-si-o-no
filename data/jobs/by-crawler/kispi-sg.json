@@ -4,9 +4,9 @@
   "jobs": [
     {
       "id": "kispi-sg-8e08aef6144e",
-      "slug": "psicologo-a-psicoterapeuta-o-medico-a-psichiatra-infantile-e-dell-adolescenza-70-80-ostschweizer-kinderspital-st-gallen",
+      "slug": "psicologa-psicologo-o-psichiatra-psichiatra-per-la-psicoterapia-dell-infanzia-e-dell-adolescenza-70-80-ostschweizer",
       "slugByLocale": {
-        "it": "psicologo-a-psicoterapeuta-o-medico-a-psichiatra-infantile-e-dell-adolescenza-70-80-ostschweizer-kinderspital-st-gallen",
+        "it": "psicologa-psicologo-o-psichiatra-psichiatra-per-la-psicoterapia-dell-infanzia-e-dell-adolescenza-70-80-ostschweizer",
         "en": "psychological-psychotherapist-or-child-and-adolescent-psychiatrist-70-80-ostschweizer-kinderspital-st-gallen",
         "de": "psychologische-n-psychotherapeutin-psychotherapeuten-oder-arztin-arzt-kinder-und",
         "fr": "psychologue-psychotherapeute-ou-medecin-psychiatre-pour-enfants-et-adolescents-70-80-ostschweizer-kinderspital-st-gallen"
@@ -82,11 +82,13 @@
         ]
       },
       "previousSlugs": [
-        "psychologische-n-psychotherapeutin-psychotherapeuten-oder-arztin-arzt-kinder-und"
+        "psychologische-n-psychotherapeutin-psychotherapeuten-oder-arztin-arzt-kinder-und",
+        "psicologo-a-psicoterapeuta-o-medico-a-psichiatra-infantile-e-dell-adolescenza-70-80-ostschweizer-kinderspital-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "psychologische-n-psychotherapeutin-psychotherapeuten-oder-arztin-arzt-kinder-und"
+          "psychologische-n-psychotherapeutin-psychotherapeuten-oder-arztin-arzt-kinder-und",
+          "psicologo-a-psicoterapeuta-o-medico-a-psichiatra-infantile-e-dell-adolescenza-70-80-ostschweizer-kinderspital-st-gallen"
         ]
       },
       "firstSeenAt": "2026-05-19T21:00:05.211Z",
@@ -212,9 +214,9 @@
       "slug": "assistente-del-ceo-60-80-ostschweizer-kinderspital-st-gallen",
       "slugByLocale": {
         "it": "assistente-del-ceo-60-80-ostschweizer-kinderspital-st-gallen",
-        "en": "ceo-assistant-60-80-ostschweizer-kinderspital-st-gallen",
+        "en": "associate-ceo-60-80-ostschweizer-kinderspital-st-gallen",
         "de": "assistenz-ceo-60-80-ostschweizer-kinderspital-st-gallen",
-        "fr": "assistant-e-du-pdg-60-80-ostschweizer-kinderspital-st-gallen"
+        "fr": "assistante-ceo-60-80-ostschweizer-kinderspital-st-gallen"
       },
       "company": "Ostschweizer Kinderspital",
       "companyKey": "kispi-sg",
@@ -292,10 +294,18 @@
         ],
         "it": [
           "assistenz-ceo-60-80-kispi-sg-st-gallen"
+        ],
+        "en": [
+          "ceo-assistant-60-80-ostschweizer-kinderspital-st-gallen"
+        ],
+        "fr": [
+          "assistant-e-du-pdg-60-80-ostschweizer-kinderspital-st-gallen"
         ]
       },
       "previousSlugs": [
-        "assistenz-ceo-60-80-kispi-sg-st-gallen"
+        "assistenz-ceo-60-80-kispi-sg-st-gallen",
+        "ceo-assistant-60-80-ostschweizer-kinderspital-st-gallen",
+        "assistant-e-du-pdg-60-80-ostschweizer-kinderspital-st-gallen"
       ],
       "firstSeenAt": "2026-05-19T21:00:03.114Z",
       "salaryMin": 68000,
@@ -313,12 +323,12 @@
     },
     {
       "id": "kispi-sg-d5c948a9f013",
-      "slug": "formazione-come-operatore-socio-sanitario-fage-100-ostschweizer-kinderspital-st-gallen",
+      "slug": "formazione-per-esperto-a-in-assistenza-sanitaria-fage-100-ostschweizer-kinderspital-st-gallen",
       "slugByLocale": {
-        "it": "formazione-come-operatore-socio-sanitario-fage-100-ostschweizer-kinderspital-st-gallen",
+        "it": "formazione-per-esperto-a-in-assistenza-sanitaria-fage-100-ostschweizer-kinderspital-st-gallen",
         "en": "training-as-health-care-specialist-fage-100-ostschweizer-kinderspital-st-gallen",
         "de": "ausbildung-zur-fachperson-gesundheit-fage-100-kispi-sg-st-gallen",
-        "fr": "formation-en-tant-que-specialiste-en-soins-de-sante-fage-100-ostschweizer-kinderspital-st-gallen"
+        "fr": "formation-en-profession-de-sante-fage-100-ostschweizer-kinderspital-st-gallen"
       },
       "company": "Ostschweizer Kinderspital",
       "companyKey": "kispi-sg",
@@ -391,11 +401,17 @@
         ]
       },
       "previousSlugs": [
-        "ausbildung-zur-fachperson-gesundheit-fage-100-kispi-sg-st-gallen"
+        "ausbildung-zur-fachperson-gesundheit-fage-100-kispi-sg-st-gallen",
+        "formazione-come-operatore-socio-sanitario-fage-100-ostschweizer-kinderspital-st-gallen",
+        "formation-en-tant-que-specialiste-en-soins-de-sante-fage-100-ostschweizer-kinderspital-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ausbildung-zur-fachperson-gesundheit-fage-100-kispi-sg-st-gallen"
+          "ausbildung-zur-fachperson-gesundheit-fage-100-kispi-sg-st-gallen",
+          "formazione-come-operatore-socio-sanitario-fage-100-ostschweizer-kinderspital-st-gallen"
+        ],
+        "fr": [
+          "formation-en-tant-que-specialiste-en-soins-de-sante-fage-100-ostschweizer-kinderspital-st-gallen"
         ]
       },
       "firstSeenAt": "2026-05-19T21:00:02.052Z",
@@ -414,9 +430,9 @@
     },
     {
       "id": "kispi-sg-226f87501fc2",
-      "slug": "primario-primaria-riabilitazione-e-intervento-pediatrico-80-100-ostschweizer-kinderspital-st-gallen",
+      "slug": "direttore-a-medico-pediatratico-riabilitazione-e-intervento-80-100-ostschweizer-kinderspital-st-gallen",
       "slugByLocale": {
-        "it": "primario-primaria-riabilitazione-e-intervento-pediatrico-80-100-ostschweizer-kinderspital-st-gallen",
+        "it": "direttore-a-medico-pediatratico-riabilitazione-e-intervento-80-100-ostschweizer-kinderspital-st-gallen",
         "en": "senior-physician-pediatric-rehabilitation-and-intervention-80-100-ostschweizer-kinderspital-st-gallen",
         "de": "oberarztin-oberarzt-padiatrische-rehabilitation-und-intervention-80-100-kispi-sg-st-gallen",
         "fr": "medecin-chef-rehabilitation-et-intervention-pediatrique-80-100-ostschweizer-kinderspital-st-gallen"
@@ -492,11 +508,13 @@
         ]
       },
       "previousSlugs": [
-        "oberarztin-oberarzt-padiatrische-rehabilitation-und-intervention-80-100-kispi-sg-st-gallen"
+        "oberarztin-oberarzt-padiatrische-rehabilitation-und-intervention-80-100-kispi-sg-st-gallen",
+        "primario-primaria-riabilitazione-e-intervento-pediatrico-80-100-ostschweizer-kinderspital-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "oberarztin-oberarzt-padiatrische-rehabilitation-und-intervention-80-100-kispi-sg-st-gallen"
+          "oberarztin-oberarzt-padiatrische-rehabilitation-und-intervention-80-100-kispi-sg-st-gallen",
+          "primario-primaria-riabilitazione-e-intervento-pediatrico-80-100-ostschweizer-kinderspital-st-gallen"
         ]
       },
       "firstSeenAt": "2026-05-19T21:00:00.972Z",
@@ -515,9 +533,9 @@
     },
     {
       "id": "kispi-sg-dd6af45700cd",
-      "slug": "specialista-accettazione-pazienti-e-reception-40-ostschweizer-kinderspital-st-gallen",
+      "slug": "addetto-ricevimento-accoglienza-pazienti-40-ostschweizer-kinderspital-st-gallen",
       "slugByLocale": {
-        "it": "specialista-accettazione-pazienti-e-reception-40-ostschweizer-kinderspital-st-gallen",
+        "it": "addetto-ricevimento-accoglienza-pazienti-40-ostschweizer-kinderspital-st-gallen",
         "en": "specialist-patient-reception-and-admission-40-ostschweizer-kinderspital-st-gallen",
         "de": "fachmitarbeiter-in-empfang-patientenaufnahme-40-ostschweizer-kinderspital-st-gallen",
         "fr": "specialiste-accueil-et-admission-des-patients-40-ostschweizer-kinderspital-st-gallen"
@@ -597,11 +615,13 @@
           "fachmitarbeiter-in-empfang-patientenaufnahme-40-kispi-sg-st-gallen"
         ],
         "it": [
-          "fachmitarbeiter-in-empfang-patientenaufnahme-40-kispi-sg-st-gallen"
+          "fachmitarbeiter-in-empfang-patientenaufnahme-40-kispi-sg-st-gallen",
+          "specialista-accettazione-pazienti-e-reception-40-ostschweizer-kinderspital-st-gallen"
         ]
       },
       "previousSlugs": [
-        "fachmitarbeiter-in-empfang-patientenaufnahme-40-kispi-sg-st-gallen"
+        "fachmitarbeiter-in-empfang-patientenaufnahme-40-kispi-sg-st-gallen",
+        "specialista-accettazione-pazienti-e-reception-40-ostschweizer-kinderspital-st-gallen"
       ],
       "firstSeenAt": "2026-05-19T20:59:59.945Z",
       "salaryMin": 49500,
@@ -698,8 +718,7 @@
       },
       "previousSlugsByLocale": {
         "de": [
-          "physiotherapeut-in-hf-fh-60-80-ostschweizer-kinderspital-st-gallen",
-          "physiotherapeut-in-hf-fh-60-80-kispi-sg-st-gallen"
+          "physiotherapeut-in-hf-fh-60-80-ostschweizer-kinderspital-st-gallen"
         ],
         "it": [
           "physiotherapeut-in-hf-fh-60-80-kispi-sg-st-gallen"
@@ -725,12 +744,12 @@
     },
     {
       "id": "kispi-sg-fef0b8bdcec5",
-      "slug": "segretario-a-medico-a-60-ostschweizer-kinderspital-st-gallen",
+      "slug": "segretaria-medica-60-ostschweizer-kinderspital-st-gallen",
       "slugByLocale": {
-        "it": "segretario-a-medico-a-60-ostschweizer-kinderspital-st-gallen",
+        "it": "segretaria-medica-60-ostschweizer-kinderspital-st-gallen",
         "en": "medical-secretary-60-ostschweizer-kinderspital-st-gallen",
         "de": "arztsekretar-in-60-ostschweizer-kinderspital-st-gallen",
-        "fr": "secretaire-medical-e-60-ostschweizer-kinderspital-st-gallen"
+        "fr": "secretaire-medicale-60-ostschweizer-kinderspital-st-gallen"
       },
       "company": "Ostschweizer Kinderspital",
       "companyKey": "kispi-sg",
@@ -807,11 +826,17 @@
           "arztsekretar-in-60-kispi-sg-st-gallen"
         ],
         "it": [
-          "arztsekretar-in-60-kispi-sg-st-gallen"
+          "arztsekretar-in-60-kispi-sg-st-gallen",
+          "segretario-a-medico-a-60-ostschweizer-kinderspital-st-gallen"
+        ],
+        "fr": [
+          "secretaire-medical-e-60-ostschweizer-kinderspital-st-gallen"
         ]
       },
       "previousSlugs": [
-        "arztsekretar-in-60-kispi-sg-st-gallen"
+        "arztsekretar-in-60-kispi-sg-st-gallen",
+        "segretario-a-medico-a-60-ostschweizer-kinderspital-st-gallen",
+        "secretaire-medical-e-60-ostschweizer-kinderspital-st-gallen"
       ],
       "firstSeenAt": "2026-05-19T20:59:57.899Z",
       "salaryMin": 49500,
@@ -829,9 +854,9 @@
     },
     {
       "id": "kispi-sg-0d0279fbebc7",
-      "slug": "primario-primaria-endocrinologia-diabetologia-pediatrica-70-ostschweizer-kinderspital-st-gallen",
+      "slug": "direttore-a-medico-a-pediatriologia-endocrinologia-diabetologia-70-ostschweizer-kinderspital-st-gallen",
       "slugByLocale": {
-        "it": "primario-primaria-endocrinologia-diabetologia-pediatrica-70-ostschweizer-kinderspital-st-gallen",
+        "it": "direttore-a-medico-a-pediatriologia-endocrinologia-diabetologia-70-ostschweizer-kinderspital-st-gallen",
         "en": "senior-physician-pediatric-endocrinology-diabetology-70-ostschweizer-kinderspital-st-gallen",
         "de": "oberarztin-oberarzt-padiatrische-endokrinologie-diabetologie-70-ostschweizer-kinderspital-st-gallen",
         "fr": "medecin-chef-fe-endocrinologie-diabetologie-pediatrique-70-ostschweizer-kinderspital-st-gallen"
@@ -911,11 +936,13 @@
           "oberarztin-oberarzt-padiatrische-endokrinologie-diabetologie-70-kispi-sg-st-gallen"
         ],
         "it": [
-          "oberarztin-oberarzt-padiatrische-endokrinologie-diabetologie-70-kispi-sg-st-gallen"
+          "oberarztin-oberarzt-padiatrische-endokrinologie-diabetologie-70-kispi-sg-st-gallen",
+          "primario-primaria-endocrinologia-diabetologia-pediatrica-70-ostschweizer-kinderspital-st-gallen"
         ]
       },
       "previousSlugs": [
-        "oberarztin-oberarzt-padiatrische-endokrinologie-diabetologie-70-kispi-sg-st-gallen"
+        "oberarztin-oberarzt-padiatrische-endokrinologie-diabetologie-70-kispi-sg-st-gallen",
+        "primario-primaria-endocrinologia-diabetologia-pediatrica-70-ostschweizer-kinderspital-st-gallen"
       ],
       "firstSeenAt": "2026-05-19T20:59:56.910Z",
       "salaryMin": 68000,
@@ -933,12 +960,12 @@
     },
     {
       "id": "kispi-sg-26b068fa67cb",
-      "slug": "medico-senior-medicina-intensiva-neonatologia-80-100-ostschweizer-kinderspital-st-gallen",
+      "slug": "direttore-a-intensivpediatria-e-neonatologia-80-100-ostschweizer-kinderspital-st-gallen",
       "slugByLocale": {
-        "it": "medico-senior-medicina-intensiva-neonatologia-80-100-ostschweizer-kinderspital-st-gallen",
+        "it": "direttore-a-intensivpediatria-e-neonatologia-80-100-ostschweizer-kinderspital-st-gallen",
         "en": "senior-physician-intensive-care-neonatology-80-100-ostschweizer-kinderspital-st-gallen",
         "de": "oberarztin-oberarzt-intensivmedizin-neonatologie-80-100-ostschweizer-kinderspital-st-gallen",
-        "fr": "medecin-senior-medecine-intensive-neonatologie-80-100-ostschweizer-kinderspital-st-gallen"
+        "fr": "directrice-directeur-intensiv-pediatrie-et-neonatologie-80-100-ostschweizer-kinderspital-st-gallen"
       },
       "company": "Ostschweizer Kinderspital",
       "companyKey": "kispi-sg",
@@ -1015,11 +1042,17 @@
           "oberarztin-oberarzt-intensivmedizin-neonatologie-80-100-kispi-sg-st-gallen"
         ],
         "it": [
-          "oberarztin-oberarzt-intensivmedizin-neonatologie-80-100-kispi-sg-st-gallen"
+          "oberarztin-oberarzt-intensivmedizin-neonatologie-80-100-kispi-sg-st-gallen",
+          "medico-senior-medicina-intensiva-neonatologia-80-100-ostschweizer-kinderspital-st-gallen"
+        ],
+        "fr": [
+          "medecin-senior-medecine-intensive-neonatologie-80-100-ostschweizer-kinderspital-st-gallen"
         ]
       },
       "previousSlugs": [
-        "oberarztin-oberarzt-intensivmedizin-neonatologie-80-100-kispi-sg-st-gallen"
+        "oberarztin-oberarzt-intensivmedizin-neonatologie-80-100-kispi-sg-st-gallen",
+        "medico-senior-medicina-intensiva-neonatologia-80-100-ostschweizer-kinderspital-st-gallen",
+        "medecin-senior-medecine-intensive-neonatologie-80-100-ostschweizer-kinderspital-st-gallen"
       ],
       "firstSeenAt": "2026-05-19T20:59:55.416Z",
       "salaryMin": 68000,

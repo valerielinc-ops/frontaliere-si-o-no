@@ -231,9 +231,9 @@
       },
       "slugByLocale": {
         "it": "umweltspezialist-80-100-w-m-d-hitachi-energy-zurich-switzerland",
-        "en": "umweltspezialist-80-100-w-m-d-hitachi-energy-zurich-switzerland",
+        "en": "environmental-specialist-80-100-w-m-d-hitachi-energy-zurich-switzerland",
         "de": "umweltspezialist-80-100-w-m-d-hitachi-energy-zurich-switzerland",
-        "fr": "umweltspezialist-80-100-w-m-d-hitachi-energy-zurich-switzerland"
+        "fr": "specialiste-de-l-environnement-80-100-m-j-hitachi-energy-zurich-switzerland"
       },
       "id": "hitachi-energy-13cecc7c1af2",
       "needsRetranslation": true,
@@ -1645,8 +1645,7 @@
       },
       "previousSlugs": [
         "befristet-automatiker-in-80-100-w-m-d-hitachi-energy-lenzburg-switzerland",
-        "befristet-automatiker-in-80-100-w-m-d-hitachi-energy-lenzburg",
-        "befristet-automatiker-in-80-100-m-w-d-hitachi-energy-lenzburg"
+        "befristet-automatiker-in-80-100-w-m-d-hitachi-energy-lenzburg"
       ],
       "salaryMin": 58000,
       "salaryMax": 88000,
@@ -3016,21 +3015,7 @@
       },
       "streetAddress": "Via Lucino 53",
       "postalCode": "6900",
-      "firstSeenAt": "2026-05-22T22:29:28.369Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "produktionsmitarbeiter-in-montage-80-100-w-m-d-hitachi-energy-zurich-switzerland"
-        ],
-        "en": [
-          "produktionsmitarbeiter-in-montage-80-100-w-m-d-hitachi-energy-zurich-switzerland"
-        ],
-        "fr": [
-          "produktionsmitarbeiter-in-montage-80-100-w-m-d-hitachi-energy-zurich-switzerland"
-        ]
-      },
-      "previousSlugs": [
-        "produktionsmitarbeiter-in-montage-80-100-w-m-d-hitachi-energy-zurich-switzerland"
-      ]
+      "firstSeenAt": "2026-05-22T22:29:28.369Z"
     },
     {
       "title": "Senior Quality Expert – Composites Insulators High Voltage products (f/m/d)",
@@ -5686,15 +5671,9 @@
       "postalCode": "6900",
       "firstSeenAt": "2026-05-22T22:29:28.369Z",
       "previousSlugs": [
-        "troubleshooting-process-quality-technician-80-100-f-m-d-hitachi-energy-zurich-switzerland",
         "technico-qualita-processo-troubleshooting-80-100-f-m-d-hitachi-energy-zurich",
         "troubleshooting-process-quality-technician-80-100-f-m-d-hitachi-energy-zurich-switzerland-2"
-      ],
-      "previousSlugsByLocale": {
-        "de": [
-          "troubleshooting-process-quality-technician-80-100-f-m-d-hitachi-energy-zurich-switzerland"
-        ]
-      }
+      ]
     }
   ]
 }

@@ -25540,7 +25540,7 @@
       "slugByLocale": {
         "it": "specialista-del-prodotto-rcsc-roche-basel",
         "en": "product-specialist-rcsc-roche-ch",
-        "de": "produktspezialist-rcsc-roche-basel",
+        "de": "product-spezialist-rcsc-roche-basel",
         "fr": "specialiste-des-produits-roche-basel"
       },
       "company": "Roche",
@@ -25581,14 +25581,16 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "product-specialist-rcsc-roche-ch"
+        "product-specialist-rcsc-roche-ch",
+        "produktspezialist-rcsc-roche-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
           "product-specialist-rcsc-roche-ch"
         ],
         "de": [
-          "product-specialist-rcsc-roche-ch"
+          "product-specialist-rcsc-roche-ch",
+          "produktspezialist-rcsc-roche-basel"
         ],
         "fr": [
           "product-specialist-rcsc-roche-ch"
@@ -25692,7 +25694,7 @@
         "en": "associate-safety-director-senior-safety-scientist-roche-ch",
         "it": "associate-safety-director-senior-safety-scientist-roche-ch",
         "de": "associate-safety-director-senior-safety-scientist-roche-ch",
-        "fr": "associate-safety-director-senior-safety-scientist-roche-ch"
+        "fr": "directeur-associe-de-la-securite-scientifique-principal-de-la-securite-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -25750,12 +25752,12 @@
     },
     {
       "id": "roche-35256fb3c481",
-      "slug": "clinical-research-intern-roche-ch",
+      "slug": "clinical-ricerca-tirocinante-roche-budapest",
       "slugByLocale": {
         "en": "clinical-research-intern-roche-ch",
-        "it": "clinical-research-intern-roche-ch",
-        "de": "clinical-research-intern-roche-ch",
-        "fr": "clinical-research-intern-roche-ch"
+        "it": "clinical-ricerca-tirocinante-roche-budapest",
+        "de": "clinical-forschung-praktikant-roche-budapest",
+        "fr": "clinical-recherche-stagiaire-roche-budapest"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -25810,7 +25812,21 @@
         }
       },
       "firstSeenAt": "2026-05-22T23:22:59.591Z",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "clinical-research-intern-roche-ch"
+        ],
+        "de": [
+          "clinical-research-intern-roche-ch"
+        ],
+        "fr": [
+          "clinical-research-intern-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "clinical-research-intern-roche-ch"
+      ]
     },
     {
       "id": "roche-0c20261e19d6",
@@ -25883,7 +25899,7 @@
         "en": "data-information-architect-data-platforms-roche-ch",
         "it": "data-information-architect-data-platforms-roche-ch",
         "de": "data-information-architect-data-platforms-roche-ch",
-        "fr": "data-information-architect-data-platforms-roche-ch"
+        "fr": "architecte-de-donnees-d-information-plateformes-de-donnees-roche-basel-e88a1e"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -25939,11 +25955,10 @@
       "postalCode": "4001",
       "firstSeenAt": "2026-05-22T23:22:58.080Z",
       "previousSlugs": [
-        "data-information-architect-data-platforms-roche-ch",
-        "data-information-architetto-data-platforms-roche-basel",
-        "data-information-architecte-data-platforms-roche-basel",
         "data-information-architect-piattaforme-di-dati-roche-basel",
-        "architecte-de-donnees-d-information-plateformes-de-donnees-roche-basel"
+        "architecte-de-donnees-d-information-plateformes-de-donnees-roche-basel",
+        "data-information-architetto-data-platforms-roche-basel",
+        "data-information-architecte-data-platforms-roche-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -26020,12 +26035,12 @@
     },
     {
       "id": "roche-c06ab943ef64",
-      "slug": "gmp-prozess-experte-im-bereich-der-sterilen-abfullung-2-jahre-temporar-roche-ch",
+      "slug": "esperto-di-processo-gmp-nel-campo-del-riempimento-sterile-2-anni-temporanei-roche-kaiseraugst",
       "slugByLocale": {
         "de": "gmp-prozess-experte-im-bereich-der-sterilen-abfullung-2-jahre-temporar-roche-ch",
-        "it": "gmp-prozess-experte-im-bereich-der-sterilen-abfullung-2-jahre-temporar-roche-ch",
-        "en": "gmp-prozess-experte-im-bereich-der-sterilen-abfullung-2-jahre-temporar-roche-ch",
-        "fr": "gmp-prozess-experte-im-bereich-der-sterilen-abfullung-2-jahre-temporar-roche-ch"
+        "it": "esperto-di-processo-gmp-nel-campo-del-riempimento-sterile-2-anni-temporanei-roche-kaiseraugst",
+        "en": "gmp-process-expert-in-the-field-of-sterile-filling-2-years-temporary-roche-kaiseraugst",
+        "fr": "expert-en-processus-de-bpf-dans-le-domaine-du-remplissage-sterile-2-ans-temporaires-roche-kaiseraugst"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -26079,16 +26094,30 @@
         }
       },
       "postalCode": "5000",
-      "firstSeenAt": "2026-05-22T23:22:56.407Z"
+      "firstSeenAt": "2026-05-22T23:22:56.407Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "gmp-prozess-experte-im-bereich-der-sterilen-abfullung-2-jahre-temporar-roche-ch"
+        ],
+        "en": [
+          "gmp-prozess-experte-im-bereich-der-sterilen-abfullung-2-jahre-temporar-roche-ch"
+        ],
+        "fr": [
+          "gmp-prozess-experte-im-bereich-der-sterilen-abfullung-2-jahre-temporar-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "gmp-prozess-experte-im-bereich-der-sterilen-abfullung-2-jahre-temporar-roche-ch"
+      ]
     },
     {
       "id": "roche-ef4446cd1b69",
-      "slug": "technical-product-owner-roche-digital-technologies-pharma-medicine-roche-ch",
+      "slug": "titolare-del-prodotto-tecnico-roche-digital-technologies-farmaco-roche-basel",
       "slugByLocale": {
         "en": "technical-product-owner-roche-digital-technologies-pharma-medicine-roche-ch",
-        "it": "technical-product-owner-roche-digital-technologies-pharma-medicine-roche-ch",
-        "de": "technical-product-owner-roche-digital-technologies-pharma-medicine-roche-ch",
-        "fr": "technical-product-owner-roche-digital-technologies-pharma-medicine-roche-ch"
+        "it": "titolare-del-prodotto-tecnico-roche-digital-technologies-farmaco-roche-basel",
+        "de": "technischer-produktinhaber-roche-digital-technologies-pharma-medicine-roche-basel",
+        "fr": "proprietaire-de-produit-technique-roche-digital-technologies-pharma-medicine-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -26142,7 +26171,21 @@
         }
       },
       "postalCode": "4001",
-      "firstSeenAt": "2026-05-22T23:22:55.622Z"
+      "firstSeenAt": "2026-05-22T23:22:55.622Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "technical-product-owner-roche-digital-technologies-pharma-medicine-roche-ch"
+        ],
+        "de": [
+          "technical-product-owner-roche-digital-technologies-pharma-medicine-roche-ch"
+        ],
+        "fr": [
+          "technical-product-owner-roche-digital-technologies-pharma-medicine-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "technical-product-owner-roche-digital-technologies-pharma-medicine-roche-ch"
+      ]
     },
     {
       "id": "roche-560b666aba7a",
@@ -26721,12 +26764,12 @@
     },
     {
       "id": "roche-ab599623a23c",
-      "slug": "programs-and-solutions-lead-digital-and-tech-roche-ch",
+      "slug": "programmi-e-soluzioni-lead-digital-e-tech-roche-basel",
       "slugByLocale": {
         "en": "programs-and-solutions-lead-digital-and-tech-roche-ch",
-        "it": "programs-and-solutions-lead-digital-and-tech-roche-ch",
-        "de": "programs-and-solutions-lead-digital-and-tech-roche-ch",
-        "fr": "programs-and-solutions-lead-digital-and-tech-roche-ch"
+        "it": "programmi-e-soluzioni-lead-digital-e-tech-roche-basel",
+        "de": "programme-und-losungen-lead-digital-und-tech-roche-basel",
+        "fr": "responsable-des-programmes-et-des-solutions-digital-and-tech-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -26780,7 +26823,21 @@
         }
       },
       "postalCode": "4001",
-      "firstSeenAt": "2026-05-22T23:22:47.534Z"
+      "firstSeenAt": "2026-05-22T23:22:47.534Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "programs-and-solutions-lead-digital-and-tech-roche-ch"
+        ],
+        "de": [
+          "programs-and-solutions-lead-digital-and-tech-roche-ch"
+        ],
+        "fr": [
+          "programs-and-solutions-lead-digital-and-tech-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "programs-and-solutions-lead-digital-and-tech-roche-ch"
+      ]
     },
     {
       "id": "roche-4780608658e1",
@@ -27040,12 +27097,12 @@
     },
     {
       "id": "roche-8e5ea8c909b3",
-      "slug": "customer-lead-indirect-channels-roche-ch",
+      "slug": "customer-lead-canali-indiretti-roche-basel",
       "slugByLocale": {
         "fr": "customer-lead-indirect-channels-roche-ch",
-        "it": "customer-lead-indirect-channels-roche-ch",
+        "it": "customer-lead-canali-indiretti-roche-basel",
         "en": "customer-lead-indirect-channels-roche-ch",
-        "de": "customer-lead-indirect-channels-roche-ch"
+        "de": "customer-lead-indirekte-kanale-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -27099,7 +27156,18 @@
         }
       },
       "postalCode": "4001",
-      "firstSeenAt": "2026-05-22T23:22:43.320Z"
+      "firstSeenAt": "2026-05-22T23:22:43.320Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "customer-lead-indirect-channels-roche-ch"
+        ],
+        "de": [
+          "customer-lead-indirect-channels-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "customer-lead-indirect-channels-roche-ch"
+      ]
     },
     {
       "id": "roche-252d07a67c52",
@@ -27167,12 +27235,12 @@
     },
     {
       "id": "roche-1f97c3ed500a",
-      "slug": "bc-marketing-intern-roche-ch",
+      "slug": "bc-marketing-tirocinante-roche-mexico-city",
       "slugByLocale": {
         "en": "bc-marketing-intern-roche-mexico-city",
-        "it": "bc-marketing-intern-roche-ch",
-        "de": "bc-marketing-intern-roche-ch",
-        "fr": "bc-marketing-intern-roche-ch"
+        "it": "bc-marketing-tirocinante-roche-mexico-city",
+        "de": "bc-marketing-praktikant-roche-mexico-city",
+        "fr": "bc-marketing-stagiaire-roche-mexico-city"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -27227,16 +27295,30 @@
         }
       },
       "firstSeenAt": "2026-05-22T23:22:41.720Z",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "bc-marketing-intern-roche-ch"
+        ],
+        "de": [
+          "bc-marketing-intern-roche-ch"
+        ],
+        "fr": [
+          "bc-marketing-intern-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "bc-marketing-intern-roche-ch"
+      ]
     },
     {
       "id": "roche-d702fd0bb92c",
-      "slug": "head-of-digital-operations-and-performance-global-digital-data-ai-roche-ch",
+      "slug": "responsabile-delle-operazioni-e-delle-prestazioni-digitali-global-digital-data-ai-roche-basel",
       "slugByLocale": {
         "en": "head-of-digital-operations-and-performance-global-digital-data-ai-roche-ch",
-        "it": "head-of-digital-operations-and-performance-global-digital-data-ai-roche-ch",
-        "de": "head-of-digital-operations-and-performance-global-digital-data-ai-roche-ch",
-        "fr": "head-of-digital-operations-and-performance-global-digital-data-ai-roche-ch"
+        "it": "responsabile-delle-operazioni-e-delle-prestazioni-digitali-global-digital-data-ai-roche-basel",
+        "de": "leiter-digitaler-betrieb-und-performance-global-digital-data-ai-roche-basel",
+        "fr": "responsable-des-operations-et-performances-numeriques-global-digital-data-ai-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -27290,7 +27372,21 @@
         }
       },
       "postalCode": "4001",
-      "firstSeenAt": "2026-05-22T23:22:40.969Z"
+      "firstSeenAt": "2026-05-22T23:22:40.969Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "head-of-digital-operations-and-performance-global-digital-data-ai-roche-ch"
+        ],
+        "de": [
+          "head-of-digital-operations-and-performance-global-digital-data-ai-roche-ch"
+        ],
+        "fr": [
+          "head-of-digital-operations-and-performance-global-digital-data-ai-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "head-of-digital-operations-and-performance-global-digital-data-ai-roche-ch"
+      ]
     }
   ]
 }

@@ -149,7 +149,7 @@
         "de": "medizinische-assistentin-infektionskrankheiten-und-reisemedizin-eoc-ente-ospedaliero-cantonale-bellinzona",
         "it": "medico-assistente-malattie-infettive-e-medicina-di-viaggio-eoc-ente-ospedaliero-cantonale-bellinzona",
         "en": "medical-assistant-infectious-diseases-and-travel-medicine-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "fr": "medecin-assistant-en-maladies-infectieuses-et-medecine-du-voyage-eoc-ente-ospedaliero-cantonale-bellinzona"
+        "fr": "assistant-medical-maladies-infectieuses-et-medecine-des-voyages-gesundheitszentrum-fricktal-rheinfelden"
       },
       "company": "Gesundheitszentrum Fricktal",
       "companyKey": "gesundheitszentrum-fricktal",
@@ -213,21 +213,25 @@
         ],
         "de": [
           "abteilungsleitung-pflegeheim-seora-rheinfelden-m-w-d-gesundheitszentrum-fricktal"
+        ],
+        "fr": [
+          "medecin-assistant-en-maladies-infectieuses-et-medecine-du-voyage-eoc-ente-ospedaliero-cantonale-bellinzona"
         ]
       },
       "previousSlugs": [
         "medico-assistente-malattie-infettive-e-medicina-di-viaggio-eoc-ente-ospedaliero-cantonale-bellinzona-uilmrr",
-        "abteilungsleitung-pflegeheim-seora-rheinfelden-m-w-d-gesundheitszentrum-fricktal"
+        "abteilungsleitung-pflegeheim-seora-rheinfelden-m-w-d-gesundheitszentrum-fricktal",
+        "medecin-assistant-en-maladies-infectieuses-et-medecine-du-voyage-eoc-ente-ospedaliero-cantonale-bellinzona"
       ]
     },
     {
       "id": "gesundheitszentrum-fricktal-88cabea34e5b",
-      "slug": "tecnico-a-in-analisi-biomediche-eoc-ente-ospedaliero-cantonale-bellinzona",
+      "slug": "consulente-senior-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-hf-uberwachungspflege-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
-        "it": "tecnico-a-in-analisi-biomediche-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "en": "biomedical-analysis-technician-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "fr": "technicien-en-analyse-biomedicale-eoc-ente-ospedaliero-cantonale-bellinzona"
+        "it": "consulente-senior-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
+        "en": "dipl-senior-consultant-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
+        "fr": "dipl-consultant-principal-m-m-j-gesundheitszentrum-fricktal-rheinfelden"
       },
       "company": "Gesundheitszentrum Fricktal",
       "companyKey": "gesundheitszentrum-fricktal",
@@ -282,16 +286,32 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-22T22:14:46.360Z"
+      "firstSeenAt": "2026-05-22T22:14:46.360Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "tecnico-a-in-analisi-biomediche-eoc-ente-ospedaliero-cantonale-bellinzona"
+        ],
+        "en": [
+          "biomedical-analysis-technician-eoc-ente-ospedaliero-cantonale-bellinzona"
+        ],
+        "fr": [
+          "technicien-en-analyse-biomedicale-eoc-ente-ospedaliero-cantonale-bellinzona"
+        ]
+      },
+      "previousSlugs": [
+        "tecnico-a-in-analisi-biomediche-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "biomedical-analysis-technician-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "technicien-en-analyse-biomedicale-eoc-ente-ospedaliero-cantonale-bellinzona"
+      ]
     },
     {
       "id": "gesundheitszentrum-fricktal-d2beca97e856",
-      "slug": "medico-capoclinica-chirurgia-ortopedica-eoc-ente-ospedaliero-cantonale-lugano",
+      "slug": "medico-capoclinica-chirurgia-ortopedica-gesundheitszentrum-fricktal-rheinfelden",
       "slugByLocale": {
         "de": "medizinische-orthopadische-chirurgie-eoc-ente-ospedaliero-cantonale-lugano",
-        "it": "medico-capoclinica-chirurgia-ortopedica-eoc-ente-ospedaliero-cantonale-lugano",
-        "en": "medical-orthopedic-surgery-eoc-ente-ospedaliero-cantonale-lugano",
-        "fr": "chirurgie-orthopedique-medicale-eoc-ente-ospedaliero-cantonale-lugano"
+        "it": "medico-capoclinica-chirurgia-ortopedica-gesundheitszentrum-fricktal-rheinfelden",
+        "en": "medical-orthopedic-surgery-gesundheitszentrum-fricktal-rheinfelden",
+        "fr": "chirurgie-orthopedique-medicale-gesundheitszentrum-fricktal-rheinfelden"
       },
       "company": "Gesundheitszentrum Fricktal",
       "companyKey": "gesundheitszentrum-fricktal",
@@ -351,29 +371,37 @@
       "retranslationAttempts": 1,
       "previousSlugsByLocale": {
         "en": [
-          "medico-capoclinica-chirurgia-ortopedica-eoc-ente-ospedaliero-cantonale-lugano-uilm12"
+          "medico-capoclinica-chirurgia-ortopedica-eoc-ente-ospedaliero-cantonale-lugano-uilm12",
+          "medical-orthopedic-surgery-eoc-ente-ospedaliero-cantonale-lugano"
         ],
         "de": [
           "fachperson-gesundheit-efz-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
         ],
         "fr": [
-          "chef-de-clinique-en-chirurgie-orthopedique-eoc-ente-ospedaliero-cantonale-lugano"
+          "chef-de-clinique-en-chirurgie-orthopedique-eoc-ente-ospedaliero-cantonale-lugano",
+          "chirurgie-orthopedique-medicale-eoc-ente-ospedaliero-cantonale-lugano"
+        ],
+        "it": [
+          "medico-capoclinica-chirurgia-ortopedica-eoc-ente-ospedaliero-cantonale-lugano"
         ]
       },
       "previousSlugs": [
         "medico-capoclinica-chirurgia-ortopedica-eoc-ente-ospedaliero-cantonale-lugano-uilm12",
+        "medical-orthopedic-surgery-eoc-ente-ospedaliero-cantonale-lugano",
         "fachperson-gesundheit-efz-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
-        "chef-de-clinique-en-chirurgie-orthopedique-eoc-ente-ospedaliero-cantonale-lugano"
+        "chef-de-clinique-en-chirurgie-orthopedique-eoc-ente-ospedaliero-cantonale-lugano",
+        "chirurgie-orthopedique-medicale-eoc-ente-ospedaliero-cantonale-lugano",
+        "medico-capoclinica-chirurgia-ortopedica-eoc-ente-ospedaliero-cantonale-lugano"
       ]
     },
     {
       "id": "gesundheitszentrum-fricktal-8ca5c4d9be4b",
-      "slug": "hausarztin-hausarzt-w-m-d-in-magden-gesundheitszentrum-fricktal-rheinfelden",
+      "slug": "consulente-senior-w-m-d-gesundheitszentrum-fricktal-rheinfelden",
       "slugByLocale": {
         "de": "hausarztin-hausarzt-w-m-d-in-magden-gesundheitszentrum-fricktal-rheinfelden",
-        "it": "hausarztin-hausarzt-w-m-d-in-magden-gesundheitszentrum-fricktal-rheinfelden",
-        "en": "hausarztin-hausarzt-w-m-d-in-magden-gesundheitszentrum-fricktal-rheinfelden",
-        "fr": "hausarztin-hausarzt-w-m-d-in-magden-gesundheitszentrum-fricktal-rheinfelden"
+        "it": "consulente-senior-w-m-d-gesundheitszentrum-fricktal-rheinfelden",
+        "en": "senior-consultant-w-m-d-gesundheitszentrum-fricktal-rheinfelden",
+        "fr": "consultant-principal-m-j-gesundheitszentrum-fricktal-rheinfelden"
       },
       "company": "Gesundheitszentrum Fricktal",
       "companyKey": "gesundheitszentrum-fricktal",
@@ -428,7 +456,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-22T22:14:44.742Z"
+      "firstSeenAt": "2026-05-22T22:14:44.742Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "hausarztin-hausarzt-w-m-d-in-magden-gesundheitszentrum-fricktal-rheinfelden"
+        ],
+        "en": [
+          "hausarztin-hausarzt-w-m-d-in-magden-gesundheitszentrum-fricktal-rheinfelden"
+        ],
+        "fr": [
+          "hausarztin-hausarzt-w-m-d-in-magden-gesundheitszentrum-fricktal-rheinfelden"
+        ]
+      },
+      "previousSlugs": [
+        "hausarztin-hausarzt-w-m-d-in-magden-gesundheitszentrum-fricktal-rheinfelden"
+      ]
     },
     {
       "id": "gesundheitszentrum-fricktal-f20b8847e2e9",
@@ -572,10 +614,10 @@
     },
     {
       "id": "gesundheitszentrum-fricktal-bd6e1bb01e53",
-      "slug": "dipl-pflegefachperson-w-m-d-pool-gesundheitszentrum-fricktal-rheinfelden",
+      "slug": "dipl-carriera-m-d-piscina-gesundheitszentrum-fricktal-rheinfelden",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-w-m-d-pool-gesundheitszentrum-fricktal-rheinfelden",
-        "it": "dipl-pflegefachperson-w-m-d-pool-gesundheitszentrum-fricktal-rheinfelden",
+        "it": "dipl-carriera-m-d-piscina-gesundheitszentrum-fricktal-rheinfelden",
         "en": "dipl-pflegefachperson-w-m-d-pool-gesundheitszentrum-fricktal-rheinfelden",
         "fr": "dipl-pflegefachperson-w-m-d-pool-gesundheitszentrum-fricktal-rheinfelden"
       },
@@ -632,7 +674,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-22T22:14:42.007Z"
+      "firstSeenAt": "2026-05-22T22:14:42.007Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-w-m-d-pool-gesundheitszentrum-fricktal-rheinfelden"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachperson-w-m-d-pool-gesundheitszentrum-fricktal-rheinfelden"
+      ]
     },
     {
       "id": "gesundheitszentrum-fricktal-03ae3048eb02",

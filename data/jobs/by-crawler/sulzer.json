@@ -2822,12 +2822,12 @@
     },
     {
       "id": "sulzer-84559abcfae6",
-      "slug": "engineering-intern-sulzer-ch-2",
+      "slug": "engineering-tirocinante-sulzer-portland",
       "slugByLocale": {
         "en": "engineering-intern-sulzer-portland",
-        "it": "engineering-intern-sulzer-ch-2",
-        "de": "engineering-intern-sulzer-ch-2",
-        "fr": "engineering-intern-sulzer-ch-2"
+        "it": "engineering-tirocinante-sulzer-portland",
+        "de": "engineering-praktikant-sulzer-portland",
+        "fr": "engineering-stagiaire-sulzer-portland"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -2872,10 +2872,20 @@
       "previousSlugsByLocale": {
         "en": [
           "engineering-intern-sulzer-ch"
+        ],
+        "it": [
+          "engineering-intern-sulzer-ch-2"
+        ],
+        "de": [
+          "engineering-intern-sulzer-ch-2"
+        ],
+        "fr": [
+          "engineering-intern-sulzer-ch-2"
         ]
       },
       "previousSlugs": [
-        "engineering-intern-sulzer-ch"
+        "engineering-intern-sulzer-ch",
+        "engineering-intern-sulzer-ch-2"
       ],
       "salaryMin": 41600,
       "salaryMax": 63000,

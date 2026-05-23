@@ -9162,12 +9162,12 @@
     },
     {
       "id": "eth-zurich-04b0740a1ca1",
-      "slug": "phd-in-land-use-modeling-eth-zurich-ch",
+      "slug": "dottorato-in-modellazione-dell-uso-del-suolo-eth-zurich-zurich",
       "slugByLocale": {
         "en": "phd-in-land-use-modeling-eth-zurich-ch",
-        "it": "phd-in-land-use-modeling-eth-zurich-ch",
-        "de": "phd-in-land-use-modeling-eth-zurich-ch",
-        "fr": "phd-in-land-use-modeling-eth-zurich-ch"
+        "it": "dottorato-in-modellazione-dell-uso-del-suolo-eth-zurich-zurich",
+        "de": "promotion-in-der-landnutzungsmodellierung-eth-zurich-zurich",
+        "fr": "doctorat-en-modelisation-de-l-utilisation-des-sols-eth-zurich-zurich"
       },
       "company": "ETH Zürich",
       "companyKey": "eth-zurich",
@@ -9221,16 +9221,30 @@
         }
       },
       "postalCode": "8001",
-      "firstSeenAt": "2026-05-22T22:07:41.982Z"
+      "firstSeenAt": "2026-05-22T22:07:41.982Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "phd-in-land-use-modeling-eth-zurich-ch"
+        ],
+        "de": [
+          "phd-in-land-use-modeling-eth-zurich-ch"
+        ],
+        "fr": [
+          "phd-in-land-use-modeling-eth-zurich-ch"
+        ]
+      },
+      "previousSlugs": [
+        "phd-in-land-use-modeling-eth-zurich-ch"
+      ]
     },
     {
       "id": "eth-zurich-d2341500e760",
-      "slug": "financial-and-administrative-officer-eth-zurich-ch",
+      "slug": "funzionario-finanziario-e-amministrativo-eth-zurich-zurich",
       "slugByLocale": {
         "en": "financial-and-administrative-officer-eth-zurich-ch",
-        "it": "financial-and-administrative-officer-eth-zurich-ch",
-        "de": "financial-and-administrative-officer-eth-zurich-ch",
-        "fr": "financial-and-administrative-officer-eth-zurich-ch"
+        "it": "funzionario-finanziario-e-amministrativo-eth-zurich-zurich",
+        "de": "finanz-und-verwaltungsbeamte-eth-zurich-zurich",
+        "fr": "fonctionnaire-des-finances-et-de-l-administration-eth-zurich-zurich"
       },
       "company": "ETH Zürich",
       "companyKey": "eth-zurich",
@@ -9284,7 +9298,21 @@
         }
       },
       "postalCode": "8001",
-      "firstSeenAt": "2026-05-22T22:07:41.505Z"
+      "firstSeenAt": "2026-05-22T22:07:41.505Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "financial-and-administrative-officer-eth-zurich-ch"
+        ],
+        "de": [
+          "financial-and-administrative-officer-eth-zurich-ch"
+        ],
+        "fr": [
+          "financial-and-administrative-officer-eth-zurich-ch"
+        ]
+      },
+      "previousSlugs": [
+        "financial-and-administrative-officer-eth-zurich-ch"
+      ]
     },
     {
       "id": "eth-zurich-62f45cbae93b",

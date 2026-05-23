@@ -2213,8 +2213,8 @@
       "slugByLocale": {
         "de": "chemie-pharmatechnologe-im-schichtbetrieb-vor-und-endstufen-herstellung-pmc-i-bachem",
         "it": "chemie-pharmatechnologe-im-schichtbetrieb-vor-e-endstufen-herstellung-pmc-i-bachem-ag-bubendorf",
-        "en": "chemie-pharmatechnologe-im-schichtbetrieb-vor-und-endstufen-herstellung-pmc-i-bachem",
-        "fr": "chemie-pharmatechnologe-im-schichtbetrieb-vor-und-endstufen-herstellung-pmc-i-bachem"
+        "en": "chemistry-pharmatechnologes-in-shift-operation-pre-and-final-stages-production-pmc-i-bachem-ag-bubendorf",
+        "fr": "chimie-pharmatechnologies-en-service-poste-etapes-pre-et-finale-production-cpm-i-bachem-ag-bubendorf"
       },
       "company": "Bachem AG",
       "companyKey": "bachem",
@@ -2260,6 +2260,12 @@
       "previousSlugsByLocale": {
         "it": [
           "chemie-pharmatechnologe-im-schichtbetrieb-vor-und-endstufen-herstellung-pmc-i-bachem"
+        ],
+        "en": [
+          "chemie-pharmatechnologe-im-schichtbetrieb-vor-und-endstufen-herstellung-pmc-i-bachem"
+        ],
+        "fr": [
+          "chemie-pharmatechnologe-im-schichtbetrieb-vor-und-endstufen-herstellung-pmc-i-bachem"
         ]
       },
       "previousSlugs": [
@@ -2286,7 +2292,7 @@
         "en": "global-it-ot-network-architect-f-m-d-100-bachem-bubendorf",
         "it": "global-it-ot-network-architect-f-m-d-100-bachem-bubendorf",
         "de": "global-it-ot-network-architect-f-m-d-100-bachem-bubendorf",
-        "fr": "global-it-ot-network-architect-f-m-d-100-bachem-bubendorf"
+        "fr": "architecte-reseau-mondial-it-ot-f-m-d-100-bachem-ag-bubendorf"
       },
       "company": "Bachem AG",
       "companyKey": "bachem",
@@ -2350,7 +2356,7 @@
         "de": "cae-system-specialist-f-m-d-80-100-bachem-bubendorf",
         "it": "cae-system-specialist-f-m-d-80-100-bachem-bubendorf",
         "en": "cae-system-specialist-f-m-d-80-100-bachem-bubendorf",
-        "fr": "cae-system-specialist-f-m-d-80-100-bachem-bubendorf"
+        "fr": "specialiste-des-systemes-cae-f-m-d-80-100-bachem-ag-bubendorf"
       },
       "company": "Bachem AG",
       "companyKey": "bachem",
@@ -2409,10 +2415,10 @@
     },
     {
       "id": "bachem-91c9821dc94c",
-      "slug": "civil-and-architectural-engineer-f-m-d-80-100-bachem-bubendorf",
+      "slug": "ingegnere-civile-e-architettonico-f-m-d-80-100-bachem-ag-bubendorf",
       "slugByLocale": {
         "de": "civil-and-architectural-engineer-f-m-d-80-100-bachem-bubendorf",
-        "it": "civil-and-architectural-engineer-f-m-d-80-100-bachem-bubendorf",
+        "it": "ingegnere-civile-e-architettonico-f-m-d-80-100-bachem-ag-bubendorf",
         "en": "civil-and-architectural-engineer-f-m-d-80-100-bachem-bubendorf",
         "fr": "civil-and-architectural-engineer-f-m-d-80-100-bachem-bubendorf"
       },
@@ -2469,7 +2475,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-22T21:29:42.350Z"
+      "firstSeenAt": "2026-05-22T21:29:42.350Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "civil-and-architectural-engineer-f-m-d-80-100-bachem-bubendorf"
+        ]
+      },
+      "previousSlugs": [
+        "civil-and-architectural-engineer-f-m-d-80-100-bachem-bubendorf"
+      ]
     },
     {
       "id": "bachem-ad565c34dfb7",
@@ -7096,7 +7110,7 @@
       "slugByLocale": {
         "it": "leader-del-gruppo-qa-project-management-100-f-m-d-bachem-ag-bubendorf",
         "en": "group-leader-qa-project-management-100-f-m-d-bachem-bubendorf",
-        "de": "group-leader-qa-project-management-100-f-m-d-bachem-bubendorf",
+        "de": "gruppenleiter-qa-projektmanagement-100-w-m-d-bachem-ag-bubendorf",
         "fr": "aq-du-chef-de-groupe-gestion-de-projet-100-f-m-j-bachem-ag-bubendorf"
       },
       "company": "Bachem AG",
@@ -7174,7 +7188,6 @@
         "leader-di-gruppo-qa-gestione-progetto-100-bachem-ag-bubendorf",
         "responsabile-di-gruppo-qa-gestione-progetti-100-bachem-ag-bubendorf",
         "gruppenleiter-qa-projektmanagement-100-bachem-ag-bubendorf",
-        "gruppenleiter-qa-projektmanagement-100-w-m-d-bachem-ag-bubendorf",
         "chef-de-groupe-qa-gestion-de-projet-100-bachem-ag-bubendorf",
         "responsable-de-groupe-qa-gestion-de-projets-100-bachem-ag-bubendorf"
       ],
@@ -7186,7 +7199,6 @@
         ],
         "de": [
           "gruppenleiter-qa-projektmanagement-100-bachem-ag-bubendorf",
-          "gruppenleiter-qa-projektmanagement-100-w-m-d-bachem-ag-bubendorf",
           "group-leader-qa-project-management-100-f-m-d-bachem-bubendorf"
         ],
         "fr": [

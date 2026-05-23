@@ -2215,8 +2215,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-in-betten-und-op-disposition-80-gzo-wetzikon-ch",
         "it": "collaboratore-trice-in-betten-e-op-disposition-80-gzo-spital-wetzikon",
-        "en": "mitarbeiter-in-betten-und-op-disposition-80-gzo-wetzikon-ch",
-        "fr": "mitarbeiter-in-betten-und-op-disposition-80-gzo-wetzikon-ch"
+        "en": "employee-in-beds-and-op-disposition-80-gzo-spital-wetzikon-wetzikon",
+        "fr": "employe-dans-les-lits-et-disposition-du-po-80-gzo-spital-wetzikon-wetzikon"
       },
       "company": "GZO Spital Wetzikon",
       "companyKey": "gzo-wetzikon",
@@ -2263,6 +2263,12 @@
       "pensum": "80%",
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-betten-und-op-disposition-80-gzo-wetzikon-ch"
+        ],
+        "en": [
+          "mitarbeiter-in-betten-und-op-disposition-80-gzo-wetzikon-ch"
+        ],
+        "fr": [
           "mitarbeiter-in-betten-und-op-disposition-80-gzo-wetzikon-ch"
         ]
       },

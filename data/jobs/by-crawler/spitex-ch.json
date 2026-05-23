@@ -925,9 +925,9 @@
     },
     {
       "id": "spitex-ch-38c25f6c72f1",
-      "slug": "spitex-nahe-winterthur-fachperson-gesundheit-fage-per-den-spatdienst-pensum-40-60-spitex-regioseuzach-seuzach",
+      "slug": "spitex-vicino-a-winterthur-specialista-della-salute-fage-per-il-turno-serale-orario-di-lavoro-40-60-spitex-regioseuzach",
       "slugByLocale": {
-        "it": "spitex-nahe-winterthur-fachperson-gesundheit-fage-per-den-spatdienst-pensum-40-60-spitex-regioseuzach-seuzach",
+        "it": "spitex-vicino-a-winterthur-specialista-della-salute-fage-per-il-turno-serale-orario-di-lavoro-40-60-spitex-regioseuzach",
         "en": "spitex-near-winterthur-specialist-health-fage-for-late-service-pensum-40-60-spitex-regioseuzach-seuzach",
         "de": "spitex-nahe-winterthur-fachperson-gesundheit-fage-fur-den-spatdienst-pensum-40-60-spitex",
         "fr": "spitex-pres-de-winterthur-specialiste-de-la-sante-fage-pour-service-tardif-pensum-40-60-spitex-regioseuzach-seuzach"
@@ -973,11 +973,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "spitex-nahe-winterthur-fachperson-gesundheit-fage-fur-den-spatdienst-pensum-40-60-spitex"
+        "spitex-nahe-winterthur-fachperson-gesundheit-fage-fur-den-spatdienst-pensum-40-60-spitex",
+        "spitex-nahe-winterthur-fachperson-gesundheit-fage-per-den-spatdienst-pensum-40-60-spitex-regioseuzach-seuzach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "spitex-nahe-winterthur-fachperson-gesundheit-fage-fur-den-spatdienst-pensum-40-60-spitex"
+          "spitex-nahe-winterthur-fachperson-gesundheit-fage-fur-den-spatdienst-pensum-40-60-spitex",
+          "spitex-nahe-winterthur-fachperson-gesundheit-fage-per-den-spatdienst-pensum-40-60-spitex-regioseuzach-seuzach"
         ],
         "en": [
           "spitex-nahe-winterthur-fachperson-gesundheit-fage-fur-den-spatdienst-pensum-40-60-spitex"
@@ -1237,8 +1239,8 @@
       "slugByLocale": {
         "de": "dipl-pflegefachperson-hf-oder-fh-60-80-mit-interesse-an-palliative-care-spitex-ch",
         "it": "dipl-pflegefachperson-hf-o-fh-60-80-con-interesse-an-palliative-care-spitex-rothenburg",
-        "en": "dipl-pflegefachperson-hf-oder-fh-60-80-mit-interesse-an-palliative-care-spitex-ch",
-        "fr": "dipl-pflegefachperson-hf-oder-fh-60-80-mit-interesse-an-palliative-care-spitex-ch"
+        "en": "dipl-career-hf-or-fh-60-80-with-interest-in-palliative-care-spitex-rothenburg-rothenburg",
+        "fr": "dipl-carriere-hf-ou-fh-60-80-avec-interet-pour-les-soins-palliatifs-spitex-rothenburg-rothenburg"
       },
       "company": "Spitex Rothenburg",
       "companyKey": "spitex-ch",
@@ -1285,6 +1287,12 @@
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-hf-oder-fh-60-80-mit-interesse-an-palliative-care-spitex-ch"
+        ],
+        "en": [
+          "dipl-pflegefachperson-hf-oder-fh-60-80-mit-interesse-an-palliative-care-spitex-ch"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-hf-oder-fh-60-80-mit-interesse-an-palliative-care-spitex-ch"
         ]
       },
       "previousSlugs": [
@@ -1310,8 +1318,8 @@
       "slugByLocale": {
         "de": "dipl-pflegefachperson-hf-oder-fachperson-gesundheit-fachbereich-demenz-60-90-spitex-ch",
         "it": "dipl-pflegefachperson-hf-o-fachperson-gesundheit-fachbereich-demenz-60-90-spitex-region-birs-gmbh-reinach-bl",
-        "en": "dipl-pflegefachperson-hf-oder-fachperson-gesundheit-fachbereich-demenz-60-90-spitex-ch",
-        "fr": "dipl-pflegefachperson-hf-oder-fachperson-gesundheit-fachbereich-demenz-60-90-spitex-ch"
+        "en": "dipl-career-hf-or-specialist-health-department-demenz-60-90-spitex-region-birs-gmbh-reinach-bl",
+        "fr": "dipl-carriere-hf-ou-service-de-sante-specialise-demenz-60-90-spitex-region-birs-gmbh-reinach-bl"
       },
       "company": "Spitex Region Birs GmbH",
       "companyKey": "spitex-ch",
@@ -1358,6 +1366,12 @@
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-hf-oder-fachperson-gesundheit-fachbereich-demenz-60-90-spitex-ch"
+        ],
+        "en": [
+          "dipl-pflegefachperson-hf-oder-fachperson-gesundheit-fachbereich-demenz-60-90-spitex-ch"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-hf-oder-fachperson-gesundheit-fachbereich-demenz-60-90-spitex-ch"
         ]
       },
       "previousSlugs": [
@@ -1384,7 +1398,7 @@
         "de": "pflegefachperson-hf-fh-mit-schwerpunkt-demenz-40-80-spitex-ch-oensingen",
         "it": "pflegefachperson-hf-fh-mit-schwerpunkt-demenz-40-80-spitex-gau-oensingen",
         "en": "pflegefachperson-hf-fh-mit-schwerpunkt-demenz-40-80-spitex-ch-oensingen",
-        "fr": "infirmier-ere-hf-fh-avec-specialisation-en-demence-40-80-spitex-gau-oensingen"
+        "fr": "specialiste-des-soins-hf-fh-avec-accent-sur-la-demence-40-80-spitex-gau-oensingen"
       },
       "company": "Spitex Gäu",
       "companyKey": "spitex-ch",
@@ -1431,10 +1445,14 @@
       "previousSlugsByLocale": {
         "it": [
           "professionista-della-cura-hf-fh-con-specializzazione-in-demenza-40-80-spitex-gau-oensingen"
+        ],
+        "fr": [
+          "infirmier-ere-hf-fh-avec-specialisation-en-demence-40-80-spitex-gau-oensingen"
         ]
       },
       "previousSlugs": [
-        "professionista-della-cura-hf-fh-con-specializzazione-in-demenza-40-80-spitex-gau-oensingen"
+        "professionista-della-cura-hf-fh-con-specializzazione-in-demenza-40-80-spitex-gau-oensingen",
+        "infirmier-ere-hf-fh-avec-specialisation-en-demence-40-80-spitex-gau-oensingen"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,

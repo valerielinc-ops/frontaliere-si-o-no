@@ -737,12 +737,12 @@
     },
     {
       "id": "psgn-c06fbcac2f04",
-      "slug": "dipl-pflegefachperson-hf-fh-nachtdienst-psychiatrie-st-gallen-wil-sg",
+      "slug": "dipl-assistenza-specialistica-hf-fh-servizio-notte-psychiatrie-st-gallen-wil-sg",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-hf-fh-nachtdienst-psychiatrie-st-gallen-wil-sg",
-        "it": "dipl-pflegefachperson-hf-fh-nachtdienst-psychiatrie-st-gallen-wil-sg",
-        "en": "dipl-pflegefachperson-hf-fh-nachtdienst-psychiatrie-st-gallen-wil-sg",
-        "fr": "dipl-pflegefachperson-hf-fh-nachtdienst-psychiatrie-st-gallen-wil-sg"
+        "it": "dipl-assistenza-specialistica-hf-fh-servizio-notte-psychiatrie-st-gallen-wil-sg",
+        "en": "dipl-care-specialist-hf-fh-night-service-psychiatrie-st-gallen-wil-sg",
+        "fr": "dipl-specialiste-des-soins-hf-fh-service-de-nuit-psychiatrie-st-gallen-wil-sg"
       },
       "company": "Psychiatrie St.Gallen",
       "companyKey": "psgn",
@@ -787,14 +787,22 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-hf-fh-nachtdienst-psgn-wil-sg"
+          "dipl-pflegefachperson-hf-fh-nachtdienst-psgn-wil-sg",
+          "dipl-pflegefachperson-hf-fh-nachtdienst-psychiatrie-st-gallen-wil-sg"
         ],
         "de": [
           "dipl-pflegefachperson-hf-fh-nachtdienst-psgn-wil-sg"
+        ],
+        "en": [
+          "dipl-pflegefachperson-hf-fh-nachtdienst-psychiatrie-st-gallen-wil-sg"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-hf-fh-nachtdienst-psychiatrie-st-gallen-wil-sg"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-fh-nachtdienst-psgn-wil-sg"
+        "dipl-pflegefachperson-hf-fh-nachtdienst-psgn-wil-sg",
+        "dipl-pflegefachperson-hf-fh-nachtdienst-psychiatrie-st-gallen-wil-sg"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,

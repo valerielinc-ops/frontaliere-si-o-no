@@ -552,7 +552,6 @@
         "responsabile-revenue-management-marriott-international-geneva",
         "umsatzmanager-marriott-international-geneva",
         "responsable-revenue-management-marriott-international-geneva",
-        "waiter-tress-brasserie-u-yama-winter-26-27-w-verbier-marriott-verbier",
         "cameriera-barre-inverno-26-27-w-verbier-marriott-international-verbier"
       ],
       "firstSeenAt": "2026-04-30T11:09:31.159Z",
@@ -750,7 +749,6 @@
         "responsabile-revenue-management-marriott-international-geneva",
         "umsatzmanager-marriott-international-geneva",
         "responsable-revenue-management-marriott-international-geneva",
-        "svizzera-programma-voyage-settembre-2026-ristorazione-marriott-international-geneva",
         "cameriera-barre-inverno-26-27-w-verbier-marriott-international-verbier"
       ],
       "previousSlugsByLocale": {
@@ -1026,7 +1024,6 @@
         "mezzo-capopartita-marriott-international-verbier",
         "partiekoch-marriott-international-verbier",
         "ristoranti-inverno-26-27-w-verbier-marriott-international-verbier",
-        "tirocinante-supervisore-housekeeping-marriott-international-geneva",
         "sushiman-inverno-26-27-w-verbier-marriott-international-verbier"
       ],
       "previousSlugsByLocale": {
@@ -2158,12 +2155,12 @@
     },
     {
       "id": "marriott-481a7e0c106c",
-      "slug": "night-manager-long-term-w-verbier-marriott-verbier",
+      "slug": "night-manager-lungo-termine-w-verbier-marriott-international-verbier",
       "slugByLocale": {
         "en": "night-manager-long-term-w-verbier-marriott-verbier",
-        "it": "night-manager-long-term-w-verbier-marriott-verbier",
-        "de": "night-manager-long-term-w-verbier-marriott-verbier",
-        "fr": "night-manager-long-term-w-verbier-marriott-verbier"
+        "it": "night-manager-lungo-termine-w-verbier-marriott-international-verbier",
+        "de": "nachtleiter-langfristig-w-verbier-marriott-international-verbier",
+        "fr": "directeur-de-nuit-long-terme-w-verbier-marriott-international-verbier"
       },
       "company": "Marriott International",
       "companyKey": "marriott",
@@ -2227,7 +2224,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-22T22:55:13.041Z"
+      "firstSeenAt": "2026-05-22T22:55:13.041Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "night-manager-long-term-w-verbier-marriott-verbier"
+        ],
+        "de": [
+          "night-manager-long-term-w-verbier-marriott-verbier"
+        ],
+        "fr": [
+          "night-manager-long-term-w-verbier-marriott-verbier"
+        ]
+      },
+      "previousSlugs": [
+        "night-manager-long-term-w-verbier-marriott-verbier"
+      ]
     },
     {
       "id": "marriott-63f929045d10",
@@ -2795,7 +2806,7 @@
       "id": "marriott-5404a16f4356",
       "slug": "esperto-di-supporto-f-b-stewarding-marriott-international-zurich",
       "slugByLocale": {
-        "it": "esperienza-degli-ospiti-marriott-international-zurich",
+        "it": "esperto-di-supporto-f-b-stewarding-marriott-international-zurich",
         "en": "f-b-support-expert-stewarding-marriott-zurich",
         "de": "f-b-support-experte-stewarding-marriott-international-zurich",
         "fr": "expert-en-soutien-aux-f-b-et-intendant-marriott-international-zurich"
@@ -2850,12 +2861,13 @@
       },
       "previousSlugs": [
         "f-b-support-expert-stewarding-marriott-zurich",
-        "guest-experience-expert-marriott-zurich",
-        "esperto-di-supporto-f-b-stewarding-marriott-international-zurich"
+        "esperienza-degli-ospiti-marriott-international-zurich",
+        "guest-experience-expert-marriott-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "f-b-support-expert-stewarding-marriott-zurich"
+          "f-b-support-expert-stewarding-marriott-zurich",
+          "esperienza-degli-ospiti-marriott-international-zurich"
         ],
         "de": [
           "f-b-support-expert-stewarding-marriott-zurich"

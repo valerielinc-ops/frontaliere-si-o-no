@@ -7,7 +7,7 @@
       "slug": "assistente-psicologa-assistente-psicologo-o-psicologa-specializzata-psicologo-specializzato-universitare-psychiatrische",
       "slugByLocale": {
         "it": "assistente-psicologa-assistente-psicologo-o-psicologa-specializzata-psicologo-specializzato-universitare-psychiatrische",
-        "en": "assistant-psychologist-or-specialist-psychologist-universitare-psychiatrische-dienste-bern-upd-bern",
+        "en": "psychology-assistant-specialized-psychologist-assistant-universitare-psychiatrische-dienste-bern-upd-bern",
         "de": "assistenzpsychologin-assistenzpsychologe-oder-fachpsychologin-fachpsychologe-upd-bern",
         "fr": "psychologue-assistant-e-ou-psychologue-specialise-e-universitare-psychiatrische-dienste-bern-upd-bern"
       },
@@ -52,12 +52,16 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "assistenzpsychologin-assistenzpsychologe-oder-fachpsychologin-fachpsychologe-upd-bern",
-        "psicologo-a-assistente-o-a-psicologo-a-specializzato-a-universitare-psychiatrische-dienste-bern-upd-bern"
+        "psicologo-a-assistente-o-a-psicologo-a-specializzato-a-universitare-psychiatrische-dienste-bern-upd-bern",
+        "assistant-psychologist-or-specialist-psychologist-universitare-psychiatrische-dienste-bern-upd-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "assistenzpsychologin-assistenzpsychologe-oder-fachpsychologin-fachpsychologe-upd-bern",
           "psicologo-a-assistente-o-a-psicologo-a-specializzato-a-universitare-psychiatrische-dienste-bern-upd-bern"
+        ],
+        "en": [
+          "assistant-psychologist-or-specialist-psychologist-universitare-psychiatrische-dienste-bern-upd-bern"
         ]
       },
       "firstSeenAt": "2026-05-19T14:37:02.874Z",
@@ -81,7 +85,7 @@
         "it": "collaboratrice-collaboratore-pulizia-di-manutenzione-universitare-psychiatrische-dienste-bern-upd-bern",
         "en": "maintenance-cleaning-staff-universitare-psychiatrische-dienste-bern-upd-bern",
         "de": "mitarbeiterin-mitarbeiter-unterhaltsreinigung-upd-bern",
-        "fr": "personnel-d-entretien-menager-universitare-psychiatrische-dienste-bern-upd-bern"
+        "fr": "collaboratrice-collaborateur-nettoyage-d-entretien-universitare-psychiatrische-dienste-bern-upd-bern"
       },
       "company": "Universitäre Psychiatrische Dienste Bern (UPD)",
       "companyKey": "upd",
@@ -124,12 +128,16 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "mitarbeiterin-mitarbeiter-unterhaltsreinigung-upd-bern",
-        "addetto-a-alle-pulizie-di-manutenzione-universitare-psychiatrische-dienste-bern-upd-bern"
+        "addetto-a-alle-pulizie-di-manutenzione-universitare-psychiatrische-dienste-bern-upd-bern",
+        "personnel-d-entretien-menager-universitare-psychiatrische-dienste-bern-upd-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiterin-mitarbeiter-unterhaltsreinigung-upd-bern",
           "addetto-a-alle-pulizie-di-manutenzione-universitare-psychiatrische-dienste-bern-upd-bern"
+        ],
+        "fr": [
+          "personnel-d-entretien-menager-universitare-psychiatrische-dienste-bern-upd-bern"
         ]
       },
       "firstSeenAt": "2026-05-19T14:37:01.865Z",
@@ -153,7 +161,7 @@
         "it": "ricercatrice-ricercatore-in-psicologia-universitare-psychiatrische-dienste-bern-upd-bern",
         "en": "doktorandin-doktorand-psychologie-upd-bern",
         "de": "doktorandin-doktorand-psychologie-upd-bern",
-        "fr": "doctorant-e-en-psychologie-universitare-psychiatrische-dienste-bern-upd-bern"
+        "fr": "chercheuse-chercheur-en-psychologie-universitare-psychiatrische-dienste-bern-upd-bern"
       },
       "company": "Universitäre Psychiatrische Dienste Bern (UPD)",
       "companyKey": "upd",
@@ -197,7 +205,8 @@
       "previousSlugs": [
         "doktorandin-doktorand-psychologie-upd-bern",
         "dottoranda-dottorando-in-psicologia-universitare-psychiatrische-dienste-bern-upd-bern",
-        "doktorandin-doktorandin-psychologie-universitare-psychiatrische-dienste-bern-upd-bern"
+        "doktorandin-doktorandin-psychologie-universitare-psychiatrische-dienste-bern-upd-bern",
+        "doctorant-e-en-psychologie-universitare-psychiatrische-dienste-bern-upd-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -206,6 +215,9 @@
         ],
         "de": [
           "doktorandin-doktorandin-psychologie-universitare-psychiatrische-dienste-bern-upd-bern"
+        ],
+        "fr": [
+          "doctorant-e-en-psychologie-universitare-psychiatrische-dienste-bern-upd-bern"
         ]
       },
       "firstSeenAt": "2026-05-19T14:37:00.953Z",
@@ -227,9 +239,9 @@
       "slug": "dipl-pflegefachperson-nachtwache-universitare-psychiatrische-dienste-bern-upd-bern",
       "slugByLocale": {
         "it": "dipl-pflegefachperson-nachtwache-universitare-psychiatrische-dienste-bern-upd-bern",
-        "en": "night-nurse-professional-universitare-psychiatrische-dienste-bern-upd-bern",
+        "en": "night-shift-diploma-nursing-specialist-universitare-psychiatrische-dienste-bern-upd-bern",
         "de": "dipl-pflegefachperson-nachtwache-upd-bern",
-        "fr": "professionnel-infirmier-de-nuit-universitare-psychiatrische-dienste-bern-upd-bern"
+        "fr": "diplomee-e-en-soins-infirmiers-e-de-nuit-universitare-psychiatrische-dienste-bern-upd-bern"
       },
       "company": "Universitäre Psychiatrische Dienste Bern (UPD)",
       "companyKey": "upd",
@@ -272,12 +284,20 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "dipl-pflegefachperson-nachtwache-upd-bern",
-        "professionista-infermieristico-di-notte-universitare-psychiatrische-dienste-bern-upd-bern"
+        "professionista-infermieristico-di-notte-universitare-psychiatrische-dienste-bern-upd-bern",
+        "night-nurse-professional-universitare-psychiatrische-dienste-bern-upd-bern",
+        "professionnel-infirmier-de-nuit-universitare-psychiatrische-dienste-bern-upd-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-nachtwache-upd-bern",
           "professionista-infermieristico-di-notte-universitare-psychiatrische-dienste-bern-upd-bern"
+        ],
+        "en": [
+          "night-nurse-professional-universitare-psychiatrische-dienste-bern-upd-bern"
+        ],
+        "fr": [
+          "professionnel-infirmier-de-nuit-universitare-psychiatrische-dienste-bern-upd-bern"
         ]
       },
       "firstSeenAt": "2026-05-19T14:37:00.034Z",
@@ -299,9 +319,9 @@
       "slug": "esperto-in-assistenza-sanitaria-o-diplomato-in-assistenza-infermieristica-servizio-aperto-inclusa-stazione-di-formazione",
       "slugByLocale": {
         "it": "esperto-in-assistenza-sanitaria-o-diplomato-in-assistenza-infermieristica-servizio-aperto-inclusa-stazione-di-formazione",
-        "en": "healthcare-specialist-or-dipl-nursing-specialist-station-flugel-including-establishment-of-a-training-station",
+        "en": "healthcare-professional-or-diploma-nurse-open-ward-including-construction-training-station-universitare-psychiatrische",
         "de": "fachperson-gesundheit-oder-dipl-pflegefachperson-station-flugel-inkl-aufbau",
-        "fr": "specialiste-en-sante-ou-infirmier-diplome-station-flugel-y-compris-la-creation-d-une-station-de-formation-universitare"
+        "fr": "professionnel-de-sante-ou-infirmier-diplome-service-ouvert-inclusivement-station-de-formation-en-construction"
       },
       "company": "Universitäre Psychiatrische Dienste Bern (UPD)",
       "companyKey": "upd",
@@ -344,12 +364,20 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "fachperson-gesundheit-oder-dipl-pflegefachperson-station-flugel-inkl-aufbau",
-        "operatore-socio-sanitario-o-infermiere-diplomato-reparto-flugel-inclusa-la-creazione-di-un-reparto-di-formazione"
+        "operatore-socio-sanitario-o-infermiere-diplomato-reparto-flugel-inclusa-la-creazione-di-un-reparto-di-formazione",
+        "healthcare-specialist-or-dipl-nursing-specialist-station-flugel-including-establishment-of-a-training-station",
+        "specialiste-en-sante-ou-infirmier-diplome-station-flugel-y-compris-la-creation-d-une-station-de-formation-universitare"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fachperson-gesundheit-oder-dipl-pflegefachperson-station-flugel-inkl-aufbau",
           "operatore-socio-sanitario-o-infermiere-diplomato-reparto-flugel-inclusa-la-creazione-di-un-reparto-di-formazione"
+        ],
+        "en": [
+          "healthcare-specialist-or-dipl-nursing-specialist-station-flugel-including-establishment-of-a-training-station"
+        ],
+        "fr": [
+          "specialiste-en-sante-ou-infirmier-diplome-station-flugel-y-compris-la-creation-d-une-station-de-formation-universitare"
         ]
       },
       "firstSeenAt": "2026-05-19T14:36:59.097Z",
@@ -438,12 +466,12 @@
     },
     {
       "id": "upd-e2b82f8b3da4",
-      "slug": "direzione-attivazione-universitare-psychiatrische-dienste-bern-upd-bern",
+      "slug": "responsabile-attivazione-universitare-psychiatrische-dienste-bern-upd-bern",
       "slugByLocale": {
-        "it": "direzione-attivazione-universitare-psychiatrische-dienste-bern-upd-bern",
-        "en": "activation-leadership-universitare-psychiatrische-dienste-bern-upd-bern",
+        "it": "responsabile-attivazione-universitare-psychiatrische-dienste-bern-upd-bern",
+        "en": "activation-lead-universitare-psychiatrische-dienste-bern-upd-bern",
         "de": "leitung-aktivierung-upd-bern",
-        "fr": "direction-d-activation-universitare-psychiatrische-dienste-bern-upd-bern"
+        "fr": "responsable-de-l-activation-universitare-psychiatrische-dienste-bern-upd-bern"
       },
       "company": "Universitäre Psychiatrische Dienste Bern (UPD)",
       "companyKey": "upd",
@@ -485,11 +513,21 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "leitung-aktivierung-upd-bern"
+        "leitung-aktivierung-upd-bern",
+        "direzione-attivazione-universitare-psychiatrische-dienste-bern-upd-bern",
+        "activation-leadership-universitare-psychiatrische-dienste-bern-upd-bern",
+        "direction-d-activation-universitare-psychiatrische-dienste-bern-upd-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "leitung-aktivierung-upd-bern"
+          "leitung-aktivierung-upd-bern",
+          "direzione-attivazione-universitare-psychiatrische-dienste-bern-upd-bern"
+        ],
+        "en": [
+          "activation-leadership-universitare-psychiatrische-dienste-bern-upd-bern"
+        ],
+        "fr": [
+          "direction-d-activation-universitare-psychiatrische-dienste-bern-upd-bern"
         ]
       },
       "firstSeenAt": "2026-05-19T14:36:56.325Z",
@@ -614,9 +652,9 @@
     },
     {
       "id": "upd-05faef012a51",
-      "slug": "stage-di-ricerca-a-bridge-universitare-psychiatrische-dienste-bern-upd-bern",
+      "slug": "percorso-di-pratica-di-ricerca-bridge-universitare-psychiatrische-dienste-bern-upd-bern",
       "slugByLocale": {
-        "it": "stage-di-ricerca-a-bridge-universitare-psychiatrische-dienste-bern-upd-bern",
+        "it": "percorso-di-pratica-di-ricerca-bridge-universitare-psychiatrische-dienste-bern-upd-bern",
         "en": "research-internship-at-bridge-universitare-psychiatrische-dienste-bern-upd-bern",
         "de": "forschungspraktikum-bridge-upd-bern",
         "fr": "stage-de-recherche-a-bridge-universitare-psychiatrische-dienste-bern-upd-bern"
@@ -661,11 +699,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "forschungspraktikum-bridge-upd-bern"
+        "forschungspraktikum-bridge-upd-bern",
+        "stage-di-ricerca-a-bridge-universitare-psychiatrische-dienste-bern-upd-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "forschungspraktikum-bridge-upd-bern"
+          "forschungspraktikum-bridge-upd-bern",
+          "stage-di-ricerca-a-bridge-universitare-psychiatrische-dienste-bern-upd-bern"
         ],
         "en": [
           "forschungspraktikum-bridge-upd-bern"

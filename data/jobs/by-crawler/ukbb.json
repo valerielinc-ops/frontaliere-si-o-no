@@ -1471,12 +1471,12 @@
     },
     {
       "id": "ukbb-a49cbc60a583",
-      "slug": "leitung-pflege-station-a3-90-ukbb-basel",
+      "slug": "sede-centrale-a3-90-universitats-kinderspital-beider-basel-basel",
       "slugByLocale": {
         "de": "leitung-pflege-station-a3-90-universitats-kinderspital-beider-basel-basel",
-        "it": "leitung-pflege-station-a3-90-ukbb-basel",
-        "en": "leitung-pflege-station-a3-90-ukbb-basel",
-        "fr": "leitung-pflege-station-a3-90-ukbb-basel"
+        "it": "sede-centrale-a3-90-universitats-kinderspital-beider-basel-basel",
+        "en": "head-of-care-station-a3-90-universitats-kinderspital-beider-basel-basel",
+        "fr": "chef-du-centre-de-soins-a3-90-universitats-kinderspital-beider-basel-basel"
       },
       "company": "Universitäts-Kinderspital beider Basel",
       "companyKey": "ukbb",
@@ -1532,7 +1532,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-22T23:54:43.296Z"
+      "firstSeenAt": "2026-05-22T23:54:43.296Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "leitung-pflege-station-a3-90-ukbb-basel"
+        ],
+        "en": [
+          "leitung-pflege-station-a3-90-ukbb-basel"
+        ],
+        "fr": [
+          "leitung-pflege-station-a3-90-ukbb-basel"
+        ]
+      },
+      "previousSlugs": [
+        "leitung-pflege-station-a3-90-ukbb-basel"
+      ]
     },
     {
       "id": "ukbb-51c15e7a9225",
