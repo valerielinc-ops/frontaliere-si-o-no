@@ -1,19 +1,60 @@
 {
   "key": "usi-universita-della-svizzera-italiana",
   "label": "USI",
-  "generatedAt": "2026-05-23T23:38:08.863Z",
+  "generatedAt": "2026-05-24T12:30:19.160Z",
   "total": 22,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 22,
-  "durationMs": 24263,
-  "avgDurationMs": 24263,
+  "unchangedCount": 21,
+  "durationMs": 30475,
+  "avgDurationMs": 30475,
   "durationHistory": [
-    24263
+    30475
   ],
   "newJobs": [],
-  "updatedJobs": [],
+  "updatedJobs": [
+    {
+      "url": "https://content.usi.ch/sites/default/files/storage/attachments/ior/ior-postdoc-radioligand-radiotherapy-prostate-cancer-2026.pdf",
+      "applyUrl": "https://content.usi.ch/sites/default/files/storage/attachments/ior/ior-postdoc-radioligand-radiotherapy-prostate-cancer-2026.pdf",
+      "title": "Posizione post-dottorato sulla resistenza ai radioligando e alla radioterapia nel cancro alla prostata nel Functional Cancer Genomics Lab",
+      "company": "USI – Università della Svizzera italiana",
+      "companyKey": "usi-universita-della-svizzera-italiana",
+      "location": "Lugano",
+      "canton": "TI",
+      "country": "CH",
+      "slug": "posizione-post-dottorato-sulla-resistenza-ai-radioligando-e-alla-radioterapia-nel-cancro-alla-prostata-nel-functional-cancer-genomics-lab-usi-lugano",
+      "department": "Institute of Oncology Research (IOR)",
+      "category": "researcher",
+      "datePosted": "2026-05-21",
+      "source": "usi-drupal-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "MID",
+      "sector": "Istruzione e ricerca",
+      "_targetScope": {
+        "canton": "TI",
+        "location": "Lugano"
+      },
+      "id": "usi-universita-della-svizzera-italiana-c7a3db81dae5",
+      "sourceLang": "it",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "streetAddress": "Via Giuseppe Buffi 13",
+      "postalCode": "6900",
+      "addressLocality": "Lugano",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "firstSeenAt": "2026-05-21T13:45:01.598Z",
+      "_qualityScore": 90,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 25,
+        "completeness": 20
+      }
+    }
+  ],
   "removedJobs": [],
   "unchangedJobs": [
     {
@@ -213,46 +254,6 @@
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 20
-      }
-    },
-    {
-      "url": "https://content.usi.ch/sites/default/files/storage/attachments/ior/ior-postdoc-radioligand-radiotherapy-prostate-cancer-2026.pdf",
-      "applyUrl": "https://content.usi.ch/sites/default/files/storage/attachments/ior/ior-postdoc-radioligand-radiotherapy-prostate-cancer-2026.pdf",
-      "title": "Posizione post-dottorato sulla resistenza ai radioligando e alla radioterapia nel cancro alla prostata nel Functional Cancer Genomics Lab",
-      "company": "USI – Università della Svizzera italiana",
-      "companyKey": "usi-universita-della-svizzera-italiana",
-      "location": "Lugano",
-      "canton": "TI",
-      "country": "CH",
-      "slug": "posizione-post-dottorato-sulla-resistenza-ai-radioligando-e-alla-radioterapia-nel-cancro-alla-prostata-nel-functional-cancer-genomics-lab-usi-lugano",
-      "department": "Institute of Oncology Research (IOR)",
-      "category": "researcher",
-      "datePosted": "2026-05-21",
-      "source": "usi-drupal-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "MID",
-      "sector": "Istruzione e ricerca",
-      "_targetScope": {
-        "canton": "TI",
-        "location": "Lugano"
-      },
-      "id": "usi-universita-della-svizzera-italiana-c7a3db81dae5",
-      "sourceLang": "en",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "streetAddress": "Via Giuseppe Buffi 13",
-      "postalCode": "6900",
-      "addressLocality": "Lugano",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "firstSeenAt": "2026-05-21T13:45:01.598Z",
-      "_qualityScore": 88,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 23,
         "completeness": 20
       }
     },
