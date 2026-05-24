@@ -1,6 +1,6 @@
 {
   "crawlerKey": "matterhorn-gotthard-bahn",
-  "assembledAt": "2026-05-24T11:29:10.388Z",
+  "assembledAt": "2026-05-24T22:41:27.772Z",
   "jobs": [
     {
       "id": "matterhorn-gotthard-bahn-7644459024cb",
@@ -33,7 +33,7 @@
       "url": "https://jobs.bvzholding.ch/Zusatzlehre-Automatiker-oder-Automatikmonteur-mwd-de-j680.html",
       "source": "Matterhorn Gotthard Bahn Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-24T11:29:06.735Z",
+      "crawledAt": "2026-05-24T22:41:25.137Z",
       "addressLocality": "Brig",
       "addressCountry": "CH",
       "country": "CH",
@@ -87,6 +87,7 @@
         ]
       },
       "firstSeenAt": "2026-05-08T10:18:49.860Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -131,7 +132,7 @@
       "url": "https://jobs.bvzholding.ch/Verkehrsplaner-mwd-de-j696.html",
       "source": "Matterhorn Gotthard Bahn Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-24T11:29:05.883Z",
+      "crawledAt": "2026-05-24T22:41:24.189Z",
       "addressLocality": "Brig",
       "addressCountry": "CH",
       "country": "CH",
@@ -184,6 +185,7 @@
         ]
       },
       "firstSeenAt": "2026-05-06T22:21:14.216Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -228,7 +230,7 @@
       "url": "https://jobs.bvzholding.ch/Teamleiter-Instandhaltung-Polywerkstatt-Zermatt-mwd-de-j703.html",
       "source": "Matterhorn Gotthard Bahn Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-24T11:29:05.020Z",
+      "crawledAt": "2026-05-24T22:41:23.225Z",
       "addressLocality": "Zermatt",
       "addressCountry": "CH",
       "country": "CH",
@@ -280,6 +282,7 @@
         ]
       },
       "firstSeenAt": "2026-05-18T12:50:30.403Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -324,7 +327,7 @@
       "url": "https://jobs.bvzholding.ch/Quereinsteiger-Rangierer-Rangierlokfuehrer-mwd-80-100-de-j622.html",
       "source": "Matterhorn Gotthard Bahn Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-24T11:29:04.045Z",
+      "crawledAt": "2026-05-24T22:41:22.123Z",
       "addressLocality": "Andermatt",
       "addressCountry": "CH",
       "country": "CH",
@@ -381,6 +384,7 @@
         ]
       },
       "firstSeenAt": "2026-05-04T11:16:40.507Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -425,7 +429,7 @@
       "url": "https://jobs.bvzholding.ch/Projektleiter-Unternehmenskommunikation-mwd-80-100-de-j701.html",
       "source": "Matterhorn Gotthard Bahn Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-24T11:29:03.084Z",
+      "crawledAt": "2026-05-24T22:41:21.011Z",
       "addressLocality": "Brig",
       "addressCountry": "CH",
       "country": "CH",
@@ -482,6 +486,7 @@
         ]
       },
       "firstSeenAt": "2026-05-12T11:40:07.001Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -526,7 +531,7 @@
       "url": "https://jobs.bvzholding.ch/Product-Owner-Webshop-mwd-60-80-de-j700.html",
       "source": "Matterhorn Gotthard Bahn Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-24T11:29:02.089Z",
+      "crawledAt": "2026-05-24T22:41:19.918Z",
       "addressLocality": "Brig",
       "addressCountry": "CH",
       "country": "CH",
@@ -580,105 +585,7 @@
         ]
       },
       "firstSeenAt": "2026-05-12T11:40:05.923Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "matterhorn-gotthard-bahn-2dd686606581",
-      "slug": "co-team-leader-locomotive-personnel-andermatt-disentis-m-w-d-50-matterhorn-gotthard-bahn-andermatt",
-      "slugByLocale": {
-        "it": "co-team-leader-locomotive-personnel-andermatt-disentis-m-w-d-50-matterhorn-gotthard-bahn-andermatt",
-        "en": "co-team-leader-locomotive-personnel-andermatt-disentis-m-w-d-50-matterhorn-gotthard-bahn-andermatt",
-        "de": "nachwuchs-co-teamleiter-lokpersonal-andermatt-disentis-m-w-d-50-matterhorn-gotthard-bahn-c",
-        "fr": "co-team-leader-locomotive-personnel-andermatt-disentis-m-w-d-50-matterhorn-gotthard-bahn-andermatt"
-      },
-      "company": "Matterhorn Gotthard Bahn",
-      "companyKey": "matterhorn-gotthard-bahn",
-      "companyDomain": "bvzholding.ch",
-      "title": "Nachwuchs Co Teamleiter Lokpersonal Andermatt – Disentis (m/w/d), 50%",
-      "titleByLocale": {
-        "it": "Co Team Leader Locomotive Personnel Andermatt – Disentis (m/w/d), 50%",
-        "en": "Co Team Leader Locomotive Personnel Andermatt – Disentis (m/w/d), 50%",
-        "de": "Nachwuchs Co Teamleiter Lokpersonal Andermatt – Disentis (m/w/d), 50%",
-        "fr": "Co Team Leader Locomotive Personnel Andermatt – Disentis (m/w/d), 50%"
-      },
-      "description": "Dein nächster Schritt in der Führung – gemeinsam mehr bewegen\nDie Matterhorn Gotthard Bahn geht neue Wege in der Führung: Für das Team Lokpersonal Andermatt-Disentis suchen wir per 1. Dezember 2026 eine Nachwuchsperson als Co‑Teamleiter. In diesem Modell führst du das Team gemeinsam und zukunftsgerichtet mit einem erfahrenen Teamleiter. Dabei wirkst du aktiv im Tagesgeschäft, in der operativen Führung und in der Weiterentwicklung des Teams mit. Ziel ist es, dich schrittweise in eine umfassende Führungsrolle zu entwickeln und gleichzeitig bleibst du zu 50% als Lokführer:in tätig. Dein Wirkungsfeld\n Du übernimmst in der Co‑Leitung gezielt Aufgaben mit Fokus auf Führung und Weiterentwicklung des Teams. Dabei steht dir dein erfahrener Co-Teamleiter als Coach zur Seite. Deine Hauptaufgaben sind:\n\n• Mitwirkung bei Rekrutierungen, Führen der Dialoggespräche sowie Begleitfahrten mit Mitarbeitenden\n\n• Organisation und Leitung der Teamsitzungen\n\n• Roulement‑ und Einteilungsthemen\n\n• Unterstützung bei der Durchführung von Sicherheitsgesprächen\n\n• Lokführer:in (50%)\n Dein Profil\n\n• Du hast eine Ausbildung als Lokführer:in und bringst sehr gute fahrdienstliche und technische Kenntnisse mit\n\n• Du bist offen, um Neues auszuprobieren und dich schrittweise in eine Führungsrolle einzuarbeiten und bringst ein grosses Interesse für Führung und Teamentwicklung mit\n\n• Du bist kommunikativ, belastbar und übernimmst gerne Verantwortung\n\n• Du bist kundenorientiert, dienstleistungsstark und hast ein ausgeprägtes Sicherheitsbewusstsein\n\n• Du verfügst über gute Informatik-Anwenderkenntnisse\n Deine Vorteile\n\n• Einstieg in eine Führungsfunktion in einem begleiteten Co‑Leitungsmodell und damit die Möglichkeit, Führung gezielt zu lernen und aktiv mitzugestalten\n\n• Enge Zusammenarbeit mit einem erfahrenen Teamleiter mit klar verteilten Aufgaben\n\n• Attraktive Entwicklungsperspektive innerhalb der MGBahn (als Alternative zum bisherigen Nachwuchsprogramm)\n Bist du interessiert?\n Dann sende uns deinen Lebenslauf mit Angabe deiner Motivation über Rexx.\nBei Fragen steht dir Martin Hug (Leiter Lokpersonal) gerne zur Verfügung.",
-      "descriptionByLocale": {
-        "it": "Descrizione Il tuo prossimo passo nella leadership – muoviti di più insieme La Matterhorn Gotthard Bahn apre nuove strade nella leadership: per il team di personale di locomotiva Andermatt-Disentis cerchiamo Dicembre 2026 una giovane come co-caposquadra. In questo modello, guiderai il team insieme a un team leader esperto e orientato al futuro. Contribuisci attivamente alle attività quotidiane, alla gestione operativa e all'ulteriore sviluppo del team. L'obiettivo è quello di svilupparti gradualmente in un ruolo di leadership globale e allo stesso tempo rimanere al 50% come macchinista. Il tuo campo d'azione: nella co-direzione svolgi compiti mirati con particolare attenzione alla leadership e allo sviluppo del team. Il tuo co-team leader esperto ti assisterà come coach. I tuoi compiti principali sono:\n• Partecipazione al reclutamento, conduzione dei colloqui di dialogo e viaggi di accompagnamento con i dipendenti\n• Organizzazione e gestione delle riunioni del team\n• Argomenti di roulement e divisione\n• Supporto nello svolgimento dei colloqui di sicurezza\n• Conducente di locomotiva:in (50%) ## Profilo richiesto\n• Hai una formazione come macchinista:in e porti con te ottime conoscenze tecniche e di servizio\n• Sei aperto a provare cose nuove e gradualmente ad assumere un ruolo di leadership e porti con te un grande interesse per la leadership e lo sviluppo del team\n• Sei comunicativo, resiliente e ti assumi volentieri la responsabilità •",
-        "en": "Descrizione Your next step in leadership – moving more together The Matterhorn Gotthard Railway is breaking new ground in leadership: for the Andermatt-Disentis locomotive crew team, we are looking for the 1st December 2026, a junior person asco-teamleader. In this model, you lead the team together and future-oriented with an experienced team leader. You actively participate in the day-to-day business, in operational management and in the further development of the team. The aim is to gradually develop into a comprehensive leadership role and at the same time you will remain 50% active as a train driver. Your field of activity - You take on specific tasks in the Co-Leadership with a focus on leadership and further development of the team. Your experienced co-team leader will be at your side as a coach. Your main tasks are:\n• Participation in recruiting, conducting dialogue discussions and accompanying trips with employees\n• Organisation and management of team meetings\n• Role and scheduling topics\n• Support in conducting safety discussions\n• Engineer (50%) ## Profile richiesto\n• You have training as a train driver and have very good driving and technical knowledge\n• You are open to try out new things and gradually familiarise yourself with a leadership role and have a great interest in leadership and team development\n• You are communicative, resilient and like to take on responsibility •",
-        "de": "Dein nächster Schritt in der Führung – gemeinsam mehr bewegen Die Matterhorn Gotthard Bahn geht neue Wege in der Führung: Für das Team Lokpersonal Andermatt-Disentis suchen wir per 1. Dezember 2026 eine Nachwuchsperson als Co‑Teamleiter. In diesem Modell führst du das Team gemeinsam und zukunftsgerichtet mit einem erfahrenen Teamleiter. Dabei wirkst du aktiv im Tagesgeschäft, in der operativen Führung und in der Weiterentwicklung des Teams mit. Ziel ist es, dich schrittweise in eine umfassende Führungsrolle zu entwickeln und gleichzeitig bleibst du zu 50% als Lokführer:in tätig. Dein Wirkungsfeld Du übernimmst in der Co‑Leitung gezielt Aufgaben mit Fokus auf Führung und Weiterentwicklung des Teams. Dabei steht dir dein erfahrener Co-Teamleiter als Coach zur Seite. Deine Hauptaufgaben sind:\n• Mitwirkung bei Rekrutierungen, Führen der Dialoggespräche sowie Begleitfahrten mit Mitarbeitenden\n• Organisation und Leitung der Teamsitzungen\n• Roulement‑ und Einteilungsthemen\n• Unterstützung bei der Durchführung von Sicherheitsgesprächen\n• Lokführer:in (50%) Dein Profil\n• Du hast eine Ausbildung als Lokführer:in und bringst sehr gute fahrdienstliche und technische Kenntnisse mit\n• Du bist offen, um Neues auszuprobieren und dich schrittweise in eine Führungsrolle einzuarbeiten und bringst ein grosses Interesse für Führung und Teamentwicklung mit\n• Du bist kommunikativ, belastbar und übernimmst gerne Verantwortung\n• Du bist kundenorientiert, dienstleistungsstark und hast ein ausgeprägtes Sicherheitsbewusstsein\n• Du verfügst über gute Informatik-Anwenderkenntnisse Deine Vorteile\n• Einstieg in eine Führungsfunktion in einem begleiteten Co‑Leitungsmodell und damit die Möglichkeit, Führung gezielt zu lernen und aktiv mitzugestalten\n• Enge Zusammenarbeit mit einem erfahrenen Teamleiter mit klar verteilten Aufgaben\n• Attraktive Entwicklungsperspektive innerhalb der MGBahn (als Alternative zum bisherigen Nachwuchsprogramm) Bist du interessiert? Dann sende uns deinen Lebenslauf mit Angabe deiner Motivation über Rexx. Bei Fragen steht dir Martin Hug (Leiter Lokpersonal) gerne zur Verfügung.",
-        "fr": "Descrizione Votre prochaine étape dans le leadership – bouger plus ensemble Le Matterhorn Gotthard Bahn emprunte de nouvelles voies dans le leadership : pour l'équipe du personnel des locomotives Andermatt-Disentis, nous recherchons par 1. Décembre 2026, un jeune en tant que co-chef d'équipe. Dans ce modèle, vous dirigez l'équipe ensemble et orientée vers l'avenir avec un chef d'équipe expérimenté. Tu participes activement aux activités quotidiennes, à la direction opérationnelle et au développement de l'équipe. L'objectif est de te développer progressivement dans un rôle de leader global tout en restant actif à 50 % en tant que conducteur/conductrice de locomotive. Votre champ d'action - Vous assumez des tâches ciblées dans la co-direction en vous concentrant sur la direction et le développement de l'équipe. Votre co-chef d'équipe expérimenté est à vos côtés en tant que coach. Vos tâches principales sont les suivantes :\n• Participation au recrutement, conduite des entretiens de dialogue ainsi que des déplacements d'accompagnement avec les employés\n• Organisation et direction des réunions d'équipe\n• Thèmes de roulage et de répartition\n• Assistance à la conduite des entretiens de sécurité\n• Conducteur de locomotive (50 %) ## Profil richiesto\n• Vous avez une formation de conducteur de locomotive et vous possédez de très bonnes connaissances en matière de conduite et de technique\n• Vous êtes ouvert (e) pour essayer de nouvelles choses et vous initier progressivement à un rôle de leadership et vous portez un grand intérêt au leadership et au développement de l'équipe\n• Vous êtes communicatif, résilient (e) et vous assumez volontiers des responsabilités •"
-      },
-      "location": "Andermatt",
-      "canton": "UR",
-      "url": "https://jobs.bvzholding.ch/Nachwuchs-Co-Teamleiter-Lokpersonal-Andermatt-Disentis-mwd-de-j695.html",
-      "source": "Matterhorn Gotthard Bahn Dedicated Parser (Rexx Systems)",
-      "sourceLang": "de",
-      "crawledAt": "2026-05-24T11:29:01.102Z",
-      "addressLocality": "Andermatt",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "6490",
-      "streetAddress": "Bahnhofplatz 3",
-      "category": "Ingegneria",
-      "sector": "Trasporti / Ferrovia",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-29",
-      "validThrough": "2026-05-24",
-      "applyUrl": "https://jobs.bvzholding.ch/Nachwuchs-Co-Teamleiter-Lokpersonal-Andermatt-Disentis-mwd-de-f695.html",
-      "requirements": [
-        "Du hast eine Ausbildung als Lokführer:in und bringst sehr gute fahrdienstliche und technische Kenntnisse mit",
-        "Du bist offen, um Neues auszuprobieren und dich schrittweise in eine Führungsrolle einzuarbeiten und bringst ein grosses Interesse für Führung und Teamentwicklung mit",
-        "Du bist kommunikativ, belastbar und übernimmst gerne Verantwortung",
-        "Du bist kundenorientiert, dienstleistungsstark und hast ein ausgeprägtes Sicherheitsbewusstsein",
-        "Du verfügst über gute Informatik-Anwenderkenntnisse"
-      ],
-      "requirementsByLocale": {
-        "de": [
-          "Du hast eine Ausbildung als Lokführer:in und bringst sehr gute fahrdienstliche und technische Kenntnisse mit",
-          "Du bist kommunikativ, belastbar und übernimmst gerne Verantwortung",
-          "Du bist kundenorientiert, dienstleistungsstark und hast ein ausgeprägtes Sicherheitsbewusstsein",
-          "Du verfügst über gute Informatik-Anwenderkenntnisse",
-          "Du hast eine Ausbildung als Lokf hrer:in und bringst sehr gute fahrdienstliche und technische Kenntnisse mit",
-          "Du bist kommunikativ, belastbar und bernimmst gerne Verantwortung",
-          "Du bist kundenorientiert, dienstleistungsstark und hast ein ausgepr gtes Sicherheitsbewusstsein",
-          "Du verf gst ber gute Informatik-Anwenderkenntnisse"
-        ]
-      },
-      "_mgbMeta": {
-        "rexxId": "695",
-        "identifier": "",
-        "hiringOrganization": "Matterhorn Gotthard Bahn"
-      },
-      "previousSlugs": [
-        "nachwuchs-co-teamleiter-lokpersonal-andermatt-disentis-m-w-d-50-matterhorn-gotthard-bahn-c"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "nachwuchs-co-teamleiter-lokpersonal-andermatt-disentis-m-w-d-50-matterhorn-gotthard-bahn-c"
-        ],
-        "en": [
-          "nachwuchs-co-teamleiter-lokpersonal-andermatt-disentis-m-w-d-50-matterhorn-gotthard-bahn-c"
-        ],
-        "fr": [
-          "nachwuchs-co-teamleiter-lokpersonal-andermatt-disentis-m-w-d-50-matterhorn-gotthard-bahn-c"
-        ]
-      },
-      "firstSeenAt": "2026-04-29T11:08:58.251Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -723,7 +630,7 @@
       "url": "https://jobs.bvzholding.ch/Lokfuehrer-GGB-mwd-de-j702.html",
       "source": "Matterhorn Gotthard Bahn Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-24T11:29:00.245Z",
+      "crawledAt": "2026-05-24T22:41:18.974Z",
       "addressLocality": "Zermatt",
       "addressCountry": "CH",
       "country": "CH",
@@ -775,6 +682,7 @@
         ]
       },
       "firstSeenAt": "2026-05-13T22:39:50.943Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -819,7 +727,7 @@
       "url": "https://jobs.bvzholding.ch/Leiter-Vertrieb-Digitales-Kundenerlebnis-mwd-80-100-de-j698.html",
       "source": "Matterhorn Gotthard Bahn Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-24T11:28:59.318Z",
+      "crawledAt": "2026-05-24T22:41:17.859Z",
       "addressLocality": "Brig",
       "addressCountry": "CH",
       "country": "CH",
@@ -877,6 +785,7 @@
         ]
       },
       "firstSeenAt": "2026-05-12T11:40:02.765Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -921,7 +830,7 @@
       "url": "https://jobs.bvzholding.ch/Leiter-Produkt-Preis-mwd-80-100-de-j699.html",
       "source": "Matterhorn Gotthard Bahn Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-24T11:28:58.482Z",
+      "crawledAt": "2026-05-24T22:41:16.910Z",
       "addressLocality": "Brig",
       "addressCountry": "CH",
       "country": "CH",
@@ -980,6 +889,7 @@
         ]
       },
       "firstSeenAt": "2026-05-12T11:40:01.781Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -992,6 +902,89 @@
           "unitText": "YEAR"
         }
       }
+    },
+    {
+      "id": "matterhorn-gotthard-bahn-41586bb36b7c",
+      "slug": "fahrleitungsmonteur-netzelektriker-m-w-d-matterhorn-gotthard-bahn-ch",
+      "slugByLocale": {
+        "de": "fahrleitungsmonteur-netzelektriker-m-w-d-matterhorn-gotthard-bahn-ch",
+        "it": "fahrleitungsmonteur-netzelektriker-m-w-d-matterhorn-gotthard-bahn-ch",
+        "en": "fahrleitungsmonteur-netzelektriker-m-w-d-matterhorn-gotthard-bahn-ch",
+        "fr": "fahrleitungsmonteur-netzelektriker-m-w-d-matterhorn-gotthard-bahn-ch"
+      },
+      "company": "Matterhorn Gotthard Bahn",
+      "companyKey": "matterhorn-gotthard-bahn",
+      "companyDomain": "bvzholding.ch",
+      "title": "Fahrleitungsmonteur / Netzelektriker (m/w/d)",
+      "titleByLocale": {
+        "de": "Fahrleitungsmonteur / Netzelektriker (m/w/d)",
+        "it": "Fahrleitungsmonteur / Netzelektriker (m/w/d)",
+        "en": "Fahrleitungsmonteur / Netzelektriker (m/w/d)",
+        "fr": "Fahrleitungsmonteur / Netzelektriker (m/w/d)"
+      },
+      "description": "Dein Antrieb\nDas Herzstück der BVZ Holding bilden das Bahnunternehmen Matterhorn Gotthard Bahn und die internationalen Top Marken Gornergrat Bahn und Glacier Express. Leidenschaftliche und qualifizierte Mitarbeitende bilden die Grundlage unseres Erfolges. Täglich engagieren sich rund 700 Mitarbeitende, um unseren Gästen ein erstklassiges Erlebnis zu bieten. Wir leben Vielfalt und haben eines gemeinsam: Emotionen sind unser Antrieb. Was ist dein Antrieb? Dein Wirkungsfeld\n\n• Unterhalts- und Projektarbeiten an Bahnstromanlagen und Übertragungsleitungen Oberwald - Zermatt (Einsätze in Andermatt/Disentis nach Absprache möglich)\n\n• Spezialist für Arbeiten an Bahnstromanlagen und Unterwerken\n\n• Bereitschaft für Sondereinsätze und regelmassigen Pikettdienst\n\n• Mithilfe bei Schneeräumung, Ereignisbewältigung, sowie Nacht- und Sonntagsarbeit\n\n• Bereitschaft zur internen Weiterbildung (z.B. Triebfahrzeugführer Kat. B80)\n Dein Profil\n\n• Handwerkliche Berufsausbildung, idealerweise im Bereich Elektrotechnik oder Mechanik\n\n• Erfahrung in der Bahntechnik, Elektrik oder Mittelspannung von Vorteil\n\n• Gute Informatik-Anwenderkenntnisse (MS Office)\n\n• Teamfähigkeit, Zuverlässigkeit und Flexibilität\n\n• Führerausweis Kategorie B\n Deine Vorteile\n\n• Gestaltungsspielraum bei deinen Aufgaben\n\n• Gut eingespieltes Team\n\n• GA und weitere attraktive Benefits für dich und deine Familie",
+      "descriptionByLocale": {
+        "de": "Dein Antrieb\nDas Herzstück der BVZ Holding bilden das Bahnunternehmen Matterhorn Gotthard Bahn und die internationalen Top Marken Gornergrat Bahn und Glacier Express. Leidenschaftliche und qualifizierte Mitarbeitende bilden die Grundlage unseres Erfolges. Täglich engagieren sich rund 700 Mitarbeitende, um unseren Gästen ein erstklassiges Erlebnis zu bieten. Wir leben Vielfalt und haben eines gemeinsam: Emotionen sind unser Antrieb. Was ist dein Antrieb? Dein Wirkungsfeld\n\n• Unterhalts- und Projektarbeiten an Bahnstromanlagen und Übertragungsleitungen Oberwald - Zermatt (Einsätze in Andermatt/Disentis nach Absprache möglich)\n\n• Spezialist für Arbeiten an Bahnstromanlagen und Unterwerken\n\n• Bereitschaft für Sondereinsätze und regelmassigen Pikettdienst\n\n• Mithilfe bei Schneeräumung, Ereignisbewältigung, sowie Nacht- und Sonntagsarbeit\n\n• Bereitschaft zur internen Weiterbildung (z.B. Triebfahrzeugführer Kat. B80)\n Dein Profil\n\n• Handwerkliche Berufsausbildung, idealerweise im Bereich Elektrotechnik oder Mechanik\n\n• Erfahrung in der Bahntechnik, Elektrik oder Mittelspannung von Vorteil\n\n• Gute Informatik-Anwenderkenntnisse (MS Office)\n\n• Teamfähigkeit, Zuverlässigkeit und Flexibilität\n\n• Führerausweis Kategorie B\n Deine Vorteile\n\n• Gestaltungsspielraum bei deinen Aufgaben\n\n• Gut eingespieltes Team\n\n• GA und weitere attraktive Benefits für dich und deine Familie",
+        "it": "Dein Antrieb\nDas Herzstück der BVZ Holding bilden das Bahnunternehmen Matterhorn Gotthard Bahn und die internationalen Top Marken Gornergrat Bahn und Glacier Express. Leidenschaftliche und qualifizierte Mitarbeitende bilden die Grundlage unseres Erfolges. Täglich engagieren sich rund 700 Mitarbeitende, um unseren Gästen ein erstklassiges Erlebnis zu bieten. Wir leben Vielfalt und haben eines gemeinsam: Emotionen sind unser Antrieb. Was ist dein Antrieb? Dein Wirkungsfeld\n\n• Unterhalts- und Projektarbeiten an Bahnstromanlagen und Übertragungsleitungen Oberwald - Zermatt (Einsätze in Andermatt/Disentis nach Absprache möglich)\n\n• Spezialist für Arbeiten an Bahnstromanlagen und Unterwerken\n\n• Bereitschaft für Sondereinsätze und regelmassigen Pikettdienst\n\n• Mithilfe bei Schneeräumung, Ereignisbewältigung, sowie Nacht- und Sonntagsarbeit\n\n• Bereitschaft zur internen Weiterbildung (z.B. Triebfahrzeugführer Kat. B80)\n Dein Profil\n\n• Handwerkliche Berufsausbildung, idealerweise im Bereich Elektrotechnik oder Mechanik\n\n• Erfahrung in der Bahntechnik, Elektrik oder Mittelspannung von Vorteil\n\n• Gute Informatik-Anwenderkenntnisse (MS Office)\n\n• Teamfähigkeit, Zuverlässigkeit und Flexibilität\n\n• Führerausweis Kategorie B\n Deine Vorteile\n\n• Gestaltungsspielraum bei deinen Aufgaben\n\n• Gut eingespieltes Team\n\n• GA und weitere attraktive Benefits für dich und deine Familie",
+        "en": "Dein Antrieb\nDas Herzstück der BVZ Holding bilden das Bahnunternehmen Matterhorn Gotthard Bahn und die internationalen Top Marken Gornergrat Bahn und Glacier Express. Leidenschaftliche und qualifizierte Mitarbeitende bilden die Grundlage unseres Erfolges. Täglich engagieren sich rund 700 Mitarbeitende, um unseren Gästen ein erstklassiges Erlebnis zu bieten. Wir leben Vielfalt und haben eines gemeinsam: Emotionen sind unser Antrieb. Was ist dein Antrieb? Dein Wirkungsfeld\n\n• Unterhalts- und Projektarbeiten an Bahnstromanlagen und Übertragungsleitungen Oberwald - Zermatt (Einsätze in Andermatt/Disentis nach Absprache möglich)\n\n• Spezialist für Arbeiten an Bahnstromanlagen und Unterwerken\n\n• Bereitschaft für Sondereinsätze und regelmassigen Pikettdienst\n\n• Mithilfe bei Schneeräumung, Ereignisbewältigung, sowie Nacht- und Sonntagsarbeit\n\n• Bereitschaft zur internen Weiterbildung (z.B. Triebfahrzeugführer Kat. B80)\n Dein Profil\n\n• Handwerkliche Berufsausbildung, idealerweise im Bereich Elektrotechnik oder Mechanik\n\n• Erfahrung in der Bahntechnik, Elektrik oder Mittelspannung von Vorteil\n\n• Gute Informatik-Anwenderkenntnisse (MS Office)\n\n• Teamfähigkeit, Zuverlässigkeit und Flexibilität\n\n• Führerausweis Kategorie B\n Deine Vorteile\n\n• Gestaltungsspielraum bei deinen Aufgaben\n\n• Gut eingespieltes Team\n\n• GA und weitere attraktive Benefits für dich und deine Familie",
+        "fr": "Dein Antrieb\nDas Herzstück der BVZ Holding bilden das Bahnunternehmen Matterhorn Gotthard Bahn und die internationalen Top Marken Gornergrat Bahn und Glacier Express. Leidenschaftliche und qualifizierte Mitarbeitende bilden die Grundlage unseres Erfolges. Täglich engagieren sich rund 700 Mitarbeitende, um unseren Gästen ein erstklassiges Erlebnis zu bieten. Wir leben Vielfalt und haben eines gemeinsam: Emotionen sind unser Antrieb. Was ist dein Antrieb? Dein Wirkungsfeld\n\n• Unterhalts- und Projektarbeiten an Bahnstromanlagen und Übertragungsleitungen Oberwald - Zermatt (Einsätze in Andermatt/Disentis nach Absprache möglich)\n\n• Spezialist für Arbeiten an Bahnstromanlagen und Unterwerken\n\n• Bereitschaft für Sondereinsätze und regelmassigen Pikettdienst\n\n• Mithilfe bei Schneeräumung, Ereignisbewältigung, sowie Nacht- und Sonntagsarbeit\n\n• Bereitschaft zur internen Weiterbildung (z.B. Triebfahrzeugführer Kat. B80)\n Dein Profil\n\n• Handwerkliche Berufsausbildung, idealerweise im Bereich Elektrotechnik oder Mechanik\n\n• Erfahrung in der Bahntechnik, Elektrik oder Mittelspannung von Vorteil\n\n• Gute Informatik-Anwenderkenntnisse (MS Office)\n\n• Teamfähigkeit, Zuverlässigkeit und Flexibilität\n\n• Führerausweis Kategorie B\n Deine Vorteile\n\n• Gestaltungsspielraum bei deinen Aufgaben\n\n• Gut eingespieltes Team\n\n• GA und weitere attraktive Benefits für dich und deine Familie"
+      },
+      "location": "Brig",
+      "canton": "VS",
+      "url": "https://jobs.bvzholding.ch/Fahrleitungsmonteur-Netzelektriker-mwd-de-j689.html",
+      "source": "Matterhorn Gotthard Bahn Dedicated Parser (Rexx Systems)",
+      "sourceLang": "de",
+      "crawledAt": "2026-05-24T22:41:15.957Z",
+      "addressLocality": "Brig",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "3900",
+      "streetAddress": "Bahnhofplatz 7",
+      "category": "Trasporti",
+      "sector": "Trasporti / Ferrovia",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-07",
+      "validThrough": "2026-05-31",
+      "applyUrl": "https://jobs.bvzholding.ch/Fahrleitungsmonteur-Netzelektriker-mwd-de-f689.html",
+      "requirements": [
+        "Handwerkliche Berufsausbildung, idealerweise im Bereich Elektrotechnik oder Mechanik",
+        "Erfahrung in der Bahntechnik, Elektrik oder Mittelspannung von Vorteil",
+        "Gute Informatik-Anwenderkenntnisse (MS Office)",
+        "Teamfähigkeit, Zuverlässigkeit und Flexibilität",
+        "Führerausweis Kategorie B"
+      ],
+      "requirementsByLocale": {
+        "de": [
+          "Handwerkliche Berufsausbildung, idealerweise im Bereich Elektrotechnik oder Mechanik",
+          "Erfahrung in der Bahntechnik, Elektrik oder Mittelspannung von Vorteil",
+          "Gute Informatik-Anwenderkenntnisse (MS Office)",
+          "Teamfähigkeit, Zuverlässigkeit und Flexibilität",
+          "Führerausweis Kategorie B"
+        ]
+      },
+      "_mgbMeta": {
+        "rexxId": "689",
+        "identifier": "PERS-661",
+        "hiringOrganization": "Matterhorn Gotthard Bahn"
+      },
+      "needsRetranslation": true,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-05-24T22:41:15.957Z"
     },
     {
       "id": "matterhorn-gotthard-bahn-0f412224b7c0",
@@ -1024,7 +1017,7 @@
       "url": "https://jobs.bvzholding.ch/Carrosserielackierer-fachmann-mwd-de-j697.html",
       "source": "Matterhorn Gotthard Bahn Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-24T11:28:56.681Z",
+      "crawledAt": "2026-05-24T22:41:14.834Z",
       "addressLocality": "Glis (Glisergrund)",
       "addressCountry": "CH",
       "country": "CH",
