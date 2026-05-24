@@ -4905,12 +4905,12 @@
     "canton": "GR"
   },
   "GR::de::seller-in-food-coop-genossenschaft-chur": {
-    "winnerJobIdentifier": "company-vnskkx",
-    "winnerCanonical": "verkaufer-in-food-coop-genossenschaft-chur",
+    "winnerJobIdentifier": "company-8ij9x8",
+    "winnerCanonical": "verkaufer-in-food-coop-genossenschaft-arosa-8ij9x8",
     "decidedAt": "2026-05-24T00:00:00.000Z",
     "lastSeenAt": "2026-05-24T00:00:00.000Z",
-    "score": 0.7143,
-    "candidatesCount": 2,
+    "score": 0.4444,
+    "candidatesCount": 1,
     "canton": "GR"
   },
   "GR::de::spitex-assistant-de-sante-50-100-spital-davos-davos": {
@@ -4959,16 +4959,16 @@
     "canton": "GR"
   },
   "GR::de::vendeur-dans-la-nourriture-coop-genossenschaft-chur": {
-    "winnerJobIdentifier": "company-vnskkx",
-    "winnerCanonical": "verkaufer-in-food-coop-genossenschaft-chur",
+    "winnerJobIdentifier": "company-8ij9x8",
+    "winnerCanonical": "verkaufer-in-food-coop-genossenschaft-arosa-8ij9x8",
     "decidedAt": "2026-05-24T00:00:00.000Z",
     "lastSeenAt": "2026-05-24T00:00:00.000Z",
-    "score": 0.3,
-    "candidatesCount": 2,
+    "score": 0.1667,
+    "candidatesCount": 1,
     "canton": "GR"
   },
   "GR::de::verkaufer-in-food-coop-chur-graubunden-0l919m": {
-    "winnerJobIdentifier": "company-vnskkx",
+    "winnerJobIdentifier": "company-l919m",
     "winnerCanonical": "verkaufer-in-food-coop-genossenschaft-chur",
     "decidedAt": "2026-05-24T00:00:00.000Z",
     "lastSeenAt": "2026-05-24T00:00:00.000Z",
@@ -5400,12 +5400,12 @@
     "canton": "GR"
   },
   "GR::en::seller-in-food-coop-genossenschaft-chur": {
-    "winnerJobIdentifier": "company-vnskkx",
-    "winnerCanonical": "seller-in-food-coop-genossenschaft-chur-62c54a",
+    "winnerJobIdentifier": "company-8ij9x8",
+    "winnerCanonical": "seller-in-food-coop-genossenschaft-arosa",
     "decidedAt": "2026-05-24T00:00:00.000Z",
     "lastSeenAt": "2026-05-24T00:00:00.000Z",
-    "score": 0.8571,
-    "candidatesCount": 2,
+    "score": 0.7143,
+    "candidatesCount": 1,
     "canton": "GR"
   },
   "GR::en::spitex-assistant-de-sante-50-100-spital-davos-davos": {
@@ -5445,11 +5445,20 @@
     "canton": "GR"
   },
   "GR::en::vendeur-dans-la-nourriture-coop-genossenschaft-chur": {
-    "winnerJobIdentifier": "company-vnskkx",
-    "winnerCanonical": "seller-in-food-coop-genossenschaft-chur-62c54a",
+    "winnerJobIdentifier": "company-8ij9x8",
+    "winnerCanonical": "seller-in-food-coop-genossenschaft-arosa",
     "decidedAt": "2026-05-24T00:00:00.000Z",
     "lastSeenAt": "2026-05-24T00:00:00.000Z",
-    "score": 0.2727,
+    "score": 0.1818,
+    "candidatesCount": 1,
+    "canton": "GR"
+  },
+  "GR::en::verkaufer-in-food-coop-chur-graubunden-0l919m": {
+    "winnerJobIdentifier": "company-l919m",
+    "winnerCanonical": "verkaufer-in-food-coop-genossenschaft-chur",
+    "decidedAt": "2026-05-24T00:00:00.000Z",
+    "lastSeenAt": "2026-05-24T00:00:00.000Z",
+    "score": 0.625,
     "candidatesCount": 2,
     "canton": "GR"
   },
@@ -5913,12 +5922,12 @@
     "canton": "GR"
   },
   "GR::fr::seller-in-food-coop-genossenschaft-chur": {
-    "winnerJobIdentifier": "company-vnskkx",
-    "winnerCanonical": "vendeur-dans-la-nourriture-coop-genossenschaft-chur-62c54a",
+    "winnerJobIdentifier": "company-8ij9x8",
+    "winnerCanonical": "vendeur-dans-la-nourriture-coop-genossenschaft-arosa",
     "decidedAt": "2026-05-24T00:00:00.000Z",
     "lastSeenAt": "2026-05-24T00:00:00.000Z",
-    "score": 0.2727,
-    "candidatesCount": 2,
+    "score": 0.1818,
+    "candidatesCount": 1,
     "canton": "GR"
   },
   "GR::fr::spitex-assistant-de-sante-50-100-spital-davos-davos": {
@@ -5958,11 +5967,20 @@
     "canton": "GR"
   },
   "GR::fr::vendeur-dans-la-nourriture-coop-genossenschaft-chur": {
-    "winnerJobIdentifier": "company-vnskkx",
-    "winnerCanonical": "vendeur-dans-la-nourriture-coop-genossenschaft-chur-62c54a",
+    "winnerJobIdentifier": "company-8ij9x8",
+    "winnerCanonical": "vendeur-dans-la-nourriture-coop-genossenschaft-arosa",
     "decidedAt": "2026-05-24T00:00:00.000Z",
     "lastSeenAt": "2026-05-24T00:00:00.000Z",
-    "score": 0.875,
+    "score": 0.75,
+    "candidatesCount": 1,
+    "canton": "GR"
+  },
+  "GR::fr::verkaufer-in-food-coop-chur-graubunden-0l919m": {
+    "winnerJobIdentifier": "company-l919m",
+    "winnerCanonical": "verkaufer-in-food-coop-genossenschaft-chur",
+    "decidedAt": "2026-05-24T00:00:00.000Z",
+    "lastSeenAt": "2026-05-24T00:00:00.000Z",
+    "score": 0.625,
     "candidatesCount": 2,
     "canton": "GR"
   },
@@ -6678,12 +6696,12 @@
     "canton": "GR"
   },
   "GR::it::seller-in-food-coop-genossenschaft-chur": {
-    "winnerJobIdentifier": "company-vnskkx",
-    "winnerCanonical": "venditore-in-food-coop-genossenschaft-chur",
+    "winnerJobIdentifier": "company-8ij9x8",
+    "winnerCanonical": "venditore-in-food-coop-genossenschaft-arosa",
     "decidedAt": "2026-05-24T00:00:00.000Z",
     "lastSeenAt": "2026-05-24T00:00:00.000Z",
-    "score": 0.7143,
-    "candidatesCount": 2,
+    "score": 0.5,
+    "candidatesCount": 1,
     "canton": "GR"
   },
   "GR::it::specialista-infermieristico-qualificato-hf-fh-40-90-flury-stiftung-schiers": {
@@ -6795,20 +6813,29 @@
     "canton": "GR"
   },
   "GR::it::vendeur-dans-la-nourriture-coop-genossenschaft-chur": {
-    "winnerJobIdentifier": "company-vnskkx",
-    "winnerCanonical": "venditore-in-food-coop-genossenschaft-chur",
+    "winnerJobIdentifier": "company-8ij9x8",
+    "winnerCanonical": "venditore-in-food-coop-genossenschaft-arosa",
     "decidedAt": "2026-05-24T00:00:00.000Z",
     "lastSeenAt": "2026-05-24T00:00:00.000Z",
-    "score": 0.3,
-    "candidatesCount": 2,
+    "score": 0.1818,
+    "candidatesCount": 1,
     "canton": "GR"
   },
   "GR::it::verkaufer-in-food-coop-chur-graubunden": {
-    "winnerJobIdentifier": "company-vnskkx",
-    "winnerCanonical": "venditore-in-food-coop-genossenschaft-chur",
+    "winnerJobIdentifier": "company-l919m",
+    "winnerCanonical": "verkaufer-in-food-coop-genossenschaft-chur",
     "decidedAt": "2026-05-24T00:00:00.000Z",
     "lastSeenAt": "2026-05-24T00:00:00.000Z",
-    "score": 0.5,
+    "score": 0.7143,
+    "candidatesCount": 2,
+    "canton": "GR"
+  },
+  "GR::it::verkaufer-in-food-coop-chur-graubunden-0l919m": {
+    "winnerJobIdentifier": "company-l919m",
+    "winnerCanonical": "verkaufer-in-food-coop-genossenschaft-chur",
+    "decidedAt": "2026-05-24T00:00:00.000Z",
+    "lastSeenAt": "2026-05-24T00:00:00.000Z",
+    "score": 0.625,
     "candidatesCount": 2,
     "canton": "GR"
   },
@@ -10665,12 +10692,12 @@
     "canton": "TI"
   },
   "TI::de::assistenzarzt-fur-geriatrie-eoc-ente-ospedaliero-cantonale-lugano": {
-    "winnerJobIdentifier": "company-uikyun",
-    "winnerCanonical": "medizinischer-studienassistent-eoc-ente-ospedaliero-cantonale-lugano",
+    "winnerJobIdentifier": "company-uilmk6",
+    "winnerCanonical": "medizinischer-assistent-geriatrics-eoc-ente-ospedaliero-cantonale-lugano",
     "decidedAt": "2026-05-24T00:00:00.000Z",
     "lastSeenAt": "2026-05-24T00:00:00.000Z",
-    "score": 0.5,
-    "candidatesCount": 2,
+    "score": 0.4545,
+    "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::de::autista-di-camion-heineken-switzerland-content-width-device-width": {
@@ -10989,12 +11016,12 @@
     "canton": "TI"
   },
   "TI::de::krankenpflegepraktikum-eoc-ente-ospedaliero-cantonale-bellinzona": {
-    "winnerJobIdentifier": "company-uil177",
-    "winnerCanonical": "krankenpflegepraktikum-eoc-ente-ospedaliero-cantonale-bellinzona-c86b40",
+    "winnerJobIdentifier": "company-uikzn5",
+    "winnerCanonical": "krankenpflegepraktikum-eoc-ente-ospedaliero-cantonale-locarno",
     "decidedAt": "2026-05-24T00:00:00.000Z",
     "lastSeenAt": "2026-05-24T00:00:00.000Z",
-    "score": 0.8571,
-    "candidatesCount": 2,
+    "score": 0.7143,
+    "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::de::krankenpfleger-in-in-allgemeiner-pflege-eoc-ente-ospedaliero-cantonale-novaggio": {
@@ -11133,12 +11160,12 @@
     "canton": "TI"
   },
   "TI::de::medizinischer-studienassistent-pflegedienst-eoc-ente-ospedaliero-cantonale-mendrisio": {
-    "winnerJobIdentifier": "company-uikyun",
-    "winnerCanonical": "medizinischer-studienassistent-eoc-ente-ospedaliero-cantonale-lugano",
+    "winnerJobIdentifier": "company-uikzkk",
+    "winnerCanonical": "medizinischer-assistent-infirmary-service-eoc-ente-ospedaliero-cantonale-mendrisio",
     "decidedAt": "2026-05-24T00:00:00.000Z",
     "lastSeenAt": "2026-05-24T00:00:00.000Z",
-    "score": 0.6667,
-    "candidatesCount": 2,
+    "score": 0.5455,
+    "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::de::messtechniker-in-100-agie-charmilles-sa-biel-bienne": {
@@ -11430,12 +11457,12 @@
     "canton": "TI"
   },
   "TI::en::administrative-employee-eoc-ente-ospedaliero-cantonale-bellinzona": {
-    "winnerJobIdentifier": "company-x29miu",
-    "winnerCanonical": "administrative-expenditure-eoc-ente-ospedaliero-cantonale-bellinzona",
+    "winnerJobIdentifier": "company-uil169",
+    "winnerCanonical": "employee-amministrativo-a-eoc-ente-ospedaliero-cantonale-bellinzona",
     "decidedAt": "2026-05-24T00:00:00.000Z",
     "lastSeenAt": "2026-05-24T00:00:00.000Z",
-    "score": 0.75,
-    "candidatesCount": 2,
+    "score": 0.6667,
+    "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::en::admission-3a-3b-conseils-financiers-horaires-flexibles-convit-holding-gmbh-giubiasco-monte-carasso": {
@@ -11907,12 +11934,12 @@
     "canton": "TI"
   },
   "TI::en::medico-assistente-anestesia-eoc-ente-ospedaliero-cantonale-lugano-uilm18": {
-    "winnerJobIdentifier": "company-uikyun",
-    "winnerCanonical": "medical-study-assistant-eoc-ente-ospedaliero-cantonale-lugano",
+    "winnerJobIdentifier": "company-uilm18",
+    "winnerCanonical": "medical-assistant-anesthesia-eoc-ente-ospedaliero-cantonale-lugano",
     "decidedAt": "2026-05-24T00:00:00.000Z",
     "lastSeenAt": "2026-05-24T00:00:00.000Z",
     "score": 0.4167,
-    "candidatesCount": 2,
+    "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::en::medico-assistente-eoc-ente-ospedaliero-cantonale-lugano-uilm0d": {
@@ -11925,12 +11952,12 @@
     "canton": "TI"
   },
   "TI::en::medico-assistente-geriatria-eoc-ente-ospedaliero-cantonale-lugano-uilmk6": {
-    "winnerJobIdentifier": "company-uikyun",
-    "winnerCanonical": "medical-study-assistant-eoc-ente-ospedaliero-cantonale-lugano",
+    "winnerJobIdentifier": "company-uilmk6",
+    "winnerCanonical": "medical-assistant-geriatrics-eoc-ente-ospedaliero-cantonale-lugano",
     "decidedAt": "2026-05-24T00:00:00.000Z",
     "lastSeenAt": "2026-05-24T00:00:00.000Z",
     "score": 0.4167,
-    "candidatesCount": 2,
+    "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::en::medico-assistente-ginecologia-e-ostetricia-eoc-ente-ospedaliero-cantonale-mendrisio-uil4vw": {
@@ -12357,12 +12384,12 @@
     "canton": "TI"
   },
   "TI::fr::assistant-d-etude-medicale-service-de-soins-infirmiers-eoc-ente-ospedaliero-cantonale-mendrisio": {
-    "winnerJobIdentifier": "company-uikyun",
-    "winnerCanonical": "assistant-d-etude-medicale-eoc-ente-ospedaliero-cantonale-lugano",
+    "winnerJobIdentifier": "company-uikzkk",
+    "winnerCanonical": "assistant-medical-service-infirmier-eoc-ente-ospedaliero-cantonale-mendrisio",
     "decidedAt": "2026-05-24T00:00:00.000Z",
     "lastSeenAt": "2026-05-24T00:00:00.000Z",
-    "score": 0.5714,
-    "candidatesCount": 2,
+    "score": 0.4667,
+    "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::fr::assistant-de-soins-eoc-ente-ospedaliero-cantonale-novaggio": {
@@ -12492,12 +12519,12 @@
     "canton": "TI"
   },
   "TI::fr::care-assistant-eoc-ente-ospedaliero-cantonale-novaggio": {
-    "winnerJobIdentifier": "company-x29n58",
-    "winnerCanonical": "carriere-eoc-ente-ospedaliero-cantonale-novaggio",
+    "winnerJobIdentifier": "company-x29n57",
+    "winnerCanonical": "assistant-de-soins-eoc-ente-ospedaliero-cantonale-novaggio",
     "decidedAt": "2026-05-24T00:00:00.000Z",
     "lastSeenAt": "2026-05-24T00:00:00.000Z",
-    "score": 0.625,
-    "candidatesCount": 2,
+    "score": 0.6667,
+    "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::fr::chauffeur-de-camion-heineken-switzerland-content-width-device-width": {
@@ -13230,7 +13257,7 @@
     "canton": "TI"
   },
   "TI::it::assistente-di-cura-eoc-ente-ospedaliero-cantonale-bellinzona": {
-    "winnerJobIdentifier": "company-x29n58",
+    "winnerJobIdentifier": "company-x29n57",
     "winnerCanonical": "assistente-di-cura-eoc-ente-ospedaliero-cantonale-novaggio",
     "decidedAt": "2026-05-24T00:00:00.000Z",
     "lastSeenAt": "2026-05-24T00:00:00.000Z",
@@ -13581,12 +13608,12 @@
     "canton": "TI"
   },
   "TI::it::galenica-sun-store-apotheke-assistente-di-farmacia-afc-lugano": {
-    "winnerJobIdentifier": "galenica-09573af674dd",
-    "winnerCanonical": "assistente-di-farmacia-afc-sun-store-apotheke-galenica-lugano",
+    "winnerJobIdentifier": "galenica-c0bd65c5811b",
+    "winnerCanonical": "galenica-amavita-assistente-di-farmacia-afc-lugano",
     "decidedAt": "2026-05-24T00:00:00.000Z",
     "lastSeenAt": "2026-05-24T00:00:00.000Z",
-    "score": 1,
-    "candidatesCount": 2,
+    "score": 0.6,
+    "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::it::impiegato-a-amministrativo-a-eoc-ente-ospedaliero-cantonale-bellinzona": {
@@ -14349,7 +14376,7 @@
     "winnerJobIdentifier": "epfl-b0cd92a73585",
     "winnerCanonical": "postdoc-position-on-ai-alignment-and-safe-ai-available-at-epfl-dlab-epfl-lausanne",
     "decidedAt": "2026-05-22T00:00:00.000Z",
-    "lastSeenAt": "2026-05-23T00:00:00.000Z",
+    "lastSeenAt": "2026-05-24T00:00:00.000Z",
     "score": 0.2381,
     "candidatesCount": 1,
     "canton": "VD"
