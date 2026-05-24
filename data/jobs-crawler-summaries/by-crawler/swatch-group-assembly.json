@@ -1,21 +1,21 @@
 {
   "key": "swatch-group-assembly",
   "label": "swatch-group-assembly",
-  "generatedAt": "2026-05-23T23:28:23.291Z",
+  "generatedAt": "2026-05-24T12:20:22.658Z",
   "total": 10,
   "newCount": 15,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 25057,
-  "avgDurationMs": 25057,
+  "durationMs": 23811,
+  "avgDurationMs": 23811,
   "durationHistory": [
-    25057
+    23811
   ],
   "newJobs": [
     {
       "id": "company-7ubc9a",
-      "slug": "swatch-assistant-store-manager-green-hills-nashville-the-swatch-group-u-s-inc-job-location-abbott-martin-road",
+      "slug": "swatch-assistant-store-manager-green-hills-nashville-the-swatch-group-u-s-inc-job-location-abbott-martin-road-7ubc9a",
       "company": "The Swatch Group (U.S.) Inc.",
       "title": "Swatch Assistant Store Manager - Green Hills (Nashville)",
       "location": "Job location Abbott Martin Road",
@@ -33,17 +33,26 @@
       "firstSeenAt": "2026-05-23T23:28:22.656Z",
       "needsRetranslation": true,
       "sourceLang": "en",
-      "_qualityScore": 69,
+      "salaryMin": 95000,
+      "salaryMax": 132500,
+      "streetAddress": "Bielstrasse 45",
+      "postalCode": "2543",
+      "addressLocality": "Job location Abbott Martin Road",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "retranslationAttempts": 1,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
-        "translation": 9,
-        "completeness": 14
+        "translation": 17,
+        "completeness": 25
       }
     },
     {
       "id": "company-7ubc99",
-      "slug": "sales-lead-conestoga-mall-the-swatch-group-canada-ltd-safety-standards-and-act-as-a-model-for-company-policies-and-procedures",
+      "slug": "sales-lead-conestoga-mall-the-swatch-group-canada-ltd-safety-standards-and-act-as-a-model-for-company-policies-and-procedures-7ubc99",
       "company": "The Swatch Group (Canada) Ltd.",
       "title": "Sales Lead (Conestoga Mall)",
       "location": "safety standards and act as a model for company policies and procedures",
@@ -59,14 +68,22 @@
       "companyDomain": "swatchgroup.com",
       "crawledAt": "2026-05-23T23:28:22.656Z",
       "firstSeenAt": "2026-05-23T23:28:22.656Z",
-      "needsRetranslation": true,
       "sourceLang": "en",
-      "_qualityScore": 64,
+      "salaryMin": 142000,
+      "salaryMax": 249500,
+      "streetAddress": "Bielstrasse 45",
+      "postalCode": "2543",
+      "addressLocality": "safety standards and act as a model for company policies and procedures",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
+      "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
-        "translation": 4,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 25
       }
     },
     {
@@ -157,7 +174,6 @@
       "companyDomain": "swatchgroup.com",
       "crawledAt": "2026-05-22T13:16:24.027Z",
       "firstSeenAt": "2026-05-22T13:16:24.027Z",
-      "needsRetranslation": true,
       "sourceLang": "en",
       "salaryMin": 58000,
       "salaryMax": 88000,
@@ -167,7 +183,7 @@
       "addressRegion": "BE",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "retranslationAttempts": 2,
+      "needsRetranslation": true,
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
