@@ -4224,10 +4224,10 @@
     },
     {
       "id": "reboot-monkey-82b75718ba1a",
-      "slug": "data-center-technician-switzerland-pratteln-on-site-reboot-monkey-pratteln-2",
+      "slug": "data-center-technician-svizzera-pratteln-in-loco-reboot-monkey-pratteln",
       "slugByLocale": {
         "en": "data-center-technician-switzerland-pratteln-on-site-reboot-monkey-pratteln",
-        "it": "data-center-technician-switzerland-pratteln-on-site-reboot-monkey-pratteln-2",
+        "it": "data-center-technician-svizzera-pratteln-in-loco-reboot-monkey-pratteln",
         "de": "data-center-technician-switzerland-pratteln-on-site-reboot-monkey-pratteln-2",
         "fr": "data-center-technician-switzerland-pratteln-on-site-reboot-monkey-pratteln-2"
       },
@@ -4307,7 +4307,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-23T22:59:08.217Z"
+      "firstSeenAt": "2026-05-23T22:59:08.217Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "data-center-technician-switzerland-pratteln-on-site-reboot-monkey-pratteln-2"
+        ]
+      },
+      "previousSlugs": [
+        "data-center-technician-switzerland-pratteln-on-site-reboot-monkey-pratteln-2"
+      ]
     },
     {
       "id": "reboot-monkey-39fa58da10d7",
@@ -4385,8 +4393,7 @@
         "data-center-techniker-switzerland-pratteln-on-site-reboot-monkey-pratteln",
         "data-center-technicien-switzerland-pratteln-on-site-reboot-monkey-pratteln",
         "data-center-technician-switzerland-pratteln-on-site-reboot-monkey-pratteln-2",
-        "data-center-technician-switzerland-plan-les-ouates-on-site-reboot-monkey-plan-les-ouates-2",
-        "data-center-technician-svizzera-pratteln-in-loco-reboot-monkey-pratteln"
+        "data-center-technician-switzerland-plan-les-ouates-on-site-reboot-monkey-plan-les-ouates-2"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -12268,7 +12275,6 @@
       "remote": false,
       "previousSlugs": [
         "data-center-technician-leuk-on-site-reboot-monkey-leuk-2",
-        "data-center-technician-lucerne-on-site-reboot-monkey-lucerne-2",
         "data-center-technician-leuk-in-sede-reboot-monkey-leuk"
       ],
       "firstSeenAt": "2026-05-17T10:55:52.722Z",
