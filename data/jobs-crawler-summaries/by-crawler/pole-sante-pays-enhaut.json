@@ -1,16 +1,16 @@
 {
   "key": "pole-sante-pays-enhaut",
   "label": "Pôle Santé Pays-d'Enhaut",
-  "generatedAt": "2026-05-23T22:53:38.264Z",
+  "generatedAt": "2026-05-24T11:45:19.545Z",
   "total": 5,
   "newCount": 0,
   "updatedCount": 5,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 5147,
-  "avgDurationMs": 5147,
+  "durationMs": 4035,
+  "avgDurationMs": 4035,
   "durationHistory": [
-    5147
+    4035
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -27,7 +27,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/47c1617f-3e49-4611-ac3e-98256ab1dbae/",
       "source": "Pôle Santé Pays-d'Enhaut Dedicated Parser (jobup.ch feed hpe)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-23T22:53:35.673Z",
+      "crawledAt": "2026-05-24T11:45:17.195Z",
       "addressLocality": "Château d'Oex",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -64,7 +64,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/1e729c02-b279-4539-810b-602756159573/",
       "source": "Pôle Santé Pays-d'Enhaut Dedicated Parser (jobup.ch feed hpe)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-23T22:53:36.244Z",
+      "crawledAt": "2026-05-24T11:45:17.726Z",
       "addressLocality": "Château d'Oex",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -101,7 +101,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/89f31854-b586-43e4-8e8b-04a91a205287/",
       "source": "Pôle Santé Pays-d'Enhaut Dedicated Parser (jobup.ch feed hpe)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-23T22:53:34.807Z",
+      "crawledAt": "2026-05-24T11:45:16.911Z",
       "addressLocality": "Château d'Oex",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -138,7 +138,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/d5689b9b-c44f-4c02-9f36-42e5424281a1/",
       "source": "Pôle Santé Pays-d'Enhaut Dedicated Parser (jobup.ch feed hpe)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-23T22:53:34.505Z",
+      "crawledAt": "2026-05-24T11:45:16.627Z",
       "addressLocality": "Château d'Oex",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -175,7 +175,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/91a9a32a-a73c-40b5-bb4a-650b7054db03/",
       "source": "Pôle Santé Pays-d'Enhaut Dedicated Parser (jobup.ch feed hpe)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-23T22:53:35.958Z",
+      "crawledAt": "2026-05-24T11:45:17.460Z",
       "addressLocality": "Château d'Oex",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -200,45 +200,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "id": "pole-sante-pays-enhaut-394b03056ddd",
-      "slug": "assistente-sanitaria-polivalente-pole-sante-pays-d-enhaut-chateau-d-oex",
-      "company": "Pôle Santé Pays-d'Enhaut",
-      "companyKey": "pole-sante-pays-enhaut",
-      "companyDomain": "pspe.ch",
-      "title": "Auxiliaire de santé polyvalent·e",
-      "location": "Château d'Oex",
-      "canton": "VD",
-      "url": "https://www.jobup.ch/fr/emplois/detail/cd53c862-f2a3-486e-a48b-2ffd49dfd211/",
-      "source": "Pôle Santé Pays-d'Enhaut Dedicated Parser (jobup.ch feed hpe)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-05-23T11:29:36.496Z",
-      "addressLocality": "Château d'Oex",
-      "addressRegion": "VD",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1660",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-19",
-      "applyUrl": "https://www.jobup.ch/fr/emplois/detail/cd53c862-f2a3-486e-a48b-2ffd49dfd211/",
-      "firstSeenAt": "2026-05-19T10:23:26.902Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 22
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
