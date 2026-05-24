@@ -1,6 +1,6 @@
 {
   "crawlerKey": "denner",
-  "assembledAt": "2026-05-24T10:34:34.590Z",
+  "assembledAt": "2026-05-24T21:46:36.409Z",
   "jobs": [
     {
       "id": "denner-0851c2a2772b",
@@ -64,7 +64,7 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin/6f360aae-c573-41eb-94cb-0108ba05f3c5",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-24T10:34:32.599Z",
+      "crawledAt": "2026-05-24T21:46:34.413Z",
       "previousSlugs": [
         "verkaufer-in-denner",
         "verkaufer-in-denner-binningen",
@@ -88,6 +88,7 @@
         ]
       },
       "firstSeenAt": "2026-05-22T22:01:13.831Z",
+      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 90500,
       "baseSalary": {
@@ -163,7 +164,7 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/filialleiterin-ausbildung-region-basel/677e7a8e-3116-48d2-995e-fb23bed1c5dc",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-24T10:34:32.597Z",
+      "crawledAt": "2026-05-24T21:46:34.412Z",
       "previousSlugs": [
         "responsabile-di-filiale-denner-schluein",
         "filialleiter-in-denner",
@@ -195,6 +196,7 @@
         ]
       },
       "firstSeenAt": "2026-05-21T11:45:35.377Z",
+      "needsRetranslation": true,
       "salaryMin": 82500,
       "salaryMax": 127000,
       "baseSalary": {
@@ -270,7 +272,7 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/stv-filialleiterin/56d8596b-67bd-4697-b49e-231d8dd3a361",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-24T10:34:32.596Z",
+      "crawledAt": "2026-05-24T21:46:34.411Z",
       "previousSlugs": [
         "stv-filialleiter-in-denner",
         "stv-filialleiter-in-denner-riehen",
@@ -296,6 +298,7 @@
         ]
       },
       "firstSeenAt": "2026-05-22T11:29:19.560Z",
+      "needsRetranslation": true,
       "salaryMin": 82500,
       "salaryMax": 127000,
       "baseSalary": {
@@ -370,7 +373,7 @@
       "url": "https://jobs.migros.ch/fr/nos-entreprises/job/denner-sa/vendeur-vendeuse/9839fbdc-8d74-4997-bc19-1eb83a1f1a6c",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-24T10:34:31.957Z",
+      "crawledAt": "2026-05-24T21:46:33.910Z",
       "previousSlugs": [
         "vendeur-vendeuse-denner-geneve",
         "vendeur-vendeuse-denner",
@@ -393,6 +396,7 @@
         ]
       },
       "firstSeenAt": "2026-05-22T22:01:13.458Z",
+      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 90500,
       "baseSalary": {
@@ -466,7 +470,7 @@
       "url": "https://jobs.migros.ch/fr/nos-entreprises/job/denner-sa/adjoint-e-gerant-e/09a99f97-ee7e-4b59-89cb-379088c26374",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-24T10:34:31.955Z",
+      "crawledAt": "2026-05-24T21:46:33.909Z",
       "previousSlugs": [
         "adjoint-e-gerant-e-denner",
         "adjoint-e-gerant-e-denner-renens-vd"
@@ -484,6 +488,7 @@
         ]
       },
       "firstSeenAt": "2026-05-19T22:05:07.458Z",
+      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 90500,
       "baseSalary": {
@@ -558,7 +563,7 @@
       "url": "https://jobs.migros.ch/fr/nos-entreprises/job/denner-sa/etudiant-etudiante/b8e45301-f200-4c18-abc5-a5745b4c01e0",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-24T10:34:31.440Z",
+      "crawledAt": "2026-05-24T21:46:33.448Z",
       "previousSlugs": [
         "studente-studentessa-denner-murten",
         "etudiant-etudiante-denner",
@@ -580,6 +585,7 @@
         ]
       },
       "firstSeenAt": "2026-05-19T22:05:06.909Z",
+      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 90500,
       "baseSalary": {
@@ -655,7 +661,7 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/filialleiterin-ausbildung/7dfd799e-c57d-4231-a231-cb1d0e004a98",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-24T10:34:30.796Z",
+      "crawledAt": "2026-05-24T21:46:32.976Z",
       "previousSlugs": [
         "filialleiter-in-in-ausbildung-denner",
         "filialleiter-in-in-ausbildung-denner-horw",
@@ -682,6 +688,7 @@
         ]
       },
       "firstSeenAt": "2026-05-19T22:05:06.909Z",
+      "needsRetranslation": true,
       "salaryMin": 82500,
       "salaryMax": 127000,
       "baseSalary": {
@@ -756,7 +763,7 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/studentin-als-ferienaushilfe/902d0a18-3537-47b9-ab3e-3815d730187b",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-24T10:34:30.795Z",
+      "crawledAt": "2026-05-24T21:46:32.974Z",
       "previousSlugs": [
         "student-in-come-ferienaushilfe-denner-horw",
         "student-in-als-ferienaushilfe-denner",
@@ -772,6 +779,7 @@
         ]
       },
       "firstSeenAt": "2026-05-21T11:45:32.929Z",
+      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 90500,
       "baseSalary": {
@@ -847,7 +855,7 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-partner-betriebe/verkauferin-im-stundenlohn/bca3e45f-1a94-4827-9998-c6cd288c2911",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-24T10:34:27.966Z",
+      "crawledAt": "2026-05-24T21:46:29.903Z",
       "previousSlugs": [
         "verkaufer-in-im-stundenlohn-denner",
         "verkaufer-in-im-stundenlohn-denner-grosswangen",
@@ -871,6 +879,7 @@
         ]
       },
       "firstSeenAt": "2026-05-22T11:28:55.326Z",
+      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 90500,
       "baseSalary": {
@@ -946,7 +955,7 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/filialleiterin/c3efca6b-0935-4710-9e4a-405d40836d47",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-24T10:34:27.320Z",
+      "crawledAt": "2026-05-24T21:46:29.497Z",
       "previousSlugs": [
         "responsabile-di-filiale-denner-schluein",
         "filialleiter-in-denner",
@@ -972,6 +981,7 @@
         ]
       },
       "firstSeenAt": "2026-05-22T11:28:53.792Z",
+      "needsRetranslation": true,
       "salaryMin": 82500,
       "salaryMax": 127000,
       "baseSalary": {
@@ -1048,7 +1058,7 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/52bec962-4621-486c-a8f9-e68852c99fb2",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-24T10:34:26.666Z",
+      "crawledAt": "2026-05-24T21:46:29.048Z",
       "previousSlugs": [
         "assistent-in-filialleitung-denner",
         "assistent-in-filialleitung-denner-flims-dorf-gzl76k",
@@ -1073,6 +1083,7 @@
         ]
       },
       "firstSeenAt": "2026-05-22T11:28:49.871Z",
+      "needsRetranslation": true,
       "salaryMin": 82500,
       "salaryMax": 127000,
       "baseSalary": {
@@ -1148,7 +1159,7 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin-spatschicht/deab043c-5b67-4d37-914f-ad8ff7d41f27",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-24T10:34:26.665Z",
+      "crawledAt": "2026-05-24T21:46:29.046Z",
       "previousSlugs": [
         "commesso-a-turno-serale-denner-flims-dorf",
         "verkaufer-in-spatschicht-denner",
@@ -1169,6 +1180,7 @@
         ]
       },
       "firstSeenAt": "2026-05-19T11:34:19.291Z",
+      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 90500,
       "baseSalary": {
@@ -1244,7 +1256,7 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/stv-filialleiterin-ausbildung/c2d099c3-d68f-410b-be22-d069c41e9c7e",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-24T10:34:25.280Z",
+      "crawledAt": "2026-05-24T21:46:28.035Z",
       "previousSlugs": [
         "vice-responsabile-di-filiale-in-formazione-denner-chur",
         "stv-filialleiter-in-in-ausbildung-denner",
@@ -1266,6 +1278,7 @@
         ]
       },
       "firstSeenAt": "2026-05-16T10:01:17.577Z",
+      "needsRetranslation": true,
       "salaryMin": 82500,
       "salaryMax": 127000,
       "baseSalary": {
