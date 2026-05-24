@@ -132,9 +132,9 @@
     },
     {
       "id": "roche-f31114e7ba00",
-      "slug": "roche-changchun",
+      "slug": "traduzione-roche-changchun",
       "slugByLocale": {
-        "it": "roche-changchun",
+        "it": "traduzione-roche-changchun",
         "en": "roche-changchun",
         "de": "roche-changchun",
         "fr": "roche-changchun"
@@ -181,11 +181,13 @@
           "roche-ch"
         ],
         "it": [
-          "roche-ch"
+          "roche-ch",
+          "roche-changchun"
         ]
       },
       "previousSlugs": [
-        "roche-ch"
+        "roche-ch",
+        "roche-changchun"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-23T11:45:53.216Z",
@@ -4152,9 +4154,9 @@
     },
     {
       "id": "roche-c7151924304a",
-      "slug": "roche-beijing",
+      "slug": "localizzazioni-di-destinazione-locale-roche-beijing",
       "slugByLocale": {
-        "it": "roche-beijing",
+        "it": "localizzazioni-di-destinazione-locale-roche-beijing",
         "en": "roche-beijing",
         "de": "roche-beijing",
         "fr": "roche-beijing"
@@ -4202,13 +4204,15 @@
         ],
         "it": [
           "roche-ch-27",
-          "roche-ch-26"
+          "roche-ch-26",
+          "roche-beijing"
         ]
       },
       "previousSlugs": [
         "roche-ch",
         "roche-ch-27",
-        "roche-ch-26"
+        "roche-ch-26",
+        "roche-beijing"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-22T12:57:10.560Z",
@@ -5638,9 +5642,9 @@
     },
     {
       "id": "roche-c10f3756e52d",
-      "slug": "roche-guangzhou",
+      "slug": "organizzazione-della-pesca-roche-guangzhou-98e7f2",
       "slugByLocale": {
-        "it": "roche-guangzhou",
+        "it": "organizzazione-della-pesca-roche-guangzhou-98e7f2",
         "en": "roche-guangzhou",
         "de": "roche-guangzhou",
         "fr": "roche-guangzhou"
@@ -5688,13 +5692,15 @@
         ],
         "it": [
           "roche-ch-51",
-          "roche-ch-50"
+          "roche-ch-50",
+          "roche-guangzhou"
         ]
       },
       "previousSlugs": [
         "roche-ch",
         "roche-ch-51",
-        "roche-ch-50"
+        "roche-ch-50",
+        "roche-guangzhou"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-22T12:56:41.377Z",
@@ -12079,9 +12085,9 @@
     },
     {
       "id": "roche-bf61acc42c54",
-      "slug": "m-odszy-specjalista-m-odsza-specjalistka-ds-logistyki-magazynowej-roche-warsaw",
+      "slug": "specialista-junior-specialista-di-logistica-di-magazzino-junior-roche-warsaw",
       "slugByLocale": {
-        "it": "m-odszy-specjalista-m-odsza-specjalistka-ds-logistyki-magazynowej-roche-warsaw",
+        "it": "specialista-junior-specialista-di-logistica-di-magazzino-junior-roche-warsaw",
         "en": "m-odszy-specjalista-m-odsza-specjalistka-ds-logistyki-magazynowej-roche-ch",
         "de": "m-odszy-specjalista-m-odsza-specjalistka-ds-logistyki-magazynowej-roche-ch",
         "fr": "m-odszy-specjalista-m-odsza-specjalistka-ds-logistyki-magazynowej-roche-ch"
@@ -12125,12 +12131,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "m-odszy-specjalista-m-odsza-specjalistka-ds-logistyki-magazynowej-roche-ch",
-        "specialista-junior-specialista-di-logistica-di-magazzino-junior-roche-warsaw"
+        "m-odszy-specjalista-m-odsza-specjalistka-ds-logistyki-magazynowej-roche-warsaw"
       ],
       "previousSlugsByLocale": {
         "it": [
           "m-odszy-specjalista-m-odsza-specjalistka-ds-logistyki-magazynowej-roche-ch",
-          "specialista-junior-specialista-di-logistica-di-magazzino-junior-roche-warsaw"
+          "m-odszy-specjalista-m-odsza-specjalistka-ds-logistyki-magazynowej-roche-warsaw"
         ]
       },
       "needsRetranslation": true,
@@ -14306,9 +14312,9 @@
     },
     {
       "id": "roche-59ed7233ae8c",
-      "slug": "practicante-de-business-center-roche-lima",
+      "slug": "centro-praticante-de-business-roche-lima",
       "slugByLocale": {
-        "it": "practicante-de-business-center-roche-lima",
+        "it": "centro-praticante-de-business-roche-lima",
         "en": "practicante-de-business-center-roche-ch",
         "de": "practicante-de-business-center-roche-ch",
         "fr": "practicante-de-business-center-roche-ch"
@@ -14352,12 +14358,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "practicante-de-business-center-roche-ch",
-        "centro-praticante-de-business-roche-lima"
+        "practicante-de-business-center-roche-lima"
       ],
       "previousSlugsByLocale": {
         "it": [
           "practicante-de-business-center-roche-ch",
-          "centro-praticante-de-business-roche-lima"
+          "practicante-de-business-center-roche-lima"
         ]
       },
       "needsRetranslation": true,
@@ -18129,9 +18135,9 @@
     },
     {
       "id": "roche-aaffe197f44e",
-      "slug": "especialista-en-licitaciones-roche-mexico-city",
+      "slug": "specialist-en-licitaciones-roche-mexico-city",
       "slugByLocale": {
-        "it": "especialista-en-licitaciones-roche-mexico-city",
+        "it": "specialist-en-licitaciones-roche-mexico-city",
         "en": "especialista-en-licitaciones-roche-ch",
         "de": "especialista-en-licitaciones-roche-ch",
         "fr": "especialista-en-licitaciones-roche-ch"
@@ -18175,12 +18181,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "especialista-en-licitaciones-roche-ch",
-        "specialist-en-licitaciones-roche-mexico-city"
+        "especialista-en-licitaciones-roche-mexico-city"
       ],
       "previousSlugsByLocale": {
         "it": [
           "especialista-en-licitaciones-roche-ch",
-          "specialist-en-licitaciones-roche-mexico-city"
+          "especialista-en-licitaciones-roche-mexico-city"
         ]
       },
       "needsRetranslation": true,
@@ -18767,9 +18773,9 @@
     },
     {
       "id": "roche-24190952f429",
-      "slug": "histotechnician-roche-tucson",
+      "slug": "istotecnico-roche-tucson",
       "slugByLocale": {
-        "it": "histotechnician-roche-tucson",
+        "it": "istotecnico-roche-tucson",
         "en": "histotechnician-roche-tucson",
         "de": "histotechnician-roche-ch",
         "fr": "histotechnician-roche-tucson"
@@ -18817,12 +18823,12 @@
         ],
         "it": [
           "histotechnician-roche-ch",
-          "istotecnico-roche-tucson"
+          "histotechnician-roche-tucson"
         ]
       },
       "previousSlugs": [
         "histotechnician-roche-ch",
-        "istotecnico-roche-tucson"
+        "histotechnician-roche-tucson"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-21T00:05:52.402Z",
@@ -21832,9 +21838,9 @@
     },
     {
       "id": "roche-85dc64320163",
-      "slug": "global-digital-campaign-expert-talent-pool-roche-budapest",
+      "slug": "esperto-di-campagne-digitali-globali-pool-di-talenti-roche-budapest",
       "slugByLocale": {
-        "it": "global-digital-campaign-expert-talent-pool-roche-budapest",
+        "it": "esperto-di-campagne-digitali-globali-pool-di-talenti-roche-budapest",
         "en": "global-digital-campaign-expert-talent-pool-roche-ch",
         "de": "global-digital-campaign-expert-talent-pool-roche-ch",
         "fr": "global-digital-campaign-expert-talent-pool-roche-ch"
@@ -21878,12 +21884,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "global-digital-campaign-expert-talent-pool-roche-ch",
-        "esperto-globale-di-campagne-digitali-talent-pool-roche-budapest"
+        "esperto-globale-di-campagne-digitali-talent-pool-roche-budapest",
+        "global-digital-campaign-expert-talent-pool-roche-budapest"
       ],
       "previousSlugsByLocale": {
         "it": [
           "global-digital-campaign-expert-talent-pool-roche-ch",
-          "esperto-globale-di-campagne-digitali-talent-pool-roche-budapest"
+          "esperto-globale-di-campagne-digitali-talent-pool-roche-budapest",
+          "global-digital-campaign-expert-talent-pool-roche-budapest"
         ]
       },
       "needsRetranslation": true,
@@ -23302,9 +23310,9 @@
     },
     {
       "id": "roche-52eb22729eba",
-      "slug": "roche-hangzhou",
+      "slug": "traduzione-roche-hangzhou",
       "slugByLocale": {
-        "it": "roche-hangzhou",
+        "it": "traduzione-roche-hangzhou",
         "en": "roche-hangzhou",
         "de": "roche-hangzhou",
         "fr": "roche-hangzhou"
@@ -23352,13 +23360,15 @@
         ],
         "it": [
           "roche-ch-83",
-          "roche-ch-82"
+          "roche-ch-82",
+          "roche-hangzhou"
         ]
       },
       "previousSlugs": [
         "roche-ch",
         "roche-ch-83",
-        "roche-ch-82"
+        "roche-ch-82",
+        "roche-hangzhou"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-22T12:52:05.710Z",
@@ -23378,9 +23388,9 @@
     },
     {
       "id": "roche-93faad59298f",
-      "slug": "delivery-service-manager-rdt-pharma-technical-operations-roche-ch",
+      "slug": "responsabile-del-servizio-di-consegna-rdt-pharma-technical-operations-roche-petaling-jaya",
       "slugByLocale": {
-        "it": "delivery-service-manager-rdt-pharma-technical-operations-roche-ch",
+        "it": "responsabile-del-servizio-di-consegna-rdt-pharma-technical-operations-roche-petaling-jaya",
         "en": "delivery-service-manager-rdt-pharma-technical-operations-roche-ch",
         "de": "delivery-service-manager-rdt-pharma-technical-operations-roche-ch",
         "fr": "delivery-service-manager-rdt-pharma-technical-operations-roche-ch"
@@ -23436,13 +23446,21 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "delivery-service-manager-rdt-pharma-technical-operations-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "delivery-service-manager-rdt-pharma-technical-operations-roche-ch"
+      ]
     },
     {
       "id": "roche-b3f8537597b5",
-      "slug": "validation-lead-rdt-pharma-technical-operations-roche-ch",
+      "slug": "validazione-lead-rdt-pharma-operazioni-tecniche-roche-petaling-jaya",
       "slugByLocale": {
-        "it": "validation-lead-rdt-pharma-technical-operations-roche-ch",
+        "it": "validazione-lead-rdt-pharma-operazioni-tecniche-roche-petaling-jaya",
         "en": "validation-lead-rdt-pharma-technical-operations-roche-ch",
         "de": "validation-lead-rdt-pharma-technical-operations-roche-ch",
         "fr": "validation-lead-rdt-pharma-technical-operations-roche-ch"
@@ -23498,13 +23516,21 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "validation-lead-rdt-pharma-technical-operations-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "validation-lead-rdt-pharma-technical-operations-roche-ch"
+      ]
     },
     {
       "id": "roche-f189cf71a393",
-      "slug": "roche-ningbo",
+      "slug": "traduzione-roche-ningbo",
       "slugByLocale": {
-        "it": "roche-ningbo",
+        "it": "traduzione-roche-ningbo",
         "en": "roche-ningbo",
         "de": "roche-ningbo",
         "fr": "roche-ningbo"
@@ -23552,13 +23578,15 @@
         ],
         "it": [
           "roche-ch-84",
-          "roche-ch-83"
+          "roche-ch-83",
+          "roche-ningbo"
         ]
       },
       "previousSlugs": [
         "roche-ch",
         "roche-ch-84",
-        "roche-ch-83"
+        "roche-ch-83",
+        "roche-ningbo"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-22T12:52:03.080Z",
@@ -23808,9 +23836,9 @@
     },
     {
       "id": "roche-eecb482bd010",
-      "slug": "computer-system-validation-internship-roche-ch",
+      "slug": "tirocinio-di-convalida-del-sistema-informatico-roche-central-singapore",
       "slugByLocale": {
-        "it": "computer-system-validation-internship-roche-ch",
+        "it": "tirocinio-di-convalida-del-sistema-informatico-roche-central-singapore",
         "en": "computer-system-validation-internship-roche-ch",
         "de": "computer-system-validation-internship-roche-ch",
         "fr": "computer-system-validation-internship-roche-ch"
@@ -23866,7 +23894,15 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "computer-system-validation-internship-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "computer-system-validation-internship-roche-ch"
+      ]
     },
     {
       "id": "roche-0e4f063ccbd8",
@@ -24176,9 +24212,9 @@
     },
     {
       "id": "roche-10e9038dc7c0",
-      "slug": "legal-counsel-roche-ch",
+      "slug": "consulente-legale-roche-istanbul",
       "slugByLocale": {
-        "it": "legal-counsel-roche-ch",
+        "it": "consulente-legale-roche-istanbul",
         "en": "legal-counsel-roche-istanbul",
         "de": "legal-counsel-roche-ch",
         "fr": "legal-counsel-roche-ch"
@@ -24234,13 +24270,21 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "legal-counsel-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "legal-counsel-roche-ch"
+      ]
     },
     {
       "id": "roche-1ddf3c3d7fed",
-      "slug": "patient-journey-partner-immune-ecosystem-roche-ch",
+      "slug": "patient-journey-partner-ecosistema-immunitario-roche-taipei",
       "slugByLocale": {
-        "it": "patient-journey-partner-immune-ecosystem-roche-ch",
+        "it": "patient-journey-partner-ecosistema-immunitario-roche-taipei",
         "en": "patient-journey-partner-immune-ecosystem-roche-ch",
         "de": "patient-journey-partner-immune-ecosystem-roche-ch",
         "fr": "patient-journey-partner-immune-ecosystem-roche-ch"
@@ -24296,13 +24340,21 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "patient-journey-partner-immune-ecosystem-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "patient-journey-partner-immune-ecosystem-roche-ch"
+      ]
     },
     {
       "id": "roche-e012dc1f9b44",
-      "slug": "creative-design-service-delivery-lead-roche-ch",
+      "slug": "responsabile-della-fornitura-di-servizi-di-design-creativo-roche-budapest",
       "slugByLocale": {
-        "it": "creative-design-service-delivery-lead-roche-ch",
+        "it": "responsabile-della-fornitura-di-servizi-di-design-creativo-roche-budapest",
         "en": "creative-design-service-delivery-lead-roche-ch",
         "de": "creative-design-service-delivery-lead-roche-ch",
         "fr": "creative-design-service-delivery-lead-roche-ch"
@@ -24358,7 +24410,15 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "creative-design-service-delivery-lead-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "creative-design-service-delivery-lead-roche-ch"
+      ]
     },
     {
       "id": "roche-94e618cd4654",
@@ -24581,9 +24641,9 @@
     },
     {
       "id": "roche-8fbbbbdd635a",
-      "slug": "she-site-security-officer-roche-ch",
+      "slug": "lei-e-il-responsabile-della-sicurezza-del-sito-roche-istanbul",
       "slugByLocale": {
-        "it": "she-site-security-officer-roche-ch",
+        "it": "lei-e-il-responsabile-della-sicurezza-del-sito-roche-istanbul",
         "en": "she-site-security-officer-roche-ch",
         "de": "she-site-security-officer-roche-ch",
         "fr": "she-site-security-officer-roche-ch"
@@ -24639,7 +24699,15 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "she-site-security-officer-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "she-site-security-officer-roche-ch"
+      ]
     },
     {
       "id": "roche-86193c6c0338",
@@ -24716,9 +24784,9 @@
     },
     {
       "id": "roche-522ac0f63ee1",
-      "slug": "praktikum-im-bereich-healthcare-consulting-schwerpunkt-tool-programmierung-m-w-d-roche-ch",
+      "slug": "tirocinio-in-healthcare-consulting-focus-programmazione-tool-m-f-d-roche-mannheim",
       "slugByLocale": {
-        "it": "praktikum-im-bereich-healthcare-consulting-schwerpunkt-tool-programmierung-m-w-d-roche-ch",
+        "it": "tirocinio-in-healthcare-consulting-focus-programmazione-tool-m-f-d-roche-mannheim",
         "en": "praktikum-im-bereich-healthcare-consulting-schwerpunkt-tool-programmierung-m-w-d-roche-ch",
         "de": "praktikum-im-bereich-healthcare-consulting-schwerpunkt-tool-programmierung-m-w-d-roche-ch",
         "fr": "praktikum-im-bereich-healthcare-consulting-schwerpunkt-tool-programmierung-m-w-d-roche-ch"
@@ -24774,7 +24842,15 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "praktikum-im-bereich-healthcare-consulting-schwerpunkt-tool-programmierung-m-w-d-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "praktikum-im-bereich-healthcare-consulting-schwerpunkt-tool-programmierung-m-w-d-roche-ch"
+      ]
     },
     {
       "id": "roche-a6b8f50ab507",
@@ -25224,9 +25300,9 @@
     },
     {
       "id": "roche-d83423ef1bd1",
-      "slug": "specialiste-affaires-reglementaires-controle-de-la-publicite-cdd-6-mois-d-f-m-roche-ch",
+      "slug": "specialista-affari-regolamentari-controllo-pubblicita-cdd-6-mesi-d-f-m-roche-paris",
       "slugByLocale": {
-        "it": "specialiste-affaires-reglementaires-controle-de-la-publicite-cdd-6-mois-d-f-m-roche-ch",
+        "it": "specialista-affari-regolamentari-controllo-pubblicita-cdd-6-mesi-d-f-m-roche-paris",
         "en": "specialiste-affaires-reglementaires-controle-de-la-publicite-cdd-6-mois-d-f-m-roche-ch",
         "de": "specialiste-affaires-reglementaires-controle-de-la-publicite-cdd-6-mois-d-f-m-roche-ch",
         "fr": "specialiste-affaires-reglementaires-controle-de-la-publicite-cdd-6-mois-d-f-m-roche-ch"
@@ -25282,7 +25358,15 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "specialiste-affaires-reglementaires-controle-de-la-publicite-cdd-6-mois-d-f-m-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "specialiste-affaires-reglementaires-controle-de-la-publicite-cdd-6-mois-d-f-m-roche-ch"
+      ]
     },
     {
       "id": "roche-e11340b6b21d",
@@ -26473,9 +26557,9 @@
     },
     {
       "id": "roche-d93735a5ba01",
-      "slug": "medical-affairs-partner-roche-ch",
+      "slug": "partner-per-gli-affari-medici-roche-welwyn",
       "slugByLocale": {
-        "it": "medical-affairs-partner-roche-ch",
+        "it": "partner-per-gli-affari-medici-roche-welwyn",
         "en": "medical-affairs-partner-roche-ch",
         "de": "medical-affairs-partner-roche-ch",
         "fr": "medical-affairs-partner-roche-ch"
@@ -26531,7 +26615,15 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "medical-affairs-partner-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "medical-affairs-partner-roche-ch"
+      ]
     },
     {
       "id": "roche-ab29c8e1101b",
@@ -27177,9 +27269,9 @@
     },
     {
       "id": "roche-252d07a67c52",
-      "slug": "internship-in-innovation-sustainability-mission-eco-possible-roche-ch",
+      "slug": "stage-in-innovazione-sostenibilita-mission-eco-possible-roche-panama-city",
       "slugByLocale": {
-        "it": "internship-in-innovation-sustainability-mission-eco-possible-roche-ch",
+        "it": "stage-in-innovazione-sostenibilita-mission-eco-possible-roche-panama-city",
         "en": "internship-in-innovation-sustainability-mission-eco-possible-roche-ch",
         "de": "internship-in-innovation-sustainability-mission-eco-possible-roche-ch",
         "fr": "internship-in-innovation-sustainability-mission-eco-possible-roche-ch"
@@ -27235,7 +27327,15 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "internship-in-innovation-sustainability-mission-eco-possible-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "internship-in-innovation-sustainability-mission-eco-possible-roche-ch"
+      ]
     },
     {
       "id": "roche-1f97c3ed500a",

@@ -991,9 +991,9 @@
     },
     {
       "id": "imad-2a36aec75258",
-      "slug": "ergotherapeute-diplome-e-a-80-postes-en-cdm-de-8-mois-imad-geneva",
+      "slug": "terapista-occupazionale-diplomato-all-80-posizioni-in-cdm-di-8-mesi-imad-geneva",
       "slugByLocale": {
-        "it": "ergotherapeute-diplome-e-a-80-postes-en-cdm-de-8-mois-imad-geneva",
+        "it": "terapista-occupazionale-diplomato-all-80-posizioni-in-cdm-di-8-mesi-imad-geneva",
         "en": "ergotherapeute-diplome-e-a-80-postes-en-cdm-de-8-mois-imad-geneva",
         "de": "ergotherapeute-diplome-e-a-80-postes-en-cdm-de-8-mois-imad-geneva",
         "fr": "ergotherapeute-diplome-e-a-80-postes-en-cdm-de-8-mois-imad-geneva"
@@ -1050,7 +1050,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "ergotherapeute-diplome-e-a-80-postes-en-cdm-de-8-mois-imad-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "ergotherapeute-diplome-e-a-80-postes-en-cdm-de-8-mois-imad-geneva"
+      ]
     }
   ]
 }

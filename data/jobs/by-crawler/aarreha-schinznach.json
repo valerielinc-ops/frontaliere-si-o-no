@@ -1177,9 +1177,9 @@
     },
     {
       "id": "aarreha-schinznach-042e9e5357b8",
-      "slug": "stv-stationsleiterin-stv-stationsleiter-internistische-rehabilitation-aarreha-schinznach",
+      "slug": "vice-capo-reparto-vice-capo-reparto-riabilitazione-interna-aarreha-schinznach-schinznach-bad",
       "slugByLocale": {
-        "it": "stv-stationsleiterin-stv-stationsleiter-internistische-rehabilitation-aarreha-schinznach",
+        "it": "vice-capo-reparto-vice-capo-reparto-riabilitazione-interna-aarreha-schinznach-schinznach-bad",
         "en": "stv-stationsleiterin-stv-stationsleiter-internistische-rehabilitation-aarreha-schinznach",
         "de": "stv-stationsleiterin-stv-stationsleiter-internistische-rehabilitation-aarreha-schinznach",
         "fr": "stv-stationsleiterin-stv-stationsleiter-internistische-rehabilitation-aarreha-schinznach"
@@ -1236,7 +1236,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "stv-stationsleiterin-stv-stationsleiter-internistische-rehabilitation-aarreha-schinznach"
+        ]
+      },
+      "previousSlugs": [
+        "stv-stationsleiterin-stv-stationsleiter-internistische-rehabilitation-aarreha-schinznach"
+      ]
     }
   ]
 }

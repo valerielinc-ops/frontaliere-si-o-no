@@ -5926,9 +5926,9 @@
     },
     {
       "id": "zurzach-care-3b7884f24f99",
-      "slug": "leitung-berufsbildung-100-zurzach-care-bad-zurzach",
+      "slug": "direzione-formazione-professionale-100-zurzach-care-bad-zurzach",
       "slugByLocale": {
-        "it": "leitung-berufsbildung-100-zurzach-care-bad-zurzach",
+        "it": "direzione-formazione-professionale-100-zurzach-care-bad-zurzach",
         "en": "leitung-berufsbildung-100-zurzach-care-bad-zurzach",
         "de": "leitung-berufsbildung-100-zurzach-care-bad-zurzach",
         "fr": "leitung-berufsbildung-100-zurzach-care-bad-zurzach"
@@ -5985,7 +5985,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "leitung-berufsbildung-100-zurzach-care-bad-zurzach"
+        ]
+      },
+      "previousSlugs": [
+        "leitung-berufsbildung-100-zurzach-care-bad-zurzach"
+      ]
     },
     {
       "id": "zurzach-care-54ae02b7229f",

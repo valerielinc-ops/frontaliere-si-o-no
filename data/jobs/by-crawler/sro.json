@@ -1039,9 +1039,9 @@
     },
     {
       "id": "sro-2bb05843b01c",
-      "slug": "assistente-sanitario-e-sociale-ags-assistente-di-cura-60-sro-ag-spital-region-oberaargau-langenthal",
+      "slug": "dirigente-medico-ginecologia-60-100-sro-ag-spital-region-oberaargau-divers",
       "slugByLocale": {
-        "it": "assistente-sanitario-e-sociale-ags-assistente-di-cura-60-sro-ag-spital-region-oberaargau-langenthal",
+        "it": "dirigente-medico-ginecologia-60-100-sro-ag-spital-region-oberaargau-divers",
         "en": "health-and-social-care-assistant-ags-care-assistant-60-sro-ag-spital-region-oberaargau-langenthal",
         "de": "leitende-arztin-leitenden-arzt-gynakologie-60-100-sro-divers",
         "fr": "assistant-e-en-sante-et-social-ags-assistant-e-en-soins-60-sro-ag-spital-region-oberaargau-langenthal"
@@ -1103,7 +1103,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "assistente-sanitario-e-sociale-ags-assistente-di-cura-60-sro-ag-spital-region-oberaargau-langenthal"
+        ]
+      },
+      "previousSlugs": [
+        "assistente-sanitario-e-sociale-ags-assistente-di-cura-60-sro-ag-spital-region-oberaargau-langenthal"
+      ]
     },
     {
       "id": "sro-24dcc6090a63",

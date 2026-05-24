@@ -4,10 +4,10 @@
   "jobs": [
     {
       "id": "ubs-9d0d08cb630a",
-      "slug": "product-manager-ubs",
+      "slug": "responsabile-del-prodotto-ubs",
       "slugByLocale": {
         "en": "product-manager-ubs",
-        "it": "product-manager-ubs",
+        "it": "responsabile-del-prodotto-ubs",
         "de": "product-manager-ubs",
         "fr": "product-manager-ubs"
       },
@@ -72,7 +72,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-23T23:36:10.680Z"
+      "firstSeenAt": "2026-05-23T23:36:10.680Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "product-manager-ubs"
+        ]
+      },
+      "previousSlugs": [
+        "product-manager-ubs"
+      ]
     },
     {
       "id": "ubs-c84c7cb76c1d",
@@ -759,9 +767,9 @@
     },
     {
       "id": "ubs-5657b9e84ca1",
-      "slug": "fintech-apprentice-ubs",
+      "slug": "apprendista-fintech-ubs",
       "slugByLocale": {
-        "it": "fintech-apprentice-ubs",
+        "it": "apprendista-fintech-ubs",
         "en": "fintech-apprentice-ubs",
         "de": "fintech-apprentice-ubs-2",
         "fr": "fintech-apprentice-ubs-2"
@@ -814,12 +822,12 @@
       },
       "previousSlugs": [
         "fintech-apprentice-ubs-2",
-        "apprendista-fintech-ubs"
+        "fintech-apprentice-ubs"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fintech-apprentice-ubs-2",
-          "apprendista-fintech-ubs"
+          "fintech-apprentice-ubs"
         ]
       },
       "needsRetranslation": true,
@@ -1001,9 +1009,9 @@
     },
     {
       "id": "ubs-2cfa6be958ab",
-      "slug": "fintech-apprentice-ubs-2",
+      "slug": "apprendista-fintech-ubs-2a1430",
       "slugByLocale": {
-        "it": "fintech-apprentice-ubs-2",
+        "it": "apprendista-fintech-ubs-2a1430",
         "en": "fintech-apprentice-ubs",
         "de": "fintech-apprentice-ubs-2",
         "fr": "fintech-apprentice-ubs-2"
@@ -1067,7 +1075,15 @@
           "maxValue": 63000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "fintech-apprentice-ubs-2"
+        ]
+      },
+      "previousSlugs": [
+        "fintech-apprentice-ubs-2"
+      ]
     },
     {
       "id": "ubs-74c07ee216a7",
@@ -1477,9 +1493,9 @@
     },
     {
       "id": "ubs-f14a4f39c2e4",
-      "slug": "investment-banking-internship-pool-ubs",
+      "slug": "tirocinio-investment-banking-piscina-ubs",
       "slugByLocale": {
-        "it": "investment-banking-internship-pool-ubs",
+        "it": "tirocinio-investment-banking-piscina-ubs",
         "en": "investment-banking-internship-pool-ubs",
         "de": "investment-banking-internship-pool-ubs",
         "fr": "investment-banking-internship-pool-ubs"
@@ -1543,13 +1559,21 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "investment-banking-internship-pool-ubs"
+        ]
+      },
+      "previousSlugs": [
+        "investment-banking-internship-pool-ubs"
+      ]
     },
     {
       "id": "ubs-286a2aae0a2c",
-      "slug": "client-associate-ubs",
+      "slug": "cliente-associato-ubs",
       "slugByLocale": {
-        "it": "client-associate-ubs",
+        "it": "cliente-associato-ubs",
         "en": "client-associate-ubs",
         "de": "client-associate-ubs",
         "fr": "client-associate-ubs"
@@ -1613,7 +1637,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "client-associate-ubs"
+        ]
+      },
+      "previousSlugs": [
+        "client-associate-ubs"
+      ]
     },
     {
       "id": "ubs-2712350816ff",
@@ -1698,9 +1730,9 @@
     },
     {
       "id": "ubs-ba4cf486cf69",
-      "slug": "global-banking-asia-global-industrial-group-ubs",
+      "slug": "attivita-bancaria-globale-gruppo-industriale-globale-dell-asia-ubs",
       "slugByLocale": {
-        "it": "global-banking-asia-global-industrial-group-ubs",
+        "it": "attivita-bancaria-globale-gruppo-industriale-globale-dell-asia-ubs",
         "en": "global-banking-asia-global-industrial-group-ubs",
         "de": "global-banking-asia-global-industrial-group-ubs",
         "fr": "global-banking-asia-global-industrial-group-ubs"
@@ -1764,7 +1796,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "global-banking-asia-global-industrial-group-ubs"
+        ]
+      },
+      "previousSlugs": [
+        "global-banking-asia-global-industrial-group-ubs"
+      ]
     },
     {
       "id": "ubs-5c598409b6a9",
@@ -1922,9 +1962,9 @@
     },
     {
       "id": "ubs-ab1cb7a2919a",
-      "slug": "ssg-loan-portfolio-manager-ubs",
+      "slug": "ssg-gestore-di-portafogli-prestiti-ubs",
       "slugByLocale": {
-        "it": "ssg-loan-portfolio-manager-ubs",
+        "it": "ssg-gestore-di-portafogli-prestiti-ubs",
         "en": "ssg-loan-portfolio-manager-ubs",
         "de": "ssg-loan-portfolio-manager-ubs",
         "fr": "ssg-loan-portfolio-manager-ubs"
@@ -1988,13 +2028,21 @@
           "maxValue": 103000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "ssg-loan-portfolio-manager-ubs"
+        ]
+      },
+      "previousSlugs": [
+        "ssg-loan-portfolio-manager-ubs"
+      ]
     },
     {
       "id": "ubs-88987dd1e3fb",
-      "slug": "execution-services-coo-business-manager-ubs",
+      "slug": "servizi-di-esecuzione-coo-business-manager-ubs",
       "slugByLocale": {
-        "it": "execution-services-coo-business-manager-ubs",
+        "it": "servizi-di-esecuzione-coo-business-manager-ubs",
         "en": "execution-services-coo-business-manager-ubs",
         "de": "execution-services-coo-business-manager-ubs",
         "fr": "execution-services-coo-business-manager-ubs"
@@ -2058,13 +2106,21 @@
           "maxValue": 103000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "execution-services-coo-business-manager-ubs"
+        ]
+      },
+      "previousSlugs": [
+        "execution-services-coo-business-manager-ubs"
+      ]
     },
     {
       "id": "ubs-02c7ade68545",
-      "slug": "client-associate-ubs-2",
+      "slug": "cliente-associato-ubs-1e64a9",
       "slugByLocale": {
-        "it": "client-associate-ubs-2",
+        "it": "cliente-associato-ubs-1e64a9",
         "en": "client-associate-ubs",
         "de": "client-associate-ubs-2",
         "fr": "client-associate-ubs-2"
@@ -2128,13 +2184,21 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "client-associate-ubs-2"
+        ]
+      },
+      "previousSlugs": [
+        "client-associate-ubs-2"
+      ]
     },
     {
       "id": "ubs-4772ddd9130e",
-      "slug": "client-associate-ubs-3",
+      "slug": "cliente-associato-ubs-a84218",
       "slugByLocale": {
-        "it": "client-associate-ubs-3",
+        "it": "cliente-associato-ubs-a84218",
         "en": "client-associate-ubs",
         "de": "client-associate-ubs-3",
         "fr": "client-associate-ubs-3"
@@ -2198,13 +2262,21 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "client-associate-ubs-3"
+        ]
+      },
+      "previousSlugs": [
+        "client-associate-ubs-3"
+      ]
     },
     {
       "id": "ubs-fd4940c8997f",
-      "slug": "client-associate-ubs-4",
+      "slug": "cliente-associato-ubs-d31196",
       "slugByLocale": {
-        "it": "client-associate-ubs-4",
+        "it": "cliente-associato-ubs-d31196",
         "en": "client-associate-ubs",
         "de": "client-associate-ubs-4",
         "fr": "client-associate-ubs-4"
@@ -2268,7 +2340,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "client-associate-ubs-4"
+        ]
+      },
+      "previousSlugs": [
+        "client-associate-ubs-4"
+      ]
     },
     {
       "id": "ubs-a78d39019699",
@@ -2490,9 +2570,9 @@
     },
     {
       "id": "ubs-cebf36de2c60",
-      "slug": "global-markets-credit-trader-ubs",
+      "slug": "mercati-globali-credito-commerciante-ubs",
       "slugByLocale": {
-        "it": "global-markets-credit-trader-ubs",
+        "it": "mercati-globali-credito-commerciante-ubs",
         "en": "global-markets-credit-trader-ubs",
         "de": "global-markets-credit-trader-ubs",
         "fr": "global-markets-credit-trader-ubs"
@@ -2556,7 +2636,15 @@
           "maxValue": 89000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "global-markets-credit-trader-ubs"
+        ]
+      },
+      "previousSlugs": [
+        "global-markets-credit-trader-ubs"
+      ]
     },
     {
       "id": "ubs-6a055c488e5f",
@@ -2805,9 +2893,9 @@
     },
     {
       "id": "ubs-8a622e64acf6",
-      "slug": "global-markets-content-advisory-sales-sales-ubs",
+      "slug": "mercati-globali-vendite-di-contenuti-e-consulenza-vendite-ubs",
       "slugByLocale": {
-        "it": "global-markets-content-advisory-sales-sales-ubs",
+        "it": "mercati-globali-vendite-di-contenuti-e-consulenza-vendite-ubs",
         "en": "global-markets-content-advisory-sales-sales-ubs",
         "de": "global-markets-content-advisory-sales-sales-ubs",
         "fr": "global-markets-content-advisory-sales-sales-ubs"
@@ -2871,7 +2959,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "global-markets-content-advisory-sales-sales-ubs"
+        ]
+      },
+      "previousSlugs": [
+        "global-markets-content-advisory-sales-sales-ubs"
+      ]
     },
     {
       "id": "ubs-ba99c808d2a9",
@@ -2945,9 +3041,9 @@
     },
     {
       "id": "ubs-a4431b0956a6",
-      "slug": "global-markets-equity-derivatives-trader-ubs",
+      "slug": "mercati-globali-derivati-azionari-commerciante-ubs",
       "slugByLocale": {
-        "it": "global-markets-equity-derivatives-trader-ubs",
+        "it": "mercati-globali-derivati-azionari-commerciante-ubs",
         "en": "global-markets-equity-derivatives-trader-ubs",
         "de": "global-markets-equity-derivatives-trader-ubs",
         "fr": "global-markets-equity-derivatives-trader-ubs"
@@ -3011,13 +3107,21 @@
           "maxValue": 89000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "global-markets-equity-derivatives-trader-ubs"
+        ]
+      },
+      "previousSlugs": [
+        "global-markets-equity-derivatives-trader-ubs"
+      ]
     },
     {
       "id": "ubs-fd2582c8dc85",
-      "slug": "global-markets-ugm-execution-sales-ubs",
+      "slug": "mercati-globali-ugm-execution-sales-ubs",
       "slugByLocale": {
-        "it": "global-markets-ugm-execution-sales-ubs",
+        "it": "mercati-globali-ugm-execution-sales-ubs",
         "en": "global-markets-ugm-execution-sales-ubs",
         "de": "global-markets-ugm-execution-sales-ubs",
         "fr": "global-markets-ugm-execution-sales-ubs"
@@ -3081,7 +3185,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "global-markets-ugm-execution-sales-ubs"
+        ]
+      },
+      "previousSlugs": [
+        "global-markets-ugm-execution-sales-ubs"
+      ]
     },
     {
       "id": "ubs-b83d79e084c7",
@@ -3166,9 +3278,9 @@
     },
     {
       "id": "ubs-4724ba061abd",
-      "slug": "market-administrative-officer-ubs-2",
+      "slug": "addetto-amministrativo-mercato-ubs",
       "slugByLocale": {
-        "it": "market-administrative-officer-ubs-2",
+        "it": "addetto-amministrativo-mercato-ubs",
         "en": "market-administrative-officer-ubs",
         "de": "market-administrative-officer-ubs-2",
         "fr": "market-administrative-officer-ubs-2"
@@ -3232,13 +3344,21 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "market-administrative-officer-ubs-2"
+        ]
+      },
+      "previousSlugs": [
+        "market-administrative-officer-ubs-2"
+      ]
     },
     {
       "id": "ubs-c3a271f5a8ee",
-      "slug": "sales-advisory-cic-securities-banks-f-m-d-ubs",
+      "slug": "vendite-e-consulenza-cic-securities-banks-f-m-d-ubs",
       "slugByLocale": {
-        "it": "sales-advisory-cic-securities-banks-f-m-d-ubs",
+        "it": "vendite-e-consulenza-cic-securities-banks-f-m-d-ubs",
         "en": "sales-advisory-cic-securities-banks-f-m-d-ubs",
         "de": "sales-advisory-cic-securities-banks-f-m-d-ubs",
         "fr": "sales-advisory-cic-securities-banks-f-m-d-ubs"
@@ -3302,7 +3422,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "sales-advisory-cic-securities-banks-f-m-d-ubs"
+        ]
+      },
+      "previousSlugs": [
+        "sales-advisory-cic-securities-banks-f-m-d-ubs"
+      ]
     },
     {
       "id": "ubs-3de2b751cda1",
@@ -3376,9 +3504,9 @@
     },
     {
       "id": "ubs-275e074b4456",
-      "slug": "client-account-manager-ubs",
+      "slug": "gestione-account-cliente-ubs",
       "slugByLocale": {
-        "it": "client-account-manager-ubs",
+        "it": "gestione-account-cliente-ubs",
         "en": "client-account-manager-ubs",
         "de": "client-account-manager-ubs",
         "fr": "client-account-manager-ubs"
@@ -3442,13 +3570,21 @@
           "maxValue": 103000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "client-account-manager-ubs"
+        ]
+      },
+      "previousSlugs": [
+        "client-account-manager-ubs"
+      ]
     },
     {
       "id": "ubs-1fec9e775047",
-      "slug": "global-banking-asia-financial-institutions-group-ubs",
+      "slug": "global-banking-gruppo-delle-istituzioni-finanziarie-asiatiche-ubs",
       "slugByLocale": {
-        "it": "global-banking-asia-financial-institutions-group-ubs",
+        "it": "global-banking-gruppo-delle-istituzioni-finanziarie-asiatiche-ubs",
         "en": "global-banking-asia-financial-institutions-group-ubs",
         "de": "global-banking-asia-financial-institutions-group-ubs",
         "fr": "global-banking-asia-financial-institutions-group-ubs"
@@ -3512,13 +3648,21 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "global-banking-asia-financial-institutions-group-ubs"
+        ]
+      },
+      "previousSlugs": [
+        "global-banking-asia-financial-institutions-group-ubs"
+      ]
     },
     {
       "id": "ubs-1827c7812696",
-      "slug": "sachbearbeiter-in-mahnwesen-ubs",
+      "slug": "incaricato-a-sollecito-ubs",
       "slugByLocale": {
-        "it": "sachbearbeiter-in-mahnwesen-ubs",
+        "it": "incaricato-a-sollecito-ubs",
         "en": "sachbearbeiter-in-mahnwesen-ubs",
         "de": "sachbearbeiter-in-mahnwesen-ubs",
         "fr": "sachbearbeiter-in-mahnwesen-ubs"
@@ -3582,7 +3726,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-in-mahnwesen-ubs"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeiter-in-mahnwesen-ubs"
+      ]
     },
     {
       "id": "ubs-10831a25ddf3",

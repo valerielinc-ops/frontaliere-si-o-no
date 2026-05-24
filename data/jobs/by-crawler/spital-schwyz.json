@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "spital-schwyz-a273343ebd6e",
-      "slug": "responsabile-pulizie-manutenzione-60-100-spital-schwyz-schwyz",
+      "slug": "stv-pulizia-della-linea-manutenzione-60-100-spital-schwyz-schwyz",
       "slugByLocale": {
-        "it": "responsabile-pulizie-manutenzione-60-100-spital-schwyz-schwyz",
-        "en": "deputy-cleaning-maintenance-manager-60-100-spital-schwyz-schwyz",
+        "it": "stv-pulizia-della-linea-manutenzione-60-100-spital-schwyz-schwyz",
+        "en": "stv-line-cleaning-maintenance-60-100-spital-schwyz-schwyz",
         "de": "stv-leitung-reinigung-unterhalt-60-100-spital-schwyz-schwyz",
-        "fr": "adjoint-e-responsable-nettoyage-maintenance-60-100-spital-schwyz-schwyz"
+        "fr": "nettoyage-entretien-des-lignes-stv-60-100-spital-schwyz-schwyz"
       },
       "company": "Spital Schwyz",
       "companyKey": "spital-schwyz",
@@ -51,11 +51,21 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "stv-leitung-reinigung-unterhalt-60-100-spital-schwyz-schwyz"
+        "stv-leitung-reinigung-unterhalt-60-100-spital-schwyz-schwyz",
+        "responsabile-pulizie-manutenzione-60-100-spital-schwyz-schwyz",
+        "deputy-cleaning-maintenance-manager-60-100-spital-schwyz-schwyz",
+        "adjoint-e-responsable-nettoyage-maintenance-60-100-spital-schwyz-schwyz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "stv-leitung-reinigung-unterhalt-60-100-spital-schwyz-schwyz"
+          "stv-leitung-reinigung-unterhalt-60-100-spital-schwyz-schwyz",
+          "responsabile-pulizie-manutenzione-60-100-spital-schwyz-schwyz"
+        ],
+        "en": [
+          "deputy-cleaning-maintenance-manager-60-100-spital-schwyz-schwyz"
+        ],
+        "fr": [
+          "adjoint-e-responsable-nettoyage-maintenance-60-100-spital-schwyz-schwyz"
         ]
       },
       "firstSeenAt": "2026-05-19T13:03:34.035Z",

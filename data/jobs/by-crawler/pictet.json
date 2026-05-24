@@ -590,9 +590,9 @@
     },
     {
       "id": "pictet-b37c01c40b74",
-      "slug": "client-relationship-officer-external-asset-managers-pictet-geneva",
+      "slug": "client-relationship-officer-gestione-delle-risorse-esterne-pictet-group-geneva",
       "slugByLocale": {
-        "it": "client-relationship-officer-external-asset-managers-pictet-geneva",
+        "it": "client-relationship-officer-gestione-delle-risorse-esterne-pictet-group-geneva",
         "en": "client-relationship-officer-external-asset-managers-pictet-geneva",
         "de": "client-relationship-officer-external-asset-managers-pictet-geneva",
         "fr": "client-relationship-officer-external-asset-managers-pictet-geneva"
@@ -649,13 +649,21 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "client-relationship-officer-external-asset-managers-pictet-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "client-relationship-officer-external-asset-managers-pictet-geneva"
+      ]
     },
     {
       "id": "pictet-375a5d44b243",
-      "slug": "middle-officer-hedge-funds-6-months-fixed-term-contract-pictet-geneva",
+      "slug": "middle-officer-hedge-funds-6-mesi-contratto-a-tempo-determinato-pictet-group-geneva",
       "slugByLocale": {
-        "it": "middle-officer-hedge-funds-6-months-fixed-term-contract-pictet-geneva",
+        "it": "middle-officer-hedge-funds-6-mesi-contratto-a-tempo-determinato-pictet-group-geneva",
         "en": "middle-officer-hedge-funds-6-months-fixed-term-contract-pictet-geneva",
         "de": "middle-officer-hedge-funds-6-months-fixed-term-contract-pictet-geneva",
         "fr": "middle-officer-hedge-funds-6-months-fixed-term-contract-pictet-geneva"
@@ -712,7 +720,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "middle-officer-hedge-funds-6-months-fixed-term-contract-pictet-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "middle-officer-hedge-funds-6-months-fixed-term-contract-pictet-geneva"
+      ]
     }
   ]
 }

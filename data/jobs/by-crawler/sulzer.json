@@ -2172,9 +2172,9 @@
     },
     {
       "id": "sulzer-540f95b6b3e5",
-      "slug": "sales-manager-sulzer-ch",
+      "slug": "responsabile-vendite-sulzer-shanghai",
       "slugByLocale": {
-        "it": "sales-manager-sulzer-ch",
+        "it": "responsabile-vendite-sulzer-shanghai",
         "en": "sales-manager-sulzer-shanghai",
         "de": "sales-manager-sulzer-ch",
         "fr": "sales-manager-sulzer-ch"
@@ -2230,7 +2230,15 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8001"
+      "postalCode": "8001",
+      "previousSlugsByLocale": {
+        "it": [
+          "sales-manager-sulzer-ch"
+        ]
+      },
+      "previousSlugs": [
+        "sales-manager-sulzer-ch"
+      ]
     },
     {
       "id": "sulzer-098bae128822",
@@ -2541,9 +2549,9 @@
     },
     {
       "id": "sulzer-978840e3c77c",
-      "slug": "senior-project-manager-sulzer-ch-2",
+      "slug": "responsabile-del-progetto-senior-sulzer-leeds",
       "slugByLocale": {
-        "it": "senior-project-manager-sulzer-ch-2",
+        "it": "responsabile-del-progetto-senior-sulzer-leeds",
         "en": "senior-project-manager-sulzer-ch",
         "de": "senior-project-manager-sulzer-ch-2",
         "fr": "senior-project-manager-sulzer-ch-2"
@@ -2599,13 +2607,21 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8001"
+      "postalCode": "8001",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-project-manager-sulzer-ch-2"
+        ]
+      },
+      "previousSlugs": [
+        "senior-project-manager-sulzer-ch-2"
+      ]
     },
     {
       "id": "sulzer-78a290701296",
-      "slug": "mechanic-sulzer-ch",
+      "slug": "meccanico-sulzer-la-porte",
       "slugByLocale": {
-        "it": "mechanic-sulzer-ch",
+        "it": "meccanico-sulzer-la-porte",
         "en": "mechanic-sulzer-la-porte",
         "de": "mechanic-sulzer-ch",
         "fr": "mechanic-sulzer-ch"
@@ -2661,7 +2677,15 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8001"
+      "postalCode": "8001",
+      "previousSlugsByLocale": {
+        "it": [
+          "mechanic-sulzer-ch"
+        ]
+      },
+      "previousSlugs": [
+        "mechanic-sulzer-ch"
+      ]
     },
     {
       "id": "sulzer-e728bd73e278",
@@ -2737,9 +2761,9 @@
     },
     {
       "id": "sulzer-d000d155539e",
-      "slug": "service-center-administrator-sulzer-ch",
+      "slug": "amministratore-del-centro-servizi-sulzer-pasadena",
       "slugByLocale": {
-        "it": "service-center-administrator-sulzer-ch",
+        "it": "amministratore-del-centro-servizi-sulzer-pasadena",
         "en": "service-center-administrator-sulzer-ch",
         "de": "service-center-administrator-sulzer-ch",
         "fr": "service-center-administrator-sulzer-ch"
@@ -2795,7 +2819,15 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8001"
+      "postalCode": "8001",
+      "previousSlugsByLocale": {
+        "it": [
+          "service-center-administrator-sulzer-ch"
+        ]
+      },
+      "previousSlugs": [
+        "service-center-administrator-sulzer-ch"
+      ]
     },
     {
       "id": "sulzer-84559abcfae6",

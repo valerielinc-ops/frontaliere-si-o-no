@@ -141,8 +141,7 @@
       "previousSlugsByLocale": {
         "it": [
           "night-auditor-m-w-d-wintersaison-2026-2027-tschuggen-ch",
-          "auditore-notturno-m-w-d-stagione-invernale-2026-2027-tschuggen-collection-st-moritz",
-          "night-auditor-m-w-d-wintersaison-2026-2027-tschuggen-collection-st-moritz"
+          "auditore-notturno-m-w-d-stagione-invernale-2026-2027-tschuggen-collection-st-moritz"
         ]
       },
       "firstSeenAt": "2026-05-17T11:16:35.204Z",
@@ -161,9 +160,9 @@
     },
     {
       "id": "tschuggen-ce4059f4e4c9",
-      "slug": "personalkoch-m-w-d-sommersaison-2026-tschuggen-ch",
+      "slug": "personalkoch-m-w-d-stagione-estiva-2026-tschuggen-collection-arosa",
       "slugByLocale": {
-        "it": "personalkoch-m-w-d-sommersaison-2026-tschuggen-ch",
+        "it": "personalkoch-m-w-d-stagione-estiva-2026-tschuggen-collection-arosa",
         "en": "personalkoch-m-w-d-sommersaison-2026-tschuggen-ch",
         "de": "personalkoch-m-w-d-sommersaison-2026-tschuggen-ch",
         "fr": "personalkoch-m-w-d-sommersaison-2026-tschuggen-ch"
@@ -220,7 +219,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "personalkoch-m-w-d-sommersaison-2026-tschuggen-ch"
+        ]
+      },
+      "previousSlugs": [
+        "personalkoch-m-w-d-sommersaison-2026-tschuggen-ch"
+      ]
     },
     {
       "id": "tschuggen-8d19d792463c",

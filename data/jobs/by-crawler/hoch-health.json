@@ -2237,8 +2237,7 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "dipl-pflegefachfrau-mann-40-100-hoch-health-uznach",
-          "dipl-pflegefachfrau-mann-80-100-hoch-health-st-gallen"
+          "dipl-pflegefachfrau-mann-40-100-hoch-health-uznach"
         ],
         "it": [
           "dipl-pflegefachfrau-mann-80-100-hoch-health-st-gallen",
@@ -10352,9 +10351,9 @@
     },
     {
       "id": "hoch-health-40d137d2808f",
-      "slug": "dipl-radiologiefachfrau-mann-hf-80-100-hoch-health-ostschweiz-st-gallen",
+      "slug": "specialista-in-radiologia-dipl-sss-80-100-hoch-health-ostschweiz-st-gallen",
       "slugByLocale": {
-        "it": "dipl-radiologiefachfrau-mann-hf-80-100-hoch-health-ostschweiz-st-gallen",
+        "it": "specialista-in-radiologia-dipl-sss-80-100-hoch-health-ostschweiz-st-gallen",
         "en": "dipl-radiologiefachfrau-mann-hf-80-100-hoch-health-st-gallen",
         "de": "dipl-radiologiefachfrau-mann-hf-80-100-hoch-health-st-gallen",
         "fr": "dipl-radiologiefachfrau-mann-hf-80-100-hoch-health-st-gallen"
@@ -10401,12 +10400,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "dipl-radiologiefachfrau-mann-hf-80-100-hoch-health-st-gallen",
-        "dipl-specialista-di-radiologia-hf-80-100-hoch-health-ostschweiz-st-gallen"
+        "dipl-specialista-di-radiologia-hf-80-100-hoch-health-ostschweiz-st-gallen",
+        "dipl-radiologiefachfrau-mann-hf-80-100-hoch-health-ostschweiz-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-radiologiefachfrau-mann-hf-80-100-hoch-health-st-gallen",
-          "dipl-specialista-di-radiologia-hf-80-100-hoch-health-ostschweiz-st-gallen"
+          "dipl-specialista-di-radiologia-hf-80-100-hoch-health-ostschweiz-st-gallen",
+          "dipl-radiologiefachfrau-mann-hf-80-100-hoch-health-ostschweiz-st-gallen"
         ]
       },
       "firstSeenAt": "2026-05-21T12:10:12.578Z",
@@ -11322,8 +11323,7 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "dipl-pflegefachfrau-mann-50-100-hoch-health-grabs",
-          "dipl-pflegefachfrau-mann-50-100-hoch-health-st-gallen"
+          "dipl-pflegefachfrau-mann-50-100-hoch-health-grabs"
         ],
         "it": [
           "dipl-pflegefachfrau-mann-50-100-hoch-health-st-gallen",
@@ -11746,8 +11746,7 @@
       "previousSlugsByLocale": {
         "it": [
           "dipl-fachfrau-mann-operationstechnik-80-100-hoch-health-grabs",
-          "specialista-in-tecnica-chirurgica-80-100-hoch-health-ostschweiz-grabs",
-          "dipl-fachfrau-mann-operationstechnik-80-100-hoch-health-ostschweiz-grabs"
+          "specialista-in-tecnica-chirurgica-80-100-hoch-health-ostschweiz-grabs"
         ]
       },
       "firstSeenAt": "2026-05-19T22:27:59.213Z",
@@ -15584,9 +15583,9 @@
     },
     {
       "id": "hoch-health-92157cdf8fec",
-      "slug": "sachbearbeiter-in-aufnahme-notfallzentrum-50-80-hoch-health-st-gallen",
+      "slug": "addetto-a-all-accettazione-del-centro-di-emergenza-50-80-hoch-health-ostschweiz-st-gallen",
       "slugByLocale": {
-        "it": "sachbearbeiter-in-aufnahme-notfallzentrum-50-80-hoch-health-st-gallen",
+        "it": "addetto-a-all-accettazione-del-centro-di-emergenza-50-80-hoch-health-ostschweiz-st-gallen",
         "en": "sachbearbeiter-in-aufnahme-notfallzentrum-50-80-hoch-health-st-gallen",
         "de": "sachbearbeiter-in-aufnahme-notfallzentrum-50-80-hoch-health-st-gallen",
         "fr": "sachbearbeiter-in-aufnahme-notfallzentrum-50-80-hoch-health-st-gallen"
@@ -15643,7 +15642,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-in-aufnahme-notfallzentrum-50-80-hoch-health-st-gallen"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeiter-in-aufnahme-notfallzentrum-50-80-hoch-health-st-gallen"
+      ]
     },
     {
       "id": "hoch-health-b02f9cbb1973",

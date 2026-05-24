@@ -3886,9 +3886,9 @@
     },
     {
       "id": "usz-73056cfbea0c",
-      "slug": "spezialpflege-nachdiplomstudium-nds-notfallpflege-universitatsspital-zurich-usz-campus",
+      "slug": "cure-speciali-post-laurea-nds-cure-di-emergenza-universitatsspital-zurich-usz-campus",
       "slugByLocale": {
-        "it": "spezialpflege-nachdiplomstudium-nds-notfallpflege-universitatsspital-zurich-usz-campus",
+        "it": "cure-speciali-post-laurea-nds-cure-di-emergenza-universitatsspital-zurich-usz-campus",
         "en": "spezialpflege-nachdiplomstudium-nds-notfallpflege-usz-ch",
         "de": "spezialpflege-nachdiplomstudium-nds-notfallpflege-usz-ch",
         "fr": "spezialpflege-nachdiplomstudium-nds-notfallpflege-usz-ch"
@@ -3934,13 +3934,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "spezialpflege-nachdiplomstudium-nds-notfallpflege-usz-ch",
-        "cure-speciali-post-laurea-nds-cure-di-emergenza-universitatsspital-zurich-usz-campus",
-        "assistenza-speciale-studi-post-laurea-nds-assistenza-di-emergenza-universitatsspital-zurich-usz-campus"
+        "assistenza-speciale-studi-post-laurea-nds-assistenza-di-emergenza-universitatsspital-zurich-usz-campus",
+        "spezialpflege-nachdiplomstudium-nds-notfallpflege-universitatsspital-zurich-usz-campus"
       ],
       "previousSlugsByLocale": {
         "it": [
           "spezialpflege-nachdiplomstudium-nds-notfallpflege-usz-ch",
-          "cure-speciali-post-laurea-nds-cure-di-emergenza-universitatsspital-zurich-usz-campus",
           "assistenza-speciale-studi-post-laurea-nds-assistenza-di-emergenza-universitatsspital-zurich-usz-campus",
           "spezialpflege-nachdiplomstudium-nds-notfallpflege-universitatsspital-zurich-usz-campus"
         ]
@@ -7623,9 +7622,9 @@
     },
     {
       "id": "usz-70a5792a755a",
-      "slug": "pflegefachperson-dermatologie-orl-mkg-50-100-universitatsspital-zurich-usz-campus",
+      "slug": "infermiere-dermatologo-orl-mkg-50-100-universitatsspital-zurich-usz-campus",
       "slugByLocale": {
-        "it": "pflegefachperson-dermatologie-orl-mkg-50-100-universitatsspital-zurich-usz-campus",
+        "it": "infermiere-dermatologo-orl-mkg-50-100-universitatsspital-zurich-usz-campus",
         "en": "pflegefachperson-dermatologie-orl-mkg-50-100-usz-ch",
         "de": "pflegefachperson-dermatologie-orl-mkg-50-100-usz-ch",
         "fr": "pflegefachperson-dermatologie-orl-mkg-50-100-usz-ch"
@@ -7671,13 +7670,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "pflegefachperson-dermatologie-orl-mkg-50-100-usz-ch",
-        "infermiere-dermatologo-orl-mkg-50-100-universitatsspital-zurich-usz-campus",
-        "dermatologia-della-cura-orl-mkg-50-100-universitatsspital-zurich-usz-campus"
+        "dermatologia-della-cura-orl-mkg-50-100-universitatsspital-zurich-usz-campus",
+        "pflegefachperson-dermatologie-orl-mkg-50-100-universitatsspital-zurich-usz-campus"
       ],
       "previousSlugsByLocale": {
         "it": [
           "pflegefachperson-dermatologie-orl-mkg-50-100-usz-ch",
-          "infermiere-dermatologo-orl-mkg-50-100-universitatsspital-zurich-usz-campus",
           "dermatologia-della-cura-orl-mkg-50-100-universitatsspital-zurich-usz-campus",
           "pflegefachperson-dermatologie-orl-mkg-50-100-universitatsspital-zurich-usz-campus"
         ]
@@ -13984,9 +13982,9 @@
     },
     {
       "id": "usz-508a25b287d2",
-      "slug": "gruppenleitung-pflege-bettenstation-thoraxchirurgie-pneumologie-80-100-universitatsspital-zurich-usz-campus",
+      "slug": "direzione-del-gruppo-cura-reparto-letto-chirurgia-toracica-e-pneumologia-80-100-universitatsspital-zurich-usz-campus",
       "slugByLocale": {
-        "it": "gruppenleitung-pflege-bettenstation-thoraxchirurgie-pneumologie-80-100-universitatsspital-zurich-usz-campus",
+        "it": "direzione-del-gruppo-cura-reparto-letto-chirurgia-toracica-e-pneumologia-80-100-universitatsspital-zurich-usz-campus",
         "en": "gruppenleitung-pflege-bettenstation-thoraxchirurgie-pneumologie-80-100-universitatsspital-zurich-usz-campus",
         "de": "gruppenleitung-pflege-bettenstation-thoraxchirurgie-pneumologie-80-100-universitatsspital-zurich-usz-campus",
         "fr": "gruppenleitung-pflege-bettenstation-thoraxchirurgie-pneumologie-80-100-universitatsspital-zurich-usz-campus"
@@ -14035,11 +14033,13 @@
           "gruppenleitung-pflege-bettenstation-thoraxchirurgie-amp-pneumologie-80-100-usz-ch"
         ],
         "it": [
-          "gruppenleitung-pflege-bettenstation-thoraxchirurgie-amp-pneumologie-80-100-usz-ch"
+          "gruppenleitung-pflege-bettenstation-thoraxchirurgie-amp-pneumologie-80-100-usz-ch",
+          "gruppenleitung-pflege-bettenstation-thoraxchirurgie-pneumologie-80-100-universitatsspital-zurich-usz-campus"
         ]
       },
       "previousSlugs": [
-        "gruppenleitung-pflege-bettenstation-thoraxchirurgie-amp-pneumologie-80-100-usz-ch"
+        "gruppenleitung-pflege-bettenstation-thoraxchirurgie-amp-pneumologie-80-100-usz-ch",
+        "gruppenleitung-pflege-bettenstation-thoraxchirurgie-pneumologie-80-100-universitatsspital-zurich-usz-campus"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-22T13:26:33.189Z",
@@ -14129,9 +14129,9 @@
     },
     {
       "id": "usz-78520aacda40",
-      "slug": "praktikant-in-arztsekretariat-80-100-usz-ch",
+      "slug": "tirocinante-in-segreteria-medica-80-100-universitatsspital-zurich-usz-campus",
       "slugByLocale": {
-        "it": "praktikant-in-arztsekretariat-80-100-usz-ch",
+        "it": "tirocinante-in-segreteria-medica-80-100-universitatsspital-zurich-usz-campus",
         "en": "praktikant-in-arztsekretariat-80-100-usz-ch",
         "de": "praktikant-in-arztsekretariat-80-100-usz-ch",
         "fr": "praktikant-in-arztsekretariat-80-100-usz-ch"
@@ -14188,7 +14188,15 @@
           "maxValue": 63000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "praktikant-in-arztsekretariat-80-100-usz-ch"
+        ]
+      },
+      "previousSlugs": [
+        "praktikant-in-arztsekretariat-80-100-usz-ch"
+      ]
     },
     {
       "id": "usz-3e2fe2e3d235",

@@ -2372,9 +2372,9 @@
     },
     {
       "id": "lonza-07564635f5a9",
-      "slug": "msat-process-expert-mammalian-upstream-large-scale-m-f-d-lonza-ch",
+      "slug": "msat-process-expert-mammifero-a-monte-su-larga-scala-m-f-d-lonza-ch",
       "slugByLocale": {
-        "it": "msat-process-expert-mammalian-upstream-large-scale-m-f-d-lonza-ch",
+        "it": "msat-process-expert-mammifero-a-monte-su-larga-scala-m-f-d-lonza-ch",
         "en": "msat-process-expert-mammalian-upstream-large-scale-m-f-d-lonza-ch",
         "de": "msat-process-expert-mammalian-upstream-large-scale-m-f-d-lonza-ch",
         "fr": "msat-process-expert-mammalian-upstream-large-scale-m-f-d-lonza-ch"
@@ -2430,7 +2430,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "msat-process-expert-mammalian-upstream-large-scale-m-f-d-lonza-ch"
+        ]
+      },
+      "previousSlugs": [
+        "msat-process-expert-mammalian-upstream-large-scale-m-f-d-lonza-ch"
+      ]
     },
     {
       "id": "lonza-cf41d5187bcb",
@@ -2634,9 +2642,9 @@
     },
     {
       "id": "lonza-45ca71b2b8e4",
-      "slug": "msat-process-expert-mammalian-upstream-large-scale-m-f-d-lonza-ch-2",
+      "slug": "msat-process-expert-mammifero-a-monte-su-larga-scala-m-f-d-lonza-ch-b5442b",
       "slugByLocale": {
-        "it": "msat-process-expert-mammalian-upstream-large-scale-m-f-d-lonza-ch-2",
+        "it": "msat-process-expert-mammifero-a-monte-su-larga-scala-m-f-d-lonza-ch-b5442b",
         "en": "msat-process-expert-mammalian-upstream-large-scale-m-f-d-lonza-ch",
         "de": "msat-process-expert-mammalian-upstream-large-scale-m-f-d-lonza-ch-2",
         "fr": "msat-process-expert-mammalian-upstream-large-scale-m-f-d-lonza-ch-2"
@@ -2692,7 +2700,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "msat-process-expert-mammalian-upstream-large-scale-m-f-d-lonza-ch-2"
+        ]
+      },
+      "previousSlugs": [
+        "msat-process-expert-mammalian-upstream-large-scale-m-f-d-lonza-ch-2"
+      ]
     }
   ]
 }

@@ -2989,9 +2989,9 @@
     },
     {
       "id": "bobst-7ab61f14cc70",
-      "slug": "writing-systems-engineering-bobst-ch",
+      "slug": "ingegneria-dei-sistemi-di-scrittura-bobst-spain-barcelona",
       "slugByLocale": {
-        "it": "writing-systems-engineering-bobst-ch",
+        "it": "ingegneria-dei-sistemi-di-scrittura-bobst-spain-barcelona",
         "en": "writing-systems-engineering-bobst-ch",
         "de": "writing-systems-engineering-bobst-ch",
         "fr": "writing-systems-engineering-bobst-ch"
@@ -3047,7 +3047,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "writing-systems-engineering-bobst-ch"
+        ]
+      },
+      "previousSlugs": [
+        "writing-systems-engineering-bobst-ch"
+      ]
     }
   ]
 }
