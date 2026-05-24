@@ -1,6 +1,6 @@
 {
   "crawlerKey": "pdgr",
-  "assembledAt": "2026-05-23T22:52:35.085Z",
+  "assembledAt": "2026-05-24T11:44:13.841Z",
   "jobs": [
     {
       "id": "pdgr-f5bd59e961b0",
@@ -33,7 +33,7 @@
       "url": "https://www.pdgr.ch/jobs/koechin-koch-3/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-23T22:52:32.957Z",
+      "crawledAt": "2026-05-24T11:44:11.855Z",
       "addressLocality": "Cazis / Chur / Rothenbrunnen",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -78,8 +78,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 1
+      }
     },
     {
       "id": "pdgr-a093480a1d37",
@@ -112,7 +111,7 @@
       "url": "https://www.pdgr.ch/jobs/praktikantin-praktikanten-5/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-23T22:52:31.815Z",
+      "crawledAt": "2026-05-24T11:44:10.724Z",
       "addressLocality": "Cazis / Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -154,8 +153,7 @@
           "maxValue": 63000,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 1
+      }
     },
     {
       "id": "pdgr-4f88a64e2238",
@@ -188,7 +186,7 @@
       "url": "https://www.pdgr.ch/jobs/fachpsychologe-in-5/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-23T22:52:30.721Z",
+      "crawledAt": "2026-05-24T11:44:09.669Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -251,6 +249,7 @@
         "psicologo-specializzato-psychiatrische-dienste-graubunden-chur"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -295,7 +294,7 @@
       "url": "https://www.pdgr.ch/jobs/assistenzaerztin-assistenzarzt-6/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-23T22:52:29.608Z",
+      "crawledAt": "2026-05-24T11:44:08.620Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -348,6 +347,7 @@
         "resident-physician-psychiatrische-dienste-graubunden-chur"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -392,7 +392,7 @@
       "url": "https://www.pdgr.ch/jobs/unterassistent-in/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-23T22:52:28.532Z",
+      "crawledAt": "2026-05-24T11:44:07.519Z",
       "addressLocality": "Cazis / Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -434,8 +434,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 1
+      }
     },
     {
       "id": "pdgr-3e30d3c7f59d",
@@ -468,7 +467,7 @@
       "url": "https://www.pdgr.ch/jobs/dipl-pflegefachperson-hf-10/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-23T22:52:27.467Z",
+      "crawledAt": "2026-05-24T11:44:06.488Z",
       "addressLocality": "Cazis / Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -511,8 +510,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 1
+      }
     },
     {
       "id": "pdgr-6bea78edbd79",
@@ -545,7 +543,7 @@
       "url": "https://www.pdgr.ch/jobs/oberaerztin-oberarzt-4-7/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-23T22:52:26.351Z",
+      "crawledAt": "2026-05-24T11:44:05.422Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -614,6 +612,7 @@
         "medecin-specialiste-en-psychiatrie-psychiatrische-dienste-graubunden-cazis"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -658,7 +657,7 @@
       "url": "https://www.pdgr.ch/jobs/oberpsychologe-in-3-2/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-23T22:52:25.279Z",
+      "crawledAt": "2026-05-24T11:44:04.361Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -722,6 +721,7 @@
         "oberpsychologe-in-pdgr-ch"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -766,7 +766,7 @@
       "url": "https://www.pdgr.ch/jobs/dipl-pflegefachperson-hf-fuer-die-nachtwache-9/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-23T22:52:24.203Z",
+      "crawledAt": "2026-05-24T11:44:03.286Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -820,6 +820,7 @@
         "dipl-pflegefachperson-hf-fur-die-nachtwache-pdgr-ch"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -864,7 +865,7 @@
       "url": "https://www.pdgr.ch/jobs/dipl-pflegefachperson-hf-2-8/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-23T22:52:23.086Z",
+      "crawledAt": "2026-05-24T11:44:02.192Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -919,6 +920,7 @@
         ]
       },
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -963,7 +965,7 @@
       "url": "https://www.pdgr.ch/jobs/dipl-pflegefachperson-hf-4__trashed/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-23T22:52:21.978Z",
+      "crawledAt": "2026-05-24T11:44:01.018Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -1014,6 +1016,7 @@
         ]
       },
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1058,7 +1061,7 @@
       "url": "https://www.pdgr.ch/jobs/oberaerztin-oberarzt-7-2/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-23T22:52:19.700Z",
+      "crawledAt": "2026-05-24T11:43:58.841Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1152,7 +1155,7 @@
       "url": "https://www.pdgr.ch/jobs/fachpsychologe-in-2-3/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-23T22:52:18.552Z",
+      "crawledAt": "2026-05-24T11:43:57.752Z",
       "addressLocality": "Ilanz",
       "postalCode": "7130",
       "addressCountry": "CH",
@@ -1198,8 +1201,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 1
+      }
     },
     {
       "id": "pdgr-80501bd9710d",
@@ -1232,7 +1234,7 @@
       "url": "https://www.pdgr.ch/jobs/fachfrau-fachmann-gesundheit-2/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-23T22:52:17.384Z",
+      "crawledAt": "2026-05-24T11:43:56.703Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1286,6 +1288,7 @@
         "fachperson-gesundheit-pdgr-ch"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1330,7 +1333,7 @@
       "url": "https://www.pdgr.ch/jobs/assistenzaerztin-assistenzarzt-4-4/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-23T22:52:16.233Z",
+      "crawledAt": "2026-05-24T11:43:55.652Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -1395,6 +1398,7 @@
         "assistenzarztin-assistenzarzt-pdgr-ch-2"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1439,7 +1443,7 @@
       "url": "https://www.pdgr.ch/jobs/nachtaerztin-nachtarzt/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-23T22:52:15.093Z",
+      "crawledAt": "2026-05-24T11:43:54.584Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1497,6 +1501,7 @@
         "nachtarztin-nachtarzt-pdgr-ch"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1541,7 +1546,7 @@
       "url": "https://www.pdgr.ch/jobs/dipl-pflegefachperson-hf-5-6/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-23T22:52:13.987Z",
+      "crawledAt": "2026-05-24T11:43:53.537Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1597,6 +1602,7 @@
         ]
       },
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1641,7 +1647,7 @@
       "url": "https://www.pdgr.ch/jobs/assistenz-oder-fachpsychologe-in-6/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-23T22:52:11.793Z",
+      "crawledAt": "2026-05-24T11:43:51.414Z",
       "addressLocality": "Samedan",
       "postalCode": "7503",
       "addressCountry": "CH",
@@ -1695,6 +1701,7 @@
         "assistenz-oder-fachpsychologe-in-psychiatrische-dienste-graubunden-davos"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1739,7 +1746,7 @@
       "url": "https://www.pdgr.ch/jobs/fachperson-gesundheit-9/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-23T22:52:10.617Z",
+      "crawledAt": "2026-05-24T11:43:50.373Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -1792,6 +1799,7 @@
         "fachperson-gesundheit-pdgr-ch-2"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1836,7 +1844,7 @@
       "url": "https://www.pdgr.ch/jobs/fachperson-gesundheit-fuer-die-nachtwache-4-2/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-23T22:52:08.434Z",
+      "crawledAt": "2026-05-24T11:43:48.248Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1896,6 +1904,7 @@
         "tirocinante-modulo-pratico-i-ii-o-pre-tirocinio-psychiatrische-dienste-graubunden-chur"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1940,7 +1949,7 @@
       "url": "https://www.pdgr.ch/jobs/assistenzaerztin-assistenzarzt-3-9/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-23T22:52:06.227Z",
+      "crawledAt": "2026-05-24T11:43:46.113Z",
       "addressLocality": "Cazis / Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1986,8 +1995,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 1
+      }
     },
     {
       "id": "pdgr-d7f7612b1400",
@@ -2010,17 +2018,17 @@
       },
       "description": "Ihre Umgebung:\nniederprozentig, schwerpunktmässig Wochenende (tagsüber)\n\nEine Funktion für (erfahrene) Fachärztinnen / Fachärzte, die eine klar strukturierte, planbare klinische Aufgabe mit hoher Eigenverantwortung suchen – gut vereinbar mit einer Praxistätigkeit oder weiteren beruflichen Verpflichtungen. Die AKI ist eng mit stationären und ambulanten Angeboten vernetzt und Teil einer modernen, integrierten Versorgungsstruktur.\n\nIhre Aufgaben:\n- Sie übernehmen akutpsychiatrische Beurteilungen und Kriseninterventionen im ambulanten Setting\n\n- Sie behandeln Walk-in Patientinnen und Patienten\n\n- Sie führen konsiliarische Beurteilungen durch, bei Bedarf auch aufsuchende Krisenintervention\n\n- Sie engagieren sich in der Aus- und Weiterbildung jüngerer Kolleginnen und Kollegen und supervidieren Assistenzärztinnen / Assistenzärzten und Psychologinnen / Psychologen\n\n- Sie arbeiten mit erfahrenen Pflegefachpersonen in der Triage zusammen und übernehmen die Fallführung\n\n- Sie entwickeln gemeinsam pragmatische und tragfähige Behandlungspläne\n\nUnser Anforderungsprofil:\n- Sie verfügen über ein abgeschlossenes Studium der Humanmedizin und haben die Facharztausbildung in Psychiatrie und Psychotherapie abgeschlossen\n\n- Sie bringen Sicherheit in der Einschätzung akuter psychiatrischer Situationen mit\n\n- Sie haben Freude an selbständigem Arbeiten bei gleichzeitig enger Teamabstimmung\n\n- Sie verfügen über eine klare Entscheidungsfindung und einen kollegialen Kommunikationsstil\n\nWir bieten Ihnen:\n- Eine planbare Wochenendtätigkeit tagsüber ohne Nachtverpflichtung\n\n- Hohe Flexibilität und individuelle Gestaltungsmöglichkeiten in der Dienstplanung\n\n- Ein Arbeitspensum, das sich gut mit einer Praxistätigkeit oder anderen Verpflichtungen kombinieren lässt\n\n- Eine gezielte Ergänzung eines etablierten, gut eingespielten Teams\n\n- Kurze Entscheidungswege und direkte Zusammenarbeit mit Pflege und ärztlicher Leitung\n\n- Einbettung in die moderne Versorgungsstruktur der PDGR",
       "descriptionByLocale": {
-        "it": "I dintorni:\nbasso-percentuale, concentrarsi sui fine settimana (daily)\n\nUna funzione per specialisti (esperti) che sono alla ricerca di un compito clinico chiaramente strutturato e pianificabile con elevata auto-responsabilità – ben compatibile con una pratica o altri obblighi professionali. L'AKI è strettamente connesso con le offerte stazionarie e ambulatoriale e fa parte di una moderna struttura di approvvigionamento integrata.\n\nI vostri compiti:\n- Adotti valutazioni psichiatriche acute e interventi di crisi in ambienti ambulatoriali\n\n- Tratta i pazienti che camminano\n\n- Conducono valutazioni consiliari, se necessario anche interventi di crisi prospettico\n\n- Sei coinvolto nella formazione e formazione di colleghi più giovani e supervisiona medici assistenti / medici assistenti e psicologi / psicologi\n\n- Lavori con infermieri esperti nel processo e prendi il controllo del caso.\n\n- Sviluppano insieme piani di trattamento pragmatici e sostenibili\n\nIl nostro profilo di requisito:\n- Hanno completato gli studi in medicina umana e hanno completato la loro formazione specialistica in psichiatria e psicoterapia\n\n- Forniscono sicurezza nella valutazione di situazioni psichiatriche acute con\n\n- Si gode di lavoro autonomo mentre allo stesso tempo chiude il voto del team\n\n- Hanno un chiaro processo decisionale e uno stile di comunicazione collegiale\n\nVi offriamo:\n- Un'attività di fine settimana prevista durante il giorno senza obbligo di notte\n\n- Alta flessibilità e opzioni di progettazione individuale nella pianificazione dei servizi\n\n- Un carico di lavoro che può essere combinato bene con una pratica o altri obblighi\n\n- Un'aggiunta mirata a un team consolidato e consolidato\n\n- Breve procedure e collaborazione diretta con assistenza e assistenza medica\n\n- Integrazione nella moderna struttura di fornitura del PDGR",
-        "en": "Your surroundings:\nlow-percentage, focus on weekends (daily)\n\nA function for (experienced) specialists who are looking for a clearly structured, planable clinical task with high self-responsibility – well compatible with a practice or other professional obligations. The AKI is closely connected with stationary and outpatient offers and is part of a modern integrated supply structure.\n\nYour tasks:\n- You adopt acute psychiatric assessments and crisis interventions in outpatient settings\n\n- You treat walk-in patients\n\n- They conduct consiliary assessments, if necessary also prospective crisis intervention\n\n- You are involved in the training and training of younger colleagues and supervise assistant physicians / assistant physicians and psychologists / psychologists\n\n- You work with experienced nurses in the trial and take over the case\n\n- They develop pragmatic and sustainable treatment plans together\n\nOur requirement profile:\n- They have completed their studies in human medicine and have completed their specialist training in psychiatry and psychotherapy\n\n- They provide security in the assessment of acute psychiatric situations with\n\n- You enjoy self-employed work while at the same time close team voting\n\n- They have a clear decision-making and a collegial communication style\n\nWe offer you:\n- A planned weekend activity during the day without a night obligation\n\n- High flexibility and individual design options in service planning\n\n- A workload that can be combined well with a practice or other obligations\n\n- A targeted addition to an established, well-established team\n\n- Short procedures and direct cooperation with care and medical care\n\n- Embedding in the modern supply structure of the PDGR",
-        "de": "Ihre Umgebung:\nniederprozentig, schwerpunktmässig Wochenende (tagsüber)\n\nEine Funktion für (erfahrene) Fachärztinnen / Fachärzte, die eine klar strukturierte, planbare klinische Aufgabe mit hoher Eigenverantwortung suchen – gut vereinbar mit einer Praxistätigkeit oder weiteren beruflichen Verpflichtungen. Die AKI ist eng mit stationären und ambulanten Angeboten vernetzt und Teil einer modernen, integrierten Versorgungsstruktur.\n\nIhre Aufgaben:\n- Sie übernehmen akutpsychiatrische Beurteilungen und Kriseninterventionen im ambulanten Setting\n\n- Sie behandeln Walk-in Patientinnen und Patienten\n\n- Sie führen konsiliarische Beurteilungen durch, bei Bedarf auch aufsuchende Krisenintervention\n\n- Sie engagieren sich in der Aus- und Weiterbildung jüngerer Kolleginnen und Kollegen und supervidieren Assistenzärztinnen / Assistenzärzten und Psychologinnen / Psychologen\n\n- Sie arbeiten mit erfahrenen Pflegefachpersonen in der Triage zusammen und übernehmen die Fallführung\n\n- Sie entwickeln gemeinsam pragmatische und tragfähige Behandlungspläne\n\nUnser Anforderungsprofil:\n- Sie verfügen über ein abgeschlossenes Studium der Humanmedizin und haben die Facharztausbildung in Psychiatrie und Psychotherapie abgeschlossen\n\n- Sie bringen Sicherheit in der Einschätzung akuter psychiatrischer Situationen mit\n\n- Sie haben Freude an selbständigem Arbeiten bei gleichzeitig enger Teamabstimmung\n\n- Sie verfügen über eine klare Entscheidungsfindung und einen kollegialen Kommunikationsstil\n\nWir bieten Ihnen:\n- Eine planbare Wochenendtätigkeit tagsüber ohne Nachtverpflichtung\n\n- Hohe Flexibilität und individuelle Gestaltungsmöglichkeiten in der Dienstplanung\n\n- Ein Arbeitspensum, das sich gut mit einer Praxistätigkeit oder anderen Verpflichtungen kombinieren lässt\n\n- Eine gezielte Ergänzung eines etablierten, gut eingespielten Teams\n\n- Kurze Entscheidungswege und direkte Zusammenarbeit mit Pflege und ärztlicher Leitung\n\n- Einbettung in die moderne Versorgungsstruktur der PDGR",
-        "fr": "Votre environnement:\nfaible pourcentage, se concentrer sur les week-ends (par jour)\n\nUne fonction pour les spécialistes (expérimentés) qui cherchent une tâche clinique clairement structurée et planable avec une grande responsabilité d'auto-responsabilité – bien compatible avec une pratique ou d'autres obligations professionnelles. L'AKI est étroitement relié aux offres fixes et externes et fait partie d'une structure d'approvisionnement intégrée moderne.\n\nVos tâches:\n- Vous adoptez des évaluations psychiatriques aiguës et des interventions de crise en milieu ambulatoire\n\n- Vous traitez les patients ambulants\n\n- Ils effectuent des évaluations consiliaires, si nécessaire aussi des interventions de crise prospectives\n\n- Vous participez à la formation et à la formation de jeunes collègues et supervisez des médecins adjoints / médecins adjoints et psychologues / psychologues\n\n- Vous travaillez avec des infirmières expérimentées dans le procès et prenez le contrôle de l'affaire\n\n- Ils élaborent ensemble des plans de traitement pragmatiques et durables\n\nNotre profil d'exigence:\n- Ils ont terminé leurs études en médecine humaine et ont terminé leur formation spécialisée en psychiatrie et psychothérapie\n\n- Ils assurent la sécurité dans l'évaluation des situations psychiatriques aiguës avec\n\n- Vous aimez le travail indépendant tout en fermant le vote en équipe\n\n- Ils ont un processus décisionnel clair et un style de communication collégial\n\nNous vous offrons:\n- Une activité prévue le week-end pendant la journée sans obligation de nuit\n\n- Flexibilité élevée et options de conception individuelles dans la planification des services\n\n- Une charge de travail qui peut être bien associée à une pratique ou à d'autres obligations\n\n- Un ajout ciblé à une équipe bien établie\n\n- Procédures courtes et coopération directe avec les soins et les soins médicaux\n\n- Intégrer la structure d'approvisionnement moderne du PDGR"
+        "it": "I dintorni: basso-percentuale, concentrarsi sui fine settimana (daily) Una funzione per specialisti (esperti) che sono alla ricerca di un compito clinico chiaramente strutturato e pianificabile con elevata auto-responsabilità – ben compatibile con una pratica o altri obblighi professionali. L'AKI è strettamente connesso con le offerte stazionarie e ambulatoriale e fa parte di una moderna struttura di approvvigionamento integrata. I vostri compiti: - Adotti valutazioni psichiatriche acute e interventi di crisi in ambienti ambulatoriali - Tratta i pazienti che camminano - Conducono valutazioni consiliari, se necessario anche interventi di crisi prospettico - Sei coinvolto nella formazione e formazione di colleghi più giovani e supervisiona medici assistenti / medici assistenti e psicologi / psicologi - Lavori con infermieri esperti nel processo e prendi il controllo del caso. - Sviluppano insieme piani di trattamento pragmatici e sostenibili Il nostro profilo di requisito: - Hanno completato gli studi in medicina umana e hanno completato la loro formazione specialistica in psichiatria e psicoterapia - Forniscono sicurezza nella valutazione di situazioni psichiatriche acute con - Si gode di lavoro autonomo mentre allo stesso tempo chiude il voto del team - Hanno un chiaro processo decisionale e uno stile di comunicazione collegiale Vi offriamo: - Un'attività di fine settimana prevista durante il giorno senza obbligo di notte - Alta flessibilità e opzioni di progettazione individuale nella pianificazione dei servizi - Un carico di lavoro che può essere combinato bene con una pratica o altri obblighi - Un'aggiunta mirata a un team consolidato e consolidato - Breve procedure e collaborazione diretta con assistenza e assistenza medica - Integrazione nella moderna struttura di fornitura del PDGR",
+        "en": "Your surroundings: low-percentage, focus on weekends (daily) A",
+        "de": "Ihre Umgebung: niederprozentig, schwerpunktmässig Wochenende (tagsüber) Eine Funktion für (erfahrene) Fachärztinnen / Fachärzte, die eine klar strukturierte, planbare klinische Aufgabe mit hoher Eigenverantwortung suchen – gut vereinbar mit einer Praxistätigkeit oder weiteren beruflichen Verpflichtungen. Die AKI ist eng mit stationären und ambulanten Angeboten vernetzt und Teil einer modernen, integrierten Versorgungsstruktur. \n• Ihre Aufgaben: - Sie übernehmen akutpsychiatrische Beurteilungen und Kriseninterventionen im ambulanten Setting - Sie behandeln Walk-in Patientinnen und Patienten - Sie führen konsiliarische Beurteilungen durch, bei Bedarf auch aufsuchende Krisenintervention - Sie engagieren sich in der Aus- und Weiterbildung jüngerer Kolleginnen und Kollegen und supervidieren Assistenzärztinnen / Assistenzärzten und Psychologinnen / Psychologen - Sie arbeiten mit erfahrenen Pflegefachpersonen in der Triage zusammen und übernehmen die Fallführung - Sie entwickeln gemeinsam pragmatische und tragfähige Behandlungspläne Unser Anforderungsprofil: - Sie verfügen über ein abgeschlossenes Studium der Humanmedizin und haben die Facharztausbildung in Psychiatrie und Psychotherapie abgeschlossen - Sie bringen Sicherheit in der Einschätzung akuter psychiatrischer Situationen mit - Sie haben Freude an selbständigem Arbeiten bei gleichzeitig enger Teamabstimmung - Sie verfügen über eine klare Entscheidungsfindung und einen kollegialen Kommunikationsstil \n• Wir bieten Ihnen: - Eine planbare Wochenendtätigkeit tagsüber ohne Nachtverpflichtung - Hohe Flexibilität und individuelle Gestaltungsmöglichkeiten in der Dienstplanung - Ein Arbeitspensum, das sich gut mit einer Praxistätigkeit oder anderen Verpflichtungen kombinieren lässt - Eine gezielte Ergänzung eines etablierten, gut eingespielten Teams - Kurze Entscheidungswege und direkte Zusammenarbeit mit Pflege und ärztlicher Leitung - Einbettung in die moderne Versorgungsstruktur der PDGR",
+        "fr": "Votre environnement: faible pourcentage, se concentrer sur les week-ends (par jour) Une fonction pour les spécialistes (expérimentés) qui cherchent une tâche clinique clairement structurée et planable avec une grande responsabilité d'auto-responsabilité – bien compatible avec une pratique ou d'autres obligations professionnelles. L'AKI est étroitement relié aux offres fixes et externes et fait partie d'une structure d'approvisionnement intégrée moderne. \n• Vos tâches: - Vous adoptez des évaluations psychiatriques aiguës et des interventions de crise en milieu ambulatoire - Vous traitez les patients ambulants - Ils effectuent des évaluations consiliaires, si nécessaire aussi des interventions de crise prospectives - Vous participez à la formation et à la formation de jeunes collègues et supervisez des médecins adjoints / médecins adjoints et psychologues / psychologues - Vous travaillez avec des infirmières expérimentées dans le procès et prenez le contrôle de l'affaire - Ils élaborent ensemble des plans de traitement pragmatiques et durables Notre profil d'exigence: - Ils ont terminé leurs études en médecine humaine et ont terminé leur formation spécialisée en psychiatrie et psychothérapie - Ils assurent la sécurité dans l'évaluation des situations psychiatriques aiguës avec - Vous aimez le travail indépendant tout en fermant le vote en équipe - Ils ont un processus décisionnel clair et un style de communication collégial Nous vous offrons: - Une activité prévue le week-end pendant la journée sans obligation de nuit - Flexibilité élevée et options de conception individuelles dans la planification des services - Une charge de travail qui peut être bien associée à une pratique ou à d'autres obligations - Un ajout ciblé à une équipe bien établie - Procédures courtes et coopération directe avec les soins et les soins médicaux - Intégrer la structure d'approvisionnement moderne du PDGR"
       },
       "location": "Chur",
       "canton": "GR",
       "url": "https://www.pdgr.ch/jobs/oberaerztin-oberarzt-3-9/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-23T22:52:05.118Z",
+      "crawledAt": "2026-05-24T11:43:45.014Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2106,7 +2114,7 @@
       "url": "https://www.pdgr.ch/jobs/leiter-in-controlling/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-23T22:52:04.005Z",
+      "crawledAt": "2026-05-24T11:43:43.976Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2169,6 +2177,7 @@
         "leiter-in-controlling-pdgr-ch"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -2213,7 +2222,7 @@
       "url": "https://www.pdgr.ch/jobs/stationsleiter-in-2-2/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-23T22:52:02.882Z",
+      "crawledAt": "2026-05-24T11:43:42.898Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2279,6 +2288,7 @@
         "kochin-koch-pdgr-ch"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -2323,7 +2333,7 @@
       "url": "https://www.pdgr.ch/jobs/dipl-pflegefachperson-hf-fuer-den-tag-und-nachtdienst/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-23T22:51:59.488Z",
+      "crawledAt": "2026-05-24T11:43:39.655Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -2365,6 +2375,7 @@
         "dipl-pflegefachperson-hf-per-den-tag-e-nachtdienst-psychiatrische-dienste-graubunden-cazis"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2409,7 +2420,7 @@
       "url": "https://www.pdgr.ch/jobs/betreuer-in-11/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-23T22:51:58.406Z",
+      "crawledAt": "2026-05-24T11:43:38.588Z",
       "addressLocality": "Landquart",
       "postalCode": "7302",
       "addressCountry": "CH",
@@ -2501,7 +2512,7 @@
       "url": "https://www.pdgr.ch/jobs/assistenzpsychologe-in-6/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-23T22:51:57.312Z",
+      "crawledAt": "2026-05-24T11:43:37.533Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -2542,6 +2553,7 @@
         "assistenzpsychologe-in-psychiatrische-dienste-graubunden-cazis"
       ],
       "firstSeenAt": "2026-04-21T22:10:58.899Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2586,7 +2598,7 @@
       "url": "https://www.pdgr.ch/jobs/mitarbeiter-in-hotellerie-3-13/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-23T22:51:56.229Z",
+      "crawledAt": "2026-05-24T11:43:36.472Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -2668,7 +2680,7 @@
       "url": "https://www.pdgr.ch/jobs/oberaerztin-oberarzt-6-3/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-23T22:51:55.148Z",
+      "crawledAt": "2026-05-24T11:43:35.327Z",
       "addressLocality": "Ilanz",
       "postalCode": "7130",
       "addressCountry": "CH",
@@ -2713,8 +2725,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 1
+      }
     },
     {
       "id": "pdgr-4c55e9af737c",
@@ -2747,7 +2758,7 @@
       "url": "https://www.pdgr.ch/jobs/dipl-pflegefachperson-hf-3-10/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-23T22:51:54.053Z",
+      "crawledAt": "2026-05-24T11:43:34.267Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -2782,6 +2793,7 @@
         ]
       },
       "firstSeenAt": "2026-05-07T11:33:07.021Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2826,7 +2838,7 @@
       "url": "https://www.pdgr.ch/jobs/mitarbeiter-in-hotellerie-4-9/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-23T22:51:52.932Z",
+      "crawledAt": "2026-05-24T11:43:33.201Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2908,7 +2920,7 @@
       "url": "https://www.pdgr.ch/jobs/dipl-pflegefachperson-hf-fuer-die-nachtwache-2-11/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-23T22:51:51.824Z",
+      "crawledAt": "2026-05-24T11:43:32.150Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -2994,7 +3006,7 @@
       "url": "https://www.pdgr.ch/jobs/betreuer-in-2-8/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-23T22:51:50.725Z",
+      "crawledAt": "2026-05-24T11:43:31.049Z",
       "addressLocality": "Rothenbrunnen",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -3089,7 +3101,7 @@
       "url": "https://www.pdgr.ch/jobs/leiter-in-textil-2/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-23T22:51:49.617Z",
+      "crawledAt": "2026-05-24T11:43:29.969Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -3174,7 +3186,7 @@
       "url": "https://www.pdgr.ch/jobs/oberaerztin-oberarzt-8-4/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-23T22:51:47.439Z",
+      "crawledAt": "2026-05-24T11:43:27.827Z",
       "addressLocality": "Samedan / Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -3220,8 +3232,7 @@
           "maxValue": 103000,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 1
+      }
     },
     {
       "id": "pdgr-b39aa7c0be7e",
@@ -3254,7 +3265,7 @@
       "url": "https://www.pdgr.ch/jobs/fachpsychologe-in-3-5/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-23T22:51:46.342Z",
+      "crawledAt": "2026-05-24T11:43:26.743Z",
       "addressLocality": "Samedan / Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -3299,8 +3310,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 1
+      }
     },
     {
       "id": "pdgr-8b7dbfbdea53",
@@ -3324,16 +3334,16 @@
       "description": "Ihre Umgebung:\nDas Therapiehaus Fürstenwald in Chur ist eine Sonderschule mit Externats- und Internatsbetrieb für schulpflichtige Kinder und Jugendliche, die vorübergehend die öffentliche Schule aus psychischen Gründen nicht besuchen können.\n\nIhre Aufgaben:\n- Sie fördern und betreuen die anvertrauten Schüler\n\n- Sie beteiligen sich an der Aufrechterhaltung eines fördernden Milieus als Voraussetzung für eine Stärkung\n\n- Sie wirken an der Umsetzung und laufenden Anpassung der Erziehungsplanung mit\n\n- Sie gestalten den Tagesablauf der Kinder und Jugendlichen unter Berücksichtigung der Bereiche Therapie und Schule mit\n\n- Sie arbeiten interdisziplinär mit anderen Berufsgruppen zusammen\n\n- Sie übernehmen administrative Arbeiten\n\n- Sie arbeiten in der Bezugspersonenarbeit mit\n\nUnser Anforderungsprofil:\n- Sie sind mind. 20 Jahre jung und haben Interesse am Sonderschulbereich\n\n- Das Arbeiten mit Menschen bereitet Ihnen Freude\n\n- Sie sind offen und kommunikativ\n\nWir bieten Ihnen:\n- Ein Praktikum bei uns bietet Ihnen einen guten Einstieg in die Arbeitswelt\n\n- Wir fördern Talent und Engagement und bieten Ihnen die Möglichkeit, sich in einem dynamischen und vielseitigen Umfeld weiterzuentwickeln\n\n- Sie werden von einer ausgebildeten Praxisanleitung in wöchentlichen Gesprächen begleitet",
       "descriptionByLocale": {
         "it": "I dintorni: La casa di terapia di Fürstenwald a Chur è una scuola speciale con stage esterni e per bambini e giovani temporaneamente incapaci di visitare la scuola pubblica per motivi psicologici. I vostri compiti: - Promuovano e sostengono gli studenti affidati - Partecipano a mantenere un ambiente di affido come prerequisito per il rafforzamento - Essi contribuiscono all'attuazione e all'adeguamento continuo della pianificazione dell'istruzione - Disegnano la routine quotidiana di bambini e giovani tenendo conto delle aree di terapia e scuola con - Lavorano interdisciplinari con altri gruppi professionali - il lavoro amministrativo - Lavorano nel lavoro di riferimento con Il nostro profilo di requisito: - Almeno lo sei. 20 anni giovani e interessati all'istruzione speciale - Lavorare con la gente ti prepara la gioia - Sono aperti e comunicativi Vi offriamo: - Un tirocinio con noi ti offre un buon ingresso nel mondo del lavoro - Promuoviamo talento e impegno e vi offriamo l'opportunità di sviluppare in un ambiente dinamico e versatile - Sono accompagnati da un insegnamento pratico addestrato nelle conversazioni settimanali",
-        "en": "Your surroundings: The Fürstenwald therapy house in Chur is a special school with external and internships for children and young people who are temporarily unable to visit the public school for psychological reasons. \n• Your tasks: - They promote and support the entrusted students - They participate in maintaining a fostering environment as a prerequisite for strengthening - They contribute to the implementation and ongoing adaptation of education planning - They design the daily routine of children and young people taking into account the areas of therapy and school with - They work interdisciplinary with other professional groups - take over administrative work - They work in reference work with Our requirement profile: - You're at least. 20 years young and interested in special education - Working with people prepares you joy - They are open and communicative \n• We offer you: - An internship with us offers you a good entry into the world of work - We promote talent and commitment and offer you the opportunity to develop in a dynamic and versatile environment - They are accompanied by a trained practical instruction in weekly conversations",
+        "en": "Your surroundings: The Fürstenwald therapy house in Chur is a special school with external and internships for children and young people who are temporarily unable to visit the public school for psychological reasons.\n• Your tasks: - They promote and support the entrusted students - They participate in maintaining a fostering environment as a prerequisite for strengthening - They contribute to the implementation and ongoing adaptation of education planning - They design the daily routine of children and young people taking into account the areas of therapy and school with - They work interdisciplinary with other professional groups - take over administrative work - They work in reference work with Our requirement profile: - You're at least. 20 years young and interested in special education - Working with people prepares you joy - They are open and communicative\n• We offer you: - An internship with us offers you a good entry into the world of work - We promote talent and commitment and offer you the opportunity to develop in a dynamic and versatile environment - They are accompanied by a trained practical instruction in weekly conversations",
         "de": "Ihre Umgebung: Das Therapiehaus Fürstenwald in Chur ist eine Sonderschule mit Externats- und Internatsbetrieb für schulpflichtige Kinder und Jugendliche, die vorübergehend die öffentliche Schule aus psychischen Gründen nicht besuchen können. \n• Ihre Aufgaben: - Sie fördern und betreuen die anvertrauten Schüler - Sie beteiligen sich an der Aufrechterhaltung eines fördernden Milieus als Voraussetzung für eine Stärkung - Sie wirken an der Umsetzung und laufenden Anpassung der Erziehungsplanung mit - Sie gestalten den Tagesablauf der Kinder und Jugendlichen unter Berücksichtigung der Bereiche Therapie und Schule mit - Sie arbeiten interdisziplinär mit anderen Berufsgruppen zusammen - Sie übernehmen administrative Arbeiten - Sie arbeiten in der Bezugspersonenarbeit mit Unser Anforderungsprofil: - Sie sind mind. 20 Jahre jung und haben Interesse am Sonderschulbereich - Das Arbeiten mit Menschen bereitet Ihnen Freude - Sie sind offen und kommunikativ \n• Wir bieten Ihnen: - Ein Praktikum bei uns bietet Ihnen einen guten Einstieg in die Arbeitswelt - Wir fördern Talent und Engagement und bieten Ihnen die Möglichkeit, sich in einem dynamischen und vielseitigen Umfeld weiterzuentwickeln - Sie werden von einer ausgebildeten Praxisanleitung in wöchentlichen Gesprächen begleitet",
-        "fr": "Votre environnement: La maison de thérapie Fürstenwald à Chur est une école spéciale avec des stages externes pour les enfants et les jeunes qui sont temporairement incapables de visiter l'école publique pour des raisons psychologiques. \n• Vos tâches: - Ils promeuvent et soutiennent les étudiants confiés - Ils participent au maintien d'un environnement favorable comme condition préalable au renforcement - Ils contribuent à la mise en œuvre et à l ' adaptation continue de la planification de l ' éducation - Ils conçoivent la routine quotidienne des enfants et des jeunes en tenant compte des domaines de la thérapie et de l'école avec - Ils travaillent interdisciplinairement avec d'autres groupes professionnels - prendre en charge les travaux administratifs - Ils travaillent en référence avec Notre profil d'exigence: - Au moins. 20 ans et intéressés par l'éducation spéciale - Travailler avec les gens vous prépare la joie - Ils sont ouverts et communicatifs Nous vous offrons: - Un stage avec nous vous offre une bonne entrée dans le monde du travail - Nous promouvons le talent et l'engagement et vous offrons la possibilité de se développer dans un environnement dynamique et polyvalent - Ils sont accompagnés d'une formation pratique à la conversation hebdomadaire"
+        "fr": "Votre environnement: La maison de thérapie Fürstenwald à Chur est une école spéciale avec des stages externes pour les enfants et les jeunes qui sont temporairement incapables de visiter l'école publique pour des raisons psychologiques.\n• Vos tâches: - Ils promeuvent et soutiennent les étudiants confiés - Ils participent au maintien d'un environnement favorable comme condition préalable au renforcement - Ils contribuent à la mise en œuvre et à l ' adaptation continue de la planification de l ' éducation - Ils conçoivent la routine quotidienne des enfants et des jeunes en tenant compte des domaines de la thérapie et de l'école avec - Ils travaillent interdisciplinairement avec d'autres groupes professionnels - prendre en charge les travaux administratifs - Ils travaillent en référence avec Notre profil d'exigence: - Au moins. 20 ans et intéressés par l'éducation spéciale - Travailler avec les gens vous prépare la joie - Ils sont ouverts et communicatifs Nous vous offrons: - Un stage avec nous vous offre une bonne entrée dans le monde du travail - Nous promouvons le talent et l'engagement et vous offrons la possibilité de se développer dans un environnement dynamique et polyvalent - Ils sont accompagnés d'une formation pratique à la conversation hebdomadaire"
       },
       "location": "Chur",
       "canton": "GR",
       "url": "https://www.pdgr.ch/jobs/praktikant-in-praxismodul-i-ii-oder-vorpraktikum-5/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-23T22:51:44.153Z",
+      "crawledAt": "2026-05-24T11:43:24.564Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
