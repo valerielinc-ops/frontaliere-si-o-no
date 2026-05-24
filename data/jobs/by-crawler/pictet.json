@@ -1,6 +1,6 @@
 {
   "crawlerKey": "pictet",
-  "assembledAt": "2026-05-23T22:53:01.165Z",
+  "assembledAt": "2026-05-24T11:44:39.512Z",
   "jobs": [
     {
       "id": "pictet-de351a5ddda6",
@@ -30,10 +30,10 @@
       },
       "location": "Geneva",
       "canton": "GE",
-      "url": "https://career012.successfactors.eu/career?career%5fns=job%5flisting&company=banquepict&navBarLevel=JOB%5fSEARCH&rcm%5fsite%5flocale=en%5fGB&career_job_req_id=124280&selected_lang=en_GB&jobAlertController_jobAlertId=&jobAlertController_jobAlertName=&browserTimeZone=Europe/Zurich&_s.crb=263jaC1pGCp9RoSA5C1smcQzWh7AAVeIrA%2b46b%2ffmgs%3d",
+      "url": "https://career012.successfactors.eu/career?career%5fns=job%5flisting&company=banquepict&navBarLevel=JOB%5fSEARCH&rcm%5fsite%5flocale=en%5fGB&career_job_req_id=124280&selected_lang=en_GB&jobAlertController_jobAlertId=&jobAlertController_jobAlertName=&browserTimeZone=Europe/Zurich&_s.crb=VVcPrJ%2byv2fC%2bZH9OIPgr7QK64vjQMhL7q5ex8yD1nI%3d",
       "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-23T22:52:59.276Z",
+      "crawledAt": "2026-05-24T11:44:37.547Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -46,7 +46,7 @@
       "currency": "CHF",
       "featured": false,
       "postedDate": "2026-05-18",
-      "applyUrl": "https://career012.successfactors.eu/career?career%5fns=job%5flisting&company=banquepict&navBarLevel=JOB%5fSEARCH&rcm%5fsite%5flocale=en%5fGB&career_job_req_id=124280&selected_lang=en_GB&jobAlertController_jobAlertId=&jobAlertController_jobAlertName=&browserTimeZone=Europe/Zurich&_s.crb=263jaC1pGCp9RoSA5C1smcQzWh7AAVeIrA%2b46b%2ffmgs%3d",
+      "applyUrl": "https://career012.successfactors.eu/career?career%5fns=job%5flisting&company=banquepict&navBarLevel=JOB%5fSEARCH&rcm%5fsite%5flocale=en%5fGB&career_job_req_id=124280&selected_lang=en_GB&jobAlertController_jobAlertId=&jobAlertController_jobAlertName=&browserTimeZone=Europe/Zurich&_s.crb=VVcPrJ%2byv2fC%2bZH9OIPgr7QK64vjQMhL7q5ex8yD1nI%3d",
       "jobReqId": "124280",
       "requirements": [],
       "requirementsByLocale": {},
@@ -101,10 +101,10 @@
       },
       "location": "Geneva",
       "canton": "GE",
-      "url": "https://career012.successfactors.eu/career?career%5fns=job%5flisting&company=banquepict&navBarLevel=JOB%5fSEARCH&rcm%5fsite%5flocale=en%5fGB&career_job_req_id=124346&selected_lang=en_GB&jobAlertController_jobAlertId=&jobAlertController_jobAlertName=&browserTimeZone=Europe/Zurich&_s.crb=263jaC1pGCp9RoSA5C1smcQzWh7AAVeIrA%2b46b%2ffmgs%3d",
+      "url": "https://career012.successfactors.eu/career?career%5fns=job%5flisting&company=banquepict&navBarLevel=JOB%5fSEARCH&rcm%5fsite%5flocale=en%5fGB&career_job_req_id=124346&selected_lang=en_GB&jobAlertController_jobAlertId=&jobAlertController_jobAlertName=&browserTimeZone=Europe/Zurich&_s.crb=VVcPrJ%2byv2fC%2bZH9OIPgr7QK64vjQMhL7q5ex8yD1nI%3d",
       "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-23T22:52:58.798Z",
+      "crawledAt": "2026-05-24T11:44:36.958Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -117,7 +117,7 @@
       "currency": "CHF",
       "featured": false,
       "postedDate": "2026-05-18",
-      "applyUrl": "https://career012.successfactors.eu/career?career%5fns=job%5flisting&company=banquepict&navBarLevel=JOB%5fSEARCH&rcm%5fsite%5flocale=en%5fGB&career_job_req_id=124346&selected_lang=en_GB&jobAlertController_jobAlertId=&jobAlertController_jobAlertName=&browserTimeZone=Europe/Zurich&_s.crb=263jaC1pGCp9RoSA5C1smcQzWh7AAVeIrA%2b46b%2ffmgs%3d",
+      "applyUrl": "https://career012.successfactors.eu/career?career%5fns=job%5flisting&company=banquepict&navBarLevel=JOB%5fSEARCH&rcm%5fsite%5flocale=en%5fGB&career_job_req_id=124346&selected_lang=en_GB&jobAlertController_jobAlertId=&jobAlertController_jobAlertName=&browserTimeZone=Europe/Zurich&_s.crb=VVcPrJ%2byv2fC%2bZH9OIPgr7QK64vjQMhL7q5ex8yD1nI%3d",
       "jobReqId": "124346",
       "requirements": [],
       "requirementsByLocale": {},
@@ -130,6 +130,7 @@
         ]
       },
       "firstSeenAt": "2026-05-18T13:00:17.931Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -171,10 +172,10 @@
       },
       "location": "Geneva",
       "canton": "GE",
-      "url": "https://career012.successfactors.eu/career?career%5fns=job%5flisting&company=banquepict&navBarLevel=JOB%5fSEARCH&rcm%5fsite%5flocale=en%5fGB&career_job_req_id=124362&selected_lang=en_GB&jobAlertController_jobAlertId=&jobAlertController_jobAlertName=&browserTimeZone=Europe/Zurich&_s.crb=263jaC1pGCp9RoSA5C1smcQzWh7AAVeIrA%2b46b%2ffmgs%3d",
+      "url": "https://career012.successfactors.eu/career?career%5fns=job%5flisting&company=banquepict&navBarLevel=JOB%5fSEARCH&rcm%5fsite%5flocale=en%5fGB&career_job_req_id=124362&selected_lang=en_GB&jobAlertController_jobAlertId=&jobAlertController_jobAlertName=&browserTimeZone=Europe/Zurich&_s.crb=VVcPrJ%2byv2fC%2bZH9OIPgr7QK64vjQMhL7q5ex8yD1nI%3d",
       "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-23T22:52:58.269Z",
+      "crawledAt": "2026-05-24T11:44:36.249Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -187,7 +188,7 @@
       "currency": "CHF",
       "featured": false,
       "postedDate": "2026-05-21",
-      "applyUrl": "https://career012.successfactors.eu/career?career%5fns=job%5flisting&company=banquepict&navBarLevel=JOB%5fSEARCH&rcm%5fsite%5flocale=en%5fGB&career_job_req_id=124362&selected_lang=en_GB&jobAlertController_jobAlertId=&jobAlertController_jobAlertName=&browserTimeZone=Europe/Zurich&_s.crb=263jaC1pGCp9RoSA5C1smcQzWh7AAVeIrA%2b46b%2ffmgs%3d",
+      "applyUrl": "https://career012.successfactors.eu/career?career%5fns=job%5flisting&company=banquepict&navBarLevel=JOB%5fSEARCH&rcm%5fsite%5flocale=en%5fGB&career_job_req_id=124362&selected_lang=en_GB&jobAlertController_jobAlertId=&jobAlertController_jobAlertName=&browserTimeZone=Europe/Zurich&_s.crb=VVcPrJ%2byv2fC%2bZH9OIPgr7QK64vjQMhL7q5ex8yD1nI%3d",
       "jobReqId": "124362",
       "requirements": [],
       "requirementsByLocale": {},
@@ -242,10 +243,10 @@
       },
       "location": "Luxembourg",
       "canton": "GE",
-      "url": "https://career012.successfactors.eu/career?career%5fns=job%5flisting&company=banquepict&navBarLevel=JOB%5fSEARCH&rcm%5fsite%5flocale=en%5fGB&career_job_req_id=123722&selected_lang=en_GB&jobAlertController_jobAlertId=&jobAlertController_jobAlertName=&browserTimeZone=Europe/Zurich&_s.crb=263jaC1pGCp9RoSA5C1smcQzWh7AAVeIrA%2b46b%2ffmgs%3d",
+      "url": "https://career012.successfactors.eu/career?career%5fns=job%5flisting&company=banquepict&navBarLevel=JOB%5fSEARCH&rcm%5fsite%5flocale=en%5fGB&career_job_req_id=123722&selected_lang=en_GB&jobAlertController_jobAlertId=&jobAlertController_jobAlertName=&browserTimeZone=Europe/Zurich&_s.crb=VVcPrJ%2byv2fC%2bZH9OIPgr7QK64vjQMhL7q5ex8yD1nI%3d",
       "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-23T22:52:57.767Z",
+      "crawledAt": "2026-05-24T11:44:35.562Z",
       "addressLocality": "Luxembourg",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -258,7 +259,7 @@
       "currency": "CHF",
       "featured": false,
       "postedDate": "2026-05-21",
-      "applyUrl": "https://career012.successfactors.eu/career?career%5fns=job%5flisting&company=banquepict&navBarLevel=JOB%5fSEARCH&rcm%5fsite%5flocale=en%5fGB&career_job_req_id=123722&selected_lang=en_GB&jobAlertController_jobAlertId=&jobAlertController_jobAlertName=&browserTimeZone=Europe/Zurich&_s.crb=263jaC1pGCp9RoSA5C1smcQzWh7AAVeIrA%2b46b%2ffmgs%3d",
+      "applyUrl": "https://career012.successfactors.eu/career?career%5fns=job%5flisting&company=banquepict&navBarLevel=JOB%5fSEARCH&rcm%5fsite%5flocale=en%5fGB&career_job_req_id=123722&selected_lang=en_GB&jobAlertController_jobAlertId=&jobAlertController_jobAlertName=&browserTimeZone=Europe/Zurich&_s.crb=VVcPrJ%2byv2fC%2bZH9OIPgr7QK64vjQMhL7q5ex8yD1nI%3d",
       "jobReqId": "123722",
       "requirements": [],
       "requirementsByLocale": {},
@@ -313,10 +314,10 @@
       },
       "location": "London",
       "canton": "GE",
-      "url": "https://career012.successfactors.eu/career?career%5fns=job%5flisting&company=banquepict&navBarLevel=JOB%5fSEARCH&rcm%5fsite%5flocale=en%5fGB&career_job_req_id=124307&selected_lang=en_GB&jobAlertController_jobAlertId=&jobAlertController_jobAlertName=&browserTimeZone=Europe/Zurich&_s.crb=263jaC1pGCp9RoSA5C1smcQzWh7AAVeIrA%2b46b%2ffmgs%3d",
+      "url": "https://career012.successfactors.eu/career?career%5fns=job%5flisting&company=banquepict&navBarLevel=JOB%5fSEARCH&rcm%5fsite%5flocale=en%5fGB&career_job_req_id=124307&selected_lang=en_GB&jobAlertController_jobAlertId=&jobAlertController_jobAlertName=&browserTimeZone=Europe/Zurich&_s.crb=VVcPrJ%2byv2fC%2bZH9OIPgr7QK64vjQMhL7q5ex8yD1nI%3d",
       "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-23T22:52:57.238Z",
+      "crawledAt": "2026-05-24T11:44:34.897Z",
       "addressLocality": "London",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -329,7 +330,7 @@
       "currency": "CHF",
       "featured": false,
       "postedDate": "2026-05-19",
-      "applyUrl": "https://career012.successfactors.eu/career?career%5fns=job%5flisting&company=banquepict&navBarLevel=JOB%5fSEARCH&rcm%5fsite%5flocale=en%5fGB&career_job_req_id=124307&selected_lang=en_GB&jobAlertController_jobAlertId=&jobAlertController_jobAlertName=&browserTimeZone=Europe/Zurich&_s.crb=263jaC1pGCp9RoSA5C1smcQzWh7AAVeIrA%2b46b%2ffmgs%3d",
+      "applyUrl": "https://career012.successfactors.eu/career?career%5fns=job%5flisting&company=banquepict&navBarLevel=JOB%5fSEARCH&rcm%5fsite%5flocale=en%5fGB&career_job_req_id=124307&selected_lang=en_GB&jobAlertController_jobAlertId=&jobAlertController_jobAlertName=&browserTimeZone=Europe/Zurich&_s.crb=VVcPrJ%2byv2fC%2bZH9OIPgr7QK64vjQMhL7q5ex8yD1nI%3d",
       "jobReqId": "124307",
       "requirements": [],
       "requirementsByLocale": {},
@@ -350,6 +351,7 @@
         "hr-business-partner-pictet-london"
       ],
       "firstSeenAt": "2026-05-19T12:24:53.140Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -391,10 +393,10 @@
       },
       "location": "Geneva",
       "canton": "GE",
-      "url": "https://career012.successfactors.eu/career?career%5fns=job%5flisting&company=banquepict&navBarLevel=JOB%5fSEARCH&rcm%5fsite%5flocale=en%5fGB&career_job_req_id=124377&selected_lang=en_GB&jobAlertController_jobAlertId=&jobAlertController_jobAlertName=&browserTimeZone=Europe/Zurich&_s.crb=263jaC1pGCp9RoSA5C1smcQzWh7AAVeIrA%2b46b%2ffmgs%3d",
+      "url": "https://career012.successfactors.eu/career?career%5fns=job%5flisting&company=banquepict&navBarLevel=JOB%5fSEARCH&rcm%5fsite%5flocale=en%5fGB&career_job_req_id=124377&selected_lang=en_GB&jobAlertController_jobAlertId=&jobAlertController_jobAlertName=&browserTimeZone=Europe/Zurich&_s.crb=VVcPrJ%2byv2fC%2bZH9OIPgr7QK64vjQMhL7q5ex8yD1nI%3d",
       "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-23T22:52:56.593Z",
+      "crawledAt": "2026-05-24T11:44:34.261Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -407,7 +409,7 @@
       "currency": "CHF",
       "featured": false,
       "postedDate": "2026-05-21",
-      "applyUrl": "https://career012.successfactors.eu/career?career%5fns=job%5flisting&company=banquepict&navBarLevel=JOB%5fSEARCH&rcm%5fsite%5flocale=en%5fGB&career_job_req_id=124377&selected_lang=en_GB&jobAlertController_jobAlertId=&jobAlertController_jobAlertName=&browserTimeZone=Europe/Zurich&_s.crb=263jaC1pGCp9RoSA5C1smcQzWh7AAVeIrA%2b46b%2ffmgs%3d",
+      "applyUrl": "https://career012.successfactors.eu/career?career%5fns=job%5flisting&company=banquepict&navBarLevel=JOB%5fSEARCH&rcm%5fsite%5flocale=en%5fGB&career_job_req_id=124377&selected_lang=en_GB&jobAlertController_jobAlertId=&jobAlertController_jobAlertName=&browserTimeZone=Europe/Zurich&_s.crb=VVcPrJ%2byv2fC%2bZH9OIPgr7QK64vjQMhL7q5ex8yD1nI%3d",
       "jobReqId": "124377",
       "requirements": [],
       "requirementsByLocale": {},
@@ -468,10 +470,10 @@
       },
       "location": "Zurich",
       "canton": "ZH",
-      "url": "https://career012.successfactors.eu/career?career%5fns=job%5flisting&company=banquepict&navBarLevel=JOB%5fSEARCH&rcm%5fsite%5flocale=en%5fGB&career_job_req_id=124382&selected_lang=en_GB&jobAlertController_jobAlertId=&jobAlertController_jobAlertName=&browserTimeZone=Europe/Zurich&_s.crb=263jaC1pGCp9RoSA5C1smcQzWh7AAVeIrA%2b46b%2ffmgs%3d",
+      "url": "https://career012.successfactors.eu/career?career%5fns=job%5flisting&company=banquepict&navBarLevel=JOB%5fSEARCH&rcm%5fsite%5flocale=en%5fGB&career_job_req_id=124382&selected_lang=en_GB&jobAlertController_jobAlertId=&jobAlertController_jobAlertName=&browserTimeZone=Europe/Zurich&_s.crb=VVcPrJ%2byv2fC%2bZH9OIPgr7QK64vjQMhL7q5ex8yD1nI%3d",
       "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-23T22:52:55.937Z",
+      "crawledAt": "2026-05-24T11:44:33.653Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -484,7 +486,7 @@
       "currency": "CHF",
       "featured": false,
       "postedDate": "2026-05-21",
-      "applyUrl": "https://career012.successfactors.eu/career?career%5fns=job%5flisting&company=banquepict&navBarLevel=JOB%5fSEARCH&rcm%5fsite%5flocale=en%5fGB&career_job_req_id=124382&selected_lang=en_GB&jobAlertController_jobAlertId=&jobAlertController_jobAlertName=&browserTimeZone=Europe/Zurich&_s.crb=263jaC1pGCp9RoSA5C1smcQzWh7AAVeIrA%2b46b%2ffmgs%3d",
+      "applyUrl": "https://career012.successfactors.eu/career?career%5fns=job%5flisting&company=banquepict&navBarLevel=JOB%5fSEARCH&rcm%5fsite%5flocale=en%5fGB&career_job_req_id=124382&selected_lang=en_GB&jobAlertController_jobAlertId=&jobAlertController_jobAlertName=&browserTimeZone=Europe/Zurich&_s.crb=VVcPrJ%2byv2fC%2bZH9OIPgr7QK64vjQMhL7q5ex8yD1nI%3d",
       "jobReqId": "124382",
       "requirements": [],
       "requirementsByLocale": {},
@@ -497,6 +499,7 @@
         ]
       },
       "firstSeenAt": "2026-05-21T12:57:02.617Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -539,10 +542,10 @@
       },
       "location": "Luxembourg",
       "canton": "GE",
-      "url": "https://career012.successfactors.eu/career?career%5fns=job%5flisting&company=banquepict&navBarLevel=JOB%5fSEARCH&rcm%5fsite%5flocale=en%5fGB&career_job_req_id=124352&selected_lang=en_GB&jobAlertController_jobAlertId=&jobAlertController_jobAlertName=&browserTimeZone=Europe/Zurich&_s.crb=263jaC1pGCp9RoSA5C1smcQzWh7AAVeIrA%2b46b%2ffmgs%3d",
+      "url": "https://career012.successfactors.eu/career?career%5fns=job%5flisting&company=banquepict&navBarLevel=JOB%5fSEARCH&rcm%5fsite%5flocale=en%5fGB&career_job_req_id=124352&selected_lang=en_GB&jobAlertController_jobAlertId=&jobAlertController_jobAlertName=&browserTimeZone=Europe/Zurich&_s.crb=VVcPrJ%2byv2fC%2bZH9OIPgr7QK64vjQMhL7q5ex8yD1nI%3d",
       "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-23T22:52:55.357Z",
+      "crawledAt": "2026-05-24T11:44:32.923Z",
       "addressLocality": "Luxembourg",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -555,7 +558,7 @@
       "currency": "CHF",
       "featured": false,
       "postedDate": "2026-05-22",
-      "applyUrl": "https://career012.successfactors.eu/career?career%5fns=job%5flisting&company=banquepict&navBarLevel=JOB%5fSEARCH&rcm%5fsite%5flocale=en%5fGB&career_job_req_id=124352&selected_lang=en_GB&jobAlertController_jobAlertId=&jobAlertController_jobAlertName=&browserTimeZone=Europe/Zurich&_s.crb=263jaC1pGCp9RoSA5C1smcQzWh7AAVeIrA%2b46b%2ffmgs%3d",
+      "applyUrl": "https://career012.successfactors.eu/career?career%5fns=job%5flisting&company=banquepict&navBarLevel=JOB%5fSEARCH&rcm%5fsite%5flocale=en%5fGB&career_job_req_id=124352&selected_lang=en_GB&jobAlertController_jobAlertId=&jobAlertController_jobAlertName=&browserTimeZone=Europe/Zurich&_s.crb=VVcPrJ%2byv2fC%2bZH9OIPgr7QK64vjQMhL7q5ex8yD1nI%3d",
       "jobReqId": "124352",
       "requirements": [],
       "requirementsByLocale": {},
@@ -616,10 +619,10 @@
       },
       "location": "Geneva",
       "canton": "GE",
-      "url": "https://career012.successfactors.eu/career?career%5fns=job%5flisting&company=banquepict&navBarLevel=JOB%5fSEARCH&rcm%5fsite%5flocale=en%5fGB&career_job_req_id=124384&selected_lang=en_GB&jobAlertController_jobAlertId=&jobAlertController_jobAlertName=&browserTimeZone=Europe/Zurich&_s.crb=263jaC1pGCp9RoSA5C1smcQzWh7AAVeIrA%2b46b%2ffmgs%3d",
+      "url": "https://career012.successfactors.eu/career?career%5fns=job%5flisting&company=banquepict&navBarLevel=JOB%5fSEARCH&rcm%5fsite%5flocale=en%5fGB&career_job_req_id=124384&selected_lang=en_GB&jobAlertController_jobAlertId=&jobAlertController_jobAlertName=&browserTimeZone=Europe/Zurich&_s.crb=VVcPrJ%2byv2fC%2bZH9OIPgr7QK64vjQMhL7q5ex8yD1nI%3d",
       "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-23T22:52:54.734Z",
+      "crawledAt": "2026-05-24T11:44:32.109Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -632,10 +635,18 @@
       "currency": "CHF",
       "featured": false,
       "postedDate": "2026-05-22",
-      "applyUrl": "https://career012.successfactors.eu/career?career%5fns=job%5flisting&company=banquepict&navBarLevel=JOB%5fSEARCH&rcm%5fsite%5flocale=en%5fGB&career_job_req_id=124384&selected_lang=en_GB&jobAlertController_jobAlertId=&jobAlertController_jobAlertName=&browserTimeZone=Europe/Zurich&_s.crb=263jaC1pGCp9RoSA5C1smcQzWh7AAVeIrA%2b46b%2ffmgs%3d",
+      "applyUrl": "https://career012.successfactors.eu/career?career%5fns=job%5flisting&company=banquepict&navBarLevel=JOB%5fSEARCH&rcm%5fsite%5flocale=en%5fGB&career_job_req_id=124384&selected_lang=en_GB&jobAlertController_jobAlertId=&jobAlertController_jobAlertName=&browserTimeZone=Europe/Zurich&_s.crb=VVcPrJ%2byv2fC%2bZH9OIPgr7QK64vjQMhL7q5ex8yD1nI%3d",
       "jobReqId": "124384",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "client-relationship-officer-external-asset-managers-pictet-geneva"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "client-relationship-officer-external-asset-managers-pictet-geneva"
+        ]
+      },
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-22T12:39:49.455Z",
       "salaryMin": 49500,
@@ -649,15 +660,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "client-relationship-officer-external-asset-managers-pictet-geneva"
-        ]
-      },
-      "previousSlugs": [
-        "client-relationship-officer-external-asset-managers-pictet-geneva"
-      ]
+      }
     },
     {
       "id": "pictet-375a5d44b243",
@@ -687,10 +690,10 @@
       },
       "location": "Geneva",
       "canton": "GE",
-      "url": "https://career012.successfactors.eu/career?career%5fns=job%5flisting&company=banquepict&navBarLevel=JOB%5fSEARCH&rcm%5fsite%5flocale=en%5fGB&career_job_req_id=124374&selected_lang=en_GB&jobAlertController_jobAlertId=&jobAlertController_jobAlertName=&browserTimeZone=Europe/Zurich&_s.crb=263jaC1pGCp9RoSA5C1smcQzWh7AAVeIrA%2b46b%2ffmgs%3d",
+      "url": "https://career012.successfactors.eu/career?career%5fns=job%5flisting&company=banquepict&navBarLevel=JOB%5fSEARCH&rcm%5fsite%5flocale=en%5fGB&career_job_req_id=124374&selected_lang=en_GB&jobAlertController_jobAlertId=&jobAlertController_jobAlertName=&browserTimeZone=Europe/Zurich&_s.crb=VVcPrJ%2byv2fC%2bZH9OIPgr7QK64vjQMhL7q5ex8yD1nI%3d",
       "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-23T22:52:53.778Z",
+      "crawledAt": "2026-05-24T11:44:30.745Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -703,10 +706,18 @@
       "currency": "CHF",
       "featured": false,
       "postedDate": "2026-05-22",
-      "applyUrl": "https://career012.successfactors.eu/career?career%5fns=job%5flisting&company=banquepict&navBarLevel=JOB%5fSEARCH&rcm%5fsite%5flocale=en%5fGB&career_job_req_id=124374&selected_lang=en_GB&jobAlertController_jobAlertId=&jobAlertController_jobAlertName=&browserTimeZone=Europe/Zurich&_s.crb=263jaC1pGCp9RoSA5C1smcQzWh7AAVeIrA%2b46b%2ffmgs%3d",
+      "applyUrl": "https://career012.successfactors.eu/career?career%5fns=job%5flisting&company=banquepict&navBarLevel=JOB%5fSEARCH&rcm%5fsite%5flocale=en%5fGB&career_job_req_id=124374&selected_lang=en_GB&jobAlertController_jobAlertId=&jobAlertController_jobAlertName=&browserTimeZone=Europe/Zurich&_s.crb=VVcPrJ%2byv2fC%2bZH9OIPgr7QK64vjQMhL7q5ex8yD1nI%3d",
       "jobReqId": "124374",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "middle-officer-hedge-funds-6-months-fixed-term-contract-pictet-geneva"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "middle-officer-hedge-funds-6-months-fixed-term-contract-pictet-geneva"
+        ]
+      },
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-22T23:10:52.019Z",
       "salaryMin": 49500,
@@ -720,15 +731,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "middle-officer-hedge-funds-6-months-fixed-term-contract-pictet-geneva"
-        ]
-      },
-      "previousSlugs": [
-        "middle-officer-hedge-funds-6-months-fixed-term-contract-pictet-geneva"
-      ]
+      }
     }
   ]
 }
