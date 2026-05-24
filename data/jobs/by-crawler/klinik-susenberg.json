@@ -1,6 +1,6 @@
 {
   "crawlerKey": "klinik-susenberg",
-  "assembledAt": "2026-05-24T11:15:10.431Z",
+  "assembledAt": "2026-05-24T22:27:29.119Z",
   "jobs": [
     {
       "id": "klinik-susenberg-b6181a18d679",
@@ -28,12 +28,13 @@
         "de": "Unterassistent/-in, 01. - 31. Mai 2026 bei der Klinik Susenberg, Schreberweg 9, 8044 Zürich, Schweiz. Tätigkeitsbereich: Ärztlicher Dienst. Die Klinik Susenberg ist eine privat geführte Klinik am Zürichberg, spezialisiert auf Akutgeriatrie, internistisch-onkologische Rehabilitation und Palliative Care. \n• Wir bieten attraktive Anstellungsbedingungen und ein angenehmes Arbeitsklima in interprofessionellen Teams an schönster Lage in Zürich. Detailliertes Stellenprofil und Bewerbungsunterlagen siehe verlinktes PDF.",
         "fr": "Descrizione Sous-assistant (e), du 1er au 31 mai 2026 à la Klinik Susenberg, Schreberweg 9, 8044 Zurich, Suisse. Domaine d'activité : Service médical. La Clinique Susenberg est une clinique privée située à Zurichberg, spécialisée dans la gériatrie aiguë, la rééducation interniste-oncologique et les soins palliatifs.\n• Nous offrons des conditions de travail attrayantes et un climat de travail agréable dans des équipes interprofessionnelles dans le plus bel emplacement de Zurich. Pour un profil détaillé du poste et les documents de candidature, voir le PDF lié."
       },
+      "needsRetranslation": true,
       "location": "Zürich",
       "canton": "ZH",
       "url": "https://www.susenbergklinik.ch/fileadmin/user_upload/Stellen/03-Unterassistent_Mai_2026-04-02.pdf",
       "source": "Klinik Susenberg Dedicated Parser (TYPO3 PDF listing)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-24T11:15:08.411Z",
+      "crawledAt": "2026-05-24T22:27:27.001Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -75,78 +76,6 @@
       }
     },
     {
-      "id": "klinik-susenberg-1af6354976c1",
-      "slug": "assistente-medico-ottobre-dicembre-2026-klinik-susenberg-zurich",
-      "slugByLocale": {
-        "it": "assistente-medico-ottobre-dicembre-2026-klinik-susenberg-zurich",
-        "en": "medical-assistant-october-december-2026-klinik-susenberg-zurich",
-        "de": "unterassistent-in-oktober-dezember-2026-klinik-susenberg-zurich",
-        "fr": "assistant-medical-octobre-decembre-2026-klinik-susenberg-zurich"
-      },
-      "company": "Klinik Susenberg",
-      "companyKey": "klinik-susenberg",
-      "companyDomain": "susenbergklinik.ch",
-      "title": "Unterassistent/-in, Oktober - Dezember 2026",
-      "titleByLocale": {
-        "it": "Assistente medico, ottobre - dicembre 2026",
-        "en": "Medical Assistant, October - December 2026",
-        "de": "Unterassistent/-in, Oktober - Dezember 2026",
-        "fr": "Assistant médical, octobre - décembre 2026"
-      },
-      "description": "Unterassistent/-in, Oktober - Dezember 2026 bei der Klinik Susenberg, Schreberweg 9, 8044 Zürich, Schweiz. Tätigkeitsbereich: Ärztlicher Dienst. Die Klinik Susenberg ist eine privat geführte Klinik am Zürichberg, spezialisiert auf Akutgeriatrie, internistisch-onkologische Rehabilitation und Palliative Care. \n• Wir bieten attraktive Anstellungsbedingungen und ein angenehmes Arbeitsklima in interprofessionellen Teams an schönster Lage in Zürich. Detailliertes Stellenprofil und Bewerbungsunterlagen siehe verlinktes PDF.",
-      "descriptionByLocale": {
-        "it": "Descrizione assistente secondario, ottobre - dicembre 2026 presso la Clinica Susenberg, Schreberweg 9, 8044 Zurigo, Svizzera. Settore di attività Servizio medico Specializzazione - Geriatria acuta - Riabilitazione internistico-oncologica - Cure palliative Organizzazione e ambiente - Clinica Susenberg, clinica privata a Zurigo - Condizioni di lavoro Attraggive - Ambiente di lavoro piacevole in team interprofessionali - Ambiente di lavoro in una splendida posizione a Zurigo Informazioni aggiuntive - Profilo professionale dettagliato e documenti di candidatura vedi PDF collegato",
-        "en": "Descrizione Sub-Assistant, October - December 2026 at the Susenberg Clinic, Schreberweg 9, 8044 Zurich, Switzerland. Area of activity Medical service Specialization - Acute geriatrics - Internal oncological rehabilitation - Palliative Care Organizzazione e ambiente - Clinic Susenberg, privately run clinic at Zürichberg - Attraggive employment conditions - Pleasant working atmosphere in interprofessional teams - Working environment in a beautiful location in Zurich Informazioni aggiuntive - Detailed job profile and application documents see linked PDF",
-        "de": "Unterassistent/-in, Oktober - Dezember 2026 bei der Klinik Susenberg, Schreberweg 9, 8044 Zürich, Schweiz. Tätigkeitsbereich: Ärztlicher Dienst. Die Klinik Susenberg ist eine privat geführte Klinik am Zürichberg, spezialisiert auf Akutgeriatrie, internistisch-onkologische Rehabilitation und Palliative Care. \n• Wir bieten attraktive Anstellungsbedingungen und ein angenehmes Arbeitsklima in interprofessionellen Teams an schönster Lage in Zürich. Detailliertes Stellenprofil und Bewerbungsunterlagen siehe verlinktes PDF.",
-        "fr": "Descrizione Sous-assistant (e), octobre - décembre 2026 à la Klinik Susenberg, Schreberweg 9, 8044 Zurich, Suisse. Domaine d'activité Service médical Spécialisation - Gériatrie aiguë - Réadaptation oncologique interne - Organisation de soins palliatifs et environnement - Clinique Susenberg, clinique privée à Zurichberg - Conditions de travail favorables à l'emploi - Ambiance de travail agréable dans des équipes interprofessionnelles - Environnement de travail dans un bel emplacement à Zurich Informazioni aggiuntive - Profil détaillé du poste et documents de candidature voir le PDF lié"
-      },
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://www.susenbergklinik.ch/fileadmin/user_upload/Stellen/02-Unterassistent_Oktobr-Dezember2026_2026-02-17.pdf",
-      "source": "Klinik Susenberg Dedicated Parser (TYPO3 PDF listing)",
-      "sourceLang": "de",
-      "crawledAt": "2026-05-24T11:15:08.411Z",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8044",
-      "streetAddress": "Schreberweg 9",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "junior",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-02-17",
-      "applyUrl": "https://www.susenbergklinik.ch/jobs/offene-stellen",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "department": "Ärztlicher Dienst",
-      "previousSlugs": [
-        "unterassistent-in-oktober-dezember-2026-klinik-susenberg-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "unterassistent-in-oktober-dezember-2026-klinik-susenberg-zurich"
-        ]
-      },
-      "firstSeenAt": "2026-05-19T21:02:08.486Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "klinik-susenberg-d7505bcad230",
       "slug": "dipl-ergoterapista-fh-60-klinik-susenberg-zurich",
       "slugByLocale": {
@@ -172,12 +101,13 @@
         "de": "dipl. Ergotherapeut/-in FH, 60 % bei der Klinik Susenberg, Schreberweg 9, 8044 Zürich, Schweiz. Tätigkeitsbereich: Therapien. Die Klinik Susenberg ist eine privat geführte Klinik am Zürichberg, spezialisiert auf Akutgeriatrie, internistisch-onkologische Rehabilitation und Palliative Care. \n• Wir bieten attraktive Anstellungsbedingungen und ein angenehmes Arbeitsklima in interprofessionellen Teams an schönster Lage in Zürich. Detailliertes Stellenprofil und Bewerbungsunterlagen siehe verlinktes PDF.",
         "fr": "Descrizione dipl. Ergothérapeute HES, 60 % à la Klinik Susenberg, Schreberweg 9, 8044 Zurich, Suisse. Domaine d'activité - Thérapies À propos de la clinique - La clinique Susenberg est une clinique privée située à Zurichberg, spécialisée dans la gériatrie aiguë, la rééducation interniste-oncologique et les soins palliatifs. -\n• Nous offrons des conditions de travail attrayantes et un climat de travail agréable dans des équipes interprofessionnelles dans le plus bel emplacement de Zurich. Informations complémentaires - Voir le profil détaillé du poste et le dossier de candidature au format PDF lié."
       },
+      "needsRetranslation": true,
       "location": "Zürich",
       "canton": "ZH",
       "url": "https://www.susenbergklinik.ch/fileadmin/user_upload/Stellen/dipl._Ergotherapeut-60_2026-04-23.pdf",
       "source": "Klinik Susenberg Dedicated Parser (TYPO3 PDF listing)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-24T11:15:08.410Z",
+      "crawledAt": "2026-05-24T22:27:27.000Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -244,12 +174,13 @@
         "de": "dipl. Pflegefachperson HF/FH, in Palliative Care, 80 - 100 % bei der Klinik Susenberg, Schreberweg 9, 8044 Zürich, Schweiz. Tätigkeitsbereich: Pflege. Die Klinik Susenberg ist eine privat geführte Klinik am Zürichberg, spezialisiert auf Akutgeriatrie, internistisch-onkologische Rehabilitation und Palliative Care. \n• Wir bieten attraktive Anstellungsbedingungen und ein angenehmes Arbeitsklima in interprofessionellen Teams an schönster Lage in Zürich. Detailliertes Stellenprofil und Bewerbungsunterlagen siehe verlinktes PDF.",
         "fr": "Descrizione infirmière diplômée HF/FH, en soins palliatifs, 80 à 100 % à la Klinik Susenberg, Schreberweg 9, 8044 Zurich, Suisse. Domaine d'activité - Spécialisation en soins La Clinique Susenberg est une clinique privée située à Zurichberg, spécialisée dans la gériatrie aiguë, la rééducation oncologique interne et les soins palliatifs. Ambiente di lavoro -\n• Offriamo conditions d'emploi attrayantes - Un ambiente di lavoro piacevole in team interprofessionali - Lavoro in una posizione bellissima a Zurigo Contatto - Profil détaillé du poste et dossier de candidature voir le PDF lié"
       },
+      "needsRetranslation": true,
       "location": "Zürich",
       "canton": "ZH",
       "url": "https://www.susenbergklinik.ch/fileadmin/user_upload/Stellen/14-dipl._Pflegefachperson_HF-FH_PC_80-100_per_sofort_2026-03-28.pdf",
       "source": "Klinik Susenberg Dedicated Parser (TYPO3 PDF listing)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-24T11:15:08.410Z",
+      "crawledAt": "2026-05-24T22:27:27.000Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -295,6 +226,79 @@
       }
     },
     {
+      "id": "klinik-susenberg-1af6354976c1",
+      "slug": "assistente-medico-ottobre-dicembre-2026-klinik-susenberg-zurich",
+      "slugByLocale": {
+        "it": "assistente-medico-ottobre-dicembre-2026-klinik-susenberg-zurich",
+        "en": "medical-assistant-october-december-2026-klinik-susenberg-zurich",
+        "de": "unterassistent-in-oktober-dezember-2026-klinik-susenberg-zurich",
+        "fr": "assistant-medical-octobre-decembre-2026-klinik-susenberg-zurich"
+      },
+      "company": "Klinik Susenberg",
+      "companyKey": "klinik-susenberg",
+      "companyDomain": "susenbergklinik.ch",
+      "title": "Unterassistent/-in, Oktober - Dezember 2026",
+      "titleByLocale": {
+        "it": "Assistente medico, ottobre - dicembre 2026",
+        "en": "Medical Assistant, October - December 2026",
+        "de": "Unterassistent/-in, Oktober - Dezember 2026",
+        "fr": "Assistant médical, octobre - décembre 2026"
+      },
+      "description": "Unterassistent/-in, Oktober - Dezember 2026 bei der Klinik Susenberg, Schreberweg 9, 8044 Zürich, Schweiz. Tätigkeitsbereich: Ärztlicher Dienst. Die Klinik Susenberg ist eine privat geführte Klinik am Zürichberg, spezialisiert auf Akutgeriatrie, internistisch-onkologische Rehabilitation und Palliative Care. \n• Wir bieten attraktive Anstellungsbedingungen und ein angenehmes Arbeitsklima in interprofessionellen Teams an schönster Lage in Zürich. Detailliertes Stellenprofil und Bewerbungsunterlagen siehe verlinktes PDF.",
+      "descriptionByLocale": {
+        "it": "Descrizione assistente secondario, ottobre - dicembre 2026 presso la Clinica Susenberg, Schreberweg 9, 8044 Zurigo, Svizzera. Settore di attività Servizio medico Specializzazione - Geriatria acuta - Riabilitazione internistico-oncologica - Cure palliative Organizzazione e ambiente - Clinica Susenberg, clinica privata a Zurigo - Condizioni di lavoro Attraggive - Ambiente di lavoro piacevole in team interprofessionali - Ambiente di lavoro in una splendida posizione a Zurigo Informazioni aggiuntive - Profilo professionale dettagliato e documenti di candidatura vedi PDF collegato",
+        "en": "Descrizione Sub-Assistant, October - December 2026 at the Susenberg Clinic, Schreberweg 9, 8044 Zurich, Switzerland. Area of activity Medical service Specialization - Acute geriatrics - Internal oncological rehabilitation - Palliative Care Organizzazione e ambiente - Clinic Susenberg, privately run clinic at Zürichberg - Attraggive employment conditions - Pleasant working atmosphere in interprofessional teams - Working environment in a beautiful location in Zurich Informazioni aggiuntive - Detailed job profile and application documents see linked PDF",
+        "de": "Unterassistent/-in, Oktober - Dezember 2026 bei der Klinik Susenberg, Schreberweg 9, 8044 Zürich, Schweiz. Tätigkeitsbereich: Ärztlicher Dienst. Die Klinik Susenberg ist eine privat geführte Klinik am Zürichberg, spezialisiert auf Akutgeriatrie, internistisch-onkologische Rehabilitation und Palliative Care. \n• Wir bieten attraktive Anstellungsbedingungen und ein angenehmes Arbeitsklima in interprofessionellen Teams an schönster Lage in Zürich. Detailliertes Stellenprofil und Bewerbungsunterlagen siehe verlinktes PDF.",
+        "fr": "Descrizione Sous-assistant (e), octobre - décembre 2026 à la Klinik Susenberg, Schreberweg 9, 8044 Zurich, Suisse. Domaine d'activité Service médical Spécialisation - Gériatrie aiguë - Réadaptation oncologique interne - Organisation de soins palliatifs et environnement - Clinique Susenberg, clinique privée à Zurichberg - Conditions de travail favorables à l'emploi - Ambiance de travail agréable dans des équipes interprofessionnelles - Environnement de travail dans un bel emplacement à Zurich Informazioni aggiuntive - Profil détaillé du poste et documents de candidature voir le PDF lié"
+      },
+      "needsRetranslation": true,
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://www.susenbergklinik.ch/fileadmin/user_upload/Stellen/02-Unterassistent_Oktobr-Dezember2026_2026-02-17.pdf",
+      "source": "Klinik Susenberg Dedicated Parser (TYPO3 PDF listing)",
+      "sourceLang": "de",
+      "crawledAt": "2026-05-24T22:27:27.000Z",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8044",
+      "streetAddress": "Schreberweg 9",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "junior",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-02-17",
+      "applyUrl": "https://www.susenbergklinik.ch/jobs/offene-stellen",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "department": "Ärztlicher Dienst",
+      "previousSlugs": [
+        "unterassistent-in-oktober-dezember-2026-klinik-susenberg-zurich"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "unterassistent-in-oktober-dezember-2026-klinik-susenberg-zurich"
+        ]
+      },
+      "firstSeenAt": "2026-05-19T21:02:08.486Z",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
       "id": "klinik-susenberg-2c9fca54d230",
       "slug": "diplomata-infermiera-professionale-hf-fh-con-funzione-aggiuntiva-di-formatore-professionale-klinik-susenberg-zurich",
       "slugByLocale": {
@@ -320,12 +324,13 @@
         "de": "dipl. Pflegefachperson HF/FH, Zusatzfunktion Berufsbildner/-in bei der Klinik Susenberg, Schreberweg 9, 8044 Zürich, Schweiz. Tätigkeitsbereich: Pflege. Die Klinik Susenberg ist eine privat geführte Klinik am Zürichberg, spezialisiert auf Akutgeriatrie, internistisch-onkologische Rehabilitation und Palliative Care. \n• Wir bieten attraktive Anstellungsbedingungen und ein angenehmes Arbeitsklima in interprofessionellen Teams an schönster Lage in Zürich. Detailliertes Stellenprofil und Bewerbungsunterlagen siehe verlinktes PDF.",
         "fr": "Descrizione infirmière diplômée ES/HES, fonction supplémentaire de formateur/formatrice professionnelle à la Clinique Susenberg, Schreberweg 9, 8044 Zurich, Suisse. Domaine d'activité : Soins infirmiers. La Clinique Susenberg est une clinique privée située à Zurichberg, spécialisée dans la gériatrie aiguë, la rééducation oncologique interne et les soins palliatifs.\n• Nous offrons des conditions de travail attrayantes et un climat de travail agréable dans des équipes interprofessionnelles dans le plus bel emplacement de Zurich. Pour un profil détaillé du poste et les documents de candidature, voir le PDF lié."
       },
+      "needsRetranslation": true,
       "location": "Zürich",
       "canton": "ZH",
       "url": "https://www.susenbergklinik.ch/fileadmin/user_upload/Stellen/13-dipl._Pflegefachperson-HF-FH_BB_80-100_per_sofort_2026-03-28.pdf",
       "source": "Klinik Susenberg Dedicated Parser (TYPO3 PDF listing)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-24T11:15:08.409Z",
+      "crawledAt": "2026-05-24T22:27:26.998Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
