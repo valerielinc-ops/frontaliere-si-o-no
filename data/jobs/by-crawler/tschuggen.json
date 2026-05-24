@@ -1,6 +1,6 @@
 {
   "crawlerKey": "tschuggen",
-  "assembledAt": "2026-05-23T23:35:19.835Z",
+  "assembledAt": "2026-05-24T12:27:23.835Z",
   "jobs": [
     {
       "id": "tschuggen-61a4e72f1c3c",
@@ -33,7 +33,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1332/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-23T23:35:17.280Z",
+      "crawledAt": "2026-05-24T12:27:21.312Z",
       "addressLocality": "Arosa",
       "postalCode": "7050",
       "addressCountry": "CH",
@@ -99,7 +99,7 @@
       "companyDomain": "tschuggencollection.ch",
       "title": "Night Auditor (m/w/d) Wintersaison 2026/2027",
       "titleByLocale": {
-        "it": "Night Auditor (m/f/d) stagione invernale 2026/2027",
+        "it": "Night Auditor (m/w/d) Wintersaison 2026/2027",
         "en": "Night Auditor (m/w/d) Wintersaison 2026/2027",
         "de": "Night Auditor (m/w/d) Wintersaison 2026/2027",
         "fr": "Night Auditor (m/w/d) Wintersaison 2026/2027"
@@ -116,7 +116,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1336/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-23T23:35:16.285Z",
+      "crawledAt": "2026-05-24T12:27:20.307Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -145,6 +145,7 @@
         ]
       },
       "firstSeenAt": "2026-05-17T11:16:35.204Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -174,7 +175,7 @@
       "titleByLocale": {
         "it": "Personalkoch (m/w/d) Stagione estiva 2026",
         "en": "Personalkoch (m/w/d) Sommersaison 2026",
-        "de": "Koch (m/w/d) für die Sommersaison 2026",
+        "de": "Personalkoch (m/w/d) Sommersaison 2026",
         "fr": "Personalkoch (m/p/p) Sommersaison 2026"
       },
       "description": "Das Tschuggen Grand Hotel in Arosa ist ein auf 1'800m Höhe gelegenes 5‑Sterne‑Superior‑Luxushotel in den Bündner Bergen. Als eines der vier Häuser der \"The Tschuggen Collection\", bietet unser Haus 128 individuell gestaltete Zimmer, Suiten und Mountainlofts, dazu vier stilvolle Restaurants – darunter das Gourmet‑Highlight La Brezza mit 19 Punkten Gault Millau & zwei Michelin‑Sternen – sowie eine beeindruckende 5 000 m² grosse Spa‑Bergoase, designed by Mario Botta. UNSERE VISION - Wir geben der Zeit Ihren Wert zurück. Sie sind ein leidenschaftlicher und empathischer Gastgeber, wertschätzend & respektvoll? Dann sind Sie bei uns richtig. Eintritt per Mitte Juni 2026 Arbeitsverhältnis befristet bis Mitte September 2026 | Abgeschlossene Berufslehre D/E Bedingung, jede weitere Sprache von Vorteil Erfahrung in der 4/5* Hotellerie Sorgfalt und Genauigkeit beim Einhalten der Hygienestandards Gepflegtes Erscheinungsbild | Zubereitung von Speisen: Kochen, Braten, Schmoren, Dämpfen und Frittieren von Gerichten Mise en Place: Vorbereitung der Zutaten (Gemüse putzen, Fleisch zerlegen) und Bereitstellung der Arbeitsgeräte Bestellung, Annahme, Qualitätskontrolle und fachgerechte Lagerung von Lebensmitteln Einhaltung der HACCP-Richtlinien, Reinigung von Küchengeräten und Arbeitsbereichen Tägliche Zusammenstellung der benötigten Ware für die Bestellung via Küchenchef Sorgfältiges und kreatives Anrichten der Speisen vor der Ausgabe | Attraktive Mitarbeiterunterkünfte in der Nähe des Hotel Ausgewogenes Menü-Angebot in unserer Mitarbeitertrattoria mit vegetarischen & veganen Optionen 24/7 Nutzung unseres Fitnesscenters Einheimische Vorteile wie Spezialpreise bei Sportgeschäften, Skipässen und vielem mehr Spezialpreise für Übernachtungen in unseren Häusern der \"The Tschuggen Collection\" sowie den Swiss Deluxe Hotels | Fühlen Sie sich angesprochen - Bewerben Sie sich jetzt! Wir freuen uns über Ihr Bewerbungsdossier - gerne digital: Bewerbungsschreiben Vollständiger Lebenslauf inkl. Foto Zeugnisse & Diplome",
@@ -189,7 +190,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1339/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-23T23:35:15.289Z",
+      "crawledAt": "2026-05-24T12:27:19.288Z",
       "addressLocality": "Arosa",
       "postalCode": "7050",
       "addressCountry": "CH",
@@ -207,7 +208,16 @@
       "requirementsByLocale": {},
       "department": "Küche",
       "hotelName": "Tschuggen Grand Hotel",
+      "previousSlugs": [
+        "personalkoch-m-w-d-sommersaison-2026-tschuggen-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "personalkoch-m-w-d-sommersaison-2026-tschuggen-ch"
+        ]
+      },
       "firstSeenAt": "2026-04-21T22:32:28.567Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -219,15 +229,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "personalkoch-m-w-d-sommersaison-2026-tschuggen-ch"
-        ]
-      },
-      "previousSlugs": [
-        "personalkoch-m-w-d-sommersaison-2026-tschuggen-ch"
-      ]
+      }
     },
     {
       "id": "tschuggen-8d19d792463c",
@@ -260,7 +262,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1335/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-23T23:35:14.290Z",
+      "crawledAt": "2026-05-24T12:27:18.254Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -279,6 +281,7 @@
       "department": "Spa",
       "hotelName": "Carlton Hotel St. Moritz",
       "firstSeenAt": "2026-05-17T11:16:33.133Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -323,7 +326,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1340/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-23T23:35:13.302Z",
+      "crawledAt": "2026-05-24T12:27:17.252Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -342,6 +345,7 @@
       "department": "Housekeeping",
       "hotelName": "Carlton Hotel St. Moritz",
       "firstSeenAt": "2026-05-17T11:16:32.081Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -386,7 +390,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1341/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-23T23:35:12.285Z",
+      "crawledAt": "2026-05-24T12:27:16.244Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -414,6 +418,7 @@
         ]
       },
       "firstSeenAt": "2026-05-17T11:16:31.064Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -458,7 +463,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1342/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-23T23:35:11.308Z",
+      "crawledAt": "2026-05-24T12:27:15.239Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -486,6 +491,7 @@
         ]
       },
       "firstSeenAt": "2026-05-17T11:16:30.049Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -530,7 +536,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1337/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-23T23:35:10.316Z",
+      "crawledAt": "2026-05-24T12:27:14.226Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -558,6 +564,7 @@
         ]
       },
       "firstSeenAt": "2026-05-17T11:16:29.035Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -602,7 +609,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1256/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-23T23:35:09.282Z",
+      "crawledAt": "2026-05-24T12:27:13.194Z",
       "addressLocality": "Arosa",
       "postalCode": "7050",
       "addressCountry": "CH",
@@ -631,6 +638,7 @@
           "spa-rezeptionist-in-m-w-d-sommersaison-2026-tschuggen-ch"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-05-19T12:49:09.335Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -643,9 +651,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true,
-      "retranslationAttempts": 1
+      }
     },
     {
       "id": "tschuggen-9d2cf0abe326",
@@ -678,7 +684,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1348/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-23T23:35:08.267Z",
+      "crawledAt": "2026-05-24T12:27:12.184Z",
       "addressLocality": "Ascona",
       "postalCode": "6612",
       "addressCountry": "CH",
