@@ -1,16 +1,16 @@
 {
   "key": "efg-international",
   "label": "EFG",
-  "generatedAt": "2026-05-24T10:36:31.664Z",
+  "generatedAt": "2026-05-24T21:48:37.986Z",
   "total": 34,
   "newCount": 0,
   "updatedCount": 29,
   "removedCount": 0,
   "unchangedCount": 5,
-  "durationMs": 32165,
-  "avgDurationMs": 32165,
+  "durationMs": 29914,
+  "avgDurationMs": 29914,
   "durationHistory": [
-    32165
+    29914
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -86,7 +86,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-24T10:36:29.481Z",
+      "crawledAt": "2026-05-24T21:48:35.487Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-05-08",
@@ -224,7 +224,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-24T10:36:29.480Z",
+      "crawledAt": "2026-05-24T21:48:35.486Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-04-17",
@@ -341,7 +341,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-24T10:36:29.479Z",
+      "crawledAt": "2026-05-24T21:48:35.486Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "datePosted": "2026-03-31",
@@ -456,7 +456,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-24T10:36:29.476Z",
+      "crawledAt": "2026-05-24T21:48:35.483Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-04-15",
@@ -510,7 +510,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-24T10:36:29.474Z",
+      "crawledAt": "2026-05-24T21:48:35.482Z",
       "addressLocality": "St. Moritz",
       "addressCountry": "CH",
       "datePosted": "2026-04-01",
@@ -639,7 +639,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-24T10:36:29.471Z",
+      "crawledAt": "2026-05-24T21:48:35.480Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-04-01",
@@ -771,7 +771,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-24T10:36:29.470Z",
+      "crawledAt": "2026-05-24T21:48:35.479Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-04-09",
@@ -871,7 +871,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-24T10:36:29.467Z",
+      "crawledAt": "2026-05-24T21:48:35.478Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "sourceLang": "en",
@@ -952,7 +952,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-24T10:36:29.466Z",
+      "crawledAt": "2026-05-24T21:48:35.477Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-04-02",
@@ -1069,7 +1069,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-24T10:36:29.465Z",
+      "crawledAt": "2026-05-24T21:48:35.477Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "sourceLang": "en",
@@ -1123,7 +1123,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-24T10:36:29.463Z",
+      "crawledAt": "2026-05-24T21:48:35.474Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-04-07",
@@ -1201,7 +1201,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-24T10:36:29.461Z",
+      "crawledAt": "2026-05-24T21:48:35.473Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "datePosted": "2026-04-02",
@@ -1255,7 +1255,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-24T10:36:29.460Z",
+      "crawledAt": "2026-05-24T21:48:35.471Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "datePosted": "2026-04-08",
@@ -1308,7 +1308,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-24T10:36:29.459Z",
+      "crawledAt": "2026-05-24T21:48:35.470Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-04-08",
@@ -1430,7 +1430,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-24T10:36:29.458Z",
+      "crawledAt": "2026-05-24T21:48:35.469Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "sourceLang": "en",
@@ -1558,7 +1558,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-24T10:36:29.456Z",
+      "crawledAt": "2026-05-24T21:48:35.468Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "sourceLang": "en",
@@ -1575,59 +1575,6 @@
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
-    {
-      "id": "efg-5869",
-      "slug": "strategic-planning-officer-efg-lugano",
-      "company": "EFG International AG",
-      "title": "Strategic Planning Officer",
-      "location": "Lugano",
-      "canton": "TI",
-      "category": "finance",
-      "contract": "permanent",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-08",
-      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/5869",
-      "source": "Oracle HCM API",
-      "sourceLang": "en",
-      "companyKey": "efg-international",
-      "companyDomain": "efginternational.com",
-      "canonicalContent": {
-        "byLocale": {
-          "en": {
-            "summary": [
-              "<p><span><strong>Our Company</strong></span></p><p><span>EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice. </span></p><p><span>EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation.</span></p><p><span><strong>Our Purpose and Mission</strong></span></p><p><span>Empowering entrepreneurial minds to create value – today and for the future.</span></p><p><span>We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value.</span></p><p><span>Job Description</span></p><p><span>The Strategic Planning Officer will be part of the Strategy & Corporate Development Team in Lugano and</span><a name=\"_Hlk72419592\"><span> </span></a><span>will contribute to run an integrated planning, reporting and performance review process to facilitate value-driven business decision-making. In his role as a business partner and challenger of business performance he will focus on value-added decision support through granular analysis of performance root causes and by providing insights on value creation levers.</span></p><p><span>The Strategic Planning Officer will play an active role in the business performance dialogues, support business development and provide value-added decision support using data modelling and forecasting intelligence. </span></p><p> </p><p><span><strong>Main responsibilities</strong></span></p><ul><li><span>Business analyst and power user of MI data</span></li><li><span>Establish and compile presentations to senior management</span></li><li><span>Take active role in the business performance dialogues</span></li><li><span>Design and maintain data models for analysis and forecasting</span></li><li><span>Active collaboration with Planning & Controlling unit during budgeting and forecasting process </span></li><li><span>Develop strong relationship with business management and business controllers to build a role as business partner</span></li><li><span>Develop recurring benchmarking analysis in collaboration with external advisors</span></li><li><p><span>Key collaboration in corporate development projects and strategic initiatives, including M&A transactions</span></p><p> </p></li></ul><p><span><strong>Skills and experience</strong></span></p><ul><li><span>Have professional experience in Financial Services Industry, in particular in Corporate Finance activities</span></li><li><span>Ability to understand large datasets and experience of data modelling, providing accurate data analysis</span></li><li><span>Power user of MS-Excel and MS-PowerPoint; Knowledge of using Excel Macros, VBA, Python, Power BI as a plus</span></li><li><span>Quick learner, accurate and efficient</span></li><li><span>Proactive attitude and willingness to take on new knowledge and skills</span></li><li><span>Ability to work under pressure and adapt to unforeseen work demands</span></li><li><span>Good communication skills to communicate effectively with internal stakeholders at all levels</span></li><li><p><span>Fluent in English and fluent in Italian</span></p><p> </p></li></ul><p><span><strong>Our Values</strong></span></p><ul><li><span><strong>Accountability</strong>: Taking ownership for tasks and challenges, as well as seeking continuous improvement</span></li><li><span><strong>Hands-on</strong>: Being proactive to rapidly deliver high-quality results</span></li><li><span><strong>Passionate</strong>: Being committed and striving for excellence</span></li><li><span><strong>Solution-driven</strong>: Focusing on client outcomes and treating clients fairly with a risk-aware mindset</span></li><li><span><strong>Partnership-oriented</strong>: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.</span></li></ul>"
-            ],
-            "responsibilities": [],
-            "requirements": [],
-            "benefits": [],
-            "process": [],
-            "highlights": [],
-            "keywords": [],
-            "sections": [],
-            "readingMinutes": 3
-          }
-        }
-      },
-      "crawledAt": "2026-05-24T10:36:29.455Z",
-      "addressLocality": "Lugano",
-      "addressCountry": "CH",
-      "datePosted": "2026-04-08",
-      "salaryMin": 82500,
-      "salaryMax": 111500,
-      "streetAddress": "Via Pretorio 22",
-      "postalCode": "6900",
-      "addressRegion": "TI",
-      "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-04-13T10:28:21.931Z",
-      "_qualityScore": 97,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
         "translation": 25,
         "completeness": 25
       }
@@ -1666,7 +1613,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-24T10:36:29.455Z",
+      "crawledAt": "2026-05-24T21:48:35.467Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2025-12-10",
@@ -1788,7 +1735,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-24T10:36:29.454Z",
+      "crawledAt": "2026-05-24T21:48:35.466Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-04-14",
@@ -1804,6 +1751,59 @@
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
+        "translation": 25,
+        "completeness": 25
+      }
+    },
+    {
+      "id": "efg-5869",
+      "slug": "strategic-planning-officer-efg-lugano",
+      "company": "EFG International AG",
+      "title": "Strategic Planning Officer",
+      "location": "Lugano",
+      "canton": "TI",
+      "category": "finance",
+      "contract": "permanent",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-08",
+      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/5869",
+      "source": "Oracle HCM API",
+      "sourceLang": "en",
+      "companyKey": "efg-international",
+      "companyDomain": "efginternational.com",
+      "canonicalContent": {
+        "byLocale": {
+          "en": {
+            "summary": [
+              "<p><span><strong>Our Company</strong></span></p><p><span>EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice. </span></p><p><span>EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation.</span></p><p><span><strong>Our Purpose and Mission</strong></span></p><p><span>Empowering entrepreneurial minds to create value – today and for the future.</span></p><p><span>We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value.</span></p><p><span>Job Description</span></p><p><span>The Strategic Planning Officer will be part of the Strategy & Corporate Development Team in Lugano and</span><a name=\"_Hlk72419592\"><span> </span></a><span>will contribute to run an integrated planning, reporting and performance review process to facilitate value-driven business decision-making. In his role as a business partner and challenger of business performance he will focus on value-added decision support through granular analysis of performance root causes and by providing insights on value creation levers.</span></p><p><span>The Strategic Planning Officer will play an active role in the business performance dialogues, support business development and provide value-added decision support using data modelling and forecasting intelligence. </span></p><p> </p><p><span><strong>Main responsibilities</strong></span></p><ul><li><span>Business analyst and power user of MI data</span></li><li><span>Establish and compile presentations to senior management</span></li><li><span>Take active role in the business performance dialogues</span></li><li><span>Design and maintain data models for analysis and forecasting</span></li><li><span>Active collaboration with Planning & Controlling unit during budgeting and forecasting process </span></li><li><span>Develop strong relationship with business management and business controllers to build a role as business partner</span></li><li><span>Develop recurring benchmarking analysis in collaboration with external advisors</span></li><li><p><span>Key collaboration in corporate development projects and strategic initiatives, including M&A transactions</span></p><p> </p></li></ul><p><span><strong>Skills and experience</strong></span></p><ul><li><span>Have professional experience in Financial Services Industry, in particular in Corporate Finance activities</span></li><li><span>Ability to understand large datasets and experience of data modelling, providing accurate data analysis</span></li><li><span>Power user of MS-Excel and MS-PowerPoint; Knowledge of using Excel Macros, VBA, Python, Power BI as a plus</span></li><li><span>Quick learner, accurate and efficient</span></li><li><span>Proactive attitude and willingness to take on new knowledge and skills</span></li><li><span>Ability to work under pressure and adapt to unforeseen work demands</span></li><li><span>Good communication skills to communicate effectively with internal stakeholders at all levels</span></li><li><p><span>Fluent in English and fluent in Italian</span></p><p> </p></li></ul><p><span><strong>Our Values</strong></span></p><ul><li><span><strong>Accountability</strong>: Taking ownership for tasks and challenges, as well as seeking continuous improvement</span></li><li><span><strong>Hands-on</strong>: Being proactive to rapidly deliver high-quality results</span></li><li><span><strong>Passionate</strong>: Being committed and striving for excellence</span></li><li><span><strong>Solution-driven</strong>: Focusing on client outcomes and treating clients fairly with a risk-aware mindset</span></li><li><span><strong>Partnership-oriented</strong>: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.</span></li></ul>"
+            ],
+            "responsibilities": [],
+            "requirements": [],
+            "benefits": [],
+            "process": [],
+            "highlights": [],
+            "keywords": [],
+            "sections": [],
+            "readingMinutes": 3
+          }
+        }
+      },
+      "crawledAt": "2026-05-24T21:48:35.466Z",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "datePosted": "2026-04-08",
+      "salaryMin": 82500,
+      "salaryMax": 111500,
+      "streetAddress": "Via Pretorio 22",
+      "postalCode": "6900",
+      "addressRegion": "TI",
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-04-13T10:28:21.931Z",
+      "_qualityScore": 97,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
         "translation": 25,
         "completeness": 25
       }
@@ -1936,7 +1936,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-24T10:36:29.453Z",
+      "crawledAt": "2026-05-24T21:48:35.465Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-02-11",
@@ -1990,7 +1990,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-24T10:36:29.451Z",
+      "crawledAt": "2026-05-24T21:48:35.463Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-05-15",
@@ -2117,7 +2117,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-24T10:36:29.449Z",
+      "crawledAt": "2026-05-24T21:48:35.462Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-05-15",
@@ -2203,7 +2203,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-24T10:36:29.447Z",
+      "crawledAt": "2026-05-24T21:48:35.459Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "datePosted": "2026-05-18",
@@ -2256,7 +2256,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-24T10:36:29.441Z",
+      "crawledAt": "2026-05-24T21:48:35.454Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "sourceLang": "en",
@@ -2548,6 +2548,7 @@
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
       "firstSeenAt": "2026-04-13T21:36:50.620Z",
+      "needsRetranslation": true,
       "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -2754,7 +2755,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-24T10:36:29.483Z",
+      "crawledAt": "2026-05-24T21:48:35.488Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-04-17",
@@ -2849,7 +2850,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-24T10:36:29.477Z",
+      "crawledAt": "2026-05-24T21:48:35.485Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "datePosted": "2026-04-09",
@@ -2972,7 +2973,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-24T10:36:29.464Z",
+      "crawledAt": "2026-05-24T21:48:35.475Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-01-19",
@@ -3026,7 +3027,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-24T10:36:29.461Z",
+      "crawledAt": "2026-05-24T21:48:35.472Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "datePosted": "2026-04-21",
@@ -3080,7 +3081,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-24T10:36:29.443Z",
+      "crawledAt": "2026-05-24T21:48:35.455Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-05-20",
