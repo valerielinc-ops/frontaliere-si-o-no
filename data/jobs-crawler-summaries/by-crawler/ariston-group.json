@@ -1,16 +1,16 @@
 {
   "key": "ariston-group",
   "label": "Ariston Group",
-  "generatedAt": "2026-05-24T09:57:39.196Z",
+  "generatedAt": "2026-05-24T21:09:53.413Z",
   "total": 26,
   "newCount": 1,
-  "updatedCount": 20,
+  "updatedCount": 19,
   "removedCount": 0,
-  "unchangedCount": 5,
-  "durationMs": 10038,
-  "avgDurationMs": 10038,
+  "unchangedCount": 6,
+  "durationMs": 11904,
+  "avgDurationMs": 11904,
   "durationHistory": [
-    10038
+    11904
   ],
   "newJobs": [
     {
@@ -699,42 +699,6 @@
       }
     },
     {
-      "title": "SERVICE TECHNICIAN",
-      "slug": "service-technician-ariston-group-bern-ch-3004",
-      "url": "https://careers.aristongroup.com/job/Bern-SERVICE-TECHNICIAN-Bern-3004/1151381101/",
-      "applyUrl": "https://careers.aristongroup.com/talentcommunity/apply/1151381101/?locale=en_US",
-      "company": "Ariston Group",
-      "companyKey": "ariston-group",
-      "companyDomain": "aristongroup.com",
-      "location": "Bern, CH, 3004",
-      "addressLocality": "Bern, CH, 3004",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "canton": "BE",
-      "country": "CH",
-      "category": "engineering",
-      "sector": "Energia & Riscaldamento",
-      "source": "ariston-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-05-24",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "2026-06-23",
-      "id": "ariston-group-fa7a95384a19",
-      "salaryMin": 58000,
-      "salaryMax": 88000,
-      "currency": "CHF",
-      "postalCode": "3001",
-      "firstSeenAt": "2026-05-17T09:38:09.822Z",
-      "_qualityScore": 86,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 21,
-        "completeness": 22
-      }
-    },
-    {
       "title": "VERKAUF AUSSENDIENST - RAUM THURGAU",
       "slug": "verkauf-aussendienst-raum-thurgau-ariston-group-winterthur-ch-8400",
       "url": "https://careers.aristongroup.com/job/Schlatt-b_-Winterthur-VERKAUF-AUSSENDIENST-RAUM-THURGAU-Wint-8400/1378587133/",
@@ -905,11 +869,11 @@
       "contractType": "full-time",
       "validThrough": "2026-06-07",
       "id": "ariston-group-0dde46c2f8dd",
-      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 90500,
       "currency": "CHF",
       "firstSeenAt": "2026-05-23T09:42:04.028Z",
+      "needsRetranslation": true,
       "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -952,6 +916,42 @@
         "richness": 24,
         "translation": 19,
         "completeness": 19
+      }
+    },
+    {
+      "title": "SERVICE TECHNICIAN",
+      "slug": "service-technician-ariston-group-bern-ch-3004",
+      "url": "https://careers.aristongroup.com/job/Bern-SERVICE-TECHNICIAN-Bern-3004/1151381101/",
+      "applyUrl": "https://careers.aristongroup.com/talentcommunity/apply/1151381101/?locale=en_US",
+      "company": "Ariston Group",
+      "companyKey": "ariston-group",
+      "companyDomain": "aristongroup.com",
+      "location": "Bern, CH, 3004",
+      "addressLocality": "Bern, CH, 3004",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "canton": "BE",
+      "country": "CH",
+      "category": "engineering",
+      "sector": "Energia & Riscaldamento",
+      "source": "ariston-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-05-24",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "2026-06-23",
+      "id": "ariston-group-fa7a95384a19",
+      "salaryMin": 58000,
+      "salaryMax": 88000,
+      "currency": "CHF",
+      "postalCode": "3001",
+      "firstSeenAt": "2026-05-17T09:38:09.822Z",
+      "_qualityScore": 86,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 21,
+        "completeness": 22
       }
     }
   ]
