@@ -12932,6 +12932,15 @@
     "candidatesCount": 2,
     "canton": "TI"
   },
+  "TI::it::assistente-di-farmacia-afc-amavita-apotheke-galenica-lugano": {
+    "winnerJobIdentifier": "galenica-c0bd65c5811b",
+    "winnerCanonical": "galenica-amavita-assistente-di-farmacia-afc-lugano",
+    "decidedAt": "2026-05-24T00:00:00.000Z",
+    "lastSeenAt": "2026-05-24T00:00:00.000Z",
+    "score": 0.875,
+    "candidatesCount": 2,
+    "canton": "TI"
+  },
   "TI::it::assistente-di-studio-medico-60-70-eoc-ente-ospedaliero-cantonale-locarno": {
     "winnerJobIdentifier": "company-uikzou",
     "winnerCanonical": "assistente-di-studio-medico-eoc-ente-ospedaliero-cantonale-locarno",
@@ -13199,6 +13208,24 @@
     "decidedAt": "2026-04-30T09:24:47.194Z",
     "lastSeenAt": "2026-05-24T00:00:00.000Z",
     "score": 0.5556,
+    "candidatesCount": 2,
+    "canton": "TI"
+  },
+  "TI::it::galenica-amavita-apotheke-assistente-di-farmacia-afc-lugano": {
+    "winnerJobIdentifier": "galenica-c0bd65c5811b",
+    "winnerCanonical": "galenica-amavita-assistente-di-farmacia-afc-lugano",
+    "decidedAt": "2026-05-24T00:00:00.000Z",
+    "lastSeenAt": "2026-05-24T00:00:00.000Z",
+    "score": 0.875,
+    "candidatesCount": 2,
+    "canton": "TI"
+  },
+  "TI::it::galenica-sun-store-apotheke-assistente-di-farmacia-afc-lugano": {
+    "winnerJobIdentifier": "galenica-09573af674dd",
+    "winnerCanonical": "assistente-di-farmacia-afc-sun-store-apotheke-galenica-lugano",
+    "decidedAt": "2026-05-24T00:00:00.000Z",
+    "lastSeenAt": "2026-05-24T00:00:00.000Z",
+    "score": 1,
     "candidatesCount": 2,
     "canton": "TI"
   },
