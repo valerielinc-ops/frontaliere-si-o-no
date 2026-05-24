@@ -1,6 +1,6 @@
 {
   "crawlerKey": "schindler",
-  "assembledAt": "2026-05-24T12:01:03.412Z",
+  "assembledAt": "2026-05-24T23:12:48.156Z",
   "jobs": [
     {
       "id": "schindler-65144c70dea6",
@@ -33,7 +33,7 @@
       "url": "https://job.schindler.com/SCH_Service_TechnikerIn/job/St_-Gallen-Hydraulics-Technician-%28mwd%29-80-100-St_/1377340533/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-24T12:00:54.287Z",
+      "crawledAt": "2026-05-24T23:12:41.707Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -65,8 +65,7 @@
         }
       },
       "streetAddress": "Via Industria 11",
-      "postalCode": "6934",
-      "retranslationAttempts": 1
+      "postalCode": "6934"
     },
     {
       "id": "schindler-0e4995873e1c",
@@ -99,7 +98,7 @@
       "url": "https://job.schindler.com/ASZ/job/Steinach-HR-Business-Partner-%28mwd%29-70-St_/1387384833/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-24T12:00:53.397Z",
+      "crawledAt": "2026-05-24T23:12:41.089Z",
       "addressLocality": "Steinach",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -117,6 +116,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-05-19T12:33:34.533Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -163,7 +163,7 @@
       "url": "https://job.schindler.com/ASZ/job/Steinach-Teamleiter-Aufzugsmontage-im-Z%C3%BCri-Oberland-%28mwd%29-80-100-St_/1377533533/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-24T12:00:52.515Z",
+      "crawledAt": "2026-05-24T23:12:40.477Z",
       "addressLocality": "Steinach",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -247,7 +247,7 @@
       "url": "https://job.schindler.com/Schindler/job/Bioggio-Montatoretrice-di-ascensori-SENIOR-%28mfd%29-80-100-Tici/1367856233/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "it",
-      "crawledAt": "2026-05-24T12:00:51.564Z",
+      "crawledAt": "2026-05-24T23:12:39.864Z",
       "addressLocality": "Bioggio",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -325,7 +325,7 @@
       "url": "https://job.schindler.com/Schindler/job/Ebikon-Project-Manager-Supply-Chain-Management-%28mwd%29-80-100-Luze/1378580033/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-24T12:00:50.596Z",
+      "crawledAt": "2026-05-24T23:12:39.223Z",
       "addressLocality": "Ebikon",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -354,6 +354,7 @@
         ]
       },
       "firstSeenAt": "2026-05-19T12:33:56.687Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -400,7 +401,7 @@
       "url": "https://job.schindler.com/SBB/job/Ebikon-Lehrstelle-als-Elektronikerin-EFZ-Way-up-f%C3%BCr-2026-Luze/1219241401/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-24T12:00:49.712Z",
+      "crawledAt": "2026-05-24T23:12:38.601Z",
       "addressLocality": "Ebikon",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -477,7 +478,7 @@
       "url": "https://job.schindler.com/SCH_Fitter/job/Z%C3%BCrich-Monteur-f%C3%BCr-Aufzugsanlagen-in-der-Region-Z%C3%BCrich-%28mwd%29%2C-80-100-Z%C3%BCri/1129812001/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-24T12:00:48.805Z",
+      "crawledAt": "2026-05-24T23:12:37.998Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -559,7 +560,7 @@
       "url": "https://job.schindler.com/SCH_Fitter/job/Z%C3%BCrich-Elektroinstallateurin-f%C3%BCr-die-Liftmontage-Region-Z%C3%BCrich-%28mwd%29-80-100-Z%C3%BCri/1189247101/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-24T12:00:47.931Z",
+      "crawledAt": "2026-05-24T23:12:37.393Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -645,7 +646,7 @@
       "url": "https://job.schindler.com/SCH_Fitter/job/Bern-Aufzugsmonteurin-Region-Bern-%28mwd%29-80-100-Bern/1252421501/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-24T12:00:47.034Z",
+      "crawledAt": "2026-05-24T23:12:36.778Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -727,7 +728,7 @@
       "url": "https://job.schindler.com/SBB_AS/job/Le-Mont-sur-Lausanne-Apprentissage-de-Polym%C3%A9canicien-ne-CFC-avec-sp%C3%A9cialisation-de-monteur-euse-en-ascenseurs-pour-2026-Vaud/1214532301/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-24T12:00:46.143Z",
+      "crawledAt": "2026-05-24T23:12:36.163Z",
       "addressLocality": "Le Mont-sur-Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -813,7 +814,7 @@
       "url": "https://job.schindler.com/ASZ_Service_TechnikerIn/job/K%C3%BCssnacht-a_-R_-Servicetechnikerin-Region-Zug%C3%84geri-%28mwd%29-80-100-Schw/1380250033/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-24T12:00:45.222Z",
+      "crawledAt": "2026-05-24T23:12:35.561Z",
       "addressLocality": "Küssnacht a. R.",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -853,8 +854,7 @@
         }
       },
       "streetAddress": "Via Industria 11",
-      "postalCode": "6934",
-      "retranslationAttempts": 1
+      "postalCode": "6934"
     },
     {
       "id": "schindler-34d2f8c1f13f",
@@ -887,7 +887,7 @@
       "url": "https://job.schindler.com/ASZ_Service_TechnikerIn/job/K%C3%BCssnacht-a_-R_-Servicetechnikerin-Region-Cham-%28mwd%29-80-100-Schw/1386078133/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-24T12:00:44.396Z",
+      "crawledAt": "2026-05-24T23:12:34.913Z",
       "addressLocality": "Küssnacht a. R.",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -927,8 +927,7 @@
         }
       },
       "streetAddress": "Via Industria 11",
-      "postalCode": "6934",
-      "retranslationAttempts": 1
+      "postalCode": "6934"
     },
     {
       "id": "schindler-1085922c4581",
@@ -961,7 +960,7 @@
       "url": "https://job.schindler.com/SBB/job/St_-Gallen-Schnupperlehre-als-Polymechanikerin-EFZ-mit-Schwerpunkt-Liftmontage-St_/1254155001/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-24T12:00:43.612Z",
+      "crawledAt": "2026-05-24T23:12:34.265Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1048,7 +1047,7 @@
       "url": "https://job.schindler.com/SBB/job/St_-Gallen-Schnupperlehre-als-Anlagen-und-Apparatebauerin-EFZ-mit-Schwerpunkt-Liftmontage-St_/1254105201/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-24T12:00:42.614Z",
+      "crawledAt": "2026-05-24T23:12:33.645Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1088,8 +1087,7 @@
         }
       },
       "streetAddress": "Via Industria 11",
-      "postalCode": "6934",
-      "retranslationAttempts": 1
+      "postalCode": "6934"
     },
     {
       "id": "schindler-8bb822cdf4a2",
@@ -1122,7 +1120,7 @@
       "url": "https://job.schindler.com/Schindler/job/St_-Moritz-Service-Technikerin-im-Engadin-%28mwd%29-80-100-Grau/1379319033/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-24T12:00:41.746Z",
+      "crawledAt": "2026-05-24T23:12:33.009Z",
       "addressLocality": "St. Moritz",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -1154,8 +1152,7 @@
         }
       },
       "streetAddress": "Via Industria 11",
-      "postalCode": "6934",
-      "retranslationAttempts": 1
+      "postalCode": "6934"
     },
     {
       "id": "schindler-14bf366a6524",
@@ -1188,7 +1185,7 @@
       "url": "https://job.schindler.com/Schindler/job/St_-Gallen-Aufzugsmonteurin-%2880-100%29-in-St_-Gallen-St_/1376813233/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-24T12:00:40.918Z",
+      "crawledAt": "2026-05-24T23:12:32.384Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1228,8 +1225,7 @@
         }
       },
       "streetAddress": "Via Industria 11",
-      "postalCode": "6934",
-      "retranslationAttempts": 1
+      "postalCode": "6934"
     },
     {
       "id": "schindler-f97349d91827",
@@ -1262,7 +1258,7 @@
       "url": "https://job.schindler.com/ASZ/job/Castione-Arbedo-Montatore-ascensori-%28mfd%29-80-100-Tici/1368086633/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "it",
-      "crawledAt": "2026-05-24T12:00:39.907Z",
+      "crawledAt": "2026-05-24T23:12:31.766Z",
       "addressLocality": "Castione-Arbedo",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -1300,6 +1296,7 @@
         ]
       },
       "firstSeenAt": "2026-05-19T12:34:10.207Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1346,7 +1343,7 @@
       "url": "https://job.schindler.com/ASZ_Office_General/job/Castione-Arbedo-Working-Student-Backoffice-80-Tici/1393138933/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "it",
-      "crawledAt": "2026-05-24T12:00:39.092Z",
+      "crawledAt": "2026-05-24T23:12:31.160Z",
       "addressLocality": "Castione-Arbedo",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -1376,6 +1373,7 @@
         ]
       },
       "firstSeenAt": "2026-05-19T12:34:10.949Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1422,7 +1420,7 @@
       "url": "https://job.schindler.com/Schindler/job/Z%C3%BCrich-Servicetechnikerin-%28mwd%29-Region-linkes-Z%C3%BCrichseeufer%2C-80-100-Z%C3%BCri/1395984233/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-24T12:00:38.207Z",
+      "crawledAt": "2026-05-24T23:12:30.551Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1502,7 +1500,7 @@
       "url": "https://job.schindler.com/Schindler/job/Bern-Verkaufsprofi-Liftmodernisierung-in-Bern-%28mwd%29-80-100-Bern/1391463333/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-24T12:00:37.218Z",
+      "crawledAt": "2026-05-24T23:12:29.931Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1536,6 +1534,7 @@
         ]
       },
       "firstSeenAt": "2026-05-19T12:34:04.959Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -1582,7 +1581,7 @@
       "url": "https://job.schindler.com/ASZ/job/Wettswil-Projektleiterin-%28mwd%29-80-100-Z%C3%BCri/1391616733/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-24T12:00:36.444Z",
+      "crawledAt": "2026-05-24T23:12:29.319Z",
       "addressLocality": "Wettswil",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1622,8 +1621,7 @@
         }
       },
       "streetAddress": "Via Industria 11",
-      "postalCode": "6934",
-      "retranslationAttempts": 1
+      "postalCode": "6934"
     },
     {
       "id": "schindler-b2a53076a29b",
@@ -1656,7 +1654,7 @@
       "url": "https://job.schindler.com/ASZ_Fitter/job/Sch%C3%B6nb%C3%BChl-Aufzugsmonteurin-Region-Basel-%28mwd%29-80-100-Bern/1389964833/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-24T12:00:35.605Z",
+      "crawledAt": "2026-05-24T23:12:28.702Z",
       "addressLocality": "Schönbühl",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1696,8 +1694,7 @@
         }
       },
       "streetAddress": "Via Industria 11",
-      "postalCode": "6934",
-      "retranslationAttempts": 1
+      "postalCode": "6934"
     },
     {
       "id": "schindler-329a0312ed97",
@@ -1730,7 +1727,7 @@
       "url": "https://job.schindler.com/ASZ_Fitter/job/Brig-Aufzugsmonteurin-Region-Oberwallis-%28mwd%29-80-100-Wall/1389352233/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-24T12:00:34.846Z",
+      "crawledAt": "2026-05-24T23:12:28.088Z",
       "addressLocality": "Brig",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -1748,6 +1745,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-05-19T12:33:46.988Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1794,7 +1792,7 @@
       "url": "https://job.schindler.com/SCH_Service_TechnikerIn/job/Bern-Servicetechnikerin-in-Bern-%28mwd%29-80-100-Bern/1388810233/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-24T12:00:33.903Z",
+      "crawledAt": "2026-05-24T23:12:27.472Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1830,6 +1828,7 @@
         ]
       },
       "firstSeenAt": "2026-05-19T12:34:02.683Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1876,7 +1875,7 @@
       "url": "https://job.schindler.com/ASZ_Fitter/job/Wettswil-Aufzugsmonteurin-Modernisierungen-Region-Z%C3%BCrich-und-Aargau-%28mwd%29-80-100-Z%C3%BCri/1389603133/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-24T12:00:33.040Z",
+      "crawledAt": "2026-05-24T23:12:26.862Z",
       "addressLocality": "Wettswil",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1916,8 +1915,7 @@
         }
       },
       "streetAddress": "Via Industria 11",
-      "postalCode": "6934",
-      "retranslationAttempts": 1
+      "postalCode": "6934"
     },
     {
       "id": "schindler-49dca6a37df8",
@@ -1950,7 +1948,7 @@
       "url": "https://job.schindler.com/Schindler/job/Ebikon-Environment-&-Quality-Manager-%28mwd%29-80-100-Luze/1389820133/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-24T12:00:32.177Z",
+      "crawledAt": "2026-05-24T23:12:26.213Z",
       "addressLocality": "Ebikon",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1981,6 +1979,7 @@
         ]
       },
       "firstSeenAt": "2026-05-19T12:34:26.547Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -2027,7 +2026,7 @@
       "url": "https://job.schindler.com/Schindler/job/Z%C3%BCrich-Teamleiter-Service-%28mwd%29-Stadt-Z%C3%BCrich%2C-80-100-Z%C3%BCri/1381760233/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-24T12:00:31.355Z",
+      "crawledAt": "2026-05-24T23:12:25.571Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2065,6 +2064,7 @@
         ]
       },
       "firstSeenAt": "2026-05-19T12:34:08.710Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2111,7 +2111,7 @@
       "url": "https://job.schindler.com/Schindler/job/Ebikon-Warehouse-Agent-%28mwd%29-80-100-Luze/1381780533/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-24T12:00:30.487Z",
+      "crawledAt": "2026-05-24T23:12:24.954Z",
       "addressLocality": "Ebikon",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -2188,7 +2188,7 @@
       "url": "https://job.schindler.com/ASZ/job/Wettswil-Montagechef-Region-Aargau-und-Z%C3%BCrich-West-80-100-%28mwd%29-Z%C3%BCri/1383438333/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-24T12:00:29.659Z",
+      "crawledAt": "2026-05-24T23:12:24.330Z",
       "addressLocality": "Wettswil",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2228,8 +2228,7 @@
         }
       },
       "streetAddress": "Via Industria 11",
-      "postalCode": "6934",
-      "retranslationAttempts": 1
+      "postalCode": "6934"
     },
     {
       "id": "schindler-9574921475f9",
@@ -2262,7 +2261,7 @@
       "url": "https://job.schindler.com/ASZ_Fitter/job/Sch%C3%B6nb%C3%BChl-Aufzugsmonteurin-Region-Berner-Oberland-%28mwd%29-80-100-Bern/1395822333/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-24T12:00:28.608Z",
+      "crawledAt": "2026-05-24T23:12:23.712Z",
       "addressLocality": "Schönbühl",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2302,8 +2301,7 @@
         }
       },
       "streetAddress": "Via Industria 11",
-      "postalCode": "6934",
-      "retranslationAttempts": 1
+      "postalCode": "6934"
     },
     {
       "id": "schindler-2691b4dab6c9",
@@ -2336,7 +2334,7 @@
       "url": "https://job.schindler.com/Schindler/job/Ebikon-Servicetechnikerin-Fahrtreppen-Zentralschweiz-%28mwd%29-80-100-Luze/1395793933/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-24T12:00:27.640Z",
+      "crawledAt": "2026-05-24T23:12:23.095Z",
       "addressLocality": "Ebikon",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -2408,7 +2406,7 @@
       "url": "https://job.schindler.com/ASZ_Office_General/job/Wettswil-Sales-Manager-Service-%28mwd%29-80-100-Z%C3%BCri/1395529833/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-24T12:00:26.739Z",
+      "crawledAt": "2026-05-24T23:12:22.478Z",
       "addressLocality": "Wettswil",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2454,8 +2452,7 @@
         }
       },
       "streetAddress": "Via Industria 11",
-      "postalCode": "6934",
-      "retranslationAttempts": 1
+      "postalCode": "6934"
     },
     {
       "id": "schindler-bcae395d112b",
@@ -2488,7 +2485,7 @@
       "url": "https://job.schindler.com/SBB/job/Bussigny-Apprentissage-de-Constructeur-d'appareils-industriels-CFC-avec-sp%C3%A9c_-monteur-en-ascenseurs-pour-2026-Waad/1212529901/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-24T12:00:25.196Z",
+      "crawledAt": "2026-05-24T23:12:21.861Z",
       "addressLocality": "Bussigny",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2565,7 +2562,7 @@
       "url": "https://job.schindler.com/SBB/job/Bussigny-Apprentissage-de-Constructeur-d'appareils-industriels-CFC-avec-sp%C3%A9c_-monteur-en-ascenseurs-pour-2026-Vaud/1212529801/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-24T12:00:24.336Z",
+      "crawledAt": "2026-05-24T23:12:21.233Z",
       "addressLocality": "Bussigny",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2643,7 +2640,7 @@
       "url": "https://job.schindler.com/SBB/job/Ebikon-Lehrstelle-als-Anlagen-und-Apparatebauerin-EFZ-mit-Schwerpunkt-Liftmontage-f%C3%BCr-2026-Luze/1213979001/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-24T12:00:23.347Z",
+      "crawledAt": "2026-05-24T23:12:20.604Z",
       "addressLocality": "Ebikon",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -2723,7 +2720,7 @@
       "url": "https://job.schindler.com/ASZ/job/Basel-Leadmonteur-Boltshauser-Region-BaselBern-%28mwd%29-80-100-Base/1192926601/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-24T12:00:22.446Z",
+      "crawledAt": "2026-05-24T23:12:19.985Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -2749,6 +2746,7 @@
         ]
       },
       "firstSeenAt": "2026-05-19T12:34:17.660Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -2795,7 +2793,7 @@
       "url": "https://job.schindler.com/SCH_Fitter/job/Ebikon-Aufzugsmonteurin-%28mwd%29-80-100-Region-Zentralschweiz-Luze/1270855801/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-24T12:00:21.599Z",
+      "crawledAt": "2026-05-24T23:12:19.365Z",
       "addressLocality": "Ebikon",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -2826,6 +2824,7 @@
         ]
       },
       "firstSeenAt": "2026-05-19T12:33:59.655Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2872,7 +2871,7 @@
       "url": "https://job.schindler.com/SBB/job/Basel-Schnupperlehre-als-Polymechanikerin-EFZ-mit-Schwerpunkt-Liftmontage-%28Lehrstart-2027%29-Base/1263539001/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-24T12:00:20.767Z",
+      "crawledAt": "2026-05-24T23:12:18.727Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -2949,7 +2948,7 @@
       "url": "https://job.schindler.com/SBB/job/Bern-Schnupperlehre-als-Anlagen-und-Apparatebauerin-EFZ-mit-Schwerpunkt-Liftmontage-%28Lehrstart-2027%29-Bern/1263538801/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-24T12:00:19.970Z",
+      "crawledAt": "2026-05-24T23:12:18.087Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3026,7 +3025,7 @@
       "url": "https://job.schindler.com/SBB/job/Bern-Schnupperlehre-als-Polymechanikerin-EFZ-mit-Schwerpunkt-Liftmontage-%28Lehrstart-2027%29-Bern/1263538601/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-24T12:00:17.485Z",
+      "crawledAt": "2026-05-24T23:12:17.434Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3107,7 +3106,7 @@
       "url": "https://job.schindler.com/SBB_AS/job/Sch%C3%B6nb%C3%BChl-Schnupperlehre-als-Anlagen-und-Apparatebauerin-EFZ-mit-Schwerpunkt-Liftmontage-%28Lehrstart-2027%29-Bern/1263540601/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-24T12:00:16.553Z",
+      "crawledAt": "2026-05-24T23:12:16.827Z",
       "addressLocality": "Schönbühl",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3147,8 +3146,7 @@
         }
       },
       "streetAddress": "Via Industria 11",
-      "postalCode": "6934",
-      "retranslationAttempts": 1
+      "postalCode": "6934"
     },
     {
       "id": "schindler-f2450ccabb86",
@@ -3181,7 +3179,7 @@
       "url": "https://job.schindler.com/SBB_AS/job/Sch%C3%B6nb%C3%BChl-Schnupperlehre-als-Polymechanikerin-EFZ-mit-Schwerpunkt-Liftmontage-%28Lehrstart-2027%29-Bern/1263539701/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-24T12:00:15.730Z",
+      "crawledAt": "2026-05-24T23:12:16.211Z",
       "addressLocality": "Schönbühl",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3221,8 +3219,7 @@
         }
       },
       "streetAddress": "Via Industria 11",
-      "postalCode": "6934",
-      "retranslationAttempts": 1
+      "postalCode": "6934"
     },
     {
       "id": "schindler-0bd40b237b5b",
@@ -3255,7 +3252,7 @@
       "url": "https://job.schindler.com/SBB/job/Basel-Schnupperlehre-als-Anlagen-und-Apparatebauerin-EFZ-mit-Schwerpunkt-Liftmontage-%28Lehrstart-2027%29-Base/1263539301/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-24T12:00:14.825Z",
+      "crawledAt": "2026-05-24T23:12:15.594Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -3335,7 +3332,7 @@
       "url": "https://job.schindler.com/SBB/job/Ebikon-Schnupperlehre-als-Anlagen-und-Apparatebauerin-EFZ-%28Lehrstart-2027%29-Luze/1260463301/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-24T12:00:13.860Z",
+      "crawledAt": "2026-05-24T23:12:14.960Z",
       "addressLocality": "Ebikon",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -3385,13 +3382,13 @@
       "postalCode": "6934"
     },
     {
-      "id": "schindler-324620d36934",
+      "id": "schindler-2146ea69f43e",
       "slug": "manager-per-cookie-einwilligungen-schindler-ebikon",
       "slugByLocale": {
         "de": "manager-fur-cookie-einwilligungen-schindler-ebikon",
-        "it": "responsabile-consent-cookie-schindler-ebikon",
+        "it": "manager-per-cookie-einwilligungen-schindler-ebikon",
         "en": "manager-fur-cookie-einwilligungen-schindler-ebikon",
-        "fr": "responsable-consent-cookies-schindler-ebikon"
+        "fr": "manager-fur-cookie-einwilligungen-schindler-ebikon"
       },
       "company": "Schindler",
       "companyKey": "schindler",
@@ -3399,23 +3396,23 @@
       "title": "Manager für Cookie-Einwilligungen",
       "titleByLocale": {
         "de": "Manager für Cookie-Einwilligungen",
-        "it": "Responsabile Consent Cookie",
-        "en": "Cookie Consent Manager",
-        "fr": "Responsable Consent Cookies"
+        "it": "Manager per Cookie-Einwilligungen",
+        "en": "Manager für Cookie-Einwilligungen",
+        "fr": "Manager für Cookie-Einwilligungen"
       },
-      "description": "Mobilität | seit 1874 | weltweit im Einsatz\n\nDie Schindler Berufsbildung bildet schweizweit über 300 Lernende aus – du bist somit nie allein. Unser gesamtes Team setzt sich täglich für dich ein, damit du am Ende deiner Lehrzeit eine top ausgebildete Fachkraft bist.\n\nSchnupperlehre als Anlagen- und Apparatebauer*in EFZ mit Schwerpunkt Liftmontage (Lehrstart 2027) in Ebikon",
+      "description": "Mobilität | seit 1874 | weltweit im Einsatz\n\nDie Schindler Berufsbildung bildet schweizweit über 300 Lernende aus – du bist somit nie allein. Unser gesamtes Team setzt sich täglich für dich ein, damit du am Ende deiner Lehrzeit eine top ausgebildete Fachkraft bist.\n\nSchnupperlehre als Polymechaniker*in EFZ mit Schwerpunkt Liftmontage (Lehrstart 2027) in Ebikon",
       "descriptionByLocale": {
-        "de": "Mobilität | seit 1874 | weltweit im Einsatz Die Schindler Berufsbildung bildet schweizweit über 300 Lernende aus – du bist somit nie allein. Unser gesamtes Team setzt sich täglich für dich ein, damit du am Ende deiner Lehrzeit eine top ausgebildete Fachkraft bist. Schnupperlehre als Anlagen- und Apparatebauer*in EFZ (Lehrstart 2027) in Ebikon",
-        "it": "Descrizione Mobility | dal 1874 | in tutto il mondo in uso Lo Schindler Formazione Professionale e forma oltre 300 studenti in tutta la Svizzera – non sei mai solo. Tutto il nostro team si impegna ogni giorno per te, in modo che tu sia uno specialista altamente qualificato alla fine del tuo periodo di insegnamento. Opportunità Schnupperlehre als Anlagen- und Apparatebauer* in EFZ (Leehrstart 2027) in Ebikon",
-        "en": "Descrizione Mobility | since 1874 | worldwide in use The Schindler Vocational Education and Training forms over 300 learners throughout Switzerland – you are never alone. Our entire team is committed to you every day, so that you are a highly trained specialist at the end of your teaching period. Opportunità Schnupperlehre als Anlagen- und Apparatebauer*in EFZ (Leehrstart 2027) in Ebikon",
-        "fr": "Descrizione Mobilité à travers le monde depuis 1874 L'enseignement et la formation professionnels Schindler forment plus de 300 apprenants en Suisse – vous n'êtes jamais seul. Toute notre équipe s'engage pour vous tous les jours, afin que vous soyez un spécialiste hautement qualifié à la fin de votre période d'enseignement. Annexe Schnupperlehre als Anlagen- und Apparatebauer* in EFZ (Leehrstart 2027) in Ebikon"
+        "de": "Mobilität | seit 1874 | weltweit im Einsatz\n\nDie Schindler Berufsbildung bildet schweizweit über 300 Lernende aus – du bist somit nie allein. Unser gesamtes Team setzt sich täglich für dich ein, damit du am Ende deiner Lehrzeit eine top ausgebildete Fachkraft bist.\n\nSchnupperlehre als Polymechaniker*in EFZ mit Schwerpunkt Liftmontage (Lehrstart 2027) in Ebikon",
+        "it": "Mobilität | seit 1874 | weltweit im Einsatz\n\nDie Schindler Berufsbildung bildet schweizweit über 300 Lernende aus – du bist somit nie allein. Unser gesamtes Team setzt sich täglich für dich ein, damit du am Ende deiner Lehrzeit eine top ausgebildete Fachkraft bist.\n\nSchnupperlehre als Polymechaniker*in EFZ mit Schwerpunkt Liftmontage (Lehrstart 2027) in Ebikon",
+        "en": "Mobilität | seit 1874 | weltweit im Einsatz\n\nDie Schindler Berufsbildung bildet schweizweit über 300 Lernende aus – du bist somit nie allein. Unser gesamtes Team setzt sich täglich für dich ein, damit du am Ende deiner Lehrzeit eine top ausgebildete Fachkraft bist.\n\nSchnupperlehre als Polymechaniker*in EFZ mit Schwerpunkt Liftmontage (Lehrstart 2027) in Ebikon",
+        "fr": "Mobilität | seit 1874 | weltweit im Einsatz\n\nDie Schindler Berufsbildung bildet schweizweit über 300 Lernende aus – du bist somit nie allein. Unser gesamtes Team setzt sich täglich für dich ein, damit du am Ende deiner Lehrzeit eine top ausgebildete Fachkraft bist.\n\nSchnupperlehre als Polymechaniker*in EFZ mit Schwerpunkt Liftmontage (Lehrstart 2027) in Ebikon"
       },
       "location": "Ebikon",
       "canton": "LU",
-      "url": "https://job.schindler.com/SBB/job/Ebikon-Schnupperlehre-als-Anlagen-und-Apparatebauerin-EFZ-mit-Schwerpunkt-Liftmontage-%28Lehrstart-2027%29-Luze/1260461801/",
+      "url": "https://job.schindler.com/SBB/job/Ebikon-Schnupperlehre-als-Polymechanikerin-EFZ-mit-Schwerpunkt-Liftmontage-%28Lehrstart-2027%29-Luze/1260461301/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-24T12:00:12.944Z",
+      "crawledAt": "2026-05-24T23:12:13.740Z",
       "addressLocality": "Ebikon",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -3428,26 +3425,20 @@
       "currency": "CHF",
       "featured": false,
       "postedDate": "2026-05-21",
-      "applyUrl": "https://job.schindler.com/talentcommunity/apply/1260461801/?locale=de_DE",
-      "jobReqId": "1260461801",
+      "applyUrl": "https://job.schindler.com/talentcommunity/apply/1260461301/?locale=de_DE",
+      "jobReqId": "1260461301",
       "requirements": [],
       "requirementsByLocale": {
         "de": []
       },
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "manager-fur-cookie-einwilligungen-schindler-ebikon",
-          "gestione-delle-autorizzazioni-dei-cookie-schindler-ebikon"
-        ],
-        "fr": [
-          "manager-fur-cookie-einwilligungen-schindler-ebikon",
-          "gestionnaire-pour-les-autorisations-de-cookies-schindler-ebikon"
+          "manager-fur-cookie-einwilligungen-schindler-ebikon"
         ]
       },
       "previousSlugs": [
-        "manager-fur-cookie-einwilligungen-schindler-ebikon",
-        "gestione-delle-autorizzazioni-dei-cookie-schindler-ebikon",
-        "gestionnaire-pour-les-autorisations-de-cookies-schindler-ebikon"
+        "manager-fur-cookie-einwilligungen-schindler-ebikon"
       ],
       "salaryMin": 68000,
       "salaryMax": 103000,
@@ -3463,7 +3454,7 @@
       },
       "streetAddress": "Via Industria 11",
       "postalCode": "6934",
-      "firstSeenAt": "2026-05-24T12:00:12.944Z"
+      "firstSeenAt": "2026-05-24T23:12:13.740Z"
     },
     {
       "id": "schindler-75a56cb52f43",
@@ -3496,7 +3487,7 @@
       "url": "https://job.schindler.com/SBB/job/Winterthur-Schnupperlehre-als-Polymechanikerin-EFZ-mit-Schwerpunkt-Liftmontage-Z%C3%BCri/1254185601/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-24T12:00:09.233Z",
+      "crawledAt": "2026-05-24T23:12:11.904Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3572,7 +3563,7 @@
       "url": "https://job.schindler.com/SBB_AS/job/Steinach-Schnupperlehre-als-Polymechanikerin-EFZ-mit-Schwerpunkt-Liftmontage-St_/1254185401/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-24T12:00:08.225Z",
+      "crawledAt": "2026-05-24T23:12:11.278Z",
       "addressLocality": "Steinach",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -3601,6 +3592,7 @@
         ]
       },
       "firstSeenAt": "2026-05-19T12:34:28.777Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -3647,7 +3639,7 @@
       "url": "https://job.schindler.com/SBB_AS/job/Steinach-Schnupperlehre-als-Anlagen-und-Apparatebauerin-EFZ-mit-Schwerpunkt-Liftmontage-St_/1254183401/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-24T12:00:07.378Z",
+      "crawledAt": "2026-05-24T23:12:10.655Z",
       "addressLocality": "Steinach",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -3693,6 +3685,81 @@
       "postalCode": "6934"
     },
     {
+      "id": "schindler-d075d10ff07d",
+      "slug": "manager-per-cookie-einwilligungen-schindler-winterthur",
+      "slugByLocale": {
+        "de": "manager-fur-cookie-einwilligungen-schindler-winterthur",
+        "it": "manager-per-cookie-einwilligungen-schindler-winterthur",
+        "en": "manager-fur-cookie-einwilligungen-schindler-winterthur",
+        "fr": "manager-fur-cookie-einwilligungen-schindler-winterthur"
+      },
+      "company": "Schindler",
+      "companyKey": "schindler",
+      "companyDomain": "schindler.com",
+      "title": "Manager für Cookie-Einwilligungen",
+      "titleByLocale": {
+        "de": "Manager für Cookie-Einwilligungen",
+        "it": "Manager per Cookie-Einwilligungen",
+        "en": "Manager für Cookie-Einwilligungen",
+        "fr": "Manager für Cookie-Einwilligungen"
+      },
+      "description": "Mobilität | seit 1874 | weltweit im Einsatz\n\nDie Schindler Berufsbildung bildet schweizweit über 300 Lernende aus – du bist somit nie allein. Unser gesamtes Team setzt sich täglich für dich ein, damit du am Ende deiner Lehrzeit eine top ausgebildete Fachkraft bist.\n\nSchnupperlehre als Anlagen- und Apparatebauer*in EFZ mit Schwerpunkt Liftmontage in Winterthur",
+      "descriptionByLocale": {
+        "de": "Mobilität | seit 1874 | weltweit im Einsatz\n\nDie Schindler Berufsbildung bildet schweizweit über 300 Lernende aus – du bist somit nie allein. Unser gesamtes Team setzt sich täglich für dich ein, damit du am Ende deiner Lehrzeit eine top ausgebildete Fachkraft bist.\n\nSchnupperlehre als Anlagen- und Apparatebauer*in EFZ mit Schwerpunkt Liftmontage in Winterthur",
+        "it": "Mobilität | seit 1874 | weltweit im Einsatz\n\nDie Schindler Berufsbildung bildet schweizweit über 300 Lernende aus – du bist somit nie allein. Unser gesamtes Team setzt sich täglich für dich ein, damit du am Ende deiner Lehrzeit eine top ausgebildete Fachkraft bist.\n\nSchnupperlehre als Anlagen- und Apparatebauer*in EFZ mit Schwerpunkt Liftmontage in Winterthur",
+        "en": "Mobilität | seit 1874 | weltweit im Einsatz\n\nDie Schindler Berufsbildung bildet schweizweit über 300 Lernende aus – du bist somit nie allein. Unser gesamtes Team setzt sich täglich für dich ein, damit du am Ende deiner Lehrzeit eine top ausgebildete Fachkraft bist.\n\nSchnupperlehre als Anlagen- und Apparatebauer*in EFZ mit Schwerpunkt Liftmontage in Winterthur",
+        "fr": "Mobilität | seit 1874 | weltweit im Einsatz\n\nDie Schindler Berufsbildung bildet schweizweit über 300 Lernende aus – du bist somit nie allein. Unser gesamtes Team setzt sich täglich für dich ein, damit du am Ende deiner Lehrzeit eine top ausgebildete Fachkraft bist.\n\nSchnupperlehre als Anlagen- und Apparatebauer*in EFZ mit Schwerpunkt Liftmontage in Winterthur"
+      },
+      "location": "Winterthur",
+      "canton": "ZH",
+      "url": "https://job.schindler.com/SBB/job/Winterthur-Schnupperlehre-als-Anlagen-und-Apparatebauerin-EFZ-mit-Schwerpunkt-Liftmontage-Z%C3%BCri/1254158801/",
+      "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
+      "sourceLang": "de",
+      "crawledAt": "2026-05-24T23:12:10.038Z",
+      "addressLocality": "Winterthur",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Industrial",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-16",
+      "applyUrl": "https://job.schindler.com/talentcommunity/apply/1254158801/?locale=de_DE",
+      "jobReqId": "1254158801",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "manager-per-cookie-einwilligungen-schindler-winterthur-2"
+        ]
+      },
+      "previousSlugs": [
+        "manager-per-cookie-einwilligungen-schindler-winterthur-2"
+      ],
+      "salaryMin": 68000,
+      "salaryMax": 103000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68000,
+          "maxValue": 103000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Via Industria 11",
+      "postalCode": "6934",
+      "firstSeenAt": "2026-05-24T23:12:10.038Z"
+    },
+    {
       "id": "schindler-53fbb51a2f4d",
       "slug": "servicetechniker-in-region-sursee-dagmersellen-m-w-d-80-100-schindler-ebikon",
       "slugByLocale": {
@@ -3723,7 +3790,7 @@
       "url": "https://job.schindler.com/SCH_Service_TechnikerIn/job/Ebikon-Servicetechnikerin-Region-SurseeDagmersellen-%28mwd%29-80-100-Luze/1253809101/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-24T12:00:05.582Z",
+      "crawledAt": "2026-05-24T23:12:09.433Z",
       "addressLocality": "Ebikon",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -3741,6 +3808,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-05-19T12:33:50.719Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -3787,7 +3855,7 @@
       "url": "https://job.schindler.com/SCH_Service_TechnikerIn/job/Bern-Aufzugsmonteur-Region-Berner-Oberland-%28mwd%29-80-100-Bern/1242184901/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-24T12:00:04.721Z",
+      "crawledAt": "2026-05-24T23:12:08.812Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3870,7 +3938,7 @@
       "url": "https://job.schindler.com/SCH_Service_TechnikerIn/job/Z%C3%BCrich-Servicetechnikerin-mit-Potenzial-in-der-Region-Z%C3%BCrich-%28mwd%29-80-100-Z%C3%BCri/1239281901/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-24T12:00:03.772Z",
+      "crawledAt": "2026-05-24T23:12:08.208Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3954,7 +4022,7 @@
       "url": "https://job.schindler.com/ASZ_Fitter/job/Chur-Aufzugsmonteurin-%2880-100%29-in-Graub%C3%BCnden-Grau/1266126701/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-24T12:00:02.893Z",
+      "crawledAt": "2026-05-24T23:12:07.591Z",
       "addressLocality": "Chur",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -4038,7 +4106,7 @@
       "url": "https://job.schindler.com/SCH_Fitter/job/Fribourg-Monteur-d'ascenseur-80-100-R%C3%A9gion-Fribourg-Frib/1269796001/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-24T12:00:02.050Z",
+      "crawledAt": "2026-05-24T23:12:06.967Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -4116,7 +4184,7 @@
       "url": "https://job.schindler.com/SBB_AS/job/Sch%C3%B6nb%C3%BChl-Schnupperlehre-als-Kaufmannfrau-EFZ-%28Lehrstart-2027%29-Bern/1249975901/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-24T12:00:01.249Z",
+      "crawledAt": "2026-05-24T23:12:06.363Z",
       "addressLocality": "Schönbühl",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4156,8 +4224,74 @@
         }
       },
       "streetAddress": "Via Industria 11",
+      "postalCode": "6934"
+    },
+    {
+      "id": "schindler-654f5a32cbca",
+      "slug": "manager-per-cookie-einwilligungen-schindler-bern",
+      "slugByLocale": {
+        "de": "manager-fur-cookie-einwilligungen-schindler-bern",
+        "it": "manager-per-cookie-einwilligungen-schindler-bern",
+        "en": "manager-fur-cookie-einwilligungen-schindler-bern",
+        "fr": "manager-fur-cookie-einwilligungen-schindler-bern"
+      },
+      "company": "Schindler",
+      "companyKey": "schindler",
+      "companyDomain": "schindler.com",
+      "title": "Manager für Cookie-Einwilligungen",
+      "titleByLocale": {
+        "de": "Manager für Cookie-Einwilligungen",
+        "it": "Manager per Cookie-Einwilligungen",
+        "en": "Manager für Cookie-Einwilligungen",
+        "fr": "Manager für Cookie-Einwilligungen"
+      },
+      "description": "Mobilität | seit 1874 | weltweit im Einsatz\n\nDie Schindler Berufsbildung bildet schweizweit über 300 Lernende aus – du bist somit nie allein. Unser gesamtes Team setzt sich täglich für dich ein, damit du am Ende deiner Lehrzeit eine top ausgebildete Fachkraft bist.\n\nSchnupperlehre als Kaufmann*frau EFZ (Lehrstart 2027) in Bern",
+      "descriptionByLocale": {
+        "de": "Mobilität | seit 1874 | weltweit im Einsatz\n\nDie Schindler Berufsbildung bildet schweizweit über 300 Lernende aus – du bist somit nie allein. Unser gesamtes Team setzt sich täglich für dich ein, damit du am Ende deiner Lehrzeit eine top ausgebildete Fachkraft bist.\n\nSchnupperlehre als Kaufmann*frau EFZ (Lehrstart 2027) in Bern",
+        "it": "Mobilität | seit 1874 | weltweit im Einsatz\n\nDie Schindler Berufsbildung bildet schweizweit über 300 Lernende aus – du bist somit nie allein. Unser gesamtes Team setzt sich täglich für dich ein, damit du am Ende deiner Lehrzeit eine top ausgebildete Fachkraft bist.\n\nSchnupperlehre als Kaufmann*frau EFZ (Lehrstart 2027) in Bern",
+        "en": "Mobilität | seit 1874 | weltweit im Einsatz\n\nDie Schindler Berufsbildung bildet schweizweit über 300 Lernende aus – du bist somit nie allein. Unser gesamtes Team setzt sich täglich für dich ein, damit du am Ende deiner Lehrzeit eine top ausgebildete Fachkraft bist.\n\nSchnupperlehre als Kaufmann*frau EFZ (Lehrstart 2027) in Bern",
+        "fr": "Mobilität | seit 1874 | weltweit im Einsatz\n\nDie Schindler Berufsbildung bildet schweizweit über 300 Lernende aus – du bist somit nie allein. Unser gesamtes Team setzt sich täglich für dich ein, damit du am Ende deiner Lehrzeit eine top ausgebildete Fachkraft bist.\n\nSchnupperlehre als Kaufmann*frau EFZ (Lehrstart 2027) in Bern"
+      },
+      "location": "Bern",
+      "canton": "BE",
+      "url": "https://job.schindler.com/SBB/job/Bern-Schnupperlehre-als-Kaufmannfrau-EFZ-%28Lehrstart-2027%29-Bern/1249975401/",
+      "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
+      "sourceLang": "de",
+      "crawledAt": "2026-05-24T23:12:05.743Z",
+      "addressLocality": "Bern",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Industrial",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-16",
+      "applyUrl": "https://job.schindler.com/talentcommunity/apply/1249975401/?locale=de_DE",
+      "jobReqId": "1249975401",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 68000,
+      "salaryMax": 103000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68000,
+          "maxValue": 103000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Via Industria 11",
       "postalCode": "6934",
-      "retranslationAttempts": 1
+      "firstSeenAt": "2026-05-24T23:12:05.743Z"
     },
     {
       "id": "schindler-cb89735d4ad5",
@@ -4190,7 +4324,7 @@
       "url": "https://job.schindler.com/SBB/job/Oberentfelden-Schnupperlehre-als-Polymechanikerin-EFZ-mit-Schwerpunkt-Liftmontage-%28Lehrstart-2027%29-Aarg/1250930501/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-24T11:59:59.660Z",
+      "crawledAt": "2026-05-24T23:12:05.119Z",
       "addressLocality": "Oberentfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -4208,9 +4342,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
+        "manager-fur-cookie-einwilligungen-schindler-oberentfelden",
+        "manager-per-cookie-einwilligungen-schindler-oberentfelden",
+        "manager-per-cookie-einwilligungen-schindler-bern",
+        "gestione-delle-autorizzazioni-dei-cookie-schindler-winterthur",
+        "gestione-delle-autorizzazioni-dei-cookie-schindler-oberentfelden-8cq51r",
+        "gestione-delle-autorizzazioni-dei-cookie-schindler-bern-fd1b8a-8f3hgt",
+        "gestione-delle-autorizzazioni-dei-cookie-schindler-bern-fd1b8a",
+        "manager-per-cookie-einwilligungen-schindler-winterthur-2",
         "manager-per-cookie-einwilligungen-schindler-winterthur",
         "manager-per-cookie-einwilligungen-schindler-oberentfelden-2",
         "gestionnaire-pour-les-autorisations-de-cookies-schindler-winterthur",
+        "gestionnaire-pour-les-autorisations-de-cookies-schindler-bern-fd1b8a",
         "gestione-delle-autorizzazioni-dei-cookie-schindler-ebikon-i5c82e",
         "manager-fur-cookie-einwilligungen-schindler-ebikon",
         "gestionnaire-pour-les-autorisations-de-cookies-schindler-ebikon",
@@ -4224,10 +4367,7 @@
         "manager-per-cookie-einwilligungen-schindler-ebikon-i5ae2l",
         "manager-per-cookie-einwilligungen-schindler-ebikon-2",
         "gestione-delle-autorizzazioni-dei-cookie-schindler-winterthur-ofej7n",
-        "manager-fur-cookie-einwilligungen-schindler-winterthur",
-        "gestione-delle-autorizzazioni-dei-cookie-schindler-bern-fd1b8a-8f3hgt",
-        "gestionnaire-pour-les-autorisations-de-cookies-schindler-bern-fd1b8a",
-        "gestione-delle-autorizzazioni-dei-cookie-schindler-bern-fd1b8a"
+        "manager-fur-cookie-einwilligungen-schindler-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4267,6 +4407,81 @@
       "postalCode": "6934"
     },
     {
+      "id": "schindler-3a8dc89d7e9f",
+      "slug": "manager-per-cookie-einwilligungen-schindler-oberentfelden",
+      "slugByLocale": {
+        "de": "manager-fur-cookie-einwilligungen-schindler-oberentfelden",
+        "it": "manager-per-cookie-einwilligungen-schindler-oberentfelden",
+        "en": "manager-fur-cookie-einwilligungen-schindler-oberentfelden",
+        "fr": "manager-fur-cookie-einwilligungen-schindler-oberentfelden"
+      },
+      "company": "Schindler",
+      "companyKey": "schindler",
+      "companyDomain": "schindler.com",
+      "title": "Manager für Cookie-Einwilligungen",
+      "titleByLocale": {
+        "de": "Manager für Cookie-Einwilligungen",
+        "it": "Manager per Cookie-Einwilligungen",
+        "en": "Manager für Cookie-Einwilligungen",
+        "fr": "Manager für Cookie-Einwilligungen"
+      },
+      "description": "Mobilität | seit 1874 | weltweit im Einsatz\n\nDie Schindler Berufsbildung bildet schweizweit über 300 Lernende aus – du bist somit nie allein. Unser gesamtes Team setzt sich täglich für dich ein, damit du am Ende deiner Lehrzeit eine top ausgebildete Fachkraft bist.\n\nSchnupperlehre als Anlagen- und Apparatebauer*in EFZ mit Schwerpunkt Liftmontage (Lehrstart 2027) in Oberentfelden",
+      "descriptionByLocale": {
+        "de": "Mobilität | seit 1874 | weltweit im Einsatz\n\nDie Schindler Berufsbildung bildet schweizweit über 300 Lernende aus – du bist somit nie allein. Unser gesamtes Team setzt sich täglich für dich ein, damit du am Ende deiner Lehrzeit eine top ausgebildete Fachkraft bist.\n\nSchnupperlehre als Anlagen- und Apparatebauer*in EFZ mit Schwerpunkt Liftmontage (Lehrstart 2027) in Oberentfelden",
+        "it": "Mobilität | seit 1874 | weltweit im Einsatz\n\nDie Schindler Berufsbildung bildet schweizweit über 300 Lernende aus – du bist somit nie allein. Unser gesamtes Team setzt sich täglich für dich ein, damit du am Ende deiner Lehrzeit eine top ausgebildete Fachkraft bist.\n\nSchnupperlehre als Anlagen- und Apparatebauer*in EFZ mit Schwerpunkt Liftmontage (Lehrstart 2027) in Oberentfelden",
+        "en": "Mobilität | seit 1874 | weltweit im Einsatz\n\nDie Schindler Berufsbildung bildet schweizweit über 300 Lernende aus – du bist somit nie allein. Unser gesamtes Team setzt sich täglich für dich ein, damit du am Ende deiner Lehrzeit eine top ausgebildete Fachkraft bist.\n\nSchnupperlehre als Anlagen- und Apparatebauer*in EFZ mit Schwerpunkt Liftmontage (Lehrstart 2027) in Oberentfelden",
+        "fr": "Mobilität | seit 1874 | weltweit im Einsatz\n\nDie Schindler Berufsbildung bildet schweizweit über 300 Lernende aus – du bist somit nie allein. Unser gesamtes Team setzt sich täglich für dich ein, damit du am Ende deiner Lehrzeit eine top ausgebildete Fachkraft bist.\n\nSchnupperlehre als Anlagen- und Apparatebauer*in EFZ mit Schwerpunkt Liftmontage (Lehrstart 2027) in Oberentfelden"
+      },
+      "location": "Oberentfelden",
+      "canton": "AG",
+      "url": "https://job.schindler.com/SBB/job/Oberentfelden-Schnupperlehre-als-Anlagen-und-Apparatebauerin-EFZ-mit-Schwerpunkt-Liftmontage-%28Lehrstart-2027%29-Aarg/1250932401/",
+      "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
+      "sourceLang": "de",
+      "crawledAt": "2026-05-24T23:12:04.486Z",
+      "addressLocality": "Oberentfelden",
+      "addressRegion": "AG",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Industrial",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-16",
+      "applyUrl": "https://job.schindler.com/talentcommunity/apply/1250932401/?locale=de_DE",
+      "jobReqId": "1250932401",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "manager-per-cookie-einwilligungen-schindler-oberentfelden-2"
+        ]
+      },
+      "previousSlugs": [
+        "manager-per-cookie-einwilligungen-schindler-oberentfelden-2"
+      ],
+      "salaryMin": 68000,
+      "salaryMax": 103000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68000,
+          "maxValue": 103000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Via Industria 11",
+      "postalCode": "6934",
+      "firstSeenAt": "2026-05-24T23:12:04.486Z"
+    },
+    {
       "id": "schindler-4bd42971eb23",
       "slug": "reparaturtechniker-in-schwerpunkt-elektrik-regione-zentralschweiz-m-w-d-80-100-schindler-ebikon",
       "slugByLocale": {
@@ -4297,7 +4512,7 @@
       "url": "https://job.schindler.com/Schindler/job/Ebikon-Reparaturtechnikerin-Schwerpunkt-Elektrik-Region-Zentralschweiz-%28mwd%29-80-100-Luze/1379511933/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-24T11:59:58.105Z",
+      "crawledAt": "2026-05-24T23:12:03.866Z",
       "addressLocality": "Ebikon",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -4329,6 +4544,7 @@
         ]
       },
       "firstSeenAt": "2026-05-19T12:33:55.922Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -4375,7 +4591,7 @@
       "url": "https://job.schindler.com/Schindler/job/Visp-Aufzugsmonteurin-im-Oberwallis-%28mwd%29-80-100-Wall/1380428233/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-24T11:59:57.316Z",
+      "crawledAt": "2026-05-24T23:12:03.259Z",
       "addressLocality": "Visp",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -4453,7 +4669,7 @@
       "url": "https://job.schindler.com/ASZ/job/Wettswil-Einstieg-als-Aufzugsmonteur-80-100-%28mwd%29-Region-ZHAG-Z%C3%BCri/1123499901/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-24T11:59:56.546Z",
+      "crawledAt": "2026-05-24T23:12:02.623Z",
       "addressLocality": "Wettswil",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4493,8 +4709,7 @@
         }
       },
       "streetAddress": "Via Industria 11",
-      "postalCode": "6934",
-      "retranslationAttempts": 1
+      "postalCode": "6934"
     },
     {
       "id": "schindler-39ebf9ecb139",
@@ -4527,7 +4742,7 @@
       "url": "https://job.schindler.com/SCH_Service_TechnikerIn/job/Bussigny-Technicien-de-Service-%28hfd%29-100-Lausanne-1_8_2026-ou-%C3%A0-convenir-Vaud/1377295233/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-24T11:59:55.758Z",
+      "crawledAt": "2026-05-24T23:12:02.007Z",
       "addressLocality": "Bussigny",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -4559,6 +4774,7 @@
         ]
       },
       "firstSeenAt": "2026-05-19T12:33:49.986Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -4605,7 +4821,7 @@
       "url": "https://job.schindler.com/SCH_Service_TechnikerIn/job/Bern-Servicetechnikerin-Fahrtreppen-Region-BE-SO-planbare-Eins%C3%A4tze-im-Oberwallis-%28mwd%29-80-100-Bern/1368633233/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-24T11:59:54.971Z",
+      "crawledAt": "2026-05-24T23:12:01.381Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4689,7 +4905,7 @@
       "url": "https://job.schindler.com/Schindler/job/Ebikon-Polygrafin-%28mwd%29-60-80-Luze/1370436633/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-24T11:59:54.195Z",
+      "crawledAt": "2026-05-24T23:12:00.749Z",
       "addressLocality": "Ebikon",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -4721,6 +4937,7 @@
         ]
       },
       "firstSeenAt": "2026-05-19T12:33:55.194Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -4767,7 +4984,7 @@
       "url": "https://job.schindler.com/Schindler/job/Oberentfelden-Aufzugsmonteur-in-der-Region-Aarau-%28mwd%29-80-100-Aarg/1368065233/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-24T11:59:53.412Z",
+      "crawledAt": "2026-05-24T23:12:00.132Z",
       "addressLocality": "Oberentfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -4785,6 +5002,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-05-19T12:33:43.279Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -4831,7 +5049,7 @@
       "url": "https://job.schindler.com/ASZ_Service_TechnikerIn/job/Steinach-Service-Technikerin-Region-Rorschach-St_-Margrethen-Rheintal-%28mwd%29-80-100-St_/1386757533/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-24T11:59:52.627Z",
+      "crawledAt": "2026-05-24T23:11:59.513Z",
       "addressLocality": "Steinach",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -4915,7 +5133,7 @@
       "url": "https://job.schindler.com/ASZ_Service_TechnikerIn/job/Wettswil-Servicetechnikerin-Raum-Z%C3%BCrich-%28mwd%29-80-100-Z%C3%BCri/1387781733/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-24T11:59:51.846Z",
+      "crawledAt": "2026-05-24T23:11:58.869Z",
       "addressLocality": "Wettswil",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4947,8 +5165,7 @@
         }
       },
       "streetAddress": "Via Industria 11",
-      "postalCode": "6934",
-      "retranslationAttempts": 1
+      "postalCode": "6934"
     },
     {
       "id": "schindler-1108939d5959",
@@ -4981,7 +5198,7 @@
       "url": "https://job.schindler.com/ASZ_Service_TechnikerIn/job/Wettswil-Servicetechnikerin-Region-Goldk%C3%BCsteStadt-Z%C3%BCrich-%28mwd%29-80-100-Z%C3%BCri/1384129933/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-24T11:59:51.062Z",
+      "crawledAt": "2026-05-24T23:11:58.252Z",
       "addressLocality": "Wettswil",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5021,8 +5238,7 @@
         }
       },
       "streetAddress": "Via Industria 11",
-      "postalCode": "6934",
-      "retranslationAttempts": 1
+      "postalCode": "6934"
     },
     {
       "id": "schindler-9a76658efd3b",
@@ -5055,7 +5271,7 @@
       "url": "https://job.schindler.com/SCH_Service_TechnikerIn/job/Bussigny-Technicien-de-Service-ESCALIERS-Canton-de-Vaud-Ao%C3%BBt-2026-%28hfd%29-80-100-Vaud/1386275233/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-24T11:59:50.290Z",
+      "crawledAt": "2026-05-24T23:11:57.626Z",
       "addressLocality": "Bussigny",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -5133,7 +5349,7 @@
       "url": "https://job.schindler.com/ASZ_Service_TechnikerIn/job/Wettswil-Abnahmetechnikerin-Raum-Z%C3%BCrich-%28mwd%29-80-100-Z%C3%BCri/1386569833/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-24T11:59:49.509Z",
+      "crawledAt": "2026-05-24T23:11:56.983Z",
       "addressLocality": "Wettswil",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5175,8 +5391,7 @@
         }
       },
       "streetAddress": "Via Industria 11",
-      "postalCode": "6934",
-      "retranslationAttempts": 1
+      "postalCode": "6934"
     },
     {
       "id": "schindler-b4caf6b404b5",
@@ -5209,7 +5424,7 @@
       "url": "https://job.schindler.com/Schindler/job/Ebikon-Mitarbeiterin-Dokumentenerfassung-&-Digitalisierung-%28mwd%29-80-100-Luze/1382592733/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-24T11:59:48.692Z",
+      "crawledAt": "2026-05-24T23:11:56.367Z",
       "addressLocality": "Ebikon",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -5249,6 +5464,7 @@
         ]
       },
       "firstSeenAt": "2026-05-19T12:33:58.173Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -5295,7 +5511,7 @@
       "url": "https://job.schindler.com/Schindler/job/Bern-Teamleiter-Aufzugsmontage-Projekttechniker-im-Oberwallis-%28mwd%29-80-100-Bern/1382479733/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-24T11:59:47.905Z",
+      "crawledAt": "2026-05-24T23:11:55.751Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -5381,7 +5597,7 @@
       "url": "https://job.schindler.com/ASZ_Fitter/job/Brig-Aufzugsmonteurin-Region-Wallis-%28mwd%29-80-100-Wall/1383490433/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-24T11:59:47.128Z",
+      "crawledAt": "2026-05-24T23:11:55.123Z",
       "addressLocality": "Brig",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -5407,6 +5623,7 @@
         ]
       },
       "firstSeenAt": "2026-05-19T12:33:47.721Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -5453,7 +5670,7 @@
       "url": "https://job.schindler.com/SCH_Service_TechnikerIn/job/Z%C3%BCrich-Reparaturtechnikerin-in-der-Region-Z%C3%BCrich-%28mwd%29-80-100-Z%C3%BCri/1277224001/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-24T11:59:46.364Z",
+      "crawledAt": "2026-05-24T23:11:54.496Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5533,7 +5750,7 @@
       "url": "https://job.schindler.com/ASZ/job/Steinach-Verkaufsprofi-Liftmodernisierung-%28mwd%29-80-100-Region-Ostschweiz-St_/1278144101/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-24T11:59:45.591Z",
+      "crawledAt": "2026-05-24T23:11:53.854Z",
       "addressLocality": "Steinach",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -5617,7 +5834,7 @@
       "url": "https://job.schindler.com/SCH_Fitter/job/Z%C3%BCrich-Monteurin-f%C3%BCr-Aufzugsanlagen-im-Grossraum-Z%C3%BCrich-mit-F%C3%BChrungspotenzial-%28mwd%29-80-100-Z%C3%BCri/1159664001/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-24T11:59:44.818Z",
+      "crawledAt": "2026-05-24T23:11:53.231Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5701,7 +5918,7 @@
       "url": "https://job.schindler.com/ASZ/job/Wettswil-Neukundenberaterin-%28mwd%29-80-100-Z%C3%BCri/1281533801/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-24T11:59:44.017Z",
+      "crawledAt": "2026-05-24T23:11:52.607Z",
       "addressLocality": "Wettswil",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5741,8 +5958,7 @@
         }
       },
       "streetAddress": "Via Industria 11",
-      "postalCode": "6934",
-      "retranslationAttempts": 1
+      "postalCode": "6934"
     },
     {
       "id": "schindler-576c9bf2413a",
@@ -5775,7 +5991,7 @@
       "url": "https://job.schindler.com/SCH_Fitter/job/Solothurn-Aufzugsmonteur-Region-Solothurn-%28mwd%29-80-100-Solo/1283370801/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-24T11:59:43.234Z",
+      "crawledAt": "2026-05-24T23:11:51.991Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -5853,7 +6069,7 @@
       "url": "https://job.schindler.com/ASZ_Fitter/job/Wettswil-Aufzugsmonteur-Modernisierungen-Region-Zentralschweiz-%28mwd%29-80-100-Z%C3%BCri/1392687533/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-24T11:59:42.452Z",
+      "crawledAt": "2026-05-24T23:11:51.381Z",
       "addressLocality": "Wettswil",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5893,87 +6109,6 @@
         }
       },
       "streetAddress": "Via Industria 11",
-      "postalCode": "6934",
-      "retranslationAttempts": 1
-    },
-    {
-      "id": "schindler-aa8845ab590f",
-      "slug": "marketing-manager-m-w-d-80-100-schindler-bern",
-      "slugByLocale": {
-        "it": "marketing-manager-m-w-d-80-100-schindler-bern-1cb988",
-        "en": "marketing-manager-m-w-d-80-100-schindler-bern",
-        "de": "verkaufsprofi-im-servicegeschaft-in-bern-m-w-d-80-100-schindler-bern",
-        "fr": "directeur-marketing-m-p-p-80-100-schindler-bern"
-      },
-      "company": "Schindler",
-      "companyKey": "schindler",
-      "companyDomain": "schindler.com",
-      "title": "Verkaufsprofi im Servicegeschäft in Bern (m/w/d) 80-100%",
-      "titleByLocale": {
-        "it": "Marketing Manager (m/w/d) 80-100 %",
-        "en": "Marketing Manager (m/w/d) 80-100 %",
-        "de": "Verkaufsprofi im Servicegeschäft in Bern (m/w/d) 80-100%",
-        "fr": "Directeur marketing (m/p/p) 80-100 %"
-      },
-      "description": "Über zwei Milliarden Menschen vertrauen täglich auf Schindler. Unsere langjährige Erfahrung und Innovationskraft machen uns zur Nummer eins im Schweizer Aufzugs- und Fahrtreppengeschäft. Als Teil der Schindler Familie gestaltest du Orte für alle barrierefreier, inklusiver und nachhaltiger. Wir kombinieren Innovation, Sicherheit sowie Inklusion und Diversität innerhalb des Unternehmens. Werde Teil unserer 150-jährigen Erfolgsgeschichte und gestalte die Zukunft der Mobilität mit.\n\nGemeinsam ein Stockwerk nach oben als\n\nVerkaufsprofi im Servicegeschäft in Bern (m/w/d) 80-100%\n\nDein Tag – dein Plan! Gestalte deine 40-Stunden-Woche nach deinen Bedürfnissen. Wir legen grossen Wert auf deine Weiterentwicklung und bieten dir genau das, was du brauchst. Mehr über uns erfährst du in diesem Video\n\nDeine neuen Herausforderungen:\n\n• Verkauf von Serviceverträgen und Reparaturen sowie Unterstützung des Verkaufs von Modernisierungen\n\n• Beratung und Betreuung der Kundschaft sowie Erarbeitung und Sicherstellung einer dauerhaften und tragfähigen Kundenbeziehung\n\n• Bearbeitung von Kundenreklamationen und -anfragen und damit Erhöhung der Kundenloyalität\n\n• Enge Zusammenarbeit mit dem Service Teamleader für den zugeteilten Servicekreis\n\nDeine idealen Voraussetzungen:\n\n• Abgeschlossene technische oder kaufmännische Grundausbildung mit Weiterbildung\n\n• Verkaufserfahrung ist von Vorteil, idealerweise im Bereich von Investitionsgütern und/oder technischen Dienstleistungen\n\n• Sicher im Umgang mit MS-Office und SAP-Kenntnisse von Vorteil\n\n• Gute Kenntnisse der Gebietssprache, weitere Sprachen von Vorteil\n\nUnsere Benefits:\n\n• Exzellente Entwicklungsmöglichkeiten : Personalentwicklung wird bei uns gelebt. Unseren Mitarbeitenden stellen wir verschiedene nationale und internationale Talentprogramme zur Verfügung und unterstützen sie zeitlich sowie finanziell bei Aus- und Weiterbildungen.\n\n• Gesunde Arbeitsumgebung : Hohe Gesundheits- & Sicherheitsstandards und eigenes betriebliches Gesundheitsmanagement inklusive Sozialberatung und Gesundheitsförderung.\n\n• Entschädigung für deine Mittagsverpflegung .\n\n• Mitarbeitervergünstigungen : Grosszügige Beteiligung am ÖV- und Fitness-Abo, Flottenrabatte, vergünstigter Bezug von Reka-Geld, vergünstigte Versicherungsprämien sowie diverse Vergünstigungen.\n\n• Kulturelle Vielfalt und Inklusion & Diversität innerhalb des Unternehmens.\n\nBist du bereit, neue Wege zu gehen? Werde Teil von #TeamSchindler!\n\nWeitere Informationen findest du unter: www.schindler.ch/karriere",
-      "descriptionByLocale": {
-        "it": "Mansioni Marketing Manager (m/w/d) 80-100 % Descrizione Più di due miliardi di persone si fidano di Schindler ogni giorno. I nostri molti anni di esperienza e di forza innovativa ci rendono il numero uno nel settore dell'ascensore e delle scale mobili svizzere. Come parte della famiglia Schindler, si creano posti per tutti senza barriere, inclusi e sostenibili. Uniamo innovazione, sicurezza e inclusione e diversità all'interno dell'azienda. Partecipa alla nostra storia di successo di 150 anni e modella il futuro della mobilità. Insieme un pavimento come Tue * Vendita di contratti di servizio e riparazioni e supporto per la vendita di ammodernamento * Consultazione e supporto del cliente, nonché sviluppo e garanzia di una relazione duratura e sostenibile del cliente * Trattamento dei reclami e delle richieste dei clienti e aumentando così la fedeltà dei clienti * stretta collaborazione con il team di assistenza leader per il gruppo di assistenza assegnato Richiese * Formazione completa di base tecnica o commerciale con ulteriore formazione * l'esperienza di vendita è vantaggiosa, idealmente nel settore dei beni di investimento e/o dei servizi tecnici * Sicuro da usare MS Office e competenze SAP * Buona conoscenza della lingua locale, altre lingue di vantaggio Cosa? * Possibilità di sviluppo eccellenti: lo sviluppo personale è vissuto con noi. Forniamo ai nostri dipendenti vari programmi di talento nazionali e internazionali e li sosteniamo nella formazione e nell'ulteriore formazione. * Ambiente di lavoro sano: elevati standard di salute e sicurezza e la propria gestione della salute professionale, compresa la consulenza sociale e la promozione della salute. * Compensazione per il pranzo. * Vantaggi del dipendente: Partecipazione Generosa alla salute pubblica e all'abo fitness, sconti della flotta, copertura scontata del denaro Reka, premi assicurativi scontati e vari benefici. * Diversità culturale e inclusione e diversità all'interno dell'azienda. Contatto Sei pronto a fare nuove strade? Iscriviti a #TeamSchindler! Ulteriori informazioni sono disponibili su: www.schindler.ch/karriere",
-        "en": "Mansioni Marketing Manager (m/w/d) 80-100 % descrizione Over two billion people trust Schindler every day. Our many years of experience and innovative strength make us the number one in the Swiss elevator and escalator business. As part of the Schindler family, you create places for all barrier-free, inclusive and sustainable. We combine innovation, security and inclusion and diversity within the company. Be part of our 150-year success story and shape the future of mobility. Together a floor up as Tue * Sales of service contracts and repairs and support for the sale of modernizations * Consultation and support of the client as well as development and securing a durable and sustainable customer relationship * Processing of customer complaints and requests and thus increasing customer loyalty * Close cooperation with the service team leader for the assigned service group Richiese * Complete technical or commercial basic training with further training * sales experience is advantageous, ideally in the field of investment goods and/or technical services * Safe to use MS Office and SAP skills * Good knowledge of local language, other languages of advantage \n• Cosa offriamo * Excellent development possibilities: Personal development is lived with us. We provide various national and international talent programmes to our employees and support them in training and further education. * Healthy working environment: High health & safety standards and own occupational health management including social consulting and health promotion. * Compensation for your lunch. * Employee Benefits: Generous participation in the public health and fitness abo, fleet discounts, discounted cover of Reka money, discounted insurance premiums and various benefits. * Cultural diversity and inclusion & diversity within the company. Contatto Are you ready to go new ways? Join #TeamSchindler! Further information can be found at: www.schindler.ch/karriere",
-        "de": "Über zwei Milliarden Menschen vertrauen täglich auf Schindler. Unsere langjährige Erfahrung und Innovationskraft machen uns zur Nummer eins im Schweizer Aufzugs- und Fahrtreppengeschäft. Als Teil der Schindler Familie gestaltest du Orte für alle barrierefreier, inklusiver und nachhaltiger. Wir kombinieren Innovation, Sicherheit sowie Inklusion und Diversität innerhalb des Unternehmens. Werde Teil unserer 150-jährigen Erfolgsgeschichte und gestalte die Zukunft der Mobilität mit. Gemeinsam ein Stockwerk nach oben als Verkaufsprofi im Servicegeschäft in Bern (m/w/d) 80-100% Dein Tag – dein Plan! Gestalte deine 40-Stunden-Woche nach deinen Bedürfnissen. Wir legen grossen Wert auf deine Weiterentwicklung und bieten dir genau das, was du brauchst. Mehr über uns erfährst du in diesem Video Deine neuen Herausforderungen:\n• Verkauf von Serviceverträgen und Reparaturen sowie Unterstützung des Verkaufs von Modernisierungen\n• Beratung und Betreuung der Kundschaft sowie Erarbeitung und Sicherstellung einer dauerhaften und tragfähigen Kundenbeziehung\n• Bearbeitung von Kundenreklamationen und -anfragen und damit Erhöhung der Kundenloyalität\n• Enge Zusammenarbeit mit dem Service Teamleader für den zugeteilten Servicekreis Deine idealen Voraussetzungen:\n• Abgeschlossene technische oder kaufmännische Grundausbildung mit Weiterbildung\n• Verkaufserfahrung ist von Vorteil, idealerweise im Bereich von Investitionsgütern und/oder technischen Dienstleistungen\n• Sicher im Umgang mit MS-Office und SAP-Kenntnisse von Vorteil\n• Gute Kenntnisse der Gebietssprache, weitere Sprachen von Vorteil Unsere Benefits:\n• Exzellente Entwicklungsmöglichkeiten : Personalentwicklung wird bei uns gelebt. Unseren Mitarbeitenden stellen wir verschiedene nationale und internationale Talentprogramme zur Verfügung und unterstützen sie zeitlich sowie finanziell bei Aus- und Weiterbildungen.\n• Gesunde Arbeitsumgebung : Hohe Gesundheits- & Sicherheitsstandards und eigenes betriebliches Gesundheitsmanagement inklusive Sozialberatung und Gesundheitsförderung.\n• Entschädigung für deine Mittagsverpflegung .\n• Mitarbeitervergünstigungen : Grosszügige Beteiligung am ÖV- und Fitness-Abo, Flottenrabatte, vergünstigter Bezug von Reka-Geld, vergünstigte Versicherungsprämien sowie diverse Vergünstigungen.\n• Kulturelle Vielfalt und Inklusion & Diversität innerhalb des Unternehmens. Bist du bereit, neue Wege zu gehen? Werde Teil von #TeamSchindler! Weitere Informationen findest du unter: www.schindler.ch/karriere",
-        "fr": "Mansioni Directeur marketing (m/p/p) 80-100 % descrizione Plus de deux milliards de personnes font confiance à Schindler chaque jour. Nos nombreuses années d'expérience et de force innovante font de nous le numéro un de l'entreprise suisse de l'ascenseur et de l'escalator. Dans le cadre de la famille Schindler, vous créez des endroits pour tous sans obstacles, inclusifs et durables. Nous combinons innovation, sécurité, inclusion et diversité au sein de l'entreprise. Faites partie de notre réussite de 150 ans et façonnez l'avenir de la mobilité. Ensemble, un étage vers le haut Tu es * Vente de contrats de services et de réparations et soutien à la vente de modernisations * Consultation et soutien du client ainsi que développement et garantie d'une relation client durable * Traitement des plaintes et des demandes des clients et, partant, fidélisation accrue des clients * Coopération étroite avec le chef de l'équipe de service pour le groupe de services assigné Richie * Formation de base technique ou commerciale complète avec formation continue * l'expérience de vente est avantageuse, idéalement dans le domaine des biens d'investissement et/ou des services techniques * Sûr d'utiliser les compétences MS Office et SAP * Bonne connaissance de la langue locale, autres langues d'intérêt \n• Cosa offriamo * Excellentes possibilités de développement : Le développement personnel est vécu avec nous. \n• Nous offrons à nos employés divers programmes nationaux et internationaux de formation et de perfectionnement. * Environnement de travail sain : haute santé & amp; normes de sécurité et propre gestion de la santé au travail, y compris les conseils sociaux et la promotion de la santé. * Indemnisation pour votre déjeuner. * Avantages sociaux : Participation généreuse à la santé publique et à la condition physique, rabais sur la flotte, couverture réduite de l'argent de Reka, primes d'assurance et divers avantages sociaux. * Diversité culturelle et inclusion et diversité au sein de l'entreprise. Contatto Êtes-vous prêt à aller de nouvelles façons ? Rejoignez #TeamSchindler ! De plus amples informations sont disponibles à l'adresse suivante: www.schindler.ch/karriere"
-      },
-      "location": "Bern",
-      "canton": "BE",
-      "url": "https://job.schindler.com/Schindler/job/Bern-Verkaufsprofi-im-Servicegesch%C3%A4ft-in-Bern-%28mwd%29-80-100-Bern/1394928333/",
-      "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
-      "sourceLang": "de",
-      "crawledAt": "2026-05-24T11:59:41.664Z",
-      "addressLocality": "Bern",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Commerciale",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Industrial",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-19",
-      "applyUrl": "https://job.schindler.com/talentcommunity/apply/1394928333/?locale=de_DE",
-      "jobReqId": "1394928333",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "verkaufsprofi-im-servicegeschaft-in-bern-m-w-d-80-100-schindler-bern",
-        "verkaufsprofi-liftmodernisierung-in-bern-m-w-d-80-100-schindler-bern",
-        "directeur-marketing-m-w-d-80-100-schindler-bern"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "verkaufsprofi-im-servicegeschaft-in-bern-m-w-d-80-100-schindler-bern"
-        ],
-        "fr": [
-          "verkaufsprofi-im-servicegeschaft-in-bern-m-w-d-80-100-schindler-bern"
-        ],
-        "en": [
-          "verkaufsprofi-im-servicegeschaft-in-bern-m-w-d-80-100-schindler-bern"
-        ]
-      },
-      "firstSeenAt": "2026-05-23T23:07:54.052Z",
-      "salaryMin": 68000,
-      "salaryMax": 103000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68000,
-          "maxValue": 103000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Via Industria 11",
       "postalCode": "6934"
     },
     {
@@ -6007,7 +6142,7 @@
       "url": "https://job.schindler.com/ASZ/job/Wettswil-Salesperson-New-Installation-Region-Zentralschweiz-%28mwd%29-80-100-Z%C3%BCri/1392906333/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-24T11:59:40.872Z",
+      "crawledAt": "2026-05-24T23:11:50.115Z",
       "addressLocality": "Wettswil",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -6047,8 +6182,7 @@
         }
       },
       "streetAddress": "Via Industria 11",
-      "postalCode": "6934",
-      "retranslationAttempts": 1
+      "postalCode": "6934"
     },
     {
       "id": "schindler-418e13f2b4b6",
@@ -6081,7 +6215,7 @@
       "url": "https://job.schindler.com/ASZ_Office_General/job/Sch%C3%B6nb%C3%BChl-Working-Student-Kundenberatung-Service-%28mwd%29-60-Bern/1392943733/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-24T11:59:40.094Z",
+      "crawledAt": "2026-05-24T23:11:49.479Z",
       "addressLocality": "Schönbühl",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -6121,8 +6255,7 @@
         }
       },
       "streetAddress": "Via Industria 11",
-      "postalCode": "6934",
-      "retranslationAttempts": 1
+      "postalCode": "6934"
     },
     {
       "id": "schindler-d1b9ef9c1ef6",
@@ -6155,7 +6288,7 @@
       "url": "https://job.schindler.com/Schindler/job/Neuch%C3%A2tel-Technicienne-de-Service-%28hfd%29-80-100-Neuc/1392090133/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-24T11:59:39.319Z",
+      "crawledAt": "2026-05-24T23:11:48.858Z",
       "addressLocality": "Neuchâtel",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -6187,6 +6320,7 @@
         ]
       },
       "firstSeenAt": "2026-05-19T12:33:44.765Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -6233,7 +6367,7 @@
       "url": "https://job.schindler.com/Schindler/job/Ebikon-Head-Technical-Training-&-Information-%28mwd%29-80-100-Luze/1392171333/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-24T11:59:38.551Z",
+      "crawledAt": "2026-05-24T23:11:48.224Z",
       "addressLocality": "Ebikon",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -6264,6 +6398,7 @@
         ]
       },
       "firstSeenAt": "2026-05-19T12:34:25.077Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -6310,7 +6445,7 @@
       "url": "https://job.schindler.com/SCH_Service_TechnikerIn/job/Bern-Teamleiter-f%C3%BCr-unser-Serviceteam-in-Bern-%28mwd%29-80-100-Bern/1394576133/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-24T11:59:37.763Z",
+      "crawledAt": "2026-05-24T23:11:47.597Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -6339,6 +6474,7 @@
         ]
       },
       "firstSeenAt": "2026-05-19T12:34:25.810Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -6385,7 +6521,7 @@
       "url": "https://job.schindler.com/ASZ/job/Brig-Projekttechnikerin-Region-Wallis-%28mwd%29-80-100-Wall/1391770633/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-24T11:59:36.975Z",
+      "crawledAt": "2026-05-24T23:11:46.970Z",
       "addressLocality": "Brig",
       "addressRegion": "VS",
       "addressCountry": "CH",
