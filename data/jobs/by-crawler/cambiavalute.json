@@ -1,6 +1,6 @@
 {
   "crawlerKey": "cambiavalute",
-  "assembledAt": "2026-05-24T10:11:07.598Z",
+  "assembledAt": "2026-05-24T21:23:14.392Z",
   "jobs": [
     {
       "id": "company-fooban",
@@ -90,7 +90,8 @@
       "addressLocality": "Chiasso (Svizzera) – posizione esclusivamente in presenza (no remote working) Ti",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-a24znt",
@@ -180,7 +181,8 @@
       "addressLocality": "Chiasso (Svizzera) – posizione esclusivamente in presenza (no remote working) Ti",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     }
   ]
 }
