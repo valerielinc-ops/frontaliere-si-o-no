@@ -1,6 +1,6 @@
 {
   "crawlerKey": "air-zermatt",
-  "assembledAt": "2026-05-24T09:51:27.176Z",
+  "assembledAt": "2026-05-24T21:03:28.437Z",
   "jobs": [
     {
       "id": "air-zermatt-dfbbe85d1afb",
@@ -46,7 +46,7 @@
       "applyUrl": "https://www.air-zermatt.ch/de/service/offene-stellen/stipendium-atc-amp-swiss-sherpa-foundation-442",
       "source": "Air Zermatt Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-24T09:51:25.528Z",
+      "crawledAt": "2026-05-24T21:03:27.167Z",
       "requirementsByLocale": {
         "it": [
           "Esperienza professionale comprovata nel settore del soccorso",
@@ -88,6 +88,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T09:52:19.659Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -146,7 +147,7 @@
       "applyUrl": "https://www.air-zermatt.ch/de/service/offene-stellen/helikoptermechanikerin-b13-und-oder-avionikerin-b2--100-549",
       "source": "Air Zermatt Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-24T09:51:25.240Z",
+      "crawledAt": "2026-05-24T21:03:26.952Z",
       "requirementsByLocale": {
         "it": [
           "Licenza EASA Part-66 valida di categoria B1.3 e/o B2",
@@ -200,6 +201,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T09:52:19.399Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
