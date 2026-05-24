@@ -1100,12 +1100,12 @@
     },
     {
       "id": "msc-cargo-7ff9c4053d03",
-      "slug": "travelling-fleet-supervisor-shore-excursions-msc-geneva",
+      "slug": "supervisore-delle-pulci-di-viaggio-escursioni-a-scarpa-msc-group-geneva",
       "slugByLocale": {
         "en": "travelling-fleet-supervisor-shore-excursions-msc-geneva",
-        "it": "travelling-fleet-supervisor-shore-excursions-msc-geneva",
-        "de": "travelling-fleet-supervisor-shore-excursions-msc-geneva",
-        "fr": "travelling-fleet-supervisor-shore-excursions-msc-geneva"
+        "it": "supervisore-delle-pulci-di-viaggio-escursioni-a-scarpa-msc-group-geneva",
+        "de": "reise-fleet-supervisor-landausfluge-msc-group-geneva",
+        "fr": "superviseur-de-la-flotte-itinerante-excursions-a-terre-msc-group-geneva"
       },
       "company": "MSC Group",
       "companyKey": "msc-cargo",
@@ -1160,7 +1160,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-24T11:39:23.026Z"
+      "firstSeenAt": "2026-05-24T11:39:23.026Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "travelling-fleet-supervisor-shore-excursions-msc-geneva"
+        ],
+        "de": [
+          "travelling-fleet-supervisor-shore-excursions-msc-geneva"
+        ],
+        "fr": [
+          "travelling-fleet-supervisor-shore-excursions-msc-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "travelling-fleet-supervisor-shore-excursions-msc-geneva"
+      ]
     },
     {
       "id": "msc-cargo-1a2c16e6e5dc",
@@ -1241,7 +1255,7 @@
         "en": "junior-architect-port-development-intern-msc-geneva",
         "it": "junior-architect-port-development-intern-msc-geneva",
         "de": "junior-architect-port-development-intern-msc-geneva",
-        "fr": "junior-architect-port-development-intern-msc-geneva"
+        "fr": "stagiaire-en-developpement-portuaire-junior-architecte-msc-group-geneva"
       },
       "company": "MSC Group",
       "companyKey": "msc-cargo",

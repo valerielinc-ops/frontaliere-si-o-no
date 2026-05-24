@@ -1175,12 +1175,12 @@
     },
     {
       "id": "spitex-ch-e8f5f85464e8",
-      "slug": "dipl-pflegefachperson-hf-fh-psychiatrie-per-erwachsene-kinder-jugendliche-60-80-spitex-uri-schattdorf",
+      "slug": "dipl-assistenza-agli-anziani-hf-fh-psichiatria-per-adulti-bambini-e-adolescenti-60-80-spitex-uri-schattdorf",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-hf-fh-psychiatrie-fur-erwachsene-kinder-jugendliche-60-80-spitex-ch",
-        "it": "dipl-pflegefachperson-hf-fh-psychiatrie-per-erwachsene-kinder-jugendliche-60-80-spitex-uri-schattdorf",
-        "en": "dipl-pflegefachperson-hf-fh-psychiatrie-fur-erwachsene-kinder-jugendliche-60-80-spitex-ch",
-        "fr": "dipl-pflegefachperson-hf-fh-psychiatrie-fur-erwachsene-kinder-jugendliche-60-80-spitex-ch"
+        "it": "dipl-assistenza-agli-anziani-hf-fh-psichiatria-per-adulti-bambini-e-adolescenti-60-80-spitex-uri-schattdorf",
+        "en": "dipl-senior-caregiver-hf-fh-psychiatry-for-adults-children-teenagers-60-80-spitex-uri-schattdorf",
+        "fr": "dipl-senior-caregiiver-hf-fh-psychiatrie-pour-adultes-enfants-et-adolescents-60-80-spitex-uri-schattdorf"
       },
       "company": "Spitex Uri",
       "companyKey": "spitex-ch",
@@ -1226,11 +1226,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "dipl-pflegefachperson-hf-fh-psychiatrie-fur-erwachsene-kinder-jugendliche-60-80-spitex-ch",
+          "dipl-pflegefachperson-hf-fh-psychiatrie-per-erwachsene-kinder-jugendliche-60-80-spitex-uri-schattdorf"
+        ],
+        "en": [
+          "dipl-pflegefachperson-hf-fh-psychiatrie-fur-erwachsene-kinder-jugendliche-60-80-spitex-ch"
+        ],
+        "fr": [
           "dipl-pflegefachperson-hf-fh-psychiatrie-fur-erwachsene-kinder-jugendliche-60-80-spitex-ch"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-fh-psychiatrie-fur-erwachsene-kinder-jugendliche-60-80-spitex-ch"
+        "dipl-pflegefachperson-hf-fh-psychiatrie-fur-erwachsene-kinder-jugendliche-60-80-spitex-ch",
+        "dipl-pflegefachperson-hf-fh-psychiatrie-per-erwachsene-kinder-jugendliche-60-80-spitex-uri-schattdorf"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -1252,8 +1260,8 @@
       "slugByLocale": {
         "de": "assistent-in-gesundheit-soziales-ags-und-oder-fachangestellte-gesundheit-fage-spitex-ch",
         "it": "assistent-in-gesundheit-soziales-ags-e-o-fachangestellte-gesundheit-fage-spitex-waldenburgertal-niederdorf",
-        "en": "assistent-in-gesundheit-soziales-ags-und-oder-fachangestellte-gesundheit-fage-spitex-ch",
-        "fr": "assistent-in-gesundheit-soziales-ags-und-oder-fachangestellte-gesundheit-fage-spitex-ch"
+        "en": "assistant-in-health-social-ags-and-or-specialist-health-fage-spitex-waldenburgertal-niederdorf",
+        "fr": "assistant-en-sante-sociale-ags-et-ou-en-sante-specialisee-fage-spitex-waldenburgertal-niederdorf"
       },
       "company": "Spitex Waldenburgertal",
       "companyKey": "spitex-ch",
@@ -1299,6 +1307,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "assistent-in-gesundheit-soziales-ags-und-oder-fachangestellte-gesundheit-fage-spitex-ch"
+        ],
+        "en": [
+          "assistent-in-gesundheit-soziales-ags-und-oder-fachangestellte-gesundheit-fage-spitex-ch"
+        ],
+        "fr": [
           "assistent-in-gesundheit-soziales-ags-und-oder-fachangestellte-gesundheit-fage-spitex-ch"
         ]
       },
