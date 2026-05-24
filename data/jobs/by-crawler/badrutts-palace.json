@@ -301,10 +301,10 @@
     },
     {
       "id": "badrutts-palace-b8c57ceab4f1",
-      "slug": "hr-recruiting-assistant-badrutts-palace-ch",
+      "slug": "risorse-umane-recruiting-assistant-badrutt-s-palace-hotel-st-moritz",
       "slugByLocale": {
         "de": "hr-recruiting-assistant-badrutts-palace-ch",
-        "it": "hr-recruiting-assistant-badrutts-palace-ch",
+        "it": "risorse-umane-recruiting-assistant-badrutt-s-palace-hotel-st-moritz",
         "en": "hr-recruiting-assistant-badrutts-palace-ch",
         "fr": "hr-recruiting-assistant-badrutt-s-palace-hotel-st-moritz"
       },
@@ -361,7 +361,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-23T21:12:26.249Z"
+      "firstSeenAt": "2026-05-23T21:12:26.249Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "hr-recruiting-assistant-badrutts-palace-ch"
+        ]
+      },
+      "previousSlugs": [
+        "hr-recruiting-assistant-badrutts-palace-ch"
+      ]
     }
   ]
 }
