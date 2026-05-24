@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-17T23:01:17.613Z",
+  "generatedAt": "2026-05-24T22:47:15.797Z",
   "weights": {
     "gsc": 0.4,
     "suggest": 0.3,
@@ -21,15 +21,15 @@
       "cluster": "novita"
     },
     {
-      "kw": "allarmanti",
-      "normalizedKeyword": "allarmanti",
+      "kw": "accertamenti",
+      "normalizedKeyword": "accertamenti",
       "weight": 0.3,
       "source": "fingerprint",
       "cluster": "generic"
     },
     {
-      "kw": "angeli",
-      "normalizedKeyword": "angeli",
+      "kw": "allarmanti",
+      "normalizedKeyword": "allarmanti",
       "weight": 0.3,
       "source": "fingerprint",
       "cluster": "generic"
@@ -40,13 +40,6 @@
       "weight": 0.3,
       "source": "fingerprint",
       "cluster": "lavoro"
-    },
-    {
-      "kw": "aprile",
-      "normalizedKeyword": "aprile",
-      "weight": 0.3,
-      "source": "fingerprint",
-      "cluster": "generic"
     },
     {
       "kw": "avs frontalieri",
@@ -70,15 +63,15 @@
       "cluster": "mobilita"
     },
     {
-      "kw": "chiuse",
-      "normalizedKeyword": "chiuse",
+      "kw": "cifre",
+      "normalizedKeyword": "cifre",
       "weight": 0.3,
       "source": "fingerprint",
       "cluster": "generic"
     },
     {
-      "kw": "cifre",
-      "normalizedKeyword": "cifre",
+      "kw": "esposizione",
+      "normalizedKeyword": "esposizione",
       "weight": 0.3,
       "source": "fingerprint",
       "cluster": "generic"
@@ -119,8 +112,8 @@
       "cluster": "pensioni"
     },
     {
-      "kw": "modificati",
-      "normalizedKeyword": "modificati",
+      "kw": "maltrattamenti",
+      "normalizedKeyword": "maltrattamenti",
       "weight": 0.3,
       "source": "fingerprint",
       "cluster": "generic"
@@ -147,6 +140,13 @@
       "cluster": "pratico"
     },
     {
+      "kw": "presunti",
+      "normalizedKeyword": "presunti",
+      "weight": 0.3,
+      "source": "fingerprint",
+      "cluster": "generic"
+    },
+    {
       "kw": "ristorni frontalieri",
       "normalizedKeyword": "ristorni frontalieri",
       "weight": 0.3,
@@ -161,8 +161,8 @@
       "cluster": "pensioni"
     },
     {
-      "kw": "slowup",
-      "normalizedKeyword": "slowup",
+      "kw": "segugi",
+      "normalizedKeyword": "segugi",
       "weight": 0.3,
       "source": "fingerprint",
       "cluster": "generic"
@@ -266,8 +266,8 @@
       "cluster": "pensioni"
     },
     {
-      "kw": "tasse svizzera calcolo",
-      "normalizedKeyword": "tasse svizzera calcolo",
+      "kw": "tasse svizzera vs italia",
+      "normalizedKeyword": "tasse svizzera vs italia",
       "weight": 0.27,
       "source": "suggest",
       "cluster": "fiscale"
@@ -294,8 +294,8 @@
       "cluster": "pensioni"
     },
     {
-      "kw": "busta paga svizzera pdf",
-      "normalizedKeyword": "busta paga svizzera pdf",
+      "kw": "busta paga svizzera per frontalieri",
+      "normalizedKeyword": "busta paga svizzera per frontalieri",
       "weight": 0.24,
       "source": "suggest",
       "cluster": "fiscale"
@@ -322,11 +322,11 @@
       "cluster": "generic"
     },
     {
-      "kw": "lpp cos'è",
-      "normalizedKeyword": "lpp cos'e",
+      "kw": "lppcollecting arcore",
+      "normalizedKeyword": "lppcollecting arcore",
       "weight": 0.24,
       "source": "suggest",
-      "cluster": "pensioni"
+      "cluster": "generic"
     },
     {
       "kw": "permesso gravi motivi familiari",
@@ -350,22 +350,29 @@
       "cluster": "pensioni"
     },
     {
-      "kw": "tasse svizzera percentuale",
-      "normalizedKeyword": "tasse svizzera percentuale",
+      "kw": "tasse svizzera calcolo",
+      "normalizedKeyword": "tasse svizzera calcolo",
       "weight": 0.24,
       "source": "suggest",
       "cluster": "fiscale"
     },
     {
-      "kw": "telelavoro frontalieri italia svizzera",
-      "normalizedKeyword": "telelavoro frontalieri italia svizzera",
+      "kw": "telelavoro frontalieri 2026",
+      "normalizedKeyword": "telelavoro frontalieri 2026",
       "weight": 0.24,
       "source": "suggest",
       "cluster": "pratico"
     },
     {
-      "kw": "busta paga svizzera per frontalieri",
-      "normalizedKeyword": "busta paga svizzera per frontalieri",
+      "kw": "accordo telelavoro frontalieri",
+      "normalizedKeyword": "accordo telelavoro frontalieri",
+      "weight": 0.21,
+      "source": "suggest",
+      "cluster": "pratico"
+    },
+    {
+      "kw": "busta paga svizzera pdf",
+      "normalizedKeyword": "busta paga svizzera pdf",
       "weight": 0.21,
       "source": "suggest",
       "cluster": "fiscale"
@@ -385,15 +392,15 @@
       "cluster": "generic"
     },
     {
-      "kw": "frontalieri italia svizzera",
-      "normalizedKeyword": "frontalieri italia svizzera",
+      "kw": "frontalieri svizzeri cosa sono",
+      "normalizedKeyword": "frontalieri svizzeri cosa sono",
       "weight": 0.21,
       "source": "suggest",
       "cluster": "generic"
     },
     {
-      "kw": "lpp svizzera calcolo",
-      "normalizedKeyword": "lpp svizzera calcolo",
+      "kw": "lpp cos'è",
+      "normalizedKeyword": "lpp cos'e",
       "weight": 0.21,
       "source": "suggest",
       "cluster": "pensioni"
@@ -420,18 +427,18 @@
       "cluster": "pensioni"
     },
     {
-      "kw": "tasse svizzera italia",
-      "normalizedKeyword": "tasse svizzera italia",
+      "kw": "tasse svizzera percentuale",
+      "normalizedKeyword": "tasse svizzera percentuale",
       "weight": 0.21,
       "source": "suggest",
       "cluster": "fiscale"
     },
     {
-      "kw": "telelavoro frontalieri 2026",
-      "normalizedKeyword": "telelavoro frontalieri 2026",
-      "weight": 0.21,
-      "source": "suggest",
-      "cluster": "pratico"
+      "kw": "frontaliere ticino",
+      "normalizedKeyword": "frontaliere ticino",
+      "weight": 0.185,
+      "source": "gsc+suggest",
+      "cluster": "generic"
     },
     {
       "kw": "busta paga svizzera trattenute",
@@ -441,18 +448,18 @@
       "cluster": "fiscale"
     },
     {
-      "kw": "frontaliere sicuro",
-      "normalizedKeyword": "frontaliere sicuro",
+      "kw": "frontalieri italia svizzera",
+      "normalizedKeyword": "frontalieri italia svizzera",
       "weight": 0.18,
       "source": "suggest",
       "cluster": "generic"
     },
     {
-      "kw": "frontalieri svizzeri cosa sono",
-      "normalizedKeyword": "frontalieri svizzeri cosa sono",
+      "kw": "irpef nuovi frontalieri",
+      "normalizedKeyword": "irpef nuovi frontalieri",
       "weight": 0.18,
       "source": "suggest",
-      "cluster": "generic"
+      "cluster": "fiscale"
     },
     {
       "kw": "pensione avs frontalieri",
@@ -469,13 +476,6 @@
       "cluster": "fiscale"
     },
     {
-      "kw": "scaglioni irpef frontalieri svizzera",
-      "normalizedKeyword": "scaglioni irpef frontalieri svizzera",
-      "weight": 0.18,
-      "source": "suggest",
-      "cluster": "fiscale"
-    },
-    {
       "kw": "secondo pilastro in caso di morte",
       "normalizedKeyword": "secondo pilastro in caso di morte",
       "weight": 0.18,
@@ -483,32 +483,11 @@
       "cluster": "pensioni"
     },
     {
-      "kw": "tasse svizzera vs italia",
-      "normalizedKeyword": "tasse svizzera vs italia",
+      "kw": "tasse svizzera italia",
+      "normalizedKeyword": "tasse svizzera italia",
       "weight": 0.18,
       "source": "suggest",
       "cluster": "fiscale"
-    },
-    {
-      "kw": "telelavoro frontalieri svizzera",
-      "normalizedKeyword": "telelavoro frontalieri svizzera",
-      "weight": 0.18,
-      "source": "suggest",
-      "cluster": "pratico"
-    },
-    {
-      "kw": "acconto irpef frontalieri",
-      "normalizedKeyword": "acconto irpef frontalieri",
-      "weight": 0.15,
-      "source": "suggest",
-      "cluster": "fiscale"
-    },
-    {
-      "kw": "accordo telelavoro frontalieri",
-      "normalizedKeyword": "accordo telelavoro frontalieri",
-      "weight": 0.15,
-      "source": "suggest",
-      "cluster": "pratico"
     },
     {
       "kw": "busta paga svizzera excel",
@@ -518,11 +497,11 @@
       "cluster": "fiscale"
     },
     {
-      "kw": "frontaliere svizzera tasse",
-      "normalizedKeyword": "frontaliere svizzera tasse",
+      "kw": "frontaliere sicuro",
+      "normalizedKeyword": "frontaliere sicuro",
       "weight": 0.15,
       "source": "suggest",
-      "cluster": "fiscale"
+      "cluster": "generic"
     },
     {
       "kw": "frontalieri ticino",
@@ -532,8 +511,15 @@
       "cluster": "generic"
     },
     {
-      "kw": "secondo pilastro svizzera calcolo",
-      "normalizedKeyword": "secondo pilastro svizzera calcolo",
+      "kw": "scaglioni irpef frontalieri svizzera",
+      "normalizedKeyword": "scaglioni irpef frontalieri svizzera",
+      "weight": 0.15,
+      "source": "suggest",
+      "cluster": "fiscale"
+    },
+    {
+      "kw": "secondo pilastro previdenza",
+      "normalizedKeyword": "secondo pilastro previdenza",
       "weight": 0.15,
       "source": "suggest",
       "cluster": "pensioni"
@@ -546,15 +532,8 @@
       "cluster": "fiscale"
     },
     {
-      "kw": "frontaliere ticino",
-      "normalizedKeyword": "frontaliere ticino",
-      "weight": 0.125,
-      "source": "gsc+suggest",
-      "cluster": "generic"
-    },
-    {
-      "kw": "aliquote irpef frontalieri",
-      "normalizedKeyword": "aliquote irpef frontalieri",
+      "kw": "acconto irpef frontalieri",
+      "normalizedKeyword": "acconto irpef frontalieri",
       "weight": 0.12,
       "source": "suggest",
       "cluster": "fiscale"
@@ -567,11 +546,18 @@
       "cluster": "fiscale"
     },
     {
-      "kw": "frontalieri svizzera tasse",
-      "normalizedKeyword": "frontalieri svizzera tasse",
+      "kw": "frontaliere svizzera tasse",
+      "normalizedKeyword": "frontaliere svizzera tasse",
       "weight": 0.12,
       "source": "suggest",
       "cluster": "fiscale"
+    },
+    {
+      "kw": "frontalieri svizzeri cu",
+      "normalizedKeyword": "frontalieri svizzeri cu",
+      "weight": 0.12,
+      "source": "suggest",
+      "cluster": "generic"
     },
     {
       "kw": "secondo pilastro pac",
@@ -581,15 +567,15 @@
       "cluster": "pensioni"
     },
     {
-      "kw": "tasse svizzera e italia",
-      "normalizedKeyword": "tasse svizzera e italia",
+      "kw": "tasse svizzera stipendio",
+      "normalizedKeyword": "tasse svizzera stipendio",
       "weight": 0.12,
       "source": "suggest",
       "cluster": "fiscale"
     },
     {
-      "kw": "anticipo irpef frontalieri",
-      "normalizedKeyword": "anticipo irpef frontalieri",
+      "kw": "aliquota irpef frontalieri",
+      "normalizedKeyword": "aliquota irpef frontalieri",
       "weight": 0.09,
       "source": "suggest",
       "cluster": "fiscale"
@@ -609,11 +595,11 @@
       "cluster": "generic"
     },
     {
-      "kw": "frontalieri svizzeri cu",
-      "normalizedKeyword": "frontalieri svizzeri cu",
+      "kw": "frontalieri svizzera tasse",
+      "normalizedKeyword": "frontalieri svizzera tasse",
       "weight": 0.09,
       "source": "suggest",
-      "cluster": "generic"
+      "cluster": "fiscale"
     },
     {
       "kw": "secondo pilastro previdenza italia",
@@ -623,8 +609,8 @@
       "cluster": "pensioni"
     },
     {
-      "kw": "tasse svizzera stipendio",
-      "normalizedKeyword": "tasse svizzera stipendio",
+      "kw": "tasse svizzera cantoni",
+      "normalizedKeyword": "tasse svizzera cantoni",
       "weight": 0.09,
       "source": "suggest",
       "cluster": "fiscale"
@@ -644,15 +630,15 @@
       "cluster": "generic"
     },
     {
-      "kw": "frontalieri significato",
-      "normalizedKeyword": "frontalieri significato",
+      "kw": "frontalieri tassa salute",
+      "normalizedKeyword": "frontalieri tassa salute",
       "weight": 0.06,
       "source": "suggest",
-      "cluster": "generic"
+      "cluster": "fiscale"
     },
     {
-      "kw": "secondo pilastro in caso di divorzio",
-      "normalizedKeyword": "secondo pilastro in caso di divorzio",
+      "kw": "secondo pilastro di setriana",
+      "normalizedKeyword": "secondo pilastro di setriana",
       "weight": 0.06,
       "source": "suggest",
       "cluster": "pensioni"
@@ -665,8 +651,8 @@
       "cluster": "fiscale"
     },
     {
-      "kw": "tasse svizzera cantoni",
-      "normalizedKeyword": "tasse svizzera cantoni",
+      "kw": "tasse svizzera frontalieri",
+      "normalizedKeyword": "tasse svizzera frontalieri",
       "weight": 0.06,
       "source": "suggest",
       "cluster": "fiscale"
@@ -679,11 +665,11 @@
       "cluster": "fiscale"
     },
     {
-      "kw": "frontalieri tassa salute",
-      "normalizedKeyword": "frontalieri tassa salute",
+      "kw": "frontalieri significato",
+      "normalizedKeyword": "frontalieri significato",
       "weight": 0.03,
       "source": "suggest",
-      "cluster": "fiscale"
+      "cluster": "generic"
     },
     {
       "kw": "irpef vecchi frontalieri",
@@ -707,8 +693,8 @@
       "cluster": "fiscale"
     },
     {
-      "kw": "tasse svizzera frontalieri",
-      "normalizedKeyword": "tasse svizzera frontalieri",
+      "kw": "tasse svizzera partita iva",
+      "normalizedKeyword": "tasse svizzera partita iva",
       "weight": 0.03,
       "source": "suggest",
       "cluster": "fiscale"
@@ -717,6 +703,13 @@
       "kw": "lavoro in svizzera",
       "normalizedKeyword": "lavoro in svizzera",
       "weight": 0.029,
+      "source": "gsc",
+      "cluster": "lavoro"
+    },
+    {
+      "kw": "case anziani ticino offerte di lavoro",
+      "normalizedKeyword": "case anziani ticino offerte di lavoro",
+      "weight": 0.026,
       "source": "gsc",
       "cluster": "lavoro"
     },
@@ -730,21 +723,35 @@
     {
       "kw": "help me find ticino caregiver jobs for elderly care with live in option and clear legal contract terms.",
       "normalizedKeyword": "help me find ticino caregiver jobs for elderly care with live in option and clear legal contract terms.",
-      "weight": 0.022,
+      "weight": 0.024,
       "source": "gsc",
       "cluster": "lavoro"
     },
     {
       "kw": "i am searching for caregiver jobs in ticino for elderly support.",
       "normalizedKeyword": "i am searching for caregiver jobs in ticino for elderly support.",
-      "weight": 0.018,
+      "weight": 0.022,
       "source": "gsc",
       "cluster": "lavoro"
     },
     {
-      "kw": "case anziani ticino offerte di lavoro",
-      "normalizedKeyword": "case anziani ticino offerte di lavoro",
+      "kw": "offerte di lavoro casa di riposo svizzera",
+      "normalizedKeyword": "offerte di lavoro casa di riposo svizzera",
       "weight": 0.014,
+      "source": "gsc",
+      "cluster": "lavoro"
+    },
+    {
+      "kw": "teaching jobs in the canton of ticino",
+      "normalizedKeyword": "teaching jobs in the canton of ticino",
+      "weight": 0.014,
+      "source": "gsc",
+      "cluster": "lavoro"
+    },
+    {
+      "kw": "case anziani lugano posti di lavoro",
+      "normalizedKeyword": "case anziani lugano posti di lavoro",
+      "weight": 0.013,
       "source": "gsc",
       "cluster": "lavoro"
     },
@@ -756,15 +763,15 @@
       "cluster": "lavoro"
     },
     {
-      "kw": "teaching jobs in the canton of ticino",
-      "normalizedKeyword": "teaching jobs in the canton of ticino",
-      "weight": 0.013,
+      "kw": "cerco lavoro ticino",
+      "normalizedKeyword": "cerco lavoro ticino",
+      "weight": 0.012,
       "source": "gsc",
       "cluster": "lavoro"
     },
     {
-      "kw": "cerco lavoro ticino",
-      "normalizedKeyword": "cerco lavoro ticino",
+      "kw": "offerte lavoro casa di riposo svizzera",
+      "normalizedKeyword": "offerte lavoro casa di riposo svizzera",
       "weight": 0.012,
       "source": "gsc",
       "cluster": "lavoro"
@@ -794,11 +801,11 @@
   "sources": {
     "gscOrphans": {
       "ok": true,
-      "kw_count": 50
+      "kw_count": 46
     },
     "googleSuggest": {
       "ok": true,
-      "kw_count": 86
+      "kw_count": 84
     },
     "winnerFingerprint": {
       "ok": true,
