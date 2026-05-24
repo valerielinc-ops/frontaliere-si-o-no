@@ -1,16 +1,16 @@
 {
   "key": "pemsa",
   "label": "PEMSA",
-  "generatedAt": "2026-05-23T22:54:33.343Z",
+  "generatedAt": "2026-05-24T11:46:10.913Z",
   "total": 70,
   "newCount": 0,
   "updatedCount": 4,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 66,
-  "durationMs": 147727,
-  "avgDurationMs": 147727,
+  "durationMs": 147524,
+  "avgDurationMs": 147524,
   "durationHistory": [
-    147727
+    147524
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -163,45 +163,7 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "title": "PIASTRELLISTA",
-      "slug": "piastrellista-pemsa-rivera",
-      "url": "https://www.pemsa.ch/it/job/piastrellista-2673984/",
-      "applyUrl": "https://www.pemsa.ch/it/job/piastrellista-2673984/",
-      "company": "PEMSA",
-      "companyKey": "pemsa",
-      "companyDomain": "pemsa.ch",
-      "location": "Rivera",
-      "addressLocality": "Rivera",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "edilizia",
-      "sector": "Edilizia e tecnica",
-      "source": "pemsa-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "2026-05-08",
-      "employmentType": "full-time",
-      "contractType": "temporary",
-      "validThrough": "2026-05-23",
-      "id": "pemsa-0b83802e0a41",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "streetAddress": "Via Industria 20",
-      "postalCode": "6807",
-      "firstSeenAt": "2026-05-08T22:21:08.208Z",
-      "_qualityScore": 97,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 25
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "title": "Autista addetto alla distribuzione",
