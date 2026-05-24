@@ -297,11 +297,11 @@
     "canton": "BASILEA"
   },
   "BASILEA::de::data-center-technician-switzerland-pratteln-on-site-reboot-monkey-pratteln-2": {
-    "winnerJobIdentifier": "reboot-monkey-82b75718ba1a",
-    "winnerCanonical": "data-center-techniker-switzerland-pratteln-on-site-reboot-monkey-pratteln",
-    "decidedAt": "2026-05-24T00:00:00.000Z",
-    "lastSeenAt": "2026-05-24T00:00:00.000Z",
-    "score": 0.7273,
+    "winnerJobIdentifier": "reboot-monkey-39fa58da10d7",
+    "winnerCanonical": "data-center-technician-switzerland-pratteln-on-site-reboot-monkey-pratteln",
+    "decidedAt": "2026-05-17T00:00:00.000Z",
+    "lastSeenAt": "2026-05-23T00:00:00.000Z",
+    "score": 0.9,
     "candidatesCount": 1,
     "canton": "BASILEA"
   },
@@ -973,10 +973,10 @@
   },
   "BASILEA::fr::data-center-technician-switzerland-pratteln-on-site-reboot-monkey-pratteln-2": {
     "winnerJobIdentifier": "reboot-monkey-82b75718ba1a",
-    "winnerCanonical": "technicien-en-informatique-suisse-pratteln-sur-place-reboot-monkey-pratteln",
+    "winnerCanonical": "technicien-en-informatique-suisse-pratteln-sur-place-reboot-monkey-pratteln-90b937",
     "decidedAt": "2026-05-24T00:00:00.000Z",
     "lastSeenAt": "2026-05-24T00:00:00.000Z",
-    "score": 0.1875,
+    "score": 0.1765,
     "candidatesCount": 1,
     "canton": "BASILEA"
   },
@@ -3627,48 +3627,48 @@
     "canton": "FR"
   },
   "FR::de::ingegnere-dati-cartier-villars-sur-glane": {
-    "winnerJobIdentifier": "richemont-dba794aeabe8",
-    "winnerCanonical": "senior-analyst-fur-daten-und-automatisierung-finanzen-richemont-villars-sur-glane",
-    "decidedAt": "2026-05-24T00:00:00.000Z",
+    "winnerJobIdentifier": "richemont-7de2c39fb4b5",
+    "winnerCanonical": "softwaretechniker-cartier-villars-sur-glane",
+    "decidedAt": "2026-05-20T00:00:00.000Z",
     "lastSeenAt": "2026-05-24T00:00:00.000Z",
-    "score": 0.2143,
-    "candidatesCount": 1,
+    "score": 0.5714,
+    "candidatesCount": 2,
     "canton": "FR"
   },
   "FR::de::zifferblattmacher-lehre-h-f-x-2-jahres-kurs-procadrans-la-chaux-de-fonds": {
-    "winnerJobIdentifier": "richemont-dba794aeabe8",
-    "winnerCanonical": "senior-analyst-fur-daten-und-automatisierung-finanzen-richemont-villars-sur-glane",
-    "decidedAt": "2026-05-24T00:00:00.000Z",
+    "winnerJobIdentifier": "richemont-7de2c39fb4b5",
+    "winnerCanonical": "softwaretechniker-cartier-villars-sur-glane",
+    "decidedAt": "2026-05-20T00:00:00.000Z",
     "lastSeenAt": "2026-05-24T00:00:00.000Z",
     "score": 0,
-    "candidatesCount": 1,
+    "candidatesCount": 2,
     "canton": "FR"
   },
   "FR::en::apprentissage-cadranographe-h-f-x-cursus-2-ans-richemont-la-chaux-de-fonds": {
-    "winnerJobIdentifier": "richemont-dba794aeabe8",
-    "winnerCanonical": "data-automation-senior-analyst-finance-richemont-villars-sur-glane",
-    "decidedAt": "2026-05-24T00:00:00.000Z",
+    "winnerJobIdentifier": "richemont-7de2c39fb4b5",
+    "winnerCanonical": "software-engineer-richemont-villars-sur-glane",
+    "decidedAt": "2026-05-20T00:00:00.000Z",
     "lastSeenAt": "2026-05-24T00:00:00.000Z",
-    "score": 0.0476,
-    "candidatesCount": 1,
+    "score": 0.0556,
+    "candidatesCount": 2,
     "canton": "FR"
   },
   "FR::en::ingegnere-dati-cartier-villars-sur-glane": {
-    "winnerJobIdentifier": "richemont-dba794aeabe8",
-    "winnerCanonical": "data-automation-senior-analyst-finance-richemont-villars-sur-glane",
-    "decidedAt": "2026-05-24T00:00:00.000Z",
+    "winnerJobIdentifier": "richemont-7de2c39fb4b5",
+    "winnerCanonical": "software-engineer-richemont-villars-sur-glane",
+    "decidedAt": "2026-05-20T00:00:00.000Z",
     "lastSeenAt": "2026-05-24T00:00:00.000Z",
-    "score": 0.25,
-    "candidatesCount": 1,
+    "score": 0.3333,
+    "candidatesCount": 2,
     "canton": "FR"
   },
   "FR::en::zifferblattmacher-lehre-h-f-x-2-jahres-kurs-procadrans-la-chaux-de-fonds": {
-    "winnerJobIdentifier": "richemont-dba794aeabe8",
-    "winnerCanonical": "data-automation-senior-analyst-finance-richemont-villars-sur-glane",
-    "decidedAt": "2026-05-24T00:00:00.000Z",
+    "winnerJobIdentifier": "richemont-7de2c39fb4b5",
+    "winnerCanonical": "software-engineer-richemont-villars-sur-glane",
+    "decidedAt": "2026-05-20T00:00:00.000Z",
     "lastSeenAt": "2026-05-24T00:00:00.000Z",
     "score": 0,
-    "candidatesCount": 1,
+    "candidatesCount": 2,
     "canton": "FR"
   },
   "FR::fr::analyste-principal-des-donnees-et-de-l-automatisation-finances-richemont-villars-sur-glane": {
@@ -3690,21 +3690,21 @@
     "canton": "FR"
   },
   "FR::fr::ingegnere-dati-cartier-villars-sur-glane": {
-    "winnerJobIdentifier": "richemont-dba794aeabe8",
-    "winnerCanonical": "analyste-senior-donnees-automatisation-finance-richemont-villars-sur-glane",
-    "decidedAt": "2026-05-24T00:00:00.000Z",
+    "winnerJobIdentifier": "richemont-7de2c39fb4b5",
+    "winnerCanonical": "ingenieur-logiciel-cartier-villars-sur-glane",
+    "decidedAt": "2026-05-20T00:00:00.000Z",
     "lastSeenAt": "2026-05-24T00:00:00.000Z",
-    "score": 0.25,
-    "candidatesCount": 1,
+    "score": 0.5,
+    "candidatesCount": 2,
     "canton": "FR"
   },
   "FR::fr::zifferblattmacher-lehre-h-f-x-2-jahres-kurs-procadrans-la-chaux-de-fonds": {
-    "winnerJobIdentifier": "richemont-dba794aeabe8",
-    "winnerCanonical": "analyste-senior-donnees-automatisation-finance-richemont-villars-sur-glane",
-    "decidedAt": "2026-05-24T00:00:00.000Z",
+    "winnerJobIdentifier": "richemont-7de2c39fb4b5",
+    "winnerCanonical": "ingenieur-logiciel-cartier-villars-sur-glane",
+    "decidedAt": "2026-05-20T00:00:00.000Z",
     "lastSeenAt": "2026-05-24T00:00:00.000Z",
     "score": 0,
-    "candidatesCount": 1,
+    "candidatesCount": 2,
     "canton": "FR"
   },
   "FR::it::analista-senior-di-dati-e-automazione-finanza-richemont-villars-sur-glane": {
@@ -3717,12 +3717,12 @@
     "canton": "FR"
   },
   "FR::it::apprendistato-cadranografo-h-f-x-corso-di-2-anni-procadrans-la-chaux-de-fonds": {
-    "winnerJobIdentifier": "richemont-dba794aeabe8",
-    "winnerCanonical": "analista-senior-dati-automazione-finanza-richemont-villars-sur-glane",
-    "decidedAt": "2026-05-24T00:00:00.000Z",
+    "winnerJobIdentifier": "richemont-7de2c39fb4b5",
+    "winnerCanonical": "ingegnere-di-software-cartier-villars-sur-glane",
+    "decidedAt": "2026-05-19T00:00:00.000Z",
     "lastSeenAt": "2026-05-24T00:00:00.000Z",
-    "score": 0,
-    "candidatesCount": 1,
+    "score": 0.05,
+    "candidatesCount": 2,
     "canton": "FR"
   },
   "FR::it::apprentissage-cadranographe-h-f-x-cursus-2-ans-richemont-la-chaux-de-fonds": {
@@ -3753,12 +3753,12 @@
     "canton": "FR"
   },
   "FR::it::ingegnere-dati-cartier-villars-sur-glane": {
-    "winnerJobIdentifier": "richemont-dba794aeabe8",
-    "winnerCanonical": "analista-senior-dati-automazione-finanza-richemont-villars-sur-glane",
-    "decidedAt": "2026-05-24T00:00:00.000Z",
+    "winnerJobIdentifier": "richemont-7de2c39fb4b5",
+    "winnerCanonical": "ingegnere-di-software-cartier-villars-sur-glane",
+    "decidedAt": "2026-05-20T00:00:00.000Z",
     "lastSeenAt": "2026-05-24T00:00:00.000Z",
-    "score": 0.3636,
-    "candidatesCount": 1,
+    "score": 0.625,
+    "candidatesCount": 2,
     "canton": "FR"
   },
   "FR::it::ingegnere-di-software-cartier-villars-sur-glane": {
@@ -3771,12 +3771,12 @@
     "canton": "FR"
   },
   "FR::it::zifferblattmacher-lehre-h-f-x-2-jahres-kurs-procadrans-la-chaux-de-fonds": {
-    "winnerJobIdentifier": "richemont-dba794aeabe8",
-    "winnerCanonical": "analista-senior-dati-automazione-finanza-richemont-villars-sur-glane",
-    "decidedAt": "2026-05-24T00:00:00.000Z",
+    "winnerJobIdentifier": "richemont-7de2c39fb4b5",
+    "winnerCanonical": "ingegnere-di-software-cartier-villars-sur-glane",
+    "decidedAt": "2026-05-20T00:00:00.000Z",
     "lastSeenAt": "2026-05-24T00:00:00.000Z",
     "score": 0,
-    "candidatesCount": 1,
+    "candidatesCount": 2,
     "canton": "FR"
   },
   "GE::de::apprendista-responsabile-progetti-sste-valfleurier-buttes": {
@@ -4086,12 +4086,12 @@
     "canton": "GE"
   },
   "GE::fr::international-rewards-specialist-richemont-meyrin": {
-    "winnerJobIdentifier": "richemont-1f156fe78cc7",
-    "winnerCanonical": "specialiste-des-recompenses-internationales-cartier-meyrin",
-    "decidedAt": "2026-05-24T00:00:00.000Z",
+    "winnerJobIdentifier": "richemont-fa60ec6074bb",
+    "winnerCanonical": "specialiste-des-ressources-humaines-richemont-meyrin",
+    "decidedAt": "2026-05-19T00:00:00.000Z",
     "lastSeenAt": "2026-05-24T00:00:00.000Z",
-    "score": 0.1,
-    "candidatesCount": 1,
+    "score": 0.2222,
+    "candidatesCount": 2,
     "canton": "GE"
   },
   "GE::fr::ospitalita-interno-richemont-meyrin": {
@@ -4320,11 +4320,11 @@
     "canton": "GE"
   },
   "GE::it::gruppo-l-d-intern-richemont-bellevue": {
-    "winnerJobIdentifier": "richemont-c4a05a134548",
-    "winnerCanonical": "group-l-d-tirocinante-richemont-bellevue",
-    "decidedAt": "2026-05-23T00:00:00.000Z",
-    "lastSeenAt": "2026-05-23T00:00:00.000Z",
-    "score": 0.5,
+    "winnerJobIdentifier": "richemont-d9664a82260d",
+    "winnerCanonical": "commercio-al-dettaglio-e-partner-piaget-plan-les-ouates",
+    "decidedAt": "2026-05-24T00:00:00.000Z",
+    "lastSeenAt": "2026-05-24T00:00:00.000Z",
+    "score": 0,
     "candidatesCount": 1,
     "canton": "GE"
   },
@@ -4356,12 +4356,12 @@
     "canton": "GE"
   },
   "GE::it::hris-specialist-cdd-richemont-meyrin": {
-    "winnerJobIdentifier": "richemont-ea0036f1fc4e",
-    "winnerCanonical": "hris-specialista-cdd-richemont-meyrin",
-    "decidedAt": "2026-05-24T00:00:00.000Z",
+    "winnerJobIdentifier": "richemont-31697e54915b",
+    "winnerCanonical": "ospitalita-interno-richemont-meyrin",
+    "decidedAt": "2026-05-19T00:00:00.000Z",
     "lastSeenAt": "2026-05-24T00:00:00.000Z",
-    "score": 0.6667,
-    "candidatesCount": 2,
+    "score": 0.2857,
+    "candidatesCount": 1,
     "canton": "GE"
   },
   "GE::it::internal-warehousing-tech-team-lead-richemont-meyrin": {
@@ -4374,12 +4374,12 @@
     "canton": "GE"
   },
   "GE::it::international-rewards-specialist-richemont-meyrin": {
-    "winnerJobIdentifier": "richemont-1f156fe78cc7",
-    "winnerCanonical": "specialista-internazionale-dei-premi-cartier-meyrin",
-    "decidedAt": "2026-05-24T00:00:00.000Z",
+    "winnerJobIdentifier": "richemont-fa60ec6074bb",
+    "winnerCanonical": "risorse-umane-admin-specialista-richemont-meyrin",
+    "decidedAt": "2026-05-19T00:00:00.000Z",
     "lastSeenAt": "2026-05-24T00:00:00.000Z",
-    "score": 0.1,
-    "candidatesCount": 1,
+    "score": 0.2222,
+    "candidatesCount": 2,
     "canton": "GE"
   },
   "GE::it::medecin-interne-au-departement-de-readaptation-et-geriatrie-100-hug-geneve": {
@@ -9495,21 +9495,21 @@
     "canton": "TG"
   },
   "TG::de::neuropsychologen-in-spital-thurgau-stgag-munsterlingen": {
-    "winnerJobIdentifier": "spital-thurgau-757e7b31e3f6",
-    "winnerCanonical": "ausbildung-dipl-pflegefachmann-frau-hf-2-jahre-verkurzt-september-2027-bfgs-stgag-ch",
-    "decidedAt": "2026-05-24T00:00:00.000Z",
+    "winnerJobIdentifier": "spital-thurgau-4fca9efb3c6b",
+    "winnerCanonical": "psychologe-in-spital-thurgau-stgag-diessenhofen",
+    "decidedAt": "2026-05-23T00:00:00.000Z",
     "lastSeenAt": "2026-05-24T00:00:00.000Z",
-    "score": 0.0556,
-    "candidatesCount": 1,
+    "score": 0.5,
+    "candidatesCount": 2,
     "canton": "TG"
   },
   "TG::de::neuropsychologen-in-stgag-ch": {
-    "winnerJobIdentifier": "spital-thurgau-757e7b31e3f6",
-    "winnerCanonical": "ausbildung-dipl-pflegefachmann-frau-hf-2-jahre-verkurzt-september-2027-bfgs-stgag-ch",
-    "decidedAt": "2026-05-24T00:00:00.000Z",
+    "winnerJobIdentifier": "spital-thurgau-4fca9efb3c6b",
+    "winnerCanonical": "psychologe-in-spital-thurgau-stgag-diessenhofen",
+    "decidedAt": "2026-05-23T00:00:00.000Z",
     "lastSeenAt": "2026-05-24T00:00:00.000Z",
-    "score": 0.1333,
-    "candidatesCount": 1,
+    "score": 0.25,
+    "candidatesCount": 2,
     "canton": "TG"
   },
   "TG::de::oberarzt-arztin-forensik-stgag-ch": {
@@ -9522,12 +9522,12 @@
     "canton": "TG"
   },
   "TG::de::psicologo-spital-thurgau-stgag-diessenhofen": {
-    "winnerJobIdentifier": "spital-thurgau-757e7b31e3f6",
-    "winnerCanonical": "ausbildung-dipl-pflegefachmann-frau-hf-2-jahre-verkurzt-september-2027-bfgs-stgag-ch",
-    "decidedAt": "2026-05-24T00:00:00.000Z",
+    "winnerJobIdentifier": "spital-thurgau-e4dcde94c1f6",
+    "winnerCanonical": "neuropsychologen-in-stgag-ch",
+    "decidedAt": "2026-05-23T00:00:00.000Z",
     "lastSeenAt": "2026-05-24T00:00:00.000Z",
-    "score": 0.0588,
-    "candidatesCount": 1,
+    "score": 0.125,
+    "candidatesCount": 2,
     "canton": "TG"
   },
   "TG::de::psychologe-in-stgag-ch": {
@@ -9693,21 +9693,21 @@
     "canton": "TG"
   },
   "TG::en::neuropsychologen-in-spital-thurgau-stgag-munsterlingen": {
-    "winnerJobIdentifier": "spital-thurgau-757e7b31e3f6",
-    "winnerCanonical": "education-care-specialist-hf-2-years-shortened-september-2027-bfgs-spital-thurgau-stgag-munsterlingen",
-    "decidedAt": "2026-05-24T00:00:00.000Z",
+    "winnerJobIdentifier": "spital-thurgau-e4dcde94c1f6",
+    "winnerCanonical": "neuropsychologist-spital-thurgau-stgag-munsterlingen",
+    "decidedAt": "2026-05-22T00:00:00.000Z",
     "lastSeenAt": "2026-05-24T00:00:00.000Z",
-    "score": 0.25,
-    "candidatesCount": 1,
+    "score": 0.5714,
+    "candidatesCount": 2,
     "canton": "TG"
   },
   "TG::en::neuropsychologen-in-stgag-ch": {
-    "winnerJobIdentifier": "spital-thurgau-757e7b31e3f6",
-    "winnerCanonical": "education-care-specialist-hf-2-years-shortened-september-2027-bfgs-spital-thurgau-stgag-munsterlingen",
-    "decidedAt": "2026-05-24T00:00:00.000Z",
+    "winnerJobIdentifier": "spital-thurgau-4fca9efb3c6b",
+    "winnerCanonical": "psychologist-spital-thurgau-stgag-diessenhofen",
+    "decidedAt": "2026-05-23T00:00:00.000Z",
     "lastSeenAt": "2026-05-24T00:00:00.000Z",
-    "score": 0.0588,
-    "candidatesCount": 1,
+    "score": 0.125,
+    "candidatesCount": 2,
     "canton": "TG"
   },
   "TG::en::oberarzt-arztin-forensik-stgag-ch": {
@@ -9729,12 +9729,12 @@
     "canton": "TG"
   },
   "TG::en::psicologo-spital-thurgau-stgag-diessenhofen": {
-    "winnerJobIdentifier": "spital-thurgau-757e7b31e3f6",
-    "winnerCanonical": "education-care-specialist-hf-2-years-shortened-september-2027-bfgs-spital-thurgau-stgag-munsterlingen",
-    "decidedAt": "2026-05-24T00:00:00.000Z",
+    "winnerJobIdentifier": "spital-thurgau-e4dcde94c1f6",
+    "winnerCanonical": "neuropsychologist-spital-thurgau-stgag-munsterlingen",
+    "decidedAt": "2026-05-23T00:00:00.000Z",
     "lastSeenAt": "2026-05-24T00:00:00.000Z",
-    "score": 0.1875,
-    "candidatesCount": 1,
+    "score": 0.4286,
+    "candidatesCount": 2,
     "canton": "TG"
   },
   "TG::en::psychologe-in-stgag-ch": {
@@ -9918,21 +9918,21 @@
     "canton": "TG"
   },
   "TG::fr::neuropsychologen-in-spital-thurgau-stgag-munsterlingen": {
-    "winnerJobIdentifier": "spital-thurgau-757e7b31e3f6",
-    "winnerCanonical": "specialiste-des-soins-d-education-hf-2-ans-raccourcis-septembre-2027-bfgs-spital-thurgau-stgag-munsterlingen",
-    "decidedAt": "2026-05-24T00:00:00.000Z",
+    "winnerJobIdentifier": "spital-thurgau-4fca9efb3c6b",
+    "winnerCanonical": "psychologue-spital-thurgau-stgag-diessenhofen",
+    "decidedAt": "2026-05-23T00:00:00.000Z",
     "lastSeenAt": "2026-05-24T00:00:00.000Z",
-    "score": 0.2222,
-    "candidatesCount": 1,
+    "score": 0.375,
+    "candidatesCount": 2,
     "canton": "TG"
   },
   "TG::fr::neuropsychologen-in-stgag-ch": {
-    "winnerJobIdentifier": "spital-thurgau-757e7b31e3f6",
-    "winnerCanonical": "specialiste-des-soins-d-education-hf-2-ans-raccourcis-septembre-2027-bfgs-spital-thurgau-stgag-munsterlingen",
-    "decidedAt": "2026-05-24T00:00:00.000Z",
+    "winnerJobIdentifier": "spital-thurgau-4fca9efb3c6b",
+    "winnerCanonical": "psychologue-spital-thurgau-stgag-diessenhofen",
+    "decidedAt": "2026-05-23T00:00:00.000Z",
     "lastSeenAt": "2026-05-24T00:00:00.000Z",
-    "score": 0.0526,
-    "candidatesCount": 1,
+    "score": 0.125,
+    "candidatesCount": 2,
     "canton": "TG"
   },
   "TG::fr::oberarzt-arztin-forensik-stgag-ch": {
@@ -9954,12 +9954,12 @@
     "canton": "TG"
   },
   "TG::fr::psicologo-spital-thurgau-stgag-diessenhofen": {
-    "winnerJobIdentifier": "spital-thurgau-757e7b31e3f6",
-    "winnerCanonical": "specialiste-des-soins-d-education-hf-2-ans-raccourcis-septembre-2027-bfgs-spital-thurgau-stgag-munsterlingen",
-    "decidedAt": "2026-05-24T00:00:00.000Z",
+    "winnerJobIdentifier": "spital-thurgau-e4dcde94c1f6",
+    "winnerCanonical": "neuropsychologen-in-spital-thurgau-stgag-munsterlingen",
+    "decidedAt": "2026-05-23T00:00:00.000Z",
     "lastSeenAt": "2026-05-24T00:00:00.000Z",
-    "score": 0.1667,
-    "candidatesCount": 1,
+    "score": 0.375,
+    "candidatesCount": 2,
     "canton": "TG"
   },
   "TG::fr::psychologe-in-stgag-ch": {
@@ -10278,39 +10278,39 @@
     "canton": "TG"
   },
   "TG::it::neuropsicologo-a-spital-thurgau-stgag-munsterlingen": {
-    "winnerJobIdentifier": "spital-thurgau-757e7b31e3f6",
-    "winnerCanonical": "specialista-dell-educazione-hf-2-anni-abbreviato-settembre-2027-bfgs-spital-thurgau-stgag-munsterlingen",
+    "winnerJobIdentifier": "spital-thurgau-4fca9efb3c6b",
+    "winnerCanonical": "psicologo-spital-thurgau-stgag-diessenhofen",
     "decidedAt": "2026-05-24T00:00:00.000Z",
     "lastSeenAt": "2026-05-24T00:00:00.000Z",
-    "score": 0.25,
-    "candidatesCount": 1,
+    "score": 0.375,
+    "candidatesCount": 2,
     "canton": "TG"
   },
   "TG::it::neuropsicologo-a-spital-thurgau-stgag-munsterlingen-b3fd65": {
-    "winnerJobIdentifier": "spital-thurgau-757e7b31e3f6",
-    "winnerCanonical": "specialista-dell-educazione-hf-2-anni-abbreviato-settembre-2027-bfgs-spital-thurgau-stgag-munsterlingen",
-    "decidedAt": "2026-05-24T00:00:00.000Z",
+    "winnerJobIdentifier": "spital-thurgau-4fca9efb3c6b",
+    "winnerCanonical": "psicologo-spital-thurgau-stgag-diessenhofen",
+    "decidedAt": "2026-05-23T00:00:00.000Z",
     "lastSeenAt": "2026-05-24T00:00:00.000Z",
-    "score": 0.2353,
-    "candidatesCount": 1,
+    "score": 0.3333,
+    "candidatesCount": 2,
     "canton": "TG"
   },
   "TG::it::neuropsychologen-in-spital-thurgau-stgag-munsterlingen": {
-    "winnerJobIdentifier": "spital-thurgau-757e7b31e3f6",
-    "winnerCanonical": "specialista-dell-educazione-hf-2-anni-abbreviato-settembre-2027-bfgs-spital-thurgau-stgag-munsterlingen",
-    "decidedAt": "2026-05-24T00:00:00.000Z",
+    "winnerJobIdentifier": "spital-thurgau-e4dcde94c1f6",
+    "winnerCanonical": "neuropsicologo-a-spital-thurgau-stgag-munsterlingen-b3fd65",
+    "decidedAt": "2026-05-22T00:00:00.000Z",
     "lastSeenAt": "2026-05-24T00:00:00.000Z",
-    "score": 0.25,
-    "candidatesCount": 1,
+    "score": 0.4444,
+    "candidatesCount": 2,
     "canton": "TG"
   },
   "TG::it::neuropsychologen-in-stgag-ch": {
-    "winnerJobIdentifier": "spital-thurgau-757e7b31e3f6",
-    "winnerCanonical": "specialista-dell-educazione-hf-2-anni-abbreviato-settembre-2027-bfgs-spital-thurgau-stgag-munsterlingen",
-    "decidedAt": "2026-05-24T00:00:00.000Z",
+    "winnerJobIdentifier": "spital-thurgau-4fca9efb3c6b",
+    "winnerCanonical": "psicologo-spital-thurgau-stgag-diessenhofen",
+    "decidedAt": "2026-05-22T00:00:00.000Z",
     "lastSeenAt": "2026-05-24T00:00:00.000Z",
-    "score": 0.0588,
-    "candidatesCount": 1,
+    "score": 0.125,
+    "candidatesCount": 2,
     "canton": "TG"
   },
   "TG::it::oberarzt-arztin-forensik-stgag-ch": {
@@ -10341,11 +10341,11 @@
     "canton": "TG"
   },
   "TG::it::psicologo-spital-thurgau-stgag-diessenhofen": {
-    "winnerJobIdentifier": "spital-thurgau-757e7b31e3f6",
-    "winnerCanonical": "specialista-dell-educazione-hf-2-anni-abbreviato-settembre-2027-bfgs-spital-thurgau-stgag-munsterlingen",
-    "decidedAt": "2026-05-24T00:00:00.000Z",
+    "winnerJobIdentifier": "spital-thurgau-e4dcde94c1f6",
+    "winnerCanonical": "neuropsicologo-a-spital-thurgau-stgag-munsterlingen-b3fd65",
+    "decidedAt": "2026-05-22T00:00:00.000Z",
     "lastSeenAt": "2026-05-24T00:00:00.000Z",
-    "score": 0.1875,
+    "score": 0.3333,
     "candidatesCount": 1,
     "canton": "TG"
   },
@@ -14706,21 +14706,21 @@
     "canton": "ZG"
   },
   "ZG::fr::senior-associate-assistant-manager-audit-trade-industries-services-pwc-zug": {
-    "winnerJobIdentifier": "pwc-1902c8b10636",
+    "winnerJobIdentifier": "pwc-0054671bedc4",
     "winnerCanonical": "senior-associate-assistant-manager-verification-commerce-industries-et-services-pwc-switzerland-zug",
-    "decidedAt": "2026-05-24T00:00:00.000Z",
-    "lastSeenAt": "2026-05-24T00:00:00.000Z",
+    "decidedAt": "2026-05-14T00:00:00.000Z",
+    "lastSeenAt": "2026-05-23T00:00:00.000Z",
     "score": 0.5714,
     "candidatesCount": 1,
     "canton": "ZG"
   },
   "ZG::fr::senior-associate-assistant-manager-verification-commerce-industries-et-services-pwc-switzerland-luzern": {
-    "winnerJobIdentifier": "pwc-1902c8b10636",
+    "winnerJobIdentifier": "pwc-0054671bedc4",
     "winnerCanonical": "senior-associate-assistant-manager-verification-commerce-industries-et-services-pwc-switzerland-zug",
-    "decidedAt": "2026-05-24T00:00:00.000Z",
-    "lastSeenAt": "2026-05-24T00:00:00.000Z",
+    "decidedAt": "2026-05-18T00:00:00.000Z",
+    "lastSeenAt": "2026-05-23T00:00:00.000Z",
     "score": 0.8462,
-    "candidatesCount": 1,
+    "candidatesCount": 2,
     "canton": "ZG"
   },
   "ZG::it::associato-senior-assistente-responsabile-revisione-del-commercio-delle-industrie-e-dei-servizi-pwc-switzerland-luzern": {
