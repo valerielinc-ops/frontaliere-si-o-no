@@ -1,6 +1,6 @@
 {
   "crawlerKey": "vtg",
-  "assembledAt": "2026-05-24T12:34:53.959Z",
+  "assembledAt": "2026-05-24T23:47:10.401Z",
   "jobs": [
     {
       "id": "company-9lhprp",
@@ -785,7 +785,8 @@
       "addressLocality": "Bern",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-8lndw",
@@ -1257,8 +1258,8 @@
           "mannschaft-e-kader-im-gastgewerblichen-bereich-m-w-d-swiss-armed-forces-vtg-bellinzona",
           "mannschaft-e-kader-im-gastgewerblichen-bereich-m-w-swiss-armed-forces-vtg-bern",
           "team-und-kader-im-gastronomy-m-w-swiss-armed-forces-vtg-bern",
-          "mannschaft-e-kader-im-gastgewerblichen-bereich-m-w-d-swiss-armed-forces-vtg-bern",
-          "projektmanager-m-w-swiss-armed-forces-vtg-bern"
+          "projektmanager-m-w-swiss-armed-forces-vtg-bern",
+          "mannschaft-e-kader-im-gastgewerblichen-bereich-m-w-d-swiss-armed-forces-vtg-bern"
         ],
         "en": [
           "mannschaft-und-kader-im-gastgewerblichen-bereich-m-w-d-swiss-armed-forces-vtg-bern-6gmxu3"
@@ -1277,9 +1278,9 @@
         "mannschaft-e-kader-im-gastgewerblichen-bereich-m-w-d-swiss-armed-forces-vtg-bellinzona",
         "mannschaft-e-kader-im-gastgewerblichen-bereich-m-w-swiss-armed-forces-vtg-bern",
         "team-und-kader-im-gastronomy-m-w-swiss-armed-forces-vtg-bern",
+        "projektmanager-m-w-swiss-armed-forces-vtg-bern",
         "mannschaft-und-kader-im-gastgewerblichen-bereich-m-w-d-swiss-armed-forces-vtg-bern-6gmxu3",
-        "mannschaft-und-kader-im-gastgewerblichen-bereich-m-w-swiss-armed-forces-vtg-bellinzona",
-        "projektmanager-m-w-swiss-armed-forces-vtg-bern"
+        "mannschaft-und-kader-im-gastgewerblichen-bereich-m-w-swiss-armed-forces-vtg-bellinzona"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -1699,7 +1700,8 @@
       "addressLocality": "Bern",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-6iaf9o",
@@ -2547,7 +2549,8 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "salaryMin": 49500,
-      "salaryMax": 75000
+      "salaryMax": 75000,
+      "needsRetranslation": true
     }
   ]
 }
