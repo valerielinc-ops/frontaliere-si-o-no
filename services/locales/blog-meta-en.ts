@@ -7744,6 +7744,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.frontalieri-detrazioni-fiscali-italia-2026.title': 'Cross-border workers: 2026 tax deductions guide',
     'blog.article.frontalieri-detrazioni-fiscali-italia-2026.excerpt': 'Find out which expenses can be deducted and the required documents for cross-border workers\' tax deductions in Italy in 2026.',
     'blog.article.frontalieri-detrazioni-fiscali-italia-2026.imageAlt': 'Panorama of Lugano with the lake and surrounding mountains',
+    'blog.article.abbonamenti-sconti-frontalieri-transporti.title': 'Cross-border worker discounts on Ticino-Lombardy public transport',
+    'blog.article.abbonamenti-sconti-frontalieri-transporti.excerpt': 'Complete guide to cross-border worker discounts on public transport between Ticino and Lombardy, with details on trains, buses, and benefits.',
+    'blog.article.abbonamenti-sconti-frontalieri-transporti.imageAlt': 'Train and bus at Lake Lugano, public transport in Ticino',
 };
 
 export default blogMetaEn;

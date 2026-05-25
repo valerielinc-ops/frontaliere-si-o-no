@@ -7745,6 +7745,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.frontalieri-detrazioni-fiscali-italia-2026.title': 'Frontalieri: Guida alle detrazioni fiscali in Italia 2026',
     'blog.article.frontalieri-detrazioni-fiscali-italia-2026.excerpt': 'Scopri quali spese possono essere scaricate e i documenti necessari per le detrazioni fiscali dei frontalieri in Italia nel 2026.',
     'blog.article.frontalieri-detrazioni-fiscali-italia-2026.imageAlt': 'Panorama di Lugano con il lago e le montagne circostanti',
+    'blog.article.abbonamenti-sconti-frontalieri-transporti.title': 'Abbonamenti e sconti per frontalieri sui trasporti pubblici Ticino-Lombardia',
+    'blog.article.abbonamenti-sconti-frontalieri-transporti.excerpt': 'Guida completa agli abbonamenti e sconti per frontalieri sui trasporti pubblici tra Ticino e Lombardia, con dettagli su treni, bus e agevolazioni.',
+    'blog.article.abbonamenti-sconti-frontalieri-transporti.imageAlt': 'Treno e autobus al lago di Lugano, trasporti pubblici Ticino',
 };
 
 export default blogMetaIt;

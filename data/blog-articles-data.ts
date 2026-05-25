@@ -24608,4 +24608,13 @@ export const ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'abbonamenti-sconti-frontalieri-transporti',
+ category: 'pratico',
+ date: '2026-05-25T09:47:45.892Z',
+ image: '/images/blog/abbonamenti-sconti-frontalieri-transporti.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

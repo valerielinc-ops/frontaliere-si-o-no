@@ -7745,6 +7745,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.frontalieri-detrazioni-fiscali-italia-2026.title': 'Frontaliers: Guide des déductions fiscales en Italie 2026',
     'blog.article.frontalieri-detrazioni-fiscali-italia-2026.excerpt': 'Découvrez quelles dépenses peuvent être déduites et les documents nécessaires pour les déductions fiscales des frontaliers en Italie en 2026.',
     'blog.article.frontalieri-detrazioni-fiscali-italia-2026.imageAlt': 'Panorama de Lugano avec le lac et les montagnes environnantes',
+    'blog.article.abbonamenti-sconti-frontalieri-transporti.title': 'Abonnements et réductions pour travailleurs frontaliers',
+    'blog.article.abbonamenti-sconti-frontalieri-transporti.excerpt': 'Guide complet sur les abonnements et réductions pour travailleurs frontaliers sur les transports publics entre le Tessin et la Lombardie, avec des détails sur les trains, les bus et les avantages.',
+    'blog.article.abbonamenti-sconti-frontalieri-transporti.imageAlt': 'Train et bus au lac de Lugano, transports publics en Tessin',
 };
 
 export default blogMetaFr;

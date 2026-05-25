@@ -7743,6 +7743,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.frontalieri-detrazioni-fiscali-italia-2026.title': 'Grenzgänger: Steuerabzüge in Italien 2026',
     'blog.article.frontalieri-detrazioni-fiscali-italia-2026.excerpt': 'Erfahren Sie, welche Ausgaben abgesetzt werden können und welche Dokumente für die Steuerabzüge der Grenzgänger in Italien im Jahr 2026 erforderlich sind.',
     'blog.article.frontalieri-detrazioni-fiscali-italia-2026.imageAlt': 'Panorama von Lugano mit dem See und den umliegenden Bergen',
+    'blog.article.abbonamenti-sconti-frontalieri-transporti.title': 'Abonnements und Rabatte für Grenzgänger im öffentlichen Verkehr',
+    'blog.article.abbonamenti-sconti-frontalieri-transporti.excerpt': 'Vollständige Anleitung zu Abonnements und Rabatten für Grenzgänger im öffentlichen Verkehr zwischen dem Tessin und der Lombardei, mit Details zu Zügen, Bussen und Vergünstigungen.',
+    'blog.article.abbonamenti-sconti-frontalieri-transporti.imageAlt': 'Zug und Bus am Luganersee, öffentlicher Verkehr im Tessin',
 };
 
 export default blogMetaDe;
