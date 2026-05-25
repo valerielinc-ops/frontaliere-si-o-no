@@ -7770,6 +7770,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.rientro-pentecoste-traffico-ticino-2026.title': 'Pfingsten 2026: Rückreise in den Tessin',
     'blog.article.rientro-pentecoste-traffico-ticino-2026.excerpt': 'Nach dem langen Pfingstwochenende verspricht die Rückreise in den Tessin weniger Staus als in den Vorjahren. Hier erfahren Sie, was Sie erwarten können.',
     'blog.article.rientro-pentecoste-traffico-ticino-2026.imageAlt': 'Luftaufnahme des Luganer Sees mit Bergen und Booten, sonniger Tag',
+    'blog.article.meccanici-manutentori-edili-introvabili-ticino.title': 'Fachkräfte in der Schweiz schwer zu finden',
+    'blog.article.meccanici-manutentori-edili-introvabili-ticino.excerpt': 'Die Analyse von Openjobmetis zeigt über 1.200 offene Stellen in Italien, mit hoher Nachfrage in Lombardei, Venetien und der Toskana.',
+    'blog.article.meccanici-manutentori-edili-introvabili-ticino.imageAlt': 'Ein professioneller Mechaniker, der in einer Werkstatt im Tessin arbeitet, umgeben von Werkzeugen und Maschinen.',
 };
 
 export default blogMetaDe;

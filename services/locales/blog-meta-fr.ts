@@ -7772,6 +7772,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.rientro-pentecoste-traffico-ticino-2026.title': 'Pentecôte 2026: trafic de retour vers le Tessin',
     'blog.article.rientro-pentecoste-traffico-ticino-2026.excerpt': 'Après le long week-end de la Pentecôte, le retour vers le Tessin devrait présenter moins de bouchons que les années précédentes. Voici ce à quoi s\'attendre.',
     'blog.article.rientro-pentecoste-traffico-ticino-2026.imageAlt': 'Vue aérienne du lac de Lugano avec des montagnes et des bateaux, journée ensoleillée',
+    'blog.article.meccanici-manutentori-edili-introvabili-ticino.title': 'Mécaniciens, mainteneurs et maçons introuvables au Tessin',
+    'blog.article.meccanici-manutentori-edili-introvabili-ticino.excerpt': 'L\'analyse d\'Openjobmetis révèle plus de 1 200 postes ouverts en Italie, avec une forte demande en Lombardie, Vénétie et Toscane.',
+    'blog.article.meccanici-manutentori-edili-introvabili-ticino.imageAlt': 'Un mécanicien professionnel travaillant dans un atelier en Tessin, entouré d\'outils et de machines.',
 };
 
 export default blogMetaFr;

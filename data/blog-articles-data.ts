@@ -24689,4 +24689,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'meccanici-manutentori-edili-introvabili-ticino',
+ category: 'pratico',
+ date: '2026-05-25T10:40:36.271Z',
+ image: '/images/blog/meccanici-manutentori-edili-introvabili-ticino.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

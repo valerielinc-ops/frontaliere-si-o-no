@@ -3833,6 +3833,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-keller-sutter-banche-stabilita-2026': { name: 'Finanza e banche', path: '/articoli-frontaliere/keller-sutter-banche-stabilita-2026', parent: 'blog' },
     'blog-educatore-infanzia-ticino-stipendi-2026': { name: 'Lavoro Ticino', path: '/articoli-frontaliere/educatore-infanzia-ticino-stipendi-2026', parent: 'blog' },
     'blog-rientro-pentecoste-traffico-ticino-2026': { name: 'Traffico Pentecoste', path: '/articoli-frontaliere/rientro-pentecoste-traffico-ticino-2026', parent: 'blog' },
+    'blog-meccanici-manutentori-edili-introvabili-ticino': { name: 'Lavoro', path: '/articoli-frontaliere/meccanici-manutentori-edili-introvabili-ticino', parent: 'blog' },
  };
 
  const info = sectionNames[section];

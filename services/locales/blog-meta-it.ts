@@ -7772,6 +7772,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.rientro-pentecoste-traffico-ticino-2026.title': 'Pentecoste 2026: traffico in rientro verso il Ticino',
     'blog.article.rientro-pentecoste-traffico-ticino-2026.excerpt': 'Dopo il weekend lungo di Pentecoste, il rientro verso il Ticino promette meno code rispetto agli anni precedenti. Ecco cosa aspettarsi.',
     'blog.article.rientro-pentecoste-traffico-ticino-2026.imageAlt': 'Vista aerea del Lago di Lugano con montagne e barche, giornata di sole',
+    'blog.article.meccanici-manutentori-edili-introvabili-ticino.title': 'Meccanici, manutentori ed edili introvabili in Ticino',
+    'blog.article.meccanici-manutentori-edili-introvabili-ticino.excerpt': 'L\'analisi di Openjobmetis rivela oltre 1.200 posizioni aperte in Italia, con forte richiesta in Lombardia, Veneto e Toscana.',
+    'blog.article.meccanici-manutentori-edili-introvabili-ticino.imageAlt': 'Un meccanico professionista che lavora in un laboratorio in Ticino, circondato da attrezzi e macchinari.',
 };
 
 export default blogMetaIt;

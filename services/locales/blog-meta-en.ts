@@ -7771,6 +7771,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.rientro-pentecoste-traffico-ticino-2026.title': 'Pentecost 2026: traffic returning to Ticino',
     'blog.article.rientro-pentecoste-traffico-ticino-2026.excerpt': 'After the Pentecost long weekend, the return to Ticino promises fewer traffic jams than in previous years. Here\'s what to expect.',
     'blog.article.rientro-pentecoste-traffico-ticino-2026.imageAlt': 'Aerial view of Lake Lugano with mountains and boats, sunny day',
+    'blog.article.meccanici-manutentori-edili-introvabili-ticino.title': 'Mechanics, maintenance workers and builders in high demand in Ticino',
+    'blog.article.meccanici-manutentori-edili-introvabili-ticino.excerpt': 'Openjobmetis\' analysis reveals over 1,200 open positions in Italy, with strong demand in Lombardy, Veneto, and Tuscany.',
+    'blog.article.meccanici-manutentori-edili-introvabili-ticino.imageAlt': 'A professional mechanic working in a workshop in Ticino, surrounded by tools and machinery.',
 };
 
 export default blogMetaEn;
