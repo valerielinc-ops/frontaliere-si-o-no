@@ -69,22 +69,26 @@ function passesNoiseContext(item) {
   return true;
 }
 
-// keep in sync with googleTrends.mjs SEEDS_FALLBACK
+// Specific discovery searches. Broad seeds like "frontaliere" still find
+// relevant news, but they flood the discovery pool with Google News wrapper
+// URLs and generic/off-topic matches. Keep the static pool focused on
+// articleable frontaliere-Ticino intents.
 const SEEDS_FALLBACK = [
-  'frontaliere',
-  'frontalieri',
-  'permesso G',
-  'tasse svizzera',
-  'LPP',
-  'telelavoro frontalieri',
-  'ristorni frontalieri',
-  'AVS frontalieri',
-  'LAMal',
-  'CMI frontalieri',
-  'IRPEF frontalieri',
-  'busta paga svizzera',
-  'nuovo accordo fiscale',
-  'secondo pilastro',
+  'frontalieri Ticino disoccupazione',
+  'frontalieri Ticino permesso G',
+  'permesso G frontalieri Ticino',
+  'tassazione frontalieri Svizzera Italia 2026',
+  'imposta alla fonte frontalieri Ticino',
+  'telelavoro frontalieri Svizzera Italia',
+  'ristorni frontalieri Ticino',
+  'LAMal frontalieri Ticino',
+  'CMI frontalieri Ticino',
+  'AVS LPP frontalieri Svizzera',
+  'secondo pilastro frontalieri Svizzera',
+  'busta paga frontalieri Ticino',
+  'salari frontalieri Ticino',
+  'frontalieri Chiasso permesso lavoro',
+  'frontaliere Varese Como Ticino',
 ];
 
 const REQUEST_TIMEOUT_MS = 15000;

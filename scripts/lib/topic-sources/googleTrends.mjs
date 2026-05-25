@@ -22,20 +22,18 @@ import { detectLocale } from './detectLocale.mjs';
 // the title doesn't mention frontalieri.
 
 const SEEDS_FALLBACK = [
-  'frontaliere',
-  'frontalieri',
-  'permesso G',
-  'tasse svizzera',
-  'LPP',
-  'telelavoro frontalieri',
-  'ristorni frontalieri',
-  'AVS frontalieri',
-  'LAMal',
-  'CMI frontalieri',
-  'IRPEF frontalieri',
-  'busta paga svizzera',
-  'nuovo accordo fiscale',
-  'secondo pilastro',
+  'frontalieri ticino tasse',
+  'frontalieri ticino permesso g',
+  'frontaliere svizzera stipendio netto',
+  'tassazione frontalieri svizzera italia 2026',
+  'telelavoro frontalieri svizzera italia',
+  'ristorni frontalieri ticino',
+  'lamal frontalieri ticino',
+  'cmi frontalieri svizzera',
+  'avs lpp frontalieri svizzera',
+  'secondo pilastro frontalieri svizzera',
+  'busta paga svizzera frontalieri',
+  'lavoro ticino frontalieri permesso g',
 ];
 
 const GEOS = [

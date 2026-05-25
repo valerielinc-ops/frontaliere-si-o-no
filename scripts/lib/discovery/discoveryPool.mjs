@@ -1,6 +1,6 @@
 // scripts/lib/discovery/discoveryPool.mjs
 //
-// Orchestrates the three discovery sources (orphan + suggest + news),
+// Orchestrates the discovery sources (orphan + suggest + news + trends),
 // applies cross-pool deduplication against the proven pool's headlines,
 // and returns the merged candidate list with discovery scores attached.
 //
@@ -8,12 +8,14 @@
 //   DISABLE_DISCOVERY_ORPHAN=1
 //   DISABLE_DISCOVERY_SUGGEST=1
 //   DISABLE_DISCOVERY_NEWS=1
+//   DISABLE_DISCOVERY_TRENDS=1
 //
 // Spec: docs/superpowers/specs/2026-05-07-traffic-quality-algorithm-design.md § 6.3-6.5
 
 import { fetchOrphanCandidates } from './sources/orphanQuerySource.mjs';
 import { fetchSuggestDiscoveryCandidates } from './sources/googleSuggestSource.mjs';
 import { fetchNewsRssDiscoveryCandidates } from './sources/googleNewsRssSource.mjs';
+import { fetchTrendsDiscoveryCandidates } from './sources/googleTrendsSource.mjs';
 import { discoveryScore } from './discoveryScore.mjs';
 import { isNearDuplicate, SLUG_SIMILARITY_THRESHOLD } from '../scheduler/slugSimilarity.mjs';
 
@@ -28,12 +30,15 @@ function isSuggestDisabled() {
 function isNewsDisabled() {
   return ENV_TRUE(process.env.DISABLE_DISCOVERY_NEWS);
 }
+function isTrendsDisabled() {
+  return ENV_TRUE(process.env.DISABLE_DISCOVERY_TRENDS);
+}
 
 /**
  * @typedef {{
  *   headline: string,
  *   url: string|null,
- *   source: 'orphan'|'suggest'|'news',
+ *   source: 'orphan'|'suggest'|'news'|'trends',
  *   meta: object,
  * }} DiscoveryCandidate
  *
@@ -54,6 +59,7 @@ function isNewsDisabled() {
  *   orphanFn?: Function,
  *   suggestFn?: Function,
  *   newsFn?: Function,
+ *   trendsFn?: Function,
  * }} [opts]
  * @returns {Promise<{ candidates: DiscoveryCandidate[], perSource: Record<string, number> }>}
  */
@@ -61,7 +67,8 @@ export async function fetchAll(evidence, opts = {}) {
   const orphanFn = opts.orphanFn || fetchOrphanCandidates;
   const suggestFn = opts.suggestFn || fetchSuggestDiscoveryCandidates;
   const newsFn = opts.newsFn || fetchNewsRssDiscoveryCandidates;
-  const perSource = { orphan: 0, suggest: 0, news: 0 };
+  const trendsFn = opts.trendsFn || fetchTrendsDiscoveryCandidates;
+  const perSource = { orphan: 0, suggest: 0, news: 0, trends: 0 };
   const merged = [];
 
   // Orphan — synchronous (reads from evidence in-memory).
@@ -75,7 +82,7 @@ export async function fetchAll(evidence, opts = {}) {
     }
   }
 
-  // Suggest + news — fetch in parallel; both already swallow errors.
+  // Remote sources — fetch in parallel; each source already swallows errors.
   const remoteJobs = [];
   if (!isSuggestDisabled()) {
     remoteJobs.push(
@@ -94,6 +101,16 @@ export async function fetchAll(evidence, opts = {}) {
         .catch((err) => {
           console.warn(`[discovery] news source failed: ${err?.message || err}`);
           return { kind: 'news', arr: [] };
+        }),
+    );
+  }
+  if (!isTrendsDisabled()) {
+    remoteJobs.push(
+      trendsFn(evidence, { fetchImpl: opts.fetchImpl })
+        .then((arr) => ({ kind: 'trends', arr: Array.isArray(arr) ? arr : [] }))
+        .catch((err) => {
+          console.warn(`[discovery] trends source failed: ${err?.message || err}`);
+          return { kind: 'trends', arr: [] };
         }),
     );
   }
@@ -167,7 +184,7 @@ export function scoreCandidates(candidates, evidence) {
  * One-shot convenience: fetch + dedup + score. Returns the sorted list.
  *
  * @param {object} evidence
- * @param {{ provenHeadlines?: string[], fetchImpl?: Function, orphanFn?: Function, suggestFn?: Function, newsFn?: Function, dedupThreshold?: number }} [opts]
+ * @param {{ provenHeadlines?: string[], fetchImpl?: Function, orphanFn?: Function, suggestFn?: Function, newsFn?: Function, trendsFn?: Function, dedupThreshold?: number }} [opts]
  * @returns {Promise<{ candidates: ScoredDiscoveryCandidate[], perSource: Record<string, number>, postDedupCount: number }>}
  */
 export async function buildDiscoveryPool(evidence, opts = {}) {

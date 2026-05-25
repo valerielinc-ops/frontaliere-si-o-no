@@ -9,6 +9,12 @@
 
 const SOURCE_TAG = 'orphan';
 
+const JOB_SEARCH_INTENT_RE =
+  /\b(cerco|cercare|offert[ae]|annunci?|posti?|lavoro|jobs?|assunzioni|curriculum|cv)\b/i;
+
+const FRONTALIERE_ARTICLE_INTENT_RE =
+  /\b(frontalier[aeio]|permesso\s*g|tass|impost|fisc|stipendio|salario|busta\s*paga|avs|lpp|lamal|cmi|ristorni|telelavoro|smart\s*working|disoccupazione|naspi|dichiarazione|credito\s+d.?imposta)\b/i;
+
 /**
  * @typedef {{
  *   headline: string,
@@ -21,6 +27,13 @@ const SOURCE_TAG = 'orphan';
 function isValidEntry(entry) {
   if (!entry || typeof entry !== 'object') return false;
   if (typeof entry.query !== 'string' || entry.query.trim().length === 0) return false;
+  return true;
+}
+
+export function isArticleableOrphanQuery(query) {
+  const q = String(query || '').trim();
+  if (!q) return false;
+  if (JOB_SEARCH_INTENT_RE.test(q) && !FRONTALIERE_ARTICLE_INTENT_RE.test(q)) return false;
   return true;
 }
 
@@ -39,6 +52,7 @@ export function fetchOrphanCandidates(evidence) {
   for (const entry of orphans) {
     if (!isValidEntry(entry)) continue;
     const headline = entry.query.trim();
+    if (!isArticleableOrphanQuery(headline)) continue;
     const key = headline.toLowerCase();
     if (seen.has(key)) continue;
     seen.add(key);

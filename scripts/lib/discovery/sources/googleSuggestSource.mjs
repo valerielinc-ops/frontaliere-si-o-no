@@ -19,6 +19,16 @@ import { anchorSeed, hasDomainAnchor } from '../domainAnchor.mjs';
 const SOURCE_TAG = 'suggest';
 const MAX_SEEDS = 8;
 
+const CLUSTER_SEED_TEMPLATES = {
+  fiscale: ['tasse frontalieri svizzera 2026', 'imposta alla fonte ticino frontalieri'],
+  lavoro: ['lavoro ticino frontalieri permesso g', 'offerte lavoro ticino frontalieri permesso g'],
+  salute: ['lamal frontalieri ticino', 'cmi frontalieri svizzera'],
+  pensioni: ['avs lpp frontalieri svizzera', 'secondo pilastro frontalieri svizzera'],
+  mobilita: ['frontalieri ticino trasporti chiasso lugano', 'pendolari frontalieri ticino treno'],
+  pratico: ['documenti frontaliere svizzera permesso g', 'busta paga svizzera frontalieri'],
+  novita: ['telelavoro frontalieri svizzera italia', 'ristorni frontalieri ticino'],
+};
+
 /**
  * @typedef {{
  *   headline: string,
@@ -42,10 +52,15 @@ export function pickClusterSeeds(clusterStats) {
     .filter(([name, stats]) => name !== 'generic' && stats && Number.isFinite(Number(stats.p50)))
     .map(([name, stats]) => ({ name, p50: Number(stats.p50) }));
   entries.sort((a, b) => b.p50 - a.p50);
-  // Compose each cluster with a domain anchor so Google Suggest can't
-  // bridge bare cluster words ("mobilita") into off-topic Italian
-  // searches ("mobilita palermo"). See domainAnchor.mjs for rationale.
-  return entries.slice(0, MAX_SEEDS).map((e) => anchorSeed(e.name));
+  const seeds = [];
+  for (const e of entries) {
+    const templates = CLUSTER_SEED_TEMPLATES[e.name] || [anchorSeed(e.name)];
+    for (const seed of templates) {
+      if (!seeds.includes(seed)) seeds.push(seed);
+      if (seeds.length >= MAX_SEEDS) return seeds;
+    }
+  }
+  return seeds;
 }
 
 function buildProvenSet(gscBlock) {

@@ -13,7 +13,7 @@ describe('pickClusterSeeds', () => {
     expect(pickClusterSeeds({})).toEqual([]);
   });
 
-  it('skips generic, sorts by p50 desc, anchors each seed with " frontalieri"', () => {
+  it('skips generic, sorts by p50 desc, and uses specific cluster templates', () => {
     const stats = {
       fiscale: { p50: 200, p10: 50, p90: 800, n: 30 },
       salute: { p50: 120, p10: 30, p90: 500, n: 20 },
@@ -21,12 +21,13 @@ describe('pickClusterSeeds', () => {
       lavoro: { p50: 80, p10: 20, p90: 300, n: 10 },
     };
     const seeds = pickClusterSeeds(stats);
-    // Anchored to prevent generic-Italian completions like "mobilita
-    // palermo" — see scripts/lib/discovery/domainAnchor.mjs.
     expect(seeds).toEqual([
-      'fiscale frontalieri',
-      'salute frontalieri',
-      'lavoro frontalieri',
+      'tasse frontalieri svizzera 2026',
+      'imposta alla fonte ticino frontalieri',
+      'lamal frontalieri ticino',
+      'cmi frontalieri svizzera',
+      'lavoro ticino frontalieri permesso g',
+      'offerte lavoro ticino frontalieri permesso g',
     ]);
   });
 
@@ -35,7 +36,10 @@ describe('pickClusterSeeds', () => {
       fiscale: { p50: 200 },
       broken: { p10: 10 },
     };
-    expect(pickClusterSeeds(stats)).toEqual(['fiscale frontalieri']);
+    expect(pickClusterSeeds(stats)).toEqual([
+      'tasse frontalieri svizzera 2026',
+      'imposta alla fonte ticino frontalieri',
+    ]);
   });
 });
 
@@ -98,7 +102,7 @@ describe('fetchSuggestDiscoveryCandidates', () => {
     expect(out).toHaveLength(1);
   });
 
-  it('passes anchored cluster-derived seeds to the underlying fetcher', async () => {
+  it('passes specific cluster-derived seeds to the underlying fetcher', async () => {
     let captured: any = null;
     const captureFn = async (opts: any) => {
       captured = opts;
@@ -112,7 +116,12 @@ describe('fetchSuggestDiscoveryCandidates', () => {
       },
     };
     await fetchSuggestDiscoveryCandidates(evidence, { suggestFn: captureFn });
-    expect(captured.seeds).toEqual(['fiscale frontalieri', 'salute frontalieri']);
+    expect(captured.seeds).toEqual([
+      'tasse frontalieri svizzera 2026',
+      'imposta alla fonte ticino frontalieri',
+      'lamal frontalieri ticino',
+      'cmi frontalieri svizzera',
+    ]);
   });
 
   // Regression — 2026-05-11 `mobilita-palermo-frontalieri-ticino`.
