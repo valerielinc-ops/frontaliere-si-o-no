@@ -1567,6 +1567,26 @@ export async function assembleJobsDataset({ withStats = false } = {}) {
       console.log(`  🧭 Slug-history drift tracked: ${drift.driftCount} jobs with changed slug, ${drift.mergedSlugs} historical slugs preserved in previousSlugs[ByLocale]`);
     }
 
+    // Jobs with partially-populated localized descriptions are not fully
+    // translated yet. Keep them out of strict completeness gates until the
+    // translate-pending pipeline fills the missing locales.
+    let partialDescriptionFlags = 0;
+    for (const job of assembled) {
+      if (job.needsRetranslation) continue;
+      const descriptions = job.descriptionByLocale && typeof job.descriptionByLocale === 'object'
+        ? job.descriptionByLocale
+        : {};
+      const missingDescription = ['it', 'en', 'de', 'fr']
+        .some((locale) => !String(descriptions[locale] || '').trim());
+      if (missingDescription) {
+        job.needsRetranslation = true;
+        partialDescriptionFlags++;
+      }
+    }
+    if (partialDescriptionFlags > 0) {
+      console.log(`  🌍 Locale completeness: flagged ${partialDescriptionFlags} jobs with partial descriptionByLocale`);
+    }
+
     // --- slugByLocale completeness backfill ---
     // Fixed-translation jobs (needsRetranslation:false) MUST expose a slug for
     // every locale. Some legacy crawlers populate only the source-language slug
