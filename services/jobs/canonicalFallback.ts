@@ -54,9 +54,9 @@ const FALLBACK_SECTION_ORDER: FallbackSectionId[] = [
 
 const FALLBACK_HEADING_MAP: Array<{ id: FallbackSectionId; title: string; keys: string[] }> = [
  { id: 'overview', title: 'Panoramica', keys: ['descrizione', 'panoramica', 'overview', 'about the role', 'introduzione'] },
- { id: 'responsibilities', title: 'Mansioni principali', keys: ['mansioni', 'compiti', 'responsabilita', 'tasks', 'responsibilities', 'attivita'] },
- { id: 'requirements', title: 'Competenze richieste', keys: ['requisiti', 'competenze richieste', 'profilo', 'your profile', 'qualifications', 'istruzione ed esperienza precedente', 'lingue'] },
- { id: 'benefits', title: 'Cosa offre l\'azienda', keys: ['cosa ti offriamo', 'offriamo', 'benefit', 'benefits', 'vantaggi'] },
+ { id: 'responsibilities', title: 'Mansioni principali', keys: ['mansioni', 'compiti', 'responsabilita', 'tasks', 'responsibilities', 'ihre aufgaben', 'attivita'] },
+ { id: 'requirements', title: 'Competenze richieste', keys: ['requisiti', 'competenze richieste', 'profilo', 'ihr profil', 'your profile', 'qualifications', 'istruzione ed esperienza precedente', 'lingue'] },
+ { id: 'benefits', title: 'Cosa offre l\'azienda', keys: ['cosa ti offriamo', 'wir bieten', 'offriamo', 'benefit', 'benefits', 'vantaggi'] },
  { id: 'application', title: 'Come candidarsi', keys: ['come candidarsi', 'candidatura', 'application process', 'apply'] },
  { id: 'contacts', title: 'Contatti', keys: ['contatto', 'contatti', 'kontakt', 'contact', 'informazioni aggiuntive', 'informazioni'] },
  { id: 'company', title: 'Azienda e contesto', keys: ['chi siamo', 'azienda', 'hospital', 'ospedale', 'organization', 'organizzazione'] },
@@ -78,6 +78,9 @@ const FALLBACK_INLINE_HEADING_KEYS = [
  'competenze richieste',
  'profilo',
  'cosa porti con te',
+ 'ihre aufgaben',
+ 'ihr profil',
+ 'wir bieten',
  'cosa ti offriamo',
  'benefits',
  'come candidarsi',
@@ -165,9 +168,9 @@ function fallbackSplitInlineFieldItems(text: string): string[] {
 
 const FALLBACK_SECTION_HINTS: Record<FallbackSectionId, string[]> = {
  overview: ['descrizione', 'panoramica', 'overview', 'ruolo', 'posizione', 'introduzione', 'profilo del ruolo'],
- responsibilities: ['mansioni', 'compiti', 'responsabilita', 'attivita', 'tasks', 'responsibilities', 'impari', 'svolgi', 'contribuisci', 'prendi'],
- requirements: ['requisiti', 'requisiti necessari', 'requisiti auspicati', 'competenze', 'profilo', 'qualifiche', 'diploma', 'esperienza', 'conoscenza'],
- benefits: ['cosa ti offriamo', 'offriamo', 'benefit', 'vantaggi', 'vacanze', 'sconti', 'ambiente di lavoro', 'opportunita'],
+ responsibilities: ['mansioni', 'compiti', 'responsabilita', 'attivita', 'tasks', 'responsibilities', 'ihre aufgaben', 'impari', 'svolgi', 'contribuisci', 'prendi'],
+ requirements: ['requisiti', 'requisiti necessari', 'requisiti auspicati', 'competenze', 'profilo', 'ihr profil', 'qualifiche', 'diploma', 'esperienza', 'conoscenza'],
+ benefits: ['cosa ti offriamo', 'wir bieten', 'offriamo', 'benefit', 'vantaggi', 'vacanze', 'sconti', 'ambiente di lavoro', 'opportunita'],
  application: ['come candidarsi', 'candidatura', 'interessato', 'invia', 'application', 'apply', 'selezione', 'colloquio', 'entro e non oltre'],
  contacts: ['contatti', 'contatto', 'email', 'e-mail', 'telefono', 'tel', 'scrivere', 'chiama', '091', '+41', '0041'],
  company: ['chi siamo', 'azienda', 'ospedale', 'hospital', 'organizzazione', 'organization', 'collaboratori', 'contesto'],
@@ -198,9 +201,9 @@ const FALLBACK_PASS3_ROUTE_RULES: Array<{ id: FallbackSectionId; re: RegExp }> =
  { id: 'application', re: /\b(candidatur|inoltrat|invia|apply|application|entro le ore|scadenz|selezion)\b/i },
  { id: 'contacts', re: /\b(tel\.?|telefono|email|e-mail|contatt|ulteriori informazioni|responsabile)\b/i },
  { id: 'company', re: /\b(repubblica e cantone|ente|organizzazione|collaboratori|ospedale|strutture|chi siamo)\b/i },
- { id: 'requirements', re: /\b(requisit|diploma|titolo|esperienz|conoscenza|attitudine|profilo)\b/i },
- { id: 'benefits', re: /\b(cosa ti offriamo|offriamo|vacanze|sconti|benefit|ambiente di lavoro|opportunita)\b/i },
- { id: 'responsibilities', re: /\b(mansion|compit|responsabilit|attivit|consulenza|gestire|svolgere)\b/i },
+ { id: 'requirements', re: /\b(requisit|diploma|titolo|esperienz|conoscenza|attitudine|profilo|ihr profil)\b/i },
+ { id: 'benefits', re: /\b(cosa ti offriamo|wir bieten|offriamo|vacanze|sconti|benefit|ambiente di lavoro|opportunita)\b/i },
+ { id: 'responsibilities', re: /\b(mansion|compit|responsabilit|attivit|consulenza|gestire|svolgere|ihre aufgaben)\b/i },
 ];
 
 function fallbackDecodeHtml(input: string): string {

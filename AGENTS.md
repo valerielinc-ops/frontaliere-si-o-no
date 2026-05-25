@@ -59,7 +59,7 @@ The `caveman` Codex skills are installed for terse, token-efficient communicatio
 
 ## Workflow & Process
 
-8. **Use Playwright for E2E**, not preview tools. Build + serve dist + Playwright.
+8. **Use Playwright for E2E**, not preview tools. Build + serve dist + Playwright. If Playwright is needed in an agent session, use the CLI (`npx playwright ...`) or the Codex in-app Browser tool; do not rely on direct `playwright` package imports unless the dependency is already installed in that workspace.
 9. **GitHub Issues reflect reality**: partial completion → close + create follow-up.
 10. **Subagents inherit the session model** — don't override unless the task explicitly requires it.
 11. **GitHub: always `gh` CLI.** Never MCP GitHub tools (they route to Enterprise, 404 here). `gh` is pre-authenticated to github.com.

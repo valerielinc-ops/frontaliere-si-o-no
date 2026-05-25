@@ -45,8 +45,8 @@ function decodeHtmlEntities(str = '') {
     .replace(/&gt;/g, '>')
     .replace(/&quot;/g, '"')
     .replace(/&#39;/g, "'")
+    .replace(/&#x27;/gi, "'")
     .replace(/&nbsp;/g, ' ')
-    .replace(/&#x27;/g, "'")
     .replace(/\*\/in/g, '')
     .trim();
 }
@@ -204,6 +204,52 @@ function stripHtml(html = '') {
     .trim();
 }
 
+function extractJobListDescriptionHtml(html = '') {
+  const match = String(html || '').match(/<p\b[^>]*class="[^"]*\bjob-list-desc\b[^"]*"[^>]*>([\s\S]*?)<\/p>/i);
+  return match ? match[1] : '';
+}
+
+function cleanAgieDetailDescription(text = '') {
+  const headingByLine = new Map([
+    ['Ihre Aufgaben', '## Ihre Aufgaben'],
+    ['Ihr Profil', '## Ihr Profil'],
+    ['Wir bieten', '## Wir bieten'],
+    ['Über United Machining', '## Über United Machining'],
+    ['Ihre Kontaktperson', '## Ihre Kontaktperson'],
+  ]);
+  const bulletHeadings = new Set(['## Ihre Aufgaben', '## Ihr Profil', '## Wir bieten']);
+  const lines = String(text || '')
+    .replace(/\\\*/g, '*')
+    .split(/\n+/)
+    .map((line) => normalizeSpace(decodeHtmlEntities(line)))
+    .filter(Boolean);
+
+  const out = [];
+  const seen = new Set();
+  let currentHeading = '';
+  for (const line of lines) {
+    if (/^(Indietro|Homepage|Mehr erfahren\.\.\.)$/i.test(line)) continue;
+    if (/^Jetzt bewerben\b/i.test(line)) continue;
+    if (/\bji[dtvy][a-z0-9]+\b/i.test(line)) continue;
+    const normalized = line.replace(/\\-/g, '-');
+    const heading = headingByLine.get(normalized);
+    if (heading) {
+      currentHeading = heading;
+      if (!seen.has(heading.toLowerCase())) {
+        seen.add(heading.toLowerCase());
+        out.push(heading);
+      }
+      continue;
+    }
+    const value = bulletHeadings.has(currentHeading) ? `- ${normalized}` : normalized;
+    const key = value.toLowerCase();
+    if (seen.has(key)) continue;
+    seen.add(key);
+    out.push(value);
+  }
+  return out.join('\n').trim();
+}
+
 /**
  * Parse a find-your-future.ch job detail page for rich description.
  * The detail page contains the full job description, requirements, and benefits.
@@ -212,6 +258,12 @@ function stripHtml(html = '') {
  * @returns {{ description: string }}
  */
 export function parseAgieCharmillesDetailPage(html = '') {
+  const jobListDescriptionHtml = extractJobListDescriptionHtml(html);
+  if (jobListDescriptionHtml) {
+    const text = cleanAgieDetailDescription(stripHtml(jobListDescriptionHtml));
+    if (text.split(/\s+/).length >= 50) return { description: text };
+  }
+
   // Narrow to main content area first to avoid sidebar "other positions" contamination.
   const mainAreaMatch = html.match(/<article[^>]*>([\s\S]*?)<\/article>/i)
     || html.match(/<main[^>]*>([\s\S]*?)<\/main>/i)
@@ -247,7 +299,7 @@ export function parseAgieCharmillesDetailPage(html = '') {
     || html.match(/<div[^>]*class="[^"]*job-?detail[^"]*"[^>]*>([\s\S]*?)<\/div>/i);
 
   if (mainMatch) {
-    const text = stripHtml(mainMatch[1]).trim();
+    const text = cleanAgieDetailDescription(stripHtml(mainMatch[1]));
     if (text.split(/\s+/).length >= 50) return { description: text };
   }
 
@@ -261,10 +313,11 @@ export function buildAgieCharmillesLocalizedContent(job = {}) {
   const title = String(job.title || '').trim();
   const city = String(job.city || 'Losone').trim();
   const detailDescription = String(job.detailDescription || '').trim();
+  const canton = inferAgieCharmillesCanton(job) || 'TI';
 
   // If we have a rich detail description (>= 50 words), use it
   if (detailDescription && detailDescription.split(/\s+/).length >= 50) {
-    const metaLine = `${title} — AGIE Charmilles SA (GF Machining Solutions), ${city} (TI).`;
+    const metaLine = `${title} — AGIE Charmilles SA (GF Machining Solutions), ${city} (${canton}).`;
     const description = `${metaLine}\n\n${detailDescription}`;
     return {
       titleByLocale: { it: title, en: title, de: title, fr: title },
