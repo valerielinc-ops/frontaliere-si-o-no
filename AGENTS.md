@@ -344,6 +344,17 @@ Dispatching parallel subagents via `Agent`: **always pass `isolation: "worktree"
 
 Exceptions: pure read/grep, single-file doc tweaks scoped "in place", the orchestrator session itself.
 
+## Multi-Chat Continuity Rule
+
+When multiple chats or agents are active, setup is not completion. Creating or selecting a worktree, loading skills, running context discovery, or reporting status is only preparation. Continue into the requested implementation in the same turn unless the user explicitly says to stop.
+
+Before final response, verify that at least one of these is true:
+- The requested code/content change was implemented and verified.
+- A real blocker prevents implementation, with the blocker named precisely.
+- The newest user message asked only for status, planning, or explanation.
+
+If a previous turn already created a task worktree, resume there instead of creating a duplicate branch. Report the branch/worktree path only as context, then continue the work.
+
 ## Auto-merge Rule (orchestrator mode)
 
 Pre-authorized in orchestrator mode (durable across sessions):
