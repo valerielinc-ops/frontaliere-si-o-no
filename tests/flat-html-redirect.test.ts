@@ -97,6 +97,43 @@ describe('flatHtmlRedirectPlugin redirect bridge', () => {
     expect(bridge).not.toMatch(/http-equiv\s*=\s*["']refresh["']/i);
   });
 
+  it('keeps only preview-critical social meta on noindex bridge pages', async () => {
+    fixture = setupFixture(
+      '<!DOCTYPE html><html><head><title>Foo Bar</title>' +
+        '<meta name="description" content="Useful summary">' +
+        '<meta property="og:title" content="Share title">' +
+        '<meta property="og:description" content="Share description">' +
+        '<meta property="og:image" content="https://frontaliereticino.ch/og/foo.webp">' +
+        '<meta property="og:image:alt" content="Preview alt">' +
+        '<meta property="og:type" content="article">' +
+        '<meta property="og:site_name" content="Frontaliere Ticino">' +
+        '<meta property="og:locale" content="it_IT">' +
+        '<meta property="og:url" content="https://frontaliereticino.ch/foo/">' +
+        '<meta property="og:image:width" content="1200">' +
+        '<meta property="og:image:height" content="630">' +
+        '<meta property="og:image:type" content="image/webp">' +
+        '<meta name="twitter:title" content="Duplicate title">' +
+        '</head><body>canonical</body></html>',
+    );
+
+    await runPluginCloseBundle(fixture.tmpRoot);
+
+    const bridge = fs.readFileSync(fixture.flatFile, 'utf-8');
+    expect(bridge).toContain('<meta name="description" content="Useful summary">');
+    expect(bridge).toContain('<meta property="og:title" content="Share title">');
+    expect(bridge).toContain('<meta property="og:description" content="Share description">');
+    expect(bridge).toContain('<meta property="og:image" content="https://frontaliereticino.ch/og/foo.webp">');
+    expect(bridge).toContain('<meta property="og:image:alt" content="Preview alt">');
+    expect(bridge).not.toContain('og:type');
+    expect(bridge).not.toContain('og:site_name');
+    expect(bridge).not.toContain('og:locale');
+    expect(bridge).not.toContain('og:url');
+    expect(bridge).not.toContain('og:image:width');
+    expect(bridge).not.toContain('og:image:height');
+    expect(bridge).not.toContain('og:image:type');
+    expect(bridge).not.toContain('twitter:title');
+  });
+
   it('falls back to a per-URL string when the sibling has no parsable title', async () => {
     fixture = setupFixture('<!DOCTYPE html><html><head></head><body>no title here</body></html>');
 

@@ -35,7 +35,7 @@ import fs from 'node:fs';
 import type { Plugin } from 'vite';
 
 /**
- * Extract og:* / twitter:* / description meta tags from the sibling index.html
+ * Extract only preview-critical meta tags from the sibling index.html
  * so the bridge can serve them to crawlers (Facebook, Twitter, LinkedIn, Slack…)
  * that don't follow the JS location.replace redirect. The bridge keeps
  * `noindex,follow` for Google — only social crawlers care about OG.
@@ -46,6 +46,9 @@ import type { Plugin } from 'vite';
  *
  * Defense-in-depth for deploy run #25033670793: even if a crawler hits the
  * no-slash URL, it now gets correct preview metadata instead of a blank bridge.
+ * Keep this list tight: flat bridges are high-volume noindex pages, so
+ * repeated non-essential OG tags quickly become hundreds of MB in the Pages
+ * artifact.
  *
  * Re-applied 2026-04-28 after confirming the text-html-ratio regression
  * was caused by the SPA-style job-card refactor (commit affb542cc), NOT by
@@ -67,10 +70,13 @@ function extractOgTags(indexHtml: string): string {
     }
     const property = String(attrs.property || '').toLowerCase();
     const name = String(attrs.name || '').toLowerCase();
-    const isOg = property.startsWith('og:');
-    const isTwitter = name.startsWith('twitter:');
+    const isOgPreview =
+      property === 'og:title' ||
+      property === 'og:description' ||
+      property === 'og:image' ||
+      property === 'og:image:alt';
     const isDescription = name === 'description';
-    if (isOg || isTwitter || isDescription) {
+    if (isOgPreview || isDescription) {
       tags.push(tag);
     }
   }
