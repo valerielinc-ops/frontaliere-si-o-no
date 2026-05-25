@@ -300,10 +300,10 @@
     },
     {
       "id": "msc-cargo-b8db6c0698ca",
-      "slug": "direttore-of-operations-hospitality-infrastructure-msc-group-geneva",
+      "slug": "direttore-delle-operazioni-infrastrutture-di-accoglienza-msc-group-geneva",
       "slugByLocale": {
         "en": "director-of-operations-hospitality-infrastructure-msc-geneva",
-        "it": "direttore-of-operations-hospitality-infrastructure-msc-group-geneva",
+        "it": "direttore-delle-operazioni-infrastrutture-di-accoglienza-msc-group-geneva",
         "de": "direktor-of-operations-hospitality-infrastructure-msc-group-geneva",
         "fr": "directeur-of-operations-hospitality-infrastructure-msc-group-geneva"
       },
@@ -360,7 +360,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-24T22:51:45.734Z"
+      "firstSeenAt": "2026-05-24T22:51:45.734Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "direttore-of-operations-hospitality-infrastructure-msc-group-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "direttore-of-operations-hospitality-infrastructure-msc-group-geneva"
+      ]
     },
     {
       "id": "msc-cargo-37ffd0de68db",
