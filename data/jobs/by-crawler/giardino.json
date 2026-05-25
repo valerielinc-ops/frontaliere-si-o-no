@@ -1,6 +1,6 @@
 {
   "crawlerKey": "giardino",
-  "assembledAt": "2026-05-25T12:43:34.599Z",
+  "assembledAt": "2026-05-25T22:13:24.747Z",
   "jobs": [
     {
       "id": "giardino-a4c1442fdca3",
@@ -33,7 +33,7 @@
       "url": "https://giardinohotels.ch/en/jobs/ga-child-care-attendant/",
       "source": "Giardino Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-25T12:43:32.923Z",
+      "crawledAt": "2026-05-25T22:13:22.651Z",
       "addressLocality": "Ascona",
       "postalCode": "6612",
       "addressRegion": "TI",
@@ -83,6 +83,7 @@
         ]
       },
       "firstSeenAt": "2026-05-18T21:58:11.724Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
