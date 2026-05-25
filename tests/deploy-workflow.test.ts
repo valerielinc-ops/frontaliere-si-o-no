@@ -94,11 +94,16 @@ describe('post-deploy-validate-dist.yml — parallel SEO audit gates', () => {
     //   it OOM-killed the parallel block.
     // - `audit:dist-multi*` are aggregators that wrap other audits.
     // - `audit:parser-quality` is a developer self-test, not gated in CI.
+    // - `audit:no-merge-markers` is a source gate wired into tests.yml and deploy.yml,
+    //   not a dist-walking post-deploy gate.
+    // - `audit:active-jobs-regression` is a pre-build data gate in deploy.yml.
     // - `audit:all` IS the wrapper itself; reachability check would be circular.
     const GATES_NOT_IN_DIST_PARALLEL = new Set([
       'audit:title-uniqueness',
       'audit:dist-multi',
       'audit:parser-quality',
+      'audit:no-merge-markers',
+      'audit:active-jobs-regression',
       'audit:all',
     ]);
     const allAuditScripts = Object.keys(PACKAGE_JSON.scripts || {}).filter((k) => {

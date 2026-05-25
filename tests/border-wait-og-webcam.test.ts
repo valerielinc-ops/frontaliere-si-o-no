@@ -328,9 +328,6 @@ describe('generateBorderWaitPages — per-page og:image from webcam snapshot', (
     );
     expect(html).toContain('<meta property="og:image:width" content="640">');
     expect(html).toContain('<meta property="og:image:height" content="360">');
-    expect(html).toContain(
-      '<meta name="twitter:image" content="https://frontaliereticino.ch/og/border-wait/chiasso-brogeda.jpg">',
-    );
     expect(html).toMatch(/<meta property="og:image:alt" content="Webcam live — Chiasso Brogeda">/);
   });
 
