@@ -189,6 +189,17 @@ interface Copy {
   webcam: string;
   noWebcam: string;
   source: string;
+  simulatorTitle: string;
+  simulatorText: string;
+  destination: string;
+  peak: string;
+  now: string;
+  estimate: string;
+  route: string;
+  monthlyCar: string;
+  liveRegion: string;
+  hydratedBadge: string;
+  simulatorSummary: (crossing: string, destination: string, minutes: string, wait: string) => string;
   compareTitle: string;
   faqTitle: string;
   faq1: (m: Municipality) => string;
@@ -229,6 +240,17 @@ const COPY = {
     webcam: 'webcam disponibile',
     noWebcam: 'nessuna webcam diretta',
     source: 'Fonte tempi',
+    simulatorTitle: 'Simula il tragitto',
+    simulatorText: 'Cambia destinazione e fascia oraria: la scheda ricalcola dogana, tempo e costo auto mensile stimato.',
+    destination: 'Destinazione',
+    peak: 'Fascia oraria',
+    now: 'Ora',
+    estimate: 'Tempo stimato',
+    route: 'Dogana consigliata',
+    monthlyCar: 'Auto/mese',
+    liveRegion: 'Stima aggiornata',
+    hydratedBadge: 'interattivo',
+    simulatorSummary: (crossing: string, destination: string, minutes: string, wait: string) => `Verso ${destination} conviene ${crossing}: circa ${minutes} includendo ${wait} di attesa.`,
     compareTitle: 'Azioni utili da fare ora',
     faqTitle: 'Domande frequenti',
     faq1: (m: Municipality) => `${m.name} è un comune di frontiera per lavorare in Svizzera?`,
@@ -267,6 +289,17 @@ const COPY = {
     webcam: 'webcam available',
     noWebcam: 'no direct webcam',
     source: 'Wait source',
+    simulatorTitle: 'Commute simulator',
+    simulatorText: 'Switch destination and time band: the page recalculates crossing, time and estimated monthly car cost.',
+    destination: 'Destination',
+    peak: 'Time band',
+    now: 'Now',
+    estimate: 'Estimated time',
+    route: 'Suggested crossing',
+    monthlyCar: 'Car/month',
+    liveRegion: 'Estimate updated',
+    hydratedBadge: 'interactive',
+    simulatorSummary: (crossing: string, destination: string, minutes: string, wait: string) => `Toward ${destination}, ${crossing} is the better option: about ${minutes} including ${wait} wait.`,
     compareTitle: 'Useful next steps',
     faqTitle: 'FAQ',
     faq1: (m: Municipality) => `Is ${m.name} a border municipality for Swiss work?`,
@@ -305,6 +338,17 @@ const COPY = {
     webcam: 'Webcam verfügbar',
     noWebcam: 'keine direkte Webcam',
     source: 'Quelle Wartezeit',
+    simulatorTitle: 'Pendeln simulieren',
+    simulatorText: 'Wechsle Ziel und Zeitfenster: die Seite berechnet Übergang, Dauer und geschätzte Autokosten neu.',
+    destination: 'Ziel',
+    peak: 'Zeitfenster',
+    now: 'Jetzt',
+    estimate: 'Geschätzte Zeit',
+    route: 'Empfohlener Übergang',
+    monthlyCar: 'Auto/Monat',
+    liveRegion: 'Schätzung aktualisiert',
+    hydratedBadge: 'interaktiv',
+    simulatorSummary: (crossing: string, destination: string, minutes: string, wait: string) => `Richtung ${destination} passt ${crossing}: etwa ${minutes} inklusive ${wait} Wartezeit.`,
     compareTitle: 'Nützliche nächste Schritte',
     faqTitle: 'FAQ',
     faq1: (m: Municipality) => `Ist ${m.name} eine Grenzgemeinde?`,
@@ -343,6 +387,17 @@ const COPY = {
     webcam: 'webcam disponible',
     noWebcam: 'pas de webcam directe',
     source: 'Source attente',
+    simulatorTitle: 'Simuler le trajet',
+    simulatorText: 'Changez destination et créneau: la page recalcule douane, durée et coût voiture mensuel estimé.',
+    destination: 'Destination',
+    peak: 'Créneau',
+    now: 'Maintenant',
+    estimate: 'Temps estimé',
+    route: 'Passage conseillé',
+    monthlyCar: 'Voiture/mois',
+    liveRegion: 'Estimation mise à jour',
+    hydratedBadge: 'interactif',
+    simulatorSummary: (crossing: string, destination: string, minutes: string, wait: string) => `Vers ${destination}, ${crossing} est le meilleur choix: environ ${minutes} avec ${wait} d'attente.`,
     compareTitle: 'Prochaines actions utiles',
     faqTitle: 'FAQ',
     faq1: (m: Municipality) => `${m.name} est-elle une commune frontalière?`,
@@ -438,6 +493,18 @@ function waitLabel(snapshot: WaitSnapshot, slug: string): string {
   if (!current) return 'n.d.';
   const total = current.totalCrossingMinutes ?? current.waitTimeMinutes;
   return typeof total === 'number' ? `${Math.max(0, Math.round(total))} min` : 'n.d.';
+}
+
+function waitMinutesFromLabel(label: string, fallback = 8): number {
+  const values = Array.from(label.matchAll(/\d+/g)).map((match) => Number.parseInt(match[0], 10)).filter(Number.isFinite);
+  if (values.length === 0) return fallback;
+  return Math.round(values.reduce((sum, value) => sum + value, 0) / values.length);
+}
+
+function currentWaitMinutes(snapshot: WaitSnapshot, slug: string, fallbackLabel: string): number {
+  const current = snapshot.perCrossing?.[slug];
+  const total = current?.totalCrossingMinutes ?? current?.waitTimeMinutes;
+  return typeof total === 'number' ? Math.max(0, Math.round(total)) : waitMinutesFromLabel(fallbackLabel);
 }
 
 function trafficTone(level: BorderCrossing['trafficLevel']): string {
@@ -539,6 +606,145 @@ function renderMetric(label: string, value: string, detail?: string): string {
   </div>`;
 }
 
+function safeJson(value: unknown): string {
+  return (JSON.stringify(value) ?? 'null').replace(/</g, '\\u003c');
+}
+
+function buildHydrationData(params: {
+  locale: Locale;
+  municipality: Municipality;
+  routes: Array<{ crossing: BorderCrossing; slug: string; distanceKm: number }>;
+  waitSnapshot: WaitSnapshot;
+  copy: Copy;
+}) {
+  const { locale, municipality, routes, waitSnapshot, copy } = params;
+  const destinationLabels = {
+    mendrisio: 'Mendrisio',
+    lugano: 'Lugano',
+  };
+  const peakLabels = {
+    now: copy.now,
+    morning: copy.morning,
+    evening: copy.evening,
+  };
+
+  return {
+    locale,
+    currencyPrefix: 'EUR',
+    defaultDestination: 'lugano',
+    defaultPeak: 'now',
+    labels: {
+      destination: destinationLabels,
+      peak: peakLabels,
+      minutesSuffix: 'min',
+      monthlySuffix: locale === 'en' ? '/month' : locale === 'de' ? '/Monat' : locale === 'fr' ? '/mois' : '/mese',
+      summaryTemplate: copy.simulatorSummary('{crossing}', '{destination}', '{minutes}', '{wait}'),
+    },
+    routes: routes.slice(0, 2).map(({ crossing, slug, distanceKm }) => {
+      const nowMinutes = currentWaitMinutes(waitSnapshot, slug, crossing.avgWaitMorning);
+      const morningMinutes = waitMinutesFromLabel(crossing.avgWaitMorning, nowMinutes);
+      const eveningMinutes = waitMinutesFromLabel(crossing.avgWaitEvening, morningMinutes);
+      const approachMinutes = Math.round(distanceKm * 1.7);
+      const destinationBase = {
+        mendrisio: crossing.province === 'CO' ? 12 : 10,
+        lugano: crossing.name.includes('Ponte Tresa') || crossing.name.includes('Fornasette') ? 18 : 28,
+      };
+      const costs = {
+        mendrisio: Math.round(Math.max(18, (municipality.distanceKm + destinationBase.mendrisio / 2) * 2) * 22 * 0.22),
+        lugano: Math.round(Math.max(18, (municipality.distanceKm + destinationBase.lugano / 2) * 2) * 22 * 0.22),
+      };
+      return {
+        name: crossing.name,
+        slug,
+        href: `/traffico-dogane/${slug}/oggi/`,
+        waits: {
+          now: { minutes: nowMinutes, label: waitLabel(waitSnapshot, slug) },
+          morning: { minutes: morningMinutes, label: crossing.avgWaitMorning },
+          evening: { minutes: eveningMinutes, label: crossing.avgWaitEvening },
+        },
+        destinations: {
+          mendrisio: {
+            baseMinutes: approachMinutes + destinationBase.mendrisio,
+            costMonthly: costs.mendrisio,
+          },
+          lugano: {
+            baseMinutes: approachMinutes + destinationBase.lugano,
+            costMonthly: costs.lugano,
+          },
+        },
+      };
+    }),
+  };
+}
+
+function renderHydrationPanel(params: {
+  locale: Locale;
+  municipality: Municipality;
+  routes: Array<{ crossing: BorderCrossing; slug: string; distanceKm: number }>;
+  waitSnapshot: WaitSnapshot;
+  copy: Copy;
+}): string {
+  const { locale, municipality, routes, waitSnapshot, copy } = params;
+  const data = buildHydrationData({ locale, municipality, routes, waitSnapshot, copy });
+  const primaryRoute = data.routes[0];
+  const primaryWait = primaryRoute?.waits.now.label ?? 'n.d.';
+  const initialMinutes = primaryRoute ? `${primaryRoute.destinations.lugano.baseMinutes + primaryRoute.waits.now.minutes} min` : 'n.d.';
+  const initialCost = primaryRoute ? `EUR ${formatInt(primaryRoute.destinations.lugano.costMonthly, locale)}` : 'n.d.';
+  const initialSummary = primaryRoute
+    ? copy.simulatorSummary(primaryRoute.name, 'Lugano', initialMinutes, primaryWait)
+    : copy.simulatorText;
+
+  return `<section class="mt-6 rounded-md border border-edge bg-surface p-5" data-border-municipality-hydrator>
+    <script type="application/json" data-border-municipality-data>${safeJson(data)}</script>
+    <div class="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
+      <div>
+        <div class="flex flex-wrap items-center gap-2">
+          <h2 class="text-xl font-bold text-heading">${esc(copy.simulatorTitle)}</h2>
+          <span class="rounded-full border border-success-border bg-success-subtle px-2.5 py-1 text-xs font-semibold text-success">${esc(copy.hydratedBadge)}</span>
+        </div>
+        <p class="mt-2 max-w-3xl text-sm leading-6 text-body">${esc(copy.simulatorText)}</p>
+      </div>
+      <a data-border-municipality-link class="inline-flex min-h-[44px] items-center justify-center rounded-md border border-edge bg-surface-raised px-4 py-2 text-sm font-semibold text-heading hover:border-accent-border" href="${primaryRoute?.href ?? '/traffico-dogane/'}">${esc(BUTTON_LABELS.borderWait[locale])}</a>
+    </div>
+    <div class="mt-4 grid gap-4 lg:grid-cols-[0.85fr_1.15fr]">
+      <div class="grid gap-3">
+        <fieldset>
+          <legend class="text-sm font-semibold text-heading">${esc(copy.destination)}</legend>
+          <div class="mt-2 grid grid-cols-2 gap-2">
+            <button type="button" class="rounded-md border border-edge bg-surface-raised px-3 py-2 text-sm font-semibold text-heading" data-comuni-destination="mendrisio" aria-pressed="false">Mendrisio</button>
+            <button type="button" class="rounded-md border border-accent-border bg-accent-subtle px-3 py-2 text-sm font-semibold text-accent" data-comuni-destination="lugano" aria-pressed="true">Lugano</button>
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend class="text-sm font-semibold text-heading">${esc(copy.peak)}</legend>
+          <div class="mt-2 grid grid-cols-3 gap-2">
+            <button type="button" class="rounded-md border border-accent-border bg-accent-subtle px-3 py-2 text-sm font-semibold text-accent" data-comuni-peak="now" aria-pressed="true">${esc(copy.now)}</button>
+            <button type="button" class="rounded-md border border-edge bg-surface-raised px-3 py-2 text-sm font-semibold text-heading" data-comuni-peak="morning" aria-pressed="false">${esc(copy.morning)}</button>
+            <button type="button" class="rounded-md border border-edge bg-surface-raised px-3 py-2 text-sm font-semibold text-heading" data-comuni-peak="evening" aria-pressed="false">${esc(copy.evening)}</button>
+          </div>
+        </fieldset>
+      </div>
+      <div class="rounded-md border border-accent-border bg-accent-subtle p-4" aria-live="polite" aria-label="${esc(copy.liveRegion)}">
+        <dl class="grid grid-cols-1 gap-3 sm:grid-cols-3">
+          <div>
+            <dt class="text-xs font-semibold uppercase tracking-wide text-muted">${esc(copy.estimate)}</dt>
+            <dd class="mt-1 text-2xl font-bold text-heading" data-comuni-output="minutes">${esc(initialMinutes)}</dd>
+          </div>
+          <div>
+            <dt class="text-xs font-semibold uppercase tracking-wide text-muted">${esc(copy.route)}</dt>
+            <dd class="mt-1 text-base font-bold text-heading" data-comuni-output="crossing">${esc(primaryRoute?.name ?? '')}</dd>
+          </div>
+          <div>
+            <dt class="text-xs font-semibold uppercase tracking-wide text-muted">${esc(copy.monthlyCar)}</dt>
+            <dd class="mt-1 text-2xl font-bold text-heading" data-comuni-output="cost">${esc(initialCost)}</dd>
+          </div>
+        </dl>
+        <p class="mt-3 text-sm leading-6 text-body" data-comuni-output="summary">${esc(initialSummary)}</p>
+      </div>
+    </div>
+  </section>`;
+}
+
 function renderPage(params: {
   municipality: Municipality;
   locale: Locale;
@@ -548,7 +754,8 @@ function renderPage(params: {
 }): { urlPath: string; html: string; wordCount: number } {
   const { municipality, locale, dateStamp, distDir, waitSnapshot } = params;
   const copy = COPY[locale];
-  const [primary, alternate] = nearestCrossings(municipality);
+  const routes = nearestCrossings(municipality);
+  const [primary, alternate] = routes;
   const crossing = primary.crossing;
   const commute = estimateCommute(municipality, primary.distanceKm, crossing, waitSnapshot, primary.slug);
   const canonicalPath = pathFor(locale, municipality);
@@ -592,6 +799,8 @@ function renderPage(params: {
       ${renderMetric(copy.rent, `EUR ${formatInt(municipality.avgRentMonthly, locale)}`, METRIC_DETAIL.monthlyRent[locale])}
       ${renderMetric(copy.population, formatInt(municipality.population, locale), municipality.province)}
     </dl>
+
+    ${renderHydrationPanel({ locale, municipality, routes, waitSnapshot, copy })}
 
     <section class="mt-6 grid gap-4 lg:grid-cols-[1.1fr_0.9fr]">
       <div class="rounded-md border border-edge bg-surface p-5">
@@ -647,6 +856,7 @@ function renderPage(params: {
         <details class="py-3"><summary class="cursor-pointer font-semibold text-heading">${esc(copy.faq3)}</summary><p class="mt-2 text-sm leading-6 text-body">${esc(copy.faq3a)}</p></details>
       </div>
     </section>
+    <script src="/assets/comuni-frontiera-hydrate.js" defer></script>
   </div>`;
 
   const breadcrumbLd = JSON.stringify({
