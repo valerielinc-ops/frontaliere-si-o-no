@@ -32,6 +32,7 @@ import {
   type BorderWaitCurrent,
 } from '../build-plugins/borderWaitPagesPlugin';
 import { buildOggiPath } from '../build-plugins/borderWaitData';
+import { htmlTagWithAttrs } from './utils/htmlAttr';
 
 // ── Helpers ──────────────────────────────────────────────────────
 
@@ -323,12 +324,13 @@ describe('generateBorderWaitPages — per-page og:image from webcam snapshot', (
           : undefined,
     });
     const html = pages[buildOggiPath('it', 'chiasso-brogeda')];
-    expect(html).toContain(
-      '<meta property="og:image" content="https://frontaliereticino.ch/og/border-wait/chiasso-brogeda.jpg">',
-    );
-    expect(html).toContain('<meta property="og:image:width" content="640">');
-    expect(html).toContain('<meta property="og:image:height" content="360">');
-    expect(html).toMatch(/<meta property="og:image:alt" content="Webcam live — Chiasso Brogeda">/);
+    expect(html).toMatch(htmlTagWithAttrs('meta', {
+      property: 'og:image',
+      content: 'https://frontaliereticino.ch/og/border-wait/chiasso-brogeda.jpg',
+    }));
+    expect(html).toMatch(htmlTagWithAttrs('meta', { property: 'og:image:width', content: '640' }));
+    expect(html).toMatch(htmlTagWithAttrs('meta', { property: 'og:image:height', content: '360' }));
+    expect(html).toMatch(htmlTagWithAttrs('meta', { property: 'og:image:alt', content: 'Webcam live — Chiasso Brogeda' }));
   });
 
   it('falls back to site default og-image.png (1200×630) when resolver returns undefined', () => {
@@ -338,9 +340,9 @@ describe('generateBorderWaitPages — per-page og:image from webcam snapshot', (
       ogImageUrlResolver: () => undefined,
     });
     const html = pages[buildOggiPath('it', 'chiasso-brogeda')];
-    expect(html).toContain('<meta property="og:image" content="https://frontaliereticino.ch/og-image.png">');
-    expect(html).toContain('<meta property="og:image:width" content="1200">');
-    expect(html).toContain('<meta property="og:image:height" content="630">');
+    expect(html).toMatch(htmlTagWithAttrs('meta', { property: 'og:image', content: 'https://frontaliereticino.ch/og-image.png' }));
+    expect(html).toMatch(htmlTagWithAttrs('meta', { property: 'og:image:width', content: '1200' }));
+    expect(html).toMatch(htmlTagWithAttrs('meta', { property: 'og:image:height', content: '630' }));
   });
 
   it('localises og:image:alt for EN / DE / FR when a snapshot is present', () => {
@@ -372,7 +374,7 @@ describe('generateBorderWaitPages — per-page og:image from webcam snapshot', (
           : undefined,
     });
     const html = pages[buildOggiPath('it', 'chiasso-brogeda')];
-    const count = (html.match(/<meta property="og:image" /g) ?? []).length;
+    const count = (html.match(new RegExp(htmlTagWithAttrs('meta', { property: 'og:image' } as Record<string, string>).source, 'g')) ?? []).length;
     expect(count).toBe(1);
   });
 
@@ -386,8 +388,9 @@ describe('generateBorderWaitPages — per-page og:image from webcam snapshot', (
           : undefined,
     });
     const noSnapshotPage = pages[buildOggiPath('it', 'drezzo-pedrinate')];
-    expect(noSnapshotPage).toContain(
-      '<meta property="og:image" content="https://frontaliereticino.ch/og-image.png">',
-    );
+    expect(noSnapshotPage).toMatch(htmlTagWithAttrs('meta', {
+      property: 'og:image',
+      content: 'https://frontaliereticino.ch/og-image.png',
+    }));
   });
 });

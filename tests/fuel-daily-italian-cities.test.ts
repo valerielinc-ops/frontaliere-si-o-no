@@ -12,6 +12,7 @@
 
 import { describe, expect, it } from 'vitest';
 import { generateFuelItalianCityPages } from '../build-plugins/fuelDailyPagesPlugin';
+import { htmlAttr, htmlTagWithAttrs, htmlTagWithClass } from './utils/htmlAttr';
 
 const DATASET = {
   generatedAt: '2026-04-20T06:00:00.000Z',
@@ -132,16 +133,19 @@ describe('generateFuelItalianCityPages() — content quality', () => {
 
   it('every page has a self-referencing canonical', () => {
     for (const [path, html] of Object.entries(pages)) {
-      expect(html).toContain(`<link rel="canonical" href="https://frontaliereticino.ch${path}">`);
+      expect(html).toMatch(htmlTagWithAttrs('link', {
+        rel: 'canonical',
+        href: `https://frontaliereticino.ch${path}`,
+      }));
     }
   });
 
   it('every page has hreflang alternates for all 4 locales', () => {
     for (const html of Object.values(pages)) {
-      expect(html).toContain('hreflang="it"');
-      expect(html).toContain('hreflang="en"');
-      expect(html).toContain('hreflang="de"');
-      expect(html).toContain('hreflang="fr"');
+      expect(html).toMatch(htmlAttr('hreflang', 'it'));
+      expect(html).toMatch(htmlAttr('hreflang', 'en'));
+      expect(html).toMatch(htmlAttr('hreflang', 'de'));
+      expect(html).toMatch(htmlAttr('hreflang', 'fr'));
     }
   });
 
@@ -193,8 +197,8 @@ describe('generateFuelItalianCityPages() — content quality', () => {
     const comoPage = pages['/prezzi-benzina/italia/como/oggi/'];
     expect(comoPage).toContain('bg-surface-alt');
     // Empty `#root` so React hydration cannot replace static SEO content.
-    expect(comoPage).toMatch(/<div id="root"><\/div>/);
-    expect(comoPage).toContain('<main class="seo-static-content">');
+    expect(comoPage).toMatch(/<div\b[^>]*\bid=["']?root["']?(?=[\s>])[^>]*><\/div>/);
+    expect(comoPage).toMatch(htmlTagWithClass('main', 'seo-static-content'));
   });
 
   it('does not leak any dark: color prefix classes', () => {
@@ -205,7 +209,7 @@ describe('generateFuelItalianCityPages() — content quality', () => {
 
   it('emits a related-links nav block (fuel_italian_city type)', () => {
     const comoPage = pages['/prezzi-benzina/italia/como/oggi/'];
-    expect(comoPage).toMatch(/<nav[^>]*id="seoRelatedLinks"/);
+    expect(comoPage).toMatch(htmlTagWithAttrs('nav', { id: 'seoRelatedLinks' }));
   });
 });
 

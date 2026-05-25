@@ -90,15 +90,15 @@ describe('webcam rendering — conditional display', () => {
 describe('webcam rendering — attribution + accessibility', () => {
   it('webcam figcaption carries rel="nofollow noopener" + target="_blank"', () => {
     const html = pages[buildOggiPath('it', 'chiasso-brogeda')];
-    expect(html).toContain('rel="nofollow noopener"');
-    expect(html).toContain('target="_blank"');
+    expect(html).toMatch(/\brel=["']?nofollow noopener["']?/);
+    expect(html).toMatch(/\btarget=["']?_blank["']?/);
   });
 
   it('every webcam <img> has explicit width + height + loading="lazy"', () => {
     const html = pages[buildOggiPath('it', 'chiasso-brogeda')];
-    expect(html).toMatch(/<img[^>]+loading="lazy"/);
-    expect(html).toMatch(/<img[^>]+width="640"/);
-    expect(html).toMatch(/<img[^>]+height="360"/);
+    expect(html).toMatch(/<img[^>]+\bloading=["']?lazy["']?/);
+    expect(html).toMatch(/<img[^>]+\bwidth=["']?640["']?/);
+    expect(html).toMatch(/<img[^>]+\bheight=["']?360["']?/);
   });
 
   it('webcam <img> has alt text mentioning the label + update time', () => {
@@ -112,7 +112,7 @@ describe('webcam rendering — attribution + accessibility', () => {
 
   it('webcam <img> uses referrerpolicy=no-referrer to bypass ti.ch hotlink 403', () => {
     const html = pages[buildOggiPath('it', 'chiasso-brogeda')];
-    expect(html).toContain('referrerpolicy="no-referrer"');
+    expect(html).toMatch(/\breferrerpolicy=["']?no-referrer["']?/);
   });
 
   it('webcam <img> onerror swaps to an inline SVG placeholder (not hide)', () => {

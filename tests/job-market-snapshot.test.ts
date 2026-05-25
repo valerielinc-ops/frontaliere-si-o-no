@@ -34,6 +34,7 @@ import {
   buildWeeklyTrendSeries,
   generateJobMarketSnapshotPages,
 } from '../build-plugins/jobMarketSnapshotPlugin';
+import { htmlAttr, htmlTagWithAttrs, htmlTagWithClass } from './utils/htmlAttr';
 
 // ── Fixtures ─────────────────────────────────────────────
 
@@ -343,17 +344,20 @@ describe('generateJobMarketSnapshotPages — normal mode (rich history)', () => 
 
   it('every page has self-referencing canonical', () => {
     for (const [path, html] of Object.entries(out.pages)) {
-      expect(html).toContain(`<link rel="canonical" href="https://frontaliereticino.ch${path}">`);
+      expect(html).toMatch(htmlTagWithAttrs('link', {
+        rel: 'canonical',
+        href: `https://frontaliereticino.ch${path}`,
+      }));
     }
   });
 
   it('every page has hreflang alternates for all 4 locales + x-default', () => {
     for (const [path, html] of Object.entries(out.pages)) {
-      expect(html, `missing hreflang on ${path}`).toContain('hreflang="it"');
-      expect(html).toContain('hreflang="en"');
-      expect(html).toContain('hreflang="de"');
-      expect(html).toContain('hreflang="fr"');
-      expect(html).toContain('hreflang="x-default"');
+      expect(html, `missing hreflang on ${path}`).toMatch(htmlAttr('hreflang', 'it'));
+      expect(html).toMatch(htmlAttr('hreflang', 'en'));
+      expect(html).toMatch(htmlAttr('hreflang', 'de'));
+      expect(html).toMatch(htmlAttr('hreflang', 'fr'));
+      expect(html).toMatch(htmlAttr('hreflang', 'x-default'));
     }
   });
 
@@ -384,7 +388,7 @@ describe('generateJobMarketSnapshotPages — normal mode (rich history)', () => 
     let noindexCount = 0;
     for (const [path, html] of Object.entries(out.pages)) {
       if (!/\/(settimana|week|woche|semaine)-\d/.test(path)) continue;
-      if (/meta name="robots" content="noindex/.test(html)) noindexCount++;
+      if (htmlTagWithAttrs('meta', { name: 'robots', content: 'noindex,follow' }).test(html)) noindexCount++;
     }
     // We have 14 complete weeks × 4 locales = 56 weekly pages; oldest 2 × 4 = 8 should be noindex
     expect(noindexCount).toBeGreaterThanOrEqual(4);
@@ -401,7 +405,7 @@ describe('generateJobMarketSnapshotPages — normal mode (rich history)', () => 
       // Every page links back to its own hub so the hub name must appear in the body.
       // SEO content is now emitted OUTSIDE `#root` (empty) inside a sibling
       // `<main class="seo-static-content">` — see seoPageShell.ts.
-      const bodyMatch = html.match(/<main class="seo-static-content">([\s\S]*?)<\/main>/);
+      const bodyMatch = html.match(new RegExp(`${htmlTagWithClass('main', 'seo-static-content').source}([\\s\\S]*?)<\\/main>`));
       const body = bodyMatch?.[1] ?? '';
       expect(body.length, `empty seo-static-content body on ${path}`).toBeGreaterThan(0);
     }
