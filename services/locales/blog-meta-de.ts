@@ -7755,6 +7755,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.laivin-festival-cassano-valcuvia-2026.title': 'LaivIn 2026: 300 Schüler für Theaterfestival',
     'blog.article.laivin-festival-cassano-valcuvia-2026.excerpt': 'Vom 26. bis 28. Mai bringt das LaivIn Plus Festival 300 Jugendliche nach Cassano Valcuvia für 12 Theateraufführungen und Workshops.',
     'blog.article.laivin-festival-cassano-valcuvia-2026.imageAlt': 'Junge Darsteller auf der Bühne während des LaivIn-Festivals in Cassano Valcuvia, mit dem Publikum in einer kleinen Dorfkulisse',
+    'blog.article.avs-2030-frontalieri-ticino.title': 'AVS 2030: Änderungen für Grenzgänger aus dem Tessin',
+    'blog.article.avs-2030-frontalieri-ticino.excerpt': 'Der Bundesrat schlägt eine Reform der AHV vor, die den vorzeitigen Ruhestand abschreckt und längeres Arbeiten fördert.',
+    'blog.article.avs-2030-frontalieri-ticino.imageAlt': 'Luganersee mit Blick auf die umliegenden Berge',
 };
 
 export default blogMetaDe;

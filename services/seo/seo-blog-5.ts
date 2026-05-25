@@ -39698,6 +39698,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-avs-2030-frontalieri-ticino': {
+    title: 'AVS 2030: cosa cambia per i frontalieri del Ticino',
+    description: 'Scopri le novità della riforma AVS 2030 e come influenzerà i frontalieri del Ticino. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, 2030, cosa, cambia, consiglio',
+    ogTitle: 'AVS 2030: cosa cambia per i frontalieri del Ticino',
+    ogDescription: 'Scopri le novità della riforma AVS 2030 e come influenzerà i frontalieri del Ticino.',
+    canonicalPath: '/articoli-frontaliere/avs-2030-frontalieri-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "AVS 2030: cosa cambia per i frontalieri del Ticino",
+      "description": "Scopri le novità della riforma AVS 2030 e come influenzerà i frontalieri del Ticino. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/avs-2030-frontalieri-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lago di Lugano con vista sulle montagne circostanti"
+      },
+      "datePublished": "2026-05-25T10:11:14+00:00",
+      "dateModified": "2026-05-25T10:11:14+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/avs-2030-frontalieri-ticino`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

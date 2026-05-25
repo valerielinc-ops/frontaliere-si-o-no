@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2640,
+ "numberOfItems": 2641,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7280,7 +7280,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2637, "name": "Abbonamenti e sconti per frontalieri sui traspo...", "url": `${BASE_URL}/articoli-frontaliere/abbonamenti-sconti-frontalieri-transporti` },
           { "@type": "ListItem", "position": 2638, "name": "Educatore dell'infanzia in Ticino: stipendio e ...", "url": `${BASE_URL}/articoli-frontaliere/educatore-infanzia-ticino-stipendio-requisiti` },
           { "@type": "ListItem", "position": 2639, "name": "Residenza Italia o Svizzera: la scelta migliore...", "url": `${BASE_URL}/articoli-frontaliere/scelta-residenza-italia-svizzera-2026` },
-          { "@type": "ListItem", "position": 2640, "name": "LaivIn 2026: 300 studenti per festival teatro", "url": `${BASE_URL}/articoli-frontaliere/laivin-festival-cassano-valcuvia-2026` }
+          { "@type": "ListItem", "position": 2640, "name": "LaivIn 2026: 300 studenti per festival teatro", "url": `${BASE_URL}/articoli-frontaliere/laivin-festival-cassano-valcuvia-2026` },
+          { "@type": "ListItem", "position": 2641, "name": "AVS 2030: cosa cambia per i frontalieri del Ticino", "url": `${BASE_URL}/articoli-frontaliere/avs-2030-frontalieri-ticino` }
  ]
  },
  {

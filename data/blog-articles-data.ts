@@ -24644,4 +24644,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'avs-2030-frontalieri-ticino',
+ category: 'novita',
+ date: '2026-05-25T10:11:14.709Z',
+ image: '/images/blog/avs-2030-frontalieri-ticino.webp',
+ hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
+ },
 ] satisfies Article[];
