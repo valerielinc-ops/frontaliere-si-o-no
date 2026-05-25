@@ -3,6 +3,7 @@
 // Groups by exception_message + source URL.
 // Output: data/recovery-2026-05-18/app-errors.{json,md}
 import { writeFileSync, mkdirSync } from 'node:fs';
+import { sanitizeTrackedDiagnosticValue } from './lib/sanitizeTrackedDiagnostics.mjs';
 
 const PROJECT_ID = '157802';
 const API_KEY = process.env.POSTHOG_PERSONAL_API_KEY;
@@ -58,8 +59,8 @@ const q3 = await HQL(`
 const out = {
   generated: new Date().toISOString(),
   window_days: 30,
-  top_exceptions: q1.results ?? q1,
-  by_url: q2.results ?? q2,
+  top_exceptions: sanitizeTrackedDiagnosticValue(q1.results ?? q1),
+  by_url: sanitizeTrackedDiagnosticValue(q2.results ?? q2),
   daily: q3.results ?? q3,
 };
 mkdirSync('data/recovery-2026-05-18', { recursive: true });
