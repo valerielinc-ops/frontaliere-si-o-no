@@ -7750,6 +7750,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.educatore-infanzia-ticino-stipendio-requisiti.title': 'Early childhood educator in Ticino: salary and requirements',
     'blog.article.educatore-infanzia-ticino-stipendio-requisiti.excerpt': 'Find out how much an early childhood educator earns in Ticino, the requirements to work and how to obtain the G permit',
     'blog.article.educatore-infanzia-ticino-stipendio-requisiti.imageAlt': 'A kindergarten in Ticino with educators and children',
+    'blog.article.scelta-residenza-italia-svizzera-2026.title': 'Italy or Switzerland: best residence for families',
+    'blog.article.scelta-residenza-italia-svizzera-2026.excerpt': 'Comparison of costs, travel times, healthcare, and taxes to help families with children decide where to live in 2026.',
+    'blog.article.scelta-residenza-italia-svizzera-2026.imageAlt': 'Family with children at the Italy-Switzerland border, Mendrisio',
 };
 
 export default blogMetaEn;

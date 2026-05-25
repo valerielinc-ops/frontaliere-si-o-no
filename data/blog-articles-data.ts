@@ -24626,4 +24626,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'scelta-residenza-italia-svizzera-2026',
+ category: 'pratico',
+ date: '2026-05-25T09:58:48.287Z',
+ image: '/images/blog/scelta-residenza-italia-svizzera-2026.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

@@ -7751,6 +7751,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.educatore-infanzia-ticino-stipendio-requisiti.title': 'Educatore dell\'infanzia in Ticino: stipendio e requisiti',
     'blog.article.educatore-infanzia-ticino-stipendio-requisiti.excerpt': 'Scopri quanto guadagna un educatore dell\'infanzia in Ticino, i requisiti per lavorare e come ottenere il Permesso G',
     'blog.article.educatore-infanzia-ticino-stipendio-requisiti.imageAlt': 'Un asilo nido in Ticino con educatori e bambini',
+    'blog.article.scelta-residenza-italia-svizzera-2026.title': 'Residenza Italia o Svizzera: la scelta migliore per una famiglia',
+    'blog.article.scelta-residenza-italia-svizzera-2026.excerpt': 'Confronto tra costi, tempi di viaggio, sanità e fiscalità per aiutare le famiglie con figli a decidere dove risiedere nel 2026.',
+    'blog.article.scelta-residenza-italia-svizzera-2026.imageAlt': 'Famiglia con figli al confine tra Italia e Svizzera, Mendrisio',
 };
 
 export default blogMetaIt;

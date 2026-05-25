@@ -7751,6 +7751,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.educatore-infanzia-ticino-stipendio-requisiti.title': 'Éducateur de la petite enfance au Tessin: salaire et exigences',
     'blog.article.educatore-infanzia-ticino-stipendio-requisiti.excerpt': 'Découvrez combien gagne un éducateur de la petite enfance au Tessin, les exigences pour travailler et comment obtenir le permis G',
     'blog.article.educatore-infanzia-ticino-stipendio-requisiti.imageAlt': 'Une école maternelle en Tessin avec des éducateurs et des enfants',
+    'blog.article.scelta-residenza-italia-svizzera-2026.title': 'Résidence en Italie ou en Suisse : le meilleur choix pour une famille',
+    'blog.article.scelta-residenza-italia-svizzera-2026.excerpt': 'Comparaison des coûts, temps de trajet, santé et fiscalité pour aider les familles avec enfants à décider où résider en 2026.',
+    'blog.article.scelta-residenza-italia-svizzera-2026.imageAlt': 'Famille avec enfants à la frontière entre l\'Italie et la Suisse, Mendrisio',
 };
 
 export default blogMetaFr;

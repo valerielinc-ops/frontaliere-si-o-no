@@ -7749,6 +7749,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.educatore-infanzia-ticino-stipendio-requisiti.title': 'Kinderbetreuer im Tessin: Gehalt und Voraussetzungen',
     'blog.article.educatore-infanzia-ticino-stipendio-requisiti.excerpt': 'Erfahren Sie, wie viel ein Kinderbetreuer im Tessin verdient, welche Voraussetzungen für die Arbeit gelten und wie man die G-Bewilligung erhält.',
     'blog.article.educatore-infanzia-ticino-stipendio-requisiti.imageAlt': 'Ein Kindergarten in Ticino mit Erziehern und Kindern',
+    'blog.article.scelta-residenza-italia-svizzera-2026.title': 'Wohnsitz Italien oder Schweiz: Die beste Wahl für Familien',
+    'blog.article.scelta-residenza-italia-svizzera-2026.excerpt': 'Vergleich von Kosten, Reisezeiten, Gesundheitssystem und Steuern, um Familien mit Kindern bei der Entscheidung für den Wohnsitz im Jahr 2026 zu helfen.',
+    'blog.article.scelta-residenza-italia-svizzera-2026.imageAlt': 'Familie mit Kindern an der Grenze zwischen Italien und der Schweiz, Mendrisio',
 };
 
 export default blogMetaDe;
