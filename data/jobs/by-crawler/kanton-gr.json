@@ -1,12 +1,12 @@
 {
   "crawlerKey": "kanton-gr",
-  "assembledAt": "2026-05-25T13:03:05.791Z",
+  "assembledAt": "2026-05-25T22:32:34.818Z",
   "jobs": [
     {
       "id": "kanton-gr-5cc4b885f1fe",
-      "slug": "strassenwart-in-kantonale-verwaltung-graubunden-samedan",
+      "slug": "strassenwart-in-kantonale-verwaltung-graubunden-thusis",
       "slugByLocale": {
-        "it": "strassenwart-in-kantonale-verwaltung-graubunden-samedan",
+        "it": "strassenwart-in-kantonale-verwaltung-graubunden-thusis",
         "en": "become-a-police-officer-at-kapo-gr-kantonale-verwaltung-graubunden-chur",
         "de": "schnupperlehre-als-zeichner-in-efz-ingenieurbau-kantonale-verwaltung-graubunden-chur",
         "fr": "devenez-policier-policiere-chez-kapo-gr-kantonale-verwaltung-graubunden-chur"
@@ -33,7 +33,7 @@
       "url": "https://apply.refline.ch/514915/2620/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-25T13:02:54.835Z",
+      "crawledAt": "2026-05-25T22:32:24.690Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -99,8 +99,8 @@
           "strassenwart-in-kantonale-verwaltung-graubunden-chur",
           "strassenwart-in-kanton-gr-ch-2",
           "strassenwart-in-kanton-gr-ch",
-          "strassenwart-in-kantonale-verwaltung-graubunden-thusis",
-          "strassenwart-in-kantonale-verwaltung-graubunden-samedan"
+          "strassenwart-in-kantonale-verwaltung-graubunden-samedan",
+          "strassenwart-in-kantonale-verwaltung-graubunden-thusis"
         ]
       },
       "previousSlugs": [
@@ -115,7 +115,7 @@
         "tirocinio-come-disegnatore-ice-efz-costruzioni-ingegneristiche-kantonale-verwaltung-graubunden-chur",
         "strassenwart-in-kantonale-verwaltung-graubunden-chur",
         "strassenwart-in-kanton-gr-ch-2",
-        "strassenwart-in-kantonale-verwaltung-graubunden-thusis",
+        "strassenwart-in-kantonale-verwaltung-graubunden-samedan",
         "apprendistato-come-disegnatore-trice-afc-costruzioni-ingegneristiche-kantonale-verwaltung-graubunden-chur",
         "schnupperlehre-diverse-berufe-afp-e-cfc-kantonale-verwaltung-graubunden-chur",
         "apprendista-specializzato-in-gestione-alberghiera-e-domestica-efz-kantonale-verwaltung-graubunden-landquart",
@@ -127,6 +127,7 @@
         "manutenzione-stradale-kantonale-verwaltung-graubunden-davos-frauenkirch"
       ],
       "firstSeenAt": "2026-04-13T10:48:34.939Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -142,9 +143,9 @@
     },
     {
       "id": "kanton-gr-5cc4b885f1fe",
-      "slug": "strassenwart-in-kantonale-verwaltung-graubunden-thusis",
+      "slug": "strassenwart-in-kantonale-verwaltung-graubunden-samedan",
       "slugByLocale": {
-        "it": "strassenwart-in-kantonale-verwaltung-graubunden-thusis",
+        "it": "strassenwart-in-kantonale-verwaltung-graubunden-samedan",
         "en": "become-a-police-officer-at-kapo-gr-kantonale-verwaltung-graubunden-chur",
         "de": "strassenwart-in-kanton-gr-ch",
         "fr": "devenez-policier-policiere-chez-kapo-gr-kantonale-verwaltung-graubunden-chur"
@@ -159,21 +160,21 @@
         "de": "Strassenwart/-in",
         "fr": "Devenez Policier/Policière chez Kapo GR"
       },
-      "description": "Das Tiefbauamt ist für die Projektierung, den Bau, die Erhaltung und den Betrieb der Kantonsstrassen sowie den Wasserbau und den Langsamverkehr in Graubünden zuständig. Ausserdem kümmern wir uns um den betrieblichen Unterhalt der Nationalstrassen auf dem Kantonsgebiet. Die Strasseninfrastruktur des Kantons umfasst über 1'450 Kunstbauten, darunter Brücken in luftigen Höhen bis 90 Meter und Tunnels mit bis zu 3 Kilometern Länge. Die Herausforderungen, die die Natur unseres Gebirgskantons im Sommer und Winter mit sich bringt, macht unsere Arbeit anspruchsvoll und vielseitig. Als Friendly Work Space zertifiziertes Amt liegen uns die Gesundheit und Zufriedenheit unserer rund 480 Mitarbeitenden besonders am Herzen. Aus diesem Grund engagieren wir uns für ein systematisches Betriebliches Gesundheitsmanagement (BGM).\n\nWir suchen für die Abteilung Strassenerhaltung im Bezirk 7 Thusis per 1. September 2026 oder nach Vereinbarung eine/-n Strassenwart/-in\n\nAufgaben\n• Ausführung von Strassenunterhaltsarbeiten in einem kleinen Unterhaltsteam\n\n• Sommer- und Winterdienst\n\n• Aufräum- und Instandstellungsarbeiten nach Unfall- oder Naturereignissen\n\n• Kontrolle des Strassenzustandes und der Strassenanlagen\n\n• Leisten von Pikettdienst (Sommer und Winter)\n\nAnforderungen\n• Abgeschlossene Berufslehre im Baugewerbe\n\n• Handwerkliches Geschick\n\n• Physische Belastbarkeit\n\n• Freude an Teamarbeit\n\n• Führerausweis Kategorie C oder Bereitschaft, diesen zu erwerben",
+      "description": "Das Tiefbauamt ist für die Projektierung, den Bau, die Erhaltung und den Betrieb der Kantonsstrassen sowie den Wasserbau und den Langsamverkehr in Graubünden zuständig. Ausserdem kümmern wir uns um den betrieblichen Unterhalt der Nationalstrassen auf dem Kantonsgebiet. Die Strasseninfrastruktur des Kantons umfasst über 1'450 Kunstbauten, darunter Brücken in luftigen Höhen bis 90 Meter und Tunnels mit bis zu 3 Kilometern Länge. Die Herausforderungen, die die Natur unseres Gebirgskantons im Sommer und Winter mit sich bringt, macht unsere Arbeit anspruchsvoll und vielseitig. Als Friendly Work Space zertifiziertes Amt liegen uns die Gesundheit und Zufriedenheit unserer rund 480 Mitarbeitenden besonders am Herzen. Aus diesem Grund engagieren wir uns für ein systematisches Betriebliches Gesundheitsmanagement (BGM).\n\nWir suchen für die Abteilung Strassenerhaltung im Bezirk 3 Samedan per 1. Oktober 2026 oder nach Vereinbarung eine/-n Strassenwart/-in\n\nAufgaben\n• Ausführung von Strassenunterhaltsarbeiten in einem kleinen Unterhaltsteam\n\n• Sommer- und Winterdienst\n\n• Aufräum- und Instandstellungsarbeiten nach Unfall- oder Naturereignissen\n\n• Kontrolle des Strassenzustandes und der Strassenanlagen\n\n• Leisten von Pikettdienst (Sommer und Winter)\n\nAnforderungen\n• Abgeschlossene Berufslehre im Baugewerbe\n\n• Handwerkliches Geschick\n\n• Physische Belastbarkeit\n\n• Freude an Teamarbeit\n\n• Führerausweis Kategorie C oder Bereitschaft, diesen zu erwerben\n\n• Allgemeine Arbeitssprache ist Deutsch, Italienisch- und Romanischkenntnisse sind von Vorteil",
       "descriptionByLocale": {
         "it": "La Kantonale Verwaltung – un datore di lavoro moderno per dipendenti motivati come te. Non ogni giorno è uguale, ma ogni giorno contribuisci alla sicurezza in Grigioni. Candidati per la prossima formazione da poliziotto di 2 anni e diventa poliziotto/poliziotta con certificato federale presso la polizia cantonale Grigioni. | Compiti: Assicurati la sicurezza nel Canton Grigioni più variegato, per residenti, turisti, partecipanti a convegni e viaggiatori. Manteniamo l'ordine e la tranquillità per tutti. Con noi, l'uomo è sempre al centro, che si tratti di servizi di base o servizi speciali – la porta e il cancello sono aperti per te – www.kapo.gr.ch |\n• Requisiti: Cittadinanza svizzera o permesso di soggiorno (il permesso C deve essere presentato con la domanda) Età a partire da 20 anni Formazione professionale completata con certificato di capacità federale, maturità ginnasiale, maturità professionale o qualifiche equivalenti Reputazione immacolata Alta competenza sociale e di sé, atteggiamento amichevole verso i cittadini Possesso di patente di guida categoria B Conoscenze di base di informatica (Microsoft Office) Buona salute, resistenza psicologica e fisica Eignungstest superato con successo (www.werdepolizist.ch) Dati Eignungstest: 14 marzo 2026, 20 giugno 2026 e 10 ottobre 2026",
         "en": "The Kantonale Verwaltung – a modern employer for motivated employees like you. Not every day is the same, but every day you contribute to safety in Graubünden. Apply for the next 2-year police training and become a police officer with a federal certificate at the Kantonspolizei Graubünden. | Tasks: You ensure safety in the most diverse canton, for residents, tourists, conference participants and travelers. We maintain order and tranquility for everyone. With us, the human being is always at the center, whether basic services or special services – the door and gate are open to you – www.kapo.gr.ch |\n• Requirements: Swiss citizenship or residence permit (C permit must be submitted with the application) Age from 20 years Completed professional training with federal capability certificate, gymnasium matriculation, vocational matriculation or equivalent qualifications Clean reputation High self- and social competence, citizen-friendly attitude Driver's license category B Basic computer skills (Microsoft Office) Good health, psychological and physical endurance Successfully completed aptitude test (www.werdepolizist.ch) Aptitude test dates: 14 March 2026, 20 June 2026 and 10 October 2026",
-        "de": "Das Tiefbauamt ist für die Projektierung, den Bau, die Erhaltung und den Betrieb der Kantonsstrassen sowie den Wasserbau und den Langsamverkehr in Graubünden zuständig. Ausserdem kümmern wir uns um den betrieblichen Unterhalt der Nationalstrassen auf dem Kantonsgebiet. Die Strasseninfrastruktur des Kantons umfasst über 1'450 Kunstbauten, darunter Brücken in luftigen Höhen bis 90 Meter und Tunnels mit bis zu 3 Kilometern Länge. Die Herausforderungen, die die Natur unseres Gebirgskantons im Sommer und Winter mit sich bringt, macht unsere Arbeit anspruchsvoll und vielseitig. Als Friendly Work Space zertifiziertes Amt liegen uns die Gesundheit und Zufriedenheit unserer rund 480 Mitarbeitenden besonders am Herzen. Aus diesem Grund engagieren wir uns für ein systematisches Betriebliches Gesundheitsmanagement (BGM). Wir suchen für die Abteilung Strassenerhaltung im Bezirk 7 Thusis per 1. September 2026 oder nach Vereinbarung eine/-n Strassenwart/-in Aufgaben\n• Ausführung von Strassenunterhaltsarbeiten in einem kleinen Unterhaltsteam\n• Sommer- und Winterdienst\n• Aufräum- und Instandstellungsarbeiten nach Unfall- oder Naturereignissen\n• Kontrolle des Strassenzustandes und der Strassenanlagen\n• Leisten von Pikettdienst (Sommer und Winter) Anforderungen\n• Abgeschlossene Berufslehre im Baugewerbe\n• Handwerkliches Geschick\n• Physische Belastbarkeit\n• Freude an Teamarbeit\n• Führerausweis Kategorie C oder Bereitschaft, diesen zu erwerben",
+        "de": "Das Tiefbauamt ist für die Projektierung, den Bau, die Erhaltung und den Betrieb der Kantonsstrassen sowie den Wasserbau und den Langsamverkehr in Graubünden zuständig. Ausserdem kümmern wir uns um den betrieblichen Unterhalt der Nationalstrassen auf dem Kantonsgebiet. Die Strasseninfrastruktur des Kantons umfasst über 1'450 Kunstbauten, darunter Brücken in luftigen Höhen bis 90 Meter und Tunnels mit bis zu 3 Kilometern Länge. Die Herausforderungen, die die Natur unseres Gebirgskantons im Sommer und Winter mit sich bringt, macht unsere Arbeit anspruchsvoll und vielseitig. Als Friendly Work Space zertifiziertes Amt liegen uns die Gesundheit und Zufriedenheit unserer rund 480 Mitarbeitenden besonders am Herzen. Aus diesem Grund engagieren wir uns für ein systematisches Betriebliches Gesundheitsmanagement (BGM). Wir suchen für die Abteilung Strassenerhaltung im Bezirk 3 Samedan per 1. Oktober 2026 oder nach Vereinbarung eine/-n Strassenwart/-in Aufgaben\n• Ausführung von Strassenunterhaltsarbeiten in einem kleinen Unterhaltsteam\n• Sommer- und Winterdienst\n• Aufräum- und Instandstellungsarbeiten nach Unfall- oder Naturereignissen\n• Kontrolle des Strassenzustandes und der Strassenanlagen\n• Leisten von Pikettdienst (Sommer und Winter) Anforderungen\n• Abgeschlossene Berufslehre im Baugewerbe\n• Handwerkliches Geschick\n• Physische Belastbarkeit\n• Freude an Teamarbeit\n• Führerausweis Kategorie C oder Bereitschaft, diesen zu erwerben\n• Allgemeine Arbeitssprache ist Deutsch, Italienisch- und Romanischkenntnisse sind von Vorteil",
         "fr": "La Kantonale Verwaltung – un employeur moderne pour des employés motivés comme vous. Pas tous les jours sont les mêmes, mais chaque jour vous contribuez à la sécurité dans le canton de Grisons. Postulez pour la prochaine formation de 2 ans pour devenir policier/policière avec un certificat fédéral auprès de la police cantonale Grisons. | Tâches: Vous assurez la sécurité dans le canton le plus diversifié, pour les résidents, les touristes, les participants aux conférences et les voyageurs. Nous maintenons l'ordre et la tranquillité pour tous. Chez nous, l'être humain est toujours au centre, que ce soit des services de base ou des services spéciaux – la porte et la porte sont ouvertes pour vous – www.kapo.gr.ch |\n• Exigences: Citoyenneté suisse ou permis de séjour (le permis C doit être soumis avec la demande) Âge à partir de 20 ans Formation professionnelle terminée avec certificat de capacité fédéral, maturité gymnasiale, maturité professionnelle ou qualifications équivalentes Réputation irréprochable Haute compétence sociale et personnelle, attitude amicale envers les citoyens Permis de conduire catégorie B Connaissances de base en informatique (Microsoft Office) Bonne santé, résistance psychologique et physique Test d'aptitude réussi avec succès (www.werdepolizist.ch) Dates du test d'aptitude: 14 mars 2026, 20 juin 2026 et 10 octobre 2026"
       },
-      "location": "Thusis",
+      "location": "Samedan",
       "canton": "GR",
-      "url": "https://apply.refline.ch/514915/2708/pub/1/index.html",
+      "url": "https://apply.refline.ch/514915/2706/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-25T13:02:45.851Z",
-      "addressLocality": "Thusis",
-      "postalCode": "7430",
+      "crawledAt": "2026-05-25T22:32:17.173Z",
+      "addressLocality": "Samedan",
+      "postalCode": "7503",
       "addressCountry": "CH",
       "country": "CH",
       "category": "Ingegneria",
@@ -184,7 +185,7 @@
       "currency": "CHF",
       "featured": false,
       "postedDate": "2026-04-27",
-      "applyUrl": "https://apply.refline.ch/514915/2708/pub/1/index.html",
+      "applyUrl": "https://apply.refline.ch/514915/2706/pub/1/index.html",
       "requirements": [],
       "requirementsByLocale": {
         "it": [
@@ -218,7 +219,7 @@
           "Bonne santé, résistance psychologique et physique"
         ]
       },
-      "department": "Tiefbauamt Graubünden, Bezirk 7 Thusis",
+      "department": "Tiefbauamt Graubünden, Bezirk 3 Samedan",
       "applicationDeadline": "2026-06-14",
       "pensumMin": 80,
       "pensumMax": 100,
@@ -231,7 +232,7 @@
         "strassenwart-in-kantonale-verwaltung-graubunden-chur",
         "strassenwart-in-kanton-gr-ch-2",
         "strassenwart-in-kanton-gr-ch",
-        "strassenwart-in-kantonale-verwaltung-graubunden-samedan",
+        "strassenwart-in-kantonale-verwaltung-graubunden-thusis",
         "werde-polizist-in-bei-der-kapo-gr-kantonale-verwaltung-graubunden-chur",
         "schnupperlehre-als-informatiker-in-efz-plattformentwicklung-kanton-gr-ch",
         "schnupperlehre-als-informatiker-in-efz-plattformentwicklung-kantonale-verwaltung-graubunden-thusis",
@@ -253,7 +254,7 @@
           "strassenwart-in-kantonale-verwaltung-graubunden-chur",
           "strassenwart-in-kanton-gr-ch-2",
           "strassenwart-in-kanton-gr-ch",
-          "strassenwart-in-kantonale-verwaltung-graubunden-samedan"
+          "strassenwart-in-kantonale-verwaltung-graubunden-thusis"
         ],
         "de": [
           "werde-polizist-in-bei-der-kapo-gr-kanton-gr-ch",
@@ -265,6 +266,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:48:34.939Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
