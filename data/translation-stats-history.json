@@ -11086,5 +11086,117 @@
         "pending": 7
       }
     ]
+  },
+  {
+    "timestamp": "2026-05-25T05:46:58.194Z",
+    "label": "before",
+    "total": 8477,
+    "needsRetranslation": 1690,
+    "incomplete": 396,
+    "complete": 8081,
+    "missingByLocale": {
+      "it": 283,
+      "en": 221,
+      "de": 152,
+      "fr": 270
+    },
+    "topPending": [
+      {
+        "company": "Hügli Nahrungsmittel GmbH",
+        "pending": 82
+      },
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 70
+      },
+      {
+        "company": "IWC",
+        "pending": 26
+      },
+      {
+        "company": "VF International (The North Face, Timberland)",
+        "pending": 21
+      },
+      {
+        "company": "PwC Switzerland",
+        "pending": 16
+      },
+      {
+        "company": "Roche",
+        "pending": 16
+      },
+      {
+        "company": "Regionalspital Surselva",
+        "pending": 15
+      },
+      {
+        "company": "UBS",
+        "pending": 14
+      },
+      {
+        "company": "ABB Svizzera (sede Ticino)",
+        "pending": 10
+      },
+      {
+        "company": "Hitachi Energy",
+        "pending": 9
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-05-25T06:43:02.954Z",
+    "label": "after",
+    "total": 8477,
+    "needsRetranslation": 1532,
+    "incomplete": 356,
+    "complete": 8121,
+    "missingByLocale": {
+      "it": 258,
+      "en": 209,
+      "de": 143,
+      "fr": 252
+    },
+    "topPending": [
+      {
+        "company": "Hügli Nahrungsmittel GmbH",
+        "pending": 82
+      },
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 66
+      },
+      {
+        "company": "IWC",
+        "pending": 26
+      },
+      {
+        "company": "VF International (The North Face, Timberland)",
+        "pending": 21
+      },
+      {
+        "company": "Roche",
+        "pending": 16
+      },
+      {
+        "company": "Regionalspital Surselva",
+        "pending": 15
+      },
+      {
+        "company": "UBS",
+        "pending": 14
+      },
+      {
+        "company": "ABB Svizzera (sede Ticino)",
+        "pending": 10
+      },
+      {
+        "company": "Hitachi Energy",
+        "pending": 9
+      },
+      {
+        "company": "PwC Switzerland",
+        "pending": 7
+      }
+    ]
   }
 ]
