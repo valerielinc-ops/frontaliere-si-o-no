@@ -1,6 +1,18 @@
 import { readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
-import type { KnipConfig } from 'knip';
+
+type KnipConfig = {
+  project: string[];
+  entry: string[];
+  ignore?: string[];
+  ignoreBinaries?: string[];
+  ignoreExportsUsedInFile?: boolean;
+  vite?: { config: string[] };
+  vitest?: { config: string[]; entry: string[] };
+  playwright?: { config: string[]; entry: string[] };
+  tailwind?: { config: string[] };
+  postcss?: { config: string[] };
+};
 
 /**
  * knip.config.ts — dead-code detection for frontaliereticino.
