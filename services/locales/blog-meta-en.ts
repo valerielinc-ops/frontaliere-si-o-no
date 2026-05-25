@@ -7708,6 +7708,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.modifica-lamal-finaziamento-uniforme.title': 'LAMal amendment: Uniform funding of services',
     'blog.article.modifica-lamal-finaziamento-uniforme.excerpt': 'Discover the latest updates on the LAMal amendment and uniform funding of healthcare services in Switzerland',
     'blog.article.modifica-lamal-finaziamento-uniforme.imageAlt': 'View of Lake Lugano with the city of Lugano in the background, modern buildings, and clear blue waters',
+    'blog.article.calcolo-salario-netto-svizzera-frontalieri.title': 'Swiss Net Salary Calculator for Cross-Border Workers',
+    'blog.article.calcolo-salario-netto-svizzera-frontalieri.excerpt': 'Learn how to calculate your net salary in Switzerland, with details on taxes, contributions, and refunds for Ticino cross-border workers.',
+    'blog.article.calcolo-salario-netto-svizzera-frontalieri.imageAlt': 'Panoramic view of Lugano with the lake and surrounding mountains',
 };
 
 export default blogMetaEn;

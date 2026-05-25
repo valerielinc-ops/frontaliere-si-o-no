@@ -3812,6 +3812,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-lavoro-chiasso-opportunita-frontalieri': { name: 'Lavoro a Chiasso', path: '/articoli-frontaliere/lavoro-chiasso-opportunita-frontalieri', parent: 'blog' },
     'blog-salario-minimo-ticino-frontalieri-2029': { name: 'Salario minimo', path: '/articoli-frontaliere/salario-minimo-ticino-frontalieri-2029', parent: 'blog' },
     'blog-modifica-lamal-finaziamento-uniforme': { name: 'Modifica LAMal', path: '/articoli-frontaliere/modifica-lamal-finaziamento-uniforme', parent: 'blog' },
+    'blog-calcolo-salario-netto-svizzera-frontalieri': { name: 'Fiscale', path: '/articoli-frontaliere/calcolo-salario-netto-svizzera-frontalieri', parent: 'blog' },
  };
 
  const info = sectionNames[section];

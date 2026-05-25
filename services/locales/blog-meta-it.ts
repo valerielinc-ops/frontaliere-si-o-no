@@ -7709,6 +7709,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.modifica-lamal-finaziamento-uniforme.title': 'Modifica LAMal: Finanziamento uniforme delle prestazioni',
     'blog.article.modifica-lamal-finaziamento-uniforme.excerpt': 'Scopri le novità sulla modifica LAMal e il finanziamento uniforme delle prestazioni sanitarie in Svizzera',
     'blog.article.modifica-lamal-finaziamento-uniforme.imageAlt': 'Vista del Lago di Lugano con la città di Lugano sullo sfondo, edifici moderni e acque cristalline',
+    'blog.article.calcolo-salario-netto-svizzera-frontalieri.title': 'Calcolo Salario Netto Svizzera: Come Funziona per i Frontalieri',
+    'blog.article.calcolo-salario-netto-svizzera-frontalieri.excerpt': 'Scopri come calcolare il tuo salario netto in Svizzera, con dettagli su imposte, contributi e ristorni per i frontalieri del Ticino.',
+    'blog.article.calcolo-salario-netto-svizzera-frontalieri.imageAlt': 'Vista panoramica di Lugano con il lago e le montagne circostanti',
 };
 
 export default blogMetaIt;

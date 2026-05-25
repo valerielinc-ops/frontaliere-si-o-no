@@ -7707,6 +7707,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.modifica-lamal-finaziamento-uniforme.title': 'Änderung KVG: Einheitliche Finanzierung der Leistungen',
     'blog.article.modifica-lamal-finaziamento-uniforme.excerpt': 'Erfahren Sie mehr über die Änderungen des KVG und die einheitliche Finanzierung der Gesundheitsleistungen in der Schweiz',
     'blog.article.modifica-lamal-finaziamento-uniforme.imageAlt': 'Blick auf den Luganersee mit der Stadt Lugano im Hintergrund, moderne Gebäude und kristallklares Wasser',
+    'blog.article.calcolo-salario-netto-svizzera-frontalieri.title': 'Nettoeinkommen Schweiz: So geht\'s für Grenzgänger',
+    'blog.article.calcolo-salario-netto-svizzera-frontalieri.excerpt': 'Erfahren Sie, wie Sie Ihr Nettoeinkommen in der Schweiz berechnen, mit Details zu Steuern, Beiträgen und Rückerstattungen für Grenzgänger aus dem Tessin.',
+    'blog.article.calcolo-salario-netto-svizzera-frontalieri.imageAlt': 'Panoramablick auf Lugano mit dem See und den umliegenden Bergen',
 };
 
 export default blogMetaDe;

@@ -7709,6 +7709,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.modifica-lamal-finaziamento-uniforme.title': 'Modification LAMal: financement uniforme des prestations',
     'blog.article.modifica-lamal-finaziamento-uniforme.excerpt': 'Découvrez les nouveautés sur la modification LAMal et le financement uniforme des prestations sanitaires en Suisse',
     'blog.article.modifica-lamal-finaziamento-uniforme.imageAlt': 'Vue du lac de Lugano avec la ville de Lugano en arrière-plan, bâtiments modernes et eaux cristallines',
+    'blog.article.calcolo-salario-netto-svizzera-frontalieri.title': 'Calcul du salaire net en Suisse: Guide pour les frontaliers',
+    'blog.article.calcolo-salario-netto-svizzera-frontalieri.excerpt': 'Découvrez comment calculer votre salaire net en Suisse, avec des détails sur les impôts, les cotisations et les remboursements pour les frontaliers du Tessin.',
+    'blog.article.calcolo-salario-netto-svizzera-frontalieri.imageAlt': 'Vue panoramique de Lugano avec le lac et les montagnes environnantes',
 };
 
 export default blogMetaFr;

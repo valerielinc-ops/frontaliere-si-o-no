@@ -24500,4 +24500,13 @@ export const ARTICLES = [
  authorSlug: 'laura-bianchi',
  authorName: 'Laura Bianchi',
  },
+ {
+ id: 'calcolo-salario-netto-svizzera-frontalieri',
+ category: 'fiscale',
+ date: '2026-05-25T07:41:15.870Z',
+ image: '/images/blog/calcolo-salario-netto-svizzera-frontalieri.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
