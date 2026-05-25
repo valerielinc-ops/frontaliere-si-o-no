@@ -24725,4 +24725,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'treni-ffs-tilo-affollamento-pentecoste',
+ category: 'pratico',
+ date: '2026-05-25T20:35:50.140Z',
+ image: '/images/blog/treni-ffs-tilo-affollamento-pentecoste.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

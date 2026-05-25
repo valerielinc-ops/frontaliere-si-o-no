@@ -7784,6 +7784,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.prevenzione-sanitaria-lavoro-2026.title': 'Contributi fino a 3.000 euro per la prevenzione sul lavoro',
     'blog.article.prevenzione-sanitaria-lavoro-2026.excerpt': 'Dal 27 maggio 2026 le imprese possono richiedere nuovi contributi per programmi di prevenzione sanitaria, screening e acquisto di defibrillatori.',
     'blog.article.prevenzione-sanitaria-lavoro-2026.imageAlt': 'Luogo di lavoro sicuro e sano',
+    'blog.article.treni-ffs-tilo-affollamento-pentecoste.title': 'Treni FFS e TILO presi d’assalto: viaggi infernali per i frontalieri',
+    'blog.article.treni-ffs-tilo-affollamento-pentecoste.excerpt': 'Affollamento record sui treni FFS e TILO durante il ponte di Pentecoste: passeggeri esasperati e disagi per i frontalieri.',
+    'blog.article.treni-ffs-tilo-affollamento-pentecoste.imageAlt': 'Stazione ferroviaria affollata a Lugano durante i giorni di festa',
 };
 
 export default blogMetaIt;

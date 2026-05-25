@@ -7783,6 +7783,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.prevenzione-sanitaria-lavoro-2026.title': 'Up to €3,000 for workplace prevention',
     'blog.article.prevenzione-sanitaria-lavoro-2026.excerpt': 'From 27 May 2026, companies can apply for new contributions for health prevention programmes, screenings and the purchase of defibrillators.',
     'blog.article.prevenzione-sanitaria-lavoro-2026.imageAlt': 'Safe and healthy workplace',
+    'blog.article.treni-ffs-tilo-affollamento-pentecoste.title': 'FFS and TILO trains overwhelmed: nightmares for cross-border workers',
+    'blog.article.treni-ffs-tilo-affollamento-pentecoste.excerpt': 'Record crowds on FFS and TILO trains during the Pentecost long weekend: frustrated passengers and disruptions for cross-border commuters.',
+    'blog.article.treni-ffs-tilo-affollamento-pentecoste.imageAlt': 'Crowded train station in Lugano during holiday peak times',
 };
 
 export default blogMetaEn;

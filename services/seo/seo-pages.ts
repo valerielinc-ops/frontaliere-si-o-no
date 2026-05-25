@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2649,
+ "numberOfItems": 2650,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7289,7 +7289,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2646, "name": "Meccanici, manutentori ed edili introvabili in ...", "url": `${BASE_URL}/articoli-frontaliere/meccanici-manutentori-edili-introvabili-ticino` },
           { "@type": "ListItem", "position": 2647, "name": "Lavorare come educatore dell'infanzia in Ticino...", "url": `${BASE_URL}/articoli-frontaliere/educatore-infanzia-ticino-stipendi` },
           { "@type": "ListItem", "position": 2648, "name": "Educatore dell'infanzia in Ticino: stipendi e r...", "url": `${BASE_URL}/articoli-frontaliere/educatore-infanzia-ticino-stipendi-requisiti` },
-          { "@type": "ListItem", "position": 2649, "name": "Contributi fino a 3.000 euro per la prevenzione...", "url": `${BASE_URL}/articoli-frontaliere/prevenzione-sanitaria-lavoro-2026` }
+          { "@type": "ListItem", "position": 2649, "name": "Contributi fino a 3.000 euro per la prevenzione...", "url": `${BASE_URL}/articoli-frontaliere/prevenzione-sanitaria-lavoro-2026` },
+          { "@type": "ListItem", "position": 2650, "name": "Treni FFS e TILO presi d’assalto: viaggi infern...", "url": `${BASE_URL}/articoli-frontaliere/treni-ffs-tilo-affollamento-pentecoste` }
  ]
  },
  {

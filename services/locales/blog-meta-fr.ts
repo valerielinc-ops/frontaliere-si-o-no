@@ -7784,6 +7784,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.prevenzione-sanitaria-lavoro-2026.title': 'Jusqu\'à 3000 euros pour la prévention au travail',
     'blog.article.prevenzione-sanitaria-lavoro-2026.excerpt': 'Dès le 27 mai 2026, les entreprises peuvent demander de nouvelles contributions pour des programmes de prévention sanitaire, des dépistages et l\'achat de défibrillateurs.',
     'blog.article.prevenzione-sanitaria-lavoro-2026.imageAlt': 'Lieu de travail sûr et sain',
+    'blog.article.treni-ffs-tilo-affollamento-pentecoste.title': 'Treni FFS e TILO presi d\'assalto: disagio per i frontalieri',
+    'blog.article.treni-ffs-tilo-affollamento-pentecoste.excerpt': 'Affluence record dans les trains FFS et TILO pendant le pont de Pentecôte : passagers exaspérés et désagréments pour les travailleurs frontaliers.',
+    'blog.article.treni-ffs-tilo-affollamento-pentecoste.imageAlt': 'Gare ferroviaire bondée à Lugano pendant les jours fériés',
 };
 
 export default blogMetaFr;

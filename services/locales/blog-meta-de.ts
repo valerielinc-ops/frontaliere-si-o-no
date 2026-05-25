@@ -7782,6 +7782,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.prevenzione-sanitaria-lavoro-2026.title': 'Beiträge bis 3000 Franken für Arbeitsprävention',
     'blog.article.prevenzione-sanitaria-lavoro-2026.excerpt': 'Ab dem 27. Mai 2026 können Unternehmen neue Beiträge für Gesundheitspräventionsprogramme, Screenings und den Kauf von Defibrillatoren beantragen.',
     'blog.article.prevenzione-sanitaria-lavoro-2026.imageAlt': 'Sicher und gesundes Arbeitsplatz',
+    'blog.article.treni-ffs-tilo-affollamento-pentecoste.title': 'FFS- und TILO-Züge überfüllt: Qualvolle Fahrten für Grenzgänger',
+    'blog.article.treni-ffs-tilo-affollamento-pentecoste.excerpt': 'Rekordandrang in FFS- und TILO-Zügen während der Pfingst-Brückentage: verärgerte Passagiere und Belastungen für Grenzgänger.',
+    'blog.article.treni-ffs-tilo-affollamento-pentecoste.imageAlt': 'Überfüllte Bahnhof in Lugano während der Feiertage',
 };
 
 export default blogMetaDe;
