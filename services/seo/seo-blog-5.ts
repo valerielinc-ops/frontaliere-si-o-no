@@ -38996,6 +38996,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-salario-minimo-ticino-frontalieri-2029': {
+    title: 'Salario minimo in Ticino: cosa cambia per i frontalieri dal 2029',
+    description: 'Dal 2029 il salario minimo in Ticino salirà a 21,75-22,25 franchi l\'ora. Ecco cosa cambia per i frontalieri e i residenti. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, salario, minimo, cosa, cambia',
+    ogTitle: 'Salario minimo in Ticino: cosa cambia per i frontalieri dal 2029',
+    ogDescription: 'Dal 2029 il salario minimo in Ticino salirà a 21,75-22,25 franchi l\'ora. Ecco cosa cambia per i frontalieri e i residenti.',
+    canonicalPath: '/articoli-frontaliere/salario-minimo-ticino-frontalieri-2029',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Salario minimo in Ticino: cosa cambia per i frontalieri dal 2029",
+      "description": "Dal 2029 il salario minimo in Ticino salirà a 21,75-22,25 franchi l'ora. Ecco cosa cambia per i frontalieri e i residenti. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/salario-minimo-ticino-frontalieri-2029.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lavoratore frontaliero vicino al Lago di Lugano in Ticino, Svizzera, con una valigetta e un documento sul salario."
+      },
+      "datePublished": "2026-05-25T07:28:23+00:00",
+      "dateModified": "2026-05-25T07:28:23+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/salario-minimo-ticino-frontalieri-2029`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

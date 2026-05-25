@@ -7701,6 +7701,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.lavoro-chiasso-opportunita-frontalieri.title': 'Arbeit in Chiasso: Chancen für Grenzgänger',
     'blog.article.lavoro-chiasso-opportunita-frontalieri.excerpt': 'Entdecke die Arbeitsmöglichkeiten in Chiasso für Grenzgänger, mit Details zu Genehmigungen, Steuern und Vorteilen des Arbeitens in Tessin.',
     'blog.article.lavoro-chiasso-opportunita-frontalieri.imageAlt': 'Grenzpendler in Chiasso, Tessin, mit modernen Bürogebäuden und der Schweizer-Italienischen Grenze im Hintergrund.',
+    'blog.article.salario-minimo-ticino-frontalieri-2029.title': 'Mindestlohn im Tessin: Änderungen für Grenzgänger ab 2029',
+    'blog.article.salario-minimo-ticino-frontalieri-2029.excerpt': 'Ab 2029 steigt der Mindestlohn im Tessin auf 21,75-22,25 Franken pro Stunde. Hier erfahren Sie, was sich für Grenzgänger und Einwohner ändert.',
+    'blog.article.salario-minimo-ticino-frontalieri-2029.imageAlt': 'Grenzgänger in der Nähe des Luganer Sees im Tessin, Schweiz, mit einem Aktenkoffer und einem Gehaltsdokument.',
 };
 
 export default blogMetaDe;

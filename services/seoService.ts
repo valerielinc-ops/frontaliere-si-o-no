@@ -3810,6 +3810,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-orario-lavoro-settimanale-svizzera-2025': { name: 'Orario di lavoro settimanale in Svizzera', path: '/articoli-frontaliere/orario-lavoro-settimanale-svizzera-2025', parent: 'blog' },
     'blog-regime-fiscale-frontaliere-svizzera': { name: 'fiscale', path: '/articoli-frontaliere/regime-fiscale-frontaliere-svizzera', parent: 'blog' },
     'blog-lavoro-chiasso-opportunita-frontalieri': { name: 'Lavoro a Chiasso', path: '/articoli-frontaliere/lavoro-chiasso-opportunita-frontalieri', parent: 'blog' },
+    'blog-salario-minimo-ticino-frontalieri-2029': { name: 'Salario minimo', path: '/articoli-frontaliere/salario-minimo-ticino-frontalieri-2029', parent: 'blog' },
  };
 
  const info = sectionNames[section];

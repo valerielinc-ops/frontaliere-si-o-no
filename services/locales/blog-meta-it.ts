@@ -7703,6 +7703,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.lavoro-chiasso-opportunita-frontalieri.title': 'Lavoro a Chiasso: Opportunità per i Frontalieri',
     'blog.article.lavoro-chiasso-opportunita-frontalieri.excerpt': 'Scopri le opportunità di lavoro a Chiasso per i frontalieri, con dettagli su permessi, fiscalità e vantaggi del lavorare in Ticino.',
     'blog.article.lavoro-chiasso-opportunita-frontalieri.imageAlt': 'Professionisti frontalieri che lavorano a Chiasso, Ticino, con uffici moderni e il confine svizzero-italiano sullo sfondo.',
+    'blog.article.salario-minimo-ticino-frontalieri-2029.title': 'Salario minimo in Ticino: cosa cambia per i frontalieri dal 2029',
+    'blog.article.salario-minimo-ticino-frontalieri-2029.excerpt': 'Dal 2029 il salario minimo in Ticino salirà a 21,75-22,25 franchi l\'ora. Ecco cosa cambia per i frontalieri e i residenti.',
+    'blog.article.salario-minimo-ticino-frontalieri-2029.imageAlt': 'Lavoratore frontaliero vicino al Lago di Lugano in Ticino, Svizzera, con una valigetta e un documento sul salario.',
 };
 
 export default blogMetaIt;

@@ -24482,4 +24482,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'salario-minimo-ticino-frontalieri-2029',
+ category: 'fiscale',
+ date: '2026-05-25T07:28:23.318Z',
+ image: '/images/blog/salario-minimo-ticino-frontalieri-2029.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

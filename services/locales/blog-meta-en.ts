@@ -7702,6 +7702,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.lavoro-chiasso-opportunita-frontalieri.title': 'Jobs in Chiasso: Opportunities for Cross‑Border Workers',
     'blog.article.lavoro-chiasso-opportunita-frontalieri.excerpt': 'Discover job opportunities in Chiasso for cross‑border workers, with details on permits, taxation and the benefits of working in Ticino.',
     'blog.article.lavoro-chiasso-opportunita-frontalieri.imageAlt': 'Frontier workers in Chiasso, Ticino, with modern office buildings and the Swiss-Italian border in the background.',
+    'blog.article.salario-minimo-ticino-frontalieri-2029.title': 'Minimum wage in Ticino: changes for cross-border workers from 2029',
+    'blog.article.salario-minimo-ticino-frontalieri-2029.excerpt': 'From 2029, the minimum wage in Ticino will rise to 21.75-22.25 francs per hour. Here\'s what changes for cross-border workers and residents.',
+    'blog.article.salario-minimo-ticino-frontalieri-2029.imageAlt': 'Frontalier worker near Lake Lugano in Ticino, Switzerland, with a briefcase and a salary document.',
 };
 
 export default blogMetaEn;

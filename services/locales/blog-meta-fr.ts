@@ -7703,6 +7703,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.lavoro-chiasso-opportunita-frontalieri.title': 'Emploi à Chiasso : Opportunités pour les frontaliers',
     'blog.article.lavoro-chiasso-opportunita-frontalieri.excerpt': 'Découvrez les opportunités d\'emploi à Chiasso pour les frontaliers, avec des détails sur les permis, la fiscalité et les avantages de travailler en Ticino.',
     'blog.article.lavoro-chiasso-opportunita-frontalieri.imageAlt': 'Travailleurs frontaliers à Chiasso, Tessin, avec des bâtiments de bureaux modernes et la frontière suisse-italienne en arrière-plan.',
+    'blog.article.salario-minimo-ticino-frontalieri-2029.title': 'Salaire minimum en Tessin: ce qui change pour les frontaliers en 2029',
+    'blog.article.salario-minimo-ticino-frontalieri-2029.excerpt': 'À partir de 2029, le salaire minimum en Tessin passera à 21,75-22,25 francs de l\'heure. Voici ce qui change pour les frontaliers et les résidents.',
+    'blog.article.salario-minimo-ticino-frontalieri-2029.imageAlt': 'Travailleur frontalier près du lac de Lugano dans le Tessin, Suisse, avec une mallette et un document de salaire.',
 };
 
 export default blogMetaFr;
