@@ -3,13 +3,13 @@
  *
  * Context: Phase 4 of the May 18 traffic-and-subscriptions recovery plan.
  * The Phase 1 diagnosis (`data/recovery-2026-05-18/calc-funnel.md`) found the
- * calculator funnel was tracking-broken — `funnel_step:entry` fired only at
- * session-init, regardless of landing page, while users landing on SEO calc
- * variants emitted `input_start` / `calculate` but never `entry`.
+ * calculator funnel was tracking-broken — `funnel_step:entry` missed the
+ * canonical homepage calculator route and SEO calc variants, while those
+ * users emitted `input_start` / `calculate`.
  *
  * The helper emits `funnel_step:entry` with `funnel: 'calculator'` once per
- * session when the user is on any calc URL — canonical, SEO variant, or
- * sibling calc tool. Idempotent via sessionStorage.
+ * session when the user is on any calc URL — locale root homepage, SEO
+ * variant, or sibling calc tool. Idempotent via sessionStorage.
  *
  * The global setup (tests/setup.tsx) replaces `@/services/analytics` with a
  * caching-Proxy mock. We use `vi.importActual` to load the REAL module and
@@ -101,10 +101,31 @@ describe('fireCalcEntryIfNeeded', () => {
     expect(entryCalls()).toHaveLength(1);
   });
 
-  it('skips non-calc routes', () => {
+  it('fires on locale root homepage routes because they mount the default calculator', () => {
     fireCalcEntryIfNeeded('/');
+    let calls = entryCalls();
+    expect(calls).toHaveLength(1);
+    expect(calls[0][1]).toMatchObject({
+      step: 'entry',
+      funnel: 'calculator',
+      landing_path: '/',
+    });
+
+    sessionStorage.clear();
+    captureEventMock.mockClear();
+    fireCalcEntryIfNeeded('/en/?utm_source=test#top');
+    calls = entryCalls();
+    expect(calls).toHaveLength(1);
+    expect(calls[0][1]).toMatchObject({
+      step: 'entry',
+      funnel: 'calculator',
+      landing_path: '/en/',
+    });
+  });
+
+  it('skips non-calc routes', () => {
     fireCalcEntryIfNeeded('/cerca-lavoro-ticino');
-    fireCalcEntryIfNeeded('/articoli-frontaliere');
+    fireCalcEntryIfNeeded('/articoli-frontaliere?reddito=70000');
     expect(entryCalls()).toHaveLength(0);
     // Did not poison the dedupe flag — a subsequent calc-route call still fires
     fireCalcEntryIfNeeded('/calcola-stipendio/');

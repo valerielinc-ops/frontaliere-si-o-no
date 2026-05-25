@@ -51,7 +51,7 @@ export default function CalcolatoreTabContent() {
 
  if (calcolatoreSubTab === 'calculator') {
  return (
- <div className="space-y-8">
+ <div className="space-y-8 adsense-auto-ads-ignore">
  {seoLanding === 'new-frontier-over20km' ? (
  <Suspense fallback={<div className="h-64 rounded-3xl bg-surface-raised animate-pulse mb-6" />}>
  <NewFrontierOver20KmHub />

@@ -429,14 +429,20 @@ export function parseBrowserInfo(ua: string): string {
 // /calcola-stipendio/stipendio-netto-80000-chf) emitted input_start/calculate
 // but never the calculator-scoped `entry`.
 //
-// `CALC_ROUTE_REGEX` matches every URL family that mounts the calculator
-// (root /calcola-stipendio* + locale variants + sibling calc tools).
+// `CALC_ROUTE_REGEX` matches every slug family that mounts the calculator.
+// Locale roots (/, /en/, /de/, /fr/) are handled separately because the
+// router canonicalizes the default calculator tab to those homepage URLs.
 // `fireCalcEntryIfNeeded` emits `funnel_step:entry` with `funnel: 'calculator'`
 // once per session when the user first reaches any calc URL.
 export const CALC_ROUTE_REGEX =
  /^\/(?:[a-z]{2}\/)?(?:calcola-stipendio|calculate-salary|gehalt-berechnen|calculer-salaire|verifica-congedo-parentale|estimate-parental-leave|elternzeit-simulieren|simuler-conge-parental|calcola-previdenza|calculate-retirement|rente-berechnen|calculer-pension|simula-busta-paga|estimate-payslip|lohnabrechnung-simulieren|simuler-fiche-de-paie)(?:\/|$)/;
 
 const CALC_ENTRY_SESSION_KEY = 'fr_calc_entry_fired';
+const CALC_HOME_PATH_REGEX = /^\/(?:en|de|fr)\/?$/;
+
+function isCalculatorEntryPath(pathOnly: string): boolean {
+ return pathOnly === '/' || CALC_HOME_PATH_REGEX.test(pathOnly) || CALC_ROUTE_REGEX.test(pathOnly);
+}
 
 /**
  * Emit `funnel_step:entry` with `funnel: 'calculator'` once per session when
@@ -448,8 +454,8 @@ const CALC_ENTRY_SESSION_KEY = 'fr_calc_entry_fired';
 export function fireCalcEntryIfNeeded(path: string): void {
  if (typeof path !== 'string' || !path) return;
  // Strip query + hash so /calcola-stipendio/?tipo=NEW matches the regex.
- const pathOnly = path.split('?')[0].split('#')[0];
- if (!CALC_ROUTE_REGEX.test(pathOnly)) return;
+ const pathOnly = path.split('#')[0].split('?')[0] || '/';
+ if (!isCalculatorEntryPath(pathOnly)) return;
  try {
  if (sessionStorage.getItem(CALC_ENTRY_SESSION_KEY) === '1') return;
  sessionStorage.setItem(CALC_ENTRY_SESSION_KEY, '1');
