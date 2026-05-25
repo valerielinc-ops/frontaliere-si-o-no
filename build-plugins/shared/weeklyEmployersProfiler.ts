@@ -2,10 +2,9 @@
  * weeklyEmployersProfiler — per-category instrumentation for
  * weeklyEmployersPlugin.
  *
- * Activated by default whenever `BUILD_PROFILE=1` is set, which is the normal
- * CI build path. Set `WEEKLY_EMPLOYERS_PROFILE=0` to opt out, or
- * `WEEKLY_EMPLOYERS_PROFILE=1` to force this table on in a one-off local/profile
- * run.
+ * Activated by default with build profiling. Set `WEEKLY_EMPLOYERS_PROFILE=0`
+ * or `BUILD_PROFILE=0` to opt out, or `WEEKLY_EMPLOYERS_PROFILE=1` to force
+ * this table on in a one-off local/profile run.
  *
  * Categories the plugin times:
  *   - cleanup                    → wipe owned namespaces + sitemap files
@@ -45,7 +44,7 @@
  */
 
 const ENABLED = process.env.WEEKLY_EMPLOYERS_PROFILE === '1'
-  || (process.env.WEEKLY_EMPLOYERS_PROFILE !== '0' && process.env.BUILD_PROFILE === '1');
+  || (process.env.WEEKLY_EMPLOYERS_PROFILE !== '0' && process.env.BUILD_PROFILE !== '0');
 
 type CategoryStats = {
   count: number;

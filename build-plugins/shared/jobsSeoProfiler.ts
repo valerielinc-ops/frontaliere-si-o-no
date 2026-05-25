@@ -1,9 +1,9 @@
 /**
  * jobsSeoProfiler — per-category instrumentation for jobsSeoPagesPlugin.
  *
- * Activated by default whenever `BUILD_PROFILE=1` is set, which is the normal
- * CI build path. Set `JOBS_SEO_PROFILE=0` to opt out, or `JOBS_SEO_PROFILE=1`
- * to force this table on in a one-off local/profile run.
+ * Activated by default with build profiling. Set `JOBS_SEO_PROFILE=0` or
+ * `BUILD_PROFILE=0` to opt out, or `JOBS_SEO_PROFILE=1` to force this table
+ * on in a one-off local/profile run.
  *
  * Categories the plugin emits:
  *   - active-job                 → /cerca-lavoro-{loc}/<slug>/index.html
@@ -48,7 +48,7 @@
  */
 
 const ENABLED = process.env.JOBS_SEO_PROFILE === '1'
-  || (process.env.JOBS_SEO_PROFILE !== '0' && process.env.BUILD_PROFILE === '1');
+  || (process.env.JOBS_SEO_PROFILE !== '0' && process.env.BUILD_PROFILE !== '0');
 
 type CategoryStats = {
   count: number;

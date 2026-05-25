@@ -2,13 +2,12 @@
  * relatedSearchClustersProfiler — per-phase instrumentation for
  * relatedSearchClustersPlugin.
  *
- * Activated by default whenever `BUILD_PROFILE=1` is set, which is the normal
- * CI build path. Set `RELATED_SEARCH_CLUSTERS_PROFILE=0` to opt out, or
- * `RELATED_SEARCH_CLUSTERS_PROFILE=1` to force this table on locally.
+ * Activated by default with build profiling. Set
+ * `RELATED_SEARCH_CLUSTERS_PROFILE=0` or `BUILD_PROFILE=0` to opt out.
  */
 
 const ENABLED = process.env.RELATED_SEARCH_CLUSTERS_PROFILE === '1'
-  || (process.env.RELATED_SEARCH_CLUSTERS_PROFILE !== '0' && process.env.BUILD_PROFILE === '1');
+  || (process.env.RELATED_SEARCH_CLUSTERS_PROFILE !== '0' && process.env.BUILD_PROFILE !== '0');
 
 type CategoryStats = {
   count: number;

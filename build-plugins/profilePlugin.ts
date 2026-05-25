@@ -5,10 +5,8 @@
  * `Build profile summary` step parses these stdout lines into a Markdown
  * table).
  *
- * Activation: only when `BUILD_PROFILE=1` is set in the environment. In
- * normal local builds the wrappers are no-ops — `withProfile()` returns the
- * input plugin unchanged, so there is zero runtime overhead and zero risk
- * of altering plugin behavior.
+ * Activation: on by default for every build so local and CI logs both expose
+ * plugin timing regressions. Set `BUILD_PROFILE=0` to opt out.
  *
  * Output format (one line per plugin per closeBundle invocation):
  *
@@ -31,7 +29,7 @@
 
 import type { Plugin } from 'vite';
 
-const PROFILE_ON = process.env.BUILD_PROFILE === '1';
+const PROFILE_ON = process.env.BUILD_PROFILE !== '0';
 // Force sequential closeBundle execution. Use only for one-off profiling runs:
 // it serializes every plugin so wall-clock per plugin reflects real work
 // instead of parallel-overlapped time. Slower than normal — opt-in via env.
@@ -44,7 +42,7 @@ const timings = new Map<string, number>();
 
 /**
  * Wrap a Vite Plugin so its `closeBundle` hook is timed. Returns the input
- * plugin unchanged when `BUILD_PROFILE !== '1'` or when the plugin has no
+ * plugin unchanged when `BUILD_PROFILE=0` or when the plugin has no
  * `closeBundle` to wrap.
  */
 export function withProfile(plugin: Plugin): Plugin {
