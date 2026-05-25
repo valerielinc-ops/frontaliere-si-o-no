@@ -47,6 +47,16 @@ These guidelines reduce common LLM coding mistakes. They are subordinate to the 
 - For refactors, verify behavior before and after.
 - Loop until the stated success criteria are actually verified.
 
+## Caveman Brevity Mode
+
+The `caveman` Codex skills are installed for terse, token-efficient communication. Use them only when the user asks for `/caveman`, "talk like caveman", "less tokens", "be brief", or similar.
+
+- Default level: `full`; support `lite`, `full`, and `ultra` if requested.
+- Keep technical names, paths, commands, API names, code, error strings, and commit messages exact.
+- Drop filler, pleasantries, hedging, and repeated explanation; keep the substance.
+- Temporarily return to normal clarity for security warnings, irreversible actions, multi-step sequences where order matters, or when compression could create ambiguity.
+- Stop when the user says "normal mode" or "stop caveman".
+
 ## Workflow & Process
 
 8. **Use Playwright for E2E**, not preview tools. Build + serve dist + Playwright.
