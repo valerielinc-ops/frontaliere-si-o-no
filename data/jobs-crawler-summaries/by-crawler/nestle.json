@@ -1,18 +1,55 @@
 {
   "key": "nestle",
   "label": "Nestlé",
-  "generatedAt": "2026-05-25T13:34:06.078Z",
+  "generatedAt": "2026-05-25T23:03:14.646Z",
   "total": 67,
-  "newCount": 67,
-  "updatedCount": 0,
-  "removedCount": 0,
+  "newCount": 1,
+  "updatedCount": 66,
+  "removedCount": 1,
   "unchangedCount": 0,
-  "durationMs": 58657,
-  "avgDurationMs": 58657,
+  "durationMs": 62766,
+  "avgDurationMs": 62766,
   "durationHistory": [
-    58657
+    62766
   ],
   "newJobs": [
+    {
+      "id": "nestle-1388870033",
+      "slug": "technicien-de-maintenance-en-horaire-d-equipe-4x8-h-f-d-nestle-ch",
+      "company": "Nestlé",
+      "companyKey": "nestle",
+      "companyDomain": "nestle.com",
+      "title": "Technicien de maintenance en horaire d'équipe 4x8 (H/F/D)",
+      "location": "Romont, CH",
+      "canton": "VD",
+      "url": "https://jobdetails.nestle.com/job/Romont-Technicien-de-maintenance-en-horaire-d&apos;%C3%A9quipe-4x8-%28HFD%29/1388870033/",
+      "source": "Nestlé Switzerland Dedicated Parser (Workday)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-05-25T23:03:03.424Z",
+      "addressLocality": "Romont, CH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Tecnica",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Food / Beverage",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-29",
+      "applyUrl": "https://jobdetails.nestle.com/job/Romont-Technicien-de-maintenance-en-horaire-d&apos;%C3%A9quipe-4x8-%28HFD%29/1388870033/",
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-25T13:33:55.578Z",
+      "_qualityScore": 76,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 19,
+        "completeness": 14
+      }
+    }
+  ],
+  "updatedJobs": [
     {
       "id": "nestle-1271255101",
       "slug": "sr-specialist-scientific-data-engineering-nestle-ch",
@@ -25,7 +62,7 @@
       "url": "https://jobdetails.nestle.com/job/Lausanne-Sr-Specialist-Scientific-Data-Engineering/1271255101/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-25T13:33:23.236Z",
+      "crawledAt": "2026-05-25T23:02:28.625Z",
       "addressLocality": "Lausanne, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -38,11 +75,13 @@
       "featured": false,
       "postedDate": "2026-05-25",
       "applyUrl": "https://jobdetails.nestle.com/job/Lausanne-Sr-Specialist-Scientific-Data-Engineering/1271255101/",
-      "_qualityScore": 63,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-25T13:33:23.236Z",
+      "_qualityScore": 80,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 21,
         "completeness": 14
       }
     },
@@ -58,7 +97,7 @@
       "url": "https://jobdetails.nestle.com/job/Romont-Op%C3%A9rateur-de-production-%28HFD%29/1271549401/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-25T13:33:23.920Z",
+      "crawledAt": "2026-05-25T23:02:29.385Z",
       "addressLocality": "Romont, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -71,11 +110,13 @@
       "featured": false,
       "postedDate": "2026-05-25",
       "applyUrl": "https://jobdetails.nestle.com/job/Romont-Op%C3%A9rateur-de-production-%28HFD%29/1271549401/",
-      "_qualityScore": 61,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-25T13:33:23.920Z",
+      "_qualityScore": 76,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 19,
         "completeness": 14
       }
     },
@@ -91,7 +132,7 @@
       "url": "https://jobdetails.nestle.com/job/Vevey-International-Auditor/1376630333/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-25T13:33:21.891Z",
+      "crawledAt": "2026-05-25T23:02:27.162Z",
       "addressLocality": "Vevey, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -104,11 +145,13 @@
       "featured": false,
       "postedDate": "2026-05-24",
       "applyUrl": "https://jobdetails.nestle.com/job/Vevey-International-Auditor/1376630333/",
-      "_qualityScore": 63,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-25T13:33:21.891Z",
+      "_qualityScore": 75,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 16,
         "completeness": 14
       }
     },
@@ -124,7 +167,7 @@
       "url": "https://jobdetails.nestle.com/job/Basel-Betriebselektrikerin/1220980901/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-25T13:34:02.457Z",
+      "crawledAt": "2026-05-25T23:03:10.901Z",
       "addressLocality": "Basel, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -137,11 +180,13 @@
       "featured": false,
       "postedDate": "2026-05-24",
       "applyUrl": "https://jobdetails.nestle.com/job/Basel-Betriebselektrikerin/1220980901/",
-      "_qualityScore": 61,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-25T13:34:02.457Z",
+      "_qualityScore": 73,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 16,
         "completeness": 14
       }
     },
@@ -157,7 +202,7 @@
       "url": "https://jobdetails.nestle.com/job/Orbe-Vivier-de-talent-Technicien-de-maintenance-5x8/1378330133/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-25T13:34:03.155Z",
+      "crawledAt": "2026-05-25T23:03:11.626Z",
       "addressLocality": "Orbe, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -170,11 +215,13 @@
       "featured": false,
       "postedDate": "2026-05-24",
       "applyUrl": "https://jobdetails.nestle.com/job/Orbe-Vivier-de-talent-Technicien-de-maintenance-5x8/1378330133/",
-      "_qualityScore": 61,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-25T13:34:03.155Z",
+      "_qualityScore": 73,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 16,
         "completeness": 14
       }
     },
@@ -190,7 +237,7 @@
       "url": "https://jobdetails.nestle.com/job/Avenches-Op%C3%A9rateur-de-production-48-%28HFD%29/1378138333/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-25T13:34:03.874Z",
+      "crawledAt": "2026-05-25T23:03:12.360Z",
       "addressLocality": "Avenches, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -203,11 +250,13 @@
       "featured": false,
       "postedDate": "2026-05-24",
       "applyUrl": "https://jobdetails.nestle.com/job/Avenches-Op%C3%A9rateur-de-production-48-%28HFD%29/1378138333/",
-      "_qualityScore": 61,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-25T13:34:03.874Z",
+      "_qualityScore": 76,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 19,
         "completeness": 14
       }
     },
@@ -223,7 +272,7 @@
       "url": "https://jobdetails.nestle.com/job/Orbe-R&D-Specialist-Electronics-Hardware/1377556533/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-25T13:33:18.419Z",
+      "crawledAt": "2026-05-25T23:02:23.451Z",
       "addressLocality": "Orbe, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -236,11 +285,13 @@
       "featured": false,
       "postedDate": "2026-05-23",
       "applyUrl": "https://jobdetails.nestle.com/job/Orbe-R&D-Specialist-Electronics-Hardware/1377556533/",
-      "_qualityScore": 57,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-25T13:33:18.419Z",
+      "_qualityScore": 74,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 14,
-        "translation": 4,
+        "translation": 21,
         "completeness": 14
       }
     },
@@ -256,7 +307,7 @@
       "url": "https://jobdetails.nestle.com/job/Orbe-R&D-Specialist-Electronics-Firmware/1377548533/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-25T13:33:19.116Z",
+      "crawledAt": "2026-05-25T23:02:24.196Z",
       "addressLocality": "Orbe, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -269,11 +320,13 @@
       "featured": false,
       "postedDate": "2026-05-23",
       "applyUrl": "https://jobdetails.nestle.com/job/Orbe-R&D-Specialist-Electronics-Firmware/1377548533/",
-      "_qualityScore": 57,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-25T13:33:19.116Z",
+      "_qualityScore": 74,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 14,
-        "translation": 4,
+        "translation": 21,
         "completeness": 14
       }
     },
@@ -289,7 +342,7 @@
       "url": "https://jobdetails.nestle.com/job/Orbe-Stagiaire-ing%C3%A9nieur-Digital-Manufacturing-%28HFD%29/1377885033/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-25T13:33:19.806Z",
+      "crawledAt": "2026-05-25T23:02:24.905Z",
       "addressLocality": "Orbe, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -302,11 +355,13 @@
       "featured": false,
       "postedDate": "2026-05-23",
       "applyUrl": "https://jobdetails.nestle.com/job/Orbe-Stagiaire-ing%C3%A9nieur-Digital-Manufacturing-%28HFD%29/1377885033/",
-      "_qualityScore": 61,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-25T13:33:19.806Z",
+      "_qualityScore": 76,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 19,
         "completeness": 14
       }
     },
@@ -322,7 +377,7 @@
       "url": "https://jobdetails.nestle.com/job/Orbe-R&D-Senior-Specialist-System-Development/1377559333/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-25T13:33:20.491Z",
+      "crawledAt": "2026-05-25T23:02:25.669Z",
       "addressLocality": "Orbe, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -335,11 +390,13 @@
       "featured": false,
       "postedDate": "2026-05-23",
       "applyUrl": "https://jobdetails.nestle.com/job/Orbe-R&D-Senior-Specialist-System-Development/1377559333/",
-      "_qualityScore": 57,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-25T13:33:20.491Z",
+      "_qualityScore": 74,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 14,
-        "translation": 4,
+        "translation": 21,
         "completeness": 14
       }
     },
@@ -355,7 +412,7 @@
       "url": "https://jobdetails.nestle.com/job/Orbe-Stagiaire-Ing%C3%A9nieure-Engineering-%28HFD%29/1377993633/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-25T13:33:21.175Z",
+      "crawledAt": "2026-05-25T23:02:26.433Z",
       "addressLocality": "Orbe, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -368,11 +425,13 @@
       "featured": false,
       "postedDate": "2026-05-23",
       "applyUrl": "https://jobdetails.nestle.com/job/Orbe-Stagiaire-Ing%C3%A9nieure-Engineering-%28HFD%29/1377993633/",
-      "_qualityScore": 61,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-25T13:33:21.175Z",
+      "_qualityScore": 76,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 19,
         "completeness": 14
       }
     },
@@ -388,7 +447,7 @@
       "url": "https://jobdetails.nestle.com/job/Avenches-Supply-Chain-Intern/1387253333/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-25T13:33:22.572Z",
+      "crawledAt": "2026-05-25T23:02:27.895Z",
       "addressLocality": "Avenches, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -401,11 +460,13 @@
       "featured": false,
       "postedDate": "2026-05-23",
       "applyUrl": "https://jobdetails.nestle.com/job/Avenches-Supply-Chain-Intern/1387253333/",
-      "_qualityScore": 63,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-25T13:33:22.572Z",
+      "_qualityScore": 80,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 21,
         "completeness": 14
       }
     },
@@ -421,7 +482,7 @@
       "url": "https://jobdetails.nestle.com/job/Konolfingen-R&D-Project-Manager/1386977033/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-25T13:33:32.795Z",
+      "crawledAt": "2026-05-25T23:02:38.989Z",
       "addressLocality": "Konolfingen, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -434,11 +495,13 @@
       "featured": false,
       "postedDate": "2026-05-22",
       "applyUrl": "https://jobdetails.nestle.com/job/Konolfingen-R&D-Project-Manager/1386977033/",
-      "_qualityScore": 57,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-25T13:33:32.795Z",
+      "_qualityScore": 69,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 14,
-        "translation": 4,
+        "translation": 16,
         "completeness": 14
       }
     },
@@ -454,7 +517,7 @@
       "url": "https://jobdetails.nestle.com/job/Lausanne-Associate-R&D-Specialist-Flavors/1376955433/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-25T13:33:40.419Z",
+      "crawledAt": "2026-05-25T23:02:47.054Z",
       "addressLocality": "Lausanne, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -467,11 +530,13 @@
       "featured": false,
       "postedDate": "2026-05-21",
       "applyUrl": "https://jobdetails.nestle.com/job/Lausanne-Associate-R&D-Specialist-Flavors/1376955433/",
-      "_qualityScore": 61,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-25T13:33:40.419Z",
+      "_qualityScore": 78,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 21,
         "completeness": 14
       }
     },
@@ -487,7 +552,7 @@
       "url": "https://jobdetails.nestle.com/job/Lausanne-Microbiology-Intern-Anaerobic-Digestion-Processes/1395924033/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-25T13:33:57.631Z",
+      "crawledAt": "2026-05-25T23:03:05.677Z",
       "addressLocality": "Lausanne, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -500,11 +565,13 @@
       "featured": false,
       "postedDate": "2026-05-21",
       "applyUrl": "https://jobdetails.nestle.com/job/Lausanne-Microbiology-Intern-Anaerobic-Digestion-Processes/1395924033/",
-      "_qualityScore": 63,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-25T13:33:57.631Z",
+      "_qualityScore": 80,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 21,
         "completeness": 14
       }
     },
@@ -520,7 +587,7 @@
       "url": "https://jobdetails.nestle.com/job/Vevey-Manufacturing-Projects-Intern/1395939233/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-25T13:33:58.311Z",
+      "crawledAt": "2026-05-25T23:03:06.415Z",
       "addressLocality": "Vevey, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -533,11 +600,13 @@
       "featured": false,
       "postedDate": "2026-05-21",
       "applyUrl": "https://jobdetails.nestle.com/job/Vevey-Manufacturing-Projects-Intern/1395939233/",
-      "_qualityScore": 63,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-25T13:33:58.311Z",
+      "_qualityScore": 80,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 21,
         "completeness": 14
       }
     },
@@ -553,7 +622,7 @@
       "url": "https://jobdetails.nestle.com/job/Konolfingen-Anlagenf%C3%BChrerin-Produktion-100/1386110633/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-25T13:33:32.102Z",
+      "crawledAt": "2026-05-25T23:02:38.230Z",
       "addressLocality": "Konolfingen, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -566,11 +635,13 @@
       "featured": false,
       "postedDate": "2026-05-20",
       "applyUrl": "https://jobdetails.nestle.com/job/Konolfingen-Anlagenf%C3%BChrerin-Produktion-100/1386110633/",
-      "_qualityScore": 63,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-25T13:33:32.102Z",
+      "_qualityScore": 75,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 16,
         "completeness": 14
       }
     },
@@ -586,7 +657,7 @@
       "url": "https://jobdetails.nestle.com/job/Basel-Mentor/1395506733/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-25T13:33:56.969Z",
+      "crawledAt": "2026-05-25T23:03:04.933Z",
       "addressLocality": "Basel, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -599,11 +670,13 @@
       "featured": false,
       "postedDate": "2026-05-20",
       "applyUrl": "https://jobdetails.nestle.com/job/Basel-Mentor/1395506733/",
-      "_qualityScore": 61,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-25T13:33:56.969Z",
+      "_qualityScore": 73,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 16,
         "completeness": 14
       }
     },
@@ -619,7 +692,7 @@
       "url": "https://jobdetails.nestle.com/job/Orbe-Stagiaire-Automation-Robotique/1394983833/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-25T13:33:47.255Z",
+      "crawledAt": "2026-05-25T23:02:54.525Z",
       "addressLocality": "Orbe, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -632,11 +705,13 @@
       "featured": false,
       "postedDate": "2026-05-19",
       "applyUrl": "https://jobdetails.nestle.com/job/Orbe-Stagiaire-Automation-Robotique/1394983833/",
-      "_qualityScore": 61,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-25T13:33:47.255Z",
+      "_qualityScore": 73,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 16,
         "completeness": 14
       }
     },
@@ -652,7 +727,7 @@
       "url": "https://jobdetails.nestle.com/job/Avenches-MPS-&-MRP-Planner/1385532533/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-25T13:33:47.953Z",
+      "crawledAt": "2026-05-25T23:02:55.290Z",
       "addressLocality": "Avenches, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -665,11 +740,13 @@
       "featured": false,
       "postedDate": "2026-05-19",
       "applyUrl": "https://jobdetails.nestle.com/job/Avenches-MPS-&-MRP-Planner/1385532533/",
-      "_qualityScore": 63,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-25T13:33:47.953Z",
+      "_qualityScore": 75,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 16,
         "completeness": 14
       }
     },
@@ -685,7 +762,7 @@
       "url": "https://jobdetails.nestle.com/job/Romont-Stagiaire-SHE-%28HFD%29/1245919801/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-25T13:33:44.479Z",
+      "crawledAt": "2026-05-25T23:02:51.533Z",
       "addressLocality": "Romont, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -698,11 +775,13 @@
       "featured": false,
       "postedDate": "2026-05-18",
       "applyUrl": "https://jobdetails.nestle.com/job/Romont-Stagiaire-SHE-%28HFD%29/1245919801/",
-      "_qualityScore": 61,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-25T13:33:44.479Z",
+      "_qualityScore": 76,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 19,
         "completeness": 14
       }
     },
@@ -718,7 +797,7 @@
       "url": "https://jobdetails.nestle.com/job/Henniez-Apprenti-e-Technologue-du-Brassage-et-des-Boissons/978705001/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-25T13:33:45.157Z",
+      "crawledAt": "2026-05-25T23:02:52.260Z",
       "addressLocality": "Henniez, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -731,11 +810,13 @@
       "featured": false,
       "postedDate": "2026-05-18",
       "applyUrl": "https://jobdetails.nestle.com/job/Henniez-Apprenti-e-Technologue-du-Brassage-et-des-Boissons/978705001/",
-      "_qualityScore": 57,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-25T13:33:45.157Z",
+      "_qualityScore": 69,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 14,
-        "translation": 4,
+        "translation": 16,
         "completeness": 14
       }
     },
@@ -751,7 +832,7 @@
       "url": "https://jobdetails.nestle.com/job/Henniez-Apprenti-e-Op%C3%A9rateur-trice-de-machines-automatis%C3%A9es/978712801/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-25T13:33:45.862Z",
+      "crawledAt": "2026-05-25T23:02:53.005Z",
       "addressLocality": "Henniez, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -764,11 +845,13 @@
       "featured": false,
       "postedDate": "2026-05-18",
       "applyUrl": "https://jobdetails.nestle.com/job/Henniez-Apprenti-e-Op%C3%A9rateur-trice-de-machines-automatis%C3%A9es/978712801/",
-      "_qualityScore": 57,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-25T13:33:45.862Z",
+      "_qualityScore": 69,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 14,
-        "translation": 4,
+        "translation": 16,
         "completeness": 14
       }
     },
@@ -784,7 +867,7 @@
       "url": "https://jobdetails.nestle.com/job/Henniez-Apprenti-e-Logisticien-ne/1129755301/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-25T13:33:46.557Z",
+      "crawledAt": "2026-05-25T23:02:53.777Z",
       "addressLocality": "Henniez, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -797,11 +880,13 @@
       "featured": false,
       "postedDate": "2026-05-18",
       "applyUrl": "https://jobdetails.nestle.com/job/Henniez-Apprenti-e-Logisticien-ne/1129755301/",
-      "_qualityScore": 63,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-25T13:33:46.557Z",
+      "_qualityScore": 75,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 16,
         "completeness": 14
       }
     },
@@ -817,7 +902,7 @@
       "url": "https://jobdetails.nestle.com/job/Konolfingen-Anlagenf%C3%BChrerin-Fill-&-Pack/1375889233/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-25T13:33:39.715Z",
+      "crawledAt": "2026-05-25T23:02:46.332Z",
       "addressLocality": "Konolfingen, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -830,11 +915,13 @@
       "featured": false,
       "postedDate": "2026-05-17",
       "applyUrl": "https://jobdetails.nestle.com/job/Konolfingen-Anlagenf%C3%BChrerin-Fill-&-Pack/1375889233/",
-      "_qualityScore": 61,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-25T13:33:39.715Z",
+      "_qualityScore": 73,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 16,
         "completeness": 14
       }
     },
@@ -850,7 +937,7 @@
       "url": "https://jobdetails.nestle.com/job/La-Tour-de-Peilz-Corporate-Channel-Development-Manager/1376073533/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-25T13:34:01.751Z",
+      "crawledAt": "2026-05-25T23:03:10.137Z",
       "addressLocality": "La Tour-de-Peilz, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -863,11 +950,13 @@
       "featured": false,
       "postedDate": "2026-05-17",
       "applyUrl": "https://jobdetails.nestle.com/job/La-Tour-de-Peilz-Corporate-Channel-Development-Manager/1376073533/",
-      "_qualityScore": 61,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-25T13:34:01.751Z",
+      "_qualityScore": 73,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 16,
         "completeness": 14
       }
     },
@@ -883,7 +972,7 @@
       "url": "https://jobdetails.nestle.com/job/Vevey-Global-Consumer-Brand-Experience-Lead-MAGGI/1365318933/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-25T13:33:34.896Z",
+      "crawledAt": "2026-05-25T23:02:41.231Z",
       "addressLocality": "Vevey, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -896,11 +985,13 @@
       "featured": false,
       "postedDate": "2026-05-16",
       "applyUrl": "https://jobdetails.nestle.com/job/Vevey-Global-Consumer-Brand-Experience-Lead-MAGGI/1365318933/",
-      "_qualityScore": 61,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-25T13:33:34.896Z",
+      "_qualityScore": 73,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 16,
         "completeness": 14
       }
     },
@@ -916,7 +1007,7 @@
       "url": "https://jobdetails.nestle.com/job/Vevey-Legal-Counsel-Employment-and-Labour-Law/1365350433/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-25T13:33:35.577Z",
+      "crawledAt": "2026-05-25T23:02:41.964Z",
       "addressLocality": "Vevey, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -929,11 +1020,13 @@
       "featured": false,
       "postedDate": "2026-05-16",
       "applyUrl": "https://jobdetails.nestle.com/job/Vevey-Legal-Counsel-Employment-and-Labour-Law/1365350433/",
-      "_qualityScore": 61,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-25T13:33:35.577Z",
+      "_qualityScore": 73,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 16,
         "completeness": 14
       }
     },
@@ -949,7 +1042,7 @@
       "url": "https://jobdetails.nestle.com/job/Lausanne-Stagiaire-Pr%C3%A9-HEG-Ressources-Humaines-%28Youth%29/1160597701/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-25T13:33:27.989Z",
+      "crawledAt": "2026-05-25T23:02:33.801Z",
       "addressLocality": "Lausanne, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -962,11 +1055,13 @@
       "featured": false,
       "postedDate": "2026-05-15",
       "applyUrl": "https://jobdetails.nestle.com/job/Lausanne-Stagiaire-Pr%C3%A9-HEG-Ressources-Humaines-%28Youth%29/1160597701/",
-      "_qualityScore": 63,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-25T13:33:27.989Z",
+      "_qualityScore": 75,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 16,
         "completeness": 14
       }
     },
@@ -982,7 +1077,7 @@
       "url": "https://jobdetails.nestle.com/job/Orbe-Connectivity-Intern/1384575533/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-25T13:33:48.628Z",
+      "crawledAt": "2026-05-25T23:02:56.012Z",
       "addressLocality": "Orbe, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -995,16 +1090,55 @@
       "featured": false,
       "postedDate": "2026-05-15",
       "applyUrl": "https://jobdetails.nestle.com/job/Orbe-Connectivity-Intern/1384575533/",
-      "_qualityScore": 61,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-25T13:33:48.628Z",
+      "_qualityScore": 78,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 21,
         "completeness": 14
       }
     }
   ],
-  "updatedJobs": [],
-  "removedJobs": [],
+  "removedJobs": [
+    {
+      "id": "nestle-1388870033",
+      "slug": "technicien-de-maintenance-en-horaire-d-equipe-4x8-h-f-d-nestle-ch",
+      "company": "Nestlé",
+      "companyKey": "nestle",
+      "companyDomain": "nestle.com",
+      "title": "Technicien de maintenance en horaire d'équipe 4x8 (H/F/D)",
+      "location": "Romont, CH",
+      "canton": "VD",
+      "url": "https://jobdetails.nestle.com/job/Romont-Technicien-de-maintenance-en-horaire-d'%C3%A9quipe-4x8-%28HFD%29/1388870033/",
+      "source": "Nestlé Switzerland Dedicated Parser (Workday)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-05-25T13:33:55.578Z",
+      "addressLocality": "Romont, CH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Tecnica",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Food / Beverage",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-29",
+      "applyUrl": "https://jobdetails.nestle.com/job/Romont-Technicien-de-maintenance-en-horaire-d'%C3%A9quipe-4x8-%28HFD%29/1388870033/",
+      "needsRetranslation": true,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "firstSeenAt": "2026-05-25T13:33:55.578Z",
+      "_qualityScore": 81,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 19,
+        "completeness": 19
+      }
+    }
+  ],
   "unchangedJobs": []
 }
