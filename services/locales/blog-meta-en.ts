@@ -7774,6 +7774,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.meccanici-manutentori-edili-introvabili-ticino.title': 'Mechanics, maintenance workers and builders in high demand in Ticino',
     'blog.article.meccanici-manutentori-edili-introvabili-ticino.excerpt': 'Openjobmetis\' analysis reveals over 1,200 open positions in Italy, with strong demand in Lombardy, Veneto, and Tuscany.',
     'blog.article.meccanici-manutentori-edili-introvabili-ticino.imageAlt': 'A professional mechanic working in a workshop in Ticino, surrounded by tools and machinery.',
+    'blog.article.educatore-infanzia-ticino-stipendi.title': 'Working as a childcare educator in Ticino: salary and requirements',
+    'blog.article.educatore-infanzia-ticino-stipendi.excerpt': 'Complete guide on how to become a childcare educator in Ticino: salary between CHF 73K and CHF 97K, requirements, employers and salary comparison with Italy and Germany',
+    'blog.article.educatore-infanzia-ticino-stipendi.imageAlt': 'A child educator in Ticino with children in a colorful kindergarten',
 };
 
 export default blogMetaEn;

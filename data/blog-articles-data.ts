@@ -24698,4 +24698,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'educatore-infanzia-ticino-stipendi',
+ category: 'pratico',
+ date: '2026-05-25T12:06:48.836Z',
+ image: '/images/blog/educatore-infanzia-ticino-stipendi.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

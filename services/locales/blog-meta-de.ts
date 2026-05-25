@@ -7773,6 +7773,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.meccanici-manutentori-edili-introvabili-ticino.title': 'Fachkräfte in der Schweiz schwer zu finden',
     'blog.article.meccanici-manutentori-edili-introvabili-ticino.excerpt': 'Die Analyse von Openjobmetis zeigt über 1.200 offene Stellen in Italien, mit hoher Nachfrage in Lombardei, Venetien und der Toskana.',
     'blog.article.meccanici-manutentori-edili-introvabili-ticino.imageAlt': 'Ein professioneller Mechaniker, der in einer Werkstatt im Tessin arbeitet, umgeben von Werkzeugen und Maschinen.',
+    'blog.article.educatore-infanzia-ticino-stipendi.title': 'Kita-Erzieher im Tessin: Gehalt und Voraussetzungen',
+    'blog.article.educatore-infanzia-ticino-stipendi.excerpt': 'Vollständige Anleitung, um Kita-Erzieher im Tessin zu werden: Gehalt zwischen CHF 73K und CHF 97K, Voraussetzungen, Arbeitgeber und Gehaltsvergleich mit Italien und Deutschland',
+    'blog.article.educatore-infanzia-ticino-stipendi.imageAlt': 'Ein Kinderbetreuer in der Schweiz mit Kindern in einem bunten Kindergarten',
 };
 
 export default blogMetaDe;

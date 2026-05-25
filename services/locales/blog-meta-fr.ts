@@ -7775,6 +7775,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.meccanici-manutentori-edili-introvabili-ticino.title': 'Mécaniciens, mainteneurs et maçons introuvables au Tessin',
     'blog.article.meccanici-manutentori-edili-introvabili-ticino.excerpt': 'L\'analyse d\'Openjobmetis révèle plus de 1 200 postes ouverts en Italie, avec une forte demande en Lombardie, Vénétie et Toscane.',
     'blog.article.meccanici-manutentori-edili-introvabili-ticino.imageAlt': 'Un mécanicien professionnel travaillant dans un atelier en Tessin, entouré d\'outils et de machines.',
+    'blog.article.educatore-infanzia-ticino-stipendi.title': 'Travail comme éducateur en Suisse: salaire et exigences',
+    'blog.article.educatore-infanzia-ticino-stipendi.excerpt': 'Guide complet pour devenir éducateur en Suisse: salaire entre CHF 73K et CHF 97K, exigences, employeurs et comparaison salariale avec l\'Italie et l\'Allemagne',
+    'blog.article.educatore-infanzia-ticino-stipendi.imageAlt': 'Un éducateur de la petite enfance en Suisse avec des enfants dans une garderie colorée',
 };
 
 export default blogMetaFr;

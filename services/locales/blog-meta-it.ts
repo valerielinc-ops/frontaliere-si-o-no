@@ -7775,6 +7775,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.meccanici-manutentori-edili-introvabili-ticino.title': 'Meccanici, manutentori ed edili introvabili in Ticino',
     'blog.article.meccanici-manutentori-edili-introvabili-ticino.excerpt': 'L\'analisi di Openjobmetis rivela oltre 1.200 posizioni aperte in Italia, con forte richiesta in Lombardia, Veneto e Toscana.',
     'blog.article.meccanici-manutentori-edili-introvabili-ticino.imageAlt': 'Un meccanico professionista che lavora in un laboratorio in Ticino, circondato da attrezzi e macchinari.',
+    'blog.article.educatore-infanzia-ticino-stipendi.title': 'Lavorare come educatore dell\'infanzia in Ticino: stipendio e requisiti',
+    'blog.article.educatore-infanzia-ticino-stipendi.excerpt': 'Guida completa su come diventare educatore dell\'infanzia in Ticino: stipendio tra CHF 73K e CHF 97K, requisiti, datori di lavoro e confronto salariale con Italia e Germania',
+    'blog.article.educatore-infanzia-ticino-stipendi.imageAlt': 'Un educatore dell\'infanzia in Ticino con bambini in un asilo nido colorato',
 };
 
 export default blogMetaIt;
