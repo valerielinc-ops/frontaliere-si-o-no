@@ -10,6 +10,7 @@ This file is intentionally compact: it is injected into every agent session. Kee
 4. Never accept indexed thin content under 50 words.
 5. If a test fails, treat the test as right until proven otherwise.
 6. Keep changes surgical: no drive-by refactors, no speculative abstractions, no unrelated formatting churn.
+7. Never cancel or delete a deploy that is already in progress.
 
 ## Workflow
 
