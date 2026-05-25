@@ -111,3 +111,6 @@ test-results/
 data/.weather-cache/
 data/adzuna-cache/
 .audit-pages/
+
+# APM dependencies
+apm_modules/

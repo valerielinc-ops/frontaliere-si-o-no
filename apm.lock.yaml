@@ -1,0 +1,67 @@
+lockfile_version: '1'
+generated_at: '2026-05-25T04:46:24.435854+00:00'
+apm_version: 0.14.2
+dependencies:
+- repo_url: JuliusBrussee/caveman
+  host: github.com
+  resolved_commit: 655b7d9c5431f822264b7732e9901c5578ac84cf
+  resolved_ref: 655b7d9c5431f822264b7732e9901c5578ac84cf
+  virtual_path: skills/caveman
+  is_virtual: true
+  package_type: claude_skill
+  deployed_files:
+  - .agents/skills/caveman
+  content_hash: sha256:dfbf85749fd474feeb0bbe60c779795ecd5dbec0083299b56e68916bc3ddd8c9
+- repo_url: JuliusBrussee/caveman
+  host: github.com
+  resolved_commit: 655b7d9c5431f822264b7732e9901c5578ac84cf
+  resolved_ref: 655b7d9c5431f822264b7732e9901c5578ac84cf
+  virtual_path: skills/caveman-commit
+  is_virtual: true
+  package_type: claude_skill
+  deployed_files:
+  - .agents/skills/caveman-commit
+  content_hash: sha256:f456ea0564875e46858890ac39ee701ecb9c601c72a2da1e6ce6bd5f9fc5d817
+- repo_url: JuliusBrussee/caveman
+  host: github.com
+  resolved_commit: 655b7d9c5431f822264b7732e9901c5578ac84cf
+  resolved_ref: 655b7d9c5431f822264b7732e9901c5578ac84cf
+  virtual_path: skills/caveman-compress
+  is_virtual: true
+  package_type: claude_skill
+  deployed_files:
+  - .agents/skills/caveman-compress
+  content_hash: sha256:9ee57d110084c7881433602eab68b86c1a32681b3ff7cf53442be87034ade9c5
+- repo_url: JuliusBrussee/caveman
+  host: github.com
+  resolved_commit: 655b7d9c5431f822264b7732e9901c5578ac84cf
+  resolved_ref: 655b7d9c5431f822264b7732e9901c5578ac84cf
+  virtual_path: skills/caveman-review
+  is_virtual: true
+  package_type: claude_skill
+  deployed_files:
+  - .agents/skills/caveman-review
+  content_hash: sha256:fb7214a1c5793bae6ba8b1be4329e2e6f40dbec6dd911dfb335ad29f09c316a1
+- repo_url: multica-ai/andrej-karpathy-skills
+  host: github.com
+  resolved_commit: 2c606141936f1eeef17fa3043a72095b4765b9c2
+  resolved_ref: 2c606141936f1eeef17fa3043a72095b4765b9c2
+  virtual_path: skills/karpathy-guidelines
+  is_virtual: true
+  package_type: claude_skill
+  deployed_files:
+  - .agents/skills/karpathy-guidelines
+  content_hash: sha256:41e8ca055bbde13d240776a14a076a59614057200340c243130a76ba4e64cac8
+local_deployed_files:
+- .agents/skills/frontend-design
+- .agents/skills/gitnexus-cli
+- .agents/skills/gitnexus-debugging
+- .agents/skills/gitnexus-exploring
+- .agents/skills/gitnexus-guide
+- .agents/skills/gitnexus-impact-analysis
+- .agents/skills/gitnexus-refactoring
+- .agents/skills/investigate
+- .agents/skills/review
+- .agents/skills/security-review
+- .agents/skills/seo
+- .agents/skills/verify

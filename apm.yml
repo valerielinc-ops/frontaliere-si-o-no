@@ -1,0 +1,19 @@
+name: frontaliere-si-o-no
+version: 1.0.0
+description: Shared agent skills and context for frontaliere-si-o-no
+author: Valerie Linc
+
+targets:
+  - agent-skills
+
+dependencies:
+  apm:
+    - JuliusBrussee/caveman/skills/caveman#655b7d9c5431f822264b7732e9901c5578ac84cf
+    - JuliusBrussee/caveman/skills/caveman-commit#655b7d9c5431f822264b7732e9901c5578ac84cf
+    - JuliusBrussee/caveman/skills/caveman-review#655b7d9c5431f822264b7732e9901c5578ac84cf
+    - JuliusBrussee/caveman/skills/caveman-compress#655b7d9c5431f822264b7732e9901c5578ac84cf
+    - multica-ai/andrej-karpathy-skills/skills/karpathy-guidelines#2c606141936f1eeef17fa3043a72095b4765b9c2
+  mcp: []
+
+includes: auto
+scripts: {}
