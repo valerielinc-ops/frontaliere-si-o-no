@@ -2,7 +2,10 @@
 
 import { describe, expect, it } from 'vitest';
 
-import { fetchOrphanCandidates } from '../../../../../scripts/lib/discovery/sources/orphanQuerySource.mjs';
+import {
+  fetchOrphanCandidates,
+  isArticleableOrphanQuery,
+} from '../../../../../scripts/lib/discovery/sources/orphanQuerySource.mjs';
 
 describe('fetchOrphanCandidates', () => {
   it('returns [] when evidence is empty', () => {
@@ -68,5 +71,38 @@ describe('fetchOrphanCandidates', () => {
     expect(out[0].meta.imp).toBe(0);
     expect(out[0].meta.pos).toBe(0);
     expect(out[0].meta.ctr).toBe(0);
+  });
+
+  it('drops generic job-search orphans that lack a frontaliere article angle', () => {
+    for (const query of [
+      'lavoro a chiasso',
+      'offerte di lavoro a chiasso',
+      'cerco lavoro a chiasso svizzera',
+    ]) {
+      expect(isArticleableOrphanQuery(query)).toBe(false);
+    }
+
+    for (const query of [
+      'lavoro ticino frontalieri permesso g',
+      'busta paga svizzera frontalieri',
+      'disoccupazione frontalieri',
+    ]) {
+      expect(isArticleableOrphanQuery(query)).toBe(true);
+    }
+  });
+
+  it('filters generic job-search orphan candidates before scoring', () => {
+    const evidence = {
+      gsc: {
+        orphanQueries: [
+          { query: 'lavoro a chiasso', imp: 1000, pos: 8 },
+          { query: 'offerte lavoro ticino frontalieri permesso g', imp: 500, pos: 11 },
+        ],
+      },
+    };
+    const out = fetchOrphanCandidates(evidence);
+    expect(out.map((c) => c.headline)).toEqual([
+      'offerte lavoro ticino frontalieri permesso g',
+    ]);
   });
 });

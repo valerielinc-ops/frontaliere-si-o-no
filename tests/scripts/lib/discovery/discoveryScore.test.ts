@@ -1,7 +1,7 @@
 // tests/scripts/lib/discovery/discoveryScore.test.ts
 //
 // Spec § 6.4 — source-specific scoring with confidence multipliers
-// (orphan 1.0, suggest 0.6, news 0.7) and freshness boost on news.
+// (orphan 1.0, suggest 0.6, news 0.7, trends 0.8) and freshness boosts.
 
 import { describe, expect, it } from 'vitest';
 
@@ -158,6 +158,49 @@ describe('discoveryScore — news', () => {
       evidence,
     );
     expect(out.freshnessFactor).toBe(1);
+  });
+});
+
+describe('discoveryScore — trends', () => {
+  it('uses compressed demand score with confidence(0.8) and freshness boost', () => {
+    const out = discoveryScore(
+      {
+        headline: 'Telelavoro frontalieri svizzera italia',
+        source: 'trends',
+        meta: { score: 80, rawScore: 2000 },
+      },
+      evidence,
+    );
+    expect(out.source).toBe('trends');
+    expect(out.confidence).toBeCloseTo(0.8, 5);
+    expect(out.freshnessFactor).toBeCloseTo(1.15, 5);
+    expect(out.rawScore).toBeCloseTo(80, 5);
+    expect(out.finalScore).toBeCloseTo(80 * 0.8 * 1.15, 5);
+  });
+
+  it('falls back to cluster demand when compressed Trends score is missing', () => {
+    const out = discoveryScore(
+      {
+        headline: 'Tassazione frontalieri ticino',
+        source: 'trends',
+        meta: {},
+      },
+      evidence,
+    );
+    expect(out.rawScore).toBeCloseTo(80, 5); // fiscale p50 200 * 0.4
+  });
+
+  it('throws on trends candidate with no domain anchor', () => {
+    expect(() =>
+      discoveryScore(
+        {
+          headline: 'bonus benzina italia',
+          source: 'trends',
+          meta: { score: 100 },
+        },
+        evidence,
+      ),
+    ).toThrow(/lacks a Ticino\/frontalieri anchor/);
   });
 });
 

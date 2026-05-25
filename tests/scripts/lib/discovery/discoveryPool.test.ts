@@ -1,7 +1,7 @@
 // tests/scripts/lib/discovery/discoveryPool.test.ts
 //
 // Spec § 6.10 acceptance — discovery pool returns valid candidates from
-// at least 2 of 3 sources, dedupes against proven headlines, scores via
+// at least 2 sources, dedupes against proven headlines, scores via
 // source-specific multipliers.
 
 import { afterEach, beforeEach, describe, expect, it } from 'vitest';
@@ -39,12 +39,14 @@ beforeEach(() => {
   delete process.env.DISABLE_DISCOVERY_ORPHAN;
   delete process.env.DISABLE_DISCOVERY_SUGGEST;
   delete process.env.DISABLE_DISCOVERY_NEWS;
+  delete process.env.DISABLE_DISCOVERY_TRENDS;
 });
 
 afterEach(() => {
   delete process.env.DISABLE_DISCOVERY_ORPHAN;
   delete process.env.DISABLE_DISCOVERY_SUGGEST;
   delete process.env.DISABLE_DISCOVERY_NEWS;
+  delete process.env.DISABLE_DISCOVERY_TRENDS;
 });
 
 const stubSuggest = async () => [
@@ -61,28 +63,46 @@ const stubNews = async () => [
   },
 ];
 
+const stubTrends = async () => [
+  {
+    headline: 'telelavoro frontalieri svizzera italia',
+    url: null,
+    source: 'trends' as const,
+    meta: { score: 80, rawScore: 2000, geo: 'IT', seed: 'telelavoro frontalieri', viaRss: true },
+  },
+];
+
 describe('fetchAll', () => {
-  it('aggregates candidates from all 3 sources', async () => {
-    const out = await fetchAll(evidence, { suggestFn: stubSuggest, newsFn: stubNews });
-    expect(out.candidates.length).toBe(4);
+  it('aggregates candidates from all 4 sources', async () => {
+    const out = await fetchAll(evidence, { suggestFn: stubSuggest, newsFn: stubNews, trendsFn: stubTrends });
+    expect(out.candidates.length).toBe(5);
     expect(out.perSource.orphan).toBe(1);
     expect(out.perSource.suggest).toBe(2);
     expect(out.perSource.news).toBe(1);
+    expect(out.perSource.trends).toBe(1);
   });
 
   it('honors DISABLE_DISCOVERY_ORPHAN env flag', async () => {
     process.env.DISABLE_DISCOVERY_ORPHAN = '1';
-    const out = await fetchAll(evidence, { suggestFn: stubSuggest, newsFn: stubNews });
+    const out = await fetchAll(evidence, { suggestFn: stubSuggest, newsFn: stubNews, trendsFn: stubTrends });
     expect(out.perSource.orphan).toBe(0);
     expect(out.perSource.suggest).toBe(2);
     expect(out.perSource.news).toBe(1);
+    expect(out.perSource.trends).toBe(1);
+  });
+
+  it('honors DISABLE_DISCOVERY_TRENDS env flag', async () => {
+    process.env.DISABLE_DISCOVERY_TRENDS = '1';
+    const out = await fetchAll(evidence, { suggestFn: stubSuggest, newsFn: stubNews, trendsFn: stubTrends });
+    expect(out.perSource.trends).toBe(0);
+    expect(out.candidates.map((c) => c.source)).not.toContain('trends');
   });
 
   it('survives a failing source (returns what others produced)', async () => {
     const failingSuggest = async () => {
       throw new Error('boom');
     };
-    const out = await fetchAll(evidence, { suggestFn: failingSuggest, newsFn: stubNews });
+    const out = await fetchAll(evidence, { suggestFn: failingSuggest, newsFn: stubNews, trendsFn: stubTrends });
     expect(out.perSource.suggest).toBe(0);
     // orphan + news still populate.
     expect(out.candidates.length).toBeGreaterThan(0);
@@ -137,11 +157,12 @@ describe('scoreCandidates', () => {
 });
 
 describe('buildDiscoveryPool', () => {
-  it('end-to-end: 3 sources → dedup vs proven → score → sorted', async () => {
+  it('end-to-end: 4 sources → dedup vs proven → score → sorted', async () => {
     const proven = ['frontalieri in ticino'];
     const out = await buildDiscoveryPool(evidence, {
       suggestFn: stubSuggest,
       newsFn: stubNews,
+      trendsFn: stubTrends,
       provenHeadlines: proven,
     });
     // News candidate ('frontalieri ticino') is a near-dup of proven.
@@ -150,6 +171,7 @@ describe('buildDiscoveryPool', () => {
     expect(out.candidates.length).toBeGreaterThanOrEqual(2);
     // perSource counts the PRE-dedup totals; postDedupCount reflects what survived.
     expect(out.perSource.news).toBe(1);
+    expect(out.perSource.trends).toBe(1);
     expect(out.postDedupCount).toBe(out.candidates.length);
     // Sort order desc.
     for (let i = 1; i < out.candidates.length; i += 1) {
@@ -157,15 +179,17 @@ describe('buildDiscoveryPool', () => {
     }
   });
 
-  it('§ 6.10 acceptance — at least 2 of 3 sources produce candidates', async () => {
+  it('§ 6.10 acceptance — at least 2 sources produce candidates', async () => {
     const out = await buildDiscoveryPool(evidence, {
       suggestFn: stubSuggest,
       newsFn: stubNews,
+      trendsFn: stubTrends,
     });
     let nonEmpty = 0;
     if (out.perSource.orphan > 0) nonEmpty += 1;
     if (out.perSource.suggest > 0) nonEmpty += 1;
     if (out.perSource.news > 0) nonEmpty += 1;
+    if (out.perSource.trends > 0) nonEmpty += 1;
     expect(nonEmpty).toBeGreaterThanOrEqual(2);
   });
 });

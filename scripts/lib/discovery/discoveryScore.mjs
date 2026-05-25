@@ -5,6 +5,7 @@
 //   orphan  → 1.0  (real GSC impressions, just orphan landing pages)
 //   suggest → 0.6  (autocomplete demand, no impression evidence)
 //   news    → 0.7  (fresh interest, freshness boost up to 1.3x)
+//   trends  → 0.8  (fresh search demand, compressed approx_traffic)
 //
 // Spec: docs/superpowers/specs/2026-05-07-traffic-quality-algorithm-design.md § 6.4
 
@@ -14,6 +15,7 @@ import { hasDomainAnchor } from './domainAnchor.mjs';
 const ORPHAN_CONFIDENCE = 1.0;
 const SUGGEST_CONFIDENCE = 0.6;
 const NEWS_CONFIDENCE = 0.7;
+const TRENDS_CONFIDENCE = 0.8;
 
 const CLUSTER_FALLBACK_P50 = 100;
 const ORPHAN_CLUSTER_DIVISOR = 400;
@@ -53,7 +55,7 @@ export function freshnessFactorForAgeHours(ageHours) {
  * breakdown with shape compatible with `cascadedScore` output (so the
  * existing ranker code paths can consume it identically).
  *
- * @param {{ headline: string, source: 'orphan'|'suggest'|'news', meta?: object }} candidate
+ * @param {{ headline: string, source: 'orphan'|'suggest'|'news'|'trends', meta?: object }} candidate
  * @param {object} evidence
  * @returns {{ stage: string, source: string, rawScore: number, confidence: number, freshnessFactor: number, finalScore: number, cluster: string }}
  */
@@ -120,6 +122,25 @@ export function discoveryScore(candidate, evidence) {
         confidence: NEWS_CONFIDENCE,
         freshnessFactor,
         finalScore: rawScore * NEWS_CONFIDENCE * freshnessFactor,
+        cluster,
+      };
+    }
+    case 'trends': {
+      if (!hasDomainAnchor(headline)) {
+        throw new Error(
+          `discoveryScore: trends candidate "${headline.slice(0, 80)}" lacks a Ticino/frontalieri anchor token`,
+        );
+      }
+      const p50 = clusterP50(safeEvidence, cluster);
+      const demandScore = safeNumber(meta.score, 0);
+      const rawScore = Math.max(demandScore, p50 * 0.4);
+      return {
+        stage: 'discovery',
+        source: 'trends',
+        rawScore,
+        confidence: TRENDS_CONFIDENCE,
+        freshnessFactor: 1.15,
+        finalScore: rawScore * TRENDS_CONFIDENCE * 1.15,
         cluster,
       };
     }

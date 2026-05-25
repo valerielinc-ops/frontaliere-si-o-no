@@ -72,22 +72,22 @@ function passesDenylist(completion) {
   return true;
 }
 
-// keep in sync with googleTrends.mjs SEEDS_FALLBACK
+// Specific autocomplete seeds. These intentionally include the domain
+// qualifier inside the query so Google Suggest expands frontaliere intents
+// instead of generic Italian civic/permit/job searches.
 const SEEDS_FALLBACK = [
-  'frontaliere',
-  'frontalieri',
-  'permesso G',
-  'tasse svizzera',
-  'LPP',
-  'telelavoro frontalieri',
-  'ristorni frontalieri',
-  'AVS frontalieri',
-  'LAMal',
-  'CMI frontalieri',
-  'IRPEF frontalieri',
-  'busta paga svizzera',
-  'nuovo accordo fiscale',
-  'secondo pilastro',
+  'frontalieri ticino tasse',
+  'frontalieri ticino permesso g',
+  'frontaliere svizzera dichiarazione redditi',
+  'frontaliere svizzera stipendio netto',
+  'telelavoro frontalieri svizzera italia',
+  'lamal frontalieri ticino',
+  'cmi frontalieri svizzera',
+  'avs lpp frontalieri svizzera',
+  'ristorni frontalieri ticino',
+  'imposta alla fonte ticino frontalieri',
+  'busta paga svizzera frontalieri',
+  'lavoro ticino frontalieri permesso g',
 ];
 
 const REQUEST_TIMEOUT_MS = 5000;
