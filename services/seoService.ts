@@ -3822,6 +3822,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-congedo-parentale-frontalieri-svizzera-italia': { name: 'Diritti frontalieri', path: '/articoli-frontaliere/congedo-parentale-frontalieri-svizzera-italia', parent: 'blog' },
     'blog-frontaliere-assicurazione-auto-svizzera-italia': { name: 'Assicurazione Auto', path: '/articoli-frontaliere/frontaliere-assicurazione-auto-svizzera-italia', parent: 'blog' },
     'blog-frontaliere-mutuo-casa-svizzera-requisiti': { name: 'Frontaliere Mutuo', path: '/articoli-frontaliere/frontaliere-mutuo-casa-svizzera-requisiti', parent: 'blog' },
+    'blog-lavoro-stagionale-ticino-regole': { name: 'Lavoro stagionale', path: '/articoli-frontaliere/lavoro-stagionale-ticino-regole', parent: 'blog' },
  };
 
  const info = sectionNames[section];

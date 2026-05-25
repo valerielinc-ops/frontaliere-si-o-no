@@ -24590,4 +24590,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'lavoro-stagionale-ticino-regole',
+ category: 'pratico',
+ date: '2026-05-25T09:16:15.784Z',
+ image: '/images/blog/lavoro-stagionale-ticino-regole.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

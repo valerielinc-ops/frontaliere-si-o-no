@@ -7739,6 +7739,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.frontaliere-mutuo-casa-svizzera-requisiti.title': 'Frontaliers : comment obtenir un prêt immobilier en Suisse',
     'blog.article.frontaliere-mutuo-casa-svizzera-requisiti.excerpt': 'Guide pratique pour les frontaliers qui veulent acheter une maison en Suisse : exigences, banques et démarches à suivre',
     'blog.article.frontaliere-mutuo-casa-svizzera-requisiti.imageAlt': 'Personne en discussion avec une banque suisse pour un prêt immobilier',
+    'blog.article.lavoro-stagionale-ticino-regole.title': 'Travail saisonnier au Tessin : règles, droits et opportunités',
+    'blog.article.lavoro-stagionale-ticino-regole.excerpt': 'Guide pratique pour les travailleurs frontaliers saisonniers : permis, contrats, fiscalité et opportunités d\'emploi au Tessin',
+    'blog.article.lavoro-stagionale-ticino-regole.imageAlt': 'Travail saisonnier au Tessin: travailleurs frontaliers au passage frontalier de Brogeda',
 };
 
 export default blogMetaFr;

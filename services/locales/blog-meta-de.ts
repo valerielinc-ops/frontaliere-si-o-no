@@ -7737,6 +7737,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.frontaliere-mutuo-casa-svizzera-requisiti.title': 'Frontalier: Hypothek für ein Haus in der Schweiz erhalten',
     'blog.article.frontaliere-mutuo-casa-svizzera-requisiti.excerpt': 'Praktischer Leitfaden für Grenzgänger, die ein Haus in der Schweiz kaufen möchten: Voraussetzungen, Banken und Verfahren',
     'blog.article.frontaliere-mutuo-casa-svizzera-requisiti.imageAlt': 'Person in Diskussion mit einer Schweizer Bank über eine Hypothek',
+    'blog.article.lavoro-stagionale-ticino-regole.title': 'Saisonarbeit im Tessin: Regeln, Rechte und Chancen',
+    'blog.article.lavoro-stagionale-ticino-regole.excerpt': 'Praktischer Leitfaden für saisonale Grenzgänger: Bewilligungen, Verträge, Steuerrecht und Arbeitsmöglichkeiten im Tessin',
+    'blog.article.lavoro-stagionale-ticino-regole.imageAlt': 'Saisonarbeit im Tessin: Grenzgänger an der Brogeda-Grenzübergang',
 };
 
 export default blogMetaDe;

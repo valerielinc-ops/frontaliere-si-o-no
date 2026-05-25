@@ -7738,6 +7738,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.frontaliere-mutuo-casa-svizzera-requisiti.title': 'Cross-border workers: how to get a mortgage in Switzerland',
     'blog.article.frontaliere-mutuo-casa-svizzera-requisiti.excerpt': 'Practical guide for cross-border workers who want to buy a house in Switzerland: requirements, banks and procedures to follow',
     'blog.article.frontaliere-mutuo-casa-svizzera-requisiti.imageAlt': 'Person discussing a home loan with a Swiss bank',
+    'blog.article.lavoro-stagionale-ticino-regole.title': 'Seasonal work in Ticino: rules, rights and opportunities',
+    'blog.article.lavoro-stagionale-ticino-regole.excerpt': 'Practical guide for seasonal cross-border workers: permits, contracts, taxation and job opportunities in Ticino',
+    'blog.article.lavoro-stagionale-ticino-regole.imageAlt': 'Seasonal work in Ticino: cross-border workers at the Brogeda border',
 };
 
 export default blogMetaEn;

@@ -7739,6 +7739,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.frontaliere-mutuo-casa-svizzera-requisiti.title': 'Frontaliere: come ottenere un mutuo per la casa in Svizzera',
     'blog.article.frontaliere-mutuo-casa-svizzera-requisiti.excerpt': 'Guida pratica per i frontalieri che vogliono acquistare casa in Svizzera: requisiti, banche e procedure da seguire',
     'blog.article.frontaliere-mutuo-casa-svizzera-requisiti.imageAlt': 'Persona in discussione con una banca svizzera per un mutuo casa',
+    'blog.article.lavoro-stagionale-ticino-regole.title': 'Lavoro stagionale in Ticino: regole, diritti e opportunità',
+    'blog.article.lavoro-stagionale-ticino-regole.excerpt': 'Guida pratica per frontalieri stagionali: permessi, contratti, fiscalità e opportunità di lavoro in Ticino',
+    'blog.article.lavoro-stagionale-ticino-regole.imageAlt': 'Lavoro stagionale in Ticino: frontalieri al valico di Brogeda',
 };
 
 export default blogMetaIt;
