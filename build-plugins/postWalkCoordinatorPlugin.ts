@@ -141,6 +141,31 @@ function chunkRoundRobin<T>(items: readonly T[], n: number): T[][] {
   return chunks;
 }
 
+const RELATED_SEARCH_HUB_FLAT = new Set(['ricerca.html', 'search.html', 'suche.html', 'recherche.html']);
+
+function isPreEmittedJobFlatBridgePath(distDir: string, filePath: string): boolean {
+  if (path.basename(filePath) === 'index.html' || !filePath.endsWith('.html')) return false;
+  const rel = path.relative(distDir, filePath).split(path.sep).join('/');
+  const parts = rel.split('/');
+  const fileName = parts[parts.length - 1];
+  // relatedSearchClustersPlugin emits these hub flat files as full HTML; the
+  // coordinator must still convert them via the normal sibling transform.
+  if (RELATED_SEARCH_HUB_FLAT.has(fileName)) return false;
+
+  // Direct flat files under job-board sections are emitted as redirect bridges
+  // by jobsSeoPagesPlugin._qwFlat() and relatedSearchClustersPlugin's cluster
+  // loop. Keep them in existingHtmlSet, but skip the worker read/transform.
+  return (
+    parts.length === 2 && parts[0].startsWith('cerca-lavoro-')
+  ) || (
+    parts.length === 3 && parts[0] === 'en' && parts[1].startsWith('find-jobs-')
+  ) || (
+    parts.length === 3 && parts[0] === 'de' && parts[1].startsWith('jobs-im-')
+  ) || (
+    parts.length === 3 && parts[0] === 'fr' && parts[1].startsWith('trouver-emploi-')
+  );
+}
+
 function runSingleThreaded(
   allHtmlPaths: readonly string[],
   existingHtmlSet: ReadonlySet<string>,
@@ -334,10 +359,17 @@ export function postWalkCoordinatorPlugin(
 
         // ── Phase A: enumerate every emitted HTML file once ──────────
         const allHtmlPaths: string[] = [];
+        const processHtmlPaths: string[] = [];
         const existingHtmlSet = new Set<string>();
+        let preEmittedFlatBridgesSkipped = 0;
         for (const file of walkHtml(distDir)) {
           allHtmlPaths.push(file);
           existingHtmlSet.add(file);
+          if (isPreEmittedJobFlatBridgePath(distDir, file)) {
+            preEmittedFlatBridgesSkipped++;
+          } else {
+            processHtmlPaths.push(file);
+          }
         }
         const filesScanned = allHtmlPaths.length;
         if (filesScanned === 0) {
@@ -360,11 +392,11 @@ export function postWalkCoordinatorPlugin(
         }
 
         // ── Phase C: dispatch work ─────────────────────────────────
-        const workerCount = resolveWorkerCount(filesScanned);
+        const workerCount = resolveWorkerCount(processHtmlPaths.length);
         const merged: WorkerResult =
           workerCount <= 1
             ? runSingleThreaded(
-                allHtmlPaths,
+                processHtmlPaths,
                 existingHtmlSet,
                 blogIndexHtmlByPath,
                 distDir,
@@ -372,7 +404,7 @@ export function postWalkCoordinatorPlugin(
                 trimmedBase,
               )
             : await (async () => {
-                const chunks = chunkRoundRobin(allHtmlPaths, workerCount);
+                const chunks = chunkRoundRobin(processHtmlPaths, workerCount);
                 const workerUrl = new URL('./postWalkWorker.mjs', import.meta.url);
                 const blogIndexEntries = Array.from(blogIndexHtmlByPath.entries());
                 const results = await Promise.all(
@@ -400,7 +432,8 @@ export function postWalkCoordinatorPlugin(
         console.log(
           `\x1b[36m[post-walk-coordinator]\x1b[0m scanned ${filesScanned} files in ${dur}s ` +
             `(workers: ${workerCount}) — ` +
-            `bridges: ${merged.bridgeConverted} converted (${merged.bridgeSkipped} non-bridge skipped), ` +
+            `bridges: ${merged.bridgeConverted + preEmittedFlatBridgesSkipped} converted ` +
+            `(${preEmittedFlatBridgesSkipped} pre-skipped, ${merged.bridgeSkipped} non-bridge skipped), ` +
             `blog: ${merged.blogArticlesModified} modified / ${merged.blogLinksInjected} links injected, ` +
             `hreflang: ${merged.hreflangFilesRewritten} rewritten / ${merged.hreflangLinksKept} kept / ${merged.hreflangLinksDropped} dropped, ` +
             `total writes: ${merged.totalWrites}`,
