@@ -2,29 +2,35 @@ name: frontaliere-si-o-no
 version: 1.0.0
 description: Shared agent skills and context for frontaliere-si-o-no
 author: Valerie Linc
-
 targets:
-  - agent-skills
-
+- agent-skills
 dependencies:
   apm:
-    - JuliusBrussee/caveman/skills/caveman#655b7d9c5431f822264b7732e9901c5578ac84cf
-    - JuliusBrussee/caveman/skills/caveman-commit#655b7d9c5431f822264b7732e9901c5578ac84cf
-    - JuliusBrussee/caveman/skills/caveman-review#655b7d9c5431f822264b7732e9901c5578ac84cf
-    - JuliusBrussee/caveman/skills/caveman-compress#655b7d9c5431f822264b7732e9901c5578ac84cf
-    - multica-ai/andrej-karpathy-skills/skills/karpathy-guidelines#2c606141936f1eeef17fa3043a72095b4765b9c2
-    - obra/superpowers/skills/requesting-code-review#f2cbfbefebbfef77321e4c9abc9e949826bea9d7
-    - obra/superpowers/skills/systematic-debugging#f2cbfbefebbfef77321e4c9abc9e949826bea9d7
-    - obra/superpowers/skills/verification-before-completion#f2cbfbefebbfef77321e4c9abc9e949826bea9d7
-    - anthropics/skills/skills/frontend-design#690f15cac7f7b4c055c5ab109c79ed9259934081
-    - affaan-m/everything-claude-code/.agents/skills/security-review#1e8c7e7994223e0ff337d1626cd08e04a1ae67ed
-    - abhigyanpatwari/GitNexus/gitnexus-claude-plugin/skills/gitnexus-cli#1c4993251c885813ce9a17a455a7530fb6b8eea9
-    - abhigyanpatwari/GitNexus/gitnexus-claude-plugin/skills/gitnexus-debugging#1c4993251c885813ce9a17a455a7530fb6b8eea9
-    - abhigyanpatwari/GitNexus/gitnexus-claude-plugin/skills/gitnexus-exploring#1c4993251c885813ce9a17a455a7530fb6b8eea9
-    - abhigyanpatwari/GitNexus/gitnexus-claude-plugin/skills/gitnexus-guide#1c4993251c885813ce9a17a455a7530fb6b8eea9
-    - abhigyanpatwari/GitNexus/gitnexus-claude-plugin/skills/gitnexus-impact-analysis#1c4993251c885813ce9a17a455a7530fb6b8eea9
-    - abhigyanpatwari/GitNexus/gitnexus-claude-plugin/skills/gitnexus-refactoring#1c4993251c885813ce9a17a455a7530fb6b8eea9
+  - JuliusBrussee/caveman/skills/caveman#655b7d9c5431f822264b7732e9901c5578ac84cf
+  - JuliusBrussee/caveman/skills/caveman-commit#655b7d9c5431f822264b7732e9901c5578ac84cf
+  - JuliusBrussee/caveman/skills/caveman-review#655b7d9c5431f822264b7732e9901c5578ac84cf
+  - JuliusBrussee/caveman/skills/caveman-compress#655b7d9c5431f822264b7732e9901c5578ac84cf
+  - multica-ai/andrej-karpathy-skills/skills/karpathy-guidelines#2c606141936f1eeef17fa3043a72095b4765b9c2
+  - obra/superpowers/skills/requesting-code-review#f2cbfbefebbfef77321e4c9abc9e949826bea9d7
+  - obra/superpowers/skills/systematic-debugging#f2cbfbefebbfef77321e4c9abc9e949826bea9d7
+  - obra/superpowers/skills/verification-before-completion#f2cbfbefebbfef77321e4c9abc9e949826bea9d7
+  - anthropics/skills/skills/frontend-design#690f15cac7f7b4c055c5ab109c79ed9259934081
+  - affaan-m/everything-claude-code/.agents/skills/security-review#1e8c7e7994223e0ff337d1626cd08e04a1ae67ed
+  - abhigyanpatwari/GitNexus/gitnexus-claude-plugin/skills/gitnexus-cli#1c4993251c885813ce9a17a455a7530fb6b8eea9
+  - abhigyanpatwari/GitNexus/gitnexus-claude-plugin/skills/gitnexus-debugging#1c4993251c885813ce9a17a455a7530fb6b8eea9
+  - abhigyanpatwari/GitNexus/gitnexus-claude-plugin/skills/gitnexus-exploring#1c4993251c885813ce9a17a455a7530fb6b8eea9
+  - abhigyanpatwari/GitNexus/gitnexus-claude-plugin/skills/gitnexus-guide#1c4993251c885813ce9a17a455a7530fb6b8eea9
+  - abhigyanpatwari/GitNexus/gitnexus-claude-plugin/skills/gitnexus-impact-analysis#1c4993251c885813ce9a17a455a7530fb6b8eea9
+  - abhigyanpatwari/GitNexus/gitnexus-claude-plugin/skills/gitnexus-refactoring#1c4993251c885813ce9a17a455a7530fb6b8eea9
+  - affaan-m/everything-claude-code/.agents/skills/tdd-workflow#1e8c7e7994223e0ff337d1626cd08e04a1ae67ed
+  - affaan-m/everything-claude-code/.agents/skills/verification-loop#1e8c7e7994223e0ff337d1626cd08e04a1ae67ed
+  - affaan-m/everything-claude-code/.agents/skills/e2e-testing#1e8c7e7994223e0ff337d1626cd08e04a1ae67ed
+  - affaan-m/everything-claude-code/.agents/skills/api-design#1e8c7e7994223e0ff337d1626cd08e04a1ae67ed
+  - affaan-m/everything-claude-code/.agents/skills/backend-patterns#1e8c7e7994223e0ff337d1626cd08e04a1ae67ed
+  - affaan-m/everything-claude-code/.agents/skills/frontend-patterns#1e8c7e7994223e0ff337d1626cd08e04a1ae67ed
+  - affaan-m/everything-claude-code/.agents/skills/coding-standards#1e8c7e7994223e0ff337d1626cd08e04a1ae67ed
+  - pbakaus/impeccable/.agents/skills/impeccable#84135db0e6bdd58d22828f7bc8331cae7bde3e7f
+  - affaan-m/everything-claude-code/skills/ai-regression-testing#1e8c7e7994223e0ff337d1626cd08e04a1ae67ed
   mcp: []
-
 includes: auto
 scripts: {}

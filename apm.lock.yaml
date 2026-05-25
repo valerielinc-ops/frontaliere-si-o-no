@@ -112,6 +112,86 @@ dependencies:
   deployed_files:
   - .agents/skills/security-review
   content_hash: sha256:bd6d7f9247b73efa8d35c4c7a516142316d7c8a0c0ed999db4d9935727ed0fb2
+- repo_url: affaan-m/everything-claude-code
+  host: github.com
+  resolved_commit: 1e8c7e7994223e0ff337d1626cd08e04a1ae67ed
+  resolved_ref: 1e8c7e7994223e0ff337d1626cd08e04a1ae67ed
+  virtual_path: .agents/skills/api-design
+  is_virtual: true
+  package_type: claude_skill
+  deployed_files:
+  - .agents/skills/api-design
+  content_hash: sha256:72b74cd694ed0dd72b4e5a69369f54b865e62aad2f64aec33cb955a54c072ca4
+- repo_url: affaan-m/everything-claude-code
+  host: github.com
+  resolved_commit: 1e8c7e7994223e0ff337d1626cd08e04a1ae67ed
+  resolved_ref: 1e8c7e7994223e0ff337d1626cd08e04a1ae67ed
+  virtual_path: .agents/skills/backend-patterns
+  is_virtual: true
+  package_type: claude_skill
+  deployed_files:
+  - .agents/skills/backend-patterns
+  content_hash: sha256:0438d42fc23b080851a08cecbb78d7e39f9a0100c5cdf7b9b1228cd61d98ec84
+- repo_url: affaan-m/everything-claude-code
+  host: github.com
+  resolved_commit: 1e8c7e7994223e0ff337d1626cd08e04a1ae67ed
+  resolved_ref: 1e8c7e7994223e0ff337d1626cd08e04a1ae67ed
+  virtual_path: .agents/skills/coding-standards
+  is_virtual: true
+  package_type: claude_skill
+  deployed_files:
+  - .agents/skills/coding-standards
+  content_hash: sha256:33305eacea95e4ee6ab2d6ae4f5197c19715c75d00915a070f108c4f85eba506
+- repo_url: affaan-m/everything-claude-code
+  host: github.com
+  resolved_commit: 1e8c7e7994223e0ff337d1626cd08e04a1ae67ed
+  resolved_ref: 1e8c7e7994223e0ff337d1626cd08e04a1ae67ed
+  virtual_path: .agents/skills/e2e-testing
+  is_virtual: true
+  package_type: claude_skill
+  deployed_files:
+  - .agents/skills/e2e-testing
+  content_hash: sha256:4ef9ae7914dc50775b5d146bd0bc33123806214f0f55007edc051880d12b6df1
+- repo_url: affaan-m/everything-claude-code
+  host: github.com
+  resolved_commit: 1e8c7e7994223e0ff337d1626cd08e04a1ae67ed
+  resolved_ref: 1e8c7e7994223e0ff337d1626cd08e04a1ae67ed
+  virtual_path: .agents/skills/frontend-patterns
+  is_virtual: true
+  package_type: claude_skill
+  deployed_files:
+  - .agents/skills/frontend-patterns
+  content_hash: sha256:afc3c513fc725b4d6987cd5cb4500c30c20dbe20203aa0b673d883202e2628cb
+- repo_url: affaan-m/everything-claude-code
+  host: github.com
+  resolved_commit: 1e8c7e7994223e0ff337d1626cd08e04a1ae67ed
+  resolved_ref: 1e8c7e7994223e0ff337d1626cd08e04a1ae67ed
+  virtual_path: .agents/skills/tdd-workflow
+  is_virtual: true
+  package_type: claude_skill
+  deployed_files:
+  - .agents/skills/tdd-workflow
+  content_hash: sha256:782b8703c81d4c39fa5940b405200b9a46c62a76f5f64e47952115b81580b77b
+- repo_url: affaan-m/everything-claude-code
+  host: github.com
+  resolved_commit: 1e8c7e7994223e0ff337d1626cd08e04a1ae67ed
+  resolved_ref: 1e8c7e7994223e0ff337d1626cd08e04a1ae67ed
+  virtual_path: .agents/skills/verification-loop
+  is_virtual: true
+  package_type: claude_skill
+  deployed_files:
+  - .agents/skills/verification-loop
+  content_hash: sha256:4fb8e7e745be74f012468ca029ba6b4df97cc5167c7b3c55fe356a575111fad8
+- repo_url: affaan-m/everything-claude-code
+  host: github.com
+  resolved_commit: 1e8c7e7994223e0ff337d1626cd08e04a1ae67ed
+  resolved_ref: 1e8c7e7994223e0ff337d1626cd08e04a1ae67ed
+  virtual_path: skills/ai-regression-testing
+  is_virtual: true
+  package_type: claude_skill
+  deployed_files:
+  - .agents/skills/ai-regression-testing
+  content_hash: sha256:092a063807f6662b6d339eea6fa8564cb420bfbeb28fe99e9be4a0cf76c18e3a
 - repo_url: anthropics/skills
   host: github.com
   resolved_commit: 690f15cac7f7b4c055c5ab109c79ed9259934081
@@ -162,3 +242,13 @@ dependencies:
   deployed_files:
   - .agents/skills/verification-before-completion
   content_hash: sha256:9b446f0c7fe1cfb560b1d34439523b1a76d5f177290007b2c053a1c749a4a8ba
+- repo_url: pbakaus/impeccable
+  host: github.com
+  resolved_commit: 84135db0e6bdd58d22828f7bc8331cae7bde3e7f
+  resolved_ref: 84135db0e6bdd58d22828f7bc8331cae7bde3e7f
+  virtual_path: .agents/skills/impeccable
+  is_virtual: true
+  package_type: claude_skill
+  deployed_files:
+  - .agents/skills/impeccable
+  content_hash: sha256:376459dca7ed65ed3dbfe77eedff4aa64883776f8446b4c097044c74269147c3
