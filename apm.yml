@@ -31,6 +31,20 @@ dependencies:
   - affaan-m/everything-claude-code/.agents/skills/coding-standards#1e8c7e7994223e0ff337d1626cd08e04a1ae67ed
   - pbakaus/impeccable/.agents/skills/impeccable#84135db0e6bdd58d22828f7bc8331cae7bde3e7f
   - affaan-m/everything-claude-code/skills/ai-regression-testing#1e8c7e7994223e0ff337d1626cd08e04a1ae67ed
-  mcp: []
+  mcp:
+  - name: context7
+    registry: false
+    transport: stdio
+    command: npx
+    args:
+    - -y
+    - '@upstash/context7-mcp@latest'
+  - name: code-review-graph
+    registry: false
+    transport: stdio
+    command: uvx
+    args:
+    - code-review-graph
+    - serve
 includes: auto
 scripts: {}

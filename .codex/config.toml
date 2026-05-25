@@ -1,0 +1,13 @@
+[mcp_servers.code-review-graph]
+command = "uvx"
+args = [ "code-review-graph", "serve",]
+id = ""
+
+[mcp_servers.context7]
+command = "npx"
+args = [ "-y", "@upstash/context7-mcp@latest",]
+id = ""
+
+[mcp_servers.code-review-graph.env]
+
+[mcp_servers.context7.env]
