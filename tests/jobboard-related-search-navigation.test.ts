@@ -35,9 +35,13 @@ describe('JobBoard company link navigation', () => {
   it('routes company links through the SPA callback from job detail instead of reparsing staticOverlay URLs', () => {
     const source = readFileSync(join(process.cwd(), 'components/community/JobBoard.tsx'), 'utf8');
     const helperBody = source.match(/const openCompanyFilter = \(e: React\.MouseEvent<HTMLAnchorElement>\) => \{[\s\S]*?\n \};/)?.[0];
+    const gateHelperBody = source.match(/const openGateCompanyFilter = \(e: React\.MouseEvent<HTMLAnchorElement>\) => \{[\s\S]*?\n \};/)?.[0];
 
     expect(helperBody).toContain('onJobRouteChange(companySearchSlug)');
     expect(helperBody).toContain("window.history.pushState({ route: { activeTab: 'job-board', jobSlug: companySearchSlug } }, '', companySearchHref.split('?')[0]);");
-    expect(source.match(/onClick=\{openCompanyFilter\}/g)).toHaveLength(2);
+    expect(gateHelperBody).toContain('onJobRouteChange(gateCompanySlug)');
+    expect(gateHelperBody).toContain("window.history.pushState({ route: { activeTab: 'job-board', jobSlug: gateCompanySlug } }, '', gateCompanyHref.split('?')[0]);");
+    expect(source.match(/onClickCapture=\{openCompanyFilter\}/g)).toHaveLength(2);
+    expect(source.match(/onClickCapture=\{openGateCompanyFilter\}/g)).toHaveLength(2);
   });
 });

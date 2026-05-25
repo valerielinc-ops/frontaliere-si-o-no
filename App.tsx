@@ -178,7 +178,7 @@ const App: React.FC = () => {
  setGuidaSubTab, setVitaSubTab, setStatsSubTab,
  setBlogArticle, setSeoLanding, setGlossaryTerm, setBorderCrossing,
  setJobSlug, setAuthor, setTaxReturnCountry, setShowApiStatus,
- setNotFoundPath, setJobBoardFilterParams,
+ setNotFoundPath, setJobBoardFilterParams, setStaticOverlay,
  suppressNextRouteSyncForTabRef,
  handleTabChange: navHandleTabChange, handleSearchNavigate,
  } = useNavigationState();
@@ -2285,6 +2285,7 @@ const App: React.FC = () => {
  navigateTo('profile' as any);
  }}
  onJobRouteChange={(slug) => {
+ setStaticOverlay(false);
  setJobSlug(slug || null);
  pushRoute({ activeTab: 'job-board' as any, ...(slug ? { jobSlug: slug } : {}) });
  // Scroll to top when entering a job detail; JobBoard handles list restoration.
