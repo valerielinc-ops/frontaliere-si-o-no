@@ -44,4 +44,16 @@ describe('JobBoard company link navigation', () => {
     expect(source.match(/onClickCapture=\{openCompanyFilter\}/g)).toHaveLength(2);
     expect(source.match(/onClickCapture=\{openGateCompanyFilter\}/g)).toHaveLength(2);
   });
+
+  it('uses the same capture-phase company routing on expired and orphan job views', () => {
+    const expiredSource = readFileSync(join(process.cwd(), 'components/community/JobExpiredView.tsx'), 'utf8');
+    const orphanSource = readFileSync(join(process.cwd(), 'components/community/JobOrphanView.tsx'), 'utf8');
+
+    for (const source of [expiredSource, orphanSource]) {
+      const helperBody = source.match(/const handleCompanyClick = \(e: MouseEvent<HTMLAnchorElement>\) => \{[\s\S]*?\n \};/)?.[0];
+      expect(helperBody).toContain('e.nativeEvent.stopImmediatePropagation?.()');
+      expect(helperBody).toContain('window.history.pushState');
+      expect(source.match(/onClickCapture=\{handleCompanyClick\}/g)).toHaveLength(2);
+    }
+  });
 });

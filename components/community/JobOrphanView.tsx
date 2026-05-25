@@ -10,7 +10,7 @@
  * Authenticated: single-column with JOBDETAIL_END_MULTIPLEX + inline mobile ad.
  */
 
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState, type MouseEvent } from 'react';
 import { ArrowLeft, ArrowRight, Briefcase, Building2, CheckCircle2, ChevronDown, Eye, Loader2, Mail, MapPin, Search, Shield } from 'lucide-react';
 import { useLocale, t } from '@/services/i18n';
 import { Analytics } from '@/services/analytics';
@@ -25,6 +25,7 @@ import { useMediaQuery } from '@/hooks/useMediaQuery';
 import EmailInput, { validateEmailStrict } from '@/components/shared/EmailInput';
 import AdSenseBanner from '@/components/shared/AdSenseBanner';
 import JobAlertSection from '@/components/community/JobAlertSection';
+import { buildPath } from '@/services/router';
 
 interface JobOrphanViewProps {
  slug: string;
@@ -259,11 +260,20 @@ export default function JobOrphanView({ slug, onBack, hasAccess: hasAccessProp, 
 
  // ── Handlers ──
 
- const handleCompanyClick = (e: { preventDefault(): void }) => {
- if (!onNavigateToCompany || !companySlug) return;
+ const handleCompanyClick = (e: MouseEvent<HTMLAnchorElement>) => {
+ if (!companySlug) return;
  e.preventDefault();
+ e.stopPropagation();
+ e.nativeEvent.stopImmediatePropagation?.();
  Analytics.trackSelectContent('job_board_company_filter_open', slugParts.company!);
+ if (onNavigateToCompany) {
  onNavigateToCompany(companySlug);
+ } else {
+ const fallbackHref = buildPath({ activeTab: 'job-board' as any, jobSlug: companySlug }, locale);
+ window.history.pushState({ route: { activeTab: 'job-board', jobSlug: companySlug } }, '', fallbackHref.split('?')[0]);
+ window.dispatchEvent(new PopStateEvent('popstate'));
+ window.scrollTo({ top: 0, behavior: 'smooth' });
+ }
  };
 
  const handleLocationClick = (e: { preventDefault(): void }) => {
@@ -354,7 +364,7 @@ export default function JobOrphanView({ slug, onBack, hasAccess: hasAccessProp, 
  {slugParts.company && companyHref && (
  <a
  href={companyHref}
- onClick={handleCompanyClick}
+ onClickCapture={handleCompanyClick}
  className="flex items-center gap-1.5 hover:text-accent hover:underline underline-offset-2 transition-colors"
  >
  <Building2 size={14} className="text-muted" />
@@ -380,7 +390,7 @@ export default function JobOrphanView({ slug, onBack, hasAccess: hasAccessProp, 
  const companyBanner = slugParts.company && companyHref && (
  <a
  href={companyHref}
- onClick={handleCompanyClick}
+ onClickCapture={handleCompanyClick}
  className="block rounded-xl border border-edge bg-surface-alt/50 p-4 hover:border-accent-border hover:bg-surface-raised/70 transition-colors"
  >
  <div className="flex items-start gap-3">
