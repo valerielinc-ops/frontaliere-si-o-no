@@ -2517,7 +2517,6 @@
       },
       "previousSlugsByLocale": {
         "de": [
-          "radiologiefachfrau-radiologiefachmann-w-m-d-soh-ch",
           "radiologiefachfrau-radiologiefachmann-w-m-d-soh-solothurner-spitaeler-olten"
         ],
         "en": [
@@ -2530,7 +2529,6 @@
         ]
       },
       "previousSlugs": [
-        "radiologiefachfrau-radiologiefachmann-w-m-d-soh-ch",
         "radiology-specialist-w-m-d-solothurner-spitaler-soh-olten",
         "radiology-technician-male-female-solothurner-spitaler-ag-soh-olten",
         "specialiste-de-radiologie-w-m-d-solothurner-spitaler-soh-olten",
@@ -8492,17 +8490,14 @@
       },
       "previousSlugs": [
         "diploma-in-nursing-gastroenterology-m-f-d-solothurner-spitaler-ag-soh-schweiz",
-        "diploma-in-nursing-gastroenterology-male-female-solothurner-spitaler-soh-solothurn",
         "dipl-pflegefachfrau-pflegefachmann-gastroenterologie-w-m-d-soh-solothurner-spitaeler",
         "diplome-e-en-soins-infirmiers-en-gastroenterologie-h-f-solothurner-spitaler-ag-soh-schweiz",
-        "infirmier-ere-specialise-e-en-gastroenterologie-h-f-solothurner-spitaler-soh-solothurn",
         "diploma-in-nursing-gastroenterology-male-female-solothurner-spitaler-ag-soh-schweiz",
         "infirmier-ere-specialise-e-en-gastroenterologie-h-f-solothurner-spitaler-ag-soh-schweiz"
       ],
       "previousSlugsByLocale": {
         "en": [
           "diploma-in-nursing-gastroenterology-m-f-d-solothurner-spitaler-ag-soh-schweiz",
-          "diploma-in-nursing-gastroenterology-male-female-solothurner-spitaler-soh-solothurn",
           "diploma-in-nursing-gastroenterology-male-female-solothurner-spitaler-ag-soh-schweiz"
         ],
         "de": [
@@ -8510,7 +8505,6 @@
         ],
         "fr": [
           "diplome-e-en-soins-infirmiers-en-gastroenterologie-h-f-solothurner-spitaler-ag-soh-schweiz",
-          "infirmier-ere-specialise-e-en-gastroenterologie-h-f-solothurner-spitaler-soh-solothurn",
           "infirmier-ere-specialise-e-en-gastroenterologie-h-f-solothurner-spitaler-ag-soh-schweiz"
         ]
       },
@@ -12119,29 +12113,19 @@
         }
       },
       "previousSlugsByLocale": {
-        "it": [
-          "nachdiplomstudium-anasthesiepflege-w-m-d-solothurner-spitaler-soh-solothurn"
-        ],
-        "en": [
-          "nachdiplomstudium-anasthesiepflege-w-m-d-solothurner-spitaler-soh-solothurn"
-        ],
         "de": [
           "nachdiplomstudium-anasthesiepflege-w-m-d-soh-solothurner-spitaeler-solothurn"
-        ],
-        "fr": [
-          "nachdiplomstudium-anasthesiepflege-w-m-d-solothurner-spitaler-soh-solothurn"
         ]
       },
       "previousSlugs": [
-        "nachdiplomstudium-anasthesiepflege-w-m-d-solothurner-spitaler-soh-solothurn",
         "nachdiplomstudium-anasthesiepflege-w-m-d-soh-solothurner-spitaeler-solothurn"
       ]
     },
     {
       "id": "soh-solothurner-spitaeler-d4519b37671b",
-      "slug": "nachdiplomstudium-hf-notfallpflege-w-m-d-solothurner-spitaler-ag-soh-olten",
+      "slug": "postdiploma-sss-cure-d-urgenza-f-m-d-solothurner-spitaler-ag-soh-olten",
       "slugByLocale": {
-        "it": "nachdiplomstudium-hf-notfallpflege-w-m-d-solothurner-spitaler-ag-soh-olten",
+        "it": "postdiploma-sss-cure-d-urgenza-f-m-d-solothurner-spitaler-ag-soh-olten",
         "en": "nachdiplomstudium-hf-notfallpflege-w-m-d-soh-solothurner-spitaeler-olten",
         "de": "nachdiplomstudium-hf-notfallpflege-w-m-d-soh-solothurner-spitaeler-olten",
         "fr": "nachdiplomstudium-hf-notfallpflege-w-m-d-soh-solothurner-spitaeler-olten"
@@ -12190,14 +12174,13 @@
         "nachdiplomstudium-hf-notfallpflege-w-m-d-soh-solothurner-spitaeler-olten",
         "consulente-senior-m-d-solothurner-spitaler-ag-soh-olten",
         "nachdiplomstudium-hf-notfallpflege-w-m-d-solothurner-spitaler-soh-solothurn",
-        "postdiploma-sss-cure-d-urgenza-f-m-d-solothurner-spitaler-ag-soh-olten"
+        "nachdiplomstudium-hf-notfallpflege-w-m-d-solothurner-spitaler-ag-soh-olten"
       ],
       "previousSlugsByLocale": {
         "it": [
           "nachdiplomstudium-hf-notfallpflege-w-m-d-soh-solothurner-spitaeler-olten",
           "consulente-senior-m-d-solothurner-spitaler-ag-soh-olten",
           "nachdiplomstudium-hf-notfallpflege-w-m-d-solothurner-spitaler-soh-solothurn",
-          "postdiploma-sss-cure-d-urgenza-f-m-d-solothurner-spitaler-ag-soh-olten",
           "nachdiplomstudium-hf-notfallpflege-w-m-d-solothurner-spitaler-ag-soh-olten"
         ]
       },
@@ -12265,12 +12248,10 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "nachdiplomstudium-hf-notfallpflege-w-m-d-soh-ch",
           "nachdiplomstudium-hf-notfallpflege-w-m-d-soh-solothurner-spitaeler-olten"
         ]
       },
       "previousSlugs": [
-        "nachdiplomstudium-hf-notfallpflege-w-m-d-soh-ch",
         "nachdiplomstudium-hf-notfallpflege-w-m-d-soh-solothurner-spitaeler-olten"
       ],
       "firstSeenAt": "2026-05-22T23:29:50.696Z",

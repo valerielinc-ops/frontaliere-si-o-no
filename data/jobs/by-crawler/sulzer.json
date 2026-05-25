@@ -2663,9 +2663,9 @@
     },
     {
       "id": "sulzer-d000d155539e",
-      "slug": "service-center-administrator-sulzer-pasadena",
+      "slug": "amministratore-del-centro-servizi-sulzer-pasadena",
       "slugByLocale": {
-        "it": "service-center-administrator-sulzer-pasadena",
+        "it": "amministratore-del-centro-servizi-sulzer-pasadena",
         "en": "service-center-administrator-sulzer-ch",
         "de": "service-center-administrator-sulzer-ch",
         "fr": "service-center-administrator-sulzer-ch"
@@ -2710,12 +2710,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "service-center-administrator-sulzer-ch",
-        "amministratore-del-centro-servizi-sulzer-pasadena"
+        "service-center-administrator-sulzer-pasadena"
       ],
       "previousSlugsByLocale": {
         "it": [
           "service-center-administrator-sulzer-ch",
-          "amministratore-del-centro-servizi-sulzer-pasadena"
+          "service-center-administrator-sulzer-pasadena"
         ]
       },
       "firstSeenAt": "2026-05-22T23:43:00.083Z",
@@ -2967,10 +2967,10 @@
     },
     {
       "id": "sulzer-8f161a4ac463",
-      "slug": "business-development-manager-oil-gas-sulzer-ch",
+      "slug": "responsabile-sviluppo-commerciale-petrolio-gas-sulzer-suzhou",
       "slugByLocale": {
         "en": "business-development-manager-oil-gas-sulzer-ch",
-        "it": "business-development-manager-oil-gas-sulzer-ch",
+        "it": "responsabile-sviluppo-commerciale-petrolio-gas-sulzer-suzhou",
         "de": "business-development-manager-oil-gas-sulzer-ch",
         "fr": "business-development-manager-oil-gas-sulzer-ch"
       },
@@ -3027,7 +3027,15 @@
         }
       },
       "postalCode": "8001",
-      "firstSeenAt": "2026-05-24T23:28:45.632Z"
+      "firstSeenAt": "2026-05-24T23:28:45.632Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "business-development-manager-oil-gas-sulzer-ch"
+        ]
+      },
+      "previousSlugs": [
+        "business-development-manager-oil-gas-sulzer-ch"
+      ]
     }
   ]
 }
