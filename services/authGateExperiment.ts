@@ -34,8 +34,9 @@ function resolveChallenger(locale: string): string {
  return CHALLENGER_HEADLINES[locale] ?? CHALLENGER_HEADLINES.it;
 }
 
-function normalizeVariant(raw: unknown): AuthGateVariant {
- return raw === 'frictionless' ? 'frictionless' : 'control';
+function normalizeVariant(raw: unknown): AuthGateVariant | null {
+ if (raw === 'control' || raw === 'frictionless') return raw;
+ return null;
 }
 
 interface UseAuthGateHeadlineVariantResult {
@@ -57,7 +58,8 @@ export function useAuthGateHeadlineVariant(
  useEffect(() => {
  const unsubscribe = onFeatureFlags(() => {
  const resolved = normalizeVariant(getFeatureFlag(FLAG_KEY));
- setVariant(resolved);
+ setVariant(resolved ?? 'control');
+ if (!resolved) return;
  registerSuperProperty('headline_variant', resolved);
  });
  return unsubscribe;
