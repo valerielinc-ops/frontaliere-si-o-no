@@ -456,11 +456,11 @@
     },
     {
       "id": "ubs-ecca48809086",
-      "slug": "intern-in-group-finance-ubs",
+      "slug": "tirocinante-in-group-finanza-ubs",
       "slugByLocale": {
         "en": "intern-in-group-finance-ubs",
-        "it": "intern-in-group-finance-ubs",
-        "de": "intern-in-group-finance-ubs",
+        "it": "tirocinante-in-group-finanza-ubs",
+        "de": "praktikant-in-group-finanzen-ubs",
         "fr": "intern-in-group-finance-ubs"
       },
       "company": "UBS",
@@ -524,7 +524,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-25T14:24:21.123Z"
+      "firstSeenAt": "2026-05-25T14:24:21.123Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "intern-in-group-finance-ubs"
+        ],
+        "de": [
+          "intern-in-group-finance-ubs"
+        ]
+      },
+      "previousSlugs": [
+        "intern-in-group-finance-ubs"
+      ]
     },
     {
       "id": "ubs-103df1836715",
@@ -820,8 +831,7 @@
       "previousSlugsByLocale": {
         "it": [
           "fintech-apprentice-ubs-2",
-          "apprendista-fintech-ubs",
-          "fintech-apprentice-ubs"
+          "apprendista-fintech-ubs"
         ]
       },
       "needsRetranslation": true,

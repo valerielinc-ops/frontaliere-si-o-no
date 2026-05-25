@@ -756,12 +756,12 @@
     },
     {
       "id": "paraplegie-18e1e66c889b",
-      "slug": "spz-collaboratore-trice-in-hauswirtschaft-schweizer-paraplegiker-gruppe-nottwil",
+      "slug": "spz-addetto-a-alla-casa-economia-schweizer-paraplegiker-gruppe-nottwil",
       "slugByLocale": {
         "de": "spz-mitarbeiter-in-hauswirtschaft-schweizer-paraplegiker-gruppe-nottwil",
-        "it": "spz-collaboratore-trice-in-hauswirtschaft-schweizer-paraplegiker-gruppe-nottwil",
-        "en": "spz-mitarbeiter-in-hauswirtschaft-schweizer-paraplegiker-gruppe-nottwil",
-        "fr": "spz-mitarbeiter-in-hauswirtschaft-schweizer-paraplegiker-gruppe-nottwil"
+        "it": "spz-addetto-a-alla-casa-economia-schweizer-paraplegiker-gruppe-nottwil",
+        "en": "spz-housekeeping-staff-schweizer-paraplegiker-gruppe-nottwil",
+        "fr": "spz-agent-e-d-entretien-schweizer-paraplegiker-gruppe-nottwil"
       },
       "company": "Schweizer Paraplegiker-Gruppe",
       "companyKey": "paraplegie",
@@ -806,14 +806,23 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "spz-mitarbeiter-in-hauswirtschaft-paraplegie-nottwil"
+          "spz-mitarbeiter-in-hauswirtschaft-paraplegie-nottwil",
+          "spz-collaboratore-trice-in-hauswirtschaft-schweizer-paraplegiker-gruppe-nottwil"
         ],
         "de": [
           "spz-mitarbeiter-in-hauswirtschaft-paraplegie-nottwil"
+        ],
+        "en": [
+          "spz-mitarbeiter-in-hauswirtschaft-schweizer-paraplegiker-gruppe-nottwil"
+        ],
+        "fr": [
+          "spz-mitarbeiter-in-hauswirtschaft-schweizer-paraplegiker-gruppe-nottwil"
         ]
       },
       "previousSlugs": [
-        "spz-mitarbeiter-in-hauswirtschaft-paraplegie-nottwil"
+        "spz-mitarbeiter-in-hauswirtschaft-paraplegie-nottwil",
+        "spz-collaboratore-trice-in-hauswirtschaft-schweizer-paraplegiker-gruppe-nottwil",
+        "spz-mitarbeiter-in-hauswirtschaft-schweizer-paraplegiker-gruppe-nottwil"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -836,7 +845,7 @@
         "de": "mitarbeiter-in-hauswirtschaft-events-schweizer-paraplegiker-gruppe-nottwil",
         "it": "collaboratore-trice-in-hauswirtschaft-events-schweizer-paraplegiker-gruppe-nottwil",
         "en": "mitarbeiter-in-hauswirtschaft-events-schweizer-paraplegiker-gruppe-nottwil",
-        "fr": "mitarbeiter-in-hauswirtschaft-events-schweizer-paraplegiker-gruppe-nottwil"
+        "fr": "personnel-a-hauswirtschaft-evenements-schweizer-paraplegiker-gruppe-nottwil"
       },
       "company": "Schweizer Paraplegiker-Gruppe",
       "companyKey": "paraplegie",
@@ -885,10 +894,14 @@
         ],
         "de": [
           "mitarbeiter-in-hauswirtschaft-events-paraplegie-nottwil"
+        ],
+        "fr": [
+          "mitarbeiter-in-hauswirtschaft-events-schweizer-paraplegiker-gruppe-nottwil"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-hauswirtschaft-events-paraplegie-nottwil"
+        "mitarbeiter-in-hauswirtschaft-events-paraplegie-nottwil",
+        "mitarbeiter-in-hauswirtschaft-events-schweizer-paraplegiker-gruppe-nottwil"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,

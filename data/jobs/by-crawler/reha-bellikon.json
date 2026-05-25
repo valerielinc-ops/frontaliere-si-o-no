@@ -1300,9 +1300,9 @@
     },
     {
       "id": "reha-bellikon-9d3bbc52411e",
-      "slug": "cucinare-cucinare-efz-rehaklinik-bellikon-bellikon",
+      "slug": "koch-kochin-cfc-rehaklinik-bellikon-bellikon",
       "slugByLocale": {
-        "it": "cucinare-cucinare-efz-rehaklinik-bellikon-bellikon",
+        "it": "koch-kochin-cfc-rehaklinik-bellikon-bellikon",
         "en": "cook-cook-efz-rehaklinik-bellikon-bellikon",
         "de": "koch-kochin-efz-rehaklinik-bellikon-bellikon",
         "fr": "faire-cuire-faire-cuire-efz-rehaklinik-bellikon-bellikon"
@@ -1356,7 +1356,8 @@
           "koch-kochin-efz-reha-bellikon-bellikon"
         ],
         "it": [
-          "koch-kochin-efz-reha-bellikon-bellikon"
+          "koch-kochin-efz-reha-bellikon-bellikon",
+          "cucinare-cucinare-efz-rehaklinik-bellikon-bellikon"
         ],
         "en": [
           "koch-kochin-efz-reha-bellikon-bellikon"
@@ -1366,7 +1367,8 @@
         ]
       },
       "previousSlugs": [
-        "koch-kochin-efz-reha-bellikon-bellikon"
+        "koch-kochin-efz-reha-bellikon-bellikon",
+        "cucinare-cucinare-efz-rehaklinik-bellikon-bellikon"
       ],
       "firstSeenAt": "2026-05-24T23:03:38.539Z",
       "salaryMin": 51500,

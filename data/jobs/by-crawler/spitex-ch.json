@@ -391,12 +391,12 @@
     },
     {
       "id": "spitex-ch-26838a8f5ff0",
-      "slug": "fachperson-gesundheit-efz-arbeitspensum-40-80-spitex-ch-wattwil",
+      "slug": "specialist-health-efz-arbeitspensum-40-80-spitex-toggenburg-wattwil",
       "slugByLocale": {
         "de": "fachperson-gesundheit-efz-arbeitspensum-40-80-spitex-ch-wattwil",
-        "it": "fachperson-gesundheit-efz-arbeitspensum-40-80-spitex-ch-wattwil",
+        "it": "specialist-health-efz-arbeitspensum-40-80-spitex-toggenburg-wattwil",
         "en": "fachperson-gesundheit-efz-arbeitspensum-40-80-spitex-ch-wattwil",
-        "fr": "fachperson-gesundheit-efz-arbeitspensum-40-80-spitex-ch-wattwil"
+        "fr": "specialiste-de-la-sante-efz-arbeitspensum-40-80-spitex-toggenburg-wattwil"
       },
       "company": "Spitex Toggenburg",
       "companyKey": "spitex-ch",
@@ -452,7 +452,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-25T14:06:36.544Z"
+      "firstSeenAt": "2026-05-25T14:06:36.544Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachperson-gesundheit-efz-arbeitspensum-40-80-spitex-ch-wattwil"
+        ],
+        "fr": [
+          "fachperson-gesundheit-efz-arbeitspensum-40-80-spitex-ch-wattwil"
+        ]
+      },
+      "previousSlugs": [
+        "fachperson-gesundheit-efz-arbeitspensum-40-80-spitex-ch-wattwil"
+      ]
     },
     {
       "id": "spitex-ch-53f9d3d18376",
@@ -1244,8 +1255,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-in-hauswirtschaft-40-60-spitex-ch-liestal",
         "it": "collaboratore-trice-hauswirtschaft-40-60-spitex-regio-liestal",
-        "en": "mitarbeiter-in-hauswirtschaft-40-60-spitex-ch-liestal",
-        "fr": "mitarbeiter-in-hauswirtschaft-40-60-spitex-ch-liestal"
+        "en": "head-of-household-40-60-spitex-regio-liestal-liestal",
+        "fr": "chef-de-menage-40-60-spitex-regio-liestal-liestal"
       },
       "company": "Spitex Regio Liestal",
       "companyKey": "spitex-ch",
@@ -1292,6 +1303,12 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-hauswirtschaft-40-60-spitex-ch-liestal"
+        ],
+        "en": [
+          "mitarbeiter-in-hauswirtschaft-40-60-spitex-ch-liestal"
+        ],
+        "fr": [
+          "mitarbeiter-in-hauswirtschaft-40-60-spitex-ch-liestal"
         ]
       },
       "previousSlugs": [
@@ -1317,8 +1334,8 @@
       "slugByLocale": {
         "de": "fachfrau-fachmann-gesundheit-efz-fage-50-90-spitex-spitex-ch-weiningen-zh",
         "it": "fachfrau-fachmann-gesundheit-efz-fage-50-90-spitex-spitex-ch-weiningen-zh",
-        "en": "fachfrau-fachmann-gesundheit-efz-fage-50-90-spitex-spitex-ch-weiningen-zh",
-        "fr": "fachfrau-fachmann-gesundheit-efz-fage-50-90-spitex-spitex-ch-weiningen-zh"
+        "en": "professional-health-efz-fage-50-90-spitex-spitex-rechtes-limmattal-weiningen-zh",
+        "fr": "sante-professionnelle-efz-fage-50-90-spitex-rechtes-limmattal-weiningen-zh"
       },
       "company": "Spitex Rechtes Limmattal",
       "companyKey": "spitex-ch",

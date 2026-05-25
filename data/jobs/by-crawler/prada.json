@@ -4,10 +4,10 @@
   "jobs": [
     {
       "id": "prada-d95cd7de3867",
-      "slug": "design-architect-prada-group-arezzo-design-architect",
+      "slug": "design-architetto-prada-group-arezzo-design-architect",
       "slugByLocale": {
         "en": "design-architect-prada-group-arezzo-design-architect",
-        "it": "design-architect-prada-group-arezzo-design-architect",
+        "it": "design-architetto-prada-group-arezzo-design-architect",
         "de": "design-architect-prada-group-arezzo-design-architect",
         "fr": "design-architect-prada-group-arezzo-design-architect"
       },
@@ -60,7 +60,15 @@
         }
       },
       "postalCode": "6500",
-      "firstSeenAt": "2026-05-25T13:41:46.673Z"
+      "firstSeenAt": "2026-05-25T13:41:46.673Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "design-architect-prada-group-arezzo-design-architect"
+        ]
+      },
+      "previousSlugs": [
+        "design-architect-prada-group-arezzo-design-architect"
+      ]
     },
     {
       "id": "prada-332f237b0ca4",

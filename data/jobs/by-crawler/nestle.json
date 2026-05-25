@@ -1093,8 +1093,8 @@
       "slugByLocale": {
         "en": "r-d-laboratory-technician-nestle-lausanne-ch",
         "it": "r-d-laboratory-technician-nestle-ch",
-        "de": "r-d-laboratory-technician-nestle-ch",
-        "fr": "r-d-laboratory-technician-nestle-ch"
+        "de": "r-d-laboratory-techniker-nestle-lausanne-ch",
+        "fr": "r-d-laboratory-technicien-nestle-lausanne-ch"
       },
       "company": "Nestlé",
       "companyKey": "nestle",
@@ -1408,12 +1408,12 @@
     },
     {
       "id": "nestle-1384575533",
-      "slug": "connectivity-intern-nestle-ch",
+      "slug": "connectivity-tirocinante-nestle-orbe-ch",
       "slugByLocale": {
         "en": "connectivity-intern-nestle-orbe-ch",
-        "it": "connectivity-intern-nestle-ch",
-        "de": "connectivity-intern-nestle-ch",
-        "fr": "connectivity-intern-nestle-ch"
+        "it": "connectivity-tirocinante-nestle-orbe-ch",
+        "de": "connectivity-praktikant-nestle-orbe-ch",
+        "fr": "connectivity-stagiaire-nestle-orbe-ch"
       },
       "company": "Nestlé",
       "companyKey": "nestle",
@@ -1467,7 +1467,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-25T13:33:48.628Z"
+      "firstSeenAt": "2026-05-25T13:33:48.628Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "connectivity-intern-nestle-ch"
+        ],
+        "de": [
+          "connectivity-intern-nestle-ch"
+        ],
+        "fr": [
+          "connectivity-intern-nestle-ch"
+        ]
+      },
+      "previousSlugs": [
+        "connectivity-intern-nestle-ch"
+      ]
     },
     {
       "id": "nestle-1385532533",
@@ -1917,7 +1931,7 @@
         "en": "mitarbeiter-in-logistik-100-nestle-ch",
         "it": "addetto-a-alla-logistica-100-nestle-konolfingen-ch",
         "de": "mitarbeiter-in-logistik-100-nestle-ch",
-        "fr": "mitarbeiter-in-logistik-100-nestle-ch"
+        "fr": "collaborateur-trice-logistik-100-nestle-konolfingen-ch"
       },
       "company": "Nestlé",
       "companyKey": "nestle",
@@ -1961,6 +1975,9 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-logistik-100-nestle-ch"
+        ],
+        "fr": [
           "mitarbeiter-in-logistik-100-nestle-ch"
         ]
       },
@@ -3839,8 +3856,8 @@
       "slugByLocale": {
         "en": "supply-chain-intern-nestle-ch",
         "it": "supply-chain-intern-nestle-ch",
-        "de": "supply-chain-intern-nestle-ch",
-        "fr": "supply-chain-intern-nestle-ch"
+        "de": "lieferkette-praktikant-nestle-avenches-ch",
+        "fr": "chaine-d-approvisionnement-stagiaire-nestle-avenches-ch"
       },
       "company": "Nestlé",
       "companyKey": "nestle",

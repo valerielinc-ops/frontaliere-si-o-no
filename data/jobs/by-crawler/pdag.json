@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "pdag-a87c93dfedc9",
-      "slug": "leitende-arztin-leitender-arzt-pdag-windisch",
+      "slug": "medico-capo-medico-capo-psychiatrische-dienste-aargau-pdag-windisch",
       "slugByLocale": {
         "de": "leitende-arztin-leitender-arzt-pdag-windisch",
-        "it": "leitende-arztin-leitender-arzt-pdag-windisch",
-        "en": "leitende-arztin-leitender-arzt-pdag-windisch",
-        "fr": "leitende-arztin-leitender-arzt-pdag-windisch"
+        "it": "medico-capo-medico-capo-psychiatrische-dienste-aargau-pdag-windisch",
+        "en": "head-physician-psychiatrische-dienste-aargau-pdag-windisch",
+        "fr": "medecin-chef-medecin-chef-psychiatrische-dienste-aargau-pdag-windisch"
       },
       "company": "Psychiatrische Dienste Aargau (PDAG)",
       "companyKey": "pdag",
@@ -66,19 +66,31 @@
       },
       "firstSeenAt": "2026-05-25T13:38:49.709Z",
       "previousSlugs": [
+        "leitende-arztin-leitender-arzt-pdag-windisch",
         "dirigente-medico-psychiatrische-dienste-aargau-pdag-windisch",
         "senior-physician-psychiatrische-dienste-aargau-pdag-windisch",
         "medecin-chef-psychiatrische-dienste-aargau-pdag-windisch"
-      ]
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "leitende-arztin-leitender-arzt-pdag-windisch"
+        ],
+        "en": [
+          "leitende-arztin-leitender-arzt-pdag-windisch"
+        ],
+        "fr": [
+          "leitende-arztin-leitender-arzt-pdag-windisch"
+        ]
+      }
     },
     {
       "id": "pdag-4c8878201204",
-      "slug": "fachfrau-fachmann-gesundheit-nachtwachen-equipe-pdag-windisch",
+      "slug": "specialista-professional-health-nightguards-equipe-psychiatrische-dienste-aargau-pdag-windisch",
       "slugByLocale": {
         "de": "fachfrau-fachmann-gesundheit-nachtwachen-equipe-pdag-windisch",
-        "it": "fachfrau-fachmann-gesundheit-nachtwachen-equipe-pdag-windisch",
-        "en": "fachfrau-fachmann-gesundheit-nachtwachen-equipe-pdag-windisch",
-        "fr": "fachfrau-fachmann-gesundheit-nachtwachen-equipe-pdag-windisch"
+        "it": "specialista-professional-health-nightguards-equipe-psychiatrische-dienste-aargau-pdag-windisch",
+        "en": "specialist-professional-health-nightguards-equipe-psychiatrische-dienste-aargau-pdag-windisch",
+        "fr": "specialiste-gardes-de-la-sante-professionnelle-equipe-psychiatrische-dienste-aargau-pdag-windisch"
       },
       "company": "Psychiatrische Dienste Aargau (PDAG)",
       "companyKey": "pdag",
@@ -135,16 +147,30 @@
         }
       },
       "firstSeenAt": "2026-05-25T13:38:48.895Z",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "fachfrau-fachmann-gesundheit-nachtwachen-equipe-pdag-windisch"
+        ],
+        "en": [
+          "fachfrau-fachmann-gesundheit-nachtwachen-equipe-pdag-windisch"
+        ],
+        "fr": [
+          "fachfrau-fachmann-gesundheit-nachtwachen-equipe-pdag-windisch"
+        ]
+      },
+      "previousSlugs": [
+        "fachfrau-fachmann-gesundheit-nachtwachen-equipe-pdag-windisch"
+      ]
     },
     {
       "id": "pdag-0959c8081c1a",
-      "slug": "assistenzpsychologin-assistenzpsychologe-o-fachpsychologin-fachpsychologe-psychiatrische-dienste-aargau-pdag-windisch",
+      "slug": "assistente-psicologo-assistente-psicologo-psicologo-psychiatrische-dienste-aargau-pdag-windisch",
       "slugByLocale": {
         "de": "assistenzpsychologin-assistenzpsychologe-oder-fachpsychologin-fachpsychologe-pdag-windisch",
-        "it": "assistenzpsychologin-assistenzpsychologe-o-fachpsychologin-fachpsychologe-psychiatrische-dienste-aargau-pdag-windisch",
-        "en": "assistenzpsychologin-assistenzpsychologe-oder-fachpsychologin-fachpsychologe-pdag-windisch",
-        "fr": "assistenzpsychologin-assistenzpsychologe-oder-fachpsychologin-fachpsychologe-pdag-windisch"
+        "it": "assistente-psicologo-assistente-psicologo-psicologo-psychiatrische-dienste-aargau-pdag-windisch",
+        "en": "assistant-psychologist-assistant-psychologist-psychologist-psychiatrische-dienste-aargau-pdag-windisch",
+        "fr": "psychologue-adjoint-psychologue-adjoint-psychologue-psychiatrische-dienste-aargau-pdag-windisch"
       },
       "company": "Psychiatrische Dienste Aargau (PDAG)",
       "companyKey": "pdag",
@@ -189,11 +215,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "assistenzpsychologin-assistenzpsychologe-oder-fachpsychologin-fachpsychologe-pdag-windisch",
+          "assistenzpsychologin-assistenzpsychologe-o-fachpsychologin-fachpsychologe-psychiatrische-dienste-aargau-pdag-windisch"
+        ],
+        "en": [
+          "assistenzpsychologin-assistenzpsychologe-oder-fachpsychologin-fachpsychologe-pdag-windisch"
+        ],
+        "fr": [
           "assistenzpsychologin-assistenzpsychologe-oder-fachpsychologin-fachpsychologe-pdag-windisch"
         ]
       },
       "previousSlugs": [
-        "assistenzpsychologin-assistenzpsychologe-oder-fachpsychologin-fachpsychologe-pdag-windisch"
+        "assistenzpsychologin-assistenzpsychologe-oder-fachpsychologin-fachpsychologe-pdag-windisch",
+        "assistenzpsychologin-assistenzpsychologe-o-fachpsychologin-fachpsychologe-psychiatrische-dienste-aargau-pdag-windisch"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -211,12 +245,12 @@
     },
     {
       "id": "pdag-bf4e44fa2951",
-      "slug": "dipl-pflegefachfrau-dipl-pflegefachmann-hf-nachtdienst-im-klinikbereich-neuropsychiatrie",
+      "slug": "infermiere-in-diplomata-hf-turno-di-notte-nel-reparto-di-neuropsichiatria-psychiatrische-dienste-aargau-pdag-windisch",
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-dipl-pflegefachmann-hf-nachtdienst-im-klinikbereich-neuropsychiatrie",
-        "it": "dipl-pflegefachfrau-dipl-pflegefachmann-hf-nachtdienst-im-klinikbereich-neuropsychiatrie",
-        "en": "dipl-pflegefachfrau-dipl-pflegefachmann-hf-nachtdienst-im-klinikbereich-neuropsychiatrie",
-        "fr": "dipl-pflegefachfrau-dipl-pflegefachmann-hf-nachtdienst-im-klinikbereich-neuropsychiatrie"
+        "it": "infermiere-in-diplomata-hf-turno-di-notte-nel-reparto-di-neuropsichiatria-psychiatrische-dienste-aargau-pdag-windisch",
+        "en": "dipl-nurse-hf-night-shift-in-neuropsychiatry-psychiatrische-dienste-aargau-pdag-windisch",
+        "fr": "infirmier-ere-diplome-e-hf-service-de-nuit-en-neuropsychiatrie-psychiatrische-dienste-aargau-pdag-windisch"
       },
       "company": "Psychiatrische Dienste Aargau (PDAG)",
       "companyKey": "pdag",
@@ -271,16 +305,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-25T13:38:47.298Z"
+      "firstSeenAt": "2026-05-25T13:38:47.298Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachfrau-dipl-pflegefachmann-hf-nachtdienst-im-klinikbereich-neuropsychiatrie"
+        ],
+        "en": [
+          "dipl-pflegefachfrau-dipl-pflegefachmann-hf-nachtdienst-im-klinikbereich-neuropsychiatrie"
+        ],
+        "fr": [
+          "dipl-pflegefachfrau-dipl-pflegefachmann-hf-nachtdienst-im-klinikbereich-neuropsychiatrie"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachfrau-dipl-pflegefachmann-hf-nachtdienst-im-klinikbereich-neuropsychiatrie"
+      ]
     },
     {
       "id": "pdag-cec82a83361e",
-      "slug": "sozialarbeiterin-sozialarbeiter-fh-tagesklinik-pdag-windisch",
+      "slug": "assistente-sociale-assistente-sociale-fh-clinica-diurna-psychiatrische-dienste-aargau-pdag-windisch",
       "slugByLocale": {
         "de": "sozialarbeiterin-sozialarbeiter-fh-tagesklinik-pdag-windisch",
-        "it": "sozialarbeiterin-sozialarbeiter-fh-tagesklinik-pdag-windisch",
-        "en": "sozialarbeiterin-sozialarbeiter-fh-tagesklinik-pdag-windisch",
-        "fr": "sozialarbeiterin-sozialarbeiter-fh-tagesklinik-pdag-windisch"
+        "it": "assistente-sociale-assistente-sociale-fh-clinica-diurna-psychiatrische-dienste-aargau-pdag-windisch",
+        "en": "social-worker-fh-social-worker-day-clinic-psychiatrische-dienste-aargau-pdag-windisch",
+        "fr": "assistant-social-assistante-sociale-fh-clinique-de-jour-psychiatrische-dienste-aargau-pdag-windisch"
       },
       "company": "Psychiatrische Dienste Aargau (PDAG)",
       "companyKey": "pdag",
@@ -335,16 +383,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-25T13:38:46.194Z"
+      "firstSeenAt": "2026-05-25T13:38:46.194Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sozialarbeiterin-sozialarbeiter-fh-tagesklinik-pdag-windisch"
+        ],
+        "en": [
+          "sozialarbeiterin-sozialarbeiter-fh-tagesklinik-pdag-windisch"
+        ],
+        "fr": [
+          "sozialarbeiterin-sozialarbeiter-fh-tagesklinik-pdag-windisch"
+        ]
+      },
+      "previousSlugs": [
+        "sozialarbeiterin-sozialarbeiter-fh-tagesklinik-pdag-windisch"
+      ]
     },
     {
       "id": "pdag-126bc83e80bc",
-      "slug": "dipl-pflegefachfrau-dipl-pflegefachmann-abhangigkeitserkrankungen-pdag-windisch",
+      "slug": "dipl-carriera-dipl-cura-specialista-malattie-della-dipendenza-psychiatrische-dienste-aargau-pdag-windisch",
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-dipl-pflegefachmann-abhangigkeitserkrankungen-pdag-windisch",
-        "it": "dipl-pflegefachfrau-dipl-pflegefachmann-abhangigkeitserkrankungen-pdag-windisch",
-        "en": "dipl-pflegefachfrau-dipl-pflegefachmann-abhangigkeitserkrankungen-pdag-windisch",
-        "fr": "dipl-pflegefachfrau-dipl-pflegefachmann-abhangigkeitserkrankungen-pdag-windisch"
+        "it": "dipl-carriera-dipl-cura-specialista-malattie-della-dipendenza-psychiatrische-dienste-aargau-pdag-windisch",
+        "en": "dipl-career-dipl-care-specialist-dependency-diseases-psychiatrische-dienste-aargau-pdag-windisch",
+        "fr": "dipl-carriere-dipl-specialiste-des-maladies-de-dependance-psychiatrische-dienste-aargau-pdag-windisch"
       },
       "company": "Psychiatrische Dienste Aargau (PDAG)",
       "companyKey": "pdag",
@@ -399,16 +461,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-25T13:38:45.398Z"
+      "firstSeenAt": "2026-05-25T13:38:45.398Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachfrau-dipl-pflegefachmann-abhangigkeitserkrankungen-pdag-windisch"
+        ],
+        "en": [
+          "dipl-pflegefachfrau-dipl-pflegefachmann-abhangigkeitserkrankungen-pdag-windisch"
+        ],
+        "fr": [
+          "dipl-pflegefachfrau-dipl-pflegefachmann-abhangigkeitserkrankungen-pdag-windisch"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachfrau-dipl-pflegefachmann-abhangigkeitserkrankungen-pdag-windisch"
+      ]
     },
     {
       "id": "pdag-64a26827d557",
-      "slug": "sozialarbeiterin-sozialarbeiter-fh-ambulatorium-pdag-windisch",
+      "slug": "assistente-sociale-ambulatoriale-psychiatrische-dienste-aargau-pdag-windisch",
       "slugByLocale": {
         "de": "sozialarbeiterin-sozialarbeiter-fh-ambulatorium-pdag-windisch",
-        "it": "sozialarbeiterin-sozialarbeiter-fh-ambulatorium-pdag-windisch",
-        "en": "sozialarbeiterin-sozialarbeiter-fh-ambulatorium-pdag-windisch",
-        "fr": "sozialarbeiterin-sozialarbeiter-fh-ambulatorium-pdag-windisch"
+        "it": "assistente-sociale-ambulatoriale-psychiatrische-dienste-aargau-pdag-windisch",
+        "en": "social-worker-ambulatory-psychiatrische-dienste-aargau-pdag-windisch",
+        "fr": "assistant-social-ambulatoire-psychiatrische-dienste-aargau-pdag-windisch"
       },
       "company": "Psychiatrische Dienste Aargau (PDAG)",
       "companyKey": "pdag",
@@ -463,16 +539,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-25T13:38:44.601Z"
+      "firstSeenAt": "2026-05-25T13:38:44.601Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sozialarbeiterin-sozialarbeiter-fh-ambulatorium-pdag-windisch"
+        ],
+        "en": [
+          "sozialarbeiterin-sozialarbeiter-fh-ambulatorium-pdag-windisch"
+        ],
+        "fr": [
+          "sozialarbeiterin-sozialarbeiter-fh-ambulatorium-pdag-windisch"
+        ]
+      },
+      "previousSlugs": [
+        "sozialarbeiterin-sozialarbeiter-fh-ambulatorium-pdag-windisch"
+      ]
     },
     {
       "id": "pdag-ad1c8545c058",
-      "slug": "sekretarin-sekretar-zpps-pdag-windisch",
+      "slug": "segretario-a-zpps-psychiatrische-dienste-aargau-pdag-windisch",
       "slugByLocale": {
         "de": "sekretarin-sekretar-zpps-pdag-windisch",
-        "it": "sekretarin-sekretar-zpps-pdag-windisch",
-        "en": "sekretarin-sekretar-zpps-pdag-windisch",
-        "fr": "sekretarin-sekretar-zpps-pdag-windisch"
+        "it": "segretario-a-zpps-psychiatrische-dienste-aargau-pdag-windisch",
+        "en": "administrative-assistant-zpps-psychiatrische-dienste-aargau-pdag-windisch",
+        "fr": "assistant-e-administratif-zpps-psychiatrische-dienste-aargau-pdag-windisch"
       },
       "company": "Psychiatrische Dienste Aargau (PDAG)",
       "companyKey": "pdag",
@@ -527,16 +617,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-25T13:38:43.778Z"
+      "firstSeenAt": "2026-05-25T13:38:43.778Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sekretarin-sekretar-zpps-pdag-windisch"
+        ],
+        "en": [
+          "sekretarin-sekretar-zpps-pdag-windisch"
+        ],
+        "fr": [
+          "sekretarin-sekretar-zpps-pdag-windisch"
+        ]
+      },
+      "previousSlugs": [
+        "sekretarin-sekretar-zpps-pdag-windisch"
+      ]
     },
     {
       "id": "pdag-6c7374443b2d",
-      "slug": "sozialarbeiterin-sozialarbeiter-fh-pdag-windisch",
+      "slug": "assistente-sociale-assistente-sociale-fh-psychiatrische-dienste-aargau-pdag-windisch",
       "slugByLocale": {
         "de": "sozialarbeiterin-sozialarbeiter-fh-pdag-windisch",
-        "it": "sozialarbeiterin-sozialarbeiter-fh-pdag-windisch",
-        "en": "sozialarbeiterin-sozialarbeiter-fh-pdag-windisch",
-        "fr": "sozialarbeiterin-sozialarbeiter-fh-pdag-windisch"
+        "it": "assistente-sociale-assistente-sociale-fh-psychiatrische-dienste-aargau-pdag-windisch",
+        "en": "social-worker-social-worker-fh-psychiatrische-dienste-aargau-pdag-windisch",
+        "fr": "assistant-social-assistante-sociale-fh-psychiatrische-dienste-aargau-pdag-windisch"
       },
       "company": "Psychiatrische Dienste Aargau (PDAG)",
       "companyKey": "pdag",
@@ -591,7 +695,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-25T13:38:42.947Z"
+      "firstSeenAt": "2026-05-25T13:38:42.947Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sozialarbeiterin-sozialarbeiter-fh-pdag-windisch"
+        ],
+        "en": [
+          "sozialarbeiterin-sozialarbeiter-fh-pdag-windisch"
+        ],
+        "fr": [
+          "sozialarbeiterin-sozialarbeiter-fh-pdag-windisch"
+        ]
+      },
+      "previousSlugs": [
+        "sozialarbeiterin-sozialarbeiter-fh-pdag-windisch"
+      ]
     },
     {
       "id": "pdag-a347fdfe28ff",
@@ -599,8 +717,8 @@
       "slugByLocale": {
         "de": "dipl-pflegefachpersonen-hf-fh-im-spat-und-nachtdienst-pdag-windisch",
         "it": "dipl-pflegefachpersonen-hf-fh-im-spat-e-nachtdienst-psychiatrische-dienste-aargau-pdag-windisch",
-        "en": "dipl-pflegefachpersonen-hf-fh-im-spat-und-nachtdienst-pdag-windisch",
-        "fr": "dipl-pflegefachpersonen-hf-fh-im-spat-und-nachtdienst-pdag-windisch"
+        "en": "dipl-care-professionals-hf-fh-in-late-and-night-service-psychiatrische-dienste-aargau-pdag-windisch",
+        "fr": "dipl-professionnels-des-soins-hf-fh-en-service-de-nuit-et-tard-psychiatrische-dienste-aargau-pdag-windisch"
       },
       "company": "Psychiatrische Dienste Aargau (PDAG)",
       "companyKey": "pdag",
@@ -645,6 +763,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "dipl-pflegefachpersonen-hf-fh-im-spat-und-nachtdienst-pdag-windisch"
+        ],
+        "en": [
+          "dipl-pflegefachpersonen-hf-fh-im-spat-und-nachtdienst-pdag-windisch"
+        ],
+        "fr": [
           "dipl-pflegefachpersonen-hf-fh-im-spat-und-nachtdienst-pdag-windisch"
         ]
       },
