@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2644,
+ "numberOfItems": 2645,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7284,7 +7284,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2641, "name": "AVS 2030: cosa cambia per i frontalieri del Ticino", "url": `${BASE_URL}/articoli-frontaliere/avs-2030-frontalieri-ticino` },
           { "@type": "ListItem", "position": 2642, "name": "Controlli frontiera Svizzera-Francia: cosa camb...", "url": `${BASE_URL}/articoli-frontaliere/controlli-frontiere-svizzera-francia-2024` },
           { "@type": "ListItem", "position": 2643, "name": "Keller-Sutter alle banche: \"Tutti devono contri...", "url": `${BASE_URL}/articoli-frontaliere/keller-sutter-banche-stabilita-2026` },
-          { "@type": "ListItem", "position": 2644, "name": "Lavorare come educatore dell'infanzia in Ticino...", "url": `${BASE_URL}/articoli-frontaliere/educatore-infanzia-ticino-stipendi-2026` }
+          { "@type": "ListItem", "position": 2644, "name": "Lavorare come educatore dell'infanzia in Ticino...", "url": `${BASE_URL}/articoli-frontaliere/educatore-infanzia-ticino-stipendi-2026` },
+          { "@type": "ListItem", "position": 2645, "name": "Pentecoste 2026: traffico in rientro verso il T...", "url": `${BASE_URL}/articoli-frontaliere/rientro-pentecoste-traffico-ticino-2026` }
  ]
  },
  {

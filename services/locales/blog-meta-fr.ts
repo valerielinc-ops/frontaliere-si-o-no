@@ -7769,6 +7769,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.educatore-infanzia-ticino-stipendi-2026.title': 'Travail d\'éducateur de l\'enfance au Tessin: salaires et exigences',
     'blog.article.educatore-infanzia-ticino-stipendi-2026.excerpt': 'Guide complet pour devenir éducateur de l\'enfance au Tessin: diplôme SSS requis, salaire CHF 73K–97K, LIS et autres employeurs, processus pour obtenir le permis G',
     'blog.article.educatore-infanzia-ticino-stipendi-2026.imageAlt': 'Une éducatrice de la petite enfance dans une garderie du Tessin avec vue sur le lac de Lugano',
+    'blog.article.rientro-pentecoste-traffico-ticino-2026.title': 'Pentecôte 2026: trafic de retour vers le Tessin',
+    'blog.article.rientro-pentecoste-traffico-ticino-2026.excerpt': 'Après le long week-end de la Pentecôte, le retour vers le Tessin devrait présenter moins de bouchons que les années précédentes. Voici ce à quoi s\'attendre.',
+    'blog.article.rientro-pentecoste-traffico-ticino-2026.imageAlt': 'Vue aérienne du lac de Lugano avec des montagnes et des bateaux, journée ensoleillée',
 };
 
 export default blogMetaFr;

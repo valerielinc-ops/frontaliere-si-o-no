@@ -7767,6 +7767,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.educatore-infanzia-ticino-stipendi-2026.title': 'Kita-Erzieher im Tessin: Gehalt und Voraussetzungen',
     'blog.article.educatore-infanzia-ticino-stipendi-2026.excerpt': 'Vollständiger Leitfaden zur Ausbildung als Kita-Erzieher im Tessin: SSS-Diplom erforderlich, Gehalt CHF 73K–97K, LIS und andere Arbeitgeber, Prozess zur Erlangung der G-Bewilligung',
     'blog.article.educatore-infanzia-ticino-stipendi-2026.imageAlt': 'Eine Kinderbetreuerin in einem Kindergarten im Tessin mit Blick auf den Luganersee',
+    'blog.article.rientro-pentecoste-traffico-ticino-2026.title': 'Pfingsten 2026: Rückreise in den Tessin',
+    'blog.article.rientro-pentecoste-traffico-ticino-2026.excerpt': 'Nach dem langen Pfingstwochenende verspricht die Rückreise in den Tessin weniger Staus als in den Vorjahren. Hier erfahren Sie, was Sie erwarten können.',
+    'blog.article.rientro-pentecoste-traffico-ticino-2026.imageAlt': 'Luftaufnahme des Luganer Sees mit Bergen und Booten, sonniger Tag',
 };
 
 export default blogMetaDe;

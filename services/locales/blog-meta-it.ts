@@ -7769,6 +7769,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.educatore-infanzia-ticino-stipendi-2026.title': 'Lavorare come educatore dell\'infanzia in Ticino: stipendi e requisiti',
     'blog.article.educatore-infanzia-ticino-stipendi-2026.excerpt': 'Guida completa per diventare educatore dell\'infanzia in Ticino: diploma SSS richiesto, stipendio CHF 73K–97K, LIS e altri datori di lavoro, processo per ottenere il Permesso G',
     'blog.article.educatore-infanzia-ticino-stipendi-2026.imageAlt': 'Un\'educatrice dell\'infanzia in un asilo ticinese con vista sul Lago di Lugano',
+    'blog.article.rientro-pentecoste-traffico-ticino-2026.title': 'Pentecoste 2026: traffico in rientro verso il Ticino',
+    'blog.article.rientro-pentecoste-traffico-ticino-2026.excerpt': 'Dopo il weekend lungo di Pentecoste, il rientro verso il Ticino promette meno code rispetto agli anni precedenti. Ecco cosa aspettarsi.',
+    'blog.article.rientro-pentecoste-traffico-ticino-2026.imageAlt': 'Vista aerea del Lago di Lugano con montagne e barche, giornata di sole',
 };
 
 export default blogMetaIt;

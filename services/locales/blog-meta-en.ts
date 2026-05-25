@@ -7768,6 +7768,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.educatore-infanzia-ticino-stipendi-2026.title': 'Working as a Childcare Educator in Ticino: Salary & Requirements',
     'blog.article.educatore-infanzia-ticino-stipendi-2026.excerpt': 'Complete guide to becoming a childcare educator in Ticino: SSS diploma required, CHF 73K–97K salary, LIS and other employers, process to obtain the G permit',
     'blog.article.educatore-infanzia-ticino-stipendi-2026.imageAlt': 'A child educator in a Ticino kindergarten with a view of Lake Lugano',
+    'blog.article.rientro-pentecoste-traffico-ticino-2026.title': 'Pentecost 2026: traffic returning to Ticino',
+    'blog.article.rientro-pentecoste-traffico-ticino-2026.excerpt': 'After the Pentecost long weekend, the return to Ticino promises fewer traffic jams than in previous years. Here\'s what to expect.',
+    'blog.article.rientro-pentecoste-traffico-ticino-2026.imageAlt': 'Aerial view of Lake Lugano with mountains and boats, sunny day',
 };
 
 export default blogMetaEn;
