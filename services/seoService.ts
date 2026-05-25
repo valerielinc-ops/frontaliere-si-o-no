@@ -3815,6 +3815,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-calcolo-salario-netto-svizzera-frontalieri': { name: 'Fiscale', path: '/articoli-frontaliere/calcolo-salario-netto-svizzera-frontalieri', parent: 'blog' },
     'blog-documenti-primo-giorno-lavoro-ticino-2026': { name: 'Documenti lavoro Ticino', path: '/articoli-frontaliere/documenti-primo-giorno-lavoro-ticino-2026', parent: 'blog' },
     'blog-frontaliere-residenza-italia-svizzera-2026': { name: 'Frontalieri Ticino', path: '/articoli-frontaliere/frontaliere-residenza-italia-svizzera-2026', parent: 'blog' },
+    'blog-trasporti-chiasso-lugano-frontalieri': { name: 'Trasporti', path: '/articoli-frontaliere/trasporti-chiasso-lugano-frontalieri', parent: 'blog' },
  };
 
  const info = sectionNames[section];

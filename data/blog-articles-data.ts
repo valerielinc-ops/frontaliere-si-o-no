@@ -24527,4 +24527,13 @@ export const ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'trasporti-chiasso-lugano-frontalieri',
+ category: 'pratico',
+ date: '2026-05-25T08:00:30.029Z',
+ image: '/images/blog/trasporti-chiasso-lugano-frontalieri.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

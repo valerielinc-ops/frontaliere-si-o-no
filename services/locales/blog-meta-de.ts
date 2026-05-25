@@ -7716,6 +7716,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.frontaliere-residenza-italia-svizzera-2026.title': 'Grenzgänger: Wohnsitz in Italien oder Schweiz 2026',
     'blog.article.frontaliere-residenza-italia-svizzera-2026.excerpt': 'Bewertung der Kosten, Reisezeiten, Gesundheitsversorgung und Besteuerung für Grenzgänger über 20 km von der Grenze entfernt',
     'blog.article.frontaliere-residenza-italia-svizzera-2026.imageAlt': 'Person an der italienisch-schweizerischen Grenze bei Mendrisio mit einer Karte und einem Taschenrechner',
+    'blog.article.trasporti-chiasso-lugano-frontalieri.title': 'Verkehr Chiasso-Lugano: Praktischer Leitfaden für Grenzgänger',
+    'blog.article.trasporti-chiasso-lugano-frontalieri.excerpt': 'Entdecken Sie, wie Sie sich zwischen Chiasso und Lugano mit dem Zug, dem Auto und Abonnements bewegen können. Praktischer Leitfaden mit Kosten und Tipps für Grenzgänger.',
+    'blog.article.trasporti-chiasso-lugano-frontalieri.imageAlt': 'Blick auf den Luganersee mit Bergen und der Stadt Lugano im Hintergrund',
 };
 
 export default blogMetaDe;

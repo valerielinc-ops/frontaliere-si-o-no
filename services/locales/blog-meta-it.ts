@@ -7718,6 +7718,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.frontaliere-residenza-italia-svizzera-2026.title': 'Frontalieri: residenza in Italia o Svizzera nel 2026',
     'blog.article.frontaliere-residenza-italia-svizzera-2026.excerpt': 'Valutazione dei costi, tempi di viaggio, sanità e fiscalità per frontalieri oltre 20 km dal confine',
     'blog.article.frontaliere-residenza-italia-svizzera-2026.imageAlt': 'Persona al confine italo-svizzero a Mendrisio con una mappa e un calcolatore',
+    'blog.article.trasporti-chiasso-lugano-frontalieri.title': 'Trasporti Chiasso-Lugano: guida pratica per frontalieri',
+    'blog.article.trasporti-chiasso-lugano-frontalieri.excerpt': 'Scopri come muoverti tra Chiasso e Lugano con treno, auto e abbonamenti. Guida pratica con costi e consigli per i frontalieri.',
+    'blog.article.trasporti-chiasso-lugano-frontalieri.imageAlt': 'Vista del lago di Lugano con le montagne e la città di Lugano sullo sfondo',
 };
 
 export default blogMetaIt;

@@ -7717,6 +7717,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.frontaliere-residenza-italia-svizzera-2026.title': 'Cross-border workers: residence in Italy or Switzerland by 2026',
     'blog.article.frontaliere-residenza-italia-svizzera-2026.excerpt': 'Evaluating costs, travel times, healthcare, and taxation for cross-border workers over 20 km from the border',
     'blog.article.frontaliere-residenza-italia-svizzera-2026.imageAlt': 'Person at the Italian-Swiss border near Mendrisio with a map and a calculator',
+    'blog.article.trasporti-chiasso-lugano-frontalieri.title': 'Chiasso-Lugano transport: practical guide for cross-border workers',
+    'blog.article.trasporti-chiasso-lugano-frontalieri.excerpt': 'Discover how to travel between Chiasso and Lugano by train, car, and subscriptions. Practical guide with costs and tips for cross-border workers.',
+    'blog.article.trasporti-chiasso-lugano-frontalieri.imageAlt': 'View of Lake Lugano with mountains and the city of Lugano in the background',
 };
 
 export default blogMetaEn;
