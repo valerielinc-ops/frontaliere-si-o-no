@@ -7715,6 +7715,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.documenti-primo-giorno-lavoro-ticino-2026.title': 'Documents pour le premier jour de travail au Tessin en 2026',
     'blog.article.documenti-primo-giorno-lavoro-ticino-2026.excerpt': 'Découvrez quels documents sont nécessaires pour votre premier jour de travail au Tessin en 2026 et comment vous préparer au mieux',
     'blog.article.documenti-primo-giorno-lavoro-ticino-2026.imageAlt': 'Vue panoramique de Lugano avec le lac et les montagnes environnantes',
+    'blog.article.frontaliere-residenza-italia-svizzera-2026.title': 'Frontaliers: résidence en Italie ou en Suisse en 2026',
+    'blog.article.frontaliere-residenza-italia-svizzera-2026.excerpt': 'Évaluation des coûts, temps de trajet, santé et fiscalité pour les frontaliers à plus de 20 km de la frontière',
+    'blog.article.frontaliere-residenza-italia-svizzera-2026.imageAlt': 'Personne à la frontière italo-suisse près de Mendrisio avec une carte et une calculatrice',
 };
 
 export default blogMetaFr;

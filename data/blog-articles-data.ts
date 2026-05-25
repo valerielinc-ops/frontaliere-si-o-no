@@ -24518,4 +24518,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'frontaliere-residenza-italia-svizzera-2026',
+ category: 'fiscale',
+ date: '2026-05-25T07:54:21.672Z',
+ image: '/images/blog/frontaliere-residenza-italia-svizzera-2026.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
