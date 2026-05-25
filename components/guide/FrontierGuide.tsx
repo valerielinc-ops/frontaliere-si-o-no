@@ -57,8 +57,22 @@ const Glossary = lazyRetry(() => import('@/components/pages/Glossary'));
 const FaqSection = lazyRetry(() => import('@/components/pages/FaqSection'));
 
 
-import { borderCrossings as centralizedBorderCrossings } from '../../data/borderCrossings';
+import { borderCrossings as centralizedBorderCrossings, type BorderCrossing } from '../../data/borderCrossings';
+import borderWaitCurrent from '../../data/border-wait-current.json';
 import { MUNICIPALITIES as BORDER_MUNICIPALITIES } from '@/data/municipalities';
+
+type WaitSnapshot = {
+ perCrossing?: Record<string, {
+ waitTimeMinutes?: number;
+ approachMinutes?: number;
+ totalCrossingMinutes?: number;
+ status?: string;
+ source?: string;
+ lastUpdate?: string;
+ }>;
+};
+
+const CURRENT_BORDER_WAIT = borderWaitCurrent as WaitSnapshot;
 
 /** Derive the URL slug for a border crossing from its display name. */
 function slugifyCrossingName(name: string): string {
@@ -70,6 +84,26 @@ function slugifyCrossingName(name: string): string {
     .replace(/-+/g, '-')
     .replace(/^-|-$/g, '')
     .toLowerCase();
+}
+
+function slugifyPath(value: string): string {
+ return value
+ .normalize('NFD')
+ .replace(/[\u0300-\u036f]/g, '')
+ .toLowerCase()
+ .replace(/['’]/g, '')
+ .replace(/[^a-z0-9]+/g, '-')
+ .replace(/^-+|-+$/g, '');
+}
+
+function crossingSlug(crossing: BorderCrossing): string {
+ if (crossing.name.startsWith('Gaggiolo')) return 'gaggiolo';
+ if (crossing.name.startsWith('San Pietro')) return 'san-pietro';
+ return slugifyCrossingName(crossing.name);
+}
+
+function municipalityProfilePath(name: string): string {
+ return `/vivere-in-ticino/comuni-di-frontiera/${slugifyPath(name)}/`;
 }
 
 // Province code → full name mapping
@@ -126,6 +160,36 @@ function getBorderCrossing(province: string, lat: number, lng: number, name: str
 // Determine new/old agreement type based on distance from Swiss border
 function getAgreementType(distanceKm: number): 'new' | 'old' | 'both' {
  return distanceKm <= 20 ? 'both' : 'old';
+}
+
+function haversineKm(a: { lat: number; lng: number }, b: { lat: number; lng: number }): number {
+ const toRad = (deg: number) => (deg * Math.PI) / 180;
+ const earthKm = 6371;
+ const dLat = toRad(b.lat - a.lat);
+ const dLng = toRad(b.lng - a.lng);
+ const lat1 = toRad(a.lat);
+ const lat2 = toRad(b.lat);
+ const h = Math.sin(dLat / 2) ** 2 + Math.cos(lat1) * Math.cos(lat2) * Math.sin(dLng / 2) ** 2;
+ return 2 * earthKm * Math.asin(Math.sqrt(h));
+}
+
+function nearestOpenCrossing(lat: number, lng: number): BorderCrossing {
+ return centralizedBorderCrossings
+ .filter((crossing) => crossing.trafficLevel !== 'closed')
+ .map((crossing) => ({ crossing, distanceKm: haversineKm({ lat, lng }, crossing) }))
+ .sort((a, b) => a.distanceKm - b.distanceKm)[0].crossing;
+}
+
+function currentWaitLabel(slug: string): string {
+ const current = CURRENT_BORDER_WAIT.perCrossing?.[slug];
+ const total = current?.totalCrossingMinutes ?? current?.waitTimeMinutes;
+ return typeof total === 'number' ? `${Math.max(0, Math.round(total))} min` : 'n.d.';
+}
+
+function trafficToneClasses(level: BorderCrossing['trafficLevel']): string {
+ if (level === 'high') return 'bg-warning-subtle text-warning border-warning-border';
+ if (level === 'medium') return 'bg-info-subtle text-info border-info-border';
+ return 'bg-success-subtle text-success border-success-border';
 }
 
 
@@ -188,6 +252,16 @@ interface Municipality {
  province: string;
  distance: number;
  borderCrossing: string;
+ borderCrossingSlug: string;
+ borderCrossingDistanceKm: number;
+ borderCrossingMorning: string;
+ borderCrossingEvening: string;
+ borderCrossingHours: string;
+ borderCrossingTraffic: BorderCrossing['trafficLevel'];
+ borderCrossingCustomsPresent: boolean;
+ borderCrossingHasWebcam: boolean;
+ borderCrossingWaitNow: string;
+ borderCrossingWaitSource: string;
  population: number;
  type: 'new' | 'old' | 'both';
  lat: number;
@@ -205,7 +279,7 @@ type GuideSection = 'municipalities' | 'living-ch' | 'living-it' | 'border' | 'c
 
 interface MunicipalityDetailPanelProps {
  municipality: Municipality;
- t: (key: string) => string;
+ t: (key: string, paramsOrFallback?: string | Record<string, string | number>) => string;
  onClose: () => void;
 }
 
@@ -445,6 +519,58 @@ const MunicipalityDetailPanel: React.FC<MunicipalityDetailPanelProps> = ({ munic
  </div>
  </div>
 
+ <div className="mb-5 rounded-2xl border border-edge bg-surface-alt/60 p-4">
+ <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
+ <div>
+ <p className="text-xs font-semibold uppercase tracking-wider text-muted">{t('guide.municipalities.detail.nearestCustoms')}</p>
+ <h4 className="mt-1 text-lg font-bold text-strong">{municipality.borderCrossing}</h4>
+ <p className="mt-1 text-sm text-subtle">
+ {municipality.borderCrossingDistanceKm.toLocaleString('it-IT', { maximumFractionDigits: 1 })} km · {municipality.borderCrossingHours}
+ </p>
+ </div>
+ <div className={`rounded-xl border px-3 py-2 text-sm font-bold ${trafficToneClasses(municipality.borderCrossingTraffic)}`}>
+ {t('guide.municipalities.detail.currentWait')}: {municipality.borderCrossingWaitNow}
+ </div>
+ </div>
+ <div className="mt-4 grid grid-cols-2 gap-2 text-sm sm:grid-cols-4">
+ <div className="rounded-xl bg-surface p-3">
+ <p className="text-xs text-muted">{t('guide.municipalities.detail.avgMorning')}</p>
+ <p className="font-bold text-body">{municipality.borderCrossingMorning}</p>
+ </div>
+ <div className="rounded-xl bg-surface p-3">
+ <p className="text-xs text-muted">{t('guide.municipalities.detail.avgEvening')}</p>
+ <p className="font-bold text-body">{municipality.borderCrossingEvening}</p>
+ </div>
+ <div className="rounded-xl bg-surface p-3">
+ <p className="text-xs text-muted">{t('guide.municipalities.detail.customsControl')}</p>
+ <p className="font-bold text-body">{municipality.borderCrossingCustomsPresent ? t('guide.yes') : t('guide.no')}</p>
+ </div>
+ <div className="rounded-xl bg-surface p-3">
+ <p className="text-xs text-muted">Webcam</p>
+ <p className="font-bold text-body">{municipality.borderCrossingHasWebcam ? t('guide.yes') : t('guide.no')}</p>
+ </div>
+ </div>
+ <p className="mt-3 text-xs text-muted">{t('guide.municipalities.detail.waitSource')}: {municipality.borderCrossingWaitSource}</p>
+ <div className="mt-4 flex flex-col gap-2 sm:flex-row">
+ <a
+ href={`/traffico-dogane/${municipality.borderCrossingSlug}/oggi/`}
+ onClick={() => Analytics.trackUIInteraction('guida', 'municipalities', 'cta_border_wait', 'click', municipality.name)}
+ className="inline-flex min-h-[44px] flex-1 items-center justify-center gap-2 rounded-xl border border-info-border bg-info-subtle px-4 py-2 text-sm font-bold text-info hover:bg-info-subtle/70"
+ >
+ <Timer size={16} />
+ {t('guide.municipalities.detail.borderWaitCta')}
+ </a>
+ <a
+ href={municipalityProfilePath(municipality.name)}
+ onClick={() => Analytics.trackUIInteraction('guida', 'municipalities', 'cta_profile', 'click', municipality.name)}
+ className="inline-flex min-h-[44px] flex-1 items-center justify-center gap-2 rounded-xl border border-accent-border bg-accent-subtle px-4 py-2 text-sm font-bold text-accent hover:bg-accent-subtle/70"
+ >
+ <ArrowRight size={16} />
+ {t('guide.municipalities.detail.profileCta')}
+ </a>
+ </div>
+ </div>
+
  <div className="flex flex-col sm:flex-row gap-3 mb-5">
  <button
  onClick={() => {
@@ -561,6 +687,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
  const [sortBy, setSortBy] = useState<'distance' | 'population'>('population');
  const [filterType, setFilterType] = useState<'all' | 'new' | 'old'>('all');
  const [filterProvince, setFilterProvince] = useState<string>('all');
+ const [municipalitySearch, setMunicipalitySearch] = useState('');
  const [borderFilter, setBorderFilter] = useState<'all' | 'low-traffic' | '24h' | 'morning' | 'evening'>('all');
  const [selectedTime, setSelectedTime] = useState<'morning' | 'evening' | 'night'>('morning');
  const [selectedMunicipality, setSelectedMunicipality] = useState<Municipality | null>(null);
@@ -581,11 +708,24 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
  };
 
  // Comuni frontalieri — lista completa da data/municipalities.ts (115 comuni, 5 province)
- const lombardyMunicipalities: Municipality[] = useMemo(() => BORDER_MUNICIPALITIES.map(m => ({
+ const lombardyMunicipalities: Municipality[] = useMemo(() => BORDER_MUNICIPALITIES.map(m => {
+ const nearest = nearestOpenCrossing(m.lat, m.lng);
+ const slug = crossingSlug(nearest);
+ return {
  name: m.name,
  province: PROVINCE_NAMES[m.province] || m.province,
  distance: m.distanceKm,
- borderCrossing: getBorderCrossing(m.province, m.lat, m.lng, m.name),
+ borderCrossing: nearest.name || getBorderCrossing(m.province, m.lat, m.lng, m.name),
+ borderCrossingSlug: slug,
+ borderCrossingDistanceKm: haversineKm({ lat: m.lat, lng: m.lng }, nearest),
+ borderCrossingMorning: nearest.avgWaitMorning,
+ borderCrossingEvening: nearest.avgWaitEvening,
+ borderCrossingHours: nearest.hours,
+ borderCrossingTraffic: nearest.trafficLevel,
+ borderCrossingCustomsPresent: nearest.customsPresent,
+ borderCrossingHasWebcam: (nearest.webcams?.length ?? 0) > 0,
+ borderCrossingWaitNow: currentWaitLabel(slug),
+ borderCrossingWaitSource: CURRENT_BORDER_WAIT.perCrossing?.[slug]?.source ?? 'storico dogane',
  population: m.population,
  type: getAgreementType(m.distanceKm),
  lat: m.lat,
@@ -593,10 +733,13 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
  irpefAddizionale: m.irpefAddizionale,
  fascia: m.fascia,
  avgRentMonthly: m.avgRentMonthly,
- })), []);
+ };
+ }), []);
 
  const filteredMunicipalities = useMemo(() => lombardyMunicipalities
  .filter(m => {
+ const q = municipalitySearch.trim().toLowerCase();
+ if (q && !`${m.name} ${m.province} ${m.borderCrossing}`.toLowerCase().includes(q)) return false;
  if (filterProvince !== 'all' && m.province !== PROVINCE_NAMES[filterProvince]) return false;
  if (filterType === 'all') return true;
  if (filterType === 'new') return m.type === 'new' || m.type === 'both';
@@ -606,7 +749,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
  .sort((a, b) => {
  if (sortBy === 'distance') return a.distance - b.distance;
  return b.population - a.population;
- }), [lombardyMunicipalities, filterProvince, filterType, sortBy]);
+ }), [lombardyMunicipalities, filterProvince, filterType, sortBy, municipalitySearch]);
  const selectedMunicipalityIndex = selectedMunicipality
  ? filteredMunicipalities.findIndex((m) => m.name === selectedMunicipality.name)
  : -1;
@@ -702,6 +845,17 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
 
  {/* Filtri e Ordinamento */}
  <div className="bg-surface rounded-2xl border border-edge p-5">
+ <div className="relative mb-4">
+ <Search size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-muted" />
+ <input
+ type="search"
+ value={municipalitySearch}
+ onChange={(e) => setMunicipalitySearch(e.target.value)}
+ placeholder={t('guide.municipalities.searchPlaceholder')}
+ aria-label={t('guide.municipalities.searchLabel')}
+ className="w-full rounded-xl border border-edge bg-surface-alt py-3 pl-10 pr-4 text-base text-body outline-none transition focus:border-accent-border focus:ring-2 focus:ring-accent/20"
+ />
+ </div>
  <div className="flex flex-wrap gap-4 items-center justify-between">
  <div className="flex items-center gap-2">
  <span className="text-sm font-bold text-body">{t('guide.sortBy')}:</span>
@@ -780,6 +934,11 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
  </div>
 
  {/* Lista Comuni */}
+ {filteredMunicipalities.length === 0 && (
+ <div className="rounded-2xl border border-edge bg-surface p-6 text-center text-sm text-muted">
+ {t('guide.municipalities.noResults')}
+ </div>
+ )}
  <div className="grid md:grid-cols-2 gap-4">
  {filteredMunicipalities.map((m, idx) => {
  const isSelected = selectedMunicipality?.name === m.name;
@@ -831,6 +990,45 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
  <div className="flex items-center gap-2 text-body">
  <Users size={16} className="text-accent" />
  <span><strong>{t('guide.population')}:</strong> {m.population.toLocaleString('it-IT')}</span>
+ </div>
+ </div>
+ <div className="mt-4 rounded-xl border border-edge bg-surface/70 p-3">
+ <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+ <div className="min-w-0">
+ <p className="text-xs font-semibold uppercase tracking-wider text-muted">{t('guide.municipalities.detail.nearestCustoms')}</p>
+ <p className="truncate text-sm font-bold text-strong">{m.borderCrossing}</p>
+ </div>
+ <span className={`shrink-0 rounded-lg border px-2.5 py-1 text-xs font-bold ${trafficToneClasses(m.borderCrossingTraffic)}`}>
+ {t('guide.municipalities.detail.currentWait')}: {m.borderCrossingWaitNow}
+ </span>
+ </div>
+ <div className="mt-2 grid grid-cols-2 gap-2 text-xs text-subtle">
+ <span>{t('guide.municipalities.detail.avgMorning')}: <strong className="text-body">{m.borderCrossingMorning}</strong></span>
+ <span>{t('guide.municipalities.detail.avgEvening')}: <strong className="text-body">{m.borderCrossingEvening}</strong></span>
+ </div>
+ <div className="mt-3 flex flex-wrap gap-2">
+ <a
+ href={`/traffico-dogane/${m.borderCrossingSlug}/oggi/`}
+ onClick={(event) => {
+ event.stopPropagation();
+ Analytics.trackUIInteraction('guida', 'municipalities', 'card_border_wait', 'click', m.name);
+ }}
+ className="inline-flex min-h-[36px] items-center gap-1 rounded-lg bg-info-subtle px-3 py-1.5 text-xs font-bold text-info hover:bg-info-subtle/70"
+ >
+ <Timer size={13} />
+ {t('guide.municipalities.detail.borderWaitCta')}
+ </a>
+ <a
+ href={municipalityProfilePath(m.name)}
+ onClick={(event) => {
+ event.stopPropagation();
+ Analytics.trackUIInteraction('guida', 'municipalities', 'card_profile', 'click', m.name);
+ }}
+ className="inline-flex min-h-[36px] items-center gap-1 rounded-lg bg-accent-subtle px-3 py-1.5 text-xs font-bold text-accent hover:bg-accent-subtle/70"
+ >
+ <ArrowRight size={13} />
+ {t('guide.municipalities.detail.profileCta')}
+ </a>
  </div>
  </div>
  </div>
