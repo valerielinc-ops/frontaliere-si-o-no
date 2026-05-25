@@ -177,14 +177,14 @@ const EXPIRED_JOBS_CAP = 5000;
  * runs and translate-pending. Between events the inputs are stable for
  * hours → ~80 % of deploys can skip the 58 s assembly entirely.
  *
- * Cache key = sha256(filePath \0 size \0 mtimeMs \0 …) of every slice file
- * across the three input directories. We use stat metadata (cheap) instead
- * of hashing 50 MB of file contents (~5× slower) — mtime+size is good
- * enough because slice files are only touched by deterministic writes
- * from `writeJson`, never random concurrent edits.
+ * Cache key = assembler output-version + sha256(filePath \0 bytes \0 …) of
+ * every slice file across the three input directories. The version is bumped
+ * whenever assembly logic changes emitted artifacts without changing slice
+ * bytes, so a stale cached `data/jobs.json` cannot bypass new normalization.
  */
 const CACHE_ROOT = path.join(ROOT, '.cache', 'assemble-jobs');
 const DATA_STATS = path.join(ROOT, 'data', 'jobs-stats.json');
+const ASSEMBLE_OUTPUT_CACHE_VERSION = '2026-05-25-partial-description-flags-v1';
 
 /**
  * Compute a fingerprint of all crawler-slice input files so the assembly can
@@ -209,6 +209,8 @@ export function computeAssembleInputFingerprint() {
   }
   files.sort();
   const hasher = crypto.createHash('sha256');
+  hasher.update(`version:${ASSEMBLE_OUTPUT_CACHE_VERSION}`);
+  hasher.update('\0');
   for (const f of files) {
     const buf = fs.readFileSync(f);
     hasher.update(f);

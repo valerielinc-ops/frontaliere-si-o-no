@@ -221,11 +221,11 @@ jobs:
         uses: actions/cache@v5
         with:
           path: .cache/assemble-jobs
-          # Hash inputs cover ALL slice files. When ANY of them is touched
-          # (by translate-pending, orchestrate-crawlers, or individual
-          # crawler workflows) → key changes → miss. Restore-keys cascade
-          # to the most recent OS-matching cache when no exact hit.
-          key: assemble-jobs-${{ runner.os }}-${{ hashFiles('data/jobs/by-crawler/**/*.json', 'data/jobs/expired/by-crawler/**/*.json', 'data/jobs-crawler-summaries/by-crawler/**/*.json') }}
+          # Hash inputs cover ALL slice files plus the assembler itself. When
+          # slice bytes or output logic changes, the primary key misses. The
+          # script also versions its internal cache key, so restore-key hits
+          # cannot replay stale jobs.json across assembly behavior changes.
+          key: assemble-jobs-${{ runner.os }}-${{ hashFiles('scripts/assemble-jobs-dataset.mjs', 'scripts/lib/parse-job-slices-worker.mjs', 'data/jobs/by-crawler/**/*.json', 'data/jobs/expired/by-crawler/**/*.json', 'data/jobs-crawler-summaries/by-crawler/**/*.json') }}
           restore-keys: |
             assemble-jobs-${{ runner.os }}-
 
