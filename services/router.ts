@@ -2290,6 +2290,21 @@ export function parsePath(pathname: string): ParseResult {
    }
  }
 
+ // Border-municipality static SEO pages — one page per Italian comune under
+ // the municipalities hub. The build emits the actual page body outside
+ // #root; staticOverlay keeps SPA navigation from replacing it with the
+ // generic "Comuni di Frontiera" sub-tab.
+ if (
+   /^\/vivere-in-ticino\/comuni-di-frontiera\/[a-z0-9-]+\/?$/.test(pathname) ||
+   /^\/en\/living-in-ticino\/border-municipalities\/[a-z0-9-]+\/?$/.test(pathname) ||
+   /^\/de\/leben-im-tessin\/grenzgemeinden\/[a-z0-9-]+\/?$/.test(pathname) ||
+   /^\/fr\/vivre-au-tessin\/communes-frontiere\/[a-z0-9-]+\/?$/.test(pathname)
+ ) {
+   const localeMatch = pathname.match(/^\/(en|de|fr)\//);
+   const targetLocale = (localeMatch ? localeMatch[1] : 'it') as Locale;
+   return { route: { activeTab: 'vita', vitaSubTab: 'municipalities', staticOverlay: true }, locale: targetLocale };
+ }
+
  // FR salary calculator landing — /fr/calculer-salaire/calcul-salaire-net-frontalier-suisse/.
  // Without staticOverlay the SPA's calculator tab parser treats the trailing
  // segment as an unknown sub-tab slug, falls back to the default calculator

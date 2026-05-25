@@ -38,6 +38,12 @@ const cases: ReadonlyArray<{ url: string; tab: string }> = [
   { url: '/report/frontalieri-2026/', tab: 'stats' },
   { url: '/guida-frontaliere/mappa-live-valichi/', tab: 'guida' },
   { url: '/guida-frontaliere/guida-completa-calcolo-stipendio-frontaliere-2026/', tab: 'guida' },
+
+  // Border municipality profiles (borderMunicipalityPagesPlugin)
+  { url: '/vivere-in-ticino/comuni-di-frontiera/como/', tab: 'vita' },
+  { url: '/en/living-in-ticino/border-municipalities/como/', tab: 'vita' },
+  { url: '/de/leben-im-tessin/grenzgemeinden/como/', tab: 'vita' },
+  { url: '/fr/vivre-au-tessin/communes-frontiere/como/', tab: 'vita' },
 ];
 
 describe('static-overlay coverage — SEO shell URLs must be recognised by parsePath', () => {
