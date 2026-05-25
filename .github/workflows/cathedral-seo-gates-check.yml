@@ -42,7 +42,7 @@ concurrency:
 jobs:
   check:
     runs-on: ubuntu-latest
-    timeout-minutes: 45
+    timeout-minutes: 90
     # Skip draft PR runs + closed-PR re-runs. The workflow does not subscribe
     # to pull_request events; this `if` is belt-and-braces for any future
     # operator who adds one without rereading the safety contract.
@@ -63,6 +63,9 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
+
+      - name: Assemble jobs dataset
+        run: node scripts/assemble-jobs-dataset.mjs --stats
 
       - name: Build dist (full SEO output)
         env:
