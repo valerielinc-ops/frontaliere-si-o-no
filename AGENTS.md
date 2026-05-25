@@ -17,6 +17,7 @@ This file is intentionally compact: it is injected into every agent session. Kee
 - Never edit, stage, stash, restore, commit, rebase, or merge in the local `main` checkout unless the user explicitly asks for that exact operation. Existing dirty files on `main` are foreign work and must be left untouched.
 - Parallel/subagent work must always use isolated worktrees; never share a working directory between agents.
 - Auto commit and push successful tasks. Use PR-as-merge-vehicle when landing on `main`: create PR, squash merge, delete remote branch, then remove the worktree.
+- Before closing any task, audit Codex worktrees/branches. If the PR was merged, delete the remote branch and remove the local worktree immediately; if it was not merged, leave the worktree/branch in place and state the explicit merge/abandon decision needed.
 - GitHub operations use `gh` CLI only.
 - Never run `send-newsletter.mjs --send` locally. Use `--preview` or `--test --target-email <email>`.
 - New GitHub Actions workflows must be run live on `main` after merge with `gh workflow run <workflow>.yml --ref main`.
