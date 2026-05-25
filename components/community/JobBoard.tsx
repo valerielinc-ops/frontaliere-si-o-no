@@ -3428,8 +3428,17 @@ const JobBoard: React.FC<JobBoardProps> = ({
 
  useEffect(() => {
  if (!authResolved || !authGateOpen || hasAccess) return;
+ const focusedJob = pendingJob || selectedJob;
+ if (focusedJob) {
+ saveAuthJobContext({
+ slug: focusedJob.slug || null,
+ company: focusedJob.company || null,
+ location: focusedJob.location || focusedJob.addressLocality || null,
+ category: focusedJob.category || null,
+ });
+ }
  void promptOneTap();
- }, [authResolved, authGateOpen, hasAccess]);
+ }, [authResolved, authGateOpen, hasAccess, pendingJob, selectedJob]);
 
  // Close auth gate modal on Escape key
  useEffect(() => {
@@ -3450,6 +3459,12 @@ const JobBoard: React.FC<JobBoardProps> = ({
  useEffect(() => {
  if (!authResolved || !selectedJob || hasAccess) return;
  authUnlockCandidateRef.current = selectedJob.id;
+ saveAuthJobContext({
+ slug: selectedJob.slug || null,
+ company: selectedJob.company || null,
+ location: selectedJob.location || selectedJob.addressLocality || null,
+ category: selectedJob.category || null,
+ });
  void promptOneTap();
  Analytics.trackJobAuthFunnel('gate_view', buildJobTrackingContext(selectedJob));
  }, [authResolved, selectedJob, hasAccess]);

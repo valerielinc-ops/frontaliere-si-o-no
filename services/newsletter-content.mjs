@@ -321,6 +321,7 @@ function keywordRelevanceScore(job, subscriberKeywords, subscriberCompany) {
   if (subscriberKeywords.size === 0 && !subscriberCompany) return 0;
   let score = 0;
   const jobTitle = String(job.titleByLocale?.it || job.title || '').toLowerCase();
+  const jobCategory = String(job.category || job.sector || '').toLowerCase();
   const jobCompanyKey = (job.companyKey || job.company || '').toLowerCase();
 
   // Company match: strong signal (same employer → highly relevant)
@@ -333,7 +334,7 @@ function keywordRelevanceScore(job, subscriberKeywords, subscriberCompany) {
 
   // Keyword overlap with job title
   if (subscriberKeywords.size > 0) {
-    const jobTokens = extractKeywords(jobTitle);
+    const jobTokens = extractKeywords(`${jobTitle} ${jobCategory}`);
     let overlap = 0;
     for (const kw of subscriberKeywords) {
       if (jobTokens.has(kw)) overlap++;
@@ -352,13 +353,13 @@ function keywordRelevanceScore(job, subscriberKeywords, subscriberCompany) {
  *
  * Algorithm:
  * 1. Quality filter (title, slug, company, description >= 120 chars)
- * 2. Extract interest keywords from subscriber's job_slug, source field, and company
+ * 2. Extract interest keywords from subscriber's saved job context, source field, and company
  * 3. Score each job: keyword relevance (0–10) + popularity bonus
  * 4. Location filter (if locationInterest set)
  * 5. Company diversity: max 1 job per company
  * 6. Top `limit` jobs
  *
- * @param {object} subscriber — { locationInterest, sectorInterest, job_slug, job_company, source, preferences }
+ * @param {object} subscriber — { locationInterest, sectorInterest, job_slug, job_company, job_category, source, preferences, sourceJob }
  * @param {object[]} jobs — Full jobs array from data/jobs.json
  * @param {number} limit — Max jobs to return (default 3)
  * @returns {object[]} — Matched jobs with title, url, company, location, contract
@@ -388,9 +389,21 @@ export function matchJobsForSubscriber(subscriber, jobs, limit = 3, locale = 'it
   const qualityPool = jobs.filter(passesQualityGate);
   const basicPool = jobs.filter((j) => j?.title && j?.slug && j?.company);
   const fullPool = hasPopularity && qualityPool.length >= limit ? qualityPool : basicPool;
+  const sourceJob = subscriber?.sourceJob || subscriber?._sourceJob || null;
+  const jobSlug = subscriber?.job_slug || sourceJob?.slug || '';
+  const sourceSlugSet = new Set([
+    jobSlug,
+    sourceJob?.slug,
+    ...Object.values(sourceJob?.slugByLocale || {}),
+  ].filter(Boolean));
 
   // ── Exclude recently featured jobs (rotation, same logic as article rotation) ──
   const recentSet = new Set(recentlyFeaturedSlugs);
+  const jobIsSource = (j) =>
+    sourceSlugSet.size > 0 && (
+      (j.slug && sourceSlugSet.has(j.slug)) ||
+      Object.values(j.slugByLocale || {}).some((s) => s && sourceSlugSet.has(s))
+    );
   const jobIsRecent = (j) =>
     recentSet.size > 0 && (
       (j.slug && recentSet.has(j.slug)) ||
@@ -400,22 +413,36 @@ export function matchJobsForSubscriber(subscriber, jobs, limit = 3, locale = 'it
   // backfill missing slots. This guarantees a popular evergreen job in the
   // exclude list cannot displace fresh candidates just because the fresh pool
   // is below {limit}.
-  const freshPool = fullPool.filter((j) => !jobIsRecent(j));
-  const recentPool = fullPool.filter((j) => jobIsRecent(j));
+  const freshPool = fullPool.filter((j) => !jobIsRecent(j) && !jobIsSource(j));
+  const recentPool = fullPool.filter((j) => jobIsRecent(j) || jobIsSource(j));
   const pool = freshPool.length >= limit ? freshPool : [...freshPool, ...recentPool];
 
   // ── Build subscriber interest profile from available signals ──
-  const jobSlug = subscriber?.job_slug || '';
-  const jobCompany = subscriber?.job_company || '';
+  const jobCompany = subscriber?.job_company || sourceJob?.company || '';
+  const jobCategory = subscriber?.job_category || sourceJob?.category || sourceJob?.sector || '';
+  const jobSearchQuery = subscriber?.job_search_query || '';
   const sourceField = subscriber?.source || '';
 
   // Collect keywords from multiple sources
   const slugKeywords = extractKeywords(jobSlug);
+  const categoryKeywords = extractKeywords(jobCategory);
+  const searchKeywords = extractKeywords(jobSearchQuery);
+  const sourceJobTitleKeywords = sourceJob?.title ? extractKeywords(sourceJob.title) : new Set();
+  const sourceJobCategoryKeywords = sourceJob?.category || sourceJob?.sector
+    ? extractKeywords(`${sourceJob.category || ''} ${sourceJob.sector || ''}`)
+    : new Set();
   const parsedSource = parseSourceField(sourceField);
   const sourceTitleKeywords = parsedSource?.title ? extractKeywords(parsedSource.title) : new Set();
 
   // Merge all keyword sources (slug is primary, source title is secondary)
-  const subscriberKeywords = new Set([...slugKeywords, ...sourceTitleKeywords]);
+  const subscriberKeywords = new Set([
+    ...slugKeywords,
+    ...categoryKeywords,
+    ...searchKeywords,
+    ...sourceJobTitleKeywords,
+    ...sourceJobCategoryKeywords,
+    ...sourceTitleKeywords,
+  ]);
 
   // Company from explicit field or parsed source
   const subscriberCompany = jobCompany || parsedSource?.company || '';
@@ -423,8 +450,9 @@ export function matchJobsForSubscriber(subscriber, jobs, limit = 3, locale = 'it
   const hasInterestProfile = subscriberKeywords.size > 0 || subscriberCompany;
 
   // ── Score and sort jobs ──
-  const location = String(subscriber?.locationInterest || '').toLowerCase().trim();
-  const sector = String(subscriber?.sectorInterest || '').toLowerCase().trim();
+  const savedJobLocation = subscriber?.job_location || sourceJob?.location || sourceJob?.addressLocality || '';
+  const location = String(subscriber?.locationInterest || savedJobLocation || '').toLowerCase().trim();
+  const sector = String(subscriber?.sectorInterest || jobCategory || '').toLowerCase().trim();
   const usableSector = sector && sector !== 'other';
 
   // Pre-filter by location if specified (applied before scoring for performance)

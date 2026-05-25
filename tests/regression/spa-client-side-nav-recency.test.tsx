@@ -162,6 +162,26 @@ describe('2b — client-side nav: recency landing guard in click interceptor', (
     expect(defaultPrevented).toBe(true);
   });
 
+  it('hydrates company-filter links from job pages instead of falling through to static company pages', () => {
+    setupJobDetailPage('azienda-board-international');
+    const staticMain = document.createElement('main');
+    staticMain.className = 'static-job-page';
+    document.body.appendChild(staticMain);
+    const { result } = renderHook(() => useNavigationState());
+
+    let defaultPrevented = false;
+    act(() => {
+      defaultPrevented = clickAnchor('https://frontaliereticino.ch/en/find-jobs-ticino/company-corner-banca/').defaultPrevented;
+    });
+
+    expect(defaultPrevented).toBe(true);
+    expect(result.current.activeTab).toBe('job-board');
+    expect(result.current.jobSlug).toBe('company-corner-banca');
+    expect(result.current.staticOverlay).toBe(false);
+    expect(window.location.pathname).toBe('/en/find-jobs-ticino/company-corner-banca/');
+    expect(document.querySelector('main.static-job-page')).toBeNull();
+  });
+
   it('resulting route from parsePath is { activeTab: job-board, staticOverlay: true } — NOT jobSlug', async () => {
     // This test exercises parsePath directly to confirm no jobSlug is produced
     // for the da-ieri recency slug. Mirrors recency-router-guards.test.ts but

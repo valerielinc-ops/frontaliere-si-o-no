@@ -37,6 +37,14 @@ const applyNotFoundSeo = (path: string) => {
 
 import { Analytics, unlockAchievement } from '@/services/analyticsProxy';
 
+const CANONICAL_ORIGIN = 'https://frontaliereticino.ch';
+const JOB_BOARD_COMPANY_PREFIX_RE = /^(azienda|company|unternehmen|entreprise)-[a-z0-9-]+$/;
+
+function jobBoardCompanySlugFromPath(pathname: string): string | null {
+ const slug = pathname.split('/').filter(Boolean).pop() || '';
+ return JOB_BOARD_COMPANY_PREFIX_RE.test(slug) ? slug : null;
+}
+
 export interface NavigationState {
  // State
  activeTab: ActiveTab;
@@ -302,24 +310,32 @@ export function useNavigationState(): NavigationState {
 
  const a = anchor as HTMLAnchorElement;
 
- // Skip external links, new-tab links, download links, hash-only links, and non-http links
+ // Skip new-tab links, download links, hash-only links, and non-http links
  if (a.target === '_blank' || a.hasAttribute('download')) return;
- if (a.origin !== window.location.origin) return;
 
- const href = a.getAttribute('href');
- if (!href || !href.startsWith('/')) return;
+ const rawHref = a.getAttribute('href');
+ if (!rawHref) return;
+
+ let targetUrl: URL;
+ try {
+ targetUrl = new URL(rawHref, window.location.href);
+ } catch {
+ return;
+ }
+
+ const isCanonicalInternal = targetUrl.origin === CANONICAL_ORIGIN;
+ if (targetUrl.origin !== window.location.origin && !isCanonicalInternal) return;
 
  // Skip static file links (sitemap.xml, robots.txt, etc.)
- if (/\.(xml|txt|json|pdf|png|jpg|jpeg|gif|svg|ico|webp|woff2?|css|js)(\?|$)/i.test(href)) return;
+ if (/\.(xml|txt|json|pdf|png|jpg|jpeg|gif|svg|ico|webp|woff2?|css|js)(\?|$)/i.test(targetUrl.pathname)) return;
 
- const [beforeHash, hash] = href.split('#');
- // Strip query string so parsePath() never sees `?q=...` as a path segment
- // (would be misread as a job slug, e.g. /cerca-lavoro-ticino/?q=Infermieri).
- const pathname = beforeHash.split('?')[0];
- const search = a.search || '';
+ const pathname = targetUrl.pathname;
+ const hash = targetUrl.hash ? targetUrl.hash.slice(1) : '';
+ const search = targetUrl.search || '';
 
  // Resolve the target route from the URL.
- const { route } = parsePath(pathname);
+ const { route, locale: targetLocale } = parsePath(pathname);
+ const companyFilterSlug = route.activeTab === 'job-board' ? jobBoardCompanySlugFromPath(pathname) : null;
 
  // BUG-1 fix (docs/seo/ROADMAP.md): programmatic SEO landings
  // (fuel-daily F6, LAMal F2, weekly-employers F5, job-market-snapshot F4,
@@ -338,6 +354,23 @@ export function useNavigationState(): NavigationState {
  // navigation natively (fall through without preventDefault).
  const targetIsStaticOverlay = !!route.staticOverlay;
  const onSamePath = window.location.pathname.replace(/\/$/, '') === pathname.replace(/\/$/, '');
+ if (targetIsStaticOverlay && companyFilterSlug) {
+ e.preventDefault();
+ const hydratedCompanyRoute: AppRoute = { activeTab: 'job-board', jobSlug: companyFilterSlug };
+ history.pushState({ route: hydratedCompanyRoute }, '', pathname + search + (hash ? `#${hash}` : ''));
+ setStaticOverlay(false);
+ const staticMain = document.querySelector('main.seo-static-content, main.static-job-page');
+ if (staticMain && staticMain.parentElement) {
+ staticMain.parentElement.removeChild(staticMain);
+ }
+ setActiveTab('job-board');
+ setJobSlug(companyFilterSlug);
+ setLocale(targetLocale);
+ updateMetaTags(getSeoSection(hydratedCompanyRoute));
+ trackSectionView(getSeoSection(hydratedCompanyRoute));
+ window.scrollTo({ top: 0, behavior: 'instant' });
+ return;
+ }
  if (targetIsStaticOverlay && !onSamePath) {
  return;
  }

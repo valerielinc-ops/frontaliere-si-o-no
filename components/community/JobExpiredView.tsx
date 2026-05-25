@@ -9,7 +9,7 @@
  * full description and 5 ad slots, matching the active job detail view.
  */
 
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState, type MouseEvent } from 'react';
 import { ArrowLeft, ArrowRight, ArrowUpRight, Briefcase, Building2, Calendar, CheckCircle2, ChevronDown, Clock, Euro, Eye, Loader2, Mail, MapPin, Search, Shield, Users } from 'lucide-react';
 import { useLocale, t } from '@/services/i18n';
 import { Analytics } from '@/services/analytics';
@@ -184,6 +184,12 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
 
  const logoUrl = resolveCompanyLogoUrl({ company: job.company, companyKey: job.companyKey });
  const jobLocation = job.addressLocality ?? job.location ?? '';
+ const newsletterJobContext = {
+ slug: job.slug || null,
+ company: job.company || null,
+ location: jobLocation || null,
+ category: job.sector || null,
+ };
 
  const companySlug = job.company ? `${COMPANY_ROUTE_PREFIX[locale] || 'azienda'}-${slugifyCompanyName(job.company)}` : '';
  const companyHref = companySlug ? `${prefix}/${sectionSlug}/${companySlug}/`.replace(/\/+/g, '/') : '';
@@ -252,6 +258,9 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
  sourceCta: 'job_expired_email_unlock',
  sourceComponent: 'JobExpiredView',
  sourceRouteFamily: 'job-board',
+ jobContext: newsletterJobContext,
+ locationInterest: newsletterJobContext.location,
+ sectorInterest: newsletterJobContext.category,
  isActive: false,
  status: 'pending',
  });
@@ -266,11 +275,19 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
 
  // ── SPA navigation helpers ──
 
- const handleCompanyClick = (e: { preventDefault(): void }) => {
- if (!onNavigateToCompany || !companySlug) return;
+ const handleCompanyClick = (e: MouseEvent<HTMLAnchorElement>) => {
+ if (!companySlug) return;
  e.preventDefault();
+ e.stopPropagation();
+ e.nativeEvent.stopImmediatePropagation?.();
  Analytics.trackSelectContent('job_board_company_filter_open', job.company);
+ if (onNavigateToCompany) {
  onNavigateToCompany(companySlug);
+ } else if (companyHref) {
+ window.history.pushState({ route: { activeTab: 'job-board', jobSlug: companySlug } }, '', companyHref.split('?')[0]);
+ window.dispatchEvent(new PopStateEvent('popstate'));
+ window.scrollTo({ top: 0, behavior: 'smooth' });
+ }
  };
 
  const handleLocationClick = (e: { preventDefault(): void }) => {
@@ -330,7 +347,7 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
  {job.company && companyHref && (
  <a
  href={companyHref}
- onClick={handleCompanyClick}
+ onClickCapture={handleCompanyClick}
  className="inline-flex items-center gap-1 hover:text-accent hover:underline underline-offset-2 transition-colors"
  >
  <Building2 size={14} />
@@ -361,7 +378,7 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
  const companyBanner = job.company && companyHref && (
  <a
  href={companyHref}
- onClick={handleCompanyClick}
+ onClickCapture={handleCompanyClick}
  className="block rounded-xl border border-edge bg-surface-alt/50 p-4 hover:border-accent-border hover:bg-surface-raised/70 transition-colors"
  >
  <div className="flex items-start gap-3">
