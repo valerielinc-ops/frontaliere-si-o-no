@@ -7754,6 +7754,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.scelta-residenza-italia-svizzera-2026.title': 'Residenza Italia o Svizzera: la scelta migliore per una famiglia',
     'blog.article.scelta-residenza-italia-svizzera-2026.excerpt': 'Confronto tra costi, tempi di viaggio, sanità e fiscalità per aiutare le famiglie con figli a decidere dove risiedere nel 2026.',
     'blog.article.scelta-residenza-italia-svizzera-2026.imageAlt': 'Famiglia con figli al confine tra Italia e Svizzera, Mendrisio',
+    'blog.article.laivin-festival-cassano-valcuvia-2026.title': 'LaivIn 2026: 300 studenti per festival teatro',
+    'blog.article.laivin-festival-cassano-valcuvia-2026.excerpt': 'Dal 26 al 28 maggio, il Festival LaivIn Plus porterà 300 ragazzi a Cassano Valcuvia per 12 spettacoli e laboratori teatrali diffusi.',
+    'blog.article.laivin-festival-cassano-valcuvia-2026.imageAlt': 'Ragazzi sul palco durante il Festival LaivIn a Cassano Valcuvia, con il pubblico in un piccolo borgo',
 };
 
 export default blogMetaIt;

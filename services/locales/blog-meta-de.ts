@@ -7752,6 +7752,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.scelta-residenza-italia-svizzera-2026.title': 'Wohnsitz Italien oder Schweiz: Die beste Wahl für Familien',
     'blog.article.scelta-residenza-italia-svizzera-2026.excerpt': 'Vergleich von Kosten, Reisezeiten, Gesundheitssystem und Steuern, um Familien mit Kindern bei der Entscheidung für den Wohnsitz im Jahr 2026 zu helfen.',
     'blog.article.scelta-residenza-italia-svizzera-2026.imageAlt': 'Familie mit Kindern an der Grenze zwischen Italien und der Schweiz, Mendrisio',
+    'blog.article.laivin-festival-cassano-valcuvia-2026.title': 'LaivIn 2026: 300 Schüler für Theaterfestival',
+    'blog.article.laivin-festival-cassano-valcuvia-2026.excerpt': 'Vom 26. bis 28. Mai bringt das LaivIn Plus Festival 300 Jugendliche nach Cassano Valcuvia für 12 Theateraufführungen und Workshops.',
+    'blog.article.laivin-festival-cassano-valcuvia-2026.imageAlt': 'Junge Darsteller auf der Bühne während des LaivIn-Festivals in Cassano Valcuvia, mit dem Publikum in einer kleinen Dorfkulisse',
 };
 
 export default blogMetaDe;

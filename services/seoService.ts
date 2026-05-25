@@ -3827,6 +3827,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-abbonamenti-sconti-frontalieri-transporti': { name: 'Trasporti pubblici', path: '/articoli-frontaliere/abbonamenti-sconti-frontalieri-transporti', parent: 'blog' },
     'blog-educatore-infanzia-ticino-stipendio-requisiti': { name: 'Lavoro in Ticino', path: '/articoli-frontaliere/educatore-infanzia-ticino-stipendio-requisiti', parent: 'blog' },
     'blog-scelta-residenza-italia-svizzera-2026': { name: 'Scelta Residenza', path: '/articoli-frontaliere/scelta-residenza-italia-svizzera-2026', parent: 'blog' },
+    'blog-laivin-festival-cassano-valcuvia-2026': { name: 'Festival LaivIn', path: '/articoli-frontaliere/laivin-festival-cassano-valcuvia-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

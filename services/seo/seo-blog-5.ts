@@ -39659,6 +39659,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-laivin-festival-cassano-valcuvia-2026': {
+    title: 'LaivIn 2026: 300 studenti per festival teatro | Frontaliere Ticino',
+    description: 'Dal 26 al 28 maggio, il Festival LaivIn Plus porterà 300 ragazzi a Cassano Valcuvia per 12 spettacoli e laboratori teatrali diffusi. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, laivin, studenti, festival, teatro',
+    ogTitle: 'LaivIn 2026 a Cassano Valcuvia: 300 studenti per un festival di teatro e crescita',
+    ogDescription: 'Dal 26 al 28 maggio, il Festival LaivIn Plus porterà 300 ragazzi a Cassano Valcuvia per 12 spettacoli e laboratori teatrali diffusi.',
+    canonicalPath: '/articoli-frontaliere/laivin-festival-cassano-valcuvia-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "LaivIn 2026: 300 studenti per festival teatro",
+      "description": "Dal 26 al 28 maggio, il Festival LaivIn Plus porterà 300 ragazzi a Cassano Valcuvia per 12 spettacoli e laboratori teatrali diffusi. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/laivin-festival-cassano-valcuvia-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ragazzi sul palco durante il Festival LaivIn a Cassano Valcuvia, con il pubblico in un piccolo borgo"
+      },
+      "datePublished": "2026-05-25T10:03:32+00:00",
+      "dateModified": "2026-05-25T10:03:32+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/laivin-festival-cassano-valcuvia-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
