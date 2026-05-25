@@ -374,10 +374,10 @@ API merges without PR (`gh api .../merges`) NOT required — open-then-merge is 
 When a request matches a skill, invoke via Skill tool FIRST.
 
 - Ideas, brainstorming → `office-hours`
-- Bugs, "why is this broken" → `investigate`
+- Bugs, "why is this broken" → `systematic-debugging`
 - Ship, deploy, PR → `ship`
 - QA → `qa`
-- Code review → `review`
+- Code review → `requesting-code-review`
 - Design system → `design-consultation`
 - Visual audit → `design-review`
 - Architecture review → `plan-eng-review`
