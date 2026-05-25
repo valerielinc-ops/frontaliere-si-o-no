@@ -358,9 +358,9 @@
     },
     {
       "id": "octapharma-11ec14a6a590",
-      "slug": "consulente-legale-octapharma-lachen",
+      "slug": "avviso-legale-octapharma-lachen",
       "slugByLocale": {
-        "it": "consulente-legale-octapharma-lachen",
+        "it": "avviso-legale-octapharma-lachen",
         "en": "legal-counsel-octapharma-lachen",
         "de": "legal-counsel-octapharma-lachen",
         "fr": "conseiller-juridique-octapharma-lachen"
@@ -436,11 +436,13 @@
         ]
       },
       "previousSlugs": [
-        "legal-counsel-octapharma-lachen"
+        "legal-counsel-octapharma-lachen",
+        "consulente-legale-octapharma-lachen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "legal-counsel-octapharma-lachen"
+          "legal-counsel-octapharma-lachen",
+          "consulente-legale-octapharma-lachen"
         ]
       },
       "firstSeenAt": "2026-05-19T19:53:24.139Z",
