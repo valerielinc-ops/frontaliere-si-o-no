@@ -1,16 +1,16 @@
 {
   "key": "rado",
   "label": "rado",
-  "generatedAt": "2026-05-25T14:16:22.710Z",
+  "generatedAt": "2026-05-25T23:44:47.812Z",
   "total": 5,
   "newCount": 15,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 24676,
-  "avgDurationMs": 24676,
+  "durationMs": 21907,
+  "avgDurationMs": 21907,
   "durationHistory": [
-    24676
+    21907
   ],
   "newJobs": [
     {
@@ -41,6 +41,7 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "needsRetranslation": true,
+      "retranslationAttempts": 1,
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -183,7 +184,6 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "needsRetranslation": true,
-      "retranslationAttempts": 2,
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
