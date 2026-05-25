@@ -7730,6 +7730,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.cambio-euro-franco-frontalieri.title': 'Frontalieri: cambio euro franco conviene',
     'blog.article.cambio-euro-franco-frontalieri.excerpt': 'Strategie di cambio CHF-EUR per i frontalieri: quando cambiare, piattaforme migliori, conto multi-valuta, impatto sullo stipendio',
     'blog.article.cambio-euro-franco-frontalieri.imageAlt': 'Frontaliere al valico di Brogeda con vista sul Lago di Lugano',
+    'blog.article.congedo-parentale-frontalieri-svizzera-italia.title': 'Diritti di maternità e paternità per frontalieri: congedo svizzero vs italiano',
+    'blog.article.congedo-parentale-frontalieri-svizzera-italia.excerpt': 'Confronta le indennità giornaliere, come richiedere le prestazioni e casi pratici per neo-genitori frontalieri.',
+    'blog.article.congedo-parentale-frontalieri-svizzera-italia.imageAlt': 'Una famiglia frontaliera con un neonato tiene documenti relativi al congedo parentale davanti al Lago di Lugano, Svizzera.',
 };
 
 export default blogMetaIt;

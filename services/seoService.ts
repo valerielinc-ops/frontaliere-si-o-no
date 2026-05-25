@@ -3819,6 +3819,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-frontalieri-transporti-chiasso-lugano-2026': { name: 'Trasporti frontalieri', path: '/articoli-frontaliere/frontalieri-transporti-chiasso-lugano-2026', parent: 'blog' },
     'blog-frontaliere-asilo-nido-svizzera': { name: 'Guida pratica', path: '/articoli-frontaliere/frontaliere-asilo-nido-svizzera', parent: 'blog' },
     'blog-cambio-euro-franco-frontalieri': { name: 'Frontalieri Ticino', path: '/articoli-frontaliere/cambio-euro-franco-frontalieri', parent: 'blog' },
+    'blog-congedo-parentale-frontalieri-svizzera-italia': { name: 'Diritti frontalieri', path: '/articoli-frontaliere/congedo-parentale-frontalieri-svizzera-italia', parent: 'blog' },
  };
 
  const info = sectionNames[section];

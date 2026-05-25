@@ -24563,4 +24563,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'congedo-parentale-frontalieri-svizzera-italia',
+ category: 'pratico',
+ date: '2026-05-25T08:38:11.410Z',
+ image: '/images/blog/congedo-parentale-frontalieri-svizzera-italia.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

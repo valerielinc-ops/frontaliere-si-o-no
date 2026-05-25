@@ -7728,6 +7728,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.cambio-euro-franco-frontalieri.title': 'Grenzgänger: Euro-Franken-Umrechnung lohnt sich',
     'blog.article.cambio-euro-franco-frontalieri.excerpt': 'Strategien für den CHF-EUR-Umrechnung für Grenzgänger: Wann umtauschen, beste Plattformen, Mehrwährungs-Konto, Auswirkungen auf das Gehalt',
     'blog.article.cambio-euro-franco-frontalieri.imageAlt': 'Grenzgänger an der Brogeda-Grenzübergang mit Blick auf den Luganersee',
+    'blog.article.congedo-parentale-frontalieri-svizzera-italia.title': 'Elternzeit für Grenzgänger: Schweiz vs. Italien',
+    'blog.article.congedo-parentale-frontalieri-svizzera-italia.excerpt': 'Vergleich der Taggelder, wie man die Leistungen beantragt und praktische Fälle für frischgebackene Eltern unter Grenzgängern.',
+    'blog.article.congedo-parentale-frontalieri-svizzera-italia.imageAlt': 'Eine Frontalierfamilie mit einem Neugeborenen hält Dokumente zum Elternurlaub vor dem Luganersee, Schweiz.',
 };
 
 export default blogMetaDe;

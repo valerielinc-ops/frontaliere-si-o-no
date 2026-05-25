@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2631,
+ "numberOfItems": 2632,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7271,7 +7271,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2628, "name": "Trasporti Chiasso-Lugano: guida pratica per fro...", "url": `${BASE_URL}/articoli-frontaliere/trasporti-chiasso-lugano-frontalieri` },
           { "@type": "ListItem", "position": 2629, "name": "Frontalieri: trasporti Chiasso-Lugano 2026", "url": `${BASE_URL}/articoli-frontaliere/frontalieri-transporti-chiasso-lugano-2026` },
           { "@type": "ListItem", "position": 2630, "name": "Frontaliere con figli: guida agli asili nido in...", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-asilo-nido-svizzera` },
-          { "@type": "ListItem", "position": 2631, "name": "Frontalieri: cambio euro franco conviene", "url": `${BASE_URL}/articoli-frontaliere/cambio-euro-franco-frontalieri` }
+          { "@type": "ListItem", "position": 2631, "name": "Frontalieri: cambio euro franco conviene", "url": `${BASE_URL}/articoli-frontaliere/cambio-euro-franco-frontalieri` },
+          { "@type": "ListItem", "position": 2632, "name": "Diritti di maternità e paternità per frontalier...", "url": `${BASE_URL}/articoli-frontaliere/congedo-parentale-frontalieri-svizzera-italia` }
  ]
  },
  {

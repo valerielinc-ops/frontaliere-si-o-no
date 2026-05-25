@@ -7729,6 +7729,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.cambio-euro-franco-frontalieri.title': 'Cross-border workers: euro-franc exchange rates',
     'blog.article.cambio-euro-franco-frontalieri.excerpt': 'Exchange strategies for CHF-EUR for cross-border workers: when to change, best platforms, multi-currency account, impact on salary',
     'blog.article.cambio-euro-franco-frontalieri.imageAlt': 'Frontalier at the Brogeda border crossing with a view of Lake Lugano',
+    'blog.article.congedo-parentale-frontalieri-svizzera-italia.title': 'Maternity and paternity rights for cross-border workers: Swiss vs Italian leave',
+    'blog.article.congedo-parentale-frontalieri-svizzera-italia.excerpt': 'Compare daily allowances, how to request benefits and practical cases for new cross-border parents.',
+    'blog.article.congedo-parentale-frontalieri-svizzera-italia.imageAlt': 'A frontaliere family with a newborn holding documents related to parental leave in front of Lake Lugano, Switzerland.',
 };
 
 export default blogMetaEn;
