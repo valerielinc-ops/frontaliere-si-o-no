@@ -11,6 +11,8 @@
  * use it here for modules that other test files depend on as mocks.
  */
 import { describe, it, expect, beforeEach, vi } from 'vitest';
+import { readFileSync } from 'node:fs';
+import { resolve } from 'node:path';
 
 // ─── Consent Service ─────────────────────────────────────────────────
 
@@ -163,5 +165,12 @@ describe('Web Vitals telemetry', () => {
     const { initWebVitals } = await vi.importActual<typeof import('@/services/webVitals')>('@/services/webVitals');
     expect(() => initWebVitals()).not.toThrow();
   }, 15000);
-});
 
+  it('uses attribution-enabled vitals for field debugging', () => {
+    const source = readFileSync(resolve(__dirname, '../services/webVitals.ts'), 'utf8');
+    expect(source).toContain("import('web-vitals/attribution')");
+    expect(source).toContain('largest_shift_target');
+    expect(source).toContain('lcp_element_render_delay');
+    expect(source).toContain('inp_style_layout_duration');
+  });
+});
