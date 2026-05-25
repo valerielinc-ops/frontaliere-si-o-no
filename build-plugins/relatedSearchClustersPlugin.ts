@@ -509,10 +509,13 @@ interface ClusterContext {
 class TokenIndex {
   private haystacksByLocale = new Map<Locale, string[]>();
   private postingsByLocale = new Map<Locale, Map<string, number[]>>();
+  private readonly scratchScores: Uint16Array;
+  private readonly touchedIdx: number[] = [];
   private readonly jobs: ReadonlyArray<RawJob>;
 
   constructor(jobs: ReadonlyArray<RawJob>) {
     this.jobs = jobs;
+    this.scratchScores = new Uint16Array(jobs.length);
   }
 
   /** Posting list for (locale, token), sorted ascending by jobIdx (corpus order). */
@@ -534,10 +537,33 @@ class TokenIndex {
     return list;
   }
 
+  /**
+   * Return the same top-N ordering as the old per-candidate Map+sort path:
+   * all AND matches first in corpus order, then OR matches by score desc with
+   * corpus-order tie breaks. The page only renders MAX_JOBS_PER_PAGE jobs, so
+   * avoid materializing/sorting the full match universe for every candidate.
+   */
+  matchingJobs(locale: Locale, tokens: readonly string[], maxJobs: number): RawJob[] {
+    const lists = tokens.map((tok) => this.postings(locale, tok));
+    if (lists.length === 0) return [];
+
+    if (lists.length === 1) {
+      return lists[0].slice(0, maxJobs).map((idx) => this.jobs[idx]);
+    }
+
+    const matchingIdx = this.firstAndMatches(lists, maxJobs);
+    if (matchingIdx.length < maxJobs) {
+      this.fillOrMatches(lists, tokens.length, matchingIdx, maxJobs);
+    }
+
+    return matchingIdx.map((idx) => this.jobs[idx]);
+  }
+
   /** Free the haystack + postings cache once index queries are complete. */
   clear(): void {
     this.haystacksByLocale.clear();
     this.postingsByLocale.clear();
+    this.touchedIdx.length = 0;
   }
 
   private getHaystacks(locale: Locale): string[] {
@@ -550,6 +576,68 @@ class TokenIndex {
     this.haystacksByLocale.set(locale, arr);
     return arr;
   }
+
+  private firstAndMatches(lists: ReadonlyArray<readonly number[]>, maxJobs: number): number[] {
+    if (lists.some((list) => list.length === 0)) return [];
+
+    let shortestIdx = 0;
+    for (let i = 1; i < lists.length; i++) {
+      if (lists[i].length < lists[shortestIdx].length) shortestIdx = i;
+    }
+
+    const shortest = lists[shortestIdx];
+    const out: number[] = [];
+    outer:
+    for (const idx of shortest) {
+      for (let i = 0; i < lists.length; i++) {
+        if (i === shortestIdx) continue;
+        if (!binaryIncludes(lists[i], idx)) continue outer;
+      }
+      out.push(idx);
+      if (out.length >= maxJobs) break;
+    }
+    return out;
+  }
+
+  private fillOrMatches(
+    lists: ReadonlyArray<readonly number[]>,
+    fullScore: number,
+    out: number[],
+    maxJobs: number,
+  ): void {
+    const scores = this.scratchScores;
+    const touched = this.touchedIdx;
+    touched.length = 0;
+
+    for (const list of lists) {
+      for (const idx of list) {
+        if (scores[idx] === 0) touched.push(idx);
+        scores[idx]++;
+      }
+    }
+
+    for (let score = fullScore - 1; score >= 1 && out.length < maxJobs; score--) {
+      for (let idx = 0; idx < scores.length && out.length < maxJobs; idx++) {
+        if (scores[idx] === score) out.push(idx);
+      }
+    }
+
+    for (const idx of touched) scores[idx] = 0;
+    touched.length = 0;
+  }
+}
+
+function binaryIncludes(sorted: readonly number[], value: number): boolean {
+  let lo = 0;
+  let hi = sorted.length - 1;
+  while (lo <= hi) {
+    const mid = (lo + hi) >> 1;
+    const current = sorted[mid];
+    if (current === value) return true;
+    if (current < value) lo = mid + 1;
+    else hi = mid - 1;
+  }
+  return false;
 }
 
 function filterAndDedupeCandidates(all: CandidateEntry[]): CandidateEntry[] {
@@ -596,39 +684,11 @@ function buildClusterContext(
   //     MIN_MATCHING_JOBS=3 / MIN_INDEXABLE_WORDS quality gates.
   //
   // Each token's posting list is computed once per (locale, token) inside
-  // TokenIndex and reused across every candidate that shares it — so the
-  // expensive O(jobs) substring scan does NOT repeat per candidate. The
-  // resulting AND/OR arrays are byte-identical to the prior naive scan:
-  //   - `andMatches` ends up in corpus order (sort by jobIdx ascending),
-  //   - `orMatches` ends up sorted by score desc with ties broken by
-  //     corpus order (jobIdx ascending) — the same ordering produced by
-  //     a stable sort over jobs[]-iteration-order entries.
-  const fullScore = tokens.length;
-
-  const scoreByIdx = new Map<number, number>();
-  for (const tok of tokens) {
-    const list = index.postings(candidate.locale, tok);
-    for (const idx of list) scoreByIdx.set(idx, (scoreByIdx.get(idx) || 0) + 1);
-  }
-
-  const andIdx: number[] = [];
-  const orEntries: { idx: number; score: number }[] = [];
-  for (const [idx, score] of scoreByIdx) {
-    if (score === fullScore) andIdx.push(idx);
-    else orEntries.push({ idx, score });
-  }
-  andIdx.sort((a, b) => a - b);
-  orEntries.sort((a, b) => (b.score - a.score) || (a.idx - b.idx));
-
-  const matching: RawJob[] = [];
-  for (const idx of andIdx) {
-    if (matching.length >= MAX_JOBS_PER_PAGE) break;
-    matching.push(jobs[idx]);
-  }
-  for (const { idx } of orEntries) {
-    if (matching.length >= MAX_JOBS_PER_PAGE) break;
-    matching.push(jobs[idx]);
-  }
+  // TokenIndex and reused across every candidate that shares it. TokenIndex
+  // then selects only the first MAX_JOBS_PER_PAGE results in the same order as
+  // the former full Map+sort path: AND matches in corpus order, then OR
+  // matches by score desc with corpus-order tie breaks.
+  const matching = index.matchingJobs(candidate.locale, tokens, MAX_JOBS_PER_PAGE);
 
   if (matching.length < MIN_MATCHING_JOBS) return null;
   // Note: with MIN_MATCHING_JOBS=0 the line above is a no-op (length is
