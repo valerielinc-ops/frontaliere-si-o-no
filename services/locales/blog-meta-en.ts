@@ -7741,6 +7741,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.lavoro-stagionale-ticino-regole.title': 'Seasonal work in Ticino: rules, rights and opportunities',
     'blog.article.lavoro-stagionale-ticino-regole.excerpt': 'Practical guide for seasonal cross-border workers: permits, contracts, taxation and job opportunities in Ticino',
     'blog.article.lavoro-stagionale-ticino-regole.imageAlt': 'Seasonal work in Ticino: cross-border workers at the Brogeda border',
+    'blog.article.frontalieri-detrazioni-fiscali-italia-2026.title': 'Cross-border workers: 2026 tax deductions guide',
+    'blog.article.frontalieri-detrazioni-fiscali-italia-2026.excerpt': 'Find out which expenses can be deducted and the required documents for cross-border workers\' tax deductions in Italy in 2026.',
+    'blog.article.frontalieri-detrazioni-fiscali-italia-2026.imageAlt': 'Panorama of Lugano with the lake and surrounding mountains',
 };
 
 export default blogMetaEn;

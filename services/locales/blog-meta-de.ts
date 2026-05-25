@@ -7740,6 +7740,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.lavoro-stagionale-ticino-regole.title': 'Saisonarbeit im Tessin: Regeln, Rechte und Chancen',
     'blog.article.lavoro-stagionale-ticino-regole.excerpt': 'Praktischer Leitfaden für saisonale Grenzgänger: Bewilligungen, Verträge, Steuerrecht und Arbeitsmöglichkeiten im Tessin',
     'blog.article.lavoro-stagionale-ticino-regole.imageAlt': 'Saisonarbeit im Tessin: Grenzgänger an der Brogeda-Grenzübergang',
+    'blog.article.frontalieri-detrazioni-fiscali-italia-2026.title': 'Grenzgänger: Steuerabzüge in Italien 2026',
+    'blog.article.frontalieri-detrazioni-fiscali-italia-2026.excerpt': 'Erfahren Sie, welche Ausgaben abgesetzt werden können und welche Dokumente für die Steuerabzüge der Grenzgänger in Italien im Jahr 2026 erforderlich sind.',
+    'blog.article.frontalieri-detrazioni-fiscali-italia-2026.imageAlt': 'Panorama von Lugano mit dem See und den umliegenden Bergen',
 };
 
 export default blogMetaDe;

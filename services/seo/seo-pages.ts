@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2635,
+ "numberOfItems": 2636,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7275,7 +7275,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2632, "name": "Diritti di maternità e paternità per frontalier...", "url": `${BASE_URL}/articoli-frontaliere/congedo-parentale-frontalieri-svizzera-italia` },
           { "@type": "ListItem", "position": 2633, "name": "Frontaliere: Assicurazione Auto Svizzera vs Italia", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-assicurazione-auto-svizzera-italia` },
           { "@type": "ListItem", "position": 2634, "name": "Frontaliere: come ottenere un mutuo per la casa...", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-mutuo-casa-svizzera-requisiti` },
-          { "@type": "ListItem", "position": 2635, "name": "Lavoro stagionale in Ticino: regole, diritti e ...", "url": `${BASE_URL}/articoli-frontaliere/lavoro-stagionale-ticino-regole` }
+          { "@type": "ListItem", "position": 2635, "name": "Lavoro stagionale in Ticino: regole, diritti e ...", "url": `${BASE_URL}/articoli-frontaliere/lavoro-stagionale-ticino-regole` },
+          { "@type": "ListItem", "position": 2636, "name": "Frontalieri: Guida alle detrazioni fiscali in I...", "url": `${BASE_URL}/articoli-frontaliere/frontalieri-detrazioni-fiscali-italia-2026` }
  ]
  },
  {

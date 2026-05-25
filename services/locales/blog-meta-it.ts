@@ -7742,6 +7742,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.lavoro-stagionale-ticino-regole.title': 'Lavoro stagionale in Ticino: regole, diritti e opportunità',
     'blog.article.lavoro-stagionale-ticino-regole.excerpt': 'Guida pratica per frontalieri stagionali: permessi, contratti, fiscalità e opportunità di lavoro in Ticino',
     'blog.article.lavoro-stagionale-ticino-regole.imageAlt': 'Lavoro stagionale in Ticino: frontalieri al valico di Brogeda',
+    'blog.article.frontalieri-detrazioni-fiscali-italia-2026.title': 'Frontalieri: Guida alle detrazioni fiscali in Italia 2026',
+    'blog.article.frontalieri-detrazioni-fiscali-italia-2026.excerpt': 'Scopri quali spese possono essere scaricate e i documenti necessari per le detrazioni fiscali dei frontalieri in Italia nel 2026.',
+    'blog.article.frontalieri-detrazioni-fiscali-italia-2026.imageAlt': 'Panorama di Lugano con il lago e le montagne circostanti',
 };
 
 export default blogMetaIt;

@@ -24599,4 +24599,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'frontalieri-detrazioni-fiscali-italia-2026',
+ category: 'fiscale',
+ date: '2026-05-25T09:32:56.082Z',
+ image: '/images/blog/frontalieri-detrazioni-fiscali-italia-2026.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
