@@ -7720,6 +7720,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.trasporti-chiasso-lugano-frontalieri.title': 'Chiasso-Lugano transport: practical guide for cross-border workers',
     'blog.article.trasporti-chiasso-lugano-frontalieri.excerpt': 'Discover how to travel between Chiasso and Lugano by train, car, and subscriptions. Practical guide with costs and tips for cross-border workers.',
     'blog.article.trasporti-chiasso-lugano-frontalieri.imageAlt': 'View of Lake Lugano with mountains and the city of Lugano in the background',
+    'blog.article.frontalieri-transporti-chiasso-lugano-2026.title': 'Cross-border workers: Chiasso-Lugano transport 2026',
+    'blog.article.frontalieri-transporti-chiasso-lugano-2026.excerpt': 'Practical guide to transport for cross-border workers between Chiasso and Lugano, with a focus on subscriptions, costs, and practical simulation.',
+    'blog.article.frontalieri-transporti-chiasso-lugano-2026.imageAlt': 'Lugano train station with commuters',
 };
 
 export default blogMetaEn;

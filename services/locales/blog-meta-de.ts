@@ -7719,6 +7719,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.trasporti-chiasso-lugano-frontalieri.title': 'Verkehr Chiasso-Lugano: Praktischer Leitfaden für Grenzgänger',
     'blog.article.trasporti-chiasso-lugano-frontalieri.excerpt': 'Entdecken Sie, wie Sie sich zwischen Chiasso und Lugano mit dem Zug, dem Auto und Abonnements bewegen können. Praktischer Leitfaden mit Kosten und Tipps für Grenzgänger.',
     'blog.article.trasporti-chiasso-lugano-frontalieri.imageAlt': 'Blick auf den Luganersee mit Bergen und der Stadt Lugano im Hintergrund',
+    'blog.article.frontalieri-transporti-chiasso-lugano-2026.title': 'Grenzgänger: Verkehr Chiasso-Lugano 2026',
+    'blog.article.frontalieri-transporti-chiasso-lugano-2026.excerpt': 'Praktischer Leitfaden für den Verkehr zwischen Chiasso und Lugano für Grenzgänger, mit Fokus auf Abonnements, Kosten und praktischer Simulation.',
+    'blog.article.frontalieri-transporti-chiasso-lugano-2026.imageAlt': 'Bahnhof Lugano mit Pendlern',
 };
 
 export default blogMetaDe;

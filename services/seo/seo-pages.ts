@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2628,
+ "numberOfItems": 2629,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7268,7 +7268,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2625, "name": "Calcolo Salario Netto Svizzera: Come Funziona p...", "url": `${BASE_URL}/articoli-frontaliere/calcolo-salario-netto-svizzera-frontalieri` },
           { "@type": "ListItem", "position": 2626, "name": "Documenti per il primo giorno di lavoro in Tici...", "url": `${BASE_URL}/articoli-frontaliere/documenti-primo-giorno-lavoro-ticino-2026` },
           { "@type": "ListItem", "position": 2627, "name": "Frontalieri: residenza in Italia o Svizzera nel...", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-residenza-italia-svizzera-2026` },
-          { "@type": "ListItem", "position": 2628, "name": "Trasporti Chiasso-Lugano: guida pratica per fro...", "url": `${BASE_URL}/articoli-frontaliere/trasporti-chiasso-lugano-frontalieri` }
+          { "@type": "ListItem", "position": 2628, "name": "Trasporti Chiasso-Lugano: guida pratica per fro...", "url": `${BASE_URL}/articoli-frontaliere/trasporti-chiasso-lugano-frontalieri` },
+          { "@type": "ListItem", "position": 2629, "name": "Frontalieri: trasporti Chiasso-Lugano 2026", "url": `${BASE_URL}/articoli-frontaliere/frontalieri-transporti-chiasso-lugano-2026` }
  ]
  },
  {

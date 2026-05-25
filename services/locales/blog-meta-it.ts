@@ -7721,6 +7721,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.trasporti-chiasso-lugano-frontalieri.title': 'Trasporti Chiasso-Lugano: guida pratica per frontalieri',
     'blog.article.trasporti-chiasso-lugano-frontalieri.excerpt': 'Scopri come muoverti tra Chiasso e Lugano con treno, auto e abbonamenti. Guida pratica con costi e consigli per i frontalieri.',
     'blog.article.trasporti-chiasso-lugano-frontalieri.imageAlt': 'Vista del lago di Lugano con le montagne e la città di Lugano sullo sfondo',
+    'blog.article.frontalieri-transporti-chiasso-lugano-2026.title': 'Frontalieri: trasporti Chiasso-Lugano 2026',
+    'blog.article.frontalieri-transporti-chiasso-lugano-2026.excerpt': 'Guida pratica ai trasporti per i frontalieri tra Chiasso e Lugano, con focus su abbonamenti, costi e simulazione pratica.',
+    'blog.article.frontalieri-transporti-chiasso-lugano-2026.imageAlt': 'Stazione ferroviaria di Lugano con pendolari',
 };
 
 export default blogMetaIt;
