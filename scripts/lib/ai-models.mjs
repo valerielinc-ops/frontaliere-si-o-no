@@ -1222,8 +1222,17 @@ export function recordModelSuccess(modelId) {
   d.successes++;
   _modelDetails.set(modelId, d);
   _dirtyModels.add(modelId);
-  _consecutiveContentFailures.delete(modelId);
   _schedulePersist();
+}
+
+/**
+ * Clear downstream content-quality failures after a caller has parsed and
+ * validated the HTTP-200 payload. Plain transport success is not enough: weak
+ * models can return malformed JSON forever unless validation owns this reset.
+ */
+export function recordModelContentSuccess(modelId) {
+  if (!modelId) return;
+  _consecutiveContentFailures.delete(modelId);
 }
 
 /**
@@ -1357,10 +1366,13 @@ export function printRunSummary() {
 /** Reset exhausted models and scores (useful for long-running processes or tests) */
 export function resetState() {
   _exhaustedModels.clear();
+  _exhaustedLogged.clear();
   _providerCooldown.clear();
   _modelScores.clear();
   _modelDetails.clear();
   _dirtyModels.clear();
+  _consecutive429.clear();
+  _consecutiveContentFailures.clear();
   _mutationCount = 0;
   if (_persistTimer) { clearTimeout(_persistTimer); _persistTimer = null; }
   _stats.calls = 0;
