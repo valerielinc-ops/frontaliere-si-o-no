@@ -3,66 +3,59 @@
 ## Top 50 by frequency
 | type | message | source | count | sessions |
 |---|---|---|---|---|
-| Error | Script error. |  | 389 | 369 |
-| DOMException | UnknownError: Connection to Indexed Database server lost. Refresh the page to tr |  | 256 | 30 |
-| DOMException | InvalidStateError: Failed to execute 'transaction' on 'IDBDatabase': The databas | /assets/vendor-firebase-core-D5lXZ75A.js | 126 | 101 |
-| TypeError | Importing a module script failed. |  | 93 | 67 |
-| TypeError | Load failed |  | 49 | 13 |
-| DOMException | UnknownError: Database deleted by request of the user |  | 33 | 9 |
-| RangeError | Maximum call stack size exceeded. |  | 33 | 10 |
-| FirebaseError | Installations: Could not process request. Application offline. (installations/ap | /assets/vendor-firebase-core-D5lXZ75A.js | 26 | 5 |
+| DOMException | UnknownError: Connection to Indexed Database server lost. Refresh the page to tr |  | 255 | 30 |
+| TypeError | Importing a module script failed. |  | 124 | 79 |
+| DOMException | InvalidStateError: Failed to execute 'transaction' on 'IDBDatabase': The databas | /assets/vendor-firebase-core-D5lXZ75A.js | 111 | 91 |
+| TypeError | Load failed |  | 64 | 16 |
+| Error | Script error. |  | 62 | 38 |
+| RangeError | Maximum call stack size exceeded. |  | 35 | 12 |
+| DOMException | UnknownError: Database deleted by request of the user |  | 30 | 8 |
 | UnhandledRejection | Non-Error promise rejection captured with value: Object Not Found Matching Id:4, |  | 18 | 2 |
+| Error | ResizeObserver loop completed with undelivered notifications. |  | 17 | 7 |
+| TypeError | Failed to fetch | /assets/vendor-firebase-core-D5lXZ75A.js | 17 | 10 |
 | DOMException | AbortError: The user aborted a request. |  | 15 | 2 |
+| FirebaseError | Installations: Could not process request. Application offline. (installations/ap | /assets/vendor-firebase-core-D5lXZ75A.js | 15 | 4 |
 | UnhandledRejection | Non-Error promise rejection captured with value: Object Not Found Matching Id:1, |  | 13 | 2 |
-| Error | ResizeObserver loop completed with undelivered notifications. |  | 13 | 5 |
-| TypeError | NetworkError when attempting to fetch resource. |  | 10 | 4 |
-| DOMException | SecurityError: Blocked a frame with origin "https://frontaliereticino.ch" from a | / | 9 | 1 |
+| Error | 'TypeError' captured as exception with message: 'undefined is not an object (eva |  | 11 | 1 |
+| Error | 'Error' captured as exception with message: 'Yd' |  | 11 | 3 |
 | UnhandledRejection | Non-Error promise rejection captured with value: Object Not Found Matching Id:2, |  | 9 | 1 |
-| TypeError | Failed to fetch | /assets/vendor-firebase-core-D5lXZ75A.js | 8 | 8 |
+| TypeError | NetworkError when attempting to fetch resource. |  | 9 | 3 |
+| Error | oa | /gsi/client | 8 | 7 |
+| DOMException | NotReadableError: The I/O read operation failed. | /assets/module-cHtOycTh.js | 6 | 2 |
 | DOMException | AbortError: The operation was aborted.  | /assets/vendor-firebase-core-D5lXZ75A.js | 6 | 1 |
 | FirebaseError | Remote Config: Error thrown when opening storage. Original error: The operation  | /assets/vendor-firebase-remote-config-D5 | 6 | 2 |
-| FirebaseError | Installations: Could not process request. Application offline. (installations/ap | /assets/vendor-firebase-remote-config-D5 | 6 | 2 |
-| TypeError | Failed to fetch | /pagead/js/adsbygoogle.js | 5 | 5 |
+| QuotaExceededError |  |  | 5 | 1 |
+| TypeError | Failed to fetch dynamically imported module: https://frontaliereticino.ch/assets |  | 4 | 2 |
+| DOMException | AbortError: AbortError |  | 4 | 2 |
+| TypeError | Cannot read properties of undefined (reading 'apply') | /0.8.64/clarity.js | 4 | 4 |
 | FirebaseError | Remote Config: Error thrown when opening storage. Original error: The operation  | /assets/vendor-firebase-core-D5lXZ75A.js | 4 | 2 |
-| Error | oa | /gsi/client | 4 | 4 |
-| TypeError | Failed to fetch dynamically imported module: https://frontaliereticino.ch/assets |  | 3 | 3 |
-| TypeError | Failed to fetch dynamically imported module: https://frontaliereticino.ch/assets |  | 3 | 3 |
-| DOMException | AbortError: AbortError |  | 3 | 2 |
-| TypeError | Cannot read properties of undefined (reading 'apply') | /0.8.64/clarity.js | 3 | 3 |
+| TypeError | Failed to fetch | /pagead/js/adsbygoogle.js | 4 | 4 |
+| TypeError | Failed to fetch dynamically imported module: https://frontaliereticino.ch/assets |  | 4 | 2 |
+| TypeError | Failed to fetch dynamically imported module: https://frontaliereticino.ch/assets |  | 4 | 1 |
+| TypeError | Failed to fetch dynamically imported module: https://frontaliereticino.ch/assets |  | 4 | 4 |
+| TypeError | Failed to fetch dynamically imported module: https://frontaliereticino.ch/assets |  | 3 | 2 |
+| FirebaseError | Installations: Could not process request. Application offline. (installations/ap | /assets/vendor-firebase-remote-config-D5 | 3 | 1 |
+| TypeError | this.o.at is not a function |  | 3 | 2 |
+| Error | oa |  | 3 | 2 |
 | TypeError | Failed to fetch dynamically imported module: https://frontaliereticino.ch/assets |  | 3 | 3 |
 | FirebaseError | Remote Config: Error thrown when reading from storage. Original error: Database  | /assets/vendor-firebase-remote-config-D5 | 3 | 1 |
-| TypeError | Failed to fetch dynamically imported module: https://frontaliereticino.ch/assets |  | 3 | 2 |
-| Error | 'Error' captured as exception with message: 'Invalid call to runtime.sendMessage |  | 2 | 1 |
-| Error | oa |  | 2 | 1 |
-| TypeError | error loading dynamically imported module: https://frontaliereticino.ch/assets/c |  | 2 | 1 |
+| TypeError | Failed to fetch dynamically imported module: https://frontaliereticino.ch/assets |  | 3 | 3 |
 | TypeError | Failed to fetch dynamically imported module: https://frontaliereticino.ch/assets |  | 2 | 2 |
+| TypeError | Failed to fetch dynamically imported module: https://frontaliereticino.ch/assets |  | 2 | 1 |
+| TypeError | this.o.at is not a function | /assets/web-vitals-DcvjKPr-.js | 2 | 2 |
+| TypeError | Failed to fetch dynamically imported module: https://frontaliereticino.ch/assets |  | 2 | 2 |
+| TypeError | Failed to fetch dynamically imported module: https://frontaliereticino.ch/assets |  | 2 | 2 |
+| Error | Object captured as exception with keys: [object has no keys] |  | 2 | 1 |
 | DOMException | AbortError: The operation was aborted.  | /assets/vendor-firebase-firestore-CJiNRL | 2 | 1 |
 | TypeError | Failed to fetch dynamically imported module: https://frontaliereticino.ch/assets |  | 2 | 1 |
-| UnhandledRejection | Non-Error promise rejection captured with value: undefined |  | 2 | 2 |
-| TypeError | null is not an object (evaluating 'sessionStorage.getItem') | /assets/App-C9DZeLrM.js | 2 | 2 |
-| TypeError | Failed to fetch dynamically imported module: https://frontaliereticino.ch/assets |  | 2 | 2 |
-| DOMException | NotReadableError: The I/O read operation failed. | /assets/module-cHtOycTh.js | 2 | 1 |
-| Error | 'Error' captured as exception with message: 'Yd' |  | 2 | 1 |
-| TypeError | Failed to fetch dynamically imported module: https://frontaliereticino.ch/assets |  | 2 | 1 |
-| TypeError | Failed to fetch dynamically imported module: https://frontaliereticino.ch/assets |  | 2 | 2 |
-| TypeError | Failed to fetch dynamically imported module: https://frontaliereticino.ch/assets |  | 2 | 1 |
-| FirebaseError | Remote Config: Error thrown when reading from storage. Original error: Database  | /assets/vendor-firebase-core-D5lXZ75A.js | 2 | 1 |
-| TypeError | Failed to fetch dynamically imported module: https://frontaliereticino.ch/assets |  | 2 | 2 |
-| TypeError | this.o.at is not a function |  | 2 | 1 |
 | TypeError | Failed to fetch dynamically imported module: https://frontaliereticino.ch/assets |  | 2 | 1 |
 | TypeError | Failed to fetch dynamically imported module: https://frontaliereticino.ch/assets |  | 2 | 1 |
-| ReferenceError | Can't find variable: _AutofillCallbackHandler | /en/cross-border-articles/swiss-nurses-c | 2 | 1 |
 | TypeError | undefined is not an object (evaluating 'window.__firefox__.reader') | /cerca-lavoro-ticino/collaboratori-sanit | 2 | 1 |
+| TypeError | Failed to fetch dynamically imported module: https://frontaliereticino.ch/assets |  | 2 | 1 |
+| TypeError | Failed to fetch dynamically imported module: https://frontaliereticino.ch/assets |  | 2 | 2 |
 
 ## Daily count
-- 2026-04-18: 101
-- 2026-04-19: 168
-- 2026-04-20: 64
-- 2026-04-21: 55
-- 2026-04-22: 12
-- 2026-04-23: 13
-- 2026-04-24: 32
-- 2026-04-25: 12
+- 2026-04-25: 11
 - 2026-04-26: 14
 - 2026-04-27: 46
 - 2026-04-28: 24
@@ -85,4 +78,11 @@
 - 2026-05-15: 65
 - 2026-05-16: 21
 - 2026-05-17: 13
-- 2026-05-18: 20
+- 2026-05-18: 61
+- 2026-05-19: 30
+- 2026-05-20: 18
+- 2026-05-21: 17
+- 2026-05-22: 37
+- 2026-05-23: 40
+- 2026-05-24: 16
+- 2026-05-25: 3

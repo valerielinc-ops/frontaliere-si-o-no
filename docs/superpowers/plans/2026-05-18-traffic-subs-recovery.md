@@ -1245,7 +1245,7 @@ Expected: log shows current avg position printed, exit 0 (no new landings in dif
 
 - [ ] **Step 1: Wait 7 days from Phase 6 merge** for metrics to stabilize.
 
-- [ ] **Step 2: Re-snapshot all baseline metrics**
+- [x] **Step 2: Re-snapshot all baseline metrics**
 
 ```bash
 eval "$(GOOGLE_APPLICATION_CREDENTIALS=mcp-gsc-main/service_account_credentials.json node scripts/load-rc-env.mjs 2>/dev/null)"
@@ -1255,7 +1255,7 @@ node scripts/diagnose-app-errors.mjs
 # Subscriptions trend (re-run the ad-hoc script from the diagnosis session)
 ```
 
-- [ ] **Step 3: Write `data/recovery-2026-05-18/final.md`** with side-by-side baseline vs current
+- [x] **Step 3: Write `data/recovery-2026-05-18/final.md`** with side-by-side baseline vs current
 
 ```markdown
 # Recovery final report — <date>
@@ -1280,7 +1280,7 @@ node scripts/diagnose-app-errors.mjs
 - …
 ```
 
-- [ ] **Step 4: Close master Linear issue if all 7 metrics pass**
+- [x] **Step 4: Close master Linear issue if all 7 metrics pass**
 
 ```bash
 gh issue close $RECOVERY_ISSUE_NUMBER --comment "All 7 pass criteria met. See data/recovery-2026-05-18/final.md."

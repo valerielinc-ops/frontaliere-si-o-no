@@ -1,50 +1,54 @@
 # Calculator funnel diagnosis — 7d
 
 ## Funnel counts
-- entries: 51
-- input_start: 6
-- calculate: 183
+- entries: 169
+- input_start: 5
+- calculate: 219
 
 ## Top 30 events from abandoners (entry without input_start)
 | event | url | count |
 |---|---|---|
-| funnel_step | https://frontaliereticino.ch/ | 1077 |
-| simulation_complete | https://frontaliereticino.ch/ | 353 |
-| generate_lead | https://frontaliereticino.ch/ | 348 |
-| cta_click | https://frontaliereticino.ch/ | 196 |
-| ui_interaction | https://frontaliereticino.ch/ | 106 |
-| funnel_step | https://frontaliereticino.ch/calcola-stipendio/nuovi-frontalieri-oltre-20-km/ | 95 |
-| cta_click | https://frontaliereticino.ch/calcola-stipendio/quanto-guadagneresti-in-svizzera/ | 36 |
-| $web_vitals | https://frontaliereticino.ch/calcola-stipendio/nuovi-frontalieri-oltre-20-km/ | 36 |
-| $pageview | https://frontaliereticino.ch/calcola-stipendio/nuovi-frontalieri-oltre-20-km/ | 32 |
-| funnel_step | https://frontaliereticino.ch/cerca-lavoro-basilea/ | 32 |
-| funnel_step | https://frontaliereticino.ch/calcola-stipendio/confronta-retribuzione-ral/ | 31 |
-| $pageview | https://frontaliereticino.ch/calcola-stipendio/confronta-retribuzione-ral/ | 30 |
-| simulation_complete | https://frontaliereticino.ch/calcola-stipendio/nuovi-frontalieri-oltre-20-km/ | 27 |
-| generate_lead | https://frontaliereticino.ch/calcola-stipendio/nuovi-frontalieri-oltre-20-km/ | 27 |
-| $pageview | https://frontaliereticino.ch/ | 25 |
-| $dead_click | https://frontaliereticino.ch/calcola-stipendio/nuovi-frontalieri-oltre-20-km/ | 24 |
-| cta_click | https://frontaliereticino.ch/calcola-stipendio/simula-busta-paga/?utm_source=cha | 23 |
-| $web_vitals | https://frontaliereticino.ch/ | 22 |
-| $web_vitals | https://frontaliereticino.ch/calcola-stipendio/confronta-retribuzione-ral/ | 22 |
-| input_change | https://frontaliereticino.ch/ | 20 |
-| $dead_click | https://frontaliereticino.ch/ | 20 |
-| seo_page_view | https://frontaliereticino.ch/calcola-stipendio/confronta-retribuzione-ral/ | 19 |
-| $pageleave | https://frontaliereticino.ch/calcola-stipendio/nuovi-frontalieri-oltre-20-km/ | 19 |
-| seo_page_view | https://frontaliereticino.ch/calcola-stipendio/nuovi-frontalieri-oltre-20-km/ | 19 |
-| ui_interaction | https://frontaliereticino.ch/calcola-stipendio/quanto-guadagneresti-in-svizzera/ | 18 |
-| ui_interaction | https://frontaliereticino.ch/calcola-stipendio/nuovi-frontalieri-oltre-20-km/ | 17 |
-| ad_filled | https://frontaliereticino.ch/calcola-stipendio/confronta-retribuzione-ral/ | 17 |
-| ad_collapsed | https://frontaliereticino.ch/ | 17 |
-| $pageview | https://frontaliereticino.ch/calcola-stipendio/quanto-guadagneresti-in-svizzera/ | 17 |
-| funnel_step | https://frontaliereticino.ch/calcola-stipendio/verifica-congedo-parentale/ | 16 |
+| funnel_step | https://frontaliereticino.ch/ | 5197 |
+| funnel_step | https://frontaliereticino.ch/?utm_source=chatgpt.com | 2024 |
+| simulation_complete | https://frontaliereticino.ch/ | 1686 |
+| generate_lead | https://frontaliereticino.ch/ | 1682 |
+| simulation_complete | https://frontaliereticino.ch/?utm_source=chatgpt.com | 672 |
+| generate_lead | https://frontaliereticino.ch/?utm_source=chatgpt.com | 664 |
+| whatif_simulator | https://frontaliereticino.ch/calcola-stipendio/cosa-cambia-se/ | 602 |
+| cta_click | https://frontaliereticino.ch/ | 462 |
+| ui_interaction | https://frontaliereticino.ch/ | 324 |
+| funnel_step | https://frontaliereticino.ch/?utm_source=copilot.com | 195 |
+| funnel_step | https://frontaliereticino.ch/calcola-stipendio/nuovi-frontalieri-oltre-20-km/ | 193 |
+| funnel_step | https://frontaliereticino.ch/?tipo=NEW&zona=OVER_20KM | 165 |
+| cta_click | https://frontaliereticino.ch/?utm_source=chatgpt.com | 150 |
+| funnel_step | https://frontaliereticino.ch/?reddito=70000&tipo=NEW&stato=SINGLE&figli=2&zona=O | 141 |
+| funnel_step | https://frontaliereticino.ch/calcola-stipendio/nuovi-frontalieri-oltre-20-km/#go | 96 |
+| funnel_step | https://frontaliereticino.ch/?reddito=120000&tipo=NEW&stato=MARRIED&figli=1&zona | 94 |
+| $pageview | https://frontaliereticino.ch/ | 94 |
+| ad_collapsed | https://frontaliereticino.ch/cerca-lavoro-ticino/ | 90 |
+| funnel_step | https://frontaliereticino.ch/cerca-lavoro-ticino/responsabile-pulizie-manutenzio | 87 |
+| input_change | https://frontaliereticino.ch/?utm_source=chatgpt.com | 87 |
+| $dead_click | https://frontaliereticino.ch/ | 80 |
+| funnel_step | https://frontaliereticino.ch/cerca-lavoro-basilea/pratteln/ | 80 |
+| ad_collapsed | https://frontaliereticino.ch/ | 79 |
+| funnel_step | https://frontaliereticino.ch/?reddito=78000 | 71 |
+| cta_click | https://frontaliereticino.ch/calcola-stipendio/cosa-cambia-se/ | 70 |
+| funnel_step | https://frontaliereticino.ch/cerca-lavoro-ticino/senior-manager-reporting-gestio | 69 |
+| $web_vitals | https://frontaliereticino.ch/ | 68 |
+| $pageview | https://frontaliereticino.ch/calcola-stipendio/nuovi-frontalieri-oltre-20-km/ | 65 |
+| funnel_step | https://frontaliereticino.ch/?reddito=90000&tipo=NEW&stato=SINGLE&figli=0&zona=O | 65 |
+| simulation_complete | https://frontaliereticino.ch/?utm_source=copilot.com | 63 |
 
 ## Scroll depth on calc page (pageleave)
-- p50: null · p75: null · p95: null · n: 77
+- p50: null · p75: null · p95: null · n: 162
 
 ## CLS p75 on calc page by device
 
 ## Top JS exceptions on calc page
 | type | message | count |
 |---|---|---|
-| TypeError | Importing a module script failed. | 1 |
+| TypeError | Failed to fetch dynamically imported module: https://frontaliereticino.ch/assets | 4 |
+| TypeError | Failed to fetch dynamically imported module: https://frontaliereticino.ch/assets | 2 |
+| TypeError | Failed to fetch dynamically imported module: https://frontaliereticino.ch/assets | 1 |
+| TypeError | Failed to fetch dynamically imported module: https://frontaliereticino.ch/assets | 1 |
+| TypeError | Failed to fetch dynamically imported module: https://frontaliereticino.ch/assets | 1 |
