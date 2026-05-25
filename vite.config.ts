@@ -66,6 +66,7 @@ import { borderWaitPagesPlugin } from './build-plugins/borderWaitPagesPlugin';
 import { marketReportPlugin } from './build-plugins/marketReportPlugin';
 import { annualReportPlugin } from './build-plugins/annualReportPlugin';
 import { borderWaitMapPlugin } from './build-plugins/borderWaitMapPlugin';
+import { borderMunicipalityPagesPlugin } from './build-plugins/borderMunicipalityPagesPlugin';
 import { nursingLandingsPlugin } from './build-plugins/nursingLandingsPlugin';
 import { careerLandingsPlugin } from './build-plugins/careerLandingsPlugin';
 import { professionLandingsPlugin } from './build-plugins/professionLandingsPlugin';
@@ -150,6 +151,7 @@ export default defineConfig(({ mode }) => {
  // callout linking to the annual report.
  annualReportPlugin(__dirname),
  borderWaitMapPlugin(__dirname),
+ borderMunicipalityPagesPlugin(__dirname),
  nursingLandingsPlugin(__dirname),
  // AE-2 — 4 career quick-win landings × 4 locales = 16 HTML outputs. Uses
  // concorsi.ti.ch snapshot + SECO AVG registry for cited content.
