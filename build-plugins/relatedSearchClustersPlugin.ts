@@ -496,10 +496,11 @@ interface ClusterContext {
 
 // ── Inverted index for token → posting list of jobIdx ────────────────────
 // Lazy-builds posting lists per (locale, token) pair. Each posting list is
-// computed once with a full O(jobs) substring scan, then reused across every
-// candidate that contains the same token. Across the candidate corpus there
-// are ~13.6k unique (locale, token) pairs vs ~53k candidates × 1.9k jobs
-// for the naive nested scan — a measured ~4× ceiling on the inner loop.
+// computed once, then reused across every candidate that contains the same
+// token. A per-locale alphanumeric 2/3-gram index narrows each token to a
+// small candidate job set before the final `haystack.includes(token)` check.
+// This preserves exact substring semantics while avoiding ~30k locale-token
+// full-corpus scans on the current 180k-candidate corpus.
 //
 // Substring semantics are preserved exactly: each posting list contains
 // jobIdx for every job whose locale-specific haystack contains `token` as a
@@ -509,6 +510,7 @@ interface ClusterContext {
 class TokenIndex {
   private haystacksByLocale = new Map<Locale, string[]>();
   private postingsByLocale = new Map<Locale, Map<string, number[]>>();
+  private gramPostingsByLocale = new Map<Locale, Map<string, number[]>>();
   private readonly scratchScores: Uint16Array;
   private readonly touchedIdx: number[] = [];
   private readonly jobs: ReadonlyArray<RawJob>;
@@ -529,9 +531,10 @@ class TokenIndex {
     if (cached !== undefined) return cached;
 
     const haystacks = this.getHaystacks(locale);
+    const candidateJobs = this.candidateJobsForToken(locale, token);
     const list: number[] = [];
-    for (let i = 0; i < haystacks.length; i++) {
-      if (haystacks[i].includes(token)) list.push(i);
+    for (const idx of candidateJobs) {
+      if (haystacks[idx].includes(token)) list.push(idx);
     }
     perLocale.set(token, list);
     return list;
@@ -563,6 +566,7 @@ class TokenIndex {
   clear(): void {
     this.haystacksByLocale.clear();
     this.postingsByLocale.clear();
+    this.gramPostingsByLocale.clear();
     this.touchedIdx.length = 0;
   }
 
@@ -575,6 +579,62 @@ class TokenIndex {
     }
     this.haystacksByLocale.set(locale, arr);
     return arr;
+  }
+
+  private getGramPostings(locale: Locale): Map<string, number[]> {
+    const cached = this.gramPostingsByLocale.get(locale);
+    if (cached) return cached;
+
+    const haystacks = this.getHaystacks(locale);
+    const grams = new Map<string, number[]>();
+    const seenInJob = new Set<string>();
+
+    for (let jobIdx = 0; jobIdx < haystacks.length; jobIdx++) {
+      const haystack = haystacks[jobIdx];
+      seenInJob.clear();
+
+      for (const width of [2, 3]) {
+        if (haystack.length < width) continue;
+        for (let i = 0; i <= haystack.length - width; i++) {
+          const gram = haystack.slice(i, i + width);
+          if (!isSearchTokenGram(gram)) continue;
+          if (seenInJob.has(gram)) continue;
+          seenInJob.add(gram);
+
+          let list = grams.get(gram);
+          if (!list) {
+            list = [];
+            grams.set(gram, list);
+          }
+          list.push(jobIdx);
+        }
+      }
+    }
+
+    this.gramPostingsByLocale.set(locale, grams);
+    return grams;
+  }
+
+  private candidateJobsForToken(locale: Locale, token: string): readonly number[] {
+    const grams = this.getGramPostings(locale);
+    if (token.length <= 2) {
+      return grams.get(token) ?? [];
+    }
+
+    let rarest: readonly number[] | null = null;
+    const seenTokenGrams = new Set<string>();
+    for (let i = 0; i <= token.length - 3; i++) {
+      const gram = token.slice(i, i + 3);
+      if (seenTokenGrams.has(gram)) continue;
+      seenTokenGrams.add(gram);
+
+      const list = grams.get(gram) ?? [];
+      if (rarest === null || list.length < rarest.length) {
+        rarest = list;
+        if (rarest.length === 0) break;
+      }
+    }
+    return rarest ?? [];
   }
 
   private firstAndMatches(lists: ReadonlyArray<readonly number[]>, maxJobs: number): number[] {
@@ -625,6 +685,16 @@ class TokenIndex {
     for (const idx of touched) scores[idx] = 0;
     touched.length = 0;
   }
+}
+
+function isSearchTokenGram(value: string): boolean {
+  for (let i = 0; i < value.length; i++) {
+    const code = value.charCodeAt(i);
+    const isDigit = code >= 48 && code <= 57;
+    const isLowerAscii = code >= 97 && code <= 122;
+    if (!isDigit && !isLowerAscii) return false;
+  }
+  return true;
 }
 
 function binaryIncludes(sorted: readonly number[], value: number): boolean {

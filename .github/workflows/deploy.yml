@@ -497,6 +497,9 @@ jobs:
       - name: Verify critical dist pages before upload
         run: node scripts/validate-critical-dist-pages.mjs
 
+      - name: Verify build profile markers before upload
+        run: node scripts/validate-build-profile-markers.mjs /tmp/build.log
+
       - name: Build profile summary
         if: always()
         shell: bash

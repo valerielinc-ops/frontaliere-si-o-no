@@ -99,8 +99,8 @@ export default defineConfig(({ mode }) => {
  const env = loadEnv(mode, '.', '');
  // Build the unified plugin list, then wrap every entry in `withProfile()`
  // and append `profileSummaryPlugin()` last so it emits the total line
- // after every wrapped closeBundle has resolved. `withProfile` is a no-op
- // when BUILD_PROFILE !== '1' (zero overhead in normal local builds).
+ // after every wrapped closeBundle has resolved. Profiling is on by default;
+ // set BUILD_PROFILE=0 to opt out for local one-offs.
  const allPlugins: Plugin[] = [
  // ── Core plugins (always run, including FAST_BUILD) ──────────
  // `@vitejs/plugin-react` returns multiple plugins (one per React feature
@@ -314,7 +314,7 @@ export default defineConfig(({ mode }) => {
  // last hook in the chain.
  writeRegistryReportPlugin({ rootDir: __dirname }),
  // Emits `[profile-total] ...` after every wrapped plugin's closeBundle has
- // resolved. No-op when BUILD_PROFILE !== '1'.
+ // resolved. No-op when BUILD_PROFILE=0.
  profileSummaryPlugin(),
  ],
  define: {

@@ -7,32 +7,51 @@ import viteConfig from '../vite.config';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
+function isNamedPlugin(plugin: unknown): plugin is { name: string } {
+  return Boolean(plugin)
+    && typeof plugin === 'object'
+    && 'name' in plugin
+    && typeof (plugin as { name?: unknown }).name === 'string';
+}
+
 function pluginNames(): string[] {
   const resolved = typeof viteConfig === 'function'
     ? viteConfig({ command: 'build', mode: 'production' })
     : viteConfig;
   const plugins = Array.isArray(resolved.plugins) ? resolved.plugins.flat() : [];
-  return plugins.map((plugin) => plugin?.name).filter((name): name is string => Boolean(name));
+  return plugins.filter(isNamedPlugin).map((plugin) => plugin.name);
+}
+
+function expectPluginAfter(names: string[], consumer: string, producer: string): void {
+  const producerIdx = names.indexOf(producer);
+  const consumerIdx = names.indexOf(consumer);
+
+  expect(producerIdx, `${producer} must be registered`).toBeGreaterThanOrEqual(0);
+  expect(consumerIdx, `${consumer} must be registered`).toBeGreaterThanOrEqual(0);
+  expect(consumerIdx, `${consumer} waits for ${producer}; it must run later in sequential closeBundle`).toBeGreaterThan(producerIdx);
 }
 
 describe('build plugin ordering', () => {
-  it('runs border municipality pages after static pages in sequential closeBundle builds', () => {
+  it('keeps signal consumers after their producers in sequential closeBundle builds', () => {
     const names = pluginNames();
-    const staticIdx = names.indexOf('static-pages');
-    const borderIdx = names.indexOf('border-municipality-pages');
-    const relatedIdx = names.indexOf('related-search-clusters');
 
-    expect(staticIdx).toBeGreaterThanOrEqual(0);
-    expect(borderIdx).toBeGreaterThan(staticIdx);
-    expect(relatedIdx).toBeGreaterThan(borderIdx);
+    expectPluginAfter(names, 'border-municipality-pages', 'static-pages');
+    expectPluginAfter(names, 'profession-landings-links', 'static-pages');
+    expectPluginAfter(names, 'profession-landings-links', 'profession-landings');
+    expectPluginAfter(names, 'salary-hub-index-link', 'static-pages');
+    expectPluginAfter(names, 'salary-hub-index-link', 'salary-hub-seo');
+    expectPluginAfter(names, 'related-search-clusters', 'jobs-seo-pages');
+    expectPluginAfter(names, 'post-walk-coordinator', 'related-search-clusters');
   });
 
-  it('keeps the deploy critical-dist guard before artifact upload', () => {
+  it('keeps deploy output guards before artifact upload', () => {
     const workflow = fs.readFileSync(path.resolve(__dirname, '../.github/workflows/deploy.yml'), 'utf-8');
-    const guardIdx = workflow.indexOf('node scripts/validate-critical-dist-pages.mjs');
+    const criticalGuardIdx = workflow.indexOf('node scripts/validate-critical-dist-pages.mjs');
+    const profileGuardIdx = workflow.indexOf('node scripts/validate-build-profile-markers.mjs /tmp/build.log');
     const uploadIdx = workflow.indexOf('Upload Pages artifact');
 
-    expect(guardIdx).toBeGreaterThanOrEqual(0);
-    expect(uploadIdx).toBeGreaterThan(guardIdx);
+    expect(criticalGuardIdx).toBeGreaterThanOrEqual(0);
+    expect(profileGuardIdx).toBeGreaterThan(criticalGuardIdx);
+    expect(uploadIdx).toBeGreaterThan(profileGuardIdx);
   });
 });
