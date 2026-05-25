@@ -7790,6 +7790,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.marcello-guido-decostruttivismo-architettura.title': 'Marcello Guido e il decostruttivismo italiano',
     'blog.article.marcello-guido-decostruttivismo-architettura.excerpt': 'Analisi del ruolo di Marcello Guido come precursore del decostruttivismo, non conformista nell\'architettura italiana.',
     'blog.article.marcello-guido-decostruttivismo-architettura.imageAlt': 'Panorama architettonico di Lugano con edifici storici e moderni.',
+    'blog.article.elisoccorso-infortunio-brinzio-2026.title': 'Elisoccorso in azione al Brinzio per un infortunio sul lavoro',
+    'blog.article.elisoccorso-infortunio-brinzio-2026.excerpt': 'Intervento dell\'elisoccorso al Brinzio per soccorrere un lavoratore infortunato, con trasporto d\'urgenza in ospedale.',
+    'blog.article.elisoccorso-infortunio-brinzio-2026.imageAlt': 'Elicottero di soccorso in azione in montagna vicino al Ticino',
 };
 
 export default blogMetaIt;

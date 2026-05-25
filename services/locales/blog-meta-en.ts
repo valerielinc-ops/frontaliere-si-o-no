@@ -7789,6 +7789,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.marcello-guido-decostruttivismo-architettura.title': 'Marcello Guido and Italian Deconstructivism',
     'blog.article.marcello-guido-decostruttivismo-architettura.excerpt': 'Analysis of Marcello Guido\'s role as a precursor to Italian deconstructivism, a non-conformist movement in Italian architecture. Marcello Guido\'s work challenged traditional notions of architecture, anticipating the deconstructivist movement that would emerge in the 1980s. His designs, often described as \'disruptive\' and \'unconventional\', pushed the boundaries of what was considered acceptable in Italian architecture at the time. With his emphasis on experimentation and innovation, Guido paved the way for a new generation of architects who would continue to challenge the status quo. 📊💡',
     'blog.article.marcello-guido-decostruttivismo-architettura.imageAlt': 'Architectural panorama of Lugano with historic and modern buildings.',
+    'blog.article.elisoccorso-infortunio-brinzio-2026.title': 'Helicopter rescue in action at Brinzio for workplace injury',
+    'blog.article.elisoccorso-infortunio-brinzio-2026.excerpt': 'Helicopter rescue intervention at Brinzio to assist an injured worker, with emergency transport to the hospital.',
+    'blog.article.elisoccorso-infortunio-brinzio-2026.imageAlt': 'Rescue helicopter operating in the mountains near Ticino',
 };
 
 export default blogMetaEn;

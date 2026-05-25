@@ -7790,6 +7790,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.marcello-guido-decostruttivismo-architettura.title': 'Marcello Guido et le déconstructivisme italien',
     'blog.article.marcello-guido-decostruttivismo-architettura.excerpt': 'Analyse du rôle de Marcello Guido en tant que pionnier du déconstructivisme, non conforme dans l\'architecture italienne. Les architectes italiens comme Marcello Guido ont contribué à faire émerger un mouvement qui remet en question les normes traditionnelles. Le déconstructivisme italien, qui s\'est développé dans les années 80, a été influencé par des artistes et des architectes tels que Marcello Guido, qui ont exploré de nouvelles formes et des matériaux innovants. Leur travail a ouvert la voie à une architecture plus expressive et plus expérimentale. Les architectes italiens ont continué à explorer les possibilités du déconstructivisme, créant des bâtiments qui sont à la fois esthétiquement attrayants et fonctionnels.',
     'blog.article.marcello-guido-decostruttivismo-architettura.imageAlt': 'Panorama architectural de Lugano avec bâtiments historiques et modernes.',
+    'blog.article.elisoccorso-infortunio-brinzio-2026.title': 'Évacuation héliportée à Brinzio pour accident du travail',
+    'blog.article.elisoccorso-infortunio-brinzio-2026.excerpt': 'Intervention de l\'hélicoptère de secours à Brinzio pour secourir un travailleur blessé, avec transport d\'urgence à l\'hôpital.',
+    'blog.article.elisoccorso-infortunio-brinzio-2026.imageAlt': 'Hélicoptère de secours en action dans les montagnes près du Tessin',
 };
 
 export default blogMetaFr;

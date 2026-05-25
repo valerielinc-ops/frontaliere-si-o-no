@@ -7788,6 +7788,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.marcello-guido-decostruttivismo-architettura.title': 'Marcello Guido und der italienische Dekonstruktivismus',
     'blog.article.marcello-guido-decostruttivismo-architettura.excerpt': 'Analyse der Rolle von Marcello Guido als Vorläufer des Dekonstruktivismus, ein Nonkonformist der italienischen Architektur.',
     'blog.article.marcello-guido-decostruttivismo-architettura.imageAlt': 'Architektonisches Panorama von Lugano mit historischen und modernen Gebäuden.',
+    'blog.article.elisoccorso-infortunio-brinzio-2026.title': 'Elisoccorso al Brinzio per infortunio sul lavoro',
+    'blog.article.elisoccorso-infortunio-brinzio-2026.excerpt': 'Rettungshubschraubereinsatz in Brinzio zur Rettung eines verletzten Arbeiters mit Notfalltransport ins Krankenhaus.',
+    'blog.article.elisoccorso-infortunio-brinzio-2026.imageAlt': 'Rettungshubschrauber im Einsatz in den Bergen nahe dem Tessin',
 };
 
 export default blogMetaDe;
