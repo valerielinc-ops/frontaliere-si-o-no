@@ -38,6 +38,7 @@
  */
 
 import { BASE_URL } from '../constants';
+import fuelPricesSnapshot from '../../public/data/fuel-prices.json';
 
 export type CompanyHubFrontalierContextLocale = 'it' | 'en' | 'de' | 'fr';
 
@@ -62,8 +63,34 @@ interface SectorBandLabels {
  readonly fr: string;
 }
 
-const COMPANY_CONTEXT_FX_RATE = 1.08;
-const COMPANY_CONTEXT_FX_SOURCE_DATE_IT = '22 maggio 2026';
+type FuelPricesExchangeSnapshot = {
+ readonly generatedAt?: string;
+ readonly sources?: {
+  readonly exchangeRate?: {
+   readonly eurPerChf?: number;
+  };
+ };
+};
+
+const COMPANY_CONTEXT_FX_FALLBACK_RATE = 1.08;
+
+function snapshotFxRate(): number {
+ const rate = (fuelPricesSnapshot as FuelPricesExchangeSnapshot).sources?.exchangeRate?.eurPerChf;
+ return typeof rate === 'number' && Number.isFinite(rate) && rate > 0 ? rate : COMPANY_CONTEXT_FX_FALLBACK_RATE;
+}
+
+function snapshotFxDate(locale: CompanyHubFrontalierContextLocale): string {
+ const generatedAt = (fuelPricesSnapshot as FuelPricesExchangeSnapshot).generatedAt;
+ const date = generatedAt ? new Date(generatedAt) : null;
+ if (!date || Number.isNaN(date.getTime())) {
+  return locale === 'it' ? 'snapshot locale' : 'local snapshot';
+ }
+ return new Intl.DateTimeFormat(locale === 'en' ? 'en-GB' : locale, {
+  day: 'numeric',
+  month: 'long',
+  year: 'numeric',
+ }).format(date);
+}
 
 const SECTOR_LABELS: Record<SectorBucket, SectorBandLabels> = {
  health: {
@@ -349,12 +376,13 @@ export function renderCompanyHubFrontalierContext(
  const seniorBand = fmtBand(bands.senior, locale);
  // Worked example: pick mid-band low end as a realistic gross monthly figure
  // for the typical role; net is ~75 % after withholding+social charges.
- // ECB history: on 2026-05-22 EUR/CHF was 0.9119 (1 CHF = 1.0966 EUR);
- // the trailing 12-month CHF→EUR average was 1.0784, rounded here to 1.08.
+ // Build-time static HTML uses the local exchange-rate snapshot also used by
+ // fuel-prices pages; the SPA calculator refreshes the same concept at runtime.
  const grossMid = bands.mid[0];
  const netRatio = 0.78;
- const fxRate = COMPANY_CONTEXT_FX_RATE;
+ const fxRate = snapshotFxRate();
  const fxRateLabel = locale === 'en' ? fxRate.toFixed(2) : fxRate.toFixed(2).replace('.', ',');
+ const fxDateLabel = snapshotFxDate(locale);
  const grossYear = grossMid * 13;
  const netYearChf = Math.round(grossYear * netRatio);
  const netYearEur = Math.round(netYearChf * fxRate);
@@ -380,7 +408,7 @@ export function renderCompanyHubFrontalierContext(
   );
   blocks.push(
    `<section class="s-7uP4UM"><h2>Stipendio medio nel settore di ${eCompany}: scenario CHF→EUR</h2>` +
-   `<p>Per quantificare il vantaggio reale di un’assunzione presso ${eCompany} usiamo come riferimento il ruolo di ${eRole} a inizio banda intermedia (${grossMid.toLocaleString('it-CH')} CHF lordi mensili). Su 13 mensilità fanno ${grossYearLabel} lordi annui. Sottraendo imposta alla fonte (~10 % nel ${eCanton} per single senza figli a carico) e contributi sociali svizzeri (AVS/AI/IPG, AD, LPP) si arriva a circa ${netYearChfLabel} netti annui. Convertendo a un cambio CHF/EUR di ${fxRateLabel} (media BCE 12 mesi, aggiornata al ${COMPANY_CONTEXT_FX_SOURCE_DATE_IT}) si ottengono ${netYearEurLabel} di potere d’acquisto in Italia.</p>` +
+   `<p>Per quantificare il vantaggio reale di un’assunzione presso ${eCompany} usiamo come riferimento il ruolo di ${eRole} a inizio banda intermedia (${grossMid.toLocaleString('it-CH')} CHF lordi mensili). Su 13 mensilità fanno ${grossYearLabel} lordi annui. Sottraendo imposta alla fonte (~10 % nel ${eCanton} per single senza figli a carico) e contributi sociali svizzeri (AVS/AI/IPG, AD, LPP) si arriva a circa ${netYearChfLabel} netti annui. Convertendo a un cambio CHF/EUR di ${fxRateLabel} (snapshot ECB locale aggiornato al ${fxDateLabel}) si ottengono ${netYearEurLabel} di potere d’acquisto in Italia.</p>` +
    `<p>Lo stesso ruolo, in Italia con un CCNL di settore comparabile, raramente supera EUR 28’000 netti annui. Il delta lordo a tuo vantaggio in Ticino è dunque concreto, ma ricorda di sottrarre i costi specifici del frontalierato — carburante e usura veicolo (~CHF 3’000–5’000/anno), eventuale parcheggio aziendale, premi assicurativi LAMal facoltativi se richiesti dall’azienda. Per simulare il tuo caso esatto con età, situazione familiare e città di residenza usa il <a href="${calc}">calcolatore stipendio</a>; per scoprire altri datori di lavoro nel settore ${eSector} consulta il <a href="${sectorHub}">job board ${eCanton}</a>.</p>` +
    `</section>`
   );
@@ -407,7 +435,7 @@ export function renderCompanyHubFrontalierContext(
   );
   blocks.push(
    `<section class="s-7uP4UM"><h2>Average sector salary at ${eCompany}: a CHF→EUR scenario</h2>` +
-   `<p>To quantify the real upside of joining ${eCompany} we use a ${eRole} at the bottom of the mid band (${grossMid.toLocaleString('en-CH')} CHF gross monthly) as a reference. Across 13 monthly payments that is ${grossYearLabel} gross per year. After withholding tax (~10 % in ${eCanton} for a single filer with no dependants) and Swiss social charges (AHV/IV/EO, ALV, BVG/LPP), the figure lands at roughly ${netYearChfLabel} net per year. Converted at a CHF/EUR rate of ${fxRateLabel} (12-month ECB average, updated on 22 May 2026), that’s ${netYearEurLabel} of Italian-side purchasing power.</p>` +
+   `<p>To quantify the real upside of joining ${eCompany} we use a ${eRole} at the bottom of the mid band (${grossMid.toLocaleString('en-CH')} CHF gross monthly) as a reference. Across 13 monthly payments that is ${grossYearLabel} gross per year. After withholding tax (~10 % in ${eCanton} for a single filer with no dependants) and Swiss social charges (AHV/IV/EO, ALV, BVG/LPP), the figure lands at roughly ${netYearChfLabel} net per year. Converted at a CHF/EUR rate of ${fxRateLabel} (local ECB snapshot updated on ${fxDateLabel}), that’s ${netYearEurLabel} of Italian-side purchasing power.</p>` +
    `<p>The same role under a comparable Italian collective agreement rarely exceeds EUR 28,000 net per year. The headline upside in Ticino is real, but subtract cross-border specifics: fuel and vehicle wear (~CHF 3,000–5,000/year), workplace parking, optional supplementary LAMal premiums if your employer requires them. For a personalised simulation that accounts for age, family status and your home town use the <a href="${calc}">salary calculator</a>; to discover other employers in the ${eSector} sector see the <a href="${sectorHub}">${eCanton} job board</a>.</p>` +
    `</section>`
   );
@@ -434,7 +462,7 @@ export function renderCompanyHubFrontalierContext(
   );
   blocks.push(
    `<section class="s-7uP4UM"><h2>Durchschnittslohn im Sektor von ${eCompany}: CHF→EUR-Szenario</h2>` +
-   `<p>Um den realen Vorteil eines Engagements bei ${eCompany} zu quantifizieren, verwenden wir als Referenz ${eRole} am unteren Ende der mittleren Bandbreite (${grossMid.toLocaleString('de-CH')} CHF brutto monatlich). Über 13 Monatsgehälter ergibt das ${grossYearLabel} brutto pro Jahr. Nach Quellensteuer (~10 % im ${eCanton} für Alleinstehende ohne unterhaltsberechtigte Kinder) und schweizerischen Sozialabzügen (AHV/IV/EO, ALV, BVG) bleiben rund ${netYearChfLabel} netto pro Jahr. Umgerechnet zu einem CHF/EUR-Kurs von ${fxRateLabel} (12-Monats-Durchschnitt der EZB, aktualisiert am 22. Mai 2026) sind das ${netYearEurLabel} an italienischer Kaufkraft.</p>` +
+   `<p>Um den realen Vorteil eines Engagements bei ${eCompany} zu quantifizieren, verwenden wir als Referenz ${eRole} am unteren Ende der mittleren Bandbreite (${grossMid.toLocaleString('de-CH')} CHF brutto monatlich). Über 13 Monatsgehälter ergibt das ${grossYearLabel} brutto pro Jahr. Nach Quellensteuer (~10 % im ${eCanton} für Alleinstehende ohne unterhaltsberechtigte Kinder) und schweizerischen Sozialabzügen (AHV/IV/EO, ALV, BVG) bleiben rund ${netYearChfLabel} netto pro Jahr. Umgerechnet zu einem CHF/EUR-Kurs von ${fxRateLabel} (lokaler EZB-Snapshot, aktualisiert am ${fxDateLabel}) sind das ${netYearEurLabel} an italienischer Kaufkraft.</p>` +
    `<p>Dieselbe Rolle unter einem vergleichbaren italienischen GAV erreicht selten EUR 28’000 netto jährlich. Der Vorteil im Tessin ist also real, aber ziehen Sie grenzgänger-spezifische Kosten ab: Treibstoff und Fahrzeugverschleiss (~CHF 3’000–5’000/Jahr), Mitarbeiterparkplatz, optionale ergänzende KVG-Prämien, falls vom Arbeitgeber verlangt. Für eine personalisierte Simulation mit Alter, Familienstand und Wohnort nutzen Sie den <a href="${calc}">Lohnrechner</a>; um andere Arbeitgeber im Sektor ${eSector} zu finden, besuchen Sie die <a href="${sectorHub}">${eCanton}-Stellenbörse</a>.</p>` +
    `</section>`
   );
@@ -462,7 +490,7 @@ export function renderCompanyHubFrontalierContext(
   );
   blocks.push(
    `<section class="s-7uP4UM"><h2>Salaire moyen dans le secteur de ${eCompany} : scenario CHF→EUR</h2>` +
-   `<p>Pour quantifier le gain reel d’une embauche chez ${eCompany}, nous prenons comme reference ${eRole} en bas de la fourchette intermediaire (${grossMid.toLocaleString('fr-CH')} CHF brut mensuel). Sur 13 mois, cela donne ${grossYearLabel} brut par an. Apres impôt à la source (~10 % dans le ${eCanton} pour un celibataire sans personne a charge) et charges sociales suisses (AVS/AI/APG, AC, LPP), il reste environ ${netYearChfLabel} net annuel. Converti a un taux CHF/EUR de ${fxRateLabel} (moyenne BCE sur 12 mois, mise a jour le 22 mai 2026), cela represente ${netYearEurLabel} de pouvoir d’achat italien.</p>` +
+   `<p>Pour quantifier le gain reel d’une embauche chez ${eCompany}, nous prenons comme reference ${eRole} en bas de la fourchette intermediaire (${grossMid.toLocaleString('fr-CH')} CHF brut mensuel). Sur 13 mois, cela donne ${grossYearLabel} brut par an. Apres impôt à la source (~10 % dans le ${eCanton} pour un celibataire sans personne a charge) et charges sociales suisses (AVS/AI/APG, AC, LPP), il reste environ ${netYearChfLabel} net annuel. Converti a un taux CHF/EUR de ${fxRateLabel} (snapshot BCE local mis a jour le ${fxDateLabel}), cela represente ${netYearEurLabel} de pouvoir d’achat italien.</p>` +
    `<p>Le même poste, sous une convention collective italienne comparable, depasse rarement EUR 28’000 net par an. L’avantage tessinois est reel, mais retranchez les coûts spécifiques au frontalierat : carburant et usure du vehicule (~CHF 3’000–5’000/an), parking d’entreprise eventuel, primes LAMal complementaires si exigees par l’employeur. Pour une simulation personnalisee tenant compte de votre age, situation familiale et ville de residence, utilisez le <a href="${calc}">calculateur de salaire</a> ; pour decouvrir d’autres employeurs du secteur ${eSector}, consultez le <a href="${sectorHub}">job board ${eCanton}</a>.</p>` +
    `</section>`
   );
