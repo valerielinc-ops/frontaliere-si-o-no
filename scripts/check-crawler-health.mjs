@@ -70,6 +70,14 @@ const HEALTH_ISSUES_PATH = path.join(ROOT, 'data', 'crawler-health-issues.json')
 const STALE_AFTER_DAYS = 7;
 const BROKEN_AFTER_EMPTY_RUNS = 3;
 const MS_PER_DAY = 24 * 60 * 60 * 1000;
+const EMPTY_OK_CRAWLERS = new Set([
+  // Current source page explicitly reports no open offers; a fresh successful
+  // crawl is the useful health signal.
+  'csvp-poschiavo',
+  // Dedicated regional Zurich Insurance search can legitimately return zero
+  // TI/GR openings while the crawler and source are healthy.
+  'zurich-insurance-sede-ticino',
+]);
 
 /** Read JSON file, return null on any error. */
 async function readJsonSafe(filePath) {
@@ -99,7 +107,7 @@ async function listCrawlerSlugs() {
  * Inspect one crawler and return derived facts.
  *
  * Reads:
- *   - `data/jobs/by-crawler/{slug}.json`            → jobCount + fallback timestamp
+ *   - `data/jobs/by-crawler/{slug}.json`            → activeJobCount + fallback timestamp
  *   - `data/jobs-crawler-summaries/by-crawler/{slug}.json` → primary timestamp
  *
  * Returns null if the by-crawler slice cannot be read/parsed (caller logs +
@@ -107,7 +115,7 @@ async function listCrawlerSlugs() {
  * `assembledAt`.
  *
  * Returns `{ slug, freshnessAt, freshnessSource, assembledAt, generatedAt,
- * jobCount }`:
+ * jobCount, activeJobCount }`:
  *   - `freshnessAt` is the timestamp the stale gate compares against
  *     (summary `generatedAt` when present, otherwise by-crawler `assembledAt`).
  *   - `freshnessSource` is `'summary' | 'by-crawler' | 'mtime' | 'none'`.
@@ -121,17 +129,17 @@ async function inspectCrawler(slug) {
   }
 
   // Tolerate any shape: array of jobs OR { jobs: [...] } OR { entries: [...] }.
-  let jobCount = 0;
+  let activeJobCount = 0;
   if (Array.isArray(data)) {
-    jobCount = data.length;
+    activeJobCount = data.length;
   } else if (data && Array.isArray(data.jobs)) {
-    jobCount = data.jobs.length;
+    activeJobCount = data.jobs.length;
   } else if (data && Array.isArray(data.entries)) {
-    jobCount = data.entries.length;
+    activeJobCount = data.entries.length;
   } else if (data && typeof data === 'object') {
     // Best-effort: count any array property at the top level.
     for (const v of Object.values(data)) {
-      if (Array.isArray(v) && v.length > jobCount) jobCount = v.length;
+      if (Array.isArray(v) && v.length > activeJobCount) activeJobCount = v.length;
     }
   }
 
@@ -160,6 +168,15 @@ async function inspectCrawler(slug) {
     summary && typeof summary === 'object' && typeof summary.generatedAt === 'string'
       ? summary.generatedAt
       : null;
+  const summaryTotal =
+    summary && typeof summary === 'object' && Number.isFinite(Number(summary.total))
+      ? Number(summary.total)
+      : null;
+  // For crawler health, count what the crawler found, not what later
+  // housekeeping kept in the active slice. URL cleanup has its own failure
+  // surface; otherwise a cleanup false positive is mislabeled as a parser
+  // returning zero jobs.
+  const jobCount = summaryTotal ?? activeJobCount;
 
   let freshnessAt;
   let freshnessSource;
@@ -186,6 +203,7 @@ async function inspectCrawler(slug) {
     assembledAt,
     generatedAt,
     jobCount,
+    activeJobCount,
   };
 }
 
@@ -206,8 +224,9 @@ function nextCrawlerState(prev, observation, nowIso, nowMs) {
   const hadPriorState = Boolean(prev);
   const lastObservedJobs = observation.jobCount;
 
+  const emptyOk = EMPTY_OK_CRAWLERS.has(observation.slug);
   const consecutiveEmptyRuns =
-    lastObservedJobs > 0 ? 0 : (previous.consecutiveEmptyRuns ?? 0) + 1;
+    lastObservedJobs > 0 || emptyOk ? 0 : (previous.consecutiveEmptyRuns ?? 0) + 1;
 
   const lastNonZeroJobs =
     lastObservedJobs > 0 ? lastObservedJobs : (previous.lastNonZeroJobs ?? 0);
@@ -241,10 +260,12 @@ function nextCrawlerState(prev, observation, nowIso, nowMs) {
 
   let status = 'healthy';
   let reason = null;
-
   if (freshnessAgeDays > STALE_AFTER_DAYS) {
     status = 'stale';
     reason = `crawler not run in ${Math.round(freshnessAgeDays)} days (freshnessAt=${freshnessAt ?? 'unknown'}, source=${freshnessSource})`;
+  } else if (lastObservedJobs === 0 && emptyOk) {
+    status = 'healthy';
+    reason = null;
   } else if (consecutiveEmptyRuns >= BROKEN_AFTER_EMPTY_RUNS) {
     status = 'broken';
     reason = `${consecutiveEmptyRuns} consecutive runs returned 0 jobs`;

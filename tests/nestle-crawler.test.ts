@@ -6,6 +6,7 @@ import {
   isTrustedDomain,
 } from '../scripts/lib/nestle-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
+import { detectSuccessFactorsKind } from '../scripts/lib/ats-clients/successfactors-client.mjs';
 
 describe('Nestlé crawler parser', () => {
   // ── Constants ──
@@ -26,6 +27,10 @@ describe('Nestlé crawler parser', () => {
 
     it('matches by URL domain', () => {
       expect(isNestleJob({ url: 'https://nestle.ch/jobs/123' })).toBe(true);
+    });
+
+    it('matches by current SuccessFactors URL domain', () => {
+      expect(isNestleJob({ url: 'https://jobdetails.nestle.com/job/Orbe-Test/123/' })).toBe(true);
     });
 
     it('rejects unrelated jobs', () => {
@@ -49,6 +54,10 @@ describe('Nestlé crawler parser', () => {
       expect(isTrustedDomain('https://careers.nestle.ch/job/456')).toBe(true);
     });
 
+    it('trusts current SuccessFactors job details host', () => {
+      expect(isTrustedDomain('https://jobdetails.nestle.com/job/Orbe-Test/123/')).toBe(true);
+    });
+
     it('rejects other domains', () => {
       expect(isTrustedDomain('https://example.com/jobs')).toBe(false);
     });
@@ -56,6 +65,16 @@ describe('Nestlé crawler parser', () => {
     it('handles invalid URLs', () => {
       expect(isTrustedDomain('')).toBe(false);
       expect(isTrustedDomain('not-a-url')).toBe(false);
+    });
+  });
+
+  describe('SuccessFactors routing', () => {
+    it('classifies Nestlé jobdetails search as a jobs2web SuccessFactors page', () => {
+      expect(detectSuccessFactorsKind('https://jobdetails.nestle.com/search/?q=&locationsearch=Switzerland')).toBe('html-jobreq');
+    });
+
+    it('classifies Nestlé jobdetails detail pages as SuccessFactors pages', () => {
+      expect(detectSuccessFactorsKind('https://jobdetails.nestle.com/job/Orbe-R%26D-Specialist/1377556533/')).toBe('html-jobreq');
     });
   });
 

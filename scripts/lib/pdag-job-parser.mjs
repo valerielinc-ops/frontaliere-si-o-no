@@ -27,6 +27,7 @@ const parser = createUmantisListingParser({
   defaultPostalCode: '5210',
   publicCareerUrl: 'https://www.pdag.ch/de/karriere.html',
   defaultSourceLang: 'de',
+  canonicalUrlMode: 'application',
 });
 
 export const fetchAllPdagJobs = parser.fetchAllJobs;
