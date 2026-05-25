@@ -24581,4 +24581,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'frontaliere-mutuo-casa-svizzera-requisiti',
+ category: 'pratico',
+ date: '2026-05-25T08:53:55.803Z',
+ image: '/images/blog/frontaliere-mutuo-casa-svizzera-requisiti.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

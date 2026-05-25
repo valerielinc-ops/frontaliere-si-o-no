@@ -7734,6 +7734,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.frontaliere-assicurazione-auto-svizzera-italia.title': 'Frontalierer: Kfz-Versicherung Schweiz vs. Italien',
     'blog.article.frontaliere-assicurazione-auto-svizzera-italia.excerpt': 'Vergleich der Kosten, Leistungen und Schäden für Grenzgänger, die in der Schweiz arbeiten und in Italien wohnen',
     'blog.article.frontaliere-assicurazione-auto-svizzera-italia.imageAlt': 'Ausblick auf den Luganersee mit umliegenden Bergen und Gebäuden',
+    'blog.article.frontaliere-mutuo-casa-svizzera-requisiti.title': 'Frontalier: Hypothek für ein Haus in der Schweiz erhalten',
+    'blog.article.frontaliere-mutuo-casa-svizzera-requisiti.excerpt': 'Praktischer Leitfaden für Grenzgänger, die ein Haus in der Schweiz kaufen möchten: Voraussetzungen, Banken und Verfahren',
+    'blog.article.frontaliere-mutuo-casa-svizzera-requisiti.imageAlt': 'Person in Diskussion mit einer Schweizer Bank über eine Hypothek',
 };
 
 export default blogMetaDe;

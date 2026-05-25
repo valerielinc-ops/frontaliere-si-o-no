@@ -7736,6 +7736,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.frontaliere-assicurazione-auto-svizzera-italia.title': 'Frontaliers : Assurance Auto Suisse vs Italie',
     'blog.article.frontaliere-assicurazione-auto-svizzera-italia.excerpt': 'Comparaison des coûts, des couvertures et des sinistres pour ceux qui travaillent en Suisse et résident en Italie',
     'blog.article.frontaliere-assicurazione-auto-svizzera-italia.imageAlt': 'Vue du Lac de Lugano avec les montagnes et les bâtiments environnants',
+    'blog.article.frontaliere-mutuo-casa-svizzera-requisiti.title': 'Frontaliers : comment obtenir un prêt immobilier en Suisse',
+    'blog.article.frontaliere-mutuo-casa-svizzera-requisiti.excerpt': 'Guide pratique pour les frontaliers qui veulent acheter une maison en Suisse : exigences, banques et démarches à suivre',
+    'blog.article.frontaliere-mutuo-casa-svizzera-requisiti.imageAlt': 'Personne en discussion avec une banque suisse pour un prêt immobilier',
 };
 
 export default blogMetaFr;
