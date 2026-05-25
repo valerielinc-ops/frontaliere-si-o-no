@@ -1,21 +1,22 @@
 {
   "key": "leukerbad-clinic",
   "label": "Leukerbad Clinic",
-  "generatedAt": "2026-05-25T13:17:12.285Z",
+  "generatedAt": "2026-05-25T22:46:29.312Z",
   "total": 2,
-  "newCount": 2,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 1888,
-  "avgDurationMs": 1888,
+  "durationMs": 2743,
+  "avgDurationMs": 2743,
   "durationHistory": [
-    1888
+    2743
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
-      "id": "leukerbad-clinic-2bcf18b9fd5c",
-      "slug": "candidature-spontanee-leukerbad-clinic-loeche-les-bains",
+      "id": "leukerbad-clinic-97372b1445ea",
+      "slug": "candidature-spontanee-pour-un-stage-dans-les-soins-leukerbad-clinic-loeche-les-bains",
       "company": "Leukerbad Clinic",
       "companyKey": "leukerbad-clinic",
       "companyDomain": "leukerbadclinic.ch",
@@ -39,19 +40,20 @@
       "applyUrl": "https://leukerbadclinic.ch/fr/page/jobs/",
       "source": "Leukerbad Clinic Dedicated Parser (Prismic REST API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-25T13:17:10.577Z",
+      "crawledAt": "2026-05-25T22:46:27.208Z",
       "needsRetranslation": true,
-      "_qualityScore": 53,
+      "firstSeenAt": "2026-05-25T13:17:10.577Z",
+      "_qualityScore": 70,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 7,
-        "translation": 4,
+        "translation": 21,
         "completeness": 17
       }
     },
     {
       "id": "leukerbad-clinic-121ff121f549",
-      "slug": "spontanbewerbung-fur-eine-stelle-als-diplomierte-r-physiotherapeut-in-leukerbad-clinic",
+      "slug": "spontanbewerbung-per-eine-stelle-come-diplomierte-r-physiotherapeut-in-leukerbad-clinic-leukerbad",
       "company": "Leukerbad Clinic",
       "companyKey": "leukerbad-clinic",
       "companyDomain": "leukerbadclinic.ch",
@@ -75,18 +77,18 @@
       "applyUrl": "https://leukerbadclinic.ch/de/page/jobs/",
       "source": "Leukerbad Clinic Dedicated Parser (Prismic REST API)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-25T13:17:10.577Z",
+      "crawledAt": "2026-05-25T22:46:27.208Z",
       "needsRetranslation": true,
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-25T13:17:10.577Z",
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 19,
         "completeness": 17
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": []
 }
