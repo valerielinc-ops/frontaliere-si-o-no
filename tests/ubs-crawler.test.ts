@@ -4,6 +4,7 @@ import {
   UBS_COMPANY_NAME,
   isUbsJob,
   isTrustedDomain,
+  __internals,
 } from '../scripts/lib/ubs-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
 
@@ -12,6 +13,20 @@ describe('UBS crawler parser', () => {
   it('exports valid company key and name', () => {
     expect(UBS_KEY).toBe('ubs');
     expect(UBS_COMPANY_NAME).toBe('UBS');
+  });
+
+  describe('Taleo token parsing', () => {
+    it('extracts the RFT token from the current hidden input shape', () => {
+      const html = `<input name="__RequestVerificationToken" type="hidden" value="abc-123" />`;
+
+      expect(__internals.extractRequestVerificationToken(html)).toBe('abc-123');
+    });
+
+    it('handles attributes before the token name', () => {
+      const html = `<input type='hidden' value='token-456' name='__RequestVerificationToken'>`;
+
+      expect(__internals.extractRequestVerificationToken(html)).toBe('token-456');
+    });
   });
 
   // ── isCompanyJob ──

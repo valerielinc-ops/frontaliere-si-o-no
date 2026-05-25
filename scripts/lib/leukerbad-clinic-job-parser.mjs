@@ -217,10 +217,12 @@ function buildJob(doc) {
       ? langPrefix
       : detectLang(description || title, 'fr');
 
-  // Build canonical URL. The Nuxt site exposes jobs at /{lang}/page/jobs/{uid}/
-  // We use the German page when source is de, otherwise fr.
+  // Build canonical URL. Leukerbad's Nuxt/Prismic site renders individual
+  // job documents only inside the listing page; /{lang}/page/jobs/{uid}/
+  // returns 404. Keep the source URL on the live language-specific listing so
+  // URL housekeeping does not expire valid Prismic jobs.
   const sitePath = sourceLang === 'de' ? 'de' : 'fr';
-  const publicUrl = `https://leukerbadclinic.ch/${sitePath}/page/jobs/${doc.uid || ''}/`;
+  const publicUrl = `https://leukerbadclinic.ch/${sitePath}/page/jobs/`;
   const urlForHash = `${PRISMIC_REPO}:${doc.id || doc.uid || title}`;
   const urlHash = createHash('sha1').update(urlForHash).digest('hex').slice(0, 12);
 

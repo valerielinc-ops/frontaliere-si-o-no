@@ -423,6 +423,12 @@ async function fetchUmantisDetail(detailUrl, title = '') {
  * @param {string} config.defaultPostalCode  Fallback postal code
  * @param {string} [config.publicCareerUrl]  Public career site URL (corporate site)
  * @param {string} [config.defaultSourceLang='de']
+ * @param {'detail'|'application'} [config.canonicalUrlMode='detail'] Which
+ *                                           Umantis URL should become job.url.
+ *                                           Some tenants redirect Description/*
+ *                                           pages to a generic career center
+ *                                           while Application/* remains the
+ *                                           stable live job endpoint.
  */
 export function createUmantisListingParser(config) {
   const {
@@ -437,6 +443,7 @@ export function createUmantisListingParser(config) {
     defaultPostalCode,
     publicCareerUrl,
     defaultSourceLang = 'de',
+    canonicalUrlMode = 'detail',
   } = config;
 
   const customBaseUrl = rawCustomBaseUrl
@@ -507,6 +514,7 @@ export function createUmantisListingParser(config) {
       const title = entry.title;
       const detailUrl = `${BASE_URL}/Vacancies/${entry.id}/Description/${langCode}`;
       const applyUrl = `${BASE_URL}/Vacancies/${entry.id}/Application/CheckLogin/${langCode}`;
+      const jobUrl = canonicalUrlMode === 'application' ? applyUrl : detailUrl;
 
       // Fetch detail page for rich description content. Pass the title so the
       // detail-validity check can reject content that doesn't belong to this
@@ -576,7 +584,7 @@ export function createUmantisListingParser(config) {
         needsRetranslation: true,
         location,
         canton,
-        url: detailUrl,
+        url: jobUrl,
         source: customBaseUrl
           ? `${companyName} Dedicated Parser (Umantis listing @ ${customBaseHost || customBaseUrl})`
           : `${companyName} Dedicated Parser (Umantis listing tenant ${tenantId})`,

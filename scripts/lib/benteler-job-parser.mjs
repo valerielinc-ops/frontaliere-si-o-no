@@ -47,6 +47,26 @@ function normalizeSpace(s = '') {
   return String(s || '').replace(/\s+/g, ' ').trim();
 }
 
+function isLikelyJobLink({ title = '', href = '' } = {}) {
+  const text = normalizeSpace(title);
+  const lowerText = text.toLowerCase();
+  const lowerHref = String(href || '').toLowerCase();
+
+  if (!text || text.length < 5) return false;
+  if (/^(more|apply now|click here to apply|faqs? and job offers)$/i.test(text)) return false;
+  if (/\b(opens in new window|job offers|faq|privacy|impressum|login|register|contact|about)\b/i.test(text)) {
+    return false;
+  }
+  if (/login|register|contact|about|impressum|datenschutz|privacy|faq/i.test(lowerHref)) return false;
+
+  return (
+    /\/job\//i.test(lowerHref) ||
+    /\/jobs\//i.test(lowerHref) ||
+    /jobid=|job_id=|jobreqid=|requisition|stellenangebot|karriere/i.test(lowerHref) ||
+    /\b(engineer|manager|specialist|technician|operator|mechanic|quality|logistics|praktik|intern|fach|leiter|mitarbeiter)\b/i.test(lowerText)
+  );
+}
+
 /* ── Company Matchers ──────────────────────────────────────── */
 
 /**
@@ -177,12 +197,12 @@ function parseCareerPageHtml(html = '') {
         const href = link.getAttribute('href') || '';
         const title = normalizeSpace(link.textContent || '');
 
-        if (!title || title.length < 5) continue;
-        if (seen.has(title.toLowerCase())) continue;
-        if (/login|register|contact|about|impressum|datenschutz/i.test(href)) continue;
-
-        seen.add(title.toLowerCase());
         const fullUrl = href.startsWith('http') ? href : `https://career.benteler.com${href.startsWith('/') ? '' : '/'}${href}`;
+        if (!isTrustedDomain(fullUrl)) continue;
+        if (!isLikelyJobLink({ title, href: fullUrl })) continue;
+        if (seen.has(fullUrl.toLowerCase())) continue;
+
+        seen.add(fullUrl.toLowerCase());
 
         // Check if this looks like a Swiss job
         const parent = link.closest('li, tr, div, article') || link.parentElement;
@@ -317,3 +337,8 @@ export async function fetchAllBentelerJobs() {
   console.log(`\n📋 Total Benteler jobs discovered: ${jobs.length}`);
   return jobs;
 }
+
+export const __internals = {
+  isLikelyJobLink,
+  parseCareerPageHtml,
+};

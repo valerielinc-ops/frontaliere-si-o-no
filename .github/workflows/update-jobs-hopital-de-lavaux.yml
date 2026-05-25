@@ -83,6 +83,7 @@ jobs:
       - name: Commit and push
         id: changes
         env:
+          GH_TOKEN: ${{ github.token }}
           SKIP_AI_TRANSLATION: ${{ github.event.inputs.skip_ai_translation || '0' }}
         run: bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Hôpital de Lavaux jobs (dedicated crawler)" data/jobs-crawler-adapters/
 

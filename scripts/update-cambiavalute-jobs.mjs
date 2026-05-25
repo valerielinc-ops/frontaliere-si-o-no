@@ -163,8 +163,24 @@ async function fetchListingPage(url, timeoutMs, userAgent) {
   }
 }
 
+async function fetchListingPageWithRetry(url, timeoutMs, userAgent, attempts = 3) {
+  let lastError = null;
+  for (let attempt = 1; attempt <= attempts; attempt += 1) {
+    try {
+      return await fetchListingPage(url, timeoutMs, userAgent);
+    } catch (err) {
+      lastError = err;
+      if (attempt >= attempts) break;
+      const delayMs = attempt * 1500;
+      console.warn(`⚠️ Listing fetch attempt ${attempt}/${attempts} failed: ${err?.message || err}. Retrying in ${delayMs}ms...`);
+      await new Promise((resolve) => setTimeout(resolve, delayMs));
+    }
+  }
+  throw lastError;
+}
+
 async function fetchCambiavalute() {
-  const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 12000;
+  const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 25000;
   const userAgent =
     process.env.JOBS_CRAWLER_USER_AGENT ||
     'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)';
@@ -173,7 +189,7 @@ async function fetchCambiavalute() {
 
   let html = '';
   try {
-    html = await fetchListingPage(CAMBIAVALUTE_LISTING_URL, timeoutMs, userAgent);
+    html = await fetchListingPageWithRetry(CAMBIAVALUTE_LISTING_URL, timeoutMs, userAgent);
   } catch (err) {
     console.error(`❌ Failed to fetch listing page: ${err?.message || err}`);
     throw err;

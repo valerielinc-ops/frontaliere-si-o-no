@@ -173,6 +173,17 @@ function inferCanton(city = '', region = '') {
   return inferAnyCanton(city) || inferAnyCanton(region) || '';
 }
 
+function extractRequestVerificationToken(html = '') {
+  const source = String(html || '');
+  const inputMatch = source.match(/<input\b[^>]*name=(["'])__RequestVerificationToken\1[^>]*>/i);
+  const input = inputMatch?.[0] || '';
+  const valueMatch = input.match(/\bvalue=(["'])([^"']+)\1/i);
+  if (valueMatch?.[2]) return valueMatch[2];
+
+  const looseMatch = source.match(/__RequestVerificationToken[\s\S]{0,300}?\bvalue=(["'])([^"']+)\1/i);
+  return looseMatch?.[2] || '';
+}
+
 /* ── Company Matchers ──────────────────────────────────────── */
 
 /**
@@ -282,12 +293,12 @@ async function bootstrapSession() {
 
     // Extract RFT from HTML
     const html = await res.text();
-    const rftMatch = html.match(/__RequestVerificationToken[^>]*value="([^"]+)"/);
-    if (!rftMatch) {
+    const rft = extractRequestVerificationToken(html);
+    if (!rft) {
       throw new Error('Could not extract CSRF token (RFT) from Taleo page');
     }
 
-    return { cookies: cookieStr, rft: rftMatch[1] };
+    return { cookies: cookieStr, rft };
   } catch (err) {
     clearTimeout(timer);
     throw err;
@@ -516,3 +527,7 @@ export async function fetchAllUbsJobs() {
   console.log(`\n📋 Total UBS Swiss jobs: ${jobs.length}`);
   return jobs;
 }
+
+export const __internals = {
+  extractRequestVerificationToken,
+};

@@ -361,6 +361,10 @@ async function main() {
     removedJobs: diff.removedJobs.slice(0, 30),
     unchangedJobs: (diff.unchangedJobs || []).slice(0, 30),
   });
+  if (process.env.CRAWLER_SLICE_ONLY === '1' || process.env.GITHUB_ACTIONS === 'true') {
+    console.log('📦 Slice-only run: skipping global dataset assembly (deploy assembles slices).');
+    return;
+  }
   await assembleJobsDataset();
 }
 

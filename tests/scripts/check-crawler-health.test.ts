@@ -135,6 +135,35 @@ describe('nextCrawlerState', () => {
     expect(reason).toMatch(/3 consecutive runs returned 0 jobs/);
   });
 
+  it('does not flag explicitly empty-ok crawlers when a fresh run finds zero jobs', () => {
+    const prev = {
+      lastSuccessfulRunAt: '2026-05-10T00:00:00.000Z',
+      lastNonZeroJobs: 1,
+      consecutiveEmptyRuns: 4,
+      lastFailureReason: '4 consecutive runs returned 0 jobs',
+      status: 'broken',
+      _lastObservedAt: new Date(NOW_MS - DAY_MS).toISOString(),
+      _lastObservedJobs: 0,
+      _lastObservedAssembledAt: new Date(NOW_MS - DAY_MS).toISOString(),
+    };
+    const { status, state, reason } = nextCrawlerState(
+      prev,
+      {
+        slug: 'csvp-poschiavo',
+        jobCount: 0,
+        freshnessAt: new Date(NOW_MS - 2 * 60 * 60 * 1000).toISOString(),
+        freshnessSource: 'summary',
+        generatedAt: new Date(NOW_MS - 2 * 60 * 60 * 1000).toISOString(),
+        assembledAt: new Date(NOW_MS - 2 * 60 * 60 * 1000).toISOString(),
+      },
+      NOW_ISO,
+      NOW_MS,
+    );
+    expect(status).toBe('healthy');
+    expect(reason).toBeNull();
+    expect(state.consecutiveEmptyRuns).toBe(0);
+  });
+
   it('flags stale when slice assembledAt is older than 7 days (regardless of empty streak)', () => {
     // heineken-ch fixture: slice from 8d ago.
     const { status, state, reason } = nextCrawlerState(

@@ -393,9 +393,20 @@ async function main() {
         console.log(`🧹 Slice housekeeping: checking ${kept.length} jobs (concurrency=${MAX_CONCURRENCY}, timeout=${TIMEOUT_MS}ms)`);
         const checks = await validateJobUrls(kept.map((j) => ({ id: j.id, url: j.url })), { concurrency: MAX_CONCURRENCY, timeoutMs: TIMEOUT_MS });
         const checkById = new Map(checks.map((c) => [c.id, c]));
+        const fallbackCandidates = kept
+          .filter((job) => {
+            const c = checkById.get(job.id);
+            return c?.valid === false && job.applyUrl && job.applyUrl !== job.url;
+          })
+          .map((job) => ({ id: job.id, url: job.applyUrl }));
+        const fallbackById = fallbackCandidates.length > 0
+          ? new Map((await validateJobUrls(fallbackCandidates, { concurrency: MAX_CONCURRENCY, timeoutMs: TIMEOUT_MS })).map((c) => [c.id, c]))
+          : new Map();
         kept = kept.filter((job) => {
           const c = checkById.get(job.id);
           if (c && c.valid === false) {
+            const fallback = fallbackById.get(job.id);
+            if (fallback && fallback.valid !== false) return true;
             if (isFreshProtected(job) && !c.definitive) return true;
             urlRemoved.push({ id: job.id, reason: c.reason });
             return false;
@@ -647,9 +658,23 @@ async function main() {
     );
 
     const checkById = new Map(checks.map((c) => [c.id, c]));
+    const fallbackCandidates = afterAgePrune
+      .filter((job) => {
+        const c = checkById.get(job.id);
+        return c?.valid === false && job.applyUrl && job.applyUrl !== job.url;
+      })
+      .map((job) => ({ id: job.id, url: job.applyUrl }));
+    const fallbackById = fallbackCandidates.length > 0
+      ? new Map((await validateJobUrls(fallbackCandidates, { concurrency: MAX_CONCURRENCY, timeoutMs: TIMEOUT_MS })).map((c) => [c.id, c]))
+      : new Map();
     for (const job of afterAgePrune) {
       const c = checkById.get(job.id);
       if (c && c.valid === false) {
+        const fallback = fallbackById.get(job.id);
+        if (fallback && fallback.valid !== false) {
+          kept.push(job);
+          continue;
+        }
         // Definitive signals (HTTP 404/410, explicit closure phrases, portal-specific)
         // bypass fresh protection — the job is unambiguously gone.
         if (isFreshProtected(job) && !c.definitive) {

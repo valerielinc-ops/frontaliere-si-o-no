@@ -190,6 +190,10 @@ export function detectSuccessFactorsKind(url) {
   if (host === 'careers.oerlikon.com') return 'html-jobreq';
   // HOCH Health Ostschweiz (KSSG group) — SF Career Site Builder
   if (host === 'jobs.h-och.ch') return 'html-jobreq';
+  // Nestlé global careers moved from Workday to SuccessFactors Career Site Builder.
+  if (host === 'jobdetails.nestle.com' && (/\/(?:search|job)\b/i.test(path) || path === '/')) {
+    return 'html-jobreq';
+  }
 
   return null;
 }
@@ -619,22 +623,33 @@ export async function* fetchSuccessFactorsJobs(careerUrl, options = {}) {
     // jobs2web-style search is server-rendered (Heineken, Mobiliar via sitemap).
     // SBB v2 detail pages have JSON-LD. The listing index for jobreqcareer
     // is a SPA — we accept a single page and parse what we can.
-    const res = await fetchOnce(careerUrl, {
-      timeoutMs,
-      userAgent,
-      accept: 'text/html,application/xhtml+xml',
-    });
-    const html = await res.text();
-    const ldJob = extractJsonLdJobPosting(html);
-    if (ldJob) {
-      const job = extractSuccessFactorsJobIdentity(ldJob, { company });
-      if (matchesLocation(job.location)) yield job;
-      return;
-    }
-    const rows = parseJobs2WebSearchRows(html, careerUrl);
-    for (const row of rows) {
-      const job = extractSuccessFactorsJobIdentity(row, { company });
-      if (matchesLocation(job.location)) yield job;
+    const seenJobIds = new Set();
+    for (let page = 0; page < maxPages; page++) {
+      const pageUrl = buildJobs2WebPageUrl(careerUrl, page);
+      const res = await fetchOnce(pageUrl, {
+        timeoutMs,
+        userAgent,
+        accept: 'text/html,application/xhtml+xml',
+      });
+      const html = await res.text();
+      const ldJob = extractJsonLdJobPosting(html);
+      if (ldJob) {
+        const job = extractSuccessFactorsJobIdentity(ldJob, { company });
+        if (matchesLocation(job.location)) yield job;
+        return;
+      }
+      const rows = parseJobs2WebSearchRows(html, pageUrl);
+      if (rows.length === 0) return;
+      for (const row of rows) {
+        const job = extractSuccessFactorsJobIdentity(row, { company });
+        if (job.jobReqId && seenJobIds.has(job.jobReqId)) continue;
+        if (job.jobReqId) seenJobIds.add(job.jobReqId);
+        if (matchesLocation(job.location)) {
+          yield job;
+        }
+      }
+      if (rows.length < 10) return;
+      if (page < maxPages - 1 && minDelayMs > 0) await sleep(minDelayMs);
     }
     return;
   }
@@ -649,6 +664,17 @@ function extractTenantFromHost(url) {
     return m ? m[1] : host;
   } catch {
     return '';
+  }
+}
+
+function buildJobs2WebPageUrl(url, page) {
+  if (page <= 0) return url;
+  try {
+    const parsed = new URL(url);
+    parsed.searchParams.set('startrow', String(page * 10));
+    return parsed.toString();
+  } catch {
+    return url;
   }
 }
 

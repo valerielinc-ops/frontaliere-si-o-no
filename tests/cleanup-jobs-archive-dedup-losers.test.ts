@@ -1,5 +1,6 @@
 import { spawn } from 'node:child_process';
 import fs from 'node:fs';
+import http from 'node:http';
 import os from 'node:os';
 import path from 'node:path';
 import { afterEach, describe, expect, it } from 'vitest';
@@ -43,6 +44,7 @@ interface CleanupSliceJob {
   postalCode?: string;
   streetAddress?: string;
   addressLocality?: string;
+  applyUrl?: string;
 }
 
 interface ExpiredEntry {
@@ -62,6 +64,32 @@ async function runCleanupSlice(slicePath: string, expiredDir: string): Promise<R
         JOBS_SLICE_FILE: slicePath,
         JOBS_SKIP_LOCALE_HARDENING: '1',
         JOBS_SKIP_URL_VALIDATION: '1',
+        JOBS_EXPIRED_SLICES_DIR: expiredDir,
+      },
+    });
+
+    let stdout = '';
+    let stderr = '';
+    child.stdout.on('data', (chunk) => {
+      stdout += chunk.toString();
+    });
+    child.stderr.on('data', (chunk) => {
+      stderr += chunk.toString();
+    });
+    child.on('error', rejectRun);
+    child.on('close', (code) => {
+      resolveRun({ code, stdout, stderr });
+    });
+  });
+}
+
+async function runCleanupSliceWithUrlValidation(slicePath: string, expiredDir: string): Promise<RunResult> {
+  return await new Promise<RunResult>((resolveRun, rejectRun) => {
+    const child = spawn(process.execPath, [SCRIPT_PATH], {
+      env: {
+        ...process.env,
+        JOBS_SLICE_FILE: slicePath,
+        JOBS_SKIP_LOCALE_HARDENING: '1',
         JOBS_EXPIRED_SLICES_DIR: expiredDir,
       },
     });
@@ -113,6 +141,53 @@ function buildJob(overrides: Partial<CleanupSliceJob> & Pick<CleanupSliceJob, 'i
 }
 
 describe('cleanup-jobs slice mode — archives within-slice slug-dedup losers', () => {
+  it('keeps a job when the canonical URL is dead but applyUrl is live', async () => {
+    const server = http.createServer((req, res) => {
+      if (req.url === '/apply') {
+        res.writeHead(200, { 'content-type': 'text/html' });
+        res.end('<html><body>Application form</body></html>');
+        return;
+      }
+      res.writeHead(404, { 'content-type': 'text/html' });
+      res.end('<html><body>Not found</body></html>');
+    });
+    await new Promise<void>((resolve) => server.listen(0, '127.0.0.1', resolve));
+
+    try {
+      const address = server.address();
+      if (!address || typeof address === 'string') throw new Error('test server did not bind to a port');
+      const baseUrl = `http://127.0.0.1:${address.port}`;
+      const dir = makeTempDir();
+      const slicePath = path.join(dir, 'apply-url-fallback.json');
+      const expiredDir = path.join(dir, 'expired');
+      const crawlerKey = `apply-url-fallback-${Date.now()}`;
+      const jobs: CleanupSliceJob[] = [
+        buildJob({
+          id: 'job-apply-url-001',
+          slug: 'nurse-live-apply',
+          title: 'Nurse With Live Apply URL',
+          crawledAt: new Date().toISOString(),
+          url: `${baseUrl}/dead-detail`,
+          applyUrl: `${baseUrl}/apply`,
+        }),
+      ];
+
+      fs.writeFileSync(slicePath, JSON.stringify({ crawlerKey, jobs }, null, 2), 'utf-8');
+
+      const result = await runCleanupSliceWithUrlValidation(slicePath, expiredDir);
+      const output = result.stdout + result.stderr;
+      expect(result.code, output).toBe(0);
+
+      const sliceParsed = JSON.parse(fs.readFileSync(slicePath, 'utf-8'));
+      const keptJobs: CleanupSliceJob[] = Array.isArray(sliceParsed?.jobs) ? sliceParsed.jobs : sliceParsed;
+      expect(keptJobs).toHaveLength(1);
+      expect(keptJobs[0].id).toBe('job-apply-url-001');
+      expect(output).toContain('Slice clean');
+    } finally {
+      await new Promise<void>((resolve) => server.close(() => resolve()));
+    }
+  });
+
   it('moves losers to expired/by-crawler with disambiguated slugs and previousSlugs[]', async () => {
     const dir = makeTempDir();
     const slicePath = path.join(dir, 'archive-slice-test.json');

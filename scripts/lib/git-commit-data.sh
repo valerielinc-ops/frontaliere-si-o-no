@@ -630,6 +630,27 @@ abort_if_conflict_markers_staged() {
 git config user.name  "github-actions[bot]"
 git config user.email "github-actions[bot]@users.noreply.github.com"
 
+# ── 2b. Keep Git auth explicit across retry/rebase paths ───────────────────
+# actions/checkout normally persists an HTTP extraheader, but the crawler
+# commit loop does several fetch/pull/push retries after long-running jobs. Make
+# the token source explicit so retries do not depend on checkout's implicit
+# credential state.
+CHECKOUT_GIT_EXTRAHEADER="$(git config --local --get http.https://github.com/.extraheader 2>/dev/null || true)"
+ensure_git_auth() {
+  local token="${GH_TOKEN:-${GITHUB_TOKEN:-}}"
+  local encoded
+
+  if [ -n "$token" ]; then
+    encoded="$(printf 'x-access-token:%s' "$token" | base64 | tr -d '\n')"
+    git config --local http.https://github.com/.extraheader "AUTHORIZATION: basic ${encoded}"
+    return 0
+  fi
+
+  if [ -n "$CHECKOUT_GIT_EXTRAHEADER" ]; then
+    git config --local http.https://github.com/.extraheader "$CHECKOUT_GIT_EXTRAHEADER"
+  fi
+}
+
 # ── 3+4 loop: Sync, align, commit, push (with retry on race conditions) ────
 MAX_PUSH_ATTEMPTS=8
 push_attempt=0
@@ -637,6 +658,7 @@ push_attempt=0
 while true; do
 
 # ── 3. Sync with remote (stash → rebase → pop → merge if needed) ──────────
+ensure_git_auth
 git fetch origin main
 LOCAL=$(git rev-parse HEAD)
 REMOTE=$(git rev-parse origin/main)
@@ -651,9 +673,11 @@ if [ "$LOCAL" != "$REMOTE" ]; then
   # Stash local changes so rebase can proceed cleanly
   git stash --include-untracked
 
+  ensure_git_auth
   if ! git pull --rebase origin main; then
     git rebase --abort 2>/dev/null || true
     echo "⚠️ Fast-rebase failed — pulling with merge..."
+    ensure_git_auth
     git pull --no-rebase origin main || true
   fi
 
@@ -754,6 +778,7 @@ abort_if_conflict_markers_staged "pre-commit"
 git commit -m "$COMMIT_MSG"
 
 # Last-moment rebase: fetch latest remote right before push to minimise race window
+ensure_git_auth
 git fetch origin main
 if ! git rebase origin/main 2>/dev/null; then
   echo "⚠️ Last-moment rebase conflict — resolving with 3-way JSON merge..."
@@ -764,6 +789,7 @@ if ! git rebase origin/main 2>/dev/null; then
 
   # Re-pull with merge strategy to get remote changes
   git stash --include-untracked 2>/dev/null || true
+  ensure_git_auth
   git pull --no-rebase origin main || true
 
   restore_stashed_changes_with_safe_merge \
@@ -793,6 +819,7 @@ fi
 
 # Push — if rejected, undo commit and re-run sync from step 3
 push_attempt=$((push_attempt + 1))
+ensure_git_auth
 if git push origin main; then
   echo "✅ Pushed successfully"
 

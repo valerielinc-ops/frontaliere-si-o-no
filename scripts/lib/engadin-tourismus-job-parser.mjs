@@ -25,6 +25,11 @@ export const ENGADIN_TOURISMUS_COMPANY_DOMAIN = 'engadintourismus.ch';
 
 export const MIN_DESC_LENGTH = 100;
 
+function createDocument(html = '') {
+  const sanitized = String(html || '').replace(/<style\b[\s\S]*?<\/style>/gi, '');
+  return new JSDOM(sanitized).window.document;
+}
+
 /* ── Job identification ───────────────────────────────────── */
 
 export function isEngadinTourismusJob(job = {}) {
@@ -55,7 +60,7 @@ export function isTrustedDomain(rawUrl = '') {
  */
 function parseListingPage(html = '') {
   if (!html) return [];
-  const { document } = new JSDOM(html).window;
+  const document = createDocument(html);
   const jobs = [];
   const seen = new Set();
 
@@ -100,7 +105,7 @@ function parseListingPage(html = '') {
 function parseDetailPage(html = '') {
   if (!html) return '';
 
-  const { document } = new JSDOM(html).window;
+  const document = createDocument(html);
 
   const BODY_SELECTORS = [
     '.frame-type-text',
@@ -232,3 +237,9 @@ export async function fetchAllEngadinTourismusJobs() {
   console.log(`  Total Engadin Tourismus jobs discovered: ${jobs.length}`);
   return jobs;
 }
+
+export const __internals = {
+  createDocument,
+  parseListingPage,
+  parseDetailPage,
+};
