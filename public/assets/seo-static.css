@@ -1203,6 +1203,222 @@ main.seo-static-content { max-width: 1120px; margin: 0 auto; display: grid; gap:
 .s-u4apOs { margin:0 0 0 }
 .s-U5Q4dL { max-width:1100px;margin:32px auto 0;padding:0 20px }
 .s-U89jtE { max-width:1100px;margin:16px auto 0;padding:0 20px;line-height:1.9 }
+
+aside.seo-footer-block {
+  max-width:1100px;
+  margin:24px auto 56px;
+  padding:24px 20px 0;
+  font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  color:var(--color-body);
+  line-height:1.65;
+  border-top:1px solid var(--color-edge);
+}
+aside.seo-footer-block .seo-fb-title {
+  font-size:18px;
+  font-weight:700;
+  color:var(--color-heading);
+  margin:0 0 10px;
+}
+aside.seo-footer-block .seo-fb-intro {
+  font-size:14px;
+  color:var(--color-subtle);
+  margin:0 0 16px;
+  max-width:70ch;
+}
+aside.seo-footer-block details {
+  border-top:1px solid var(--color-edge);
+}
+aside.seo-footer-block details:first-of-type {
+  border-top:none;
+}
+aside.seo-footer-block summary,
+.company-hub-seo-details summary {
+  cursor:pointer;
+  font-size:15px;
+  font-weight:600;
+  color:var(--color-heading);
+  list-style:none;
+  padding:12px 32px 12px 0;
+  position:relative;
+  user-select:none;
+}
+aside.seo-footer-block summary::-webkit-details-marker,
+.company-hub-seo-details summary::-webkit-details-marker {
+  display:none;
+}
+aside.seo-footer-block summary::after,
+.company-hub-seo-details summary::after {
+  content:"+";
+  position:absolute;
+  right:4px;
+  top:50%;
+  transform:translateY(-50%);
+  font-size:20px;
+  font-weight:400;
+  color:var(--color-subtle);
+}
+aside.seo-footer-block details[open] summary::after,
+.company-hub-seo-details[open] summary::after {
+  content:"-";
+}
+aside.seo-footer-block summary:hover,
+.company-hub-seo-details summary:hover {
+  color:var(--color-link);
+}
+aside.seo-footer-block summary:focus-visible,
+.company-hub-seo-details summary:focus-visible {
+  outline:2px solid var(--color-accent);
+  outline-offset:2px;
+  border-radius:4px;
+}
+aside.seo-footer-block .seo-fb-section-body,
+.company-hub-seo-body {
+  padding:4px 0 18px;
+  color:var(--color-body);
+}
+aside.seo-footer-block .seo-fb-section-body p,
+.company-hub-seo-body p {
+  margin:0 0 12px;
+  font-size:14px;
+  line-height:1.65;
+  color:var(--color-body);
+}
+aside.seo-footer-block .seo-fb-section-body p:last-child,
+.company-hub-seo-body p:last-child {
+  margin-bottom:0;
+}
+aside.seo-footer-block .seo-fb-cards {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:12px;
+  margin:0 0 14px;
+}
+aside.seo-footer-block .seo-fb-card {
+  background:var(--color-surface-alt);
+  border:1px solid var(--color-edge);
+  border-radius:12px;
+  padding:14px;
+}
+aside.seo-footer-block .seo-fb-card h3 {
+  font-size:14px;
+  font-weight:700;
+  margin:0 0 6px;
+  color:var(--color-heading);
+}
+aside.seo-footer-block .seo-fb-card p {
+  margin:0;
+  font-size:13px;
+  color:var(--color-body);
+  line-height:1.5;
+}
+aside.seo-footer-block dl,
+.company-hub-seo-body dl {
+  margin:0;
+}
+aside.seo-footer-block dt,
+.company-hub-seo-body dt {
+  font-weight:600;
+  color:var(--color-heading);
+  margin:12px 0 4px;
+  font-size:14px;
+}
+aside.seo-footer-block dt:first-child,
+.company-hub-seo-body dt:first-child {
+  margin-top:0;
+}
+aside.seo-footer-block dd,
+.company-hub-seo-body dd {
+  margin:0 0 12px;
+  color:var(--color-body);
+  font-size:14px;
+  line-height:1.65;
+}
+aside.seo-footer-block .seo-fb-disclaimer {
+  margin:18px 0 0;
+  padding-top:12px;
+  border-top:1px solid var(--color-edge);
+  font-size:12px;
+  color:var(--color-subtle);
+  font-style:italic;
+}
+aside.seo-footer-block p a,
+aside.seo-footer-block dd a,
+aside.seo-footer-block .seo-fb-section-body a,
+.company-hub-seo-body a {
+  text-decoration:underline;
+  text-underline-offset:2px;
+  text-decoration-thickness:1px;
+}
+aside.seo-footer-block p a:hover,
+aside.seo-footer-block dd a:hover,
+aside.seo-footer-block .seo-fb-section-body a:hover,
+.company-hub-seo-body a:hover {
+  text-decoration-thickness:2px;
+}
+.company-hub-seo-details {
+  margin:0 0 12px;
+  border-top:1px solid var(--color-edge);
+}
+.company-hub-seo-details:first-of-type {
+  border-top:none;
+}
+.job-archive-cta {
+  max-width:1100px;
+  margin:24px auto 0;
+  padding:16px 20px;
+  font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  color:var(--color-heading);
+  line-height:1.6;
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  justify-content:space-between;
+  gap:14px;
+  border:1px solid var(--color-accent-border);
+  border-radius:14px;
+  background:var(--color-accent-subtle);
+}
+.job-archive-cta p {
+  margin:0;
+  display:grid;
+  gap:2px;
+  min-width:220px;
+  flex:1 1 360px;
+}
+.job-archive-cta strong {
+  font-size:15px;
+  color:var(--color-heading);
+}
+.job-archive-cta span {
+  font-size:13px;
+  color:var(--color-subtle);
+}
+.job-archive-cta nav {
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+}
+.job-archive-cta a {
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:38px;
+  padding:8px 13px;
+  border-radius:10px;
+  background:var(--color-surface);
+  color:var(--color-link);
+  border:1px solid var(--color-accent-border);
+  text-decoration:none;
+  font-weight:700;
+  font-size:14px;
+}
+.job-archive-cta a:hover {
+  border-color:var(--color-accent);
+}
+.job-archive-cta a:focus-visible {
+  outline:2px solid var(--color-accent);
+  outline-offset:2px;
+}
 .s-U9K6Vf { color:var(--color-link);text-decoration:none }
 .s-uaMy8e { margin:0 0 6px 0;font-size:15px;color:var(--color-heading) }
 .s-UBICn_ { margin-top:1.25rem }
