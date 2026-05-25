@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2621,
+ "numberOfItems": 2622,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7261,7 +7261,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2618, "name": "Assegno Inclusione: date lavorazioni e pagament...", "url": `${BASE_URL}/articoli-frontaliere/assegno-inclusione-maggio-2026-ricarica-ordinaria` },
           { "@type": "ListItem", "position": 2619, "name": "Il municipio e le aziende, per conoscersi meglio", "url": `${BASE_URL}/articoli-frontaliere/il-municipio-e-le-aziende-per-conoscersi-meglio` },
           { "@type": "ListItem", "position": 2620, "name": "Orario di lavoro settimanale in Svizzera: 40 or...", "url": `${BASE_URL}/articoli-frontaliere/orario-lavoro-settimanale-svizzera-2025` },
-          { "@type": "ListItem", "position": 2621, "name": "Regime fiscale frontalieri in Svizzera", "url": `${BASE_URL}/articoli-frontaliere/regime-fiscale-frontaliere-svizzera` }
+          { "@type": "ListItem", "position": 2621, "name": "Regime fiscale frontalieri in Svizzera", "url": `${BASE_URL}/articoli-frontaliere/regime-fiscale-frontaliere-svizzera` },
+          { "@type": "ListItem", "position": 2622, "name": "Lavoro a Chiasso: Opportunità per i Frontalieri", "url": `${BASE_URL}/articoli-frontaliere/lavoro-chiasso-opportunita-frontalieri` }
  ]
  },
  {

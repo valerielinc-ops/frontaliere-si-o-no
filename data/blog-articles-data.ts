@@ -24473,4 +24473,13 @@ export const ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'lavoro-chiasso-opportunita-frontalieri',
+ category: 'pratico',
+ date: '2026-05-25T07:03:23.562Z',
+ image: '/images/blog/lavoro-chiasso-opportunita-frontalieri.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

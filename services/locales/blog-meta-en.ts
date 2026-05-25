@@ -7699,6 +7699,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.regime-fiscale-frontaliere-svizzera.title': 'Tax Regime for Cross-Border Workers in Switzerland',
     'blog.article.regime-fiscale-frontaliere-svizzera.excerpt': 'An in-depth look at the tax regime for cross-border workers in Switzerland, focusing on withholding taxes, agreements, and reimbursements.',
     'blog.article.regime-fiscale-frontaliere-svizzera.imageAlt': 'Panoramic view of Lake Lugano and the Swiss-Italian border',
+    'blog.article.lavoro-chiasso-opportunita-frontalieri.title': 'Jobs in Chiasso: Opportunities for Cross‑Border Workers',
+    'blog.article.lavoro-chiasso-opportunita-frontalieri.excerpt': 'Discover job opportunities in Chiasso for cross‑border workers, with details on permits, taxation and the benefits of working in Ticino.',
+    'blog.article.lavoro-chiasso-opportunita-frontalieri.imageAlt': 'Frontier workers in Chiasso, Ticino, with modern office buildings and the Swiss-Italian border in the background.',
 };
 
 export default blogMetaEn;

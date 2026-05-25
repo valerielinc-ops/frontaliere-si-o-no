@@ -7700,6 +7700,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.regime-fiscale-frontaliere-svizzera.title': 'Regime fiscale frontalieri in Svizzera',
     'blog.article.regime-fiscale-frontaliere-svizzera.excerpt': 'Approfondimento sul regime fiscale dei frontalieri in Svizzera, con focus su imposte alla fonte, accordi e ristorni.',
     'blog.article.regime-fiscale-frontaliere-svizzera.imageAlt': 'Vista panoramica del Lago di Lugano e confine svizzero-italiano',
+    'blog.article.lavoro-chiasso-opportunita-frontalieri.title': 'Lavoro a Chiasso: Opportunità per i Frontalieri',
+    'blog.article.lavoro-chiasso-opportunita-frontalieri.excerpt': 'Scopri le opportunità di lavoro a Chiasso per i frontalieri, con dettagli su permessi, fiscalità e vantaggi del lavorare in Ticino.',
+    'blog.article.lavoro-chiasso-opportunita-frontalieri.imageAlt': 'Professionisti frontalieri che lavorano a Chiasso, Ticino, con uffici moderni e il confine svizzero-italiano sullo sfondo.',
 };
 
 export default blogMetaIt;

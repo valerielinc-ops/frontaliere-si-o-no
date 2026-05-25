@@ -3809,6 +3809,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-il-municipio-e-le-aziende-per-conoscersi-meglio': { name: 'Eventi', path: '/articoli-frontaliere/il-municipio-e-le-aziende-per-conoscersi-meglio', parent: 'blog' },
     'blog-orario-lavoro-settimanale-svizzera-2025': { name: 'Orario di lavoro settimanale in Svizzera', path: '/articoli-frontaliere/orario-lavoro-settimanale-svizzera-2025', parent: 'blog' },
     'blog-regime-fiscale-frontaliere-svizzera': { name: 'fiscale', path: '/articoli-frontaliere/regime-fiscale-frontaliere-svizzera', parent: 'blog' },
+    'blog-lavoro-chiasso-opportunita-frontalieri': { name: 'Lavoro a Chiasso', path: '/articoli-frontaliere/lavoro-chiasso-opportunita-frontalieri', parent: 'blog' },
  };
 
  const info = sectionNames[section];

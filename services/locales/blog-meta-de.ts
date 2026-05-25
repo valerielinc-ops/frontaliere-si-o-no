@@ -7698,6 +7698,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.regime-fiscale-frontaliere-svizzera.title': 'Steuermodell für Grenzgänger in der Schweiz',
     'blog.article.regime-fiscale-frontaliere-svizzera.excerpt': 'Vertiefung zum steuerlichen Regime der Grenzgänger in der Schweiz, mit Fokus auf Quellensteuer, Abkommen und Rückvergütungen.',
     'blog.article.regime-fiscale-frontaliere-svizzera.imageAlt': 'Panoramablick auf den Lago di Lugano und die Schweizer-italienische Grenze',
+    'blog.article.lavoro-chiasso-opportunita-frontalieri.title': 'Arbeit in Chiasso: Chancen für Grenzgänger',
+    'blog.article.lavoro-chiasso-opportunita-frontalieri.excerpt': 'Entdecke die Arbeitsmöglichkeiten in Chiasso für Grenzgänger, mit Details zu Genehmigungen, Steuern und Vorteilen des Arbeitens in Tessin.',
+    'blog.article.lavoro-chiasso-opportunita-frontalieri.imageAlt': 'Grenzpendler in Chiasso, Tessin, mit modernen Bürogebäuden und der Schweizer-Italienischen Grenze im Hintergrund.',
 };
 
 export default blogMetaDe;
