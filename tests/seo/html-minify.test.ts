@@ -168,10 +168,8 @@ describe('minifyHtml — real-world structure', () => {
 </html>`;
     const out = minifyHtml(input);
 
-    // Structural assertions. Quote-flexible matchers retained from the
-    // PR #478 quote-removal experiment so the test still passes if quote
-    // removal is re-enabled in the future (after the audit-quote-flex
-    // migration described in build-plugins/shared/htmlMinify.ts).
+    // Structural assertions use quote-flexible matchers because the minifier
+    // removes quotes from HTML5-safe attribute values.
     expect(out).toContain('<!DOCTYPE html>');
     expect(out).toMatch(/<html\s+lang=["']?it["']?>/);
     expect(out).toContain('<title>Test · rif. stabio</title>');
@@ -197,18 +195,11 @@ describe('minifyHtml — real-world structure', () => {
   });
 });
 
-describe('minifyHtml — Step 5 REMOVED 2026-05-22 (attribute-quote removal disabled)', () => {
-  // PR #478 added a Step 5 attribute-quote-removal pass here that
-  // broke ~14 dist-walking audits with quote-strict regexes
-  // (run #26255102850: 438k+ false-positive regressions). Reverted in
-  // round-2 source fixes. These tests now pin the QUOTED-FORM output
-  // so a future re-introduction would have to update them deliberately
-  // alongside the audit-quote-flex migration.
-
-  it('preserves attribute quotes on safe simple values', () => {
+describe('minifyHtml — safe attribute-quote removal', () => {
+  it('removes attribute quotes on safe simple values', () => {
     const out = minifyHtml('<div class="hero" id="main"></div>');
-    expect(out).toContain('class="hero"');
-    expect(out).toContain('id="main"');
+    expect(out).toContain('class=hero');
+    expect(out).toContain('id=main');
   });
 
   it('preserves quotes when value has whitespace', () => {
@@ -216,9 +207,15 @@ describe('minifyHtml — Step 5 REMOVED 2026-05-22 (attribute-quote removal disa
     expect(out).toContain('class="hero big"');
   });
 
-  it('preserves URL quotes (no premature self-close clash)', () => {
+  it('preserves trailing-slash URL quotes (no premature self-close clash)', () => {
     const out = minifyHtml('<link rel="canonical" href="https://example.com/">');
     expect(out).toContain('href="https://example.com/"');
+  });
+
+  it('removes URL quotes when the value cannot collide with />', () => {
+    const out = minifyHtml('<link rel="stylesheet" href="/assets/index-abc.css">');
+    expect(out).toContain('rel=stylesheet');
+    expect(out).toContain('href=/assets/index-abc.css');
   });
 
   it('preserves quotes inside JSON-LD body (opaque)', () => {
@@ -231,6 +228,11 @@ describe('minifyHtml — Step 5 REMOVED 2026-05-22 (attribute-quote removal disa
   it('never touches content text that looks like attrs', () => {
     const out = minifyHtml('<p>foo="bar"</p>');
     expect(out).toContain('foo="bar"');
+  });
+
+  it('never touches spaced content text that looks like attrs', () => {
+    const out = minifyHtml('<p> foo="bar"</p>');
+    expect(out).toContain(' foo="bar"');
   });
 
   it('preserves canonical/hreflang/robots — quote-flex matchers still work', () => {

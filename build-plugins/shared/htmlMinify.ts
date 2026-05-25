@@ -24,13 +24,8 @@
 //      `<a>foo</a>bar`).
 //   4. Strip leading whitespace at the start of each line and trailing
 //      whitespace before `\n`. Output uses LF endings.
-//   5. Restore masked blocks verbatim.
-//
-// Reverted 2026-05-22: PR #478 added attribute-quote removal as Step 5
-// here. ~14 dist-walking audits had quote-strict regex baselines; the
-// upstream change broke validate-dist with 438k+ false-positive
-// regressions in run #26255102850. See the ATTR_UNQUOTE_RX comment
-// further down for the re-enable checklist.
+//   5. Remove quotes from HTML5-safe attribute values, outside opaque blocks.
+//   6. Restore masked blocks verbatim.
 //
 // Output is DOM-equivalent + content-equivalent to the input. The
 // text-html-ratio gate IMPROVES (HTML byte count drops by ~9-10 %, text
@@ -79,22 +74,23 @@ const NL_INDENT_RX = /\n[ \t]+/g;        // leading whitespace per line
 const TRAILING_WS_RX = /[ \t]+\n/g;      // trailing whitespace per line
 const CRLF_RX = /\r\n/g;                 // normalize CRLF → LF
 
-// Step 5 (REMOVED 2026-05-22) — was: HTML5 unquoted-attribute eligibility.
-// PR #478 added an attribute-quote-removal step here. While correct per
-// HTML5 spec, ~14 dist-walking audits (footer-root-presence,
-// spa-bundle-injection, h1-title-duplicates, sitemap-canonicals,
-// title-length, salary-landing-template, content-duplicates,
-// no-literal-markdown, …) carry quote-strict regexes baked into their
-// baseline snapshots. Removing quotes upstream caused 438k+ false-
-// positive audit regressions in run #26255102850.
-//
-// Re-enable order when picking this up again:
-//   1. Migrate every audit in scripts/audit-*.mjs + scripts/lib/audit-*.mjs
-//      to quote-flex regexes (the canonical pattern lives in
-//      tests/seo/dist-shrink.test.ts "canonical/hreflang/robots regexes").
-//   2. Re-run validate-dist on a non-baseline deploy to confirm zero
-//      regression counts attributable to quote removal.
-//   3. Re-add Step 5 + ATTR_UNQUOTE_RX + the per-tag call below.
+// Start tags only: attribute quote removal must never rewrite text nodes that
+// happen to contain foo="bar". Opaque <script>/<style>/<title>/... blocks are
+// masked before this pass, so JSON-LD and executable code stay byte-identical.
+const START_TAG_RX = /<\/?[A-Za-z][^<>]*>/g;
+// HTML5 unquoted attribute values may not contain whitespace, quotes, `=`,
+// `<`, `>`, or backticks. We also keep trailing-slash URL values quoted to
+// avoid `<link href=https://example.com/>` self-close ambiguity.
+const SAFE_ATTR_VALUE_RX = /(\s[A-Za-z_:][A-Za-z0-9:._-]*)=(["'])([^"'<>=`\s]+)\2/g;
+
+function unquoteSafeAttributes(html: string): string {
+  return html.replace(START_TAG_RX, (tag) =>
+    tag.replace(SAFE_ATTR_VALUE_RX, (match, name: string, _quote: string, value: string) => {
+      if (value.endsWith('/')) return match;
+      return `${name}=${value}`;
+    }),
+  );
+}
 
 /**
  * Minify HTML produced by buildSimplePage / buildSeoPageHtml.
@@ -158,8 +154,8 @@ export function minifyHtml(html: string): string {
     masked = masked.replace(BLOCK_GAP_RX, '$1$2');
   } while (masked !== prev);
 
-  // --- Step 5 (REMOVED 2026-05-22) — was attribute-quote removal.
-  // See ATTR_UNQUOTE_RX comment above for the re-enable checklist.
+  // --- Step 5: remove quotes from HTML5-safe attribute values.
+  masked = unquoteSafeAttributes(masked);
 
   // --- Step 6: restore masked blocks.
   if (safe.length > 0) {

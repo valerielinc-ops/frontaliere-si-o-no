@@ -17,6 +17,7 @@ import {
   ADSENSE_SCRIPT_SRC,
   ADSENSE_SNIPPET,
 } from '@/build-plugins/constants';
+import { buildSimplePage } from '@/build-plugins/htmlTemplate';
 
 const repoRoot = resolve(__dirname, '..');
 const indexHtml = readFileSync(resolve(repoRoot, 'index.html'), 'utf8');
@@ -94,6 +95,34 @@ describe('AdSense lazy loading — ADSENSE_SNIPPET (static pages)', () => {
     // refactor.
     expect(ADSENSE_LOADER_CONTENT).toContain('s.onload');
     expect(ADSENSE_LOADER_CONTENT).toContain('adsbygoogle');
+  });
+});
+
+describe('AdSense lazy loading — static SEO shell', () => {
+  const basePage = {
+    locale: 'it',
+    title: 'Test page',
+    description: 'Test description',
+    canonicalUrl: 'https://frontaliereticino.ch/test/',
+    entryJs: 'index-test.js',
+    entryCss: 'index-test.css',
+  };
+
+  it('omits static analytics snippets on SPA-backed pages without raw ad slots', () => {
+    const html = buildSimplePage({
+      ...basePage,
+      bodyHtml: '<h1>Test</h1><p>Content</p>',
+    });
+    expect(html).not.toContain(ADSENSE_LAZY_LOADER);
+    expect(html).not.toContain('googletagmanager.com/gtag/js');
+  });
+
+  it('keeps the AdSense loader when SPA-backed static HTML contains raw ad slots', () => {
+    const html = buildSimplePage({
+      ...basePage,
+      bodyHtml: '<ins class="adsbygoogle" data-ad-client="ca-pub-8628054934855353"></ins>',
+    });
+    expect(html).toContain(ADSENSE_LAZY_LOADER);
   });
 });
 
