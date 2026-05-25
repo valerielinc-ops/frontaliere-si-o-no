@@ -3825,6 +3825,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-lavoro-stagionale-ticino-regole': { name: 'Lavoro stagionale', path: '/articoli-frontaliere/lavoro-stagionale-ticino-regole', parent: 'blog' },
     'blog-frontalieri-detrazioni-fiscali-italia-2026': { name: 'Detrazioni fiscali', path: '/articoli-frontaliere/frontalieri-detrazioni-fiscali-italia-2026', parent: 'blog' },
     'blog-abbonamenti-sconti-frontalieri-transporti': { name: 'Trasporti pubblici', path: '/articoli-frontaliere/abbonamenti-sconti-frontalieri-transporti', parent: 'blog' },
+    'blog-educatore-infanzia-ticino-stipendio-requisiti': { name: 'Lavoro in Ticino', path: '/articoli-frontaliere/educatore-infanzia-ticino-stipendio-requisiti', parent: 'blog' },
  };
 
  const info = sectionNames[section];

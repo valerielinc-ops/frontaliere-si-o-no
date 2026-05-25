@@ -7748,6 +7748,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.abbonamenti-sconti-frontalieri-transporti.title': 'Abonnements et réductions pour travailleurs frontaliers',
     'blog.article.abbonamenti-sconti-frontalieri-transporti.excerpt': 'Guide complet sur les abonnements et réductions pour travailleurs frontaliers sur les transports publics entre le Tessin et la Lombardie, avec des détails sur les trains, les bus et les avantages.',
     'blog.article.abbonamenti-sconti-frontalieri-transporti.imageAlt': 'Train et bus au lac de Lugano, transports publics en Tessin',
+    'blog.article.educatore-infanzia-ticino-stipendio-requisiti.title': 'Éducateur de la petite enfance au Tessin: salaire et exigences',
+    'blog.article.educatore-infanzia-ticino-stipendio-requisiti.excerpt': 'Découvrez combien gagne un éducateur de la petite enfance au Tessin, les exigences pour travailler et comment obtenir le permis G',
+    'blog.article.educatore-infanzia-ticino-stipendio-requisiti.imageAlt': 'Une école maternelle en Tessin avec des éducateurs et des enfants',
 };
 
 export default blogMetaFr;

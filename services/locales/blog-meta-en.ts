@@ -7747,6 +7747,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.abbonamenti-sconti-frontalieri-transporti.title': 'Cross-border worker discounts on Ticino-Lombardy public transport',
     'blog.article.abbonamenti-sconti-frontalieri-transporti.excerpt': 'Complete guide to cross-border worker discounts on public transport between Ticino and Lombardy, with details on trains, buses, and benefits.',
     'blog.article.abbonamenti-sconti-frontalieri-transporti.imageAlt': 'Train and bus at Lake Lugano, public transport in Ticino',
+    'blog.article.educatore-infanzia-ticino-stipendio-requisiti.title': 'Early childhood educator in Ticino: salary and requirements',
+    'blog.article.educatore-infanzia-ticino-stipendio-requisiti.excerpt': 'Find out how much an early childhood educator earns in Ticino, the requirements to work and how to obtain the G permit',
+    'blog.article.educatore-infanzia-ticino-stipendio-requisiti.imageAlt': 'A kindergarten in Ticino with educators and children',
 };
 
 export default blogMetaEn;

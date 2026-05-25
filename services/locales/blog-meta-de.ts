@@ -7746,6 +7746,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.abbonamenti-sconti-frontalieri-transporti.title': 'Abonnements und Rabatte für Grenzgänger im öffentlichen Verkehr',
     'blog.article.abbonamenti-sconti-frontalieri-transporti.excerpt': 'Vollständige Anleitung zu Abonnements und Rabatten für Grenzgänger im öffentlichen Verkehr zwischen dem Tessin und der Lombardei, mit Details zu Zügen, Bussen und Vergünstigungen.',
     'blog.article.abbonamenti-sconti-frontalieri-transporti.imageAlt': 'Zug und Bus am Luganersee, öffentlicher Verkehr im Tessin',
+    'blog.article.educatore-infanzia-ticino-stipendio-requisiti.title': 'Kinderbetreuer im Tessin: Gehalt und Voraussetzungen',
+    'blog.article.educatore-infanzia-ticino-stipendio-requisiti.excerpt': 'Erfahren Sie, wie viel ein Kinderbetreuer im Tessin verdient, welche Voraussetzungen für die Arbeit gelten und wie man die G-Bewilligung erhält.',
+    'blog.article.educatore-infanzia-ticino-stipendio-requisiti.imageAlt': 'Ein Kindergarten in Ticino mit Erziehern und Kindern',
 };
 
 export default blogMetaDe;

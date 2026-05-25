@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2637,
+ "numberOfItems": 2638,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7277,7 +7277,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2634, "name": "Frontaliere: come ottenere un mutuo per la casa...", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-mutuo-casa-svizzera-requisiti` },
           { "@type": "ListItem", "position": 2635, "name": "Lavoro stagionale in Ticino: regole, diritti e ...", "url": `${BASE_URL}/articoli-frontaliere/lavoro-stagionale-ticino-regole` },
           { "@type": "ListItem", "position": 2636, "name": "Frontalieri: Guida alle detrazioni fiscali in I...", "url": `${BASE_URL}/articoli-frontaliere/frontalieri-detrazioni-fiscali-italia-2026` },
-          { "@type": "ListItem", "position": 2637, "name": "Abbonamenti e sconti per frontalieri sui traspo...", "url": `${BASE_URL}/articoli-frontaliere/abbonamenti-sconti-frontalieri-transporti` }
+          { "@type": "ListItem", "position": 2637, "name": "Abbonamenti e sconti per frontalieri sui traspo...", "url": `${BASE_URL}/articoli-frontaliere/abbonamenti-sconti-frontalieri-transporti` },
+          { "@type": "ListItem", "position": 2638, "name": "Educatore dell'infanzia in Ticino: stipendio e ...", "url": `${BASE_URL}/articoli-frontaliere/educatore-infanzia-ticino-stipendio-requisiti` }
  ]
  },
  {

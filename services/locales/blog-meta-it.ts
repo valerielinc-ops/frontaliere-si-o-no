@@ -7748,6 +7748,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.abbonamenti-sconti-frontalieri-transporti.title': 'Abbonamenti e sconti per frontalieri sui trasporti pubblici Ticino-Lombardia',
     'blog.article.abbonamenti-sconti-frontalieri-transporti.excerpt': 'Guida completa agli abbonamenti e sconti per frontalieri sui trasporti pubblici tra Ticino e Lombardia, con dettagli su treni, bus e agevolazioni.',
     'blog.article.abbonamenti-sconti-frontalieri-transporti.imageAlt': 'Treno e autobus al lago di Lugano, trasporti pubblici Ticino',
+    'blog.article.educatore-infanzia-ticino-stipendio-requisiti.title': 'Educatore dell\'infanzia in Ticino: stipendio e requisiti',
+    'blog.article.educatore-infanzia-ticino-stipendio-requisiti.excerpt': 'Scopri quanto guadagna un educatore dell\'infanzia in Ticino, i requisiti per lavorare e come ottenere il Permesso G',
+    'blog.article.educatore-infanzia-ticino-stipendio-requisiti.imageAlt': 'Un asilo nido in Ticino con educatori e bambini',
 };
 
 export default blogMetaIt;
