@@ -7695,6 +7695,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.orario-lavoro-settimanale-svizzera-2025.title': 'Arbeitszeit in der Schweiz: 40 Stunden und 3 Minuten im Jahr 2025',
     'blog.article.orario-lavoro-settimanale-svizzera-2025.excerpt': 'Die Arbeitszeit in der Schweiz blieb im Jahr 2025 stabil bei 40 Stunden und 3 Minuten, zeigte jedoch einen starken Anstieg gegenüber dem Jahr 2020',
     'blog.article.orario-lavoro-settimanale-svizzera-2025.imageAlt': 'Uhr, die 40 Stunden und 3 Minuten anzeigt, mit dem Monte San Salvatore im Hintergrund',
+    'blog.article.regime-fiscale-frontaliere-svizzera.title': 'Steuermodell für Grenzgänger in der Schweiz',
+    'blog.article.regime-fiscale-frontaliere-svizzera.excerpt': 'Vertiefung zum steuerlichen Regime der Grenzgänger in der Schweiz, mit Fokus auf Quellensteuer, Abkommen und Rückvergütungen.',
+    'blog.article.regime-fiscale-frontaliere-svizzera.imageAlt': 'Panoramablick auf den Lago di Lugano und die Schweizer-italienische Grenze',
 };
 
 export default blogMetaDe;

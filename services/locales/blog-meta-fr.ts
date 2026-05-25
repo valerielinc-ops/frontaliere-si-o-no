@@ -7697,6 +7697,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.orario-lavoro-settimanale-svizzera-2025.title': 'Heures de travail hebdomadaires en Suisse : 40 heures et 3 minutes en 2025',
     'blog.article.orario-lavoro-settimanale-svizzera-2025.excerpt': 'Le nombre d\'heures de travail hebdomadaire en Suisse est resté stable en 2025 à 40 heures et 3 minutes, mais a connu une forte augmentation par rapport à 2020',
     'blog.article.orario-lavoro-settimanale-svizzera-2025.imageAlt': 'Horloge affichant 40 heures et 3 minutes avec le Monte San Salvatore en arrière-plan',
+    'blog.article.regime-fiscale-frontaliere-svizzera.title': 'Régime fiscal frontalier en Suisse',
+    'blog.article.regime-fiscale-frontaliere-svizzera.excerpt': 'Analyse approfondie du régime fiscal des travailleurs frontaliers en Suisse, avec un focus sur les impôts à la source, les accords et les ristorni.',
+    'blog.article.regime-fiscale-frontaliere-svizzera.imageAlt': 'Vue panoramique du lac de Lugano et de la frontière suisse-italienne',
 };
 
 export default blogMetaFr;

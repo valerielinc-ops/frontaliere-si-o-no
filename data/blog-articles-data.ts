@@ -24464,4 +24464,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'regime-fiscale-frontaliere-svizzera',
+ category: 'fiscale',
+ date: '2026-05-25T06:53:02.046Z',
+ image: '/images/blog/regime-fiscale-frontaliere-svizzera.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];

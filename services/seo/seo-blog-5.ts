@@ -38918,6 +38918,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-regime-fiscale-frontaliere-svizzera': {
+    title: 'Regime fiscale frontalieri in Svizzera | Frontaliere Ticino',
+    description: 'Approfondimento sulle nuove norme fiscali per i frontalieri in Svizzera dal 2026, con focus su imposte alla fonte e ristorni. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, regime, fiscale, approfondimento, focus',
+    ogTitle: 'Regime fiscale frontalieri in Svizzera 2026',
+    ogDescription: 'Novità fiscali per i frontalieri in Svizzera dal 2026, con focus su aliquote, ristorni e procedure.',
+    canonicalPath: '/articoli-frontaliere/regime-fiscale-frontaliere-svizzera',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Regime fiscale frontalieri in Svizzera",
+      "description": "Approfondimento sulle nuove norme fiscali per i frontalieri in Svizzera dal 2026, con focus su imposte alla fonte e ristorni. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/regime-fiscale-frontaliere-svizzera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista panoramica del Lago di Lugano e confine svizzero-italiano"
+      },
+      "datePublished": "2026-05-25T06:53:02+00:00",
+      "dateModified": "2026-05-25T06:53:02+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/regime-fiscale-frontaliere-svizzera`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

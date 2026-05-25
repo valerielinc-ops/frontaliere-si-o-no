@@ -7696,6 +7696,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.orario-lavoro-settimanale-svizzera-2025.title': 'Weekly Working Hours in Switzerland: 40 Hours 3 Minutes in 2025',
     'blog.article.orario-lavoro-settimanale-svizzera-2025.excerpt': 'Weekly working hours in Switzerland remained stable in 2025 at 40 hours and 3 minutes, marking a significant increase from 2020',
     'blog.article.orario-lavoro-settimanale-svizzera-2025.imageAlt': 'Clock showing 40 hours and 3 minutes with Monte San Salvatore in the background',
+    'blog.article.regime-fiscale-frontaliere-svizzera.title': 'Tax Regime for Cross-Border Workers in Switzerland',
+    'blog.article.regime-fiscale-frontaliere-svizzera.excerpt': 'An in-depth look at the tax regime for cross-border workers in Switzerland, focusing on withholding taxes, agreements, and reimbursements.',
+    'blog.article.regime-fiscale-frontaliere-svizzera.imageAlt': 'Panoramic view of Lake Lugano and the Swiss-Italian border',
 };
 
 export default blogMetaEn;

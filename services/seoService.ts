@@ -3808,6 +3808,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-assegno-inclusione-maggio-2026-ricarica-ordinaria': { name: 'Assegno di Inclusione', path: '/articoli-frontaliere/assegno-inclusione-maggio-2026-ricarica-ordinaria', parent: 'blog' },
     'blog-il-municipio-e-le-aziende-per-conoscersi-meglio': { name: 'Eventi', path: '/articoli-frontaliere/il-municipio-e-le-aziende-per-conoscersi-meglio', parent: 'blog' },
     'blog-orario-lavoro-settimanale-svizzera-2025': { name: 'Orario di lavoro settimanale in Svizzera', path: '/articoli-frontaliere/orario-lavoro-settimanale-svizzera-2025', parent: 'blog' },
+    'blog-regime-fiscale-frontaliere-svizzera': { name: 'fiscale', path: '/articoli-frontaliere/regime-fiscale-frontaliere-svizzera', parent: 'blog' },
  };
 
  const info = sectionNames[section];
