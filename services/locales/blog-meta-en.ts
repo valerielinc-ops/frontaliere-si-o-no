@@ -7762,6 +7762,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.controlli-frontiere-svizzera-francia-2024.title': 'Switzerland-France border checks: what changes for cross-border workers',
     'blog.article.controlli-frontiere-svizzera-francia-2024.excerpt': 'From June 10 to 19, 2024, Switzerland will reintroduce border checks with France for the G7 in Evian-les-Bains. Here\'s what changes for cross-border workers.',
     'blog.article.controlli-frontiere-svizzera-francia-2024.imageAlt': 'Aerial view of Lake Geneva with Swiss and French shores, featuring Geneva and Evian-les-Bains.',
+    'blog.article.keller-sutter-banche-stabilita-2026.title': 'Keller-Sutter warns banks: \'All must contribute to stability\'',
+    'blog.article.keller-sutter-banche-stabilita-2026.excerpt': 'The Swiss finance minister warns the banking sector: Switzerland\'s stability is not guaranteed and requires responsibility from major banks as well.',
+    'blog.article.keller-sutter-banche-stabilita-2026.imageAlt': 'Panoramic view of Lake Lugano with the financial district and banks in the foreground',
 };
 
 export default blogMetaEn;

@@ -39776,6 +39776,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-keller-sutter-banche-stabilita-2026': {
+    title: 'Keller-Sutter alle banche: "Tutti devono contribuire alla stabilità"',
+    description: 'La ministra delle finanze elvetica avverte il settore bancario: la stabilità della Svizzera non è scontata e richiede responsabilità anche dalle grandi banche.',
+    keywords: 'frontalieri, ticino, svizzera, italia, keller-sutter, alle, banche, tutti',
+    ogTitle: 'Keller-Sutter alle banche: "Tutti devono contribuire alla stabilità"',
+    ogDescription: 'La ministra delle finanze elvetica avverte il settore bancario: la stabilità della Svizzera non è scontata e richiede responsabilità anche dalle grandi banche.',
+    canonicalPath: '/articoli-frontaliere/keller-sutter-banche-stabilita-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Keller-Sutter alle banche: \"Tutti devono contribuire alla stabilità\"",
+      "description": "La ministra delle finanze elvetica avverte il settore bancario: la stabilità della Svizzera non è scontata e richiede responsabilità anche dalle grandi banche.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/keller-sutter-banche-stabilita-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta panoramica del Lago di Lugano con il centro finanziario e le banche in primo piano"
+      },
+      "datePublished": "2026-05-25T10:17:42+00:00",
+      "dateModified": "2026-05-25T10:17:42+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/keller-sutter-banche-stabilita-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

@@ -7763,6 +7763,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.controlli-frontiere-svizzera-francia-2024.title': 'Controlli frontiera Svizzera-Francia: cosa cambia per i frontalieri',
     'blog.article.controlli-frontiere-svizzera-francia-2024.excerpt': 'Dal 10 al 19 giugno 2024, la Svizzera reintrodurrà i controlli alle frontiere con la Francia per il G7 di Evian-les-Bains. Ecco cosa cambia per i frontalieri.',
     'blog.article.controlli-frontiere-svizzera-francia-2024.imageAlt': 'Vista aerea del Lago Lemano con le rive svizzere e francesi, con Ginevra ed Evian-les-Bains in primo piano.',
+    'blog.article.keller-sutter-banche-stabilita-2026.title': 'Keller-Sutter alle banche: "Tutti devono contribuire alla stabilità"',
+    'blog.article.keller-sutter-banche-stabilita-2026.excerpt': 'La ministra delle finanze elvetica avverte il settore bancario: la stabilità della Svizzera non è scontata e richiede responsabilità anche dalle grandi banche.',
+    'blog.article.keller-sutter-banche-stabilita-2026.imageAlt': 'Veduta panoramica del Lago di Lugano con il centro finanziario e le banche in primo piano',
 };
 
 export default blogMetaIt;

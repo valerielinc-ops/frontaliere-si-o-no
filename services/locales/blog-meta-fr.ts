@@ -7763,6 +7763,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.controlli-frontiere-svizzera-francia-2024.title': 'Contrôles frontière Suisse-France : ce qui change pour les frontaliers',
     'blog.article.controlli-frontiere-svizzera-francia-2024.excerpt': 'Du 10 au 19 juin 2024, la Suisse réintroduira les contrôles aux frontières avec la France pour le G7 d\'Evian-les-Bains. Voici ce qui change pour les frontaliers.',
     'blog.article.controlli-frontiere-svizzera-francia-2024.imageAlt': 'Vue aérienne du lac Léman avec les rives suisses et françaises, avec Genève et Evian-les-Bains en premier plan.',
+    'blog.article.keller-sutter-banche-stabilita-2026.title': 'Keller-Sutter aux banques: \'Tous doivent contribuer à la stabilité\'',
+    'blog.article.keller-sutter-banche-stabilita-2026.excerpt': 'La ministre des finances helvétique avertit le secteur bancaire: la stabilité de la Suisse n\'est pas acquise et exige des responsabilités de la part des grandes banques.',
+    'blog.article.keller-sutter-banche-stabilita-2026.imageAlt': 'Vue panoramique du lac de Lugano avec le quartier financier et les banques au premier plan',
 };
 
 export default blogMetaFr;

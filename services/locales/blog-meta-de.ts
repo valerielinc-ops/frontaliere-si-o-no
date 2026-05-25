@@ -7761,6 +7761,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.controlli-frontiere-svizzera-francia-2024.title': 'Grenzkonrollen Schweiz-Frankreich: Was sich für Grenzgänger ändert',
     'blog.article.controlli-frontiere-svizzera-francia-2024.excerpt': 'Vom 10. bis 19. Juni 2024 führt die Schweiz Grenzkontrollen mit Frankreich für den G7 in Evian-les-Bains ein. Hier erfahren Sie, was sich für Grenzgänger ändert.',
     'blog.article.controlli-frontiere-svizzera-francia-2024.imageAlt': 'Luftaufnahme des Genfersees mit Schweizer und französischen Ufern, mit Genf und Evian-les-Bains im Vordergrund.',
+    'blog.article.keller-sutter-banche-stabilita-2026.title': 'Keller-Sutter an die Banken: \'Alle müssen zur Stabilität beitragen\'',
+    'blog.article.keller-sutter-banche-stabilita-2026.excerpt': 'Die Schweizer Finanzministerin warnt den Bankensektor: Die Stabilität der Schweiz ist nicht selbstverständlich und erfordert auch Verantwortung von den großen Banken.',
+    'blog.article.keller-sutter-banche-stabilita-2026.imageAlt': 'Panoramablick auf den Luganersee mit dem Finanzbezirk und den Banken im Vordergrund',
 };
 
 export default blogMetaDe;

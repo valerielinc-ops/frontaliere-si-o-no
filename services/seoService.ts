@@ -3830,6 +3830,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-laivin-festival-cassano-valcuvia-2026': { name: 'Festival LaivIn', path: '/articoli-frontaliere/laivin-festival-cassano-valcuvia-2026', parent: 'blog' },
     'blog-avs-2030-frontalieri-ticino': { name: 'AVS 2030', path: '/articoli-frontaliere/avs-2030-frontalieri-ticino', parent: 'blog' },
     'blog-controlli-frontiere-svizzera-francia-2024': { name: 'Controlli frontiera', path: '/articoli-frontaliere/controlli-frontiere-svizzera-francia-2024', parent: 'blog' },
+    'blog-keller-sutter-banche-stabilita-2026': { name: 'Finanza e banche', path: '/articoli-frontaliere/keller-sutter-banche-stabilita-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];
