@@ -896,11 +896,11 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  },
 
  withholdingRates: {
- title: 'Aliquote imposta alla fonte Ticino 2026 | Tabelle A B C H',
- description: 'Aliquote imposta alla fonte Ticino 2026 per frontalieri: tabelle A, B, C e H, esempi per CHF 50.000-100.000, FAQ e link al simulatore netto e busta paga.',
+ title: 'Imposta alla Fonte Ticino 2026: Tabelle A B C H',
+ description: 'Imposta alla fonte Ticino 2026: tabelle A, B, C e H, aliquote per CHF 50.000-100.000 e link ai simulatori per netto e busta paga frontalieri.',
  keywords: 'aliquote imposta alla fonte ticino 2026, tabella imposta alla fonte ticino, tabelle A B C H ticino, quellensteuer ticino 2026, imposta alla fonte frontalieri ticino',
- ogTitle: 'Aliquote imposta alla fonte Ticino 2026 | Tabelle A B C H',
- ogDescription: 'Guida pratica alle tabelle A, B, C e H del Ticino con esempi, FAQ e deep link al simulatore.',
+ ogTitle: 'Imposta alla Fonte Ticino 2026: Tabelle A B C H',
+ ogDescription: 'Tabelle A, B, C e H del Ticino con aliquote 2026, esempi e link ai simulatori per frontalieri.',
  canonicalPath: '/tasse-e-pensione/aliquote-imposta-alla-fonte-ticino-2026',
  structuredData: [
  {
@@ -1883,11 +1883,11 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  },
 
  'cost-of-living': {
- title: 'Costo Vita Svizzera vs Italia 2026: Lugano e Como',
- description: 'Costo vita Svizzera vs Italia 2026: confronto Lugano-Como su affitto, spesa, LAMal e trasporti. Tabelle per frontaliere (risparmio 40-50%) e per espatriato.',
+ title: 'Costo Vita Svizzera vs Italia 2026: Affitti e Spesa',
+ description: 'Costo vita Svizzera vs Italia 2026: affitti Lugano-Como, spesa, LAMal e trasporti. Tabelle per capire se conviene vivere in Italia o Ticino.',
  keywords: 'costo vita svizzera vs italia, costo vita svizzera italia, costo vita lugano, costo vita como, affitto ticino prezzi, costo vita mendrisio chiasso, confronto prezzi svizzera italia, vivere in svizzera costi, costo vita frontiera, costo vita lugano vs como',
- ogTitle: 'Costo Vita Svizzera vs Italia 2026 | Lugano vs Como',
- ogDescription: '🏠 Costo vita Svizzera vs Italia 2026: confronto Lugano-Como su affitto, spesa, LAMal e trasporti. Tabelle 2026 per frontaliere ed espatriato.',
+ ogTitle: 'Costo Vita Svizzera vs Italia 2026: Affitti e Spesa',
+ ogDescription: 'Confronto 2026 tra Lugano e Como: affitto, spesa, LAMal e trasporti per frontalieri ed espatriati.',
  canonicalPath: '/compara-servizi/costo-della-vita',
  structuredData: [
  {
@@ -2221,11 +2221,11 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  },
 
  unemployment: {
- title: 'Disoccupazione Svizzera Frontalieri 2026: NASpI + PD U1',
- description: 'Disoccupazione Svizzera per frontalieri: NASpI Italia, AD/ALV Svizzera, formulario PD U1, importi 2026 e procedure passo per passo con tempi e moduli.',
+ title: 'Disoccupazione Frontalieri Svizzera: NASpI e PD U1 2026',
+ description: 'Disoccupazione frontalieri Svizzera: quando serve il PD U1, come chiedere la NASpI in Italia, importi 2026 e passaggi dopo il licenziamento.',
  keywords: 'disoccupazione frontalieri, naspi frontalieri svizzera, disoccupazione svizzera ALV, PD U1 formulario, indennità disoccupazione frontaliere, naspi italia procedura, assicurazione disoccupazione svizzera, URC ticino, cassa disoccupazione',
- ogTitle: 'Disoccupazione per Frontalieri | NASpI e AD Svizzera',
- ogDescription: '📋 Guida completa alla disoccupazione per frontalieri: NASpI Italia, AD/ALV Svizzera, procedure, importi e confronto tra i due sistemi.',
+ ogTitle: 'Disoccupazione Frontalieri Svizzera: NASpI e PD U1',
+ ogDescription: 'Cosa fare dopo il licenziamento in Svizzera: PD U1, NASpI Italia, importi 2026 e tempi pratici.',
  canonicalPath: '/guida-frontaliere/disoccupazione-transfrontaliera',
  structuredData: [
  {
@@ -2310,11 +2310,11 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  },
 
  holidays: {
- title: 'Festività Ticino 2026: Calendario Ufficiale Giorni Festivi',
- description: 'Festività Ticino 2026: calendario ufficiale dei 15 giorni festivi, ponti migliori, maggiorazioni CCL e confronto Italia vs Svizzera per il frontaliere.',
+ title: 'Festività Ticino 2026: Calendario e Ponti Ufficiali',
+ description: 'Festività Ticino 2026: calendario ufficiale dei 15 giorni festivi, ponti utili, lavoro festivo e confronto Italia-Svizzera per frontalieri.',
  keywords: 'festività ticino, festività ticino 2026, giorni festivi ticino 2026, festivi ticino 2026, feste ticino 2026, calendario festività ticino 2026, calendario ufficiale giorni festivi ticino, festività canton ticino, giorni festivi canton ticino, festività cantonali ticino, ponti ticino 2026, ferie svizzera frontalieri, festività svizzere 2026, giorni festivi svizzera italia confronto, 1 agosto ticino 2026, pasqua ticino 2026, natale ticino 2026, assunzione ticino festivo',
- ogTitle: 'Festività Ticino 2026: Calendario Ufficiale e Ponti Frontalieri',
- ogDescription: 'Calendario ufficiale festività Canton Ticino 2026: 15 giorni festivi, ponti, maggiorazioni CCL su straordinari festivi e impatto su 13ª del frontaliere.',
+ ogTitle: 'Festività Ticino 2026: Calendario e Ponti Ufficiali',
+ ogDescription: '15 giorni festivi in Ticino, ponti utili, lavoro festivo e differenze con il calendario italiano.',
  h1: 'Festività Ticino 2026: il calendario ufficiale completo del Canton Ticino',
  canonicalPath: '/tasse-e-pensione/festivita-ticino',
  structuredData: [
@@ -9413,12 +9413,12 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  },
 
  'vacanze-scolastiche-ticino-2026': {
- title: 'Vacanze Scolastiche Ticino 2026-2027: Calendario Completo',
+ title: 'Vacanze Scolastiche Ticino 2026-2027: Date DECS',
  h1: 'Vacanze scolastiche Ticino 2026-2027 — calendario ufficiale DECS, ferie, carnevale, estate',
- description: 'Calendario vacanze scolastiche Ticino 2026-2027: date ufficiali DECS di carnevale, Pasqua, estate, autunno e Natale per scuole dell\'infanzia, elementari e medie.',
+ description: 'Vacanze scolastiche Ticino 2026-2027: date ufficiali DECS per Carnevale, Pasqua, estate, autunno e Natale. Calendario rapido per genitori frontalieri.',
  keywords: 'vacanze scolastiche ticino 2026, calendario scolastico ticino 2026, vacanze scolastiche ticino 2027, DECS ticino, carnevale ticino 2026, estate scuole ticino, vacanze pasqua ticino',
- ogTitle: 'Vacanze Scolastiche Ticino 2026-2027 — Calendario Ufficiale',
- ogDescription: '📚 Calendario ufficiale vacanze scolastiche Ticino 2026-2027: carnevale, Pasqua, estate, autunno, Natale. Per genitori frontalieri e residenti.',
+ ogTitle: 'Vacanze Scolastiche Ticino 2026-2027: Date DECS',
+ ogDescription: 'Date ufficiali DECS per Carnevale, Pasqua, estate, autunno e Natale. Calendario rapido per famiglie frontaliere.',
  canonicalPath: '/vita-in-ticino/vacanze-scolastiche-ticino-2026',
  structuredData: [
  {

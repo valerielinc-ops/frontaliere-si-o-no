@@ -2613,17 +2613,17 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  },
 
  'blog-guida-contributi-sociali-svizzera': {
- title: 'Contributi Sociali Svizzera: Guida | Frontaliere Ticino',
- description: 'Guida completa 2026 alle trattenute sulla busta paga svizzera per frontalieri in Ticino. Scopri le aliquote AVS, LPP, LAINF e calcola il tuo stipendio netto.',
+ title: 'Busta Paga Svizzera 2026: AVS LPP LAINF',
+ description: 'Busta paga svizzera 2026 per frontalieri: aliquote AVS, LPP, LAINF e AD, esempio su 5.500 CHF lordi e link al calcolatore netto.',
  keywords: 'frontaliere contributi sociali svizzeri, dettaglio busta paga svizzera, trattenute stipendio svizzera, AVS LPP frontalieri, calcolo stipendio netto ticino, lavoro in svizzera',
- ogTitle: 'Busta Paga Svizzera: Svelate Tutte le Trattenute 2026',
- ogDescription: 'Dal lordo al netto: scopri cosa significano AVS, LPP, LAINF e quanto ti resta in tasca con la nostra guida completa per frontalieri.',
+ ogTitle: 'Busta Paga Svizzera 2026: AVS, LPP e LAINF',
+ ogDescription: 'Aliquote sociali, esempio su 5.500 CHF lordi e calcolatore netto per frontalieri in Ticino.',
  canonicalPath: '/articoli-frontaliere/guida-contributi-sociali-svizzeri-busta-paga-frontaliere',
  structuredData: {
  "@context": "https://schema.org",
  "@type": "NewsArticle",
- "headline": "Busta Paga Svizzera: Svelate Tutte le Trattenute 2026",
- "description": "Guida completa 2026 alle trattenute sulla busta paga svizzera per frontalieri in Ticino. Scopri le aliquote AVS, LPP, LAINF e calcola il tuo stipendio netto.",
+ "headline": "Busta Paga Svizzera 2026: AVS, LPP, LAINF e AD",
+ "description": "Busta paga svizzera 2026 per frontalieri: aliquote AVS, LPP, LAINF e AD, esempio su 5.500 CHF lordi e link al calcolatore netto.",
  "image": {
  "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini", "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/guida-contributi-sociali-svizzera.webp`,
  "width": 1344,
@@ -2641,17 +2641,17 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  },
 
  'blog-costo-vivere-lugano-trasferirsi': {
- title: 'Quanto costa vivere a Lugano da | Frontaliere Ticino',
- description: 'Un frontaliere valuta di trasferirsi a Lugano? Analisi completa dei costi 2026: affitto (da 1.500 CHF), LAMal, tasse, trasporti e spesa. Calcola il tuo budget.',
+ title: 'Quanto Costa Vivere a Lugano nel 2026',
+ description: 'Quanto costa vivere a Lugano nel 2026: affitto, LAMal, tasse, trasporti e spesa. Budget mensile per chi valuta il trasferimento in Ticino.',
  keywords: 'costo vita lugano, vivere a lugano, frontaliere trasferimento ticino, affitti lugano, lamal costo, tasse residenti ticino, budget mensile svizzera',
- ogTitle: 'Vivere a Lugano: il budget reale che un frontaliere deve conoscere',
- ogDescription: 'Sogni di trasferirti a Lugano? Ecco i costi reali nel 2026: dall\'affitto di 1.500 CHF alla LAMal. La guida completa per non avere sorprese.',
+ ogTitle: 'Quanto Costa Vivere a Lugano nel 2026',
+ ogDescription: 'Affitto, LAMal, tasse, trasporti e spesa: il budget mensile per chi valuta il trasferimento in Ticino.',
  canonicalPath: '/articoli-frontaliere/quanto-costa-vivere-a-lugano-da-frontaliere-analisi-costi-2026',
  structuredData: {
  "@context": "https://schema.org",
  "@type": "NewsArticle",
  "headline": "Costo della Vita a Lugano per Frontalieri 2026",
- "description": "Un frontaliere valuta di trasferirsi a Lugano? Analisi completa dei costi 2026: affitto (da 1.500 CHF), LAMal, tasse, trasporti e spesa. Calcola il tuo budget.",
+ "description": "Quanto costa vivere a Lugano nel 2026: affitto, LAMal, tasse, trasporti e spesa. Budget mensile per chi valuta il trasferimento in Ticino.",
  "image": {
  "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini", "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/costo-vivere-lugano-trasferirsi.webp`,
  "width": 1344,
