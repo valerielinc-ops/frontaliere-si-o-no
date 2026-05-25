@@ -63,6 +63,13 @@ function getPlaceholderMinHeight(adFormat: string, adLayout?: string): number {
  return 280;
 }
 
+function isElementInViewport(el: HTMLElement): boolean {
+ const rect = el.getBoundingClientRect();
+ const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+ const viewportWidth = window.innerWidth || document.documentElement.clientWidth;
+ return rect.bottom > 0 && rect.right > 0 && rect.top < viewportHeight && rect.left < viewportWidth;
+}
+
 export default function AdSenseBanner({
  adSlot,
  adFormat = 'auto',
@@ -84,6 +91,7 @@ export default function AdSenseBanner({
  const fillTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
  const statusObserverRef = useRef<MutationObserver | null>(null);
  const resizeObserverRef = useRef<ResizeObserver | null>(null);
+ const collapseObserverRef = useRef<IntersectionObserver | null>(null);
  const [state, setState] = useState<AdState>('idle');
  const [scriptReady, setScriptReady] = useState(false);
  const [scriptFailed, setScriptFailed] = useState(false);
@@ -102,7 +110,41 @@ export default function AdSenseBanner({
  resizeObserverRef.current.disconnect();
  resizeObserverRef.current = null;
  }
+ if (collapseObserverRef.current) {
+ collapseObserverRef.current.disconnect();
+ collapseObserverRef.current = null;
+ }
  }, []);
+
+ const collapseWhenLayoutSafe = useCallback((reason: string) => {
+ const wrapper = wrapperRef.current;
+ if (!wrapper || typeof window === 'undefined' || typeof document === 'undefined') {
+ setState('collapsed');
+ return;
+ }
+
+ collapseObserverRef.current?.disconnect();
+ collapseObserverRef.current = null;
+
+ if (!isElementInViewport(wrapper) || typeof IntersectionObserver === 'undefined') {
+ console.info(`[AdSense] ${reason} for slot=${adSlot}, collapsing banner`);
+ setState('collapsed');
+ return;
+ }
+
+ console.info(`[AdSense] ${reason} for slot=${adSlot}, deferring collapse until offscreen`);
+ const observer = new IntersectionObserver((entries) => {
+ const entry = entries[0];
+ if (!entry?.isIntersecting) {
+ observer.disconnect();
+ collapseObserverRef.current = null;
+ console.info(`[AdSense] deferred collapse for slot=${adSlot}`);
+ setState('collapsed');
+ }
+ });
+ observer.observe(wrapper);
+ collapseObserverRef.current = observer;
+ }, [adSlot]);
 
  // ── Load the AdSense script (singleton) ──────────────────
  const loadAdSenseScript = useCallback(() => {
@@ -207,7 +249,7 @@ export default function AdSenseBanner({
  setState('loading');
 
  const el = adRef.current;
- if (!el) { setState('collapsed'); return true; }
+ if (!el) { collapseWhenLayoutSafe('missing ins element'); return true; }
 
  const currentStatus = el.getAttribute('data-ad-status');
  if (currentStatus === 'filled') {
@@ -217,10 +259,9 @@ export default function AdSenseBanner({
  return true;
  }
  if (currentStatus === 'unfilled') {
- console.info(`[AdSense] unfilled slot=${adSlot}, collapsing banner`);
  pushed.current = true;
  initializedAdElements.add(el);
- setState('collapsed');
+ collapseWhenLayoutSafe('unfilled');
  return true;
  }
 
@@ -236,7 +277,7 @@ export default function AdSenseBanner({
  pushed.current = true;
  } catch (err) {
  console.warn(`[AdSense] push() failed for slot=${adSlot}`, err);
- setState('collapsed');
+ collapseWhenLayoutSafe('push failed');
  return true;
  }
 
@@ -246,9 +287,8 @@ export default function AdSenseBanner({
  cleanupAsyncWatchers();
  setState('filled');
  } else if (status === 'unfilled') {
- console.info(`[AdSense] unfilled slot=${adSlot}, collapsing banner`);
  cleanupAsyncWatchers();
- setState('collapsed');
+ collapseWhenLayoutSafe('unfilled');
  }
  });
  observer.observe(el, { attributes: true, attributeFilter: ['data-ad-status'] });
@@ -263,9 +303,8 @@ export default function AdSenseBanner({
  fillTimeoutRef.current = setTimeout(() => {
  const status = el.getAttribute('data-ad-status');
  if (status === 'filled') return;
- console.info(`[AdSense] fill timeout for slot=${adSlot} (status=${status}), collapsing`);
  cleanupAsyncWatchers();
- setState('collapsed');
+ collapseWhenLayoutSafe(`fill timeout (status=${status})`);
  }, 8_000);
 
  return true;
@@ -293,8 +332,7 @@ export default function AdSenseBanner({
  const timeout = setTimeout(() => {
  observer.disconnect();
  if (!pushed.current) {
- console.info(`[AdSense] width timeout for slot=${adSlot}, collapsing`);
- setState('collapsed');
+ collapseWhenLayoutSafe('width timeout');
  }
  }, 8000);
 
@@ -302,14 +340,14 @@ export default function AdSenseBanner({
  cleanupAsyncWatchers();
  clearTimeout(timeout);
  };
- }, [state, scriptReady, adSlot, cleanupAsyncWatchers]);
+ }, [state, scriptReady, adSlot, cleanupAsyncWatchers, collapseWhenLayoutSafe]);
 
  // ── Collapse on script failure ───────────────────────────
  useEffect(() => {
  if (scriptFailed && state !== 'collapsed') {
- setState('collapsed');
+ collapseWhenLayoutSafe('script failed');
  }
- }, [scriptFailed, state]);
+ }, [scriptFailed, state, collapseWhenLayoutSafe]);
 
  // ── Telemetry: emit one event per terminal state transition ──────
  const reportedStateRef = useRef<AdState | null>(null);

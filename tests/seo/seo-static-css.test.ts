@@ -15,7 +15,9 @@ describe('seo-static.css', () => {
 
     const root = postcss.parse(css, { from: CSS_PATH });
     const selectors = new Set<string>();
-    root.walkRules((rule) => selectors.add(rule.selector));
+    root.walkRules((rule) => {
+      selectors.add(rule.selector);
+    });
 
     expect(selectors.has('.s-XENO3U')).toBe(true);
     expect(selectors.has('.s-rBJXSS')).toBe(true);

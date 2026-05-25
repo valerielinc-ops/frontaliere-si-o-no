@@ -39932,6 +39932,84 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-educatore-infanzia-ticino-stipendi': {
+    title: 'Lavorare come educatore dell\'infanzia in Ticino: stipendio e requisiti',
+    description: 'Guida completa su come diventare educatore dell\'infanzia in Ticino: stipendio tra CHF 73K e CHF 97K, requisiti, datori di lavoro e confronto salariale con',
+    keywords: 'frontalieri, ticino, svizzera, italia, lavorare, educatore, dell, infanzia',
+    ogTitle: 'Lavorare come educatore dell\'infanzia in Ticino: stipendio e requisiti',
+    ogDescription: 'Guida completa su come diventare educatore dell\'infanzia in Ticino: stipendio tra CHF 73K e CHF 97K, requisiti, datori di lavoro e confronto salariale con',
+    canonicalPath: '/articoli-frontaliere/educatore-infanzia-ticino-stipendi',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Lavorare come educatore dell'infanzia in Ticino: stipendio e requisiti",
+      "description": "Guida completa su come diventare educatore dell'infanzia in Ticino: stipendio tra CHF 73K e CHF 97K, requisiti, datori di lavoro e confronto salariale con",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/educatore-infanzia-ticino-stipendi.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un educatore dell'infanzia in Ticino con bambini in un asilo nido colorato"
+      },
+      "datePublished": "2026-05-25T12:06:48+00:00",
+      "dateModified": "2026-05-25T12:06:48+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/educatore-infanzia-ticino-stipendi`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-educatore-infanzia-ticino-stipendi-requisiti': {
+    title: 'Educatore dell\'infanzia in Ticino: stipendi e requisiti',
+    description: 'Scopri stipendi, requisiti e procedure per lavorare come educatore dell\'infanzia in Ticino, con confronto salariale Italia-Svizzera. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, educatore, dell, infanzia, stipendi',
+    ogTitle: 'Educatore infanzia Ticino stipendi requisiti',
+    ogDescription: 'Scopri stipendi, requisiti e procedure per lavorare come educatore dell\'infanzia in Ticino, con confronto salariale Italia-Svizzera',
+    canonicalPath: '/articoli-frontaliere/educatore-infanzia-ticino-stipendi-requisiti',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Educatore dell'infanzia in Ticino: stipendi e requisiti",
+      "description": "Scopri stipendi, requisiti e procedure per lavorare come educatore dell'infanzia in Ticino, con confronto salariale Italia-Svizzera. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/educatore-infanzia-ticino-stipendi-requisiti.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un'educatrice dell'infanzia lavora con bambini in un asilo nido nel Canton Ticino"
+      },
+      "datePublished": "2026-05-25T12:31:15+00:00",
+      "dateModified": "2026-05-25T12:31:15+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/educatore-infanzia-ticino-stipendi-requisiti`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

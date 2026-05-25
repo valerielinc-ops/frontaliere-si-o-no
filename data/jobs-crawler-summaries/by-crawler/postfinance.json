@@ -1,16 +1,16 @@
 {
   "key": "postfinance",
   "label": "PostFinance",
-  "generatedAt": "2026-05-24T22:58:15.000Z",
+  "generatedAt": "2026-05-25T13:41:33.356Z",
   "total": 8,
   "newCount": 0,
-  "updatedCount": 3,
+  "updatedCount": 8,
   "removedCount": 0,
-  "unchangedCount": 5,
-  "durationMs": 14352,
-  "avgDurationMs": 14352,
+  "unchangedCount": 0,
+  "durationMs": 13154,
+  "avgDurationMs": 13154,
   "durationHistory": [
-    14352
+    13154
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -45,7 +45,6 @@
       "currency": "CHF",
       "postalCode": "3001",
       "firstSeenAt": "2026-05-16T10:49:06.770Z",
-      "needsRetranslation": true,
       "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -85,7 +84,6 @@
       "currency": "CHF",
       "postalCode": "3001",
       "firstSeenAt": "2026-05-18T13:01:19.599Z",
-      "needsRetranslation": true,
       "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -94,49 +92,6 @@
         "completeness": 17
       }
     },
-    {
-      "url": "https://job.post.ch/PostFinance/job/Bern-Homeoffice-Lead-Developer-%28wmd%29/1381588933/",
-      "applyUrl": "https://job.post.ch/PostFinance/job/Bern-Homeoffice-Lead-Developer-%28wmd%29/1381588933/",
-      "title": "Lead Developer (w/m/d)",
-      "company": "PostFinance",
-      "companyKey": "postfinance",
-      "location": "Bern",
-      "canton": "BE",
-      "country": "CH",
-      "slug": "lead-sviluppatore-w-m-d-postfinance-bern",
-      "sourceLang": "de",
-      "department": "",
-      "category": "servizi-finanziari",
-      "datePosted": "2026-05-21",
-      "validThrough": "",
-      "source": "postfinance-careers-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "",
-      "sector": "IT",
-      "workload": "",
-      "_targetScope": {
-        "canton": "BE",
-        "location": "Bern"
-      },
-      "crawledAt": "",
-      "id": "postfinance-7b604c82531b",
-      "salaryMin": 68000,
-      "salaryMax": 103000,
-      "currency": "CHF",
-      "postalCode": "3001",
-      "firstSeenAt": "2026-05-21T12:58:33.524Z",
-      "needsRetranslation": true,
-      "_qualityScore": 87,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 17
-      }
-    }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": [
     {
       "url": "https://job.post.ch/PostFinance/job/Herisau-Kundenberaterin-Privatkunden%2C-Herisau/1375640133/",
       "applyUrl": "https://job.post.ch/PostFinance/job/Herisau-Kundenberaterin-Privatkunden%2C-Herisau/1375640133/",
@@ -167,7 +122,6 @@
       "salaryMax": 75000,
       "currency": "CHF",
       "firstSeenAt": "2026-05-16T10:49:06.770Z",
-      "needsRetranslation": true,
       "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -207,7 +161,6 @@
       "currency": "CHF",
       "postalCode": "1003",
       "firstSeenAt": "2026-05-16T10:49:06.770Z",
-      "needsRetranslation": true,
       "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -247,7 +200,6 @@
       "currency": "CHF",
       "postalCode": "1003",
       "firstSeenAt": "2026-05-18T13:01:19.599Z",
-      "needsRetranslation": true,
       "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -287,7 +239,6 @@
       "currency": "CHF",
       "postalCode": "1630",
       "firstSeenAt": "2026-05-16T10:49:06.770Z",
-      "needsRetranslation": true,
       "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -327,7 +278,6 @@
       "currency": "CHF",
       "postalCode": "1227",
       "firstSeenAt": "2026-05-16T10:49:06.770Z",
-      "needsRetranslation": true,
       "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -335,6 +285,47 @@
         "translation": 25,
         "completeness": 17
       }
+    },
+    {
+      "url": "https://job.post.ch/PostFinance/job/Bern-Homeoffice-Lead-Developer-%28wmd%29/1381588933/",
+      "applyUrl": "https://job.post.ch/PostFinance/job/Bern-Homeoffice-Lead-Developer-%28wmd%29/1381588933/",
+      "title": "Lead Developer (w/m/d)",
+      "company": "PostFinance",
+      "companyKey": "postfinance",
+      "location": "Bern",
+      "canton": "BE",
+      "country": "CH",
+      "slug": "lead-sviluppatore-w-m-d-postfinance-bern",
+      "sourceLang": "de",
+      "department": "",
+      "category": "servizi-finanziari",
+      "datePosted": "2026-05-21",
+      "validThrough": "",
+      "source": "postfinance-careers-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "",
+      "sector": "IT",
+      "workload": "",
+      "_targetScope": {
+        "canton": "BE",
+        "location": "Bern"
+      },
+      "crawledAt": "",
+      "id": "postfinance-7b604c82531b",
+      "salaryMin": 68000,
+      "salaryMax": 103000,
+      "currency": "CHF",
+      "postalCode": "3001",
+      "firstSeenAt": "2026-05-21T12:58:33.524Z",
+      "_qualityScore": 87,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 25,
+        "completeness": 17
+      }
     }
-  ]
+  ],
+  "removedJobs": [],
+  "unchangedJobs": []
 }

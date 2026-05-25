@@ -1,165 +1,7 @@
 {
   "crawlerKey": "paraplegie",
-  "assembledAt": "2026-05-24T22:54:32.705Z",
+  "assembledAt": "2026-05-25T13:37:51.153Z",
   "jobs": [
-    {
-      "id": "paraplegie-275bc366f7a7",
-      "slug": "co-direttore-ssa-assistenza-sanitaria-schweizer-paraplegiker-gruppe-nottwil",
-      "slugByLocale": {
-        "it": "co-direttore-ssa-assistenza-sanitaria-schweizer-paraplegiker-gruppe-nottwil",
-        "en": "co-station-manager-healthcare-schweizer-paraplegiker-gruppe-nottwil",
-        "de": "co-stationsleiter-in-pflege-schweizer-paraplegiker-gruppe-nottwil",
-        "fr": "co-directeur-rice-des-soins-schweizer-paraplegiker-gruppe-nottwil"
-      },
-      "company": "Schweizer Paraplegiker-Gruppe",
-      "companyKey": "paraplegie",
-      "companyDomain": "paraplegie.ch",
-      "title": "Co-Stationsleiter*in Pflege",
-      "titleByLocale": {
-        "it": "Co-Direttore*ssa Assistenza Sanitaria",
-        "en": "Co-Station Manager Healthcare",
-        "de": "Co-Stationsleiter*in Pflege",
-        "fr": "Co-Directeur*rice des soins"
-      },
-      "description": "Co-Stationsleiter*in Pflege bei Schweizer Paraplegiker-Gruppe in Nottwil (6207, LU), Schweiz.\n\n• Standort: Nottwil (LU)\n• Bewerbung über das Umantis-Karriereportal von Schweizer Paraplegiker-Gruppe",
-      "descriptionByLocale": {
-        "it": "Co-responsabile di reparto presso il Gruppo Svizzero Paraplegici a Nottwil (6207, LU), Svizzera Descrizione\n• Sede: Nottwil (LU) Contatto Candidatura tramite il portale della carriera Umantis del Gruppo Svizzero Paraplegici",
-        "en": "Job Title Co-Station Manager Nursing at Swiss Paraplegic Group in Nottwil (6207, LU), Switzerland Descrizione\n• Location: Nottwil (LU) Contatto Application via the Umantis Career Portal of Swiss Paraplegic Group",
-        "de": "Co-Stationsleiter*in Pflege bei Schweizer Paraplegiker-Gruppe in Nottwil (6207, LU), Schweiz.\n• Standort: Nottwil (LU)\n• Bewerbung über das Umantis-Karriereportal von Schweizer Paraplegiker-Gruppe",
-        "fr": "Job Title Co-responsable de la station de soins du groupe suisse des paraplégiques à Nottwil (6207, LU), Suisse Descrizione\n• Emplacement : Nottwil (LU) Contatto Candidature via le portail de carrière Umantis du groupe suisse des paraplégiques"
-      },
-      "location": "Nottwil",
-      "canton": "LU",
-      "url": "https://recruitingapp-2782.umantis.com/Vacancies/3437/Description/1",
-      "source": "Schweizer Paraplegiker-Gruppe Dedicated Parser (Umantis listing tenant 2782)",
-      "sourceLang": "de",
-      "crawledAt": "2026-05-24T22:54:30.958Z",
-      "addressLocality": "Nottwil",
-      "addressRegion": "LU",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "6207",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-22",
-      "applyUrl": "https://recruitingapp-2782.umantis.com/Vacancies/3437/Application/CheckLogin/1",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugsByLocale": {
-        "de": [
-          "co-stationsleiter-in-pflege-paraplegie-nottwil"
-        ],
-        "it": [
-          "co-responsabiledistazione-in-cura-schweizer-paraplegiker-gruppe-nottwil"
-        ],
-        "en": [
-          "co-stations-leader-pflege-schweizer-paraplegiker-gruppe-nottwil"
-        ],
-        "fr": [
-          "co-stations-leader-pflege-schweizer-paraplegiker-gruppe-nottwil"
-        ]
-      },
-      "previousSlugs": [
-        "co-stationsleiter-in-pflege-paraplegie-nottwil",
-        "co-responsabiledistazione-in-cura-schweizer-paraplegiker-gruppe-nottwil",
-        "co-stations-leader-pflege-schweizer-paraplegiker-gruppe-nottwil"
-      ],
-      "firstSeenAt": "2026-05-22T20:51:14.349Z",
-      "salaryMin": 68000,
-      "salaryMax": 103000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68000,
-          "maxValue": 103000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "paraplegie-d03a0bac2086",
-      "slug": "medico-assistente-neurochirurgia-ortopedia-schweizer-paraplegiker-gruppe-nottwil",
-      "slugByLocale": {
-        "it": "medico-assistente-neurochirurgia-ortopedia-schweizer-paraplegiker-gruppe-nottwil",
-        "en": "neuroorthopedic-assistant-surgeon-schweizer-paraplegiker-gruppe-nottwil",
-        "de": "assistenzarzt-arztin-neurochirurgie-orthopadie-schweizer-paraplegiker-gruppe-nottwil",
-        "fr": "medicin-assistant-en-neurochirurgie-orthopedie-schweizer-paraplegiker-gruppe-nottwil"
-      },
-      "company": "Schweizer Paraplegiker-Gruppe",
-      "companyKey": "paraplegie",
-      "companyDomain": "paraplegie.ch",
-      "title": "Assistenzarzt*ärztin Neurochirurgie/Orthopädie",
-      "titleByLocale": {
-        "it": "Assistente medico Neurochirurgia/Ortopedia",
-        "en": "Neuroorthopedic Assistant Surgeon",
-        "de": "Assistenzarzt*ärztin Neurochirurgie/Orthopädie",
-        "fr": "Assistant·e chirurgien Neurochirurgie/Orthopédie"
-      },
-      "description": "Assistenzarzt*ärztin Neurochirurgie/Orthopädie bei Schweizer Paraplegiker-Gruppe in Nottwil (6207, LU), Schweiz.\n\n• Standort: Nottwil (LU)\n• Bewerbung über das Umantis-Karriereportal von Schweizer Paraplegiker-Gruppe",
-      "descriptionByLocale": {
-        "it": "Descrizione Medico assistente Neurochirurgia/Ortopedia presso il Gruppo Svizzero Paraplegici a Nottwil (6207, LU), Svizzera.\n• Sede: Nottwil (LU)\n• Candidatura tramite il portale della carriera Umantis del Gruppo Svizzero Paraplegici",
-        "en": "Descrizione AssistantPhysician Neurosurgery/Orthopaedics at Swiss Paraplegic Group in Nottwil (6207, LU), Switzerland.\n• Location: Nottwil (LU)\n• Application via the Umantis career portal of the Swiss Paraplegic Group",
-        "de": "Assistenzarzt*ärztin Neurochirurgie/Orthopädie bei Schweizer Paraplegiker-Gruppe in Nottwil (6207, LU), Schweiz.\n• Standort: Nottwil (LU)\n• Bewerbung über das Umantis-Karriereportal von Schweizer Paraplegiker-Gruppe",
-        "fr": "Descrizione Médecin assistant en neurochirurgie/orthopédie auprès du Groupe suisse des paraplégiques à Nottwil (6207, LU), Suisse.\n• Lieu : Nottwil (LU)\n• Candidature via le portail de carrière Umantis du groupe suisse des paraplégiques"
-      },
-      "location": "Nottwil",
-      "canton": "LU",
-      "url": "https://recruitingapp-2782.umantis.com/Vacancies/3403/Description/1",
-      "source": "Schweizer Paraplegiker-Gruppe Dedicated Parser (Umantis listing tenant 2782)",
-      "sourceLang": "de",
-      "crawledAt": "2026-05-24T22:54:30.604Z",
-      "addressLocality": "Nottwil",
-      "addressRegion": "LU",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "6207",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-19",
-      "applyUrl": "https://recruitingapp-2782.umantis.com/Vacancies/3403/Application/CheckLogin/1",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugsByLocale": {
-        "de": [
-          "assistenzarzt-arztin-neurochirurgie-orthopadie-paraplegie-nottwil"
-        ],
-        "it": [
-          "assistenzarzt-arztin-neurochirurgie-orthopadie-paraplegie-nottwil"
-        ],
-        "en": [
-          "assistant-physician-neurosurgery-orthopedics-schweizer-paraplegiker-gruppe-nottwil"
-        ]
-      },
-      "previousSlugs": [
-        "assistenzarzt-arztin-neurochirurgie-orthopadie-paraplegie-nottwil",
-        "assistant-physician-neurosurgery-orthopedics-schweizer-paraplegiker-gruppe-nottwil"
-      ],
-      "firstSeenAt": "2026-05-19T15:48:40.485Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      }
-    },
     {
       "id": "paraplegie-38ecd67df37c",
       "slug": "assistente-stagista-per-la-casa-schweizer-paraplegiker-gruppe-nottwil",
@@ -186,12 +28,13 @@
         "de": "Ferienaushilfe Hauswirtschaft bei Schweizer Paraplegiker-Gruppe in Nottwil (6207, LU), Schweiz.\n• Standort: Nottwil (LU)\n• Bewerbung über das Umantis-Karriereportal von Schweizer Paraplegiker-Gruppe",
         "fr": "Descrizione Aide aux vacances en économie domestique auprès du Groupe suisse pour paraplégiques à Nottwil (6207, LU), Suisse.\n• Lieu : Nottwil (LU) Contatto Candidature via le portail de carrière Umantis du Groupe suisse des paraplégiques"
       },
+      "needsRetranslation": true,
       "location": "Nottwil",
       "canton": "LU",
       "url": "https://recruitingapp-2782.umantis.com/Vacancies/3442/Description/1",
       "source": "Schweizer Paraplegiker-Gruppe Dedicated Parser (Umantis listing tenant 2782)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-24T22:54:30.228Z",
+      "crawledAt": "2026-05-25T13:37:49.466Z",
       "addressLocality": "Nottwil",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -283,12 +126,13 @@
         "de": "Mitarbeiter*in Gastronomie bei Schweizer Paraplegiker-Gruppe in Nottwil (6207, LU), Schweiz.\n• Standort: Nottwil (LU)\n• Bewerbung über das Umantis-Karriereportal von Schweizer Paraplegiker-Gruppe",
         "fr": "Posizione lavorativa Descrizione Employé (e) en gastronomie chez Schweizer Paraplegikergruppe à Nottwil (6207, LU), Suisse. --- Requisiti\n• Site : Nottwil (LU) --- Contatto Candidature via le portail carrière Umantis du Groupe suisse des paraplégiques"
       },
+      "needsRetranslation": true,
       "location": "Nottwil",
       "canton": "LU",
       "url": "https://recruitingapp-2782.umantis.com/Vacancies/3357/Description/1",
       "source": "Schweizer Paraplegiker-Gruppe Dedicated Parser (Umantis listing tenant 2782)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-24T22:54:29.875Z",
+      "crawledAt": "2026-05-25T13:37:49.087Z",
       "addressLocality": "Nottwil",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -372,12 +216,13 @@
         "de": "Fachverantwortliche*r Grafik & Design bei Schweizer Paraplegiker-Gruppe in Nottwil (6207, LU), Schweiz.\n• Standort: Nottwil (LU)\n• Bewerbung über das Umantis-Karriereportal von Schweizer Paraplegiker-Gruppe",
         "fr": "Posizione disponibile **Responsable du graphisme et du design Sede : Nottwil (LU), Svizzera** --- Descrizione Candidature via le portail de carrière Umantis du groupe suisse des paraplégiques."
       },
+      "needsRetranslation": true,
       "location": "Nottwil",
       "canton": "LU",
       "url": "https://recruitingapp-2782.umantis.com/Vacancies/3451/Description/1",
       "source": "Schweizer Paraplegiker-Gruppe Dedicated Parser (Umantis listing tenant 2782)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-24T22:54:29.505Z",
+      "crawledAt": "2026-05-25T13:37:48.709Z",
       "addressLocality": "Nottwil",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -480,12 +325,13 @@
         "de": "Postdoctoral Researcher bei Schweizer Paraplegiker-Gruppe in Nottwil (6207, LU), Schweiz.\n• Standort: Nottwil (LU)\n• Bewerbung über das Umantis-Karriereportal von Schweizer Paraplegiker-Gruppe",
         "fr": "Chercheur postdoctoral au sein du Groupe suisse des paraplégiques à Nottwil Descrizione Chercheur postdoctoral au sein du Groupe suisse des paraplégiques à Nottwil (6207, LU), Suisse. - Lieu : Nottwil (LU) - Candidature via le portail carrière Umantis du Groupe suisse des paraplégiques"
       },
+      "needsRetranslation": true,
       "location": "Nottwil",
       "canton": "LU",
       "url": "https://recruitingapp-2782.umantis.com/Vacancies/3443/Description/1",
       "source": "Schweizer Paraplegiker-Gruppe Dedicated Parser (Umantis listing tenant 2782)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-24T22:54:29.141Z",
+      "crawledAt": "2026-05-25T13:37:48.331Z",
       "addressLocality": "Nottwil",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -569,12 +415,13 @@
         "de": "Mitarbeiter*in Peer-Beratung bei Schweizer Paraplegiker-Gruppe in Nottwil (6207, LU), Schweiz.\n• Standort: Nottwil (LU)\n• Bewerbung über das Umantis-Karriereportal von Schweizer Paraplegiker-Gruppe",
         "fr": "Job Title Employé (e) de conseil par les pairs du groupe suisse des paraplégiques à Nottwil (6207, LU), Suisse Site de Nottwil (LU) Descrizione Candidature via le portail de carrière Umantis du groupe suisse des paraplégiques"
       },
+      "needsRetranslation": true,
       "location": "Nottwil",
       "canton": "LU",
       "url": "https://recruitingapp-2782.umantis.com/Vacancies/3460/Description/1",
       "source": "Schweizer Paraplegiker-Gruppe Dedicated Parser (Umantis listing tenant 2782)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-24T22:54:28.767Z",
+      "crawledAt": "2026-05-25T13:37:47.953Z",
       "addressLocality": "Nottwil",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -668,12 +515,13 @@
         "de": "Dipl. Sozialarbeiter*in FH bei Schweizer Paraplegiker-Gruppe in Nottwil (6207, LU), Schweiz.\n• Standort: Nottwil (LU)\n• Bewerbung über das Umantis-Karriereportal von Schweizer Paraplegiker-Gruppe",
         "fr": "Posizione disponibile Descrizione Dipl. Travailleur social HES presso Groupe suisse des paraplégiques à Nottwil (6207, LU), Suisse.\n• Luogo di lavoro : Nottwil (LU)"
       },
+      "needsRetranslation": true,
       "location": "Nottwil",
       "canton": "LU",
       "url": "https://recruitingapp-2782.umantis.com/Vacancies/3459/Description/1",
       "source": "Schweizer Paraplegiker-Gruppe Dedicated Parser (Umantis listing tenant 2782)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-24T22:54:28.393Z",
+      "crawledAt": "2026-05-25T13:37:47.572Z",
       "addressLocality": "Nottwil",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -761,12 +609,13 @@
         "de": "Drogist*in oder Fachfrau/-mann Gesundheit in beratender Funktion für Kontinenz- und Alltagshilfen bei Schweizer Paraplegiker-Gruppe in Nottwil (6207, LU), Schweiz.\n• Standort: Nottwil (LU)\n• Bewerbung über das Umantis-Karriereportal von Schweizer Paraplegiker-Gruppe",
         "fr": "Posizione disponibile Descrizione Droguiste ou spécialiste en santé à titre consultatif pour les aides à la continence et à la vie quotidienne au sein du Groupe suisse pour paraplégiques à Nottwil (6207, LU), Suisse. Accessoires\n• Site : Nottwil (LU)"
       },
+      "needsRetranslation": true,
       "location": "Nottwil",
       "canton": "LU",
       "url": "https://recruitingapp-2782.umantis.com/Vacancies/3430/Description/1",
       "source": "Schweizer Paraplegiker-Gruppe Dedicated Parser (Umantis listing tenant 2782)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-24T22:54:28.018Z",
+      "crawledAt": "2026-05-25T13:37:47.197Z",
       "addressLocality": "Nottwil",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -857,12 +706,13 @@
         "de": "PhD candidate in neuroscience, psychology, biology, biomedical engineering (or similar) bei Schweizer Paraplegiker-Gruppe in Nottwil (6207, LU), Schweiz.\n• Standort: Nottwil (LU)\n• Bewerbung über das Umantis-Karriereportal von Schweizer Paraplegiker-Gruppe",
         "fr": "Descrizione PhD candidate in neuroscience, psychology, biology, biomedical engineering (or similar) chez Schweizer Paraplegikergruppe à Nottwil (6207, LU), Suisse.\n• Lieu : Nottwil (LU)"
       },
+      "needsRetranslation": true,
       "location": "Nottwil",
       "canton": "LU",
       "url": "https://recruitingapp-2782.umantis.com/Vacancies/3458/Description/1",
       "source": "Schweizer Paraplegiker-Gruppe Dedicated Parser (Umantis listing tenant 2782)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-24T22:54:27.648Z",
+      "crawledAt": "2026-05-25T13:37:46.823Z",
       "addressLocality": "Nottwil",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -911,6 +761,158 @@
           "unitText": "YEAR"
         }
       }
+    },
+    {
+      "id": "paraplegie-18e1e66c889b",
+      "slug": "spz-collaboratore-trice-in-hauswirtschaft-schweizer-paraplegiker-gruppe-nottwil",
+      "slugByLocale": {
+        "de": "spz-mitarbeiter-in-hauswirtschaft-schweizer-paraplegiker-gruppe-nottwil",
+        "it": "spz-collaboratore-trice-in-hauswirtschaft-schweizer-paraplegiker-gruppe-nottwil",
+        "en": "spz-mitarbeiter-in-hauswirtschaft-schweizer-paraplegiker-gruppe-nottwil",
+        "fr": "spz-mitarbeiter-in-hauswirtschaft-schweizer-paraplegiker-gruppe-nottwil"
+      },
+      "company": "Schweizer Paraplegiker-Gruppe",
+      "companyKey": "paraplegie",
+      "companyDomain": "paraplegie.ch",
+      "title": "SPZ Mitarbeiter*in Hauswirtschaft",
+      "titleByLocale": {
+        "de": "SPZ Mitarbeiter*in Hauswirtschaft",
+        "it": "SPZ Collaboratore/trice*in Hauswirtschaft",
+        "en": "SPZ Mitarbeiter*in Hauswirtschaft",
+        "fr": "SPZ Mitarbeiter*in Hauswirtschaft"
+      },
+      "description": "SPZ Mitarbeiter*in Hauswirtschaft bei Schweizer Paraplegiker-Gruppe in Nottwil (6207, LU), Schweiz.\n\n• Standort: Nottwil (LU)\n• Bewerbung über das Umantis-Karriereportal von Schweizer Paraplegiker-Gruppe",
+      "descriptionByLocale": {
+        "de": "SPZ Mitarbeiter*in Hauswirtschaft bei Schweizer Paraplegiker-Gruppe in Nottwil (6207, LU), Schweiz.\n\n• Standort: Nottwil (LU)\n• Bewerbung über das Umantis-Karriereportal von Schweizer Paraplegiker-Gruppe",
+        "it": "SPZ Mitarbeiter*in Hauswirtschaft bei Schweizer Paraplegiker-Gruppe in Nottwil (6207, LU), Schweiz.\n\n• Standort: Nottwil (LU)\n• Bewerbung über das Umantis-Karriereportal von Schweizer Paraplegiker-Gruppe",
+        "en": "SPZ Mitarbeiter*in Hauswirtschaft bei Schweizer Paraplegiker-Gruppe in Nottwil (6207, LU), Schweiz.\n\n• Standort: Nottwil (LU)\n• Bewerbung über das Umantis-Karriereportal von Schweizer Paraplegiker-Gruppe",
+        "fr": "SPZ Mitarbeiter*in Hauswirtschaft bei Schweizer Paraplegiker-Gruppe in Nottwil (6207, LU), Schweiz.\n\n• Standort: Nottwil (LU)\n• Bewerbung über das Umantis-Karriereportal von Schweizer Paraplegiker-Gruppe"
+      },
+      "needsRetranslation": true,
+      "location": "Nottwil",
+      "canton": "LU",
+      "url": "https://recruitingapp-2782.umantis.com/Vacancies/3453/Description/1",
+      "source": "Schweizer Paraplegiker-Gruppe Dedicated Parser (Umantis listing tenant 2782)",
+      "sourceLang": "de",
+      "crawledAt": "2026-05-25T13:37:46.322Z",
+      "addressLocality": "Nottwil",
+      "addressRegion": "LU",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "6207",
+      "category": "Ospitalità",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-25",
+      "applyUrl": "https://recruitingapp-2782.umantis.com/Vacancies/3453/Application/CheckLogin/1",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "spz-mitarbeiter-in-hauswirtschaft-paraplegie-nottwil"
+        ],
+        "de": [
+          "spz-mitarbeiter-in-hauswirtschaft-paraplegie-nottwil"
+        ]
+      },
+      "previousSlugs": [
+        "spz-mitarbeiter-in-hauswirtschaft-paraplegie-nottwil"
+      ],
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-05-25T13:37:46.322Z"
+    },
+    {
+      "id": "paraplegie-d4844ea587a7",
+      "slug": "collaboratore-trice-in-hauswirtschaft-events-schweizer-paraplegiker-gruppe-nottwil",
+      "slugByLocale": {
+        "de": "mitarbeiter-in-hauswirtschaft-events-schweizer-paraplegiker-gruppe-nottwil",
+        "it": "collaboratore-trice-in-hauswirtschaft-events-schweizer-paraplegiker-gruppe-nottwil",
+        "en": "mitarbeiter-in-hauswirtschaft-events-schweizer-paraplegiker-gruppe-nottwil",
+        "fr": "mitarbeiter-in-hauswirtschaft-events-schweizer-paraplegiker-gruppe-nottwil"
+      },
+      "company": "Schweizer Paraplegiker-Gruppe",
+      "companyKey": "paraplegie",
+      "companyDomain": "paraplegie.ch",
+      "title": "Mitarbeiter*in Hauswirtschaft & Events",
+      "titleByLocale": {
+        "de": "Mitarbeiter*in Hauswirtschaft & Events",
+        "it": "Collaboratore/trice*in Hauswirtschaft & Events",
+        "en": "Mitarbeiter*in Hauswirtschaft & Events",
+        "fr": "Mitarbeiter*in Hauswirtschaft & Events"
+      },
+      "description": "Mitarbeiter*in Hauswirtschaft & Events bei Schweizer Paraplegiker-Gruppe in Nottwil (6207, LU), Schweiz.\n\n• Standort: Nottwil (LU)\n• Bewerbung über das Umantis-Karriereportal von Schweizer Paraplegiker-Gruppe",
+      "descriptionByLocale": {
+        "de": "Mitarbeiter*in Hauswirtschaft & Events bei Schweizer Paraplegiker-Gruppe in Nottwil (6207, LU), Schweiz.\n\n• Standort: Nottwil (LU)\n• Bewerbung über das Umantis-Karriereportal von Schweizer Paraplegiker-Gruppe",
+        "it": "Mitarbeiter*in Hauswirtschaft & Events bei Schweizer Paraplegiker-Gruppe in Nottwil (6207, LU), Schweiz.\n\n• Standort: Nottwil (LU)\n• Bewerbung über das Umantis-Karriereportal von Schweizer Paraplegiker-Gruppe",
+        "en": "Mitarbeiter*in Hauswirtschaft & Events bei Schweizer Paraplegiker-Gruppe in Nottwil (6207, LU), Schweiz.\n\n• Standort: Nottwil (LU)\n• Bewerbung über das Umantis-Karriereportal von Schweizer Paraplegiker-Gruppe",
+        "fr": "Mitarbeiter*in Hauswirtschaft & Events bei Schweizer Paraplegiker-Gruppe in Nottwil (6207, LU), Schweiz.\n\n• Standort: Nottwil (LU)\n• Bewerbung über das Umantis-Karriereportal von Schweizer Paraplegiker-Gruppe"
+      },
+      "needsRetranslation": true,
+      "location": "Nottwil",
+      "canton": "LU",
+      "url": "https://recruitingapp-2782.umantis.com/Vacancies/3454/Description/1",
+      "source": "Schweizer Paraplegiker-Gruppe Dedicated Parser (Umantis listing tenant 2782)",
+      "sourceLang": "de",
+      "crawledAt": "2026-05-25T13:37:45.935Z",
+      "addressLocality": "Nottwil",
+      "addressRegion": "LU",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "6207",
+      "category": "Ospitalità",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-25",
+      "applyUrl": "https://recruitingapp-2782.umantis.com/Vacancies/3454/Application/CheckLogin/1",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "mitarbeiter-in-hauswirtschaft-events-paraplegie-nottwil"
+        ],
+        "de": [
+          "mitarbeiter-in-hauswirtschaft-events-paraplegie-nottwil"
+        ]
+      },
+      "previousSlugs": [
+        "mitarbeiter-in-hauswirtschaft-events-paraplegie-nottwil"
+      ],
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-05-25T13:37:45.935Z"
     }
   ]
 }

@@ -3834,6 +3834,8 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-educatore-infanzia-ticino-stipendi-2026': { name: 'Lavoro Ticino', path: '/articoli-frontaliere/educatore-infanzia-ticino-stipendi-2026', parent: 'blog' },
     'blog-rientro-pentecoste-traffico-ticino-2026': { name: 'Traffico Pentecoste', path: '/articoli-frontaliere/rientro-pentecoste-traffico-ticino-2026', parent: 'blog' },
     'blog-meccanici-manutentori-edili-introvabili-ticino': { name: 'Lavoro', path: '/articoli-frontaliere/meccanici-manutentori-edili-introvabili-ticino', parent: 'blog' },
+    'blog-educatore-infanzia-ticino-stipendi': { name: 'Lavoro in Ticino', path: '/articoli-frontaliere/educatore-infanzia-ticino-stipendi', parent: 'blog' },
+    'blog-educatore-infanzia-ticino-stipendi-requisiti': { name: 'Lavoro Ticino', path: '/articoli-frontaliere/educatore-infanzia-ticino-stipendi-requisiti', parent: 'blog' },
  };
 
  const info = sectionNames[section];
