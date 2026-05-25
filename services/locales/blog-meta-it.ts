@@ -7724,6 +7724,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.frontalieri-transporti-chiasso-lugano-2026.title': 'Frontalieri: trasporti Chiasso-Lugano 2026',
     'blog.article.frontalieri-transporti-chiasso-lugano-2026.excerpt': 'Guida pratica ai trasporti per i frontalieri tra Chiasso e Lugano, con focus su abbonamenti, costi e simulazione pratica.',
     'blog.article.frontalieri-transporti-chiasso-lugano-2026.imageAlt': 'Stazione ferroviaria di Lugano con pendolari',
+    'blog.article.frontaliere-asilo-nido-svizzera.title': 'Frontaliere con figli: guida agli asili nido in Svizzera',
+    'blog.article.frontaliere-asilo-nido-svizzera.excerpt': 'Scopri costi, liste d\'attesa e alternative per i frontalieri con figli in Ticino. Guida pratica con dati aggiornati.',
+    'blog.article.frontaliere-asilo-nido-svizzera.imageAlt': 'Asilo nido in Ticino con bambini che giocano in un ambiente educativo e sicuro',
 };
 
 export default blogMetaIt;

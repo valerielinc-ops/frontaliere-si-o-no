@@ -7722,6 +7722,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.frontalieri-transporti-chiasso-lugano-2026.title': 'Grenzgänger: Verkehr Chiasso-Lugano 2026',
     'blog.article.frontalieri-transporti-chiasso-lugano-2026.excerpt': 'Praktischer Leitfaden für den Verkehr zwischen Chiasso und Lugano für Grenzgänger, mit Fokus auf Abonnements, Kosten und praktischer Simulation.',
     'blog.article.frontalieri-transporti-chiasso-lugano-2026.imageAlt': 'Bahnhof Lugano mit Pendlern',
+    'blog.article.frontaliere-asilo-nido-svizzera.title': 'Grenzgänger mit Kindern: Kita-Leitfaden für den Kanton Tessin',
+    'blog.article.frontaliere-asilo-nido-svizzera.excerpt': 'Entdecken Sie Kosten, Wartelisten und Alternativen für Grenzgänger mit Kindern im Tessin. Praktischer Leitfaden mit aktuellen Daten.',
+    'blog.article.frontaliere-asilo-nido-svizzera.imageAlt': 'Kindertagesstätte im Tessin mit Kindern, die in einer Bildungs- und sicheren Umgebung spielen',
 };
 
 export default blogMetaDe;

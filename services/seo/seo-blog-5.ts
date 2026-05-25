@@ -39269,6 +39269,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-frontaliere-asilo-nido-svizzera': {
+    title: 'Frontaliere con figli: guida agli asili nido in Svizzera',
+    description: 'Scopri costi, liste d\'attesa e alternative per i frontalieri con figli in Ticino. Guida pratica con dati aggiornati. Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, figli, agli, asili, nido',
+    ogTitle: 'Frontaliere con figli: guida agli asili nido in Svizzera',
+    ogDescription: 'Scopri costi, liste d\'attesa e alternative per i frontalieri con figli in Ticino. Guida pratica con dati aggiornati.',
+    canonicalPath: '/articoli-frontaliere/frontaliere-asilo-nido-svizzera',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Frontaliere con figli: guida agli asili nido in Svizzera",
+      "description": "Scopri costi, liste d'attesa e alternative per i frontalieri con figli in Ticino. Guida pratica con dati aggiornati. Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/frontaliere-asilo-nido-svizzera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Asilo nido in Ticino con bambini che giocano in un ambiente educativo e sicuro"
+      },
+      "datePublished": "2026-05-25T08:20:48+00:00",
+      "dateModified": "2026-05-25T08:20:48+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontaliere-asilo-nido-svizzera`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

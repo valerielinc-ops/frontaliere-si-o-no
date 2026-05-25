@@ -7723,6 +7723,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.frontalieri-transporti-chiasso-lugano-2026.title': 'Cross-border workers: Chiasso-Lugano transport 2026',
     'blog.article.frontalieri-transporti-chiasso-lugano-2026.excerpt': 'Practical guide to transport for cross-border workers between Chiasso and Lugano, with a focus on subscriptions, costs, and practical simulation.',
     'blog.article.frontalieri-transporti-chiasso-lugano-2026.imageAlt': 'Lugano train station with commuters',
+    'blog.article.frontaliere-asilo-nido-svizzera.title': 'Cross-border workers with kids: guide to Swiss nurseries',
+    'blog.article.frontaliere-asilo-nido-svizzera.excerpt': 'Discover costs, waiting lists, and alternatives for cross-border workers with children in Ticino. Practical guide with updated data.',
+    'blog.article.frontaliere-asilo-nido-svizzera.imageAlt': 'Childcare center in Ticino with children playing in an educational and safe environment',
 };
 
 export default blogMetaEn;

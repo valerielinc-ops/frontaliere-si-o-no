@@ -7724,6 +7724,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.frontalieri-transporti-chiasso-lugano-2026.title': 'Frontaliers : transports Chiasso-Lugano 2026',
     'blog.article.frontalieri-transporti-chiasso-lugano-2026.excerpt': 'Guide pratique des transports pour les frontaliers entre Chiasso et Lugano, avec un focus sur les abonnements, les coûts et une simulation pratique.',
     'blog.article.frontalieri-transporti-chiasso-lugano-2026.imageAlt': 'Gare de Lugano avec des navetteurs',
+    'blog.article.frontaliere-asilo-nido-svizzera.title': 'Frontaliers avec enfants: guide des crèches en Suisse',
+    'blog.article.frontaliere-asilo-nido-svizzera.excerpt': 'Découvrez les coûts, les listes d\'attente et les alternatives pour les frontaliers avec enfants au Tessin. Guide pratique avec des données à jour.',
+    'blog.article.frontaliere-asilo-nido-svizzera.imageAlt': 'Centre de garde d\'enfants au Tessin avec des enfants jouant dans un environnement éducatif et sûr',
 };
 
 export default blogMetaFr;

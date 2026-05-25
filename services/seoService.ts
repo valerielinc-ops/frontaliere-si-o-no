@@ -3817,6 +3817,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-frontaliere-residenza-italia-svizzera-2026': { name: 'Frontalieri Ticino', path: '/articoli-frontaliere/frontaliere-residenza-italia-svizzera-2026', parent: 'blog' },
     'blog-trasporti-chiasso-lugano-frontalieri': { name: 'Trasporti', path: '/articoli-frontaliere/trasporti-chiasso-lugano-frontalieri', parent: 'blog' },
     'blog-frontalieri-transporti-chiasso-lugano-2026': { name: 'Trasporti frontalieri', path: '/articoli-frontaliere/frontalieri-transporti-chiasso-lugano-2026', parent: 'blog' },
+    'blog-frontaliere-asilo-nido-svizzera': { name: 'Guida pratica', path: '/articoli-frontaliere/frontaliere-asilo-nido-svizzera', parent: 'blog' },
  };
 
  const info = sectionNames[section];
