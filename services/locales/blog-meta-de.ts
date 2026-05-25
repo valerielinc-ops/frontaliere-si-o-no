@@ -7776,6 +7776,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.educatore-infanzia-ticino-stipendi.title': 'Kita-Erzieher im Tessin: Gehalt und Voraussetzungen',
     'blog.article.educatore-infanzia-ticino-stipendi.excerpt': 'Vollständige Anleitung, um Kita-Erzieher im Tessin zu werden: Gehalt zwischen CHF 73K und CHF 97K, Voraussetzungen, Arbeitgeber und Gehaltsvergleich mit Italien und Deutschland',
     'blog.article.educatore-infanzia-ticino-stipendi.imageAlt': 'Ein Kinderbetreuer in der Schweiz mit Kindern in einem bunten Kindergarten',
+    'blog.article.educatore-infanzia-ticino-stipendi-requisiti.title': 'Erzieher im Tessin: Gehälter und Voraussetzungen',
+    'blog.article.educatore-infanzia-ticino-stipendi-requisiti.excerpt': 'Entdecken Sie Gehälter, Voraussetzungen und Verfahren, um als Erzieher im Tessin zu arbeiten, mit einem Gehaltsvergleich zwischen Italien und der Schweiz',
+    'blog.article.educatore-infanzia-ticino-stipendi-requisiti.imageAlt': 'Eine Kindergartenlehrerin arbeitet mit Kindern in einer Ticino-Einrichtung',
 };
 
 export default blogMetaDe;

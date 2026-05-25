@@ -7778,6 +7778,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.educatore-infanzia-ticino-stipendi.title': 'Travail comme éducateur en Suisse: salaire et exigences',
     'blog.article.educatore-infanzia-ticino-stipendi.excerpt': 'Guide complet pour devenir éducateur en Suisse: salaire entre CHF 73K et CHF 97K, exigences, employeurs et comparaison salariale avec l\'Italie et l\'Allemagne',
     'blog.article.educatore-infanzia-ticino-stipendi.imageAlt': 'Un éducateur de la petite enfance en Suisse avec des enfants dans une garderie colorée',
+    'blog.article.educatore-infanzia-ticino-stipendi-requisiti.title': 'Éducateur de la petite enfance au Tessin: salaires et exigences',
+    'blog.article.educatore-infanzia-ticino-stipendi-requisiti.excerpt': 'Découvrez les salaires, les exigences et les procédures pour travailler comme éducateur de la petite enfance au Tessin, avec une comparaison salariale Italie-Suisse',
+    'blog.article.educatore-infanzia-ticino-stipendi-requisiti.imageAlt': 'Une éducatrice de la petite enfance travaille avec des enfants dans une crèche du Tessin',
 };
 
 export default blogMetaFr;

@@ -7777,6 +7777,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.educatore-infanzia-ticino-stipendi.title': 'Working as a childcare educator in Ticino: salary and requirements',
     'blog.article.educatore-infanzia-ticino-stipendi.excerpt': 'Complete guide on how to become a childcare educator in Ticino: salary between CHF 73K and CHF 97K, requirements, employers and salary comparison with Italy and Germany',
     'blog.article.educatore-infanzia-ticino-stipendi.imageAlt': 'A child educator in Ticino with children in a colorful kindergarten',
+    'blog.article.educatore-infanzia-ticino-stipendi-requisiti.title': 'Early childhood educator in Ticino: salaries and requirements',
+    'blog.article.educatore-infanzia-ticino-stipendi-requisiti.excerpt': 'Discover salaries, requirements, and procedures to work as an early childhood educator in Ticino, with a salary comparison between Italy and Switzerland',
+    'blog.article.educatore-infanzia-ticino-stipendi-requisiti.imageAlt': 'A kindergarten teacher working with children in a Ticino setting',
 };
 
 export default blogMetaEn;

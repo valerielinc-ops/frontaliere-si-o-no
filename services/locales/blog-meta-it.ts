@@ -7778,6 +7778,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.educatore-infanzia-ticino-stipendi.title': 'Lavorare come educatore dell\'infanzia in Ticino: stipendio e requisiti',
     'blog.article.educatore-infanzia-ticino-stipendi.excerpt': 'Guida completa su come diventare educatore dell\'infanzia in Ticino: stipendio tra CHF 73K e CHF 97K, requisiti, datori di lavoro e confronto salariale con Italia e Germania',
     'blog.article.educatore-infanzia-ticino-stipendi.imageAlt': 'Un educatore dell\'infanzia in Ticino con bambini in un asilo nido colorato',
+    'blog.article.educatore-infanzia-ticino-stipendi-requisiti.title': 'Educatore dell\'infanzia in Ticino: stipendi e requisiti',
+    'blog.article.educatore-infanzia-ticino-stipendi-requisiti.excerpt': 'Scopri stipendi, requisiti e procedure per lavorare come educatore dell\'infanzia in Ticino, con confronto salariale Italia-Svizzera',
+    'blog.article.educatore-infanzia-ticino-stipendi-requisiti.imageAlt': 'Un\'educatrice dell\'infanzia lavora con bambini in un asilo nido nel Canton Ticino',
 };
 
 export default blogMetaIt;

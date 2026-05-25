@@ -24707,4 +24707,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'educatore-infanzia-ticino-stipendi-requisiti',
+ category: 'pratico',
+ date: '2026-05-25T12:31:15.306Z',
+ image: '/images/blog/educatore-infanzia-ticino-stipendi-requisiti.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
