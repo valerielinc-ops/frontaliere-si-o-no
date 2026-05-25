@@ -6,8 +6,9 @@ name: tests
 # (added in PR #294) landed already-failing without anyone noticing, and the
 # `#root{min-height:100vh}` bug hit production for 24h until manual report.
 #
-# Wall time: ~2 min (~100s vitest + ~30s npm ci + setup). Fast enough to gate
-# every PR without slowing down the merge queue.
+# Wall time on GitHub-hosted runners is typically 8-12 min as the dataset and
+# regression suite grow. Keep the budget explicit so timeout cancellations are
+# treated as infrastructure failures, not test failures.
 #
 # Tests that read data/jobs.json (gitignored): the assemble step regenerates
 # it from the per-slice files committed under data/jobs-by-slice/.
@@ -27,7 +28,7 @@ jobs:
   vitest:
     name: vitest (unit + integration)
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
 
