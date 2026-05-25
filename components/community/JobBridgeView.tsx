@@ -176,6 +176,12 @@ export default function JobBridgeView({ targetSlug, jobData, relatedJobs = [], o
  const targetPath = `${prefix}/${sectionSlug}/${targetSlug}/`.replace(/\/+/g, '/');
  const listingPath = `${prefix}/${sectionSlug}/`.replace(/\/+/g, '/');
  const localizedTitle = jobData?.titleByLocale?.[locale] ?? jobData?.title;
+ const newsletterJobContext = {
+ slug: targetSlug || null,
+ company: jobData?.company || null,
+ location: jobData?.location || null,
+ category: null,
+ };
 
  // Countdown redirect
  useEffect(() => {
@@ -232,6 +238,9 @@ export default function JobBridgeView({ targetSlug, jobData, relatedJobs = [], o
  sourceCta: 'job_bridge_email_unlock',
  sourceComponent: 'JobBridgeView',
  sourceRouteFamily: 'job-board',
+ jobContext: newsletterJobContext,
+ locationInterest: newsletterJobContext.location,
+ sectorInterest: newsletterJobContext.category,
  isActive: false,
  status: 'pending',
  });
@@ -328,7 +337,7 @@ export default function JobBridgeView({ targetSlug, jobData, relatedJobs = [], o
  disabled={linkedInBusy}
  onClick={() => {
  setLinkedInBusy(true);
- saveAuthJobContext({ slug: targetSlug, company: jobData?.company, location: jobData?.location });
+ saveAuthJobContext(newsletterJobContext);
  signInWithLinkedIn().catch(() => setLinkedInBusy(false));
  }}
  className="w-full min-h-[44px] inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-stripe bg-brand-linkedin hover:bg-brand-linkedin-hover disabled:opacity-60 text-on-accent text-sm font-semibold transition-colors"

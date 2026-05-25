@@ -1375,6 +1375,7 @@ async function persistOneTapSubscriber(user: { email?: string | null; displayNam
  const db = getFirestore(await getApp());
  const normalizedEmail = newsletterModule.normalizeNewsletterEmail(rawEmail);
  if (!normalizedEmail) return;
+ const savedJobContext = typeof window !== 'undefined' ? consumeAuthJobContext() : null;
  await newsletterModule.upsertNewsletterSubscriber(db, {
  email: normalizedEmail,
  name: user.displayName || null,
@@ -1385,6 +1386,16 @@ async function persistOneTapSubscriber(user: { email?: string | null; displayNam
  sourceCta: 'one_tap',
  sourceComponent: 'auth_one_tap',
  locale: typeof navigator !== 'undefined' ? navigator.language || 'it-IT' : 'it-IT',
+ ...(savedJobContext ? {
+ jobContext: {
+ slug: savedJobContext.slug || null,
+ company: savedJobContext.company || null,
+ location: savedJobContext.location || null,
+ category: savedJobContext.category || null,
+ },
+ locationInterest: savedJobContext.location || null,
+ sectorInterest: savedJobContext.category || null,
+ } : {}),
  isActive: true,
  });
  try { window.localStorage?.setItem('newsletter_subscribed', 'true'); } catch { /* ignore */ }

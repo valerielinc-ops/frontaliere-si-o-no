@@ -184,6 +184,12 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
 
  const logoUrl = resolveCompanyLogoUrl({ company: job.company, companyKey: job.companyKey });
  const jobLocation = job.addressLocality ?? job.location ?? '';
+ const newsletterJobContext = {
+ slug: job.slug || null,
+ company: job.company || null,
+ location: jobLocation || null,
+ category: job.sector || null,
+ };
 
  const companySlug = job.company ? `${COMPANY_ROUTE_PREFIX[locale] || 'azienda'}-${slugifyCompanyName(job.company)}` : '';
  const companyHref = companySlug ? `${prefix}/${sectionSlug}/${companySlug}/`.replace(/\/+/g, '/') : '';
@@ -252,6 +258,9 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
  sourceCta: 'job_expired_email_unlock',
  sourceComponent: 'JobExpiredView',
  sourceRouteFamily: 'job-board',
+ jobContext: newsletterJobContext,
+ locationInterest: newsletterJobContext.location,
+ sectorInterest: newsletterJobContext.category,
  isActive: false,
  status: 'pending',
  });
