@@ -1004,12 +1004,12 @@ const PRIORITY_EVERGREEN_TOPICS = [
   { keyword: 'quanto costa vivere a Lugano da frontaliere', angle: 'Analisi costi reali: affitto, trasporti, assicurazione, spesa alimentare per un frontaliere che valuta il trasferimento' },
   { keyword: 'frontaliere permesso G vantaggi svantaggi', angle: 'Pro e contro completi del permesso G: fisco, previdenza, sanità, mobilità lavorativa. Quando conviene e quando no' },
   { keyword: 'calcolo pensione frontaliere AVS italiana', angle: 'Come funziona la pensione da frontaliere: contributi AVS svizzeri + INPS italiana, totalizzazione, tempistica' },
-  { keyword: 'frontaliere nuovo accordo fiscale 2026 simulazione', angle: 'Impatto concreto del nuovo accordo fiscale: simulazione con stipendio reale, confronto vecchio vs nuovo regime' },
+  { keyword: 'frontaliere tassazione 2026 dopo nuovo accordo fiscale', angle: 'Regole operative 2026 dopo l’Accordo frontalieri in vigore dal 1 gennaio 2024: differenze tra vecchi e nuovi frontalieri, franchigia e credito d’imposta con scenari ipotetici' },
   { keyword: 'LAMal o CMI frontaliere quale conviene 2026', angle: 'Confronto aggiornato LAMal vs CMI: premi, coperture, franchigia, casi pratici per famiglie e single' },
   { keyword: 'frontaliere doppia imposizione credito imposta come funziona', angle: 'Come evitare la doppia tassazione: meccanismo del credito d\'imposta per frontalieri, quadro CE del 730, esempi pratici con cifre reali' },
   { keyword: 'costo auto pendolare frontaliere Ticino', angle: 'Tutti i costi dell\'auto per il pendolare: benzina, vignette, parcheggio, usura, confronto con treno e bus' },
   { keyword: 'dichiarazione redditi frontaliere 730 guida', angle: 'Guida passo passo alla dichiarazione dei redditi: quadro CE, credito d\'imposta, documenti necessari, scadenze' },
-  { keyword: 'frontaliere documenti necessari inizio lavoro Svizzera', angle: 'Checklist completa dei documenti per iniziare a lavorare in Svizzera: permesso G, contratto, apertura conto, iscrizione AVS, assicurazione, codice fiscale svizzero' },
+  { keyword: 'frontaliere documenti necessari inizio lavoro Svizzera', angle: 'Checklist completa dei documenti per iniziare a lavorare in Svizzera: contratto, documento d’identità, richiesta del permesso G quando applicabile, dati bancari se richiesti dal datore, AVS e assicurazione sanitaria' },
   { keyword: 'telelavoro frontaliere quanti giorni 2026', angle: 'Regole telelavoro Italia-Svizzera: 25% massimo, accordo bilaterale, impatto fiscale, come comunicare al datore' },
   { keyword: 'frontaliere con figli asilo nido Svizzera', angle: 'Guida pratica per frontalieri con figli: asili nido ticinesi, costi, lista d\'attesa, sussidi, alternative italiane' },
   { keyword: 'aprire conto bancario svizzero da frontaliere', angle: 'Quale banca scegliere in Ticino: costi di gestione, carte, online banking, requisiti per frontalieri' },
@@ -1037,7 +1037,7 @@ const PRIORITY_EVERGREEN_TOPICS = [
   { keyword: 'permesso di soggiorno svizzera', angle: 'Tipologie B/G/L/C: differenze, requisiti, durata, conversione tra permessi', locale: 'it', searchVolume: 320 },
   { keyword: 'richiesta permesso g step by step', angle: 'Procedura completa richiesta permesso G: documenti, datore, ufficio cantonale, tempi e costi 2026', locale: 'it', searchVolume: 90 },
   { keyword: 'imposte alla fonte ticino calcolatore', angle: 'Come calcolare l\'imposta alla fonte in Ticino: aliquote 2026, scaglioni, simulatore con esempi reali', locale: 'it', searchVolume: 70 },
-  { keyword: 'tassazione frontalieri 2026 nuovo accordo', angle: 'Nuovo accordo fiscale Italia-Svizzera 2026: cosa cambia per nuovi vs vecchi frontalieri, simulazioni numeriche', locale: 'it', searchVolume: 390 },
+  { keyword: 'tassazione frontalieri 2026 nuovo accordo', angle: 'Tassazione frontalieri nel 2026 dopo il nuovo accordo Italia-Svizzera già in vigore: vecchi vs nuovi frontalieri, franchigia e credito d’imposta con scenari ipotetici', locale: 'it', searchVolume: 390 },
   { keyword: 'ingresso in svizzera frontalieri documenti dogana 2026', angle: 'Documenti e regole per varcare il confine come frontaliere: passaporto/CI, permesso, controlli dogana', locale: 'it', searchVolume: 120 },
   { keyword: 'aufenthaltsbewilligung b quellensteuer 2026', angle: 'B-Bewilligung und Quellensteuer: Tarife, NOV-Antrag, Pillar 3a Abzüge, Vergleich zu Grenzgängern', locale: 'de', searchVolume: 210 },
   { keyword: 'quellensteuer schweiz tarife 2026', angle: 'Quellensteuer-Tarife alle Kantone: Tessin, Graubünden, Wallis, Bern. Berechnung, Abzüge, NOV-Schwelle 120k CHF', locale: 'de', searchVolume: 880 },
@@ -1224,6 +1224,57 @@ function normalizeNewsUrl(rawUrl) {
   }
 }
 
+function isGoogleNewsRssUrl(rawUrl) {
+  try {
+    const u = new URL(rawUrl);
+    return u.hostname === 'news.google.com' && u.pathname.startsWith('/rss/articles/');
+  } catch {
+    return false;
+  }
+}
+
+function stripNewsSourceSuffix(title) {
+  return String(title || '')
+    .replace(/\s+-\s+[^-]{2,80}$/u, '')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+function headlineSimilarity(a, b) {
+  const aTokens = filterDistinctive(tokenizeIt(stripNewsSourceSuffix(a)));
+  const bTokens = filterDistinctive(tokenizeIt(stripNewsSourceSuffix(b)));
+  if (aTokens.length === 0 || bTokens.length === 0) return 0;
+  return Math.max(jaccardSim(aTokens, bTokens), containmentSim(aTokens, bTokens), containmentSim(bTokens, aTokens));
+}
+
+function resolveGoogleNewsHeadline(candidate, provenHeadlines) {
+  if (!candidate || !isGoogleNewsRssUrl(candidate.url)) return candidate;
+  let best = null;
+  let bestScore = 0;
+  for (const h of provenHeadlines || []) {
+    if (!h?.url || isGoogleNewsRssUrl(h.url)) continue;
+    const score = headlineSimilarity(candidate.headline, h.headline);
+    if (score > bestScore) {
+      best = h;
+      bestScore = score;
+    }
+  }
+  if (best && bestScore >= 0.72) {
+    return {
+      ...candidate,
+      url: best.url,
+      source: best.source || candidate.source,
+      relatedHeadlines: [
+        ...(candidate.relatedHeadlines || []),
+        ...(best.relatedHeadlines || []),
+      ].slice(0, 5),
+      _resolvedFromGoogleNewsRss: candidate.url,
+      _resolvedGoogleNewsScore: bestScore,
+    };
+  }
+  return null;
+}
+
 /** Extract slug words from a URL path for fuzzy matching against article IDs */
 function extractUrlSlugWords(rawUrl) {
   try {
@@ -1367,12 +1418,15 @@ function buildSourceQuotaPools(headlines) {
 function buildDynamicEvergreenTopics() {
   const y = new Date().getFullYear();
   const pillars = [
-    { k: `frontaliere tasse italia svizzera ${y}`, a: `Guida aggiornata ${y} sulla tassazione del frontaliere: regole pratiche, errori da evitare e casi reali.` },
+    { k: `frontaliere tasse italia svizzera ${y}`, a: `Guida aggiornata ${y} sulla tassazione del frontaliere: regole pratiche, errori da evitare e scenari ipotetici.` },
     { k: `frontalieri busta paga svizzera ${y}`, a: `Analisi completa busta paga svizzera ${y}: trattenute, contributi e netto reale per frontalieri.` },
     { k: `frontaliere credito imposta ${y}`, a: `Credito d'imposta per frontalieri nel ${y}: calcolo, limiti e compilazione dichiarazione italiana.` },
     { k: `frontaliere cambio chf eur strategia ${y}`, a: `Strategie operative di cambio CHF-EUR nel ${y}: timing, rischio e strumenti pratici.` },
-    { k: `frontaliere pensione avs inps ${y}`, a: `Pensione frontaliere ${y}: coordinamento AVS/INPS, finestre temporali e pianificazione.` },
-    { k: `permesso g vs b frontalieri ${y}`, a: `Confronto tecnico tra Permesso G e B nel ${y}: quando conviene davvero cambiare status.` },
+    { k: `frontaliere pensione avs inps ${y}`, a: `Pensione frontaliere ${y}: coordinamento AVS/INPS, totalizzazione e pianificazione senza esempi personali non verificati.` },
+    { k: `permesso g vs b frontalieri ${y}`, a: `Confronto tecnico tra Permesso G e B nel ${y}: residenza, fiscalità e sanità con scenari ipotetici, non casi reali.` },
+    { k: `frontaliere documenti primo giorno lavoro ticino ${y}`, a: `Checklist operativa per il primo giorno di lavoro in Ticino: documenti, contratto, permesso, dati bancari e assicurazione sanitaria.` },
+    { k: `frontaliere scelta comune residenza italia svizzera ${y}`, a: `Come valutare residenza in Italia o Svizzera nel ${y}: costi, tempi di viaggio, sanità e fiscalità con criteri decisionali.` },
+    { k: `frontaliere trasporti chiasso lugano abbonamenti ${y}`, a: `Guida pratica ai trasporti Chiasso-Lugano per frontalieri: treno, auto, parcheggi e abbonamenti con checklist dei costi da verificare.` },
   ];
   const addOns = [
     'entro 20 km',
@@ -1947,7 +2001,7 @@ ARTICOLO DA VERIFICARE:
 ${articleText.slice(0, 8000)}
 """
 
-${isEvergreen ? 'NOTA: Articolo evergreen senza fonte specifica. Verifica basandoti sulle tue conoscenze del dominio e sui fatti di riferimento sotto.' : `FONTE ORIGINALE (l'articolo doveva basarsi su questo testo):\n"""\n${sourceContent.slice(0, 6000)}\n"""`}
+${isEvergreen ? 'NOTA: Articolo evergreen senza fonte specifica. Verifica basandoti sulle tue conoscenze del dominio e sui fatti di riferimento sotto. Per evergreen, NON segnalare come issue un fatto solo perché non compare in una fonte originale: segnala solo se è falso, contraddetto dai fatti verificati, troppo specifico senza attribuzione, o presentato come caso reale non verificato.' : `FONTE ORIGINALE (l'articolo doveva basarsi su questo testo):\n"""\n${sourceContent.slice(0, 6000)}\n"""`}
 
 ${VERIFIED_DOMAIN_FACTS}
 
@@ -1959,7 +2013,7 @@ VERIFICA SISTEMATICA — controlla OGNI categoria:
 
 3. **ALIQUOTE E CIFRE FISCALI**: Confronta OGNI aliquota con i valori nei fatti verificati. AVS=5.3%, AC=1.1%, IRPEF 23%/35%/43%. Se un'aliquota non corrisponde = critical.
 
-4. **STATISTICHE E PERCENTUALI**: Percentuali precise con decimali (es. "il 73,2% dei frontalieri") DEVONO provenire da studi reali citati per nome E ISTITUTO. Senza attribuzione precisa = probabile invenzione. ECCEZIONE: arrotondamenti a numeri interi da fonti note (es. "circa il 30% della forza lavoro" da USTAT) sono accettabili.
+4. **STATISTICHE E PERCENTUALI**: Percentuali precise con decimali (es. "il 73,2% dei frontalieri") DEVONO provenire da studi reali citati per nome E ISTITUTO. Senza attribuzione precisa = probabile invenzione. ECCEZIONE: arrotondamenti a numeri interi da fonti note (es. "circa il 30% della forza lavoro" da USTAT) sono accettabili. Non segnalare aliquote esplicitamente elencate nei fatti verificati (AVS=5.3%, AC=1.1%, IRPEF 23%/35%/43%, franchigia 10.000 euro) come issue se sono riportate correttamente.
 
 5. **DATE E EVENTI**: Confronta con le date verificate: Convenzione 9/12/1976, Nuovo Accordo 23/12/2020, vigenza dal 1/1/2024, Legge 83/2023. ${isEvergreen ? '' : 'Date presenti nell\'articolo ma ASSENTI dalla fonte = altamente sospette.'}
 
@@ -2002,7 +2056,7 @@ VERIFICA SISTEMATICA — controlla OGNI categoria:
 
 CRITERI DI GIUDIZIO:
 - "critical" = fatto verificabilmente FALSO, o CONTRADDICE i fatti verificati di riferimento (legge inesistente, istituzione inventata, aliquota sbagliata, evento mai avvenuto, dato che contraddice la fonte)
-- "major" = fatto sospetto non verificabile con certezza (percentuale senza fonte, dato plausibile ma non confermabile, informazione specifica aggiunta non presente nella fonte e non nei fatti verificati)
+- "major" = fatto sospetto non verificabile con certezza (percentuale senza fonte, dato plausibile ma non confermabile, informazione specifica aggiunta non presente nella fonte e non nei fatti verificati). Per evergreen, "non presente nella fonte" NON basta: serve falso/sospetto concreto.
 - "minor" = imprecisione che non fuorvia il lettore (arrotondamento, data approssimata) O arricchimento contestuale con fatti di dominio noti e corretti (contesto frontaliere, informazioni generali sulla Svizzera/Ticino)
 - FAIL = almeno 1 critical O almeno 3 major
 - PASS = nessun fatto verificabilmente falso, al massimo minor e fino a 2 major
@@ -2031,7 +2085,7 @@ Categorie valide: leggi, istituzioni, aliquote, statistiche, date, coerenza, fat
 
   // Query up to 2 models in parallel for consensus
   const modelsToQuery = verificationModels.slice(0, 2);
-  const promises = modelsToQuery.map(model => _runSingleFactCheck(model, prompt));
+  const promises = modelsToQuery.map(model => _runSingleFactCheck(model, prompt, { isEvergreen }));
   const settled = await Promise.allSettled(promises);
 
   for (let i = 0; i < settled.length; i++) {
@@ -2047,7 +2101,7 @@ Categorie valide: leggi, istituzioni, aliquote, statistiche, date, coerenza, fat
   // If both primary models failed, try fallback
   if (modelResults.length === 0 && verificationModels.length > 2) {
     try {
-      const fallback = await _runSingleFactCheck(verificationModels[2], prompt);
+      const fallback = await _runSingleFactCheck(verificationModels[2], prompt, { isEvergreen });
       if (fallback) modelResults.push({ model: verificationModels[2], ...fallback });
     } catch (err) {
       console.error(`  ⚠️  LLM fact-check fallback (${verificationModels[2]}): ${err.message}`);
@@ -2184,7 +2238,33 @@ Categorie valide: leggi, istituzioni, aliquote, statistiche, date, coerenza, fat
 /**
  * Run a single fact-check against one model. Returns parsed result or null.
  */
-async function _runSingleFactCheck(model, prompt) {
+function issueLooksAffirmative(issue) {
+  const reason = String(issue?.reason || '').toLowerCase();
+  if (!reason) return false;
+  const confirms = /\b(corretto|corretta|corretti|corrette|conferm|risulta vero|è vero|in linea|coerente|accurat)\b/i.test(reason);
+  if (!confirms) return false;
+  return !/\b(ma|però|tuttavia|non|manca|senza|sbagliat|errat|fals|inesatt|fuorviante|contraddic|non specifica|non conferma)\b/i.test(reason);
+}
+
+function normalizeFactCheckIssues(issues, { isEvergreen = false } = {}) {
+  if (!Array.isArray(issues)) return [];
+  return issues.flatMap((issue) => {
+    if (!issue || typeof issue !== 'object') return [];
+    const reason = String(issue.reason || '').toLowerCase();
+    if (issueLooksAffirmative(issue)) return [];
+    if (
+      isEvergreen
+      && issue.severity === 'major'
+      && /\b(non (è|e')? presente nella fonte|non (è|e')? stato trovato nella fonte|non compare nella fonte|fonte originale)\b/i.test(reason)
+      && !/\b(falso|sbagliat|errat|inesatt|inventat|inesistent|contraddic|non esist)\b/i.test(reason)
+    ) {
+      return [{ ...issue, severity: 'minor' }];
+    }
+    return [issue];
+  });
+}
+
+async function _runSingleFactCheck(model, prompt, opts = {}) {
   const raw = await callLLM(
     [{ role: 'user', content: prompt }],
     { model, temperature: 0.0, maxTokens: 4000, timeout: 120_000 }
@@ -2206,7 +2286,7 @@ async function _runSingleFactCheck(model, prompt) {
 
   const verdict = (result.verdict || '').toUpperCase();
   const confidence = Number(result.confidence) || 0;
-  const issues = Array.isArray(result.issues) ? result.issues : [];
+  const issues = normalizeFactCheckIssues(result.issues, opts);
 
   return { verdict, confidence, issues };
 }
@@ -2399,7 +2479,7 @@ async function fetchPageContent(url) {
     const keyword = process.env._EVERGREEN_KEYWORD || decodeURIComponent(url.replace('evergreen://', ''));
     const angle = process.env._EVERGREEN_ANGLE || '';
     console.error(`📚 Articolo evergreen: "${keyword}"`);
-    return `[ARTICOLO EVERGREEN SEO]\nKeyword target: ${keyword}\nAngolo editoriale: ${angle}\n\nGenera un articolo approfondito e pratico ottimizzato per questa keyword long-tail. Includi dati specifici, cifre reali 2026, esempi concreti per frontalieri Ticino.`;
+    return `[ARTICOLO EVERGREEN SEO]\nKeyword target: ${keyword}\nAngolo editoriale: ${angle}\n\nGenera un articolo approfondito e pratico ottimizzato per questa keyword long-tail. Usa solo fatti verificati e stabili sul dominio frontalieri Ticino-Italia. Se servono esempi, presentali come scenari ipotetici, senza nomi, aziende, città o importi specifici inventati.`;
   }
   console.error(`📰 Fetching: ${url}`);
   try {
@@ -4618,27 +4698,95 @@ function optimizeSeoMetadata(data) {
   return data;
 }
 
+function evergreenTopicFamily(text) {
+  const raw = String(text || '').toLowerCase();
+  if (/\bpermess[oi]\b/.test(raw) && /\bg\b/.test(raw) && /\bb\b/.test(raw)) return 'permesso-g-b';
+  const words = new Set(tokenizeIt(text).map(normalizeItWord));
+  const hasAny = (tokens) => tokens.some((t) => words.has(t));
+  const hasAll = (tokens) => tokens.every((t) => words.has(t));
+
+  if (hasAll(['permess']) && hasAny(['residenz', 'soggiorn'])) return 'permesso-g-b';
+  if (hasAny(['lamal']) && hasAny(['cmi'])) return 'lamal-cmi';
+  if (hasAny(['avs']) && hasAny(['inps'])) return 'avs-inps';
+  if (hasAny(['telelavor', 'smart']) && hasAny(['working', 'lavor'])) return 'telelavoro';
+  if (hasAny(['credit']) && hasAny(['impost'])) return 'credito-imposta';
+  if (hasAny(['dopp']) && hasAny(['imposizion'])) return 'doppia-imposizione';
+  if (hasAny(['bust']) && hasAny(['pag'])) return 'busta-paga';
+  if (hasAny(['cambi']) && (hasAny(['franc', 'chf']) || hasAny(['eur', 'euro']))) return 'cambio-chf-eur';
+  if (hasAny(['document']) && hasAny(['lavor'])) return 'documenti-lavoro';
+  if (hasAny(['ristorn'])) return 'ristorni';
+  if (hasAny(['disoccup'])) return 'disoccupazione';
+  if (hasAny(['second']) && hasAny(['pilastr', 'lpp'])) return 'secondo-pilastro';
+  if (hasAny(['auto']) && hasAny(['pendolar', 'frontali'])) return 'auto-pendolare';
+  return null;
+}
+
+function evergreenAngleTokens(text) {
+  const structural = new Set([
+    'frontali', 'frontalier', 'svizzer', 'ital', 'ticin', '2025', '2026',
+    'guida', 'pratic', 'aggiornat', 'confront', 'simulazion', 'scenar',
+    'regol', 'quando', 'come', 'cosa',
+  ]);
+  return filterDistinctive(tokenizeIt(text))
+    .map(normalizeItWord)
+    .filter((w) => w.length > 2 && !structural.has(w));
+}
+
+function preFlightEvergreenTopicCheck(candidate, existingArticles) {
+  const keyword = String(candidate?.keyword || candidate || '');
+  const angle = String(candidate?.angle || '');
+  const candidateText = `${keyword} ${angle}`;
+  const candidateFamily = evergreenTopicFamily(candidateText);
+  const candidateTokens = evergreenAngleTokens(candidateText);
+  const PRE_FLIGHT_THRESHOLD = 0.58;
+  const FAMILY_TOKEN_OVERLAP_THRESHOLD = 0.50;
+  const SATURATED_FAMILIES = new Set(['permesso-g-b', 'lamal-cmi', 'avs-inps', 'telelavoro', 'credito-imposta']);
+
+  for (const existing of existingArticles) {
+    const existingText = `${existing.title || ''} ${existing.excerpt || ''} ${existing.id || ''}`;
+    const sim = jaccardSim(tokenizeIt(keyword), tokenizeIt(existing.title || ''));
+    if (sim >= PRE_FLIGHT_THRESHOLD) {
+      return { duplicate: true, signal: 'title_jaccard', sim, existingTitle: existing.title, existingId: existing.id };
+    }
+
+    const existingFamily = evergreenTopicFamily(existingText);
+    if (candidateFamily && existingFamily === candidateFamily) {
+      const existingTokens = evergreenAngleTokens(existingText);
+      const overlap = containmentSim(candidateTokens, existingTokens);
+      if (SATURATED_FAMILIES.has(candidateFamily) || overlap >= FAMILY_TOKEN_OVERLAP_THRESHOLD || candidateTokens.length <= 3) {
+        return {
+          duplicate: true,
+          signal: `evergreen_family:${candidateFamily}`,
+          sim: overlap,
+          existingTitle: existing.title,
+          existingId: existing.id,
+        };
+      }
+    }
+  }
+
+  return { duplicate: false };
+}
+
+function loadExistingArticleSummaries() {
+  const blogItSrc = read('services/locales/blog-meta-it.ts');
+  const titleMatches = [...blogItSrc.matchAll(/'blog\.article\.([^.]+)\.title':\s*'([^']+)'/g)];
+  const excerptMatches = [...blogItSrc.matchAll(/'blog\.article\.([^.]+)\.excerpt':\s*'([^']*)'/g)];
+  const excerptsById = new Map(excerptMatches.map((m) => [m[1], m[2]]));
+  return titleMatches.map((m) => ({
+    id: m[1],
+    title: m[2],
+    excerpt: excerptsById.get(m[1]) || '',
+  }));
+}
+
 // ── Pre-flight evergreen keyword check ──────────────────────
 // Lightweight duplicate check: compares evergreen keyword words against
 // existing article titles using Jaccard similarity. Runs BEFORE calling
 // Gemini to avoid wasting API calls on keywords that will certainly fail
 // the post-generation duplicate detector.
-function preFlightEvergreenCheck(keyword) {
-  const blogItSrc = read('services/locales/blog-meta-it.ts');
-  const titleMatches = [...blogItSrc.matchAll(/'blog\.article\.([^.]+)\.title':\s*'([^']+)'/g)];
-
-  const kwWords = tokenizeIt(keyword);
-  const PRE_FLIGHT_THRESHOLD = 0.58; // less aggressive to avoid blocking valid new evergreen topics
-
-  for (const m of titleMatches) {
-    const existingTitle = m[2];
-    const existingId = m[1];
-    const sim = jaccardSim(kwWords, tokenizeIt(existingTitle));
-    if (sim >= PRE_FLIGHT_THRESHOLD) {
-      return { duplicate: true, sim, existingTitle, existingId };
-    }
-  }
-  return { duplicate: false };
+function preFlightEvergreenCheck(candidate) {
+  return preFlightEvergreenTopicCheck(candidate, loadExistingArticleSummaries());
 }
 
 // ── Pre-flight news headline check ──────────────────────────
@@ -6257,6 +6405,7 @@ async function main() {
     let chosenPool = slotKind;
     let _discoveryHeadlines = null;
     let _discoveryCandidatesById = new Map();
+    let _provenHeadlinesForDiscovery = [];
     RUN_REPORT.poolSlotKind = slotKind;
     RUN_REPORT.poolCounterValue = slotDecision.counterValue;
     RUN_REPORT.poolCurrentQuota = slotDecision.currentQuota;
@@ -6270,14 +6419,24 @@ async function main() {
       for (const c of candidates) {
         const id = `discovery::${c.source}::${String(c.headline).toLowerCase()}`;
         _discoveryCandidatesById.set(id, c);
-        out.push({
+        const headline = {
           headline: c.headline,
           url: c.url || `discovery://${encodeURIComponent(c.source)}/${encodeURIComponent(c.headline)}`,
           source: c.source,
           relatedHeadlines: [],
           _discoveryId: id,
           _discoveryCandidate: c,
-        });
+        };
+        const resolved = resolveGoogleNewsHeadline(headline, _provenHeadlinesForDiscovery);
+        if (!resolved) {
+          console.error(`   ⏭️  Google News RSS non risolto a fonte diretta: "${String(c.headline || '').slice(0, 80)}"`);
+          RUN_REPORT.notes.push(`Google News RSS skipped: unresolved direct source (${String(c.headline || '').slice(0, 120)})`);
+          continue;
+        }
+        if (resolved._resolvedFromGoogleNewsRss) {
+          console.error(`   🔗 Google News RSS risolto a fonte diretta (${resolved._resolvedGoogleNewsScore.toFixed(2)}): ${resolved.url}`);
+        }
+        out.push(resolved);
       }
       return out;
     };
@@ -6291,6 +6450,7 @@ async function main() {
       // already covered by today's news pool is dropped). Spec § 6.5.
       console.error('🔭 Fase 1 (discovery slot): scan news pool (per dedup) + build discovery pool...\n');
       const provenHeadlinesForDedup = await scanNewsSources();
+      _provenHeadlinesForDiscovery = provenHeadlinesForDedup || [];
       const provenStrings = (provenHeadlinesForDedup || []).map((h) => String(h.headline || ''));
       try {
         const pool = await _buildDiscoveryPool(evidenceForDiscovery, {
@@ -6491,6 +6651,19 @@ async function main() {
               rankerTier = 'llm-fallback';
             }
 
+            if (chosen?.url?.startsWith('evergreen://')) {
+              const keyword = chosen.headline || chosen.keyword || process.env._EVERGREEN_KEYWORD || '';
+              const check = preFlightEvergreenCheck({
+                keyword,
+                angle: process.env._EVERGREEN_ANGLE || keyword,
+              });
+              if (check.duplicate) {
+                throw new Error(
+                  `❌ DUPLICATO PRE-GEN: "${keyword}" già coperto da "${check.existingTitle}" [${check.existingId}] (${check.signal}=${check.sim.toFixed(2)})`
+                );
+              }
+            }
+
             RUN_REPORT.selectionUsage.attemptsTotal += 1;
             if (chosen?._undatedFallback) RUN_REPORT.selectionUsage.attemptsUndated += 1;
             else RUN_REPORT.selectionUsage.attemptsRecent += 1;
@@ -6635,6 +6808,7 @@ async function main() {
         RUN_REPORT.poolFallbacks.push({ from: 'proven', to: 'discovery', reason: 'empty' });
         try {
           const provenStrings = (headlines || []).map((h) => String(h.headline || ''));
+          _provenHeadlinesForDiscovery = headlines || [];
           const pool = await _buildDiscoveryPool(evidenceForDiscovery, { provenHeadlines: provenStrings });
           console.error(`DISCOVERY_POOL_BUILD_FALLBACK orphan=${pool.perSource.orphan} suggest=${pool.perSource.suggest} news=${pool.perSource.news} postDedup=${pool.postDedupCount}`);
           const fbHeadlines = _discoveryCandidatesToHeadlines(pool.candidates);
@@ -6696,7 +6870,7 @@ async function main() {
       for (let offset = 0; offset < totalTopics; offset++) {
         const idx = (baseIndex + offset) % totalTopics;
         const candidate = topicPool[idx];
-        const check = preFlightEvergreenCheck(candidate.keyword);
+        const check = preFlightEvergreenCheck(candidate);
         if (check.duplicate) {
           console.error(`   ⏭️  [${idx}] "${candidate.keyword}" → simile a "${check.existingTitle}" [${check.existingId}] (${(check.sim * 100).toFixed(0)}%) — skip`);
         } else {
@@ -6708,11 +6882,9 @@ async function main() {
       }
 
       if (!selectedTopic) {
-        // Last-resort: pick a dynamic topic anyway and let full duplicate checker decide.
-        selectedOffset = 0;
-        selectedTopic = dynamicTopics[weekNum % dynamicTopics.length];
-        console.error('\n⚠️  Tutte le keyword pre-flight risultano simili; uso fallback dinamico forzato.');
-        console.error(`   ▶ Keyword fallback: "${selectedTopic.keyword}"\n`);
+        console.error('\n⚠️  Tutte le keyword evergreen risultano già coperte dal pre-flight. Push prosegue senza nuovo articolo.');
+        finalizeRunReport('skipped', { notes: [...RUN_REPORT.notes, 'All evergreen keywords rejected by pre-generation duplicate checks'] });
+        process.exit(0);
       }
 
       // Generate article with retry — rotate to next safe keyword on post-generation duplicate
@@ -6769,7 +6941,7 @@ async function main() {
             if (triedOffsets.has(realOffset)) continue;
             const idx = (baseIndex + realOffset) % totalTopics;
             const candidate = topicPool[idx];
-            const check = preFlightEvergreenCheck(candidate.keyword);
+            const check = preFlightEvergreenCheck(candidate);
             if (!check.duplicate) {
               selectedTopic = candidate;
               selectedOffset = realOffset;
@@ -6780,15 +6952,6 @@ async function main() {
           }
 
           if (!selectedTopic) {
-            // Final fallback: force one dynamic keyword not yet tried.
-            const forced = dynamicTopics.find((t) => !triedOffsets.has(topicPool.indexOf(t)));
-            if (forced) {
-              selectedTopic = forced;
-              selectedOffset = topicPool.indexOf(forced);
-              triedOffsets.add(selectedOffset);
-              console.error(`\n⚠️  Forzo keyword dinamica residuale: "${forced.keyword}"\n`);
-              continue;
-            }
             console.error('\n⚠️  Nessuna keyword evergreen disponibile. Push prosegue senza nuovo articolo.');
             finalizeRunReport('skipped', { notes: [...RUN_REPORT.notes, 'No evergreen keyword available after duplicate checks'] });
             process.exit(0);
@@ -6816,6 +6979,12 @@ async function main() {
 
 /** Core article pipeline: fetch → generate IT → validate → duplicates → translate → sanitize → image → modify files → git */
 async function generateAndValidateArticle(url, sourceContext = null) {
+  if (isGoogleNewsRssUrl(url)) {
+    const err = new Error(`topic-gate abort: Google News RSS wrapper senza fonte diretta (${url})`);
+    err.topicGateAbort = true;
+    throw err;
+  }
+
   // Step 1: Fetch page content
   const pageContent = await fetchPageContent(url);
 
