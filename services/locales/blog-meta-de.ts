@@ -7725,6 +7725,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.frontaliere-asilo-nido-svizzera.title': 'Grenzgänger mit Kindern: Kita-Leitfaden für den Kanton Tessin',
     'blog.article.frontaliere-asilo-nido-svizzera.excerpt': 'Entdecken Sie Kosten, Wartelisten und Alternativen für Grenzgänger mit Kindern im Tessin. Praktischer Leitfaden mit aktuellen Daten.',
     'blog.article.frontaliere-asilo-nido-svizzera.imageAlt': 'Kindertagesstätte im Tessin mit Kindern, die in einer Bildungs- und sicheren Umgebung spielen',
+    'blog.article.cambio-euro-franco-frontalieri.title': 'Grenzgänger: Euro-Franken-Umrechnung lohnt sich',
+    'blog.article.cambio-euro-franco-frontalieri.excerpt': 'Strategien für den CHF-EUR-Umrechnung für Grenzgänger: Wann umtauschen, beste Plattformen, Mehrwährungs-Konto, Auswirkungen auf das Gehalt',
+    'blog.article.cambio-euro-franco-frontalieri.imageAlt': 'Grenzgänger an der Brogeda-Grenzübergang mit Blick auf den Luganersee',
 };
 
 export default blogMetaDe;

@@ -7727,6 +7727,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.frontaliere-asilo-nido-svizzera.title': 'Frontaliere con figli: guida agli asili nido in Svizzera',
     'blog.article.frontaliere-asilo-nido-svizzera.excerpt': 'Scopri costi, liste d\'attesa e alternative per i frontalieri con figli in Ticino. Guida pratica con dati aggiornati.',
     'blog.article.frontaliere-asilo-nido-svizzera.imageAlt': 'Asilo nido in Ticino con bambini che giocano in un ambiente educativo e sicuro',
+    'blog.article.cambio-euro-franco-frontalieri.title': 'Frontalieri: cambio euro franco conviene',
+    'blog.article.cambio-euro-franco-frontalieri.excerpt': 'Strategie di cambio CHF-EUR per i frontalieri: quando cambiare, piattaforme migliori, conto multi-valuta, impatto sullo stipendio',
+    'blog.article.cambio-euro-franco-frontalieri.imageAlt': 'Frontaliere al valico di Brogeda con vista sul Lago di Lugano',
 };
 
 export default blogMetaIt;

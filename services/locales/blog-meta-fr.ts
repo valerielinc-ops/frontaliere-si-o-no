@@ -7727,6 +7727,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.frontaliere-asilo-nido-svizzera.title': 'Frontaliers avec enfants: guide des crèches en Suisse',
     'blog.article.frontaliere-asilo-nido-svizzera.excerpt': 'Découvrez les coûts, les listes d\'attente et les alternatives pour les frontaliers avec enfants au Tessin. Guide pratique avec des données à jour.',
     'blog.article.frontaliere-asilo-nido-svizzera.imageAlt': 'Centre de garde d\'enfants au Tessin avec des enfants jouant dans un environnement éducatif et sûr',
+    'blog.article.cambio-euro-franco-frontalieri.title': 'Frontaliers: taux de change euro-franc avantageux',
+    'blog.article.cambio-euro-franco-frontalieri.excerpt': 'Stratégies de change CHF-EUR pour les frontaliers: quand changer, meilleures plateformes, compte multi-devise, impact sur le salaire',
+    'blog.article.cambio-euro-franco-frontalieri.imageAlt': 'Frontalier au passage frontalier de Brogeda avec vue sur le lac de Lugano',
 };
 
 export default blogMetaFr;

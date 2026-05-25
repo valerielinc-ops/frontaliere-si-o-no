@@ -7726,6 +7726,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.frontaliere-asilo-nido-svizzera.title': 'Cross-border workers with kids: guide to Swiss nurseries',
     'blog.article.frontaliere-asilo-nido-svizzera.excerpt': 'Discover costs, waiting lists, and alternatives for cross-border workers with children in Ticino. Practical guide with updated data.',
     'blog.article.frontaliere-asilo-nido-svizzera.imageAlt': 'Childcare center in Ticino with children playing in an educational and safe environment',
+    'blog.article.cambio-euro-franco-frontalieri.title': 'Cross-border workers: euro-franc exchange rates',
+    'blog.article.cambio-euro-franco-frontalieri.excerpt': 'Exchange strategies for CHF-EUR for cross-border workers: when to change, best platforms, multi-currency account, impact on salary',
+    'blog.article.cambio-euro-franco-frontalieri.imageAlt': 'Frontalier at the Brogeda border crossing with a view of Lake Lugano',
 };
 
 export default blogMetaEn;

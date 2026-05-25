@@ -3818,6 +3818,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-trasporti-chiasso-lugano-frontalieri': { name: 'Trasporti', path: '/articoli-frontaliere/trasporti-chiasso-lugano-frontalieri', parent: 'blog' },
     'blog-frontalieri-transporti-chiasso-lugano-2026': { name: 'Trasporti frontalieri', path: '/articoli-frontaliere/frontalieri-transporti-chiasso-lugano-2026', parent: 'blog' },
     'blog-frontaliere-asilo-nido-svizzera': { name: 'Guida pratica', path: '/articoli-frontaliere/frontaliere-asilo-nido-svizzera', parent: 'blog' },
+    'blog-cambio-euro-franco-frontalieri': { name: 'Frontalieri Ticino', path: '/articoli-frontaliere/cambio-euro-franco-frontalieri', parent: 'blog' },
  };
 
  const info = sectionNames[section];

@@ -39308,6 +39308,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-cambio-euro-franco-frontalieri': {
+    title: 'Frontalieri: cambio euro franco conviene | Frontaliere Ticino',
+    description: 'Scopri le migliori strategie di cambio CHF-EUR per i frontalieri, le piattaforme di cambio valuta e l\'impatto sullo stipendio. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, cambio, euro, franco, conviene',
+    ogTitle: 'Frontalieri: cambio euro franco conviene',
+    ogDescription: 'Scopri le migliori strategie di cambio CHF-EUR per i frontalieri, le piattaforme di cambio valuta e l\'impatto sullo stipendio',
+    canonicalPath: '/articoli-frontaliere/cambio-euro-franco-frontalieri',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Frontalieri: cambio euro franco conviene",
+      "description": "Scopri le migliori strategie di cambio CHF-EUR per i frontalieri, le piattaforme di cambio valuta e l'impatto sullo stipendio. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/cambio-euro-franco-frontalieri.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Frontaliere al valico di Brogeda con vista sul Lago di Lugano"
+      },
+      "datePublished": "2026-05-25T08:28:08+00:00",
+      "dateModified": "2026-05-25T08:28:08+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/cambio-euro-franco-frontalieri`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

@@ -24554,4 +24554,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'cambio-euro-franco-frontalieri',
+ category: 'pratico',
+ date: '2026-05-25T08:28:07.967Z',
+ image: '/images/blog/cambio-euro-franco-frontalieri.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
