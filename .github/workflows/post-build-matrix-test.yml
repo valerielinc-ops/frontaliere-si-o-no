@@ -15,7 +15,7 @@ on:
   workflow_dispatch:
     inputs:
       profile_jobs_seo:
-        description: 'Enable jobsSeoPagesPlugin per-category profiler during the build step.'
+        description: 'Compatibility no-op: jobsSeoPagesPlugin per-category profiling is now enabled by default whenever BUILD_PROFILE=1.'
         required: false
         type: boolean
         default: false

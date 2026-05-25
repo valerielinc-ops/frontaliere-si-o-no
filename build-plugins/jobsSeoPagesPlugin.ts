@@ -10605,7 +10605,8 @@ ${staticAnalyticsHtml}
  // canonical bridge URLs into sitemap-search-clusters.xml.
  resolveJobsSeoPagesFlushed();
 
- // Print profiler summary if JOBS_SEO_PROFILE=1 is set; no-op otherwise.
+ // Print profiler summary in normal profiled CI builds; local opt-out:
+ // JOBS_SEO_PROFILE=0.
  printJobsSeoProfile();
  if (PROFILE_RELATED_COMPARE) {
  console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m Related pool compare mismatches: ${relatedCompareMismatches}`);

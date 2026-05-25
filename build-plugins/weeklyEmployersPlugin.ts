@@ -4161,7 +4161,8 @@ ${urlEntries}
         console.warn('[weekly-employers] P2.S1 per-canton emit failed:', err);
       }
 
-      // Per-category profile summary (no-op unless WEEKLY_EMPLOYERS_PROFILE=1)
+      // Per-category profile summary in normal profiled CI builds; local opt-out:
+      // WEEKLY_EMPLOYERS_PROFILE=0.
       __weProfPrint();
     },
   };

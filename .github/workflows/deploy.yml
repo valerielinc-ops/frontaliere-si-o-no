@@ -40,7 +40,7 @@ on:
         type: boolean
         default: false
       profile_jobs_seo:
-        description: 'Enable jobsSeoPagesPlugin per-category profiler (counts + total/avg/p50/p99 timings per emission category). Pair with profile_sequential for clean numbers.'
+        description: 'Compatibility no-op: jobsSeoPagesPlugin per-category profiling is now enabled by default whenever BUILD_PROFILE=1.'
         required: false
         type: boolean
         default: false
@@ -50,7 +50,7 @@ on:
         type: boolean
         default: false
       profile_weekly_employers:
-        description: 'Enable weeklyEmployersPlugin per-category profiler (counts + total/avg/p50/p99 timings per phase: cleanup, load-jobs, render-current-week, render-company-city-page, flush, etc.). Pair with profile_sequential for clean numbers.'
+        description: 'Compatibility no-op: weeklyEmployersPlugin per-category profiling is now enabled by default whenever BUILD_PROFILE=1.'
         required: false
         type: boolean
         default: false
@@ -447,22 +447,18 @@ jobs:
           # Everything else (push, cron, bare dispatch, profile dispatch)
           # gets sequential.
           SEQUENTIAL_PROFILE: ${{ github.event.inputs.parallel_plugins == 'true' && '' || '1' }}
-          # Opt-in jobsSeoPagesPlugin per-category profiler. Emits a sorted
-          # table at end of the plugin's closeBundle showing count + total +
-          # avg + p50 + p99 + min + max (ms) for each emission category
-          # (active-job, expired-soft-landing, previous-slug-bridge, etc.).
+          # jobsSeoPagesPlugin per-category profiler. Default-on when
+          # BUILD_PROFILE=1; set JOBS_SEO_PROFILE=0 locally to opt out. The
+          # workflow_dispatch input remains as a compatibility force-on flag.
           JOBS_SEO_PROFILE: ${{ github.event.inputs.profile_jobs_seo == 'true' && '1' || '' }}
           # Investigation-only before/after timing for the active-job related
           # pool change. When enabled, jobsSeoPagesPlugin computes the legacy
           # validJobs.filter(...) pool alongside the pre-indexed pool, records
           # both profiler rows, and fails if the ordered pools diverge.
           JOBS_SEO_PROFILE_COMPARE_RELATED: ${{ github.event.inputs.profile_related_compare == 'true' && '1' || '' }}
-          # Opt-in weeklyEmployersPlugin per-category profiler. Emits a sorted
-          # table at end of the plugin's closeBundle showing count + total +
-          # avg + p50 + p99 + min + max (ms) for each phase (cleanup,
-          # load-jobs, load-snapshots, generate-pages, render-current-week,
-          # render-archive-week, companycity-pass1-stats,
-          # render-company-city-page, process-page, flush, sitemap-write).
+          # weeklyEmployersPlugin per-category profiler. Default-on when
+          # BUILD_PROFILE=1; set WEEKLY_EMPLOYERS_PROFILE=0 locally to opt out.
+          # The workflow_dispatch input remains as a compatibility force-on flag.
           WEEKLY_EMPLOYERS_PROFILE: ${{ github.event.inputs.profile_weekly_employers == 'true' && '1' || '' }}
           # Disable the plugin-internal save/restore for related-search-clusters
           # since the GH Actions cache wrapper around .cache/related-search-clusters/
@@ -555,6 +551,20 @@ jobs:
                   }' \
                 | sort -t'|' -k3 -nr
             fi
+            for marker in jobs-seo-profile weekly-employers-profile related-search-profile; do
+              if grep -qE "^\[$marker\]" /tmp/build.log; then
+                echo ""
+                case "$marker" in
+                  jobs-seo-profile) echo "## jobsSeoPagesPlugin internal profile" ;;
+                  weekly-employers-profile) echo "## weeklyEmployersPlugin internal profile" ;;
+                  related-search-profile) echo "## relatedSearchClustersPlugin internal profile" ;;
+                esac
+                echo ""
+                echo '```text'
+                grep -E "^\[$marker\]" /tmp/build.log | sed -E "s/^\[$marker\] //"
+                echo '```'
+              fi
+            done
           } >> "$GITHUB_STEP_SUMMARY"
 
       - name: SPA fallback (GitHub Pages serves 404.html for unknown paths)
