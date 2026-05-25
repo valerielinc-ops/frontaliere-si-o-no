@@ -207,6 +207,10 @@ export function buildSimplePage(opts: SimplePageOpts): string {
  // static content is rendered to end users.
  const seoStaticLink = `\n ${SEO_STATIC_CSS_LINK}`;
  const jsScript = entryJs ? `\n <script type="module" crossorigin src="/assets/${entryJs}"></script>` : '';
+ const hasStaticAdSlot = bodyHtml.includes('adsbygoogle');
+ // SPA-backed pages already initialise analytics; keep the static loader only
+ // when raw HTML ad slots need the non-React AdSense observer.
+ const staticAnalyticsHtml = entryJs && !hasStaticAdSlot ? '' : `\n ${GTAG_SNIPPET}\n ${ADSENSE_SNIPPET}`;
 
  // Body composition — three modes:
  //
@@ -258,9 +262,7 @@ ${skipMainWrap ? bodyHtml : ` <main class="static-job-page">\n ${bodyHtml}\n </m
  <meta property="og:image:type" content="${esc(ogImageType ?? 'image/png')}">${ogImageAlt ? `\n <meta property="og:image:alt" content="${esc(ogImageAlt)}">` : ''}
  <link rel="canonical" href="${canonicalUrl}">
 ${hreflangHtml}${extraHead}
-${ldTags}${cssLink}${seoStaticLink}
- ${GTAG_SNIPPET}
- ${ADSENSE_SNIPPET}
+${ldTags}${cssLink}${seoStaticLink}${staticAnalyticsHtml}
  </head>
  <body class="bg-surface-alt text-heading overflow-x-hidden"${disableAutoAds ? ' data-no-auto-ads' : ''}>
 ${bodySection}${jsScript}

@@ -350,9 +350,9 @@ describe('per-canton city hub — hydration-safe SPA shell', () => {
       canonicalUrl: 'https://frontaliereticino.ch/cerca-lavoro-basilea/basel/',
       bodyHtml: '<h1>373 Offerte di Lavoro a Basel</h1>',
     });
-    expect(html).toMatch(/<main class="seo-static-content"/);
-    expect(html).toContain('<div id="footer-root">');
-    expect(html).toContain('<div id="root">');
+    expect(html).toMatch(/<main\b[^>]*class=["']?seo-static-content["']?/);
+    expect(html).toMatch(/<div\b[^>]*id=["']?footer-root["']?/);
+    expect(html).toMatch(/<div\b[^>]*id=["']?root["']?/);
     // The legacy wrapper would put <main class="static-job-page"> INSIDE
     // #root — confirm we are NOT emitting that shape for city hubs.
     expect(html).not.toMatch(/<div id="root">\s*<main class="static-job-page"/);
