@@ -87,7 +87,10 @@ export function useSimulationState(activeTab: ActiveTab, seoLanding: SeoLandingI
  inputs.grossSalary,
  inputs.hasChildren
  );
- Analytics.trackFunnelStep('calculate', { worker_type: inputs.workerType });
+ Analytics.trackFunnelStep('calculate', {
+ funnel: 'calculator',
+ worker_type: inputs.workerType,
+ });
  Analytics.trackFunnelStep('simulation_complete', {
  funnel: 'calculator',
  worker_type: inputs.workerType,

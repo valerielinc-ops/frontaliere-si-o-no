@@ -78,7 +78,9 @@ describe('useSimulationState', () => {
       expect((result.current.result as any)?.netIncomeCH).toBe(50000);
       expect(unlockAchievement).toHaveBeenCalledWith('first_simulation');
       expect(unlockAchievement).toHaveBeenCalledWith('simulation_pro');
-      expect(Analytics.trackFunnelStep).toHaveBeenCalledWith('calculate', expect.any(Object));
+      expect(Analytics.trackFunnelStep).toHaveBeenCalledWith('calculate', expect.objectContaining({
+        funnel: 'calculator',
+      }));
     });
   });
 

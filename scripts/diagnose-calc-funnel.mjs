@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// Pulls PostHog events for /calcola-stipendio funnel last 7d.
+// Pulls PostHog events for the calculator funnel last 7d.
 // Output: data/recovery-2026-05-18/calc-funnel.{json,md}
 //
 // Auth pattern: requires POSTHOG_PERSONAL_API_KEY in env (loaded via load-rc-env).
@@ -17,6 +17,27 @@ const HQL = (q) => fetch(`https://eu.posthog.com/api/projects/${PROJECT_ID}/quer
 }).then(r => r.json());
 
 const sevenDaysAgo = "now() - INTERVAL 7 DAY";
+const calcFunnelPredicate = "event = 'funnel_step' AND properties.funnel = 'calculator'";
+const calcUrlPredicate = `(
+  properties.$current_url = 'https://frontaliereticino.ch/'
+  OR properties.$current_url ILIKE 'https://frontaliereticino.ch/?%'
+  OR properties.$current_url ILIKE '%/calcola-stipendio%'
+  OR properties.$current_url ILIKE '%/calculate-salary%'
+  OR properties.$current_url ILIKE '%/gehalt-berechnen%'
+  OR properties.$current_url ILIKE '%/calculer-salaire%'
+  OR properties.$current_url ILIKE '%/verifica-congedo-parentale%'
+  OR properties.$current_url ILIKE '%/estimate-parental-leave%'
+  OR properties.$current_url ILIKE '%/elternzeit-simulieren%'
+  OR properties.$current_url ILIKE '%/simuler-conge-parental%'
+  OR properties.$current_url ILIKE '%/calcola-previdenza%'
+  OR properties.$current_url ILIKE '%/calculate-retirement%'
+  OR properties.$current_url ILIKE '%/rente-berechnen%'
+  OR properties.$current_url ILIKE '%/calculer-pension%'
+  OR properties.$current_url ILIKE '%/simula-busta-paga%'
+  OR properties.$current_url ILIKE '%/estimate-payslip%'
+  OR properties.$current_url ILIKE '%/lohnabrechnung-simulieren%'
+  OR properties.$current_url ILIKE '%/simuler-fiche-de-paie%'
+)`;
 
 // Q1: drop-off per session — entry without input_start
 const q1 = await HQL(`
@@ -26,7 +47,7 @@ const q1 = await HQL(`
     countIf(event = 'funnel_step' AND properties.step = 'calculate') AS calcs
   FROM events
   WHERE timestamp >= ${sevenDaysAgo}
-    AND properties.$current_url ILIKE '%/calcola-stipendio%'
+    AND ${calcFunnelPredicate}
 `);
 
 // Q2: what was the LAST event before users left without input_start
@@ -35,17 +56,15 @@ const q2 = await HQL(`
     SELECT DISTINCT $session_id
     FROM events
     WHERE timestamp >= ${sevenDaysAgo}
-      AND event = 'funnel_step'
+      AND ${calcFunnelPredicate}
       AND properties.step = 'entry'
-      AND properties.$current_url ILIKE '%/calcola-stipendio%'
   ),
   start_sessions AS (
     SELECT DISTINCT $session_id
     FROM events
     WHERE timestamp >= ${sevenDaysAgo}
-      AND event = 'funnel_step'
+      AND ${calcFunnelPredicate}
       AND properties.step = 'input_start'
-      AND properties.$current_url ILIKE '%/calcola-stipendio%'
   ),
   abandoners AS (
     SELECT $session_id FROM entry_sessions
@@ -73,20 +92,20 @@ const q3 = await HQL(`
   FROM events
   WHERE timestamp >= ${sevenDaysAgo}
     AND event = '$pageleave'
-    AND properties.$current_url ILIKE '%/calcola-stipendio%'
+    AND ${calcUrlPredicate}
 `);
 
 // Q4: CLS shift per device on calc page
 const q4 = await HQL(`
   SELECT
     properties.$device_type AS device,
-    quantile(0.75)(toFloat(properties.web_vital_value)) AS cls_p75,
+    quantile(0.75)(toFloat(properties.$web_vitals_CLS_value)) AS cls_p75,
     count() AS n
   FROM events
   WHERE timestamp >= ${sevenDaysAgo}
     AND event = '$web_vitals'
-    AND properties.web_vital_name = 'CLS'
-    AND properties.$current_url ILIKE '%/calcola-stipendio%'
+    AND properties.$web_vitals_CLS_value IS NOT NULL
+    AND ${calcUrlPredicate}
   GROUP BY device
 `);
 
@@ -102,7 +121,7 @@ const q5 = await HQL(`
   FROM events
   WHERE timestamp >= ${sevenDaysAgo}
     AND event = '$exception'
-    AND properties.$current_url ILIKE '%/calcola-stipendio%'
+    AND ${calcUrlPredicate}
   GROUP BY type, msg, source
   ORDER BY n DESC
   LIMIT 20
