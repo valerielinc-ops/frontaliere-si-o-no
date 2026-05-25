@@ -39113,6 +39113,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-documenti-primo-giorno-lavoro-ticino-2026': {
+    title: 'Documenti per il primo giorno di lavoro in Ticino: checklist 2026',
+    description: 'Scopri quali documenti sono necessari per il tuo primo giorno di lavoro in Ticino nel 2026 e come prepararti al meglio. Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, documenti, primo, giorno, lavoro',
+    ogTitle: 'Documenti per il primo giorno di lavoro in Ticino: checklist 2026',
+    ogDescription: 'Scopri quali documenti sono necessari per il tuo primo giorno di lavoro in Ticino nel 2026 e come prepararti al meglio',
+    canonicalPath: '/articoli-frontaliere/documenti-primo-giorno-lavoro-ticino-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Documenti per il primo giorno di lavoro in Ticino: checklist 2026",
+      "description": "Scopri quali documenti sono necessari per il tuo primo giorno di lavoro in Ticino nel 2026 e come prepararti al meglio. Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/documenti-primo-giorno-lavoro-ticino-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista panoramica di Lugano con il lago e le montagne circostanti"
+      },
+      "datePublished": "2026-05-25T07:45:30+00:00",
+      "dateModified": "2026-05-25T07:45:30+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/documenti-primo-giorno-lavoro-ticino-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

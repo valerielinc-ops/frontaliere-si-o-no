@@ -7712,6 +7712,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.calcolo-salario-netto-svizzera-frontalieri.title': 'Calcolo Salario Netto Svizzera: Come Funziona per i Frontalieri',
     'blog.article.calcolo-salario-netto-svizzera-frontalieri.excerpt': 'Scopri come calcolare il tuo salario netto in Svizzera, con dettagli su imposte, contributi e ristorni per i frontalieri del Ticino.',
     'blog.article.calcolo-salario-netto-svizzera-frontalieri.imageAlt': 'Vista panoramica di Lugano con il lago e le montagne circostanti',
+    'blog.article.documenti-primo-giorno-lavoro-ticino-2026.title': 'Documenti per il primo giorno di lavoro in Ticino: checklist 2026',
+    'blog.article.documenti-primo-giorno-lavoro-ticino-2026.excerpt': 'Scopri quali documenti sono necessari per il tuo primo giorno di lavoro in Ticino nel 2026 e come prepararti al meglio',
+    'blog.article.documenti-primo-giorno-lavoro-ticino-2026.imageAlt': 'Vista panoramica di Lugano con il lago e le montagne circostanti',
 };
 
 export default blogMetaIt;

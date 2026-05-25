@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2625,
+ "numberOfItems": 2626,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7265,7 +7265,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2622, "name": "Lavoro a Chiasso: Opportunità per i Frontalieri", "url": `${BASE_URL}/articoli-frontaliere/lavoro-chiasso-opportunita-frontalieri` },
           { "@type": "ListItem", "position": 2623, "name": "Salario minimo in Ticino: cosa cambia per i fro...", "url": `${BASE_URL}/articoli-frontaliere/salario-minimo-ticino-frontalieri-2029` },
           { "@type": "ListItem", "position": 2624, "name": "Modifica LAMal: Finanziamento uniforme delle pr...", "url": `${BASE_URL}/articoli-frontaliere/modifica-lamal-finaziamento-uniforme` },
-          { "@type": "ListItem", "position": 2625, "name": "Calcolo Salario Netto Svizzera: Come Funziona p...", "url": `${BASE_URL}/articoli-frontaliere/calcolo-salario-netto-svizzera-frontalieri` }
+          { "@type": "ListItem", "position": 2625, "name": "Calcolo Salario Netto Svizzera: Come Funziona p...", "url": `${BASE_URL}/articoli-frontaliere/calcolo-salario-netto-svizzera-frontalieri` },
+          { "@type": "ListItem", "position": 2626, "name": "Documenti per il primo giorno di lavoro in Tici...", "url": `${BASE_URL}/articoli-frontaliere/documenti-primo-giorno-lavoro-ticino-2026` }
  ]
  },
  {

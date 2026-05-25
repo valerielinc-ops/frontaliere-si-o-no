@@ -3813,6 +3813,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-salario-minimo-ticino-frontalieri-2029': { name: 'Salario minimo', path: '/articoli-frontaliere/salario-minimo-ticino-frontalieri-2029', parent: 'blog' },
     'blog-modifica-lamal-finaziamento-uniforme': { name: 'Modifica LAMal', path: '/articoli-frontaliere/modifica-lamal-finaziamento-uniforme', parent: 'blog' },
     'blog-calcolo-salario-netto-svizzera-frontalieri': { name: 'Fiscale', path: '/articoli-frontaliere/calcolo-salario-netto-svizzera-frontalieri', parent: 'blog' },
+    'blog-documenti-primo-giorno-lavoro-ticino-2026': { name: 'Documenti lavoro Ticino', path: '/articoli-frontaliere/documenti-primo-giorno-lavoro-ticino-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

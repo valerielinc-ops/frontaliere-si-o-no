@@ -7710,6 +7710,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.calcolo-salario-netto-svizzera-frontalieri.title': 'Nettoeinkommen Schweiz: So geht\'s für Grenzgänger',
     'blog.article.calcolo-salario-netto-svizzera-frontalieri.excerpt': 'Erfahren Sie, wie Sie Ihr Nettoeinkommen in der Schweiz berechnen, mit Details zu Steuern, Beiträgen und Rückerstattungen für Grenzgänger aus dem Tessin.',
     'blog.article.calcolo-salario-netto-svizzera-frontalieri.imageAlt': 'Panoramablick auf Lugano mit dem See und den umliegenden Bergen',
+    'blog.article.documenti-primo-giorno-lavoro-ticino-2026.title': 'Dokumente für den ersten Arbeitstag im Tessin 2026: Checkliste',
+    'blog.article.documenti-primo-giorno-lavoro-ticino-2026.excerpt': 'Erfahren Sie, welche Dokumente Sie für Ihren ersten Arbeitstag im Tessin im Jahr 2026 benötigen und wie Sie sich optimal vorbereiten können',
+    'blog.article.documenti-primo-giorno-lavoro-ticino-2026.imageAlt': 'Panoramablick auf Lugano mit dem See und den umliegenden Bergen',
 };
 
 export default blogMetaDe;

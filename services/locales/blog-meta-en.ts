@@ -7711,6 +7711,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.calcolo-salario-netto-svizzera-frontalieri.title': 'Swiss Net Salary Calculator for Cross-Border Workers',
     'blog.article.calcolo-salario-netto-svizzera-frontalieri.excerpt': 'Learn how to calculate your net salary in Switzerland, with details on taxes, contributions, and refunds for Ticino cross-border workers.',
     'blog.article.calcolo-salario-netto-svizzera-frontalieri.imageAlt': 'Panoramic view of Lugano with the lake and surrounding mountains',
+    'blog.article.documenti-primo-giorno-lavoro-ticino-2026.title': 'Documents for your first workday in Ticino: 2026 checklist',
+    'blog.article.documenti-primo-giorno-lavoro-ticino-2026.excerpt': 'Find out which documents you need for your first day of work in Ticino in 2026 and how to prepare',
+    'blog.article.documenti-primo-giorno-lavoro-ticino-2026.imageAlt': 'Panoramic view of Lugano with the lake and surrounding mountains',
 };
 
 export default blogMetaEn;

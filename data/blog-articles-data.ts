@@ -24509,4 +24509,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'documenti-primo-giorno-lavoro-ticino-2026',
+ category: 'pratico',
+ date: '2026-05-25T07:45:30.643Z',
+ image: '/images/blog/documenti-primo-giorno-lavoro-ticino-2026.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
