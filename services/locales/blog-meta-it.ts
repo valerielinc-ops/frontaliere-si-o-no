@@ -7766,6 +7766,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.keller-sutter-banche-stabilita-2026.title': 'Keller-Sutter alle banche: "Tutti devono contribuire alla stabilità"',
     'blog.article.keller-sutter-banche-stabilita-2026.excerpt': 'La ministra delle finanze elvetica avverte il settore bancario: la stabilità della Svizzera non è scontata e richiede responsabilità anche dalle grandi banche.',
     'blog.article.keller-sutter-banche-stabilita-2026.imageAlt': 'Veduta panoramica del Lago di Lugano con il centro finanziario e le banche in primo piano',
+    'blog.article.educatore-infanzia-ticino-stipendi-2026.title': 'Lavorare come educatore dell\'infanzia in Ticino: stipendi e requisiti',
+    'blog.article.educatore-infanzia-ticino-stipendi-2026.excerpt': 'Guida completa per diventare educatore dell\'infanzia in Ticino: diploma SSS richiesto, stipendio CHF 73K–97K, LIS e altri datori di lavoro, processo per ottenere il Permesso G',
+    'blog.article.educatore-infanzia-ticino-stipendi-2026.imageAlt': 'Un\'educatrice dell\'infanzia in un asilo ticinese con vista sul Lago di Lugano',
 };
 
 export default blogMetaIt;

@@ -7764,6 +7764,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.keller-sutter-banche-stabilita-2026.title': 'Keller-Sutter an die Banken: \'Alle müssen zur Stabilität beitragen\'',
     'blog.article.keller-sutter-banche-stabilita-2026.excerpt': 'Die Schweizer Finanzministerin warnt den Bankensektor: Die Stabilität der Schweiz ist nicht selbstverständlich und erfordert auch Verantwortung von den großen Banken.',
     'blog.article.keller-sutter-banche-stabilita-2026.imageAlt': 'Panoramablick auf den Luganersee mit dem Finanzbezirk und den Banken im Vordergrund',
+    'blog.article.educatore-infanzia-ticino-stipendi-2026.title': 'Kita-Erzieher im Tessin: Gehalt und Voraussetzungen',
+    'blog.article.educatore-infanzia-ticino-stipendi-2026.excerpt': 'Vollständiger Leitfaden zur Ausbildung als Kita-Erzieher im Tessin: SSS-Diplom erforderlich, Gehalt CHF 73K–97K, LIS und andere Arbeitgeber, Prozess zur Erlangung der G-Bewilligung',
+    'blog.article.educatore-infanzia-ticino-stipendi-2026.imageAlt': 'Eine Kinderbetreuerin in einem Kindergarten im Tessin mit Blick auf den Luganersee',
 };
 
 export default blogMetaDe;

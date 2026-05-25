@@ -7765,6 +7765,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.keller-sutter-banche-stabilita-2026.title': 'Keller-Sutter warns banks: \'All must contribute to stability\'',
     'blog.article.keller-sutter-banche-stabilita-2026.excerpt': 'The Swiss finance minister warns the banking sector: Switzerland\'s stability is not guaranteed and requires responsibility from major banks as well.',
     'blog.article.keller-sutter-banche-stabilita-2026.imageAlt': 'Panoramic view of Lake Lugano with the financial district and banks in the foreground',
+    'blog.article.educatore-infanzia-ticino-stipendi-2026.title': 'Working as a Childcare Educator in Ticino: Salary & Requirements',
+    'blog.article.educatore-infanzia-ticino-stipendi-2026.excerpt': 'Complete guide to becoming a childcare educator in Ticino: SSS diploma required, CHF 73K–97K salary, LIS and other employers, process to obtain the G permit',
+    'blog.article.educatore-infanzia-ticino-stipendi-2026.imageAlt': 'A child educator in a Ticino kindergarten with a view of Lake Lugano',
 };
 
 export default blogMetaEn;
