@@ -1922,6 +1922,78 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  * canonical URL pointing to the current slug. */
  const jobHtmlCache = new Map<string, string>();
 
+ const PROFILE_RELATED_COMPARE = process.env.JOBS_SEO_PROFILE_COMPARE_RELATED === '1';
+ let relatedCompareMismatches = 0;
+
+ // Pre-index related-job candidates once. The active detail renderer uses
+ // related jobs from the same category OR location; doing that with a full
+ // validJobs.filter(...) inside every job × locale page made this block scale
+ // with O(jobs² × locales). The buckets preserve the original validJobs order
+ // below, so related-link selection stays deterministic and byte-equivalent.
+ const __tRelatedIndexBuild = startTimer();
+ const relatedJobsByCategory = new Map<unknown, any[]>();
+ const relatedJobsByLocation = new Map<unknown, any[]>();
+ const relatedJobSourceIndex = new WeakMap<object, number>();
+ for (let idx = 0; idx < validJobs.length; idx++) {
+ const indexedJob = validJobs[idx] as any;
+ relatedJobSourceIndex.set(indexedJob as object, idx);
+ const categoryBucket = relatedJobsByCategory.get(indexedJob.category);
+ if (categoryBucket) {
+ categoryBucket.push(indexedJob);
+ } else {
+ relatedJobsByCategory.set(indexedJob.category, [indexedJob]);
+ }
+ const locationBucket = relatedJobsByLocation.get(indexedJob.location);
+ if (locationBucket) {
+ locationBucket.push(indexedJob);
+ } else {
+ relatedJobsByLocation.set(indexedJob.location, [indexedJob]);
+ }
+ }
+ recordEmit('active-related-index-build', __tRelatedIndexBuild);
+ const relatedPoolByJob = new WeakMap<object, any[]>();
+ const getRelatedPool = (job: any): any[] => {
+ const __tRelatedIndexed = startTimer();
+ const cached = relatedPoolByJob.get(job as object);
+ let relatedPool = cached;
+ if (!relatedPool) {
+ const seen = new Set<any>();
+ relatedPool = [];
+ const ownSlug = job.slug;
+ const addCandidates = (candidates?: any[]) => {
+ if (!candidates) return;
+ for (const candidate of candidates) {
+ if (!candidate || candidate.slug === ownSlug || seen.has(candidate)) continue;
+ seen.add(candidate);
+ relatedPool!.push(candidate);
+ }
+ };
+ addCandidates(relatedJobsByCategory.get(job.category));
+ addCandidates(relatedJobsByLocation.get(job.location));
+ relatedPool.sort((a, b) =>
+ (relatedJobSourceIndex.get(a as object) ?? 0) - (relatedJobSourceIndex.get(b as object) ?? 0),
+ );
+ relatedPoolByJob.set(job as object, relatedPool);
+ }
+ recordEmit('active-related-pool-indexed', __tRelatedIndexed);
+ if (PROFILE_RELATED_COMPARE) {
+ const __tRelatedLegacy = startTimer();
+ const legacyPool = validJobs
+ .filter((r: any) => r.slug !== job.slug && (r.category === job.category || r.location === job.location));
+ recordEmit('active-related-pool-legacy', __tRelatedLegacy);
+ if (
+ legacyPool.length !== relatedPool.length
+ || legacyPool.some((legacyJob: any, idx: number) => legacyJob.slug !== relatedPool![idx]?.slug)
+ ) {
+ relatedCompareMismatches++;
+ if (relatedCompareMismatches <= 3) {
+ console.warn(`\x1b[33m[jobs-seo-pages]\x1b[0m Related pool mismatch for ${job.slug}`);
+ }
+ }
+ }
+ return relatedPool;
+ };
+
  const companyRoutePrefix: Record<'it' | 'en' | 'de' | 'fr', string> = {
  it: 'azienda',
  en: 'company',
@@ -2153,8 +2225,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  // enough to keep the orphan pool reachable at ~8.2k edges
  // (6 × 1370 reachable details), low enough to keep detail-page byte
  // weight under the audit:page-weight budget.
- const relatedPool = validJobs
- .filter((r: any) => r.slug !== job.slug && (r.category === job.category || r.location === job.location));
+ const relatedPool = getRelatedPool(job);
  // Stable hash of own slug → starting offset into the pool, so
  // different details surface different neighbours (no "always top N")
  // without losing determinism between builds.
@@ -10543,6 +10614,12 @@ ${hreflangLinks}
 
  // Print profiler summary if JOBS_SEO_PROFILE=1 is set; no-op otherwise.
  printJobsSeoProfile();
+ if (PROFILE_RELATED_COMPARE) {
+ console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m Related pool compare mismatches: ${relatedCompareMismatches}`);
+ if (relatedCompareMismatches > 0) {
+ throw new Error(`Related pool preindex mismatch count: ${relatedCompareMismatches}`);
+ }
+ }
 
  // ── Patch sitemap.xml index lastmods ───────────────────────────────
  // The sitemap.xml index file is re-emitted by other plugins each build,

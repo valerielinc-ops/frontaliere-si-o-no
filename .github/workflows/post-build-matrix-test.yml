@@ -13,6 +13,22 @@ name: Post-Build Matrix Test
 
 on:
   workflow_dispatch:
+    inputs:
+      profile_jobs_seo:
+        description: 'Enable jobsSeoPagesPlugin per-category profiler during the build step.'
+        required: false
+        type: boolean
+        default: false
+      profile_related_compare:
+        description: 'Investigation-only: compare legacy related-job filtering against the pre-indexed related-job pool and emit before/after profiler rows.'
+        required: false
+        type: boolean
+        default: false
+      build_only:
+        description: 'Investigation-only: stop after the build step so profiling runs do not upload the very large dist artifact or launch shard validators.'
+        required: false
+        type: boolean
+        default: false
 
 permissions:
   contents: read
@@ -29,7 +45,7 @@ env:
 jobs:
   build:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 120
     steps:
       - uses: actions/checkout@v5
 
@@ -49,12 +65,19 @@ jobs:
         run: node scripts/assemble-jobs-dataset.mjs --stats
 
       - name: Build
+        env:
+          FAST_BUILD: ''
+          BUILD_PROFILE: '1'
+          SEQUENTIAL_PROFILE: '1'
+          JOBS_SEO_PROFILE: ${{ github.event.inputs.profile_jobs_seo == 'true' && '1' || '' }}
+          JOBS_SEO_PROFILE_COMPARE_RELATED: ${{ github.event.inputs.profile_related_compare == 'true' && '1' || '' }}
         run: npm run build:ci
 
       - name: SPA fallback
         run: cp dist/index.html dist/404.html
 
       - name: Upload build output for shards
+        if: github.event.inputs.build_only != 'true'
         uses: actions/upload-artifact@v7
         with:
           name: build-output
@@ -76,6 +99,7 @@ jobs:
 
   shards:
     needs: build
+    if: github.event.inputs.build_only != 'true'
     runs-on: ubuntu-latest
     timeout-minutes: 15
     strategy:
@@ -213,7 +237,7 @@ jobs:
   aggregate:
     needs: [build, shards]
     runs-on: ubuntu-latest
-    if: always()
+    if: always() && github.event.inputs.build_only != 'true'
     steps:
       - uses: actions/download-artifact@v7
         with:

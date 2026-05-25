@@ -44,6 +44,11 @@ on:
         required: false
         type: boolean
         default: false
+      profile_related_compare:
+        description: 'Investigation-only: when jobs SEO profiling is enabled, compare legacy related-job filtering against the pre-indexed related-job pool and emit before/after profiler rows.'
+        required: false
+        type: boolean
+        default: false
       profile_weekly_employers:
         description: 'Enable weeklyEmployersPlugin per-category profiler (counts + total/avg/p50/p99 timings per phase: cleanup, load-jobs, render-current-week, render-company-city-page, flush, etc.). Pair with profile_sequential for clean numbers.'
         required: false
@@ -447,6 +452,11 @@ jobs:
           # avg + p50 + p99 + min + max (ms) for each emission category
           # (active-job, expired-soft-landing, previous-slug-bridge, etc.).
           JOBS_SEO_PROFILE: ${{ github.event.inputs.profile_jobs_seo == 'true' && '1' || '' }}
+          # Investigation-only before/after timing for the active-job related
+          # pool change. When enabled, jobsSeoPagesPlugin computes the legacy
+          # validJobs.filter(...) pool alongside the pre-indexed pool, records
+          # both profiler rows, and fails if the ordered pools diverge.
+          JOBS_SEO_PROFILE_COMPARE_RELATED: ${{ github.event.inputs.profile_related_compare == 'true' && '1' || '' }}
           # Opt-in weeklyEmployersPlugin per-category profiler. Emits a sorted
           # table at end of the plugin's closeBundle showing count + total +
           # avg + p50 + p99 + min + max (ms) for each phase (cleanup,
