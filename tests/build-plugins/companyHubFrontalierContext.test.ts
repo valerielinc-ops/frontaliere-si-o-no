@@ -10,6 +10,18 @@ const esc = (raw: string): string => raw
 
 describe('renderCompanyHubFrontalierContext', () => {
   it('keeps company SEO prose collapsed and uses the local ECB exchange-rate snapshot', () => {
+    const snapshot = fuelPricesSnapshot as {
+      generatedAt?: string;
+      sources?: { exchangeRate?: { eurPerChf?: number } };
+    };
+    const expectedFxRate = (snapshot.sources?.exchangeRate?.eurPerChf ?? 1.08)
+      .toFixed(2)
+      .replace('.', ',');
+    const expectedFxDate = new Intl.DateTimeFormat('it', {
+      day: 'numeric',
+      month: 'long',
+      year: 'numeric',
+    }).format(new Date(snapshot.generatedAt ?? ''));
     const html = renderCompanyHubFrontalierContext({
       companyName: 'Migros',
       displayCanton: 'Ticino',
@@ -25,12 +37,7 @@ describe('renderCompanyHubFrontalierContext', () => {
     expect(html).toContain('<details class="company-hub-seo-details"><summary>Lavorare da Migros come frontaliere</summary>');
     expect(html).toContain('<summary>Come candidarsi e domande frequenti</summary>');
     expect(html).not.toContain('<section class="s-7uP4UM"><h2>Come candidarsi e domande frequenti</h2>');
-    expect(html).toContain('cambio CHF/EUR di 1,10');
-    const expectedDate = new Intl.DateTimeFormat('it', {
-      day: 'numeric',
-      month: 'long',
-      year: 'numeric',
-    }).format(new Date(fuelPricesSnapshot.generatedAt));
-    expect(html).toContain(`snapshot ECB locale aggiornato al ${expectedDate}`);
+    expect(html).toContain(`cambio CHF/EUR di ${expectedFxRate}`);
+    expect(html).toContain(`snapshot ECB locale aggiornato al ${expectedFxDate}`);
   });
 });

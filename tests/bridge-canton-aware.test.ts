@@ -132,36 +132,33 @@ describe('Bridge page canton-aware UX', () => {
       slug?: string;
       previousSlugs?: string[];
       previousSlugsByLocale?: Record<string, string[] | undefined>;
-    }>).find((j) => j.url?.includes('ebbde505-d2e5-4b59-82af-3663f4eaaf1f'));
-    // Denner's live slice can rotate this historical posting out. Keep the
-    // regression assertions active only while the fixture remains in data.
-    const itif = targetJob ? it : it.skip;
+    }>).find((j) => j.url?.includes('52bec962-4621-486c-a8f9-e68852c99fb2'));
 
-    itif('finds the Denner Assistent*in Filialleitung job by stable UUID', () => {
+    it('finds the Denner Assistent*in Filialleitung job by stable UUID', () => {
       expect(targetJob).toBeDefined();
-      expect(targetJob!.slug).toBe('assistente-nella-gestione-delle-branche-denner-appenzell');
+      expect(targetJob!.slug).toBe('assistente-nella-direzione-della-filiale-denner-langnau-am-albis');
     });
 
-    itif('includes the 5 Ebikon legacy slugs in previousSlugs', () => {
+    it('includes the 5 legacy slugs in previousSlugs', () => {
       const expectedAliases = [
-        'assistente-nella-gestione-delle-branche-denner-ebikon',
-        'assistente-alla-direzione-di-filiale-denner-ebikon',
-        'assistant-store-manager-denner-ebikon',
-        'assistent-in-filialleitung-denner-ebikon',
-        'assistant-e-de-direction-de-succursale-denner-ebikon',
+        'assistent-in-filialleitung-denner',
+        'assistent-in-filialleitung-denner-flims-dorf-gzl76k',
+        'assistant-in-branch-management-denner-langnau-am-albis',
+        'assistent-in-filialleitung-denner-flims-dorf',
+        'assistant-dans-la-gestion-des-directions-generales-denner-langnau-am-albis',
       ];
       for (const alias of expectedAliases) {
         expect(targetJob!.previousSlugs).toContain(alias);
       }
     });
 
-    itif('partitions the Ebikon aliases into the correct locale buckets', () => {
+    it('partitions the aliases into the correct locale buckets', () => {
       const byLocale = targetJob!.previousSlugsByLocale ?? {};
-      expect(byLocale.it).toContain('assistente-nella-gestione-delle-branche-denner-ebikon');
-      expect(byLocale.it).toContain('assistente-alla-direzione-di-filiale-denner-ebikon');
-      expect(byLocale.en).toContain('assistant-store-manager-denner-ebikon');
-      expect(byLocale.de).toContain('assistent-in-filialleitung-denner-ebikon');
-      expect(byLocale.fr).toContain('assistant-e-de-direction-de-succursale-denner-ebikon');
+      expect(byLocale.it).toContain('assistent-in-filialleitung-denner');
+      expect(byLocale.en).toContain('assistent-in-filialleitung-denner-flims-dorf-gzl76k');
+      expect(byLocale.en).toContain('assistant-in-branch-management-denner-langnau-am-albis');
+      expect(byLocale.de).toContain('assistent-in-filialleitung-denner-flims-dorf');
+      expect(byLocale.fr).toContain('assistant-dans-la-gestion-des-directions-generales-denner-langnau-am-albis');
     });
   });
 });
