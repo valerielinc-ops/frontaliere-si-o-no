@@ -106,4 +106,11 @@ describe('AdSense lazy loading — SPA AdSenseBanner component', () => {
   it('still contains the singleton loadAdSenseScript helper', () => {
     expect(adSenseBanner).toContain('loadAdSenseScript');
   });
+
+  it('defers unfilled-slot collapse while the reserved box is visible', () => {
+    expect(adSenseBanner).toContain('collapseWhenLayoutSafe');
+    expect(adSenseBanner).toContain('isElementInViewport');
+    expect(adSenseBanner).toContain('deferring collapse until offscreen');
+    expect(adSenseBanner).not.toContain("currentStatus === 'unfilled') {\n console.info(`[AdSense] unfilled slot=${adSlot}, collapsing banner`)");
+  });
 });
