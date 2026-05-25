@@ -7758,6 +7758,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.avs-2030-frontalieri-ticino.title': 'AVS 2030: Änderungen für Grenzgänger aus dem Tessin',
     'blog.article.avs-2030-frontalieri-ticino.excerpt': 'Der Bundesrat schlägt eine Reform der AHV vor, die den vorzeitigen Ruhestand abschreckt und längeres Arbeiten fördert.',
     'blog.article.avs-2030-frontalieri-ticino.imageAlt': 'Luganersee mit Blick auf die umliegenden Berge',
+    'blog.article.controlli-frontiere-svizzera-francia-2024.title': 'Grenzkonrollen Schweiz-Frankreich: Was sich für Grenzgänger ändert',
+    'blog.article.controlli-frontiere-svizzera-francia-2024.excerpt': 'Vom 10. bis 19. Juni 2024 führt die Schweiz Grenzkontrollen mit Frankreich für den G7 in Evian-les-Bains ein. Hier erfahren Sie, was sich für Grenzgänger ändert.',
+    'blog.article.controlli-frontiere-svizzera-francia-2024.imageAlt': 'Luftaufnahme des Genfersees mit Schweizer und französischen Ufern, mit Genf und Evian-les-Bains im Vordergrund.',
 };
 
 export default blogMetaDe;

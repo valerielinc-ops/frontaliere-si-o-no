@@ -24653,4 +24653,13 @@ export const ARTICLES = [
  authorSlug: 'laura-bianchi',
  authorName: 'Laura Bianchi',
  },
+ {
+ id: 'controlli-frontiere-svizzera-francia-2024',
+ category: 'pratico',
+ date: '2026-05-25T10:14:58.455Z',
+ image: '/images/blog/controlli-frontiere-svizzera-francia-2024.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

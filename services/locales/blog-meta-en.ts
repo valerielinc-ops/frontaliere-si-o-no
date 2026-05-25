@@ -7759,6 +7759,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.avs-2030-frontalieri-ticino.title': 'AVS 2030: changes for Ticino cross-border workers',
     'blog.article.avs-2030-frontalieri-ticino.excerpt': 'The Federal Council proposes an AVS reform that discourages early retirement and encourages working longer.',
     'blog.article.avs-2030-frontalieri-ticino.imageAlt': 'Lake Lugano with a view of the surrounding mountains',
+    'blog.article.controlli-frontiere-svizzera-francia-2024.title': 'Switzerland-France border checks: what changes for cross-border workers',
+    'blog.article.controlli-frontiere-svizzera-francia-2024.excerpt': 'From June 10 to 19, 2024, Switzerland will reintroduce border checks with France for the G7 in Evian-les-Bains. Here\'s what changes for cross-border workers.',
+    'blog.article.controlli-frontiere-svizzera-francia-2024.imageAlt': 'Aerial view of Lake Geneva with Swiss and French shores, featuring Geneva and Evian-les-Bains.',
 };
 
 export default blogMetaEn;

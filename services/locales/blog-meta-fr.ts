@@ -7760,6 +7760,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.avs-2030-frontalieri-ticino.title': 'AVS 2030 : ce qui change pour les frontaliers du Tessin',
     'blog.article.avs-2030-frontalieri-ticino.excerpt': 'Le Conseil fédéral propose une réforme de l\'AVS qui décourage le départ anticipé à la retraite et encourage à travailler plus longtemps.',
     'blog.article.avs-2030-frontalieri-ticino.imageAlt': 'Lac de Lugano avec vue sur les montagnes environnantes',
+    'blog.article.controlli-frontiere-svizzera-francia-2024.title': 'Contrôles frontière Suisse-France : ce qui change pour les frontaliers',
+    'blog.article.controlli-frontiere-svizzera-francia-2024.excerpt': 'Du 10 au 19 juin 2024, la Suisse réintroduira les contrôles aux frontières avec la France pour le G7 d\'Evian-les-Bains. Voici ce qui change pour les frontaliers.',
+    'blog.article.controlli-frontiere-svizzera-francia-2024.imageAlt': 'Vue aérienne du lac Léman avec les rives suisses et françaises, avec Genève et Evian-les-Bains en premier plan.',
 };
 
 export default blogMetaFr;
