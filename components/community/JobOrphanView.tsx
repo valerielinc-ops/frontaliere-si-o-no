@@ -184,6 +184,13 @@ export default function JobOrphanView({ slug, onBack, hasAccess: hasAccessProp, 
  const listingPath = `${prefix}/${sectionSlug}/`.replace(/\/+/g, '/');
 
  const slugParts = useMemo(() => parseSlug(slug), [slug]);
+ const newsletterJobContext = {
+ slug,
+ company: slugParts.company,
+ location: slugParts.location,
+ category: null,
+ searchQuery: slugParts.title || null,
+ };
 
  // Derive companyKey from slug by matching the longest known key contained in it
  // (CRAWLED_COMPANY_LOGOS is keyed by the same companyKey used in adapters/jobs).
@@ -301,6 +308,9 @@ export default function JobOrphanView({ slug, onBack, hasAccess: hasAccessProp, 
  sourceCta: 'job_orphan_email_unlock',
  sourceComponent: 'JobOrphanView',
  sourceRouteFamily: 'job-board',
+ jobContext: newsletterJobContext,
+ locationInterest: newsletterJobContext.location,
+ sectorInterest: newsletterJobContext.category,
  isActive: false,
  status: 'pending',
  });
@@ -551,7 +561,12 @@ export default function JobOrphanView({ slug, onBack, hasAccess: hasAccessProp, 
  onClick={() => {
  Analytics.trackJobAuthFunnel('auth_method_click', { method: 'linkedin', company: slugParts.company ?? undefined, jobTitle: slugParts.title });
  setLinkedInBusy(true);
- saveAuthJobContext({ slug, company: slugParts.company, location: slugParts.location });
+ saveAuthJobContext({
+ slug: newsletterJobContext.slug,
+ company: newsletterJobContext.company,
+ location: newsletterJobContext.location,
+ category: newsletterJobContext.category,
+ });
  signInWithLinkedIn().catch(() => setLinkedInBusy(false));
  }}
  className="w-full min-h-[44px] inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-stripe bg-brand-linkedin hover:bg-brand-linkedin-hover disabled:opacity-60 text-on-accent text-sm font-semibold transition-colors"

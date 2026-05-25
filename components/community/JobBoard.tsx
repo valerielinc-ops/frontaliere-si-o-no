@@ -3428,8 +3428,17 @@ const JobBoard: React.FC<JobBoardProps> = ({
 
  useEffect(() => {
  if (!authResolved || !authGateOpen || hasAccess) return;
+ const focusedJob = pendingJob || selectedJob;
+ if (focusedJob) {
+ saveAuthJobContext({
+ slug: focusedJob.slug || null,
+ company: focusedJob.company || null,
+ location: focusedJob.location || focusedJob.addressLocality || null,
+ category: focusedJob.category || null,
+ });
+ }
  void promptOneTap();
- }, [authResolved, authGateOpen, hasAccess]);
+ }, [authResolved, authGateOpen, hasAccess, pendingJob, selectedJob]);
 
  // Close auth gate modal on Escape key
  useEffect(() => {
@@ -3450,6 +3459,12 @@ const JobBoard: React.FC<JobBoardProps> = ({
  useEffect(() => {
  if (!authResolved || !selectedJob || hasAccess) return;
  authUnlockCandidateRef.current = selectedJob.id;
+ saveAuthJobContext({
+ slug: selectedJob.slug || null,
+ company: selectedJob.company || null,
+ location: selectedJob.location || selectedJob.addressLocality || null,
+ category: selectedJob.category || null,
+ });
  void promptOneTap();
  Analytics.trackJobAuthFunnel('gate_view', buildJobTrackingContext(selectedJob));
  }, [authResolved, selectedJob, hasAccess]);
@@ -4246,7 +4261,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
 
  if (editorialJobTodayLanding) {
  return (
- <div className="space-y-6 adsense-auto-ads-ignore">
+ <div className="space-y-6">
  <section className="rounded-3xl border border-info-border bg-gradient-to-br from-info-subtle via-surface to-success-subtle p-6 sm:p-8">
  <p className="text-xs font-bold uppercase tracking-[0.18em] text-info">
  {editorialJobTodayLanding.updatedLabel} · {new Date().toLocaleDateString('it-CH')}
@@ -4345,7 +4360,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
 
  if (editorialOfficialGazetteLanding) {
  return (
- <div className="space-y-6 adsense-auto-ads-ignore">
+ <div className="space-y-6">
  <section className="rounded-3xl border border-info-border bg-gradient-to-br from-info-subtle via-surface to-success-subtle p-6 sm:p-8">
  <p className="text-xs font-bold uppercase tracking-[0.18em] text-info">
  {editorialOfficialGazetteLanding.updatedLabel} · {new Date().toLocaleDateString('it-CH')}
@@ -4463,7 +4478,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
 
  if (editorialNursesHubLanding) {
  return (
- <div className="space-y-6 adsense-auto-ads-ignore">
+ <div className="space-y-6">
  <section className="rounded-3xl border border-info-border bg-gradient-to-br from-info-subtle via-surface to-success-subtle p-6 sm:p-8">
  <p className="text-xs font-bold uppercase tracking-[0.18em] text-info">
  {editorialNursesHubLanding.updatedLabel} · {new Date().toLocaleDateString('it-CH')}
@@ -4572,7 +4587,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  if (editorialCareVariantLanding) {
  const parentSlug = editorialCareVariantLanding.parentHubHref.split('/').filter(Boolean).pop() || '';
  return (
- <div className="space-y-6 adsense-auto-ads-ignore">
+ <div className="space-y-6">
  <section className="rounded-3xl border border-info-border bg-gradient-to-br from-info-subtle via-surface to-success-subtle p-6 sm:p-8">
  <p className="text-xs font-bold uppercase tracking-[0.18em] text-info">
  {editorialCareVariantLanding.updatedLabel} · {new Date().toLocaleDateString('it-CH')}
@@ -5750,7 +5765,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  }
 
  return (
- <div className="space-y-6 adsense-auto-ads-ignore">
+ <div className="space-y-6">
  <button
  onClick={backToList}
  className="inline-flex items-center gap-2 min-h-[44px] text-sm font-semibold text-accent hover:underline"
@@ -6109,7 +6124,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  }
 
  return (
- <div className="space-y-6 adsense-auto-ads-ignore">
+ <div className="space-y-6">
  {searchSlugFilter && (
  <div className="rounded-xl border border-accent-border bg-accent-subtle p-3 text-sm text-accent flex items-center justify-between gap-3">
  <span className="font-semibold">

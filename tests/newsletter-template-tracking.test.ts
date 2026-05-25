@@ -136,6 +136,49 @@ describe('newsletter content v2', () => {
     expect(matched.map((j) => j.slug)).toEqual(['fresh-job', 'evergreen']);
   });
 
+  it('matchJobsForSubscriber uses saved job context without returning the source job', () => {
+    const jobs = [
+      {
+        title: 'Original Nurse Job',
+        company: 'Clinic A',
+        location: 'Lugano',
+        slug: 'original-nurse-job',
+        category: 'Sanita',
+        sector: 'Sanita',
+        publishedAt: '2026-05-01T00:00:00.000Z',
+      },
+      {
+        title: 'Infermiere reparto medicina',
+        company: 'Clinic B',
+        location: 'Lugano',
+        slug: 'nurse-medicine',
+        category: 'Sanita',
+        sector: 'Sanita',
+        publishedAt: '2026-05-02T00:00:00.000Z',
+      },
+      {
+        title: 'Impiegato amministrativo',
+        company: 'Office Co',
+        location: 'Lugano',
+        slug: 'admin-office',
+        category: 'Amministrazione',
+        sector: 'Amministrazione',
+        publishedAt: '2026-05-03T00:00:00.000Z',
+      },
+    ];
+
+    const matched = matchJobsForSubscriber(
+      {
+        job_slug: 'original-nurse-job',
+        sourceJob: jobs[0],
+      },
+      jobs,
+      2,
+    );
+
+    expect(matched.map((j) => j.slug)).toEqual(['nurse-medicine', 'admin-office']);
+  });
+
   it('getFallbackBriefing returns HTML for all locales', () => {
     for (const locale of ['it', 'en', 'de', 'fr']) {
       const html = getFallbackBriefing(locale, SAMPLE_EXCHANGE);

@@ -16,6 +16,7 @@
  *
  * Usage:
  *   node scripts/send-newsletter.mjs --preview     # Output HTML to stdout
+ *   node scripts/send-newsletter.mjs --dry-run --target-email email@example.com # Assemble only, no send
  *   node scripts/send-newsletter.mjs --test        # Send to admin email (with AI)
  *   node scripts/send-newsletter.mjs --send        # Send to all subscribers
  *   node scripts/send-newsletter.mjs --no-ai       # Skip AI generation (use fallbacks)
@@ -119,7 +120,10 @@ async function initFirebase() {
   const a = admin.default || admin;
   adminSdk = a;
   if (!a.apps?.length) {
-    a.initializeApp({ credential: a.credential.applicationDefault() });
+    a.initializeApp({
+      credential: a.credential.applicationDefault(),
+      projectId: process.env.GCLOUD_PROJECT || process.env.GOOGLE_CLOUD_PROJECT || 'frontaliere-ticino',
+    });
   }
   db = a.firestore();
 }
@@ -1228,9 +1232,78 @@ function sanitizeJobUrls(html, validSlugs) {
   });
 }
 
+function buildJobContextIndex(jobs) {
+  const index = new Map();
+  const add = (slug, job) => {
+    if (slug && !index.has(slug)) index.set(slug, job);
+  };
+  for (const job of jobs || []) {
+    add(job.slug, job);
+    for (const slug of Object.values(job.slugByLocale || {})) add(slug, job);
+    for (const slug of job.previousSlugs || []) add(slug, job);
+    for (const slugs of Object.values(job.previousSlugsByLocale || {})) {
+      if (Array.isArray(slugs)) for (const slug of slugs) add(slug, job);
+    }
+  }
+  return index;
+}
+
+function enrichSubscriberJobContext(subscriber, jobIndex) {
+  const savedSlug = subscriber?.job_slug;
+  const sourceJob = savedSlug ? jobIndex.get(savedSlug) : null;
+  if (!sourceJob) return subscriber;
+  return {
+    ...subscriber,
+    job_company: subscriber.job_company || sourceJob.company || null,
+    job_location: subscriber.job_location || sourceJob.location || sourceJob.addressLocality || null,
+    job_category: subscriber.job_category || sourceJob.category || sourceJob.sector || null,
+    sourceJob,
+  };
+}
+
 // ─── Subscriber fetching ────────────────────────────────────
 
 const EXCLUDED_STATUSES = new Set(['unsubscribed', 'bounced', 'complained', 'suppressed']);
+
+function subscriberFromFirestoreRow(row) {
+  const email = normalizeEmail(row.email);
+  if (!email) return null;
+  const fresh = calculateEngagementScore(row);
+  return {
+    email,
+    locale: (row.preferred_locale || row.locale || 'it').split(/[-_]/)[0] || 'it',
+    sourceChannel: row.source_channel || row.source || 'newsletter_page',
+    locationInterest: row.location_interest || null,
+    sectorInterest: row.sector_interest || null,
+    job_slug: row.job_slug || null,
+    job_company: row.job_company || null,
+    job_location: row.job_location || null,
+    job_category: row.job_category || null,
+    job_search_query: row.job_search_query || null,
+    source: row.source || null,
+    preferences: row.preferences || {},
+    type: row.type || null,
+    // Default true: only skip autologin if user explicitly opted out
+    autologinEnabled: row.autologin_enabled !== false,
+    createdAt: row.createdAt?.toDate?.() || (row.created_at ? new Date(row.created_at) : null),
+    // Engagement metadata used for prioritized send order
+    sendCount: Number(row.send_count || row.sendCount) || 0,
+    engagementScore: fresh.score,
+    engagementLevel: fresh.level,
+  };
+}
+
+async function fetchTargetSubscriber(email) {
+  const normalized = normalizeEmail(email);
+  if (!normalized) return null;
+  const doc = await db.collection('newsletter_subscribers').doc(normalized).get();
+  if (!doc.exists) return null;
+  const row = doc.data();
+  const status = (row.status || '').toLowerCase();
+  if (EXCLUDED_STATUSES.has(status)) return null;
+  if (row.unsubscribedAt || row.unsubscribed_at) return null;
+  return subscriberFromFirestoreRow({ ...row, email: row.email || normalized });
+}
 
 async function fetchSubscribers() {
   const subscribers = new Map();
@@ -1248,28 +1321,8 @@ async function fetchSubscribers() {
       if (EXCLUDED_STATUSES.has(status)) return;
       // Belt-and-suspenders: also exclude if unsubscribedAt is set (frontend handler bug backfill)
       if (row.unsubscribedAt || row.unsubscribed_at) return;
-      // Recompute engagement on-the-fly from raw counters — Firestore engagement_score
-      // is partially stale (FRO-17 bug fixed in webhooks; pre-existing rows lag).
-      const fresh = calculateEngagementScore(row);
-      subscribers.set(email, {
-        email,
-        locale: (row.preferred_locale || row.locale || 'it').split(/[-_]/)[0] || 'it',
-        sourceChannel: row.source_channel || row.source || 'newsletter_page',
-        locationInterest: row.location_interest || null,
-        sectorInterest: row.sector_interest || null,
-        job_slug: row.job_slug || null,
-        job_company: row.job_company || null,
-        source: row.source || null,
-        preferences: row.preferences || {},
-        type: row.type || null,
-        // Default true: only skip autologin if user explicitly opted out
-        autologinEnabled: row.autologin_enabled !== false,
-        createdAt: row.createdAt?.toDate?.() || (row.created_at ? new Date(row.created_at) : null),
-        // Engagement metadata used for prioritized send order
-        sendCount: Number(row.send_count || row.sendCount) || 0,
-        engagementScore: fresh.score,
-        engagementLevel: fresh.level,
-      });
+      const subscriber = subscriberFromFirestoreRow({ ...row, email });
+      if (subscriber) subscribers.set(email, subscriber);
     });
   } catch (e) {
     console.warn('\u26a0\ufe0f Subscriber fetch failed:', e.message);
@@ -1486,13 +1539,13 @@ async function sendEmailBatch(emails, apiKey) {
 
 // ─── Issue number (real campaign count) ─────────────────────
 
-async function getNextIssueNumber() {
+async function getNextIssueNumber({ persist = false } = {}) {
   if (!db) return null;
   try {
     const data = await readMetaDoc();
     const current = data.issue_number || 0;
     const next = current + 1;
-    await writeMetaDoc({ issue_number: next });
+    if (persist) await writeMetaDoc({ issue_number: next });
     return next;
   } catch (e) {
     console.warn('\u26a0\ufe0f Issue number fetch failed:', e.message);
@@ -1650,6 +1703,7 @@ function enforceQaGate() {
 async function main() {
   const args = process.argv.slice(2);
   const mode = args.includes('--send') ? 'send'
+    : args.includes('--dry-run') ? 'dry-run'
     : args.includes('--test') ? 'test'
     : 'preview';
   const noAI = args.includes('--no-ai');
@@ -1665,12 +1719,17 @@ async function main() {
     process.exit(1);
   }
 
+  if (mode === 'dry-run' && !targetEmail) {
+    console.error('❌ --dry-run requires --target-email <email>');
+    process.exit(1);
+  }
+
   // QA gate: production send requires a passing QA report from today
   if (mode === 'send') {
     enforceQaGate();
   }
 
-  // Init Firebase (required for test/send)
+  // Init Firebase (required for test/send/dry-run)
   if (mode !== 'preview') await initFirebase();
 
   // Init AI (unless --no-ai)
@@ -1707,6 +1766,7 @@ async function main() {
   }
 
   const { jobs } = loadLocalJobsData();
+  const jobContextIndex = buildJobContextIndex(jobs);
 
   // Load job rotation history and subscriber alerts (parallel, non-blocking)
   const [recentlyFeaturedJobs, allJobAlerts] = await Promise.all([
@@ -1732,7 +1792,7 @@ async function main() {
   const alreadySentForCampaign = mode === 'send' ? await fetchAlreadySent(campaignId) : new Set();
   const isResume = alreadySentForCampaign.size > 0;
   const featuredArticle = await pickFeaturedArticle();
-  const issueNumber = isResume ? null : await getNextIssueNumber();
+  const issueNumber = isResume ? null : await getNextIssueNumber({ persist: mode === 'send' });
   if (issueNumber) console.log(`📰 Issue #${issueNumber}`);
   if (isResume) console.log(`🔄 Resuming campaign ${campaignId} (${alreadySentForCampaign.size} already sent)`);
 
@@ -1776,7 +1836,8 @@ async function main() {
   // ── Fetch subscribers ──
   let subscribers;
   if (mode === 'test') {
-    subscribers = [{
+    const targetSubscriber = targetEmail ? await fetchTargetSubscriber(targetEmail) : null;
+    subscribers = targetSubscriber ? [targetSubscriber] : [{
       email: targetEmail || ADMIN_EMAIL,
       locale: 'it',
       sourceChannel: 'newsletter_page',
@@ -1784,7 +1845,15 @@ async function main() {
       sectorInterest: null,
       preferences: { jobs: true, taxUpdates: true },
     }];
-    console.log(`\ud83d\udce8 Test mode: ${subscribers[0].email}`);
+    console.log(`\ud83d\udce8 Test mode: ${subscribers[0].email}${targetSubscriber ? ' (Firestore profile)' : ' (fallback profile)'}`);
+  } else if (mode === 'dry-run') {
+    const subscriber = await fetchTargetSubscriber(targetEmail);
+    if (!subscriber) {
+      console.error(`❌ Dry-run target not found or not eligible: ${targetEmail}`);
+      process.exit(1);
+    }
+    subscribers = [subscriber];
+    console.log(`🧪 Dry-run target: ${subscriber.email}`);
   } else {
     subscribers = await fetchSubscribers();
     console.log(`\ud83d\udce8 Send mode: ${subscribers.length} active subscribers`);
@@ -1811,6 +1880,8 @@ async function main() {
       return;
     }
   }
+
+  subscribers = subscribers.map((subscriber) => enrichSubscriberJobContext(subscriber, jobContextIndex));
 
   // ── Build personalized emails (optimized pipeline) ──
   let aiSuccessCount = 0;
@@ -2022,9 +2093,20 @@ async function main() {
     return;
   }
 
+  if (mode === 'dry-run') {
+    const first = cappedEmails[0];
+    console.log('🧪 Dry-run complete: no email provider called, no campaign send persisted.');
+    console.log(`  recipients: ${cappedEmails.length}`);
+    console.log(`  to: ${first?.payload?.to?.join(', ') || 'n/a'}`);
+    console.log(`  subject: ${first?.payload?.subject || 'n/a'}`);
+    console.log(`  matched jobs: ${subscriberData[0]?.matchedJobs?.map((job) => job.slug || job.title).join(', ') || 'none'}`);
+    if (flushScores) await flushScores();
+    return;
+  }
+
   // ── Send ──
   const apiKey = process.env.RESEND_API_KEY;
-  if (!apiKey) {
+  if (EMAIL_PROVIDER === 'resend' && !apiKey) {
     console.error('\u274c RESEND_API_KEY required');
     process.exit(1);
   }
