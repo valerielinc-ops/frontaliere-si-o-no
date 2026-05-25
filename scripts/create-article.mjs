@@ -64,7 +64,7 @@ import { readFileSync, writeFileSync, mkdirSync, statSync, readdirSync, copyFile
 import { execSync } from 'node:child_process';
 import { createInterface } from 'node:readline';
 import path from 'node:path';
-import { callLLM as _aiCallLLM, AI_MODELS, getStats as getAiStats, initScoreStore, flushScores, recordModelContentFailure } from './lib/ai-models.mjs';
+import { callLLM as _aiCallLLM, AI_MODELS, getStats as getAiStats, initScoreStore, flushScores, recordModelContentFailure, recordModelContentSuccess } from './lib/ai-models.mjs';
 import { AI_SEARCH_PROMPT_BLOCK_IT } from './lib/ai-search-template.mjs';
 import { tokenizeIt, jaccardSim, containmentSim, normalizeItWord } from './lib/it-text-similarity.mjs';
 import { DOMAIN_DUP_STOPLIST, filterDistinctive } from './lib/dup-stoplist.mjs';
@@ -2367,6 +2367,8 @@ async function callLLM(messages, opts = {}) {
         // MAX_CONSECUTIVE_CONTENT_FAILURES → model exhausted for this run).
         recordModelContentFailure(modelUsedRef.model);
         if (attempt < maxBody2Retries) continue;
+      } else {
+        recordModelContentSuccess(modelUsedRef.model);
       }
     }
     return result;
