@@ -2497,10 +2497,6 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  <meta property="og:image:height" content="630">
  <meta property="og:image:type" content="${perLocaleSlug.it ? 'image/webp' : 'image/png'}">
  <link rel="canonical" href="${effectiveCanonicalUrl}">
- <link rel="preconnect" href="https://fonts.googleapis.com">
- <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
- <link rel="preload" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700&family=Outfit:wght@700;800&display=swap" as="style" crossorigin>
- <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700&family=Outfit:wght@700;800&display=swap" media="print" onload="this.media='all'" crossorigin data-clarity-unmask="true"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700&family=Outfit:wght@700;800&display=swap" crossorigin data-clarity-unmask="true"></noscript>
  ${SEO_STATIC_CSS_LINK}
 ${hreflangHtml}
  <script type="application/ld+json">${jobLd}</script>
