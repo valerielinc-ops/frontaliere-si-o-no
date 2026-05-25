@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "pdag-a87c93dfedc9",
-      "slug": "medico-capo-medico-capo-psychiatrische-dienste-aargau-pdag-windisch",
+      "slug": "leitende-arztin-leitender-arzt-pdag-windisch",
       "slugByLocale": {
         "de": "leitende-arztin-leitender-arzt-pdag-windisch",
-        "it": "medico-capo-medico-capo-psychiatrische-dienste-aargau-pdag-windisch",
-        "en": "head-physician-psychiatrische-dienste-aargau-pdag-windisch",
-        "fr": "medecin-chef-medecin-chef-psychiatrische-dienste-aargau-pdag-windisch"
+        "it": "leitende-arztin-leitender-arzt-pdag-windisch",
+        "en": "leitende-arztin-leitender-arzt-pdag-windisch",
+        "fr": "leitende-arztin-leitender-arzt-pdag-windisch"
       },
       "company": "Psychiatrische Dienste Aargau (PDAG)",
       "companyKey": "pdag",
@@ -17,16 +17,16 @@
       "title": "Leitende Ärztin / Leitender Arzt",
       "titleByLocale": {
         "de": "Leitende Ärztin / Leitender Arzt",
-        "it": "Medico Capo / Medico Capo",
-        "en": "Head Physician",
-        "fr": "Médecin Chef / Médecin Chef"
+        "it": "Medico/a Capo",
+        "en": "Senior Physician",
+        "fr": "Médecin Chef/Médecin Cheffe"
       },
       "description": "Leitende Ärztin / Leitender Arzt bei Psychiatrische Dienste Aargau (PDAG) in Windisch (5210, AG), Schweiz.\n\n• Standort: Windisch (AG)\n• Bewerbung über das Umantis-Karriereportal von Psychiatrische Dienste Aargau (PDAG)",
       "descriptionByLocale": {
-        "de": "Job Title\nLeitende Ärztin / Leitender Arzt bei Psychiatrische Dienste Aargau (PDAG) in Windisch\n\nLocation\nWindisch (AG), Schweiz\n\nApplication Process\nBewerbung über das Umantis-Karriereportal von Psychiatrische Dienste Aargau (PDAG)",
-        "it": "Titolo del lavoro\nMedico/medico senior presso i servizi psichiatrici Aargau (PDAG) a Windisch\n\nLocation\nWindisch (AG), Svizzera\n\nProcesso di applicazione\nApplicazione tramite il portale di carriera di Umantis dei servizi psichiatrici Aargau (PDAG)",
-        "en": "Job Title\nSenior physician/guiling physician at psychiatric services Aargau (PDAG) in Windisch\n\nLocation\nWindisch (AG), Switzerland\n\nApplication Process\nApplication via the Umantis career portal of Psychiatric Services Aargau (PDAG)",
-        "fr": "Titre du poste\nMédecin principal/médecin-guide des services psychiatriques Aargau (PDAG) à Windisch\n\nLieu\nWindisch (AG), Suisse\n\nProcessus de demande\nApplication via le portail de carrière Umantis des Services Psychiatriques Argovie (PDAG)"
+        "de": "Mansioni\nLeitende Ärztin / Leitender Arzt bei Psychiatrische Dienste Aargau (PDAG) in Windisch (5210, AG), Schweiz.\n\nDescrizione\n- Standort: Windisch (AG)\n- Bewerbung über das Umantis-Karriereportal von Psychiatrische Dienste Aargau (PDAG)",
+        "it": "Mansioni\nMedico senior/guida presso i servizi psichiatrici Aargau (PDAG) a Windisch (5210, AG), Svizzera.\n\nDescrizione\n- Posizione: Windisch (AG)\n- Applicazione tramite il Portale Umantis Career dei Servizi Psichiatrici Aargau (PDAG)",
+        "en": "Mansioni\nSenior physician/guidance doctor at Psychiatric Services Aargau (PDAG) in Windisch (5210, AG), Switzerland.\n\ndescrizione\n- Location: Windisch (AG)\n- Application via the Umantis Career Portal of Psychiatric Services Aargau (PDAG)",
+        "fr": "Mansioni\nMédecin principal/guidance chez Psychiatric Services Aargau (PDAG) à Windisch (5210, AG), Suisse.\n\ndescrizione\n- Lieu: Windisch (AG)\n- Application via le portail Umantis Career des services psychiatriques Aargau (PDAG)"
       },
       "location": "Windisch",
       "canton": "AG",
@@ -66,31 +66,19 @@
       },
       "firstSeenAt": "2026-05-25T13:38:49.709Z",
       "previousSlugs": [
-        "leitende-arztin-leitender-arzt-pdag-windisch",
         "dirigente-medico-psychiatrische-dienste-aargau-pdag-windisch",
         "senior-physician-psychiatrische-dienste-aargau-pdag-windisch",
         "medecin-chef-psychiatrische-dienste-aargau-pdag-windisch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "leitende-arztin-leitender-arzt-pdag-windisch"
-        ],
-        "en": [
-          "leitende-arztin-leitender-arzt-pdag-windisch"
-        ],
-        "fr": [
-          "leitende-arztin-leitender-arzt-pdag-windisch"
-        ]
-      }
+      ]
     },
     {
       "id": "pdag-4c8878201204",
-      "slug": "specialista-professional-health-nightguards-equipe-psychiatrische-dienste-aargau-pdag-windisch",
+      "slug": "fachfrau-fachmann-gesundheit-nachtwachen-equipe-pdag-windisch",
       "slugByLocale": {
         "de": "fachfrau-fachmann-gesundheit-nachtwachen-equipe-pdag-windisch",
-        "it": "specialista-professional-health-nightguards-equipe-psychiatrische-dienste-aargau-pdag-windisch",
-        "en": "specialist-professional-health-nightguards-equipe-psychiatrische-dienste-aargau-pdag-windisch",
-        "fr": "specialiste-gardes-de-la-sante-professionnelle-equipe-psychiatrische-dienste-aargau-pdag-windisch"
+        "it": "fachfrau-fachmann-gesundheit-nachtwachen-equipe-pdag-windisch",
+        "en": "fachfrau-fachmann-gesundheit-nachtwachen-equipe-pdag-windisch",
+        "fr": "fachfrau-fachmann-gesundheit-nachtwachen-equipe-pdag-windisch"
       },
       "company": "Psychiatrische Dienste Aargau (PDAG)",
       "companyKey": "pdag",
@@ -98,18 +86,17 @@
       "title": "Fachfrau / Fachmann Gesundheit Nachtwachen-Equipe",
       "titleByLocale": {
         "de": "Fachfrau / Fachmann Gesundheit Nachtwachen-Equipe",
-        "it": "Specialista / Professional Health Nightguards-Equipe",
-        "en": "Specialist / Professional Health Nightguards-Equipe",
-        "fr": "Spécialiste / Gardes de la santé professionnelle-Équipe"
+        "it": "Esperta/Esperto della Salute - Squadra Turni Notturni",
+        "en": "Healthcare Professional - Night Watch Team",
+        "fr": "Professionnel(le) de santé – Équipe de garde de nuit"
       },
       "description": "Fachfrau / Fachmann Gesundheit Nachtwachen-Equipe bei Psychiatrische Dienste Aargau (PDAG) in Windisch (5210, AG), Schweiz.\n\n• Standort: Windisch (AG)\n• Bewerbung über das Umantis-Karriereportal von Psychiatrische Dienste Aargau (PDAG)",
       "descriptionByLocale": {
-        "de": "## Posizione disponibile\n\nFachfrau / Fachmann **Gesundheit** Nachtwachen-Equipe bei **Psychiatrische Dienste Aargou (PDAG)** in Windisch (5210, AG), **Schweiz**.\n\n---\n\n## Descrizione\n• **Standort:** Windisch (AG)",
-        "it": "Condividi su Twitter\n\nAargou (PDAG) in Windisch (5210, AG), Svizzera.\n\n---\n\nDescrizione\n• Posizione: Windisch (AG)",
-        "en": "Posizione disponibile\n\nAargou (PDAG) in Windisch (5210, AG), Switzerland.\n\n---\n\ndescrizione\n• Location: Windisch (AG)",
-        "fr": "Posizione disponible\n\nAargou (PDAG) à Windisch (5210, AG), Suisse.\n\n---\n\ndescrizione\n• Lieu: Windisch (AG)"
+        "de": "Descrizione\nFachfrau / Fachmann Gesundheit Nachtwachen-Equipe bei Psychiatrische Dienste Aargau (PDAG) in Windisch (5210, AG), Schweiz.\n\n- Standort: Windisch (AG)\n- Bewerbung über das Umantis-Karriereportal von Psychiatrische Dienste Aargau (PDAG)",
+        "it": "Descrizione\nAargau (PDAG) in Windisch (5210, AG), Svizzera.\n\n- Posizione: Windisch (AG)\n- Applicazione tramite il Portale Umantis Career dei Servizi Psichiatrici Aargau (PDAG)",
+        "en": "Descrizione\nAargau (PDAG) in Windisch (5210, AG), Switzerland.\n\n- Location: Windisch (AG)\n- Application via the Umantis Career Portal of Psychiatric Services Aargau (PDAG)",
+        "fr": "Descrizione\nAargau (PDAG) à Windisch (5210, AG), Suisse.\n\n- Lieu: Windisch (AG)\n- Application via le portail Umantis Career des services psychiatriques Aargau (PDAG)"
       },
-      "needsRetranslation": true,
       "location": "Windisch",
       "canton": "AG",
       "url": "https://recruitingapp-22705.umantis.com/Vacancies/3990/Application/CheckLogin/1",
@@ -146,31 +133,16 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-25T13:38:48.895Z",
-      "retranslationAttempts": 1,
-      "previousSlugsByLocale": {
-        "it": [
-          "fachfrau-fachmann-gesundheit-nachtwachen-equipe-pdag-windisch"
-        ],
-        "en": [
-          "fachfrau-fachmann-gesundheit-nachtwachen-equipe-pdag-windisch"
-        ],
-        "fr": [
-          "fachfrau-fachmann-gesundheit-nachtwachen-equipe-pdag-windisch"
-        ]
-      },
-      "previousSlugs": [
-        "fachfrau-fachmann-gesundheit-nachtwachen-equipe-pdag-windisch"
-      ]
+      "firstSeenAt": "2026-05-25T13:38:48.895Z"
     },
     {
       "id": "pdag-0959c8081c1a",
-      "slug": "assistente-psicologo-assistente-psicologo-psicologo-psychiatrische-dienste-aargau-pdag-windisch",
+      "slug": "assistenzpsychologin-assistenzpsychologe-o-fachpsychologin-fachpsychologe-psychiatrische-dienste-aargau-pdag-windisch",
       "slugByLocale": {
         "de": "assistenzpsychologin-assistenzpsychologe-oder-fachpsychologin-fachpsychologe-pdag-windisch",
-        "it": "assistente-psicologo-assistente-psicologo-psicologo-psychiatrische-dienste-aargau-pdag-windisch",
-        "en": "assistant-psychologist-assistant-psychologist-psychologist-psychiatrische-dienste-aargau-pdag-windisch",
-        "fr": "psychologue-adjoint-psychologue-adjoint-psychologue-psychiatrische-dienste-aargau-pdag-windisch"
+        "it": "assistenzpsychologin-assistenzpsychologe-o-fachpsychologin-fachpsychologe-psychiatrische-dienste-aargau-pdag-windisch",
+        "en": "assistenzpsychologin-assistenzpsychologe-oder-fachpsychologin-fachpsychologe-pdag-windisch",
+        "fr": "assistenzpsychologin-assistenzpsychologe-oder-fachpsychologin-fachpsychologe-pdag-windisch"
       },
       "company": "Psychiatrische Dienste Aargau (PDAG)",
       "companyKey": "pdag",
@@ -178,16 +150,16 @@
       "title": "Assistenzpsychologin / Assistenzpsychologe oder Fachpsychologin / Fachpsychologe",
       "titleByLocale": {
         "de": "Assistenzpsychologin / Assistenzpsychologe oder Fachpsychologin / Fachpsychologe",
-        "it": "Assistente psicologo / Assistente psicologo / Psicologo",
-        "en": "Assistant Psychologist / Assistant Psychologist / Psychologist",
-        "fr": "Psychologue adjoint / Psychologue adjoint / Psychologue"
+        "it": "Assistente psicologo o psicologa specializzata",
+        "en": "Psychologist Assistant or Specialist Psychologist",
+        "fr": "Psychologue assistant ou psychologue spécialiste"
       },
       "description": "Assistenzpsychologin / Assistenzpsychologe oder Fachpsychologin / Fachpsychologe bei Psychiatrische Dienste Aargau (PDAG) in Windisch (5210, AG), Schweiz.\n\n• Standort: Windisch (AG)\n• Bewerbung über das Umantis-Karriereportal von Psychiatrische Dienste Aargau (PDAG)",
       "descriptionByLocale": {
-        "de": "## Posizione disponibile\n\nAssistenzpsychologin / Assistenzpsychologe **o** Fachpsychologin / Fachpsychologe presso **Psychiatrische Dienste Aargau (PDAG)** in Windisch (5210, AG), **Schweiz**.\n\n---\n\n## ## Descrizione\n• **Standort:** Windisch (AG)\n\n• **Bewerbung:** über das Umantis-Karriereportal von Psychiatrische Dienste Aargau (PDAG)",
-        "it": "Posizione disponibile Psicologo assistente o Psicologo specialista presso Psychiatrische Dienste Aargau (PDAG) a Windisch (5210, AG), Svizzera. --- ## Descrizione • Sede: Windisch (AG) • Candidatura: tramite il portale della carriera Umantis dei servizi psichiatrici di Argovia (PDAG)",
-        "en": "Position available assistant psychologist / assistant psychologist o Specialist psychologist/specialist psychologist presso Psychiatric Services Aargau (PDAG) in Windisch (5210, AG), Switzerland. --- ## Descrizione • Location: Windisch (AG) • Application: via the Umantis career portal of Psychiatric Services Aargau (PDAG)",
-        "fr": "Posizione disponibile Assistenzpsychologin / Assistenzpsychologin o Fachpsychologin / Fachpsychologin presso Psychiatrische Dienste Aargau (PDAG) à Windisch (5210, AG), Suisse. --- ## Descrizione • Lieu : Windisch (AG) • Candidature : via le portail de carrière Umantis des services psychiatriques d'Argovie (PDAG)"
+        "de": "Mansioni\nAssistenzpsychologin / Assistenzpsychologe oder Fachpsychologin / Fachpsychologe bei Psychiatrische Dienste Aargau (PDAG) in Windisch (5210, AG), Schweiz.\n\nDescrizione\n- Standort: Windisch (AG)\n- Bewerbung über das Umantis-Karriereportal von Psychiatrische Dienste Aargau (PDAG)",
+        "it": "Mansioni\nAssistente Psicologo / Assistente Psicologo presso i Servizi Psichiatrici Aargau (PDAG) a Windisch (5210, AG), Svizzera.\n\nDescrizione\n- Posizione: Windisch (AG)\n- Applicazione tramite il Portale Umantis Career dei Servizi Psichiatrici Aargau (PDAG)",
+        "en": "Mansioni\nAssistant Psychologist / Assistant Psychologist / Psychologist at Psychiatric Services Aargau (PDAG) in Windisch (5210, AG), Switzerland.\n\ndescrizione\n- Location: Windisch (AG)\n- Application via the Umantis Career Portal of Psychiatric Services Aargau (PDAG)",
+        "fr": "Mansioni\nPsychologue assistant / Psychologue assistant / Psychologue chez Psychiatric Services Aargau (PDAG) à Windisch (5210, AG), Suisse.\n\ndescrizione\n- Lieu: Windisch (AG)\n- Application via le portail Umantis Career des services psychiatriques Aargau (PDAG)"
       },
       "location": "Windisch",
       "canton": "AG",
@@ -215,19 +187,11 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "assistenzpsychologin-assistenzpsychologe-oder-fachpsychologin-fachpsychologe-pdag-windisch",
-          "assistenzpsychologin-assistenzpsychologe-o-fachpsychologin-fachpsychologe-psychiatrische-dienste-aargau-pdag-windisch"
-        ],
-        "en": [
-          "assistenzpsychologin-assistenzpsychologe-oder-fachpsychologin-fachpsychologe-pdag-windisch"
-        ],
-        "fr": [
           "assistenzpsychologin-assistenzpsychologe-oder-fachpsychologin-fachpsychologe-pdag-windisch"
         ]
       },
       "previousSlugs": [
-        "assistenzpsychologin-assistenzpsychologe-oder-fachpsychologin-fachpsychologe-pdag-windisch",
-        "assistenzpsychologin-assistenzpsychologe-o-fachpsychologin-fachpsychologe-psychiatrische-dienste-aargau-pdag-windisch"
+        "assistenzpsychologin-assistenzpsychologe-oder-fachpsychologin-fachpsychologe-pdag-windisch"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -245,12 +209,12 @@
     },
     {
       "id": "pdag-bf4e44fa2951",
-      "slug": "infermiere-in-diplomata-hf-turno-di-notte-nel-reparto-di-neuropsichiatria-psychiatrische-dienste-aargau-pdag-windisch",
+      "slug": "dipl-pflegefachfrau-dipl-pflegefachmann-hf-nachtdienst-im-klinikbereich-neuropsychiatrie",
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-dipl-pflegefachmann-hf-nachtdienst-im-klinikbereich-neuropsychiatrie",
-        "it": "infermiere-in-diplomata-hf-turno-di-notte-nel-reparto-di-neuropsichiatria-psychiatrische-dienste-aargau-pdag-windisch",
-        "en": "dipl-nurse-hf-night-shift-in-neuropsychiatry-psychiatrische-dienste-aargau-pdag-windisch",
-        "fr": "infirmier-ere-diplome-e-hf-service-de-nuit-en-neuropsychiatrie-psychiatrische-dienste-aargau-pdag-windisch"
+        "it": "dipl-pflegefachfrau-dipl-pflegefachmann-hf-nachtdienst-im-klinikbereich-neuropsychiatrie",
+        "en": "dipl-pflegefachfrau-dipl-pflegefachmann-hf-nachtdienst-im-klinikbereich-neuropsychiatrie",
+        "fr": "dipl-pflegefachfrau-dipl-pflegefachmann-hf-nachtdienst-im-klinikbereich-neuropsychiatrie"
       },
       "company": "Psychiatrische Dienste Aargau (PDAG)",
       "companyKey": "pdag",
@@ -258,16 +222,16 @@
       "title": "Dipl. Pflegefachfrau/ Dipl. Pflegefachmann HF Nachtdienst im Klinikbereich Neuropsychiatrie",
       "titleByLocale": {
         "de": "Dipl. Pflegefachfrau/ Dipl. Pflegefachmann HF Nachtdienst im Klinikbereich Neuropsychiatrie",
-        "it": "Infermiere/in diplomata HF Turno di notte nel reparto di neuropsichiatria",
-        "en": "Dipl. Nurse HF Night Shift in Neuropsychiatry",
-        "fr": "Infirmier/ère diplômé(e) HF Service de nuit en neuropsychiatrie"
+        "it": "Dipl. Carriera/Dipl. Assistenza specialistica HF servizio notturno nel Dipartimento di Neuropsychiatrie",
+        "en": "Dipl. Career/Dipl. Care specialist HF night service in the Department of Neuropsychiatrie",
+        "fr": "Dipl. Carrière/Dipl. Spécialiste des soins HF service de nuit dans le département de neuropsychiatrie"
       },
       "description": "Dipl. Pflegefachfrau/ Dipl. Pflegefachmann HF Nachtdienst im Klinikbereich Neuropsychiatrie bei Psychiatrische Dienste Aargau (PDAG) in Windisch (5210, AG), Schweiz.\n\n• Standort: Windisch (AG)\n• Bewerbung über das Umantis-Karriereportal von Psychiatrische Dienste Aargau (PDAG)",
       "descriptionByLocale": {
-        "de": "Descrizione\n\nDipl. Pflegefachfrau / Dipl. Pflegefachmann HF\nNachtdienst im Klinikbereich Neuropsychiatrie bei Psychiatrische Dienste Aargau (PDAG) in Windisch (5210, AG), Schweiz.\n\n- Standort: Windisch (AG)\n\nContatto\n\nBewerbung über das Umantis-Karriereportal von Psychiatrische Dienste Aargau (PDAG).",
-        "it": "Descrizione\n\nDipl. Carriera / Dipl. Specialista di cura HF\nAargau (PDAG) in Windisch (5210, AG), Svizzera.\n\n- Posizione: Windisch (AG)\n\nContatto\n\nApplicazione tramite il portale di carriera di Umantis dei servizi psichiatrici Aargau (PDAG).",
-        "en": "Descrizione\n\nDipl. Career / Dipl. Care specialist HF\nAargau (PDAG) in Windisch (5210, AG), Switzerland.\n\n- Location: Windisch (AG)\n\nContatto\n\nApplication via the Umantis career portal of Psychiatric Services Aargau (PDAG).",
-        "fr": "Descrizione\n\nDipl. Carrière / Dipl. Spécialiste des soins HF\nAargau (PDAG) à Windisch (5210, AG), Suisse.\n\n- Lieu: Windisch (AG)\n\nContatto\n\nApplication via le portail de carrière Umantis de Psychiatric Services Aargau (PDAG)."
+        "de": "## Mansioni\nDipl. Pflegefachfrau/ Dipl. Pflegefachmann HF Nachtdienst im Klinikbereich Neuropsychiatrie bei Psychiatrische Dienste Aargau (PDAG) in Windisch (5210, AG), Schweiz.\n\n## Descrizione\n- Standort: Windisch (AG)\n\n## Requisiti\n- Bewerbung über das Umantis-Karriereportal von Psychiatrische Dienste Aargau (PDAG)",
+        "it": "Mansioni\nDipl. Assistenza agli anziani HF Nightcare nel Dipartimento di Neuropsychiatrie presso i servizi psichiatrici Aargau (PDAG) a Windisch (5210, AG), Svizzera.\n\nDescrizione\n- Posizione: Windisch (AG)\n\nRequisiti\n- Applicazione tramite il Portale Umantis Career dei Servizi Psichiatrici Aargau (PDAG)",
+        "en": "Mansioni\nDipl. Senior Caregiver HF Nightcare in the Department of Neuropsychiatrie at Psychiatric Services Aargau (PDAG) in Windisch (5210, AG), Switzerland.\n\ndescrizione\n- Location: Windisch (AG)\n\nRequisiti\n- Application via the Umantis Career Portal of Psychiatric Services Aargau (PDAG)",
+        "fr": "Mansioni\nDipl. Senior Caregiver HF Nightcare dans le département de neuropsychiatrie des Services psychiatriques Aargau (PDAG) à Windisch (5210, AG), Suisse.\n\ndescrizione\n- Lieu: Windisch (AG)\n\nRequisiti\n- Application via le portail Umantis Career des services psychiatriques Aargau (PDAG)"
       },
       "location": "Windisch",
       "canton": "AG",
@@ -305,30 +269,16 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-25T13:38:47.298Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "dipl-pflegefachfrau-dipl-pflegefachmann-hf-nachtdienst-im-klinikbereich-neuropsychiatrie"
-        ],
-        "en": [
-          "dipl-pflegefachfrau-dipl-pflegefachmann-hf-nachtdienst-im-klinikbereich-neuropsychiatrie"
-        ],
-        "fr": [
-          "dipl-pflegefachfrau-dipl-pflegefachmann-hf-nachtdienst-im-klinikbereich-neuropsychiatrie"
-        ]
-      },
-      "previousSlugs": [
-        "dipl-pflegefachfrau-dipl-pflegefachmann-hf-nachtdienst-im-klinikbereich-neuropsychiatrie"
-      ]
+      "firstSeenAt": "2026-05-25T13:38:47.298Z"
     },
     {
       "id": "pdag-cec82a83361e",
-      "slug": "assistente-sociale-assistente-sociale-fh-clinica-diurna-psychiatrische-dienste-aargau-pdag-windisch",
+      "slug": "sozialarbeiterin-sozialarbeiter-fh-tagesklinik-pdag-windisch",
       "slugByLocale": {
         "de": "sozialarbeiterin-sozialarbeiter-fh-tagesklinik-pdag-windisch",
-        "it": "assistente-sociale-assistente-sociale-fh-clinica-diurna-psychiatrische-dienste-aargau-pdag-windisch",
-        "en": "social-worker-fh-social-worker-day-clinic-psychiatrische-dienste-aargau-pdag-windisch",
-        "fr": "assistant-social-assistante-sociale-fh-clinique-de-jour-psychiatrische-dienste-aargau-pdag-windisch"
+        "it": "sozialarbeiterin-sozialarbeiter-fh-tagesklinik-pdag-windisch",
+        "en": "sozialarbeiterin-sozialarbeiter-fh-tagesklinik-pdag-windisch",
+        "fr": "sozialarbeiterin-sozialarbeiter-fh-tagesklinik-pdag-windisch"
       },
       "company": "Psychiatrische Dienste Aargau (PDAG)",
       "companyKey": "pdag",
@@ -336,16 +286,16 @@
       "title": "Sozialarbeiterin / Sozialarbeiter FH Tagesklinik",
       "titleByLocale": {
         "de": "Sozialarbeiterin / Sozialarbeiter FH Tagesklinik",
-        "it": "Assistente sociale / Assistente sociale FH Clinica diurna",
-        "en": "Social Worker / FH Social Worker Day Clinic",
-        "fr": "Assistant social / Assistante sociale FH Clinique de jour"
+        "it": "Social worker / Social worker FH",
+        "en": "Social worker / Social worker FH",
+        "fr": "Travailleur social / travailleur social FH"
       },
       "description": "Sozialarbeiterin / Sozialarbeiter FH Tagesklinik bei Psychiatrische Dienste Aargau (PDAG) in Windisch (5210, AG), Schweiz.\n\n• Standort: Windisch (AG)\n• Bewerbung über das Umantis-Karriereportal von Psychiatrische Dienste Aargau (PDAG)",
       "descriptionByLocale": {
-        "de": "Job Title\nSozialarbeiterin / Sozialarbeiter FH Tagesklinik bei Psychiatrische Dienste Aargau (PDAG) in Windisch (5210, AG), Schweiz.\n\nLocation\nWindisch (AG)\n\nApplication Process\nBewerbung über das Umantis-Karriereportal von Psychiatrische Dienste Aargau (PDAG)",
-        "it": "Titolo del lavoro\nLavoratore sociale FH Tagesklinik bei Psychiatric Services Aargau (PDAG) a Windisch (5210, AG), Svizzera.\n\nLocation\nWindisch (AG)\n\nProcesso di applicazione\nApplicazione tramite il portale di carriera di Umantis dei servizi psichiatrici Aargau (PDAG)",
-        "en": "Job Title\nSocial worker FH Tagesklinik bei Psychiatric Services Aargau (PDAG) in Windisch (5210, AG), Switzerland.\n\nLocation\nWindisch (AG)\n\nApplication Process\nApplication via the Umantis career portal of Psychiatric Services Aargau (PDAG)",
-        "fr": "Titre du poste\nTravailleur social FH Tagesklinik bei Services psychiatriques Aargau (PDAG) à Windisch (5210, AG), Suisse.\n\nLieu\nLa société Windisch (AG)\n\nProcessus de demande\nApplication via le portail de carrière Umantis des Services Psychiatriques Argovie (PDAG)"
+        "de": "## Mansioni\nSozialarbeiterin / Sozialarbeiter FH Tagesklinik bei Psychiatrische Dienste Aargau (PDAG) in Windisch (5210, AG), Schweiz.\n\n## Posizione\n- Standort: Windisch (AG)\n\n## Modalità di candidatura\n- Bewerbung über das Umantis-Karriereportal von Psychiatrische Dienste Aargau (PDAG)",
+        "it": "Mansioni\nLavoratore sociale FH Tagesklinik bei Psychiatric Services Aargau (PDAG) a Windisch (5210, AG), Svizzera.\n\nPosizione\n- Posizione: Windisch (AG)\n\nModalità di candidatura\n- Applicazione tramite il Portale Umantis Career dei Servizi Psichiatrici Aargau (PDAG)",
+        "en": "Mansioni\nSocial worker FH Tagesklinik bei Psychiatric Services Aargau (PDAG) in Windisch (5210, AG), Switzerland.\n\nPosizione\n- Location: Windisch (AG)\n\nModalità di candidatura\n- Application via the Umantis Career Portal of Psychiatric Services Aargau (PDAG)",
+        "fr": "Mansioni\nTravailleur social FH Tagesklinik bei Services psychiatriques Aargau (PDAG) à Windisch (5210, AG), Suisse.\n\nPosizione\n- Lieu: Windisch (AG)\n\nModalità di candidatura\n- Application via le portail Umantis Career des services psychiatriques Aargau (PDAG)"
       },
       "location": "Windisch",
       "canton": "AG",
@@ -383,30 +333,16 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-25T13:38:46.194Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "sozialarbeiterin-sozialarbeiter-fh-tagesklinik-pdag-windisch"
-        ],
-        "en": [
-          "sozialarbeiterin-sozialarbeiter-fh-tagesklinik-pdag-windisch"
-        ],
-        "fr": [
-          "sozialarbeiterin-sozialarbeiter-fh-tagesklinik-pdag-windisch"
-        ]
-      },
-      "previousSlugs": [
-        "sozialarbeiterin-sozialarbeiter-fh-tagesklinik-pdag-windisch"
-      ]
+      "firstSeenAt": "2026-05-25T13:38:46.194Z"
     },
     {
       "id": "pdag-126bc83e80bc",
-      "slug": "dipl-carriera-dipl-cura-specialista-malattie-della-dipendenza-psychiatrische-dienste-aargau-pdag-windisch",
+      "slug": "dipl-pflegefachfrau-dipl-pflegefachmann-abhangigkeitserkrankungen-pdag-windisch",
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-dipl-pflegefachmann-abhangigkeitserkrankungen-pdag-windisch",
-        "it": "dipl-carriera-dipl-cura-specialista-malattie-della-dipendenza-psychiatrische-dienste-aargau-pdag-windisch",
-        "en": "dipl-career-dipl-care-specialist-dependency-diseases-psychiatrische-dienste-aargau-pdag-windisch",
-        "fr": "dipl-carriere-dipl-specialiste-des-maladies-de-dependance-psychiatrische-dienste-aargau-pdag-windisch"
+        "it": "dipl-pflegefachfrau-dipl-pflegefachmann-abhangigkeitserkrankungen-pdag-windisch",
+        "en": "dipl-pflegefachfrau-dipl-pflegefachmann-abhangigkeitserkrankungen-pdag-windisch",
+        "fr": "dipl-pflegefachfrau-dipl-pflegefachmann-abhangigkeitserkrankungen-pdag-windisch"
       },
       "company": "Psychiatrische Dienste Aargau (PDAG)",
       "companyKey": "pdag",
@@ -420,10 +356,10 @@
       },
       "description": "Dipl. Pflegefachfrau / Dipl. Pflegefachmann Abhängigkeitserkrankungen bei Psychiatrische Dienste Aargau (PDAG) in Windisch (5210, AG), Schweiz.\n\n• Standort: Windisch (AG)\n• Bewerbung über das Umantis-Karriereportal von Psychiatrische Dienste Aargau (PDAG)",
       "descriptionByLocale": {
-        "de": "## Posizione disponibile\n\n**Dipl. Pflegefachfrau / Dipl. Pflegefachmann Abhängigkeitserkrankungen bei Psychiatrische Dienste Aargou (PDAG) in Windisch (5210, AG), Schweiz.**\n\n---\n\n## ## Descrizione\n• **Standort:** Windisch (AG)\n\n• **Bewerbung über das Umantis-Karriereportal von Psychiatrische Dienste Aargau (PDAG)**",
-        "it": "Posizione disponibile Dipl. Infermiera / Dipl. Infermiere specializzato in dipendenze presso i servizi psichiatrici di Aargou (PDAG) a Windisch (5210, AG), Svizzera. --- ## Descrizione • Sede: Windisch (AG) • Candidatura tramite il portale della carriera Umantis dei servizi psichiatrici di Argovia (PDAG)",
-        "en": "Posizione disponibile Dipl. Nurse / Dipl. Nursing specialist dependency diseases at Psychiatric Services Aargou (PDAG) in Windisch (5210, AG), Switzerland. --- ## Descrizione • Location: Windisch (AG) • Application via the Umantis career portal of Psychiatric Services Aargau (PDAG)",
-        "fr": "Posizione disponibile Dipl. Infirmière /Infirmier diplômé Infirmier en toxicomanie dans les services psychiatriques d'Argovie (PDAG) à Windisch (5210, AG), Suisse. --- ## Descrizione • Lieu : Windisch (AG) • Candidature via le portail de carrière Umantis des services psychiatriques d'Argovie (PDAG)"
+        "de": "## Mansioni\nDipl. Pflegefachfrau / Dipl. Pflegefachmann Abhängigkeitserkrankungen bei Psychiatrische Dienste Aargau (PDAG) in Windisch (5210, AG), Schweiz.\n\n## Sede\n- Windisch (AG)\n\n## Modalità di candidatura\n- Bewerbung über das Umantis-Karriereportal von Psychiatrische Dienste Aargau (PDAG)",
+        "it": "Mansioni\nDipl. Career / Dipl. Aargau (PDAG) in Windisch (5210, AG), Svizzera.\n\nSedetevi\n- Windisch (AG)\n\nModalità di candidatura\n- Applicazione tramite il Portale Umantis Career dei Servizi Psichiatrici Aargau (PDAG)",
+        "en": "Mansioni\nDipl. Career / Dipl. Aargau (PDAG) in Windisch (5210, AG), Switzerland.\n\nSede\n- Windisch (AG)\n\nModalità di candidatura\n- Application via the Umantis Career Portal of Psychiatric Services Aargau (PDAG)",
+        "fr": "Mansioni\nDipl. Carrière / Dipl. Aargau (PDAG) à Windisch (5210, AG), Suisse.\n\nSede\n- Windisch (AG)\n\nModalità di candidatura\n- Application via le portail Umantis Career des services psychiatriques Aargau (PDAG)"
       },
       "location": "Windisch",
       "canton": "AG",
@@ -461,30 +397,16 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-25T13:38:45.398Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "dipl-pflegefachfrau-dipl-pflegefachmann-abhangigkeitserkrankungen-pdag-windisch"
-        ],
-        "en": [
-          "dipl-pflegefachfrau-dipl-pflegefachmann-abhangigkeitserkrankungen-pdag-windisch"
-        ],
-        "fr": [
-          "dipl-pflegefachfrau-dipl-pflegefachmann-abhangigkeitserkrankungen-pdag-windisch"
-        ]
-      },
-      "previousSlugs": [
-        "dipl-pflegefachfrau-dipl-pflegefachmann-abhangigkeitserkrankungen-pdag-windisch"
-      ]
+      "firstSeenAt": "2026-05-25T13:38:45.398Z"
     },
     {
       "id": "pdag-64a26827d557",
-      "slug": "assistente-sociale-ambulatoriale-psychiatrische-dienste-aargau-pdag-windisch",
+      "slug": "sozialarbeiterin-sozialarbeiter-fh-ambulatorium-pdag-windisch",
       "slugByLocale": {
         "de": "sozialarbeiterin-sozialarbeiter-fh-ambulatorium-pdag-windisch",
-        "it": "assistente-sociale-ambulatoriale-psychiatrische-dienste-aargau-pdag-windisch",
-        "en": "social-worker-ambulatory-psychiatrische-dienste-aargau-pdag-windisch",
-        "fr": "assistant-social-ambulatoire-psychiatrische-dienste-aargau-pdag-windisch"
+        "it": "sozialarbeiterin-sozialarbeiter-fh-ambulatorium-pdag-windisch",
+        "en": "sozialarbeiterin-sozialarbeiter-fh-ambulatorium-pdag-windisch",
+        "fr": "sozialarbeiterin-sozialarbeiter-fh-ambulatorium-pdag-windisch"
       },
       "company": "Psychiatrische Dienste Aargau (PDAG)",
       "companyKey": "pdag",
@@ -492,16 +414,16 @@
       "title": "Sozialarbeiterin / Sozialarbeiter FH Ambulatorium",
       "titleByLocale": {
         "de": "Sozialarbeiterin / Sozialarbeiter FH Ambulatorium",
-        "it": "Assistente sociale ambulatoriale",
-        "en": "Social Worker Ambulatory",
-        "fr": "Assistant social ambulatoire"
+        "it": "Lavoro sociale FH Ambulatorium",
+        "en": "Social worker FH Ambulatorium",
+        "fr": "Travailleur social FH Ambulatorium"
       },
       "description": "Sozialarbeiterin / Sozialarbeiter FH Ambulatorium bei Psychiatrische Dienste Aargau (PDAG) in Windisch (5210, AG), Schweiz.\n\n• Standort: Windisch (AG)\n• Bewerbung über das Umantis-Karriereportal von Psychiatrische Dienste Aargau (PDAG)",
       "descriptionByLocale": {
-        "de": "Descrizione\n\nSozialarbeiterin / Sozialarbeiter FH Ambulatorium bei Psychiatrische Dienste Aargau (PDAG) in Windisch (5210, AG), Schweiz.\n\n- Standort: Windisch (AG)\n\nContatto\n\nBewerbung über das Umantis-Karriereportal von Psychiatrische Dienste Aargau (PDAG)",
-        "it": "Descrizione\n\nLavoratore sociale FH Ambulatorium bei Servizi psichiatrici Aargau (PDAG) a Windisch (5210, AG), Svizzera.\n\n- Posizione: Windisch (AG)\n\nContatto\n\nApplicazione tramite il portale di carriera di Umantis dei servizi psichiatrici Aargau (PDAG)",
-        "en": "Descrizione\n\nSocial worker FH Ambulatorium bei Psychiatric Services Aargau (PDAG) in Windisch (5210, AG), Switzerland.\n\n- Location: Windisch (AG)\n\nContatto\n\nApplication via the Umantis career portal of Psychiatric Services Aargau (PDAG)",
-        "fr": "Descrizione\n\nTravailleur social FH Ambulatorium bei Services psychiatriques Aargau (PDAG) à Windisch (5210, AG), Suisse.\n\n- Lieu: Windisch (AG)\n\nContatto\n\nApplication via le portail de carrière Umantis des Services Psychiatriques Argovie (PDAG)"
+        "de": "## Sozialarbeiterin / Sozialarbeiter FH\n\n### Descrizione\nAmbulatorium bei **Psychiatrische Dienste Aargau (PDAG)** in Windisch (5210, AG), Schweiz.\n\n- **Standort:** Windisch (AG)\n- **Bewerbung über das Umantis-Karriereportal von Psychiatrische Dienste Aargau (PDAG)**",
+        "it": "Social worker / Social worker FH\n\nDescrizione\nAargau (PDAG) a Windisch (5210, AG), Svizzera.\n\n- Posizione: Windisch (AG)\n- Applicazione tramite il Portale Umantis Career dei Servizi Psichiatrici Aargau (PDAG)",
+        "en": "Social worker / Social worker FH\n\ndescrizione\nAmbulatory at Psychiatric Services Aargau (PDAG) in Windisch (5210, AG), Switzerland.\n\n- Location: Windisch (AG)\n- Application via the Umantis Career Portal of Psychiatric Services Aargau (PDAG)",
+        "fr": "Travailleur social / travailleur social FH\n\ndescrizione\nAmbulatoire chez Psychiatric Services Aargau (PDAG) à Windisch (5210, AG), Suisse.\n\n- Lieu: Windisch (AG)\n- Application via le portail Umantis Career des services psychiatriques Aargau (PDAG)"
       },
       "location": "Windisch",
       "canton": "AG",
@@ -539,30 +461,16 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-25T13:38:44.601Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "sozialarbeiterin-sozialarbeiter-fh-ambulatorium-pdag-windisch"
-        ],
-        "en": [
-          "sozialarbeiterin-sozialarbeiter-fh-ambulatorium-pdag-windisch"
-        ],
-        "fr": [
-          "sozialarbeiterin-sozialarbeiter-fh-ambulatorium-pdag-windisch"
-        ]
-      },
-      "previousSlugs": [
-        "sozialarbeiterin-sozialarbeiter-fh-ambulatorium-pdag-windisch"
-      ]
+      "firstSeenAt": "2026-05-25T13:38:44.601Z"
     },
     {
       "id": "pdag-ad1c8545c058",
-      "slug": "segretario-a-zpps-psychiatrische-dienste-aargau-pdag-windisch",
+      "slug": "sekretarin-sekretar-zpps-pdag-windisch",
       "slugByLocale": {
         "de": "sekretarin-sekretar-zpps-pdag-windisch",
-        "it": "segretario-a-zpps-psychiatrische-dienste-aargau-pdag-windisch",
-        "en": "administrative-assistant-zpps-psychiatrische-dienste-aargau-pdag-windisch",
-        "fr": "assistant-e-administratif-zpps-psychiatrische-dienste-aargau-pdag-windisch"
+        "it": "sekretarin-sekretar-zpps-pdag-windisch",
+        "en": "sekretarin-sekretar-zpps-pdag-windisch",
+        "fr": "sekretarin-sekretar-zpps-pdag-windisch"
       },
       "company": "Psychiatrische Dienste Aargau (PDAG)",
       "companyKey": "pdag",
@@ -570,16 +478,16 @@
       "title": "Sekretärin / Sekretär ZPPS",
       "titleByLocale": {
         "de": "Sekretärin / Sekretär ZPPS",
-        "it": "Segretario/a ZPPS",
-        "en": "Administrative Assistant ZPPS",
-        "fr": "Assistant(e) administratif ZPPS"
+        "it": "Segretario / Segretario ZPPS",
+        "en": "Secretary / Secretary ZPPS",
+        "fr": "Secrétaire / Secrétaire ZPPS"
       },
       "description": "Sekretärin / Sekretär ZPPS bei Psychiatrische Dienste Aargau (PDAG) in Windisch (5210, AG), Schweiz.\n\n• Standort: Windisch (AG)\n• Bewerbung über das Umantis-Karriereportal von Psychiatrische Dienste Aargau (PDAG)",
       "descriptionByLocale": {
-        "de": "Posizione\n\nSekretärin / Sekretär ZPPS bei Psychiatrische Dienste Aargau (PDAG)\n\nDescrizione\nSekretärin / Sekretär ZPPS bei Psychiatrische Dienste Aargau (PDAG) in Windisch (5210, AG), Schweiz.\n\n• Standort: Windisch (AG)\n\nContatto\nBewerbung über das Umantis-Karriereportal von Psychiatrische Dienste Aargau (PDAG)",
-        "it": "Posizione\n\nSegretario ZPPS ai servizi psichiatrici Aargau (PDAG)\n\nDescrizione\nSegretario ZPPS presso i servizi psichiatrici Aargau (PDAG) a Windisch (5210, AG), Svizzera.\n\n• Posizione: Windisch (AG)\n\nContatto\nApplicazione tramite il portale di carriera di Umantis dei servizi psichiatrici Aargau (PDAG)",
-        "en": "Posizione\n\nSecretary ZPPS at Psychiatric Services Aargau (PDAG)\n\ndescrizione\nSecretary ZPPS at Psychiatric Services Aargau (PDAG) in Windisch (5210, AG), Switzerland.\n\n• Location: Windisch (AG)\n\nContatto\nApplication via the Umantis career portal of Psychiatric Services Aargau (PDAG)",
-        "fr": "Posizione\n\nSecrétaire ZPPS aux services psychiatriques Aargau (PDAG)\n\ndescrizione\nSecrétaire ZPPS aux Services psychiatriques Aargau (PDAG) à Windisch (5210, AG), Suisse.\n\n• Lieu: Windisch (AG)\n\nContatto\nApplication via le portail de carrière Umantis des Services Psychiatriques Argovie (PDAG)"
+        "de": "## Mansioni\nSekretärin / Sekretär ZPPS bei Psychiatrische Dienste Aargau (PDAG) in Windisch (5210, AG), Schweiz.\n\n## Descrizione\n- Standort: Windisch (AG)\n\n## Requisiti\n- Bewerbung über das Umantis-Karriereportal von Psychiatrische Dienste Aargau (PDAG)",
+        "it": "Mansioni\nSegretario ZPPS presso i servizi psichiatrici Aargau (PDAG) a Windisch (5210, AG), Svizzera.\n\nDescrizione\n- Posizione: Windisch (AG)\n\nRequisiti\n- Applicazione tramite il Portale Umantis Career dei Servizi Psichiatrici Aargau (PDAG)",
+        "en": "Mansioni\nSecretary ZPPS at Psychiatric Services Aargau (PDAG) in Windisch (5210, AG), Switzerland.\n\ndescrizione\n- Location: Windisch (AG)\n\nRequisiti\n- Application via the Umantis Career Portal of Psychiatric Services Aargau (PDAG)",
+        "fr": "Mansioni\nSecrétaire ZPPS aux Services psychiatriques Aargau (PDAG) à Windisch (5210, AG), Suisse.\n\ndescrizione\n- Lieu: Windisch (AG)\n\nRequisiti\n- Application via le portail Umantis Career des services psychiatriques Aargau (PDAG)"
       },
       "location": "Windisch",
       "canton": "AG",
@@ -617,30 +525,16 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-25T13:38:43.778Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "sekretarin-sekretar-zpps-pdag-windisch"
-        ],
-        "en": [
-          "sekretarin-sekretar-zpps-pdag-windisch"
-        ],
-        "fr": [
-          "sekretarin-sekretar-zpps-pdag-windisch"
-        ]
-      },
-      "previousSlugs": [
-        "sekretarin-sekretar-zpps-pdag-windisch"
-      ]
+      "firstSeenAt": "2026-05-25T13:38:43.778Z"
     },
     {
       "id": "pdag-6c7374443b2d",
-      "slug": "assistente-sociale-assistente-sociale-fh-psychiatrische-dienste-aargau-pdag-windisch",
+      "slug": "sozialarbeiterin-sozialarbeiter-fh-pdag-windisch",
       "slugByLocale": {
         "de": "sozialarbeiterin-sozialarbeiter-fh-pdag-windisch",
-        "it": "assistente-sociale-assistente-sociale-fh-psychiatrische-dienste-aargau-pdag-windisch",
-        "en": "social-worker-social-worker-fh-psychiatrische-dienste-aargau-pdag-windisch",
-        "fr": "assistant-social-assistante-sociale-fh-psychiatrische-dienste-aargau-pdag-windisch"
+        "it": "sozialarbeiterin-sozialarbeiter-fh-pdag-windisch",
+        "en": "sozialarbeiterin-sozialarbeiter-fh-pdag-windisch",
+        "fr": "sozialarbeiterin-sozialarbeiter-fh-pdag-windisch"
       },
       "company": "Psychiatrische Dienste Aargau (PDAG)",
       "companyKey": "pdag",
@@ -648,16 +542,16 @@
       "title": "Sozialarbeiterin / Sozialarbeiter FH",
       "titleByLocale": {
         "de": "Sozialarbeiterin / Sozialarbeiter FH",
-        "it": "Assistente sociale / Assistente sociale FH",
-        "en": "Social Worker / Social Worker FH",
-        "fr": "Assistant social / Assistante sociale FH"
+        "it": "Social worker / Social worker FH",
+        "en": "Social worker / Social worker FH",
+        "fr": "Travailleur social / travailleur social FH"
       },
       "description": "Sozialarbeiterin / Sozialarbeiter FH bei Psychiatrische Dienste Aargau (PDAG) in Windisch (5210, AG), Schweiz.\n\n• Standort: Windisch (AG)\n• Bewerbung über das Umantis-Karriereportal von Psychiatrische Dienste Aargau (PDAG)",
       "descriptionByLocale": {
-        "de": "Job Title\nSozialarbeiterin / Sozialarbeiter FH bei Psychiatrische Dienste Aargau (PDAG) in Windisch (5210, AG), Schweiz.\n\nLocation\n- Windisch (AG)\n\nApplication Process\n- Bewerbung über das Umantis-Karriereportal von Psychiatrische Dienste Aargau (PDAG)",
-        "it": "Titolo del lavoro\nLavoratore sociale FH presso i servizi psichiatrici Aargau (PDAG) a Windisch (5210, AG), Svizzera.\n\nLocation\n- Windisch (AG)\n\nProcesso di applicazione\n- Applicazione tramite il Portale Umantis Career dei Servizi Psichiatrici Aargau (PDAG)",
-        "en": "Job Title\nSocial worker FH at Psychiatric Services Aargau (PDAG) in Windisch (5210, AG), Switzerland.\n\nLocation\n- Windisch (AG)\n\nApplication Process\n- Application via the Umantis Career Portal of Psychiatric Services Aargau (PDAG)",
-        "fr": "Titre du poste\nTravailleur social FH chez Psychiatric Services Aargau (PDAG) à Windisch (5210, AG), Suisse.\n\nLieu\n- Windisch (AG)\n\nProcessus de demande\n- Application via le portail Umantis Career des services psychiatriques Aargau (PDAG)"
+        "de": "## Mansioni\nSozialarbeiterin / Sozialarbeiter FH bei Psychiatrische Dienste Aargau (PDAG) in Windisch (5210, AG), Schweiz.\n\n## Posizione\n- Standort: Windisch (AG)\n\n## Modalità di candidatura\n- Bewerbung über das Umantis-Karriereportal von Psychiatrische Dienste Aargau (PDAG)",
+        "it": "Mansioni\nLavoratore sociale FH presso i servizi psichiatrici Aargau (PDAG) a Windisch (5210, AG), Svizzera.\n\nPosizione\n- Posizione: Windisch (AG)\n\nModalità di candidatura\n- Applicazione tramite il Portale Umantis Career dei Servizi Psichiatrici Aargau (PDAG)",
+        "en": "Mansioni\nSocial worker FH at Psychiatric Services Aargau (PDAG) in Windisch (5210, AG), Switzerland.\n\nPosizione\n- Location: Windisch (AG)\n\nModalità di candidatura\n- Application via the Umantis Career Portal of Psychiatric Services Aargau (PDAG)",
+        "fr": "Mansioni\nTravailleur social FH chez Psychiatric Services Aargau (PDAG) à Windisch (5210, AG), Suisse.\n\nPosizione\n- Lieu: Windisch (AG)\n\nModalità di candidatura\n- Application via le portail Umantis Career des services psychiatriques Aargau (PDAG)"
       },
       "location": "Windisch",
       "canton": "AG",
@@ -695,21 +589,7 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-25T13:38:42.947Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "sozialarbeiterin-sozialarbeiter-fh-pdag-windisch"
-        ],
-        "en": [
-          "sozialarbeiterin-sozialarbeiter-fh-pdag-windisch"
-        ],
-        "fr": [
-          "sozialarbeiterin-sozialarbeiter-fh-pdag-windisch"
-        ]
-      },
-      "previousSlugs": [
-        "sozialarbeiterin-sozialarbeiter-fh-pdag-windisch"
-      ]
+      "firstSeenAt": "2026-05-25T13:38:42.947Z"
     },
     {
       "id": "pdag-a347fdfe28ff",
@@ -717,8 +597,8 @@
       "slugByLocale": {
         "de": "dipl-pflegefachpersonen-hf-fh-im-spat-und-nachtdienst-pdag-windisch",
         "it": "dipl-pflegefachpersonen-hf-fh-im-spat-e-nachtdienst-psychiatrische-dienste-aargau-pdag-windisch",
-        "en": "dipl-care-professionals-hf-fh-in-late-and-night-service-psychiatrische-dienste-aargau-pdag-windisch",
-        "fr": "dipl-professionnels-des-soins-hf-fh-en-service-de-nuit-et-tard-psychiatrische-dienste-aargau-pdag-windisch"
+        "en": "dipl-pflegefachpersonen-hf-fh-im-spat-und-nachtdienst-pdag-windisch",
+        "fr": "dipl-pflegefachpersonen-hf-fh-im-spat-und-nachtdienst-pdag-windisch"
       },
       "company": "Psychiatrische Dienste Aargau (PDAG)",
       "companyKey": "pdag",
@@ -732,10 +612,10 @@
       },
       "description": "Dipl. Pflegefachpersonen HF/FH im Spät- und Nachtdienst bei Psychiatrische Dienste Aargau (PDAG) in Windisch (5210, AG), Schweiz.\n\n• Standort: Windisch (AG)\n• Bewerbung über das Umantis-Karriereportal von Psychiatrische Dienste Aargau (PDAG)",
       "descriptionByLocale": {
-        "de": "## Descrizione\nDipl. Pflegefachpersonen HF/FH im Spät- und Nachtdienst bei Psychiatrische Dienste Aargau (PDAG) in Windisch (5210, AG), Schweiz.\n\n---\n\n## Requisiti\n• Standort: Windisch (AG)\n\n---\n\n## Contatto\nBewerbung über das Umantis-Karriereportal von Psychiatrische Dienste Aargau (PDAG)",
-        "it": "Descrizione\nDipl. Professionisti HF/FH in servizio di tarda e notte presso i servizi psichiatrici Aargau (PDAG) a Windisch (5210, AG), Svizzera.\n\n---\n\nRequisiti\n• Posizione: Windisch (AG)\n\n---\n\nContatto\nApplicazione tramite il portale di carriera di Umantis dei servizi psichiatrici Aargau (PDAG)",
-        "en": "Descrizione\nDipl. Care professionals HF/FH in late and night service at psychiatric services Aargau (PDAG) in Windisch (5210, AG), Switzerland.\n\n---\n\nRequisiti\n• Location: Windisch (AG)\n\n---\n\nContatto\nApplication via the Umantis career portal of Psychiatric Services Aargau (PDAG)",
-        "fr": "Descrizione\nDipl. Professionnels des soins HF/FH en service de nuit et tard dans les services psychiatriques Aargau (PDAG) à Windisch (5210, AG), Suisse.\n\n---\n\nRequisiti\n• Lieu: Windisch (AG)\n\n---\n\nContatto\nApplication via le portail de carrière Umantis des Services Psychiatriques Argovie (PDAG)"
+        "de": "## Mansioni\nDipl. Pflegefachpersonen HF/FH im Spät- und Nachtdienst bei Psychiatrische Dienste Aargau (PDAG) in Windisch (5210, AG), Schweiz.\n\n## Posizione\n- Standort: Windisch (AG)\n\n## Modalità di candidatura\n- Bewerbung über das Umantis-Karriereportal von Psychiatrische Dienste Aargau (PDAG)",
+        "it": "Mansioni\nDipl. Professionisti HF/FH in servizio di tarda e notte presso i servizi psichiatrici Aargau (PDAG) a Windisch (5210, AG), Svizzera.\n\nPosizione\n- Posizione: Windisch (AG)\n\nModalità di candidatura\n- Applicazione tramite il Portale Umantis Career dei Servizi Psichiatrici Aargau (PDAG)",
+        "en": "Mansioni\nDipl. Care professionals HF/FH in late and night service at psychiatric services Aargau (PDAG) in Windisch (5210, AG), Switzerland.\n\nPosizione\n- Location: Windisch (AG)\n\nModalità di candidatura\n- Application via the Umantis Career Portal of Psychiatric Services Aargau (PDAG)",
+        "fr": "Mansioni\nDipl. Professionnels des soins HF/FH en service de nuit et tard dans les services psychiatriques Aargau (PDAG) à Windisch (5210, AG), Suisse.\n\nPosizione\n- Lieu: Windisch (AG)\n\nModalità di candidatura\n- Application via le portail Umantis Career des services psychiatriques Aargau (PDAG)"
       },
       "location": "Windisch",
       "canton": "AG",
@@ -763,12 +643,6 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachpersonen-hf-fh-im-spat-und-nachtdienst-pdag-windisch"
-        ],
-        "en": [
-          "dipl-pflegefachpersonen-hf-fh-im-spat-und-nachtdienst-pdag-windisch"
-        ],
-        "fr": [
           "dipl-pflegefachpersonen-hf-fh-im-spat-und-nachtdienst-pdag-windisch"
         ]
       },
