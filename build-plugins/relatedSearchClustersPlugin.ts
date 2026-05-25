@@ -47,8 +47,8 @@ import type { Plugin } from 'vite';
 
 import { WriteCollector } from './batchWrite';
 import { BASE_URL } from './constants';
-import { buildFlatBridgeFromSibling } from './flatHtmlRedirectPlugin';
-import { buildSeoPageHtml } from './shared/seoPageShell';
+import { buildSeoPageHtml, resolveEntryAssets } from './shared/seoPageShell';
+import { minifyHtml } from './shared/htmlMinify';
 import {
   BREADCRUMB_LINK_STYLE,
   BREADCRUMB_STYLE,
@@ -135,7 +135,14 @@ const HUB_PAGE_SIZE = 200;
 // Opt out with STRIP_CLUSTER_SEO_PROSE=0 to re-emit the full prose
 // (e.g. for an A/B test of organic CTR vs. SERP impressions).
 const STRIP_CLUSTER_SEO_PROSE = (process.env.STRIP_CLUSTER_SEO_PROSE ?? '1') !== '0';
+// Cluster pages are crawler-support pages whose interactive UI is rendered by
+// the SPA after hydration. Keep the SPA bundle/CSS, but drop the heavier shared
+// SEO shell chrome (OG image set, favicons, analytics, seo-static.css) by
+// default. This saves repeated head bytes across ~180k cluster pages without
+// removing canonical, hreflang, robots, title/description, or JSON-LD.
+const LEAN_CLUSTER_SEO_SHELL = (process.env.LEAN_CLUSTER_SEO_SHELL ?? '1') !== '0';
 const EJP_STRIPPED_MARKER = '<!--EJP_STRIPPED-->';
+const MAX_RELATED_CLUSTER_LINKS = 4;
 
 // ── Utilities ───────────────────────────────────────────────────────────
 
@@ -999,7 +1006,8 @@ function buildJsonLd(opts: {
   const { ctx, canonicalUrl, enriched, locale, commuterLocation, sectorLabel } = opts;
   const headline = buildHeadline(ctx.keyword, ctx.city);
   const copy = COPY[locale];
-  const sectionUrl = `${BASE_URL}${LOCALE_PREFIX[locale]}/${getJobBoardSectionSlug(locale)}/`.replace(/\/+/g, '/');
+  const sectionPath = `${LOCALE_PREFIX[locale]}/${getJobBoardSectionSlug(locale)}/`.replace(/\/+/g, '/');
+  const sectionUrl = `${BASE_URL}${sectionPath}`;
 
   // ItemList JSON-LD intentionally NOT emitted: the static body no longer
   // visibly lists the jobs (the SPA renders them via JobBoard hydration),
@@ -1023,18 +1031,22 @@ function buildJsonLd(opts: {
   // AI-enriched Q&A (when present) with the commuter-context Q&A into one
   // FAQPage `mainEntity` array so all entries surface to Google's FAQ
   // rich result without tripping the duplicate gate.
-  const aiFaqItems = (enriched?.faqs ?? [])
-    .filter((f) => f.q && f.q.trim() && f.a && f.a.trim())
-    .map((f) => ({
-      '@type': 'Question' as const,
-      name: f.q.trim(),
-      acceptedAnswer: { '@type': 'Answer' as const, text: f.a.trim() },
-    }));
-  const commuterFaqItems = buildJobBoardCommuterFaqItems({
-    locale: locale as 'it' | 'en' | 'de' | 'fr',
-    location: commuterLocation,
-    sectorOrType: sectorLabel,
-  });
+  const aiFaqItems = STRIP_CLUSTER_SEO_PROSE
+    ? []
+    : (enriched?.faqs ?? [])
+        .filter((f) => f.q && f.q.trim() && f.a && f.a.trim())
+        .map((f) => ({
+          '@type': 'Question' as const,
+          name: f.q.trim(),
+          acceptedAnswer: { '@type': 'Answer' as const, text: f.a.trim() },
+        }));
+  const commuterFaqItems = STRIP_CLUSTER_SEO_PROSE
+    ? []
+    : buildJobBoardCommuterFaqItems({
+        locale: locale as 'it' | 'en' | 'de' | 'fr',
+        location: commuterLocation,
+        sectorOrType: sectorLabel,
+      });
   // When STRIP_CLUSTER_SEO_PROSE is ON, the commuter-context block in the
   // <body> is dropped — so its FAQPage JSON-LD must go too (otherwise
   // Google reports "Field 'mainEntity' references missing content" for
@@ -1078,6 +1090,93 @@ function renderHreflang(
   const xDefaultUrl = itAlt?.url || hreflang[0]?.url || fallbackUrl;
   lines.push(`    <link rel="alternate" hreflang="x-default" href="${xDefaultUrl}">`);
   return lines.join('\n');
+}
+
+function renderClusterHtmlShell(opts: {
+  locale: Locale;
+  title: string;
+  description: string;
+  canonicalUrl: string;
+  hreflangHtml: string;
+  jsonLdScripts: ReadonlyArray<string>;
+  bodyHtml: string;
+  distDir: string;
+}): string {
+  const {
+    locale,
+    title,
+    description,
+    canonicalUrl,
+    hreflangHtml,
+    jsonLdScripts,
+    bodyHtml,
+    distDir,
+  } = opts;
+
+  if (!LEAN_CLUSTER_SEO_SHELL) {
+    return buildSeoPageHtml({
+      locale,
+      title,
+      description,
+      canonicalUrl,
+      robots: 'index,follow',
+      ogType: 'website',
+      ogLocale: OG_LOCALE[locale],
+      hreflangHtml,
+      jsonLdScripts: [...jsonLdScripts],
+      bodyHtml,
+      distDir,
+      seoMainClass: 'cluster-seo-prose',
+    });
+  }
+
+  const assets = resolveEntryAssets(distDir);
+  const ldTags = jsonLdScripts
+    .map((ld) => `<script type="application/ld+json">${ld}</script>`)
+    .join('\n');
+  const cssLink = assets.entryCss
+    ? `<link rel="stylesheet" href="/assets/${esc(assets.entryCss)}" crossorigin media="all">`
+    : '';
+  const jsScript = assets.entryJs
+    ? `<script type="module" crossorigin src="/assets/${esc(assets.entryJs)}"></script>`
+    : '';
+
+  return minifyHtml(`<!doctype html>
+<html lang="${locale}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>${esc(title)}</title>
+<meta name="description" content="${esc(description)}">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="${esc(canonicalUrl)}">
+${hreflangHtml}
+${ldTags}
+${cssLink}
+</head>
+<body class="bg-surface-alt text-heading overflow-x-hidden">
+<div id="root"></div>
+<main class="cluster-seo-prose">
+${bodyHtml}
+</main>
+${jsScript}
+</body>
+</html>`);
+}
+
+function renderLeanFlatBridge(slashUrl: string, title: string, locale: Locale): string {
+  const target = JSON.stringify(slashUrl);
+  return minifyHtml(`<!doctype html>
+<html lang="${locale}">
+<head>
+<meta charset="utf-8">
+<title>${esc(title)}</title>
+<meta name="robots" content="noindex,follow">
+<link rel="canonical" href="${esc(slashUrl)}">
+<script>location.replace(${target}+location.search+location.hash)</script>
+</head>
+<body><a href="${esc(slashUrl)}">${esc(title)}</a></body>
+</html>`);
 }
 
 // Memoize renderJobBoardCommuterContext: pure function, ~52k calls per build
@@ -1184,7 +1283,7 @@ export function renderClusterPage(inputs: PageInputs): PageOutput {
   const renderableAiFaqs = (enriched?.faqs ?? []).filter(
     (q) => q.q && q.q.trim() && q.a && q.a.trim(),
   );
-  const aiFaqHtml = renderableAiFaqs.length > 0
+  const aiFaqHtml = !STRIP_CLUSTER_SEO_PROSE && renderableAiFaqs.length > 0
     ? `<section class="s-Va7_33">
         <h3 class="s-BlnHQi">${esc(copy.faqSummary)}</h3>
         ${renderableAiFaqs.map((q) =>
@@ -1195,20 +1294,23 @@ export function renderClusterPage(inputs: PageInputs): PageOutput {
 
   // Commuter-context prose: 5-7 KB methodology + city-specific commute
   // table + salary breakdown + scenario callout + 4-FAQ + cross-links.
-  const commuterContextHtml = memoCommuterCtx({
-    locale: locale as 'it' | 'en' | 'de' | 'fr',
-    location: commuterLocation,
-    sectorOrType: sectorLabel,
-    omitCommute: !ctx.city,
-  });
+  const commuterContextHtml = STRIP_CLUSTER_SEO_PROSE
+    ? ''
+    : memoCommuterCtx({
+        locale: locale as 'it' | 'en' | 'de' | 'fr',
+        location: commuterLocation,
+        sectorOrType: sectorLabel,
+        omitCommute: !ctx.city,
+      });
 
   // Related-search cross-links (same-city, different-keyword) — kept at
   // the bottom of the prose block for crawlability and to avoid pushing
   // editorial filler above the fold.
-  const relatedHtml = related.length > 0
+  const relatedForPage = related.slice(0, MAX_RELATED_CLUSTER_LINKS);
+  const relatedHtml = relatedForPage.length > 0
     ? `<nav aria-label="${esc(copy.relatedHeading)}" class="rsc-related s-i-dyT1">
         <h3 class="s-yj2sXC">${esc(copy.relatedHeading)}</h3>
-        <ul class="s-tQuvrl">${related.map((r) => `<li><a href="${esc(r.url)}" style="${LINK_ACCENT_STYLE};display:inline-block;padding:4px 10px;background:var(--color-surface);border:1px solid var(--color-edge);border-radius:9999px;font-size:13px">${esc(r.keyword)}</a></li>`).join('')}</ul>
+        <ul>${relatedForPage.map((r) => `<li><a href="${esc(r.url)}">${esc(r.keyword)}</a></li>`).join('')}</ul>
       </nav>`
     : '';
 
@@ -1233,7 +1335,13 @@ export function renderClusterPage(inputs: PageInputs): PageOutput {
   // commuter-context block was carrying (calculator + cassemalati + valuta
   // comparators), so BFS-depth stays flat. Per-page cost: ~250 B raw,
   // ~80 B gzip — keeps the savings at ~143 MB gzip (was 150 MB).
-  const paddingHtml = `<p class="s-clIDbe">Per confrontare lo stipendio CHF lordo dell'annuncio con il netto reale (vecchio vs nuovo accordo Italia-Svizzera 2024, zona di frontiera, telelavoro fino al 25 %), apri il <a class="s-U9K6Vf" href="/">calcolatore stipendio netto frontaliere</a>. Strumenti correlati: <a class="s-U9K6Vf" href="/comparatori/casse-malati/">comparatore casse malati LAMal</a>, <a class="s-U9K6Vf" href="/comparatori/cambio-valuta/">comparatore cambio CHF/EUR</a>.</p>`;
+  const paddingCopy: Record<Locale, string> = {
+    it: 'Per valutare una candidatura da frontaliere, confronta sempre stipendio lordo in CHF, netto stimato, cambio EUR, cassa malati, permesso G, rientro settimanale e telelavoro. Parti dal calcolatore stipendio netto, poi verifica costi LAMal e cambio CHF/EUR prima di salvare l alert o aprire le offerte aggiornate.',
+    en: 'Before applying as a cross-border worker, compare gross CHF salary, estimated net pay, EUR exchange rate, health insurance, G permit rules, weekly return and remote work. Start from the net salary calculator, then check LAMal costs and CHF/EUR exchange before saving the alert or opening current jobs.',
+    de: 'Vor einer Bewerbung als Grenzgaenger vergleiche Bruttolohn in CHF, geschaetzten Nettolohn, EUR-Wechselkurs, Krankenversicherung, G-Bewilligung, woechentliche Rueckkehr und Homeoffice. Starte mit dem Nettolohnrechner und pruefe danach LAMal-Kosten sowie CHF/EUR-Wechselkurs, bevor du den Alert speicherst oder aktuelle Stellen oeffnest.',
+    fr: 'Avant de postuler comme frontalier, compare salaire brut en CHF, net estime, change EUR, assurance maladie, permis G, retour hebdomadaire et teletravail. Commence par le calculateur de salaire net, puis verifie les couts LAMal et le taux CHF/EUR avant d enregistrer l alerte ou d ouvrir les offres.',
+  };
+  const paddingHtml = `<p>${esc(paddingCopy[locale])} <a href="/">Salary calculator</a> <a href="/comparatori/casse-malati/">LAMal</a> <a href="/comparatori/cambio-valuta/">CHF/EUR</a></p>`;
   const seoContextBlock = STRIP_CLUSTER_SEO_PROSE
     ? `${EJP_STRIPPED_MARKER}<details class="cluster-seo-context s-mxdIN0">
     <summary class="s-1yn7b_">${esc(chrome.contextSummary)}</summary>
@@ -1283,26 +1391,15 @@ export function renderClusterPage(inputs: PageInputs): PageOutput {
   const titleHeadline = capForTitle(headline, TITLE_MAX_CHARS);
   const title = buildTitleWithBrand(titleHeadline);
 
-  const html = buildSeoPageHtml({
+  const html = renderClusterHtmlShell({
     locale,
     title,
     description,
     canonicalUrl,
-    robots: 'index,follow',
-    ogType: 'website',
-    ogLocale: OG_LOCALE[locale],
     hreflangHtml,
     jsonLdScripts,
     bodyHtml,
     distDir,
-    // No hubChrome: the SPA renders its own sub-nav inside `#root`. A
-    // duplicate static sub-nav would render visually below the footer.
-    // Opt OUT of `seo-static-content` lite-shell trigger so the SPA
-    // hydrates `#root` and renders the working JobBoard search-query UI
-    // (parseSearchSlugFilter populates the searchbar, JobBoard renders
-    // results, filters work). The static `<main>` below is crawler-only
-    // and screen-reader-only via the off-screen wrapper above.
-    seoMainClass: 'cluster-seo-prose',
   });
 
   return { urlPath, html, loc: canonicalUrl };
@@ -1357,6 +1454,14 @@ function renderPageNavigator(locale: Locale, totalPages: number, currentPage: nu
   return `<nav class="s-SU718R" aria-label="${esc(copy.pageNavigatorLabel)}">${links.join('')}</nav>`;
 }
 
+function renderHubRootHreflang(): string {
+  const lines = SUPPORTED_LOCALES.map((alt) =>
+    `    <link rel="alternate" hreflang="${alt}" href="${BASE_URL}${buildHubPath(alt, 1)}">`,
+  );
+  lines.push(`    <link rel="alternate" hreflang="x-default" href="${BASE_URL}${buildHubPath('it', 1)}">`);
+  return lines.join('\n');
+}
+
 function renderHubPage(input: HubPageInput): { urlPath: string; html: string; loc: string } {
   const { locale, items, page, totalPages, distDir, dateStamp } = input;
   const copy = COPY[locale];
@@ -1383,7 +1488,8 @@ function renderHubPage(input: HubPageInput): { urlPath: string; html: string; lo
     : '';
 
   const navigator = renderPageNavigator(locale, totalPages, page);
-  const sectionUrl = `${BASE_URL}${LOCALE_PREFIX[locale]}/${getJobBoardSectionSlug(locale)}/`.replace(/\/+/g, '/');
+  const sectionPath = `${LOCALE_PREFIX[locale]}/${getJobBoardSectionSlug(locale)}/`.replace(/\/+/g, '/');
+  const sectionUrl = `${BASE_URL}${sectionPath}`;
 
   const collectionLd = JSON.stringify({
     '@context': 'https://schema.org',
@@ -1458,7 +1564,7 @@ function renderHubPage(input: HubPageInput): { urlPath: string; html: string; lo
     robots: 'index,follow',
     ogType: 'website',
     ogLocale: OG_LOCALE[locale],
-    hreflangHtml: '',
+    hreflangHtml: page === 1 ? renderHubRootHreflang() : '',
     jsonLdScripts: [breadcrumbLd, collectionLd],
     bodyHtml,
     distDir,
@@ -1501,7 +1607,14 @@ function injectHubLinkIntoSectionLanding(
   // Idempotent: skip if our marker is already present.
   if (html.includes('data-related-search-hub-link="1"')) return;
 
-  const linkBlock = `<nav class="s-4FS1gg" data-related-search-hub-link="1" aria-label="${esc(copy.searchBreadcrumb)}"><a href="${esc(hubUrl)}" style="${LINK_ACCENT_STYLE};font-weight:600">${esc(copy.hubH1)} →</a></nav>`;
+  const hubPagePaths = listEmittedHubPagePaths(distDir, locale);
+  const pageLinks = hubPagePaths.slice(1).map((urlPath, idx) =>
+    `<a href="${esc(urlPath)}">${idx + 2}</a>`,
+  ).join(' ');
+  const pageLinkBlock = pageLinks
+    ? `<details><summary>${esc(copy.pageNavigatorLabel)}</summary><p>${pageLinks}</p></details>`
+    : '';
+  const linkBlock = `<nav class="s-4FS1gg" data-related-search-hub-link="1" aria-label="${esc(copy.searchBreadcrumb)}"><a href="${esc(hubUrl)}" style="${LINK_ACCENT_STYLE};font-weight:600">${esc(copy.hubH1)}</a>${pageLinkBlock}</nav>`;
 
   let patched: string | null = null;
   if (html.includes('<!-- end:job-board-main -->')) {
@@ -1520,6 +1633,31 @@ function injectHubLinkIntoSectionLanding(
   } catch (err) {
     console.warn('\x1b[33m[related-search-clusters]\x1b[0m failed to write section landing:', err);
   }
+}
+
+function listEmittedHubPagePaths(distDir: string, locale: Locale): string[] {
+  const rootPath = buildHubPath(locale, 1);
+  const rootDir = path.join(distDir, rootPath.replace(/^\/+/, ''));
+  const out: string[] = [];
+  if (fs.existsSync(path.join(rootDir, 'index.html'))) out.push(rootPath);
+  let entries: string[] = [];
+  try {
+    entries = fs.readdirSync(rootDir);
+  } catch {
+    return out;
+  }
+  const pages = entries
+    .map((entry) => /^page-(\d+)$/.exec(entry)?.[1])
+    .filter((n): n is string => Boolean(n))
+    .map((n) => Number(n))
+    .filter((n) => Number.isFinite(n) && n > 1)
+    .sort((a, b) => a - b);
+  for (const page of pages) {
+    if (fs.existsSync(path.join(rootDir, `page-${page}`, 'index.html'))) {
+      out.push(buildHubPath(locale, page));
+    }
+  }
+  return out;
 }
 
 // ── Sitemap ─────────────────────────────────────────────────────────────
@@ -1848,7 +1986,7 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
         const sameCityList = (ctx.city && cityIdx?.get(ctx.city)) || [];
         const related = sameCityList
           .filter((other) => other.candidate.slug !== ctx.candidate.slug)
-          .slice(0, 8)
+          .slice(0, MAX_RELATED_CLUSTER_LINKS)
           .map((other) => ({
             keyword: other.city ? `${capitalize(other.keyword)} — ${other.city}` : capitalize(other.keyword),
             url: `${BASE_URL}${buildClusterPath(locale, other.candidate.slug)}`,
@@ -1867,13 +2005,12 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
         const indexPath = path.join(distDir, out.urlPath, 'index.html');
         const flatPath = path.join(distDir, out.urlPath.replace(/\/+$/, '') + '.html');
         collector.add(indexPath, out.html);
-        // Emit the flat .html as a redirect bridge directly: postWalkCoordinator
-        // would otherwise read this file (~30 KB), build the same bridge from
-        // the sibling, and rewrite (~500 B). Pre-emitting the bridge cuts
-        // ~52k × 30 KB writes here AND post-walk's `html === original` guard
-        // skips the rewrite. Trims ~30-50 s off closeBundle.
+        // Emit the flat .html as a redirect bridge directly. Cluster bridges
+        // are high-volume noindex pages, so keep only canonical + JS redirect:
+        // social preview OG tags are not worth repeating hundreds of thousands
+        // of times in the GitHub Pages artifact.
         const slashUrl = `${BASE_URL}${out.urlPath.replace(/\/+$/, '')}/`;
-        const flatBridge = buildFlatBridgeFromSibling(out.html, slashUrl);
+        const flatBridge = renderLeanFlatBridge(slashUrl, capitalize(ctx.keyword), locale);
         collector.add(flatPath, flatBridge);
         emittedFiles.push(path.relative(distDir, indexPath));
         emittedFiles.push(path.relative(distDir, flatPath));
@@ -1912,16 +2049,18 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
           profileRecord('render-hub-page', __tRenderHub);
         }
 
-        const __tHubInject = profileStart();
         const hubUrl = `${BASE_URL}${buildHubPath(locale, 1)}`;
         cachedHubs.push({ locale, url: hubUrl });
-        injectHubLinkIntoSectionLanding(distDir, locale, hubUrl, COPY[locale]);
-        profileRecord('inject-hub-link', __tHubInject);
       }
 
       const __tFlush = profileStart();
       const written = await collector.flush();
       profileRecord('collector-flush', __tFlush);
+      const __tHubInject = profileStart();
+      for (const { locale, url } of cachedHubs) {
+        injectHubLinkIntoSectionLanding(distDir, locale, url, COPY[locale]);
+      }
+      profileRecord('inject-hub-link', __tHubInject);
       const __tSitemap = profileStart();
       const sitemapShards = await writeSitemap(distDir, sitemapLocs, dateStamp);
       profileRecord('sitemap-write', __tSitemap);

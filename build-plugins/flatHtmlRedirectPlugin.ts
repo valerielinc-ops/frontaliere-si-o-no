@@ -34,11 +34,19 @@ import path from 'node:path';
 import fs from 'node:fs';
 import type { Plugin } from 'vite';
 
+const STRIP_FLAT_BRIDGE_PREVIEW_META =
+  (process.env.STRIP_FLAT_BRIDGE_PREVIEW_META ?? '1') !== '0';
+
 /**
  * Extract only preview-critical meta tags from the sibling index.html
  * so the bridge can serve them to crawlers (Facebook, Twitter, LinkedIn, Slack…)
  * that don't follow the JS location.replace redirect. The bridge keeps
  * `noindex,follow` for Google — only social crawlers care about OG.
+ *
+ * Default in deploy builds: stripped via STRIP_FLAT_BRIDGE_PREVIEW_META=1
+ * (implicit) because these bridges are noindex duplicates and canonical slash
+ * pages keep the complete social preview tags. Opt out with
+ * STRIP_FLAT_BRIDGE_PREVIEW_META=0 when testing no-slash social previews.
  *
  * Tolerant matching: meta tags can appear with attributes in any order,
  * single or double quotes. We capture the entire <meta ...> tag verbatim and
@@ -94,7 +102,7 @@ const NOINDEX_BRIDGE = (slashUrl: string, title: string, ogTags: string): string
 <meta name="robots" content="noindex,follow">${ogTags ? `\n${ogTags}` : ''}
 <script>location.replace(${JSON.stringify(slashUrl)} + window.location.search + window.location.hash)</script>
 </head>
-<body><h1>${title}</h1><a href="${slashUrl}">Continua su ${slashUrl}</a></body>
+<body><a href="${slashUrl}">Continua</a></body>
 </html>`;
 
 interface FlatRedirectOptions {
@@ -153,7 +161,7 @@ export function buildFlatBridgeFromSibling(siblingHtml: string, slashUrl: string
         title = extracted;
       }
     }
-    ogTags = extractOgTags(siblingHtml);
+    ogTags = STRIP_FLAT_BRIDGE_PREVIEW_META ? '' : extractOgTags(siblingHtml);
   } catch {
     // fallback already set; ogTags stays empty
   }
