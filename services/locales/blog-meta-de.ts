@@ -7731,6 +7731,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.congedo-parentale-frontalieri-svizzera-italia.title': 'Elternzeit für Grenzgänger: Schweiz vs. Italien',
     'blog.article.congedo-parentale-frontalieri-svizzera-italia.excerpt': 'Vergleich der Taggelder, wie man die Leistungen beantragt und praktische Fälle für frischgebackene Eltern unter Grenzgängern.',
     'blog.article.congedo-parentale-frontalieri-svizzera-italia.imageAlt': 'Eine Frontalierfamilie mit einem Neugeborenen hält Dokumente zum Elternurlaub vor dem Luganersee, Schweiz.',
+    'blog.article.frontaliere-assicurazione-auto-svizzera-italia.title': 'Frontalierer: Kfz-Versicherung Schweiz vs. Italien',
+    'blog.article.frontaliere-assicurazione-auto-svizzera-italia.excerpt': 'Vergleich der Kosten, Leistungen und Schäden für Grenzgänger, die in der Schweiz arbeiten und in Italien wohnen',
+    'blog.article.frontaliere-assicurazione-auto-svizzera-italia.imageAlt': 'Ausblick auf den Luganersee mit umliegenden Bergen und Gebäuden',
 };
 
 export default blogMetaDe;

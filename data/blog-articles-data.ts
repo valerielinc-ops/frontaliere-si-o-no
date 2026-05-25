@@ -24572,4 +24572,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'frontaliere-assicurazione-auto-svizzera-italia',
+ category: 'pratico',
+ date: '2026-05-25T08:44:07.220Z',
+ image: '/images/blog/frontaliere-assicurazione-auto-svizzera-italia.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

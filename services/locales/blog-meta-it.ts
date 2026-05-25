@@ -7733,6 +7733,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.congedo-parentale-frontalieri-svizzera-italia.title': 'Diritti di maternità e paternità per frontalieri: congedo svizzero vs italiano',
     'blog.article.congedo-parentale-frontalieri-svizzera-italia.excerpt': 'Confronta le indennità giornaliere, come richiedere le prestazioni e casi pratici per neo-genitori frontalieri.',
     'blog.article.congedo-parentale-frontalieri-svizzera-italia.imageAlt': 'Una famiglia frontaliera con un neonato tiene documenti relativi al congedo parentale davanti al Lago di Lugano, Svizzera.',
+    'blog.article.frontaliere-assicurazione-auto-svizzera-italia.title': 'Frontaliere: Assicurazione Auto Svizzera vs Italia',
+    'blog.article.frontaliere-assicurazione-auto-svizzera-italia.excerpt': 'Confronto tra costi, coperture e sinistri per chi lavora in Svizzera e risiede in Italia',
+    'blog.article.frontaliere-assicurazione-auto-svizzera-italia.imageAlt': 'Vista del Lago di Lugano con montagne e edifici circostanti',
 };
 
 export default blogMetaIt;

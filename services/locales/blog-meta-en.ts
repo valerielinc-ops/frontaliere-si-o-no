@@ -7732,6 +7732,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.congedo-parentale-frontalieri-svizzera-italia.title': 'Maternity and paternity rights for cross-border workers: Swiss vs Italian leave',
     'blog.article.congedo-parentale-frontalieri-svizzera-italia.excerpt': 'Compare daily allowances, how to request benefits and practical cases for new cross-border parents.',
     'blog.article.congedo-parentale-frontalieri-svizzera-italia.imageAlt': 'A frontaliere family with a newborn holding documents related to parental leave in front of Lake Lugano, Switzerland.',
+    'blog.article.frontaliere-assicurazione-auto-svizzera-italia.title': 'Cross-Border: Swiss vs Italian Car Insurance',
+    'blog.article.frontaliere-assicurazione-auto-svizzera-italia.excerpt': 'Comparison of costs, coverage, and claims for those working in Switzerland and living in Italy',
+    'blog.article.frontaliere-assicurazione-auto-svizzera-italia.imageAlt': 'View of Lake Lugano with surrounding mountains and buildings',
 };
 
 export default blogMetaEn;

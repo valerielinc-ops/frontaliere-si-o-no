@@ -7733,6 +7733,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.congedo-parentale-frontalieri-svizzera-italia.title': 'Congés maternité/paternité pour frontalier: Suisse vs Italie',
     'blog.article.congedo-parentale-frontalieri-svizzera-italia.excerpt': 'Comparez les indemnités journalières, comment demander les prestations et cas pratiques pour les néo-parents frontaliers.',
     'blog.article.congedo-parentale-frontalieri-svizzera-italia.imageAlt': 'Une famille frontalière avec un nouveau-né tenant des documents relatifs au congé parental devant le lac de Lugano, Suisse.',
+    'blog.article.frontaliere-assicurazione-auto-svizzera-italia.title': 'Frontaliers : Assurance Auto Suisse vs Italie',
+    'blog.article.frontaliere-assicurazione-auto-svizzera-italia.excerpt': 'Comparaison des coûts, des couvertures et des sinistres pour ceux qui travaillent en Suisse et résident en Italie',
+    'blog.article.frontaliere-assicurazione-auto-svizzera-italia.imageAlt': 'Vue du Lac de Lugano avec les montagnes et les bâtiments environnants',
 };
 
 export default blogMetaFr;
