@@ -7706,6 +7706,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.salario-minimo-ticino-frontalieri-2029.title': 'Salaire minimum en Tessin: ce qui change pour les frontaliers en 2029',
     'blog.article.salario-minimo-ticino-frontalieri-2029.excerpt': 'À partir de 2029, le salaire minimum en Tessin passera à 21,75-22,25 francs de l\'heure. Voici ce qui change pour les frontaliers et les résidents.',
     'blog.article.salario-minimo-ticino-frontalieri-2029.imageAlt': 'Travailleur frontalier près du lac de Lugano dans le Tessin, Suisse, avec une mallette et un document de salaire.',
+    'blog.article.modifica-lamal-finaziamento-uniforme.title': 'Modification LAMal: financement uniforme des prestations',
+    'blog.article.modifica-lamal-finaziamento-uniforme.excerpt': 'Découvrez les nouveautés sur la modification LAMal et le financement uniforme des prestations sanitaires en Suisse',
+    'blog.article.modifica-lamal-finaziamento-uniforme.imageAlt': 'Vue du lac de Lugano avec la ville de Lugano en arrière-plan, bâtiments modernes et eaux cristallines',
 };
 
 export default blogMetaFr;

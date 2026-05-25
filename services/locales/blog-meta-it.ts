@@ -7706,6 +7706,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.salario-minimo-ticino-frontalieri-2029.title': 'Salario minimo in Ticino: cosa cambia per i frontalieri dal 2029',
     'blog.article.salario-minimo-ticino-frontalieri-2029.excerpt': 'Dal 2029 il salario minimo in Ticino salirà a 21,75-22,25 franchi l\'ora. Ecco cosa cambia per i frontalieri e i residenti.',
     'blog.article.salario-minimo-ticino-frontalieri-2029.imageAlt': 'Lavoratore frontaliero vicino al Lago di Lugano in Ticino, Svizzera, con una valigetta e un documento sul salario.',
+    'blog.article.modifica-lamal-finaziamento-uniforme.title': 'Modifica LAMal: Finanziamento uniforme delle prestazioni',
+    'blog.article.modifica-lamal-finaziamento-uniforme.excerpt': 'Scopri le novità sulla modifica LAMal e il finanziamento uniforme delle prestazioni sanitarie in Svizzera',
+    'blog.article.modifica-lamal-finaziamento-uniforme.imageAlt': 'Vista del Lago di Lugano con la città di Lugano sullo sfondo, edifici moderni e acque cristalline',
 };
 
 export default blogMetaIt;

@@ -24491,4 +24491,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'modifica-lamal-finaziamento-uniforme',
+ category: 'fiscale',
+ date: '2026-05-25T07:31:31.723Z',
+ image: '/images/blog/modifica-lamal-finaziamento-uniforme.webp',
+ hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
+ },
 ] satisfies Article[];

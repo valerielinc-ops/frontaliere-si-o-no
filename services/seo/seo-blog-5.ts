@@ -39035,6 +39035,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-modifica-lamal-finaziamento-uniforme': {
+    title: 'Modifica LAMal: Finanziamento uniforme delle prestazioni',
+    description: 'Scopri le novità sulla modifica LAMal e il finanziamento uniforme delle prestazioni sanitarie in Svizzera, con focus sui frontalieri. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, modifica, lamal, finanziamento, uniforme',
+    ogTitle: 'Modifica LAMal: Finanziamento uniforme delle prestazioni',
+    ogDescription: 'Scopri le novità sulla modifica LAMal e il finanziamento uniforme delle prestazioni sanitarie in Svizzera, con focus sui frontalieri',
+    canonicalPath: '/articoli-frontaliere/modifica-lamal-finaziamento-uniforme',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Modifica LAMal: Finanziamento uniforme delle prestazioni",
+      "description": "Scopri le novità sulla modifica LAMal e il finanziamento uniforme delle prestazioni sanitarie in Svizzera, con focus sui frontalieri. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/modifica-lamal-finaziamento-uniforme.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista del Lago di Lugano con la città di Lugano sullo sfondo, edifici moderni e acque cristalline"
+      },
+      "datePublished": "2026-05-25T07:31:31+00:00",
+      "dateModified": "2026-05-25T07:31:31+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/modifica-lamal-finaziamento-uniforme`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

@@ -7705,6 +7705,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.salario-minimo-ticino-frontalieri-2029.title': 'Minimum wage in Ticino: changes for cross-border workers from 2029',
     'blog.article.salario-minimo-ticino-frontalieri-2029.excerpt': 'From 2029, the minimum wage in Ticino will rise to 21.75-22.25 francs per hour. Here\'s what changes for cross-border workers and residents.',
     'blog.article.salario-minimo-ticino-frontalieri-2029.imageAlt': 'Frontalier worker near Lake Lugano in Ticino, Switzerland, with a briefcase and a salary document.',
+    'blog.article.modifica-lamal-finaziamento-uniforme.title': 'LAMal amendment: Uniform funding of services',
+    'blog.article.modifica-lamal-finaziamento-uniforme.excerpt': 'Discover the latest updates on the LAMal amendment and uniform funding of healthcare services in Switzerland',
+    'blog.article.modifica-lamal-finaziamento-uniforme.imageAlt': 'View of Lake Lugano with the city of Lugano in the background, modern buildings, and clear blue waters',
 };
 
 export default blogMetaEn;

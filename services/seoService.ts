@@ -3811,6 +3811,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-regime-fiscale-frontaliere-svizzera': { name: 'fiscale', path: '/articoli-frontaliere/regime-fiscale-frontaliere-svizzera', parent: 'blog' },
     'blog-lavoro-chiasso-opportunita-frontalieri': { name: 'Lavoro a Chiasso', path: '/articoli-frontaliere/lavoro-chiasso-opportunita-frontalieri', parent: 'blog' },
     'blog-salario-minimo-ticino-frontalieri-2029': { name: 'Salario minimo', path: '/articoli-frontaliere/salario-minimo-ticino-frontalieri-2029', parent: 'blog' },
+    'blog-modifica-lamal-finaziamento-uniforme': { name: 'Modifica LAMal', path: '/articoli-frontaliere/modifica-lamal-finaziamento-uniforme', parent: 'blog' },
  };
 
  const info = sectionNames[section];

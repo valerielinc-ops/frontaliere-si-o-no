@@ -7704,6 +7704,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.salario-minimo-ticino-frontalieri-2029.title': 'Mindestlohn im Tessin: Änderungen für Grenzgänger ab 2029',
     'blog.article.salario-minimo-ticino-frontalieri-2029.excerpt': 'Ab 2029 steigt der Mindestlohn im Tessin auf 21,75-22,25 Franken pro Stunde. Hier erfahren Sie, was sich für Grenzgänger und Einwohner ändert.',
     'blog.article.salario-minimo-ticino-frontalieri-2029.imageAlt': 'Grenzgänger in der Nähe des Luganer Sees im Tessin, Schweiz, mit einem Aktenkoffer und einem Gehaltsdokument.',
+    'blog.article.modifica-lamal-finaziamento-uniforme.title': 'Änderung KVG: Einheitliche Finanzierung der Leistungen',
+    'blog.article.modifica-lamal-finaziamento-uniforme.excerpt': 'Erfahren Sie mehr über die Änderungen des KVG und die einheitliche Finanzierung der Gesundheitsleistungen in der Schweiz',
+    'blog.article.modifica-lamal-finaziamento-uniforme.imageAlt': 'Blick auf den Luganersee mit der Stadt Lugano im Hintergrund, moderne Gebäude und kristallklares Wasser',
 };
 
 export default blogMetaDe;
