@@ -80,6 +80,11 @@ import {
   type RawJob,
 } from './relatedSearchClustersData';
 import { jobsSeoPagesFlushed } from './shared/buildSignals';
+import {
+  startTimer as profileStart,
+  recordEmit as profileRecord,
+  printSummary as printRelatedSearchProfile,
+} from './shared/relatedSearchClustersProfiler';
 
 // ── Constants ───────────────────────────────────────────────────────────
 
@@ -1575,11 +1580,16 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
       // Disable with RELATED_SEARCH_CLUSTERS_NO_CACHE=1 (e.g. during
       // local debugging when you want a clean re-emit).
       const cacheEnabled = process.env.RELATED_SEARCH_CLUSTERS_NO_CACHE !== '1';
+      const __tCacheKey = profileStart();
       const cacheKey = cacheEnabled ? computeCacheKey(rootDir) : '';
+      profileRecord('cache-key', __tCacheKey);
       if (cacheEnabled) {
+        const __tCacheRestore = profileStart();
         const restored = await tryRestoreFromCache(rootDir, distDir, cacheKey);
+        profileRecord('cache-restore-check', __tCacheRestore);
         if (restored) {
           // Re-run the cross-plugin patches against THIS build's dist.
+          const __tCacheHitPatch = profileStart();
           for (const { locale, url } of restored.hubs) {
             injectHubLinkIntoSectionLanding(distDir, locale, url, COPY[locale]);
           }
@@ -1591,21 +1601,30 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
               ).sort()
             : [];
           patchMasterSitemap(distDir, dateStamp, restoredShards);
+          profileRecord('cache-hit-patches', __tCacheHitPatch);
           console.log(
             `\x1b[36m[related-search-clusters]\x1b[0m cache HIT (key=${cacheKey}): ${restored.emittedCount} files restored in ${((Date.now() - startedAt) / 1000).toFixed(1)}s`,
           );
+          printRelatedSearchProfile();
           return;
         }
         console.log(`\x1b[36m[related-search-clusters]\x1b[0m cache MISS (key=${cacheKey}): full emit`);
       }
 
+      const __tLoadCandidates = profileStart();
       const candidates = filterAndDedupeCandidates(loadCandidates(rootDir));
+      profileRecord('load-candidates', __tLoadCandidates);
       if (candidates.length === 0) {
         console.log('\x1b[36m[related-search-clusters]\x1b[0m 0 candidates after filtering — nothing to emit');
+        printRelatedSearchProfile();
         return;
       }
+      const __tLoadEnriched = profileStart();
       const enriched = loadEnriched(rootDir);
+      profileRecord('load-enriched', __tLoadEnriched);
+      const __tLoadJobs = profileStart();
       const jobs = loadJobs(rootDir);
+      profileRecord('load-jobs', __tLoadJobs);
       console.log(`\x1b[36m[related-search-clusters]\x1b[0m ${candidates.length} candidates, ${Object.keys(enriched).length} enriched entries, ${jobs.length} jobs`);
 
       // Inverted token index: lazy posting lists per (locale, token), shared
@@ -1617,16 +1636,22 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
       // down for the rest of closeBundle.
       const tokenIndex = new TokenIndex(jobs);
       const contexts: ClusterContext[] = [];
+      const __tContextBuild = profileStart();
       for (const cand of candidates) {
         const ctx = buildClusterContext(cand, tokenIndex, jobs);
         if (ctx) contexts.push(ctx);
       }
+      profileRecord('build-contexts', __tContextBuild);
       console.log(`\x1b[36m[related-search-clusters]\x1b[0m ${contexts.length} clusters survived match-≥${MIN_MATCHING_JOBS} filter`);
       tokenIndex.clear(); // GC haystacks + posting lists before the render/emit loop runs
 
-      if (contexts.length === 0) return;
+      if (contexts.length === 0) {
+        printRelatedSearchProfile();
+        return;
+      }
 
       // Group by (normalized keyword + city) for cross-locale hreflang lookup.
+      const __tGroupHreflang = profileStart();
       const byKeywordCity = new Map<string, Map<Locale, ClusterContext>>();
       for (const ctx of contexts) {
         const key = `${normalizeText(ctx.keyword)}|${normalizeText(ctx.city || '')}`;
@@ -1637,8 +1662,10 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
         }
         inner.set(ctx.candidate.locale, ctx);
       }
+      profileRecord('group-hreflang', __tGroupHreflang);
 
       // Group by locale + city for related-link suggestions.
+      const __tGroupRelated = profileStart();
       const byLocale = new Map<Locale, ClusterContext[]>();
       const byLocaleCity = new Map<Locale, Map<string, ClusterContext[]>>();
       for (const ctx of contexts) {
@@ -1656,6 +1683,7 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
           inner.set(ctx.city, cityArr);
         }
       }
+      profileRecord('group-related-links', __tGroupRelated);
 
       const collector = new WriteCollector({ distDir, pluginName: 'relatedSearchClustersPlugin' });
       const sitemapLocs: string[] = [];
@@ -1675,6 +1703,7 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
       // renderClusterPage into a standalone module with explicit `.ts`
       // imports (deferred). For now we keep the sequential loop.
       for (const ctx of contexts) {
+        const __tRenderCluster = profileStart();
         const locale = ctx.candidate.locale;
         const altKey = `${normalizeText(ctx.keyword)}|${normalizeText(ctx.city || '')}`;
         const altMap = byKeywordCity.get(altKey);
@@ -1719,6 +1748,7 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
         emittedFiles.push(path.relative(distDir, indexPath));
         emittedFiles.push(path.relative(distDir, flatPath));
         sitemapLocs.push(out.loc);
+        profileRecord('render-cluster-page', __tRenderCluster);
       }
 
       // ── Per-locale hub pages ──────────────────────────────────────────
@@ -1732,6 +1762,7 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
         const totalPages = Math.max(1, Math.ceil(items.length / HUB_PAGE_SIZE));
 
         for (let page = 1; page <= totalPages; page++) {
+          const __tRenderHub = profileStart();
           const slice = items.slice((page - 1) * HUB_PAGE_SIZE, page * HUB_PAGE_SIZE);
           const out = renderHubPage({
             locale,
@@ -1748,15 +1779,22 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
           emittedFiles.push(path.relative(distDir, indexPath));
           emittedFiles.push(path.relative(distDir, flatPath));
           sitemapLocs.push(out.loc);
+          profileRecord('render-hub-page', __tRenderHub);
         }
 
+        const __tHubInject = profileStart();
         const hubUrl = `${BASE_URL}${buildHubPath(locale, 1)}`;
         cachedHubs.push({ locale, url: hubUrl });
         injectHubLinkIntoSectionLanding(distDir, locale, hubUrl, COPY[locale]);
+        profileRecord('inject-hub-link', __tHubInject);
       }
 
+      const __tFlush = profileStart();
       const written = await collector.flush();
+      profileRecord('collector-flush', __tFlush);
+      const __tSitemap = profileStart();
       const sitemapShards = await writeSitemap(distDir, sitemapLocs, dateStamp);
+      profileRecord('sitemap-write', __tSitemap);
       for (const shard of sitemapShards) emittedFiles.push(shard);
 
       // Capture stats before releasing the maps that hold them.
@@ -1778,7 +1816,9 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
       // every build (cache-hit and miss alike) inside the cache fast path.
       if (cacheEnabled) {
         try {
+          const __tCacheSave = profileStart();
           const cached = saveToCache(rootDir, distDir, cacheKey, emittedFiles, cachedHubs, sitemapLocs);
+          profileRecord('cache-save', __tCacheSave);
           console.log(`\x1b[36m[related-search-clusters]\x1b[0m saved ${cached} files to cache (${cacheKey})`);
         } catch (err) {
           console.warn('\x1b[33m[related-search-clusters]\x1b[0m cache save failed:', err);
@@ -1788,6 +1828,7 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
       console.log(
         `\x1b[36m[related-search-clusters]\x1b[0m emitted ${ctxCount} cluster pages + ${hubCount} hubs (${written} files) in ${((Date.now() - startedAt) / 1000).toFixed(1)}s`,
       );
+      printRelatedSearchProfile();
     },
   };
 }
