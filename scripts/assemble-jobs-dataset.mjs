@@ -1803,8 +1803,14 @@ export async function assembleJobsDataset({ withStats = false } = {}) {
 
 if (process.argv[1] === fileURLToPath(import.meta.url)) {
   const withStats = process.argv.includes('--stats');
-  assembleJobsDataset({ withStats }).catch((err) => {
-    console.error('❌ Assembly failed:', err?.message || err);
-    process.exit(1);
-  });
+  assembleJobsDataset({ withStats })
+    .then(() => {
+      // Some optional SDKs imported during assembly can leave idle handles
+      // open in CI. The CLI contract is done once artifacts are written.
+      process.exit(0);
+    })
+    .catch((err) => {
+      console.error('❌ Assembly failed:', err?.message || err);
+      process.exit(1);
+    });
 }
