@@ -15,6 +15,38 @@ Highest priority. No exceptions, workarounds, or "temporary solutions" bypass th
 6. **If a test fails, the test is right until proven otherwise.** Fix the code, not the test.
 7. **If a parameter is documented as mandatory, it stays mandatory.** No "optional for convenience".
 
+## Karpathy-Inspired Agent Guidelines
+
+These guidelines reduce common LLM coding mistakes. They are subordinate to the non-negotiable project rules above and to GitNexus safety requirements below.
+
+### Think Before Coding
+
+- State assumptions explicitly. If the task is ambiguous, ask rather than guessing.
+- If multiple interpretations exist, present the tradeoff instead of silently choosing.
+- Push back when a simpler approach would satisfy the goal.
+- Stop when confused: name what is unclear and ask for clarification.
+
+### Simplicity First
+
+- Write the minimum code that solves the requested problem.
+- Do not add speculative features, abstractions, configurability, or error paths.
+- Avoid one-off abstractions unless they remove real complexity.
+- If a solution feels overbuilt, simplify before shipping.
+
+### Surgical Changes
+
+- Touch only files and lines needed for the user request.
+- Do not refactor adjacent code, comments, or formatting as a drive-by improvement.
+- Match the existing style, even when a different style would be personally preferable.
+- Remove only unused code/imports created by the current change; mention unrelated dead code instead of deleting it.
+
+### Goal-Driven Execution
+
+- Convert implementation requests into verifiable success criteria.
+- For bug fixes, reproduce the failure when practical, then make the check pass.
+- For refactors, verify behavior before and after.
+- Loop until the stated success criteria are actually verified.
+
 ## Workflow & Process
 
 8. **Use Playwright for E2E**, not preview tools. Build + serve dist + Playwright.
