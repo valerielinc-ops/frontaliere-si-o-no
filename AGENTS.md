@@ -1,4 +1,4 @@
-# NON-NEGOTIABLE RULES
+# Project Agent Instructions
 
 Highest priority. No exceptions, workarounds, or "temporary solutions" bypass these.
 
