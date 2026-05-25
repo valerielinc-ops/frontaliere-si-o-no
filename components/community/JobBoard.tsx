@@ -5598,6 +5598,18 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const companySearchHref = buildPath({ activeTab: 'job-board' as any, jobSlug: companySearchSlug }, locale);
  const detailLocationSlug = buildLocationSearchSlug(selectedJob.addressLocality || selectedJob.location || '', locale);
  const detailLocationHref = detailLocationSlug ? buildPath({ activeTab: 'job-board' as any, jobSlug: detailLocationSlug }, locale) : '';
+ const openCompanyFilter = (e: React.MouseEvent<HTMLAnchorElement>) => {
+ e.preventDefault();
+ setSearchQuery('');
+ if (onJobRouteChange) {
+ onJobRouteChange(companySearchSlug);
+ } else {
+ window.history.pushState({ route: { activeTab: 'job-board', jobSlug: companySearchSlug } }, '', companySearchHref.split('?')[0]);
+ window.dispatchEvent(new PopStateEvent('popstate'));
+ }
+ window.scrollTo({ top: 0, behavior: 'smooth' });
+ Analytics.trackSelectContent('job_board_company_filter_open', selectedJob.company);
+ };
  const parserCoverage = (() => {
  const assigned =
  canonicalSummary.length +
@@ -5797,14 +5809,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  <p className="mt-1 text-sm text-body">
  <a
  href={companySearchHref}
- onClick={(e) => {
- e.preventDefault();
- setSearchQuery('');
- window.history.pushState({ route: { activeTab: 'job-board', jobSlug: companySearchSlug } }, '', companySearchHref.split('?')[0]);
- window.dispatchEvent(new PopStateEvent('popstate'));
- window.scrollTo({ top: 0, behavior: 'smooth' });
- Analytics.trackSelectContent('job_board_company_filter_open', selectedJob.company);
- }}
+ onClick={openCompanyFilter}
  className="hover:text-accent hover:underline underline-offset-2 transition-colors"
  >{selectedJob.company}</a>
  {' · '}
@@ -6002,22 +6007,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
 
  <a
  href={companySearchHref}
- onClick={(e) => {
- e.preventDefault();
- setSearchQuery('');
- const canonicalCompanyPath = companySearchHref.split('?')[0];
- const currentPathWithSearch = `${window.location.pathname}${window.location.search}`;
- if (currentPathWithSearch !== canonicalCompanyPath) {
- window.history.pushState(
- { route: { activeTab: 'job-board', jobSlug: companySearchSlug } },
- '',
- canonicalCompanyPath
- );
- window.dispatchEvent(new PopStateEvent('popstate'));
- }
- window.scrollTo({ top: 0, behavior: 'smooth' });
- Analytics.trackSelectContent('job_board_company_filter_open', selectedJob.company);
- }}
+ onClick={openCompanyFilter}
  className="block rounded-xl border border-edge bg-surface-alt/50 p-4 hover:border-accent-border hover:bg-surface-raised/70 transition-colors"
  >
  <div className="flex items-start gap-3">
