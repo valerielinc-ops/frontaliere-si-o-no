@@ -23,6 +23,10 @@ const TOMTOM_CALCULATE_ROUTE_URL = 'https://api.tomtom.com/routing/1/calculateRo
 const HERE_ROUTER_URL = 'https://router.hereapi.com/v8/routes';
 const TT_FLOW_URL = 'https://api.tomtom.com/traffic/services/4/flowSegmentData/relative0';
 const MAX_FLOW_DELAY_MIN = 45;
+const WEBCAM_QUEUE_MIN_WAIT_MIN = 8;
+const WEBCAM_CLEAR_HIGH_WAIT_MIN = 30;
+const WEBCAM_CLEAR_APPROACH_MAX_MIN = 5;
+const WEBCAM_CLEAR_FALLBACK_WAIT_MIN = 4;
 
 function resolveTrafficProvider({ hereApiKey, tomtomApiKey, googleApiKey }) {
  if (hereApiKey) return 'here';
@@ -194,6 +198,29 @@ async function getSegmentTravelTimes(originLat, originLng, destLat, destLng, opt
  throw new Error('No live traffic provider configured');
 }
 
+export function applyWebcamTrafficSanity(waitTimeMinutes, approachMinutes, webcam, crossingName = 'crossing') {
+ if (!webcam || webcam.visibility !== 'good') return waitTimeMinutes;
+
+ if (webcam.queueDetected && waitTimeMinutes < WEBCAM_QUEUE_MIN_WAIT_MIN) {
+ console.log(`📷 Webcam override for ${crossingName}: queueDetected=true → ${WEBCAM_QUEUE_MIN_WAIT_MIN} min`);
+ return WEBCAM_QUEUE_MIN_WAIT_MIN;
+ }
+
+ if (
+ !webcam.queueDetected &&
+ waitTimeMinutes >= WEBCAM_CLEAR_HIGH_WAIT_MIN &&
+ approachMinutes <= WEBCAM_CLEAR_APPROACH_MAX_MIN
+ ) {
+ console.warn(
+ `📷 Webcam sanity filter for ${crossingName}: provider=${waitTimeMinutes} min, ` +
+ `approach=${approachMinutes} min, clear webcam → ${WEBCAM_CLEAR_FALLBACK_WAIT_MIN} min`,
+ );
+ return WEBCAM_CLEAR_FALLBACK_WAIT_MIN;
+ }
+
+ return waitTimeMinutes;
+}
+
 /**
  * Fetches traffic data for a single border crossing via two live-routing calls:
  * 1. Approach segment: Italian approach point (≈500 m south) → crossing
@@ -245,21 +272,6 @@ export async function fetchCrossingTraffic(crossing, options = {}) {
  }
  }
 
- // Webcam override: if camera sees a queue but routing says <5 min, use conservative estimate.
- // Only active if webcam analysis is enabled (options.enableWebcam) and crossing has a camera.
- if (options.enableWebcam) {
-  try {
-   const { analyzeWebcamForCrossing } = await import('../../scripts/analyze-webcam-frame.mjs');
-   const webcam = await analyzeWebcamForCrossing(slugifyCrossingName(crossing.name));
-   if (webcam?.visibility === 'good' && webcam.queueDetected && waitTimeMinutes < 5) {
-    waitTimeMinutes = 8;
-    console.log(`📷 Webcam override for ${crossing.name}: queueDetected=true → ${waitTimeMinutes} min`);
-   }
-  } catch (webcamErr) {
-   console.warn(`⚠️ Webcam analysis skipped for ${crossing.name}: ${webcamErr.message}`);
-  }
- }
-
  if (approachResult.status === 'fulfilled') {
  const { durationNormalSec, durationTrafficSec } = approachResult.value;
  approachMinutes = Math.max(0, Math.round((durationTrafficSec - durationNormalSec) / 60));
@@ -270,6 +282,19 @@ export async function fetchCrossingTraffic(crossing, options = {}) {
  // If BOTH segments failed, propagate the error instead of silently returning 0-minute data
  if (crossingResult.status === 'rejected' && approachResult.status === 'rejected') {
  throw new Error(`Both segments failed for ${crossing.name}: ${crossingResult.reason?.message}`);
+ }
+
+ // Webcam sanity: raise missed visible queues, and suppress single-provider
+ // red outliers when the primary camera is clear and the approach segment is free.
+ // Only active if webcam analysis is enabled (options.enableWebcam) and crossing has a camera.
+ if (options.enableWebcam) {
+  try {
+   const { analyzeWebcamForCrossing } = await import('../../scripts/analyze-webcam-frame.mjs');
+   const webcam = await analyzeWebcamForCrossing(slugifyCrossingName(crossing.name));
+   waitTimeMinutes = applyWebcamTrafficSanity(waitTimeMinutes, approachMinutes, webcam, crossing.name);
+  } catch (webcamErr) {
+   console.warn(`⚠️ Webcam analysis skipped for ${crossing.name}: ${webcamErr.message}`);
+  }
  }
 
  const totalCrossingMinutes = waitTimeMinutes + approachMinutes;
