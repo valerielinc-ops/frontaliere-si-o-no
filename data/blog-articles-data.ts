@@ -24734,4 +24734,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'marcello-guido-decostruttivismo-architettura',
+ category: 'novita',
+ date: '2026-05-25T20:48:02.098Z',
+ image: '/images/blog/marcello-guido-decostruttivismo-architettura.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

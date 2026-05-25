@@ -7785,6 +7785,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.treni-ffs-tilo-affollamento-pentecoste.title': 'FFS- und TILO-Züge überfüllt: Qualvolle Fahrten für Grenzgänger',
     'blog.article.treni-ffs-tilo-affollamento-pentecoste.excerpt': 'Rekordandrang in FFS- und TILO-Zügen während der Pfingst-Brückentage: verärgerte Passagiere und Belastungen für Grenzgänger.',
     'blog.article.treni-ffs-tilo-affollamento-pentecoste.imageAlt': 'Überfüllte Bahnhof in Lugano während der Feiertage',
+    'blog.article.marcello-guido-decostruttivismo-architettura.title': 'Marcello Guido und der italienische Dekonstruktivismus',
+    'blog.article.marcello-guido-decostruttivismo-architettura.excerpt': 'Analyse der Rolle von Marcello Guido als Vorläufer des Dekonstruktivismus, ein Nonkonformist der italienischen Architektur.',
+    'blog.article.marcello-guido-decostruttivismo-architettura.imageAlt': 'Architektonisches Panorama von Lugano mit historischen und modernen Gebäuden.',
 };
 
 export default blogMetaDe;

@@ -7787,6 +7787,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.treni-ffs-tilo-affollamento-pentecoste.title': 'Treni FFS e TILO presi d’assalto: viaggi infernali per i frontalieri',
     'blog.article.treni-ffs-tilo-affollamento-pentecoste.excerpt': 'Affollamento record sui treni FFS e TILO durante il ponte di Pentecoste: passeggeri esasperati e disagi per i frontalieri.',
     'blog.article.treni-ffs-tilo-affollamento-pentecoste.imageAlt': 'Stazione ferroviaria affollata a Lugano durante i giorni di festa',
+    'blog.article.marcello-guido-decostruttivismo-architettura.title': 'Marcello Guido e il decostruttivismo italiano',
+    'blog.article.marcello-guido-decostruttivismo-architettura.excerpt': 'Analisi del ruolo di Marcello Guido come precursore del decostruttivismo, non conformista nell\'architettura italiana.',
+    'blog.article.marcello-guido-decostruttivismo-architettura.imageAlt': 'Panorama architettonico di Lugano con edifici storici e moderni.',
 };
 
 export default blogMetaIt;

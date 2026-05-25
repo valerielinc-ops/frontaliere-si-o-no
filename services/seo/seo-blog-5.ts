@@ -40088,6 +40088,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-marcello-guido-decostruttivismo-architettura': {
+    title: 'Marcello Guido e il decostruttivismo italiano | Frontaliere Ticino',
+    description: 'Analisi sul ruolo di Marcello Guido nel decostruttivismo, non conformista nell\'architettura italiana. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, marcello, guido, decostruttivismo, italiano',
+    ogTitle: 'Marcello Guido e il decostruttivismo in Italia',
+    ogDescription: 'La storia dimenticata di Marcello Guido, precursore del decostruttivismo nell\'architettura italiana.',
+    canonicalPath: '/articoli-frontaliere/marcello-guido-decostruttivismo-architettura',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Marcello Guido e il decostruttivismo italiano",
+      "description": "Analisi sul ruolo di Marcello Guido nel decostruttivismo, non conformista nell'architettura italiana. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/marcello-guido-decostruttivismo-architettura.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Panorama architettonico di Lugano con edifici storici e moderni."
+      },
+      "datePublished": "2026-05-25T20:48:02+00:00",
+      "dateModified": "2026-05-25T20:48:02+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/marcello-guido-decostruttivismo-architettura`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

@@ -7786,6 +7786,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.treni-ffs-tilo-affollamento-pentecoste.title': 'FFS and TILO trains overwhelmed: nightmares for cross-border workers',
     'blog.article.treni-ffs-tilo-affollamento-pentecoste.excerpt': 'Record crowds on FFS and TILO trains during the Pentecost long weekend: frustrated passengers and disruptions for cross-border commuters.',
     'blog.article.treni-ffs-tilo-affollamento-pentecoste.imageAlt': 'Crowded train station in Lugano during holiday peak times',
+    'blog.article.marcello-guido-decostruttivismo-architettura.title': 'Marcello Guido and Italian Deconstructivism',
+    'blog.article.marcello-guido-decostruttivismo-architettura.excerpt': 'Analysis of Marcello Guido\'s role as a precursor to Italian deconstructivism, a non-conformist movement in Italian architecture. Marcello Guido\'s work challenged traditional notions of architecture, anticipating the deconstructivist movement that would emerge in the 1980s. His designs, often described as \'disruptive\' and \'unconventional\', pushed the boundaries of what was considered acceptable in Italian architecture at the time. With his emphasis on experimentation and innovation, Guido paved the way for a new generation of architects who would continue to challenge the status quo. 📊💡',
+    'blog.article.marcello-guido-decostruttivismo-architettura.imageAlt': 'Architectural panorama of Lugano with historic and modern buildings.',
 };
 
 export default blogMetaEn;

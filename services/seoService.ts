@@ -3838,6 +3838,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-educatore-infanzia-ticino-stipendi-requisiti': { name: 'Lavoro Ticino', path: '/articoli-frontaliere/educatore-infanzia-ticino-stipendi-requisiti', parent: 'blog' },
     'blog-prevenzione-sanitaria-lavoro-2026': { name: 'Prevenzione sanitaria', path: '/articoli-frontaliere/prevenzione-sanitaria-lavoro-2026', parent: 'blog' },
     'blog-treni-ffs-tilo-affollamento-pentecoste': { name: 'Treni FFS TILO', path: '/articoli-frontaliere/treni-ffs-tilo-affollamento-pentecoste', parent: 'blog' },
+    'blog-marcello-guido-decostruttivismo-architettura': { name: 'Marcello Guido decostruttivismo', path: '/articoli-frontaliere/marcello-guido-decostruttivismo-architettura', parent: 'blog' },
  };
 
  const info = sectionNames[section];
