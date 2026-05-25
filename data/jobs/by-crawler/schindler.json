@@ -3446,7 +3446,6 @@
       },
       "previousSlugs": [
         "manager-fur-cookie-einwilligungen-schindler-ebikon",
-        "manager-per-cookie-einwilligungen-schindler-ebikon",
         "gestione-delle-autorizzazioni-dei-cookie-schindler-ebikon",
         "gestionnaire-pour-les-autorisations-de-cookies-schindler-ebikon"
       ],
@@ -3753,8 +3752,7 @@
       },
       "previousSlugs": [
         "manager-per-cookie-einwilligungen-schindler-winterthur-2",
-        "manager-fur-cookie-einwilligungen-schindler-winterthur",
-        "manager-per-cookie-einwilligungen-schindler-winterthur"
+        "manager-fur-cookie-einwilligungen-schindler-winterthur"
       ],
       "salaryMin": 68000,
       "salaryMax": 103000,
@@ -3840,7 +3838,7 @@
       "id": "schindler-9f5b8c1ba816",
       "slug": "projektleiter-m-w-d-schindler-bern",
       "slugByLocale": {
-        "it": "tecnico-ascensorista-regione-berna-m-f-d-80-100-schindler-bern",
+        "it": "projektleiter-m-w-d-schindler-bern",
         "en": "elevator-technician-region-bern-m-f-d-80-100-schindler-bern",
         "de": "aufzugsmonteur-in-region-berner-oberland-m-w-d-80-100-schindler-bern",
         "fr": "technicien-ascensoriste-region-berne-h-f-d-80-100-schindler-bern"
@@ -3887,13 +3885,14 @@
       "previousSlugs": [
         "aufzugsmonteur-in-region-berner-oberland-m-w-d-80-100-schindler-bern",
         "projektleiter-m-w-d-schindler-bern-7ab342",
-        "aufzugsmonteur-in-region-bern-m-w-d-80-100-schindler-bern",
-        "projektleiter-m-w-d-schindler-bern"
+        "tecnico-ascensorista-regione-berna-m-f-d-80-100-schindler-bern",
+        "aufzugsmonteur-in-region-bern-m-w-d-80-100-schindler-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "aufzugsmonteur-in-region-berner-oberland-m-w-d-80-100-schindler-bern",
-          "projektleiter-m-w-d-schindler-bern-7ab342"
+          "projektleiter-m-w-d-schindler-bern-7ab342",
+          "tecnico-ascensorista-regione-berna-m-f-d-80-100-schindler-bern"
         ],
         "en": [
           "aufzugsmonteur-in-region-berner-oberland-m-w-d-80-100-schindler-bern"
@@ -4245,7 +4244,7 @@
         "de": "manager-fur-cookie-einwilligungen-schindler-bern",
         "it": "manager-per-cookie-einwilligungen-schindler-bern",
         "en": "manager-fur-cookie-einwilligungen-schindler-bern",
-        "fr": "manager-fur-cookie-einwilligungen-schindler-bern"
+        "fr": "responsable-de-la-gestion-des-consentements-cookies-schindler-bern"
       },
       "company": "Schindler",
       "companyKey": "schindler",
@@ -4314,10 +4313,9 @@
       },
       "previousSlugs": [
         "manager-fur-cookie-einwilligungen-schindler-bern",
-        "manager-per-cookie-einwilligungen-schindler-bern-2",
-        "manager-per-cookie-einwilligungen-schindler-bern",
         "gestionnaire-pour-les-autorisations-de-cookies-schindler-bern-fd1b8a",
-        "gestione-delle-autorizzazioni-dei-cookie-schindler-bern-fd1b8a"
+        "gestione-delle-autorizzazioni-dei-cookie-schindler-bern-fd1b8a",
+        "manager-per-cookie-einwilligungen-schindler-bern-2"
       ]
     },
     {
@@ -4494,7 +4492,6 @@
       "previousSlugs": [
         "manager-per-cookie-einwilligungen-schindler-oberentfelden-2",
         "manager-fur-cookie-einwilligungen-schindler-oberentfelden",
-        "manager-per-cookie-einwilligungen-schindler-oberentfelden",
         "manager-per-cookie-einwilligungen-schindler-bern",
         "gestione-delle-autorizzazioni-dei-cookie-schindler-winterthur",
         "gestione-delle-autorizzazioni-dei-cookie-schindler-oberentfelden-8cq51r",

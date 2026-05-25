@@ -487,7 +487,7 @@
       "id": "marriott-60e874aa2d93",
       "slug": "cameriera-barre-inverno-26-27-w-verbier-marriott-international-verbier",
       "slugByLocale": {
-        "it": "waiter-tress-brasserie-u-yama-winter-26-27-w-verbier-marriott-verbier",
+        "it": "cameriera-barre-inverno-26-27-w-verbier-marriott-international-verbier",
         "en": "waiter-tress-bars-winter-26-27-w-verbier-marriott-verbier",
         "de": "waiter-tress-bars-winter-26-27-w-verbier-marriott-international-verbier",
         "fr": "barres-de-serveur-hiver-26-27-w-verbier-marriott-international-verbier"
@@ -542,14 +542,15 @@
       },
       "previousSlugs": [
         "responsabile-revenue-management-marriott-international-geneva",
+        "waiter-tress-brasserie-u-yama-winter-26-27-w-verbier-marriott-verbier",
         "umsatzmanager-marriott-international-geneva",
         "responsable-revenue-management-marriott-international-geneva",
-        "svizzera-programma-voyage-settembre-2026-ristorazione-marriott-international-geneva",
-        "cameriera-barre-inverno-26-27-w-verbier-marriott-international-verbier"
+        "svizzera-programma-voyage-settembre-2026-ristorazione-marriott-international-geneva"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "responsabile-revenue-management-marriott-international-geneva"
+          "responsabile-revenue-management-marriott-international-geneva",
+          "waiter-tress-brasserie-u-yama-winter-26-27-w-verbier-marriott-verbier"
         ],
         "de": [
           "umsatzmanager-marriott-international-geneva"
@@ -748,7 +749,6 @@
         "responsabile-revenue-management-marriott-international-geneva",
         "umsatzmanager-marriott-international-geneva",
         "responsable-revenue-management-marriott-international-geneva",
-        "svizzera-programma-voyage-settembre-2026-ristorazione-marriott-international-geneva",
         "waiter-tress-brasserie-u-yama-winter-26-27-w-verbier-marriott-verbier"
       ],
       "previousSlugsByLocale": {
@@ -1024,7 +1024,6 @@
         "mezzo-capopartita-marriott-international-verbier",
         "partiekoch-marriott-international-verbier",
         "ristoranti-inverno-26-27-w-verbier-marriott-international-verbier",
-        "tirocinante-supervisore-housekeeping-marriott-international-geneva",
         "sushiman-inverno-26-27-w-verbier-marriott-international-verbier"
       ],
       "previousSlugsByLocale": {
@@ -2726,7 +2725,7 @@
       "id": "marriott-5404a16f4356",
       "slug": "esperto-di-supporto-f-b-stewarding-marriott-international-zurich",
       "slugByLocale": {
-        "it": "esperienza-degli-ospiti-marriott-international-zurich",
+        "it": "esperto-di-supporto-f-b-stewarding-marriott-international-zurich",
         "en": "f-b-support-expert-stewarding-marriott-zurich",
         "de": "f-b-support-experte-stewarding-marriott-international-zurich",
         "fr": "expert-en-soutien-aux-f-b-et-intendant-marriott-international-zurich"
@@ -2781,12 +2780,13 @@
       },
       "previousSlugs": [
         "f-b-support-expert-stewarding-marriott-zurich",
-        "guest-experience-expert-marriott-zurich",
-        "esperto-di-supporto-f-b-stewarding-marriott-international-zurich"
+        "esperienza-degli-ospiti-marriott-international-zurich",
+        "guest-experience-expert-marriott-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "f-b-support-expert-stewarding-marriott-zurich"
+          "f-b-support-expert-stewarding-marriott-zurich",
+          "esperienza-degli-ospiti-marriott-international-zurich"
         ],
         "de": [
           "f-b-support-expert-stewarding-marriott-zurich"
@@ -3641,8 +3641,8 @@
       "slugByLocale": {
         "en": "chef-de-rang-marriott-geneva",
         "it": "responsabile-di-turno-e-qualita-a-lungo-termine-w-verbier-marriott-international-verbier",
-        "de": "dienstleiter-qualitatsmanager-langfristig-w-verbier-marriott-international-verbier",
-        "fr": "responsable-de-service-et-qualite-long-terme-w-verbier-marriott-international-verbier"
+        "de": "oberkellner-marriott-international-geneva",
+        "fr": "cheffe-de-rang-marriott-international-geneva-4c4e34"
       },
       "company": "Marriott International",
       "companyKey": "marriott",
@@ -3706,7 +3706,19 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-24T22:40:52.367Z"
+      "firstSeenAt": "2026-05-24T22:40:52.367Z",
+      "previousSlugsByLocale": {
+        "de": [
+          "dienstleiter-qualitatsmanager-langfristig-w-verbier-marriott-international-verbier"
+        ],
+        "fr": [
+          "responsable-de-service-et-qualite-long-terme-w-verbier-marriott-international-verbier"
+        ]
+      },
+      "previousSlugs": [
+        "dienstleiter-qualitatsmanager-langfristig-w-verbier-marriott-international-verbier",
+        "responsable-de-service-et-qualite-long-terme-w-verbier-marriott-international-verbier"
+      ]
     },
     {
       "id": "marriott-39a0a55810f7",

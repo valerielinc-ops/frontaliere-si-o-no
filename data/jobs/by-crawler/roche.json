@@ -10926,8 +10926,7 @@
       "previousSlugsByLocale": {
         "it": [
           "m-odszy-specjalista-m-odsza-specjalistka-ds-logistyki-magazynowej-roche-ch",
-          "specialista-junior-specialista-di-logistica-di-magazzino-junior-roche-warsaw",
-          "m-odszy-specjalista-m-odsza-specjalistka-ds-logistyki-magazynowej-roche-warsaw"
+          "specialista-junior-specialista-di-logistica-di-magazzino-junior-roche-warsaw"
         ]
       },
       "needsRetranslation": true,
@@ -13154,8 +13153,7 @@
       "previousSlugsByLocale": {
         "it": [
           "practicante-de-business-center-roche-ch",
-          "centro-praticante-de-business-roche-lima",
-          "practicante-de-business-center-roche-lima"
+          "centro-praticante-de-business-roche-lima"
         ]
       },
       "needsRetranslation": true,
@@ -16982,8 +16980,7 @@
       "previousSlugsByLocale": {
         "it": [
           "especialista-en-licitaciones-roche-ch",
-          "specialist-en-licitaciones-roche-mexico-city",
-          "especialista-en-licitaciones-roche-mexico-city"
+          "specialist-en-licitaciones-roche-mexico-city"
         ]
       },
       "needsRetranslation": true,
@@ -17620,8 +17617,7 @@
         ],
         "it": [
           "histotechnician-roche-ch",
-          "istotecnico-roche-tucson",
-          "histotechnician-roche-tucson"
+          "istotecnico-roche-tucson"
         ]
       },
       "previousSlugs": [
@@ -20616,8 +20612,7 @@
         "it": [
           "global-digital-campaign-expert-talent-pool-roche-ch",
           "esperto-globale-di-campagne-digitali-talent-pool-roche-budapest",
-          "esperto-di-campagne-digitali-globali-pool-di-talenti-roche-budapest",
-          "global-digital-campaign-expert-talent-pool-roche-budapest"
+          "esperto-di-campagne-digitali-globali-pool-di-talenti-roche-budapest"
         ]
       },
       "needsRetranslation": true,
@@ -24568,7 +24563,7 @@
         "en": "data-information-architect-data-platforms-roche-ch",
         "it": "data-information-architect-data-platforms-roche-ch",
         "de": "data-information-architect-data-platforms-roche-ch",
-        "fr": "data-information-architect-data-platforms-roche-ch"
+        "fr": "architecte-de-donnees-d-information-plateformes-de-donnees-roche-basel-e88a1e"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -24624,11 +24619,10 @@
       "postalCode": "4001",
       "firstSeenAt": "2026-05-24T23:08:56.015Z",
       "previousSlugs": [
-        "data-information-architect-data-platforms-roche-ch",
-        "data-information-architetto-data-platforms-roche-basel",
-        "data-information-architecte-data-platforms-roche-basel",
         "data-information-architect-piattaforme-di-dati-roche-basel",
-        "architecte-de-donnees-d-information-plateformes-de-donnees-roche-basel"
+        "architecte-de-donnees-d-information-plateformes-de-donnees-roche-basel",
+        "data-information-architetto-data-platforms-roche-basel",
+        "data-information-architecte-data-platforms-roche-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -26296,7 +26290,7 @@
         "en": "team-lead-design-control-excellence-roche-ch",
         "it": "team-lead-design-control-excellence-roche-ch",
         "de": "team-lead-design-control-excellence-roche-ch",
-        "fr": "team-lead-design-control-excellence-roche-ch"
+        "fr": "chef-d-equipe-design-control-excellence-roche-sant-cugat-del-valles"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -26675,12 +26669,12 @@
     },
     {
       "id": "roche-bda11b6b37ef",
-      "slug": "medical-affairs-lead-roche-ch",
+      "slug": "affari-medici-piombo-roche-basel",
       "slugByLocale": {
         "en": "medical-affairs-lead-roche-ch",
-        "it": "medical-affairs-lead-roche-ch",
-        "de": "medical-affairs-lead-roche-ch",
-        "fr": "medical-affairs-lead-roche-ch"
+        "it": "affari-medici-piombo-roche-basel",
+        "de": "medizin-und-medizin-roche-basel",
+        "fr": "responsable-des-affaires-medicales-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -26734,7 +26728,21 @@
         }
       },
       "postalCode": "4001",
-      "firstSeenAt": "2026-05-24T23:08:29.558Z"
+      "firstSeenAt": "2026-05-24T23:08:29.558Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "medical-affairs-lead-roche-ch"
+        ],
+        "de": [
+          "medical-affairs-lead-roche-ch"
+        ],
+        "fr": [
+          "medical-affairs-lead-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "medical-affairs-lead-roche-ch"
+      ]
     },
     {
       "id": "roche-d3c2ae83ea82",
@@ -26802,12 +26810,12 @@
     },
     {
       "id": "roche-e90d3eb1195f",
-      "slug": "clinical-site-manager-roche-ch",
+      "slug": "responsabile-del-sito-clinico-roche-basel",
       "slugByLocale": {
         "en": "clinical-site-manager-roche-ch",
-        "it": "clinical-site-manager-roche-ch",
-        "de": "clinical-site-manager-roche-ch",
-        "fr": "clinical-site-manager-roche-ch"
+        "it": "responsabile-del-sito-clinico-roche-basel",
+        "de": "klinischer-standortmanager-roche-basel",
+        "fr": "gestionnaire-de-site-clinique-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -26861,7 +26869,21 @@
         }
       },
       "postalCode": "4001",
-      "firstSeenAt": "2026-05-24T23:08:27.834Z"
+      "firstSeenAt": "2026-05-24T23:08:27.834Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "clinical-site-manager-roche-ch"
+        ],
+        "de": [
+          "clinical-site-manager-roche-ch"
+        ],
+        "fr": [
+          "clinical-site-manager-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "clinical-site-manager-roche-ch"
+      ]
     },
     {
       "id": "roche-78a5f9dc0957",
@@ -26869,8 +26891,8 @@
       "slugByLocale": {
         "en": "clinical-contract-administrator-roche-ch",
         "it": "clinical-contract-administrator-roche-ch",
-        "de": "clinical-contract-administrator-roche-ch",
-        "fr": "clinical-contract-administrator-roche-ch"
+        "de": "klinischer-vertragsverwalter-roche-basel",
+        "fr": "administrateur-du-contrat-clinique-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -26928,10 +26950,10 @@
     },
     {
       "id": "roche-9b876da1182b",
-      "slug": "senior-clinical-data-specialist-roche-ch",
+      "slug": "specialista-di-dati-clinici-senior-roche-basel",
       "slugByLocale": {
         "en": "senior-clinical-data-specialist-roche-ch",
-        "it": "senior-clinical-data-specialist-roche-ch",
+        "it": "specialista-di-dati-clinici-senior-roche-basel",
         "de": "senior-clinical-data-specialist-roche-ch",
         "fr": "senior-clinical-data-specialist-roche-ch"
       },
@@ -26987,16 +27009,24 @@
         }
       },
       "postalCode": "4001",
-      "firstSeenAt": "2026-05-24T23:08:26.107Z"
+      "firstSeenAt": "2026-05-24T23:08:26.107Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-clinical-data-specialist-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "senior-clinical-data-specialist-roche-ch"
+      ]
     },
     {
       "id": "roche-1c71865cc853",
-      "slug": "lead-clinical-site-manager-study-start-up-in-vitro-diagnostic-regulation-roche-ch",
+      "slug": "responsabile-centro-clinico-start-up-studio-regolazione-diagnostica-in-vitro-roche-basel",
       "slugByLocale": {
         "en": "lead-clinical-site-manager-study-start-up-in-vitro-diagnostic-regulation-roche-ch",
-        "it": "lead-clinical-site-manager-study-start-up-in-vitro-diagnostic-regulation-roche-ch",
-        "de": "lead-clinical-site-manager-study-start-up-in-vitro-diagnostic-regulation-roche-ch",
-        "fr": "lead-clinical-site-manager-study-start-up-in-vitro-diagnostic-regulation-roche-ch"
+        "it": "responsabile-centro-clinico-start-up-studio-regolazione-diagnostica-in-vitro-roche-basel",
+        "de": "leitender-klinischer-standortleiter-studienbeginn-in-vitro-diagnostikverordnung-roche-basel",
+        "fr": "gestionnaire-de-site-clinique-principal-demarrage-de-l-etude-reglement-diagnostique-in-vitro-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -27050,16 +27080,30 @@
         }
       },
       "postalCode": "4001",
-      "firstSeenAt": "2026-05-24T23:08:25.357Z"
+      "firstSeenAt": "2026-05-24T23:08:25.357Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "lead-clinical-site-manager-study-start-up-in-vitro-diagnostic-regulation-roche-ch"
+        ],
+        "de": [
+          "lead-clinical-site-manager-study-start-up-in-vitro-diagnostic-regulation-roche-ch"
+        ],
+        "fr": [
+          "lead-clinical-site-manager-study-start-up-in-vitro-diagnostic-regulation-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "lead-clinical-site-manager-study-start-up-in-vitro-diagnostic-regulation-roche-ch"
+      ]
     },
     {
       "id": "roche-d2bdafff2eb1",
-      "slug": "global-study-lead-near-patient-point-of-care-cardiovascular-metabolic-diseases-roche-ch",
+      "slug": "piombo-di-studio-globale-near-punto-paziente-di-cura-malattie-cardiovascolari-e-metaboliche-roche-basel",
       "slugByLocale": {
         "en": "global-study-lead-near-patient-point-of-care-cardiovascular-metabolic-diseases-roche-ch",
-        "it": "global-study-lead-near-patient-point-of-care-cardiovascular-metabolic-diseases-roche-ch",
+        "it": "piombo-di-studio-globale-near-punto-paziente-di-cura-malattie-cardiovascolari-e-metaboliche-roche-basel",
         "de": "global-study-lead-near-patient-point-of-care-cardiovascular-metabolic-diseases-roche-ch",
-        "fr": "global-study-lead-near-patient-point-of-care-cardiovascular-metabolic-diseases-roche-ch"
+        "fr": "etude-mondiale-de-plomb-pres-du-patient-maladies-cardiovasculaires-et-metaboliques-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -27113,16 +27157,27 @@
         }
       },
       "postalCode": "4001",
-      "firstSeenAt": "2026-05-24T23:08:24.604Z"
+      "firstSeenAt": "2026-05-24T23:08:24.604Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "global-study-lead-near-patient-point-of-care-cardiovascular-metabolic-diseases-roche-ch"
+        ],
+        "fr": [
+          "global-study-lead-near-patient-point-of-care-cardiovascular-metabolic-diseases-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "global-study-lead-near-patient-point-of-care-cardiovascular-metabolic-diseases-roche-ch"
+      ]
     },
     {
       "id": "roche-ed7b8dc26c32",
-      "slug": "global-study-lead-molecular-lab-roche-ch",
+      "slug": "piombo-di-studio-globale-laboratorio-molecolare-roche-basel",
       "slugByLocale": {
         "en": "global-study-lead-molecular-lab-roche-ch",
-        "it": "global-study-lead-molecular-lab-roche-ch",
+        "it": "piombo-di-studio-globale-laboratorio-molecolare-roche-basel",
         "de": "global-study-lead-molecular-lab-roche-ch",
-        "fr": "global-study-lead-molecular-lab-roche-ch"
+        "fr": "etude-mondiale-de-plomb-lab-moleculaire-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -27176,16 +27231,27 @@
         }
       },
       "postalCode": "4001",
-      "firstSeenAt": "2026-05-24T23:08:23.841Z"
+      "firstSeenAt": "2026-05-24T23:08:23.841Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "global-study-lead-molecular-lab-roche-ch"
+        ],
+        "fr": [
+          "global-study-lead-molecular-lab-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "global-study-lead-molecular-lab-roche-ch"
+      ]
     },
     {
       "id": "roche-1f1916d7aa6d",
-      "slug": "global-study-lead-core-lab-cardiovascular-metabolic-diseases-roche-ch",
+      "slug": "piombo-di-studio-globale-core-lab-malattie-cardiovascolari-e-metaboliche-roche-basel",
       "slugByLocale": {
         "en": "global-study-lead-core-lab-cardiovascular-metabolic-diseases-roche-ch",
-        "it": "global-study-lead-core-lab-cardiovascular-metabolic-diseases-roche-ch",
-        "de": "global-study-lead-core-lab-cardiovascular-metabolic-diseases-roche-ch",
-        "fr": "global-study-lead-core-lab-cardiovascular-metabolic-diseases-roche-ch"
+        "it": "piombo-di-studio-globale-core-lab-malattie-cardiovascolari-e-metaboliche-roche-basel",
+        "de": "global-study-lead-core-lab-herz-kreislauf-und-stoffwechselerkrankungen-roche-basel",
+        "fr": "le-plomb-d-etude-mondiale-labo-core-maladies-cardiovasculaires-et-metaboliques-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -27239,16 +27305,30 @@
         }
       },
       "postalCode": "4001",
-      "firstSeenAt": "2026-05-24T23:08:23.064Z"
+      "firstSeenAt": "2026-05-24T23:08:23.064Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "global-study-lead-core-lab-cardiovascular-metabolic-diseases-roche-ch"
+        ],
+        "de": [
+          "global-study-lead-core-lab-cardiovascular-metabolic-diseases-roche-ch"
+        ],
+        "fr": [
+          "global-study-lead-core-lab-cardiovascular-metabolic-diseases-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "global-study-lead-core-lab-cardiovascular-metabolic-diseases-roche-ch"
+      ]
     },
     {
       "id": "roche-423615fde225",
-      "slug": "clinical-site-manager-study-start-up-in-vitro-diagnostic-regulation-roche-ch",
+      "slug": "responsabile-del-sito-clinico-study-start-up-in-vitro-diagnostic-regulation-roche-basel",
       "slugByLocale": {
         "en": "clinical-site-manager-study-start-up-in-vitro-diagnostic-regulation-roche-ch",
-        "it": "clinical-site-manager-study-start-up-in-vitro-diagnostic-regulation-roche-ch",
+        "it": "responsabile-del-sito-clinico-study-start-up-in-vitro-diagnostic-regulation-roche-basel",
         "de": "clinical-site-manager-study-start-up-in-vitro-diagnostic-regulation-roche-ch",
-        "fr": "clinical-site-manager-study-start-up-in-vitro-diagnostic-regulation-roche-ch"
+        "fr": "gestionnaire-de-site-clinique-demarrage-de-l-etude-reglement-diagnostique-in-vitro-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -27302,16 +27382,27 @@
         }
       },
       "postalCode": "4001",
-      "firstSeenAt": "2026-05-24T23:08:22.300Z"
+      "firstSeenAt": "2026-05-24T23:08:22.300Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "clinical-site-manager-study-start-up-in-vitro-diagnostic-regulation-roche-ch"
+        ],
+        "fr": [
+          "clinical-site-manager-study-start-up-in-vitro-diagnostic-regulation-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "clinical-site-manager-study-start-up-in-vitro-diagnostic-regulation-roche-ch"
+      ]
     },
     {
       "id": "roche-0b74acac04a0",
-      "slug": "clinical-site-manager-near-patient-point-of-care-cardiovascular-metabolic-diseases-roche",
+      "slug": "responsabile-del-sito-clinico-near-medical-point-of-care-cardiovascular-metabolic-diseases-roche-basel",
       "slugByLocale": {
         "en": "clinical-site-manager-near-patient-point-of-care-cardiovascular-metabolic-diseases-roche",
-        "it": "clinical-site-manager-near-patient-point-of-care-cardiovascular-metabolic-diseases-roche",
-        "de": "clinical-site-manager-near-patient-point-of-care-cardiovascular-metabolic-diseases-roche",
-        "fr": "clinical-site-manager-near-patient-point-of-care-cardiovascular-metabolic-diseases-roche"
+        "it": "responsabile-del-sito-clinico-near-medical-point-of-care-cardiovascular-metabolic-diseases-roche-basel",
+        "de": "klinischer-site-manager-nachst-patient-point-of-care-herz-kreislauf-und-stoffwechselerkrankungen-roche-basel",
+        "fr": "gestionnaire-de-site-clinique-pres-du-patient-au-point-de-soins-maladies-cardiovasculaires-et-metaboliques-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -27365,16 +27456,30 @@
         }
       },
       "postalCode": "4001",
-      "firstSeenAt": "2026-05-24T23:08:21.534Z"
+      "firstSeenAt": "2026-05-24T23:08:21.534Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "clinical-site-manager-near-patient-point-of-care-cardiovascular-metabolic-diseases-roche"
+        ],
+        "de": [
+          "clinical-site-manager-near-patient-point-of-care-cardiovascular-metabolic-diseases-roche"
+        ],
+        "fr": [
+          "clinical-site-manager-near-patient-point-of-care-cardiovascular-metabolic-diseases-roche"
+        ]
+      },
+      "previousSlugs": [
+        "clinical-site-manager-near-patient-point-of-care-cardiovascular-metabolic-diseases-roche"
+      ]
     },
     {
       "id": "roche-30a07596c120",
-      "slug": "clinical-site-manager-molecular-lab-roche-ch",
+      "slug": "responsabile-del-sito-clinico-laboratorio-molecolare-roche-basel",
       "slugByLocale": {
         "en": "clinical-site-manager-molecular-lab-roche-ch",
-        "it": "clinical-site-manager-molecular-lab-roche-ch",
+        "it": "responsabile-del-sito-clinico-laboratorio-molecolare-roche-basel",
         "de": "clinical-site-manager-molecular-lab-roche-ch",
-        "fr": "clinical-site-manager-molecular-lab-roche-ch"
+        "fr": "gestionnaire-de-site-clinique-labo-moleculaire-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -27428,16 +27533,27 @@
         }
       },
       "postalCode": "4001",
-      "firstSeenAt": "2026-05-24T23:08:20.773Z"
+      "firstSeenAt": "2026-05-24T23:08:20.773Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "clinical-site-manager-molecular-lab-roche-ch"
+        ],
+        "fr": [
+          "clinical-site-manager-molecular-lab-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "clinical-site-manager-molecular-lab-roche-ch"
+      ]
     },
     {
       "id": "roche-c74eb0900611",
-      "slug": "clinical-site-manager-core-lab-cardiovascular-metabolic-diseases-roche-ch",
+      "slug": "responsabile-del-sito-clinico-core-lab-cardiovascular-metabolic-diseases-roche-basel",
       "slugByLocale": {
         "en": "clinical-site-manager-core-lab-cardiovascular-metabolic-diseases-roche-ch",
-        "it": "clinical-site-manager-core-lab-cardiovascular-metabolic-diseases-roche-ch",
-        "de": "clinical-site-manager-core-lab-cardiovascular-metabolic-diseases-roche-ch",
-        "fr": "clinical-site-manager-core-lab-cardiovascular-metabolic-diseases-roche-ch"
+        "it": "responsabile-del-sito-clinico-core-lab-cardiovascular-metabolic-diseases-roche-basel",
+        "de": "klinische-site-manager-core-lab-herz-kreislauf-und-stoffwechselerkrankungen-roche-basel",
+        "fr": "gestionnaire-de-site-clinique-labo-core-maladies-cardiovasculaires-et-metaboliques-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -27491,16 +27607,30 @@
         }
       },
       "postalCode": "4001",
-      "firstSeenAt": "2026-05-24T23:08:20.010Z"
+      "firstSeenAt": "2026-05-24T23:08:20.010Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "clinical-site-manager-core-lab-cardiovascular-metabolic-diseases-roche-ch"
+        ],
+        "de": [
+          "clinical-site-manager-core-lab-cardiovascular-metabolic-diseases-roche-ch"
+        ],
+        "fr": [
+          "clinical-site-manager-core-lab-cardiovascular-metabolic-diseases-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "clinical-site-manager-core-lab-cardiovascular-metabolic-diseases-roche-ch"
+      ]
     },
     {
       "id": "roche-b27f3794df3e",
-      "slug": "clinical-development-lead-neuroscience-roche-ch",
+      "slug": "piombo-di-sviluppo-clinico-neuroscience-roche-basel",
       "slugByLocale": {
         "en": "clinical-development-lead-neuroscience-roche-ch",
-        "it": "clinical-development-lead-neuroscience-roche-ch",
-        "de": "clinical-development-lead-neuroscience-roche-ch",
-        "fr": "clinical-development-lead-neuroscience-roche-ch"
+        "it": "piombo-di-sviluppo-clinico-neuroscience-roche-basel",
+        "de": "klinische-entwicklungsleitung-neuroscience-roche-basel",
+        "fr": "responsable-du-developpement-clinique-neuroscience-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -27554,16 +27684,30 @@
         }
       },
       "postalCode": "4001",
-      "firstSeenAt": "2026-05-24T23:08:19.235Z"
+      "firstSeenAt": "2026-05-24T23:08:19.235Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "clinical-development-lead-neuroscience-roche-ch"
+        ],
+        "de": [
+          "clinical-development-lead-neuroscience-roche-ch"
+        ],
+        "fr": [
+          "clinical-development-lead-neuroscience-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "clinical-development-lead-neuroscience-roche-ch"
+      ]
     },
     {
       "id": "roche-ea8b9ab1861f",
-      "slug": "clinical-development-lead-cardiovascular-metabolic-diseases-roche-ch",
+      "slug": "piombo-di-sviluppo-clinico-cardiovascolare-e-malattie-metaboliche-roche-basel",
       "slugByLocale": {
         "en": "clinical-development-lead-cardiovascular-metabolic-diseases-roche-ch",
-        "it": "clinical-development-lead-cardiovascular-metabolic-diseases-roche-ch",
-        "de": "clinical-development-lead-cardiovascular-metabolic-diseases-roche-ch",
-        "fr": "clinical-development-lead-cardiovascular-metabolic-diseases-roche-ch"
+        "it": "piombo-di-sviluppo-clinico-cardiovascolare-e-malattie-metaboliche-roche-basel",
+        "de": "klinische-entwicklungsleitung-kreislauf-und-stoffwechselerkrankungen-roche-basel",
+        "fr": "plomb-de-developpement-clinique-maladies-cardiovasculaires-et-metaboliques-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -27617,7 +27761,21 @@
         }
       },
       "postalCode": "4001",
-      "firstSeenAt": "2026-05-24T23:08:18.482Z"
+      "firstSeenAt": "2026-05-24T23:08:18.482Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "clinical-development-lead-cardiovascular-metabolic-diseases-roche-ch"
+        ],
+        "de": [
+          "clinical-development-lead-cardiovascular-metabolic-diseases-roche-ch"
+        ],
+        "fr": [
+          "clinical-development-lead-cardiovascular-metabolic-diseases-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "clinical-development-lead-cardiovascular-metabolic-diseases-roche-ch"
+      ]
     }
   ]
 }
