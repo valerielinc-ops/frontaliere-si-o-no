@@ -494,6 +494,9 @@ jobs:
           set -o pipefail
           npm run build:ci 2>&1 | tee /tmp/build.log
 
+      - name: Verify critical dist pages before upload
+        run: node scripts/validate-critical-dist-pages.mjs
+
       - name: Build profile summary
         if: always()
         shell: bash
