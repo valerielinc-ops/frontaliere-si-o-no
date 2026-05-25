@@ -74,7 +74,15 @@ jobs:
           # skip half the SEO landings (see CLAUDE.md "FAST_BUILD trap").
           FAST_BUILD: ''
           NODE_OPTIONS: '--max-old-space-size=18432'
-        run: npm run build:ci
+        run: |
+          set -euo pipefail
+          npm run build:ci &
+          build_pid=$!
+          while kill -0 "$build_pid" 2>/dev/null; do
+            sleep 60
+            echo "[build keepalive] still running at $(date -u +'%Y-%m-%dT%H:%M:%SZ')"
+          done
+          wait "$build_pid"
 
       - name: Run gates check
         id: gates
