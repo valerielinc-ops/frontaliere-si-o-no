@@ -151,7 +151,6 @@ export default defineConfig(({ mode }) => {
  // callout linking to the annual report.
  annualReportPlugin(__dirname),
  borderWaitMapPlugin(__dirname),
- borderMunicipalityPagesPlugin(__dirname),
  nursingLandingsPlugin(__dirname),
  // AE-2 — 4 career quick-win landings × 4 locales = 16 HTML outputs. Uses
  // concorsi.ti.ch snapshot + SECO AVG registry for cited content.
@@ -188,6 +187,10 @@ export default defineConfig(({ mode }) => {
  // the link from each section landing to the cluster paginated hub is
  // never written, breaking the hub's inbound link graph.
  staticPagesPlugin(__dirname),
+ // Border-municipality pages patch the static hub after it has been flushed.
+ // Keep this after staticPagesPlugin: with sequential closeBundle hooks,
+ // running it earlier would wait on a signal that cannot be resolved yet.
+ borderMunicipalityPagesPlugin(__dirname),
  // Related-search cluster landings (B2). Self-gated by
  // SKIP_RELATED_SEARCH_CLUSTERS=1 (no outer wrapper needed); skipped in
  // typical agent sessions via .claude/settings.json env block.
