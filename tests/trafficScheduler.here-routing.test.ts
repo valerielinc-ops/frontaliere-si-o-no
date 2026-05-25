@@ -222,6 +222,54 @@ describe('getTomTomFlowSegmentData', () => {
   });
 });
 
+// ─── Webcam sanity filter ────────────────────────────────────────
+
+describe('applyWebcamTrafficSanity', () => {
+  let applyWebcamTrafficSanity: (
+    waitTimeMinutes: number,
+    approachMinutes: number,
+    webcam: { visibility: string; queueDetected: boolean } | null,
+    crossingName?: string,
+  ) => number;
+
+  beforeEach(async () => {
+    vi.resetModules();
+    ({ applyWebcamTrafficSanity } = await import(
+      '../functions/src/trafficSchedulerCore.js'
+    ));
+    vi.spyOn(console, 'log').mockImplementation(() => {});
+    vi.spyOn(console, 'warn').mockImplementation(() => {});
+  });
+
+  afterEach(() => {
+    vi.restoreAllMocks();
+  });
+
+  it('raises a low provider estimate when a good webcam sees a queue', () => {
+    expect(
+      applyWebcamTrafficSanity(1, 0, { visibility: 'good', queueDetected: true }, 'Gaggiolo'),
+    ).toBe(8);
+  });
+
+  it('suppresses a red provider outlier when webcam is clear and approach is free', () => {
+    expect(
+      applyWebcamTrafficSanity(41, 0, { visibility: 'good', queueDetected: false }, 'Gaggiolo'),
+    ).toBe(4);
+  });
+
+  it('keeps a high estimate when webcam visibility is not reliable', () => {
+    expect(
+      applyWebcamTrafficSanity(41, 0, { visibility: 'poor', queueDetected: false }, 'Gaggiolo'),
+    ).toBe(41);
+  });
+
+  it('keeps a high estimate when the approach segment is also congested', () => {
+    expect(
+      applyWebcamTrafficSanity(41, 8, { visibility: 'good', queueDetected: false }, 'Gaggiolo'),
+    ).toBe(41);
+  });
+});
+
 // ─── resolveTrafficProvider priority ─────────────────────────────
 
 describe('resolveTrafficProvider', () => {
