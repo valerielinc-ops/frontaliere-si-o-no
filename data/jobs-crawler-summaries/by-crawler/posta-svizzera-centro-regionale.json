@@ -1,19 +1,62 @@
 {
   "key": "posta-svizzera-centro-regionale",
   "label": "Post.ch",
-  "generatedAt": "2026-05-24T22:57:52.016Z",
+  "generatedAt": "2026-05-25T13:41:21.029Z",
   "total": 4,
   "newCount": 0,
-  "updatedCount": 3,
+  "updatedCount": 4,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 15383,
-  "avgDurationMs": 15383,
+  "unchangedCount": 0,
+  "durationMs": 18588,
+  "avgDurationMs": 18588,
   "durationHistory": [
-    15383
+    18588
   ],
   "newJobs": [],
   "updatedJobs": [
+    {
+      "url": "https://job.post.ch/default/job/Senior-Product-Managerin-Digital-Collaboration/73651-de_DE",
+      "applyUrl": "https://job.post.ch/default/job/Senior-Product-Managerin-Digital-Collaboration/73651-de_DE",
+      "title": "Senior Product Manager:in Digital Collaboration",
+      "company": "Die Schweizerische Post",
+      "companyKey": "posta-svizzera-centro-regionale",
+      "location": "Bellinzona",
+      "canton": "TI",
+      "country": "CH",
+      "slug": "senior-product-manager-in-digital-collaboration-post",
+      "sourceLang": "de",
+      "department": "",
+      "category": "servizi-postali",
+      "datePosted": "2026-05-22",
+      "validThrough": "2026-06-12",
+      "source": "postch-careers-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "",
+      "sector": "Servizi Postali",
+      "workload": "70-100%",
+      "_targetScope": {
+        "canton": "TI",
+        "location": "Bellinzona"
+      },
+      "crawledAt": "",
+      "id": "posta-svizzera-centro-regionale-fd1ef5f7b796",
+      "salaryMin": 68000,
+      "salaryMax": 103000,
+      "currency": "CHF",
+      "streetAddress": "Via la Santa 1",
+      "postalCode": "6500",
+      "addressLocality": "Bellinzona",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "firstSeenAt": "2026-05-22T12:41:23.194Z",
+      "_qualityScore": 94,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 25,
+        "completeness": 20
+      }
+    },
     {
       "url": "https://job.post.ch/default/job/Teamleiterin-Fahrausweiskontrolle-und-Kundenberatung-Chur/73411-de_DE",
       "applyUrl": "https://job.post.ch/default/job/Teamleiterin-Fahrausweiskontrolle-und-Kundenberatung-Chur/73411-de_DE",
@@ -49,7 +92,6 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "firstSeenAt": "2026-05-18T13:01:04.674Z",
-      "needsRetranslation": true,
       "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -94,6 +136,7 @@
       "addressCountry": "CH",
       "firstSeenAt": "2026-05-17T10:53:34.351Z",
       "needsRetranslation": true,
+      "retranslationAttempts": 1,
       "_qualityScore": 83,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -138,7 +181,6 @@
       "addressCountry": "CH",
       "firstSeenAt": "2026-05-17T10:53:34.351Z",
       "needsRetranslation": true,
-      "retranslationAttempts": 2,
       "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -149,50 +191,5 @@
     }
   ],
   "removedJobs": [],
-  "unchangedJobs": [
-    {
-      "url": "https://job.post.ch/default/job/Senior-Product-Managerin-Digital-Collaboration/73651-de_DE",
-      "applyUrl": "https://job.post.ch/default/job/Senior-Product-Managerin-Digital-Collaboration/73651-de_DE",
-      "title": "Senior Product Manager:in Digital Collaboration",
-      "company": "Die Schweizerische Post",
-      "companyKey": "posta-svizzera-centro-regionale",
-      "location": "Bellinzona",
-      "canton": "TI",
-      "country": "CH",
-      "slug": "senior-product-manager-in-digital-collaboration-post",
-      "sourceLang": "de",
-      "department": "",
-      "category": "servizi-postali",
-      "datePosted": "2026-05-22",
-      "validThrough": "2026-06-12",
-      "source": "postch-careers-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "",
-      "sector": "Servizi Postali",
-      "workload": "70-100%",
-      "_targetScope": {
-        "canton": "TI",
-        "location": "Bellinzona"
-      },
-      "crawledAt": "",
-      "id": "posta-svizzera-centro-regionale-fd1ef5f7b796",
-      "salaryMin": 68000,
-      "salaryMax": 103000,
-      "currency": "CHF",
-      "streetAddress": "Via la Santa 1",
-      "postalCode": "6500",
-      "addressLocality": "Bellinzona",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "firstSeenAt": "2026-05-22T12:41:23.194Z",
-      "needsRetranslation": true,
-      "_qualityScore": 94,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 25,
-        "completeness": 20
-      }
-    }
-  ]
+  "unchangedJobs": []
 }
