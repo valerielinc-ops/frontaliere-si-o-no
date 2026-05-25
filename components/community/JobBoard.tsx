@@ -5147,6 +5147,20 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const gateCompanyHref = buildPath({ activeTab: 'job-board' as any, jobSlug: gateCompanySlug }, locale);
  const gateLocationSlug = jobLocation ? buildLocationSearchSlug(selectedJob.addressLocality || jobLocation, locale) : '';
  const gateLocationHref = gateLocationSlug ? buildPath({ activeTab: 'job-board' as any, jobSlug: gateLocationSlug }, locale) : '';
+ const openGateCompanyFilter = (e: React.MouseEvent<HTMLAnchorElement>) => {
+ e.preventDefault();
+ e.stopPropagation();
+ e.nativeEvent.stopImmediatePropagation?.();
+ setSearchQuery('');
+ if (onJobRouteChange) {
+ onJobRouteChange(gateCompanySlug);
+ } else {
+ window.history.pushState({ route: { activeTab: 'job-board', jobSlug: gateCompanySlug } }, '', gateCompanyHref.split('?')[0]);
+ window.dispatchEvent(new PopStateEvent('popstate'));
+ }
+ window.scrollTo({ top: 0, behavior: 'smooth' });
+ Analytics.trackSelectContent('job_board_company_filter_open', selectedJob.company);
+ };
 
  return (
  <div className="space-y-5">
@@ -5182,14 +5196,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  <div className="flex flex-wrap items-center gap-x-2 gap-y-0.5 mt-1.5 text-sm leading-tight text-subtle">
  <a
  href={gateCompanyHref}
- onClick={(e) => {
- e.preventDefault();
- setSearchQuery('');
- window.history.pushState({ route: { activeTab: 'job-board', jobSlug: gateCompanySlug } }, '', gateCompanyHref.split('?')[0]);
- window.dispatchEvent(new PopStateEvent('popstate'));
- window.scrollTo({ top: 0, behavior: 'smooth' });
- Analytics.trackSelectContent('job_board_company_filter_open', selectedJob.company);
- }}
+ onClickCapture={openGateCompanyFilter}
  className="inline-flex items-center gap-1 hover:text-accent hover:underline underline-offset-2 transition-colors"
  ><Building2 size={14} />{companyName}</a>
  {jobLocation && gateLocationHref && (
@@ -5376,22 +5383,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  {/* Company banner — gate view */}
  <a
  href={gateCompanyHref}
- onClick={(e) => {
- e.preventDefault();
- setSearchQuery('');
- const canonicalCompanyPath = gateCompanyHref.split('?')[0];
- const currentPathWithSearch = `${window.location.pathname}${window.location.search}`;
- if (currentPathWithSearch !== canonicalCompanyPath) {
- window.history.pushState(
- { route: { activeTab: 'job-board', jobSlug: gateCompanySlug } },
- '',
- canonicalCompanyPath
- );
- window.dispatchEvent(new PopStateEvent('popstate'));
- }
- window.scrollTo({ top: 0, behavior: 'smooth' });
- Analytics.trackSelectContent('job_board_company_filter_open', selectedJob.company);
- }}
+ onClickCapture={openGateCompanyFilter}
  className="block rounded-xl border border-edge bg-surface-alt/50 p-4 hover:border-accent-border hover:bg-surface-raised/70 transition-colors"
  >
  <div className="flex items-start gap-3">
@@ -5600,6 +5592,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const detailLocationHref = detailLocationSlug ? buildPath({ activeTab: 'job-board' as any, jobSlug: detailLocationSlug }, locale) : '';
  const openCompanyFilter = (e: React.MouseEvent<HTMLAnchorElement>) => {
  e.preventDefault();
+ e.stopPropagation();
+ e.nativeEvent.stopImmediatePropagation?.();
  setSearchQuery('');
  if (onJobRouteChange) {
  onJobRouteChange(companySearchSlug);
@@ -5809,7 +5803,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  <p className="mt-1 text-sm text-body">
  <a
  href={companySearchHref}
- onClick={openCompanyFilter}
+ onClickCapture={openCompanyFilter}
  className="hover:text-accent hover:underline underline-offset-2 transition-colors"
  >{selectedJob.company}</a>
  {' · '}
@@ -6007,7 +6001,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
 
  <a
  href={companySearchHref}
- onClick={openCompanyFilter}
+ onClickCapture={openCompanyFilter}
  className="block rounded-xl border border-edge bg-surface-alt/50 p-4 hover:border-accent-border hover:bg-surface-raised/70 transition-colors"
  >
  <div className="flex items-start gap-3">

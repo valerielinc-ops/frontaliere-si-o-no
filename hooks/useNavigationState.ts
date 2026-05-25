@@ -83,6 +83,7 @@ export interface NavigationState {
  setShowApiStatus: Dispatch<SetStateAction<boolean>>;
  setNotFoundPath: Dispatch<SetStateAction<string | undefined>>;
  setJobBoardFilterParams: Dispatch<SetStateAction<{ location?: string; query?: string } | null>>;
+ setStaticOverlay: Dispatch<SetStateAction<boolean>>;
 
  // Refs
  suppressNextRouteSyncForTabRef: MutableRefObject<ActiveTab | null>;
@@ -744,7 +745,7 @@ export function useNavigationState(): NavigationState {
  setGuidaSubTab, setVitaSubTab, setStatsSubTab,
  setBlogArticle, setSeoLanding, setGlossaryTerm, setBorderCrossing,
  setJobSlug, setAuthor, setTaxReturnCountry, setShowApiStatus,
- setNotFoundPath, setJobBoardFilterParams,
+ setNotFoundPath, setJobBoardFilterParams, setStaticOverlay,
 
  suppressNextRouteSyncForTabRef,
 
