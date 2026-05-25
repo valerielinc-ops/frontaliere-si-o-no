@@ -12,7 +12,6 @@
  * downstream code uses.
  */
 import { describe, expect, it } from 'vitest';
-// @ts-expect-error — .mjs without types
 import { cleanCrawlerArtifacts } from '../../scripts/lib/crawler-template.mjs';
 
 describe('cleanCrawlerArtifacts — mid-line separator runs', () => {
