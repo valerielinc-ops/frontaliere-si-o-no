@@ -191,9 +191,9 @@ describe('borderWaitPagesPlugin — page generation', () => {
   it('leaf pages have a self-referencing canonical and 4 hreflang alternates', () => {
     const path = buildOggiPath('it', 'chiasso-brogeda');
     const html = pages[path];
-    expect(html).toContain(`<link rel="canonical" href="https://frontaliereticino.ch${path}">`);
+    expect(html).toMatch(new RegExp(`<link\\s+rel=["']?canonical["']?\\s+href=["']?https://frontaliereticino\\.ch${path}["']?>`));
     for (const loc of BORDER_WAIT_LOCALES) {
-      expect(html).toContain(`hreflang="${loc}"`);
+      expect(html).toMatch(new RegExp(`\\bhreflang=["']?${loc}["']?`));
     }
   });
 
@@ -214,12 +214,12 @@ describe('borderWaitPagesPlugin — page generation', () => {
   it('Brogeda leaf page renders the webcam <figure> + attribution + loading="lazy"', () => {
     const html = pages[buildOggiPath('it', 'chiasso-brogeda')];
     expect(html).toContain('<figure');
-    expect(html).toContain('loading="lazy"');
-    expect(html).toContain('rel="nofollow noopener"');
+    expect(html).toMatch(/\bloading=["']?lazy["']?/);
+    expect(html).toMatch(/\brel=["']?nofollow noopener["']?/);
     expect(html).toContain('data-webcam-refresh=');
     expect(html).toContain('data-webcam-base-url=');
-    expect(html).toContain('width="640"');
-    expect(html).toContain('height="360"');
+    expect(html).toMatch(/\bwidth=["']?640["']?/);
+    expect(html).toMatch(/\bheight=["']?360["']?/);
   });
 
   it('a crossing WITHOUT configured webcams renders graceful fallback notice (no <figure>)', () => {

@@ -38,6 +38,7 @@ import {
   generateFuelStationPages,
   generateFuelItalianCityPages,
 } from '../build-plugins/fuelDailyPagesPlugin';
+import { htmlAttr, htmlTagWithAttrs, htmlTagWithClass } from './utils/htmlAttr';
 
 // Minimal dataset mimicking the real fuel-prices.json shape.
 // Covers 4 Ticino zones + 2 stations outside Ticino (Valais / Grisons) to
@@ -398,16 +399,19 @@ describe('generateFuelStationPages() — Ticino only', () => {
 
   it('every page has a self-referencing canonical', () => {
     for (const [path, html] of Object.entries(pages)) {
-      expect(html).toContain(`<link rel="canonical" href="https://frontaliereticino.ch${path}">`);
+      expect(html).toMatch(htmlTagWithAttrs('link', {
+        rel: 'canonical',
+        href: `https://frontaliereticino.ch${path}`,
+      }));
     }
   });
 
   it('every page has hreflang alternates for all 4 locales', () => {
     for (const html of Object.values(pages)) {
-      expect(html).toContain('hreflang="it"');
-      expect(html).toContain('hreflang="en"');
-      expect(html).toContain('hreflang="de"');
-      expect(html).toContain('hreflang="fr"');
+      expect(html).toMatch(htmlAttr('hreflang', 'it'));
+      expect(html).toMatch(htmlAttr('hreflang', 'en'));
+      expect(html).toMatch(htmlAttr('hreflang', 'de'));
+      expect(html).toMatch(htmlAttr('hreflang', 'fr'));
     }
   });
 
@@ -480,9 +484,9 @@ describe('generateFuelStationPages() — Ticino only', () => {
     expect(sample).toContain('bg-surface-alt');
     // #root is left EMPTY on SEO pages so React's hydration cannot visually
     // replace the static SEO content (bait-and-switch fix).
-    expect(sample).toMatch(/<div id="root"><\/div>/);
+    expect(sample).toMatch(/<div\b[^>]*\bid=["']?root["']?(?=[\s>])[^>]*><\/div>/);
     // SEO content lives in a sibling `<main class="seo-static-content">`.
-    expect(sample).toContain('<main class="seo-static-content">');
+    expect(sample).toMatch(htmlTagWithClass('main', 'seo-static-content'));
   });
 
   it('does not leak any dark: color prefix classes', () => {
@@ -509,6 +513,6 @@ describe('generateFuelStationPages() — sibling links', () => {
 
   it('page includes a related-links nav block', () => {
     const sample = pages['/prezzi-diesel/chiasso/stazioni/eni-via-compolongo/'];
-    expect(sample).toMatch(/<nav[^>]*id="seoRelatedLinks"/);
+    expect(sample).toMatch(htmlTagWithAttrs('nav', { id: 'seoRelatedLinks' }));
   });
 });

@@ -29,6 +29,7 @@ import {
   type JobMarketSnapshotLocale,
 } from '../build-plugins/jobMarketSnapshotData';
 import { generateSectorSnapshotPages } from '../build-plugins/jobMarketSnapshotPlugin';
+import { htmlAttr, htmlTagWithAttrs } from './utils/htmlAttr';
 
 // ── Slug tables ───────────────────────────────────────────
 
@@ -202,19 +203,20 @@ describe('generateSectorSnapshotPages', () => {
 
   it('every sector page has self-referencing canonical', () => {
     for (const [path, html] of Object.entries(out.pages)) {
-      expect(html, `canonical missing on ${path}`).toContain(
-        `<link rel="canonical" href="https://frontaliereticino.ch${path}">`,
-      );
+      expect(html, `canonical missing on ${path}`).toMatch(htmlTagWithAttrs('link', {
+        rel: 'canonical',
+        href: `https://frontaliereticino.ch${path}`,
+      }));
     }
   });
 
   it('every sector page emits hreflang for all 4 locales + x-default', () => {
     for (const [path, html] of Object.entries(out.pages)) {
-      expect(html, `hreflang it missing on ${path}`).toContain('hreflang="it"');
-      expect(html).toContain('hreflang="en"');
-      expect(html).toContain('hreflang="de"');
-      expect(html).toContain('hreflang="fr"');
-      expect(html).toContain('hreflang="x-default"');
+      expect(html, `hreflang it missing on ${path}`).toMatch(htmlAttr('hreflang', 'it'));
+      expect(html).toMatch(htmlAttr('hreflang', 'en'));
+      expect(html).toMatch(htmlAttr('hreflang', 'de'));
+      expect(html).toMatch(htmlAttr('hreflang', 'fr'));
+      expect(html).toMatch(htmlAttr('hreflang', 'x-default'));
     }
   });
 
@@ -232,8 +234,8 @@ describe('generateSectorSnapshotPages', () => {
 
   it('every sector page is index,follow (not noindex)', () => {
     for (const [path, html] of Object.entries(out.pages)) {
-      expect(html).toContain('name="robots" content="index,follow"');
-      expect(html, `${path} is noindex`).not.toContain('name="robots" content="noindex');
+      expect(html).toMatch(htmlTagWithAttrs('meta', { name: 'robots', content: 'index,follow' }));
+      expect(html, `${path} is noindex`).not.toMatch(htmlTagWithAttrs('meta', { name: 'robots', content: 'noindex,follow' }));
     }
   });
 

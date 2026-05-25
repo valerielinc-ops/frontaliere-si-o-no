@@ -12,6 +12,7 @@
 
 import { describe, expect, it } from 'vitest';
 import { generateFuelItalianStationPages } from '../build-plugins/fuelDailyPagesPlugin';
+import { htmlAttr } from './utils/htmlAttr';
 
 const TODAY = new Date('2026-05-18T06:00:00Z');
 
@@ -93,27 +94,31 @@ function render() {
   });
 }
 
+function indexOfMatch(html: string, pattern: RegExp): number {
+  return html.search(pattern);
+}
+
 describe('IT per-station page — hero', () => {
   it('emits an above-the-fold hero card with brand name, EUR price, and fuel label', () => {
     const pages = render();
     const path = '/prezzi-benzina/italia/como/stazioni/carrefour-via-cristoforo-colombo/';
     expect(pages[path]).toBeDefined();
     const html = pages[path];
-    expect(html).toContain('aria-label="Carrefour Como"');
+    expect(html).toMatch(htmlAttr('aria-label', 'Carrefour Como'));
     // Class-extract migration (2026-05-20): the hero-price font-size:clamp(...)
     // rule moved from inline `style=` to a content-hashed class in seo-static.css.
-    expect(html).toMatch(/(font-size:clamp\(2\.2rem,6vw,3rem\);font-weight:800|class="s-[A-Za-z0-9_-]+")[^>]*>1,650</);
+    expect(html).toMatch(/(font-size:clamp\(2\.2rem,6vw,3rem\);font-weight:800|class=["']?s-[A-Za-z0-9_-]+["']?)[^>]*>1,650</);
     expect(html).toContain('EUR/litro · Benzina');
   });
 
   it('places hero BEFORE long prose (mobile-first ordering)', () => {
     const pages = render();
     const html = pages['/prezzi-benzina/italia/como/stazioni/carrefour-via-cristoforo-colombo/'];
-    const idxHero = html.indexOf('aria-label="Carrefour Como"');
+    const idxHero = indexOfMatch(html, htmlAttr('aria-label', 'Carrefour Como'));
     const idxAdvice = html.indexOf('data-station-advice');
-    const idxLocation = html.indexOf('aria-labelledby="stationLocation"');
-    const idxInfo = html.indexOf('aria-labelledby="itStationInfo"');
-    const idxContext = html.indexOf('aria-labelledby="itStationContext"');
+    const idxLocation = indexOfMatch(html, htmlAttr('aria-labelledby', 'stationLocation'));
+    const idxInfo = indexOfMatch(html, htmlAttr('aria-labelledby', 'itStationInfo'));
+    const idxContext = indexOfMatch(html, htmlAttr('aria-labelledby', 'itStationContext'));
     expect(idxHero).toBeGreaterThan(0);
     expect(idxAdvice).toBeGreaterThan(idxHero);
     expect(idxLocation).toBeGreaterThan(idxAdvice);
@@ -127,7 +132,7 @@ describe('IT per-station page — hero', () => {
     expect(html).toContain('<path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/>'); // trophy
     expect(html).toContain('<polygon points="3 11 22 2 13 21 11 13 3 11"/>'); // navigation
     expect(html).toContain('<path d="M3 3v18h18"/>'); // bar-chart
-    const heroChunk = html.slice(html.indexOf('aria-label="Carrefour Como"'), html.indexOf('data-station-advice'));
+    const heroChunk = html.slice(indexOfMatch(html, htmlAttr('aria-label', 'Carrefour Como')), html.indexOf('data-station-advice'));
     expect(heroChunk).not.toMatch(/🏆|📍|🚗|📊|📌|🧭/);
   });
 
@@ -137,7 +142,7 @@ describe('IT per-station page — hero', () => {
     expect(html).toContain('1° su 3 a Como');
     const rankIdx = html.indexOf('1° su 3 a Como');
     const window = html.slice(Math.max(0, rankIdx - 1200), rankIdx);
-    expect(window).toMatch(/href="https:\/\/frontaliereticino\.ch\/prezzi-benzina\/italia\/como\/oggi\/"/);
+    expect(window).toMatch(htmlAttr('href', 'https://frontaliereticino.ch/prezzi-benzina/italia/como/oggi/'));
   });
 });
 
@@ -145,14 +150,14 @@ describe('IT per-station page — brand logo', () => {
   it('uses /images/brands/{slug}.svg when a real logo exists (Carrefour)', () => {
     const pages = render();
     const html = pages['/prezzi-benzina/italia/como/stazioni/carrefour-via-cristoforo-colombo/'];
-    expect(html).toContain('src="/images/brands/carrefour.svg"');
-    expect(html).toContain('alt="Carrefour"');
+    expect(html).toMatch(htmlAttr('src', '/images/brands/carrefour.svg'));
+    expect(html).toMatch(htmlAttr('alt', 'Carrefour'));
   });
 
   it('falls back to monogram chip when no brand SVG is on disk', () => {
     const pages = render();
     const html = pages['/prezzi-benzina/italia/como/stazioni/indiebrand-via-roma/'];
-    expect(html).not.toContain('src="/images/brands/indiebrand.svg"');
+    expect(html).not.toMatch(htmlAttr('src', '/images/brands/indiebrand.svg'));
     // Monogram chip uses accent-subtle background + first letter I
     expect(html).toMatch(/border-radius:14px;background:var\(--color-accent-subtle\)[^>]*flex-shrink:0">I</);
   });
@@ -183,14 +188,14 @@ describe('IT per-station page — location card', () => {
     const pages = render();
     const html = pages['/prezzi-benzina/italia/como/stazioni/carrefour-via-cristoforo-colombo/'];
     expect(html).toContain('openstreetmap.org/export/embed.html');
-    expect(html).toContain('loading="lazy"');
+    expect(html).toMatch(htmlAttr('loading', 'lazy'));
     expect(html).toMatch(/marker=45\.810000%2C9\.083000/);
     expect(html).toContain('https://www.google.com/maps/search/?api=1&amp;query=45.810000,9.083000');
     expect(html).toContain('https://www.waze.com/ul?ll=45.810000%2C9.083000&amp;navigate=yes');
     // OSM text-fallback link
-    expect(html).toMatch(/href="https:\/\/www\.openstreetmap\.org\/\?mlat=45\.810000&amp;mlon=9\.083000/);
+    expect(html).toMatch(/href=["']?https:\/\/www\.openstreetmap\.org\/\?mlat=45\.810000&amp;mlon=9\.083000/);
     // aria-label external-link warning
-    expect(html).toMatch(/aria-label="Apri in Google Maps \(apre in una nuova scheda\)"/);
+    expect(html).toMatch(htmlAttr('aria-label', 'Apri in Google Maps (apre in una nuova scheda)'));
   });
 
   it('omits the location card when the station has no lat/lng', () => {
@@ -209,7 +214,7 @@ describe('IT per-station page — location card', () => {
     });
     const html = pages['/prezzi-benzina/italia/como/stazioni/nogeobrand-via-senza-coord/'];
     expect(html).toBeDefined();
-    expect(html).not.toContain('aria-labelledby="stationLocation"');
+    expect(html).not.toMatch(htmlAttr('aria-labelledby', 'stationLocation'));
     expect(html).not.toContain('openstreetmap.org/export');
   });
 });
@@ -228,7 +233,7 @@ describe('IT per-station page — last-updated timestamp on chart', () => {
       rootDir: process.cwd(),
     });
     const html = pages['/prezzi-benzina/italia/como/stazioni/carrefour-via-cristoforo-colombo/'];
-    expect(html).toContain('aria-labelledby="itStationTrend"');
+    expect(html).toMatch(htmlAttr('aria-labelledby', 'itStationTrend'));
     expect(html).toContain('Ultimo aggiornamento: 2026-05-18');
   });
 });

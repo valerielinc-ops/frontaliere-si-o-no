@@ -12,6 +12,7 @@ import { generateFuelStationPages } from '../build-plugins/fuelDailyPagesPlugin'
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 import { buildStationSlug as _buildStationSlugJsRaw } from '../scripts/lib/fuel-station-slug.mjs';
 import { buildStationSlug as buildStationSlugTs } from '../build-plugins/fuelDailyData';
+import { htmlAttr } from './utils/htmlAttr';
 
 // `.mjs` has no `.d.ts` companion, so TS infers strict-required object props.
 // At runtime the JS twin accepts undefined/null/missing fields exactly like
@@ -97,17 +98,21 @@ function render() {
   });
 }
 
+function indexOfMatch(html: string, pattern: RegExp): number {
+  return html.search(pattern);
+}
+
 describe('Per-station page redesign — hero', () => {
   it('emits an above-the-fold hero card with brand name, price, and CHF/Diesel currency label', () => {
     const pages = render();
     const path = '/prezzi-diesel/chiasso/stazioni/migrol-via-cantonale/';
     expect(pages[path]).toBeDefined();
     const html = pages[path];
-    expect(html).toContain('aria-label="Migrol Chiasso"');
+    expect(html).toMatch(htmlAttr('aria-label', 'Migrol Chiasso'));
     // Class-extract migration (2026-05-20): the hero-price font-size:clamp(...) rule
     // moved from inline `style=` to a content-hashed class in seo-static.css. The
     // assertion accepts EITHER the legacy inline form or the new `class="s-..."` form.
-    expect(html).toMatch(/(font-size:clamp\(2\.2rem,6vw,3rem\);font-weight:800|class="s-[A-Za-z0-9_-]+")[^>]*>1,950</);
+    expect(html).toMatch(/(font-size:clamp\(2\.2rem,6vw,3rem\);font-weight:800|class=["']?s-[A-Za-z0-9_-]+["']?)[^>]*>1,950</);
     expect(html).toContain('CHF/litro · Diesel');
   });
 
@@ -115,10 +120,10 @@ describe('Per-station page redesign — hero', () => {
     const pages = render();
     const html = pages['/prezzi-diesel/chiasso/stazioni/silo-via-emilio-bossi/'];
     // Hero card aria-label format is "{brand} {city}"
-    const idxHero = html.indexOf('aria-label="Silo Chiasso"');
+    const idxHero = indexOfMatch(html, htmlAttr('aria-label', 'Silo Chiasso'));
     const idxAdvice = html.indexOf('data-station-advice');
-    const idxLocation = html.indexOf('aria-labelledby="stationLocation"');
-    const idxReview = html.indexOf('aria-labelledby="stationReview"');
+    const idxLocation = indexOfMatch(html, htmlAttr('aria-labelledby', 'stationLocation'));
+    const idxReview = indexOfMatch(html, htmlAttr('aria-labelledby', 'stationReview'));
     expect(idxHero).toBeGreaterThan(0);
     expect(idxAdvice).toBeGreaterThan(idxHero);
     expect(idxLocation).toBeGreaterThan(idxAdvice);
@@ -136,7 +141,7 @@ describe('Per-station page redesign — hero', () => {
     const rankIdx = html.indexOf('1° su 3 a Chiasso');
     // ~800 chars to clear the inline lucide SVG markup between href and rank label.
     const window = html.slice(Math.max(0, rankIdx - 1200), rankIdx);
-    expect(window).toMatch(/href="https:\/\/frontaliereticino\.ch\/prezzi-diesel\/chiasso\/oggi\/"/);
+    expect(window).toMatch(htmlAttr('href', 'https://frontaliereticino.ch/prezzi-diesel/chiasso/oggi/'));
   });
 
   it('uses lucide SVG icons (no emoji) for trophy/map-pin/navigation/bar-chart in the hero', () => {
@@ -149,7 +154,7 @@ describe('Per-station page redesign — hero', () => {
     // Lucide bar-chart-3 signature
     expect(html).toContain('<path d="M3 3v18h18"/>');
     // No raw emoji should remain in the hero area
-    const heroChunk = html.slice(html.indexOf('aria-label="Migrol'), html.indexOf('data-station-advice'));
+    const heroChunk = html.slice(indexOfMatch(html, htmlAttr('aria-label', 'Migrol Chiasso')), html.indexOf('data-station-advice'));
     expect(heroChunk).not.toMatch(/🏆|📍|🚗|📊|📌|🧭/);
   });
 });
@@ -158,15 +163,15 @@ describe('Per-station page redesign — brand logo', () => {
   it('uses /images/brands/{slug}.svg when a real logo exists for the brand', () => {
     const pages = render();
     const html = pages['/prezzi-diesel/chiasso/stazioni/migrol-via-cantonale/'];
-    expect(html).toContain('src="/images/brands/migrol.svg"');
-    expect(html).toContain('alt="Migrol"');
+    expect(html).toMatch(htmlAttr('src', '/images/brands/migrol.svg'));
+    expect(html).toMatch(htmlAttr('alt', 'Migrol'));
   });
 
   it('falls back to a monogram chip when no brand SVG is on disk (Silo)', () => {
     const pages = render();
     const html = pages['/prezzi-diesel/chiasso/stazioni/silo-via-emilio-bossi/'];
     // Silo has no logo file — monogram chip with first letter "S"
-    expect(html).not.toContain('src="/images/brands/silo.svg"');
+    expect(html).not.toMatch(htmlAttr('src', '/images/brands/silo.svg'));
     expect(html).toMatch(/border-radius:14px;background:var\(--color-accent-subtle\)[^>]*flex-shrink:0">S</);
   });
 });
@@ -197,7 +202,7 @@ describe('Per-station page redesign — location card', () => {
     const pages = render();
     const html = pages['/prezzi-diesel/chiasso/stazioni/migrol-via-cantonale/'];
     expect(html).toContain('<iframe');
-    expect(html).toContain('loading="lazy"');
+    expect(html).toMatch(htmlAttr('loading', 'lazy'));
     expect(html).toContain('openstreetmap.org/export/embed.html');
     expect(html).toMatch(/marker=45\.836000%2C9\.033000/);
     expect(html).toMatch(/bbox=9\.02700%2C45\.83000%2C9\.03900%2C45\.84200/);
@@ -231,7 +236,8 @@ describe('Per-station page redesign — location card', () => {
     } else {
       // Extract referenced s-* classes from html, then verify at least one
       // of them resolves to the expected grid rule in seo-static.css.
-      const classMatches = [...html.matchAll(/class="(?:[^"]* )?(s-[A-Za-z0-9_-]+)/g)].map(m => m[1]);
+      const classMatches = [...html.matchAll(/\bclass=(?:"(?:[^"]* )?(s-[A-Za-z0-9_-]+)"|'(?:[^']* )?(s-[A-Za-z0-9_-]+)'|(s-[A-Za-z0-9_-]+))/g)]
+        .map((m) => m[1] || m[2] || m[3]);
       const targetClass = classMatches.find((c) => {
         const rule = new RegExp(`\\.${c}\\s*\\{[^}]*grid-template-columns:repeat\\(auto-fit,minmax\\(320px,1fr\\)\\)`, 'm');
         return rule.test(cssRules);
@@ -245,13 +251,13 @@ describe('Per-station page redesign — location card', () => {
     const pages = render();
     const html = pages['/prezzi-diesel/chiasso/stazioni/migrol-via-cantonale/'];
     // aria-label includes the "(apre in una nuova scheda)" suffix
-    expect(html).toMatch(/aria-label="Apri in Google Maps \(apre in una nuova scheda\)"/);
-    expect(html).toMatch(/aria-label="Apri in Waze \(apre in una nuova scheda\)"/);
-    expect(html).toMatch(/aria-label="Apri su OpenStreetMap \(apre in una nuova scheda\)"/);
+    expect(html).toMatch(htmlAttr('aria-label', 'Apri in Google Maps (apre in una nuova scheda)'));
+    expect(html).toMatch(htmlAttr('aria-label', 'Apri in Waze (apre in una nuova scheda)'));
+    expect(html).toMatch(htmlAttr('aria-label', 'Apri su OpenStreetMap (apre in una nuova scheda)'));
     // Visible ↗ marker (decorative, aria-hidden) appears next to each external CTA
-    expect(html).toMatch(/aria-hidden="true"[^>]*>↗/);
+    expect(html).toMatch(/aria-hidden=["']?true["']?[^>]*>↗/);
     // OSM text fallback link points to the full openstreetmap.org marker URL
-    expect(html).toMatch(/href="https:\/\/www\.openstreetmap\.org\/\?mlat=45\.836000&amp;mlon=9\.033000#map=17\/45\.836000\/9\.033000"/);
+    expect(html).toMatch(htmlAttr('href', 'https://www.openstreetmap.org/?mlat=45.836000&amp;mlon=9.033000#map=17/45.836000/9.033000'));
   });
 
   it('omits the location card entirely when the station has no lat/lng', () => {
@@ -271,7 +277,7 @@ describe('Per-station page redesign — location card', () => {
     });
     const html = pages['/prezzi-diesel/chiasso/stazioni/testbrand-via-test/'];
     expect(html).toBeDefined();
-    expect(html).not.toContain('aria-labelledby="stationLocation"');
+    expect(html).not.toMatch(htmlAttr('aria-labelledby', 'stationLocation'));
     expect(html).not.toContain('openstreetmap.org/export');
   });
 });
@@ -284,7 +290,7 @@ describe('Per-station page redesign — history chart', () => {
       history: [],
     });
     const html = pages['/prezzi-diesel/chiasso/stazioni/migrol-via-cantonale/'];
-    expect(html).not.toContain('aria-labelledby="stationHistory"');
+    expect(html).not.toMatch(htmlAttr('aria-labelledby', 'stationHistory'));
   });
 
   it('falls back to the zone chart with disclaimer when station-level history is sparse', () => {
@@ -300,7 +306,7 @@ describe('Per-station page redesign — history chart', () => {
       history,
     });
     const html = pages['/prezzi-diesel/chiasso/stazioni/migrol-via-cantonale/'];
-    expect(html).toContain('aria-labelledby="stationHistory"');
+    expect(html).toMatch(htmlAttr('aria-labelledby', 'stationHistory'));
     expect(html).toContain('Andamento prezzo nella zona Chiasso');
     expect(html).toMatch(/non ancora disponibile/);
   });

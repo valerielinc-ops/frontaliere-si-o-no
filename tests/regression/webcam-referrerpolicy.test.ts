@@ -54,7 +54,7 @@ describe('F8 webcam — referrerpolicy', () => {
   it('<img> carries referrerpolicy="no-referrer"', () => {
     // This attribute bypasses the ti.ch hotlink-protection check that
     // sends 403 when a Referer header is present.
-    expect(BROGEDA_IT).toContain('referrerpolicy="no-referrer"');
+    expect(BROGEDA_IT).toMatch(/\breferrerpolicy=["']?no-referrer["']?/);
   });
 
   it('every webcam <img> on this page has referrerpolicy="no-referrer"', () => {
@@ -64,8 +64,8 @@ describe('F8 webcam — referrerpolicy', () => {
     const webcamImgs = imgTags.filter((tag) => tag.includes('data-webcam-refresh'));
     expect(webcamImgs.length).toBeGreaterThanOrEqual(1);
     for (const img of webcamImgs) {
-      expect(img, `img missing referrerpolicy: ${img.slice(0, 100)}`).toContain(
-        'referrerpolicy="no-referrer"',
+      expect(img, `img missing referrerpolicy: ${img.slice(0, 100)}`).toMatch(
+        /\breferrerpolicy=["']?no-referrer["']?/,
       );
     }
   });
@@ -87,7 +87,11 @@ function htmlOrCssHas(html: string, declarations: ReadonlyArray<string>): boolea
     require('node:path').resolve(__dirname, '..', '..', 'public', 'assets', 'seo-static.css'),
     'utf-8',
   );
-  const classes = new Set([...html.matchAll(/class="(?:[^"]* )?(s-[A-Za-z0-9_-]+)/g)].map((m) => m[1]));
+  const classes = new Set(
+    [...html.matchAll(/\bclass=(?:"([^"]+)"|'([^']+)'|([^\s>]+))/g)]
+      .flatMap((m) => (m[1] || m[2] || m[3] || '').split(/\s+/))
+      .filter((c) => /^s-[A-Za-z0-9_-]+$/.test(c)),
+  );
   for (const c of classes) {
     const rule = cssRules.match(new RegExp(`\\.${c}\\s*\\{([^}]*)\\}`));
     if (!rule) continue;
@@ -139,7 +143,7 @@ describe('F8 webcam — multi-locale regression', () => {
       const html = pages[buildOggiPath(locale, 'chiasso-brogeda')];
       expect(typeof html).toBe('string');
       if (html.includes('data-webcam-refresh')) {
-        expect(html).toContain('referrerpolicy="no-referrer"');
+        expect(html).toMatch(/\breferrerpolicy=["']?no-referrer["']?/);
       }
     });
 

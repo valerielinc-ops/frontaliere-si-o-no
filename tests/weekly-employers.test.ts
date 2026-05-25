@@ -46,6 +46,7 @@ import {
   type JobsSnapshot,
   type WeeklyCountableJob,
 } from '../build-plugins/weeklyEmployersPlugin';
+import { htmlAttr, htmlTagWithAttrs } from './utils/htmlAttr';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -405,7 +406,7 @@ describe('renderWeeklyEmployersPage', () => {
     const words = html.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim().split(' ').filter(Boolean).length;
     expect(words).toBeGreaterThanOrEqual(300);
     expect(html).toContain('<title>');
-    expect(html).toContain('rel="canonical"');
+    expect(html).toMatch(htmlAttr('rel', 'canonical'));
     expect(html).toContain('application/ld+json');
     expect(html).toContain('"@type":"ItemList"');
     expect(html).toContain('"@type":"BreadcrumbList"');
@@ -505,11 +506,14 @@ describe('renderWeeklyEmployersPage', () => {
       today: new Date('2026-04-20T12:00:00Z'),
       indexable: true,
     });
-    expect(html).toContain(`rel="canonical" href="https://frontaliereticino.ch${path}"`);
+    expect(html).toMatch(htmlTagWithAttrs('link', {
+      rel: 'canonical',
+      href: `https://frontaliereticino.ch${path}`,
+    }));
     for (const alt of WEEKLY_EMPLOYERS_LOCALES) {
-      expect(html).toContain(`hreflang="${alt}"`);
+      expect(html).toMatch(htmlAttr('hreflang', alt));
     }
-    expect(html).toContain('hreflang="x-default"');
+    expect(html).toMatch(htmlAttr('hreflang', 'x-default'));
   });
 });
 

@@ -43,6 +43,7 @@ import {
   generateRelatedLinks,
   generateRelatedLinksBlock,
 } from '../build-plugins/shared/relatedLinks';
+import { htmlAttr, htmlTagWithAttrs } from './utils/htmlAttr';
 
 // ── Fixture helpers ─────────────────────────────────────────────
 
@@ -515,7 +516,10 @@ describe('renderCompanyCityPage', () => {
 
   it('emits canonical self-ref, ItemList JobPosting JSON-LD + FAQ', () => {
     const html = renderCompanyCityPage(fixture);
-    expect(html).toContain(`rel="canonical" href="https://frontaliereticino.ch${fixture.canonicalPath}"`);
+    expect(html).toMatch(htmlTagWithAttrs('link', {
+      rel: 'canonical',
+      href: `https://frontaliereticino.ch${fixture.canonicalPath}`,
+    }));
     expect(html).toContain('"@type":"ItemList"');
     expect(html).toContain('"@type":"JobPosting"');
     expect(html).toContain('"@type":"FAQPage"');
@@ -583,7 +587,7 @@ describe('renderCompanyCityPage', () => {
   it('links each listed job to the canonical detail path', () => {
     const html = renderCompanyCityPage(fixture);
     for (const job of fixture.stats.activeJobs) {
-      expect(html).toContain(`href="${job.detailPath}"`);
+      expect(html).toMatch(htmlAttr('href', job.detailPath));
     }
   });
 
@@ -623,9 +627,9 @@ describe('renderCompanyCityPage', () => {
   it('emits hreflang alternates across the 4 locales + x-default', () => {
     const html = renderCompanyCityPage(fixture);
     for (const alt of WEEKLY_EMPLOYERS_LOCALES) {
-      expect(html).toContain(`hreflang="${alt}"`);
+      expect(html).toMatch(htmlAttr('hreflang', alt));
     }
-    expect(html).toContain('hreflang="x-default"');
+    expect(html).toMatch(htmlAttr('hreflang', 'x-default'));
   });
 
   it('injects sibling links when siblings are provided', () => {

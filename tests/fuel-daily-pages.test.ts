@@ -27,6 +27,7 @@ import {
   generateFuelArchivePages,
   generateFuelDailyPages,
 } from '../build-plugins/fuelDailyPagesPlugin';
+import { htmlAttr, htmlTagWithAttrs } from './utils/htmlAttr';
 
 // Minimal dataset sufficient for the renderer (nearby Swiss stations in each
 // target zone + enough copy seeds to clear the 250-word gate).
@@ -168,16 +169,19 @@ describe('fuel-daily page generation — content quality', () => {
 
   it('every page sets self-referencing canonical', () => {
     for (const [path, html] of Object.entries(pages)) {
-      expect(html).toContain(`<link rel="canonical" href="https://frontaliereticino.ch${path}">`);
+      expect(html).toMatch(htmlTagWithAttrs('link', {
+        rel: 'canonical',
+        href: `https://frontaliereticino.ch${path}`,
+      }));
     }
   });
 
   it('every page has hreflang alternates for all 4 locales', () => {
     for (const html of Object.values(pages)) {
-      expect(html).toContain('hreflang="it"');
-      expect(html).toContain('hreflang="en"');
-      expect(html).toContain('hreflang="de"');
-      expect(html).toContain('hreflang="fr"');
+      expect(html).toMatch(htmlAttr('hreflang', 'it'));
+      expect(html).toMatch(htmlAttr('hreflang', 'en'));
+      expect(html).toMatch(htmlAttr('hreflang', 'de'));
+      expect(html).toMatch(htmlAttr('hreflang', 'fr'));
     }
   });
 

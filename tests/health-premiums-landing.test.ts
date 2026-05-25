@@ -53,6 +53,7 @@ import {
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
+import { htmlAttr, htmlTagWithAttrs } from './utils/htmlAttr';
 
 /**
  * Minimal but realistic dataset covering the 5 target cantons.
@@ -835,18 +836,19 @@ describe('generateHealthPremiumsPages — content quality', () => {
 
   it('every page has self-referencing canonical', () => {
     for (const [path, html] of Object.entries(generation.pages)) {
-      expect(html, path).toContain(
-        `<link rel="canonical" href="https://frontaliereticino.ch${path}">`,
-      );
+      expect(html, path).toMatch(htmlTagWithAttrs('link', {
+        rel: 'canonical',
+        href: `https://frontaliereticino.ch${path}`,
+      }));
     }
   });
 
   it('every page has hreflang alternates for all 4 locales', () => {
     for (const [path, html] of Object.entries(generation.pages)) {
-      expect(html, `${path} missing hreflang=it`).toContain('hreflang="it"');
-      expect(html, `${path} missing hreflang=en`).toContain('hreflang="en"');
-      expect(html, `${path} missing hreflang=de`).toContain('hreflang="de"');
-      expect(html, `${path} missing hreflang=fr`).toContain('hreflang="fr"');
+      expect(html, `${path} missing hreflang=it`).toMatch(htmlAttr('hreflang', 'it'));
+      expect(html, `${path} missing hreflang=en`).toMatch(htmlAttr('hreflang', 'en'));
+      expect(html, `${path} missing hreflang=de`).toMatch(htmlAttr('hreflang', 'de'));
+      expect(html, `${path} missing hreflang=fr`).toMatch(htmlAttr('hreflang', 'fr'));
     }
   });
 
@@ -1767,16 +1769,17 @@ describe('generateHealthPremiumsPages — full 26-canton coverage (B-cont-2)', (
 
   it('every page has self-referencing canonical', () => {
     for (const [path, html] of Object.entries(gen.pages)) {
-      expect(html, path).toContain(
-        `<link rel="canonical" href="https://frontaliereticino.ch${path}">`,
-      );
+      expect(html, path).toMatch(htmlTagWithAttrs('link', {
+        rel: 'canonical',
+        href: `https://frontaliereticino.ch${path}`,
+      }));
     }
   });
 
   it('every page has hreflang alternates for all 4 locales', () => {
     for (const [path, html] of Object.entries(gen.pages)) {
       for (const loc of HEALTH_PREMIUM_LOCALES) {
-        expect(html, `${path} missing hreflang=${loc}`).toContain(`hreflang="${loc}"`);
+        expect(html, `${path} missing hreflang=${loc}`).toMatch(htmlAttr('hreflang', loc));
       }
     }
   });
