@@ -787,12 +787,12 @@
     },
     {
       "id": "sobi-434ece0616da",
-      "slug": "strategic-planning-manager-supply-chain-sobi-basel",
+      "slug": "responsabile-pianificazione-strategica-supply-chain-sobi-basel",
       "slugByLocale": {
         "en": "strategic-planning-manager-supply-chain-sobi-basel",
-        "it": "strategic-planning-manager-supply-chain-sobi-basel",
+        "it": "responsabile-pianificazione-strategica-supply-chain-sobi-basel",
         "de": "strategic-planning-manager-supply-chain-sobi-basel",
-        "fr": "strategic-planning-manager-supply-chain-sobi-basel"
+        "fr": "gestionnaire-de-la-planification-strategique-sobi-basel"
       },
       "company": "Sobi",
       "companyKey": "sobi",
@@ -848,7 +848,18 @@
         }
       },
       "postalCode": "4001",
-      "firstSeenAt": "2026-05-25T13:58:41.327Z"
+      "firstSeenAt": "2026-05-25T13:58:41.327Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "strategic-planning-manager-supply-chain-sobi-basel"
+        ],
+        "fr": [
+          "strategic-planning-manager-supply-chain-sobi-basel"
+        ]
+      },
+      "previousSlugs": [
+        "strategic-planning-manager-supply-chain-sobi-basel"
+      ]
     }
   ]
 }

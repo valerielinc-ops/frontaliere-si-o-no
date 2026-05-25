@@ -10346,8 +10346,7 @@
       "previousSlugsByLocale": {
         "it": [
           "m-odszy-specjalista-m-odsza-specjalistka-ds-logistyki-magazynowej-roche-ch",
-          "specialista-junior-specialista-di-logistica-di-magazzino-junior-roche-warsaw",
-          "m-odszy-specjalista-m-odsza-specjalistka-ds-logistyki-magazynowej-roche-warsaw"
+          "specialista-junior-specialista-di-logistica-di-magazzino-junior-roche-warsaw"
         ]
       },
       "needsRetranslation": true,
@@ -12574,8 +12573,7 @@
       "previousSlugsByLocale": {
         "it": [
           "practicante-de-business-center-roche-ch",
-          "centro-praticante-de-business-roche-lima",
-          "practicante-de-business-center-roche-lima"
+          "centro-praticante-de-business-roche-lima"
         ]
       },
       "needsRetranslation": true,
@@ -16330,8 +16328,7 @@
       "previousSlugsByLocale": {
         "it": [
           "especialista-en-licitaciones-roche-ch",
-          "specialist-en-licitaciones-roche-mexico-city",
-          "especialista-en-licitaciones-roche-mexico-city"
+          "specialist-en-licitaciones-roche-mexico-city"
         ]
       },
       "needsRetranslation": true,
@@ -16968,8 +16965,7 @@
         ],
         "it": [
           "histotechnician-roche-ch",
-          "istotecnico-roche-tucson",
-          "histotechnician-roche-tucson"
+          "istotecnico-roche-tucson"
         ]
       },
       "previousSlugs": [
@@ -19969,8 +19965,7 @@
         "it": [
           "global-digital-campaign-expert-talent-pool-roche-ch",
           "esperto-globale-di-campagne-digitali-talent-pool-roche-budapest",
-          "esperto-di-campagne-digitali-globali-pool-di-talenti-roche-budapest",
-          "global-digital-campaign-expert-talent-pool-roche-budapest"
+          "esperto-di-campagne-digitali-globali-pool-di-talenti-roche-budapest"
         ]
       },
       "needsRetranslation": true,
@@ -27063,8 +27058,8 @@
       "slugByLocale": {
         "en": "training-service-quality-specialist-roche-ch",
         "it": "training-service-quality-specialist-roche-ch",
-        "de": "training-service-quality-specialist-roche-ch",
-        "fr": "training-service-quality-specialist-roche-ch"
+        "de": "training-service-qualitat-spezialist-roche-buenos-aires",
+        "fr": "training-service-qualite-specialiste-roche-buenos-aires"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -27204,10 +27199,10 @@
     },
     {
       "id": "roche-a22acdface08",
-      "slug": "erp-business-analyst-finance-roche-ch",
+      "slug": "erp-business-analista-finanza-roche-shanghai",
       "slugByLocale": {
         "en": "erp-business-analyst-finance-roche-ch",
-        "it": "erp-business-analyst-finance-roche-ch",
+        "it": "erp-business-analista-finanza-roche-shanghai",
         "de": "erp-business-analyst-finance-roche-ch",
         "fr": "erp-business-analyst-finance-roche-ch"
       },
@@ -27264,7 +27259,15 @@
         }
       },
       "firstSeenAt": "2026-05-25T13:52:09.914Z",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "erp-business-analyst-finance-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "erp-business-analyst-finance-roche-ch"
+      ]
     },
     {
       "id": "roche-e651a228bab5",
@@ -27715,12 +27718,12 @@
     },
     {
       "id": "roche-42ff16be8b7a",
-      "slug": "head-of-technology-accounts-and-software-asset-management-roche-ch",
+      "slug": "capo-dei-conti-tecnologici-e-della-gestione-dei-beni-software-roche-basel",
       "slugByLocale": {
         "en": "head-of-technology-accounts-and-software-asset-management-roche-ch",
-        "it": "head-of-technology-accounts-and-software-asset-management-roche-ch",
+        "it": "capo-dei-conti-tecnologici-e-della-gestione-dei-beni-software-roche-basel",
         "de": "head-of-technology-accounts-and-software-asset-management-roche-ch",
-        "fr": "head-of-technology-accounts-and-software-asset-management-roche-ch"
+        "fr": "responsable-des-comptes-technologiques-et-de-la-gestion-des-biens-logiciels-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -27774,7 +27777,18 @@
         }
       },
       "postalCode": "4001",
-      "firstSeenAt": "2026-05-25T13:52:01.713Z"
+      "firstSeenAt": "2026-05-25T13:52:01.713Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "head-of-technology-accounts-and-software-asset-management-roche-ch"
+        ],
+        "fr": [
+          "head-of-technology-accounts-and-software-asset-management-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "head-of-technology-accounts-and-software-asset-management-roche-ch"
+      ]
     },
     {
       "id": "roche-7d60773513f3",
