@@ -13,7 +13,9 @@ This file is intentionally compact: it is injected into every agent session. Kee
 
 ## Workflow
 
-- Use a separate worktree for non-trivial code changes when the main tree has foreign changes or parallel agents may be active.
+- Worktree-first is mandatory for every task that will edit, commit, or push files: create a dedicated branch worktree before making changes. Treat the local `main` checkout as shared/read-only for status and inspection only.
+- Never edit, stage, stash, restore, commit, rebase, or merge in the local `main` checkout unless the user explicitly asks for that exact operation. Existing dirty files on `main` are foreign work and must be left untouched.
+- Parallel/subagent work must always use isolated worktrees; never share a working directory between agents.
 - Auto commit and push successful tasks. Use PR-as-merge-vehicle when landing on `main`: create PR, squash merge, delete remote branch, then remove the worktree.
 - GitHub operations use `gh` CLI only.
 - Never run `send-newsletter.mjs --send` locally. Use `--preview` or `--test --target-email <email>`.
