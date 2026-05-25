@@ -38,7 +38,7 @@
  */
 
 import { BASE_URL } from '../constants';
-import fuelPricesSnapshot from '../../public/data/fuel-prices.json';
+import fuelPricesSnapshot from '../../data/fuel-prices.json';
 
 export type CompanyHubFrontalierContextLocale = 'it' | 'en' | 'de' | 'fr';
 

@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { renderCompanyHubFrontalierContext } from '../../build-plugins/shared/companyHubFrontalierContext';
+import fuelPricesSnapshot from '../../data/fuel-prices.json';
 
 const esc = (raw: string): string => raw
   .replace(/&/g, '&amp;')
@@ -9,6 +10,12 @@ const esc = (raw: string): string => raw
 
 describe('renderCompanyHubFrontalierContext', () => {
   it('keeps company SEO prose collapsed and uses the local ECB exchange-rate snapshot', () => {
+    const snapshotDate = new Intl.DateTimeFormat('it', {
+      day: 'numeric',
+      month: 'long',
+      year: 'numeric',
+    }).format(new Date(fuelPricesSnapshot.generatedAt));
+
     const html = renderCompanyHubFrontalierContext({
       companyName: 'Migros',
       displayCanton: 'Ticino',
@@ -25,6 +32,6 @@ describe('renderCompanyHubFrontalierContext', () => {
     expect(html).toContain('<summary>Come candidarsi e domande frequenti</summary>');
     expect(html).not.toContain('<section class="s-7uP4UM"><h2>Come candidarsi e domande frequenti</h2>');
     expect(html).toContain('cambio CHF/EUR di 1,10');
-    expect(html).toContain('snapshot ECB locale aggiornato al 24 maggio 2026');
+    expect(html).toContain(`snapshot ECB locale aggiornato al ${snapshotDate}`);
   });
 });
