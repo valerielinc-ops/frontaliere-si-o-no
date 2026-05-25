@@ -7781,6 +7781,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.educatore-infanzia-ticino-stipendi-requisiti.title': 'Éducateur de la petite enfance au Tessin: salaires et exigences',
     'blog.article.educatore-infanzia-ticino-stipendi-requisiti.excerpt': 'Découvrez les salaires, les exigences et les procédures pour travailler comme éducateur de la petite enfance au Tessin, avec une comparaison salariale Italie-Suisse',
     'blog.article.educatore-infanzia-ticino-stipendi-requisiti.imageAlt': 'Une éducatrice de la petite enfance travaille avec des enfants dans une crèche du Tessin',
+    'blog.article.prevenzione-sanitaria-lavoro-2026.title': 'Jusqu\'à 3000 euros pour la prévention au travail',
+    'blog.article.prevenzione-sanitaria-lavoro-2026.excerpt': 'Dès le 27 mai 2026, les entreprises peuvent demander de nouvelles contributions pour des programmes de prévention sanitaire, des dépistages et l\'achat de défibrillateurs.',
+    'blog.article.prevenzione-sanitaria-lavoro-2026.imageAlt': 'Lieu de travail sûr et sain',
 };
 
 export default blogMetaFr;

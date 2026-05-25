@@ -7780,6 +7780,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.educatore-infanzia-ticino-stipendi-requisiti.title': 'Early childhood educator in Ticino: salaries and requirements',
     'blog.article.educatore-infanzia-ticino-stipendi-requisiti.excerpt': 'Discover salaries, requirements, and procedures to work as an early childhood educator in Ticino, with a salary comparison between Italy and Switzerland',
     'blog.article.educatore-infanzia-ticino-stipendi-requisiti.imageAlt': 'A kindergarten teacher working with children in a Ticino setting',
+    'blog.article.prevenzione-sanitaria-lavoro-2026.title': 'Up to €3,000 for workplace prevention',
+    'blog.article.prevenzione-sanitaria-lavoro-2026.excerpt': 'From 27 May 2026, companies can apply for new contributions for health prevention programmes, screenings and the purchase of defibrillators.',
+    'blog.article.prevenzione-sanitaria-lavoro-2026.imageAlt': 'Safe and healthy workplace',
 };
 
 export default blogMetaEn;

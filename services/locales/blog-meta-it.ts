@@ -7781,6 +7781,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.educatore-infanzia-ticino-stipendi-requisiti.title': 'Educatore dell\'infanzia in Ticino: stipendi e requisiti',
     'blog.article.educatore-infanzia-ticino-stipendi-requisiti.excerpt': 'Scopri stipendi, requisiti e procedure per lavorare come educatore dell\'infanzia in Ticino, con confronto salariale Italia-Svizzera',
     'blog.article.educatore-infanzia-ticino-stipendi-requisiti.imageAlt': 'Un\'educatrice dell\'infanzia lavora con bambini in un asilo nido nel Canton Ticino',
+    'blog.article.prevenzione-sanitaria-lavoro-2026.title': 'Contributi fino a 3.000 euro per la prevenzione sul lavoro',
+    'blog.article.prevenzione-sanitaria-lavoro-2026.excerpt': 'Dal 27 maggio 2026 le imprese possono richiedere nuovi contributi per programmi di prevenzione sanitaria, screening e acquisto di defibrillatori.',
+    'blog.article.prevenzione-sanitaria-lavoro-2026.imageAlt': 'Luogo di lavoro sicuro e sano',
 };
 
 export default blogMetaIt;

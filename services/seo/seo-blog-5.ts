@@ -40010,6 +40010,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-prevenzione-sanitaria-lavoro-2026': {
+    title: 'Contributi fino a 3.000 euro per la prevenzione sul lavoro',
+    description: 'Scopri come ottenere contributi fino a 3000 euro per prevenzione sanitaria sul lavoro dal 27 maggio 2026. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, contributi, fino, euro, prevenzione',
+    ogTitle: 'Prevenzione sanitaria lavoro 2026',
+    ogDescription: 'Contributi fino a 3000 euro per le imprese che investono nella prevenzione sanitaria dei lavoratori.',
+    canonicalPath: '/articoli-frontaliere/prevenzione-sanitaria-lavoro-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Contributi fino a 3.000 euro per la prevenzione sul lavoro",
+      "description": "Scopri come ottenere contributi fino a 3000 euro per prevenzione sanitaria sul lavoro dal 27 maggio 2026. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/prevenzione-sanitaria-lavoro-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Luogo di lavoro sicuro e sano"
+      },
+      "datePublished": "2026-05-25T20:28:56+00:00",
+      "dateModified": "2026-05-25T20:28:56+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/prevenzione-sanitaria-lavoro-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

@@ -24716,4 +24716,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'prevenzione-sanitaria-lavoro-2026',
+ category: 'novita',
+ date: '2026-05-25T20:28:55.967Z',
+ image: '/images/blog/prevenzione-sanitaria-lavoro-2026.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

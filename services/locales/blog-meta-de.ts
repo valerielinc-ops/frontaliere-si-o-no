@@ -7779,6 +7779,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.educatore-infanzia-ticino-stipendi-requisiti.title': 'Erzieher im Tessin: Gehälter und Voraussetzungen',
     'blog.article.educatore-infanzia-ticino-stipendi-requisiti.excerpt': 'Entdecken Sie Gehälter, Voraussetzungen und Verfahren, um als Erzieher im Tessin zu arbeiten, mit einem Gehaltsvergleich zwischen Italien und der Schweiz',
     'blog.article.educatore-infanzia-ticino-stipendi-requisiti.imageAlt': 'Eine Kindergartenlehrerin arbeitet mit Kindern in einer Ticino-Einrichtung',
+    'blog.article.prevenzione-sanitaria-lavoro-2026.title': 'Beiträge bis 3000 Franken für Arbeitsprävention',
+    'blog.article.prevenzione-sanitaria-lavoro-2026.excerpt': 'Ab dem 27. Mai 2026 können Unternehmen neue Beiträge für Gesundheitspräventionsprogramme, Screenings und den Kauf von Defibrillatoren beantragen.',
+    'blog.article.prevenzione-sanitaria-lavoro-2026.imageAlt': 'Sicher und gesundes Arbeitsplatz',
 };
 
 export default blogMetaDe;

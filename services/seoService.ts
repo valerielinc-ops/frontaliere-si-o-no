@@ -3836,6 +3836,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-meccanici-manutentori-edili-introvabili-ticino': { name: 'Lavoro', path: '/articoli-frontaliere/meccanici-manutentori-edili-introvabili-ticino', parent: 'blog' },
     'blog-educatore-infanzia-ticino-stipendi': { name: 'Lavoro in Ticino', path: '/articoli-frontaliere/educatore-infanzia-ticino-stipendi', parent: 'blog' },
     'blog-educatore-infanzia-ticino-stipendi-requisiti': { name: 'Lavoro Ticino', path: '/articoli-frontaliere/educatore-infanzia-ticino-stipendi-requisiti', parent: 'blog' },
+    'blog-prevenzione-sanitaria-lavoro-2026': { name: 'Prevenzione sanitaria', path: '/articoli-frontaliere/prevenzione-sanitaria-lavoro-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];
