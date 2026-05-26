@@ -7795,6 +7795,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.aziende-svizzere-trimestrali-migliori-previsto.title': 'Swiss companies: Q1 2026 results beat forecasts',
     'blog.article.aziende-svizzere-trimestrali-migliori-previsto.excerpt': 'Switzerland\'s listed companies exceed analyst expectations in the first quarter of 2026, despite a challenging context.',
     'blog.article.aziende-svizzere-trimestrali-migliori-previsto.imageAlt': 'Aerial view of Lugano with the lake and surrounding mountains',
+    'blog.article.ristorni-frontalieri-udc-ticino.title': 'Cross-border worker refunds: UDC Ticino proposes a solution',
+    'blog.article.ristorni-frontalieri-udc-ticino.excerpt': 'UDC Ticino calls for the Grand Council to address Initiative 507, which provides social deductions only for children residing in Switzerland, with a potential of 20 million francs per year.',
+    'blog.article.ristorni-frontalieri-udc-ticino.imageAlt': 'Aerial view of Bellinzona with the Alps in the background',
 };
 
 export default blogMetaEn;

@@ -3841,6 +3841,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-marcello-guido-decostruttivismo-architettura': { name: 'Marcello Guido decostruttivismo', path: '/articoli-frontaliere/marcello-guido-decostruttivismo-architettura', parent: 'blog' },
     'blog-elisoccorso-infortunio-brinzio-2026': { name: 'Infortunio lavoro Brinzio', path: '/articoli-frontaliere/elisoccorso-infortunio-brinzio-2026', parent: 'blog' },
     'blog-aziende-svizzere-trimestrali-migliori-previsto': { name: 'Novità', path: '/articoli-frontaliere/aziende-svizzere-trimestrali-migliori-previsto', parent: 'blog' },
+    'blog-ristorni-frontalieri-udc-ticino': { name: 'Ristorni frontalieri', path: '/articoli-frontaliere/ristorni-frontalieri-udc-ticino', parent: 'blog' },
  };
 
  const info = sectionNames[section];

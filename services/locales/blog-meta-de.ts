@@ -7794,6 +7794,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.aziende-svizzere-trimestrali-migliori-previsto.title': 'Schweizer Unternehmen: Besser als erwartet',
     'blog.article.aziende-svizzere-trimestrali-migliori-previsto.excerpt': 'Die an der Schweizer Börse notierten Gesellschaften übertreffen im ersten Quartal 2026 die Erwartungen der Analysten, trotz schwierigem Umfeld.',
     'blog.article.aziende-svizzere-trimestrali-migliori-previsto.imageAlt': 'Luftaufnahme von Lugano mit dem See und den umliegenden Bergen',
+    'blog.article.ristorni-frontalieri-udc-ticino.title': 'Grenzgänger-Rückerstattungen: UDC Ticino schlägt konkrete Lösung vor',
+    'blog.article.ristorni-frontalieri-udc-ticino.excerpt': 'Die UDC Ticino fordert die Behandlung der Initiative 507 im Grossen Rat, die soziale Abzüge nur für in der Schweiz wohnhafte Kinder vorsieht, mit einem Potenzial von 20 Millionen Franken pro Jahr.',
+    'blog.article.ristorni-frontalieri-udc-ticino.imageAlt': 'Luftaufnahme von Bellinzona mit den Alpen im Hintergrund',
 };
 
 export default blogMetaDe;

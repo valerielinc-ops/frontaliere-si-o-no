@@ -24761,4 +24761,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'ristorni-frontalieri-udc-ticino',
+ category: 'fiscale',
+ date: '2026-05-26T09:42:50.292Z',
+ image: '/images/blog/ristorni-frontalieri-udc-ticino.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];

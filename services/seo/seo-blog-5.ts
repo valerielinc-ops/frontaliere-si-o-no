@@ -40205,6 +40205,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-ristorni-frontalieri-udc-ticino': {
+    title: 'Ristorni frontalieri: l\'UDC Ticino propone una soluzione concreta',
+    description: 'L\'UDC Ticino chiede di portare all\'ordine del giorno del Gran Consiglio l\'iniziativa 507, che prevede deduzioni sociali solo per figli residenti in Svizzera',
+    keywords: 'frontalieri, ticino, svizzera, italia, ristorni, propone, soluzione, concreta',
+    ogTitle: 'Ristorni frontalieri: l\'UDC Ticino propone una soluzione concreta',
+    ogDescription: 'L\'UDC Ticino chiede di portare all\'ordine del giorno del Gran Consiglio l\'iniziativa 507, che prevede deduzioni sociali solo per figli residenti in Svizzera',
+    canonicalPath: '/articoli-frontaliere/ristorni-frontalieri-udc-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Ristorni frontalieri: l'UDC Ticino propone una soluzione concreta",
+      "description": "L'UDC Ticino chiede di portare all'ordine del giorno del Gran Consiglio l'iniziativa 507, che prevede deduzioni sociali solo per figli residenti in Svizzera",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/ristorni-frontalieri-udc-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea di Bellinzona con le Alpi sullo sfondo"
+      },
+      "datePublished": "2026-05-26T09:42:50+00:00",
+      "dateModified": "2026-05-26T09:42:50+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ristorni-frontalieri-udc-ticino`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

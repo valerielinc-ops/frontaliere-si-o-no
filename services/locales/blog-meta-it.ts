@@ -7796,6 +7796,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.aziende-svizzere-trimestrali-migliori-previsto.title': 'Aziende svizzere: risultati trimestrali migliori del previsto',
     'blog.article.aziende-svizzere-trimestrali-migliori-previsto.excerpt': 'Le società quotate in Svizzera superano le attese degli analisti nel primo trimestre 2026, nonostante il contesto difficile.',
     'blog.article.aziende-svizzere-trimestrali-migliori-previsto.imageAlt': 'Vista aerea di Lugano con il lago e le montagne circostanti',
+    'blog.article.ristorni-frontalieri-udc-ticino.title': 'Ristorni frontalieri: l\'UDC Ticino propone una soluzione concreta',
+    'blog.article.ristorni-frontalieri-udc-ticino.excerpt': 'L\'UDC Ticino chiede di portare all\'ordine del giorno del Gran Consiglio l\'iniziativa 507, che prevede deduzioni sociali solo per figli residenti in Svizzera, con un potenziale di 20 milioni di franchi all\'anno.',
+    'blog.article.ristorni-frontalieri-udc-ticino.imageAlt': 'Vista aerea di Bellinzona con le Alpi sullo sfondo',
 };
 
 export default blogMetaIt;
