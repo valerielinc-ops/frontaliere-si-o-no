@@ -1,18 +1,19 @@
 {
   "key": "ksow",
   "label": "Kantonsspital Obwalden",
-  "generatedAt": "2026-05-26T14:21:06.256Z",
+  "generatedAt": "2026-05-26T23:26:33.496Z",
   "total": 13,
-  "newCount": 13,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 13,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 983635,
-  "avgDurationMs": 983635,
+  "durationMs": 46566,
+  "avgDurationMs": 46566,
   "durationHistory": [
-    983635
+    46566
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "ksow-79f99443b5ea",
       "slug": "oberarzt-leitender-arzt-gastroenterologie-20-ksow-sarnen",
@@ -25,7 +26,7 @@
       "url": "https://link.ostendis.com/publication/oberarzt-leitender-arzt-gastroenterologie/2yph4crwy1zhmnm3ych5gvhtd5rs22y4wom17lshe3x7mbquftb50ie3c4vrlie7",
       "source": "Kantonsspital Obwalden Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-26T14:04:50.682Z",
+      "crawledAt": "2026-05-26T23:25:52.607Z",
       "addressLocality": "Sarnen",
       "addressRegion": "OW",
       "addressCountry": "CH",
@@ -40,12 +41,13 @@
       "featured": false,
       "postedDate": "2026-05-20",
       "applyUrl": "https://link.ostendis.com/publication/oberarzt-leitender-arzt-gastroenterologie/2yph4crwy1zhmnm3ych5gvhtd5rs22y4wom17lshe3x7mbquftb50ie3c4vrlie7",
-      "needsRetranslation": true,
-      "_qualityScore": 64,
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-05-26T14:04:50.682Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -61,7 +63,7 @@
       "url": "https://link.ostendis.com/publication/arztsekretaerin-medizinische-praxisassistentin-radiologie/tj60p3u0mkhdi35vvsylekpd15efx7ei62klnwc4lqrad7w6z485jzfm4nwflayh",
       "source": "Kantonsspital Obwalden Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-26T14:04:52.716Z",
+      "crawledAt": "2026-05-26T23:25:54.228Z",
       "addressLocality": "Sarnen",
       "addressRegion": "OW",
       "addressCountry": "CH",
@@ -76,12 +78,13 @@
       "featured": false,
       "postedDate": "2026-05-11",
       "applyUrl": "https://link.ostendis.com/publication/arztsekretaerin-medizinische-praxisassistentin-radiologie/tj60p3u0mkhdi35vvsylekpd15efx7ei62klnwc4lqrad7w6z485jzfm4nwflayh",
-      "needsRetranslation": true,
-      "_qualityScore": 64,
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-05-26T14:04:52.716Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -97,7 +100,7 @@
       "url": "https://link.ostendis.com/publication/techn-sterilisationsassistent-in-befristet/rfpa5h3aw8vi46v8rsi32eyl2x5kkjolkqxz333k3ce3025g2ag5gq44iz2bitgm",
       "source": "Kantonsspital Obwalden Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-26T14:04:55.270Z",
+      "crawledAt": "2026-05-26T23:25:56.092Z",
       "addressLocality": "Sarnen",
       "addressRegion": "OW",
       "addressCountry": "CH",
@@ -112,12 +115,13 @@
       "featured": false,
       "postedDate": "2026-05-11",
       "applyUrl": "https://link.ostendis.com/publication/techn-sterilisationsassistent-in-befristet/rfpa5h3aw8vi46v8rsi32eyl2x5kkjolkqxz333k3ce3025g2ag5gq44iz2bitgm",
-      "needsRetranslation": true,
-      "_qualityScore": 64,
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-05-26T14:04:55.270Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -133,7 +137,7 @@
       "url": "https://link.ostendis.com/publication/lagerungspfleger-in/yaqj7d7po5spp85wtqx7hjpqaayw4gehzssx738m7stclh6jo3eyv4afnghcohrd",
       "source": "Kantonsspital Obwalden Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-26T14:05:15.614Z",
+      "crawledAt": "2026-05-26T23:26:16.349Z",
       "addressLocality": "Sarnen",
       "addressRegion": "OW",
       "addressCountry": "CH",
@@ -148,12 +152,13 @@
       "featured": false,
       "postedDate": "2026-04-27",
       "applyUrl": "https://link.ostendis.com/publication/lagerungspfleger-in/yaqj7d7po5spp85wtqx7hjpqaayw4gehzssx738m7stclh6jo3eyv4afnghcohrd",
-      "needsRetranslation": true,
-      "_qualityScore": 64,
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-05-26T14:05:15.614Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -169,7 +174,7 @@
       "url": "https://link.ostendis.com/publication/dipl-fachperson-operationstechnik-hf/zvlnudeefxpj3lstnn3rdi0v7fzfv2o6zek40f7yq80ioqeoz2vdodv14sbiie2l",
       "source": "Kantonsspital Obwalden Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-26T14:05:17.375Z",
+      "crawledAt": "2026-05-26T23:26:18.218Z",
       "addressLocality": "Sarnen",
       "addressRegion": "OW",
       "addressCountry": "CH",
@@ -185,11 +190,12 @@
       "postedDate": "2026-04-21",
       "applyUrl": "https://link.ostendis.com/publication/dipl-fachperson-operationstechnik-hf/zvlnudeefxpj3lstnn3rdi0v7fzfv2o6zek40f7yq80ioqeoz2vdodv14sbiie2l",
       "needsRetranslation": true,
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-26T14:05:17.375Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -205,7 +211,7 @@
       "url": "https://link.ostendis.com/publication/dipl-experte-expertin-notfallpflege-nds-hf/nhpmi60r0uejgyij2pidf4aujvecndwqwoae5ldophnca07dptloy37yqw3ftwqn",
       "source": "Kantonsspital Obwalden Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-26T14:05:19.103Z",
+      "crawledAt": "2026-05-26T23:26:19.781Z",
       "addressLocality": "Sarnen",
       "addressRegion": "OW",
       "addressCountry": "CH",
@@ -221,11 +227,12 @@
       "postedDate": "2026-04-17",
       "applyUrl": "https://link.ostendis.com/publication/dipl-experte-expertin-notfallpflege-nds-hf/nhpmi60r0uejgyij2pidf4aujvecndwqwoae5ldophnca07dptloy37yqw3ftwqn",
       "needsRetranslation": true,
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-26T14:05:19.103Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -241,7 +248,7 @@
       "url": "https://link.ostendis.com/publication/medizinischen-praxisassistent-in-arztsekretaer-in-kardiologie/kw35cynp40el68mt1mz2we0kmenedovs1oke05mtly4bp51ycqhei2d2ipcn33t2",
       "source": "Kantonsspital Obwalden Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-26T14:05:20.839Z",
+      "crawledAt": "2026-05-26T23:26:21.335Z",
       "addressLocality": "Sarnen",
       "addressRegion": "OW",
       "addressCountry": "CH",
@@ -256,12 +263,13 @@
       "featured": false,
       "postedDate": "2026-04-14",
       "applyUrl": "https://link.ostendis.com/publication/medizinischen-praxisassistent-in-arztsekretaer-in-kardiologie/kw35cynp40el68mt1mz2we0kmenedovs1oke05mtly4bp51ycqhei2d2ipcn33t2",
-      "needsRetranslation": true,
-      "_qualityScore": 64,
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-05-26T14:05:20.839Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -277,7 +285,7 @@
       "url": "https://link.ostendis.com/publication/hebamme-hf-als-beleghebamme/sps0tnlmko6qyyzaidf5ejsnjh7al617qbyx6zmrt55d5etvj0mii5e50rdf3bib",
       "source": "Kantonsspital Obwalden Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-26T14:05:22.515Z",
+      "crawledAt": "2026-05-26T23:26:23.591Z",
       "addressLocality": "Sarnen",
       "addressRegion": "OW",
       "addressCountry": "CH",
@@ -292,12 +300,13 @@
       "featured": false,
       "postedDate": "2026-03-17",
       "applyUrl": "https://link.ostendis.com/publication/hebamme-hf-als-beleghebamme/sps0tnlmko6qyyzaidf5ejsnjh7al617qbyx6zmrt55d5etvj0mii5e50rdf3bib",
-      "needsRetranslation": true,
-      "_qualityScore": 64,
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-05-26T14:05:22.515Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -313,7 +322,7 @@
       "url": "https://link.ostendis.com/publication/oberarzt-oder-leitender-arzt-frauenklinik/82obqiepm3sfofjcvhw36xplpaypsupcy0yhvmpyibr3mditnw9nzbto64s8sdqt",
       "source": "Kantonsspital Obwalden Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-26T14:05:24.489Z",
+      "crawledAt": "2026-05-26T23:26:25.350Z",
       "addressLocality": "Sarnen",
       "addressRegion": "OW",
       "addressCountry": "CH",
@@ -328,12 +337,13 @@
       "featured": false,
       "postedDate": "2026-02-16",
       "applyUrl": "https://link.ostendis.com/publication/oberarzt-oder-leitender-arzt-frauenklinik/82obqiepm3sfofjcvhw36xplpaypsupcy0yhvmpyibr3mditnw9nzbto64s8sdqt",
-      "needsRetranslation": true,
-      "_qualityScore": 64,
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-05-26T14:05:24.489Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -349,7 +359,7 @@
       "url": "https://link.ostendis.com/publication/dipl-experte-in-anaesthesiepflege-nds-hf/hchi3byoxnduiomr2q4tb57d5q2hclz4a4rlhxrx251bbwzfp46rw7d7eza4dy67",
       "source": "Kantonsspital Obwalden Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-26T14:05:26.168Z",
+      "crawledAt": "2026-05-26T23:26:26.894Z",
       "addressLocality": "Sarnen",
       "addressRegion": "OW",
       "addressCountry": "CH",
@@ -364,12 +374,13 @@
       "featured": false,
       "postedDate": "2025-12-17",
       "applyUrl": "https://link.ostendis.com/publication/dipl-experte-in-anaesthesiepflege-nds-hf/hchi3byoxnduiomr2q4tb57d5q2hclz4a4rlhxrx251bbwzfp46rw7d7eza4dy67",
-      "needsRetranslation": true,
-      "_qualityScore": 64,
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-05-26T14:05:26.168Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -385,7 +396,7 @@
       "url": "https://link.ostendis.com/publication/physiotherapeut-in-fh/a6efg0x6if55x3bdlwflcg4mxfhjffmtjnm5uw3koat4yk6k46zwti4vfj3n5085",
       "source": "Kantonsspital Obwalden Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-26T14:05:27.865Z",
+      "crawledAt": "2026-05-26T23:26:28.549Z",
       "addressLocality": "Sarnen",
       "addressRegion": "OW",
       "addressCountry": "CH",
@@ -401,11 +412,12 @@
       "postedDate": "2025-11-21",
       "applyUrl": "https://link.ostendis.com/publication/physiotherapeut-in-fh/a6efg0x6if55x3bdlwflcg4mxfhjffmtjnm5uw3koat4yk6k46zwti4vfj3n5085",
       "needsRetranslation": true,
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-26T14:05:27.865Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -421,7 +433,7 @@
       "url": "https://link.ostendis.com/publication/dipl-pflegefachperson-ueberwachungsstation-hf/iaxflchp4guvo4palt0jhvlbi6670eipgwye4ryrkb605wpv8w6bes3xq8e4feje",
       "source": "Kantonsspital Obwalden Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-26T14:05:29.579Z",
+      "crawledAt": "2026-05-26T23:26:30.100Z",
       "addressLocality": "Sarnen",
       "addressRegion": "OW",
       "addressCountry": "CH",
@@ -436,12 +448,13 @@
       "featured": false,
       "postedDate": "2025-07-31",
       "applyUrl": "https://link.ostendis.com/publication/dipl-pflegefachperson-ueberwachungsstation-hf/iaxflchp4guvo4palt0jhvlbi6670eipgwye4ryrkb605wpv8w6bes3xq8e4feje",
-      "needsRetranslation": true,
-      "_qualityScore": 64,
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-05-26T14:05:29.579Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -457,7 +470,7 @@
       "url": "https://link.ostendis.com/publication/facharzt-fmh-allgemeine-innere-medizin-ca/1rn6v8yexqoha8aa0h3j3v8fwsaljtvz2lq36nnjyhbnst2trkc5tt3golid0m7f",
       "source": "Kantonsspital Obwalden Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-26T14:05:31.266Z",
+      "crawledAt": "2026-05-26T23:26:31.639Z",
       "addressLocality": "Sarnen",
       "addressRegion": "OW",
       "addressCountry": "CH",
@@ -472,17 +485,17 @@
       "featured": false,
       "postedDate": "2025-04-11",
       "applyUrl": "https://link.ostendis.com/publication/facharzt-fmh-allgemeine-innere-medizin-ca/1rn6v8yexqoha8aa0h3j3v8fwsaljtvz2lq36nnjyhbnst2trkc5tt3golid0m7f",
-      "needsRetranslation": true,
-      "_qualityScore": 64,
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-05-26T14:05:31.266Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": []
 }
