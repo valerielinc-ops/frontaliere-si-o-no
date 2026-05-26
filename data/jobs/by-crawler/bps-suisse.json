@@ -1,6 +1,6 @@
 {
   "crawlerKey": "bps-suisse",
-  "assembledAt": "2026-05-25T21:33:56.656Z",
+  "assembledAt": "2026-05-26T22:13:34.394Z",
   "jobs": [
     {
       "id": "bps-suisse-ec1de76eae01",
@@ -23,9 +23,9 @@
       "slug": "collaboratore-trice-gestione-crediti-bps-suisse-lugano",
       "slugByLocale": {
         "it": "collaboratore-trice-gestione-crediti-bps-suisse-lugano",
-        "en": "collaboratore-trice-management-crediti-bps-banca-popolare-di-sondrio-suisse-lugano",
-        "de": "collaboratore-trice-verwaltung-crediti-bps-banca-popolare-di-sondrio-suisse-lugano",
-        "fr": "assistant-e-gestion-des-credits-bps-banca-popolare-di-sondrio-suisse-lugano"
+        "en": "collaboratore-trice-gestione-crediti-bps-banca-popolare-di-sondrio-suisse-lugano-z7abgm",
+        "de": "collaboratore-trice-gestione-crediti-bps-banca-popolare-di-sondrio-suisse-lugano-z7abgm",
+        "fr": "collaboratore-trice-gestione-crediti-bps-banca-popolare-di-sondrio-suisse-lugano-z7abgm"
       },
       "titleByLocale": {
         "it": "Collaboratore Trice Gestione Crediti",
@@ -45,9 +45,9 @@
       "category": "finance",
       "contract": "full-time",
       "currency": "CHF",
-      "postedDate": "2026-05-25",
+      "postedDate": "2026-05-26",
       "source": "bps-suisse-careers-crawler",
-      "crawledAt": "2026-05-25T21:33:54.566Z",
+      "crawledAt": "2026-05-26T22:13:32.428Z",
       "_targetScope": {
         "canton": "TI",
         "location": "Lugano"
@@ -67,20 +67,25 @@
       },
       "firstSeenAt": "2026-04-13T10:08:40.551Z",
       "previousSlugs": [
-        "collaboratore-trice-gestione-crediti-bps-banca-popolare-di-sondrio-suisse-lugano-z7abgm",
+        "collaboratore-trice-management-crediti-bps-banca-popolare-di-sondrio-suisse-lugano",
+        "collaboratore-trice-verwaltung-crediti-bps-banca-popolare-di-sondrio-suisse-lugano",
         "collaboratore-trice-gestion-crediti-bps-banca-popolare-di-sondrio-suisse-lugano",
+        "assistant-e-gestion-des-credits-bps-banca-popolare-di-sondrio-suisse-lugano",
         "assistant-gestion-des-credits-bps-banca-popolare-di-sondrio-suisse-lugano"
       ],
       "previousSlugsByLocale": {
         "en": [
+          "collaboratore-trice-management-crediti-bps-banca-popolare-di-sondrio-suisse-lugano",
           "collaboratore-trice-gestione-crediti-bps-banca-popolare-di-sondrio-suisse-lugano-z7abgm"
         ],
         "de": [
+          "collaboratore-trice-verwaltung-crediti-bps-banca-popolare-di-sondrio-suisse-lugano",
           "collaboratore-trice-gestione-crediti-bps-banca-popolare-di-sondrio-suisse-lugano-z7abgm"
         ],
         "fr": [
-          "collaboratore-trice-gestione-crediti-bps-banca-popolare-di-sondrio-suisse-lugano-z7abgm",
-          "collaboratore-trice-gestion-crediti-bps-banca-popolare-di-sondrio-suisse-lugano"
+          "collaboratore-trice-gestion-crediti-bps-banca-popolare-di-sondrio-suisse-lugano",
+          "assistant-e-gestion-des-credits-bps-banca-popolare-di-sondrio-suisse-lugano",
+          "collaboratore-trice-gestione-crediti-bps-banca-popolare-di-sondrio-suisse-lugano-z7abgm"
         ]
       }
     }
