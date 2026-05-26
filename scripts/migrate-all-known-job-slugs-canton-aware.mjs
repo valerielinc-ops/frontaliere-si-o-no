@@ -129,9 +129,15 @@ function resolveJobCanton(job) {
 const tracking = JSON.parse(fs.readFileSync(TRACKING_PATH, 'utf8'));
 const jobs = JSON.parse(fs.readFileSync(JOBS_PATH, 'utf8'));
 
-// 1. Index every job slug-alias -> job (so we can resolve its canton).
+// 1. Index exact job slugs separately from slug aliases. A translated slug or
+// previousSlug can collide with another job's canonical slug; the canonical
+// owner must win when the tracking key exactly matches `job.slug`.
+const exactSlugToJob = new Map();
 const slugToJob = new Map();
 for (const job of jobs) {
+  if (job?.slug && !exactSlugToJob.has(String(job.slug))) {
+    exactSlugToJob.set(String(job.slug), job);
+  }
   const aliases = new Set();
   if (job?.slug) aliases.add(String(job.slug));
   if (job?.slugByLocale && typeof job.slugByLocale === 'object') {
@@ -166,7 +172,7 @@ for (const [trackingSlug, entry] of Object.entries(tracking)) {
     out[trackingSlug] = entry;
     continue;
   }
-  const job = slugToJob.get(trackingSlug);
+  const job = exactSlugToJob.get(trackingSlug) ?? slugToJob.get(trackingSlug);
   if (!job) {
     orphanKept++;
     out[trackingSlug] = entry;

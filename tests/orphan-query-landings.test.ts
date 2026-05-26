@@ -15,6 +15,12 @@ import { execFileSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 
 import {
+  buildOrphanLandingHubPath,
+  buildOrphanLandingHubUrl,
+  renderOrphanLandingHubHreflang,
+} from '../build-plugins/orphanQueryLandingPlugin';
+
+import {
   ORPHAN_LANDING_LOCALES,
   ORPHAN_LANDING_SECTION,
   ORPHAN_LANDING_LOCALE_PREFIX,
@@ -71,6 +77,23 @@ describe('orphanQueryData — path helpers', () => {
   it('produces distinct prefixes per locale', () => {
     const prefixes = Object.values(ORPHAN_LANDING_LOCALE_PREFIX);
     expect(new Set(prefixes).size).toBe(prefixes.length);
+  });
+
+  it('builds hub hreflang URLs without collapsing https:// and includes x-default', () => {
+    expect(buildOrphanLandingHubPath('it')).toBe('/ricerca/');
+    expect(buildOrphanLandingHubUrl('fr')).toBe('https://frontaliereticino.ch/fr/recherche/');
+
+    const html = renderOrphanLandingHubHreflang({
+      it: true,
+      en: true,
+      de: true,
+      fr: true,
+    });
+
+    expect(html.match(/rel="alternate"/g)).toHaveLength(5);
+    expect(html).toContain('hreflang="x-default" href="https://frontaliereticino.ch/ricerca/"');
+    expect(html).toContain('hreflang="de" href="https://frontaliereticino.ch/de/suche/"');
+    expect(html).not.toContain('https:/frontaliereticino.ch');
   });
 
   it('buildOrphanLandingRoutes emits one route per cluster', () => {
