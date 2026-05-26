@@ -7805,6 +7805,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.sciopero-train-tilo-28-29-maggio-2025.title': 'Grève des trains en Italie : lignes TILO touchées',
     'blog.article.sciopero-train-tilo-28-29-maggio-2025.excerpt': 'Du 28 mai à 21h00 au 29 mai à 21h00, grève en Italie. Les services RE80, S10, S30, S40 et S50 sont suspendus. Des bus de remplacement sont prévus pour la ligne S50 en direction et en provenance de Malpensa.',
     'blog.article.sciopero-train-tilo-28-29-maggio-2025.imageAlt': 'Quai de la gare de Lugano avec un train TILO au coucher du soleil, passagers en attente',
+    'blog.article.varese-camera-commercio-lavoro-frontalieri-ticino.title': 'Varese: nouvelles opportunités pour les travailleurs frontaliers',
+    'blog.article.varese-camera-commercio-lavoro-frontalieri-ticino.excerpt': 'Plus de 5.000 manifestations d\'intérêt pour le travail de la part de frontaliers en Ticino. Chambre de commerce de Varese signe un accord avec des agences pour l\'emploi.',
+    'blog.article.varese-camera-commercio-lavoro-frontalieri-ticino.imageAlt': 'Bureau moderne à Bellinzone, Tessin, avec vue sur la ville.',
 };
 
 export default blogMetaFr;

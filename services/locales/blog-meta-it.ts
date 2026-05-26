@@ -7805,6 +7805,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.sciopero-train-tilo-28-29-maggio-2025.title': 'Sciopero treni Italia: collegamenti TILO coinvolti',
     'blog.article.sciopero-train-tilo-28-29-maggio-2025.excerpt': 'Dalle 21:00 del 28 maggio alle 21:00 del 29 maggio scioperi in Italia. Servizi RE80, S10, S30, S40 e S50 fermi. Sostituzioni bus per S50 da/per Malpensa.',
     'blog.article.sciopero-train-tilo-28-29-maggio-2025.imageAlt': 'Binario della stazione di Lugano con un treno TILO in sosta al crepuscolo, passeggeri in attesa',
+    'blog.article.varese-camera-commercio-lavoro-frontalieri-ticino.title': 'Varese: nuove opportunità per frontalieri dal lavoro e commercio',
+    'blog.article.varese-camera-commercio-lavoro-frontalieri-ticino.excerpt': 'Oltre 5.000 manifestazioni di interesse per lavoro da parte di frontalieri in Ticino. Camera di Commercio di Varese firma accordo con agenzie per il lavoro.',
+    'blog.article.varese-camera-commercio-lavoro-frontalieri-ticino.imageAlt': 'Ufficio moderno a Bellinzona, Ticino, con vista sulla città.',
 };
 
 export default blogMetaIt;

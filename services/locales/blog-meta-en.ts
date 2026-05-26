@@ -7804,6 +7804,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.sciopero-train-tilo-28-29-maggio-2025.title': 'Italy train strike: TILO services affected',
     'blog.article.sciopero-train-tilo-28-29-maggio-2025.excerpt': 'From 9:00 PM on May 28 to 9:00 PM on May 29, train strikes will hit Italy. RE80, S10, S30, S40, and S50 services will be suspended. Replacement buses will operate for S50 routes to/from Malpensa.',
     'blog.article.sciopero-train-tilo-28-29-maggio-2025.imageAlt': 'Lugano train station platform with a TILO train at dusk, passengers waiting',
+    'blog.article.varese-camera-commercio-lavoro-frontalieri-ticino.title': 'Varese: new job and trade opportunities for cross-border workers',
+    'blog.article.varese-camera-commercio-lavoro-frontalieri-ticino.excerpt': 'Over 5,000 expressions of interest for jobs from cross-border workers in Ticino. Varese Chamber of Commerce signs agreement with employment agencies.',
+    'blog.article.varese-camera-commercio-lavoro-frontalieri-ticino.imageAlt': 'Modern office in Bellinzona, Ticino, with a city view.',
 };
 
 export default blogMetaEn;

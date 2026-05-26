@@ -24788,4 +24788,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'varese-camera-commercio-lavoro-frontalieri-ticino',
+ category: 'pratico',
+ date: '2026-05-26T14:26:51.414Z',
+ image: '/images/blog/varese-camera-commercio-lavoro-frontalieri-ticino.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

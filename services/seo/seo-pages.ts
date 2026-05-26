@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2656,
+ "numberOfItems": 2657,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7296,7 +7296,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2653, "name": "Aziende svizzere: risultati trimestrali miglior...", "url": `${BASE_URL}/articoli-frontaliere/aziende-svizzere-trimestrali-migliori-previsto` },
           { "@type": "ListItem", "position": 2654, "name": "Ristorni frontalieri: l'UDC Ticino propone una ...", "url": `${BASE_URL}/articoli-frontaliere/ristorni-frontalieri-udc-ticino` },
           { "@type": "ListItem", "position": 2655, "name": "Asili nido in Ticino per frontalieri: costi, li...", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-asilo-nido-guida-2026` },
-          { "@type": "ListItem", "position": 2656, "name": "Sciopero treni Italia: collegamenti TILO coinvolti", "url": `${BASE_URL}/articoli-frontaliere/sciopero-train-tilo-28-29-maggio-2025` }
+          { "@type": "ListItem", "position": 2656, "name": "Sciopero treni Italia: collegamenti TILO coinvolti", "url": `${BASE_URL}/articoli-frontaliere/sciopero-train-tilo-28-29-maggio-2025` },
+          { "@type": "ListItem", "position": 2657, "name": "Varese: nuove opportunità per frontalieri dal l...", "url": `${BASE_URL}/articoli-frontaliere/varese-camera-commercio-lavoro-frontalieri-ticino` }
  ]
  },
  {
