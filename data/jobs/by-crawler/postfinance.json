@@ -24,9 +24,9 @@
         "de": "Architecture Owner Telefonie und KOP (w/m/d)",
         "fr": "Propriétaire de l'architecture Telefonie und KOP (w/m/d)"
       },
-      "slug": "architecture-owner-telefonie-e-kop-m-w-d-postfinance-bern",
+      "slug": "armatore-di-architettura-telefonie-und-kop-w-m-d-postfinance-bern",
       "slugByLocale": {
-        "it": "architecture-owner-telefonie-e-kop-m-w-d-postfinance-bern",
+        "it": "armatore-di-architettura-telefonie-und-kop-w-m-d-postfinance-bern",
         "en": "architecture-owner-telefonie-und-kop-w-m-d-postfinance",
         "de": "architecture-owner-telefonie-und-kop-w-m-d-postfinance",
         "fr": "architecture-owner-telefonie-und-kop-w-m-d-postfinance"
@@ -63,7 +63,7 @@
       "postalCode": "3001",
       "firstSeenAt": "2026-05-16T10:49:06.770Z",
       "previousSlugs": [
-        "armatore-di-architettura-telefonie-und-kop-w-m-d-postfinance-bern"
+        "architecture-owner-telefonie-e-kop-m-w-d-postfinance-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -93,9 +93,9 @@
         "de": "Kundeninteraktion (w/m/d)",
         "fr": "Solution Architecture Owner Kundeninteraktion (w/m/d)"
       },
-      "slug": "solution-architecture-owner-kundeninteraktion-w-m-d-postfinance",
+      "slug": "interazione-del-cliente-w-m-d-postfinance-bern",
       "slugByLocale": {
-        "it": "solution-architecture-owner-kundeninteraktion-w-m-d-postfinance",
+        "it": "interazione-del-cliente-w-m-d-postfinance-bern",
         "en": "solution-architecture-owner-customer-interaction-w-m-d-postfinance-bern",
         "de": "kundeninteraktion-w-m-d-postfinance-bern",
         "fr": "solution-architecture-owner-kundeninteraktion-w-m-d-postfinance"
@@ -132,7 +132,7 @@
       "postalCode": "3001",
       "firstSeenAt": "2026-05-18T13:01:19.599Z",
       "previousSlugs": [
-        "interazione-del-cliente-w-m-d-postfinance-bern"
+        "solution-architecture-owner-kundeninteraktion-w-m-d-postfinance"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -162,9 +162,9 @@
         "de": "Entwickler (w/m/d)",
         "fr": "Développeur principal (m/d)"
       },
-      "slug": "lead-sviluppatore-w-m-d-postfinance-bern",
+      "slug": "sviluppatore-di-piombo-m-d-postfinance-bern",
       "slugByLocale": {
-        "it": "lead-sviluppatore-w-m-d-postfinance-bern",
+        "it": "sviluppatore-di-piombo-m-d-postfinance-bern",
         "en": "lead-developer-w-m-d-postfinance-bern",
         "de": "lead-developer-w-m-d-postfinance",
         "fr": "developpeur-principal-m-d-postfinance-bern"
@@ -212,8 +212,8 @@
       },
       "previousSlugs": [
         "lead-developer-w-m-d-postfinance",
-        "lead-developpeur-w-m-d-postfinance-bern",
-        "sviluppatore-di-piombo-m-d-postfinance-bern"
+        "lead-sviluppatore-w-m-d-postfinance-bern",
+        "lead-developpeur-w-m-d-postfinance-bern"
       ]
     },
     {
@@ -311,9 +311,9 @@
         "de": "Berater: Privater Kundenservice, Lausanne",
         "fr": "Conseiller:ère clientèle privée, Lausanne"
       },
-      "slug": "consigliere-era-cliente-privato-losanna-postfinance-lausanne",
+      "slug": "consulente-servizio-clienti-privato-losanna-postfinance-lausanne",
       "slugByLocale": {
-        "it": "consigliere-era-cliente-privato-losanna-postfinance-lausanne",
+        "it": "consulente-servizio-clienti-privato-losanna-postfinance-lausanne",
         "en": "advisor-private-customer-service-lausanne-postfinance-lausanne",
         "de": "berater-privater-kundenservice-lausanne-postfinance-lausanne",
         "fr": "conseiller-ere-clientele-privee-lausanne-postfinance"
@@ -364,7 +364,7 @@
       "previousSlugs": [
         "conseiller-ere-clientele-privee-lausanne-postfinance",
         "advisor-private-clients-lausanne-postfinance-lausanne",
-        "consulente-servizio-clienti-privato-losanna-postfinance-lausanne"
+        "consigliere-era-cliente-privato-losanna-postfinance-lausanne"
       ]
     },
     {
@@ -389,9 +389,9 @@
         "de": "Advisor:ère clients en place, Lausanne",
         "fr": "Conseiller:ère clientèle en placement, Lausanne"
       },
-      "slug": "conseiller-ere-clientele-en-placement-lausanne-postfinance",
+      "slug": "advisor-ere-client-en-placement-losanna-postfinance-lausanne",
       "slugByLocale": {
-        "it": "conseiller-ere-clientele-en-placement-lausanne-postfinance",
+        "it": "advisor-ere-client-en-placement-losanna-postfinance-lausanne",
         "en": "advisor-ere-clients-en-placement-lausanne-postfinance-lausanne",
         "de": "advisor-ere-clients-en-place-lausanne-postfinance-lausanne",
         "fr": "conseiller-ere-clientele-en-placement-lausanne-postfinance"
@@ -428,7 +428,7 @@
       "postalCode": "1003",
       "firstSeenAt": "2026-05-18T13:01:19.599Z",
       "previousSlugs": [
-        "advisor-ere-client-en-placement-losanna-postfinance-lausanne"
+        "conseiller-ere-clientele-en-placement-lausanne-postfinance"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -458,9 +458,9 @@
         "de": "Compliance-Mitarbeiter:in Kundenservice Handel",
         "fr": "Collaborateur:trice Compliance Office Clientèle Commerciale"
       },
-      "slug": "collaboratore-trice-compliance-ufficio-clientela-commerciale-postfinance-bulle",
+      "slug": "collaboratore-compliance-office-commercial-clientele-postfinance-bulle",
       "slugByLocale": {
-        "it": "collaboratore-trice-compliance-ufficio-clientela-commerciale-postfinance-bulle",
+        "it": "collaboratore-compliance-office-commercial-clientele-postfinance-bulle",
         "en": "collaborator-compliance-office-commercial-clientele-postfinance-bulle",
         "de": "compliance-mitarbeiter-in-kundenservice-handel-postfinance-bulle",
         "fr": "collaborateur-trice-compliance-office-clientele-commerciale-postfinance"
@@ -513,7 +513,7 @@
         "collaborateur-trice-compliance-office-clientele-commerciale-postfinance",
         "compliance-officer-customer-commercial-postfinance-bulle",
         "mitarbeiter-compliance-office-commercial-clientele-postfinance-bulle",
-        "collaboratore-compliance-office-commercial-clientele-postfinance-bulle"
+        "collaboratore-trice-compliance-ufficio-clientela-commerciale-postfinance-bulle"
       ]
     },
     {
@@ -538,9 +538,9 @@
         "de": "Berater: Privatkunden, Carouge",
         "fr": "Conseiller:ère clientèle privée, Carouge"
       },
-      "slug": "consigliere-era-cliente-privato-carouge-postfinance-carouge",
+      "slug": "consulente-clienti-privati-carouge-postfinance-carouge",
       "slugByLocale": {
-        "it": "consigliere-era-cliente-privato-carouge-postfinance-carouge",
+        "it": "consulente-clienti-privati-carouge-postfinance-carouge",
         "en": "advisor-private-clients-carouge-postfinance-carouge",
         "de": "berater-privatkunden-carouge-postfinance-carouge",
         "fr": "conseiller-ere-clientele-privee-carouge-postfinance"
@@ -589,7 +589,7 @@
       },
       "previousSlugs": [
         "conseiller-ere-clientele-privee-carouge-postfinance",
-        "consulente-clienti-privati-carouge-postfinance-carouge"
+        "consigliere-era-cliente-privato-carouge-postfinance-carouge"
       ]
     }
   ]

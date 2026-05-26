@@ -4122,7 +4122,7 @@
         "en": "data-center-technician-switzerland-plan-les-ouates-on-site-reboot-monkey-plan-les-ouates",
         "it": "data-center-technician-switzerland-plan-les-ouates-on-site-reboot-monkey-plan-les-ouates",
         "de": "data-center-technician-switzerland-plan-les-ouates-on-site-reboot-monkey-plan-les-ouates",
-        "fr": "data-center-technician-switzerland-plan-les-ouates-on-site-reboot-monkey-plan-les-ouates"
+        "fr": "technicien-en-centre-de-donnees-suisse-plan-les-ouates-sur-place-reboot-monkey-plan-les-ouates-697dcf"
       },
       "company": "Reboot Monkey",
       "companyKey": "reboot-monkey",
@@ -4204,11 +4204,11 @@
       },
       "firstSeenAt": "2026-05-25T23:15:24.142Z",
       "previousSlugs": [
-        "data-center-technician-switzerland-plan-les-ouates-on-site-reboot-monkey-plan-les-ouates-2",
-        "data-center-technician-svizzera-pratteln-in-loco-reboot-monkey-pratteln",
         "data-center-technician-svizzera-plan-les-ouates-in-loco-reboot-monkey-plan-les-ouates",
         "data-center-technician-schweiz-plan-les-ouates-vor-ort-reboot-monkey-plan-les-ouates",
-        "technicien-en-centre-de-donnees-suisse-plan-les-ouates-sur-place-reboot-monkey-plan-les-ouates"
+        "technicien-en-centre-de-donnees-suisse-plan-les-ouates-sur-place-reboot-monkey-plan-les-ouates",
+        "data-center-technician-switzerland-plan-les-ouates-on-site-reboot-monkey-plan-les-ouates-2",
+        "data-center-technician-svizzera-pratteln-in-loco-reboot-monkey-pratteln"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4224,12 +4224,12 @@
     },
     {
       "id": "reboot-monkey-82b75718ba1a",
-      "slug": "data-center-technician-switzerland-pratteln-on-site-reboot-monkey-pratteln-2",
+      "slug": "data-center-technician-svizzera-pratteln-in-loco-reboot-monkey-pratteln",
       "slugByLocale": {
         "en": "data-center-technician-switzerland-pratteln-on-site-reboot-monkey-pratteln",
-        "it": "data-center-technician-switzerland-pratteln-on-site-reboot-monkey-pratteln-2",
+        "it": "data-center-technician-svizzera-pratteln-in-loco-reboot-monkey-pratteln",
         "de": "data-center-technician-switzerland-pratteln-on-site-reboot-monkey-pratteln-2",
-        "fr": "data-center-technician-switzerland-pratteln-on-site-reboot-monkey-pratteln-2"
+        "fr": "technicien-en-informatique-suisse-pratteln-sur-place-reboot-monkey-pratteln"
       },
       "company": "Reboot Monkey",
       "companyKey": "reboot-monkey",
@@ -4307,16 +4307,27 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-25T23:15:24.141Z"
+      "firstSeenAt": "2026-05-25T23:15:24.141Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "data-center-technician-switzerland-pratteln-on-site-reboot-monkey-pratteln-2"
+        ],
+        "fr": [
+          "data-center-technician-switzerland-pratteln-on-site-reboot-monkey-pratteln-2"
+        ]
+      },
+      "previousSlugs": [
+        "data-center-technician-switzerland-pratteln-on-site-reboot-monkey-pratteln-2"
+      ]
     },
     {
       "id": "reboot-monkey-39fa58da10d7",
-      "slug": "data-center-technician-switzerland-pratteln-on-site-reboot-monkey-pratteln",
+      "slug": "data-center-technician-svizzera-pratteln-in-loco-reboot-monkey-pratteln-847ca8",
       "slugByLocale": {
-        "it": "data-center-technician-switzerland-pratteln-on-site-reboot-monkey-pratteln",
+        "it": "data-center-technician-svizzera-pratteln-in-loco-reboot-monkey-pratteln-847ca8",
         "en": "data-center-technician-switzerland-pratteln-on-site-reboot-monkey-pratteln",
         "de": "data-center-technician-switzerland-pratteln-on-site-reboot-monkey-pratteln",
-        "fr": "data-center-technician-switzerland-pratteln-on-site-reboot-monkey-pratteln"
+        "fr": "technicien-en-informatique-suisse-pratteln-sur-place-reboot-monkey-pratteln-847ca8"
       },
       "company": "Reboot Monkey",
       "companyKey": "reboot-monkey",
@@ -4382,15 +4393,18 @@
       "remote": false,
       "previousSlugs": [
         "technicien-en-informatique-suisse-pratteln-sur-place-reboot-monkey-pratteln",
-        "data-center-technician-switzerland-pratteln-on-site-reboot-monkey-pratteln-2"
+        "data-center-technician-switzerland-pratteln-on-site-reboot-monkey-pratteln-2",
+        "data-center-technician-switzerland-pratteln-on-site-reboot-monkey-pratteln"
       ],
       "previousSlugsByLocale": {
         "fr": [
           "technicien-en-informatique-suisse-pratteln-sur-place-reboot-monkey-pratteln",
-          "data-center-technician-switzerland-pratteln-on-site-reboot-monkey-pratteln-2"
+          "data-center-technician-switzerland-pratteln-on-site-reboot-monkey-pratteln-2",
+          "data-center-technician-switzerland-pratteln-on-site-reboot-monkey-pratteln"
         ],
         "it": [
-          "data-center-technician-switzerland-pratteln-on-site-reboot-monkey-pratteln-2"
+          "data-center-technician-switzerland-pratteln-on-site-reboot-monkey-pratteln-2",
+          "data-center-technician-switzerland-pratteln-on-site-reboot-monkey-pratteln"
         ],
         "de": [
           "data-center-technician-switzerland-pratteln-on-site-reboot-monkey-pratteln-2"
@@ -12264,7 +12278,6 @@
       "remote": false,
       "previousSlugs": [
         "data-center-technician-leuk-on-site-reboot-monkey-leuk-2",
-        "data-center-technician-lucerne-on-site-reboot-monkey-lucerne-2",
         "data-center-technician-leuk-in-sede-reboot-monkey-leuk"
       ],
       "firstSeenAt": "2026-05-17T10:55:52.722Z",
