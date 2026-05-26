@@ -22726,7 +22726,7 @@
         "en": "data-information-architect-data-platforms-roche-ch",
         "it": "data-information-architect-data-platforms-roche-ch",
         "de": "data-information-architect-data-platforms-roche-ch",
-        "fr": "data-information-architect-data-platforms-roche-ch"
+        "fr": "architecte-de-donnees-d-information-plateformes-de-donnees-roche-basel-e88a1e"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -22782,14 +22782,12 @@
       "postalCode": "4001",
       "firstSeenAt": "2026-05-25T23:21:44.555Z",
       "previousSlugs": [
-        "data-information-architect-data-platforms-roche-ch",
+        "data-information-architect-piattaforme-di-dati-roche-basel",
+        "architecte-de-donnees-d-information-plateformes-de-donnees-roche-basel",
         "data-information-architetto-data-platforms-roche-basel",
         "data-information-architecte-data-platforms-roche-basel",
         "data-information-architect-piattaforme-di-dati-roche-basel-sjekzs",
-        "data-information-architect-datenplattformen-roche-basel",
-        "architecte-de-donnees-d-information-plateformes-de-donnees-roche-basel-e88a1e",
-        "data-information-architect-piattaforme-di-dati-roche-basel",
-        "architecte-de-donnees-d-information-plateformes-de-donnees-roche-basel"
+        "data-information-architect-datenplattformen-roche-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -27274,12 +27272,12 @@
     },
     {
       "id": "roche-1c346ab388fd",
-      "slug": "marketing-specialist-roche-ch",
+      "slug": "marketing-specialista-roche-mexico-city",
       "slugByLocale": {
         "fr": "marketing-specialist-roche-ch",
-        "it": "marketing-specialist-roche-ch",
+        "it": "marketing-specialista-roche-mexico-city",
         "en": "marketing-specialist-roche-mexico-city",
-        "de": "marketing-specialist-roche-ch"
+        "de": "marketing-spezialist-roche-mexico-city"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -27334,7 +27332,18 @@
         }
       },
       "firstSeenAt": "2026-05-25T23:20:54.805Z",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "marketing-specialist-roche-ch"
+        ],
+        "de": [
+          "marketing-specialist-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "marketing-specialist-roche-ch"
+      ]
     },
     {
       "id": "roche-8b74b550d801",

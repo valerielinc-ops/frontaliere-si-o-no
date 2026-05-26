@@ -271,9 +271,9 @@
       "firstSeenAt": "2026-05-25T12:37:29.985Z",
       "slugByLocale": {
         "it": "impiegato-a-amministrativo-a-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "en": "administrative-staff-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "en": "employee-amministrativo-a-eoc-ente-ospedaliero-cantonale-bellinzona",
         "de": "verwaltungspersonal-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "fr": "personnel-administratif-eoc-ente-ospedaliero-cantonale-bellinzona"
+        "fr": "employe-e-amministrativo-a-eoc-ente-ospedaliero-cantonale-bellinzona"
       },
       "titleByLocale": {
         "it": "Impiegato/a amministrativo/a",
@@ -309,19 +309,23 @@
       "employmentType": "FULL_TIME",
       "previousSlugsByLocale": {
         "en": [
-          "administrative-employee-eoc-ente-ospedaliero-cantonale-bellinzona"
+          "administrative-employee-eoc-ente-ospedaliero-cantonale-bellinzona",
+          "administrative-staff-eoc-ente-ospedaliero-cantonale-bellinzona"
         ],
         "de": [
           "verwaltungsmitarbeiter-eoc-ente-ospedaliero-cantonale-bellinzona"
         ],
         "fr": [
-          "employe-administratif-eoc-ente-ospedaliero-cantonale-bellinzona"
+          "employe-administratif-eoc-ente-ospedaliero-cantonale-bellinzona",
+          "personnel-administratif-eoc-ente-ospedaliero-cantonale-bellinzona"
         ]
       },
       "previousSlugs": [
         "administrative-employee-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "administrative-staff-eoc-ente-ospedaliero-cantonale-bellinzona",
         "verwaltungsmitarbeiter-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "employe-administratif-eoc-ente-ospedaliero-cantonale-bellinzona"
+        "employe-administratif-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "personnel-administratif-eoc-ente-ospedaliero-cantonale-bellinzona"
       ]
     },
     {
@@ -2070,24 +2074,19 @@
       "previousSlugsByLocale": {
         "en": [
           "collaboratore-trice-della-ristorazione-eoc-ente-ospedaliero-cantonale-novaggio-x29n46",
-          "cooperator-restaurant-eoc-ente-ospedaliero-cantonale-novaggio",
           "cooperator-restaurant-eoc-ente-ospedaliero-cantonale-novaggio-4e3acb"
         ],
         "de": [
           "kuchenhilfe-eoc-ente-ospedaliero-cantonale-novaggio",
-          "mitarbeiter-in-eoc-ente-ospedaliero-cantonale-novaggio",
           "mitarbeiter-in-eoc-ente-ospedaliero-cantonale-novaggio-4e3acb"
         ],
         "fr": [
-          "assistant-de-restauration-eoc-ente-ospedaliero-cantonale-novaggio",
           "cooperator-restaurant-eoc-ente-ospedaliero-cantonale-novaggio"
         ]
       },
       "previousSlugs": [
         "collaboratore-trice-della-ristorazione-eoc-ente-ospedaliero-cantonale-novaggio-x29n46",
         "kuchenhilfe-eoc-ente-ospedaliero-cantonale-novaggio",
-        "mitarbeiter-in-eoc-ente-ospedaliero-cantonale-novaggio",
-        "assistant-de-restauration-eoc-ente-ospedaliero-cantonale-novaggio",
         "cooperator-restaurant-eoc-ente-ospedaliero-cantonale-novaggio",
         "cooperator-restaurant-eoc-ente-ospedaliero-cantonale-novaggio-4e3acb",
         "mitarbeiter-in-eoc-ente-ospedaliero-cantonale-novaggio-4e3acb"
@@ -2115,9 +2114,9 @@
       "firstSeenAt": "2026-05-24T10:42:40.809Z",
       "slugByLocale": {
         "it": "impiegato-a-amministrativo-a-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "en": "administrative-staff-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "en": "employee-amministrativo-a-eoc-ente-ospedaliero-cantonale-bellinzona-c72886",
         "de": "verwaltungspersonal-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "fr": "personnel-administratif-eoc-ente-ospedaliero-cantonale-bellinzona"
+        "fr": "employe-e-amministrativo-a-eoc-ente-ospedaliero-cantonale-bellinzona-c72886"
       },
       "titleByLocale": {
         "it": "Impiegato/a amministrativo/a",
@@ -2154,40 +2153,36 @@
       "previousSlugsByLocale": {
         "en": [
           "administrative-employee-eoc-ente-ospedaliero-cantonale-bellinzona",
-          "employee-amministrativo-a-eoc-ente-ospedaliero-cantonale-bellinzona-c72886",
           "assistant-administratif-70-90-eoc-ente-ospedaliero-cantonale-mendrisio",
           "employee-amministrativo-a-eoc-ente-ospedaliero-cantonale-bellinzona",
-          "administrative-staff-eoc-ente-ospedaliero-cantonale-bellinzona-c72886"
+          "administrative-staff-eoc-ente-ospedaliero-cantonale-bellinzona-c72886",
+          "administrative-staff-eoc-ente-ospedaliero-cantonale-bellinzona"
         ],
         "de": [
           "verwaltungsmitarbeiter-eoc-ente-ospedaliero-cantonale-bellinzona",
           "angestellte-r-amministrativo-a-eoc-ente-ospedaliero-cantonale-bellinzona-c72886",
-          "verwaltungspersonal-eoc-ente-ospedaliero-cantonale-bellinzona",
           "verwaltungspersonal-eoc-ente-ospedaliero-cantonale-bellinzona-c72886"
         ],
         "fr": [
           "employe-administratif-eoc-ente-ospedaliero-cantonale-bellinzona",
-          "employe-e-amministrativo-a-eoc-ente-ospedaliero-cantonale-bellinzona-c72886",
           "employe-e-amministrativo-a-eoc-ente-ospedaliero-cantonale-bellinzona",
-          "personnel-administratif-eoc-ente-ospedaliero-cantonale-bellinzona-c72886"
+          "personnel-administratif-eoc-ente-ospedaliero-cantonale-bellinzona-c72886",
+          "personnel-administratif-eoc-ente-ospedaliero-cantonale-bellinzona"
         ]
       },
       "previousSlugs": [
-        "employe-administratif-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "employe-e-amministrativo-a-eoc-ente-ospedaliero-cantonale-bellinzona-c72886",
-        "employe-e-amministrativo-a-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "administrative-staff-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "personnel-administratif-eoc-ente-ospedaliero-cantonale-bellinzona",
         "administrative-employee-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "employee-amministrativo-a-eoc-ente-ospedaliero-cantonale-bellinzona-c72886",
         "assistant-administratif-70-90-eoc-ente-ospedaliero-cantonale-mendrisio",
         "employee-amministrativo-a-eoc-ente-ospedaliero-cantonale-bellinzona",
         "administrative-staff-eoc-ente-ospedaliero-cantonale-bellinzona-c72886",
+        "administrative-staff-eoc-ente-ospedaliero-cantonale-bellinzona",
         "verwaltungsmitarbeiter-eoc-ente-ospedaliero-cantonale-bellinzona",
         "angestellte-r-amministrativo-a-eoc-ente-ospedaliero-cantonale-bellinzona-c72886",
-        "verwaltungspersonal-eoc-ente-ospedaliero-cantonale-bellinzona",
         "verwaltungspersonal-eoc-ente-ospedaliero-cantonale-bellinzona-c72886",
-        "personnel-administratif-eoc-ente-ospedaliero-cantonale-bellinzona-c72886"
+        "employe-administratif-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "employe-e-amministrativo-a-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "personnel-administratif-eoc-ente-ospedaliero-cantonale-bellinzona-c72886",
+        "personnel-administratif-eoc-ente-ospedaliero-cantonale-bellinzona"
       ]
     },
     {
@@ -2251,29 +2246,23 @@
       "previousSlugsByLocale": {
         "en": [
           "household-employee-eoc-ente-ospedaliero-cantonale-novaggio",
-          "contributor-trice-of-the-domestic-economy-eoc-ente-ospedaliero-cantonale-novaggio",
           "collaboratore-trice-dell-economia-domestica-eoc-ente-ospedaliero-cantonale-novaggio-x29n47",
           "contributor-trice-of-the-domestic-economy-eoc-ente-ospedaliero-cantonale-novaggio-2c868a"
         ],
         "de": [
           "mitarbeiter-in-fur-haushaltswirtschaft-eoc-ente-ospedaliero-cantonale-novaggio",
-          "beitrag-terrasse-der-heimischen-wirtschaft-eoc-ente-ospedaliero-cantonale-novaggio",
           "beitrag-terrasse-der-heimischen-wirtschaft-eoc-ente-ospedaliero-cantonale-novaggio-2c868a"
         ],
         "fr": [
           "assistant-e-en-economie-domestique-eoc-ente-ospedaliero-cantonale-novaggio",
-          "facteurs-de-l-economie-nationale-eoc-ente-ospedaliero-cantonale-novaggio",
           "facteurs-de-l-economie-nationale-eoc-ente-ospedaliero-cantonale-novaggio-2c868a"
         ]
       },
       "previousSlugs": [
         "collaboratore-trice-dell-economia-domestica-eoc-ente-ospedaliero-cantonale-novaggio-x29n47",
         "mitarbeiter-in-fur-haushaltswirtschaft-eoc-ente-ospedaliero-cantonale-novaggio",
-        "beitrag-terrasse-der-heimischen-wirtschaft-eoc-ente-ospedaliero-cantonale-novaggio",
         "assistant-e-en-economie-domestique-eoc-ente-ospedaliero-cantonale-novaggio",
-        "facteurs-de-l-economie-nationale-eoc-ente-ospedaliero-cantonale-novaggio",
         "household-employee-eoc-ente-ospedaliero-cantonale-novaggio",
-        "contributor-trice-of-the-domestic-economy-eoc-ente-ospedaliero-cantonale-novaggio",
         "contributor-trice-of-the-domestic-economy-eoc-ente-ospedaliero-cantonale-novaggio-2c868a",
         "beitrag-terrasse-der-heimischen-wirtschaft-eoc-ente-ospedaliero-cantonale-novaggio-2c868a",
         "facteurs-de-l-economie-nationale-eoc-ente-ospedaliero-cantonale-novaggio-2c868a"
@@ -2355,26 +2344,20 @@
       "previousSlugsByLocale": {
         "en": [
           "assistente-di-studio-medico-eoc-ente-ospedaliero-cantonale-lugano-uil2r1",
-          "medical-study-assistant-eoc-ente-ospedaliero-cantonale-lugano",
           "medical-study-assistant-eoc-ente-ospedaliero-cantonale-lugano-e4137d"
         ],
         "de": [
           "arzthelferin-eoc-ente-ospedaliero-cantonale-lugano",
-          "medizinischer-studienassistent-eoc-ente-ospedaliero-cantonale-lugano",
           "medizinischer-studienassistent-eoc-ente-ospedaliero-cantonale-lugano-e4137d"
         ],
         "fr": [
           "assistante-de-cabinet-medical-eoc-ente-ospedaliero-cantonale-lugano",
-          "assistant-d-etude-medicale-eoc-ente-ospedaliero-cantonale-lugano",
           "assistant-d-etude-medicale-eoc-ente-ospedaliero-cantonale-lugano-e4137d"
         ]
       },
       "previousSlugs": [
-        "medical-study-assistant-eoc-ente-ospedaliero-cantonale-lugano",
         "arzthelferin-eoc-ente-ospedaliero-cantonale-lugano",
-        "medizinischer-studienassistent-eoc-ente-ospedaliero-cantonale-lugano",
         "assistante-de-cabinet-medical-eoc-ente-ospedaliero-cantonale-lugano",
-        "assistant-d-etude-medicale-eoc-ente-ospedaliero-cantonale-lugano",
         "assistente-di-studio-medico-eoc-ente-ospedaliero-cantonale-lugano-uil2r1",
         "medical-study-assistant-eoc-ente-ospedaliero-cantonale-lugano-e4137d",
         "medizinischer-studienassistent-eoc-ente-ospedaliero-cantonale-lugano-e4137d",
@@ -2452,14 +2435,12 @@
         "de": [
           "pflegepraktikum-eoc-ente-ospedaliero-cantonale-bellinzona",
           "krankenpflegepraktikum-eoc-ente-ospedaliero-cantonale-bellinzona",
-          "krankenpflegepraktikum-eoc-ente-ospedaliero-cantonale-bellinzona-c86b40",
           "krankenpflegepraktikum-eoc-ente-ospedaliero-cantonale-bellinzona-9ec31a"
         ]
       },
       "previousSlugs": [
         "pflegepraktikum-eoc-ente-ospedaliero-cantonale-bellinzona",
         "krankenpflegepraktikum-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "krankenpflegepraktikum-eoc-ente-ospedaliero-cantonale-bellinzona-c86b40",
         "krankenpflegepraktikum-eoc-ente-ospedaliero-cantonale-bellinzona-9ec31a"
       ]
     },
@@ -2576,31 +2557,25 @@
       "previousSlugsByLocale": {
         "en": [
           "medico-assistente-medico-ospedaliero-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-x29n4d",
-          "medical-assistant-medical-hospital-eoc-ente-ospedaliero-cantonale-novaggio",
           "medico-assistente-medico-ospedaliero-eoc-ente-ospedaliero-cantonale-novaggio-x29n4c",
           "medical-assistant-medical-hospital-eoc-ente-ospedaliero-cantonale-novaggio-bbd7f1"
         ],
         "de": [
           "medico-assistente-medico-ospedaliero-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-x29n4d",
-          "medizinischer-assistent-medizinisches-krankenhaus-eoc-ente-ospedaliero-cantonale-novaggio",
           "assistenzarzt-krankenhausarzt-eoc-ente-ospedaliero-cantonale-novaggio",
           "medizinischer-assistent-medizinisches-krankenhaus-eoc-ente-ospedaliero-cantonale-novaggio-bbd7f1"
         ],
         "fr": [
           "medico-assistente-medico-ospedaliero-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-x29n4d",
-          "assistant-medical-hopital-medical-eoc-ente-ospedaliero-cantonale-novaggio",
           "medecin-assistant-medecin-hospitalier-eoc-ente-ospedaliero-cantonale-novaggio",
           "assistant-medical-hopital-medical-eoc-ente-ospedaliero-cantonale-novaggio-bbd7f1"
         ]
       },
       "previousSlugs": [
         "medico-assistente-medico-ospedaliero-eoc-ente-ospedaliero-cantonale-novaggio-x29n4c",
-        "medizinischer-assistent-medizinisches-krankenhaus-eoc-ente-ospedaliero-cantonale-novaggio",
         "assistenzarzt-krankenhausarzt-eoc-ente-ospedaliero-cantonale-novaggio",
-        "assistant-medical-hopital-medical-eoc-ente-ospedaliero-cantonale-novaggio",
         "medecin-assistant-medecin-hospitalier-eoc-ente-ospedaliero-cantonale-novaggio",
         "medico-assistente-medico-ospedaliero-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-x29n4d",
-        "medical-assistant-medical-hospital-eoc-ente-ospedaliero-cantonale-novaggio",
         "medical-assistant-medical-hospital-eoc-ente-ospedaliero-cantonale-novaggio-bbd7f1",
         "medizinischer-assistent-medizinisches-krankenhaus-eoc-ente-ospedaliero-cantonale-novaggio-bbd7f1",
         "assistant-medical-hopital-medical-eoc-ente-ospedaliero-cantonale-novaggio-bbd7f1"
@@ -2820,7 +2795,6 @@
         ],
         "de": [
           "stage-servizio-infermieristico-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offer-x29n5z",
-          "buhnenpflege-service-eoc-ente-ospedaliero-cantonale-novaggio",
           "praktikum-im-pflegedienst-eoc-ente-ospedaliero-cantonale-novaggio",
           "buhnenpflege-service-eoc-ente-ospedaliero-cantonale-novaggio-a34f2a"
         ],
@@ -2830,7 +2804,6 @@
       },
       "previousSlugs": [
         "stage-servizio-infermieristico-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offer-x29n5z",
-        "buhnenpflege-service-eoc-ente-ospedaliero-cantonale-novaggio",
         "praktikum-im-pflegedienst-eoc-ente-ospedaliero-cantonale-novaggio",
         "buhnenpflege-service-eoc-ente-ospedaliero-cantonale-novaggio-a34f2a"
       ],
@@ -2907,29 +2880,23 @@
       "previousSlugsByLocale": {
         "en": [
           "fisioterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-o-x29n63",
-          "graduated-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio",
           "graduated-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio-224f42"
         ],
         "de": [
           "fisioterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-o-x29n63",
-          "graduierte-physiotherapeutin-eoc-ente-ospedaliero-cantonale-novaggio",
           "diplomierter-physiotherapeut-eoc-ente-ospedaliero-cantonale-novaggio",
           "graduierte-physiotherapeutin-eoc-ente-ospedaliero-cantonale-novaggio-224f42"
         ],
         "fr": [
           "fisioterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-o-x29n63",
-          "physiotherapie-diplomee-eoc-ente-ospedaliero-cantonale-novaggio",
           "physiotherapie-diplomee-eoc-ente-ospedaliero-cantonale-novaggio-224f42"
         ]
       },
       "previousSlugs": [
-        "graduierte-physiotherapeutin-eoc-ente-ospedaliero-cantonale-novaggio",
         "diplomierter-physiotherapeut-eoc-ente-ospedaliero-cantonale-novaggio",
-        "physiotherapie-diplomee-eoc-ente-ospedaliero-cantonale-novaggio",
         "qualified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio",
         "physiotherapeute-qualifie-eoc-ente-ospedaliero-cantonale-novaggio",
         "fisioterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-o-x29n63",
-        "graduated-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio",
         "graduated-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio-224f42",
         "graduierte-physiotherapeutin-eoc-ente-ospedaliero-cantonale-novaggio-224f42",
         "physiotherapie-diplomee-eoc-ente-ospedaliero-cantonale-novaggio-224f42"
@@ -3005,31 +2972,25 @@
       "previousSlugsByLocale": {
         "en": [
           "ergoterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-os-x29n6t",
-          "graduated-ergotherapist-eoc-ente-ospedaliero-cantonale-novaggio",
           "qualified-occupational-therapist-eoc-ente-ospedaliero-cantonale-novaggio",
           "graduated-ergotherapist-eoc-ente-ospedaliero-cantonale-novaggio-bf9fb7"
         ],
         "de": [
           "ergoterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-os-x29n6t",
-          "graduierten-ergotherapist-eoc-ente-ospedaliero-cantonale-novaggio",
           "qualifizierter-ergotherapeut-eoc-ente-ospedaliero-cantonale-novaggio",
           "graduierten-ergotherapist-eoc-ente-ospedaliero-cantonale-novaggio-bf9fb7"
         ],
         "fr": [
           "ergoterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-os-x29n6t",
-          "diplome-ergotherapeute-eoc-ente-ospedaliero-cantonale-novaggio",
           "ergotherapeute-qualifie-eoc-ente-ospedaliero-cantonale-novaggio",
           "diplome-ergotherapeute-eoc-ente-ospedaliero-cantonale-novaggio-bf9fb7"
         ]
       },
       "previousSlugs": [
         "qualified-occupational-therapist-eoc-ente-ospedaliero-cantonale-novaggio",
-        "graduierten-ergotherapist-eoc-ente-ospedaliero-cantonale-novaggio",
         "qualifizierter-ergotherapeut-eoc-ente-ospedaliero-cantonale-novaggio",
-        "diplome-ergotherapeute-eoc-ente-ospedaliero-cantonale-novaggio",
         "ergotherapeute-qualifie-eoc-ente-ospedaliero-cantonale-novaggio",
         "ergoterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-os-x29n6t",
-        "graduated-ergotherapist-eoc-ente-ospedaliero-cantonale-novaggio",
         "graduated-ergotherapist-eoc-ente-ospedaliero-cantonale-novaggio-bf9fb7",
         "graduierten-ergotherapist-eoc-ente-ospedaliero-cantonale-novaggio-bf9fb7",
         "diplome-ergotherapeute-eoc-ente-ospedaliero-cantonale-novaggio-bf9fb7"
@@ -3262,26 +3223,20 @@
         "en": [
           "medico-perito-sam-con-specializzazione-in-medicina-interna-generale-percentuale-lavorativa-da-definire-permette-di-combinare-efficacemente-a-uilqhe",
           "medico-perito-sam-con-specializzazione-in-medicina-interna-generale-percentuale-lavorativa-da-definire-eoc-ente",
-          "doctor-perito-sam-with-specialization-in-general-internal-medicine-percentage-to-be-defined-eoc-ente-ospedaliero",
           "doctor-perito-sam-with-specialization-in-general-internal-medicine-percentage-to-be-defined-eoc-ente-ospedaliero-4d6bce"
         ],
         "fr": [
           "medico-perito-sam-con-specializzazione-in-medicina-interna-generale-percentuale-lavorativa-da-definire-permette-di-combinare-efficacemente-a-uilqhe",
           "medico-perito-sam-con-specializzazione-in-medicina-interna-generale-percentuale-lavorativa-da-definire-eoc-ente",
-          "docteur-perito-sam-avec-specialisation-en-medecine-interne-generale-pourcentage-a-definir-eoc-ente-ospedaliero-cantonale",
           "docteur-perito-sam-avec-specialisation-en-medecine-interne-generale-pourcentage-a-definir-eoc-ente-ospedaliero-4d6bce"
         ],
         "de": [
           "medico-perito-sam-con-specializzazione-in-medicina-interna-generale-percentuale-lavorativa-da-definire-eoc-ente-ospedaliero-cantonale-bellinzona",
-          "doktor-perito-sam-mit-spezialisierung-in-der-allgemeinen-internen-medizin-prozentual-zu-definieren-eoc-ente-ospedaliero",
           "doktor-perito-sam-mit-spezialisierung-in-der-allgemeinen-internen-medizin-prozentual-zu-definieren-eoc-ente-4d6bce"
         ]
       },
       "previousSlugs": [
-        "doctor-perito-sam-with-specialization-in-general-internal-medicine-percentage-to-be-defined-eoc-ente-ospedaliero",
-        "docteur-perito-sam-avec-specialisation-en-medecine-interne-generale-pourcentage-a-definir-eoc-ente-ospedaliero-cantonale",
         "medico-perito-sam-con-specializzazione-in-medicina-interna-generale-percentuale-lavorativa-da-definire-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "doktor-perito-sam-mit-spezialisierung-in-der-allgemeinen-internen-medizin-prozentual-zu-definieren-eoc-ente-ospedaliero",
         "medico-perito-sam-con-specializzazione-in-medicina-interna-generale-percentuale-lavorativa-da-definire-permette-di-combinare-efficacemente-a-uilqfi",
         "medico-perito-sam-con-specializzazione-in-medicina-interna-generale-percentuale-lavorativa-da-definire-permette-di-combinare-efficacemente-a-uilqhe",
         "medico-perito-sam-con-specializzazione-in-medicina-interna-generale-percentuale-lavorativa-da-definire-eoc-ente",

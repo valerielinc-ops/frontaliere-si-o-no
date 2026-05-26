@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "denner-6f82c840d8b0",
-      "slug": "stv-filialleiter-in-denner-basel",
+      "slug": "stv-branch-manager-in-denner-basel",
       "slugByLocale": {
-        "it": "stv-filialleiter-in-denner-basel",
+        "it": "stv-branch-manager-in-denner-basel",
         "en": "stv-filialleiter-in-denner-basel",
         "de": "stv-filialleiter-in-denner-basel",
-        "fr": "stv-filialleiter-in-denner-basel"
+        "fr": "directeur-de-succursale-stv-in-denner-basel"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -66,17 +66,20 @@
       "sourceLang": "de",
       "crawledAt": "2026-05-25T21:58:58.863Z",
       "previousSlugs": [
-        "stv-filialleiter-in-denner"
+        "stv-filialleiter-in-denner",
+        "stv-filialleiter-in-denner-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "stv-filialleiter-in-denner"
+          "stv-filialleiter-in-denner",
+          "stv-filialleiter-in-denner-basel"
         ],
         "en": [
           "stv-filialleiter-in-denner"
         ],
         "fr": [
-          "stv-filialleiter-in-denner"
+          "stv-filialleiter-in-denner",
+          "stv-filialleiter-in-denner-basel"
         ]
       },
       "firstSeenAt": "2026-05-25T12:29:16.571Z",

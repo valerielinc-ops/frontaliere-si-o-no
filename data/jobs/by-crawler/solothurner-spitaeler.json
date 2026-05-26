@@ -7764,7 +7764,6 @@
         "fachfrau-fachmann-operationstechnik-w-m-d-soh-ch-2",
         "projektleiter-m-w-solothurner-spitaler-soh-solothurn",
         "mpa-poliklinik-orthopadie-m-w-d-soh-ch",
-        "projektleiter-m-w-d-solothurner-spitaler-soh-solothurn",
         "projektleiter-m-m-j-solothurner-spitaler-soh-solothurn"
       ],
       "previousSlugsByLocale": {
@@ -11362,7 +11361,7 @@
       "id": "solothurner-spitaeler-8dfc47f841da",
       "slug": "consulente-senior-w-m-d-solothurner-spitaler-soh-solothurn",
       "slugByLocale": {
-        "it": "medico-di-base-uomo-donna-solothurner-spitaler-soh-solothurn",
+        "it": "consulente-senior-w-m-d-solothurner-spitaler-soh-solothurn",
         "en": "senior-consultant-w-m-d-solothurner-spitaler-soh-solothurn",
         "de": "nachdiplomstudium-hf-intensivpflege-w-m-d-solothurner-spitaler-soh-solothurn",
         "fr": "consultant-principal-m-j-solothurner-spitaler-soh-solothurn"
@@ -11414,7 +11413,8 @@
         ],
         "it": [
           "nachdiplomstudium-hf-intensivpflege-w-m-d-soh-ch",
-          "nachdiplomstudium-hf-intensivpflege-w-m-d-solothurner-spitaler-soh-solothurn"
+          "nachdiplomstudium-hf-intensivpflege-w-m-d-solothurner-spitaler-soh-solothurn",
+          "medico-di-base-uomo-donna-solothurner-spitaler-soh-solothurn"
         ],
         "en": [
           "nachdiplomstudium-hf-intensivpflege-w-m-d-solothurner-spitaler-soh-solothurn"
@@ -11426,10 +11426,9 @@
       "previousSlugs": [
         "nachdiplomstudium-hf-intensivpflege-w-m-d-soh-ch",
         "nachdiplomstudium-hf-intensivpflege-w-m-d-solothurner-spitaler-soh-solothurn",
+        "medico-di-base-uomo-donna-solothurner-spitaler-soh-solothurn",
         "hausarztin-hausarzt-w-m-d-soh-ch",
-        "consultant-principal-m-j-solothurner-spitaler-soh-solothurn-1cedfd",
-        "consulente-senior-w-m-d-solothurner-spitaler-soh-solothurn",
-        "senior-consultant-w-m-d-solothurner-spitaler-soh-solothurn"
+        "consultant-principal-m-j-solothurner-spitaler-soh-solothurn-1cedfd"
       ],
       "firstSeenAt": "2026-05-21T13:19:26.031Z",
       "salaryMin": 68000,
@@ -11501,8 +11500,6 @@
         "radiologie-fachfrau-radiologie-fachmann-w-m-d-60-100-solothurner-spitaler-soh-solothurn",
         "technicien-en-radiologie-h-f-d-60-100-solothurner-spitaler-soh-solothurn",
         "specialiste-de-radiologie-w-m-d-solothurner-spitaler-soh-solothurn",
-        "radiologiefachfrau-radiologiefachmann-hf-nuklearmedizin-w-m-d-soh-ch",
-        "radiology-specialist-w-m-d-solothurner-spitaler-soh-solothurn",
         "radiologiefachfrau-radiologiefachmann-w-m-d-60-100-soh-ch",
         "specialiste-en-radiologie-60-100-solothurner-spitaler-ag-soh-solothurn"
       ],
@@ -12449,10 +12446,10 @@
     },
     {
       "id": "solothurner-spitaeler-0eb1abbd40da",
-      "slug": "nachdiplomstudium-anasthesiepflege-w-m-d-solothurner-spitaler-soh-solothurn",
+      "slug": "projektleiter-m-d-solothurner-spitaler-soh-solothurn",
       "slugByLocale": {
         "de": "nachdiplomstudium-anasthesiepflege-w-m-d-solothurner-spitaler-soh-solothurn",
-        "it": "nachdiplomstudium-anasthesiepflege-w-m-d-solothurner-spitaler-soh-solothurn",
+        "it": "projektleiter-m-d-solothurner-spitaler-soh-solothurn",
         "en": "nachdiplomstudium-anasthesiepflege-w-m-d-solothurner-spitaler-soh-solothurn",
         "fr": "nachdiplomstudium-anasthesiepflege-w-m-d-solothurner-spitaler-soh-solothurn"
       },
@@ -12502,18 +12499,21 @@
       "previousSlugsByLocale": {
         "de": [
           "nachdiplomstudium-anasthesiepflege-w-m-d-soh-ch"
+        ],
+        "it": [
+          "nachdiplomstudium-anasthesiepflege-w-m-d-solothurner-spitaler-soh-solothurn"
         ]
       },
       "previousSlugs": [
         "nachdiplomstudium-anasthesiepflege-w-m-d-soh-ch",
+        "nachdiplomstudium-anasthesiepflege-w-m-d-solothurner-spitaler-soh-solothurn",
         "projektleiter-m-d-solothurner-spitaler-soh-solothurn-w0mesm",
         "projektleiter-m-d-solothurner-spitaler-soh-solothurn-d6958a",
         "soccorritore-a-uomo-donna-solothurner-spitaler-soh-solothurn",
         "emergency-medical-technician-male-female-solothurner-spitaler-soh-solothurn",
         "infirmier-ere-en-soins-d-urgence-h-f-solothurner-spitaler-soh-solothurn",
         "rettungssanitaterin-rettungssanitater-w-m-d-soh-ch",
-        "rettungssanitaterin-rettungssanitater-w-m-d-solothurner-spitaler-soh-solothurn",
-        "projektleiter-m-d-solothurner-spitaler-soh-solothurn"
+        "rettungssanitaterin-rettungssanitater-w-m-d-solothurner-spitaler-soh-solothurn"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -12531,9 +12531,9 @@
     },
     {
       "id": "solothurner-spitaeler-c832c798bcc0",
-      "slug": "projektleiter-m-d-solothurner-spitaler-soh-solothurn",
+      "slug": "projektleiter-m-d-solothurner-spitaler-soh-solothurn-9318a2",
       "slugByLocale": {
-        "it": "soccorritore-a-uomo-donna-solothurner-spitaler-soh-solothurn",
+        "it": "projektleiter-m-d-solothurner-spitaler-soh-solothurn-9318a2",
         "en": "projektleiter-m-d-solothurner-spitaler-soh-solothurn-9318a2",
         "de": "sachbearbeiterin-sachbearbeiter-telefondienst-patientenservices-kostensicherung-w-m-d-soh",
         "fr": "projektleiter-m-d-solothurner-spitaler-soh-solothurn-9318a2"
@@ -12581,18 +12581,19 @@
       "workplace": "Solothurner Spitäler AG",
       "previousSlugs": [
         "sachbearbeiterin-sachbearbeiter-telefondienst-patientenservices-kostensicherung-w-m-d-soh",
-        "projektleiter-m-d-solothurner-spitaler-soh-solothurn-9318a2",
+        "soccorritore-a-uomo-donna-solothurner-spitaler-soh-solothurn",
+        "projektleiter-m-d-solothurner-spitaler-soh-solothurn",
         "projektleiter-m-d-solothurner-spitaler-soh-solothurn-jstmrl",
         "emergency-medical-technician-male-female-solothurner-spitaler-soh-solothurn",
         "infirmier-ere-en-soins-d-urgence-h-f-solothurner-spitaler-soh-solothurn",
         "rettungssanitaterin-rettungssanitater-w-m-d-soh-ch",
-        "rettungssanitaterin-rettungssanitater-w-m-d-solothurner-spitaler-soh-solothurn",
-        "projektleiter-m-d-solothurner-spitaler-soh-solothurn"
+        "rettungssanitaterin-rettungssanitater-w-m-d-solothurner-spitaler-soh-solothurn"
       ],
       "previousSlugsByLocale": {
         "it": [
           "sachbearbeiterin-sachbearbeiter-telefondienst-patientenservices-kostensicherung-w-m-d-soh",
-          "projektleiter-m-d-solothurner-spitaler-soh-solothurn-9318a2"
+          "soccorritore-a-uomo-donna-solothurner-spitaler-soh-solothurn",
+          "projektleiter-m-d-solothurner-spitaler-soh-solothurn"
         ],
         "en": [
           "sachbearbeiterin-sachbearbeiter-telefondienst-patientenservices-kostensicherung-w-m-d-soh"
@@ -12619,7 +12620,7 @@
       "id": "solothurner-spitaeler-099dc7542657",
       "slug": "consulente-senior-w-m-d-solothurner-spitaler-soh-olten",
       "slugByLocale": {
-        "it": "nachdiplomstudium-hf-intensivpflege-w-m-d-solothurner-spitaler-soh-olten",
+        "it": "consulente-senior-w-m-d-solothurner-spitaler-soh-olten",
         "en": "senior-consultant-w-m-d-solothurner-spitaler-soh-olten",
         "de": "nachdiplomstudium-hf-intensivpflege-w-m-d-solothurner-spitaler-soh-olten",
         "fr": "consultant-principal-m-j-solothurner-spitaler-soh-olten"
@@ -12671,7 +12672,8 @@
         ],
         "it": [
           "nachdiplomstudium-hf-intensivpflege-w-m-d-solothurner-spitaler-ag-soh-olten",
-          "esperta-o-di-anestesia-uomo-donna-solothurner-spitaler-soh-olten"
+          "esperta-o-di-anestesia-uomo-donna-solothurner-spitaler-soh-olten",
+          "nachdiplomstudium-hf-intensivpflege-w-m-d-solothurner-spitaler-soh-olten"
         ],
         "en": [
           "nachdiplomstudium-hf-intensivpflege-w-m-d-solothurner-spitaler-ag-soh-olten"
@@ -12684,14 +12686,12 @@
         "nachdiplomstudium-hf-intensivpflege-w-m-d-soh-ch",
         "nachdiplomstudium-hf-intensivpflege-w-m-d-solothurner-spitaler-ag-soh-olten",
         "esperta-o-di-anestesia-uomo-donna-solothurner-spitaler-soh-olten",
+        "nachdiplomstudium-hf-intensivpflege-w-m-d-solothurner-spitaler-soh-olten",
         "expertin-experte-anasthesiepflege-w-m-d-soh-ch-2",
         "consulente-senior-m-d-solothurner-spitaler-soh-olten",
         "senior-consultant-m-d-solothurner-spitaler-soh-olten",
         "fachfrau-fachmann-gesundheit-chirurgische-sprechstunde-w-m-d-soh-ch",
-        "consultant-principal-m-j-solothurner-spitaler-soh-olten-7e45cf",
-        "consulente-senior-w-m-d-solothurner-spitaler-soh-olten",
-        "senior-consultant-w-m-d-solothurner-spitaler-soh-olten",
-        "consultant-principal-m-j-solothurner-spitaler-soh-olten"
+        "consultant-principal-m-j-solothurner-spitaler-soh-olten-7e45cf"
       ],
       "firstSeenAt": "2026-05-22T13:01:59.304Z",
       "salaryMin": 68000,
@@ -12783,7 +12783,7 @@
       "id": "solothurner-spitaeler-4fec30d37142",
       "slug": "projektleiter-m-d-solothurner-spitaler-soh-olten",
       "slugByLocale": {
-        "it": "project-manager-rappresentante-della-proprieta-m-w-d-solothurner-spitaler-soh-olten",
+        "it": "projektleiter-m-d-solothurner-spitaler-soh-olten",
         "en": "project-manager-client-representative-m-f-d-solothurner-spitaler-soh-olten",
         "de": "nachdiplomstudium-anasthesiepflege-w-m-d-solothurner-spitaler-soh-olten",
         "fr": "responsable-de-projet-representant-du-client-m-f-d-solothurner-spitaler-soh-olten"
@@ -12835,7 +12835,8 @@
         ],
         "it": [
           "nachdiplomstudium-anasthesiepflege-w-m-d-soh-ch-2",
-          "nachdiplomstudium-anasthesiepflege-w-m-d-solothurner-spitaler-soh-olten"
+          "nachdiplomstudium-anasthesiepflege-w-m-d-solothurner-spitaler-soh-olten",
+          "project-manager-rappresentante-della-proprieta-m-w-d-solothurner-spitaler-soh-olten"
         ],
         "en": [
           "nachdiplomstudium-anasthesiepflege-w-m-d-solothurner-spitaler-soh-olten"
@@ -12848,9 +12849,9 @@
         "nachdiplomstudium-anasthesiepflege-w-m-d-soh-ch",
         "nachdiplomstudium-anasthesiepflege-w-m-d-soh-ch-2",
         "nachdiplomstudium-anasthesiepflege-w-m-d-solothurner-spitaler-soh-olten",
+        "project-manager-rappresentante-della-proprieta-m-w-d-solothurner-spitaler-soh-olten",
         "projektleiterin-projektleiter-bauherrenvertretung-w-m-d-soh-ch",
-        "projektleiterin-projektleiter-bauherrenvertretung-m-w-d-solothurner-spitaler-soh-olten",
-        "projektleiter-m-d-solothurner-spitaler-soh-olten"
+        "projektleiterin-projektleiter-bauherrenvertretung-m-w-d-solothurner-spitaler-soh-olten"
       ],
       "firstSeenAt": "2026-05-21T13:19:26.030Z",
       "salaryMin": 49500,

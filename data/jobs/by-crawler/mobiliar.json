@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "mobiliar-260520fa4625",
-      "slug": "frontend-angular-developer-w-m-d-mobiliar-ch",
+      "slug": "sviluppatore-angolare-w-m-d-die-mobiliar-bern",
       "slugByLocale": {
         "de": "frontend-angular-developer-w-m-d-mobiliar-ch",
-        "it": "frontend-angular-developer-w-m-d-mobiliar-ch",
+        "it": "sviluppatore-angolare-w-m-d-die-mobiliar-bern",
         "en": "frontend-angular-developer-w-m-d-mobiliar-ch",
-        "fr": "frontend-angular-developer-w-m-d-mobiliar-ch"
+        "fr": "developpeur-angulaire-frontend-w-m-d-die-mobiliar-bern"
       },
       "company": "die Mobiliar",
       "companyKey": "mobiliar",
@@ -83,7 +83,18 @@
         }
       },
       "postalCode": "3001",
-      "firstSeenAt": "2026-05-25T23:01:15.035Z"
+      "firstSeenAt": "2026-05-25T23:01:15.035Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "frontend-angular-developer-w-m-d-mobiliar-ch"
+        ],
+        "fr": [
+          "frontend-angular-developer-w-m-d-mobiliar-ch"
+        ]
+      },
+      "previousSlugs": [
+        "frontend-angular-developer-w-m-d-mobiliar-ch"
+      ]
     },
     {
       "id": "mobiliar-2b91d98d7c52",

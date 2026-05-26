@@ -719,12 +719,12 @@
     },
     {
       "id": "rfsm-fribourg-09a557bf6401",
-      "slug": "cuisinier-ere-rfsm-marsens-rfsm-fribourg-marsens",
+      "slug": "fuochi-rfsm-marsens-rfsm-reseau-fribourgeois-sante-mentale-marsens",
       "slugByLocale": {
         "fr": "cuisinier-ere-rfsm-marsens-rfsm-reseau-fribourgeois-sante-mentale-marsens",
-        "it": "cuisinier-ere-rfsm-marsens-rfsm-fribourg-marsens",
-        "en": "cuisinier-ere-rfsm-marsens-rfsm-fribourg-marsens",
-        "de": "cuisinier-ere-rfsm-marsens-rfsm-fribourg-marsens"
+        "it": "fuochi-rfsm-marsens-rfsm-reseau-fribourgeois-sante-mentale-marsens",
+        "en": "cooker-rfsm-marsens-rfsm-reseau-fribourgeois-sante-mentale-marsens",
+        "de": "kocher-rfsm-marsens-rfsm-reseau-fribourgeois-sante-mentale-marsens"
       },
       "company": "RFSM - Réseau fribourgeois santé mentale",
       "companyKey": "rfsm-fribourg",
@@ -779,7 +779,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-25T23:17:56.617Z"
+      "firstSeenAt": "2026-05-25T23:17:56.617Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "cuisinier-ere-rfsm-marsens-rfsm-fribourg-marsens"
+        ],
+        "en": [
+          "cuisinier-ere-rfsm-marsens-rfsm-fribourg-marsens"
+        ],
+        "de": [
+          "cuisinier-ere-rfsm-marsens-rfsm-fribourg-marsens"
+        ]
+      },
+      "previousSlugs": [
+        "cuisinier-ere-rfsm-marsens-rfsm-fribourg-marsens"
+      ]
     },
     {
       "id": "rfsm-fribourg-ca341573b3bb",

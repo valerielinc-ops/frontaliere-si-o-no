@@ -4829,9 +4829,9 @@
       "slug": "dipl-pflegefachfrau-pflegefachmann-hf-spitaler-schaffhausen-schaffhausen",
       "slugByLocale": {
         "it": "dipl-pflegefachfrau-pflegefachmann-hf-spitaler-schaffhausen-schaffhausen",
-        "en": "dipl-pflegefachfrau-pflegefachmann-hf-spitaeler-schaffhausen-schaffhausen",
+        "en": "dipl-care-specialist-hf-spitaler-schaffhausen-schaffhausen",
         "de": "dipl-pflegefachfrau-pflegefachmann-hf-spitaeler-schaffhausen-schaffhausen",
-        "fr": "dipl-pflegefachfrau-pflegefachmann-hf-spitaeler-schaffhausen-schaffhausen"
+        "fr": "dipl-specialiste-des-soins-hf-spitaler-schaffhausen-schaffhausen"
       },
       "company": "Spitäler Schaffhausen",
       "companyKey": "spitaeler-schaffhausen",
@@ -4886,8 +4886,17 @@
         }
       },
       "previousSlugs": [
+        "dipl-pflegefachfrau-pflegefachmann-hf-spitaeler-schaffhausen-schaffhausen",
         "dipl-pflegefachfrau-pflegefachmann-hf-spitaler-schaffhausen-schaffhausen-igdope"
-      ]
+      ],
+      "previousSlugsByLocale": {
+        "en": [
+          "dipl-pflegefachfrau-pflegefachmann-hf-spitaeler-schaffhausen-schaffhausen"
+        ],
+        "fr": [
+          "dipl-pflegefachfrau-pflegefachmann-hf-spitaeler-schaffhausen-schaffhausen"
+        ]
+      }
     },
     {
       "id": "spitaeler-schaffhausen-be229b4d6d08",
@@ -5019,8 +5028,7 @@
         "fachmann-frau-gesundheit-cfc-spitaler-schaffhausen-2",
         "fachmann-frau-gesundheit-efz-spitaeler-schaffhausen-schaffhausen",
         "fachmann-frau-gesundheit-efz-spitaeler-schaffhausen-schaffhausen-3",
-        "fachmann-frau-gesundheit-efz-spitaeler-schaffhausen-schaffhausen-2",
-        "fachmann-frau-gesundheit-cfc-spitaler-schaffhausen"
+        "fachmann-frau-gesundheit-efz-spitaeler-schaffhausen-schaffhausen-2"
       ],
       "previousSlugsByLocale": {
         "it": [

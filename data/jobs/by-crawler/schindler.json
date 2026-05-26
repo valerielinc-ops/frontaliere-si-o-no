@@ -3621,7 +3621,6 @@
       "previousSlugs": [
         "manager-per-cookie-einwilligungen-schindler-ebikon-2",
         "manager-fur-cookie-einwilligungen-schindler-ebikon",
-        "manager-per-cookie-einwilligungen-schindler-ebikon",
         "gestione-delle-autorizzazioni-dei-cookie-schindler-ebikon",
         "gestionnaire-pour-les-autorisations-de-cookies-schindler-ebikon"
       ],
@@ -3643,9 +3642,9 @@
     },
     {
       "id": "schindler-75a56cb52f43",
-      "slug": "gestione-delle-autorizzazioni-dei-cookie-schindler-winterthur",
+      "slug": "gestione-delle-autorizzazioni-dei-cookie-schindler-winterthur-b3da79",
       "slugByLocale": {
-        "it": "responsabile-consent-cookie-schindler-ebikon",
+        "it": "gestione-delle-autorizzazioni-dei-cookie-schindler-winterthur-b3da79",
         "en": "manager-fur-cookie-einwilligungen-schindler-winterthur",
         "de": "manager-fur-cookie-einwilligungen-schindler-winterthur",
         "fr": "gestionnaire-pour-les-autorisations-de-cookies-schindler-winterthur"
@@ -3691,6 +3690,8 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "manager-per-cookie-einwilligungen-schindler-winterthur",
+        "responsabile-consent-cookie-schindler-ebikon",
+        "gestione-delle-autorizzazioni-dei-cookie-schindler-winterthur",
         "manager-fur-cookie-einwilligungen-schindler-winterthur",
         "gestione-delle-autorizzazioni-dei-cookie-schindler-ebikon",
         "manager-per-cookie-einwilligungen-schindler-ebikon",
@@ -3706,24 +3707,13 @@
         "manager-fur-cookie-einwilligungen-schindler-oberentfelden",
         "gestionnaire-pour-les-autorisations-de-cookies-schindler-oberentfelden",
         "manager-per-cookie-einwilligungen-schindler-oberentfelden-2",
-        "manager-per-cookie-einwilligungen-schindler-bern",
-        "gestionnaire-pour-les-autorisations-de-cookies-schindler-winterthur",
-        "gestione-delle-autorizzazioni-dei-cookie-schindler-winterthur",
-        "gestione-delle-autorizzazioni-dei-cookie-schindler-bern-fd1b8a-8f3hgt",
-        "gestione-delle-autorizzazioni-dei-cookie-schindler-bern-fd1b8a",
-        "gestionnaire-pour-les-autorisations-de-cookies-schindler-bern-fd1b8a",
-        "gestione-delle-autorizzazioni-dei-cookie-schindler-ebikon-i5c82e",
-        "manager-per-cookie-einwilligungen-schindler-ebikon-i5b1st",
-        "manager-per-cookie-einwilligungen-schindler-ebikon-i5ay3c",
-        "manager-fur-cookie-einwilligungen-schindler-ebikon-2",
-        "manager-per-cookie-einwilligungen-schindler-oberentfelden",
-        "manager-fur-cookie-einwilligungen-schindler-ebikon-3",
-        "gestione-delle-autorizzazioni-dei-cookie-schindler-oberentfelden",
-        "responsabile-consent-cookie-schindler-ebikon-i5b1st"
+        "manager-per-cookie-einwilligungen-schindler-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "manager-per-cookie-einwilligungen-schindler-winterthur"
+          "manager-per-cookie-einwilligungen-schindler-winterthur",
+          "responsabile-consent-cookie-schindler-ebikon",
+          "gestione-delle-autorizzazioni-dei-cookie-schindler-winterthur"
         ],
         "fr": [
           "manager-fur-cookie-einwilligungen-schindler-winterthur"
@@ -3952,11 +3942,9 @@
           "responsabile-consent-cookie-schindler-ebikon"
         ],
         "en": [
-          "manager-fur-cookie-einwilligungen-schindler-winterthur",
           "manager-fur-cookie-einwilligungen-schindler-ebikon"
         ],
         "de": [
-          "manager-fur-cookie-einwilligungen-schindler-winterthur",
           "manager-fur-cookie-einwilligungen-schindler-ebikon"
         ],
         "fr": [
@@ -3976,9 +3964,6 @@
         "manager-per-cookie-einwilligungen-schindler-ebikon-i5afjz",
         "manager-per-cookie-einwilligungen-schindler-ebikon-i5ae2l",
         "gestione-delle-autorizzazioni-dei-cookie-schindler-winterthur-ofej7n",
-        "gestionnaire-pour-les-autorisations-de-cookies-schindler-winterthur",
-        "manager-per-cookie-einwilligungen-schindler-winterthur",
-        "gestione-delle-autorizzazioni-dei-cookie-schindler-winterthur",
         "gestione-delle-autorizzazioni-dei-cookie-schindler-oberentfelden-8cq51r",
         "manager-fur-cookie-einwilligungen-schindler-oberentfelden",
         "gestionnaire-pour-les-autorisations-de-cookies-schindler-oberentfelden",
@@ -4070,7 +4055,7 @@
       "id": "schindler-9f5b8c1ba816",
       "slug": "projektleiter-m-w-d-schindler-bern",
       "slugByLocale": {
-        "it": "tecnico-ascensorista-regione-berna-m-f-d-80-100-schindler-bern",
+        "it": "projektleiter-m-w-d-schindler-bern",
         "en": "elevator-technician-region-bern-m-f-d-80-100-schindler-bern",
         "de": "aufzugsmonteur-in-region-berner-oberland-m-w-d-80-100-schindler-bern",
         "fr": "technicien-ascensoriste-region-berne-h-f-d-80-100-schindler-bern"
@@ -4117,13 +4102,14 @@
       "previousSlugs": [
         "aufzugsmonteur-in-region-berner-oberland-m-w-d-80-100-schindler-bern",
         "projektleiter-m-w-d-schindler-bern-7ab342",
-        "aufzugsmonteur-in-region-bern-m-w-d-80-100-schindler-bern",
-        "projektleiter-m-w-d-schindler-bern"
+        "tecnico-ascensorista-regione-berna-m-f-d-80-100-schindler-bern",
+        "aufzugsmonteur-in-region-bern-m-w-d-80-100-schindler-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "aufzugsmonteur-in-region-berner-oberland-m-w-d-80-100-schindler-bern",
-          "projektleiter-m-w-d-schindler-bern-7ab342"
+          "projektleiter-m-w-d-schindler-bern-7ab342",
+          "tecnico-ascensorista-regione-berna-m-f-d-80-100-schindler-bern"
         ],
         "en": [
           "aufzugsmonteur-in-region-berner-oberland-m-w-d-80-100-schindler-bern"
@@ -4551,9 +4537,9 @@
     },
     {
       "id": "schindler-cb89735d4ad5",
-      "slug": "gestione-delle-autorizzazioni-dei-cookie-schindler-oberentfelden",
+      "slug": "gestione-delle-autorizzazioni-dei-cookie-schindler-oberentfelden-6aa8f4",
       "slugByLocale": {
-        "it": "responsabile-consent-cookie-schindler-ebikon",
+        "it": "gestione-delle-autorizzazioni-dei-cookie-schindler-oberentfelden-6aa8f4",
         "en": "manager-fur-cookie-einwilligungen-schindler-oberentfelden",
         "de": "manager-fur-cookie-einwilligungen-schindler-oberentfelden",
         "fr": "gestionnaire-pour-les-autorisations-de-cookies-schindler-oberentfelden"
@@ -4605,6 +4591,8 @@
         "gestione-delle-autorizzazioni-dei-cookie-schindler-oberentfelden-8cq51r",
         "gestione-delle-autorizzazioni-dei-cookie-schindler-bern-fd1b8a-8f3hgt",
         "gestione-delle-autorizzazioni-dei-cookie-schindler-bern-fd1b8a",
+        "responsabile-consent-cookie-schindler-ebikon",
+        "gestione-delle-autorizzazioni-dei-cookie-schindler-oberentfelden",
         "manager-per-cookie-einwilligungen-schindler-winterthur-2",
         "manager-per-cookie-einwilligungen-schindler-winterthur",
         "manager-per-cookie-einwilligungen-schindler-oberentfelden-2",
@@ -4615,19 +4603,7 @@
         "gestionnaire-pour-les-autorisations-de-cookies-schindler-ebikon",
         "manager-per-cookie-einwilligungen-schindler-ebikon",
         "gestione-delle-autorizzazioni-dei-cookie-schindler-ebikon",
-        "manager-per-cookie-einwilligungen-schindler-ebikon-i5b1st",
-        "responsabile-consent-cookie-schindler-ebikon-i5ay3c",
-        "manager-per-cookie-einwilligungen-schindler-ebikon-2",
-        "manager-per-cookie-einwilligungen-schindler-ebikon-i5afjz",
-        "manager-per-cookie-einwilligungen-schindler-ebikon-i5ae2l",
-        "gestione-delle-autorizzazioni-dei-cookie-schindler-winterthur-ofej7n",
-        "manager-fur-cookie-einwilligungen-schindler-winterthur",
-        "gestionnaire-pour-les-autorisations-de-cookies-schindler-oberentfelden",
-        "manager-per-cookie-einwilligungen-schindler-ebikon-i5ay3c",
-        "manager-fur-cookie-einwilligungen-schindler-ebikon-2",
-        "manager-fur-cookie-einwilligungen-schindler-ebikon-3",
-        "gestione-delle-autorizzazioni-dei-cookie-schindler-oberentfelden",
-        "responsabile-consent-cookie-schindler-ebikon-i5b1st"
+        "manager-per-cookie-einwilligungen-schindler-ebikon-i5b1st"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4637,7 +4613,9 @@
           "gestione-delle-autorizzazioni-dei-cookie-schindler-winterthur",
           "gestione-delle-autorizzazioni-dei-cookie-schindler-oberentfelden-8cq51r",
           "gestione-delle-autorizzazioni-dei-cookie-schindler-bern-fd1b8a-8f3hgt",
-          "gestione-delle-autorizzazioni-dei-cookie-schindler-bern-fd1b8a"
+          "gestione-delle-autorizzazioni-dei-cookie-schindler-bern-fd1b8a",
+          "responsabile-consent-cookie-schindler-ebikon",
+          "gestione-delle-autorizzazioni-dei-cookie-schindler-oberentfelden"
         ],
         "en": [
           "manager-per-cookie-einwilligungen-schindler-winterthur-2",
@@ -4722,11 +4700,9 @@
           "responsabile-consent-cookie-schindler-ebikon"
         ],
         "en": [
-          "manager-fur-cookie-einwilligungen-schindler-oberentfelden",
           "manager-fur-cookie-einwilligungen-schindler-ebikon"
         ],
         "de": [
-          "manager-fur-cookie-einwilligungen-schindler-oberentfelden",
           "manager-fur-cookie-einwilligungen-schindler-ebikon"
         ],
         "fr": [
@@ -4752,7 +4728,6 @@
         "manager-per-cookie-einwilligungen-schindler-winterthur",
         "gestione-delle-autorizzazioni-dei-cookie-schindler-winterthur",
         "gestione-delle-autorizzazioni-dei-cookie-schindler-oberentfelden-8cq51r",
-        "gestionnaire-pour-les-autorisations-de-cookies-schindler-oberentfelden",
         "manager-per-cookie-einwilligungen-schindler-bern",
         "gestione-delle-autorizzazioni-dei-cookie-schindler-bern-fd1b8a-8f3hgt"
       ],

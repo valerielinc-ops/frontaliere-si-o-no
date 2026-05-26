@@ -3784,12 +3784,12 @@
     },
     {
       "id": "ubs-0415fe83957c",
-      "slug": "senior-associate-research-analyst-industrials-ubs",
+      "slug": "senior-associate-ricerca-analista-industrials-ubs",
       "slugByLocale": {
         "en": "senior-associate-research-analyst-industrials-ubs",
-        "it": "senior-associate-research-analyst-industrials-ubs",
+        "it": "senior-associate-ricerca-analista-industrials-ubs",
         "de": "senior-associate-research-analyst-industrials-ubs",
-        "fr": "senior-associate-research-analyst-industrials-ubs"
+        "fr": "senior-associate-recherche-analyste-industrials-ubs"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -3852,7 +3852,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-25T23:52:50.821Z"
+      "firstSeenAt": "2026-05-25T23:52:50.821Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-associate-research-analyst-industrials-ubs"
+        ],
+        "fr": [
+          "senior-associate-research-analyst-industrials-ubs"
+        ]
+      },
+      "previousSlugs": [
+        "senior-associate-research-analyst-industrials-ubs"
+      ]
     }
   ]
 }
