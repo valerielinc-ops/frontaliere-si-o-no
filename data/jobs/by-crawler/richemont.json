@@ -603,7 +603,7 @@
       "id": "richemont-7d49e9e9e2fc",
       "slug": "incastonatore-m-f-jaeger-lecoultre-le-sentier",
       "slugByLocale": {
-        "it": "dwp-comunicazione-unificata-interno-messaggistica-richemont-meyrin",
+        "it": "incastonatore-m-f-jaeger-lecoultre-le-sentier",
         "en": "dwp-unified-communications-messaging-intern-richemont-meyrin",
         "de": "dwp-unified-communications-messaging-intern-richemont-meyrin",
         "fr": "sertisseur-h-f-jaeger-lecoultre-le-sentier"
@@ -653,7 +653,8 @@
           "communications-unifiees-dwp-stagiaire-en-messagerie-richemont-meyrin"
         ],
         "it": [
-          "sertisseur-h-f-richemont-le-sentier"
+          "sertisseur-h-f-richemont-le-sentier",
+          "dwp-comunicazione-unificata-interno-messaggistica-richemont-meyrin"
         ],
         "en": [
           "sertisseur-h-f-richemont-le-sentier"
@@ -665,9 +666,8 @@
       "previousSlugs": [
         "sertisseur-h-f-richemont-le-sentier",
         "communications-unifiees-dwp-stagiaire-en-messagerie-richemont-meyrin",
-        "comunicazioni-unificate-dwp-stagista-di-messaggistica-richemont-meyrin",
-        "dwp-unified-communications-messaging-intern-richemont-meyrin",
-        "incastonatore-m-f-jaeger-lecoultre-le-sentier"
+        "dwp-comunicazione-unificata-interno-messaggistica-richemont-meyrin",
+        "comunicazioni-unificate-dwp-stagista-di-messaggistica-richemont-meyrin"
       ],
       "firstSeenAt": "2026-05-17T11:06:21.186Z",
       "salaryMin": 41600,
@@ -1396,7 +1396,7 @@
       "id": "richemont-7de2c39fb4b5",
       "slug": "ingegnere-di-software-cartier-villars-sur-glane",
       "slugByLocale": {
-        "it": "analista-senior-dati-automazione-finanza-richemont-villars-sur-glane",
+        "it": "ingegnere-di-software-cartier-villars-sur-glane",
         "en": "software-engineer-richemont-villars-sur-glane",
         "de": "softwaretechniker-cartier-villars-sur-glane",
         "fr": "ingenieur-logiciel-cartier-villars-sur-glane"
@@ -1445,7 +1445,8 @@
           "ingegnere-del-software-cartier-villars-sur-glane",
           "ingegnere-software-cartier-villars-sur-glane",
           "apprendistato-cadranografo-h-f-x-corso-di-2-anni-procadrans-la-chaux-de-fonds",
-          "software-engineer-richemont-villars-sur-glane"
+          "software-engineer-richemont-villars-sur-glane",
+          "analista-senior-dati-automazione-finanza-richemont-villars-sur-glane"
         ],
         "de": [
           "software-ingenieur-cartier-villars-sur-glane",
@@ -1457,6 +1458,7 @@
         "ingegnere-software-cartier-villars-sur-glane",
         "apprendistato-cadranografo-h-f-x-corso-di-2-anni-procadrans-la-chaux-de-fonds",
         "software-engineer-richemont-villars-sur-glane",
+        "analista-senior-dati-automazione-finanza-richemont-villars-sur-glane",
         "software-ingenieur-cartier-villars-sur-glane",
         "softwareingenieur-cartier-villars-sur-glane",
         "apprentissage-cadranographe-h-f-x-cursus-2-ans-richemont-la-chaux-de-fonds",
@@ -1465,8 +1467,7 @@
         "data-automation-senior-analyst-finance-richemont-villars-sur-glane",
         "analista-senior-di-dati-e-automazione-finanza-richemont-villars-sur-glane",
         "data-automation-senior-analyst-finanza-richemont-villars-sur-glane",
-        "analyste-principal-des-donnees-et-de-l-automatisation-finances-richemont-villars-sur-glane",
-        "ingegnere-di-software-cartier-villars-sur-glane"
+        "analyste-principal-des-donnees-et-de-l-automatisation-finances-richemont-villars-sur-glane"
       ],
       "firstSeenAt": "2026-05-11T13:58:02.561Z",
       "salaryMin": 49500,
@@ -2111,7 +2112,6 @@
         "movement-constructor-h-f-van-cleef-arpels-meyrin",
         "bewegungsbauer-h-f-van-cleef-arpels-meyrin",
         "team-leader-pick-pack-richemont-villars-sur-glane",
-        "costruttore-movimento-h-f-van-cleef-arpels-meyrin",
         "pick-pack-capo-squadra-richemont-villars-sur-glane"
       ],
       "firstSeenAt": "2026-05-11T13:58:02.555Z",
@@ -2438,7 +2438,6 @@
         "group-talent-systems-operations-project-manager-richemont-bellevue",
         "group-talent-systems-operations-projektmanager-richemont-bellevue",
         "responsabile-progetti-sste-valfleurier-buttes",
-        "responsabile-del-team-di-definizione-e-integrazione-dei-processi-di-produzione-richemont-meyrin",
         "responsabile-progetti-sistemi-e-operazioni-talent-di-gruppo-richemont-bellevue"
       ],
       "previousSlugsByLocale": {
@@ -2544,7 +2543,7 @@
       "id": "richemont-ef1447d5c244",
       "slug": "responsabile-progetti-sste-valfleurier-buttes",
       "slugByLocale": {
-        "it": "responsabile-progetti-sistemi-e-operazioni-talent-di-gruppo-richemont-bellevue",
+        "it": "responsabile-progetti-sste-valfleurier-buttes",
         "en": "group-talent-systems-operations-project-manager-richemont-bellevue",
         "de": "gruppentalent-system-operations-projektmanager-richemont-bellevue",
         "fr": "chef-de-projet-des-systemes-de-gestion-des-talents-et-des-operations-du-groupe-richemont-bellevue"
@@ -2593,7 +2592,8 @@
           "charge-de-projets-sste-richemont-buttes"
         ],
         "it": [
-          "charge-de-projets-sste-richemont-buttes"
+          "charge-de-projets-sste-richemont-buttes",
+          "responsabile-progetti-sistemi-e-operazioni-talent-di-gruppo-richemont-bellevue"
         ],
         "en": [
           "charge-de-projets-sste-richemont-buttes"
@@ -2604,11 +2604,10 @@
       },
       "previousSlugs": [
         "charge-de-projets-sste-richemont-buttes",
+        "responsabile-progetti-sistemi-e-operazioni-talent-di-gruppo-richemont-bellevue",
         "charge-de-projets-sste-valfleurier-buttes",
         "group-talent-systems-operations-projektmanager-richemont-bellevue",
-        "responsabile-del-team-di-definizione-e-integrazione-dei-processi-di-produzione-richemont-meyrin",
-        "group-talent-systems-operations-project-manager-richemont-bellevue",
-        "responsabile-progetti-sste-valfleurier-buttes"
+        "responsabile-del-team-di-definizione-e-integrazione-dei-processi-di-produzione-richemont-meyrin"
       ],
       "firstSeenAt": "2026-05-17T11:06:21.168Z",
       "salaryMin": 68000,
@@ -2903,7 +2902,7 @@
       "id": "richemont-f5002a78c9dd",
       "slug": "responsabile-team-tech-acquisti-a-monte-richemont-meyrin",
       "slugByLocale": {
-        "it": "riferimento-cao-plm-fao-creo-windchill-panerai-neuchatel",
+        "it": "responsabile-team-tech-acquisti-a-monte-richemont-meyrin",
         "en": "upstream-procurement-product-tech-team-lead-richemont-meyrin",
         "de": "produktleiter-upstream-beschaffung-tech-team-richemont-meyrin",
         "fr": "responsable-equipe-tech-achats-en-amont-richemont-meyrin"
@@ -2952,6 +2951,7 @@
         "responsabile-team-prodotto-tech-approvvigionamenti-upstream-richemont-meyrin",
         "conduce-il-team-di-tecnologia-di-prodotto-richemont-meyrin",
         "referente-cad-plm-cam-creo-windchill-panerai-neuchatel",
+        "riferimento-cao-plm-fao-creo-windchill-panerai-neuchatel",
         "leiter-des-upstream-procurement-produkttechnik-teams-richemont-meyrin",
         "produkt-tech-team-lead-richemont-meyrin",
         "responsable-de-l-equipe-technique-des-produits-d-approvisionnement-en-amont-richemont-meyrin",
@@ -2960,15 +2960,15 @@
         "referent-e-cao-plm-fao-creo-windchill-richemont-neuchatel",
         "cad-plm-fao-referenz-creo-windchill-panerai-neuchatel",
         "cao-plm-fao-reference-creo-windchill-panerai-neuchatel",
-        "cad-plm-cam-spezialist-creo-windchill-panerai-neuchatel",
-        "responsabile-team-tech-acquisti-a-monte-richemont-meyrin"
+        "cad-plm-cam-spezialist-creo-windchill-panerai-neuchatel"
       ],
       "previousSlugsByLocale": {
         "it": [
           "upstream-procurement-product-tech-team-lead-richemont-meyrin",
           "responsabile-team-prodotto-tech-approvvigionamenti-upstream-richemont-meyrin",
           "conduce-il-team-di-tecnologia-di-prodotto-richemont-meyrin",
-          "referente-cad-plm-cam-creo-windchill-panerai-neuchatel"
+          "referente-cad-plm-cam-creo-windchill-panerai-neuchatel",
+          "riferimento-cao-plm-fao-creo-windchill-panerai-neuchatel"
         ],
         "de": [
           "leiter-des-upstream-procurement-produkttechnik-teams-richemont-meyrin",
@@ -4201,7 +4201,7 @@
       "id": "richemont-fd939e29e6e6",
       "slug": "stage-r-i-comprensione-dell-organo-motore-di-un-orologio-meccanico-richemont-buttes",
       "slugByLocale": {
-        "it": "tirocinante-in-program-management-richemont-meyrin",
+        "it": "stage-r-i-comprensione-dell-organo-motore-di-un-orologio-meccanico-richemont-buttes",
         "en": "program-management-intern-richemont-meyrin",
         "de": "program-management-praktikant-richemont-meyrin",
         "fr": "stage-r-i-comprehension-de-l-organe-moteur-d-une-montre-mecanique-richemont-buttes"
@@ -4247,16 +4247,17 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "stage-r-i-comprehension-de-l-organe-moteur-d-une-montre-mecanique-richemont-buttes",
+        "tirocinante-in-program-management-richemont-meyrin",
         "program-management-intern-richemont-meyrin",
         "stage-in-program-management-richemont-meyrin",
         "praktikum-im-programmmanagement-richemont-meyrin",
         "stagiaire-en-gestion-de-programme-richemont-meyrin",
-        "stagiaire-en-gestion-de-programmes-richemont-meyrin",
-        "stage-r-i-comprensione-dell-organo-motore-di-un-orologio-meccanico-richemont-buttes"
+        "stagiaire-en-gestion-de-programmes-richemont-meyrin"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "stage-r-i-comprehension-de-l-organe-moteur-d-une-montre-mecanique-richemont-buttes"
+          "stage-r-i-comprehension-de-l-organe-moteur-d-une-montre-mecanique-richemont-buttes",
+          "tirocinante-in-program-management-richemont-meyrin"
         ],
         "en": [
           "stage-r-i-comprehension-de-l-organe-moteur-d-une-montre-mecanique-richemont-buttes"
@@ -8426,9 +8427,9 @@
       "id": "richemont-ecfe43d09d63",
       "slug": "hospitality-tirocinante-richemont-meyrin",
       "slugByLocale": {
-        "it": "ospitalita-interno-richemont-meyrin-101774",
+        "it": "hospitality-tirocinante-richemont-meyrin",
         "en": "hospitality-intern-richemont-meyrin",
-        "de": "krankenhaus-intern-richemont-meyrin",
+        "de": "schmuckmanager-europa-richemont-meyrin",
         "fr": "stagiaire-de-reception-richemont-meyrin"
       },
       "company": "Richemont",
@@ -8521,14 +8522,15 @@
           "manager-giadelli-europe-richemont-meyrin",
           "gioielli-manager-europa-richemont-meyrin",
           "hospitality-intern-richemont-meyrin",
-          "ospitalita-interno-richemont-meyrin"
+          "ospitalita-interno-richemont-meyrin",
+          "ospitalita-interno-richemont-meyrin-101774"
         ],
         "en": [
           "jewelry-manager-europe-richemont-meyrin"
         ],
         "de": [
           "juwelenmanager-europa-richemont-meyrin",
-          "schmuckmanager-europa-richemont-meyrin"
+          "krankenhaus-intern-richemont-meyrin"
         ]
       },
       "previousSlugs": [
@@ -8540,8 +8542,9 @@
         "gioielli-manager-europa-richemont-meyrin",
         "hospitality-intern-richemont-meyrin",
         "ospitalita-interno-richemont-meyrin",
+        "ospitalita-interno-richemont-meyrin-101774",
         "juwelenmanager-europa-richemont-meyrin",
-        "schmuckmanager-europa-richemont-meyrin",
+        "krankenhaus-intern-richemont-meyrin",
         "stage-in-hospitality-richemont-meyrin",
         "ospitalita-richemont-meyrin",
         "stagista-hospitality-richemont-meyrin",
@@ -8549,8 +8552,7 @@
         "hospitality-praktikant-richemont-meyrin",
         "stagiaire-en-hotellerie-richemont-meyrin",
         "specialista-hris-cdd-richemont-meyrin",
-        "stagiaire-d-accueil-richemont-meyrin",
-        "hospitality-tirocinante-richemont-meyrin"
+        "stagiaire-d-accueil-richemont-meyrin"
       ],
       "firstSeenAt": "2026-05-11T13:58:02.476Z",
       "salaryMin": 68000,
@@ -9580,7 +9582,7 @@
       "id": "richemont-387ef2b9e61b",
       "slug": "responsabile-meccanica-e-prototipazione-valfleurier-buttes",
       "slugByLocale": {
-        "it": "fornitore-master-data-specialist-richemont-villars-sur-glane",
+        "it": "responsabile-meccanica-e-prototipazione-valfleurier-buttes",
         "en": "vendor-master-data-specialist-richemont-villars-sur-glane",
         "de": "vendor-master-data-spezialist-valfleurier-buttes",
         "fr": "responsable-mecanique-et-prototypage-valfleurier-buttes"
@@ -9630,7 +9632,8 @@
           "specialiste-principal-des-donnees-du-fournisseur-richemont-villars-sur-glane"
         ],
         "it": [
-          "responsable-mecanique-et-prototypage-richemont-buttes"
+          "responsable-mecanique-et-prototypage-richemont-buttes",
+          "fornitore-master-data-specialist-richemont-villars-sur-glane"
         ],
         "en": [
           "responsable-mecanique-et-prototypage-richemont-buttes"
@@ -9643,14 +9646,14 @@
       "previousSlugs": [
         "responsable-mecanique-et-prototypage-richemont-buttes",
         "specialiste-principal-des-donnees-du-fournisseur-richemont-villars-sur-glane",
+        "fornitore-master-data-specialist-richemont-villars-sur-glane",
         "vendor-master-data-specialist-richemont-villars-sur-glane",
         "responsabile-mecanico-e-prototipazione-valfleurier-buttes",
         "specialista-dati-principali-fornitori-richemont-villars-sur-glane",
         "vendor-master-data-specialista-richemont-villars-sur-glane",
         "fachkraft-fur-lieferant-stammdaten-richemont-villars-sur-glane",
         "kreditorenstammdatenspezialist-richemont-villars-sur-glane",
-        "specialiste-des-donnees-de-base-des-fournisseurs-richemont-villars-sur-glane",
-        "responsabile-meccanica-e-prototipazione-valfleurier-buttes"
+        "specialiste-des-donnees-de-base-des-fournisseurs-richemont-villars-sur-glane"
       ],
       "firstSeenAt": "2026-05-17T11:06:21.080Z",
       "salaryMin": 68000,
@@ -11793,9 +11796,7 @@
         "gruppo-l-d-richemont-bellevue",
         "stage-l-d-di-gruppo-richemont-bellevue",
         "group-l-d-tirocinante-richemont-bellevue",
-        "gruppe-l-d-praktikant-richemont-bellevue",
-        "group-l-d-intern-richemont-bellevue",
-        "commercio-al-dettaglio-e-partner-piaget-plan-les-ouates"
+        "gruppe-l-d-praktikant-richemont-bellevue"
       ],
       "firstSeenAt": "2026-05-25T13:59:54.525Z",
       "salaryMin": 41600,
@@ -13917,7 +13918,7 @@
       "id": "richemont-fa60ec6074bb",
       "slug": "risorse-umane-admin-specialista-richemont-meyrin",
       "slugByLocale": {
-        "it": "specialista-internazionale-dei-premi-cartier-meyrin",
+        "it": "risorse-umane-admin-specialista-richemont-meyrin",
         "en": "hr-admin-specialist-richemont-meyrin",
         "de": "personalwesen-admin-spezialist-richemont-meyrin",
         "fr": "specialiste-des-ressources-humaines-richemont-meyrin"
@@ -13963,13 +13964,14 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
-          "hr-admin-specialist-richemont-meyrin"
+          "hr-admin-specialist-richemont-meyrin",
+          "specialista-internazionale-dei-premi-cartier-meyrin"
         ]
       },
       "previousSlugs": [
         "hr-admin-specialist-richemont-meyrin",
-        "international-rewards-specialist-richemont-meyrin",
-        "risorse-umane-admin-specialista-richemont-meyrin"
+        "specialista-internazionale-dei-premi-cartier-meyrin",
+        "international-rewards-specialist-richemont-meyrin"
       ],
       "firstSeenAt": "2026-05-12T22:59:06.734Z",
       "salaryMin": 49500,
