@@ -81,7 +81,12 @@ function classifyFeature(relPath) {
 }
 
 export function createAuditor(opts = {}) {
-  const threshold = opts.threshold ?? 10; // percent
+  const threshold = opts.threshold ?? 10; // percent — hard fail floor (Semrush gate)
+  // Soft warn band (threshold, warnThreshold]. Pages here pass today but are
+  // within 2 pp of the floor; one cron content refresh can push them under.
+  // Surfaced in `extra.nearFloor` so reviewers see drift before it becomes a
+  // hard-fail regression.
+  const warnThreshold = opts.warnThreshold ?? 12;
   const limit = opts.limit ?? 30;
   const featureFilter = opts.featureFilter ?? null;
   const includeNoindex = !!opts.includeNoindex;
@@ -183,8 +188,31 @@ export function createAuditor(opts = {}) {
         textBytes: r.textBytes,
       }));
 
+      // Near-floor band: pages that pass the hard gate but sit in the
+      // (threshold, warnThreshold] zone. Treated as an early-warning signal,
+      // never blocks the build.
+      const nearFloorSamples = samples
+        .filter((r) => r.ratio > threshold && r.ratio <= warnThreshold)
+        .sort((a, b) => a.ratio - b.ratio);
+      const nearFloorByFeature = {};
+      for (const r of nearFloorSamples) {
+        nearFloorByFeature[r.feature] = (nearFloorByFeature[r.feature] ?? 0) + 1;
+      }
+      const nearFloor = {
+        warnThreshold,
+        total: nearFloorSamples.length,
+        byFeature: nearFloorByFeature,
+        top: nearFloorSamples.slice(0, limit).map((r) => ({
+          path: r.file,
+          feature: r.feature,
+          ratio: Number(r.ratio.toFixed(2)),
+          htmlBytes: r.htmlBytes,
+          textBytes: r.textBytes,
+        })),
+      };
+
       const humanSummary = passed
-        ? `${offenders.length} offender(s) within baseline (threshold ${threshold} %)`
+        ? `${offenders.length} offender(s) within baseline (threshold ${threshold} %), ${nearFloor.total} page(s) in near-floor band (${threshold}-${warnThreshold} %)`
         : `${offenders.length} offender(s) ≤ ${threshold} % — regressed features: ${regressedFeatures.map(r => `${r.feature}(${r.count}>${r.max})`).join(', ') || 'total cap exceeded'}`;
 
       return {
@@ -195,7 +223,7 @@ export function createAuditor(opts = {}) {
         baselineFile: relBaseline(baselinePath),
         baselineDelta,
         byFeature,
-        extra: { scanned: samples.length, skippedNoindex, skippedEjpStripped, regressedFeatures, limit, threshold, rawSamples: samples },
+        extra: { scanned: samples.length, skippedNoindex, skippedEjpStripped, regressedFeatures, limit, threshold, warnThreshold, nearFloor, rawSamples: samples },
         humanSummary,
       };
     },

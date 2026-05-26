@@ -1314,7 +1314,10 @@ export function renderClusterPage(inputs: PageInputs): PageOutput {
 interface HubItem {
   keyword: string;
   city: string | null;
+  /** Absolute URL — used in JSON-LD where Schema.org / Google expect absolute. */
   url: string;
+  /** Site-relative path — used in body <a href> to keep HTML lean (browsers resolve against <link rel="canonical">). */
+  path: string;
   slug: string;
 }
 
@@ -1379,7 +1382,7 @@ function renderHubPage(input: HubPageInput): { urlPath: string; html: string; lo
     const list = (byCity.get(city) || []).sort((a, b) => a.keyword.localeCompare(b.keyword, locale));
     return `<section class="s-USY9TF">
       <h3 class="s-vZUVtO">${esc(city)}</h3>
-      <ul class="s-MwMbiH">${list.map((it) => `<li><a href="${esc(it.url)}" style="${LINK_ACCENT_STYLE}">${esc(capitalize(it.keyword))}</a></li>`).join('')}</ul>
+      <ul class="s-MwMbiH">${list.map((it) => `<li><a class="s-la" href="${esc(it.path)}">${esc(capitalize(it.keyword))}</a></li>`).join('')}</ul>
     </section>`;
   }).join('');
 
@@ -1387,7 +1390,7 @@ function renderHubPage(input: HubPageInput): { urlPath: string; html: string; lo
   const uncatBlock = sortedUncat.length > 0
     ? `<section class="s-USY9TF">
         <h3 class="s-vZUVtO">${esc(copy.alphabeticalLabel)}</h3>
-        <ul class="s-MwMbiH">${sortedUncat.map((it) => `<li><a href="${esc(it.url)}" style="${LINK_ACCENT_STYLE}">${esc(capitalize(it.keyword))}</a></li>`).join('')}</ul>
+        <ul class="s-MwMbiH">${sortedUncat.map((it) => `<li><a class="s-la" href="${esc(it.path)}">${esc(capitalize(it.keyword))}</a></li>`).join('')}</ul>
       </section>`
     : '';
 
@@ -1405,8 +1408,13 @@ function renderHubPage(input: HubPageInput): { urlPath: string; html: string; lo
     dateModified: new Date().toISOString(),
     mainEntity: {
       '@type': 'ItemList',
+      // numberOfItems reports the full list size; itemListElement is a sample.
+      // Schema.org permits sampling — `numberOfItems > itemListElement.length`
+      // — and Google treats the array as representative. Capped at 30 (was 100)
+      // to shrink emitted HTML by ~10 KB per page, lifting the text/html ratio
+      // above the 10 % audit floor without dropping any visible body content.
       numberOfItems: items.length,
-      itemListElement: items.slice(0, 100).map((it, i) => ({
+      itemListElement: items.slice(0, 30).map((it, i) => ({
         '@type': 'ListItem',
         position: i + 1,
         name: capitalize(it.keyword),
@@ -1925,12 +1933,16 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
 
       // ── Per-locale hub pages ──────────────────────────────────────────
       for (const [locale, list] of byLocale.entries()) {
-        const items: HubItem[] = list.map((ctx) => ({
-          keyword: ctx.keyword,
-          city: ctx.city,
-          slug: ctx.candidate.slug,
-          url: `${BASE_URL}${buildClusterPath(locale, ctx.candidate.slug)}`,
-        }));
+        const items: HubItem[] = list.map((ctx) => {
+          const path = buildClusterPath(locale, ctx.candidate.slug);
+          return {
+            keyword: ctx.keyword,
+            city: ctx.city,
+            slug: ctx.candidate.slug,
+            url: `${BASE_URL}${path}`,
+            path,
+          };
+        });
         const totalPages = Math.max(1, Math.ceil(items.length / HUB_PAGE_SIZE));
 
         for (let page = 1; page <= totalPages; page++) {
