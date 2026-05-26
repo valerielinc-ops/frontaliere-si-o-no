@@ -7799,6 +7799,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.ristorni-frontalieri-udc-ticino.title': 'Remboursements frontaliers: l\'UDC Ticino propose une solution',
     'blog.article.ristorni-frontalieri-udc-ticino.excerpt': 'L\'UDC Ticino demande de mettre à l\'ordre du jour du Grand Conseil l\'initiative 507, qui prévoit des déductions sociales uniquement pour les enfants résidant en Suisse, avec un potentiel de 20 millions de francs par an.',
     'blog.article.ristorni-frontalieri-udc-ticino.imageAlt': 'Vue aérienne de Bellinzona avec les Alpes en arrière-plan',
+    'blog.article.frontaliere-asilo-nido-guida-2026.title': 'Crèches au Tessin pour frontaliers: coûts et aides',
+    'blog.article.frontaliere-asilo-nido-guida-2026.excerpt': 'Guide pratique pour les frontaliers avec enfants: comment inscrire les enfants aux crèches au Tessin, coûts, temps d\'attente et aides disponibles.',
+    'blog.article.frontaliere-asilo-nido-guida-2026.imageAlt': 'Parc au bord du lac de Lugano avec une école maternelle moderne au Tessin',
 };
 
 export default blogMetaFr;

@@ -7799,6 +7799,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.ristorni-frontalieri-udc-ticino.title': 'Ristorni frontalieri: l\'UDC Ticino propone una soluzione concreta',
     'blog.article.ristorni-frontalieri-udc-ticino.excerpt': 'L\'UDC Ticino chiede di portare all\'ordine del giorno del Gran Consiglio l\'iniziativa 507, che prevede deduzioni sociali solo per figli residenti in Svizzera, con un potenziale di 20 milioni di franchi all\'anno.',
     'blog.article.ristorni-frontalieri-udc-ticino.imageAlt': 'Vista aerea di Bellinzona con le Alpi sullo sfondo',
+    'blog.article.frontaliere-asilo-nido-guida-2026.title': 'Asili nido in Ticino per frontalieri: costi, liste d\'attesa e sussidi',
+    'blog.article.frontaliere-asilo-nido-guida-2026.excerpt': 'Guida pratica per i frontalieri con figli: come iscrivere i bambini agli asili nido in Ticino, costi, tempi d\'attesa e sussidi disponibili.',
+    'blog.article.frontaliere-asilo-nido-guida-2026.imageAlt': 'Parco sul lago di Lugano con asilo nido moderno in Ticino',
 };
 
 export default blogMetaIt;

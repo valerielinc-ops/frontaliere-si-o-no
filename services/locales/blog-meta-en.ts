@@ -7798,6 +7798,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.ristorni-frontalieri-udc-ticino.title': 'Cross-border worker refunds: UDC Ticino proposes a solution',
     'blog.article.ristorni-frontalieri-udc-ticino.excerpt': 'UDC Ticino calls for the Grand Council to address Initiative 507, which provides social deductions only for children residing in Switzerland, with a potential of 20 million francs per year.',
     'blog.article.ristorni-frontalieri-udc-ticino.imageAlt': 'Aerial view of Bellinzona with the Alps in the background',
+    'blog.article.frontaliere-asilo-nido-guida-2026.title': 'Nurseries in Ticino for cross-border workers: costs and subsidies',
+    'blog.article.frontaliere-asilo-nido-guida-2026.excerpt': 'Practical guide for cross-border workers with children: how to enroll kids in Ticino nurseries, costs, waiting times, and available subsidies.',
+    'blog.article.frontaliere-asilo-nido-guida-2026.imageAlt': 'Lakeside park in Lugano with a modern nursery school in Ticino',
 };
 
 export default blogMetaEn;

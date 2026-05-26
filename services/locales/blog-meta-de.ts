@@ -7797,6 +7797,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.ristorni-frontalieri-udc-ticino.title': 'Grenzgänger-Rückerstattungen: UDC Ticino schlägt konkrete Lösung vor',
     'blog.article.ristorni-frontalieri-udc-ticino.excerpt': 'Die UDC Ticino fordert die Behandlung der Initiative 507 im Grossen Rat, die soziale Abzüge nur für in der Schweiz wohnhafte Kinder vorsieht, mit einem Potenzial von 20 Millionen Franken pro Jahr.',
     'blog.article.ristorni-frontalieri-udc-ticino.imageAlt': 'Luftaufnahme von Bellinzona mit den Alpen im Hintergrund',
+    'blog.article.frontaliere-asilo-nido-guida-2026.title': 'Kitas im Tessin für Grenzgänger: Kosten und Wartelisten',
+    'blog.article.frontaliere-asilo-nido-guida-2026.excerpt': 'Praktischer Leitfaden für Grenzgänger mit Kindern: Wie man Kinder in Tessin-Kitas anmeldet, Kosten, Wartezeiten und verfügbare Zuschüsse.',
+    'blog.article.frontaliere-asilo-nido-guida-2026.imageAlt': 'Seepark in Lugano mit einem modernen Kindergarten im Tessin',
 };
 
 export default blogMetaDe;
