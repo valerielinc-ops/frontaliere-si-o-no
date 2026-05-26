@@ -8,8 +8,8 @@
       "slugByLocale": {
         "de": "hr-zeitwirtschafter-in-clinique-generale-ste-anne",
         "it": "hr-cronometrista-clinique-generale-ste-anne-fribourg",
-        "en": "hr-timekeeper-clinique-generale-ste-anne-fribourg",
-        "fr": "garde-du-temps-rh-clinique-generale-ste-anne-fribourg"
+        "en": "hr-time-management-clinique-generale-ste-anne-fribourg",
+        "fr": "ressources-humaines-zeitwirtschafter-in-clinique-generale-ste-anne-fribourg"
       },
       "company": "Clinique Générale Ste-Anne",
       "companyKey": "clinique-generale-ste-anne",
@@ -82,10 +82,18 @@
       "previousSlugsByLocale": {
         "it": [
           "hr-zeitwirtschafter-in-clinique-generale-ste-anne"
+        ],
+        "en": [
+          "hr-timekeeper-clinique-generale-ste-anne-fribourg"
+        ],
+        "fr": [
+          "garde-du-temps-rh-clinique-generale-ste-anne-fribourg"
         ]
       },
       "previousSlugs": [
-        "hr-zeitwirtschafter-in-clinique-generale-ste-anne"
+        "hr-zeitwirtschafter-in-clinique-generale-ste-anne",
+        "hr-timekeeper-clinique-generale-ste-anne-fribourg",
+        "garde-du-temps-rh-clinique-generale-ste-anne-fribourg"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,

@@ -482,7 +482,7 @@
       "slugByLocale": {
         "de": "hebamme-hf-als-beleghebamme-kantonsspital-obwalden-sarnen",
         "it": "levatrice-ss-sup-indipendente-accreditata-kantonsspital-obwalden-sarnen",
-        "en": "midwife-hf-fh-as-affiliated-midwife-kantonsspital-obwalden-sarnen",
+        "en": "hebamme-hf-as-a-record-liftingamme-kantonsspital-obwalden-sarnen",
         "fr": "sage-femme-es-hes-agreee-independante-kantonsspital-obwalden-sarnen"
       },
       "company": "Kantonsspital Obwalden",
@@ -553,10 +553,14 @@
         ],
         "de": [
           "hebamme-hf-als-beleghebamme-ksow-sarnen"
+        ],
+        "en": [
+          "midwife-hf-fh-as-affiliated-midwife-kantonsspital-obwalden-sarnen"
         ]
       },
       "previousSlugs": [
-        "hebamme-hf-als-beleghebamme-ksow-sarnen"
+        "hebamme-hf-als-beleghebamme-ksow-sarnen",
+        "midwife-hf-fh-as-affiliated-midwife-kantonsspital-obwalden-sarnen"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,

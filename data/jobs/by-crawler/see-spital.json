@@ -6,9 +6,9 @@
       "id": "see-spital-5c7a070a875d",
       "slug": "unterassistent-in-pj-absolvent-in-chirurgie-see-spital-ch",
       "slugByLocale": {
-        "de": "unterassistent-in-pj-absolvent-in-chirurgie-see-spital-ch",
+        "de": "pj-absolvens-in-chirurgie-see-spital-horgen",
         "it": "unterassistent-in-pj-absolvent-in-chirurgie-see-spital-ch",
-        "en": "sub-assistant-pj-graduate-surgery-see-spital-horgen",
+        "en": "pj-absolvent-in-chirurgies-see-spital-horgen",
         "fr": "sous-assistant-e-diplome-e-pj-en-chirurgie-see-spital-horgen"
       },
       "company": "See-Spital",
@@ -65,15 +65,23 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-26T14:56:09.180Z"
+      "firstSeenAt": "2026-05-26T14:56:09.180Z",
+      "previousSlugsByLocale": {
+        "en": [
+          "sub-assistant-pj-graduate-surgery-see-spital-horgen"
+        ]
+      },
+      "previousSlugs": [
+        "sub-assistant-pj-graduate-surgery-see-spital-horgen"
+      ]
     },
     {
       "id": "see-spital-dd3f1efb3f84",
       "slug": "infermiere-diplomato-sss-per-il-pool-di-assistenza-max-60-see-spital-horgen",
       "slugByLocale": {
         "de": "miterbeiter-in-service-stundenlohn-klinik-sonnenhalde-riehen",
-        "en": "miterbeiter-in-service-hourly-wage-klinik-sonnenhalde-riehen",
-        "fr": "mitarbeiter-in-service-salaire-horaire-klinik-sonnenhalde-riehen",
+        "en": "qualified-nurse-hf-for-the-nursing-pool-max-60-see-spital-horgen",
+        "fr": "infirmier-diplome-es-pour-le-bassin-de-soins-max-60-see-spital-horgen",
         "it": "infermiere-diplomato-sss-per-il-pool-di-assistenza-max-60-see-spital-horgen"
       },
       "company": "See-Spital",
@@ -130,20 +138,20 @@
           "dipl-pflegefachperson-hf-fur-den-pflegepool-max-60-see-spital-ch"
         ],
         "de": [
-          "miterbeiter-in-service-stundenlohn-klinik-sonnenhalde-riehen",
           "dipl-pflegefachperson-hf-fur-den-pflegepool-max-60-see-spital-horgen"
         ],
         "fr": [
-          "mitarbeiter-in-service-salaire-horaire-klinik-sonnenhalde-riehen",
-          "infirmier-diplome-es-pour-le-bassin-de-soins-max-60-see-spital-horgen"
+          "mitarbeiter-in-service-salaire-horaire-klinik-sonnenhalde-riehen"
+        ],
+        "en": [
+          "miterbeiter-in-service-hourly-wage-klinik-sonnenhalde-riehen"
         ]
       },
       "previousSlugs": [
         "dipl-pflegefachperson-hf-fur-den-pflegepool-max-60-see-spital-ch",
-        "miterbeiter-in-service-stundenlohn-klinik-sonnenhalde-riehen",
-        "mitarbeiter-in-service-salaire-horaire-klinik-sonnenhalde-riehen",
         "dipl-pflegefachperson-hf-fur-den-pflegepool-max-60-see-spital-horgen",
-        "infirmier-diplome-es-pour-le-bassin-de-soins-max-60-see-spital-horgen"
+        "mitarbeiter-in-service-salaire-horaire-klinik-sonnenhalde-riehen",
+        "miterbeiter-in-service-hourly-wage-klinik-sonnenhalde-riehen"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -627,9 +635,9 @@
       "slug": "dipl-persona-di-cura-hf-chirurgia-see-spital-horgen",
       "slugByLocale": {
         "de": "spitex-fachperson-gesundheit-50-100-spital-davos-ch",
-        "it": "spitex-assistente-sanitario-50-100-spital-davos-davos",
+        "it": "dipl-persona-di-cura-hf-chirurgia-see-spital-horgen",
         "en": "dipl-pflegefachperson-hf-chirurgie-see-spital-horgen",
-        "fr": "spitex-assistant-de-sante-50-100-spital-davos-davos"
+        "fr": "dipl-professionnel-de-soins-hf-chirurgie-see-spital-horgen"
       },
       "company": "See-Spital",
       "companyKey": "see-spital",
@@ -705,20 +713,24 @@
       "contractDuration": "permanent",
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-hf-chirurgie-see-spital-ch"
+          "dipl-pflegefachperson-hf-chirurgie-see-spital-ch",
+          "spitex-assistente-sanitario-50-100-spital-davos-davos"
         ],
         "de": [
           "dipl-pflegefachperson-hf-chirurgie-see-spital-ch"
         ],
         "en": [
           "spitex-health-care-assistant-50-100-spital-davos-davos"
+        ],
+        "fr": [
+          "spitex-assistant-de-sante-50-100-spital-davos-davos"
         ]
       },
       "previousSlugs": [
         "dipl-pflegefachperson-hf-chirurgie-see-spital-ch",
+        "spitex-assistente-sanitario-50-100-spital-davos-davos",
         "spitex-health-care-assistant-50-100-spital-davos-davos",
-        "dipl-persona-di-cura-hf-chirurgia-see-spital-horgen",
-        "dipl-pflegefachperson-hf-chirurgie-see-spital-horgen"
+        "spitex-assistant-de-sante-50-100-spital-davos-davos"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -1660,8 +1672,8 @@
       "slugByLocale": {
         "de": "assistenzarzt-arztin-nephrologie-see-spital-horgen",
         "it": "medico-di-medicina-interna-nefrologia-see-spital-horgen",
-        "en": "infermiere-a-specializzato-a-eoc-ente-ospedaliero-cantonale-locarno-uikzmg",
-        "fr": "infirmier-specialise-eoc-ente-ospedaliero-cantonale-locarno"
+        "en": "assistant-physician-nephrology-see-spital-horgen",
+        "fr": "assistant-en-medecine-interne-nephrologie-see-spital-horgen"
       },
       "company": "See-Spital",
       "companyKey": "see-spital",
@@ -1734,12 +1746,20 @@
         "de": [
           "assistenzarzt-arztin-nephrologie-see-spital-ch",
           "spezialisierte-pflegefachkraft-eoc-ente-ospedaliero-cantonale-locarno"
+        ],
+        "en": [
+          "infermiere-a-specializzato-a-eoc-ente-ospedaliero-cantonale-locarno-uikzmg"
+        ],
+        "fr": [
+          "infirmier-specialise-eoc-ente-ospedaliero-cantonale-locarno"
         ]
       },
       "previousSlugs": [
         "assistenzarzt-arztin-nephrologie-see-spital-ch",
         "infermiere-a-specializzato-a-eoc-ente-ospedaliero-cantonale-locarno",
-        "spezialisierte-pflegefachkraft-eoc-ente-ospedaliero-cantonale-locarno"
+        "spezialisierte-pflegefachkraft-eoc-ente-ospedaliero-cantonale-locarno",
+        "infermiere-a-specializzato-a-eoc-ente-ospedaliero-cantonale-locarno-uikzmg",
+        "infirmier-specialise-eoc-ente-ospedaliero-cantonale-locarno"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -2645,7 +2665,7 @@
       "slugByLocale": {
         "de": "mitarbeiter-in-sekretariat-therapien-see-spital-ch",
         "it": "segretaria-terapie-see-spital-horgen",
-        "en": "secretary-therapies-see-spital-horgen",
+        "en": "staff-in-secretariat-therapies-see-spital-horgen",
         "fr": "secretaire-therapeutique-see-spital-horgen"
       },
       "company": "See-Spital",
@@ -2723,10 +2743,14 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-sekretariat-therapien-see-spital-ch"
+        ],
+        "en": [
+          "secretary-therapies-see-spital-horgen"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-sekretariat-therapien-see-spital-ch"
+        "mitarbeiter-in-sekretariat-therapien-see-spital-ch",
+        "secretary-therapies-see-spital-horgen"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -3952,9 +3976,9 @@
       "slug": "operatore-notturno-centro-di-sonno-see-spital-horgen",
       "slugByLocale": {
         "de": "mitarbeiter-in-schlafzentrum-spat-und-nachtdienst-see-spital-horgen",
-        "it": "stagiaire-per-l-ottenimento-della-maturita-professionale-commerciale-52-settimane-100-eoc-ente-ospedaliero-cantonale-locarno",
-        "en": "internship-for-commercial-professional-maturity-52-weeks-100-eoc-ente-ospedaliero-cantonale-locarno",
-        "fr": "stagiaire-per-l-ottenimento-della-maturita-professionale-commerciale-52-settimane-100-eoc-ente-ospedaliero-cantonale-locarno-uil0fk"
+        "it": "operatore-notturno-centro-di-sonno-see-spital-horgen",
+        "en": "night-shift-staff-sleep-center-see-spital-horgen",
+        "fr": "personnel-de-nuit-centre-de-sommeil-see-spital-horgen"
       },
       "company": "See-Spital",
       "companyKey": "see-spital",
@@ -4029,18 +4053,26 @@
       "contractDuration": "permanent",
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-schlafzentrum-spat-und-nachtdienst-see-spital-ch"
+          "mitarbeiter-in-schlafzentrum-spat-und-nachtdienst-see-spital-ch",
+          "stagiaire-per-l-ottenimento-della-maturita-professionale-commerciale-52-settimane-100-eoc-ente-ospedaliero-cantonale-locarno"
         ],
         "de": [
           "mitarbeiter-in-schlafzentrum-spat-und-nachtdienst-see-spital-ch",
           "praktikum-fur-kaufmannische-berufsreife-52-wochen-100-eoc-ente-ospedaliero-cantonale-locarno"
+        ],
+        "en": [
+          "internship-for-commercial-professional-maturity-52-weeks-100-eoc-ente-ospedaliero-cantonale-locarno"
+        ],
+        "fr": [
+          "stagiaire-per-l-ottenimento-della-maturita-professionale-commerciale-52-settimane-100-eoc-ente-ospedaliero-cantonale-locarno-uil0fk"
         ]
       },
       "previousSlugs": [
         "mitarbeiter-in-schlafzentrum-spat-und-nachtdienst-see-spital-ch",
+        "stagiaire-per-l-ottenimento-della-maturita-professionale-commerciale-52-settimane-100-eoc-ente-ospedaliero-cantonale-locarno",
         "praktikum-fur-kaufmannische-berufsreife-52-wochen-100-eoc-ente-ospedaliero-cantonale-locarno",
-        "operatore-notturno-centro-di-sonno-see-spital-horgen",
-        "mitarbeiter-in-schlafzentrum-spat-und-nachtdienst-see-spital-horgen"
+        "internship-for-commercial-professional-maturity-52-weeks-100-eoc-ente-ospedaliero-cantonale-locarno",
+        "stagiaire-per-l-ottenimento-della-maturita-professionale-commerciale-52-settimane-100-eoc-ente-ospedaliero-cantonale-locarno-uil0fk"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,

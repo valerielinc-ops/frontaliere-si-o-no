@@ -8,7 +8,7 @@
       "slugByLocale": {
         "fr": "medecin-responsable-d-unite-clinique-de-valere",
         "it": "medico-responsabile-di-unita-clinique-de-valere-sion",
-        "en": "head-of-medical-department-clinique-de-valere-sion",
+        "en": "physician-responsible-for-unit-clinique-de-valere-sion",
         "de": "leitender-arzt-der-abteilung-clinique-de-valere-sion"
       },
       "company": "Clinique de Valère",
@@ -86,10 +86,14 @@
       "previousSlugsByLocale": {
         "it": [
           "medecin-responsable-d-unite-clinique-de-valere"
+        ],
+        "en": [
+          "head-of-medical-department-clinique-de-valere-sion"
         ]
       },
       "previousSlugs": [
-        "medecin-responsable-d-unite-clinique-de-valere"
+        "medecin-responsable-d-unite-clinique-de-valere",
+        "head-of-medical-department-clinique-de-valere-sion"
       ],
       "salaryMin": 68000,
       "salaryMax": 103000,

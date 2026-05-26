@@ -107,10 +107,10 @@
     },
     {
       "id": "clinique-de-genolier-069ce60f6fa9",
-      "slug": "infermiere-in-chirurgia-clinique-de-genolier-genolier",
+      "slug": "infermiera-chirurgica-clinique-de-genolier-genolier",
       "slugByLocale": {
         "fr": "infirmier-ere-en-chirurgie-clinique-de-genolier",
-        "it": "infermiere-in-chirurgia-clinique-de-genolier-genolier",
+        "it": "infermiera-chirurgica-clinique-de-genolier-genolier",
         "en": "surgical-nurse-clinique-de-genolier-genolier",
         "de": "chirurgiepfleger-in-clinique-de-genolier-genolier"
       },
@@ -186,11 +186,13 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "infirmier-ere-en-chirurgie-clinique-de-genolier"
+          "infirmier-ere-en-chirurgie-clinique-de-genolier",
+          "infermiere-in-chirurgia-clinique-de-genolier-genolier"
         ]
       },
       "previousSlugs": [
-        "infirmier-ere-en-chirurgie-clinique-de-genolier"
+        "infirmier-ere-en-chirurgie-clinique-de-genolier",
+        "infermiere-in-chirurgia-clinique-de-genolier-genolier"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -406,7 +408,7 @@
       "slugByLocale": {
         "fr": "infirmier-ere-polyvalent-e-urgence-polyclinique-endoscopie-clinique-de-genolier",
         "it": "infermiere-specializzata-in-emergenza-policlinico-endoscopia-clinique-de-genolier-genolier",
-        "en": "multidisciplinary-nurse-for-emergency-polyclinic-endoscopy-clinique-de-genolier-genolier",
+        "en": "multipurpose-emergency-polyclinical-endoscopy-nurse-clinique-de-genolier-genolier",
         "de": "mehrfachqualifizierte-pflegekraft-fur-notfall-polyklinik-endoskopie-clinique-de-genolier-genolier"
       },
       "company": "Clinique de Genolier",
@@ -484,10 +486,14 @@
       "previousSlugsByLocale": {
         "it": [
           "infirmier-ere-polyvalent-e-urgence-polyclinique-endoscopie-clinique-de-genolier"
+        ],
+        "en": [
+          "multidisciplinary-nurse-for-emergency-polyclinic-endoscopy-clinique-de-genolier-genolier"
         ]
       },
       "previousSlugs": [
-        "infirmier-ere-polyvalent-e-urgence-polyclinique-endoscopie-clinique-de-genolier"
+        "infirmier-ere-polyvalent-e-urgence-polyclinique-endoscopie-clinique-de-genolier",
+        "multidisciplinary-nurse-for-emergency-polyclinic-endoscopy-clinique-de-genolier-genolier"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -505,12 +511,12 @@
     },
     {
       "id": "clinique-de-genolier-0c4bcbada8b6",
-      "slug": "infermiere-hpci-clinique-de-genolier-genolier",
+      "slug": "infermiera-hpci-clinique-de-genolier-genolier",
       "slugByLocale": {
         "fr": "infirmiere-hpci-clinique-de-genolier",
-        "it": "infermiere-hpci-clinique-de-genolier-genolier",
+        "it": "infermiera-hpci-clinique-de-genolier-genolier",
         "en": "hpci-nurse-clinique-de-genolier-genolier",
-        "de": "hpci-krankenpflegerin-clinique-de-genolier-genolier"
+        "de": "hpci-krankenschwester-clinique-de-genolier-genolier"
       },
       "company": "Clinique de Genolier",
       "companyKey": "clinique-de-genolier",
@@ -583,11 +589,17 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "infirmiere-hpci-clinique-de-genolier"
+          "infirmiere-hpci-clinique-de-genolier",
+          "infermiere-hpci-clinique-de-genolier-genolier"
+        ],
+        "de": [
+          "hpci-krankenpflegerin-clinique-de-genolier-genolier"
         ]
       },
       "previousSlugs": [
-        "infirmiere-hpci-clinique-de-genolier"
+        "infirmiere-hpci-clinique-de-genolier",
+        "infermiere-hpci-clinique-de-genolier-genolier",
+        "hpci-krankenpflegerin-clinique-de-genolier-genolier"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,

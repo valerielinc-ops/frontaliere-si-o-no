@@ -4,10 +4,10 @@
   "jobs": [
     {
       "id": "privatklinik-bethanien-58e68429ccde",
-      "slug": "fisioterapista-del-pavimento-pelvico-pneumologia-ambulatoriale-o-linfologia-privatklinik-bethanien-zurich",
+      "slug": "fisioterapista-in-bacino-pneumologia-ambulante-o-linfologia-privatklinik-bethanien-zurich",
       "slugByLocale": {
         "de": "physiotherapeut-in-beckenboden-ambulante-pneumologie-oder-lymphologie-privatklinik-bethanien",
-        "it": "fisioterapista-del-pavimento-pelvico-pneumologia-ambulatoriale-o-linfologia-privatklinik-bethanien-zurich",
+        "it": "fisioterapista-in-bacino-pneumologia-ambulante-o-linfologia-privatklinik-bethanien-zurich",
         "en": "physiotherapist-for-pelvic-floor-outpatient-pneumology-or-lymphology-privatklinik-bethanien-zurich",
         "fr": "physiotherapeute-pour-le-plancher-pelvien-pneumologie-ambulatoire-ou-lymphologie-privatklinik-bethanien-zurich"
       },
@@ -82,11 +82,13 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "physiotherapeut-in-beckenboden-ambulante-pneumologie-oder-lymphologie-privatklinik-bethanien"
+          "physiotherapeut-in-beckenboden-ambulante-pneumologie-oder-lymphologie-privatklinik-bethanien",
+          "fisioterapista-del-pavimento-pelvico-pneumologia-ambulatoriale-o-linfologia-privatklinik-bethanien-zurich"
         ]
       },
       "previousSlugs": [
-        "physiotherapeut-in-beckenboden-ambulante-pneumologie-oder-lymphologie-privatklinik-bethanien"
+        "physiotherapeut-in-beckenboden-ambulante-pneumologie-oder-lymphologie-privatklinik-bethanien",
+        "fisioterapista-del-pavimento-pelvico-pneumologia-ambulatoriale-o-linfologia-privatklinik-bethanien-zurich"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -104,10 +106,10 @@
     },
     {
       "id": "privatklinik-bethanien-eafd6ffab351",
-      "slug": "fisioterapista-con-funzione-aggiuntiva-di-formatore-trice-60-100-privatklinik-bethanien-zurich",
+      "slug": "fisioterapista-con-allenatore-funzione-aggiuntivo-in-60-100-privatklinik-bethanien-zurich",
       "slugByLocale": {
         "de": "physiotherapeut-in-mit-zusatzfunktion-ausbilder-in-60-100-privatklinik-bethanien",
-        "it": "fisioterapista-con-funzione-aggiuntiva-di-formatore-trice-60-100-privatklinik-bethanien-zurich",
+        "it": "fisioterapista-con-allenatore-funzione-aggiuntivo-in-60-100-privatklinik-bethanien-zurich",
         "en": "physiotherapeut-in-mit-zusatzfunktion-ausbilder-in-60-100-privatklinik-bethanien",
         "fr": "physiotherapeute-avec-fonction-supplementaire-de-formateur-trice-60-100-privatklinik-bethanien-zurich"
       },
@@ -182,11 +184,13 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "physiotherapeut-in-mit-zusatzfunktion-ausbilder-in-60-100-privatklinik-bethanien"
+          "physiotherapeut-in-mit-zusatzfunktion-ausbilder-in-60-100-privatklinik-bethanien",
+          "fisioterapista-con-funzione-aggiuntiva-di-formatore-trice-60-100-privatklinik-bethanien-zurich"
         ]
       },
       "previousSlugs": [
-        "physiotherapeut-in-mit-zusatzfunktion-ausbilder-in-60-100-privatklinik-bethanien"
+        "physiotherapeut-in-mit-zusatzfunktion-ausbilder-in-60-100-privatklinik-bethanien",
+        "fisioterapista-con-funzione-aggiuntiva-di-formatore-trice-60-100-privatklinik-bethanien-zurich"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -204,11 +208,11 @@
     },
     {
       "id": "privatklinik-bethanien-bb6d66b05fc9",
-      "slug": "responsabile-dell-igiene-60-privatklinik-bethanien-zurich",
+      "slug": "responsabilita-della-salute-60-privatklinik-bethanien-zurich",
       "slugByLocale": {
         "de": "hygieneverantwortliche-r-60-privatklinik-bethanien-zurich",
-        "it": "responsabile-dell-igiene-60-privatklinik-bethanien-zurich",
-        "en": "hygiene-officer-60-privatklinik-bethanien-zurich",
+        "it": "responsabilita-della-salute-60-privatklinik-bethanien-zurich",
+        "en": "health-responsibility-60-privatklinik-bethanien-zurich",
         "fr": "responsable-de-l-hygiene-60-privatklinik-bethanien-zurich"
       },
       "company": "Privatklinik Bethanien",
@@ -285,14 +289,20 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "hygieneverantwortliche-r-60-privatklinik-bethanien"
+          "hygieneverantwortliche-r-60-privatklinik-bethanien",
+          "responsabile-dell-igiene-60-privatklinik-bethanien-zurich"
         ],
         "de": [
           "hygieneverantwortliche-r-60-privatklinik-bethanien"
+        ],
+        "en": [
+          "hygiene-officer-60-privatklinik-bethanien-zurich"
         ]
       },
       "previousSlugs": [
-        "hygieneverantwortliche-r-60-privatklinik-bethanien"
+        "hygieneverantwortliche-r-60-privatklinik-bethanien",
+        "responsabile-dell-igiene-60-privatklinik-bethanien-zurich",
+        "hygiene-officer-60-privatklinik-bethanien-zurich"
       ],
       "salaryMin": 68000,
       "salaryMax": 103000,
@@ -310,11 +320,11 @@
     },
     {
       "id": "privatklinik-bethanien-3e9cb5c33ef3",
-      "slug": "infermiere-a-diplomato-a-ss-sup-50-100-reparto-di-degenza-interdisciplinare-viscerale-chirurgia-orl-medicina-interna",
+      "slug": "dipl-specialista-hf-fh-50-100-per-una-stazione-di-letto-interdisciplinare-con-focus-su-viscerale-chirurgia-hno-medicina",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-hf-fh-50-100-fur-eine-interdisziplinare-bettenstation-mit-schwerpunkt-viszeral-chirurgie-hno-innere-medizin-privatklinik-bethanien",
-        "it": "infermiere-a-diplomato-a-ss-sup-50-100-reparto-di-degenza-interdisciplinare-viscerale-chirurgia-orl-medicina-interna",
-        "en": "registered-nurse-hf-fh-50-100-interdisciplinary-ward-visceral-surgery-ent-internal-medicine-privatklinik-bethanien",
+        "it": "dipl-specialista-hf-fh-50-100-per-una-stazione-di-letto-interdisciplinare-con-focus-su-viscerale-chirurgia-hno-medicina",
+        "en": "dipl-care-specialist-hf-fh-50-100-for-an-interdisciplinary-bed-station-with-focus-on-visceral-surgery-hno-internal",
         "fr": "infirmier-ere-diplome-e-es-hes-50-100-service-d-hospitalisation-interdisciplinaire-visceral-chirurgie-orl-medecine"
       },
       "company": "Privatklinik Bethanien",
@@ -388,11 +398,17 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-hf-fh-50-100-fur-eine-interdisziplinare-bettenstation-mit-schwerpunkt-viszeral-chirurgie-hno-innere-medizin-privatklinik-bethanien"
+          "dipl-pflegefachperson-hf-fh-50-100-fur-eine-interdisziplinare-bettenstation-mit-schwerpunkt-viszeral-chirurgie-hno-innere-medizin-privatklinik-bethanien",
+          "infermiere-a-diplomato-a-ss-sup-50-100-reparto-di-degenza-interdisciplinare-viscerale-chirurgia-orl-medicina-interna"
+        ],
+        "en": [
+          "registered-nurse-hf-fh-50-100-interdisciplinary-ward-visceral-surgery-ent-internal-medicine-privatklinik-bethanien"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-fh-50-100-fur-eine-interdisziplinare-bettenstation-mit-schwerpunkt-viszeral-chirurgie-hno-innere-medizin-privatklinik-bethanien"
+        "dipl-pflegefachperson-hf-fh-50-100-fur-eine-interdisziplinare-bettenstation-mit-schwerpunkt-viszeral-chirurgie-hno-innere-medizin-privatklinik-bethanien",
+        "infermiere-a-diplomato-a-ss-sup-50-100-reparto-di-degenza-interdisciplinare-viscerale-chirurgia-orl-medicina-interna",
+        "registered-nurse-hf-fh-50-100-interdisciplinary-ward-visceral-surgery-ent-internal-medicine-privatklinik-bethanien"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -410,12 +426,12 @@
     },
     {
       "id": "privatklinik-bethanien-92950bdc856a",
-      "slug": "infermiere-dipl-ssml-sup-50-100-reparto-interdisciplinare-ortopedia-e-cardiologia-privatklinik-bethanien-zurich",
+      "slug": "dipl-infermiere-hf-fh-50-100-per-una-stazione-interdisciplinare-con-specializzazione-in-ortopedica-e-cardiochirurgia",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-hf-fh-50-100-fur-eine-interdisziplinare-bettenstation-mit-schwerpunkt-orthopadie-und-kardiologie-privatklinik-bethanien",
-        "it": "infermiere-dipl-ssml-sup-50-100-reparto-interdisciplinare-ortopedia-e-cardiologia-privatklinik-bethanien-zurich",
-        "en": "registered-nurse-hf-fh-50-100-interdisciplinary-ward-orthopedics-cardiology-privatklinik-bethanien-zurich",
-        "fr": "infirmier-dipl-es-hes-50-100-service-interdisciplinaire-orthopedie-et-cardiologie-privatklinik-bethanien-zurich"
+        "it": "dipl-infermiere-hf-fh-50-100-per-una-stazione-interdisciplinare-con-specializzazione-in-ortopedica-e-cardiochirurgia",
+        "en": "dipl-nursing-professional-hf-fh-50-100-for-an-interdisciplinary-bed-station-with-specialization-in-orthopedics-and",
+        "fr": "dipl-infirmiere-hf-fh-50-100-pour-un-service-de-lit-interdisciplinaire-specialise-en-orthopedie-et-cardiochirurgie"
       },
       "company": "Privatklinik Bethanien",
       "companyKey": "privatklinik-bethanien",
@@ -482,11 +498,21 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-hf-fh-50-100-fur-eine-interdisziplinare-bettenstation-mit-schwerpunkt-orthopadie-und-kardiologie-privatklinik-bethanien"
+          "dipl-pflegefachperson-hf-fh-50-100-fur-eine-interdisziplinare-bettenstation-mit-schwerpunkt-orthopadie-und-kardiologie-privatklinik-bethanien",
+          "infermiere-dipl-ssml-sup-50-100-reparto-interdisciplinare-ortopedia-e-cardiologia-privatklinik-bethanien-zurich"
+        ],
+        "en": [
+          "registered-nurse-hf-fh-50-100-interdisciplinary-ward-orthopedics-cardiology-privatklinik-bethanien-zurich"
+        ],
+        "fr": [
+          "infirmier-dipl-es-hes-50-100-service-interdisciplinaire-orthopedie-et-cardiologie-privatklinik-bethanien-zurich"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-fh-50-100-fur-eine-interdisziplinare-bettenstation-mit-schwerpunkt-orthopadie-und-kardiologie-privatklinik-bethanien"
+        "dipl-pflegefachperson-hf-fh-50-100-fur-eine-interdisziplinare-bettenstation-mit-schwerpunkt-orthopadie-und-kardiologie-privatklinik-bethanien",
+        "infermiere-dipl-ssml-sup-50-100-reparto-interdisciplinare-ortopedia-e-cardiologia-privatklinik-bethanien-zurich",
+        "registered-nurse-hf-fh-50-100-interdisciplinary-ward-orthopedics-cardiology-privatklinik-bethanien-zurich",
+        "infirmier-dipl-es-hes-50-100-service-interdisciplinaire-orthopedie-et-cardiologie-privatklinik-bethanien-zurich"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -508,7 +534,7 @@
       "slugByLocale": {
         "de": "mitarbeiter-in-reception-80-100-privatklinik-bethanien",
         "it": "addetto-a-reception-80-100-privatklinik-bethanien-zurich",
-        "en": "receptionist-80-100-privatklinik-bethanien-zurich",
+        "en": "staff-in-reception-80-100-privatklinik-bethanien-zurich",
         "fr": "receptionniste-80-100-privatklinik-bethanien-zurich"
       },
       "company": "Privatklinik Bethanien",
@@ -586,10 +612,14 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-reception-80-100-privatklinik-bethanien"
+        ],
+        "en": [
+          "receptionist-80-100-privatklinik-bethanien-zurich"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-reception-80-100-privatklinik-bethanien"
+        "mitarbeiter-in-reception-80-100-privatklinik-bethanien",
+        "receptionist-80-100-privatklinik-bethanien-zurich"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -611,7 +641,7 @@
       "slugByLocale": {
         "de": "dipl-pflegefachperson-hf-fh-oder-dipl-op-fachschwester-im-herzkatheterlabor-50-60-privatklinik-bethanien",
         "it": "dipl-infermiere-hf-fh-o-dipl-infermiera-operatoria-in-laboratorio-cardiologico-50-60-privatklinik-bethanien-zurich",
-        "en": "dipl-nurse-hf-fh-or-dipl-operating-nurse-in-cardiac-catheter-lab-50-60-privatklinik-bethanien-zurich",
+        "en": "dipl-care-specialist-hf-fh-or-dipl-op-nurse-in-the-heart-catheter-laboratory-50-60-privatklinik-bethanien-zurich",
         "fr": "dipl-infirmiere-hf-fh-ou-dipl-infirmiere-operatoire-en-laboratoire-de-catheterisme-cardiaque-50-60-privatklinik"
       },
       "company": "Privatklinik Bethanien",
@@ -689,10 +719,14 @@
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-hf-fh-oder-dipl-op-fachschwester-im-herzkatheterlabor-50-60-privatklinik-bethanien"
+        ],
+        "en": [
+          "dipl-nurse-hf-fh-or-dipl-operating-nurse-in-cardiac-catheter-lab-50-60-privatklinik-bethanien-zurich"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-fh-oder-dipl-op-fachschwester-im-herzkatheterlabor-50-60-privatklinik-bethanien"
+        "dipl-pflegefachperson-hf-fh-oder-dipl-op-fachschwester-im-herzkatheterlabor-50-60-privatklinik-bethanien",
+        "dipl-nurse-hf-fh-or-dipl-operating-nurse-in-cardiac-catheter-lab-50-60-privatklinik-bethanien-zurich"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -714,7 +748,7 @@
       "slugByLocale": {
         "de": "lagerungspfleger-in-privatklinik-bethanien-zurich",
         "it": "assistente-di-ricovero-privatklinik-bethanien-zurich",
-        "en": "operating-room-attendant-privatklinik-bethanien-zurich",
+        "en": "storage-careers-privatklinik-bethanien-zurich",
         "fr": "aide-de-bloc-operatoire-privatklinik-bethanien-zurich"
       },
       "company": "Privatklinik Bethanien",
@@ -791,10 +825,14 @@
         ],
         "de": [
           "lagerungspfleger-in-privatklinik-bethanien"
+        ],
+        "en": [
+          "operating-room-attendant-privatklinik-bethanien-zurich"
         ]
       },
       "previousSlugs": [
-        "lagerungspfleger-in-privatklinik-bethanien"
+        "lagerungspfleger-in-privatklinik-bethanien",
+        "operating-room-attendant-privatklinik-bethanien-zurich"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
