@@ -9786,6 +9786,12 @@ ${staticAnalyticsHtml}
  const buildSoftLandingHtml = (locale: string, pageTitle: string, pageDesc: string, robotsTag: string,
  selfUrl: string, hreflangLinks: string, jsonLdScripts: string, expiredWindowData: string,
  staticBody: string): string => {
+ // Sub-phase profiler: ph:ejp:shell measured at 48.7s (45% of expired-
+ // soft-landing) in run 26469566046. Break it down so the next round
+ // can target either the template assembly (likely cheap) or minifyHtml
+ // (regex-heavy, suspected dominant). Gated by JOBS_SEO_PROFILE_PHASES=1
+ // already on in deploy.yml.
+ const __tShellTpl = phaseTimer();
  const shell = localeShells[locale];
  // Single early-boot tag covers BOTH dark-mode and spa-action-redirect
  // (merged into /assets/early-boot-{hash}.js via EARLY_BOOT_SCRIPT). The
@@ -9830,7 +9836,11 @@ ${staticAnalyticsHtml}
  <script>window.__STATIC_BODY_HTML__=(document.querySelector('.ft-static-article')||{}).innerHTML||'';</script>${spaBundleJs}
  </body>
 </html>`;
- return minifyHtml(html);
+ recordPhase('ejp:shell:tpl', __tShellTpl);
+ const __tShellMinify = phaseTimer();
+ const out = minifyHtml(html);
+ recordPhase('ejp:shell:minify', __tShellMinify);
+ return out;
  };
  const writeSoftLandingPage = (outRelPath: string, html: string) => {
  // Normalize: strip trailing slashes to prevent flat files like ".html" (hidden files)
