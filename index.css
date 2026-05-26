@@ -753,3 +753,42 @@ input[type=number] { -moz-appearance: textfield; }
 @media (prefers-reduced-motion: reduce) {
   .seo-fade-in { animation: none; }
 }
+
+/* ── SEO card atoms (job-card + employer-card) ──
+   Replace ~900 B of Tailwind utility strings per card in
+   build-plugins/shared/jobCardHtml.ts + employerCardHtml.ts with short atom
+   names. Tailwind v4 expands @apply at build into the same utility CSS
+   already in the SPA bundle, so static SEO pages (which load
+   /assets/index-*.css) render byte-identically. With ~16k hub pages × ~12
+   cards/page × ~800 B saving per card, this cuts ~150 MB across the artifact.
+   Keep atoms scoped (.jc-* / .ec-*) — do NOT use bare names like .card. */
+@layer components {
+  /* Job card (jobCardHtml.ts) */
+  .jc-card { @apply rounded-xl border p-3 sm:p-4 transition-colors min-h-[72px] border-edge bg-surface/50 hover:border-accent-border; }
+  .jc-card.jc-card-fea { @apply border-warning-border bg-warning-subtle hover:border-warning; }
+  .jc-link { @apply block cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-lg; }
+  .jc-row { @apply flex items-start gap-3; }
+  .jc-logoslot { @apply w-10 h-10 sm:w-14 sm:h-14 rounded-lg bg-surface-raised flex items-center justify-center overflow-hidden border border-edge shrink-0; }
+  .jc-logoimg { @apply w-7 h-7 sm:w-10 sm:h-10 object-contain; }
+  .jc-meta { @apply min-w-0 flex-1; }
+  .jc-title { @apply text-sm sm:text-base font-bold font-display text-heading leading-tight; }
+  .jc-sub { @apply text-xs sm:text-sm text-subtle mt-0.5 line-clamp-2; }
+  .jc-salary { @apply mt-1 inline-flex items-center gap-1 text-xs sm:text-sm font-semibold text-success; }
+  .jc-chips { @apply mt-2 sm:mt-3 flex flex-wrap items-center gap-2 sm:gap-1.5 text-xs text-muted; }
+  .jc-chip { @apply inline-flex items-center gap-1; }
+  .jc-chip-pill { @apply px-1.5 py-0.5 rounded bg-surface-raised text-subtle; }
+  .jc-newbadge { @apply ml-1.5 sm:ml-2 inline-flex items-center gap-0.5 px-1.5 py-0.5 text-xs font-bold uppercase tracking-wide rounded-full bg-success-subtle text-success; }
+
+  /* Employer card (employerCardHtml.ts) */
+  .ec-card { @apply rounded-xl border border-edge bg-surface/50 hover:border-accent-border transition-colors p-3 sm:p-4; }
+  .ec-link { @apply block focus:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-lg; }
+  .ec-row { @apply flex items-center gap-3; }
+  .ec-row-start { @apply flex items-start gap-3; }
+  .ec-logoslot { @apply rounded-lg bg-surface-raised flex items-center justify-center overflow-hidden border border-edge shrink-0; }
+  .ec-logoimg { @apply w-7 h-7 sm:w-9 sm:h-9 object-contain; }
+  .ec-title { @apply text-sm sm:text-base font-bold font-display text-heading leading-tight; }
+  .ec-sub { @apply mt-1 text-xs sm:text-sm text-subtle leading-snug; }
+  .ec-pill { @apply px-1.5 py-0.5 rounded bg-surface-raised text-subtle text-xs; }
+  .ec-meta { @apply min-w-0 flex-1; }
+  .ec-cmpct { @apply flex items-center gap-2.5 rounded-xl border border-edge bg-surface/50 p-3 hover:border-accent-border transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-accent text-inherit no-underline; }
+}

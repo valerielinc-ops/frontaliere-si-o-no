@@ -224,7 +224,10 @@ function renderLogoSlot(job: JobCardJob, logoSrc: string): string {
     : LOGO_FALLBACK_SRC;
   const safeFallback = escHtml(fallbackSrc);
   const onerror = `this.onerror=null;this.src=&quot;${safeFallback}&quot;`;
-  return `<div class="w-10 h-10 sm:w-14 sm:h-14 rounded-lg bg-surface-raised flex items-center justify-center overflow-hidden border border-edge shrink-0"><img alt="${safeAlt}" class="w-7 h-7 sm:w-10 sm:h-10 object-contain" width="40" height="40" loading="lazy" src="${safeSrc}" onerror="${onerror}"></div>`;
+  // Atom classes defined in index.css (`.jc-logoslot`, `.jc-logoimg`) — see
+  // there for the Tailwind @apply mapping. Saves ~180 B per card vs verbatim
+  // utility strings.
+  return `<div class="jc-logoslot"><img alt="${safeAlt}" class="jc-logoimg" width="40" height="40" loading="lazy" src="${safeSrc}" onerror="${onerror}"></div>`;
 }
 
 // ── Main renderer ────────────────────────────────────────────────────
@@ -264,17 +267,20 @@ export function renderJobCardHtml(
     ? opts.logoUrl
     : resolveJobCardLogo(job);
 
-  const articleClasses = featured
-    ? 'rounded-xl border p-3 sm:p-4 transition-colors min-h-[72px] border-warning-border bg-warning-subtle hover:border-warning'
-    : 'rounded-xl border p-3 sm:p-4 transition-colors min-h-[72px] border-edge bg-surface/50 hover:border-accent-border';
+  // Atom class names — see index.css `@layer components` block for the
+  // Tailwind @apply mapping. Verbatim utility strings emitted ~900 B per
+  // card; atom names ~70 B. Across ~16k hub pages × ~12 cards/page that's
+  // ~150 MB of artifact saved at byte-identical visual output (Tailwind v4
+  // expands @apply into the same utility CSS already in the SPA bundle).
+  const articleClasses = featured ? 'jc-card jc-card-fea' : 'jc-card';
 
   const featuredBadge = featured ? ICON_STAR : '';
   const newBadge = fresh
-    ? `<span class="ml-1.5 sm:ml-2 inline-flex items-center gap-0.5 px-1.5 py-0.5 text-xs font-bold uppercase tracking-wide rounded-full bg-success-subtle text-success">${ICON_SPARKLES}${escHtml(NEW_BADGE_LABEL[locale])}</span>`
+    ? `<span class="jc-newbadge">${ICON_SPARKLES}${escHtml(NEW_BADGE_LABEL[locale])}</span>`
     : '';
 
   const salaryHtml = salary
-    ? `<span class="mt-1 inline-flex items-center gap-1 text-xs sm:text-sm font-semibold text-success">${ICON_EURO}${escHtml(salary)}</span>`
+    ? `<span class="jc-salary">${ICON_EURO}${escHtml(salary)}</span>`
     : '';
 
   const companyAndLocation = (() => {
@@ -285,13 +291,13 @@ export function renderJobCardHtml(
   })();
 
   const locChip = rawLocation
-    ? `<span class="inline-flex items-center gap-1">${ICON_MAPPIN}${escHtml(rawLocation)}</span>`
+    ? `<span class="jc-chip">${ICON_MAPPIN}${escHtml(rawLocation)}</span>`
     : '';
   const contractChip = contractLbl
-    ? `<span class="px-1.5 py-0.5 rounded bg-surface-raised text-subtle">${escHtml(contractLbl)}</span>`
+    ? `<span class="jc-chip-pill">${escHtml(contractLbl)}</span>`
     : '';
   const postedChip = postedLabel
-    ? `<span class="inline-flex items-center gap-1" data-posted="${escHtml(postedIso)}">${ICON_CLOCK}${escHtml(postedLabel)}</span>`
+    ? `<span class="jc-chip" data-posted="${escHtml(postedIso)}">${ICON_CLOCK}${escHtml(postedLabel)}</span>`
     : '';
 
   // No `aria-label`: WCAG 2.5.3 (Label in Name) requires the accessible name
@@ -300,7 +306,7 @@ export function renderJobCardHtml(
   // compliant name than a hand-built label that omits parts of the visible
   // text and uses a separator (—) the visible UI does not show.
 
-  return `<article class="${articleClasses}"><a href="${escHtml(href)}" class="block cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-lg"><div class="flex items-start gap-3">${renderLogoSlot(job, logoSrc)}<div class="min-w-0 flex-1"><h3 class="text-sm sm:text-base font-bold font-display text-heading leading-tight">${escHtml(title)}${featuredBadge}${newBadge}</h3><p class="text-xs sm:text-sm text-subtle mt-0.5 line-clamp-2">${companyAndLocation}</p>${salaryHtml}</div></div><div class="mt-2 sm:mt-3 flex flex-wrap items-center gap-2 sm:gap-1.5 text-xs text-muted">${locChip}${contractChip}${postedChip}</div></a></article>`;
+  return `<article class="${articleClasses}"><a href="${escHtml(href)}" class="jc-link"><div class="jc-row">${renderLogoSlot(job, logoSrc)}<div class="jc-meta"><h3 class="jc-title">${escHtml(title)}${featuredBadge}${newBadge}</h3><p class="jc-sub">${companyAndLocation}</p>${salaryHtml}</div></div><div class="jc-chips">${locChip}${contractChip}${postedChip}</div></a></article>`;
 }
 
 // ── List renderer ────────────────────────────────────────────────────

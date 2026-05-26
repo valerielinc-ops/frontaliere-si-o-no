@@ -80,7 +80,10 @@ function renderLogoSlot(e: EmployerCardEmployer, sizeClass: string): string {
   });
   const fallbackSrc = e.name ? generateInitialsLogo(e.name) : LOGO_FALLBACK_SRC;
   const onerror = `this.onerror=null;this.src=&quot;${escHtml(fallbackSrc)}&quot;`;
-  return `<div class="${sizeClass} rounded-lg bg-surface-raised flex items-center justify-center overflow-hidden border border-edge shrink-0"><img alt="${safeAlt}" class="w-7 h-7 sm:w-9 sm:h-9 object-contain" width="40" height="40" loading="lazy" src="${escHtml(logoSrc)}" onerror="${onerror}"></div>`;
+  // `.ec-logoslot` covers the static layout (rounded-lg, border, flex centering).
+  // `sizeClass` (w-* / h-* utility pair) varies per call site (compact vs detailed
+  // vs ultra-compact list) — kept as-is so caller picks the size.
+  return `<div class="ec-logoslot ${sizeClass}"><img alt="${safeAlt}" class="ec-logoimg" width="40" height="40" loading="lazy" src="${escHtml(logoSrc)}" onerror="${onerror}"></div>`;
 }
 
 export function renderEmployerCardHtml(
@@ -94,18 +97,19 @@ export function renderEmployerCardHtml(
     : '';
 
   if (variant === 'detailed') {
-    // Title with optional ranking prefix.
+    // Title with optional ranking prefix. `.ec-title` mirrors `.jc-title` —
+    // see index.css `@layer components`.
     const titleHtml = e.rank
-      ? `<h3 class="text-sm sm:text-base font-bold font-display text-heading leading-tight"><span class="tabular-nums">${escHtml(String(e.rank))}.</span> ${escHtml(e.name)}</h3>`
-      : `<h3 class="text-sm sm:text-base font-bold font-display text-heading leading-tight">${escHtml(e.name)}</h3>`;
+      ? `<h3 class="ec-title"><span class="tabular-nums">${escHtml(String(e.rank))}.</span> ${escHtml(e.name)}</h3>`
+      : `<h3 class="ec-title">${escHtml(e.name)}</h3>`;
 
     // Subtitle: explicit `subtitle` wins, else fall back to chips of sector + city.
     let subtitleHtml = '';
     if (e.subtitle) {
-      subtitleHtml = `<p class="mt-1 text-xs sm:text-sm text-subtle leading-snug">${escHtml(e.subtitle)}</p>`;
+      subtitleHtml = `<p class="ec-sub">${escHtml(e.subtitle)}</p>`;
     } else {
       const sectorChip = e.sector
-        ? `<span class="px-1.5 py-0.5 rounded bg-surface-raised text-subtle text-xs">${escHtml(e.sector)}</span>`
+        ? `<span class="ec-pill">${escHtml(e.sector)}</span>`
         : '';
       const cityChip = e.city
         ? `<span class="text-xs text-subtle">${escHtml(e.city)}</span>`
@@ -127,13 +131,13 @@ export function renderEmployerCardHtml(
     // Layout: when a metric is present we use a flex row (logo · title/subtitle · metric).
     // Otherwise we use the original stacked layout (logo+title above, openings line below).
     if (e.metric) {
-      return `<article class="rounded-xl border border-edge bg-surface/50 hover:border-accent-border transition-colors p-3 sm:p-4"><a href="${escHtml(opts.href)}" class="block focus:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-lg"><div class="flex items-center gap-3">${renderLogoSlot(e, 'w-12 h-12 sm:w-14 sm:h-14')}<div class="min-w-0 flex-1">${titleHtml}${subtitleHtml}</div>${metricHtml}</div></a></article>`;
+      return `<article class="ec-card"><a href="${escHtml(opts.href)}" class="ec-link"><div class="ec-row">${renderLogoSlot(e, 'w-12 h-12 sm:w-14 sm:h-14')}<div class="ec-meta">${titleHtml}${subtitleHtml}</div>${metricHtml}</div></a></article>`;
     }
-    return `<article class="rounded-xl border border-edge bg-surface/50 hover:border-accent-border transition-colors p-3 sm:p-4"><a href="${escHtml(opts.href)}" class="block focus:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-lg"><div class="flex items-start gap-3">${renderLogoSlot(e, 'w-12 h-12 sm:w-14 sm:h-14')}<div class="min-w-0 flex-1">${titleHtml}${subtitleHtml}${metricHtml}</div></div></a></article>`;
+    return `<article class="ec-card"><a href="${escHtml(opts.href)}" class="ec-link"><div class="ec-row-start">${renderLogoSlot(e, 'w-12 h-12 sm:w-14 sm:h-14')}<div class="ec-meta">${titleHtml}${subtitleHtml}${metricHtml}</div></div></a></article>`;
   }
 
   // compact (default)
-  return `<a href="${escHtml(opts.href)}" class="flex items-center gap-2.5 rounded-xl border border-edge bg-surface/50 p-3 hover:border-accent-border transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-accent text-inherit no-underline">${renderLogoSlot(e, 'w-9 h-9 sm:w-10 sm:h-10')}<div class="flex-1 min-w-0"><div class="font-bold text-sm text-heading leading-tight truncate">${escHtml(e.name)}</div></div>${openingsHtml}</a>`;
+  return `<a href="${escHtml(opts.href)}" class="ec-cmpct">${renderLogoSlot(e, 'w-9 h-9 sm:w-10 sm:h-10')}<div class="flex-1 min-w-0"><div class="font-bold text-sm text-heading leading-tight truncate">${escHtml(e.name)}</div></div>${openingsHtml}</a>`;
 }
 
 export interface EmployerCardListItem {
