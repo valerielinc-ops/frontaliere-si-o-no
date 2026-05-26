@@ -154,6 +154,8 @@ export const CRAWLED_COMPANY_LOGOS: Record<string, string> = {
  'pkb-private-bank': cLogo('pkb.ch'),
  'posta-svizzera-centro-regionale': 'https://ohws.prospective.ch/directlink/1002253030/assets/images/logos/post_logo_2023.svg',
  'prada': '/images/logos/prada-group.svg',
+ 'privatklinik-bethanien': cLogo('swissmedical.net'),
+ 'privatklinik-obach': cLogo('swissmedical.net'),
  'rapelli': cLogo('rapelli.ch'),
  'relewant': cLogo('relewant.com'),
  'rfsm-fribourg': cLogo('fr.ch'),
