@@ -5109,6 +5109,14 @@ async function main() {
       }
       const enrichedMap = new Map();
       if (selectedQueue.length > 0) {
+        // Load registry once for post-AI pinning enforcement: mergeAndDeduplicate
+        // pinned slugs from the immutable registry, but enrichJobLocalesWithRetry
+        // can re-derive slugByLocale from a freshly AI-translated title. Without
+        // re-pinning here the AI's slug wins and the SEO bridge / canonical
+        // mismatch returns (old URL serves a page whose H1+canonical point at
+        // the new slug). Demote any AI-derived drift to previousSlugsByLocale so
+        // legacy URLs keep resolving via the slug-map.
+        const postAiRegistry = loadSlugRegistry();
         const localizedEntries = await runWithConcurrency(
           selectedQueue.map((job, index) => ({ job, index })),
           async ({ job, index }) => {
@@ -5125,6 +5133,36 @@ async function main() {
             const enriched = await enrichJobLocalesWithRetry(job, crawlerConfig);
             if (enriched && (enriched.slug !== _preAiSlug || _slugByLocaleDiffer(enriched.slugByLocale, _preAiSlugByLocale))) {
               captureLostSlugs(enriched, _preAiSlugByLocale, _preAiSlug);
+            }
+            // Re-pin registry over any AI-derived slug drift (Fix 1B). Mirrors
+            // the source-copy guard in mergeAndDeduplicate: skip per-locale
+            // entries whose registry value is just a copy of the source-locale
+            // slug (no real translation was registered) so AI's new
+            // translation isn't reverted to the source slug.
+            if (enriched) {
+              const pin = getRegisteredSlug(enriched, postAiRegistry);
+              if (pin && pin.canonicalSlug) {
+                const aiSlugByLocale = enriched.slugByLocale ? { ...enriched.slugByLocale } : {};
+                const aiSlug = enriched.slug || '';
+                const srcLang = enriched.sourceLang || null;
+                const regSrc = srcLang && pin.slugByLocale ? String(pin.slugByLocale[srcLang] || '').trim() : '';
+                if (!enriched.slugByLocale || typeof enriched.slugByLocale !== 'object') {
+                  enriched.slugByLocale = {};
+                }
+                if (pin.slugByLocale && typeof pin.slugByLocale === 'object') {
+                  for (const [loc, s] of Object.entries(pin.slugByLocale)) {
+                    const norm = String(s || '').trim();
+                    if (!norm) continue;
+                    if (srcLang && loc !== srcLang && regSrc && norm === regSrc) continue;
+                    enriched.slugByLocale[loc] = norm;
+                  }
+                }
+                const enforceMaster = !srcLang
+                  || !regSrc
+                  || String(pin.canonicalSlug).trim() !== regSrc;
+                if (enforceMaster) enriched.slug = pin.canonicalSlug;
+                captureLostSlugs(enriched, aiSlugByLocale, aiSlug);
+              }
             }
             return { fp: fingerprintJob(job), enriched };
           },

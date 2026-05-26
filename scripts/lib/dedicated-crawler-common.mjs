@@ -4811,6 +4811,32 @@ export function mergePreserveLocaleData(existingJobs, freshJobs, opts = {}) {
       fresh.needsRetranslation = true;
     }
 
+    // Translation stability lock (Fix 2): when the source-locale title is
+    // bytewise unchanged from the previous crawl AND the previous record has
+    // full locale coverage for titles/descriptions/slugs, clear
+    // `needsRetranslation`. Many dedicated parsers (KSBL, etc.) set
+    // `needsRetranslation: true` unconditionally on every fetch, which forces
+    // the AI pipeline to re-translate the same source title and produce
+    // non-deterministic IT/EN/FR variants on each run. That title churn
+    // cascades into slugByLocale changes — captureLostSlugs then demotes the
+    // original (already-indexed) slug to previousSlugs and emits a SEO bridge
+    // page at the indexed URL pointing canonical at a fresh slug, splitting
+    // SEO equity and confusing users (the address bar shows the old URL but
+    // the page renders the new title).
+    if (fresh.needsRetranslation && srcLang) {
+      const oldSrcTitle = normalizeSpace(String(old?.titleByLocale?.[srcLang] || old?.title || ''));
+      const newSrcTitle = normalizeSpace(String(fresh?.titleByLocale?.[srcLang] || fresh?.title || ''));
+      const sourceTitleStable = oldSrcTitle.length >= 3 && oldSrcTitle === newSrcTitle;
+      if (sourceTitleStable) {
+        const titleCoverageOk = localeTextCoverage(old?.titleByLocale || {}, 3) >= LOCALES.length;
+        const slugCoverageOk = localeTextCoverage(old?.slugByLocale || {}, 3) >= LOCALES.length;
+        const descCoverageOk = localeTextCoverage(old?.descriptionByLocale || {}, 120) >= LOCALES.length;
+        if (titleCoverageOk && slugCoverageOk && descCoverageOk) {
+          fresh.needsRetranslation = false;
+        }
+      }
+    }
+
     // Preserve sourceLang from existing
     if (old.sourceLang && !fresh.sourceLang) {
       fresh.sourceLang = old.sourceLang;
@@ -5453,17 +5479,53 @@ export function mergeAndDeduplicate(existingJobs, incomingJobs, qualityCfg, opti
   const slugRegistry = loadSlugRegistry();
   let registryHits = 0;
   let registryNewEntries = 0;
+  let registryDemotions = 0;
   const usedSlugs = new Set();
   for (const job of deduped) {
     const registered = getRegisteredSlug(job, slugRegistry);
     if (registered && registered.canonicalSlug) {
-      job.slug = registered.canonicalSlug;
+      // Registry is the immutable canonical slug. When the current job carries
+      // a diverging slug (typically because AI re-translated the source title
+      // into a different IT/EN/FR form and isSlugStable demoted the original),
+      // demote the diverging form into previousSlugsByLocale[locale] and
+      // restore the registry-pinned slug. Without this destructive override,
+      // bridge pages would be emitted at the registry URL while the listing
+      // page resolves to the AI-derived slug — splitting SEO equity.
+      //
+      // BUT: skip enforcing a per-locale registry value when it is bytewise
+      // identical to the source-locale registry slug. Early KSBL entries were
+      // registered before the AI localization step finished, so every locale
+      // slot was a copy of the source-locale slug. Pinning those copies would
+      // revert real translations (e.g. AI-derived IT slug) back to the source
+      // (DE) slug — worse than the drift we're fixing.
+      const srcLang = job.sourceLang || null;
+      const regSrcSlug = srcLang && registered.slugByLocale
+        ? normalizeSpace(String(registered.slugByLocale[srcLang] || ''))
+        : '';
+      const prevSlugByLocale = job.slugByLocale ? { ...job.slugByLocale } : {};
+      const prevSlug = job.slug || '';
+      if (!job.slugByLocale || typeof job.slugByLocale !== 'object') job.slugByLocale = {};
       if (registered.slugByLocale && typeof registered.slugByLocale === 'object') {
-        if (!job.slugByLocale || typeof job.slugByLocale !== 'object') job.slugByLocale = {};
         for (const [loc, s] of Object.entries(registered.slugByLocale)) {
-          if (s && !job.slugByLocale[loc]) job.slugByLocale[loc] = s;
+          const norm = normalizeSpace(String(s || ''));
+          if (!norm) continue;
+          // Non-source-locale entry that just copies the source slug = no real
+          // translation was registered. Keep whatever the current crawl has.
+          if (srcLang && loc !== srcLang && regSrcSlug && norm === regSrcSlug) continue;
+          job.slugByLocale[loc] = norm;
         }
       }
+      // Master slug is used by the IT path on canton sections. Only enforce
+      // when registry value looks like a real IT slug (registered IT slug
+      // differs from source-locale slug or no source-locale slug is recorded).
+      const enforceMaster = !srcLang
+        || !regSrcSlug
+        || normalizeSpace(String(registered.canonicalSlug)) !== regSrcSlug;
+      if (enforceMaster) {
+        job.slug = registered.canonicalSlug;
+      }
+      const lost = captureLostSlugs(job, prevSlugByLocale, prevSlug);
+      if (lost.length > 0) registryDemotions += lost.length;
       usedSlugs.add(job.slug);
       registryHits += 1;
       continue;
@@ -5483,8 +5545,8 @@ export function mergeAndDeduplicate(existingJobs, incomingJobs, qualityCfg, opti
     if (Object.keys(slugRegistry).length > sizeBefore) registryNewEntries += 1;
   }
   saveSlugRegistry(slugRegistry);
-  if (registryHits > 0 || registryNewEntries > 0) {
-    console.log(`🔒 Slug registry: ${registryHits} locked from registry, ${registryNewEntries} new entries added (${Object.keys(slugRegistry).length} total)`);
+  if (registryHits > 0 || registryNewEntries > 0 || registryDemotions > 0) {
+    console.log(`🔒 Slug registry: ${registryHits} locked from registry (${registryDemotions} drift slugs demoted to previousSlugs), ${registryNewEntries} new entries added (${Object.keys(slugRegistry).length} total)`);
   }
 
   return {
