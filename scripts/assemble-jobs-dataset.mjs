@@ -153,6 +153,58 @@ function assemblerIdentity(job = {}) {
   // Delegate to the shared identity for non-URL fallbacks
   return buildStableJobIdentity(job);
 }
+
+/**
+ * Cross-job per-locale slug collision guard.
+ *
+ * The IT base slug (`job.slug`) is the natural owner of its (canton, slug)
+ * tuple across all locales. When another job's translated locale slug
+ * (`slugByLocale.en/de/fr`) coincides with someone else's IT base in the
+ * same canton, the translation is suspected hallucinated — drop the slug
+ * and the matching `titleByLocale` entry (so build's localizedSlug() falls
+ * back to job.slug) and set `needsRetranslation` so a future crawler run
+ * regenerates a fresh slug.
+ *
+ * Pure: mutates the passed jobs in-place AND returns a report. Exported so
+ * the gate has a unit-testable surface independent of the assembler IO.
+ *
+ * @param {Array<object>} jobs jobs already deduped by IT base slug
+ * @returns {{ count: number, details: string[] }}
+ */
+export function applyPerLocaleSlugCollisionGuard(jobs) {
+  const baseSlugOwners = new Map();
+  for (const job of jobs) {
+    const baseSlug = String(job?.slug || '').trim();
+    if (!baseSlug) continue;
+    const canton = String(job?.canton || 'TI').toUpperCase();
+    const key = `${canton}|${baseSlug}`;
+    if (!baseSlugOwners.has(key)) baseSlugOwners.set(key, assemblerIdentity(job));
+  }
+  let count = 0;
+  const details = [];
+  for (const job of jobs) {
+    if (!job?.slugByLocale || typeof job.slugByLocale !== 'object') continue;
+    const myId = assemblerIdentity(job);
+    const myBaseSlug = String(job.slug || '').trim();
+    const canton = String(job.canton || 'TI').toUpperCase();
+    for (const locale of ['en', 'de', 'fr']) {
+      const slug = String(job.slugByLocale[locale] || '').trim();
+      if (!slug || slug === myBaseSlug) continue;
+      const owner = baseSlugOwners.get(`${canton}|${slug}`);
+      if (!owner || owner === myId) continue;
+      delete job.slugByLocale[locale];
+      if (job.titleByLocale && typeof job.titleByLocale === 'object') {
+        delete job.titleByLocale[locale];
+      }
+      job.needsRetranslation = true;
+      count++;
+      if (details.length < 10) {
+        details.push(`${canton}/${locale}/${slug}: ${myId} → owned by ${owner}`);
+      }
+    }
+  }
+  return { count, details };
+}
 const ROOT = path.resolve(__dirname, '..');
 
 const JOBS_SLICES_DIR = path.join(ROOT, 'data', 'jobs', 'by-crawler');
@@ -863,6 +915,22 @@ async function assembleJobs() {
 
   if (slugDupeCount > 0) {
     console.log(`  🧹 Slug dedup: removed ${slugDupeCount} entries with duplicate slugs (${deduped.length} remaining)`);
+  }
+
+  // ── Per-locale slug collision guard (translator-hallucination defense) ─
+  // The dedup above protects only the master IT base slug (`job.slug`).
+  // It misses the case where one job's translated `slugByLocale[en|de|fr]`
+  // (derived from a hallucinated AI title) equals ANOTHER job's IT base slug.
+  // Example incident 2026-05-26: axpo-group-3b351c9ebffe's EN title was
+  // hallucinated as "Projektmanager (m/w/d)" → slug
+  // `projektmanager-m-w-d-kernkraftwerk-leibstadt-ag-leibstadt` which
+  // exactly matched axpo-group-b16db3a9513c's IT base slug. Both jobs
+  // emit at /en/find-jobs-aargau/projektmanager-.../ and the resulting
+  // canonical drift failed `audit:sitemap-canonicals` and blocked deploy.
+  const collisionReport = applyPerLocaleSlugCollisionGuard(deduped);
+  if (collisionReport.count > 0) {
+    console.log(`  🧹 Per-locale slug collisions resolved: ${collisionReport.count} (translator hallucination guard)`);
+    for (const d of collisionReport.details) console.log(`     • ${d}`);
   }
 
   // ── Defensive location sanitization ─────────────────────────────────
