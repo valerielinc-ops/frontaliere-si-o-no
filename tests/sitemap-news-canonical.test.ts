@@ -26,9 +26,69 @@
 import { describe, expect, it } from 'vitest';
 import fs from 'node:fs';
 import path from 'node:path';
-import { execFileSync } from 'node:child_process';
 
 const ROOT = path.resolve(__dirname, '..');
+
+const SEARCH_ROOTS = [
+  'build-plugins',
+  'scripts',
+  'public',
+  'services',
+  'components',
+  'tests',
+];
+const SEARCH_FILES = ['vite.config.ts', 'package.json', 'tsconfig.json'];
+const SEARCH_EXTENSIONS = new Set([
+  '.ts',
+  '.tsx',
+  '.js',
+  '.jsx',
+  '.mjs',
+  '.cjs',
+  '.json',
+  '.xml',
+  '.txt',
+  '.md',
+  '.yml',
+  '.yaml',
+  '.html',
+]);
+
+function collectMatches(needle: string): { file: string; line: number; text: string }[] {
+  const matches: { file: string; line: number; text: string }[] = [];
+  const visit = (absPath: string, relPath: string) => {
+    let stat: fs.Stats;
+    try {
+      stat = fs.statSync(absPath);
+    } catch {
+      return;
+    }
+    if (stat.isDirectory()) {
+      for (const entry of fs.readdirSync(absPath)) {
+        if (entry === 'node_modules' || entry.startsWith('.')) continue;
+        visit(path.join(absPath, entry), path.posix.join(relPath, entry));
+      }
+      return;
+    }
+    if (!stat.isFile()) return;
+    if (!SEARCH_EXTENSIONS.has(path.extname(absPath))) return;
+    const content = fs.readFileSync(absPath, 'utf-8');
+    if (!content.includes(needle)) return;
+    const lines = content.split('\n');
+    for (let i = 0; i < lines.length; i += 1) {
+      if (lines[i].includes(needle)) {
+        matches.push({ file: relPath, line: i + 1, text: lines[i].trim() });
+      }
+    }
+  };
+  for (const dir of SEARCH_ROOTS) {
+    visit(path.join(ROOT, dir), dir);
+  }
+  for (const file of SEARCH_FILES) {
+    visit(path.join(ROOT, file), file);
+  }
+  return matches;
+}
 
 /**
  * Files where the underscore form may legitimately appear (defensive guards
@@ -48,41 +108,9 @@ const ALLOWED_REFERENCES = new Set<string>([
 
 describe('sitemap-news canonical filename — A4 Google News compliance', () => {
   it('no source file emits the legacy underscore variant `sitemap_news.xml`', () => {
-    const offenders: { file: string; line: number; text: string }[] = [];
-    let output = '';
-    try {
-      output = execFileSync(
-        'rg',
-        [
-          '--fixed-strings',
-          '--line-number',
-          '--no-heading',
-          '--glob',
-          '*.{ts,tsx,js,jsx,mjs,cjs,json,xml,txt,md,yml,yaml,html}',
-          'sitemap_news',
-          'build-plugins',
-          'scripts',
-          'public',
-          'services',
-          'components',
-          'tests',
-          'vite.config.ts',
-          'package.json',
-          'tsconfig.json',
-        ],
-        { cwd: ROOT, encoding: 'utf-8' },
-      );
-    } catch (error) {
-      const status = (error as { status?: number }).status;
-      if (status !== 1) throw error;
-    }
-
-    for (const row of output.split('\n')) {
-      if (!row.trim()) continue;
-      const [rel = '', lineNo = '', ...textParts] = row.split(':');
-      if (ALLOWED_REFERENCES.has(rel)) continue;
-      offenders.push({ file: rel, line: Number(lineNo), text: textParts.join(':').trim() });
-    }
+    const offenders = collectMatches('sitemap_news').filter(
+      (m) => !ALLOWED_REFERENCES.has(m.file),
+    );
 
     if (offenders.length > 0) {
       const summary = offenders
