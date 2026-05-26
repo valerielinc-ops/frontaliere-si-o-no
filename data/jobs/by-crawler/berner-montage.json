@@ -1,6 +1,6 @@
 {
   "crawlerKey": "berner-montage",
-  "assembledAt": "2026-05-25T21:30:32.414Z",
+  "assembledAt": "2026-05-26T22:10:10.705Z",
   "jobs": [
     {
       "id": "berner-montage-4936690da784",
@@ -33,7 +33,7 @@
       "url": "https://shop.berner.eu/ch-de/ADM-Bau-Solothurn",
       "source": "Montagetechnik BERNER AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-25T21:30:30.624Z",
+      "crawledAt": "2026-05-26T22:10:08.840Z",
       "addressLocality": "Visp",
       "postalCode": "3930",
       "addressCountry": "CH",
@@ -61,6 +61,7 @@
         "aussendienstmitarbeiter-m-w-im-bau-handwerk-fur-die-region-solothurn-berner-montage-ch"
       ],
       "firstSeenAt": "2026-04-13T21:13:43.036Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -105,7 +106,7 @@
       "url": "https://shop.berner.eu/ch-de/Merchandiser-BE-FR-SO",
       "source": "Montagetechnik BERNER AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-25T21:30:29.742Z",
+      "crawledAt": "2026-05-26T22:10:07.912Z",
       "addressLocality": "Visp",
       "postalCode": "3930",
       "addressCountry": "CH",
@@ -134,6 +135,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:13:43.036Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -178,7 +180,7 @@
       "url": "https://shop.berner.eu/ch-de/ADM-Bau-Aargau",
       "source": "Montagetechnik BERNER AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-25T21:30:28.884Z",
+      "crawledAt": "2026-05-26T22:10:06.953Z",
       "addressLocality": "Visp",
       "postalCode": "3930",
       "addressCountry": "CH",
@@ -206,6 +208,7 @@
         "aussendienstmitarbeiter-m-w-d-im-bau-handwerk-region-aargau-berner-montage-ch"
       ],
       "firstSeenAt": "2026-04-13T21:13:43.036Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -250,7 +253,7 @@
       "url": "https://shop.berner.eu/ch-de/ADM-Bau-Mitte",
       "source": "Montagetechnik BERNER AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-25T21:30:27.933Z",
+      "crawledAt": "2026-05-26T22:10:06.039Z",
       "addressLocality": "Visp",
       "postalCode": "3930",
       "addressCountry": "CH",
@@ -267,14 +270,17 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "aussendienstmitarbeiter-m-w-d-im-bau-handwerk-region-region-mittelland-langenthal-olten-re"
+        "aussendienstmitarbeiter-m-w-d-im-bau-handwerk-region-region-mittelland-langenthal-olten-re",
+        "aussendienstmitarbeiter-m-w-d-im-bau-handwerk-region-region-mittelland-langenthal-olten"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "aussendienstmitarbeiter-m-w-d-im-bau-handwerk-region-region-mittelland-langenthal-olten-re"
+          "aussendienstmitarbeiter-m-w-d-im-bau-handwerk-region-region-mittelland-langenthal-olten-re",
+          "aussendienstmitarbeiter-m-w-d-im-bau-handwerk-region-region-mittelland-langenthal-olten"
         ]
       },
       "firstSeenAt": "2026-04-13T21:13:43.036Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -319,7 +325,7 @@
       "url": "https://shop.berner.eu/ch-de/ADM-Bau-Basel",
       "source": "Montagetechnik BERNER AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-25T21:30:27.081Z",
+      "crawledAt": "2026-05-26T22:10:05.121Z",
       "addressLocality": "Visp",
       "postalCode": "3930",
       "addressCountry": "CH",
@@ -350,6 +356,7 @@
         "aussendienstmitarbeiter-m-w-im-bau-handwerk-per-la-region-solothurn-montagetechnik-berner-ag-visp"
       ],
       "firstSeenAt": "2026-04-13T21:13:43.036Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -394,7 +401,7 @@
       "url": "https://shop.berner.eu/ch-de/ADM-Bau-Emmental",
       "source": "Montagetechnik BERNER AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-25T21:30:26.146Z",
+      "crawledAt": "2026-05-26T22:10:04.210Z",
       "addressLocality": "Visp",
       "postalCode": "3930",
       "addressCountry": "CH",
@@ -422,6 +429,7 @@
         "aussendienstmitarbeiter-m-w-im-bau-handwerk-fur-die-region-emmental-berner-montage-ch"
       ],
       "firstSeenAt": "2026-04-13T21:13:43.036Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -466,7 +474,7 @@
       "url": "https://shop.berner.eu/ch-de/ADM-Bau-RH/STG",
       "source": "Montagetechnik BERNER AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-25T21:30:25.236Z",
+      "crawledAt": "2026-05-26T22:10:03.259Z",
       "addressLocality": "Visp",
       "postalCode": "3930",
       "addressCountry": "CH",
@@ -494,6 +502,7 @@
         "aussendienstmitarbeiter-m-w-d-im-bau-handwerk-region-rheintal-st-gallen-berner-montage-ch"
       ],
       "firstSeenAt": "2026-04-13T21:13:43.036Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -538,7 +547,7 @@
       "url": "https://shop.berner.eu/ch-de/ADM-Bau-TG/SH",
       "source": "Montagetechnik BERNER AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-25T21:30:24.301Z",
+      "crawledAt": "2026-05-26T22:10:02.305Z",
       "addressLocality": "Visp",
       "postalCode": "3930",
       "addressCountry": "CH",
@@ -560,7 +569,8 @@
           "aussendienstmitarbeiter-m-w-d-im-bau-handwerk-region-thurgau-schaffhausen-berner-montage"
         ],
         "it": [
-          "aussendienstmitarbeiter-m-w-d-im-bau-handwerk-region-thurgau-schaffhausen-berner-montage-c"
+          "aussendienstmitarbeiter-m-w-d-im-bau-handwerk-region-thurgau-schaffhausen-berner-montage-c",
+          "aussendienstmitarbeiter-m-w-d-im-bau-handwerk-region-thurgau-schaffhausen-berner-montage"
         ]
       },
       "previousSlugs": [
@@ -568,6 +578,7 @@
         "aussendienstmitarbeiter-m-w-d-im-bau-handwerk-region-thurgau-schaffhausen-berner-montage"
       ],
       "firstSeenAt": "2026-04-13T21:13:43.036Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -612,7 +623,7 @@
       "url": "https://shop.berner.eu/ch-de/ADM-Bau-BE",
       "source": "Montagetechnik BERNER AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-25T21:30:23.092Z",
+      "crawledAt": "2026-05-26T22:10:01.334Z",
       "addressLocality": "Visp",
       "postalCode": "3930",
       "addressCountry": "CH",
@@ -640,6 +651,7 @@
         "aussendienstmitarbeiter-m-w-d-im-bau-handwerk-region-bern-berner-montage-ch"
       ],
       "firstSeenAt": "2026-04-13T21:13:43.036Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -684,7 +696,7 @@
       "url": "https://shop.berner.eu/ch-de/GL-BE-NW",
       "source": "Montagetechnik BERNER AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-25T21:30:21.985Z",
+      "crawledAt": "2026-05-26T22:10:00.429Z",
       "addressLocality": "Visp",
       "postalCode": "3930",
       "addressCountry": "CH",
@@ -757,7 +769,7 @@
       "url": "https://shop.berner.eu/ch-de/GL-SR",
       "source": "Montagetechnik BERNER AG Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-25T21:30:21.114Z",
+      "crawledAt": "2026-05-26T22:09:59.540Z",
       "addressLocality": "Visp",
       "postalCode": "3930",
       "addressCountry": "CH",
@@ -774,17 +786,20 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "responsable-regional-h-f-d-pour-la-division-construction-region-suisse-romande-berner-mont"
+        "responsable-regional-h-f-d-pour-la-division-construction-region-suisse-romande-berner-mont",
+        "responsable-regional-h-f-d-pour-la-division-construction-region-suisse-romande-berner"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "responsable-regional-h-f-d-pour-la-division-construction-region-suisse-romande-berner-mont"
+          "responsable-regional-h-f-d-pour-la-division-construction-region-suisse-romande-berner-mont",
+          "responsable-regional-h-f-d-pour-la-division-construction-region-suisse-romande-berner"
         ],
         "fr": [
           "responsable-regional-h-f-d-pour-la-division-construction-region-suisse-romande-berner-mont"
         ]
       },
       "firstSeenAt": "2026-04-13T21:13:43.036Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -829,7 +844,7 @@
       "url": "https://shop.berner.eu/ch-de/GL-CH-Romande",
       "source": "Montagetechnik BERNER AG Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-25T21:30:20.163Z",
+      "crawledAt": "2026-05-26T22:09:58.609Z",
       "addressLocality": "Visp",
       "postalCode": "3930",
       "addressCountry": "CH",
@@ -851,7 +866,8 @@
           "responsable-regional-h-f-d-pour-la-division-mobilite-region-suisse-romande-berner-montage"
         ],
         "it": [
-          "responsable-regional-h-f-d-pour-la-division-mobilite-region-suisse-romande-berner-montage-"
+          "responsable-regional-h-f-d-pour-la-division-mobilite-region-suisse-romande-berner-montage-",
+          "responsable-regional-h-f-d-pour-la-division-mobilite-region-suisse-romande-berner-montage"
         ]
       },
       "previousSlugs": [
@@ -859,6 +875,7 @@
         "responsable-regional-h-f-d-pour-la-division-mobilite-region-suisse-romande-berner-montage"
       ],
       "firstSeenAt": "2026-04-13T21:13:43.036Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -903,7 +920,7 @@
       "url": "https://shop.berner.eu/ch-de/ADM-Bau-Innch",
       "source": "Montagetechnik BERNER AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-25T21:30:19.229Z",
+      "crawledAt": "2026-05-26T22:09:57.620Z",
       "addressLocality": "Visp",
       "postalCode": "3930",
       "addressCountry": "CH",
@@ -931,6 +948,7 @@
         "aussendienstmitarbeiter-m-w-d-im-bau-handwerk-region-innerschweiz-berner-montage-ch"
       ],
       "firstSeenAt": "2026-04-13T21:13:43.036Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
