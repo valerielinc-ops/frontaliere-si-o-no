@@ -32,14 +32,19 @@ describe('renderEmployerCardHtml (compact)', () => {
     expect(html).not.toMatch(/>0</);
   });
 
-  it('uses bg-surface-raised + border-edge (Tailwind tokens, no inline hex)', () => {
+  it('emits the .ec-cmpct + .ec-logoslot atoms (Tailwind tokens applied via @apply in index.css, no inline hex)', () => {
     const html = renderEmployerCardHtml(employer, {
       href: '/x',
       locale: 'it',
       variant: 'compact',
     });
-    expect(html).toContain('bg-surface-raised');
-    expect(html).toContain('border-edge');
+    // Post 5e715f73e6 refactor: `bg-surface/50` + `border-edge` ship via
+    // `.ec-cmpct`, and `bg-surface-raised` + `border-edge` via `.ec-logoslot`
+    // (see `index.css` @layer components). The per-card HTML no longer
+    // inlines the Tailwind utility strings; verifying the atoms is the new
+    // contract.
+    expect(html).toMatch(/class="ec-cmpct"/);
+    expect(html).toMatch(/class="ec-logoslot/);
     expect(html).not.toMatch(/style="[^"]*background-color:\s*#/);
   });
 
