@@ -1,18 +1,49 @@
 {
   "key": "hoval",
   "label": "Hoval",
-  "generatedAt": "2026-05-25T22:25:18.983Z",
-  "total": 6,
-  "newCount": 0,
-  "updatedCount": 4,
+  "generatedAt": "2026-05-26T23:07:05.424Z",
+  "total": 7,
+  "newCount": 1,
+  "updatedCount": 6,
   "removedCount": 0,
-  "unchangedCount": 2,
-  "durationMs": 8849,
-  "avgDurationMs": 8849,
+  "unchangedCount": 0,
+  "durationMs": 10190,
+  "avgDurationMs": 10190,
   "durationHistory": [
-    8849
+    10190
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "title": "Servicetechniker/in Gas (m/w/d)",
+      "slug": "servicetechniker-in-gas-m-w-d-hoval-harkingen",
+      "url": "https://www.hoval.it/it_IT/job/3953",
+      "applyUrl": "https://recruitingapp-2710.umantis.com/Vacancies/3953/Application/New/1?DesignID=00&lang=ita",
+      "company": "Hoval",
+      "companyKey": "hoval",
+      "companyDomain": "hoval.it",
+      "location": "Härkingen",
+      "addressLocality": "Härkingen",
+      "addressRegion": "SO",
+      "addressCountry": "CH",
+      "canton": "SO",
+      "country": "CH",
+      "category": "technician",
+      "sector": "Assistenza Tecnica",
+      "source": "hoval-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-05-26",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "",
+      "_qualityScore": 73,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 16,
+        "completeness": 14
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "title": "Employé(e) Frontoffice service après-vente (m/f/d) 100%",
@@ -32,7 +63,7 @@
       "sector": "Assistenza Tecnica",
       "source": "hoval-dedicated-crawler",
       "sourceLang": "fr",
-      "postedDate": "2026-05-25",
+      "postedDate": "2026-05-26",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -69,7 +100,7 @@
       "sector": "Assistenza Tecnica",
       "source": "hoval-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-05-25",
+      "postedDate": "2026-05-26",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -106,7 +137,7 @@
       "sector": "IT & Digital",
       "source": "hoval-dedicated-crawler",
       "sourceLang": "fr",
-      "postedDate": "2026-05-25",
+      "postedDate": "2026-05-26",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -143,7 +174,7 @@
       "sector": "Assistenza Tecnica",
       "source": "hoval-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-05-25",
+      "postedDate": "2026-05-26",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -162,10 +193,7 @@
         "translation": 19,
         "completeness": 25
       }
-    }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": [
+    },
     {
       "title": "Tecnico di servizio per impianti di riscaldamento energie rinnovabili (m/f/d)",
       "slug": "tecnico-di-servizio-per-impianti-di-riscaldamento-energie-rinnovabili-m-f-d-hoval-rc-ticino",
@@ -184,7 +212,7 @@
       "sector": "Assistenza Tecnica",
       "source": "hoval-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-05-25",
+      "postedDate": "2026-05-26",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -221,7 +249,7 @@
       "sector": "Assistenza Tecnica",
       "source": "hoval-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-05-25",
+      "postedDate": "2026-05-26",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -240,5 +268,7 @@
         "completeness": 25
       }
     }
-  ]
+  ],
+  "removedJobs": [],
+  "unchangedJobs": []
 }
