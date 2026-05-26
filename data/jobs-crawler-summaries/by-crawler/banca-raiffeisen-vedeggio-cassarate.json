@@ -1,19 +1,60 @@
 {
   "key": "banca-raiffeisen-vedeggio-cassarate",
   "label": "Raiffeisen VC",
-  "generatedAt": "2026-05-25T23:14:21.348Z",
+  "generatedAt": "2026-05-26T23:57:19.078Z",
   "total": 3,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 3,
-  "durationMs": 21813,
-  "avgDurationMs": 21813,
+  "unchangedCount": 2,
+  "durationMs": 21603,
+  "avgDurationMs": 21603,
   "durationHistory": [
-    21813
+    21603
   ],
   "newJobs": [],
-  "updatedJobs": [],
+  "updatedJobs": [
+    {
+      "id": "company-m99b74",
+      "slug": "consulente-clientela-affluent-banca-raiffeisen-vedeggio-cassarate-gravesano-ticino",
+      "company": "Banca Raiffeisen Vedeggio Cassarate",
+      "title": "Consulente Clientela Affluent",
+      "location": "Gravesano, Ticino",
+      "canton": "TI",
+      "category": "finance",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-03-12",
+      "url": "https://jobs.raiffeisen.ch/posti-vacanti/consulente-clientela-affluent/16373dcd-1f0f-4802-a1fd-582e79a601e7",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Gravesano",
+        "canton": "TI"
+      },
+      "companyKey": "banca-raiffeisen-vedeggio-cassarate",
+      "companyDomain": "raiffeisen.ch",
+      "crawledAt": "2026-05-17T10:54:51.136Z",
+      "firstSeenAt": "2026-05-17T10:54:51.136Z",
+      "sourceLang": "it",
+      "salaryMin": 85500,
+      "salaryMax": 150000,
+      "streetAddress": "Piazza Indipendenza",
+      "postalCode": "6814",
+      "addressLocality": "Gravesano, Ticino",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "_qualityScore": 96,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
+        "translation": 21,
+        "completeness": 25
+      }
+    }
+  ],
   "removedJobs": [],
   "unchangedJobs": [
     {
@@ -53,46 +94,6 @@
         "cleanliness": 25,
         "richness": 22,
         "translation": 19,
-        "completeness": 25
-      }
-    },
-    {
-      "id": "company-m99b74",
-      "slug": "consulente-clientela-affluent-banca-raiffeisen-vedeggio-cassarate-gravesano-ticino",
-      "company": "Banca Raiffeisen Vedeggio Cassarate",
-      "title": "Consulente Clientela Affluent",
-      "location": "Gravesano, Ticino",
-      "canton": "TI",
-      "category": "finance",
-      "contract": "full-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-03-12",
-      "url": "https://jobs.raiffeisen.ch/posti-vacanti/consulente-clientela-affluent/16373dcd-1f0f-4802-a1fd-582e79a601e7",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Gravesano",
-        "canton": "TI"
-      },
-      "companyKey": "banca-raiffeisen-vedeggio-cassarate",
-      "companyDomain": "raiffeisen.ch",
-      "crawledAt": "2026-05-17T10:54:51.136Z",
-      "firstSeenAt": "2026-05-17T10:54:51.136Z",
-      "sourceLang": "it",
-      "salaryMin": 85500,
-      "salaryMax": 150000,
-      "streetAddress": "Piazza Indipendenza",
-      "postalCode": "6814",
-      "addressLocality": "Gravesano, Ticino",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "_qualityScore": 96,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 25,
-        "translation": 21,
         "completeness": 25
       }
     },
