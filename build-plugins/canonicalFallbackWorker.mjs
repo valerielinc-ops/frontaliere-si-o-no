@@ -33,7 +33,13 @@ if (!parentPort) {
   throw new Error('[canonicalFallbackWorker] must be spawned via worker_threads');
 }
 
+// Worker wall breakdown so the coordinator can attribute the 147s pre-pass
+// across spawn-to-import / tsx-loader / pure-work. Boot starts the moment
+// the worker code begins executing — before the dynamic .ts import which
+// triggers the tsx loader (the heaviest single overhead, ~250-500 ms).
+const __tBoot = process.hrtime.bigint();
 const { canonicalizeFallbackCleaned } = await import('../services/jobs/canonicalFallback.ts');
+const __tImported = process.hrtime.bigint();
 
 const { tuples } = /** @type {{ tuples: Array<{ key: string, description: string, requirements: string[] }> }} */ (
   workerData
@@ -45,5 +51,9 @@ for (let i = 0; i < tuples.length; i++) {
   const t = tuples[i];
   out[i] = { key: t.key, cleaned: canonicalizeFallbackCleaned(t.description, t.requirements) };
 }
+const __tWorkEnd = process.hrtime.bigint();
 
-parentPort.postMessage({ entries: out });
+const importMs = Number(__tImported - __tBoot) / 1_000_000;
+const workMs = Number(__tWorkEnd - __tImported) / 1_000_000;
+
+parentPort.postMessage({ entries: out, profile: { importMs, workMs, count: tuples.length } });
