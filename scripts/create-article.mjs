@@ -117,6 +117,7 @@ import { fetchWordpressSearchHeadlines } from './lib/topic-sources/wordpressSear
 import { extractArticleText } from './lib/extract-article-text.mjs';
 import { hasDomainAnchor } from './lib/discovery/domainAnchor.mjs';
 import { matchesFrontaliereAnchor, matchesFrontaliereUnambiguousAnchor } from './lib/discovery/frontaliereAnchor.mjs';
+import { isNonItalianScript, nonItalianScriptRatio } from './lib/itLanguageCheck.mjs';
 
 // ── Smarter generator inputs (Phase 3 — spec 2026-05-06) ───────
 // data/article-performance.json is produced weekly by Phase 1A.
@@ -2397,6 +2398,17 @@ async function callLLM(messages, opts = {}) {
           }
         }
         if (itContent.body2 && itContent.body2.trim().length < 40) missing.push('body2<40');
+        // Language sanity — fallback models occasionally drift to CJK /
+        // Cyrillic when prompted in Italian. Treat as malformed output:
+        // penalises the model, chain rotates, no budget burned at the
+        // outer headline-validation layer. See run 26446721285.
+        for (const field of ['title', 'excerpt', 'body1', 'body2', 'body3']) {
+          const val = itContent?.[field];
+          if (typeof val === 'string' && val.length > 0 && isNonItalianScript(val)) {
+            const ratio = (nonItalianScriptRatio(val) * 100).toFixed(0);
+            missing.push(`${field} non-IT script (${ratio}% non-Latin)`);
+          }
+        }
       }
 
       if (missing.length > 0) {
