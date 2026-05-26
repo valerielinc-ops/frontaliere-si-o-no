@@ -39,7 +39,7 @@ import {
  renderRightRail,
 } from './shared/jobDetailHtml';
 import { deriveJobPostalCode } from '../services/jobLocationSnapshot';
-import { buildFallbackCanonicalContent } from '../services/jobs/canonicalFallback';
+import { buildFallbackCanonicalContent, canonicalizeFallbackCleaned, localizeFallbackCanonical, type CleanedFallbackContent } from '../services/jobs/canonicalFallback';
 import {
  loadWinners,
  saveWinners,
@@ -806,26 +806,48 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
   * oldest insertion (FIFO via Map iteration order) — good-enough policy for
   * write-once-read-many text inputs where access patterns are uniform.
   */
- const CANONICAL_FALLBACK_CACHE_MAX = 8000;
- const canonicalFallbackCache = new Map<string, ReturnType<typeof buildFallbackCanonicalContent>>();
+ // 2-layer split (post run 26440498634 profile: canonical-fallback ≈ 91 %
+ // of per-page time). `canonicalCleanedCache` keys ONLY on (description,
+ // requirements) — locale-invariant. The heavy ~95 % of the original
+ // `buildFallbackCanonicalContent` (parse + cleanCanonicalItems × 12) lives
+ // here so any cross-locale repeat (e.g. when descriptionByLocale falls
+ // back to job.description for some locales) hits the cache.
+ // `localizeFallbackCanonical()` is called fresh per-locale — only swaps the
+ // 4 extra section headings and recomputes the (cheap) readingMinutes.
+ const CANONICAL_CLEANED_CACHE_MAX = 8000;
+ const canonicalCleanedCache = new Map<string, CleanedFallbackContent>();
+ let _canonicalCleanedHits = 0;
+ let _canonicalCleanedMisses = 0;
+ let _canonicalCleanedEvictions = 0;
+ const memoCanonicalCleaned = (
+   description: string,
+   requirements: string[],
+ ): CleanedFallbackContent => {
+   const key = `${description.length}${description}${requirements.join('')}`;
+   const cached = canonicalCleanedCache.get(key);
+   if (cached !== undefined) {
+     _canonicalCleanedHits += 1;
+     return cached;
+   }
+   _canonicalCleanedMisses += 1;
+   const result = canonicalizeFallbackCleaned(description, requirements);
+   if (canonicalCleanedCache.size >= CANONICAL_CLEANED_CACHE_MAX) {
+     const oldestKey = canonicalCleanedCache.keys().next().value;
+     if (oldestKey !== undefined) {
+       canonicalCleanedCache.delete(oldestKey);
+       _canonicalCleanedEvictions += 1;
+     }
+   }
+   canonicalCleanedCache.set(key, result);
+   return result;
+ };
  const memoBuildFallbackCanonicalContent = (
    description: string,
    requirements: string[],
    locale: 'it' | 'en' | 'de' | 'fr',
  ): ReturnType<typeof buildFallbackCanonicalContent> => {
-   // Cheap composite key: requirements are short array of trimmed strings so
-   // joining with a low-collision separator stays under a few hundred chars
-   // for typical jobs. Locale prefix prevents cross-locale collisions.
-   const key = `${locale}${description.length}${description}${requirements.join('')}`;
-   const cached = canonicalFallbackCache.get(key);
-   if (cached !== undefined) return cached;
-   const result = buildFallbackCanonicalContent(description, requirements, locale);
-   if (canonicalFallbackCache.size >= CANONICAL_FALLBACK_CACHE_MAX) {
-     const oldestKey = canonicalFallbackCache.keys().next().value;
-     if (oldestKey !== undefined) canonicalFallbackCache.delete(oldestKey);
-   }
-   canonicalFallbackCache.set(key, result);
-   return result;
+   const cleaned = memoCanonicalCleaned(description, requirements);
+   return localizeFallbackCanonical(cleaned, description, locale);
  };
 
  // ── Load blog article data for cross-linking (SEO: internal links from job → article pages) ──
@@ -1400,8 +1422,31 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  .filter((x) => x.length > 2)
  .slice(0, max);
  };
+ // WeakMap memoize for cleanItems. Keys on array IDENTITY (not content) so
+ // any caller that passes the SAME array reference with the same `max` gets
+ // a cache hit. Concrete hit-sources today:
+ //   - `hasCanonicalSignal` probe + post-resolve cleanItems on the SAME
+ //     `canonicalLocaleRaw.summary` / `.responsibilities` / ... when
+ //     `_canonical` is populated (the probe arrays ARE the post-resolve
+ //     arrays — same JS reference)
+ //   - `requirements` fallback array reused across the locale loop (same
+ //     `job.requirements` reference)
+ // Misses cost one WeakMap.get + one Map.get (low-ns) so the wrap is safe
+ // even when hit rate is low. Counters expose the true hit rate at flush.
+ const _cleanItemsCache = new WeakMap<object, Map<number, string[]>>();
+ let _cleanItemsHits = 0;
+ let _cleanItemsMisses = 0;
  const cleanItems = (value: unknown, max = 10): string[] => {
  if (!Array.isArray(value)) return [];
+ const perMax = _cleanItemsCache.get(value as unknown as object);
+ if (perMax) {
+   const cached = perMax.get(max);
+   if (cached !== undefined) {
+     _cleanItemsHits += 1;
+     return cached;
+   }
+ }
+ _cleanItemsMisses += 1;
  const expanded: string[] = [];
  for (const entry of value) {
  const clean = normalizeText(String(entry || ''));
@@ -1421,6 +1466,14 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  out.push(item);
  if (out.length >= max) break;
  }
+ // Store result in the per-array cache so repeat calls with the same
+ // (array, max) tuple return without re-iterating.
+ let cacheMap = _cleanItemsCache.get(value as unknown as object);
+ if (!cacheMap) {
+   cacheMap = new Map<number, string[]>();
+   _cleanItemsCache.set(value as unknown as object, cacheMap);
+ }
+ cacheMap.set(max, out);
  return out;
  };
  const parseCanonicalSections = (value: unknown, max = 8): Array<{ id: string; heading: string; paragraphs: string[]; bullets: string[] }> => {
@@ -2303,6 +2356,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  // heuristic splitter the SPA uses (services/jobs/canonicalFallback) so
  // crawlers see the same sectioned body users see.
  const __tPh_canonical = phaseTimer();
+ const __tPh_cf_read = phaseTimer();
  const canonicalLocaleRaw = readCanonicalByLocale(job, locale);
  const hasCanonicalSignal = !!canonicalLocaleRaw && (
  cleanItems(canonicalLocaleRaw?.summary, 4).length > 0
@@ -2317,9 +2371,13 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  : Array.isArray(job?.requirements)
  ? (job.requirements as unknown[]).map((x) => String(x || '')).filter((x) => x.length > 0)
  : [];
+ recordPhase('cf:read-probe', __tPh_cf_read);
+ const __tPh_cf_fb = phaseTimer();
  const canonicalLocale = hasCanonicalSignal
  ? canonicalLocaleRaw
  : memoBuildFallbackCanonicalContent(localizedDescriptionRaw, fallbackRequirements, locale);
+ recordPhase('cf:fallback-call', __tPh_cf_fb);
+ const __tPh_cf_clean = phaseTimer();
  const canonicalSummary = cleanItems(canonicalLocale?.summary, 4);
  const canonicalSections = parseCanonicalSections(canonicalLocale?.sections, 8)
  .filter((section) => !['requirements', 'benefits', 'process'].includes(section.id));
@@ -2328,6 +2386,8 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  const canonicalBenefits = cleanItems(canonicalLocale?.benefits, 10);
  const canonicalProcess = cleanItems(canonicalLocale?.process, 8);
  const canonicalKeywords = cleanItems(canonicalLocale?.keywords, 8);
+ recordPhase('cf:clean', __tPh_cf_clean);
+ const __tPh_cf_paragraphs = phaseTimer();
  const fallbackParagraphs = [cantonPracticalNote0(locale, dc), ...localeCopy[locale].practicalNotes.slice(1)];
  // When _canonical is missing we ARE the only body content — keep the full
  // paragraph set (capped at 10 to match `descriptionParagraphs`) so jobs
@@ -2344,6 +2404,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  .slice(0, hasCanonical ? 4 : 10);
  const summaryParagraphs = hasCanonical ? canonicalSummary : bodyParagraphs;
  const mergedRequirements = canonicalRequirements.length > 0 ? canonicalRequirements : requirements;
+ recordPhase('cf:paragraphs', __tPh_cf_paragraphs);
  recordPhase('canonical-fallback', __tPh_canonical);
  const logoUrl = perJob_logoUrl;
  const __tPh_related = phaseTimer();
@@ -10767,6 +10828,24 @@ ${staticAnalyticsHtml}
  // Print profiler summary in normal profiled CI builds; local opt-out:
  // JOBS_SEO_PROFILE=0.
  printJobsSeoProfile();
+ // Canonical-cleaned cache hit-rate diagnostic — tells us whether the
+ // 2-layer split is paying off (high hit rate = cross-locale sharing
+ // working) or whether descriptions are mostly unique per (job, locale)
+ // (low hit rate = need to push further upstream, e.g. worker pool).
+ {
+ const total = _canonicalCleanedHits + _canonicalCleanedMisses;
+ const hitPct = total > 0 ? ((_canonicalCleanedHits / total) * 100).toFixed(1) : '0.0';
+ console.log(
+ `[jobs-seo-profile] canonical-cleaned-cache    hits=${_canonicalCleanedHits} misses=${_canonicalCleanedMisses} hit_rate=${hitPct}% size=${canonicalCleanedCache.size} evictions=${_canonicalCleanedEvictions}`,
+ );
+ }
+ {
+ const total = _cleanItemsHits + _cleanItemsMisses;
+ const hitPct = total > 0 ? ((_cleanItemsHits / total) * 100).toFixed(1) : '0.0';
+ console.log(
+ `[jobs-seo-profile] cleanItems-cache           hits=${_cleanItemsHits} misses=${_cleanItemsMisses} hit_rate=${hitPct}%`,
+ );
+ }
  if (PROFILE_RELATED_COMPARE) {
  console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m Related pool compare mismatches: ${relatedCompareMismatches}`);
  if (relatedCompareMismatches > 0) {

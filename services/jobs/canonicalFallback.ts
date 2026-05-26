@@ -736,44 +736,118 @@ export function localizedExtraSectionHeading(id: FallbackSectionId, locale: Loca
  return map[key][id] || FALLBACK_HEADING_MAP.find((h) => h.id === id)?.title || 'Dettagli';
 }
 
+/**
+ * Locale-invariant slice of the fallback build: the expensive parse +
+ * cleanCanonicalItems chain. The output carries everything needed to
+ * assemble a `CanonicalLocaleContent` for any locale, minus the localized
+ * section headings (which are cheap and applied by
+ * `localizeFallbackCanonical`).
+ *
+ * Why split: profiling showed `ph:canonical-fallback` dominated the
+ * per-page render at 22.7 ms × ~23k pages ≈ 528 s wall on the sequential
+ * closeBundle. The previous memoization key included `locale`, which
+ * made the cache miss whenever the SAME `(description, requirements)`
+ * pair was processed under different locales — exactly the duplicate
+ * work this split removes. Now the heavy 90-95% of `buildFallback...`
+ * can be cached per `(description, requirements)` and the 4 per-locale
+ * iterations share the result.
+ */
+export type CleanedFallbackContent = {
+  parsed: ReturnType<typeof canonicalizeFallbackRaw>;
+  summary: string[];
+  responsibilities: string[];
+  mergedRequirements: string[];
+  benefits: string[];
+  process: string[];
+  contactsItems: string[];
+  companyItems: string[];
+  detailsItems: string[];
+  notesItems: string[];
+  highlights: string[];
+};
+
+export function canonicalizeFallbackCleaned(description: string, requirements: string[]): CleanedFallbackContent {
+  const parsed = canonicalizeFallbackRaw(description, requirements);
+  const summary = cleanCanonicalItems(parsed.sections.overview, 3);
+  const responsibilities = cleanCanonicalItems(parsed.sections.responsibilities, 12);
+  const parsedRequirements = cleanCanonicalItems(parsed.sections.requirements, 12);
+  const mergedRequirements = parsedRequirements.length > 0
+    ? parsedRequirements
+    : cleanCanonicalItems(requirements, 12);
+  const benefits = cleanCanonicalItems(parsed.sections.benefits, 10);
+  const process = cleanCanonicalItems(parsed.sections.application, 8);
+  const contactsItems = cleanCanonicalItems(parsed.sections.contacts, 12);
+  const companyItems = cleanCanonicalItems(parsed.sections.company, 12);
+  const detailsItems = cleanCanonicalItems(parsed.sections.details, 12);
+  const notesItems = cleanCanonicalItems(parsed.sections.notes, 24);
+  const highlights = cleanCanonicalItems([
+    ...summary.slice(0, 2),
+    ...responsibilities.slice(0, 2),
+    ...mergedRequirements.slice(0, 2),
+    ...benefits.slice(0, 2),
+  ], 8);
+  return {
+    parsed,
+    summary,
+    responsibilities,
+    mergedRequirements,
+    benefits,
+    process,
+    contactsItems,
+    companyItems,
+    detailsItems,
+    notesItems,
+    highlights,
+  };
+}
+
+/**
+ * Locale-specific tail of the fallback build. Cheap — translates the
+ * extra section headings and computes `readingMinutes` from the
+ * locale-specific `description` length. Safe to call repeatedly for the
+ * same `cleaned` value across locales.
+ */
+export function localizeFallbackCanonical(
+  cleaned: CleanedFallbackContent,
+  description: string,
+  locale: Locale,
+): CanonicalLocaleContent {
+  const sections: CanonicalLocaleContent['sections'] = [];
+  const extras: Array<{ id: FallbackSectionId; items: string[] }> = [
+    { id: 'contacts', items: cleaned.contactsItems },
+    { id: 'company', items: cleaned.companyItems },
+    { id: 'details', items: cleaned.detailsItems },
+    { id: 'notes', items: cleaned.notesItems },
+  ];
+  for (const { id, items } of extras) {
+    if (items.length === 0) continue;
+    sections.push({
+      id,
+      heading: localizedExtraSectionHeading(id, locale),
+      paragraphs: [],
+      bullets: items,
+    });
+  }
+  const compact = String(description || '').replace(/\s+/g, ' ').trim();
+  const wordCount = compact ? compact.split(/\s+/).length : 0;
+  return {
+    summary: cleaned.summary,
+    sections,
+    responsibilities: cleaned.responsibilities,
+    requirements: cleaned.mergedRequirements,
+    benefits: cleaned.benefits,
+    process: cleaned.process,
+    highlights: cleaned.highlights,
+    keywords: [],
+    readingMinutes: Math.max(1, Math.round(Math.max(1, wordCount) / 180)),
+  };
+}
+
 export function buildFallbackCanonicalContent(description: string, requirements: string[], locale: Locale): CanonicalLocaleContent {
- const parsed = canonicalizeFallbackRaw(description, requirements);
- const summary = cleanCanonicalItems(parsed.sections.overview, 3);
- const responsibilities = cleanCanonicalItems(parsed.sections.responsibilities, 12);
- const parsedRequirements = cleanCanonicalItems(parsed.sections.requirements, 12);
- const mergedRequirements = parsedRequirements.length > 0
- ? parsedRequirements
- : cleanCanonicalItems(requirements, 12);
- const benefits = cleanCanonicalItems(parsed.sections.benefits, 10);
- const process = cleanCanonicalItems(parsed.sections.application, 8);
- const sections: CanonicalLocaleContent['sections'] = [];
- for (const id of (['contacts', 'company', 'details', 'notes'] as const)) {
- const items = cleanCanonicalItems(parsed.sections[id], id === 'notes' ? 24 : 12);
- if (items.length === 0) continue;
- sections.push({
- id,
- heading: localizedExtraSectionHeading(id, locale),
- paragraphs: [],
- bullets: items,
- });
- }
- const compact = String(description || '').replace(/\s+/g, ' ').trim();
- const wordCount = compact ? compact.split(/\s+/).length : 0;
- const highlights = cleanCanonicalItems([
- ...summary.slice(0, 2),
- ...responsibilities.slice(0, 2),
- ...mergedRequirements.slice(0, 2),
- ...benefits.slice(0, 2),
- ], 8);
- return {
- summary,
- sections,
- responsibilities,
- requirements: mergedRequirements,
- benefits,
- process,
- highlights,
- keywords: [],
- readingMinutes: Math.max(1, Math.round(Math.max(1, wordCount) / 180)),
- };
+  // Wrapper kept for backward compatibility — SPA runtime (JobBoard.tsx)
+  // still calls this single-shot API. The SSG plugin uses the split form
+  // (canonicalizeFallbackCleaned + localizeFallbackCanonical) so the heavy
+  // half can be cached across locales.
+  const cleaned = canonicalizeFallbackCleaned(description, requirements);
+  return localizeFallbackCanonical(cleaned, description, locale);
 }
