@@ -118,32 +118,20 @@ describe('clampSiteSuffix', () => {
     );
   });
 
-  it('always appends the suffix verbatim — uniqueness > SERP length budget', () => {
-    // Semrush "Duplicate <title>" + "Duplicate H1 and title tags" rules
-    // are deploy-blocking; "title too long" is soft. Letting the title
-    // overflow the 60-char budget is the lesser evil because truncating
-    // the headline risks collapsing distinct pages to the same SERP-
-    // clamped title when the unique fragment (city, age, address) lives
-    // at the end. The function therefore always returns
-    // `${base} | ${suffix}` regardless of the advisory `maxLength`.
+  it('drops the suffix when the combined string exceeds the title budget', () => {
     const long = 'Lavoro Case Anziani Ticino 2026 — 990 offerte attive oggi';
-    expect(clampSiteSuffix(long, 'Frontaliere Ticino')).toBe(
-      `${long} | Frontaliere Ticino`,
-    );
+    expect(clampSiteSuffix(long, 'Frontaliere Ticino')).toBe(long);
   });
 
   it('returns the base unchanged when the suffix is empty', () => {
     expect(clampSiteSuffix('Test', '')).toBe('Test');
   });
 
-  it('ignores the maxLength parameter (it is now advisory)', () => {
+  it('honors the maxLength parameter', () => {
     expect(clampSiteSuffix('Short', 'Frontaliere Ticino', 100)).toBe(
       'Short | Frontaliere Ticino',
     );
-    // Even a tiny "budget" still gets the suffix appended — uniqueness wins.
-    expect(clampSiteSuffix('Short', 'Frontaliere Ticino', 10)).toBe(
-      'Short | Frontaliere Ticino',
-    );
+    expect(clampSiteSuffix('Short', 'Frontaliere Ticino', 10)).toBe('Short');
   });
 });
 
