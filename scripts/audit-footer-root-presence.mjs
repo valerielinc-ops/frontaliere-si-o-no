@@ -37,17 +37,14 @@ import { fileURLToPath } from 'node:url';
 import { walkHtmlFiles, ROOT, DEFAULT_DIST } from './lib/audit-runner.mjs';
 import { writeAuditReport } from './lib/auditReport.mjs';
 
-// Quote-flexible: PR #478 baked `removeAttributeQuotes` into the per-page
-// htmlMinify.ts pass, so single-token attribute values lose their quotes
-// in dist/ (`id="footer-root"` → `id=footer-root`, `id="root"` → `id=root`).
-// `class="..."` values are space-separated (Tailwind utility classes) so
-// quotes are preserved — those regexes stay quote-mandatory.
-const SEO_STATIC_RE = /<main\b[^>]*class=["'][^"']*\bseo-static-content\b/i;
+// Quote-flexible: build-plugins/shared/htmlMinify.ts removes quotes from
+// single-token HTML5-safe class/id values, e.g. class=seo-static-content.
+const SEO_STATIC_RE = /<main\b(?=[^>]*\bclass=(?:"[^"]*\bseo-static-content\b[^"]*"|'[^']*\bseo-static-content\b[^']*'|seo-static-content)(?=[\s>]))[^>]*>/i;
 const FOOTER_ROOT_RE = /<div\b[^>]*\bid=["']?footer-root["']?(?=[\s/>])/i;
 // Buggy legacy shell: `<div id="root">` immediately followed by `<main class="static-job-page">`.
 // Mirrors the regression check in tests/city-jobs-hub.test.ts:358.
 const STATIC_JOB_INSIDE_ROOT_RE =
-  /<div\b[^>]*\bid=["']?root["']?(?=[\s/>])[^>]*>\s*<main\b[^>]*class=["'][^"']*\bstatic-job-page\b/i;
+  /<div\b[^>]*\bid=["']?root["']?(?=[\s/>])[^>]*>\s*<main\b(?=[^>]*\bclass=(?:"[^"]*\bstatic-job-page\b[^"]*"|'[^']*\bstatic-job-page\b[^']*'|static-job-page)(?=[\s>]))[^>]*>/i;
 
 /**
  * Factory that creates a fresh stateful Auditor closure.
