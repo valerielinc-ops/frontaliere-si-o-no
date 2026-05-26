@@ -10038,6 +10038,15 @@ ${staticAnalyticsHtml}
  if (!relPath) continue;
  // Skip paths claimed by bridge pages to avoid canonical conflicts
  if (bridgeClaimedPaths.has(relPath)) continue;
+ // Hoisted dedup pre-check: when a previous (most-recent) slug already
+ // claimed this exact locale-prefixed path, skip BEFORE assembling
+ // title / body / wc-robots / jsonld / shell. Run 26469566046 profiling
+ // showed ~7k iterations doing the full ph:ejp:* pipeline only to be
+ // dropped by the dedup `continue` later — wasted ~3-4s wall. The set
+ // is still populated AT WRITE TIME below so dedup membership reflects
+ // actually-emitted paths, not just attempted ones.
+ const __slPathKey = relPath.replace(/^\//, '').replace(/\/+$/, '');
+ if (emittedSoftLandingPaths.has(__slPathKey)) continue;
  const __tExpiredSoftLanding = startTimer();
  const __tEjpTitle = phaseTimer();
  const selfUrl = `${BASE_URL}${withSlash(relPath)}`;
@@ -10451,14 +10460,11 @@ ${staticAnalyticsHtml}
  );
  recordPhase('ejp:shell', __tEjpShell);
 
- // Skip if a previous (most-recent due to sort) slug already emitted
- // a soft-landing at this exact locale-prefixed path. Avoids the
- // write-registry collision that surfaces in dist/.write-collisions.json
- // when many slugs converge on one path. Map.set last-add-wins would
- // also dedup at the collector level, but the registry still RECORDS
- // each collision attempt — this Set keeps the report clean.
- const __slPathKey = relPath.replace(/^\//, '').replace(/\/+$/, '');
- if (emittedSoftLandingPaths.has(__slPathKey)) continue;
+ // Dedup membership: __slPathKey is computed and checked at the top of
+ // this locale iteration (hoisted to avoid running the full ph:ejp:*
+ // pipeline on doomed paths). Only the `.add()` lives here so the set
+ // reflects ACTUALLY-emitted paths, not just attempted ones — keeps
+ // dist/.write-collisions.json clean across slugs that converge here.
  emittedSoftLandingPaths.add(__slPathKey);
 
  const __tEjpWrite = phaseTimer();
