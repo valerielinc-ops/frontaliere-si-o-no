@@ -37,22 +37,34 @@
 // whitespace inside, but a stricter Google Rich Results consumer might
 // not, so we never touch them.
 
-// Combined mask regex — covers all 3 preserve categories in a SINGLE
-// string scan instead of 3 sequential .replace() calls. Order of
+// Combined mask regex — covers all preserve categories in a SINGLE
+// string scan instead of sequential .replace() calls. Order of
 // alternatives matters: the longer/more-specific patterns (IE conditional
 // comment, placeholder comment) MUST come first so the engine matches
-// them before the broader `<script>...</script>` and `<title>...</title>`
+// them before the broader `<script>...</script>` / `<title>...</title>`
 // patterns. JavaScript regex alternation is left-to-right first-match.
 //
 // Alternatives:
 //   1. `<!--\[if ... <![endif]-->` — IE conditional comment (preserved)
 //   2. `<!--[A-Z][A-Z0-9_]*-->` — placeholder comment (preserved)
-//   3. `<(script|style|pre|textarea|title)>...</...>` — opaque block content
+//   3-7. `<TAG>...</TAG>` — opaque block content. ONE branch per tag with
+//        the closer hard-coded so we avoid a backreference (\1).
+//
+// Why no backreference: in run 26472312864 a single soft-landing page
+// hit `ph:ejp:shell:minify` = 4026 ms vs 0.39 ms avg — classic
+// catastrophic backtracking. The previous form was
+//   `<(script|style|...)\b[^>]*>[\s\S]*?<\/\1\s*>`
+// — when the input contains a `<script>` (or other opaque tag) that the
+// lazy quantifier can't close (malformed HTML, unbalanced `<` inside a
+// JSON-LD payload, a `<title>` interpolated from unsanitised content),
+// the engine backtracks exponentially trying every position. Hard-coding
+// the close tag per branch lets the engine fail fast: no backreference
+// resolution, deterministic O(n) per page. Same opaque-block semantics.
 //
 // Profiled: ~0.103 ms/page → ~0.075 ms/page after combine = ~30% saving
 // on the masking phase, ~10s saved over the 345k-page build.
 const MASK_RX =
-  /<!--\[if[\s\S]*?<!\[endif\]-->|<!--[A-Z][A-Z0-9_]*-->|<(script|style|pre|textarea|title)\b[^>]*>[\s\S]*?<\/\1\s*>/gi;
+  /<!--\[if[\s\S]*?<!\[endif\]-->|<!--[A-Z][A-Z0-9_]*-->|<script\b[^>]*>[\s\S]*?<\/script\s*>|<style\b[^>]*>[\s\S]*?<\/style\s*>|<pre\b[^>]*>[\s\S]*?<\/pre\s*>|<textarea\b[^>]*>[\s\S]*?<\/textarea\s*>|<title\b[^>]*>[\s\S]*?<\/title\s*>/gi;
 // Ordinary HTML comments — stripped after MASK_RX has already taken the
 // preserved variants out (IE + placeholder).
 const HTML_COMMENT_RX = /<!--[\s\S]*?-->/g;
