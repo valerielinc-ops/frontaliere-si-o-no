@@ -1,18 +1,53 @@
 {
   "key": "coopers",
   "label": "Coopers Group AG",
-  "generatedAt": "2026-05-25T21:53:01.492Z",
-  "total": 1,
-  "newCount": 0,
+  "generatedAt": "2026-05-26T22:34:30.151Z",
+  "total": 2,
+  "newCount": 1,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 3973,
-  "avgDurationMs": 3973,
+  "durationMs": 5542,
+  "avgDurationMs": 5542,
   "durationHistory": [
-    3973
+    5542
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "id": "coopers-d88735da8e0a",
+      "slug": "qa-raw-material-compliance-specialist-m-f-d-coopers-wallis",
+      "company": "Coopers Group AG",
+      "companyKey": "coopers",
+      "companyDomain": "coopers.ch",
+      "title": "QA Raw Material Compliance Specialist_ (m/f/d)",
+      "location": "Wallis",
+      "canton": "VS",
+      "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=9W1L7K",
+      "source": "Coopers Group AG Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-05-26T22:34:26.824Z",
+      "addressLocality": "Wallis",
+      "addressRegion": "VS",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Qualità",
+      "contract": "contracting",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Farmaceutica / Life Sciences",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-22",
+      "applyUrl": "https://www.coopers.ch/en/jobs/detail.php?refCode=9W1L7K",
+      "_qualityScore": 64,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 21,
+        "translation": 4,
+        "completeness": 14
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "id": "coopers-2623bcf0eafe",
@@ -26,7 +61,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=979PJR",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-25T21:52:59.495Z",
+      "crawledAt": "2026-05-26T22:34:28.087Z",
       "addressLocality": "Wallis",
       "addressRegion": "VS",
       "addressCountry": "CH",
