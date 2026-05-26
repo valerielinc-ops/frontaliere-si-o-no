@@ -178,7 +178,8 @@ async function discoverListings() {
 }
 
 async function buildJobs(listings) {
-  return withBrowser(async (page) => {
+  try {
+    return await withBrowser(async (page) => {
     // Warm the browser session on the listing page first so that Cloudflare
     // challenge cookies are established before navigating to detail pages.
     await page.goto(CAREERS_URL, { waitUntil: 'domcontentloaded', timeout: 60000 });
@@ -240,7 +241,17 @@ async function buildJobs(listings) {
       console.warn(`  ⚠️  Skipped ${skipped}/${listings.length} detail pages due to errors`);
     }
     return jobs;
-  });
+    });
+  } catch (err) {
+    const msg = err?.message || String(err);
+    const isTransient = /listing session could not be initialized|did not become available|net::ERR_|timeout|TimeoutError|403/i.test(msg);
+    if (isTransient) {
+      console.warn(`⚠️  ALTEN detail session unavailable: ${msg}`);
+      console.log('ℹ️  Keeping existing data — no updates this run.');
+      return null;
+    }
+    throw err;
+  }
 }
 
 function jobMatchKey(job = {}) {
@@ -337,6 +348,11 @@ async function main() {
     return;
   }
   const jobs = await buildJobs(listings);
+  if (!jobs) {
+    console.log('⏩ Skipping ALTEN update — detail session unavailable.');
+    printCrawlChangeSummary({ newJobs: [], updatedJobs: [], removedJobs: [], unchangedCount: 0 }, 'ALTEN Switzerland');
+    return;
+  }
   const result = mergeJobs(jobs);
   const diff = result.diff;
   updateAdapterConfig(jobs);

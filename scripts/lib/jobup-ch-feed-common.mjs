@@ -82,25 +82,46 @@ function normalizeSpace(s = '') {
 
 async function fetchFeed(url) {
   const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000;
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), timeoutMs);
-  try {
-    const res = await fetch(url, {
-      headers: { Accept: 'application/json,text/javascript,*/*', 'User-Agent': USER_AGENT },
-      signal: controller.signal,
-    });
-    clearTimeout(timer);
-    if (!res.ok) throw new Error(`HTTP ${res.status} from ${url}`);
-    const text = await res.text();
-    // Some jobup masks wrap in a JSONP callback like `xCallback({...})`. Strip it.
-    const trimmed = text.trim();
-    const jsonpMatch = trimmed.match(/^[a-zA-Z_$][\w$]*\s*\(\s*([\s\S]+)\s*\)\s*;?\s*$/);
-    const jsonText = jsonpMatch ? jsonpMatch[1] : trimmed;
-    return JSON.parse(jsonText);
-  } catch (err) {
-    clearTimeout(timer);
-    throw err;
+  const maxAttempts = Math.max(1, Number(process.env.JOBS_CRAWLER_FETCH_ATTEMPTS) || 3);
+  let lastErr;
+  for (let attempt = 1; attempt <= maxAttempts; attempt += 1) {
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), timeoutMs);
+    try {
+      const res = await fetch(url, {
+        headers: { Accept: 'application/json,text/javascript,*/*', 'User-Agent': USER_AGENT },
+        signal: controller.signal,
+      });
+      clearTimeout(timer);
+      if (!res.ok) {
+        const retriable = res.status === 408 || res.status === 429 || res.status >= 500;
+        const err = new Error(`HTTP ${res.status} from ${url}`);
+        if (retriable && attempt < maxAttempts) {
+          lastErr = err;
+          await new Promise((r) => setTimeout(r, 500 * attempt));
+          continue;
+        }
+        throw err;
+      }
+      const text = await res.text();
+      // Some jobup masks wrap in a JSONP callback like `xCallback({...})`. Strip it.
+      const trimmed = text.trim();
+      const jsonpMatch = trimmed.match(/^[a-zA-Z_$][\w$]*\s*\(\s*([\s\S]+)\s*\)\s*;?\s*$/);
+      const jsonText = jsonpMatch ? jsonpMatch[1] : trimmed;
+      return JSON.parse(jsonText);
+    } catch (err) {
+      clearTimeout(timer);
+      const isNetwork = err?.name === 'AbortError'
+        || /fetch failed|ECONN|ENOTFOUND|ETIMEDOUT|EAI_AGAIN/i.test(err?.message || '');
+      if (isNetwork && attempt < maxAttempts) {
+        lastErr = err;
+        await new Promise((r) => setTimeout(r, 500 * attempt));
+        continue;
+      }
+      throw err;
+    }
   }
+  throw lastErr || new Error(`fetchFeed exhausted retries for ${url}`);
 }
 
 /**
