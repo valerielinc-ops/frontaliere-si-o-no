@@ -540,3 +540,36 @@ export const borderCrossings: BorderCrossing[] = [
  tips: 'border.tips.dumenzaCassinone',
  },
 ];
+
+// ── Computed averages overlay ────────────────────────────────────
+//
+// `data/border-wait-averages.json` is regenerated daily by
+// `scripts/compute-border-wait-averages.mjs` from the rolling 30-day
+// history aggregates. The numbers are TOTAL minutes (approach delay +
+// checkpoint queue), matching the live "Ora" card metric.
+//
+// Editorial defaults above stay as fallback for crossings with no history
+// yet, and as a sane baseline before the first compute run lands in
+// `data/`.
+import computedAverages from './border-wait-averages.json';
+
+function slugifyName(name: string): string {
+ return name
+ .normalize('NFKD')
+ .replace(/[̀-ͯ]/g, '')
+ .replace(/\([^)]*\)/g, '')
+ .replace(/[^a-zA-Z0-9]+/g, '-')
+ .replace(/-+/g, '-')
+ .replace(/^-|-$/g, '')
+ .toLowerCase();
+}
+
+const computed = computedAverages as Record<string, { morning?: string; evening?: string }>;
+for (const c of borderCrossings) {
+ const slug = slugifyName(c.name);
+ const entry = computed[slug];
+ if (!entry) continue;
+ if (entry.morning) c.avgWaitMorning = entry.morning;
+ if (entry.evening) c.avgWaitEvening = entry.evening;
+}
+

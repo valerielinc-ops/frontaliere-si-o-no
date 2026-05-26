@@ -7,6 +7,7 @@ on:
     paths-ignore:
       - 'data/border-wait-current.json'
       - 'data/border-wait-history/**'
+      - 'data/border-wait-averages.json'
       - 'data/weather-snapshot.json'
   workflow_dispatch:
     inputs:

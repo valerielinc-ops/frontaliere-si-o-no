@@ -53,6 +53,11 @@ function toEpochMs(docId) {
 /**
  * Aggregate a list of snapshots for a single crossing into 24 hour buckets.
  * Each bucket: { min, avg, max, samples }.
+ *
+ * Buckets capture `totalCrossingMinutes` (approach delay + checkpoint queue)
+ * with `waitTimeMinutes` as legacy fallback for snapshots that predate the
+ * `totalCrossingMinutes` field. Keeps hourly charts, weekly heatmap, archive
+ * stats and computed averages on the same metric as the live "Ora" card.
  */
 function aggregateByHour(snapshots) {
   /** @type {Array<number[]>} */
@@ -62,8 +67,14 @@ function aggregateByHour(snapshots) {
       ? s.hour
       : new Date(s._epochMs).getUTCHours();
     if (hour < 0 || hour > 23) continue;
-    if (typeof s.waitTimeMinutes !== 'number') continue;
-    hours[hour].push(s.waitTimeMinutes);
+    const minutes =
+      typeof s.totalCrossingMinutes === 'number'
+        ? s.totalCrossingMinutes
+        : typeof s.waitTimeMinutes === 'number'
+          ? s.waitTimeMinutes
+          : null;
+    if (minutes === null) continue;
+    hours[hour].push(minutes);
   }
   return hours.map((samples) => {
     if (samples.length === 0) return null;
