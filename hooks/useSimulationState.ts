@@ -65,15 +65,27 @@ export function useSimulationState(activeTab: ActiveTab, seoLanding: SeoLandingI
  const hasHydrated = useRef(false);
  const initialCalcDone = useRef(false);
  const landingAppliedRef = useRef<SeoLandingId | null>(null);
+ // True when the next inputs change should be attributed to a user action.
+ // Stays false for URL hydration, SEO preset prefill, and the deferred initial
+ // auto-calc — those produce a result but no `input_start`/`calculate` funnel
+ // event, otherwise `calculate` over-fires vs `input_start` (see funnel report
+ // 2026-05-25: 5 input_start / 219 calculate).
+ const nextRecalcIsUser = useRef(false);
 
  // handleCalculate
- const handleCalculate = useCallback(async () => {
+ // `userInitiated` defaults to true so existing callers (InputCard
+ // onCalculate button, tests, anything passing no args) keep firing the
+ // funnel events. Internal call sites that auto-recalc on hydration /
+ // preset / first-interaction pass false to avoid inflating `calculate`.
+ const handleCalculate = useCallback(async (userInitiated = true) => {
+ if (userInitiated) {
  // Funnel step fired BEFORE the heavy calc so we measure the click-to-result
  // latency in PostHog and capture users who abort mid-calculation.
  Analytics.trackFunnelStep('simulation_start', {
  funnel: 'calculator',
  worker_type: inputs.workerType,
  });
+ }
  const { calculateSimulation } = await lazyCalculate();
  const res = calculateSimulation(inputs);
  setResult(res);
@@ -87,6 +99,7 @@ export function useSimulationState(activeTab: ActiveTab, seoLanding: SeoLandingI
  inputs.grossSalary,
  inputs.hasChildren
  );
+ if (userInitiated) {
  Analytics.trackFunnelStep('calculate', {
  funnel: 'calculator',
  worker_type: inputs.workerType,
@@ -96,6 +109,7 @@ export function useSimulationState(activeTab: ActiveTab, seoLanding: SeoLandingI
  worker_type: inputs.workerType,
  has_children: inputs.hasChildren,
  });
+ }
  }, [inputs]);
 
  // Hydrate simulation inputs from URL query params (runs once on mount)
@@ -134,7 +148,9 @@ export function useSimulationState(activeTab: ActiveTab, seoLanding: SeoLandingI
  for (const evt of interactionEvents) {
  window.removeEventListener(evt, onInteract, { capture: true } as EventListenerOptions);
  }
- handleCalculate();
+ // Not user-initiated — fires on first scroll/click on any page, even
+ // when the visitor never touched a calculator input.
+ handleCalculate(false);
  };
  const interactionEvents = ['pointerdown', 'keydown', 'scroll', 'touchstart'] as const;
  const onInteract = () => {
@@ -152,14 +168,25 @@ export function useSimulationState(activeTab: ActiveTab, seoLanding: SeoLandingI
  };
  }, []);
 
- // Auto-recalculate when inputs change (skip first mount — handled above)
+ // Auto-recalculate when inputs change (skip first mount — handled above).
+ // Only attribute to user when the prior setInputs was a real user input
+ // change (nextRecalcIsUser flipped by handleUserInputChange below).
  useEffect(() => {
  if (!hasHydrated.current) {
  hasHydrated.current = true;
  return;
  }
- handleCalculate();
+ const userInitiated = nextRecalcIsUser.current;
+ nextRecalcIsUser.current = false;
+ handleCalculate(userInitiated);
  }, [inputs]);
 
- return { inputs, setInputs, result, setResult, handleCalculate, urlHydrated };
+ // Wrapped setInputs that marks the next auto-recalculate as user-initiated.
+ // SEO preset + URL hydration use the raw setInputs and stay attribution-free.
+ const setInputsUser: SimulationState['setInputs'] = useCallback((next) => {
+ nextRecalcIsUser.current = true;
+ setInputs(next);
+ }, []);
+
+ return { inputs, setInputs: setInputsUser, result, setResult, handleCalculate, urlHydrated };
 }
