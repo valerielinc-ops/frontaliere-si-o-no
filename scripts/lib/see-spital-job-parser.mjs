@@ -31,6 +31,7 @@
  */
 import { createHash } from 'node:crypto';
 import { slugify, stripHtml, normalizeSpace } from './crawler-template.mjs';
+import { fetchUmantisDetailContent } from './umantis-detail-helpers.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -327,13 +328,25 @@ export async function fetchAllSeeSpitalJobs() {
   console.log(`  📋 Listings found: ${allListings.length}\n`);
 
   const jobs = [];
+  let detailHits = 0;
   for (const listing of allListings) {
     const title = listing.title;
     const location = 'Horgen';
     const canton = 'ZH';
 
+    // Tenant 2939 ships full SSR detail pages with <h2 id="expander-N">
+    // (Aufgaben / Profil / Wir bieten). Fetch + extract; fall back to the
+    // listing snippet only on network failure or unexpected layout.
+    let detailContent = '';
+    try {
+      detailContent = await fetchUmantisDetailContent(BASE_URL, listing.vacancyId, { lang: 'ger' });
+    } catch (err) {
+      detailContent = '';
+    }
+    if (detailContent && detailContent.length > 200) detailHits += 1;
+
     const fallbackDesc = `${title} — ${SEE_SPITAL_COMPANY_NAME}, ${location}`;
-    const descriptionText = listing.snippet || fallbackDesc;
+    const descriptionText = detailContent || listing.snippet || fallbackDesc;
 
     const sourceLang = 'de';
     const jobSlug = slugify(`${title} ${SEE_SPITAL_KEY} ch`);
@@ -363,6 +376,9 @@ export async function fetchAllSeeSpitalJobs() {
       url: listing.detailUrl,
       source: `${SEE_SPITAL_COMPANY_NAME} Dedicated Parser (Umantis tenant ${UMANTIS_TENANT})`,
       sourceLang,
+      // Source-locale-only fields ship with this flag set; the shared
+      // AI-localization pipeline clears it after filling fr/it/en.
+      needsRetranslation: true,
       crawledAt: new Date().toISOString(),
 
       // ── Recommended fields ──
@@ -402,6 +418,6 @@ export async function fetchAllSeeSpitalJobs() {
     jobs.push(job);
   }
 
-  console.log(`\n📋 Total ${SEE_SPITAL_COMPANY_NAME} jobs discovered: ${jobs.length}`);
+  console.log(`\n📋 Total ${SEE_SPITAL_COMPANY_NAME} jobs discovered: ${jobs.length} (${detailHits}/${jobs.length} with rich detail content)`);
   return jobs;
 }
