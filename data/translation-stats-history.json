@@ -11086,5 +11086,117 @@
         "pending": 10
       }
     ]
+  },
+  {
+    "timestamp": "2026-05-26T05:28:42.191Z",
+    "label": "before",
+    "total": 8619,
+    "needsRetranslation": 1856,
+    "incomplete": 516,
+    "complete": 8103,
+    "missingByLocale": {
+      "it": 310,
+      "en": 234,
+      "de": 175,
+      "fr": 287
+    },
+    "topPending": [
+      {
+        "company": "Hügli Nahrungsmittel GmbH",
+        "pending": 82
+      },
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 70
+      },
+      {
+        "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
+        "pending": 70
+      },
+      {
+        "company": "Nestlé",
+        "pending": 39
+      },
+      {
+        "company": "Roche",
+        "pending": 32
+      },
+      {
+        "company": "IWC",
+        "pending": 26
+      },
+      {
+        "company": "VF International (The North Face, Timberland)",
+        "pending": 21
+      },
+      {
+        "company": "PwC Switzerland",
+        "pending": 16
+      },
+      {
+        "company": "Regionalspital Surselva",
+        "pending": 15
+      },
+      {
+        "company": "UBS",
+        "pending": 15
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-05-26T06:28:44.798Z",
+    "label": "after",
+    "total": 8619,
+    "needsRetranslation": 1671,
+    "incomplete": 471,
+    "complete": 8148,
+    "missingByLocale": {
+      "it": 275,
+      "en": 215,
+      "de": 158,
+      "fr": 261
+    },
+    "topPending": [
+      {
+        "company": "Hügli Nahrungsmittel GmbH",
+        "pending": 82
+      },
+      {
+        "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
+        "pending": 70
+      },
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 66
+      },
+      {
+        "company": "Nestlé",
+        "pending": 39
+      },
+      {
+        "company": "Roche",
+        "pending": 32
+      },
+      {
+        "company": "IWC",
+        "pending": 26
+      },
+      {
+        "company": "VF International (The North Face, Timberland)",
+        "pending": 21
+      },
+      {
+        "company": "Regionalspital Surselva",
+        "pending": 15
+      },
+      {
+        "company": "UBS",
+        "pending": 15
+      },
+      {
+        "company": "ABB Svizzera (sede Ticino)",
+        "pending": 10
+      }
+    ]
   }
 ]
