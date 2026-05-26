@@ -51,7 +51,8 @@ const SALARY_LANDING_PATH_RE = new RegExp(
   ')',
 );
 
-const SEO_STATIC_RE = /<main\b[^>]*class=["'][^"']*\bseo-static-content\b/i;
+const SEO_STATIC_RE =
+  /<main\b[^>]*class=(?:"[^"]*\bseo-static-content\b[^"]*"|'[^']*\bseo-static-content\b[^']*'|[^\s>]*\bseo-static-content\b[^\s>]*)/i;
 // Thin/default placeholder H1 emitted by the `} else {` fallback branch.
 // salary-landing shell uses `font-size:clamp(...)` so this exact string
 // can only come from the default thin layout.

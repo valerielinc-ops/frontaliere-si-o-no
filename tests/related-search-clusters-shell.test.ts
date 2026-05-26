@@ -1,4 +1,4 @@
-import { mkdtempSync, rmSync, writeFileSync, mkdirSync } from 'node:fs';
+import { mkdtempSync, rmSync, writeFileSync, mkdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { tmpdir } from 'node:os';
 import { afterEach, describe, expect, it } from 'vitest';
@@ -101,5 +101,15 @@ describe('flat redirect bridge payload', () => {
     expect(bridge).not.toContain('og:image');
     expect(bridge).not.toContain('og:description');
     expect(bridge).not.toContain('Long social description');
+  });
+
+  it('emits related-search hub flat variants as lean noindex bridges', () => {
+    const src = readFileSync(
+      join(process.cwd(), 'build-plugins/relatedSearchClustersPlugin.ts'),
+      'utf8',
+    );
+
+    expect(src).toContain('collector.add(flatPath, renderLeanFlatBridge(out.loc, COPY[locale].hubTitle, locale));');
+    expect(src).not.toContain('collector.add(flatPath, out.html);');
   });
 });
