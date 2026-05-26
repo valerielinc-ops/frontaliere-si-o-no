@@ -528,8 +528,13 @@ class TokenIndex {
       this.postingsByLocale.set(locale, perLocale);
     }
     const cached = perLocale.get(token);
-    if (cached !== undefined) return cached;
+    if (cached !== undefined) {
+      const __tHit = profileStart();
+      profileRecord('bc:postings-hit', __tHit);
+      return cached;
+    }
 
+    const __tMiss = profileStart();
     const haystacks = this.getHaystacks(locale);
     const candidateJobs = this.candidateJobsForToken(locale, token);
     const list: number[] = [];
@@ -537,6 +542,7 @@ class TokenIndex {
       if (haystacks[idx].includes(token)) list.push(idx);
     }
     perLocale.set(token, list);
+    profileRecord('bc:postings-miss', __tMiss);
     return list;
   }
 
@@ -547,16 +553,25 @@ class TokenIndex {
    * avoid materializing/sorting the full match universe for every candidate.
    */
   matchingJobs(locale: Locale, tokens: readonly string[], maxJobs: number): RawJob[] {
+    const __tPostings = profileStart();
     const lists = tokens.map((tok) => this.postings(locale, tok));
+    profileRecord('bc:mj-postings-batch', __tPostings);
     if (lists.length === 0) return [];
 
     if (lists.length === 1) {
-      return lists[0].slice(0, maxJobs).map((idx) => this.jobs[idx]);
+      const __tSingle = profileStart();
+      const out = lists[0].slice(0, maxJobs).map((idx) => this.jobs[idx]);
+      profileRecord('bc:mj-single', __tSingle);
+      return out;
     }
 
+    const __tAnd = profileStart();
     const matchingIdx = this.firstAndMatches(lists, maxJobs);
+    profileRecord('bc:mj-and', __tAnd);
     if (matchingIdx.length < maxJobs) {
+      const __tOr = profileStart();
       this.fillOrMatches(lists, tokens.length, matchingIdx, maxJobs);
+      profileRecord('bc:mj-or', __tOr);
     }
 
     return matchingIdx.map((idx) => this.jobs[idx]);
@@ -573,11 +588,13 @@ class TokenIndex {
   private getHaystacks(locale: Locale): string[] {
     const cached = this.haystacksByLocale.get(locale);
     if (cached) return cached;
+    const __t = profileStart();
     const arr = new Array<string>(this.jobs.length);
     for (let i = 0; i < this.jobs.length; i++) {
       arr[i] = buildJobHaystack(this.jobs[i], locale);
     }
     this.haystacksByLocale.set(locale, arr);
+    profileRecord('bc:lazy-haystacks', __t);
     return arr;
   }
 
@@ -585,6 +602,7 @@ class TokenIndex {
     const cached = this.gramPostingsByLocale.get(locale);
     if (cached) return cached;
 
+    const __t = profileStart();
     const haystacks = this.getHaystacks(locale);
     const grams = new Map<string, number[]>();
     const seenInJob = new Set<string>();
@@ -612,6 +630,7 @@ class TokenIndex {
     }
 
     this.gramPostingsByLocale.set(locale, grams);
+    profileRecord('bc:lazy-grams', __t);
     return grams;
   }
 
@@ -733,13 +752,21 @@ function buildClusterContext(
   index: TokenIndex,
   jobs: ReadonlyArray<RawJob>,
 ): ClusterContext | null {
+  const __tTokenize = profileStart();
   const sampleTerm = (candidate.sampleTerms || [])[0] || '';
-  if (!sampleTerm) return null;
+  if (!sampleTerm) {
+    profileRecord('bc:tokenize', __tTokenize);
+    return null;
+  }
   const city = detectCity(sampleTerm);
   const keyword = stripCityFromKeyword(sampleTerm, city);
-  if (!keyword) return null;
+  if (!keyword) {
+    profileRecord('bc:tokenize', __tTokenize);
+    return null;
+  }
 
   const tokens = tokenizeQuery(sampleTerm);
+  profileRecord('bc:tokenize', __tTokenize);
   if (tokens.length === 0) return null;
 
   // Two-phase matching:
@@ -758,7 +785,9 @@ function buildClusterContext(
   // then selects only the first MAX_JOBS_PER_PAGE results in the same order as
   // the former full Map+sort path: AND matches in corpus order, then OR
   // matches by score desc with corpus-order tie breaks.
+  const __tMatch = profileStart();
   const matching = index.matchingJobs(candidate.locale, tokens, MAX_JOBS_PER_PAGE);
+  profileRecord('bc:match', __tMatch);
 
   if (matching.length < MIN_MATCHING_JOBS) return null;
   // Note: with MIN_MATCHING_JOBS=0 the line above is a no-op (length is
@@ -766,6 +795,7 @@ function buildClusterContext(
   // constant stays the single source of truth — flip it back to ≥1 here
   // by raising MIN_MATCHING_JOBS, not by editing the predicate.
 
+  const __tTop = profileStart();
   const counts = new Map<string, number>();
   for (const j of matching) {
     const c = (j.company || '').trim();
@@ -776,6 +806,7 @@ function buildClusterContext(
     .sort((a, b) => b[1] - a[1])
     .slice(0, 3)
     .map(([name]) => name);
+  profileRecord('bc:top-companies', __tTop);
 
   return { candidate, keyword: keyword.trim(), city, matchingJobs: matching, topCompanies };
 }
