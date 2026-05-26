@@ -1,16 +1,16 @@
 {
   "key": "leukerbad-clinic",
   "label": "Leukerbad Clinic",
-  "generatedAt": "2026-05-25T22:46:29.312Z",
+  "generatedAt": "2026-05-26T23:28:41.682Z",
   "total": 2,
   "newCount": 0,
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 2743,
-  "avgDurationMs": 2743,
+  "durationMs": 2105,
+  "avgDurationMs": 2105,
   "durationHistory": [
-    2743
+    2105
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -40,7 +40,7 @@
       "applyUrl": "https://leukerbadclinic.ch/fr/page/jobs/",
       "source": "Leukerbad Clinic Dedicated Parser (Prismic REST API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-25T22:46:27.208Z",
+      "crawledAt": "2026-05-26T23:28:39.751Z",
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-25T13:17:10.577Z",
       "_qualityScore": 70,
@@ -53,7 +53,7 @@
     },
     {
       "id": "leukerbad-clinic-121ff121f549",
-      "slug": "spontanbewerbung-per-eine-stelle-come-diplomierte-r-physiotherapeut-in-leukerbad-clinic-leukerbad",
+      "slug": "spontanbewerbung-fur-eine-stelle-als-diplomierte-r-physiotherapeut-in-leukerbad-clinic",
       "company": "Leukerbad Clinic",
       "companyKey": "leukerbad-clinic",
       "companyDomain": "leukerbadclinic.ch",
@@ -77,14 +77,14 @@
       "applyUrl": "https://leukerbadclinic.ch/de/page/jobs/",
       "source": "Leukerbad Clinic Dedicated Parser (Prismic REST API)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-25T22:46:27.208Z",
+      "crawledAt": "2026-05-26T23:28:39.751Z",
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-25T13:17:10.577Z",
-      "_qualityScore": 79,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 19,
+        "translation": 25,
         "completeness": 17
       }
     }
