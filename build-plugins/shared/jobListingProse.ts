@@ -413,6 +413,63 @@ export function renderListingPaginationProse(
 </section>`;
 }
 
+export function renderJobBoardListingDensityProse(
+  locale: ListingProseLocale,
+  opts: {
+    subject: string;
+    location: string;
+    resultCount: number;
+    companyCount: number;
+    locationCount: number;
+    pageLabel?: string;
+  },
+): string {
+  const subject = escAttr(opts.subject || (locale === 'it' ? 'queste offerte' : locale === 'en' ? 'these listings' : locale === 'de' ? 'diese Stellen' : 'ces offres'));
+  const location = escAttr(opts.location || (locale === 'de' ? 'Tessin' : 'Ticino'));
+  const pageLabel = opts.pageLabel ? escAttr(opts.pageLabel) : '';
+  const resultCount = Math.max(0, Math.trunc(opts.resultCount || 0));
+  const companyCount = Math.max(0, Math.trunc(opts.companyCount || 0));
+  const locationCount = Math.max(0, Math.trunc(opts.locationCount || 0));
+
+  if (locale === 'it') {
+    return `<section class="s-A_RnbE">
+  <h2 class="s-jEiAXZ">Come valutare ${subject}${pageLabel ? ` (${pageLabel})` : ''}</h2>
+  <p class="s-clIDbe">Questa selezione raccoglie ${resultCount} annunci collegati a ${subject} in ${location}, distribuiti su ${companyCount} aziende e ${locationCount} località operative. Prima di inviare il CV, confronta sempre tre segnali: stabilità del datore, distanza reale dal valico e coerenza fra mansione, livello richiesto e salario lordo indicato. Una posizione apparentemente più alta può perdere convenienza se richiede un tragitto quotidiano lungo o se il cambio CHF/EUR del tuo istituto applica uno spread elevato.</p>
+  <p class="s-clIDbe">Per i frontalieri con Permesso G la lettura dell'annuncio non finisce alla retribuzione lorda. Nel netto entrano imposta alla fonte svizzera, AVS/AI/IPG, LPP, assicurazione infortuni, eventuale LAMal e conguaglio italiano secondo vecchio o nuovo accordo. Per questo le offerte vanno ordinate anche per qualità delle informazioni: sede precisa, percentuale di impiego, tipo di contratto, turni, reperibilità e modalità di candidatura diretta.</p>
+  <p class="s-clIDbe">Quando una pagina contiene molti annunci simili, usa il titolo come primo filtro ma leggi anche azienda e luogo: la stessa mansione può cambiare molto tra Lugano, Mendrisio, Bellinzona, Locarno o un cantone oltre il Ticino. Le schede con sede chiara aiutano a stimare carburante, parcheggio, autostrada e tempo al confine; quelle con descrizione tecnica dettagliata sono di solito più affidabili per preparare una candidatura mirata.</p>
+  <p class="s-clIDbe">Il metodo consigliato è semplice: salva 5-8 annunci compatibili, calcola il netto su due scenari di cambio, verifica il tragitto nelle fasce 06:30-08:00 e 17:00-19:00, poi candidati prima sulle aziende che pubblicano requisiti concreti e link ufficiale. Così la lista non resta una raccolta generica di offerte, ma diventa una short-list misurabile per decidere se il passaggio in Svizzera migliora davvero reddito, tempo e qualità di vita.</p>
+</section>`;
+  }
+
+  if (locale === 'en') {
+    return `<section class="s-A_RnbE">
+  <h2 class="s-jEiAXZ">How to assess ${subject}${pageLabel ? ` (${pageLabel})` : ''}</h2>
+  <p class="s-clIDbe">This selection contains ${resultCount} listings related to ${subject} in ${location}, spread across ${companyCount} employers and ${locationCount} work locations. Before applying, compare three signals: employer stability, real commute from the border, and whether the role level matches the gross salary and responsibilities described. A higher salary can lose value if the daily route is long or if your CHF/EUR conversion carries a costly spread.</p>
+  <p class="s-clIDbe">For cross-border workers on a G permit, the gross figure is only the starting point. Swiss withholding tax, AVS/AI/IPG, LPP pension contributions, accident insurance, possible LAMal coverage and the Italian tax adjustment all shape the real take-home amount. Strong listings make these checks easier because they state the workplace, workload percentage, contract type, shifts, on-call duties and the official application channel.</p>
+  <p class="s-clIDbe">When a page includes many similar roles, use the job title as the first filter but read the company and location with the same care. The same occupation can mean very different routines in Lugano, Mendrisio, Bellinzona, Locarno or a canton beyond Ticino. Clear location data helps estimate fuel, parking, motorway fees and border time; detailed technical requirements usually signal a more serious hiring process.</p>
+  <p class="s-clIDbe">A practical workflow is to shortlist 5-8 compatible roles, calculate the net salary under two exchange-rate scenarios, check the commute during 06:30-08:00 and 17:00-19:00, then apply first to employers that publish concrete requirements and a direct official link. The listing page then becomes a measurable shortlist, not just a long feed of vacancies.</p>
+</section>`;
+  }
+
+  if (locale === 'de') {
+    return `<section class="s-A_RnbE">
+  <h2 class="s-jEiAXZ">So bewerten Sie ${subject}${pageLabel ? ` (${pageLabel})` : ''}</h2>
+  <p class="s-clIDbe">Diese Auswahl umfasst ${resultCount} Stellen rund um ${subject} in ${location}, verteilt auf ${companyCount} Arbeitgeber und ${locationCount} Arbeitsorte. Vor einer Bewerbung sollten drei Punkte geprüft werden: Stabilität des Arbeitgebers, tatsächlicher Weg ab Grenze und Verhältnis zwischen Aufgaben, Erfahrungsniveau und Bruttolohn. Ein höherer Lohn kann an Wert verlieren, wenn der tägliche Arbeitsweg lang ist oder der CHF/EUR-Wechselkurs hohe Spesen enthält.</p>
+  <p class="s-clIDbe">Für Grenzgänger mit G-Bewilligung ist der Bruttolohn nur der Anfang. Quellensteuer, AHV/IV/EO, BVG, Unfallversicherung, mögliche LAMal-Prämien und der italienische Steuerausgleich bestimmen den realen Nettobetrag. Gute Inserate nennen deshalb Arbeitsort, Pensum, Vertragsform, Schichten, Pikettdienst und den direkten offiziellen Bewerbungsweg.</p>
+  <p class="s-clIDbe">Wenn viele ähnliche Stellen auf einer Seite stehen, reicht der Titel als Filter nicht aus. Das gleiche Berufsbild kann in Lugano, Mendrisio, Bellinzona, Locarno oder in einem anderen Kanton einen sehr anderen Alltag bedeuten. Ein klarer Standort hilft bei der Schätzung von Treibstoff, Parkplatz, Autobahnkosten und Wartezeiten; konkrete technische Anforderungen sprechen meist für einen seriösen Recruiting-Prozess.</p>
+  <p class="s-clIDbe">Sinnvoll ist eine kurze Arbeitsroutine: 5-8 passende Inserate vormerken, den Nettolohn mit zwei Wechselkurs-Szenarien berechnen, die Pendelzeit zwischen 06:30-08:00 und 17:00-19:00 prüfen und zuerst bei Arbeitgebern mit klaren Anforderungen und direktem Link bewerben. So wird aus der Liste eine belastbare Shortlist für die Entscheidung Schweiz oder Italien.</p>
+</section>`;
+  }
+
+  return `<section class="s-A_RnbE">
+  <h2 class="s-jEiAXZ">Comment évaluer ${subject}${pageLabel ? ` (${pageLabel})` : ''}</h2>
+  <p class="s-clIDbe">Cette sélection regroupe ${resultCount} annonces liées à ${subject} à ${location}, réparties entre ${companyCount} employeurs et ${locationCount} lieux de travail. Avant de postuler, comparez trois signaux : solidité de l'employeur, trajet réel depuis la frontière et cohérence entre responsabilités, niveau demandé et salaire brut. Une rémunération plus élevée peut perdre de son intérêt si le trajet quotidien est long ou si le change CHF/EUR applique une marge importante.</p>
+  <p class="s-clIDbe">Pour les frontaliers avec permis G, le brut suisse n'est qu'un point de départ. Impôt à la source, AVS/AI/APG, LPP, assurance accident, éventuelle LAMal et ajustement fiscal italien déterminent le revenu réellement disponible. Les annonces les plus utiles précisent donc le lieu, le taux d'activité, le type de contrat, les horaires, les astreintes et le canal officiel de candidature.</p>
+  <p class="s-clIDbe">Lorsqu'une page contient de nombreux postes proches, utilisez le titre comme premier filtre mais lisez aussi l'entreprise et la localisation. Le même métier peut impliquer un quotidien très différent à Lugano, Mendrisio, Bellinzone, Locarno ou dans un autre canton. Une adresse claire aide à estimer carburant, stationnement, autoroute et attente à la frontière; des exigences techniques précises signalent souvent un recrutement plus fiable.</p>
+  <p class="s-clIDbe">La méthode la plus efficace consiste à retenir 5-8 offres compatibles, calculer le net avec deux scénarios de change, vérifier le trajet entre 06:30-08:00 et 17:00-19:00, puis postuler d'abord auprès des employeurs qui publient des critères concrets et un lien officiel direct. La page devient ainsi une short-list mesurable, pas seulement un long flux d'annonces.</p>
+</section>`;
+}
+
 /**
  * Render the methodology + extended FAQ block appended to the recency hubs
  * (`/cerca-lavoro-ticino/ultimi-3-giorni/`, etc.).
