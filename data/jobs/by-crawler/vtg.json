@@ -1,6 +1,6 @@
 {
   "crawlerKey": "vtg",
-  "assembledAt": "2026-05-25T14:31:08.417Z",
+  "assembledAt": "2026-05-25T23:59:41.959Z",
   "jobs": [
     {
       "id": "company-9lhprp",
@@ -785,7 +785,8 @@
       "addressLocality": "Bern",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-8lndw",
@@ -1699,7 +1700,8 @@
       "addressLocality": "Bern",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-6iaf9o",
@@ -2547,7 +2549,8 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "salaryMin": 49500,
-      "salaryMax": 75000
+      "salaryMax": 75000,
+      "needsRetranslation": true
     }
   ]
 }
