@@ -60,13 +60,16 @@ jobs:
           ENABLE_WEBCAM_ANALYSIS: '1'
         run: node scripts/collect-traffic.mjs
 
+      - name: Recompute rolling 30-day averages
+        run: node scripts/compute-border-wait-averages.mjs
+
       - name: Commit + push (with rebase-retry)
         # Centralized rebase-retry helper (scripts/lib/git-push-with-retry.sh)
         # survives concurrent pushes from other data-refresh workflows.
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add data/border-wait-current.json data/border-wait-history
+          git add data/border-wait-current.json data/border-wait-history data/border-wait-averages.json
           if git diff --staged --quiet; then
             echo "No changes to commit"
             exit 0
@@ -74,7 +77,7 @@ jobs:
           git commit -m "chore(border-wait): live snapshot $(date -u +%Y-%m-%dT%H:%MZ)"
           bash scripts/lib/git-push-with-retry.sh \
             --branch "${GITHUB_REF_NAME:-main}" \
-            --regenerate-cmd "node scripts/collect-traffic.mjs && git add data/border-wait-current.json data/border-wait-history"
+            --regenerate-cmd "node scripts/collect-traffic.mjs && node scripts/compute-border-wait-averages.mjs && git add data/border-wait-current.json data/border-wait-history data/border-wait-averages.json"
         # NOTE: Commit + push goes to main BUT deploy.yml has paths-ignore on
         # data/border-wait-* so this won't trigger a deploy storm — periodic
         # deploys will pick up the new JSON.
