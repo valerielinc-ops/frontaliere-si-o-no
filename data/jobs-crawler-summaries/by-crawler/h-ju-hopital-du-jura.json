@@ -1,16 +1,16 @@
 {
   "key": "h-ju-hopital-du-jura",
   "label": "Hôpital du Jura (H-JU)",
-  "generatedAt": "2026-05-25T22:18:09.654Z",
+  "generatedAt": "2026-05-26T22:59:43.024Z",
   "total": 1,
   "newCount": 0,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 6349,
-  "avgDurationMs": 6349,
+  "durationMs": 7682,
+  "avgDurationMs": 7682,
   "durationHistory": [
-    6349
+    7682
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -21,13 +21,13 @@
       "companyKey": "h-ju-hopital-du-jura",
       "companyDomain": "h-ju.ch",
       "title": "Médecin Pédiatre en cabinet",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Delémont",
       "canton": "JU",
       "url": "https://www.h-ju.ch/fr/Carrieres/Emploi/Emploi.html#offer/3512/medecin-pediatre-en-cabinet",
       "source": "H-JU Hôpital du Jura Dedicated Parser (Johdi Suite)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-25T22:18:07.971Z",
+      "crawledAt": "2026-05-26T22:59:40.857Z",
       "addressLocality": "Delémont",
       "addressRegion": "JU",
       "addressCountry": "CH",
