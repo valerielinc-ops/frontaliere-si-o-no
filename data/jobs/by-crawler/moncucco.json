@@ -1,6 +1,6 @@
 {
   "crawlerKey": "moncucco",
-  "assembledAt": "2026-05-25T23:00:54.225Z",
+  "assembledAt": "2026-05-26T23:43:14.833Z",
   "jobs": [
     {
       "id": "moncucco-fcae970fb0ac",
@@ -46,15 +46,15 @@
       "applyUrl": "https://www.moncucco.ch/ematologo.php5",
       "source": "Gruppo Ospedaliero Moncucco Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-05-25T23:00:52.594Z",
+      "crawledAt": "2026-05-26T23:43:13.157Z",
       "previousSlugsByLocale": {
-        "it": [
-          "ematologo-lugano-moncucco"
-        ],
         "en": [
           "ematologo-lugano-moncucco"
         ],
         "de": [
+          "ematologo-lugano-moncucco"
+        ],
+        "it": [
           "ematologo-lugano-moncucco"
         ]
       },
@@ -62,6 +62,7 @@
         "ematologo-lugano-moncucco"
       ],
       "firstSeenAt": "2026-05-08T10:23:46.959Z",
+      "needsRetranslation": true,
       "salaryMin": 70500,
       "salaryMax": 98500,
       "currency": "CHF",
@@ -120,8 +121,9 @@
       "applyUrl": "https://www.moncucco.ch/assistente_studio_medico.php5",
       "source": "Gruppo Ospedaliero Moncucco Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-05-25T23:00:52.287Z",
+      "crawledAt": "2026-05-26T23:43:12.859Z",
       "firstSeenAt": "2026-05-08T10:23:46.724Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -180,7 +182,7 @@
       "applyUrl": "https://www.moncucco.ch/psicologo_specialista_neuropsicologia_fsp2.php5",
       "source": "Gruppo Ospedaliero Moncucco Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-05-25T23:00:51.983Z",
+      "crawledAt": "2026-05-26T23:43:12.580Z",
       "requirementsByLocale": {},
       "previousSlugs": [
         "psicologo-a-specialista-in-neuropsicologia-fsp-gruppo-ospedaliero-moncucco-lugano"
