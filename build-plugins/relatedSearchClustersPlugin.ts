@@ -717,17 +717,15 @@ class TokenIndex {
       }
     }
 
-    // Iterate `touched` (typically tens to hundreds, bounded by sum of
-    // posting list sizes) instead of scanning the full scratchScores array
-    // (5819 entries × scoreLevels). For 2-token queries — 89% of calls per
-    // bc:mj-or profiling — this turns a 5819-entry scan into a ~100-entry
-    // scan. Sort once so that within each score level we emit indices in
-    // corpus order, byte-identical to the previous full-scan ordering.
-    touched.sort((a, b) => a - b);
-
+    // Full Uint8Array scan was empirically faster than a sort+touched
+    // iteration: V8's Array.prototype.sort with a comparator costs more
+    // than a sequential typed-array walk for the typical small touched
+    // sizes (~100 entries), and the run 26467347040 measurement showed
+    // the sort variant added +11s across 161,542 OR-merge calls vs the
+    // straight scan. Keep the scan; the scratchScores typed array is
+    // cache-friendly and bounded by jobs.length (5819).
     for (let score = fullScore - 1; score >= 1 && out.length < maxJobs; score--) {
-      for (let i = 0; i < touched.length && out.length < maxJobs; i++) {
-        const idx = touched[i];
+      for (let idx = 0; idx < scores.length && out.length < maxJobs; idx++) {
         if (scores[idx] === score) out.push(idx);
       }
     }
