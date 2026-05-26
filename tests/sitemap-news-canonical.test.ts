@@ -52,14 +52,13 @@ describe('sitemap-news canonical filename — A4 Google News compliance', () => 
     let output = '';
     try {
       output = execFileSync(
-        'rg',
+        'git',
         [
-          '--fixed-strings',
-          '--line-number',
-          '--no-heading',
-          '--glob',
-          '*.{ts,tsx,js,jsx,mjs,cjs,json,xml,txt,md,yml,yaml,html}',
+          'grep',
+          '-n',
+          '-F',
           'sitemap_news',
+          '--',
           'build-plugins',
           'scripts',
           'public',
