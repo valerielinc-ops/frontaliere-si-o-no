@@ -1,18 +1,19 @@
 {
   "key": "clinique-generale-ste-anne",
   "label": "Clinique Générale Ste-Anne",
-  "generatedAt": "2026-05-26T14:16:11.184Z",
+  "generatedAt": "2026-05-26T22:26:59.773Z",
   "total": 2,
-  "newCount": 2,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 687050,
-  "avgDurationMs": 687050,
+  "durationMs": 7320,
+  "avgDurationMs": 7320,
   "durationHistory": [
-    687050
+    7320
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "clinique-generale-ste-anne-c4a9b345a065",
       "slug": "praktikum-hr-zeitwirtschafter-in-befristet-1-jahr-clinique-generale-ste-anne",
@@ -20,14 +21,14 @@
       "companyKey": "clinique-generale-ste-anne",
       "companyDomain": "swissmedical.net",
       "title": "Praktikum HR Zeitwirtschafter/-in befristet 1 Jahr",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Fribourg",
       "canton": "FR",
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000103086056-praktikum-hr-zeitwirtschafter-in-befristet-1-jahr",
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000103086056-praktikum-hr-zeitwirtschafter-in-befristet-1-jahr",
       "source": "Clinique Générale Ste-Anne Dedicated Parser (SMN clinic=GSM)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-26T14:04:48.932Z",
+      "crawledAt": "2026-05-26T22:26:56.602Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -42,11 +43,12 @@
       "featured": false,
       "postedDate": "2026-05-26",
       "datePosted": "2026-05-26",
-      "_qualityScore": 62,
+      "firstSeenAt": "2026-05-26T14:04:48.932Z",
+      "_qualityScore": 83,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -57,14 +59,14 @@
       "companyKey": "clinique-generale-ste-anne",
       "companyDomain": "swissmedical.net",
       "title": "HR Zeitwirtschafter/-in",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Fribourg",
       "canton": "FR",
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000091073305-hr-zeitwirtschafter-in-",
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000091073305-hr-zeitwirtschafter-in-",
       "source": "Clinique Générale Ste-Anne Dedicated Parser (SMN clinic=GSM)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-26T14:04:50.103Z",
+      "crawledAt": "2026-05-26T22:26:57.587Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -79,16 +81,16 @@
       "featured": false,
       "postedDate": "2026-05-26",
       "datePosted": "2026-05-26",
-      "_qualityScore": 62,
+      "firstSeenAt": "2026-05-26T14:04:50.103Z",
+      "_qualityScore": 83,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": []
 }
