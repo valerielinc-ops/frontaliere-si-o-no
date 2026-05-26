@@ -110,7 +110,7 @@ describe('border-wait pages — hydration injection', () => {
   it('marks the leaf page status card with `data-bw-crossing` for the slug', () => {
     const html = pages[buildOggiPath('it', 'chiasso-brogeda')];
     expect(html).toMatch(/\bdata-bw-crossing=["']?chiasso-brogeda["']?/);
-    expect(html).toMatch(/\bdata-bw-field=["']?waitTimeMinutes["']?/);
+    expect(html).toMatch(/\bdata-bw-field=["']?totalCrossingMinutes["']?/);
     expect(html).toContain('data-bw-live-badge');
   });
 
@@ -120,8 +120,9 @@ describe('border-wait pages — hydration injection', () => {
     // At least the two crossings in our fixture must appear.
     expect(html).toMatch(/\bdata-bw-crossing=["']?chiasso-brogeda["']?/);
     expect(html).toMatch(/\bdata-bw-crossing=["']?gaggiolo["']?/);
-    // Every row must carry a wait-minutes field marker.
-    expect(html).toMatch(/\bdata-bw-field=["']?waitTimeMinutes["']?/);
+    // Every row must carry a total-crossing-minutes field marker (approach +
+    // checkpoint queue, aligned with the SPA guide page).
+    expect(html).toMatch(/\bdata-bw-field=["']?totalCrossingMinutes["']?/);
     // Hub also gets the snapshot/live badge in the header.
     expect(html).toContain('data-bw-live-badge');
     // External hydration tag (NOT the inline IIFE — keeps text-to-HTML gate green).

@@ -1279,9 +1279,12 @@ function renderLeafPage(inp: LeafInputs): string {
   const canonicalPath = buildOggiPath(locale, crossing);
   const canonicalUrl = `${BASE_URL}${canonicalPath}`;
 
-  // Live + derived data
+  // Live + derived data. Display `totalCrossingMinutes` (approach + checkpoint
+  // queue) to match the SPA guide page `currentWaitLabel` in
+  // `components/guide/FrontierGuide.tsx`. Fallback to `waitTimeMinutes` for
+  // legacy snapshots that did not record the total.
   const snapshot = current.perCrossing[crossing];
-  const liveWait = snapshot?.waitTimeMinutes ?? null;
+  const liveWait = snapshot?.totalCrossingMinutes ?? snapshot?.waitTimeMinutes ?? null;
   const liveSource: WaitSource = snapshot?.source ?? 'static';
   const staticFallback = liveWait === null;
   const status = statusColor(liveWait);
@@ -1366,7 +1369,7 @@ function renderLeafPage(inp: LeafInputs): string {
     <div class="s-nzJw8o">
       <div style="padding:18px;border-radius:18px;background:${status.bg};border:1px solid ${status.border}">
         <div style="font-size:12px;color:${status.text};font-weight:700;text-transform:uppercase">${esc(copy.waitMinutesLabel)}</div>
-        <div data-bw-field="waitTimeMinutes" style="margin-top:8px;font-size:36px;font-weight:800;color:${status.text}">${esc(waitFmt)}</div>
+        <div data-bw-field="totalCrossingMinutes" style="margin-top:8px;font-size:36px;font-weight:800;color:${status.text}">${esc(waitFmt)}</div>
       </div>
       <div class="s-Zv0TZw">
         <div class="s-QHHL-d">${esc(copy.sourceLabel)}</div>
@@ -1806,7 +1809,7 @@ function renderHubPage(inp: HubInputs): string {
   // pre-rendered minute count with the fresh Firestore value at runtime.
   const rows = crossingsInScope.map((c) => {
     const snap = current.perCrossing[c];
-    const wait = snap?.waitTimeMinutes ?? null;
+    const wait = snap?.totalCrossingMinutes ?? snap?.waitTimeMinutes ?? null;
     const src: WaitSource = snap?.source ?? 'static';
     const sc = statusColor(wait);
     const waitFmt = wait === null ? '—' : `${wait} min`;
@@ -1815,7 +1818,7 @@ function renderHubPage(inp: HubInputs): string {
         <a href="${BASE_URL}${buildOggiPath(locale, c)}" style="${LINK_ACCENT_STYLE};font-weight:600">${esc(BORDER_CROSSING_DISPLAY[c])}</a>
       </td>
       <td style="${TABLE_CELL_STYLE};text-align:right">
-        <span data-bw-field="waitTimeMinutes" style="display:inline-block;padding:4px 10px;border-radius:9999px;font-size:13px;font-weight:700;background:${sc.bg};color:${sc.text};border:1px solid ${sc.border}">${esc(waitFmt)}</span>
+        <span data-bw-field="totalCrossingMinutes" style="display:inline-block;padding:4px 10px;border-radius:9999px;font-size:13px;font-weight:700;background:${sc.bg};color:${sc.text};border:1px solid ${sc.border}">${esc(waitFmt)}</span>
       </td>
       <td style="${TABLE_CELL_STYLE};font-size:12px;color:var(--color-subtle)">${esc(sourceLabel(src, copy))}</td>
     </tr>`;
@@ -1839,7 +1842,8 @@ function renderHubPage(inp: HubInputs): string {
   const heroInputs: ReadonlyArray<FastestCrossingInput> = crossingsInScope.map((c) => ({
     slug: c,
     labelIt: BORDER_CROSSING_DISPLAY[c],
-    waitTimeMinutes: current.perCrossing[c]?.waitTimeMinutes ?? 0,
+    waitTimeMinutes:
+      current.perCrossing[c]?.totalCrossingMinutes ?? current.perCrossing[c]?.waitTimeMinutes ?? 0,
   }));
   const allZeros = heroInputs.every((c) => c.waitTimeMinutes === 0);
   const bestBannerHtml = allZeros
@@ -1972,7 +1976,7 @@ function renderHubPage(inp: HubInputs): string {
   let statusWarn = 0;
   let statusBad = 0;
   for (const c of crossingsInScope) {
-    const w = current.perCrossing[c]?.waitTimeMinutes ?? null;
+    const w = current.perCrossing[c]?.totalCrossingMinutes ?? current.perCrossing[c]?.waitTimeMinutes ?? null;
     if (w === null || w < 5) statusOk += 1;
     else if (w < 15) statusWarn += 1;
     else statusBad += 1;
