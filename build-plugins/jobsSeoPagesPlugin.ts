@@ -2223,6 +2223,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  const tStart = Date.now();
  // Phase 1: enumerate unique tuples (skip cache hits — usually none at
  // this point, but harmless to check).
+ const tStartEnum = Date.now();
  const seen = new Set<string>();
  const tuples: Array<{ key: string; description: string; requirements: string[] }> = [];
  for (const job of validJobs) {
@@ -2240,6 +2241,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  tuples.push({ key, description, requirements });
  }
  }
+ const enumMs = Date.now() - tStartEnum;
  if (tuples.length === 0) return;
 
  // Phase 2: decide on parallelism. Below 500 unique tuples the worker
@@ -2276,16 +2278,22 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  // Phase 3: round-robin chunk + dispatch. Round-robin balances
  // description length (shorter descriptions = faster parse) across
  // workers — slicing would give one worker all the heavy ones.
+ const tStartChunk = Date.now();
  const chunks: Array<typeof tuples> = Array.from({ length: workerCount }, () => []);
  for (let i = 0; i < tuples.length; i++) {
  chunks[i % workerCount].push(tuples[i]);
  }
+ const chunkMs = Date.now() - tStartChunk;
+ const tStartDispatch = Date.now();
  const workerUrl = new URL('./canonicalFallbackWorker.mjs', import.meta.url);
+ type WorkerResult = {
+ entries: Array<{ key: string; cleaned: CleanedFallbackContent }>;
+ profile: { importMs: number; workMs: number; count: number };
+ };
  const results = await Promise.all(
  chunks.map(
  (assignedTuples) =>
- new Promise<{ entries: Array<{ key: string; cleaned: CleanedFallbackContent }> }>(
- (resolve, reject) => {
+ new Promise<WorkerResult>((resolve, reject) => {
  const worker = new Worker(workerUrl, {
  workerData: { tuples: assignedTuples },
  execArgv: ['--import', 'tsx'],
@@ -2295,22 +2303,28 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  worker.once('exit', (code) => {
  if (code !== 0) reject(new Error(`canonicalFallbackWorker exited with code ${code}`));
  });
- },
- ),
+ }),
  ),
  );
+ const dispatchMs = Date.now() - tStartDispatch;
 
  // Phase 4: merge — populate cache. The cache cap is intentionally
  // bypassed here: the pre-pass output is exactly what the main loop will
  // need, so evicting would just cause inline recomputation right after.
+ const tStartMerge = Date.now();
  for (const r of results) {
  for (const entry of r.entries) {
  canonicalCleanedCache.set(entry.key, entry.cleaned);
  }
  }
+ const mergeMs = Date.now() - tStartMerge;
+ const workerImportP99 = Math.max(...results.map((r) => r.profile.importMs));
+ const workerWorkP99 = Math.max(...results.map((r) => r.profile.workMs));
+ const workerWorkAvg = results.reduce((s, r) => s + r.profile.workMs, 0) / results.length;
+ const workerWorkMin = Math.min(...results.map((r) => r.profile.workMs));
  // eslint-disable-next-line no-console
  console.log(
- `[jobs-seo-profile] canonical-fallback-pre-pass tuples=${tuples.length} workers=${workerCount} wall_ms=${Date.now() - tStart}`,
+ `[jobs-seo-profile] canonical-fallback-pre-pass tuples=${tuples.length} workers=${workerCount} wall_ms=${Date.now() - tStart} enum_ms=${enumMs} chunk_ms=${chunkMs} dispatch_ms=${dispatchMs} merge_ms=${mergeMs} worker_import_p99_ms=${workerImportP99.toFixed(0)} worker_work_min_ms=${workerWorkMin.toFixed(0)} worker_work_avg_ms=${workerWorkAvg.toFixed(0)} worker_work_p99_ms=${workerWorkP99.toFixed(0)}`,
  );
  })();
 
@@ -10015,6 +10029,7 @@ ${staticAnalyticsHtml}
  // Skip paths claimed by bridge pages to avoid canonical conflicts
  if (bridgeClaimedPaths.has(relPath)) continue;
  const __tExpiredSoftLanding = startTimer();
+ const __tEjpTitle = phaseTimer();
  const selfUrl = `${BASE_URL}${withSlash(relPath)}`;
  const listingPath = `${localePrefix[locale]}/${sectionByLocale[locale]}/`.replace(/\/+/g, '/');
  const copy = expiredBannerCopy[locale] ?? expiredBannerCopy.it;
@@ -10119,6 +10134,8 @@ ${staticAnalyticsHtml}
  }
  const expiredWindowData = JSON.stringify(expiredDataObj);
 
+ recordPhase('ejp:title', __tEjpTitle);
+ const __tEjpBody = phaseTimer();
  // FRO-320: Generate static body content so Google sees real text, not an empty SPA shell.
  // Enriched template ensures >100 words per page for every expired job.
  // (jobCanton, displayCanton, sameCompanyActiveJobs, etc. are hoisted above.)
@@ -10319,7 +10336,9 @@ ${staticAnalyticsHtml}
  // skip pages carrying this marker, since prose has been deliberately stripped.
  if (STRIP_EXPIRED_JOB_PROSE) staticBodyParts.push(EJP_STRIPPED_MARKER);
  const staticBody = staticBodyParts.join('\n');
+ recordPhase('ejp:body', __tEjpBody);
 
+ const __tEjpWcRobots = phaseTimer();
  // Track IT word count for sitemap inclusion decision
  if (locale === 'it') {
  itBodyWordCount = countHtmlBodyWords(staticBody);
@@ -10329,7 +10348,9 @@ ${staticAnalyticsHtml}
  // Pages with >= MIN_INDEXABLE_WORDS of real text get index,follow (SEO value
  // from long-tail searches). Pages below threshold get noindex,follow.
  const expiredRobotsTag = robotsMetaForContent(staticBody);
+ recordPhase('ejp:wc-robots', __tEjpWcRobots);
 
+ const __tEjpJsonld = phaseTimer();
  // Build JSON-LD scripts (BreadcrumbList + optional JobPosting)
  const breadcrumbLd = `<script type="application/ld+json">${JSON.stringify({
  '@context': 'https://schema.org',
@@ -10410,12 +10431,15 @@ ${staticAnalyticsHtml}
  })();
 
  const jsonLdScripts = breadcrumbLd + (jobPostingLd ? '\n ' + jobPostingLd : '');
+ recordPhase('ejp:jsonld', __tEjpJsonld);
 
+ const __tEjpShell = phaseTimer();
  const softLandingHtml = buildSoftLandingHtml(
  locale, pageTitle, pageDesc, expiredRobotsTag,
  selfUrl, hreflangLinks, jsonLdScripts, expiredWindowData,
  staticBody
  );
+ recordPhase('ejp:shell', __tEjpShell);
 
  // Skip if a previous (most-recent due to sort) slug already emitted
  // a soft-landing at this exact locale-prefixed path. Avoids the
@@ -10427,6 +10451,7 @@ ${staticAnalyticsHtml}
  if (emittedSoftLandingPaths.has(__slPathKey)) continue;
  emittedSoftLandingPaths.add(__slPathKey);
 
+ const __tEjpWrite = phaseTimer();
  writeSoftLandingPage(relPath.slice(1), softLandingHtml);
  const cacheKey = `${locale}:${slug}`;
  if (expiredCacheKeys.has(cacheKey)) {
@@ -10444,6 +10469,7 @@ ${staticAnalyticsHtml}
  legacyCount++;
  }
  }
+ recordPhase('ejp:write', __tEjpWrite);
  recordEmit('expired-soft-landing', __tExpiredSoftLanding);
  }
 

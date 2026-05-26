@@ -43,6 +43,7 @@
 import path from 'node:path';
 import fs from 'node:fs';
 import crypto from 'node:crypto';
+import { Worker } from 'node:worker_threads';
 import type { Plugin } from 'vite';
 
 import { WriteCollector } from './batchWrite';
@@ -526,13 +527,34 @@ class TokenIndex {
   private haystacksByLocale = new Map<Locale, string[]>();
   private postingsByLocale = new Map<Locale, Map<string, number[]>>();
   private gramPostingsByLocale = new Map<Locale, Map<string, number[]>>();
-  private readonly scratchScores: Uint16Array;
+  private readonly scratchScores: Uint8Array;
   private readonly touchedIdx: number[] = [];
   private readonly jobs: ReadonlyArray<RawJob>;
 
   constructor(jobs: ReadonlyArray<RawJob>) {
     this.jobs = jobs;
-    this.scratchScores = new Uint16Array(jobs.length);
+    // Per-call score buckets (0..fullScore). fullScore is bounded by the
+    // candidate's token count which never exceeds tokenizeQuery's word cap,
+    // so Uint8 (max 255) is generous.
+    this.scratchScores = new Uint8Array(jobs.length);
+  }
+
+  /**
+   * Seed cold posting lists computed off the main thread (via
+   * relatedSearchPostingsWorker). The build-contexts loop's `postings()`
+   * cache will then hit on these entries instead of falling into the
+   * synchronous haystack scan path. Idempotent: re-seeding the same token
+   * overwrites with a byte-identical list.
+   */
+  seedPostings(locale: Locale, entries: ReadonlyArray<{ token: string; list: number[] }>): void {
+    let perLocale = this.postingsByLocale.get(locale);
+    if (!perLocale) {
+      perLocale = new Map<string, number[]>();
+      this.postingsByLocale.set(locale, perLocale);
+    }
+    for (const { token, list } of entries) {
+      perLocale.set(token, list);
+    }
   }
 
   /** Posting list for (locale, token), sorted ascending by jobIdx (corpus order). */
@@ -543,8 +565,13 @@ class TokenIndex {
       this.postingsByLocale.set(locale, perLocale);
     }
     const cached = perLocale.get(token);
-    if (cached !== undefined) return cached;
+    if (cached !== undefined) {
+      const __tHit = profileStart();
+      profileRecord('bc:postings-hit', __tHit);
+      return cached;
+    }
 
+    const __tMiss = profileStart();
     const haystacks = this.getHaystacks(locale);
     const candidateJobs = this.candidateJobsForToken(locale, token);
     const list: number[] = [];
@@ -552,6 +579,7 @@ class TokenIndex {
       if (haystacks[idx].includes(token)) list.push(idx);
     }
     perLocale.set(token, list);
+    profileRecord('bc:postings-miss', __tMiss);
     return list;
   }
 
@@ -562,16 +590,25 @@ class TokenIndex {
    * avoid materializing/sorting the full match universe for every candidate.
    */
   matchingJobs(locale: Locale, tokens: readonly string[], maxJobs: number): RawJob[] {
+    const __tPostings = profileStart();
     const lists = tokens.map((tok) => this.postings(locale, tok));
+    profileRecord('bc:mj-postings-batch', __tPostings);
     if (lists.length === 0) return [];
 
     if (lists.length === 1) {
-      return lists[0].slice(0, maxJobs).map((idx) => this.jobs[idx]);
+      const __tSingle = profileStart();
+      const out = lists[0].slice(0, maxJobs).map((idx) => this.jobs[idx]);
+      profileRecord('bc:mj-single', __tSingle);
+      return out;
     }
 
+    const __tAnd = profileStart();
     const matchingIdx = this.firstAndMatches(lists, maxJobs);
+    profileRecord('bc:mj-and', __tAnd);
     if (matchingIdx.length < maxJobs) {
+      const __tOr = profileStart();
       this.fillOrMatches(lists, tokens.length, matchingIdx, maxJobs);
+      profileRecord('bc:mj-or', __tOr);
     }
 
     return matchingIdx.map((idx) => this.jobs[idx]);
@@ -588,11 +625,13 @@ class TokenIndex {
   private getHaystacks(locale: Locale): string[] {
     const cached = this.haystacksByLocale.get(locale);
     if (cached) return cached;
+    const __t = profileStart();
     const arr = new Array<string>(this.jobs.length);
     for (let i = 0; i < this.jobs.length; i++) {
       arr[i] = buildJobHaystack(this.jobs[i], locale);
     }
     this.haystacksByLocale.set(locale, arr);
+    profileRecord('bc:lazy-haystacks', __t);
     return arr;
   }
 
@@ -600,6 +639,7 @@ class TokenIndex {
     const cached = this.gramPostingsByLocale.get(locale);
     if (cached) return cached;
 
+    const __t = profileStart();
     const haystacks = this.getHaystacks(locale);
     const grams = new Map<string, number[]>();
     const seenInJob = new Set<string>();
@@ -627,6 +667,7 @@ class TokenIndex {
     }
 
     this.gramPostingsByLocale.set(locale, grams);
+    profileRecord('bc:lazy-grams', __t);
     return grams;
   }
 
@@ -691,6 +732,13 @@ class TokenIndex {
       }
     }
 
+    // Full Uint8Array scan was empirically faster than a sort+touched
+    // iteration: V8's Array.prototype.sort with a comparator costs more
+    // than a sequential typed-array walk for the typical small touched
+    // sizes (~100 entries), and the run 26467347040 measurement showed
+    // the sort variant added +11s across 161,542 OR-merge calls vs the
+    // straight scan. Keep the scan; the scratchScores typed array is
+    // cache-friendly and bounded by jobs.length (5819).
     for (let score = fullScore - 1; score >= 1 && out.length < maxJobs; score--) {
       for (let idx = 0; idx < scores.length && out.length < maxJobs; idx++) {
         if (scores[idx] === score) out.push(idx);
@@ -748,13 +796,21 @@ function buildClusterContext(
   index: TokenIndex,
   jobs: ReadonlyArray<RawJob>,
 ): ClusterContext | null {
+  const __tTokenize = profileStart();
   const sampleTerm = (candidate.sampleTerms || [])[0] || '';
-  if (!sampleTerm) return null;
+  if (!sampleTerm) {
+    profileRecord('bc:tokenize', __tTokenize);
+    return null;
+  }
   const city = detectCity(sampleTerm);
   const keyword = stripCityFromKeyword(sampleTerm, city);
-  if (!keyword) return null;
+  if (!keyword) {
+    profileRecord('bc:tokenize', __tTokenize);
+    return null;
+  }
 
   const tokens = tokenizeQuery(sampleTerm);
+  profileRecord('bc:tokenize', __tTokenize);
   if (tokens.length === 0) return null;
 
   // Two-phase matching:
@@ -773,7 +829,9 @@ function buildClusterContext(
   // then selects only the first MAX_JOBS_PER_PAGE results in the same order as
   // the former full Map+sort path: AND matches in corpus order, then OR
   // matches by score desc with corpus-order tie breaks.
+  const __tMatch = profileStart();
   const matching = index.matchingJobs(candidate.locale, tokens, MAX_JOBS_PER_PAGE);
+  profileRecord('bc:match', __tMatch);
 
   if (matching.length < MIN_MATCHING_JOBS) return null;
   // Note: with MIN_MATCHING_JOBS=0 the line above is a no-op (length is
@@ -781,6 +839,7 @@ function buildClusterContext(
   // constant stays the single source of truth — flip it back to ≥1 here
   // by raising MIN_MATCHING_JOBS, not by editing the predicate.
 
+  const __tTop = profileStart();
   const counts = new Map<string, number>();
   for (const j of matching) {
     const c = (j.company || '').trim();
@@ -791,6 +850,7 @@ function buildClusterContext(
     .sort((a, b) => b[1] - a[1])
     .slice(0, 3)
     .map(([name]) => name);
+  profileRecord('bc:top-companies', __tTop);
 
   // Pin the cluster page to its source canton's URL section. Without this
   // every cluster lands at `/cerca-lavoro-ticino/ricerca-{slug}/` regardless
@@ -1885,6 +1945,66 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
       // postings before the heavier render+emit phase to keep peak heap
       // down for the rest of closeBundle.
       const tokenIndex = new TokenIndex(jobs);
+
+      // Postings pre-pass: build the per-locale haystack + 2/3-gram index
+      // and resolve every token that build-contexts will need OFF the main
+      // thread, one worker per locale. Profiling on run 26457892172 showed
+      // bc:postings-miss = 70.7s (68% of build-contexts) — 30,715 cold
+      // posting builds each costing ~2.3ms. Splitting across 4 workers (one
+      // per locale) lets us reclaim ~75% of that wall-clock while the
+      // build-contexts loop runs the OR/AND merges on cache hits only.
+      //
+      // Skip the pre-pass for very small token sets (worker spawn ~250-500ms
+      // each is dead weight below the threshold) or when explicitly disabled.
+      const __tPrePass = profileStart();
+      const POSTINGS_PREPASS_MIN_TOKENS = 200;
+      const prepassDisabled = process.env.RELATED_SEARCH_POSTINGS_PREPASS === '0';
+      const tokensByLocale = new Map<Locale, Set<string>>();
+      if (!prepassDisabled) {
+        for (const cand of candidates) {
+          const sampleTerm = (cand.sampleTerms || [])[0] || '';
+          if (!sampleTerm) continue;
+          const tokens = tokenizeQuery(sampleTerm);
+          if (tokens.length === 0) continue;
+          let set = tokensByLocale.get(cand.locale);
+          if (!set) {
+            set = new Set<string>();
+            tokensByLocale.set(cand.locale, set);
+          }
+          for (const t of tokens) set.add(t);
+        }
+      }
+      const totalTokens = Array.from(tokensByLocale.values()).reduce((s, set) => s + set.size, 0);
+      if (!prepassDisabled && totalTokens >= POSTINGS_PREPASS_MIN_TOKENS) {
+        const workerUrl = new URL('./relatedSearchPostingsWorker.mjs', import.meta.url);
+        const localeKeys = Array.from(tokensByLocale.keys());
+        const results = await Promise.all(
+          localeKeys.map((workerLocale) => {
+            const localeTokens = Array.from(tokensByLocale.get(workerLocale) as Set<string>);
+            return new Promise<{ locale: Locale; entries: Array<{ token: string; list: number[] }> }>(
+              (resolve, reject) => {
+                const worker = new Worker(workerUrl, {
+                  workerData: { jobs, locale: workerLocale, tokens: localeTokens },
+                });
+                worker.once('message', resolve);
+                worker.once('error', reject);
+                worker.once('exit', (code) => {
+                  if (code !== 0) reject(new Error(`relatedSearchPostingsWorker exited with code ${code}`));
+                });
+              },
+            );
+          }),
+        );
+        for (const r of results) {
+          tokenIndex.seedPostings(r.locale, r.entries);
+        }
+        const seededCount = results.reduce((s, r) => s + r.entries.length, 0);
+        console.log(
+          `\x1b[36m[related-search-clusters]\x1b[0m postings pre-pass: ${localeKeys.length} worker(s) seeded ${seededCount} token postings`,
+        );
+      }
+      profileRecord('postings-prepass', __tPrePass);
+
       const contexts: ClusterContext[] = [];
       const __tContextBuild = profileStart();
       for (const cand of candidates) {
