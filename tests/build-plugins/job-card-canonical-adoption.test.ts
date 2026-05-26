@@ -1,8 +1,13 @@
 import { describe, it, expect } from 'vitest';
 
+// Post 5e715f73e6 Tailwind→CSS-atom refactor: the literal utility strings
+// (`rounded-xl border p-3 sm:p-4`, `w-10 h-10 sm:w-14 sm:h-14 rounded-lg`)
+// moved into `.jc-card` + `.jc-logoslot` atoms in `index.css`. The atoms
+// `@apply` the same tokens so the rendered styling is unchanged; the
+// per-card HTML now only carries the atom class name.
 const CANONICAL_MARKERS = [
-  /<article class="rounded-xl border p-3 sm:p-4/,
-  /<div class="w-10 h-10 sm:w-14 sm:h-14 rounded-lg/,
+  /<article class="jc-card/,
+  /<div class="jc-logoslot/,
   /class="lucide lucide-map-pin/,
   /data-posted="/,
 ];
