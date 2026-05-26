@@ -9,8 +9,18 @@
 // Use relative imports (not the `@/...` Vite alias): this module is
 // transitively required by build-plugins loaded during `vite.config.ts`
 // evaluation, where Node ESM resolves before Vite installs alias support.
+//
+// Value imports use EXPLICIT `.ts` extensions because this module is also
+// loaded directly by `build-plugins/canonicalFallbackWorker.mjs` via tsx
+// in a `worker_threads` context — there is no Vite resolver in the worker
+// and Node's ESM resolver does NOT auto-append `.ts`. Without the
+// extension the worker boots and crashes with
+// `ERR_MODULE_NOT_FOUND: Cannot find module '.../relatedSearchClusters'`
+// (run 26444788444). The main-thread Vite path tolerates the explicit
+// `.ts` extension because `tsconfig.json` sets
+// `allowImportingTsExtensions: true`.
 import type { Locale } from '../i18n';
-import { cleanCanonicalItems } from '../relatedSearchClusters';
+import { cleanCanonicalItems } from '../relatedSearchClusters.ts';
 
 export type CanonicalLocaleContent = {
  summary: string[];
