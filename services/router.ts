@@ -3410,6 +3410,25 @@ function preservedSearch(currentSearch: string): string {
  }
 }
 
+function borderMunicipalitySlugFromStaticPath(pathname: string): string | null {
+ const normalizedPath = pathname.replace(/\/+$/, '');
+ for (const locale of ['it', 'en', 'de', 'fr'] as Locale[]) {
+ const table = SLUG_TABLES[locale];
+ const prefix = localePrefix(locale);
+ const basePath = `${prefix}/${table.vita}/${table.municipalities}`.replace(/\/+/g, '/');
+ if (!normalizedPath.startsWith(`${basePath}/`)) continue;
+ const slug = normalizedPath.slice(basePath.length + 1);
+ return /^[a-z0-9-]+$/.test(slug) ? slug : null;
+ }
+ return null;
+}
+
+function buildBorderMunicipalityStaticPath(slug: string, locale: Locale): string {
+ const table = SLUG_TABLES[locale];
+ const prefix = localePrefix(locale);
+ return `${prefix}/${table.vita}/${table.municipalities}/${slug}/`.replace(/\/+/g, '/');
+}
+
 export function pushRoute(route: AppRoute): void {
  // Static SEO overlay routes (per-station fuel, per-canton health, per-city
  // employers, per-cluster orphan landings, etc.) are matched against URLs
@@ -3459,7 +3478,16 @@ export function updatePathForLocale(newLocale: Locale): void {
  // — the URL would flip to e.g. `/statistiche/prezzi-benzina-confine/` even
  // though the static SEO content is the per-station detail. Preserve the
  // canonical URL; the per-locale alternates are emitted as <link rel="alternate">.
- if (route.staticOverlay) return;
+ if (route.staticOverlay) {
+ const municipalitySlug = borderMunicipalitySlugFromStaticPath(currentPath);
+ if (municipalitySlug) {
+ const newPath = buildBorderMunicipalityStaticPath(municipalitySlug, newLocale);
+ if (currentPath !== newPath) {
+ window.location.assign(newPath + search + window.location.hash);
+ }
+ }
+ return;
+ }
  let nextRoute = route;
  // When switching locale from a root path on the homepage, navigate to the new locale's root
  if (isLocaleRoot(currentPath) && isDefaultHome(route)) {

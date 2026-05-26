@@ -666,6 +666,28 @@ describe('Router — query string preservation', () => {
     expect(newUrl).toContain('ac=deadbeef');
   });
 
+  it('updatePathForLocale navigates to translated border municipality static pages', () => {
+    const assignSpy = vi.fn();
+    Object.defineProperty(window, 'location', {
+      value: {
+        ...window.location,
+        pathname: '/vivere-in-ticino/comuni-di-frontiera/cantello/',
+        search: '?ne=user%40example.com&ac=deadbeef',
+        hash: '#dogana',
+        assign: assignSpy,
+      },
+      writable: true,
+      configurable: true,
+    });
+
+    updatePathForLocale('en');
+
+    expect(replaceStateSpy).not.toHaveBeenCalled();
+    expect(assignSpy).toHaveBeenCalledWith(
+      '/en/living-in-ticino/border-municipalities/cantello/?ne=user%40example.com&ac=deadbeef#dogana',
+    );
+  });
+
   it('pushRoute still works (and writes empty search) when no query string is present', () => {
     setLocation('/compara-servizi/cambio-franco-euro', '');
     pushRoute({ activeTab: 'confronti', confrontiSubTab: 'exchange' });
