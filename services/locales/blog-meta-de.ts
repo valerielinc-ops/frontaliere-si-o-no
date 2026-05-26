@@ -7800,6 +7800,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.frontaliere-asilo-nido-guida-2026.title': 'Kitas im Tessin für Grenzgänger: Kosten und Wartelisten',
     'blog.article.frontaliere-asilo-nido-guida-2026.excerpt': 'Praktischer Leitfaden für Grenzgänger mit Kindern: Wie man Kinder in Tessin-Kitas anmeldet, Kosten, Wartezeiten und verfügbare Zuschüsse.',
     'blog.article.frontaliere-asilo-nido-guida-2026.imageAlt': 'Seepark in Lugano mit einem modernen Kindergarten im Tessin',
+    'blog.article.sciopero-train-tilo-28-29-maggio-2025.title': 'Italien: Bahnstreik – TILO-Verbindungen betroffen',
+    'blog.article.sciopero-train-tilo-28-29-maggio-2025.excerpt': 'Vom 28. Mai, 21:00 Uhr, bis 29. Mai, 21:00 Uhr findet in Italien ein Streik statt. Die Verbindungen RE80, S10, S30, S40 und S50 fallen aus. Für die S50 gibt es Ersatzbusse von/ nach Malpensa.',
+    'blog.article.sciopero-train-tilo-28-29-maggio-2025.imageAlt': 'Bahnsteig des Bahnhofs Lugano mit einem TILO-Zug in der Abenddämmerung, wartende Fahrgäste',
 };
 
 export default blogMetaDe;

@@ -40283,6 +40283,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-sciopero-train-tilo-28-29-maggio-2025': {
+    title: 'Sciopero treni Italia: collegamenti TILO coinvolti',
+    description: 'Sciopero nazionale in Italia il 28-29 maggio 2025 blocca 5 tratte TILO tra Ticino e Lombardia. Servizi minimi garantiti e bus sostitutivo per la S50. Guida',
+    keywords: 'frontalieri, ticino, svizzera, italia, sciopero, treni, collegamenti, tilo',
+    ogTitle: 'Sciopero treni TILO: tratte coinvolte e alternative per frontalieri',
+    ogDescription: 'Sciopero nazionale Italia 28-29 maggio 2025: 5 tratte TILO bloccate. Guida con alternative, bus sostitutivi e consigli per frontalieri Ticino.',
+    canonicalPath: '/articoli-frontaliere/sciopero-train-tilo-28-29-maggio-2025',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Sciopero treni Italia: collegamenti TILO coinvolti",
+      "description": "Sciopero nazionale in Italia il 28-29 maggio 2025 blocca 5 tratte TILO tra Ticino e Lombardia. Servizi minimi garantiti e bus sostitutivo per la S50. Guida",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/sciopero-train-tilo-28-29-maggio-2025.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Binario della stazione di Lugano con un treno TILO in sosta al crepuscolo, passeggeri in attesa"
+      },
+      "datePublished": "2026-05-26T14:01:14+00:00",
+      "dateModified": "2026-05-26T14:01:14+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/sciopero-train-tilo-28-29-maggio-2025`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

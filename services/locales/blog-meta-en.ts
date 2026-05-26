@@ -7801,6 +7801,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.frontaliere-asilo-nido-guida-2026.title': 'Nurseries in Ticino for cross-border workers: costs and subsidies',
     'blog.article.frontaliere-asilo-nido-guida-2026.excerpt': 'Practical guide for cross-border workers with children: how to enroll kids in Ticino nurseries, costs, waiting times, and available subsidies.',
     'blog.article.frontaliere-asilo-nido-guida-2026.imageAlt': 'Lakeside park in Lugano with a modern nursery school in Ticino',
+    'blog.article.sciopero-train-tilo-28-29-maggio-2025.title': 'Italy train strike: TILO services affected',
+    'blog.article.sciopero-train-tilo-28-29-maggio-2025.excerpt': 'From 9:00 PM on May 28 to 9:00 PM on May 29, train strikes will hit Italy. RE80, S10, S30, S40, and S50 services will be suspended. Replacement buses will operate for S50 routes to/from Malpensa.',
+    'blog.article.sciopero-train-tilo-28-29-maggio-2025.imageAlt': 'Lugano train station platform with a TILO train at dusk, passengers waiting',
 };
 
 export default blogMetaEn;

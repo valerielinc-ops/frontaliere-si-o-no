@@ -24779,4 +24779,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'sciopero-train-tilo-28-29-maggio-2025',
+ category: 'pratico',
+ date: '2026-05-26T14:01:14.774Z',
+ image: '/images/blog/sciopero-train-tilo-28-29-maggio-2025.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

@@ -3843,6 +3843,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-aziende-svizzere-trimestrali-migliori-previsto': { name: 'Novità', path: '/articoli-frontaliere/aziende-svizzere-trimestrali-migliori-previsto', parent: 'blog' },
     'blog-ristorni-frontalieri-udc-ticino': { name: 'Ristorni frontalieri', path: '/articoli-frontaliere/ristorni-frontalieri-udc-ticino', parent: 'blog' },
     'blog-frontaliere-asilo-nido-guida-2026': { name: 'Asili nido Ticino', path: '/articoli-frontaliere/frontaliere-asilo-nido-guida-2026', parent: 'blog' },
+    'blog-sciopero-train-tilo-28-29-maggio-2025': { name: 'Scioperi trasporti', path: '/articoli-frontaliere/sciopero-train-tilo-28-29-maggio-2025', parent: 'blog' },
  };
 
  const info = sectionNames[section];

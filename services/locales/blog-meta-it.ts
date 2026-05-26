@@ -7802,6 +7802,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.frontaliere-asilo-nido-guida-2026.title': 'Asili nido in Ticino per frontalieri: costi, liste d\'attesa e sussidi',
     'blog.article.frontaliere-asilo-nido-guida-2026.excerpt': 'Guida pratica per i frontalieri con figli: come iscrivere i bambini agli asili nido in Ticino, costi, tempi d\'attesa e sussidi disponibili.',
     'blog.article.frontaliere-asilo-nido-guida-2026.imageAlt': 'Parco sul lago di Lugano con asilo nido moderno in Ticino',
+    'blog.article.sciopero-train-tilo-28-29-maggio-2025.title': 'Sciopero treni Italia: collegamenti TILO coinvolti',
+    'blog.article.sciopero-train-tilo-28-29-maggio-2025.excerpt': 'Dalle 21:00 del 28 maggio alle 21:00 del 29 maggio scioperi in Italia. Servizi RE80, S10, S30, S40 e S50 fermi. Sostituzioni bus per S50 da/per Malpensa.',
+    'blog.article.sciopero-train-tilo-28-29-maggio-2025.imageAlt': 'Binario della stazione di Lugano con un treno TILO in sosta al crepuscolo, passeggeri in attesa',
 };
 
 export default blogMetaIt;
