@@ -2096,7 +2096,7 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  desc: 'Vergleichen Sie den jährlichen Nettolohn für Grenzgänger mit Wohnsitz bis 20 km von der Grenze unter dem Regime 2025 vs. dem Neuen Abkommen 2026: parallele Simulation, aktualisierte Tabellen, EUR/CHF-Umrechnung.',
  },
  '/fr/calculer-salaire/comparaison-net-2025-2026-moins-20km': {
- title: 'Comparaison du net 2025 vs 2026 (moins de 20 km) | Frontaliere Ticino',
+ title: 'Net 2025 vs 2026 (-20 km) | Frontaliere Ticino',
  desc: 'Comparez le salaire net annuel des frontaliers résidant à moins de 20 km de la frontière sous le régime 2025 vs le Nouvel Accord 2026 : simulation côte à côte, barèmes à jour, conversion EUR/CHF.',
  },
  // net-comparison-2025-2026 — over 20 km
@@ -2109,7 +2109,7 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  desc: 'Vergleichen Sie den jährlichen Nettolohn für Grenzgänger mit Wohnsitz über 20 km von der Grenze unter dem Regime 2025 vs. dem Neuen Abkommen 2026: parallele Simulation, aktualisierte Tabellen, EUR/CHF-Umrechnung.',
  },
  '/fr/calculer-salaire/comparaison-net-2025-2026-plus-20km': {
- title: 'Comparaison du net 2025 vs 2026 (plus de 20 km) | Frontaliere Ticino',
+ title: 'Net 2025 vs 2026 (+20 km) | Frontaliere Ticino',
  desc: 'Comparez le salaire net annuel des frontaliers résidant à plus de 20 km de la frontière sous le régime 2025 vs le Nouvel Accord 2026 : simulation côte à côte, barèmes à jour, conversion EUR/CHF.',
  },
  // permit G vs B — within 20 km

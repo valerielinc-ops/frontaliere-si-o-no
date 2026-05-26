@@ -81,6 +81,9 @@ describe('orphanQueryData — path helpers', () => {
 
   it('builds hub hreflang URLs without collapsing https:// and includes x-default', () => {
     expect(buildOrphanLandingHubPath('it')).toBe('/ricerca/');
+    expect(buildOrphanLandingHubPath('en')).toBe('/en/search/');
+    expect(buildOrphanLandingHubPath('de')).toBe('/de/suche/');
+    expect(buildOrphanLandingHubPath('fr')).toBe('/fr/recherche/');
     expect(buildOrphanLandingHubUrl('fr')).toBe('https://frontaliereticino.ch/fr/recherche/');
 
     const html = renderOrphanLandingHubHreflang({
@@ -93,6 +96,7 @@ describe('orphanQueryData — path helpers', () => {
     expect(html.match(/rel="alternate"/g)).toHaveLength(5);
     expect(html).toContain('hreflang="x-default" href="https://frontaliereticino.ch/ricerca/"');
     expect(html).toContain('hreflang="de" href="https://frontaliereticino.ch/de/suche/"');
+    expect(html).toContain('hreflang="en" href="https://frontaliereticino.ch/en/search/"');
     expect(html).not.toContain('https:/frontaliereticino.ch');
   });
 

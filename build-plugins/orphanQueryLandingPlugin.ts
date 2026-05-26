@@ -1117,4 +1117,7 @@ export type { OrphanLandingRoute, OrphanLandingLocale };
  * content injected into the page body so that sparse clusters (few matching
  * jobs, `generic` editorial family) cannot collide on body hash.
  */
-export { buildClusterSignalsParagraph, renderPage as __renderOrphanLandingPage };
+export {
+  buildClusterSignalsParagraph,
+  renderPage as __renderOrphanLandingPage,
+};

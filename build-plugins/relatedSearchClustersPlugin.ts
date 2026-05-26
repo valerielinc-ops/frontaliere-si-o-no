@@ -2042,7 +2042,7 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
           const indexPath = path.join(distDir, out.urlPath, 'index.html');
           const flatPath = path.join(distDir, out.urlPath.replace(/\/+$/, '') + '.html');
           collector.add(indexPath, out.html);
-          collector.add(flatPath, out.html);
+          collector.add(flatPath, renderLeanFlatBridge(out.loc, COPY[locale].hubTitle, locale));
           emittedFiles.push(path.relative(distDir, indexPath));
           emittedFiles.push(path.relative(distDir, flatPath));
           sitemapLocs.push(out.loc);
