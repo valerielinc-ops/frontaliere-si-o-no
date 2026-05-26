@@ -328,38 +328,61 @@ export function parseArca24DetailPage(html, pageUrl = '') {
 
 // ── Network helpers ──────────────────────────────────────────
 
-async function fetchPage(url, { userAgent = DEFAULT_UA, timeoutMs = 15000 } = {}) {
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), timeoutMs);
-  try {
-    const res = await fetch(url, {
-      headers: { 'User-Agent': userAgent },
-      signal: controller.signal,
-      redirect: 'follow',
-    });
-    if (!res.ok) return null;
-    return await res.text();
-  } catch {
-    return null;
-  } finally {
-    clearTimeout(timer);
+async function fetchPage(url, { userAgent = DEFAULT_UA, timeoutMs = 15000, retries = 2, backoffMs = 1000 } = {}) {
+  // Retry transient failures (network/5xx/timeout) with exponential backoff.
+  // 4xx (except 408/429) are treated as terminal — the page genuinely doesn't exist.
+  let lastErrorReason = '';
+  for (let attempt = 0; attempt <= retries; attempt += 1) {
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), timeoutMs);
+    try {
+      const res = await fetch(url, {
+        headers: { 'User-Agent': userAgent },
+        signal: controller.signal,
+        redirect: 'follow',
+      });
+      if (res.ok) return await res.text();
+      const status = res.status;
+      // 408/429/5xx are retryable; other 4xx are not.
+      const retryable = status === 408 || status === 429 || (status >= 500 && status <= 599);
+      lastErrorReason = `HTTP ${status}`;
+      if (!retryable) return null;
+    } catch (err) {
+      lastErrorReason = err?.name === 'AbortError' ? 'timeout' : (err?.message || 'fetch_error');
+    } finally {
+      clearTimeout(timer);
+    }
+    if (attempt < retries) {
+      await new Promise((r) => setTimeout(r, backoffMs * Math.pow(2, attempt)));
+    }
   }
+  if (lastErrorReason) {
+    console.warn(`  ⚠️ fetchPage exhausted retries for ${url}: ${lastErrorReason}`);
+  }
+  return null;
 }
 
 // ── Public API ───────────────────────────────────────────────
 
 /**
  * Discover all job URLs from the Arca24 listing pages.
- * Returns an array of { url, title, location, snippet, dates }.
+ *
+ * Returns `{ jobs, attempted, succeeded, failed, failedUrls }`. The caller is
+ * expected to use `failed > 0` as the signal that the discovery was partial
+ * and the previous slice should be merged (not replaced) \u2014 see run
+ * 26422783451 (2026-05-25) where a single listing-fetch failure silently
+ * truncated the slice from 13 to 2 LIS jobs.
  */
 export async function fetchLisJobUrls({ userAgent = DEFAULT_UA, timeoutMs = 15000 } = {}) {
   const allJobs = [];
   const seenUrls = new Set();
+  const failedUrls = [];
 
   for (const listingUrl of LISTING_URLS) {
     const html = await fetchPage(listingUrl, { userAgent, timeoutMs });
     if (!html) {
       console.warn(`  \u26a0\ufe0f Failed to fetch listing page: ${listingUrl}`);
+      failedUrls.push(listingUrl);
       continue;
     }
     const jobs = parseArca24ListingPage(html, listingUrl);
@@ -372,7 +395,13 @@ export async function fetchLisJobUrls({ userAgent = DEFAULT_UA, timeoutMs = 1500
     }
   }
 
-  return allJobs;
+  return {
+    jobs: allJobs,
+    attempted: LISTING_URLS.length,
+    succeeded: LISTING_URLS.length - failedUrls.length,
+    failed: failedUrls.length,
+    failedUrls,
+  };
 }
 
 /**
