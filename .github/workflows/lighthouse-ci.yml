@@ -50,13 +50,17 @@ jobs:
       - name: Run Lighthouse CI against production
         uses: treosh/lighthouse-ci-action@v10
         with:
+          # URLs must exist in the live sitemap and serve 200 (no redirect).
+          # Lighthouse aborts the whole run on any 404 — see issue
+          # diagnosed 2026-05-26: 4/6 old URLs were 404, blanking every audit
+          # incl. CLS. URL slugs changed after the cathedral rewrite.
           urls: |
             https://frontaliereticino.ch/
             https://frontaliereticino.ch/cerca-lavoro-ticino/
-            https://frontaliereticino.ch/aziende-che-assumono/lugano
-            https://frontaliereticino.ch/prezzi-carburanti/chiasso
-            https://frontaliereticino.ch/casse-malati/ticino
-            https://frontaliereticino.ch/tempi-di-attesa-dogana/chiasso-brogeda
+            https://frontaliereticino.ch/aziende-che-assumono/ticino/settimana-corrente/
+            https://frontaliereticino.ch/prezzi-diesel/chiasso/oggi/
+            https://frontaliereticino.ch/premi-cassa-malati/ticino/
+            https://frontaliereticino.ch/traffico-dogane/chiasso-brogeda/oggi/
           budgetPath: ./lighthouse-budget.json
           configPath: ./lighthouserc.json
           uploadArtifacts: true
