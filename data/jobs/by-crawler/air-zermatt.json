@@ -1,6 +1,6 @@
 {
   "crawlerKey": "air-zermatt",
-  "assembledAt": "2026-05-25T21:15:44.559Z",
+  "assembledAt": "2026-05-26T21:55:14.559Z",
   "jobs": [
     {
       "id": "air-zermatt-dfbbe85d1afb",
@@ -46,7 +46,7 @@
       "applyUrl": "https://www.air-zermatt.ch/de/service/offene-stellen/stipendium-atc-amp-swiss-sherpa-foundation-442",
       "source": "Air Zermatt Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-25T21:15:43.211Z",
+      "crawledAt": "2026-05-26T21:55:13.135Z",
       "requirementsByLocale": {
         "it": [
           "Esperienza professionale comprovata nel settore del soccorso",
@@ -74,11 +74,13 @@
         ]
       },
       "previousSlugs": [
-        "stipendium-atc-swiss-sherpa-foundation-air-zermatt"
+        "stipendium-atc-swiss-sherpa-foundation-air-zermatt",
+        "stipendium-atc-swiss-sherpa-foundation-raron-air-zermatt"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "stipendium-atc-swiss-sherpa-foundation-air-zermatt"
+          "stipendium-atc-swiss-sherpa-foundation-air-zermatt",
+          "stipendium-atc-swiss-sherpa-foundation-raron-air-zermatt"
         ],
         "en": [
           "stipendium-atc-swiss-sherpa-foundation-air-zermatt"
@@ -88,6 +90,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T09:52:19.659Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -146,7 +149,7 @@
       "applyUrl": "https://www.air-zermatt.ch/de/service/offene-stellen/helikoptermechanikerin-b13-und-oder-avionikerin-b2--100-549",
       "source": "Air Zermatt Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-25T21:15:42.974Z",
+      "crawledAt": "2026-05-26T21:55:12.907Z",
       "requirementsByLocale": {
         "it": [
           "Licenza EASA Part-66 valida di categoria B1.3 e/o B2",
@@ -183,6 +186,7 @@
         "helikoptermechaniker-in-b1-3-und-oder-avioniker-in-b2-100-air-zermatt",
         "helikoptermechaniker-in-b1-3-e-o-avioniker-in-b2-100-air-zermatt-ag-raron",
         "tecnico-elicottero-b1-3-e-o-avionico-b2-100-air-zermatt-ag-raron-zermatt",
+        "helikoptermechaniker-in-b1-3-und-oder-avioniker-in-b2-100-raron-zermatt-air-zermatt",
         "aircraft-technician-mechanic-in-training-100-air-zermatt-ag-raron",
         "meccanico-a-di-elicotteri-b1-3-e-o-avionico-a-b2-100-air-zermatt-ag-raron"
       ],
@@ -190,7 +194,8 @@
         "it": [
           "helikoptermechaniker-in-b1-3-und-oder-avioniker-in-b2-100-air-zermatt",
           "helikoptermechaniker-in-b1-3-e-o-avioniker-in-b2-100-air-zermatt-ag-raron",
-          "tecnico-elicottero-b1-3-e-o-avionico-b2-100-air-zermatt-ag-raron-zermatt"
+          "tecnico-elicottero-b1-3-e-o-avionico-b2-100-air-zermatt-ag-raron-zermatt",
+          "helikoptermechaniker-in-b1-3-und-oder-avioniker-in-b2-100-raron-zermatt-air-zermatt"
         ],
         "en": [
           "helikoptermechaniker-in-b1-3-und-oder-avioniker-in-b2-100-air-zermatt"
@@ -200,6 +205,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T09:52:19.399Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -213,6 +219,75 @@
           "unitText": "YEAR"
         }
       }
+    },
+    {
+      "id": "air-zermatt-1e6a9cfb89ad",
+      "slug": "fachmann-frau-betriebsunterhalt-facility-manager-in-100-air-zermatt-ag-raron-gampel-zermatt",
+      "slugByLocale": {
+        "it": "fachmann-frau-betriebsunterhalt-facility-manager-in-100-air-zermatt-ag-raron-gampel-zermatt",
+        "en": "fachmann-frau-betriebsunterhalt-facility-manager-in-100-raron-gampel-zermatt-air-zermatt",
+        "de": "fachmann-frau-betriebsunterhalt-facility-manager-in-100-raron-gampel-zermatt-air-zermatt",
+        "fr": "fachmann-frau-betriebsunterhalt-facility-manager-in-100-raron-gampel-zermatt-air-zermatt"
+      },
+      "company": "Air Zermatt AG",
+      "companyKey": "air-zermatt",
+      "companyDomain": "air-zermatt.ch",
+      "title": "Fachmann:frau Betriebsunterhalt / Facility Manager:in 100%",
+      "titleByLocale": {
+        "it": "Fachmann:frau Betriebsunterhalt / Facility Manager:in 100%",
+        "de": "Fachmann:frau Betriebsunterhalt / Facility Manager:in 100%",
+        "en": "Fachmann:frau Betriebsunterhalt / Facility Manager:in 100%",
+        "fr": "Fachmann:frau Betriebsunterhalt / Facility Manager:in 100%"
+      },
+      "description": "Air_Zermatt_Logo_RGB\n\nFlug online buchen\n\nGönner werden\n\nDeutsch\n English Français Japanisch\n\nSuche\n\t\t\t\t\t\t Webcams\n\t\t\t\t\t\t Warenkorb\n\t\t\t\t\t\t Shop\n\nFachmann:frau Betriebsunterhalt / Facility Manager:in 100%\n\nInfolge Nachfolgeregelung suchen wir per sofort oder nach Vereinbarung eine:n Fachmann:frau Betriebsunterhalt / Facility Manager:in in Raron, Gampel & Zermatt\n\nDEINE AUFGABEN:\n\n• Betreuung, Unterhalt und Instandhaltung unserer Gebäude, Anlagen und Infrastrukturen\n\n• Durchführung von Reparaturen, Wartungs- und Servicearbeiten\n\n• Koordination und Überwachung externer Handwerker und Dienstleister\n\n• Pflege und Unterhalt von Aussenanlagen\n\n• Sicherstellung von Ordnung, Sauberkeit und Betriebssicherheit\n\n• Unterstützung bei Umbauten, Renovationen und technischen Projekten\n\n• Verwaltung von Material, Werkzeugen und Ersatzteilen\n\n• Mithilfe bei der Bereitstellung der Helikopter (Hangarierung, Tanken, Reinigen etc.)\n\n• Gelegentliche Einsätze als Flughelfer bei Personen- und Materialtransporten\n\n• Allgemeine Unterhaltsarbeiten wie Schneeräumung oder Rasenpflege etc.\n\n• Selbstständige und termingereichte Inspektionen, Wartungen an der Infrastruktur\n\nDEIN PROFIL:\n\n• Abgeschlossene Ausbildung als Fachmann/Fachfrau Betriebsunterhalt EFZ oder vergleichbare handwerkliche Ausbildung\n\n• Mehrjährige Berufserfahrung im Bereich Hauswartung / Facility Management von Vorteil\n\n• Technisches Verständnis und handwerkliches Geschick\n\n• Selbstständige, strukturierte und zuverlässige Arbeitsweise\n\n• Hohe Einsatzbereitschaft und Flexibilität\n\n• Bereitschaft für gelegentliche Wochenend-Einsätze\n\n• Gute PC-Anwenderkenntnisse (MS-Office)\n\n• Kenntnisse im Bereich Elektro, Heizung und Brandschutz\n\n• Gute Deutschkenntnisse in Wort und Schrift\n\n• Führerausweis Kategorie B (zwingend)\n\n• Wohnsitz im Oberwallis oder Bereitschaft zum Umzug von Vorteil\n\nWIR BIETEN:\n\n• Ein kollegiales Team und ein motivierendes Arbeitsumfeld\n\n• grosser Gestaltungsspielraum\n\n• Attraktive Benefits durch unsere starken Partnerschaften\n\n• Unterstützung bei fachlicher Weiterentwicklung und Weiterbildung\n\nWORAUF WARTEST DU? Nutze jetzt die Chance, Teil der Air Zermatt AG zu werden. Sende uns deine Bewerbungsunterlagen per E-Mail an personal@air-zermatt.ch oder bewirb dich direkt über unsere Webseite bis spätestens am 14. Juni 2026.\n\nJetzt bewerben\n\nZurück\n\nJetzt abheben!\n Buchen Sie Ihren Rundflug einfach und bequem über unser Online-Buchungstool. Ein Erlebnis, dass Sie garantiert nie vergessen werden.\n\nJetzt buchen\n\nBleiben Sie mit Air Zermatt in Kontakt\n\nKontakt\n\nHeliport Zermatt | Raron\n\nAdressänderung Rettungskarte\n\nTraining Center\n\nBesichtigung Heliports\n\nService\n\nWebcams\n\nJobs\n\nPiloten | PPR | Drohnen\n\nMedien\n\nNews | Medienmitteilungen\n\nBlog, Podcast und mehr\n\nBildmaterial\n\nRed Bull The Horn\n\nRechtliche Informationen\n\nAllgemeine Geschäftsbedingungen\n\nDatenschutz\n\nImpressum\n\nNewsroom\n\nNewsletter\n\nJetzt anmelden\n\nMit der Nutzung dieses Formulars erklärst du dich mit der Speicherung und Verarbeitung deiner Daten durch die Newsletter-Software dodeley einverstanden.\n\nUnsere Partner\n\n• © Air Zermatt\n\n• design by metaloop\n\n• webentwicklung und hosting powered by indual\n\nAnfrage an Air Zermatt\n\nThema wählen\n\nRundflüge ab Zermatt\n\nRundflüge ab Raron\n\nTransferflüge\n\nTransportflüge und Offerten\n\nGrid Maintenance\n\nKurse Training Center\n\nRettungskarte\n\nRechnungen (Rettungen)\n\nRechnungen (Allgemein)\n\nMedienanfragen\n\nSponsoring und Partnerschaften\n\nBestellungen Onlineshop\n\nSonstiges\n\nE-Mail-Adresse * Pflichtfeld\n\nName * Pflichtfeld\n\nVorname * Pflichtfeld\n\nTelefonnummer\n\nBeschreibung * Pflichtfeld\n\nIch habe die Datenschutzerklärung gelesen und akzeptiert. * Pflichtfeld",
+      "descriptionByLocale": {
+        "it": "Air_Zermatt_Logo_RGB\n\nFlug online buchen\n\nGönner werden\n\nDeutsch\n English Français Japanisch\n\nSuche\n\t\t\t\t\t\t Webcams\n\t\t\t\t\t\t Warenkorb\n\t\t\t\t\t\t Shop\n\nFachmann:frau Betriebsunterhalt / Facility Manager:in 100%\n\nInfolge Nachfolgeregelung suchen wir per sofort oder nach Vereinbarung eine:n Fachmann:frau Betriebsunterhalt / Facility Manager:in in Raron, Gampel & Zermatt\n\nDEINE AUFGABEN:\n\n• Betreuung, Unterhalt und Instandhaltung unserer Gebäude, Anlagen und Infrastrukturen\n\n• Durchführung von Reparaturen, Wartungs- und Servicearbeiten\n\n• Koordination und Überwachung externer Handwerker und Dienstleister\n\n• Pflege und Unterhalt von Aussenanlagen\n\n• Sicherstellung von Ordnung, Sauberkeit und Betriebssicherheit\n\n• Unterstützung bei Umbauten, Renovationen und technischen Projekten\n\n• Verwaltung von Material, Werkzeugen und Ersatzteilen\n\n• Mithilfe bei der Bereitstellung der Helikopter (Hangarierung, Tanken, Reinigen etc.)\n\n• Gelegentliche Einsätze als Flughelfer bei Personen- und Materialtransporten\n\n• Allgemeine Unterhaltsarbeiten wie Schneeräumung oder Rasenpflege etc.\n\n• Selbstständige und termingereichte Inspektionen, Wartungen an der Infrastruktur\n\nDEIN PROFIL:\n\n• Abgeschlossene Ausbildung als Fachmann/Fachfrau Betriebsunterhalt EFZ oder vergleichbare handwerkliche Ausbildung\n\n• Mehrjährige Berufserfahrung im Bereich Hauswartung / Facility Management von Vorteil\n\n• Technisches Verständnis und handwerkliches Geschick\n\n• Selbstständige, strukturierte und zuverlässige Arbeitsweise\n\n• Hohe Einsatzbereitschaft und Flexibilität\n\n• Bereitschaft für gelegentliche Wochenend-Einsätze\n\n• Gute PC-Anwenderkenntnisse (MS-Office)\n\n• Kenntnisse im Bereich Elektro, Heizung und Brandschutz\n\n• Gute Deutschkenntnisse in Wort und Schrift\n\n• Führerausweis Kategorie B (zwingend)\n\n• Wohnsitz im Oberwallis oder Bereitschaft zum Umzug von Vorteil\n\nWIR BIETEN:\n\n• Ein kollegiales Team und ein motivierendes Arbeitsumfeld\n\n• grosser Gestaltungsspielraum\n\n• Attraktive Benefits durch unsere starken Partnerschaften\n\n• Unterstützung bei fachlicher Weiterentwicklung und Weiterbildung\n\nWORAUF WARTEST DU? Nutze jetzt die Chance, Teil der Air Zermatt AG zu werden. Sende uns deine Bewerbungsunterlagen per E-Mail an personal@air-zermatt.ch oder bewirb dich direkt über unsere Webseite bis spätestens am 14. Juni 2026.\n\nJetzt bewerben\n\nZurück\n\nJetzt abheben!\n Buchen Sie Ihren Rundflug einfach und bequem über unser Online-Buchungstool. Ein Erlebnis, dass Sie garantiert nie vergessen werden.\n\nJetzt buchen\n\nBleiben Sie mit Air Zermatt in Kontakt\n\nKontakt\n\nHeliport Zermatt | Raron\n\nAdressänderung Rettungskarte\n\nTraining Center\n\nBesichtigung Heliports\n\nService\n\nWebcams\n\nJobs\n\nPiloten | PPR | Drohnen\n\nMedien\n\nNews | Medienmitteilungen\n\nBlog, Podcast und mehr\n\nBildmaterial\n\nRed Bull The Horn\n\nRechtliche Informationen\n\nAllgemeine Geschäftsbedingungen\n\nDatenschutz\n\nImpressum\n\nNewsroom\n\nNewsletter\n\nJetzt anmelden\n\nMit der Nutzung dieses Formulars erklärst du dich mit der Speicherung und Verarbeitung deiner Daten durch die Newsletter-Software dodeley einverstanden.\n\nUnsere Partner\n\n• © Air Zermatt\n\n• design by metaloop\n\n• webentwicklung und hosting powered by indual\n\nAnfrage an Air Zermatt\n\nThema wählen\n\nRundflüge ab Zermatt\n\nRundflüge ab Raron\n\nTransferflüge\n\nTransportflüge und Offerten\n\nGrid Maintenance\n\nKurse Training Center\n\nRettungskarte\n\nRechnungen (Rettungen)\n\nRechnungen (Allgemein)\n\nMedienanfragen\n\nSponsoring und Partnerschaften\n\nBestellungen Onlineshop\n\nSonstiges\n\nE-Mail-Adresse * Pflichtfeld\n\nName * Pflichtfeld\n\nVorname * Pflichtfeld\n\nTelefonnummer\n\nBeschreibung * Pflichtfeld\n\nIch habe die Datenschutzerklärung gelesen und akzeptiert. * Pflichtfeld",
+        "de": "Air_Zermatt_Logo_RGB\n\nFlug online buchen\n\nGönner werden\n\nDeutsch\n English Français Japanisch\n\nSuche\n\t\t\t\t\t\t Webcams\n\t\t\t\t\t\t Warenkorb\n\t\t\t\t\t\t Shop\n\nFachmann:frau Betriebsunterhalt / Facility Manager:in 100%\n\nInfolge Nachfolgeregelung suchen wir per sofort oder nach Vereinbarung eine:n Fachmann:frau Betriebsunterhalt / Facility Manager:in in Raron, Gampel & Zermatt\n\nDEINE AUFGABEN:\n\n• Betreuung, Unterhalt und Instandhaltung unserer Gebäude, Anlagen und Infrastrukturen\n\n• Durchführung von Reparaturen, Wartungs- und Servicearbeiten\n\n• Koordination und Überwachung externer Handwerker und Dienstleister\n\n• Pflege und Unterhalt von Aussenanlagen\n\n• Sicherstellung von Ordnung, Sauberkeit und Betriebssicherheit\n\n• Unterstützung bei Umbauten, Renovationen und technischen Projekten\n\n• Verwaltung von Material, Werkzeugen und Ersatzteilen\n\n• Mithilfe bei der Bereitstellung der Helikopter (Hangarierung, Tanken, Reinigen etc.)\n\n• Gelegentliche Einsätze als Flughelfer bei Personen- und Materialtransporten\n\n• Allgemeine Unterhaltsarbeiten wie Schneeräumung oder Rasenpflege etc.\n\n• Selbstständige und termingereichte Inspektionen, Wartungen an der Infrastruktur\n\nDEIN PROFIL:\n\n• Abgeschlossene Ausbildung als Fachmann/Fachfrau Betriebsunterhalt EFZ oder vergleichbare handwerkliche Ausbildung\n\n• Mehrjährige Berufserfahrung im Bereich Hauswartung / Facility Management von Vorteil\n\n• Technisches Verständnis und handwerkliches Geschick\n\n• Selbstständige, strukturierte und zuverlässige Arbeitsweise\n\n• Hohe Einsatzbereitschaft und Flexibilität\n\n• Bereitschaft für gelegentliche Wochenend-Einsätze\n\n• Gute PC-Anwenderkenntnisse (MS-Office)\n\n• Kenntnisse im Bereich Elektro, Heizung und Brandschutz\n\n• Gute Deutschkenntnisse in Wort und Schrift\n\n• Führerausweis Kategorie B (zwingend)\n\n• Wohnsitz im Oberwallis oder Bereitschaft zum Umzug von Vorteil\n\nWIR BIETEN:\n\n• Ein kollegiales Team und ein motivierendes Arbeitsumfeld\n\n• grosser Gestaltungsspielraum\n\n• Attraktive Benefits durch unsere starken Partnerschaften\n\n• Unterstützung bei fachlicher Weiterentwicklung und Weiterbildung\n\nWORAUF WARTEST DU? Nutze jetzt die Chance, Teil der Air Zermatt AG zu werden. Sende uns deine Bewerbungsunterlagen per E-Mail an personal@air-zermatt.ch oder bewirb dich direkt über unsere Webseite bis spätestens am 14. Juni 2026.\n\nJetzt bewerben\n\nZurück\n\nJetzt abheben!\n Buchen Sie Ihren Rundflug einfach und bequem über unser Online-Buchungstool. Ein Erlebnis, dass Sie garantiert nie vergessen werden.\n\nJetzt buchen\n\nBleiben Sie mit Air Zermatt in Kontakt\n\nKontakt\n\nHeliport Zermatt | Raron\n\nAdressänderung Rettungskarte\n\nTraining Center\n\nBesichtigung Heliports\n\nService\n\nWebcams\n\nJobs\n\nPiloten | PPR | Drohnen\n\nMedien\n\nNews | Medienmitteilungen\n\nBlog, Podcast und mehr\n\nBildmaterial\n\nRed Bull The Horn\n\nRechtliche Informationen\n\nAllgemeine Geschäftsbedingungen\n\nDatenschutz\n\nImpressum\n\nNewsroom\n\nNewsletter\n\nJetzt anmelden\n\nMit der Nutzung dieses Formulars erklärst du dich mit der Speicherung und Verarbeitung deiner Daten durch die Newsletter-Software dodeley einverstanden.\n\nUnsere Partner\n\n• © Air Zermatt\n\n• design by metaloop\n\n• webentwicklung und hosting powered by indual\n\nAnfrage an Air Zermatt\n\nThema wählen\n\nRundflüge ab Zermatt\n\nRundflüge ab Raron\n\nTransferflüge\n\nTransportflüge und Offerten\n\nGrid Maintenance\n\nKurse Training Center\n\nRettungskarte\n\nRechnungen (Rettungen)\n\nRechnungen (Allgemein)\n\nMedienanfragen\n\nSponsoring und Partnerschaften\n\nBestellungen Onlineshop\n\nSonstiges\n\nE-Mail-Adresse * Pflichtfeld\n\nName * Pflichtfeld\n\nVorname * Pflichtfeld\n\nTelefonnummer\n\nBeschreibung * Pflichtfeld\n\nIch habe die Datenschutzerklärung gelesen und akzeptiert. * Pflichtfeld",
+        "en": "Air_Zermatt_Logo_RGB\n\nFlug online buchen\n\nGönner werden\n\nDeutsch\n English Français Japanisch\n\nSuche\n\t\t\t\t\t\t Webcams\n\t\t\t\t\t\t Warenkorb\n\t\t\t\t\t\t Shop\n\nFachmann:frau Betriebsunterhalt / Facility Manager:in 100%\n\nInfolge Nachfolgeregelung suchen wir per sofort oder nach Vereinbarung eine:n Fachmann:frau Betriebsunterhalt / Facility Manager:in in Raron, Gampel & Zermatt\n\nDEINE AUFGABEN:\n\n• Betreuung, Unterhalt und Instandhaltung unserer Gebäude, Anlagen und Infrastrukturen\n\n• Durchführung von Reparaturen, Wartungs- und Servicearbeiten\n\n• Koordination und Überwachung externer Handwerker und Dienstleister\n\n• Pflege und Unterhalt von Aussenanlagen\n\n• Sicherstellung von Ordnung, Sauberkeit und Betriebssicherheit\n\n• Unterstützung bei Umbauten, Renovationen und technischen Projekten\n\n• Verwaltung von Material, Werkzeugen und Ersatzteilen\n\n• Mithilfe bei der Bereitstellung der Helikopter (Hangarierung, Tanken, Reinigen etc.)\n\n• Gelegentliche Einsätze als Flughelfer bei Personen- und Materialtransporten\n\n• Allgemeine Unterhaltsarbeiten wie Schneeräumung oder Rasenpflege etc.\n\n• Selbstständige und termingereichte Inspektionen, Wartungen an der Infrastruktur\n\nDEIN PROFIL:\n\n• Abgeschlossene Ausbildung als Fachmann/Fachfrau Betriebsunterhalt EFZ oder vergleichbare handwerkliche Ausbildung\n\n• Mehrjährige Berufserfahrung im Bereich Hauswartung / Facility Management von Vorteil\n\n• Technisches Verständnis und handwerkliches Geschick\n\n• Selbstständige, strukturierte und zuverlässige Arbeitsweise\n\n• Hohe Einsatzbereitschaft und Flexibilität\n\n• Bereitschaft für gelegentliche Wochenend-Einsätze\n\n• Gute PC-Anwenderkenntnisse (MS-Office)\n\n• Kenntnisse im Bereich Elektro, Heizung und Brandschutz\n\n• Gute Deutschkenntnisse in Wort und Schrift\n\n• Führerausweis Kategorie B (zwingend)\n\n• Wohnsitz im Oberwallis oder Bereitschaft zum Umzug von Vorteil\n\nWIR BIETEN:\n\n• Ein kollegiales Team und ein motivierendes Arbeitsumfeld\n\n• grosser Gestaltungsspielraum\n\n• Attraktive Benefits durch unsere starken Partnerschaften\n\n• Unterstützung bei fachlicher Weiterentwicklung und Weiterbildung\n\nWORAUF WARTEST DU? Nutze jetzt die Chance, Teil der Air Zermatt AG zu werden. Sende uns deine Bewerbungsunterlagen per E-Mail an personal@air-zermatt.ch oder bewirb dich direkt über unsere Webseite bis spätestens am 14. Juni 2026.\n\nJetzt bewerben\n\nZurück\n\nJetzt abheben!\n Buchen Sie Ihren Rundflug einfach und bequem über unser Online-Buchungstool. Ein Erlebnis, dass Sie garantiert nie vergessen werden.\n\nJetzt buchen\n\nBleiben Sie mit Air Zermatt in Kontakt\n\nKontakt\n\nHeliport Zermatt | Raron\n\nAdressänderung Rettungskarte\n\nTraining Center\n\nBesichtigung Heliports\n\nService\n\nWebcams\n\nJobs\n\nPiloten | PPR | Drohnen\n\nMedien\n\nNews | Medienmitteilungen\n\nBlog, Podcast und mehr\n\nBildmaterial\n\nRed Bull The Horn\n\nRechtliche Informationen\n\nAllgemeine Geschäftsbedingungen\n\nDatenschutz\n\nImpressum\n\nNewsroom\n\nNewsletter\n\nJetzt anmelden\n\nMit der Nutzung dieses Formulars erklärst du dich mit der Speicherung und Verarbeitung deiner Daten durch die Newsletter-Software dodeley einverstanden.\n\nUnsere Partner\n\n• © Air Zermatt\n\n• design by metaloop\n\n• webentwicklung und hosting powered by indual\n\nAnfrage an Air Zermatt\n\nThema wählen\n\nRundflüge ab Zermatt\n\nRundflüge ab Raron\n\nTransferflüge\n\nTransportflüge und Offerten\n\nGrid Maintenance\n\nKurse Training Center\n\nRettungskarte\n\nRechnungen (Rettungen)\n\nRechnungen (Allgemein)\n\nMedienanfragen\n\nSponsoring und Partnerschaften\n\nBestellungen Onlineshop\n\nSonstiges\n\nE-Mail-Adresse * Pflichtfeld\n\nName * Pflichtfeld\n\nVorname * Pflichtfeld\n\nTelefonnummer\n\nBeschreibung * Pflichtfeld\n\nIch habe die Datenschutzerklärung gelesen und akzeptiert. * Pflichtfeld",
+        "fr": "Air_Zermatt_Logo_RGB\n\nFlug online buchen\n\nGönner werden\n\nDeutsch\n English Français Japanisch\n\nSuche\n\t\t\t\t\t\t Webcams\n\t\t\t\t\t\t Warenkorb\n\t\t\t\t\t\t Shop\n\nFachmann:frau Betriebsunterhalt / Facility Manager:in 100%\n\nInfolge Nachfolgeregelung suchen wir per sofort oder nach Vereinbarung eine:n Fachmann:frau Betriebsunterhalt / Facility Manager:in in Raron, Gampel & Zermatt\n\nDEINE AUFGABEN:\n\n• Betreuung, Unterhalt und Instandhaltung unserer Gebäude, Anlagen und Infrastrukturen\n\n• Durchführung von Reparaturen, Wartungs- und Servicearbeiten\n\n• Koordination und Überwachung externer Handwerker und Dienstleister\n\n• Pflege und Unterhalt von Aussenanlagen\n\n• Sicherstellung von Ordnung, Sauberkeit und Betriebssicherheit\n\n• Unterstützung bei Umbauten, Renovationen und technischen Projekten\n\n• Verwaltung von Material, Werkzeugen und Ersatzteilen\n\n• Mithilfe bei der Bereitstellung der Helikopter (Hangarierung, Tanken, Reinigen etc.)\n\n• Gelegentliche Einsätze als Flughelfer bei Personen- und Materialtransporten\n\n• Allgemeine Unterhaltsarbeiten wie Schneeräumung oder Rasenpflege etc.\n\n• Selbstständige und termingereichte Inspektionen, Wartungen an der Infrastruktur\n\nDEIN PROFIL:\n\n• Abgeschlossene Ausbildung als Fachmann/Fachfrau Betriebsunterhalt EFZ oder vergleichbare handwerkliche Ausbildung\n\n• Mehrjährige Berufserfahrung im Bereich Hauswartung / Facility Management von Vorteil\n\n• Technisches Verständnis und handwerkliches Geschick\n\n• Selbstständige, strukturierte und zuverlässige Arbeitsweise\n\n• Hohe Einsatzbereitschaft und Flexibilität\n\n• Bereitschaft für gelegentliche Wochenend-Einsätze\n\n• Gute PC-Anwenderkenntnisse (MS-Office)\n\n• Kenntnisse im Bereich Elektro, Heizung und Brandschutz\n\n• Gute Deutschkenntnisse in Wort und Schrift\n\n• Führerausweis Kategorie B (zwingend)\n\n• Wohnsitz im Oberwallis oder Bereitschaft zum Umzug von Vorteil\n\nWIR BIETEN:\n\n• Ein kollegiales Team und ein motivierendes Arbeitsumfeld\n\n• grosser Gestaltungsspielraum\n\n• Attraktive Benefits durch unsere starken Partnerschaften\n\n• Unterstützung bei fachlicher Weiterentwicklung und Weiterbildung\n\nWORAUF WARTEST DU? Nutze jetzt die Chance, Teil der Air Zermatt AG zu werden. Sende uns deine Bewerbungsunterlagen per E-Mail an personal@air-zermatt.ch oder bewirb dich direkt über unsere Webseite bis spätestens am 14. Juni 2026.\n\nJetzt bewerben\n\nZurück\n\nJetzt abheben!\n Buchen Sie Ihren Rundflug einfach und bequem über unser Online-Buchungstool. Ein Erlebnis, dass Sie garantiert nie vergessen werden.\n\nJetzt buchen\n\nBleiben Sie mit Air Zermatt in Kontakt\n\nKontakt\n\nHeliport Zermatt | Raron\n\nAdressänderung Rettungskarte\n\nTraining Center\n\nBesichtigung Heliports\n\nService\n\nWebcams\n\nJobs\n\nPiloten | PPR | Drohnen\n\nMedien\n\nNews | Medienmitteilungen\n\nBlog, Podcast und mehr\n\nBildmaterial\n\nRed Bull The Horn\n\nRechtliche Informationen\n\nAllgemeine Geschäftsbedingungen\n\nDatenschutz\n\nImpressum\n\nNewsroom\n\nNewsletter\n\nJetzt anmelden\n\nMit der Nutzung dieses Formulars erklärst du dich mit der Speicherung und Verarbeitung deiner Daten durch die Newsletter-Software dodeley einverstanden.\n\nUnsere Partner\n\n• © Air Zermatt\n\n• design by metaloop\n\n• webentwicklung und hosting powered by indual\n\nAnfrage an Air Zermatt\n\nThema wählen\n\nRundflüge ab Zermatt\n\nRundflüge ab Raron\n\nTransferflüge\n\nTransportflüge und Offerten\n\nGrid Maintenance\n\nKurse Training Center\n\nRettungskarte\n\nRechnungen (Rettungen)\n\nRechnungen (Allgemein)\n\nMedienanfragen\n\nSponsoring und Partnerschaften\n\nBestellungen Onlineshop\n\nSonstiges\n\nE-Mail-Adresse * Pflichtfeld\n\nName * Pflichtfeld\n\nVorname * Pflichtfeld\n\nTelefonnummer\n\nBeschreibung * Pflichtfeld\n\nIch habe die Datenschutzerklärung gelesen und akzeptiert. * Pflichtfeld"
+      },
+      "location": "Raron, Gampel & Zermatt",
+      "canton": "VS",
+      "addressLocality": "Raron, Gampel & Zermatt",
+      "addressRegion": "VS",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "3942",
+      "category": "general",
+      "sector": "Aviazione / Servizi di soccorso",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "SENIOR",
+      "featured": false,
+      "postedDate": "2026-05-26",
+      "url": "https://www.air-zermatt.ch/de/service/offene-stellen/fachmannfrau-betriebsunterhalt--facility-managerin-100-555",
+      "applyUrl": "https://www.air-zermatt.ch/de/service/offene-stellen/fachmannfrau-betriebsunterhalt--facility-managerin-100-555",
+      "source": "Air Zermatt Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-05-26T21:55:12.668Z",
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "fachmann-frau-betriebsunterhalt-facility-manager-in-100-raron-gampel-zermatt-air-zermatt"
+        ]
+      },
+      "previousSlugs": [
+        "fachmann-frau-betriebsunterhalt-facility-manager-in-100-raron-gampel-zermatt-air-zermatt"
+      ],
+      "salaryMin": 68000,
+      "salaryMax": 103000,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68000,
+          "maxValue": 103000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-05-26T21:55:12.668Z"
     }
   ]
 }
