@@ -940,11 +940,23 @@ function runBaseCrawler() {
  */
 async function crawlArca24Direct() {
   console.log('\n🔍 Direct Arca24 scraping: discovering job URLs...');
-  const listingJobs = await fetchLisJobUrls({
+  const discovery = await fetchLisJobUrls({
     userAgent: LIS_USER_AGENT,
     timeoutMs: 15000,
   });
-  console.log(`📋 Found ${listingJobs.length} job URLs on Arca24 listing pages`);
+  const listingJobs = discovery.jobs;
+  const partialDiscovery = discovery.failed > 0;
+  console.log(`📋 Found ${listingJobs.length} job URLs on Arca24 listing pages (listings: ${discovery.succeeded}/${discovery.attempted} ok)`);
+
+  // Bail out completely when every listing page failed — writing nothing
+  // preserves the prior slice intact. Without this guard a transient outage
+  // (run 26422783451, 2026-05-25) silently truncates the slice and the
+  // build emits expired soft-landings for jobs still live on the ATS.
+  if (discovery.succeeded === 0) {
+    console.warn('⚠️  All listing pages failed to fetch — leaving existing LIS jobs untouched.');
+    return { discovered: 0, parsed: 0, merged: 0, preservedExisting: 0, aborted: 'all_listings_failed' };
+  }
+
   if (listingJobs.length === 0) {
     console.warn('⚠️  No job URLs found on Arca24 listing pages — the ATS may be down or structure changed');
     return { discovered: 0, parsed: 0, merged: 0 };
@@ -953,6 +965,7 @@ async function crawlArca24Direct() {
   // Fetch and parse each detail page
   console.log('\n📄 Fetching Arca24 detail pages...');
   const parsedJobs = [];
+  const detailFailedUrls = new Set();
   const DETAIL_DELAY_MS = 800;
   for (const listing of listingJobs) {
     const detail = await fetchLisDetailPage(listing.url, {
@@ -966,9 +979,11 @@ async function crawlArca24Direct() {
         parsedJobs.push(job);
       } else {
         console.log(`  ⏭️  ${listing.title} → could not build job object`);
+        detailFailedUrls.add(listing.url);
       }
     } else {
       console.log(`  ⚠️  ${listing.url} → detail page parse failed`);
+      detailFailedUrls.add(listing.url);
     }
     // Polite delay between requests
     if (parsedJobs.length < listingJobs.length) {
@@ -977,9 +992,9 @@ async function crawlArca24Direct() {
   }
 
   console.log(`\n🏛️ Parsed LIS jobs: ${parsedJobs.length} / ${listingJobs.length}`);
-  if (parsedJobs.length === 0) {
-    console.warn('⚠️  All detail pages failed to parse — Arca24 structure may have changed');
-    return { discovered: listingJobs.length, parsed: 0, merged: 0 };
+  if (parsedJobs.length === 0 && !partialDiscovery) {
+    console.warn('⚠️  All detail pages failed to parse — Arca24 structure may have changed; leaving existing LIS jobs untouched.');
+    return { discovered: listingJobs.length, parsed: 0, merged: 0, aborted: 'all_details_failed' };
   }
 
   // Deduplicate by title+location
@@ -1009,8 +1024,10 @@ async function crawlArca24Direct() {
 
   let added = 0;
   let updated = 0;
+  const seenUrlKeys = new Set();
   const mergedLis = deduplicated.map((job) => {
     const key = normalizeLisUrlForDedup(job.url);
+    if (key) seenUrlKeys.add(key);
     const prev = existingByUrl.get(key);
     if (!prev) {
       added += 1;
@@ -1027,14 +1044,39 @@ async function crawlArca24Direct() {
     };
   });
 
-  const allJobs = [...nonLisJobs, ...mergedLis];
+  // Preserve existing LIS jobs that aren't in this crawl whenever the crawl
+  // was partial — either listing-page fetch failed, or some detail pages
+  // failed to parse. Without this guard, a single transient listing/detail
+  // failure drops the affected job from the slice; that job's URL then
+  // emits a thin expired soft-landing on the next build (run 26422783451).
+  // Detail-only failures are tolerated even on a complete listing crawl,
+  // because the detail page may have been temporarily unavailable for an
+  // otherwise still-active job.
+  const preservedExisting = [];
+  if (partialDiscovery || detailFailedUrls.size > 0) {
+    for (const prev of lisExisting) {
+      const key = normalizeLisUrlForDedup(prev.url);
+      if (!key || seenUrlKeys.has(key)) continue;
+      // Always preserve when listing was partial (job may exist on the
+      // unfetched listing page). When listing was complete, preserve only
+      // jobs whose detail page failed in this run.
+      if (partialDiscovery || detailFailedUrls.has(prev.url)) {
+        preservedExisting.push(prev);
+      }
+    }
+    if (preservedExisting.length > 0) {
+      console.warn(`⚠️  Preserving ${preservedExisting.length} existing LIS jobs from prior slice (partial crawl).`);
+    }
+  }
+
+  const allJobs = [...nonLisJobs, ...mergedLis, ...preservedExisting];
   fs.writeFileSync(DATA_JOBS, JSON.stringify(allJobs, null, 2) + '\n');
   if (fs.existsSync(PUBLIC_DATA_JOBS) || fs.existsSync(path.dirname(PUBLIC_DATA_JOBS))) {
     fs.writeFileSync(PUBLIC_DATA_JOBS, JSON.stringify(allJobs, null, 2) + '\n');
   }
 
-  console.log(`\n📊 Merge result: ${mergedLis.length} LIS jobs (${added} added, ${updated} updated)`);
-  return { discovered: listingJobs.length, parsed: deduplicated.length, merged: mergedLis.length };
+  console.log(`\n📊 Merge result: ${mergedLis.length} LIS jobs (${added} added, ${updated} updated, ${preservedExisting.length} preserved from prior slice)`);
+  return { discovered: listingJobs.length, parsed: deduplicated.length, merged: mergedLis.length, preservedExisting: preservedExisting.length };
 }
 
 // ──────────────────────────────────────────────────────────────
