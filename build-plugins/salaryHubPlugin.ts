@@ -26,7 +26,6 @@ import { EVERGREEN_ARTICLES, generateArticleHtml } from './salaryHubArticles';
 import { calculateSimulation } from '../services/calculationService';
 import { buildScenarioIndexHtml, SCENARIO_INDEX_PATH } from './salaryHubIndex';
 import { resolveSalaryHubFlushed } from './shared/buildSignals';
-import { buildFlatBridgeFromSibling } from './flatHtmlRedirectPlugin';
 
 const LOCALES = ['it', 'en', 'de', 'fr'] as const;
 type Locale = (typeof LOCALES)[number];
@@ -127,7 +126,7 @@ export function salaryHubPlugin(rootDir: string): Plugin {
           // Write flat /calcola-stipendio/slug.html (for GitHub Pages compatibility)
           const flatSlug = urlPath.replace(/\/$/, '');
           const flatPath = path.join(distDir, `${flatSlug}.html`);
-          collector.add(flatPath, buildFlatBridgeFromSibling(html, `${BASE_URL}${urlPath}`));
+          collector.add(flatPath, html);
 
           // Sitemap entry
           const fullUrl = `${BASE_URL}${urlPath}`;
@@ -164,10 +163,7 @@ export function salaryHubPlugin(rootDir: string): Plugin {
           const urlPath = `${ARTICLE_PREFIX[locale]}/${article.slugs[locale]}/`;
 
           collector.add(path.join(distDir, urlPath, 'index.html'), html);
-          collector.add(
-            path.join(distDir, `${urlPath.replace(/\/$/, '')}.html`),
-            buildFlatBridgeFromSibling(html, `${BASE_URL}${urlPath}`),
-          );
+          collector.add(path.join(distDir, `${urlPath.replace(/\/$/, '')}.html`), html);
 
           const fullUrl = `${BASE_URL}${urlPath}`;
           sitemapEntries.push(
@@ -215,10 +211,7 @@ export function salaryHubPlugin(rootDir: string): Plugin {
         const indexPath = SCENARIO_INDEX_PATH[locale];
         collector.add(path.join(distDir, indexPath, 'index.html'), indexHtml);
         const flatSlug = indexPath.replace(/\/$/, '');
-        collector.add(
-          path.join(distDir, `${flatSlug}.html`),
-          buildFlatBridgeFromSibling(indexHtml, `${BASE_URL}${indexPath}`),
-        );
+        collector.add(path.join(distDir, `${flatSlug}.html`), indexHtml);
 
         const fullUrl = `${BASE_URL}${indexPath}`;
         sitemapEntries.push(

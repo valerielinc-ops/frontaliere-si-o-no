@@ -43,7 +43,6 @@ import {
   MIN_INDEXABLE_WORDS,
 } from './constants';
 import { buildSeoPageHtml } from './shared/seoPageShell';
-import { buildFlatBridgeFromSibling } from './flatHtmlRedirectPlugin';
 import {
   BREADCRUMB_LINK_STYLE,
   BREADCRUMB_STYLE,
@@ -885,7 +884,7 @@ export function orphanQueryLandingPlugin(rootDir: string): Plugin {
         const indexPath = path.join(distDir, render.urlPath, 'index.html');
         const flatPath = path.join(distDir, render.urlPath.replace(/\/+$/, '') + '.html');
         collector.add(indexPath, render.html);
-        collector.add(flatPath, buildFlatBridgeFromSibling(render.html, `${BASE_URL}${render.urlPath}`));
+        collector.add(flatPath, render.html);
 
         routes.push({
           locale: cluster.locale,
@@ -1062,10 +1061,7 @@ export function orphanQueryLandingPlugin(rootDir: string): Plugin {
         });
 
         collector.add(path.join(distDir, hubPath, 'index.html'), hubHtml);
-        collector.add(
-          path.join(distDir, hubPath.replace(/\/+$/, '') + '.html'),
-          buildFlatBridgeFromSibling(hubHtml, canonicalUrl),
-        );
+        collector.add(path.join(distDir, hubPath.replace(/\/+$/, '') + '.html'), hubHtml);
 
         sitemapEntries.push(
           `  <url>\n    <loc>${canonicalUrl}</loc>\n    <lastmod>${dateStamp}</lastmod>\n    <changefreq>daily</changefreq>\n    <priority>0.7</priority>\n  </url>`,
