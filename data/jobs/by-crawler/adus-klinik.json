@@ -1,6 +1,6 @@
 {
   "crawlerKey": "adus-klinik",
-  "assembledAt": "2026-05-25T21:13:12.624Z",
+  "assembledAt": "2026-05-26T21:52:47.926Z",
   "jobs": [
     {
       "id": "adus-klinik-8cd04c15239f",
@@ -33,7 +33,7 @@
       "url": "https://karriere.adus-klinik.ch/jobs/6277966-dipl-physiotherapeut-in-20-30-im-stundenlohn",
       "source": "ADUS Klinik Dedicated Parser (Teamtailor RSS)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-25T21:13:10.956Z",
+      "crawledAt": "2026-05-26T21:52:46.210Z",
       "addressLocality": "Dielsdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -50,6 +50,7 @@
       "applyUrl": "https://karriere.adus-klinik.ch/jobs/6277966-dipl-physiotherapeut-in-20-30-im-stundenlohn",
       "requirements": [],
       "requirementsByLocale": {},
+      "needsRetranslation": false,
       "previousSlugs": [
         "dipl-physiotherapeut-in-20-30-im-stundenlohn-adus-klinik-dielsdorf"
       ],
@@ -103,7 +104,7 @@
       "url": "https://karriere.adus-klinik.ch/jobs/7537525-dipl-expert-in-anaesthesiepflege-50-60",
       "source": "ADUS Klinik Dedicated Parser (Teamtailor RSS)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-25T21:13:10.955Z",
+      "crawledAt": "2026-05-26T21:52:46.208Z",
       "addressLocality": "Dielsdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -120,6 +121,7 @@
       "applyUrl": "https://karriere.adus-klinik.ch/jobs/7537525-dipl-expert-in-anaesthesiepflege-50-60",
       "requirements": [],
       "requirementsByLocale": {},
+      "needsRetranslation": true,
       "previousSlugs": [
         "dipl-expert-in-anasthesiepflege-50-60-adus-klinik-dielsdorf"
       ],
