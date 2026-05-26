@@ -23,6 +23,63 @@ afterEach(() => {
   for (const dir of tmpDirs.splice(0)) rmSync(dir, { recursive: true, force: true });
 });
 
+describe('canton-aware cluster URL emission', () => {
+  it('pins a Liestal-only cluster under /cerca-lavoro-basilea/ via cantonGroup', () => {
+    const distDir = makeDist();
+    const page = renderClusterPage({
+      distDir,
+      dateStamp: '2026-05-26',
+      ctx: {
+        candidate: {
+          slug: 'ricerca-genitori-liestal',
+          locale: 'it',
+          jobCount: 1,
+          sampleTerms: ['genitori Liestal'],
+          editorialCollision: null,
+        },
+        keyword: 'genitori',
+        city: 'Liestal',
+        matchingJobs: [
+          { id: 'ksbl-x', title: 'Hebamme', company: 'Kantonsspital Baselland (KSBL)', location: 'Liestal', canton: 'BL', slug: 'hebamme-liestal' },
+        ],
+        topCompanies: ['Kantonsspital Baselland (KSBL)'],
+        cantonGroup: 'BASILEA',
+      } as any,
+      enriched: undefined,
+      hreflang: [],
+      related: [],
+    });
+
+    expect(page.urlPath).toBe('/cerca-lavoro-basilea/ricerca-genitori-liestal/');
+    expect(page.loc).toBe('https://frontaliereticino.ch/cerca-lavoro-basilea/ricerca-genitori-liestal/');
+    // The HTML minifier strips quotes from attributes whose value has no
+    // spaces, so `rel` becomes unquoted but `href` keeps its quotes.
+    expect(page.html).toMatch(/<link rel=canonical href="https:\/\/frontaliereticino\.ch\/cerca-lavoro-basilea\/ricerca-genitori-liestal\/"/);
+    // Job link uses the job's OWN canton-aware section (BL → basilea).
+    expect(page.html).toContain('href="https://frontaliereticino.ch/cerca-lavoro-basilea/hebamme-liestal/"');
+  });
+
+  it('falls back to TI when cantonGroup is omitted (backwards-compat)', () => {
+    const distDir = makeDist();
+    const page = renderClusterPage({
+      distDir,
+      dateStamp: '2026-05-26',
+      ctx: {
+        candidate: { slug: 'ricerca-test', locale: 'it', jobCount: 0, sampleTerms: ['test'], editorialCollision: null },
+        keyword: 'test',
+        city: null,
+        matchingJobs: [],
+        topCompanies: [],
+      } as any,
+      enriched: undefined,
+      hreflang: [],
+      related: [],
+    });
+
+    expect(page.urlPath).toBe('/cerca-lavoro-ticino/ricerca-test/');
+  });
+});
+
 describe('related search cluster SEO shell', () => {
   it('keeps the full SEO shell, indexation tags, SPA assets, and crawl links', () => {
     const distDir = makeDist();
