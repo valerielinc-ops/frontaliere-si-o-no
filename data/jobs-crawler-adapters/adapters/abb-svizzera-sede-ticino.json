@@ -12,7 +12,6 @@
   "seedUrls": [
     "https://careers.abb/global/en/job/ABB1GLOBALJR00017810EXTERNALENGLOBAL/Inside-Sales-Service-Specialist--80-100",
     "https://careers.abb/global/en/job/ABB1GLOBALJR00018668EXTERNALENGLOBAL/Senior-Power-Systems-Computer-Aided-Engineer",
-    "https://careers.abb/global/en/job/ABB1GLOBALJR00018698EXTERNALENGLOBAL/Process-Quality-Specialist--80-100",
     "https://careers.abb/global/en/job/ABB1GLOBALJR00024261EXTERNALENGLOBAL/R-D-Senior-Engineer-Firmware--80--100",
     "https://careers.abb/global/en/job/ABB1GLOBALJR00024574EXTERNALENGLOBAL/Test-Engineer--80---100",
     "https://careers.abb/global/en/job/ABB1GLOBALJR00025482EXTERNALENGLOBAL/Product-Trainer",
@@ -23,10 +22,11 @@
     "https://careers.abb/global/en/job/ABB1GLOBALJR00028639EXTERNALENGLOBAL/Shift-Leader-Collaudo-IPU-Standalone",
     "https://careers.abb/global/en/job/ABB1GLOBALJR00030926EXTERNALENGLOBAL/Production-Engineering-Specialist--80-100--_JR00030926-1",
     "https://careers.abb/global/en/job/ABB1GLOBALJR00034241EXTERNALENGLOBAL/Customer-Quality-Specialist",
-    "https://careers.abb/global/en/job/ABB1GLOBALJR00034548EXTERNALENGLOBAL/Technical-Support-Engineer--80-100"
+    "https://careers.abb/global/en/job/ABB1GLOBALJR00034548EXTERNALENGLOBAL/Technical-Support-Engineer--80-100",
+    "https://careers.abb/global/en/job/ABB1GLOBALJR00035139EXTERNALENGLOBAL/Position-76059728-Production-Engineering-Technician"
   ],
   "notes": "Dedicated ABB crawler seeds from careers.abb search-results (keywords: ticino, graubünden, grisons, chur, davos, engadin), then resolves canonical careers.abb job detail URLs.",
-  "updatedAt": "2026-05-25T21:12:13.764Z",
+  "updatedAt": "2026-05-26T21:51:45.515Z",
   "seedMetaByUrl": {
     "https://careers.abb/global/en/job/ABB1GLOBALJR00025482EXTERNALENGLOBAL/Product-Trainer": {
       "location": "Quartino, Ticino, Switzerland",
@@ -92,7 +92,15 @@
       "companyDomain": "abb.ch",
       "contract": "Full-time"
     },
-    "https://careers.abb/global/en/job/ABB1GLOBALJR00018698EXTERNALENGLOBAL/Process-Quality-Specialist--80-100": {
+    "https://careers.abb/global/en/job/ABB1GLOBALJR00035139EXTERNALENGLOBAL/Position-76059728-Production-Engineering-Technician": {
+      "location": "Quartino, Ticino, Switzerland",
+      "canton": "TI",
+      "country": "CH",
+      "company": "ABB Svizzera (sede Ticino)",
+      "companyDomain": "abb.ch",
+      "contract": "Full-time"
+    },
+    "https://careers.abb/global/en/job/ABB1GLOBALJR00030926EXTERNALENGLOBAL/Production-Engineering-Specialist--80-100--_JR00030926-1": {
       "location": "Quartino, Ticino, Switzerland",
       "canton": "TI",
       "country": "CH",
@@ -109,14 +117,6 @@
       "contract": "Full-time"
     },
     "https://careers.abb/global/en/job/ABB1GLOBALJR00028639EXTERNALENGLOBAL/Shift-Leader-Collaudo-IPU-Standalone": {
-      "location": "Quartino, Ticino, Switzerland",
-      "canton": "TI",
-      "country": "CH",
-      "company": "ABB Svizzera (sede Ticino)",
-      "companyDomain": "abb.ch",
-      "contract": "Full-time"
-    },
-    "https://careers.abb/global/en/job/ABB1GLOBALJR00030926EXTERNALENGLOBAL/Production-Engineering-Specialist--80-100--_JR00030926-1": {
       "location": "Quartino, Ticino, Switzerland",
       "canton": "TI",
       "country": "CH",
