@@ -100,13 +100,15 @@ describe('jobCardHtml — isJobNew', () => {
 });
 
 describe('jobCardHtml — renderJobCardHtml', () => {
-  it('renders an article with SPA Tailwind classes', () => {
+  it('renders an article with the .jc-card atom (Tailwind tokens applied via @apply in index.css)', () => {
     const html = renderJobCardHtml(baseJob, {
       href: '/cerca-lavoro-ticino/full-stack-net-sviluppatore-alten-switzerland-ticino/',
       locale: 'it',
     });
-    expect(html.startsWith('<article class="rounded-xl border p-3 sm:p-4')).toBe(true);
-    expect(html).toContain('border-edge bg-surface/50 hover:border-accent-border');
+    // Post 5e715f73e6 refactor: `rounded-xl border p-3 sm:p-4` +
+    // `border-edge bg-surface/50 hover:border-accent-border` ship via the
+    // `.jc-card` atom in `index.css` (@layer components).
+    expect(html.startsWith('<article class="jc-card')).toBe(true);
     expect(html).toContain('Full Stack .Net Sviluppatore');
     expect(html).toContain('ALTEN Switzerland');
     // Salary chip
@@ -126,7 +128,9 @@ describe('jobCardHtml — renderJobCardHtml', () => {
   it('renders the featured warning palette when job.featured is true', () => {
     const featured = { ...baseJob, featured: true };
     const html = renderJobCardHtml(featured, { href: '/x/', locale: 'it' });
-    expect(html).toContain('border-warning-border bg-warning-subtle hover:border-warning');
+    // Featured palette ships via the `.jc-card-fea` modifier atom (which
+    // `@apply`s `border-warning-border bg-warning-subtle hover:border-warning`).
+    expect(html).toContain('jc-card-fea');
     expect(html).toContain('lucide-star');
   });
 

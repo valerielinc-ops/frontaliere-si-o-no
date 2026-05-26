@@ -77,22 +77,30 @@ const fixture: CompanyCityPageInputs = {
 };
 
 describe('weeklyEmployersPlugin — SPA job-card migration', () => {
+  // Post 5e715f73e6: the SPA-canonical job-card signature moved from the
+  // inline `rounded-xl border p-3 sm:p-4 …` Tailwind string to the
+  // `.jc-card` atom in `index.css`. The rendered styling is identical via
+  // `@apply` — the assertion just tracks the new class name. Note: the
+  // weeklyEmployers shell goes through the HTML minifier which strips
+  // attribute quotes when the value has no spaces, so the rendered output
+  // is `<article class=jc-card>` — the regex tolerates either form.
+  const articleJcCardRe = /<article class=("?)jc-card\1/;
+  const articleJcCardReG = /<article class=("?)jc-card\1/g;
+
   it('emits the SPA-canonical job-card <article> for at least one open job', () => {
     const html = renderCompanyCityPage(fixture);
-    // The shared renderer's signature class block (must appear at least once
-    // for the per-employer open-jobs list).
-    expect(html).toContain('<article class="rounded-xl border p-3 sm:p-4');
+    expect(html).toMatch(articleJcCardRe);
   });
 
   it('renders one SPA card per active job', () => {
     const html = renderCompanyCityPage(fixture);
-    const matches = html.match(/<article class="rounded-xl border p-3 sm:p-4/g) || [];
+    const matches = html.match(articleJcCardReG) || [];
     expect(matches.length).toBeGreaterThanOrEqual(fixture.stats.activeJobs.length);
   });
 
   it('preserves the numbered <ol> ranking wrapper around the cards', () => {
     const html = renderCompanyCityPage(fixture);
-    expect(html).toMatch(/<ol[^>]*>[\s\S]*<article class="rounded-xl border p-3 sm:p-4/);
+    expect(html).toMatch(/<ol[^>]*>[\s\S]*<article class=("?)jc-card\1/);
   });
 
   it('keeps each job linked to its canonical detail path', () => {
