@@ -708,6 +708,8 @@ const deCore: Record<string, string> = {
  'jobBoard.noResultsHint': 'Versuchen Sie, Ihre Suchfilter anzupassen.',
  'jobBoard.searchFallback.title': 'Keine exakten Treffer für «{query}»',
  'jobBoard.searchFallback.hint': 'Zeige verwandte Angebote basierend auf den Stichwörtern Ihrer Suche, sortiert nach Relevanz.',
+ 'jobBoard.crossCantonFallback.title': 'Keine Angebote im Kanton für «{query}» — {count} Treffer aus anderen Kantonen',
+ 'jobBoard.crossCantonFallback.hint': 'Für Grenzgänger aus Italien kann jeder Schweizer Kanton relevant sein: Wir zeigen die nächstgelegenen Treffer in der ganzen Schweiz.',
  'jobBoard.companyHeading': 'Unternehmen',
  'jobBoard.sourceLabel': 'Quelle',
  'jobBoard.snapshotTitle': 'Stellen-Snapshot',

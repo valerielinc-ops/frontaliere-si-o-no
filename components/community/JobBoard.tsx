@@ -1639,6 +1639,15 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const killSwitches = useKillSwitches();
 
  const [jobs, setJobs] = useState<JobListing[]>([]);
+ // Cross-canton fallback pool: the locale-wide unscoped corpus loaded by
+ // `loadLegacyLocaleJobs` BEFORE `scopeJobsToCanton` narrows it. When a
+ // canton-scoped search yields zero strict+OR matches we re-run the OR-match
+ // against this pool (minus already-scoped IDs) so users on a cluster URL
+ // always see something — e.g. `/cerca-lavoro-basilea/ricerca-genitori-...`
+ // with no in-canton match surfaces matches from other cantons under a
+ // "no in-canton results" banner. Populated only via the legacy path; when
+ // shards land it'll need a separate aggregator fetch (deferred).
+ const [unscopedJobs, setUnscopedJobs] = useState<JobListing[]>([]);
  const [jobsLoading, setJobsLoading] = useState(true);
  const [enrichmentLoading, setEnrichmentLoading] = useState(false);
  // FRO-353: Feature flag for Job Alerts (controlled via Firebase Remote Config)
@@ -1924,12 +1933,19 @@ const JobBoard: React.FC<JobBoardProps> = ({
  }
  };
 
- const finalize = (raw: ReadonlyArray<JobListing>): void => {
+ const finalize = (raw: ReadonlyArray<JobListing>, unscopedRaw?: ReadonlyArray<JobListing>): void => {
  if (cancelled) return;
  const normalized = raw.map((job) => normalizeIncomingJob(job));
  const deduped = dedupeJobsForListing(normalized);
  setJobs(deduped);
  registerJobSlugMap(deduped);
+ // Capture the unscoped pool for cross-canton fallback when canton-scoped
+ // searches return zero. Same normalize+dedupe so cross-canton matches share
+ // the JobListing shape downstream consumers expect.
+ if (unscopedRaw && unscopedRaw.length > 0) {
+ const normalizedFull = unscopedRaw.map((job) => normalizeIncomingJob(job));
+ setUnscopedJobs(dedupeJobsForListing(normalizedFull));
+ }
  setJobsLoading(false);
  };
 
@@ -1955,7 +1971,16 @@ const JobBoard: React.FC<JobBoardProps> = ({
  if (shardJobs.length === 0) {
  const legacy = await loadLegacyLocaleJobs();
  const legacyArr = Array.isArray(legacy) ? legacy : [];
- finalize(scopeJobsToCanton(legacyArr, targetCanton));
+ // legacyArr is the unscoped locale-wide pool. Pass it as the second
+ // arg so the cross-canton fallback layer can search it when the
+ // canton-scoped result set is empty (see `filteredJobs` cross-canton
+ // tier). Only meaningful when targetCanton isn't the aggregator —
+ // for the aggregator the scope IS already everywhere.
+ const isAggregate = targetCanton === AGGREGATE_CANTON_CODE;
+ finalize(
+ scopeJobsToCanton(legacyArr, targetCanton),
+ isAggregate ? undefined : legacyArr,
+ );
  return;
  }
 
@@ -1967,7 +1992,11 @@ const JobBoard: React.FC<JobBoardProps> = ({
  try {
  const legacy = await loadLegacyLocaleJobs();
  const legacyArr = Array.isArray(legacy) ? legacy : [];
- finalize(scopeJobsToCanton(legacyArr, targetCanton));
+ const isAggregate = targetCanton === AGGREGATE_CANTON_CODE;
+ finalize(
+ scopeJobsToCanton(legacyArr, targetCanton),
+ isAggregate ? undefined : legacyArr,
+ );
  } catch (legacyErr: unknown) {
  console.warn('Legacy locale-jobs fallback also failed:', legacyErr);
  reportCaughtError(legacyErr, 'jobBoard.loadJobs.legacy');
@@ -2510,18 +2539,17 @@ const JobBoard: React.FC<JobBoardProps> = ({
  });
  }, [sortedJobs, selectedDateRange, deferredSearchQuery, indexedQueryMatch, passingNonSearchFilters]);
 
- // filteredJobs: strict-AND result, OR a partial-match fallback ranked by
- // how many tokens hit. Mirrors the build plugin's two-phase matching at
- // build/relatedSearchClustersPlugin.ts so users landing on a slug URL
- // see the SAME job set the static cluster page would show. Capped at
- // MAX_FALLBACK to keep the UI responsive even for high-frequency tokens.
+ // In-canton OR-fallback: partial token matches ranked by hit count, capped
+ // at MAX_FALLBACK_RESULTS. Mirrors the build plugin's two-phase matching at
+ // build/relatedSearchClustersPlugin.ts so users landing on a slug URL see
+ // the SAME job set the static cluster page would show.
  const MAX_FALLBACK_RESULTS = 30;
- const filteredJobs = useMemo(() => {
+ const orFallbackInCantonJobs = useMemo<JobListing[]>(() => {
  const query = deferredSearchQuery.trim();
- if (!query || strictFilteredJobs.length > 0) return strictFilteredJobs;
+ if (!query || strictFilteredJobs.length > 0) return [];
 
  const queryTokens = normalizeSearchText(query).split(' ').filter(Boolean).map(stemSearchToken);
- if (queryTokens.length < 2) return strictFilteredJobs; // single token: AND === OR, nothing to add
+ if (queryTokens.length < 2) return []; // single token: AND === OR, nothing to add
 
  const now = Date.now();
  const dateRangeMs: Record<DateRange, number> = {
@@ -2544,12 +2572,87 @@ const JobBoard: React.FC<JobBoardProps> = ({
  return scored.slice(0, MAX_FALLBACK_RESULTS).map((x) => x.job);
  }, [strictFilteredJobs, sortedJobs, deferredSearchQuery, searchIndex, selectedDateRange, passingNonSearchFilters]);
 
- // True when the result set is the OR-fallback (strict yielded zero but
- // we found partial matches). Used by the UI to render an explanatory
- // banner so users know why these jobs appear despite the query.
+ // Cross-canton OR-fallback (Tier 3): only fires when strict AND the in-
+ // canton OR-fallback both returned zero. Searches the unscoped locale-wide
+ // pool (jobs from BL, ZH, GE, … when the URL pinned us to TI/BS/etc) so
+ // pages like `/cerca-lavoro-basilea/ricerca-genitori-liestal/` always
+ // surface SOMETHING. Excludes IDs already in the canton-scoped pool so we
+ // never double-render a job that the in-canton tiers already discarded by
+ // date-range or non-search filter. Builds the haystack inline (no memoised
+ // index) because this path runs only when both prior tiers are empty —
+ // rare enough that an O(n) scan over ~13k jobs per relevant keystroke is
+ // acceptable, and skipping the index keeps memory flat in the common case.
+ const crossCantonFallbackJobs = useMemo<JobListing[]>(() => {
+ const query = deferredSearchQuery.trim();
+ if (!query) return [];
+ if (strictFilteredJobs.length > 0) return [];
+ if (orFallbackInCantonJobs.length > 0) return [];
+ if (unscopedJobs.length === 0) return [];
+
+ const queryTokens = normalizeSearchText(query).split(' ').filter(Boolean).map(stemSearchToken);
+ if (queryTokens.length === 0) return [];
+
+ const now = Date.now();
+ const dateRangeMs: Record<DateRange, number> = {
+ all: 0, '24h': 24 * 60 * 60 * 1000, '3d': 3 * 24 * 60 * 60 * 1000,
+ '7d': 7 * 24 * 60 * 60 * 1000, '30d': 30 * 24 * 60 * 60 * 1000, '90d': 90 * 24 * 60 * 60 * 1000,
+ };
+ const cutoff = selectedDateRange === 'all' ? 0 : now - dateRangeMs[selectedDateRange];
+
+ const scopedIds = new Set<string>();
+ for (const j of sortedJobs) scopedIds.add(j.id);
+
+ const scored: { job: JobListing; score: number }[] = [];
+ for (const job of unscopedJobs) {
+ if (scopedIds.has(job.id)) continue;
+ if (isForeignLocation(job.addressLocality || job.location || '')) continue;
+ if (!passingNonSearchFilters(job, now, cutoff)) continue;
+ const description = job.descriptionByLocale?.[locale] ?? job.description;
+ const localizedTitle = sanitizeJobTitle(job.titleByLocale?.[locale] ?? job.title);
+ const haystack = buildStemmedHaystack(
+ `${localizedTitle} ${job.company} ${job.location} ${job.contract} ${job.category} ${job.sector || ''} ${description || ''}`,
+ );
+ let score = 0;
+ for (const t of queryTokens) {
+ if (haystack.includes(` ${t} `)) score++;
+ }
+ if (score > 0) scored.push({ job, score });
+ }
+ scored.sort((a, b) => b.score - a.score);
+ return scored.slice(0, MAX_FALLBACK_RESULTS).map((x) => x.job);
+ }, [strictFilteredJobs.length, orFallbackInCantonJobs.length, sortedJobs, deferredSearchQuery, selectedDateRange, passingNonSearchFilters, unscopedJobs, locale]);
+
+ // filteredJobs: the three-tier search result.
+ //   1. strictFilteredJobs (AND across all tokens, in-canton)
+ //   2. orFallbackInCantonJobs (partial-token OR, in-canton)
+ //   3. crossCantonFallbackJobs (partial-token OR, other cantons)
+ // Each tier is consulted only when the previous one yielded zero, so the
+ // canton-scoped intent stays primary and cross-canton is purely a safety
+ // net for pages like `ricerca-genitori-liestal` whose query token has no
+ // in-canton support.
+ const filteredJobs = useMemo<JobListing[]>(() => {
+ if (strictFilteredJobs.length > 0) return strictFilteredJobs;
+ if (orFallbackInCantonJobs.length > 0) return orFallbackInCantonJobs;
+ return crossCantonFallbackJobs;
+ }, [strictFilteredJobs, orFallbackInCantonJobs, crossCantonFallbackJobs]);
+
+ // True when the result set is the in-canton OR-fallback (Tier 2). Keeps
+ // the existing "No exact match for «…»" banner triggered.
  const isUsingSearchFallback = useMemo(() => {
- return Boolean(deferredSearchQuery.trim()) && strictFilteredJobs.length === 0 && filteredJobs.length > 0;
- }, [deferredSearchQuery, strictFilteredJobs.length, filteredJobs.length]);
+ return Boolean(deferredSearchQuery.trim())
+ && strictFilteredJobs.length === 0
+ && orFallbackInCantonJobs.length > 0;
+ }, [deferredSearchQuery, strictFilteredJobs.length, orFallbackInCantonJobs.length]);
+
+ // True when the result set is the cross-canton fallback (Tier 3). Drives
+ // a distinct banner so users understand they're seeing jobs from outside
+ // the canton they navigated into.
+ const isCrossCantonFallback = useMemo(() => {
+ return Boolean(deferredSearchQuery.trim())
+ && strictFilteredJobs.length === 0
+ && orFallbackInCantonJobs.length === 0
+ && crossCantonFallbackJobs.length > 0;
+ }, [deferredSearchQuery, strictFilteredJobs.length, orFallbackInCantonJobs.length, crossCantonFallbackJobs.length]);
 
  // Resolve the display name of the company when a company slug filter is active
  const companyDisplayName = useMemo(() => {
@@ -6591,6 +6694,25 @@ const JobBoard: React.FC<JobBoardProps> = ({
  </p>
  <p className="text-xs text-subtle mt-1">
  {t('jobBoard.searchFallback.hint')}
+ </p>
+ </div>
+ </div>
+ </div>
+ )}
+ {isCrossCantonFallback && (
+ <div
+ role="status"
+ aria-live="polite"
+ className="rounded-xl border border-info-border bg-info-subtle px-4 py-3 text-sm text-body"
+ >
+ <div className="flex items-start gap-2">
+ <Search className="w-4 h-4 mt-0.5 shrink-0 text-info-strong" />
+ <div>
+ <p className="font-semibold font-display text-strong">
+ {t('jobBoard.crossCantonFallback.title', { query: deferredSearchQuery.trim(), count: String(filteredJobs.length) })}
+ </p>
+ <p className="text-xs text-subtle mt-1">
+ {t('jobBoard.crossCantonFallback.hint')}
  </p>
  </div>
  </div>

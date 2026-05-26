@@ -708,6 +708,8 @@ const enCore: Record<string, string> = {
  'jobBoard.noResultsHint': 'Try adjusting your search filters.',
  'jobBoard.searchFallback.title': 'No exact match for «{query}»',
  'jobBoard.searchFallback.hint': 'Showing related offerings based on the keywords from your search, ranked by relevance.',
+ 'jobBoard.crossCantonFallback.title': 'No in-canton offers for «{query}» — {count} matches from other cantons',
+ 'jobBoard.crossCantonFallback.hint': 'For Italian cross-border workers any Swiss canton can still be relevant: showing the closest matches anywhere in Switzerland.',
  'jobBoard.companyHeading': 'Company',
  'jobBoard.sourceLabel': 'Source',
  'jobBoard.snapshotTitle': 'Job snapshot',

@@ -65,6 +65,11 @@ import {
   getJobBoardSectionSlug,
   getSearchSlugPrefix,
 } from '../services/relatedSearchClusters';
+import {
+  resolveCantonSection,
+  resolveJobCanton,
+  type CantonLocale,
+} from './shared/cantonSection';
 import type { Locale } from '../services/i18n';
 import {
   COPY,
@@ -492,6 +497,16 @@ interface ClusterContext {
   city: string | null;
   matchingJobs: RawJob[];
   topCompanies: string[];
+  /**
+   * URL canton group key derived from the cluster's top-ranked matching job
+   * (`resolveJobCanton(matchingJobs[0])` → e.g. 'TI', 'BASILEA', 'ZH').
+   * Drives `buildClusterPath` so a Liestal-only cluster lands at
+   * `/cerca-lavoro-basilea/ricerca-{slug}/` instead of the legacy TI hardcode
+   * that produced empty SERPs after the SPA's canton filter ran.
+   *
+   * Falls back to `'TI'` when no jobs match (MIN_MATCHING_JOBS=0 allows it).
+   */
+  cantonGroup: string;
 }
 
 // ── Inverted index for token → posting list of jobIdx ────────────────────
@@ -777,7 +792,17 @@ function buildClusterContext(
     .slice(0, 3)
     .map(([name]) => name);
 
-  return { candidate, keyword: keyword.trim(), city, matchingJobs: matching, topCompanies };
+  // Pin the cluster page to its source canton's URL section. Without this
+  // every cluster lands at `/cerca-lavoro-ticino/ricerca-{slug}/` regardless
+  // of where the matching jobs live. The SPA then applies a TI canton filter
+  // and the BL/ZH/etc jobs disappear → 0-result SERP. `matchingJobs[0]` is
+  // the highest-ranked match (corpus-order AND-match, then OR), so it best
+  // represents the cluster's locality intent. `resolveJobCanton` collapses
+  // half-cantons (AI/AR→APPENZELLO, BL/BS→BASILEA) and falls back to the
+  // BFS city map when job.canton is missing.
+  const cantonGroup = matching.length > 0 ? resolveJobCanton(matching[0]) : 'TI';
+
+  return { candidate, keyword: keyword.trim(), city, matchingJobs: matching, topCompanies, cantonGroup };
 }
 
 // ── Page emission ───────────────────────────────────────────────────────
@@ -797,14 +822,28 @@ interface PageOutput {
   loc: string;
 }
 
-/** Build the canonical URL path for a cluster page. */
-function buildClusterPath(locale: Locale, slug: string): string {
+/**
+ * Build the canonical URL path for a cluster page.
+ *
+ * `cantonGroup` defaults to `'TI'` (legacy hardcode) to keep call sites that
+ * don't yet thread the cluster's home canton working unchanged. Real callers
+ * pass `ctx.cantonGroup` so clusters whose top match is in BL/ZH/etc emit
+ * under `/cerca-lavoro-basilea/`, `/cerca-lavoro-zurigo/`, ...
+ */
+function buildClusterPath(locale: Locale, slug: string, cantonGroup: string = 'TI'): string {
   const prefix = LOCALE_PREFIX[locale];
-  const section = getJobBoardSectionSlug(locale);
+  const section = resolveCantonSection(locale as CantonLocale, cantonGroup);
   return `${prefix}/${section}/${slug}/`.replace(/\/+/g, '/');
 }
 
-/** Build the URL path for the per-locale hub. */
+/**
+ * Build the URL path for the per-locale hub.
+ *
+ * The hub aggregates every cluster across cantons, so it stays on the legacy
+ * TI section (the existing hub URL — clusters are linked into it from there).
+ * Re-routing the hub per-canton would shard the index across 22 URLs without
+ * a corresponding navigation entry — deferred.
+ */
 function buildHubPath(locale: Locale, page: number = 1): string {
   const prefix = LOCALE_PREFIX[locale];
   const section = getJobBoardSectionSlug(locale);
@@ -813,13 +852,26 @@ function buildHubPath(locale: Locale, page: number = 1): string {
   return page > 1 ? `${base}page-${page}/` : base;
 }
 
-/** Build a localized job-detail URL. */
+/**
+ * Build a localized job-detail URL.
+ *
+ * Each job's canonical detail page is emitted by jobsSeoPagesPlugin under the
+ * job's OWN canton (`/cerca-lavoro-zurigo/{slug}/` for a ZH job, etc — see
+ * `buildCantonAwareSection` there). Linking via the legacy TI section made
+ * every cross-canton card target an unroutable URL (router resolves to TI
+ * canton, slug not in TI shard → "Annuncio non trovato"). Per-job canton
+ * resolution mirrors the emit side.
+ */
 function jobLocalizedUrl(job: RawJob, locale: Locale): string {
   const prefix = LOCALE_PREFIX[locale];
-  const section = getJobBoardSectionSlug(locale);
+  const jobCantonGroup = resolveJobCanton(job);
+  const section = resolveCantonSection(locale as CantonLocale, jobCantonGroup);
   const slug = job.slugByLocale?.[locale] || job.slug || '';
-  if (!slug) return `${BASE_URL}${prefix}/${section}/`.replace(/\/+/g, '/');
-  return `${BASE_URL}${prefix}/${section}/${slug}/`.replace(/\/+/g, '/');
+  // Collapse only the path portion — a naive replace on the whole URL
+  // would turn `https://` into `https:/` (the original prior-to-call bug
+  // was masked because no caller exercised this helper).
+  const collapsedPath = `${prefix}/${section}/${slug ? `${slug}/` : ''}`.replace(/\/+/g, '/');
+  return `${BASE_URL}${collapsedPath}`;
 }
 
 /** Build the page headline. Keeps under 44 chars where possible. */
@@ -1112,7 +1164,7 @@ export function renderClusterPage(inputs: PageInputs): PageOutput {
   const copy = COPY[locale];
   const chrome = CHROME_COPY[locale];
 
-  const urlPath = buildClusterPath(locale, candidate.slug);
+  const urlPath = buildClusterPath(locale, candidate.slug, ctx.cantonGroup);
   const canonicalUrl = `${BASE_URL}${urlPath}`;
   const headline = buildHeadline(ctx.keyword, ctx.city);
   const description = buildDescription(ctx, locale);
@@ -1268,9 +1320,27 @@ export function renderClusterPage(inputs: PageInputs): PageOutput {
   // sub-nav strip we previously emitted as a static sibling is gone.
   // SEO content stays in DOM (Googlebot indexes it with the same weight
   // as standard `<details>` accordion content per Search Central docs).
+  // Crawler-indexable job list. Always emitted (off-screen, no visual impact)
+  // so the static HTML carries cross-canton job references even when the
+  // SPA's canton-scoped grid would render zero — mirrors the SPA's Tier 3
+  // cross-canton fallback at the build layer. Each link points to the job's
+  // OWN canton-aware detail URL (see `jobLocalizedUrl`) so we never link a
+  // BL job into a TI section path that the router can't resolve.
+  const jobLinksHtml = ctx.matchingJobs.length > 0
+    ? `<ul class="cluster-seo-jobs">${ctx.matchingJobs.map((job) => {
+        const jobTitle = String(job.titleByLocale?.[locale] ?? job.title ?? '').replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+        const company = String(job.company || '').trim();
+        const loc = String(job.location || '').trim();
+        const meta = [company, loc].filter(Boolean).join(' · ');
+        const href = jobLocalizedUrl(job, locale);
+        return `<li><a href="${esc(href)}">${esc(jobTitle)}${meta ? ` — ${esc(meta)}` : ''}</a></li>`;
+      }).join('')}</ul>`
+    : '';
+
   const srOnlyStyle = 'position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0';
   const bodyHtml = `<div class="related-search-cluster" style="${srOnlyStyle}">
     <h1>${esc(headlineH1)}</h1>
+    ${jobLinksHtml}
     ${seoContextBlock}
   </div>`;
 
@@ -1890,7 +1960,7 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
         const hreflang = altMap
           ? Array.from(altMap.entries()).map(([loc, otherCtx]) => ({
               locale: loc,
-              url: `${BASE_URL}${buildClusterPath(loc, otherCtx.candidate.slug)}`,
+              url: `${BASE_URL}${buildClusterPath(loc, otherCtx.candidate.slug, otherCtx.cantonGroup)}`,
             }))
           : [];
 
@@ -1901,7 +1971,7 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
           .slice(0, 8)
           .map((other) => ({
             keyword: other.city ? `${capitalize(other.keyword)} — ${other.city}` : capitalize(other.keyword),
-            url: `${BASE_URL}${buildClusterPath(locale, other.candidate.slug)}`,
+            url: `${BASE_URL}${buildClusterPath(locale, other.candidate.slug, other.cantonGroup)}`,
           }));
 
         const enrichedKey = `${locale}::${ctx.candidate.slug}`;
@@ -1934,7 +2004,7 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
       // ── Per-locale hub pages ──────────────────────────────────────────
       for (const [locale, list] of byLocale.entries()) {
         const items: HubItem[] = list.map((ctx) => {
-          const path = buildClusterPath(locale, ctx.candidate.slug);
+          const path = buildClusterPath(locale, ctx.candidate.slug, ctx.cantonGroup);
           return {
             keyword: ctx.keyword,
             city: ctx.city,
