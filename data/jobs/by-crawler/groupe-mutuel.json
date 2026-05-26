@@ -1,6 +1,6 @@
 {
   "crawlerKey": "groupe-mutuel",
-  "assembledAt": "2026-05-25T22:16:02.099Z",
+  "assembledAt": "2026-05-26T22:57:33.650Z",
   "jobs": [
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4094?c=groupemutuel&lang=fr-FR",
@@ -153,7 +153,8 @@
         "consultant-strategie-innovation-h-f-80-100-groupe-mutuel",
         "consulente-strategia-innovazione-m-f-80-100-groupe-mutuel-lausanne",
         "strategie-innovationsberater-m-w-80-100-groupe-mutuel-lausanne"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4082?c=groupemutuel&lang=fr-FR",
@@ -226,7 +227,8 @@
       },
       "previousSlugs": [
         "conseiller-assurance-et-prevoyance-h-f-80-100-groupe-mutuel"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4077?c=groupemutuel&lang=fr-FR",
@@ -374,7 +376,8 @@
         }
       },
       "postalCode": "1920",
-      "firstSeenAt": "2026-05-22T22:18:14.485Z"
+      "firstSeenAt": "2026-05-22T22:18:14.485Z",
+      "needsRetranslation": true
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4085?c=groupemutuel&lang=fr-FR",
@@ -601,7 +604,8 @@
         }
       },
       "postalCode": "1950",
-      "firstSeenAt": "2026-05-19T11:48:30.108Z"
+      "firstSeenAt": "2026-05-19T11:48:30.108Z",
+      "needsRetranslation": true
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4073?c=groupemutuel&lang=fr-FR",
@@ -629,7 +633,7 @@
       "slugByLocale": {
         "it": "contratto-manager-h-f-100-temporaneo-3-mesi-estensibile-groupe-mutuel-fribourg",
         "en": "contract-manager-h-f-100-temporary-3-months-extendable-groupe-mutuel-fribourg",
-        "de": "vertragsleiter-h-f-100-vorubergehend-3-monate-ausziehbar-groupe-mutuel-fribourg",
+        "de": "gestionnaire-contrats-h-f-100-temporaire-3-mois-prolongeable-groupe-mutuel-2",
         "fr": "gestionnaire-contrats-h-f-100-temporaire-3-mois-prolongeable-groupe-mutuel"
       },
       "category": "administration",
@@ -650,6 +654,7 @@
         "it": [
           "gestionnaire-contrats-h-f-100-temporaire-3-mois-prolongeable-groupe-mutuel-2",
           "gestionnaire-contrats-m-w-d-100-temporaire-3-mois-prolongeable-groupe-mutuel-fribourg",
+          "gestionnaire-contrats-h-f-100-temporaire-3-mois-prolongeable-groupe-mutuel",
           "contract-manager-m-f-100-temporaneo-3-mesi-prorogabile-groupe-mutuel-fribourg"
         ],
         "en": [
@@ -657,17 +662,19 @@
           "contract-manager-h-f-100-temporary-3-months-extended-groupe-mutuel-fribourg"
         ],
         "de": [
-          "gestionnaire-contrats-h-f-100-temporaire-3-mois-prolongeable-groupe-mutuel-2",
-          "vertragsleiter-h-f-100-vorubergehend-3-monate-verlangert-groupe-mutuel-fribourg"
+          "vertragsleiter-h-f-100-vorubergehend-3-monate-verlangert-groupe-mutuel-fribourg",
+          "vertragsleiter-h-f-100-vorubergehend-3-monate-ausziehbar-groupe-mutuel-fribourg",
+          "gestionnaire-contrats-h-f-100-temporaire-3-mois-prolongeable-groupe-mutuel-2"
         ]
       },
       "previousSlugs": [
         "gestionnaire-contrats-h-f-100-temporaire-3-mois-prolongeable-groupe-mutuel-2",
         "gestionnaire-contrats-m-w-d-100-temporaire-3-mois-prolongeable-groupe-mutuel-fribourg",
-        "contract-manager-m-f-100-temporaneo-3-mesi-prorogabile-groupe-mutuel-fribourg",
         "gestionnaire-contrats-h-f-100-temporaire-3-mois-prolongeable-groupe-mutuel",
+        "contract-manager-m-f-100-temporaneo-3-mesi-prorogabile-groupe-mutuel-fribourg",
         "contract-manager-h-f-100-temporary-3-months-extended-groupe-mutuel-fribourg",
-        "vertragsleiter-h-f-100-vorubergehend-3-monate-verlangert-groupe-mutuel-fribourg"
+        "vertragsleiter-h-f-100-vorubergehend-3-monate-verlangert-groupe-mutuel-fribourg",
+        "vertragsleiter-h-f-100-vorubergehend-3-monate-ausziehbar-groupe-mutuel-fribourg"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -683,88 +690,8 @@
         }
       },
       "postalCode": "1700",
-      "firstSeenAt": "2026-05-19T11:48:30.108Z"
-    },
-    {
-      "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4072?c=groupemutuel&lang=fr-FR",
-      "applyUrl": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4072?c=groupemutuel&lang=fr-FR",
-      "title": "Sachbearbeiter Vertragsabteilung (m/w) 100% - temporär 3 Monate, verlängerbar",
-      "company": "Groupe Mutuel",
-      "companyKey": "groupe-mutuel",
-      "location": "Zürich",
-      "canton": "ZH",
-      "country": "CH",
-      "description": "Du verwaltest Versicherungsverträge mit Sorgfalt und Effizienz – ob Neuabschluss, Änderung oder Kündigung Ob per Brief oder E-Mail – du kommunizierst klar, verständlich und stets auf professionellem Niveau Die Indexierung von Dokumenten erledigst du strukturiert – du sorgst dafür, dass alles dort ist, wo es hingehört Vorbildlicher Kundenservice ist für dich selbstverständlich – du verfolgst jede Anfrage mit Aufmerksamkeit und Engagement\n\nGroupe Mutuel is one of Switzerland's leading insurance groups, headquartered in Martigny (Valais). The company offers a wide range of insurance and pension products for individuals and businesses across Switzerland.",
-      "descriptionByLocale": {
-        "it": "Gestisci i contratti assicurativi con cura ed efficienza – sia che ritiri, modifiche o terminazioni Sia per lettera o per e-mail – si comunica chiaramente, comprensibilmente e sempre a livello professionale L'indicizzazione dei documenti è strutturata – si assicura che tutto è dove appartiene al servizio clienti esemplare è naturale per voi – si seguono ogni richiesta con attenzione e impegno Groupe Mutuel è uno dei principali gruppi assicurativi della Svizzera, con sede a Martigny (Valais). L'azienda offre una vasta gamma di prodotti assicurativi e pensionistici per i privati e le imprese in tutta la Svizzera.",
-        "en": "You manage insurance contracts with care and efficiency – whether re-closing, modification or termination Whether by letter or e-mail – you communicate clearly, understandably and always at a professional level The indexing of documents is structured – you make sure that everything is where it belongs to exemplary customer service is natural for you – you follow every request with attention and commitment Groupe Mutuel is one of Switzerland's leading insurance groups, headquartered in Martigny (Valais). The company offers a wide range of insurance and pension products for individuals and businesses across Switzerland.",
-        "de": "Du verwaltest Versicherungsverträge mit Sorgfalt und Effizienz – ob Neuabschluss, Änderung oder Kündigung Ob per Brief oder E-Mail – du kommunizierst klar, verständlich und stets auf professionellem Niveau Die Indexierung von Dokumenten erledigst du strukturiert – du sorgst dafür, dass alles dort ist, wo es hingehört Vorbildlicher Kundenservice ist für dich selbstverständlich – du verfolgst jede Anfrage mit Aufmerksamkeit und Engagement Groupe Mutuel is one of Switzerland's leading insurance groups, headquartered in Martigny (Valais). The company offers a wide range of insurance and pension products for individuals and businesses across Switzerland.",
-        "fr": "Vous gérez les contrats d'assurance avec soin et efficacité – que ce soit la fermeture, la modification ou la résiliation Que ce soit par lettre ou par courriel, vous communiquez clairement, de manière compréhensible et toujours au niveau professionnel L'indexation des documents est structurée – vous assurez que tout est là où il appartient au service à la clientèle exemplaire est naturel pour vous – vous suivez chaque demande avec attention et engagement Groupe Mutuel est l'un des principaux groupes d'assurances suisses, dont le siège est à Martigny (Valais). La société propose une large gamme de produits d'assurance et de retraite pour les particuliers et les entreprises dans toute la Suisse."
-      },
-      "titleByLocale": {
-        "it": "Senior Account Manager (m/w)",
-        "en": "Senior Account Manager (m/w)",
-        "de": "Sachbearbeiter Vertragsabteilung (m/w) 100% - temporär 3 Monate, verlängerbar",
-        "fr": "Directeur principal des comptes (m/m)"
-      },
-      "slug": "senior-account-manager-m-w-groupe-mutuel-zurich-791148",
-      "slugByLocale": {
-        "it": "senior-account-manager-m-w-groupe-mutuel-zurich-791148",
-        "en": "senior-account-manager-m-w-groupe-mutuel-zurich",
-        "de": "sachbearbeiter-vertragsabteilung-m-w-100-temporar-3-monate-verlangerbar-groupe-mutuel",
-        "fr": "directeur-principal-des-comptes-m-m-groupe-mutuel-zurich-791148"
-      },
-      "category": "administration",
-      "datePosted": "2026-05-19",
-      "source": "groupe-mutuel-csod-crawler",
-      "sourceLang": "de",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "MID",
-      "sector": "Assicurazioni / Sanità",
-      "_targetScope": {
-        "canton": "ZH",
-        "location": "Zürich"
-      },
-      "jobReqId": "4072",
-      "crawledAt": "",
-      "id": "groupe-mutuel-7fa90c45c6f8",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "8001",
       "firstSeenAt": "2026-05-19T11:48:30.108Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "sachbearbeiter-vertragsabteilung-m-w-100-temporar-3-monate-verlangerbar-groupe-mutuel",
-          "incaricato-reparto-contrattuale-m-f-100-temporaneo-3-mesi-rinnovabile-groupe-mutuel-zurich",
-          "gestione-del-prodotto-m-w-groupe-mutuel-zurich"
-        ],
-        "en": [
-          "sachbearbeiter-vertragsabteilung-m-w-100-temporar-3-monate-verlangerbar-groupe-mutuel",
-          "projektmanagement-m-w-groupe-mutuel-zurich"
-        ],
-        "fr": [
-          "sachbearbeiter-vertragsabteilung-m-w-100-temporar-3-monate-verlangerbar-groupe-mutuel",
-          "gestion-du-projet-m-m-groupe-mutuel-zurich"
-        ]
-      },
-      "previousSlugs": [
-        "sachbearbeiter-vertragsabteilung-m-w-100-temporar-3-monate-verlangerbar-groupe-mutuel",
-        "incaricato-reparto-contrattuale-m-f-100-temporaneo-3-mesi-rinnovabile-groupe-mutuel-zurich",
-        "gestione-del-prodotto-m-w-groupe-mutuel-zurich",
-        "projektmanagement-m-w-groupe-mutuel-zurich",
-        "gestion-du-projet-m-m-groupe-mutuel-zurich"
-      ]
+      "needsRetranslation": true
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4071?c=groupemutuel&lang=fr-FR",
@@ -826,15 +753,16 @@
       "firstSeenAt": "2026-05-19T11:48:30.108Z",
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeiter-vertragsabteilung-m-w-100-temporar-3-monate-verlangerbar-groupe-mutuel-2"
+          "sachbearbeiter-vertragsabteilung-m-w-100-temporar-3-monate-verlangerbar-groupe-mutuel-2",
+          "sachbearbeiter-vertragsabteilung-m-w-100-temporar-3-monate-verlangerbar-groupe-mutuel"
         ],
         "en": [
-          "sachbearbeiter-vertragsabteilung-m-w-100-temporar-3-monate-verlangerbar-groupe-mutuel",
-          "projektmanagement-m-w-groupe-mutuel-sion"
+          "projektmanagement-m-w-groupe-mutuel-sion",
+          "sachbearbeiter-vertragsabteilung-m-w-100-temporar-3-monate-verlangerbar-groupe-mutuel"
         ],
         "fr": [
-          "sachbearbeiter-vertragsabteilung-m-w-100-temporar-3-monate-verlangerbar-groupe-mutuel",
-          "gestion-du-projet-m-m-groupe-mutuel-sion"
+          "gestion-du-projet-m-m-groupe-mutuel-sion",
+          "sachbearbeiter-vertragsabteilung-m-w-100-temporar-3-monate-verlangerbar-groupe-mutuel"
         ]
       },
       "previousSlugs": [
@@ -890,6 +818,7 @@
       "previousSlugsByLocale": {
         "it": [
           "auxiliaire-medical-assistant-en-pharmacie-h-f-80-100-groupe-mutuel",
+          "auxiliaire-medical-pharmacie-h-f-80-100-groupe-mutuel",
           "auxiliaire-medical-assistant-en-pharmacie-m-w-d-80-100-groupe-mutuel-lausanne"
         ],
         "fr": [
@@ -898,6 +827,7 @@
       },
       "previousSlugs": [
         "auxiliaire-medical-assistant-en-pharmacie-h-f-80-100-groupe-mutuel",
+        "auxiliaire-medical-pharmacie-h-f-80-100-groupe-mutuel",
         "auxiliaire-medical-assistant-en-pharmacie-m-w-d-80-100-groupe-mutuel-lausanne"
       ],
       "salaryMin": 70500,
@@ -915,75 +845,6 @@
       },
       "postalCode": "1003",
       "firstSeenAt": "2026-05-11T11:46:55.536Z"
-    },
-    {
-      "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/3962?c=groupemutuel&lang=fr-FR",
-      "applyUrl": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/3962?c=groupemutuel&lang=fr-FR",
-      "title": "Vertrauenspflegefachperson Spitex - administrativ (m/w) 50 - 100%",
-      "company": "Groupe Mutuel",
-      "companyKey": "groupe-mutuel",
-      "location": "Lausanne",
-      "canton": "VD",
-      "country": "CH",
-      "description": "Du überprüfst die Übereinstimmung zwischen erbrachten Pflegeleistungen und den eingereichten Rechnungen der Leistungserbringer Du beurteilst und überprüfst den Pflegebedarf von Versicherten zu Hause, anhand von Dossiers oder durch gezielte Abklärungs‑ und Beurteilungsbesuche Beurteilungsbesuche sowie Besuche bei Gesundheitsdienstleistern gehören ebenfalls zu deinem Aufgabenbereich Du baust Beziehungen zwischen Gesundheitsdienstleistern und der Versicherungsbranche auf und pflegst diese nachhaltig Als medizinische Fachperson beantwortest du Fragen der Sachbearbeitenden und unterstützt sie bei medizinisch relevanten Entscheidungen Zudem sensibilisierst du die Sachbearbeitenden für gängige medizinische und pflegerische Praktiken\n\nGroupe Mutuel is one of Switzerland's leading insurance groups, headquartered in Martigny (Valais). The company offers a wide range of insurance and pension products for individuals and businesses across Switzerland.",
-      "descriptionByLocale": {
-        "it": "Descrizione - Controlli la corrispondenza tra i servizi di assistenza forniti e le fatture presentate dai fornitori di assistenza - Valuti e verifichi le esigenze di assistenza degli assicurati a casa, sulla base di dossier o attraverso visite di accertamento e valutazione mirate - Anche le visite di valutazione e le visite ai fornitori di assistenza sanitaria fanno parte del tuo ambito di competenza - Costruisci e gestisci in modo sostenibile le relazioni tra i fornitori di assistenza sanitaria e il settore assicurativo - In qualità di professionista medico rispondi alle domande degli operatori sanitari e li supporti nelle decisioni di rilevanza medica - Inoltre sensibilizzi gli operatori alle pratiche mediche e assistenziali comuni ## Informazioni su Groupe Mutuel - Groupe Mutuel is one of Switzerland's leading insurance groups, headquartered in Martigny (Valais) - The company offers a wide range of insurance and pensioncts for individuals and business across Switzerland",
-        "en": "Descrizione - You check the correspondence between care services provided and the invoices submitted by the care providers - You assess and check the care needs of insured persons at home, on the basis of files or through targeted clarification and assessment visits - Assessment visits and visits to health care providers are also part of your area of responsibility - You build relationships between health care providers and the insurance industry and maintain them sustainably - As a medical professional, you answer questions from the clerks and support them in making medically relevant decisions - In addition, you raise the clerks' awareness of common medical and nursing practices ## About Groupe Mutuel - Groupe Mutuel is one of Switzerland's leading insurance groups, headquartered in Martigny (Valais) - The company offers a wide range of insurance and pension products for individuals and businesses across Switzerland",
-        "de": "## Descrizione - Du überprüfst die Übereinstimmung zwischen erbrachten Pflegeleistungen und den eingereichten Rechnungen der Leistungserbringer - Du beurteilst und überprüfst den Pflegebedarf von Versicherten zu Hause, anhand von Dossiers oder durch gezielte Abklärungs‑ und Beurteilungsbesuche - Beurteilungsbesuche sowie Besuche bei Gesundheitsdienstleistern gehören ebenfalls zu deinem Aufgabenbereich - Du baust Beziehungen zwischen Gesundheitsdienstleistern und der Versicherungsbranche auf und pflegst diese nachhaltig - Als medizinische Fachperson beantwortest du Fragen der Sachbearbeitenden und unterstützt sie bei medizinisch relevanten Entscheidungen - Zudem sensibilisierst du die Sachbearbeitenden für gängige medizinische und pflegerische Praktiken ## Über Groupe Mutuel - Groupe Mutuel is one of Switzerland's leading insurance groups, headquartered in Martigny (Valais) - The company offers a wide range of insurance and pension products for individuals and businesses across Switzerland",
-        "fr": "Descrizione - Vous vérifiez la cohérence entre les prestations de soins fournies et les factures soumises par les fournisseurs de soins - Vous évaluez et vérifiez les besoins en soins des assurés à domicile, sur la base de dossiers ou par des visites de clarification et d'évaluation ciblées - Les visites d'évaluation ainsi que les visites chez les prestataires de soins de santé font également partie de votre domaine d'activité - Vous établissez des relations entre les prestataires de soins de santé et le secteur de l'assurance et vous les entretenez de manière durable - En tant que professionnel de la santé, vous répondez aux questions des gestionnaires et les soutenez dans les décisions pertinentes sur le plan médical - En outre, vous sensibilisez les gestionnaires aux pratiques médicales et infirmières courantes ## À propos du Groupe Mutuel - Groupe Mutuel is one of Switzerland's leading insurance groups, headquartered in Martigny (Valais) - The company offers a wide range of insurance and pension products for individuals and businesses across Switzerland"
-      },
-      "titleByLocale": {
-        "it": "Vertrauenspflegefachperson Spitex - administrativ (m/w) 50 - 100%",
-        "en": "Account Manager (m/w) 50 - 100 %",
-        "de": "Mitarbeiter (m/w) 50 - 100%",
-        "fr": "Infirmier/ère-Conseil – Soins à domicile (h/f) 50-100%"
-      },
-      "slug": "vertrauenspflegefachperson-spitex-administrativ-m-w-50-100-groupe-mutuel",
-      "slugByLocale": {
-        "it": "vertrauenspflegefachperson-spitex-administrativ-m-w-50-100-groupe-mutuel",
-        "en": "account-manager-m-w-50-100-groupe-mutuel-sion",
-        "de": "mitarbeiter-m-w-50-100-groupe-mutuel-sion",
-        "fr": "infirmier-ere-conseil-soins-a-domicile-h-f-50-100-groupe-mutuel-lausanne"
-      },
-      "category": "healthcare",
-      "datePosted": "2026-04-13",
-      "source": "groupe-mutuel-csod-crawler",
-      "sourceLang": "de",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "MID",
-      "sector": "Assicurazioni / Sanità",
-      "_targetScope": {
-        "canton": "VS",
-        "location": "Sion"
-      },
-      "jobReqId": "3962",
-      "crawledAt": "",
-      "id": "groupe-mutuel-6d3d1e2b4c32",
-      "salaryMin": 70500,
-      "salaryMax": 98500,
-      "currency": "CHF",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 70500,
-          "maxValue": 98500,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "1950",
-      "firstSeenAt": "2026-04-13T21:47:16.445Z",
-      "previousSlugs": [
-        "vertrauenspflegefachperson-spitex-administrateur-m-m-50-100-groupe-mutuel-sion",
-        "infirmier-ere-conseil-soins-a-domicile-h-f-50-100-groupe-mutuel-sion"
-      ],
-      "previousSlugsByLocale": {
-        "fr": [
-          "vertrauenspflegefachperson-spitex-administrateur-m-m-50-100-groupe-mutuel-sion",
-          "infirmier-ere-conseil-soins-a-domicile-h-f-50-100-groupe-mutuel-sion"
-        ]
-      }
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4012?c=groupemutuel&lang=fr-FR",
@@ -1080,9 +941,9 @@
         "de": "Versicherungs- und Vorsorgeberater (m/w) 80 -100%",
         "fr": "Conseiller en assurance et prévoyance (m/f) 80-100%"
       },
-      "slug": "consulente-assicurativo-e-previdenziale-m-w-80-100-groupe-mutuel-bern",
+      "slug": "versicherungs-e-vorsorgeberater-m-w-d-80-100-groupe-mutuel-bern",
       "slugByLocale": {
-        "it": "consulente-assicurativo-e-previdenziale-m-w-80-100-groupe-mutuel-bern",
+        "it": "versicherungs-e-vorsorgeberater-m-w-d-80-100-groupe-mutuel-bern",
         "en": "insurance-and-pension-advisor-m-w-80-100-groupe-mutuel-bern",
         "de": "versicherungs-und-vorsorgeberater-m-w-80-100-groupe-mutuel",
         "fr": "conseiller-en-assurance-et-prevoyance-m-f-80-100-groupe-mutuel-bern"
@@ -1104,10 +965,11 @@
       "previousSlugsByLocale": {
         "it": [
           "versicherungs-und-vorsorgeberater-m-w-80-100-groupe-mutuel",
-          "versicherungs-e-vorsorgeberater-m-w-d-80-100-groupe-mutuel-bern",
           "versicherungs-und-vorsorgeberater-m-w-80-100-groupe-mutuel-2",
           "versicherungs-e-vorsorgeberater-m-w-80-100-groupe-mutuel-aarau",
-          "versicherungs-e-vorsorgeberater-m-w-80-100-groupe-mutuel-bern"
+          "versicherungs-e-vorsorgeberater-m-w-80-100-groupe-mutuel-bern",
+          "consulente-assicurativo-e-previdenziale-m-w-80-100-groupe-mutuel-bern",
+          "versicherungs-e-vorsorgeberater-m-w-d-80-100-groupe-mutuel-bern"
         ],
         "en": [
           "versicherungs-und-vorsorgeberater-m-w-80-100-groupe-mutuel"
@@ -1118,10 +980,10 @@
       },
       "previousSlugs": [
         "versicherungs-und-vorsorgeberater-m-w-80-100-groupe-mutuel",
-        "versicherungs-e-vorsorgeberater-m-w-d-80-100-groupe-mutuel-bern",
         "versicherungs-und-vorsorgeberater-m-w-80-100-groupe-mutuel-2",
         "versicherungs-e-vorsorgeberater-m-w-80-100-groupe-mutuel-aarau",
-        "versicherungs-e-vorsorgeberater-m-w-80-100-groupe-mutuel-bern"
+        "versicherungs-e-vorsorgeberater-m-w-80-100-groupe-mutuel-bern",
+        "consulente-assicurativo-e-previdenziale-m-w-80-100-groupe-mutuel-bern"
       ],
       "salaryMin": 53500,
       "salaryMax": 89000,
@@ -1137,7 +999,8 @@
         }
       },
       "postalCode": "3001",
-      "firstSeenAt": "2026-05-04T10:57:40.559Z"
+      "firstSeenAt": "2026-05-04T10:57:40.559Z",
+      "needsRetranslation": true
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4005?c=groupemutuel&lang=fr-FR",
@@ -1198,13 +1061,13 @@
       "postalCode": "1920",
       "firstSeenAt": "2026-04-29T10:49:34.377Z",
       "previousSlugsByLocale": {
+        "fr": [
+          "collaborateur-support-it-h-f-80-100-groupe-mutuel"
+        ],
         "it": [
           "collaborateur-support-it-h-f-80-100-groupe-mutuel"
         ],
         "de": [
-          "collaborateur-support-it-h-f-80-100-groupe-mutuel"
-        ],
-        "fr": [
           "collaborateur-support-it-h-f-80-100-groupe-mutuel"
         ]
       },
@@ -1288,81 +1151,6 @@
       "firstSeenAt": "2026-04-14T10:00:50.873Z"
     },
     {
-      "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/3996?c=groupemutuel&lang=fr-FR",
-      "applyUrl": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/3996?c=groupemutuel&lang=fr-FR",
-      "title": "Gestionnaire LAA (h/f) 100% - temporaire 8 mois",
-      "company": "Groupe Mutuel",
-      "companyKey": "groupe-mutuel",
-      "location": "Lausanne",
-      "canton": "VD",
-      "country": "CH",
-      "description": "Tu traites les factures les pots introuvables et inconnus Tu soutiens au niveau administratif les gestionnaires LAA Les dossiers statistiques pour la SUVA sont préparés par toi\n\nGroupe Mutuel is one of Switzerland's leading insurance groups, headquartered in Martigny (Valais). The company offers a wide range of insurance and pension products for individuals and businesses across Switzerland.",
-      "descriptionByLocale": {
-        "it": "Descrizione - Elabori le bollette, le pentole che non puoi trovare e l'ignoto. - No. Lei sostiene i dirigenti LAA a livello amministrativo - I file statistici per SUVA sono preparati da Lei Groupe Mutuel è uno dei principali gruppi assicurativi della Svizzera, con sede a Martigny (Valais). L'azienda offre una vasta gamma di prodotti assicurativi e pensionistici per i privati e le imprese in tutta la Svizzera.",
-        "en": "Descrizione - You process the bills, the pots you can't find and the unknown. - You support LAA managers at the administrative level - The statistical files for SUVA are prepared by you Groupe Mutuel is one of Switzerland's leading insurance groups, headquartered in Martigny (Valais). The company offers a wide range of insurance and pension products for individuals and businesses across Switzerland.",
-        "de": "Beschreibung - Sie verarbeiten die Rechnungen, die Töpfe, die Sie nicht finden können und das Unbekannte. - Ja. Sie unterstützen LAA-Manager auf administrativer Ebene - Die statistischen Dateien für die SUVA werden von Ihnen erstellt Groupe Mutuel ist eine der führenden Versicherungsgruppen der Schweiz mit Sitz in Martigny (Valais). Das Unternehmen bietet eine breite Palette von Versicherungs- und Pensionsprodukten für Einzelpersonen und Unternehmen in der ganzen Schweiz.",
-        "fr": "## Descrizione - Tu traites les factures les pots introuvables et inconnus - Tu soutiens au niveau administratif les gestionnaires LAA - Les dossiers statistiques pour la SUVA sont préparés par toi Groupe Mutuel is one of Switzerland's leading insurance groups, headquartered in Martigny (Valais). The company offers a wide range of insurance and pension products for individuals and businesses across Switzerland."
-      },
-      "titleByLocale": {
-        "it": "LAA Manager (h/f) 100% - temporaneo 8 mesi",
-        "en": "LAA Manager (h/f) 100% - temporary 8 months",
-        "de": "LAA Manager (h/f) 100% - temporär 8 Monate",
-        "fr": "Gestionnaire LAA (h/f) 100% - temporaire 8 mois"
-      },
-      "slug": "laa-manager-h-f-100-temporaneo-8-mesi-groupe-mutuel-lausanne",
-      "slugByLocale": {
-        "it": "laa-manager-h-f-100-temporaneo-8-mesi-groupe-mutuel-lausanne",
-        "en": "laa-manager-h-f-100-temporary-8-months-groupe-mutuel-lausanne",
-        "de": "laa-manager-h-f-100-temporar-8-monate-groupe-mutuel-lausanne",
-        "fr": "gestionnaire-laa-h-f-100-temporaire-8-mois-groupe-mutuel"
-      },
-      "category": "administration",
-      "datePosted": "2026-04-27",
-      "source": "groupe-mutuel-csod-crawler",
-      "sourceLang": "fr",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "MID",
-      "sector": "Assicurazioni / Sanità",
-      "_targetScope": {
-        "canton": "VD",
-        "location": "Lausanne"
-      },
-      "jobReqId": "3996",
-      "crawledAt": "",
-      "id": "groupe-mutuel-ce935fac8c0b",
-      "previousSlugsByLocale": {
-        "it": [
-          "gestionnaire-laa-h-f-100-temporaire-8-mois-groupe-mutuel",
-          "gestionnaire-laa-m-w-d-100-temporaire-8-mois-groupe-mutuel-lausanne"
-        ],
-        "en": [
-          "gestionnaire-laa-h-f-100-temporaire-8-mois-groupe-mutuel"
-        ],
-        "de": [
-          "gestionnaire-laa-h-f-100-temporaire-8-mois-groupe-mutuel"
-        ]
-      },
-      "previousSlugs": [
-        "gestionnaire-laa-h-f-100-temporaire-8-mois-groupe-mutuel",
-        "gestionnaire-laa-m-w-d-100-temporaire-8-mois-groupe-mutuel-lausanne"
-      ],
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "1003",
-      "firstSeenAt": "2026-04-27T10:58:38.786Z"
-    },
-    {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/3988?c=groupemutuel&lang=fr-FR",
       "applyUrl": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/3988?c=groupemutuel&lang=fr-FR",
       "title": "Conseiller en Assurances et Prévoyance (h/f) 80-100%",
@@ -1422,6 +1210,7 @@
       "firstSeenAt": "2026-04-20T10:42:58.640Z",
       "previousSlugs": [
         "consulente-assicurazioni-e-previdenza-h-f-80-100-groupe-mutuel-yverdon-les-bains",
+        "conseiller-en-assurances-et-prevoyance-h-f-80-100-groupe-mutuel",
         "conseiller-en-assurances-et-prevoyance-h-f-80-100-groupe-mutuel-3",
         "insurance-and-pension-advisor-m-f-80-100-groupe-mutuel-yverdon-les-bains",
         "versicherungs-und-vorsorgeberater-m-w-80-100-groupe-mutuel-yverdon-les-bains",
@@ -1430,6 +1219,7 @@
       "previousSlugsByLocale": {
         "it": [
           "consulente-assicurazioni-e-previdenza-h-f-80-100-groupe-mutuel-yverdon-les-bains",
+          "conseiller-en-assurances-et-prevoyance-h-f-80-100-groupe-mutuel",
           "conseiller-en-assurances-et-prevoyance-h-f-80-100-groupe-mutuel-3"
         ],
         "en": [
@@ -1526,17 +1316,18 @@
       ],
       "addressRegion": "SG",
       "previousSlugsByLocale": {
-        "it": [
-          "versicherungs-und-vorsorgeberater-m-w-80-100-groupe-mutuel"
-        ],
         "fr": [
           "versicherungs-und-vorsorgeberater-m-w-80-100-groupe-mutuel"
         ],
         "en": [
           "versicherungs-und-vorsorgeberater-m-w-80-100-groupe-mutuel"
+        ],
+        "it": [
+          "versicherungs-und-vorsorgeberater-m-w-80-100-groupe-mutuel"
         ]
       },
-      "firstSeenAt": "2026-04-13T21:47:16.445Z"
+      "firstSeenAt": "2026-04-13T21:47:16.445Z",
+      "needsRetranslation": true
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/3980?c=groupemutuel&lang=fr-FR",
@@ -1560,9 +1351,9 @@
         "de": "Versicherungs- und Vorsorgeberater (m/w) 80- 100%",
         "fr": "Conseiller en assurance et prévoyance (h/f) 80-100%"
       },
-      "slug": "consulente-assicurativo-e-previdenziale-m-w-80-100-groupe-mutuel-zurich",
+      "slug": "versicherungs-e-vorsorgeberater-m-w-80-100-groupe-mutuel-zurich",
       "slugByLocale": {
-        "it": "consulente-assicurativo-e-previdenziale-m-w-80-100-groupe-mutuel-zurich",
+        "it": "versicherungs-e-vorsorgeberater-m-w-80-100-groupe-mutuel-zurich",
         "en": "insurance-and-pension-advisor-m-f-80-100-groupe-mutuel-zurich",
         "de": "versicherungs-und-vorsorgeberater-m-w-80-100-groupe-mutuel",
         "fr": "conseiller-en-assurance-et-prevoyance-h-f-80-100-groupe-mutuel-zurich"
@@ -1584,6 +1375,7 @@
       "previousSlugsByLocale": {
         "it": [
           "versicherungs-und-vorsorgeberater-m-w-80-100-groupe-mutuel",
+          "consulente-assicurativo-e-previdenziale-m-w-80-100-groupe-mutuel-zurich",
           "versicherungs-e-vorsorgeberater-m-w-80-100-groupe-mutuel-zurich"
         ],
         "en": [
@@ -1595,7 +1387,7 @@
       },
       "previousSlugs": [
         "versicherungs-und-vorsorgeberater-m-w-80-100-groupe-mutuel",
-        "versicherungs-e-vorsorgeberater-m-w-80-100-groupe-mutuel-zurich"
+        "consulente-assicurativo-e-previdenziale-m-w-80-100-groupe-mutuel-zurich"
       ],
       "salaryMin": 53500,
       "salaryMax": 89000,
@@ -1611,7 +1403,8 @@
         }
       },
       "postalCode": "8001",
-      "firstSeenAt": "2026-04-16T21:40:55.557Z"
+      "firstSeenAt": "2026-04-16T21:40:55.557Z",
+      "needsRetranslation": true
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/3893?c=groupemutuel&lang=fr-FR",
@@ -1635,9 +1428,9 @@
         "de": "Versicherungs- und Vorsorgeberater (m/w) 80-100%",
         "fr": "Conseiller en assurance et prévoyance (h/f) 80-100%"
       },
-      "slug": "consulente-assicurativo-e-previdenziale-m-f-80-100-groupe-mutuel-solothurn",
+      "slug": "versicherungs-e-vorsorgeberater-m-w-80-100-groupe-mutuel-solothurn",
       "slugByLocale": {
-        "it": "consulente-assicurativo-e-previdenziale-m-f-80-100-groupe-mutuel-solothurn",
+        "it": "versicherungs-e-vorsorgeberater-m-w-80-100-groupe-mutuel-solothurn",
         "en": "insurance-and-pension-advisor-m-f-80-100-groupe-mutuel-solothurn",
         "de": "versicherungs-und-vorsorgeberater-m-w-80-100-groupe-mutuel",
         "fr": "conseiller-en-assurance-et-prevoyance-h-f-80-100-groupe-mutuel-solothurn"
@@ -1659,6 +1452,7 @@
       "previousSlugsByLocale": {
         "it": [
           "versicherungs-und-vorsorgeberater-m-w-80-100-groupe-mutuel",
+          "consulente-assicurativo-e-previdenziale-m-f-80-100-groupe-mutuel-solothurn",
           "versicherungs-e-vorsorgeberater-m-w-80-100-groupe-mutuel-solothurn"
         ],
         "en": [
@@ -1670,7 +1464,7 @@
       },
       "previousSlugs": [
         "versicherungs-und-vorsorgeberater-m-w-80-100-groupe-mutuel",
-        "versicherungs-e-vorsorgeberater-m-w-80-100-groupe-mutuel-solothurn"
+        "consulente-assicurativo-e-previdenziale-m-f-80-100-groupe-mutuel-solothurn"
       ],
       "salaryMin": 53500,
       "salaryMax": 89000,
@@ -1686,7 +1480,8 @@
         }
       },
       "postalCode": "4500",
-      "firstSeenAt": "2026-04-15T21:41:29.166Z"
+      "firstSeenAt": "2026-04-15T21:41:29.166Z",
+      "needsRetranslation": true
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/3883?c=groupemutuel&lang=fr-FR",
@@ -1751,17 +1546,18 @@
         "kundenberater-agenturen-m-w-80-100-groupe-mutuel"
       ],
       "previousSlugsByLocale": {
-        "it": [
-          "kundenberater-agenturen-m-w-80-100-groupe-mutuel"
-        ],
         "fr": [
           "kundenberater-agenturen-m-w-80-100-groupe-mutuel"
         ],
         "en": [
           "kundenberater-agenturen-m-w-80-100-groupe-mutuel"
+        ],
+        "it": [
+          "kundenberater-agenturen-m-w-80-100-groupe-mutuel"
         ]
       },
-      "firstSeenAt": "2026-04-13T21:47:16.445Z"
+      "firstSeenAt": "2026-04-13T21:47:16.445Z",
+      "needsRetranslation": true
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/3861?c=groupemutuel&lang=fr-FR",
@@ -1852,7 +1648,8 @@
           "conseiller-en-assurances-et-prevoyance-at-h-f-80-100-groupe-mutuel"
         ]
       },
-      "firstSeenAt": "2026-04-13T21:47:16.445Z"
+      "firstSeenAt": "2026-04-13T21:47:16.445Z",
+      "needsRetranslation": true
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/3852?c=groupemutuel&lang=fr-FR",
@@ -1948,14 +1745,15 @@
         "business-analyst-previdenza-individuale-m-f-80-100-groupe-mutuel-lausanne"
       ],
       "previousSlugsByLocale": {
-        "it": [
+        "fr": [
           "business-analyst-prevoyance-individuelle-h-f-80-100-groupe-mutuel"
         ],
-        "fr": [
+        "it": [
           "business-analyst-prevoyance-individuelle-h-f-80-100-groupe-mutuel"
         ]
       },
-      "firstSeenAt": "2026-04-13T21:47:16.445Z"
+      "firstSeenAt": "2026-04-13T21:47:16.445Z",
+      "needsRetranslation": true
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/3724?c=groupemutuel&lang=fr-FR",
@@ -2056,7 +1854,8 @@
           "conseiller-en-prevoyance-h-f-80-100-groupe-mutuel"
         ]
       },
-      "firstSeenAt": "2026-04-13T21:47:16.445Z"
+      "firstSeenAt": "2026-04-13T21:47:16.445Z",
+      "needsRetranslation": true
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/2796?c=groupemutuel&lang=fr-FR",
