@@ -10,7 +10,6 @@ This file is intentionally compact: it is injected into every agent session. Kee
 4. Never accept indexed thin content under 50 words.
 5. If a test fails, treat the test as right until proven otherwise.
 6. Keep changes surgical: no drive-by refactors, no speculative abstractions, no unrelated formatting churn.
-7. Never cancel or delete a deploy that is already in progress.
 
 ## Workflow
 
@@ -26,6 +25,7 @@ This file is intentionally compact: it is injected into every agent session. Kee
 - New GitHub Actions workflows must be run live on `main` after merge with `gh workflow run <workflow>.yml --ref main`.
 - Use Playwright CLI or the Codex Browser for E2E. Do not rely on preview-only tools.
 - When touching a function/class/method, run GitNexus impact analysis first. Before committing code changes, run GitNexus detect changes.
+- Never run the full build locally; trigger/validate builds online through GitHub Actions.
 
 ## Build And Test
 
