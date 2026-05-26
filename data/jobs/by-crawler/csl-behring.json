@@ -4,11 +4,11 @@
   "jobs": [
     {
       "id": "csl-behring-fe51311226e5",
-      "slug": "global-ot-partner-engage-csl-behring-bern",
+      "slug": "abilitazione-globale-dei-partner-ot-csl-behring-bern",
       "slugByLocale": {
         "en": "global-ot-partner-enablement-csl-behring-ch",
-        "it": "global-ot-partner-engage-csl-behring-bern",
-        "de": "globaler-ot-partner-engage-csl-behring-bern",
+        "it": "abilitazione-globale-dei-partner-ot-csl-behring-bern",
+        "de": "globale-ot-partnerschaft-csl-behring-bern",
         "fr": "global-ot-partner-enablement-csl-behring-ch"
       },
       "company": "CSL Behring",
@@ -65,7 +65,19 @@
         }
       },
       "postalCode": "3001",
-      "firstSeenAt": "2026-05-25T21:56:06.246Z"
+      "firstSeenAt": "2026-05-25T21:56:06.246Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "global-ot-partner-engage-csl-behring-bern"
+        ],
+        "de": [
+          "globaler-ot-partner-engage-csl-behring-bern"
+        ]
+      },
+      "previousSlugs": [
+        "global-ot-partner-engage-csl-behring-bern",
+        "globaler-ot-partner-engage-csl-behring-bern"
+      ]
     },
     {
       "id": "csl-behring-49adef22be8f",
@@ -3424,8 +3436,7 @@
           "director-analytical-strategy-csl-behring-ch"
         ],
         "de": [
-          "director-analytical-strategy-csl-behring-ch",
-          "direktor-analytical-strategy-csl-behring-bern"
+          "director-analytical-strategy-csl-behring-ch"
         ]
       },
       "firstSeenAt": "2026-05-22T21:57:47.991Z",

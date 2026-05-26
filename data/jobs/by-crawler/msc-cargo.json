@@ -649,7 +649,7 @@
       "slugByLocale": {
         "en": "mobile-app-product-specialist-msc-geneva",
         "it": "mobile-app-product-specialista-msc-group-geneva",
-        "de": "mobile-app-product-spezialist-msc-group-geneva",
+        "de": "mobile-app-produktspezialist-msc-group-geneva",
         "fr": "mobile-app-product-specialiste-msc-group-geneva"
       },
       "company": "MSC Group",
@@ -705,7 +705,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-25T23:03:48.330Z"
+      "firstSeenAt": "2026-05-25T23:03:48.330Z",
+      "previousSlugsByLocale": {
+        "de": [
+          "mobile-app-product-spezialist-msc-group-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "mobile-app-product-spezialist-msc-group-geneva"
+      ]
     },
     {
       "id": "msc-cargo-1a2c16e6e5dc",
