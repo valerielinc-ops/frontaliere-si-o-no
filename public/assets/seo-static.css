@@ -304,6 +304,8 @@ main.seo-static-content { max-width: 1120px; margin: 0 auto; display: grid; gap:
 .cbl a { color: var(--color-link); text-decoration: underline; font-weight: 700; }
 .rul { list-style: none; padding: 0; margin: 0; }
 .lnk-acc { color: var(--color-link); text-decoration: none; font-weight: 600; }
+/* Plain accent link (no font-weight bump) — used in dense link lists on related-search hub pages where ~200 anchors per page would otherwise inline `style="color:var(--color-link);text-decoration:none"`. Class form saves ~37 B × N anchors, keeping the text/html ratio above the 10 % audit floor. */
+.s-la { color: var(--color-link); text-decoration: none; }
 .pill { display: inline-flex; padding: 8px 14px; border-radius: 999px; text-decoration: none; font-weight: 700; font-size: 13px; }
 .pill-a { background: var(--color-accent-subtle); color: var(--color-accent); }
 .pill-w { background: var(--color-warning-subtle); color: var(--color-warning); }
