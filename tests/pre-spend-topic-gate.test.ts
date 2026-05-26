@@ -46,7 +46,9 @@ import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import {
   FRONTALIERE_STRICT_ANCHORS,
+  FRONTALIERE_UNAMBIGUOUS_ANCHORS,
   matchesFrontaliereAnchor,
+  matchesFrontaliereUnambiguousAnchor,
 } from '../scripts/lib/discovery/frontaliereAnchor.mjs';
 
 const SRC = readFileSync(
@@ -170,35 +172,120 @@ describe('pre-spend topic gate — wiring into main()', () => {
     expect(SRC).toMatch(/abort_topical_relevance/);
   });
 
-  it('classifier-always: anchor match does NOT short-circuit the classifier', () => {
+  it('strict-anchor match (bare frontalier/transfrontalier/…) does NOT short-circuit the classifier', () => {
     // 2026-05-15 evening regression — run #25889568431 wasted 25 min when
-    // 6/6 anchor-matched headlines bypassed the LLM step. The new gate
-    // must NOT contain an `if (anchor) { kept.push(...); continue; }`
-    // accept-on-anchor block. The legacy anchor-only path still exists
-    // but ONLY under `!classifierEnabled` (rollback env).
+    // 6/6 STRICT-anchor-matched headlines bypassed the LLM step. The gate
+    // must NOT contain a bypass branch based on the wider
+    // matchesFrontaliereAnchor() (strict) set. The narrower UNAMBIGUOUS
+    // anchor set IS a valid bypass (added 2026-05-26 to fix the inverse
+    // failure mode — see the dedicated describe block below).
     const gateBlock = SRC.match(
       /async function applyPreSpendTopicGate[\s\S]*?\n\}\n/,
     );
     expect(gateBlock, 'applyPreSpendTopicGate block not found').toBeTruthy();
     const body = gateBlock![0];
-    // No counter for the removed fast-path.
+    // No counter for the removed strict-anchor fast-path.
     expect(body).not.toMatch(/anchor-fast-path=/);
     expect(body).not.toMatch(/let\s+anchorHits/);
-    // Every candidate hits classifyFrontaliereRelevance (only one call
-    // site inside the gate); the anchor lookup only runs in the
-    // classifier-disabled rollback branch.
+    // The strict anchor variable must not appear in a kept.push branch.
+    // We allow `matchesFrontaliereAnchor(...)` to be CALLED (it feeds the
+    // D-backstop and the !classifierEnabled rollback) but a top-level
+    // `kept.push(h)` immediately after the strict-anchor test is the
+    // disallowed regression. Approximate this with a structural check:
+    // any `kept.push(h)` in the main loop must follow either a classifier
+    // verdict.relevant branch or the UNAMBIGUOUS anchor branch.
+    expect(body).not.toMatch(/const\s+anchor\s*=\s*matchesFrontaliereAnchor\(combined\)[\s\S]{0,60}kept\.push\(h\)/);
+    // Every candidate that did not hit an unambiguous anchor hits
+    // classifyFrontaliereRelevance.
     expect(body).toMatch(/classifyFrontaliereRelevance\(/);
   });
 
-  it('log line uses the new classifier-only format (no anchor-fast-path field)', () => {
+  it('log line includes classifier-calls, anchor-bypass and dropped counters', () => {
     const gateBlock = SRC.match(
       /async function applyPreSpendTopicGate[\s\S]*?\n\}\n/,
     )![0];
     expect(gateBlock).toMatch(/Pre-spend topic gate:/);
     expect(gateBlock).toMatch(/classifier-calls=\$\{classifierCalls\}/);
+    expect(gateBlock).toMatch(/anchor-bypass=\$\{unambiguousBypasses\}/);
     expect(gateBlock).toMatch(/dropped=\$\{dropped\}/);
-    // Old field must be gone.
+    // Legacy field must stay gone.
     expect(gateBlock).not.toMatch(/anchor-fast-path=\$\{/);
+  });
+});
+
+describe('pre-spend topic gate — unambiguous-anchor bypass (run 26440805420 fix, 2026-05-26)', () => {
+  // Run 26440805420 (no_changes streak 8): gemini-flash-lite rejected
+  // 39/39 pre-filtered candidates as "non riguarda i frontalieri", so the
+  // proven pool went empty and the Google News RSS fallback could not
+  // resolve URLs. Fix: re-enable the anchor bypass but on a NARROWER set
+  // that excludes the patterns that leaked cronaca in 2026-05-15.
+  const unambiguousHeadlines = [
+    'Ristorni ai comuni italiani di confine, possibile sblocco a giugno',
+    'Tassa salute frontalieri: il Ticino pronto a bloccare i ristorni',
+    'LAMal 2026, premi in aumento del 6% in Ticino',
+    'Cassa malati: i premi LAMal salgono nel Cantone Ticino',
+    'Imposta alla fonte: nuova circolare AFC',
+    'Doppia imposizione, chiarimenti per i lavoratori transfrontalieri',
+    'AVS 2030: cosa cambia per i frontalieri del Ticino',
+    'Permesso G: rinnovo annuale, ecco le nuove regole',
+    'LPP, riforma del secondo pilastro: cosa cambia',
+    'Telelavoro frontalieri: il nuovo limite del 25% spiegato',
+    'Nuovo accordo fiscale Italia-Svizzera ratificato',
+  ];
+
+  const adjectiveOnlyButNotUnambiguous = [
+    // Strict-anchor matches that must NOT bypass — adjective-only or
+    // generic financial chatter that historically leaked cronaca.
+    'Multa per rifiuti a un cittadino frontaliere svizzero a Cantello',
+    'Cantello, multa al frontaliere per smaltimento illecito di rifiuti',
+    'Festival del cinema area frontaliera Locarno: il programma',
+    'Incidente in via Trieste: ferito un automobilista frontaliere',
+    'Dogana di Chiasso, lunghe code per i pendolari al mattino',
+    'Cambio CHF-EUR sotto pressione: la BNS interviene sui mercati',
+  ];
+
+  it('exports a non-trivial unambiguous anchor list', () => {
+    expect(FRONTALIERE_UNAMBIGUOUS_ANCHORS.length).toBeGreaterThanOrEqual(10);
+    for (const re of FRONTALIERE_UNAMBIGUOUS_ANCHORS) {
+      expect(re).toBeInstanceOf(RegExp);
+    }
+  });
+
+  it('matches policy/fiscal terms-of-art', () => {
+    for (const h of unambiguousHeadlines) {
+      const m = matchesFrontaliereUnambiguousAnchor(h);
+      expect(m, `should match unambiguous: ${h}`).not.toBeNull();
+    }
+  });
+
+  it('does NOT match adjective-only or generic-finance headlines (no cronaca leak)', () => {
+    for (const h of adjectiveOnlyButNotUnambiguous) {
+      const m = matchesFrontaliereUnambiguousAnchor(h);
+      expect(m, `should NOT bypass classifier: ${h}`).toBeNull();
+    }
+  });
+
+  it('matchesFrontaliereUnambiguousAnchor handles null/empty safely', () => {
+    expect(matchesFrontaliereUnambiguousAnchor('')).toBeNull();
+    expect(matchesFrontaliereUnambiguousAnchor(null as unknown as string)).toBeNull();
+    expect(matchesFrontaliereUnambiguousAnchor(undefined as unknown as string)).toBeNull();
+  });
+
+  it('gate body uses matchesFrontaliereUnambiguousAnchor to bypass classifier', () => {
+    const gateBlock = SRC.match(
+      /async function applyPreSpendTopicGate[\s\S]*?\n\}\n/,
+    )![0];
+    expect(gateBlock).toMatch(/matchesFrontaliereUnambiguousAnchor\(/);
+    expect(gateBlock).toMatch(/unambiguousBypasses\s*\+=\s*1/);
+  });
+
+  it('gate body has the D-backstop (restore top-N strict-anchor when classifier rejects all)', () => {
+    const gateBlock = SRC.match(
+      /async function applyPreSpendTopicGate[\s\S]*?\n\}\n/,
+    )![0];
+    expect(gateBlock).toMatch(/kept\.length\s*===\s*0/);
+    expect(gateBlock).toMatch(/strictAnchorMatched/);
+    expect(gateBlock).toMatch(/backstop/i);
   });
 });
 

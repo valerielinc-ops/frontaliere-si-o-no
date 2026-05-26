@@ -116,7 +116,7 @@ import { isNearDuplicate as _isNearDuplicateHeadline } from './lib/scheduler/slu
 import { fetchWordpressSearchHeadlines } from './lib/topic-sources/wordpressSearch.mjs';
 import { extractArticleText } from './lib/extract-article-text.mjs';
 import { hasDomainAnchor } from './lib/discovery/domainAnchor.mjs';
-import { matchesFrontaliereAnchor } from './lib/discovery/frontaliereAnchor.mjs';
+import { matchesFrontaliereAnchor, matchesFrontaliereUnambiguousAnchor } from './lib/discovery/frontaliereAnchor.mjs';
 
 // ── Smarter generator inputs (Phase 3 — spec 2026-05-06) ───────
 // data/article-performance.json is produced weekly by Phase 1A.
@@ -414,22 +414,43 @@ async function applyPreSpendTopicGate(headlines, opts = {}) {
   const maxClassifier = Number(opts.maxClassifier ?? headlines.length);
 
   const kept = [];
-  const filtered = []; // { headline, reason }
+  let filtered = []; // { headline, reason, rawHeadline, rawAnchor }
   let classifierCalls = 0;
+  let unambiguousBypasses = 0;
+  // Track strict-anchor matches so the D-backstop can restore top-N if the
+  // classifier rejects every candidate (run 26440805420: classifier rejected
+  // 39/39 → empty proven pool → 8-cycle no_changes streak).
+  const strictAnchorMatched = []; // [{ h, anchor }]
 
   for (const h of headlines) {
     const headlineText = String(h?.headline || '');
     const urlText = String(h?.url || '');
     const combined = `${headlineText} ${urlText}`;
+    const strictAnchor = matchesFrontaliereAnchor(combined);
+    if (strictAnchor) strictAnchorMatched.push({ h, anchor: strictAnchor });
 
     // Legacy emergency rollback: anchor-only acceptance (no LLM).
     if (!classifierEnabled) {
-      const anchor = matchesFrontaliereAnchor(combined);
-      if (anchor) {
+      if (strictAnchor) {
         kept.push(h);
       } else {
-        filtered.push({ headline: headlineText.slice(0, 80), reason: 'anchor-miss (classifier disabled)' });
+        filtered.push({ headline: headlineText.slice(0, 80), reason: 'anchor-miss (classifier disabled)', rawHeadline: headlineText });
       }
+      continue;
+    }
+
+    // A — Unambiguous anchor → skip classifier (re-enabled 2026-05-26 on
+    // a narrower regex set vs the 2026-05-15 rollback). The unambiguous
+    // anchors are fiscal/legal terms-of-art (ristorni, LAMal, AVS, doppia
+    // imposizione, accordo fiscale Italia-Svizzera, …) that do not leak
+    // into cronaca/sports — so a hit is a high-precision keep signal and
+    // does not need the classifier to confirm. The wider FRONTALIERE_STRICT
+    // anchors (bare "frontalier", "valico chiasso", …) still go through
+    // the classifier.
+    const unambiguous = matchesFrontaliereUnambiguousAnchor(combined);
+    if (unambiguous) {
+      kept.push(h);
+      unambiguousBypasses += 1;
       continue;
     }
 
@@ -442,9 +463,10 @@ async function applyPreSpendTopicGate(headlines, opts = {}) {
       continue;
     }
 
-    // Classifier path — runs for EVERY candidate, no anchor short-circuit.
-    // The anchor signal could be passed as a hint, but anchor match alone
-    // must NOT bypass the classifier (see comment block above).
+    // Classifier path — for candidates that did not hit an unambiguous
+    // anchor. The strict-anchor signal could be passed as a hint, but
+    // strict-anchor match alone (e.g. bare "frontalier") must NOT bypass
+    // the classifier (see comment block above).
     classifierCalls += 1;
     const summary = Array.isArray(h?.relatedHeadlines) && h.relatedHeadlines.length > 0
       ? h.relatedHeadlines.slice(0, 2).join(' · ')
@@ -461,16 +483,33 @@ async function applyPreSpendTopicGate(headlines, opts = {}) {
     if (verdict.relevant) {
       kept.push(h);
     } else {
-      filtered.push({ headline: headlineText.slice(0, 80), reason: verdict.reason });
+      filtered.push({ headline: headlineText.slice(0, 80), reason: verdict.reason, rawHeadline: headlineText });
     }
   }
 
+  // D — Backstop: if the classifier rejected every candidate but at least
+  // one had a strict-anchor match, restore the top-3 anchor-matched. This
+  // prevents the 100%-rejection failure mode that produced the run
+  // 26440805420 no_changes streak. REGOLA #0 inside article-gen stays as
+  // the final defense if the restored candidate is actually off-topic.
+  if (kept.length === 0 && strictAnchorMatched.length > 0) {
+    const RESTORE_N = 3;
+    const restore = strictAnchorMatched.slice(0, RESTORE_N);
+    const restoreSet = new Set(restore.map(r => String(r.h?.headline || '')));
+    for (const { h, anchor } of restore) {
+      kept.push(h);
+      const ht = String(h?.headline || '').slice(0, 80);
+      console.error(`  🛟 Pre-spend gate backstop: ripristinato headline anchor-matched (anchor="${anchor}"): "${ht}…"`);
+    }
+    filtered = filtered.filter(f => !restoreSet.has(f.rawHeadline));
+  }
+
   const dropped = headlines.length - kept.length;
-  if (classifierCalls > 0 || dropped > 0) {
+  if (classifierCalls > 0 || dropped > 0 || unambiguousBypasses > 0) {
     const reasonsSummary = filtered.slice(0, 3).map(f => f.reason).join(' | ');
     console.error(
       `  🔍 Pre-spend topic gate: ${headlines.length} candidates → ${kept.length} frontaliere-relevant `
-      + `(classifier-calls=${classifierCalls}, dropped=${dropped}${reasonsSummary ? `: ${reasonsSummary}` : ''})`,
+      + `(classifier-calls=${classifierCalls}, anchor-bypass=${unambiguousBypasses}, dropped=${dropped}${reasonsSummary ? `: ${reasonsSummary}` : ''})`,
     );
     if (filtered.length > 0) {
       for (const f of filtered.slice(0, 5)) {
@@ -6408,6 +6447,11 @@ async function main() {
     let _discoveryHeadlines = null;
     let _discoveryCandidatesById = new Map();
     let _provenHeadlinesForDiscovery = [];
+    // Captured before applyPreSpendTopicGate so the discovery fallback can
+    // resolve Google News RSS URLs even when the gate empties the proven
+    // pool (run 26440805420). The fuzzy matcher in resolveGoogleNewsHeadline
+    // needs the FULL proven scan, not the post-gate residue.
+    let _provenHeadlinesPreGate = [];
     RUN_REPORT.poolSlotKind = slotKind;
     RUN_REPORT.poolCounterValue = slotDecision.counterValue;
     RUN_REPORT.poolCurrentQuota = slotDecision.currentQuota;
@@ -6537,6 +6581,12 @@ async function main() {
       // `applyPreSpendTopicGate` doc block above. REGOLA #0 in the
       // article-gen prompt stays in place as defense-in-depth.
       const beforePreSpendGate = headlines.length;
+      // Snapshot the proven scan BEFORE the gate. If the gate empties the
+      // pool, the cross-pool fallback (proven→discovery) still needs the
+      // direct-source URLs to resolve Google News RSS items against. See
+      // run 26440805420: 193 RSS candidates dropped because the gate had
+      // already emptied headlines[] used as the resolver atlas.
+      _provenHeadlinesPreGate = headlines.slice();
       headlines = await applyPreSpendTopicGate(headlines);
       if (beforePreSpendGate > headlines.length) {
         console.error(`  📋 Post-pre-spend gate: ${headlines.length}/${beforePreSpendGate} headline rimanenti\n`);
@@ -6809,8 +6859,17 @@ async function main() {
         console.error('POOL_FALLBACK from=proven to=discovery reason=empty');
         RUN_REPORT.poolFallbacks.push({ from: 'proven', to: 'discovery', reason: 'empty' });
         try {
-          const provenStrings = (headlines || []).map((h) => String(h.headline || ''));
-          _provenHeadlinesForDiscovery = headlines || [];
+          // Use the PRE-gate proven scan as the URL atlas. The gate may have
+          // dropped legitimate direct-source headlines that the Google News
+          // RSS resolver still needs to fuzzy-match against. Falling back
+          // to post-gate headlines empties the atlas and drops every RSS
+          // candidate as "non risolto a fonte diretta" (run 26440805420:
+          // 193 RSS items, 0 resolved).
+          const atlas = _provenHeadlinesPreGate.length > 0
+            ? _provenHeadlinesPreGate
+            : (headlines || []);
+          const provenStrings = atlas.map((h) => String(h.headline || ''));
+          _provenHeadlinesForDiscovery = atlas;
           const pool = await _buildDiscoveryPool(evidenceForDiscovery, { provenHeadlines: provenStrings });
           console.error(`DISCOVERY_POOL_BUILD_FALLBACK orphan=${pool.perSource.orphan} suggest=${pool.perSource.suggest} news=${pool.perSource.news} postDedup=${pool.postDedupCount}`);
           const fbHeadlines = _discoveryCandidatesToHeadlines(pool.candidates);
