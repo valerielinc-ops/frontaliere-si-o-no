@@ -120,6 +120,7 @@ export const CRAWLED_COMPANY_LOGOS: Record<string, string> = {
  'julius-baer': cLogo('juliusbaer.com'),
  'kantonsspital-graubuenden-ksgr': gFavicon('ksgr.ch'),
  'ksa': cLogo('ksa.ch'),
+ 'ksow': cLogo('ksow.ch'),
  'kssg': cLogo('kssg.ch'),
  'ksw': cLogo('ksw.ch'),
  'la-fonte': gFavicon('lafonte.ch'),
