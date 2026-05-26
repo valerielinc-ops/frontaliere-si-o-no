@@ -43,6 +43,7 @@
 import path from 'node:path';
 import fs from 'node:fs';
 import crypto from 'node:crypto';
+import { Worker } from 'node:worker_threads';
 import type { Plugin } from 'vite';
 
 import { WriteCollector } from './batchWrite';
@@ -511,13 +512,34 @@ class TokenIndex {
   private haystacksByLocale = new Map<Locale, string[]>();
   private postingsByLocale = new Map<Locale, Map<string, number[]>>();
   private gramPostingsByLocale = new Map<Locale, Map<string, number[]>>();
-  private readonly scratchScores: Uint16Array;
+  private readonly scratchScores: Uint8Array;
   private readonly touchedIdx: number[] = [];
   private readonly jobs: ReadonlyArray<RawJob>;
 
   constructor(jobs: ReadonlyArray<RawJob>) {
     this.jobs = jobs;
-    this.scratchScores = new Uint16Array(jobs.length);
+    // Per-call score buckets (0..fullScore). fullScore is bounded by the
+    // candidate's token count which never exceeds tokenizeQuery's word cap,
+    // so Uint8 (max 255) is generous.
+    this.scratchScores = new Uint8Array(jobs.length);
+  }
+
+  /**
+   * Seed cold posting lists computed off the main thread (via
+   * relatedSearchPostingsWorker). The build-contexts loop's `postings()`
+   * cache will then hit on these entries instead of falling into the
+   * synchronous haystack scan path. Idempotent: re-seeding the same token
+   * overwrites with a byte-identical list.
+   */
+  seedPostings(locale: Locale, entries: ReadonlyArray<{ token: string; list: number[] }>): void {
+    let perLocale = this.postingsByLocale.get(locale);
+    if (!perLocale) {
+      perLocale = new Map<string, number[]>();
+      this.postingsByLocale.set(locale, perLocale);
+    }
+    for (const { token, list } of entries) {
+      perLocale.set(token, list);
+    }
   }
 
   /** Posting list for (locale, token), sorted ascending by jobIdx (corpus order). */
@@ -695,8 +717,17 @@ class TokenIndex {
       }
     }
 
+    // Iterate `touched` (typically tens to hundreds, bounded by sum of
+    // posting list sizes) instead of scanning the full scratchScores array
+    // (5819 entries × scoreLevels). For 2-token queries — 89% of calls per
+    // bc:mj-or profiling — this turns a 5819-entry scan into a ~100-entry
+    // scan. Sort once so that within each score level we emit indices in
+    // corpus order, byte-identical to the previous full-scan ordering.
+    touched.sort((a, b) => a - b);
+
     for (let score = fullScore - 1; score >= 1 && out.length < maxJobs; score--) {
-      for (let idx = 0; idx < scores.length && out.length < maxJobs; idx++) {
+      for (let i = 0; i < touched.length && out.length < maxJobs; i++) {
+        const idx = touched[i];
         if (scores[idx] === score) out.push(idx);
       }
     }
@@ -1846,6 +1877,66 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
       // postings before the heavier render+emit phase to keep peak heap
       // down for the rest of closeBundle.
       const tokenIndex = new TokenIndex(jobs);
+
+      // Postings pre-pass: build the per-locale haystack + 2/3-gram index
+      // and resolve every token that build-contexts will need OFF the main
+      // thread, one worker per locale. Profiling on run 26457892172 showed
+      // bc:postings-miss = 70.7s (68% of build-contexts) — 30,715 cold
+      // posting builds each costing ~2.3ms. Splitting across 4 workers (one
+      // per locale) lets us reclaim ~75% of that wall-clock while the
+      // build-contexts loop runs the OR/AND merges on cache hits only.
+      //
+      // Skip the pre-pass for very small token sets (worker spawn ~250-500ms
+      // each is dead weight below the threshold) or when explicitly disabled.
+      const __tPrePass = profileStart();
+      const POSTINGS_PREPASS_MIN_TOKENS = 200;
+      const prepassDisabled = process.env.RELATED_SEARCH_POSTINGS_PREPASS === '0';
+      const tokensByLocale = new Map<Locale, Set<string>>();
+      if (!prepassDisabled) {
+        for (const cand of candidates) {
+          const sampleTerm = (cand.sampleTerms || [])[0] || '';
+          if (!sampleTerm) continue;
+          const tokens = tokenizeQuery(sampleTerm);
+          if (tokens.length === 0) continue;
+          let set = tokensByLocale.get(cand.locale);
+          if (!set) {
+            set = new Set<string>();
+            tokensByLocale.set(cand.locale, set);
+          }
+          for (const t of tokens) set.add(t);
+        }
+      }
+      const totalTokens = Array.from(tokensByLocale.values()).reduce((s, set) => s + set.size, 0);
+      if (!prepassDisabled && totalTokens >= POSTINGS_PREPASS_MIN_TOKENS) {
+        const workerUrl = new URL('./relatedSearchPostingsWorker.mjs', import.meta.url);
+        const localeKeys = Array.from(tokensByLocale.keys());
+        const results = await Promise.all(
+          localeKeys.map((workerLocale) => {
+            const localeTokens = Array.from(tokensByLocale.get(workerLocale) as Set<string>);
+            return new Promise<{ locale: Locale; entries: Array<{ token: string; list: number[] }> }>(
+              (resolve, reject) => {
+                const worker = new Worker(workerUrl, {
+                  workerData: { jobs, locale: workerLocale, tokens: localeTokens },
+                });
+                worker.once('message', resolve);
+                worker.once('error', reject);
+                worker.once('exit', (code) => {
+                  if (code !== 0) reject(new Error(`relatedSearchPostingsWorker exited with code ${code}`));
+                });
+              },
+            );
+          }),
+        );
+        for (const r of results) {
+          tokenIndex.seedPostings(r.locale, r.entries);
+        }
+        const seededCount = results.reduce((s, r) => s + r.entries.length, 0);
+        console.log(
+          `\x1b[36m[related-search-clusters]\x1b[0m postings pre-pass: ${localeKeys.length} worker(s) seeded ${seededCount} token postings`,
+        );
+      }
+      profileRecord('postings-prepass', __tPrePass);
+
       const contexts: ClusterContext[] = [];
       const __tContextBuild = profileStart();
       for (const cand of candidates) {
