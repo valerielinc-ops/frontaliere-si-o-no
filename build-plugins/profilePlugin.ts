@@ -78,6 +78,20 @@ export function withProfile(plugin: Plugin): Plugin {
           `[profile-detail] ${name.padEnd(40)} wall_s=${(dur / 1000).toFixed(2)} cpu_s=${(cpuMs / 1000).toFixed(2)}`,
         );
       }
+      // Memory profile per-plugin. Deploy runs since 2026-05-26 14:27Z have
+      // died with SIGTERM mid-closeBundle (exit code 143) — pre-existing
+      // analysis pegs the runner OOM as the likely cause (Node V8 told
+      // `--max-old-space-size=18432` on a 7 GB GHA free-tier box; peak
+      // memory accumulates across sequential plugins). Logging RSS + heap
+      // after every plugin gives us the smoking gun the next time the
+      // build dies: the LAST `[profile-mem]` line before the SIGTERM
+      // pinpoints which plugin tipped us over the kernel OOM threshold.
+      // ~1 process.memoryUsage() call per plugin (~30 plugins) → < 1 ms total
+      // overhead, no behaviour change.
+      const m = process.memoryUsage();
+      console.log(
+        `[profile-mem] ${name.padEnd(40)} rss_mb=${(m.rss / 1048576).toFixed(0)} heapUsed_mb=${(m.heapUsed / 1048576).toFixed(0)} heapTotal_mb=${(m.heapTotal / 1048576).toFixed(0)} external_mb=${(m.external / 1048576).toFixed(0)} arrayBuffers_mb=${(m.arrayBuffers / 1048576).toFixed(0)}`,
+      );
     }
   };
 
