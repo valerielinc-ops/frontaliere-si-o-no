@@ -23,8 +23,8 @@ afterEach(() => {
   for (const dir of tmpDirs.splice(0)) rmSync(dir, { recursive: true, force: true });
 });
 
-describe('related search cluster lean shell', () => {
-  it('keeps indexation tags and SPA assets while dropping repeated preview chrome', () => {
+describe('related search cluster SEO shell', () => {
+  it('keeps the full SEO shell, indexation tags, SPA assets, and crawl links', () => {
     const distDir = makeDist();
     const page = renderClusterPage({
       distDir,
@@ -73,16 +73,14 @@ describe('related search cluster lean shell', () => {
     expect(page.html).toContain('/assets/index-test123.js');
     expect(page.html).toContain('/assets/index-test123.css');
     expect(page.html).toContain('<!--EJP_STRIPPED-->');
-    expect(page.html).not.toContain('og:image');
-    expect(page.html).not.toContain('google-adsense');
-    expect(page.html).not.toContain('seo-static.css');
+    expect(page.html).toContain('og:image');
     expect(page.html).toContain('Rel 4');
-    expect(page.html).not.toContain('Rel 5');
+    expect(page.html).toContain('Rel 5');
   });
 });
 
 describe('flat redirect bridge payload', () => {
-  it('keeps noindex/canonical redirect but strips repeated preview meta by default', () => {
+  it('keeps noindex/canonical redirect and preview meta by default', () => {
     const sibling = `<!doctype html><html><head>
       <title>Sample title</title>
       <meta name="description" content="Long social description">
@@ -98,18 +96,19 @@ describe('flat redirect bridge payload', () => {
     expect(bridge).toContain('<meta name="robots" content="noindex,follow">');
     expect(bridge).toContain('<link rel="canonical" href="https://frontaliereticino.ch/cerca-lavoro-ticino/sample/">');
     expect(bridge).toContain('location.replace');
-    expect(bridge).not.toContain('og:image');
-    expect(bridge).not.toContain('og:description');
-    expect(bridge).not.toContain('Long social description');
+    expect(bridge).toContain('og:image');
+    expect(bridge).toContain('og:description');
+    expect(bridge).toContain('Long social description');
   });
 
-  it('emits related-search hub flat variants as lean noindex bridges', () => {
+  it('emits related-search hub flat variants with the standard bridge builder', () => {
     const src = readFileSync(
       join(process.cwd(), 'build-plugins/relatedSearchClustersPlugin.ts'),
       'utf8',
     );
 
-    expect(src).toContain('collector.add(flatPath, renderLeanFlatBridge(out.loc, COPY[locale].hubTitle, locale));');
+    expect(src).toContain('collector.add(flatPath, buildFlatBridgeFromSibling(out.html, out.loc));');
+    expect(src).not.toContain('renderLeanFlatBridge');
     expect(src).not.toContain('collector.add(flatPath, out.html);');
   });
 });

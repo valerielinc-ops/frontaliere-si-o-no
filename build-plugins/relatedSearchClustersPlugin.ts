@@ -47,8 +47,8 @@ import type { Plugin } from 'vite';
 
 import { WriteCollector } from './batchWrite';
 import { BASE_URL } from './constants';
-import { buildSeoPageHtml, resolveEntryAssets } from './shared/seoPageShell';
-import { minifyHtml } from './shared/htmlMinify';
+import { buildFlatBridgeFromSibling } from './flatHtmlRedirectPlugin';
+import { buildSeoPageHtml } from './shared/seoPageShell';
 import {
   BREADCRUMB_LINK_STYLE,
   BREADCRUMB_STYLE,
@@ -135,14 +135,7 @@ const HUB_PAGE_SIZE = 200;
 // Opt out with STRIP_CLUSTER_SEO_PROSE=0 to re-emit the full prose
 // (e.g. for an A/B test of organic CTR vs. SERP impressions).
 const STRIP_CLUSTER_SEO_PROSE = (process.env.STRIP_CLUSTER_SEO_PROSE ?? '1') !== '0';
-// Cluster pages are crawler-support pages whose interactive UI is rendered by
-// the SPA after hydration. Keep the SPA bundle/CSS, but drop the heavier shared
-// SEO shell chrome (OG image set, favicons, analytics, seo-static.css) by
-// default. This saves repeated head bytes across ~180k cluster pages without
-// removing canonical, hreflang, robots, title/description, or JSON-LD.
-const LEAN_CLUSTER_SEO_SHELL = (process.env.LEAN_CLUSTER_SEO_SHELL ?? '1') !== '0';
 const EJP_STRIPPED_MARKER = '<!--EJP_STRIPPED-->';
-const MAX_RELATED_CLUSTER_LINKS = 4;
 
 // ── Utilities ───────────────────────────────────────────────────────────
 
@@ -1031,22 +1024,18 @@ function buildJsonLd(opts: {
   // AI-enriched Q&A (when present) with the commuter-context Q&A into one
   // FAQPage `mainEntity` array so all entries surface to Google's FAQ
   // rich result without tripping the duplicate gate.
-  const aiFaqItems = STRIP_CLUSTER_SEO_PROSE
-    ? []
-    : (enriched?.faqs ?? [])
-        .filter((f) => f.q && f.q.trim() && f.a && f.a.trim())
-        .map((f) => ({
-          '@type': 'Question' as const,
-          name: f.q.trim(),
-          acceptedAnswer: { '@type': 'Answer' as const, text: f.a.trim() },
-        }));
-  const commuterFaqItems = STRIP_CLUSTER_SEO_PROSE
-    ? []
-    : buildJobBoardCommuterFaqItems({
-        locale: locale as 'it' | 'en' | 'de' | 'fr',
-        location: commuterLocation,
-        sectorOrType: sectorLabel,
-      });
+  const aiFaqItems = (enriched?.faqs ?? [])
+    .filter((f) => f.q && f.q.trim() && f.a && f.a.trim())
+    .map((f) => ({
+      '@type': 'Question' as const,
+      name: f.q.trim(),
+      acceptedAnswer: { '@type': 'Answer' as const, text: f.a.trim() },
+    }));
+  const commuterFaqItems = buildJobBoardCommuterFaqItems({
+    locale: locale as 'it' | 'en' | 'de' | 'fr',
+    location: commuterLocation,
+    sectorOrType: sectorLabel,
+  });
   // When STRIP_CLUSTER_SEO_PROSE is ON, the commuter-context block in the
   // <body> is dropped — so its FAQPage JSON-LD must go too (otherwise
   // Google reports "Field 'mainEntity' references missing content" for
@@ -1090,93 +1079,6 @@ function renderHreflang(
   const xDefaultUrl = itAlt?.url || hreflang[0]?.url || fallbackUrl;
   lines.push(`    <link rel="alternate" hreflang="x-default" href="${xDefaultUrl}">`);
   return lines.join('\n');
-}
-
-function renderClusterHtmlShell(opts: {
-  locale: Locale;
-  title: string;
-  description: string;
-  canonicalUrl: string;
-  hreflangHtml: string;
-  jsonLdScripts: ReadonlyArray<string>;
-  bodyHtml: string;
-  distDir: string;
-}): string {
-  const {
-    locale,
-    title,
-    description,
-    canonicalUrl,
-    hreflangHtml,
-    jsonLdScripts,
-    bodyHtml,
-    distDir,
-  } = opts;
-
-  if (!LEAN_CLUSTER_SEO_SHELL) {
-    return buildSeoPageHtml({
-      locale,
-      title,
-      description,
-      canonicalUrl,
-      robots: 'index,follow',
-      ogType: 'website',
-      ogLocale: OG_LOCALE[locale],
-      hreflangHtml,
-      jsonLdScripts: [...jsonLdScripts],
-      bodyHtml,
-      distDir,
-      seoMainClass: 'cluster-seo-prose',
-    });
-  }
-
-  const assets = resolveEntryAssets(distDir);
-  const ldTags = jsonLdScripts
-    .map((ld) => `<script type="application/ld+json">${ld}</script>`)
-    .join('\n');
-  const cssLink = assets.entryCss
-    ? `<link rel="stylesheet" href="/assets/${esc(assets.entryCss)}" crossorigin media="all">`
-    : '';
-  const jsScript = assets.entryJs
-    ? `<script type="module" crossorigin src="/assets/${esc(assets.entryJs)}"></script>`
-    : '';
-
-  return minifyHtml(`<!doctype html>
-<html lang="${locale}">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>${esc(title)}</title>
-<meta name="description" content="${esc(description)}">
-<meta name="robots" content="index,follow">
-<link rel="canonical" href="${esc(canonicalUrl)}">
-${hreflangHtml}
-${ldTags}
-${cssLink}
-</head>
-<body class="bg-surface-alt text-heading overflow-x-hidden">
-<div id="root"></div>
-<main class="cluster-seo-prose">
-${bodyHtml}
-</main>
-${jsScript}
-</body>
-</html>`);
-}
-
-function renderLeanFlatBridge(slashUrl: string, title: string, locale: Locale): string {
-  const target = JSON.stringify(slashUrl);
-  return minifyHtml(`<!doctype html>
-<html lang="${locale}">
-<head>
-<meta charset="utf-8">
-<title>${esc(title)}</title>
-<meta name="robots" content="noindex,follow">
-<link rel="canonical" href="${esc(slashUrl)}">
-<script>location.replace(${target}+location.search+location.hash)</script>
-</head>
-<body><a href="${esc(slashUrl)}">${esc(title)}</a></body>
-</html>`);
 }
 
 // Memoize renderJobBoardCommuterContext: pure function, ~52k calls per build
@@ -1283,7 +1185,7 @@ export function renderClusterPage(inputs: PageInputs): PageOutput {
   const renderableAiFaqs = (enriched?.faqs ?? []).filter(
     (q) => q.q && q.q.trim() && q.a && q.a.trim(),
   );
-  const aiFaqHtml = !STRIP_CLUSTER_SEO_PROSE && renderableAiFaqs.length > 0
+  const aiFaqHtml = renderableAiFaqs.length > 0
     ? `<section class="s-Va7_33">
         <h3 class="s-BlnHQi">${esc(copy.faqSummary)}</h3>
         ${renderableAiFaqs.map((q) =>
@@ -1294,23 +1196,20 @@ export function renderClusterPage(inputs: PageInputs): PageOutput {
 
   // Commuter-context prose: 5-7 KB methodology + city-specific commute
   // table + salary breakdown + scenario callout + 4-FAQ + cross-links.
-  const commuterContextHtml = STRIP_CLUSTER_SEO_PROSE
-    ? ''
-    : memoCommuterCtx({
-        locale: locale as 'it' | 'en' | 'de' | 'fr',
-        location: commuterLocation,
-        sectorOrType: sectorLabel,
-        omitCommute: !ctx.city,
-      });
+  const commuterContextHtml = memoCommuterCtx({
+    locale: locale as 'it' | 'en' | 'de' | 'fr',
+    location: commuterLocation,
+    sectorOrType: sectorLabel,
+    omitCommute: !ctx.city,
+  });
 
   // Related-search cross-links (same-city, different-keyword) — kept at
   // the bottom of the prose block for crawlability and to avoid pushing
   // editorial filler above the fold.
-  const relatedForPage = related.slice(0, MAX_RELATED_CLUSTER_LINKS);
-  const relatedHtml = relatedForPage.length > 0
+  const relatedHtml = related.length > 0
     ? `<nav aria-label="${esc(copy.relatedHeading)}" class="rsc-related s-i-dyT1">
         <h3 class="s-yj2sXC">${esc(copy.relatedHeading)}</h3>
-        <ul>${relatedForPage.map((r) => `<li><a href="${esc(r.url)}">${esc(r.keyword)}</a></li>`).join('')}</ul>
+        <ul class="s-tQuvrl">${related.map((r) => `<li><a href="${esc(r.url)}" style="${LINK_ACCENT_STYLE};display:inline-block;padding:4px 10px;background:var(--color-surface);border:1px solid var(--color-edge);border-radius:9999px;font-size:13px">${esc(r.keyword)}</a></li>`).join('')}</ul>
       </nav>`
     : '';
 
@@ -1335,13 +1234,7 @@ export function renderClusterPage(inputs: PageInputs): PageOutput {
   // commuter-context block was carrying (calculator + cassemalati + valuta
   // comparators), so BFS-depth stays flat. Per-page cost: ~250 B raw,
   // ~80 B gzip — keeps the savings at ~143 MB gzip (was 150 MB).
-  const paddingCopy: Record<Locale, string> = {
-    it: 'Per valutare una candidatura da frontaliere, confronta sempre stipendio lordo in CHF, netto stimato, cambio EUR, cassa malati, permesso G, rientro settimanale e telelavoro. Parti dal calcolatore stipendio netto, poi verifica costi LAMal e cambio CHF/EUR prima di salvare l alert o aprire le offerte aggiornate.',
-    en: 'Before applying as a cross-border worker, compare gross CHF salary, estimated net pay, EUR exchange rate, health insurance, G permit rules, weekly return and remote work. Start from the net salary calculator, then check LAMal costs and CHF/EUR exchange before saving the alert or opening current jobs.',
-    de: 'Vor einer Bewerbung als Grenzgaenger vergleiche Bruttolohn in CHF, geschaetzten Nettolohn, EUR-Wechselkurs, Krankenversicherung, G-Bewilligung, woechentliche Rueckkehr und Homeoffice. Starte mit dem Nettolohnrechner und pruefe danach LAMal-Kosten sowie CHF/EUR-Wechselkurs, bevor du den Alert speicherst oder aktuelle Stellen oeffnest.',
-    fr: 'Avant de postuler comme frontalier, compare salaire brut en CHF, net estime, change EUR, assurance maladie, permis G, retour hebdomadaire et teletravail. Commence par le calculateur de salaire net, puis verifie les couts LAMal et le taux CHF/EUR avant d enregistrer l alerte ou d ouvrir les offres.',
-  };
-  const paddingHtml = `<p>${esc(paddingCopy[locale])} <a href="/">Salary calculator</a> <a href="/comparatori/casse-malati/">LAMal</a> <a href="/comparatori/cambio-valuta/">CHF/EUR</a></p>`;
+  const paddingHtml = `<p class="s-clIDbe">Per confrontare lo stipendio CHF lordo dell'annuncio con il netto reale (vecchio vs nuovo accordo Italia-Svizzera 2024, zona di frontiera, telelavoro fino al 25 %), apri il <a class="s-U9K6Vf" href="/">calcolatore stipendio netto frontaliere</a>. Strumenti correlati: <a class="s-U9K6Vf" href="/comparatori/casse-malati/">comparatore casse malati LAMal</a>, <a class="s-U9K6Vf" href="/comparatori/cambio-valuta/">comparatore cambio CHF/EUR</a>.</p>`;
   const seoContextBlock = STRIP_CLUSTER_SEO_PROSE
     ? `${EJP_STRIPPED_MARKER}<details class="cluster-seo-context s-mxdIN0">
     <summary class="s-1yn7b_">${esc(chrome.contextSummary)}</summary>
@@ -1391,15 +1284,26 @@ export function renderClusterPage(inputs: PageInputs): PageOutput {
   const titleHeadline = capForTitle(headline, TITLE_MAX_CHARS);
   const title = buildTitleWithBrand(titleHeadline);
 
-  const html = renderClusterHtmlShell({
+  const html = buildSeoPageHtml({
     locale,
     title,
     description,
     canonicalUrl,
+    robots: 'index,follow',
+    ogType: 'website',
+    ogLocale: OG_LOCALE[locale],
     hreflangHtml,
     jsonLdScripts,
     bodyHtml,
     distDir,
+    // No hubChrome: the SPA renders its own sub-nav inside `#root`. A
+    // duplicate static sub-nav would render visually below the footer.
+    // Opt OUT of `seo-static-content` lite-shell trigger so the SPA
+    // hydrates `#root` and renders the working JobBoard search-query UI
+    // (parseSearchSlugFilter populates the searchbar, JobBoard renders
+    // results, filters work). The static `<main>` below is crawler-only
+    // and screen-reader-only via the off-screen wrapper above.
+    seoMainClass: 'cluster-seo-prose',
   });
 
   return { urlPath, html, loc: canonicalUrl };
@@ -1986,7 +1890,7 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
         const sameCityList = (ctx.city && cityIdx?.get(ctx.city)) || [];
         const related = sameCityList
           .filter((other) => other.candidate.slug !== ctx.candidate.slug)
-          .slice(0, MAX_RELATED_CLUSTER_LINKS)
+          .slice(0, 8)
           .map((other) => ({
             keyword: other.city ? `${capitalize(other.keyword)} — ${other.city}` : capitalize(other.keyword),
             url: `${BASE_URL}${buildClusterPath(locale, other.candidate.slug)}`,
@@ -2005,12 +1909,13 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
         const indexPath = path.join(distDir, out.urlPath, 'index.html');
         const flatPath = path.join(distDir, out.urlPath.replace(/\/+$/, '') + '.html');
         collector.add(indexPath, out.html);
-        // Emit the flat .html as a redirect bridge directly. Cluster bridges
-        // are high-volume noindex pages, so keep only canonical + JS redirect:
-        // social preview OG tags are not worth repeating hundreds of thousands
-        // of times in the GitHub Pages artifact.
+        // Emit the flat .html as a redirect bridge directly: postWalkCoordinator
+        // would otherwise read this file (~30 KB), build the same bridge from
+        // the sibling, and rewrite (~500 B). Pre-emitting the bridge cuts
+        // ~52k × 30 KB writes here AND post-walk's `html === original` guard
+        // skips the rewrite. Trims ~30-50 s off closeBundle.
         const slashUrl = `${BASE_URL}${out.urlPath.replace(/\/+$/, '')}/`;
-        const flatBridge = renderLeanFlatBridge(slashUrl, capitalize(ctx.keyword), locale);
+        const flatBridge = buildFlatBridgeFromSibling(out.html, slashUrl);
         collector.add(flatPath, flatBridge);
         emittedFiles.push(path.relative(distDir, indexPath));
         emittedFiles.push(path.relative(distDir, flatPath));
@@ -2042,7 +1947,7 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
           const indexPath = path.join(distDir, out.urlPath, 'index.html');
           const flatPath = path.join(distDir, out.urlPath.replace(/\/+$/, '') + '.html');
           collector.add(indexPath, out.html);
-          collector.add(flatPath, renderLeanFlatBridge(out.loc, COPY[locale].hubTitle, locale));
+          collector.add(flatPath, buildFlatBridgeFromSibling(out.html, out.loc));
           emittedFiles.push(path.relative(distDir, indexPath));
           emittedFiles.push(path.relative(distDir, flatPath));
           sitemapLocs.push(out.loc);
