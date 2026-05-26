@@ -8,6 +8,8 @@
  */
 
 import path from 'path';
+import os from 'node:os';
+import { Worker } from 'node:worker_threads';
 import type { Plugin } from 'vite';
 import { BASE_URL, buildCanonicalBridgePage, SPA_ACTION_REDIRECT_SCRIPT, robotsMetaForContent, countHtmlBodyWords, MIN_INDEXABLE_WORDS, GTAG_SNIPPET, ADSENSE_SNIPPET, FAVICON_LINKS, EARLY_BOOT_SCRIPT, SEO_STATIC_CSS_LINK } from './constants';
 import { buildSimplePage } from './htmlTemplate';
@@ -814,7 +816,12 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  // back to job.description for some locales) hits the cache.
  // `localizeFallbackCanonical()` is called fresh per-locale — only swaps the
  // 4 extra section headings and recomputes the (cheap) readingMinutes.
- const CANONICAL_CLEANED_CACHE_MAX = 8000;
+ // Cap raised from 8000 to 30000 after the worker pre-pass landed: the
+ // pre-pass populates the cache with EVERY unique (description, requirements)
+ // tuple before the main loop runs, and worst case (no cross-locale sharing,
+ // 5834 jobs × 4 locales) is ~23k entries. Eviction during the main loop
+ // would force inline recomputation, defeating the pre-pass.
+ const CANONICAL_CLEANED_CACHE_MAX = 30000;
  const canonicalCleanedCache = new Map<string, CleanedFallbackContent>();
  let _canonicalCleanedHits = 0;
  let _canonicalCleanedMisses = 0;
@@ -2190,6 +2197,118 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  // whose HTML would point at a path the per-job dedup skipped — keeping
  // sitemap and dist/ byte-for-byte consistent.
  const emittedActiveJobPaths = new Set<string>();
+
+ // ── Canonical-fallback worker pre-pass ─────────────────────────────
+ //
+ // `canonicalizeFallbackCleaned` is pure (regex + string passes, no I/O)
+ // and runs once per UNIQUE (description, requirements) tuple. Run 26440498634
+ // measured this as 91 % of per-page active-job render → ~500 s on the
+ // sequential closeBundle. The 2-layer split already lets a single thread
+ // dedup across locales; the worker pool parallelizes the remaining unique
+ // work across the runner's vCPUs (GH free-tier = 2; self-hosted = up to N).
+ //
+ // Pre-collect every unique tuple needed by the upcoming active-job loop,
+ // dispatch to N workers, await results, then populate `canonicalCleanedCache`.
+ // The main loop's `memoCanonicalCleaned` calls then hit 100 %.
+ //
+ // Opt-out: set `JOBS_SEO_FALLBACK_WORKERS=0` to keep the inline single-
+ // threaded path (useful for A/B timing or debugging worker overhead).
+ await (async () => {
+ const optOut = process.env.JOBS_SEO_FALLBACK_WORKERS === '0';
+ if (optOut) return;
+ const tStart = Date.now();
+ // Phase 1: enumerate unique tuples (skip cache hits — usually none at
+ // this point, but harmless to check).
+ const seen = new Set<string>();
+ const tuples: Array<{ key: string; description: string; requirements: string[] }> = [];
+ for (const job of validJobs) {
+ for (const locale of localeList) {
+ const description = String(job?.descriptionByLocale?.[locale] || job.description || '');
+ if (!description) continue;
+ const requirements: string[] = Array.isArray(job?.requirementsByLocale?.[locale])
+ ? (job.requirementsByLocale[locale] as unknown[]).map((x) => String(x || '')).filter((x) => x.length > 0)
+ : Array.isArray(job?.requirements)
+ ? (job.requirements as unknown[]).map((x) => String(x || '')).filter((x) => x.length > 0)
+ : [];
+ const key = `${description.length}${description}${requirements.join('')}`;
+ if (seen.has(key) || canonicalCleanedCache.has(key)) continue;
+ seen.add(key);
+ tuples.push({ key, description, requirements });
+ }
+ }
+ if (tuples.length === 0) return;
+
+ // Phase 2: decide on parallelism. Below 500 unique tuples the worker
+ // setup overhead (~500 ms × N for spawn + dynamic import) costs more
+ // than running inline.
+ const FALLBACK_WORKER_MIN_TUPLES = 500;
+ const override = process.env.JOBS_SEO_FALLBACK_WORKERS;
+ const overrideN = override ? Number.parseInt(override, 10) : 0;
+ const detected = Math.max(
+ typeof os.availableParallelism === 'function' ? os.availableParallelism() : 0,
+ os.cpus()?.length ?? 0,
+ 1,
+ );
+ const workerCount =
+ overrideN > 0
+ ? Math.min(overrideN, tuples.length)
+ : tuples.length < FALLBACK_WORKER_MIN_TUPLES
+ ? 1
+ : Math.min(detected, tuples.length);
+
+ if (workerCount <= 1) {
+ // Inline single-threaded path — same code as the worker body.
+ for (const t of tuples) {
+ const cleaned = canonicalizeFallbackCleaned(t.description, t.requirements);
+ canonicalCleanedCache.set(t.key, cleaned);
+ }
+ // eslint-disable-next-line no-console
+ console.log(
+ `[jobs-seo-profile] canonical-fallback-pre-pass tuples=${tuples.length} workers=1 wall_ms=${Date.now() - tStart}`,
+ );
+ return;
+ }
+
+ // Phase 3: round-robin chunk + dispatch. Round-robin balances
+ // description length (shorter descriptions = faster parse) across
+ // workers — slicing would give one worker all the heavy ones.
+ const chunks: Array<typeof tuples> = Array.from({ length: workerCount }, () => []);
+ for (let i = 0; i < tuples.length; i++) {
+ chunks[i % workerCount].push(tuples[i]);
+ }
+ const workerUrl = new URL('./canonicalFallbackWorker.mjs', import.meta.url);
+ const results = await Promise.all(
+ chunks.map(
+ (assignedTuples) =>
+ new Promise<{ entries: Array<{ key: string; cleaned: CleanedFallbackContent }> }>(
+ (resolve, reject) => {
+ const worker = new Worker(workerUrl, {
+ workerData: { tuples: assignedTuples },
+ execArgv: ['--import', 'tsx'],
+ });
+ worker.once('message', resolve);
+ worker.once('error', reject);
+ worker.once('exit', (code) => {
+ if (code !== 0) reject(new Error(`canonicalFallbackWorker exited with code ${code}`));
+ });
+ },
+ ),
+ ),
+ );
+
+ // Phase 4: merge — populate cache. The cache cap is intentionally
+ // bypassed here: the pre-pass output is exactly what the main loop will
+ // need, so evicting would just cause inline recomputation right after.
+ for (const r of results) {
+ for (const entry of r.entries) {
+ canonicalCleanedCache.set(entry.key, entry.cleaned);
+ }
+ }
+ // eslint-disable-next-line no-console
+ console.log(
+ `[jobs-seo-profile] canonical-fallback-pre-pass tuples=${tuples.length} workers=${workerCount} wall_ms=${Date.now() - tStart}`,
+ );
+ })();
 
  for (const job of validJobs) {
  const perLocaleSlug = {
