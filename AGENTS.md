@@ -41,7 +41,7 @@ Agent sessions inherit `FAST_BUILD=1`; override it when validating SEO plugin ou
 FAST_BUILD= npx vite build
 ```
 
-Full local SEO builds can OOM. Prefer audit replay for dist-only audit verification:
+Full local SEO builds can OOM and waste local I/O. Use remote CI or audit replay for full SEO/build-plugin validation; do not run full local SEO builds unless the user explicitly asks. Prefer audit replay for dist-only audit verification:
 
 ```bash
 gh workflow run audit-dist-from-run.yml -f deploy_run_id=<run_id> -f audits=<audit-list>

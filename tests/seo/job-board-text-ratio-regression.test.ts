@@ -15,6 +15,7 @@
 
 import { describe, expect, it } from 'vitest';
 import { renderJobBoardCommuterContext } from '../../build-plugins/shared/jobBoardCommuterContext';
+import { renderJobBoardListingDensityProse } from '../../build-plugins/shared/jobListingProse';
 
 /**
  * Strip HTML to its visible-text portion using the same heuristic Semrush
@@ -43,6 +44,21 @@ function ratio(html: string): number {
 const RATIO_FLOOR_PCT = 12; // 2pt margin above Semrush 10 % gate
 
 describe('renderJobBoardCommuterContext — text-to-HTML ratio', () => {
+  it('listing-density prose adds substantive visible text for heavy job-board lists', () => {
+    const block = renderJobBoardListingDensityProse('en', {
+      subject: 'Engineering jobs',
+      location: 'Ticino',
+      resultCount: 30,
+      companyCount: 18,
+      locationCount: 7,
+      pageLabel: '3',
+    });
+    expect(block).toContain('Engineering jobs');
+    expect(block).toContain('30');
+    expect(block.length).toBeGreaterThan(1_800);
+    expect(ratio(block)).toBeGreaterThan(RATIO_FLOOR_PCT);
+  });
+
   it('Lugano IT city landing: text >12 % of standalone block HTML', () => {
     const block = renderJobBoardCommuterContext({ locale: 'it', location: 'Lugano' });
     expect(block.length).toBeGreaterThan(2_000);
