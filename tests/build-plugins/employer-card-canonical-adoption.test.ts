@@ -5,15 +5,18 @@ import { describe, it, expect } from 'vitest';
  * costOfLiving) use the canonical `renderEmployerCardListHtml` renderer
  * (compact variant) instead of their old inline-style grid cells.
  *
- * Canonical markers emitted by renderEmployerCardListHtml:
- *   - <ul role="list"   — the list wrapper attribute
- *   - bg-surface-raised — Tailwind token on the logo slot
- *   - border-edge       — Tailwind token on the card border
+ * Canonical markers emitted by renderEmployerCardListHtml after the
+ * Tailwind→CSS-atom refactor (commit 5e715f73e6 — `bg-surface-raised` /
+ * `border-edge` were extracted out of the per-card markup into `.ec-cmpct`
+ * + `.ec-logoslot` atoms in `index.css`):
+ *   - `<ul role="list"` — the list wrapper attribute
+ *   - `.ec-cmpct`       — compact card atom (carries border-edge + bg-surface/50)
+ *   - `.ec-logoslot`    — logo slot atom (carries bg-surface-raised + border-edge)
  */
 const CANONICAL_EMPLOYER_MARKERS = [
   /<ul[^>]+role="list"/,
-  /bg-surface-raised/,
-  /border-edge/,
+  /class="ec-cmpct"/,
+  /class="ec-logoslot/,
 ];
 
 const FIXTURE_SNAPSHOT = {
@@ -78,7 +81,9 @@ describe('weeklyEmployersPlugin uses canonical employer cards (detailed)', () =>
       { employer: 'Lonza', employerKey: 'lonza', active: 35, delta: 3 },
       { employer: 'Migros', employerKey: 'migros', active: 18, delta: 0 },
     ]);
-    expect(html).toMatch(/<article class="rounded-xl border border-edge/);
+    // Detailed variant emits the `.ec-card` atom (carries rounded-xl +
+    // border + border-edge + bg-surface/50 via @apply in index.css).
+    expect(html).toMatch(/<article class="ec-card"/);
     expect(html).toContain('Lonza');
     expect(html).toContain('Migros');
     expect(html).toContain('text-success');  // Lonza has positive delta → success tone
