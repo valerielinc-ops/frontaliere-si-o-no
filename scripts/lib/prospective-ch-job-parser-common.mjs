@@ -174,6 +174,7 @@ export function createProspectiveChParser(config) {
     defaultSourceLang = 'de',
     extraTrustedHosts = [],
     acceptDirectlinkHosts = [],
+    filterListing,
   } = config;
 
   if (!companyKey || !companyName || !mediumId || !defaultCanton) {
@@ -262,10 +263,20 @@ export function createProspectiveChParser(config) {
 
     const jobs = [];
     let directlinkSkipped = 0;
+    let attributeSkipped = 0;
     for (const listing of all) {
       const szas = listing?.szas || {};
       const title = normalizeSpace(szas.sza_title || listing.title || '');
       if (!title || title.length < 3) continue;
+
+      // Caller-supplied predicate for shared tenants where the discriminator
+      // is an attribute bucket (e.g. medium 1003280 tags KSNW vs LUKS via
+      // attributes['40']). Returning false drops the listing.
+      if (typeof filterListing === 'function') {
+        let keep = true;
+        try { keep = !!filterListing(listing); } catch { keep = false; }
+        if (!keep) { attributeSkipped += 1; continue; }
+      }
 
       // Multi-employer Prospective tenant filter: when configured, drop
       // listings whose directlink hostname doesn't match the allowlist.
@@ -355,6 +366,9 @@ export function createProspectiveChParser(config) {
 
     if (directlinkSkipped > 0) {
       console.log(`  ⏭️  Filtered out ${directlinkSkipped} listings (directlink host not in allowlist)`);
+    }
+    if (attributeSkipped > 0) {
+      console.log(`  ⏭️  Filtered out ${attributeSkipped} listings (filterListing predicate)`);
     }
     console.log(`📋 Total ${companyName} jobs discovered: ${jobs.length}`);
     return jobs;
