@@ -1,6 +1,6 @@
 {
   "crawlerKey": "linnea",
-  "assembledAt": "2026-05-25T22:47:50.746Z",
+  "assembledAt": "2026-05-26T23:30:12.959Z",
   "jobs": [
     {
       "url": "https://www.linnea.ch/careers/?position=1",
@@ -63,9 +63,9 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "previousSlugs": [
-        "erp-system-administrator-and-it-project-lead-linnea",
         "amministratore-di-sistema-erp-e-responsabile-di-progetto-it-linnea-sa-riazzino",
         "amministratore-di-sistema-erp-e-responsabile-progetti-it-linnea-sa-riazzino",
+        "erp-system-administrator-and-it-project-lead-linnea",
         "erp-system-administrator-and-it-project-lead-linnea-sa-riazzino-vo395d",
         "amministratore-di-sistema-erp-e-responsabile-di-progetti-it-linnea-sa-riazzino",
         "amministratore-erp-e-leader-progetto-it-linnea-sa-riazzino",
@@ -73,9 +73,6 @@
       ],
       "id": "linnea-928d009f37b0",
       "previousSlugsByLocale": {
-        "en": [
-          "erp-system-administrator-and-it-project-lead-linnea"
-        ],
         "it": [
           "amministratore-di-sistema-erp-e-responsabile-di-progetto-it-linnea-sa-riazzino",
           "amministratore-di-sistema-erp-e-responsabile-progetti-it-linnea-sa-riazzino",
@@ -86,9 +83,13 @@
         ],
         "fr": [
           "erp-system-administrator-and-it-project-lead-linnea-sa-riazzino-vo395d"
+        ],
+        "en": [
+          "erp-system-administrator-and-it-project-lead-linnea"
         ]
       },
-      "firstSeenAt": "2026-04-13T22:01:51.867Z"
+      "firstSeenAt": "2026-04-13T22:01:51.867Z",
+      "needsRetranslation": true
     }
   ]
 }
