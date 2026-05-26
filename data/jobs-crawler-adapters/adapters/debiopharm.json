@@ -16,8 +16,6 @@
     "https://apply.workable.com/debiopharm/j/2EBAF3007D/",
     "https://apply.workable.com/debiopharm/j/2A8DC73C1D/",
     "https://apply.workable.com/debiopharm/j/36249F2C30/",
-    "https://apply.workable.com/debiopharm/j/12C173475B/",
-    "https://apply.workable.com/debiopharm/j/FC4F1439C1/",
     "https://apply.workable.com/debiopharm/j/1B593F4FBF/",
     "https://apply.workable.com/debiopharm/j/6024013BC6/",
     "https://apply.workable.com/debiopharm/j/720C19217F/",
@@ -63,18 +61,6 @@
       "canton": "VD",
       "company": "Debiopharm",
       "postedDate": "2026-05-05"
-    },
-    "https://apply.workable.com/debiopharm/j/12C173475B/": {
-      "location": "Lausanne",
-      "canton": "VD",
-      "company": "Debiopharm",
-      "postedDate": "2026-05-11"
-    },
-    "https://apply.workable.com/debiopharm/j/FC4F1439C1/": {
-      "location": "Lausanne",
-      "canton": "VD",
-      "company": "Debiopharm",
-      "postedDate": "2026-05-11"
     },
     "https://apply.workable.com/debiopharm/j/1B593F4FBF/": {
       "location": "Lausanne",
@@ -126,5 +112,5 @@
     }
   },
   "notes": "Dedicated Debiopharm crawler uses SSR debiopharm.com/careers + Workable v2 job detail API for Swiss jobs.",
-  "updatedAt": "2026-05-25T21:57:45.530Z"
+  "updatedAt": "2026-05-26T22:39:14.116Z"
 }
