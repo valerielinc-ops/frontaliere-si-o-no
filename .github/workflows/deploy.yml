@@ -451,6 +451,15 @@ jobs:
           # BUILD_PROFILE=1; set JOBS_SEO_PROFILE=0 locally to opt out. The
           # workflow_dispatch input remains as a compatibility force-on flag.
           JOBS_SEO_PROFILE: ${{ github.event.inputs.profile_jobs_seo == 'true' && '1' || '' }}
+          # Phase-level instrumentation inside the active-job per-page render
+          # (sub-categories: ph:title, ph:canonical-fallback, ph:related-pool,
+          # ph:summary-html, ph:jsonld, ph:prose, ph:template-render,
+          # ph:minify-write, ph:per-job-invariants). Enabled by default on the
+          # remote workflow so every deploy emits the phase breakdown for
+          # optimization work; opt-out is `JOBS_SEO_PROFILE_PHASES=0`. Overhead
+          # is ~9 hrtime.bigint() calls per active-job page × ~23k pages, well
+          # under 1 s on the GH runner.
+          JOBS_SEO_PROFILE_PHASES: '1'
           # Investigation-only before/after timing for the active-job related
           # pool change. When enabled, jobsSeoPagesPlugin computes the legacy
           # validJobs.filter(...) pool alongside the pre-indexed pool, records

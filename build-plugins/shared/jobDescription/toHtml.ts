@@ -47,11 +47,24 @@ export function blocksToHtml(blocks: Block[]): string {
   return parts.join('');
 }
 
-/** Drop-in replacement for the previous `plainTextToHtml()` helper in
- * jobsSeoPagesPlugin.ts. Passes through HTML input untouched when it
- * already contains structural tags. */
-export function jobDescriptionTextToHtml(text: string): string {
-  if (!text) return '';
+// LRU memoization for jobDescriptionTextToHtml.
+//
+// The function is pure (input string → output HTML) so identical inputs
+// produce byte-identical outputs. The SSG build calls it ~10× per job page
+// (summary paragraphs + per-section paragraphs) × ~23k pages, and many
+// inputs repeat: same paragraph across 4 locales of the same job when
+// descriptionByLocale falls back to job.description, and boilerplate
+// company/role copy that recurs across job postings.
+//
+// Bounded at 10k entries with FIFO eviction (Map iteration order) to keep
+// memory predictable. Cache hits skip the regex passthrough OR the full
+// markdown parser, both of which dominate per-page render time. Hit rate
+// in practice depends on the corpus; even 20-30% saves a meaningful slice
+// of the active-job critical path.
+const JOB_DESC_HTML_CACHE_MAX = 10_000;
+const jobDescHtmlCache = new Map<string, string>();
+
+function computeJobDescriptionTextToHtml(text: string): string {
   if (/<(p|ul|ol|li|h[1-6]|br|strong|em)\b/i.test(text)) {
     // Pre-structured HTML still needs literal-markdown scrub — descriptions
     // mixing `<br>`/`<strong>` with `**bold**` would otherwise leak `**` tokens
@@ -63,6 +76,23 @@ export function jobDescriptionTextToHtml(text: string): string {
   }
   const blocks = parseJobDescription(text);
   return blocksToHtml(blocks);
+}
+
+/** Drop-in replacement for the previous `plainTextToHtml()` helper in
+ * jobsSeoPagesPlugin.ts. Passes through HTML input untouched when it
+ * already contains structural tags. Memoized (LRU 10k) — the function is
+ * pure so identical inputs always produce identical outputs. */
+export function jobDescriptionTextToHtml(text: string): string {
+  if (!text) return '';
+  const cached = jobDescHtmlCache.get(text);
+  if (cached !== undefined) return cached;
+  const result = computeJobDescriptionTextToHtml(text);
+  if (jobDescHtmlCache.size >= JOB_DESC_HTML_CACHE_MAX) {
+    const oldestKey = jobDescHtmlCache.keys().next().value;
+    if (oldestKey !== undefined) jobDescHtmlCache.delete(oldestKey);
+  }
+  jobDescHtmlCache.set(text, result);
+  return result;
 }
 
 /**

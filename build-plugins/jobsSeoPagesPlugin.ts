@@ -111,7 +111,7 @@ import {
 } from '../services/seo/meta-descriptions';
 import { COMPANY_HQ_ADDRESSES } from './shared/companyHqAddresses';
 import { buildJobPostingSchema, type JobInput } from './shared/jobPostingSchema';
-import { startTimer, recordEmit, printSummary as printJobsSeoProfile } from './shared/jobsSeoProfiler.ts';
+import { startTimer, recordEmit, phaseTimer, recordPhase, printSummary as printJobsSeoProfile } from './shared/jobsSeoProfiler.ts';
 import { resolveJobsSeoPagesFlushed } from './shared/buildSignals';
 import { MIN_JOBS_FOR_CANTON_PAGE } from './weeklyEmployersData';
 import {
@@ -749,10 +749,22 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  fs.mkdirSync(dir, { recursive: true });
  _ensuredDirs.add(dir);
  }
+ // Profile-mode opt-out for HTML minification.
+ //
+ // Set `JOBS_SEO_SKIP_MINIFY=1` to skip the per-page `minifyHtml()` call so
+ // the sub-profiler's `minify-write` phase measures only the queue insert,
+ // and the upstream `template-render` / `prose` / `summary-html` phases
+ // become the dominant fractions (clean signal for optimization work).
+ //
+ // PROD builds keep minify ON: skipping it inflates dist/ by ~9-10% and
+ // worsens the text-html-ratio audit gate. Real wall-clock minify deferral
+ // requires extending `postWalkWorker.mjs` to run `minifyHtml` across the
+ // existing 4-worker pool — tracked as a follow-up.
+ const __SKIP_MINIFY = process.env.JOBS_SEO_SKIP_MINIFY === '1';
  const _writtenPaths = new Set<string>();
  function _qw(filePath: string, content: string) {
  _writtenPaths.add(filePath);
- collector.add(filePath, filePath.endsWith('.html') ? minifyHtml(content) : content);
+ collector.add(filePath, filePath.endsWith('.html') && !__SKIP_MINIFY ? minifyHtml(content) : content);
  }
 
  /**
@@ -786,6 +798,35 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  // Job SEO pages have no raw AdSense slots; when the SPA bundle is present,
  // avoid repeating the static analytics/AdSense boot tags on every page.
  const staticAnalyticsHtml = hasSpaBundle ? '' : `\n ${GTAG_SNIPPET}\n ${ADSENSE_SNIPPET}`;
+
+ /* ── Per-closeBundle memoization caches ──────────────────────────────
+  * Scoped to a single closeBundle invocation so watch-mode rebuilds do not
+  * leak entries across builds. Bounded to keep memory predictable across
+  * ~23k active-job emits × N locales: when a cache hits the cap we drop the
+  * oldest insertion (FIFO via Map iteration order) — good-enough policy for
+  * write-once-read-many text inputs where access patterns are uniform.
+  */
+ const CANONICAL_FALLBACK_CACHE_MAX = 8000;
+ const canonicalFallbackCache = new Map<string, ReturnType<typeof buildFallbackCanonicalContent>>();
+ const memoBuildFallbackCanonicalContent = (
+   description: string,
+   requirements: string[],
+   locale: 'it' | 'en' | 'de' | 'fr',
+ ): ReturnType<typeof buildFallbackCanonicalContent> => {
+   // Cheap composite key: requirements are short array of trimmed strings so
+   // joining with a low-collision separator stays under a few hundred chars
+   // for typical jobs. Locale prefix prevents cross-locale collisions.
+   const key = `${locale}${description.length}${description}${requirements.join('')}`;
+   const cached = canonicalFallbackCache.get(key);
+   if (cached !== undefined) return cached;
+   const result = buildFallbackCanonicalContent(description, requirements, locale);
+   if (canonicalFallbackCache.size >= CANONICAL_FALLBACK_CACHE_MAX) {
+     const oldestKey = canonicalFallbackCache.keys().next().value;
+     if (oldestKey !== undefined) canonicalFallbackCache.delete(oldestKey);
+   }
+   canonicalFallbackCache.set(key, result);
+   return result;
+ };
 
  // ── Load blog article data for cross-linking (SEO: internal links from job → article pages) ──
  interface RecentArticle { id: string; category: string; date: string; image: string }
@@ -838,11 +879,23 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  const items = recentArticles.map(art => {
  const slug = articleSlugByLocale[locale]?.[art.id] ?? art.id;
  const prefix = locale === 'it' ? '' : `/${locale}`;
- const href = `${BASE_URL}${prefix}/${blogSectionByLocale[locale]}/${slug}/`;
+ // Relative href: browsers and Google resolve against the page's <link rel="canonical">
+ // (absolute), so internal navigation and link-equity stay intact. Saves ~27 B per link.
+ const href = `${prefix}/${blogSectionByLocale[locale]}/${slug}/`;
  const title = articleTitleByLocale.it[art.id] || art.id.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
  return `<li class="s-86Qi7h"><a class="s-KkZ9xy" href="${href}">${esc(title)}</a></li>`;
  }).join('');
  return `<section class="related s-Duf2at"><h2 class="s-F8Mkz3">${esc(recentArticlesLabel[locale])}</h2><ul class="s-QkRjp8">${items}</ul></section>`;
+ };
+ // Compute once per locale — this block is identical across all job pages
+ // emitted in the same locale (~110k jobs × 4 locales = ~440k call sites).
+ // Caching skips the inner map/join loop and avoids ~440k redundant string
+ // allocations during the build.
+ const recentArticlesHtmlByLocale: Record<'it' | 'en' | 'de' | 'fr', string> = {
+ it: buildRecentArticlesHtml('it'),
+ en: buildRecentArticlesHtml('en'),
+ de: buildRecentArticlesHtml('de'),
+ fr: buildRecentArticlesHtml('fr'),
  };
 
  // Default search-section route slugs — these are actual URL paths that must exist in the router.
@@ -1776,13 +1829,14 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  };
  const mapCategoryToONet = (cat: string): string | undefined => CATEGORY_TO_ONET[cat];
 
+ const COMPANY_LOGO_PLACEHOLDER = `${BASE_URL}/og-image.png`;
  const companyLogo = (job: any): string => {
  const key = job?.companyKey || '';
  if (key && CRAWLED_COMPANY_LOGOS[key]) return CRAWLED_COMPANY_LOGOS[key];
- // Use branded 1200×630 OG image as fallback — Google's favicon service
- // only returns 128px which is too small for social preview requirements
- // (minimum 600×314px recommended by Open Graph spec).
- return `${BASE_URL}/og-image.png`;
+ // Branded 1200×630 OG image fallback — kept for JSON-LD `hiringOrganization.logo`
+ // where Schema.org expects a value. `renderLogoImg` skips emitting an <img> tag
+ // when the resolved URL is this placeholder (saves ~230 B × ~5 occurrences/page).
+ return COMPANY_LOGO_PLACEHOLDER;
  };
  /**
   * Local placeholder served from `public/images/company-logo-fallback.svg`.
@@ -1819,6 +1873,10 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  height: number,
  style: string,
  ): string => {
+ // Skip emitting <img> when no curated brand logo exists — emitting the
+ // generic placeholder added ~230 B × 5 occurrences per job page across
+ // 545k pages (~600 MB of artifact). Cards render text-only without it.
+ if (!url || url === COMPANY_LOGO_PLACEHOLDER) return '';
  const safeAlt = esc(alt);
  const safeStyle = esc(style);
  if (isLocalLogo(url)) {
@@ -2077,6 +2135,52 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  fr: localizedSlug(job, 'fr'),
  };
  const jobCanton = sharedResolveJobCanton(job as { canton?: string; location?: string });
+ // Per-job invariants — values that depend only on the job (and jobCanton,
+ // which is itself job-invariant) and are therefore identical across the
+ // 4 locale iterations below. Hoisting them out of the inner loop avoids
+ // recomputing the same string normalization / lookup / regex on every
+ // locale pass × every active job. The full prose IIFE further down uses
+ // most of these via closure (co/cat/contractKey/dc/deCantonPrep/...).
+ const __tPh_perJob = phaseTimer();
+ const perJob_dc = CANTON_DISPLAY[String(job.canton || DEFAULT_CANTON)] || String(job.canton || DEFAULT_CANTON);
+ const perJob_jobLocation = String(job.location || '').trim();
+ const perJob_co = String(job.company || '');
+ const perJob_cat = String(job.category || '').toLowerCase();
+ const perJob_contractKey = String(job.contract || '').toLowerCase();
+ const perJob_deCantonPrep = germanCantonPrep(perJob_dc);
+ const perJob_frCantonPrep = frenchCantonPrep(perJob_dc);
+ const perJob_matchedCity = CITY_HUB_KEYS.find((c) => jobMatchesCity(job as never, c));
+ const perJob_matchedSector = SECTOR_HUB_KEYS.find((s) => jobMatchesSector(job as never, s));
+ const perJob_logoUrl = companyLogo(job);
+ const perJob_relatedPool = getRelatedPool(job);
+ const perJob_relatedSeed = (() => {
+ const s = String(job.slug || '');
+ let h = 2166136261 >>> 0;
+ for (let i = 0; i < s.length; i++) {
+ h = (h ^ s.charCodeAt(i)) >>> 0;
+ h = (h * 16777619) >>> 0;
+ }
+ return h;
+ })();
+ const perJob_salaryMin = Number.isFinite(Number(job.salaryMin))
+ ? Number(job.salaryMin)
+ : Number(job?.baseSalary?.value?.minValue);
+ const perJob_salaryMax = Number.isFinite(Number(job.salaryMax))
+ ? Number(job.salaryMax)
+ : Number(job?.baseSalary?.value?.maxValue);
+ const perJob_salaryCurrency = String(job.currency || job?.baseSalary?.currency || job?.baseSalary?.value?.currency || 'CHF');
+ const perJob_rawLocality = String(job.addressLocality || '').trim();
+ const perJob_addressLocality = isValidAddress(perJob_rawLocality) ? perJob_rawLocality : String(job.location || DEFAULT_CANTON_DISPLAY);
+ const perJob_addressRegion = deriveCanton(job);
+ const perJob_addressCountry = String(job.addressCountry || 'CH');
+ const perJob_postalCode = deriveJobPostalCode(job);
+ const perJob_streetAddress = deriveStreetAddress(job);
+ // NOTE: `isRemote` is intentionally NOT hoisted here. The original test
+ // ran against the LOCALE-specific normalized description (which can
+ // differ across translations — "remote" may appear in the EN copy and
+ // not in the IT source). Keeping the computation inside the locale loop
+ // preserves byte-for-byte output parity with the pre-refactor version.
+ recordPhase('per-job-invariants', __tPh_perJob);
  for (const locale of localeList) {
  const __tActiveJob = startTimer();
  const sectionForJob = buildCantonAwareSection(locale, jobCanton);
@@ -2099,8 +2203,8 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  // JobPosting, etc. describe THIS page) so existing backlinks resolve.
  const effectiveCanonicalUrl = resolveCanonicalUrl(perLocaleSlug[locale], canonicalUrl);
  const localizedTitle = stripLiteralMarkdownFromTitle(String(job?.titleByLocale?.[locale] || job.title || ''));
- const jobLocation = String(job.location || '').trim();
- const dc = CANTON_DISPLAY[String(job.canton || DEFAULT_CANTON)] || String(job.canton || DEFAULT_CANTON);
+ const jobLocation = perJob_jobLocation;
+ const dc = perJob_dc;
  // City-aware title: always includes location when available, then truncates
  // the core before appending the fixed brand suffix. This prevents duplicate
  // titles on multi-sede jobs (same role × N cities) — the city differentiates
@@ -2110,6 +2214,13 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  // title would collide with another job's base title in the same locale —
  // closes the Semrush title-uniqueness audit gate while leaving unique
  // titles untouched.
+ const __tPh_title = phaseTimer();
+ // composeJobPageTitle is invariant in (jobTitle, company, city, locale)
+ // — call it once for the probe (no disambiguator), then only re-call
+ // with a disambiguator IF this page collides with another in the same
+ // locale. The non-disambiguated probe doubles as `ogTitle` (social
+ // cards omit the disambiguator by design — see comment below). Saves
+ // 1 call per page always, 2 when no collision (the common case).
  const baseTitleProbe = composeJobPageTitle(localizedTitle, String(job.company || ''), jobLocation, locale);
  const collidesInLocale = (titleCollisionByLocale[locale].get(baseTitleProbe) || 0) > 1;
  // Build a HUMAN-READABLE disambiguator from the job's metadata (cascade:
@@ -2121,12 +2232,16 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  const disambiguatorToken = collidesInLocale
  ? pickJobDisambiguator(job as Record<string, unknown>, locale, baseTitleProbe)
  : '';
- const title = composeJobPageTitle(localizedTitle, String(job.company || ''), jobLocation, locale, disambiguatorToken);
+ const title = disambiguatorToken
+ ? composeJobPageTitle(localizedTitle, String(job.company || ''), jobLocation, locale, disambiguatorToken)
+ : baseTitleProbe;
  // Clean variant for og:title — same as `title` minus the trailing
  // " · {disambiguator}". The disambig is needed in the HTML <title>
  // for SEO uniqueness, but the social cards look better without the
- // trailing extra metadata.
- const ogTitle = composeJobPageTitle(localizedTitle, String(job.company || ''), jobLocation, locale, '');
+ // trailing extra metadata. With no disambiguator `title === probe`,
+ // so `ogTitle` is structurally identical to the no-disamb probe.
+ const ogTitle = baseTitleProbe;
+ recordPhase('title', __tPh_title);
  const localizedDescriptionRaw = String(job?.descriptionByLocale?.[locale] || job.description || '');
  const localizedDescription = normalizeText(localizedDescriptionRaw);
  const cleanDesc = cleanMetaDescription(localizedDescriptionRaw);
@@ -2176,6 +2291,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  // hydrated SPA renders 6 sections from the raw description. Run the same
  // heuristic splitter the SPA uses (services/jobs/canonicalFallback) so
  // crawlers see the same sectioned body users see.
+ const __tPh_canonical = phaseTimer();
  const canonicalLocaleRaw = readCanonicalByLocale(job, locale);
  const hasCanonicalSignal = !!canonicalLocaleRaw && (
  cleanItems(canonicalLocaleRaw?.summary, 4).length > 0
@@ -2192,7 +2308,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  : [];
  const canonicalLocale = hasCanonicalSignal
  ? canonicalLocaleRaw
- : buildFallbackCanonicalContent(localizedDescriptionRaw, fallbackRequirements, locale);
+ : memoBuildFallbackCanonicalContent(localizedDescriptionRaw, fallbackRequirements, locale);
  const canonicalSummary = cleanItems(canonicalLocale?.summary, 4);
  const canonicalSections = parseCanonicalSections(canonicalLocale?.sections, 8)
  .filter((section) => !['requirements', 'benefits', 'process'].includes(section.id));
@@ -2217,7 +2333,9 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  .slice(0, hasCanonical ? 4 : 10);
  const summaryParagraphs = hasCanonical ? canonicalSummary : bodyParagraphs;
  const mergedRequirements = canonicalRequirements.length > 0 ? canonicalRequirements : requirements;
- const logoUrl = companyLogo(job);
+ recordPhase('canonical-fallback', __tPh_canonical);
+ const logoUrl = perJob_logoUrl;
+ const __tPh_related = phaseTimer();
  // Related jobs cross-link block — densifies BFS reachability so the
  // ~2400 job-detail pages are reachable from the city/sector hubs even
  // when those hubs only embed top-30 cards. Selection: same category
@@ -2228,19 +2346,12 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  // enough to keep the orphan pool reachable at ~8.2k edges
  // (6 × 1370 reachable details), low enough to keep detail-page byte
  // weight under the audit:page-weight budget.
- const relatedPool = getRelatedPool(job);
+ const relatedPool = perJob_relatedPool;
  // Stable hash of own slug → starting offset into the pool, so
  // different details surface different neighbours (no "always top N")
- // without losing determinism between builds.
- const relatedSeed = (() => {
- const s = String(job.slug || '');
- let h = 2166136261 >>> 0;
- for (let i = 0; i < s.length; i++) {
- h = (h ^ s.charCodeAt(i)) >>> 0;
- h = (h * 16777619) >>> 0;
- }
- return h;
- })();
+ // without losing determinism between builds. Hoisted to perJob block —
+ // see top of the outer for-each-job loop.
+ const relatedSeed = perJob_relatedSeed;
  const related = relatedPool.length === 0 ? [] : (() => {
  const out: any[] = [];
  const seen = new Set<string>();
@@ -2263,10 +2374,13 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  }
  return out;
  })();
+ // close related-pool phase (selection done); relatedHtml render goes into
+ // the same bucket so the bucket measures the full cross-link block cost.
  const relatedHtml = related
  .map((r: any) => {
  const rp = `${localePrefix[locale]}/${buildCantonAwareSection(locale, jobCanton)}/${localizedSlug(r, locale)}`.replace(/\/+/g, '/');
- const href = `${BASE_URL}${withSlash(rp)}`;
+ // Relative href — internal navigation resolves against canonical (absolute).
+ const href = withSlash(rp);
  const relatedTitle = stripLiteralMarkdownFromTitle(String(r?.titleByLocale?.[locale] || r.title || ''));
  const rLogo = companyLogo(r);
  const rSalary = (() => {
@@ -2285,6 +2399,8 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  return `<li class="rj"><a href="${href}" aria-label="${esc(relatedTitle)} — ${esc(r.company)}" class="rja">${rLogoImg}<div class="rjw"><div class="rjt">${esc(relatedTitle)}</div><div class="rjs">${esc(r.company)} · ${esc(r.location)}${r.canton ? ` (${esc(r.canton)})` : ''}</div>${rSalary ? `<div class="rjp">${esc(rSalary)}</div>` : ''}</div></a></li>`;
  })
  .join('');
+ recordPhase('related-pool', __tPh_related);
+ const __tPh_summary = phaseTimer();
  // Body paragraphs go through `jobDescriptionTextToHtml` (full block-level
  // parser) so AI-untouched descriptions with `### Heading` / `**bold**` /
  // `• bullet` markdown render as proper <h3>/<strong>/<ul>. `inlineTextToHtml`
@@ -2331,6 +2447,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  const timelineHtml = timelineBlocks
  .map((section) => `<div class="timeline-step">${sectionHtml(section.heading, section.paragraphs, section.bullets)}</div>`)
  .join('');
+ recordPhase('summary-html', __tPh_summary);
  const parserAssignedChunks = summaryParagraphs.length
  + timelineBlocks.reduce((sum, section) => sum + section.paragraphs.length + section.bullets.length, 0);
  const parserOriginalChunks = Math.max(1, descriptionParagraphs.length + mergedRequirements.length);
@@ -2338,14 +2455,11 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  const isRemote = /remote|telelavor|smart[-\s]?working|home office|hybrid/i.test(
  `${job.title || ''} ${localizedDescription || ''} ${job.location || ''}`
  );
- // Salary data is pre-populated by re-enrich-jobs.mjs (SECTORS estimation)
- const salaryMin = Number.isFinite(Number(job.salaryMin))
- ? Number(job.salaryMin)
- : Number(job?.baseSalary?.value?.minValue);
- const salaryMax = Number.isFinite(Number(job.salaryMax))
- ? Number(job.salaryMax)
- : Number(job?.baseSalary?.value?.maxValue);
- const salaryCurrency = String(job.currency || job?.baseSalary?.currency || job?.baseSalary?.value?.currency || 'CHF');
+ // Salary data is pre-populated by re-enrich-jobs.mjs (SECTORS estimation) —
+ // values hoisted to perJob block since they are job-invariant.
+ const salaryMin = perJob_salaryMin;
+ const salaryMax = perJob_salaryMax;
+ const salaryCurrency = perJob_salaryCurrency;
  const salaryFormatter = new Intl.NumberFormat(
  locale === 'de' ? 'de-CH' : locale === 'fr' ? 'fr-CH' : locale === 'en' ? 'en-CH' : 'it-CH',
  { maximumFractionDigits: 0 }
@@ -2361,13 +2475,12 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  : locale === 'en'
  ? 'not specified'
  : 'non indicato');
- const rawLocality = String(job.addressLocality || '').trim();
- const addressLocality = isValidAddress(rawLocality) ? rawLocality : String(job.location || DEFAULT_CANTON_DISPLAY);
- const addressRegion = deriveCanton(job);
- const addressCountry = String(job.addressCountry || 'CH');
- const rawPostal = String(job.postalCode || '').trim();
- const postalCode = deriveJobPostalCode(job);
- const streetAddress = deriveStreetAddress(job);
+ // Address fields hoisted to perJob block — all derived from job alone.
+ const addressLocality = perJob_addressLocality;
+ const addressRegion = perJob_addressRegion;
+ const addressCountry = perJob_addressCountry;
+ const postalCode = perJob_postalCode;
+ const streetAddress = perJob_streetAddress;
  const alternates = localeList.map((l) => {
  const p = `${localePrefix[l]}/${buildCantonAwareSection(l, jobCanton)}/${perLocaleSlug[l]}`.replace(/\/+/g, '/');
  return { lang: l, href: `${BASE_URL}${withSlash(p)}` };
@@ -2381,6 +2494,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  ` <link rel="alternate" hreflang="x-default" href="${xDefaultHref}">`,
  ].join('\n');
 
+ const __tPh_jsonld = phaseTimer();
  // Build an HTML-formatted description for JobPosting structured data.
  // Google requires a non-empty description and recommends HTML format.
  // Assemble from summary paragraphs + structured sections, with a
@@ -2474,10 +2588,12 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  { '@type': 'ListItem', position: 3, name: localizedTitle, item: canonicalUrl },
  ],
  });
+ recordPhase('jsonld', __tPh_jsonld);
 
  const outDir = np.join(distDir, canonicalPath.slice(1));
  activeJobDirs.add(canonicalPath.slice(1).replace(/\/+$/, ''));
  _md(outDir);
+ const __tPh_template = phaseTimer();
  const html = `<!doctype html>
 <html lang="${locale}">
  <head>
@@ -2509,7 +2625,7 @@ ${staticAnalyticsHtml}
  <body>
  <div id="root"></div>
  <main class="seo-static-content static-job-page">
- <nav class="bn"><a href="${BASE_URL}${withSlash(`${localePrefix[locale]}/${buildCantonAwareSection(locale, jobCanton)}`.replace(/\/+/g, '/'))}">&larr; ${esc(allJobsLinkLabel(locale, getCantonDisplayLabel(String(job.canton || DEFAULT_CANTON), locale)))}</a></nav>
+ <nav class="bn"><a href="${withSlash(`${localePrefix[locale]}/${buildCantonAwareSection(locale, jobCanton)}`.replace(/\/+/g, '/'))}">&larr; ${esc(allJobsLinkLabel(locale, getCantonDisplayLabel(String(job.canton || DEFAULT_CANTON), locale)))}</a></nav>
  <article class="proposal">
  <section class="hero">
  <h1 class="hero-title">${esc(composeJobPageH1(localizedTitle, String(job.company || '')))}</h1>
@@ -2535,7 +2651,8 @@ ${staticAnalyticsHtml}
  ${renderRightRail({ job, locale, addressLocality, addressRegion, postalCode, salaryMin, salaryText, canonicalKeywords, esc })}
  ${(() => {
  const cSlugBanner = canonicalCompanySlugBuild(job.company, job.companyKey);
- const cHref = `${BASE_URL}${withSlash(`${localePrefix[locale]}/${buildCantonAwareSection(locale, jobCanton)}/${companyRoutePrefix[locale]}-${cSlugBanner}`.replace(/\/+/g, '/'))}`;
+ // Relative href — internal navigation resolves against canonical (absolute).
+ const cHref = withSlash(`${localePrefix[locale]}/${buildCantonAwareSection(locale, jobCanton)}/${companyRoutePrefix[locale]}-${cSlugBanner}`.replace(/\/+/g, '/'));
  const cLogo = companyLogo(job);
  const companyHeading: Record<string, string> = { it: 'Azienda', en: 'Company', de: 'Unternehmen', fr: 'Entreprise' };
  const companyMonitoring: Record<string, string> = { it: 'Frontaliere Ticino ha scovato questa opportunità nel monitoraggio aziende.', en: 'Frontaliere Ticino discovered this opportunity through company monitoring.', de: 'Frontaliere Ticino hat diese Möglichkeit im Unternehmensmonitoring entdeckt.', fr: 'Frontaliere Ticino a repéré cette opportunité dans le suivi des entreprises.' };
@@ -2555,12 +2672,18 @@ ${staticAnalyticsHtml}
  return card + ctaLink;
  })()}
  ${related.length > 0 ? `<section class="related"><h2>${esc(localeCopy[locale].relatedJobs)}</h2><ul class="rul">${relatedHtml}</ul></section>` : ''}
- ${buildRecentArticlesHtml(locale)}
+ ${recentArticlesHtmlByLocale[locale]}
  ${(() => {
- const loc = esc(job.location || dc);
- const co = esc(job.company || '');
- const taxUrl = `${BASE_URL}${locale === 'it' ? '/' : `/${locale}/`}`;
- const cat = String(job.category || '').toLowerCase();
+ const __tPh_prose = phaseTimer();
+ // loc/co/cat/contractKey/deCantonPrep/frCantonPrep are job-invariant —
+ // sourced from the perJob block hoisted above the locale loop. Only
+ // safeTitle/slugHash/variant/contractLabelLocal/sectorName/taxUrl are
+ // genuinely locale-dependent and stay local.
+ const loc = esc(perJob_jobLocation || perJob_dc);
+ const co = esc(perJob_co);
+ // Relative URL — appears in <a href> within prose; resolves against canonical.
+ const taxUrl = locale === 'it' ? '/' : `/${locale}/`;
+ const cat = perJob_cat;
  const sectorLabel: Record<string, Record<string, string>> = {
  it: { healthcare: 'sanità', technology: 'tecnologia', finance: 'servizi finanziari', engineering: 'ingegneria', hospitality: 'ospitalità', retail: 'commercio', manufacturing: 'manifattura', education: 'formazione', construction: 'edilizia', logistics: 'logistica', sales: 'vendite', administration: 'amministrazione' },
  en: { healthcare: 'healthcare', technology: 'technology', finance: 'financial services', engineering: 'engineering', hospitality: 'hospitality', retail: 'retail', manufacturing: 'manufacturing', education: 'education', construction: 'construction', logistics: 'logistics', sales: 'sales', administration: 'administration' },
@@ -2569,14 +2692,14 @@ ${staticAnalyticsHtml}
  };
  const sectorName = sectorLabel[locale]?.[cat] || sectorLabel[locale]?.['administration'] || '';
  // Contract label localized (reuse top-level map).
- const contractKey = String(job.contract || '').toLowerCase();
+ const contractKey = perJob_contractKey;
  const contractLabelLocal = contractLabelByLocale[locale]?.[contractKey] || contractLabelByLocale[locale]?.other || '';
  const safeTitle = esc(String(localizedTitle || job.title || ''));
  // Deterministic variant picker — stable across rebuilds, varies across slugs.
  const slugHash = stableHash(String(perLocaleSlug[locale] || job.slug || job.id || ''));
  const variant = slugHash % 3; // 3 rotating templates
- const deCantonPrep = germanCantonPrep(dc);
- const frCantonPrep = frenchCantonPrep(dc);
+ const deCantonPrep = perJob_deCantonPrep;
+ const frCantonPrep = perJob_frCantonPrep;
 
  // --- Frontalier info, per-locale, with 3 template variants each ---
  // Each variant injects title, company, city, sector, contract so ~60-70% of
@@ -2703,11 +2826,12 @@ ${staticAnalyticsHtml}
  `LAMal ou assurance italienne : quelle option pour le rôle <strong>${safeTitle}</strong>${sectorName ? ` (${sectorName})` : ''} ?`,
  ],
  };
+ // Relative hrefs — internal navigation resolves against canonical (absolute).
  const lamalLink: Record<string, string> = {
- it: `<a href="${BASE_URL}/premi-cassa-malati/">comparatore LAMal</a>`,
- en: `<a href="${BASE_URL}/en/health-insurance-premiums/">LAMal comparator</a>`,
- de: `<a href="${BASE_URL}/de/krankenkassenpraemien/">KVG-Vergleich</a>`,
- fr: `<a href="${BASE_URL}/fr/primes-assurance-maladie/">comparateur LAMal</a>`,
+ it: `<a href="/premi-cassa-malati/">comparatore LAMal</a>`,
+ en: `<a href="/en/health-insurance-premiums/">LAMal comparator</a>`,
+ de: `<a href="/de/krankenkassenpraemien/">KVG-Vergleich</a>`,
+ fr: `<a href="/fr/primes-assurance-maladie/">comparateur LAMal</a>`,
  };
  const faqA2Templates: Record<string, string[]> = {
  it: [
@@ -2741,19 +2865,20 @@ ${staticAnalyticsHtml}
  const frontalierInfo: Record<string, string> = { it: frontalierInfoHtml, en: frontalierInfoHtml, de: frontalierInfoHtml, fr: frontalierInfoHtml };
  const faqSection: Record<string, string> = { it: faqSectionHtml, en: faqSectionHtml, de: faqSectionHtml, fr: faqSectionHtml };
  const hubLinks = (() => {
- const matchedCity = CITY_HUB_KEYS.find((c) => jobMatchesCity(job as never, c));
- const matchedSector = SECTOR_HUB_KEYS.find((s) => jobMatchesSector(job as never, s));
+ const matchedCity = perJob_matchedCity;
+ const matchedSector = perJob_matchedSector;
  if (!matchedCity && !matchedSector) return '';
  const heading: Record<string, string> = { it: 'Esplora annunci simili', en: 'Explore similar jobs', de: 'Ähnliche Stellen entdecken', fr: 'Explorer des offres similaires' };
  const cityCopy: Record<string, string> = { it: 'Tutti i lavori a', en: 'All jobs in', de: 'Alle Jobs in', fr: 'Tous les emplois à' };
  const sectorCopy: Record<string, string> = { it: 'Tutti gli annunci', en: 'All jobs in', de: 'Alle Jobs in', fr: 'Toutes les offres' };
  const links: string[] = [];
+ // Relative hrefs — internal navigation resolves against canonical (absolute).
  if (matchedCity) {
- const href = `${BASE_URL}${buildCityHubPath(locale as never, matchedCity)}`;
+ const href = buildCityHubPath(locale as never, matchedCity);
  links.push(`<a href="${href}" class="pill pill-a">${esc(cityCopy[locale] || cityCopy.it)} ${esc(CITY_HUB_DISPLAY_NAME[matchedCity])} &rarr;</a>`);
  }
  if (matchedSector) {
- const href = `${BASE_URL}${buildSectorHubPath(locale as never, matchedSector)}`;
+ const href = buildSectorHubPath(locale as never, matchedSector);
  const label = SECTOR_HUB_DISPLAY[locale as never]?.[matchedSector] || matchedSector;
  const prefix = locale === 'it' || locale === 'fr' ? `${sectorCopy[locale]} ${label}` : `${sectorCopy[locale]} ${label}`;
  links.push(`<a href="${href}" class="pill pill-w">${esc(prefix)} &rarr;</a>`);
@@ -2763,23 +2888,29 @@ ${staticAnalyticsHtml}
  // STRIP_ACTIVE_JOB_PROSE: when on, drop the two prose sections and emit the
  // audit-skip marker so text-html-ratio (and other content gates) ignore the
  // page. hubLinks (internal-linking chips) stays — it's UI, not filler prose.
- if (STRIP_ACTIVE_JOB_PROSE) return EJP_STRIPPED_MARKER + hubLinks;
+ if (STRIP_ACTIVE_JOB_PROSE) {
+ recordPhase('prose', __tPh_prose);
+ return EJP_STRIPPED_MARKER + hubLinks;
+ }
+ recordPhase('prose', __tPh_prose);
  return (frontalierInfo[locale] || '') + (faqSection[locale] || '') + hubLinks;
  })()}
  <nav class="fn">
- <a href="${BASE_URL}${withSlash(`${localePrefix[locale]}/${buildCantonAwareSection(locale, jobCanton)}`.replace(/\/+/g, '/'))}" class="lnk-acc">${esc(cantonSectionName(locale, dc))} &rarr;</a>${(() => {
+ <a href="${withSlash(`${localePrefix[locale]}/${buildCantonAwareSection(locale, jobCanton)}`.replace(/\/+/g, '/'))}" class="lnk-acc">${esc(cantonSectionName(locale, dc))} &rarr;</a>${(() => {
  const cSlug = canonicalCompanySlugBuild(job.company, job.companyKey);
  if (!cSlug) return '';
  const cPrefix = companyRoutePrefix[locale];
  const cFullSlug = `${cPrefix}-${cSlug}`;
  const cPath = withSlash(`${localePrefix[locale]}/${buildCantonAwareSection(locale, jobCanton)}/${cFullSlug}`.replace(/\/+/g, '/'));
- return ` · <a href="${BASE_URL}${cPath}" class="lnk-acc">${esc(job.company)} &rarr;</a>`;
+ return ` · <a href="${cPath}" class="lnk-acc">${esc(job.company)} &rarr;</a>`;
  })()}
  </nav>
  </main>
  <div id="footer-root"></div>${hasSpaBundle ? `\n <script type="module" crossorigin src="/assets/${entryJs}"></script>` : ''}
  </body>
 </html>`;
+ recordPhase('template-render', __tPh_template);
+ const __tPh_write = phaseTimer();
  _qw(np.join(outDir, 'index.html'), html);
  jobHtmlCache.set(`${locale}:${perLocaleSlug[locale]}`, html);
  // Also write flat .html so /slug serves 200 (avoids GitHub Pages 301 redirect)
@@ -2790,6 +2921,7 @@ ${staticAnalyticsHtml}
  _md(np.dirname(flatFile));
  _qwFlat(flatFile, html);
  }
+ recordPhase('minify-write', __tPh_write);
  recordEmit('active-job', __tActiveJob);
 
  // Legacy bridge: if non-IT locale and Italian slug differs from the

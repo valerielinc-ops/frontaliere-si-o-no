@@ -50,6 +50,39 @@
 const ENABLED = process.env.JOBS_SEO_PROFILE === '1'
   || (process.env.JOBS_SEO_PROFILE !== '0' && process.env.BUILD_PROFILE !== '0');
 
+// Phase-level instrumentation inside hot routines (e.g. active-job per-page
+// render) — opt-in because the hrtime/recordEmit overhead is non-trivial when
+// fired 10×+ per page across 23k+ pages. Set `JOBS_SEO_PROFILE_PHASES=1` to
+// enable; defaults off even when the top-level profiler is on. When off,
+// `phaseTimer()` returns a zero-cost sentinel and `recordPhase()` is a no-op.
+const PHASES_ENABLED = ENABLED && process.env.JOBS_SEO_PROFILE_PHASES === '1';
+
+/**
+ * Returns a token usable with recordPhase(). Designed to be paired with
+ * recordPhase() to time a sub-step inside a routine that already has its own
+ * outer timer (e.g. active-job per-page render).
+ */
+export function phaseTimer(): bigint {
+  if (!PHASES_ENABLED) return 0n;
+  return process.hrtime.bigint();
+}
+
+/**
+ * Record one phase-level sample. `start` MUST come from `phaseTimer()`.
+ * Categories are prefixed with `ph:` automatically so they group together in
+ * the profile summary and are easy to grep separately from top-level
+ * categories.
+ */
+export function recordPhase(category: string, start: bigint): void {
+  if (!PHASES_ENABLED || start === 0n) return;
+  recordEmit(`ph:${category}`, start);
+}
+
+/** True if phase-level profiling is on. */
+export function arePhasesEnabled(): boolean {
+  return PHASES_ENABLED;
+}
+
 type CategoryStats = {
   count: number;
   totalNs: bigint;

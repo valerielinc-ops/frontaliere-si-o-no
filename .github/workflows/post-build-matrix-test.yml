@@ -70,6 +70,9 @@ jobs:
           BUILD_PROFILE: '1'
           SEQUENTIAL_PROFILE: '1'
           JOBS_SEO_PROFILE: ${{ github.event.inputs.profile_jobs_seo == 'true' && '1' || '' }}
+          # Phase-level instrumentation inside the active-job per-page render —
+          # enabled by default to mirror the deploy workflow (see deploy.yml).
+          JOBS_SEO_PROFILE_PHASES: '1'
           JOBS_SEO_PROFILE_COMPARE_RELATED: ${{ github.event.inputs.profile_related_compare == 'true' && '1' || '' }}
         run: npm run build:ci
 
