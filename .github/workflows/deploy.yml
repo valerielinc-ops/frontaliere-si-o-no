@@ -576,8 +576,25 @@ jobs:
                 esac
                 echo ""
                 echo '```text'
-                grep -E "^\[$marker\]" /tmp/build.log | sed -E "s/^\[$marker\] //"
+                # Top-level emit categories (active-job, expired-soft-landing, ...).
+                # Excludes `ph:*` sub-rows so the headline table stays uncluttered;
+                # phase breakdown renders in its own sub-section below.
+                grep -E "^\[$marker\]" /tmp/build.log | grep -vE "^\[$marker\] ph:" | sed -E "s/^\[$marker\] //"
                 echo '```'
+                # active-job per-page render phase breakdown (only emitted when
+                # JOBS_SEO_PROFILE_PHASES=1, set by default in this workflow).
+                # Categories: ph:title, ph:canonical-fallback, ph:related-pool,
+                # ph:summary-html, ph:jsonld, ph:prose, ph:template-render,
+                # ph:minify-write, ph:per-job-invariants. Use this table to see
+                # which slice of the per-page render dominates the wall clock.
+                if [ "$marker" = "jobs-seo-profile" ] && grep -qE "^\[$marker\] ph:" /tmp/build.log; then
+                  echo ""
+                  echo "### active-job per-page render phases"
+                  echo ""
+                  echo '```text'
+                  grep -E "^\[$marker\] ph:" /tmp/build.log | sed -E "s/^\[$marker\] //"
+                  echo '```'
+                fi
               fi
             done
           } >> "$GITHUB_STEP_SUMMARY"

@@ -891,11 +891,22 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  // emitted in the same locale (~110k jobs × 4 locales = ~440k call sites).
  // Caching skips the inner map/join loop and avoids ~440k redundant string
  // allocations during the build.
- const recentArticlesHtmlByLocale: Record<'it' | 'en' | 'de' | 'fr', string> = {
- it: buildRecentArticlesHtml('it'),
- en: buildRecentArticlesHtml('en'),
- de: buildRecentArticlesHtml('de'),
- fr: buildRecentArticlesHtml('fr'),
+ //
+ // LAZY init (NOT eager `{ it: build('it'), en: build('en'), ... }`) because
+ // `buildRecentArticlesHtml` references `esc` via closure, and `esc` is
+ // declared further down in this same closeBundle scope (~line 1319). An
+ // eager initializer here would hit `esc` while it is still in TDZ and
+ // crash closeBundle with "Cannot access 'esc' before initialization"
+ // (run 26439556741). First call happens later, inside the per-page
+ // template literal, by which point every closeBundle-scoped const is
+ // initialized.
+ const _recentArticlesHtmlCache: Partial<Record<'it' | 'en' | 'de' | 'fr', string>> = {};
+ const recentArticlesHtmlFor = (locale: 'it' | 'en' | 'de' | 'fr'): string => {
+ const cached = _recentArticlesHtmlCache[locale];
+ if (cached !== undefined) return cached;
+ const html = buildRecentArticlesHtml(locale);
+ _recentArticlesHtmlCache[locale] = html;
+ return html;
  };
 
  // Default search-section route slugs — these are actual URL paths that must exist in the router.
@@ -2672,7 +2683,7 @@ ${staticAnalyticsHtml}
  return card + ctaLink;
  })()}
  ${related.length > 0 ? `<section class="related"><h2>${esc(localeCopy[locale].relatedJobs)}</h2><ul class="rul">${relatedHtml}</ul></section>` : ''}
- ${recentArticlesHtmlByLocale[locale]}
+ ${recentArticlesHtmlFor(locale)}
  ${(() => {
  const __tPh_prose = phaseTimer();
  // loc/co/cat/contractKey/deCantonPrep/frCantonPrep are job-invariant —
