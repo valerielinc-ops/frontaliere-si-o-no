@@ -1,6 +1,6 @@
 {
   "crawlerKey": "rapelli",
-  "assembledAt": "2026-05-25T23:14:25.735Z",
+  "assembledAt": "2026-05-26T23:57:25.193Z",
   "jobs": [
     {
       "id": "rapelli-85e9378f6294",
@@ -43,11 +43,12 @@
       "url": "https://careers.orior.ch/job/Stabio-Digital-Order-&-EDI-Specialist-%2850-80%29-TI/1389772533/",
       "source": "Rapelli Dedicated Parser (ORIOR Careers)",
       "sourceLang": "it",
-      "crawledAt": "2026-05-25T23:14:23.682Z",
+      "crawledAt": "2026-05-26T23:57:23.389Z",
       "previousSlugs": [
         "digital-order-edi-specialista-50-80-rapelli-orior-food-ag-stabio"
       ],
       "firstSeenAt": "2026-05-16T10:50:15.276Z",
+      "needsRetranslation": true,
       "salaryMin": 55500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -64,9 +65,9 @@
     },
     {
       "id": "rapelli-7cba533711b8",
-      "slug": "collaboratrice-collaboratore-spedizione-100-rapelli-stabio",
+      "slug": "collaboratore-spedizione-100-rapelli-stabio",
       "slugByLocale": {
-        "it": "collaboratrice-collaboratore-spedizione-100-rapelli-stabio",
+        "it": "collaboratore-spedizione-100-rapelli-stabio",
         "en": "collaborator-collaborator-shipping-100-rapelli-orior-food-ag-stabio",
         "de": "mitarbeiter-mitarbeiter-versand-100-rapelli-orior-food-ag-stabio",
         "fr": "collaborateur-collaborateur-shipping-100-rapelli-orior-food-ag-stabio"
@@ -103,12 +104,13 @@
       "url": "https://careers.orior.ch/job/Stabio-Collaboratricecollaboratore-Spedizione%2C-100-TI/1390401733/",
       "source": "Rapelli Dedicated Parser (ORIOR Careers)",
       "sourceLang": "it",
-      "crawledAt": "2026-05-25T23:14:23.379Z",
+      "crawledAt": "2026-05-26T23:57:23.145Z",
       "previousSlugs": [
-        "collaboratore-spedizione-100-rapelli-stabio"
+        "collaboratrice-collaboratore-spedizione-100-rapelli-stabio"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "collaboratrice-collaboratore-spedizione-100-rapelli-stabio",
           "collaboratore-spedizione-100-rapelli-stabio"
         ],
         "en": [
@@ -122,6 +124,7 @@
         ]
       },
       "firstSeenAt": "2026-05-16T10:50:15.045Z",
+      "needsRetranslation": true,
       "salaryMin": 55500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -177,7 +180,7 @@
       "url": "https://careers.orior.ch/job/Stabio-Buyer-ingredienti-&-trade%2C-100-TI/1375846633/",
       "source": "Rapelli Dedicated Parser (ORIOR Careers)",
       "sourceLang": "it",
-      "crawledAt": "2026-05-25T23:14:23.034Z",
+      "crawledAt": "2026-05-26T23:57:22.928Z",
       "previousSlugs": [
         "buyer-ingredienti-trade-100-rapelli-orior-food-ag-stabio"
       ],
@@ -187,6 +190,7 @@
         ]
       },
       "firstSeenAt": "2026-05-16T10:50:16.764Z",
+      "needsRetranslation": true,
       "salaryMin": 55500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -203,10 +207,10 @@
     },
     {
       "id": "rapelli-1c1bde834f0d",
-      "slug": "collaboratore-pulizia-100-rapelli-stabio",
+      "slug": "collaboratore-pulizia-100-rapelli-orior-food-ag-stabio",
       "slugByLocale": {
-        "it": "collaboratore-pulizia-100-rapelli-stabio",
-        "en": "collaboratore-pulizia-100-rapelli-stabio",
+        "it": "collaboratore-pulizia-100-rapelli-orior-food-ag-stabio",
+        "en": "collaboratore-cleaning-100-rapelli-orior-food-ag-stabio",
         "de": "mitarbeiter-reinigung-100-rapelli-orior-food-ag-stabio",
         "fr": "laboratoire-de-nettoyage-100-rapelli-orior-food-ag-stabio"
       },
@@ -242,13 +246,23 @@
       "url": "https://careers.orior.ch/job/Stabio-Collaboratore-Pulizia%2C-100-TI/1375847433/",
       "source": "Rapelli Dedicated Parser (ORIOR Careers)",
       "sourceLang": "it",
-      "crawledAt": "2026-05-25T23:14:22.717Z",
+      "crawledAt": "2026-05-26T23:57:22.710Z",
       "previousSlugs": [
-        "collaboratore-pulizia-100-rapelli-orior-food-ag-stabio"
+        "collaboratore-pulizia-100-rapelli-stabio"
       ],
       "previousSlugsByLocale": {
+        "de": [
+          "collaboratore-pulizia-100-rapelli-stabio"
+        ],
+        "fr": [
+          "collaboratore-pulizia-100-rapelli-stabio"
+        ],
         "it": [
+          "collaboratore-pulizia-100-rapelli-stabio",
           "collaboratore-pulizia-100-rapelli-orior-food-ag-stabio"
+        ],
+        "en": [
+          "collaboratore-pulizia-100-rapelli-stabio"
         ]
       },
       "firstSeenAt": "2026-05-16T10:50:16.534Z",
@@ -307,7 +321,7 @@
       "url": "https://careers.orior.ch/job/Stabio-ManutentoreMaintenance-Technician%2C-100-TI/1375847133/",
       "source": "Rapelli Dedicated Parser (ORIOR Careers)",
       "sourceLang": "it",
-      "crawledAt": "2026-05-25T23:14:22.412Z",
+      "crawledAt": "2026-05-26T23:57:22.489Z",
       "previousSlugs": [
         "manutentore-maintenance-technician-100-rapelli-orior-food-ag-stabio"
       ],
@@ -317,6 +331,7 @@
         ]
       },
       "firstSeenAt": "2026-05-16T10:50:16.320Z",
+      "needsRetranslation": true,
       "salaryMin": 55500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -372,8 +387,9 @@
       "url": "https://careers.orior.ch/job/Stabio-Tecnologo-Alimentare%2C-100-TI/1375846933/",
       "source": "Rapelli Dedicated Parser (ORIOR Careers)",
       "sourceLang": "it",
-      "crawledAt": "2026-05-25T23:14:22.110Z",
+      "crawledAt": "2026-05-26T23:57:22.270Z",
       "firstSeenAt": "2026-05-16T10:50:16.045Z",
+      "needsRetranslation": true,
       "salaryMin": 55500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -429,7 +445,7 @@
       "url": "https://careers.orior.ch/job/Stabio-Supply-Chain-Planner%2C-100-TI/1375868733/",
       "source": "Rapelli Dedicated Parser (ORIOR Careers)",
       "sourceLang": "it",
-      "crawledAt": "2026-05-25T23:14:21.796Z",
+      "crawledAt": "2026-05-26T23:57:22.057Z",
       "previousSlugs": [
         "supply-chain-planner-100-rapelli-orior-food-ag-stabio"
       ],
@@ -439,6 +455,7 @@
         ]
       },
       "firstSeenAt": "2026-05-16T10:50:15.815Z",
+      "needsRetranslation": true,
       "salaryMin": 55500,
       "salaryMax": 75000,
       "baseSalary": {
