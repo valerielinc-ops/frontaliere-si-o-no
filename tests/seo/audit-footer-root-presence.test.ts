@@ -12,6 +12,7 @@
  */
 import { describe, expect, it } from 'vitest';
 import * as auditorModule from '../../scripts/audit-footer-root-presence.mjs';
+import { minifyHtml } from '../../build-plugins/shared/htmlMinify';
 
 interface Offender {
   path: string;
@@ -76,6 +77,18 @@ describe('audit-footer-root-presence', () => {
     expect(r.extra.scannedStaticJob).toBe(0);
   });
 
+  it('accepts minified unquoted seo-static-content class attributes', () => {
+    const a = createAuditor();
+    const minified = minifyHtml(SAFE_SHELL);
+    expect(minified).toContain('class=seo-static-content');
+    expect(minified).toContain('id=footer-root');
+    a.collect('/dist/fr/calculer-salaire/simuler-fiche-de-paie/index.html', minified);
+    const r = a.report();
+    expect(r.passed).toBe(true);
+    expect(r.offendersTotal).toBe(0);
+    expect(r.extra.scannedSeoStatic).toBe(1);
+  });
+
   it('flags seo-static-content pages missing footer-root', () => {
     const a = createAuditor();
     a.collect('/dist/calcola-stipendio/lugano/index.html', MISSING_FOOTER_ROOT);
@@ -98,6 +111,18 @@ describe('audit-footer-root-presence', () => {
     expect(r.offenders[0].kind).toBe('static-job-page-inside-root');
     expect(r.extra.insideRoot).toBe(1);
     expect(r.extra.missingFooter).toBe(0);
+  });
+
+  it('flags the minified legacy <div id=root><main class=static-job-page> shell', () => {
+    const a = createAuditor();
+    const minified = minifyHtml(LEGACY_STATIC_JOB_PAGE);
+    expect(minified).toContain('id=root');
+    expect(minified).toContain('class=static-job-page');
+    a.collect('/dist/cerca-lavoro-ticino/pagina-2/index.html', minified);
+    const r = a.report();
+    expect(r.passed).toBe(false);
+    expect(r.offendersTotal).toBe(1);
+    expect(r.offenders[0].kind).toBe('static-job-page-inside-root');
   });
 
   it('accumulates offenders across files and preserves per-file kind', () => {
