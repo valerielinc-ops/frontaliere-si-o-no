@@ -7793,6 +7793,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.elisoccorso-infortunio-brinzio-2026.title': 'Elisoccorso in azione al Brinzio per un infortunio sul lavoro',
     'blog.article.elisoccorso-infortunio-brinzio-2026.excerpt': 'Intervento dell\'elisoccorso al Brinzio per soccorrere un lavoratore infortunato, con trasporto d\'urgenza in ospedale.',
     'blog.article.elisoccorso-infortunio-brinzio-2026.imageAlt': 'Elicottero di soccorso in azione in montagna vicino al Ticino',
+    'blog.article.aziende-svizzere-trimestrali-migliori-previsto.title': 'Aziende svizzere: risultati trimestrali migliori del previsto',
+    'blog.article.aziende-svizzere-trimestrali-migliori-previsto.excerpt': 'Le società quotate in Svizzera superano le attese degli analisti nel primo trimestre 2026, nonostante il contesto difficile.',
+    'blog.article.aziende-svizzere-trimestrali-migliori-previsto.imageAlt': 'Vista aerea di Lugano con il lago e le montagne circostanti',
 };
 
 export default blogMetaIt;

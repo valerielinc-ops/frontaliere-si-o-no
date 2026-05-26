@@ -24752,4 +24752,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'aziende-svizzere-trimestrali-migliori-previsto',
+ category: 'novita',
+ date: '2026-05-26T01:31:27.054Z',
+ image: '/images/blog/aziende-svizzere-trimestrali-migliori-previsto.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

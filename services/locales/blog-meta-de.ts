@@ -7791,6 +7791,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.elisoccorso-infortunio-brinzio-2026.title': 'Elisoccorso al Brinzio per infortunio sul lavoro',
     'blog.article.elisoccorso-infortunio-brinzio-2026.excerpt': 'Rettungshubschraubereinsatz in Brinzio zur Rettung eines verletzten Arbeiters mit Notfalltransport ins Krankenhaus.',
     'blog.article.elisoccorso-infortunio-brinzio-2026.imageAlt': 'Rettungshubschrauber im Einsatz in den Bergen nahe dem Tessin',
+    'blog.article.aziende-svizzere-trimestrali-migliori-previsto.title': 'Schweizer Unternehmen: Besser als erwartet',
+    'blog.article.aziende-svizzere-trimestrali-migliori-previsto.excerpt': 'Die an der Schweizer Börse notierten Gesellschaften übertreffen im ersten Quartal 2026 die Erwartungen der Analysten, trotz schwierigem Umfeld.',
+    'blog.article.aziende-svizzere-trimestrali-migliori-previsto.imageAlt': 'Luftaufnahme von Lugano mit dem See und den umliegenden Bergen',
 };
 
 export default blogMetaDe;

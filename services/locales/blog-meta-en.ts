@@ -7792,6 +7792,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.elisoccorso-infortunio-brinzio-2026.title': 'Helicopter rescue in action at Brinzio for workplace injury',
     'blog.article.elisoccorso-infortunio-brinzio-2026.excerpt': 'Helicopter rescue intervention at Brinzio to assist an injured worker, with emergency transport to the hospital.',
     'blog.article.elisoccorso-infortunio-brinzio-2026.imageAlt': 'Rescue helicopter operating in the mountains near Ticino',
+    'blog.article.aziende-svizzere-trimestrali-migliori-previsto.title': 'Swiss companies: Q1 2026 results beat forecasts',
+    'blog.article.aziende-svizzere-trimestrali-migliori-previsto.excerpt': 'Switzerland\'s listed companies exceed analyst expectations in the first quarter of 2026, despite a challenging context.',
+    'blog.article.aziende-svizzere-trimestrali-migliori-previsto.imageAlt': 'Aerial view of Lugano with the lake and surrounding mountains',
 };
 
 export default blogMetaEn;
