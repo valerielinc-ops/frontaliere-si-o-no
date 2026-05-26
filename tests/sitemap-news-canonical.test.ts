@@ -26,6 +26,7 @@
 import { describe, expect, it } from 'vitest';
 import fs from 'node:fs';
 import path from 'node:path';
+import { execFileSync } from 'node:child_process';
 
 const ROOT = path.resolve(__dirname, '..');
 
@@ -45,84 +46,42 @@ const ALLOWED_REFERENCES = new Set<string>([
   'tests/post-build/thin-content-guard.test.ts',
 ]);
 
-/**
- * Recursively collect candidate source files under one or more roots.
- * Skips node_modules, dist, .git, coverage, and build caches.
- */
-function collectSources(roots: readonly string[]): string[] {
-  const SKIP_DIRS = new Set([
-    'node_modules',
-    'dist',
-    '.git',
-    'coverage',
-    '.vite',
-    '.turbo',
-    '.cache',
-  ]);
-  const SOURCE_EXT = /\.(ts|tsx|js|jsx|mjs|cjs|json|xml|txt|md|yml|yaml|html)$/i;
-
-  const out: string[] = [];
-
-  function walk(dir: string): void {
-    let entries: fs.Dirent[];
-    try {
-      entries = fs.readdirSync(dir, { withFileTypes: true });
-    } catch {
-      return;
-    }
-    for (const entry of entries) {
-      if (entry.name.startsWith('.') && entry.name !== '.github') continue;
-      const fullPath = path.join(dir, entry.name);
-      if (entry.isDirectory()) {
-        if (SKIP_DIRS.has(entry.name)) continue;
-        walk(fullPath);
-      } else if (entry.isFile() && SOURCE_EXT.test(entry.name)) {
-        out.push(fullPath);
-      }
-    }
-  }
-
-  for (const root of roots) walk(path.join(ROOT, root));
-  return out;
-}
-
 describe('sitemap-news canonical filename — A4 Google News compliance', () => {
   it('no source file emits the legacy underscore variant `sitemap_news.xml`', () => {
-    const sources = collectSources([
-      'build-plugins',
-      'scripts',
-      'public',
-      'services',
-      'components',
-      'tests',
-    ]);
-
-    // Also include top-level config files
-    const topLevel = ['vite.config.ts', 'package.json', 'tsconfig.json'];
-    for (const f of topLevel) {
-      const p = path.join(ROOT, f);
-      if (fs.existsSync(p)) sources.push(p);
+    const offenders: { file: string; line: number; text: string }[] = [];
+    let output = '';
+    try {
+      output = execFileSync(
+        'rg',
+        [
+          '--fixed-strings',
+          '--line-number',
+          '--no-heading',
+          '--glob',
+          '*.{ts,tsx,js,jsx,mjs,cjs,json,xml,txt,md,yml,yaml,html}',
+          'sitemap_news',
+          'build-plugins',
+          'scripts',
+          'public',
+          'services',
+          'components',
+          'tests',
+          'vite.config.ts',
+          'package.json',
+          'tsconfig.json',
+        ],
+        { cwd: ROOT, encoding: 'utf-8' },
+      );
+    } catch (error) {
+      const status = (error as { status?: number }).status;
+      if (status !== 1) throw error;
     }
 
-    const offenders: { file: string; line: number; text: string }[] = [];
-
-    for (const file of sources) {
-      const rel = path.relative(ROOT, file).split(path.sep).join('/');
+    for (const row of output.split('\n')) {
+      if (!row.trim()) continue;
+      const [rel = '', lineNo = '', ...textParts] = row.split(':');
       if (ALLOWED_REFERENCES.has(rel)) continue;
-
-      let content: string;
-      try {
-        content = fs.readFileSync(file, 'utf-8');
-      } catch {
-        continue;
-      }
-      if (!content.includes('sitemap_news')) continue;
-
-      content.split('\n').forEach((line, idx) => {
-        if (line.includes('sitemap_news')) {
-          offenders.push({ file: rel, line: idx + 1, text: line.trim() });
-        }
-      });
+      offenders.push({ file: rel, line: Number(lineNo), text: textParts.join(':').trim() });
     }
 
     if (offenders.length > 0) {

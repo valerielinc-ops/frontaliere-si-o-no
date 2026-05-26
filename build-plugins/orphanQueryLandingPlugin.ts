@@ -43,6 +43,7 @@ import {
   MIN_INDEXABLE_WORDS,
 } from './constants';
 import { buildSeoPageHtml } from './shared/seoPageShell';
+import { buildFlatBridgeFromSibling } from './flatHtmlRedirectPlugin';
 import {
   BREADCRUMB_LINK_STYLE,
   BREADCRUMB_STYLE,
@@ -82,6 +83,32 @@ import { adSlotHtml } from './lib/adSlotHtml';
 
 const MIN_MATCHING_JOBS = 3;
 const DEFAULT_MAX_LANDINGS = 500;
+
+export function buildOrphanLandingHubPath(locale: OrphanLandingLocale): string {
+  const prefix = ORPHAN_LANDING_LOCALE_PREFIX[locale];
+  const section = ORPHAN_LANDING_SECTION[locale];
+  return `${prefix}/${section}/`.replace(/\/+/g, '/');
+}
+
+export function buildOrphanLandingHubUrl(locale: OrphanLandingLocale): string {
+  return `${BASE_URL}${buildOrphanLandingHubPath(locale)}`;
+}
+
+export function renderOrphanLandingHubHreflang(
+  hasEntriesByLocale: Record<OrphanLandingLocale, boolean>,
+): string {
+  const availableLocales = ORPHAN_LANDING_LOCALES.filter((alt) => hasEntriesByLocale[alt]);
+  if (availableLocales.length === 0) return '';
+
+  const lines = availableLocales.map(
+    (alt) => `    <link rel="alternate" hreflang="${alt}" href="${buildOrphanLandingHubUrl(alt)}">`,
+  );
+  const xDefaultLocale = availableLocales.includes('it') ? 'it' : availableLocales[0];
+  lines.push(
+    `    <link rel="alternate" hreflang="x-default" href="${buildOrphanLandingHubUrl(xDefaultLocale)}">`,
+  );
+  return lines.join('\n');
+}
 
 /** Load and merge all jobs from main jobs.json + per-crawler slices. */
 function loadAllJobs(rootDir: string): OrphanCountableJob[] {
@@ -858,7 +885,7 @@ export function orphanQueryLandingPlugin(rootDir: string): Plugin {
         const indexPath = path.join(distDir, render.urlPath, 'index.html');
         const flatPath = path.join(distDir, render.urlPath.replace(/\/+$/, '') + '.html');
         collector.add(indexPath, render.html);
-        collector.add(flatPath, render.html);
+        collector.add(flatPath, buildFlatBridgeFromSibling(render.html, `${BASE_URL}${render.urlPath}`));
 
         routes.push({
           locale: cluster.locale,
@@ -927,10 +954,8 @@ export function orphanQueryLandingPlugin(rootDir: string): Plugin {
         if (list.length === 0) continue;
         const sorted = [...list].sort((a, b) => a.query.localeCompare(b.query, loc));
         const copy = HUB_COPY[loc];
-        const prefix = ORPHAN_LANDING_LOCALE_PREFIX[loc];
-        const section = ORPHAN_LANDING_SECTION[loc];
-        const hubPath = `${prefix}/${section}/`.replace(/\/+/g, '/');
-        const canonicalUrl = `${BASE_URL}${hubPath}`;
+        const hubPath = buildOrphanLandingHubPath(loc);
+        const canonicalUrl = buildOrphanLandingHubUrl(loc);
 
         const itemsHtml = sorted
           .map((it) => `<li class="s-q3nqK4"><a href="${esc(it.path)}" style="${LINK_ACCENT_STYLE};font-weight:600">${esc(cap(it.query))}</a></li>`)
@@ -964,15 +989,12 @@ export function orphanQueryLandingPlugin(rootDir: string): Plugin {
           },
         });
 
-        const hreflangHtml = ORPHAN_LANDING_LOCALES
-          .filter((alt) => indexableByLocale[alt].length > 0)
-          .map((alt) => {
-            const altPrefix = ORPHAN_LANDING_LOCALE_PREFIX[alt];
-            const altSection = ORPHAN_LANDING_SECTION[alt];
-            const altUrl = `${BASE_URL}${altPrefix}/${altSection}/`.replace(/\/+/g, '/');
-            return `    <link rel="alternate" hreflang="${alt}" href="${altUrl}">`;
-          })
-          .join('\n');
+        const hreflangHtml = renderOrphanLandingHubHreflang({
+          it: indexableByLocale.it.length > 0,
+          en: indexableByLocale.en.length > 0,
+          de: indexableByLocale.de.length > 0,
+          fr: indexableByLocale.fr.length > 0,
+        });
 
         // Locale-aware "how it works" + "who it's for" prose. Without it,
         // the hub renders as breadcrumb + h1 + intro + list — under 50 visible
@@ -1040,7 +1062,10 @@ export function orphanQueryLandingPlugin(rootDir: string): Plugin {
         });
 
         collector.add(path.join(distDir, hubPath, 'index.html'), hubHtml);
-        collector.add(path.join(distDir, hubPath.replace(/\/+$/, '') + '.html'), hubHtml);
+        collector.add(
+          path.join(distDir, hubPath.replace(/\/+$/, '') + '.html'),
+          buildFlatBridgeFromSibling(hubHtml, canonicalUrl),
+        );
 
         sitemapEntries.push(
           `  <url>\n    <loc>${canonicalUrl}</loc>\n    <lastmod>${dateStamp}</lastmod>\n    <changefreq>daily</changefreq>\n    <priority>0.7</priority>\n  </url>`,

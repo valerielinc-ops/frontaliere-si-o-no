@@ -17,6 +17,7 @@ import * as fs from 'node:fs';
 import * as path from 'node:path';
 
 const PLUGIN_PATH = path.resolve(__dirname, '../../build-plugins/jobsSeoPagesPlugin.ts');
+const MIGRATION_PATH = path.resolve(__dirname, '../../scripts/migrate-all-known-job-slugs-canton-aware.mjs');
 const TRACKING_PATH = path.resolve(__dirname, '../../data/all-known-job-slugs.json');
 const JOBS_PATH = path.resolve(__dirname, '../../data/jobs.json');
 
@@ -95,6 +96,24 @@ describe('Phase 8c — expired-tracking is canton-aware', () => {
           expect(p, `non-TI job ${job.slug} (canton=${job.canton}) [${locale}] still references ${frag}: ${p}`).not.toContain(frag);
         }
       }
+    }
+  });
+
+  it('data: exact job slugs keep ownership when aliases collide', () => {
+    const migrationSrc = fs.readFileSync(MIGRATION_PATH, 'utf8');
+    expect(migrationSrc).toContain('exactSlugToJob.get(trackingSlug) ?? slugToJob.get(trackingSlug)');
+
+    if (!fs.existsSync(TRACKING_PATH)) return;
+    const tracking: Record<string, Record<string, string>> = JSON.parse(
+      fs.readFileSync(TRACKING_PATH, 'utf8'),
+    );
+
+    const baselEntry = tracking['assistente-per-la-salute-e-gli-affari-sociali-universitatsspital-basel-basel'];
+    if (baselEntry) {
+      expect(baselEntry.it).toContain('/cerca-lavoro-basilea/');
+      expect(baselEntry.en).toContain('/find-jobs-basel/');
+      expect(baselEntry.de).toContain('/jobs-in-basel/');
+      expect(baselEntry.fr).toContain('/trouver-emploi-bale/');
     }
   });
 });

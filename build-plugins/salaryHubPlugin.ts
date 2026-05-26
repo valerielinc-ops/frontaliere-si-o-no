@@ -26,9 +26,16 @@ import { EVERGREEN_ARTICLES, generateArticleHtml } from './salaryHubArticles';
 import { calculateSimulation } from '../services/calculationService';
 import { buildScenarioIndexHtml, SCENARIO_INDEX_PATH } from './salaryHubIndex';
 import { resolveSalaryHubFlushed } from './shared/buildSignals';
+import { buildFlatBridgeFromSibling } from './flatHtmlRedirectPlugin';
 
 const LOCALES = ['it', 'en', 'de', 'fr'] as const;
 type Locale = (typeof LOCALES)[number];
+
+export const SALARY_HUB_SCENARIO_OWNERSHIP_PATTERN =
+  /\/(stipendio-netto|net-salary|nettogehalt|salaire-net)-\d+-chf(?:-[^/]+)*(\/index\.html|\.html)$/;
+
+export const SALARY_HUB_SCENARIO_INDEX_OWNERSHIP_PATTERN =
+  /\/(calcola-stipendio\/scenari|en\/calculate-salary\/scenarios|de\/gehalt-berechnen\/szenarien|fr\/calculer-salaire\/scenarios)(\/index\.html|\.html)$/;
 
 /**
  * Declare salaryHubPlugin as the canonical owner of every salary-scenario path
@@ -53,11 +60,17 @@ type Locale = (typeof LOCALES)[number];
  * module never accumulate stale entries.
  */
 declareSharedPath({
-  pattern:
-    /\/(stipendio-netto|net-salary|nettogehalt|salaire-net)-\d+-chf(\/index\.html|\.html)$/,
+  pattern: SALARY_HUB_SCENARIO_OWNERSHIP_PATTERN,
   winner: 'salaryHubPlugin',
   reason:
     'salaryHubPlugin emits ~500 pre-computed salary scenarios across 4 locales with full simulation data + AdSense slots. staticPagesPlugin reaches the same paths via its seoMap loop and would race-overwrite with a less-rich shell. Winner is salaryHubPlugin.',
+});
+
+declareSharedPath({
+  pattern: SALARY_HUB_SCENARIO_INDEX_OWNERSHIP_PATTERN,
+  winner: 'salaryHubPlugin',
+  reason:
+    'salaryHubPlugin emits the browseable scenario index for every locale. staticPagesPlugin can derive the same locale paths from sitemap alternates, but those fallback pages miss the salary landing shell.',
 });
 
 export function salaryHubPlugin(rootDir: string): Plugin {
@@ -114,7 +127,7 @@ export function salaryHubPlugin(rootDir: string): Plugin {
           // Write flat /calcola-stipendio/slug.html (for GitHub Pages compatibility)
           const flatSlug = urlPath.replace(/\/$/, '');
           const flatPath = path.join(distDir, `${flatSlug}.html`);
-          collector.add(flatPath, html);
+          collector.add(flatPath, buildFlatBridgeFromSibling(html, `${BASE_URL}${urlPath}`));
 
           // Sitemap entry
           const fullUrl = `${BASE_URL}${urlPath}`;
@@ -151,7 +164,10 @@ export function salaryHubPlugin(rootDir: string): Plugin {
           const urlPath = `${ARTICLE_PREFIX[locale]}/${article.slugs[locale]}/`;
 
           collector.add(path.join(distDir, urlPath, 'index.html'), html);
-          collector.add(path.join(distDir, `${urlPath.replace(/\/$/, '')}.html`), html);
+          collector.add(
+            path.join(distDir, `${urlPath.replace(/\/$/, '')}.html`),
+            buildFlatBridgeFromSibling(html, `${BASE_URL}${urlPath}`),
+          );
 
           const fullUrl = `${BASE_URL}${urlPath}`;
           sitemapEntries.push(
@@ -199,7 +215,10 @@ export function salaryHubPlugin(rootDir: string): Plugin {
         const indexPath = SCENARIO_INDEX_PATH[locale];
         collector.add(path.join(distDir, indexPath, 'index.html'), indexHtml);
         const flatSlug = indexPath.replace(/\/$/, '');
-        collector.add(path.join(distDir, `${flatSlug}.html`), indexHtml);
+        collector.add(
+          path.join(distDir, `${flatSlug}.html`),
+          buildFlatBridgeFromSibling(indexHtml, `${BASE_URL}${indexPath}`),
+        );
 
         const fullUrl = `${BASE_URL}${indexPath}`;
         sitemapEntries.push(

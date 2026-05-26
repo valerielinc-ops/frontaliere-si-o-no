@@ -33,6 +33,8 @@ import { getJobTodayLandingSlug, getJobNursesHubSlug, getJobPartTimeLandingSlug,
 import { SECTOR_HUB_KEYS, SECTOR_HUB_SLUG, jobMatchesSector as jobMatchesSectorImpl, type SectorHubKey } from './jobSectorLanding';
 import { MIN_JOBS_FOR_CANTON_PAGE } from './weeklyEmployersData';
 import { getCantonCities, normalizeCitySlug } from './shared/cantonCities';
+import { buildFlatBridgeFromSibling } from './flatHtmlRedirectPlugin';
+import { minifyHtml } from './shared/htmlMinify';
 
 // ── SPA shell <title> handling ────────────────────────────────────────
 // Universal rule: headline VERBATIM, brand suffix appended only when total
@@ -4319,7 +4321,7 @@ export function staticPagesPlugin(rootDir: string): Plugin {
 
  // Static-only pages: pure HTML for crawlers, no SPA bundle, no JS redirect
  if (isStaticOnly) {
- return `<!DOCTYPE html>
+ return minifyHtml(`<!DOCTYPE html>
 <html lang="${locale}">
  <head>
  <meta charset="utf-8">
@@ -4363,7 +4365,7 @@ ${hrefTags}
  <a href="/glossario-frontaliere/">Glossario</a>
  </nav>
  </body>
-</html>`;
+</html>`);
  }
 
  if (hasSpaBundle) {
@@ -4429,7 +4431,7 @@ ${hubChromeSplit.bodyHtml}
  : `<div id="root"><main id="main-content">${rootHtml}</main></div>
  <div id="footer-root"></div>`;
 
- return `<!DOCTYPE html>
+ return minifyHtml(`<!DOCTYPE html>
 <html lang="${locale}">
  <head>
  <meta charset="utf-8">
@@ -4464,7 +4466,7 @@ ${hrefTags}
  ${bodySection}
  <script type="module" crossorigin fetchpriority="high" src="/assets/${entryJs}"></script>
  </body>
-</html>`;
+</html>`);
  }
 
  // Fallback: redirect to SPA (only if bundles not found)
@@ -4543,10 +4545,10 @@ ${hrefTags}
  pageHtml = injectJobboardSeoContent(pageHtml, jbLocale);
  }
  _qw(filePath, pageHtml);
- // Also write flat .html — real content without redirect script
+ // Also write flat .html as a noindex bridge; the slash URL keeps the full content.
  if (url.path !== '/') {
  const flatFile = np.join(distDir, url.path + '.html');
- _qw(flatFile, pageHtml.replace(/\s*<script>location\.replace\([^<]*\)<\/script>/, ''));
+ _qw(flatFile, buildFlatBridgeFromSibling(pageHtml, `${BASE_URL}${withTrailingSlash(url.path)}`));
  }
  count++;
  } else {
@@ -4602,7 +4604,7 @@ ${hrefTags}
  const indexFile = np.join(distDir, url.path, 'index.html');
  if (!fs.existsSync(flatFile) && fs.existsSync(indexFile)) {
  const existingIndexHtml = fs.readFileSync(indexFile, 'utf-8');
- _qw(flatFile, existingIndexHtml.replace(/\s*<script>location\.replace\([^<]*\)<\/script>/, ''));
+ _qw(flatFile, buildFlatBridgeFromSibling(existingIndexHtml, `${BASE_URL}${withTrailingSlash(url.path)}`));
  }
  }
  skipped++;
@@ -4676,9 +4678,9 @@ ${hrefTags}
  locPageHtml = injectJobboardSeoContent(locPageHtml, locJbLocale);
  }
  _qw(locFile, locPageHtml);
- // Also write flat .html — real content without redirect script
+  // Also write flat .html as a noindex bridge; the slash URL keeps the full content.
  const flatLoc = np.join(distDir, locPath + '.html');
- _qw(flatLoc, locPageHtml.replace(/\s*<script>location\.replace\([^<]*\)<\/script>/, ''));
+ _qw(flatLoc, buildFlatBridgeFromSibling(locPageHtml, `${BASE_URL}${withTrailingSlash(locPath)}`));
  count++;
  }
  }
