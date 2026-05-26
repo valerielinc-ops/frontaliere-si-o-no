@@ -79,8 +79,9 @@ export function parseSoliqueListing(html = '') {
   const seen = new Set();
 
   // Template (a): anchor-wrap. The `<a href="job/details/{ID}">` wraps the
-  // tile body.
-  const tileWrapRx = /<div\s+class="job">\s*<a\s+href="job\/details\/(\d+)"[^>]*>([\s\S]*?)<\/a>\s*<\/div>/g;
+  // tile body. Accept both `<div class="job">` (Spital Emmental) and
+  // `<article class="job">` (Spital Oberengadin / SGO) container elements.
+  const tileWrapRx = /<(?:div|article)\s+class="job">\s*<a\s+(?:id="\d+"\s+)?href="job\/details\/(\d+)"[^>]*>([\s\S]*?)<\/a>\s*<\/(?:div|article)>/g;
   let m;
   while ((m = tileWrapRx.exec(html))) {
     const id = m[1];
@@ -206,6 +207,36 @@ export function extractSoliqueDetailContent(html = '') {
       body = normalizeSpace(decodeEntities(body)).replace(/\s*•\s*/g, '\n• ');
       if (body && body.length > 25) sections.push(body);
     }
+  }
+
+  // Template (iii): <div class="job-panel job-panel--{tasks|profile|offer|...}">
+  // with <h2> heading + <ul>/<div> body (Spital Oberengadin / SGO).
+  const panelRx = /<div\s+class="job-panel\s+job-panel--[a-z0-9_-]+[^"]*"[^>]*>\s*<h2[^>]*>([\s\S]*?)<\/h2>\s*<div[^>]*>([\s\S]*?)<\/div>\s*<\/div>/g;
+  let pm;
+  while ((pm = panelRx.exec(cleaned))) {
+    const title = normalizeSpace(decodeEntities(stripHtml(pm[1])));
+    if (!title) continue;
+    let body = pm[2]
+      .replace(/<li[^>]*>/gi, '\n• ')
+      .replace(/<\/li\s*>/gi, '')
+      .replace(/<br\s*\/?>(?!\s*<)/gi, '\n')
+      .replace(/<[^>]+>/g, ' ');
+    body = normalizeSpace(decodeEntities(body)).replace(/\s*•\s*/g, '\n• ');
+    if (body && body.length > 5) sections.push(`${title}\n${body}`);
+  }
+
+  // Template (iii-extra): introduction blurb sitting above the panels
+  // (Spital Oberengadin keeps the role intro in <div class="introduction">…</div>).
+  const introTopRx = /<div\s+class="introduction"[^>]*>([\s\S]*?)<\/div>/g;
+  let itm;
+  while ((itm = introTopRx.exec(cleaned))) {
+    let text = itm[1]
+      .replace(/<br\s*\/?>(?!\s*<)/gi, '\n')
+      .replace(/<li[^>]*>/gi, '\n• ')
+      .replace(/<\/li\s*>/gi, '')
+      .replace(/<[^>]+>/g, ' ');
+    text = normalizeSpace(decodeEntities(text));
+    if (text && text.length > 25) sections.unshift(text);
   }
 
   return sections.join('\n\n');
