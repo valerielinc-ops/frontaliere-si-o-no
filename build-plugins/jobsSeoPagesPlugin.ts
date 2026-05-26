@@ -826,6 +826,10 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  let _canonicalCleanedHits = 0;
  let _canonicalCleanedMisses = 0;
  let _canonicalCleanedEvictions = 0;
+ // Captured at the moment we clear the cache (right after the active-job
+ // emit completes) so the end-of-build diagnostic log keeps reporting the
+ // true peak size, not the post-clear `0`.
+ let _canonicalCleanedCacheSizeAtEnd = 0;
  const memoCanonicalCleaned = (
    description: string,
    requirements: string[],
@@ -8058,6 +8062,20 @@ ${staticAnalyticsHtml}
 
  console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m Generated ${validJobs.length * 4} localized job pages and sitemap-jobs.xml (${prevSlugEntries.length} previousSlug entries)`);
 
+ // Active-job emit done — release canonicalCleanedCache (~22k entries ×
+ // CleanedFallbackContent, hundreds of MB peak). Only `memoCanonicalCleaned`
+ // reads it, and that function is called only inside the active-job loop
+ // (line 2515). The downstream emit phases (cross-locale-active-bridge,
+ // expired-soft-landing, previous-slug-bridge, related-search-clusters)
+ // do NOT use it. Freeing now relieves memory pressure for the heavy
+ // expired-soft-landing pass that follows — the deploy SIGTERMs since
+ // 2026-05-26 14:27Z point at OS OOM on a 7 GB GHA runner.
+ //
+ // The diagnostic log at the end of closeBundle reads `.size` — capture
+ // it BEFORE clearing so the hit-rate summary keeps reporting truth.
+ _canonicalCleanedCacheSizeAtEnd = canonicalCleanedCache.size;
+ canonicalCleanedCache.clear();
+
  /* ───────────────────────────────────────────────────────────────────
   * P1.11 — Canton-aware additive emission
   * ───────────────────────────────────────────────────────────────────
@@ -11011,7 +11029,7 @@ ${staticAnalyticsHtml}
  const total = _canonicalCleanedHits + _canonicalCleanedMisses;
  const hitPct = total > 0 ? ((_canonicalCleanedHits / total) * 100).toFixed(1) : '0.0';
  console.log(
- `[jobs-seo-profile] canonical-cleaned-cache    hits=${_canonicalCleanedHits} misses=${_canonicalCleanedMisses} hit_rate=${hitPct}% size=${canonicalCleanedCache.size} evictions=${_canonicalCleanedEvictions}`,
+ `[jobs-seo-profile] canonical-cleaned-cache    hits=${_canonicalCleanedHits} misses=${_canonicalCleanedMisses} hit_rate=${hitPct}% size=${_canonicalCleanedCacheSizeAtEnd} evictions=${_canonicalCleanedEvictions}`,
  );
  }
  {
