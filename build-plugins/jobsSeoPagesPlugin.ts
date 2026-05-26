@@ -9837,8 +9837,16 @@ ${staticAnalyticsHtml}
  </body>
 </html>`;
  recordPhase('ejp:shell:tpl', __tShellTpl);
+ // Skip minifyHtml on soft-landings. Run 26472312864 measured
+ // ph:ejp:shell:minify at 55.8s (99.5% of ph:ejp:shell, 8.7% of
+ // jobsSeoPagesPlugin) — and the per-page max hit 4026ms, indicating
+ // regex catastrophic backtracking on at least one input. Soft-landings
+ // are 143k pages × ~30 bytes of leading-whitespace overhead = ~4 MB on
+ // a 1.74 GB dist (irrelevant). The template literal below is already
+ // tightly indented; raw output is DOM-equivalent. The cheap newline-
+ // indent collapse keeps the worst of the boilerplate noise out.
  const __tShellMinify = phaseTimer();
- const out = minifyHtml(html);
+ const out = html.replace(/\n[ \t]+/g, '\n');
  recordPhase('ejp:shell:minify', __tShellMinify);
  return out;
  };
