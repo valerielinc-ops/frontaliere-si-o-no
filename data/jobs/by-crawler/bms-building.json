@@ -1,6 +1,6 @@
 {
   "crawlerKey": "bms-building",
-  "assembledAt": "2026-05-25T21:31:49.532Z",
+  "assembledAt": "2026-05-26T22:11:27.677Z",
   "jobs": [
     {
       "id": "bms-building-6bffea2ff861",
@@ -33,7 +33,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/166-responsable-de-site-showroom-100-f/h/d/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-25T21:31:47.321Z",
+      "crawledAt": "2026-05-26T22:11:25.325Z",
       "addressLocality": "Conthey",
       "addressCountry": "CH",
       "country": "CH",
@@ -78,6 +78,7 @@
         ]
       },
       "firstSeenAt": "2026-05-19T11:14:18.040Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -122,7 +123,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/154-conseillerere-de-vente-revetements-sols-et-murs-et-sanitaire-en-exposition-f/h/d-100/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-25T21:31:46.381Z",
+      "crawledAt": "2026-05-26T22:11:24.367Z",
       "addressLocality": "Conthey",
       "addressCountry": "CH",
       "country": "CH",
@@ -166,11 +167,13 @@
         ]
       },
       "previousSlugs": [
-        "conseiller-ere-de-vente-revetements-sols-et-murs-et-sanitaire-en-exposition-f-h-d-100-bms-"
+        "conseiller-ere-de-vente-revetements-sols-et-murs-et-sanitaire-en-exposition-f-h-d-100-bms-",
+        "conseiller-ere-de-vente-revetements-sols-et-murs-et-sanitaire-en-exposition-f-h-d-100-bms"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "conseiller-ere-de-vente-revetements-sols-et-murs-et-sanitaire-en-exposition-f-h-d-100-bms-"
+          "conseiller-ere-de-vente-revetements-sols-et-murs-et-sanitaire-en-exposition-f-h-d-100-bms-",
+          "conseiller-ere-de-vente-revetements-sols-et-murs-et-sanitaire-en-exposition-f-h-d-100-bms"
         ],
         "en": [
           "conseiller-ere-de-vente-revetements-sols-et-murs-et-sanitaire-en-exposition-f-h-d-100-bms-"
@@ -180,6 +183,7 @@
         ]
       },
       "firstSeenAt": "2026-05-05T10:13:23.664Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -224,7 +228,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/152-conseiller-de-vente-shop-sanitaire-a-50-f/h/d/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-25T21:31:45.448Z",
+      "crawledAt": "2026-05-26T22:11:23.374Z",
       "addressLocality": "Martigny",
       "addressCountry": "CH",
       "country": "CH",
@@ -269,6 +273,7 @@
         ]
       },
       "firstSeenAt": "2026-05-19T11:14:15.539Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -313,7 +318,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/137-conseiller-de-vente-expo-cuisines-a-100-f/h/d/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-25T21:31:44.488Z",
+      "crawledAt": "2026-05-26T22:11:22.345Z",
       "addressLocality": "Conthey",
       "addressCountry": "CH",
       "country": "CH",
@@ -395,10 +400,10 @@
         "vertriebsberater-expo-cuisines-100-f-h-d-bms-building-materials-conthey"
       ],
       "previousSlugsByLocale": {
-        "it": [
+        "de": [
           "conseiller-de-vente-expo-cuisines-a-100-f-h-d-bms-building-ch"
         ],
-        "de": [
+        "it": [
           "conseiller-de-vente-expo-cuisines-a-100-f-h-d-bms-building-ch"
         ]
       },
