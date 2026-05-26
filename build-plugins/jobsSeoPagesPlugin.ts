@@ -1942,18 +1942,22 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  alt: string,
  width: number,
  height: number,
- style: string,
+ style: string = '',
  ): string => {
  // Skip emitting <img> when no curated brand logo exists — emitting the
  // generic placeholder added ~230 B × 5 occurrences per job page across
  // 545k pages (~600 MB of artifact). Cards render text-only without it.
  if (!url || url === COMPANY_LOGO_PLACEHOLDER) return '';
  const safeAlt = esc(alt);
- const safeStyle = esc(style);
+ // Omit the style attribute entirely when no style is requested. Callers
+ // that render inside `.rja` / `.cb` cards rely on the scoped CSS rule
+ // (`.rja > img, .cb > img { … }`) in seo-static.css. Saves ~113 B × 2
+ // logos × 545k pages (~120 MB across artifact).
+ const styleAttr = style ? ` style="${esc(style)}"` : '';
  if (isLocalLogo(url)) {
- return `<img src="${esc(url)}" alt="${safeAlt}" width="${width}" height="${height}" loading="lazy" style="${safeStyle}">`;
+ return `<img src="${esc(url)}" alt="${safeAlt}" width="${width}" height="${height}" loading="lazy"${styleAttr}>`;
  }
- return `<img src="${LOGO_FALLBACK_SRC}" alt="${safeAlt}" width="${width}" height="${height}" loading="lazy" data-logo-url="${esc(url)}" onerror="this.onerror=null;this.src='${LOGO_FALLBACK_SRC}'" style="${safeStyle}">`;
+ return `<img src="${LOGO_FALLBACK_SRC}" alt="${safeAlt}" width="${width}" height="${height}" loading="lazy" data-logo-url="${esc(url)}" onerror="this.onerror=null;this.src='${LOGO_FALLBACK_SRC}'"${styleAttr}>`;
  };
 
  const referralUrl = (raw: string, job: any): string => {
@@ -2586,7 +2590,8 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  // job page × ~641k per-job HTML files emitted across all cantons +
  // 4 locales, this saves ~1.5 KB per page ≈ ~900 MB dist. Class
  // bodies live in the shared per-job `<style>` block (see lines ~2350+).
- const rLogoImg = renderLogoImg(rLogo, `Logo ${r.company}`, 40, 40, 'width:40px;height:40px;object-fit:contain;border-radius:8px;border:1px solid var(--color-edge);flex-shrink:0');
+ // Style applied via `.rja > img` in seo-static.css (no inline style attr).
+ const rLogoImg = renderLogoImg(rLogo, `Logo ${r.company}`, 40, 40);
  return `<li class="rj"><a href="${href}" aria-label="${esc(relatedTitle)} — ${esc(r.company)}" class="rja">${rLogoImg}<div class="rjw"><div class="rjt">${esc(relatedTitle)}</div><div class="rjs">${esc(r.company)} · ${esc(r.location)}${r.canton ? ` (${esc(r.canton)})` : ''}</div>${rSalary ? `<div class="rjp">${esc(rSalary)}</div>` : ''}</div></a></li>`;
  })
  .join('');
@@ -2857,7 +2862,8 @@ ${staticAnalyticsHtml}
  fr: `Toutes les offres ${job.company}${companyLoc ? ` à ${companyLoc}` : ''}`,
  };
  const anchorText = allOffersAnchor[locale] || allOffersAnchor.it;
- const cLogoImg = renderLogoImg(cLogo, `Logo ${job.company}`, 40, 40, 'width:40px;height:40px;object-fit:contain;border-radius:8px;border:1px solid var(--color-edge);flex-shrink:0');
+ // Style applied via `.cb > img` in seo-static.css (no inline style attr).
+ const cLogoImg = renderLogoImg(cLogo, `Logo ${job.company}`, 40, 40);
  const card = `<a href="${cHref}" aria-label="${esc(anchorText)}" class="cb">${cLogoImg}<div><div class="cbt">${companyHeading[locale] || companyHeading.it}</div><div class="cbs">${esc(job.company)} · ${esc(job.location || dc)}</div><div class="cbm">${companyMonitoring[locale] || companyMonitoring.it}</div></div></a>`;
  const ctaLink = `<p class="cbl"><a href="${cHref}">${esc(anchorText)} &rarr;</a></p>`;
  return card + ctaLink;
