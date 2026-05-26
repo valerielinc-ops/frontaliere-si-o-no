@@ -1,6 +1,6 @@
 {
   "crawlerKey": "hochgebirgsklinik-davos",
-  "assembledAt": "2026-05-25T22:23:01.663Z",
+  "assembledAt": "2026-05-26T23:04:44.491Z",
   "jobs": [
     {
       "id": "hochgebirgsklinik-davos-9be0377bcb5a",
@@ -33,7 +33,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NTg2&showApplicationForm=false",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-25T22:22:59.851Z",
+      "crawledAt": "2026-05-26T23:04:42.321Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -102,6 +102,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:43:15.483Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -111,6 +112,107 @@
           "@type": "QuantitativeValue",
           "minValue": 68000,
           "maxValue": 103000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "hochgebirgsklinik-davos-66f19d8314f1",
+      "slug": "medico-specialista-in-pediatria-e-medicina-dell-adolescenza-pronto-soccorso-pediatrico-hochgebirgsklinik-davos-davos",
+      "slugByLocale": {
+        "it": "medico-specialista-in-pediatria-e-medicina-dell-adolescenza-pronto-soccorso-pediatrico-hochgebirgsklinik-davos-davos",
+        "en": "pediatrician-adolescent-medicine-specialist-ambulatory-pediatrics-hochgebirgsklinik-davos-davos",
+        "de": "facharztin-facharzt-kinder-und-jugendmedizin-aufbau-ambulante-padiatrie-hochgebirgsklinik-",
+        "fr": "medecin-specialiste-en-pediatrie-et-medecine-de-l-adolescent-pediatrie-ambulatoire-hochgebirgsklinik-davos-davos"
+      },
+      "company": "Hochgebirgsklinik Davos",
+      "companyKey": "hochgebirgsklinik-davos",
+      "companyDomain": "hochgebirgsklinik.ch",
+      "title": "Fachärztin / Facharzt Kinder- und Jugendmedizin – Aufbau ambulante Pädiatrie",
+      "titleByLocale": {
+        "it": "Medico specialista in pediatria e medicina dell'adolescenza - Pronto soccorso pediatrico",
+        "en": "Pediatrician / Adolescent Medicine Specialist - Ambulatory Pediatrics",
+        "de": "Fachärztin / Facharzt Kinder- und Jugendmedizin – Aufbau ambulante Pädiatrie",
+        "fr": "Médecin spécialiste en pédiatrie et médecine de l'adolescent - Pédiatrie ambulatoire"
+      },
+      "description": "Ambulante Pädiatrie im interdisziplinären Kliniksetting 190 Betten, 5 Disziplinen, über 120 Jahre Geschichte – und 1560 m ü. M. Die Hochgebirgsklinik Davos ist ein interdisziplinäres Rehabilitationszentrum mit universitärer Anbindung – eingebettet in die spektakuläre Natur der Bündner Alpen. In unserem klinikeigenen Ambulatorium betreuen wir Kinder und Jugendliche ambulant und arbeiten eng mit verschiedenen Fachdisziplinen der Klinik zusammen. Du möchtest nicht einfach behandeln, sondern medizinische Versorgung weiterentwickeln und interdisziplinär arbeiten? Dann möchten wir uns bei dir bewerben. | \n• Aufgaben: Als Fachärztin oder Facharzt für Kinder- und Jugendmedizin wirst du Teil eines multiprofessionellen Teams, das Kinder, Jugendliche und ihre Familien ganzheitlich begleitet – medizinisch, psychologisch und pädagogisch. Ambulant behandeln: Du betreust Kinder und Jugendliche im ambulanten Setting unseres Ambulatoriums und begleitest sie medizinisch im Kontext unseres ganzheitlichen Rehabilitationskonzepts. Unterstützen: Ergänzend zu den ambulanten Tätigkeiten hilfst du bei Bedarf unseren somatischen Patient:innen im stationären Bereich. Interdisziplinär vorangehen: Du arbeitest eng mit Psychologie, Pflege und Pädagogik zusammen – und gibst Impulse für neue Versorgungswege. Mitgestalten: Du bringst dich konzeptionell ein und unterstützt beim Ausbau unseres schweizweit einzigartigen Eltern-Kind-Angebots. | \n• Anforderungen: Wir suchen keine «Idealbesetzung» auf dem Papier – sondern Menschen, die fachlich fundiert arbeiten, menschlich wirken und Lust auf Neues mitbringen. Facharzttitel: Du verfügst über einen anerkannten Facharzttitel in Kinder- und Jugendmedizin (FMH oder EU-äquivalent) – gerne auch kurz vor Abschluss. Praxis- oder klinische Erfahrung: Du hast Erfahrung in der medizinischen Betreuung von Kindern und Jugendlichen – idealerweise im ambulanten oder interdisziplinären Setting. Interdisziplinarität leben: Du arbeitest gerne eng mit Psychologie, Pflege und Pädagogik zusammen. Teamkultur schätzen: Du fühlst dich in flachen Hierarchien mit offener Kommunikation wohl. Gestaltungsfreude: Du hast Freude daran, eine neue Struktur im Ambulatorium mit aufzubauen und eigene Ideen einzubringen. Lebensqualität schätzen: Du schätzt ein Umfeld mit hoher Lebensqualität – mitten in der Natur und dennoch gut vernetzt. | \n• Wir bieten: Mitgestaltung statt Mitlaufen Deine Ideen zählen – fachlich wie organisatorisch. Ausgeprägte Work-Life-Balance Planbare Arbeitszeiten, familienfreundlich und zuverlässig. Einzigartige Eltern-Kind-Reha Wir setzen auf nachhaltige Wirkung und ziehen interdisziplinär an einem Strang. Freizeitqualität inklusive Berge, Bewegung, Natur, gute Schulen – ein traumhaftes Umfeld für dich und deine Liebsten. Wir unterstützen dich beim Ankommen – auch bei der Jobsuche für deine:n Partner:in. Und einen Ort, an dem du wachsen kannst – beruflich und privat.",
+      "descriptionByLocale": {
+        "it": "Descrizione Pronto soccorso pediatrico in un contesto clinico interdisciplinare con 190 posti letto, 5 discipline e oltre 120 anni di storia - e 1560 m s.l.m. La Hochgebirgsklinik Davos è un centro di riabilitazione interdisciplinare con legami universitari - immerso nella spettacolare natura delle Alpi Engadine. Nel nostro ambulatorio clinico curiamo bambini e adolescenti in modo ambulatoriale e collaboriamo strettamente con diverse discipline cliniche. Vuoi non solo curare, ma sviluppare la medicina e lavorare in modo interdisciplinare? Allora vorremmo conoscerti. ## Compiti - Come medico specialista in pediatria e medicina dell'adolescenza farai parte di un team multiprofessionale che accompagna bambini, adolescenti e loro famiglie in modo integrale - medicale, psicologico e pedagogico. - Curare ambulatorialmente: curi bambini e adolescenti nel contesto ambulatoriale del nostro ambulatorio e li accompagni medicalmente nel contesto del nostro concetto di riabilitazione integrale. - Supportare: oltre alle attività ambulatoriali, aiuti, se necessario, i nostri pazienti somatici nell'ambito ospedaliero. - Agire in modo interdisciplinare: collabori strettamente con psicologia, infermieristica e pedagogia - e dai impulsi per nuove forme di assistenza. - Partecipare: ti impegni concettualmente e supporti lo sviluppo della nostra offerta unica al mondo per genitori e bambini. ##\n• Requisiti - Non cerchiamo una «copertura ideale» sulla carta - ma persone che lavorano in modo competente, agiscano in modo umano e abbiano voglia di nuove sfide. - Titolo di specialista: disponi di un titolo di specialista riconosciuto in pediatria e medicina dell'adolescenza (FMH o equivalente UE) - anche se sei ancora in corso di completamento. - Esperienza pratica o clinica: hai esperienza nella cura medica di bambini e adolescenti - preferibilmente in un contesto ambulatoriale o interdisciplinare. - Vivere l'interdisciplinarità: collabori volentieri con psicologia, infermieristica e pedagogia. - Valori la cultura del team: ti senti a tuo agio in gerarchie piatte con comunicazione aperta. - Apprezzi la progettazione: hai piacere a costruire una nuova struttura nell'ambulatorio e a introdurre le tue idee. - Valori la qualità della vita: apprezzi un ambiente con alta qualità della vita - in natura eppure ben connesso. ##\n• Offriamo - Partecipazione invece di seguire: le tue idee contano - sia a livello tecnico che organizzativo. - Bilanciamento tra lavoro e vita privata: orari di lavoro pianificabili, adatti alle famiglie e affidabili. - Riabilitazione genitori-bambini unica al mondo: puntiamo sull'effetto a lungo termine e tiriamo insieme a un filo. - Qualità del tempo libero inclusa: montagne, movimento, natura, buone scuole - un ambiente da sogno per te e i tuoi cari. - Ti supportiamo nell'arrivo - anche nella ricerca di lavoro per la tua partner. - E un luogo in cui puoi crescere - sia a livello professionale che privato.",
+        "en": "Description Ambulatory Pediatrics in an interdisciplinary clinical setting with 190 beds, 5 disciplines, over 120 years of history - and 1560 m above sea level. The Hochgebirgsklinik Davos is an interdisciplinary rehabilitation center with university ties - embedded in the spectacular nature of the Swiss Alps. In our clinic-owned ambulatory care, we treat children and adolescents ambulatory and work closely with various clinical disciplines. Do you want to not just treat, but develop medical care and work interdisciplinarily? Then we would like to hear from you. ## Tasks - As a pediatrician or adolescent medicine specialist, you will be part of a multiprofessional team that accompanies children, adolescents, and their families holistically - medically, psychologically, and pedagogically. - Treat ambulatory: You care for children and adolescents in the ambulatory setting of our ambulatory care and accompany them medically in the context of our holistic rehabilitation concept. - Support: In addition to the ambulatory activities, you help our somatic patients in the inpatient area if needed. - Proceed interdisciplinarily: You work closely with psychology, nursing, and pedagogy - and give impulses for new care pathways. - Participate: You get involved conceptually and support the development of our unique parent-child offer worldwide. ##\n• Requirements - We are not looking for an «ideal fit» on paper - but people who work professionally, act humanely, and bring a desire for the new. - Specialist title: You have a recognized specialist title in pediatric and adolescent medicine (FMH or EU equivalent) - even if you are still in the process of completing it. - Practical or clinical experience: You have experience in the medical care of children and adolescents - ideally in an ambulatory or interdisciplinary setting. - Live interdisciplinarity: You enjoy working closely with psychology, nursing, and pedagogy. - Value team culture: You feel comfortable in flat hierarchies with open communication. - Enjoy design: You enjoy building a new structure in the ambulatory care and bringing in your ideas. - Value quality of life: You value an environment with high quality of life - in nature and yet well-connected. ##\n• We offer - Participation instead of following: Your ideas count - professionally and organizationally. - Well-balanced work-life: Plannable working hours, family-friendly, and reliable. - Unique parent-child rehab: We aim for sustainable effects and pull together on one thread. - Leisure quality included: Mountains, movement, nature, good schools - a dream environment for you and your loved ones. - We support you upon arrival - also in the job search for your partner. - And a place where you can grow - professionally and privately.",
+        "de": "Ambulante Pädiatrie im interdisziplinären Kliniksetting 190 Betten, 5 Disziplinen, über 120 Jahre Geschichte – und 1560 m ü. M. Die Hochgebirgsklinik Davos ist ein interdisziplinäres Rehabilitationszentrum mit universitärer Anbindung – eingebettet in die spektakuläre Natur der Bündner Alpen. In unserem klinikeigenen Ambulatorium betreuen wir Kinder und Jugendliche ambulant und arbeiten eng mit verschiedenen Fachdisziplinen der Klinik zusammen. Du möchtest nicht einfach behandeln, sondern medizinische Versorgung weiterentwickeln und interdisziplinär arbeiten? Dann möchten wir uns bei dir bewerben. | \n• Aufgaben: Als Fachärztin oder Facharzt für Kinder- und Jugendmedizin wirst du Teil eines multiprofessionellen Teams, das Kinder, Jugendliche und ihre Familien ganzheitlich begleitet – medizinisch, psychologisch und pädagogisch. Ambulant behandeln: Du betreust Kinder und Jugendliche im ambulanten Setting unseres Ambulatoriums und begleitest sie medizinisch im Kontext unseres ganzheitlichen Rehabilitationskonzepts. Unterstützen: Ergänzend zu den ambulanten Tätigkeiten hilfst du bei Bedarf unseren somatischen Patient:innen im stationären Bereich. Interdisziplinär vorangehen: Du arbeitest eng mit Psychologie, Pflege und Pädagogik zusammen – und gibst Impulse für neue Versorgungswege. Mitgestalten: Du bringst dich konzeptionell ein und unterstützt beim Ausbau unseres schweizweit einzigartigen Eltern-Kind-Angebots. | \n• Anforderungen: Wir suchen keine «Idealbesetzung» auf dem Papier – sondern Menschen, die fachlich fundiert arbeiten, menschlich wirken und Lust auf Neues mitbringen. Facharzttitel: Du verfügst über einen anerkannten Facharzttitel in Kinder- und Jugendmedizin (FMH oder EU-äquivalent) – gerne auch kurz vor Abschluss. Praxis- oder klinische Erfahrung: Du hast Erfahrung in der medizinischen Betreuung von Kindern und Jugendlichen – idealerweise im ambulanten oder interdisziplinären Setting. Interdisziplinarität leben: Du arbeitest gerne eng mit Psychologie, Pflege und Pädagogik zusammen. Teamkultur schätzen: Du fühlst dich in flachen Hierarchien mit offener Kommunikation wohl. Gestaltungsfreude: Du hast Freude daran, eine neue Struktur im Ambulatorium mit aufzubauen und eigene Ideen einzubringen. Lebensqualität schätzen: Du schätzt ein Umfeld mit hoher Lebensqualität – mitten in der Natur und dennoch gut vernetzt. | \n• Wir bieten: Mitgestaltung statt Mitlaufen Deine Ideen zählen – fachlich wie organisatorisch. Ausgeprägte Work-Life-Balance Planbare Arbeitszeiten, familienfreundlich und zuverlässig. Einzigartige Eltern-Kind-Reha Wir setzen auf nachhaltige Wirkung und ziehen interdisziplinär an einem Strang. Freizeitqualität inklusive Berge, Bewegung, Natur, gute Schulen – ein traumhaftes Umfeld für dich und deine Liebsten. Wir unterstützen dich beim Ankommen – auch bei der Jobsuche für deine:n Partner:in. Und einen Ort, an dem du wachsen kannst – beruflich und privat.",
+        "fr": "Description Pédiatrie ambulatoire dans un cadre clinique interdisciplinaire avec 190 lits, 5 disciplines, plus de 120 ans d'histoire - et 1560 m d'altitude. La Hochgebirgsklinik Davos est un centre de réadaptation interdisciplinaire avec des liens universitaires - intégré dans la nature spectaculaire des Alpes suisses. Dans notre ambulatorium clinique, nous traitons les enfants et adolescents en ambulatoire et travaillons en étroite collaboration avec diverses disciplines cliniques. Voulez-vous non seulement soigner, mais développer les soins médicaux et travailler de manière interdisciplinaire ? Alors nous aimerions vous connaître. ## Tâches - En tant que médecin spécialiste en pédiatrie et médecine de l'adolescent, vous ferez partie d'une équipe multiprofessionnelle qui accompagne les enfants, les adolescents et leurs familles de manière holistique - médicalement, psychologiquement et pédagogiquement. - Soigner en ambulatoire : Vous prenez en charge les enfants et les adolescents dans le cadre ambulant de notre ambulatorium et les accompagnez médicalement dans le cadre de notre concept de réadaptation holistique. - Soutenir : En plus des activités ambulatoriales, vous aidez nos patients somatiques dans le service hospitalier si nécessaire. - Agir de manière interdisciplinaire : Vous travaillez en étroite collaboration avec la psychologie, l'infirmerie et la pédagogie - et donnez des impulsions pour de nouvelles voies de soins. - Participer : Vous vous impliquez conceptuellement et soutenez le développement de notre offre unique pour parents et enfants. ##\n• Exigences - Nous ne recherchons pas une « couverture idéale » sur le papier - mais des personnes qui travaillent de manière professionnelle, agissent de manière humaine et apportent une envie du nouveau. - Titre de spécialiste : Vous disposez d'un titre de spécialiste reconnu en pédiatrie et médecine de l'adolescent (FMH ou équivalent UE) - même si vous êtes encore en cours de finalisation. - Expérience pratique ou clinique : Vous avez de l'expérience dans les soins médicaux pour enfants et adolescents - idéalement dans un cadre ambulant ou interdisciplinaire. - Vivre l'interdisciplinarité : Vous aimez travailler en étroite collaboration avec la psychologie, l'infirmerie et la pédagogie. - Valoriser la culture d'équipe : Vous vous sentez à l'aise dans des hiérarchies plates avec une communication ouverte. - Apprécier la conception : Vous aimez construire une nouvelle structure dans l'ambulatorium et apporter vos idées. - Valoriser la qualité de vie : Vous valorisez un environnement avec une haute qualité de vie - en nature et pourtant bien connecté. ##\n• Nous offrons - Participation au lieu de suivre : Vos idées comptent - professionnellement et organisationnellement. - Bonne équilibre travail-vie : Horaires de travail planifiables, adaptés aux familles et fiables. - Réadaptation parent-enfant unique : Nous visons des effets durables et tirons ensemble sur un fil. - Qualité du temps libre incluse : Montagnes, mouvement, nature, bonnes écoles - un environnement de rêve pour vous et vos proches. - Nous vous soutenons à l'arrivée - également dans la recherche d'emploi pour votre partenaire. - Et un lieu où vous pouvez grandir - professionnellement et privément."
+      },
+      "location": "Davos",
+      "canton": "GR",
+      "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjMz&showApplicationForm=false",
+      "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
+      "sourceLang": "de",
+      "crawledAt": "2026-05-26T23:04:42.320Z",
+      "addressLocality": "Davos",
+      "postalCode": "7270",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Medicina",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Assistenza",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-03-13",
+      "applyUrl": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjMz&showApplicationForm=false",
+      "requirements": [],
+      "requirementsByLocale": {
+        "it": [
+          "Titolo di specialista riconosciuto in pediatria e medicina dell'adolescenza (FMH o equivalente UE)",
+          "Esperienza nella cura medica di bambini e adolescenti, preferibilmente in un contesto ambulatoriale o interdisciplinare",
+          "Collaborazione con psicologia, infermieristica e pedagogia",
+          "Valori la cultura del team e la comunicazione aperta",
+          "Apprezzi la progettazione e l'introduzione di nuove idee",
+          "Valori la qualità della vita e un ambiente in natura ben connesso"
+        ],
+        "en": [
+          "Recognized specialist title in pediatric and adolescent medicine (FMH or EU equivalent)",
+          "Experience in the medical care of children and adolescents, ideally in an ambulatory or interdisciplinary setting",
+          "Collaboration with psychology, nursing, and pedagogy",
+          "Value team culture and open communication",
+          "Enjoy design and bringing in new ideas",
+          "Value quality of life and a well-connected environment in nature"
+        ],
+        "fr": [
+          "Titre de spécialiste reconnu en pédiatrie et médecine de l'adolescent (FMH ou équivalent UE)",
+          "Expérience dans les soins médicaux pour enfants et adolescents, idéalement dans un cadre ambulant ou interdisciplinaire",
+          "Collaboration avec la psychologie, l'infirmerie et la pédagogie",
+          "Valoriser la culture d'équipe et la communication ouverte",
+          "Apprécier la conception et apporter de nouvelles idées",
+          "Valoriser la qualité de vie et un environnement bien connecté en nature"
+        ]
+      },
+      "department": "Ärztlicher/medizinischer Dienst",
+      "contactPerson": "Martina Haeck",
+      "contactPhone": "+41 81 417 38 27",
+      "contactEmail": "martina.haeck@hgk.ch",
+      "previousSlugs": [
+        "facharztin-facharzt-kinder-und-jugendmedizin-aufbau-ambulante-padiatrie-hochgebirgsklinik-",
+        "facharztin-facharzt-kinder-und-jugendmedizin-aufbau-ambulante-padiatrie-hochgebirgsklinik"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "facharztin-facharzt-kinder-und-jugendmedizin-aufbau-ambulante-padiatrie-hochgebirgsklinik-",
+          "facharztin-facharzt-kinder-und-jugendmedizin-aufbau-ambulante-padiatrie-hochgebirgsklinik"
+        ]
+      },
+      "firstSeenAt": "2026-04-13T10:43:15.481Z",
+      "needsRetranslation": true,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
           "unitText": "YEAR"
         }
       }
@@ -146,7 +248,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjA4&showApplicationForm=false",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-25T22:22:59.850Z",
+      "crawledAt": "2026-05-26T23:04:42.320Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -197,6 +299,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:43:15.482Z",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -206,104 +309,6 @@
           "@type": "QuantitativeValue",
           "minValue": 41600,
           "maxValue": 63000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "hochgebirgsklinik-davos-66f19d8314f1",
-      "slug": "medico-specialista-in-pediatria-e-medicina-dell-adolescenza-pronto-soccorso-pediatrico-hochgebirgsklinik-davos-davos",
-      "slugByLocale": {
-        "it": "medico-specialista-in-pediatria-e-medicina-dell-adolescenza-pronto-soccorso-pediatrico-hochgebirgsklinik-davos-davos",
-        "en": "pediatrician-adolescent-medicine-specialist-ambulatory-pediatrics-hochgebirgsklinik-davos-davos",
-        "de": "facharztin-facharzt-kinder-und-jugendmedizin-aufbau-ambulante-padiatrie-hochgebirgsklinik-",
-        "fr": "medecin-specialiste-en-pediatrie-et-medecine-de-l-adolescent-pediatrie-ambulatoire-hochgebirgsklinik-davos-davos"
-      },
-      "company": "Hochgebirgsklinik Davos",
-      "companyKey": "hochgebirgsklinik-davos",
-      "companyDomain": "hochgebirgsklinik.ch",
-      "title": "Fachärztin / Facharzt Kinder- und Jugendmedizin – Aufbau ambulante Pädiatrie",
-      "titleByLocale": {
-        "it": "Medico specialista in pediatria e medicina dell'adolescenza - Pronto soccorso pediatrico",
-        "en": "Pediatrician / Adolescent Medicine Specialist - Ambulatory Pediatrics",
-        "de": "Fachärztin / Facharzt Kinder- und Jugendmedizin – Aufbau ambulante Pädiatrie",
-        "fr": "Médecin spécialiste en pédiatrie et médecine de l'adolescent - Pédiatrie ambulatoire"
-      },
-      "description": "Ambulante Pädiatrie im interdisziplinären Kliniksetting 190 Betten, 5 Disziplinen, über 120 Jahre Geschichte – und 1560 m ü. M. Die Hochgebirgsklinik Davos ist ein interdisziplinäres Rehabilitationszentrum mit universitärer Anbindung – eingebettet in die spektakuläre Natur der Bündner Alpen. In unserem klinikeigenen Ambulatorium betreuen wir Kinder und Jugendliche ambulant und arbeiten eng mit verschiedenen Fachdisziplinen der Klinik zusammen. Du möchtest nicht einfach behandeln, sondern medizinische Versorgung weiterentwickeln und interdisziplinär arbeiten? Dann möchten wir uns bei dir bewerben. | \n• Aufgaben: Als Fachärztin oder Facharzt für Kinder- und Jugendmedizin wirst du Teil eines multiprofessionellen Teams, das Kinder, Jugendliche und ihre Familien ganzheitlich begleitet – medizinisch, psychologisch und pädagogisch. Ambulant behandeln: Du betreust Kinder und Jugendliche im ambulanten Setting unseres Ambulatoriums und begleitest sie medizinisch im Kontext unseres ganzheitlichen Rehabilitationskonzepts. Unterstützen: Ergänzend zu den ambulanten Tätigkeiten hilfst du bei Bedarf unseren somatischen Patient:innen im stationären Bereich. Interdisziplinär vorangehen: Du arbeitest eng mit Psychologie, Pflege und Pädagogik zusammen – und gibst Impulse für neue Versorgungswege. Mitgestalten: Du bringst dich konzeptionell ein und unterstützt beim Ausbau unseres schweizweit einzigartigen Eltern-Kind-Angebots. | \n• Anforderungen: Wir suchen keine «Idealbesetzung» auf dem Papier – sondern Menschen, die fachlich fundiert arbeiten, menschlich wirken und Lust auf Neues mitbringen. Facharzttitel: Du verfügst über einen anerkannten Facharzttitel in Kinder- und Jugendmedizin (FMH oder EU-äquivalent) – gerne auch kurz vor Abschluss. Praxis- oder klinische Erfahrung: Du hast Erfahrung in der medizinischen Betreuung von Kindern und Jugendlichen – idealerweise im ambulanten oder interdisziplinären Setting. Interdisziplinarität leben: Du arbeitest gerne eng mit Psychologie, Pflege und Pädagogik zusammen. Teamkultur schätzen: Du fühlst dich in flachen Hierarchien mit offener Kommunikation wohl. Gestaltungsfreude: Du hast Freude daran, eine neue Struktur im Ambulatorium mit aufzubauen und eigene Ideen einzubringen. Lebensqualität schätzen: Du schätzt ein Umfeld mit hoher Lebensqualität – mitten in der Natur und dennoch gut vernetzt. | \n• Wir bieten: Mitgestaltung statt Mitlaufen Deine Ideen zählen – fachlich wie organisatorisch. Ausgeprägte Work-Life-Balance Planbare Arbeitszeiten, familienfreundlich und zuverlässig. Einzigartige Eltern-Kind-Reha Wir setzen auf nachhaltige Wirkung und ziehen interdisziplinär an einem Strang. Freizeitqualität inklusive Berge, Bewegung, Natur, gute Schulen – ein traumhaftes Umfeld für dich und deine Liebsten. Wir unterstützen dich beim Ankommen – auch bei der Jobsuche für deine:n Partner:in. Und einen Ort, an dem du wachsen kannst – beruflich und privat.",
-      "descriptionByLocale": {
-        "it": "Descrizione Pronto soccorso pediatrico in un contesto clinico interdisciplinare con 190 posti letto, 5 discipline e oltre 120 anni di storia - e 1560 m s.l.m. La Hochgebirgsklinik Davos è un centro di riabilitazione interdisciplinare con legami universitari - immerso nella spettacolare natura delle Alpi Engadine. Nel nostro ambulatorio clinico curiamo bambini e adolescenti in modo ambulatoriale e collaboriamo strettamente con diverse discipline cliniche. Vuoi non solo curare, ma sviluppare la medicina e lavorare in modo interdisciplinare? Allora vorremmo conoscerti. ## Compiti - Come medico specialista in pediatria e medicina dell'adolescenza farai parte di un team multiprofessionale che accompagna bambini, adolescenti e loro famiglie in modo integrale - medicale, psicologico e pedagogico. - Curare ambulatorialmente: curi bambini e adolescenti nel contesto ambulatoriale del nostro ambulatorio e li accompagni medicalmente nel contesto del nostro concetto di riabilitazione integrale. - Supportare: oltre alle attività ambulatoriali, aiuti, se necessario, i nostri pazienti somatici nell'ambito ospedaliero. - Agire in modo interdisciplinare: collabori strettamente con psicologia, infermieristica e pedagogia - e dai impulsi per nuove forme di assistenza. - Partecipare: ti impegni concettualmente e supporti lo sviluppo della nostra offerta unica al mondo per genitori e bambini. ##\n• Requisiti - Non cerchiamo una «copertura ideale» sulla carta - ma persone che lavorano in modo competente, agiscano in modo umano e abbiano voglia di nuove sfide. - Titolo di specialista: disponi di un titolo di specialista riconosciuto in pediatria e medicina dell'adolescenza (FMH o equivalente UE) - anche se sei ancora in corso di completamento. - Esperienza pratica o clinica: hai esperienza nella cura medica di bambini e adolescenti - preferibilmente in un contesto ambulatoriale o interdisciplinare. - Vivere l'interdisciplinarità: collabori volentieri con psicologia, infermieristica e pedagogia. - Valori la cultura del team: ti senti a tuo agio in gerarchie piatte con comunicazione aperta. - Apprezzi la progettazione: hai piacere a costruire una nuova struttura nell'ambulatorio e a introdurre le tue idee. - Valori la qualità della vita: apprezzi un ambiente con alta qualità della vita - in natura eppure ben connesso. ##\n• Offriamo - Partecipazione invece di seguire: le tue idee contano - sia a livello tecnico che organizzativo. - Bilanciamento tra lavoro e vita privata: orari di lavoro pianificabili, adatti alle famiglie e affidabili. - Riabilitazione genitori-bambini unica al mondo: puntiamo sull'effetto a lungo termine e tiriamo insieme a un filo. - Qualità del tempo libero inclusa: montagne, movimento, natura, buone scuole - un ambiente da sogno per te e i tuoi cari. - Ti supportiamo nell'arrivo - anche nella ricerca di lavoro per la tua partner. - E un luogo in cui puoi crescere - sia a livello professionale che privato.",
-        "en": "Description Ambulatory Pediatrics in an interdisciplinary clinical setting with 190 beds, 5 disciplines, over 120 years of history - and 1560 m above sea level. The Hochgebirgsklinik Davos is an interdisciplinary rehabilitation center with university ties - embedded in the spectacular nature of the Swiss Alps. In our clinic-owned ambulatory care, we treat children and adolescents ambulatory and work closely with various clinical disciplines. Do you want to not just treat, but develop medical care and work interdisciplinarily? Then we would like to hear from you. ## Tasks - As a pediatrician or adolescent medicine specialist, you will be part of a multiprofessional team that accompanies children, adolescents, and their families holistically - medically, psychologically, and pedagogically. - Treat ambulatory: You care for children and adolescents in the ambulatory setting of our ambulatory care and accompany them medically in the context of our holistic rehabilitation concept. - Support: In addition to the ambulatory activities, you help our somatic patients in the inpatient area if needed. - Proceed interdisciplinarily: You work closely with psychology, nursing, and pedagogy - and give impulses for new care pathways. - Participate: You get involved conceptually and support the development of our unique parent-child offer worldwide. ##\n• Requirements - We are not looking for an «ideal fit» on paper - but people who work professionally, act humanely, and bring a desire for the new. - Specialist title: You have a recognized specialist title in pediatric and adolescent medicine (FMH or EU equivalent) - even if you are still in the process of completing it. - Practical or clinical experience: You have experience in the medical care of children and adolescents - ideally in an ambulatory or interdisciplinary setting. - Live interdisciplinarity: You enjoy working closely with psychology, nursing, and pedagogy. - Value team culture: You feel comfortable in flat hierarchies with open communication. - Enjoy design: You enjoy building a new structure in the ambulatory care and bringing in your ideas. - Value quality of life: You value an environment with high quality of life - in nature and yet well-connected. ##\n• We offer - Participation instead of following: Your ideas count - professionally and organizationally. - Well-balanced work-life: Plannable working hours, family-friendly, and reliable. - Unique parent-child rehab: We aim for sustainable effects and pull together on one thread. - Leisure quality included: Mountains, movement, nature, good schools - a dream environment for you and your loved ones. - We support you upon arrival - also in the job search for your partner. - And a place where you can grow - professionally and privately.",
-        "de": "Ambulante Pädiatrie im interdisziplinären Kliniksetting 190 Betten, 5 Disziplinen, über 120 Jahre Geschichte – und 1560 m ü. M. Die Hochgebirgsklinik Davos ist ein interdisziplinäres Rehabilitationszentrum mit universitärer Anbindung – eingebettet in die spektakuläre Natur der Bündner Alpen. In unserem klinikeigenen Ambulatorium betreuen wir Kinder und Jugendliche ambulant und arbeiten eng mit verschiedenen Fachdisziplinen der Klinik zusammen. Du möchtest nicht einfach behandeln, sondern medizinische Versorgung weiterentwickeln und interdisziplinär arbeiten? Dann möchten wir uns bei dir bewerben. | \n• Aufgaben: Als Fachärztin oder Facharzt für Kinder- und Jugendmedizin wirst du Teil eines multiprofessionellen Teams, das Kinder, Jugendliche und ihre Familien ganzheitlich begleitet – medizinisch, psychologisch und pädagogisch. Ambulant behandeln: Du betreust Kinder und Jugendliche im ambulanten Setting unseres Ambulatoriums und begleitest sie medizinisch im Kontext unseres ganzheitlichen Rehabilitationskonzepts. Unterstützen: Ergänzend zu den ambulanten Tätigkeiten hilfst du bei Bedarf unseren somatischen Patient:innen im stationären Bereich. Interdisziplinär vorangehen: Du arbeitest eng mit Psychologie, Pflege und Pädagogik zusammen – und gibst Impulse für neue Versorgungswege. Mitgestalten: Du bringst dich konzeptionell ein und unterstützt beim Ausbau unseres schweizweit einzigartigen Eltern-Kind-Angebots. | \n• Anforderungen: Wir suchen keine «Idealbesetzung» auf dem Papier – sondern Menschen, die fachlich fundiert arbeiten, menschlich wirken und Lust auf Neues mitbringen. Facharzttitel: Du verfügst über einen anerkannten Facharzttitel in Kinder- und Jugendmedizin (FMH oder EU-äquivalent) – gerne auch kurz vor Abschluss. Praxis- oder klinische Erfahrung: Du hast Erfahrung in der medizinischen Betreuung von Kindern und Jugendlichen – idealerweise im ambulanten oder interdisziplinären Setting. Interdisziplinarität leben: Du arbeitest gerne eng mit Psychologie, Pflege und Pädagogik zusammen. Teamkultur schätzen: Du fühlst dich in flachen Hierarchien mit offener Kommunikation wohl. Gestaltungsfreude: Du hast Freude daran, eine neue Struktur im Ambulatorium mit aufzubauen und eigene Ideen einzubringen. Lebensqualität schätzen: Du schätzt ein Umfeld mit hoher Lebensqualität – mitten in der Natur und dennoch gut vernetzt. | \n• Wir bieten: Mitgestaltung statt Mitlaufen Deine Ideen zählen – fachlich wie organisatorisch. Ausgeprägte Work-Life-Balance Planbare Arbeitszeiten, familienfreundlich und zuverlässig. Einzigartige Eltern-Kind-Reha Wir setzen auf nachhaltige Wirkung und ziehen interdisziplinär an einem Strang. Freizeitqualität inklusive Berge, Bewegung, Natur, gute Schulen – ein traumhaftes Umfeld für dich und deine Liebsten. Wir unterstützen dich beim Ankommen – auch bei der Jobsuche für deine:n Partner:in. Und einen Ort, an dem du wachsen kannst – beruflich und privat.",
-        "fr": "Description Pédiatrie ambulatoire dans un cadre clinique interdisciplinaire avec 190 lits, 5 disciplines, plus de 120 ans d'histoire - et 1560 m d'altitude. La Hochgebirgsklinik Davos est un centre de réadaptation interdisciplinaire avec des liens universitaires - intégré dans la nature spectaculaire des Alpes suisses. Dans notre ambulatorium clinique, nous traitons les enfants et adolescents en ambulatoire et travaillons en étroite collaboration avec diverses disciplines cliniques. Voulez-vous non seulement soigner, mais développer les soins médicaux et travailler de manière interdisciplinaire ? Alors nous aimerions vous connaître. ## Tâches - En tant que médecin spécialiste en pédiatrie et médecine de l'adolescent, vous ferez partie d'une équipe multiprofessionnelle qui accompagne les enfants, les adolescents et leurs familles de manière holistique - médicalement, psychologiquement et pédagogiquement. - Soigner en ambulatoire : Vous prenez en charge les enfants et les adolescents dans le cadre ambulant de notre ambulatorium et les accompagnez médicalement dans le cadre de notre concept de réadaptation holistique. - Soutenir : En plus des activités ambulatoriales, vous aidez nos patients somatiques dans le service hospitalier si nécessaire. - Agir de manière interdisciplinaire : Vous travaillez en étroite collaboration avec la psychologie, l'infirmerie et la pédagogie - et donnez des impulsions pour de nouvelles voies de soins. - Participer : Vous vous impliquez conceptuellement et soutenez le développement de notre offre unique pour parents et enfants. ##\n• Exigences - Nous ne recherchons pas une « couverture idéale » sur le papier - mais des personnes qui travaillent de manière professionnelle, agissent de manière humaine et apportent une envie du nouveau. - Titre de spécialiste : Vous disposez d'un titre de spécialiste reconnu en pédiatrie et médecine de l'adolescent (FMH ou équivalent UE) - même si vous êtes encore en cours de finalisation. - Expérience pratique ou clinique : Vous avez de l'expérience dans les soins médicaux pour enfants et adolescents - idéalement dans un cadre ambulant ou interdisciplinaire. - Vivre l'interdisciplinarité : Vous aimez travailler en étroite collaboration avec la psychologie, l'infirmerie et la pédagogie. - Valoriser la culture d'équipe : Vous vous sentez à l'aise dans des hiérarchies plates avec une communication ouverte. - Apprécier la conception : Vous aimez construire une nouvelle structure dans l'ambulatorium et apporter vos idées. - Valoriser la qualité de vie : Vous valorisez un environnement avec une haute qualité de vie - en nature et pourtant bien connecté. ##\n• Nous offrons - Participation au lieu de suivre : Vos idées comptent - professionnellement et organisationnellement. - Bonne équilibre travail-vie : Horaires de travail planifiables, adaptés aux familles et fiables. - Réadaptation parent-enfant unique : Nous visons des effets durables et tirons ensemble sur un fil. - Qualité du temps libre incluse : Montagnes, mouvement, nature, bonnes écoles - un environnement de rêve pour vous et vos proches. - Nous vous soutenons à l'arrivée - également dans la recherche d'emploi pour votre partenaire. - Et un lieu où vous pouvez grandir - professionnellement et privément."
-      },
-      "location": "Davos",
-      "canton": "GR",
-      "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjMz&showApplicationForm=false",
-      "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
-      "sourceLang": "de",
-      "crawledAt": "2026-05-25T22:22:59.849Z",
-      "addressLocality": "Davos",
-      "postalCode": "7270",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Medicina",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Assistenza",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-03-13",
-      "applyUrl": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjMz&showApplicationForm=false",
-      "requirements": [],
-      "requirementsByLocale": {
-        "it": [
-          "Titolo di specialista riconosciuto in pediatria e medicina dell'adolescenza (FMH o equivalente UE)",
-          "Esperienza nella cura medica di bambini e adolescenti, preferibilmente in un contesto ambulatoriale o interdisciplinare",
-          "Collaborazione con psicologia, infermieristica e pedagogia",
-          "Valori la cultura del team e la comunicazione aperta",
-          "Apprezzi la progettazione e l'introduzione di nuove idee",
-          "Valori la qualità della vita e un ambiente in natura ben connesso"
-        ],
-        "en": [
-          "Recognized specialist title in pediatric and adolescent medicine (FMH or EU equivalent)",
-          "Experience in the medical care of children and adolescents, ideally in an ambulatory or interdisciplinary setting",
-          "Collaboration with psychology, nursing, and pedagogy",
-          "Value team culture and open communication",
-          "Enjoy design and bringing in new ideas",
-          "Value quality of life and a well-connected environment in nature"
-        ],
-        "fr": [
-          "Titre de spécialiste reconnu en pédiatrie et médecine de l'adolescent (FMH ou équivalent UE)",
-          "Expérience dans les soins médicaux pour enfants et adolescents, idéalement dans un cadre ambulant ou interdisciplinaire",
-          "Collaboration avec la psychologie, l'infirmerie et la pédagogie",
-          "Valoriser la culture d'équipe et la communication ouverte",
-          "Apprécier la conception et apporter de nouvelles idées",
-          "Valoriser la qualité de vie et un environnement bien connecté en nature"
-        ]
-      },
-      "department": "Ärztlicher/medizinischer Dienst",
-      "contactPerson": "Martina Haeck",
-      "contactPhone": "+41 81 417 38 27",
-      "contactEmail": "martina.haeck@hgk.ch",
-      "previousSlugs": [
-        "facharztin-facharzt-kinder-und-jugendmedizin-aufbau-ambulante-padiatrie-hochgebirgsklinik-"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "facharztin-facharzt-kinder-und-jugendmedizin-aufbau-ambulante-padiatrie-hochgebirgsklinik-"
-        ]
-      },
-      "firstSeenAt": "2026-04-13T10:43:15.481Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
           "unitText": "YEAR"
         }
       }
@@ -339,7 +344,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjMy&showApplicationForm=false",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-25T22:22:59.848Z",
+      "crawledAt": "2026-05-26T23:04:42.319Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -383,17 +388,20 @@
       "contactPhone": "0814173078",
       "previousSlugs": [
         "oberarztin-oberarzt-oder-leitende-arztin-leitender-arzt-angiologie-60-100-hochgebirgsklini",
+        "oberarztin-oberarzt-oder-leitende-arztin-leitender-arzt-angiologie-60-100",
         "assistente-medico-m-f-d-80-100-hochgebirgsklinik-davos-davos"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "oberarztin-oberarzt-oder-leitende-arztin-leitender-arzt-angiologie-60-100-hochgebirgsklini"
+          "oberarztin-oberarzt-oder-leitende-arztin-leitender-arzt-angiologie-60-100-hochgebirgsklini",
+          "oberarztin-oberarzt-oder-leitende-arztin-leitender-arzt-angiologie-60-100"
         ],
         "de": [
           "oberarztin-oberarzt-oder-leitende-arztin-leitender-arzt-angiologie-60-100-hochgebirgsklini"
         ]
       },
       "firstSeenAt": "2026-04-13T10:43:15.481Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -438,7 +446,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjM2&showApplicationForm=false",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-25T22:22:59.847Z",
+      "crawledAt": "2026-05-26T23:04:42.318Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -492,6 +500,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:43:15.480Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -536,7 +545,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjA5&showApplicationForm=false",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-25T22:22:59.847Z",
+      "crawledAt": "2026-05-26T23:04:42.317Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -587,6 +596,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:43:15.479Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -606,7 +616,7 @@
       "slugByLocale": {
         "it": "assistente-sanitario-m-f-d-hochgebirgsklinik-davos-davos",
         "en": "pflegefachperson-w-m-d-hochgebirgsklinik-davos-ch",
-        "de": "pflegefachperson-w-m-d-hochgebirgsklinik-davos-ch",
+        "de": "pflegefachpersonal-w-m-d-hochgebirgsklinik-davos-davos",
         "fr": "aide-soignant-m-f-d-hochgebirgsklinik-davos-davos"
       },
       "company": "Hochgebirgsklinik Davos",
@@ -631,7 +641,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjEw&showApplicationForm=false",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-25T22:22:59.846Z",
+      "crawledAt": "2026-05-26T23:04:42.316Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -671,18 +681,19 @@
       "contactPerson": "Anic Gloor",
       "contactPhone": "081 417 30 39",
       "previousSlugs": [
-        "pflegefachperson-w-m-d-hochgebirgsklinik-davos-ch",
-        "pflegefachpersonal-w-m-d-hochgebirgsklinik-davos-davos"
+        "pflegefachperson-w-m-d-hochgebirgsklinik-davos-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "pflegefachperson-w-m-d-hochgebirgsklinik-davos-ch"
         ],
         "de": [
+          "pflegefachperson-w-m-d-hochgebirgsklinik-davos-ch",
           "pflegefachpersonal-w-m-d-hochgebirgsklinik-davos-davos"
         ]
       },
       "firstSeenAt": "2026-04-13T10:43:15.479Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -727,7 +738,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjE2&showApplicationForm=false",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-25T22:22:59.845Z",
+      "crawledAt": "2026-05-26T23:04:42.315Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -781,6 +792,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:43:15.479Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -825,7 +837,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjQx&showApplicationForm=false",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-25T22:22:59.844Z",
+      "crawledAt": "2026-05-26T23:04:42.314Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -863,6 +875,7 @@
         ]
       },
       "firstSeenAt": "2026-04-15T21:45:59.207Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -872,90 +885,6 @@
           "@type": "QuantitativeValue",
           "minValue": 68000,
           "maxValue": 103000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "hochgebirgsklinik-davos-fb1b8d16332f",
-      "slug": "collaboratore-servizio-m-w-d-80-100-a-tempo-determinato-giugno-settembre-hochgebirgsklinik-davos-davos",
-      "slugByLocale": {
-        "it": "collaboratore-servizio-m-w-d-80-100-a-tempo-determinato-giugno-settembre-hochgebirgsklinik-davos-davos",
-        "en": "service-staff-m-w-d-80-100-temporary-june-september-hochgebirgsklinik-davos-davos",
-        "de": "mitarbeiter-service-m-w-d-80-100-befristet-juni-september-hochgebirgsklinik-davos-ch",
-        "fr": "employe-de-service-m-w-d-80-100-a-temps-partiel-juin-septembre-hochgebirgsklinik-davos-davos"
-      },
-      "company": "Hochgebirgsklinik Davos",
-      "companyKey": "hochgebirgsklinik-davos",
-      "companyDomain": "hochgebirgsklinik.ch",
-      "title": "Mitarbeiter Service (m/w/d) 80 - 100% befristet Juni - September",
-      "titleByLocale": {
-        "it": "Collaboratore Servizio (m/w/d) 80-100% a tempo determinato giugno-settembre",
-        "en": "Service Staff (m/w/d) 80-100% temporary June-September",
-        "de": "Mitarbeiter Service (m/w/d) 80 - 100% befristet Juni - September",
-        "fr": "Employé de service (m/w/d) 80-100% à temps partiel juin-septembre"
-      },
-      "description": "Hinter unserer Erfolgsgeschichte steht das Hochgebirgsklinik-Team mit seinen über 400 engagierten Mitarbeitenden. Die vielseitigen Kompetenzbereiche und die enge Zusammenarbeit zwischen den Teams ermöglichen Ihnen eine verantwortungsvolle Aufgabe und Gestaltungsmöglichkeiten. Zudem bietet Ihnen die Hochgebirgsklinik zeitgemässe Anstellungsbedingungen sowie einen idealen Standort für vielseitige Freizeitaktivitäten in der Ferienregion Graubünden. Für Auskünfte steht Ihnen Frau Paula Vetter, Leiterin Service, +41 81 417 31 62 gerne zur Verfügung. | Aufgaben:\n• Getränke- und Speiseservice in allen Restaurationen (Menü- und Buffetservice) sowie Lieferservice in die Patientenzimmer\n• Anlässe (interne und externe Events) | Anforderungen:\n• Abgeschlossene Berufslehre als Restaurationsfachperson EFZ oder mehrjährige Berufserfahrung in einer ähnlichen Funktion\n• Freude an der Betreuung und Beratung unserer Patientinnen und Patienten, Gästen sowie Kunden\n• Selbstständige, zuverlässige und exakte Arbeitsweise\n• Belastbarkeit, Flexibilität, Teamfähigkeit und Engagement\n• Fundierte Deutschkenntnisse in Wort und Schrift",
-      "descriptionByLocale": {
-        "it": "Descrizione Dietro la nostra storia di successo è il team Hochgebirgsklinik con oltre 400 dipendenti dedicati. Le diverse aree di competenza e stretta collaborazione tra i team consentono di avere un compito responsabile e opzioni di progettazione. Inoltre, l'Hochgebirgsklinik offre condizioni di lavoro contemporanee e una posizione ideale per attività ricreative versatili nella regione turistica Grigioni. Per informazioni si prega di contattare la signora Paula Vetter, responsabile del servizio, +41 81 417 31 62. ## Compiti - insegnamento professionale completo come esperto di restauro EFZ o esperienza professionale pluriennale in una funzione simile - piacere nella cura e nella consulenza dei nostri pazienti, ospiti e clienti - Auto-lavoratori, metodi di lavoro affidabili ed esatti - resilienza, flessibilità, capacità del team e impegno - Finanziate conoscenze tedesche in parola e scrittura",
-        "en": "Descrizione Behind our success story is the Hochgebirgsklinik team with more than 400 dedicated employees. The diverse areas of competence and close cooperation between the teams allow you to have a responsible task and design options. In addition, the Hochgebirgsklinik offers contemporary employment conditions and an ideal location for versatile leisure activities in the holiday region Graubünden. For information please contact Mrs. Paula Vetter, Head of Service, +41 81 417 31 62. ## Tasks - Complete professional teaching as a restoration expert EFZ or multiannual professional experience in a similar function - pleasure in the care and advice of our patients, guests and customers - Self-employed, reliable and exact working methods - resilience, flexibility, team capacity and commitment - Funded German knowledge in word and writing ##\n• Requirements - Beverage and food service in all restorations (menu and buffet service) and delivery services in the patient rooms",
-        "de": "Hinter unserer Erfolgsgeschichte steht das Hochgebirgsklinik-Team mit seinen über 400 engagierten Mitarbeitenden. Die vielseitigen Kompetenzbereiche und die enge Zusammenarbeit zwischen den Teams ermöglichen Ihnen eine verantwortungsvolle Aufgabe und Gestaltungsmöglichkeiten. Zudem bietet Ihnen die Hochgebirgsklinik zeitgemässe Anstellungsbedingungen sowie einen idealen Standort für vielseitige Freizeitaktivitäten in der Ferienregion Graubünden. Für Auskünfte steht Ihnen Frau Paula Vetter, Leiterin Service, +41 81 417 31 62 gerne zur Verfügung. | Aufgaben:\n• Getränke- und Speiseservice in allen Restaurationen (Menü- und Buffetservice) sowie Lieferservice in die Patientenzimmer\n• Anlässe (interne und externe Events) | Anforderungen:\n• Abgeschlossene Berufslehre als Restaurationsfachperson EFZ oder mehrjährige Berufserfahrung in einer ähnlichen Funktion\n• Freude an der Betreuung und Beratung unserer Patientinnen und Patienten, Gästen sowie Kunden\n• Selbstständige, zuverlässige und exakte Arbeitsweise\n• Belastbarkeit, Flexibilität, Teamfähigkeit und Engagement\n• Fundierte Deutschkenntnisse in Wort und Schrift",
-        "fr": "Descrizione Derrière notre success story est l'équipe de Hochgebirgsklinik avec plus de 400 employés dévoués. Les différents domaines de compétence et la coopération étroite entre les équipes vous permettent d'avoir une tâche responsable et des options de conception. En outre, le Hochgebirgsklinik offre des conditions d'emploi contemporaines et un emplacement idéal pour des activités de loisirs polyvalentes dans la région de vacances Graubünden. Pour plus d'informations, veuillez contacter Mme Paula Vetter, Chef de service, +41 81 417 31 62. ## Tâches - Enseignement professionnel complet en tant qu'expert en restauration EFZ ou expérience professionnelle pluriannuelle dans une fonction similaire - plaisir dans les soins et les conseils de nos patients, invités et clients - Indépendants, méthodes de travail fiables et exactes - résilience, flexibilité, capacité d'équipe et engagement - Financement des connaissances allemandes en paroles et en écriture ##\n• Exigences - Service de boissons et d'aliments dans toutes les restaurations (service de menu et buffet) et services de livraison dans les salles pour patients"
-      },
-      "location": "Davos",
-      "canton": "GR",
-      "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjQy&showApplicationForm=false",
-      "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
-      "sourceLang": "de",
-      "crawledAt": "2026-05-25T22:22:59.843Z",
-      "addressLocality": "Davos",
-      "postalCode": "7270",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Ristorazione",
-      "contract": "full-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Assistenza",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-04",
-      "applyUrl": "https://recruitingapp-2932.umantis.com/Vacancies/642/Application/CheckLogin/1?lang=ger",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "department": "Küche/Service",
-      "streetAddress": "Promenade 117",
-      "pensumMin": 80,
-      "pensumMax": 100,
-      "pensum": "80 - 100%",
-      "contactPerson": "Isabelle Künzli",
-      "contactPhone": "+41 81 417 30 40",
-      "previousSlugs": [
-        "mitarbeiter-service-m-w-d-80-100-befristet-juni-september-hochgebirgsklinik-davos-ch",
-        "collaboratore-trice-service-m-w-d-80-100-befristet-juni-september-hochgebirgsklinik-davos"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "mitarbeiter-service-m-w-d-80-100-befristet-juni-september-hochgebirgsklinik-davos-ch",
-          "collaboratore-trice-service-m-w-d-80-100-befristet-juni-september-hochgebirgsklinik-davos"
-        ],
-        "en": [
-          "mitarbeiter-service-m-w-d-80-100-befristet-juni-september-hochgebirgsklinik-davos-ch"
-        ],
-        "fr": [
-          "mitarbeiter-service-m-w-d-80-100-befristet-juni-september-hochgebirgsklinik-davos-ch"
-        ]
-      },
-      "firstSeenAt": "2026-05-04T11:02:00.149Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
           "unitText": "YEAR"
         }
       }
@@ -991,7 +920,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjMx&showApplicationForm=false",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-25T22:22:59.843Z",
+      "crawledAt": "2026-05-26T23:04:42.314Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1052,6 +981,92 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:43:15.478Z",
+      "needsRetranslation": true,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "hochgebirgsklinik-davos-fb1b8d16332f",
+      "slug": "collaboratore-servizio-m-w-d-80-100-a-tempo-determinato-giugno-settembre-hochgebirgsklinik-davos-davos",
+      "slugByLocale": {
+        "it": "collaboratore-servizio-m-w-d-80-100-a-tempo-determinato-giugno-settembre-hochgebirgsklinik-davos-davos",
+        "en": "service-staff-m-w-d-80-100-temporary-june-september-hochgebirgsklinik-davos-davos",
+        "de": "mitarbeiter-service-m-w-d-80-100-befristet-juni-september-hochgebirgsklinik-davos-ch",
+        "fr": "employe-de-service-m-w-d-80-100-a-temps-partiel-juin-septembre-hochgebirgsklinik-davos-davos"
+      },
+      "company": "Hochgebirgsklinik Davos",
+      "companyKey": "hochgebirgsklinik-davos",
+      "companyDomain": "hochgebirgsklinik.ch",
+      "title": "Mitarbeiter Service (m/w/d) 80 - 100% befristet Juni - September",
+      "titleByLocale": {
+        "it": "Collaboratore Servizio (m/w/d) 80-100% a tempo determinato giugno-settembre",
+        "en": "Service Staff (m/w/d) 80-100% temporary June-September",
+        "de": "Mitarbeiter Service (m/w/d) 80 - 100% befristet Juni - September",
+        "fr": "Employé de service (m/w/d) 80-100% à temps partiel juin-septembre"
+      },
+      "description": "Hinter unserer Erfolgsgeschichte steht das Hochgebirgsklinik-Team mit seinen über 400 engagierten Mitarbeitenden. Die vielseitigen Kompetenzbereiche und die enge Zusammenarbeit zwischen den Teams ermöglichen Ihnen eine verantwortungsvolle Aufgabe und Gestaltungsmöglichkeiten. Zudem bietet Ihnen die Hochgebirgsklinik zeitgemässe Anstellungsbedingungen sowie einen idealen Standort für vielseitige Freizeitaktivitäten in der Ferienregion Graubünden. Für Auskünfte steht Ihnen Frau Paula Vetter, Leiterin Service, +41 81 417 31 62 gerne zur Verfügung. | Aufgaben:\n• Getränke- und Speiseservice in allen Restaurationen (Menü- und Buffetservice) sowie Lieferservice in die Patientenzimmer\n• Anlässe (interne und externe Events) | Anforderungen:\n• Abgeschlossene Berufslehre als Restaurationsfachperson EFZ oder mehrjährige Berufserfahrung in einer ähnlichen Funktion\n• Freude an der Betreuung und Beratung unserer Patientinnen und Patienten, Gästen sowie Kunden\n• Selbstständige, zuverlässige und exakte Arbeitsweise\n• Belastbarkeit, Flexibilität, Teamfähigkeit und Engagement\n• Fundierte Deutschkenntnisse in Wort und Schrift",
+      "descriptionByLocale": {
+        "it": "Descrizione Dietro la nostra storia di successo è il team Hochgebirgsklinik con oltre 400 dipendenti dedicati. Le diverse aree di competenza e stretta collaborazione tra i team consentono di avere un compito responsabile e opzioni di progettazione. Inoltre, l'Hochgebirgsklinik offre condizioni di lavoro contemporanee e una posizione ideale per attività ricreative versatili nella regione turistica Grigioni. Per informazioni si prega di contattare la signora Paula Vetter, responsabile del servizio, +41 81 417 31 62. ## Compiti - insegnamento professionale completo come esperto di restauro EFZ o esperienza professionale pluriennale in una funzione simile - piacere nella cura e nella consulenza dei nostri pazienti, ospiti e clienti - Auto-lavoratori, metodi di lavoro affidabili ed esatti - resilienza, flessibilità, capacità del team e impegno - Finanziate conoscenze tedesche in parola e scrittura",
+        "en": "Descrizione Behind our success story is the Hochgebirgsklinik team with more than 400 dedicated employees. The diverse areas of competence and close cooperation between the teams allow you to have a responsible task and design options. In addition, the Hochgebirgsklinik offers contemporary employment conditions and an ideal location for versatile leisure activities in the holiday region Graubünden. For information please contact Mrs. Paula Vetter, Head of Service, +41 81 417 31 62. ## Tasks - Complete professional teaching as a restoration expert EFZ or multiannual professional experience in a similar function - pleasure in the care and advice of our patients, guests and customers - Self-employed, reliable and exact working methods - resilience, flexibility, team capacity and commitment - Funded German knowledge in word and writing ##\n• Requirements - Beverage and food service in all restorations (menu and buffet service) and delivery services in the patient rooms",
+        "de": "Hinter unserer Erfolgsgeschichte steht das Hochgebirgsklinik-Team mit seinen über 400 engagierten Mitarbeitenden. Die vielseitigen Kompetenzbereiche und die enge Zusammenarbeit zwischen den Teams ermöglichen Ihnen eine verantwortungsvolle Aufgabe und Gestaltungsmöglichkeiten. Zudem bietet Ihnen die Hochgebirgsklinik zeitgemässe Anstellungsbedingungen sowie einen idealen Standort für vielseitige Freizeitaktivitäten in der Ferienregion Graubünden. Für Auskünfte steht Ihnen Frau Paula Vetter, Leiterin Service, +41 81 417 31 62 gerne zur Verfügung. | Aufgaben:\n• Getränke- und Speiseservice in allen Restaurationen (Menü- und Buffetservice) sowie Lieferservice in die Patientenzimmer\n• Anlässe (interne und externe Events) | Anforderungen:\n• Abgeschlossene Berufslehre als Restaurationsfachperson EFZ oder mehrjährige Berufserfahrung in einer ähnlichen Funktion\n• Freude an der Betreuung und Beratung unserer Patientinnen und Patienten, Gästen sowie Kunden\n• Selbstständige, zuverlässige und exakte Arbeitsweise\n• Belastbarkeit, Flexibilität, Teamfähigkeit und Engagement\n• Fundierte Deutschkenntnisse in Wort und Schrift",
+        "fr": "Descrizione Derrière notre success story est l'équipe de Hochgebirgsklinik avec plus de 400 employés dévoués. Les différents domaines de compétence et la coopération étroite entre les équipes vous permettent d'avoir une tâche responsable et des options de conception. En outre, le Hochgebirgsklinik offre des conditions d'emploi contemporaines et un emplacement idéal pour des activités de loisirs polyvalentes dans la région de vacances Graubünden. Pour plus d'informations, veuillez contacter Mme Paula Vetter, Chef de service, +41 81 417 31 62. ## Tâches - Enseignement professionnel complet en tant qu'expert en restauration EFZ ou expérience professionnelle pluriannuelle dans une fonction similaire - plaisir dans les soins et les conseils de nos patients, invités et clients - Indépendants, méthodes de travail fiables et exactes - résilience, flexibilité, capacité d'équipe et engagement - Financement des connaissances allemandes en paroles et en écriture ##\n• Exigences - Service de boissons et d'aliments dans toutes les restaurations (service de menu et buffet) et services de livraison dans les salles pour patients"
+      },
+      "location": "Davos",
+      "canton": "GR",
+      "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjQy&showApplicationForm=false",
+      "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
+      "sourceLang": "de",
+      "crawledAt": "2026-05-26T23:04:42.313Z",
+      "addressLocality": "Davos",
+      "postalCode": "7270",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Ristorazione",
+      "contract": "full-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Assistenza",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-04",
+      "applyUrl": "https://recruitingapp-2932.umantis.com/Vacancies/642/Application/CheckLogin/1?lang=ger",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "department": "Küche/Service",
+      "streetAddress": "Promenade 117",
+      "pensumMin": 80,
+      "pensumMax": 100,
+      "pensum": "80 - 100%",
+      "contactPerson": "Isabelle Künzli",
+      "contactPhone": "+41 81 417 30 40",
+      "previousSlugs": [
+        "mitarbeiter-service-m-w-d-80-100-befristet-juni-september-hochgebirgsklinik-davos-ch",
+        "collaboratore-trice-service-m-w-d-80-100-befristet-juni-september-hochgebirgsklinik-davos"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "mitarbeiter-service-m-w-d-80-100-befristet-juni-september-hochgebirgsklinik-davos-ch",
+          "collaboratore-trice-service-m-w-d-80-100-befristet-juni-september-hochgebirgsklinik-davos"
+        ],
+        "en": [
+          "mitarbeiter-service-m-w-d-80-100-befristet-juni-september-hochgebirgsklinik-davos-ch"
+        ],
+        "fr": [
+          "mitarbeiter-service-m-w-d-80-100-befristet-juni-september-hochgebirgsklinik-davos-ch"
+        ]
+      },
+      "firstSeenAt": "2026-05-04T11:02:00.149Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1096,7 +1111,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjQ2&showApplicationForm=false",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-25T22:22:59.842Z",
+      "crawledAt": "2026-05-26T23:04:42.312Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1178,7 +1193,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NTk1&showApplicationForm=false",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-25T22:22:59.841Z",
+      "crawledAt": "2026-05-26T23:04:42.310Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1241,6 +1256,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:43:15.476Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -1285,7 +1301,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjQ1&showApplicationForm=false",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-25T22:22:59.838Z",
+      "crawledAt": "2026-05-26T23:04:42.309Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1367,7 +1383,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjA3&showApplicationForm=false",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-25T22:22:59.837Z",
+      "crawledAt": "2026-05-26T23:04:42.308Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1449,7 +1465,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjQ0&showApplicationForm=false",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-25T22:22:59.827Z",
+      "crawledAt": "2026-05-26T23:04:42.298Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1487,6 +1503,7 @@
         ]
       },
       "firstSeenAt": "2026-05-11T11:51:46.132Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
