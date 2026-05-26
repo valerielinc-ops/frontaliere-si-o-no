@@ -1,102 +1,57 @@
 {
   "key": "lidl-svizzera",
   "label": "Lidl",
-  "generatedAt": "2026-05-25T22:47:20.916Z",
-  "total": 11,
-  "newCount": 0,
-  "updatedCount": 11,
+  "generatedAt": "2026-05-26T23:29:38.919Z",
+  "total": 10,
+  "newCount": 1,
+  "updatedCount": 9,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 13683,
-  "avgDurationMs": 13683,
+  "durationMs": 11807,
+  "avgDurationMs": 11807,
   "durationHistory": [
-    13683
+    11807
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "id": "company-nuf61k",
+      "slug": "venditore-venditrice-m-f-d-40-lidl-svizzera-locarno-nuf61k",
+      "company": "Lidl Svizzera",
+      "title": "Venditore / Venditrice (m/f/d) 40%",
+      "location": "Locarno",
+      "canton": "ti",
+      "category": "sales",
+      "contract": "part-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-26",
+      "url": "https://team.lidl.ch/it/jobs/venditore-venditrice-m-f-d-40-locarno-658586",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Locarno",
+        "canton": "TI"
+      },
+      "companyKey": "lidl-svizzera",
+      "companyDomain": "lidl.ch",
+      "crawledAt": "2026-05-26T23:29:38.586Z",
+      "firstSeenAt": "2026-05-26T23:29:38.586Z",
+      "needsRetranslation": true,
+      "country": "CH",
+      "sourceLang": "it",
+      "_qualityScore": 66,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
+        "translation": 2,
+        "completeness": 14
+      }
+    }
+  ],
   "updatedJobs": [
     {
-      "id": "company-t8rd0w",
-      "slug": "ch-tuttofare-vendita-m-w-d-20-40-1-lidl-svizzera-gravesano-t8rd0w",
-      "company": "Lidl Svizzera",
-      "title": "CH_ Tuttofare vendita (m/f/d) 20-40% 1",
-      "location": "Gravesano",
-      "canton": "ti",
-      "category": "sales",
-      "contract": "part-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-22",
-      "url": "https://team.lidl.ch/it/jobs/ch-tuttofare-vendita-m-f-d-20-40-1-gravesano-695023",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Gravesano",
-        "canton": "TI"
-      },
-      "companyKey": "lidl-svizzera",
-      "companyDomain": "lidl.ch",
-      "crawledAt": "2026-05-22T12:17:47.196Z",
-      "firstSeenAt": "2026-05-22T12:17:47.196Z",
-      "country": "CH",
-      "sourceLang": "it",
-      "streetAddress": "Via Industria 7",
-      "postalCode": "6593",
-      "addressLocality": "Gravesano",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
-      "_qualityScore": 100,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 25,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
-    {
-      "id": "company-csxpwn",
-      "slug": "ch-tuttofare-vendita-m-w-d-20-40-lidl-svizzera-lugano-csxpwn",
-      "company": "Lidl Svizzera",
-      "title": "CH_ Tuttofare vendita (m/f/d) 20-40%",
-      "location": "Lugano",
-      "canton": "ti",
-      "category": "sales",
-      "contract": "part-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-22",
-      "url": "https://team.lidl.ch/it/jobs/ch-tuttofare-vendita-m-f-d-20-40-lugano-691648",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Lugano",
-        "canton": "TI"
-      },
-      "companyKey": "lidl-svizzera",
-      "companyDomain": "lidl.ch",
-      "crawledAt": "2026-05-22T12:17:47.196Z",
-      "firstSeenAt": "2026-05-22T12:17:47.196Z",
-      "country": "CH",
-      "sourceLang": "it",
-      "streetAddress": "Via Industria 7",
-      "postalCode": "6593",
-      "addressLocality": "Lugano",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
-      "_qualityScore": 100,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 25,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
-    {
       "id": "company-alqha9",
-      "slug": "verkaufer-verkauferin-m-w-d-20-40-lidl-svizzera-st-moritz-alqha9",
+      "slug": "venditore-m-f-d-20-40-lidl-svizzera-st-moritz",
       "company": "Lidl Svizzera",
       "title": "Verkäufer / Verkäuferin (m/w/d) 20-40%",
       "location": "St. Moritz",
@@ -126,11 +81,11 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "needsRetranslation": true,
-      "_qualityScore": 81,
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 9,
+        "translation": 15,
         "completeness": 25
       }
     },
@@ -166,11 +121,11 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "needsRetranslation": true,
-      "_qualityScore": 81,
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 9,
+        "translation": 15,
         "completeness": 25
       }
     },
