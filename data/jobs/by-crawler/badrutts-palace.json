@@ -1,6 +1,6 @@
 {
   "crawlerKey": "badrutts-palace",
-  "assembledAt": "2026-05-27T11:44:01.207Z",
+  "assembledAt": "2026-05-27T22:14:19.618Z",
   "jobs": [
     {
       "id": "badrutts-palace-6040a72347b5",
@@ -33,7 +33,7 @@
       "url": "https://jobs.badruttscareers.com/en-GB/jobs/3724328-beauty-therapist-m-w-d",
       "source": "Badrutt's Palace Hotel Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-27T11:43:59.205Z",
+      "crawledAt": "2026-05-27T22:14:17.798Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -109,7 +109,7 @@
       "url": "https://jobs.badruttscareers.com/en-GB/jobs/4302998-revenue-manager-m-w-d",
       "source": "Badrutt's Palace Hotel Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-27T11:43:59.202Z",
+      "crawledAt": "2026-05-27T22:14:17.795Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -141,6 +141,7 @@
         "revenue-manager-badrutts-palace-ch"
       ],
       "firstSeenAt": "2026-05-26T22:07:05.997Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -185,7 +186,7 @@
       "url": "https://jobs.badruttscareers.com/en-GB/jobs/6955753-it-manager-m-w-d",
       "source": "Badrutt's Palace Hotel Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T11:43:59.201Z",
+      "crawledAt": "2026-05-27T22:14:17.793Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -259,7 +260,7 @@
       "url": "https://jobs.badruttscareers.com/en-GB/jobs/6987633-reservations-manager-m-w-d",
       "source": "Badrutt's Palace Hotel Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T11:43:59.199Z",
+      "crawledAt": "2026-05-27T22:14:17.791Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -304,7 +305,7 @@
       "slugByLocale": {
         "it": "responsabile-technical-services-m-w-d-badrutt-s-palace-hotel-st-moritz",
         "en": "head-of-technical-services-badrutt-s-palace-hotel-st-moritz",
-        "de": "leiter-technical-services-m-w-d-badrutt-s-palace-hotel-st-moritz",
+        "de": "leiter-technischer-dienst-m-w-d-badrutt-s-palace-hotel-st-moritz",
         "fr": "responsable-des-services-techniques-badrutt-s-palace-hotel-st-moritz"
       },
       "company": "Badrutt's Palace Hotel",
@@ -329,7 +330,7 @@
       "url": "https://jobs.badruttscareers.com/en-GB/jobs/7506059-head-of-technical-services-m-w-d",
       "source": "Badrutt's Palace Hotel Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-27T11:43:59.196Z",
+      "crawledAt": "2026-05-27T22:14:17.789Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -356,6 +357,7 @@
           "responsabile-servizio-tecnico-badrutt-s-palace-hotel-st-moritz"
         ],
         "de": [
+          "leiter-technical-services-m-w-d-badrutt-s-palace-hotel-st-moritz",
           "leiter-technischer-dienst-m-w-d-badrutt-s-palace-hotel-st-moritz"
         ]
       },
@@ -364,7 +366,7 @@
         "head-of-technical-services-m-w-d-badrutt-s-palace-hotel-st-moritz",
         "head-of-technical-services-badrutt-s-palace-hotel-st-moritz",
         "responsabile-servizio-tecnico-badrutt-s-palace-hotel-st-moritz",
-        "leiter-technischer-dienst-m-w-d-badrutt-s-palace-hotel-st-moritz"
+        "leiter-technical-services-m-w-d-badrutt-s-palace-hotel-st-moritz"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-17T09:42:03.470Z",
@@ -412,7 +414,7 @@
       "url": "https://jobs.badruttscareers.com/en-GB/jobs/7693799-hr-recruiting-assistant-m-w-d",
       "source": "Badrutt's Palace Hotel Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T11:43:59.186Z",
+      "crawledAt": "2026-05-27T22:14:17.778Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
