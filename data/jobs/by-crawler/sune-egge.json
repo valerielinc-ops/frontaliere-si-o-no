@@ -1,6 +1,6 @@
 {
   "crawlerKey": "sune-egge",
-  "assembledAt": "2026-05-25T23:41:28.221Z",
+  "assembledAt": "2026-05-27T00:26:28.715Z",
   "jobs": [
     {
       "id": "sune-egge-3c2fc1f133e0",
@@ -33,7 +33,7 @@
       "url": "https://swsieber.jobs.personio.com/job/2645745",
       "source": "Fachspital Sune-Egge Dedicated Parser (Personio JSON)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-25T23:41:26.179Z",
+      "crawledAt": "2026-05-27T00:26:26.749Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -50,6 +50,7 @@
       "applyUrl": "https://swsieber.jobs.personio.com/job/2645745",
       "requirements": [],
       "requirementsByLocale": {},
+      "needsRetranslation": true,
       "previousSlugs": [
         "psychotherapeutin-psychotherapeuten-60-80-sune-egge-zurich"
       ],
@@ -106,7 +107,7 @@
       "url": "https://swsieber.jobs.personio.com/job/2616543",
       "source": "Fachspital Sune-Egge Dedicated Parser (Personio JSON)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-25T23:41:26.177Z",
+      "crawledAt": "2026-05-27T00:26:26.747Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -123,6 +124,7 @@
       "applyUrl": "https://swsieber.jobs.personio.com/job/2616543",
       "requirements": [],
       "requirementsByLocale": {},
+      "needsRetranslation": true,
       "previousSlugs": [
         "koch-kochin-50-100-sune-egge-zurich"
       ],
@@ -176,7 +178,7 @@
       "url": "https://swsieber.jobs.personio.com/job/2610349",
       "source": "Fachspital Sune-Egge Dedicated Parser (Personio JSON)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-25T23:41:26.176Z",
+      "crawledAt": "2026-05-27T00:26:26.746Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -224,6 +226,7 @@
           "Disponibilité pour une collaboration interdisciplinaire"
         ]
       },
+      "needsRetranslation": true,
       "previousSlugs": [
         "dipl-pflegefachfrau-mann-hf-80-100-sune-egge-zurich"
       ],
@@ -277,7 +280,7 @@
       "url": "https://swsieber.jobs.personio.com/job/2609975",
       "source": "Fachspital Sune-Egge Dedicated Parser (Personio JSON)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-25T23:41:26.175Z",
+      "crawledAt": "2026-05-27T00:26:26.745Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -294,6 +297,7 @@
       "applyUrl": "https://swsieber.jobs.personio.com/job/2609975",
       "requirements": [],
       "requirementsByLocale": {},
+      "needsRetranslation": true,
       "previousSlugs": [
         "physiotherapeutin-physiotherapeuten-30-50-sune-egge-zurich",
         "physiotherapeutin-physiotherapeutin-30-50-fachspital-sune-egge-zurich"
@@ -351,7 +355,7 @@
       "url": "https://swsieber.jobs.personio.com/job/2610155",
       "source": "Fachspital Sune-Egge Dedicated Parser (Personio JSON)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-25T23:41:26.175Z",
+      "crawledAt": "2026-05-27T00:26:26.745Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -368,6 +372,7 @@
       "applyUrl": "https://swsieber.jobs.personio.com/job/2610155",
       "requirements": [],
       "requirementsByLocale": {},
+      "needsRetranslation": true,
       "previousSlugs": [
         "dipl-pflegefachfrau-mann-hf-60-100-tagdienst-sune-egge-zurich",
         "dipl-pflegefachfrau-mann-hf-80-100-sune-egge-zurich"
@@ -397,7 +402,7 @@
       "slugByLocale": {
         "it": "infermiere-infermiera-professionale-efz-60-100-per-servizio-diurno-fachspital-sune-egge-zurich",
         "en": "registered-nurse-fage-efz-60-100-for-day-shift-fachspital-sune-egge-zurich",
-        "de": "fachfrau-fachmann-gesundheit-fage-efz-60-100-fur-den-tag-und-nachtdienst-sune-egge-zurich",
+        "de": "fachfrau-fachmann-gesundheit-fage-efz-60-100-fur-den-tagdienst-sune-egge-zurich",
         "fr": "infirmier-infirmiere-professionnel-le-efz-60-100-pour-le-service-de-jour-fachspital-sune-egge-zurich"
       },
       "company": "Fachspital Sune-Egge",
@@ -422,7 +427,7 @@
       "url": "https://swsieber.jobs.personio.com/job/2595649",
       "source": "Fachspital Sune-Egge Dedicated Parser (Personio JSON)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-25T23:41:26.174Z",
+      "crawledAt": "2026-05-27T00:26:26.743Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -464,12 +469,15 @@
           "Excellentes compétences en allemand à l’oral et à l’écrit"
         ]
       },
+      "needsRetranslation": true,
       "previousSlugs": [
-        "fachfrau-fachmann-gesundheit-fage-efz-60-100-fur-den-tagdienst-sune-egge-zurich"
+        "fachfrau-fachmann-gesundheit-fage-efz-60-100-fur-den-tagdienst-sune-egge-zurich",
+        "fachfrau-fachmann-gesundheit-fage-efz-60-100-fur-den-tag-und-nachtdienst-sune-egge-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachfrau-fachmann-gesundheit-fage-efz-60-100-fur-den-tagdienst-sune-egge-zurich"
+          "fachfrau-fachmann-gesundheit-fage-efz-60-100-fur-den-tagdienst-sune-egge-zurich",
+          "fachfrau-fachmann-gesundheit-fage-efz-60-100-fur-den-tag-und-nachtdienst-sune-egge-zurich"
         ],
         "de": [
           "fachfrau-fachmann-gesundheit-fage-efz-60-100-fur-den-tagdienst-sune-egge-zurich"
