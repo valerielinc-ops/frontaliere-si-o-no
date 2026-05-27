@@ -1,6 +1,6 @@
 {
   "crawlerKey": "sintetica",
-  "assembledAt": "2026-05-27T00:09:57.245Z",
+  "assembledAt": "2026-05-27T13:49:12.231Z",
   "jobs": [
     {
       "url": "https://app.ncoreplat.com/jobposition/792853/customer-service-amp-logistics-specialist-maternity-cover-50-mendrisio-site-ticino-ch/sintetica",
@@ -112,7 +112,7 @@
         "it": "specialista-per-gli-affari-regolatori-sito-mendrisio-ticino-sintetica-sa-mendrisio",
         "en": "regulatory-affairs-specialist-mendrisio-site-ticino-sintetica",
         "de": "regulatory-affairs-spezialist-mendrisio-site-ticino-sintetica-sa-mendrisio",
-        "fr": "specialiste-des-affaires-reglementaires-site-mendrisio-ticino-sintetica-sa-mendrisio"
+        "fr": "regulatory-affairs-specialiste-mendrisio-site-ticino-sintetica-sa-mendrisio"
       },
       "category": "pharma",
       "datePosted": "2026-05-27",
@@ -144,7 +144,7 @@
       "previousSlugs": [
         "regulatory-affairs-specialist-mendrisio-site-ticino-sintetica",
         "regulatory-affairs-specialista-mendrisio-site-ticino-sintetica-sa-mendrisio",
-        "regulatory-affairs-specialiste-mendrisio-site-ticino-sintetica-sa-mendrisio"
+        "specialiste-des-affaires-reglementaires-site-mendrisio-ticino-sintetica-sa-mendrisio"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -156,6 +156,7 @@
         ],
         "fr": [
           "regulatory-affairs-specialist-mendrisio-site-ticino-sintetica",
+          "specialiste-des-affaires-reglementaires-site-mendrisio-ticino-sintetica-sa-mendrisio",
           "regulatory-affairs-specialiste-mendrisio-site-ticino-sintetica-sa-mendrisio"
         ]
       }
@@ -192,7 +193,7 @@
         "it": "analista-del-laboratorio-di-sviluppo-farmaceutico-sito-mendrisio-ticino-sintetica-sa-mendrisio",
         "en": "pharmaceutical-development-laboratory-analyst-mendrisio-site-ticino-sintetica",
         "de": "pharma-entwicklung-laboranalyst-mendrisio-standort-ticino-sintetica-sa-mendrisio",
-        "fr": "analyste-de-laboratoire-de-developpement-pharmaceutique-site-mendrisio-ticino-sintetica-sa-mendrisio"
+        "fr": "pharmaceutical-development-laboratory-analyste-mendrisio-site-ticino-sintetica-sa-mendrisio"
       },
       "category": "science",
       "datePosted": "2026-05-27",
@@ -224,7 +225,7 @@
       "previousSlugs": [
         "pharmaceutical-development-laboratory-analyst-mendrisio-site-ticino-sintetica",
         "pharmaceutical-development-laboratory-analista-mendrisio-site-ticino-sintetica-sa-mendrisio",
-        "pharmaceutical-development-laboratory-analyste-mendrisio-site-ticino-sintetica-sa-mendrisio"
+        "analyste-de-laboratoire-de-developpement-pharmaceutique-site-mendrisio-ticino-sintetica-sa-mendrisio"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -233,12 +234,14 @@
         ],
         "fr": [
           "pharmaceutical-development-laboratory-analyst-mendrisio-site-ticino-sintetica",
+          "analyste-de-laboratoire-de-developpement-pharmaceutique-site-mendrisio-ticino-sintetica-sa-mendrisio",
           "pharmaceutical-development-laboratory-analyste-mendrisio-site-ticino-sintetica-sa-mendrisio"
         ],
         "de": [
           "pharmaceutical-development-laboratory-analyst-mendrisio-site-ticino-sintetica"
         ]
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "url": "https://app.ncoreplat.com/jobposition/789015/clinical-amp-medical-project-manager-ch/sintetica",
@@ -271,8 +274,8 @@
       "slugByLocale": {
         "it": "clinical-medical-project-manager-sito-mendrisio-ticino-sintetica-sa-mendrisio",
         "en": "clinical-medical-project-manager-mendrisio-site-ticino-sintetica-sa-mendrisio",
-        "de": "klinische-und-medizinische-projektleitung-mendrisio-standort-ticino-sintetica-sa-mendrisio",
-        "fr": "gestionnaire-de-projet-clinique-et-medical-site-mendrisio-ticino-sintetica-sa-mendrisio"
+        "de": "clinical-medical-project-manager-mendrisio-site-ticino-sintetica-sa-mendrisio-epqo84",
+        "fr": "clinical-medical-project-manager-mendrisio-site-ticino-sintetica-sa-mendrisio-epqo84"
       },
       "category": "pharma",
       "datePosted": "2026-05-27",
@@ -304,8 +307,9 @@
       "previousSlugs": [
         "clinical-medical-project-manager-mendrisio-site-ticino-sintetica",
         "klinischer-und-medizinischer-projektleiter-mendrisio-standort-ticino-sintetica-sa-mendrisio",
-        "clinical-medical-project-manager-mendrisio-site-ticino-sintetica-sa-mendrisio-epqo84",
-        "directeur-de-projet-clinique-et-medical-site-mendrisio-ticino-sintetica-sa-mendrisio"
+        "klinische-und-medizinische-projektleitung-mendrisio-standort-ticino-sintetica-sa-mendrisio",
+        "directeur-de-projet-clinique-et-medical-site-mendrisio-ticino-sintetica-sa-mendrisio",
+        "gestionnaire-de-projet-clinique-et-medical-site-mendrisio-ticino-sintetica-sa-mendrisio"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -313,10 +317,12 @@
         ],
         "de": [
           "klinischer-und-medizinischer-projektleiter-mendrisio-standort-ticino-sintetica-sa-mendrisio",
+          "klinische-und-medizinische-projektleitung-mendrisio-standort-ticino-sintetica-sa-mendrisio",
           "clinical-medical-project-manager-mendrisio-site-ticino-sintetica-sa-mendrisio-epqo84"
         ],
         "fr": [
           "directeur-de-projet-clinique-et-medical-site-mendrisio-ticino-sintetica-sa-mendrisio",
+          "gestionnaire-de-projet-clinique-et-medical-site-mendrisio-ticino-sintetica-sa-mendrisio",
           "clinical-medical-project-manager-mendrisio-site-ticino-sintetica-sa-mendrisio-epqo84"
         ]
       }
@@ -486,7 +492,7 @@
       "addressCountry": "CH",
       "postalCode": "6850",
       "streetAddress": "Via Penate 5",
-      "description": "Pharmaceutical Development Project Manager - Mendrisio site (Ticino) — posizione aperta presso Sintetica SA a Mendrisio, Canton Ticino, Svizzera. Sintetica SA è un'azienda farmaceutica svizzera specializzata nella produzione di farmaci sterili iniettabili. Con sede a Mendrisio, l'azienda offre un ambiente di lavoro innovativo nel settore farmaceutico, con opportunità di crescita professionale nel cuore del Ticino.",
+      "description": "Pharmaceutical Development Project Manager - Mendrisio site (Ticino) — Sintetica SA, Mendrisio (TI).\n\nPharmaceutical Development Project Manager - Mendrisio site (Ticino)\n\nFounded in 1921 and headquartered in Mendrisio (Switzerland), Sintetica's mission is to continuously strive to improve therapies by enhancing its products' formulations and usability for the benefit of clinicians and patients.\n\nWe do so in close cooperation with clinical experts, who shape our understanding of their unmet needs and drive our efforts to address them. With this trust and insight, we push the limits of science and technology to make therapies safer for patients and easier to perform. Every year we reliably supply millions of doses of our products across a range of therapeutic classes, including anaesthesia and analgesia, while expanding to address further healthcare needs.\n\nTo strengthen our Pharmaceutical Development team at our headquarter in Mendrisio (Switzerland), we are currently looking for a Pharmaceutical Development Project Manager.\n\nPosition summary\n\nThe Pharmaceutical Development Project Manager will be part of the Research and Development team and will be responsible for leading and coordinating the end-to-end development, and optimization of sterile injectable pharmaceutical products, ensuring effective cross-functional collaboration, risk management, and on-time delivery in compliance with GMP regulations and the highest standards of quality, safety and efficacy.\n\nReporting directly to Pharmaceutical Development Coordinator, the Pharmaceutical Development Project Manager will be responsible for leading and coordinating projects related to:\n\n• Development of new sterile drug products and optimization of processes, presentations and formulations related to existing sterile liquid and semi-solid drug products.\n\n• Internal and external development programs (including CDMO collaboration) for new sterile injectable drug products and ophthalmic products.\n\n• Technology transfer activities for existing sterile liquid and semi-solid drug products across manufacturing sites and partners.\n\nKey responsibilities\n\n• Definition of the functional specifications of both formulation and final product considering the user requirement specifications identified in the design phase.\n\n• Identification of new pharmaceutical solutions for improving therapies.\n\n• Supervision of development and manufacturing activities.\n\n• Coordination and support of internal and external tasks related to the assigned projects.\n\n• Strong interaction with internal departments (R&D Lab, CMC, RA, Clinic, QA, QC, Supply Chain, Production) to reach the project goals.\n\n• Drafting of the documentation necessary for the correct management of the projects.\n\n• Travel (10-20% of total time) to supervise those activities performed in other Sintetica sites and with external partners.\n\nQualifications and skills\n\n• Master’s degree or PhD in scientific discipline (Chemistry, Industrial Chemistry, Pharmaceutical Chemistry).\n\n• At least 10 years of post-degree experience, including solid experience in pharmaceutical R&D project management and coordination of complex development activities with demonstrated use of project management tools (e.g. MS Project, Smartsheet) and formal project tracking methodologies.\n\n• Hands-on experience in the development and manufacturing of sterile injectable liquid and semi-solid drug products.\n\n• Solid understanding of ICH, US, EU and Swiss regulatory frameworks, with demonstrated ability to anticipate regulatory risks and ensure alignment of development activities with applicable requirements.\n\n• Proven experience in scouting, evaluation and coordination of CDMOs, including management of development and manufacturing activities performed with external partners.\n\n• Strong experience in technology transfer activities, from development to scale-up and industrial manufacturing, including coordination of internal and external stakeholders.\n\n• Experience in CMC documentation (eCTD Modules 2.3 and 3), including preparation, review and lifecycle management.\n\n• Strong knowledge of GMP and GLP guidelines.\n\n• Excellent command of written and spoken English.\n\nPreference will be given to candidates based in Switzerland.\n\nWe offer\n\nFulltime permanent employment in a young working environment and positive culture.\n\nSintetica promotes diversity and gender equality.",
       "titleByLocale": {
         "it": "Responsabile Progetto Sviluppo Farmaceutico - Sede di Mendrisio (Ticino)",
         "en": "Pharmaceutical Development Project Manager - Mendrisio site (Ticino)",
@@ -518,7 +524,7 @@
       },
       "crawledAt": "",
       "requirementsByLocale": {},
-      "sourceLang": "it",
+      "sourceLang": "en",
       "previousSlugs": [
         "pharmaceutical-development-project-manager-mendrisio-site-ticino-sintetica-sa-mendrisio-5fae1u",
         "pharmaceutical-development-project-manager-mendrisio-site-ticino-sintetica"
@@ -584,8 +590,8 @@
       "slugByLocale": {
         "it": "pharmaceutical-development-laboratory-project-manager-formulation-expert-mendrisio-site-ti",
         "en": "pharmaceutical-development-laboratory-project-manager-formulation-expert-mendrisio-site-ticino-sintetica-sa-mendrisio-t1imk1",
-        "de": "pharmazeutisches-entwicklungslabor-projektleiter-formulierungsexperte-standort-mendrisio-tessin-sintetica-sa-mendrisio",
-        "fr": "chef-de-projet-laboratoire-de-developpement-pharmaceutique-expert-formulation-site-de-mendrisio-tessin-sintetica-sa"
+        "de": "pharmaceutical-development-laboratory-project-manager-formulation-expert-mendrisio-site-ticino-sintetica-sa-mendrisio-t1imk1",
+        "fr": "pharmaceutical-development-laboratory-project-manager-formulation-expert-mendrisio-site-ticino-sintetica-sa-mendrisio-t1imk1"
       },
       "category": "science",
       "datePosted": "2026-05-27",
@@ -616,8 +622,9 @@
       "previousSlugs": [
         "project-manager-laboratorio-sviluppo-farmaceutico-esperto-formulatore-sede-di-mendrisio-ticino-sintetica-sa-mendrisio",
         "pharmaceutical-development-laboratory-project-manager-formulation-expert-mendrisio-site-ticino-sintetica",
-        "pharmaceutical-development-laboratory-project-manager-formulation-expert-mendrisio-site-ticino-sintetica-sa-mendrisio-t1imk1",
-        "chef-de-projet-laboratoire-de-developpement-pharmaceutique-expert-formulation-site-de-mendrisio-tessin-sintetica-sa-mend"
+        "pharmazeutisches-entwicklungslabor-projektleiter-formulierungsexperte-standort-mendrisio-tessin-sintetica-sa-mendrisio",
+        "chef-de-projet-laboratoire-de-developpement-pharmaceutique-expert-formulation-site-de-mendrisio-tessin-sintetica-sa-mend",
+        "chef-de-projet-laboratoire-de-developpement-pharmaceutique-expert-formulation-site-de-mendrisio-tessin-sintetica-sa"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -625,10 +632,12 @@
           "pharmaceutical-development-laboratory-project-manager-formulation-expert-mendrisio-site-ticino-sintetica"
         ],
         "de": [
+          "pharmazeutisches-entwicklungslabor-projektleiter-formulierungsexperte-standort-mendrisio-tessin-sintetica-sa-mendrisio",
           "pharmaceutical-development-laboratory-project-manager-formulation-expert-mendrisio-site-ticino-sintetica-sa-mendrisio-t1imk1"
         ],
         "fr": [
           "chef-de-projet-laboratoire-de-developpement-pharmaceutique-expert-formulation-site-de-mendrisio-tessin-sintetica-sa-mend",
+          "chef-de-projet-laboratoire-de-developpement-pharmaceutique-expert-formulation-site-de-mendrisio-tessin-sintetica-sa",
           "pharmaceutical-development-laboratory-project-manager-formulation-expert-mendrisio-site-ticino-sintetica-sa-mendrisio-t1imk1"
         ]
       },
@@ -723,10 +732,10 @@
       "streetAddress": "Via Penate 5",
       "description": "Technicien de maintenance - Couvet site — posizione aperta presso Sintetica SA a Mendrisio, Canton Ticino, Svizzera. Sintetica SA è un'azienda farmaceutica svizzera specializzata nella produzione di farmaci sterili iniettabili. Con sede a Mendrisio, l'azienda offre un ambiente di lavoro innovativo nel settore farmaceutico, con opportunità di crescita professionale nel cuore del Ticino.",
       "titleByLocale": {
-        "en": "Maintenance technician - Couvet site",
-        "fr": "Technicien de maintenance - Couvet site",
         "it": "Technicien de maintenance - Couvet site",
-        "de": "Technicien de maintenance - Couvet site"
+        "en": "Maintenance technician - Couvet site",
+        "de": "Technicien de maintenance - Couvet site",
+        "fr": "Technicien de maintenance - Couvet site"
       },
       "descriptionByLocale": {
         "it": "Technicien de maintenance - Couvet site — posizione aperta presso Sintetica SA a Mendrisio, Canton Ticino, Svizzera. Sintetica SA è un'azienda farmaceutica svizzera specializzata nella produzione di farmaci sterili iniettabili. Con sede a Mendrisio, l'azienda offre un ambiente di lavoro innovativo nel settore farmaceutico, con opportunità di crescita professionale nel cuore del Ticino.",
@@ -736,8 +745,8 @@
       },
       "slug": "technicien-de-maintenance-couvet-site-sintetica",
       "slugByLocale": {
-        "en": "technicien-de-maintenance-couvet-site-sintetica",
         "it": "technicien-de-maintenance-couvet-site-sintetica",
+        "en": "maintenance-technician-couvet-site-sintetica-sa-mendrisio",
         "de": "technicien-de-maintenance-couvet-site-sintetica",
         "fr": "technicien-de-maintenance-couvet-site-sintetica"
       },
@@ -898,7 +907,7 @@
       "slugByLocale": {
         "it": "apprendista-operatore-di-edifici-e-infrastrutture-afc-sintetica",
         "en": "apprendista-operatore-di-edifici-e-infrastrutture-afc-sintetica-sa-mendrisio-suxo60",
-        "de": "lernende-r-betriebsunterhaltspraktiker-in-efz-sintetica-sa-mendrisio",
+        "de": "apprendista-operatore-di-edifici-e-infrastrutture-afc-sintetica-sa-mendrisio-suxo60",
         "fr": "apprendista-operatore-di-edifici-e-infrastrutture-afc-sintetica-sa-mendrisio-suxo60"
       },
       "category": "production",
@@ -933,6 +942,7 @@
         "apprenti-e-operatore-di-edifici-e-infrastrutture-afc-sintetica-sa-mendrisio-suxo60",
         "lernende-r-betriebsunterhaltspraktiker-in-efz-sintetica-sa-mendrisio-suxo60",
         "apprentice-operatore-di-edifici-e-infrastrutture-afc-sintetica-sa-mendrisio-suxo60",
+        "lernende-r-betriebsunterhaltspraktiker-in-efz-sintetica-sa-mendrisio",
         "apprenti-agent-d-exploitation-cfc-sintetica-sa-mendrisio-suxo60",
         "apprendista-operatore-di-edifici-e-infrastrutture-afc-sintetica-sa-mendrisio",
         "apprenti-e-operatore-di-edifici-e-infrastrutture-afc-sintetica-sa-mendrisio",
@@ -955,6 +965,7 @@
           "lernende-r-operatore-di-edifici-e-infrastrutture-afc-sintetica-sa-mendrisio-suxo60",
           "apprenti-e-operatore-di-edifici-e-infrastrutture-afc-sintetica-sa-mendrisio-suxo60",
           "lernende-r-betriebsunterhaltspraktiker-in-efz-sintetica-sa-mendrisio-suxo60",
+          "lernende-r-betriebsunterhaltspraktiker-in-efz-sintetica-sa-mendrisio",
           "apprendista-operatore-di-edifici-e-infrastrutture-afc-sintetica-sa-mendrisio-suxo60"
         ],
         "fr": [
@@ -998,8 +1009,8 @@
       "slugByLocale": {
         "it": "candidatura-spontanea-sede-di-mendrisio-ticino-sintetica-sa-mendrisio",
         "en": "spontaneous-application-mendrisio-site-ticino-sintetica-sa-mendrisio-ys8ib5",
-        "de": "initiativbewerbung-standort-mendrisio-sintetica-sa-mendrisio",
-        "fr": "candidature-spontanee-site-de-mendrisio-sintetica-sa-mendrisio"
+        "de": "spontaneous-application-mendrisio-site-ticino-sintetica-sa-mendrisio-ys8ib5",
+        "fr": "spontaneous-application-mendrisio-site-ticino-sintetica-sa-mendrisio-ys8ib5"
       },
       "category": "general",
       "datePosted": "2026-05-27",
@@ -1015,7 +1026,8 @@
       "requirementsByLocale": {},
       "sourceLang": "it",
       "previousSlugs": [
-        "spontaneous-application-mendrisio-site-ticino-sintetica-sa-mendrisio-ys8ib5",
+        "initiativbewerbung-standort-mendrisio-sintetica-sa-mendrisio",
+        "candidature-spontanee-site-de-mendrisio-sintetica-sa-mendrisio",
         "spontaneous-application-mendrisio-site-ticino-sintetica",
         "candidature-spontanee-site-de-couvet-neuchatel-sintetica-sa-mendrisio",
         "initiativbewerbung-standort-couvet-neuenburg-sintetica-sa-mendrisio",
@@ -1036,9 +1048,11 @@
       },
       "previousSlugsByLocale": {
         "de": [
+          "initiativbewerbung-standort-mendrisio-sintetica-sa-mendrisio",
           "spontaneous-application-mendrisio-site-ticino-sintetica-sa-mendrisio-ys8ib5"
         ],
         "fr": [
+          "candidature-spontanee-site-de-mendrisio-sintetica-sa-mendrisio",
           "spontaneous-application-mendrisio-site-ticino-sintetica-sa-mendrisio-ys8ib5"
         ],
         "it": [
@@ -1046,7 +1060,8 @@
         ]
       },
       "firstSeenAt": "2026-04-13T22:24:00.330Z",
-      "id": "sintetica-2161482f648c"
+      "id": "sintetica-2161482f648c",
+      "needsRetranslation": true
     },
     {
       "url": "https://app.ncoreplat.com/jobposition/286490/spontaneous-application-couvet-site-neuchatel-ch/sintetica-couvet",
@@ -1079,8 +1094,8 @@
       "slugByLocale": {
         "it": "applicazione-spontanea-sito-couvet-neuchatel-sintetica-sa-mendrisio",
         "en": "spontaneous-application-couvet-site-neuchatel-sintetica-sa-mendrisio-6qz9pp",
-        "de": "spontane-bewerbung-couvet-site-neuchatel-sintetica-sa-mendrisio",
-        "fr": "candidature-spontanee-site-de-couvet-neuchatel-sintetica-sa-mendrisio"
+        "de": "spontaneous-application-couvet-site-neuchatel-sintetica-sa-mendrisio-6qz9pp",
+        "fr": "spontaneous-application-couvet-site-neuchatel-sintetica-sa-mendrisio-6qz9pp"
       },
       "category": "general",
       "datePosted": "2026-05-27",
@@ -1111,9 +1126,11 @@
       "firstSeenAt": "2026-05-21T07:33:30.027Z",
       "previousSlugsByLocale": {
         "de": [
+          "spontane-bewerbung-couvet-site-neuchatel-sintetica-sa-mendrisio",
           "spontaneous-application-couvet-site-neuchatel-sintetica-sa-mendrisio-6qz9pp"
         ],
         "fr": [
+          "candidature-spontanee-site-de-couvet-neuchatel-sintetica-sa-mendrisio",
           "spontaneous-application-couvet-site-neuchatel-sintetica-sa-mendrisio-6qz9pp"
         ],
         "it": [
@@ -1121,7 +1138,8 @@
         ]
       },
       "previousSlugs": [
-        "spontaneous-application-couvet-site-neuchatel-sintetica-sa-mendrisio-6qz9pp",
+        "spontane-bewerbung-couvet-site-neuchatel-sintetica-sa-mendrisio",
+        "candidature-spontanee-site-de-couvet-neuchatel-sintetica-sa-mendrisio",
         "spontaneous-application-couvet-site-neuchatel-sintetica"
       ]
     }
