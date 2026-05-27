@@ -1,6 +1,6 @@
 {
   "crawlerKey": "vtg",
-  "assembledAt": "2026-05-27T00:44:59.989Z",
+  "assembledAt": "2026-05-27T14:25:12.654Z",
   "jobs": [
     {
       "id": "company-9lhprp",
@@ -504,7 +504,7 @@
         "it": "specialista-in-hr-swiss-armed-forces-vtg-bern",
         "en": "specialist-in-hr-swiss-armed-forces-vtg-bern",
         "de": "fachspezialist-in-hr-swiss-armed-forces-vtg-bern-3mzk6n",
-        "fr": "specialiste-des-ressources-humaines-swiss-armed-forces-vtg-bern"
+        "fr": "fachspezialist-in-ressources-humaines-swiss-armed-forces-vtg-bern-3mzk6n"
       },
       "sourceLang": "de",
       "previousSlugsByLocale": {
@@ -516,6 +516,7 @@
           "fachspezialist-in-hr-swiss-armed-forces-vtg-bern-3mzk6n"
         ],
         "fr": [
+          "specialiste-des-ressources-humaines-swiss-armed-forces-vtg-bern",
           "fachspezialist-in-ressources-humaines-swiss-armed-forces-vtg-bern-3mzk6n"
         ]
       },
@@ -523,7 +524,7 @@
         "fachspezialist-in-hr-swiss-armed-forces-vtg-bern",
         "fachspezialist-in-risorse-umane-swiss-armed-forces-vtg-bern-3mzk6n",
         "fachspezialist-in-hr-swiss-armed-forces-vtg-bern-3mzk6n",
-        "fachspezialist-in-ressources-humaines-swiss-armed-forces-vtg-bern-3mzk6n"
+        "specialiste-des-ressources-humaines-swiss-armed-forces-vtg-bern"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -789,7 +790,8 @@
       "addressLocality": "Bern",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-8lndw",
@@ -1216,7 +1218,7 @@
     },
     {
       "id": "company-6gmxu3",
-      "slug": "mannschaft-e-kader-im-gastgewerblichen-bereich-m-w-d-swiss-armed-forces-vtg-bern",
+      "slug": "mannschaft-e-kader-im-gastgewerblichen-bereich-m-w-d-swiss-armed-forces-vtg-bern-6gmxu3",
       "company": "Swiss Armed Forces (VTG)",
       "title": "Mannschaft und Kader im gastgewerblichen Bereich (m/w)",
       "location": "Bern",
@@ -1248,7 +1250,7 @@
       },
       "requirementsByLocale": {},
       "slugByLocale": {
-        "it": "mannschaft-e-kader-im-gastgewerblichen-bereich-m-w-d-swiss-armed-forces-vtg-bern",
+        "it": "mannschaft-e-kader-im-gastgewerblichen-bereich-m-w-d-swiss-armed-forces-vtg-bern-6gmxu3",
         "en": "team-und-kader-im-gastronomy-m-w-swiss-armed-forces-vtg-bellinzona",
         "de": "mannschaft-und-kader-im-gastgewerblichen-bereich-m-w-d-swiss-armed-forces-vtg-bern-6gmxu3",
         "fr": "team-und-kader-im-gastronomie-m-w-swiss-armed-forces-vtg-bellinzona"
@@ -1261,6 +1263,7 @@
           "mannschaft-e-kader-im-gastgewerblichen-bereich-m-w-swiss-armed-forces-vtg-bern",
           "projektmanager-m-w-swiss-armed-forces-vtg-bern",
           "team-und-kader-im-gastronomy-m-w-swiss-armed-forces-vtg-bern",
+          "mannschaft-e-kader-im-gastgewerblichen-bereich-m-w-d-swiss-armed-forces-vtg-bern",
           "mannschaft-e-kader-im-gastgewerblichen-bereich-m-w-d-swiss-armed-forces-vtg-bern-6gmxu3"
         ],
         "en": [
@@ -1280,7 +1283,7 @@
         "mannschaft-e-kader-im-gastgewerblichen-bereich-m-w-swiss-armed-forces-vtg-bern",
         "projektmanager-m-w-swiss-armed-forces-vtg-bern",
         "team-und-kader-im-gastronomy-m-w-swiss-armed-forces-vtg-bern",
-        "mannschaft-e-kader-im-gastgewerblichen-bereich-m-w-d-swiss-armed-forces-vtg-bern-6gmxu3",
+        "mannschaft-e-kader-im-gastgewerblichen-bereich-m-w-d-swiss-armed-forces-vtg-bern",
         "mannschaft-und-kader-im-gastgewerblichen-bereich-m-w-d-swiss-armed-forces-vtg-bern-6gmxu3",
         "mannschaft-und-kader-im-gastgewerblichen-bereich-m-w-swiss-armed-forces-vtg-bellinzona",
         "mannschaft-und-kader-im-gastgewerblichen-bereich-m-w-swiss-armed-forces-vtg-bern"
@@ -1386,7 +1389,7 @@
     },
     {
       "id": "company-6okqpl",
-      "slug": "mannschaft-e-kader-im-bereich-infrastruktur-m-w-d-swiss-armed-forces-vtg-bern",
+      "slug": "mannschaft-e-kader-im-bereich-infrastruktur-m-w-d-swiss-armed-forces-vtg-bern-6okqpl",
       "company": "Swiss Armed Forces (VTG)",
       "title": "Mannschaft und Kader im Bereich Infrastruktur (m/w)",
       "location": "Bern",
@@ -1418,7 +1421,7 @@
       },
       "requirementsByLocale": {},
       "slugByLocale": {
-        "it": "mannschaft-e-kader-im-bereich-infrastruktur-m-w-d-swiss-armed-forces-vtg-bern",
+        "it": "mannschaft-e-kader-im-bereich-infrastruktur-m-w-d-swiss-armed-forces-vtg-bern-6okqpl",
         "en": "team-und-kader-im-bereich-infrastructure-m-w-swiss-armed-forces-vtg-bern",
         "de": "mannschaft-und-kader-im-bereich-infrastruktur-m-w-d-swiss-armed-forces-vtg-bern-6okqpl",
         "fr": "equipe-und-kader-im-bereich-infrastructure-m-p-swiss-armed-forces-vtg-bern"
@@ -1429,6 +1432,7 @@
           "mannschaft-und-kader-im-bereich-infrastruktur-m-w-d-swiss-armed-forces-vtg-bern",
           "mannschaft-e-kader-im-bereich-infrastruktur-m-w-swiss-armed-forces-vtg-bellinzona",
           "mannschaft-e-kader-im-bereich-infrastruktur-m-w-d-swiss-armed-forces-vtg-bellinzona",
+          "mannschaft-e-kader-im-bereich-infrastruktur-m-w-d-swiss-armed-forces-vtg-bern",
           "mannschaft-e-kader-im-bereich-infrastruktur-m-w-d-swiss-armed-forces-vtg-bern-6okqpl"
         ],
         "de": [
@@ -1446,7 +1450,7 @@
         "mannschaft-und-kader-im-bereich-infrastruktur-m-w-d-swiss-armed-forces-vtg-bern",
         "mannschaft-e-kader-im-bereich-infrastruktur-m-w-swiss-armed-forces-vtg-bellinzona",
         "mannschaft-e-kader-im-bereich-infrastruktur-m-w-d-swiss-armed-forces-vtg-bellinzona",
-        "mannschaft-e-kader-im-bereich-infrastruktur-m-w-d-swiss-armed-forces-vtg-bern-6okqpl",
+        "mannschaft-e-kader-im-bereich-infrastruktur-m-w-d-swiss-armed-forces-vtg-bern",
         "mannschaft-und-kader-im-bereich-infrastruktur-m-w-swiss-armed-forces-vtg-bellinzona",
         "mannschaft-und-kader-im-bereich-infrastruktur-m-w-swiss-armed-forces-vtg-bern",
         "mannschaft-und-kader-im-bereich-infrastruktur-m-w-d-swiss-armed-forces-vtg-bern-6okqpl"
@@ -1715,7 +1719,8 @@
       "addressLocality": "Bern",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-6iaf9o",
@@ -2572,7 +2577,8 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "salaryMin": 49500,
-      "salaryMax": 75000
+      "salaryMax": 75000,
+      "needsRetranslation": true
     }
   ]
 }
