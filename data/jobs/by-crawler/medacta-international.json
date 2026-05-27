@@ -39,7 +39,7 @@
       "crawledAt": "2026-05-26T23:36:35.676Z",
       "slugByLocale": {
         "it": "manutentore-elettromeccanico-medacta-international-sa-castel-san-pietro-rancate-srobch",
-        "en": "manutentore-elettromeccanico-medacta-international-sa-castel-san-pietro-rancate-srobch",
+        "en": "electromechanical-maintenance-technician-medacta-international-sa-castel-san-pietro-rancate",
         "de": "manutentore-elettromeccanico-medacta-international-sa-castel-san-pietro-rancate-srobch",
         "fr": "manutentore-elettromeccanico-medacta-international-sa-castel-san-pietro-rancate-srobch"
       },
@@ -52,7 +52,6 @@
           "manutentore-elettromeccanico-medacta-castel-san-pietro-rancate"
         ],
         "en": [
-          "electromechanical-maintenance-technician-medacta-international-sa-castel-san-pietro-rancate",
           "electronic-maintenance-medacta-international-sa-castel-san-pietro-rancate"
         ]
       },
@@ -116,7 +115,7 @@
       "crawledAt": "2026-05-26T23:36:35.481Z",
       "slugByLocale": {
         "it": "demand-planner-medacta-international-sa-castel-san-pietro-mendrisio-q27ftk",
-        "en": "demand-planner-medacta-international-sa-castel-san-pietro-mendrisio-q27ftk",
+        "en": "demand-planning-medacta-international-sa-castel-san-pietro-mendrisio",
         "de": "demand-planner-medacta-international-sa-castel-san-pietro-mendrisio-q27ftk",
         "fr": "demand-planner-medacta-international-sa-castel-san-pietro-mendrisio-q27ftk"
       },
@@ -127,9 +126,6 @@
       "previousSlugsByLocale": {
         "it": [
           "demand-planner-medacta-castel-san-pietro-mendrisio"
-        ],
-        "en": [
-          "demand-planning-medacta-international-sa-castel-san-pietro-mendrisio"
         ],
         "de": [
           "anfrage-planer-medacta-international-sa-castel-san-pietro-mendrisio"
@@ -196,7 +192,7 @@
       "slugByLocale": {
         "it": "thesis-r-d-orthopedics-medacta-international-sa-castel-san-pietro",
         "en": "thesis-r-d-orthopedics-medacta-international-sa-rancate",
-        "de": "diplomarbeit-f-e-orthopadie-medacta-international-sa-rancate",
+        "de": "thesis-r-d-orthopadie-medacta-international-sa-rancate",
         "fr": "these-r-d-orthopedie-medacta-international-sa-rancate"
       },
       "sourceLang": "it",
@@ -208,13 +204,14 @@
           "thesis-r-d-orthopedics-medacta-rancate"
         ],
         "de": [
-          "thesis-r-d-orthopadie-medacta-international-sa-rancate",
-          "forschung-und-entwicklung-medacta-international-sa-rancate"
+          "forschung-und-entwicklung-medacta-international-sa-rancate",
+          "diplomarbeit-f-e-orthopadie-medacta-international-sa-rancate"
         ]
       },
       "previousSlugs": [
         "thesis-r-d-orthopedics-medacta-rancate",
-        "forschung-und-entwicklung-medacta-international-sa-rancate"
+        "forschung-und-entwicklung-medacta-international-sa-rancate",
+        "diplomarbeit-f-e-orthopadie-medacta-international-sa-rancate"
       ],
       "salaryMin": 58000,
       "salaryMax": 88000,

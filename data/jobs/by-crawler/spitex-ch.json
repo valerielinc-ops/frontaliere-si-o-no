@@ -1509,10 +1509,10 @@
     },
     {
       "id": "spitex-ch-7159fd819c30",
-      "slug": "pflegefachperson-hf-fh-60-70-spitex-zimmerberg-ag-kilchberg",
+      "slug": "specialista-hf-fh-60-70-spitex-zimmerberg-ag-kilchberg",
       "slugByLocale": {
         "de": "pflegefachperson-hf-fh-60-70-spitex-ch-kilchberg",
-        "it": "pflegefachperson-hf-fh-60-70-spitex-zimmerberg-ag-kilchberg",
+        "it": "specialista-hf-fh-60-70-spitex-zimmerberg-ag-kilchberg",
         "en": "pflegefachperson-hf-fh-60-70-spitex-zimmerberg-ag-kilchberg",
         "fr": "pflegefachperson-hf-fh-60-70-spitex-zimmerberg-ag-kilchberg"
       },
@@ -1561,11 +1561,13 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "pflegefachperson-hf-fh-60-70-spitex-ch-kilchberg"
+          "pflegefachperson-hf-fh-60-70-spitex-ch-kilchberg",
+          "pflegefachperson-hf-fh-60-70-spitex-zimmerberg-ag-kilchberg"
         ]
       },
       "previousSlugs": [
-        "pflegefachperson-hf-fh-60-70-spitex-ch-kilchberg"
+        "pflegefachperson-hf-fh-60-70-spitex-ch-kilchberg",
+        "pflegefachperson-hf-fh-60-70-spitex-zimmerberg-ag-kilchberg"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,

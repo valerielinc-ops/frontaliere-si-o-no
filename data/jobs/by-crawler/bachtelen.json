@@ -1344,10 +1344,10 @@
     },
     {
       "id": "bachtelen-fb052d0a1c66",
-      "slug": "ergotherapeut-in-m-w-d-80-bachtelen-solothurn-grenchen",
+      "slug": "terapista-occupazionale-m-f-d-80-stiftung-bachtelen-solothurn-grenchen",
       "slugByLocale": {
         "de": "ergotherapeut-in-m-w-d-80-bachtelen-solothurn-grenchen",
-        "it": "ergotherapeut-in-m-w-d-80-bachtelen-solothurn-grenchen",
+        "it": "terapista-occupazionale-m-f-d-80-stiftung-bachtelen-solothurn-grenchen",
         "en": "ergotherapeut-in-m-w-d-80-bachtelen-solothurn-grenchen",
         "fr": "ergotherapeut-in-m-w-d-80-bachtelen-solothurn-grenchen"
       },
@@ -1406,14 +1406,22 @@
         }
       },
       "firstSeenAt": "2026-05-26T22:06:40.647Z",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "ergotherapeut-in-m-w-d-80-bachtelen-solothurn-grenchen"
+        ]
+      },
+      "previousSlugs": [
+        "ergotherapeut-in-m-w-d-80-bachtelen-solothurn-grenchen"
+      ]
     },
     {
       "id": "bachtelen-cb2bd3a95c01",
-      "slug": "logopad-innen-bachtelen-grenchen-solothurn",
+      "slug": "logopedisti-stiftung-bachtelen-grenchen-solothurn",
       "slugByLocale": {
         "de": "logopad-innen-bachtelen-grenchen-solothurn",
-        "it": "logopad-innen-bachtelen-grenchen-solothurn",
+        "it": "logopedisti-stiftung-bachtelen-grenchen-solothurn",
         "en": "logopad-innen-bachtelen-grenchen-solothurn",
         "fr": "logopad-innen-bachtelen-grenchen-solothurn"
       },
@@ -1472,7 +1480,15 @@
         }
       },
       "firstSeenAt": "2026-05-26T22:06:40.637Z",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "logopad-innen-bachtelen-grenchen-solothurn"
+        ]
+      },
+      "previousSlugs": [
+        "logopad-innen-bachtelen-grenchen-solothurn"
+      ]
     }
   ]
 }

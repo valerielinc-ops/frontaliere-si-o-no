@@ -420,10 +420,10 @@
     },
     {
       "id": "klinik-gut-3196-3b9699224a0c",
-      "slug": "med-praxisassistent-in-60-80-wintersaison-2026-27-klinik-gut-st-moritz",
+      "slug": "assistente-ambulatoriale-medico-60-80-stagione-invernale-2026-27-klinik-gut-ag-st-moritz",
       "slugByLocale": {
         "de": "med-praxisassistent-in-60-80-wintersaison-2026-27-klinik-gut-st-moritz",
-        "it": "med-praxisassistent-in-60-80-wintersaison-2026-27-klinik-gut-st-moritz",
+        "it": "assistente-ambulatoriale-medico-60-80-stagione-invernale-2026-27-klinik-gut-ag-st-moritz",
         "en": "med-praxisassistent-in-60-80-wintersaison-2026-27-klinik-gut-st-moritz",
         "fr": "med-praxisassistent-in-60-80-wintersaison-2026-27-klinik-gut-st-moritz"
       },
@@ -481,7 +481,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-19T21:17:14.043Z"
+      "firstSeenAt": "2026-05-19T21:17:14.043Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "med-praxisassistent-in-60-80-wintersaison-2026-27-klinik-gut-st-moritz"
+        ]
+      },
+      "previousSlugs": [
+        "med-praxisassistent-in-60-80-wintersaison-2026-27-klinik-gut-st-moritz"
+      ]
     },
     {
       "id": "klinik-gut-3038-90fe00d62888",

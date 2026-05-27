@@ -742,10 +742,10 @@
     },
     {
       "id": "svar-spitalverbund-ar-8a252096583a",
-      "slug": "bildungsverantwortliche-r-80-m-w-d-svar-spitalverbund-ar-spitalverbund-appenzell",
+      "slug": "consulente-senior-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-spitalverbund-appenzell-ausserrhoden",
       "slugByLocale": {
         "de": "bildungsverantwortliche-r-80-m-w-d-svar-spitalverbund-ar-spitalverbund-appenzell",
-        "it": "bildungsverantwortliche-r-80-m-w-d-svar-spitalverbund-ar-spitalverbund-appenzell",
+        "it": "consulente-senior-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-spitalverbund-appenzell-ausserrhoden",
         "en": "bildungsverantwortliche-r-80-m-w-d-svar-spitalverbund-ar-spitalverbund-appenzell",
         "fr": "bildungsverantwortliche-r-80-m-w-d-svar-spitalverbund-ar-spitalverbund-appenzell"
       },
@@ -804,7 +804,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-27T00:29:07.690Z"
+      "firstSeenAt": "2026-05-27T00:29:07.690Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "bildungsverantwortliche-r-80-m-w-d-svar-spitalverbund-ar-spitalverbund-appenzell"
+        ]
+      },
+      "previousSlugs": [
+        "bildungsverantwortliche-r-80-m-w-d-svar-spitalverbund-ar-spitalverbund-appenzell"
+      ]
     }
   ]
 }

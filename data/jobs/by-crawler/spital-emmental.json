@@ -4,10 +4,10 @@
   "jobs": [
     {
       "id": "spital-emmental-c2030fd2d48a",
-      "slug": "assistenzarztin-assistenzarzt-a-spital-emmental-langnau",
+      "slug": "assistente-medico-a-spital-emmental-langnau",
       "slugByLocale": {
         "de": "assistenzarztin-assistenzarzt-a-spital-emmental-langnau",
-        "it": "assistenzarztin-assistenzarzt-a-spital-emmental-langnau",
+        "it": "assistente-medico-a-spital-emmental-langnau",
         "en": "assistenzarztin-assistenzarzt-a-spital-emmental-langnau",
         "fr": "assistenzarztin-assistenzarzt-a-spital-emmental-langnau"
       },
@@ -71,7 +71,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-27T00:15:15.699Z"
+      "firstSeenAt": "2026-05-27T00:15:15.699Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistenzarztin-assistenzarzt-a-spital-emmental-langnau"
+        ]
+      },
+      "previousSlugs": [
+        "assistenzarztin-assistenzarzt-a-spital-emmental-langnau"
+      ]
     },
     {
       "id": "spital-emmental-411b07e29d39",

@@ -3598,9 +3598,9 @@
     },
     {
       "id": "usz-73056cfbea0c",
-      "slug": "spezialpflege-nachdiplomstudium-nds-notfallpflege-universitatsspital-zurich-usz-campus",
+      "slug": "assistenza-speciale-studi-post-laurea-nds-assistenza-di-emergenza-universitatsspital-zurich-usz-campus",
       "slugByLocale": {
-        "it": "spezialpflege-nachdiplomstudium-nds-notfallpflege-universitatsspital-zurich-usz-campus",
+        "it": "assistenza-speciale-studi-post-laurea-nds-assistenza-di-emergenza-universitatsspital-zurich-usz-campus",
         "en": "spezialpflege-nachdiplomstudium-nds-notfallpflege-usz-ch",
         "de": "spezialpflege-nachdiplomstudium-nds-notfallpflege-usz-ch",
         "fr": "spezialpflege-nachdiplomstudium-nds-notfallpflege-usz-ch"
@@ -3646,13 +3646,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "spezialpflege-nachdiplomstudium-nds-notfallpflege-usz-ch",
-        "assistenza-speciale-studi-post-laurea-nds-assistenza-di-emergenza-universitatsspital-zurich-usz-campus",
-        "cure-speciali-post-laurea-nds-cure-di-emergenza-universitatsspital-zurich-usz-campus"
+        "cure-speciali-post-laurea-nds-cure-di-emergenza-universitatsspital-zurich-usz-campus",
+        "spezialpflege-nachdiplomstudium-nds-notfallpflege-universitatsspital-zurich-usz-campus"
       ],
       "previousSlugsByLocale": {
         "it": [
           "spezialpflege-nachdiplomstudium-nds-notfallpflege-usz-ch",
-          "assistenza-speciale-studi-post-laurea-nds-assistenza-di-emergenza-universitatsspital-zurich-usz-campus",
           "cure-speciali-post-laurea-nds-cure-di-emergenza-universitatsspital-zurich-usz-campus",
           "spezialpflege-nachdiplomstudium-nds-notfallpflege-universitatsspital-zurich-usz-campus"
         ]
@@ -7122,9 +7121,9 @@
     },
     {
       "id": "usz-70a5792a755a",
-      "slug": "pflegefachperson-dermatologie-orl-mkg-50-100-universitatsspital-zurich-usz-campus",
+      "slug": "dermatologia-della-cura-orl-mkg-50-100-universitatsspital-zurich-usz-campus",
       "slugByLocale": {
-        "it": "pflegefachperson-dermatologie-orl-mkg-50-100-universitatsspital-zurich-usz-campus",
+        "it": "dermatologia-della-cura-orl-mkg-50-100-universitatsspital-zurich-usz-campus",
         "en": "pflegefachperson-dermatologie-orl-mkg-50-100-usz-ch",
         "de": "pflegefachperson-dermatologie-orl-mkg-50-100-usz-ch",
         "fr": "pflegefachperson-dermatologie-orl-mkg-50-100-usz-ch"
@@ -7170,13 +7169,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "pflegefachperson-dermatologie-orl-mkg-50-100-usz-ch",
-        "dermatologia-della-cura-orl-mkg-50-100-universitatsspital-zurich-usz-campus",
-        "infermiere-dermatologo-orl-mkg-50-100-universitatsspital-zurich-usz-campus"
+        "infermiere-dermatologo-orl-mkg-50-100-universitatsspital-zurich-usz-campus",
+        "pflegefachperson-dermatologie-orl-mkg-50-100-universitatsspital-zurich-usz-campus"
       ],
       "previousSlugsByLocale": {
         "it": [
           "pflegefachperson-dermatologie-orl-mkg-50-100-usz-ch",
-          "dermatologia-della-cura-orl-mkg-50-100-universitatsspital-zurich-usz-campus",
           "infermiere-dermatologo-orl-mkg-50-100-universitatsspital-zurich-usz-campus",
           "pflegefachperson-dermatologie-orl-mkg-50-100-universitatsspital-zurich-usz-campus"
         ]
@@ -13484,10 +13482,10 @@
     },
     {
       "id": "usz-efec032d4830",
-      "slug": "spezialpflege-pflegefachperson-ambulantes-operieren-60-80-usz-ch",
+      "slug": "specialita-infermieristica-ambulantes-operieren-60-80-universitatsspital-zurich-usz-flughafen",
       "slugByLocale": {
         "de": "spezialpflege-pflegefachperson-ambulantes-operieren-60-80-usz-ch",
-        "it": "spezialpflege-pflegefachperson-ambulantes-operieren-60-80-usz-ch",
+        "it": "specialita-infermieristica-ambulantes-operieren-60-80-universitatsspital-zurich-usz-flughafen",
         "en": "spezialpflege-pflegefachperson-ambulantes-operieren-60-80-usz-ch",
         "fr": "spezialpflege-pflegefachperson-ambulantes-operieren-60-80-usz-ch"
       },
@@ -13545,7 +13543,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-27T00:40:09.347Z"
+      "firstSeenAt": "2026-05-27T00:40:09.347Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "spezialpflege-pflegefachperson-ambulantes-operieren-60-80-usz-ch"
+        ]
+      },
+      "previousSlugs": [
+        "spezialpflege-pflegefachperson-ambulantes-operieren-60-80-usz-ch"
+      ]
     },
     {
       "id": "usz-4a0bf2f5b8e1",
@@ -13695,10 +13701,10 @@
     },
     {
       "id": "usz-6b72a1e1a477",
-      "slug": "spezialpflege-fachexpertin-fachexperte-w-m-d-aufwachraumpflege-60-100-usz-ch",
+      "slug": "specialist-career-specialista-w-m-d-universitatsspital-zurich-usz-campus",
       "slugByLocale": {
         "de": "spezialpflege-fachexpertin-fachexperte-w-m-d-aufwachraumpflege-60-100-usz-ch",
-        "it": "spezialpflege-fachexpertin-fachexperte-w-m-d-aufwachraumpflege-60-100-usz-ch",
+        "it": "specialist-career-specialista-w-m-d-universitatsspital-zurich-usz-campus",
         "en": "spezialpflege-fachexpertin-fachexperte-w-m-d-aufwachraumpflege-60-100-usz-ch",
         "fr": "spezialpflege-fachexpertin-fachexperte-w-m-d-aufwachraumpflege-60-100-usz-ch"
       },
@@ -13756,7 +13762,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-27T00:40:09.315Z"
+      "firstSeenAt": "2026-05-27T00:40:09.315Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "spezialpflege-fachexpertin-fachexperte-w-m-d-aufwachraumpflege-60-100-usz-ch"
+        ]
+      },
+      "previousSlugs": [
+        "spezialpflege-fachexpertin-fachexperte-w-m-d-aufwachraumpflege-60-100-usz-ch"
+      ]
     }
   ]
 }

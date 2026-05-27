@@ -665,10 +665,10 @@
     },
     {
       "id": "pictet-3d2fe57d1b6b",
-      "slug": "publishing-officer-pictet-luxembourg",
+      "slug": "funzionario-editoriale-pictet-group-luxembourg",
       "slugByLocale": {
         "en": "publishing-officer-pictet-luxembourg",
-        "it": "publishing-officer-pictet-luxembourg",
+        "it": "funzionario-editoriale-pictet-group-luxembourg",
         "de": "publishing-officer-pictet-luxembourg",
         "fr": "publishing-officer-pictet-luxembourg"
       },
@@ -726,7 +726,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-26T23:51:37.945Z"
+      "firstSeenAt": "2026-05-26T23:51:37.945Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "publishing-officer-pictet-luxembourg"
+        ]
+      },
+      "previousSlugs": [
+        "publishing-officer-pictet-luxembourg"
+      ]
     }
   ]
 }
