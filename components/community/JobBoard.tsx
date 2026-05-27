@@ -1648,6 +1648,14 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // "no in-canton results" banner. Populated only via the legacy path; when
  // shards land it'll need a separate aggregator fetch (deferred).
  const [unscopedJobs, setUnscopedJobs] = useState<JobListing[]>([]);
+ // Tier 4 (cross-locale) pool: lazily loaded slim indexes for the locales the
+ // user is NOT currently browsing. Activates only when Tiers 1-3 all return
+ // zero so the search box never returns "0 risultati" while jobs in other
+ // locale corpora (DE/FR/EN titles for the same canton) would have matched.
+ // Same slug + canonical job id across locale shards, so the displayed result
+ // is the IT-locale record when available (see crossLocaleFetchAttempted).
+ const [crossLocaleJobs, setCrossLocaleJobs] = useState<JobListing[]>([]);
+ const crossLocaleFetchAttempted = useRef(false);
  const [jobsLoading, setJobsLoading] = useState(true);
  const [enrichmentLoading, setEnrichmentLoading] = useState(false);
  // FRO-353: Feature flag for Job Alerts (controlled via Firebase Remote Config)
@@ -2473,10 +2481,12 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const queryTokens = normalizeSearchText(query).split(' ').filter(Boolean).map(stemSearchToken);
  if (queryTokens.length === 0) return true;
  const haystack = searchIndex.get(job) ?? '';
- // Each stemmed query token must match a whole haystack word
- // (haystack is wrapped in spaces, words are stemmed → ' infermier uffic ').
- // Trailing space prevents false positives: 'cas' must not match 'cassa'.
- return queryTokens.every((token) => haystack.includes(` ${token} `));
+ // Stemmed query tokens prefix-match haystack words.
+ // Why: 'infermie' (stem 'infermi') must match haystack word 'infermier'
+ // — partial typing common in incremental search. Leading-space anchor
+ // still enforces word-start alignment; trailing-space dropped so the
+ // stem is treated as a prefix, not a closed token.
+ return queryTokens.every((token) => haystack.includes(` ${token}`));
  },
  [searchIndex],
  );
@@ -2564,7 +2574,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const haystack = searchIndex.get(job) ?? '';
  let score = 0;
  for (const t of queryTokens) {
- if (haystack.includes(` ${t} `)) score++;
+ if (haystack.includes(` ${t}`)) score++;
  }
  if (score > 0) scored.push({ job, score });
  }
@@ -2614,7 +2624,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  );
  let score = 0;
  for (const t of queryTokens) {
- if (haystack.includes(` ${t} `)) score++;
+ if (haystack.includes(` ${t}`)) score++;
  }
  if (score > 0) scored.push({ job, score });
  }
@@ -2622,19 +2632,121 @@ const JobBoard: React.FC<JobBoardProps> = ({
  return scored.slice(0, MAX_FALLBACK_RESULTS).map((x) => x.job);
  }, [strictFilteredJobs.length, orFallbackInCantonJobs.length, sortedJobs, deferredSearchQuery, selectedDateRange, passingNonSearchFilters, unscopedJobs, locale]);
 
- // filteredJobs: the three-tier search result.
+ // Tier 4 trigger: lazy-load DE/FR/EN slim indexes when all in-locale tiers
+ // returned zero for a non-empty query. Same job ID across locale shards so
+ // we dedup against the already-loaded pool (sortedJobs ∪ unscopedJobs) to
+ // avoid surfacing jobs the user already saw filtered-out. Fetch is one-shot
+ // per session (crossLocaleFetchAttempted ref) — cross-locale corpora are
+ // similarly sized to the IT one, so a per-keystroke refetch would waste
+ // bandwidth without changing results.
+ useEffect(() => {
+ if (crossLocaleFetchAttempted.current) return;
+ if (jobsLoading) return;
+ const q = deferredSearchQuery.trim();
+ if (!q) return;
+ if (strictFilteredJobs.length > 0) return;
+ if (orFallbackInCantonJobs.length > 0) return;
+ if (crossCantonFallbackJobs.length > 0) return;
+ crossLocaleFetchAttempted.current = true;
+ let cancelled = false;
+ const allLocales: ReadonlyArray<Locale> = ['it', 'en', 'de', 'fr'];
+ const otherLocales = allLocales.filter((l) => l !== locale);
+ (async () => {
+ try {
+ const responses = await Promise.allSettled(
+ otherLocales.map(async (l) => {
+ const res = await fetch(`/data/jobs-${l}-index.json`);
+ if (!res.ok) return [] as unknown[];
+ const data = await res.json();
+ return Array.isArray(data) ? (data as unknown[]) : [];
+ }),
+ );
+ if (cancelled) return;
+ const seen = new Set<string>();
+ for (const j of unscopedJobs) seen.add(String(j.id || ''));
+ for (const j of sortedJobs) seen.add(String(j.id || ''));
+ const collected: JobListing[] = [];
+ for (const r of responses) {
+ if (r.status !== 'fulfilled') continue;
+ for (const raw of r.value) {
+ const id = String((raw as { id?: unknown })?.id ?? '');
+ if (!id || seen.has(id)) continue;
+ seen.add(id);
+ collected.push(normalizeIncomingJob(raw));
+ }
+ }
+ if (cancelled) return;
+ setCrossLocaleJobs(dedupeJobsForListing(collected));
+ } catch (err: unknown) {
+ reportCaughtError(err, 'jobBoard.loadJobs.crossLocale');
+ }
+ })();
+ return () => { cancelled = true; };
+ }, [
+ deferredSearchQuery, jobsLoading, locale,
+ strictFilteredJobs.length, orFallbackInCantonJobs.length, crossCantonFallbackJobs.length,
+ unscopedJobs, sortedJobs,
+ ]);
+
+ // Tier 4: cross-locale OR fallback. Same scoring as Tier 3, run against the
+ // lazily-loaded DE/FR/EN pool. Job ID + slug are canonical across locale
+ // shards, so the result still routes to the Italian URL via the existing
+ // slug field — the only thing that may render in another language is the
+ // title when no IT translation exists for that record.
+ const crossLocaleFallbackJobs = useMemo<JobListing[]>(() => {
+ const query = deferredSearchQuery.trim();
+ if (!query) return [];
+ if (strictFilteredJobs.length > 0) return [];
+ if (orFallbackInCantonJobs.length > 0) return [];
+ if (crossCantonFallbackJobs.length > 0) return [];
+ if (crossLocaleJobs.length === 0) return [];
+
+ const queryTokens = normalizeSearchText(query).split(' ').filter(Boolean).map(stemSearchToken);
+ if (queryTokens.length === 0) return [];
+
+ const now = Date.now();
+ const dateRangeMs: Record<DateRange, number> = {
+ all: 0, '24h': 24 * 60 * 60 * 1000, '3d': 3 * 24 * 60 * 60 * 1000,
+ '7d': 7 * 24 * 60 * 60 * 1000, '30d': 30 * 24 * 60 * 60 * 1000, '90d': 90 * 24 * 60 * 60 * 1000,
+ };
+ const cutoff = selectedDateRange === 'all' ? 0 : now - dateRangeMs[selectedDateRange];
+
+ const scored: { job: JobListing; score: number }[] = [];
+ for (const job of crossLocaleJobs) {
+ if (isForeignLocation(job.addressLocality || job.location || '')) continue;
+ if (!passingNonSearchFilters(job, now, cutoff)) continue;
+ const description = job.descriptionByLocale?.[locale] ?? job.description;
+ const localizedTitle = sanitizeJobTitle(job.titleByLocale?.[locale] ?? job.title);
+ const haystack = buildStemmedHaystack(
+ `${localizedTitle} ${job.company} ${job.location} ${job.contract} ${job.category} ${job.sector || ''} ${description || ''}`,
+ );
+ let score = 0;
+ for (const t of queryTokens) {
+ if (haystack.includes(` ${t}`)) score++;
+ }
+ if (score > 0) scored.push({ job, score });
+ }
+ scored.sort((a, b) => b.score - a.score);
+ return scored.slice(0, MAX_FALLBACK_RESULTS).map((x) => x.job);
+ }, [
+ strictFilteredJobs.length, orFallbackInCantonJobs.length, crossCantonFallbackJobs.length,
+ crossLocaleJobs, deferredSearchQuery, selectedDateRange, passingNonSearchFilters, locale,
+ ]);
+
+ // filteredJobs: the four-tier search result.
  //   1. strictFilteredJobs (AND across all tokens, in-canton)
  //   2. orFallbackInCantonJobs (partial-token OR, in-canton)
- //   3. crossCantonFallbackJobs (partial-token OR, other cantons)
+ //   3. crossCantonFallbackJobs (partial-token OR, other cantons, same locale)
+ //   4. crossLocaleFallbackJobs (partial-token OR, other locale shards)
  // Each tier is consulted only when the previous one yielded zero, so the
- // canton-scoped intent stays primary and cross-canton is purely a safety
- // net for pages like `ricerca-genitori-liestal` whose query token has no
- // in-canton support.
+ // canton-scoped intent stays primary and the safety nets only kick in when
+ // the local query has no support whatsoever.
  const filteredJobs = useMemo<JobListing[]>(() => {
  if (strictFilteredJobs.length > 0) return strictFilteredJobs;
  if (orFallbackInCantonJobs.length > 0) return orFallbackInCantonJobs;
- return crossCantonFallbackJobs;
- }, [strictFilteredJobs, orFallbackInCantonJobs, crossCantonFallbackJobs]);
+ if (crossCantonFallbackJobs.length > 0) return crossCantonFallbackJobs;
+ return crossLocaleFallbackJobs;
+ }, [strictFilteredJobs, orFallbackInCantonJobs, crossCantonFallbackJobs, crossLocaleFallbackJobs]);
 
  // True when the result set is the in-canton OR-fallback (Tier 2). Keeps
  // the existing "No exact match for «…»" banner triggered.
@@ -2653,6 +2765,16 @@ const JobBoard: React.FC<JobBoardProps> = ({
  && orFallbackInCantonJobs.length === 0
  && crossCantonFallbackJobs.length > 0;
  }, [deferredSearchQuery, strictFilteredJobs.length, orFallbackInCantonJobs.length, crossCantonFallbackJobs.length]);
+
+ // True when the result set is the cross-locale fallback (Tier 4). Banner
+ // signals that the displayed titles may not be in the current UI locale.
+ const isCrossLocaleFallback = useMemo(() => {
+ return Boolean(deferredSearchQuery.trim())
+ && strictFilteredJobs.length === 0
+ && orFallbackInCantonJobs.length === 0
+ && crossCantonFallbackJobs.length === 0
+ && crossLocaleFallbackJobs.length > 0;
+ }, [deferredSearchQuery, strictFilteredJobs.length, orFallbackInCantonJobs.length, crossCantonFallbackJobs.length, crossLocaleFallbackJobs.length]);
 
  // Resolve the display name of the company when a company slug filter is active
  const companyDisplayName = useMemo(() => {
@@ -6713,6 +6835,25 @@ const JobBoard: React.FC<JobBoardProps> = ({
  </p>
  <p className="text-xs text-subtle mt-1">
  {t('jobBoard.crossCantonFallback.hint')}
+ </p>
+ </div>
+ </div>
+ </div>
+ )}
+ {isCrossLocaleFallback && (
+ <div
+ role="status"
+ aria-live="polite"
+ className="rounded-xl border border-info-border bg-info-subtle px-4 py-3 text-sm text-body"
+ >
+ <div className="flex items-start gap-2">
+ <Search className="w-4 h-4 mt-0.5 shrink-0 text-info-strong" />
+ <div>
+ <p className="font-semibold font-display text-strong">
+ {t('jobBoard.crossLocaleFallback.title', { query: deferredSearchQuery.trim(), count: String(filteredJobs.length) })}
+ </p>
+ <p className="text-xs text-subtle mt-1">
+ {t('jobBoard.crossLocaleFallback.hint')}
  </p>
  </div>
  </div>
