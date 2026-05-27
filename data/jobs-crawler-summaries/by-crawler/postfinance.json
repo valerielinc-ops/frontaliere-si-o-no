@@ -1,16 +1,16 @@
 {
   "key": "postfinance",
   "label": "PostFinance",
-  "generatedAt": "2026-05-26T23:52:53.653Z",
+  "generatedAt": "2026-05-27T13:31:47.025Z",
   "total": 8,
   "newCount": 0,
-  "updatedCount": 8,
+  "updatedCount": 3,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 12024,
-  "avgDurationMs": 12024,
+  "unchangedCount": 5,
+  "durationMs": 13029,
+  "avgDurationMs": 13029,
   "durationHistory": [
-    12024
+    13029
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -45,6 +45,7 @@
       "currency": "CHF",
       "postalCode": "3001",
       "firstSeenAt": "2026-05-16T10:49:06.770Z",
+      "needsRetranslation": true,
       "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -62,7 +63,7 @@
       "location": "Bern",
       "canton": "BE",
       "country": "CH",
-      "slug": "interazione-del-cliente-w-m-d-postfinance-bern",
+      "slug": "solution-architecture-owner-kundeninteraktion-w-m-d-postfinance-bern",
       "sourceLang": "de",
       "department": "",
       "category": "servizi-finanziari",
@@ -84,6 +85,7 @@
       "currency": "CHF",
       "postalCode": "3001",
       "firstSeenAt": "2026-05-18T13:01:19.599Z",
+      "needsRetranslation": true,
       "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -123,6 +125,7 @@
       "currency": "CHF",
       "postalCode": "3001",
       "firstSeenAt": "2026-05-21T12:58:33.524Z",
+      "needsRetranslation": true,
       "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -130,7 +133,10 @@
         "translation": 25,
         "completeness": 17
       }
-    },
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "url": "https://job.post.ch/PostFinance/job/Herisau-Kundenberaterin-Privatkunden%2C-Herisau/1375640133/",
       "applyUrl": "https://job.post.ch/PostFinance/job/Herisau-Kundenberaterin-Privatkunden%2C-Herisau/1375640133/",
@@ -161,6 +167,7 @@
       "salaryMax": 75000,
       "currency": "CHF",
       "firstSeenAt": "2026-05-16T10:49:06.770Z",
+      "needsRetranslation": true,
       "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -200,6 +207,7 @@
       "currency": "CHF",
       "postalCode": "1003",
       "firstSeenAt": "2026-05-16T10:49:06.770Z",
+      "needsRetranslation": true,
       "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -239,6 +247,7 @@
       "currency": "CHF",
       "postalCode": "1003",
       "firstSeenAt": "2026-05-18T13:01:19.599Z",
+      "needsRetranslation": true,
       "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -278,6 +287,7 @@
       "currency": "CHF",
       "postalCode": "1630",
       "firstSeenAt": "2026-05-16T10:49:06.770Z",
+      "needsRetranslation": true,
       "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -317,6 +327,7 @@
       "currency": "CHF",
       "postalCode": "1227",
       "firstSeenAt": "2026-05-16T10:49:06.770Z",
+      "needsRetranslation": true,
       "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -325,7 +336,5 @@
         "completeness": 17
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }
