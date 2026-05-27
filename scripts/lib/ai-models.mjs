@@ -128,7 +128,8 @@ export const AI_MODELS = Object.freeze({
   // New Gemini 3.x models (preview)
   GEMINI_3_FLASH:   'gemini-3-flash-preview',
   GEMINI_3_PRO:     'gemini-3-pro-preview',
-  GEMINI_31_FLASH_LITE: 'gemini-3.1-flash-lite-preview',
+  // GEMINI_31_FLASH_LITE removed — Gemini API HTTP 404 "models/gemini-3.1-flash-lite-preview is no longer available" (2026-05-27, run 26534353239).
+  //                       The GA replacement `gemini-3.1-flash-lite` is exposed below as GEMINI_31_FLASH_LITE_GA and stays in the chain.
   GEMINI_31_PRO:    'gemini-3.1-pro-preview',
   // Gemini "always latest stable" aliases (discovered 2026-05-18) — point at current
   // production endpoint so we follow Google's promotions without code changes.
@@ -157,6 +158,9 @@ export const AI_MODELS = Object.freeze({
   GROQ_COMPOUND_MINI:'groq/compound-mini',
   // GROQ_KIMI_K2_0905 removed — Groq HTTP 404 "model `moonshotai/kimi-k2-instruct-0905` does not exist" (2026-05-18)
   GROQ_GPT_OSS_SAFE: 'groq/openai/gpt-oss-safeguard-20b',
+  // Groq addition (2026-05-27) — speculative-decoding alias of llama-3.3-70b.
+  // Pending smoke-test validation; falls into the chain alongside GROQ_LLAMA_3_3.
+  GROQ_LLAMA_3_3_SPEC: 'groq/llama-3.3-70b-specdec',
 
   // ── OpenRouter (OpenAI-compatible, free models with :free suffix) ──
   // Rate limits: 20 req/min, 200 req/day (free tier, no credit card)
@@ -262,6 +266,14 @@ export const AI_MODELS = Object.freeze({
   // CF_GEMMA_4_26B removed — returns empty responses (model loads but won't generate, 2026-04)
   // CF_KIMI_K2_5 removed — returns empty responses (model loads but won't generate, 2026-04)
   CF_NV_NEMOTRON_120B: 'cf/@cf/nvidia/nemotron-3-120b-a12b',
+  // ── CF additions (2026-05-27) — candidates pending smoke-test validation ──
+  // These ride into the chain so the smoke-test-models workflow can record their
+  // status. If any returns 404/empty, follow up with a removal comment per the
+  // pattern above. Picked because they appear in Cloudflare's free catalog docs
+  // and the existing chain has no Llama 3.2 (1B/3B) or Qwen 2.5 coder coverage.
+  CF_LLAMA_3_2_3B:     'cf/@cf/meta/llama-3.2-3b-instruct',
+  CF_LLAMA_3_2_1B:     'cf/@cf/meta/llama-3.2-1b-instruct',
+  CF_QWEN_25_CODER_32B:'cf/@cf/qwen/qwen2.5-coder-32b-instruct',
   // CF_GRANITE_4_MICRO removed — "No such model @cf/ibm/granite-4.0-h-micro" (2026-04)
 
   // ── Mistral AI La Plateforme (OpenAI-compatible, free tier — 1B tokens/month) ──
@@ -364,7 +376,10 @@ export const DEFAULT_CHAIN = [
   // AI_MODELS.O1 removed — GitHub Models HTTP 400 "unavailable_model" (2026-05-18)
   AI_MODELS.LLAMA_3_2_90B,      // 24. Llama 3.2 90B           (GitHub Models)
   AI_MODELS.GEMINI_2_FLASH,     // 25. Google 2.0 flash       (Gemini API free)
-  AI_MODELS.GEMINI_31_FLASH_LITE, // 25b. Gemini 3.1 Flash Lite (Gemini API free)
+  // AI_MODELS.GEMINI_31_FLASH_LITE removed — Gemini API HTTP 404 "models/gemini-3.1-flash-lite-preview is no longer available" (2026-05-27, run 26534353239).
+  //                                 The deprecated preview kept winning the fallback selector because 404 didn't mark it exhausted, causing the
+  //                                 entire blog-generator workflow to fail with 50+ retries against the dead endpoint. The GA non-preview model
+  //                                 `gemini-3.1-flash-lite` (AI_MODELS.GEMINI_31_FLASH_LITE_GA) is already in the chain below at the "replacements" block.
   AI_MODELS.MISTRAL_CODESTRAL,  // 26. Codestral latest       (Mistral AI direct)
   // AI_MODELS.GPT_5_MINI removed — GitHub Models HTTP 400 "unavailable_model" (2026-05-18)
   AI_MODELS.CF_LLAMA_4_SCOUT,   // 28. Llama 4 Scout          (Cloudflare Workers AI)
@@ -514,6 +529,16 @@ export const DEFAULT_CHAIN = [
   AI_MODELS.MISTRAL_MAGISTRAL_SMALL,    // magistral-small (reasoning)
   AI_MODELS.MISTRAL_DEVSTRAL_MEDIUM,    // devstral medium (code)
   AI_MODELS.MISTRAL_3B,                 // ministral 3B (small/fast)
+
+  // ── Candidate additions (2026-05-27) — pending smoke-test validation ──
+  // Added to widen provider coverage. The smoke-test-models workflow records
+  // pass/fail per id; failures get the standard "removed — HTTP NNN" comment
+  // and are dropped in a follow-up. Until then they live here so dispatching
+  // the smoke test reports their real status.
+  AI_MODELS.CF_LLAMA_3_2_3B,            // Llama 3.2 3B               (Cloudflare Workers AI)
+  AI_MODELS.CF_LLAMA_3_2_1B,            // Llama 3.2 1B small/fast    (Cloudflare Workers AI)
+  AI_MODELS.CF_QWEN_25_CODER_32B,       // Qwen 2.5 Coder 32B         (Cloudflare Workers AI)
+  AI_MODELS.GROQ_LLAMA_3_3_SPEC,        // Llama 3.3 70B specdec      (Groq — speculative decoding)
 ];
 
 // ── Provider constants ───────────────────────────────────────
@@ -758,6 +783,12 @@ export function shouldUseSchemaMode(providerName, hasSchema = true) {
  * Gemini accepts an OpenAPI-3.0 subset only ($schema/$ref/oneOf/anyOf/allOf,
  * additionalProperties, patternProperties, const, etc. are NOT supported and
  * will fail with HTTP 400 INVALID_ARGUMENT).
+ *
+ * Also normalizes JSON-Schema nullable unions (`type: ['string', 'null']`) into
+ * Gemini's OpenAPI form (`type: 'string', nullable: true`). Without this the
+ * proto-map parser on Gemini's side rejects the inner `type` field with
+ * `Unknown name "type" at 'generation_config.response_schema.properties[N].value'`
+ * (root cause of run 26534353239 falling through to fallback chain exhaustion).
  */
 function sanitizeSchemaForGemini(schema) {
   if (!schema || typeof schema !== 'object') return schema;
@@ -768,6 +799,12 @@ function sanitizeSchemaForGemini(schema) {
     if (k === 'additionalProperties') continue;
     if (k === 'oneOf' || k === 'anyOf' || k === 'allOf' || k === 'not') continue;
     if (k === 'const' || k === 'patternProperties') continue;
+    if (k === 'type' && Array.isArray(v)) {
+      const nonNull = v.filter((t) => t !== 'null');
+      out.type = nonNull.length > 0 ? nonNull[0] : 'string';
+      if (v.includes('null')) out.nullable = true;
+      continue;
+    }
     out[k] = (v && typeof v === 'object') ? sanitizeSchemaForGemini(v) : v;
   }
   return out;
