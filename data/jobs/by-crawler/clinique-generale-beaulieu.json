@@ -196,9 +196,9 @@
     },
     {
       "id": "clinique-generale-beaulieu-f0d8341286dd",
-      "slug": "infermiere-puericultrice-clinique-generale-beaulieu-geneve",
+      "slug": "infermiera-infermiera-infermiera-infermiera-clinique-generale-beaulieu-geneve",
       "slugByLocale": {
-        "it": "infermiere-puericultrice-clinique-generale-beaulieu-geneve",
+        "it": "infermiera-infermiera-infermiera-infermiera-clinique-generale-beaulieu-geneve",
         "en": "paediatric-nurse-clinique-generale-beaulieu-geneve",
         "de": "pflegekraft-fur-kinder-clinique-generale-beaulieu-geneve",
         "fr": "infirmiere-puericultrice-clinique-generale-beaulieu"
@@ -255,11 +255,13 @@
         ]
       },
       "previousSlugs": [
-        "infirmiere-puericultrice-clinique-generale-beaulieu"
+        "infirmiere-puericultrice-clinique-generale-beaulieu",
+        "infermiere-puericultrice-clinique-generale-beaulieu-geneve"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "infirmiere-puericultrice-clinique-generale-beaulieu"
+          "infirmiere-puericultrice-clinique-generale-beaulieu",
+          "infermiere-puericultrice-clinique-generale-beaulieu-geneve"
         ]
       },
       "firstSeenAt": "2026-05-26T14:07:23.913Z",

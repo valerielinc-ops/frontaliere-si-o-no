@@ -237,7 +237,7 @@
       "id": "hug-f42d692de83d",
       "slug": "assistente-medico-con-una-specializzazione-in-radiologia-pediatrica-o-head-o-head-of-clinic-per-una-formazione",
       "slugByLocale": {
-        "it": "medecin-adjoint-ou-adjointe-avec-titre-de-specialite-en-radiologie-pediatrique-ou-chef-ou-cheffe-de-clinique-pour-une-formation-approfondie-en-radiologie-pediatrique-100-hug-geneve",
+        "it": "assistente-medico-con-una-specializzazione-in-radiologia-pediatrica-o-head-o-head-of-clinic-per-una-formazione",
         "en": "assistant-physician-with-a-specialty-in-pediatric-radiology-or-head-or-head-of-clinic-for-in-depth-training-in-pediatric",
         "de": "assistenzarzt-mit-einer-spezialitat-in-der-padiatrischen-radiologie-oder-leiter-oder-leiter-der-klinik-fur-tiefgehende",
         "fr": "medecin-adjoint-ou-adjointe-avec-titre-de-specialite-en-radiologie-pediatrique-ou-chef-ou"
@@ -283,11 +283,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "medecin-adjoint-ou-adjointe-avec-titre-de-specialite-en-radiologie-pediatrique-ou-chef-ou",
-        "assistente-medico-con-una-specializzazione-in-radiologia-pediatrica-o-head-o-head-of-clinic-per-una-formazione"
+        "medecin-adjoint-ou-adjointe-avec-titre-de-specialite-en-radiologie-pediatrique-ou-chef-ou-cheffe-de-clinique-pour-une-formation-approfondie-en-radiologie-pediatrique-100-hug-geneve"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "medecin-adjoint-ou-adjointe-avec-titre-de-specialite-en-radiologie-pediatrique-ou-chef-ou"
+          "medecin-adjoint-ou-adjointe-avec-titre-de-specialite-en-radiologie-pediatrique-ou-chef-ou",
+          "medecin-adjoint-ou-adjointe-avec-titre-de-specialite-en-radiologie-pediatrique-ou-chef-ou-cheffe-de-clinique-pour-une-formation-approfondie-en-radiologie-pediatrique-100-hug-geneve"
         ],
         "en": [
           "medecin-adjoint-ou-adjointe-avec-titre-de-specialite-en-radiologie-pediatrique-ou-chef-ou"
@@ -1371,7 +1372,7 @@
       "id": "hug-447506adef5c",
       "slug": "assistente-medico-o-assistente-responsabile-dell-unita-sanitaria-asilo-e-rifugiati-usar-100-hug-geneve",
       "slugByLocale": {
-        "it": "medecin-adjoint-ou-adjointe-responsable-de-l-unite-sante-asile-et-refugies-usar-100-hug-geneve",
+        "it": "assistente-medico-o-assistente-responsabile-dell-unita-sanitaria-asilo-e-rifugiati-usar-100-hug-geneve",
         "en": "assistant-physician-or-assistant-responsible-for-the-asylum-and-refugee-health-unit-usar-100-hug-geneve",
         "de": "assistent-arzt-oder-assistent-fur-die-asyl-und-fluchtlingsgesundheitseinheit-usar-100-hug-geneve",
         "fr": "medecin-adjoint-ou-adjointe-responsable-de-l-unite-sante-asile-et-refugies-usar-100-hug"
@@ -1417,11 +1418,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "medecin-adjoint-ou-adjointe-responsable-de-l-unite-sante-asile-et-refugies-usar-100-hug",
-        "assistente-medico-o-assistente-responsabile-dell-unita-sanitaria-asilo-e-rifugiati-usar-100-hug-geneve"
+        "medecin-adjoint-ou-adjointe-responsable-de-l-unite-sante-asile-et-refugies-usar-100-hug-geneve"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "medecin-adjoint-ou-adjointe-responsable-de-l-unite-sante-asile-et-refugies-usar-100-hug"
+          "medecin-adjoint-ou-adjointe-responsable-de-l-unite-sante-asile-et-refugies-usar-100-hug",
+          "medecin-adjoint-ou-adjointe-responsable-de-l-unite-sante-asile-et-refugies-usar-100-hug-geneve"
         ],
         "en": [
           "medecin-adjoint-ou-adjointe-responsable-de-l-unite-sante-asile-et-refugies-usar-100-hug"
@@ -3372,12 +3374,12 @@
     },
     {
       "id": "hug-21a812b30261",
-      "slug": "psychologue-psychotherapeute-federal-60-hug-chene-bourg",
+      "slug": "psicologo-psicoterapeuta-federale-60-hug-chene-bourg",
       "slugByLocale": {
         "fr": "psychologue-psychotherapeute-federal-60-hug-chene-bourg",
-        "it": "psychologue-psychotherapeute-federal-60-hug-chene-bourg",
-        "en": "psychologue-psychotherapeute-federal-60-hug-chene-bourg",
-        "de": "psychologue-psychotherapeute-federal-60-hug-chene-bourg"
+        "it": "psicologo-psicoterapeuta-federale-60-hug-chene-bourg",
+        "en": "psychologist-federal-psychotherapist-60-hug-chene-bourg",
+        "de": "psychologe-psychotherapeutin-60-hug-chene-bourg"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -3432,7 +3434,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-26T23:07:51.211Z"
+      "firstSeenAt": "2026-05-26T23:07:51.211Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "psychologue-psychotherapeute-federal-60-hug-chene-bourg"
+        ],
+        "en": [
+          "psychologue-psychotherapeute-federal-60-hug-chene-bourg"
+        ],
+        "de": [
+          "psychologue-psychotherapeute-federal-60-hug-chene-bourg"
+        ]
+      },
+      "previousSlugs": [
+        "psychologue-psychotherapeute-federal-60-hug-chene-bourg"
+      ]
     },
     {
       "id": "hug-d58fd28f4612",
@@ -3679,7 +3695,7 @@
         "fr": "huissieres-ou-huissiers-d-accueil-10-a-20-hug-geneve",
         "it": "huissieres-ou-huissiers-d-accueil-10-a-20-hug-geneve",
         "en": "huissieres-ou-huissiers-d-accueil-10-a-20-hug-geneve",
-        "de": "huissieres-ou-huissiers-d-accueil-10-a-20-hug-geneve"
+        "de": "hussieres-ou-huissiers-d-accueil-10-bis-20-hug-geneve"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -3739,12 +3755,12 @@
     },
     {
       "id": "hug-0dc7dfb90c15",
-      "slug": "aide-de-salle-au-bloc-operatoire-80-a-100-hug-geneve",
+      "slug": "supporto-in-camera-alla-sala-operatoria-80-al-100-hug-geneve",
       "slugByLocale": {
         "fr": "aide-de-salle-au-bloc-operatoire-80-a-100-hug-geneve",
-        "it": "aide-de-salle-au-bloc-operatoire-80-a-100-hug-geneve",
-        "en": "aide-de-salle-au-bloc-operatoire-80-a-100-hug-geneve",
-        "de": "aide-de-salle-au-bloc-operatoire-80-a-100-hug-geneve"
+        "it": "supporto-in-camera-alla-sala-operatoria-80-al-100-hug-geneve",
+        "en": "room-support-to-the-operating-room-80-to-100-hug-geneve",
+        "de": "zimmerbetreuung-im-operationssaal-80-bis-100-hug-geneve"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -3800,16 +3816,30 @@
         }
       },
       "postalCode": "1201",
-      "firstSeenAt": "2026-05-26T23:07:51.206Z"
+      "firstSeenAt": "2026-05-26T23:07:51.206Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "aide-de-salle-au-bloc-operatoire-80-a-100-hug-geneve"
+        ],
+        "en": [
+          "aide-de-salle-au-bloc-operatoire-80-a-100-hug-geneve"
+        ],
+        "de": [
+          "aide-de-salle-au-bloc-operatoire-80-a-100-hug-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "aide-de-salle-au-bloc-operatoire-80-a-100-hug-geneve"
+      ]
     },
     {
       "id": "hug-d9959ff9591e",
-      "slug": "psychologue-au-service-de-psychiatrie-de-l-enfant-et-de-l-adolescent-60-hug-geneve",
+      "slug": "psicologo-presso-il-servizio-di-psichiatria-infantile-e-adolescente-60-hug-geneve",
       "slugByLocale": {
         "fr": "psychologue-au-service-de-psychiatrie-de-l-enfant-et-de-l-adolescent-60-hug-geneve",
-        "it": "psychologue-au-service-de-psychiatrie-de-l-enfant-et-de-l-adolescent-60-hug-geneve",
-        "en": "psychologue-au-service-de-psychiatrie-de-l-enfant-et-de-l-adolescent-60-hug-geneve",
-        "de": "psychologue-au-service-de-psychiatrie-de-l-enfant-et-de-l-adolescent-60-hug-geneve"
+        "it": "psicologo-presso-il-servizio-di-psichiatria-infantile-e-adolescente-60-hug-geneve",
+        "en": "psychologist-at-the-child-and-adolescent-psychiatry-service-60-hug-geneve",
+        "de": "psychologe-am-kinder-und-jugendpsychiatrieservice-60-hug-geneve"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -3865,16 +3895,30 @@
         }
       },
       "postalCode": "1201",
-      "firstSeenAt": "2026-05-26T23:07:51.204Z"
+      "firstSeenAt": "2026-05-26T23:07:51.204Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "psychologue-au-service-de-psychiatrie-de-l-enfant-et-de-l-adolescent-60-hug-geneve"
+        ],
+        "en": [
+          "psychologue-au-service-de-psychiatrie-de-l-enfant-et-de-l-adolescent-60-hug-geneve"
+        ],
+        "de": [
+          "psychologue-au-service-de-psychiatrie-de-l-enfant-et-de-l-adolescent-60-hug-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "psychologue-au-service-de-psychiatrie-de-l-enfant-et-de-l-adolescent-60-hug-geneve"
+      ]
     },
     {
       "id": "hug-9ce47aef0177",
-      "slug": "apprentissage-gestionnaire-en-restauration-de-systeme-cfc-100-hug-geneve",
+      "slug": "learning-cfc-system-restoration-manager-100-hug-geneve",
       "slugByLocale": {
         "fr": "apprentissage-gestionnaire-en-restauration-de-systeme-cfc-100-hug-geneve",
-        "it": "apprentissage-gestionnaire-en-restauration-de-systeme-cfc-100-hug-geneve",
+        "it": "learning-cfc-system-restoration-manager-100-hug-geneve",
         "en": "apprentissage-gestionnaire-en-restauration-de-systeme-cfc-100-hug-geneve",
-        "de": "apprentissage-gestionnaire-en-restauration-de-systeme-cfc-100-hug-geneve"
+        "de": "lernen-cfc-system-restoration-manager-100-hug-geneve"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -3930,16 +3974,27 @@
         }
       },
       "postalCode": "1201",
-      "firstSeenAt": "2026-05-26T23:07:51.203Z"
+      "firstSeenAt": "2026-05-26T23:07:51.203Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "apprentissage-gestionnaire-en-restauration-de-systeme-cfc-100-hug-geneve"
+        ],
+        "de": [
+          "apprentissage-gestionnaire-en-restauration-de-systeme-cfc-100-hug-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "apprentissage-gestionnaire-en-restauration-de-systeme-cfc-100-hug-geneve"
+      ]
     },
     {
       "id": "hug-ba58326dc662",
-      "slug": "apprentissage-gestionnaire-en-hotellerie-intendance-cfc-100-hug-geneve",
+      "slug": "imparare-manager-di-ospitalita-e-stewardship-cfc-100-hug-geneve",
       "slugByLocale": {
         "fr": "apprentissage-gestionnaire-en-hotellerie-intendance-cfc-100-hug-geneve",
-        "it": "apprentissage-gestionnaire-en-hotellerie-intendance-cfc-100-hug-geneve",
-        "en": "apprentissage-gestionnaire-en-hotellerie-intendance-cfc-100-hug-geneve",
-        "de": "apprentissage-gestionnaire-en-hotellerie-intendance-cfc-100-hug-geneve"
+        "it": "imparare-manager-di-ospitalita-e-stewardship-cfc-100-hug-geneve",
+        "en": "learning-manager-of-hospitality-and-stewardship-cfc-100-hug-geneve",
+        "de": "lernen-manager-von-hospitality-und-stewardship-cfc-100-hug-geneve"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -3995,16 +4050,30 @@
         }
       },
       "postalCode": "1201",
-      "firstSeenAt": "2026-05-26T23:07:51.202Z"
+      "firstSeenAt": "2026-05-26T23:07:51.202Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "apprentissage-gestionnaire-en-hotellerie-intendance-cfc-100-hug-geneve"
+        ],
+        "en": [
+          "apprentissage-gestionnaire-en-hotellerie-intendance-cfc-100-hug-geneve"
+        ],
+        "de": [
+          "apprentissage-gestionnaire-en-hotellerie-intendance-cfc-100-hug-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "apprentissage-gestionnaire-en-hotellerie-intendance-cfc-100-hug-geneve"
+      ]
     },
     {
       "id": "hug-7e7687dca46c",
-      "slug": "aide-en-soins-et-accompagnement-a-la-division-privee-100-hug-geneve",
+      "slug": "assistenza-in-cura-e-accompagnamento-alla-divisione-privata-100-hug-geneve",
       "slugByLocale": {
         "fr": "aide-en-soins-et-accompagnement-a-la-division-privee-100-hug-geneve",
-        "it": "aide-en-soins-et-accompagnement-a-la-division-privee-100-hug-geneve",
-        "en": "aide-en-soins-et-accompagnement-a-la-division-privee-100-hug-geneve",
-        "de": "aide-en-soins-et-accompagnement-a-la-division-privee-100-hug-geneve"
+        "it": "assistenza-in-cura-e-accompagnamento-alla-divisione-privata-100-hug-geneve",
+        "en": "care-and-support-assistance-in-the-private-division-100-hug-geneve",
+        "de": "pflege-und-betreuungshilfe-in-der-privatabteilung-100-hug-geneve"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -4060,16 +4129,30 @@
         }
       },
       "postalCode": "1201",
-      "firstSeenAt": "2026-05-26T23:07:51.201Z"
+      "firstSeenAt": "2026-05-26T23:07:51.201Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "aide-en-soins-et-accompagnement-a-la-division-privee-100-hug-geneve"
+        ],
+        "en": [
+          "aide-en-soins-et-accompagnement-a-la-division-privee-100-hug-geneve"
+        ],
+        "de": [
+          "aide-en-soins-et-accompagnement-a-la-division-privee-100-hug-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "aide-en-soins-et-accompagnement-a-la-division-privee-100-hug-geneve"
+      ]
     },
     {
       "id": "hug-79957ec25a81",
-      "slug": "medecin-adjoint-ou-adjointe-traitement-et-prevention-des-demences-en-psychiatrie-geriatrique-100-hug-thonex",
+      "slug": "assistente-medico-trattamento-e-prevenzione-della-demenza-in-psichiatria-geriatrica-100-hug-thonex",
       "slugByLocale": {
         "fr": "medecin-adjoint-ou-adjointe-traitement-et-prevention-des-demences-en-psychiatrie",
-        "it": "medecin-adjoint-ou-adjointe-traitement-et-prevention-des-demences-en-psychiatrie-geriatrique-100-hug-thonex",
-        "en": "medecin-adjoint-ou-adjointe-traitement-et-prevention-des-demences-en-psychiatrie",
-        "de": "medecin-adjoint-ou-adjointe-traitement-et-prevention-des-demences-en-psychiatrie"
+        "it": "assistente-medico-trattamento-e-prevenzione-della-demenza-in-psichiatria-geriatrica-100-hug-thonex",
+        "en": "assistant-physician-treatment-and-prevention-of-dementia-in-geriatric-psychiatry-100-hug-thonex",
+        "de": "assistenzarzt-behandlung-und-pravention-von-demenz-in-der-geriatrischen-psychiatrie-100-hug-thonex"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -4114,11 +4197,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "medecin-adjoint-ou-adjointe-traitement-et-prevention-des-demences-en-psychiatrie",
+          "medecin-adjoint-ou-adjointe-traitement-et-prevention-des-demences-en-psychiatrie-geriatrique-100-hug-thonex"
+        ],
+        "en": [
+          "medecin-adjoint-ou-adjointe-traitement-et-prevention-des-demences-en-psychiatrie"
+        ],
+        "de": [
           "medecin-adjoint-ou-adjointe-traitement-et-prevention-des-demences-en-psychiatrie"
         ]
       },
       "previousSlugs": [
-        "medecin-adjoint-ou-adjointe-traitement-et-prevention-des-demences-en-psychiatrie"
+        "medecin-adjoint-ou-adjointe-traitement-et-prevention-des-demences-en-psychiatrie",
+        "medecin-adjoint-ou-adjointe-traitement-et-prevention-des-demences-en-psychiatrie-geriatrique-100-hug-thonex"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,

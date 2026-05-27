@@ -1269,12 +1269,12 @@
     },
     {
       "id": "bachtelen-5ef903ad106e",
-      "slug": "sozialpadagogin-sozialpadagoge-fh-hf-70-80-bachtelen-derendingen",
+      "slug": "social-pedagogue-social-pedagogue-fh-hf-70-80-stiftung-bachtelen-derendingen",
       "slugByLocale": {
         "de": "sozialpadagogin-sozialpadagoge-fh-hf-70-80-bachtelen-derendingen",
-        "it": "sozialpadagogin-sozialpadagoge-fh-hf-70-80-bachtelen-derendingen",
+        "it": "social-pedagogue-social-pedagogue-fh-hf-70-80-stiftung-bachtelen-derendingen",
         "en": "sozialpadagogin-sozialpadagoge-fh-hf-70-80-bachtelen-derendingen",
-        "fr": "sozialpadagogin-sozialpadagoge-fh-hf-70-80-bachtelen-derendingen"
+        "fr": "pedagogue-social-pedagogue-social-fh-hf-70-80-stiftung-bachtelen-derendingen"
       },
       "company": "Stiftung Bachtelen",
       "companyKey": "bachtelen",
@@ -1329,7 +1329,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-26T22:06:40.650Z"
+      "firstSeenAt": "2026-05-26T22:06:40.650Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sozialpadagogin-sozialpadagoge-fh-hf-70-80-bachtelen-derendingen"
+        ],
+        "fr": [
+          "sozialpadagogin-sozialpadagoge-fh-hf-70-80-bachtelen-derendingen"
+        ]
+      },
+      "previousSlugs": [
+        "sozialpadagogin-sozialpadagoge-fh-hf-70-80-bachtelen-derendingen"
+      ]
     },
     {
       "id": "bachtelen-fb052d0a1c66",

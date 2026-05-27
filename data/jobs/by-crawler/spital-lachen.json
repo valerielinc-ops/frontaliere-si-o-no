@@ -2302,12 +2302,12 @@
     },
     {
       "id": "spital-lachen-d18c608b140a",
-      "slug": "dipl-fachfrau-fachmann-operationstechnik-hf-80-100-con-o-ohne-zusatzfunktion-berufsbildung-spital-lachen",
+      "slug": "dipl-fachfrau-fachmann-operationstechnik-hf-80-100-con-o-senza-funzione-aggiuntiva-formazione-professionale-spital",
       "slugByLocale": {
         "de": "dipl-fachfrau-fachmann-operationstechnik-hf-80-100-mit-oder-ohne-zusatzfunktion",
-        "it": "dipl-fachfrau-fachmann-operationstechnik-hf-80-100-con-o-ohne-zusatzfunktion-berufsbildung-spital-lachen",
-        "en": "dipl-fachfrau-fachmann-operationstechnik-hf-80-100-mit-oder-ohne-zusatzfunktion",
-        "fr": "dipl-fachfrau-fachmann-operationstechnik-hf-80-100-mit-oder-ohne-zusatzfunktion"
+        "it": "dipl-fachfrau-fachmann-operationstechnik-hf-80-100-con-o-senza-funzione-aggiuntiva-formazione-professionale-spital",
+        "en": "dipl-fachfrau-fachmann-operationstechnik-hf-80-100-with-or-without-additional-function-vocational-training-spital-lachen",
+        "fr": "dipl-fachfrau-fachmann-operationstechnik-hf-80-100-avec-ou-sans-fonction-supplementaire-formation-professionnelle-spital"
       },
       "company": "Spital Lachen",
       "companyKey": "spital-lachen",
@@ -2352,11 +2352,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "dipl-fachfrau-fachmann-operationstechnik-hf-80-100-mit-oder-ohne-zusatzfunktion",
+          "dipl-fachfrau-fachmann-operationstechnik-hf-80-100-con-o-ohne-zusatzfunktion-berufsbildung-spital-lachen"
+        ],
+        "en": [
+          "dipl-fachfrau-fachmann-operationstechnik-hf-80-100-mit-oder-ohne-zusatzfunktion"
+        ],
+        "fr": [
           "dipl-fachfrau-fachmann-operationstechnik-hf-80-100-mit-oder-ohne-zusatzfunktion"
         ]
       },
       "previousSlugs": [
-        "dipl-fachfrau-fachmann-operationstechnik-hf-80-100-mit-oder-ohne-zusatzfunktion"
+        "dipl-fachfrau-fachmann-operationstechnik-hf-80-100-mit-oder-ohne-zusatzfunktion",
+        "dipl-fachfrau-fachmann-operationstechnik-hf-80-100-con-o-ohne-zusatzfunktion-berufsbildung-spital-lachen"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,

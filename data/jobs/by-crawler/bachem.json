@@ -181,8 +181,7 @@
         ]
       },
       "previousSlugs": [
-        "qa-engineering-manager-w-m-d-100-bachem-bubendorf",
-        "qa-engineering-manager-f-m-d-100-bachem-ag-bubendorf"
+        "qa-engineering-manager-w-m-d-100-bachem-bubendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -358,8 +357,7 @@
       "previousSlugs": [
         "scientist-qc-late-phase-100-m-w-d-bachem-bubendorf",
         "wissenschaftler-qualitatskontrolle-spatphase-100-m-w-d-bachem-ag-bubendorf",
-        "scientiste-qc-phase-de-developpement-tardive-100-h-f-d-bachem-ag-bubendorf",
-        "scientist-qc-fase-avanzata-100-m-f-d-bachem-ag-bubendorf"
+        "scientiste-qc-phase-de-developpement-tardive-100-h-f-d-bachem-ag-bubendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1245,7 +1243,7 @@
       "id": "bachem-fe1267f7ed38",
       "slug": "tecnico-technica-logistico-inbound-tecnico-m-f-d-100-bachem-ag-bubendorf",
       "slugByLocale": {
-        "it": "storage-technician-logistiker-in-cfc-inbound-technical-m-w-d-100-bachem-ag-bubendorf",
+        "it": "tecnico-technica-logistico-inbound-tecnico-m-f-d-100-bachem-ag-bubendorf",
         "en": "inbound-technical-logistics-technician-m-f-d-100-bachem-ag-bubendorf",
         "de": "storage-technician-logistiker-in-efz-inbound-technical-w-m-d-100-bachem-bubendorf",
         "fr": "technicien-technicienne-logistique-inbound-technique-h-f-d-cdi-bachem-ag-bubendorf"
@@ -1292,11 +1290,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "storage-technician-logistiker-in-efz-inbound-technical-w-m-d-100-bachem-bubendorf",
-        "tecnico-technica-logistico-inbound-tecnico-m-f-d-100-bachem-ag-bubendorf"
+        "storage-technician-logistiker-in-cfc-inbound-technical-m-w-d-100-bachem-ag-bubendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "storage-technician-logistiker-in-efz-inbound-technical-w-m-d-100-bachem-bubendorf"
+          "storage-technician-logistiker-in-efz-inbound-technical-w-m-d-100-bachem-bubendorf",
+          "storage-technician-logistiker-in-cfc-inbound-technical-m-w-d-100-bachem-ag-bubendorf"
         ],
         "en": [
           "storage-technician-logistiker-in-efz-inbound-technical-w-m-d-100-bachem-bubendorf"
@@ -1634,7 +1633,7 @@
       "id": "bachem-d0036da9872e",
       "slug": "cmms-specialista-maintenance-engineering-bachem-ag-vionnaz",
       "slugByLocale": {
-        "it": "specialista-cmms-manutenzione-e-ingegneria-bachem-ag-vionnaz",
+        "it": "cmms-specialista-maintenance-engineering-bachem-ag-vionnaz",
         "en": "cmms-specialist-maintenance-engineering-bachem-vionnaz",
         "de": "cmms-spezialist-wartung-und-ingenieurwesen-bachem-ag-vionnaz",
         "fr": "cmms-specialist-maintenance-engineering-bachem-vionnaz"
@@ -1711,13 +1710,14 @@
       },
       "previousSlugs": [
         "cmms-specialist-maintenance-engineering-bachem-vionnaz",
+        "specialista-cmms-manutenzione-e-ingegneria-bachem-ag-vionnaz",
         "specialiste-cmms-maintenance-ingenierie-bachem-ag-vionnaz",
-        "specialiste-cmms-maintenance-et-ingenierie-bachem-ag-vionnaz",
-        "cmms-specialista-maintenance-engineering-bachem-ag-vionnaz"
+        "specialiste-cmms-maintenance-et-ingenierie-bachem-ag-vionnaz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "cmms-specialist-maintenance-engineering-bachem-vionnaz"
+          "cmms-specialist-maintenance-engineering-bachem-vionnaz",
+          "specialista-cmms-manutenzione-e-ingegneria-bachem-ag-vionnaz"
         ],
         "fr": [
           "specialiste-cmms-maintenance-ingenierie-bachem-ag-vionnaz",
@@ -2307,8 +2307,7 @@
         ]
       },
       "previousSlugs": [
-        "director-gscm-network-demand-center-w-m-d-100-bachem-bubendorf",
-        "direttore-gscm-network-demand-center-w-m-d-100-bachem-ag-bubendorf"
+        "director-gscm-network-demand-center-w-m-d-100-bachem-bubendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3841,7 +3840,7 @@
         "it": "tecnico-di-laboratorio-r-d-u-m-d-100-bachem-ag-bubendorf",
         "en": "lab-technician-r-d-w-m-d-100-bachem-bubendorf",
         "de": "labortechniker-f-e-w-m-d-100-bachem-ag-bubendorf",
-        "fr": "technicien-de-laboratoire-r-d-h-f-e-temps-plein-bachem-ag-bubendorf"
+        "fr": "r-d-de-technicien-de-laboratoire-p-m-j-100-bachem-ag-bubendorf"
       },
       "company": "Bachem AG",
       "companyKey": "bachem",
@@ -3912,7 +3911,7 @@
       "previousSlugs": [
         "lab-technician-r-d-w-m-d-100-bachem-bubendorf",
         "technicien-de-laboratoire-r-d-f-m-d-100-bachem-ag-bubendorf",
-        "r-d-de-technicien-de-laboratoire-p-m-j-100-bachem-ag-bubendorf"
+        "technicien-de-laboratoire-r-d-h-f-e-temps-plein-bachem-ag-bubendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3920,7 +3919,7 @@
         ],
         "fr": [
           "technicien-de-laboratoire-r-d-f-m-d-100-bachem-ag-bubendorf",
-          "r-d-de-technicien-de-laboratoire-p-m-j-100-bachem-ag-bubendorf"
+          "technicien-de-laboratoire-r-d-h-f-e-temps-plein-bachem-ag-bubendorf"
         ]
       },
       "firstSeenAt": "2026-05-19T19:53:20.771Z",
@@ -4438,7 +4437,7 @@
       "id": "bachem-88078a47fe53",
       "slug": "senior-lab-technician-qc-fase-ultima-100-m-w-d-bachem-ag-bubendorf",
       "slugByLocale": {
-        "it": "senior-tecnico-di-laboratorio-qc-fase-tardiva-u-m-d-bachem-ag-bubendorf",
+        "it": "senior-lab-technician-qc-fase-ultima-100-m-w-d-bachem-ag-bubendorf",
         "en": "senior-lab-technician-qc-late-phase-100-m-w-d-bachem-bubendorf",
         "de": "senior-labortechniker-qc-spate-phase-100-m-w-d-bachem-ag-bubendorf",
         "fr": "technicien-de-laboratoire-qc-senior-phase-tardive-100-m-f-d-bachem-ag-bubendorf"
@@ -4516,12 +4515,13 @@
       "previousSlugs": [
         "senior-lab-technician-qc-late-phase-100-m-w-d-bachem-bubendorf",
         "senior-technico-di-laboratorio-qc-fase-tarda-100-m-f-d-bachem-ag-bubendorf",
-        "senior-lab-technician-qc-fase-ultima-100-m-w-d-bachem-ag-bubendorf"
+        "senior-tecnico-di-laboratorio-qc-fase-tardiva-u-m-d-bachem-ag-bubendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
           "senior-lab-technician-qc-late-phase-100-m-w-d-bachem-bubendorf",
-          "senior-technico-di-laboratorio-qc-fase-tarda-100-m-f-d-bachem-ag-bubendorf"
+          "senior-technico-di-laboratorio-qc-fase-tarda-100-m-f-d-bachem-ag-bubendorf",
+          "senior-tecnico-di-laboratorio-qc-fase-tardiva-u-m-d-bachem-ag-bubendorf"
         ]
       },
       "firstSeenAt": "2026-05-19T19:53:38.814Z",
@@ -4691,8 +4691,7 @@
       "previousSlugs": [
         "batchdoc-reviewer-w-m-d-100-bachem-bubendorf",
         "revisionista-batchdoc-uomo-donna-bachem-ag-bubendorf",
-        "relecteur-batchdoc-temps-plein-bachem-ag-bubendorf",
-        "recensione-di-batchdoc-w-m-d-100-bachem-ag-bubendorf"
+        "relecteur-batchdoc-temps-plein-bachem-ag-bubendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4935,7 +4934,7 @@
       "id": "bachem-859c3ee81067",
       "slug": "gruppo-leader-servizio-clienti-cmc-w-m-d-80-100-bachem-ag-bubendorf",
       "slugByLocale": {
-        "it": "responsabile-di-gruppo-servizio-clienti-cmc-uomo-donna-bachem-ag-bubendorf",
+        "it": "gruppo-leader-servizio-clienti-cmc-w-m-d-80-100-bachem-ag-bubendorf",
         "en": "group-leader-customer-service-cmc-w-m-d-80-100-bachem-bubendorf",
         "de": "group-leader-customer-service-cmc-w-m-d-80-100-bachem-bubendorf",
         "fr": "chef-de-groupe-service-a-la-clientele-cmc-p-m-d-80-100-bachem-ag-bubendorf"
@@ -4998,14 +4997,14 @@
       },
       "previousSlugs": [
         "group-leader-customer-service-cmc-w-m-d-80-100-bachem-bubendorf",
+        "responsabile-di-gruppo-servizio-clienti-cmc-uomo-donna-bachem-ag-bubendorf",
         "kundendienst-cmc-w-m-d-80-100-bachem-ag-bubendorf",
-        "responsable-d-equipe-service-client-cmc-h-f-bachem-ag-bubendorf",
-        "gruppo-leader-servizio-clienti-cmc-w-m-d-80-100-bachem-ag-bubendorf",
-        "chef-de-groupe-service-a-la-clientele-cmc-p-m-d-80-100-bachem-ag-bubendorf"
+        "responsable-d-equipe-service-client-cmc-h-f-bachem-ag-bubendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "group-leader-customer-service-cmc-w-m-d-80-100-bachem-bubendorf"
+          "group-leader-customer-service-cmc-w-m-d-80-100-bachem-bubendorf",
+          "responsabile-di-gruppo-servizio-clienti-cmc-uomo-donna-bachem-ag-bubendorf"
         ],
         "de": [
           "kundendienst-cmc-w-m-d-80-100-bachem-ag-bubendorf"
@@ -5090,8 +5089,7 @@
         ]
       },
       "previousSlugs": [
-        "associate-qa-batch-compliance-w-m-d-100-befristet-12-monate-bachem-bubendorf",
-        "associate-qa-compliance-batch-f-m-d-100-limitato-12-mesi-bachem-ag-bubendorf"
+        "associate-qa-batch-compliance-w-m-d-100-befristet-12-monate-bachem-bubendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -5304,8 +5302,7 @@
       "previousSlugs": [
         "maintenance-technician-electrotechnics-in-der-gruppe-elektrotechnik-w-m-d-100-bachem",
         "wartungstechniker-elektrotechnik-in-der-gruppe-elektrotechnik-w-m-d-100-bachem-ag-bubendorf",
-        "technicien-de-maintenance-clectrotechnique-dans-le-groupe-clectrotechnique-h-f-100-bachem-ag-bubendorf",
-        "manutentore-tecnico-in-elettrotecnica-gruppo-elettrotecnica-100-full-time-bachem-ag-bubendorf"
+        "technicien-de-maintenance-clectrotechnique-dans-le-groupe-clectrotechnique-h-f-100-bachem-ag-bubendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -5336,7 +5333,7 @@
       "id": "bachem-6e1619a6ee32",
       "slug": "tecnico-di-stoccaggio-e-logistica-produzione-m-f-d-100-in-turni-bachem-ag-bubendorf",
       "slugByLocale": {
-        "it": "tecnico-di-magazzino-produzione-fornitura-m-f-d-100-in-turno-bachem-ag-bubendorf",
+        "it": "tecnico-di-stoccaggio-e-logistica-produzione-m-f-d-100-in-turni-bachem-ag-bubendorf",
         "en": "storage-technician-production-supply-m-w-d-100-im-schichtbetrieb-bachem-bubendorf",
         "de": "storage-technician-production-supply-m-w-d-100-im-schichtbetrieb-bachem-bubendorf",
         "fr": "technicien-ne-de-stockage-et-logistique-production-h-f-d-100-en-horaires-variables-bachem-ag-bubendorf"
@@ -5413,12 +5410,13 @@
       },
       "previousSlugs": [
         "storage-technician-production-supply-m-w-d-100-im-schichtbetrieb-bachem-bubendorf",
-        "technicien-de-magasin-alimentation-de-la-production-h-f-d-100-en-service-bachem-ag-bubendorf",
-        "tecnico-di-stoccaggio-e-logistica-produzione-m-f-d-100-in-turni-bachem-ag-bubendorf"
+        "tecnico-di-magazzino-produzione-fornitura-m-f-d-100-in-turno-bachem-ag-bubendorf",
+        "technicien-de-magasin-alimentation-de-la-production-h-f-d-100-en-service-bachem-ag-bubendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "storage-technician-production-supply-m-w-d-100-im-schichtbetrieb-bachem-bubendorf"
+          "storage-technician-production-supply-m-w-d-100-im-schichtbetrieb-bachem-bubendorf",
+          "tecnico-di-magazzino-produzione-fornitura-m-f-d-100-in-turno-bachem-ag-bubendorf"
         ],
         "fr": [
           "technicien-de-magasin-alimentation-de-la-production-h-f-d-100-en-service-bachem-ag-bubendorf"
@@ -5488,8 +5486,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "category-manager-capex-w-m-d-100-fur-den-bereich-external-personnel-services-bachem",
-        "category-manager-capex-w-m-d-100-per-den-bereich-external-personnel-services-bachem-ag-bubendorf"
+        "category-manager-capex-w-m-d-100-fur-den-bereich-external-personnel-services-bachem"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -5561,8 +5558,7 @@
       "previousSlugs": [
         "category-manager-capex-w-m-d-100-fur-den-bereich-bauleistungen-bachem-bubendorf",
         "category-manager-capex-m-w-d-100-per-den-bereich-bauleistungen-bachem-ag-bubendorf",
-        "responsable-de-categorie-capex-h-f-a-100-pour-le-domaine-des-bauleistungen-bachem-ag-bubendorf",
-        "category-manager-capex-w-m-d-100-per-den-bereich-bauleistungen-bachem-ag-bubendorf"
+        "responsable-de-categorie-capex-h-f-a-100-pour-le-domaine-des-bauleistungen-bachem-ag-bubendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -6381,8 +6377,7 @@
       },
       "previousSlugs": [
         "process-specialist-manufacturing-process-technology-w-m-d-100-bachem-bubendorf",
-        "prozessspezialist-fertigung-prozesstechnik-w-m-d-100-bachem-ag-bubendorf",
-        "process-specialista-manufacturing-process-technology-w-m-d-100-bachem-ag-bubendorf"
+        "prozessspezialist-fertigung-prozesstechnik-w-m-d-100-bachem-ag-bubendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -6588,8 +6583,7 @@
       "previousSlugs": [
         "process-specialist-training-leader-chromatography-w-m-d-neubau-gebaude-k-100-bachem",
         "prozessspezialist-ausbildungsleiter-chromatographie-w-m-d-neubau-gebaude-k-100-bachem-ag-bubendorf",
-        "specialiste-de-processus-et-responsable-de-la-formation-chromatographie-h-f-100-batiment-k-nouveau-bachem-ag-bubendorf",
-        "specialista-processi-e-leader-formazione-cromatografia-uomo-donna-diverso-bachem-ag-bubendorf"
+        "specialiste-de-processus-et-responsable-de-la-formation-chromatographie-h-f-100-batiment-k-nouveau-bachem-ag-bubendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -6620,7 +6614,7 @@
       "id": "bachem-40b2a7554505",
       "slug": "lab-technician-qc-fase-tardiva-100-w-m-d-terminata-12-mesi-bachem-ag-bubendorf",
       "slugByLocale": {
-        "it": "tecnico-di-laboratorio-qc-fase-avanzata-100-f-m-d-prima-di-12-monate-bachem-ag-bubendorf",
+        "it": "lab-technician-qc-fase-tardiva-100-w-m-d-terminata-12-mesi-bachem-ag-bubendorf",
         "en": "lab-technician-qc-late-phase-100-w-m-d-befristet-12-monate-bachem-bubendorf",
         "de": "labortechniker-qc-spate-phase-100-w-m-d-bachem-ag-bubendorf",
         "fr": "technicien-de-laboratoire-qc-phase-tardive-100-h-f-bachem-ag-bubendorf"
@@ -6696,12 +6690,13 @@
       "previousSlugs": [
         "lab-technician-qc-late-phase-100-w-m-d-befristet-12-monate-bachem-bubendorf",
         "tecnico-di-laboro-qc-tardo-fase-100-uomo-donna-bachem-ag-bubendorf",
-        "lab-technician-qc-fase-tardiva-100-w-m-d-terminata-12-mesi-bachem-ag-bubendorf"
+        "tecnico-di-laboratorio-qc-fase-avanzata-100-f-m-d-prima-di-12-monate-bachem-ag-bubendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lab-technician-qc-late-phase-100-w-m-d-befristet-12-monate-bachem-bubendorf",
-          "tecnico-di-laboro-qc-tardo-fase-100-uomo-donna-bachem-ag-bubendorf"
+          "tecnico-di-laboro-qc-tardo-fase-100-uomo-donna-bachem-ag-bubendorf",
+          "tecnico-di-laboratorio-qc-fase-avanzata-100-f-m-d-prima-di-12-monate-bachem-ag-bubendorf"
         ]
       },
       "firstSeenAt": "2026-05-19T19:53:28.745Z",
@@ -6815,7 +6810,7 @@
         "it": "senior-commissioning-manager-sisslerfeld-f-m-d-100-bachem-stein-ag",
         "en": "senior-commissioning-manager-sisslerfeld-f-m-d-100-bachem-stein-ag",
         "de": "senior-commissioning-manager-sisslerfeld-f-m-d-100-bachem-stein-ag",
-        "fr": "senior-manager-de-mise-en-service-sisslerfeld-h-f-x-100-bachem-ag-stein-ag"
+        "fr": "gestionnaire-principal-de-la-commission-sisslerfeld-f-m-j-100-bachem-ag-stein-ag"
       },
       "company": "Bachem AG",
       "companyKey": "bachem",
@@ -6864,13 +6859,11 @@
         ]
       },
       "previousSlugs": [
-        "senior-manager-de-mise-en-service-sisslerfeld-h-f-x-100-bachem-ag-stein-ag",
-        "gestionnaire-principal-de-la-commission-sisslerfeld-f-m-j-100-bachem-ag-stein-ag"
+        "senior-manager-de-mise-en-service-sisslerfeld-h-f-x-100-bachem-ag-stein-ag"
       ],
       "previousSlugsByLocale": {
         "fr": [
-          "senior-manager-de-mise-en-service-sisslerfeld-h-f-x-100-bachem-ag-stein-ag",
-          "gestionnaire-principal-de-la-commission-sisslerfeld-f-m-j-100-bachem-ag-stein-ag"
+          "senior-manager-de-mise-en-service-sisslerfeld-h-f-x-100-bachem-ag-stein-ag"
         ]
       },
       "firstSeenAt": "2026-05-19T19:53:47.735Z",
@@ -6967,8 +6960,7 @@
         ]
       },
       "previousSlugs": [
-        "senior-commissioning-qualification-engineer-sisslerfeld-f-m-d-100-bachem-stein-ag",
-        "ingegnere-senior-commissioning-qualificazione-sisslerfeld-uomo-donna-diverso-100-bachem-ag-stein-ag"
+        "senior-commissioning-qualification-engineer-sisslerfeld-f-m-d-100-bachem-stein-ag"
       ],
       "previousSlugsByLocale": {
         "it": [

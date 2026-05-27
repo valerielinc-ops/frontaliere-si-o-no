@@ -8,8 +8,8 @@
       "slugByLocale": {
         "it": "specialista-del-servizio-tecnico-m-w-d-medtronic-bern",
         "en": "technical-service-specialist-m-w-d-medtronic-ch",
-        "de": "technischer-servicemitarbeiter-m-w-d-medtronic-bern",
-        "fr": "specialiste-du-service-technique-h-f-medtronic-bern"
+        "de": "technischer-mitarbeiter-m-w-d-medtronic-bern",
+        "fr": "specialiste-des-services-techniques-m-w-d-medtronic-bern"
       },
       "company": "Medtronic",
       "companyKey": "medtronic",
@@ -81,21 +81,17 @@
       "previousSlugs": [
         "technical-service-specialist-m-w-d-medtronic-ch",
         "technischer-servicemitarbeiter-m-w-d-medtronic-bern",
-        "specialiste-du-service-technique-h-f-medtronic-bern",
-        "technischer-mitarbeiter-m-w-d-medtronic-bern",
-        "specialiste-des-services-techniques-m-w-d-medtronic-bern"
+        "specialiste-du-service-technique-h-f-medtronic-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "technical-service-specialist-m-w-d-medtronic-ch"
         ],
         "de": [
-          "technischer-servicemitarbeiter-m-w-d-medtronic-bern",
-          "technischer-mitarbeiter-m-w-d-medtronic-bern"
+          "technischer-servicemitarbeiter-m-w-d-medtronic-bern"
         ],
         "fr": [
-          "specialiste-du-service-technique-h-f-medtronic-bern",
-          "specialiste-des-services-techniques-m-w-d-medtronic-bern"
+          "specialiste-du-service-technique-h-f-medtronic-bern"
         ]
       },
       "firstSeenAt": "2026-05-19T17:18:40.418Z",
@@ -194,8 +190,7 @@
       "jobReqId": "R62994",
       "previousSlugs": [
         "senior-system-software-engineer-1-year-contract-medtronic-ch",
-        "senior-system-software-engineer-contratto-di-1-anno-medtronic-lausanne",
-        "senior-system-software-ingegnere-1-year-contract-medtronic-lausanne"
+        "senior-system-software-engineer-contratto-di-1-anno-medtronic-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -222,7 +217,7 @@
       "id": "medtronic-4e0812af1ba0",
       "slug": "consegna-digitale-della-salute-dach-francia-m-f-d-medtronic-tolochenaz",
       "slugByLocale": {
-        "it": "digital-health-delivery-lead-dach-francia-medtronic-tolochenaz",
+        "it": "consegna-digitale-della-salute-dach-francia-m-f-d-medtronic-tolochenaz",
         "en": "digital-health-delivery-lead-dach-france-m-f-d-medtronic-ch",
         "de": "digital-health-delivery-lead-dach-frankreich-medtronic-tolochenaz",
         "fr": "dach-et-france-m-f-d-medtronic-tolochenaz"
@@ -269,13 +264,13 @@
       "jobReqId": "R63943",
       "previousSlugs": [
         "digital-health-delivery-lead-dach-france-m-f-d-medtronic-ch",
-        "responsable-de-la-livraison-de-la-sante-numerique-dach-france-medtronic-tolochenaz",
-        "consegna-digitale-della-salute-dach-francia-m-f-d-medtronic-tolochenaz",
-        "dach-et-france-m-f-d-medtronic-tolochenaz"
+        "digital-health-delivery-lead-dach-francia-medtronic-tolochenaz",
+        "responsable-de-la-livraison-de-la-sante-numerique-dach-france-medtronic-tolochenaz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "digital-health-delivery-lead-dach-france-m-f-d-medtronic-ch"
+          "digital-health-delivery-lead-dach-france-m-f-d-medtronic-ch",
+          "digital-health-delivery-lead-dach-francia-medtronic-tolochenaz"
         ],
         "fr": [
           "responsable-de-la-livraison-de-la-sante-numerique-dach-france-medtronic-tolochenaz"
@@ -375,8 +370,7 @@
       },
       "jobReqId": "R65816",
       "previousSlugs": [
-        "senior-validation-engineer-12-months-contract-medtronic-ch",
-        "senior-validation-ingegnere-12-months-contract-medtronic-lausanne"
+        "senior-validation-engineer-12-months-contract-medtronic-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -671,12 +665,12 @@
     },
     {
       "id": "medtronic-0aedcd69f796",
-      "slug": "manufacturing-supervisor-night-shift-medtronic-ch",
+      "slug": "supervisore-di-fabbricazione-cambio-notturno-medtronic-lausanne",
       "slugByLocale": {
         "en": "manufacturing-supervisor-night-shift-medtronic-ch",
-        "it": "manufacturing-supervisor-night-shift-medtronic-ch",
+        "it": "supervisore-di-fabbricazione-cambio-notturno-medtronic-lausanne",
         "de": "manufacturing-supervisor-night-shift-medtronic-ch",
-        "fr": "manufacturing-supervisor-night-shift-medtronic-ch"
+        "fr": "superviseur-de-la-fabrication-equipe-de-nuit-medtronic-lausanne"
       },
       "company": "Medtronic",
       "companyKey": "medtronic",
@@ -732,7 +726,18 @@
         }
       },
       "postalCode": "1003",
-      "firstSeenAt": "2026-05-26T23:37:11.327Z"
+      "firstSeenAt": "2026-05-26T23:37:11.327Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "manufacturing-supervisor-night-shift-medtronic-ch"
+        ],
+        "fr": [
+          "manufacturing-supervisor-night-shift-medtronic-ch"
+        ]
+      },
+      "previousSlugs": [
+        "manufacturing-supervisor-night-shift-medtronic-ch"
+      ]
     }
   ]
 }

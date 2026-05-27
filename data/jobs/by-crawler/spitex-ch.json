@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "spitex-ch-33c2437cd148",
-      "slug": "fachfrau-fachmann-gesundheit-efz-fage-50-90-spitex-spitex-ch-weiningen-zh",
+      "slug": "salute-professionale-efz-fage-50-90-spitex-spitex-rechtes-limmattal-weiningen-zh",
       "slugByLocale": {
         "de": "fachfrau-fachmann-gesundheit-efz-fage-50-90-spitex-spitex-ch-weiningen-zh",
-        "it": "fachfrau-fachmann-gesundheit-efz-fage-50-90-spitex-spitex-ch-weiningen-zh",
-        "en": "fachfrau-fachmann-gesundheit-efz-fage-50-90-spitex-spitex-ch-weiningen-zh",
-        "fr": "fachfrau-fachmann-gesundheit-efz-fage-50-90-spitex-spitex-ch-weiningen-zh"
+        "it": "salute-professionale-efz-fage-50-90-spitex-spitex-rechtes-limmattal-weiningen-zh",
+        "en": "professional-health-efz-fage-50-90-spitex-spitex-rechtes-limmattal-weiningen-zh",
+        "fr": "sante-professionnelle-efz-fage-50-90-spitex-rechtes-limmattal-weiningen-zh"
       },
       "company": "Spitex Rechtes Limmattal",
       "companyKey": "spitex-ch",
@@ -65,7 +65,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-27T00:20:32.137Z"
+      "firstSeenAt": "2026-05-27T00:20:32.137Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachfrau-fachmann-gesundheit-efz-fage-50-90-spitex-spitex-ch-weiningen-zh"
+        ],
+        "en": [
+          "fachfrau-fachmann-gesundheit-efz-fage-50-90-spitex-spitex-ch-weiningen-zh"
+        ],
+        "fr": [
+          "fachfrau-fachmann-gesundheit-efz-fage-50-90-spitex-spitex-ch-weiningen-zh"
+        ]
+      },
+      "previousSlugs": [
+        "fachfrau-fachmann-gesundheit-efz-fage-50-90-spitex-spitex-ch-weiningen-zh"
+      ]
     },
     {
       "id": "spitex-ch-26838a8f5ff0",
@@ -148,7 +162,7 @@
       "id": "spitex-ch-bef5f06be22e",
       "slug": "teamleiter-m-w-d-spitex-dienste-rutu-oberhofen-am-thunersee",
       "slugByLocale": {
-        "it": "team-leader-assistenza-m-f-d-spitex-dienste-rutu-oberhofen-am-thunersee",
+        "it": "teamleiter-m-w-d-spitex-dienste-rutu-oberhofen-am-thunersee",
         "en": "team-leader-care-m-f-d-spitex-dienste-rutu-oberhofen-am-thunersee",
         "de": "teamleitung-pflege-m-w-d-spitex-ch-oberhofen-am-thunersee",
         "fr": "equipeur-m-m-j-spitex-dienste-rutu-oberhofen-am-thunersee"
@@ -196,13 +210,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "teamleitung-pflege-m-w-d-spitex-ch-oberhofen-am-thunersee",
-        "responsable-equipe-soins-h-f-d-spitex-dienste-rutu-oberhofen-am-thunersee",
-        "teamleiter-m-w-d-spitex-dienste-rutu-oberhofen-am-thunersee",
-        "equipeur-m-m-j-spitex-dienste-rutu-oberhofen-am-thunersee"
+        "team-leader-assistenza-m-f-d-spitex-dienste-rutu-oberhofen-am-thunersee",
+        "responsable-equipe-soins-h-f-d-spitex-dienste-rutu-oberhofen-am-thunersee"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "teamleitung-pflege-m-w-d-spitex-ch-oberhofen-am-thunersee"
+          "teamleitung-pflege-m-w-d-spitex-ch-oberhofen-am-thunersee",
+          "team-leader-assistenza-m-f-d-spitex-dienste-rutu-oberhofen-am-thunersee"
         ],
         "fr": [
           "responsable-equipe-soins-h-f-d-spitex-dienste-rutu-oberhofen-am-thunersee"
@@ -304,7 +318,7 @@
       "id": "spitex-ch-922cddbe19cb",
       "slug": "infermiere-a-dipl-hf-fh-30-100-spitex-nuovi-ingressi-benvenuti-spitex-aare-selzach",
       "slugByLocale": {
-        "it": "infermiere-dipl-hf-50-80-formatore-per-hf-fh-spitex-aare-selzach",
+        "it": "infermiere-a-dipl-hf-fh-30-100-spitex-nuovi-ingressi-benvenuti-spitex-aare-selzach",
         "en": "registered-nurse-hf-fh-30-100-spitex-newcomers-welcome-spitex-aare-selzach",
         "de": "dipl-pflegefachperson-hf-50-bis-80-berufsbildner-in-fur-hf-fh-spitex-ch-selzach",
         "fr": "infirmier-infirmiere-dipl-hf-fh-30-100-spitex-bienvenue-aux-nouveaux-entrants-spitex-aare-selzach"
@@ -357,19 +371,18 @@
         "dipl-pflegefachperson-hf-fh-30-100-spitex-neueinsteigende-willkommen-spitex-ch-aarau",
         "infermiere-a-dipl-hf-fh-30-100-spitex-nuovi-ingressi-benvenuti-spitex-region-aarau-aarau",
         "dipl-pflegefachperson-hf-50-bis-80-berufsbildner-in-fur-hf-fh-spitex-ch-selzach",
+        "infermiere-dipl-hf-50-80-formatore-per-hf-fh-spitex-aare-selzach",
         "registered-nurse-hf-fh-30-100-spitex-newcomers-welcome-spitex-region-aarau-aarau",
         "registered-nurse-hf-50-80-trainer-for-hf-fh-spitex-aare-selzach",
         "infirmier-infirmiere-dipl-hf-fh-30-100-spitex-bienvenue-aux-nouveaux-entrants-spitex-region-aarau-aarau",
-        "infirmier-dipl-hf-50-80-formateur-trice-pour-hf-fh-spitex-aare-selzach",
-        "infermiere-a-dipl-hf-fh-30-100-spitex-nuovi-ingressi-benvenuti-spitex-aare-selzach",
-        "registered-nurse-hf-fh-30-100-spitex-newcomers-welcome-spitex-aare-selzach",
-        "infirmier-infirmiere-dipl-hf-fh-30-100-spitex-bienvenue-aux-nouveaux-entrants-spitex-aare-selzach"
+        "infirmier-dipl-hf-50-80-formateur-trice-pour-hf-fh-spitex-aare-selzach"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-hf-fh-30-100-spitex-neueinsteigende-willkommen-spitex-ch-aarau",
           "infermiere-a-dipl-hf-fh-30-100-spitex-nuovi-ingressi-benvenuti-spitex-region-aarau-aarau",
-          "dipl-pflegefachperson-hf-50-bis-80-berufsbildner-in-fur-hf-fh-spitex-ch-selzach"
+          "dipl-pflegefachperson-hf-50-bis-80-berufsbildner-in-fur-hf-fh-spitex-ch-selzach",
+          "infermiere-dipl-hf-50-80-formatore-per-hf-fh-spitex-aare-selzach"
         ],
         "de": [
           "dipl-pflegefachperson-hf-fh-30-100-spitex-neueinsteigende-willkommen-spitex-ch-aarau"
@@ -474,7 +487,7 @@
       "id": "spitex-ch-15f302d8672d",
       "slug": "luogo-di-studio-per-l-allattamento-professionale-hf-scheda-guida-o-ga-e-attrezzature-pc-inclusi-spitex-region-mullheim",
       "slugByLocale": {
-        "it": "studienplatz-zur-pflegefachperson-hf-fuhrerausweis-o-ga-e-pc-ausrustung-inklusive-spitex-region-mullheim",
+        "it": "luogo-di-studio-per-l-allattamento-professionale-hf-scheda-guida-o-ga-e-attrezzature-pc-inclusi-spitex-region-mullheim",
         "en": "study-place-for-nursing-professional-hf-guide-card-or-ga-and-pc-equipment-included-spitex-region-mullheim-mullheim",
         "de": "studienplatz-zur-pflegefachperson-hf-fuhrerausweis-oder-ga-und-pc-ausrustung-inklusive",
         "fr": "lieu-d-etude-pour-les-infirmiers-professionnels-hf-carte-guide-ou-ga-et-equipement-pc-inclus-spitex-region-mullheim"
@@ -522,12 +535,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "studienplatz-zur-pflegefachperson-hf-fuhrerausweis-oder-ga-und-pc-ausrustung-inklusive",
-        "lieu-d-etude-pour-les-infirmieres-professionnelles-hf-carte-guide-ou-ga-et-equipement-pc-inclus-spitex-region-mullheim",
-        "luogo-di-studio-per-l-allattamento-professionale-hf-scheda-guida-o-ga-e-attrezzature-pc-inclusi-spitex-region-mullheim"
+        "studienplatz-zur-pflegefachperson-hf-fuhrerausweis-o-ga-e-pc-ausrustung-inklusive-spitex-region-mullheim",
+        "lieu-d-etude-pour-les-infirmieres-professionnelles-hf-carte-guide-ou-ga-et-equipement-pc-inclus-spitex-region-mullheim"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "studienplatz-zur-pflegefachperson-hf-fuhrerausweis-oder-ga-und-pc-ausrustung-inklusive"
+          "studienplatz-zur-pflegefachperson-hf-fuhrerausweis-oder-ga-und-pc-ausrustung-inklusive",
+          "studienplatz-zur-pflegefachperson-hf-fuhrerausweis-o-ga-e-pc-ausrustung-inklusive-spitex-region-mullheim"
         ],
         "en": [
           "studienplatz-zur-pflegefachperson-hf-fuhrerausweis-oder-ga-und-pc-ausrustung-inklusive"
@@ -868,7 +882,7 @@
       "id": "spitex-ch-e8f5f85464e8",
       "slug": "dipl-assistenza-agli-anziani-hf-fh-psichiatria-per-adulti-bambini-e-adolescenti-60-80-spitex-uri-schattdorf",
       "slugByLocale": {
-        "it": "dipl-pflegefachperson-hf-fh-psychiatrie-per-erwachsene-kinder-jugendliche-60-80-spitex-uri-schattdorf",
+        "it": "dipl-assistenza-agli-anziani-hf-fh-psichiatria-per-adulti-bambini-e-adolescenti-60-80-spitex-uri-schattdorf",
         "en": "dipl-senior-caregiver-hf-fh-psychiatry-for-adults-children-teenagers-60-80-spitex-uri-schattdorf",
         "de": "dipl-pflegefachperson-hf-fh-psychiatrie-fur-erwachsene-kinder-jugendliche-60-80-spitex-ch",
         "fr": "dipl-senior-caregiiver-hf-fh-psychiatrie-pour-adultes-enfants-et-adolescents-60-80-spitex-uri-schattdorf"
@@ -916,11 +930,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "dipl-pflegefachperson-hf-fh-psychiatrie-fur-erwachsene-kinder-jugendliche-60-80-spitex-ch",
-        "dipl-assistenza-agli-anziani-hf-fh-psichiatria-per-adulti-bambini-e-adolescenti-60-80-spitex-uri-schattdorf"
+        "dipl-pflegefachperson-hf-fh-psychiatrie-per-erwachsene-kinder-jugendliche-60-80-spitex-uri-schattdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-hf-fh-psychiatrie-fur-erwachsene-kinder-jugendliche-60-80-spitex-ch"
+          "dipl-pflegefachperson-hf-fh-psychiatrie-fur-erwachsene-kinder-jugendliche-60-80-spitex-ch",
+          "dipl-pflegefachperson-hf-fh-psychiatrie-per-erwachsene-kinder-jugendliche-60-80-spitex-uri-schattdorf"
         ],
         "en": [
           "dipl-pflegefachperson-hf-fh-psychiatrie-fur-erwachsene-kinder-jugendliche-60-80-spitex-ch"
@@ -1100,12 +1115,12 @@
     },
     {
       "id": "spitex-ch-046476d5fefe",
-      "slug": "dipl-pflegefachperson-hf-80-100-spitex-ch-pratteln",
+      "slug": "dipl-specialista-di-cura-hf-80-100-spitex-pratteln-augst-giebenach-gmbh-pratteln",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-hf-80-100-spitex-ch-pratteln",
-        "it": "dipl-pflegefachperson-hf-80-100-spitex-ch-pratteln",
+        "it": "dipl-specialista-di-cura-hf-80-100-spitex-pratteln-augst-giebenach-gmbh-pratteln",
         "en": "dipl-pflegefachperson-hf-80-100-spitex-ch-pratteln",
-        "fr": "dipl-pflegefachperson-hf-80-100-spitex-ch-pratteln"
+        "fr": "dipl-specialiste-des-soins-hf-80-100-spitex-pratteln-augst-giebenach-gmbh-pratteln"
       },
       "company": "Spitex Pratteln-Augst-Giebenach GmbH",
       "companyKey": "spitex-ch",
@@ -1161,16 +1176,27 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-27T00:20:19.111Z"
+      "firstSeenAt": "2026-05-27T00:20:19.111Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-hf-80-100-spitex-ch-pratteln"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-hf-80-100-spitex-ch-pratteln"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachperson-hf-80-100-spitex-ch-pratteln"
+      ]
     },
     {
       "id": "spitex-ch-e668652af716",
-      "slug": "fachperson-gesundheit-50-100-spitex-ch-dornach",
+      "slug": "salute-professionale-50-100-spitex-region-birs-gmbh-dornach",
       "slugByLocale": {
         "de": "fachperson-gesundheit-50-100-spitex-ch-dornach",
-        "it": "fachperson-gesundheit-50-100-spitex-ch-dornach",
-        "en": "fachperson-gesundheit-50-100-spitex-ch-dornach",
-        "fr": "fachperson-gesundheit-50-100-spitex-ch-dornach"
+        "it": "salute-professionale-50-100-spitex-region-birs-gmbh-dornach",
+        "en": "professional-health-50-100-spitex-region-birs-gmbh-dornach",
+        "fr": "sante-professionnelle-50-100-spitex-region-birs-gmbh-dornach"
       },
       "company": "Spitex Region Birs GmbH",
       "companyKey": "spitex-ch",
@@ -1226,16 +1252,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-27T00:20:18.283Z"
+      "firstSeenAt": "2026-05-27T00:20:18.283Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachperson-gesundheit-50-100-spitex-ch-dornach"
+        ],
+        "en": [
+          "fachperson-gesundheit-50-100-spitex-ch-dornach"
+        ],
+        "fr": [
+          "fachperson-gesundheit-50-100-spitex-ch-dornach"
+        ]
+      },
+      "previousSlugs": [
+        "fachperson-gesundheit-50-100-spitex-ch-dornach"
+      ]
     },
     {
       "id": "spitex-ch-12e86fbadba7",
-      "slug": "fachperson-gesundheit-80-100-spitex-ch-reinach-bl",
+      "slug": "salute-professionale-80-100-spitex-region-birs-gmbh-reinach-bl",
       "slugByLocale": {
         "de": "fachperson-gesundheit-80-100-spitex-ch-reinach-bl",
-        "it": "fachperson-gesundheit-80-100-spitex-ch-reinach-bl",
-        "en": "fachperson-gesundheit-80-100-spitex-ch-reinach-bl",
-        "fr": "fachperson-gesundheit-80-100-spitex-ch-reinach-bl"
+        "it": "salute-professionale-80-100-spitex-region-birs-gmbh-reinach-bl",
+        "en": "professional-health-80-100-spitex-region-birs-gmbh-reinach-bl",
+        "fr": "sante-professionnelle-80-100-spitex-region-birs-gmbh-reinach-bl"
       },
       "company": "Spitex Region Birs GmbH",
       "companyKey": "spitex-ch",
@@ -1291,16 +1331,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-27T00:20:17.472Z"
+      "firstSeenAt": "2026-05-27T00:20:17.472Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachperson-gesundheit-80-100-spitex-ch-reinach-bl"
+        ],
+        "en": [
+          "fachperson-gesundheit-80-100-spitex-ch-reinach-bl"
+        ],
+        "fr": [
+          "fachperson-gesundheit-80-100-spitex-ch-reinach-bl"
+        ]
+      },
+      "previousSlugs": [
+        "fachperson-gesundheit-80-100-spitex-ch-reinach-bl"
+      ]
     },
     {
       "id": "spitex-ch-64f67e4ee2cd",
-      "slug": "fachperson-hauswirtschaft-betreuung-40-60-spitex-ch-ebikon",
+      "slug": "pulizia-professionale-e-supporto-40-60-spitex-rontal-plus-ebikon",
       "slugByLocale": {
         "de": "fachperson-hauswirtschaft-betreuung-40-60-spitex-ch-ebikon",
-        "it": "fachperson-hauswirtschaft-betreuung-40-60-spitex-ch-ebikon",
-        "en": "fachperson-hauswirtschaft-betreuung-40-60-spitex-ch-ebikon",
-        "fr": "fachperson-hauswirtschaft-betreuung-40-60-spitex-ch-ebikon"
+        "it": "pulizia-professionale-e-supporto-40-60-spitex-rontal-plus-ebikon",
+        "en": "professional-housekeeping-support-40-60-spitex-rontal-plus-ebikon",
+        "fr": "entretien-et-soutien-professionnels-40-60-spitex-rontal-plus-ebikon"
       },
       "company": "Spitex Rontal plus",
       "companyKey": "spitex-ch",
@@ -1356,16 +1410,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-27T00:20:16.656Z"
+      "firstSeenAt": "2026-05-27T00:20:16.656Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachperson-hauswirtschaft-betreuung-40-60-spitex-ch-ebikon"
+        ],
+        "en": [
+          "fachperson-hauswirtschaft-betreuung-40-60-spitex-ch-ebikon"
+        ],
+        "fr": [
+          "fachperson-hauswirtschaft-betreuung-40-60-spitex-ch-ebikon"
+        ]
+      },
+      "previousSlugs": [
+        "fachperson-hauswirtschaft-betreuung-40-60-spitex-ch-ebikon"
+      ]
     },
     {
       "id": "spitex-ch-f7bfb6da43d7",
-      "slug": "apprendistato-come-fachfrau-mann-gesundheit-fage-cfc-ab-sommer-2027-spitex-aachthurland-sulgen",
+      "slug": "insegnamento-come-specialista-in-salute-fage-efz-dall-estate-2027-spitex-aachthurland-sulgen-sulgen",
       "slugByLocale": {
         "de": "lehrstelle-als-fachfrau-mann-gesundheit-fage-efz-ab-sommer-2027-spitex-ch-sulgen",
-        "it": "apprendistato-come-fachfrau-mann-gesundheit-fage-cfc-ab-sommer-2027-spitex-aachthurland-sulgen",
-        "en": "lehrstelle-als-fachfrau-mann-gesundheit-fage-efz-ab-sommer-2027-spitex-ch-sulgen",
-        "fr": "lehrstelle-als-fachfrau-mann-gesundheit-fage-efz-ab-sommer-2027-spitex-ch-sulgen"
+        "it": "insegnamento-come-specialista-in-salute-fage-efz-dall-estate-2027-spitex-aachthurland-sulgen-sulgen",
+        "en": "teaching-as-a-specialist-in-health-fage-efz-from-summer-2027-spitex-aachthurland-sulgen-sulgen",
+        "fr": "enseignement-en-tant-que-specialiste-de-la-sante-fage-efz-a-partir-de-l-ete-2027-spitex-aachthurland-sulgen-sulgen"
       },
       "company": "Spitex AachThurLand Sulgen",
       "companyKey": "spitex-ch",
@@ -1411,11 +1479,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "lehrstelle-als-fachfrau-mann-gesundheit-fage-efz-ab-sommer-2027-spitex-ch-sulgen",
+          "apprendistato-come-fachfrau-mann-gesundheit-fage-cfc-ab-sommer-2027-spitex-aachthurland-sulgen"
+        ],
+        "en": [
+          "lehrstelle-als-fachfrau-mann-gesundheit-fage-efz-ab-sommer-2027-spitex-ch-sulgen"
+        ],
+        "fr": [
           "lehrstelle-als-fachfrau-mann-gesundheit-fage-efz-ab-sommer-2027-spitex-ch-sulgen"
         ]
       },
       "previousSlugs": [
-        "lehrstelle-als-fachfrau-mann-gesundheit-fage-efz-ab-sommer-2027-spitex-ch-sulgen"
+        "lehrstelle-als-fachfrau-mann-gesundheit-fage-efz-ab-sommer-2027-spitex-ch-sulgen",
+        "apprendistato-come-fachfrau-mann-gesundheit-fage-cfc-ab-sommer-2027-spitex-aachthurland-sulgen"
       ],
       "salaryMin": 41600,
       "salaryMax": 63000,
@@ -1715,9 +1791,7 @@
       "previousSlugs": [
         "pflegefachperson-hf-fh-mit-schwerpunkt-demenz-40-80-spitex-gau-oensingen",
         "infirmier-ere-hf-fh-avec-specialisation-en-demence-40-80-spitex-gau-oensingen",
-        "pflegefachperson-hf-fh-mit-schwerpunkt-demenz-40-80-spitex-ch-oensingen",
-        "pflegefachperson-hf-fh-con-schwerpunkt-demenz-40-80-spitex-gau-oensingen",
-        "specialiste-des-soins-hf-fh-avec-accent-sur-la-demence-40-80-spitex-gau-oensingen"
+        "pflegefachperson-hf-fh-mit-schwerpunkt-demenz-40-80-spitex-ch-oensingen"
       ],
       "previousSlugsByLocale": {
         "it": [
