@@ -61,13 +61,22 @@ jobs:
             core.info(`Using upstream run_id: ${runId}`);
             core.setOutput('run_id', String(runId));
 
-      - name: Download github-pages artifact
-        uses: dawidd6/action-download-artifact@v6
-        with:
-          run_id: ${{ steps.resolve.outputs.run_id }}
-          name: github-pages
-          path: ./pages-artifact
-          if_no_artifact_found: fail
+      - name: Download github-pages artifact (streaming)
+        # Uses `gh run download` instead of dawidd6/action-download-artifact,
+        # because the latter loads the whole artifact into a Node Buffer and
+        # fails with "Cannot create a Buffer larger than 2898669600 bytes" on
+        # large artifacts (this site's github-pages tarball is >2GB).
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          mkdir -p ./pages-artifact
+          gh run download "${{ steps.resolve.outputs.run_id }}" \
+            --repo "${{ github.repository }}" \
+            --name github-pages \
+            --dir ./pages-artifact
+          echo "Downloaded:"
+          ls -lh ./pages-artifact/
 
       - name: Extract artifact tar
         run: |
