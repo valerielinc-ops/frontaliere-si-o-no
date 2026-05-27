@@ -1,6 +1,6 @@
 {
   "crawlerKey": "nestle",
-  "assembledAt": "2026-05-26T23:45:20.409Z",
+  "assembledAt": "2026-05-27T13:23:54.881Z",
   "jobs": [
     {
       "id": "nestle-1374185733",
@@ -33,7 +33,7 @@
       "url": "https://jobdetails.nestle.com/job/Wangen-Anlagenf%C3%BChrerin/1374185733/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-26T23:45:18.083Z",
+      "crawledAt": "2026-05-27T13:23:52.561Z",
       "addressLocality": "Wangen, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -48,6 +48,17 @@
       "applyUrl": "https://jobdetails.nestle.com/job/Wangen-Anlagenf%C3%BChrerin/1374185733/",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugsByLocale": {
+        "de": [
+          "anlagenfuhrer-in-nestle-ch"
+        ],
+        "it": [
+          "anlagenfuhrer-in-nestle-ch"
+        ]
+      },
+      "previousSlugs": [
+        "anlagenfuhrer-in-nestle-ch"
+      ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-25T13:33:41.073Z",
       "salaryMin": 49500,
@@ -61,15 +72,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "anlagenfuhrer-in-nestle-ch"
-        ]
-      },
-      "previousSlugs": [
-        "anlagenfuhrer-in-nestle-ch"
-      ]
+      }
     },
     {
       "id": "nestle-1368995833",
@@ -102,7 +105,7 @@
       "url": "https://jobdetails.nestle.com/job/Avenches-Stagiaire-ing%C3%A9nieur-Logistique-Industrielle-%28HFD%29/1368995833/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-26T23:45:17.447Z",
+      "crawledAt": "2026-05-27T13:23:51.898Z",
       "addressLocality": "Avenches, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -163,7 +166,7 @@
       "url": "https://jobdetails.nestle.com/job/Avenches-Op%C3%A9rateur-de-production-48-%28HFD%29/1378138333/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-26T23:45:16.750Z",
+      "crawledAt": "2026-05-27T13:23:51.230Z",
       "addressLocality": "Avenches, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -235,7 +238,7 @@
       "url": "https://jobdetails.nestle.com/job/Orbe-Vivier-de-talent-Technicien-de-maintenance-5x8/1378330133/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-26T23:45:16.108Z",
+      "crawledAt": "2026-05-27T13:23:50.592Z",
       "addressLocality": "Orbe, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -250,6 +253,14 @@
       "applyUrl": "https://jobdetails.nestle.com/job/Orbe-Vivier-de-talent-Technicien-de-maintenance-5x8/1378330133/",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "vivier-de-talent-technicien-de-maintenance-5x8-nestle-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "vivier-de-talent-technicien-de-maintenance-5x8-nestle-ch"
+        ]
+      },
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-25T13:34:03.155Z",
       "salaryMin": 49500,
@@ -263,15 +274,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "vivier-de-talent-technicien-de-maintenance-5x8-nestle-ch"
-        ]
-      },
-      "previousSlugs": [
-        "vivier-de-talent-technicien-de-maintenance-5x8-nestle-ch"
-      ]
+      }
     },
     {
       "id": "nestle-1220980901",
@@ -304,7 +307,7 @@
       "url": "https://jobdetails.nestle.com/job/Basel-Betriebselektrikerin/1220980901/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-26T23:45:15.466Z",
+      "crawledAt": "2026-05-27T13:23:49.960Z",
       "addressLocality": "Basel, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -376,7 +379,7 @@
       "url": "https://jobdetails.nestle.com/job/La-Tour-de-Peilz-Corporate-Channel-Development-Manager/1376073533/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-26T23:45:14.825Z",
+      "crawledAt": "2026-05-27T13:23:49.309Z",
       "addressLocality": "La Tour-de-Peilz, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -391,6 +394,14 @@
       "applyUrl": "https://jobdetails.nestle.com/job/La-Tour-de-Peilz-Corporate-Channel-Development-Manager/1376073533/",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "corporate-channel-development-manager-nestle-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "corporate-channel-development-manager-nestle-ch"
+        ]
+      },
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-25T13:34:01.751Z",
       "salaryMin": 79500,
@@ -404,15 +415,7 @@
           "maxValue": 135000,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "corporate-channel-development-manager-nestle-ch"
-        ]
-      },
-      "previousSlugs": [
-        "corporate-channel-development-manager-nestle-ch"
-      ]
+      }
     },
     {
       "id": "nestle-1160674301",
@@ -445,7 +448,7 @@
       "url": "https://jobdetails.nestle.com/job/La-Tour-de-Peilz-Stagiaire-Pr%C3%A9-HES-Food-Technology-%28Youth%29/1160674301/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-26T23:45:14.174Z",
+      "crawledAt": "2026-05-27T13:23:48.662Z",
       "addressLocality": "La Tour-de-Peilz, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -460,6 +463,14 @@
       "applyUrl": "https://jobdetails.nestle.com/job/La-Tour-de-Peilz-Stagiaire-Pr%C3%A9-HES-Food-Technology-%28Youth%29/1160674301/",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "stagiaire-pre-hes-food-technology-youth-nestle-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "stagiaire-pre-hes-food-technology-youth-nestle-ch"
+        ]
+      },
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-25T13:34:01.048Z",
       "salaryMin": 41600,
@@ -473,15 +484,7 @@
           "maxValue": 63000,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "stagiaire-pre-hes-food-technology-youth-nestle-ch"
-        ]
-      },
-      "previousSlugs": [
-        "stagiaire-pre-hes-food-technology-youth-nestle-ch"
-      ]
+      }
     },
     {
       "id": "nestle-1391905133",
@@ -514,7 +517,7 @@
       "url": "https://jobdetails.nestle.com/job/La-Tour-de-Peilz-Senior-Key-Account-Manager/1391905133/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-26T23:45:13.542Z",
+      "crawledAt": "2026-05-27T13:23:47.984Z",
       "addressLocality": "La Tour-de-Peilz, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -575,7 +578,7 @@
       "url": "https://jobdetails.nestle.com/job/La-Tour-de-Peilz-Procurement-Strategy-and-Transformation-Project-Lead/1393809833/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-26T23:45:12.916Z",
+      "crawledAt": "2026-05-27T13:23:47.348Z",
       "addressLocality": "La Tour-de-Peilz, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -590,6 +593,14 @@
       "applyUrl": "https://jobdetails.nestle.com/job/La-Tour-de-Peilz-Procurement-Strategy-and-Transformation-Project-Lead/1393809833/",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "procurement-strategy-and-transformation-project-lead-nestle-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "procurement-strategy-and-transformation-project-lead-nestle-ch"
+        ]
+      },
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-25T13:33:59.687Z",
       "salaryMin": 68000,
@@ -603,15 +614,7 @@
           "maxValue": 103000,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "procurement-strategy-and-transformation-project-lead-nestle-ch"
-        ]
-      },
-      "previousSlugs": [
-        "procurement-strategy-and-transformation-project-lead-nestle-ch"
-      ]
+      }
     },
     {
       "id": "nestle-1392313033",
@@ -644,7 +647,7 @@
       "url": "https://jobdetails.nestle.com/job/La-Tour-de-Peilz-Tierarztberaterin-Vet-Advisor/1392313033/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-26T23:45:12.249Z",
+      "crawledAt": "2026-05-27T13:23:46.658Z",
       "addressLocality": "La Tour-de-Peilz, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -716,7 +719,7 @@
       "url": "https://jobdetails.nestle.com/job/Vevey-Manufacturing-Projects-Intern/1395939233/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-26T23:45:11.601Z",
+      "crawledAt": "2026-05-27T13:23:45.989Z",
       "addressLocality": "Vevey, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -792,7 +795,7 @@
       "url": "https://jobdetails.nestle.com/job/Lausanne-Microbiology-Intern-Anaerobic-Digestion-Processes/1395924033/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-26T23:45:10.934Z",
+      "crawledAt": "2026-05-27T13:23:45.323Z",
       "addressLocality": "Lausanne, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -868,7 +871,7 @@
       "url": "https://jobdetails.nestle.com/job/Basel-Mentor/1395506733/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-26T23:45:10.311Z",
+      "crawledAt": "2026-05-27T13:23:44.675Z",
       "addressLocality": "Basel, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -883,6 +886,17 @@
       "applyUrl": "https://jobdetails.nestle.com/job/Basel-Mentor/1395506733/",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugsByLocale": {
+        "de": [
+          "mentor-nestle-ch"
+        ],
+        "it": [
+          "mentor-nestle-ch"
+        ]
+      },
+      "previousSlugs": [
+        "mentor-nestle-ch"
+      ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-25T13:33:56.969Z",
       "salaryMin": 49500,
@@ -897,77 +911,7 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "4001",
-      "previousSlugsByLocale": {
-        "it": [
-          "mentor-nestle-ch"
-        ]
-      },
-      "previousSlugs": [
-        "mentor-nestle-ch"
-      ]
-    },
-    {
-      "id": "nestle-1388469333",
-      "slug": "electrical-automation-technician-nestle-ch",
-      "slugByLocale": {
-        "it": "electrical-automation-technician-nestle-ch",
-        "en": "electrical-automation-technician-nestle-ch",
-        "de": "electrical-automation-techniker-nestle-lausanne-ch",
-        "fr": "electrical-automation-technicien-nestle-lausanne-ch"
-      },
-      "company": "Nestlé",
-      "companyKey": "nestle",
-      "companyDomain": "nestle.com",
-      "title": "Electrical & Automation Technician",
-      "titleByLocale": {
-        "it": "Electrical & Automation Technician",
-        "en": "Electrical & Automation Technician",
-        "de": "Electrical & Automation Techniker",
-        "fr": "Electrical & Automation Technicien"
-      },
-      "description": "Electrical & Automation Technician — Nestlé, Lausanne, CH.\n\nKey details:\n• Location: Lausanne, CH, VD canton, Switzerland\n• Employer: Nestlé — world's largest food and beverage company\n• Apply on: Nestlé careers portal\n\nThis listing is part of Nestlé’s official Swiss careers feed. Review the role requirements, team context, contract details, and application instructions directly on the Nestlé job page before applying. The position is kept in this dataset only while the official careers portal keeps the requisition active.",
-      "descriptionByLocale": {
-        "it": "Electrical & Automation Technician — Nestlé, Lausanne, CH. Key details:\n• Location: Lausanne, CH, VD canton, Switzerland\n• Employer: Nestlé — world's largest food and beverage company\n• Apply on: Nestlé careers portal This listing is part of Nestlé’s official Swiss careers feed. Review the role requirements, team context, contract details, and application instructions directly on the Nestlé job page before applying. The position is kept in this dataset only while the official careers portal keeps the requisition active.",
-        "en": "Electrical & Automation Technician — Nestlé, Lausanne, CH. Key details:\n• Location: Lausanne, CH, VD canton, Switzerland\n• Employer: Nestlé — world's largest food and beverage company\n• Apply on: Nestlé careers portal This listing is part of Nestlé’s official Swiss careers feed. Review the role requirements, team context, contract details, and application instructions directly on the Nestlé job page before applying. The position is kept in this dataset only while the official careers portal keeps the requisition active.",
-        "de": "Electrical & Automation Technician — Nestlé, Lausanne, CH. Key details:\n• Location: Lausanne, CH, VD canton, Switzerland\n• Employer: Nestlé — world's largest food and beverage company\n• Apply on: Nestlé careers portal This listing is part of Nestlé’s official Swiss careers feed. Review the role requirements, team context, contract details, and application instructions directly on the Nestlé job page before applying. The position is kept in this dataset only while the official careers portal keeps the requisition active.",
-        "fr": "Electrical & Automation Technician — Nestlé, Lausanne, CH. Key details:\n• Location: Lausanne, CH, VD canton, Switzerland\n• Employer: Nestlé — world's largest food and beverage company\n• Apply on: Nestlé careers portal This listing is part of Nestlé’s official Swiss careers feed. Review the role requirements, team context, contract details, and application instructions directly on the Nestlé job page before applying. The position is kept in this dataset only while the official careers portal keeps the requisition active."
-      },
-      "location": "Lausanne, CH",
-      "canton": "VD",
-      "url": "https://jobdetails.nestle.com/job/Lausanne-Electrical-&-Automation-Technician/1388469333/",
-      "source": "Nestlé Switzerland Dedicated Parser (Workday)",
-      "sourceLang": "en",
-      "crawledAt": "2026-05-26T23:45:09.652Z",
-      "addressLocality": "Lausanne, CH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Tecnica",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Food / Beverage",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-28",
-      "applyUrl": "https://jobdetails.nestle.com/job/Lausanne-Electrical-&-Automation-Technician/1388469333/",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-05-25T13:33:56.258Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "1003"
+      "postalCode": "4001"
     },
     {
       "id": "nestle-1388870033",
@@ -1000,7 +944,7 @@
       "url": "https://jobdetails.nestle.com/job/Romont-Technicien-de-maintenance-en-horaire-d'%C3%A9quipe-4x8-%28HFD%29/1388870033/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-26T23:45:09.017Z",
+      "crawledAt": "2026-05-27T13:23:43.997Z",
       "addressLocality": "Romont, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -1061,7 +1005,7 @@
       "url": "https://jobdetails.nestle.com/job/Romont-Technicien-de-maintenance-en-journ%C3%A9e-%28HFD%29/1388867533/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-26T23:45:08.363Z",
+      "crawledAt": "2026-05-27T13:23:43.324Z",
       "addressLocality": "Romont, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -1122,7 +1066,7 @@
       "url": "https://jobdetails.nestle.com/job/Wangen-Teamleiterin-Produktion-%283-Schicht%29/1388899233/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-26T23:45:07.685Z",
+      "crawledAt": "2026-05-27T13:23:42.668Z",
       "addressLocality": "Wangen, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -1183,7 +1127,7 @@
       "url": "https://jobdetails.nestle.com/job/Zug-Senior-Coffee-Specialist/1389579533/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-26T23:45:07.076Z",
+      "crawledAt": "2026-05-27T13:23:41.997Z",
       "addressLocality": "Zug, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -1255,7 +1199,7 @@
       "url": "https://jobdetails.nestle.com/job/Vevey-Audit-Manager/1389798633/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-26T23:45:06.435Z",
+      "crawledAt": "2026-05-27T13:23:41.346Z",
       "addressLocality": "Vevey, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -1270,6 +1214,17 @@
       "applyUrl": "https://jobdetails.nestle.com/job/Vevey-Audit-Manager/1389798633/",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugsByLocale": {
+        "en": [
+          "audit-manager-nestle-ch"
+        ],
+        "it": [
+          "audit-manager-nestle-ch"
+        ]
+      },
+      "previousSlugs": [
+        "audit-manager-nestle-ch"
+      ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-25T13:33:52.775Z",
       "salaryMin": 68000,
@@ -1284,15 +1239,7 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1800",
-      "previousSlugsByLocale": {
-        "it": [
-          "audit-manager-nestle-ch"
-        ]
-      },
-      "previousSlugs": [
-        "audit-manager-nestle-ch"
-      ]
+      "postalCode": "1800"
     },
     {
       "id": "nestle-1389544733",
@@ -1325,7 +1272,7 @@
       "url": "https://jobdetails.nestle.com/job/Lausanne-R&D-Laboratory-Technician/1389544733/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-26T23:45:05.808Z",
+      "crawledAt": "2026-05-27T13:23:40.668Z",
       "addressLocality": "Lausanne, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -1387,7 +1334,7 @@
       "url": "https://jobdetails.nestle.com/job/Konolfingen-Data-Science-Specialist/1381829433/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-26T23:45:05.194Z",
+      "crawledAt": "2026-05-27T13:23:39.997Z",
       "addressLocality": "Konolfingen, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -1463,7 +1410,7 @@
       "url": "https://jobdetails.nestle.com/job/Henniez-Production-&-MRP-Planner/1390417333/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-26T23:45:04.591Z",
+      "crawledAt": "2026-05-27T13:23:39.300Z",
       "addressLocality": "Henniez, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -1478,6 +1425,14 @@
       "applyUrl": "https://jobdetails.nestle.com/job/Henniez-Production-&-MRP-Planner/1390417333/",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "production-mrp-planner-nestle-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "production-mrp-planner-nestle-ch"
+        ]
+      },
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-25T13:33:50.704Z",
       "salaryMin": 49500,
@@ -1491,15 +1446,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "production-mrp-planner-nestle-ch"
-        ]
-      },
-      "previousSlugs": [
-        "production-mrp-planner-nestle-ch"
-      ]
+      }
     },
     {
       "id": "nestle-1390964833",
@@ -1532,7 +1479,7 @@
       "url": "https://jobdetails.nestle.com/job/Lausanne-Packaging-Material-Science-Specialist-%28recycled-PET%29/1390964833/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-26T23:45:03.956Z",
+      "crawledAt": "2026-05-27T13:23:38.667Z",
       "addressLocality": "Lausanne, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -1608,7 +1555,7 @@
       "url": "https://jobdetails.nestle.com/job/Vevey-Adult-Nutrition-Strategy-Manager/1390821633/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-26T23:45:03.296Z",
+      "crawledAt": "2026-05-27T13:23:38.014Z",
       "addressLocality": "Vevey, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -1623,6 +1570,14 @@
       "applyUrl": "https://jobdetails.nestle.com/job/Vevey-Adult-Nutrition-Strategy-Manager/1390821633/",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "adult-nutrition-strategy-manager-nestle-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "adult-nutrition-strategy-manager-nestle-ch"
+        ]
+      },
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-25T13:33:49.303Z",
       "salaryMin": 68000,
@@ -1637,15 +1592,7 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1800",
-      "previousSlugsByLocale": {
-        "it": [
-          "adult-nutrition-strategy-manager-nestle-ch"
-        ]
-      },
-      "previousSlugs": [
-        "adult-nutrition-strategy-manager-nestle-ch"
-      ]
+      "postalCode": "1800"
     },
     {
       "id": "nestle-1384575533",
@@ -1678,7 +1625,7 @@
       "url": "https://jobdetails.nestle.com/job/Orbe-Connectivity-Intern/1384575533/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-26T23:45:02.627Z",
+      "crawledAt": "2026-05-27T13:23:37.337Z",
       "addressLocality": "Orbe, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -1739,7 +1686,7 @@
       "companyDomain": "nestle.com",
       "title": "MPS & MRP Planner",
       "titleByLocale": {
-        "it": "Pianificatore MPS e MRP",
+        "it": "MPS & MRP Planner",
         "en": "MPS & MRP Planner",
         "de": "MPS & MRP Planner",
         "fr": "MPS & MRP Planner"
@@ -1756,7 +1703,7 @@
       "url": "https://jobdetails.nestle.com/job/Avenches-MPS-&-MRP-Planner/1385532533/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-26T23:45:01.987Z",
+      "crawledAt": "2026-05-27T13:23:36.686Z",
       "addressLocality": "Avenches, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -1817,7 +1764,7 @@
       "url": "https://jobdetails.nestle.com/job/Henniez-Apprenti-e-Logisticien-ne/1129755301/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-26T23:45:01.304Z",
+      "crawledAt": "2026-05-27T13:23:36.017Z",
       "addressLocality": "Henniez, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -1832,28 +1779,31 @@
       "applyUrl": "https://jobdetails.nestle.com/job/Henniez-Apprenti-e-Logisticien-ne/1129755301/",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-05-25T13:33:46.557Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
       "previousSlugsByLocale": {
+        "en": [
+          "apprenti-e-logisticien-ne-nestle-ch"
+        ],
         "it": [
           "apprenti-e-logisticien-ne-nestle-ch"
         ]
       },
       "previousSlugs": [
         "apprenti-e-logisticien-ne-nestle-ch"
-      ]
+      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-25T13:33:46.557Z",
+      "salaryMin": 41600,
+      "salaryMax": 63000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 41600,
+          "maxValue": 63000,
+          "unitText": "YEAR"
+        }
+      }
     },
     {
       "id": "nestle-978712801",
@@ -1886,7 +1836,7 @@
       "url": "https://jobdetails.nestle.com/job/Henniez-Apprenti-e-Op%C3%A9rateur-trice-de-machines-automatis%C3%A9es/978712801/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-26T23:45:00.675Z",
+      "crawledAt": "2026-05-27T13:23:35.376Z",
       "addressLocality": "Henniez, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -1901,28 +1851,28 @@
       "applyUrl": "https://jobdetails.nestle.com/job/Henniez-Apprenti-e-Op%C3%A9rateur-trice-de-machines-automatis%C3%A9es/978712801/",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-05-25T13:33:45.862Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
+      "previousSlugs": [
+        "apprenti-e-operateur-trice-de-machines-automatisees-nestle-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "apprenti-e-operateur-trice-de-machines-automatisees-nestle-ch"
         ]
       },
-      "previousSlugs": [
-        "apprenti-e-operateur-trice-de-machines-automatisees-nestle-ch"
-      ]
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-25T13:33:45.862Z",
+      "salaryMin": 41600,
+      "salaryMax": 63000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 41600,
+          "maxValue": 63000,
+          "unitText": "YEAR"
+        }
+      }
     },
     {
       "id": "nestle-978705001",
@@ -1955,7 +1905,7 @@
       "url": "https://jobdetails.nestle.com/job/Henniez-Apprenti-e-Technologue-du-Brassage-et-des-Boissons/978705001/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-26T23:45:00.029Z",
+      "crawledAt": "2026-05-27T13:23:34.726Z",
       "addressLocality": "Henniez, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -1970,28 +1920,28 @@
       "applyUrl": "https://jobdetails.nestle.com/job/Henniez-Apprenti-e-Technologue-du-Brassage-et-des-Boissons/978705001/",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-05-25T13:33:45.157Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
+      "previousSlugs": [
+        "apprenti-e-technologue-du-brassage-et-des-boissons-nestle-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "apprenti-e-technologue-du-brassage-et-des-boissons-nestle-ch"
         ]
       },
-      "previousSlugs": [
-        "apprenti-e-technologue-du-brassage-et-des-boissons-nestle-ch"
-      ]
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-25T13:33:45.157Z",
+      "salaryMin": 41600,
+      "salaryMax": 63000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 41600,
+          "maxValue": 63000,
+          "unitText": "YEAR"
+        }
+      }
     },
     {
       "id": "nestle-1245919801",
@@ -2024,7 +1974,7 @@
       "url": "https://jobdetails.nestle.com/job/Romont-Stagiaire-SHE-%28HFD%29/1245919801/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-26T23:44:59.368Z",
+      "crawledAt": "2026-05-27T13:23:34.071Z",
       "addressLocality": "Romont, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -2052,67 +2002,6 @@
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-25T13:33:44.479Z",
-      "salaryMin": 41600,
-      "salaryMax": 63000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 41600,
-          "maxValue": 63000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "nestle-1378808633",
-      "slug": "stagiaire-ingenieur-qualite-h-f-d-nestle-ch",
-      "slugByLocale": {
-        "it": "stagiaire-ingenieur-qualite-h-f-d-nestle-ch",
-        "en": "stagiaire-ingenieur-qualite-h-f-d-nestle-ch",
-        "de": "stagiaire-ingenieur-qualite-h-f-d-nestle-ch",
-        "fr": "stagiaire-ingenieur-qualite-h-f-d-nestle-ch"
-      },
-      "company": "Nestlé",
-      "companyKey": "nestle",
-      "companyDomain": "nestle.com",
-      "title": "Stagiaire Ingénieur Qualité (H/F/D)",
-      "titleByLocale": {
-        "it": "Stagiaire Ingénieur Qualité (f/m/d)",
-        "en": "Stagiaire Ingénieur Qualité (H/F/D)",
-        "de": "Stagiaire Ingénieur Qualité (H/F/D)",
-        "fr": "Stagiaire Ingénieur Qualité (H/F/D)"
-      },
-      "description": "Chez Nespresso Suisse nous pensons qu’il est possible d’élever l’univers du café et nous voulons contribuer positivement à changer les vies et les paysages pour le mieux. Élu meilleur employeur 2025, nous plaçons chacun de nos 14 000 collaborateurs, sans exception, au cœur de notre réussite. Pour y parvenir, nous adoptons quatre comportements essentiels : « We Inspire, we Care, we Act, and we iNnovate ». Et vous ? Voulez-vous nous accompagner dans cette aventure passionnante ? Rejoignez l’équipe Nespresso ! Et réimaginez la nature du café. Réimaginez votre avenir.\n\nInstantané du poste\n\nLieu : Stage proposé sur le site d’Orbe Switzerland\nEntité : Centre de Production Nespresso\nDurée : Contrat de stage de 6 mois\nDate de démarrage souhaitée : Septembre 2026\n\nCe que nous offrons chez Nespresso\n\nDe réelles opportunités d’évolution de carrière et de développement personnel\nUn cadre de travail flexible facilitant la créativité et la collaboration\nUne culture fondée sur la bienveillance et l’inclusivité, où chacun peut être soi-même\nLa qualité et la durabilité au cœur de notre identité et une vision essentielle pour favoriser le changement positif L’opportunité de travailler pour une entreprise certifiée B Corp, et l'une des marques les plus fiables et appréciées à l’échelle mondiale.\n\nAu cours du processus de recrutement, n’hésitez pas à nous en parler pour en savoir plus !\n\nDécouvrez notre page Linkedin : Nespresso Centres de production\nDécouvrez nos métiers : Métiers Nespresso - YouTube\n\nRésumé du poste\n\nEn tant que Stagiaire Ingénieur(e) qualité (H/F/D) , vous aurez pour missions de leader un projet qualité du début à la fin.\n\nUne journée dans la vie d’un(e) Stagiaire Ingénieur(e) qualité (H/F/D)\n\n•\n• Piloter des projets d’amélioration continue en production, avec un focus particulier sur la qualité et l’hygiène.\n• Revoir et optimiser les processus internes, en mettant l’accent sur la digitalisation.\n• Introduire et appliquer les meilleures pratiques, de l’expérience interne ou externe, afin de réduire efficacement les risques d’hygiène autour des lignes de production.\n• Contribuer à la formation et à la sensibilisation des opérateurs sur les enjeux de qualité, d’hygiène et de digitalisation.\n• Assurer la mise à jour et la gestion documentaire qualité sur les plateformes digitales (ex. : SharePoint).\n• Réaliser des audits internes ou des analyses de risques pour identifier et anticiper les axes d’amélioration.\n\nVos atouts pour réussir\n\n• Élève ingénieur/e, doté(e) d’une forte motivation et d’un esprit dynamique.\n• Excellentes compétences en communication et en collaboration, avec une capacité à travailler efficacement en équipe.\n• Maîtrise des outils digitaux et intérêt marqué pour la digitalisation des processus industriels.\n• Compétences en data science : capacité à collecter, analyser et interpréter des données pour soutenir l’amélioration continue et la prise de décision.\n• Solides connaissances des méthodes de résolution de problèmes.\n• Esprit d’initiative et capacité à mener des projets concrets avec énergie et orientation vers l’amélioration continue et l’innovation.\n• Maîtrise du français et de l’anglais (niveau B2 minimum)\n\nChez Nespresso, nous avons bâti une culture fondée sur la bienveillance et l’inclusion, où chacun peut être soi-même, tout en grandissant aux côtés de l’entreprise. Nous innovons, osons essayer, apprenons et grandissons dans un environnement numérique et connecté où tout va très vite. Au sein d’une équipe diverse regroupant plus de 90 nationalités dans 58 pays, vous pouvez prendre part à une culture innovante, dans laquelle les personnes n’hésitent pas à s’entraider. Une culture dans laquelle chacun est encouragé à remettre en question le statu quo et à définir l’avenir d’une des plus grandes entreprises durables. Quel que soit le rôle que vous jouerez, vous découvrirez que vous pouvez réellement changer les choses et partager votre enthousiasme. Rejoig",
-      "descriptionByLocale": {
-        "it": "Chez Nespresso Suisse nous pensons qu’il est possible d’élever l’univers du café et nous voulons contribuer positivement à changer les vies et les paysages pour le mieux. Élu meilleur employeur 2025, nous plaçons chacun de nos 14 000 collaborateurs, sans exception, au cœur de notre réussite. Pour y parvenir, nous adoptons quatre comportements essentiels : « We Inspire, we Care, we Act, and we iNnovate ». Et vous ? Voulez-vous nous accompagner dans cette aventure passionnante ? Rejoignez l’équipe Nespresso ! Et réimaginez la nature du café. Réimaginez votre avenir. Instantané du poste Lieu : Stage proposé sur le site d’Orbe Switzerland Entité : Centre de Production Nespresso Durée : Contrat de stage de 6 mois Date de démarrage souhaitée : Septembre 2026 Ce que nous offrons chez Nespresso De réelles opportunités d’évolution de carrière et de développement personnel Un cadre de travail flexible facilitant la créativité et la collaboration Une culture fondée sur la bienveillance et l’inclusivité, où chacun peut être soi-même La qualité et la durabilité au cœur de notre identité et une vision essentielle pour favoriser le changement positif L’opportunité de travailler pour une entreprise certifiée B Corp, et l'une des marques les plus fiables et appréciées à l’échelle mondiale. Au cours du processus de recrutement, n’hésitez pas à nous en parler pour en savoir plus ! Découvrez notre page Linkedin : Nespresso Centres de production Découvrez nos métiers : Métiers Nespresso - YouTube Résumé du poste En tant que Stagiaire Ingénieur(e) qualité (H/F/D) , vous aurez pour missions de leader un projet qualité du début à la fin. Une journée dans la vie d’un(e) Stagiaire Ingénieur(e) qualité (H/F/D)\n• • Piloter des projets d’amélioration continue en production, avec un focus particulier sur la qualité et l’hygiène.\n• Revoir et optimiser les processus internes, en mettant l’accent sur la digitalisation.\n• Introduire et appliquer les meilleures pratiques, de l’expérience interne ou externe, afin de réduire efficacement les risques d’hygiène autour des lignes de production.\n• Contribuer à la formation et à la sensibilisation des opérateurs sur les enjeux de qualité, d’hygiène et de digitalisation.\n• Assurer la mise à jour et la gestion documentaire qualité sur les plateformes digitales (ex. : SharePoint).\n• Réaliser des audits internes ou des analyses de risques pour identifier et anticiper les axes d’amélioration. Vos atouts pour réussir\n• Élève ingénieur/e, doté(e) d’une forte motivation et d’un esprit dynamique.\n• Excellentes compétences en communication et en collaboration, avec une capacité à travailler efficacement en équipe.\n• Maîtrise des outils digitaux et intérêt marqué pour la digitalisation des processus industriels.\n• Compétences en data science : capacité à collecter, analyser et interpréter des données pour soutenir l’amélioration continue et la prise de décision.\n• Solides connaissances des méthodes de résolution de problèmes.\n• Esprit d’initiative et capacité à mener des projets concrets avec énergie et orientation vers l’amélioration continue et l’innovation.\n• Maîtrise du français et de l’anglais (niveau B2 minimum) Chez Nespresso, nous avons bâti une culture fondée sur la bienveillance et l’inclusion, où chacun peut être soi-même, tout en grandissant aux côtés de l’entreprise. Nous innovons, osons essayer, apprenons et grandissons dans un environnement numérique et connecté où tout va très vite. Au sein d’une équipe diverse regroupant plus de 90 nationalités dans 58 pays, vous pouvez prendre part à une culture innovante, dans laquelle les personnes n’hésitent pas à s’entraider. Une culture dans laquelle chacun est encouragé à remettre en question le statu quo et à définir l’avenir d’une des plus grandes entreprises durables. Quel que soit le rôle que vous jouerez, vous découvrirez que vous pouvez réellement changer les choses et partager votre enthousiasme. Rejoig",
-        "en": "Chez Nespresso Suisse nous pensons qu’il est possible d’élever l’univers du café et nous voulons contribuer positivement à changer les vies et les paysages pour le mieux. Élu meilleur employeur 2025, nous plaçons chacun de nos 14 000 collaborateurs, sans exception, au cœur de notre réussite. Pour y parvenir, nous adoptons quatre comportements essentiels : « We Inspire, we Care, we Act, and we iNnovate ». Et vous ? Voulez-vous nous accompagner dans cette aventure passionnante ? Rejoignez l’équipe Nespresso ! Et réimaginez la nature du café. Réimaginez votre avenir. Instantané du poste Lieu : Stage proposé sur le site d’Orbe Switzerland Entité : Centre de Production Nespresso Durée : Contrat de stage de 6 mois Date de démarrage souhaitée : Septembre 2026 Ce que nous offrons chez Nespresso De réelles opportunités d’évolution de carrière et de développement personnel Un cadre de travail flexible facilitant la créativité et la collaboration Une culture fondée sur la bienveillance et l’inclusivité, où chacun peut être soi-même La qualité et la durabilité au cœur de notre identité et une vision essentielle pour favoriser le changement positif L’opportunité de travailler pour une entreprise certifiée B Corp, et l'une des marques les plus fiables et appréciées à l’échelle mondiale. Au cours du processus de recrutement, n’hésitez pas à nous en parler pour en savoir plus ! Découvrez notre page Linkedin : Nespresso Centres de production Découvrez nos métiers : Métiers Nespresso - YouTube Résumé du poste En tant que Stagiaire Ingénieur(e) qualité (H/F/D) , vous aurez pour missions de leader un projet qualité du début à la fin. Une journée dans la vie d’un(e) Stagiaire Ingénieur(e) qualité (H/F/D)\n• • Piloter des projets d’amélioration continue en production, avec un focus particulier sur la qualité et l’hygiène.\n• Revoir et optimiser les processus internes, en mettant l’accent sur la digitalisation.\n• Introduire et appliquer les meilleures pratiques, de l’expérience interne ou externe, afin de réduire efficacement les risques d’hygiène autour des lignes de production.\n• Contribuer à la formation et à la sensibilisation des opérateurs sur les enjeux de qualité, d’hygiène et de digitalisation.\n• Assurer la mise à jour et la gestion documentaire qualité sur les plateformes digitales (ex. : SharePoint).\n• Réaliser des audits internes ou des analyses de risques pour identifier et anticiper les axes d’amélioration. Vos atouts pour réussir\n• Élève ingénieur/e, doté(e) d’une forte motivation et d’un esprit dynamique.\n• Excellentes compétences en communication et en collaboration, avec une capacité à travailler efficacement en équipe.\n• Maîtrise des outils digitaux et intérêt marqué pour la digitalisation des processus industriels.\n• Compétences en data science : capacité à collecter, analyser et interpréter des données pour soutenir l’amélioration continue et la prise de décision.\n• Solides connaissances des méthodes de résolution de problèmes.\n• Esprit d’initiative et capacité à mener des projets concrets avec énergie et orientation vers l’amélioration continue et l’innovation.\n• Maîtrise du français et de l’anglais (niveau B2 minimum) Chez Nespresso, nous avons bâti une culture fondée sur la bienveillance et l’inclusion, où chacun peut être soi-même, tout en grandissant aux côtés de l’entreprise. Nous innovons, osons essayer, apprenons et grandissons dans un environnement numérique et connecté où tout va très vite. Au sein d’une équipe diverse regroupant plus de 90 nationalités dans 58 pays, vous pouvez prendre part à une culture innovante, dans laquelle les personnes n’hésitent pas à s’entraider. Une culture dans laquelle chacun est encouragé à remettre en question le statu quo et à définir l’avenir d’une des plus grandes entreprises durables. Quel que soit le rôle que vous jouerez, vous découvrirez que vous pouvez réellement changer les choses et partager votre enthousiasme. Rejoig",
-        "de": "Chez Nespresso Suisse nous pensons qu’il est possible d’élever l’univers du café et nous voulons contribuer positivement à changer les vies et les paysages pour le mieux. Élu meilleur employeur 2025, nous plaçons chacun de nos 14 000 collaborateurs, sans exception, au cœur de notre réussite. Pour y parvenir, nous adoptons quatre comportements essentiels : « We Inspire, we Care, we Act, and we iNnovate ». Et vous ? Voulez-vous nous accompagner dans cette aventure passionnante ? Rejoignez l’équipe Nespresso ! Et réimaginez la nature du café. Réimaginez votre avenir. Instantané du poste Lieu : Stage proposé sur le site d’Orbe Switzerland Entité : Centre de Production Nespresso Durée : Contrat de stage de 6 mois Date de démarrage souhaitée : Septembre 2026 Ce que nous offrons chez Nespresso De réelles opportunités d’évolution de carrière et de développement personnel Un cadre de travail flexible facilitant la créativité et la collaboration Une culture fondée sur la bienveillance et l’inclusivité, où chacun peut être soi-même La qualité et la durabilité au cœur de notre identité et une vision essentielle pour favoriser le changement positif L’opportunité de travailler pour une entreprise certifiée B Corp, et l'une des marques les plus fiables et appréciées à l’échelle mondiale. Au cours du processus de recrutement, n’hésitez pas à nous en parler pour en savoir plus ! Découvrez notre page Linkedin : Nespresso Centres de production Découvrez nos métiers : Métiers Nespresso - YouTube Résumé du poste En tant que Stagiaire Ingénieur(e) qualité (H/F/D) , vous aurez pour missions de leader un projet qualité du début à la fin. Une journée dans la vie d’un(e) Stagiaire Ingénieur(e) qualité (H/F/D)\n• • Piloter des projets d’amélioration continue en production, avec un focus particulier sur la qualité et l’hygiène.\n• Revoir et optimiser les processus internes, en mettant l’accent sur la digitalisation.\n• Introduire et appliquer les meilleures pratiques, de l’expérience interne ou externe, afin de réduire efficacement les risques d’hygiène autour des lignes de production.\n• Contribuer à la formation et à la sensibilisation des opérateurs sur les enjeux de qualité, d’hygiène et de digitalisation.\n• Assurer la mise à jour et la gestion documentaire qualité sur les plateformes digitales (ex. : SharePoint).\n• Réaliser des audits internes ou des analyses de risques pour identifier et anticiper les axes d’amélioration. Vos atouts pour réussir\n• Élève ingénieur/e, doté(e) d’une forte motivation et d’un esprit dynamique.\n• Excellentes compétences en communication et en collaboration, avec une capacité à travailler efficacement en équipe.\n• Maîtrise des outils digitaux et intérêt marqué pour la digitalisation des processus industriels.\n• Compétences en data science : capacité à collecter, analyser et interpréter des données pour soutenir l’amélioration continue et la prise de décision.\n• Solides connaissances des méthodes de résolution de problèmes.\n• Esprit d’initiative et capacité à mener des projets concrets avec énergie et orientation vers l’amélioration continue et l’innovation.\n• Maîtrise du français et de l’anglais (niveau B2 minimum) Chez Nespresso, nous avons bâti une culture fondée sur la bienveillance et l’inclusion, où chacun peut être soi-même, tout en grandissant aux côtés de l’entreprise. Nous innovons, osons essayer, apprenons et grandissons dans un environnement numérique et connecté où tout va très vite. Au sein d’une équipe diverse regroupant plus de 90 nationalités dans 58 pays, vous pouvez prendre part à une culture innovante, dans laquelle les personnes n’hésitent pas à s’entraider. Une culture dans laquelle chacun est encouragé à remettre en question le statu quo et à définir l’avenir d’une des plus grandes entreprises durables. Quel que soit le rôle que vous jouerez, vous découvrirez que vous pouvez réellement changer les choses et partager votre enthousiasme. Rejoig",
-        "fr": "Chez Nespresso Suisse nous pensons qu’il est possible d’élever l’univers du café et nous voulons contribuer positivement à changer les vies et les paysages pour le mieux. Élu meilleur employeur 2025, nous plaçons chacun de nos 14 000 collaborateurs, sans exception, au cœur de notre réussite. Pour y parvenir, nous adoptons quatre comportements essentiels : « We Inspire, we Care, we Act, and we iNnovate ». Et vous ? Voulez-vous nous accompagner dans cette aventure passionnante ? Rejoignez l’équipe Nespresso ! Et réimaginez la nature du café. Réimaginez votre avenir. Instantané du poste Lieu : Stage proposé sur le site d’Orbe Switzerland Entité : Centre de Production Nespresso Durée : Contrat de stage de 6 mois Date de démarrage souhaitée : Septembre 2026 Ce que nous offrons chez Nespresso De réelles opportunités d’évolution de carrière et de développement personnel Un cadre de travail flexible facilitant la créativité et la collaboration Une culture fondée sur la bienveillance et l’inclusivité, où chacun peut être soi-même La qualité et la durabilité au cœur de notre identité et une vision essentielle pour favoriser le changement positif L’opportunité de travailler pour une entreprise certifiée B Corp, et l'une des marques les plus fiables et appréciées à l’échelle mondiale. Au cours du processus de recrutement, n’hésitez pas à nous en parler pour en savoir plus ! Découvrez notre page Linkedin : Nespresso Centres de production Découvrez nos métiers : Métiers Nespresso - YouTube Résumé du poste En tant que Stagiaire Ingénieur(e) qualité (H/F/D) , vous aurez pour missions de leader un projet qualité du début à la fin. Une journée dans la vie d’un(e) Stagiaire Ingénieur(e) qualité (H/F/D)\n• • Piloter des projets d’amélioration continue en production, avec un focus particulier sur la qualité et l’hygiène.\n• Revoir et optimiser les processus internes, en mettant l’accent sur la digitalisation.\n• Introduire et appliquer les meilleures pratiques, de l’expérience interne ou externe, afin de réduire efficacement les risques d’hygiène autour des lignes de production.\n• Contribuer à la formation et à la sensibilisation des opérateurs sur les enjeux de qualité, d’hygiène et de digitalisation.\n• Assurer la mise à jour et la gestion documentaire qualité sur les plateformes digitales (ex. : SharePoint).\n• Réaliser des audits internes ou des analyses de risques pour identifier et anticiper les axes d’amélioration. Vos atouts pour réussir\n• Élève ingénieur/e, doté(e) d’une forte motivation et d’un esprit dynamique.\n• Excellentes compétences en communication et en collaboration, avec une capacité à travailler efficacement en équipe.\n• Maîtrise des outils digitaux et intérêt marqué pour la digitalisation des processus industriels.\n• Compétences en data science : capacité à collecter, analyser et interpréter des données pour soutenir l’amélioration continue et la prise de décision.\n• Solides connaissances des méthodes de résolution de problèmes.\n• Esprit d’initiative et capacité à mener des projets concrets avec énergie et orientation vers l’amélioration continue et l’innovation.\n• Maîtrise du français et de l’anglais (niveau B2 minimum) Chez Nespresso, nous avons bâti une culture fondée sur la bienveillance et l’inclusion, où chacun peut être soi-même, tout en grandissant aux côtés de l’entreprise. Nous innovons, osons essayer, apprenons et grandissons dans un environnement numérique et connecté où tout va très vite. Au sein d’une équipe diverse regroupant plus de 90 nationalités dans 58 pays, vous pouvez prendre part à une culture innovante, dans laquelle les personnes n’hésitent pas à s’entraider. Une culture dans laquelle chacun est encouragé à remettre en question le statu quo et à définir l’avenir d’une des plus grandes entreprises durables. Quel que soit le rôle que vous jouerez, vous découvrirez que vous pouvez réellement changer les choses et partager votre enthousiasme. Rejoig"
-      },
-      "location": "Orbe, CH",
-      "canton": "VD",
-      "url": "https://jobdetails.nestle.com/job/Orbe-Stagiaire-Ing%C3%A9nieur-Qualit%C3%A9-%28HFD%29/1378808633/",
-      "source": "Nestlé Switzerland Dedicated Parser (Workday)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-05-26T23:44:58.736Z",
-      "addressLocality": "Orbe, CH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Qualità",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "intern",
-      "sector": "Food / Beverage",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-28",
-      "applyUrl": "https://jobdetails.nestle.com/job/Orbe-Stagiaire-Ing%C3%A9nieur-Qualit%C3%A9-%28HFD%29/1378808633/",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-05-25T13:33:43.791Z",
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -2157,7 +2046,7 @@
       "url": "https://jobdetails.nestle.com/job/Vevey-Senior-Corporate-Spokesperson/1380259733/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-26T23:44:58.046Z",
+      "crawledAt": "2026-05-27T13:23:33.439Z",
       "addressLocality": "Vevey, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -2172,6 +2061,14 @@
       "applyUrl": "https://jobdetails.nestle.com/job/Vevey-Senior-Corporate-Spokesperson/1380259733/",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "senior-corporate-spokesperson-nestle-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-corporate-spokesperson-nestle-ch"
+        ]
+      },
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-25T13:33:42.431Z",
       "salaryMin": 68000,
@@ -2186,90 +2083,7 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1800",
-      "previousSlugsByLocale": {
-        "it": [
-          "senior-corporate-spokesperson-nestle-ch"
-        ]
-      },
-      "previousSlugs": [
-        "senior-corporate-spokesperson-nestle-ch"
-      ]
-    },
-    {
-      "id": "nestle-1378828933",
-      "slug": "senior-r-d-specialista-new-system-components-nestle-orbe-ch",
-      "slugByLocale": {
-        "it": "senior-r-d-specialista-new-system-components-nestle-orbe-ch",
-        "en": "senior-r-d-specialist-new-system-components-nestle-ch",
-        "de": "senior-r-d-spezialist-new-system-components-nestle-orbe-ch",
-        "fr": "senior-r-d-specialiste-new-system-components-nestle-orbe-ch"
-      },
-      "company": "Nestlé",
-      "companyKey": "nestle",
-      "companyDomain": "nestle.com",
-      "title": "Senior R&D Specialist New System Components",
-      "titleByLocale": {
-        "it": "Senior R&D Specialista New System Components",
-        "en": "Senior R&D Specialist New System Components",
-        "de": "Senior R&D Spezialist New System Components",
-        "fr": "Senior R&D Spécialiste New System Components"
-      },
-      "description": "The Nestlé Deep Tech Center is where we develop and evaluate cutting-edge technologies to accelerate Nestlé’s global innovation mission and shape the future of food and beverage at scale. Leveraging advanced robotics, new technologies, sensors, AI, machine learning and digital twins, we are driving smarter manufacturing, delivering breakthrough consumer experiences, and maximizing our research and innovation capabilities. Every project here connects you to Nestlé’s purpose: unlocking the power of food & beverage to enhance quality of life for individuals, families, communities, and the planet, today and for generations to come.",
-      "descriptionByLocale": {
-        "it": "The Nestlé Deep Tech Center is where we develop and evaluate cutting-edge technologies to accelerate Nestlé’s global innovation mission and shape the future of food and beverage at scale. Leveraging advanced robotics, new technologies, sensors, AI, machine learning and digital twins, we are driving smarter manufacturing, delivering breakthrough consumer experiences, and maximizing our research and innovation capabilities. Every project here connects you to Nestlé’s purpose: unlocking the power of food & beverage to enhance quality of life for individuals, families, communities, and the planet, today and for generations to come.",
-        "en": "The Nestlé Deep Tech Center is where we develop and evaluate cutting-edge technologies to accelerate Nestlé’s global innovation mission and shape the future of food and beverage at scale. Leveraging advanced robotics, new technologies, sensors, AI, machine learning and digital twins, we are driving smarter manufacturing, delivering breakthrough consumer experiences, and maximizing our research and innovation capabilities. Every project here connects you to Nestlé’s purpose: unlocking the power of food & beverage to enhance quality of life for individuals, families, communities, and the planet, today and for generations to come.",
-        "de": "The Nestlé Deep Tech Center is where we develop and evaluate cutting-edge technologies to accelerate Nestlé’s global innovation mission and shape the future of food and beverage at scale. Leveraging advanced robotics, new technologies, sensors, AI, machine learning and digital twins, we are driving smarter manufacturing, delivering breakthrough consumer experiences, and maximizing our research and innovation capabilities. Every project here connects you to Nestlé’s purpose: unlocking the power of food & beverage to enhance quality of life for individuals, families, communities, and the planet, today and for generations to come.",
-        "fr": "The Nestlé Deep Tech Center is where we develop and evaluate cutting-edge technologies to accelerate Nestlé’s global innovation mission and shape the future of food and beverage at scale. Leveraging advanced robotics, new technologies, sensors, AI, machine learning and digital twins, we are driving smarter manufacturing, delivering breakthrough consumer experiences, and maximizing our research and innovation capabilities. Every project here connects you to Nestlé’s purpose: unlocking the power of food & beverage to enhance quality of life for individuals, families, communities, and the planet, today and for generations to come."
-      },
-      "location": "Orbe, CH",
-      "canton": "VD",
-      "url": "https://jobdetails.nestle.com/job/Orbe-Senior-R&D-Specialist-New-System-Components/1378828933/",
-      "source": "Nestlé Switzerland Dedicated Parser (Workday)",
-      "sourceLang": "en",
-      "crawledAt": "2026-05-26T23:44:57.428Z",
-      "addressLocality": "Orbe, CH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "senior",
-      "sector": "Food / Beverage",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-28",
-      "applyUrl": "https://jobdetails.nestle.com/job/Orbe-Senior-R&D-Specialist-New-System-Components/1378828933/",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "senior-r-d-specialist-new-system-components-nestle-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "senior-r-d-specialist-new-system-components-nestle-ch"
-        ],
-        "de": [
-          "senior-r-d-specialist-new-system-components-nestle-ch"
-        ],
-        "fr": [
-          "senior-r-d-specialist-new-system-components-nestle-ch"
-        ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-05-25T13:33:41.750Z",
-      "salaryMin": 68000,
-      "salaryMax": 103000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68000,
-          "maxValue": 103000,
-          "unitText": "YEAR"
-        }
-      }
+      "postalCode": "1800"
     },
     {
       "id": "nestle-1376955433",
@@ -2302,7 +2116,7 @@
       "url": "https://jobdetails.nestle.com/job/Lausanne-Associate-R&D-Specialist-Flavors/1376955433/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-26T23:44:56.784Z",
+      "crawledAt": "2026-05-27T13:23:32.788Z",
       "addressLocality": "Lausanne, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -2378,7 +2192,7 @@
       "url": "https://jobdetails.nestle.com/job/Konolfingen-Anlagenf%C3%BChrerin-Fill-&-Pack/1375889233/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-26T23:44:56.122Z",
+      "crawledAt": "2026-05-27T13:23:32.158Z",
       "addressLocality": "Konolfingen, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -2393,6 +2207,14 @@
       "applyUrl": "https://jobdetails.nestle.com/job/Konolfingen-Anlagenf%C3%BChrerin-Fill-&-Pack/1375889233/",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "anlagenfuhrer-in-fill-pack-nestle-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "anlagenfuhrer-in-fill-pack-nestle-ch"
+        ]
+      },
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-25T13:33:39.715Z",
       "salaryMin": 49500,
@@ -2407,15 +2229,7 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "3001",
-      "previousSlugsByLocale": {
-        "it": [
-          "anlagenfuhrer-in-fill-pack-nestle-ch"
-        ]
-      },
-      "previousSlugs": [
-        "anlagenfuhrer-in-fill-pack-nestle-ch"
-      ]
+      "postalCode": "3001"
     },
     {
       "id": "nestle-1369989533",
@@ -2448,7 +2262,7 @@
       "url": "https://jobdetails.nestle.com/job/Romont-Op%C3%A9rateur-logistique-%28HFD%29/1369989533/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-26T23:44:55.488Z",
+      "crawledAt": "2026-05-27T13:23:31.537Z",
       "addressLocality": "Romont, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -2517,7 +2331,7 @@
       "url": "https://jobdetails.nestle.com/job/Avenches-Stagiaire-Ing%C3%A9nieur-Engineering-%28HFD%29/1369908233/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-26T23:44:54.825Z",
+      "crawledAt": "2026-05-27T13:23:30.876Z",
       "addressLocality": "Avenches, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -2578,7 +2392,7 @@
       "url": "https://jobdetails.nestle.com/job/Avenches-Stagiaire-Ing%C3%A9nieur-Syst%C3%A8mes-Logistiques-%28HFD%29/1369038433/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-26T23:44:54.187Z",
+      "crawledAt": "2026-05-27T13:23:30.233Z",
       "addressLocality": "Avenches, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -2639,7 +2453,7 @@
       "url": "https://jobdetails.nestle.com/job/Konolfingen-Senior-Engineering-Specialist/1370956633/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-26T23:44:53.531Z",
+      "crawledAt": "2026-05-27T13:23:29.598Z",
       "addressLocality": "Konolfingen, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -2715,7 +2529,7 @@
       "url": "https://jobdetails.nestle.com/job/Vevey-Legal-Counsel-Employment-and-Labour-Law/1365350433/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-26T23:44:52.899Z",
+      "crawledAt": "2026-05-27T13:23:28.953Z",
       "addressLocality": "Vevey, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -2730,6 +2544,14 @@
       "applyUrl": "https://jobdetails.nestle.com/job/Vevey-Legal-Counsel-Employment-and-Labour-Law/1365350433/",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "legal-counsel-employment-and-labour-law-nestle-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "legal-counsel-employment-and-labour-law-nestle-ch"
+        ]
+      },
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-25T13:33:35.577Z",
       "salaryMin": 49500,
@@ -2744,15 +2566,7 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1800",
-      "previousSlugsByLocale": {
-        "it": [
-          "legal-counsel-employment-and-labour-law-nestle-ch"
-        ]
-      },
-      "previousSlugs": [
-        "legal-counsel-employment-and-labour-law-nestle-ch"
-      ]
+      "postalCode": "1800"
     },
     {
       "id": "nestle-1368984133",
@@ -2785,7 +2599,7 @@
       "url": "https://jobdetails.nestle.com/job/Avenches-Stagiaire-ing%C3%A9nieur-am%C3%A9lioration-continue-production-%28HFD%29/1368984133/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-26T23:44:52.263Z",
+      "crawledAt": "2026-05-27T13:23:28.284Z",
       "addressLocality": "Avenches, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -2817,9 +2631,9 @@
     },
     {
       "id": "nestle-1386977033",
-      "slug": "r-d-project-manager-nestle-ch",
+      "slug": "project-manager-r-d-nestle-konolfingen-ch",
       "slugByLocale": {
-        "it": "r-d-project-manager-nestle-ch",
+        "it": "project-manager-r-d-nestle-konolfingen-ch",
         "en": "r-d-project-manager-nestle-konolfingen-ch",
         "de": "r-d-project-manager-nestle-ch",
         "fr": "r-d-project-manager-nestle-ch"
@@ -2846,7 +2660,7 @@
       "url": "https://jobdetails.nestle.com/job/Konolfingen-R&D-Project-Manager/1386977033/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-26T23:44:51.617Z",
+      "crawledAt": "2026-05-27T13:23:27.626Z",
       "addressLocality": "Konolfingen, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -2861,6 +2675,17 @@
       "applyUrl": "https://jobdetails.nestle.com/job/Konolfingen-R&D-Project-Manager/1386977033/",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugsByLocale": {
+        "en": [
+          "r-d-project-manager-nestle-ch"
+        ],
+        "it": [
+          "r-d-project-manager-nestle-ch"
+        ]
+      },
+      "previousSlugs": [
+        "r-d-project-manager-nestle-ch"
+      ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-25T13:33:32.795Z",
       "salaryMin": 68000,
@@ -2908,7 +2733,7 @@
       "url": "https://jobdetails.nestle.com/job/Konolfingen-Anlagenf%C3%BChrerin-Produktion-100/1386110633/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-26T23:44:50.986Z",
+      "crawledAt": "2026-05-27T13:23:26.961Z",
       "addressLocality": "Konolfingen, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -2953,7 +2778,7 @@
       "companyDomain": "nestle.com",
       "title": "Barista / Coffee Bard",
       "titleByLocale": {
-        "it": "Barista / Caffè Bard",
+        "it": "Barista / Coffee Bard",
         "en": "Barista / Coffee Bard",
         "de": "Barista / Coffee Bard",
         "fr": "Barista / Coffee Bard"
@@ -2970,7 +2795,7 @@
       "url": "https://jobdetails.nestle.com/job/Basel-Barista-Coffee-Bard/1381548133/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-26T23:44:50.349Z",
+      "crawledAt": "2026-05-27T13:23:26.317Z",
       "addressLocality": "Basel, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -3032,7 +2857,7 @@
       "url": "https://jobdetails.nestle.com/job/Konolfingen-Global-Product-Development-Manager-Infant-&-Early-Nutrition/1381591733/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-26T23:44:49.682Z",
+      "crawledAt": "2026-05-27T13:23:25.579Z",
       "addressLocality": "Konolfingen, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -3047,6 +2872,14 @@
       "applyUrl": "https://jobdetails.nestle.com/job/Konolfingen-Global-Product-Development-Manager-Infant-&-Early-Nutrition/1381591733/",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "global-product-development-manager-infant-early-nutrition-nestle-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "global-product-development-manager-infant-early-nutrition-nestle-ch"
+        ]
+      },
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-25T13:33:30.769Z",
       "salaryMin": 79500,
@@ -3061,15 +2894,7 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "3001",
-      "previousSlugsByLocale": {
-        "it": [
-          "global-product-development-manager-infant-early-nutrition-nestle-ch"
-        ]
-      },
-      "previousSlugs": [
-        "global-product-development-manager-infant-early-nutrition-nestle-ch"
-      ]
+      "postalCode": "3001"
     },
     {
       "id": "nestle-1383917033",
@@ -3102,7 +2927,7 @@
       "url": "https://jobdetails.nestle.com/job/Avenches-Stagiaire-cost-control-%28HFD%29/1383917033/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-26T23:44:49.051Z",
+      "crawledAt": "2026-05-27T13:23:24.882Z",
       "addressLocality": "Avenches, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -3134,9 +2959,9 @@
     },
     {
       "id": "nestle-1383951133",
-      "slug": "ingenieur-e-digital-performance-nestle-ch",
+      "slug": "ingenieur-e-digitale-e-performance-nestle-henniez-ch",
       "slugByLocale": {
-        "it": "ingenieur-e-digital-performance-nestle-ch",
+        "it": "ingenieur-e-digitale-e-performance-nestle-henniez-ch",
         "en": "ingenieur-e-digital-performance-nestle-ch",
         "de": "ingenieur-e-digital-performance-nestle-ch",
         "fr": "ingenieur-e-digital-performance-nestle-ch"
@@ -3163,7 +2988,7 @@
       "url": "https://jobdetails.nestle.com/job/Henniez-Ing%C3%A9nieur_e-Digital-&-Performance/1383951133/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-26T23:44:48.394Z",
+      "crawledAt": "2026-05-27T13:23:24.138Z",
       "addressLocality": "Henniez, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -3180,6 +3005,14 @@
       "requirementsByLocale": {},
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-25T13:33:29.386Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "ingenieur-e-digital-performance-nestle-ch"
+        ]
+      },
+      "previousSlugs": [
+        "ingenieur-e-digital-performance-nestle-ch"
+      ],
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -3224,7 +3057,7 @@
       "url": "https://jobdetails.nestle.com/job/Konolfingen-Anlagenf%C3%BChrer-in-Special-Products-100/1293641201/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-26T23:44:47.736Z",
+      "crawledAt": "2026-05-27T13:23:23.446Z",
       "addressLocality": "Konolfingen, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -3239,6 +3072,14 @@
       "applyUrl": "https://jobdetails.nestle.com/job/Konolfingen-Anlagenf%C3%BChrer-in-Special-Products-100/1293641201/",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "anlagenfuhrer-in-special-products-100-nestle-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "anlagenfuhrer-in-special-products-100-nestle-ch"
+        ]
+      },
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-25T13:33:28.666Z",
       "salaryMin": 49500,
@@ -3253,21 +3094,13 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "3001",
-      "previousSlugsByLocale": {
-        "it": [
-          "anlagenfuhrer-in-special-products-100-nestle-ch"
-        ]
-      },
-      "previousSlugs": [
-        "anlagenfuhrer-in-special-products-100-nestle-ch"
-      ]
+      "postalCode": "3001"
     },
     {
       "id": "nestle-1160597701",
-      "slug": "stagiaire-pre-heg-ressources-humaines-youth-nestle-ch",
+      "slug": "stagiaire-pre-heg-ressources-humaines-giovani-nestle-lausanne-ch",
       "slugByLocale": {
-        "it": "stagiaire-pre-heg-ressources-humaines-youth-nestle-ch",
+        "it": "stagiaire-pre-heg-ressources-humaines-giovani-nestle-lausanne-ch",
         "en": "stagiaire-pre-heg-ressources-humaines-youth-nestle-ch",
         "de": "stagiaire-pre-heg-ressources-humaines-youth-nestle-ch",
         "fr": "stagiaire-pre-heg-ressources-humaines-youth-nestle-ch"
@@ -3294,7 +3127,7 @@
       "url": "https://jobdetails.nestle.com/job/Lausanne-Stagiaire-Pr%C3%A9-HEG-Ressources-Humaines-%28Youth%29/1160597701/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-26T23:44:47.114Z",
+      "crawledAt": "2026-05-27T13:23:22.790Z",
       "addressLocality": "Lausanne, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -3311,6 +3144,14 @@
       "requirementsByLocale": {},
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-25T13:33:27.989Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "stagiaire-pre-heg-ressources-humaines-youth-nestle-ch"
+        ]
+      },
+      "previousSlugs": [
+        "stagiaire-pre-heg-ressources-humaines-youth-nestle-ch"
+      ],
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -3356,7 +3197,7 @@
       "url": "https://jobdetails.nestle.com/job/Wangen-Automatikerin-Automationsfachmann-frau/1283886901/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-26T23:44:46.481Z",
+      "crawledAt": "2026-05-27T13:23:22.125Z",
       "addressLocality": "Wangen, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -3425,7 +3266,7 @@
       "url": "https://jobdetails.nestle.com/job/Lausanne-Specialist-Macronutrient-Physiology/1392977733/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-26T23:44:45.802Z",
+      "crawledAt": "2026-05-27T13:23:21.453Z",
       "addressLocality": "Lausanne, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -3501,7 +3342,7 @@
       "url": "https://jobdetails.nestle.com/job/Vevey-Energy-Digitalization-Intern/1392339133/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-26T23:44:45.147Z",
+      "crawledAt": "2026-05-27T13:23:20.789Z",
       "addressLocality": "Vevey, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -3577,7 +3418,7 @@
       "url": "https://jobdetails.nestle.com/job/Lausanne-Associate-Packaging-Materials-Specialist/1391913333/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-26T23:44:44.517Z",
+      "crawledAt": "2026-05-27T13:23:20.129Z",
       "addressLocality": "Lausanne, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -3653,7 +3494,7 @@
       "url": "https://jobdetails.nestle.com/job/Orbe-Planificateur%C2%B7trice-de-maintenance-Services-Industriels-%28SI%29/1393207333/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-26T23:44:43.879Z",
+      "crawledAt": "2026-05-27T13:23:19.474Z",
       "addressLocality": "Orbe, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -3668,6 +3509,14 @@
       "applyUrl": "https://jobdetails.nestle.com/job/Orbe-Planificateur%C2%B7trice-de-maintenance-Services-Industriels-%28SI%29/1393207333/",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "planificateur-trice-de-maintenance-services-industriels-si-nestle-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "planificateur-trice-de-maintenance-services-industriels-si-nestle-ch"
+        ]
+      },
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-25T13:33:24.594Z",
       "salaryMin": 49500,
@@ -3681,75 +3530,119 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "planificateur-trice-de-maintenance-services-industriels-si-nestle-ch"
-        ]
-      },
-      "previousSlugs": [
-        "planificateur-trice-de-maintenance-services-industriels-si-nestle-ch"
-      ]
+      }
     },
     {
-      "id": "nestle-1379496533",
-      "slug": "addetto-a-alla-logistica-100-nestle-konolfingen-ch",
+      "id": "nestle-1397550233",
+      "slug": "demand-supply-chain-manager-nestle-ch",
       "slugByLocale": {
-        "it": "addetto-a-alla-logistica-100-nestle-konolfingen-ch",
-        "en": "mitarbeiter-in-logistik-100-nestle-ch",
-        "de": "mitarbeiter-in-logistik-100-nestle-ch",
-        "fr": "collaborateur-trice-logistik-100-nestle-konolfingen-ch"
+        "en": "demand-supply-chain-manager-nestle-ch",
+        "it": "demand-supply-chain-manager-nestle-ch",
+        "de": "demand-supply-chain-manager-nestle-ch",
+        "fr": "demand-supply-chain-manager-nestle-ch"
       },
       "company": "Nestlé",
       "companyKey": "nestle",
       "companyDomain": "nestle.com",
-      "title": "Mitarbeiter:in Logistik 100%",
+      "title": "Demand & Supply Chain Manager",
       "titleByLocale": {
-        "it": "Addetto/a alla logistica 100%",
-        "en": "Associate Logistik 100%",
-        "de": "Mitarbeiter:in Logistik 100%",
-        "fr": "Collaborateur/trice Logistik 100%"
+        "en": "Demand & Supply Chain Manager",
+        "it": "Demand & Supply Chain Manager",
+        "de": "Demand & Lieferkette Manager",
+        "fr": "Demand & Chaîne d'approvisionnement Manager"
       },
-      "description": "Mitarbeiter:in Logistik 100% — Nestlé, Konolfingen, CH.\n\nKey details:\n• Location: Konolfingen, CH, BE canton, Switzerland\n• Employer: Nestlé — world's largest food and beverage company\n• Apply on: Nestlé careers portal\n\nThis listing is part of Nestlé’s official Swiss careers feed. Review the role requirements, team context, contract details, and application instructions directly on the Nestlé job page before applying. The position is kept in this dataset only while the official careers portal keeps the requisition active.",
+      "description": "Demand & Supply Chain Manager — Nestlé, Henniez, CH.\n\nKey details:\n• Location: Henniez, CH, VD canton, Switzerland\n• Employer: Nestlé — world's largest food and beverage company\n• Apply on: Nestlé careers portal\n\nThis listing is part of Nestlé’s official Swiss careers feed. Review the role requirements, team context, contract details, and application instructions directly on the Nestlé job page before applying. The position is kept in this dataset only while the official careers portal keeps the requisition active.",
       "descriptionByLocale": {
-        "it": "Mitarbeiter:in Logistik 100% — Nestlé, Konolfingen, CH. Key details:\n• Location: Konolfingen, CH, BE canton, Switzerland\n• Employer: Nestlé — world's largest food and beverage company\n• Apply on: Nestlé careers portal This listing is part of Nestlé’s official Swiss careers feed. Review the role requirements, team context, contract details, and application instructions directly on the Nestlé job page before applying. The position is kept in this dataset only while the official careers portal keeps the requisition active.",
-        "en": "Mitarbeiter:in Logistik 100% — Nestlé, Konolfingen, CH. Key details:\n• Location: Konolfingen, CH, BE canton, Switzerland\n• Employer: Nestlé — world's largest food and beverage company\n• Apply on: Nestlé careers portal This listing is part of Nestlé’s official Swiss careers feed. Review the role requirements, team context, contract details, and application instructions directly on the Nestlé job page before applying. The position is kept in this dataset only while the official careers portal keeps the requisition active.",
-        "de": "Mitarbeiter:in Logistik 100% — Nestlé, Konolfingen, CH. Key details:\n• Location: Konolfingen, CH, BE canton, Switzerland\n• Employer: Nestlé — world's largest food and beverage company\n• Apply on: Nestlé careers portal This listing is part of Nestlé’s official Swiss careers feed. Review the role requirements, team context, contract details, and application instructions directly on the Nestlé job page before applying. The position is kept in this dataset only while the official careers portal keeps the requisition active.",
-        "fr": "Mitarbeiter:in Logistik 100% — Nestlé, Konolfingen, CH. Key details:\n• Location: Konolfingen, CH, BE canton, Switzerland\n• Employer: Nestlé — world's largest food and beverage company\n• Apply on: Nestlé careers portal This listing is part of Nestlé’s official Swiss careers feed. Review the role requirements, team context, contract details, and application instructions directly on the Nestlé job page before applying. The position is kept in this dataset only while the official careers portal keeps the requisition active."
+        "en": "Demand & Supply Chain Manager — Nestlé, Henniez, CH.\n\nKey details:\n• Location: Henniez, CH, VD canton, Switzerland\n• Employer: Nestlé — world's largest food and beverage company\n• Apply on: Nestlé careers portal\n\nThis listing is part of Nestlé’s official Swiss careers feed. Review the role requirements, team context, contract details, and application instructions directly on the Nestlé job page before applying. The position is kept in this dataset only while the official careers portal keeps the requisition active.",
+        "it": "Demand & Supply Chain Manager — Nestlé, Henniez, CH.\n\nKey details:\n• Location: Henniez, CH, VD canton, Switzerland\n• Employer: Nestlé — world's largest food and beverage company\n• Apply on: Nestlé careers portal\n\nThis listing is part of Nestlé’s official Swiss careers feed. Review the role requirements, team context, contract details, and application instructions directly on the Nestlé job page before applying. The position is kept in this dataset only while the official careers portal keeps the requisition active.",
+        "de": "Demand & Supply Chain Manager — Nestlé, Henniez, CH.\n\nKey details:\n• Location: Henniez, CH, VD canton, Switzerland\n• Employer: Nestlé — world's largest food and beverage company\n• Apply on: Nestlé careers portal\n\nThis listing is part of Nestlé’s official Swiss careers feed. Review the role requirements, team context, contract details, and application instructions directly on the Nestlé job page before applying. The position is kept in this dataset only while the official careers portal keeps the requisition active.",
+        "fr": "Demand & Supply Chain Manager — Nestlé, Henniez, CH.\n\nKey details:\n• Location: Henniez, CH, VD canton, Switzerland\n• Employer: Nestlé — world's largest food and beverage company\n• Apply on: Nestlé careers portal\n\nThis listing is part of Nestlé’s official Swiss careers feed. Review the role requirements, team context, contract details, and application instructions directly on the Nestlé job page before applying. The position is kept in this dataset only while the official careers portal keeps the requisition active."
       },
-      "location": "Konolfingen, CH",
-      "canton": "BE",
-      "url": "https://jobdetails.nestle.com/job/Konolfingen-Mitarbeiterin-Logistik-100/1379496533/",
+      "location": "Henniez, CH",
+      "canton": "VD",
+      "url": "https://jobdetails.nestle.com/job/Henniez-Demand-&-Supply-Chain-Manager/1397550233/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-26T23:44:43.240Z",
-      "addressLocality": "Konolfingen, CH",
+      "crawledAt": "2026-05-27T13:23:18.816Z",
+      "addressLocality": "Henniez, CH",
       "addressCountry": "CH",
       "country": "CH",
-      "category": "Logistica",
+      "category": "Altro",
       "contract": "full-time",
       "employmentType": "OTHER",
       "experienceLevel": "mid",
       "sector": "Food / Beverage",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-04-29",
-      "applyUrl": "https://jobdetails.nestle.com/job/Konolfingen-Mitarbeiterin-Logistik-100/1379496533/",
+      "postedDate": "2026-05-27",
+      "applyUrl": "https://jobdetails.nestle.com/job/Henniez-Demand-&-Supply-Chain-Manager/1397550233/",
       "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "mitarbeiter-in-logistik-100-nestle-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "mitarbeiter-in-logistik-100-nestle-ch"
-        ],
-        "fr": [
-          "mitarbeiter-in-logistik-100-nestle-ch"
-        ]
+      "requirementsByLocale": {
+        "en": []
       },
       "needsRetranslation": true,
-      "firstSeenAt": "2026-05-25T13:33:43.105Z",
+      "salaryMin": 68000,
+      "salaryMax": 103000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68000,
+          "maxValue": 103000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-05-27T13:23:18.816Z"
+    },
+    {
+      "id": "nestle-1388469333",
+      "slug": "electrical-automation-technician-nestle-ch",
+      "slugByLocale": {
+        "it": "electrical-automation-technician-nestle-ch",
+        "en": "electrical-automation-technician-nestle-ch",
+        "de": "electrical-automation-techniker-nestle-lausanne-ch",
+        "fr": "electrical-automation-technicien-nestle-lausanne-ch"
+      },
+      "company": "Nestlé",
+      "companyKey": "nestle",
+      "companyDomain": "nestle.com",
+      "title": "Electrical & Automation Technician",
+      "titleByLocale": {
+        "it": "Electrical & Automation Technician",
+        "en": "Electrical & Automation Technician",
+        "de": "Electrical & Automation Techniker",
+        "fr": "Electrical & Automation Technicien"
+      },
+      "description": "Electrical & Automation Technician — Nestlé, Lausanne, CH.\n\nKey details:\n• Location: Lausanne, CH, VD canton, Switzerland\n• Employer: Nestlé — world's largest food and beverage company\n• Apply on: Nestlé careers portal\n\nThis listing is part of Nestlé’s official Swiss careers feed. Review the role requirements, team context, contract details, and application instructions directly on the Nestlé job page before applying. The position is kept in this dataset only while the official careers portal keeps the requisition active.",
+      "descriptionByLocale": {
+        "it": "Electrical & Automation Technician — Nestlé, Lausanne, CH. Key details:\n• Location: Lausanne, CH, VD canton, Switzerland\n• Employer: Nestlé — world's largest food and beverage company\n• Apply on: Nestlé careers portal This listing is part of Nestlé’s official Swiss careers feed. Review the role requirements, team context, contract details, and application instructions directly on the Nestlé job page before applying. The position is kept in this dataset only while the official careers portal keeps the requisition active.",
+        "en": "Electrical & Automation Technician — Nestlé, Lausanne, CH. Key details:\n• Location: Lausanne, CH, VD canton, Switzerland\n• Employer: Nestlé — world's largest food and beverage company\n• Apply on: Nestlé careers portal This listing is part of Nestlé’s official Swiss careers feed. Review the role requirements, team context, contract details, and application instructions directly on the Nestlé job page before applying. The position is kept in this dataset only while the official careers portal keeps the requisition active.",
+        "de": "Electrical & Automation Technician — Nestlé, Lausanne, CH. Key details:\n• Location: Lausanne, CH, VD canton, Switzerland\n• Employer: Nestlé — world's largest food and beverage company\n• Apply on: Nestlé careers portal This listing is part of Nestlé’s official Swiss careers feed. Review the role requirements, team context, contract details, and application instructions directly on the Nestlé job page before applying. The position is kept in this dataset only while the official careers portal keeps the requisition active.",
+        "fr": "Electrical & Automation Technician — Nestlé, Lausanne, CH. Key details:\n• Location: Lausanne, CH, VD canton, Switzerland\n• Employer: Nestlé — world's largest food and beverage company\n• Apply on: Nestlé careers portal This listing is part of Nestlé’s official Swiss careers feed. Review the role requirements, team context, contract details, and application instructions directly on the Nestlé job page before applying. The position is kept in this dataset only while the official careers portal keeps the requisition active."
+      },
+      "location": "Lausanne, CH",
+      "canton": "VD",
+      "url": "https://jobdetails.nestle.com/job/Lausanne-Electrical-&-Automation-Technician/1388469333/",
+      "source": "Nestlé Switzerland Dedicated Parser (Workday)",
+      "sourceLang": "en",
+      "crawledAt": "2026-05-27T13:23:18.143Z",
+      "addressLocality": "Lausanne, CH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Tecnica",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Food / Beverage",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-28",
+      "applyUrl": "https://jobdetails.nestle.com/job/Lausanne-Electrical-&-Automation-Technician/1388469333/",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-25T13:33:56.258Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -3762,7 +3655,212 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "3001"
+      "postalCode": "1003"
+    },
+    {
+      "id": "nestle-1378828933",
+      "slug": "senior-r-d-specialista-new-system-components-nestle-orbe-ch",
+      "slugByLocale": {
+        "it": "senior-r-d-specialista-new-system-components-nestle-orbe-ch",
+        "en": "senior-r-d-specialist-new-system-components-nestle-ch",
+        "de": "senior-r-d-spezialist-new-system-components-nestle-orbe-ch",
+        "fr": "senior-r-d-specialiste-new-system-components-nestle-orbe-ch"
+      },
+      "company": "Nestlé",
+      "companyKey": "nestle",
+      "companyDomain": "nestle.com",
+      "title": "Senior R&D Specialist New System Components",
+      "titleByLocale": {
+        "it": "Senior R&D Specialista New System Components",
+        "en": "Senior R&D Specialist New System Components",
+        "de": "Senior R&D Spezialist New System Components",
+        "fr": "Senior R&D Spécialiste New System Components"
+      },
+      "description": "The Nestlé Deep Tech Center is where we develop and evaluate cutting-edge technologies to accelerate Nestlé’s global innovation mission and shape the future of food and beverage at scale. Leveraging advanced robotics, new technologies, sensors, AI, machine learning and digital twins, we are driving smarter manufacturing, delivering breakthrough consumer experiences, and maximizing our research and innovation capabilities. Every project here connects you to Nestlé’s purpose: unlocking the power of food & beverage to enhance quality of life for individuals, families, communities, and the planet, today and for generations to come.",
+      "descriptionByLocale": {
+        "it": "The Nestlé Deep Tech Center is where we develop and evaluate cutting-edge technologies to accelerate Nestlé’s global innovation mission and shape the future of food and beverage at scale. Leveraging advanced robotics, new technologies, sensors, AI, machine learning and digital twins, we are driving smarter manufacturing, delivering breakthrough consumer experiences, and maximizing our research and innovation capabilities. Every project here connects you to Nestlé’s purpose: unlocking the power of food & beverage to enhance quality of life for individuals, families, communities, and the planet, today and for generations to come.",
+        "en": "The Nestlé Deep Tech Center is where we develop and evaluate cutting-edge technologies to accelerate Nestlé’s global innovation mission and shape the future of food and beverage at scale. Leveraging advanced robotics, new technologies, sensors, AI, machine learning and digital twins, we are driving smarter manufacturing, delivering breakthrough consumer experiences, and maximizing our research and innovation capabilities. Every project here connects you to Nestlé’s purpose: unlocking the power of food & beverage to enhance quality of life for individuals, families, communities, and the planet, today and for generations to come.",
+        "de": "The Nestlé Deep Tech Center is where we develop and evaluate cutting-edge technologies to accelerate Nestlé’s global innovation mission and shape the future of food and beverage at scale. Leveraging advanced robotics, new technologies, sensors, AI, machine learning and digital twins, we are driving smarter manufacturing, delivering breakthrough consumer experiences, and maximizing our research and innovation capabilities. Every project here connects you to Nestlé’s purpose: unlocking the power of food & beverage to enhance quality of life for individuals, families, communities, and the planet, today and for generations to come.",
+        "fr": "The Nestlé Deep Tech Center is where we develop and evaluate cutting-edge technologies to accelerate Nestlé’s global innovation mission and shape the future of food and beverage at scale. Leveraging advanced robotics, new technologies, sensors, AI, machine learning and digital twins, we are driving smarter manufacturing, delivering breakthrough consumer experiences, and maximizing our research and innovation capabilities. Every project here connects you to Nestlé’s purpose: unlocking the power of food & beverage to enhance quality of life for individuals, families, communities, and the planet, today and for generations to come."
+      },
+      "location": "Orbe, CH",
+      "canton": "VD",
+      "url": "https://jobdetails.nestle.com/job/Orbe-Senior-R&D-Specialist-New-System-Components/1378828933/",
+      "source": "Nestlé Switzerland Dedicated Parser (Workday)",
+      "sourceLang": "en",
+      "crawledAt": "2026-05-27T13:23:17.500Z",
+      "addressLocality": "Orbe, CH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "senior",
+      "sector": "Food / Beverage",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-28",
+      "applyUrl": "https://jobdetails.nestle.com/job/Orbe-Senior-R&D-Specialist-New-System-Components/1378828933/",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "senior-r-d-specialist-new-system-components-nestle-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-r-d-specialist-new-system-components-nestle-ch"
+        ],
+        "de": [
+          "senior-r-d-specialist-new-system-components-nestle-ch"
+        ],
+        "fr": [
+          "senior-r-d-specialist-new-system-components-nestle-ch"
+        ]
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-25T13:33:41.750Z",
+      "salaryMin": 68000,
+      "salaryMax": 103000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68000,
+          "maxValue": 103000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "nestle-1378808633",
+      "slug": "stagiaire-ingenieur-qualite-h-f-d-nestle-ch",
+      "slugByLocale": {
+        "it": "stagiaire-ingenieur-qualite-h-f-d-nestle-ch",
+        "en": "stagiaire-ingenieur-qualite-h-f-d-nestle-ch",
+        "de": "stagiaire-ingenieur-qualite-h-f-d-nestle-ch",
+        "fr": "stagiaire-ingenieur-qualite-h-f-d-nestle-ch"
+      },
+      "company": "Nestlé",
+      "companyKey": "nestle",
+      "companyDomain": "nestle.com",
+      "title": "Stagiaire Ingénieur Qualité (H/F/D)",
+      "titleByLocale": {
+        "it": "Stagiaire Ingénieur Qualité (f/m/d)",
+        "en": "Stagiaire Ingénieur Qualité (H/F/D)",
+        "de": "Stagiaire Ingénieur Qualité (H/F/D)",
+        "fr": "Stagiaire Ingénieur Qualité (H/F/D)"
+      },
+      "description": "Chez Nespresso Suisse nous pensons qu’il est possible d’élever l’univers du café et nous voulons contribuer positivement à changer les vies et les paysages pour le mieux. Élu meilleur employeur 2025, nous plaçons chacun de nos 14 000 collaborateurs, sans exception, au cœur de notre réussite. Pour y parvenir, nous adoptons quatre comportements essentiels : « We Inspire, we Care, we Act, and we iNnovate ». Et vous ? Voulez-vous nous accompagner dans cette aventure passionnante ? Rejoignez l’équipe Nespresso ! Et réimaginez la nature du café. Réimaginez votre avenir.\n\nInstantané du poste\n\nLieu : Stage proposé sur le site d’Orbe Switzerland\nEntité : Centre de Production Nespresso\nDurée : Contrat de stage de 6 mois\nDate de démarrage souhaitée : Septembre 2026\n\nCe que nous offrons chez Nespresso\n\nDe réelles opportunités d’évolution de carrière et de développement personnel\nUn cadre de travail flexible facilitant la créativité et la collaboration\nUne culture fondée sur la bienveillance et l’inclusivité, où chacun peut être soi-même\nLa qualité et la durabilité au cœur de notre identité et une vision essentielle pour favoriser le changement positif L’opportunité de travailler pour une entreprise certifiée B Corp, et l'une des marques les plus fiables et appréciées à l’échelle mondiale.\n\nAu cours du processus de recrutement, n’hésitez pas à nous en parler pour en savoir plus !\n\nDécouvrez notre page Linkedin : Nespresso Centres de production\nDécouvrez nos métiers : Métiers Nespresso - YouTube\n\nRésumé du poste\n\nEn tant que Stagiaire Ingénieur(e) qualité (H/F/D) , vous aurez pour missions de leader un projet qualité du début à la fin.\n\nUne journée dans la vie d’un(e) Stagiaire Ingénieur(e) qualité (H/F/D)\n\n•\n• Piloter des projets d’amélioration continue en production, avec un focus particulier sur la qualité et l’hygiène.\n• Revoir et optimiser les processus internes, en mettant l’accent sur la digitalisation.\n• Introduire et appliquer les meilleures pratiques, de l’expérience interne ou externe, afin de réduire efficacement les risques d’hygiène autour des lignes de production.\n• Contribuer à la formation et à la sensibilisation des opérateurs sur les enjeux de qualité, d’hygiène et de digitalisation.\n• Assurer la mise à jour et la gestion documentaire qualité sur les plateformes digitales (ex. : SharePoint).\n• Réaliser des audits internes ou des analyses de risques pour identifier et anticiper les axes d’amélioration.\n\nVos atouts pour réussir\n\n• Élève ingénieur/e, doté(e) d’une forte motivation et d’un esprit dynamique.\n• Excellentes compétences en communication et en collaboration, avec une capacité à travailler efficacement en équipe.\n• Maîtrise des outils digitaux et intérêt marqué pour la digitalisation des processus industriels.\n• Compétences en data science : capacité à collecter, analyser et interpréter des données pour soutenir l’amélioration continue et la prise de décision.\n• Solides connaissances des méthodes de résolution de problèmes.\n• Esprit d’initiative et capacité à mener des projets concrets avec énergie et orientation vers l’amélioration continue et l’innovation.\n• Maîtrise du français et de l’anglais (niveau B2 minimum)\n\nChez Nespresso, nous avons bâti une culture fondée sur la bienveillance et l’inclusion, où chacun peut être soi-même, tout en grandissant aux côtés de l’entreprise. Nous innovons, osons essayer, apprenons et grandissons dans un environnement numérique et connecté où tout va très vite. Au sein d’une équipe diverse regroupant plus de 90 nationalités dans 58 pays, vous pouvez prendre part à une culture innovante, dans laquelle les personnes n’hésitent pas à s’entraider. Une culture dans laquelle chacun est encouragé à remettre en question le statu quo et à définir l’avenir d’une des plus grandes entreprises durables. Quel que soit le rôle que vous jouerez, vous découvrirez que vous pouvez réellement changer les choses et partager votre enthousiasme. Rejoig",
+      "descriptionByLocale": {
+        "it": "Chez Nespresso Suisse nous pensons qu’il est possible d’élever l’univers du café et nous voulons contribuer positivement à changer les vies et les paysages pour le mieux. Élu meilleur employeur 2025, nous plaçons chacun de nos 14 000 collaborateurs, sans exception, au cœur de notre réussite. Pour y parvenir, nous adoptons quatre comportements essentiels : « We Inspire, we Care, we Act, and we iNnovate ». Et vous ? Voulez-vous nous accompagner dans cette aventure passionnante ? Rejoignez l’équipe Nespresso ! Et réimaginez la nature du café. Réimaginez votre avenir. Instantané du poste Lieu : Stage proposé sur le site d’Orbe Switzerland Entité : Centre de Production Nespresso Durée : Contrat de stage de 6 mois Date de démarrage souhaitée : Septembre 2026 Ce que nous offrons chez Nespresso De réelles opportunités d’évolution de carrière et de développement personnel Un cadre de travail flexible facilitant la créativité et la collaboration Une culture fondée sur la bienveillance et l’inclusivité, où chacun peut être soi-même La qualité et la durabilité au cœur de notre identité et une vision essentielle pour favoriser le changement positif L’opportunité de travailler pour une entreprise certifiée B Corp, et l'une des marques les plus fiables et appréciées à l’échelle mondiale. Au cours du processus de recrutement, n’hésitez pas à nous en parler pour en savoir plus ! Découvrez notre page Linkedin : Nespresso Centres de production Découvrez nos métiers : Métiers Nespresso - YouTube Résumé du poste En tant que Stagiaire Ingénieur(e) qualité (H/F/D) , vous aurez pour missions de leader un projet qualité du début à la fin. Une journée dans la vie d’un(e) Stagiaire Ingénieur(e) qualité (H/F/D)\n• • Piloter des projets d’amélioration continue en production, avec un focus particulier sur la qualité et l’hygiène.\n• Revoir et optimiser les processus internes, en mettant l’accent sur la digitalisation.\n• Introduire et appliquer les meilleures pratiques, de l’expérience interne ou externe, afin de réduire efficacement les risques d’hygiène autour des lignes de production.\n• Contribuer à la formation et à la sensibilisation des opérateurs sur les enjeux de qualité, d’hygiène et de digitalisation.\n• Assurer la mise à jour et la gestion documentaire qualité sur les plateformes digitales (ex. : SharePoint).\n• Réaliser des audits internes ou des analyses de risques pour identifier et anticiper les axes d’amélioration. Vos atouts pour réussir\n• Élève ingénieur/e, doté(e) d’une forte motivation et d’un esprit dynamique.\n• Excellentes compétences en communication et en collaboration, avec une capacité à travailler efficacement en équipe.\n• Maîtrise des outils digitaux et intérêt marqué pour la digitalisation des processus industriels.\n• Compétences en data science : capacité à collecter, analyser et interpréter des données pour soutenir l’amélioration continue et la prise de décision.\n• Solides connaissances des méthodes de résolution de problèmes.\n• Esprit d’initiative et capacité à mener des projets concrets avec énergie et orientation vers l’amélioration continue et l’innovation.\n• Maîtrise du français et de l’anglais (niveau B2 minimum) Chez Nespresso, nous avons bâti une culture fondée sur la bienveillance et l’inclusion, où chacun peut être soi-même, tout en grandissant aux côtés de l’entreprise. Nous innovons, osons essayer, apprenons et grandissons dans un environnement numérique et connecté où tout va très vite. Au sein d’une équipe diverse regroupant plus de 90 nationalités dans 58 pays, vous pouvez prendre part à une culture innovante, dans laquelle les personnes n’hésitent pas à s’entraider. Une culture dans laquelle chacun est encouragé à remettre en question le statu quo et à définir l’avenir d’une des plus grandes entreprises durables. Quel que soit le rôle que vous jouerez, vous découvrirez que vous pouvez réellement changer les choses et partager votre enthousiasme. Rejoig",
+        "en": "Chez Nespresso Suisse nous pensons qu’il est possible d’élever l’univers du café et nous voulons contribuer positivement à changer les vies et les paysages pour le mieux. Élu meilleur employeur 2025, nous plaçons chacun de nos 14 000 collaborateurs, sans exception, au cœur de notre réussite. Pour y parvenir, nous adoptons quatre comportements essentiels : « We Inspire, we Care, we Act, and we iNnovate ». Et vous ? Voulez-vous nous accompagner dans cette aventure passionnante ? Rejoignez l’équipe Nespresso ! Et réimaginez la nature du café. Réimaginez votre avenir. Instantané du poste Lieu : Stage proposé sur le site d’Orbe Switzerland Entité : Centre de Production Nespresso Durée : Contrat de stage de 6 mois Date de démarrage souhaitée : Septembre 2026 Ce que nous offrons chez Nespresso De réelles opportunités d’évolution de carrière et de développement personnel Un cadre de travail flexible facilitant la créativité et la collaboration Une culture fondée sur la bienveillance et l’inclusivité, où chacun peut être soi-même La qualité et la durabilité au cœur de notre identité et une vision essentielle pour favoriser le changement positif L’opportunité de travailler pour une entreprise certifiée B Corp, et l'une des marques les plus fiables et appréciées à l’échelle mondiale. Au cours du processus de recrutement, n’hésitez pas à nous en parler pour en savoir plus ! Découvrez notre page Linkedin : Nespresso Centres de production Découvrez nos métiers : Métiers Nespresso - YouTube Résumé du poste En tant que Stagiaire Ingénieur(e) qualité (H/F/D) , vous aurez pour missions de leader un projet qualité du début à la fin. Une journée dans la vie d’un(e) Stagiaire Ingénieur(e) qualité (H/F/D)\n• • Piloter des projets d’amélioration continue en production, avec un focus particulier sur la qualité et l’hygiène.\n• Revoir et optimiser les processus internes, en mettant l’accent sur la digitalisation.\n• Introduire et appliquer les meilleures pratiques, de l’expérience interne ou externe, afin de réduire efficacement les risques d’hygiène autour des lignes de production.\n• Contribuer à la formation et à la sensibilisation des opérateurs sur les enjeux de qualité, d’hygiène et de digitalisation.\n• Assurer la mise à jour et la gestion documentaire qualité sur les plateformes digitales (ex. : SharePoint).\n• Réaliser des audits internes ou des analyses de risques pour identifier et anticiper les axes d’amélioration. Vos atouts pour réussir\n• Élève ingénieur/e, doté(e) d’une forte motivation et d’un esprit dynamique.\n• Excellentes compétences en communication et en collaboration, avec une capacité à travailler efficacement en équipe.\n• Maîtrise des outils digitaux et intérêt marqué pour la digitalisation des processus industriels.\n• Compétences en data science : capacité à collecter, analyser et interpréter des données pour soutenir l’amélioration continue et la prise de décision.\n• Solides connaissances des méthodes de résolution de problèmes.\n• Esprit d’initiative et capacité à mener des projets concrets avec énergie et orientation vers l’amélioration continue et l’innovation.\n• Maîtrise du français et de l’anglais (niveau B2 minimum) Chez Nespresso, nous avons bâti une culture fondée sur la bienveillance et l’inclusion, où chacun peut être soi-même, tout en grandissant aux côtés de l’entreprise. Nous innovons, osons essayer, apprenons et grandissons dans un environnement numérique et connecté où tout va très vite. Au sein d’une équipe diverse regroupant plus de 90 nationalités dans 58 pays, vous pouvez prendre part à une culture innovante, dans laquelle les personnes n’hésitent pas à s’entraider. Une culture dans laquelle chacun est encouragé à remettre en question le statu quo et à définir l’avenir d’une des plus grandes entreprises durables. Quel que soit le rôle que vous jouerez, vous découvrirez que vous pouvez réellement changer les choses et partager votre enthousiasme. Rejoig",
+        "de": "Chez Nespresso Suisse nous pensons qu’il est possible d’élever l’univers du café et nous voulons contribuer positivement à changer les vies et les paysages pour le mieux. Élu meilleur employeur 2025, nous plaçons chacun de nos 14 000 collaborateurs, sans exception, au cœur de notre réussite. Pour y parvenir, nous adoptons quatre comportements essentiels : « We Inspire, we Care, we Act, and we iNnovate ». Et vous ? Voulez-vous nous accompagner dans cette aventure passionnante ? Rejoignez l’équipe Nespresso ! Et réimaginez la nature du café. Réimaginez votre avenir. Instantané du poste Lieu : Stage proposé sur le site d’Orbe Switzerland Entité : Centre de Production Nespresso Durée : Contrat de stage de 6 mois Date de démarrage souhaitée : Septembre 2026 Ce que nous offrons chez Nespresso De réelles opportunités d’évolution de carrière et de développement personnel Un cadre de travail flexible facilitant la créativité et la collaboration Une culture fondée sur la bienveillance et l’inclusivité, où chacun peut être soi-même La qualité et la durabilité au cœur de notre identité et une vision essentielle pour favoriser le changement positif L’opportunité de travailler pour une entreprise certifiée B Corp, et l'une des marques les plus fiables et appréciées à l’échelle mondiale. Au cours du processus de recrutement, n’hésitez pas à nous en parler pour en savoir plus ! Découvrez notre page Linkedin : Nespresso Centres de production Découvrez nos métiers : Métiers Nespresso - YouTube Résumé du poste En tant que Stagiaire Ingénieur(e) qualité (H/F/D) , vous aurez pour missions de leader un projet qualité du début à la fin. Une journée dans la vie d’un(e) Stagiaire Ingénieur(e) qualité (H/F/D)\n• • Piloter des projets d’amélioration continue en production, avec un focus particulier sur la qualité et l’hygiène.\n• Revoir et optimiser les processus internes, en mettant l’accent sur la digitalisation.\n• Introduire et appliquer les meilleures pratiques, de l’expérience interne ou externe, afin de réduire efficacement les risques d’hygiène autour des lignes de production.\n• Contribuer à la formation et à la sensibilisation des opérateurs sur les enjeux de qualité, d’hygiène et de digitalisation.\n• Assurer la mise à jour et la gestion documentaire qualité sur les plateformes digitales (ex. : SharePoint).\n• Réaliser des audits internes ou des analyses de risques pour identifier et anticiper les axes d’amélioration. Vos atouts pour réussir\n• Élève ingénieur/e, doté(e) d’une forte motivation et d’un esprit dynamique.\n• Excellentes compétences en communication et en collaboration, avec une capacité à travailler efficacement en équipe.\n• Maîtrise des outils digitaux et intérêt marqué pour la digitalisation des processus industriels.\n• Compétences en data science : capacité à collecter, analyser et interpréter des données pour soutenir l’amélioration continue et la prise de décision.\n• Solides connaissances des méthodes de résolution de problèmes.\n• Esprit d’initiative et capacité à mener des projets concrets avec énergie et orientation vers l’amélioration continue et l’innovation.\n• Maîtrise du français et de l’anglais (niveau B2 minimum) Chez Nespresso, nous avons bâti une culture fondée sur la bienveillance et l’inclusion, où chacun peut être soi-même, tout en grandissant aux côtés de l’entreprise. Nous innovons, osons essayer, apprenons et grandissons dans un environnement numérique et connecté où tout va très vite. Au sein d’une équipe diverse regroupant plus de 90 nationalités dans 58 pays, vous pouvez prendre part à une culture innovante, dans laquelle les personnes n’hésitent pas à s’entraider. Une culture dans laquelle chacun est encouragé à remettre en question le statu quo et à définir l’avenir d’une des plus grandes entreprises durables. Quel que soit le rôle que vous jouerez, vous découvrirez que vous pouvez réellement changer les choses et partager votre enthousiasme. Rejoig",
+        "fr": "Chez Nespresso Suisse nous pensons qu’il est possible d’élever l’univers du café et nous voulons contribuer positivement à changer les vies et les paysages pour le mieux. Élu meilleur employeur 2025, nous plaçons chacun de nos 14 000 collaborateurs, sans exception, au cœur de notre réussite. Pour y parvenir, nous adoptons quatre comportements essentiels : « We Inspire, we Care, we Act, and we iNnovate ». Et vous ? Voulez-vous nous accompagner dans cette aventure passionnante ? Rejoignez l’équipe Nespresso ! Et réimaginez la nature du café. Réimaginez votre avenir. Instantané du poste Lieu : Stage proposé sur le site d’Orbe Switzerland Entité : Centre de Production Nespresso Durée : Contrat de stage de 6 mois Date de démarrage souhaitée : Septembre 2026 Ce que nous offrons chez Nespresso De réelles opportunités d’évolution de carrière et de développement personnel Un cadre de travail flexible facilitant la créativité et la collaboration Une culture fondée sur la bienveillance et l’inclusivité, où chacun peut être soi-même La qualité et la durabilité au cœur de notre identité et une vision essentielle pour favoriser le changement positif L’opportunité de travailler pour une entreprise certifiée B Corp, et l'une des marques les plus fiables et appréciées à l’échelle mondiale. Au cours du processus de recrutement, n’hésitez pas à nous en parler pour en savoir plus ! Découvrez notre page Linkedin : Nespresso Centres de production Découvrez nos métiers : Métiers Nespresso - YouTube Résumé du poste En tant que Stagiaire Ingénieur(e) qualité (H/F/D) , vous aurez pour missions de leader un projet qualité du début à la fin. Une journée dans la vie d’un(e) Stagiaire Ingénieur(e) qualité (H/F/D)\n• • Piloter des projets d’amélioration continue en production, avec un focus particulier sur la qualité et l’hygiène.\n• Revoir et optimiser les processus internes, en mettant l’accent sur la digitalisation.\n• Introduire et appliquer les meilleures pratiques, de l’expérience interne ou externe, afin de réduire efficacement les risques d’hygiène autour des lignes de production.\n• Contribuer à la formation et à la sensibilisation des opérateurs sur les enjeux de qualité, d’hygiène et de digitalisation.\n• Assurer la mise à jour et la gestion documentaire qualité sur les plateformes digitales (ex. : SharePoint).\n• Réaliser des audits internes ou des analyses de risques pour identifier et anticiper les axes d’amélioration. Vos atouts pour réussir\n• Élève ingénieur/e, doté(e) d’une forte motivation et d’un esprit dynamique.\n• Excellentes compétences en communication et en collaboration, avec une capacité à travailler efficacement en équipe.\n• Maîtrise des outils digitaux et intérêt marqué pour la digitalisation des processus industriels.\n• Compétences en data science : capacité à collecter, analyser et interpréter des données pour soutenir l’amélioration continue et la prise de décision.\n• Solides connaissances des méthodes de résolution de problèmes.\n• Esprit d’initiative et capacité à mener des projets concrets avec énergie et orientation vers l’amélioration continue et l’innovation.\n• Maîtrise du français et de l’anglais (niveau B2 minimum) Chez Nespresso, nous avons bâti une culture fondée sur la bienveillance et l’inclusion, où chacun peut être soi-même, tout en grandissant aux côtés de l’entreprise. Nous innovons, osons essayer, apprenons et grandissons dans un environnement numérique et connecté où tout va très vite. Au sein d’une équipe diverse regroupant plus de 90 nationalités dans 58 pays, vous pouvez prendre part à une culture innovante, dans laquelle les personnes n’hésitent pas à s’entraider. Une culture dans laquelle chacun est encouragé à remettre en question le statu quo et à définir l’avenir d’une des plus grandes entreprises durables. Quel que soit le rôle que vous jouerez, vous découvrirez que vous pouvez réellement changer les choses et partager votre enthousiasme. Rejoig"
+      },
+      "location": "Orbe, CH",
+      "canton": "VD",
+      "url": "https://jobdetails.nestle.com/job/Orbe-Stagiaire-Ing%C3%A9nieur-Qualit%C3%A9-%28HFD%29/1378808633/",
+      "source": "Nestlé Switzerland Dedicated Parser (Workday)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-05-27T13:23:16.818Z",
+      "addressLocality": "Orbe, CH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Qualità",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "intern",
+      "sector": "Food / Beverage",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-28",
+      "applyUrl": "https://jobdetails.nestle.com/job/Orbe-Stagiaire-Ing%C3%A9nieur-Qualit%C3%A9-%28HFD%29/1378808633/",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-25T13:33:43.791Z",
+      "salaryMin": 41600,
+      "salaryMax": 63000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 41600,
+          "maxValue": 63000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "nestle-1387253333",
+      "slug": "supply-chain-tirocinante-nestle-avenches-ch",
+      "slugByLocale": {
+        "it": "supply-chain-tirocinante-nestle-avenches-ch",
+        "en": "supply-chain-intern-nestle-ch",
+        "de": "lieferkette-praktikant-nestle-avenches-ch",
+        "fr": "chaine-d-approvisionnement-stagiaire-nestle-avenches-ch"
+      },
+      "company": "Nestlé",
+      "companyKey": "nestle",
+      "companyDomain": "nestle.com",
+      "title": "Supply Chain Intern",
+      "titleByLocale": {
+        "it": "Supply Chain Tirocinante",
+        "en": "Supply Chain Intern",
+        "de": "Lieferkette Praktikant",
+        "fr": "Chaîne d'approvisionnement Stagiaire"
+      },
+      "description": "At Nespresso Switzerland, we believe that we can elevate the world of coffee to drive a positive impact and be a force for good. Voted best employer 2025, we place our people at the heart of our success – all 14,000 of them. To achieve this, we live by four behaviors. We Inspire, we Care, we Act, and we iNnovate. Want to be part of this exciting journey? Join the Nespresso team- Reimagine what coffee can be. Reimagine what you can become.\n\nPosition Snapshot\n\nLocation: Avenches, Switzerland & frequent mobility to other Nestlé’s sites\n\nCompany: Nestlé Nespresso SA\nAct. Rate: Full-Time, 100%\nType of contract: Internship, 6 months\n\nStart date: July 2026\n\nThe recruitment will be entirely driven by the fit between the individual competencies and the requirements of the job. Each candidate whose skills match best the requirements of the role will be considered.\n\nWhat we offer at Nestlé\n\nFlexible work policies in terms of core hours\n\nInternational, diverse, equitable and inclusive work environment : Read more about our Nestlé Community\n\nOpportunities to have an impact and contribute to your team’s success\n\nEndless learning opportunities and enriching experiences\n\nStrong mentorship for your professional growth\n\nProfessional network and route to entry level position\n\nPosition Summary\n\nFor our Supply Chain department, we are looking for a Supply Chain Intern reporting to our Factories Planning\n\nManager for Coffee. In this role, you will contribute to stock cover optimization and gain hands-on experience in project management. You will collaborate closely with Nespresso Factories, Packaging suppliers, and Production & MRP Planners to execute projects aimed at optimizing stocks and workload. This internship provides an excellent opportunity to learn and develop skills in project management, supplier relationship management, and process improvement, while observing how Continuous Improvement Project Plans are built and executed.\n\nA Day in the Life of a Supply Chain Intern\n\n• Manage projects focused on continuous improvement for Nespresso\n\n• Help overseeing inventory management for packaging materials\n\n• Implement new methods to optimize packaging stocks and workload\n\n• Collaborate with Production & MRP planners, suppliers, and procurement teams\n\n• Engage with logistics, finance, and other professionals within the supply chain\n\n• Assist in executing strategies to enhance operational efficiency\n\n• Learn managing different steps of the products’ lifecycle\n\nWhat will make you successful\n\n• Completing a Master’s degree in Supply Chain, Engineering, Project Management, or a related field\n\n• Having a previous experience in supply chain and/or project management is considered a plus\n\n• Great project management competencies and organizational skills\n\n• Autonomy and the ability to work independently\n\n• Excellent communication skills to work in an international setting with various stakeholders\n\n• Strong analytical skills with an expertise in Microsoft Excel and agility to quickly learn the use of other software\n\n• Basic knowledge in PowerBI and Machine Learning are a plus\n\n• Knowledge of SAP is an advantage\n\n• Fluency in English, both written and spoken; knowledge of French or other European languages is a plus\n\nNespresso is committed to the accessibility of its recruitment process. If you require an adaptation during the recruitment process, please do let us know so we can support you effectively. All information will be treated confidentially.\n\nAt Nespresso, we’ve built a culture of care and inclusion, making sure everyone can be their bold selves, while growing with the company. We innovate, dare to try, learn and scale up in a fast paced, digital and connected environment. With a diverse workforce made up of over 90 nationalities across 58 countries, you can be a part of an innovative culture, where supportive people help each other. One where anyone",
+      "descriptionByLocale": {
+        "it": "At Nespresso Switzerland, we believe that we can elevate the world of coffee to drive a positive impact and be a force for good. Voted best employer 2025, we place our people at the heart of our success – all 14,000 of them. To achieve this, we live by four behaviors. We Inspire, we Care, we Act, and we iNnovate. Want to be part of this exciting journey? Join the Nespresso team- Reimagine what coffee can be. Reimagine what you can become. Position Snapshot Location: Avenches, Switzerland & frequent mobility to other Nestlé’s sites Company: Nestlé Nespresso SA Act. Rate: Full-Time, 100% Type of contract: Internship, 6 months Start date: July 2026 The recruitment will be entirely driven by the fit between the individual competencies and the requirements of the job. Each candidate whose skills match best the requirements of the role will be considered. What we offer at Nestlé Flexible work policies in terms of core hours International, diverse, equitable and inclusive work environment : Read more about our Nestlé Community Opportunities to have an impact and contribute to your team’s success Endless learning opportunities and enriching experiences Strong mentorship for your professional growth Professional network and route to entry level position Position Summary For our Supply Chain department, we are looking for a Supply Chain Intern reporting to our Factories Planning Manager for Coffee. In this role, you will contribute to stock cover optimization and gain hands-on experience in project management. You will collaborate closely with Nespresso Factories, Packaging suppliers, and Production & MRP Planners to execute projects aimed at optimizing stocks and workload. This internship provides an excellent opportunity to learn and develop skills in project management, supplier relationship management, and process improvement, while observing how Continuous Improvement Project Plans are built and executed. A Day in the Life of a Supply Chain Intern\n• Manage projects focused on continuous improvement for Nespresso\n• Help overseeing inventory management for packaging materials\n• Implement new methods to optimize packaging stocks and workload\n• Collaborate with Production & MRP planners, suppliers, and procurement teams\n• Engage with logistics, finance, and other professionals within the supply chain\n• Assist in executing strategies to enhance operational efficiency\n• Learn managing different steps of the products’ lifecycle What will make you successful\n• Completing a Master’s degree in Supply Chain, Engineering, Project Management, or a related field\n• Having a previous experience in supply chain and/or project management is considered a plus\n• Great project management competencies and organizational skills\n• Autonomy and the ability to work independently\n• Excellent communication skills to work in an international setting with various stakeholders\n• Strong analytical skills with an expertise in Microsoft Excel and agility to quickly learn the use of other software\n• Basic knowledge in PowerBI and Machine Learning are a plus\n• Knowledge of SAP is an advantage\n• Fluency in English, both written and spoken; knowledge of French or other European languages is a plus Nespresso is committed to the accessibility of its recruitment process. If you require an adaptation during the recruitment process, please do let us know so we can support you effectively. All information will be treated confidentially. At Nespresso, we’ve built a culture of care and inclusion, making sure everyone can be their bold selves, while growing with the company. We innovate, dare to try, learn and scale up in a fast paced, digital and connected environment. With a diverse workforce made up of over 90 nationalities across 58 countries, you can be a part of an innovative culture, where supportive people help each other. One where anyone",
+        "en": "At Nespresso Switzerland, we believe that we can elevate the world of coffee to drive a positive impact and be a force for good. Voted best employer 2025, we place our people at the heart of our success – all 14,000 of them. To achieve this, we live by four behaviors. We Inspire, we Care, we Act, and we iNnovate. Want to be part of this exciting journey? Join the Nespresso team- Reimagine what coffee can be. Reimagine what you can become. Position Snapshot Location: Avenches, Switzerland & frequent mobility to other Nestlé’s sites Company: Nestlé Nespresso SA Act. Rate: Full-Time, 100% Type of contract: Internship, 6 months Start date: July 2026 The recruitment will be entirely driven by the fit between the individual competencies and the requirements of the job. Each candidate whose skills match best the requirements of the role will be considered. What we offer at Nestlé Flexible work policies in terms of core hours International, diverse, equitable and inclusive work environment : Read more about our Nestlé Community Opportunities to have an impact and contribute to your team’s success Endless learning opportunities and enriching experiences Strong mentorship for your professional growth Professional network and route to entry level position Position Summary For our Supply Chain department, we are looking for a Supply Chain Intern reporting to our Factories Planning Manager for Coffee. In this role, you will contribute to stock cover optimization and gain hands-on experience in project management. You will collaborate closely with Nespresso Factories, Packaging suppliers, and Production & MRP Planners to execute projects aimed at optimizing stocks and workload. This internship provides an excellent opportunity to learn and develop skills in project management, supplier relationship management, and process improvement, while observing how Continuous Improvement Project Plans are built and executed. A Day in the Life of a Supply Chain Intern\n• Manage projects focused on continuous improvement for Nespresso\n• Help overseeing inventory management for packaging materials\n• Implement new methods to optimize packaging stocks and workload\n• Collaborate with Production & MRP planners, suppliers, and procurement teams\n• Engage with logistics, finance, and other professionals within the supply chain\n• Assist in executing strategies to enhance operational efficiency\n• Learn managing different steps of the products’ lifecycle What will make you successful\n• Completing a Master’s degree in Supply Chain, Engineering, Project Management, or a related field\n• Having a previous experience in supply chain and/or project management is considered a plus\n• Great project management competencies and organizational skills\n• Autonomy and the ability to work independently\n• Excellent communication skills to work in an international setting with various stakeholders\n• Strong analytical skills with an expertise in Microsoft Excel and agility to quickly learn the use of other software\n• Basic knowledge in PowerBI and Machine Learning are a plus\n• Knowledge of SAP is an advantage\n• Fluency in English, both written and spoken; knowledge of French or other European languages is a plus Nespresso is committed to the accessibility of its recruitment process. If you require an adaptation during the recruitment process, please do let us know so we can support you effectively. All information will be treated confidentially. At Nespresso, we’ve built a culture of care and inclusion, making sure everyone can be their bold selves, while growing with the company. We innovate, dare to try, learn and scale up in a fast paced, digital and connected environment. With a diverse workforce made up of over 90 nationalities across 58 countries, you can be a part of an innovative culture, where supportive people help each other. One where anyone",
+        "de": "At Nespresso Switzerland, we believe that we can elevate the world of coffee to drive a positive impact and be a force for good. Voted best employer 2025, we place our people at the heart of our success – all 14,000 of them. To achieve this, we live by four behaviors. We Inspire, we Care, we Act, and we iNnovate. Want to be part of this exciting journey? Join the Nespresso team- Reimagine what coffee can be. Reimagine what you can become. Position Snapshot Location: Avenches, Switzerland & frequent mobility to other Nestlé’s sites Company: Nestlé Nespresso SA Act. Rate: Full-Time, 100% Type of contract: Internship, 6 months Start date: July 2026 The recruitment will be entirely driven by the fit between the individual competencies and the requirements of the job. Each candidate whose skills match best the requirements of the role will be considered. What we offer at Nestlé Flexible work policies in terms of core hours International, diverse, equitable and inclusive work environment : Read more about our Nestlé Community Opportunities to have an impact and contribute to your team’s success Endless learning opportunities and enriching experiences Strong mentorship for your professional growth Professional network and route to entry level position Position Summary For our Supply Chain department, we are looking for a Supply Chain Intern reporting to our Factories Planning Manager for Coffee. In this role, you will contribute to stock cover optimization and gain hands-on experience in project management. You will collaborate closely with Nespresso Factories, Packaging suppliers, and Production & MRP Planners to execute projects aimed at optimizing stocks and workload. This internship provides an excellent opportunity to learn and develop skills in project management, supplier relationship management, and process improvement, while observing how Continuous Improvement Project Plans are built and executed. A Day in the Life of a Supply Chain Intern\n• Manage projects focused on continuous improvement for Nespresso\n• Help overseeing inventory management for packaging materials\n• Implement new methods to optimize packaging stocks and workload\n• Collaborate with Production & MRP planners, suppliers, and procurement teams\n• Engage with logistics, finance, and other professionals within the supply chain\n• Assist in executing strategies to enhance operational efficiency\n• Learn managing different steps of the products’ lifecycle What will make you successful\n• Completing a Master’s degree in Supply Chain, Engineering, Project Management, or a related field\n• Having a previous experience in supply chain and/or project management is considered a plus\n• Great project management competencies and organizational skills\n• Autonomy and the ability to work independently\n• Excellent communication skills to work in an international setting with various stakeholders\n• Strong analytical skills with an expertise in Microsoft Excel and agility to quickly learn the use of other software\n• Basic knowledge in PowerBI and Machine Learning are a plus\n• Knowledge of SAP is an advantage\n• Fluency in English, both written and spoken; knowledge of French or other European languages is a plus Nespresso is committed to the accessibility of its recruitment process. If you require an adaptation during the recruitment process, please do let us know so we can support you effectively. All information will be treated confidentially. At Nespresso, we’ve built a culture of care and inclusion, making sure everyone can be their bold selves, while growing with the company. We innovate, dare to try, learn and scale up in a fast paced, digital and connected environment. With a diverse workforce made up of over 90 nationalities across 58 countries, you can be a part of an innovative culture, where supportive people help each other. One where anyone",
+        "fr": "At Nespresso Switzerland, we believe that we can elevate the world of coffee to drive a positive impact and be a force for good. Voted best employer 2025, we place our people at the heart of our success – all 14,000 of them. To achieve this, we live by four behaviors. We Inspire, we Care, we Act, and we iNnovate. Want to be part of this exciting journey? Join the Nespresso team- Reimagine what coffee can be. Reimagine what you can become. Position Snapshot Location: Avenches, Switzerland & frequent mobility to other Nestlé’s sites Company: Nestlé Nespresso SA Act. Rate: Full-Time, 100% Type of contract: Internship, 6 months Start date: July 2026 The recruitment will be entirely driven by the fit between the individual competencies and the requirements of the job. Each candidate whose skills match best the requirements of the role will be considered. What we offer at Nestlé Flexible work policies in terms of core hours International, diverse, equitable and inclusive work environment : Read more about our Nestlé Community Opportunities to have an impact and contribute to your team’s success Endless learning opportunities and enriching experiences Strong mentorship for your professional growth Professional network and route to entry level position Position Summary For our Supply Chain department, we are looking for a Supply Chain Intern reporting to our Factories Planning Manager for Coffee. In this role, you will contribute to stock cover optimization and gain hands-on experience in project management. You will collaborate closely with Nespresso Factories, Packaging suppliers, and Production & MRP Planners to execute projects aimed at optimizing stocks and workload. This internship provides an excellent opportunity to learn and develop skills in project management, supplier relationship management, and process improvement, while observing how Continuous Improvement Project Plans are built and executed. A Day in the Life of a Supply Chain Intern\n• Manage projects focused on continuous improvement for Nespresso\n• Help overseeing inventory management for packaging materials\n• Implement new methods to optimize packaging stocks and workload\n• Collaborate with Production & MRP planners, suppliers, and procurement teams\n• Engage with logistics, finance, and other professionals within the supply chain\n• Assist in executing strategies to enhance operational efficiency\n• Learn managing different steps of the products’ lifecycle What will make you successful\n• Completing a Master’s degree in Supply Chain, Engineering, Project Management, or a related field\n• Having a previous experience in supply chain and/or project management is considered a plus\n• Great project management competencies and organizational skills\n• Autonomy and the ability to work independently\n• Excellent communication skills to work in an international setting with various stakeholders\n• Strong analytical skills with an expertise in Microsoft Excel and agility to quickly learn the use of other software\n• Basic knowledge in PowerBI and Machine Learning are a plus\n• Knowledge of SAP is an advantage\n• Fluency in English, both written and spoken; knowledge of French or other European languages is a plus Nespresso is committed to the accessibility of its recruitment process. If you require an adaptation during the recruitment process, please do let us know so we can support you effectively. All information will be treated confidentially. At Nespresso, we’ve built a culture of care and inclusion, making sure everyone can be their bold selves, while growing with the company. We innovate, dare to try, learn and scale up in a fast paced, digital and connected environment. With a diverse workforce made up of over 90 nationalities across 58 countries, you can be a part of an innovative culture, where supportive people help each other. One where anyone"
+      },
+      "location": "Avenches, CH",
+      "canton": "VD",
+      "url": "https://jobdetails.nestle.com/job/Avenches-Supply-Chain-Intern/1387253333/",
+      "source": "Nestlé Switzerland Dedicated Parser (Workday)",
+      "sourceLang": "en",
+      "crawledAt": "2026-05-27T13:23:16.142Z",
+      "addressLocality": "Avenches, CH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "intern",
+      "sector": "Food / Beverage",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-23",
+      "applyUrl": "https://jobdetails.nestle.com/job/Avenches-Supply-Chain-Intern/1387253333/",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "supply-chain-intern-nestle-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "supply-chain-intern-nestle-ch"
+        ]
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-25T13:33:22.572Z",
+      "salaryMin": 41600,
+      "salaryMax": 63000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 41600,
+          "maxValue": 63000,
+          "unitText": "YEAR"
+        }
+      }
     },
     {
       "id": "nestle-1377885033",
@@ -3795,7 +3893,7 @@
       "url": "https://jobdetails.nestle.com/job/Orbe-Stagiaire-ing%C3%A9nieur-Digital-Manufacturing-%28HFD%29/1377885033/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-26T23:44:42.625Z",
+      "crawledAt": "2026-05-27T13:23:15.497Z",
       "addressLocality": "Orbe, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -3856,7 +3954,7 @@
       "url": "https://jobdetails.nestle.com/job/Orbe-Stagiaire-Automation-Robotique/1394983833/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-26T23:44:41.989Z",
+      "crawledAt": "2026-05-27T13:23:14.850Z",
       "addressLocality": "Orbe, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -3871,6 +3969,14 @@
       "applyUrl": "https://jobdetails.nestle.com/job/Orbe-Stagiaire-Automation-Robotique/1394983833/",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "stagiaire-automation-robotique-nestle-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "stagiaire-automation-robotique-nestle-ch"
+        ]
+      },
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-25T13:33:47.255Z",
       "salaryMin": 41600,
@@ -3884,15 +3990,7 @@
           "maxValue": 63000,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "stagiaire-automation-robotique-nestle-ch"
-        ]
-      },
-      "previousSlugs": [
-        "stagiaire-automation-robotique-nestle-ch"
-      ]
+      }
     },
     {
       "id": "nestle-1368496533",
@@ -3925,7 +4023,7 @@
       "url": "https://jobdetails.nestle.com/job/Orbe-Associate-R&D-Specialist-Packaging-Material-Characterization/1368496533/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-26T23:44:41.355Z",
+      "crawledAt": "2026-05-27T13:23:14.219Z",
       "addressLocality": "Orbe, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -3970,75 +4068,6 @@
       }
     },
     {
-      "id": "nestle-1387253333",
-      "slug": "supply-chain-tirocinante-nestle-avenches-ch",
-      "slugByLocale": {
-        "it": "supply-chain-tirocinante-nestle-avenches-ch",
-        "en": "supply-chain-intern-nestle-ch",
-        "de": "lieferkette-praktikant-nestle-avenches-ch",
-        "fr": "chaine-d-approvisionnement-stagiaire-nestle-avenches-ch"
-      },
-      "company": "Nestlé",
-      "companyKey": "nestle",
-      "companyDomain": "nestle.com",
-      "title": "Supply Chain Intern",
-      "titleByLocale": {
-        "it": "Supply Chain Tirocinante",
-        "en": "Supply Chain Intern",
-        "de": "Lieferkette Praktikant",
-        "fr": "Chaîne d'approvisionnement Stagiaire"
-      },
-      "description": "At Nespresso Switzerland, we believe that we can elevate the world of coffee to drive a positive impact and be a force for good. Voted best employer 2025, we place our people at the heart of our success – all 14,000 of them. To achieve this, we live by four behaviors. We Inspire, we Care, we Act, and we iNnovate. Want to be part of this exciting journey? Join the Nespresso team- Reimagine what coffee can be. Reimagine what you can become.\n\nPosition Snapshot\n\nLocation: Avenches, Switzerland & frequent mobility to other Nestlé’s sites\n\nCompany: Nestlé Nespresso SA\nAct. Rate: Full-Time, 100%\nType of contract: Internship, 6 months\n\nStart date: July 2026\n\nThe recruitment will be entirely driven by the fit between the individual competencies and the requirements of the job. Each candidate whose skills match best the requirements of the role will be considered.\n\nWhat we offer at Nestlé\n\nFlexible work policies in terms of core hours\n\nInternational, diverse, equitable and inclusive work environment : Read more about our Nestlé Community\n\nOpportunities to have an impact and contribute to your team’s success\n\nEndless learning opportunities and enriching experiences\n\nStrong mentorship for your professional growth\n\nProfessional network and route to entry level position\n\nPosition Summary\n\nFor our Supply Chain department, we are looking for a Supply Chain Intern reporting to our Factories Planning\n\nManager for Coffee. In this role, you will contribute to stock cover optimization and gain hands-on experience in project management. You will collaborate closely with Nespresso Factories, Packaging suppliers, and Production & MRP Planners to execute projects aimed at optimizing stocks and workload. This internship provides an excellent opportunity to learn and develop skills in project management, supplier relationship management, and process improvement, while observing how Continuous Improvement Project Plans are built and executed.\n\nA Day in the Life of a Supply Chain Intern\n\n• Manage projects focused on continuous improvement for Nespresso\n\n• Help overseeing inventory management for packaging materials\n\n• Implement new methods to optimize packaging stocks and workload\n\n• Collaborate with Production & MRP planners, suppliers, and procurement teams\n\n• Engage with logistics, finance, and other professionals within the supply chain\n\n• Assist in executing strategies to enhance operational efficiency\n\n• Learn managing different steps of the products’ lifecycle\n\nWhat will make you successful\n\n• Completing a Master’s degree in Supply Chain, Engineering, Project Management, or a related field\n\n• Having a previous experience in supply chain and/or project management is considered a plus\n\n• Great project management competencies and organizational skills\n\n• Autonomy and the ability to work independently\n\n• Excellent communication skills to work in an international setting with various stakeholders\n\n• Strong analytical skills with an expertise in Microsoft Excel and agility to quickly learn the use of other software\n\n• Basic knowledge in PowerBI and Machine Learning are a plus\n\n• Knowledge of SAP is an advantage\n\n• Fluency in English, both written and spoken; knowledge of French or other European languages is a plus\n\nNespresso is committed to the accessibility of its recruitment process. If you require an adaptation during the recruitment process, please do let us know so we can support you effectively. All information will be treated confidentially.\n\nAt Nespresso, we’ve built a culture of care and inclusion, making sure everyone can be their bold selves, while growing with the company. We innovate, dare to try, learn and scale up in a fast paced, digital and connected environment. With a diverse workforce made up of over 90 nationalities across 58 countries, you can be a part of an innovative culture, where supportive people help each other. One where anyone",
-      "descriptionByLocale": {
-        "it": "At Nespresso Switzerland, we believe that we can elevate the world of coffee to drive a positive impact and be a force for good. Voted best employer 2025, we place our people at the heart of our success – all 14,000 of them. To achieve this, we live by four behaviors. We Inspire, we Care, we Act, and we iNnovate. Want to be part of this exciting journey? Join the Nespresso team- Reimagine what coffee can be. Reimagine what you can become. Position Snapshot Location: Avenches, Switzerland & frequent mobility to other Nestlé’s sites Company: Nestlé Nespresso SA Act. Rate: Full-Time, 100% Type of contract: Internship, 6 months Start date: July 2026 The recruitment will be entirely driven by the fit between the individual competencies and the requirements of the job. Each candidate whose skills match best the requirements of the role will be considered. What we offer at Nestlé Flexible work policies in terms of core hours International, diverse, equitable and inclusive work environment : Read more about our Nestlé Community Opportunities to have an impact and contribute to your team’s success Endless learning opportunities and enriching experiences Strong mentorship for your professional growth Professional network and route to entry level position Position Summary For our Supply Chain department, we are looking for a Supply Chain Intern reporting to our Factories Planning Manager for Coffee. In this role, you will contribute to stock cover optimization and gain hands-on experience in project management. You will collaborate closely with Nespresso Factories, Packaging suppliers, and Production & MRP Planners to execute projects aimed at optimizing stocks and workload. This internship provides an excellent opportunity to learn and develop skills in project management, supplier relationship management, and process improvement, while observing how Continuous Improvement Project Plans are built and executed. A Day in the Life of a Supply Chain Intern\n• Manage projects focused on continuous improvement for Nespresso\n• Help overseeing inventory management for packaging materials\n• Implement new methods to optimize packaging stocks and workload\n• Collaborate with Production & MRP planners, suppliers, and procurement teams\n• Engage with logistics, finance, and other professionals within the supply chain\n• Assist in executing strategies to enhance operational efficiency\n• Learn managing different steps of the products’ lifecycle What will make you successful\n• Completing a Master’s degree in Supply Chain, Engineering, Project Management, or a related field\n• Having a previous experience in supply chain and/or project management is considered a plus\n• Great project management competencies and organizational skills\n• Autonomy and the ability to work independently\n• Excellent communication skills to work in an international setting with various stakeholders\n• Strong analytical skills with an expertise in Microsoft Excel and agility to quickly learn the use of other software\n• Basic knowledge in PowerBI and Machine Learning are a plus\n• Knowledge of SAP is an advantage\n• Fluency in English, both written and spoken; knowledge of French or other European languages is a plus Nespresso is committed to the accessibility of its recruitment process. If you require an adaptation during the recruitment process, please do let us know so we can support you effectively. All information will be treated confidentially. At Nespresso, we’ve built a culture of care and inclusion, making sure everyone can be their bold selves, while growing with the company. We innovate, dare to try, learn and scale up in a fast paced, digital and connected environment. With a diverse workforce made up of over 90 nationalities across 58 countries, you can be a part of an innovative culture, where supportive people help each other. One where anyone",
-        "en": "At Nespresso Switzerland, we believe that we can elevate the world of coffee to drive a positive impact and be a force for good. Voted best employer 2025, we place our people at the heart of our success – all 14,000 of them. To achieve this, we live by four behaviors. We Inspire, we Care, we Act, and we iNnovate. Want to be part of this exciting journey? Join the Nespresso team- Reimagine what coffee can be. Reimagine what you can become. Position Snapshot Location: Avenches, Switzerland & frequent mobility to other Nestlé’s sites Company: Nestlé Nespresso SA Act. Rate: Full-Time, 100% Type of contract: Internship, 6 months Start date: July 2026 The recruitment will be entirely driven by the fit between the individual competencies and the requirements of the job. Each candidate whose skills match best the requirements of the role will be considered. What we offer at Nestlé Flexible work policies in terms of core hours International, diverse, equitable and inclusive work environment : Read more about our Nestlé Community Opportunities to have an impact and contribute to your team’s success Endless learning opportunities and enriching experiences Strong mentorship for your professional growth Professional network and route to entry level position Position Summary For our Supply Chain department, we are looking for a Supply Chain Intern reporting to our Factories Planning Manager for Coffee. In this role, you will contribute to stock cover optimization and gain hands-on experience in project management. You will collaborate closely with Nespresso Factories, Packaging suppliers, and Production & MRP Planners to execute projects aimed at optimizing stocks and workload. This internship provides an excellent opportunity to learn and develop skills in project management, supplier relationship management, and process improvement, while observing how Continuous Improvement Project Plans are built and executed. A Day in the Life of a Supply Chain Intern\n• Manage projects focused on continuous improvement for Nespresso\n• Help overseeing inventory management for packaging materials\n• Implement new methods to optimize packaging stocks and workload\n• Collaborate with Production & MRP planners, suppliers, and procurement teams\n• Engage with logistics, finance, and other professionals within the supply chain\n• Assist in executing strategies to enhance operational efficiency\n• Learn managing different steps of the products’ lifecycle What will make you successful\n• Completing a Master’s degree in Supply Chain, Engineering, Project Management, or a related field\n• Having a previous experience in supply chain and/or project management is considered a plus\n• Great project management competencies and organizational skills\n• Autonomy and the ability to work independently\n• Excellent communication skills to work in an international setting with various stakeholders\n• Strong analytical skills with an expertise in Microsoft Excel and agility to quickly learn the use of other software\n• Basic knowledge in PowerBI and Machine Learning are a plus\n• Knowledge of SAP is an advantage\n• Fluency in English, both written and spoken; knowledge of French or other European languages is a plus Nespresso is committed to the accessibility of its recruitment process. If you require an adaptation during the recruitment process, please do let us know so we can support you effectively. All information will be treated confidentially. At Nespresso, we’ve built a culture of care and inclusion, making sure everyone can be their bold selves, while growing with the company. We innovate, dare to try, learn and scale up in a fast paced, digital and connected environment. With a diverse workforce made up of over 90 nationalities across 58 countries, you can be a part of an innovative culture, where supportive people help each other. One where anyone",
-        "de": "At Nespresso Switzerland, we believe that we can elevate the world of coffee to drive a positive impact and be a force for good. Voted best employer 2025, we place our people at the heart of our success – all 14,000 of them. To achieve this, we live by four behaviors. We Inspire, we Care, we Act, and we iNnovate. Want to be part of this exciting journey? Join the Nespresso team- Reimagine what coffee can be. Reimagine what you can become. Position Snapshot Location: Avenches, Switzerland & frequent mobility to other Nestlé’s sites Company: Nestlé Nespresso SA Act. Rate: Full-Time, 100% Type of contract: Internship, 6 months Start date: July 2026 The recruitment will be entirely driven by the fit between the individual competencies and the requirements of the job. Each candidate whose skills match best the requirements of the role will be considered. What we offer at Nestlé Flexible work policies in terms of core hours International, diverse, equitable and inclusive work environment : Read more about our Nestlé Community Opportunities to have an impact and contribute to your team’s success Endless learning opportunities and enriching experiences Strong mentorship for your professional growth Professional network and route to entry level position Position Summary For our Supply Chain department, we are looking for a Supply Chain Intern reporting to our Factories Planning Manager for Coffee. In this role, you will contribute to stock cover optimization and gain hands-on experience in project management. You will collaborate closely with Nespresso Factories, Packaging suppliers, and Production & MRP Planners to execute projects aimed at optimizing stocks and workload. This internship provides an excellent opportunity to learn and develop skills in project management, supplier relationship management, and process improvement, while observing how Continuous Improvement Project Plans are built and executed. A Day in the Life of a Supply Chain Intern\n• Manage projects focused on continuous improvement for Nespresso\n• Help overseeing inventory management for packaging materials\n• Implement new methods to optimize packaging stocks and workload\n• Collaborate with Production & MRP planners, suppliers, and procurement teams\n• Engage with logistics, finance, and other professionals within the supply chain\n• Assist in executing strategies to enhance operational efficiency\n• Learn managing different steps of the products’ lifecycle What will make you successful\n• Completing a Master’s degree in Supply Chain, Engineering, Project Management, or a related field\n• Having a previous experience in supply chain and/or project management is considered a plus\n• Great project management competencies and organizational skills\n• Autonomy and the ability to work independently\n• Excellent communication skills to work in an international setting with various stakeholders\n• Strong analytical skills with an expertise in Microsoft Excel and agility to quickly learn the use of other software\n• Basic knowledge in PowerBI and Machine Learning are a plus\n• Knowledge of SAP is an advantage\n• Fluency in English, both written and spoken; knowledge of French or other European languages is a plus Nespresso is committed to the accessibility of its recruitment process. If you require an adaptation during the recruitment process, please do let us know so we can support you effectively. All information will be treated confidentially. At Nespresso, we’ve built a culture of care and inclusion, making sure everyone can be their bold selves, while growing with the company. We innovate, dare to try, learn and scale up in a fast paced, digital and connected environment. With a diverse workforce made up of over 90 nationalities across 58 countries, you can be a part of an innovative culture, where supportive people help each other. One where anyone",
-        "fr": "At Nespresso Switzerland, we believe that we can elevate the world of coffee to drive a positive impact and be a force for good. Voted best employer 2025, we place our people at the heart of our success – all 14,000 of them. To achieve this, we live by four behaviors. We Inspire, we Care, we Act, and we iNnovate. Want to be part of this exciting journey? Join the Nespresso team- Reimagine what coffee can be. Reimagine what you can become. Position Snapshot Location: Avenches, Switzerland & frequent mobility to other Nestlé’s sites Company: Nestlé Nespresso SA Act. Rate: Full-Time, 100% Type of contract: Internship, 6 months Start date: July 2026 The recruitment will be entirely driven by the fit between the individual competencies and the requirements of the job. Each candidate whose skills match best the requirements of the role will be considered. What we offer at Nestlé Flexible work policies in terms of core hours International, diverse, equitable and inclusive work environment : Read more about our Nestlé Community Opportunities to have an impact and contribute to your team’s success Endless learning opportunities and enriching experiences Strong mentorship for your professional growth Professional network and route to entry level position Position Summary For our Supply Chain department, we are looking for a Supply Chain Intern reporting to our Factories Planning Manager for Coffee. In this role, you will contribute to stock cover optimization and gain hands-on experience in project management. You will collaborate closely with Nespresso Factories, Packaging suppliers, and Production & MRP Planners to execute projects aimed at optimizing stocks and workload. This internship provides an excellent opportunity to learn and develop skills in project management, supplier relationship management, and process improvement, while observing how Continuous Improvement Project Plans are built and executed. A Day in the Life of a Supply Chain Intern\n• Manage projects focused on continuous improvement for Nespresso\n• Help overseeing inventory management for packaging materials\n• Implement new methods to optimize packaging stocks and workload\n• Collaborate with Production & MRP planners, suppliers, and procurement teams\n• Engage with logistics, finance, and other professionals within the supply chain\n• Assist in executing strategies to enhance operational efficiency\n• Learn managing different steps of the products’ lifecycle What will make you successful\n• Completing a Master’s degree in Supply Chain, Engineering, Project Management, or a related field\n• Having a previous experience in supply chain and/or project management is considered a plus\n• Great project management competencies and organizational skills\n• Autonomy and the ability to work independently\n• Excellent communication skills to work in an international setting with various stakeholders\n• Strong analytical skills with an expertise in Microsoft Excel and agility to quickly learn the use of other software\n• Basic knowledge in PowerBI and Machine Learning are a plus\n• Knowledge of SAP is an advantage\n• Fluency in English, both written and spoken; knowledge of French or other European languages is a plus Nespresso is committed to the accessibility of its recruitment process. If you require an adaptation during the recruitment process, please do let us know so we can support you effectively. All information will be treated confidentially. At Nespresso, we’ve built a culture of care and inclusion, making sure everyone can be their bold selves, while growing with the company. We innovate, dare to try, learn and scale up in a fast paced, digital and connected environment. With a diverse workforce made up of over 90 nationalities across 58 countries, you can be a part of an innovative culture, where supportive people help each other. One where anyone"
-      },
-      "location": "Avenches, CH",
-      "canton": "VD",
-      "url": "https://jobdetails.nestle.com/job/Avenches-Supply-Chain-Intern/1387253333/",
-      "source": "Nestlé Switzerland Dedicated Parser (Workday)",
-      "sourceLang": "en",
-      "crawledAt": "2026-05-26T23:44:40.738Z",
-      "addressLocality": "Avenches, CH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "intern",
-      "sector": "Food / Beverage",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-23",
-      "applyUrl": "https://jobdetails.nestle.com/job/Avenches-Supply-Chain-Intern/1387253333/",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "supply-chain-intern-nestle-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "supply-chain-intern-nestle-ch"
-        ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-05-25T13:33:22.572Z",
-      "salaryMin": 41600,
-      "salaryMax": 63000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 41600,
-          "maxValue": 63000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "nestle-1271549401",
       "slug": "operateur-de-production-f-m-d-nestle-romont-ch",
       "slugByLocale": {
@@ -4069,7 +4098,7 @@
       "url": "https://jobdetails.nestle.com/job/Romont-Op%C3%A9rateur-de-production-%28HFD%29/1271549401/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-26T23:44:40.106Z",
+      "crawledAt": "2026-05-27T13:23:13.539Z",
       "addressLocality": "Romont, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -4141,7 +4170,7 @@
       "url": "https://jobdetails.nestle.com/job/Lausanne-Sr-Specialist-Scientific-Data-Engineering/1271255101/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-26T23:44:39.478Z",
+      "crawledAt": "2026-05-27T13:23:12.861Z",
       "addressLocality": "Lausanne, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -4217,7 +4246,7 @@
       "url": "https://jobdetails.nestle.com/job/Vevey-International-Auditor/1376630333/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-26T23:44:38.811Z",
+      "crawledAt": "2026-05-27T13:23:12.206Z",
       "addressLocality": "Vevey, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -4232,6 +4261,17 @@
       "applyUrl": "https://jobdetails.nestle.com/job/Vevey-International-Auditor/1376630333/",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugsByLocale": {
+        "en": [
+          "international-auditor-nestle-ch"
+        ],
+        "it": [
+          "international-auditor-nestle-ch"
+        ]
+      },
+      "previousSlugs": [
+        "international-auditor-nestle-ch"
+      ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-25T13:33:21.891Z",
       "salaryMin": 49500,
@@ -4246,15 +4286,7 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1800",
-      "previousSlugsByLocale": {
-        "it": [
-          "international-auditor-nestle-ch"
-        ]
-      },
-      "previousSlugs": [
-        "international-auditor-nestle-ch"
-      ]
+      "postalCode": "1800"
     },
     {
       "id": "nestle-1377993633",
@@ -4287,7 +4319,7 @@
       "url": "https://jobdetails.nestle.com/job/Orbe-Stagiaire-Ing%C3%A9nieure-Engineering-%28HFD%29/1377993633/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-26T23:44:38.168Z",
+      "crawledAt": "2026-05-27T13:23:11.543Z",
       "addressLocality": "Orbe, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -4348,7 +4380,7 @@
       "url": "https://jobdetails.nestle.com/job/Orbe-R&D-Senior-Specialist-System-Development/1377559333/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-26T23:44:37.543Z",
+      "crawledAt": "2026-05-27T13:23:10.860Z",
       "addressLocality": "Orbe, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -4423,7 +4455,7 @@
       "url": "https://jobdetails.nestle.com/job/Orbe-R&D-Specialist-Electronics-Firmware/1377548533/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-26T23:44:36.894Z",
+      "crawledAt": "2026-05-27T13:23:10.188Z",
       "addressLocality": "Orbe, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -4498,7 +4530,7 @@
       "url": "https://jobdetails.nestle.com/job/Orbe-R&D-Specialist-Electronics-Hardware/1377556533/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-26T23:44:36.247Z",
+      "crawledAt": "2026-05-27T13:23:09.486Z",
       "addressLocality": "Orbe, CH",
       "addressCountry": "CH",
       "country": "CH",
