@@ -1571,7 +1571,7 @@ function renderHubPage(input: HubPageInput): { urlPath: string; html: string; lo
 
   const bodyHtml = `<article class="s-haN35X">
     <nav class="s-bcr">
-      <a href="${BASE_URL}/" class="s-bcl">${esc(copy.homeBreadcrumb)}</a>
+      <a href="/" class="s-bcl">${esc(copy.homeBreadcrumb)}</a>
       <span> / </span>
       <a href="${esc(sectionUrl)}" class="s-bcl">${esc(copy.jobsBreadcrumb)}</a>
       <span> / </span>
