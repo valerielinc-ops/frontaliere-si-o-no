@@ -24833,4 +24833,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'arresto-ponte-tresa-100-chili-hashish',
+ category: 'pratico',
+ date: '2026-05-27T03:22:30.363Z',
+ image: '/images/blog/arresto-ponte-tresa-100-chili-hashish.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

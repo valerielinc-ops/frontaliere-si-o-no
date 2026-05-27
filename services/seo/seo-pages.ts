@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2661,
+ "numberOfItems": 2662,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7301,7 +7301,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2658, "name": "Frontalieri con figli: come funziona l'asilo ni...", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-con-figli-asilo-nido-svizzera` },
           { "@type": "ListItem", "position": 2659, "name": "Aumento beneficiari rendite AVS in Ticino: +40....", "url": `${BASE_URL}/articoli-frontaliere/aumento-beneficiari-rendite-avs-ticino` },
           { "@type": "ListItem", "position": 2660, "name": "Ucraini con permesso B, c'è preoccupazione?", "url": `${BASE_URL}/articoli-frontaliere/ucraini-con-permesso-b-preoccupazione` },
-          { "@type": "ListItem", "position": 2661, "name": "Porrentruy: piscina comunale, frontalieri pagan...", "url": `${BASE_URL}/articoli-frontaliere/porrentruy-piscina-frontaliere-tariffe` }
+          { "@type": "ListItem", "position": 2661, "name": "Porrentruy: piscina comunale, frontalieri pagan...", "url": `${BASE_URL}/articoli-frontaliere/porrentruy-piscina-frontaliere-tariffe` },
+          { "@type": "ListItem", "position": 2662, "name": "Arresto a Ponte Tresa: 100 chili di hashish tro...", "url": `${BASE_URL}/articoli-frontaliere/arresto-ponte-tresa-100-chili-hashish` }
  ]
  },
  {

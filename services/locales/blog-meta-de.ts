@@ -7818,6 +7818,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.porrentruy-piscina-frontaliere-tariffe.title': 'Porrentruy: Stadtbad, Grenzgänger zahlen doppelt',
     'blog.article.porrentruy-piscina-frontaliere-tariffe.excerpt': 'In Porrentruy, Eintrittspreise für das Schwimmbad für Grenzgänger verdoppelt und Abonnements gestoppt: Erwachsene 15 Franken, Jugendliche 10 Franken, nur online verfügbar.',
     'blog.article.porrentruy-piscina-frontaliere-tariffe.imageAlt': 'Überfülltes Schwimmbad in Lugano mit Grenzgängern',
+    'blog.article.arresto-ponte-tresa-100-chili-hashish.title': 'Festnahme in Ponte Tresa: 100 Kilo Haschisch im Auto',
+    'blog.article.arresto-ponte-tresa-100-chili-hashish.excerpt': 'Ein 44-jähriger Ukrainer wurde am 22. Mai mit 100 kg Haschisch in einem Auto mit polnischem Kennzeichen auf dem Weg nach Italien gestoppt. Die UDSC und Staatsanwältin Lanzillo haben den Fall übernommen.',
+    'blog.article.arresto-ponte-tresa-100-chili-hashish.imageAlt': 'Zollübergang Ponte Tresa, frühe Morgenkontrollen an der Grenze Tessin-Italien',
 };
 
 export default blogMetaDe;

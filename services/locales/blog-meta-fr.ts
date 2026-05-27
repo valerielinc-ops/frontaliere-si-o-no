@@ -7820,6 +7820,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.porrentruy-piscina-frontaliere-tariffe.title': 'Porrentruy: piscine, frontaliers tarifs doublés',
     'blog.article.porrentruy-piscina-frontaliere-tariffe.excerpt': 'A Porrentruy, tarifs piscine doublés pour les frontaliers et fin des abonnements: adultes 15 CHF, jeunes 10 CHF, uniquement en ligne.',
     'blog.article.porrentruy-piscina-frontaliere-tariffe.imageAlt': 'Piscine publique bondée à Lugano avec frontaliers en attente',
+    'blog.article.arresto-ponte-tresa-100-chili-hashish.title': 'Arrestation à Ponte Tresa : 100 kilos de haschisch saisis',
+    'blog.article.arresto-ponte-tresa-100-chili-hashish.excerpt': 'Un homme de 44 ans d\'origine ukrainienne a été arrêté le 22 mai avec 100 kg de haschisch dissimulés dans une voiture immatriculée en Pologne, alors qu\'il se dirigeait vers l\'Italie. L\'OFDF et la procureure Lanzillo sont en charge de l\'affaire.',
+    'blog.article.arresto-ponte-tresa-100-chili-hashish.imageAlt': 'Poste douanier de Ponte Tresa, contrôles au petit matin à la frontière Tessin-Italie',
 };
 
 export default blogMetaFr;

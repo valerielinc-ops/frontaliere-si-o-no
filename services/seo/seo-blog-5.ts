@@ -40517,6 +40517,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-arresto-ponte-tresa-100-chili-hashish': {
+    title: 'Arresto a Ponte Tresa: 100 chili di hashish trovati in auto',
+    description: '44enne ucraino arrestato al valico di Ponte Tresa con 100 chili di hashish occultati in auto con targa polacca. UDSC, Procuratrice Lanzillo, GPC.',
+    keywords: 'frontalieri, ticino, svizzera, italia, arresto, ponte, tresa, chili',
+    ogTitle: 'Arresto Ponte Tresa 100 kg hashish 22 maggio',
+    ogDescription: '44enne ucraino arrestato il 22 maggio con 100 kg di hashish al valico di Ponte Tresa. UDSC e Procuratrice Lanzillo al caso.',
+    canonicalPath: '/articoli-frontaliere/arresto-ponte-tresa-100-chili-hashish',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Arresto a Ponte Tresa: 100 chili di hashish trovati in auto",
+      "description": "44enne ucraino arrestato al valico di Ponte Tresa con 100 chili di hashish occultati in auto con targa polacca. UDSC, Procuratrice Lanzillo, GPC.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/arresto-ponte-tresa-100-chili-hashish.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Valico doganale di Ponte Tresa, controlli all'alba sul confine Ticino-Italia"
+      },
+      "datePublished": "2026-05-27T03:22:30+00:00",
+      "dateModified": "2026-05-27T03:22:30+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/arresto-ponte-tresa-100-chili-hashish`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

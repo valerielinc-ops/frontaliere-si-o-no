@@ -7819,6 +7819,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.porrentruy-piscina-frontaliere-tariffe.title': 'Porrentruy: double pool tickets for cross-border workers',
     'blog.article.porrentruy-piscina-frontaliere-tariffe.excerpt': 'In Porrentruy, pool tickets for cross-border workers have doubled and season passes are no longer available: adults pay 15 CHF, youths 10 CHF, tickets only sold online.',
     'blog.article.porrentruy-piscina-frontaliere-tariffe.imageAlt': 'Crowded public pool in Lugano with cross-border commuters waiting',
+    'blog.article.arresto-ponte-tresa-100-chili-hashish.title': 'Arrest in Ponte Tresa: 100kg of hashish found in car',
+    'blog.article.arresto-ponte-tresa-100-chili-hashish.excerpt': 'A 44-year-old of Ukrainian origin was stopped on May 22 with 100kg of hashish hidden in a car with Polish plates, heading to Italy. The FOC and Prosecutor Lanzillo are handling the case.',
+    'blog.article.arresto-ponte-tresa-100-chili-hashish.imageAlt': 'Ponte Tresa customs crossing, early morning controls at the Ticino-Italy border',
 };
 
 export default blogMetaEn;

@@ -7820,6 +7820,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.porrentruy-piscina-frontaliere-tariffe.title': 'Porrentruy: piscina comunale, frontalieri pagano il doppio',
     'blog.article.porrentruy-piscina-frontaliere-tariffe.excerpt': 'A Porrentruy, biglietti piscina raddoppiati per frontalieri e stop agli abbonamenti: adulti 15 CHF, giovani 10 CHF, solo online.',
     'blog.article.porrentruy-piscina-frontaliere-tariffe.imageAlt': 'Piscina comunale affollata a Lugano con frontalieri in attesa',
+    'blog.article.arresto-ponte-tresa-100-chili-hashish.title': 'Arresto a Ponte Tresa: 100 chili di hashish trovati in auto',
+    'blog.article.arresto-ponte-tresa-100-chili-hashish.excerpt': '44enne di origini ucraine fermato il 22 maggio con 100 kg di hashish occultati in auto con targa polacca, diretto in Italia. UDSC e Procuratrice Lanzillo al caso.',
+    'blog.article.arresto-ponte-tresa-100-chili-hashish.imageAlt': 'Valico doganale di Ponte Tresa, controlli all\'alba sul confine Ticino-Italia',
 };
 
 export default blogMetaIt;
