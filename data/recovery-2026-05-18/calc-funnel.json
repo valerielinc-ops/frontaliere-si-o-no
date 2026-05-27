@@ -1,171 +1,188 @@
 {
-  "generated": "2026-05-25T07:33:32.055Z",
+  "generated": "2026-05-27T06:45:21.379Z",
   "window_days": 7,
   "funnel_counts": [
-    169,
-    5,
-    219
+    569,
+    2639,
+    4492
   ],
   "abandoner_last_events": [
     [
       "funnel_step",
       "https://frontaliereticino.ch/",
-      5197
-    ],
-    [
-      "funnel_step",
-      "https://frontaliereticino.ch/?utm_source=chatgpt.com",
-      2024
-    ],
-    [
-      "simulation_complete",
-      "https://frontaliereticino.ch/",
-      1686
-    ],
-    [
-      "generate_lead",
-      "https://frontaliereticino.ch/",
-      1682
-    ],
-    [
-      "simulation_complete",
-      "https://frontaliereticino.ch/?utm_source=chatgpt.com",
-      672
-    ],
-    [
-      "generate_lead",
-      "https://frontaliereticino.ch/?utm_source=chatgpt.com",
-      664
-    ],
-    [
-      "whatif_simulator",
-      "https://frontaliereticino.ch/calcola-stipendio/cosa-cambia-se/",
-      602
-    ],
-    [
-      "cta_click",
-      "https://frontaliereticino.ch/",
-      462
+      177
     ],
     [
       "ui_interaction",
       "https://frontaliereticino.ch/",
-      324
-    ],
-    [
-      "funnel_step",
-      "https://frontaliereticino.ch/?utm_source=copilot.com",
-      195
-    ],
-    [
-      "funnel_step",
-      "https://frontaliereticino.ch/calcola-stipendio/nuovi-frontalieri-oltre-20-km/",
-      193
-    ],
-    [
-      "funnel_step",
-      "https://frontaliereticino.ch/?tipo=NEW&zona=OVER_20KM",
-      165
-    ],
-    [
-      "cta_click",
-      "https://frontaliereticino.ch/?utm_source=chatgpt.com",
-      150
-    ],
-    [
-      "funnel_step",
-      "https://frontaliereticino.ch/?reddito=70000&tipo=NEW&stato=SINGLE&figli=2&zona=OVER_20KM",
-      141
-    ],
-    [
-      "funnel_step",
-      "https://frontaliereticino.ch/calcola-stipendio/nuovi-frontalieri-oltre-20-km/#google_vignette",
-      96
-    ],
-    [
-      "funnel_step",
-      "https://frontaliereticino.ch/?reddito=120000&tipo=NEW&stato=MARRIED&figli=1&zona=OVER_20KM",
-      94
+      114
     ],
     [
       "$pageview",
       "https://frontaliereticino.ch/",
-      94
+      85
     ],
     [
-      "ad_collapsed",
-      "https://frontaliereticino.ch/cerca-lavoro-ticino/",
-      90
-    ],
-    [
-      "funnel_step",
-      "https://frontaliereticino.ch/cerca-lavoro-ticino/responsabile-pulizie-manutenzione-60-100-spital-schwyz-schwyz/",
-      87
-    ],
-    [
-      "input_change",
-      "https://frontaliereticino.ch/?utm_source=chatgpt.com",
-      87
-    ],
-    [
-      "$dead_click",
+      "traffic_attribution",
       "https://frontaliereticino.ch/",
-      80
+      82
     ],
     [
-      "funnel_step",
-      "https://frontaliereticino.ch/cerca-lavoro-basilea/pratteln/",
-      80
-    ],
-    [
-      "ad_collapsed",
+      "not_found_view",
       "https://frontaliereticino.ch/",
-      79
-    ],
-    [
-      "funnel_step",
-      "https://frontaliereticino.ch/?reddito=78000",
-      71
-    ],
-    [
-      "cta_click",
-      "https://frontaliereticino.ch/calcola-stipendio/cosa-cambia-se/",
-      70
-    ],
-    [
-      "funnel_step",
-      "https://frontaliereticino.ch/cerca-lavoro-ticino/senior-manager-reporting-gestione-patrimoniale-100-remoto-tether-operations-lugano/",
-      69
+      63
     ],
     [
       "$web_vitals",
       "https://frontaliereticino.ch/",
-      68
-    ],
-    [
-      "$pageview",
-      "https://frontaliereticino.ch/calcola-stipendio/nuovi-frontalieri-oltre-20-km/",
-      65
+      45
     ],
     [
       "funnel_step",
-      "https://frontaliereticino.ch/?reddito=90000&tipo=NEW&stato=SINGLE&figli=0&zona=OVER_20KM",
-      65
+      "https://frontaliereticino.ch/calcola-stipendio/stipendio-netto-60000-chf/",
+      37
     ],
     [
-      "simulation_complete",
-      "https://frontaliereticino.ch/?utm_source=copilot.com",
-      63
+      "funnel_step",
+      "https://frontaliereticino.ch/calcola-stipendio/nuovi-frontalieri-oltre-20-km/",
+      31
+    ],
+    [
+      "$dead_click",
+      "https://frontaliereticino.ch/compara-servizi/confronta-casse-malati/",
+      26
+    ],
+    [
+      "cta_click",
+      "https://frontaliereticino.ch/calcola-stipendio/simula-busta-paga/",
+      23
+    ],
+    [
+      "funnel_step",
+      "https://frontaliereticino.ch/calcola-stipendio/confronta-retribuzione-ral/",
+      22
+    ],
+    [
+      "$dead_click",
+      "https://frontaliereticino.ch/calcola-stipendio/simula-busta-paga/?utm_source=chatgpt.com",
+      22
+    ],
+    [
+      "funnel_step",
+      "https://frontaliereticino.ch/calcola-stipendio/simula-busta-paga/",
+      21
+    ],
+    [
+      "resource_load_error",
+      "https://frontaliereticino.ch/",
+      19
+    ],
+    [
+      "$pageleave",
+      "https://frontaliereticino.ch/",
+      18
+    ],
+    [
+      "$web_vitals",
+      "https://frontaliereticino.ch/calcola-stipendio/simula-busta-paga/",
+      16
+    ],
+    [
+      "$web_vitals",
+      "https://frontaliereticino.ch/calcola-stipendio/confronta-retribuzione-ral/",
+      16
+    ],
+    [
+      "ui_interaction",
+      "https://frontaliereticino.ch/calcola-stipendio/confronta-retribuzione-ral/",
+      16
+    ],
+    [
+      "$dead_click",
+      "https://frontaliereticino.ch/tasse-e-pensione/festivita-ticino/?utm_source=chatgpt.com",
+      16
+    ],
+    [
+      "cta_click",
+      "https://frontaliereticino.ch/calcola-stipendio/simula-busta-paga/?utm_source=chatgpt.com",
+      15
+    ],
+    [
+      "funnel_step",
+      "https://frontaliereticino.ch/calcola-stipendio/simula-busta-paga/?utm_source=chatgpt.com",
+      15
+    ],
+    [
+      "$dead_click",
+      "https://frontaliereticino.ch/calcola-stipendio/simula-busta-paga/",
+      14
+    ],
+    [
+      "$pageview",
+      "https://frontaliereticino.ch/calcola-stipendio/simula-busta-paga/",
+      14
+    ],
+    [
+      "$web_vitals",
+      "https://frontaliereticino.ch/calcola-stipendio/simula-busta-paga/?utm_source=chatgpt.com",
+      13
+    ],
+    [
+      "session_end",
+      "https://frontaliereticino.ch/",
+      13
+    ],
+    [
+      "funnel_step",
+      "https://frontaliereticino.ch/cerca-lavoro-basilea/pratteln/",
+      13
+    ],
+    [
+      "$pageview",
+      "https://frontaliereticino.ch/calcola-stipendio/confronta-retribuzione-ral/",
+      12
+    ],
+    [
+      "seo_page_view",
+      "https://frontaliereticino.ch/calcola-stipendio/simula-busta-paga/",
+      12
+    ],
+    [
+      "input_change",
+      "https://frontaliereticino.ch/calcola-stipendio/confronta-retribuzione-ral/",
+      11
+    ],
+    [
+      "generate_lead",
+      "https://frontaliereticino.ch/calcola-stipendio/stipendio-netto-60000-chf/",
+      10
     ]
   ],
   "scroll_depth": [
     null,
     null,
     null,
-    162
+    896
   ],
-  "cls_on_calc": [],
+  "cls_on_calc": [
+    [
+      "Mobile",
+      0.18849748720048817,
+      121
+    ],
+    [
+      "Desktop",
+      0.7216348263443843,
+      801
+    ]
+  ],
   "exceptions_on_calc": [
+    [
+      "Error",
+      "'TypeError' captured as exception with message: 'undefined is not an object (evaluating 'n.standardSelectors')'",
+      "",
+      9
+    ],
     [
       "TypeError",
       "Failed to fetch dynamically imported module: https://frontaliereticino.ch/assets/calculationService-Dge5thHZ.js",
@@ -179,8 +196,14 @@
       2
     ],
     [
+      "DOMException",
+      "InvalidStateError: Failed to execute 'transaction' on 'IDBDatabase': The database connection is closing.",
+      "/assets/vendor-firebase-core-D5lXZ75A.js",
+      2
+    ],
+    [
       "TypeError",
-      "Failed to fetch dynamically imported module: https://frontaliereticino.ch/assets/App-02zb2JOv.js",
+      "Failed to fetch dynamically imported module: https://frontaliereticino.ch/assets/App-BzkDkSXb.js",
       "",
       1
     ],
@@ -191,8 +214,20 @@
       1
     ],
     [
+      "Error",
+      "Script error.",
+      "",
+      1
+    ],
+    [
       "TypeError",
       "Failed to fetch dynamically imported module: https://frontaliereticino.ch/assets/App-Dcwv96YC.js",
+      "",
+      1
+    ],
+    [
+      "TypeError",
+      "Importing a module script failed.",
       "",
       1
     ]
