@@ -1,54 +1,18 @@
 {
   "key": "berit-klinik",
   "label": "Berit Klinik",
-  "generatedAt": "2026-05-27T12:12:56.043Z",
+  "generatedAt": "2026-05-27T22:16:54.875Z",
   "total": 14,
-  "newCount": 1,
-  "updatedCount": 13,
+  "newCount": 0,
+  "updatedCount": 14,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 6172,
-  "avgDurationMs": 6172,
+  "durationMs": 5672,
+  "avgDurationMs": 5672,
   "durationHistory": [
-    6172
+    5672
   ],
-  "newJobs": [
-    {
-      "title": "Gesundheit, 100%",
-      "slug": "gesundheit-100-berit-klinik",
-      "url": "https://cms-berit-klinik.deployco.de/api/media/file/stelleninserat_fachfrau_fachmann_gesundheit_rehaklinik_100__eb7500408c.pdf",
-      "applyUrl": "https://www.beritklinik.ch/de/karriere-offene-stellen",
-      "company": "Berit Klinik",
-      "companyKey": "berit-klinik",
-      "companyDomain": "beritklinik.ch",
-      "location": "Niederteufen",
-      "addressLocality": "Niederteufen",
-      "addressRegion": "AR",
-      "postalCode": "9052",
-      "addressCountry": "CH",
-      "canton": "AR",
-      "country": "CH",
-      "category": "health",
-      "sector": "Gesundheitswesen / Klinik",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "source": "berit-klinik-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-05-27",
-      "validThrough": "",
-      "needsRetranslation": true,
-      "_meta": {
-        "sourceFilename": "stelleninserat_fachfrau_fachmann_gesundheit_rehaklinik_100__eb7500408c.pdf"
-      },
-      "_qualityScore": 64,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 4,
-        "completeness": 17
-      }
-    }
-  ],
+  "newJobs": [],
   "updatedJobs": [
     {
       "title": "Logistiker:in, 100%",
@@ -380,6 +344,43 @@
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
+        "completeness": 17
+      }
+    },
+    {
+      "title": "Gesundheit, 100%",
+      "slug": "gesundheit-100-berit-klinik",
+      "url": "https://cms-berit-klinik.deployco.de/api/media/file/stelleninserat_fachfrau_fachmann_gesundheit_rehaklinik_100__eb7500408c.pdf",
+      "applyUrl": "https://www.beritklinik.ch/de/karriere-offene-stellen",
+      "company": "Berit Klinik",
+      "companyKey": "berit-klinik",
+      "companyDomain": "beritklinik.ch",
+      "location": "Niederteufen",
+      "addressLocality": "Niederteufen",
+      "addressRegion": "AR",
+      "postalCode": "9052",
+      "addressCountry": "CH",
+      "canton": "AR",
+      "country": "CH",
+      "category": "health",
+      "sector": "Gesundheitswesen / Klinik",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "source": "berit-klinik-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-05-27",
+      "validThrough": "",
+      "needsRetranslation": true,
+      "_meta": {
+        "sourceFilename": "stelleninserat_fachfrau_fachmann_gesundheit_rehaklinik_100__eb7500408c.pdf"
+      },
+      "id": "berit-klinik-7ee58a0f377e",
+      "firstSeenAt": "2026-05-27T12:12:56.041Z",
+      "_qualityScore": 76,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 16,
         "completeness": 17
       }
     },
