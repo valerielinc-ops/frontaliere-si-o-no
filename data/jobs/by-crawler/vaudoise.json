@@ -1,6 +1,6 @@
 {
   "crawlerKey": "vaudoise",
-  "assembledAt": "2026-05-27T00:41:03.729Z",
+  "assembledAt": "2026-05-27T14:21:21.151Z",
   "jobs": [
     {
       "id": "vaudoise-3a0f67aa3621",
@@ -33,7 +33,7 @@
       "url": "https://vaudoise.softgarden.io/job/60419000/Conseiller-Conseill%C3%A8re-h-f-x-100-?jobDbPVId=271665968&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-27T00:41:01.534Z",
+      "crawledAt": "2026-05-27T14:21:18.958Z",
       "addressLocality": "Châtel-Saint-Denis",
       "addressCountry": "CH",
       "country": "CH",
@@ -110,7 +110,7 @@
       "url": "https://vaudoise.softgarden.io/job/64512583/Gestionnaire-backoffice-service-hypoth%C3%A8ques-h-f-x-%E2%80%93-100-%E2%80%93-CDD-de-9-mois-%C3%A0-partir-de-juillet-?jobDbPVId=271790973&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-27T00:41:01.166Z",
+      "crawledAt": "2026-05-27T14:21:18.719Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -188,7 +188,7 @@
       "url": "https://vaudoise.softgarden.io/job/63140024/Sp%C3%A9cialiste-prestations-cas-complexes-LAA-fran%C3%A7ais-allemand-h-f-x-80-?jobDbPVId=271794228&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-27T00:41:00.931Z",
+      "crawledAt": "2026-05-27T14:21:18.475Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -264,7 +264,7 @@
       "url": "https://vaudoise.softgarden.io/job/53667621/Gestionnaire-Prestations-Animalia-charg%C3%A9-des-assurances-pour-chiens-et-chats-h-f-x-80-100-?jobDbPVId=271794243&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-27T00:41:00.693Z",
+      "crawledAt": "2026-05-27T14:21:18.232Z",
       "addressLocality": "Suisse",
       "addressCountry": "CH",
       "country": "CH",
@@ -303,8 +303,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 1
+      }
     },
     {
       "id": "vaudoise-4f12584d52a9",
@@ -337,7 +336,7 @@
       "url": "https://vaudoise.softgarden.io/job/63138754/Gestionnaire-senior-prestations-cas-complexes-LAA-h-f-x-80-?jobDbPVId=271794388&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-27T00:41:00.451Z",
+      "crawledAt": "2026-05-27T14:21:17.985Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -415,7 +414,7 @@
       "url": "https://vaudoise.softgarden.io/job/64517448/Mitarbeiter-in-Schaden-m-w-d-60-100-?jobDbPVId=271836713&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T00:41:00.039Z",
+      "crawledAt": "2026-05-27T14:21:17.745Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -491,7 +490,7 @@
       "url": "https://vaudoise.softgarden.io/job/63106694/Versicherungs-Traineeprogramm-Young-Insurance-Professional-VBV-?jobDbPVId=271853363&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T00:40:59.805Z",
+      "crawledAt": "2026-05-27T14:21:17.508Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -567,7 +566,7 @@
       "url": "https://vaudoise.softgarden.io/job/63296089/Chef-de-groupe-sp%C3%A9cialis%C3%A9-en-gestion-contrats-Cheffe-de-groupe-sp%C3%A9cialis%C3%A9e-en-gestion-contrats-h-f-x-100-?jobDbPVId=272176718&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-27T00:40:59.573Z",
+      "crawledAt": "2026-05-27T14:21:17.273Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -643,7 +642,7 @@
       "url": "https://vaudoise.softgarden.io/job/56620544/Versicherungs-und-Vorsorgeberater-in-m-w-d-100-?jobDbPVId=272176738&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T00:40:59.338Z",
+      "crawledAt": "2026-05-27T14:21:17.032Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -676,6 +675,7 @@
         ]
       },
       "firstSeenAt": "2026-05-18T13:27:20.941Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -721,7 +721,7 @@
       "url": "https://vaudoise.softgarden.io/job/63349219/Generalagent-in-Berner-Oberland-m-w-d-100-?jobDbPVId=272318123&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T00:40:59.092Z",
+      "crawledAt": "2026-05-27T14:21:16.785Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -794,7 +794,7 @@
       "url": "https://vaudoise.softgarden.io/job/64599938/Product-Manager-Pr%C3%A9voyance-h-f-x-80-100-?jobDbPVId=272320768&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-27T00:40:58.828Z",
+      "crawledAt": "2026-05-27T14:21:16.526Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -819,6 +819,7 @@
         ]
       },
       "firstSeenAt": "2026-05-18T13:27:20.379Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -864,7 +865,7 @@
       "url": "https://vaudoise.softgarden.io/job/63990868/Business-Analyst-RH-h-f-x-80-100-?jobDbPVId=272444193&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-27T00:40:58.592Z",
+      "crawledAt": "2026-05-27T14:21:16.281Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -889,6 +890,7 @@
         ]
       },
       "firstSeenAt": "2026-05-18T13:27:20.094Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -934,7 +936,7 @@
       "url": "https://vaudoise.softgarden.io/job/61638467/Conseiller-Conseill%C3%A8re-h-f-x-100-?jobDbPVId=272486453&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-27T00:40:58.356Z",
+      "crawledAt": "2026-05-27T14:21:16.040Z",
       "addressLocality": "Fribourg",
       "addressCountry": "CH",
       "country": "CH",
@@ -1012,7 +1014,7 @@
       "url": "https://vaudoise.softgarden.io/job/62654354/Responsable-Formation-%E2%80%93-Insurance-Training-h-f-x-80-100-?jobDbPVId=272557648&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-27T00:40:58.120Z",
+      "crawledAt": "2026-05-27T14:21:15.797Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -1058,76 +1060,6 @@
       "postalCode": "1003"
     },
     {
-      "id": "vaudoise-d7fe0d357f8c",
-      "slug": "atlanti-h-f-x-80-100-vaudoise-assurances-lausanne",
-      "slugByLocale": {
-        "it": "atlanti-h-f-x-80-100-vaudoise-assurances-lausanne",
-        "en": "business-analyst-atlassian-h-f-x-80-100-vaudoise-ch",
-        "de": "business-analyst-atlassian-h-f-x-80-100-vaudoise-ch",
-        "fr": "business-analyst-atlassian-h-f-x-80-100-vaudoise-ch"
-      },
-      "company": "Vaudoise Assurances",
-      "companyKey": "vaudoise",
-      "companyDomain": "vaudoise.ch",
-      "title": "Business Analyst Atlassian (h/f/x) 80-100%",
-      "titleByLocale": {
-        "it": "Business Analista Atlassian (h/f/x) 80-100%",
-        "en": "Business Analyst Atlassian (h/f/x) 80-100%",
-        "de": "Business Analyst Atlassian (h/f/x) 80-100 %",
-        "fr": "Business Analyste Atlassian (h/f/x) 80-100%"
-      },
-      "description": "Employeur solide et tourné vers l’avenir, la Vaudoise est l’un des assureurs leaders en Suisse. Fidèle à sa nature coopérative et à ses valeurs, elle encourage la création d’un environnement de travail sain, inclusif et inspirant, idéal pour développer votre talent. Rattaché·e à la Division des Solutions fonctions corporate, nous recherchons un Business Analyst (h/f/x) 80-100% . Il sera un véritable architecte du travail, qui sera dédié·e à l’ensemble des solutions SaaS Workplace & Ways of Working Atlassian, des collaboratrices et collaborateurs de la Vaudoise, et sera un acteur clé entre le Product Owner (qui porte la vision du produit) et le Responsable Solutions (qui garantit le « delivery »). Les missions qui vous attendent:\n• Identifier, recueillir et analyser les besoins métiers (via des interviews, ateliers, enquêtes, observations, …)\n• Contribuer à l’identification des solutions, des configurations nécessaires (traduire les besoins / évolutions en solutions technico-fonctionnelles, rédiger les spécifications, identifier et traiter les dépendances fonctionnelles, techniques, légales, données, sécurité, processus, …)\n• Optimiser les processus (gestion des demandes, ITSM, …)\n• Piloter les tests (de l’organisation à la validation en définissant les critères d’acceptation, en rédigeant les plans de tests, en coordonnant la résolution des anomalies, …)\n• Contribuer à la gouvernance des solutions / fonctionnalités déployées (Jira : projets, workflows, automatisations, champs personnalisés, Assets / CMDB ; Confluence : espaces, templates, permissions ; Jira Service Management : portails, files d’attente, types de requêtes, SLA, …)\n• Assurer le support niveau 2 (diagnostics, coordination avec les équipes techniques, les éditeurs, enrichissement de la base des connaissances) Votre profil:\n• Une formation supérieure en informatique type HES, Bachelor, Master, EPFL, …\n• Une expertise technico-fonctionnelle forte dans les solutions Atlassian (Jira, Confluence, Loom, Rovo, Jira Service Management, Assets, Bitbucket, Groovy, Xray, BigPicture, …)\n• Cinq ans d’expérience minimum sur les technologies Atlassian dans le cadre de missions / projets IT, de projets métiers avec une dimension technologique et de transformation forte\n• Une capacité analytique développée, un sens du relationnel aiguisé, des compétences rédactionnelles\n• Une excellente maitrise des méthodologies agiles, des processus ITIL\n• Une sensibilité au change management et notamment à la méthodologie Prosci (ADKAR) appliquée dans notre organisation\n• Certifications Atlassian & Rovo appréciées\n• Une parfaite maîtrise de la langue Française : orale et écrite et une maîtrise de l’Anglais : niveau B2 minimum. L’Allemand est un plus Nous vous offrons:\n• Un environnement de travail sain au sein d’une entreprise mutualiste certifiée Great Place to Work\n• Des conditions attractives et des avantages sociaux compétitifs\n• Une flexibilité dans l’organisation du travail\n• Un cadre stimulant favorisant le développement des compétences et l’amélioration continue Nous nous réjouissons de recevoir votre dossier de candidature complet par voie digitale (avec curriculum vitae, lettre de motivation, copie des certificats de travail et diplômes).",
-      "descriptionByLocale": {
-        "it": "Un datore di lavoro forte e preesistente, Vaudoise è uno dei principali assicuratori in Svizzera. Fedele alla sua natura cooperativa e ai suoi valori, incoraggia la creazione di un ambiente di lavoro sano, inclusivo e stimolante, ideale per sviluppare il tuo talento. Collegato alla Divisione Corporate Functions Solutions, stiamo cercando un Business Analyst (h/f/x) 80-100%. SaaS Workplace & Ways of Working Atlas, collaboratore del Vaudoise, sarà un vero architetto del lavoro, dedicato a tutte le soluzioni SaaS Workplace & Ways of Working Atlasian, e sarà un player chiave tra il Product Owner (che trasporta la visione del prodotto) e il Manager Solutions (che garantisce la consegna). Le missioni che vi aspettano:\n• Identificare, raccogliere e analizzare le esigenze aziendali (interviste, workshop, indagini, osservazioni, ecc.)\n• Contribuire all'identificazione di soluzioni, configurazioni necessarie (tradurre esigenze / evoluzioni in soluzioni tecnico-funzionali, progetti di specifiche, identificare e elaborare funzionali, tecniche, legali, dati, sicurezza, processi, ...)\n• Ottimizzare i processi (gestione delle applicazioni, ITSM, ...)\n• Test pilota (dall'organizzazione alla convalida definendo criteri di accettazione, scrivendo piani di prova, coordinando la risoluzione delle anomalie, ecc.)\n• Contribuire alla governance delle soluzioni/funzioni implementate (Jira: progetti, flussi di lavoro, automazione, campi personalizzati, asset / CMDB; Confluenza: spazi, modelli, autorizzazioni; Jira Service Management: portali, code, tipi di richieste, SLA, ...)\n• Fornire supporto di livello 2 (diagnostica, coordinamento con team tecnici, editori, arricchimento della base di conoscenza) Il tuo profilo:\n• Un'istruzione superiore nel tipo HES, Bachelor, Master, EPFL, ...\n• Una forte esperienza tecnica e funzionale nelle soluzioni atlantiane (Jira, Confluence, Loom, Rovo, Jira Service Management, Asset, Bitbucket, Groovy, Xray, BigPicture, ...)\n• Cinque anni di esperienza minima sulle tecnologie Atlassian in missioni/progetti IT, progetti di business con una forte dimensione tecnologica e di trasformazione\n• Una capacità analitica sviluppata, un senso di forte relazionalità, competenze editoriali\n• Un'eccellente padronanza delle metodologie agili, processi ITIL\n• Una sensibilità alla gestione dei cambiamenti e soprattutto alla metodologia Prosci (ADKAR) applicata nella nostra organizzazione\n• Certificazioni Atlassian & Rovo apprezzate\n• Una perfetta padronanza della lingua francese: orale e scritta e padronanza dell'inglese: livello B2 minimo. Tedesco è un plus Vi offriamo:\n• Un ambiente di lavoro sano all'interno di una società comune certificata Great Place to Work\n• Condizioni interessanti e vantaggi sociali competitivi\n• Flessibilità nell'organizzazione del lavoro\n• Un quadro stimolante per lo sviluppo delle competenze e il miglioramento continuo Non vediamo l'ora di ricevere digitalmente il pacchetto completo delle applicazioni (con curriculum vitae, lettera di copertura, copie dei certificati di lavoro e dei diplomi).",
-        "en": "A strong and forward-looking employer, Vaudoise is one of the leading insurers in Switzerland. True to its cooperative nature and values, it encourages the creation of a healthy, inclusive and inspiring work environment, ideal for developing your talent. Linked to the Corporate Functions Solutions Division, we are looking for a Business Analyst (h/f/x) 80-100%. He will be a true architect of the work, dedicated to all SaaS Workplace & Ways of Working Atlasian solutions, collaborators of the Vaudoise, and will be a key player between the Product Owner (which carries the vision of the product) and the Manager Solutions (which guarantees the delivery). The missions that await you:\n• Identify, collect and analyse business needs (via interviews, workshops, surveys, observations, etc.)\n• Contribute to the identification of solutions, necessary configurations (translate needs / evolutions into technical-functional solutions, draft specifications, identify and process functional, technical, legal, data, security, processes, ...)\n• Optimize processes (application management, ITSM, ...)\n• Pilot tests (from organization to validation by defining acceptance criteria, writing test plans, coordinating the resolution of anomalies, etc.)\n• Contribute to the governance of deployed solutions/functions (Jira: projects, workflows, automations, custom fields, Assets / CMDB; Confluence: spaces, templates, permissions; Jira Service Management : portals, queues, types of requests, SLA, ...)\n• Provide level 2 support (diagnostics, coordination with technical teams, publishers, enrichment of the knowledge base) Your profile:\n• A higher education in IT type HES, Bachelor, Master, EPFL, ...\n• A strong technical and functional expertise in Atlassian solutions (Jira, Confluence, Loom, Rovo, Jira Service Management, Asset, Bitbucket, Groovy, Xray, BigPicture, ...)\n• Five years of minimum experience on Atlassian technologies in IT missions/projects, business projects with a strong technological and transformation dimension\n• A developed analytical capacity, a sense of sharp relational, editorial skills\n• An excellent mastery of agile methodologies, ITIL processes\n• A sensitivity to change management and especially to the Prosci methodology (ADKAR) applied in our organisation\n• Atlassian & Rovo certifications appreciated\n• A perfect mastery of the French language: oral and written and a mastery of English: minimum B2 level. German is a plus We offer you:\n• A healthy work environment within a mutual company certified Great Place to Work\n• Attractive conditions and competitive social benefits\n• Flexibility in work organisation\n• A stimulating framework for skills development and continuous improvement We look forward to receiving your complete application package digitally (with curriculum vitae, cover letter, copies of work certificates and diplomas).",
-        "de": "Vaudoise ist einer der führenden Versicherer in der Schweiz. Getreu seiner kooperativen Natur und ihren Werten fördert sie die Schaffung eines gesunden, inklusiven und inspirierenden Arbeitsumfelds, ideal für die Entwicklung Ihres Talents. In Verbindung mit der Division Corporate Functions Solutions suchen wir einen Business Analyst (h/f/x) 80-100%. Er wird ein wahrer Architekt der Arbeit sein, gewidmet alle SaaS Workplace & Ways of Working Atlasian Lösungen, Mitarbeiter der Waadtoise, und wird ein Schlüsselakteur zwischen dem Product Owner (die die Vision des Produkts trägt) und der Manager Solutions (die die Lieferung garantiert). Die Missionen, die Sie erwarten:\n• Ermittlung, Erhebung und Analyse der Geschäftsbedürfnisse (über Interviews, Workshops, Umfragen, Beobachtungen usw.)\n• Beitrag zur Identifizierung von Lösungen, notwendigen Konfigurationen (Transfer von Bedürfnissen / Entwicklungen in technisch-funktionelle Lösungen, Entwurf von Spezifikationen, Identifikation und Prozess funktional, technisch, legal, Daten, Sicherheit, Prozesse, ...)\n• Optimierung der Prozesse (Anwendungsmanagement, ITSM, ...)\n• Pilotversuche (von der Organisation bis zur Validierung durch Festlegung von Akzeptanzkriterien, Erstellung von Testplänen, Koordinierung der Lösung von Anomalien usw.)\n• Beitrag zur Governance von eingesetzten Lösungen/Funktionen (Jira: Projekte, Workflows, Automatisierungen, benutzerdefinierte Felder, Assets / CMDB; Einfluss: Leerzeichen, Vorlagen, Berechtigungen; Jira Service Management: Portale, Warteschlangen, Arten von Anfragen, SLA, ...)\n• Unterstützung der Stufe 2 (Diagnostik, Koordination mit technischen Teams, Verlagen, Anreicherung der Wissensbasis) Ihr Profil:\n• Eine Hochschulausbildung im IT-Typ HES, Bachelor, Master, EPFL,...\n• Eine starke technische und funktionale Expertise in Atlassianlösungen (Jira, Confluence, Loom, Rovo, Jira Service Management, Asset, Bitbucket, Groovy, Xray, BigPicture, ...)\n• Fünf Jahre Erfahrung in Atlassischen Technologien in IT-Missionen/Projekten, Business-Projekten mit einer starken technologischen und Transformationsdimension\n• Eine entwickelte analytische Kapazität, ein Gefühl von scharfen relationalen, redaktionellen Fähigkeiten\n• Eine ausgezeichnete Beherrschung agiler Methoden, ITIL-Prozesse\n• Eine Sensibilität für das Change Management und insbesondere für die in unserer Organisation angewandte Prosci-Methodik (ADKAR)\n• Atlassian & Rovo Zertifizierungen geschätzt\n• Eine perfekte Beherrschung der französischen Sprache: mündlich und schriftlich und eine Beherrschung von Englisch: minimal B2 Ebene. Deutsch ist ein Plus Wir bieten Ihnen:\n• Ein gesundes Arbeitsumfeld in einem gemeinsamen Unternehmen zertifiziert Great Place to Work\n• Attraktive Bedingungen und wettbewerbsfähige soziale Vorteile\n• Flexibilität in der Arbeitsorganisation\n• Ein anregender Rahmen für die Kompetenzentwicklung und kontinuierliche Verbesserung Wir freuen uns auf den Erhalt Ihres kompletten Bewerbungspakets digital (mit Curriculum vitae, Cover Letter, Kopien von Arbeitszeugnissen und Diplomen).",
-        "fr": "Employeur solide et tourné vers l’avenir, la Vaudoise est l’un des assureurs leaders en Suisse. Fidèle à sa nature coopérative et à ses valeurs, elle encourage la création d’un environnement de travail sain, inclusif et inspirant, idéal pour développer votre talent. Rattaché·e à la Division des Solutions fonctions corporate, nous recherchons un Business Analyst (h/f/x) 80-100% . Il sera un véritable architecte du travail, qui sera dédié·e à l’ensemble des solutions SaaS Workplace & Ways of Working Atlassian, des collaboratrices et collaborateurs de la Vaudoise, et sera un acteur clé entre le Product Owner (qui porte la vision du produit) et le Responsable Solutions (qui garantit le « delivery »). Les missions qui vous attendent:\n• Identifier, recueillir et analyser les besoins métiers (via des interviews, ateliers, enquêtes, observations, …)\n• Contribuer à l’identification des solutions, des configurations nécessaires (traduire les besoins / évolutions en solutions technico-fonctionnelles, rédiger les spécifications, identifier et traiter les dépendances fonctionnelles, techniques, légales, données, sécurité, processus, …)\n• Optimiser les processus (gestion des demandes, ITSM, …)\n• Piloter les tests (de l’organisation à la validation en définissant les critères d’acceptation, en rédigeant les plans de tests, en coordonnant la résolution des anomalies, …)\n• Contribuer à la gouvernance des solutions / fonctionnalités déployées (Jira : projets, workflows, automatisations, champs personnalisés, Assets / CMDB ; Confluence : espaces, templates, permissions ; Jira Service Management : portails, files d’attente, types de requêtes, SLA, …)\n• Assurer le support niveau 2 (diagnostics, coordination avec les équipes techniques, les éditeurs, enrichissement de la base des connaissances) Votre profil:\n• Une formation supérieure en informatique type HES, Bachelor, Master, EPFL, …\n• Une expertise technico-fonctionnelle forte dans les solutions Atlassian (Jira, Confluence, Loom, Rovo, Jira Service Management, Assets, Bitbucket, Groovy, Xray, BigPicture, …)\n• Cinq ans d’expérience minimum sur les technologies Atlassian dans le cadre de missions / projets IT, de projets métiers avec une dimension technologique et de transformation forte\n• Une capacité analytique développée, un sens du relationnel aiguisé, des compétences rédactionnelles\n• Une excellente maitrise des méthodologies agiles, des processus ITIL\n• Une sensibilité au change management et notamment à la méthodologie Prosci (ADKAR) appliquée dans notre organisation\n• Certifications Atlassian & Rovo appréciées\n• Une parfaite maîtrise de la langue Française : orale et écrite et une maîtrise de l’Anglais : niveau B2 minimum. L’Allemand est un plus Nous vous offrons:\n• Un environnement de travail sain au sein d’une entreprise mutualiste certifiée Great Place to Work\n• Des conditions attractives et des avantages sociaux compétitifs\n• Une flexibilité dans l’organisation du travail\n• Un cadre stimulant favorisant le développement des compétences et l’amélioration continue Nous nous réjouissons de recevoir votre dossier de candidature complet par voie digitale (avec curriculum vitae, lettre de motivation, copie des certificats de travail et diplômes)."
-      },
-      "location": "Lausanne",
-      "canton": "VD",
-      "url": "https://vaudoise.softgarden.io/job/64652474/Business-Analyst-Atlassian-h-f-x-80-100-?jobDbPVId=272566284&l=it",
-      "source": "Vaudoise Assurances Dedicated Parser",
-      "sourceLang": "fr",
-      "crawledAt": "2026-05-27T00:40:57.882Z",
-      "addressLocality": "Lausanne",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Assicurazioni",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "08/05/26",
-      "applyUrl": "https://vaudoise.softgarden.io/job/64652474/Business-Analyst-Atlassian-h-f-x-80-100-?jobDbPVId=272566284&l=it",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "jobCategory": "Informatica e tecnologia",
-      "previousSlugs": [
-        "business-analyst-atlassian-h-f-x-80-100-vaudoise-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "business-analyst-atlassian-h-f-x-80-100-vaudoise-ch"
-        ]
-      },
-      "firstSeenAt": "2026-05-18T13:27:18.970Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "1003"
-    },
-    {
       "id": "vaudoise-c050a7a368d3",
       "slug": "product-manager-in-previdenza-m-w-d-80-100-vaudoise-assurances-lausanne",
       "slugByLocale": {
@@ -1158,7 +1090,7 @@
       "url": "https://vaudoise.softgarden.io/job/64653009/Product-Manager-in-Vorsorge-m-w-d-80-100-?jobDbPVId=273312666&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T00:40:57.641Z",
+      "crawledAt": "2026-05-27T14:21:15.555Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -1188,6 +1120,7 @@
         ]
       },
       "firstSeenAt": "2026-05-18T13:27:18.413Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -1233,7 +1166,7 @@
       "url": "https://vaudoise.softgarden.io/job/64060783/Sachbearbeiter-in-Inkasso-m-w-d-80-100-?jobDbPVId=272625909&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T00:40:57.398Z",
+      "crawledAt": "2026-05-27T14:21:15.315Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -1250,6 +1183,7 @@
       "requirementsByLocale": {},
       "jobCategory": "Assicurazioni Direzione",
       "firstSeenAt": "2026-05-18T13:27:18.134Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1295,7 +1229,7 @@
       "url": "https://vaudoise.softgarden.io/job/64060113/Gestionnaire-contentieux-FR-DE-f-h-x-%E2%80%93-80-100-?jobDbPVId=272625939&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-27T00:40:57.155Z",
+      "crawledAt": "2026-05-27T14:21:15.073Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -1370,7 +1304,7 @@
       "url": "https://vaudoise.softgarden.io/job/64674339/Expert-Technique-Microsoft-365-h-f-x-80-100-?jobDbPVId=272695629&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-27T00:40:56.916Z",
+      "crawledAt": "2026-05-27T14:21:14.828Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -1443,7 +1377,7 @@
       "url": "https://vaudoise.softgarden.io/job/63905289/Quality-FinOps-Manager-h-f-x-80-100-?jobDbPVId=272750784&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-27T00:40:56.664Z",
+      "crawledAt": "2026-05-27T14:21:14.579Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -1471,6 +1405,7 @@
         ]
       },
       "firstSeenAt": "2026-05-18T13:27:17.298Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -1516,7 +1451,7 @@
       "url": "https://vaudoise.softgarden.io/job/64702594/Interne-r-Autoexperte-in-m-w-d-80-100-?jobDbPVId=272809744&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T00:40:56.422Z",
+      "crawledAt": "2026-05-27T14:21:14.338Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1533,6 +1468,7 @@
       "requirementsByLocale": {},
       "jobCategory": "Assicurazioni Direzione",
       "firstSeenAt": "2026-05-18T13:27:17.020Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1578,7 +1514,7 @@
       "url": "https://vaudoise.softgarden.io/job/63422144/-Ing%C3%A9nieur-Ing%C3%A9nieure-Int%C3%A9gration-80-100-?jobDbPVId=272848334&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-27T00:40:56.180Z",
+      "crawledAt": "2026-05-27T14:21:14.097Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -1654,7 +1590,7 @@
       "url": "https://vaudoise.softgarden.io/job/62554964/Juriste-junior-italophone-h-f-x-60-?jobDbPVId=272848364&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-27T00:40:55.935Z",
+      "crawledAt": "2026-05-27T14:21:13.855Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -1671,6 +1607,7 @@
       "requirementsByLocale": {},
       "jobCategory": "Diritto e compliance",
       "firstSeenAt": "2026-05-18T13:27:16.467Z",
+      "needsRetranslation": true,
       "salaryMin": 46000,
       "salaryMax": 78500,
       "baseSalary": {
@@ -1716,7 +1653,7 @@
       "url": "https://vaudoise.softgarden.io/job/62293159/Business-Analyst-h-f-x-80-100-?jobDbPVId=272908229&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-27T00:40:55.691Z",
+      "crawledAt": "2026-05-27T14:21:13.610Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -1741,6 +1678,7 @@
         ]
       },
       "firstSeenAt": "2026-05-18T13:27:16.184Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1786,7 +1724,7 @@
       "url": "https://vaudoise.softgarden.io/job/64122238/Test-Manager-Dataspace-Data-Platform-h-f-x-80%E2%80%93100-?jobDbPVId=273026086&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-27T00:40:55.450Z",
+      "crawledAt": "2026-05-27T14:21:13.367Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -1814,6 +1752,7 @@
         ]
       },
       "firstSeenAt": "2026-05-18T13:27:15.898Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -1859,7 +1798,7 @@
       "url": "https://vaudoise.softgarden.io/job/64097443/Mitarbeiter-in-Kundensupport-m-w-d-80-100-?jobDbPVId=273312596&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T00:40:55.218Z",
+      "crawledAt": "2026-05-27T14:21:13.121Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1935,7 +1874,7 @@
       "url": "https://vaudoise.softgarden.io/job/64140823/Sp%C3%A9cialiste-Prestations-Accident-h-f-x-80-100-?jobDbPVId=273123496&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-27T00:40:54.980Z",
+      "crawledAt": "2026-05-27T14:21:12.874Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -2011,7 +1950,7 @@
       "url": "https://vaudoise.softgarden.io/job/60739262/Conseiller-Conseill%C3%A8re-h-f-x-100-?jobDbPVId=273413846&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-27T00:40:54.744Z",
+      "crawledAt": "2026-05-27T14:21:12.630Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -2087,7 +2026,7 @@
       "url": "https://vaudoise.softgarden.io/job/60446395/Chef-Cheffe-de-groupe-Perte-de-gain-maladie-80-100-h-f-x-?jobDbPVId=273413886&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-27T00:40:54.507Z",
+      "crawledAt": "2026-05-27T14:21:12.386Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -2115,6 +2054,7 @@
         ]
       },
       "firstSeenAt": "2026-05-18T13:27:27.916Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -2160,7 +2100,7 @@
       "url": "https://vaudoise.softgarden.io/job/60801417/Sachbearbeiter-in-Leistungen-Krankentaggeld-m-w-d-80-100-?jobDbPVId=273413916&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T00:40:54.276Z",
+      "crawledAt": "2026-05-27T14:21:12.144Z",
       "addressLocality": "Berne",
       "addressCountry": "CH",
       "country": "CH",
@@ -2236,7 +2176,7 @@
       "url": "https://vaudoise.softgarden.io/job/64816341/Sales-Effectiveness-Manager-h-f-x-80-100-?jobDbPVId=273500066&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-27T00:40:54.045Z",
+      "crawledAt": "2026-05-27T14:21:11.895Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -2261,6 +2201,7 @@
         ]
       },
       "firstSeenAt": "2026-05-21T13:44:40.604Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -2306,7 +2247,7 @@
       "url": "https://vaudoise.softgarden.io/job/64831661/Gruppenleiter-in-autoexpert-in-Deutschschweiz-m-w-d-80-100-?jobDbPVId=273561716&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T00:40:53.814Z",
+      "crawledAt": "2026-05-27T14:21:11.647Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -2337,6 +2278,7 @@
         ]
       },
       "firstSeenAt": "2026-05-21T13:44:40.327Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -2382,7 +2324,7 @@
       "url": "https://vaudoise.softgarden.io/job/64019188/Juriste-assurances-et-conformit%C3%A9-exp%C3%A9riment%C3%A9-e-h-f-x-%E2%80%93-80-100-?jobDbPVId=273567166&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-27T00:40:53.582Z",
+      "crawledAt": "2026-05-27T14:21:11.407Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -2458,7 +2400,7 @@
       "url": "https://vaudoise.softgarden.io/job/62200694/Area-Lead-Assurances-IAG-h-f-x-100-?jobDbPVId=273809436&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-27T00:40:53.347Z",
+      "crawledAt": "2026-05-27T14:21:11.165Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -2475,6 +2417,7 @@
       "requirementsByLocale": {},
       "jobCategory": "Assicurazioni Direzione",
       "firstSeenAt": "2026-05-18T13:27:27.359Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -2520,7 +2463,7 @@
       "url": "https://vaudoise.softgarden.io/job/62226199/Brokerbetreuer-in-m-w-d-100-?jobDbPVId=273809456&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T00:40:53.107Z",
+      "crawledAt": "2026-05-27T14:21:10.921Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -2537,6 +2480,9 @@
       "requirementsByLocale": {},
       "jobCategory": "Vendita, commercio e servizio alla clientela",
       "previousSlugsByLocale": {
+        "it": [
+          "brokerbetreuer-in-m-w-d-100-vaudoise-ch"
+        ],
         "en": [
           "brokerbetreuer-in-m-w-d-100-vaudoise-ch"
         ],
@@ -2544,9 +2490,6 @@
           "brokerbetreuer-in-m-w-d-100-vaudoise-ch"
         ],
         "de": [
-          "brokerbetreuer-in-m-w-d-100-vaudoise-ch"
-        ],
-        "it": [
           "brokerbetreuer-in-m-w-d-100-vaudoise-ch"
         ]
       },
@@ -2599,7 +2542,7 @@
       "url": "https://vaudoise.softgarden.io/job/63569294/Key-Account-Manager-in-Tierversicherungen-m-w-d-80-100-?jobDbPVId=273809486&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T00:40:52.880Z",
+      "crawledAt": "2026-05-27T14:21:10.681Z",
       "addressLocality": "Berne",
       "addressCountry": "CH",
       "country": "CH",
@@ -2627,6 +2570,7 @@
         ]
       },
       "firstSeenAt": "2026-05-18T13:27:26.801Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -2672,7 +2616,7 @@
       "url": "https://vaudoise.softgarden.io/job/60881362/Gestionnaire-Prestations-Sinistres-%E2%80%93-dans-les-branches-de-l%E2%80%99assurance-patrimoine-h-f-x-80-100-?jobDbPVId=273809526&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-27T00:40:52.646Z",
+      "crawledAt": "2026-05-27T14:21:10.439Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -2720,82 +2664,6 @@
       "postalCode": "1003"
     },
     {
-      "id": "vaudoise-5ffade5a784f",
-      "slug": "information-security-engineer-h-f-x-80-100-vaudoise-assurances-lausanne",
-      "slugByLocale": {
-        "it": "information-security-engineer-h-f-x-80-100-vaudoise-assurances-lausanne",
-        "en": "information-security-engineer-h-f-x-80-100-vaudoise-assurances-lausanne",
-        "de": "informationssicherheitsingenieur-h-f-x-80-100-vaudoise-assurances-lausanne",
-        "fr": "ingenieur-ingenieure-en-securite-de-l-information-h-f-x-80-100-vaudoise-ch"
-      },
-      "company": "Vaudoise Assurances",
-      "companyKey": "vaudoise",
-      "companyDomain": "vaudoise.ch",
-      "title": "Ingénieur / Ingénieure en Sécurité de l'Information (h/f/x) - 80 -100%",
-      "titleByLocale": {
-        "it": "Information Security Engineer (h/f/x) - 80 -100%",
-        "en": "Information Security Engineer (h/f/x) - 80 -100%",
-        "de": "Informationssicherheitsingenieur (h/f/x) - 80 -100%",
-        "fr": "Ingénieur / Ingénieure en Sécurité de l'Information (h/f/x) - 80 -100%"
-      },
-      "description": "Employeur solide et tourné vers l’avenir, la Vaudoise est l’un des assureurs leaders en Suisse. Fidèle à sa nature coopérative et à ses valeurs, elle encourage la création d’un environnement de travail sain, inclusif et inspirant, propice au développement de ses talents. Afin de renforcer nos équipes IT, nous recherchons un/e Ingénieur/Ingénieure en Sécurité de l'Information entre 80 et 100% , pour accompagner les équipes IT et métier dans la mise en place de nouvelles solutions et assurer la sécurité du système d'information. Les missions qui vous attendent :\n• Identifier et définir les exigences de sécurité des différents composants du système d’information, avec un focus particulier sur les environnements Cloud et IA\n• Accompagner les équipes techniques et métiers dans la mise en œuvre des exigences de sécurité\n• Documenter et maintenir les standards techniques de sécurité\n• Configurer, maintenir et faire évoluer les solutions de sécurité\n• Développer des mesures de surveillance, de détection et de gestion des incidents de sécurité\n• Identifier, analyser et suivre les vulnérabilités, conduire des analyses de risques et proposer des mesures de traitement Votre profil :\n• Formation supérieure (université, école d’ingénieur, HEG) avec une spécialisation en sécurité de l’information ou formation équivalente\n• Expérience professionnelle confirmée de 3 à 5 ans en tant qu’ingénieur sécurité\n• Solides connaissances en sécurité des réseaux, systèmes d’exploitation, bases de données et technologies Web\n• Excellente maîtrise des environnements Cloud (SaaS, PaaS, IaaS), en particulier Microsoft Azure et son écosystème\n• Bonne connaissance de Entra ID, des Azure Policies, des ressources Azure classiques et de l’infrastructure as code (Terraform)\n• Familiarité avec des solutions et technologies telles que Azure DevOps, Databricks, Kafka, Confluence, ainsi qu’avec les enjeux de sécurité liés aux solutions d’IA Nous vous offrons:\n• Un environnement de travail sain au sein d’une entreprise mutualiste certifiée Great Place to Work\n• Des conditions attractives et des avantages sociaux compétitifs\n• Une flexibilité dans l’organisation du travail\n• Un cadre stimulant favorisant le développement des compétences et l’amélioration continue Nous nous réjouissons de recevoir votre dossier de candidature complet par voie digitale (avec curriculum vitae, lettre de motivation, copie des certificats de travail et diplômes).",
-      "descriptionByLocale": {
-        "it": "Descrizione Un datore di lavoro forte e preesistente, Vaudoise è uno dei principali assicuratori in Svizzera. Fedele alla sua natura cooperativa e ai suoi valori, incoraggia la creazione di un ambiente di lavoro sano, inclusivo e stimolante che favorisca lo sviluppo dei suoi talenti. Per rafforzare i nostri team IT, stiamo cercando un Ingegnere/Ingénieur en Sécurité de l'Information tra 80 e 100%, per supportare team IT e business nell'implementazione di nuove soluzioni e garantire la sicurezza del sistema informativo. Missioni\n• Identificare e definire i requisiti di sicurezza dei vari componenti del sistema informativo, con particolare attenzione agli ambienti Cloud e IA\n• Sostenere i team tecnici e commerciali nell'attuazione dei requisiti di sicurezza\n• Documento e mantenimento degli standard di sicurezza tecnica\n• Configurare, mantenere ed evolvere le soluzioni di sicurezza\n• Sviluppare misure per monitorare, rilevare e gestire gli incidenti di sicurezza\n• Identificare, analizzare e monitorare le vulnerabilità, condurre analisi dei rischi e proporre misure di trattamento Profilo ricercato\n• Istruzione superiore (università, scuola di ingegneria, HEG) con specializzazione in sicurezza dell'informazione o formazione equivalente\n• Esperienza professionale confermata da 3 a 5 anni come ingegnere di sicurezza\n• Forte conoscenza della sicurezza della rete, dei sistemi operativi, dei database e delle tecnologie web\n• Eccellente controllo degli ambienti cloud (SaaS, PaaS, IaaS), in particolare Microsoft Azure e il suo ecosistema\n• Buona conoscenza di Entra ID, politiche Azure, risorse azure classiche e infrastrutture come codice (Terraform)\n• Familiarità con soluzioni e tecnologie come Azure DevOps, Databricks, Kafka, Confluence, nonché con i problemi di sicurezza legati al d Vantaggi\n• Un ambiente di lavoro sano all'interno di una società comune certificata Great Place to Work\n• Condizioni interessanti e vantaggi sociali competitivi\n• Flessibilità nell'organizzazione del lavoro\n• Un quadro stimolante per lo sviluppo delle competenze e il miglioramento continuo Applicazione Non vediamo l'ora di ricevere il tuo pacchetto completo di applicazioni digitalmente (con curriculum vitae, lettera di copertura, copie di certificati di lavoro e diplomi).",
-        "en": "Descrizione A strong and forward-looking employer, Vaudoise is one of the leading insurers in Switzerland. True to its cooperative nature and values, it encourages the creation of a healthy, inclusive and inspiring work environment conducive to the development of its talents. In order to strengthen our IT teams, we are looking for an Engineer/Ingénieur en Sécurité de l'Information between 80 and 100%, to support IT teams and business in the implementation of new solutions and ensure the security of the information system. Missions\n• Identify and define the security requirements of the various components of the information system, with a particular focus on Cloud and IA environments\n• Support technical and trade teams in the implementation of safety requirements\n• Document and maintain technical safety standards\n• Configure, maintain and evolve security solutions\n• Develop measures to monitor, detect and manage security incidents\n• Identify, analyse and monitor vulnerabilities, conduct risk analyses and propose treatment measures Profile sought\n• Higher education (university, engineering school, HEG) with specialisation in information security or equivalent training\n• Confirmed professional experience from 3 to 5 years as a safety engineer\n• Strong knowledge of network security, operating systems, databases and web technologies\n• Excellent control of cloud environments (SaaS, PaaS, IaaS), especially Microsoft Azure and its ecosystem\n• Good knowledge of Entra ID, Azure Policies, classic Azure resources and infrastructure as code (Terraform)\n• Familiarity with solutions and technologies such as Azure DevOps, Databricks, Kafka, Confluence, as well as with the security issues related to the d Benefits\n• A healthy work environment within a mutual company certified Great Place to Work\n• Attractive conditions and competitive social benefits\n• Flexibility in work organisation\n• A stimulating framework for skills development and continuous improvement Application We look forward to receiving your complete application package digitally (with curriculum vitae, cover letter, copies of work certificates and diplomas).",
-        "de": "Beschreibung Vaudoise ist einer der führenden Versicherer in der Schweiz. Sie fördert die Schaffung eines gesunden, inklusiven und inspirierenden Arbeitsumfelds, das der Entwicklung seiner Talente förderlich ist. Um unsere IT-Teams zu stärken, suchen wir einen Ingenieur/Ingénieur en Sécurité de l'Information zwischen 80 und 100 %, um IT-Teams und Unternehmen bei der Umsetzung neuer Lösungen zu unterstützen und die Sicherheit des Informationssystems zu gewährleisten. Missionen\n• Erkennen und definieren Sie die Sicherheitsanforderungen der verschiedenen Komponenten des Informationssystems mit einem besonderen Fokus auf Cloud- und IA-Umgebungen\n• Unterstützung von technischen und Handelsteams bei der Umsetzung von Sicherheitsanforderungen\n• Dokumente und Einhaltung technischer Sicherheitsstandards\n• Sicherheitslösungen konfigurieren, pflegen und entwickeln\n• Maßnahmen zur Überwachung, Erkennung und Verwaltung von Sicherheitsvorfällen entwickeln\n• Schwachstellen identifizieren, analysieren und überwachen, Risikoanalysen durchführen und Therapiemaßnahmen vorschlagen Profil gesucht\n• Hochschulbildung (Universität, Ingenieurschule, HEG) mit Spezialisierung auf Informationssicherheit oder gleichwertige Ausbildung\n• Bestätigte Berufserfahrung von 3 bis 5 Jahren als Sicherheitsingenieur\n• Starkes Wissen über Netzsicherheit, Betriebssysteme, Datenbanken und Webtechnologien\n• Ausgezeichnete Steuerung von Cloud-Umgebungen (SaaS, PaaS, IaaS), insbesondere Microsoft Azure und sein Ökosystem\n• Gute Kenntnisse von Entra ID, Azure Policies, klassischen Azure Ressourcen und Infrastruktur als Code (Terraform)\n• Vertrautheit mit Lösungen und Technologien wie Azure DevOps, Databricks, Kafka, Confluence sowie mit den Sicherheitsproblemen im Zusammenhang mit d Leistungen\n• Ein gesundes Arbeitsumfeld in einem gemeinsamen Unternehmen zertifiziert Great Place to Work\n• Attraktive Bedingungen und wettbewerbsfähige soziale Vorteile\n• Flexibilität in der Arbeitsorganisation\n• Ein stimulierender Rahmen für die Kompetenzentwicklung und kontinuierliche Verbesserung Anwendung Wir freuen uns darauf, Ihr komplettes Bewerbungspaket digital zu erhalten (mit Lehrplan, Brief, Kopien von Arbeitszeugnissen und Diplomen).",
-        "fr": "Employeur solide et tourné vers l’avenir, la Vaudoise est l’un des assureurs leaders en Suisse. Fidèle à sa nature coopérative et à ses valeurs, elle encourage la création d’un environnement de travail sain, inclusif et inspirant, propice au développement de ses talents. Afin de renforcer nos équipes IT, nous recherchons un/e Ingénieur/Ingénieure en Sécurité de l'Information entre 80 et 100% , pour accompagner les équipes IT et métier dans la mise en place de nouvelles solutions et assurer la sécurité du système d'information. Les missions qui vous attendent :\n• Identifier et définir les exigences de sécurité des différents composants du système d’information, avec un focus particulier sur les environnements Cloud et IA\n• Accompagner les équipes techniques et métiers dans la mise en œuvre des exigences de sécurité\n• Documenter et maintenir les standards techniques de sécurité\n• Configurer, maintenir et faire évoluer les solutions de sécurité\n• Développer des mesures de surveillance, de détection et de gestion des incidents de sécurité\n• Identifier, analyser et suivre les vulnérabilités, conduire des analyses de risques et proposer des mesures de traitement Votre profil :\n• Formation supérieure (université, école d’ingénieur, HEG) avec une spécialisation en sécurité de l’information ou formation équivalente\n• Expérience professionnelle confirmée de 3 à 5 ans en tant qu’ingénieur sécurité\n• Solides connaissances en sécurité des réseaux, systèmes d’exploitation, bases de données et technologies Web\n• Excellente maîtrise des environnements Cloud (SaaS, PaaS, IaaS), en particulier Microsoft Azure et son écosystème\n• Bonne connaissance de Entra ID, des Azure Policies, des ressources Azure classiques et de l’infrastructure as code (Terraform)\n• Familiarité avec des solutions et technologies telles que Azure DevOps, Databricks, Kafka, Confluence, ainsi qu’avec les enjeux de sécurité liés aux solutions d’IA Nous vous offrons:\n• Un environnement de travail sain au sein d’une entreprise mutualiste certifiée Great Place to Work\n• Des conditions attractives et des avantages sociaux compétitifs\n• Une flexibilité dans l’organisation du travail\n• Un cadre stimulant favorisant le développement des compétences et l’amélioration continue Nous nous réjouissons de recevoir votre dossier de candidature complet par voie digitale (avec curriculum vitae, lettre de motivation, copie des certificats de travail et diplômes)."
-      },
-      "location": "Lausanne",
-      "canton": "VD",
-      "url": "https://vaudoise.softgarden.io/job/64303278/Ing%C3%A9nieur-Ing%C3%A9nieure-en-S%C3%A9curit%C3%A9-de-l-Information-h-f-x-80-100-?jobDbPVId=273857481&l=it",
-      "source": "Vaudoise Assurances Dedicated Parser",
-      "sourceLang": "fr",
-      "crawledAt": "2026-05-27T00:40:52.368Z",
-      "addressLocality": "Lausanne",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Assicurazioni",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "23/05/26",
-      "applyUrl": "https://vaudoise.softgarden.io/job/64303278/Ing%C3%A9nieur-Ing%C3%A9nieure-en-S%C3%A9curit%C3%A9-de-l-Information-h-f-x-80-100-?jobDbPVId=273857481&l=it",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "jobCategory": "Informatica e tecnologia",
-      "previousSlugs": [
-        "ingenieur-ingenieure-en-securite-de-l-information-h-f-x-80-100-vaudoise-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "ingenieur-ingenieure-en-securite-de-l-information-h-f-x-80-100-vaudoise-ch"
-        ],
-        "en": [
-          "ingenieur-ingenieure-en-securite-de-l-information-h-f-x-80-100-vaudoise-ch"
-        ],
-        "de": [
-          "ingenieur-ingenieure-en-securite-de-l-information-h-f-x-80-100-vaudoise-ch"
-        ]
-      },
-      "firstSeenAt": "2026-05-18T13:27:26.237Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "1003"
-    },
-    {
       "id": "vaudoise-cc575da5136d",
       "slug": "responsabile-gruppo-delle-soluzioni-architetti-it-h-f-x-80-100-vaudoise-assurances-lausanne",
       "slugByLocale": {
@@ -2826,7 +2694,7 @@
       "url": "https://vaudoise.softgarden.io/job/46867204/Chef-fe-de-groupe-des-Architectes-Solutions-IT-h-f-x-80-100-?jobDbPVId=273926801&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-27T00:40:52.131Z",
+      "crawledAt": "2026-05-27T14:21:10.195Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -2902,7 +2770,7 @@
       "url": "https://vaudoise.softgarden.io/job/53100444/Sachbearbeiter-in-Leistungen-Animalia-Hunde-und-Katzenversicherungen-m-w-d-80-100-?jobDbPVId=273926896&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T00:40:51.892Z",
+      "crawledAt": "2026-05-27T14:21:09.954Z",
       "addressLocality": "Suisse",
       "addressCountry": "CH",
       "country": "CH",
@@ -2939,8 +2807,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 1
+      }
     },
     {
       "id": "vaudoise-dde64aff63f2",
@@ -2973,7 +2840,7 @@
       "url": "https://vaudoise.softgarden.io/job/64317263/%C3%9Cbersetzungspraktikant-in-Universit%C3%A4t-oder-Fachhochschule-m-w-x-%E2%80%93-100-?jobDbPVId=273926906&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T00:40:51.656Z",
+      "crawledAt": "2026-05-27T14:21:09.708Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -3006,6 +2873,7 @@
         ]
       },
       "firstSeenAt": "2026-05-18T13:27:25.121Z",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -3024,34 +2892,34 @@
       "id": "vaudoise-b2b9c909aec7",
       "slug": "capo-dell-agenzia-h-f-x-80-100-vaudoise-assurances-nyon",
       "slugByLocale": {
-        "fr": "chef-cheffe-d-agence-h-f-x-80-100-vaudoise-ch",
         "it": "capo-dell-agenzia-h-f-x-80-100-vaudoise-assurances-nyon",
         "en": "head-of-agency-h-f-x-80-100-vaudoise-assurances-nyon",
-        "de": "chef-cheffe-d-agence-h-f-x-80-100-vaudoise-ch"
+        "de": "chef-cheffe-d-agence-h-f-x-80-100-vaudoise-ch",
+        "fr": "chef-cheffe-d-agence-h-f-x-80-100-vaudoise-ch"
       },
       "company": "Vaudoise Assurances",
       "companyKey": "vaudoise",
       "companyDomain": "vaudoise.ch",
       "title": "Chef / Cheffe d'agence (h/f/x) - 80-100%",
       "titleByLocale": {
-        "fr": "Chef / Cheffe d'agence (h/f/x) - 80-100 %",
-        "de": "Chef / Cheffe d'agence (h/f/x) - 80-100%",
         "it": "Capo dell'Agenzia (h/f/x) - 80-100%",
-        "en": "Head of Agency (h/f/x) - 80-100%"
+        "en": "Head of Agency (h/f/x) - 80-100%",
+        "de": "Chef / Cheffe d'agence (h/f/x) - 80-100%",
+        "fr": "Chef / Cheffe d'agence (h/f/x) - 80-100%"
       },
       "description": "Employeur solide et tourné vers l’avenir, la Vaudoise est l’un des assureurs leaders en Suisse. Fidèle à sa nature coopérative et à ses valeurs, elle encourage la création d’un environnement de travail sain, inclusif et inspirant, idéal pour développer votre talent. Afin de soutenir le développement réjouissant de notre agence générale La Côte, nous recherchons, pour une entrée en fonction au 1er janvier 2027, un Chef ou une Cheffe d’agence rapportant directement à l'agent général, ayant pour mission de conduire une équipe de conseillers de l’agence de Nyon et de développer les affaires de la région Nyonnaise. Les missions qui vous attendent :\n• Former, accompagner et suivre régulièrement les conseillers au service externe\n• Participer à la stratégie de l’agence\n• Prendre en charge un portefeuille clients et contribuer à son développement ; déceler les besoins de la clientèle et leur soumettre des solutions adaptées et différenciées\n• Proposer des améliorations de processus en lien avec l'évolution des outils\n• Connaître les tendances de son marché ; s'informer régulièrement de leur évolution\n• Participer et contribuer à la vie économique et sociale de son périmètre ; se créer des opportunités de contact, développer des réseaux d'indicateurs et d'apporteurs d'affaires et les influencer activement Votre profil :\n• Certificat Intermédiaire d’assurance AFA obligatoire, diplôme IAF, brevet fédéral ou titre équivalent\n• Expérience de plusieurs années réussie dans le conseil en assurances et le management d’une équipe de vente\n• Leader orienté humain et culture de la performance\n• Fort esprit entrepreneurial\n• Compétences financières et analytiques Bien intégré dans le milieu économique et social de la région, vous aimez le contact et développez des relations. Vous êtes également doté d'un leadership naturel et savez prendre des décisions. Organisé, investi et d'un caractère positif, vous êtes force de propositions et prenez volontiers des initiatives. Votre orientation client ainsi que votre aptitude à soutenir vos collègues et à travailler en équipe vous apportent une réelle valeur ajoutée. De plus, vous êtes ouvert à former des jeunes. Nous vous offrons :\n• Un environnement de travail sain dans une entreprise mutualiste certifiée \"Great Place to Work\"\n• Des avantages sociaux multiples, dont la flexibilité dans l'organisation du travail\n• De la gestion d'équipe et une prise de responsabilités\n• Des valeurs humaines centrées sur le bien-être des collaborateurs Nous nous réjouissons de recevoir votre dossier de candidature complet par voie digitale (avec curriculum vitae, lettre de motivation, copie des certificats de travail et diplômes).",
       "descriptionByLocale": {
-        "fr": "Employeur solide et tourné vers l’avenir, la Vaudoise est l’un des assureurs leaders en Suisse. Fidèle à sa nature coopérative et à ses valeurs, elle encourage la création d’un environnement de travail sain, inclusif et inspirant, idéal pour développer votre talent. Afin de soutenir le développement réjouissant de notre agence générale La Côte, nous recherchons, pour une entrée en fonction au 1er janvier 2027, un Chef ou une Cheffe d’agence rapportant directement à l'agent général, ayant pour mission de conduire une équipe de conseillers de l’agence de Nyon et de développer les affaires de la région Nyonnaise. Les missions qui vous attendent :\n• Former, accompagner et suivre régulièrement les conseillers au service externe\n• Participer à la stratégie de l’agence\n• Prendre en charge un portefeuille clients et contribuer à son développement ; déceler les besoins de la clientèle et leur soumettre des solutions adaptées et différenciées\n• Proposer des améliorations de processus en lien avec l'évolution des outils\n• Connaître les tendances de son marché ; s'informer régulièrement de leur évolution\n• Participer et contribuer à la vie économique et sociale de son périmètre ; se créer des opportunités de contact, développer des réseaux d'indicateurs et d'apporteurs d'affaires et les influencer activement Votre profil :\n• Certificat Intermédiaire d’assurance AFA obligatoire, diplôme IAF, brevet fédéral ou titre équivalent\n• Expérience de plusieurs années réussie dans le conseil en assurances et le management d’une équipe de vente\n• Leader orienté humain et culture de la performance\n• Fort esprit entrepreneurial\n• Compétences financières et analytiques Bien intégré dans le milieu économique et social de la région, vous aimez le contact et développez des relations. Vous êtes également doté d'un leadership naturel et savez prendre des décisions. Organisé, investi et d'un caractère positif, vous êtes force de propositions et prenez volontiers des initiatives. Votre orientation client ainsi que votre aptitude à soutenir vos collègues et à travailler en équipe vous apportent une réelle valeur ajoutée. De plus, vous êtes ouvert à former des jeunes. Nous vous offrons :\n• Un environnement de travail sain dans une entreprise mutualiste certifiée \"Great Place to Work\"\n• Des avantages sociaux multiples, dont la flexibilité dans l'organisation du travail\n• De la gestion d'équipe et une prise de responsabilités\n• Des valeurs humaines centrées sur le bien-être des collaborateurs Nous nous réjouissons de recevoir votre dossier de candidature complet par voie digitale (avec curriculum vitae, lettre de motivation, copie des certificats de travail et diplômes).",
         "it": "Un datore di lavoro forte e preesistente, Vaudoise è uno dei principali assicuratori in Svizzera. Fedele alla sua natura cooperativa e ai suoi valori, incoraggia la creazione di un ambiente di lavoro sano, inclusivo e stimolante, ideale per sviluppare il tuo talento. Al fine di sostenere il felice sviluppo della nostra agenzia generale La Côte, stiamo cercando, per un inizio il 1 ° gennaio 2027, un capo o Capo Agenzia direttamente legato all'agente generale, la cui missione è di guidare un team di consulenti dell'agenzia Nyon e di sviluppare l'attività della regione di Nyon. Le missioni che vi aspettano:\n• Treno, accompagnare e seguire regolarmente i consulenti al servizio esterno\n• Partecipare alla strategia dell'Agenzia\n• Sostenere un portafoglio clienti e contribuire al suo sviluppo; identificare le esigenze del cliente e presentare soluzioni appropriate e differenziate\n• Proporre miglioramenti di processo relativi allo sviluppo di strumenti\n• Conoscere le tendenze del mercato; tenere aggiornato con la loro evoluzione\n• Partecipare e contribuire alla vita economica e sociale del suo perimetro; creare opportunità di contatto, sviluppare reti di indicatori e fornitori di business e influenzare attivamente il tuo profilo:\n• Certificato intermedio di assicurazione obbligatoria AFA, diploma IAF, brevetto federale o titolo equivalente\n• Anni di esperienza di successo nella consulenza assicurativa e nella gestione di un team di vendita\n• Cultura leader e performance orientata all'uomo\n• Forte spirito imprenditoriale\n• Competenza finanziaria e analitica Ben integrato nell'ambiente economico e sociale della regione, ami il contatto e sviluppi le relazioni. Hai anche una leadership naturale e sai come prendere decisioni. Organizzata, investita e di carattere positivo, voi siete una forza per le proposte e volontariamente prendere iniziative. Il tuo orientamento al cliente e la tua capacità di supportare i tuoi colleghi e lavorare come team ti portano un valore aggiunto reale. Inoltre, sei aperto alla formazione dei giovani. Vi offriamo:\n• Un ambiente di lavoro sano in una società mutualista certificata \"Great Place to Work\"\n• Vantaggi sociali multipli, compresa la flessibilità nell'organizzazione del lavoro\n• Gestione del team e responsabilità\n• Valori umani focalizzati sul benessere dei dipendenti Non vediamo l'ora di ricevere il tuo pacchetto completo di applicazioni digitalmente (con curriculum vitae, lettera di copertura, copie di certificati di lavoro e diplomi).",
         "en": "A strong and forward-looking employer, Vaudoise is one of the leading insurers in Switzerland. True to its cooperative nature and values, it encourages the creation of a healthy, inclusive and inspiring work environment, ideal for developing your talent. In order to support the happy development of our general agency La Côte, we are looking for, for a start on 1 January 2027, a Chief or Chief Agency directly related to the general agent, whose mission is to lead a team of advisers from the Nyon agency and to develop the business of the Nyon region. The missions that await you:\n• Train, accompany and regularly follow the advisers to the external service\n• Participate in the Agency's strategy\n• Support a client portfolio and contribute to its development; identify customer needs and submit appropriate and differentiated solutions\n• Propose process improvements related to the development of tools\n• Know market trends; keep up to date with their evolution\n• Participate in and contribute to the economic and social life of its perimeter; create contact opportunities, develop networks of indicators and business providers and actively influence them Your profile:\n• Intermediate certificate of compulsory AFA insurance, IAF diploma, federal patent or equivalent title\n• Successful years of experience in insurance consulting and managing a sales team\n• Human-oriented leader and performance culture\n• Strong entrepreneurial spirit\n• Financial and analytical expertise Well integrated into the economic and social environment of the region, you love contact and develop relationships. You also have natural leadership and know how to make decisions. Organized, invested and of a positive character, you are a force for proposals and willingly take initiatives. Your customer orientation and your ability to support your colleagues and work as a team bring you real added value. In addition, you are open to training young people. We offer you :\n• A healthy working environment in a mutualist company certified \"Great Place to Work\"\n• Multiple social benefits, including flexibility in work organisation\n• Team management and accountability\n• Human values focused on the well-being of employees We look forward to receiving your complete application package digitally (with curriculum vitae, cover letter, copies of work certificates and diplomas).",
-        "de": "Vaudoise ist einer der führenden Versicherer in der Schweiz. Getreu seiner kooperativen Natur und ihren Werten fördert sie die Schaffung eines gesunden, inklusiven und inspirierenden Arbeitsumfelds, ideal für die Entwicklung Ihres Talents. Um die glückliche Entwicklung unserer Generalagentur La Côte zu unterstützen, suchen wir nach einem Start am 1. Januar 2027 eine Chief oder Chief Agency, die direkt mit dem Generalagent zusammenhängt, dessen Mission darin besteht, ein Team von Beratern der Nyon-Agentur zu leiten und das Geschäft der Nyon-Region zu entwickeln. Die Missionen, die Sie erwarten:\n• Trainieren, begleiten und regelmäßig den Beratern den externen Service\n• Beteiligung an der Strategie der Agentur\n• Unterstützung eines Kundenportfolios und Beitrag zu seiner Entwicklung; Identifizierung der Kundenbedürfnisse und Vorlage geeigneter und differenzierter Lösungen\n• Verbesserung des Prozesses im Zusammenhang mit der Entwicklung von Werkzeugen\n• Bekannte Markttrends; mit ihrer Entwicklung auf dem Laufenden halten\n• Beteiligen Sie sich und leisten Sie einen Beitrag zum wirtschaftlichen und sozialen Leben seines Umfangs; schaffen Sie Kontaktmöglichkeiten, entwickeln Sie Netzwerke von Indikatoren und Unternehmen und beeinflussen Sie aktiv Ihr Profil:\n• Vorab-Zertifikat der obligatorischen AFA-Versicherung, IAF-Diplom, Bundespatent oder gleichwertiger Titel\n• Erfolgreiche jahrelange Erfahrung in der Versicherungsberatung und Verwaltung eines Vertriebsteams\n• Humanorientierte Führungs- und Leistungskultur\n• Starker Unternehmergeist\n• Finanzielle und analytische Expertise Gut in das wirtschaftliche und soziale Umfeld der Region integriert, Sie lieben Kontakt und entwickeln Beziehungen. Sie haben auch natürliche Führung und wissen, wie Sie Entscheidungen treffen. Organisiert, investiert und positiv, Sie sind eine Kraft für Vorschläge und nehmen gerne Initiativen. Ihre Kundenorientierung und Ihre Fähigkeit, Ihre Kollegen zu unterstützen und als Team zu arbeiten, bringen Ihnen einen echten Mehrwert. Darüber hinaus sind Sie offen für die Ausbildung junger Menschen. Wir bieten Ihnen an:\n• Ein gesundes Arbeitsumfeld in einem gemeinsamen Unternehmen zertifiziert \"Great Place to Work\"\n• Mehrere soziale Vorteile, einschließlich Flexibilität in der Arbeitsorganisation\n• Teammanagement und Verantwortlichkeit\n• Humanwerte konzentrierten sich auf das Wohlbefinden der Mitarbeiter Wir freuen uns darauf, Ihr komplettes Bewerbungspaket digital zu erhalten (mit Lehrplan, Brief, Kopien von Arbeitszeugnissen und Diplomen)."
+        "de": "Vaudoise ist einer der führenden Versicherer in der Schweiz. Getreu seiner kooperativen Natur und ihren Werten fördert sie die Schaffung eines gesunden, inklusiven und inspirierenden Arbeitsumfelds, ideal für die Entwicklung Ihres Talents. Um die glückliche Entwicklung unserer Generalagentur La Côte zu unterstützen, suchen wir nach einem Start am 1. Januar 2027 eine Chief oder Chief Agency, die direkt mit dem Generalagent zusammenhängt, dessen Mission darin besteht, ein Team von Beratern der Nyon-Agentur zu leiten und das Geschäft der Nyon-Region zu entwickeln. Die Missionen, die Sie erwarten:\n• Trainieren, begleiten und regelmäßig den Beratern den externen Service\n• Beteiligung an der Strategie der Agentur\n• Unterstützung eines Kundenportfolios und Beitrag zu seiner Entwicklung; Identifizierung der Kundenbedürfnisse und Vorlage geeigneter und differenzierter Lösungen\n• Verbesserung des Prozesses im Zusammenhang mit der Entwicklung von Werkzeugen\n• Bekannte Markttrends; mit ihrer Entwicklung auf dem Laufenden halten\n• Beteiligen Sie sich und leisten Sie einen Beitrag zum wirtschaftlichen und sozialen Leben seines Umfangs; schaffen Sie Kontaktmöglichkeiten, entwickeln Sie Netzwerke von Indikatoren und Unternehmen und beeinflussen Sie aktiv Ihr Profil:\n• Vorab-Zertifikat der obligatorischen AFA-Versicherung, IAF-Diplom, Bundespatent oder gleichwertiger Titel\n• Erfolgreiche jahrelange Erfahrung in der Versicherungsberatung und Verwaltung eines Vertriebsteams\n• Humanorientierte Führungs- und Leistungskultur\n• Starker Unternehmergeist\n• Finanzielle und analytische Expertise Gut in das wirtschaftliche und soziale Umfeld der Region integriert, Sie lieben Kontakt und entwickeln Beziehungen. Sie haben auch natürliche Führung und wissen, wie Sie Entscheidungen treffen. Organisiert, investiert und positiv, Sie sind eine Kraft für Vorschläge und nehmen gerne Initiativen. Ihre Kundenorientierung und Ihre Fähigkeit, Ihre Kollegen zu unterstützen und als Team zu arbeiten, bringen Ihnen einen echten Mehrwert. Darüber hinaus sind Sie offen für die Ausbildung junger Menschen. Wir bieten Ihnen an:\n• Ein gesundes Arbeitsumfeld in einem gemeinsamen Unternehmen zertifiziert \"Great Place to Work\"\n• Mehrere soziale Vorteile, einschließlich Flexibilität in der Arbeitsorganisation\n• Teammanagement und Verantwortlichkeit\n• Humanwerte konzentrierten sich auf das Wohlbefinden der Mitarbeiter Wir freuen uns darauf, Ihr komplettes Bewerbungspaket digital zu erhalten (mit Lehrplan, Brief, Kopien von Arbeitszeugnissen und Diplomen).",
+        "fr": "Employeur solide et tourné vers l’avenir, la Vaudoise est l’un des assureurs leaders en Suisse. Fidèle à sa nature coopérative et à ses valeurs, elle encourage la création d’un environnement de travail sain, inclusif et inspirant, idéal pour développer votre talent. Afin de soutenir le développement réjouissant de notre agence générale La Côte, nous recherchons, pour une entrée en fonction au 1er janvier 2027, un Chef ou une Cheffe d’agence rapportant directement à l'agent général, ayant pour mission de conduire une équipe de conseillers de l’agence de Nyon et de développer les affaires de la région Nyonnaise. Les missions qui vous attendent :\n• Former, accompagner et suivre régulièrement les conseillers au service externe\n• Participer à la stratégie de l’agence\n• Prendre en charge un portefeuille clients et contribuer à son développement ; déceler les besoins de la clientèle et leur soumettre des solutions adaptées et différenciées\n• Proposer des améliorations de processus en lien avec l'évolution des outils\n• Connaître les tendances de son marché ; s'informer régulièrement de leur évolution\n• Participer et contribuer à la vie économique et sociale de son périmètre ; se créer des opportunités de contact, développer des réseaux d'indicateurs et d'apporteurs d'affaires et les influencer activement Votre profil :\n• Certificat Intermédiaire d’assurance AFA obligatoire, diplôme IAF, brevet fédéral ou titre équivalent\n• Expérience de plusieurs années réussie dans le conseil en assurances et le management d’une équipe de vente\n• Leader orienté humain et culture de la performance\n• Fort esprit entrepreneurial\n• Compétences financières et analytiques Bien intégré dans le milieu économique et social de la région, vous aimez le contact et développez des relations. Vous êtes également doté d'un leadership naturel et savez prendre des décisions. Organisé, investi et d'un caractère positif, vous êtes force de propositions et prenez volontiers des initiatives. Votre orientation client ainsi que votre aptitude à soutenir vos collègues et à travailler en équipe vous apportent une réelle valeur ajoutée. De plus, vous êtes ouvert à former des jeunes. Nous vous offrons :\n• Un environnement de travail sain dans une entreprise mutualiste certifiée \"Great Place to Work\"\n• Des avantages sociaux multiples, dont la flexibilité dans l'organisation du travail\n• De la gestion d'équipe et une prise de responsabilités\n• Des valeurs humaines centrées sur le bien-être des collaborateurs Nous nous réjouissons de recevoir votre dossier de candidature complet par voie digitale (avec curriculum vitae, lettre de motivation, copie des certificats de travail et diplômes)."
       },
       "location": "Nyon",
       "canton": "VD",
       "url": "https://vaudoise.softgarden.io/job/64916376/Chef-Cheffe-d-agence-h-f-x-80-100-?jobDbPVId=274057561&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-27T00:40:51.425Z",
+      "crawledAt": "2026-05-27T14:21:09.464Z",
       "addressLocality": "Nyon",
       "addressCountry": "CH",
       "country": "CH",
@@ -3065,24 +2933,11 @@
       "postedDate": "26/05/26",
       "applyUrl": "https://vaudoise.softgarden.io/job/64916376/Chef-Cheffe-d-agence-h-f-x-80-100-?jobDbPVId=274057561&l=it",
       "requirements": [],
-      "requirementsByLocale": {
-        "fr": []
-      },
+      "requirementsByLocale": {},
       "jobCategory": "Assicurazioni Direzione",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "1260",
-      "firstSeenAt": "2026-05-27T00:40:51.425Z",
+      "previousSlugs": [
+        "chef-cheffe-d-agence-h-f-x-80-100-vaudoise-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "chef-cheffe-d-agence-h-f-x-80-100-vaudoise-ch"
@@ -3091,9 +2946,21 @@
           "chef-cheffe-d-agence-h-f-x-80-100-vaudoise-ch"
         ]
       },
-      "previousSlugs": [
-        "chef-cheffe-d-agence-h-f-x-80-100-vaudoise-ch"
-      ]
+      "firstSeenAt": "2026-05-27T00:40:51.425Z",
+      "needsRetranslation": true,
+      "salaryMin": 68000,
+      "salaryMax": 103000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68000,
+          "maxValue": 103000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "1260"
     },
     {
       "id": "vaudoise-28ce444790ce",
@@ -3126,7 +2993,7 @@
       "url": "https://vaudoise.softgarden.io/job/63771389/Expert-Experte-en-Gouvernance-des-Donn%C3%A9es-h-f-x-80-100-?jobDbPVId=274065891&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-27T00:40:51.189Z",
+      "crawledAt": "2026-05-27T14:21:09.221Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -3202,7 +3069,7 @@
       "url": "https://vaudoise.softgarden.io/job/63760414/Sachbearbeiter-in-Leistungen-Unfall-m-w-d-60-100-?jobDbPVId=274065936&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T00:40:50.931Z",
+      "crawledAt": "2026-05-27T14:21:08.964Z",
       "addressLocality": "Berne",
       "addressCountry": "CH",
       "country": "CH",
@@ -3278,7 +3145,7 @@
       "url": "https://vaudoise.softgarden.io/job/63764914/Chef-Cheffe-de-service-Souscription-Choses-h-f-x-80-100-?jobDbPVId=274065946&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-27T00:40:50.690Z",
+      "crawledAt": "2026-05-27T14:21:08.713Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
