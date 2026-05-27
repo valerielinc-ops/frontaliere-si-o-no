@@ -1,6 +1,6 @@
 {
   "crawlerKey": "lindenhofgruppe",
-  "assembledAt": "2026-05-27T13:09:08.184Z",
+  "assembledAt": "2026-05-27T23:36:59.415Z",
   "jobs": [
     {
       "id": "lindenhofgruppe-1ec539181aee",
@@ -33,7 +33,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/unterassistenzarzt-aerztin-medizinische-klinik/ca79ce4a-c6b1-44b4-a339-5f7e0fa2d845",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:08:46.630Z",
+      "crawledAt": "2026-05-27T23:36:37.891Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -109,7 +109,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/nds-intensivpflege-weiterbildungsstelle/904cecb3-163d-446e-9a66-f35d06fbaa52",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:08:46.629Z",
+      "crawledAt": "2026-05-27T23:36:37.890Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -185,7 +185,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/praktikant-in-pflege/aae083da-17d7-407a-85a5-286afd988784",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:08:46.629Z",
+      "crawledAt": "2026-05-27T23:36:37.890Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -266,7 +266,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/fachfrau-mann-operationstechnik/cb4be6b0-f503-4ea8-8352-351c6f904bda",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:08:46.628Z",
+      "crawledAt": "2026-05-27T23:36:37.889Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -344,7 +344,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/dipl-fachfrau-mann-operationstechnik-hf/bd79ef21-83e1-4b31-8712-c0e047446b6b",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:08:46.628Z",
+      "crawledAt": "2026-05-27T23:36:37.889Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -414,7 +414,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/praktikant-in-cand-med/90eea979-1118-4126-a17c-41ac745c05ae",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:08:46.627Z",
+      "crawledAt": "2026-05-27T23:36:37.888Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -490,7 +490,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/dipl-pflegefachfrau-mann-fh-hf/694cd906-d05d-4f2c-ae63-840ec84dc3e0",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:08:46.627Z",
+      "crawledAt": "2026-05-27T23:36:37.888Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -524,6 +524,7 @@
         ]
       },
       "firstSeenAt": "2026-05-10T21:57:57.775Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -568,7 +569,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/lagerungspfleger-in/088f1376-4ff4-4ae7-83f4-309eb3178143",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:08:46.626Z",
+      "crawledAt": "2026-05-27T23:36:37.887Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -649,7 +650,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/nds-anaesthesie-weiterbildungsstelle/2f3965ca-5b14-4328-9d35-930d08d5d916",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:08:46.626Z",
+      "crawledAt": "2026-05-27T23:36:37.887Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -701,85 +702,6 @@
       }
     },
     {
-      "id": "lindenhofgruppe-6f358c06f218",
-      "slug": "auszubildende-zur-m-dipl-pflegefachfrau-mann-fh-teilzeit-bsc-per-fage-2-bis-4-jahre-lindenhofgruppe-bern",
-      "slugByLocale": {
-        "it": "auszubildende-zur-m-dipl-pflegefachfrau-mann-fh-teilzeit-bsc-per-fage-2-bis-4-jahre-lindenhofgruppe-bern",
-        "en": "apprenticeship-at-m-dipl-career-woman-mann-fh-part-time-bsc-for-fage-2-to-4-years-lindenhofgruppe-bern",
-        "de": "auszubildende-zur-m-dipl-pflegefachfrau-mann-fh-teilzeit-bsc-fur-fage-2-bis-4-jahre-lindenhofgruppe-bern",
-        "fr": "apprentissage-a-m-dipl-carriere-femme-mann-fh-bsc-a-temps-partiel-pour-fage-2-a-4-ans-lindenhofgruppe-bern"
-      },
-      "company": "Lindenhofgruppe",
-      "companyKey": "lindenhofgruppe",
-      "companyDomain": "lindenhofgruppe.ch",
-      "title": "Auszubildende zur/m dipl. Pflegefachfrau/-mann FH, Teilzeit BSC für FaGe, 2 bis 4 Jahre",
-      "titleByLocale": {
-        "it": "Auszubildende zur/m dipl. Pflegefachfrau/-mann FH, Teilzeit BSC per FaGe, 2 bis 4 Jahre",
-        "en": "Apprenticeship at/m dipl. Career Woman/-mann FH, Part-time BSC for FaGe, 2 to 4 years",
-        "de": "Auszubildende zur/m dipl. Pflegefachfrau/-mann FH, Teilzeit BSC für FaGe, 2 bis 4 Jahre",
-        "fr": "Apprentissage à/m dipl. Carrière Femme/-mann FH, BSC à temps partiel pour FaGe, 2 à 4 ans"
-      },
-      "description": "Gehören Verantwortungsbewusstsein und Eigeninitiative zu Ihren Stärken? Möchten Sie Mitglied eines tragenden und erfolgreichen Teams sein? Dann passen Sie perfekt zu uns. Als Lindenhofgruppe sind wir nur deshalb so erfolgreich, weil über 800 Pflegefachpersonen, rund 100 Spitalärztinnen und -ärzte, 300 Belegärzte und -ärztinnen sowie 1300 weitere Mitarbeitende Hand in Hand zusammenarbeiten – und sich jederzeit aufeinander verlassen können. Im Mittelpunkt einer hochwertigen Medizin steht immer auch ein starkes Team. Und zur Verstärkung dieses Teams suchen wir Sie!\n\nAufgaben:\nIn deiner Tätigkeit als FaGe:\n\n• Du unterstützt Pflegefachpersonen beim Pflegen und Betreuen unserer Patientinnen und Patienten nach neuesten Erkenntnissen.\n\n• Dabei führst du den Pflegeprozess (inkl. Leistungserfassung von Material und Pflege) nach den internen Vorgaben durch, unterstützt durch das Klinik-Informationssystem (KISIM).\n\n• Nebst der Körperpflege und Begleitung anderer Aktivitäten unserer Patientinnen und Patienten übernimmst du Aufgaben im logistischen, administrativen und hauswirtschaftlichen Bereich.\n\n• Du führst in deinem Kompetenzbereich medizinaltechnische Verrichtungen im Alltag aus.\n\nDeine Tätigkeit als Studierende ab dem 3. Studienjahr:\n\n• Du führst als Studierende BSc zunehmend selbständiger den Pflegeprozess nach neuesten Erkenntnissen durch unter Anleitung von diplomierten Pflegefachpersonen.\n\n• Für die Erreichung der Bereichs- und Abteilungsziele übernimmst du zunehmend Mitverantwortung und engagierst dich, in Zusammenarbeit mit deinen Berufsbildenden, für die fortlaufende Optimierung von Pflegeabläufen.\n\nAnforderungen:\n• Du verfügst über eine abgeschlossene Ausbildung als Fachfrau/-mann Gesundheit mit Berufsmatur.\n\n• Du befindest dich im Aufnahmeverfahren an der BFH für den Teilzeitstudiengang Bachelor of Science in Nursing BScN, hast dieses bereits bestanden oder stehst schon mitten im Studium.\n\n• Deine Ausbildung eigenverantwortlich anzugehen, ist für dich eine Selbstverständlichkeit.\n\nWir bieten:\nSie planen Ihre künftigen Schritte in der Arbeitswelt? Bei uns sammeln Sie erste oder weitere Erfahrungen im Berufsalltag, und das erst noch in einem interdisziplinären Spitalbetrieb. An unseren drei Standorten Engeried, Lindenhof und Sonnenhof bieten wir Ihnen attraktive Praktikums- und Ausbildungsstellen für alle Bildungsstufen. Dabei werden Sie sowohl in Ihrer beruflichen wie auch in Ihrer persönlichen Entwicklung unterstützt. Mit Ihrer Eigeninitiative nutzen Sie den Zugang zu einem breiten und qualitativ hochstehenden Aus- und Weiterbildungsangebot, arbeiten zusammen mit unseren erfahrenen Mitarbeitenden tatkräftig mit und ermöglichen gleichzeitig Ihren Kolleginnen und Kollegen einen frischen Aussenblick.",
-      "descriptionByLocale": {
-        "it": "Descrizione Il vostro senso di responsabilità e di auto-iniziativa sono i vostri punti di forza? Vuoi essere un membro di una squadra leader e di successo? Allora adattaci perfettamente. Come gruppo Lindenhof, siamo solo così riusciti perché più di 800 professionisti infermieri, circa 100 medici ospedalieri, 300 medici del personale e 1300 altri dipendenti lavorano in mano – e possono sempre contare l'uno sull'altro. Il focus della medicina di alta qualità è sempre un team forte. E per rafforzare questa squadra ti stiamo cercando! Mansioni - Nella tua attività come FaGe: - Supporti i professionisti dell'allattamento nella cura e nella cura dei nostri pazienti secondo le ultime scoperte. - In questo modo, si esegue il processo di cura (compreso il rilevamento delle prestazioni del materiale e della cura) secondo i requisiti interni, supportato dal Sistema Informativo Clinico (KISIM). - Oltre all'assistenza personale e al supporto di altre attività dei nostri pazienti, svolgete attività nel settore della logistica, dell'amministrazione e della famiglia. - Nel vostro campo di competenza, svolgete orientamenti medici-tecnici nella vita quotidiana. - Il tuo lavoro come studente del 3° anno di studio: - Come studente laurea, si sta sempre più svolgendo il processo di allattamento secondo le ultime scoperte utilizzando professionisti di assistenza qualificati. - Al fine di raggiungere gli obiettivi di settore e di reparto, si sta sempre più prendendo parte alla responsabilità e, in collaborazione con i vostri studenti professionali, si sta concentrando sulla continua ottimizzazione dei processi di cura.\n• Requisiti - Hai una formazione completa come specialista in salute con maturità professionale. - Sei nella procedura di ammissione al BFH per il Bachelor of Science part-time in Nursing BScN, hanno passato questo già o stare nel mezzo dei tuoi studi. - La tua formazione e' una questione per te. Cosa? - Stai pianificando i tuoi passi futuri nel mondo del lavoro? Con noi si otterrà prima o più esperienze nel lavoro quotidiano, e questo è solo in un business ospedaliero interdisciplinare. - Nelle nostre tre sedi Engeried, Lindenhof e Sonnenhof offriamo interessanti stage e centri di formazione per tutti i livelli di istruzione. - Sarete sostenuti sia nel vostro sviluppo professionale che personale. - Con la propria iniziativa, è possibile utilizzare l'accesso a un'ampia e qualitativamente offerta di formazione di alta qualità, lavorare attivamente con i nostri dipendenti esperti e allo stesso tempo consentire ai vostri colleghi una nuova visione esterna. Contatto",
-        "en": "Descrizione Are your sense of responsibility and self-initiative on your strengths? Would you like to be a member of a leading and successful team? Then fit us perfectly. As a Lindenhof group, we are only so successful because more than 800 nursing professionals, about 100 hospital doctors, 300 staff doctors and 1300 other employees work in hand – and can always rely on each other. The focus of high-quality medicine is always a strong team. And to strengthen this team we are looking for you! Mansioni - In your activity as FaGe: - You support nursing professionals in the care and care of our patients according to the latest findings. - In doing so, you carry out the care process (including performance detection of material and care) according to internal requirements, supported by the Clinic Information System (KISIM). - In addition to the personal care and support of other activities of our patients, you take tasks in the logistic, administrative and household sector. - In your field of competence, you carry out medical-technical orientations in everyday life. - Your job as a student from the 3rd year of study: - As a student BSc, you are increasingly carrying out the nursing process according to the latest findings by using qualified care professionals. - In order to achieve the area and department goals, you are increasingly taking part in responsibility and, in cooperation with your professional students, you are concentrating on the continuous optimization of care processes.\n• Requisiti - You have a completed training as a specialist in health with professional maturity. - You are in the admission procedure at the BFH for the part-time Bachelor of Science in Nursing BScN, have passed this already or stand in the middle of your studies. - Your training is a matter of course for you.\n• Cosa offriamo - Are you planning your future steps in the world of work? With us you will gain first or more experiences in everyday work, and this is only in an interdisciplinary hospital business. - At our three locations Engeried, Lindenhof and Sonnenhof we offer attractive internships and training centres for all levels of education. - You will be supported both in your professional and personal development. - With your own initiative, you can use the access to a wide and qualitatively high-quality training offer, work actively with our experienced employees and at the same time allow your colleagues a fresh outside view. Contatto",
-        "de": "Gehören Verantwortungsbewusstsein und Eigeninitiative zu Ihren Stärken? Möchten Sie Mitglied eines tragenden und erfolgreichen Teams sein? Dann passen Sie perfekt zu uns. Als Lindenhofgruppe sind wir nur deshalb so erfolgreich, weil über 800 Pflegefachpersonen, rund 100 Spitalärztinnen und -ärzte, 300 Belegärzte und -ärztinnen sowie 1300 weitere Mitarbeitende Hand in Hand zusammenarbeiten – und sich jederzeit aufeinander verlassen können. Im Mittelpunkt einer hochwertigen Medizin steht immer auch ein starkes Team. Und zur Verstärkung dieses Teams suchen wir Sie! Aufgaben: In deiner Tätigkeit als FaGe:\n• Du unterstützt Pflegefachpersonen beim Pflegen und Betreuen unserer Patientinnen und Patienten nach neuesten Erkenntnissen.\n• Dabei führst du den Pflegeprozess (inkl. Leistungserfassung von Material und Pflege) nach den internen Vorgaben durch, unterstützt durch das Klinik-Informationssystem (KISIM).\n• Nebst der Körperpflege und Begleitung anderer Aktivitäten unserer Patientinnen und Patienten übernimmst du Aufgaben im logistischen, administrativen und hauswirtschaftlichen Bereich.\n• Du führst in deinem Kompetenzbereich medizinaltechnische Verrichtungen im Alltag aus. Deine Tätigkeit als Studierende ab dem 3. Studienjahr:\n• Du führst als Studierende BSc zunehmend selbständiger den Pflegeprozess nach neuesten Erkenntnissen durch unter Anleitung von diplomierten Pflegefachpersonen.\n• Für die Erreichung der Bereichs- und Abteilungsziele übernimmst du zunehmend Mitverantwortung und engagierst dich, in Zusammenarbeit mit deinen Berufsbildenden, für die fortlaufende Optimierung von Pflegeabläufen. Anforderungen:\n• Du verfügst über eine abgeschlossene Ausbildung als Fachfrau/-mann Gesundheit mit Berufsmatur.\n• Du befindest dich im Aufnahmeverfahren an der BFH für den Teilzeitstudiengang Bachelor of Science in Nursing BScN, hast dieses bereits bestanden oder stehst schon mitten im Studium.\n• Deine Ausbildung eigenverantwortlich anzugehen, ist für dich eine Selbstverständlichkeit. Wir bieten: Sie planen Ihre künftigen Schritte in der Arbeitswelt? Bei uns sammeln Sie erste oder weitere Erfahrungen im Berufsalltag, und das erst noch in einem interdisziplinären Spitalbetrieb. An unseren drei Standorten Engeried, Lindenhof und Sonnenhof bieten wir Ihnen attraktive Praktikums- und Ausbildungsstellen für alle Bildungsstufen. Dabei werden Sie sowohl in Ihrer beruflichen wie auch in Ihrer persönlichen Entwicklung unterstützt. Mit Ihrer Eigeninitiative nutzen Sie den Zugang zu einem breiten und qualitativ hochstehenden Aus- und Weiterbildungsangebot, arbeiten zusammen mit unseren erfahrenen Mitarbeitenden tatkräftig mit und ermöglichen gleichzeitig Ihren Kolleginnen und Kollegen einen frischen Aussenblick.",
-        "fr": "Descrizione Votre sens de la responsabilité et votre esprit d'initiative sur vos forces? Aimeriez-vous être membre d'une équipe de premier plan et de succès? Alors il nous convient parfaitement. En tant que groupe Lindenhof, nous ne sommes que si réussis parce que plus de 800 professionnels des soins infirmiers, environ 100 médecins hospitaliers, 300 médecins du personnel et 1300 autres employés travaillent en main – et peuvent toujours compter les uns sur les autres. L'objectif de la médecine de haute qualité est toujours une équipe forte. Et pour renforcer cette équipe, nous vous recherchons ! Mansioni - Dans votre activité comme FaGe: - Vous aidez les professionnels des soins infirmiers dans les soins et soins de nos patients selon les dernières découvertes. - Ce faisant, vous effectuez le processus de soins (y compris la détection de la performance du matériel et des soins) selon les exigences internes, soutenues par le système d'information clinique (KISIM). - En plus des soins personnels et du soutien d'autres activités de nos patients, vous prenez des tâches dans le secteur logistique, administratif et domestique. - Dans votre domaine de compétence, vous effectuez des orientations médico-techniques dans la vie quotidienne. - Votre travail en tant qu'étudiant de la 3ème année d'études : - En tant qu'étudiant BSc, vous effectuez de plus en plus le processus de soins selon les dernières découvertes en utilisant des professionnels de soins qualifiés. - Afin d'atteindre les objectifs de la zone et du département, vous participez de plus en plus à la responsabilité et, en collaboration avec vos étudiants professionnels, vous vous concentrez sur l'optimisation continue des processus de soins.\n• Requisiti - Vous avez une formation complète comme spécialiste de la santé avec maturité professionnelle. - Vous êtes dans la procédure d'admission à la BFH pour le baccalauréat en sciences à temps partiel en sciences infirmières BScN, ont déjà passé cela ou se trouvent au milieu de vos études. - Votre formation est une question de bien sûr pour vous.\n• Cosa offriamo - Prévoyez-vous vos prochaines étapes dans le monde du travail ? Avec nous, vous gagnerez la première ou plus d'expériences dans le travail quotidien, et ce n'est que dans une entreprise hospitalière interdisciplinaire. - Sur nos trois sites Engeried, Lindenhof et Sonnenhof, nous proposons des stages et des centres de formation attrayants pour tous les niveaux d'éducation. - Vous serez soutenu dans votre développement professionnel et personnel. - Avec votre propre initiative, vous pouvez utiliser l'accès à une offre de formation large et qualitativement de haute qualité, travailler activement avec nos employés expérimentés et en même temps permettre à vos collègues une nouvelle vue extérieure. Contatto"
-      },
-      "location": "Bern",
-      "canton": "BE",
-      "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/auszubildende-zur-m-dipl-pflegefachfrau-mann-fh-teilzeit-bsc-fuer-fage-2-bis-4-jahre/6893e117-5788-4b2e-a22d-ca4385dd35f7",
-      "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
-      "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:08:46.625Z",
-      "addressLocality": "Bern",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3001",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2025-07-16",
-      "applyUrl": "https://bewerben.lindenhofgruppe.ch/auszubildende-zurm-dipl-pflegefachfrau-mann-fh-teilzeit-bs-de-f1759.html?agid=20",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "auszubildende-zur-m-dipl-pflegefachfrau-mann-fh-teilzeit-bsc-fur-fage-2-bis-4-jahre-linden"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "auszubildende-zur-m-dipl-pflegefachfrau-mann-fh-teilzeit-bsc-fur-fage-2-bis-4-jahre-linden"
-        ],
-        "en": [
-          "auszubildende-zur-m-dipl-pflegefachfrau-mann-fh-teilzeit-bsc-fur-fage-2-bis-4-jahre-linden"
-        ],
-        "de": [
-          "auszubildende-zur-m-dipl-pflegefachfrau-mann-fh-teilzeit-bsc-fur-fage-2-bis-4-jahre-linden"
-        ],
-        "fr": [
-          "auszubildende-zur-m-dipl-pflegefachfrau-mann-fh-teilzeit-bsc-fur-fage-2-bis-4-jahre-linden"
-        ]
-      },
-      "firstSeenAt": "2026-05-10T21:57:57.772Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "lindenhofgruppe-4c2d59bc2eac",
       "slug": "carriera-donna-fh-in-formazione-pratica-elettiva-2026-lindenhofgruppe-bern",
       "slugByLocale": {
@@ -810,7 +732,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/pflegefachfrau-mann-fh-in-ausbildung-wahlpflichtpraktikum-2026/2d83700a-8e64-42c2-a318-1413d8d4ee44",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:08:46.625Z",
+      "crawledAt": "2026-05-27T23:36:37.886Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -888,7 +810,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/bachelor-of-science-in-pflege-zusatzmodul-b/ce745069-0f27-4caf-b4d6-8b9b9173c51a",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:08:46.625Z",
+      "crawledAt": "2026-05-27T23:36:37.886Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -964,7 +886,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/dipl-experte-expertin-anaesthesie-nds-hf/5adceb3d-3a8a-420e-9261-52ee6dbe40c9",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:08:46.624Z",
+      "crawledAt": "2026-05-27T23:36:37.885Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -996,6 +918,7 @@
         ]
       },
       "firstSeenAt": "2026-05-10T21:57:57.771Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1010,68 +933,76 @@
       }
     },
     {
-      "id": "lindenhofgruppe-fb261644b78c",
-      "slug": "collaboratore-trice-patienten-hotellerie-lindenhofgruppe-bern",
+      "id": "lindenhofgruppe-6f358c06f218",
+      "slug": "auszubildende-zur-m-dipl-pflegefachfrau-mann-fh-teilzeit-bsc-per-fage-2-bis-4-jahre-lindenhofgruppe-bern",
       "slugByLocale": {
-        "it": "collaboratore-trice-patienten-hotellerie-lindenhofgruppe-bern",
-        "en": "staff-in-patient-hotel-industry-lindenhofgruppe-bern",
-        "de": "mitarbeiter-in-patienten-hotellerie-lindenhofgruppe-ch",
-        "fr": "personnel-dans-l-industrie-hoteliere-patiente-lindenhofgruppe-bern"
+        "it": "auszubildende-zur-m-dipl-pflegefachfrau-mann-fh-teilzeit-bsc-per-fage-2-bis-4-jahre-lindenhofgruppe-bern",
+        "en": "auszubildende-zur-m-dipl-pflegefachfrau-mann-fh-teilzeit-bsc-fur-fage-2-bis-4-jahre-linden",
+        "de": "auszubildende-zur-m-dipl-pflegefachfrau-mann-fh-teilzeit-bsc-fur-fage-2-bis-4-jahre-lindenhofgruppe-bern",
+        "fr": "auszubildende-zur-m-dipl-pflegefachfrau-mann-fh-teilzeit-bsc-fur-fage-2-bis-4-jahre-linden"
       },
       "company": "Lindenhofgruppe",
       "companyKey": "lindenhofgruppe",
       "companyDomain": "lindenhofgruppe.ch",
-      "title": "Mitarbeiter/in Patienten-Hotellerie",
+      "title": "Auszubildende zur/m dipl. Pflegefachfrau/-mann FH, Teilzeit BSC für FaGe, 2 bis 4 Jahre",
       "titleByLocale": {
-        "it": "Collaboratore/trice Patienten-Hotellerie",
-        "en": "Staff/in patient hotel industry",
-        "de": "Mitarbeiter/in Patienten-Hotellerie",
-        "fr": "Personnel/dans l'industrie hôtelière patiente"
+        "it": "Auszubildende zur/m dipl. Pflegefachfrau/-mann FH, Teilzeit BSC per FaGe, 2 bis 4 Jahre",
+        "en": "Apprenticeship at/m dipl. Career Woman/-mann FH, Part-time BSC for FaGe, 2 to 4 years",
+        "de": "Auszubildende zur/m dipl. Pflegefachfrau/-mann FH, Teilzeit BSC für FaGe, 2 bis 4 Jahre",
+        "fr": "Apprentissage à/m dipl. Carrière Femme/-mann FH, BSC à temps partiel pour FaGe, 2 à 4 ans"
       },
-      "description": "Gehören Verantwortungsbewusstsein und Eigeninitiative zu Ihren Stärken? Möchten Sie Mitglied eines tragenden und erfolgreichen Teams sein? Dann passen Sie perfekt zu uns. Als Lindenhofgruppe sind wir nur deshalb so erfolgreich, weil über 800 Pflegefachpersonen, rund 100 Spitalärztinnen und -ärzte, 300 Belegärzte und -ärztinnen sowie 1300 weitere Mitarbeitende Hand in Hand zusammenarbeiten – und sich jederzeit aufeinander verlassen können. Im Mittelpunkt einer hochwertigen Medizin steht immer auch ein starkes Team. Und zur Verstärkung dieses Teams suchen wir Sie!\n\nAufgaben:\nSie betreuen die Patientinnen und Patienten während ihres Aufenthalts mit unseren Dienstleistungen:\n• Hauptverantwortung für die Bestellaufnahme aller Mahlzeiten und Getränke mithilfe des Menuerfassungs- und Bestellwesenprogrammes\n\n• Kompetente und individuelle Beratung und Bedienung von Patientinnen und Patienten direkt im Patientenzimmer unter Einhaltung der vorgegebenen Ernährungsgrundlagen und Patientenwünschen\n\n• Mise en Place für alle Mahlzeiten und den Getränkeservice\n\n• Selbständige Führung der zugeteilten Abteilung mit Sicherstellung des professionellen Serviceablaufes\n\n• Verantwortung für die Einhaltung der Richtlinie HACCP in den Satellitenküchen in den Abteilungen\n\nAnforderungen:\n• Ihre Ausbildung haben Sie im Bereich Hotellerie oder in der Hauswirtschaft abgeschlossen und Sie bringen Idealerweise entsprechende Berufserfahrung mit\n\n• Sie haben eine hohe Dienstleistungsbereitschaft sowie ein Geschick und Freude im Umgang mit Patientinnen und Patienten\n\n• Sie verfügen über eine hohe Sozialkompetenz, Einfühlsamkeit, Teamfähigkeit und über eine selbstständige Arbeitsweise\n\n• Sie besitzen ein Flair für IT-Systeme (z. B. Sanalogic) und sprechen gut Deutsch und verstehen Dialekt\n\n• Bereitschaft für Wochenend- und Feiertagsdienste\n\nWir bieten:\nFür die Betreuung unserer Gäste zählen wir vor und hinter den Kulissen auf engagierte Persönlichkeiten mit ausgeprägtem Kundenfokus. Die Mitglieder der vielseitigen Teams unserer Hotellerie/Gastronomie erbringen hochstehende Dienstleistungen im Haus- und Reinigungsdienst, in der Wäscherei sowie in der Gastronomie. In erster Linie schätzen unsere Patientinnen und Patienten sowie Besucherinnen und Besucher diesen Einsatz, aber auch unsere Mitarbeitenden.",
+      "description": "Gehören Verantwortungsbewusstsein und Eigeninitiative zu Ihren Stärken? Möchten Sie Mitglied eines tragenden und erfolgreichen Teams sein? Dann passen Sie perfekt zu uns. Als Lindenhofgruppe sind wir nur deshalb so erfolgreich, weil über 800 Pflegefachpersonen, rund 100 Spitalärztinnen und -ärzte, 300 Belegärzte und -ärztinnen sowie 1300 weitere Mitarbeitende Hand in Hand zusammenarbeiten – und sich jederzeit aufeinander verlassen können. Im Mittelpunkt einer hochwertigen Medizin steht immer auch ein starkes Team. Und zur Verstärkung dieses Teams suchen wir Sie!\n\nAufgaben:\nIn deiner Tätigkeit als FaGe:\n\n• Du unterstützt Pflegefachpersonen beim Pflegen und Betreuen unserer Patientinnen und Patienten nach neuesten Erkenntnissen.\n\n• Dabei führst du den Pflegeprozess (inkl. Leistungserfassung von Material und Pflege) nach den internen Vorgaben durch, unterstützt durch das Klinik-Informationssystem (KISIM).\n\n• Nebst der Körperpflege und Begleitung anderer Aktivitäten unserer Patientinnen und Patienten übernimmst du Aufgaben im logistischen, administrativen und hauswirtschaftlichen Bereich.\n\n• Du führst in deinem Kompetenzbereich medizinaltechnische Verrichtungen im Alltag aus.\n\nDeine Tätigkeit als Studierende ab dem 3. Studienjahr:\n\n• Du führst als Studierende BSc zunehmend selbständiger den Pflegeprozess nach neuesten Erkenntnissen durch unter Anleitung von diplomierten Pflegefachpersonen.\n\n• Für die Erreichung der Bereichs- und Abteilungsziele übernimmst du zunehmend Mitverantwortung und engagierst dich, in Zusammenarbeit mit deinen Berufsbildenden, für die fortlaufende Optimierung von Pflegeabläufen.\n\nAnforderungen:\n• Du verfügst über eine abgeschlossene Ausbildung als Fachfrau/-mann Gesundheit mit Berufsmatur.\n\n• Du befindest dich im Aufnahmeverfahren an der BFH für den Teilzeitstudiengang Bachelor of Science in Nursing BScN, hast dieses bereits bestanden oder stehst schon mitten im Studium.\n\n• Deine Ausbildung eigenverantwortlich anzugehen, ist für dich eine Selbstverständlichkeit.\n\nWir bieten:\nSie planen Ihre künftigen Schritte in der Arbeitswelt? Bei uns sammeln Sie erste oder weitere Erfahrungen im Berufsalltag, und das erst noch in einem interdisziplinären Spitalbetrieb. An unseren drei Standorten Engeried, Lindenhof und Sonnenhof bieten wir Ihnen attraktive Praktikums- und Ausbildungsstellen für alle Bildungsstufen. Dabei werden Sie sowohl in Ihrer beruflichen wie auch in Ihrer persönlichen Entwicklung unterstützt. Mit Ihrer Eigeninitiative nutzen Sie den Zugang zu einem breiten und qualitativ hochstehenden Aus- und Weiterbildungsangebot, arbeiten zusammen mit unseren erfahrenen Mitarbeitenden tatkräftig mit und ermöglichen gleichzeitig Ihren Kolleginnen und Kollegen einen frischen Aussenblick.",
       "descriptionByLocale": {
-        "it": "Il senso di responsabilità e l'iniziativa personale sono tra i suoi punti di forza? Vuoi far parte di un team solido e di successo? Allora siete perfetti per noi. Come gruppo Lindenhof, abbiamo successo solo perché oltre 800 infermieri, circa 100 medici ospedalieri, 300 medici veterinari e 1300 altri collaboratori lavorano fianco a fianco e possono fare affidamento l'uno sull'altro in qualsiasi momento. Al centro di una medicina di alta qualità c'è sempre una squadra forte. E per rinforzare questo team ti cerchiamo! Compiti: assistere i pazienti durante il loro soggiorno con i nostri servizi:\n• Responsabilità principale per l'ordinazione di tutti i pasti e le bevande utilizzando il programma di menu e di ordinazione\n• Consulenza competente e individuale e assistenza ai pazienti direttamente nella stanza del paziente nel rispetto delle basi nutrizionali e dei desideri del paziente\n• Mise en Place per tutti i pasti e il servizio di bevande\n• Gestione indipendente del reparto assegnato con garanzia del flusso di servizio professionale\n• Responsabilità per il rispetto della direttiva HACCP nelle cucine satellitari nei reparti Requisiti:\n• Hai completato la tua formazione nel settore alberghiero o dell'economia domestica e hai idealmente un'esperienza professionale adeguata\n• Hai un alto livello di",
-        "en": "Are your sense of responsibility and self-initiative on your strengths? Would you like to be a member of a leading and successful team? Then fit us perfectly. As a Lindenhof group, we are only so successful because more than 800 nursing professionals, about 100 hospital doctors, 300 staff doctors and 1300 other employees work in hand – and can always rely on each other. The focus of high-quality medicine is always a strong team. And to strengthen this team we are looking for you! Tasks: During their stay, they provide care to patients with our services:\n• Main responsibility for ordering all meals and beverages using the menu collection and ordering program\n• Competent and individual consultation and operation of patients directly in the patient's room while maintaining the specified nutritional bases and patient requests\n• Mise en Place for all meals and drinks\n• Self-governing the assigned department with ensuring the professional service process\n• Responsibility for compliance with the HACCP directive in the satellite kitchens in the departments Requirements:\n• You have completed your training in the area of hotel industry or in the domestic industry and you are ideally bringing appropriate professional experience with\n• You have a high level of service and a skill and joy in dealing with patients\n• They have a high level of social competence, empathy, team skills and independent working methods\n• You have a flair for IT systems (e.g. Sanalogic) and speak well German and understand Dialect\n• Ready for weekend and holiday services We offer: For the care of our guests we count in front of and behind the scenes on dedicated personalities with a strong customer focus. The members of the versatile teams of our hotel industry/gastronomy provide high-quality services in the house and cleaning services, in laundry and in gastronomy. Above all, our patients and visitors appreciate this commitment, as well as our employees.",
-        "de": "Gehören Verantwortungsbewusstsein und Eigeninitiative zu Ihren Stärken? Möchten Sie Mitglied eines tragenden und erfolgreichen Teams sein? Dann passen Sie perfekt zu uns. Als Lindenhofgruppe sind wir nur deshalb so erfolgreich, weil über 800 Pflegefachpersonen, rund 100 Spitalärztinnen und -ärzte, 300 Belegärzte und -ärztinnen sowie 1300 weitere Mitarbeitende Hand in Hand zusammenarbeiten – und sich jederzeit aufeinander verlassen können. Im Mittelpunkt einer hochwertigen Medizin steht immer auch ein starkes Team. Und zur Verstärkung dieses Teams suchen wir Sie! Aufgaben: Sie betreuen die Patientinnen und Patienten während ihres Aufenthalts mit unseren Dienstleistungen:\n• Hauptverantwortung für die Bestellaufnahme aller Mahlzeiten und Getränke mithilfe des Menuerfassungs- und Bestellwesenprogrammes\n• Kompetente und individuelle Beratung und Bedienung von Patientinnen und Patienten direkt im Patientenzimmer unter Einhaltung der vorgegebenen Ernährungsgrundlagen und Patientenwünschen\n• Mise en Place für alle Mahlzeiten und den Getränkeservice\n• Selbständige Führung der zugeteilten Abteilung mit Sicherstellung des professionellen Serviceablaufes\n• Verantwortung für die Einhaltung der Richtlinie HACCP in den Satellitenküchen in den Abteilungen Anforderungen:\n• Ihre Ausbildung haben Sie im Bereich Hotellerie oder in der Hauswirtschaft abgeschlossen und Sie bringen Idealerweise entsprechende Berufserfahrung mit\n• Sie haben eine hohe Dienstleistungsbereitschaft sowie ein Geschick und Freude im Umgang mit Patientinnen und Patienten\n• Sie verfügen über eine hohe Sozialkompetenz, Einfühlsamkeit, Teamfähigkeit und über eine selbstständige Arbeitsweise\n• Sie besitzen ein Flair für IT-Systeme (z. B. Sanalogic) und sprechen gut Deutsch und verstehen Dialekt\n• Bereitschaft für Wochenend- und Feiertagsdienste Wir bieten: Für die Betreuung unserer Gäste zählen wir vor und hinter den Kulissen auf engagierte Persönlichkeiten mit ausgeprägtem Kundenfokus. Die Mitglieder der vielseitigen Teams unserer Hotellerie/Gastronomie erbringen hochstehende Dienstleistungen im Haus- und Reinigungsdienst, in der Wäscherei sowie in der Gastronomie. In erster Linie schätzen unsere Patientinnen und Patienten sowie Besucherinnen und Besucher diesen Einsatz, aber auch unsere Mitarbeitenden.",
-        "fr": "Votre sens de la responsabilité et votre esprit d'initiative sur vos forces? Aimeriez-vous être membre d'une équipe de premier plan et de succès? Alors il nous convient parfaitement. En tant que groupe Lindenhof, nous ne sommes que si réussis parce que plus de 800 professionnels des soins infirmiers, environ 100 médecins hospitaliers, 300 médecins du personnel et 1300 autres employés travaillent en main – et peuvent toujours compter les uns sur les autres. L'objectif de la médecine de haute qualité est toujours une équipe forte. Et pour renforcer cette équipe, nous vous recherchons ! Tâches : Pendant leur séjour, ils fournissent des soins aux patients grâce à nos services :\n• La responsabilité principale de la commande de tous les repas et boissons à l'aide de la collection de menus et programme de commande\n• Consultation et fonctionnement compétents et individuels des patients directement dans la chambre du patient tout en maintenant les bases nutritionnelles spécifiées et les demandes du patient\n• Mise en place pour tous les repas et boissons\n• Autogérer le département assigné en assurant le processus de service professionnel\n• La responsabilité du respect de la directive HACCP dans les cuisines satellites des départements Exigences:\n• Vous avez terminé votre formation dans le domaine de l'hôtellerie ou dans l'industrie nationale et vous apportez idéalement une expérience professionnelle appropriée avec\n• Vous avez un haut niveau de service et une compétence et une joie dans le traitement des patients\n• Ils ont un niveau élevé de compétence sociale, d'empathie, de compétences en équipe et de méthodes de travail indépendantes\n• Vous avez un style pour les systèmes informatiques (par exemple Sanalogic) et parlez bien allemand et comprenez Dialect\n• Prêt pour le week-end et les vacances Nous offrons: Pour le soin de nos invités nous comptons en face et en coulisses sur des personnalités dédiées avec une forte concentration client. Les membres des équipes polyvalentes de notre industrie hôtelière/gastronomie offrent des services de haute qualité dans la maison et les services de nettoyage, en blanchisserie et en gastronomie. Par-dessus tout, nos patients et visiteurs apprécient cet engagement, ainsi que nos employés."
+        "it": "Descrizione Il vostro senso di responsabilità e di auto-iniziativa sono i vostri punti di forza? Vuoi essere un membro di una squadra leader e di successo? Allora adattaci perfettamente. Come gruppo Lindenhof, siamo solo così riusciti perché più di 800 professionisti infermieri, circa 100 medici ospedalieri, 300 medici del personale e 1300 altri dipendenti lavorano in mano – e possono sempre contare l'uno sull'altro. Il focus della medicina di alta qualità è sempre un team forte. E per rafforzare questa squadra ti stiamo cercando! Mansioni - Nella tua attività come FaGe: - Supporti i professionisti dell'allattamento nella cura e nella cura dei nostri pazienti secondo le ultime scoperte. - In questo modo, si esegue il processo di cura (compreso il rilevamento delle prestazioni del materiale e della cura) secondo i requisiti interni, supportato dal Sistema Informativo Clinico (KISIM). - Oltre all'assistenza personale e al supporto di altre attività dei nostri pazienti, svolgete attività nel settore della logistica, dell'amministrazione e della famiglia. - Nel vostro campo di competenza, svolgete orientamenti medici-tecnici nella vita quotidiana. - Il tuo lavoro come studente del 3° anno di studio: - Come studente laurea, si sta sempre più svolgendo il processo di allattamento secondo le ultime scoperte utilizzando professionisti di assistenza qualificati. - Al fine di raggiungere gli obiettivi di settore e di reparto, si sta sempre più prendendo parte alla responsabilità e, in collaborazione con i vostri studenti professionali, si sta concentrando sulla continua ottimizzazione dei processi di cura.\n• Requisiti - Hai una formazione completa come specialista in salute con maturità professionale. - Sei nella procedura di ammissione al BFH per il Bachelor of Science part-time in Nursing BScN, hanno passato questo già o stare nel mezzo dei tuoi studi. - La tua formazione e' una questione per te. Cosa? - Stai pianificando i tuoi passi futuri nel mondo del lavoro? Con noi si otterrà prima o più esperienze nel lavoro quotidiano, e questo è solo in un business ospedaliero interdisciplinare. - Nelle nostre tre sedi Engeried, Lindenhof e Sonnenhof offriamo interessanti stage e centri di formazione per tutti i livelli di istruzione. - Sarete sostenuti sia nel vostro sviluppo professionale che personale. - Con la propria iniziativa, è possibile utilizzare l'accesso a un'ampia e qualitativamente offerta di formazione di alta qualità, lavorare attivamente con i nostri dipendenti esperti e allo stesso tempo consentire ai vostri colleghi una nuova visione esterna. Contatto",
+        "en": "Descrizione Are your sense of responsibility and self-initiative on your strengths? Would you like to be a member of a leading and successful team? Then fit us perfectly. As a Lindenhof group, we are only so successful because more than 800 nursing professionals, about 100 hospital doctors, 300 staff doctors and 1300 other employees work in hand – and can always rely on each other. The focus of high-quality medicine is always a strong team. And to strengthen this team we are looking for you! Mansioni - In your activity as FaGe: - You support nursing professionals in the care and care of our patients according to the latest findings. - In doing so, you carry out the care process (including performance detection of material and care) according to internal requirements, supported by the Clinic Information System (KISIM). - In addition to the personal care and support of other activities of our patients, you take tasks in the logistic, administrative and household sector. - In your field of competence, you carry out medical-technical orientations in everyday life. - Your job as a student from the 3rd year of study: - As a student BSc, you are increasingly carrying out the nursing process according to the latest findings by using qualified care professionals. - In order to achieve the area and department goals, you are increasingly taking part in responsibility and, in cooperation with your professional students, you are concentrating on the continuous optimization of care processes.\n• Requisiti - You have a completed training as a specialist in health with professional maturity. - You are in the admission procedure at the BFH for the part-time Bachelor of Science in Nursing BScN, have passed this already or stand in the middle of your studies. - Your training is a matter of course for you.\n• Cosa offriamo - Are you planning your future steps in the world of work? With us you will gain first or more experiences in everyday work, and this is only in an interdisciplinary hospital business. - At our three locations Engeried, Lindenhof and Sonnenhof we offer attractive internships and training centres for all levels of education. - You will be supported both in your professional and personal development. - With your own initiative, you can use the access to a wide and qualitatively high-quality training offer, work actively with our experienced employees and at the same time allow your colleagues a fresh outside view. Contatto",
+        "de": "Gehören Verantwortungsbewusstsein und Eigeninitiative zu Ihren Stärken? Möchten Sie Mitglied eines tragenden und erfolgreichen Teams sein? Dann passen Sie perfekt zu uns. Als Lindenhofgruppe sind wir nur deshalb so erfolgreich, weil über 800 Pflegefachpersonen, rund 100 Spitalärztinnen und -ärzte, 300 Belegärzte und -ärztinnen sowie 1300 weitere Mitarbeitende Hand in Hand zusammenarbeiten – und sich jederzeit aufeinander verlassen können. Im Mittelpunkt einer hochwertigen Medizin steht immer auch ein starkes Team. Und zur Verstärkung dieses Teams suchen wir Sie! Aufgaben: In deiner Tätigkeit als FaGe:\n• Du unterstützt Pflegefachpersonen beim Pflegen und Betreuen unserer Patientinnen und Patienten nach neuesten Erkenntnissen.\n• Dabei führst du den Pflegeprozess (inkl. Leistungserfassung von Material und Pflege) nach den internen Vorgaben durch, unterstützt durch das Klinik-Informationssystem (KISIM).\n• Nebst der Körperpflege und Begleitung anderer Aktivitäten unserer Patientinnen und Patienten übernimmst du Aufgaben im logistischen, administrativen und hauswirtschaftlichen Bereich.\n• Du führst in deinem Kompetenzbereich medizinaltechnische Verrichtungen im Alltag aus. Deine Tätigkeit als Studierende ab dem 3. Studienjahr:\n• Du führst als Studierende BSc zunehmend selbständiger den Pflegeprozess nach neuesten Erkenntnissen durch unter Anleitung von diplomierten Pflegefachpersonen.\n• Für die Erreichung der Bereichs- und Abteilungsziele übernimmst du zunehmend Mitverantwortung und engagierst dich, in Zusammenarbeit mit deinen Berufsbildenden, für die fortlaufende Optimierung von Pflegeabläufen. Anforderungen:\n• Du verfügst über eine abgeschlossene Ausbildung als Fachfrau/-mann Gesundheit mit Berufsmatur.\n• Du befindest dich im Aufnahmeverfahren an der BFH für den Teilzeitstudiengang Bachelor of Science in Nursing BScN, hast dieses bereits bestanden oder stehst schon mitten im Studium.\n• Deine Ausbildung eigenverantwortlich anzugehen, ist für dich eine Selbstverständlichkeit. Wir bieten: Sie planen Ihre künftigen Schritte in der Arbeitswelt? Bei uns sammeln Sie erste oder weitere Erfahrungen im Berufsalltag, und das erst noch in einem interdisziplinären Spitalbetrieb. An unseren drei Standorten Engeried, Lindenhof und Sonnenhof bieten wir Ihnen attraktive Praktikums- und Ausbildungsstellen für alle Bildungsstufen. Dabei werden Sie sowohl in Ihrer beruflichen wie auch in Ihrer persönlichen Entwicklung unterstützt. Mit Ihrer Eigeninitiative nutzen Sie den Zugang zu einem breiten und qualitativ hochstehenden Aus- und Weiterbildungsangebot, arbeiten zusammen mit unseren erfahrenen Mitarbeitenden tatkräftig mit und ermöglichen gleichzeitig Ihren Kolleginnen und Kollegen einen frischen Aussenblick.",
+        "fr": "Descrizione Votre sens de la responsabilité et votre esprit d'initiative sur vos forces? Aimeriez-vous être membre d'une équipe de premier plan et de succès? Alors il nous convient parfaitement. En tant que groupe Lindenhof, nous ne sommes que si réussis parce que plus de 800 professionnels des soins infirmiers, environ 100 médecins hospitaliers, 300 médecins du personnel et 1300 autres employés travaillent en main – et peuvent toujours compter les uns sur les autres. L'objectif de la médecine de haute qualité est toujours une équipe forte. Et pour renforcer cette équipe, nous vous recherchons ! Mansioni - Dans votre activité comme FaGe: - Vous aidez les professionnels des soins infirmiers dans les soins et soins de nos patients selon les dernières découvertes. - Ce faisant, vous effectuez le processus de soins (y compris la détection de la performance du matériel et des soins) selon les exigences internes, soutenues par le système d'information clinique (KISIM). - En plus des soins personnels et du soutien d'autres activités de nos patients, vous prenez des tâches dans le secteur logistique, administratif et domestique. - Dans votre domaine de compétence, vous effectuez des orientations médico-techniques dans la vie quotidienne. - Votre travail en tant qu'étudiant de la 3ème année d'études : - En tant qu'étudiant BSc, vous effectuez de plus en plus le processus de soins selon les dernières découvertes en utilisant des professionnels de soins qualifiés. - Afin d'atteindre les objectifs de la zone et du département, vous participez de plus en plus à la responsabilité et, en collaboration avec vos étudiants professionnels, vous vous concentrez sur l'optimisation continue des processus de soins.\n• Requisiti - Vous avez une formation complète comme spécialiste de la santé avec maturité professionnelle. - Vous êtes dans la procédure d'admission à la BFH pour le baccalauréat en sciences à temps partiel en sciences infirmières BScN, ont déjà passé cela ou se trouvent au milieu de vos études. - Votre formation est une question de bien sûr pour vous.\n• Cosa offriamo - Prévoyez-vous vos prochaines étapes dans le monde du travail ? Avec nous, vous gagnerez la première ou plus d'expériences dans le travail quotidien, et ce n'est que dans une entreprise hospitalière interdisciplinaire. - Sur nos trois sites Engeried, Lindenhof et Sonnenhof, nous proposons des stages et des centres de formation attrayants pour tous les niveaux d'éducation. - Vous serez soutenu dans votre développement professionnel et personnel. - Avec votre propre initiative, vous pouvez utiliser l'accès à une offre de formation large et qualitativement de haute qualité, travailler activement avec nos employés expérimentés et en même temps permettre à vos collègues une nouvelle vue extérieure. Contatto"
       },
       "location": "Bern",
       "canton": "BE",
-      "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/mitarbeiter-in-patienten-hotellerie/ab8a9551-f216-4484-99e2-87cc305e9949",
+      "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/auszubildende-zur-m-dipl-pflegefachfrau-mann-fh-teilzeit-bsc-fuer-fage-2-bis-4-jahre/6893e117-5788-4b2e-a22d-ca4385dd35f7",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:08:46.623Z",
+      "crawledAt": "2026-05-27T23:36:37.885Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "3001",
-      "category": "Ospitalità",
+      "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
       "experienceLevel": "mid",
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2025-12-04",
-      "applyUrl": "https://bewerben.lindenhofgruppe.ch/hotelfachfrau-mann-mit-ausbildung-de-f2497.html?agid=20",
+      "postedDate": "2025-07-16",
+      "applyUrl": "https://bewerben.lindenhofgruppe.ch/auszubildende-zurm-dipl-pflegefachfrau-mann-fh-teilzeit-bs-de-f1759.html?agid=20",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-in-patienten-hotellerie-lindenhofgruppe-ch"
+        "auszubildende-zur-m-dipl-pflegefachfrau-mann-fh-teilzeit-bsc-fur-fage-2-bis-4-jahre-linden",
+        "apprenticeship-at-m-dipl-career-woman-mann-fh-part-time-bsc-for-fage-2-to-4-years-lindenhofgruppe-bern",
+        "apprentissage-a-m-dipl-carriere-femme-mann-fh-bsc-a-temps-partiel-pour-fage-2-a-4-ans-lindenhofgruppe-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-patienten-hotellerie-lindenhofgruppe-ch"
+          "auszubildende-zur-m-dipl-pflegefachfrau-mann-fh-teilzeit-bsc-fur-fage-2-bis-4-jahre-linden"
         ],
         "en": [
-          "mitarbeiter-in-patienten-hotellerie-lindenhofgruppe-ch"
+          "apprenticeship-at-m-dipl-career-woman-mann-fh-part-time-bsc-for-fage-2-to-4-years-lindenhofgruppe-bern",
+          "auszubildende-zur-m-dipl-pflegefachfrau-mann-fh-teilzeit-bsc-fur-fage-2-bis-4-jahre-linden"
+        ],
+        "de": [
+          "auszubildende-zur-m-dipl-pflegefachfrau-mann-fh-teilzeit-bsc-fur-fage-2-bis-4-jahre-linden"
         ],
         "fr": [
-          "mitarbeiter-in-patienten-hotellerie-lindenhofgruppe-ch"
+          "apprentissage-a-m-dipl-carriere-femme-mann-fh-bsc-a-temps-partiel-pour-fage-2-a-4-ans-lindenhofgruppe-bern",
+          "auszubildende-zur-m-dipl-pflegefachfrau-mann-fh-teilzeit-bsc-fur-fage-2-bis-4-jahre-linden"
         ]
       },
-      "firstSeenAt": "2026-05-10T21:57:57.767Z",
+      "firstSeenAt": "2026-05-10T21:57:57.772Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1116,7 +1047,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/dipl-expertin-experte-notfallpflege-nds-hf/47300e6c-06e9-45e2-8702-9613935ba6a7",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:08:46.623Z",
+      "crawledAt": "2026-05-27T23:36:37.884Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1147,6 +1078,7 @@
         ]
       },
       "firstSeenAt": "2026-05-10T21:57:57.769Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1191,7 +1123,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/oberaerztin-oberarzt-notfallzentrum/83f8c378-5929-4c1e-98fb-5b0118e3eb1b",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:08:46.622Z",
+      "crawledAt": "2026-05-27T23:36:37.883Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1237,6 +1169,83 @@
       }
     },
     {
+      "id": "lindenhofgruppe-fb261644b78c",
+      "slug": "collaboratore-trice-patienten-hotellerie-lindenhofgruppe-bern",
+      "slugByLocale": {
+        "it": "collaboratore-trice-patienten-hotellerie-lindenhofgruppe-bern",
+        "en": "staff-in-patient-hotel-industry-lindenhofgruppe-bern",
+        "de": "mitarbeiter-in-patienten-hotellerie-lindenhofgruppe-ch",
+        "fr": "personnel-dans-l-industrie-hoteliere-patiente-lindenhofgruppe-bern"
+      },
+      "company": "Lindenhofgruppe",
+      "companyKey": "lindenhofgruppe",
+      "companyDomain": "lindenhofgruppe.ch",
+      "title": "Mitarbeiter/in Patienten-Hotellerie",
+      "titleByLocale": {
+        "it": "Collaboratore/trice Patienten-Hotellerie",
+        "en": "Staff/in patient hotel industry",
+        "de": "Mitarbeiter/in Patienten-Hotellerie",
+        "fr": "Personnel/dans l'industrie hôtelière patiente"
+      },
+      "description": "Gehören Verantwortungsbewusstsein und Eigeninitiative zu Ihren Stärken? Möchten Sie Mitglied eines tragenden und erfolgreichen Teams sein? Dann passen Sie perfekt zu uns. Als Lindenhofgruppe sind wir nur deshalb so erfolgreich, weil über 800 Pflegefachpersonen, rund 100 Spitalärztinnen und -ärzte, 300 Belegärzte und -ärztinnen sowie 1300 weitere Mitarbeitende Hand in Hand zusammenarbeiten – und sich jederzeit aufeinander verlassen können. Im Mittelpunkt einer hochwertigen Medizin steht immer auch ein starkes Team. Und zur Verstärkung dieses Teams suchen wir Sie!\n\nAufgaben:\nSie betreuen die Patientinnen und Patienten während ihres Aufenthalts mit unseren Dienstleistungen:\n• Hauptverantwortung für die Bestellaufnahme aller Mahlzeiten und Getränke mithilfe des Menuerfassungs- und Bestellwesenprogrammes\n\n• Kompetente und individuelle Beratung und Bedienung von Patientinnen und Patienten direkt im Patientenzimmer unter Einhaltung der vorgegebenen Ernährungsgrundlagen und Patientenwünschen\n\n• Mise en Place für alle Mahlzeiten und den Getränkeservice\n\n• Selbständige Führung der zugeteilten Abteilung mit Sicherstellung des professionellen Serviceablaufes\n\n• Verantwortung für die Einhaltung der Richtlinie HACCP in den Satellitenküchen in den Abteilungen\n\nAnforderungen:\n• Ihre Ausbildung haben Sie im Bereich Hotellerie oder in der Hauswirtschaft abgeschlossen und Sie bringen Idealerweise entsprechende Berufserfahrung mit\n\n• Sie haben eine hohe Dienstleistungsbereitschaft sowie ein Geschick und Freude im Umgang mit Patientinnen und Patienten\n\n• Sie verfügen über eine hohe Sozialkompetenz, Einfühlsamkeit, Teamfähigkeit und über eine selbstständige Arbeitsweise\n\n• Sie besitzen ein Flair für IT-Systeme (z. B. Sanalogic) und sprechen gut Deutsch und verstehen Dialekt\n\n• Bereitschaft für Wochenend- und Feiertagsdienste\n\nWir bieten:\nFür die Betreuung unserer Gäste zählen wir vor und hinter den Kulissen auf engagierte Persönlichkeiten mit ausgeprägtem Kundenfokus. Die Mitglieder der vielseitigen Teams unserer Hotellerie/Gastronomie erbringen hochstehende Dienstleistungen im Haus- und Reinigungsdienst, in der Wäscherei sowie in der Gastronomie. In erster Linie schätzen unsere Patientinnen und Patienten sowie Besucherinnen und Besucher diesen Einsatz, aber auch unsere Mitarbeitenden.",
+      "descriptionByLocale": {
+        "it": "Il senso di responsabilità e l'iniziativa personale sono tra i suoi punti di forza? Vuoi far parte di un team solido e di successo? Allora siete perfetti per noi. Come gruppo Lindenhof, abbiamo successo solo perché oltre 800 infermieri, circa 100 medici ospedalieri, 300 medici veterinari e 1300 altri collaboratori lavorano fianco a fianco e possono fare affidamento l'uno sull'altro in qualsiasi momento. Al centro di una medicina di alta qualità c'è sempre una squadra forte. E per rinforzare questo team ti cerchiamo! Compiti: assistere i pazienti durante il loro soggiorno con i nostri servizi:\n• Responsabilità principale per l'ordinazione di tutti i pasti e le bevande utilizzando il programma di menu e di ordinazione\n• Consulenza competente e individuale e assistenza ai pazienti direttamente nella stanza del paziente nel rispetto delle basi nutrizionali e dei desideri del paziente\n• Mise en Place per tutti i pasti e il servizio di bevande\n• Gestione indipendente del reparto assegnato con garanzia del flusso di servizio professionale\n• Responsabilità per il rispetto della direttiva HACCP nelle cucine satellitari nei reparti Requisiti:\n• Hai completato la tua formazione nel settore alberghiero o dell'economia domestica e hai idealmente un'esperienza professionale adeguata\n• Hai un alto livello di",
+        "en": "Are your sense of responsibility and self-initiative on your strengths? Would you like to be a member of a leading and successful team? Then fit us perfectly. As a Lindenhof group, we are only so successful because more than 800 nursing professionals, about 100 hospital doctors, 300 staff doctors and 1300 other employees work in hand – and can always rely on each other. The focus of high-quality medicine is always a strong team. And to strengthen this team we are looking for you! Tasks: During their stay, they provide care to patients with our services:\n• Main responsibility for ordering all meals and beverages using the menu collection and ordering program\n• Competent and individual consultation and operation of patients directly in the patient's room while maintaining the specified nutritional bases and patient requests\n• Mise en Place for all meals and drinks\n• Self-governing the assigned department with ensuring the professional service process\n• Responsibility for compliance with the HACCP directive in the satellite kitchens in the departments Requirements:\n• You have completed your training in the area of hotel industry or in the domestic industry and you are ideally bringing appropriate professional experience with\n• You have a high level of service and a skill and joy in dealing with patients\n• They have a high level of social competence, empathy, team skills and independent working methods\n• You have a flair for IT systems (e.g. Sanalogic) and speak well German and understand Dialect\n• Ready for weekend and holiday services We offer: For the care of our guests we count in front of and behind the scenes on dedicated personalities with a strong customer focus. The members of the versatile teams of our hotel industry/gastronomy provide high-quality services in the house and cleaning services, in laundry and in gastronomy. Above all, our patients and visitors appreciate this commitment, as well as our employees.",
+        "de": "Gehören Verantwortungsbewusstsein und Eigeninitiative zu Ihren Stärken? Möchten Sie Mitglied eines tragenden und erfolgreichen Teams sein? Dann passen Sie perfekt zu uns. Als Lindenhofgruppe sind wir nur deshalb so erfolgreich, weil über 800 Pflegefachpersonen, rund 100 Spitalärztinnen und -ärzte, 300 Belegärzte und -ärztinnen sowie 1300 weitere Mitarbeitende Hand in Hand zusammenarbeiten – und sich jederzeit aufeinander verlassen können. Im Mittelpunkt einer hochwertigen Medizin steht immer auch ein starkes Team. Und zur Verstärkung dieses Teams suchen wir Sie! Aufgaben: Sie betreuen die Patientinnen und Patienten während ihres Aufenthalts mit unseren Dienstleistungen:\n• Hauptverantwortung für die Bestellaufnahme aller Mahlzeiten und Getränke mithilfe des Menuerfassungs- und Bestellwesenprogrammes\n• Kompetente und individuelle Beratung und Bedienung von Patientinnen und Patienten direkt im Patientenzimmer unter Einhaltung der vorgegebenen Ernährungsgrundlagen und Patientenwünschen\n• Mise en Place für alle Mahlzeiten und den Getränkeservice\n• Selbständige Führung der zugeteilten Abteilung mit Sicherstellung des professionellen Serviceablaufes\n• Verantwortung für die Einhaltung der Richtlinie HACCP in den Satellitenküchen in den Abteilungen Anforderungen:\n• Ihre Ausbildung haben Sie im Bereich Hotellerie oder in der Hauswirtschaft abgeschlossen und Sie bringen Idealerweise entsprechende Berufserfahrung mit\n• Sie haben eine hohe Dienstleistungsbereitschaft sowie ein Geschick und Freude im Umgang mit Patientinnen und Patienten\n• Sie verfügen über eine hohe Sozialkompetenz, Einfühlsamkeit, Teamfähigkeit und über eine selbstständige Arbeitsweise\n• Sie besitzen ein Flair für IT-Systeme (z. B. Sanalogic) und sprechen gut Deutsch und verstehen Dialekt\n• Bereitschaft für Wochenend- und Feiertagsdienste Wir bieten: Für die Betreuung unserer Gäste zählen wir vor und hinter den Kulissen auf engagierte Persönlichkeiten mit ausgeprägtem Kundenfokus. Die Mitglieder der vielseitigen Teams unserer Hotellerie/Gastronomie erbringen hochstehende Dienstleistungen im Haus- und Reinigungsdienst, in der Wäscherei sowie in der Gastronomie. In erster Linie schätzen unsere Patientinnen und Patienten sowie Besucherinnen und Besucher diesen Einsatz, aber auch unsere Mitarbeitenden.",
+        "fr": "Votre sens de la responsabilité et votre esprit d'initiative sur vos forces? Aimeriez-vous être membre d'une équipe de premier plan et de succès? Alors il nous convient parfaitement. En tant que groupe Lindenhof, nous ne sommes que si réussis parce que plus de 800 professionnels des soins infirmiers, environ 100 médecins hospitaliers, 300 médecins du personnel et 1300 autres employés travaillent en main – et peuvent toujours compter les uns sur les autres. L'objectif de la médecine de haute qualité est toujours une équipe forte. Et pour renforcer cette équipe, nous vous recherchons ! Tâches : Pendant leur séjour, ils fournissent des soins aux patients grâce à nos services :\n• La responsabilité principale de la commande de tous les repas et boissons à l'aide de la collection de menus et programme de commande\n• Consultation et fonctionnement compétents et individuels des patients directement dans la chambre du patient tout en maintenant les bases nutritionnelles spécifiées et les demandes du patient\n• Mise en place pour tous les repas et boissons\n• Autogérer le département assigné en assurant le processus de service professionnel\n• La responsabilité du respect de la directive HACCP dans les cuisines satellites des départements Exigences:\n• Vous avez terminé votre formation dans le domaine de l'hôtellerie ou dans l'industrie nationale et vous apportez idéalement une expérience professionnelle appropriée avec\n• Vous avez un haut niveau de service et une compétence et une joie dans le traitement des patients\n• Ils ont un niveau élevé de compétence sociale, d'empathie, de compétences en équipe et de méthodes de travail indépendantes\n• Vous avez un style pour les systèmes informatiques (par exemple Sanalogic) et parlez bien allemand et comprenez Dialect\n• Prêt pour le week-end et les vacances Nous offrons: Pour le soin de nos invités nous comptons en face et en coulisses sur des personnalités dédiées avec une forte concentration client. Les membres des équipes polyvalentes de notre industrie hôtelière/gastronomie offrent des services de haute qualité dans la maison et les services de nettoyage, en blanchisserie et en gastronomie. Par-dessus tout, nos patients et visiteurs apprécient cet engagement, ainsi que nos employés."
+      },
+      "location": "Bern",
+      "canton": "BE",
+      "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/mitarbeiter-in-patienten-hotellerie/ab8a9551-f216-4484-99e2-87cc305e9949",
+      "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
+      "sourceLang": "de",
+      "crawledAt": "2026-05-27T23:36:37.883Z",
+      "addressLocality": "Bern",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "3001",
+      "category": "Ospitalità",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2025-12-04",
+      "applyUrl": "https://bewerben.lindenhofgruppe.ch/hotelfachfrau-mann-mit-ausbildung-de-f2497.html?agid=20",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "mitarbeiter-in-patienten-hotellerie-lindenhofgruppe-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "mitarbeiter-in-patienten-hotellerie-lindenhofgruppe-ch"
+        ],
+        "en": [
+          "mitarbeiter-in-patienten-hotellerie-lindenhofgruppe-ch"
+        ],
+        "fr": [
+          "mitarbeiter-in-patienten-hotellerie-lindenhofgruppe-ch"
+        ]
+      },
+      "firstSeenAt": "2026-05-10T21:57:57.767Z",
+      "needsRetranslation": true,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
       "id": "lindenhofgruppe-ec8a7a8d056d",
       "slug": "carriera-moglie-hf-in-servizio-di-formazione-primavera-2027-lindenhofgruppe-bern",
       "slugByLocale": {
@@ -1267,7 +1276,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/pflegefachfrau-mann-hf-in-ausbildung-betriebsanstellung-fruehling-2027/807758b7-3a09-43dc-ae54-b9e6261a4d22",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:08:46.621Z",
+      "crawledAt": "2026-05-27T23:36:37.882Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1345,7 +1354,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/dipl-pflegefachfrau-mann-herzkatheterlabor/77b91ea0-04ae-41f9-b467-ae2698027e5b",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:08:46.620Z",
+      "crawledAt": "2026-05-27T23:36:37.881Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1378,6 +1387,7 @@
         ]
       },
       "firstSeenAt": "2026-05-10T21:57:57.764Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1422,7 +1432,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/dipl-expertin-experte-anaesthesie-nds-hf/ded5d810-044f-4250-96dd-dd60ebfab8cd",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:08:46.619Z",
+      "crawledAt": "2026-05-27T23:36:37.880Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1504,7 +1514,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/dipl-pflegefachfrau-mann-hf-fh-mit-weiterbildung-in-ueberwachungspflege/1e931b67-86f5-415c-b2d8-08390c7dde3e",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:08:46.619Z",
+      "crawledAt": "2026-05-27T23:36:37.880Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1582,7 +1592,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/dipl-radiologiefachfrau-mann-radio-onkologie/e406cb37-b149-471d-81b5-dfadf1347160",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:08:46.618Z",
+      "crawledAt": "2026-05-27T23:36:37.879Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1662,7 +1672,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/mitarbeiter-in-sekretariat-radiologie/c188de84-e812-4908-b7d2-dc8bd0e31f16",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:08:46.617Z",
+      "crawledAt": "2026-05-27T23:36:37.878Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1738,7 +1748,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/medizinische-codiererin-medizinischer-codierer/e00c066b-2108-4d09-95b5-0c3d230118e1",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:08:46.616Z",
+      "crawledAt": "2026-05-27T23:36:37.876Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1784,82 +1794,6 @@
       }
     },
     {
-      "id": "lindenhofgruppe-27fb1005b0fd",
-      "slug": "personale-in-centro-di-emergenza-di-registrazione-paziente-lindenhofgruppe-bern",
-      "slugByLocale": {
-        "it": "personale-in-centro-di-emergenza-di-registrazione-paziente-lindenhofgruppe-bern",
-        "en": "personnel-in-patient-recording-emergency-center-lindenhofgruppe-bern",
-        "de": "sachbearbeiter-in-patientenaufnahme-notfallzentrum-lindenhofgruppe-ch",
-        "fr": "personnel-dans-le-centre-d-urgence-d-enregistrement-des-patients-lindenhofgruppe-bern"
-      },
-      "company": "Lindenhofgruppe",
-      "companyKey": "lindenhofgruppe",
-      "companyDomain": "lindenhofgruppe.ch",
-      "title": "Sachbearbeiter/-in Patientenaufnahme Notfallzentrum",
-      "titleByLocale": {
-        "it": "Personale/in Centro di emergenza di registrazione paziente",
-        "en": "Personnel/in Patient Recording Emergency Center",
-        "de": "Sachbearbeiter/-in Patientenaufnahme Notfallzentrum",
-        "fr": "Personnel/dans le Centre d'urgence d'enregistrement des patients"
-      },
-      "description": "Gehören Verantwortungsbewusstsein und Eigeninitiative zu Ihren Stärken? Möchten Sie Mitglied eines tragenden und erfolgreichen Teams sein? Dann passen Sie perfekt zu uns. Als Lindenhofgruppe sind wir nur deshalb so erfolgreich, weil über 800 Pflegefachpersonen, rund 100 Spitalärztinnen und -ärzte, 300 Belegärzte und -ärztinnen sowie 1300 weitere Mitarbeitende Hand in Hand zusammenarbeiten – und sich jederzeit aufeinander verlassen können. Im Mittelpunkt einer hochwertigen Medizin steht immer auch ein starkes Team. Und zur Verstärkung dieses Teams suchen wir Sie!\n\nAufgaben:\nSie sind die erste Anlaufstelle für unsere Notfallpatientinnen und -patienten sowie deren Angehörige und stellen die administrative Abwicklung sicher.\n• Zuständig für die Patientenaufnahme, das Falldatenmanagement sowie die administrative Nachbearbeitung von Patientendaten (Personalien, Versicherung)\n\n• Entgegennahme telefonischer Anfragen und Disposition von Patiententerminen\n\n• Verantwortlich für die Leistungskontrolle, den termingerechten Berichtsversand sowie die Abklärung von Versicherungsanfragen\n\n• Übernahme von Schichtdiensten (Früh-, Spät-, Wochenend- und Feiertagsdienste)\n\nAnforderungen:\n• Kaufmännische Grundausbildung oder vergleichbare Ausbildung im Gesundheitswesen (z.B. Pharmaassistent/-in, MPA) mit mehrjähriger Berufserfahrung in ähnlicher Funktion\n\n• Hohe Sozialkompetenz: Sie begegnen Menschen respektvoll und professionell und behalten auch in hektischen Situationen den Überblick\n\n• Engagierte, teamorientierte Persönlichkeit mit schneller Auffassungsgabe und einer selbständigen, strukturierten und qualitätsbewussten Arbeitsweise\n\n• Stilsicheres Deutsch, gute mündliche Französischkenntnisse sowie sehr gute EDV-Anwenderkenntnisse\n\n• Bereitschaft in Schicht- und Wochenenddiensten zu arbeiten\n\nWir bieten:\nIn der Lindenhofgruppe können Sie früh Verantwortung übernehmen und an zukunftsweisenden Lösungen mitwirken. Dank Ihrem funktionsbezogenem Flair und Ihrem feinen Gespür für Menschen agieren Sie geschickt als Bindeglied und bieten übergreifende Dienstleistungen für die gesamte Gruppe. Mit Ihrer ausgeprägten Serviceorientierung im Sinne unserer Kundinnen und Kunden entlasten Sie die Teams in unseren Spitälern und leisten damit einen unmittelbaren Mehrwert für unsere Patientinnen und Patienten.",
-      "descriptionByLocale": {
-        "it": "Il vostro senso di responsabilità e di auto-iniziativa sono i vostri punti di forza? Vuoi essere un membro di una squadra leader e di successo? Allora adattaci perfettamente. Come gruppo Lindenhof, siamo solo così riusciti perché più di 800 professionisti infermieri, circa 100 medici ospedalieri, 300 medici del personale e 1300 altri dipendenti lavorano in mano – e possono sempre contare l'uno sull'altro. Il focus della medicina di alta qualità è sempre un team forte. E per rafforzare questa squadra ti stiamo cercando! Compiti: Sono il primo punto di contatto per i nostri pazienti di emergenza e i loro parenti e garantire la gestione amministrativa.\n• Competente per la registrazione del paziente, la gestione dei dati dei casi e la post-elaborazione amministrativa dei dati del paziente (persona, assicurazione)\n• Consumo di richieste telefoniche e disposizione degli appuntamenti del paziente\n• Responsabile del controllo delle prestazioni, della segnalazione tempestiva e della chiarificazione delle richieste di assicurazione\n• Assumere servizi a turni (spese, fine settimana e servizi di vacanza) Requisiti:\n• Formazione commerciale di base o formazione comparabile nell'assistenza sanitaria (ad es. farmacista/in, MPA) con diversi anni di esperienza professionale in funzione simile\n• Alta competenza sociale: incontrare persone con rispetto e professionalità e tenere una panoramica anche in situazioni frenetiche\n• Personalità attiva, orientata al team con rapida comprensione e un modo di lavoro indipendente, strutturato e di qualità\n• Elegante tedesco, buone abilità orali francesi e ottime competenze informatiche\n• Volontà di lavoro nei servizi di turno e fine settimana Offriamo: Nel gruppo Lindenhof puoi prenderti presto la responsabilità e partecipare a soluzioni previsionali. Grazie al tuo tocco funzionale e al tuo buon feeling per le persone, agisci abilmente come un link e offri servizi completi per l'intero gruppo. Con il vostro forte orientamento di servizio nel senso dei nostri clienti, alleviare le squadre nei nostri ospedali e quindi fornire un valore aggiunto immediato per i nostri pazienti.",
-        "en": "Are your sense of responsibility and self-initiative on your strengths? Would you like to be a member of a leading and successful team? Then fit us perfectly. As a Lindenhof group, we are only so successful because more than 800 nursing professionals, about 100 hospital doctors, 300 staff doctors and 1300 other employees work in hand – and can always rely on each other. The focus of high-quality medicine is always a strong team. And to strengthen this team we are looking for you! Tasks: They are the first contact point for our emergency patients and their relatives and ensure the administrative handling.\n• Competent for patient recording, case data management and the administrative post-processing of patient data (personnel, insurance)\n• Consumption of telephone requests and disposition of patient appointments\n• Responsible for the performance control, the timely reporting and the clarification of insurance requests\n• Takeover of shift services (spring, late, weekend and holiday services) Requirements:\n• Basic commercial training or comparable training in health care (e.g. pharmaassistent/-in, MPA) with several years of professional experience in similar function\n• High social competence: You meet people respectfully and professionally and keep an overview even in hectic situations\n• Engaged, team-oriented personality with rapid understanding and an independent, structured and quality-conscious way of working\n• Stylish German, good oral French skills and very good computer skills\n• Willingness to work in shift and weekend services We offer: In the Lindenhof group you can take early responsibility and participate in forward-looking solutions. Thanks to your functional flair and your fine feeling for people, you act skillfully as a link and offer comprehensive services for the entire group. With your strong service orientation in the sense of our customers, you relieve the teams in our hospitals and thus provide immediate added value for our patients.",
-        "de": "Gehören Verantwortungsbewusstsein und Eigeninitiative zu Ihren Stärken? Möchten Sie Mitglied eines tragenden und erfolgreichen Teams sein? Dann passen Sie perfekt zu uns. Als Lindenhofgruppe sind wir nur deshalb so erfolgreich, weil über 800 Pflegefachpersonen, rund 100 Spitalärztinnen und -ärzte, 300 Belegärzte und -ärztinnen sowie 1300 weitere Mitarbeitende Hand in Hand zusammenarbeiten – und sich jederzeit aufeinander verlassen können. Im Mittelpunkt einer hochwertigen Medizin steht immer auch ein starkes Team. Und zur Verstärkung dieses Teams suchen wir Sie! Aufgaben: Sie sind die erste Anlaufstelle für unsere Notfallpatientinnen und -patienten sowie deren Angehörige und stellen die administrative Abwicklung sicher.\n• Zuständig für die Patientenaufnahme, das Falldatenmanagement sowie die administrative Nachbearbeitung von Patientendaten (Personalien, Versicherung)\n• Entgegennahme telefonischer Anfragen und Disposition von Patiententerminen\n• Verantwortlich für die Leistungskontrolle, den termingerechten Berichtsversand sowie die Abklärung von Versicherungsanfragen\n• Übernahme von Schichtdiensten (Früh-, Spät-, Wochenend- und Feiertagsdienste) Anforderungen:\n• Kaufmännische Grundausbildung oder vergleichbare Ausbildung im Gesundheitswesen (z.B. Pharmaassistent/-in, MPA) mit mehrjähriger Berufserfahrung in ähnlicher Funktion\n• Hohe Sozialkompetenz: Sie begegnen Menschen respektvoll und professionell und behalten auch in hektischen Situationen den Überblick\n• Engagierte, teamorientierte Persönlichkeit mit schneller Auffassungsgabe und einer selbständigen, strukturierten und qualitätsbewussten Arbeitsweise\n• Stilsicheres Deutsch, gute mündliche Französischkenntnisse sowie sehr gute EDV-Anwenderkenntnisse\n• Bereitschaft in Schicht- und Wochenenddiensten zu arbeiten Wir bieten: In der Lindenhofgruppe können Sie früh Verantwortung übernehmen und an zukunftsweisenden Lösungen mitwirken. Dank Ihrem funktionsbezogenem Flair und Ihrem feinen Gespür für Menschen agieren Sie geschickt als Bindeglied und bieten übergreifende Dienstleistungen für die gesamte Gruppe. Mit Ihrer ausgeprägten Serviceorientierung im Sinne unserer Kundinnen und Kunden entlasten Sie die Teams in unseren Spitälern und leisten damit einen unmittelbaren Mehrwert für unsere Patientinnen und Patienten.",
-        "fr": "Votre sens de la responsabilité et votre esprit d'initiative sur vos forces? Aimeriez-vous être membre d'une équipe de premier plan et de succès? Alors il nous convient parfaitement. En tant que groupe Lindenhof, nous ne sommes que si réussis parce que plus de 800 professionnels des soins infirmiers, environ 100 médecins hospitaliers, 300 médecins du personnel et 1300 autres employés travaillent en main – et peuvent toujours compter les uns sur les autres. L'objectif de la médecine de haute qualité est toujours une équipe forte. Et pour renforcer cette équipe, nous vous recherchons ! Tâches : Ils sont le premier point de contact pour nos patients d'urgence et leurs proches et assurent le traitement administratif.\n• Compétence pour l'enregistrement des patients, la gestion des données de cas et le post-traitement administratif des données des patients (personnel, assurance)\n• Consommation de demandes téléphoniques et traitement des rendez-vous avec les patients\n• Responsable du contrôle des performances, de la notification en temps voulu et de la clarification des demandes d'assurance\n• Prise en charge des services de poste (services de printemps, de fin de semaine et de vacances) Exigences:\n• Formation commerciale de base ou formation comparable dans le domaine des soins de santé (p. ex. pharmacosistance/-in, MPA) avec plusieurs années d'expérience professionnelle dans une fonction similaire\n• Haute compétence sociale : vous rencontrez les gens avec respect et professionnalisme et gardez une vue d'ensemble même dans des situations mouvementées\n• Personnalité engagée et axée sur l'équipe, avec une compréhension rapide et une façon de travailler indépendante, structurée et soucieuse de la qualité\n• Allemand élégant, bonnes compétences en français oral et très bonnes compétences en informatique\n• Volonté de travailler en équipe et en fin de semaine Nous offrons: Dans le groupe Lindenhof, vous pouvez assumer vos premières responsabilités et participer à des solutions prospectives. Grâce à votre style fonctionnel et à votre belle sensation pour les gens, vous agissez habilement comme un lien et offrez des services complets pour l'ensemble du groupe. Avec votre forte orientation de service au sens de nos clients, vous soulagerez les équipes de nos hôpitaux et apporterez ainsi une valeur ajoutée immédiate à nos patients."
-      },
-      "location": "Bern",
-      "canton": "BE",
-      "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/sachbearbeiter-in-patientenaufnahme-notfallzentrum/e1594114-d17a-4689-95f5-8e882f4ba105",
-      "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
-      "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:08:46.615Z",
-      "addressLocality": "Bern",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3001",
-      "category": "Amministrazione",
-      "contract": "full-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-22",
-      "applyUrl": "https://bewerben.lindenhofgruppe.ch/sachbearbeiter-in-patientenaufnahme-notfallzentrum-lindenh-de-f2687.html?agid=20",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "sachbearbeiter-in-patientenaufnahme-notfallzentrum-lindenhofgruppe-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "sachbearbeiter-in-patientenaufnahme-notfallzentrum-lindenhofgruppe-ch"
-        ],
-        "en": [
-          "sachbearbeiter-in-patientenaufnahme-notfallzentrum-lindenhofgruppe-ch"
-        ],
-        "fr": [
-          "sachbearbeiter-in-patientenaufnahme-notfallzentrum-lindenhofgruppe-ch"
-        ]
-      },
-      "firstSeenAt": "2026-05-10T21:57:57.755Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "lindenhofgruppe-117e47d43f00",
       "slug": "techn-assistente-di-sterilizzazione-in-o-dispositivo-medico-technologe-login-efz-lindenhofgruppe-bern",
       "slugByLocale": {
@@ -1890,7 +1824,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/techn-sterilisationsassistent-in-oder-medizinproduktetechnologe-login-efz/64b173d5-520a-49f3-885c-ff5f2ba4a7a7",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:08:46.614Z",
+      "crawledAt": "2026-05-27T23:36:37.875Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1940,6 +1874,82 @@
       }
     },
     {
+      "id": "lindenhofgruppe-27fb1005b0fd",
+      "slug": "personale-in-centro-di-emergenza-di-registrazione-paziente-lindenhofgruppe-bern",
+      "slugByLocale": {
+        "it": "personale-in-centro-di-emergenza-di-registrazione-paziente-lindenhofgruppe-bern",
+        "en": "personnel-in-patient-recording-emergency-center-lindenhofgruppe-bern",
+        "de": "sachbearbeiter-in-patientenaufnahme-notfallzentrum-lindenhofgruppe-ch",
+        "fr": "personnel-dans-le-centre-d-urgence-d-enregistrement-des-patients-lindenhofgruppe-bern"
+      },
+      "company": "Lindenhofgruppe",
+      "companyKey": "lindenhofgruppe",
+      "companyDomain": "lindenhofgruppe.ch",
+      "title": "Sachbearbeiter/-in Patientenaufnahme Notfallzentrum",
+      "titleByLocale": {
+        "it": "Personale/in Centro di emergenza di registrazione paziente",
+        "en": "Personnel/in Patient Recording Emergency Center",
+        "de": "Sachbearbeiter/-in Patientenaufnahme Notfallzentrum",
+        "fr": "Personnel/dans le Centre d'urgence d'enregistrement des patients"
+      },
+      "description": "Gehören Verantwortungsbewusstsein und Eigeninitiative zu Ihren Stärken? Möchten Sie Mitglied eines tragenden und erfolgreichen Teams sein? Dann passen Sie perfekt zu uns. Als Lindenhofgruppe sind wir nur deshalb so erfolgreich, weil über 800 Pflegefachpersonen, rund 100 Spitalärztinnen und -ärzte, 300 Belegärzte und -ärztinnen sowie 1300 weitere Mitarbeitende Hand in Hand zusammenarbeiten – und sich jederzeit aufeinander verlassen können. Im Mittelpunkt einer hochwertigen Medizin steht immer auch ein starkes Team. Und zur Verstärkung dieses Teams suchen wir Sie!\n\nAufgaben:\nSie sind die erste Anlaufstelle für unsere Notfallpatientinnen und -patienten sowie deren Angehörige und stellen die administrative Abwicklung sicher.\n• Zuständig für die Patientenaufnahme, das Falldatenmanagement sowie die administrative Nachbearbeitung von Patientendaten (Personalien, Versicherung)\n\n• Entgegennahme telefonischer Anfragen und Disposition von Patiententerminen\n\n• Verantwortlich für die Leistungskontrolle, den termingerechten Berichtsversand sowie die Abklärung von Versicherungsanfragen\n\n• Übernahme von Schichtdiensten (Früh-, Spät-, Wochenend- und Feiertagsdienste)\n\nAnforderungen:\n• Kaufmännische Grundausbildung oder vergleichbare Ausbildung im Gesundheitswesen (z.B. Pharmaassistent/-in, MPA) mit mehrjähriger Berufserfahrung in ähnlicher Funktion\n\n• Hohe Sozialkompetenz: Sie begegnen Menschen respektvoll und professionell und behalten auch in hektischen Situationen den Überblick\n\n• Engagierte, teamorientierte Persönlichkeit mit schneller Auffassungsgabe und einer selbständigen, strukturierten und qualitätsbewussten Arbeitsweise\n\n• Stilsicheres Deutsch, gute mündliche Französischkenntnisse sowie sehr gute EDV-Anwenderkenntnisse\n\n• Bereitschaft in Schicht- und Wochenenddiensten zu arbeiten\n\nWir bieten:\nIn der Lindenhofgruppe können Sie früh Verantwortung übernehmen und an zukunftsweisenden Lösungen mitwirken. Dank Ihrem funktionsbezogenem Flair und Ihrem feinen Gespür für Menschen agieren Sie geschickt als Bindeglied und bieten übergreifende Dienstleistungen für die gesamte Gruppe. Mit Ihrer ausgeprägten Serviceorientierung im Sinne unserer Kundinnen und Kunden entlasten Sie die Teams in unseren Spitälern und leisten damit einen unmittelbaren Mehrwert für unsere Patientinnen und Patienten.",
+      "descriptionByLocale": {
+        "it": "Il vostro senso di responsabilità e di auto-iniziativa sono i vostri punti di forza? Vuoi essere un membro di una squadra leader e di successo? Allora adattaci perfettamente. Come gruppo Lindenhof, siamo solo così riusciti perché più di 800 professionisti infermieri, circa 100 medici ospedalieri, 300 medici del personale e 1300 altri dipendenti lavorano in mano – e possono sempre contare l'uno sull'altro. Il focus della medicina di alta qualità è sempre un team forte. E per rafforzare questa squadra ti stiamo cercando! Compiti: Sono il primo punto di contatto per i nostri pazienti di emergenza e i loro parenti e garantire la gestione amministrativa.\n• Competente per la registrazione del paziente, la gestione dei dati dei casi e la post-elaborazione amministrativa dei dati del paziente (persona, assicurazione)\n• Consumo di richieste telefoniche e disposizione degli appuntamenti del paziente\n• Responsabile del controllo delle prestazioni, della segnalazione tempestiva e della chiarificazione delle richieste di assicurazione\n• Assumere servizi a turni (spese, fine settimana e servizi di vacanza) Requisiti:\n• Formazione commerciale di base o formazione comparabile nell'assistenza sanitaria (ad es. farmacista/in, MPA) con diversi anni di esperienza professionale in funzione simile\n• Alta competenza sociale: incontrare persone con rispetto e professionalità e tenere una panoramica anche in situazioni frenetiche\n• Personalità attiva, orientata al team con rapida comprensione e un modo di lavoro indipendente, strutturato e di qualità\n• Elegante tedesco, buone abilità orali francesi e ottime competenze informatiche\n• Volontà di lavoro nei servizi di turno e fine settimana Offriamo: Nel gruppo Lindenhof puoi prenderti presto la responsabilità e partecipare a soluzioni previsionali. Grazie al tuo tocco funzionale e al tuo buon feeling per le persone, agisci abilmente come un link e offri servizi completi per l'intero gruppo. Con il vostro forte orientamento di servizio nel senso dei nostri clienti, alleviare le squadre nei nostri ospedali e quindi fornire un valore aggiunto immediato per i nostri pazienti.",
+        "en": "Are your sense of responsibility and self-initiative on your strengths? Would you like to be a member of a leading and successful team? Then fit us perfectly. As a Lindenhof group, we are only so successful because more than 800 nursing professionals, about 100 hospital doctors, 300 staff doctors and 1300 other employees work in hand – and can always rely on each other. The focus of high-quality medicine is always a strong team. And to strengthen this team we are looking for you! Tasks: They are the first contact point for our emergency patients and their relatives and ensure the administrative handling.\n• Competent for patient recording, case data management and the administrative post-processing of patient data (personnel, insurance)\n• Consumption of telephone requests and disposition of patient appointments\n• Responsible for the performance control, the timely reporting and the clarification of insurance requests\n• Takeover of shift services (spring, late, weekend and holiday services) Requirements:\n• Basic commercial training or comparable training in health care (e.g. pharmaassistent/-in, MPA) with several years of professional experience in similar function\n• High social competence: You meet people respectfully and professionally and keep an overview even in hectic situations\n• Engaged, team-oriented personality with rapid understanding and an independent, structured and quality-conscious way of working\n• Stylish German, good oral French skills and very good computer skills\n• Willingness to work in shift and weekend services We offer: In the Lindenhof group you can take early responsibility and participate in forward-looking solutions. Thanks to your functional flair and your fine feeling for people, you act skillfully as a link and offer comprehensive services for the entire group. With your strong service orientation in the sense of our customers, you relieve the teams in our hospitals and thus provide immediate added value for our patients.",
+        "de": "Gehören Verantwortungsbewusstsein und Eigeninitiative zu Ihren Stärken? Möchten Sie Mitglied eines tragenden und erfolgreichen Teams sein? Dann passen Sie perfekt zu uns. Als Lindenhofgruppe sind wir nur deshalb so erfolgreich, weil über 800 Pflegefachpersonen, rund 100 Spitalärztinnen und -ärzte, 300 Belegärzte und -ärztinnen sowie 1300 weitere Mitarbeitende Hand in Hand zusammenarbeiten – und sich jederzeit aufeinander verlassen können. Im Mittelpunkt einer hochwertigen Medizin steht immer auch ein starkes Team. Und zur Verstärkung dieses Teams suchen wir Sie! Aufgaben: Sie sind die erste Anlaufstelle für unsere Notfallpatientinnen und -patienten sowie deren Angehörige und stellen die administrative Abwicklung sicher.\n• Zuständig für die Patientenaufnahme, das Falldatenmanagement sowie die administrative Nachbearbeitung von Patientendaten (Personalien, Versicherung)\n• Entgegennahme telefonischer Anfragen und Disposition von Patiententerminen\n• Verantwortlich für die Leistungskontrolle, den termingerechten Berichtsversand sowie die Abklärung von Versicherungsanfragen\n• Übernahme von Schichtdiensten (Früh-, Spät-, Wochenend- und Feiertagsdienste) Anforderungen:\n• Kaufmännische Grundausbildung oder vergleichbare Ausbildung im Gesundheitswesen (z.B. Pharmaassistent/-in, MPA) mit mehrjähriger Berufserfahrung in ähnlicher Funktion\n• Hohe Sozialkompetenz: Sie begegnen Menschen respektvoll und professionell und behalten auch in hektischen Situationen den Überblick\n• Engagierte, teamorientierte Persönlichkeit mit schneller Auffassungsgabe und einer selbständigen, strukturierten und qualitätsbewussten Arbeitsweise\n• Stilsicheres Deutsch, gute mündliche Französischkenntnisse sowie sehr gute EDV-Anwenderkenntnisse\n• Bereitschaft in Schicht- und Wochenenddiensten zu arbeiten Wir bieten: In der Lindenhofgruppe können Sie früh Verantwortung übernehmen und an zukunftsweisenden Lösungen mitwirken. Dank Ihrem funktionsbezogenem Flair und Ihrem feinen Gespür für Menschen agieren Sie geschickt als Bindeglied und bieten übergreifende Dienstleistungen für die gesamte Gruppe. Mit Ihrer ausgeprägten Serviceorientierung im Sinne unserer Kundinnen und Kunden entlasten Sie die Teams in unseren Spitälern und leisten damit einen unmittelbaren Mehrwert für unsere Patientinnen und Patienten.",
+        "fr": "Votre sens de la responsabilité et votre esprit d'initiative sur vos forces? Aimeriez-vous être membre d'une équipe de premier plan et de succès? Alors il nous convient parfaitement. En tant que groupe Lindenhof, nous ne sommes que si réussis parce que plus de 800 professionnels des soins infirmiers, environ 100 médecins hospitaliers, 300 médecins du personnel et 1300 autres employés travaillent en main – et peuvent toujours compter les uns sur les autres. L'objectif de la médecine de haute qualité est toujours une équipe forte. Et pour renforcer cette équipe, nous vous recherchons ! Tâches : Ils sont le premier point de contact pour nos patients d'urgence et leurs proches et assurent le traitement administratif.\n• Compétence pour l'enregistrement des patients, la gestion des données de cas et le post-traitement administratif des données des patients (personnel, assurance)\n• Consommation de demandes téléphoniques et traitement des rendez-vous avec les patients\n• Responsable du contrôle des performances, de la notification en temps voulu et de la clarification des demandes d'assurance\n• Prise en charge des services de poste (services de printemps, de fin de semaine et de vacances) Exigences:\n• Formation commerciale de base ou formation comparable dans le domaine des soins de santé (p. ex. pharmacosistance/-in, MPA) avec plusieurs années d'expérience professionnelle dans une fonction similaire\n• Haute compétence sociale : vous rencontrez les gens avec respect et professionnalisme et gardez une vue d'ensemble même dans des situations mouvementées\n• Personnalité engagée et axée sur l'équipe, avec une compréhension rapide et une façon de travailler indépendante, structurée et soucieuse de la qualité\n• Allemand élégant, bonnes compétences en français oral et très bonnes compétences en informatique\n• Volonté de travailler en équipe et en fin de semaine Nous offrons: Dans le groupe Lindenhof, vous pouvez assumer vos premières responsabilités et participer à des solutions prospectives. Grâce à votre style fonctionnel et à votre belle sensation pour les gens, vous agissez habilement comme un lien et offrez des services complets pour l'ensemble du groupe. Avec votre forte orientation de service au sens de nos clients, vous soulagerez les équipes de nos hôpitaux et apporterez ainsi une valeur ajoutée immédiate à nos patients."
+      },
+      "location": "Bern",
+      "canton": "BE",
+      "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/sachbearbeiter-in-patientenaufnahme-notfallzentrum/e1594114-d17a-4689-95f5-8e882f4ba105",
+      "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
+      "sourceLang": "de",
+      "crawledAt": "2026-05-27T23:36:37.875Z",
+      "addressLocality": "Bern",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "3001",
+      "category": "Amministrazione",
+      "contract": "full-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-22",
+      "applyUrl": "https://bewerben.lindenhofgruppe.ch/sachbearbeiter-in-patientenaufnahme-notfallzentrum-lindenh-de-f2687.html?agid=20",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "sachbearbeiter-in-patientenaufnahme-notfallzentrum-lindenhofgruppe-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-in-patientenaufnahme-notfallzentrum-lindenhofgruppe-ch"
+        ],
+        "en": [
+          "sachbearbeiter-in-patientenaufnahme-notfallzentrum-lindenhofgruppe-ch"
+        ],
+        "fr": [
+          "sachbearbeiter-in-patientenaufnahme-notfallzentrum-lindenhofgruppe-ch"
+        ]
+      },
+      "firstSeenAt": "2026-05-10T21:57:57.755Z",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
       "id": "lindenhofgruppe-199c9e360d82",
       "slug": "infermiera-ingegnere-professionale-con-responsabilita-in-pediatria-ortopedica-lindenhofgruppe-bern",
       "slugByLocale": {
@@ -1970,7 +1980,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/dipl-pflegefachfrau-mann-mit-fachverantwortung-pflege-kinderorthopaedie/d5c9bdad-b743-4fc1-95c8-094a482d9b2d",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:08:46.613Z",
+      "crawledAt": "2026-05-27T23:36:37.873Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2048,7 +2058,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/dipl-pflegefachfrau-mann-mit-fachverantwortung-berufsbildung/c61a1060-7767-47e3-ad6e-6769d183b8be",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:08:46.611Z",
+      "crawledAt": "2026-05-27T23:36:37.872Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2126,7 +2136,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/dipl-pflegefachfrau-mann-fuer-unseren-pflegepool/dc899a89-9e26-4b1b-bd0c-a370fa8fa33f",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:08:46.609Z",
+      "crawledAt": "2026-05-27T23:36:37.869Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2204,7 +2214,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/fachfrau-mann-gesundheit/d212d6f5-f1ab-4cef-af8c-47f68fe26e03",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:08:46.606Z",
+      "crawledAt": "2026-05-27T23:36:37.867Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2238,6 +2248,7 @@
         ]
       },
       "firstSeenAt": "2026-05-21T12:34:55.517Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2282,7 +2293,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/techn-sterilisationsassistent-in/a3ff6301-a94b-41d0-915c-ab6a8a72441a",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:08:46.603Z",
+      "crawledAt": "2026-05-27T23:36:37.863Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
