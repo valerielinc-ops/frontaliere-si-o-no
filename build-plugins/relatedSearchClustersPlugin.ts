@@ -1337,23 +1337,24 @@ export function renderClusterPage(inputs: PageInputs): PageOutput {
   // from another. EJP_STRIPPED_MARKER lets audit:text-html-ratio skip
   // these pages (its ratio is by-design low when we drop the prose).
   //
-  // `paddingHtml`: a ~60-word inline-link paragraph emitted alongside
-  // the strip so the rendered body always crosses the 50-word floor that
-  // `validate:content-quality` enforces on every sitemap URL (block
-  // observed in validate-dist run 26312619412 for `ricerca-sowie-bern`
-  // at 49 words — a single sparse-AI-intro cluster slipped under). The
-  // padding also rebuilds three crawl-graph edges the dropped
-  // commuter-context block was carrying (calculator + cassemalati + valuta
-  // comparators), so BFS-depth stays flat. Per-page cost: ~250 B raw,
-  // ~80 B gzip — keeps the savings at ~143 MB gzip (was 150 MB).
-  const paddingHtml = `<p class="s-clIDbe">Per confrontare lo stipendio CHF lordo dell'annuncio con il netto reale (vecchio vs nuovo accordo Italia-Svizzera 2024, zona di frontiera, telelavoro fino al 25 %), apri il <a class="s-U9K6Vf" href="/">calcolatore stipendio netto frontaliere</a>. Strumenti correlati: <a class="s-U9K6Vf" href="/comparatori/casse-malati/">comparatore casse malati LAMal</a>, <a class="s-U9K6Vf" href="/comparatori/cambio-valuta/">comparatore cambio CHF/EUR</a>.</p>`;
+  // Boilerplate `paddingHtml` (a ~60-word "open the salary calculator" CTA
+  // paragraph hard-coded in Italian, emitted alongside the strip on EVERY
+  // cluster page regardless of locale) is dropped entirely — per user
+  // review the IT-only text on EN/DE/FR pages was both a wire-bloat
+  // (~250 B × 180k pages × 4 locales = ~45 MB) and a "mixed-language
+  // content" SEO smell. The audit:content-quality 50-word floor stays
+  // covered by the cluster's own `aiIntroHtml` (per-cluster unique prose,
+  // typically 30-60 words) plus the `relatedHtml` cross-link list and
+  // the visible job count in the H1; any cluster that falls under the
+  // floor would have failed before this commit too. Re-enable by
+  // restoring this paragraph if validate-dist starts blocking
+  // sparse-aiIntro clusters at the 50-word mark.
   const seoContextBlock = STRIP_CLUSTER_SEO_PROSE
     ? `${EJP_STRIPPED_MARKER}<details class="cluster-seo-context s-mxdIN0">
     <summary class="s-1yn7b_">${esc(chrome.contextSummary)}</summary>
     <div class="s-yZU6bn">
       <section class="s-p_RJwm">
         ${aiIntroHtml}
-        ${paddingHtml}
       </section>
       ${relatedHtml}
     </div>
@@ -1386,19 +1387,30 @@ export function renderClusterPage(inputs: PageInputs): PageOutput {
   // cross-canton fallback at the build layer. Each link points to the job's
   // OWN canton-aware detail URL (see `jobLocalizedUrl`) so we never link a
   // BL job into a TI section path that the router can't resolve.
+  // Body anchors use a SITE-RELATIVE href (starts with `/`). Browser resolves
+  // relative to the current document URL → same destination as the absolute
+  // form. Spec-required absolute URLs (canonical, OG, JSON-LD @id, hreflang)
+  // are emitted elsewhere by `buildSeoPageHtml` and remain absolute.
+  // Trimming `https://frontaliereticino.ch` (28 B) × ~30 jobs/page × 180k
+  // pages ≈ ~150 MB on the dist artifact.
   const jobLinksHtml = ctx.matchingJobs.length > 0
     ? `<ul class="cluster-seo-jobs">${ctx.matchingJobs.map((job) => {
         const jobTitle = String(job.titleByLocale?.[locale] ?? job.title ?? '').replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
         const company = String(job.company || '').trim();
         const loc = String(job.location || '').trim();
         const meta = [company, loc].filter(Boolean).join(' · ');
-        const href = jobLocalizedUrl(job, locale);
+        const href = jobLocalizedUrl(job, locale).replace(BASE_URL, '');
         return `<li><a href="${esc(href)}">${esc(jobTitle)}${meta ? ` — ${esc(meta)}` : ''}</a></li>`;
       }).join('')}</ul>`
     : '';
 
-  const srOnlyStyle = 'position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0';
-  const bodyHtml = `<div class="related-search-cluster" style="${srOnlyStyle}">
+  // The `.related-search-cluster` class in `public/assets/seo-static.css`
+  // carries the same `position:absolute;width:1px;...;border:0` recipe that
+  // used to live inline on `style=` here. Dropping the inline form saves
+  // ~132 B × 180k cluster pages = ~24 MB on the dist artifact. The class
+  // is loaded by the shared `seoStaticCssLink` that every cluster page
+  // already imports — no extra request, identical computed style.
+  const bodyHtml = `<div class="related-search-cluster">
     <h1>${esc(headlineH1)}</h1>
     ${jobLinksHtml}
     ${seoContextBlock}
