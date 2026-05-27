@@ -127,7 +127,9 @@
         }
       },
       "postalCode": "8001",
-      "firstSeenAt": "2026-05-26T23:56:22.387Z"
+      "firstSeenAt": "2026-05-26T23:56:22.387Z",
+      "needsRetranslation": true,
+      "retranslationAttempts": 1
     },
     {
       "title": "Audit - Manager/Senior Manager - Private Equity/Asset Management - 80-100%",
@@ -374,7 +376,9 @@
         "associe-principal-gestionnaire-adjoint-verification-commerce-industries-et-services-pwc-switzerland-zug",
         "associato-senior-assistente-responsabile-revisione-del-commercio-delle-industrie-e-dei-servizi-pwc-switzerland-zug",
         "senior-associate-assistant-manager-audit-trade-industries-services-pwc-luzern",
-        "senior-associate-assistant-manager-audit-trade-industries-services-pwc-luzern-h2npx8"
+        "senior-associate-assistant-manager-audit-trade-industries-services-pwc-luzern-h2npx8",
+        "senior-associate-assistant-manager-audit-trade-industries-services-pwc-zug",
+        "senior-associate-assistant-manager-audit-trade-industries-services-pwc-zurich"
       ]
     },
     {
@@ -442,7 +446,9 @@
         "associe-principal-gestionnaire-adjoint-verification-commerce-industries-et-services-pwc-switzerland-zug",
         "associato-senior-assistente-responsabile-revisione-del-commercio-delle-industrie-e-dei-servizi-pwc-switzerland-zug",
         "senior-associate-assistant-manager-audit-trade-industries-services-pwc-luzern-h2npx8",
-        "senior-associate-assistant-manager-audit-trade-industries-services-pwc-zurich"
+        "senior-associate-assistant-manager-audit-trade-industries-services-pwc-zurich",
+        "senior-associate-assistant-manager-audit-trade-industries-services-pwc-zug",
+        "senior-associate-assistant-manager-audit-trade-industries-services-pwc-luzern"
       ]
     },
     {
@@ -1217,7 +1223,8 @@
       "previousSlugs": [
         "senior-associate-tax-accounting-pwc-zug",
         "senior-associate-tax-accounting-pwc-switzerland-zurich",
-        "senior-associate-contabilita-fiscale-pwc-switzerland-zurich"
+        "senior-associate-contabilita-fiscale-pwc-switzerland-zurich",
+        "senior-associate-tax-accounting-pwc-zurich"
       ],
       "previousSlugsByLocale": {
         "en": [
@@ -3350,7 +3357,7 @@
         "fr": "Mansioni - Guidez une équipe de services financiers (banque) au Centre de compétences, partagez votre expertise et coachez les employés. - Soutien en tant que partenaire d'épargne : chez nos clients, en matière de développements comptables et réglementaires. - Diriger la révolution numérique de l'audit en favorisant l'utilisation de nos outils et approches de test numériques et en contribuant à leur développement ultérieur. - Créez vous-même vos objectifs de carrière à long terme et développez-vous professionnellement et personnellement grâce à une formation en cours d'emploi et hors emploi, accompagnée de cadres expérimentés. - Soyez un exemple dans une équipe inspirante et diversifiée, donnez et recevez des commentaires réguliers et faites partie d'un réseau international. \n• Requisiti - Auditeur suisse accrédité ou peu avant la fin de la formation - Connaissance fondamentale de l'audit des comptes annuels et consolidés des sociétés financières (y compris les comptes annuels des banques à RelV-FINMA) - Gestion sûre des exigences réglementaires dans l'environnement bancaire - Expérience avec les outils de test numériques et les applications de big data comme Alteryx ou Power BI - Force de communication représentative en allemand et en anglais (connaissance française supplémentaire de l'avantage) – orale et écrite - Compétences en gestion de projet - Capacité de partager des connaissances, partenaire : promouvoir et contribuer activement à une culture de travail collaborative"
       },
       "slugByLocale": {
-        "it": "audit-assistant-manager-servizi-finanziari-centro-competenze-pwc-switzerland-zurich",
+        "it": "audit-assistant-manager-financial-services-competence-center-pwc-zurich",
         "en": "audit-assistant-manager-financial-services-competence-center-pwc-zurich",
         "de": "audit-assistent-manager-financial-services-competence-center-pwc-switzerland-zurich",
         "fr": "gestionnaire-de-la-verification-assistant-services-financiers-centre-de-competences-pwc-switzerland-zurich"
@@ -3396,8 +3403,7 @@
         "it": [
           "audit-assistant-manager-financial-services-competence-center-pwc-bern",
           "audit-assistant-manager-financial-services-competence-center-pwc-switzerland-bern",
-          "audit-assistant-manager-services-financiers-competence-center-pwc-switzerland-bern",
-          "audit-assistant-manager-financial-services-competence-center-pwc-zurich"
+          "audit-assistant-manager-services-financiers-competence-center-pwc-switzerland-bern"
         ],
         "de": [
           "audit-assistant-manager-financial-services-competence-center-pwc-zurich"
@@ -3440,7 +3446,7 @@
         "fr": "Mansioni - Guidez une équipe de services financiers (banque) au Centre de compétences, partagez votre expertise et coachez les employés. - Soutien en tant que partenaire d'épargne : chez nos clients, en matière de développements comptables et réglementaires. - Diriger la révolution numérique de l'audit en favorisant l'utilisation de nos outils et approches de test numériques et en contribuant à leur développement ultérieur. - Créez vous-même vos objectifs de carrière à long terme et développez-vous professionnellement et personnellement grâce à une formation en cours d'emploi et hors emploi, accompagnée de cadres expérimentés. - Soyez un exemple dans une équipe inspirante et diversifiée, donnez et recevez des commentaires réguliers et faites partie d'un réseau international. \n• Requisiti - Auditeur suisse accrédité ou peu avant la fin de la formation - Connaissance fondamentale de l'audit des comptes annuels et consolidés des sociétés financières (y compris les comptes annuels des banques à RelV-FINMA) - Gestion sûre des exigences réglementaires dans l'environnement bancaire - Expérience avec les outils de test numériques et les applications de big data comme Alteryx ou Power BI - Force de communication représentative en allemand et en anglais (connaissance française supplémentaire de l'avantage) – orale et écrite - Compétences en gestion de projet - Capacité de partager des connaissances, partenaire : promouvoir et contribuer activement à une culture de travail collaborative"
       },
       "slugByLocale": {
-        "it": "audit-assistant-manager-servizi-finanziari-centro-competenze-pwc-switzerland-bern",
+        "it": "audit-assistant-manager-financial-services-competence-center-pwc-zurich",
         "en": "audit-assistant-manager-financial-services-competence-center-pwc-bern",
         "de": "audit-assistant-manager-financial-services-competence-center-pwc-bern",
         "fr": "gestionnaire-de-la-verification-assistant-services-financiers-centre-de-competences-pwc-switzerland-bern"
@@ -3467,8 +3473,9 @@
         "audit-assistant-manager-financial-services-competence-center-pwc-bern",
         "audit-assistant-manager-financial-services-competence-center-pwc-switzerland-bern",
         "audit-assistant-manager-services-financiers-competence-center-pwc-switzerland-bern",
-        "audit-assistant-manager-financial-services-competence-center-pwc-zurich",
-        "manager-assistente-di-revisione-servizi-finanziari-centro-di-competenza-pwc-switzerland-bern"
+        "manager-assistente-di-revisione-servizi-finanziari-centro-di-competenza-pwc-switzerland-bern",
+        "gestionnaire-de-la-verification-assistant-services-financiers-centre-de-competences-pwc-switzerland-bern",
+        "audit-assistant-manager-servizi-finanziari-centro-competenze-pwc-switzerland-bern"
       ],
       "previousSlugsByLocale": {
         "en": [
@@ -3481,8 +3488,7 @@
         "it": [
           "audit-assistant-manager-financial-services-competence-center-pwc-bern",
           "audit-assistant-manager-financial-services-competence-center-pwc-switzerland-bern",
-          "audit-assistant-manager-services-financiers-competence-center-pwc-switzerland-bern",
-          "audit-assistant-manager-financial-services-competence-center-pwc-zurich"
+          "audit-assistant-manager-services-financiers-competence-center-pwc-switzerland-bern"
         ]
       }
     },
@@ -3883,13 +3889,12 @@
         "fr": "Mansioni - Vérifiez les processus e bilanci annuali nel settore delle assicurazioni sociali (1ª e 2ª colonna Svizzera). - Concorri attivamente alla trasformazione digitale della revisione contabile e utilizza strumenti digitali moderni e approcci innovativi. - Crea valore reale per i nostri clienti insieme a un team affiatato. - Lavorare in un ambiente dinamico e conoscere diversi settori e aree di competenza. - Valuta i processi aziendali e supporta le domande sulla contabilità secondo diversi standard. - Approfondisci la tua comprensione di un' ampia gamma di clienti, costruisci e coltiva relazioni clienti durature. - Concorri attivamente alla definizione del futuro del settore previdenza come parte del team di assicurazioni sociali di PwC. - Formazione completata come fiduciario/a o laurea in economia aziendale e intenzione di intraprendere la formazione per diventare economista d'impresa certificato/a. - Intérêt pour il mondo delle assicurazioni sociali e motivazione per approfondire le conoscenze in questo settore. - Esperienza pratica nel settore della 1ª colonna, affinità per i numeri e la comprensione dei concetti aziendali. - Intérêt a lungo dates per una carriera nella revisione contabile, competenze avanzate in Excel e interesse per le tendenze tecnologichenell' ambito della digitalizzazione. - Goditi il lavoro di squadra e il rapporto con clienti impegnativi e interessanti. - Espressione chiara e precisa in tedesco e inglese. - Disponibilité à l'avance"
       },
       "slugByLocale": {
-        "it": "career-start-in-audit-specialista-precauzionale-settembre-2026-pwc-switzerland-bern",
+        "it": "career-start-in-audit-vorsorgespezialist-in-september-2026-pwc-switzerland-bern",
         "en": "career-start-in-audit-vorsorgespezialist-in-september-2026-pwc-switzerland-bern",
         "de": "career-start-in-audit-vorsorgespezialist-in-september-2026-pwc-bern",
-        "fr": "debut-de-carriere-en-verification-specialiste-de-precaution-en-septembre-2026-pwc-switzerland-bern"
+        "fr": "career-start-in-audit-vorsorgespezialist-in-september-2026-pwc-switzerland-bern"
       },
       "id": "pwc-fdcc133e3c78",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -3911,6 +3916,7 @@
         "debut-de-carriere-en-verification-specialiste-de-precaution-en-septembre-2026-pwc-switzerland-luzern",
         "debut-de-carriere-en-verification-specialiste-de-la-precaution-septembre-2026-pwc-switzerland-luzern",
         "career-start-in-audit-vorsorgespezialist-in-september-2026-pwc-switzerland-bern",
+        "debut-de-carriere-en-verification-specialiste-de-precaution-en-septembre-2026-pwc-switzerland-bern",
         "career-start-in-audit-vorsorgespezialist-in-september-2026-pwc-bern",
         "career-start-in-audit-specialista-precauzionale-settembre-2026-pwc-switzerland-luzern",
         "career-start-in-audit-specialista-precauzionale-in-settembre-2026-pwc-switzerland-luzern",
@@ -3926,7 +3932,7 @@
           "debut-de-carriere-en-verification-specialiste-de-precaution-en-septembre-2026-pwc-switzerland-luzern",
           "debut-de-carriere-en-verification-specialiste-de-la-precaution-septembre-2026-pwc-switzerland-luzern",
           "career-start-in-audit-vorsorgespezialist-in-september-2026-pwc-luzern",
-          "career-start-in-audit-vorsorgespezialist-in-september-2026-pwc-switzerland-bern"
+          "debut-de-carriere-en-verification-specialiste-de-precaution-en-septembre-2026-pwc-switzerland-bern"
         ],
         "de": [
           "career-start-in-audit-vorsorgespezialist-in-september-2026-pwc-switzerland-bern",
@@ -3934,11 +3940,9 @@
         ],
         "it": [
           "career-start-in-audit-vorsorgespezialist-in-september-2026-pwc-luzern",
-          "career-start-in-audit-vorsorgespezialist-in-september-2026-pwc-switzerland-bern",
           "career-start-in-audit-vorsorgespezialist-in-september-2026-pwc-bern"
         ]
-      },
-      "retranslationAttempts": 2
+      }
     },
     {
       "title": "Career Start in Audit – Vorsorgespezialist:in – September 2026",
@@ -3976,13 +3980,12 @@
         "fr": "Mansioni - Vérifiez les processus e bilanci annuali nel settore delle assicurazioni sociali (1ª e 2ª colonna Svizzera). - Concorri attivamente alla trasformazione digitale della revisione contabile e utilizza strumenti digitali moderni e approcci innovativi. - Crea valore reale per i nostri clienti insieme a un team affiatato. - Lavorare in un ambiente dinamico e conoscere diversi settori e aree di competenza. - Valuta i processi aziendali e supporta le domande sulla contabilità secondo diversi standard. - Approfondisci la tua comprensione di un' ampia gamma di clienti, costruisci e coltiva relazioni clienti durature. - Concorri attivamente alla definizione del futuro del settore previdenza come parte del team di assicurazioni sociali di PwC. - Formazione completata come fiduciario/a o laurea in economia aziendale e intenzione di intraprendere la formazione per diventare economista d'impresa certificato/a. - Intérêt pour il mondo delle assicurazioni sociali e motivazione per approfondire le conoscenze in questo settore. - Esperienza pratica nel settore della 1ª colonna, affinità per i numeri e la comprensione dei concetti aziendali. - Intérêt a lungo dates per una carriera nella revisione contabile, competenze avanzate in Excel e interesse per le tendenze tecnologichenell' ambito della digitalizzazione. - Goditi il lavoro di squadra e il rapporto con clienti impegnativi e interessanti. - Espressione chiara e precisa in tedesco e inglese. - Disponibilité à l'avance"
       },
       "slugByLocale": {
-        "it": "career-start-in-audit-specialista-precauzionale-settembre-2026-pwc-switzerland-basel",
+        "it": "career-start-in-audit-vorsorgespezialist-in-september-2026-pwc-switzerland-bern",
         "en": "career-start-in-audit-vorsorgespezialist-in-september-2026-pwc-switzerland-bern",
         "de": "career-start-in-audit-vorsorgespezialist-in-september-2026-pwc-bern",
-        "fr": "debut-de-carriere-en-verification-specialiste-de-precaution-en-septembre-2026-pwc-switzerland-basel"
+        "fr": "career-start-in-audit-vorsorgespezialist-in-september-2026-pwc-switzerland-bern"
       },
       "id": "pwc-fdcc133e3c78",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -4005,6 +4008,7 @@
         "career-start-in-audit-vorsorgespezialist-in-september-2026-pwc-switzerland-bern",
         "debut-de-carriere-en-verification-specialiste-de-precaution-en-septembre-2026-pwc-switzerland-luzern",
         "debut-de-carriere-en-verification-specialiste-de-la-precaution-septembre-2026-pwc-switzerland-luzern",
+        "debut-de-carriere-en-verification-specialiste-de-precaution-en-septembre-2026-pwc-switzerland-basel",
         "career-start-in-audit-vorsorgespezialist-in-september-2026-pwc-basel",
         "career-start-in-audit-specialista-precauzionale-settembre-2026-pwc-switzerland-luzern",
         "career-start-in-audit-specialista-precauzionale-in-settembre-2026-pwc-switzerland-luzern",
@@ -4026,16 +4030,14 @@
           "debut-de-carriere-en-verification-specialiste-de-la-precaution-septembre-2026-pwc-switzerland-luzern",
           "career-start-in-audit-vorsorgespezialist-in-september-2026-pwc-luzern",
           "career-start-in-audit-vorsorgespezialist-in-september-2026-pwc-bern",
-          "career-start-in-audit-vorsorgespezialist-in-september-2026-pwc-switzerland-bern"
+          "debut-de-carriere-en-verification-specialiste-de-precaution-en-septembre-2026-pwc-switzerland-basel"
         ],
         "it": [
           "career-start-in-audit-vorsorgespezialist-in-september-2026-pwc-luzern",
           "career-start-in-audit-vorsorgespezialist-in-september-2026-pwc-bern",
-          "career-start-in-audit-vorsorgespezialist-in-september-2026-pwc-switzerland-bern",
           "career-start-in-audit-vorsorgespezialist-in-september-2026-pwc-basel"
         ]
-      },
-      "retranslationAttempts": 2
+      }
     },
     {
       "title": "Career Start in Audit – Vorsorgespezialist:in – September 2026",
@@ -4073,7 +4075,7 @@
         "fr": "Mansioni - Vérifiez les processus e bilanci annuali nel settore delle assicurazioni sociali (1ª e 2ª colonna Svizzera). - Concorri attivamente alla trasformazione digitale della revisione contabile e utilizza strumenti digitali moderni e approcci innovativi. - Crea valore reale per i nostri clienti insieme a un team affiatato. - Lavorare in un ambiente dinamico e conoscere diversi settori e aree di competenza. - Valuta i processi aziendali e supporta le domande sulla contabilità secondo diversi standard. - Approfondisci la tua comprensione di un' ampia gamma di clienti, costruisci e coltiva relazioni clienti durature. - Concorri attivamente alla definizione del futuro del settore previdenza come parte del team di assicurazioni sociali di PwC. - Formazione completata come fiduciario/a o laurea in economia aziendale e intenzione di intraprendere la formazione per diventare economista d'impresa certificato/a. - Intérêt pour il mondo delle assicurazioni sociali e motivazione per approfondire le conoscenze in questo settore. - Esperienza pratica nel settore della 1ª colonna, affinità per i numeri e la comprensione dei concetti aziendali. - Intérêt a lungo dates per una carriera nella revisione contabile, competenze avanzate in Excel e interesse per le tendenze tecnologichenell' ambito della digitalizzazione. - Goditi il lavoro di squadra e il rapporto con clienti impegnativi e interessanti. - Espressione chiara e precisa in tedesco e inglese. - Disponibilité à l'avance"
       },
       "slugByLocale": {
-        "it": "career-start-in-audit-specialista-precauzionale-settembre-2026-pwc-switzerland-luzern",
+        "it": "career-start-in-audit-vorsorgespezialist-in-september-2026-pwc-switzerland-bern",
         "en": "career-start-in-audit-precautionary-specialist-in-september-2026-pwc-switzerland-luzern",
         "de": "career-start-in-audit-vorsorgespezialist-in-september-2026-pwc-switzerland-luzern",
         "fr": "debut-de-carriere-en-verification-specialiste-de-precaution-en-septembre-2026-pwc-switzerland-luzern"
@@ -4100,7 +4102,11 @@
         "career-start-in-audit-vorsorgespezialist-in-september-2026-pwc-switzerland-bern",
         "debut-de-carriere-en-verification-specialiste-de-la-precaution-septembre-2026-pwc-switzerland-luzern",
         "career-start-in-audit-specialista-precauzionale-in-settembre-2026-pwc-switzerland-luzern",
-        "career-start-in-audit-specialista-precauzionale-in-settembre-2026-pwc-switzerland-bern"
+        "career-start-in-audit-specialista-precauzionale-in-settembre-2026-pwc-switzerland-bern",
+        "career-start-in-audit-precautionary-specialist-in-september-2026-pwc-switzerland-luzern",
+        "career-start-in-audit-vorsorgespezialist-in-september-2026-pwc-switzerland-luzern",
+        "debut-de-carriere-en-verification-specialiste-de-precaution-en-septembre-2026-pwc-switzerland-luzern",
+        "career-start-in-audit-specialista-precauzionale-settembre-2026-pwc-switzerland-luzern"
       ],
       "previousSlugsByLocale": {
         "en": [
@@ -4121,8 +4127,7 @@
         ],
         "it": [
           "career-start-in-audit-vorsorgespezialist-in-september-2026-pwc-luzern",
-          "career-start-in-audit-vorsorgespezialist-in-september-2026-pwc-bern",
-          "career-start-in-audit-vorsorgespezialist-in-september-2026-pwc-switzerland-bern"
+          "career-start-in-audit-vorsorgespezialist-in-september-2026-pwc-bern"
         ]
       },
       "retranslationAttempts": 1
@@ -4584,12 +4589,14 @@
       "slugByLocale": {
         "it": "iam-architetto-pwc-switzerland-zurich",
         "en": "iam-architect-pwc-switzerland-zurich",
-        "de": "iam-architekt-pwc-switzerland-zurich",
-        "fr": "architecte-d-identite-et-d-acces-pwc-switzerland-zurich"
+        "de": "iam-architect-pwc-zurich",
+        "fr": "iam-architecte-pwc-switzerland-zurich"
       },
       "previousSlugs": [
         "iam-architect-pwc-zurich",
-        "iam-architecte-pwc-switzerland-zurich"
+        "iam-architecte-pwc-switzerland-zurich",
+        "iam-architekt-pwc-switzerland-zurich",
+        "architecte-d-identite-et-d-acces-pwc-switzerland-zurich"
       ],
       "salaryMin": 77500,
       "salaryMax": 104500,
@@ -4617,11 +4624,13 @@
         ],
         "de": [
           "iam-architect-pwc-zurich",
-          "iam-architecte-pwc-switzerland-zurich"
+          "iam-architecte-pwc-switzerland-zurich",
+          "iam-architekt-pwc-switzerland-zurich"
         ],
         "fr": [
           "iam-architect-pwc-zurich",
-          "iam-architecte-pwc-switzerland-zurich"
+          "iam-architecte-pwc-switzerland-zurich",
+          "architecte-d-identite-et-d-acces-pwc-switzerland-zurich"
         ]
       },
       "firstSeenAt": "2026-04-13T22:16:12.621Z"
@@ -4787,7 +4796,8 @@
         "director-in-quality-regulatory-management-advisory-services-pwc-switzerland-zurich",
         "direktor-in-qualitat-regulatory-management-advisory-services-pwc-switzerland-basel",
         "directeur-in-qualite-regulatory-management-advisory-services-pwc-switzerland-basel",
-        "direttore-di-gestione-della-qualita-e-regolazione-servizi-consultivi-pwc-switzerland-zurich"
+        "direttore-di-gestione-della-qualita-e-regolazione-servizi-consultivi-pwc-switzerland-zurich",
+        "director-in-quality-regulatory-management-advisory-services-pwc-basel"
       ]
     },
     {
@@ -4862,7 +4872,7 @@
         ]
       },
       "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "title": "Manager in Audit Trade, Industries & Services - US GAAP",
@@ -4900,7 +4910,7 @@
         "fr": "Description Êtes-vous prêt à franchir l'étape suivante de votre carrière et à avoir un impact sur l'audit financier ? En tant que Senior Manager dans notre équipe d'Audit Financier, vous rejoindrez des professionnels expérimentés passionnés par l'excellence et l'innovation. Vous dirigerez et mentorerez des équipes dans un environnement dynamique et international, en combinant l'expertise technique avec les compétences de leadership. Ce rôle offre la possibilité de travailler avec des clients divers, de relever des audits complexes et de façonner l'avenir de l'information financière. Ensemble avec votre équipe, vous créerez de la valeur, inspirerez la confiance et entraînerez des changements significatifs. Si vous êtes prêt à grandir en tant que leader, nous voulons vous entendre. ## Missions - Compétence d'audit : vous dirigerez des audits pour des clients dans le secteur de l'ingénierie et de la fabrication. - Audits intégrés : vous êtes responsable des audits intégrés des sociétés qui préparent des états financiers conformément aux principes comptables généralement acceptés (US GAAP) des États-Unis et déposent des documents auprès de la Securities Exchange Commission (SEC). - Audits statutaires : vous êtes responsable des audits statutaires des sociétés qui préparent des états financiers conformément au droit suisse. - Audits de sociétés privées : vous êtes responsable des audits de sociétés privées qui préparent des états financiers conformément aux normes internationales d'information financière (IFRS). - Rapports non financiers : vous êtes responsable de la gestion des audits de rapports non financiers (par exemple, audits ESG). - Résultats : vous êtes responsable de la préparation du dossier d'audit pour l'examen du partenaire et de l'assistance à la présentation des résultats de l'audit à la direction ou au conseil d'administration. - Relations avec les clients : vous développerez de nouvelles relations et étendrez celles existantes avec nos clients et soutiendrez activement le client dans les questions comptables techniques. - Développement personnel : vous êtes responsable de votre propre responsabilité, flexibilité et développement. ##\n• Exigences - Expérience : actuellement Manager, plus de 5 ans d'expérience démontrable dans une société Big 4. - Expertise technique : vous êtes techniquement fort avec une excellente connaissance de travail des US GAAP, US GAAS, IFRS, SOX et PCAOB. - Certification : vous détenez une qualification US CPA ou une certification équivalente. - Gestion de l'audit : vous avez de l'expérience dans la gestion d'audits de grande taille et à plusieurs emplacements et êtes très efficace dans la gestion quotidienne des clients et des sociétés du réseau PwC dans la région. - Construction de relations : vous avez de l'expérience dans la construction et le maintien de relations solides avec les cadres supérieurs aux niveaux local, régional et corporatif. - Travail d'équipe : vous êtes un joueur d'équipe avec la capacité de rendre compte aux partenaires. - Compétences de communication : vous avez d'excellentes compétences de communication verbale et écrite en anglais - le français est un plus. ## Contact Aucune information de contact fournie."
       },
       "slugByLocale": {
-        "it": "manager-nella-revisione-contabile-commerciale-industrie-e-servizi-us-gaap-pwc-switzerland-geneva",
+        "it": "manager-in-audit-trade-industries-services-us-gaap-pwc-geneva",
         "en": "manager-in-audit-trade-industries-services-us-gaap-pwc-switzerland-geneva",
         "de": "manager-in-audit-trade-industries-services-us-gaap-pwc-switzerland-geneve",
         "fr": "manager-en-audit-commerce-industries-services-us-gaap-pwc-switzerland-geneve"
@@ -4924,7 +4934,9 @@
         "manager-in-audit-trade-industries-services-us-gaap-pwc-switzerland-geneve-q5fsui",
         "manager-us-gaap-audit-trade-industries-services-pwc-geneva",
         "manager-us-gaap-audit-handel-branchen-dienstleistungen-pwc-switzerland-geneve",
-        "gestionnaire-us-gaap-audit-commerce-industries-et-services-pwc-switzerland-geneve"
+        "gestionnaire-us-gaap-audit-commerce-industries-et-services-pwc-switzerland-geneve",
+        "manager-in-audit-trade-industries-services-us-gaap-pwc-switzerland-geneva",
+        "manager-nella-revisione-contabile-commerciale-industrie-e-servizi-us-gaap-pwc-switzerland-geneva"
       ],
       "id": "pwc-103ad3d254ef",
       "previousSlugsByLocale": {
@@ -4938,9 +4950,6 @@
         ],
         "fr": [
           "manager-in-audit-trade-industries-services-us-gaap-pwc-switzerland-geneve-q5fsui"
-        ],
-        "it": [
-          "manager-in-audit-trade-industries-services-us-gaap-pwc-geneva"
         ]
       },
       "firstSeenAt": "2026-04-13T22:16:12.621Z"
@@ -5259,7 +5268,7 @@
         ]
       },
       "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "title": "Senior Manager GBS",
@@ -5305,7 +5314,10 @@
       "previousSlugs": [
         "senior-manager-gbs-pwc-zurich",
         "gestionnaire-principal-de-l-abg-pwc-switzerland-zurich-uaynr0",
-        "senior-manager-gbs-pwc-switzerland-zurich-uaynr0"
+        "senior-manager-gbs-pwc-switzerland-zurich-uaynr0",
+        "responsabile-senior-gbs-pwc-switzerland-zurich",
+        "senior-manager-pwc-switzerland-zurich-uaynr0",
+        "gestionnaire-principal-de-l-abg-pwc-switzerland-zurich"
       ],
       "salaryMin": 100500,
       "salaryMax": 136500,
@@ -5761,7 +5773,8 @@
         "associate-payroll-consulting-80-100-pwc-switzerland-zurich",
         "associate-consulting-de-paie-80-100-pwc-switzerland-luzern",
         "associe-conseils-sur-la-paie-80-100-pwc-switzerland-luzern",
-        "collaboratore-payroll-consulting-80-100-pwc-switzerland-luzern"
+        "collaboratore-payroll-consulting-80-100-pwc-switzerland-luzern",
+        "associate-payroll-consulting-80-100-pwc-zurich"
       ],
       "previousSlugsByLocale": {
         "en": [
@@ -6297,7 +6310,7 @@
         ]
       },
       "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "title": "Digital Audit Manager (Financial Services)",
@@ -6658,7 +6671,9 @@
       "previousSlugs": [
         "career-start-in-audit-insurance-october-2026-pwc-switzerland-zurich",
         "career-start-in-audit-insurance-oktober-2026-pwc-zurich",
-        "career-start-in-audit-insurance-oktober-2026-pwc-switzerland-basel-7us1mn"
+        "career-start-in-audit-insurance-oktober-2026-pwc-switzerland-basel-7us1mn",
+        "career-start-in-audit-assicurazioni-ottobre-2026-pwc-switzerland-zurich",
+        "career-start-in-audit-insurance-oktober-2026-pwc-switzerland-zurich"
       ],
       "id": "pwc-b1dc2eb2fc65",
       "previousSlugsByLocale": {
@@ -6762,7 +6777,7 @@
         ]
       },
       "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "title": "Director - Cloud, Data & AI (CD&AI) - Generative AI",
@@ -7118,7 +7133,8 @@
       "previousSlugs": [
         "career-start-in-audit-trade-industries-and-services-geneve-october-2026-pwc-lausanne",
         "career-start-in-audit-trade-industries-and-services-geneve-october-2026-pwc-switzerland-geneve",
-        "inizio-carriera-audit-trade-industries-and-services-ginevra-ottobre-2026-pwc-switzerland-geneve"
+        "inizio-carriera-audit-trade-industries-and-services-ginevra-ottobre-2026-pwc-switzerland-geneve",
+        "career-start-in-audit-trade-industries-and-services-geneve-october-2026-pwc-geneve"
       ],
       "previousSlugsByLocale": {
         "de": [
@@ -7250,7 +7266,7 @@
         "fr": "Mansioni - Parte di un team in cui la tua esperienza e la tua prospettiva sono importanti - Contribuisci a plasmare l'économie di domani, numérique, sostenibile e global - Verifichi bilanci annuali e di gruppo per aziende nazionali e internazionali dei settori industria, commercio e servizi - Fornisci supporto nella contabilità secondo diversi standard (OR, IFRS, Swiss GAAP FER, US GAAP) - Collabora con il/la Engagement Manager nella pianificazione, esecuzione e finalizzazione di diversi incarichi di revisione e verifiche speciali - Sviluppi la tua carriera in un ambiente internazionale e multiculturalisme - Ti impegni a migliorare continuamente i nostri strumenti e metodi revision di digital \n• Requisiti - Esperienza di almeno due anni nella revisione contabile - Conoscenza approfondita della contabilità aziendale - Buone capacità analitiche e un alto senso di qualità - Motivazione a superare le aspetative dei clienti e a guidare la digitalizzazione nella revisione contabile - Disponibilità ad assumersi responsabilità fin da subito e a lavorare in un ambiente di coaching attivo - Ottima conoscenza del tedesco e dell'inglese, sia in parola che in scritura \n• Cosa offriamo - Sostegno nella tua crescita professionelle e personelle attraverso coaching sur le tas e off-the-job - L'opportunità di acquisire concurrence dans un'ampia gamma di clienti e di costruire e mantenere relazioni con i clienti - Commentaires regolare da colleghi e supereri - L'opportunità di far parte di un team ispiratore e diversificato in un network internazionale Contatto - Per candidarti, invia la tua domanda e i documenti rigiesti all'indirizzo inserisci qui l'indirizzo email o il link per candidarsi"
       },
       "slugByLocale": {
-        "it": "associato-senior-assistente-responsabile-controllo-del-commercio-delle-industrie-e-dei-servizi-pwc-switzerland-zug",
+        "it": "associato-senior-assistente-responsabile-revisione-del-commercio-delle-industrie-e-dei-servizi-pwc-switzerland-zug",
         "en": "senior-associate-assistant-manager-audit-trade-industries-services-pwc-zug",
         "de": "senior-associate-assistant-manager-audit-trade-industries-services-pwc-zurich",
         "fr": "senior-associate-assistant-manager-verification-commerce-industries-et-services-pwc-switzerland-zug"
@@ -7274,11 +7290,12 @@
         "senior-associate-assistant-manager-audit-trade-industries-services-pwc-switzerland-zurich",
         "associe-principal-gestionnaire-adjoint-verification-commerce-industries-et-services-pwc-switzerland-zug",
         "senior-associate-assistant-manager-audit-trade-industries-services-pwc-zug",
-        "associato-senior-assistente-responsabile-revisione-del-commercio-delle-industrie-e-dei-servizi-pwc-switzerland-zug",
         "senior-associate-assistant-manager-audit-trade-industries-services-pwc-zurich",
         "senior-associate-assistant-manager-audit-trade-industries-services-pwc-luzern",
         "senior-associate-assistant-manager-audit-trade-industries-services-pwc-zurich-h2npx8",
-        "senior-associate-assistant-manager-audit-trade-industries-services-pwc-luzern-h2npx8"
+        "senior-associate-assistant-manager-audit-trade-industries-services-pwc-luzern-h2npx8",
+        "associato-senior-assistente-responsabile-controllo-del-commercio-delle-industrie-e-dei-servizi-pwc-switzerland-zug",
+        "senior-associate-assistant-manager-verification-commerce-industries-et-services-pwc-switzerland-zug"
       ],
       "previousSlugsByLocale": {
         "en": [
@@ -7289,7 +7306,6 @@
           "senior-associate-assistant-manager-audit-trade-industries-services-pwc-zug"
         ],
         "it": [
-          "associato-senior-assistente-responsabile-revisione-del-commercio-delle-industrie-e-dei-servizi-pwc-switzerland-zug",
           "senior-associate-assistant-manager-audit-trade-industries-services-pwc-zurich",
           "senior-associate-assistant-manager-audit-trade-industries-services-pwc-zug"
         ],
@@ -7509,7 +7525,7 @@
       "previousSlugs": [
         "career-start-audit-trade-industries-services-ab-herbst-2026-pwc-st-gallen"
       ],
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "title": "Career Start - Audit Trade, Industries & Services ab Herbst 2026",
@@ -7572,7 +7588,7 @@
       "previousSlugs": [
         "career-start-audit-trade-industries-services-ab-herbst-2026-pwc-st-gallen"
       ],
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "title": "Career Start - Audit Trade, Industries & Services ab Herbst 2026",
@@ -7632,7 +7648,7 @@
       "postalCode": "9000",
       "firstSeenAt": "2026-05-17T10:54:12.475Z",
       "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "title": "Associate / Senior Associate - Cloud, Data & AI (Data Engineering)",
@@ -7813,7 +7829,7 @@
         "fr": "• Aider l'équipe d'engagement à planifier, exécuter et mener à bien les tâches d'audit au sein des audits de groupe et locaux. Votre attention portera sur les activités de trésorerie et de négoce de produits de base des clients de différentes industries.\n• Participer à des projets de consultation portant sur le modèle opérationnel, les processus opérationnels et le choix et l'utilisation des technologies de la trésorerie et du commerce.\n• Travailler dans les locaux du client, au bureau et/ou à la maison.\n• Acquérir une connaissance approfondie d'un large éventail de clients et travailler dans une équipe motivée, axée sur la recherche d'opportunités pour ajouter de la valeur à nos clients et équipes et à vous-même.\n• Collaborer avec un réseau d'experts hautement talentueux et compétents.\n• S'efforcer de faire la différence dans l'ensemble de l'organisation et d'agir comme catalyseur du changement.\n• Baccalauréat, maîtrise ou diplôme en économie, et vous êtes dans le processus ou la planification d'obtenir un diplôme d'audit (comme le CPA suisse).\n• 5 à 7 ans d'expérience et de pratique en matière d'audit dans l'utilisation des IFRS et ou des GAAP américains.\n• Fluent en anglais, toute autre langue (en particulier l'allemand) est un plus.\n• Compétences analytiques et interpersonnelles que vous démontrez lorsque vous travaillez avec vos clients et vos équipes.\n• A travaillé dans une équipe connue pour son partage, sa culture communicative avec laquelle d'autres membres du personnel aspirent à travailler et avec qui vous aimez être en contact avec les clients.\n• Capable de partager activement votre expertise et votre expérience en coachant les autres."
       },
       "slugByLocale": {
-        "it": "auditore-senior-commercio-del-tesoro-e-della-commodita-pwc-switzerland-zurich",
+        "it": "senior-auditor-treasury-and-commodity-trading-pwc-zurich",
         "en": "senior-auditor-treasury-and-commodity-trading-pwc-switzerland-basel-ki2xlt",
         "de": "senior-auditor-treasury-and-commodity-trading-pwc-geneve",
         "fr": "verificateur-principal-tresorerie-et-commerce-des-marchandises-pwc-switzerland-geneve"
@@ -7840,7 +7856,6 @@
         "senior-auditor-treasury-and-commodity-trading-pwc-switzerland-basel",
         "senior-auditor-treasury-and-commodity-trading-pwc-basel",
         "verificateur-principal-tresorerie-et-commerce-des-marchandises-pwc-switzerland-basel",
-        "senior-auditor-treasury-and-commodity-trading-pwc-zurich",
         "auditore-senior-commercio-del-tesoro-e-della-commodita-pwc-switzerland-geneve",
         "revisore-senior-tesoreria-e-commodity-trading-pwc-switzerland-zurich",
         "auditore-senior-commercio-del-tesoro-e-della-commodita-pwc-switzerland-basel"
@@ -7859,8 +7874,7 @@
         ],
         "it": [
           "senior-auditor-treasury-and-commodity-trading-pwc-geneve",
-          "senior-auditor-treasury-and-commodity-trading-pwc-basel",
-          "senior-auditor-treasury-and-commodity-trading-pwc-zurich"
+          "senior-auditor-treasury-and-commodity-trading-pwc-basel"
         ],
         "de": [
           "senior-auditor-treasury-and-commodity-trading-pwc-basel"
@@ -7903,7 +7917,7 @@
         "fr": "• Aider l'équipe d'engagement à planifier, exécuter et mener à bien les tâches d'audit au sein des audits de groupe et locaux. Votre attention portera sur les activités de trésorerie et de négoce de produits de base des clients de différentes industries.\n• Participer à des projets de consultation portant sur le modèle opérationnel, les processus opérationnels et le choix et l'utilisation des technologies de la trésorerie et du commerce.\n• Travailler dans les locaux du client, au bureau et/ou à la maison.\n• Acquérir une connaissance approfondie d'un large éventail de clients et travailler dans une équipe motivée, axée sur la recherche d'opportunités pour ajouter de la valeur à nos clients et équipes et à vous-même.\n• Collaborer avec un réseau d'experts hautement talentueux et compétents.\n• S'efforcer de faire la différence dans l'ensemble de l'organisation et d'agir comme catalyseur du changement.\n• Baccalauréat, maîtrise ou diplôme en économie, et vous êtes dans le processus ou la planification d'obtenir un diplôme d'audit (comme le CPA suisse).\n• 5 à 7 ans d'expérience et de pratique en matière d'audit dans l'utilisation des IFRS et ou des GAAP américains.\n• Fluent en anglais, toute autre langue (en particulier l'allemand) est un plus.\n• Compétences analytiques et interpersonnelles que vous démontrez lorsque vous travaillez avec vos clients et vos équipes.\n• A travaillé dans une équipe connue pour son partage, sa culture communicative avec laquelle d'autres membres du personnel aspirent à travailler et avec qui vous aimez être en contact avec les clients.\n• Capable de partager activement votre expertise et votre expérience en coachant les autres."
       },
       "slugByLocale": {
-        "it": "auditore-senior-commercio-del-tesoro-e-della-commodita-pwc-switzerland-basel",
+        "it": "senior-auditor-treasury-and-commodity-trading-pwc-zurich",
         "en": "senior-auditor-treasury-and-commodity-trading-pwc-switzerland-basel-ki2xlt",
         "de": "senior-auditor-treasury-and-commodity-trading-pwc-geneve",
         "fr": "verificateur-principal-tresorerie-et-commerce-des-marchandises-pwc-switzerland-geneve"
@@ -7932,7 +7946,8 @@
         "verificateur-principal-tresorerie-et-commerce-des-marchandises-pwc-switzerland-basel",
         "senior-auditor-treasury-and-commodity-trading-pwc-basel",
         "auditore-senior-commercio-del-tesoro-e-della-commodita-pwc-switzerland-geneve",
-        "revisore-senior-tesoreria-e-commodity-trading-pwc-switzerland-zurich"
+        "revisore-senior-tesoreria-e-commodity-trading-pwc-switzerland-zurich",
+        "auditore-senior-commercio-del-tesoro-e-della-commodita-pwc-switzerland-basel"
       ],
       "previousSlugsByLocale": {
         "en": [
@@ -7947,7 +7962,6 @@
         ],
         "it": [
           "senior-auditor-treasury-and-commodity-trading-pwc-geneve",
-          "senior-auditor-treasury-and-commodity-trading-pwc-zurich",
           "senior-auditor-treasury-and-commodity-trading-pwc-basel"
         ]
       }
@@ -7988,7 +8002,7 @@
         "fr": "• Aider l'équipe d'engagement à planifier, exécuter et mener à bien les tâches d'audit au sein des audits de groupe et locaux. Votre attention portera sur les activités de trésorerie et de négoce de produits de base des clients de différentes industries.\n• Participer à des projets de consultation portant sur le modèle opérationnel, les processus opérationnels et le choix et l'utilisation des technologies de la trésorerie et du commerce.\n• Travailler dans les locaux du client, au bureau et/ou à la maison.\n• Acquérir une connaissance approfondie d'un large éventail de clients et travailler dans une équipe motivée, axée sur la recherche d'opportunités pour ajouter de la valeur à nos clients et équipes et à vous-même.\n• Collaborer avec un réseau d'experts hautement talentueux et compétents.\n• S'efforcer de faire la différence dans l'ensemble de l'organisation et d'agir comme catalyseur du changement.\n• Baccalauréat, maîtrise ou diplôme en économie, et vous êtes dans le processus ou la planification d'obtenir un diplôme d'audit (comme le CPA suisse).\n• 5 à 7 ans d'expérience et de pratique en matière d'audit dans l'utilisation des IFRS et ou des GAAP américains.\n• Fluent en anglais, toute autre langue (en particulier l'allemand) est un plus.\n• Compétences analytiques et interpersonnelles que vous démontrez lorsque vous travaillez avec vos clients et vos équipes.\n• A travaillé dans une équipe connue pour son partage, sa culture communicative avec laquelle d'autres membres du personnel aspirent à travailler et avec qui vous aimez être en contact avec les clients.\n• Capable de partager activement votre expertise et votre expérience en coachant les autres."
       },
       "slugByLocale": {
-        "it": "auditore-senior-commercio-del-tesoro-e-della-commodita-pwc-switzerland-geneve",
+        "it": "senior-auditor-treasury-and-commodity-trading-pwc-zurich",
         "en": "senior-auditor-treasury-and-commodity-trading-pwc-geneve",
         "de": "senior-auditor-treasury-and-commodity-trading-pwc-geneve",
         "fr": "verificateur-principal-tresorerie-et-commerce-des-marchandises-pwc-switzerland-geneve"
@@ -8017,7 +8031,8 @@
         "verificateur-principal-tresorerie-et-commerce-des-marchandises-pwc-switzerland-basel",
         "senior-auditor-treasury-and-commodity-trading-pwc-geneve",
         "revisore-senior-tesoreria-e-commodity-trading-pwc-switzerland-zurich",
-        "auditore-senior-commercio-del-tesoro-e-della-commodita-pwc-switzerland-basel"
+        "auditore-senior-commercio-del-tesoro-e-della-commodita-pwc-switzerland-basel",
+        "auditore-senior-commercio-del-tesoro-e-della-commodita-pwc-switzerland-geneve"
       ],
       "previousSlugsByLocale": {
         "en": [
@@ -8033,8 +8048,7 @@
         ],
         "it": [
           "senior-auditor-treasury-and-commodity-trading-pwc-geneve",
-          "senior-auditor-treasury-and-commodity-trading-pwc-basel",
-          "senior-auditor-treasury-and-commodity-trading-pwc-zurich"
+          "senior-auditor-treasury-and-commodity-trading-pwc-basel"
         ],
         "de": [
           "senior-auditor-treasury-and-commodity-trading-pwc-basel"
@@ -8110,7 +8124,7 @@
           "audit-career-start-im-bereich-financial-services-herbst-2026-pwc-st-gallen"
         ]
       },
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "title": "Audit – Career Start im Bereich Financial Services - Herbst 2026",
@@ -8178,7 +8192,7 @@
         "audit-career-start-im-bereich-financial-services-herbst-2026-pwc-st-gallen"
       ],
       "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "title": "Senior Associate - Customs and Trade (Consulting)",
@@ -8459,7 +8473,9 @@
         "manager-senior-manager-senior-cyber-security-architect-pwc-switzerland-zurich",
         "senior-cyber-security-architect-manager-senior-manager-pwc-switzerland-geneve",
         "manager-senior-manager-senior-cyber-security-architetto-pwc-switzerland-zurich",
-        "manager-senior-manager-senior-cyber-security-architect-pwc-switzerland-geneve"
+        "manager-senior-manager-senior-cyber-security-architect-pwc-switzerland-geneve",
+        "manager-senior-manager-senior-cyber-security-architect-pwc-zurich",
+        "manager-senior-manager-senior-cyber-security-architect-pwc-geneve"
       ],
       "previousSlugsByLocale": {
         "fr": [
@@ -8820,7 +8836,7 @@
         "fr": "Vous faites partie de l'équipe hautement performante de Capital Markets and Accounting Advisory Solutions (CMAAS) qui exécute et exécute des projets de transactions, y compris des OPI, des offres de dettes et d'actions et des transactions transfrontalières (p. ex. 144A). Vous conseillez nos clients sur les acquisitions et les cessions, y compris l'historique financier complexe, le pro-forma, l'établissement de rapports sur plusieurs marchés de capitaux (p. ex. les règlements SIX et SEC). Vous conseillez sur les changements de normes comptables et les projets de conversion des PCGR. Vous développez de nouvelles relations et élargissez les relations existantes avec nos clients et soutenez activement le processus de ciblage et d'acquisition des clients. Vous êtes au volant de votre propre responsabilité, flexibilité et développement. Vous développez vos compétences en leadership et partagez activement votre expertise et votre expérience en enseignant, en coachant et en mentorant les autres. Vous êtes un comptable public certifié (Suisse et/ou autre pays). Vous avez une bonne connaissance des normes comptables (IFRS, US GAAP et/ou Swiss GAAP FER), des qualifications de l'industrie et de l'expérience transactionnelle, si possible. Vous avez de 4 à 5 ans d'expérience en tant que cadre supérieur / gestionnaire de vérification ou postes similaires. Vous avez une expérience de gestion de projet, de gestion de client et d'orientation à haut risque et services. Vous avez d'excellentes compétences en anglais, en allemand ou en français (écrit et verbal). Vous avez de solides compétences en communication, êtes très orienté client, flexible et disposé à voyager et à travailler dans un réseau international. Vous conduisez votre carrière avec votre entraîneur en fixant des objectifs de carrière clairs et en faisant des choix de carrière conscients. Vous apportez votre réseau externe et exploitez vos relations personnelles."
       },
       "slugByLocale": {
-        "it": "gestione-dei-mercati-finanziari-pwc-switzerland-zurich",
+        "it": "manager-capital-markets-pwc-zurich",
         "en": "manager-capital-markets-pwc-switzerland-zurich",
         "de": "manager-capital-markets-pwc-zurich",
         "fr": "manager-capital-markets-pwc-zurich"
@@ -8842,13 +8858,8 @@
       "postalCode": "8001",
       "firstSeenAt": "2026-04-13T22:16:12.621Z",
       "previousSlugs": [
-        "manager-capital-markets-pwc-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "manager-capital-markets-pwc-zurich"
-        ]
-      }
+        "gestione-dei-mercati-finanziari-pwc-switzerland-zurich"
+      ]
     },
     {
       "title": "Manager / Senior Manager - Cloud, Data & AI (CD&AI) - Data Engineering",
@@ -9036,7 +9047,7 @@
         "fr": "Description Dirige une équipe dans le domaine des révisions limitées (dLSE) du Centre de Compétences, partagez votre expertise et coachez vos collègues. Supportez nos clients avec leurs questions sur la comptabilité et les développements réglementaires. Poussez la révolution numérique de l'audit en promouvant l'utilisation de nos outils et approches numériques et en contribuant à leur développement. Développez vos objectifs de carrière à long terme et croissez professionnellement et personnellement grâce à des formations sur le terrain et hors du terrain, accompagnées par des leaders expérimentés. Soyez un modèle dans une équipe inspirante et diversifiée, recevez et donnez régulièrement des feedbacks, et faites partie d'un réseau international. ## Requisits - Comptable reconnu ou formation équivalente (ACCA, ACA, CPA) - Expérience de au moins quatre ans dans l'audit des entreprises et la réglementation - Aimez travailler dans un environnement avec une culture de coaching active et la volonté de partager votre expertise et de soutenir les collègues moins expérimentés - Affinité pour l'informatique et ouverture à l'utilisation d'outils Big Data comme Alteryx ou PowerBI pour accélérer la numérisation des processus d'audit - Bonnes connaissances de l'allemand et de l'anglais en écriture et en parole"
       },
       "slugByLocale": {
-        "it": "manager-assistente-di-revisione-revisioni-limitate-70-100-pwc-switzerland-bern",
+        "it": "audit-assistant-manager-eingeschrankte-revisionen-70-100-pwc-bern",
         "en": "audit-assistant-manager-eingeschrankte-revisionen-70-100-pwc-bern",
         "de": "audit-assistent-manager-eingeschrankte-revisionen-70-100-pwc-switzerland-bern",
         "fr": "gestionnaire-de-verification-assistant-revisions-limitees-70-a-100-pwc-switzerland-bern"
@@ -9045,7 +9056,9 @@
         "audit-assistant-manager-revisioni-limitate-70-100-pwc-switzerland-bern",
         "audit-assistant-manager-eingeschrankte-revisionen-70-100-pwc-switzerland-bern",
         "responsable-d-audit-assistant-eingeschrankte-revisionen-70-100-pwc-switzerland-bern",
-        "audit-assistant-manager-eingeschrankte-revisionen-70-100-pwc-bern"
+        "audit-assistant-manager-eingeschrankte-revisionen-70-100-pwc-bern",
+        "manager-assistente-di-revisione-revisioni-limitate-70-100-pwc-switzerland-bern",
+        "gestionnaire-de-verification-assistant-revisions-limitees-70-a-100-pwc-switzerland-bern"
       ],
       "salaryMin": 72000,
       "salaryMax": 97000,
@@ -9068,8 +9081,7 @@
         ],
         "it": [
           "audit-assistant-manager-eingeschrankte-revisionen-70-100-pwc-switzerland-bern",
-          "responsable-d-audit-assistant-eingeschrankte-revisionen-70-100-pwc-switzerland-bern",
-          "audit-assistant-manager-eingeschrankte-revisionen-70-100-pwc-bern"
+          "responsable-d-audit-assistant-eingeschrankte-revisionen-70-100-pwc-switzerland-bern"
         ],
         "fr": [
           "audit-assistant-manager-eingeschrankte-revisionen-70-100-pwc-bern"
@@ -9186,15 +9198,17 @@
       },
       "slugByLocale": {
         "it": "accounting-e-reportingspezialist-in-con-schwerpunkt-swiss-gaap-fer-pwc-switzerland-zurich",
-        "en": "accounting-and-reporting-specialist-with-focus-on-swiss-gaap-fer-pwc-switzerland-zurich",
+        "en": "accounting-und-reportingspezialist-in-mit-schwerpunkt-swiss-gaap-fer-pwc-switzerland-zurich",
         "de": "accounting-und-reportingspezialist-in-mit-schwerpunkt-swiss-gaap-fer-pwc-zurich",
-        "fr": "specialiste-en-comptabilite-et-en-reporting-avec-un-focus-sur-swiss-gaap-fer-pwc-switzerland-zurich"
+        "fr": "accounting-und-reportingspezialist-in-mit-schwerpunkt-swiss-gaap-fer-pwc-switzerland-zurich"
       },
       "previousSlugs": [
         "accounting-und-reportingspezialist-in-mit-schwerpunkt-swiss-gaap-fer-pwc-switzerland-zurich",
         "specialista-in-contabilita-e-reporting-con-focus-su-swiss-gaap-fer-pwc-switzerland-zurich",
         "accounting-und-reportingspezialist-in-mit-schwerpunkt-swiss-gaap-fer-pwc-zurich",
-        "specialiste-de-la-comptabilite-et-de-l-information-en-avec-focus-swiss-gaap-fer-pwc-switzerland-zurich"
+        "specialiste-de-la-comptabilite-et-de-l-information-en-avec-focus-swiss-gaap-fer-pwc-switzerland-zurich",
+        "accounting-and-reporting-specialist-with-focus-on-swiss-gaap-fer-pwc-switzerland-zurich",
+        "specialiste-en-comptabilite-et-en-reporting-avec-un-focus-sur-swiss-gaap-fer-pwc-switzerland-zurich"
       ],
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -9220,11 +9234,13 @@
           "accounting-und-reportingspezialist-in-mit-schwerpunkt-swiss-gaap-fer-pwc-zurich"
         ],
         "en": [
-          "accounting-und-reportingspezialist-in-mit-schwerpunkt-swiss-gaap-fer-pwc-switzerland-zurich"
+          "accounting-und-reportingspezialist-in-mit-schwerpunkt-swiss-gaap-fer-pwc-switzerland-zurich",
+          "accounting-and-reporting-specialist-with-focus-on-swiss-gaap-fer-pwc-switzerland-zurich"
         ],
         "fr": [
           "accounting-und-reportingspezialist-in-mit-schwerpunkt-swiss-gaap-fer-pwc-switzerland-zurich",
-          "specialiste-de-la-comptabilite-et-de-l-information-en-avec-focus-swiss-gaap-fer-pwc-switzerland-zurich"
+          "specialiste-de-la-comptabilite-et-de-l-information-en-avec-focus-swiss-gaap-fer-pwc-switzerland-zurich",
+          "specialiste-en-comptabilite-et-en-reporting-avec-un-focus-sur-swiss-gaap-fer-pwc-switzerland-zurich"
         ]
       },
       "firstSeenAt": "2026-04-13T22:16:12.621Z"
