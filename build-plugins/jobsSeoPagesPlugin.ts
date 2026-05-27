@@ -10514,17 +10514,12 @@ ${staticAnalyticsHtml}
  }
  expiredCount++;
 
- // Legacy slug bridge (Italian slug in non-IT locale path).
- // Compute the dedup key ONCE — the prior form called `legacyRel.replace(/\/+$/, '')`
- // twice (once for `.has()`, once for `.add()`), doubling regex cost per
- // emit. 152k expired-soft-landing iterations × ~50 µs saved per dedup
- // ≈ ~8 s shaved off `ph:ejp:write`.
+ // Legacy slug bridge (Italian slug in non-IT locale path)
  if (locale !== 'it') {
  const legacyRel = `${localePrefix[locale]}/${sectionByLocale[locale]}/${slug}`.replace(/\/+/g, '/').replace(/^\//, '');
  const trackedRel = relPath.replace(/^\//, '');
- const legacyKey = legacyRel.replace(/\/+$/, '');
- if (legacyRel !== trackedRel && !emittedSoftLandingPaths.has(legacyKey)) {
- emittedSoftLandingPaths.add(legacyKey);
+ if (legacyRel !== trackedRel && !emittedSoftLandingPaths.has(legacyRel.replace(/\/+$/, ''))) {
+ emittedSoftLandingPaths.add(legacyRel.replace(/\/+$/, ''));
  writeSoftLandingPage(legacyRel, softLandingHtml);
  legacyCount++;
  }
@@ -10627,6 +10622,22 @@ ${staticAnalyticsHtml}
  }
  if (crossLocaleExpiredCount > 0) {
  console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m Generated ${crossLocaleExpiredCount} cross-locale reconciliation pages for expired jobs`);
+ }
+
+ // Cross-locale-expired-bridge was the last reader of `expiredSoftLandingCache`
+ // (populated during the expired-soft-landing emit, ~152k entries × ~9 KB ≈
+ // ~1.4 GB peak heap). After this loop the cache is dead state — the
+ // previous-slug-bridge + cross-locale-active-bridge phases that follow read
+ // from `jobHtmlCache` instead, never this one. Run 26497882342 OOM'd at
+ // heap=10.8 GB during this stretch; freeing ~1.4 GB here puts the heap
+ // back well under the 12 GB cap before the heavier write/flush phases run.
+ expiredSoftLandingCache.clear();
+ // Force a major GC so the freed ~1.4 GB is returned to the OS immediately
+ // instead of waiting for the next idle scavenge. `global.gc` is exposed by
+ // NODE_OPTIONS=--expose-gc in `build:ci` (see PR #627); guarded for local
+ // dev runs without the flag.
+ if (typeof (globalThis as { gc?: () => void }).gc === 'function') {
+ (globalThis as { gc: () => void }).gc();
  }
 
  /* ── Full-content pages for previousSlugs of active jobs ────── */
