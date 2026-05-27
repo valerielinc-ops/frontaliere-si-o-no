@@ -56,7 +56,8 @@ describe('canton-aware cluster URL emission', () => {
     // spaces, so `rel` becomes unquoted but `href` keeps its quotes.
     expect(page.html).toMatch(/<link rel=canonical href="https:\/\/frontaliereticino\.ch\/cerca-lavoro-basilea\/ricerca-genitori-liestal\/"/);
     // Job link uses the job's OWN canton-aware section (BL → basilea).
-    expect(page.html).toContain('href="https://frontaliereticino.ch/cerca-lavoro-basilea/hebamme-liestal/"');
+    // PR #651 relativized body anchors in cluster pages — drop the `https://frontaliereticino.ch` prefix.
+    expect(page.html).toContain('href="/cerca-lavoro-basilea/hebamme-liestal/"');
   });
 
   it('falls back to TI when cantonGroup is omitted (backwards-compat)', () => {

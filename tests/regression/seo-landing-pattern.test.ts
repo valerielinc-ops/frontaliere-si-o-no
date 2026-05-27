@@ -70,22 +70,29 @@ describe('SEO landing pattern — canonical token usage', () => {
     describe(`${feature} (${file})`, () => {
       const source = readSource(file);
 
-      it('imports STAT_TILE_* tokens from seoContentTokens', () => {
-        // Match either single-import or multi-line import block.
-        const importsTile = /STAT_TILE_(?:ACCENT|SUCCESS|WARNING|DANGER|BASE)/.test(source);
-        expect(importsTile).toBe(true);
+      it('uses a stat-tile token (STAT_TILE_* style or s-t* class)', () => {
+        // PR #681 migrated STAT_TILE_* inline styles to CSS class atoms
+        // (s-tbase / s-tacc / s-tok / s-twrn / s-tdng) for ~80 MB raw byte
+        // savings. Accept either form so the regression test still catches
+        // plugins that lose the stat-tile pattern entirely.
+        const hasTile =
+          /STAT_TILE_(?:ACCENT|SUCCESS|WARNING|DANGER|BASE)/.test(source) ||
+          /\bs-t(?:base|acc|ok|twrn|tdng)\b/.test(source);
+        expect(hasTile).toBe(true);
       });
 
-      it('uses at least one STAT_TILE_* in a rendered template literal', () => {
-        // The token name appears inside `${...}` — easy heuristic: count
-        // occurrences and assert ≥ 2 (one in the import + one in usage).
-        const matches = source.match(/STAT_TILE_(?:ACCENT|SUCCESS|WARNING|DANGER|BASE)/g) ?? [];
-        expect(matches.length).toBeGreaterThanOrEqual(2);
+      it('renders at least one stat tile (multiple usages or one with surrounding label/value)', () => {
+        const styleMatches = source.match(/STAT_TILE_(?:ACCENT|SUCCESS|WARNING|DANGER|BASE)/g) ?? [];
+        const classMatches = source.match(/\bs-t(?:base|acc|ok|twrn|tdng)\b/g) ?? [];
+        expect(styleMatches.length + classMatches.length).toBeGreaterThanOrEqual(2);
       });
 
-      it('uses a primary CTA style (CTA_PRIMARY_STYLE or LINK_ACCENT_STYLE)', () => {
+      it('uses a primary CTA token (CTA_PRIMARY_STYLE/LINK_ACCENT_STYLE or s-cta class)', () => {
+        // PR #681 migrated CTA_PRIMARY_STYLE inline style to the s-cta CSS atom.
         const hasCta =
-          /CTA_PRIMARY_STYLE/.test(source) || /LINK_ACCENT_STYLE/.test(source);
+          /CTA_PRIMARY_STYLE/.test(source) ||
+          /LINK_ACCENT_STYLE/.test(source) ||
+          /\bclass="s-cta"/.test(source);
         expect(hasCta).toBe(true);
       });
 
