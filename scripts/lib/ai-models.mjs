@@ -158,9 +158,8 @@ export const AI_MODELS = Object.freeze({
   GROQ_COMPOUND_MINI:'groq/compound-mini',
   // GROQ_KIMI_K2_0905 removed — Groq HTTP 404 "model `moonshotai/kimi-k2-instruct-0905` does not exist" (2026-05-18)
   GROQ_GPT_OSS_SAFE: 'groq/openai/gpt-oss-safeguard-20b',
-  // Groq addition (2026-05-27) — speculative-decoding alias of llama-3.3-70b.
-  // Pending smoke-test validation; falls into the chain alongside GROQ_LLAMA_3_3.
-  GROQ_LLAMA_3_3_SPEC: 'groq/llama-3.3-70b-specdec',
+  // GROQ_LLAMA_3_3_SPEC removed — Groq HTTP 400 "model `llama-3.3-70b-specdec` has been decommissioned" (2026-05-27, run 26537033519).
+  //                       Decommissioned in Groq's catalog; non-spec variant GROQ_LLAMA_3_3 (llama-3.3-70b-versatile) remains in the chain.
 
   // ── OpenRouter (OpenAI-compatible, free models with :free suffix) ──
   // Rate limits: 20 req/min, 200 req/day (free tier, no credit card)
@@ -273,7 +272,10 @@ export const AI_MODELS = Object.freeze({
   // and the existing chain has no Llama 3.2 (1B/3B) or Qwen 2.5 coder coverage.
   CF_LLAMA_3_2_3B:     'cf/@cf/meta/llama-3.2-3b-instruct',
   CF_LLAMA_3_2_1B:     'cf/@cf/meta/llama-3.2-1b-instruct',
-  CF_QWEN_25_CODER_32B:'cf/@cf/qwen/qwen2.5-coder-32b-instruct',
+  // CF_QWEN_25_CODER_32B removed — Cloudflare returned non-string payload that crashed the response handler with
+  //                                 "text.replace is not a function" (2026-05-27, run 26537033519). Model loads
+  //                                 but emits a shape our wrapper doesn't unpack. Re-evaluate once `_callCloudflareRaw`
+  //                                 hardens its response decoding.
   // CF_GRANITE_4_MICRO removed — "No such model @cf/ibm/granite-4.0-h-micro" (2026-04)
 
   // ── Mistral AI La Plateforme (OpenAI-compatible, free tier — 1B tokens/month) ──
@@ -537,8 +539,8 @@ export const DEFAULT_CHAIN = [
   // the smoke test reports their real status.
   AI_MODELS.CF_LLAMA_3_2_3B,            // Llama 3.2 3B               (Cloudflare Workers AI)
   AI_MODELS.CF_LLAMA_3_2_1B,            // Llama 3.2 1B small/fast    (Cloudflare Workers AI)
-  AI_MODELS.CF_QWEN_25_CODER_32B,       // Qwen 2.5 Coder 32B         (Cloudflare Workers AI)
-  AI_MODELS.GROQ_LLAMA_3_3_SPEC,        // Llama 3.3 70B specdec      (Groq — speculative decoding)
+  // AI_MODELS.CF_QWEN_25_CODER_32B removed — wrapper crash "text.replace is not a function" (2026-05-27, run 26537033519).
+  // AI_MODELS.GROQ_LLAMA_3_3_SPEC removed — Groq HTTP 400 "decommissioned" (2026-05-27, run 26537033519).
 ];
 
 // ── Provider constants ───────────────────────────────────────
