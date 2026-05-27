@@ -154,12 +154,13 @@ function buildAggregatorCanonical(locale: Locale): string {
   return `${BASE_URL}${LOCALE_PREFIX[locale]}/${AGGREGATOR_SLUG[locale]}/`.replace(/(?<!:)\/+/g, '/');
 }
 
-const SECTION_TO_LOCALE: ReadonlyArray<readonly [string, Locale]> = [
-  ['cerca-lavoro-ticino', 'it'],
-  ['find-jobs-ticino', 'en'],
-  ['jobs-im-tessin', 'de'],
-  ['trouver-emploi-tessin', 'fr'],
-];
+// Reverse-derive [sectionSlug, locale] tuples from the cathedral-allowed
+// SECTION_SLUG map above so the cathedral-no-ti-hardcodes guard only has
+// to track a single canonical source for the TI legacy section literals.
+const SECTION_TO_LOCALE: ReadonlyArray<readonly [string, Locale]> =
+  (Object.entries(SECTION_SLUG) as Array<[Locale, string]>).map(
+    ([loc, slug]) => [slug, loc] as const,
+  );
 
 const COMP_PREFIX_TO_LOCALE: Record<string, Locale> = {
   azienda: 'it',
@@ -271,7 +272,7 @@ function autoDiscoverCompanyHubs(rootDir: string): HubEntry[] {
           seen.set(key, {
             locale: 'it',
             companySlug: slug,
-            url: `${BASE_URL}/cerca-lavoro-ticino/azienda-${slug}/`,
+            url: `${BASE_URL}${buildHubPath('it', slug)}`,
             kind: 'unmatched',
             displayName: sample.company,
             jobCount: 0,
