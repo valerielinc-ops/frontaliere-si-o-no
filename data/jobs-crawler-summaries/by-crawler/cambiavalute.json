@@ -1,22 +1,24 @@
 {
   "key": "cambiavalute",
   "label": "Cambiavalute",
-  "generatedAt": "2026-05-26T22:15:07.731Z",
+  "generatedAt": "2026-05-27T11:57:13.778Z",
   "total": 2,
   "newCount": 0,
-  "updatedCount": 2,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 13170,
-  "avgDurationMs": 13170,
+  "unchangedCount": 2,
+  "durationMs": 14756,
+  "avgDurationMs": 14756,
   "durationHistory": [
-    13170
+    14756
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "company-fooban",
-      "slug": "vendite-marketing-e-assistenza-clienti-mercato-tedesco-cambiavalute-ch-lugano",
+      "slug": "sales-marketing-customer-support-assistant-mercato-tedesco-cambiavalute-ch-chiasso-svizzera-posizione-esclusivamente-in-presenza-no-remote-w-fooban",
       "company": "CambiaValute.ch",
       "title": "Sales, Marketing & Customer support assistant (Mercato Tedesco)",
       "location": "Chiasso (Svizzera) – posizione esclusivamente in presenza (no remote working) Ti",
@@ -58,7 +60,7 @@
     },
     {
       "id": "company-a24znt",
-      "slug": "vendite-marketing-e-assistenza-clienti-mercato-francese-cambiavalute-ch-lugano",
+      "slug": "sales-marketing-customer-support-assistant-mercato-francese-cambiavalute-ch-chiasso-svizzera-posizione-esclusivamente-in-presenza-no-remote-a24znt",
       "company": "CambiaValute.ch",
       "title": "Sales, Marketing & Customer support assistant (Mercato Francese)",
       "location": "Chiasso (Svizzera) – posizione esclusivamente in presenza (no remote working) Ti",
@@ -98,7 +100,5 @@
         "completeness": 25
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }
