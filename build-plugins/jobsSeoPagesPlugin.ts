@@ -782,11 +782,61 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
   * path the same way the coordinator does, so the pre-emitted bridge is
   * byte-identical to the post-walk one (no rewrite needed).
   */
+ // Skip flat `.html` shadow files for paths under job sections — most of
+ // them serve 0 traffic (GSC: ~0.057% of impressions on the no-slash form).
+ // Dropping these saves ~470 k bridges + ~32 k full-content legacy flats
+ // (~2.3 GB raw) without SEO loss: GH Pages' built-in 301 auto-canonicalises
+ // /foo → /foo/ on the residual no-slash hits.
+ //
+ // CARVE-OUT: any path listed in `data/noslash-keep.json` is preserved.
+ // That file is refreshed periodically by `scripts/refresh-noslash-keep.mjs`
+ // which queries GSC + GA4 + PostHog for actively-trafficked no-slash URLs
+ // and commits the union as a build-time data file. Non-job sections
+ // (`/articoli-frontaliere/*`, `/guida-frontaliere/*`, `/vivere-in-ticino/*`)
+ // are NEVER subject to the gate — they hold ~99.9% of the no-slash traffic
+ // and keep their 200-OK direct serve.
+ const JOB_SECTION_FLAT_SKIP_RX = /^(cerca-lavoro-|en\/find-jobs-|de\/jobs-im-|fr\/trouver-emploi-)/;
+ const NOSLASH_KEEP_PATHS: ReadonlySet<string> = (() => {
+ try {
+ const raw = fs.readFileSync(np.resolve(rootDir, 'data', 'noslash-keep.json'), 'utf8');
+ const parsed = JSON.parse(raw) as { keepPaths?: string[] };
+ if (Array.isArray(parsed.keepPaths)) {
+ // Stored with leading '/' — strip to match relPath form used below.
+ return new Set(parsed.keepPaths.map((p) => p.replace(/^\/+/, '')));
+ }
+ } catch {
+ // file missing → empty set → behave as if every job-section flat is dropped
+ }
+ return new Set<string>();
+ })();
+ if (NOSLASH_KEEP_PATHS.size > 0) {
+ console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m no-slash keep-list: ${NOSLASH_KEEP_PATHS.size} job-section paths preserved (GSC/GA4/PostHog traffic union)`);
+ }
+
+ function shouldEmitFlat(relPath: string): boolean {
+ if (!JOB_SECTION_FLAT_SKIP_RX.test(relPath)) return true;
+ return NOSLASH_KEEP_PATHS.has(relPath);
+ }
+
  function _qwFlat(flatFile: string, siblingHtml: string) {
  const stem = flatFile.slice(0, -'.html'.length);
  const relPath = np.relative(distDir, stem).replace(/\\/g, '/');
+ if (!shouldEmitFlat(relPath)) return;
  const slashUrl = `${BASE_URL}/${relPath}/`;
  _qw(flatFile, buildFlatBridgeFromSibling(siblingHtml, slashUrl));
+ }
+
+ // Like _qw for flat .html paths that historically emitted FULL content
+ // (legacy active-job bridges, pagination/category/keyword listings). Honours
+ // the same job-section gate + keep-list carve-out so the 32 k full-HTML
+ // legacy flats (~550 MB raw) are dropped on job sections while the few that
+ // still attract traffic stay as 200-OK direct serves.
+ function _qwFlatFull(flatFile: string, fullHtml: string) {
+ const stem = flatFile.slice(0, -'.html'.length);
+ const relPath = np.relative(distDir, stem).replace(/\\/g, '/');
+ if (!shouldEmitFlat(relPath)) return;
+ _md(np.dirname(flatFile));
+ _qw(flatFile, fullHtml);
  }
 
  /* ── Find SPA entry bundle so job pages hydrate into the full app ── */
@@ -3174,13 +3224,11 @@ ${staticAnalyticsHtml}
  if (!activeJobDirs.has(legacyRel.replace(/\/+$/, ''))) {
  const bridgeScript = `<script>window.__BRIDGE_TARGET_SLUG__=${JSON.stringify(perLocaleSlug[locale])};</script>`;
  const legacyIndexHtml = html.replace('</head>', ` ${bridgeScript}\n </head>`);
- const legacyFlatHtml = legacyIndexHtml.replace(SPA_ACTION_REDIRECT_SCRIPT, '');
  const legacyDir = np.join(distDir, legacyRel);
  _md(legacyDir);
  _qw(np.join(legacyDir, 'index.html'), legacyIndexHtml);
  const legacyFlat = np.join(distDir, legacyRel + '.html');
- _md(np.dirname(legacyFlat));
- _qw(legacyFlat, legacyFlatHtml);
+ _qwFlatFull(legacyFlat, legacyIndexHtml.replace(SPA_ACTION_REDIRECT_SCRIPT, ''));
  }
  recordEmit('active-job-legacy-bridge', __tLegacyBridge);
  }
@@ -3206,13 +3254,11 @@ ${staticAnalyticsHtml}
  if (!activeJobDirs.has(legacyTIRel.replace(/\/+$/, ''))) {
  const bridgeScript = `<script>window.__BRIDGE_TARGET_SLUG__=${JSON.stringify(perLocaleSlug[locale])};</script>`;
  const legacyTIIndexHtml = html.replace('</head>', ` ${bridgeScript}\n </head>`);
- const legacyTIFlatHtml = legacyTIIndexHtml.replace(SPA_ACTION_REDIRECT_SCRIPT, '');
  const legacyTIDir = np.join(distDir, legacyTIRel);
  _md(legacyTIDir);
  _qw(np.join(legacyTIDir, 'index.html'), legacyTIIndexHtml);
  const legacyTIFlat = np.join(distDir, legacyTIRel + '.html');
- _md(np.dirname(legacyTIFlat));
- _qw(legacyTIFlat, legacyTIFlatHtml);
+ _qwFlatFull(legacyTIFlat, legacyTIIndexHtml.replace(SPA_ACTION_REDIRECT_SCRIPT, ''));
  }
  recordEmit('active-job-cross-canton-legacy', __tCrossCantonLegacy);
  }
@@ -6155,7 +6201,7 @@ ${staticAnalyticsHtml}
  _md(pgOutDir);
  _qw(np.join(pgOutDir, 'index.html'), pgHtml);
  const pgFlatPath = pgCanonicalPath.replace(/\/+$/, '');
- if (pgFlatPath) { const pgFlatFile = np.join(distDir, pgFlatPath.slice(1) + '.html'); _md(np.dirname(pgFlatFile)); _qw(pgFlatFile, pgHtml); }
+ if (pgFlatPath) { const pgFlatFile = np.join(distDir, pgFlatPath.slice(1) + '.html'); _qwFlatFull(pgFlatFile, pgHtml); }
  paginationPageCount++;
  recordEmit('paginated-listing', __tPaginated);
  }
@@ -6278,7 +6324,7 @@ ${staticAnalyticsHtml}
  _md(pgOutDir);
  _qw(np.join(pgOutDir, 'index.html'), pgHtml);
  const pgFlatPath = pgCanonicalPath.replace(/\/+$/, '');
- if (pgFlatPath) { const pgFlatFile = np.join(distDir, pgFlatPath.slice(1) + '.html'); _md(np.dirname(pgFlatFile)); _qw(pgFlatFile, pgHtml); }
+ if (pgFlatPath) { const pgFlatFile = np.join(distDir, pgFlatPath.slice(1) + '.html'); _qwFlatFull(pgFlatFile, pgHtml); }
  paginationPageCount++;
  recordEmit('paginated-listing', __tPaginated);
  }
@@ -6420,7 +6466,7 @@ ${staticAnalyticsHtml}
  _md(catOutDir);
  _qw(np.join(catOutDir, 'index.html'), catHtml);
  const catFlatPath = catCanonicalPath.replace(/\/+$/, '');
- if (catFlatPath) { const catFlatFile = np.join(distDir, catFlatPath.slice(1) + '.html'); _md(np.dirname(catFlatFile)); _qw(catFlatFile, catHtml); }
+ if (catFlatPath) { const catFlatFile = np.join(distDir, catFlatPath.slice(1) + '.html'); _qwFlatFull(catFlatFile, catHtml); }
  categoryPageCount++;
  recordEmit('category-listing', __tCategory);
  }
@@ -6567,7 +6613,7 @@ ${staticAnalyticsHtml}
  _md(catOutDir);
  _qw(np.join(catOutDir, 'index.html'), catHtml);
  const catFlatPath = catCanonicalPath.replace(/\/+$/, '');
- if (catFlatPath) { const catFlatFile = np.join(distDir, catFlatPath.slice(1) + '.html'); _md(np.dirname(catFlatFile)); _qw(catFlatFile, catHtml); }
+ if (catFlatPath) { const catFlatFile = np.join(distDir, catFlatPath.slice(1) + '.html'); _qwFlatFull(catFlatFile, catHtml); }
  categoryPageCount++;
  recordEmit('category-listing', __tCategory);
  }
@@ -7341,7 +7387,7 @@ ${staticAnalyticsHtml}
  _md(kwOutDir);
  _qw(np.join(kwOutDir, 'index.html'), kwHtml);
  const kwFlatPath = kwCanonicalPath.replace(/\/+$/, '');
- if (kwFlatPath) { const kwFlatFile = np.join(distDir, kwFlatPath.slice(1) + '.html'); _md(np.dirname(kwFlatFile)); _qw(kwFlatFile, kwHtml); }
+ if (kwFlatPath) { const kwFlatFile = np.join(distDir, kwFlatPath.slice(1) + '.html'); _qwFlatFull(kwFlatFile, kwHtml); }
  keywordPageCount++;
  recordEmit('gsc-keyword-landing', __tGsc);
  }
