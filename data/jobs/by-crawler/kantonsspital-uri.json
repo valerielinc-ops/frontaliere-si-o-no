@@ -16,7 +16,7 @@
       "companyDomain": "ksuri.ch",
       "title": "Unterassistenten Innere Medizin",
       "titleByLocale": {
-        "it": "Unterassistenten Innere Medizin",
+        "it": "Medicina interna subassista",
         "en": "Assistant Internal Medicine",
         "de": "Unterassistenten Innere Medizin",
         "fr": "Sous-assistants en médecine interne"
@@ -68,7 +68,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 2
     },
     {
       "id": "kantonsspital-uri-1d9b044c4b95",
@@ -136,7 +137,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 2
     },
     {
       "id": "kantonsspital-uri-1e645156bde0",
@@ -206,13 +208,14 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 2
     },
     {
       "id": "kantonsspital-uri-9fa1416bad40",
       "slug": "physiotherapeut-in-con-zusatzfunktion-come-berufsbildner-in-w-m-d-80-100-kantonsspital-uri-altdorf",
       "slugByLocale": {
-        "it": "physiotherapeut-in-con-zusatzfunktion-come-berufsbildner-in-w-m-d-80-100-kantonsspital-uri-altdorf",
+        "it": "fisioterapista-con-funzione-aggiuntiva-come-formatore-uomo-donna-kantonsspital-uri-altdorf",
         "en": "physiotherapist-in-with-additional-function-as-a-professional-designer-in-w-m-d-80-100-kantonsspital-uri-altdorf",
         "de": "physiotherapeut-in-mit-zusatzfunktion-als-berufsbildner-in-w-m-d-80-100-kantonsspital-uri",
         "fr": "kinesitherapeute-en-fonction-supplementaire-en-tant-que-concepteur-professionnel-en-w-m-d-80-100-kantonsspital-uri"
@@ -278,15 +281,16 @@
       "previousSlugs": [
         "physiotherapeut-in-mit-zusatzfunktion-als-berufsbildner-in-w-m-d-80-100-kantonsspital-uri",
         "fisioterapista-in-funzione-aggiuntiva-come-designer-professionista-in-w-m-d-80-100-kantonsspital-uri-altdorf",
-        "fisioterapista-con-funzione-aggiuntiva-come-formatore-uomo-donna-kantonsspital-uri-altdorf",
         "physiotherapist-with-additional-function-as-vocational-trainer-m-f-d-80-100-kantonsspital-uri-altdorf",
-        "kinesitherapeute-avec-fonction-supplementaire-en-tant-que-formateur-trice-h-f-80-100-kantonsspital-uri-altdorf"
+        "kinesitherapeute-avec-fonction-supplementaire-en-tant-que-formateur-trice-h-f-80-100-kantonsspital-uri-altdorf",
+        "physiotherapeut-in-con-zusatzfunktion-come-berufsbildner-in-w-m-d-80-100-kantonsspital-uri-altdorf",
+        "physiotherapist-in-with-additional-function-as-a-professional-designer-in-w-m-d-80-100-kantonsspital-uri-altdorf",
+        "kinesitherapeute-en-fonction-supplementaire-en-tant-que-concepteur-professionnel-en-w-m-d-80-100-kantonsspital-uri"
       ],
       "previousSlugsByLocale": {
         "it": [
           "physiotherapeut-in-mit-zusatzfunktion-als-berufsbildner-in-w-m-d-80-100-kantonsspital-uri",
-          "fisioterapista-in-funzione-aggiuntiva-come-designer-professionista-in-w-m-d-80-100-kantonsspital-uri-altdorf",
-          "fisioterapista-con-funzione-aggiuntiva-come-formatore-uomo-donna-kantonsspital-uri-altdorf"
+          "fisioterapista-in-funzione-aggiuntiva-come-designer-professionista-in-w-m-d-80-100-kantonsspital-uri-altdorf"
         ],
         "en": [
           "physiotherapist-with-additional-function-as-vocational-trainer-m-f-d-80-100-kantonsspital-uri-altdorf"
@@ -313,7 +317,7 @@
       "id": "kantonsspital-uri-8ce218f3f6d4",
       "slug": "hf-fh-oncologia-hamatologia-40-80-w-m-d-kantonsspital-uri-altdorf",
       "slugByLocale": {
-        "it": "hf-fh-oncologia-hamatologia-40-80-w-m-d-kantonsspital-uri-altdorf",
+        "it": "infermiere-professionale-oncologia-ematologia-40-80-uomo-donna-kantonsspital-uri-altdorf",
         "en": "career-hf-fh-oncology-hamatology-40-80-w-m-d-kantonsspital-uri-altdorf",
         "de": "pflegefachperson-hf-fh-onkologie-hamatologie-40-80-w-m-d-kantonsspital-uri-altdorf",
         "fr": "carriere-hf-fh-oncologie-hamatologie-40-80-m-j-kantonsspital-uri-altdorf"
@@ -387,14 +391,15 @@
       },
       "previousSlugs": [
         "pflegefachperson-hf-fh-onkologie-hamatologie-40-80-w-m-d-kantonsspital-uri-altdorf",
-        "infermiere-professionale-oncologia-ematologia-40-80-uomo-donna-kantonsspital-uri-altdorf",
         "oncology-hematology-nurse-40-80-male-female-kantonsspital-uri-altdorf",
-        "infirmier-en-oncologie-hematologie-40-80-homme-femme-kantonsspital-uri-altdorf"
+        "infirmier-en-oncologie-hematologie-40-80-homme-femme-kantonsspital-uri-altdorf",
+        "hf-fh-oncologia-hamatologia-40-80-w-m-d-kantonsspital-uri-altdorf",
+        "career-hf-fh-oncology-hamatology-40-80-w-m-d-kantonsspital-uri-altdorf",
+        "carriere-hf-fh-oncologie-hamatologie-40-80-m-j-kantonsspital-uri-altdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "pflegefachperson-hf-fh-onkologie-hamatologie-40-80-w-m-d-kantonsspital-uri-altdorf",
-          "infermiere-professionale-oncologia-ematologia-40-80-uomo-donna-kantonsspital-uri-altdorf"
+          "pflegefachperson-hf-fh-onkologie-hamatologie-40-80-w-m-d-kantonsspital-uri-altdorf"
         ],
         "en": [
           "oncology-hematology-nurse-40-80-male-female-kantonsspital-uri-altdorf"
@@ -717,17 +722,16 @@
       "titleByLocale": {
         "de": "Mitarbeiter Sekretariat Radiologie (m/w/d) 40%",
         "it": "Collaboratore/trice Sekretariat Radiologie (m/w/d) 40%",
-        "en": "Mitarbeiter Sekretariat Radiologie (m/w/d) 40%",
-        "fr": "Mitarbeiter Sekretariat Radiologie (m/w/d) 40%"
+        "en": "Senior Consultant (m/w/d) 40 %",
+        "fr": "Consultant principal (m/m/j) 40 %"
       },
       "description": "DEINE AUFGABEN:\n\n• Koordination und Vereinbarung von Terminen mit Ärzten sowie Patientinnen und Patienten, um einen reibungslosen Ablauf sicherzustellen\n• Planung und Terminierung von Untersuchungen zur optimalen Nutzung der Ressourcen\n• Betreuung und Begleitung unserer Patientinnen und Patienten\n• Interdisziplinäre Zusammenarbeit mit internen Fachbereichen und externen Zuweisern zur Förderung einer effizienten Kommunikation\n• Durchführung allgemeiner administrativer Aufgaben zur Unterstützung des täglichen Betriebs und zur Sicherstellung eines hohen Qualitätsstandards\n\nDEINE PERSPEKTIVEN:\n\n• Ein modernes Arbeitsumfeld mit hochmoderner Infrastruktur\n• Eine abwechslungsreiche Tätigkeit\n• Flache Hierarchien und eine offene DU-Kultur, die eine wertschätzende und kollegiale Zusammenarbeit fördern\n• Ein engagiertes und kollegiales Team, das Wert auf gegenseitige Unterstützung und ein wertschätzendes Arbeitsklima legt Unsere Co-Leiter Radiologie, Oliver Marbet und René Hahn, erteilen Dir gerne weitere Auskünfte.\n• Andrina Staub\n• Teamleiterin HR Services\n• +41 41 875 53 34\n• Oliver Marbet\n• Co-Leiter Radiologie\n• +41 41 875 51 42\n• Impressum\n• Datenschutz\n•\n•\n•\n•\n•\n• Einstellungen Cookies",
       "descriptionByLocale": {
         "de": "DEINE AUFGABEN:\n\n• Koordination und Vereinbarung von Terminen mit Ärzten sowie Patientinnen und Patienten, um einen reibungslosen Ablauf sicherzustellen\n• Planung und Terminierung von Untersuchungen zur optimalen Nutzung der Ressourcen\n• Betreuung und Begleitung unserer Patientinnen und Patienten\n• Interdisziplinäre Zusammenarbeit mit internen Fachbereichen und externen Zuweisern zur Förderung einer effizienten Kommunikation\n• Durchführung allgemeiner administrativer Aufgaben zur Unterstützung des täglichen Betriebs und zur Sicherstellung eines hohen Qualitätsstandards\n\nDEINE PERSPEKTIVEN:\n\n• Ein modernes Arbeitsumfeld mit hochmoderner Infrastruktur\n• Eine abwechslungsreiche Tätigkeit\n• Flache Hierarchien und eine offene DU-Kultur, die eine wertschätzende und kollegiale Zusammenarbeit fördern\n• Ein engagiertes und kollegiales Team, das Wert auf gegenseitige Unterstützung und ein wertschätzendes Arbeitsklima legt Unsere Co-Leiter Radiologie, Oliver Marbet und René Hahn, erteilen Dir gerne weitere Auskünfte.\n• Andrina Staub\n• Teamleiterin HR Services\n• +41 41 875 53 34\n• Oliver Marbet\n• Co-Leiter Radiologie\n• +41 41 875 51 42\n• Impressum\n• Datenschutz\n•\n•\n•\n•\n•\n• Einstellungen Cookies",
-        "it": "DEINE AUFGABEN:\n\n• Koordination und Vereinbarung von Terminen mit Ärzten sowie Patientinnen und Patienten, um einen reibungslosen Ablauf sicherzustellen\n• Planung und Terminierung von Untersuchungen zur optimalen Nutzung der Ressourcen\n• Betreuung und Begleitung unserer Patientinnen und Patienten\n• Interdisziplinäre Zusammenarbeit mit internen Fachbereichen und externen Zuweisern zur Förderung einer effizienten Kommunikation\n• Durchführung allgemeiner administrativer Aufgaben zur Unterstützung des täglichen Betriebs und zur Sicherstellung eines hohen Qualitätsstandards\n\nDEINE PERSPEKTIVEN:\n\n• Ein modernes Arbeitsumfeld mit hochmoderner Infrastruktur\n• Eine abwechslungsreiche Tätigkeit\n• Flache Hierarchien und eine offene DU-Kultur, die eine wertschätzende und kollegiale Zusammenarbeit fördern\n• Ein engagiertes und kollegiales Team, das Wert auf gegenseitige Unterstützung und ein wertschätzendes Arbeitsklima legt Unsere Co-Leiter Radiologie, Oliver Marbet und René Hahn, erteilen Dir gerne weitere Auskünfte.\n• Andrina Staub\n• Teamleiterin HR Services\n• +41 41 875 53 34\n• Oliver Marbet\n• Co-Leiter Radiologie\n• +41 41 875 51 42\n• Impressum\n• Datenschutz\n•\n•\n•\n•\n•\n• Einstellungen Cookies",
-        "en": "DEINE AUFGABEN:\n\n• Koordination und Vereinbarung von Terminen mit Ärzten sowie Patientinnen und Patienten, um einen reibungslosen Ablauf sicherzustellen\n• Planung und Terminierung von Untersuchungen zur optimalen Nutzung der Ressourcen\n• Betreuung und Begleitung unserer Patientinnen und Patienten\n• Interdisziplinäre Zusammenarbeit mit internen Fachbereichen und externen Zuweisern zur Förderung einer effizienten Kommunikation\n• Durchführung allgemeiner administrativer Aufgaben zur Unterstützung des täglichen Betriebs und zur Sicherstellung eines hohen Qualitätsstandards\n\nDEINE PERSPEKTIVEN:\n\n• Ein modernes Arbeitsumfeld mit hochmoderner Infrastruktur\n• Eine abwechslungsreiche Tätigkeit\n• Flache Hierarchien und eine offene DU-Kultur, die eine wertschätzende und kollegiale Zusammenarbeit fördern\n• Ein engagiertes und kollegiales Team, das Wert auf gegenseitige Unterstützung und ein wertschätzendes Arbeitsklima legt Unsere Co-Leiter Radiologie, Oliver Marbet und René Hahn, erteilen Dir gerne weitere Auskünfte.\n• Andrina Staub\n• Teamleiterin HR Services\n• +41 41 875 53 34\n• Oliver Marbet\n• Co-Leiter Radiologie\n• +41 41 875 51 42\n• Impressum\n• Datenschutz\n•\n•\n•\n•\n•\n• Einstellungen Cookies",
-        "fr": "DEINE AUFGABEN:\n\n• Koordination und Vereinbarung von Terminen mit Ärzten sowie Patientinnen und Patienten, um einen reibungslosen Ablauf sicherzustellen\n• Planung und Terminierung von Untersuchungen zur optimalen Nutzung der Ressourcen\n• Betreuung und Begleitung unserer Patientinnen und Patienten\n• Interdisziplinäre Zusammenarbeit mit internen Fachbereichen und externen Zuweisern zur Förderung einer effizienten Kommunikation\n• Durchführung allgemeiner administrativer Aufgaben zur Unterstützung des täglichen Betriebs und zur Sicherstellung eines hohen Qualitätsstandards\n\nDEINE PERSPEKTIVEN:\n\n• Ein modernes Arbeitsumfeld mit hochmoderner Infrastruktur\n• Eine abwechslungsreiche Tätigkeit\n• Flache Hierarchien und eine offene DU-Kultur, die eine wertschätzende und kollegiale Zusammenarbeit fördern\n• Ein engagiertes und kollegiales Team, das Wert auf gegenseitige Unterstützung und ein wertschätzendes Arbeitsklima legt Unsere Co-Leiter Radiologie, Oliver Marbet und René Hahn, erteilen Dir gerne weitere Auskünfte.\n• Andrina Staub\n• Teamleiterin HR Services\n• +41 41 875 53 34\n• Oliver Marbet\n• Co-Leiter Radiologie\n• +41 41 875 51 42\n• Impressum\n• Datenschutz\n•\n•\n•\n•\n•\n• Einstellungen Cookies"
+        "it": "DISCLOSIONE: • Coordinamento e accordo di appuntamenti con medici e pazienti per garantire un buon funzionamento • Pianificazione e nomina di studi sull'uso ottimale delle risorse • Cura e assistenza dei nostri pazienti • Cooperazione interdisciplinare con i dipartimenti interni e gli istruttori esterni per promuovere una comunicazione efficiente • implementazione di compiti amministrativi generali per sostenere il funzionamento quotidiano e garantire un'alta qualità standard DEINE PERSPEKTIVEN: • Un ambiente di lavoro moderno con infrastrutture all'avanguardia • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • •",
+        "en": "DISCLOSURE: • Coordination and agreement of appointments with doctors and patients to ensure a smooth operation • Planning and appointment of studies on the optimal use of resources • Care and assistance of our patients • Interdisciplinary cooperation with internal departments and external instructors to promote efficient communication • implementation of general administrative tasks to support daily operation and ensure a high quality standard DEINE PERSPEKTIVEN: • A modern working environment with state-of-the-art infrastructure A varied activity • Flat hierarchies and an open DU culture that promote value-adding and collegial cooperation • A dedicated and collegial team that attaches value to mutual support and a valuable working environment Our co-leader Radiology, Oliver Marbet and René Hahn, will be happy to provide you with further information. • Andrina Staub • Team Leader HR Services • +41 41 875 53 34 • Oliver Marbet • Co-Director of Radiology • +41 41 875 51 42 • Imprint • Data protection • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • •",
+        "fr": "DIVULGATION: • Coordination et accord de rendez-vous avec les médecins et les patients pour assurer un bon fonctionnement • Planification et rendez-vous d'études sur l'utilisation optimale des ressources • Soins et assistance de nos patients • Coopération interdisciplinaire avec les services internes et les instructeurs externes pour promouvoir une communication efficace • Mise en oeuvre de tâches administratives générales pour soutenir le fonctionnement quotidien et assurer un niveau de qualité élevé DEINE PERSPEKITIEN: • Un environnement de travail moderne avec une infrastructure de pointe Une activité variée • Hiérarchies plates et une culture ouverte DU qui favorisent la valorisation et la coopération collégiale • Une équipe dévouée et collégiale qui attache de la valeur au soutien mutuel et à un environnement de travail précieux Notre co-chef Radiologie, Oliver Marbet et René Hahn, sera heureux de vous fournir des informations complémentaires. • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • •"
       },
-      "needsRetranslation": true,
       "location": "Altdorf",
       "canton": "UR",
       "url": "https://stellen.ksuri.ch/Mitarbeiter-Sekretariat-Radiologie-mwd-40-de-j414.html",
@@ -943,7 +947,7 @@
       "id": "kantonsspital-uri-e0604f21067f",
       "slug": "specialista-in-salute-fage-uomo-donna-60-100-con-funzione-aggiuntiva-come-formatore-trice-kantonsspital-uri-altdorf",
       "slugByLocale": {
-        "it": "specialista-in-salute-fage-uomo-donna-60-100-con-funzione-aggiuntiva-come-formatore-trice-kantonsspital-uri-altdorf",
+        "it": "operatore-socio-sanitario-oss-m-f-d-60-100-con-funzione-aggiuntiva-di-formatore-professionale-kantonsspital-uri-altdorf",
         "en": "healthcare-specialist-fage-male-female-60-100-with-additional-function-as-trainer-kantonsspital-uri-altdorf",
         "de": "fachperson-gesundheit-fage-w-m-d-60-100-mit-zusatzfunktion-als-berufsbildner-in",
         "fr": "specialiste-en-sante-fage-h-f-60-100-avec-fonction-supplementaire-en-tant-que-formateur-trice-kantonsspital-uri-altdorf"
@@ -1011,14 +1015,15 @@
       },
       "previousSlugs": [
         "fachperson-gesundheit-fage-w-m-d-60-100-mit-zusatzfunktion-als-berufsbildner-in",
-        "operatore-socio-sanitario-oss-m-f-d-60-100-con-funzione-aggiuntiva-di-formatore-professionale-kantonsspital-uri-altdorf",
         "healthcare-professional-fage-m-f-d-60-100-with-additional-role-as-vocational-trainer-kantonsspital-uri-altdorf",
-        "assistant-e-en-soins-et-sante-communautaire-assc-h-f-d-60-100-avec-fonction-additionnelle-de-formateur-trice-en"
+        "assistant-e-en-soins-et-sante-communautaire-assc-h-f-d-60-100-avec-fonction-additionnelle-de-formateur-trice-en",
+        "specialista-in-salute-fage-uomo-donna-60-100-con-funzione-aggiuntiva-come-formatore-trice-kantonsspital-uri-altdorf",
+        "healthcare-specialist-fage-male-female-60-100-with-additional-function-as-trainer-kantonsspital-uri-altdorf",
+        "specialiste-en-sante-fage-h-f-60-100-avec-fonction-supplementaire-en-tant-que-formateur-trice-kantonsspital-uri-altdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachperson-gesundheit-fage-w-m-d-60-100-mit-zusatzfunktion-als-berufsbildner-in",
-          "operatore-socio-sanitario-oss-m-f-d-60-100-con-funzione-aggiuntiva-di-formatore-professionale-kantonsspital-uri-altdorf"
+          "fachperson-gesundheit-fage-w-m-d-60-100-mit-zusatzfunktion-als-berufsbildner-in"
         ],
         "en": [
           "healthcare-professional-fage-m-f-d-60-100-with-additional-role-as-vocational-trainer-kantonsspital-uri-altdorf"
@@ -1143,7 +1148,7 @@
       "id": "kantonsspital-uri-2f895430ecb3",
       "slug": "consulente-alimentare-m-f-d-40-kantonsspital-uri-altdorf",
       "slugByLocale": {
-        "it": "consulente-alimentare-m-f-d-40-kantonsspital-uri-altdorf",
+        "it": "dietista-m-f-d-40-kantonsspital-uri-altdorf",
         "en": "dietician-m-f-d-40-kantonsspital-uri-altdorf",
         "de": "ernahrungsberater-in-m-w-d-40-kantonsspital-uri-altdorf",
         "fr": "conseiller-ere-en-nutrition-m-f-d-40-kantonsspital-uri-altdorf"
@@ -1190,14 +1195,15 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "ernahrungsberater-in-m-w-d-40-kantonsspital-uri-altdorf",
-        "dietista-m-f-d-40-kantonsspital-uri-altdorf",
         "nutritionist-dietitian-m-f-d-40-kantonsspital-uri-altdorf",
-        "dieteticien-ne-h-f-d-40-kantonsspital-uri-altdorf"
+        "dieteticien-ne-h-f-d-40-kantonsspital-uri-altdorf",
+        "consulente-alimentare-m-f-d-40-kantonsspital-uri-altdorf",
+        "dietician-m-f-d-40-kantonsspital-uri-altdorf",
+        "conseiller-ere-en-nutrition-m-f-d-40-kantonsspital-uri-altdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ernahrungsberater-in-m-w-d-40-kantonsspital-uri-altdorf",
-          "dietista-m-f-d-40-kantonsspital-uri-altdorf"
+          "ernahrungsberater-in-m-w-d-40-kantonsspital-uri-altdorf"
         ],
         "en": [
           "nutritionist-dietitian-m-f-d-40-kantonsspital-uri-altdorf"
