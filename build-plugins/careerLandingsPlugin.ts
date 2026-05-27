@@ -82,9 +82,7 @@ import {
   LEDE_STYLE,
   BODY_STYLE,
   H2_STYLE,
-  CARD_STYLE,
   LINK_ACCENT_STYLE,
-  CTA_PRIMARY_STYLE,
   HERO_EYEBROW_STYLE,
   SMALL_HEADING_STYLE,
   STAT_TILE_ACCENT,
@@ -92,8 +90,6 @@ import {
   STAT_TILE_WARNING,
   STAT_TILE_DANGER,
   STAT_TILE_BASE,
-  STAT_TILE_LABEL,
-  STAT_TILE_VALUE,
   pickStatTileStyle,
 } from './shared/seoContentTokens';
 import { buildTitleWithBrand } from './shared/titleSuffix';
@@ -188,8 +184,8 @@ function toneToStyle(tone: CareerTemplateBCopy['statTile1']['tone']): string {
 
 function renderTile(label: string, value: string, tone: CareerTemplateBCopy['statTile1']['tone']): string {
   return `<div style="${toneToStyle(tone)}">
-    <div style="${STAT_TILE_LABEL}">${esc(label)}</div>
-    <div style="${STAT_TILE_VALUE}">${esc(value)}</div>
+    <div class="s-tlbl">${esc(label)}</div>
+    <div class="s-tval">${esc(value)}</div>
   </div>`;
 }
 
@@ -221,14 +217,14 @@ function renderStatTiles(
   // tile2 is salary/accent per copy data — keep the copy-specified tone.
   const tile1DynStyle = pickStatTileStyle('openings', tile1Count);
   const tile1 = `<div style="${tile1DynStyle}">
-    <div style="${STAT_TILE_LABEL}">${esc(templateB.statTile1.label)}</div>
-    <div style="${STAT_TILE_VALUE}">${esc(templateB.statTile1.valueFromCount(tile1Count))}</div>
+    <div class="s-tlbl">${esc(templateB.statTile1.label)}</div>
+    <div class="s-tval">${esc(templateB.statTile1.valueFromCount(tile1Count))}</div>
   </div>`;
   const tile2 = renderTile(templateB.statTile2.label, tile2Value, templateB.statTile2.tone);
   const tile3DynStyle = pickStatTileStyle('fresh', snapshot.fresh30Count);
   const tile3 = `<div style="${tile3DynStyle}">
-    <div style="${STAT_TILE_LABEL}">${esc(templateB.statTile3.label)}</div>
-    <div style="${STAT_TILE_VALUE}">${esc(templateB.statTile3.valueFromFresh(snapshot.fresh30Count))}</div>
+    <div class="s-tlbl">${esc(templateB.statTile3.label)}</div>
+    <div class="s-tval">${esc(templateB.statTile3.valueFromFresh(snapshot.fresh30Count))}</div>
   </div>`;
 
   return `<div class="s-XENO3U">${tile1}${tile2}${tile3}</div>`;
@@ -263,7 +259,7 @@ function renderFeaturedJobs(
     } satisfies JobCardJob,
     href: buildCareerFeaturedJobUrl(j, locale),
   }));
-  const emptyHtml = `<p style="${CARD_STYLE};color:var(--color-subtle);font-size:14px;margin:0">${esc(pickEmptyState(id, locale))}</p>`;
+  const emptyHtml = `<p class="s-card" style="color:var(--color-subtle);font-size:14px;margin:0">${esc(pickEmptyState(id, locale))}</p>`;
   const listHtml = renderJobCardListHtml(items, {
     locale,
     emptyStateHtml: emptyHtml,
@@ -326,7 +322,7 @@ export function renderCareerEmployerGridForTest(
 }
 
 function renderEmployerGridReplacement(text: string): string {
-  return `<section style="margin:0 0 28px;${CARD_STYLE};max-width:860px">
+  return `<section class="s-card" style="margin:0 0 28px;max-width:860px">
     <p class="s-0kQbve">${esc(text)}</p>
   </section>`;
 }
@@ -358,7 +354,7 @@ function renderFaqBlock(faqs: CareerLandingCopy['faqs']): string {
   return faqs
     .map(
       (f) => `
-      <details style="margin:0 0 10px;${CARD_STYLE};border-radius:12px">
+      <details class="s-card" style="margin:0 0 10px;border-radius:12px">
         <summary class="s-ZAbW3N">${esc(f.question)}</summary>
         <p class="s-XXXebZ">${esc(f.answer)}</p>
       </details>`,
@@ -474,7 +470,7 @@ function renderPage(opts: {
   // ── Template B header → above-the-fold ─────────────────────────────────
   const statTilesHtml = `<div class="seo-fade-in">${renderStatTiles(id, templateB, snapshot, agencyCount, concorsiCount)}</div>`;
 
-  const primaryCtaHtml = `<div class="s-KZc0LQ"><a href="${esc(primaryCtaUrl)}" style="${CTA_PRIMARY_STYLE}">${esc(templateB.primaryCtaLabel)} →</a></div>`;
+  const primaryCtaHtml = `<div class="s-KZc0LQ"><a href="${esc(primaryCtaUrl)}" class="s-cta">${esc(templateB.primaryCtaLabel)} →</a></div>`;
 
   const featuredHtml = templateB.showFeaturedJobs
     ? renderFeaturedJobs(id, locale, snapshot, templateB)
@@ -528,7 +524,7 @@ function renderPage(opts: {
     ${sourcesHtml}
     ${relatedHtml}
     <section class="s-p1QaOi">
-      <a href="${esc(jobBoardUrl)}" style="${CTA_PRIMARY_STYLE}">${esc(copy.ctaJobs)}</a>
+      <a href="${esc(jobBoardUrl)}" class="s-cta">${esc(copy.ctaJobs)}</a>
       <a class="s-eXgANZ" href="${esc(calculatorUrl)}">${esc(copy.ctaSimulator)}</a>
     </section>
     <section class="s-GCEyQg" aria-label="${esc(copy.h1)}">

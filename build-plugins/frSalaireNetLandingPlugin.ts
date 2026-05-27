@@ -68,11 +68,7 @@ import {
   BODY_STYLE,
   H2_STYLE,
   H3_STYLE,
-  CARD_STYLE,
-  CARD_BODY_STYLE,
-  CARD_PADDING_STYLE,
   LINK_ACCENT_STYLE,
-  CTA_PRIMARY_STYLE,
   HERO_EYEBROW_STYLE,
   SMALL_HEADING_STYLE,
   renderStatGrid,
@@ -219,7 +215,7 @@ const INTERNAL_LINKS: ReadonlyArray<{ href: string; label: string }> = [
 
 function renderProfileExamples(): string {
   const cards = PROFILE_EXAMPLES.map(
-    (p) => `<div style="${CARD_STYLE};display:flex;flex-direction:column;gap:4px">
+    (p) => `<div class="s-card" style="display:flex;flex-direction:column;gap:4px">
       <div class="s-YR-bwN">${esc(p.role)} · ${esc(p.canton)}</div>
       <div class="s-Z7vpPG">${esc(p.grossEur)}</div>
       <div class="s-jOqm8t">${esc(p.netEur)}</div>
@@ -237,7 +233,7 @@ function renderProfileExamples(): string {
 
 function renderCantonsGrid(): string {
   const cells = TOP_CANTONS.map(
-    (c) => `<div style="display:flex;align-items:center;gap:10px;${CARD_PADDING_STYLE};${CARD_BODY_STYLE}">
+    (c) => `<div class="s-cpad s-cbody" style="display:flex;align-items:center;gap:10px">
       <div class="s-KGNylX">
         <div class="s-AT4KWZ">${esc(c.name)}</div>
         <div class="s--JqMke">${esc(c.count)}</div>
@@ -274,7 +270,7 @@ function renderBreakdownTable(): string {
       </tr>`,
   ).join('');
   return `
-    <div style="overflow-x:auto;${CARD_STYLE};padding:0;border-radius:14px">
+    <div class="s-card" style="overflow-x:auto;padding:0;border-radius:14px">
       <table class="s-grO3Cl">
         <thead>
           <tr class="s-_esAK2">
@@ -299,7 +295,7 @@ function renderScenariosTable(): string {
       </tr>`,
   ).join('');
   return `
-    <div style="overflow-x:auto;${CARD_STYLE};padding:0;border-radius:14px">
+    <div class="s-card" style="overflow-x:auto;padding:0;border-radius:14px">
       <table class="s-w50MTU">
         <caption class="s-li0wom">
           Estimations indicatives pour un frontalier célibataire, sans enfants, travaillant au Tessin (régime 2026 nouveau frontalier).
@@ -319,7 +315,7 @@ function renderScenariosTable(): string {
 function renderFaqBlock(): string {
   return FAQS.map(
     (f) => `
-      <details style="margin:0 0 10px;${CARD_STYLE};border-radius:12px">
+      <details class="s-card" style="margin:0 0 10px;border-radius:12px">
         <summary class="s-ZAbW3N">${esc(f.question)}</summary>
         <p class="s-XXXebZ">${esc(f.answer)}</p>
       </details>`,
@@ -426,7 +422,7 @@ function renderPage(opts: RenderOpts): RenderResult {
     { label: STAT_NET_SAVING_LABEL, value: STAT_NET_SAVING, tone: 'warning' },
   ]);
 
-  const primaryCtaHtml = `<div class="s-KZc0LQ"><a href="${esc(calcUrl)}" style="${CTA_PRIMARY_STYLE}">Lancer la simulation gratuite →</a></div>`;
+  const primaryCtaHtml = `<div class="s-KZc0LQ"><a href="${esc(calcUrl)}" class="s-cta">Lancer la simulation gratuite →</a></div>`;
 
   const profileExamplesHtml = renderProfileExamples();
   const cantonsGridHtml = renderCantonsGrid();
@@ -484,7 +480,7 @@ function renderPage(opts: RenderOpts): RenderResult {
         simulateur officiel.
       </p>
       <p class="s-4GMup_">
-        <a href="${esc(calcUrl)}" style="${CTA_PRIMARY_STYLE}">Lancer la simulation complète</a>
+        <a href="${esc(calcUrl)}" class="s-cta">Lancer la simulation complète</a>
       </p>
     </section>
 

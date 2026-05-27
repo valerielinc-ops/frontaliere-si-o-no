@@ -19,11 +19,6 @@ import {
   H1_STYLE,
   HERO_EYEBROW_STYLE,
   LEDE_STYLE,
-  CTA_PRIMARY_STYLE,
-  STAT_TILE_WARNING,
-  TABLE_STYLE,
-  TABLE_HEAD_STYLE,
-  TABLE_CELL_STYLE,
   LINK_ACCENT_STYLE,
   SMALL_HEADING_STYLE,
   esc,
@@ -1835,7 +1830,7 @@ function resolveScenarioData(canonicalPath: string): { data: SalaryLandingData; 
 // ── Renderers ────────────────────────────────────────────────────────────────
 
 function renderAdvice(label: string, text: string): string {
-  return `<aside data-salary-advice style="${STAT_TILE_WARNING};margin:0 0 18px"><p style="${SMALL_HEADING_STYLE};margin:0 0 6px">${esc(label)}</p><p class="s-1LDhZh">${esc(text)}</p></aside>`;
+  return `<aside data-salary-advice class="s-twrn" style="margin:0 0 18px"><p style="${SMALL_HEADING_STYLE};margin:0 0 6px">${esc(label)}</p><p class="s-1LDhZh">${esc(text)}</p></aside>`;
 }
 
 function renderCtaBlock(
@@ -1845,12 +1840,12 @@ function renderCtaBlock(
   const secondaryHtml = secondary
     ? `<a href="${esc(secondary.href)}" style="${LINK_ACCENT_STYLE};font-weight:600;font-size:15px;align-self:center">${esc(secondary.label)} →</a>`
     : '';
-  return `<div class="s-iB_-rV"><a href="${esc(primary.href)}" style="${CTA_PRIMARY_STYLE}">${esc(primary.label)} →</a>${secondaryHtml}</div>`;
+  return `<div class="s-iB_-rV"><a href="${esc(primary.href)}" class="s-cta">${esc(primary.label)} →</a>${secondaryHtml}</div>`;
 }
 
 function renderTable(table: SalaryTable): string {
   const headCells = table.headers
-    .map((h) => `<th scope="col" style="${TABLE_HEAD_STYLE}">${esc(h)}</th>`)
+    .map((h) => `<th scope="col" class="s-thd">${esc(h)}</th>`)
     .join('');
   const bodyRows = table.rows
     .map((row) => {
@@ -1860,7 +1855,7 @@ function renderTable(table: SalaryTable): string {
       const cells = row.cells
         .map(
           (c, i) =>
-            `<td style="${TABLE_CELL_STYLE}${i === row.cells.length - 1 ? ';font-weight:700;color:var(--color-heading)' : ''}">${esc(c)}</td>`,
+            `<td class="s-tcl"${i === row.cells.length - 1 ? ' style="font-weight:700;color:var(--color-heading)"' : ''}>${esc(c)}</td>`,
         )
         .join('');
       return `<tr style="${rowStyle}">${cells}</tr>`;
@@ -1869,7 +1864,7 @@ function renderTable(table: SalaryTable): string {
   const footnote = table.footnote
     ? `<p class="s-9KOPUg">${esc(table.footnote)}</p>`
     : '';
-  return `<section class="s-KZc0LQ" aria-labelledby="salary-table-caption"><p id="salary-table-caption" style="${SMALL_HEADING_STYLE};margin:0 0 10px">${esc(table.caption)}</p><div class="s-eC0-6I"><table style="${TABLE_STYLE}"><thead><tr>${headCells}</tr></thead><tbody>${bodyRows}</tbody></table></div>${footnote}</section>`;
+  return `<section class="s-KZc0LQ" aria-labelledby="salary-table-caption"><p id="salary-table-caption" style="${SMALL_HEADING_STYLE};margin:0 0 10px">${esc(table.caption)}</p><div class="s-eC0-6I"><table class="s-tbl"><thead><tr>${headCells}</tr></thead><tbody>${bodyRows}</tbody></table></div>${footnote}</section>`;
 }
 
 function renderFaqs(label: string, faqs: ReadonlyArray<SalaryFaqItem>): string {

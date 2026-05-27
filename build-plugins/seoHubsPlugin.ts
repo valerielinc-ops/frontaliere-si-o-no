@@ -39,9 +39,6 @@ import {
   STAT_TILE_ACCENT,
   STAT_TILE_SUCCESS,
   STAT_TILE_BASE,
-  STAT_TILE_LABEL,
-  STAT_TILE_VALUE,
-  CTA_PRIMARY_STYLE,
 } from './shared/seoContentTokens';
 import { ALL_CANTON_CODES, resolveCantonSection, resolveJobCanton, legacyTiSectionRoot } from './shared/cantonSection';
 import { MIN_JOBS_FOR_CANTON_PAGE } from './weeklyEmployersData';
@@ -1124,14 +1121,14 @@ function buildHtml(args: BuildHtmlArgs): string {
     de: { count: HUB_KEY_TILE_LABELS.de[hubKey], pagina: 'Seite', aggiornato: 'Aktualisiert' },
     fr: { count: HUB_KEY_TILE_LABELS.fr[hubKey], pagina: 'Page', aggiornato: 'Mis à jour' },
   }[locale];
-  const statTilesHtml = `<section class="s-iQjIAb" aria-label="${esc({ it: 'Numeri chiave', en: 'Key numbers', de: 'Kennzahlen', fr: 'Chiffres clés' }[locale])}"><div style="${STAT_TILE_ACCENT}"><div style="${STAT_TILE_LABEL}">${esc(tileLabelsGlobal.count)}</div><div style="${STAT_TILE_VALUE}">${esc(totalItems.toLocaleString(locale))}</div></div><div style="${STAT_TILE_SUCCESS}"><div style="${STAT_TILE_LABEL}">${esc(tileLabelsGlobal.pagina)}</div><div style="${STAT_TILE_VALUE}">${esc(`${page} / ${totalPages}`)}</div></div><div style="${STAT_TILE_BASE}"><div style="${STAT_TILE_LABEL}">${esc(tileLabelsGlobal.aggiornato)}</div><div style="${STAT_TILE_VALUE};font-size:18px">${esc(dateStamp)}</div></div></section>`;
+  const statTilesHtml = `<section class="s-iQjIAb" aria-label="${esc({ it: 'Numeri chiave', en: 'Key numbers', de: 'Kennzahlen', fr: 'Chiffres clés' }[locale])}"><div class="s-tacc"><div class="s-tlbl">${esc(tileLabelsGlobal.count)}</div><div class="s-tval">${esc(totalItems.toLocaleString(locale))}</div></div><div class="s-tok"><div class="s-tlbl">${esc(tileLabelsGlobal.pagina)}</div><div class="s-tval">${esc(`${page} / ${totalPages}`)}</div></div><div class="s-tbase"><div class="s-tlbl">${esc(tileLabelsGlobal.aggiornato)}</div><div class="s-tval" style="font-size:18px">${esc(dateStamp)}</div></div></section>`;
 
   const ctaPathGlobal = locale === 'it' ? '/calcola-stipendio/'
     : locale === 'de' ? '/de/gehalt-berechnen/'
     : locale === 'fr' ? '/fr/calculer-salaire/'
     : '/en/calculate-salary/';
   const ctaLabelGlobal = { it: 'Calcola lo stipendio netto frontaliere →', en: 'Calculate your cross-border net salary →', de: 'Grenzgänger-Nettolohn berechnen →', fr: 'Calculer le salaire net frontalier →' }[locale];
-  const ctaHtmlGlobal = `<div class="s-USY9TF"><a href="${esc(ctaPathGlobal)}" style="${CTA_PRIMARY_STYLE}">${esc(ctaLabelGlobal)}</a></div>`;
+  const ctaHtmlGlobal = `<div class="s-USY9TF"><a href="${esc(ctaPathGlobal)}" class="s-cta">${esc(ctaLabelGlobal)}</a></div>`;
 
   // Recency chip nav — IT-only on the jobs hub (BFS-depth closure for
   // the three pilot recency landings: 24h / 3 days / 7 days). Renders a
@@ -1674,7 +1671,7 @@ function buildThinCantonHubHtml(args: {
   };
   const statTilesHtml = (statTiles && statTiles.length > 0)
     ? `<section class="s-iQjIAb" aria-label="${esc({ it: 'Numeri chiave', en: 'Key numbers', de: 'Kennzahlen', fr: 'Chiffres clés' }[locale])}">${statTiles
-        .map((tile) => `<div style="${STAT_TILE_TONE[tile.tone ?? 'base']}"><div style="${STAT_TILE_LABEL}">${esc(tile.label)}</div><div style="${STAT_TILE_VALUE}">${esc(tile.value)}</div></div>`)
+        .map((tile) => `<div style="${STAT_TILE_TONE[tile.tone ?? 'base']}"><div class="s-tlbl">${esc(tile.label)}</div><div class="s-tval">${esc(tile.value)}</div></div>`)
         .join('')}</section>`
     : '';
 
@@ -1682,13 +1679,13 @@ function buildThinCantonHubHtml(args: {
   // tone as the headline stat tile so it visually links to the numbers
   // above. Uses an `<aside>` so screen-readers can skip it.
   const adviceHtml = advice
-    ? `<aside data-canton-advice="${esc(hub)}" style="${STAT_TILE_ACCENT};margin:0 0 18px;font-size:14.5px;line-height:1.55">${esc(advice)}</aside>`
+    ? `<aside data-canton-advice="${esc(hub)}" class="s-tacc" style="margin:0 0 18px;font-size:14.5px;line-height:1.55">${esc(advice)}</aside>`
     : '';
 
   // Primary CTA — rendered on every page (including page-N>1) so the user
   // always has a single dominant next step above the fold.
   const ctaHtml = cta
-    ? `<div class="s-USY9TF"><a href="${esc(cta.href)}" style="${CTA_PRIMARY_STYLE}">${esc(cta.label)}</a></div>`
+    ? `<div class="s-USY9TF"><a href="${esc(cta.href)}" class="s-cta">${esc(cta.label)}</a></div>`
     : '';
 
   const homeLabel = { it: 'Home', en: 'Home', de: 'Start', fr: 'Accueil' }[locale];

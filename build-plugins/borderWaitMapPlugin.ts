@@ -34,10 +34,6 @@ import {
 } from './constants';
 import { buildSeoPageHtml } from './shared/seoPageShell';
 import {
-  TABLE_STYLE,
-  TABLE_HEAD_STYLE,
-  TABLE_CELL_STYLE,
-  CTA_PRIMARY_STYLE,
   LINK_ACCENT_STYLE,
 } from './shared/seoContentTokens';
 import {
@@ -311,18 +307,18 @@ function renderCrossingsTable(locale: BorderWaitLocale, copy: Copy): string {
     const regionLabel = region === 'ticino-como' ? copy.comoRegionLabel : copy.vareseRegionLabel;
     const liveUrl = buildCrossingLiveUrl(slug, locale);
     return `<tr>
-      <td style="${TABLE_CELL_STYLE};font-weight:600">${esc(name)}</td>
-      <td style="${TABLE_CELL_STYLE};color:var(--color-subtle)">${esc(regionLabel)}</td>
-      <td style="${TABLE_CELL_STYLE}"><a href="${esc(liveUrl)}" style="${LINK_ACCENT_STYLE};font-weight:600">${esc(copy.liveLink)}</a></td>
+      <td class="s-tcl" style="font-weight:600">${esc(name)}</td>
+      <td class="s-tcl" style="color:var(--color-subtle)">${esc(regionLabel)}</td>
+      <td class="s-tcl"><a href="${esc(liveUrl)}" style="${LINK_ACCENT_STYLE};font-weight:600">${esc(copy.liveLink)}</a></td>
     </tr>`;
   }).join('');
 
   return `<div class="s-Itl8IE">
-    <table style="${TABLE_STYLE};font-size:15px">
+    <table class="s-tbl" style="font-size:15px">
       <thead><tr>
-        <th style="${TABLE_HEAD_STYLE}">${esc(copy.crossingColumn)}</th>
-        <th style="${TABLE_HEAD_STYLE}">${esc(copy.regionColumn)}</th>
-        <th style="${TABLE_HEAD_STYLE}">${esc(copy.liveColumn)}</th>
+        <th class="s-thd">${esc(copy.crossingColumn)}</th>
+        <th class="s-thd">${esc(copy.regionColumn)}</th>
+        <th class="s-thd">${esc(copy.liveColumn)}</th>
       </tr></thead>
       <tbody>${rows}</tbody>
     </table>
@@ -483,7 +479,7 @@ function renderPage(opts: {
       </details>
     </section>
     <section class="s-p1QaOi">
-      <a href="${esc(hubUrl)}" style="${CTA_PRIMARY_STYLE};padding:12px 18px;border-radius:12px;font-weight:700">${esc(copy.ctaAll)}</a>
+      <a href="${esc(hubUrl)}" class="s-cta" style="padding:12px 18px;border-radius:12px;font-weight:700">${esc(copy.ctaAll)}</a>
       <a class="s-uuWBdZ" href="${esc(homeUrl)}">${esc(copy.ctaCalculator)}</a>
     </section>
   `;

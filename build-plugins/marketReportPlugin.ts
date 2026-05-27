@@ -45,20 +45,12 @@ import { CITY_HUB_KEYS } from './cityJobsHub';
 import { adSlotHtml } from './lib/adSlotHtml';
 import { imageObjectLd } from '../services/seo/imageObjectLd';
 import {
-  STAT_TILE_BASE,
-  STAT_TILE_LABEL,
-  STAT_TILE_VALUE,
-  CARD_STYLE,
   HERO_EYEBROW_STYLE,
   H1_STYLE,
   LEDE_STYLE,
   BODY_STYLE,
   H2_STYLE,
-  TABLE_HEAD_STYLE,
-  TABLE_CELL_STYLE,
-  CTA_PRIMARY_STYLE,
   LINK_ACCENT_STYLE,
-  STAT_TILE_WARNING,
 } from './shared/seoContentTokens';
 
 // ── Types ─────────────────────────────────────────────────────────
@@ -419,9 +411,9 @@ interface RenderedReport {
 }
 
 function renderTable(headers: string[], rows: string[][]): string {
-  const h = headers.map((x) => `<th style="${TABLE_HEAD_STYLE}">${esc(x)}</th>`).join('');
+  const h = headers.map((x) => `<th class="s-thd">${esc(x)}</th>`).join('');
   const body = rows.map((r) => {
-    const tds = r.map((c, idx) => `<td style="${TABLE_CELL_STYLE}${idx === 0 ? ';font-weight:600' : ''}">${c}</td>`).join('');
+    const tds = r.map((c, idx) => `<td class="s-tcl"${idx === 0 ? ' style="font-weight:600"' : ''}>${c}</td>`).join('');
     return `<tr>${tds}</tr>`;
   }).join('');
   return `<div class="s-Itl8IE"><table class="s-wkGd-4"><thead><tr>${h}</tr></thead><tbody>${body}</tbody></table></div>`;
@@ -467,21 +459,21 @@ function renderReport(opts: {
   // Headline stat cards
   const statCards = `
     <section class="s-epjKYm">
-      <div style="${STAT_TILE_BASE}">
-        <div style="${STAT_TILE_LABEL}">${esc(copy.headlineActiveJobsLabel)}</div>
-        <div style="${STAT_TILE_VALUE}">${formatNumber(activeJobs)}</div>
+      <div class="s-tbase">
+        <div class="s-tlbl">${esc(copy.headlineActiveJobsLabel)}</div>
+        <div class="s-tval">${formatNumber(activeJobs)}</div>
       </div>
-      <div style="${STAT_TILE_BASE}">
-        <div style="${STAT_TILE_LABEL}">${esc(copy.headlineCompaniesLabel)}</div>
-        <div style="${STAT_TILE_VALUE}">${formatNumber(activeCompanies)}</div>
+      <div class="s-tbase">
+        <div class="s-tlbl">${esc(copy.headlineCompaniesLabel)}</div>
+        <div class="s-tval">${formatNumber(activeCompanies)}</div>
       </div>
-      <div style="${STAT_TILE_BASE}">
-        <div style="${STAT_TILE_LABEL}">${esc(copy.headlineMedianSalaryLabel)}</div>
-        <div style="${STAT_TILE_VALUE}">${esc(formatCHF(avgMid))}</div>
+      <div class="s-tbase">
+        <div class="s-tlbl">${esc(copy.headlineMedianSalaryLabel)}</div>
+        <div class="s-tval">${esc(formatCHF(avgMid))}</div>
       </div>
-      <div style="${STAT_TILE_BASE}">
-        <div style="${STAT_TILE_LABEL}">${esc(copy.headlineAddedLast7dLabel)}</div>
-        <div style="${STAT_TILE_VALUE}">${formatNumber(added7d)}</div>
+      <div class="s-tbase">
+        <div class="s-tlbl">${esc(copy.headlineAddedLast7dLabel)}</div>
+        <div class="s-tval">${formatNumber(added7d)}</div>
       </div>
     </section>`;
 
@@ -682,7 +674,7 @@ function renderReport(opts: {
     </section>
     <p class="s-80ZfUb">${esc(copy.cautionP)}</p>
     <section class="s-p1QaOi">
-      <a href="${esc(jobsRoot[locale])}" style="${CTA_PRIMARY_STYLE}">${esc(copy.ctaJobs)}</a>
+      <a href="${esc(jobsRoot[locale])}" class="s-cta">${esc(copy.ctaJobs)}</a>
       <a class="s-bX1C8q" href="${esc(homeUrl)}">${esc(copy.ctaSimulator)}</a>
     </section>
   `;

@@ -57,6 +57,30 @@ export const BREADCRUMB_LINK_STYLE =
 export const BREADCRUMB_CLASS = 's-bcr';
 export const BREADCRUMB_LINK_CLASS = 's-bcl';
 
+/**
+ * Class-name equivalents of the card / stat-tile / cta / table inline-style
+ * constants. Defined in `public/assets/seo-static.css`. Prefer these in
+ * static SEO plugins — computed style is byte-identical and the plugin
+ * output drops hundreds of bytes per emit, shaving multi-GB off the dist
+ * tarball at scale (~300k SEO landings). The legacy `*_STYLE` constants
+ * remain exported for backward compatibility.
+ */
+export const CARD_CLASS = 's-card';
+export const CARD_BODY_CLASS = 's-cbody';
+export const CARD_PADDING_CLASS = 's-cpad';
+export const STAT_TILE_BASE_CLASS = 's-tbase';
+export const STAT_TILE_ACCENT_CLASS = 's-tacc';
+export const STAT_TILE_SUCCESS_CLASS = 's-tok';
+export const STAT_TILE_WARNING_CLASS = 's-twrn';
+export const STAT_TILE_DANGER_CLASS = 's-tdng';
+export const STAT_TILE_LABEL_CLASS = 's-tlbl';
+export const STAT_TILE_VALUE_CLASS = 's-tval';
+export const CTA_PRIMARY_CLASS = 's-cta';
+export const LINK_INHERIT_CLASS = 's-linh';
+export const TABLE_CLASS = 's-tbl';
+export const TABLE_HEAD_CLASS = 's-thd';
+export const TABLE_CELL_CLASS = 's-tcl';
+
 // ── Cards ─────────────────────────────────────────────────────────────────────
 
 /**
@@ -541,11 +565,11 @@ export function renderCard(
   href?: string,
   extraStyle?: string,
 ): string {
-  const style = extraStyle ? `${CARD_STYLE};${extraStyle}` : CARD_STYLE;
+  const styleAttr = extraStyle ? ` style="${extraStyle}"` : '';
   if (href) {
-    return `<a href="${esc(href)}" class="seo-card-link" style="${style};${LINK_INHERIT_STYLE}">${innerHtml}</a>`;
+    return `<a href="${esc(href)}" class="seo-card-link ${CARD_CLASS} ${LINK_INHERIT_CLASS}"${styleAttr}>${innerHtml}</a>`;
   }
-  return `<div style="${style}">${innerHtml}</div>`;
+  return `<div class="${CARD_CLASS}"${styleAttr}>${innerHtml}</div>`;
 }
 
 export type StatTileTone = 'neutral' | 'accent' | 'success' | 'warning' | 'danger';
@@ -567,29 +591,30 @@ export function renderStatTile(
   tone: StatTileTone = 'accent',
   href?: string,
 ): string {
-  const tileStyle =
+  const tileClass =
     tone === 'neutral'
-      ? STAT_TILE_BASE
+      ? STAT_TILE_BASE_CLASS
       : tone === 'success'
-      ? STAT_TILE_SUCCESS
+      ? STAT_TILE_SUCCESS_CLASS
       : tone === 'warning'
-      ? STAT_TILE_WARNING
+      ? STAT_TILE_WARNING_CLASS
       : tone === 'danger'
-      ? STAT_TILE_DANGER
-      : STAT_TILE_ACCENT;
+      ? STAT_TILE_DANGER_CLASS
+      : STAT_TILE_ACCENT_CLASS;
 
-  const inner = `<div style="${STAT_TILE_LABEL}">${esc(label)}</div>
-  <div style="${STAT_TILE_VALUE}">${esc(value)}</div>`;
+  const inner = `<div class="${STAT_TILE_LABEL_CLASS}">${esc(label)}</div>
+  <div class="${STAT_TILE_VALUE_CLASS}">${esc(value)}</div>`;
 
   if (href) {
     // Wrap as anchor → entire tile becomes a tap target. `display:block` +
     // `color:inherit` + `text-decoration:none` keep the visual identical to
-    // the non-link variant.
-    return `<a href="${esc(href)}" style="${tileStyle};display:block;color:inherit;text-decoration:none" data-tile-cta="1">
+    // the non-link variant. The `s-linh` atom already supplies those three
+    // declarations, so we just stack it on the tile-tone class.
+    return `<a href="${esc(href)}" class="${tileClass} ${LINK_INHERIT_CLASS}" data-tile-cta="1">
   ${inner}
 </a>`;
   }
-  return `<div style="${tileStyle}">
+  return `<div class="${tileClass}">
   ${inner}
 </div>`;
 }
@@ -718,11 +743,11 @@ export function renderEntityCard(opts: EntityCardOpts): string {
     ? `<div style="flex-shrink:0;color:${metricColor};font-weight:700;font-size:14px;white-space:nowrap">${esc(opts.metric)}</div>`
     : '';
   const inner = `${visual}${middle}${metricHtml}`;
-  const style = `display:flex;align-items:center;gap:12px;${CARD_PADDING_STYLE};${CARD_BODY_STYLE}`;
+  const flexStyle = 'display:flex;align-items:center;gap:12px';
   if (opts.href) {
-    return `<a class="seo-entity-card" href="${esc(opts.href)}" style="${style};text-decoration:none">${inner}</a>`;
+    return `<a class="seo-entity-card ${CARD_CLASS}" href="${esc(opts.href)}" style="${flexStyle};text-decoration:none">${inner}</a>`;
   }
-  return `<div class="seo-entity-card" style="${style}">${inner}</div>`;
+  return `<div class="seo-entity-card ${CARD_CLASS}" style="${flexStyle}">${inner}</div>`;
 }
 
 /**
@@ -786,7 +811,7 @@ export function renderDiscoverMore(
         `<li class="s-6FVpHG"><a href="${esc(cta.href)}" style="${LINK_ACCENT_STYLE};display:inline-block;padding:8px 0;font-weight:600;font-size:15px">${esc(cta.title)} →</a></li>`,
     )
     .join('');
-  return `<section style="margin:32px 0 0;padding:20px 24px;${CARD_BODY_STYLE}" aria-label="${esc(heading)}">
+  return `<section class="${CARD_BODY_CLASS}" style="margin:32px 0 0;padding:20px 24px" aria-label="${esc(heading)}">
   <p style="${SMALL_HEADING_STYLE}">${esc(heading)}</p>
   <ul class="s-h04l3F">${items}</ul>
 </section>`;
