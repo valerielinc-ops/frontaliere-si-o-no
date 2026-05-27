@@ -1,0 +1,441 @@
+/**
+ * Traffic Scheduler Core
+ *
+ * Called by the scheduled GitHub Actions workflow (traffic-scheduler.yml).
+ *
+ * For each active border crossing the job:
+ * 1. Queries a live routing provider for:
+ * - Approach traffic: ~500 m before the crossing on the Italian side
+ * - Crossing delay: crossing point → Swiss checkpoint (~1 km north)
+ * 2. Persists the snapshot to Firestore:
+ * - trafficCurrent/{slug} → latest state (overwrite)
+ * - trafficHistory/{slug}/snapshots/{snapshotId} → append-only historical record
+ */
+
+import admin from 'firebase-admin';
+import { slugifyCrossingName, BORDER_CROSSINGS } from './borderCrossingsData.js';
+
+// Re-export so callers that previously imported from this module keep working.
+export { slugifyCrossingName, BORDER_CROSSINGS };
+
+const GOOGLE_DISTANCE_MATRIX_URL = 'https://maps.googleapis.com/maps/api/distancematrix/json';
+const TOMTOM_CALCULATE_ROUTE_URL = 'https://api.tomtom.com/routing/1/calculateRoute';
+const HERE_ROUTER_URL = 'https://router.hereapi.com/v8/routes';
+const TT_FLOW_URL = 'https://api.tomtom.com/traffic/services/4/flowSegmentData/relative0';
+const MAX_FLOW_DELAY_MIN = 45;
+const WEBCAM_QUEUE_MIN_WAIT_MIN = 8;
+const WEBCAM_CLEAR_HIGH_WAIT_MIN = 30;
+const WEBCAM_CLEAR_APPROACH_MAX_MIN = 5;
+const WEBCAM_CLEAR_FALLBACK_WAIT_MIN = 4;
+
+function resolveTrafficProvider({ hereApiKey, tomtomApiKey, googleApiKey }) {
+ if (hereApiKey) return 'here';
+ if (tomtomApiKey) return 'tomtom';
+ if (googleApiKey) return 'google-maps';
+ return null;
+}
+
+/**
+ * Calls the Google Maps Distance Matrix REST API for one origin→destination pair.
+ * Returns normal duration (seconds) and with-traffic duration (seconds).
+ *
+ * @param {number} originLat
+ * @param {number} originLng
+ * @param {number} destLat
+ * @param {number} destLng
+ * @param {string} apiKey
+ * @returns {Promise<{durationNormalSec: number, durationTrafficSec: number}>}
+ */
+export async function getGoogleDistanceMatrix(originLat, originLng, destLat, destLng, apiKey) {
+ const url = `${GOOGLE_DISTANCE_MATRIX_URL}` +
+ `?origins=${originLat},${originLng}` +
+ `&destinations=${destLat},${destLng}` +
+ `&mode=driving` +
+ `&departure_time=now` +
+ `&traffic_model=best_guess` +
+ `&key=${encodeURIComponent(apiKey)}`;
+
+ const response = await fetch(url);
+ if (!response.ok) {
+ throw new Error(`Distance Matrix HTTP ${response.status}`);
+ }
+
+ const data = await response.json();
+ if (data.status !== 'OK') {
+ throw new Error(`Distance Matrix API: ${data.status} – ${data.error_message ?? ''}`);
+ }
+
+ const element = data.rows?.[0]?.elements?.[0];
+ if (!element || element.status !== 'OK') {
+ throw new Error(`Route element: ${element?.status ?? 'NO_DATA'}`);
+ }
+
+ return {
+ durationNormalSec: element.duration.value,
+ durationTrafficSec: element.duration_in_traffic?.value ?? element.duration.value,
+ };
+}
+
+/**
+ * Calls the TomTom Routing API for one origin→destination pair.
+ * Returns the no-traffic and live-traffic travel times in seconds.
+ *
+ * @param {number} originLat
+ * @param {number} originLng
+ * @param {number} destLat
+ * @param {number} destLng
+ * @param {string} apiKey
+ * @returns {Promise<{durationNormalSec: number, durationTrafficSec: number}>}
+ */
+export async function getTomTomRouteTravelTimes(originLat, originLng, destLat, destLng, apiKey) {
+ const routePlanningLocations = `${originLat},${originLng}:${destLat},${destLng}`;
+ const params = new URLSearchParams({
+ key: apiKey,
+ traffic: 'true',
+ travelMode: 'car',
+ routeType: 'fastest',
+ routeRepresentation: 'summaryOnly', // 'none' requires computeBestOrder=true
+ computeTravelTimeFor: 'all',
+ departAt: new Date().toISOString(),
+ });
+
+ const url = `${TOMTOM_CALCULATE_ROUTE_URL}/${routePlanningLocations}/json?${params.toString()}`;
+ const response = await fetch(url);
+ if (!response.ok) {
+ let errorBody = '';
+ try { errorBody = await response.text(); } catch { /* ignore */ }
+ throw new Error(`TomTom Routing HTTP ${response.status}: ${errorBody.slice(0, 300)}`);
+ }
+
+ const data = await response.json();
+ const summary = data?.routes?.[0]?.summary;
+ if (!summary) {
+ throw new Error('TomTom Routing API: NO_ROUTE_SUMMARY');
+ }
+
+ const durationTrafficSec = summary.travelTimeInSeconds;
+ const durationNormalSec =
+ summary.noTrafficTravelTimeInSeconds ??
+ Math.max(durationTrafficSec - (summary.trafficDelayInSeconds ?? 0), 0);
+
+ if (!Number.isFinite(durationTrafficSec) || !Number.isFinite(durationNormalSec)) {
+ throw new Error('TomTom Routing API: INVALID_TRAVEL_TIMES');
+ }
+
+ return { durationNormalSec, durationTrafficSec };
+}
+
+/**
+ * Calls HERE Maps Routing API v8 for one origin→destination pair.
+ * Returns baseDuration (free-flow) and duration (with traffic) in seconds.
+ *
+ * @param {number} originLat
+ * @param {number} originLng
+ * @param {number} destLat
+ * @param {number} destLng
+ * @param {string} apiKey
+ * @returns {Promise<{durationNormalSec: number, durationTrafficSec: number}>}
+ */
+export async function getHereMapsRouteTravelTimes(originLat, originLng, destLat, destLng, apiKey) {
+ const params = new URLSearchParams({
+ apikey: apiKey,
+ origin: `${originLat},${originLng}`,
+ destination: `${destLat},${destLng}`,
+ transportMode: 'car',
+ return: 'summary',
+ departureTime: new Date().toISOString(),
+ });
+ const res = await fetch(`${HERE_ROUTER_URL}?${params}`);
+ if (!res.ok) {
+ const body = await res.text().catch(() => '');
+ throw new Error(`HERE HTTP ${res.status}: ${body.slice(0, 200)}`);
+ }
+ const data = await res.json();
+ const summary = data?.routes?.[0]?.sections?.[0]?.summary;
+ if (!summary) throw new Error('HERE: NO_ROUTE_SUMMARY');
+ return {
+ durationNormalSec: summary.baseDuration,
+ durationTrafficSec: summary.duration,
+ };
+}
+
+/**
+ * Calls TomTom Traffic Flow API for a given point.
+ * Returns speed ratio (currentSpeed/freeFlowSpeed): 1.0 = free, 0.0 = standstill.
+ * Uses tile-based endpoint (50k/day free quota).
+ *
+ * @param {number} lat
+ * @param {number} lng
+ * @param {string} apiKey
+ * @returns {Promise<{ratio: number, confidence: number, currentSpeed: number, freeFlowSpeed: number}>}
+ */
+export async function getTomTomFlowSegmentData(lat, lng, apiKey) {
+ const url = `${TT_FLOW_URL}/16/json?key=${apiKey}&point=${lat},${lng}&unit=KMPH`;
+ const res = await fetch(url);
+ if (!res.ok) throw new Error(`TomTom Flow HTTP ${res.status}`);
+ const d = await res.json();
+ const seg = d?.flowSegmentData;
+ if (!seg) throw new Error('TomTom Flow: NO_SEGMENT');
+ return {
+ ratio: seg.currentSpeed / seg.freeFlowSpeed,
+ confidence: seg.confidence,
+ currentSpeed: seg.currentSpeed,
+ freeFlowSpeed: seg.freeFlowSpeed,
+ };
+}
+
+async function getSegmentTravelTimes(originLat, originLng, destLat, destLng, options) {
+ const provider = resolveTrafficProvider(options);
+ if (provider === 'here') {
+ return getHereMapsRouteTravelTimes(originLat, originLng, destLat, destLng, options.hereApiKey);
+ }
+ if (provider === 'tomtom') {
+ return getTomTomRouteTravelTimes(originLat, originLng, destLat, destLng, options.tomtomApiKey);
+ }
+ if (provider === 'google-maps') {
+ return getGoogleDistanceMatrix(originLat, originLng, destLat, destLng, options.googleApiKey);
+ }
+ throw new Error('No live traffic provider configured');
+}
+
+export function applyWebcamTrafficSanity(waitTimeMinutes, approachMinutes, webcam, crossingName = 'crossing') {
+ if (!webcam || webcam.visibility !== 'good') return waitTimeMinutes;
+
+ if (webcam.queueDetected && waitTimeMinutes < WEBCAM_QUEUE_MIN_WAIT_MIN) {
+ console.log(`📷 Webcam override for ${crossingName}: queueDetected=true → ${WEBCAM_QUEUE_MIN_WAIT_MIN} min`);
+ return WEBCAM_QUEUE_MIN_WAIT_MIN;
+ }
+
+ if (
+ !webcam.queueDetected &&
+ waitTimeMinutes >= WEBCAM_CLEAR_HIGH_WAIT_MIN &&
+ approachMinutes <= WEBCAM_CLEAR_APPROACH_MAX_MIN
+ ) {
+ console.warn(
+ `📷 Webcam sanity filter for ${crossingName}: provider=${waitTimeMinutes} min, ` +
+ `approach=${approachMinutes} min, clear webcam → ${WEBCAM_CLEAR_FALLBACK_WAIT_MIN} min`,
+ );
+ return WEBCAM_CLEAR_FALLBACK_WAIT_MIN;
+ }
+
+ return waitTimeMinutes;
+}
+
+/**
+ * Fetches traffic data for a single border crossing via two live-routing calls:
+ * 1. Approach segment: Italian approach point (≈500 m south) → crossing
+ * 2. Crossing segment: crossing → Swiss checkpoint (≈1 km north)
+ *
+ * @param {{ name: string, lat: number, lng: number }} crossing
+ * @param {{ hereApiKey?: string, tomtomApiKey?: string, googleApiKey?: string }} options
+ */
+export async function fetchCrossingTraffic(crossing, options = {}) {
+ const { lat, lng } = crossing;
+ const provider = resolveTrafficProvider(options);
+
+ if (!provider) {
+ throw new Error('No live traffic provider configured');
+ }
+
+ // Swiss checkpoint: ≈1 km north of the crossing (same offset used in trafficService.ts)
+ const checkpointLat = lat + 0.01;
+ // Italian approach point: ≈500 m south of the crossing
+ const approachLat = lat - 0.0045;
+
+ const [crossingResult, approachResult] = await Promise.allSettled([
+ getSegmentTravelTimes(lat, lng, checkpointLat, lng, options),
+ getSegmentTravelTimes(approachLat, lng, lat, lng, options),
+ ]);
+
+ let waitTimeMinutes = 0;
+ let approachMinutes = 0;
+
+ if (crossingResult.status === 'fulfilled') {
+ const { durationNormalSec, durationTrafficSec } = crossingResult.value;
+ waitTimeMinutes = Math.max(0, Math.round((durationTrafficSec - durationNormalSec) / 60));
+ } else {
+ console.warn(`⚠️ Crossing segment failed for ${crossing.name}: ${crossingResult.reason?.message}`);
+ }
+
+ // TomTom Flow sanity check: if road speed is <30% of free flow but routing says 0 min,
+ // there's likely a queue the routing API missed. Override conservatively.
+ if (options.tomtomApiKey && waitTimeMinutes < 5) {
+ try {
+ const flow = await getTomTomFlowSegmentData(crossing.lat, crossing.lng, options.tomtomApiKey);
+ if (flow.ratio < 0.3 && flow.confidence > 0.5) {
+ waitTimeMinutes = Math.round((1 - flow.ratio) * MAX_FLOW_DELAY_MIN);
+ console.log(`🚦 Flow override for ${crossing.name}: ratio=${flow.ratio.toFixed(2)} → ${waitTimeMinutes} min`);
+ }
+ } catch (flowErr) {
+ // Flow check is best-effort — never block on it
+ console.warn(`⚠️ TomTom Flow check failed for ${crossing.name}: ${flowErr.message}`);
+ }
+ }
+
+ if (approachResult.status === 'fulfilled') {
+ const { durationNormalSec, durationTrafficSec } = approachResult.value;
+ approachMinutes = Math.max(0, Math.round((durationTrafficSec - durationNormalSec) / 60));
+ } else {
+ console.warn(`⚠️ Approach segment failed for ${crossing.name}: ${approachResult.reason?.message}`);
+ }
+
+ // If BOTH segments failed, propagate the error instead of silently returning 0-minute data
+ if (crossingResult.status === 'rejected' && approachResult.status === 'rejected') {
+ throw new Error(`Both segments failed for ${crossing.name}: ${crossingResult.reason?.message}`);
+ }
+
+ // Webcam sanity: raise missed visible queues, and suppress single-provider
+ // red outliers when the primary camera is clear and the approach segment is free.
+ // Only active if webcam analysis is enabled (options.enableWebcam) and crossing has a camera.
+ if (options.enableWebcam) {
+  try {
+   const { analyzeWebcamForCrossing } = await import('../../scripts/analyze-webcam-frame.mjs');
+   const webcam = await analyzeWebcamForCrossing(slugifyCrossingName(crossing.name));
+   waitTimeMinutes = applyWebcamTrafficSanity(waitTimeMinutes, approachMinutes, webcam, crossing.name);
+  } catch (webcamErr) {
+   console.warn(`⚠️ Webcam analysis skipped for ${crossing.name}: ${webcamErr.message}`);
+  }
+ }
+
+ const totalCrossingMinutes = waitTimeMinutes + approachMinutes;
+
+ let status;
+ if (waitTimeMinutes < 5) status = 'green';
+ else if (waitTimeMinutes < 15) status = 'yellow';
+ else status = 'red';
+
+ // Cloud Functions use UTC by default; derive the local hour in Europe/Rome
+ const hour = Number(
+ new Date().toLocaleString('en-US', { timeZone: 'Europe/Rome', hour: 'numeric', hour12: false }),
+ );
+ let direction;
+ if (hour >= 6 && hour < 10) direction = 'IT → CH';
+ else if (hour >= 16 && hour < 20) direction = 'CH → IT';
+ else direction = 'Entrambi';
+
+ return {
+ crossingName: crossing.name,
+ waitTimeMinutes,
+ approachMinutes,
+ totalCrossingMinutes,
+ status,
+ direction,
+ source: provider,
+ };
+}
+
+// ─── Firebase Admin init ──────────────────────────────────────
+
+export function ensureAdminApp() {
+ if (!admin.apps.length) {
+ admin.initializeApp({ credential: admin.credential.applicationDefault() });
+ }
+ return admin;
+}
+
+// ─── Firestore persistence ─────────────────────────────────────
+
+/**
+ * Writes a batch of crossing results to Firestore.
+ *
+ * Collections written:
+ * - trafficCurrent/{slug} → latest state (overwrite)
+ * - trafficHistory/{slug}/snapshots/{snapshotId} → historical append-only
+ */
+export async function saveTrafficToFirestore(crossingResults) {
+ const adm = ensureAdminApp();
+ const db = adm.firestore();
+ const now = adm.firestore.Timestamp.now();
+ // Use the current timestamp (ms) as a chronologically sortable document ID.
+ const snapshotId = Date.now().toString();
+
+ const nowDate = new Date();
+ const hour = nowDate.getHours();
+ const dayOfWeek = nowDate.getDay();
+
+ // Firestore batches are limited to 500 operations; each crossing = 2 writes.
+ // With 22 crossings (44 ops) we are well within limits.
+ const batch = db.batch();
+
+ for (const result of crossingResults) {
+ const slug = slugifyCrossingName(result.crossingName);
+ const docData = {
+ ...result,
+ lastUpdate: now,
+ hour,
+ dayOfWeek,
+ };
+
+ // Current state – overwrite on every run
+ const currentRef = db.collection('trafficCurrent').doc(slug);
+ batch.set(currentRef, docData);
+
+ // Historical snapshot – append only
+ const historyRef = db
+ .collection('trafficHistory')
+ .doc(slug)
+ .collection('snapshots')
+ .doc(snapshotId);
+ batch.set(historyRef, docData);
+ }
+
+ await batch.commit();
+ console.log(`✅ Saved traffic snapshot for ${crossingResults.length} crossings (snapshotId=${snapshotId})`);
+}
+
+// ─── Main entry point ─────────────────────────────────────────
+
+/**
+ * Collects traffic data for all active border crossings and persists it to Firestore.
+ * This is the single entry point called by all three onSchedule functions.
+ *
+ * @param {{ hereApiKey?: string, tomtomApiKey?: string, googleApiKey?: string }} options
+ * @returns {Promise<{collected: number, errors: number}>}
+ */
+export async function runTrafficCollection(options = {}) {
+ const { hereApiKey, tomtomApiKey, googleApiKey } = options;
+ const enableWebcam = !!options.enableWebcam;
+ console.log(`📷 Webcam analysis: ${enableWebcam ? 'enabled' : 'disabled'}`);
+ const provider = resolveTrafficProvider({ hereApiKey, tomtomApiKey, googleApiKey });
+ if (!provider) {
+ console.warn('⚠️ No routing API key set (HERE_API_KEY, TOMTOM_API_KEY, or GOOGLE_MAPS_API_KEY) – skipping traffic collection');
+ return { collected: 0, errors: 0 };
+ }
+
+ console.log(`🚦 Starting traffic collection for ${BORDER_CROSSINGS.length} crossings via ${provider}…`);
+
+ const results = [];
+ let errors = 0;
+
+ // Process in provider-aware batches to stay below default QPS limits.
+ const BATCH_SIZE = provider === 'tomtom' ? 2 : 5;
+ const BATCH_DELAY_MS = provider === 'tomtom' ? 1000 : 200;
+ for (let i = 0; i < BORDER_CROSSINGS.length; i += BATCH_SIZE) {
+ const chunk = BORDER_CROSSINGS.slice(i, i + BATCH_SIZE);
+ const settled = await Promise.allSettled(
+ chunk.map(c => fetchCrossingTraffic(c, options)),
+ );
+
+ for (let j = 0; j < settled.length; j++) {
+ const res = settled[j];
+ if (res.status === 'fulfilled') {
+ results.push(res.value);
+ } else {
+ console.error(`❌ ${chunk[j].name}: ${res.reason?.message}`);
+ errors++;
+ }
+ }
+
+ // Brief pause between chunks to avoid bursting API quota.
+ if (i + BATCH_SIZE < BORDER_CROSSINGS.length) {
+ await new Promise(r => setTimeout(r, BATCH_DELAY_MS));
+ }
+ }
+
+ if (results.length > 0) {
+ await saveTrafficToFirestore(results);
+ }
+
+ console.log(`✅ Collection done – ${results.length} OK, ${errors} errors`);
+ return { collected: results.length, errors };
+}

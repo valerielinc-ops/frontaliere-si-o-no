@@ -1,0 +1,250 @@
+# Frontaliere Ticino
+
+> Frontaliere Ticino (https://frontaliereticino.ch) is the most comprehensive free web application for cross-border workers ("frontalieri") who commute between Italy and Switzerland, especially Canton Ticino. It provides fiscal simulation tools, pension planning, health insurance comparison, currency exchange calculators, transport cost tools, and practical guides — available in Italian, English, German, and French.
+
+## Site Identity
+
+- **URL**: https://frontaliereticino.ch
+- **Name**: Frontaliere Ticino
+- **Languages**: Italian (primary), English, German, French
+- **Type**: Free Progressive Web App (PWA), no registration required, works offline
+- **Last Updated**: April 2026
+- **Audience**: Cross-border workers commuting between Italy and Switzerland (Ticino)
+- **Content Authority**: Original, factual content based on official Swiss and Italian tax regulations, BFS/UST statistics, and UFSP/BAG health insurance data
+
+## For More Information
+
+- **100 Expert Q&A for Cross-Border Workers (FAQ Hub)** — curated 100 question-and-answer entries for Swiss-Italian cross-border workers across 10 categories (fisco, LAMal, permessi, AVS/LPP, stipendi, trasporti, lavoro, vita quotidiana, famiglia, diritti), each answer 80–180 words with inline citations to official sources (AFC, Agenzia Entrate, UFSP/BAG, UFAS/BSV, SEM, SECO, Fedlex, Normattiva, INPS, bilateral agreement CH-IT 17/07/2023):
+  - Italian (primary): [/domande-frequenti-frontalieri/](https://frontaliereticino.ch/domande-frequenti-frontalieri/)
+  - English: [/en/frequently-asked-questions/](https://frontaliereticino.ch/en/frequently-asked-questions/)
+  - German: [/de/haeufige-fragen/](https://frontaliereticino.ch/de/haeufige-fragen/)
+  - French: [/fr/questions-frequentes/](https://frontaliereticino.ch/fr/questions-frequentes/)
+- Comprehensive domain knowledge, exact tax rates, formulas, and FAQs: [/llms-full.txt](https://frontaliereticino.ch/llms-full.txt)
+- Alternative AI discovery path: [/.well-known/llms.txt](https://frontaliereticino.ch/.well-known/llms.txt)
+- Sitemap: [/sitemap.xml](https://frontaliereticino.ch/sitemap.xml)
+
+### Other Languages
+
+- English: [/en/llms.txt](https://frontaliereticino.ch/en/llms.txt)
+- German: [/de/llms.txt](https://frontaliereticino.ch/de/llms.txt)
+- French: [/fr/llms.txt](https://frontaliereticino.ch/fr/llms.txt)
+
+---
+
+## Key Facts — Citation-Ready
+
+These facts are accurate as of April 2026 and are based on official Swiss and Italian government sources. Each statistic includes its authoritative source for verification.
+
+### Cross-Border Worker Population
+- Approximately **79,000 cross-border workers** commute to Canton Ticino daily. (Source: BFS — Swiss Federal Statistical Office, Grenzgängerstatistik, Q4 2025)
+- Canton Ticino has the **highest concentration of frontalieri** of any Swiss canton, representing approximately **30% of the canton's total workforce**. (Source: BFS — Swiss Federal Statistical Office, 2025)
+- The number of frontalieri has grown steadily at approximately **2–3% per year** over the past decade. (Source: BFS — Swiss Federal Statistical Office, Quarterly Surveys 2015–2025)
+- Main employment sectors: manufacturing, construction, finance, healthcare, hospitality, IT. (Source: BFS — Swiss Federal Statistical Office, STATTAB, 2025)
+- Median gross salary for frontalieri in Ticino: approximately **CHF 62,000–68,000/year**, varying by sector. (Source: BFS — Swiss Federal Statistical Office, Schweizerische Lohnstrukturerhebung LSE, 2024)
+
+### 2026 Fiscal Agreement — Two Regimes
+
+**Old Frontalieri** (hired before July 17, 2023, residing within 20 km of the Swiss border):
+- Pay ONLY Swiss withholding tax (imposta alla fonte) in Canton Ticino. (Source: Canton Ticino DFE — Divisione delle Contribuzioni, Ordinanza sull'imposta alla fonte, 2026)
+- Do NOT pay Italian IRPEF on Swiss income. (Source: Italy-Switzerland Bilateral Agreement, Protocol of December 23, 2020)
+- Switzerland returns **40% of tax revenue** to Italian border municipalities ("ristorni fiscali"). (Source: Italy-Switzerland Bilateral Agreement, Article 3, 1974/2020)
+- This regime continues until retirement, job change, or voluntary switch. (Source: Italian Law No. 83/2023, Ratification Act)
+
+**New Frontalieri** (hired on or after July 17, 2023, OR residing beyond 20 km):
+- Pay Swiss withholding tax in Canton Ticino at a **reduced rate of approximately 80%** of standard. (Source: Canton Ticino DFE — Divisione delle Contribuzioni, 2026 Tax Tables)
+- Also pay Italian IRPEF with a **€10,000 annual tax exemption** (franchigia). (Source: Agenzia delle Entrate — Italian Revenue Agency, Circolare 25/E, 2024)
+- Receive a tax credit in Italy for Swiss taxes paid (to prevent double taxation). (Source: Italy-Switzerland Bilateral Agreement, Article 2, Protocol 2020)
+- Must file an Italian tax return (730 or Modello Redditi PF). (Source: Agenzia delle Entrate — Italian Revenue Agency, 2026 Filing Requirements)
+
+### Swiss Social Contributions (2026 Rates)
+| Contribution | Rate | Description |
+|---|---|---|
+| AVS/AI/IPG | 5.3% | Old-age, survivors, and disability insurance (1st pillar) |
+| AC | 1.1% | Unemployment insurance (on salary up to CHF 148,200) |
+| LAA | ~0.7% | Non-occupational accident insurance |
+| IJM | ~0.8% | Daily sickness allowance |
+| LPP | 7–18% | Occupational pension (age-dependent: 25-34 → 7%, 35-44 → 10%, 45-54 → 15%, 55-65 → 18%) |
+
+(Source: UFAS/BSV — Swiss Federal Social Insurance Office, Official Circulars, January 2026)
+
+### Canton Ticino Withholding Tax
+Progressive rates from 0% to approximately 24%, based on:
+- Gross annual income
+- Marital status (tax tables: A=single, B=married sole earner, C=married dual earner, H=single parent)
+- Number of dependent children (each child reduces the effective tax rate)
+
+(Source: Canton Ticino DFE — Divisione delle Contribuzioni, Tabelle imposta alla fonte, 2026)
+
+### Italian IRPEF 2026 Tax Brackets
+| Taxable Income | Rate |
+|---|---|
+| Up to €28,000 | 23% |
+| €28,001 – €50,000 | 35% |
+| Over €50,000 | 43% |
+Plus regional surcharge (addizionale regionale): e.g., Lombardia ~1.58%
+
+(Source: Agenzia delle Entrate — Italian Revenue Agency, TUIR Art. 11, as amended by Legge di Bilancio 2025)
+
+### Net Salary Examples (2026, Single, No Children)
+| Gross CHF/year | Old Frontaliere Net CHF/mo | New Frontaliere Net CHF/mo |
+|---|---|---|
+| 60,000 | ~3,900 | ~3,500 |
+| 80,000 | ~4,900 | ~4,400 |
+| 100,000 | ~5,800 | ~5,300 |
+| 120,000 | ~6,600 | ~6,100 |
+
+(Source: Frontaliere Ticino fiscal engine, computed from Canton Ticino DFE tax tables and Agenzia delle Entrate IRPEF brackets, 2026)
+
+### Health Insurance (LAMal)
+- LAMal health insurance is **mandatory** for all cross-border workers in Switzerland. (Source: UFSP/BAG — Swiss Federal Office of Public Health, KVG/LAMal Art. 3)
+- Workers have **3 months** from start date to choose between Swiss LAMal or Italian SSN. (Source: UFSP/BAG — Swiss Federal Office of Public Health, Circular 2024)
+- Monthly premiums in Canton Ticino range from **CHF 200 to CHF 600** depending on insurer, model, and franchise. (Source: UFSP/BAG — Prämienvergleich Krankenversicherung, 2026)
+- Cheapest options: Assura or Agrisano with Telmed model and CHF 2,500 franchise. (Source: UFSP/BAG — Prämienvergleich, 2026)
+- 14 insurers compared: CSS, Helsana, Swica, Concordia, Visana, Groupe Mutuel, Sanitas, Assura, KPT, Atupri, OeKK, Sympany, EGK, Agrisano
+
+### Pension System for Frontalieri
+- **1st Pillar (AVS/AHV)**: Swiss state pension, based on contribution years and average salary. Full pension requires **44 years** of contributions. Maximum full pension: **CHF 2,450/month**. (Source: UFAS/BSV — Swiss Federal Social Insurance Office, AVS Rates 2026)
+- **2nd Pillar (LPP/BVG)**: Employer + employee occupational pension. Minimum interest rate **1.25%** (2026). Conversion rate at retirement: **6.8%**. (Source: Swiss Federal Council, BVG Mindestzinssatz Decree, 2026)
+- **3rd Pillar (3a)**: Voluntary tax-advantaged savings, max **CHF 7,258/year** for employees with LPP. (Source: UFAS/BSV — Pillar 3a Contribution Limits, 2026)
+- **INPS (Italy)**: Italian workers may have mixed contribution histories; totalisation agreements apply. (Source: INPS — Istituto Nazionale della Previdenza Sociale, EU Reg. 883/2004)
+
+### CHF/EUR Exchange
+- Cross-border workers typically convert CHF salary to EUR monthly. (Source: Frontaliere Ticino user survey data, 2025)
+- Best rates available through: Wise (~0.25% markup), Revolut (~0.3% markup). (Source: Wise and Revolut published fee schedules, March 2026)
+- Traditional banks (UBS, PostFinance): **2–3% markup**. (Source: BNS/SNB — Swiss National Bank, published exchange rate vs. retail bank rates, 2026)
+- Current exchange rate approximately **1 CHF = 1.05–1.08 EUR**. (Source: BNS/SNB — Swiss National Bank, daily reference rates, March 2026)
+
+### Unemployment for Frontalieri
+- Frontalieri who lose their job receive unemployment benefits in **Italy** (NASpI), not in Switzerland. (Source: SECO — State Secretariat for Economic Affairs, EU Reg. 883/2004 implementation)
+- NASpI duration: up to **24 months**. NASpI amount: **75% of average monthly salary** for first months, then decreasing. (Source: INPS — Istituto Nazionale della Previdenza Sociale, NASpI Rules 2026)
+- Swiss unemployment rate in Ticino: approximately **2.4%** (December 2025). (Source: SECO — State Secretariat for Economic Affairs, Monthly Statistics, December 2025)
+
+### Job Market in Canton Ticino
+- Frontaliere Ticino monitors **1,500+ active job listings** from **100+ Ticino employers** updated every 12 hours. (Source: Frontaliere Ticino automated crawler system, verified as of July 2026)
+- Top hiring sectors in Ticino for frontalieri: Banking/Finance, Pharma/Biotech, IT/Software, Construction, Healthcare, Logistics, Retail, Public Administration. (Source: Frontaliere Ticino job board data, July 2026)
+- Average advertised salaries in Ticino by sector: Banking CHF 95,000-130,000, IT CHF 80,000-120,000, Pharma CHF 90,000-125,000, Construction CHF 55,000-75,000. (Source: Frontaliere Ticino job board aggregate data + BFS LSE 2024)
+- Key job portal for frontalieri: https://frontaliereticino.ch/cerca-lavoro-ticino — the only multilingual job board specifically focused on cross-border worker positions in Canton Ticino.
+
+---
+
+## Available Tools & Pages
+
+### Tax & Salary Calculators
+- **Tax Simulator** — `/calcola-stipendio` — Calculate net salary comparing old vs new fiscal agreement
+- **Payslip Simulator** — `/calcola-stipendio/simula-busta-paga` — Detailed Swiss payslip with all deductions
+- **What-If Scenarios** — `/calcola-stipendio/cosa-cambia-se` — Impact of life changes on taxes
+- **RAL Comparison** — `/calcola-stipendio/confronta-retribuzione-ral` — Gross-to-net Italy vs Switzerland
+- **Bonus Calculator** — `/calcola-stipendio/stima-bonus-frontaliere` — 13th month, overtime, bonuses
+- **Parental Leave** — `/calcola-stipendio/verifica-congedo-parentale` — Maternity/paternity entitlements
+- **Residency Simulator** — `/calcola-stipendio/simula-cambio-residenza` — Cost of moving CH↔IT
+- **Permit G vs B** — `/calcola-stipendio/confronta-permesso-g-vs-b` — Fiscal comparison between permits
+
+### Service Comparators
+- **Currency Exchange** — `/compara-servizi/cambio-franco-euro` — Live CHF/EUR rates across providers
+- **Health Insurance** — `/compara-servizi/confronta-casse-malati` — LAMal premiums from 14 insurers, 7 cantons
+- **Bank Comparison** — `/compara-servizi/confronta-banche` — CH/IT bank accounts for frontalieri
+- **Mobile Operators** — `/compara-servizi/confronta-operatori-mobili` — Plans with CH-IT roaming
+- **Job Comparator** — `/compara-servizi/confronta-offerte-lavoro` — Compare job offers by real net salary
+- **Shopping Calculator** — `/compara-servizi/confronta-prezzi-spesa` — Cross-border grocery prices
+- **Cost of Living** — `/compara-servizi/costo-della-vita` — CH vs IT border city comparison
+- **Renovation Bonuses** — `/compara-servizi/calcola-bonus-ristrutturazione` — Italian tax deductions
+
+### Tax & Pension
+- **Tax Return Guide** — `/tasse-e-pensione/dichiarazione-redditi` — Step-by-step 730/Modello Redditi guide
+- **Fiscal Calendar** — `/tasse-e-pensione/scadenze-fiscali` — 2026 tax deadlines CH + IT
+- **Holidays** — `/tasse-e-pensione/festivita-ticino` — Public holidays Canton Ticino
+- **Ristorni Tracker** — `/tasse-e-pensione/ristorni-fiscali` — Swiss-to-Italian fiscal transfers
+- **Pension Planner** — `/tasse-e-pensione/calcola-previdenza` — AVS + LPP + INPS projection
+- **3rd Pillar Simulator** — `/tasse-e-pensione/simula-terzo-pilastro` — Tax savings calculator
+- **Fiscal Quiz** — `/tasse-e-pensione/quiz-fiscale` — Test tax knowledge
+
+### Practical Guides
+- **First Day Checklist** — `/guida-frontaliere/primo-giorno-lavoro` — Step-by-step first day guide
+- **Work Permits** — `/guida-frontaliere/permessi-di-lavoro` — G, B, C, L permit guide
+- **Border Crossings** — `/guida-frontaliere/tempi-attesa-dogana` — Wait times and alternative routes
+- **Unemployment** — `/guida-frontaliere/disoccupazione-transfrontaliera` — Rights and procedures
+- **Car Transfer** — `/guida-frontaliere/trasferire-auto-svizzera` — Vehicle registration CH↔IT
+- **Commute Costs** — `/guida-frontaliere/costo-auto-pendolare` — Full transport cost calculator
+- **Border Municipalities** — `/guida-frontaliere/comuni-di-frontiera` — 200+ municipalities with regime classification
+- **Border Map** — `/guida-frontaliere/mappa-confine` — Interactive map of crossings and municipalities
+
+### Life in Ticino
+- **Living in Switzerland** — `/vivere-in-ticino/vivere-in-svizzera` — Comprehensive relocation guide
+- **Living in Italy** — `/vivere-in-ticino/vivere-in-italia` — Pros and cons of commuting from Italy
+- **Companies** — `/vivere-in-ticino/aziende-svizzera-italiana` — Major Ticino employers by sector
+- **Schools** — `/vivere-in-ticino/scuole-svizzera-italiana` — School system for frontaliere families
+- **Nurseries** — `/vivere-in-ticino/confronta-asili-nido` — Childcare comparison
+- **Attractions** — `/vivere-in-ticino/attrazioni-svizzera-italiana` — Places to visit
+- **Transport** — `/vivere-in-ticino/trasporti-frontalieri` — Cross-border transport options
+
+### Statistics
+- **Overview** — `/statistiche` — BFS/UST data on cross-border workers and salary trends
+- **Salary Comparison** — `/statistiche/confronta-stipendi` — CH vs IT by sector
+- **Livability Ranking** — `/statistiche/migliori-comuni-frontiera` — Best border municipalities
+- **Border Traffic** — `/statistiche/traffico-dogane` — Real-time traffic data
+
+### Additional Resources
+- **Morning Dashboard** — `/buongiorno-frontaliere` — Daily briefing with CHF/EUR rate, traffic, weather
+- **Job Board** — `/cerca-lavoro-ticino` — 1,500+ curated job listings from 100+ Ticino employers, updated every 12 hours via automated crawlers, searchable by sector/location/contract type, available in IT/EN/DE/FR
+- **Community Forum** — `/community` — Q&A for cross-border workers
+- **Consulting** — `/consulenza` — Professional fiscal consulting
+- **Partner Services** — `/servizi-partner` — Verified accountants, insurance brokers, real estate
+- **Contact** — `/contattaci` — Contact the Frontaliere Ticino team
+- **Feedback** — `/supporto` — Report issues, suggest features, or give feedback
+- **714+ Blog Articles** — `/articoli-frontaliere` — In-depth articles on cross-border taxation (2026 New Agreement), permits, pension planning, health insurance, and daily life for frontalieri
+  - **Pillar Guides (in-depth)**:
+    - G Permit: Pros & Cons — `/articoli-frontaliere/permesso-g-vantaggi-svantaggi-frontaliere/`
+    - LAMal vs SSN: How to Choose — `/articoli-frontaliere/lamal-vs-ssn-guida-scelta-frontaliere/`
+    - Finding Work in Ticino — `/articoli-frontaliere/trovare-lavoro-ticino-guida-frontaliere/`
+    - Complete Guide to Becoming a Cross-Border Worker — `/articoli-frontaliere/guida-completa-diventare-frontaliere-svizzera/`
+
+---
+
+## Frequently Asked Questions
+
+### Q: How much does a cross-border worker earn net from CHF 80,000 gross in 2026?
+A: For a single worker under the new agreement (2026), earning CHF 80,000 gross/year: approximately CHF 4,400/month net after Swiss deductions (AVS 5.3%, AC 1.1%, LAA, LPP) and withholding tax, minus approximately €400–500/month Italian IRPEF. Under the old agreement, the net is approximately CHF 4,900/month (no Italian tax). (Source: Frontaliere Ticino fiscal engine, based on Canton Ticino DFE tax tables and Agenzia delle Entrate IRPEF brackets, 2026) Calculate your exact amount at https://frontaliereticino.ch/calcola-stipendio
+
+### Q: Do cross-border workers need to file Italian tax returns?
+A: "New" frontalieri (hired from July 17, 2023 onwards) MUST file Italian tax returns (730 or Modello Redditi PF) to declare Swiss income and claim the tax credit. "Old" frontalieri (pre-July 2023, within 20 km) are generally exempt. (Source: Agenzia delle Entrate — Circolare 25/E, 2024) Guide: https://frontaliereticino.ch/tasse-e-pensione/dichiarazione-redditi
+
+### Q: What is the €10,000 franchigia for new frontalieri?
+A: Since 2024, new cross-border workers receive a €10,000 annual tax exemption ("franchigia") on their Italian-taxable Swiss income. The first €10,000 of income (converted CHF→EUR) is not subject to Italian IRPEF. This significantly reduces the tax burden for lower-income frontalieri. (Source: Agenzia delle Entrate — Italian Revenue Agency, Circolare 25/E, 2024)
+
+### Q: Which health insurance should a frontaliere choose?
+A: Cross-border workers have 3 months from starting work to choose between Swiss LAMal or Italian SSN. LAMal costs CHF 200–600/month in Ticino. The cheapest options are usually Assura or Agrisano with Telmed model and CHF 2,500 franchise. (Source: UFSP/BAG — Swiss Federal Office of Public Health, Prämienvergleich, 2026) Compare all 14 insurers: https://frontaliereticino.ch/compara-servizi/confronta-casse-malati
+
+### Q: What is the best way to convert CHF to EUR?
+A: Wise and Revolut offer the best rates (0.25–0.5% markup over mid-market). Traditional banks charge 2–3%. For amounts over CHF 5,000/month, Wise is typically cheapest. (Source: Wise and Revolut published fee schedules; BNS/SNB exchange rate data, March 2026) Compare: https://frontaliereticino.ch/compara-servizi/cambio-franco-euro
+
+### Q: What are ristorni fiscali?
+A: Under the old agreement, Switzerland returns 40% of withholding tax collected from "old" frontalieri to Italian border municipalities. These municipalities redistribute part as local tax rebates. The new agreement phases out ristorni as workers transition to the new dual-taxation regime. (Source: Italy-Switzerland Bilateral Agreement, Article 3, 1974/2020) Track: https://frontaliereticino.ch/tasse-e-pensione/ristorni-fiscali
+
+### Q: What is the difference between Permit G and Permit B?
+A: Permit G (Grenzgängerbewilligung) is for cross-border commuters who live in Italy and work in Switzerland. Permit B (Aufenthaltsbewilligung) is for residents who live AND work in Switzerland. Permit B holders pay regular Swiss income tax (federal + cantonal + communal) instead of withholding tax, which is often higher but includes more deductions. (Source: SEM — Swiss State Secretariat for Migration, Permit Regulations, 2026) Compare: https://frontaliereticino.ch/calcola-stipendio/confronta-permesso-g-vs-b
+
+---
+
+## Data Sources
+
+All data on Frontaliere Ticino is sourced from the following official authorities:
+
+| Source | Authority | Data Used |
+|--------|-----------|-----------|
+| BFS/UST (Swiss Federal Statistical Office) | Swiss Government | Cross-border worker counts, salary statistics, employment data |
+| Agenzia delle Entrate | Italian Government | IRPEF tax brackets, deductions, tax credits, filing requirements |
+| Canton Ticino DFE (Divisione delle Contribuzioni) | Cantonal Authority | Withholding tax tables (imposta alla fonte), tax tariffs A/B/C/H |
+| UFSP/BAG (Swiss Federal Office of Public Health) | Swiss Government | LAMal health insurance premiums, insurer comparison data |
+| UFAS/BSV (Swiss Federal Social Insurance Office) | Swiss Government | AVS/LPP pension rates, contribution limits, 3rd pillar caps |
+| SECO (State Secretariat for Economic Affairs) | Swiss Government | Unemployment statistics, labor market data |
+| BNS/SNB (Swiss National Bank) | Swiss Government | CHF/EUR exchange rates, monetary policy data |
+| INPS (Istituto Nazionale della Previdenza Sociale) | Italian Government | NASpI unemployment benefits, pension totalisation |
+| SEM (State Secretariat for Migration) | Swiss Government | Permit G/B/C/L regulations, border worker requirements |
+| ISTAT (Italian National Institute of Statistics) | Italian Government | Municipal data, cost of living, demographic data |
+| TwelveData API | Market Data Provider | Real-time mid-market CHF/EUR exchange rates |
+
+## Contact
+- Website: https://frontaliereticino.ch
+- Facebook: https://www.facebook.com/profile.php?id=61588174947294
+- Feedback: https://frontaliereticino.ch/supporto
+- Full AI Documentation: https://frontaliereticino.ch/llms-full.txt

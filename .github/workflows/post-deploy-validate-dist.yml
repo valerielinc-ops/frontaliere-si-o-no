@@ -1,0 +1,510 @@
+name: Post-deploy Validate (dist)
+
+# Reusable workflow called from deploy.yml as the `validate-dist` job.
+# Runs in PARALLEL with `deploy` (the actual Pages publication), starting
+# as soon as the `build` job finishes uploading the `github-pages`
+# artifact. Everything here reads from `dist/` only — no live site
+# dependency. By design this job does NOT need `actions/deploy-pages`
+# to have completed.
+#
+# Same-run model:
+#   • github.sha is invariant — no more workflow_run.head_sha drift
+#   • actions/download-artifact@v5 with run-id same-run → no API lag
+#   • 1:1 deploy↔validate mapping in the Actions UI by construction;
+#     no more "cancelled" post-deploys for cancelled/skipped deploys
+#     (the parent gates this entire workflow with `if: success()`)
+#   • the parent `build` job has job-level concurrency on
+#     `pages-deploy` so the lock is released as soon as build finishes,
+#     and the next deploy can start while validate-dist + deploy run.
+on:
+  workflow_call:
+    inputs:
+      deploy_run_id:
+        description: 'Run ID of the calling deploy workflow run (pass github.run_id from the caller).'
+        required: true
+        type: string
+      deploy_event_name:
+        description: 'github.event_name from the caller. Used to gate Facebook/LinkedIn posting and live-meta wait to workflow_dispatch deploys (article publishing pipeline).'
+        required: true
+        type: string
+
+jobs:
+  validate-dist:
+    runs-on: ubuntu-latest
+    permissions:
+      actions: read     # for download-artifact same-run (github-pages, sitemaps)
+    steps:
+      - name: Checkout (same SHA as deploy — invariant in workflow_call)
+        uses: actions/checkout@v5
+
+      # Reclaim ~25 GB of preinstalled SDKs we never use (dotnet, android,
+      # haskell, CodeQL, powershell). Run 26287421188 OOM'd the runner mid
+      # artifact-extract because the github-pages tarball (~1.8 GB) + dist
+      # extraction + node_modules + Playwright report leftovers crowded a
+      # 14 GB default partition. Best-effort: `|| true` keeps the build
+      # green if a path was already pruned by a future image refresh.
+      - name: Free disk space on runner
+        run: |
+          df -h /
+          sudo rm -rf /usr/share/dotnet /usr/local/lib/android /opt/ghc \
+            /opt/hostedtoolcache/CodeQL /usr/local/share/powershell \
+            /usr/local/share/chromium /usr/local/lib/node_modules 2>/dev/null || true
+          sudo docker image prune -af 2>/dev/null || true
+          df -h /
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+
+      - name: Cache node_modules
+        id: node-modules-cache
+        uses: actions/cache@v5
+        with:
+          path: node_modules
+          key: node-modules-${{ runner.os }}-node22-${{ hashFiles('package-lock.json') }}
+
+      - name: Install dependencies
+        if: steps.node-modules-cache.outputs.cache-hit != 'true'
+        run: npm ci
+
+      - name: Prepare Firebase credentials
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -n "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+            echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+          else
+            echo "⚠️ Firebase secrets not set — registry operations will be skipped."
+          fi
+
+      # Hydrate the runner env with secrets pulled from Firebase Remote Config
+      # so the social-media post steps below see FB_PAGE_ACCESS_TOKEN /
+      # FB_PAGE_ID / LINKEDIN_POST_* etc. as `process.env.*`. Without this
+      # step, post-to-facebook.mjs reads `process.env.FB_PAGE_ACCESS_TOKEN`,
+      # finds nothing, and silently exits with the "⚠️ FB_PAGE_ACCESS_TOKEN
+      # or FB_PAGE_ID not set — skipping Facebook post" log line. The
+      # `Post to Facebook Page` and `Post to LinkedIn Company Page` steps
+      # appear green in the UI but never publish.
+      #
+      # load-rc-env.mjs is best-effort: if Firebase credentials are missing
+      # or RC fetch fails, it warns and exits 0, leaving env vars unset and
+      # downstream posting steps to perform their own "missing token" skip.
+      # That is the same fail-soft contract the deploy.yml pipeline already
+      # relies on (see deploy.yml step "Load secrets from Remote Config").
+      - name: Load secrets from Remote Config (FB + LinkedIn tokens)
+        run: node scripts/load-rc-env.mjs
+
+      # Download GitHub Pages artifact + run source validators sequentially.
+      #
+      # Previously the 4 source validators were launched as `run_bg ... &` in
+      # parallel with the artifact download, to save ~30-60s. That race
+      # caused `validate:translation-completeness` and
+      # `validate:crawler-summaries` (which read `dist/data/jobs.json` and
+      # `data/jobs-crawler-summaries.json` from the unpacked artifact) to
+      # fail in <1s with "file not found" — the tar -xf hadn't run yet.
+      # The whole step exited 1 before the post-build pool could start, the
+      # validate job rolled back, and the BFS-depth gate never got tested.
+      # Run 25419353305 (sha e9f03ab9) was the last to confirm this race
+      # under the previous parallel layout.
+      #
+      # Sequential layout: download → tar → run each validator one at a time
+      # and emit a per-gate ✅/❌ row. Adds ~10-15s wall vs parallel but is
+      # deterministic, easier to reason about, and avoids the race entirely.
+      # Same-run artifact download. `actions/download-artifact@v5` reads
+      # from the current run's artifact storage synchronously — no API
+      # propagation lag, no retry, no `gh run download --name` lookup
+      # quirks. This is the architectural payoff of unifying deploy +
+      # validate in one workflow.
+      - name: Download GitHub Pages artifact
+        uses: actions/download-artifact@v5
+        with:
+          name: github-pages
+          path: /tmp/github-pages-artifact
+
+      - name: Download pre-deploy sitemap snapshot (optional)
+        uses: actions/download-artifact@v5
+        continue-on-error: true   # snapshot is optional — IndexNow diff falls back gracefully
+        with:
+          name: pre-deploy-snapshot-${{ inputs.deploy_run_id }}
+          path: /tmp/pre-deploy-snapshot
+
+      - name: Download previous-slug winners (optional)
+        # The build job only uploads `winners-${RUN_ID}` when
+        # `data/previous-slug-winners.json` actually changed in the
+        # build commit. Most builds → no upload → download would emit
+        # a noisy "Artifact not found" annotation if we used
+        # actions/download-artifact (continue-on-error suppresses the
+        # failure but NOT the annotation). `gh run download` fails
+        # silently with a clean stderr message instead.
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p /tmp/winners
+          if gh run download "${{ inputs.deploy_run_id }}" \
+               --name "winners-${{ inputs.deploy_run_id }}" \
+               --dir /tmp/winners 2>/dev/null; then
+            echo "[winners] downloaded artifact for run ${{ inputs.deploy_run_id }}"
+          else
+            echo "[winners] artifact not present (file unchanged this build) — skipping"
+          fi
+
+      - name: Extract dist/ + restore data files from artifact
+        run: |
+          # Pages artifact wraps a single artifact.tar — extract into dist/.
+          rm -rf dist && mkdir -p dist
+          tar -xf /tmp/github-pages-artifact/artifact.tar -C dist
+
+          # Expose jobs.json to scripts that expect public/data/jobs.json
+          # (the file is gitignored; dist/data/jobs.json is the built copy).
+          mkdir -p public/data
+          cp -f dist/data/jobs.json public/data/jobs.json 2>/dev/null || true
+          # validate:crawler-summaries reads data/jobs-crawler-summaries.json,
+          # gitignored and produced by `assemble-jobs-dataset.mjs` during
+          # build (then copied into dist/data/ by vite). Same pattern.
+          cp -f dist/data/jobs-crawler-summaries.json data/jobs-crawler-summaries.json 2>/dev/null || true
+
+          # Optional artifacts — copy if present.
+          if [ -f /tmp/pre-deploy-snapshot/pre-deploy-sitemap-urls.json ]; then
+            cp /tmp/pre-deploy-snapshot/pre-deploy-sitemap-urls.json /tmp/pre-deploy-sitemap-urls.json
+          fi
+          if [ -f /tmp/winners/previous-slug-winners.json ]; then
+            cp /tmp/winners/previous-slug-winners.json data/previous-slug-winners.json
+          fi
+
+      - name: Run source validators sequentially
+        run: |
+          : > /tmp/source-val-results.txt
+
+          # Run a single validator and append one row to
+          # /tmp/source-val-results.txt: "<name>  <wall_s>  rc=<code>".
+          # The summary block at the end reads this file to print the
+          # per-gate ✅/❌ table.
+          run_validator() {
+            local name=$1 logfile=$2; shift 2
+            local start end rc
+            start=$(date +%s.%N)
+            set +e
+            "$@" > "$logfile" 2>&1
+            rc=$?
+            set -e
+            end=$(date +%s.%N)
+            awk -v n="$name" "BEGIN{printf \"%-40s %7.2f rc=%d\n\", n, $end-$start, $rc}" \
+              >> /tmp/source-val-results.txt
+            if [ "$rc" -ne 0 ]; then
+              echo "──── $name failed (rc=$rc) ────"
+              cat "$logfile"
+              echo "──── end $name ────"
+            fi
+            return 0   # never let a single fail short-circuit the chain
+          }
+
+          # Order: cheap dist-readers first (they fail fast and surface a
+          # clean error), then the expensive source-only walk (gate:seo-source
+          # ~110s, no dist dependency).
+          run_validator validate:translation-completeness /tmp/v10.log \
+            node scripts/validate-translation-completeness.mjs
+          run_validator validate:crawler-summaries        /tmp/v11.log \
+            npm run validate:crawler-summaries
+          run_validator validate:third-party-secrets      /tmp/v12.log \
+            npm run validate:third-party-secrets
+          run_validator gate:seo-source                   /tmp/v27.log \
+            npm run gate:seo-source
+
+          # ── 3. Print summary table + decide pass/fail ──
+          echo ""
+          echo "══════════════════════════════════════════════════════════════"
+          echo "Source validators — per-gate results"
+          echo "══════════════════════════════════════════════════════════════"
+          SRC_PASS=0
+          SRC_FAIL=0
+          while IFS= read -r line; do
+            rc=$(printf '%s' "$line" | grep -oE 'rc=[0-9]+$' | sed 's/rc=//')
+            if [ "$rc" = "0" ]; then
+              printf "✅ PASS  %s\n" "$line"
+              SRC_PASS=$((SRC_PASS + 1))
+            else
+              printf "❌ FAIL  %s\n" "$line"
+              SRC_FAIL=$((SRC_FAIL + 1))
+            fi
+          done < <(sort -k2 -gr /tmp/source-val-results.txt)
+          echo "──────────────────────────────────────────────────────────────"
+          echo "Source validators summary: ${SRC_PASS} passed, ${SRC_FAIL} failed"
+          echo "══════════════════════════════════════════════════════════════"
+          echo ""
+
+          if [ "$SRC_FAIL" -gt 0 ]; then
+            echo "::error::${SRC_FAIL} source validator(s) failed — see per-gate output above"
+            exit 1
+          fi
+          echo "✅ Source validators + Pages artifact download complete"
+
+      # Informational diff between the live sitemaps (currently deployed) and
+      # the new dist/ that's about to replace them. Helps spot anomalies — a
+      # single deploy adding 5 URLs and removing 500 is almost always a bug
+      # (e.g. an empty data file passed through the build) but the post-build
+      # gates won't always catch it. Always exits 0.
+      - name: Sitemap diff vs live deployed site (informational)
+        continue-on-error: true
+        run: node scripts/diff-sitemaps.mjs
+
+      # Validation pool.
+      # Runs dist/ HTML walkers plus the post-deploy live smoke in capped
+      # parallel. This keeps the critical path close to the slowest dist audit
+      # instead of paying an extra tail for CDN propagation + probe + live E2E.
+      - name: Post-build validations + SEO audits (capped parallel)
+        env:
+          # Cap each audit's V8 heap at 4 GB. Without this the GitHub
+          # ubuntu-latest free runner (~7 GB usable) was still OOM-killing
+          # `audit:dist-multi-light` and `audit:title-uniqueness` at
+          # rc=134 even after every heavy walker had been moved into the
+          # serial chain. The runner has 7 GB but Node's default
+          # max-old-space-size grows opportunistically under pressure;
+          # capping it forces aggressive GC and prevents single-process
+          # blow-ups when walking ~132k HTML files.
+          NODE_OPTIONS: '--max-old-space-size=4096'
+          # AUDIT_STRICT=1 enables the unified runner's AST mutation
+          # detection: every audit's collect() runs against a frozen html
+          # string; any mutation triggers a fail loud with the auditor's
+          # name. Cheap (single equality check per file per audit) and
+          # catches accidental side-effects during future audit migrations.
+          AUDIT_STRICT: '1'
+        run: |
+          # MAX_PARALLEL=4 — bumped after live measurement on run
+          # 26087963151. audit:all peaked at ~1 GB RSS and held the whole
+          # 363 s wall window; the pool's heaviest light audit
+          # (orphan-sitemap-pages, 92 s) completed inside that window with
+          # MAX_PARALLEL=2 — cumulative observed peak ~3-4 GB, well under
+          # the 7 GB ubuntu-latest free runner ceiling.
+          #
+          # Lifting to 4 lets up to four light pool audits run in parallel.
+          # Doesn't shorten current wall time (audit:all remains the
+          # bottleneck) but compresses pool tail for future when audit:all
+          # gets faster, and gives headroom if more audits join the pool.
+          # If a regression OOMs the runner, drop back to 2 in a hotfix.
+          MAX_PARALLEL=4
+          : > /tmp/post-build-timings.txt
+          : > /tmp/post-build-failures.txt
+
+          wait_slot() {
+            while (( $(jobs -rp | wc -l) >= MAX_PARALLEL )); do
+              wait -n 2>/dev/null || true
+            done
+          }
+
+          # IMPORTANT: `set +e` inside the subshell. The GH Actions default
+          # shell is `bash -eo pipefail`, which propagates errexit into the
+          # ( ... ) subshell. Without `set +e`, a non-zero rc from "$@" kills
+          # the subshell BEFORE rc=$? runs, so neither the timings file nor
+          # the failures file gets the row — the failed task vanishes and
+          # the parent step prints "✅ All passed". This silently masked
+          # the title-length regression in post-deploy run 25377607613.
+          spawn_capped() {
+            local name=$1; local logfile=$2; shift 2
+            wait_slot
+            (
+              set +e
+              start=$(date +%s.%N)
+              "$@" > "$logfile" 2>&1
+              rc=$?
+              end=$(date +%s.%N)
+              awk "BEGIN{printf \"%-40s %7.2f rc=%d\n\", \"$name\", $end-$start, $rc}" \
+                >> /tmp/post-build-timings.txt
+              if [ $rc -ne 0 ]; then
+                echo "$name $logfile" >> /tmp/post-build-failures.txt
+              fi
+            ) &
+          }
+
+          # ── UNIFIED RUNNER (audit:all) + remaining heavy chain ──
+          #
+          # `npm run audit:all` runs 6 dist-walking audits in ONE Node process:
+          # text-html-ratio, h1-title-duplicates, title-length,
+          # title-no-disambig-hash, footer-root-presence, jsonld-no-nested-scripts.
+          # The unified runner walks dist/ once and dispatches each file to
+          # every in-process auditor. Peak RSS ~1 GB (single V8 shared across
+          # all 6 audits) vs the previous 6× ~1-3 GB fan-out — which is the
+          # OOM history that forced MAX_PARALLEL=1 in the first place
+          # (runs 25400905401, 25402597503, 25404549152, 25406916097).
+          # Measured speedup on local dist (82k files): 209 s sequential
+          # → 96 s unified (2.17× wall-time reduction, plus structural
+          # memory headroom that would now allow lifting MAX_PARALLEL).
+          #
+          # Remaining unmigrated chain audits (page-weight, content-duplicates,
+          # faqpage-validity) still each spawn their own Node process and
+          # walk dist/ from scratch — they stay serialized here until they
+          # migrate too. audit:title-uniqueness lives in a weekly workflow
+          # (memory-bound on the 7 GB runner; documented in run history).
+          # audit:all now covers ALL heavy dist-walking audits in a single
+          # Node process (text-html-ratio, h1-title-duplicates, title-length,
+          # title-no-disambig-hash, footer-root-presence, jsonld-no-nested-
+          # scripts, salary-landing-template, page-weight, content-duplicates,
+          # faqpage-validity). The "chain" is now one step. We keep the
+          # subshell wrapper + timing dump so the workflow summary still
+          # has a structured row per logical audit.
+          (
+            set +e
+            for chain_step in \
+              "audit:all|/tmp/g10.log|npm run audit:all" \
+            ; do
+              IFS='|' read -r step_name step_log step_cmd <<<"$chain_step"
+              start=$(date +%s.%N)
+              eval "$step_cmd" > "$step_log" 2>&1
+              rc=$?
+              end=$(date +%s.%N)
+              awk -v n="$step_name" "BEGIN{printf \"%-40s %7.2f rc=%d\n\", n, $end-$start, $rc}" \
+                >> /tmp/post-build-timings.txt
+              if [ $rc -ne 0 ]; then
+                echo "$step_name $step_log" >> /tmp/post-build-failures.txt
+              fi
+            done
+          ) &
+          DIST_MULTI_PID=$!
+
+          # LIGHT POOL — only audits that DON'T walk the full dist HTML
+          # tree (or walk it cheaply via streaming). Safe to parallelise.
+          spawn_capped audit:orphan-sitemap-pages    /tmp/g9.log \
+            npm run audit:orphan-sitemap-pages -- --gate=baseline
+          spawn_capped validate:sitemap-pages        /tmp/spm.log \
+            npm run validate:sitemap-pages
+          spawn_capped validate:jobs-quality         /tmp/v2.log \
+            npm run validate:jobs-quality
+          spawn_capped validate:sitemap-links        /tmp/v3.log \
+            npm run validate:sitemap-links
+          spawn_capped audit:spa-bundle-injection    /tmp/spa-bundle.log \
+            npm run audit:spa-bundle-injection
+          spawn_capped audit:hreflang                /tmp/g14.log \
+            npm run audit:hreflang
+          spawn_capped audit:sitemap-canonicals      /tmp/g15.log \
+            npm run audit:sitemap-canonicals
+          spawn_capped audit:news-sitemap            /tmp/g16.log \
+            npm run audit:news-sitemap
+          # audit:image-object-license migrated into `npm run audit:all`
+          # (see scripts/audit-all.mjs REGISTRY). Single dist walk, in-process
+          # JSON-LD parse — removes 34 s of standalone wall time from the
+          # parallel pool. Removed from spawn pool.
+          spawn_capped audit:max-bfs-depth           /tmp/g19.log \
+            npm run audit:max-bfs-depth
+          # audit:footer-root-presence + audit:jsonld-no-nested-scripts +
+          # audit:salary-landing-template all migrated into `npm run audit:all`
+          # above (single Node process, single dist walk). Removed from the
+          # spawn pool.
+          # NOTE: live:post-deploy-smoke moved to validate-live workflow.
+          # This validate-dist job runs in parallel with `deploy`, before
+          # the new dist is published — there's nothing live to smoke
+          # yet. The smoke + e2e:live now lives in
+          # post-deploy-validate-live.yml as a dedicated step.
+
+          # Wait for the serialized dist-multi chain explicitly, then the
+          # rest of the spawn_capped pool. Two `wait` calls (one targeted,
+          # one bare) — `wait $PID` returns the chain's rc but we already
+          # captured per-variant rc into /tmp/post-build-failures.txt
+          # inside the subshell, so the FAIL aggregator below sees them.
+          wait "$DIST_MULTI_PID" || true
+          wait
+
+          echo ""
+          echo "══════════════════════════════════════════════════════════════════════"
+          echo "Post-build gates — per-gate results (MAX_PARALLEL=$MAX_PARALLEL, sorted DESC)"
+          echo "══════════════════════════════════════════════════════════════════════"
+          PB_PASS=0
+          PB_FAIL=0
+          while IFS= read -r line; do
+            rc=$(printf '%s' "$line" | grep -oE 'rc=[0-9]+$' | sed 's/rc=//')
+            if [ "$rc" = "0" ]; then
+              printf "✅ PASS  %s\n" "$line"
+              PB_PASS=$((PB_PASS + 1))
+            else
+              printf "❌ FAIL  %s\n" "$line"
+              PB_FAIL=$((PB_FAIL + 1))
+            fi
+          done < <(sort -k2 -gr /tmp/post-build-timings.txt)
+          echo "──────────────────────────────────────────────────────────────────────"
+          echo "Post-build summary: ${PB_PASS} passed, ${PB_FAIL} failed"
+          echo "══════════════════════════════════════════════════════════════════════"
+          echo ""
+
+          FAIL=0
+          if [ -s /tmp/post-build-failures.txt ]; then
+            while read -r name logfile; do
+              echo "::error::$name failed"
+              cat "$logfile"
+              FAIL=1
+            done < /tmp/post-build-failures.txt
+          fi
+
+          [ $FAIL -eq 0 ] || exit 1
+          echo "✅ All post-build validators + audits passed"
+
+      # Print the bfs-depth baseline candidate (current dist counts) so the
+      # ratchet can be tightened without downloading artifacts. The audit
+      # gate above only verifies count <= baseline; it doesn't surface the
+      # actual current count when the gate passes. With the JSON dumped here,
+      # `npm run audit:max-bfs-depth:rebaseline` becomes a copy-paste from
+      # the log into data/bfs-depth-baseline.json — no artifact download,
+      # no re-run of the seed workflow. Informational only — never fails.
+      - name: Dump bfs-depth baseline candidate (informational)
+        # `if: always()` so the baseline JSON is dumped even when another
+        # gate in the pool fails — the dump is informational and never
+        # blocks the workflow. Without `always()` a failure of any other
+        # gate would skip this step and force a manual seed-workflow run
+        # to refresh the baseline. Pairs with continue-on-error so a bad
+        # snapshot itself can't fail the job either.
+        if: always()
+        continue-on-error: true
+        run: |
+          echo "══════════════════════════════════════════════════════════════"
+          echo "bfs-depth baseline candidate (current dist counts)"
+          echo "══════════════════════════════════════════════════════════════"
+          echo "Paste this into data/bfs-depth-baseline.json to ratchet down"
+          echo "the gate after a deliberate improvement. Counts must only"
+          echo "ever DECREASE — this gate is a ratchet."
+          echo "──────────────────────────────────────────────────────────────"
+          node scripts/audit-bfs-depth.mjs --max-depth=4 --dist=dist --json || true
+          echo "══════════════════════════════════════════════════════════════"
+
+      - name: Build size summary
+        run: |
+          echo "=== Recovered dist size summary ==="
+          du -sh dist/
+          echo "HTML files (top 10 by size):"
+          find dist -name "*.html" -exec du -sh {} + | sort -rh | head -10 || true
+          echo "Sitemaps:"
+          find dist -name "sitemap*.xml" -exec du -sh {} + | sort -rh || true
+
+      # On failure, upload structured audit reports + sitemaps so a debug
+      # agent can diagnose without rebuilding dist/. Each audit script writes
+      # to dist/audit-reports/<name>.json via scripts/lib/auditReport.mjs;
+      # sitemaps are bundled because link-graph audits (bfs-depth,
+      # orphan-sitemap-pages, sitemap-canonicals) need them for offline replay.
+      # Retention deliberately short — 7 days is enough to fix the failing PR
+      # without bloating storage on the free-tier account.
+      - name: Upload audit reports + sitemaps on failure
+        if: failure()
+        continue-on-error: true
+        uses: actions/upload-artifact@v7
+        with:
+          name: audit-reports-${{ github.run_id }}-${{ github.run_attempt }}
+          path: |
+            dist/audit-reports/**
+            dist/sitemap.xml
+            dist/sitemap-*.xml
+          if-no-files-found: ignore
+          retention-days: 7
+
+      - name: Report failure to Linear
+        if: failure()
+        continue-on-error: true
+        run: |
+          node scripts/lib/github-issue-creator.mjs \
+            --title "Validation Failure (dist): post-deploy — run ${{ github.run_number }}" \
+            --description "## Dist validation post-deploy fallita
+          **Deploy run:** https://github.com/${{ github.repository }}/actions/runs/${{ inputs.deploy_run_id }}
+          **Validation run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          **Branch:** ${{ github.ref_name }}
+          **SHA:** ${{ github.sha }}" \
+            --priority 1 \
+            --label Bug \
+            --workflow "Post-deploy Validate Dist"

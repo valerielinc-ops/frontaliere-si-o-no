@@ -1,0 +1,40 @@
+{
+  "id": "cantonale-interna-ascona-porto-ronco-lavori-disagi-vista",
+  "slug": "cantonale-interna-ascona-porto-ronco-lavori-disagi-vista",
+  "publishedAt": "2026-05-17T01:08:09.982Z",
+  "cluster": "mobilita",
+  "_pool": "proven",
+  "_pool_source": "ilgiornaledelticino.ch",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 4.912320630595538,
+    "confidence": 0.8,
+    "finalScore": 3.9298565044764304,
+    "topK": [
+      {
+        "slug": "cantieri-traffico-frontiera",
+        "cosine": 0.8653772488224041
+      },
+      {
+        "slug": "a13-cantieri-frontalieri-ticino",
+        "cosine": 0.8508980506034064
+      },
+      {
+        "slug": "cantiere-viale-geno-como",
+        "cosine": 0.8486737897058142
+      },
+      {
+        "slug": "sindacati-ticino-leonardo-cascina-costa",
+        "cosine": 0.8478468145920238
+      },
+      {
+        "slug": "a2-giornico-cantiere-disagi-frontalieri",
+        "cosine": 0.8473441849692672
+      }
+    ],
+    "score": 3.9298565044764304,
+    "clusterDiversityBonus": 1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "mobilita"
+  }
+}

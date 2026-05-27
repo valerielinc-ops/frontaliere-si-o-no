@@ -1,0 +1,22 @@
+{
+  "companyKey": "glas-trosch-sede-ti",
+  "companyName": "Glas Trösch (sede TI)",
+  "companyHost": "glastroesch.ch",
+  "enabled": true,
+  "priority": 0,
+  "crawlerModes": [
+    "generic_ats",
+    "html",
+    "jsonld"
+  ],
+  "seedUrls": [
+    "https://www.glastroesch.ch/careers",
+    "https://www.glastroesch.ch/career",
+    "https://www.glastroesch.ch/jobs",
+    "https://www.glastroesch.ch/karriere",
+    "https://www.glastroesch.ch/offene-stellen",
+    "https://www.glastroesch.ch/lavora-con-noi"
+  ],
+  "notes": "",
+  "updatedAt": "2026-02-27T17:06:06.947Z"
+}

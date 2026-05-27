@@ -1,0 +1,40 @@
+{
+  "id": "blackout-internet-iran-70-giorni",
+  "slug": "blackout-internet-iran-70-giorni",
+  "publishedAt": "2026-05-08T22:43:48.196Z",
+  "cluster": "mobilita",
+  "_pool": "proven",
+  "_pool_source": "media.tio.ch",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 14.741357923784811,
+    "confidence": 0.8,
+    "finalScore": 11.79308633902785,
+    "topK": [
+      {
+        "slug": "giornata-liberta-stampa-unesco-minacce-autocensura",
+        "cosine": 0.7758609433570953
+      },
+      {
+        "slug": "traffico-san-gottardo-2026",
+        "cosine": 0.7742048185866409
+      },
+      {
+        "slug": "sorveglianza-telecomunicazioni-ticino-2026",
+        "cosine": 0.7721010231623167
+      },
+      {
+        "slug": "swisscom-minacce-cyber-2026",
+        "cosine": 0.771046151272672
+      },
+      {
+        "slug": "sconto-benzina-ticino",
+        "cosine": 0.7702562166375628
+      }
+    ],
+    "score": 1.179308633902785,
+    "clusterDiversityBonus": 0.1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "mobilita"
+  }
+}

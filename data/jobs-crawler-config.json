@@ -1,0 +1,193 @@
+{
+  "domainWhitelist": [],
+  "domainBlacklist": [],
+  "companyPriority": {
+    "byDomain": {
+      "vfc.com": 10,
+      "swatchgroup.com": 8,
+      "cler.ch": 8,
+      "ubs.com": 7,
+      "avaloq.com": 7,
+      "nozominetworks.com": 6,
+      "schindler.com": 6
+    },
+    "byName": {
+      "vf international (the north face, timberland)": 10,
+      "swatch group assembly": 8,
+      "banca cler": 8,
+      "ubs": 7,
+      "avaloq": 7,
+      "nozomi networks": 6,
+      "schindler": 6
+    }
+  },
+  "sourceSeeds": {
+    "byDomain": {
+      "vfc.com": [
+        "https://vfc.wd5.myworkdayjobs.com/vfc_careers?Location_Country=187134fccb084a0ea9b4b95f23890dbe"
+      ],
+      "swatchgroup.com": [
+        "https://www.swatchgroup.com/en/job-finder"
+      ],
+      "ubs.com": [
+        "https://www.ubs.com/global/en/careers/search-jobs.html",
+        "https://www.ubs.com/global/en/careers.html"
+      ],
+      "schindler.com": [
+        "https://job.schindler.com",
+        "https://www.schindler.com/com/internet/en/careers.html"
+      ],
+      "avaloq.com": [
+        "https://www.avaloq.com/careers"
+      ],
+      "nozominetworks.com": [
+        "https://www.nozominetworks.com/company/careers/"
+      ],
+      "medacta.com": [
+        "https://www.medacta.com/EN/careers"
+      ],
+      "cler.ch": [
+        "https://www.cler.ch/it/banca-cler/jobs-und-karriere/cercare-candidatura/offene-stellen"
+      ]
+    },
+    "byName": {}
+  },
+  "companyCrawlerMode": {
+    "banca-cler": [
+      "teaser_api"
+    ],
+    "vf-international-the-north-face-timberland": [
+      "workday"
+    ],
+    "swatch-group-assembly": [
+      "generic_ats",
+      "html",
+      "jsonld"
+    ]
+  },
+  "minQualityScore": 4,
+  "minDescriptionChars": 80,
+  "aiLocalizationEnabled": true,
+  "aiLocalizationMaxJobsPerRun": 500,
+  "aiPageValidationEnabled": true,
+  "aiPageValidationMaxPagesPerRun": 40,
+  "webDiscoveryEnabled": false,
+  "contentReuse": {
+    "enabled": true,
+    "similarityThreshold": 0.7,
+    "minSourceChars": 220,
+    "maxLengthDeltaRatio": 0.02
+  },
+  "discoveryNameBlacklist": [
+    "job board",
+    "job portal",
+    "recruiting platform",
+    "staffing agency",
+    "temporary staffing",
+    "consulenza del lavoro",
+    "agenzia interinale",
+    "agenzia per il lavoro",
+    "headhunter"
+  ],
+  "discoveryWhitelistDomains": [],
+  "discoveryWhitelistNames": [],
+  "autoMergeDiscoveredCompanies": false,
+  "companyKeyAliases": {
+    "allianz": "allianz-suisse",
+    "allianz-ch": "allianz-suisse",
+    "allianz-svizzera": "allianz-suisse",
+    "amag": "amag-group",
+    "amag-ch": "amag-group",
+    "amag-svizzera": "amag-group",
+    "artisa-group": "artisa-group",
+    "axa": "axa-svizzera",
+    "axa-ch": "axa-svizzera",
+    "axa-insurance": "axa-svizzera",
+    "axa-assicurazioni": "axa-svizzera",
+    "axa-lugano": "axa-svizzera",
+    "banca-sempione": "banca-del-sempione",
+    "boggi": "boggi-milano",
+    "boggi-mendrisio": "boggi-milano",
+    "boggi-milano-sa": "boggi-milano",
+    "baronie-switzerland": "baronie",
+    "chocolat-alprose": "baronie",
+    "chocolat-alprose-sa-baronie-switzerland-sa": "baronie",
+    "bracco": "bracco-suisse-s-a",
+    "cambiavalute": "cambiavalute-ch",
+    "convit-holding": "convit-holding-gmbh",
+    "dxt-commodities": "dxt-commodities-s-a",
+    "efg-international": "efg-international-ag",
+    "engel-voelkers": "engel-volkers",
+    "ev-ticino": "engel-volkers",
+    "ticino-premium-properties": "engel-volkers",
+    "galenica": "galenica-ag",
+    "goline": "goline-sa",
+    "guess-europe": "guess-europe-sagl",
+    "kantonsspital-graubuenden-ksgr": "kantonsspital-graubunden-ksgr",
+    "lastminute-com-ticino": "lastminute-com",
+    "lidl-svizzera-logistica": "lidl-svizzera",
+    "linnea": "linnea-sa",
+    "lombardi-group": "lombardi-group",
+    "lwphr": "lwp-ledermann-wieting-partners",
+    "mks-pamp": "mks-pamp",
+    "mks-pamp-sa": "mks-pamp",
+    "mtic-group": "mtic-group",
+    "pemsa": "pemsa",
+    "relewant": "relewant",
+    "ruag-ag": "ruag-ag",
+    "sps-intercert": "mtic-group",
+    "sunrise-sede-ticino": "sunrise-communications-ag",
+    "the-living-circle": "the-living-circle",
+    "zucchetti-switzerland": "zucchetti-switzerland-sa",
+    "hitachi-energy-switzerland": "hitachi-energy",
+    "hitachi-energy-ch": "hitachi-energy",
+    "hitachi-energy-aem": "hitachi-energy",
+    "hoval-ch": "hoval",
+    "hoval-italy": "hoval",
+    "hoval-hybris": "hoval",
+    "knowledge-lab-ag": "knowledge-lab",
+    "knowledge-lab-ch": "knowledge-lab",
+    "klab-freshteam": "knowledge-lab",
+    "tarchini-consulting": "tarchini-group",
+    "tarchini-consulting-sa": "tarchini-group",
+    "tarchini-group-sa": "tarchini-group",
+    "afry-ag": "afry",
+    "afry-switzerland": "afry",
+    "afry-smartrecruiters": "afry",
+    "agie-charmilles-sa": "agie-charmilles",
+    "agroscope-defr": "agroscope",
+    "agroscope-cadenazzo": "agroscope",
+    "artificialy-lugano": "artificialy",
+    "artificialy-ai": "artificialy",
+    "gf-machining-solutions": "agie-charmilles",
+    "gf-machining-solutions-losone": "agie-charmilles",
+    "vtg": "swiss-armed-forces-vtg",
+    "swiss-armed-forces": "swiss-armed-forces-vtg",
+    "verteidigung": "swiss-armed-forces-vtg",
+    "csc-costruzioni": "csc-costruzioni-sa",
+    "csc-costruzioni-s-a": "csc-costruzioni-sa",
+    "csc-sa": "csc-costruzioni-sa",
+    "dot-life": "dot-life-sa",
+    "dot-life-s-a": "dot-life-sa",
+    "dot-lifestyle": "dot-life-sa",
+    "dotlifestyle": "dot-life-sa",
+    "dotlife": "dot-life-sa",
+    "fnz": "fnz-switzerland-ag",
+    "fnz-ch": "fnz-switzerland-ag",
+    "fnz-switzerland": "fnz-switzerland-ag",
+    "ist-ticino": "international-school-of-ticino",
+    "ist-lugano": "international-school-of-ticino",
+    "inspired-education-ticino": "international-school-of-ticino",
+    "mcdonalds": "mcdonald-s-switzerland",
+    "mcdonalds-ch": "mcdonald-s-switzerland",
+    "mcdonalds-schweiz": "mcdonald-s-switzerland",
+    "mcdonalds-switzerland": "mcdonald-s-switzerland",
+    "a-group-sa": "a-group",
+    "a2plus": "a-group",
+    "a2plus-group": "a-group",
+    "a-plus-plus-group": "a-group",
+    "raiffeisen-vedeggio-cassarate": "banca-raiffeisen-vedeggio-cassarate",
+    "raiffeisen-vedeggio": "banca-raiffeisen-vedeggio-cassarate",
+    "raiffeisen-cassarate": "banca-raiffeisen-vedeggio-cassarate"
+  }
+}

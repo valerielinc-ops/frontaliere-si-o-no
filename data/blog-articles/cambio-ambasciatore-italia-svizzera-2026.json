@@ -1,0 +1,40 @@
+{
+  "id": "cambio-ambasciatore-italia-svizzera-2026",
+  "slug": "cambio-ambasciatore-italia-svizzera-2026",
+  "publishedAt": "2026-05-16T00:46:49.667Z",
+  "cluster": "novita",
+  "_pool": "proven",
+  "_pool_source": "tvsvizzera.it",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 12.638921069889305,
+    "confidence": 0.8,
+    "finalScore": 10.111136855911445,
+    "topK": [
+      {
+        "slug": "ambasciatore-italiano-ritorno-berna",
+        "cosine": 0.8599173573073053
+      },
+      {
+        "slug": "crans-montana-disgelo-italia-svizzera",
+        "cosine": 0.8595404155115371
+      },
+      {
+        "slug": "relazioni-italo-svizzere-2026",
+        "cosine": 0.8520289223596372
+      },
+      {
+        "slug": "austria-ticino-ambasciatori-2026",
+        "cosine": 0.8509460447978058
+      },
+      {
+        "slug": "crans-montana-nuovo-solco-italia-svizzera-2026",
+        "cosine": 0.8462499147152343
+      }
+    ],
+    "score": 10.111136855911445,
+    "clusterDiversityBonus": 1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "novita"
+  }
+}

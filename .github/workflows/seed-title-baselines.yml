@@ -1,0 +1,137 @@
+name: Seed title-length + title-no-disambig-hash baselines
+
+# One-shot helper workflow: regenerates the two new title-related
+# audit baselines against the latest deployed dist/ (downloaded from the
+# most recent `github-pages` artifact) and uploads the small JSON outputs
+# as artifacts.
+#
+# Why this exists
+# ---------------
+# `audit-title-length` and `audit-title-no-disambig-hash` ship with
+# conservative ceiling baselines (16 000 / 70 000) so the deploy gate
+# passes on the first CI run after the cap=66 + drop-brand fix landed.
+# Once a real production deploy produces a fresh dist/ with the new
+# code, we need a one-shot run to compute actual per-feature counts and
+# tighten the ratchets. After this initial seed, baselines are updated
+# manually via `npm run audit:title-length:rebaseline` and
+# `npm run audit:title-no-disambig-hash:rebaseline` whenever a deploy
+# deliberately lowers an offender count.
+#
+# Mirrors `seed-bfs-depth-baseline.yml` exactly — same flow, two
+# baselines instead of one.
+#
+# Usage
+# -----
+# 1. Trigger via "Run workflow" in the GitHub UI (workflow_dispatch).
+# 2. Download the `title-baselines-${{ github.run_id }}` artifact.
+# 3. Replace the two baselines, commit, push:
+#       cp /tmp/title-length-baseline.json data/
+#       cp /tmp/title-no-disambig-hash-baseline.json data/
+#       git add data/title-length-baseline.json data/title-no-disambig-hash-baseline.json
+#       git commit -m "chore(seo-gate): tighten title baselines from prod dist"
+#       git push
+
+on:
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  seed:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci --no-audit --no-fund --prefer-offline
+
+      - name: Find latest successful deploy
+        id: latest
+        run: |
+          run_id=$(gh run list \
+            --workflow=deploy.yml \
+            --status=success \
+            --limit=1 \
+            --json databaseId \
+            --jq '.[0].databaseId')
+          echo "Latest successful deploy: $run_id"
+          echo "run_id=$run_id" >> "$GITHUB_OUTPUT"
+        env:
+          GH_TOKEN: ${{ github.token }}
+
+      - name: Download github-pages artifact from latest deploy
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p /tmp/gh-pages-artifact dist
+          gh run download ${{ steps.latest.outputs.run_id }} \
+            --name "github-pages" \
+            --dir /tmp/gh-pages-artifact/
+          ls -lh /tmp/gh-pages-artifact/
+
+      - name: Extract dist/
+        run: |
+          tar -xf /tmp/gh-pages-artifact/artifact.tar -C dist
+          echo "dist/ tree (top level):"
+          ls dist/ | head
+          echo ""
+          echo "Total HTML files:"
+          find dist -name '*.html' | wc -l
+
+      - name: Generate title-length baseline
+        run: |
+          node scripts/audit-title-length.mjs \
+            --threshold=66 \
+            --write-baseline=data/title-length-baseline.json
+          echo ""
+          echo "==== title-length baseline preview ===="
+          head -30 data/title-length-baseline.json
+
+      - name: Generate title-no-disambig-hash baseline
+        run: |
+          node scripts/audit-title-no-disambig-hash.mjs \
+            --write-baseline=data/title-no-disambig-hash-baseline.json
+          echo ""
+          echo "==== title-no-disambig-hash baseline preview ===="
+          head -30 data/title-no-disambig-hash-baseline.json
+
+      - name: Upload baselines
+        uses: actions/upload-artifact@v7
+        with:
+          name: title-baselines-${{ github.run_id }}
+          path: |
+            data/title-length-baseline.json
+            data/title-no-disambig-hash-baseline.json
+          retention-days: 14
+          if-no-files-found: error
+
+      - name: Echo download instructions
+        run: |
+          echo ""
+          echo "════════════════════════════════════════════════════════════════"
+          echo "Baselines generated. Next steps:"
+          echo "════════════════════════════════════════════════════════════════"
+          echo ""
+          echo "1. Download the artifact:"
+          echo "   gh run download ${{ github.run_id }} \\"
+          echo "     --name title-baselines-${{ github.run_id }} \\"
+          echo "     --dir /tmp/"
+          echo ""
+          echo "2. Replace and commit:"
+          echo "   cp /tmp/title-length-baseline.json data/"
+          echo "   cp /tmp/title-no-disambig-hash-baseline.json data/"
+          echo "   git add data/title-length-baseline.json data/title-no-disambig-hash-baseline.json"
+          echo "   git commit -m \"chore(seo-gate): tighten title baselines from prod dist\""
+          echo "   git push"
+          echo ""
+          echo "════════════════════════════════════════════════════════════════"

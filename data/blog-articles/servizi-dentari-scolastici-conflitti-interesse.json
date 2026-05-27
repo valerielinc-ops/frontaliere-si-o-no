@@ -1,0 +1,40 @@
+{
+  "id": "servizi-dentari-scolastici-conflitti-interesse",
+  "slug": "servizi-dentari-scolastici-conflitti-interesse",
+  "publishedAt": "2026-05-08T23:53:43.833Z",
+  "cluster": "salute",
+  "_pool": "proven",
+  "_pool_source": "ticinonews.ch",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 7.499333811614643,
+    "confidence": 0.8,
+    "finalScore": 5.999467049291715,
+    "topK": [
+      {
+        "slug": "votazioni-cure-dentarie-ticino-2024",
+        "cosine": 0.833259312401627
+      },
+      {
+        "slug": "sisa-contro-tagli-governo-2024",
+        "cosine": 0.8230812478565666
+      },
+      {
+        "slug": "cure-dentarie-ticino-2026",
+        "cosine": 0.8185968233961508
+      },
+      {
+        "slug": "sospensione-costi-utenti-ticino",
+        "cosine": 0.8135372453833212
+      },
+      {
+        "slug": "cure-dentarie-accessibili-ticino-2026",
+        "cosine": 0.81035871324313
+      }
+    ],
+    "score": 0.5999467049291715,
+    "clusterDiversityBonus": 0.1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "salute"
+  }
+}

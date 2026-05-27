@@ -1,0 +1,22 @@
+{
+  "companyKey": "comadur-swatch-group",
+  "companyName": "Comadur (Swatch Group)",
+  "companyHost": "swatchgroup.com",
+  "enabled": true,
+  "priority": 0,
+  "crawlerModes": [
+    "generic_ats",
+    "html",
+    "jsonld"
+  ],
+  "seedUrls": [
+    "https://www.swatchgroup.com/careers",
+    "https://www.swatchgroup.com/career",
+    "https://www.swatchgroup.com/jobs",
+    "https://www.swatchgroup.com/karriere",
+    "https://www.swatchgroup.com/offene-stellen",
+    "https://www.swatchgroup.com/lavora-con-noi"
+  ],
+  "notes": "",
+  "updatedAt": "2026-02-27T17:06:06.935Z"
+}

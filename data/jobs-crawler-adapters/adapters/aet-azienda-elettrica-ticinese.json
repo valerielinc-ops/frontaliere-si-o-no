@@ -1,0 +1,22 @@
+{
+  "companyKey": "aet-azienda-elettrica-ticinese",
+  "companyName": "AET (Azienda Elettrica Ticinese)",
+  "companyHost": "aet.ch",
+  "enabled": true,
+  "priority": 0,
+  "crawlerModes": [
+    "generic_ats",
+    "html",
+    "jsonld"
+  ],
+  "seedUrls": [
+    "https://www.aet.ch/careers",
+    "https://www.aet.ch/career",
+    "https://www.aet.ch/jobs",
+    "https://www.aet.ch/karriere",
+    "https://www.aet.ch/offene-stellen",
+    "https://www.aet.ch/lavora-con-noi"
+  ],
+  "notes": "",
+  "updatedAt": "2026-02-27T17:06:06.919Z"
+}

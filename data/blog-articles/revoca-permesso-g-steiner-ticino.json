@@ -1,0 +1,40 @@
+{
+  "id": "revoca-permesso-g-steiner-ticino",
+  "slug": "revoca-permesso-g-steiner-ticino",
+  "publishedAt": "2026-05-08T21:46:11.831Z",
+  "cluster": "pratico",
+  "_pool": "discovery",
+  "_pool_source": "news",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 4.139840546830544,
+    "confidence": 0.8,
+    "finalScore": 3.3118724374644355,
+    "topK": [
+      {
+        "slug": "ticino-svolta-per-apprendisti",
+        "cosine": 0.7530075764421232
+      },
+      {
+        "slug": "camionisti-furbetti-governo-ticino-2026",
+        "cosine": 0.7441231438825562
+      },
+      {
+        "slug": "abbonamento-newsletter-ticino",
+        "cosine": 0.7419875607508638
+      },
+      {
+        "slug": "bando-formazione-professionale-plr-2026",
+        "cosine": 0.7375185397196707
+      },
+      {
+        "slug": "passaggio-statuto-s-permesso-b",
+        "cosine": 0.7374291777142735
+      }
+    ],
+    "score": 0.8279681093661089,
+    "clusterDiversityBonus": 0.25,
+    "sourceQualityMultiplier": 1,
+    "cluster": "pratico"
+  }
+}

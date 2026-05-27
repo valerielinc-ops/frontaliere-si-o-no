@@ -1,0 +1,40 @@
+{
+  "id": "vertigini-montagna-frontalieri",
+  "slug": "vertigini-montagna-frontalieri",
+  "publishedAt": "2026-05-08T06:20:12.601Z",
+  "cluster": "salute",
+  "_pool": "proven",
+  "_pool_source": "tvsvizzera.it",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 17.64595807485633,
+    "confidence": 0.8,
+    "finalScore": 14.116766459885065,
+    "topK": [
+      {
+        "slug": "piu-interventi-soccorso-meno-vittime-montagna-ticino-2025",
+        "cosine": 0.8402837178503015
+      },
+      {
+        "slug": "cabov-precipita-forte-vento",
+        "cosine": 0.8252648602089038
+      },
+      {
+        "slug": "kit-escursionisti-montagna-pulita",
+        "cosine": 0.8242902106773242
+      },
+      {
+        "slug": "laghi-lombardi-sicurezza-estate-2026",
+        "cosine": 0.8223861198733367
+      },
+      {
+        "slug": "momenti-paura-velivolo-swiss-2026",
+        "cosine": 0.8220072573990096
+      }
+    ],
+    "score": 7.058383229942533,
+    "clusterDiversityBonus": 0.5,
+    "sourceQualityMultiplier": 1,
+    "cluster": "salute"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "companyKey": "istituto-di-ricerca-in-biomedicina-irb",
+  "companyName": "Istituto di Ricerca in Biomedicina (IRB)",
+  "companyHost": "irb.usi.ch",
+  "enabled": true,
+  "priority": 0,
+  "crawlerModes": [
+    "generic_ats",
+    "html",
+    "jsonld"
+  ],
+  "seedUrls": [
+    "https://www.irb.usi.ch/careers",
+    "https://www.irb.usi.ch/career",
+    "https://www.irb.usi.ch/jobs",
+    "https://www.irb.usi.ch/karriere",
+    "https://www.irb.usi.ch/offene-stellen",
+    "https://www.irb.usi.ch/lavora-con-noi"
+  ],
+  "notes": "",
+  "updatedAt": "2026-02-27T17:06:06.955Z"
+}

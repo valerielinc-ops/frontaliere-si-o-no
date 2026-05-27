@@ -1,0 +1,40 @@
+{
+  "id": "ffs-dirigenza-ticino-deposito-chiasso",
+  "slug": "ffs-dirigenza-ticino-deposito-chiasso",
+  "publishedAt": "2026-05-15T10:04:04.967Z",
+  "cluster": "mobilita",
+  "_pool": "proven",
+  "_pool_source": "ticinonews.ch",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 4.276182837973463,
+    "confidence": 0.8,
+    "finalScore": 3.4209462703787707,
+    "topK": [
+      {
+        "slug": "ferrovia-svizzera-300-progetti-2026",
+        "cosine": 0.8552365675946927
+      },
+      {
+        "slug": "andre-wyss-nuovo-presidente-ffs",
+        "cosine": 0.8516266034843967
+      },
+      {
+        "slug": "nuove-tratte-estive-ffs-ticino-2026",
+        "cosine": 0.8469262406361101
+      },
+      {
+        "slug": "ffs-siemens-116-treni-suburbani-ticino-2026",
+        "cosine": 0.8443815963932675
+      },
+      {
+        "slug": "giardino-ferroviario-balerna-2026",
+        "cosine": 0.8413653611781443
+      }
+    ],
+    "score": 0.8552365675946927,
+    "clusterDiversityBonus": 0.25,
+    "sourceQualityMultiplier": 1,
+    "cluster": "mobilita"
+  }
+}

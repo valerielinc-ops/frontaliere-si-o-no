@@ -1,0 +1,40 @@
+{
+  "id": "premiate-classi-acqua-vita-2026",
+  "slug": "premiate-classi-acqua-vita-2026",
+  "publishedAt": "2026-05-09T19:34:22.013Z",
+  "cluster": "generic",
+  "_pool": "proven",
+  "_pool_source": "media.tio.ch",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 12.952566437305952,
+    "confidence": 0.8,
+    "finalScore": 10.362053149844762,
+    "topK": [
+      {
+        "slug": "libriamoci-varese-studenti-2026",
+        "cosine": 0.809535402331622
+      },
+      {
+        "slug": "intesa-sanpaolo-premia-10-imprese-vincenti",
+        "cosine": 0.8066538899968984
+      },
+      {
+        "slug": "foreste-sommerse-lago-como-lugano",
+        "cosine": 0.8040837996622989
+      },
+      {
+        "slug": "gallarate-borse-studio-2026",
+        "cosine": 0.8016192339441258
+      },
+      {
+        "slug": "lavena-ponte-tresa-annaffiatoi",
+        "cosine": 0.7977689505062184
+      }
+    ],
+    "score": 5.181026574922381,
+    "clusterDiversityBonus": 0.5,
+    "sourceQualityMultiplier": 1,
+    "cluster": "generic"
+  }
+}

@@ -1,0 +1,150 @@
+name: Send Newsletter
+
+on:
+  schedule:
+    # Daily 05:33 UTC (07:33 CEST) — chosen via PostHog click data: peak read hour is 06:00 UTC (34 clicks/90d).
+    # Lead of ~25 min covers npm ci + AI generation + email delivery so the email lands in inbox right before peak engagement.
+    # Avoids :00/:15/:30/:45 minute slots which GitHub Actions cron deprioritizes under load (silent skips).
+    - cron: '33 5 * * *'
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: 'preview, test or send'
+        required: false
+        default: 'test'
+        type: choice
+        options:
+          - preview
+          - test
+          - send
+      target_email:
+        description: 'Recipient for test mode'
+        required: false
+        default: ''
+        type: string
+      subject:
+        description: 'Subject override'
+        required: false
+        default: ''
+        type: string
+      sections:
+        description: 'Comma-separated sections: exchange,articles,fact,tool'
+        required: false
+        default: 'exchange,articles,fact,tool'
+        type: string
+      section_order:
+        description: 'Comma-separated section order: exchange,articles,fact,tool'
+        required: false
+        default: 'exchange,articles,fact,tool'
+        type: string
+      variant:
+        description: 'Newsletter variant: jobs, tax, general, or auto (segmented)'
+        required: false
+        default: 'general'
+        type: choice
+        options:
+          - jobs
+          - tax
+          - general
+          - auto
+      enhancements:
+        description: 'Comma-separated extras: topJobs,clusterPages,evergreen'
+        required: false
+        default: 'topJobs,clusterPages,evergreen'
+        type: string
+      ab_test:
+        description: 'A/B test subjects: SubjectA|||SubjectB (optional)'
+        required: false
+        default: ''
+        type: string
+      provider:
+        description: 'Email provider (cascade = multi-provider default)'
+        required: false
+        default: 'cascade'
+        type: choice
+        options:
+          - cascade
+          - mailgun
+          - mailjet
+          - mailtrap
+          - resend
+
+permissions:
+  contents: read
+
+jobs:
+  newsletter:
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Prepare Firebase credentials
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -n "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+            echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+          else
+            echo "❌ FIREBASE_SERVICE_ACCOUNT_JSON missing"
+            exit 1
+          fi
+
+      - name: Load secrets from Remote Config
+        run: node scripts/load-rc-env.mjs
+
+      - name: Assemble jobs dataset from per-crawler slices
+        continue-on-error: true
+        run: node scripts/assemble-jobs-dataset.mjs 2>&1 || echo "⚠️ Jobs assembly failed — newsletter will proceed without job data"
+
+      # Job popularity is refreshed once a day by refresh-job-popularity.yml
+      # and committed to data/job-popularity.json. The newsletter reads the
+      # file directly from the checked-out tree.
+
+      - name: Run newsletter job
+        env:
+          EMAIL_PROVIDER: ${{ inputs.provider || 'cascade' }}
+          NEWSLETTER_EXPERIMENTAL_MODE: false
+          NEWSLETTER_ENABLE_SEND: true
+          NEWSLETTER_FROM: ${{ secrets.NEWSLETTER_FROM || '' }}
+          MODE: ${{ github.event_name == 'schedule' && 'send' || inputs.mode || 'test' }}
+          TARGET: ${{ inputs.target_email || '' }}
+          SUBJECT: ${{ inputs.subject || '' }}
+          SECTIONS: ${{ inputs.sections || 'exchange,jobs,articles,fact,tool' }}
+          SECTION_ORDER: ${{ inputs.section_order || 'exchange,jobs,articles,fact,tool' }}
+          VARIANT: ${{ inputs.variant || 'general' }}
+          ENHANCEMENTS: ${{ inputs.enhancements || 'topJobs,clusterPages,evergreen' }}
+          AB_TEST: ${{ inputs.ab_test || '' }}
+        run: |
+          SEGMENTED_FLAG=""
+          VARIANT_FLAG="--variant $VARIANT"
+          if [ "$VARIANT" = "auto" ]; then
+            SEGMENTED_FLAG="--segmented"
+            VARIANT_FLAG=""
+          fi
+          AB_TEST_FLAG=""
+          if [ -n "$AB_TEST" ]; then
+            AB_TEST_FLAG="--ab-test $AB_TEST"
+          fi
+          echo "📧 Running newsletter mode=$MODE target=$TARGET sections=$SECTIONS variant=$VARIANT segmented=$SEGMENTED_FLAG ab_test=$AB_TEST"
+
+          if [ "$MODE" = "send" ]; then
+            node scripts/send-newsletter.mjs --send --target-email "$TARGET" --subject "$SUBJECT" --sections "$SECTIONS" --section-order "$SECTION_ORDER" $VARIANT_FLAG $SEGMENTED_FLAG $AB_TEST_FLAG --enhancements "$ENHANCEMENTS"
+          elif [ "$MODE" = "preview" ]; then
+            mkdir -p /tmp/newsletter-preview
+            node scripts/send-newsletter.mjs --preview --target-email "$TARGET" --subject "$SUBJECT" --sections "$SECTIONS" --section-order "$SECTION_ORDER" $VARIANT_FLAG --enhancements "$ENHANCEMENTS" > /tmp/newsletter-preview/index.html
+            echo "Preview written to /tmp/newsletter-preview/index.html"
+          else
+            node scripts/send-newsletter.mjs --test --target-email "$TARGET" --subject "$SUBJECT" --sections "$SECTIONS" --section-order "$SECTION_ORDER" $VARIANT_FLAG --enhancements "$ENHANCEMENTS"
+          fi

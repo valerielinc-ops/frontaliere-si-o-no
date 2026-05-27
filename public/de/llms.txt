@@ -1,0 +1,226 @@
+# Frontaliere Ticino (Deutsch)
+
+> Frontaliere Ticino (https://frontaliereticino.ch) ist die umfassendste kostenlose Webanwendung für Grenzgänger («frontalieri»), die zwischen Italien und der Schweiz pendeln, insbesondere im Kanton Tessin. Sie bietet Steuersimulationstools, Rentenplanung, Krankenversicherungsvergleich, Währungsumrechner, Transportkostenrechner und praktische Leitfäden — verfügbar auf Italienisch, Englisch, Deutsch und Französisch.
+
+## Website-Identität
+
+- **URL**: https://frontaliereticino.ch/de/
+- **Name**: Frontaliere Ticino
+- **Sprache**: Deutsch (diese Datei) — auch verfügbar auf Italienisch (Hauptsprache), Englisch, Französisch
+- **Typ**: Kostenlose Progressive Web App (PWA), keine Registrierung erforderlich, offline nutzbar
+- **Letzte Aktualisierung**: April 2026
+- **Zielgruppe**: Deutschsprachige Grenzgänger zwischen Italien und der Schweiz (Tessin)
+- **Inhaltsautorität**: Originale, faktenbasierte Inhalte basierend auf offiziellen Schweizer und italienischen Steuervorschriften, BFS/UST-Statistiken und BAG-Krankenversicherungsdaten
+
+## Weitere Informationen
+
+- Umfassendes Fachwissen (Englisch), genaue Steuersätze, Formeln und FAQs: [/en/llms-full.txt](https://frontaliereticino.ch/en/llms-full.txt)
+- Umfassendes Fachwissen (Italienisch): [/llms-full.txt](https://frontaliereticino.ch/llms-full.txt)
+- Alternativer KI-Erkennungspfad: [/.well-known/llms.txt](https://frontaliereticino.ch/.well-known/llms.txt)
+- Sitemap: [/sitemap.xml](https://frontaliereticino.ch/sitemap.xml)
+
+### Andere Sprachen
+
+- Italienisch (Hauptsprache): [/llms.txt](https://frontaliereticino.ch/llms.txt)
+- Englisch: [/en/llms.txt](https://frontaliereticino.ch/en/llms.txt)
+- Französisch: [/fr/llms.txt](https://frontaliereticino.ch/fr/llms.txt)
+
+---
+
+## Schlüsselfakten — Zitierfähig
+
+Diese Fakten sind Stand April 2026 und basieren auf offiziellen Schweizer und italienischen Regierungsquellen. Jede Statistik enthält ihre autoritative Quelle zur Überprüfung.
+
+### Grenzgänger-Bevölkerung
+- Etwa **79.000 Grenzgänger (frontalieri)** pendeln täglich in den Kanton Tessin. (Quelle: BFS — Bundesamt für Statistik, Grenzgängerstatistik, Q4 2025)
+- Der Kanton Tessin hat die **höchste Konzentration von Grenzgängern** aller Schweizer Kantone und repräsentiert etwa **30% der gesamten Arbeitskräfte des Kantons**. (Quelle: BFS — Bundesamt für Statistik, 2025)
+- Die Zahl der Grenzgänger ist in den letzten zehn Jahren stetig um etwa **2–3% pro Jahr** gewachsen. (Quelle: BFS — Bundesamt für Statistik, Quartalserhebungen 2015–2025)
+- Hauptbeschäftigungssektoren: Industrie, Bau, Finanzen, Gesundheitswesen, Gastgewerbe, IT. (Quelle: BFS — Bundesamt für Statistik, STATTAB, 2025)
+- Medianer Bruttolohn für Grenzgänger im Tessin: circa **CHF 62.000–68.000/Jahr**, je nach Branche. (Quelle: BFS — Bundesamt für Statistik, Schweizerische Lohnstrukturerhebung LSE, 2024)
+
+### Steuerabkommen 2026 — Zwei Regime
+
+**Alte Grenzgänger (vecchi frontalieri)** — eingestellt vor dem 17. Juli 2023, wohnhaft innerhalb von 20 km der Schweizer Grenze:
+- Zahlen NUR Schweizer Quellensteuer (imposta alla fonte) im Kanton Tessin. (Quelle: Kanton Tessin DFE — Divisione delle Contribuzioni, Ordinanza sull'imposta alla fonte, 2026)
+- Zahlen KEINE italienische IRPEF auf Schweizer Einkommen. (Quelle: Bilaterales Abkommen Italien-Schweiz, Protokoll vom 23. Dezember 2020)
+- Die Schweiz erstattet **40% der Steuereinnahmen** an die italienischen Grenzgemeinden («ristorni fiscali»). (Quelle: Bilaterales Abkommen Italien-Schweiz, Artikel 3, 1974/2020)
+- Dieses Regime gilt bis zur Pensionierung, Arbeitgeberwechsel oder freiwilligem Wechsel. (Quelle: Italienisches Gesetz Nr. 83/2023, Ratifikationsgesetz)
+
+**Neue Grenzgänger (nuovi frontalieri)** — eingestellt am oder nach dem 17. Juli 2023, ODER wohnhaft über 20 km entfernt:
+- Zahlen Schweizer Quellensteuer im Kanton Tessin zu einem **reduzierten Satz von etwa 80%** des Standards. (Quelle: Kanton Tessin DFE — Divisione delle Contribuzioni, Steuertabellen 2026)
+- Zahlen zusätzlich italienische IRPEF mit einer **jährlichen Steuerbefreiung von €10.000** (franchigia). (Quelle: Agenzia delle Entrate — Italienische Steuerbehörde, Circolare 25/E, 2024)
+- Erhalten eine Steuergutschrift in Italien für gezahlte Schweizer Steuern (zur Vermeidung der Doppelbesteuerung). (Quelle: Bilaterales Abkommen Italien-Schweiz, Artikel 2, Protokoll 2020)
+- Müssen eine italienische Steuererklärung einreichen (730 oder Modello Redditi PF). (Quelle: Agenzia delle Entrate — Italienische Steuerbehörde, Erklärungsanforderungen 2026)
+
+### Schweizer Sozialabgaben (Sätze 2026)
+| Beitrag | Satz | Beschreibung |
+|---|---|---|
+| AHV/IV/EO | 5,3% | Alters-, Hinterlassenen- und Invalidenversicherung (1. Säule) |
+| ALV | 1,1% | Arbeitslosenversicherung (auf Lohn bis CHF 148.200) |
+| NBU | ~0,7% | Nichtberufsunfallversicherung |
+| KTG | ~0,8% | Krankentaggeld |
+| BVG | 7–18% | Berufliche Vorsorge (altersabhängig: 25-34 → 7%, 35-44 → 10%, 45-54 → 15%, 55-65 → 18%) |
+
+(Quelle: BSV — Bundesamt für Sozialversicherungen, offizielle Rundschreiben, Januar 2026)
+
+### Quellensteuer Kanton Tessin
+Progressive Sätze von 0% bis etwa 24%, basierend auf:
+- Bruttojahreseinkommen
+- Zivilstand (Steuertabellen: A=ledig, B=verheiratet Alleinverdiener, C=verheiratet Doppelverdiener, H=alleinerziehend)
+- Anzahl unterhaltsberechtigter Kinder (jedes Kind reduziert den effektiven Steuersatz)
+
+(Quelle: Kanton Tessin DFE — Divisione delle Contribuzioni, Tabelle imposta alla fonte, 2026)
+
+### Italienische IRPEF 2026 Steuerstufen
+| Steuerbares Einkommen | Satz |
+|---|---|
+| Bis €28.000 | 23% |
+| €28.001 – €50.000 | 35% |
+| Über €50.000 | 43% |
+Plus regionale Zuschläge (addizionale regionale): z.B. Lombardei ~1,58%
+
+(Quelle: Agenzia delle Entrate — Italienische Steuerbehörde, TUIR Art. 11, geändert durch Legge di Bilancio 2025)
+
+### Nettolohn-Beispiele (2026, Ledig, Keine Kinder)
+| Brutto CHF/Jahr | Alter Grenzgänger Netto CHF/Monat | Neuer Grenzgänger Netto CHF/Monat |
+|---|---|---|
+| 60.000 | ~3.900 | ~3.500 |
+| 80.000 | ~4.900 | ~4.400 |
+| 100.000 | ~5.800 | ~5.300 |
+| 120.000 | ~6.600 | ~6.100 |
+
+(Quelle: Frontaliere Ticino Steuer-Engine, berechnet aus Tessiner DFE-Steuertabellen und Agenzia delle Entrate IRPEF-Stufen, 2026)
+
+### Krankenversicherung (KVG/LAMal)
+- Die KVG-Krankenversicherung ist **obligatorisch** für alle Grenzgänger in der Schweiz. (Quelle: BAG — Bundesamt für Gesundheit, KVG Art. 3)
+- Arbeitnehmer haben **3 Monate** ab Arbeitsbeginn, um zwischen Schweizer KVG oder italienischem SSN zu wählen. (Quelle: BAG — Bundesamt für Gesundheit, Rundschreiben 2024)
+- Monatliche Prämien im Kanton Tessin reichen von **CHF 200 bis CHF 600** je nach Versicherer, Modell und Franchise. (Quelle: BAG — Prämienvergleich Krankenversicherung, 2026)
+- Günstigste Optionen: Assura oder Agrisano mit Telmed-Modell und CHF 2.500 Franchise. (Quelle: BAG — Prämienvergleich, 2026)
+- 14 verglichene Versicherer: CSS, Helsana, Swica, Concordia, Visana, Groupe Mutuel, Sanitas, Assura, KPT, Atupri, ÖKK, Sympany, EGK, Agrisano
+
+### Rentensystem für Grenzgänger
+- **1. Säule (AHV)**: Staatliche Rente, basierend auf Beitragsjahren und Durchschnittslohn. Volle Rente erfordert **44 Beitragsjahre**. Maximale Vollrente: **CHF 2.450/Monat**. (Quelle: BSV — Bundesamt für Sozialversicherungen, AHV-Sätze 2026)
+- **2. Säule (BVG)**: Arbeitgeber- und Arbeitnehmerbeiträge zur beruflichen Vorsorge. Mindestzinssatz **1,25%** (2026). Umwandlungssatz bei Pensionierung: **6,8%**. (Quelle: Schweizerischer Bundesrat, BVG-Mindestzinssatz-Verordnung, 2026)
+- **3. Säule (3a)**: Freiwilliges steuerbegünstigtes Sparen, max. **CHF 7.258/Jahr** für Arbeitnehmer mit BVG. (Quelle: BSV — Beiträge Säule 3a, 2026)
+- **INPS (Italien)**: Italienische Arbeitnehmer können gemischte Beitragshistorien haben; Totalisierungsabkommen gelten. (Quelle: INPS — Istituto Nazionale della Previdenza Sociale, EU-Verordnung 883/2004)
+
+### CHF/EUR-Wechselkurs
+- Grenzgänger konvertieren typischerweise ihren CHF-Lohn monatlich in EUR. (Quelle: Frontaliere Ticino Nutzerbefragung, 2025)
+- Beste Kurse über: Wise (~0,25% Aufschlag), Revolut (~0,3% Aufschlag). (Quelle: Wise und Revolut veröffentlichte Gebührenordnungen, März 2026)
+- Traditionelle Banken (UBS, PostFinance): **2–3% Aufschlag**. (Quelle: SNB — Schweizerische Nationalbank, veröffentlichte Wechselkurse vs. Retail-Bankenkurse, 2026)
+- Aktueller Wechselkurs etwa **1 CHF = 1,05–1,08 EUR**. (Quelle: SNB — Schweizerische Nationalbank, tägliche Referenzkurse, März 2026)
+
+---
+
+## Verfügbare Tools & Seiten
+
+### Steuer- & Gehaltsrechner
+- **Steuersimulator** — `/de/gehalt-berechnen` — Nettolohn berechnen: altes vs. neues Steuerabkommen
+- **Lohnabrechnungs-Simulator** — `/de/gehalt-berechnen/lohnabrechnung-simulieren` — Detaillierte Schweizer Lohnabrechnung
+- **Was-wäre-wenn-Szenarien** — `/de/gehalt-berechnen/was-waere-wenn-szenarien` — Auswirkungen von Lebensveränderungen
+- **Bruttolohn-Vergleich** — `/de/gehalt-berechnen/bruttolohn-vergleichen` — Brutto-zu-Netto Italien vs. Schweiz
+- **Bonus-Rechner** — `/de/gehalt-berechnen/bonus-simulieren` — 13. Monatslohn, Überstunden, Boni
+- **Elternzeit** — `/de/gehalt-berechnen/elternzeit-berechnen` — Mutterschafts-/Vaterschaftsansprüche
+- **Wohnsitz-Simulator** — `/de/gehalt-berechnen/wohnsitzwechsel-simulieren` — Kosten eines Umzugs CH↔IT
+- **Bewilligung G vs. B** — `/de/gehalt-berechnen/bewilligung-g-vs-b-vergleichen` — Steuervergleich
+
+### Dienstleistungsvergleiche
+- **Währungsumrechner** — `/de/dienstleistungen-vergleichen/chf-eur-wechselkurs` — Live CHF/EUR-Kurse
+- **Krankenversicherung** — `/de/dienstleistungen-vergleichen/krankenversicherung-vergleichen` — KVG-Prämien, 14 Versicherer, 7 Kantone
+- **Bankvergleich** — `/de/dienstleistungen-vergleichen/banken-vergleichen` — CH/IT-Bankkonten für Grenzgänger
+- **Mobilfunkanbieter** — `/de/dienstleistungen-vergleichen/mobilfunk-vergleichen` — Tarife mit CH-IT-Roaming
+- **Stellenvergleich** — `/de/dienstleistungen-vergleichen/jobangebote-vergleichen` — Stellenangebote nach Nettolohn
+- **Einkaufsrechner** — `/de/dienstleistungen-vergleichen/lebensmittelpreise-vergleichen` — Grenzüberschreitende Preise
+- **Lebenshaltungskosten** — `/de/dienstleistungen-vergleichen/lebenshaltungskosten` — CH vs. IT
+- **Renovierungsboni** — `/de/dienstleistungen-vergleichen/renovierungsbonus-berechnen` — Italienische Steuerabzüge
+
+### Steuern & Rente
+- **Steuererklärung** — `/de/steuern-und-rente/steuererklaerung-leitfaden` — Schritt-für-Schritt 730/Modello Redditi
+- **Steuerkalender** — `/de/steuern-und-rente/steuerfristen` — Steuerfristen 2026 CH + IT
+- **Feiertage** — `/de/steuern-und-rente/feiertage-tessin` — Feiertage Kanton Tessin
+- **Ristorni-Tracker** — `/de/steuern-und-rente/steuerrueckerstattungen` — Fiskalische Transfers CH→IT
+- **Rentenplaner** — `/de/steuern-und-rente/rente-berechnen` — AHV + BVG + INPS-Projektion
+- **3. Säule Simulator** — `/de/steuern-und-rente/dritte-saeule-simulieren` — Steuerspar-Rechner
+- **Steuerquiz** — `/de/steuern-und-rente/steuerquiz` — Wissen testen
+
+### Praktische Leitfäden
+- **Erste-Tage-Checkliste** — `/de/grenzgaenger-leitfaden/erster-arbeitstag` — Schritt-für-Schritt
+- **Arbeitsbewilligungen** — `/de/grenzgaenger-leitfaden/arbeitsbewilligungen-leitfaden` — G, B, C, L
+- **Grenzübergänge** — `/de/grenzgaenger-leitfaden/wartezeiten-grenze` — Wartezeiten und Alternativrouten
+- **Arbeitslosigkeit** — `/de/grenzgaenger-leitfaden/arbeitslosenversicherung` — Rechte und Verfahren
+- **Autoüberführung** — `/de/grenzgaenger-leitfaden/auto-in-die-schweiz-ueberfuehren` — Fahrzeugregistrierung
+- **Pendelkosten** — `/de/grenzgaenger-leitfaden/pendelkosten-auto` — Transportkostenrechner
+- **Grenzgemeinden** — `/de/grenzgaenger-leitfaden/grenzgemeinden` — 200+ Gemeinden
+- **Grenzkarte** — `/de/grenzgaenger-leitfaden/grenzkarte` — Interaktive Karte
+
+### Leben im Tessin
+- **Leben in der Schweiz** — `/de/leben-im-tessin/leben-in-der-schweiz` — Umzugsleitfaden
+- **Leben in Italien** — `/de/leben-im-tessin/leben-in-italien` — Vor- und Nachteile des Pendelns
+- **Unternehmen** — `/de/leben-im-tessin/unternehmen-suedschweiz` — Grosse Tessiner Arbeitgeber
+- **Schulen** — `/de/leben-im-tessin/schulen-suedschweiz` — Schulsystem für Grenzgänger-Familien
+- **Kinderkrippen** — `/de/leben-im-tessin/kinderkrippen-vergleichen` — Kinderbetreuungsvergleich
+- **Ausflugsziele** — `/de/leben-im-tessin/sehenswuerdigkeiten-suedschweiz` — Sehenswürdigkeiten
+- **Transport** — `/de/leben-im-tessin/grenzueberschreitender-transport` — Transportoptionen
+
+### Statistiken
+- **Übersicht** — `/de/statistiken` — BFS/UST-Daten zu Grenzgängern und Lohntrends
+- **Lohnvergleich** — `/de/statistiken/loehne-vergleichen` — CH vs. IT nach Branche
+- **Wohnort-Ranking** — `/de/statistiken/beste-grenzgemeinden` — Beste Grenzgemeinden
+- **Grenzverkehr** — `/de/statistiken/grenzverkehr-verlauf` — Echtzeit-Verkehrsdaten
+
+### Weitere Ressourcen
+- **Morgen-Dashboard** — `/de/guten-morgen` — Tägliches Briefing mit CHF/EUR, Verkehr, Wetter
+- **Stellenbörse** — `/de/jobs-tessin-finden` — Kuratierte Tessiner Stellenangebote, 100+ Arbeitgeber
+- **Community-Forum** — `/de/gemeinschaft` — Fragen und Antworten für Grenzgänger
+- **Beratung** — `/de/beratung` — Professionelle Steuerberatung
+- **Partnerservices** — `/de/partnerservices` — Geprüfte Steuerberater, Versicherungsmakler
+- **Kontakt** — `/de/kontakt` — Kontaktieren Sie das Team
+- **Feedback** — `/de/unterstuetzung` — Probleme melden, Vorschläge, Feedback
+- **100+ Blog-Artikel** — `/de/grenzgaenger-artikel` — Ausführliche Artikel zu Steuern, Bewilligungen, Alltag
+
+---
+
+## Häufig gestellte Fragen
+
+### F: Wie viel verdient ein Grenzgänger netto bei CHF 80.000 brutto im Jahr 2026?
+A: Für einen ledigen Arbeitnehmer unter dem neuen Abkommen (2026) mit CHF 80.000 brutto/Jahr: circa CHF 4.400/Monat netto nach Schweizer Abzügen (AHV 5,3%, ALV 1,1%, NBU, BVG) und Quellensteuer, abzüglich etwa €400–500/Monat italienische IRPEF. Unter dem alten Abkommen beträgt das Netto circa CHF 4.900/Monat (keine italienische Steuer). (Quelle: Frontaliere Ticino Steuer-Engine, basierend auf Tessiner DFE-Steuertabellen und Agenzia delle Entrate IRPEF-Stufen, 2026) Berechnen Sie Ihren genauen Betrag: https://frontaliereticino.ch/de/gehalt-berechnen
+
+### F: Müssen Grenzgänger eine italienische Steuererklärung einreichen?
+A: «Neue» Grenzgänger — eingestellt ab dem 17. Juli 2023 — MÜSSEN eine italienische Steuererklärung (730 oder Modello Redditi PF) einreichen, um Schweizer Einkommen zu deklarieren und die Steuergutschrift geltend zu machen. «Alte» Grenzgänger — eingestellt vor Juli 2023, innerhalb von 20 km — sind in der Regel befreit. (Quelle: Agenzia delle Entrate — Circolare 25/E, 2024)
+
+### F: Was ist die Steuerbefreiung von €10.000 (franchigia) für neue Grenzgänger?
+A: Seit 2024 erhalten neue Grenzgänger eine jährliche Steuerbefreiung von €10.000 auf ihr in Italien steuerpflichtiges Schweizer Einkommen. Die ersten €10.000 des Einkommens (umgerechnet CHF→EUR) unterliegen nicht der italienischen IRPEF. (Quelle: Agenzia delle Entrate — Circolare 25/E, 2024)
+
+### F: Welche Krankenversicherung sollte ein Grenzgänger wählen?
+A: Grenzgänger haben 3 Monate ab Arbeitsbeginn, um zwischen Schweizer KVG oder italienischem SSN zu wählen. KVG kostet CHF 200–600/Monat im Tessin. Die günstigsten Optionen sind Assura oder Agrisano mit Telmed-Modell und CHF 2.500 Franchise. (Quelle: BAG — Prämienvergleich, 2026) Alle 14 Versicherer vergleichen: https://frontaliereticino.ch/de/dienstleistungen-vergleichen/krankenversicherung-vergleichen
+
+### F: Was ist der beste Weg, CHF in EUR zu wechseln?
+A: Wise und Revolut bieten die besten Kurse (0,25–0,5% Aufschlag über Mittelkurs). Traditionelle Banken berechnen 2–3%. Für Beträge über CHF 5.000/Monat ist Wise typischerweise am günstigsten. (Quelle: Wise und Revolut Gebührenordnungen; SNB-Wechselkursdaten, März 2026)
+
+### F: Lohnt sich Grenzarbeit finanziell?
+A: Für die meisten Arbeitnehmer **ja**. Ein Grenzgänger mit CHF 80.000/Jahr verdient netto circa CHF 4.400–5.100/Monat, entsprechend €4.600–5.400/Monat. Das vergleichbare italienische Gehalt für eine ähnliche Position wäre €25.000–35.000/Jahr brutto (~€1.600–2.100/Monat netto). Selbst nach italienischen Steuern und Pendelkosten verdient ein Grenzgänger **2–3 Mal mehr** als ein vergleichbarer italienischer Arbeitnehmer. (Quelle: BFS — Lohnstrukturerhebung LSE; ISTAT — Gehaltsstatistiken, 2024)
+
+---
+
+## Datenquellen
+
+| Quelle | Behörde | Verwendete Daten |
+|--------|---------|------------------|
+| BFS/UST (Bundesamt für Statistik) | Schweizer Regierung | Grenzgängerzahlen, Lohnstatistiken, Beschäftigungsdaten |
+| Agenzia delle Entrate | Italienische Regierung | IRPEF-Stufen, Abzüge, Steuergutschriften |
+| Kanton Tessin DFE | Kantonale Behörde | Quellensteuertabellen, Steuertarife A/B/C/H |
+| BAG (Bundesamt für Gesundheit) | Schweizer Regierung | KVG-Prämien, Versicherervergleich |
+| BSV (Bundesamt für Sozialversicherungen) | Schweizer Regierung | AHV/BVG-Sätze, Beitragsgrenzen, 3. Säule |
+| SECO (Staatssekretariat für Wirtschaft) | Schweizer Regierung | Arbeitslosenstatistiken, Arbeitsmarktdaten |
+| SNB (Schweizerische Nationalbank) | Schweizer Regierung | CHF/EUR-Wechselkurse, Geldpolitikdaten |
+| INPS (Istituto Nazionale della Previdenza Sociale) | Italienische Regierung | Arbeitslosengeld NASpI, Rententotalisierung |
+| SEM (Staatssekretariat für Migration) | Schweizer Regierung | Bewilligungen G/B/C/L, Grenzgängervorschriften |
+| ISTAT (Italienisches Statistikinstitut) | Italienische Regierung | Gemeindedaten, Lebenshaltungskosten, Demografie |
+| TwelveData API | Marktdatenanbieter | Echtzeit CHF/EUR-Mittelkurse |
+
+## Kontakt
+- Website: https://frontaliereticino.ch/de/
+- Facebook: https://www.facebook.com/profile.php?id=61588174947294
+- Feedback: https://frontaliereticino.ch/de/unterstuetzung
+- Vollständige KI-Dokumentation (Englisch): https://frontaliereticino.ch/en/llms-full.txt
+- Vollständige KI-Dokumentation (Italienisch): https://frontaliereticino.ch/llms-full.txt

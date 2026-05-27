@@ -1,0 +1,158 @@
+name: Orchestrate Job Crawlers
+
+on:
+  schedule:
+    # Run twice daily: morning + afternoon (UTC).
+    # All crawlers (including Coop) are dispatched here; no standalone crons.
+    - cron: '0 8 * * *'
+    - cron: '0 20 * * *'
+  workflow_dispatch:
+    inputs:
+      group:
+        description: 'Which crawlers to run (all = every update-jobs-*.yml)'
+        required: false
+        default: 'all'
+        type: choice
+        options:
+          - all
+      delay_seconds:
+        description: 'Seconds to wait between dispatches (10-120)'
+        required: false
+        default: '120'
+        type: string
+      dry_run:
+        description: 'Log which workflows would run without dispatching'
+        required: false
+        default: 'false'
+        type: choice
+        options:
+          - 'false'
+          - 'true'
+
+concurrency:
+  group: orchestrate-crawlers
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+  actions: write
+
+env:
+  NODE_OPTIONS: '--disable-warning=DEP0040 --disable-warning=DEP0169'
+
+jobs:
+  dispatch-all:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+
+    steps:
+      - name: Checkout (workflow files only)
+        uses: actions/checkout@v5
+        with:
+          sparse-checkout: .github/workflows
+          sparse-checkout-cone-mode: false
+          fetch-depth: 1
+
+      - name: Discover and dispatch crawler workflows
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          DELAY: ${{ inputs.delay_seconds || '120' }}
+          DRY_RUN: ${{ inputs.dry_run || 'false' }}
+        run: |
+          set -euo pipefail
+
+          echo "╔══════════════════════════════════════════════════════════╗"
+          echo "║  Crawler Orchestrator — $(date -u '+%Y-%m-%d %H:%M UTC')  ║"
+          echo "╚══════════════════════════════════════════════════════════╝"
+          echo ""
+
+          # FRO-326/FRO-424: Volume-based staggering.
+          # AI quota spreading is no longer needed here (skip_ai_translation=1 is passed
+          # to all crawlers; translation runs centrally via translate-pending.yml).
+          # Delays exist only to avoid GitHub API rate limits and runner contention.
+          # Large crawlers (>50 jobs): 120s delay (2 minutes)
+          # Medium crawlers (10-50 jobs): 60s delay (1 minute)
+          # Small crawlers (<10 jobs): 20s delay
+
+          # Known large crawlers (>50 estimated jobs per run)
+          LARGE_CRAWLERS="update-jobs-coop update-jobs-sbb update-jobs-migros update-jobs-post update-jobs-confederazione update-jobs-sunrise update-jobs-amag"
+          # Known medium crawlers (10-50 jobs)
+          MEDIUM_CRAWLERS="update-jobs-allianz update-jobs-axpo update-jobs-axa update-jobs-raiffeisen update-jobs-hamilton update-jobs-volg update-jobs-hitachi update-jobs-trumpf update-jobs-agroscope update-jobs-bosch update-jobs-kempinski update-jobs-colin-cie update-jobs-engelvoelkers update-jobs-stadt-chur update-jobs-cler update-jobs-guess update-jobs-giorgio-armani update-jobs-sintetica update-jobs-casale update-jobs-citta-di-lugano update-jobs-ferrovia-retica update-jobs-mikron update-jobs-rapelli update-jobs-denner update-jobs-lonza"
+
+          get_delay() {
+            local name="$1"
+            local base="${name%.yml}"
+            base="${base#update-jobs-}"
+            for lg in $LARGE_CRAWLERS; do
+              if [[ "$lg" == "update-jobs-$base" ]]; then echo "120"; return; fi
+            done
+            for md in $MEDIUM_CRAWLERS; do
+              if [[ "$md" == "update-jobs-$base" ]]; then echo "60"; return; fi
+            done
+            echo "20"
+          }
+
+          # Discover all crawler workflow files
+          mapfile -t workflows < <(find .github/workflows -name 'update-jobs-*.yml' -type f | sort)
+          total=${#workflows[@]}
+
+          if [ "$total" -eq 0 ]; then
+            echo "❌ No crawler workflows found!"
+            exit 1
+          fi
+
+          echo "📋 Found $total crawler workflows (FRO-326: volume-based staggering)"
+          echo ""
+
+          dispatched=0
+          skipped=0
+          failed=0
+
+          # Dispatch crawlers alphabetically; delay between each based on volume
+          for wf in "${workflows[@]}"; do
+            filename=$(basename "$wf")
+            wf_name=$(head -1 "$wf" | sed 's/^name: //')
+            counter=$((dispatched + skipped + failed + 1))
+
+            this_delay=$(get_delay "$filename")
+            if [ "$this_delay" = "SKIP" ]; then
+              echo "  [$counter/$total] $filename — ⏭️  skipped (separate schedule)"
+              skipped=$((skipped + 1))
+              continue
+            fi
+
+            echo -n "  [$counter/$total] $filename (delay: ${this_delay}s)"
+
+            if [ "$DRY_RUN" = "true" ]; then
+              echo " — 🔵 DRY RUN (would dispatch)"
+              dispatched=$((dispatched + 1))
+              continue
+            fi
+
+            if gh workflow run "$filename" --ref main -f skip_ai_translation=1 2>/dev/null; then
+              echo " — ✅ dispatched"
+              dispatched=$((dispatched + 1))
+            else
+              echo " — ❌ FAILED"
+              failed=$((failed + 1))
+            fi
+
+            # Volume-based delay between dispatches
+            if [ "$counter" -lt "$total" ] && [ "$DRY_RUN" != "true" ]; then
+              sleep "$this_delay"
+            fi
+          done
+
+          echo ""
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+          echo "  ✅ Dispatched: $dispatched"
+          echo "  ❌ Failed:     $failed"
+          echo "  ⏭️  Skipped:    $skipped"
+          echo "  📊 Total:      $total"
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+
+          if [ "$failed" -gt 0 ]; then
+            echo ""
+            echo "⚠️  Some dispatches failed — check individual workflow status"
+            exit 1
+          fi

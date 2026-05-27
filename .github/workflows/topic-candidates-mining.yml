@@ -1,0 +1,79 @@
+name: Topic candidates mining
+
+# Weekly mining of external demand sources (GSC orphans + Google Trends +
+# Reddit + Facebook public pages) into data/topic-candidates.json. Phase 2
+# of the smarter-article-generator design.
+#
+# Resilience: the script always exits 0 — every external source is wrapped
+# in try/catch and graceful-degrades on missing secrets / rate-limits /
+# network failures.
+
+on:
+  schedule:
+    - cron: '0 22 * * 0' # Sunday 22:00 UTC
+  workflow_dispatch:
+
+concurrency:
+  group: topic-candidates-mining
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  mine:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 1
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Playwright Chromium
+        run: npx playwright install chromium --with-deps
+
+      - name: Write Firebase service-account JSON to /tmp
+        # Required by load-rc-env.mjs to authenticate against Firebase RC.
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -n "${FIREBASE_SERVICE_ACCOUNT_JSON:-}" ]; then
+            printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+            echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+          else
+            echo "::notice::No FIREBASE_SERVICE_ACCOUNT_JSON — RC load + Facebook will be skipped gracefully."
+          fi
+
+      - name: Load secrets from Remote Config
+        # Maps SERVER_FB_PAGE_ACCESS_TOKEN (set in Firebase RC) to FB_PAGE_ACCESS_TOKEN
+        # in $GITHUB_ENV. No-op if FIREBASE_SERVICE_ACCOUNT_JSON wasn't set.
+        run: node scripts/load-rc-env.mjs
+
+      - name: Mine topic candidates
+        run: node scripts/mine-topic-candidates.mjs
+
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          # Legacy data/topic-candidates.json was dropped 2026-05-07 — Phase B+C
+          # ranker reads demand-vocabulary.json + experimental-candidates.json
+          # directly. The mining script no longer writes the legacy file.
+          git add data/demand-vocabulary.json data/experimental-candidates.json
+          if git diff --cached --quiet; then
+            echo "No changes to demand-vocabulary or experimental-candidates"
+            exit 0
+          fi
+          git commit -m "chore: refresh topic candidates"
+          bash scripts/lib/git-push-with-retry.sh

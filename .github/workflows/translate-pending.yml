@@ -1,0 +1,245 @@
+name: Translate Pending Jobs
+
+on:
+  workflow_run:
+    workflows: ["Orchestrate Job Crawlers"]
+    types: [completed]
+  schedule:
+    - cron: '0 6 * * *'     # Daily: housekeeping + translate (replaces cleanup-stale-jobs cron)
+    - cron: '0 12 * * *'    # Midday: translate after 08:00 orchestration
+    - cron: '0 0 * * *'     # Midnight: translate after 20:00 orchestration
+    - cron: '20 0 * * *'    # Nightly retry: after quota reset
+    - cron: '20 3 * * *'    # Backup nightly retry
+  workflow_dispatch:
+    inputs:
+      max_jobs:
+        description: 'Max jobs to translate'
+        default: '100'
+      company_key:
+        description: 'Single company key to translate (e.g. a-group). Leave empty for all.'
+        default: ''
+      skip_housekeeping:
+        description: 'Skip housekeeping (URL validation, expired pruning)'
+        type: boolean
+        default: false
+      skip_translate:
+        description: 'Skip translations (only housekeeping + slug hardening)'
+        type: boolean
+        default: false
+      dry_run:
+        description: 'Dry run (no commit)'
+        type: boolean
+        default: false
+
+concurrency:
+  group: jobs-data-pipeline
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+env:
+  NODE_OPTIONS: '--disable-warning=DEP0040 --disable-warning=DEP0169'
+
+jobs:
+  translate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 350
+
+    # Self-hosted LibreTranslate — unlimited free translations with no external API dependency.
+    # Argos Translate models load on first request (~30s), subsequent calls are <500ms.
+    # Known limitation: quality is lower than DeepL/Azure for IT translations (e.g. typos
+    # in compound words). Use as high-priority tier for EN/DE/FR, free cascade handles IT.
+    services:
+      libretranslate:
+        image: libretranslate/libretranslate:latest
+        ports:
+          - 5000:5000
+        env:
+          LT_LOAD_ONLY: it,en,de,fr
+          LT_SUGGESTIONS: "false"
+          LT_DISABLE_WEB_UI: "true"
+        options: >-
+          --health-cmd "python -c \"import urllib.request; urllib.request.urlopen('http://localhost:5000/languages')\" || exit 1"
+          --health-interval 15s
+          --health-timeout 10s
+          --health-retries 20
+          --health-start-period 180s
+
+    steps:
+      - name: Wait for LibreTranslate service
+        run: |
+          echo "⏳ Waiting for LibreTranslate to load language models..."
+          for i in $(seq 1 40); do
+            if curl -sf http://localhost:5000/languages > /dev/null 2>&1; then
+              echo "✅ LibreTranslate ready (attempt $i)"
+              exit 0
+            fi
+            sleep 5
+          done
+          echo "⚠️  LibreTranslate not ready after 200s — translations will use other providers"
+
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 50
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Prepare Firebase credentials (optional)
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -n "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+          else
+            echo "ℹ️ Firebase secrets not set — will use file config only."
+            exit 0
+          fi
+          echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+
+      - name: Load RC secrets
+        run: node scripts/load-rc-env.mjs
+
+      # ── Phase 1: Housekeeping (prune expired, validate URLs, dedup) ──────
+      # Runs BEFORE translations so we don't waste AI quota on dead jobs.
+      # Determine if this is the daily housekeeping run (06:00 UTC cron).
+      # Other triggers (12:00, 00:00, workflow_run, manual) skip housekeeping
+      # to go straight to translations — saves ~8 min of URL validation.
+      - name: Check if housekeeping should run
+        id: hk
+        run: |
+          if [ "${{ github.event.schedule }}" = "0 6 * * *" ]; then
+            echo "run=true" >> "$GITHUB_OUTPUT"
+            echo "🧹 Daily 06:00 UTC — housekeeping enabled"
+          elif [ "${{ inputs.skip_housekeeping }}" = "true" ]; then
+            echo "run=false" >> "$GITHUB_OUTPUT"
+            echo "⏭️  Housekeeping skipped (user input)"
+          else
+            echo "run=false" >> "$GITHUB_OUTPUT"
+            echo "⏭️  Housekeeping skipped (not daily cron)"
+          fi
+
+      # Slug hardening is SKIPPED here — it runs AFTER translations in Phase 3.
+      - name: "Phase 1: Housekeeping"
+        if: steps.hk.outputs.run == 'true'
+        env:
+          JOBS_SKIP_LOCALE_HARDENING: '1'
+        run: |
+          echo "🧹 Running housekeeping (no slug hardening — deferred to Phase 3)..."
+          for slice in data/jobs/by-crawler/*.json; do
+            [ -f "$slice" ] || continue
+            JOBS_SLICE_FILE="$slice" node scripts/cleanup-jobs.mjs || true
+          done
+          echo "✅ Housekeeping complete"
+
+      - name: Commit housekeeping
+        if: always() && steps.hk.outputs.run == 'true' && inputs.dry_run != true
+        run: bash scripts/lib/git-commit-data.sh --slice-only "🧹 Housekeeping — prune expired + validate URLs"
+
+      # ── Phase 2: Translate pending jobs ──────────────────────────────────
+      - name: Assemble dataset
+        if: inputs.skip_translate != true
+        run: node scripts/assemble-jobs-dataset.mjs
+
+      # Ext3 task 4 — flag jobs whose descriptionByLocale[X] contains text
+      # in a different language (detection mirrors
+      # tests/job-locale-consistency.test.ts). Flagged jobs get
+      # needsRetranslation=true so the translate step below rebuilds them in
+      # this same run. Runs AFTER assembly (operates on the assembled
+      # data/jobs.json) but BEFORE the translate step so the fresh flags are
+      # picked up in a single pipeline execution. Soft-fail on error: a
+      # detection crash shouldn't block the whole batch.
+      - name: "Phase 2 pre: Flag locale-mismatched job descriptions"
+        if: inputs.skip_translate != true
+        continue-on-error: true
+        run: node scripts/mark-locale-mismatched-jobs.mjs
+
+      - name: Log translation stats (before)
+        if: inputs.skip_translate != true
+        run: node scripts/log-translation-stats.mjs before
+
+      - name: "Phase 2: Translate pending jobs"
+        if: inputs.skip_translate != true
+        env:
+          JOBS_CRAWLER_USE_FIRESTORE_CONFIG: '1'
+          # Self-hosted LibreTranslate from service container — unlimited, no API key needed
+          JOBS_LIBRETRANSLATE_ENDPOINT: 'http://localhost:5000/translate'
+          LIBRETRANSLATE_SELF_HOSTED_URL: 'http://localhost:5000'
+        run: node scripts/relocalize-pending-jobs.mjs --max-jobs ${{ inputs.max_jobs || '100' }} ${{ inputs.company_key && format('--company-key {0}', inputs.company_key) || '' }}
+
+      - name: Log translation stats (after)
+        if: always() && inputs.skip_translate != true
+        run: node scripts/log-translation-stats.mjs after
+
+      - name: Scatter changes back to per-crawler slices
+        if: inputs.skip_translate != true
+        run: node scripts/scatter-jobs-to-slices.mjs
+
+      - name: Commit translations
+        if: always() && inputs.skip_translate != true && inputs.dry_run != true
+        run: bash scripts/lib/git-commit-data.sh --slice-only "🌐 Auto-translate pending jobs" data/jobs/by-crawler/ data/translation-cache/ data/jobs-crawler-config.json data/slug-registry.json data/translation-stats-history.json
+
+      # ── Phase 2b: Fix source-copy titles (daily 06:00 only) ──────────────
+      # Only runs on the daily cron — no point retrying the same 30 failed titles
+      # every run. New jobs from crawlers will have source-copy titles that 2b fixes.
+      - name: "Phase 2b: Fix untranslated titles (free cascade)"
+        if: steps.hk.outputs.run == 'true' && inputs.dry_run != true
+        env:
+          LIBRETRANSLATE_SELF_HOSTED_URL: 'http://localhost:5000'
+        run: node scripts/fix-untranslated-titles.mjs
+
+      - name: Commit title fixes
+        if: steps.hk.outputs.run == 'true' && inputs.dry_run != true
+        run: bash scripts/lib/git-commit-data.sh --slice-only "🔤 Fix untranslated titles (free cascade)"
+
+      # Phase 2c REMOVED — descriptions are at 0 source copies.
+      # If new crawlers add untranslated descriptions, Phase 2 (AI) handles them.
+
+      # ── Phase 3: Regenerate slugs from translated titles ──────────────────
+      # Safe replacement for hardenJobLocaleFields (which was destructive:
+      # re-translated titles, contaminated EN/DE/FR with Italian, set needsRetranslation).
+      # This script ONLY regenerates slugByLocale from existing titleByLocale.
+      # It NEVER modifies titles, descriptions, or needsRetranslation.
+      - name: "Phase 3: Regenerate locale slugs"
+        if: always() && inputs.dry_run != true
+        run: node scripts/regenerate-slugs-by-locale.mjs
+
+      - name: Commit slug regeneration
+        if: always() && inputs.dry_run != true
+        run: bash scripts/lib/git-commit-data.sh --slice-only "🔗 Regenerate locale slugs (post-translation)"
+
+      # ── Phase 4: Validate + Deploy ──────────────────────────────────────
+      - name: Trigger deploy
+        if: always() && inputs.dry_run != true
+        run: |
+          if node scripts/validate-translation-completeness.mjs 2>/dev/null; then
+            echo "✅ All translations complete — triggering deploy"
+            bash scripts/lib/trigger-deploy.sh
+          else
+            echo "⏳ Some translations still incomplete — skipping deploy trigger"
+            echo "   The next cron run will retry and trigger deploy once all jobs are translated."
+          fi
+
+      - name: Report failure to Linear
+        if: failure()
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          node scripts/lib/github-issue-creator.mjs \
+            --title "Translation Pipeline Failure" \
+            --description "## Pipeline fallita
+
+          **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          **Trigger:** ${{ github.event_name }}" \
+            --priority 2 \
+            --label Bug \
+            --workflow "Translate Pending Jobs"

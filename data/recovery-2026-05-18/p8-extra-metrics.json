@@ -1,0 +1,35 @@
+{
+  "generatedAt": "2026-05-25T07:34:29.320Z",
+  "firestore": {
+    "subs7d": 0,
+    "subsPrev7d": 0,
+    "active7d": null
+  },
+  "posthog": {
+    "appErrors30d": 3892,
+    "totalEvents30d": 1428355,
+    "appErrorRatePct30d": 0.272,
+    "signupEvents7d": [
+      [
+        "generate_lead",
+        30095
+      ],
+      [
+        "newsletter",
+        730
+      ],
+      [
+        "newsletter_gate_shown",
+        107
+      ],
+      [
+        "newsletter_gate_dismissed",
+        69
+      ],
+      [
+        "newsletter_gate_subscribed",
+        10
+      ]
+    ]
+  }
+}

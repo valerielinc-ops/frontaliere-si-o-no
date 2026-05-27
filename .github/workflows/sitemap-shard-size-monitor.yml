@@ -1,0 +1,147 @@
+name: sitemap-shard-size-monitor
+
+# Weekly check that no sitemap shard is approaching Google's 50,000 URL cap.
+# Fetches https://frontaliereticino.ch/sitemap-index.xml, walks every shard,
+# and opens a GitHub issue (severity-tagged) when any shard exceeds 40k urls.
+#
+# Runs Mondays 08:00 UTC, after the GSC monitor has refreshed weekly metrics.
+
+on:
+  schedule:
+    - cron: '0 8 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+concurrency:
+  group: sitemap-shard-size-monitor
+  cancel-in-progress: false
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      # No `npm ci` — the script uses only the Node stdlib + native fetch.
+
+      - name: Run sitemap shard size check
+        id: check
+        continue-on-error: true
+        run: node scripts/check-sitemap-shard-size.mjs
+
+      - name: Determine severity
+        id: severity
+        if: steps.check.outcome == 'failure'
+        run: |
+          set -euo pipefail
+          if [ ! -f data/sitemap-shard-size-report.json ]; then
+            echo "Check failed but no report emitted; skipping issue creation."
+            echo "severity=none" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          criticals=$(jq -r '.criticals | length' data/sitemap-shard-size-report.json)
+          warnings=$(jq -r '.warnings | length' data/sitemap-shard-size-report.json)
+          if [ "$criticals" -gt 0 ]; then
+            echo "severity=critical" >> "$GITHUB_OUTPUT"
+          elif [ "$warnings" -gt 0 ]; then
+            echo "severity=warning" >> "$GITHUB_OUTPUT"
+          else
+            echo "severity=none" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Open issue for oversized shards
+        if: steps.check.outcome == 'failure' && steps.severity.outputs.severity != 'none'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+          SEVERITY: ${{ steps.severity.outputs.severity }}
+        run: |
+          set -euo pipefail
+          report=data/sitemap-shard-size-report.json
+
+          shardCount=$(jq -r '.shardCount' "$report")
+          totalUrls=$(jq -r '.totalUrls' "$report")
+          warnings=$(jq -r '.warnings | join(", ")' "$report")
+          criticals=$(jq -r '.criticals | join(", ")' "$report")
+
+          if [ "$SEVERITY" = "critical" ]; then
+            label="sitemap-shard-critical"
+            title="[sitemap-shard-size] CRITICAL: $(jq -r '.criticals | length' "$report") shard(s) ≥ 45k urls"
+          else
+            label="sitemap-shard-warning"
+            title="[sitemap-shard-size] WARNING: $(jq -r '.warnings | length' "$report") shard(s) ≥ 40k urls"
+          fi
+
+          # Skip if an open issue with the same title already exists.
+          existing=$(gh issue list --state open --label "$label" \
+            --limit 50 --json title --jq '.[].title' || true)
+          if echo "$existing" | grep -Fxq "$title"; then
+            echo "Issue already open: $title"
+            exit 0
+          fi
+
+          # Build a markdown table of every flagged shard.
+          flagged=$(jq -r '
+            .shards
+            | map(select(.warning or .critical))
+            | sort_by(-.urlCount)
+            | map("| `\(.filename)` | \(.urlCount) | \(if .critical then "CRITICAL" elif .warning then "warning" else "ok" end) |")
+            | join("\n")
+          ' "$report")
+
+          body=$(cat <<EOF
+          Weekly sitemap shard size monitor flagged **$SEVERITY** shard(s).
+
+          - Total shards: ${shardCount}
+          - Total urls across all shards: ${totalUrls}
+          - Warning shards (≥40,000): ${warnings:-none}
+          - Critical shards (≥45,000): ${criticals:-none}
+          - Google hard cap: 50,000 urls per sitemap file
+
+          | Shard | URL count | Severity |
+          |---|---:|---|
+          ${flagged}
+
+          Workflow run: ${GITHUB_SERVER_URL:-https://github.com}/${GH_REPO}/actions/runs/${GITHUB_RUN_ID:-}
+          Source data: \`data/sitemap-shard-size-report.json\` (artifact below).
+          Detection script: \`scripts/check-sitemap-shard-size.mjs\`
+
+          Triage:
+          1. Identify which build plugin emits the flagged shard (e.g. \`sitemap-jobs-*.xml\` → job-board pages).
+          2. Reshard: split by city/canton/sector/locale or paginate the underlying source.
+          3. Rebuild + redeploy and confirm the shard drops below 40k on the next monitor run.
+          EOF
+          )
+
+          gh issue create \
+            --title "$title" \
+            --body "$body" \
+            --label "$label" \
+            --repo "$GH_REPO"
+
+      - name: Upload report artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: sitemap-shard-size-report
+          path: data/sitemap-shard-size-report.json
+          if-no-files-found: ignore
+          retention-days: 30
+
+      - name: Fail job if any shard exceeded thresholds
+        if: steps.check.outcome == 'failure'
+        run: |
+          echo "Sitemap shard size check exited non-zero — see report + issue above."
+          exit 1

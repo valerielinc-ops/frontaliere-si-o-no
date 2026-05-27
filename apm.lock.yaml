@@ -1,0 +1,299 @@
+lockfile_version: '1'
+generated_at: '2026-05-25T05:17:39.332555+00:00'
+apm_version: 0.14.2
+dependencies:
+- repo_url: JuliusBrussee/caveman
+  host: github.com
+  resolved_commit: 655b7d9c5431f822264b7732e9901c5578ac84cf
+  resolved_ref: 655b7d9c5431f822264b7732e9901c5578ac84cf
+  virtual_path: skills/caveman
+  is_virtual: true
+  package_type: claude_skill
+  deployed_files:
+  - .agents/skills/caveman
+  - .claude/skills/caveman
+  content_hash: sha256:dfbf85749fd474feeb0bbe60c779795ecd5dbec0083299b56e68916bc3ddd8c9
+- repo_url: JuliusBrussee/caveman
+  host: github.com
+  resolved_commit: 655b7d9c5431f822264b7732e9901c5578ac84cf
+  resolved_ref: 655b7d9c5431f822264b7732e9901c5578ac84cf
+  virtual_path: skills/caveman-commit
+  is_virtual: true
+  package_type: claude_skill
+  deployed_files:
+  - .agents/skills/caveman-commit
+  - .claude/skills/caveman-commit
+  content_hash: sha256:f456ea0564875e46858890ac39ee701ecb9c601c72a2da1e6ce6bd5f9fc5d817
+- repo_url: JuliusBrussee/caveman
+  host: github.com
+  resolved_commit: 655b7d9c5431f822264b7732e9901c5578ac84cf
+  resolved_ref: 655b7d9c5431f822264b7732e9901c5578ac84cf
+  virtual_path: skills/caveman-compress
+  is_virtual: true
+  package_type: claude_skill
+  deployed_files:
+  - .agents/skills/caveman-compress
+  - .claude/skills/caveman-compress
+  content_hash: sha256:9ee57d110084c7881433602eab68b86c1a32681b3ff7cf53442be87034ade9c5
+- repo_url: JuliusBrussee/caveman
+  host: github.com
+  resolved_commit: 655b7d9c5431f822264b7732e9901c5578ac84cf
+  resolved_ref: 655b7d9c5431f822264b7732e9901c5578ac84cf
+  virtual_path: skills/caveman-review
+  is_virtual: true
+  package_type: claude_skill
+  deployed_files:
+  - .agents/skills/caveman-review
+  - .claude/skills/caveman-review
+  content_hash: sha256:fb7214a1c5793bae6ba8b1be4329e2e6f40dbec6dd911dfb335ad29f09c316a1
+- repo_url: abhigyanpatwari/GitNexus
+  host: github.com
+  resolved_commit: 1c4993251c885813ce9a17a455a7530fb6b8eea9
+  resolved_ref: 1c4993251c885813ce9a17a455a7530fb6b8eea9
+  virtual_path: gitnexus-claude-plugin/skills/gitnexus-cli
+  is_virtual: true
+  package_type: claude_skill
+  deployed_files:
+  - .agents/skills/gitnexus-cli
+  - .claude/skills/gitnexus-cli
+  content_hash: sha256:e0f86e9c5ffa108bb7f3eb1c29037d964477644d9ac7e311e4bc36755b57ae81
+- repo_url: abhigyanpatwari/GitNexus
+  host: github.com
+  resolved_commit: 1c4993251c885813ce9a17a455a7530fb6b8eea9
+  resolved_ref: 1c4993251c885813ce9a17a455a7530fb6b8eea9
+  virtual_path: gitnexus-claude-plugin/skills/gitnexus-debugging
+  is_virtual: true
+  package_type: claude_skill
+  deployed_files:
+  - .agents/skills/gitnexus-debugging
+  - .claude/skills/gitnexus-debugging
+  content_hash: sha256:f593111ee58c6d20179434d081f02927d5459b02e0f271074ac57d9dd8ea4dce
+- repo_url: abhigyanpatwari/GitNexus
+  host: github.com
+  resolved_commit: 1c4993251c885813ce9a17a455a7530fb6b8eea9
+  resolved_ref: 1c4993251c885813ce9a17a455a7530fb6b8eea9
+  virtual_path: gitnexus-claude-plugin/skills/gitnexus-exploring
+  is_virtual: true
+  package_type: claude_skill
+  deployed_files:
+  - .agents/skills/gitnexus-exploring
+  - .claude/skills/gitnexus-exploring
+  content_hash: sha256:2c070646f63979f1ff51b3dd8b72d4c80783581fe5594253845cb3f91fbf7e36
+- repo_url: abhigyanpatwari/GitNexus
+  host: github.com
+  resolved_commit: 1c4993251c885813ce9a17a455a7530fb6b8eea9
+  resolved_ref: 1c4993251c885813ce9a17a455a7530fb6b8eea9
+  virtual_path: gitnexus-claude-plugin/skills/gitnexus-guide
+  is_virtual: true
+  package_type: claude_skill
+  deployed_files:
+  - .agents/skills/gitnexus-guide
+  - .claude/skills/gitnexus-guide
+  content_hash: sha256:4c47919bb6f84bcf77736c434415c0e6f91a48d964cd78a5955211a12fceeaec
+- repo_url: abhigyanpatwari/GitNexus
+  host: github.com
+  resolved_commit: 1c4993251c885813ce9a17a455a7530fb6b8eea9
+  resolved_ref: 1c4993251c885813ce9a17a455a7530fb6b8eea9
+  virtual_path: gitnexus-claude-plugin/skills/gitnexus-impact-analysis
+  is_virtual: true
+  package_type: claude_skill
+  deployed_files:
+  - .agents/skills/gitnexus-impact-analysis
+  - .claude/skills/gitnexus-impact-analysis
+  content_hash: sha256:76120c43a39ce7b33a80fef9acbef70c71c8d5ea1213688bdbe1770f061e5bc5
+- repo_url: abhigyanpatwari/GitNexus
+  host: github.com
+  resolved_commit: 1c4993251c885813ce9a17a455a7530fb6b8eea9
+  resolved_ref: 1c4993251c885813ce9a17a455a7530fb6b8eea9
+  virtual_path: gitnexus-claude-plugin/skills/gitnexus-refactoring
+  is_virtual: true
+  package_type: claude_skill
+  deployed_files:
+  - .agents/skills/gitnexus-refactoring
+  - .claude/skills/gitnexus-refactoring
+  content_hash: sha256:217167ecc1dd16f84e3ef3d489faa14ce7d2b4695d1f85909ef6a1266d26c478
+- repo_url: affaan-m/everything-claude-code
+  host: github.com
+  resolved_commit: 1e8c7e7994223e0ff337d1626cd08e04a1ae67ed
+  resolved_ref: 1e8c7e7994223e0ff337d1626cd08e04a1ae67ed
+  virtual_path: .agents/skills/api-design
+  is_virtual: true
+  package_type: claude_skill
+  deployed_files:
+  - .agents/skills/api-design
+  - .claude/skills/api-design
+  content_hash: sha256:72b74cd694ed0dd72b4e5a69369f54b865e62aad2f64aec33cb955a54c072ca4
+- repo_url: affaan-m/everything-claude-code
+  host: github.com
+  resolved_commit: 1e8c7e7994223e0ff337d1626cd08e04a1ae67ed
+  resolved_ref: 1e8c7e7994223e0ff337d1626cd08e04a1ae67ed
+  virtual_path: .agents/skills/backend-patterns
+  is_virtual: true
+  package_type: claude_skill
+  deployed_files:
+  - .agents/skills/backend-patterns
+  - .claude/skills/backend-patterns
+  content_hash: sha256:0438d42fc23b080851a08cecbb78d7e39f9a0100c5cdf7b9b1228cd61d98ec84
+- repo_url: affaan-m/everything-claude-code
+  host: github.com
+  resolved_commit: 1e8c7e7994223e0ff337d1626cd08e04a1ae67ed
+  resolved_ref: 1e8c7e7994223e0ff337d1626cd08e04a1ae67ed
+  virtual_path: .agents/skills/coding-standards
+  is_virtual: true
+  package_type: claude_skill
+  deployed_files:
+  - .agents/skills/coding-standards
+  - .claude/skills/coding-standards
+  content_hash: sha256:33305eacea95e4ee6ab2d6ae4f5197c19715c75d00915a070f108c4f85eba506
+- repo_url: affaan-m/everything-claude-code
+  host: github.com
+  resolved_commit: 1e8c7e7994223e0ff337d1626cd08e04a1ae67ed
+  resolved_ref: 1e8c7e7994223e0ff337d1626cd08e04a1ae67ed
+  virtual_path: .agents/skills/e2e-testing
+  is_virtual: true
+  package_type: claude_skill
+  deployed_files:
+  - .agents/skills/e2e-testing
+  - .claude/skills/e2e-testing
+  content_hash: sha256:4ef9ae7914dc50775b5d146bd0bc33123806214f0f55007edc051880d12b6df1
+- repo_url: affaan-m/everything-claude-code
+  host: github.com
+  resolved_commit: 1e8c7e7994223e0ff337d1626cd08e04a1ae67ed
+  resolved_ref: 1e8c7e7994223e0ff337d1626cd08e04a1ae67ed
+  virtual_path: .agents/skills/frontend-patterns
+  is_virtual: true
+  package_type: claude_skill
+  deployed_files:
+  - .agents/skills/frontend-patterns
+  - .claude/skills/frontend-patterns
+  content_hash: sha256:afc3c513fc725b4d6987cd5cb4500c30c20dbe20203aa0b673d883202e2628cb
+- repo_url: affaan-m/everything-claude-code
+  host: github.com
+  resolved_commit: 1e8c7e7994223e0ff337d1626cd08e04a1ae67ed
+  resolved_ref: 1e8c7e7994223e0ff337d1626cd08e04a1ae67ed
+  virtual_path: .agents/skills/security-review
+  is_virtual: true
+  package_type: claude_skill
+  deployed_files:
+  - .agents/skills/security-review
+  - .claude/skills/security-review
+  content_hash: sha256:bd6d7f9247b73efa8d35c4c7a516142316d7c8a0c0ed999db4d9935727ed0fb2
+- repo_url: affaan-m/everything-claude-code
+  host: github.com
+  resolved_commit: 1e8c7e7994223e0ff337d1626cd08e04a1ae67ed
+  resolved_ref: 1e8c7e7994223e0ff337d1626cd08e04a1ae67ed
+  virtual_path: .agents/skills/tdd-workflow
+  is_virtual: true
+  package_type: claude_skill
+  deployed_files:
+  - .agents/skills/tdd-workflow
+  - .claude/skills/tdd-workflow
+  content_hash: sha256:782b8703c81d4c39fa5940b405200b9a46c62a76f5f64e47952115b81580b77b
+- repo_url: affaan-m/everything-claude-code
+  host: github.com
+  resolved_commit: 1e8c7e7994223e0ff337d1626cd08e04a1ae67ed
+  resolved_ref: 1e8c7e7994223e0ff337d1626cd08e04a1ae67ed
+  virtual_path: .agents/skills/verification-loop
+  is_virtual: true
+  package_type: claude_skill
+  deployed_files:
+  - .agents/skills/verification-loop
+  - .claude/skills/verification-loop
+  content_hash: sha256:4fb8e7e745be74f012468ca029ba6b4df97cc5167c7b3c55fe356a575111fad8
+- repo_url: affaan-m/everything-claude-code
+  host: github.com
+  resolved_commit: 1e8c7e7994223e0ff337d1626cd08e04a1ae67ed
+  resolved_ref: 1e8c7e7994223e0ff337d1626cd08e04a1ae67ed
+  virtual_path: skills/ai-regression-testing
+  is_virtual: true
+  package_type: claude_skill
+  deployed_files:
+  - .agents/skills/ai-regression-testing
+  - .claude/skills/ai-regression-testing
+  content_hash: sha256:092a063807f6662b6d339eea6fa8564cb420bfbeb28fe99e9be4a0cf76c18e3a
+- repo_url: anthropics/skills
+  host: github.com
+  resolved_commit: 690f15cac7f7b4c055c5ab109c79ed9259934081
+  resolved_ref: 690f15cac7f7b4c055c5ab109c79ed9259934081
+  virtual_path: skills/frontend-design
+  is_virtual: true
+  package_type: claude_skill
+  deployed_files:
+  - .agents/skills/frontend-design
+  - .claude/skills/frontend-design
+  content_hash: sha256:063a0e6448123cd359ad0044cc46b0e490cc7964d45ef4bb9fd842bd2ffbca67
+- repo_url: multica-ai/andrej-karpathy-skills
+  host: github.com
+  resolved_commit: 2c606141936f1eeef17fa3043a72095b4765b9c2
+  resolved_ref: 2c606141936f1eeef17fa3043a72095b4765b9c2
+  virtual_path: skills/karpathy-guidelines
+  is_virtual: true
+  package_type: claude_skill
+  deployed_files:
+  - .agents/skills/karpathy-guidelines
+  - .claude/skills/karpathy-guidelines
+  content_hash: sha256:41e8ca055bbde13d240776a14a076a59614057200340c243130a76ba4e64cac8
+- repo_url: obra/superpowers
+  host: github.com
+  resolved_commit: f2cbfbefebbfef77321e4c9abc9e949826bea9d7
+  resolved_ref: f2cbfbefebbfef77321e4c9abc9e949826bea9d7
+  virtual_path: skills/requesting-code-review
+  is_virtual: true
+  package_type: claude_skill
+  deployed_files:
+  - .agents/skills/requesting-code-review
+  - .claude/skills/requesting-code-review
+  content_hash: sha256:5a53d1f7f4cee4dee017a50d735335c7aae1874b2746207e076b5d9035315599
+- repo_url: obra/superpowers
+  host: github.com
+  resolved_commit: f2cbfbefebbfef77321e4c9abc9e949826bea9d7
+  resolved_ref: f2cbfbefebbfef77321e4c9abc9e949826bea9d7
+  virtual_path: skills/systematic-debugging
+  is_virtual: true
+  package_type: claude_skill
+  deployed_files:
+  - .agents/skills/systematic-debugging
+  - .claude/skills/systematic-debugging
+  content_hash: sha256:ebdc9e15e5745a87d6342b6ebbc90d1ac2766b95f2334a9450fc696842815e4d
+- repo_url: obra/superpowers
+  host: github.com
+  resolved_commit: f2cbfbefebbfef77321e4c9abc9e949826bea9d7
+  resolved_ref: f2cbfbefebbfef77321e4c9abc9e949826bea9d7
+  virtual_path: skills/verification-before-completion
+  is_virtual: true
+  package_type: claude_skill
+  deployed_files:
+  - .agents/skills/verification-before-completion
+  - .claude/skills/verification-before-completion
+  content_hash: sha256:9b446f0c7fe1cfb560b1d34439523b1a76d5f177290007b2c053a1c749a4a8ba
+- repo_url: pbakaus/impeccable
+  host: github.com
+  resolved_commit: 84135db0e6bdd58d22828f7bc8331cae7bde3e7f
+  resolved_ref: 84135db0e6bdd58d22828f7bc8331cae7bde3e7f
+  virtual_path: .agents/skills/impeccable
+  is_virtual: true
+  package_type: claude_skill
+  deployed_files:
+  - .agents/skills/impeccable
+  - .claude/skills/impeccable
+  content_hash: sha256:376459dca7ed65ed3dbfe77eedff4aa64883776f8446b4c097044c74269147c3
+mcp_servers:
+- code-review-graph
+- context7
+mcp_configs:
+  code-review-graph:
+    name: code-review-graph
+    transport: stdio
+    args:
+    - code-review-graph
+    - serve
+    registry: false
+    command: uvx
+  context7:
+    name: context7
+    transport: stdio
+    args:
+    - -y
+    - '@upstash/context7-mcp@latest'
+    registry: false
+    command: npx

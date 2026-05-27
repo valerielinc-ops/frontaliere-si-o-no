@@ -1,0 +1,40 @@
+{
+  "id": "simona-waltert-ticino-frontalieri",
+  "slug": "simona-waltert-ticino-frontalieri",
+  "publishedAt": "2026-05-08T11:42:05.542Z",
+  "cluster": "lavoro",
+  "_pool": "proven",
+  "_pool_source": "media.laregione.ch",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 6.638178249309972,
+    "confidence": 0.8,
+    "finalScore": 5.310542599447977,
+    "topK": [
+      {
+        "slug": "staffette-rossocrociate-pechino-2027",
+        "cosine": 0.829793232970217
+      },
+      {
+        "slug": "la-quinta-svizzera-che-ha-un-debole-per-milano",
+        "cosine": 0.8296523335334831
+      },
+      {
+        "slug": "gysin-candidata-capogruppo-verdi",
+        "cosine": 0.825920247257038
+      },
+      {
+        "slug": "crans-montana-nuovo-solco-italia-svizzera-2026",
+        "cosine": 0.8254202863679359
+      },
+      {
+        "slug": "mondiali-hockey-svizzera-2026",
+        "cosine": 0.8237692087600714
+      }
+    ],
+    "score": 0.5310542599447977,
+    "clusterDiversityBonus": 0.1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "lavoro"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "companyKey": "ruag-ag",
+  "companyName": "RUAG AG",
+  "companyHost": "jobs.ruag.ch",
+  "enabled": true,
+  "priority": 16,
+  "crawlerModes": [
+    "jsonld",
+    "html",
+    "generic_ats"
+  ],
+  "seedUrls": [
+    "https://jobs.ruag.ch/posizioni-aperte/apprendista-polimeccanico-a-afc-2026/8719425f-0598-427b-94ec-9d6a1189fe64"
+  ],
+  "notes": "Dedicated RUAG crawler uses official jobs.ruag.ch detail pages and recursive discovery from internal similar-job links because the public listing often returns 400.",
+  "updatedAt": "2026-03-11T08:14:10.350Z",
+  "seedMetaByUrl": {
+    "https://jobs.ruag.ch/posizioni-aperte/apprendista-polimeccanico-a-afc-2026/8719425f-0598-427b-94ec-9d6a1189fe64": {
+      "location": "Lodrino",
+      "canton": "TI",
+      "company": "RUAG AG",
+      "postedDate": "2025-10-31"
+    }
+  }
+}

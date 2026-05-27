@@ -1,0 +1,26 @@
+{
+  "companyKey": "manor",
+  "companyName": "Manor AG",
+  "companyHost": "positions.manor.ch",
+  "enabled": true,
+  "priority": 10,
+  "crawlerModes": [
+    "sitemap"
+  ],
+  "seedUrls": [
+    "https://positions.manor.ch/job/Lugano-Apprendista-Polydesigner-3D-AFC-100/1327124155/",
+    "https://positions.manor.ch/job/Lugano-Polydesigner-3D-AFC-100/1327126855/"
+  ],
+  "notes": "Sitemap-based crawler — positions.manor.ch (SAP SuccessFactors / jobs2web). Manor AG department store chain with locations in Lugano, Locarno, and Biasca.",
+  "updatedAt": "2026-05-14T22:24:18.703Z",
+  "seedMetaByUrl": {
+    "https://positions.manor.ch/job/Lugano-Apprendista-Polydesigner-3D-AFC-100/1327124155/": {
+      "company": "Manor AG",
+      "companyDomain": "manor.ch"
+    },
+    "https://positions.manor.ch/job/Lugano-Polydesigner-3D-AFC-100/1327126855/": {
+      "company": "Manor AG",
+      "companyDomain": "manor.ch"
+    }
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "id": "tassa-salute-frontalieri-luino-verbania",
+  "slug": "tassa-salute-frontalieri-luino-verbania",
+  "publishedAt": "2026-05-13T00:32:44.155Z",
+  "cluster": "fiscale",
+  "_pool": "proven",
+  "_pool_source": "varesenews.it",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 4.6151237567212995,
+    "confidence": 0.8,
+    "finalScore": 3.69209900537704,
+    "topK": [
+      {
+        "slug": "tassa-salute-lombardia-rinvio",
+        "cosine": 0.8387172027108968
+      },
+      {
+        "slug": "tassa-salute-frontalieri-lombardia-minacce-ticino",
+        "cosine": 0.836762783767679
+      },
+      {
+        "slug": "tassa-salute-frontalieri-lombardia-isola-2026",
+        "cosine": 0.8352210441396418
+      },
+      {
+        "slug": "frontalieri-tassa-salute-teatro",
+        "cosine": 0.834226131373074
+      },
+      {
+        "slug": "tassa-salute-frontalieri-lombardia-piemonte",
+        "cosine": 0.8333204970560041
+      }
+    ],
+    "score": 3.69209900537704,
+    "clusterDiversityBonus": 1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "fiscale"
+  }
+}

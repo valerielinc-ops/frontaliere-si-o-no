@@ -1,0 +1,16 @@
+{
+  "companyKey": "convit-holding",
+  "companyName": "Convit Holding GmbH",
+  "companyHost": "www.careers-page.com",
+  "enabled": true,
+  "priority": 18,
+  "crawlerModes": [
+    "html"
+  ],
+  "seedUrls": [
+    "https://www.careers-page.com/convit-holding-gmbh"
+  ],
+  "notes": "Dedicated Convit Holding crawler reads the Manatal (careers-page.com) listing and detail pages, extracting JobPosting JSON-LD. Keeps Ticino vacancies only.",
+  "updatedAt": "2026-03-12T18:56:00.000Z",
+  "seedMetaByUrl": {}
+}

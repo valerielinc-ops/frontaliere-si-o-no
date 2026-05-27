@@ -1,0 +1,22 @@
+{
+  "companyKey": "pwc-lugano",
+  "companyName": "PwC Lugano",
+  "companyHost": "pwc.ch",
+  "enabled": true,
+  "priority": 0,
+  "crawlerModes": [
+    "generic_ats",
+    "html",
+    "jsonld"
+  ],
+  "seedUrls": [
+    "https://www.pwc.ch/careers",
+    "https://www.pwc.ch/career",
+    "https://www.pwc.ch/jobs",
+    "https://www.pwc.ch/karriere",
+    "https://www.pwc.ch/offene-stellen",
+    "https://www.pwc.ch/lavora-con-noi"
+  ],
+  "notes": "",
+  "updatedAt": "2026-02-27T17:06:06.970Z"
+}

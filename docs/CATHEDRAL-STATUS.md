@@ -1,0 +1,290 @@
+# Cathedral CH-Wide — Status Report
+
+**Last updated**: 2026-05-10 post-half-canton merge
+**Live**: https://frontaliereticino.ch
+**Safety tag**: `pre-cathedral-2026-05-10` (HEAD `58eb418c49` baseline)
+
+---
+
+## What's DONE ✅
+
+### Phase 1 — Foundation (PR #54)
+- TARGET_CANTONS expanded from `['TI', 'GR', 'VS']` to all 26 Swiss cantons
+- `canton-quorum-gate.mjs` (BFS-strict + 2-of-3 + keep-as-is) protects SEO data integrity
+- Slug-registry frozen-URL strategy preserves all existing TI URLs verbatim
+- 6 ATS clients foundation: workday, greenhouse, lever, successfactors, smartrecruiters, playwright-runtime
+- Sitemap-index + per-canton shards (italian-slug naming after Phase 2/6 fixes)
+- `data/jobs-by-canton/{code}.json` sharding (deprecates monolithic data/jobs.json)
+- 104 canton/aggregator index pages emit (initially noindex,follow)
+- crawler-health-monitor.yml workflow (daily 06:30 UTC, GitHub auto-issue on stale)
+- Cathedral-flip-simulation E2E regression test
+
+### Phase 2 — 11 marquee crawlers + locale fix (PR #55)
+- **Workday tier**: Roche, Novartis, Zurich Insurance, Nestlé
+- **SmartRecruiters tier**: Schindler, Migros HQ
+- **SuccessFactors tier**: Swiss Re
+- **Custom tier**: ETH Zurich, EPFL, CHUV, Inselspital Bern
+- Per-canton page renderer F4 (jobMarketSnapshot) + F5 (weeklyEmployers): 144 noindex pages
+- MIN_JOBS_FOR_CANTON_PAGE=5 gate (CLAUDE.md non-negotiable #4)
+- Locale variants emit (IT/EN/DE/FR) — DE was buggy, fixed in Phase 6
+
+### Phase 3 — SR client extract + 5 hospitals (PR #56)
+- `smartrecruiters-client.mjs` extracted from inline impls
+- Schindler + Migros HQ + Avaloq migrated to shared client
+- **Hospitals**: USZ, Unispital Basel (Prospective), KSSG (HOCH SF), Stadtspital Zürich + LUKS (placeholders)
+- GSC brand dilution monitor (weekly, top-20 frontaliere queries baseline)
+- Sitemap shard size monitor (40k warning / 45k critical)
+- E2E test 10/10 pass (E9 frozen-URL fix)
+
+### Phase 4 — Tier-2 + hospital wave 1 (PR #57)
+- **Marquee**: Logitech (Workday), Holcim (SF), Sulzer (Workday), Givaudan (Phenom-Playwright)
+- **Hospitals wave 1**: KSA (Umantis), KSW (Solique NEW), STGAG (Typo3 JSON), soH (custom HTML)
+
+### Phase 5 — Hospital wave 2 + Avaloq SR (PR #58)
+- **Hospitals wave 2**: Hirslanden (SF Mediclinic), Spital STS (Prospective), Lindenhofgruppe (Prospective), Spital Limmattal (Refline NEW)
+
+### Phase 6 — Full close (PR #59)
+- **DE locale 404 fix** (P7.1 root cause: SECTION_PREFIX_BY_LOCALE.de was 'jobs-im' instead of 'jobs-in')
+- **Givaudan Phenom Playwright DOM scraper** (~225L impl, defensive selector cascade, anti-bot graceful degrade)
+- **Stadtspital + LUKS unblocked** (Stadtspital uses Playwright runtime, LUKS uses Gatsby page-data + sitemap fallback)
+- **Tier-3 marquee (5)**: Lombard Odier (Workday), Richemont/MSC Cargo/Bobst/Vaudoise (Playwright placeholders)
+- **Hospital wave 3 (5)**: GZO Wetzikon (PastaHR NEW), Spital Männedorf (Umantis), Spital Uster (Prospective), KSB (Workday), See-Spital (Umantis)
+
+### Phase 7 — Architectural hotfix (PR #60)
+- **Canton hub pages = filtered JobBoard**, not thin landings:
+  - `/cerca-lavoro-ticino/` now correctly filters to TI jobs only
+  - `/cerca-lavoro-zurigo/`, `/cerca-lavoro-ginevra/`, etc. fetch only that canton's shard
+  - `/cerca-lavoro-svizzera/` is the aggregator (top-N cantons)
+  - `/cerca-lavoro-{canton}/{slug}` per-job URL pattern works via SPA hydration
+
+### Phase 7.5 — Half-canton URL merge (2026-05-10) ✅
+**Status**: DONE on branch `feat/cathedral-half-canton-merge`, awaiting user review.
+
+- **AI + AR collapsed onto a single virtual URL group `APPENZELLO`** (slugs: it `appenzello`, en/de/fr `appenzell`)
+- **BL + BS collapsed onto a single virtual URL group `BASILEA`** (slugs: it `basilea`, en/de `basel`, fr `bale`)
+- Other 22 cantons untouched. Total = **22 single + 2 merged = 24 URL canton groups + svizzera aggregate**.
+- New `data/canton-url-slugs.json` `cantonGroups` registry: `APPENZELLO -> [AI, AR]`, `BASILEA -> [BL, BS]`.
+- New `resolveCantonGroup(code)` helper exported from `services/router.ts` and `scripts/lib/canton-url-slugs.mjs` (with TS twin inlined into `build-plugins/jobsSeoPagesPlugin.ts`, `build-plugins/jobMarketSnapshotChCantonPages.ts`, `build-plugins/weeklyEmployersChCantonPages.ts`). Internal BFS / canton-quorum logic unchanged: jobs are still tagged with the real BFS code; the URL/shard emission boundary applies the helper to collapse onto the group key.
+- `build-plugins/jobsSeoPagesPlugin.ts`: `classifyCantonForUrl` returns the resolved group key, so `data/jobs-by-canton/APPENZELLO.json` + `data/jobs-by-canton/BASILEA.json` shards replace the four AI/AR/BL/BS shards. Sitemap shards similarly: `sitemap-jobs-appenzello.xml` + `sitemap-jobs-basilea.xml`.
+- `build-plugins/weeklyEmployersChCantonPages.ts`: per-canton "aziende che assumono" hubs merge AI+AR and BL+BS buckets *before* the MIN_JOBS_FOR_CANTON_PAGE gate so combined totals can clear the threshold.
+- `build-plugins/jobMarketSnapshotChCantonPages.ts`: cities + jobs collapse onto the URL group key.
+- `services/router.ts`: `getJobBoardSlugForCanton` accepts either real BFS code or group key (idempotent). `parseJobBoardSlug` already iterates the JSON `cantons` keys, so /cerca-lavoro-appenzello/, /en/find-jobs-appenzell/, /de/jobs-in-appenzell/, /fr/trouver-emploi-appenzell/ all parse to `jobBoardCanton: 'APPENZELLO'`.
+- Regression coverage: `tests/half-canton-merge.test.ts` (61 assertions) — `npx tsc --noEmit` clean, all targeted tests green.
+- **No SEO regression risk**: AI/AR/BL/BS were brand-new in cathedral PRs #54-60; no live traffic depends on the per-half-canton URLs.
+
+---
+
+## Total cathedral output
+
+- **35+ new crawlers** (5 ATS tiers + custom + Playwright)
+- **7 ATS clients** (workday, greenhouse, lever, successfactors, smartrecruiters, playwright-runtime + scaffold)
+- **3 monitoring workflows** (crawler-health daily, GSC brand monitor weekly, sitemap shard size weekly)
+- **104 canton index pages** + **144 F4/F5 per-canton snapshot+employer pages**
+- **NEW ATS patterns identified** (extract candidates when 2nd tenant lands):
+  - Phenom People (Givaudan)
+  - Refline (Spital Limmattal)
+  - Solique (KSW)
+  - PastaHR / publicjobs.ch widget (GZO Wetzikon)
+  - Hireserve (CHUV)
+
+---
+
+## What's NOT DONE — manual or follow-up
+
+### 🟢 Manual / strategic decisions (require user action)
+
+1. **AdSense URL channels per canton** — manual UI work in AdSense dashboard. +18 nuovi cantoni, ~30 min totali.
+2. **LinkedIn discovery** (D12 deferred per ToS) — strategic decision: accetti il rischio ToS o no? Se sì, c'è già `scripts/discover-marquee-companies-linkedin.mjs` da eseguire localmente con account autenticato.
+3. **Brand monitor baseline bootstrap** — `gh workflow run gsc-frontaliere-monitor.yml -f update_baseline=true` dopo ~1 settimana di traffic stabilizzato post-cathedral.
+4. **noindex→index flip** — DONE-AUTOMATION-WIRED 2026-05-10. Weekly workflow `.github/workflows/cathedral-noindex-flip.yml` (Mon 05:13 UTC) walks every canton shard, detects pages that crossed `MIN_JOBS_FOR_CANTON_PAGE` (=5), appends one-way-ratchet entries to `data/cathedral-flip-log.json`, commits + pushes (triggers `deploy.yml` to rebuild with `index,follow` meta tags). Operator can dry-run via `gh workflow run cathedral-noindex-flip.yml -f dry_run=true`. Helper script: `scripts/cathedral-noindex-flip.mjs`.
+5. **6 SEO content gates rebaseline** — DONE-AUTOMATION-WIRED 2026-05-10. Weekly workflow `.github/workflows/cathedral-seo-gates-check.yml` (Mon 04:47 UTC) rebuilds dist + runs all 6 audits in read-only mode + compares vs baselines. Detects regressions (fails workflow + opens one issue per regressed gate) and improvements (opens a single rebaseline-opportunity issue with the exact `npm run audit:*:rebaseline` command). NEVER mutates baselines — operator decides per CLAUDE.md non-negotiables #1 + #5. Helper script: `scripts/cathedral-seo-gates-check.mjs`.
+
+### 🟡 Code follow-ups (richiedono nuova sessione orchestrator)
+
+6. **Sitemap submission to Google + IndexNow** — script esistono (`scripts/submit-google-indexing-jobs.js`, `scripts/submit-indexnow-batch.mjs`) ma NON sono wired in `deploy.yml`. Va aggiunto un step post-deploy. Deve usare auth Service Account + GSC ownership configurata.
+7. ~~**5 alreadyCrawled marquee** (UBS, Pictet, Mobiliar HQ, HUG, Syngenta) — verifica se la loro location filter è ancora TI-anchored e se va espansa a CH-wide tramite canton-quorum-gate.~~ ✅ **PARTIAL DONE 2026-05-10** — branch `feat/cathedral-marquee-ch-wide` (PR #68):
+    - **UBS** ✅ widening shipped (`scripts/lib/ubs-job-parser.mjs`): no longer applies the `formtext2` Valais city facet (was VS-anchored, NOT TI), now paginates the full Swiss Taleo tenant (siteid=5012) → 26 cantons via canton-quorum-gate. COMPANY_HQ moved Sion/VS → Zürich/ZH (real HQ).
+    - **Mobiliar** ✅ widening shipped (`scripts/lib/mobiliar-job-parser.mjs`): no longer applies the `VALAIS_KEYWORDS` sitemap pre-filter, now surfaces every `/job/...` URL → 26 cantons via canton-quorum-gate. COMPANY_HQ unchanged (Bern/BE was already correct).
+    - **Pictet** ✅ scaffold + parser shipped (`scripts/lib/pictet-job-parser.mjs`): wires the shared SuccessFactors career5 client (tenant `banquepict`). First-pass returns [] gracefully because the career5 listing index is a SPA and full discovery requires Playwright; the workflow ships with `npx playwright install chromium` so the next iteration can wire DOM selectors without re-scaffolding. COMPANY_HQ added (Genève/GE).
+    - **HUG** ✅ scaffold + parser shipped (`scripts/lib/hug-job-parser.mjs`): wires the shared SmartRecruiters client (tenant `HUG`) with `fetchDetail: true` for jobAd descriptions. CH-wide via `locationCountryCodes: ['ch']`. COMPANY_HQ added (Genève/GE). Default canton: GE.
+    - **Syngenta** still skipped per `scripts/detect-ats.mjs:226, 254` — not in the marquee list, no scaffolding.
+8. ~~**Tier-3 marquee Playwright DOM logic** (Richemont, MSC Cargo, Bobst, Vaudoise) — placeholder con `--playwright` flag ma DOM selectors non implementati.~~ ✅ **DONE 2026-05-10** — 2 branches (PR #66 + PR #67):
+    - **Bobst** ✅ Real Playwright DOM scraper shipped (branch `feat/cathedral-tier3-bobst-vaudoise`, PR #67). Source: AEM landing `https://careers.bobst.com/en` embeds the Umantis (Abacus-Umantis) public job-board `https://jobs.bobst.com/Jobs/All?DesignID=10008&lang=eng` via iframe. Parser walks `?tc1152481=p{n}` pages (10 vacancies/page, ~43 jobs across 5 pages on 2026-05-10), extracts `<tr.tableaslist_contentrow1|2>` rows, parses the `|`-separated cell text into title/location/employmentType/department/postedDate. Wrap-around guard. NO anti-bot. Driven through shared `playwright-runtime.mjs`. Default canton VD (HQ: Mex/VD).
+    - **Vaudoise Assurances** ✅ Real Playwright DOM scraper shipped (same branch). Source: Softgarden `https://vaudoise.softgarden.io/` (75 jobs single-page, no pagination). Parser extracts `<div.matchElement[id^="job_id_*"]>` rows, reads title/location/postedDate/audience/jobCategory from `.matchValue.*` cells. Belt-and-braces SWISS_LOCATION_RX filter. PART_TIME inferred from `XX-100%`. Default canton VD (HQ: Lausanne/VD).
+    - **Richemont** ✅ DONE-PLAYWRIGHT 2026-05-11 — Real Playwright DOM scraper su `https://careers.richemont.com/en/jobs/?country=Switzerland&pagesize=50`. Cloudflare's JS-challenge passa automaticamente con un browser-grade UA (Safari Mac) sul context Playwright — il default bot-UA del runtime non funziona, override esplicito necessario. Paginazione `?page=N` (50 jobs/pagina). Card structure: `div.card.card-job[data-id=jrXXXX]` con `ul.job-meta li` per maison/department/location (es. `Le Sentier, CH`). 166 jobs harvestati nel test live (matches Richemont's own count). Cantoni: FR/GE/JU/NE/SH/ZH. Multi-Maison: Cartier, Jaeger-LeCoultre, IWC, Panerai, Piaget, Vacheron Constantin, Baume & Mercier, ecc.
+    - **MSC Group** ✅ DONE-PHENOM 2026-05-11 — Pivot dal vecchio `www.msc.com/en/careers` (Akamai BMP 403) al portale Phenom `careers.msccruises.com/gb/en/search-results`. Plain HTTP returns 200, niente anti-bot. Scope esteso a MSC Group (include MSC Cruises) — il portal aggrega tutte le aperture shoreside del gruppo. Pagination `?from=N` (PAGE_SIZE 10, totalHits=401 al 2026-05-11). Embedded JSON via `eagerLoadRefineSearch.data.jobs`. Filtro Swiss-located ⇒ 17 jobs a Geneva harvestati nel test live. Crawler key resta `msc-cargo` per compatibilità workflow/registry.
+9. **Hospital wave 3 runners + workflows** (gzo-wetzikon, spital-maennedorf, spital-uster, ksb, see-spital) — parser scaffolded ma `scripts/update-{slug}-jobs.mjs` + `.github/workflows/update-jobs-{slug}.yml` skippati. Quick fix: `node scripts/scaffold-crawler.mjs --finish-existing-parser {slug}` (~5 min ognuno).
+10. **3 NEW ATS client extractions** (quando 2° tenant landa per ognuno):
+    - `phenom-client.mjs` — quando trovi un secondo Phenom-using employer
+    - `refline-client.mjs` — quando trovi un secondo Refline-using ospedale
+    - `solique-client.mjs` — quando trovi un secondo Solique tenant
+    - `pastahr-client.mjs` — quando trovi un secondo PastaHR tenant
+11. **10 SF detail-page parser migration** — AUDIT-COMPLETE-DEFERRED 2026-05-10. Full classification in [docs/CATHEDRAL-SF-MIGRATION-AUDIT.md](CATHEDRAL-SF-MIGRATION-AUDIT.md): **0/13 parsers migratable today** under the speed-only-no-behavior-change rule. Of the 10 originally listed: 4 turn out to be Prospective.ch / non-SF crawlers (interdiscount, jumbo, agroscope are pure Prospective; aldi-suisse uses jobs.aldi.ch SSR); 5 are SF-format but emit far richer `ParsedJob` than the shared client's `SuccessFactorsJobIdentity` (giorgio-armani, rapelli, sbb, heineken-ch, prada); 2 have pre-existing corrupted `try`-block bugs that must be fixed separately first (oerlikon, benteler). Audit doc lists the 4 primitives the shared client needs to add (rich career-detail parser, jobs2web link-list parser, JSON-LD + h2-section fallback, pagination-total extractor) before any migration becomes byte-identical-safe. Real scope reduces from 10 → 6 parsers post-extension.
+12. ~~**Job-alert geo subscription** — canton selector nel form `JobAlertForm`, ~3-5h CC.~~ ✅ **DONE 2026-05-10** — branch `feat/cathedral-job-alert-geo`. Multi-select chips backed by `services/cantonList.ts` (sourced from `data/canton-url-slugs.json`), 26 cantons, mobile-first collapsed picker + chip summary, IT/EN/DE/FR translations, `cantonFilter?: string[] | null` added to `JobAlertConfig` with `null` = "all cantons" backward-compat. Coverage: `tests/services/jobAlertService.cantonFilter.test.ts`, `tests/services/cantonList.test.ts`, `tests/components/community/JobAlertForm.test.tsx`.
+13. **Cathedral retrospective** — analisi metriche dopo 4-6 settimane post-deploy: revenue impact, GSC ranking shift, new traffic acquisition, brand dilution check.
+
+### 🔴 Live validation passive (1-2 cicli crawler)
+
+14. **First-run live validation 24+ nuovi crawler** — Workday SWISS_LOCATION_IDS verifica per Roche/Novartis/Nestlé/Zurich Insurance, anti-bot tolerance, parser drift. Lascia girare 1-2 cicli + monitora `data/crawler-health.json` automated alerts. Fix reattivi se serve.
+15. **Stadtspital geo-block resolution** — first dispatch valida se Azure CH egress IP funziona. Se no, valuta CH residential proxy o self-hosted CH runner.
+
+---
+
+## Pages overview — verifica manuale
+
+### Pagine esistenti (legacy + cathedral)
+
+#### Per locale (4 locales)
+
+```
+LEGACY (intoccato, frozen-URL):
+  IT  /cerca-lavoro-ticino/                       → TI filtered JobBoard ✓
+  EN  /en/find-jobs-ticino/                       → TI filtered JobBoard ✓
+  DE  /de/jobs-im-tessin/                         → TI filtered JobBoard ✓
+  FR  /fr/trouver-emploi-tessin/                  → TI filtered JobBoard ✓
+
+CATHEDRAL (per canton, 25 nuovi cantoni):
+  IT  /cerca-lavoro-{ag|ar|be|bl|bs|fr|ge|gl|gr|ju|lu|ne|nw|ow|sg|sh|so|sz|tg|ur|vd|vs|zg|zh}/
+        canton-italian-slug values: argovia, appenzello-esterno, berna, basilea-campagna, basilea-citta,
+        friburgo, ginevra, glarona, grigioni, giura, lucerna, neuchatel, nidvaldo, obvaldo, sangallo,
+        sciaffusa, soletta, svitto, turgovia, uri, vaud, vallese, zugo, zurigo
+  EN  /en/find-jobs-{anglicized-canton-slug}/     (anglicized: zurich, geneva, etc.)
+  DE  /de/jobs-in-{anglicized-canton-slug}/       (anglicized: zurich, basel, etc.)
+  FR  /fr/trouver-emploi-{anglicized-canton-slug}/
+
+AGGREGATOR (1 svizzera-wide, 4 locales):
+  IT  /cerca-lavoro-svizzera/                     → AGGREGATE filtered JobBoard
+  EN  /en/find-jobs-switzerland/
+  DE  /de/jobs-in-der-schweiz/
+  FR  /fr/trouver-emploi-suisse/
+
+PER-JOB URL (slug-registry frozen):
+  /cerca-lavoro-{canton-slug}/{job-slug}          (job detail con canton ctx)
+  EN/DE/FR equivalents
+
+CITY HUBS (per Ticino, esistenti):
+  /cerca-lavoro-ticino/{lugano|mendrisio|bellinzona|locarno|chiasso}/
+
+SECTOR HUBS (per Ticino, esistenti):
+  /cerca-lavoro-ticino/{infermieri|case-anziani|...}/
+```
+
+**Total nuove pagine create dal cathedral**:
+- Canton index: 26 cantoni × 4 locales = 104
+- F4 snapshot per-canton: 18 eligible × 4 locales = 72
+- F5 employers per-canton: 18 eligible × 4 locales = 72
+- Per-job dedicated (tutti slug-registry frozen): cresce a runtime con i nuovi job
+
+### Lista crawler attivi (da Phase 1-6 cathedral, in aggiunta ai 220 pre-esistenti)
+
+**Tier-1 marquee (Phase 2)**: roche, novartis, zurich-insurance, nestle, schindler, migros-hq, swiss-re, eth-zurich, epfl, chuv, inselspital
+**Tier-2 marquee (Phase 4)**: logitech, holcim, sulzer, givaudan
+**Tier-3 marquee (Phase 6)**: lombard-odier, richemont, msc-cargo, bobst, vaudoise
+**Hospitals (Phase 3+5+6)**: usz, unispital-basel, kssg, stadtspital-zuerich, luks, ksa, ksw, spital-thurgau, solothurner-spitaeler, hirslanden, spital-sts, lindenhofgruppe, spital-limmattal, gzo-wetzikon, spital-maennedorf, spital-uster, ksb, see-spital
+
+**Total**: ~38 nuovi crawlers in cathedral.
+
+---
+
+## Sitemap submission mechanism
+
+### Scripts esistenti (NON wired in deploy)
+
+Il progetto ha **4 script di submission** ma sono manuali — non eseguiti automaticamente da `deploy.yml`:
+
+| Script | Cosa fa | Auth |
+|---|---|---|
+| `scripts/submit-google-indexing-jobs.js` | Google Indexing API per JobPosting URLs | Firebase SA o GSC OAuth |
+| `scripts/submit-google-indexing.js` | Google Indexing API generic | Firebase SA |
+| `scripts/submit-indexnow-batch.mjs` | IndexNow batch (Bing + Yandex) | API key |
+| `scripts/submit-indexnow.js` | IndexNow single URL | API key |
+
+### Cosa serve per attivare submission automatica
+
+1. **Verifica auth Search Console**:
+   - Service Account deve essere Owner del property `sc-domain:frontaliereticino.ch` su GSC
+   - "Web Search Indexing API" deve essere abilitata su GCP
+   - Memoria conferma che il SA `gsc-service-account@frontaliere-ticino.iam.gserviceaccount.com` ha già permessi GSC
+
+2. **Wire in deploy.yml** post-build:
+   - Dopo step `Validate dist`, aggiungi step "Submit indexed URLs":
+     ```yaml
+     - name: Submit changed URLs to Google Indexing API
+       if: success() && github.event_name == 'push' && github.ref == 'refs/heads/main'
+       env:
+         GOOGLE_APPLICATION_CREDENTIALS: ${{ runner.temp }}/firebase-sa.json
+       run: |
+         echo "${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}" > "$GOOGLE_APPLICATION_CREDENTIALS"
+         node scripts/submit-google-indexing-jobs.js --limit 50
+     - name: Submit changed URLs to IndexNow
+       if: success()
+       env:
+         INDEXNOW_KEY: ${{ secrets.INDEXNOW_API_KEY }}
+       run: node scripts/submit-indexnow-batch.mjs --limit 200
+     ```
+
+3. **Sitemap auto-discovery via robots.txt**:
+   - `public/robots.txt` deve avere `Sitemap: https://frontaliereticino.ch/sitemap-index.xml`
+   - GSC poi crawl-discoverà tutti gli shard automaticamente
+
+4. **Manual one-time GSC submission**:
+   - Dopo deploy iniziale del cathedral, invia manualmente `sitemap-index.xml` da Google Search Console UI sotto "Sitemaps" → "Add sitemap"
+   - Per IndexNow: visita `https://www.bing.com/indexnow?url=https://frontaliereticino.ch&key={key}` una volta
+
+### Verifica corrente
+
+- ✅ Sitemap accessibile: https://frontaliereticino.ch/sitemap-index.xml HTTP 200
+- ⚠️ Sitemap submission auto in deploy.yml: NOT YET WIRED (presente solo in commenti)
+- ⚠️ GSC manual submission del nuovo sitemap-index.xml: required dopo Phase 6 deploy
+- ⚠️ IndexNow API key: verifica che `INDEXNOW_API_KEY` secret esista in GH Actions
+
+### Recommendation
+
+**Phase 8 quick task** (~1h CC):
+- Aggiungi step submission a `deploy.yml`
+- Documenta auth requirements in `docs/CATHEDRAL-IMPLEMENTATION-PLAN.md`
+- Manual GSC sitemap-index resubmission post-cathedral merge
+
+---
+
+## Live verification (post Phase 7 hotfix deploy)
+
+```
+Pagine canton hub (devono mostrare JobBoard filtrato a quel canton):
+  /cerca-lavoro-ticino/         → JobBoard with TI shard         (FIXED P7.1)
+  /cerca-lavoro-zurigo/         → JobBoard with ZH shard         (FIXED P7.2+P7.3)
+  /cerca-lavoro-ginevra/        → JobBoard with GE shard
+  /cerca-lavoro-svizzera/       → JobBoard with AGGREGATE
+  /en/find-jobs-zurich/         → English locale, ZH shard
+  /de/jobs-in-zurich/           → German locale, ZH shard        (FIXED P6 jobs-im → jobs-in)
+  /fr/trouver-emploi-zurich/    → French locale, ZH shard
+
+Sitemap:
+  /sitemap-index.xml            → list 23 shards
+  /sitemap-jobs-zurigo.xml      → ZH-canton job URLs only
+  /sitemap-jobs-svizzera.xml    → aggregator/uncertain jobs
+
+Per verificare manualmente:
+  curl -s https://frontaliereticino.ch/cerca-lavoro-zurigo/ | grep -i 'job\|annuncio' | head -3
+  # Deve mostrare contenuto job-listing reale, non thin landing
+```
+
+---
+
+## Branch state
+
+- **Branches**: only `main` (after Phase 7 merge)
+- **Stashes**: 0
+- **Tags**: `pre-cathedral-2026-05-10` (global safety)
+- **GitNexus**: re-indexed (27,720+ nodes / 59,300+ edges / 1,270+ clusters)
+
+---
+
+## Status: **DONE_WITH_DOCUMENTED_MANUAL_TODOS**
+
+Cathedral CH-wide è SHIPPED su https://frontaliereticino.ch. La cattedrale architetturale (canton hubs come search engine pre-filtrati, frozen-URL slug strategy, 7 ATS clients, 3 monitoring workflows, 38 nuovi crawler) è completa e funzionante.
+
+Le 15 manual/follow-up sono documentate sopra. Nessuna è blocker per funzionalità core. Aspettano:
+- Decisioni strategiche (LinkedIn ToS, AdSense channels, brand baseline timing)
+- Validation passive (first-run live + 4-6 settimane data accumulation)
+- Quick implementation tasks (sitemap submission wire, hospital wave 3 runners, alreadyCrawled audit) — 1-2 sessioni totale

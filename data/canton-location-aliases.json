@@ -1,0 +1,40 @@
+{
+  "_comment": "Manual location aliases — sub-localities, historical names, and common variants not in the official BFS communes list. Maintained by hand. Used by target-swiss-locations.mjs for job location matching.",
+  "TI": [
+    "Giubiasco", "Castione", "Camorino", "Rivera", "Contone", "Taverne", "Magadino", "Tenero",
+    "Contra", "Gudo", "Iragna", "Lodrino", "Arbedo", "Sementina", "Pregassona", "Breganzona",
+    "Gentilino", "Montagnola", "Tesserete", "Mezzovico", "Ponte Tresa", "Capolago", "Maroggia",
+    "Osogna", "Preonzo", "Cresciano", "Curio", "Novaggio", "Miglieglia", "Noranco", "Pazzallo",
+    "Barbengo", "Agra", "Vaglio", "Sala Capriasca", "Lugaggia", "Croglio", "Sessa", "Astano",
+    "Ritom", "Piotta", "Rodi", "Ambrì", "Cadro", "Morcote", "Carona", "Viganello", "Moleno"
+  ],
+  "GR": [
+    "Coira", "Grigioni italiano", "Valposchiavo", "Bassa Mesolcina", "Moesa", "St Moritz",
+    "Saint-Moritz", "Obervaz"
+  ],
+  "VS": [
+    "Naters", "Brig-Glis", "Gampel-Bratsch", "Raron", "Steg-Hohtenn", "Stalden",
+    "Saas-Fee", "Saas-Grund", "Saas-Almagell", "Saas-Balen", "Täsch", "St. Niklaus",
+    "Fully", "Saxon", "Conthey", "Savièse", "Ayent", "Lens", "Crans-Montana",
+    "Leuk", "Leukerbad", "Salgesch", "Susten", "Agarn", "Turtmann",
+    "Champéry", "Val-d'Illiez", "Troistorrents", "Collombey-Muraz",
+    "Verbier", "Bagnes", "Orsières", "Liddes", "Bourg-Saint-Pierre",
+    "Hérémence", "Evolène", "Arolla", "Grimentz", "Vissoie", "Chandolin",
+    "Oberwallis", "Haut-Valais", "Bas-Valais", "Chablais valaisan"
+  ],
+  "ZH": [
+    "Oerlikon", "Altstetten", "Schwamendingen", "Seebach", "Affoltern", "Höngg",
+    "Wipkingen", "Witikon", "Wollishofen", "Leimbach"
+  ],
+  "BE": [
+    "Wankdorf", "Muri bei Bern", "Belp", "Zollikofen", "Ittigen", "Worb"
+  ],
+  "GE": [
+    "Petit-Lancy", "Grand-Lancy", "Petit-Saconnex", "Grand-Saconnex",
+    "Champel", "Eaux-Vives", "Plainpalais", "Servette"
+  ],
+  "VD": [
+    "Prilly", "Pully", "Ecublens", "Lutry", "Chavannes-près-Renens",
+    "Crissier", "Bussigny"
+  ]
+}

@@ -1,0 +1,57 @@
+name: Restore GitHub Pages from previous artifact
+
+on:
+  workflow_dispatch:
+    inputs:
+      source_run_id:
+        description: 'Source workflow run ID to copy the github-pages artifact from'
+        required: true
+        default: '26138669646'
+        type: string
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+  actions: read
+
+concurrency:
+  group: 'pages-deploy'
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Download github-pages artifact from source run
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SOURCE_RUN_ID: ${{ inputs.source_run_id }}
+        run: |
+          set -euo pipefail
+          mkdir -p _restore
+          ARTIFACT_ID=$(gh api \
+            repos/${{ github.repository }}/actions/runs/${SOURCE_RUN_ID}/artifacts \
+            --jq '.artifacts[] | select(.name == "github-pages") | .id')
+          if [ -z "$ARTIFACT_ID" ]; then
+            echo "::error::No github-pages artifact in run ${SOURCE_RUN_ID}"
+            exit 1
+          fi
+          gh api repos/${{ github.repository }}/actions/artifacts/${ARTIFACT_ID}/zip > _restore/artifact.zip
+          cd _restore && unzip -q artifact.zip
+
+      - name: Re-upload as fresh github-pages artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: github-pages
+          path: _restore/artifact.tar
+          retention-days: 1
+          if-no-files-found: error
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

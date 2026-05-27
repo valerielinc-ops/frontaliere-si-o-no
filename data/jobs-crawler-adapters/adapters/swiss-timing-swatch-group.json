@@ -1,0 +1,22 @@
+{
+  "companyKey": "swiss-timing-swatch-group",
+  "companyName": "Swiss Timing (Swatch Group)",
+  "companyHost": "swisstiming.com",
+  "enabled": true,
+  "priority": 0,
+  "crawlerModes": [
+    "generic_ats",
+    "html",
+    "jsonld"
+  ],
+  "seedUrls": [
+    "https://www.swisstiming.com/careers",
+    "https://www.swisstiming.com/career",
+    "https://www.swisstiming.com/jobs",
+    "https://www.swisstiming.com/karriere",
+    "https://www.swisstiming.com/offene-stellen",
+    "https://www.swisstiming.com/lavora-con-noi"
+  ],
+  "notes": "",
+  "updatedAt": "2026-02-27T17:06:06.988Z"
+}

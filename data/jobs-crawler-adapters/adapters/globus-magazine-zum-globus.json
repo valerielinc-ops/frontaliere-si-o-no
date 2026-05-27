@@ -1,0 +1,22 @@
+{
+  "companyKey": "globus-magazine-zum-globus",
+  "companyName": "Globus / Magazine zum Globus",
+  "companyHost": "globus.ch",
+  "enabled": true,
+  "priority": 0,
+  "crawlerModes": [
+    "generic_ats",
+    "html",
+    "jsonld"
+  ],
+  "seedUrls": [
+    "https://www.globus.ch/careers",
+    "https://www.globus.ch/career",
+    "https://www.globus.ch/jobs",
+    "https://www.globus.ch/karriere",
+    "https://www.globus.ch/offene-stellen",
+    "https://www.globus.ch/lavora-con-noi"
+  ],
+  "notes": "",
+  "updatedAt": "2026-02-27T17:06:06.947Z"
+}

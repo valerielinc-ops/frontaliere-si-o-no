@@ -1,0 +1,188 @@
+name: Recover Lost previousSlugs
+
+# Runs every 12 hours. Scans the last 24h of per-crawler slice history for
+# previousSlugs entries that were silently dropped, then backfills them
+# from git history with original locale attribution. If the loss volume
+# crosses a tripwire threshold, opens a GitHub issue (the writer fix should
+# keep losses ~0; any spike means a regression).
+#
+# Why 12h cadence: matches the writer-fix observability budget — within
+# a deploy cycle, a regression cannot pile up more than half a day of
+# losses before this job catches and reports it. Recovery is non-destructive
+# (only ADDS to previousSlugs[ByLocale]).
+#
+# Manual run: workflow_dispatch with an optional --since override and
+# --dry-run for safe inspection without committing.
+
+on:
+  schedule:
+    # 02:00 and 14:00 UTC daily — off the peak crawler windows so we read
+    # quiescent slices and don't race with concurrent crawler commits.
+    - cron: '0 2,14 * * *'
+  workflow_dispatch:
+    inputs:
+      since:
+        description: 'Scan window (e.g. "24 hours ago", "7 days ago")'
+        required: false
+        default: '24 hours ago'
+        type: string
+      dry_run:
+        description: 'Inspect only — do not commit recovered slugs'
+        required: false
+        default: 'false'
+        type: choice
+        options: ['false', 'true']
+      tripwire_threshold:
+        description: 'Open GH issue if slugs lost in window exceed this'
+        required: false
+        default: '10'
+        type: string
+
+permissions:
+  contents: write
+  issues: write
+
+concurrency:
+  group: recover-prev-slugs
+  cancel-in-progress: false
+
+env:
+  NODE_OPTIONS: '--disable-warning=DEP0040 --disable-warning=DEP0169'
+
+jobs:
+  recover:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          # The scan walks per-slice git history. Use full clone so commits
+          # in the window are reachable (default fetch-depth=1 makes git log
+          # return empty).
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Scan for lost previousSlugs
+        id: scan
+        env:
+          SCAN_SINCE: ${{ github.event.inputs.since || '24 hours ago' }}
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/prev-slug-recovery
+          node scripts/scan-prev-slug-losses.mjs \
+            --since "$SCAN_SINCE" \
+            --out /tmp/prev-slug-recovery/recoverable.json \
+            --events-out /tmp/prev-slug-recovery/events.jsonl \
+            | tee /tmp/prev-slug-recovery/scan-report.txt
+          # Extract counts for downstream steps
+          total_lost=$(jq -r '.totalLost // 0' <<<"$(grep -E '^\s*"totalLost"' /tmp/prev-slug-recovery/scan-report.txt | head -1 | sed 's/.*: //;s/,//')") || total_lost=0
+          recoverable_jobs=$(jq 'length' /tmp/prev-slug-recovery/recoverable.json)
+          recoverable_slugs=$(jq '[.[].slugs|length]|add // 0' /tmp/prev-slug-recovery/recoverable.json)
+          echo "total_lost=${total_lost}" >> "$GITHUB_OUTPUT"
+          echo "recoverable_jobs=${recoverable_jobs}" >> "$GITHUB_OUTPUT"
+          echo "recoverable_slugs=${recoverable_slugs}" >> "$GITHUB_OUTPUT"
+          {
+            echo "## Scan summary"
+            echo ""
+            echo "Window: \`${SCAN_SINCE}\`"
+            echo "- total lost (in window): **${total_lost}**"
+            echo "- recoverable jobs: **${recoverable_jobs}**"
+            echo "- recoverable slugs: **${recoverable_slugs}**"
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Backfill recoverable slugs
+        if: steps.scan.outputs.recoverable_slugs != '0'
+        env:
+          DRY_RUN: ${{ github.event.inputs.dry_run || 'false' }}
+        run: |
+          set -euo pipefail
+          DRY_RUN_FLAG=""
+          if [ "$DRY_RUN" = "true" ]; then DRY_RUN_FLAG="--dry-run"; fi
+          node scripts/backfill-prev-slugs-from-loss-events.mjs \
+            --input /tmp/prev-slug-recovery/recoverable.json \
+            $DRY_RUN_FLAG \
+            | tee -a /tmp/prev-slug-recovery/scan-report.txt
+          {
+            echo ""
+            echo "## Backfill result"
+            echo ""
+            echo '```'
+            tail -10 /tmp/prev-slug-recovery/scan-report.txt
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Commit and push restored slices
+        if: steps.scan.outputs.recoverable_slugs != '0' && (github.event.inputs.dry_run || 'false') != 'true'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          bash scripts/lib/git-commit-data.sh --slice-only \
+            "🛟 Recover ${{ steps.scan.outputs.recoverable_slugs }} previousSlugs across ${{ steps.scan.outputs.recoverable_jobs }} jobs"
+
+      - name: Trip the writer-regression wire
+        if: steps.scan.outputs.total_lost != '0' && (github.event.inputs.dry_run || 'false') != 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          THRESHOLD: ${{ github.event.inputs.tripwire_threshold || '10' }}
+          TOTAL: ${{ steps.scan.outputs.total_lost }}
+          WINDOW: ${{ github.event.inputs.since || '24 hours ago' }}
+        run: |
+          set -euo pipefail
+          if [ "$TOTAL" -le "$THRESHOLD" ]; then
+            echo "Lost $TOTAL slugs in window — under threshold ($THRESHOLD), no issue."
+            exit 0
+          fi
+          echo "🚨 Tripwire: $TOTAL slugs lost in window (threshold $THRESHOLD)"
+          # Pull the top offending commits from the events log so the issue
+          # body points at the regression-introducing change.
+          top_commits=$(jq -r '.commit' /tmp/prev-slug-recovery/events.jsonl 2>/dev/null \
+            | sort | uniq -c | sort -rn | head -10 \
+            | awk '{ printf "- `%s` (%s losses)\\n", $2, $1 }')
+          body=$(cat <<EOF
+          The writer-attribution pipeline (PR #429) recovered **${TOTAL}** previousSlugs entries
+          that were silently dropped within the **${WINDOW}** window.
+
+          Threshold is ${THRESHOLD}. Anything above means a crawler bypass of
+          \`addPreviousSlugForLocale\` / \`captureLostSlugs\` has slipped in.
+
+          ## Top offending commits
+
+          ${top_commits}
+
+          ## Next steps
+
+          1. Read the scan + backfill output in [run #${{ github.run_id }}](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}).
+          2. \`git show <commit>\` each offending commit and look for new slug-mutation
+             paths that don't journal via \`scripts/lib/slug-history-journal.mjs\`.
+          3. Instrument the missed path, re-run \`scripts/scan-prev-slug-losses.mjs\`
+             locally to confirm 0 net loss.
+
+          Auto-recovery has already restored what it could. This issue tracks the
+          regression that caused the loss, not the recovery itself.
+          EOF
+          )
+          node scripts/lib/github-issue-creator.mjs \
+            --title "previousSlugs writer regression: ${TOTAL} losses in ${WINDOW}" \
+            --description "$body" \
+            --priority 2 \
+            --label bug \
+            --label seo \
+            --label crawlers \
+            --workflow "${{ github.workflow }}"
+
+      - name: Upload scan artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: recover-prev-slugs-scan-${{ github.run_id }}
+          path: /tmp/prev-slug-recovery/
+          retention-days: 14

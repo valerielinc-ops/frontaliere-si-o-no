@@ -1,0 +1,22 @@
+{
+  "companyKey": "gruppo-fidinam",
+  "companyName": "Gruppo Fidinam",
+  "companyHost": "fidinam.ch",
+  "enabled": true,
+  "priority": 0,
+  "crawlerModes": [
+    "generic_ats",
+    "html",
+    "jsonld"
+  ],
+  "seedUrls": [
+    "https://www.fidinam.ch/careers",
+    "https://www.fidinam.ch/career",
+    "https://www.fidinam.ch/jobs",
+    "https://www.fidinam.ch/karriere",
+    "https://www.fidinam.ch/offene-stellen",
+    "https://www.fidinam.ch/lavora-con-noi"
+  ],
+  "notes": "",
+  "updatedAt": "2026-02-27T17:06:06.950Z"
+}

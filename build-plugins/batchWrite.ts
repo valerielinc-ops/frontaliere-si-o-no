@@ -1,0 +1,324 @@
+/**
+ * Batch file writer for build plugins.
+ * Collects file writes in memory and flushes them in parallel batches,
+ * dramatically faster than sequential writeFileSync for 1000+ files.
+ *
+ * Supports optional content-hash manifest: when enabled, files whose
+ * content hasn't changed since the last build are skipped entirely.
+ *
+ * Streaming behavior (added 2026-04 to fix OOM at 11.6 GB / 12 GB heap):
+ * - add() returns synchronously; auto-flush kicks off in the background
+ *   when pending writes cross the threshold (default 5000 entries).
+ * - With ~30 KB content average, peak in-memory pending writes are
+ *   bounded at ~150 MB regardless of total page volume (was 6.6 GB
+ *   for 220k pages × 30 KB before this change).
+ * - flush() awaits all outstanding background flushes plus drains
+ *   any remaining writes.
+ * - Errors raised during a background flush are stored on the
+ *   collector and re-thrown by the next flush() call (never silently
+ *   swallowed).
+ */
+import fs from 'node:fs';
+import path from 'node:path';
+import { getManifest } from './contentHash';
+import { claim, type ClaimOutcome } from './sharedWriteRegistry';
+
+export interface PendingWrite {
+ filePath: string;
+ content: string;
+}
+
+/** Ensures parent directories exist (sync, cached) */
+const ensuredDirs = new Set<string>();
+function ensureDir(dir: string) {
+ if (ensuredDirs.has(dir)) return;
+ fs.mkdirSync(dir, { recursive: true });
+ ensuredDirs.add(dir);
+}
+
+/**
+ * Flush an array of pending writes in parallel batches.
+ * @param writes - Array of { filePath, content } objects
+ * @param concurrency - Number of files written in parallel per batch.
+ *
+ * Default 500: tuned for ubuntu-latest CI runners (SSD-backed, ulimit -n
+ * default 65535). Local benchmark on ~175K files saw ~30 % flush-time
+ * reduction going 200→500 without measurable contention. Stay below
+ * ~1024 to remain compatible with conservative ulimits (e.g. macOS
+ * launchd default 256/1024).
+ */
+export async function flushWrites(writes: PendingWrite[], concurrency = 500): Promise<number> {
+ // Pre-create all unique directories first (sync, very fast)
+ const dirs = new Set<string>();
+ for (const w of writes) dirs.add(path.dirname(w.filePath));
+ for (const d of dirs) ensureDir(d);
+
+ // Write files in parallel batches
+ let written = 0;
+ for (let i = 0; i < writes.length; i += concurrency) {
+ const batch = writes.slice(i, i + concurrency);
+ await Promise.all(
+ batch.map(w =>
+ fs.promises.writeFile(w.filePath, w.content, 'utf-8')
+ )
+ );
+ written += batch.length;
+ }
+ return written;
+}
+
+/**
+ * Default threshold above which add() kicks off a background flush.
+ *
+ * History:
+ *   - 5000 (initial): ~150 MB peak at 30 KB avg, fine for historical mix.
+ *   - 500 (2026-05-07 attempt): tried to bound peak heap before scaling
+ *     to 50k cluster pages. Made jobsSeoPagesPlugin's 60k soft-landing
+ *     emit 10× SLOWER (~21 min vs ~2 min) and OOM'd the runner — the
+ *     finer batches multiplied flushWrites() Promise.all overhead and
+ *     packed _pendingFlushes with hundreds of in-flight closure-held
+ *     batches faster than libuv could drain them.
+ *   - 5000 (revert): back to the proven default. Real fix for memory
+ *     pressure during 50k-page emits is per-plugin streaming or
+ *     applyBackpressure(), not a smaller buffer.
+ */
+const DEFAULT_AUTO_FLUSH_THRESHOLD = 5000;
+
+/**
+ * Module-level cumulative counter of intra-plugin Map.set overwrites across
+ * EVERY WriteCollector instance for the current build. Reset by
+ * {@link _resetGlobalIntraPluginOverwriteCounter} (called from
+ * writeRegistryResetPlugin's buildStart hook).
+ *
+ * Why module-level: each plugin's closeBundle creates its own WriteCollector,
+ * so per-instance counters don't sum across plugins. The collision report
+ * needs the total to surface "X attempts → Y unique writes hit disk (Z
+ * deduped via Map)" — without this counter the report only shows attempts.
+ */
+let globalIntraPluginOverwrites = 0;
+
+/** Read by writeRegistryReportPlugin's closeBundle to enrich the summary. */
+export function getGlobalIntraPluginOverwrites(): number {
+  return globalIntraPluginOverwrites;
+}
+
+/** Called by writeRegistryResetPlugin's buildStart to clear stale state. */
+export function _resetGlobalIntraPluginOverwriteCounter(): void {
+  globalIntraPluginOverwrites = 0;
+}
+
+export interface WriteCollectorOptions {
+ /** When true, add() skips files that already exist on disk. */
+ skipExisting?: boolean;
+ /** Used by the content-hash manifest to compute relative paths. */
+ distDir?: string;
+ /** Per-batch parallelism for {@link flushWrites}. Default 500. */
+ concurrency?: number;
+ /**
+  * Pending-write count above which add() spawns a background flush.
+  * Default 5000 → ~150 MB peak at 30 KB avg.
+  * Set to Infinity to opt out of streaming (legacy buffer-everything mode).
+  */
+ autoFlushThreshold?: number;
+ /**
+  * Plugin name used for cross-plugin write collision detection via the
+  * shared write registry. Defaults to `'unknown'` for backward compatibility,
+  * but every caller SHOULD pass its own plugin name so collision messages
+  * can name both writers. See `sharedWriteRegistry.ts` for the invariant.
+  */
+ pluginName?: string;
+}
+
+/**
+ * Collector class for building up writes and flushing at once.
+ * Plugins can push writes as they generate HTML, then flush at the end.
+ *
+ * When a ContentHashManifest is active (initialized via initManifest()),
+ * files whose content hash matches the previous build are automatically skipped.
+ *
+ * Streaming behavior:
+ * - add() returns synchronously; auto-flush kicks off when pending crosses 5000
+ * - peak in-memory pending writes ≤ 5000 entries × ~30 KB = ~150 MB
+ * - flush() awaits all outstanding background flushes
+ * - errors during background flush are stored and re-thrown by flush()
+ */
+export class WriteCollector {
+ // Map<filePath → PendingWrite>. Last add() per filePath wins, eliminating
+ // intra-plugin write races deterministically (Phase 4 case 4): when two
+ // emit categories within the same plugin target the same path (e.g.
+ // jobsSeoPagesPlugin's legacy-redirect emits a stub at line 2293, then a
+ // richer cross-locale-active-bridge emits at the same path at line 7420),
+ // the array-based collector flushed both via Promise.all and the OS
+ // resolved the race non-deterministically. With Map dedup, only ONE
+ // write reaches the disk per path: the LAST `add()` call. The plugin's
+ // emit code order then determines the winner — and in jobsSeoPagesPlugin
+ // the order is intentional (canonical first, then bridges by content
+ // richness, with stub-style emits late) so the rich bridge wins.
+ //
+ // For cross-plugin races (different plugins, different collectors,
+ // same path), the existing sharedWriteRegistry + declareSharedPath
+ // covers the case. Map dedup here is purely intra-plugin.
+ private writes: Map<string, PendingWrite> = new Map();
+ private skipExisting: boolean;
+ private _skippedByHash = 0;
+ private _skippedByCollision = 0;
+ private _overwrittenInPlugin = 0;
+ private _distDir: string;
+ private _pluginName: string;
+ // Set so completed flushes can self-remove via the `.finally` callback —
+ // keeps the bookkeeping bounded by ACTUAL in-flight count instead of
+ // accumulating closures of resolved promises.
+ private _pendingFlushes: Set<Promise<number>> = new Set();
+ private _firstError: Error | null = null;
+ private readonly _concurrency: number;
+ private readonly _autoFlushThreshold: number;
+
+ constructor(opts?: WriteCollectorOptions) {
+ this.skipExisting = opts?.skipExisting ?? false;
+ this._distDir = opts?.distDir ?? '';
+ this._concurrency = opts?.concurrency ?? 500;
+ this._autoFlushThreshold = opts?.autoFlushThreshold ?? DEFAULT_AUTO_FLUSH_THRESHOLD;
+ this._pluginName = opts?.pluginName ?? 'unknown';
+ }
+
+ /** Queue a file write. Skips files unchanged since last build (via content hash manifest). */
+ add(filePath: string, content: string) {
+ if (this.skipExisting && fs.existsSync(filePath)) return;
+ // Check content hash manifest — skip writing if content is identical to last build
+ const manifest = getManifest();
+ if (manifest && this._distDir) {
+ const rel = path.relative(this._distDir, filePath);
+ const fileExists = fs.existsSync(filePath);
+ if (fileExists && !manifest.shouldWrite(rel, content)) {
+ this._skippedByHash++;
+ return;
+ }
+ if (!fileExists) {
+  manifest.shouldWrite(rel, content);
+ }
+ }
+ // Cross-plugin/intra-plugin write collision check.
+ // claim() throws WriteCollisionError in `throw` mode and returns 'skip-write'
+ // for idempotent re-claims (identical content) or declared-shared losers.
+ const outcome: ClaimOutcome = claim(filePath, this._pluginName, content);
+ if (outcome === 'skip-write') {
+ this._skippedByCollision++;
+ return;
+ }
+ // Map.set semantics: if this filePath was already queued by an earlier
+ // add() in the same build, this call REPLACES the queued content. The
+ // earlier write is silently discarded — the disk only ever sees ONE
+ // version of any path within a single plugin's flush. Track overwrite
+ // count for diagnostics.
+ if (this.writes.has(filePath)) {
+ this._overwrittenInPlugin += 1;
+ globalIntraPluginOverwrites += 1;
+ }
+ this.writes.set(filePath, { filePath, content });
+
+ // Auto-flush in background once we cross the threshold. add() must stay
+ // synchronous for callers, so we kick off the flush without awaiting.
+ // Errors are captured on the collector and re-thrown by flush().
+ // The Set self-prunes via the `.finally` callback so memory is bounded
+ // by ACTUAL in-flight flushes (not total ever-spawned).
+ if (this.writes.size >= this._autoFlushThreshold) {
+ const batch = Array.from(this.writes.values());
+ this.writes = new Map();
+ let flushPromise: Promise<number>;
+ // eslint-disable-next-line prefer-const
+ flushPromise = flushWrites(batch, this._concurrency).catch((err: unknown) => {
+  if (!this._firstError) {
+  this._firstError = err instanceof Error ? err : new Error(String(err));
+  }
+  return 0;
+ }).finally(() => {
+  this._pendingFlushes.delete(flushPromise);
+ });
+ this._pendingFlushes.add(flushPromise);
+ }
+ }
+
+ /**
+  * Async backpressure for hot emit loops: returns once the number of
+  * in-flight background flushes drops below `maxInflight`. Without this
+  * a caller adding ~60k entries faster than the disk can drain (e.g.
+  * jobsSeoPagesPlugin's expired-soft-landing emit) accumulates 10+
+  * in-flight `flushWrites` calls, each holding a 5000-entry `batch`
+  * closure → peak heap blew past the 12 GB cap on the GHA runner and
+  * Node aborted with `Ineffective mark-compacts near heap limit`
+  * (run 26488854594, exit 134).
+  *
+  * Call between emit phases — at the bottom of each tight loop, OR
+  * after each major emit category. Drains synchronously to libuv's
+  * writer pool before returning.
+  *
+  * Default maxInflight=2 → peak in-memory = (1 active map + 2 in-flight)
+  * × autoFlushThreshold × ~30 KB ≈ 450 MB at 5000-entry batches; well
+  * under the 12 GB heap cap.
+  */
+ async awaitDrainSlot(maxInflight = 2): Promise<void> {
+ while (this._pendingFlushes.size > maxInflight) {
+ // Promise.race returns when ANY pending flush resolves; the `.finally`
+ // on each flushPromise removes it from the Set so the next loop check
+ // sees the reduced count.
+ await Promise.race(this._pendingFlushes);
+ }
+ }
+
+ /** Queue both a directory index.html and a flat .html file for the same content */
+ addWithFlat(dirPath: string, slug: string, content: string) {
+ // /dir/slug/index.html
+ const indexPath = path.join(dirPath, slug, 'index.html');
+ // /dir/slug.html
+ const flatPath = path.join(dirPath, `${slug}.html`);
+ this.add(indexPath, content);
+ this.add(flatPath, content);
+ }
+
+ /** Pending in-memory writes not yet flushed (legacy semantic — same as before). */
+ get count() { return this.writes.size; }
+ get skippedByHash() { return this._skippedByHash; }
+ /** Number of add() calls skipped because the path was already claimed
+  * (idempotent re-write or declared-shared loser). */
+ get skippedByCollision() { return this._skippedByCollision; }
+ /** Number of add() calls that overwrote a previously queued same-path
+  * write within this collector. Diagnostic only — counts intra-plugin
+  * last-add-wins resolutions. */
+ get overwrittenInPlugin() { return this._overwrittenInPlugin; }
+
+ /**
+  * Flush all queued writes in parallel batches (see {@link flushWrites}).
+  * Awaits any background flushes spawned by auto-flush, drains remaining
+  * writes, and re-throws the first error captured during a background flush.
+  */
+ async flush(concurrency = 500): Promise<number> {
+ // Drain any writes still in the in-memory buffer.
+ const remaining = Array.from(this.writes.values());
+ this.writes = new Map();
+ if (remaining.length > 0) {
+ let drainPromise: Promise<number>;
+ // eslint-disable-next-line prefer-const
+ drainPromise = flushWrites(remaining, concurrency).finally(() => {
+ this._pendingFlushes.delete(drainPromise);
+ });
+ this._pendingFlushes.add(drainPromise);
+ }
+
+ // Await all outstanding flushes (background + final drain).
+ const results = await Promise.all(this._pendingFlushes);
+ this._pendingFlushes.clear();
+
+ // Surface any error captured during a background flush.
+ if (this._firstError) {
+ const err = this._firstError;
+ this._firstError = null;
+ throw err;
+ }
+
+ // Sum total bytes written across background + final drain.
+ return results.reduce(
+ (sum, n) => sum + (typeof n === 'number' ? n : 0),
+ 0,
+ );
+ }
+}

@@ -1,0 +1,22 @@
+{
+  "companyKey": "riri-group",
+  "companyName": "Riri Group",
+  "companyHost": "ririgroup.com",
+  "enabled": true,
+  "priority": 0,
+  "crawlerModes": [
+    "generic_ats",
+    "html",
+    "jsonld"
+  ],
+  "seedUrls": [
+    "https://www.ririgroup.com/careers",
+    "https://www.ririgroup.com/career",
+    "https://www.ririgroup.com/jobs",
+    "https://www.ririgroup.com/karriere",
+    "https://www.ririgroup.com/offene-stellen",
+    "https://www.ririgroup.com/lavora-con-noi"
+  ],
+  "notes": "",
+  "updatedAt": "2026-02-27T17:06:06.972Z"
+}

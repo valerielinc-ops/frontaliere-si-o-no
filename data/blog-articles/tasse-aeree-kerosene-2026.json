@@ -1,0 +1,40 @@
+{
+  "id": "tasse-aeree-kerosene-2026",
+  "slug": "tasse-aeree-kerosene-2026",
+  "publishedAt": "2026-05-08T19:20:18.733Z",
+  "cluster": "fiscale",
+  "_pool": "discovery",
+  "_pool_source": "news",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 10.423231544590433,
+    "confidence": 0.8,
+    "finalScore": 8.338585235672346,
+    "topK": [
+      {
+        "slug": "tassa-aerei-sostegno-treni",
+        "cosine": 0.8017870418915718
+      },
+      {
+        "slug": "tassa-aerei-trasporto-pubblico",
+        "cosine": 0.7924551484053314
+      },
+      {
+        "slug": "aumento-kerosene-voli-cancellati-frontalieri-ticino",
+        "cosine": 0.7920686856455886
+      },
+      {
+        "slug": "italia-taglia-accise-benzinai-preoccupati",
+        "cosine": 0.766622208838175
+      },
+      {
+        "slug": "ticino-carburante-alle-stelle-quadri-berna-riduca-tasse",
+        "cosine": 0.7639942865913415
+      }
+    ],
+    "score": 0.8338585235672347,
+    "clusterDiversityBonus": 0.1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "fiscale"
+  }
+}

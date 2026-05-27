@@ -1,0 +1,40 @@
+{
+  "id": "varesino-salvato-polizia-frontiera-domodossola",
+  "slug": "varesino-salvato-polizia-frontiera-domodossola",
+  "publishedAt": "2026-05-16T02:02:11.850Z",
+  "cluster": "mobilita",
+  "_pool": "proven",
+  "_pool_source": "varesenoi.it",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 11.758884096522113,
+    "confidence": 0.8,
+    "finalScore": 9.40710727721769,
+    "topK": [
+      {
+        "slug": "controlli-varese-esposto-espulsione",
+        "cosine": 0.8404998810942956
+      },
+      {
+        "slug": "traffico-umani-valico-tresa-impatto-frontalieri",
+        "cosine": 0.8404358202138331
+      },
+      {
+        "slug": "varese-spacciatore-arresto-frontalieri",
+        "cosine": 0.8400111817925106
+      },
+      {
+        "slug": "capre-dogana-gandria-intervento-30-marzo",
+        "cosine": 0.835107740583664
+      },
+      {
+        "slug": "verbania-clandestino-espulsione-2026",
+        "cosine": 0.8315066785225348
+      }
+    ],
+    "score": 9.40710727721769,
+    "clusterDiversityBonus": 1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "mobilita"
+  }
+}

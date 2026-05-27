@@ -1,0 +1,18 @@
+{
+  "id": "disoccupazione-frontalieri-parigi-berna",
+  "slug": "disoccupazione-frontalieri-parigi-berna",
+  "publishedAt": "2026-05-15T13:47:22.779Z",
+  "cluster": "lavoro",
+  "_pool": "proven",
+  "_pool_source": "tvsvizzera.it",
+  "_score_breakdown": {
+    "stage": "cluster",
+    "rawScore": 3.5,
+    "confidence": 0.3,
+    "finalScore": 1.05,
+    "cluster": "lavoro",
+    "score": 1.05,
+    "clusterDiversityBonus": 1,
+    "sourceQualityMultiplier": 1
+  }
+}

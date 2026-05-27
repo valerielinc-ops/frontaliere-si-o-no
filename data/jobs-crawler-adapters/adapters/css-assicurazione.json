@@ -1,0 +1,22 @@
+{
+  "companyKey": "css-assicurazione",
+  "companyName": "CSS Assicurazione",
+  "companyHost": "css.ch",
+  "enabled": true,
+  "priority": 0,
+  "crawlerModes": [
+    "generic_ats",
+    "html",
+    "jsonld"
+  ],
+  "seedUrls": [
+    "https://www.css.ch/careers",
+    "https://www.css.ch/career",
+    "https://www.css.ch/jobs",
+    "https://www.css.ch/karriere",
+    "https://www.css.ch/offene-stellen",
+    "https://www.css.ch/lavora-con-noi"
+  ],
+  "notes": "",
+  "updatedAt": "2026-02-27T17:06:06.937Z"
+}

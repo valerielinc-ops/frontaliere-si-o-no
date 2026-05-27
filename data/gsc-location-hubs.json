@@ -1,0 +1,552 @@
+{
+  "generatedAt": "2026-05-11T17:12:51.644Z",
+  "sources": [
+    "frontaliereticino.ch-Coverage-Drilldown-2026-05-11"
+  ],
+  "counts": {
+    "matched": 38,
+    "unmatched": 22
+  },
+  "hubs": [
+    {
+      "locale": "en",
+      "citySlug": "hunenberg",
+      "url": "https://frontaliereticino.ch/en/find-jobs-ticino/location-hunenberg/",
+      "kind": "matched",
+      "displayName": "Hünenberg",
+      "jobCount": 2,
+      "csvOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-05-11"
+    },
+    {
+      "locale": "de",
+      "citySlug": "herbriggen",
+      "url": "https://frontaliereticino.ch/de/jobs-im-tessin/standort-herbriggen/",
+      "kind": "unmatched",
+      "displayName": "Herbriggen",
+      "jobCount": 0,
+      "csvOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-05-11"
+    },
+    {
+      "locale": "fr",
+      "citySlug": "laax",
+      "url": "https://frontaliereticino.ch/fr/trouver-emploi-tessin/localite-laax/",
+      "kind": "matched",
+      "displayName": "Laax",
+      "jobCount": 9,
+      "csvOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-05-11"
+    },
+    {
+      "locale": "de",
+      "citySlug": "buchs-sg",
+      "url": "https://frontaliereticino.ch/de/jobs-im-tessin/standort-buchs-sg/",
+      "kind": "matched",
+      "displayName": "Buchs SG",
+      "jobCount": 2,
+      "csvOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-05-11"
+    },
+    {
+      "locale": "de",
+      "citySlug": "uri",
+      "url": "https://frontaliereticino.ch/de/jobs-im-tessin/standort-uri/",
+      "kind": "matched",
+      "displayName": "Uri",
+      "jobCount": 2,
+      "csvOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-05-11"
+    },
+    {
+      "locale": "de",
+      "citySlug": "gais",
+      "url": "https://frontaliereticino.ch/de/jobs-im-tessin/standort-gais/",
+      "kind": "matched",
+      "displayName": "Gais",
+      "jobCount": 2,
+      "csvOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-05-11"
+    },
+    {
+      "locale": "en",
+      "citySlug": "ernen",
+      "url": "https://frontaliereticino.ch/en/find-jobs-ticino/location-ernen/",
+      "kind": "matched",
+      "displayName": "Ernen",
+      "jobCount": 1,
+      "csvOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-05-11"
+    },
+    {
+      "locale": "de",
+      "citySlug": "quinto",
+      "url": "https://frontaliereticino.ch/de/jobs-im-tessin/standort-quinto/",
+      "kind": "unmatched",
+      "displayName": "Quinto",
+      "jobCount": 0,
+      "csvOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-05-11"
+    },
+    {
+      "locale": "fr",
+      "citySlug": "camorino",
+      "url": "https://frontaliereticino.ch/fr/trouver-emploi-tessin/localite-camorino/",
+      "kind": "matched",
+      "displayName": "Camorino",
+      "jobCount": 2,
+      "csvOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-05-11"
+    },
+    {
+      "locale": "fr",
+      "citySlug": "saas-fee",
+      "url": "https://frontaliereticino.ch/fr/trouver-emploi-tessin/localite-saas-fee/",
+      "kind": "matched",
+      "displayName": "Saas-Fee",
+      "jobCount": 5,
+      "csvOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-05-11"
+    },
+    {
+      "locale": "de",
+      "citySlug": "bergun-filisur",
+      "url": "https://frontaliereticino.ch/de/jobs-im-tessin/standort-bergun-filisur/",
+      "kind": "matched",
+      "displayName": "Bergün/Filisur",
+      "jobCount": 1,
+      "csvOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-05-11"
+    },
+    {
+      "locale": "en",
+      "citySlug": "wiler-lotschen",
+      "url": "https://frontaliereticino.ch/en/find-jobs-ticino/location-wiler-lotschen/",
+      "kind": "matched",
+      "displayName": "Wiler (Lötschen)",
+      "jobCount": 1,
+      "csvOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-05-11"
+    },
+    {
+      "locale": "fr",
+      "citySlug": "stein-ag",
+      "url": "https://frontaliereticino.ch/fr/trouver-emploi-tessin/localite-stein-ag/",
+      "kind": "unmatched",
+      "displayName": "Stein Ag",
+      "jobCount": 0,
+      "csvOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-05-11"
+    },
+    {
+      "locale": "it",
+      "citySlug": "pratteln",
+      "url": "https://frontaliereticino.ch/cerca-lavoro-ticino/localita-pratteln/",
+      "kind": "matched",
+      "displayName": "Pratteln",
+      "jobCount": 2,
+      "csvOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-05-11"
+    },
+    {
+      "locale": "fr",
+      "citySlug": "geneve",
+      "url": "https://frontaliereticino.ch/fr/trouver-emploi-tessin/localite-geneve/",
+      "kind": "matched",
+      "displayName": "Genève",
+      "jobCount": 10,
+      "csvOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-05-11"
+    },
+    {
+      "locale": "de",
+      "citySlug": "serravalle-scrivia",
+      "url": "https://frontaliereticino.ch/de/jobs-im-tessin/standort-serravalle-scrivia/",
+      "kind": "unmatched",
+      "displayName": "Serravalle Scrivia",
+      "jobCount": 0,
+      "csvOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-05-11"
+    },
+    {
+      "locale": "en",
+      "citySlug": "grancia",
+      "url": "https://frontaliereticino.ch/en/find-jobs-ticino/location-grancia/",
+      "kind": "matched",
+      "displayName": "Grancia",
+      "jobCount": 4,
+      "csvOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-05-11"
+    },
+    {
+      "locale": "de",
+      "citySlug": "milano-performance-apparel-product-developer-prada-linea-rossa",
+      "url": "https://frontaliereticino.ch/de/jobs-im-tessin/standort-milano-performance-apparel-product-developer-prada-linea-rossa/",
+      "kind": "unmatched",
+      "displayName": "Milano Performance Apparel Product Developer Prada Linea Rossa",
+      "jobCount": 0,
+      "csvOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-05-11"
+    },
+    {
+      "locale": "it",
+      "citySlug": "meyrin",
+      "url": "https://frontaliereticino.ch/cerca-lavoro-ticino/localita-meyrin/",
+      "kind": "matched",
+      "displayName": "Meyrin",
+      "jobCount": 2,
+      "csvOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-05-11"
+    },
+    {
+      "locale": "it",
+      "citySlug": "brig-glis",
+      "url": "https://frontaliereticino.ch/cerca-lavoro-ticino/localita-brig-glis/",
+      "kind": "matched",
+      "displayName": "Brig-Glis",
+      "jobCount": 7,
+      "csvOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-05-11"
+    },
+    {
+      "locale": "en",
+      "citySlug": "haute-sorne",
+      "url": "https://frontaliereticino.ch/en/find-jobs-ticino/location-haute-sorne/",
+      "kind": "unmatched",
+      "displayName": "Haute Sorne",
+      "jobCount": 0,
+      "csvOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-05-11"
+    },
+    {
+      "locale": "de",
+      "citySlug": "new-york",
+      "url": "https://frontaliereticino.ch/de/jobs-im-tessin/standort-new-york/",
+      "kind": "unmatched",
+      "displayName": "New York",
+      "jobCount": 0,
+      "csvOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-05-11"
+    },
+    {
+      "locale": "fr",
+      "citySlug": "harkebrugge",
+      "url": "https://frontaliereticino.ch/fr/trouver-emploi-tessin/localite-harkebrugge/",
+      "kind": "unmatched",
+      "displayName": "Harkebrugge",
+      "jobCount": 0,
+      "csvOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-05-11"
+    },
+    {
+      "locale": "it",
+      "citySlug": "tenna-gr",
+      "url": "https://frontaliereticino.ch/cerca-lavoro-ticino/localita-tenna-gr/",
+      "kind": "unmatched",
+      "displayName": "Tenna Gr",
+      "jobCount": 0,
+      "csvOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-05-11"
+    },
+    {
+      "locale": "fr",
+      "citySlug": "oensingen",
+      "url": "https://frontaliereticino.ch/fr/trouver-emploi-tessin/localite-oensingen/",
+      "kind": "matched",
+      "displayName": "Oensingen",
+      "jobCount": 22,
+      "csvOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-05-11"
+    },
+    {
+      "locale": "it",
+      "citySlug": "harkebrugge",
+      "url": "https://frontaliereticino.ch/cerca-lavoro-ticino/localita-harkebrugge/",
+      "kind": "unmatched",
+      "displayName": "Harkebrugge",
+      "jobCount": 0,
+      "csvOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-05-11"
+    },
+    {
+      "locale": "fr",
+      "citySlug": "verbier",
+      "url": "https://frontaliereticino.ch/fr/trouver-emploi-tessin/localite-verbier/",
+      "kind": "matched",
+      "displayName": "Verbier",
+      "jobCount": 31,
+      "csvOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-05-11"
+    },
+    {
+      "locale": "en",
+      "citySlug": "uznach",
+      "url": "https://frontaliereticino.ch/en/find-jobs-ticino/location-uznach/",
+      "kind": "matched",
+      "displayName": "Uznach",
+      "jobCount": 1,
+      "csvOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-05-11"
+    },
+    {
+      "locale": "de",
+      "citySlug": "zofingen",
+      "url": "https://frontaliereticino.ch/de/jobs-im-tessin/standort-zofingen/",
+      "kind": "matched",
+      "displayName": "Zofingen",
+      "jobCount": 9,
+      "csvOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-05-11"
+    },
+    {
+      "locale": "it",
+      "citySlug": "uznach",
+      "url": "https://frontaliereticino.ch/cerca-lavoro-ticino/localita-uznach/",
+      "kind": "matched",
+      "displayName": "Uznach",
+      "jobCount": 1,
+      "csvOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-05-11"
+    },
+    {
+      "locale": "it",
+      "citySlug": "neggio",
+      "url": "https://frontaliereticino.ch/cerca-lavoro-ticino/localita-neggio/",
+      "kind": "matched",
+      "displayName": "Neggio",
+      "jobCount": 1,
+      "csvOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-05-11"
+    },
+    {
+      "locale": "it",
+      "citySlug": "novaggio",
+      "url": "https://frontaliereticino.ch/cerca-lavoro-ticino/localita-novaggio/",
+      "kind": "matched",
+      "displayName": "Novaggio",
+      "jobCount": 12,
+      "csvOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-05-11"
+    },
+    {
+      "locale": "it",
+      "citySlug": "pany",
+      "url": "https://frontaliereticino.ch/cerca-lavoro-ticino/localita-pany/",
+      "kind": "matched",
+      "displayName": "Pany",
+      "jobCount": 2,
+      "csvOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-05-11"
+    },
+    {
+      "locale": "it",
+      "citySlug": "80-winterthur-smart-working",
+      "url": "https://frontaliereticino.ch/cerca-lavoro-ticino/localita-80-winterthur-smart-working/",
+      "kind": "unmatched",
+      "displayName": "80 Winterthur Smart Working",
+      "jobCount": 0,
+      "csvOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-05-11"
+    },
+    {
+      "locale": "de",
+      "citySlug": "zurich-flughafen",
+      "url": "https://frontaliereticino.ch/de/jobs-im-tessin/standort-zurich-flughafen/",
+      "kind": "matched",
+      "displayName": "Zürich-Flughafen",
+      "jobCount": 1,
+      "csvOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-05-11"
+    },
+    {
+      "locale": "fr",
+      "citySlug": "cadempino",
+      "url": "https://frontaliereticino.ch/fr/trouver-emploi-tessin/localite-cadempino/",
+      "kind": "matched",
+      "displayName": "Cadempino",
+      "jobCount": 1,
+      "csvOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-05-11"
+    },
+    {
+      "locale": "fr",
+      "citySlug": "grigioni",
+      "url": "https://frontaliereticino.ch/fr/trouver-emploi-tessin/localite-grigioni/",
+      "kind": "matched",
+      "displayName": "Grigioni",
+      "jobCount": 1,
+      "csvOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-05-11"
+    },
+    {
+      "locale": "it",
+      "citySlug": "brusio",
+      "url": "https://frontaliereticino.ch/cerca-lavoro-ticino/localita-brusio/",
+      "kind": "matched",
+      "displayName": "Brusio",
+      "jobCount": 2,
+      "csvOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-05-11"
+    },
+    {
+      "locale": "de",
+      "citySlug": "kirchberg",
+      "url": "https://frontaliereticino.ch/de/jobs-im-tessin/standort-kirchberg/",
+      "kind": "unmatched",
+      "displayName": "Kirchberg",
+      "jobCount": 0,
+      "csvOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-05-11"
+    },
+    {
+      "locale": "it",
+      "citySlug": "conthey",
+      "url": "https://frontaliereticino.ch/cerca-lavoro-ticino/localita-conthey/",
+      "kind": "matched",
+      "displayName": "Conthey",
+      "jobCount": 7,
+      "csvOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-05-11"
+    },
+    {
+      "locale": "fr",
+      "citySlug": "en-in-elf-landern-weltweit",
+      "url": "https://frontaliereticino.ch/fr/trouver-emploi-tessin/localite-en-in-elf-landern-weltweit/",
+      "kind": "unmatched",
+      "displayName": "En In Elf Landern Weltweit",
+      "jobCount": 0,
+      "csvOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-05-11"
+    },
+    {
+      "locale": "de",
+      "citySlug": "biberist",
+      "url": "https://frontaliereticino.ch/de/jobs-im-tessin/standort-biberist/",
+      "kind": "unmatched",
+      "displayName": "Biberist",
+      "jobCount": 0,
+      "csvOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-05-11"
+    },
+    {
+      "locale": "en",
+      "citySlug": "agenzia-generale-andrea-tarello",
+      "url": "https://frontaliereticino.ch/en/find-jobs-ticino/location-agenzia-generale-andrea-tarello/",
+      "kind": "unmatched",
+      "displayName": "Agenzia Generale Andrea Tarello",
+      "jobCount": 0,
+      "csvOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-05-11"
+    },
+    {
+      "locale": "it",
+      "citySlug": "uster",
+      "url": "https://frontaliereticino.ch/cerca-lavoro-ticino/localita-uster/",
+      "kind": "matched",
+      "displayName": "Uster",
+      "jobCount": 1,
+      "csvOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-05-11"
+    },
+    {
+      "locale": "it",
+      "citySlug": "magadino",
+      "url": "https://frontaliereticino.ch/cerca-lavoro-ticino/localita-magadino/",
+      "kind": "matched",
+      "displayName": "Magadino",
+      "jobCount": 1,
+      "csvOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-05-11"
+    },
+    {
+      "locale": "fr",
+      "citySlug": "untervaz",
+      "url": "https://frontaliereticino.ch/fr/trouver-emploi-tessin/localite-untervaz/",
+      "kind": "matched",
+      "displayName": "Untervaz",
+      "jobCount": 2,
+      "csvOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-05-11"
+    },
+    {
+      "locale": "de",
+      "citySlug": "freiburg-im-breisgau",
+      "url": "https://frontaliereticino.ch/de/jobs-im-tessin/standort-freiburg-im-breisgau/",
+      "kind": "unmatched",
+      "displayName": "Freiburg Im Breisgau",
+      "jobCount": 0,
+      "csvOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-05-11"
+    },
+    {
+      "locale": "it",
+      "citySlug": "cazis",
+      "url": "https://frontaliereticino.ch/cerca-lavoro-ticino/localita-cazis/",
+      "kind": "matched",
+      "displayName": "Cazis",
+      "jobCount": 10,
+      "csvOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-05-11"
+    },
+    {
+      "locale": "it",
+      "citySlug": "gamsen",
+      "url": "https://frontaliereticino.ch/cerca-lavoro-ticino/localita-gamsen/",
+      "kind": "matched",
+      "displayName": "Gamsen",
+      "jobCount": 2,
+      "csvOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-05-11"
+    },
+    {
+      "locale": "it",
+      "citySlug": "felsberg",
+      "url": "https://frontaliereticino.ch/cerca-lavoro-ticino/localita-felsberg/",
+      "kind": "matched",
+      "displayName": "Felsberg",
+      "jobCount": 1,
+      "csvOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-05-11"
+    },
+    {
+      "locale": "en",
+      "citySlug": "agenzia-generale-lugano",
+      "url": "https://frontaliereticino.ch/en/find-jobs-ticino/location-agenzia-generale-lugano/",
+      "kind": "unmatched",
+      "displayName": "Agenzia Generale Lugano",
+      "jobCount": 0,
+      "csvOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-05-11"
+    },
+    {
+      "locale": "fr",
+      "citySlug": "olten",
+      "url": "https://frontaliereticino.ch/fr/trouver-emploi-tessin/localite-olten/",
+      "kind": "matched",
+      "displayName": "Olten",
+      "jobCount": 5,
+      "csvOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-05-11"
+    },
+    {
+      "locale": "de",
+      "citySlug": "jura",
+      "url": "https://frontaliereticino.ch/de/jobs-im-tessin/standort-jura/",
+      "kind": "matched",
+      "displayName": "Jura",
+      "jobCount": 2,
+      "csvOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-05-11"
+    },
+    {
+      "locale": "fr",
+      "citySlug": "schiltach",
+      "url": "https://frontaliereticino.ch/fr/trouver-emploi-tessin/localite-schiltach/",
+      "kind": "unmatched",
+      "displayName": "Schiltach",
+      "jobCount": 0,
+      "csvOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-05-11"
+    },
+    {
+      "locale": "it",
+      "citySlug": "castione",
+      "url": "https://frontaliereticino.ch/cerca-lavoro-ticino/localita-castione/",
+      "kind": "matched",
+      "displayName": "Castione",
+      "jobCount": 1,
+      "csvOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-05-11"
+    },
+    {
+      "locale": "it",
+      "citySlug": "dubai",
+      "url": "https://frontaliereticino.ch/cerca-lavoro-ticino/localita-dubai/",
+      "kind": "unmatched",
+      "displayName": "Dubai",
+      "jobCount": 0,
+      "csvOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-05-11"
+    },
+    {
+      "locale": "en",
+      "citySlug": "radolfzell",
+      "url": "https://frontaliereticino.ch/en/find-jobs-ticino/location-radolfzell/",
+      "kind": "unmatched",
+      "displayName": "Radolfzell",
+      "jobCount": 0,
+      "csvOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-05-11"
+    },
+    {
+      "locale": "fr",
+      "citySlug": "zermatt-oberwald-andermatt",
+      "url": "https://frontaliereticino.ch/fr/trouver-emploi-tessin/localite-zermatt-oberwald-andermatt/",
+      "kind": "unmatched",
+      "displayName": "Zermatt Oberwald Andermatt",
+      "jobCount": 0,
+      "csvOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-05-11"
+    },
+    {
+      "locale": "en",
+      "citySlug": "burgdorf",
+      "url": "https://frontaliereticino.ch/en/find-jobs-ticino/location-burgdorf/",
+      "kind": "unmatched",
+      "displayName": "Burgdorf",
+      "jobCount": 0,
+      "csvOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-05-11"
+    },
+    {
+      "locale": "fr",
+      "citySlug": "grachen",
+      "url": "https://frontaliereticino.ch/fr/trouver-emploi-tessin/localite-grachen/",
+      "kind": "matched",
+      "displayName": "Grächen",
+      "jobCount": 1,
+      "csvOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-05-11"
+    }
+  ]
+}

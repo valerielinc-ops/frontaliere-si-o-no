@@ -1,0 +1,193 @@
+name: Post-deploy Validate (live)
+
+# Reusable workflow called from deploy.yml as the `validate-live` job.
+# Runs AFTER `actions/deploy-pages@v5` has published the new dist to
+# GitHub Pages. READ-ONLY by design: live smoke (probe 5xx + e2e:live)
+# fetched directly from the deployed site.
+#
+# Side-effects (Facebook/LinkedIn post, IndexNow/GSC submission, winners
+# git push, mark last_known_good) used to live here but were extracted
+# to `post-deploy-publish.yml` because they fired BEFORE validate-dist
+# completed. If validate-dist later failed, rollback fired but FB had
+# already announced URLs that now point to the rolled-back dist (mismatch
+# or 404). The publish workflow gates on BOTH validate-dist AND
+# validate-live success.
+#
+# Inputs:
+#   deploy_run_id     — caller's github.run_id (for cross-job artifact
+#                       names like sitemaps-${run_id})
+#   deploy_event_name — kept for parity with publish.yml signature.
+on:
+  workflow_call:
+    inputs:
+      deploy_run_id:
+        description: 'Run ID of the calling deploy workflow run.'
+        required: true
+        type: string
+      deploy_event_name:
+        description: 'github.event_name from the caller (workflow_dispatch / push / etc.)'
+        required: true
+        type: string
+
+jobs:
+  validate-live:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read    # read-only — winners git push moved to publish.yml
+      actions: read     # for download-artifact same-run
+    steps:
+      - name: Checkout (same SHA as deploy — invariant in workflow_call)
+        uses: actions/checkout@v5
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+
+      - name: Cache node_modules
+        id: node-modules-cache
+        uses: actions/cache@v5
+        with:
+          path: node_modules
+          key: node-modules-${{ runner.os }}-node22-${{ hashFiles('package-lock.json') }}
+
+      - name: Install dependencies
+        if: steps.node-modules-cache.outputs.cache-hit != 'true'
+        run: npm ci
+
+      - name: Prepare Firebase credentials
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -n "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+            echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+          else
+            echo "⚠️ Firebase secrets not set — registry operations will be skipped."
+          fi
+
+      # `sitemaps-${run_id}` bundles build-id.txt which is consumed by
+      # `wait-for-pages-propagation.mjs` to verify the live site is
+      # serving THIS deploy — so validate-live doesn't need to download
+      # the 1.5 GB github-pages artifact just for build-id.
+      - name: Download sitemaps bundle (for build-id.txt)
+        uses: actions/download-artifact@v5
+        continue-on-error: true
+        with:
+          name: sitemaps-${{ inputs.deploy_run_id }}
+          path: /tmp/sitemaps-bundle
+
+      - name: Stage build-id.txt into dist/
+        run: |
+          if [ -f /tmp/sitemaps-bundle/build-id.txt ]; then
+            mkdir -p dist
+            cp /tmp/sitemaps-bundle/build-id.txt dist/build-id.txt
+          fi
+
+      # Live smoke — Playwright fetches the deployed site directly.
+      - name: Cache Playwright browsers
+        id: playwright-cache
+        uses: actions/cache@v5
+        env:
+          PLAYWRIGHT_BROWSERS_PATH: /home/runner/.cache/ms-playwright
+        with:
+          path: /home/runner/.cache/ms-playwright
+          key: playwright-chromium-${{ hashFiles('package-lock.json') }}
+
+      - name: Install Playwright browsers
+        if: steps.playwright-cache.outputs.cache-hit != 'true'
+        env:
+          PLAYWRIGHT_BROWSERS_PATH: /home/runner/.cache/ms-playwright
+        run: npx playwright install --with-deps chromium
+
+      - name: Live smoke (probe 5xx + e2e:live)
+        env:
+          PLAYWRIGHT_BROWSERS_PATH: /home/runner/.cache/ms-playwright
+          LIVE_BASE_URL: https://frontaliereticino.ch
+        run: |
+          node scripts/wait-for-pages-propagation.mjs
+          npm run probe:5xx
+          npm run test:e2e:live
+
+      # CLS ratchet — fails if any audited template's CLS p75 regresses past
+      # Google's "needs improvement" threshold (0.25) or by more than 10%/+0.05
+      # absolute vs `data/cls-baseline.json`. CLS poor crushes AdSense viewability
+      # and ad-bid; without this gate, every refactor risks pushing it up another
+      # notch. Improving the baseline requires running `audit-cls-live --rebaseline`
+      # locally and committing the diff together with the fix.
+      - name: Load RC secrets (PageSpeed API key)
+        run: node scripts/load-rc-env.mjs
+
+      - name: CLS regression gate
+        env:
+          LIVE_BASE_URL: https://frontaliereticino.ch
+        run: node scripts/audit-cls-live.mjs
+
+      - name: Upload CLS report
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: cls-report-${{ github.run_id }}
+          path: reports/cls-*.json
+          retention-days: 30
+
+      # On failure, also upload the structured audit-reports/cls-live.json
+      # produced by scripts/lib/auditReport.mjs. The full PSI / Lighthouse JSON
+      # is embedded for every hard CLS regression so a debug agent can replay
+      # the attribution evidence offline without re-running PSI (which is
+      # quota-limited and ~30 min serial). Tied to failure() to stay within
+      # the free-tier retention budget.
+      - name: Upload audit reports on failure
+        if: failure()
+        continue-on-error: true
+        uses: actions/upload-artifact@v7
+        with:
+          name: audit-reports-live-${{ github.run_id }}-${{ github.run_attempt }}
+          path: dist/audit-reports/**
+          if-no-files-found: ignore
+          retention-days: 7
+
+      # Visual regression on the LIVE site. Skipped until linux baselines
+      # are committed (run regenerate-visual-baselines.yml workflow_dispatch
+      # to generate them). On failure, validate-live fails → rollback fires
+      # and restores the previous dist (which by definition matched the
+      # baseline).
+      - name: E2E visual regression (live)
+        if: hashFiles('tests/e2e/seo-visual-regression.spec.ts-snapshots/*-linux.png') != ''
+        env:
+          PLAYWRIGHT_BROWSERS_PATH: /home/runner/.cache/ms-playwright
+          LIVE_BASE_URL: https://frontaliereticino.ch
+        run: npx playwright test tests/e2e/seo-visual-regression.spec.ts
+
+      - name: Upload Playwright report
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: playwright-report-live
+          path: playwright-report/
+          retention-days: 14
+
+      - name: Upload visual diffs on failure
+        if: failure()
+        uses: actions/upload-artifact@v7
+        with:
+          name: visual-diffs-live
+          path: test-results/
+          retention-days: 14
+
+      - name: Report failure to Linear
+        if: failure()
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          node scripts/lib/github-issue-creator.mjs \
+            --title "Validation Failure (live): post-deploy — run ${{ github.run_number }}" \
+            --description "## Live validation post-deploy fallita
+          **Deploy run:** https://github.com/${{ github.repository }}/actions/runs/${{ inputs.deploy_run_id }}
+          **Validation run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          **Branch:** ${{ github.ref_name }}
+          **SHA:** ${{ github.sha }}" \
+            --priority 1 \
+            --label Bug \
+            --workflow "Post-deploy Validate Live"

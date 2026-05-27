@@ -1,0 +1,17 @@
+{
+  "companyKey": "mtic-group",
+  "companyName": "MTIC Group",
+  "companyHost": "www.mtic-group.org",
+  "enabled": true,
+  "priority": 18,
+  "crawlerModes": [
+    "html"
+  ],
+  "seedUrls": [
+    "https://www.mtic-group.org/it/opportunita-di-lavoro",
+    "https://spsintercertsa.mtic-group.org/it/opportunita-di-lavoro"
+  ],
+  "notes": "Dedicated MTIC Group crawler. Reads TYPO3 listing page organized by subsidiary. Filters to SPS InterCert S.A. (Lugano Paradiso, CH) and other Swiss positions. Also checks SPS subdomain.",
+  "updatedAt": "2026-03-12T19:55:00.000Z",
+  "seedMetaByUrl": {}
+}

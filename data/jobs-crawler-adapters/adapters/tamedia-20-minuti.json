@@ -1,0 +1,22 @@
+{
+  "companyKey": "tamedia-20-minuti",
+  "companyName": "Tamedia / 20 Minuti",
+  "companyHost": "20min.ch",
+  "enabled": true,
+  "priority": 0,
+  "crawlerModes": [
+    "generic_ats",
+    "html",
+    "jsonld"
+  ],
+  "seedUrls": [
+    "https://www.20min.ch/careers",
+    "https://www.20min.ch/career",
+    "https://www.20min.ch/jobs",
+    "https://www.20min.ch/karriere",
+    "https://www.20min.ch/offene-stellen",
+    "https://www.20min.ch/lavora-con-noi"
+  ],
+  "notes": "",
+  "updatedAt": "2026-02-27T17:06:06.989Z"
+}

@@ -1,0 +1,437 @@
+/**
+ * AdSenseBanner — Google AdSense display ad unit with width-aware lifecycle.
+ *
+ * Renders an <ins class="adsbygoogle"> element and pushes to the ad queue
+ * ONLY after the container has measurable width (> 0px).
+ *
+ * State machine: idle → waiting_width → loading → filled | collapsed
+ *
+ * In development mode the component renders nothing (collapsed).
+ */
+
+import { useEffect, useRef, useState, useCallback } from 'react';
+import { isLikelyBot, trackAdEvent } from '@/services/adAnalytics';
+
+declare global {
+ interface Window {
+ adsbygoogle?: Array<Record<string, unknown>>;
+ }
+}
+
+interface AdSenseBannerProps {
+ adSlot?: string;
+ adFormat?: string;
+ fullWidthResponsive?: boolean;
+ className?: string;
+ adLayoutKey?: string;
+ adLayout?: string;
+ label?: string;
+ enabled?: boolean;
+ /** When true, always render the placeholder wrapper (even when disabled) to prevent CLS.
+ * Use on pages where ads appear after an async action (e.g., calculator results). */
+ reserveSpace?: boolean;
+}
+
+const CLIENT_ID = 'ca-pub-8628054934855353';
+const ADSENSE_PRODUCTION_HOSTNAMES = new Set([
+ 'frontaliereticino.ch',
+ 'frontaliereticino.ch',
+]);
+
+export function isAdSenseProductionHost(hostname: string) {
+ return ADSENSE_PRODUCTION_HOSTNAMES.has(hostname);
+}
+
+const IS_PROD =
+ typeof window !== 'undefined' && isAdSenseProductionHost(window.location.hostname);
+
+// Bot detection runs once per page load. The result is stable for the
+// session, so cache it. isLikelyBot() returns true on Playwright/Selenium/
+// scrapers/headless — these inflate AD_REQUESTS without monetizing
+// (≤€0.10 RPM) and pollute coverage metrics.
+const SKIP_FOR_BOT = typeof window !== 'undefined' && isLikelyBot();
+
+type AdState = 'idle' | 'waiting_width' | 'loading' | 'filled' | 'collapsed';
+const initializedAdElements = new WeakSet<Element>();
+
+function getPlaceholderMinHeight(adFormat: string, adLayout?: string): number {
+ // Heights match AD_SLOTS.placeholderMinHeight values in adsenseSlots.ts (FRO-385).
+ // Sized to cover the majority of real ad renders and prevent CLS when ads expand.
+ if (adFormat === 'autorelaxed') return 400;
+ if (adLayout === 'in-article') return 220;
+ if (adFormat === 'fluid') return 220;
+ return 280;
+}
+
+function isElementInViewport(el: HTMLElement): boolean {
+ const rect = el.getBoundingClientRect();
+ const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+ const viewportWidth = window.innerWidth || document.documentElement.clientWidth;
+ return rect.bottom > 0 && rect.right > 0 && rect.top < viewportHeight && rect.left < viewportWidth;
+}
+
+export default function AdSenseBanner({
+ adSlot,
+ adFormat = 'auto',
+ fullWidthResponsive = true,
+ className = '',
+ adLayoutKey,
+ adLayout,
+ // Italian "Advertisement" disclosure label — required by Google Publisher
+ // Policies and Italian consumer-transparency rules. Always rendered above
+ // the ad slot once it fills (hidden via wrapper opacity while collapsed).
+ // Pass an explicit empty string to opt out (not recommended).
+ label = 'Pubblicità',
+ enabled = true,
+ reserveSpace = false,
+}: AdSenseBannerProps) {
+ const adRef = useRef<HTMLModElement>(null);
+ const wrapperRef = useRef<HTMLDivElement>(null);
+ const pushed = useRef(false);
+ const fillTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+ const statusObserverRef = useRef<MutationObserver | null>(null);
+ const resizeObserverRef = useRef<ResizeObserver | null>(null);
+ const collapseObserverRef = useRef<IntersectionObserver | null>(null);
+ const [state, setState] = useState<AdState>('idle');
+ const [scriptReady, setScriptReady] = useState(false);
+ const [scriptFailed, setScriptFailed] = useState(false);
+ const placeholderMinHeight = getPlaceholderMinHeight(adFormat, adLayout);
+
+ const cleanupAsyncWatchers = useCallback(() => {
+ if (fillTimeoutRef.current) {
+ clearTimeout(fillTimeoutRef.current);
+ fillTimeoutRef.current = null;
+ }
+ if (statusObserverRef.current) {
+ statusObserverRef.current.disconnect();
+ statusObserverRef.current = null;
+ }
+ if (resizeObserverRef.current) {
+ resizeObserverRef.current.disconnect();
+ resizeObserverRef.current = null;
+ }
+ if (collapseObserverRef.current) {
+ collapseObserverRef.current.disconnect();
+ collapseObserverRef.current = null;
+ }
+ }, []);
+
+ const collapseWhenLayoutSafe = useCallback((reason: string) => {
+ const wrapper = wrapperRef.current;
+ if (!wrapper || typeof window === 'undefined' || typeof document === 'undefined') {
+ setState('collapsed');
+ return;
+ }
+
+ collapseObserverRef.current?.disconnect();
+ collapseObserverRef.current = null;
+
+ if (!isElementInViewport(wrapper) || typeof IntersectionObserver === 'undefined') {
+ console.info(`[AdSense] ${reason} for slot=${adSlot}, collapsing banner`);
+ setState('collapsed');
+ return;
+ }
+
+ console.info(`[AdSense] ${reason} for slot=${adSlot}, deferring collapse until offscreen`);
+ const observer = new IntersectionObserver((entries) => {
+ const entry = entries[0];
+ if (!entry?.isIntersecting) {
+ observer.disconnect();
+ collapseObserverRef.current = null;
+ console.info(`[AdSense] deferred collapse for slot=${adSlot}`);
+ setState('collapsed');
+ }
+ });
+ observer.observe(wrapper);
+ collapseObserverRef.current = observer;
+ }, [adSlot]);
+
+ // ── Load the AdSense script (singleton) ──────────────────
+ const loadAdSenseScript = useCallback(() => {
+ if (typeof document === 'undefined') return;
+ const existing = document.querySelector<HTMLScriptElement>('script[src*="pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"]');
+ if (existing) {
+ // adsbygoogle global means the script has already loaded (e.g. via
+ // index.html head) before this component mounted — load event won't
+ // fire again, so mark ready immediately.
+ if (typeof (window as unknown as { adsbygoogle?: unknown }).adsbygoogle !== 'undefined') {
+ existing.setAttribute('data-loaded', '1');
+ setScriptReady(true);
+ return;
+ }
+ if (existing.getAttribute('data-loaded') === '1') setScriptReady(true);
+ else if (existing.getAttribute('data-failed') === '1') setScriptFailed(true);
+ else {
+ existing.addEventListener('load', () => {
+ existing.setAttribute('data-loaded', '1');
+ setScriptReady(true);
+ }, { once: true });
+ existing.addEventListener('error', () => {
+ existing.setAttribute('data-failed', '1');
+ setScriptFailed(true);
+ }, { once: true });
+ }
+ return;
+ }
+ const script = document.createElement('script');
+ script.src = `https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${CLIENT_ID}`;
+ script.async = true;
+ script.crossOrigin = 'anonymous';
+ // Force anchor/overlay ads to bottom only — prevents covering navbar on mobile
+ script.setAttribute('data-overlays', 'bottom');
+ // Reduce vignette/interstitial frequency — SPA triggers on every pushState
+ script.setAttribute('data-ad-frequency-hint', '120s');
+ script.addEventListener('load', () => {
+ script.setAttribute('data-loaded', '1');
+ setScriptReady(true);
+ }, { once: true });
+ script.addEventListener('error', () => {
+ script.setAttribute('data-failed', '1');
+ console.warn(`[AdSense] script load failed for slot=${adSlot}`);
+ setScriptFailed(true);
+ }, { once: true });
+ document.head.appendChild(script);
+ }, [adSlot]);
+
+ // ── Lazy-load script via IntersectionObserver ─────────────
+ // Only load adsbygoogle.js when the ad slot is within 200px of the viewport.
+ // This eliminates Semrush "uncompressed JS" flags on pages where the ad
+ // never enters view, and defers the ~45KB third-party payload past LCP.
+ useEffect(() => {
+ if (!IS_PROD || !enabled || !adSlot) return;
+ const wrapper = wrapperRef.current;
+ if (!wrapper) return;
+
+ // If the script is already present (e.g. another banner already triggered
+ // load on this page), skip the observer and proceed to width-wait.
+ if (typeof document !== 'undefined' &&
+ document.querySelector('script[src*="pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"]')) {
+ loadAdSenseScript();
+ setState('waiting_width');
+ return;
+ }
+
+ if (typeof IntersectionObserver === 'undefined') {
+ // Older browsers — fall back to immediate load.
+ loadAdSenseScript();
+ setState('waiting_width');
+ return;
+ }
+
+ const io = new IntersectionObserver((entries) => {
+ for (const entry of entries) {
+ if (entry.isIntersecting) {
+ io.disconnect();
+ loadAdSenseScript();
+ setState('waiting_width');
+ return;
+ }
+ }
+ }, { rootMargin: '200px 0px' });
+ io.observe(wrapper);
+ return () => io.disconnect();
+ }, [enabled, adSlot, loadAdSenseScript]);
+
+ // ── Wait for measurable width, then push ─────────────────
+ useEffect(() => {
+ if (state !== 'waiting_width' || !scriptReady || !adSlot || pushed.current) return;
+
+ const wrapper = wrapperRef.current;
+ if (!wrapper) return;
+
+ cleanupAsyncWatchers();
+
+ const tryPush = () => {
+ const width = wrapper.getBoundingClientRect().width;
+ if (width <= 0) return false;
+
+ console.info(`[AdSense] width ready for slot=${adSlot} (${Math.round(width)}px), initializing`);
+ setState('loading');
+
+ const el = adRef.current;
+ if (!el) { collapseWhenLayoutSafe('missing ins element'); return true; }
+
+ const currentStatus = el.getAttribute('data-ad-status');
+ if (currentStatus === 'filled') {
+ pushed.current = true;
+ initializedAdElements.add(el);
+ setState('filled');
+ return true;
+ }
+ if (currentStatus === 'unfilled') {
+ pushed.current = true;
+ initializedAdElements.add(el);
+ collapseWhenLayoutSafe('unfilled');
+ return true;
+ }
+
+ const alreadyInitialized =
+ initializedAdElements.has(el) ||
+ el.getAttribute('data-adsbygoogle-status') !== null;
+
+ try {
+ if (!alreadyInitialized) {
+ (window.adsbygoogle = window.adsbygoogle || []).push({});
+ initializedAdElements.add(el);
+ }
+ pushed.current = true;
+ } catch (err) {
+ console.warn(`[AdSense] push() failed for slot=${adSlot}`, err);
+ collapseWhenLayoutSafe('push failed');
+ return true;
+ }
+
+ const observer = new MutationObserver(() => {
+ const status = el.getAttribute('data-ad-status');
+ if (status === 'filled') {
+ cleanupAsyncWatchers();
+ setState('filled');
+ } else if (status === 'unfilled') {
+ cleanupAsyncWatchers();
+ collapseWhenLayoutSafe('unfilled');
+ }
+ });
+ observer.observe(el, { attributes: true, attributeFilter: ['data-ad-status'] });
+ statusObserverRef.current = observer;
+
+ // Collapse the placeholder when the ad doesn't fill quickly. Was 90s
+ // historically — Privacy Sandbox / Attestation / adblockers now block
+ // AdSense before it can report unfilled, leaving a 400px reservation
+ // on every blocked slot for 90s. Multiple slots × 400px = 800-1200px
+ // of visible dead-space below the fold on every page load (S7).
+ // 8s is plenty for genuine fills (real fills land <2s in practice).
+ fillTimeoutRef.current = setTimeout(() => {
+ const status = el.getAttribute('data-ad-status');
+ if (status === 'filled') return;
+ cleanupAsyncWatchers();
+ collapseWhenLayoutSafe(`fill timeout (status=${status})`);
+ }, 8_000);
+
+ return true;
+ };
+
+ // Try immediately
+ if (tryPush()) return;
+
+ // Otherwise observe for width changes
+ console.info(`[AdSense] waiting for measurable width for slot=${adSlot}`);
+ const observer = new ResizeObserver((entries) => {
+ for (const entry of entries) {
+ if (entry.contentRect.width > 0) {
+ observer.disconnect();
+ resizeObserverRef.current = null;
+ tryPush();
+ break;
+ }
+ }
+ });
+ observer.observe(wrapper);
+ resizeObserverRef.current = observer;
+
+ // Safety timeout — collapse if width never materializes
+ const timeout = setTimeout(() => {
+ observer.disconnect();
+ if (!pushed.current) {
+ collapseWhenLayoutSafe('width timeout');
+ }
+ }, 8000);
+
+ return () => {
+ cleanupAsyncWatchers();
+ clearTimeout(timeout);
+ };
+ }, [state, scriptReady, adSlot, cleanupAsyncWatchers, collapseWhenLayoutSafe]);
+
+ // ── Collapse on script failure ───────────────────────────
+ useEffect(() => {
+ if (scriptFailed && state !== 'collapsed') {
+ collapseWhenLayoutSafe('script failed');
+ }
+ }, [scriptFailed, state, collapseWhenLayoutSafe]);
+
+ // ── Telemetry: emit one event per terminal state transition ──────
+ const reportedStateRef = useRef<AdState | null>(null);
+ useEffect(() => {
+ if (!IS_PROD || !adSlot) return;
+ if (state !== 'filled' && state !== 'collapsed') return;
+ if (reportedStateRef.current === state) return;
+ reportedStateRef.current = state;
+ const event = state === 'filled' ? 'ad_filled' : 'ad_collapsed';
+ const reason = state === 'collapsed'
+ ? (scriptFailed ? 'script_failed' : 'unfilled_or_timeout')
+ : undefined;
+ trackAdEvent(event, { slot: adSlot, format: adFormat, reason });
+ }, [state, adSlot, adFormat, scriptFailed]);
+
+ useEffect(() => () => {
+ cleanupAsyncWatchers();
+ }, [cleanupAsyncWatchers]);
+
+ // ── Render nothing in dev or when slot is missing ─────────
+ if (!IS_PROD || !adSlot) {
+ return null;
+ }
+
+ // Skip rendering entirely for bots / headless — saves an ad_request and
+ // keeps the AdSense coverage metric uncontaminated. Logged once per slot.
+ if (SKIP_FOR_BOT) {
+ if (!pushed.current) {
+ pushed.current = true;
+ trackAdEvent('ad_bot_skip', { slot: adSlot, format: adFormat, reason: 'navigator_bot' });
+ }
+ return null;
+ }
+
+ // When disabled but reserveSpace is true, render the placeholder wrapper
+ // so the layout doesn't shift when the ad eventually loads (CLS fix).
+ if (!enabled && !reserveSpace) {
+ return null;
+ }
+
+ // ── Production ad unit ───────────────────────────────────
+ // CLS-safe ad container:
+ // - Loading/idle: reserve space with minHeight so the layout is stable
+ // (maxHeight alone doesn't work when content is 0px tall — it's just a cap)
+ // - Filled: natural height, fully visible
+ // - Collapsed: smooth transition to 0 height
+ const isVisible = state === 'filled';
+ const isCollapsed = state === 'collapsed';
+ const isReservingSpace = !isVisible && !isCollapsed;
+
+ return (
+ <div
+ ref={wrapperRef}
+ className={className}
+ style={{
+ contain: 'content',
+ transition: 'min-height 300ms ease-out, max-height 300ms ease-out, opacity 200ms ease',
+ // Reserve space via minHeight — keep it even after ad loads to prevent CLS
+ // when the actual ad is shorter than the placeholder (FRO-299)
+ minHeight: isCollapsed ? 0 : placeholderMinHeight,
+ // Cap collapsed state to 0
+ maxHeight: isCollapsed ? 0 : undefined,
+ opacity: isVisible ? 1 : 0,
+ overflow: 'hidden',
+ ...(isVisible ? {} : { pointerEvents: 'none' as const }),
+ }}
+ aria-hidden={!isVisible}
+ >
+ {label && (
+ <p className="text-xs font-medium text-muted uppercase tracking-wider mb-1 text-center">
+ {label}
+ </p>
+ )}
+ <ins
+ ref={adRef}
+ className="adsbygoogle"
+ style={{ display: 'block', textAlign: adLayout === 'in-article' ? 'center' as const : undefined }}
+ data-ad-client={CLIENT_ID}
+ data-ad-slot={adSlot}
+ data-ad-format={adFormat}
+ {...(fullWidthResponsive ? { 'data-full-width-responsive': 'true' } : {})}
+ {...(adLayoutKey ? { 'data-ad-layout-key': adLayoutKey } : {})}
+ {...(adLayout ? { 'data-ad-layout': adLayout } : {})}
+ />
+ </div>
+ );
+}

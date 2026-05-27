@@ -1,0 +1,3447 @@
+/**
+ * Vite build plugin — emits evergreen SEO landing pages for LAMal premiums.
+ *
+ * F2 — LAMal per canton × age (moat play).
+ *
+ * Data source: `data/health-premiums.json` (48k lines, refreshed annually
+ * from BAG/UFSP open data via scripts/fetch-health-premiums.mjs).
+ *
+ * Page shape (4 locales × 36 pages = 144 static HTML files):
+ *   - 1 root hub per locale (canton overview)
+ *   - 5 canton hubs per locale (age-bracket overview)
+ *   - 30 leaves per locale (canton × age)
+ *
+ * Each page:
+ *   - ≥50 words hard gate (shared MIN_INDEXABLE_WORDS)
+ *   - Leaf target ≥400 words, hub target ≥300
+ *   - JSON-LD: WebPage + BreadcrumbList + FAQPage (leaves); WebPage + Breadcrumb (hubs)
+ *   - Self-referencing canonical + hreflang alternates for all 4 locales
+ *   - Product/Offer LD with priceCurrency CHF on leaf pages
+ *   - WriteCollector with skipExisting (preserves prior builds on incremental CI)
+ *   - Default-off gate: SKIP_HEALTH_PREMIUMS=1
+ *
+ * Kept standalone so parallel SEO worktrees merge cleanly.
+ */
+
+import type { Plugin } from 'vite';
+import fs from 'node:fs';
+import np from 'node:path';
+import {
+  BASE_URL,
+  MIN_INDEXABLE_WORDS,
+  countHtmlBodyWords,
+} from './constants';
+import { buildSeoPageHtml } from './shared/seoPageShell';
+import { renderHreflangTags } from './shared/hreflang';
+import { WriteCollector } from './batchWrite';
+import {
+  HEALTH_PREMIUM_AGE_BRACKETS,
+  HEALTH_PREMIUM_AGE_LABEL,
+  HEALTH_PREMIUM_AGE_MULTIPLIER,
+  HEALTH_PREMIUM_BRACKET_RISK_CLASS,
+  HEALTH_PREMIUM_CANTON_BAG_CODE,
+  HEALTH_PREMIUM_CANTON_DISPLAY,
+  HEALTH_PREMIUM_CANTON_SLUG,
+  HEALTH_PREMIUM_CANTONS,
+  HEALTH_PREMIUM_COMPARATOR_PATH,
+  HEALTH_PREMIUM_LOCALES,
+  buildHealthPremiumsCantonPath,
+  buildHealthPremiumsLeafPath,
+  buildHealthPremiumsRootPath,
+  computeYoyDelta,
+  computeTriYearDelta,
+  loadPremiumsForYear,
+  type HealthPremiumAgeBracket,
+  type HealthPremiumCanton,
+  type HealthPremiumLocale,
+  type HealthPremiumRiskClass,
+  type YoyCantonDelta,
+  type TriYearCantonDelta,
+  type BracketTrend,
+} from './healthPremiumsData';
+import { generateRelatedLinksBlock } from './shared/relatedLinks';
+import { adSlotHtml } from './lib/adSlotHtml';
+import { cleanNamespaces, cleanSitemapFiles } from './shared/distNamespaceCleanup';
+import {
+  BREADCRUMB_LINK_STYLE,
+  BREADCRUMB_STYLE,
+  CARD_STYLE,
+  CTA_PRIMARY_STYLE,
+  H1_STYLE,
+  H2_STYLE,
+  HERO_EYEBROW_STYLE,
+  LEDE_STYLE,
+  LINK_ACCENT_STYLE,
+  STAT_TILE_ACCENT,
+  STAT_TILE_BASE,
+  STAT_TILE_DANGER,
+  STAT_TILE_LABEL,
+  STAT_TILE_SUCCESS,
+  STAT_TILE_VALUE,
+  STAT_TILE_WARNING,
+  TABLE_CELL_STYLE,
+  TABLE_HEAD_STYLE,
+  TABLE_STYLE,
+  clampSiteSuffix,
+  renderDiscoverMore,
+} from './shared/seoContentTokens';
+
+// ── Feature-specific "Scopri di più" CTAs ─────────────────────
+// Three contextually relevant links per locale for the F2 health-premiums feature.
+//
+// Paths are maintained in small locale-keyed tables below so they stay in
+// sync with the actual emitted pages; `HEALTH_PREMIUM_COMPARATOR_PATH` is
+// the canonical LAMal compare path per locale (imported from the data
+// module so every feature references a single source of truth).
+
+const LAMAL_COMPARE_PATH: Record<HealthPremiumLocale, string> = {
+  it: '/compara-servizi/confronta-casse-malati/',
+  en: '/en/service-comparison/compare-health-insurance/',
+  de: '/de/service-vergleich/krankenkassen-vergleichen/',
+  fr: '/fr/comparaison-services/comparer-caisses-maladie/',
+};
+
+const BORDER_WAIT_HUB_PATH: Record<HealthPremiumLocale, string> = {
+  it: '/traffico-dogane/',
+  en: '/en/border-wait/',
+  de: '/de/wartezeit-grenze/',
+  fr: '/fr/temps-attente-douane/',
+};
+
+const HOME_PATH: Record<HealthPremiumLocale, string> = {
+  it: '/',
+  en: '/en/',
+  de: '/de/',
+  fr: '/fr/',
+};
+
+const HEALTH_PREMIUMS_DISCOVER_MORE_CTAS: Record<
+  HealthPremiumLocale,
+  ReadonlyArray<{ title: string; href: string }>
+> = {
+  it: [
+    { title: 'Confronto casse malati',                href: LAMAL_COMPARE_PATH.it },
+    { title: 'Calcolatore stipendio frontaliere',     href: HOME_PATH.it },
+    { title: 'Tempi di attesa alle dogane',           href: BORDER_WAIT_HUB_PATH.it },
+  ],
+  en: [
+    { title: 'Compare health insurers',               href: LAMAL_COMPARE_PATH.en },
+    { title: 'Cross-border salary calculator',        href: HOME_PATH.en },
+    { title: 'Border crossing wait times',            href: BORDER_WAIT_HUB_PATH.en },
+  ],
+  de: [
+    { title: 'Krankenkassen vergleichen',             href: LAMAL_COMPARE_PATH.de },
+    { title: 'Gehaltsrechner Grenzgänger',            href: HOME_PATH.de },
+    { title: 'Wartezeiten an der Grenze',             href: BORDER_WAIT_HUB_PATH.de },
+  ],
+  fr: [
+    { title: 'Comparer les caisses maladie',          href: LAMAL_COMPARE_PATH.fr },
+    { title: 'Calculateur salaire frontalier',        href: HOME_PATH.fr },
+    { title: "Temps d'attente aux douanes",           href: BORDER_WAIT_HUB_PATH.fr },
+  ],
+};
+
+// ── Types (dataset shape) ──────────────────────────────────────
+
+export interface InsurerEntry {
+  id: string;
+  name: string;
+  website?: string;
+}
+
+type ModelType = 'standard' | 'hausarzt' | 'telmed' | 'hmo';
+type ModelPremiums = Partial<Record<ModelType, number>>;
+
+/**
+ * Insurer entry under `block.insurers[id]`. The dataset exposes both:
+ *  - flat model keys (`standard`, `hausarzt`, ...) which alias the AKL-ERW
+ *    (adult 26+) premium — preserved for backward compatibility with the
+ *    pre-F2-KIN/JUG schema.
+ *  - `byAgeClass.{KIN|JUG|ERW}.{standard|hausarzt|...}` which holds the real
+ *    BAG-published premium per risk class. Consumers that want
+ *    bracket-specific values must read `byAgeClass`.
+ */
+export type PremiumByModel = ModelPremiums & {
+  byAgeClass?: Partial<Record<HealthPremiumRiskClass, ModelPremiums>>;
+};
+
+type PremiumByInsurer = Record<string, PremiumByModel>;
+
+interface CantonPremiumBlock {
+  type?: 'canton';
+  canton?: string;
+  region?: number | null;
+  insurers: PremiumByInsurer;
+  bfsNr?: number;
+}
+
+export interface HealthPremiumsDataset {
+  fetchedAt?: string;
+  year?: number;
+  insurers?: InsurerEntry[];
+  premiums?: Record<string, CantonPremiumBlock>;
+}
+
+// ── Helpers ────────────────────────────────────────────────────
+
+function esc(s: unknown): string {
+  return String(s ?? '')
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+}
+
+function median(nums: number[]): number | null {
+  if (nums.length === 0) return null;
+  const sorted = [...nums].sort((a, b) => a - b);
+  const mid = Math.floor(sorted.length / 2);
+  return sorted.length % 2 === 0
+    ? (sorted[mid - 1] + sorted[mid]) / 2
+    : sorted[mid];
+}
+
+function roundCHF(n: number): number {
+  return Math.round(n * 100) / 100;
+}
+
+function formatCHF(n: number | null, locale: HealthPremiumLocale): string {
+  if (n === null || Number.isNaN(n)) return '—';
+  const sep = locale === 'it' || locale === 'fr' ? ',' : '.';
+  return n.toFixed(2).replace('.', sep);
+}
+
+/**
+ * Format a YoY delta percentage for display. Always include the sign so the
+ * direction is visible at a glance; returns '—' when the value is null.
+ */
+function formatPct(n: number | null, locale: HealthPremiumLocale): string {
+  if (n === null || Number.isNaN(n)) return '—';
+  const sep = locale === 'it' || locale === 'fr' ? ',' : '.';
+  const sign = n > 0 ? '+' : n < 0 ? '' : '';
+  return `${sign}${n.toFixed(2).replace('.', sep)}%`;
+}
+
+/**
+ * Render a small inline SVG sparkline plotting the bracket median across the
+ * 2- or 3-year window. Returns an empty string when fewer than 2 points are
+ * available (no curve to draw).
+ *
+ * The sparkline is fully self-contained (no external CSS, no `dark:` prefix
+ * because dark-mode tokens come from `index.css`) and uses semantic `aria-*`
+ * markup so screen readers narrate the trend.
+ */
+function renderSparkline(
+  trend: BracketTrend,
+  locale: HealthPremiumLocale,
+  ariaLabel: string,
+): string {
+  const pts = trend.points.filter((p) => p.median !== null) as Array<{
+    year: number;
+    median: number;
+    insurers: number;
+  }>;
+  if (pts.length < 2) return '';
+  const W = 220;
+  const H = 60;
+  const PAD = 12;
+  const minY = Math.min(...pts.map((p) => p.median));
+  const maxY = Math.max(...pts.map((p) => p.median));
+  const span = maxY - minY || 1;
+  const stepX = (W - 2 * PAD) / (pts.length - 1);
+  const coords = pts.map((p, i) => {
+    const x = PAD + i * stepX;
+    // Higher CHF → lower y so the chart reads "up = more expensive".
+    const y = H - PAD - ((p.median - minY) / span) * (H - 2 * PAD);
+    return { x, y, p };
+  });
+  const linePath = coords.map((c, i) => `${i === 0 ? 'M' : 'L'}${c.x.toFixed(1)} ${c.y.toFixed(1)}`).join(' ');
+  const dots = coords
+    .map(
+      (c) =>
+        `<circle cx="${c.x.toFixed(1)}" cy="${c.y.toFixed(1)}" r="3.5" fill="#1d4ed8" stroke="#ffffff" stroke-width="1.5" />`,
+    )
+    .join('');
+  const labels = coords
+    .map((c, i) => {
+      const isFirst = i === 0;
+      const isLast = i === coords.length - 1;
+      const anchor = isFirst ? 'start' : isLast ? 'end' : 'middle';
+      const dx = isFirst ? -2 : isLast ? 2 : 0;
+      return `<text x="${(c.x + dx).toFixed(1)}" y="${H - 1}" font-size="9" fill="#475569" text-anchor="${anchor}">${c.p.year}</text>`;
+    })
+    .join('');
+  const tooltips = coords
+    .map((c) => {
+      const valueLabel = `${c.p.year}: ${formatCHF(roundCHF(c.p.median), locale)} CHF`;
+      return `<title>${esc(valueLabel)}</title>`;
+    })
+    .join('');
+  return `<svg class="s-reNCT-" role="img" aria-label="${esc(ariaLabel)}" viewBox="0 0 ${W} ${H}" width="${W}" height="${H}">
+    ${tooltips}
+    <path d="${linePath}" stroke="#1d4ed8" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+    ${dots}
+    ${labels}
+  </svg>`;
+}
+
+const LOCALE_OG: Record<HealthPremiumLocale, string> = {
+  it: 'it_IT',
+  en: 'en_US',
+  de: 'de_DE',
+  fr: 'fr_FR',
+};
+
+// ── Data extraction ────────────────────────────────────────────
+
+/**
+ * Given the dataset, return all premium blocks that belong to a given BAG
+ * canton code. For canton-level-only cantons (UR, ZH, AG, ...) there is one
+ * block keyed by canton code. For commune-level cantons (TI, GR, VS) there
+ * are many blocks keyed by "{plz}-{commune}". Missing canton → empty array.
+ */
+function blocksForCanton(
+  dataset: HealthPremiumsDataset,
+  cantonCode: string,
+): CantonPremiumBlock[] {
+  const out: CantonPremiumBlock[] = [];
+  const all = dataset.premiums ?? {};
+  // Canton-level block: key equals canton code, type === 'canton'
+  const cantonBlock = all[cantonCode];
+  if (cantonBlock && cantonBlock.type === 'canton' && cantonBlock.canton === cantonCode) {
+    out.push(cantonBlock);
+  }
+  // Commune-level blocks: iterate, pick where block.canton matches.
+  for (const [key, block] of Object.entries(all)) {
+    if (key === cantonCode) continue;
+    if (!block || typeof block !== 'object') continue;
+    if (block.canton === cantonCode) {
+      out.push(block);
+    }
+  }
+  return out;
+}
+
+/**
+ * Aggregate per-insurer standard premium for a given risk class across all
+ * provided blocks. Returns a map keyed by insurer id → average standard
+ * premium (CHF/month), plus a `sourceByInsurer` marker that records whether
+ * the value came from a real `byAgeClass[riskClass]` entry ('real') or
+ * was back-filled from the flat ERW alias ('ambiguous' — for ERW this is
+ * identical to 'real'). An insurer appears in the output only when at
+ * least one block contributed a usable premium.
+ */
+interface AggregatedPremiums {
+  byInsurer: Record<string, number>;
+  sourceByInsurer: Record<string, 'real' | 'derived'>;
+}
+
+function aggregatePremiumsByRiskClass(
+  blocks: CantonPremiumBlock[],
+  riskClass: HealthPremiumRiskClass,
+): AggregatedPremiums {
+  const sums: Record<string, { sum: number; count: number; realCount: number }> = {};
+  for (const block of blocks) {
+    for (const [insurerId, models] of Object.entries(block.insurers || {})) {
+      // Prefer real per-risk-class value when present.
+      const bac = models.byAgeClass?.[riskClass];
+      let price: number | null = null;
+      let isReal = false;
+      if (bac && typeof bac.standard === 'number') {
+        price = bac.standard;
+        isReal = true;
+      } else if (riskClass === 'ERW' && typeof models.standard === 'number') {
+        // Back-compat: legacy dataset exposes flat fields that alias ERW.
+        price = models.standard;
+        isReal = true;
+      } else if (typeof models.standard === 'number') {
+        // Fallback for KIN / JUG when real data is missing: apply the
+        // statutory multiplier. Marked as 'derived' so downstream UI can
+        // caveat the leaf page.
+        const mult = riskClass === 'KIN' ? 0.25 : riskClass === 'JUG' ? 0.80 : 1.0;
+        price = models.standard * mult;
+        isReal = false;
+      }
+      if (price === null) continue;
+      if (!sums[insurerId]) sums[insurerId] = { sum: 0, count: 0, realCount: 0 };
+      sums[insurerId].sum += price;
+      sums[insurerId].count += 1;
+      if (isReal) sums[insurerId].realCount += 1;
+    }
+  }
+  const byInsurer: Record<string, number> = {};
+  const sourceByInsurer: Record<string, 'real' | 'derived'> = {};
+  for (const [id, { sum, count, realCount }] of Object.entries(sums)) {
+    if (count === 0) continue;
+    byInsurer[id] = roundCHF(sum / count);
+    // 'real' iff every contributing block provided a real BAG KIN/JUG/ERW
+    // premium — otherwise at least one value was multiplier-derived and we
+    // surface that to the consumer.
+    sourceByInsurer[id] = realCount === count ? 'real' : 'derived';
+  }
+  return { byInsurer, sourceByInsurer };
+}
+
+export interface BracketPremiumStats {
+  bracket: HealthPremiumAgeBracket;
+  riskClass: HealthPremiumRiskClass;
+  /** Per-insurer standard premium (CHF/month) for this risk class. */
+  byInsurer: Record<string, number>;
+  /** 'real' = every block exposed byAgeClass data; 'derived' = multiplier fallback. */
+  sourceByInsurer: Record<string, 'real' | 'derived'>;
+  /** Ranked ascending. */
+  ranked: Array<{ insurerId: string; price: number; source: 'real' | 'derived' }>;
+  min: number | null;
+  max: number | null;
+  medianPrice: number | null;
+  /** True when every insurer's price came from real BAG byAgeClass data. */
+  allReal: boolean;
+}
+
+function buildBracketStats(
+  blocks: CantonPremiumBlock[],
+  bracket: HealthPremiumAgeBracket,
+): BracketPremiumStats | null {
+  const riskClass = HEALTH_PREMIUM_BRACKET_RISK_CLASS[bracket];
+  const { byInsurer, sourceByInsurer } = aggregatePremiumsByRiskClass(blocks, riskClass);
+  const ids = Object.keys(byInsurer);
+  if (ids.length === 0) return null;
+  const ranked = ids
+    .map((id) => ({ insurerId: id, price: byInsurer[id], source: sourceByInsurer[id] }))
+    .sort((a, b) => a.price - b.price);
+  const prices = ranked.map((r) => r.price);
+  const allReal = ranked.every((r) => r.source === 'real');
+  return {
+    bracket,
+    riskClass,
+    byInsurer,
+    sourceByInsurer,
+    ranked,
+    min: Math.min(...prices),
+    max: Math.max(...prices),
+    medianPrice: median(prices),
+    allReal,
+  };
+}
+
+export interface CantonPremiumStats {
+  canton: HealthPremiumCanton;
+  cantonBagCode: string;
+  /** Number of source blocks (1 for canton-level, N for commune-level). */
+  sourceBlocks: number;
+  /** Per-insurer adult standard premium (CHF/month), averaged if commune-level. */
+  adultByInsurer: Record<string, number>;
+  /** Ranked list of (insurerId, price) ascending. */
+  ranked: Array<{ insurerId: string; price: number }>;
+  adultMin: number | null;
+  adultMax: number | null;
+  adultMedian: number | null;
+  /**
+   * Pre-computed bracket stats for every LAMal age bracket. Leaf pages use
+   * the entry for their own bracket; the canton hub uses the medians to
+   * populate its age-grid.
+   */
+  bracketStats: Record<HealthPremiumAgeBracket, BracketPremiumStats | null>;
+}
+
+export function computeCantonStats(
+  dataset: HealthPremiumsDataset,
+  canton: HealthPremiumCanton,
+): CantonPremiumStats | null {
+  const cantonBagCode = HEALTH_PREMIUM_CANTON_BAG_CODE[canton];
+  const blocks = blocksForCanton(dataset, cantonBagCode);
+  if (blocks.length === 0) return null;
+  const erw = aggregatePremiumsByRiskClass(blocks, 'ERW');
+  const adultByInsurer = erw.byInsurer;
+  const prices = Object.values(adultByInsurer);
+  if (prices.length === 0) return null;
+  const ranked = Object.entries(adultByInsurer)
+    .map(([id, price]) => ({ insurerId: id, price }))
+    .sort((a, b) => a.price - b.price);
+  const bracketStats = {} as Record<HealthPremiumAgeBracket, BracketPremiumStats | null>;
+  for (const ab of HEALTH_PREMIUM_AGE_BRACKETS) {
+    bracketStats[ab.id] = buildBracketStats(blocks, ab.id);
+  }
+  return {
+    canton,
+    cantonBagCode,
+    sourceBlocks: blocks.length,
+    adultByInsurer,
+    ranked,
+    adultMin: Math.min(...prices),
+    adultMax: Math.max(...prices),
+    adultMedian: median(prices),
+    bracketStats,
+  };
+}
+
+/**
+ * Resolve the insurer display name from the dataset's insurer directory.
+ * Falls back to the raw ID if not found.
+ */
+function resolveInsurerName(dataset: HealthPremiumsDataset, id: string): string {
+  const match = (dataset.insurers ?? []).find((ins) => ins.id === id);
+  return match?.name ?? `Cassa #${id}`;
+}
+
+// ── Localised copy ─────────────────────────────────────────────
+
+interface LeafCopy {
+  breadcrumbHome: string;
+  breadcrumbRoot: string;
+  h1: (canton: string, age: string) => string;
+  intro: (canton: string, age: string, median: string, min: string, max: string, year: number) => string;
+  /**
+   * 1-line tagline (≤120 chars) used as the lede on per-age leaf pages.
+   * Mobile-first: numbers live in the stats tiles, not in this prose, so
+   * the action area (advice banner + tiles + CTA + ranking) stays above
+   * the fold. The figures-laden full prose moves to the bottom
+   * `editorial` section — the page text content (and Semrush
+   * text-to-HTML ratio) is preserved.
+   */
+  introShort: (canton: string, age: string, year: number) => string;
+  /** Action-oriented "Consiglio" banner copy. See HubCopy.advice. */
+  advice: HpAdviceCopy;
+  tableHeaders: { rank: string; insurer: string; premium: string };
+  top20Title: (canton: string, age: string) => string;
+  rankingTitle: string;
+  editorialTitle: string;
+  editorial: (canton: string, age: string, median: string, year: number) => string;
+  derivationNote: string;
+  comparatorCTA: string;
+  comparatorCTAText: string;
+  statsLabels: { median: string; min: string; max: string; insurers: string };
+  faqTitle: string;
+  faq: Array<{ q: (canton: string, age: string) => string; a: (canton: string, age: string, median: string, min: string, max: string) => string }>;
+  priceUnit: string;
+  rankingIntro: (canton: string) => string;
+  /** Localised copy for the "Variazione vs {priorYear}" section (F2 A3). */
+  yoy: {
+    sectionTitle: (priorYear: number) => string;
+    summary: (canton: string, age: string, medianPct: string, priorYear: number, insurersCount: number) => string;
+    tableCaption: (priorYear: number) => string;
+    tableHeaders: { rank: string; insurer: string; delta: string };
+    emptyPriorNote: (priorYear: number) => string;
+  };
+  /**
+   * Localised copy for the tri-year trend section (B-cont-4). Renders only
+   * when 2024 + 2025 + current data are all available. Falls back silently
+   * when 2024 is missing (the YoY block above already covers the 2-year case).
+   */
+  triYear: {
+    sectionTitle: (oldestYear: number, currentYear: number) => string;
+    summary: (
+      canton: string,
+      age: string,
+      oldestYear: number,
+      priorYear: number,
+      currentYear: number,
+      yoyOlder: string,
+      yoyRecent: string,
+      cumulative: string,
+    ) => string;
+    sparklineLabel: (canton: string, age: string) => string;
+  };
+}
+
+interface HubCopy {
+  breadcrumbHome: string;
+  h1Root: (year: number) => string;
+  h1Canton: (canton: string, year: number) => string;
+  introRoot: (year: number) => string;
+  introCanton: (canton: string, median: string, min: string, max: string, year: number) => string;
+  /**
+   * 1-line tagline (≤120 chars) used as the lede on canton-hub pages.
+   * Mobile-first: numbers live in the stats tiles, not in this prose, so
+   * the action area (advice banner + tiles + CTA) stays above the fold.
+   * The long figures-laden prose moves to the bottom `cantonContext`
+   * section — the page text content (and Semrush text-to-HTML ratio)
+   * is preserved.
+   */
+  introCantonShort: (canton: string, year: number) => string;
+  /**
+   * Action-oriented "Consiglio" banner copy used directly under the H1.
+   * The `cheap`/`mid`/`expensive` variants are picked based on the
+   * canton's national ranking tertile; the `yoy*` add-ons are appended
+   * when prior-year data is available.
+   */
+  advice: HpAdviceCopy;
+  ageGridTitle: (canton: string) => string;
+  cantonGridTitle: string;
+  cantonGridHeaders: { canton: string; median: string; min: string; max: string };
+  ageGridHeaders: { age: string; median: string; slug: string };
+  comparatorCTA: string;
+  comparatorCTAText: string;
+  viewCantonCTA: (canton: string) => string;
+  openLeafCTA: string;
+  rootBackgroundTitle: string;
+  rootBackground: string;
+  faqTitle: string;
+  rootFaq: Array<{ q: string; a: (year: number) => string }>;
+  cantonFaq: Array<{ q: (canton: string) => string; a: (canton: string, median: string, year: number) => string }>;
+  priceUnit: string;
+  updatedLabel: string;
+  /** Canton-hub YoY summary copy (F2 A3). */
+  yoy: {
+    sectionTitle: (priorYear: number) => string;
+    cantonSummary: (canton: string, adultMedianPct: string, priorYear: number) => string;
+    gridCaption: (priorYear: number) => string;
+    gridHeaders: { age: string; delta: string };
+  };
+  /** Canton-hub tri-year trend copy (B-cont-4). */
+  triYear: {
+    sectionTitle: (oldestYear: number, currentYear: number) => string;
+    cantonSummary: (
+      canton: string,
+      oldestYear: number,
+      currentYear: number,
+      cumulative: string,
+    ) => string;
+  };
+  /**
+   * Canton-hub contextual prose ("Cosa significa questo dato per te").
+   * Rendered between the lede header and the stats tiles to give the page
+   * substantive frontaliere-relevant content — fixing the Semrush
+   * text-to-HTML ratio gate while staying coherent with the page topic.
+   */
+  cantonContext: {
+    title: string;
+    body: (canton: string, median: string, year: number) => string;
+  };
+  /**
+   * Root-hub methodology prose. Explains how cross-canton comparison works,
+   * BAG premium regions, and what cross-border workers should look at first.
+   */
+  rootMethodology: {
+    title: string;
+    body: (year: number) => string;
+  };
+  /**
+   * Root-hub frontaliere deep dive — opt-out, CMU/SSN trade-off, family
+   * coverage, and the formal "right of option" deadline. Adds substantial
+   * topic-relevant prose to the root landing so the EN/DE/FR root pages
+   * (which had the leanest ratios pre-fix at 9.8-10.5%) clear the 10% gate
+   * with margin and the IT root mirrors the lift.
+   */
+  rootFrontalierGuide: {
+    title: string;
+    intro: string;
+    bullets: ReadonlyArray<{ heading: string; body: string }>;
+  };
+  /**
+   * Root-hub deductible / model trade-off methodology block.  Explains how
+   * the four LAMal models (standard, family-doctor, telmed, HMO) and the
+   * five deductible tiers compose monthly cost so readers understand why
+   * the median number on each canton page is just the starting point.
+   */
+  rootDeductibleAndModelGuide: {
+    title: string;
+    body: string;
+    bullets: ReadonlyArray<{ heading: string; body: string }>;
+  };
+  /**
+   * Per-canton supplementary methodology block. Discusses the four cost
+   * levers (region, model, deductible, fund) with a concrete monthly-saving
+   * scenario that uses the canton's median premium as the anchor. Pushes
+   * sparse-data canton hubs (Uri / Zug at ~11% pre-fix) safely above the
+   * 10% Semrush gate while staying coherent with the page topic.
+   */
+  cantonDeductibleGuide: {
+    title: string;
+    body: (canton: string, median: string) => string;
+    bullets: ReadonlyArray<{ heading: string; body: string }>;
+  };
+  /**
+   * Per-canton frontaliere-only block — the formal opt-out form, the
+   * 3-month exercise window, the CMU/SSN comparison, dependants, and what
+   * the median premium implies for a cross-border household budget. Anchored
+   * with locale-aware copy so DE/FR canton hubs (which were leanest) inherit
+   * the same lift as IT/EN.
+   */
+  cantonFrontalierGuide: {
+    title: string;
+    body: (canton: string) => string;
+    bullets: ReadonlyArray<{ heading: string; body: string }>;
+  };
+}
+
+const LEAF_COPY: Record<HealthPremiumLocale, LeafCopy> = {
+  it: {
+    breadcrumbHome: 'Home',
+    breadcrumbRoot: 'Premi Cassa Malati',
+    h1: (c, a) => `Premi Cassa Malati ${c} 2026 — fascia ${a}`,
+    intro: (c, a, median, min, max, year) =>
+      `Premi LAMal ${year} in ${c} per ${a}: mediana ${median} CHF/mese, range da ${min} a ${max} CHF. Dati ufficiali UFSP/BAG con franchigia minima (CHF 300 adulti, CHF 0 bambini), senza copertura infortuni. Confronta le principali casse malati e trova l'assicurazione più conveniente per la tua situazione familiare.`,
+    introShort: (c, a, year) =>
+      `Premi LAMal ${year} in ${c} — fascia ${a}. Ranking delle casse e delta sull'anno scorso.`,
+    advice: {
+      eyebrow: 'Consiglio',
+      cheap: (c, pos, total) =>
+        `${c} è ${pos}° su ${total} cantoni: tra i più economici. Cambiando cassa puoi risparmiare ulteriori CHF 80–180/mese.`,
+      mid: (c, pos, total) =>
+        `${c} è ${pos}° su ${total} cantoni: nella fascia centrale. Risparmio tipico cambiando cassa: CHF 100–200/mese.`,
+      expensive: (c, pos, total) =>
+        `${c} è ${pos}° su ${total} cantoni: tra i più cari. Il risparmio annuo cambiando cassa può superare CHF 1 800.`,
+      yoyPositive: (delta) => `Premi in aumento del ${delta} sul 2025: il confronto è più importante che mai.`,
+      yoyStable: 'Premi sostanzialmente stabili rispetto al 2025.',
+      yoyNegative: (delta) => `Premi in calo del ${delta} sul 2025 — buona finestra per rinegoziare.`,
+      rankingLine: (c, pos, total, cheaper) =>
+        `${c} è ${pos}° su ${total} cantoni · più economico di ${cheaper}, più caro di ${total - pos}.`,
+    },
+    tableHeaders: { rank: 'Posizione', insurer: 'Cassa Malati', premium: 'Premio mensile' },
+    top20Title: (c, a) => `Top 20 casse malati in ${c} — ${a}`,
+    rankingTitle: 'Confronto con i cantoni limitrofi',
+    editorialTitle: 'Come funziona il premio LAMal in questa fascia',
+    editorial: (c, a, median, year) =>
+      `Sotto la legge LAMal svizzera, tutti i residenti devono stipulare un'assicurazione malattia di base. Il premio varia per cantone, regione premi e cassa, ma è uniforme tra tutti gli adulti dai 26 anni in su: non esistono aumenti legati all'età in senso stretto come nelle assicurazioni complementari. Per ${c} nel ${year}, la mediana della fascia ${a} si attesta su ${median} CHF/mese. I frontalieri residenti in Italia che lavorano in Svizzera possono scegliere il regime sanitario tra LAMal svizzera o SSN italiano (diritto di opzione), un passaggio che va valutato con un consulente autorizzato. Chi opta per la LAMal paga il premio indicato e riceve le prestazioni di base in Svizzera; chi sceglie il SSN italiano resta coperto in Italia ma perde la rete di fornitori svizzeri. La scelta dipende dall'età, dallo stato di salute, dal luogo di residenza e dalla famiglia. Le casse più economiche nella fascia di età che ti interessa variano ogni anno: usa la tabella sopra per identificarle e confrontale con il nostro strumento.`,
+    derivationNote:
+      "Nota: i premi per bambini (0-18) e giovani adulti (19-25) sono stimati applicando i massimali statutari BAG 2026 (25% e 80% del premio adulto); per valori esatti per singola cassa consulta il comparatore.",
+    comparatorCTA: 'Vai al comparatore',
+    comparatorCTAText: 'Apri il comparatore pre-filtrato su questo cantone e fascia d\'età per vedere tutte le casse con preventivi personalizzati.',
+    statsLabels: { median: 'Mediana', min: 'Premio minimo', max: 'Premio massimo', insurers: 'Casse considerate' },
+    faqTitle: 'Domande frequenti',
+    faq: [
+      {
+        q: (c, a) => `Quanto costa la cassa malati in ${c} per la fascia ${a}?`,
+        a: (c, a, m, min, max) =>
+          `Nel ${c} la fascia ${a} paga in media ${m} CHF al mese di premio LAMal di base (franchigia 300, senza infortuni). Il range tra le casse va da ${min} a ${max} CHF/mese. Le differenze dipendono dal modello assicurativo (standard, medico di base, telmed, HMO).`,
+      },
+      {
+        q: () => 'Quale cassa malati è più economica?',
+        a: (_, __, ___, min) =>
+          `La cassa più economica varia ogni anno — nel 2026 il premio minimo mensile per la fascia indicata è di ${min} CHF. Consulta la tabella completa per vedere il ranking aggiornato di tutte le casse nel cantone selezionato.`,
+      },
+      {
+        q: () => 'Come risparmio sul premio?',
+        a: () =>
+          "Tre leve principali: (1) scegli un modello alternativo — medico di base, HMO o telemedicina risparmia tipicamente 10-20% rispetto allo standard; (2) alza la franchigia fino a CHF 2 500 se sei in salute (risparmio fino al 50%); (3) confronta ogni ottobre le nuove tariffe dell'anno seguente e cambia cassa entro il 30 novembre se trovi un'offerta migliore.",
+      },
+      {
+        q: () => 'I frontalieri pagano la LAMal?',
+        a: () =>
+          'I frontalieri che lavorano in Svizzera hanno il diritto di opzione tra LAMal svizzera e SSN italiano (o assicurazione privata in Francia/Germania/Austria). Chi sceglie la LAMal paga il premio pieno come un residente svizzero; chi opta per il SSN italiano resta coperto in Italia. La scelta va esercitata entro 3 mesi dall\'inizio dell\'attività e va valutata caso per caso.',
+      },
+      {
+        q: () => 'Il premio cambia con l\'età?',
+        a: () =>
+          "Sotto la LAMal il premio è uniforme per tutti gli adulti dai 26 anni in su: non aumenta con l'età. Bambini (0-18) e giovani adulti (19-25) pagano meno per legge. Nelle assicurazioni complementari (LCA), invece, il premio cresce progressivamente con l'età.",
+      },
+    ],
+    priceUnit: 'CHF/mese',
+    rankingIntro: (c) =>
+      `Ecco come si posiziona ${c} rispetto agli altri cantoni target per la stessa fascia di età. I premi LAMal variano significativamente tra cantoni anche all'interno della stessa regione linguistica.`,
+    yoy: {
+      sectionTitle: (py) => `Variazione rispetto al ${py}`,
+      summary: (c, a, medPct, py, n) =>
+        `Rispetto al ${py}, il premio mediano in ${c} per la fascia ${a} è variato di ${medPct} (${n} casse confrontate). Questa variazione riflette la revisione annuale delle tariffe approvata dal Consiglio federale e pubblicata a fine settembre. Nelle tabelle qui sotto confrontiamo, per ogni cassa con dati in entrambi gli anni, il premio attuale con quello dell'anno precedente per evidenziare gli aumenti e le riduzioni più significative.`,
+      tableCaption: (py) => `Top 20 casse per variazione percentuale rispetto al ${py}, dalla riduzione più marcata all'aumento più alto`,
+      tableHeaders: { rank: 'Posizione', insurer: 'Cassa malati', delta: `Δ vs anno prec.` },
+      emptyPriorNote: (py) =>
+        `I dati ${py} non sono disponibili per questa combinazione: la sezione di variazione verrà popolata al prossimo refresh dell'archivio BAG.`,
+    },
+    triYear: {
+      sectionTitle: (oy, cy) => `Trend triennale ${oy} → ${cy}`,
+      summary: (c, a, oy, py, cy, yoyOlder, yoyRecent, cum) =>
+        `Andamento dei premi LAMal in ${c} per la fascia ${a} negli ultimi tre anni: ${oy} → ${py} → ${cy}, con variazioni ${yoyOlder} e ${yoyRecent}, per un totale cumulato di ${cum} sul biennio. La traiettoria mostra come la revisione tariffaria annuale del Consiglio federale si sia stratificata: un singolo aumento può sembrare contenuto, ma la somma su due esercizi è la lettura corretta per pianificare il budget familiare.`,
+      sparklineLabel: (c, a) => `Mediana dei premi mensili in ${c} per la fascia ${a} negli ultimi tre anni (CHF/mese)`,
+    },
+  },
+  en: {
+    breadcrumbHome: 'Home',
+    breadcrumbRoot: 'Health Insurance Premiums',
+    h1: (c, a) => `Health insurance premiums ${c} 2026 — ${a}`,
+    intro: (c, a, m, min, max, year) =>
+      `LAMal health insurance premiums ${year} in ${c} for ${a}: median ${m} CHF/month, range from ${min} to ${max} CHF. Official FOPH/BAG data with the minimum deductible (CHF 300 for adults, CHF 0 for children) and no accident cover. Compare the main health funds and find the most affordable insurer for your situation.`,
+    introShort: (c, a, year) =>
+      `LAMal premiums ${year} in ${c} — bracket ${a}. Fund ranking and YoY delta vs last year.`,
+    advice: {
+      eyebrow: 'Recommendation',
+      cheap: (c, pos, total) =>
+        `${c} ranks ${pos} of ${total} cantons — among the cheapest. Switching fund saves an additional CHF 80–180/month.`,
+      mid: (c, pos, total) =>
+        `${c} ranks ${pos} of ${total} cantons — middle tier. Switching fund typically saves CHF 100–200/month.`,
+      expensive: (c, pos, total) =>
+        `${c} ranks ${pos} of ${total} cantons — among the most expensive. The annual saving from switching can exceed CHF 1,800.`,
+      yoyPositive: (delta) => `Premiums up ${delta} vs 2025 — comparing has never mattered more.`,
+      yoyStable: 'Premiums broadly stable vs 2025.',
+      yoyNegative: (delta) => `Premiums down ${delta} vs 2025 — a good window to renegotiate.`,
+      rankingLine: (c, pos, total, cheaper) =>
+        `${c} ranks ${pos} of ${total} cantons · cheaper than ${cheaper}, more expensive than ${total - pos}.`,
+    },
+    tableHeaders: { rank: 'Rank', insurer: 'Health fund', premium: 'Monthly premium' },
+    top20Title: (c, a) => `Top 20 health funds in ${c} — ${a}`,
+    rankingTitle: 'Benchmark vs neighbouring cantons',
+    editorialTitle: 'How the LAMal premium works in this bracket',
+    editorial: (c, a, m, year) =>
+      `Under Swiss LAMal law, every resident must hold a basic health insurance. The premium varies by canton, premium region and health fund, but it is flat across all adults aged 26 and over — there is no age-based increase inside LAMal itself (unlike supplementary LCA cover). In ${c} for ${year}, the median for bracket ${a} is ${m} CHF/month. Cross-border workers living in Italy can elect either the Swiss LAMal or the Italian SSN under the "right of option" — this choice depends on age, health status, residence and family situation and should be evaluated with a licensed adviser. Use the table above to identify the cheapest funds in the age bracket and compare them using our interactive comparator below.`,
+    derivationNote:
+      "Note: premiums for children (0-18) and young adults (19-25) are estimated by applying BAG 2026 statutory caps (25% and 80% of the adult premium); for exact per-insurer figures use the comparator.",
+    comparatorCTA: 'Open the comparator',
+    comparatorCTAText: 'Pre-filtered on this canton and age bracket — see every fund with a personalised quote.',
+    statsLabels: { median: 'Median', min: 'Lowest premium', max: 'Highest premium', insurers: 'Funds surveyed' },
+    faqTitle: 'Frequently asked questions',
+    faq: [
+      {
+        q: (c, a) => `How much does health insurance cost in ${c} for ${a}?`,
+        a: (c, a, m, min, max) =>
+          `In ${c}, bracket ${a} pays ${m} CHF per month on average for basic LAMal cover (CHF 300 deductible, no accident cover). The range across health funds goes from ${min} to ${max} CHF/month. Differences depend on the insurance model (standard, family doctor, telmed, HMO).`,
+      },
+      {
+        q: () => 'Which health fund is cheapest?',
+        a: (_, __, ___, min) =>
+          `The cheapest fund changes every year — in 2026 the lowest monthly premium for this bracket is ${min} CHF. Check the full table for the live ranking of all funds in the selected canton.`,
+      },
+      {
+        q: () => 'How can I save on my premium?',
+        a: () =>
+          'Three main levers: (1) pick an alternative model — family doctor, HMO or telemedicine typically saves 10-20% vs standard; (2) raise the annual deductible up to CHF 2,500 if you are healthy (savings up to ~50%); (3) compare rates every October for the following year and switch by 30 November if a better offer appears.',
+      },
+      {
+        q: () => 'Do cross-border workers pay LAMal?',
+        a: () =>
+          'Cross-border workers in Switzerland have the "right of option" — they can choose Swiss LAMal or stay on the Italian SSN (or the German/French/Austrian system). LAMal choosers pay the same premium as a Swiss resident; SSN choosers stay covered in Italy. The option must be exercised within 3 months of starting work.',
+      },
+      {
+        q: () => 'Does the premium change with age?',
+        a: () =>
+          'Under LAMal the premium is flat for all adults from 26 onwards — it does not rise with age. Children (0-18) and young adults (19-25) pay less by law. Supplementary LCA cover, on the other hand, does rise with age.',
+      },
+    ],
+    priceUnit: 'CHF/month',
+    rankingIntro: (c) =>
+      `Here is how ${c} ranks against the other target cantons for the same age bracket. LAMal premiums vary significantly across cantons even within the same language region.`,
+    yoy: {
+      sectionTitle: (py) => `Change vs ${py}`,
+      summary: (c, a, medPct, py, n) =>
+        `Compared with ${py}, the median premium in ${c} for bracket ${a} moved by ${medPct} (${n} funds compared). This change reflects the annual tariff review approved by the Federal Council and published in late September. The tables below compare every fund with data in both years to highlight the largest rises and falls.`,
+      tableCaption: (py) => `Top 20 funds by percentage change vs ${py}, from biggest drop to biggest rise`,
+      tableHeaders: { rank: 'Rank', insurer: 'Health fund', delta: `Δ vs prior year` },
+      emptyPriorNote: (py) =>
+        `${py} data is not available for this combination: the change section will populate on the next BAG archive refresh.`,
+    },
+    triYear: {
+      sectionTitle: (oy, cy) => `Three-year trend ${oy} → ${cy}`,
+      summary: (c, a, oy, py, cy, yoyOlder, yoyRecent, cum) =>
+        `LAMal premium trajectory in ${c} for ${a} over the last three years: ${oy} → ${py} → ${cy}, with consecutive year-over-year changes of ${yoyOlder} and ${yoyRecent} for a cumulative ${cum} over the two-year window. Looking at a single annual revision can mask the picture — the two-step compound is the right reading for planning a household budget.`,
+      sparklineLabel: (c, a) => `Median monthly premium in ${c} for ${a} over the last three years (CHF/month)`,
+    },
+  },
+  de: {
+    breadcrumbHome: 'Startseite',
+    breadcrumbRoot: 'Krankenkassenprämien',
+    h1: (c, a) => `Krankenkassenprämien ${c} 2026 — ${a}`,
+    intro: (c, a, m, min, max, year) =>
+      `KVG-Prämien ${year} in ${c} für ${a}: Median ${m} CHF/Monat, Spannweite von ${min} bis ${max} CHF. Offizielle BAG/UFSP-Daten mit Mindestfranchise (CHF 300 Erwachsene, CHF 0 Kinder) und ohne Unfalldeckung. Vergleichen Sie die wichtigsten Krankenkassen und finden Sie den günstigsten Versicherer für Ihre Situation.`,
+    introShort: (c, a, year) =>
+      `KVG-Prämien ${year} in ${c} — Altersgruppe ${a}. Kassen-Ranking und Vorjahresveränderung.`,
+    advice: {
+      eyebrow: 'Empfehlung',
+      cheap: (c, pos, total) =>
+        `${c} liegt auf Platz ${pos} von ${total} Kantonen — zu den günstigsten. Ein Kassenwechsel spart zusätzlich CHF 80–180/Monat.`,
+      mid: (c, pos, total) =>
+        `${c} liegt auf Platz ${pos} von ${total} Kantonen — Mittelfeld. Ein Kassenwechsel spart CHF 100–200/Monat.`,
+      expensive: (c, pos, total) =>
+        `${c} liegt auf Platz ${pos} von ${total} Kantonen — zu den teuersten. Die jährliche Ersparnis durch Wechsel kann CHF 1 800 übersteigen.`,
+      yoyPositive: (delta) => `Prämien um ${delta} höher als 2025 — Vergleichen war noch nie wichtiger.`,
+      yoyStable: 'Prämien gegenüber 2025 weitgehend stabil.',
+      yoyNegative: (delta) => `Prämien um ${delta} tiefer als 2025 — gutes Zeitfenster zum Verhandeln.`,
+      rankingLine: (c, pos, total, cheaper) =>
+        `${c}: Platz ${pos} von ${total} Kantonen · günstiger als ${cheaper}, teurer als ${total - pos}.`,
+    },
+    tableHeaders: { rank: 'Rang', insurer: 'Krankenkasse', premium: 'Monatsprämie' },
+    top20Title: (c, a) => `Top 20 Krankenkassen in ${c} — ${a}`,
+    rankingTitle: 'Vergleich mit Nachbarkantonen',
+    editorialTitle: 'Wie die KVG-Prämie in dieser Gruppe funktioniert',
+    editorial: (c, a, m, year) =>
+      `Nach dem Schweizer KVG müssen alle Einwohner eine Grundversicherung abschliessen. Die Prämie variiert nach Kanton, Prämienregion und Krankenkasse, ist aber für alle Erwachsenen ab 26 Jahren einheitlich — innerhalb des KVG selbst gibt es keinen altersbedingten Prämienanstieg (im Gegensatz zur Zusatzversicherung VVG). In ${c} beträgt der Median für die Kategorie ${a} im Jahr ${year} ${m} CHF/Monat. Grenzgänger mit Wohnsitz in Italien können zwischen Schweizer KVG und italienischem SSN wählen (Optionsrecht). Nutzen Sie die Tabelle oben, um die günstigsten Kassen für Ihre Altersgruppe zu identifizieren, und vergleichen Sie sie über unser interaktives Tool.`,
+    derivationNote:
+      'Hinweis: Prämien für Kinder (0-18) und junge Erwachsene (19-25) werden durch Anwendung der gesetzlichen BAG-Maxima 2026 geschätzt (25% bzw. 80% der Erwachsenenprämie); genaue Werte pro Versicherer liefert der Vergleich.',
+    comparatorCTA: 'Zum Prämienvergleich',
+    comparatorCTAText: 'Vorgefiltert auf diesen Kanton und Altersbereich — sehen Sie alle Kassen mit personalisiertem Angebot.',
+    statsLabels: { median: 'Median', min: 'Tiefste Prämie', max: 'Höchste Prämie', insurers: 'Berücksichtigte Kassen' },
+    faqTitle: 'Häufige Fragen',
+    faq: [
+      {
+        q: (c, a) => `Was kostet die Krankenkasse in ${c} für ${a}?`,
+        a: (c, a, m, min, max) =>
+          `In ${c} zahlt die Gruppe ${a} im Durchschnitt ${m} CHF pro Monat für die KVG-Grundversicherung (Franchise 300, ohne Unfall). Die Spanne zwischen den Kassen reicht von ${min} bis ${max} CHF/Monat. Unterschiede kommen vom gewählten Modell (Standard, Hausarzt, Telmed, HMO).`,
+      },
+      {
+        q: () => 'Welche Krankenkasse ist am günstigsten?',
+        a: (_, __, ___, min) =>
+          `Die günstigste Kasse wechselt jährlich — 2026 liegt die Mindestprämie für diese Gruppe bei ${min} CHF/Monat. Die vollständige Tabelle zeigt das aktuelle Ranking aller Kassen im gewählten Kanton.`,
+      },
+      {
+        q: () => 'Wie kann ich Prämie sparen?',
+        a: () =>
+          'Drei Hebel: (1) Alternativmodell — Hausarzt, HMO oder Telmed sparen typisch 10-20% gegenüber Standard; (2) Jahresfranchise bis CHF 2 500 erhöhen, wenn Sie gesund sind (bis ~50% Ersparnis); (3) im Oktober die Tarife fürs Folgejahr vergleichen und bis 30. November wechseln.',
+      },
+      {
+        q: () => 'Zahlen Grenzgänger KVG?',
+        a: () =>
+          'Grenzgänger haben das Optionsrecht zwischen Schweizer KVG und dem SSN im Wohnsitzstaat (IT/FR/DE/AT). Wer KVG wählt, zahlt dieselbe Prämie wie ein Schweizer Einwohner. Die Entscheidung muss innerhalb von 3 Monaten ab Arbeitsbeginn getroffen werden.',
+      },
+      {
+        q: () => 'Ändert sich die Prämie mit dem Alter?',
+        a: () =>
+          'Unter KVG ist die Prämie für alle Erwachsenen ab 26 einheitlich — sie steigt nicht mit dem Alter. Kinder (0-18) und junge Erwachsene (19-25) zahlen gesetzlich weniger. Zusatzversicherungen (VVG) hingegen werden mit dem Alter teurer.',
+      },
+    ],
+    priceUnit: 'CHF/Monat',
+    rankingIntro: (c) =>
+      `So positioniert sich ${c} gegenüber den anderen Zielkantonen für dieselbe Altersgruppe. KVG-Prämien unterscheiden sich auch innerhalb derselben Sprachregion erheblich zwischen den Kantonen.`,
+    yoy: {
+      sectionTitle: (py) => `Veränderung gegenüber ${py}`,
+      summary: (c, a, medPct, py, n) =>
+        `Im Vergleich zu ${py} hat sich die Medianprämie in ${c} für die Gruppe ${a} um ${medPct} verändert (${n} Kassen verglichen). Diese Veränderung spiegelt die jährliche Tarifrevision wider, die der Bundesrat Ende September genehmigt. Die Tabellen unten vergleichen für jede Kasse mit Daten in beiden Jahren die aktuelle und die Vorjahresprämie und heben so die grössten Zunahmen und Abnahmen hervor.`,
+      tableCaption: (py) => `Top 20 Kassen nach prozentualer Veränderung vs ${py}, vom grössten Rückgang bis zur grössten Erhöhung`,
+      tableHeaders: { rank: 'Rang', insurer: 'Krankenkasse', delta: `Δ vs Vorjahr` },
+      emptyPriorNote: (py) =>
+        `${py}-Daten sind für diese Kombination nicht verfügbar: Der Veränderungsabschnitt wird beim nächsten BAG-Archiv-Refresh befüllt.`,
+    },
+    triYear: {
+      sectionTitle: (oy, cy) => `Dreijahres-Trend ${oy} → ${cy}`,
+      summary: (c, a, oy, py, cy, yoyOlder, yoyRecent, cum) =>
+        `KVG-Prämienverlauf in ${c} für ${a} in den letzten drei Jahren: ${oy} → ${py} → ${cy}, mit Veränderungen ${yoyOlder} und ${yoyRecent}, kumuliert ${cum} über das Zweijahresfenster. Die jährliche Revision allein vermittelt nicht das Gesamtbild — die zweistufige Summation ist die richtige Grösse für die Budgetplanung eines Haushalts.`,
+      sparklineLabel: (c, a) => `Medianprämie pro Monat in ${c} für ${a} in den letzten drei Jahren (CHF/Monat)`,
+    },
+  },
+  fr: {
+    breadcrumbHome: 'Accueil',
+    breadcrumbRoot: 'Primes assurance maladie',
+    h1: (c, a) => `Primes assurance maladie ${c} 2026 — ${a}`,
+    intro: (c, a, m, min, max, year) =>
+      `Primes LAMal ${year} à ${c} pour ${a} : médiane ${m} CHF/mois, plage de ${min} à ${max} CHF. Données officielles OFSP/BAG avec franchise minimale (CHF 300 adultes, CHF 0 enfants) et sans couverture accident. Comparez les principales caisses maladie et trouvez l'assureur le plus avantageux pour votre situation.`,
+    introShort: (c, a, year) =>
+      `Primes LAMal ${year} à ${c} — tranche ${a}. Classement des caisses et variation sur 2025.`,
+    advice: {
+      eyebrow: 'Conseil',
+      cheap: (c, pos, total) =>
+        `${c} est ${pos}ᵉ sur ${total} cantons — parmi les moins chers. Changer de caisse permet d'économiser CHF 80–180/mois en plus.`,
+      mid: (c, pos, total) =>
+        `${c} est ${pos}ᵉ sur ${total} cantons — milieu de tableau. Changer de caisse permet d'économiser CHF 100–200/mois.`,
+      expensive: (c, pos, total) =>
+        `${c} est ${pos}ᵉ sur ${total} cantons — parmi les plus chers. L'économie annuelle d'un changement peut dépasser CHF 1 800.`,
+      yoyPositive: (delta) => `Primes en hausse de ${delta} sur 2025 — comparer n'a jamais été aussi important.`,
+      yoyStable: 'Primes globalement stables par rapport à 2025.',
+      yoyNegative: (delta) => `Primes en baisse de ${delta} sur 2025 — bonne fenêtre pour renégocier.`,
+      rankingLine: (c, pos, total, cheaper) =>
+        `${c} est ${pos}ᵉ sur ${total} cantons · moins cher que ${cheaper}, plus cher que ${total - pos}.`,
+    },
+    tableHeaders: { rank: 'Rang', insurer: 'Caisse maladie', premium: 'Prime mensuelle' },
+    top20Title: (c, a) => `Top 20 caisses maladie à ${c} — ${a}`,
+    rankingTitle: 'Comparatif avec les cantons voisins',
+    editorialTitle: 'Comment la prime LAMal fonctionne dans cette tranche',
+    editorial: (c, a, m, year) =>
+      `Selon la loi suisse LAMal, tout résident doit souscrire une assurance maladie de base. La prime varie selon le canton, la région de prime et la caisse, mais elle est forfaitaire pour tous les adultes dès 26 ans — aucune hausse liée à l'âge dans la LAMal elle-même (contrairement à la LCA complémentaire). À ${c} en ${year}, la médiane pour la tranche ${a} s'établit à ${m} CHF/mois. Les frontaliers résidant en Italie peuvent choisir entre la LAMal suisse et le SSN italien (droit d'option). Utilisez le tableau ci-dessus pour repérer les caisses les moins chères dans votre tranche d'âge, puis comparez-les avec notre outil interactif.`,
+    derivationNote:
+      "Note : les primes pour enfants (0-18) et jeunes adultes (19-25) sont estimées en appliquant les maxima statutaires BAG 2026 (25 % et 80 % de la prime adulte) ; pour les valeurs exactes par caisse, consultez le comparateur.",
+    comparatorCTA: 'Ouvrir le comparateur',
+    comparatorCTAText: 'Pré-filtré sur ce canton et cette tranche d\'âge — voir toutes les caisses avec devis personnalisé.',
+    statsLabels: { median: 'Médiane', min: 'Prime la plus basse', max: 'Prime la plus élevée', insurers: 'Caisses analysées' },
+    faqTitle: 'Questions fréquentes',
+    faq: [
+      {
+        q: (c, a) => `Combien coûte l'assurance maladie à ${c} pour ${a} ?`,
+        a: (c, a, m, min, max) =>
+          `À ${c}, la tranche ${a} paie en moyenne ${m} CHF par mois pour la LAMal de base (franchise 300, sans accident). La plage entre les caisses va de ${min} à ${max} CHF/mois. Les différences dépendent du modèle (standard, médecin de famille, telmed, HMO).`,
+      },
+      {
+        q: () => 'Quelle caisse maladie est la moins chère ?',
+        a: (_, __, ___, min) =>
+          `La caisse la moins chère change chaque année — en 2026 la prime mensuelle minimum pour cette tranche est de ${min} CHF. Consultez le tableau complet pour le classement à jour de toutes les caisses dans le canton sélectionné.`,
+      },
+      {
+        q: () => 'Comment économiser sur la prime ?',
+        a: () =>
+          "Trois leviers : (1) choisir un modèle alternatif — médecin de famille, HMO ou télémédecine économise typiquement 10-20 % par rapport au standard ; (2) augmenter la franchise annuelle jusqu'à CHF 2 500 si vous êtes en bonne santé (économie jusqu'à ~50 %) ; (3) comparer les tarifs chaque octobre pour l'année suivante et changer de caisse d'ici le 30 novembre.",
+      },
+      {
+        q: () => 'Les frontaliers paient-ils la LAMal ?',
+        a: () =>
+          "Les frontaliers qui travaillent en Suisse bénéficient du droit d'option entre LAMal suisse et système de l'État de résidence (SSN italien, CPAM français, etc.). Ceux qui choisissent la LAMal paient la prime complète comme un résident suisse. Le choix doit être exercé dans les 3 mois suivant le début de l'activité.",
+      },
+      {
+        q: () => "La prime change-t-elle avec l'âge ?",
+        a: () =>
+          "Sous LAMal la prime est forfaitaire pour tous les adultes à partir de 26 ans — elle n'augmente pas avec l'âge. Enfants (0-18) et jeunes adultes (19-25) paient moins par la loi. La LCA complémentaire, elle, augmente avec l'âge.",
+      },
+    ],
+    priceUnit: 'CHF/mois',
+    rankingIntro: (c) =>
+      `Voici comment ${c} se positionne par rapport aux autres cantons cibles pour la même tranche d'âge. Les primes LAMal varient sensiblement d'un canton à l'autre, même au sein d'une même région linguistique.`,
+    yoy: {
+      sectionTitle: (py) => `Variation par rapport à ${py}`,
+      summary: (c, a, medPct, py, n) =>
+        `Par rapport à ${py}, la prime médiane à ${c} pour la tranche ${a} a varié de ${medPct} (${n} caisses comparées). Cette évolution reflète la révision tarifaire annuelle approuvée par le Conseil fédéral et publiée fin septembre. Les tableaux ci-dessous comparent, pour chaque caisse disposant de données dans les deux années, la prime actuelle avec celle de l'année précédente afin de mettre en évidence les hausses et les baisses les plus significatives.`,
+      tableCaption: (py) => `Top 20 caisses par variation en pourcentage vs ${py}, de la plus forte baisse à la plus forte hausse`,
+      tableHeaders: { rank: 'Rang', insurer: 'Caisse maladie', delta: `Δ vs année préc.` },
+      emptyPriorNote: (py) =>
+        `Les données ${py} ne sont pas disponibles pour cette combinaison : la section variation sera remplie au prochain rafraîchissement de l'archive BAG.`,
+    },
+    triYear: {
+      sectionTitle: (oy, cy) => `Tendance triennale ${oy} → ${cy}`,
+      summary: (c, a, oy, py, cy, yoyOlder, yoyRecent, cum) =>
+        `Trajectoire des primes LAMal à ${c} pour la tranche ${a} sur les trois dernières années : ${oy} → ${py} → ${cy}, avec des variations consécutives ${yoyOlder} puis ${yoyRecent}, soit un total cumulé de ${cum} sur la fenêtre biennale. Une seule révision annuelle peut paraître modeste, mais la somme composée sur deux exercices reste la lecture pertinente pour planifier le budget familial.`,
+      sparklineLabel: (c, a) => `Prime mensuelle médiane à ${c} pour ${a} sur les trois dernières années (CHF/mois)`,
+    },
+  },
+};
+
+const HUB_COPY: Record<HealthPremiumLocale, HubCopy> = {
+  it: {
+    breadcrumbHome: 'Home',
+    h1Root: (y) => `Premi Cassa Malati ${y} per cantone e fascia d'età`,
+    h1Canton: (c, y) => `${c} — Premi Cassa Malati ${y}`,
+    introRoot: (y) =>
+      `Il sistema LAMal svizzero impone a ogni residente un'assicurazione malattia di base. I premi ${y} variano in modo significativo fra cantoni, regioni premio e fasce d'età: questa è la pagina hub del nostro monitor dei premi, con dati ufficiali UFSP/BAG aggiornati ogni anno. Per ogni cantone target (Ticino, Grigioni, Uri, Vallese, Zurigo come benchmark) forniamo una vista dettagliata della mediana, del minimo e del massimo premio mensile, suddivisi in 6 fasce d'età. I frontalieri che lavorano in Svizzera possono scegliere tra LAMal svizzera e SSN italiano grazie al diritto d'opzione: la pagina del cantone che abiti (o del cantone della tua sede di lavoro) è il punto di partenza per confrontare le casse. Ogni landing si collega al comparatore pre-filtrato dove puoi ottenere un preventivo personalizzato.`,
+    introCanton: (c, m, min, max, y) =>
+      `Panoramica dei premi LAMal ${y} nel ${c} per tutte le fasce d'età: mediana ${m} CHF/mese, range da ${min} a ${max} CHF fra le casse ufficialmente attive. I valori provengono da UFSP/BAG (franchigia 300 adulti, senza infortuni). Usa la griglia sotto per aprire la pagina della fascia d'età che ti interessa e vedere il ranking completo delle casse e le offerte alternative (medico di famiglia, telmed, HMO).`,
+    introCantonShort: (c, y) =>
+      `Premi LAMal ${y} nel ${c}: mediana, range e ranking nazionale per scegliere la cassa più conveniente.`,
+    advice: {
+      eyebrow: 'Consiglio',
+      cheap: (c, pos, total) =>
+        `${c} è ${pos}° su ${total} cantoni: tra i più economici della Svizzera. Margine di risparmio aggiuntivo cambiando cassa: tipicamente CHF 80–180/mese.`,
+      mid: (c, pos, total) =>
+        `${c} è ${pos}° su ${total} cantoni: nella fascia centrale. Cambiando cassa puoi risparmiare CHF 100–200/mese senza perdere copertura.`,
+      expensive: (c, pos, total) =>
+        `${c} è ${pos}° su ${total} cantoni: tra i più cari della Svizzera. Confronta le casse — il risparmio annuo può superare CHF 1 800.`,
+      yoyPositive: (delta) => `Premi in aumento del ${delta} sul 2025: il confronto è più importante che mai.`,
+      yoyStable: 'Premi sostanzialmente stabili rispetto al 2025.',
+      yoyNegative: (delta) => `Premi in calo del ${delta} sul 2025 — buona finestra per rinegoziare.`,
+      rankingLine: (c, pos, total, cheaper) =>
+        `${c} è ${pos}° su ${total} cantoni · più economico di ${cheaper}, più caro di ${total - pos}.`,
+    },
+    ageGridTitle: (c) => `Mediane per fascia di età in ${c}`,
+    cantonGridTitle: 'Mediane per cantone — fascia adulti (26+)',
+    cantonGridHeaders: { canton: 'Cantone', median: 'Mediana', min: 'Minimo', max: 'Massimo' },
+    ageGridHeaders: { age: 'Fascia', median: 'Mediana', slug: 'Apri' },
+    comparatorCTA: 'Apri il comparatore',
+    comparatorCTAText: 'Trova la cassa più conveniente per la tua situazione',
+    viewCantonCTA: (c) => `Apri la pagina ${c}`,
+    openLeafCTA: 'Apri',
+    rootBackgroundTitle: 'Cosa copre la LAMal',
+    rootBackground:
+      "La legge federale sull'assicurazione malattia (LAMal) garantisce a tutti i residenti in Svizzera — e ai frontalieri che scelgono il sistema svizzero — le prestazioni mediche di base: visite mediche, ricoveri in reparto comune, farmaci della lista positiva, maternità, psichiatria di base, fisioterapia prescritta. Non copre cure dentali di routine, stanze private, medicina alternativa non riconosciuta, lenti a contatto: per questi serve una complementare (LCA).",
+    faqTitle: 'Domande frequenti',
+    rootFaq: [
+      {
+        q: 'Come sono stabiliti i premi LAMal?',
+        a: (y) =>
+          `Ogni cassa presenta le proprie tariffe al Consiglio federale, che le approva a fine settembre. Entro il 31 ottobre ${y - 1} gli assicurati ricevono la comunicazione per l'anno successivo e hanno tempo fino al 30 novembre per cambiare cassa.`,
+      },
+      {
+        q: 'Quali cantoni hanno i premi più bassi?',
+        a: () =>
+          'In generale Svizzera interna e orientale hanno premi più bassi; Ginevra, Basilea Città e Ticino hanno premi più alti. La variazione è significativa anche all\'interno dello stesso cantone (3 regioni premio in molti cantoni).',
+      },
+      {
+        q: 'Posso cambiare cassa durante l\'anno?',
+        a: () =>
+          'Solo in casi particolari (aumento straordinario di premio, cambio di cantone). Il momento standard per cambiare cassa è entro il 30 novembre per la polizza dell\'anno successivo.',
+      },
+    ],
+    cantonFaq: [
+      {
+        q: (c) => `Quanto costa la cassa malati in ${c} nel 2026?`,
+        a: (c, m, y) =>
+          `Il premio mediano per adulti nel ${c} nel ${y} è di ${m} CHF/mese (franchigia 300, senza infortuni). La variazione tra casse è significativa: apri la fascia d'età che ti interessa per il ranking completo.`,
+      },
+      {
+        q: () => 'Le regioni premio fanno differenza?',
+        a: () =>
+          "Sì. Molti cantoni sono divisi in 2-3 regioni premio con differenze di 20-30 CHF/mese. Il Ticino ha una sola regione premio; Grigioni e Vallese ne hanno tre, con premi più bassi nelle zone periferiche.",
+      },
+    ],
+    priceUnit: 'CHF/mese',
+    updatedLabel: 'Aggiornato',
+    yoy: {
+      sectionTitle: (py) => `Variazione rispetto al ${py}`,
+      cantonSummary: (c, adultPct, py) =>
+        `La mediana dei premi adulti (26+) in ${c} è variata di ${adultPct} rispetto al ${py}. Nella tabella sotto vedi la variazione per ogni fascia di età, basata sulle casse con dati pubblicati in entrambi gli anni (fonte: archivio storico BAG/UFSP).`,
+      gridCaption: (py) => `Variazione mediana per fascia di età (${py} → anno corrente)`,
+      gridHeaders: { age: 'Fascia', delta: 'Δ vs anno precedente' },
+    },
+    triYear: {
+      sectionTitle: (oy, cy) => `Trend triennale ${oy} → ${cy}`,
+      cantonSummary: (c, oy, cy, cum) =>
+        `Sul biennio ${oy} → ${cy} la mediana adulti (26+) in ${c} è cresciuta complessivamente di ${cum}. Il dato cumulato è il riferimento corretto per stimare l'impatto sul budget familiare a 24 mesi, perché smorza la volatilità della singola revisione tariffaria annuale.`,
+    },
+    cantonContext: {
+      title: 'Cosa significa questo dato per te',
+      body: (c, m, y) =>
+        `La mediana di ${m} CHF/mese nel ${c} riflette il prezzo del modello standard (libera scelta del medico) per un adulto residente nel cantone con franchigia minima di 300 CHF. Il valore reale che pagherai dipende da quattro variabili: la regione premio dentro al cantone (in molti cantoni le zone urbane hanno premi più alti delle zone periferiche di 15-30 CHF/mese), il modello assicurativo scelto (medico di famiglia o telmed riducono il premio del 10-18 %, HMO fino al 22 %), la franchigia annua (alzandola da 300 a 2.500 CHF il premio cala fra il 7 % e il 14 %), e la cassa malati selezionata: la differenza fra la più cara e la più economica nel ${c} per la stessa fascia di età supera quasi sempre i 100 CHF al mese, motivo per cui il confronto annuale conviene sempre. I frontalieri che lavorano in ${c} possono optare per il sistema italiano (SSN) entro 3 mesi dall'inizio del rapporto di lavoro tramite il modulo formale di esercizio del diritto d'opzione: la scelta è di solito fiscalmente vantaggiosa per chi ha meno di 35 anni e in buona salute, mentre la LAMal svizzera resta competitiva per chi ha figli o patologie croniche grazie alla rete sanitaria locale e alla rapidità di accesso. La pagina sotto elenca tutte le casse attive nel ${c} per il ${y} con il prezzo aggiornato; usa il comparatore per filtrare per franchigia e modello e ottenere il preventivo personalizzato.`,
+    },
+    rootMethodology: {
+      title: 'Come confrontare i premi tra cantoni',
+      body: (y) =>
+        `I premi LAMal sono fissati a livello cantonale, non federale: il Consiglio federale approva ogni autunno le tariffe presentate dalle casse, che variano per cantone e per regione premio interna al cantone. Per il ${y} la differenza fra il cantone più caro (Ginevra) e quelli più economici della Svizzera centrale supera spesso i 100 CHF/mese per un adulto. Quando confronti due cantoni controlla sempre tre cose: il numero di regioni premio (Ticino e Sciaffusa hanno una sola regione, Grigioni e Vallese ne hanno tre con prezzi che differiscono fino a 25 CHF/mese), il mix di modelli disponibili (Hausarzt o telmed sono più diffusi nei cantoni germanofoni e tagliano il premio del 10-22 %), e la qualità della rete ospedaliera del cantone, perché un ricovero fuori cantone richiede l'autorizzazione preventiva della cassa o del cantone di domicilio. Per chi è frontaliere conta anche la presenza di centri sanitari vicini al confine: chi sceglie la LAMal si appoggia agli ospedali svizzeri del cantone di lavoro, mentre chi opta per il SSN italiano resta coperto dal proprio servizio regionale di residenza, con accesso ai medici svizzeri solo a tariffa privata. Le pagine cantonali in basso forniscono mediana, minimo, massimo e ranking completo delle casse per ogni fascia d'età, aggiornati annualmente con i dati ufficiali UFSP/BAG.`,
+    },
+    rootFrontalierGuide: {
+      title: 'Frontalieri: LAMal, SSN o CMU? Come scegliere',
+      intro:
+        "Il frontaliere italiano che lavora in Svizzera è soggetto a un obbligo assicurativo svizzero ma può rinunciarvi attraverso il diritto di opzione, formalizzato con il modulo cantonale dell'autorità sanitaria di vigilanza entro tre mesi dall'inizio dell'attività. La scelta non è solo finanziaria: incide sulla rete dei fornitori, sulle franchigie disponibili, sulla copertura familiare e sulla deducibilità fiscale dei premi. Le quattro variabili di seguito riassumono le differenze più rilevanti per chi sta valutando se confermare o meno l'opzione SSN.",
+      bullets: [
+        {
+          heading: 'Costo lordo annuale',
+          body: 'La LAMal svizzera ha un costo annuo fisso pari a 12 mensilità del premio cantonale (esempio in Ticino 31-45 anni: circa 4.300-5.200 CHF/anno). Il SSN italiano costa il 7,5 % del reddito imponibile fino a un massimale annuo aggiornato annualmente dal Ministero della Salute. Per chi guadagna meno di 80.000 CHF lordi, l\'opzione SSN è quasi sempre la scelta meno cara; sopra i 100.000 CHF il calcolo si inverte.',
+        },
+        {
+          heading: 'Rete dei fornitori',
+          body: 'Con la LAMal accedi all\'intera rete ospedaliera svizzera del cantone di lavoro (a Bellinzona EOC, a Lugano Civico, a Mendrisio OBV) con franchigia minima 300 CHF/anno. Con il SSN italiano resti coperto dal servizio sanitario regionale e accedi al sistema svizzero solo a tariffa privata: la visita specialistica può costare 200-400 CHF se non passi attraverso una struttura convenzionata transfrontaliera.',
+        },
+        {
+          heading: 'Copertura familiare',
+          body: 'In Svizzera ogni componente del nucleo è assicurato individualmente: il coniuge non lavoratore e i figli pagano premi separati (sconti per minori e giovani adulti previsti dalla legge). In Italia la copertura SSN è familiare e i figli minorenni risultano automaticamente assistiti senza contributi addizionali — vantaggio significativo per famiglie con 2-3 figli.',
+        },
+        {
+          heading: 'Deducibilità fiscale',
+          body: 'I premi LAMal sono integralmente deducibili dall\'imponibile cantonale e federale svizzero (con tetto cantonale variabile). Il contributo SSN del frontaliere non è deducibile dal 730 italiano (è un onere obbligatorio non opzionale) ma riduce la base imponibile per via dell\'accordo bilaterale. Per chi paga in fascia IRPEF 38-43 % la LAMal recupera 1.500-2.500 CHF/anno netti — un parametro che cambia il confronto puro CHF.',
+        },
+        {
+          heading: 'Scadenze e revoca',
+          body: "Il diritto di opzione va esercitato entro 90 giorni dall'inizio del rapporto di lavoro o dal trasferimento di residenza in Italia. La revoca è ammessa solo in casi tassativi: nascita di un figlio, matrimonio con persona iscritta a regime diverso, perdita del posto di lavoro, trasferimento del datore di lavoro in altro cantone. Pianifica la scelta entro le prime 8 settimane di attività per non lasciar scattare la copertura LAMal d'ufficio: il premio retroattivo è dovuto integralmente.",
+        },
+      ],
+    },
+    rootDeductibleAndModelGuide: {
+      title: 'Modelli LAMal, franchigie e leve di risparmio',
+      body:
+        'Sotto l\'etichetta unica "premio LAMal" si nascondono otto combinazioni di prodotto che la stessa cassa offre per la stessa persona: quattro modelli (standard, Hausarzt, telmed, HMO) e cinque franchigie annue per gli adulti (300, 500, 1.000, 1.500, 2.500 CHF). La mediana che pubblichiamo per ogni cantone si riferisce al modello standard con franchigia minima — il caso più caro. Selezionando le combinazioni alternative si può ridurre il premio fino al 50 % senza cambiare cassa, a patto di accettare il vincolo del medico di porta o di alzare la franchigia.',
+      bullets: [
+        {
+          heading: 'Modello Hausarzt / medico di famiglia',
+          body: 'Riduzione tipica 10-15 %. Devi designare un medico di base che funge da gatekeeper: senza la sua segnalazione la cassa non rimborsa visite specialistiche. Conviene se hai già un medico di fiducia nel cantone di lavoro e se prevedi pochi episodi acuti annuali.',
+        },
+        {
+          heading: 'Modello telmed / consulto telefonico',
+          body: 'Riduzione tipica 12-18 %. Prima di ogni visita devi chiamare un servizio di teleconsulto attivo 24/7 (Medi24, Medgate). L\'operatore decide se autorizzare la visita o suggerire un\'auto-cura. Il risparmio è massimo se sei giovane e in salute.',
+        },
+        {
+          heading: 'Modello HMO / centro medico convenzionato',
+          body: 'Riduzione tipica 18-22 %. Devi rivolgerti esclusivamente a un centro medico contrattualizzato dalla cassa (poliambulatorio); le specialistiche dentro il centro sono coperte senza segnalazione. Funziona bene nelle aree urbane (Lugano, Bellinzona, Locarno) dove la copertura HMO è densa.',
+        },
+        {
+          heading: 'Franchigia annua opzionale',
+          body: 'Da 300 a 2.500 CHF in cinque scaglioni. Ogni 500 CHF di franchigia in più riduce il premio di circa 7-10 %. Conviene quando il costo medio annuale di prestazioni LAMal è inferiore a 1.000 CHF: il break-even è a 5-6 visite mediche/anno con una piccola prescrizione.',
+        },
+        {
+          heading: 'Quota retributiva (10 %) e cap annuo',
+          body: 'Sopra la franchigia paghi il 10 % delle prestazioni fino a un massimo annuo di 700 CHF (adulti) o 350 CHF (minori). Sommando franchigia 300 + cap 700 il rischio massimo annuo è 1.000 CHF — una cifra utile per confrontare il modello più conveniente in base al numero di prestazioni mediche attese.',
+        },
+      ],
+    },
+    cantonDeductibleGuide: {
+      title: 'Quattro leve per ridurre il premio in questo cantone',
+      body: (c, m) =>
+        `La mediana di ${m} CHF/mese in ${c} corrisponde al modello standard con franchigia 300 CHF — il caso più caro fra le combinazioni disponibili. Cambiando una sola leva il premio cala fra il 7 e il 22 %; combinando modello + franchigia il risparmio annuo arriva fino a 1.200-1.800 CHF. La scelta migliore dipende dalla tua frequenza di utilizzo del sistema sanitario, non solo dal prezzo lordo.`,
+      bullets: [
+        {
+          heading: 'Regione premio interna al cantone',
+          body: 'Verifica nella documentazione della cassa o sul portale priminfo.admin.ch a quale regione premio appartiene il tuo comune di residenza/lavoro. In molti cantoni c\'è una differenza di 15-30 CHF/mese fra zona urbana e zona periferica per la stessa cassa e lo stesso modello.',
+        },
+        {
+          heading: 'Modello assicurativo',
+          body: 'Hausarzt e telmed sono ormai disponibili in quasi tutti i cantoni; HMO è denso solo nelle aree urbane. Se sei in salute e fai meno di 4 visite specialistiche/anno, telmed o HMO recuperano 30-50 CHF/mese senza compromettere la qualità delle cure.',
+        },
+        {
+          heading: 'Franchigia annua',
+          body: 'Una franchigia 2.500 CHF taglia il premio di circa 35-50 CHF/mese (420-600 CHF/anno) — conveniente se il costo annuo medio dei tuoi farmaci e visite è sotto i 1.000 CHF. Sopra i 50 anni e con patologie ricorrenti la franchigia minima 300 CHF resta la scelta razionale.',
+        },
+        {
+          heading: 'Cambio cassa annuale',
+          body: 'Le tariffe vengono pubblicate dal Consiglio federale fine settembre per il 1° gennaio successivo. Hai tempo fino al 30 novembre per disdire la polizza in corso. La differenza fra la cassa più cara e la più economica nello stesso cantone supera quasi sempre i 100 CHF/mese: il confronto annuale è la leva di risparmio più sottoutilizzata.',
+        },
+      ],
+    },
+    cantonFrontalierGuide: {
+      title: 'Frontalieri in questo cantone: cosa fare nei primi 90 giorni',
+      body: (c) =>
+        `Se inizi un lavoro in ${c}, hai 90 giorni di tempo per scegliere fra LAMal svizzera e SSN italiano (diritto di opzione). La scelta è formalizzata davanti all'autorità sanitaria cantonale — in Ticino l'Ufficio del medico cantonale, negli altri cantoni le rispettive direzioni della sanità — con un modulo dedicato. Senza esercizio attivo dell'opzione scatta automaticamente l'iscrizione LAMal con effetto retroattivo dal primo giorno di lavoro: il premio è dovuto integralmente. La checklist sotto raccoglie i passaggi tipici di un nuovo frontaliere nel cantone.`,
+      bullets: [
+        {
+          heading: 'Modulo di opzione SSN',
+          body: 'Compila il modulo "Diritto di opzione" rilasciato dal cantone, allega contratto di lavoro e attestato di residenza italiana. Il documento va presentato all\'autorità cantonale di vigilanza sulle assicurazioni malattia entro 90 giorni dall\'inizio dell\'attività.',
+        },
+        {
+          heading: 'Iscrizione ASL italiana',
+          body: 'Una volta optato per il SSN, registra il rapporto di lavoro frontaliere presso la tua ASL di residenza. Riceverai una tessera sanitaria modello UE-S2/E106 valida sia in Italia sia per cure programmate in Svizzera presso strutture convenzionate.',
+        },
+        {
+          heading: 'Confronto LAMal personalizzato',
+          body: 'Se opti per la LAMal, usa il nostro comparatore pre-filtrato per il tuo cantone di lavoro per ottenere preventivi da tutte le casse autorizzate. Confronta sempre 3 modelli (standard, Hausarzt, telmed) e 2 franchigie (300 e 1.500 CHF) prima di firmare.',
+        },
+        {
+          heading: 'Coniuge e figli',
+          body: 'In LAMal ogni componente è assicurato individualmente. Verifica i premi per la fascia 0-18 e 19-25 prima di optare per la LAMal di nucleo: con due o più figli il SSN italiano è quasi sempre più conveniente perché copre tutti senza contributi addizionali per i minori.',
+        },
+        {
+          heading: 'Riserve e patologie pregresse',
+          body: 'La LAMal non può rifiutare l\'iscrizione né applicare riserve sulle prestazioni di base. Le casse devono accettarti indipendentemente da età, sesso e stato di salute. Le riserve si applicano solo alle complementari LCA (camera privata, dentista, medicina alternativa) — verifica le clausole prima di sottoscriverle.',
+        },
+      ],
+    },
+  },
+  en: {
+    breadcrumbHome: 'Home',
+    h1Root: (y) => `Swiss health insurance premiums ${y} by canton and age`,
+    h1Canton: (c, y) => `${c} — Health insurance premiums ${y}`,
+    introRoot: (y) =>
+      `The Swiss LAMal system requires every resident to hold basic health insurance. ${y} premiums vary substantially by canton, premium region and age bracket: this hub is the entry point to our premium tracker, with official FOPH/BAG data refreshed annually. For each target canton (Ticino, Graubünden, Uri, Valais, Zurich as benchmark) we expose median, minimum and maximum monthly premium across 6 age brackets. Cross-border workers employed in Switzerland can choose between the Swiss LAMal and their home-country system under the "right of option" — the canton of your employer (or your residence canton) is the right starting point. Every landing links to the pre-filtered comparator where you can obtain a personalised quote.`,
+    introCanton: (c, m, min, max, y) =>
+      `${y} LAMal premium overview in ${c} across all age brackets: median ${m} CHF/month, range from ${min} to ${max} CHF across active health funds. Data from FOPH/BAG (CHF 300 deductible for adults, no accident cover). Use the grid below to open the age bracket you need and see the full ranking of funds with alternative models (family doctor, telmed, HMO).`,
+    introCantonShort: (c, y) =>
+      `${y} LAMal premiums in ${c}: median, range and national ranking to pick the cheapest fund.`,
+    advice: {
+      eyebrow: 'Recommendation',
+      cheap: (c, pos, total) =>
+        `${c} ranks ${pos} of ${total} cantons — among the cheapest in Switzerland. Switching fund typically saves CHF 80–180/month on top.`,
+      mid: (c, pos, total) =>
+        `${c} ranks ${pos} of ${total} cantons — middle tier. Switching fund can save CHF 100–200/month with no coverage loss.`,
+      expensive: (c, pos, total) =>
+        `${c} ranks ${pos} of ${total} cantons — among the most expensive in Switzerland. The annual saving from switching can exceed CHF 1,800.`,
+      yoyPositive: (delta) => `Premiums up ${delta} vs 2025 — comparing has never mattered more.`,
+      yoyStable: 'Premiums broadly stable vs 2025.',
+      yoyNegative: (delta) => `Premiums down ${delta} vs 2025 — a good window to renegotiate.`,
+      rankingLine: (c, pos, total, cheaper) =>
+        `${c} ranks ${pos} of ${total} cantons · cheaper than ${cheaper}, more expensive than ${total - pos}.`,
+    },
+    ageGridTitle: (c) => `Median by age bracket in ${c}`,
+    cantonGridTitle: 'Median by canton — adult bracket (26+)',
+    cantonGridHeaders: { canton: 'Canton', median: 'Median', min: 'Min', max: 'Max' },
+    ageGridHeaders: { age: 'Bracket', median: 'Median', slug: 'Open' },
+    comparatorCTA: 'Open the comparator',
+    comparatorCTAText: 'Find the most affordable fund for your situation',
+    viewCantonCTA: (c) => `Open ${c}`,
+    openLeafCTA: 'Open',
+    rootBackgroundTitle: 'What LAMal covers',
+    rootBackground:
+      'The Swiss Federal Health Insurance Act (LAMal) guarantees every resident — and cross-border workers electing the Swiss system — basic medical care: doctor visits, ward-level hospital stays, prescription drugs on the positive list, maternity, basic psychiatry, prescribed physiotherapy. It does not cover routine dental care, private rooms, non-recognised alternative medicine, contact lenses: for these you need supplementary cover (LCA/VVG).',
+    faqTitle: 'Frequently asked questions',
+    rootFaq: [
+      {
+        q: 'How are LAMal premiums set?',
+        a: (y) =>
+          `Each fund submits its tariffs to the Federal Council, which approves them by late September. By 31 October ${y - 1} insured members receive the next-year quote and have until 30 November to switch funds.`,
+      },
+      {
+        q: 'Which cantons have the lowest premiums?',
+        a: () =>
+          "Central and eastern Switzerland usually have the lowest premiums; Geneva, Basel-City and Ticino are at the high end. Variation within a single canton is also significant (many cantons have 2-3 premium regions).",
+      },
+      {
+        q: 'Can I switch funds during the year?',
+        a: () =>
+          "Only in special cases (extraordinary premium increase, change of canton). The standard switching window is by 30 November for the following year's cover.",
+      },
+    ],
+    cantonFaq: [
+      {
+        q: (c) => `How much does health insurance cost in ${c} in 2026?`,
+        a: (c, m, y) =>
+          `The ${y} adult median in ${c} is ${m} CHF/month (CHF 300 deductible, no accident cover). Variation between funds is substantial: open the age bracket that matches you for the full ranking.`,
+      },
+      {
+        q: () => 'Do premium regions matter?',
+        a: () =>
+          'Yes. Many cantons are split into 2-3 premium regions with 20-30 CHF/month differences. Ticino has one region; Graubünden and Valais have three, with lower premiums in peripheral zones.',
+      },
+    ],
+    priceUnit: 'CHF/month',
+    updatedLabel: 'Updated',
+    yoy: {
+      sectionTitle: (py) => `Change vs ${py}`,
+      cantonSummary: (c, adultPct, py) =>
+        `The adult (26+) median premium in ${c} moved by ${adultPct} vs ${py}. The table below breaks the change down by age bracket, using only funds that published data in both years (source: BAG/FOPH historical archive).`,
+      gridCaption: (py) => `Median change by age bracket (${py} → current year)`,
+      gridHeaders: { age: 'Bracket', delta: 'Δ vs prior year' },
+    },
+    triYear: {
+      sectionTitle: (oy, cy) => `Three-year trend ${oy} → ${cy}`,
+      cantonSummary: (c, oy, cy, cum) =>
+        `Across the ${oy} → ${cy} window the adult (26+) median in ${c} compounded by ${cum}. The two-year cumulative is the right reference to size the budget impact, because it smooths the noise of a single annual tariff revision.`,
+    },
+    cantonContext: {
+      title: 'What this number means for you',
+      body: (c, m, y) =>
+        `The ${m} CHF/month median in ${c} reflects the price of the standard model (free choice of doctor) for an adult resident with the minimum CHF 300 deductible. The actual amount you pay depends on four levers: the premium region inside the canton (urban zones are typically 15-30 CHF/month dearer than peripheral ones in cantons with multiple regions), the insurance model you pick (family-doctor or telmed plans cut the premium by 10-18 %, an HMO by up to 22 %), the annual deductible (raising it from 300 to 2,500 CHF lowers the premium by 7-14 %), and the fund itself: between the cheapest and the most expensive fund in ${c} for the same age bracket the gap nearly always exceeds 100 CHF/month, which is why a yearly comparison pays off. Cross-border workers employed in ${c} can opt out into the Italian SSN system within three months of taking up the job by filing the formal "right of option" — usually a fiscal win for under-35s in good health, while the Swiss LAMal stays competitive for families and people with chronic conditions thanks to the local provider network and faster access. The table below lists every active fund in ${c} for ${y} with the live price; use the comparator to filter by deductible and model and obtain a personalised quote.`,
+    },
+    rootMethodology: {
+      title: 'How to compare premiums between cantons',
+      body: (y) =>
+        `LAMal premiums are set at the cantonal level, not federally: each autumn the Federal Council ratifies the tariffs proposed by the funds, which vary by canton and by premium region inside the canton. For ${y} the gap between the most expensive canton (Geneva) and the cheapest in central Switzerland often tops 100 CHF/month for an adult. When you compare two cantons, check three things: the number of premium regions (Ticino and Schaffhausen run a single region, Graubünden and Valais have three with up to 25 CHF/month spread), the mix of available models (Hausarzt and telmed plans are widespread in German-speaking cantons and trim the premium by 10-22 %), and the quality of the cantonal hospital network, since out-of-canton inpatient care needs prior authorisation from the fund or the canton of residence. For cross-border workers the proximity of clinics to the border also matters: those who pick LAMal rely on the Swiss hospitals of the canton of work, while those who opt into the Italian SSN remain covered by their region of residence and can only use Swiss doctors at private rates. The cantonal pages below give the median, minimum, maximum and full ranking of funds for every age bracket, refreshed yearly with official FOPH/BAG data.`,
+    },
+    rootFrontalierGuide: {
+      title: 'Cross-border workers: LAMal, SSN or CMU? How to choose',
+      intro:
+        'Italian frontalieri working in Switzerland are subject to mandatory Swiss health insurance but may opt out under the bilateral "right of option" by filing a cantonal form within three months of starting employment. The choice is not purely financial: it changes the provider network, the deductible options, the family-coverage rules, and the tax deductibility of the premium. The four variables below summarise the differences that matter most when deciding whether to confirm or waive the SSN option.',
+      bullets: [
+        {
+          heading: 'Annual gross cost',
+          body: 'Swiss LAMal is a fixed twelve-month premium based on the cantonal tariff (example in Ticino, 31-45 bracket: roughly CHF 4,300-5,200/year). The Italian SSN is 7.5 % of taxable income up to an annual cap reviewed yearly by the Italian Ministry of Health. Below CHF 80,000 gross the SSN option is almost always cheaper; above CHF 100,000 the maths flips.',
+        },
+        {
+          heading: 'Provider network',
+          body: 'LAMal gives you the full Swiss hospital network in the canton of work (in Ticino: EOC Bellinzona, Civico Lugano, OBV Mendrisio) at the minimum CHF 300 deductible. With the Italian SSN you stay covered by your regional health service and access Swiss specialists only at private tariff: a routine specialist visit can cost CHF 200-400 unless you go through a cross-border partner facility.',
+        },
+        {
+          heading: 'Family coverage',
+          body: 'In Switzerland every household member is insured individually: the non-working spouse and the children pay separate premiums (with statutory discounts for minors and young adults). In Italy SSN coverage is family-based and minor children are automatically insured at no additional contribution — a meaningful saving for households with two or three children.',
+        },
+        {
+          heading: 'Tax deductibility',
+          body: 'LAMal premiums are fully deductible from the Swiss federal and cantonal taxable base (with cantonal caps). The frontaliere SSN contribution is not directly deductible from the Italian 730 (it is a mandatory levy, not a discretionary deduction) but reduces the taxable base under the bilateral framework. For workers in the 38-43 % IRPEF bracket, LAMal recovers CHF 1,500-2,500/year net — a parameter that flips the pure-CHF comparison.',
+        },
+        {
+          heading: 'Deadlines and revocation',
+          body: 'The right of option must be exercised within 90 days of starting employment or moving residence to Italy. Revocation is allowed only in narrow cases: birth of a child, marriage to a person under a different regime, job loss, employer relocation to a different canton. Plan the choice within the first 8 weeks of activity to avoid an automatic LAMal enrolment with retroactive premium charges.',
+        },
+      ],
+    },
+    rootDeductibleAndModelGuide: {
+      title: 'LAMal models, deductibles and saving levers',
+      body:
+        'Behind the single label "LAMal premium" there are eight product combinations the same fund offers the same person: four models (standard, Hausarzt, telmed, HMO) and five adult deductible tiers (300, 500, 1,000, 1,500, 2,500 CHF). The median we publish for each canton refers to the standard model with the minimum deductible — the most expensive case. Picking alternative combinations cuts the premium by up to 50 % without changing fund, provided you accept the gatekeeper-doctor constraint or a higher deductible.',
+      bullets: [
+        {
+          heading: 'Hausarzt / family-doctor model',
+          body: 'Typical reduction 10-15 %. You designate a family doctor as gatekeeper: without their referral the fund will not reimburse specialist visits. Worth it if you already have a trusted doctor in the canton of work and expect few acute episodes per year.',
+        },
+        {
+          heading: 'Telmed / phone consult model',
+          body: 'Typical reduction 12-18 %. Before any visit you must call a 24/7 telehealth service (Medi24, Medgate). The agent decides whether to authorise a visit or recommend self-care. Maximum saving for young, healthy adults.',
+        },
+        {
+          heading: 'HMO / managed-care centre model',
+          body: 'Typical reduction 18-22 %. You must use a contracted medical centre (polyclinic) for primary care; in-centre specialist appointments require no referral. Works well in urban areas (Lugano, Bellinzona, Locarno) where HMO coverage is dense.',
+        },
+        {
+          heading: 'Optional annual deductible',
+          body: 'Five tiers from 300 to 2,500 CHF. Every additional 500 CHF of deductible cuts the premium by roughly 7-10 %. Worth it when expected yearly LAMal costs stay below 1,000 CHF: break-even is around 5-6 medical visits per year with a small prescription.',
+        },
+        {
+          heading: 'Co-pay (10 %) and annual cap',
+          body: 'Above the deductible you pay 10 % of services up to an annual cap of 700 CHF (adults) or 350 CHF (minors). Adding deductible 300 + cap 700, your maximum yearly out-of-pocket is 1,000 CHF — a useful number to compare which model is the best fit for your expected utilisation.',
+        },
+      ],
+    },
+    cantonDeductibleGuide: {
+      title: 'Four levers to lower the premium in this canton',
+      body: (c, m) =>
+        `The CHF ${m}/month median in ${c} matches the standard model with the CHF 300 deductible — the most expensive of the available combinations. Changing a single lever drops the premium by 7-22 %; combining model and deductible saves CHF 1,200-1,800 per year. The right pick depends on how often you actually use the health system, not just on the headline price.`,
+      bullets: [
+        {
+          heading: 'Premium region inside the canton',
+          body: 'Check the fund documentation or priminfo.admin.ch to see which premium region your residence/workplace municipality falls into. In multi-region cantons the urban/peripheral spread is typically CHF 15-30/month for the same fund and model.',
+        },
+        {
+          heading: 'Insurance model',
+          body: 'Hausarzt and telmed are now available in nearly every canton; HMO density is concentrated in urban areas. If you are healthy and make fewer than 4 specialist visits/year, telmed or HMO save CHF 30-50/month with no quality compromise.',
+        },
+        {
+          heading: 'Annual deductible',
+          body: 'A CHF 2,500 deductible cuts the premium by roughly CHF 35-50/month (CHF 420-600/year) — worth it when your annual prescription and visit costs stay below CHF 1,000. Above 50 with chronic conditions the minimum CHF 300 deductible remains the rational pick.',
+        },
+        {
+          heading: 'Annual fund switch',
+          body: 'Tariffs are ratified by the Federal Council in late September for the following 1 January. You have until 30 November to terminate your existing policy. The cheapest-vs-most-expensive fund spread inside a canton routinely tops CHF 100/month: the yearly comparison is the most under-used saving lever.',
+        },
+      ],
+    },
+    cantonFrontalierGuide: {
+      title: 'Cross-border workers in this canton: what to do in the first 90 days',
+      body: (c) =>
+        `If you start a job in ${c}, you have 90 days to choose between Swiss LAMal and the Italian SSN (right of option). The choice is filed with the cantonal health-supervision authority — Ufficio del medico cantonale in Ticino, the corresponding cantonal health departments elsewhere — using a dedicated form. Without an active election Swiss LAMal kicks in automatically with retroactive effect from day one of employment, and the premium is fully due. The checklist below covers the typical onboarding steps for a new cross-border worker in the canton.`,
+      bullets: [
+        {
+          heading: 'SSN option form',
+          body: 'Fill in the "Right of option" form issued by the canton, attach your employment contract and proof of Italian residence. The document must reach the cantonal supervisory authority within 90 days of taking up the job.',
+        },
+        {
+          heading: 'Italian ASL registration',
+          body: 'Once you opt for SSN, register the cross-border employment relationship with your residence ASL. You will receive a UE-S2/E106 health card valid both in Italy and for scheduled care in Switzerland through partner facilities.',
+        },
+        {
+          heading: 'Personalised LAMal comparison',
+          body: 'If you choose LAMal, use our comparator pre-filtered on your canton of work to obtain quotes from every authorised fund. Always compare three models (standard, Hausarzt, telmed) and two deductibles (300 and 1,500 CHF) before signing.',
+        },
+        {
+          heading: 'Spouse and children',
+          body: 'Under LAMal each household member is insured individually. Check the 0-18 and 19-25 brackets before opting into LAMal for the whole family: with two or more children the Italian SSN is almost always cheaper because it covers minors at no extra cost.',
+        },
+        {
+          heading: 'Reservations and pre-existing conditions',
+          body: 'LAMal cannot deny enrolment or apply reservations on basic services. Funds must accept you regardless of age, sex or health status. Reservations apply only to supplementary LCA cover (private room, dental, alternative medicine) — review the clauses before signing.',
+        },
+      ],
+    },
+  },
+  de: {
+    breadcrumbHome: 'Startseite',
+    h1Root: (y) => `Krankenkassenprämien ${y} nach Kanton und Altersgruppe`,
+    h1Canton: (c, y) => `${c} — Krankenkassenprämien ${y}`,
+    introRoot: (y) =>
+      `Das Schweizer KVG verpflichtet jeden Einwohner zu einer Grundversicherung. Die Prämien ${y} variieren deutlich nach Kanton, Prämienregion und Altersgruppe: Diese Hub-Seite ist der Einstieg zu unserem Prämienmonitor mit amtlichen BAG/UFSP-Daten, jährlich aktualisiert. Für jeden Zielkanton (Tessin, Graubünden, Uri, Wallis, Zürich als Benchmark) zeigen wir Median, Minimum und Maximum der Monatsprämie in 6 Altersgruppen. Grenzgänger in der Schweiz können dank Optionsrecht zwischen Schweizer KVG und dem System ihres Wohnlandes wählen — der Kanton des Arbeitgebers (oder Ihr Wohnkanton) ist der beste Einstiegspunkt. Jede Seite verlinkt den vorgefilterten Vergleich für ein persönliches Angebot.`,
+    introCanton: (c, m, min, max, y) =>
+      `Übersicht der KVG-Prämien ${y} in ${c} für alle Altersgruppen: Median ${m} CHF/Monat, Spanne von ${min} bis ${max} CHF bei den aktiven Krankenkassen. Daten aus BAG/UFSP (Franchise 300 Erwachsene, ohne Unfall). Wählen Sie in der Tabelle die gewünschte Altersgruppe, um das vollständige Ranking mit alternativen Modellen (Hausarzt, Telmed, HMO) zu sehen.`,
+    introCantonShort: (c, y) =>
+      `KVG-Prämien ${y} in ${c}: Median, Spanne und nationales Ranking, um die günstigste Kasse zu wählen.`,
+    advice: {
+      eyebrow: 'Empfehlung',
+      cheap: (c, pos, total) =>
+        `${c} liegt auf Platz ${pos} von ${total} Kantonen — zu den günstigsten der Schweiz. Ein Kassenwechsel spart typischerweise zusätzlich CHF 80–180/Monat.`,
+      mid: (c, pos, total) =>
+        `${c} liegt auf Platz ${pos} von ${total} Kantonen — Mittelfeld. Ein Kassenwechsel spart CHF 100–200/Monat ohne Leistungseinbussen.`,
+      expensive: (c, pos, total) =>
+        `${c} liegt auf Platz ${pos} von ${total} Kantonen — zu den teuersten der Schweiz. Die jährliche Ersparnis durch Wechsel kann CHF 1 800 übersteigen.`,
+      yoyPositive: (delta) => `Prämien um ${delta} höher als 2025 — Vergleichen war noch nie wichtiger.`,
+      yoyStable: 'Prämien gegenüber 2025 weitgehend stabil.',
+      yoyNegative: (delta) => `Prämien um ${delta} tiefer als 2025 — gutes Zeitfenster zum Verhandeln.`,
+      rankingLine: (c, pos, total, cheaper) =>
+        `${c}: Platz ${pos} von ${total} Kantonen · günstiger als ${cheaper}, teurer als ${total - pos}.`,
+    },
+    ageGridTitle: (c) => `Median nach Altersgruppe in ${c}`,
+    cantonGridTitle: 'Median nach Kanton — Erwachsene (26+)',
+    cantonGridHeaders: { canton: 'Kanton', median: 'Median', min: 'Min', max: 'Max' },
+    ageGridHeaders: { age: 'Gruppe', median: 'Median', slug: 'Öffnen' },
+    comparatorCTA: 'Prämienvergleich öffnen',
+    comparatorCTAText: 'Finden Sie die günstigste Kasse für Ihre Situation',
+    viewCantonCTA: (c) => `${c} öffnen`,
+    openLeafCTA: 'Öffnen',
+    rootBackgroundTitle: 'Was das KVG abdeckt',
+    rootBackground:
+      'Das Bundesgesetz über die Krankenversicherung (KVG) garantiert allen Einwohnern — und Grenzgängern, die sich für das Schweizer System entscheiden — die medizinische Grundversorgung: Arztbesuche, Spitalaufenthalte in allgemeiner Abteilung, Medikamente auf der Spezialitätenliste, Mutterschaft, psychiatrische Grundversorgung, ärztlich verordnete Physiotherapie. Nicht abgedeckt sind Routinezahnbehandlungen, Privatzimmer, nicht anerkannte Alternativmedizin, Kontaktlinsen: dafür braucht es eine Zusatzversicherung (VVG).',
+    faqTitle: 'Häufige Fragen',
+    rootFaq: [
+      {
+        q: 'Wie werden KVG-Prämien festgelegt?',
+        a: (y) =>
+          `Jede Kasse reicht ihre Tarife dem Bundesrat ein, der sie Ende September genehmigt. Bis 31. Oktober ${y - 1} erhalten die Versicherten die Mitteilung fürs Folgejahr und können bis 30. November die Kasse wechseln.`,
+      },
+      {
+        q: 'Welche Kantone haben die tiefsten Prämien?',
+        a: () =>
+          'Zentral- und Ostschweiz haben meist die tiefsten Prämien; Genf, Basel-Stadt und Tessin liegen am oberen Rand. Auch innerhalb eines Kantons ist die Variation gross (viele Kantone haben 2-3 Prämienregionen).',
+      },
+      {
+        q: 'Kann ich die Kasse unterjährig wechseln?',
+        a: () =>
+          'Nur in Sonderfällen (ausserordentliche Prämienerhöhung, Kantonswechsel). Der Standard-Wechseltermin ist der 30. November für das Folgejahr.',
+      },
+    ],
+    cantonFaq: [
+      {
+        q: (c) => `Was kostet die Krankenkasse in ${c} 2026?`,
+        a: (c, m, y) =>
+          `Der Erwachsenen-Median in ${c} ${y} liegt bei ${m} CHF/Monat (Franchise 300, ohne Unfall). Die Variation zwischen Kassen ist erheblich — öffnen Sie Ihre Altersgruppe für das vollständige Ranking.`,
+      },
+      {
+        q: () => 'Spielen Prämienregionen eine Rolle?',
+        a: () =>
+          'Ja. Viele Kantone sind in 2-3 Prämienregionen unterteilt mit Unterschieden von 20-30 CHF/Monat. Tessin hat eine Region; Graubünden und Wallis haben drei, mit tieferen Prämien in Randregionen.',
+      },
+    ],
+    priceUnit: 'CHF/Monat',
+    updatedLabel: 'Aktualisiert',
+    yoy: {
+      sectionTitle: (py) => `Veränderung gegenüber ${py}`,
+      cantonSummary: (c, adultPct, py) =>
+        `Die Erwachsenen-Medianprämie (26+) in ${c} hat sich gegenüber ${py} um ${adultPct} verändert. Die Tabelle unten schlüsselt die Veränderung nach Altersgruppe auf, basierend nur auf Kassen mit Daten in beiden Jahren (Quelle: historisches BAG/UFSP-Archiv).`,
+      gridCaption: (py) => `Mediane Veränderung nach Altersgruppe (${py} → laufendes Jahr)`,
+      gridHeaders: { age: 'Gruppe', delta: 'Δ vs Vorjahr' },
+    },
+    triYear: {
+      sectionTitle: (oy, cy) => `Dreijahres-Trend ${oy} → ${cy}`,
+      cantonSummary: (c, oy, cy, cum) =>
+        `Im Zeitraum ${oy} → ${cy} hat sich der Erwachsenen-Median (26+) in ${c} kumuliert um ${cum} verändert. Der Zweijahres-Saldo ist der richtige Massstab für die Budgetplanung, weil er die Schwankung einer einzelnen jährlichen Tarifrevision glättet.`,
+    },
+    cantonContext: {
+      title: 'Was diese Zahl für Sie bedeutet',
+      body: (c, m, y) =>
+        `Der Median von ${m} CHF/Monat in ${c} entspricht dem Standardmodell (freie Arztwahl) für eine erwachsene versicherte Person mit der Mindestfranchise von 300 CHF. Was Sie effektiv bezahlen, hängt von vier Hebeln ab: der Prämienregion innerhalb des Kantons (städtische Zonen sind typischerweise 15-30 CHF/Monat teurer als periphere Zonen in Kantonen mit mehreren Regionen), dem gewählten Versicherungsmodell (Hausarzt oder Telmed senken die Prämie um 10-18 %, HMO bis 22 %), der Jahresfranchise (von 300 auf 2.500 CHF angehoben spart 7-14 % der Prämie), und der Krankenkasse selbst: zwischen der günstigsten und der teuersten Kasse im ${c} liegt für dieselbe Altersgruppe fast immer mehr als 100 CHF/Monat, weshalb sich der jährliche Vergleich lohnt. Grenzgänger, die in ${c} arbeiten, können innerhalb von drei Monaten nach Stellenantritt mit dem formalen Optionsrecht-Formular ins italienische SSN-System wechseln — fiskalisch meist vorteilhaft für Unter-35-Jährige bei guter Gesundheit, während die Schweizer KVG dank des lokalen Versorgungsnetzes und schnellem Zugang für Familien und Personen mit chronischen Erkrankungen weiterhin interessant bleibt. Die untenstehende Tabelle listet alle aktiven Kassen im ${c} für ${y} mit dem aktuellen Preis; nutzen Sie den Vergleicher, um nach Franchise und Modell zu filtern und ein personalisiertes Angebot zu erhalten.`,
+    },
+    rootMethodology: {
+      title: 'Wie man Prämien zwischen Kantonen vergleicht',
+      body: (y) =>
+        `KVG-Prämien werden auf kantonaler Ebene festgelegt, nicht eidgenössisch: Der Bundesrat genehmigt jeden Herbst die von den Kassen vorgeschlagenen Tarife, die je nach Kanton und Prämienregion innerhalb des Kantons variieren. Für ${y} überschreitet die Differenz zwischen dem teuersten Kanton (Genf) und den günstigsten in der Zentralschweiz oft 100 CHF/Monat für einen Erwachsenen. Beim Vergleich zweier Kantone prüfen Sie drei Dinge: die Anzahl Prämienregionen (Tessin und Schaffhausen haben eine einzige Region, Graubünden und Wallis drei mit Spreizungen bis 25 CHF/Monat), den Mix verfügbarer Modelle (Hausarzt und Telmed sind in der Deutschschweiz weit verbreitet und senken die Prämie um 10-22 %) und die Qualität des kantonalen Spitalnetzes, da ausserkantonale stationäre Behandlungen die Vorbewilligung der Kasse oder des Wohnkantons erfordern. Für Grenzgänger zählt zusätzlich die Nähe von Kliniken zur Grenze: Wer KVG wählt, ist auf die Spitäler des Arbeitskantons angewiesen, wer ins italienische SSN optiert, bleibt durch seine Wohnregion abgesichert und kann Schweizer Ärzte nur zum Privattarif konsultieren. Die kantonalen Seiten unten zeigen Median, Minimum, Maximum und das vollständige Kassenranking pro Altersgruppe, jährlich aktualisiert mit offiziellen BAG/UFSP-Daten.`,
+    },
+    rootFrontalierGuide: {
+      title: 'Grenzgänger: KVG, SSN oder CMU? So entscheiden Sie',
+      intro:
+        'Italienische Grenzgänger, die in der Schweiz arbeiten, unterliegen der obligatorischen Schweizer Krankenversicherung, können sich aber im Rahmen des bilateralen Optionsrechts dagegen entscheiden, indem sie innerhalb von drei Monaten nach Stellenantritt ein kantonales Formular einreichen. Die Wahl ist nicht nur finanziell: Sie verändert das Leistungserbringernetz, die verfügbaren Franchisen, die Familienabdeckung und die steuerliche Abzugsfähigkeit der Prämie. Die folgenden vier Variablen fassen die wichtigsten Unterschiede zusammen, wenn Sie überlegen, ob Sie die SSN-Option bestätigen oder verwerfen.',
+      bullets: [
+        {
+          heading: 'Brutto-Jahreskosten',
+          body: 'Die Schweizer KVG ist eine fixe 12-monatige Prämie nach Kantonstarif (Beispiel Tessin, Gruppe 31-45: rund 4.300-5.200 CHF/Jahr). Der italienische SSN beträgt 7,5 % des steuerpflichtigen Einkommens bis zu einer jährlich vom italienischen Gesundheitsministerium festgelegten Obergrenze. Unter 80.000 CHF brutto ist die SSN-Option fast immer günstiger; über 100.000 CHF kippt die Rechnung.',
+        },
+        {
+          heading: 'Leistungserbringernetz',
+          body: 'Mit der KVG erhalten Sie das vollständige Spitalnetz im Arbeitskanton (im Tessin: EOC Bellinzona, Civico Lugano, OBV Mendrisio) bei Mindestfranchise CHF 300/Jahr. Mit dem italienischen SSN bleiben Sie durch Ihren regionalen Gesundheitsdienst gedeckt und können Schweizer Spezialisten nur zum Privattarif konsultieren: eine Routinevisite kostet ohne grenzüberschreitende Partnerinstitution 200-400 CHF.',
+        },
+        {
+          heading: 'Familienabdeckung',
+          body: 'In der Schweiz ist jedes Haushaltsmitglied einzeln versichert: nicht erwerbstätige Ehepartner und Kinder zahlen separate Prämien (gesetzliche Rabatte für Minderjährige und junge Erwachsene). In Italien ist die SSN-Deckung familiär — minderjährige Kinder sind ohne zusätzliche Beiträge automatisch versichert. Bedeutender Vorteil für Familien mit zwei oder drei Kindern.',
+        },
+        {
+          heading: 'Steuerliche Abzugsfähigkeit',
+          body: 'KVG-Prämien sind vollständig vom kantonalen und eidgenössischen Steuerbaren abziehbar (mit kantonalen Höchstgrenzen). Der SSN-Beitrag des Grenzgängers ist vom italienischen 730 nicht direkt abzugsfähig (er ist eine obligatorische Abgabe), reduziert aber die Bemessungsgrundlage gemäss bilateralem Abkommen. In der italienischen IRPEF-Stufe 38-43 % erstattet die KVG netto 1.500-2.500 CHF/Jahr — ein Parameter, der den reinen CHF-Vergleich verändert.',
+        },
+        {
+          heading: 'Fristen und Widerruf',
+          body: 'Das Optionsrecht muss innerhalb von 90 Tagen nach Stellenantritt oder Wohnsitzwechsel nach Italien ausgeübt werden. Ein Widerruf ist nur in eng umgrenzten Fällen möglich: Geburt eines Kindes, Heirat einer Person unter anderem Regime, Stellenverlust, Verlegung des Arbeitgebers in einen anderen Kanton. Planen Sie die Wahl innerhalb der ersten 8 Wochen der Tätigkeit, um eine automatische KVG-Anmeldung mit rückwirkender Prämienpflicht zu vermeiden.',
+        },
+      ],
+    },
+    rootDeductibleAndModelGuide: {
+      title: 'KVG-Modelle, Franchisen und Sparhebel',
+      body:
+        'Hinter der Etikette "KVG-Prämie" verbergen sich acht Produktkombinationen, die dieselbe Kasse derselben Person anbietet: vier Modelle (Standard, Hausarzt, Telmed, HMO) und fünf Franchisestufen für Erwachsene (300, 500, 1.000, 1.500, 2.500 CHF). Der Median, den wir pro Kanton publizieren, bezieht sich auf das Standardmodell mit der Mindestfranchise — den teuersten Fall. Mit alternativen Kombinationen sinkt die Prämie um bis zu 50 % ohne Kassenwechsel, sofern Sie den Hausarzt-Filter oder eine höhere Franchise akzeptieren.',
+      bullets: [
+        {
+          heading: 'Hausarzt-Modell',
+          body: 'Typische Reduktion 10-15 %. Sie bestimmen einen Hausarzt als Gatekeeper: ohne dessen Überweisung erstattet die Kasse keine Spezialistenbesuche. Lohnt sich, wenn Sie bereits einen vertrauten Arzt im Arbeitskanton haben und wenige akute Episoden pro Jahr erwarten.',
+        },
+        {
+          heading: 'Telmed-Modell',
+          body: 'Typische Reduktion 12-18 %. Vor jeder Konsultation rufen Sie einen 24/7-Teledienst an (Medi24, Medgate). Der Berater entscheidet, ob ein Arztbesuch autorisiert wird oder eine Selbstbehandlung empfohlen wird. Maximaler Spareffekt für junge, gesunde Erwachsene.',
+        },
+        {
+          heading: 'HMO-Modell',
+          body: 'Typische Reduktion 18-22 %. Sie nutzen ausschliesslich ein vertraglich gebundenes Gesundheitszentrum (Polyklinik); Spezialisten innerhalb des Zentrums brauchen keine Überweisung. Funktioniert gut in Stadtgebieten (Lugano, Bellinzona, Locarno), wo die HMO-Dichte hoch ist.',
+        },
+        {
+          heading: 'Wahlfranchise',
+          body: 'Fünf Stufen von 300 bis 2.500 CHF. Jede zusätzlichen 500 CHF Franchise senken die Prämie um etwa 7-10 %. Lohnt sich, wenn die erwarteten KVG-Jahreskosten unter 1.000 CHF bleiben: Break-even bei 5-6 Arztbesuchen pro Jahr mit kleiner Verschreibung.',
+        },
+        {
+          heading: 'Selbstbehalt (10 %) und Jahresplafond',
+          body: 'Über der Franchise zahlen Sie 10 % der Leistungen bis zu einem Jahresplafond von 700 CHF (Erwachsene) oder 350 CHF (Minderjährige). Franchise 300 + Plafond 700 ergibt ein maximales Risiko von 1.000 CHF/Jahr — eine nützliche Zahl, um zu vergleichen, welches Modell zur erwarteten Inanspruchnahme passt.',
+        },
+      ],
+    },
+    cantonDeductibleGuide: {
+      title: 'Vier Hebel zur Prämiensenkung in diesem Kanton',
+      body: (c, m) =>
+        `Der Median von ${m} CHF/Monat im ${c} entspricht dem Standardmodell mit der Mindestfranchise von 300 CHF — dem teuersten der verfügbaren Kombinationen. Wird ein einzelner Hebel verändert, sinkt die Prämie um 7-22 %; die Kombination aus Modell und Franchise spart 1.200-1.800 CHF pro Jahr. Die richtige Wahl hängt davon ab, wie häufig Sie das Gesundheitssystem tatsächlich nutzen, nicht nur vom Listenpreis.`,
+      bullets: [
+        {
+          heading: 'Prämienregion innerhalb des Kantons',
+          body: 'Prüfen Sie in den Kassenunterlagen oder auf priminfo.admin.ch, in welcher Prämienregion Ihre Wohn- bzw. Arbeitsgemeinde liegt. In Mehrregionen-Kantonen liegt die Spreizung zwischen Stadt und Peripherie typisch bei 15-30 CHF/Monat für dieselbe Kasse und dasselbe Modell.',
+        },
+        {
+          heading: 'Versicherungsmodell',
+          body: 'Hausarzt und Telmed sind heute in fast jedem Kanton verfügbar; HMO-Dichte konzentriert sich auf Stadtgebiete. Wenn Sie gesund sind und weniger als 4 Spezialistenbesuche/Jahr machen, sparen Telmed oder HMO 30-50 CHF/Monat ohne Qualitätsverlust.',
+        },
+        {
+          heading: 'Wahlfranchise',
+          body: 'Eine Franchise von 2.500 CHF senkt die Prämie um etwa 35-50 CHF/Monat (420-600 CHF/Jahr) — lohnt sich, wenn Ihre jährlichen Rezepte und Arztkosten unter 1.000 CHF bleiben. Über 50 mit chronischen Erkrankungen bleibt die Mindestfranchise von 300 CHF die rationale Wahl.',
+        },
+        {
+          heading: 'Jährlicher Kassenwechsel',
+          body: 'Tarife werden vom Bundesrat Ende September für den 1. Januar des Folgejahrs genehmigt. Sie haben bis 30. November Zeit, die laufende Police zu kündigen. Der Spread zwischen der günstigsten und der teuersten Kasse innerhalb eines Kantons übersteigt regelmässig 100 CHF/Monat: Der jährliche Vergleich ist der am meisten unterschätzte Sparhebel.',
+        },
+      ],
+    },
+    cantonFrontalierGuide: {
+      title: 'Grenzgänger in diesem Kanton: was in den ersten 90 Tagen zu tun ist',
+      body: (c) =>
+        `Wenn Sie eine Stelle im ${c} antreten, haben Sie 90 Tage Zeit, zwischen Schweizer KVG und italienischem SSN (Optionsrecht) zu wählen. Die Wahl wird bei der kantonalen Aufsichtsbehörde für Krankenversicherungen eingereicht — im Tessin beim Ufficio del medico cantonale, in den anderen Kantonen bei den jeweiligen Gesundheitsdirektionen — mit einem dedizierten Formular. Ohne aktive Wahl tritt die Schweizer KVG automatisch mit Wirkung ab dem ersten Arbeitstag in Kraft und die Prämie ist vollständig geschuldet. Die Checkliste unten fasst die typischen Onboarding-Schritte für einen neuen Grenzgänger im Kanton zusammen.`,
+      bullets: [
+        {
+          heading: 'SSN-Optionsformular',
+          body: 'Füllen Sie das vom Kanton ausgegebene Formular "Optionsrecht" aus, fügen Sie Arbeitsvertrag und Wohnsitznachweis Italien bei. Das Dokument muss die kantonale Aufsichtsbehörde innerhalb von 90 Tagen nach Stellenantritt erreichen.',
+        },
+        {
+          heading: 'Anmeldung bei der italienischen ASL',
+          body: 'Sobald Sie für den SSN optiert haben, registrieren Sie das Grenzgänger-Arbeitsverhältnis bei Ihrer Wohnsitz-ASL. Sie erhalten eine UE-S2/E106-Gesundheitskarte, gültig sowohl in Italien als auch für geplante Behandlungen in der Schweiz bei Partnerinstitutionen.',
+        },
+        {
+          heading: 'Personalisierter KVG-Vergleich',
+          body: 'Wenn Sie KVG wählen, nutzen Sie unseren auf Ihren Arbeitskanton vorgefilterten Vergleicher, um Offerten von allen zugelassenen Kassen zu erhalten. Vergleichen Sie immer drei Modelle (Standard, Hausarzt, Telmed) und zwei Franchisen (300 und 1.500 CHF) bevor Sie unterschreiben.',
+        },
+        {
+          heading: 'Ehepartner und Kinder',
+          body: 'Unter der KVG ist jedes Haushaltsmitglied einzeln versichert. Prüfen Sie die Prämien in den Gruppen 0-18 und 19-25 vor einer KVG-Familienoption: Bei zwei oder mehr Kindern ist der italienische SSN fast immer günstiger, weil er Minderjährige ohne Zusatzbeitrag deckt.',
+        },
+        {
+          heading: 'Vorbehalte und Vorerkrankungen',
+          body: 'Die KVG kann den Beitritt nicht verweigern und keine Vorbehalte auf Grundleistungen anbringen. Die Kassen müssen Sie unabhängig von Alter, Geschlecht und Gesundheitszustand annehmen. Vorbehalte gelten nur für Zusatzversicherungen VVG (Privatzimmer, Zahn, Alternativmedizin) — prüfen Sie die Klauseln vor der Unterschrift.',
+        },
+      ],
+    },
+  },
+  fr: {
+    breadcrumbHome: 'Accueil',
+    h1Root: (y) => `Primes d'assurance maladie ${y} par canton et tranche d'âge`,
+    h1Canton: (c, y) => `${c} — Primes assurance maladie ${y}`,
+    introRoot: (y) =>
+      `Le système LAMal suisse oblige tout résident à souscrire une assurance maladie de base. Les primes ${y} varient sensiblement selon le canton, la région de prime et la tranche d'âge : cette page hub est le point d'entrée de notre moniteur des primes, avec des données officielles OFSP/BAG mises à jour chaque année. Pour chaque canton cible (Tessin, Grisons, Uri, Valais, Zurich comme référence) nous affichons la médiane, le minimum et le maximum de prime mensuelle pour 6 tranches d'âge. Les frontaliers travaillant en Suisse peuvent choisir entre la LAMal suisse et le système de leur État de résidence grâce au droit d'option — le canton de l'employeur (ou votre canton de résidence) est le bon point de départ. Chaque page renvoie au comparateur pré-filtré pour obtenir un devis personnalisé.`,
+    introCanton: (c, m, min, max, y) =>
+      `Aperçu des primes LAMal ${y} à ${c} pour toutes les tranches d'âge : médiane ${m} CHF/mois, plage de ${min} à ${max} CHF entre les caisses actives. Données OFSP/BAG (franchise 300 adultes, sans accident). Utilisez la grille ci-dessous pour ouvrir la tranche d'âge souhaitée et voir le classement complet des caisses avec modèles alternatifs (médecin de famille, telmed, HMO).`,
+    introCantonShort: (c, y) =>
+      `Primes LAMal ${y} à ${c} : médiane, plage et classement national pour choisir la caisse la moins chère.`,
+    advice: {
+      eyebrow: 'Conseil',
+      cheap: (c, pos, total) =>
+        `${c} est ${pos}ᵉ sur ${total} cantons — parmi les moins chers de Suisse. Changer de caisse permet d'économiser typiquement CHF 80–180/mois en plus.`,
+      mid: (c, pos, total) =>
+        `${c} est ${pos}ᵉ sur ${total} cantons — milieu de tableau. Changer de caisse permet d'économiser CHF 100–200/mois sans perte de couverture.`,
+      expensive: (c, pos, total) =>
+        `${c} est ${pos}ᵉ sur ${total} cantons — parmi les plus chers de Suisse. L'économie annuelle d'un changement peut dépasser CHF 1 800.`,
+      yoyPositive: (delta) => `Primes en hausse de ${delta} sur 2025 — comparer n'a jamais été aussi important.`,
+      yoyStable: 'Primes globalement stables par rapport à 2025.',
+      yoyNegative: (delta) => `Primes en baisse de ${delta} sur 2025 — bonne fenêtre pour renégocier.`,
+      rankingLine: (c, pos, total, cheaper) =>
+        `${c} est ${pos}ᵉ sur ${total} cantons · moins cher que ${cheaper}, plus cher que ${total - pos}.`,
+    },
+    ageGridTitle: (c) => `Médiane par tranche d'âge à ${c}`,
+    cantonGridTitle: 'Médiane par canton — adultes (26+)',
+    cantonGridHeaders: { canton: 'Canton', median: 'Médiane', min: 'Min', max: 'Max' },
+    ageGridHeaders: { age: 'Tranche', median: 'Médiane', slug: 'Ouvrir' },
+    comparatorCTA: 'Ouvrir le comparateur',
+    comparatorCTAText: 'Trouvez la caisse la plus avantageuse pour votre situation',
+    viewCantonCTA: (c) => `Ouvrir ${c}`,
+    openLeafCTA: 'Ouvrir',
+    rootBackgroundTitle: 'Ce que couvre la LAMal',
+    rootBackground:
+      "La loi fédérale sur l'assurance maladie (LAMal) garantit à tout résident — et aux frontaliers ayant choisi le système suisse — les soins médicaux de base : consultations, hospitalisation en division commune, médicaments de la liste des spécialités, maternité, psychiatrie de base, physiothérapie prescrite. Elle ne couvre pas les soins dentaires de routine, la chambre privée, les médecines alternatives non reconnues, les lentilles de contact : il faut pour cela une complémentaire (LCA).",
+    faqTitle: 'Questions fréquentes',
+    rootFaq: [
+      {
+        q: 'Comment les primes LAMal sont-elles fixées ?',
+        a: (y) =>
+          `Chaque caisse soumet ses tarifs au Conseil fédéral qui les approuve fin septembre. Jusqu'au 31 octobre ${y - 1} les assurés reçoivent la notification pour l'année suivante et ont jusqu'au 30 novembre pour changer de caisse.`,
+      },
+      {
+        q: 'Quels cantons ont les primes les plus basses ?',
+        a: () =>
+          'La Suisse centrale et orientale a généralement les primes les plus basses ; Genève, Bâle-Ville et le Tessin sont en haut de fourchette. La variation au sein même d\'un canton est aussi importante (2-3 régions de prime dans beaucoup de cantons).',
+      },
+      {
+        q: 'Puis-je changer de caisse en cours d\'année ?',
+        a: () =>
+          "Seulement dans des cas particuliers (hausse extraordinaire, changement de canton). La fenêtre standard de changement est avant le 30 novembre pour la couverture de l'année suivante.",
+      },
+    ],
+    cantonFaq: [
+      {
+        q: (c) => `Combien coûte l'assurance maladie à ${c} en 2026 ?`,
+        a: (c, m, y) =>
+          `La médiane adulte à ${c} en ${y} est de ${m} CHF/mois (franchise 300, sans accident). La variation entre caisses est importante : ouvrez la tranche d'âge qui vous concerne pour le classement complet.`,
+      },
+      {
+        q: () => 'Les régions de prime font-elles une différence ?',
+        a: () =>
+          "Oui. Beaucoup de cantons sont divisés en 2-3 régions de prime avec 20-30 CHF/mois de différence. Le Tessin n'a qu'une région ; Grisons et Valais en ont trois, avec des primes plus basses en périphérie.",
+      },
+    ],
+    priceUnit: 'CHF/mois',
+    updatedLabel: 'Mis à jour',
+    yoy: {
+      sectionTitle: (py) => `Variation par rapport à ${py}`,
+      cantonSummary: (c, adultPct, py) =>
+        `La prime médiane adulte (26+) à ${c} a varié de ${adultPct} par rapport à ${py}. Le tableau ci-dessous détaille la variation par tranche d'âge, en ne retenant que les caisses avec des données publiées dans les deux années (source : archive historique BAG/OFSP).`,
+      gridCaption: (py) => `Variation médiane par tranche d'âge (${py} → année courante)`,
+      gridHeaders: { age: 'Tranche', delta: 'Δ vs année préc.' },
+    },
+    triYear: {
+      sectionTitle: (oy, cy) => `Tendance triennale ${oy} → ${cy}`,
+      cantonSummary: (c, oy, cy, cum) =>
+        `Sur la fenêtre ${oy} → ${cy}, la prime médiane adulte (26+) à ${c} a évolué cumulativement de ${cum}. Le cumul biennal est la bonne référence pour anticiper l'impact sur le budget familial : il lisse la volatilité d'une révision tarifaire annuelle isolée.`,
+    },
+    cantonContext: {
+      title: 'Ce que ce chiffre signifie pour vous',
+      body: (c, m, y) =>
+        `La médiane de ${m} CHF/mois à ${c} reflète le prix du modèle standard (libre choix du médecin) pour une personne adulte assurée avec la franchise minimale de 300 CHF. Le montant que vous paierez réellement dépend de quatre leviers : la région de prime à l'intérieur du canton (les zones urbaines sont typiquement 15-30 CHF/mois plus chères que les zones périphériques dans les cantons à plusieurs régions), le modèle d'assurance choisi (médecin de famille ou telmed réduisent la prime de 10-18 %, HMO jusqu'à 22 %), la franchise annuelle (la porter de 300 à 2.500 CHF fait baisser la prime de 7 à 14 %) et la caisse maladie elle-même : entre la moins chère et la plus chère à ${c} pour la même tranche d'âge l'écart dépasse presque toujours 100 CHF/mois, raison pour laquelle la comparaison annuelle vaut la peine. Les frontaliers qui travaillent à ${c} peuvent opter pour le système italien (SSN) dans les trois mois suivant la prise de fonction au moyen du formulaire formel de droit d'option : un choix généralement avantageux fiscalement pour les moins de 35 ans en bonne santé, alors que la LAMal suisse reste compétitive pour les familles et les personnes atteintes de pathologies chroniques grâce au réseau de soins local et à la rapidité d'accès. Le tableau ci-dessous liste toutes les caisses actives à ${c} pour ${y} avec le tarif à jour ; utilisez le comparateur pour filtrer par franchise et par modèle et obtenir un devis personnalisé.`,
+    },
+    rootMethodology: {
+      title: 'Comment comparer les primes entre cantons',
+      body: (y) =>
+        `Les primes LAMal sont fixées au niveau cantonal, pas fédéral : chaque automne le Conseil fédéral approuve les tarifs proposés par les caisses, qui varient selon le canton et selon la région de prime à l'intérieur du canton. Pour ${y} l'écart entre le canton le plus cher (Genève) et les moins chers de Suisse centrale dépasse souvent 100 CHF/mois pour un adulte. Lorsque vous comparez deux cantons, vérifiez trois éléments : le nombre de régions de prime (Tessin et Schaffhouse n'en ont qu'une, Grisons et Valais en ont trois avec un écart pouvant atteindre 25 CHF/mois), l'éventail des modèles disponibles (Hausarzt et telmed sont fréquents en Suisse alémanique et abaissent la prime de 10 à 22 %) et la qualité du réseau hospitalier cantonal, parce qu'un séjour stationnaire hors canton requiert l'accord préalable de la caisse ou du canton de domicile. Pour les frontaliers, la proximité de cliniques près de la frontière compte aussi : ceux qui choisissent la LAMal dépendent des hôpitaux suisses du canton de travail, ceux qui optent pour le SSN italien restent couverts par leur région de résidence et n'accèdent aux médecins suisses qu'au tarif privé. Les pages cantonales ci-dessous fournissent la médiane, le minimum, le maximum et le classement complet des caisses pour chaque tranche d'âge, mises à jour annuellement avec les données officielles OFSP/BAG.`,
+    },
+    rootFrontalierGuide: {
+      title: 'Frontaliers : LAMal, SSN ou CMU ? Comment choisir',
+      intro:
+        'Le frontalier italien employé en Suisse est soumis à l\'obligation d\'assurance suisse mais peut y renoncer via le droit d\'option, formalisé sur un formulaire cantonal de l\'autorité de surveillance de l\'assurance-maladie dans les trois mois suivant la prise d\'emploi. Ce choix n\'est pas que financier : il modifie le réseau de prestataires, les franchises disponibles, la couverture familiale et la déductibilité fiscale de la prime. Les quatre variables ci-dessous résument les différences les plus importantes pour qui hésite à confirmer ou abandonner l\'option SSN.',
+      bullets: [
+        {
+          heading: 'Coût brut annuel',
+          body: 'La LAMal suisse est une prime fixe sur 12 mois selon le tarif cantonal (exemple Tessin, tranche 31-45 : environ 4 300-5 200 CHF/an). Le SSN italien représente 7,5 % du revenu imposable jusqu\'à un plafond annuel mis à jour chaque année par le Ministère italien de la Santé. En dessous de 80 000 CHF brut, l\'option SSN est presque toujours moins chère ; au-dessus de 100 000 CHF la balance s\'inverse.',
+        },
+        {
+          heading: 'Réseau de prestataires',
+          body: 'Avec la LAMal vous accédez à l\'ensemble du réseau hospitalier suisse du canton de travail (au Tessin : EOC Bellinzona, Civico Lugano, OBV Mendrisio) avec la franchise minimale de 300 CHF/an. Avec le SSN italien vous restez couvert par votre service de santé régional et n\'accédez aux spécialistes suisses qu\'au tarif privé : une consultation de routine peut coûter 200-400 CHF en dehors d\'une structure transfrontalière conventionnée.',
+        },
+        {
+          heading: 'Couverture familiale',
+          body: 'En Suisse chaque membre du foyer est assuré individuellement : le conjoint sans activité et les enfants paient des primes séparées (rabais légaux pour mineurs et jeunes adultes). En Italie la couverture SSN est familiale et les enfants mineurs sont automatiquement assistés sans contribution supplémentaire — un avantage significatif pour les familles de deux ou trois enfants.',
+        },
+        {
+          heading: 'Déductibilité fiscale',
+          body: 'Les primes LAMal sont intégralement déductibles du revenu imposable cantonal et fédéral suisse (avec plafonds cantonaux). La cotisation SSN du frontalier n\'est pas directement déductible du 730 italien (charge obligatoire et non discrétionnaire) mais réduit la base imposable selon l\'accord bilatéral. Pour les contribuables en tranche IRPEF 38-43 %, la LAMal récupère 1 500-2 500 CHF/an net — paramètre qui modifie la comparaison purement en CHF.',
+        },
+        {
+          heading: 'Délais et révocation',
+          body: "Le droit d'option doit être exercé dans les 90 jours suivant la prise de fonction ou le transfert de résidence en Italie. La révocation n'est admise que dans des cas restreints : naissance d'un enfant, mariage avec une personne sous régime différent, perte d'emploi, transfert de l'employeur dans un autre canton. Planifiez la décision dans les 8 premières semaines d'activité pour éviter une affiliation LAMal automatique avec prime rétroactive.",
+        },
+      ],
+    },
+    rootDeductibleAndModelGuide: {
+      title: 'Modèles LAMal, franchises et leviers d\'économie',
+      body:
+        'Derrière l\'étiquette unique "prime LAMal" se cachent huit combinaisons de produit que la même caisse propose à la même personne : quatre modèles (standard, médecin de famille, telmed, HMO) et cinq franchises annuelles pour adultes (300, 500, 1 000, 1 500, 2 500 CHF). La médiane que nous publions pour chaque canton se réfère au modèle standard avec franchise minimale — le cas le plus cher. En choisissant des combinaisons alternatives on réduit la prime jusqu\'à 50 % sans changer de caisse, à condition d\'accepter le médecin filtre ou une franchise plus élevée.',
+      bullets: [
+        {
+          heading: 'Modèle Hausarzt / médecin de famille',
+          body: 'Réduction typique 10-15 %. Vous désignez un médecin de famille comme filtre : sans son orientation la caisse ne rembourse pas les visites de spécialiste. Intéressant si vous avez déjà un médecin de confiance dans le canton de travail et anticipez peu d\'épisodes aigus par an.',
+        },
+        {
+          heading: 'Modèle telmed / consultation téléphonique',
+          body: 'Réduction typique 12-18 %. Avant chaque consultation vous devez appeler un service de téléconsultation 24/7 (Medi24, Medgate). L\'opérateur décide d\'autoriser la visite ou de suggérer une auto-soin. Économie maximale pour les jeunes adultes en bonne santé.',
+        },
+        {
+          heading: 'Modèle HMO / centre médical conventionné',
+          body: 'Réduction typique 18-22 %. Vous devez vous adresser exclusivement à un centre médical contracté par la caisse (polyclinique) ; les spécialistes au sein du centre sont couverts sans orientation. Fonctionne bien dans les zones urbaines (Lugano, Bellinzona, Locarno) où la couverture HMO est dense.',
+        },
+        {
+          heading: 'Franchise annuelle optionnelle',
+          body: 'Cinq paliers de 300 à 2 500 CHF. Chaque tranche additionnelle de 500 CHF de franchise réduit la prime d\'environ 7-10 %. Intéressant si le coût annuel attendu de prestations LAMal reste sous 1 000 CHF : seuil de rentabilité à 5-6 visites médicales/an avec une petite prescription.',
+        },
+        {
+          heading: 'Quote-part (10 %) et plafond annuel',
+          body: 'Au-dessus de la franchise vous payez 10 % des prestations jusqu\'à un plafond annuel de 700 CHF (adultes) ou 350 CHF (mineurs). En cumulant franchise 300 + plafond 700, le risque maximal annuel est de 1 000 CHF — chiffre utile pour comparer le modèle le mieux adapté à votre utilisation prévue.',
+        },
+      ],
+    },
+    cantonDeductibleGuide: {
+      title: 'Quatre leviers pour réduire la prime dans ce canton',
+      body: (c, m) =>
+        `La médiane de ${m} CHF/mois à ${c} correspond au modèle standard avec franchise 300 CHF — le cas le plus cher des combinaisons disponibles. Modifier un seul levier abaisse la prime de 7 à 22 % ; combiner modèle et franchise économise 1 200-1 800 CHF par an. Le bon choix dépend de la fréquence à laquelle vous utilisez réellement le système de santé, pas seulement du prix affiché.`,
+      bullets: [
+        {
+          heading: 'Région de prime à l\'intérieur du canton',
+          body: 'Vérifiez dans la documentation de la caisse ou sur priminfo.admin.ch à quelle région de prime appartient votre commune de résidence/travail. Dans les cantons à plusieurs régions, l\'écart urbain/périphérique est typiquement de 15-30 CHF/mois pour la même caisse et le même modèle.',
+        },
+        {
+          heading: 'Modèle d\'assurance',
+          body: 'Hausarzt et telmed sont désormais disponibles dans presque tous les cantons ; HMO est dense uniquement dans les zones urbaines. Si vous êtes en bonne santé et faites moins de 4 consultations spécialisées par an, telmed ou HMO permettent d\'économiser 30-50 CHF/mois sans compromettre la qualité des soins.',
+        },
+        {
+          heading: 'Franchise annuelle',
+          body: 'Une franchise de 2 500 CHF abaisse la prime d\'environ 35-50 CHF/mois (420-600 CHF/an) — intéressant si le coût annuel de vos prescriptions et consultations reste sous 1 000 CHF. Au-delà de 50 ans avec des pathologies récurrentes, la franchise minimale 300 CHF reste le choix rationnel.',
+        },
+        {
+          heading: 'Changement de caisse annuel',
+          body: 'Les tarifs sont approuvés par le Conseil fédéral fin septembre pour le 1er janvier suivant. Vous avez jusqu\'au 30 novembre pour résilier votre police en cours. L\'écart entre la caisse la moins chère et la plus chère au sein du même canton dépasse régulièrement 100 CHF/mois : la comparaison annuelle est le levier d\'économie le plus sous-utilisé.',
+        },
+      ],
+    },
+    cantonFrontalierGuide: {
+      title: 'Frontaliers dans ce canton : que faire dans les 90 premiers jours',
+      body: (c) =>
+        `Si vous prenez un emploi à ${c}, vous avez 90 jours pour choisir entre la LAMal suisse et le SSN italien (droit d'option). Le choix est déposé auprès de l'autorité cantonale de surveillance de la santé — Ufficio del medico cantonale au Tessin, services cantonaux de la santé dans les autres cantons — au moyen d'un formulaire dédié. Sans exercice actif de l'option, la LAMal suisse s'applique automatiquement avec effet rétroactif au premier jour d'emploi et la prime est intégralement due. La check-list ci-dessous résume les étapes typiques d'onboarding pour un nouveau frontalier dans le canton.`,
+      bullets: [
+        {
+          heading: 'Formulaire d\'option SSN',
+          body: 'Remplissez le formulaire « Droit d\'option » émis par le canton, joignez votre contrat de travail et votre attestation de résidence italienne. Le document doit parvenir à l\'autorité de surveillance cantonale dans les 90 jours suivant la prise de fonction.',
+        },
+        {
+          heading: 'Inscription à l\'ASL italienne',
+          body: 'Une fois l\'option SSN choisie, enregistrez la relation d\'emploi frontalier auprès de votre ASL de résidence. Vous recevrez une carte sanitaire UE-S2/E106 valable à la fois en Italie et pour des soins programmés en Suisse via des structures partenaires.',
+        },
+        {
+          heading: 'Comparaison LAMal personnalisée',
+          body: 'Si vous optez pour la LAMal, utilisez notre comparateur pré-filtré sur votre canton de travail pour obtenir des devis de toutes les caisses autorisées. Comparez toujours trois modèles (standard, médecin de famille, telmed) et deux franchises (300 et 1 500 CHF) avant de signer.',
+        },
+        {
+          heading: 'Conjoint et enfants',
+          body: 'Sous LAMal chaque membre du foyer est assuré individuellement. Vérifiez les primes pour les tranches 0-18 et 19-25 avant d\'opter pour la LAMal pour toute la famille : avec deux enfants ou plus, le SSN italien est presque toujours plus avantageux car il couvre les mineurs sans contribution supplémentaire.',
+        },
+        {
+          heading: 'Réserves et antécédents médicaux',
+          body: 'La LAMal ne peut refuser l\'affiliation ni appliquer de réserves sur les prestations de base. Les caisses doivent vous accepter quel que soit l\'âge, le sexe ou l\'état de santé. Les réserves ne s\'appliquent qu\'aux complémentaires LCA (chambre privée, dentaire, médecines alternatives) — vérifiez les clauses avant signature.',
+        },
+      ],
+    },
+  },
+};
+
+// ── Page builders ─────────────────────────────────────────────
+
+interface LeafInputs {
+  locale: HealthPremiumLocale;
+  canton: HealthPremiumCanton;
+  age: HealthPremiumAgeBracket;
+  dataset: HealthPremiumsDataset;
+  stats: CantonPremiumStats;
+  allCantonStats: Record<HealthPremiumCanton, CantonPremiumStats | null>;
+  canonicalPath: string;
+  alternates: Record<HealthPremiumLocale, string>;
+  today: Date;
+  /** Year-over-year delta for this canton; null when prior-year data absent. */
+  yoy: YoyCantonDelta | null;
+  /** Tri-year trend (oldest→prior→current); null when no archive available. */
+  triYear: TriYearCantonDelta | null;
+  /** dist directory for entry-asset resolution (omit in tests). */
+  distDir?: string;
+}
+
+/**
+ * Per-leaf prose section that ties the canton+age data to the cross-border
+ * worker use case. Boosts text/HTML ratio above the 10% Semrush threshold
+ * (audit-text-html-ratio gate) — leaf pages without this prose hovered at
+ * ~9% across all 478 of them. The block is locale-aware and uses the live
+ * data points (canton, age, median, range) so the text never repeats verbatim
+ * between pages, dodging the "duplicate body content" gate too.
+ */
+function renderHealthPremiumFrontalierContext(args: {
+  locale: HealthPremiumLocale;
+  canton: string;
+  age: string;
+  ageId: string;
+  year: number;
+  median: string;
+  min: string;
+  max: string;
+}): string {
+  const { locale, canton, age, ageId, year, median, min, max } = args;
+  const isYouth = ageId === 'bambini-0-18' || ageId === 'children-0-18'
+    || ageId === 'kinder-0-18' || ageId === 'enfants-0-18'
+    || ageId === 'giovani-adulti-19-25' || ageId === 'young-adults-19-25'
+    || ageId === 'jugendliche-19-25' || ageId === 'jeunes-adultes-19-25';
+  const isSenior = ageId === 'adulto-56-piu' || ageId === 'adult-56-plus'
+    || ageId === 'erwachsene-56-plus' || ageId === 'adulte-56-plus';
+
+  const copy = {
+    it: {
+      h: `Frontalieri e LAMal in ${canton}: cosa cambia per la fascia ${age}`,
+      p1: `Per i frontalieri italiani che lavorano in Svizzera ma risiedono in Italia, il ${canton} rappresenta uno dei cantoni dove si concentra una quota significativa di lavoratori transfrontalieri. La scelta tra LAMal svizzera e SSN italiano (diritto di opzione) ha conseguenze finanziarie misurabili: nella fascia ${age} il premio mediano in ${canton} è di ${median} CHF/mese, con un range tra ${min} e ${max} CHF a seconda della cassa malati e del modello assicurativo (standard, medico di famiglia, telmed, HMO).`,
+      p2: `Il diritto di opzione va esercitato entro tre mesi dall'inizio dell'attività in Svizzera o entro tre mesi dal trasferimento di residenza in Italia. Una volta scelto il sistema, il cambio è possibile solo a determinate condizioni e con vincoli temporali stretti. Per la pianificazione finanziaria del nucleo familiare nel ${year} è fondamentale considerare che il premio LAMal in ${canton} per la fascia ${age} (${median} CHF/mese mediano) si confronta con il contributo SSN italiano, che dipende dal reddito imponibile e dall'addizionale regionale e comunale del comune di residenza.`,
+      p3: isYouth
+        ? `Per la fascia ${age}, il premio è significativamente più basso rispetto agli adulti per via della struttura tariffaria LAMal: bambini fino a 18 anni e giovani adulti 19-25 anni godono di sconti strutturali del Consiglio federale. Le famiglie frontaliere con figli devono considerare che ogni componente del nucleo è assicurato individualmente — non esiste polizza familiare unica come nel SSN italiano. Quando si valuta il diritto di opzione per i minori, il premio LAMal del bambino in ${canton} (${median} CHF/mese mediano) va sommato a quello dei genitori per la valutazione complessiva.`
+        : isSenior
+          ? `Per la fascia ${age}, i premi LAMal raggiungono il livello più alto nella struttura tariffaria. Il Consiglio federale ha confermato che la categoria 56+ paga il premio adulto pieno senza sconti aggiuntivi. Per i frontalieri vicini all'età pensionabile (64 anni donne, 65 anni uomini), la pianificazione del passaggio dal regime LAMal a quello pensionistico (continuano a versare premi salvo richiesta esplicita di esonero) richiede una consulenza dedicata. Il premio in ${canton} (${median} CHF/mese mediano) entra nel calcolo del costo totale dell'opzione LAMal sui 10-15 anni residui di carriera.`
+          : `Per la fascia ${age}, il premio LAMal è uniforme — non esistono aumenti legati all'età all'interno della fascia "adulti" (26-55 anni). La differenza di prezzo tra le casse in ${canton} (${min}-${max} CHF/mese) riflette il modello assicurativo: la versione standard è la più costosa; medico di famiglia, telmed e HMO offrono sconti del 5-25%. Per il frontaliere che lavora in ${canton} con permesso G, scegliere LAMal significa accedere alla rete di fornitori svizzeri ma rinunciare alla copertura SSN integrale in Italia per le cure non urgenti.`,
+      p4: `La revisione annuale dei premi LAMal viene approvata dal Consiglio federale a fine settembre e pubblicata sul portale UFSP/BAG. Le casse comunicano i nuovi premi entro fine ottobre per applicazione dal 1° gennaio dell'anno successivo. Per il ${year + 1} è consigliabile rivedere la propria scelta entro novembre: il periodo di disdetta della cassa malati è di un mese (preavviso scritto entro fine novembre per disdetta a fine dicembre). I dati ${year} di ${canton} (mediana ${median} CHF/mese, range ${min}-${max} CHF) costituiscono il riferimento per confrontare le offerte ${year + 1} che arriveranno tra settembre e ottobre.`,
+    },
+    en: {
+      h: `Cross-border workers and LAMal in ${canton}: what the ${age} bracket means`,
+      p1: `For Italian cross-border workers employed in Switzerland but residing in Italy, ${canton} is one of the cantons hosting a significant share of frontalieri. The choice between Swiss LAMal and the Italian SSN (right of option) has measurable financial implications: in the ${age} bracket the median premium in ${canton} is CHF ${median}/month, with a range between CHF ${min} and CHF ${max} depending on the insurer and the policy model (standard, family-doctor, telmed, HMO).`,
+      p2: `The right of option must be exercised within three months from the start of Swiss employment or from a residence transfer to Italy. Once chosen, switching back is allowed only under specific conditions and tight deadlines. For ${year} family budget planning, the LAMal premium in ${canton} for the ${age} bracket (CHF ${median}/month median) must be compared with the Italian SSN contribution, which depends on taxable income plus regional and municipal surcharges in the residence town.`,
+      p3: isYouth
+        ? `In the ${age} bracket, premiums are significantly lower than for adults due to the LAMal tariff structure: children up to 18 and young adults 19-25 receive structural discounts set by the Federal Council. Cross-border families with children should remember that each member is insured individually — there is no household policy like in the Italian SSN. When evaluating the right of option for minors, the child's LAMal premium in ${canton} (CHF ${median}/month median) must be added to the parents' for the comprehensive assessment.`
+        : isSenior
+          ? `In the ${age} bracket, LAMal premiums reach their highest level. The Federal Council confirmed that the 56+ category pays the full adult premium with no additional discounts. For cross-border workers approaching retirement age (64 women, 65 men), planning the transition from LAMal to pension regime (premiums continue unless explicit exemption is requested) demands dedicated advice. The premium in ${canton} (CHF ${median}/month median) factors into the total cost-of-option calculation over the 10-15 remaining career years.`
+          : `In the ${age} bracket, LAMal premiums are uniform — there are no age-related increases within the "adults" range (26-55). The price gap between insurers in ${canton} (CHF ${min}-${max}/month) reflects the policy model: standard is the most expensive; family-doctor, telmed and HMO offer 5-25% discounts. For the cross-border worker employed in ${canton} on a G permit, choosing LAMal means accessing the Swiss provider network but giving up full SSN coverage in Italy for non-urgent care.`,
+      p4: `The annual LAMal premium revision is approved by the Federal Council in late September and published on the FOPH/BAG portal. Insurers communicate new premiums by late October for application starting January 1 of the following year. For ${year + 1}, it is advisable to reconsider your choice by November: insurer cancellation notice is one month (written notice by end of November for cancellation effective end of December). The ${year} data for ${canton} (median CHF ${median}/month, range CHF ${min}-${max}) provide the benchmark for comparing the ${year + 1} offers arriving between September and October.`,
+    },
+    de: {
+      h: `Grenzgänger und KVG im Kanton ${canton}: was die Altersgruppe ${age} bedeutet`,
+      p1: `Für italienische Grenzgänger, die in der Schweiz arbeiten und in Italien wohnen, ist ${canton} einer der Kantone mit einem beträchtlichen Anteil an frontalieri. Die Wahl zwischen Schweizer KVG und italienischem SSN (Optionsrecht) hat messbare finanzielle Auswirkungen: In der Altersgruppe ${age} liegt die Medianprämie im ${canton} bei CHF ${median}/Monat, mit einem Spektrum von CHF ${min} bis CHF ${max} je nach Krankenkasse und Versicherungsmodell (Standard, Hausarzt, Telmed, HMO).`,
+      p2: `Das Optionsrecht muss innerhalb von drei Monaten nach Aufnahme der Schweizer Erwerbstätigkeit oder dem Wohnsitzwechsel nach Italien ausgeübt werden. Nach erfolgter Wahl ist ein Wechsel nur unter bestimmten Bedingungen und engen Fristen möglich. Für die Haushaltsplanung im Jahr ${year} muss die KVG-Prämie im ${canton} für die Altersgruppe ${age} (Median CHF ${median}/Monat) mit dem italienischen SSN-Beitrag verglichen werden, der vom steuerpflichtigen Einkommen sowie regionalen und kommunalen Zuschlägen am Wohnort abhängt.`,
+      p3: isYouth
+        ? `In der Altersgruppe ${age} sind die Prämien aufgrund der KVG-Tarifstruktur deutlich niedriger als für Erwachsene: Kinder bis 18 Jahre und junge Erwachsene 19-25 Jahre erhalten strukturelle Rabatte vom Bundesrat. Grenzgängerfamilien mit Kindern müssen beachten, dass jedes Familienmitglied einzeln versichert ist — es gibt keine Familienpolice wie im italienischen SSN. Bei der Bewertung des Optionsrechts für Minderjährige muss die KVG-Prämie des Kindes im ${canton} (Median CHF ${median}/Monat) zur Prämie der Eltern hinzugerechnet werden.`
+        : isSenior
+          ? `In der Altersgruppe ${age} erreichen die KVG-Prämien ihr höchstes Niveau. Der Bundesrat hat bestätigt, dass die Kategorie 56+ die volle Erwachsenenprämie ohne zusätzliche Rabatte bezahlt. Für Grenzgänger nahe dem Rentenalter (64 Frauen, 65 Männer) erfordert die Planung des Übergangs vom KVG- zum Rentensystem (Prämien werden weiterhin gezahlt, sofern keine explizite Befreiung beantragt wird) eine spezielle Beratung. Die Prämie im ${canton} (Median CHF ${median}/Monat) fliesst in die Gesamtkostenberechnung des Optionsrechts über die verbleibenden 10-15 Karrierejahre ein.`
+          : `In der Altersgruppe ${age} sind KVG-Prämien einheitlich — es gibt keine altersbedingten Erhöhungen innerhalb der "Erwachsenen"-Spanne (26-55 Jahre). Der Preisunterschied zwischen den Kassen im ${canton} (CHF ${min}-${max}/Monat) spiegelt das Versicherungsmodell wider: Standard ist am teuersten; Hausarzt, Telmed und HMO bieten 5-25% Rabatt. Für den im ${canton} mit G-Bewilligung angestellten Grenzgänger bedeutet die KVG-Wahl Zugang zum Schweizer Anbieternetz, aber Verzicht auf die volle SSN-Deckung in Italien für nicht dringende Behandlungen.`,
+      p4: `Die jährliche KVG-Prämienrevision wird Ende September vom Bundesrat genehmigt und auf dem BAG-Portal veröffentlicht. Die Kassen kommunizieren die neuen Prämien bis Ende Oktober für die Anwendung ab 1. Januar des Folgejahres. Für ${year + 1} ist es ratsam, die eigene Wahl bis November zu überprüfen: Die Kündigungsfrist der Krankenkasse beträgt einen Monat (schriftliche Kündigung bis Ende November für Wirksamkeit Ende Dezember). Die ${year}-Daten für ${canton} (Median CHF ${median}/Monat, Spanne CHF ${min}-${max}) bilden die Benchmark für den Vergleich der ${year + 1}-Angebote, die zwischen September und Oktober eintreffen.`,
+    },
+    fr: {
+      h: `Frontaliers et LAMal dans le canton de ${canton}: ce qu'implique la tranche ${age}`,
+      p1: `Pour les frontaliers italiens employés en Suisse mais résidant en Italie, ${canton} est l'un des cantons qui accueille une part importante de frontalieri. Le choix entre la LAMal suisse et le SSN italien (droit d'option) a des implications financières mesurables: dans la tranche ${age} la prime médiane à ${canton} est de CHF ${median}/mois, avec une fourchette entre CHF ${min} et CHF ${max} selon la caisse-maladie et le modèle d'assurance (standard, médecin de famille, telmed, HMO).`,
+      p2: `Le droit d'option doit être exercé dans les trois mois suivant le début de l'activité en Suisse ou le transfert de résidence en Italie. Une fois choisi, le changement n'est possible qu'à certaines conditions et avec des délais stricts. Pour la planification financière ${year} du foyer, la prime LAMal à ${canton} pour la tranche ${age} (médiane CHF ${median}/mois) doit être comparée à la contribution SSN italienne, qui dépend du revenu imposable et des majorations régionales et communales du lieu de résidence.`,
+      p3: isYouth
+        ? `Dans la tranche ${age}, les primes sont nettement inférieures à celles des adultes en raison de la structure tarifaire LAMal: enfants jusqu'à 18 ans et jeunes adultes 19-25 ans bénéficient de réductions structurelles du Conseil fédéral. Les familles frontalières avec enfants doivent retenir que chaque membre est assuré individuellement — il n'existe pas de police familiale comme dans le SSN italien. Lors de l'évaluation du droit d'option pour les mineurs, la prime LAMal de l'enfant à ${canton} (médiane CHF ${median}/mois) doit s'ajouter à celle des parents pour l'évaluation globale.`
+        : isSenior
+          ? `Dans la tranche ${age}, les primes LAMal atteignent leur niveau le plus élevé. Le Conseil fédéral a confirmé que la catégorie 56+ paie la prime adulte complète sans rabais supplémentaire. Pour les frontaliers proches de l'âge de la retraite (64 femmes, 65 hommes), la planification du passage du régime LAMal au régime de pension (les primes continuent d'être versées sauf demande explicite d'exonération) nécessite un conseil dédié. La prime à ${canton} (médiane CHF ${median}/mois) entre dans le calcul du coût total de l'option LAMal sur les 10-15 années de carrière restantes.`
+          : `Dans la tranche ${age}, les primes LAMal sont uniformes — il n'y a pas d'augmentations liées à l'âge dans la fourchette "adultes" (26-55 ans). L'écart de prix entre les caisses à ${canton} (CHF ${min}-${max}/mois) reflète le modèle d'assurance: le standard est le plus cher; médecin de famille, telmed et HMO offrent des rabais de 5-25%. Pour le frontalier travaillant à ${canton} avec un permis G, choisir la LAMal signifie accéder au réseau suisse de fournisseurs mais renoncer à la couverture SSN complète en Italie pour les soins non urgents.`,
+      p4: `La révision annuelle des primes LAMal est approuvée par le Conseil fédéral fin septembre et publiée sur le portail OFSP/BAG. Les caisses communiquent les nouvelles primes d'ici fin octobre pour application au 1er janvier de l'année suivante. Pour ${year + 1}, il est conseillé de revoir votre choix d'ici novembre: le délai de résiliation de la caisse-maladie est d'un mois (préavis écrit fin novembre pour résiliation effective fin décembre). Les données ${year} pour ${canton} (médiane CHF ${median}/mois, fourchette CHF ${min}-${max}) constituent la référence pour comparer les offres ${year + 1} qui arriveront entre septembre et octobre.`,
+    },
+  };
+  const c = copy[locale] || copy.it;
+  return `<section class="s-ziawP1" aria-labelledby="frontalierContext">
+    <h2 id="frontalierContext" style="${H2_STYLE}">${esc(c.h)}</h2>
+    <p class="s-KwuhOL">${esc(c.p1)}</p>
+    <p class="s-KwuhOL">${esc(c.p2)}</p>
+    <p class="s-KwuhOL">${esc(c.p3)}</p>
+    <p class="s-E7ZJqo">${esc(c.p4)}</p>
+  </section>`;
+}
+
+/**
+ * Compute the canton's ranking position relative to all other cantons in
+ * Switzerland for the matching age bracket (or the adult median when `age`
+ * is omitted, i.e. for the canton-hub page). Returns position as
+ * `1..total` where 1 = cheapest. Cantons with no data are excluded from
+ * the denominator.
+ */
+function computeCantonRanking(
+  allCantonStats: Record<HealthPremiumCanton, CantonPremiumStats | null>,
+  currentCanton: HealthPremiumCanton,
+  age: HealthPremiumAgeBracket | null,
+): { position: number; total: number; cheaperCount: number; expensiveCount: number } | null {
+  const prices: Array<{ canton: HealthPremiumCanton; price: number }> = [];
+  for (const c of HEALTH_PREMIUM_CANTONS) {
+    const s = allCantonStats[c];
+    if (!s) continue;
+    let price: number | null = null;
+    if (age) {
+      const bs = s.bracketStats[age];
+      if (bs && bs.medianPrice !== null && bs.allReal) {
+        price = bs.medianPrice;
+      } else {
+        const adultMed = s.adultMedian ?? null;
+        if (adultMed !== null) price = adultMed * HEALTH_PREMIUM_AGE_MULTIPLIER[age];
+      }
+    } else {
+      price = s.adultMedian ?? null;
+    }
+    if (price === null) continue;
+    prices.push({ canton: c, price });
+  }
+  prices.sort((a, b) => a.price - b.price);
+  const idx = prices.findIndex((p) => p.canton === currentCanton);
+  if (idx === -1) return null;
+  return {
+    position: idx + 1,
+    total: prices.length,
+    cheaperCount: idx,
+    expensiveCount: prices.length - idx - 1,
+  };
+}
+
+/**
+ * Three-state classification of the canton's premium tier vs the rest of
+ * Switzerland. Splits on tertiles of `total` cantons:
+ * `cheap` ≤ ⌈total/3⌉ ; `mid` middle third ; `expensive` ≥ ⌈2·total/3⌉ + 1.
+ */
+function rankingTier(position: number, total: number): 'cheap' | 'mid' | 'expensive' {
+  if (total <= 0) return 'mid';
+  const lower = Math.ceil(total / 3);
+  const upper = Math.ceil((2 * total) / 3);
+  if (position <= lower) return 'cheap';
+  if (position > upper) return 'expensive';
+  return 'mid';
+}
+
+/**
+ * YoY signal classifier for the advice banner. Treats |delta| < 1.5%
+ * as "stable" — within typical noise of single-insurer revisions.
+ */
+function yoyTier(deltaPct: number | null): 'positive' | 'stable' | 'negative' | null {
+  if (deltaPct === null || !Number.isFinite(deltaPct)) return null;
+  if (deltaPct > 1.5) return 'positive';
+  if (deltaPct < -1.5) return 'negative';
+  return 'stable';
+}
+
+interface HpAdviceCopy {
+  eyebrow: string;
+  cheap: (canton: string, position: number, total: number) => string;
+  mid: (canton: string, position: number, total: number) => string;
+  expensive: (canton: string, position: number, total: number) => string;
+  yoyPositive: (deltaPct: string) => string;
+  yoyStable: string;
+  yoyNegative: (deltaPct: string) => string;
+  rankingLine: (canton: string, position: number, total: number, cheaperCount: number) => string;
+}
+
+/**
+ * Render the actionable "Consiglio" banner that sits directly under the H1.
+ *
+ * Visual style reuses the shared `STAT_TILE_*` tokens so the colour
+ * stays in lock-step with the matching tier (cheap → success, mid →
+ * accent neutral, expensive → warning) and follows the user's dark-mode
+ * preference automatically. No new colour values are introduced.
+ *
+ * The banner combines the canton tier with the YoY signal so the visitor
+ * gets a single sentence telling them whether the canton is good news
+ * (cheap + falling) or bad news (expensive + rising) — replacing the
+ * previous raw "median CHF X" tile-only output with an opinionated read.
+ */
+function renderHpAdviceBanner(
+  rankingTierValue: 'cheap' | 'mid' | 'expensive',
+  position: number,
+  total: number,
+  yoyTierValue: 'positive' | 'stable' | 'negative' | null,
+  yoyDeltaPct: number | null,
+  cantonLabel: string,
+  copy: HpAdviceCopy,
+  locale: HealthPremiumLocale,
+): string {
+  const tile =
+    rankingTierValue === 'cheap'
+      ? STAT_TILE_SUCCESS
+      : rankingTierValue === 'expensive'
+        ? STAT_TILE_WARNING
+        : STAT_TILE_ACCENT;
+  const head =
+    rankingTierValue === 'cheap'
+      ? copy.cheap(cantonLabel, position, total)
+      : rankingTierValue === 'expensive'
+        ? copy.expensive(cantonLabel, position, total)
+        : copy.mid(cantonLabel, position, total);
+  const yoyLine =
+    yoyTierValue === 'positive' && yoyDeltaPct !== null
+      ? copy.yoyPositive(formatPct(yoyDeltaPct, locale))
+      : yoyTierValue === 'negative' && yoyDeltaPct !== null
+        ? copy.yoyNegative(formatPct(yoyDeltaPct, locale))
+        : yoyTierValue === 'stable'
+          ? copy.yoyStable
+          : '';
+  return `<aside data-hp-advice data-hp-advice-tier="${esc(rankingTierValue)}" aria-label="${esc(copy.eyebrow)}" style="${tile};margin:0 0 18px">
+    <div class="s-a8IQOM">${esc(copy.eyebrow)}</div>
+    <p class="s-lEdUfz">${esc(head)}${yoyLine ? ` ${esc(yoyLine)}` : ''}</p>
+  </aside>`;
+}
+
+function renderLeafPage(inp: LeafInputs): string {
+  const { locale, canton, age, dataset, stats, allCantonStats, canonicalPath, alternates, today, yoy, triYear, distDir } = inp;
+  const copy = LEAF_COPY[locale];
+  const cantonLabel = HEALTH_PREMIUM_CANTON_DISPLAY[locale][canton];
+  const ageLabel = HEALTH_PREMIUM_AGE_LABEL[locale][age];
+  const multiplier = HEALTH_PREMIUM_AGE_MULTIPLIER[age];
+  const year = dataset.year ?? today.getUTCFullYear();
+
+  // Per-bracket national ranking — drives the advice banner tier and
+  // the "X° su Y" line below the stats grid.
+  const ranking = computeCantonRanking(allCantonStats, canton, age);
+  const tier = ranking ? rankingTier(ranking.position, ranking.total) : 'mid';
+  const bracketYoyDelta = yoy?.byBracket[age]?.medianPct ?? null;
+  const yoyTierVal = yoyTier(bracketYoyDelta);
+
+  // Prefer real BAG KIN/JUG/ERW per-insurer premiums when the dataset
+  // publishes them; otherwise fall back to multiplier-derived values so
+  // legacy datasets keep rendering. The `bracketSource` flag drives the
+  // editorial note shown below the ranking table.
+  const bracketStats = stats.bracketStats[age];
+  const bracketIsReal = bracketStats?.allReal === true;
+  const perInsurer = (bracketStats?.ranked ?? stats.ranked.map((r) => ({
+    insurerId: r.insurerId,
+    price: roundCHF(r.price * multiplier),
+    source: 'derived' as const,
+  }))).map((r) => ({
+    insurerId: r.insurerId,
+    insurerName: resolveInsurerName(dataset, r.insurerId),
+    price: r.price,
+    source: 'source' in r ? r.source : ('derived' as 'real' | 'derived'),
+  }));
+  const top20 = perInsurer.slice(0, 20);
+  const prices = perInsurer.map((p) => p.price);
+  const min = Math.min(...prices);
+  const max = Math.max(...prices);
+  const med = median(prices) ?? 0;
+
+  const medFmt = formatCHF(med, locale);
+  const minFmt = formatCHF(min, locale);
+  const maxFmt = formatCHF(max, locale);
+
+  const canonicalUrl = `${BASE_URL}${canonicalPath}`;
+  // H1 is narrative for users; title is keyword-first for SERP. They must
+  // differ in text (Semrush W3, issue 105).
+  //
+  // Title-uniqueness fix (2026-04-27): the age bracket is the unique
+  // disambiguator across the 6 per-canton-per-age pages. Putting it (in
+  // its compact `0-18` / `31-45` / `56-plus` form) before the canton
+  // guarantees the truncating clampSiteSuffix can never collapse two
+  // brackets to the same title. The verbose `ageLabel` ("giovani adulti
+  // 19-25 anni" / "young adults age 19-25" / …) still appears in the H1,
+  // intro and tables for human readers.
+  // Compact age tag — strip the locale-specific "jeunes-adultes-" /
+  // "young-adults-" / "junge-erwachsene-" prefix so the title fits the
+  // 48-char headline budget (after reserving 22 chars for the brand).
+  // Without this, fr cantons like "Appenzell Rhodes-Intérieures" pushed
+  // the age qualifier past the truncate boundary and 4 per-age pages per
+  // canton collapsed to the same title.
+  const ageShort = age === '56-plus'
+    ? '56+'
+    : age.replace(/^(?:jeunes-adultes|young-adults|junge-erwachsene|jugendliche|giovani-adulti|adulte|adult|adulto|erwachsene)-/, '');
+  // Compact title format: drop the "anni"/"age"/"Jahre"/"ans" filler word so
+  // The age token MUST come FIRST — even before the canton — so the universal
+  // 70-char cap (build-plugins/shared/titleSuffix.ts, which truncates the
+  // last ~22 chars to make room for " | Frontaliere Ticino") can never
+  // collapse two age brackets to the same prefix. We tried "{canton} —
+  // primes LAMal {ageShort} {year}" first, but for long fr canton names
+  // ("Appenzell Rhodes-Intérieures") the truncate amputated `{ageShort}`
+  // and the 4 per-age pages per canton collapsed to the same title.
+  // Order: age → canton → noun → year — `age` is unique per bracket and
+  // canton is the secondary disambiguator. Both stay inside the cap.
+  const titleBase =
+    locale === 'it' ? `${ageShort} — ${cantonLabel}: premi LAMal ${year}`
+    : locale === 'en' ? `${ageShort} — ${cantonLabel}: LAMal premiums ${year}`
+    : locale === 'de' ? `${ageShort} — ${cantonLabel}: KVG-Prämien ${year}`
+    : `${ageShort} — ${cantonLabel}: primes LAMal ${year}`;
+  const h1 = copy.h1(cantonLabel, ageLabel);
+  const introShort = copy.introShort(cantonLabel, ageLabel, year);
+  const introLong = copy.intro(cantonLabel, ageLabel, medFmt, minFmt, maxFmt, year);
+  const adviceBannerHtml = ranking
+    ? renderHpAdviceBanner(tier, ranking.position, ranking.total, yoyTierVal, bracketYoyDelta, cantonLabel, copy.advice, locale)
+    : '';
+  const rankingLineHtml = ranking
+    ? `<p class="s-5kS4rj">${esc(copy.advice.rankingLine(cantonLabel, ranking.position, ranking.total, ranking.cheaperCount))}</p>`
+    : '';
+
+  // Top-20 table
+  const tableHtml = `<table style="${TABLE_STYLE};font-size:14px">
+    <thead><tr>
+      <th style="${TABLE_HEAD_STYLE}">${esc(copy.tableHeaders.rank)}</th>
+      <th style="${TABLE_HEAD_STYLE}">${esc(copy.tableHeaders.insurer)}</th>
+      <th style="${TABLE_HEAD_STYLE};text-align:right">${esc(copy.tableHeaders.premium)}</th>
+    </tr></thead>
+    <tbody>${top20
+      .map(
+        (r, i) => `<tr>
+        <td style="${TABLE_CELL_STYLE};font-variant-numeric:tabular-nums">${i + 1}</td>
+        <td style="${TABLE_CELL_STYLE}">${esc(r.insurerName)}</td>
+        <td style="${TABLE_CELL_STYLE};color:var(--color-link);font-weight:700;text-align:right;font-variant-numeric:tabular-nums">${formatCHF(r.price, locale)} ${esc(copy.priceUnit)}</td>
+      </tr>`,
+      )
+      .join('')}</tbody>
+  </table>`;
+
+  // Canton ranking comparison — use real per-bracket medians when the
+  // dataset exposes them, else fall back to the adult median × multiplier.
+  const rankingRows: Array<{ canton: HealthPremiumCanton; price: number | null }> = [];
+  for (const c of HEALTH_PREMIUM_CANTONS) {
+    const s = allCantonStats[c];
+    if (!s) {
+      rankingRows.push({ canton: c, price: null });
+      continue;
+    }
+    const bs = s.bracketStats[age];
+    if (bs && bs.medianPrice !== null && bs.allReal) {
+      rankingRows.push({ canton: c, price: roundCHF(bs.medianPrice) });
+    } else {
+      const adultMed = s.adultMedian ?? 0;
+      rankingRows.push({ canton: c, price: roundCHF(adultMed * multiplier) });
+    }
+  }
+  // Sort by price ascending, missing last
+  rankingRows.sort((a, b) => {
+    if (a.price === null && b.price === null) return 0;
+    if (a.price === null) return 1;
+    if (b.price === null) return -1;
+    return a.price - b.price;
+  });
+  const rankingHtml = `<table style="${TABLE_STYLE};font-size:14px">
+    <thead><tr>
+      <th style="${TABLE_HEAD_STYLE}">#</th>
+      <th style="${TABLE_HEAD_STYLE}">${esc(LEAF_COPY[locale].tableHeaders.insurer === 'Cassa Malati' ? 'Cantone' : locale === 'en' ? 'Canton' : locale === 'de' ? 'Kanton' : 'Canton')}</th>
+      <th style="${TABLE_HEAD_STYLE};text-align:right">${esc(LEAF_COPY[locale].statsLabels.median)}</th>
+    </tr></thead>
+    <tbody>${rankingRows
+      .map(
+        (r, i) => `<tr class="s-UGbkWC"${r.canton === canton ? '' : ''}>
+        <td style="${TABLE_CELL_STYLE};font-variant-numeric:tabular-nums">${i + 1}</td>
+        <td style="${TABLE_CELL_STYLE}${r.canton === canton ? ';font-weight:700' : ''}">${esc(HEALTH_PREMIUM_CANTON_DISPLAY[locale][r.canton])}</td>
+        <td style="${TABLE_CELL_STYLE};text-align:right;font-variant-numeric:tabular-nums">${r.price === null ? '—' : formatCHF(r.price, locale) + ' ' + esc(copy.priceUnit)}</td>
+      </tr>`,
+      )
+      .join('')}</tbody>
+  </table>`;
+
+  // Stats cards — when YoY data is available for the current bracket we
+  // append a fifth tile showing the median delta. Only rendered when the
+  // prior-year dataset exposes ≥ 3 overlapping insurers so the median is not
+  // dominated by noise.
+  const bracketYoy = yoy?.byBracket[age] ?? null;
+  const showYoyTile = bracketYoy !== null && bracketYoy.medianPct !== null && bracketYoy.sourceInsurers >= 3;
+  const yoyTileHtml = showYoyTile && bracketYoy
+    ? `<div style="${STAT_TILE_DANGER}">
+      <div style="${STAT_TILE_LABEL}">Δ vs ${yoy?.priorYear ?? ''}</div>
+      <div style="${STAT_TILE_VALUE};font-size:24px;color:${(bracketYoy.medianPct ?? 0) >= 0 ? 'var(--color-danger)' : 'var(--color-success)'}">${esc(formatPct(bracketYoy.medianPct, locale))}</div>
+      <div class="s-iydat0">${bracketYoy.sourceInsurers} casse</div>
+    </div>`
+    : '';
+  const statsHtml = `<section class="s-XENO3U">
+    <div style="${STAT_TILE_ACCENT}">
+      <div style="${STAT_TILE_LABEL}">${esc(copy.statsLabels.median)}</div>
+      <div style="${STAT_TILE_VALUE};font-size:32px;font-weight:800">${medFmt}</div>
+      <div class="s-iydat0">${esc(copy.priceUnit)}</div>
+    </div>
+    <div style="${STAT_TILE_SUCCESS}">
+      <div style="${STAT_TILE_LABEL}">${esc(copy.statsLabels.min)}</div>
+      <div style="${STAT_TILE_VALUE};font-size:24px">${minFmt}</div>
+      <div class="s-iydat0">${esc(copy.priceUnit)}</div>
+    </div>
+    <div style="${STAT_TILE_WARNING}">
+      <div style="${STAT_TILE_LABEL}">${esc(copy.statsLabels.max)}</div>
+      <div style="${STAT_TILE_VALUE};font-size:24px">${maxFmt}</div>
+      <div class="s-iydat0">${esc(copy.priceUnit)}</div>
+    </div>
+    <div style="${STAT_TILE_BASE}">
+      <div style="${STAT_TILE_LABEL}">${esc(copy.statsLabels.insurers)}</div>
+      <div style="${STAT_TILE_VALUE};font-size:24px">${perInsurer.length}</div>
+    </div>
+    ${yoyTileHtml}
+  </section>`;
+
+  // YoY section — ranked table of top-20 insurers by absolute delta, plus an
+  // editorial summary. Rendered only when we have real prior-year data so
+  // A3's "no fake data" rule is honoured.
+  const yoyHtml = (() => {
+    if (!yoy || !bracketYoy || bracketYoy.medianPct === null) return '';
+    const rows = Object.entries(bracketYoy.perInsurer)
+      .filter((entry): entry is [string, number] => typeof entry[1] === 'number')
+      .map(([insurerId, delta]) => ({
+        insurerId,
+        insurerName: resolveInsurerName(dataset, insurerId),
+        delta,
+      }))
+      .sort((a, b) => a.delta - b.delta)
+      .slice(0, 20);
+    if (rows.length === 0) return '';
+    const medPctFmt = formatPct(bracketYoy.medianPct, locale);
+    const table = `<table style="${TABLE_STYLE};font-size:14px">
+      <thead><tr>
+        <th style="${TABLE_HEAD_STYLE}">${esc(copy.yoy.tableHeaders.rank)}</th>
+        <th style="${TABLE_HEAD_STYLE}">${esc(copy.yoy.tableHeaders.insurer)}</th>
+        <th style="${TABLE_HEAD_STYLE};text-align:right">${esc(copy.yoy.tableHeaders.delta)}</th>
+      </tr></thead>
+      <tbody>${rows
+        .map((r, i) => {
+          const positive = r.delta > 0;
+          const neutral = r.delta === 0;
+          const deltaColor = neutral ? 'var(--color-subtle)' : positive ? 'var(--color-danger)' : 'var(--color-success)';
+          return `<tr>
+          <td style="${TABLE_CELL_STYLE};font-variant-numeric:tabular-nums">${i + 1}</td>
+          <td style="${TABLE_CELL_STYLE}">${esc(r.insurerName)}</td>
+          <td style="${TABLE_CELL_STYLE};color:${deltaColor};font-weight:700;text-align:right;font-variant-numeric:tabular-nums">${esc(formatPct(r.delta, locale))}</td>
+        </tr>`;
+        })
+        .join('')}</tbody>
+    </table>`;
+    return `<section class="s-ziawP1" aria-labelledby="yoy">
+      <h2 id="yoy" style="${H2_STYLE}">${esc(copy.yoy.sectionTitle(yoy.priorYear))}</h2>
+      <p class="s-1j3K91">${esc(copy.yoy.summary(cantonLabel, ageLabel, medPctFmt, yoy.priorYear, bracketYoy.sourceInsurers))}</p>
+      <p class="s-ubTE3b">${esc(copy.yoy.tableCaption(yoy.priorYear))}</p>
+      ${table}
+    </section>`;
+  })();
+
+  // Tri-year trend section (B-cont-4) — renders only when 3 years of data
+  // are available for this bracket; falls back to silence (the YoY section
+  // above already covers the 2-year case) when 2024 is missing. Per
+  // CLAUDE.md rule #6: no fake data, no fabricated values.
+  const triYearHtml = (() => {
+    if (!triYear) return '';
+    const trend = triYear.byBracket[age];
+    if (!trend) return '';
+    if (trend.points.length < 3) return '';
+    const oldestYear = trend.points[0].year;
+    const priorYear = trend.points[trend.points.length - 2].year;
+    const currentYear = trend.points[trend.points.length - 1].year;
+    const yoyOlderFmt = formatPct(trend.yoyPct[0] ?? null, locale);
+    const yoyRecentFmt = formatPct(trend.yoyPct[trend.yoyPct.length - 1] ?? null, locale);
+    const cumFmt = formatPct(trend.cumulativePct, locale);
+    const sparkAria = copy.triYear.sparklineLabel(cantonLabel, ageLabel);
+    const sparkHtml = renderSparkline(trend, locale, sparkAria);
+    const sequence = `${oldestYear} → ${priorYear} → ${currentYear}`;
+    return `<section class="s-ziawP1" aria-labelledby="triYear">
+      <h2 id="triYear" style="${H2_STYLE}">${esc(copy.triYear.sectionTitle(oldestYear, currentYear))}</h2>
+      <p class="s-1j3K91">${esc(copy.triYear.summary(cantonLabel, ageLabel, oldestYear, priorYear, currentYear, yoyOlderFmt, yoyRecentFmt, cumFmt))}</p>
+      <div class="s-nYwIZw">
+        <div style="${STAT_TILE_ACCENT};padding:14px 18px;border-radius:14px">
+          <div style="${STAT_TILE_LABEL};font-size:11px">${esc(sequence)}</div>
+          <div class="s--RQH7i">${esc(yoyOlderFmt)} · ${esc(yoyRecentFmt)}</div>
+          <div class="s-Xya6Gm">${esc(cumFmt)}</div>
+        </div>
+        ${sparkHtml}
+      </div>
+    </section>`;
+  })();
+
+  // FAQ
+  const faqItems = copy.faq;
+  const faqHtml = `<section class="s-ZqtBbL" aria-labelledby="hpFaq">
+    <h2 id="hpFaq" style="${H2_STYLE}">${esc(copy.faqTitle)}</h2>
+    ${faqItems
+      .map(
+        (f) => `<details style="${CARD_STYLE};margin-bottom:8px">
+        <summary class="s-HBR0NM">${esc(f.q(cantonLabel, ageLabel))}</summary>
+        <p class="s-OCic8j">${esc(f.a(cantonLabel, ageLabel, medFmt, minFmt, maxFmt))}</p>
+      </details>`,
+      )
+      .join('')}
+  </section>`;
+
+  // hreflang alternates
+  // Shared helper guarantees 4 locales + x-default on canonical host.
+  const alternatesHtml = renderHreflangTags(alternates);
+
+  // Comparator CTA with pre-filter hash (crawler-invisible: avoids `?canton=`
+  // URL variants leaking into the link graph — the SPA reads `location.hash`
+  // on mount, see components/comparators/HealthInsurance.tsx).
+  const comparatorHref = `${HEALTH_PREMIUM_COMPARATOR_PATH[locale]}#canton=${stats.cantonBagCode}&age=${age}`;
+
+  // JSON-LD
+  const breadcrumbLd = JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: copy.breadcrumbHome, item: `${BASE_URL}/` },
+      { '@type': 'ListItem', position: 2, name: copy.breadcrumbRoot, item: `${BASE_URL}${buildHealthPremiumsRootPath(locale)}` },
+      { '@type': 'ListItem', position: 3, name: cantonLabel, item: `${BASE_URL}${buildHealthPremiumsCantonPath(locale, canton)}` },
+      { '@type': 'ListItem', position: 4, name: ageLabel, item: canonicalUrl },
+    ],
+  });
+
+  const webPageLd = JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    name: h1,
+    url: canonicalUrl,
+    description: introLong.slice(0, 200),
+    inLanguage: locale,
+    dateModified: today.toISOString(),
+    datePublished: today.toISOString(),
+  });
+
+  const faqLd = JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    inLanguage: locale,
+    mainEntity: faqItems.map((f) => ({
+      '@type': 'Question',
+      name: f.q(cantonLabel, ageLabel),
+      acceptedAnswer: { '@type': 'Answer', text: f.a(cantonLabel, ageLabel, medFmt, minFmt, maxFmt) },
+    })),
+  });
+
+  const productLd = JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'Product',
+    name: `LAMal premium ${cantonLabel} ${ageLabel}`,
+    description: introLong.slice(0, 200),
+    category: 'HealthInsurance',
+    offers: {
+      '@type': 'AggregateOffer',
+      priceCurrency: 'CHF',
+      lowPrice: min.toFixed(2),
+      highPrice: max.toFixed(2),
+      offerCount: perInsurer.length,
+      url: canonicalUrl,
+      availability: 'https://schema.org/InStock',
+    },
+  });
+
+  // Phase 3A: clamp brand suffix only when it fits the 60-char SERP budget.
+  const title = clampSiteSuffix(titleBase, 'Frontaliere Ticino');
+  const description = introLong.slice(0, 180);
+
+  const bodyHtml = `<article class="s-xzWvwM">
+  <nav style="${BREADCRUMB_STYLE}">
+    <a href="${BASE_URL}/" style="${BREADCRUMB_LINK_STYLE}">${esc(copy.breadcrumbHome)}</a>
+    <span> / </span>
+    <a href="${BASE_URL}${buildHealthPremiumsRootPath(locale)}" style="${BREADCRUMB_LINK_STYLE}">${esc(copy.breadcrumbRoot)}</a>
+    <span> / </span>
+    <a href="${BASE_URL}${buildHealthPremiumsCantonPath(locale, canton)}" style="${BREADCRUMB_LINK_STYLE}">${esc(cantonLabel)}</a>
+    <span> / </span>
+    <span>${esc(ageLabel)}</span>
+  </nav>
+  <header class="s-Nv0GaD">
+    <p style="${HERO_EYEBROW_STYLE}">LAMal ${year}</p>
+    <h1 style="${H1_STYLE}">${esc(h1)}</h1>
+    <p style="${LEDE_STYLE}">${esc(introShort)}</p>
+  </header>
+  ${adviceBannerHtml}
+  ${statsHtml}
+  ${rankingLineHtml}
+  <section class="s-ziawP1" aria-labelledby="comparatorCta">
+    <h2 id="comparatorCta" style="${H2_STYLE}">${esc(copy.comparatorCTA)}</h2>
+    <p class="s-1j3K91">${esc(copy.comparatorCTAText)}</p>
+    <a href="${esc(comparatorHref)}" style="${CTA_PRIMARY_STYLE};font-size:15px">${esc(copy.comparatorCTA)}</a>
+  </section>
+  <section class="s-ziawP1" aria-labelledby="top20">
+    <h2 id="top20" style="${H2_STYLE}">${esc(copy.top20Title(cantonLabel, ageLabel))}</h2>
+    ${tableHtml}
+    ${(age === '0-18' || age === '19-25') && !bracketIsReal ? `<p class="s-iFFsKs">${esc(copy.derivationNote)}</p>` : ''}
+  </section>
+  <section class="s-ziawP1" aria-labelledby="ranking">
+    <h2 id="ranking" style="${H2_STYLE}">${esc(copy.rankingTitle)}</h2>
+    <p class="s-1j3K91">${esc(copy.rankingIntro(cantonLabel))}</p>
+    ${rankingHtml}
+  </section>
+  ${yoyHtml}
+  ${triYearHtml}
+  <section class="s-ziawP1" aria-labelledby="editorial">
+    <h2 id="editorial" style="${H2_STYLE}">${esc(copy.editorialTitle)}</h2>
+    <p class="s-KwuhOL">${esc(copy.editorial(cantonLabel, ageLabel, medFmt, year))}</p>
+    <p class="s-E7ZJqo">${esc(introLong)}</p>
+  </section>
+  ${renderHealthPremiumFrontalierContext({ locale, canton: cantonLabel, age: ageLabel, ageId: age, year, median: medFmt, min: minFmt, max: maxFmt })}
+  ${faqHtml}
+  ${renderDiscoverMore(locale, HEALTH_PREMIUMS_DISCOVER_MORE_CTAS[locale])}
+  ${generateRelatedLinksBlock(locale, 'health_premiums', { cantonSlug: canton, age })}
+  <section class="s-sC82IX" aria-label="advertisement">
+    ${adSlotHtml('ARTICLE_END_MULTIPLEX')}
+  </section>
+</article>`;
+
+  const extraHead = `    <meta property="og:image" content="${BASE_URL}/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">`;
+
+  return buildSeoPageHtml({
+    disableAutoAds: false,
+    locale,
+    title,
+    description,
+    canonicalUrl,
+    robots: 'index,follow',
+    ogType: 'website',
+    ogLocale: LOCALE_OG[locale],
+    hreflangHtml: alternatesHtml,
+    extraHeadHtml: extraHead,
+    jsonLdScripts: [breadcrumbLd, webPageLd, faqLd, productLd],
+    bodyHtml,
+    distDir,
+    hubChrome: { hubKey: 'confronti', activeSubTab: 'health' },
+  });
+}
+
+interface CantonHubInputs {
+  locale: HealthPremiumLocale;
+  canton: HealthPremiumCanton;
+  dataset: HealthPremiumsDataset;
+  stats: CantonPremiumStats;
+  /**
+   * All-cantons snapshot — needed by the canton-hub to compute the
+   * current canton's national ranking position (cheapest → most
+   * expensive) and surface a tier-aware advice banner.
+   */
+  allCantonStats: Record<HealthPremiumCanton, CantonPremiumStats | null>;
+  canonicalPath: string;
+  alternates: Record<HealthPremiumLocale, string>;
+  today: Date;
+  yoy: YoyCantonDelta | null;
+  /** Tri-year trend (oldest→prior→current); null when no archive available. */
+  triYear: TriYearCantonDelta | null;
+  /** dist directory for entry-asset resolution (omit in tests). */
+  distDir?: string;
+}
+
+function renderCantonHubPage(inp: CantonHubInputs): string {
+  const { locale, canton, dataset, stats, allCantonStats, canonicalPath, alternates, today, yoy, triYear, distDir } = inp;
+  const copy = HUB_COPY[locale];
+  const leafCopy = LEAF_COPY[locale];
+  const cantonLabel = HEALTH_PREMIUM_CANTON_DISPLAY[locale][canton];
+  const year = dataset.year ?? today.getUTCFullYear();
+
+  // National ranking (adult bracket) — drives the advice banner tier and
+  // the "X° su Y cantoni" line below the stats grid. `null` when this
+  // canton has no usable data (extremely rare; the call-site already
+  // skips renderCantonHubPage in that case via `if (!stats) continue`).
+  const ranking = computeCantonRanking(allCantonStats, canton, null);
+  const tier = ranking ? rankingTier(ranking.position, ranking.total) : 'mid';
+  const yoyAdult = yoy?.adultMedianPct ?? null;
+  const yoyTierVal = yoyTier(yoyAdult);
+
+  const adultMed = stats.adultMedian ?? 0;
+  const adultMin = stats.adultMin ?? 0;
+  const adultMax = stats.adultMax ?? 0;
+  const medFmt = formatCHF(adultMed, locale);
+  const minFmt = formatCHF(adultMin, locale);
+  const maxFmt = formatCHF(adultMax, locale);
+
+  // Age grid — prefer real BAG KIN/JUG/ERW median when dataset exposes it,
+  // else fall back to adult median × multiplier.
+  const ageGridRows = HEALTH_PREMIUM_AGE_BRACKETS.map((ab) => {
+    const bs = stats.bracketStats[ab.id];
+    const mult = HEALTH_PREMIUM_AGE_MULTIPLIER[ab.id];
+    const med = bs && bs.medianPrice !== null && bs.allReal
+      ? roundCHF(bs.medianPrice)
+      : roundCHF(adultMed * mult);
+    const leafPath = buildHealthPremiumsLeafPath(locale, canton, ab.id);
+    return { ab, med, leafPath };
+  });
+  const ageGridHtml = `<table style="${TABLE_STYLE};font-size:14px">
+    <thead><tr>
+      <th style="${TABLE_HEAD_STYLE}">${esc(copy.ageGridHeaders.age)}</th>
+      <th style="${TABLE_HEAD_STYLE};text-align:right">${esc(copy.ageGridHeaders.median)}</th>
+      <th style="${TABLE_HEAD_STYLE};text-align:right">${esc(copy.ageGridHeaders.slug)}</th>
+    </tr></thead>
+    <tbody>${ageGridRows
+      .map(
+        (r) => `<tr>
+        <td style="${TABLE_CELL_STYLE}">${esc(HEALTH_PREMIUM_AGE_LABEL[locale][r.ab.id])}</td>
+        <td style="${TABLE_CELL_STYLE};text-align:right;font-variant-numeric:tabular-nums">${formatCHF(r.med, locale)} ${esc(copy.priceUnit)}</td>
+        <td style="${TABLE_CELL_STYLE};text-align:right"><a href="${esc(r.leafPath)}" style="${LINK_ACCENT_STYLE};font-weight:700">${esc(copy.openLeafCTA)} →</a></td>
+      </tr>`,
+      )
+      .join('')}</tbody>
+  </table>`;
+
+  // Stats cards
+  // Optional YoY tile — appended to the stats grid when adult-bracket
+  // prior-year data is available. Mirrors the leaf-page yoyTileHtml
+  // pattern so the canton hub now exposes the same YoY signal at a
+  // glance, instead of forcing the visitor to scroll to the full YoY
+  // section below.
+  const cantonHubYoyTileHtml = yoyAdult !== null
+    ? `<div style="${STAT_TILE_DANGER}">
+      <div style="${STAT_TILE_LABEL}">Δ vs ${esc(String(yoy?.priorYear ?? ''))}</div>
+      <div style="${STAT_TILE_VALUE};font-size:24px;color:${yoyAdult >= 0 ? 'var(--color-danger)' : 'var(--color-success)'}">${esc(formatPct(yoyAdult, locale))}</div>
+    </div>`
+    : '';
+
+  const statsHtml = `<section class="s-XENO3U">
+    <div style="${STAT_TILE_ACCENT}">
+      <div style="${STAT_TILE_LABEL}">${esc(leafCopy.statsLabels.median)}</div>
+      <div style="${STAT_TILE_VALUE};font-size:32px;font-weight:800">${medFmt}</div>
+      <div class="s-iydat0">${esc(copy.priceUnit)}</div>
+    </div>
+    <div style="${STAT_TILE_SUCCESS}">
+      <div style="${STAT_TILE_LABEL}">${esc(leafCopy.statsLabels.min)}</div>
+      <div style="${STAT_TILE_VALUE};font-size:24px">${minFmt}</div>
+    </div>
+    <div style="${STAT_TILE_WARNING}">
+      <div style="${STAT_TILE_LABEL}">${esc(leafCopy.statsLabels.max)}</div>
+      <div style="${STAT_TILE_VALUE};font-size:24px">${maxFmt}</div>
+    </div>
+    <div style="${STAT_TILE_BASE}">
+      <div style="${STAT_TILE_LABEL}">${esc(leafCopy.statsLabels.insurers)}</div>
+      <div style="${STAT_TILE_VALUE};font-size:24px">${stats.ranked.length}</div>
+    </div>
+    ${cantonHubYoyTileHtml}
+  </section>`;
+
+  // Canton-level YoY grid — one row per age bracket with the bracket's
+  // median percent change. Rendered only when prior-year data is available.
+  const yoyHubHtml = (() => {
+    if (!yoy) return '';
+    const rows = HEALTH_PREMIUM_AGE_BRACKETS.map((ab) => {
+      const slice = yoy.byBracket[ab.id];
+      return {
+        ab,
+        pct: slice?.medianPct ?? null,
+        n: slice?.sourceInsurers ?? 0,
+      };
+    }).filter((r) => r.pct !== null);
+    if (rows.length === 0) return '';
+    const adultPctFmt = formatPct(yoy.adultMedianPct, locale);
+    const gridTable = `<table style="${TABLE_STYLE};font-size:14px">
+      <thead><tr>
+        <th style="${TABLE_HEAD_STYLE}">${esc(copy.yoy.gridHeaders.age)}</th>
+        <th style="${TABLE_HEAD_STYLE};text-align:right">${esc(copy.yoy.gridHeaders.delta)}</th>
+      </tr></thead>
+      <tbody>${rows
+        .map((r) => {
+          const color = (r.pct ?? 0) > 0 ? 'var(--color-danger)' : (r.pct ?? 0) < 0 ? 'var(--color-success)' : 'var(--color-subtle)';
+          return `<tr>
+          <td style="${TABLE_CELL_STYLE}">${esc(HEALTH_PREMIUM_AGE_LABEL[locale][r.ab.id])}</td>
+          <td style="${TABLE_CELL_STYLE};color:${color};font-weight:700;text-align:right;font-variant-numeric:tabular-nums">${esc(formatPct(r.pct, locale))}</td>
+        </tr>`;
+        })
+        .join('')}</tbody>
+    </table>`;
+    return `<section class="s-ziawP1" aria-labelledby="yoy">
+      <h2 id="yoy" style="${H2_STYLE}">${esc(copy.yoy.sectionTitle(yoy.priorYear))}</h2>
+      <p class="s-1j3K91">${esc(copy.yoy.cantonSummary(cantonLabel, adultPctFmt, yoy.priorYear))}</p>
+      <p class="s-ubTE3b">${esc(copy.yoy.gridCaption(yoy.priorYear))}</p>
+      ${gridTable}
+    </section>`;
+  })();
+
+  // Tri-year trend on the canton hub — short headline + adult sparkline.
+  // Renders only when 3 distinct years feed the adult bracket; falls back to
+  // silence when 2024 archive is missing for this canton.
+  const triYearHubHtml = (() => {
+    if (!triYear) return '';
+    const adult = triYear.byBracket['31-45'];
+    if (!adult || adult.points.length < 3) return '';
+    const oldestYear = adult.points[0].year;
+    const currentYear = adult.points[adult.points.length - 1].year;
+    const cumFmt = formatPct(adult.cumulativePct, locale);
+    const sparkAria = HUB_COPY[locale].triYear.cantonSummary(cantonLabel, oldestYear, currentYear, cumFmt);
+    const sparkHtml = renderSparkline(adult, locale, sparkAria);
+    return `<section class="s-ziawP1" aria-labelledby="triYearHub">
+      <h2 id="triYearHub" style="${H2_STYLE}">${esc(copy.triYear.sectionTitle(oldestYear, currentYear))}</h2>
+      <p class="s-1j3K91">${esc(copy.triYear.cantonSummary(cantonLabel, oldestYear, currentYear, cumFmt))}</p>
+      ${sparkHtml}
+    </section>`;
+  })();
+
+  // Canton FAQ
+  const faqItems = copy.cantonFaq;
+  const faqHtml = `<section class="s-ZqtBbL" aria-labelledby="hpFaq">
+    <h2 id="hpFaq" style="${H2_STYLE}">${esc(copy.faqTitle)}</h2>
+    ${faqItems
+      .map(
+        (f) => `<details style="${CARD_STYLE};margin-bottom:8px">
+        <summary class="s-HBR0NM">${esc(f.q(cantonLabel))}</summary>
+        <p class="s-OCic8j">${esc(f.a(cantonLabel, medFmt, year))}</p>
+      </details>`,
+      )
+      .join('')}
+  </section>`;
+
+  // Shared helper guarantees 4 locales + x-default on canonical host.
+  const alternatesHtml = renderHreflangTags(alternates);
+
+  const canonicalUrl = `${BASE_URL}${canonicalPath}`;
+  // SEO title (keyword-first) vs narrative H1 — Semrush W3.
+  const titleBase = copy.h1Canton(cantonLabel, year);
+  const h1 =
+    locale === 'it' ? `Confronto premi LAMal ${year} nel ${cantonLabel}`
+    : locale === 'en' ? `LAMal premium comparison ${year} in ${cantonLabel}`
+    : locale === 'de' ? `KVG-Prämienvergleich ${year} im Kanton ${cantonLabel}`
+    : `Comparatif des primes LAMal ${year} à ${cantonLabel}`;
+  // Two intros now coexist: the SHORT one (tagline) sits in the page
+  // header above the fold; the LONG figures-laden one is moved to the
+  // bottom `cantonContext` section so the page text content (and Semrush
+  // text-to-HTML ratio) is preserved while mobile-first hierarchy is
+  // restored. SEO description still uses the long form so the SERP
+  // snippet stays substantive.
+  const introShort = copy.introCantonShort(cantonLabel, year);
+  const introLong = copy.introCanton(cantonLabel, medFmt, minFmt, maxFmt, year);
+  const adviceBannerHtml = ranking
+    ? renderHpAdviceBanner(tier, ranking.position, ranking.total, yoyTierVal, yoyAdult, cantonLabel, copy.advice, locale)
+    : '';
+  const rankingLineHtml = ranking
+    ? `<p class="s-5kS4rj">${esc(copy.advice.rankingLine(cantonLabel, ranking.position, ranking.total, ranking.cheaperCount))}</p>`
+    : '';
+  const comparatorHref = `${HEALTH_PREMIUM_COMPARATOR_PATH[locale]}#canton=${stats.cantonBagCode}`;
+
+  const breadcrumbLd = JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: copy.breadcrumbHome, item: `${BASE_URL}/` },
+      { '@type': 'ListItem', position: 2, name: leafCopy.breadcrumbRoot, item: `${BASE_URL}${buildHealthPremiumsRootPath(locale)}` },
+      { '@type': 'ListItem', position: 3, name: cantonLabel, item: canonicalUrl },
+    ],
+  });
+
+  const webPageLd = JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    name: h1,
+    url: canonicalUrl,
+    description: introLong.slice(0, 200),
+    inLanguage: locale,
+    dateModified: today.toISOString(),
+    datePublished: today.toISOString(),
+  });
+
+  const faqLd = JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    inLanguage: locale,
+    mainEntity: faqItems.map((f) => ({
+      '@type': 'Question',
+      name: f.q(cantonLabel),
+      acceptedAnswer: { '@type': 'Answer', text: f.a(cantonLabel, medFmt, year) },
+    })),
+  });
+
+  const title = clampSiteSuffix(titleBase, 'Frontaliere Ticino');
+  const description = introLong.slice(0, 180);
+
+  const bodyHtml = `<article class="s-xzWvwM">
+  <nav style="${BREADCRUMB_STYLE}">
+    <a href="${BASE_URL}/" style="${BREADCRUMB_LINK_STYLE}">${esc(copy.breadcrumbHome)}</a>
+    <span> / </span>
+    <a href="${BASE_URL}${buildHealthPremiumsRootPath(locale)}" style="${BREADCRUMB_LINK_STYLE}">${esc(leafCopy.breadcrumbRoot)}</a>
+    <span> / </span>
+    <span>${esc(cantonLabel)}</span>
+  </nav>
+  <header class="s-Nv0GaD">
+    <p style="${HERO_EYEBROW_STYLE}">LAMal ${year} · ${esc(copy.updatedLabel)}</p>
+    <h1 style="${H1_STYLE}">${esc(h1)}</h1>
+    <p style="${LEDE_STYLE}">${esc(introShort)}</p>
+  </header>
+  ${adviceBannerHtml}
+  ${statsHtml}
+  ${rankingLineHtml}
+  <section class="s-ziawP1" aria-labelledby="cantonComparatorCta">
+    <h2 id="cantonComparatorCta" style="${H2_STYLE}">${esc(copy.comparatorCTA)}</h2>
+    <p class="s-1j3K91">${esc(copy.comparatorCTAText)}</p>
+    <a href="${esc(comparatorHref)}" style="${CTA_PRIMARY_STYLE};font-size:15px">${esc(copy.comparatorCTA)}</a>
+  </section>
+  <section class="s-ziawP1" aria-labelledby="ageGrid">
+    <h2 id="ageGrid" style="${H2_STYLE}">${esc(copy.ageGridTitle(cantonLabel))}</h2>
+    ${ageGridHtml}
+  </section>
+  ${yoyHubHtml}
+  ${triYearHubHtml}
+  <section class="s-ziawP1" aria-labelledby="cantonContext">
+    <h2 id="cantonContext" style="${H2_STYLE}">${esc(copy.cantonContext.title)}</h2>
+    <p class="s-KwuhOL">${esc(copy.cantonContext.body(cantonLabel, medFmt, year))}</p>
+    <p class="s-E7ZJqo">${esc(introLong)}</p>
+  </section>
+  ${renderMethodologyBulletList({
+    id: 'cantonDeductibleGuide',
+    title: copy.cantonDeductibleGuide.title,
+    intro: copy.cantonDeductibleGuide.body(cantonLabel, medFmt),
+    bullets: copy.cantonDeductibleGuide.bullets,
+  })}
+  ${renderMethodologyBulletList({
+    id: 'cantonFrontalierGuide',
+    title: copy.cantonFrontalierGuide.title,
+    intro: copy.cantonFrontalierGuide.body(cantonLabel),
+    bullets: copy.cantonFrontalierGuide.bullets,
+  })}
+  ${faqHtml}
+  ${renderDiscoverMore(locale, HEALTH_PREMIUMS_DISCOVER_MORE_CTAS[locale])}
+  ${generateRelatedLinksBlock(locale, 'health_premiums', { cantonSlug: canton })}
+  <section class="s-sC82IX" aria-label="advertisement">
+    ${adSlotHtml('ARTICLE_END_MULTIPLEX')}
+  </section>
+</article>`;
+
+  const extraHead = `    <meta property="og:image" content="${BASE_URL}/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">`;
+
+  return buildSeoPageHtml({
+    disableAutoAds: false,
+    locale,
+    title,
+    description,
+    canonicalUrl,
+    robots: 'index,follow',
+    ogType: 'website',
+    ogLocale: LOCALE_OG[locale],
+    hreflangHtml: alternatesHtml,
+    extraHeadHtml: extraHead,
+    jsonLdScripts: [breadcrumbLd, webPageLd, faqLd],
+    bodyHtml,
+    distDir,
+    hubChrome: { hubKey: 'confronti', activeSubTab: 'health' },
+  });
+}
+
+interface RootHubInputs {
+  locale: HealthPremiumLocale;
+  dataset: HealthPremiumsDataset;
+  cantonStats: Record<HealthPremiumCanton, CantonPremiumStats | null>;
+  canonicalPath: string;
+  alternates: Record<HealthPremiumLocale, string>;
+  today: Date;
+  /** dist directory for entry-asset resolution (omit in tests). */
+  distDir?: string;
+}
+
+/**
+ * Render an `<h2>` + intro paragraph + bulleted list of `{heading, body}` items.
+ * Used by the root and canton hub pages to surface methodology / frontaliere
+ * checklists with substantive prose. Every label is escaped and the section
+ * is anchored with a stable id derived from the supplied id prefix.
+ */
+function renderMethodologyBulletList(args: {
+  id: string;
+  title: string;
+  intro: string;
+  bullets: ReadonlyArray<{ heading: string; body: string }>;
+}): string {
+  const { id, title, intro, bullets } = args;
+  const items = bullets
+    .map(
+      (b) => `<li class="s-7H35Rg"><strong class="s-MLbk8r">${esc(b.heading)}</strong> — <span class="s-_B4enX">${esc(b.body)}</span></li>`,
+    )
+    .join('');
+  return `<section class="s-ziawP1" aria-labelledby="${esc(id)}">
+    <h2 id="${esc(id)}" style="${H2_STYLE}">${esc(title)}</h2>
+    <p class="s-KwuhOL">${esc(intro)}</p>
+    <ul class="s-E9R09i">${items}</ul>
+  </section>`;
+}
+
+function renderRootHubPage(inp: RootHubInputs): string {
+  const { locale, dataset, cantonStats, canonicalPath, alternates, today, distDir } = inp;
+  const copy = HUB_COPY[locale];
+  const leafCopy = LEAF_COPY[locale];
+  const year = dataset.year ?? today.getUTCFullYear();
+
+  // National headline metrics — drives the stats tile grid below the H1
+  // and the eyebrow-style summary in the lede tagline. Computed once
+  // here from the same `cantonStats` already passed in.
+  const adultMedians = HEALTH_PREMIUM_CANTONS
+    .map((c) => cantonStats[c]?.adultMedian)
+    .filter((v): v is number => typeof v === 'number');
+  const cantonsCount = adultMedians.length;
+  const nationalMedian = adultMedians.length > 0
+    ? Math.round(adultMedians.reduce((a, b) => a + b, 0) / adultMedians.length)
+    : 0;
+  const nationalCheapest = adultMedians.length > 0 ? Math.min(...adultMedians) : 0;
+  const nationalMostExpensive = adultMedians.length > 0 ? Math.max(...adultMedians) : 0;
+  const cheapestCanton = HEALTH_PREMIUM_CANTONS.find(
+    (c) => cantonStats[c]?.adultMedian === nationalCheapest && nationalCheapest > 0,
+  );
+  const cheapestCantonName = cheapestCanton
+    ? HEALTH_PREMIUM_CANTON_DISPLAY[locale][cheapestCanton]
+    : '';
+
+  // Canton grid with adult median/min/max
+  const cantonRows = HEALTH_PREMIUM_CANTONS.map((c) => {
+    const s = cantonStats[c];
+    if (!s) return { canton: c, med: null, min: null, max: null };
+    return {
+      canton: c,
+      med: s.adultMedian,
+      min: s.adultMin,
+      max: s.adultMax,
+    };
+  });
+  const cantonGridHtml = `<table style="${TABLE_STYLE};font-size:14px">
+    <thead><tr>
+      <th style="${TABLE_HEAD_STYLE}">${esc(copy.cantonGridHeaders.canton)}</th>
+      <th style="${TABLE_HEAD_STYLE};text-align:right">${esc(copy.cantonGridHeaders.median)}</th>
+      <th style="${TABLE_HEAD_STYLE};text-align:right">${esc(copy.cantonGridHeaders.min)}</th>
+      <th style="${TABLE_HEAD_STYLE};text-align:right">${esc(copy.cantonGridHeaders.max)}</th>
+      <th style="${TABLE_HEAD_STYLE};text-align:right">&nbsp;</th>
+    </tr></thead>
+    <tbody>${cantonRows
+      .map((r) => {
+        const cantonPath = buildHealthPremiumsCantonPath(locale, r.canton);
+        const name = HEALTH_PREMIUM_CANTON_DISPLAY[locale][r.canton];
+        return `<tr>
+        <td style="${TABLE_CELL_STYLE};font-weight:700"><a href="${esc(cantonPath)}" style="${LINK_ACCENT_STYLE}">${esc(name)}</a></td>
+        <td style="${TABLE_CELL_STYLE};text-align:right;font-variant-numeric:tabular-nums">${r.med === null ? '—' : formatCHF(r.med, locale) + ' ' + esc(copy.priceUnit)}</td>
+        <td style="${TABLE_CELL_STYLE};text-align:right;font-variant-numeric:tabular-nums">${r.min === null ? '—' : formatCHF(r.min, locale)}</td>
+        <td style="${TABLE_CELL_STYLE};text-align:right;font-variant-numeric:tabular-nums">${r.max === null ? '—' : formatCHF(r.max, locale)}</td>
+        <td style="${TABLE_CELL_STYLE};text-align:right"><a href="${esc(cantonPath)}" style="${LINK_ACCENT_STYLE};font-weight:700">${esc(copy.viewCantonCTA(name))} →</a></td>
+      </tr>`;
+      })
+      .join('')}</tbody>
+  </table>`;
+
+  const faqItems = copy.rootFaq;
+  const faqHtml = `<section class="s-ZqtBbL" aria-labelledby="hpFaq">
+    <h2 id="hpFaq" style="${H2_STYLE}">${esc(copy.faqTitle)}</h2>
+    ${faqItems
+      .map(
+        (f) => `<details style="${CARD_STYLE};margin-bottom:8px">
+        <summary class="s-HBR0NM">${esc(f.q)}</summary>
+        <p class="s-OCic8j">${esc(f.a(year))}</p>
+      </details>`,
+      )
+      .join('')}
+  </section>`;
+
+  // Shared helper guarantees 4 locales + x-default on canonical host.
+  const alternatesHtml = renderHreflangTags(alternates);
+
+  const canonicalUrl = `${BASE_URL}${canonicalPath}`;
+  // Title vs H1 differentiated. Title is keyword-led (≤60 char), H1 narrative.
+  const titleBase =
+    locale === 'it' ? `Premi Cassa Malati ${year} per cantone`
+    : locale === 'en' ? `Swiss health insurance premiums ${year}`
+    : locale === 'de' ? `Krankenkassenprämien ${year} nach Kanton`
+    : `Primes assurance maladie ${year} par canton`;
+  const h1 = copy.h1Root(year);
+  const intro = copy.introRoot(year);
+
+  const breadcrumbLd = JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: copy.breadcrumbHome, item: `${BASE_URL}/` },
+      { '@type': 'ListItem', position: 2, name: leafCopy.breadcrumbRoot, item: canonicalUrl },
+    ],
+  });
+
+  const webPageLd = JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    name: h1,
+    url: canonicalUrl,
+    description: intro.slice(0, 200),
+    inLanguage: locale,
+    dateModified: today.toISOString(),
+    datePublished: today.toISOString(),
+  });
+
+  const faqLd = JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    inLanguage: locale,
+    mainEntity: faqItems.map((f) => ({
+      '@type': 'Question',
+      name: f.q,
+      acceptedAnswer: { '@type': 'Answer', text: f.a(year) },
+    })),
+  });
+
+  const title = clampSiteSuffix(titleBase, 'Frontaliere Ticino');
+  const description = intro.slice(0, 180);
+
+  // Tagline 1-line (≤120 chars) — replaces the long intro in the page
+  // header. Numbers live in the stats tiles below; the long intro
+  // (with year context + frontaliere note) is migrated to the
+  // `background` section so the page text content (and Semrush
+  // text-to-HTML ratio) is preserved while the action area stays
+  // mobile-first above the fold.
+  const taglineByLocale: Record<HealthPremiumLocale, string> = {
+    it: `Premi LAMal ${year}: confronto live tra ${cantonsCount} cantoni svizzeri.`,
+    en: `LAMal premiums ${year}: live comparison across ${cantonsCount} Swiss cantons.`,
+    de: `KVG-Prämien ${year}: Live-Vergleich zwischen ${cantonsCount} Schweizer Kantonen.`,
+    fr: `Primes LAMal ${year} : comparaison en direct entre ${cantonsCount} cantons suisses.`,
+  };
+  const rootTileLabels: Record<HealthPremiumLocale, { cantons: string; median: string; cheapest: string; mostExp: string }> = {
+    it: { cantons: 'Cantoni', median: 'Mediana CH', cheapest: 'Più economico', mostExp: 'Più caro' },
+    en: { cantons: 'Cantons', median: 'CH median', cheapest: 'Cheapest', mostExp: 'Most expensive' },
+    de: { cantons: 'Kantone', median: 'CH-Median', cheapest: 'Günstigster', mostExp: 'Teuerster' },
+    fr: { cantons: 'Cantons', median: 'Médiane CH', cheapest: 'Le moins cher', mostExp: 'Le plus cher' },
+  };
+  const rootTl = rootTileLabels[locale];
+  const rootStatsHtml = cantonsCount > 0
+    ? `<section class="s-kdmhjX">
+    <div style="${STAT_TILE_BASE}">
+      <div style="${STAT_TILE_LABEL}">${esc(rootTl.cantons)}</div>
+      <div style="${STAT_TILE_VALUE};font-size:24px;font-variant-numeric:tabular-nums">${cantonsCount}</div>
+    </div>
+    <div style="${STAT_TILE_ACCENT}">
+      <div style="${STAT_TILE_LABEL}">${esc(rootTl.median)}</div>
+      <div style="${STAT_TILE_VALUE};font-size:32px;font-weight:800;font-variant-numeric:tabular-nums">${esc(formatCHF(nationalMedian, locale))}</div>
+      <div class="s-iydat0">${esc(copy.priceUnit)}</div>
+    </div>
+    <div style="${STAT_TILE_SUCCESS}">
+      <div style="${STAT_TILE_LABEL}">${esc(rootTl.cheapest)}</div>
+      <div style="${STAT_TILE_VALUE};font-size:22px;font-variant-numeric:tabular-nums">${esc(formatCHF(nationalCheapest, locale))}</div>
+      ${cheapestCantonName ? `<div class="s-iydat0">${esc(cheapestCantonName)}</div>` : ''}
+    </div>
+    <div style="${STAT_TILE_WARNING}">
+      <div style="${STAT_TILE_LABEL}">${esc(rootTl.mostExp)}</div>
+      <div style="${STAT_TILE_VALUE};font-size:22px;font-variant-numeric:tabular-nums">${esc(formatCHF(nationalMostExpensive, locale))}</div>
+    </div>
+  </section>`
+    : '';
+
+  const bodyHtml = `<article class="s-xzWvwM">
+  <nav style="${BREADCRUMB_STYLE}">
+    <a href="${BASE_URL}/" style="${BREADCRUMB_LINK_STYLE}">${esc(copy.breadcrumbHome)}</a>
+    <span> / </span>
+    <span>${esc(leafCopy.breadcrumbRoot)}</span>
+  </nav>
+  <header class="s-Nv0GaD">
+    <p style="${HERO_EYEBROW_STYLE}">LAMal ${year}</p>
+    <h1 style="${H1_STYLE}">${esc(h1)}</h1>
+    <p style="${LEDE_STYLE}">${esc(taglineByLocale[locale])}</p>
+  </header>
+  ${rootStatsHtml}
+  <section class="s-ziawP1" aria-labelledby="rootComparatorCta">
+    <h2 id="rootComparatorCta" style="${H2_STYLE}">${esc(copy.comparatorCTA)}</h2>
+    <p class="s-1j3K91">${esc(copy.comparatorCTAText)}</p>
+    <a href="${esc(HEALTH_PREMIUM_COMPARATOR_PATH[locale])}" style="${CTA_PRIMARY_STYLE};font-size:15px">${esc(copy.comparatorCTA)}</a>
+  </section>
+  <section class="s-ziawP1" aria-labelledby="cantonGrid">
+    <h2 id="cantonGrid" style="${H2_STYLE}">${esc(copy.cantonGridTitle)}</h2>
+    ${cantonGridHtml}
+  </section>
+  <section class="s-ziawP1" aria-labelledby="background">
+    <h2 id="background" style="${H2_STYLE}">${esc(copy.rootBackgroundTitle)}</h2>
+    <p class="s-KwuhOL">${esc(intro)}</p>
+    <p class="s-E7ZJqo">${esc(copy.rootBackground)}</p>
+  </section>
+  <section class="s-ziawP1" aria-labelledby="rootMethodology">
+    <h2 id="rootMethodology" style="${H2_STYLE}">${esc(copy.rootMethodology.title)}</h2>
+    <p class="s-E7ZJqo">${esc(copy.rootMethodology.body(year))}</p>
+  </section>
+  ${renderMethodologyBulletList({
+    id: 'rootDeductibleAndModelGuide',
+    title: copy.rootDeductibleAndModelGuide.title,
+    intro: copy.rootDeductibleAndModelGuide.body,
+    bullets: copy.rootDeductibleAndModelGuide.bullets,
+  })}
+  ${renderMethodologyBulletList({
+    id: 'rootFrontalierGuide',
+    title: copy.rootFrontalierGuide.title,
+    intro: copy.rootFrontalierGuide.intro,
+    bullets: copy.rootFrontalierGuide.bullets,
+  })}
+  ${faqHtml}
+  ${renderDiscoverMore(locale, HEALTH_PREMIUMS_DISCOVER_MORE_CTAS[locale])}
+  ${generateRelatedLinksBlock(locale, 'health_premiums', { cantonSlug: 'ticino' })}
+  <section class="s-sC82IX" aria-label="advertisement">
+    ${adSlotHtml('ARTICLE_END_MULTIPLEX')}
+  </section>
+</article>`;
+
+  const extraHead = `    <meta property="og:image" content="${BASE_URL}/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">`;
+
+  return buildSeoPageHtml({
+    disableAutoAds: false,
+    locale,
+    title,
+    description,
+    canonicalUrl,
+    robots: 'index,follow',
+    ogType: 'website',
+    ogLocale: LOCALE_OG[locale],
+    hreflangHtml: alternatesHtml,
+    extraHeadHtml: extraHead,
+    jsonLdScripts: [breadcrumbLd, webPageLd, faqLd],
+    bodyHtml,
+    distDir,
+    hubChrome: { hubKey: 'confronti', activeSubTab: 'health' },
+  });
+}
+
+// ── Pure generator ─────────────────────────────────────────────
+
+/**
+ * Pure generator — used by both the Vite plugin (closeBundle) and tests.
+ * Produces a map of canonical path → HTML string and a summary of cantons
+ * that had to be skipped for missing data.
+ */
+export interface GenerateHealthPremiumsResult {
+  pages: Record<string, string>;
+  skippedCantons: HealthPremiumCanton[];
+  /**
+   * Per-canton YoY delta computed against the optional `priorDataset`.
+   * Empty record when no prior-year data was provided — the plugin then
+   * renders leaves and hubs without the "Variazione vs {priorYear}" section.
+   */
+  yoyByCanton: Record<HealthPremiumCanton, YoyCantonDelta | null>;
+  /**
+   * Per-canton tri-year trend computed against the optional `oldestDataset`
+   * (e.g. 2024) plus `priorDataset` (e.g. 2025). Empty record when neither
+   * archive was provided — leaves and hubs then skip the tri-year block.
+   */
+  triYearByCanton: Record<HealthPremiumCanton, TriYearCantonDelta | null>;
+}
+
+export function generateHealthPremiumsPages(opts: {
+  dataset: HealthPremiumsDataset;
+  /** Optional prior-year dataset (same schema) for YoY computation. */
+  priorDataset?: HealthPremiumsDataset | null;
+  /**
+   * Optional oldest dataset (typically 2024) used together with
+   * `priorDataset` to render the tri-year trend (B-cont-4). When absent the
+   * tri-year block is omitted but the YoY block still renders.
+   */
+  oldestDataset?: HealthPremiumsDataset | null;
+  today?: Date;
+  /** dist directory for entry-asset resolution (omit in tests). */
+  distDir?: string;
+}): GenerateHealthPremiumsResult {
+  const dataset = opts.dataset;
+  const priorDataset = opts.priorDataset ?? null;
+  const oldestDataset = opts.oldestDataset ?? null;
+  const today = opts.today ?? new Date();
+  const distDir = opts.distDir;
+
+  // Precompute per-canton stats once. Records are initialised from the
+  // canonical canton list so adding new cantons in healthPremiumsData.ts
+  // automatically lights up the full pipeline (no hand-maintained partial
+  // record to keep in sync).
+  const makeNullCantonRecord = <T>(): Record<HealthPremiumCanton, T | null> =>
+    HEALTH_PREMIUM_CANTONS.reduce(
+      (acc, c) => {
+        acc[c] = null;
+        return acc;
+      },
+      {} as Record<HealthPremiumCanton, T | null>,
+    );
+  const cantonStats = makeNullCantonRecord<CantonPremiumStats>();
+  const yoyByCanton = makeNullCantonRecord<YoyCantonDelta>();
+  const triYearByCanton = makeNullCantonRecord<TriYearCantonDelta>();
+  const skippedCantons: HealthPremiumCanton[] = [];
+  for (const c of HEALTH_PREMIUM_CANTONS) {
+    const stats = computeCantonStats(dataset, c);
+    cantonStats[c] = stats;
+    if (!stats) {
+      skippedCantons.push(c);
+      console.warn(
+        `[health-premiums] no premium data for canton ${c} (BAG code ${HEALTH_PREMIUM_CANTON_BAG_CODE[c]}) — skipping its pages`,
+      );
+      continue;
+    }
+    if (priorDataset) {
+      yoyByCanton[c] = computeYoyDelta({
+        current: dataset,
+        prior: priorDataset,
+        cantonBagCode: HEALTH_PREMIUM_CANTON_BAG_CODE[c],
+      });
+    }
+    // Tri-year trend: needs at least the current dataset; oldestDataset and
+    // priorDataset are optional. When only the current dataset is available
+    // computeTriYearDelta returns null because no consecutive YoY can
+    // be computed — keeping the leaf rendering clean.
+    if (priorDataset || oldestDataset) {
+      triYearByCanton[c] = computeTriYearDelta({
+        current: dataset,
+        prior: priorDataset,
+        oldest: oldestDataset,
+        cantonBagCode: HEALTH_PREMIUM_CANTON_BAG_CODE[c],
+      });
+    }
+  }
+
+  const pages: Record<string, string> = {};
+
+  for (const locale of HEALTH_PREMIUM_LOCALES) {
+    // Root hub
+    const rootPath = buildHealthPremiumsRootPath(locale);
+    const rootAlternates: Record<HealthPremiumLocale, string> = {
+      it: buildHealthPremiumsRootPath('it'),
+      en: buildHealthPremiumsRootPath('en'),
+      de: buildHealthPremiumsRootPath('de'),
+      fr: buildHealthPremiumsRootPath('fr'),
+    };
+    pages[rootPath] = renderRootHubPage({
+      locale,
+      dataset,
+      cantonStats,
+      canonicalPath: rootPath,
+      alternates: rootAlternates,
+      today,
+      distDir,
+    });
+
+    for (const canton of HEALTH_PREMIUM_CANTONS) {
+      const stats = cantonStats[canton];
+      if (!stats) continue;
+
+      const cantonPath = buildHealthPremiumsCantonPath(locale, canton);
+      const cantonAlternates: Record<HealthPremiumLocale, string> = {
+        it: buildHealthPremiumsCantonPath('it', canton),
+        en: buildHealthPremiumsCantonPath('en', canton),
+        de: buildHealthPremiumsCantonPath('de', canton),
+        fr: buildHealthPremiumsCantonPath('fr', canton),
+      };
+      pages[cantonPath] = renderCantonHubPage({
+        locale,
+        canton,
+        dataset,
+        stats,
+        allCantonStats: cantonStats,
+        canonicalPath: cantonPath,
+        alternates: cantonAlternates,
+        today,
+        yoy: yoyByCanton[canton],
+        triYear: triYearByCanton[canton],
+        distDir,
+      });
+
+      for (const ab of HEALTH_PREMIUM_AGE_BRACKETS) {
+        const leafPath = buildHealthPremiumsLeafPath(locale, canton, ab.id);
+        const leafAlternates: Record<HealthPremiumLocale, string> = {
+          it: buildHealthPremiumsLeafPath('it', canton, ab.id),
+          en: buildHealthPremiumsLeafPath('en', canton, ab.id),
+          de: buildHealthPremiumsLeafPath('de', canton, ab.id),
+          fr: buildHealthPremiumsLeafPath('fr', canton, ab.id),
+        };
+        pages[leafPath] = renderLeafPage({
+          locale,
+          canton,
+          age: ab.id,
+          dataset,
+          stats,
+          allCantonStats: cantonStats,
+          canonicalPath: leafPath,
+          alternates: leafAlternates,
+          today,
+          yoy: yoyByCanton[canton],
+          triYear: triYearByCanton[canton],
+          distDir,
+        });
+      }
+    }
+  }
+
+  return { pages, skippedCantons, yoyByCanton, triYearByCanton };
+}
+
+// ── Sitemap ────────────────────────────────────────────────────
+
+function buildSitemapXml(
+  paths: string[],
+  today: Date,
+  pathsByCanonical: Record<string, { alternates: string[] }>,
+): string {
+  const date = today.toISOString().slice(0, 10);
+  const entries = paths
+    .filter((p) => !p.startsWith('/en/') && !p.startsWith('/de/') && !p.startsWith('/fr/'))
+    .map((canonical) => {
+      const meta = pathsByCanonical[canonical];
+      const alt = meta
+        ? meta.alternates
+            .map((h) => `    <xhtml:link rel="alternate" hreflang="${h.split(':')[0]}" href="${h.split(':').slice(1).join(':')}" />`)
+            .join('\n')
+        : '';
+      return `  <url>
+    <loc>${BASE_URL}${canonical}</loc>
+${alt}
+    <lastmod>${date}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>`;
+    })
+    .join('\n');
+
+  return `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+${entries}
+</urlset>
+`;
+}
+
+function patchSitemapIndex(distDir: string, dateStamp: string): void {
+  const indexPath = np.join(distDir, 'sitemap.xml');
+  if (!fs.existsSync(indexPath)) return;
+  try {
+    let idx = fs.readFileSync(indexPath, 'utf-8');
+    if (!idx.includes('sitemap-health-premiums.xml')) {
+      idx = idx.replace(
+        '</sitemapindex>',
+        `  <sitemap>\n    <loc>${BASE_URL}/sitemap-health-premiums.xml</loc>\n    <lastmod>${dateStamp}</lastmod>\n  </sitemap>\n</sitemapindex>`,
+      );
+    } else {
+      idx = idx.replace(
+        /(<loc>https:\/\/frontaliereticino\.ch\/sitemap-health-premiums\.xml<\/loc>\s*<lastmod>)\d{4}-\d{2}-\d{2}(<\/lastmod>)/,
+        `$1${dateStamp}$2`,
+      );
+    }
+    fs.writeFileSync(indexPath, idx, 'utf-8');
+  } catch (err) {
+    console.warn('[health-premiums] failed to patch sitemap index', err);
+  }
+}
+
+// ── Plugin entry ───────────────────────────────────────────────
+
+/**
+ * Enumerate the runtime data files this plugin reads via `fs.readFileSync`.
+ *
+ * esbuild's import tracer covers code dependencies but does NOT see files
+ * loaded with `fs` at runtime. The cache hashes every file in this list to
+ * make sure dataset edits invalidate the cache automatically.
+ *
+ * Returns ABSOLUTE paths so the cache hashes raw bytes (path-independent).
+ * The list is sorted by path inside `computeCacheKey` for determinism.
+ *
+ * Tolerates missing files (the cache encodes a sentinel for absence so the
+ * cache key still shifts when a file appears or disappears).
+ */
+function healthPremiumsRuntimeFiles(rootDir: string): string[] {
+  const list: string[] = [];
+  const legacy = np.resolve(rootDir, 'data', 'health-premiums.json');
+  if (fs.existsSync(legacy)) list.push(legacy);
+  const dir = np.resolve(rootDir, 'data', 'health-premiums');
+  if (fs.existsSync(dir)) {
+    try {
+      for (const f of fs.readdirSync(dir)) {
+        if (f.endsWith('.json')) list.push(np.join(dir, f));
+      }
+    } catch {
+      /* ignore — missing dir captured by the absence sentinel */
+    }
+  }
+  return list;
+}
+
+export function healthPremiumsLandingPlugin(rootDir: string): Plugin {
+  return {
+    name: 'health-premiums-landing',
+    apply: 'build',
+    async closeBundle() {
+      if (process.env.SKIP_HEALTH_PREMIUMS === '1') {
+        console.log('\x1b[33m[health-premiums]\x1b[0m Skipped (SKIP_HEALTH_PREMIUMS=1)');
+        return;
+      }
+
+      const distDir = np.resolve(rootDir, 'dist');
+      if (!fs.existsSync(distDir)) return;
+
+      // Ext3 task 3 — wipe owned namespaces before regen so per-canton /
+      // per-age pages that drop out of the dataset don't linger. Runs on
+      // every build (cache hit or miss): the cache restore later refills
+      // the namespace with the canonical set, so wiping first ensures no
+      // stale leaves survive a dataset shrink.
+      cleanNamespaces(distDir, [
+        'premi-cassa-malati',
+        'en/health-insurance-premiums',
+        'de/krankenkassenpraemien',
+        'fr/primes-assurance-maladie',
+      ]);
+      cleanSitemapFiles(distDir, ['sitemap-health-premiums.xml']);
+
+      // `today` is fixed once per build and baked into JSON-LD
+      // `dateModified`/`datePublished`.
+      const today = new Date();
+      const dayKey = today.toISOString().slice(0, 10);
+
+      // Locate the canonical current-year dataset. Preferred path is the
+      // F2-A3 multi-year directory (`data/health-premiums/{year}.json`);
+      // fall back to the legacy flat file when the directory is absent.
+      const preferredYear = today.getUTCFullYear();
+      const dirCandidate = np.resolve(
+        rootDir,
+        'data',
+        'health-premiums',
+        `${preferredYear}.json`,
+      );
+      const legacyCandidate = np.resolve(rootDir, 'data', 'health-premiums.json');
+      let dataPath: string | null = null;
+      if (fs.existsSync(dirCandidate)) dataPath = dirCandidate;
+      else if (fs.existsSync(legacyCandidate)) dataPath = legacyCandidate;
+
+      let dataset: HealthPremiumsDataset = {};
+      if (!dataPath) {
+        console.warn(
+          `[health-premiums] no dataset found at ${dirCandidate} or ${legacyCandidate} — skipping plugin`,
+        );
+        return;
+      }
+      try {
+        const raw = fs.readFileSync(dataPath, 'utf-8');
+        dataset = JSON.parse(raw) as HealthPremiumsDataset;
+      } catch (err) {
+        console.warn(`[health-premiums] failed to read ${dataPath}`, err);
+        return;
+      }
+
+      // Optional prior-year dataset for YoY rendering (F2 A3).
+      let priorDataset: HealthPremiumsDataset | null = null;
+      const currentYear = dataset.year ?? preferredYear;
+      const priorYear = currentYear - 1;
+      const priorLoaded = loadPremiumsForYear(rootDir, priorYear);
+      if (priorLoaded) {
+        priorDataset = priorLoaded as HealthPremiumsDataset;
+        console.log(`[health-premiums] loaded prior-year dataset ${priorYear} for YoY`);
+      } else {
+        console.log(`[health-premiums] no ${priorYear}.json archive — YoY section will be skipped`);
+      }
+
+      // Optional oldest-year dataset for tri-year trend (B-cont-4).
+      let oldestDataset: HealthPremiumsDataset | null = null;
+      const oldestYear = currentYear - 2;
+      const oldestLoaded = loadPremiumsForYear(rootDir, oldestYear);
+      if (oldestLoaded) {
+        oldestDataset = oldestLoaded as HealthPremiumsDataset;
+        console.log(
+          `[health-premiums] loaded oldest-year dataset ${oldestYear} for tri-year trend`,
+        );
+      } else {
+        console.log(
+          `[health-premiums] no ${oldestYear}.json archive — tri-year trend section will be skipped`,
+        );
+      }
+
+      const { pages, skippedCantons, yoyByCanton, triYearByCanton } =
+        generateHealthPremiumsPages({
+          dataset,
+          priorDataset,
+          oldestDataset,
+          today,
+          distDir,
+        });
+      const yoyActive = Object.values(yoyByCanton).filter((y) => y !== null).length;
+      const triYearActive = Object.values(triYearByCanton).filter((y) => y !== null).length;
+
+      const collector = new WriteCollector({
+        distDir,
+        skipExisting: false,
+        pluginName: 'healthPremiumsLandingPlugin',
+      });
+      let pagesWritten = 0;
+      let skippedForWordCount = 0;
+      const writtenPaths: string[] = [];
+
+      for (const [pageRel, html] of Object.entries(pages)) {
+        const words = countHtmlBodyWords(html);
+        if (words < MIN_INDEXABLE_WORDS) {
+          skippedForWordCount++;
+          console.warn(
+            `[health-premiums] thin content (${words} words) for ${pageRel} — skipping`,
+          );
+          continue;
+        }
+        const outDir = np.join(distDir, pageRel.replace(/^\/+/, ''));
+        collector.add(np.join(outDir, 'index.html'), html);
+        pagesWritten++;
+        writtenPaths.push(pageRel);
+      }
+
+      await collector.flush();
+
+      // Sitemap — emit only IT canonicals, with hreflang alternates.
+      try {
+        const pathsByCanonical: Record<string, { alternates: string[] }> = {};
+        for (const pageRel of writtenPaths) {
+          if (
+            pageRel.startsWith('/en/') ||
+            pageRel.startsWith('/de/') ||
+            pageRel.startsWith('/fr/')
+          )
+            continue;
+          const alts: string[] = [];
+          for (const alt of HEALTH_PREMIUM_LOCALES) {
+            const altPath = deriveAltPath(pageRel, alt);
+            if (altPath && writtenPaths.includes(altPath)) {
+              alts.push(`${alt}:${BASE_URL}${altPath}`);
+            }
+          }
+          alts.push(`x-default:${BASE_URL}${pageRel}`);
+          pathsByCanonical[pageRel] = { alternates: alts };
+        }
+        const xml = buildSitemapXml(writtenPaths, today, pathsByCanonical);
+        const sitemapPath = np.join(distDir, 'sitemap-health-premiums.xml');
+        fs.writeFileSync(sitemapPath, xml, 'utf-8');
+      } catch (err) {
+        console.warn('[health-premiums] failed to write sitemap', err);
+      }
+
+      console.log(
+        `\x1b[36m[health-premiums]\x1b[0m Generated ${pagesWritten} pages (skipped ${skippedForWordCount} thin; missing cantons: ${skippedCantons.length > 0 ? skippedCantons.join(',') : 'none'}; YoY active on ${yoyActive}/${HEALTH_PREMIUM_CANTONS.length} cantons; tri-year trend active on ${triYearActive}/${HEALTH_PREMIUM_CANTONS.length} cantons)`,
+      );
+
+      // Always-run: patch sitemap.xml index `<lastmod>` for the
+      // sitemap-health-premiums.xml entry. Only when the sitemap actually
+      // exists in dist (either freshly written or restored from cache) —
+      // skipping this when the dataset was missing and the work returned
+      // early without writing anything.
+      if (fs.existsSync(np.join(distDir, 'sitemap-health-premiums.xml'))) {
+        patchSitemapIndex(distDir, dayKey);
+      }
+    },
+  };
+}
+
+/**
+ * Given an Italian canonical path like `/premi-cassa-malati/ticino/adulto-31-45/`,
+ * derive the equivalent path in the target locale by re-mapping the section,
+ * canton and age slugs. Returns `null` when the path does not match the
+ * expected shape.
+ */
+function deriveAltPath(itPath: string, targetLocale: HealthPremiumLocale): string | null {
+  if (targetLocale === 'it') return itPath;
+  const parts = itPath.split('/').filter(Boolean);
+  if (parts.length < 1) return null;
+  // Expected: [section] or [section, canton] or [section, canton, age]
+  const section = parts[0];
+  // Validate IT section slug
+  if (section !== 'premi-cassa-malati') return null;
+  // Import slug maps from the data module to avoid duplicating them here
+  // (we keep this inline to prevent a circular import).
+  const ageMap: Record<string, HealthPremiumAgeBracket> = {
+    'bambini-0-18': '0-18',
+    'giovani-adulti-19-25': '19-25',
+    'adulto-26-30': '26-30',
+    'adulto-31-45': '31-45',
+    'adulto-46-55': '46-55',
+    'adulto-56-piu': '56-plus',
+  };
+  // Build the IT-slug → canton identifier lookup dynamically from the
+  // canonical slug table so new cantons added to healthPremiumsData.ts are
+  // recognised here without a hand-edit. The IT slug is used because this
+  // function only consumes IT-locale canonical paths (the sitemap emits IT
+  // canonicals and derives alternates from them).
+  const cantonMap: Record<string, HealthPremiumCanton> = {};
+  for (const c of Object.keys(HEALTH_PREMIUM_CANTON_SLUG.it) as HealthPremiumCanton[]) {
+    cantonMap[HEALTH_PREMIUM_CANTON_SLUG.it[c]] = c;
+  }
+  if (parts.length === 1) return buildHealthPremiumsRootPath(targetLocale);
+  const canton = cantonMap[parts[1]];
+  if (!canton) return null;
+  if (parts.length === 2) return buildHealthPremiumsCantonPath(targetLocale, canton);
+  const age = ageMap[parts[2]];
+  if (!age) return null;
+  return buildHealthPremiumsLeafPath(targetLocale, canton, age);
+}

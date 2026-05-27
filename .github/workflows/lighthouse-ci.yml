@@ -1,0 +1,79 @@
+name: Lighthouse CI
+
+# Gate: catch performance regressions on the 6 representative page templates
+# flagged by Semrush Site Audit (2026-04-24) as "slow" pages.
+#
+# Budgets enforced:
+#   - Performance score >= 0.85
+#   - LCP  < 2500ms
+#   - CLS  < 0.1
+#   - TBT  < 200ms
+#
+# Runs against production (https://frontaliereticino.ch). If production is
+# temporarily unavailable, the job is non-blocking (continue-on-error).
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'build-plugins/**'
+      - 'services/locales/**'
+      - 'vite.config.ts'
+      - 'index.css'
+      - 'index.html'
+      - 'package.json'
+      - '.github/workflows/lighthouse-ci.yml'
+      - 'lighthouserc.json'
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  lighthouse:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    continue-on-error: true  # Non-blocking while we tune budgets against live prod.
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - name: Run Lighthouse CI against production
+        uses: treosh/lighthouse-ci-action@v12
+        with:
+          # URLs must exist in the live sitemap and serve 200 (no redirect).
+          # Lighthouse aborts the whole run on any 404 — see issue
+          # diagnosed 2026-05-26: 4/6 old URLs were 404, blanking every audit
+          # incl. CLS. URL slugs changed after the cathedral rewrite.
+          urls: |
+            https://frontaliereticino.ch/
+            https://frontaliereticino.ch/cerca-lavoro-ticino/
+            https://frontaliereticino.ch/aziende-che-assumono/ticino/settimana-corrente/
+            https://frontaliereticino.ch/prezzi-diesel/chiasso/oggi/
+            https://frontaliereticino.ch/premi-cassa-malati/ticino/
+            https://frontaliereticino.ch/traffico-dogane/chiasso-brogeda/oggi/
+          # lhci rejects both budgetPath + configPath:assert.assertions
+          # ("Cannot use both budgets AND assertions"). Assertions in
+          # lighthouserc.json supersede budgets — they cover the same
+          # timings plus category-level scores (perf/seo/a11y).
+          # lighthouse-budget.json is kept for reference but no longer wired.
+          configPath: ./lighthouserc.json
+          uploadArtifacts: true
+          temporaryPublicStorage: true
+
+      - name: Upload Lighthouse reports on failure
+        if: failure()
+        uses: actions/upload-artifact@v7
+        with:
+          name: lighthouse-reports
+          path: .lighthouseci/
+          retention-days: 7

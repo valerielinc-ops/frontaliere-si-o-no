@@ -1,0 +1,40 @@
+{
+  "id": "lugano-calcio-frontalieri-2026",
+  "slug": "lugano-calcio-frontalieri-2026",
+  "publishedAt": "2026-05-09T19:26:49.142Z",
+  "cluster": "mobilita",
+  "_pool": "proven",
+  "_pool_source": "media.tio.ch",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 6.949656628637209,
+    "confidence": 0.8,
+    "finalScore": 5.559725302909768,
+    "topK": [
+      {
+        "slug": "lugano-saluta-stadio-cornaredo-2024",
+        "cosine": 0.8176005389320466
+      },
+      {
+        "slug": "lugano-young-boys-cornaredo-2026",
+        "cosine": 0.8169104157964413
+      },
+      {
+        "slug": "lugano-ingaggia-olle-lycksell-2026",
+        "cosine": 0.8133402090901989
+      },
+      {
+        "slug": "mondiali-hockey-svizzera-2026",
+        "cosine": 0.8131331294310162
+      },
+      {
+        "slug": "lugano-renato-steffen-goal-staffa",
+        "cosine": 0.8100868099139704
+      }
+    ],
+    "score": 5.559725302909768,
+    "clusterDiversityBonus": 1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "mobilita"
+  }
+}

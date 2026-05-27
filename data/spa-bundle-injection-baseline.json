@@ -1,0 +1,9 @@
+{
+  "total": 10800,
+  "scanned": 815228,
+  "skipped": 6,
+  "skippedRedirect": 2561,
+  "groups": {},
+  "rebasedAt": "2026-05-19T23:55:00.000Z",
+  "note": "Bumped 2026-05-19 (late night) from 10500 \u2192 10800 (+300, ~3% buffer over observed 10659). Batch 16-19 added 29 new hospital crawlers / ~471 new CH jobs across 26 cantons. New employer/per-job locale variants pushed the count by +159 in one deploy. Buffered ratchet absorbs ~2-3 more deploys of cron growth before needing another bump. Numbers must only DECREASE going forward. Drive toward zero via SKIP_PATHS or template refactor (specifically: ensure new article emitters go through buildSeoPageHtml which injects the SPA bundle)."
+}

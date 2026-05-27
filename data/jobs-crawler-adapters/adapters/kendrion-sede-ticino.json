@@ -1,0 +1,22 @@
+{
+  "companyKey": "kendrion-sede-ticino",
+  "companyName": "Kendrion (sede Ticino)",
+  "companyHost": "kendrion.com",
+  "enabled": true,
+  "priority": 0,
+  "crawlerModes": [
+    "generic_ats",
+    "html",
+    "jsonld"
+  ],
+  "seedUrls": [
+    "https://www.kendrion.com/careers",
+    "https://www.kendrion.com/career",
+    "https://www.kendrion.com/jobs",
+    "https://www.kendrion.com/karriere",
+    "https://www.kendrion.com/offene-stellen",
+    "https://www.kendrion.com/lavora-con-noi"
+  ],
+  "notes": "",
+  "updatedAt": "2026-02-27T17:06:06.957Z"
+}

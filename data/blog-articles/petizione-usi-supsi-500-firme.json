@@ -1,0 +1,40 @@
+{
+  "id": "petizione-usi-supsi-500-firme",
+  "slug": "petizione-usi-supsi-500-firme",
+  "publishedAt": "2026-05-16T08:40:29.673Z",
+  "cluster": "novita",
+  "_pool": "proven",
+  "_pool_source": "ticinonews.ch",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 6.553624286266563,
+    "confidence": 0.8,
+    "finalScore": 5.24289942901325,
+    "topK": [
+      {
+        "slug": "usi-supsi-25-milioni-casse-malati",
+        "cosine": 0.8184319463441425
+      },
+      {
+        "slug": "universita-ticino-frontalieri",
+        "cosine": 0.8061868098129155
+      },
+      {
+        "slug": "usi-ticino-tagli-bilancio-2026",
+        "cosine": 0.8053421309020653
+      },
+      {
+        "slug": "cure-infermieristiche-190mila-firme-2026",
+        "cosine": 0.8041401348983269
+      },
+      {
+        "slug": "universita-ticino-tagli-contributi-2026",
+        "cosine": 0.8038143030667372
+      }
+    ],
+    "score": 2.621449714506625,
+    "clusterDiversityBonus": 0.5,
+    "sourceQualityMultiplier": 1,
+    "cluster": "novita"
+  }
+}

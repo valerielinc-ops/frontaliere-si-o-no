@@ -1,0 +1,22 @@
+{
+  "companyKey": "casale",
+  "companyName": "Casale SA",
+  "companyHost": "recruit.casale.ch",
+  "enabled": true,
+  "priority": 10,
+  "crawlerModes": [
+    "html",
+    "jsonld"
+  ],
+  "seedUrls": [
+    "https://recruit.casale.ch/o/junior-software-engineer-internship-program",
+    "https://recruit.casale.ch/o/apprenticeship-laboratory-technician-in-chemistry-afc-chemical-and-pharmaceutical-technologist-afc",
+    "https://recruit.casale.ch/o/expediter-1",
+    "https://recruit.casale.ch/o/electrical-engineer-1",
+    "https://recruit.casale.ch/o/project-manager-2",
+    "https://recruit.casale.ch/o/home-office-construction-engineer",
+    "https://recruit.casale.ch/o/proposal-manager"
+  ],
+  "notes": "Recruitee platform — Casale SA engineering jobs in Lugano, TI.",
+  "updatedAt": "2026-05-26T22:16:45.156Z"
+}

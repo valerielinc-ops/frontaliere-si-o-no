@@ -1,0 +1,40 @@
+{
+  "id": "avs-2030-frontalieri-ticino",
+  "slug": "avs-2030-frontalieri-ticino",
+  "publishedAt": "2026-05-25T10:11:16.113Z",
+  "cluster": "pensioni",
+  "_pool": "proven",
+  "_pool_source": "tvsvizzera.it",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 2.570673655915439,
+    "confidence": 0.8,
+    "finalScore": 2.0565389247323513,
+    "topK": [
+      {
+        "slug": "lavoratori-pensionati-svizzera-2026",
+        "cosine": 0.8568912186384797
+      },
+      {
+        "slug": "casse-malati-alloggi-landsgemeinde-2026",
+        "cosine": 0.8567481450667478
+      },
+      {
+        "slug": "pensione-et-ticino-sentiero",
+        "cosine": 0.8551736880348798
+      },
+      {
+        "slug": "premi-non-oltre-10-percento",
+        "cosine": 0.8548069655126673
+      },
+      {
+        "slug": "assegni-familiari-frontalieri-ticino-2026",
+        "cosine": 0.8537616036072283
+      }
+    ],
+    "score": 2.0565389247323513,
+    "clusterDiversityBonus": 1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "pensioni"
+  }
+}

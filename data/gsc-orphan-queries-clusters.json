@@ -1,0 +1,1773 @@
+{
+  "generatedAt": "2026-05-25T08:01:29.674Z",
+  "sourceFile": "data/gsc-orphan-queries.json",
+  "totalClusters": 69,
+  "gates": {
+    "minClusterImpressions": 5
+  },
+  "clusters": [
+    {
+      "clusterId": "it-offerte-di-lavoro-ticino-negli-ultimi-3-giorni",
+      "locale": "it",
+      "canonicalQuery": "offerte di lavoro ticino negli ultimi 3 giorni",
+      "canonicalSlug": "offerte-di-lavoro-ticino-negli-ultimi-3-giorni",
+      "roleTokens": [
+        "giorn",
+        "lavor",
+        "negl",
+        "offert",
+        "ultim"
+      ],
+      "regionTokens": [
+        "ticino"
+      ],
+      "totalImpressions": 54,
+      "totalClicks": 0,
+      "queries": [
+        {
+          "query": "offerte di lavoro ticino negli ultimi 3 giorni",
+          "clicks": 0,
+          "impressions": 33
+        },
+        {
+          "query": "offerte lavoro ticino negli ultimi 3 giorni",
+          "clicks": 0,
+          "impressions": 21
+        }
+      ]
+    },
+    {
+      "clusterId": "it-case-anziani-ticino-offerte-di-lavoro",
+      "locale": "it",
+      "canonicalQuery": "case anziani ticino offerte di lavoro",
+      "canonicalSlug": "case-anziani-ticino-offerte-di-lavoro",
+      "roleTokens": [
+        "anzian",
+        "cas",
+        "lavor",
+        "offert"
+      ],
+      "regionTokens": [
+        "ticino"
+      ],
+      "totalImpressions": 43,
+      "totalClicks": 1,
+      "queries": [
+        {
+          "query": "case anziani ticino offerte di lavoro",
+          "clicks": 1,
+          "impressions": 37
+        },
+        {
+          "query": "offerte di lavoro casa anziani ticino",
+          "clicks": 0,
+          "impressions": 6
+        }
+      ]
+    },
+    {
+      "clusterId": "it-offerte-di-lavoro-ticino-da-ieri",
+      "locale": "it",
+      "canonicalQuery": "offerte di lavoro ticino da ieri",
+      "canonicalSlug": "offerte-di-lavoro-ticino-da-ieri",
+      "roleTokens": [
+        "ier",
+        "lavor",
+        "offert"
+      ],
+      "regionTokens": [
+        "ticino"
+      ],
+      "totalImpressions": 42,
+      "totalClicks": 1,
+      "queries": [
+        {
+          "query": "offerte di lavoro ticino da ieri",
+          "clicks": 0,
+          "impressions": 38
+        },
+        {
+          "query": "offerte lavoro ticino da ieri",
+          "clicks": 1,
+          "impressions": 4
+        }
+      ]
+    },
+    {
+      "clusterId": "it-posti-lavoro-ticino",
+      "locale": "it",
+      "canonicalQuery": "posti lavoro ticino",
+      "canonicalSlug": "posti-lavoro-ticino",
+      "roleTokens": [
+        "lavor",
+        "post"
+      ],
+      "regionTokens": [
+        "ticino"
+      ],
+      "totalImpressions": 42,
+      "totalClicks": 1,
+      "queries": [
+        {
+          "query": "posti lavoro ticino",
+          "clicks": 1,
+          "impressions": 27
+        },
+        {
+          "query": "posti di lavoro ticino",
+          "clicks": 0,
+          "impressions": 9
+        },
+        {
+          "query": "posto lavoro ticino",
+          "clicks": 0,
+          "impressions": 3
+        },
+        {
+          "query": "ticino posti di lavoro",
+          "clicks": 0,
+          "impressions": 3
+        }
+      ]
+    },
+    {
+      "clusterId": "it-lavoro-in-svizzera",
+      "locale": "it",
+      "canonicalQuery": "lavoro in svizzera",
+      "canonicalSlug": "lavoro-in-svizzera",
+      "roleTokens": [
+        "lavor"
+      ],
+      "regionTokens": [
+        "svizzera"
+      ],
+      "totalImpressions": 39,
+      "totalClicks": 0,
+      "queries": [
+        {
+          "query": "lavoro in svizzera",
+          "clicks": 0,
+          "impressions": 36
+        },
+        {
+          "query": "lavoro svizzera",
+          "clicks": 0,
+          "impressions": 3
+        }
+      ]
+    },
+    {
+      "clusterId": "it-offerte-di-lavoro-svizzera",
+      "locale": "it",
+      "canonicalQuery": "offerte di lavoro svizzera",
+      "canonicalSlug": "offerte-di-lavoro-svizzera",
+      "roleTokens": [
+        "lavor",
+        "offert"
+      ],
+      "regionTokens": [
+        "svizzera"
+      ],
+      "totalImpressions": 39,
+      "totalClicks": 0,
+      "queries": [
+        {
+          "query": "offerte di lavoro svizzera",
+          "clicks": 0,
+          "impressions": 16
+        },
+        {
+          "query": "offerte lavoro svizzera",
+          "clicks": 0,
+          "impressions": 15
+        },
+        {
+          "query": "offerte di lavoro in svizzera",
+          "clicks": 0,
+          "impressions": 4
+        },
+        {
+          "query": "lavoro offerte svizzera",
+          "clicks": 0,
+          "impressions": 2
+        },
+        {
+          "query": "offerta lavoro svizzera",
+          "clicks": 0,
+          "impressions": 2
+        }
+      ]
+    },
+    {
+      "clusterId": "it-offerte-di-lavoro-casa-di-riposo-svizzera",
+      "locale": "it",
+      "canonicalQuery": "offerte di lavoro casa di riposo svizzera",
+      "canonicalSlug": "offerte-di-lavoro-casa-di-riposo-svizzera",
+      "roleTokens": [
+        "cas",
+        "lavor",
+        "offert",
+        "ripos"
+      ],
+      "regionTokens": [
+        "svizzera"
+      ],
+      "totalImpressions": 33,
+      "totalClicks": 3,
+      "queries": [
+        {
+          "query": "offerte di lavoro casa di riposo svizzera",
+          "clicks": 2,
+          "impressions": 18
+        },
+        {
+          "query": "offerte lavoro casa di riposo svizzera",
+          "clicks": 1,
+          "impressions": 15
+        }
+      ]
+    },
+    {
+      "clusterId": "it-lavoro-ticino",
+      "locale": "it",
+      "canonicalQuery": "lavoro ticino",
+      "canonicalSlug": "lavoro-ticino",
+      "roleTokens": [
+        "lavor"
+      ],
+      "regionTokens": [
+        "ticino"
+      ],
+      "totalImpressions": 32,
+      "totalClicks": 1,
+      "queries": [
+        {
+          "query": "lavoro ticino",
+          "clicks": 1,
+          "impressions": 32
+        }
+      ]
+    },
+    {
+      "clusterId": "en-help-me-find-ticino-caregiver-jobs-for-elderly-care-with-live-in-option-and-clea",
+      "locale": "en",
+      "canonicalQuery": "help me find ticino caregiver jobs for elderly care with live in option and clear legal contract terms.",
+      "canonicalSlug": "help-me-find-ticino-caregiver-jobs-for-elderly-care-with-live-in-option-and-clea",
+      "roleTokens": [
+        "car",
+        "caregiver",
+        "clear",
+        "contract",
+        "elderly",
+        "find",
+        "help",
+        "job",
+        "legal",
+        "liv",
+        "me",
+        "option",
+        "term"
+      ],
+      "regionTokens": [
+        "ticino"
+      ],
+      "totalImpressions": 30,
+      "totalClicks": 0,
+      "queries": [
+        {
+          "query": "help me find ticino caregiver jobs for elderly care with live in option and clear legal contract terms.",
+          "clicks": 0,
+          "impressions": 30
+        }
+      ]
+    },
+    {
+      "clusterId": "en-i-am-searching-for-caregiver-jobs-in-ticino-for-elderly-support",
+      "locale": "en",
+      "canonicalQuery": "i am searching for caregiver jobs in ticino for elderly support.",
+      "canonicalSlug": "i-am-searching-for-caregiver-jobs-in-ticino-for-elderly-support",
+      "roleTokens": [
+        "caregiver",
+        "elderly",
+        "job",
+        "search",
+        "support"
+      ],
+      "regionTokens": [
+        "ticino"
+      ],
+      "totalImpressions": 28,
+      "totalClicks": 0,
+      "queries": [
+        {
+          "query": "i am searching for caregiver jobs in ticino for elderly support.",
+          "clicks": 0,
+          "impressions": 28
+        }
+      ]
+    },
+    {
+      "clusterId": "it-cerco-lavoro-in-svizzera",
+      "locale": "it",
+      "canonicalQuery": "cerco lavoro in svizzera",
+      "canonicalSlug": "cerco-lavoro-in-svizzera",
+      "roleTokens": [
+        "cerc",
+        "lavor"
+      ],
+      "regionTokens": [
+        "svizzera"
+      ],
+      "totalImpressions": 23,
+      "totalClicks": 0,
+      "queries": [
+        {
+          "query": "cerco lavoro in svizzera",
+          "clicks": 0,
+          "impressions": 14
+        },
+        {
+          "query": "cerco lavoro svizzera",
+          "clicks": 0,
+          "impressions": 9
+        }
+      ]
+    },
+    {
+      "clusterId": "it-lavoro-ticino-negli-ultimi-3-giorni",
+      "locale": "it",
+      "canonicalQuery": "lavoro ticino negli ultimi 3 giorni",
+      "canonicalSlug": "lavoro-ticino-negli-ultimi-3-giorni",
+      "roleTokens": [
+        "giorn",
+        "lavor",
+        "negl",
+        "ultim"
+      ],
+      "regionTokens": [
+        "ticino"
+      ],
+      "totalImpressions": 22,
+      "totalClicks": 1,
+      "queries": [
+        {
+          "query": "lavoro ticino negli ultimi 3 giorni",
+          "clicks": 1,
+          "impressions": 22
+        }
+      ]
+    },
+    {
+      "clusterId": "it-offerte-di-lavoro-ticino",
+      "locale": "it",
+      "canonicalQuery": "offerte di lavoro ticino",
+      "canonicalSlug": "offerte-di-lavoro-ticino",
+      "roleTokens": [
+        "lavor",
+        "offert"
+      ],
+      "regionTokens": [
+        "ticino"
+      ],
+      "totalImpressions": 20,
+      "totalClicks": 0,
+      "queries": [
+        {
+          "query": "offerte di lavoro ticino",
+          "clicks": 0,
+          "impressions": 10
+        },
+        {
+          "query": "offerte lavoro ticino",
+          "clicks": 0,
+          "impressions": 7
+        },
+        {
+          "query": "offerte di lavoro in ticino",
+          "clicks": 0,
+          "impressions": 2
+        },
+        {
+          "query": "offerte lavoro in ticino",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ]
+    },
+    {
+      "clusterId": "it-cerco-lavoro-ticino",
+      "locale": "it",
+      "canonicalQuery": "cerco lavoro ticino",
+      "canonicalSlug": "cerco-lavoro-ticino",
+      "roleTokens": [
+        "cerc",
+        "lavor"
+      ],
+      "regionTokens": [
+        "ticino"
+      ],
+      "totalImpressions": 20,
+      "totalClicks": 1,
+      "queries": [
+        {
+          "query": "cerco lavoro ticino",
+          "clicks": 1,
+          "impressions": 20
+        }
+      ]
+    },
+    {
+      "clusterId": "it-case-anziani-lugano-posti-di-lavoro",
+      "locale": "it",
+      "canonicalQuery": "case anziani lugano posti di lavoro",
+      "canonicalSlug": "case-anziani-lugano-posti-di-lavoro",
+      "roleTokens": [
+        "anzian",
+        "cas",
+        "lavor",
+        "post"
+      ],
+      "regionTokens": [
+        "lugano"
+      ],
+      "totalImpressions": 19,
+      "totalClicks": 0,
+      "queries": [
+        {
+          "query": "case anziani lugano posti di lavoro",
+          "clicks": 0,
+          "impressions": 19
+        }
+      ]
+    },
+    {
+      "clusterId": "en-teaching-jobs-in-the-canton-of-ticino",
+      "locale": "en",
+      "canonicalQuery": "teaching jobs in the canton of ticino",
+      "canonicalSlug": "teaching-jobs-in-the-canton-of-ticino",
+      "roleTokens": [
+        "canton",
+        "job",
+        "teach"
+      ],
+      "regionTokens": [
+        "ticino"
+      ],
+      "totalImpressions": 18,
+      "totalClicks": 0,
+      "queries": [
+        {
+          "query": "teaching jobs in the canton of ticino",
+          "clicks": 0,
+          "impressions": 18
+        }
+      ]
+    },
+    {
+      "clusterId": "it-migros-offerte-di-lavoro-ticino",
+      "locale": "it",
+      "canonicalQuery": "migros offerte di lavoro ticino",
+      "canonicalSlug": "migros-offerte-di-lavoro-ticino",
+      "roleTokens": [
+        "lavor",
+        "migro",
+        "offert"
+      ],
+      "regionTokens": [
+        "ticino"
+      ],
+      "totalImpressions": 18,
+      "totalClicks": 1,
+      "queries": [
+        {
+          "query": "migros offerte di lavoro ticino",
+          "clicks": 1,
+          "impressions": 16
+        },
+        {
+          "query": "offerte di lavoro migros ticino",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "offerte lavoro migros ticino",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ]
+    },
+    {
+      "clusterId": "de-chauffeur-jobs",
+      "locale": "de",
+      "canonicalQuery": "chauffeur jobs",
+      "canonicalSlug": "chauffeur-jobs",
+      "roleTokens": [
+        "chauff",
+        "job"
+      ],
+      "regionTokens": [],
+      "totalImpressions": 17,
+      "totalClicks": 0,
+      "queries": [
+        {
+          "query": "chauffeur jobs",
+          "clicks": 0,
+          "impressions": 14
+        },
+        {
+          "query": "jobs chauffeur",
+          "clicks": 0,
+          "impressions": 2
+        },
+        {
+          "query": "chauffeur job",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ]
+    },
+    {
+      "clusterId": "it-offerte-lavoro",
+      "locale": "it",
+      "canonicalQuery": "offerte lavoro",
+      "canonicalSlug": "offerte-lavoro",
+      "roleTokens": [
+        "lavor",
+        "offert"
+      ],
+      "regionTokens": [],
+      "totalImpressions": 16,
+      "totalClicks": 1,
+      "queries": [
+        {
+          "query": "offerte lavoro",
+          "clicks": 0,
+          "impressions": 13
+        },
+        {
+          "query": "offerte di lavoro",
+          "clicks": 1,
+          "impressions": 3
+        }
+      ]
+    },
+    {
+      "clusterId": "it-lavoro-ticino-da-ieri",
+      "locale": "it",
+      "canonicalQuery": "lavoro ticino da ieri",
+      "canonicalSlug": "lavoro-ticino-da-ieri",
+      "roleTokens": [
+        "ier",
+        "lavor"
+      ],
+      "regionTokens": [
+        "ticino"
+      ],
+      "totalImpressions": 14,
+      "totalClicks": 0,
+      "queries": [
+        {
+          "query": "lavoro ticino da ieri",
+          "clicks": 0,
+          "impressions": 14
+        }
+      ]
+    },
+    {
+      "clusterId": "it-fahrer-locarno",
+      "locale": "it",
+      "canonicalQuery": "fahrer locarno",
+      "canonicalSlug": "fahrer-locarno",
+      "roleTokens": [
+        "fahrer"
+      ],
+      "regionTokens": [
+        "locarno"
+      ],
+      "totalImpressions": 12,
+      "totalClicks": 0,
+      "queries": [
+        {
+          "query": "fahrer locarno",
+          "clicks": 0,
+          "impressions": 12
+        }
+      ]
+    },
+    {
+      "clusterId": "it-frontaliere-ticino",
+      "locale": "it",
+      "canonicalQuery": "frontaliere ticino",
+      "canonicalSlug": "frontaliere-ticino",
+      "roleTokens": [
+        "frontal"
+      ],
+      "regionTokens": [
+        "ticino"
+      ],
+      "totalImpressions": 12,
+      "totalClicks": 0,
+      "queries": [
+        {
+          "query": "frontaliere ticino",
+          "clicks": 0,
+          "impressions": 12
+        }
+      ]
+    },
+    {
+      "clusterId": "de-migros-jobs",
+      "locale": "de",
+      "canonicalQuery": "migros jobs",
+      "canonicalSlug": "migros-jobs",
+      "roleTokens": [
+        "job",
+        "migro"
+      ],
+      "regionTokens": [],
+      "totalImpressions": 12,
+      "totalClicks": 0,
+      "queries": [
+        {
+          "query": "migros jobs",
+          "clicks": 0,
+          "impressions": 8
+        },
+        {
+          "query": "job migros",
+          "clicks": 0,
+          "impressions": 2
+        },
+        {
+          "query": "migros job",
+          "clicks": 0,
+          "impressions": 2
+        }
+      ]
+    },
+    {
+      "clusterId": "it-offerte-lavoro-frontaliere-svizzera",
+      "locale": "it",
+      "canonicalQuery": "offerte lavoro frontaliere svizzera",
+      "canonicalSlug": "offerte-lavoro-frontaliere-svizzera",
+      "roleTokens": [
+        "frontal",
+        "lavor",
+        "offert"
+      ],
+      "regionTokens": [
+        "svizzera"
+      ],
+      "totalImpressions": 11,
+      "totalClicks": 1,
+      "queries": [
+        {
+          "query": "offerte lavoro frontaliere svizzera",
+          "clicks": 1,
+          "impressions": 11
+        }
+      ]
+    },
+    {
+      "clusterId": "it-lavoro-ticino-nell-ultima-settimana",
+      "locale": "it",
+      "canonicalQuery": "lavoro ticino nell'ultima settimana",
+      "canonicalSlug": "lavoro-ticino-nell-ultima-settimana",
+      "roleTokens": [
+        "lavor",
+        "nell",
+        "settiman",
+        "ultim"
+      ],
+      "regionTokens": [
+        "ticino"
+      ],
+      "totalImpressions": 11,
+      "totalClicks": 0,
+      "queries": [
+        {
+          "query": "lavoro ticino nell'ultima settimana",
+          "clicks": 0,
+          "impressions": 11
+        }
+      ]
+    },
+    {
+      "clusterId": "it-frontalieri",
+      "locale": "it",
+      "canonicalQuery": "frontalieri",
+      "canonicalSlug": "frontalieri",
+      "roleTokens": [
+        "frontalier"
+      ],
+      "regionTokens": [],
+      "totalImpressions": 9,
+      "totalClicks": 0,
+      "queries": [
+        {
+          "query": "frontalieri",
+          "clicks": 0,
+          "impressions": 9
+        }
+      ]
+    },
+    {
+      "clusterId": "it-offerte-di-lavoro-canton-ticino-per-frontalieri",
+      "locale": "it",
+      "canonicalQuery": "offerte di lavoro canton ticino per frontalieri",
+      "canonicalSlug": "offerte-di-lavoro-canton-ticino-per-frontalieri",
+      "roleTokens": [
+        "canton",
+        "frontalier",
+        "lavor",
+        "offert"
+      ],
+      "regionTokens": [
+        "ticino"
+      ],
+      "totalImpressions": 9,
+      "totalClicks": 0,
+      "queries": [
+        {
+          "query": "offerte di lavoro canton ticino per frontalieri",
+          "clicks": 0,
+          "impressions": 9
+        }
+      ]
+    },
+    {
+      "clusterId": "fr-groupe-mutuel-emploi",
+      "locale": "fr",
+      "canonicalQuery": "groupe mutuel emploi",
+      "canonicalSlug": "groupe-mutuel-emploi",
+      "roleTokens": [
+        "emplo",
+        "group",
+        "mutuel"
+      ],
+      "regionTokens": [],
+      "totalImpressions": 9,
+      "totalClicks": 0,
+      "queries": [
+        {
+          "query": "groupe mutuel emploi",
+          "clicks": 0,
+          "impressions": 7
+        },
+        {
+          "query": "emploi groupe mutuel",
+          "clicks": 0,
+          "impressions": 2
+        }
+      ]
+    },
+    {
+      "clusterId": "it-case-di-riposo-ticino-lavora-con-noi",
+      "locale": "it",
+      "canonicalQuery": "case di riposo ticino lavora con noi",
+      "canonicalSlug": "case-di-riposo-ticino-lavora-con-noi",
+      "roleTokens": [
+        "cas",
+        "lavor",
+        "noi",
+        "ripos"
+      ],
+      "regionTokens": [
+        "ticino"
+      ],
+      "totalImpressions": 8,
+      "totalClicks": 0,
+      "queries": [
+        {
+          "query": "case di riposo ticino lavora con noi",
+          "clicks": 0,
+          "impressions": 8
+        }
+      ]
+    },
+    {
+      "clusterId": "it-offerte-di-lavoro-ticino-ristorazione",
+      "locale": "it",
+      "canonicalQuery": "offerte di lavoro ticino ristorazione",
+      "canonicalSlug": "offerte-di-lavoro-ticino-ristorazione",
+      "roleTokens": [
+        "lavor",
+        "offert",
+        "ristorazion"
+      ],
+      "regionTokens": [
+        "ticino"
+      ],
+      "totalImpressions": 8,
+      "totalClicks": 1,
+      "queries": [
+        {
+          "query": "offerte di lavoro ticino ristorazione",
+          "clicks": 0,
+          "impressions": 5
+        },
+        {
+          "query": "offerte lavoro ristorazione ticino",
+          "clicks": 1,
+          "impressions": 3
+        }
+      ]
+    },
+    {
+      "clusterId": "it-altenpfleger-jobs-lugano",
+      "locale": "it",
+      "canonicalQuery": "altenpfleger jobs lugano",
+      "canonicalSlug": "altenpfleger-jobs-lugano",
+      "roleTokens": [
+        "altenpfleger",
+        "job"
+      ],
+      "regionTokens": [
+        "lugano"
+      ],
+      "totalImpressions": 8,
+      "totalClicks": 0,
+      "queries": [
+        {
+          "query": "altenpfleger jobs lugano",
+          "clicks": 0,
+          "impressions": 8
+        }
+      ]
+    },
+    {
+      "clusterId": "de-jobs-tessin",
+      "locale": "de",
+      "canonicalQuery": "jobs tessin",
+      "canonicalSlug": "jobs-tessin",
+      "roleTokens": [
+        "job"
+      ],
+      "regionTokens": [
+        "ticino"
+      ],
+      "totalImpressions": 8,
+      "totalClicks": 0,
+      "queries": [
+        {
+          "query": "jobs tessin",
+          "clicks": 0,
+          "impressions": 6
+        },
+        {
+          "query": "jobs in tessin",
+          "clicks": 0,
+          "impressions": 2
+        }
+      ]
+    },
+    {
+      "clusterId": "it-offerte-di-lavoro-ticino-part-time",
+      "locale": "it",
+      "canonicalQuery": "offerte di lavoro ticino part time",
+      "canonicalSlug": "offerte-di-lavoro-ticino-part-time",
+      "roleTokens": [
+        "lavor",
+        "offert",
+        "part",
+        "tim"
+      ],
+      "regionTokens": [
+        "ticino"
+      ],
+      "totalImpressions": 8,
+      "totalClicks": 0,
+      "queries": [
+        {
+          "query": "offerte di lavoro ticino part time",
+          "clicks": 0,
+          "impressions": 3
+        },
+        {
+          "query": "offerte di lavoro ticino part-time",
+          "clicks": 0,
+          "impressions": 2
+        },
+        {
+          "query": "offerte di lavoro part time ticino",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "offerte lavoro part time ticino",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "offerte lavoro ticino part time",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ]
+    },
+    {
+      "clusterId": "it-offerte-di-lavoro-lugano-da-ieri",
+      "locale": "it",
+      "canonicalQuery": "offerte di lavoro lugano da ieri",
+      "canonicalSlug": "offerte-di-lavoro-lugano-da-ieri",
+      "roleTokens": [
+        "ier",
+        "lavor",
+        "offert"
+      ],
+      "regionTokens": [
+        "lugano"
+      ],
+      "totalImpressions": 8,
+      "totalClicks": 0,
+      "queries": [
+        {
+          "query": "offerte di lavoro lugano da ieri",
+          "clicks": 0,
+          "impressions": 6
+        },
+        {
+          "query": "offerte lavoro lugano da ieri",
+          "clicks": 0,
+          "impressions": 2
+        }
+      ]
+    },
+    {
+      "clusterId": "de-chauffeur-schweiz",
+      "locale": "de",
+      "canonicalQuery": "chauffeur schweiz",
+      "canonicalSlug": "chauffeur-schweiz",
+      "roleTokens": [
+        "chauff"
+      ],
+      "regionTokens": [
+        "svizzera"
+      ],
+      "totalImpressions": 8,
+      "totalClicks": 0,
+      "queries": [
+        {
+          "query": "chauffeur schweiz",
+          "clicks": 0,
+          "impressions": 7
+        },
+        {
+          "query": "schweiz chauffeurs",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ]
+    },
+    {
+      "clusterId": "it-offerte-di-lavoro-ticino-nell-ultima-settimana",
+      "locale": "it",
+      "canonicalQuery": "offerte di lavoro ticino nell'ultima settimana",
+      "canonicalSlug": "offerte-di-lavoro-ticino-nell-ultima-settimana",
+      "roleTokens": [
+        "lavor",
+        "nell",
+        "offert",
+        "settiman",
+        "ultim"
+      ],
+      "regionTokens": [
+        "ticino"
+      ],
+      "totalImpressions": 7,
+      "totalClicks": 0,
+      "queries": [
+        {
+          "query": "offerte di lavoro ticino nell'ultima settimana",
+          "clicks": 0,
+          "impressions": 6
+        },
+        {
+          "query": "offerte lavoro ticino nell'ultima settimana",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ]
+    },
+    {
+      "clusterId": "it-coop-lavora-con-noi",
+      "locale": "it",
+      "canonicalQuery": "coop lavora con noi",
+      "canonicalSlug": "coop-lavora-con-noi",
+      "roleTokens": [
+        "coop",
+        "lavor",
+        "noi"
+      ],
+      "regionTokens": [],
+      "totalImpressions": 7,
+      "totalClicks": 0,
+      "queries": [
+        {
+          "query": "coop lavora con noi",
+          "clicks": 0,
+          "impressions": 7
+        }
+      ]
+    },
+    {
+      "clusterId": "it-jobs-mendrisio",
+      "locale": "it",
+      "canonicalQuery": "jobs mendrisio",
+      "canonicalSlug": "jobs-mendrisio",
+      "roleTokens": [
+        "job"
+      ],
+      "regionTokens": [
+        "mendrisio"
+      ],
+      "totalImpressions": 7,
+      "totalClicks": 0,
+      "queries": [
+        {
+          "query": "jobs mendrisio",
+          "clicks": 0,
+          "impressions": 7
+        }
+      ]
+    },
+    {
+      "clusterId": "it-lidl-ticino-offerte-di-lavoro",
+      "locale": "it",
+      "canonicalQuery": "lidl ticino offerte di lavoro",
+      "canonicalSlug": "lidl-ticino-offerte-di-lavoro",
+      "roleTokens": [
+        "lavor",
+        "lidl",
+        "offert"
+      ],
+      "regionTokens": [
+        "ticino"
+      ],
+      "totalImpressions": 7,
+      "totalClicks": 1,
+      "queries": [
+        {
+          "query": "lidl ticino offerte di lavoro",
+          "clicks": 1,
+          "impressions": 5
+        },
+        {
+          "query": "lidl offerte di lavoro ticino",
+          "clicks": 0,
+          "impressions": 2
+        }
+      ]
+    },
+    {
+      "clusterId": "fr-otis-emploi",
+      "locale": "fr",
+      "canonicalQuery": "otis emploi",
+      "canonicalSlug": "otis-emploi",
+      "roleTokens": [
+        "emplo",
+        "oti"
+      ],
+      "regionTokens": [],
+      "totalImpressions": 7,
+      "totalClicks": 0,
+      "queries": [
+        {
+          "query": "otis emploi",
+          "clicks": 0,
+          "impressions": 7
+        }
+      ]
+    },
+    {
+      "clusterId": "it-lavoro-mendrisio",
+      "locale": "it",
+      "canonicalQuery": "lavoro mendrisio",
+      "canonicalSlug": "lavoro-mendrisio",
+      "roleTokens": [
+        "lavor"
+      ],
+      "regionTokens": [
+        "mendrisio"
+      ],
+      "totalImpressions": 7,
+      "totalClicks": 0,
+      "queries": [
+        {
+          "query": "lavoro mendrisio",
+          "clicks": 0,
+          "impressions": 7
+        }
+      ]
+    },
+    {
+      "clusterId": "it-erzieher-jobs-lugano",
+      "locale": "it",
+      "canonicalQuery": "erzieher jobs lugano",
+      "canonicalSlug": "erzieher-jobs-lugano",
+      "roleTokens": [
+        "erzieher",
+        "job"
+      ],
+      "regionTokens": [
+        "lugano"
+      ],
+      "totalImpressions": 6,
+      "totalClicks": 0,
+      "queries": [
+        {
+          "query": "erzieher jobs lugano",
+          "clicks": 0,
+          "impressions": 6
+        }
+      ]
+    },
+    {
+      "clusterId": "it-offerte-di-lavoro-a-chiasso",
+      "locale": "it",
+      "canonicalQuery": "offerte di lavoro a chiasso",
+      "canonicalSlug": "offerte-di-lavoro-a-chiasso",
+      "roleTokens": [
+        "lavor",
+        "offert"
+      ],
+      "regionTokens": [
+        "chiasso"
+      ],
+      "totalImpressions": 6,
+      "totalClicks": 0,
+      "queries": [
+        {
+          "query": "offerte di lavoro a chiasso",
+          "clicks": 0,
+          "impressions": 4
+        },
+        {
+          "query": "offerte di lavoro chiasso",
+          "clicks": 0,
+          "impressions": 2
+        }
+      ]
+    },
+    {
+      "clusterId": "it-offerte-di-lavoro-vendita-ticino",
+      "locale": "it",
+      "canonicalQuery": "offerte di lavoro vendita ticino",
+      "canonicalSlug": "offerte-di-lavoro-vendita-ticino",
+      "roleTokens": [
+        "lavor",
+        "offert",
+        "vendit"
+      ],
+      "regionTokens": [
+        "ticino"
+      ],
+      "totalImpressions": 6,
+      "totalClicks": 1,
+      "queries": [
+        {
+          "query": "offerte di lavoro vendita ticino",
+          "clicks": 0,
+          "impressions": 3
+        },
+        {
+          "query": "offerte di lavoro ticino vendita",
+          "clicks": 1,
+          "impressions": 2
+        },
+        {
+          "query": "offerte lavoro vendita ticino",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ]
+    },
+    {
+      "clusterId": "it-visual-merchandiser-lavoro",
+      "locale": "it",
+      "canonicalQuery": "visual merchandiser lavoro",
+      "canonicalSlug": "visual-merchandiser-lavoro",
+      "roleTokens": [
+        "lavor",
+        "merchandiser",
+        "visual"
+      ],
+      "regionTokens": [],
+      "totalImpressions": 6,
+      "totalClicks": 2,
+      "queries": [
+        {
+          "query": "visual merchandiser lavoro",
+          "clicks": 2,
+          "impressions": 6
+        }
+      ]
+    },
+    {
+      "clusterId": "it-lavori-in-svizzera",
+      "locale": "it",
+      "canonicalQuery": "lavori in svizzera",
+      "canonicalSlug": "lavori-in-svizzera",
+      "roleTokens": [
+        "lav"
+      ],
+      "regionTokens": [
+        "svizzera"
+      ],
+      "totalImpressions": 6,
+      "totalClicks": 0,
+      "queries": [
+        {
+          "query": "lavori in svizzera",
+          "clicks": 0,
+          "impressions": 5
+        },
+        {
+          "query": "lavori svizzera",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ]
+    },
+    {
+      "clusterId": "en-migros-jobs-ticino",
+      "locale": "en",
+      "canonicalQuery": "migros jobs ticino",
+      "canonicalSlug": "migros-jobs-ticino",
+      "roleTokens": [
+        "job",
+        "migro"
+      ],
+      "regionTokens": [
+        "ticino"
+      ],
+      "totalImpressions": 6,
+      "totalClicks": 0,
+      "queries": [
+        {
+          "query": "migros jobs ticino",
+          "clicks": 0,
+          "impressions": 6
+        }
+      ]
+    },
+    {
+      "clusterId": "it-lavoro-infermiere-ticino",
+      "locale": "it",
+      "canonicalQuery": "lavoro infermiere ticino",
+      "canonicalSlug": "lavoro-infermiere-ticino",
+      "roleTokens": [
+        "inferm",
+        "lavor"
+      ],
+      "regionTokens": [
+        "ticino"
+      ],
+      "totalImpressions": 6,
+      "totalClicks": 0,
+      "queries": [
+        {
+          "query": "lavoro infermiere ticino",
+          "clicks": 0,
+          "impressions": 6
+        }
+      ]
+    },
+    {
+      "clusterId": "fr-bosch-emploi",
+      "locale": "fr",
+      "canonicalQuery": "bosch emploi",
+      "canonicalSlug": "bosch-emploi",
+      "roleTokens": [
+        "bosch",
+        "emplo"
+      ],
+      "regionTokens": [],
+      "totalImpressions": 6,
+      "totalClicks": 0,
+      "queries": [
+        {
+          "query": "bosch emploi",
+          "clicks": 0,
+          "impressions": 6
+        }
+      ]
+    },
+    {
+      "clusterId": "it-migros-lugano-lavora-con-noi",
+      "locale": "it",
+      "canonicalQuery": "migros lugano lavora con noi",
+      "canonicalSlug": "migros-lugano-lavora-con-noi",
+      "roleTokens": [
+        "lavor",
+        "migro",
+        "noi"
+      ],
+      "regionTokens": [
+        "lugano"
+      ],
+      "totalImpressions": 6,
+      "totalClicks": 0,
+      "queries": [
+        {
+          "query": "migros lugano lavora con noi",
+          "clicks": 0,
+          "impressions": 6
+        }
+      ]
+    },
+    {
+      "clusterId": "it-migros-posti-di-lavoro",
+      "locale": "it",
+      "canonicalQuery": "migros posti di lavoro",
+      "canonicalSlug": "migros-posti-di-lavoro",
+      "roleTokens": [
+        "lavor",
+        "migro",
+        "post"
+      ],
+      "regionTokens": [],
+      "totalImpressions": 6,
+      "totalClicks": 0,
+      "queries": [
+        {
+          "query": "migros posti di lavoro",
+          "clicks": 0,
+          "impressions": 6
+        }
+      ]
+    },
+    {
+      "clusterId": "it-lavoro-migros",
+      "locale": "it",
+      "canonicalQuery": "lavoro migros",
+      "canonicalSlug": "lavoro-migros",
+      "roleTokens": [
+        "lavor",
+        "migro"
+      ],
+      "regionTokens": [],
+      "totalImpressions": 6,
+      "totalClicks": 0,
+      "queries": [
+        {
+          "query": "lavoro migros",
+          "clicks": 0,
+          "impressions": 6
+        }
+      ]
+    },
+    {
+      "clusterId": "it-offerte-di-lavoro-mendrisio",
+      "locale": "it",
+      "canonicalQuery": "offerte di lavoro mendrisio",
+      "canonicalSlug": "offerte-di-lavoro-mendrisio",
+      "roleTokens": [
+        "lavor",
+        "offert"
+      ],
+      "regionTokens": [
+        "mendrisio"
+      ],
+      "totalImpressions": 6,
+      "totalClicks": 0,
+      "queries": [
+        {
+          "query": "offerte di lavoro mendrisio",
+          "clicks": 0,
+          "impressions": 5
+        },
+        {
+          "query": "offerte lavoro mendrisio",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ]
+    },
+    {
+      "clusterId": "it-casa-anziani-paradiso-offerta-lavoro",
+      "locale": "it",
+      "canonicalQuery": "casa anziani paradiso offerta lavoro",
+      "canonicalSlug": "casa-anziani-paradiso-offerta-lavoro",
+      "roleTokens": [
+        "anzian",
+        "cas",
+        "lavor",
+        "offert"
+      ],
+      "regionTokens": [
+        "paradiso"
+      ],
+      "totalImpressions": 5,
+      "totalClicks": 0,
+      "queries": [
+        {
+          "query": "casa anziani paradiso offerta lavoro",
+          "clicks": 0,
+          "impressions": 5
+        }
+      ]
+    },
+    {
+      "clusterId": "it-offerte-di-lavoro-ristorazione",
+      "locale": "it",
+      "canonicalQuery": "offerte di lavoro ristorazione",
+      "canonicalSlug": "offerte-di-lavoro-ristorazione",
+      "roleTokens": [
+        "lavor",
+        "offert",
+        "ristorazion"
+      ],
+      "regionTokens": [],
+      "totalImpressions": 5,
+      "totalClicks": 0,
+      "queries": [
+        {
+          "query": "offerte di lavoro ristorazione",
+          "clicks": 0,
+          "impressions": 4
+        },
+        {
+          "query": "offerte lavoro ristorazione",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ]
+    },
+    {
+      "clusterId": "it-offerte-di-lavoro-per-frontalieri-svizzera",
+      "locale": "it",
+      "canonicalQuery": "offerte di lavoro per frontalieri svizzera",
+      "canonicalSlug": "offerte-di-lavoro-per-frontalieri-svizzera",
+      "roleTokens": [
+        "frontalier",
+        "lavor",
+        "offert"
+      ],
+      "regionTokens": [
+        "svizzera"
+      ],
+      "totalImpressions": 5,
+      "totalClicks": 0,
+      "queries": [
+        {
+          "query": "offerte di lavoro per frontalieri svizzera",
+          "clicks": 0,
+          "impressions": 5
+        }
+      ]
+    },
+    {
+      "clusterId": "it-jobs-bellinzona",
+      "locale": "it",
+      "canonicalQuery": "jobs bellinzona",
+      "canonicalSlug": "jobs-bellinzona",
+      "roleTokens": [
+        "job"
+      ],
+      "regionTokens": [
+        "bellinzona"
+      ],
+      "totalImpressions": 5,
+      "totalClicks": 0,
+      "queries": [
+        {
+          "query": "jobs bellinzona",
+          "clicks": 0,
+          "impressions": 5
+        }
+      ]
+    },
+    {
+      "clusterId": "it-softwareentwicklung-jobs-lugano",
+      "locale": "it",
+      "canonicalQuery": "softwareentwicklung jobs lugano",
+      "canonicalSlug": "softwareentwicklung-jobs-lugano",
+      "roleTokens": [
+        "job",
+        "softwareentwicklung"
+      ],
+      "regionTokens": [
+        "lugano"
+      ],
+      "totalImpressions": 5,
+      "totalClicks": 0,
+      "queries": [
+        {
+          "query": "softwareentwicklung jobs lugano",
+          "clicks": 0,
+          "impressions": 5
+        }
+      ]
+    },
+    {
+      "clusterId": "it-pflegejobs-regionalspital-surselva-ag",
+      "locale": "it",
+      "canonicalQuery": "pflegejobs regionalspital surselva ag",
+      "canonicalSlug": "pflegejobs-regionalspital-surselva-ag",
+      "roleTokens": [
+        "ag",
+        "pflegejob",
+        "regionalspital",
+        "surselv"
+      ],
+      "regionTokens": [],
+      "totalImpressions": 5,
+      "totalClicks": 0,
+      "queries": [
+        {
+          "query": "pflegejobs regionalspital surselva ag",
+          "clicks": 0,
+          "impressions": 5
+        }
+      ]
+    },
+    {
+      "clusterId": "it-lavori-part-time-ticino",
+      "locale": "it",
+      "canonicalQuery": "lavori part time ticino",
+      "canonicalSlug": "lavori-part-time-ticino",
+      "roleTokens": [
+        "lav",
+        "part",
+        "tim"
+      ],
+      "regionTokens": [
+        "ticino"
+      ],
+      "totalImpressions": 5,
+      "totalClicks": 0,
+      "queries": [
+        {
+          "query": "lavori part time ticino",
+          "clicks": 0,
+          "impressions": 5
+        }
+      ]
+    },
+    {
+      "clusterId": "it-offerte-di-lavoro-bellinzona",
+      "locale": "it",
+      "canonicalQuery": "offerte di lavoro bellinzona",
+      "canonicalSlug": "offerte-di-lavoro-bellinzona",
+      "roleTokens": [
+        "lavor",
+        "offert"
+      ],
+      "regionTokens": [
+        "bellinzona"
+      ],
+      "totalImpressions": 5,
+      "totalClicks": 0,
+      "queries": [
+        {
+          "query": "offerte di lavoro bellinzona",
+          "clicks": 0,
+          "impressions": 4
+        },
+        {
+          "query": "offerte lavoro bellinzona",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ]
+    },
+    {
+      "clusterId": "it-citta-di-bellinzona-lavoro",
+      "locale": "it",
+      "canonicalQuery": "citta di bellinzona lavoro",
+      "canonicalSlug": "citta-di-bellinzona-lavoro",
+      "roleTokens": [
+        "citt",
+        "lavor"
+      ],
+      "regionTokens": [
+        "bellinzona"
+      ],
+      "totalImpressions": 5,
+      "totalClicks": 0,
+      "queries": [
+        {
+          "query": "citta di bellinzona lavoro",
+          "clicks": 0,
+          "impressions": 5
+        }
+      ]
+    },
+    {
+      "clusterId": "it-lavoro-ticino-svizzera",
+      "locale": "it",
+      "canonicalQuery": "lavoro ticino svizzera",
+      "canonicalSlug": "lavoro-ticino-svizzera",
+      "roleTokens": [
+        "lavor"
+      ],
+      "regionTokens": [
+        "svizzera",
+        "ticino"
+      ],
+      "totalImpressions": 5,
+      "totalClicks": 0,
+      "queries": [
+        {
+          "query": "lavoro ticino svizzera",
+          "clicks": 0,
+          "impressions": 2
+        },
+        {
+          "query": "lavoro in svizzera ticino",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "lavoro svizzera ticino",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "svizzera lavoro ticino",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ]
+    },
+    {
+      "clusterId": "de-jobs-rhb",
+      "locale": "de",
+      "canonicalQuery": "jobs rhb",
+      "canonicalSlug": "jobs-rhb",
+      "roleTokens": [
+        "job",
+        "rhb"
+      ],
+      "regionTokens": [],
+      "totalImpressions": 5,
+      "totalClicks": 0,
+      "queries": [
+        {
+          "query": "jobs rhb",
+          "clicks": 0,
+          "impressions": 4
+        },
+        {
+          "query": "rhb jobs",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ]
+    },
+    {
+      "clusterId": "it-manor-offerte-di-lavoro",
+      "locale": "it",
+      "canonicalQuery": "manor offerte di lavoro",
+      "canonicalSlug": "manor-offerte-di-lavoro",
+      "roleTokens": [
+        "lavor",
+        "manor",
+        "offert"
+      ],
+      "regionTokens": [],
+      "totalImpressions": 5,
+      "totalClicks": 2,
+      "queries": [
+        {
+          "query": "manor offerte di lavoro",
+          "clicks": 2,
+          "impressions": 5
+        }
+      ]
+    },
+    {
+      "clusterId": "it-cerco-lavoro-ch",
+      "locale": "it",
+      "canonicalQuery": "cerco lavoro ch",
+      "canonicalSlug": "cerco-lavoro-ch",
+      "roleTokens": [
+        "cerc",
+        "lavor"
+      ],
+      "regionTokens": [
+        "ch"
+      ],
+      "totalImpressions": 5,
+      "totalClicks": 0,
+      "queries": [
+        {
+          "query": "cerco lavoro ch",
+          "clicks": 0,
+          "impressions": 5
+        }
+      ]
+    },
+    {
+      "clusterId": "it-offerte-di-lavoro-briga-svizzera",
+      "locale": "it",
+      "canonicalQuery": "offerte di lavoro briga svizzera",
+      "canonicalSlug": "offerte-di-lavoro-briga-svizzera",
+      "roleTokens": [
+        "brig",
+        "lavor",
+        "offert"
+      ],
+      "regionTokens": [
+        "svizzera"
+      ],
+      "totalImpressions": 5,
+      "totalClicks": 0,
+      "queries": [
+        {
+          "query": "offerte di lavoro briga svizzera",
+          "clicks": 0,
+          "impressions": 5
+        }
+      ]
+    },
+    {
+      "clusterId": "de-job-etudiant-denner",
+      "locale": "de",
+      "canonicalQuery": "job étudiant denner",
+      "canonicalSlug": "job-etudiant-denner",
+      "roleTokens": [
+        "denner",
+        "etudiant",
+        "job"
+      ],
+      "regionTokens": [],
+      "totalImpressions": 5,
+      "totalClicks": 0,
+      "queries": [
+        {
+          "query": "job étudiant denner",
+          "clicks": 0,
+          "impressions": 4
+        },
+        {
+          "query": "denner job étudiant",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ]
+    },
+    {
+      "clusterId": "it-lavori-ticino",
+      "locale": "it",
+      "canonicalQuery": "lavori ticino",
+      "canonicalSlug": "lavori-ticino",
+      "roleTokens": [
+        "lav"
+      ],
+      "regionTokens": [
+        "ticino"
+      ],
+      "totalImpressions": 5,
+      "totalClicks": 0,
+      "queries": [
+        {
+          "query": "lavori ticino",
+          "clicks": 0,
+          "impressions": 5
+        }
+      ]
+    }
+  ]
+}

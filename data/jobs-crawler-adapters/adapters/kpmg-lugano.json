@@ -1,0 +1,22 @@
+{
+  "companyKey": "kpmg-lugano",
+  "companyName": "KPMG Lugano",
+  "companyHost": "kpmg.ch",
+  "enabled": true,
+  "priority": 0,
+  "crawlerModes": [
+    "generic_ats",
+    "html",
+    "jsonld"
+  ],
+  "seedUrls": [
+    "https://www.kpmg.ch/careers",
+    "https://www.kpmg.ch/career",
+    "https://www.kpmg.ch/jobs",
+    "https://www.kpmg.ch/karriere",
+    "https://www.kpmg.ch/offene-stellen",
+    "https://www.kpmg.ch/lavora-con-noi"
+  ],
+  "notes": "",
+  "updatedAt": "2026-02-27T17:06:06.958Z"
+}

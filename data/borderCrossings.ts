@@ -1,0 +1,575 @@
+/**
+ * Centralized border crossings data source.
+ * Used by both TrafficAlerts and FrontierGuide components.
+ * Source: Wikipedia + tabella valichi ufficiali Lombardia-Ticino 2026
+ */
+
+export interface WebcamRef {
+ /** Localised display label, e.g. "A2 Chiasso-Brogeda direzione nord". */
+ label: string;
+ /** Direct URL to the JPEG/GIF frame (hotlink-friendly). */
+ imageUrl: string;
+ /** Human-readable source name for attribution, e.g. "Dipartimento del territorio – Canton Ticino". */
+ sourceName: string;
+ /** Public URL of the source page that hosts the webcam (attribution link). */
+ sourceUrl: string;
+ /** Refresh interval in ms — used by the inline JS cache-buster. Default 60_000. */
+ refreshIntervalMs?: number;
+ /** Optional explicit license note shown in <figcaption>. */
+ license?: string;
+}
+
+export interface BorderCrossing {
+ name: string;
+ italianSide: string;
+ canton: string;
+ province: string;
+ lat: number;
+ lng: number;
+ type: 'autostrada' | 'statale' | 'locale';
+ open24h: boolean;
+ customsPresent: boolean;
+ hours: string;
+ avgWaitMorning: string;
+ avgWaitEvening: string;
+ trafficLevel: 'high' | 'medium' | 'low' | 'closed';
+ peak: string;
+ tips: string;
+ /**
+  * Whether BAZG (Swiss Federal Office of Customs and Border Security) publishes
+  * authoritative waiting-time data for this crossing. When true, the traffic
+  * scheduler should prefer BAZG over TomTom/Google derived estimates.
+  * NOTE: BAZG public JSON endpoint not discoverable as of 2026-04; flag is
+  * future-proofing and currently has no runtime effect (cascade not wired).
+  */
+ bazgCoverage?: boolean;
+ /**
+  * Hotlinkable public webcams covering the crossing. Source: Dipartimento del
+  * territorio, Canton Ticino (https://www.ti.ch/webcam) — GIF snapshots
+  * refreshed ~every 60s, Cache-Control: max-age=60. Verified hotlink-friendly
+  * (200 OK with no Referer or cookies).
+  */
+ webcams?: WebcamRef[];
+}
+
+/**
+ * Shared metadata for the Ticino Cantonal webcam feeds.
+ * All feeds live under `https://www4.ti.ch/fileadmin/DT/temi/webcams/wct_immagini/`.
+ */
+const TI_POLCA_SOURCE_NAME = 'Dipartimento del territorio – Canton Ticino';
+const TI_POLCA_SOURCE_URL = 'https://www.ti.ch/webcam';
+
+export const borderCrossings: BorderCrossing[] = [
+ // COMO - TICINO
+ {
+ name: 'Chiasso Centro (Ponte Chiasso)',
+ italianSide: 'Como',
+ canton: 'TI',
+ province: 'CO',
+ lat: 45.8326,
+ lng: 9.0340,
+ type: 'statale',
+ open24h: true,
+ customsPresent: true,
+ hours: '24h',
+ avgWaitMorning: '15-30 min',
+ avgWaitEvening: '20-40 min',
+ trafficLevel: 'high',
+ peak: '7:00-8:30, 17:00-18:30',
+ tips: 'border.tips.chiassoCentro',
+ webcams: [
+ {
+ label: 'A2 – Chiasso via Como (direzione sud)',
+ imageUrl: 'https://www4.ti.ch/fileadmin/DT/temi/webcams/wct_immagini/01.2S.gif',
+ sourceName: TI_POLCA_SOURCE_NAME,
+ sourceUrl: TI_POLCA_SOURCE_URL,
+ refreshIntervalMs: 60000,
+ },
+ ],
+ },
+ {
+ name: 'Chiasso-Brogeda',
+ italianSide: 'Como',
+ canton: 'TI',
+ province: 'CO',
+ lat: 45.8409,
+ lng: 9.0376,
+ type: 'autostrada',
+ open24h: true,
+ customsPresent: true,
+ hours: '24h',
+ avgWaitMorning: '8-15 min',
+ avgWaitEvening: '12-25 min',
+ trafficLevel: 'medium',
+ peak: '7:00-8:30, 17:00-18:30',
+ tips: 'border.tips.chiassoBrogeda',
+ bazgCoverage: true,
+ webcams: [
+ {
+ label: 'A2 – Chiasso Brogeda direzione nord',
+ imageUrl: 'https://www4.ti.ch/fileadmin/DT/temi/webcams/wct_immagini/00.3N.gif',
+ sourceName: TI_POLCA_SOURCE_NAME,
+ sourceUrl: TI_POLCA_SOURCE_URL,
+ refreshIntervalMs: 60000,
+ },
+ {
+ label: 'A2 – Chiasso Brogeda valico doganale',
+ imageUrl: 'https://www4.ti.ch/fileadmin/DT/temi/webcams/wct_immagini/00.3S.gif',
+ sourceName: TI_POLCA_SOURCE_NAME,
+ sourceUrl: TI_POLCA_SOURCE_URL,
+ refreshIntervalMs: 60000,
+ },
+ {
+ label: 'A2 – Chiasso Brogeda valico commerciale',
+ imageUrl: 'https://www4.ti.ch/fileadmin/DT/temi/webcams/wct_immagini/00.3O.gif',
+ sourceName: TI_POLCA_SOURCE_NAME,
+ sourceUrl: TI_POLCA_SOURCE_URL,
+ refreshIntervalMs: 60000,
+ },
+ ],
+ },
+ {
+ name: 'Chiasso-Strada',
+ italianSide: 'Como',
+ canton: 'TI',
+ province: 'CO',
+ lat: 45.8332,
+ lng: 9.0374,
+ type: 'statale',
+ open24h: true,
+ customsPresent: true,
+ hours: '24h',
+ avgWaitMorning: '10-18 min',
+ avgWaitEvening: '15-25 min',
+ trafficLevel: 'medium',
+ peak: '7:00-8:30, 17:00-18:30',
+ tips: 'border.tips.chiassoStrada',
+ webcams: [
+ {
+ label: 'A2 – Chiasso via Como (direzione sud)',
+ imageUrl: 'https://www4.ti.ch/fileadmin/DT/temi/webcams/wct_immagini/01.2S.gif',
+ sourceName: TI_POLCA_SOURCE_NAME,
+ sourceUrl: TI_POLCA_SOURCE_URL,
+ refreshIntervalMs: 60000,
+ },
+ ],
+ },
+ {
+ name: 'Maslianico-Pizzamiglio',
+ italianSide: 'Maslianico',
+ canton: 'TI',
+ province: 'CO',
+ lat: 45.8438,
+ lng: 9.0386,
+ type: 'locale',
+ open24h: false,
+ customsPresent: false,
+ hours: '06:00-22:00',
+ avgWaitMorning: '3-8 min',
+ avgWaitEvening: '5-12 min',
+ trafficLevel: 'low',
+ peak: '7:30-8:30, 17:30-18:30',
+ tips: 'border.tips.maslianicoPizzamiglio',
+ },
+ {
+ name: 'Maslianico-Roggiana',
+ italianSide: 'Maslianico',
+ canton: 'TI',
+ province: 'CO',
+ lat: 45.8476,
+ lng: 9.0446,
+ type: 'locale',
+ open24h: false,
+ customsPresent: false,
+ hours: 'border.hours.closed',
+ avgWaitMorning: '---',
+ avgWaitEvening: '---',
+ trafficLevel: 'closed',
+ peak: '---',
+ tips: 'border.tips.maslianicoRoggiana',
+ },
+ {
+ name: 'Bizzarone-Novazzano',
+ italianSide: 'Bizzarone',
+ canton: 'TI',
+ province: 'CO',
+ lat: 45.8401,
+ lng: 8.9593,
+ type: 'locale',
+ open24h: true,
+ customsPresent: false,
+ hours: '24h',
+ avgWaitMorning: '5-12 min',
+ avgWaitEvening: '8-15 min',
+ trafficLevel: 'low',
+ peak: '7:30-8:30, 17:30-18:30',
+ tips: 'border.tips.bizzaroneNovazzano',
+ },
+ {
+ name: 'Ronago-Novazzano',
+ italianSide: 'Ronago',
+ canton: 'TI',
+ province: 'CO',
+ lat: 45.8362,
+ lng: 8.9830,
+ type: 'locale',
+ open24h: true,
+ customsPresent: false,
+ hours: '24h',
+ avgWaitMorning: '5-12 min',
+ avgWaitEvening: '10-18 min',
+ trafficLevel: 'low',
+ peak: '7:00-8:30, 17:00-18:30',
+ tips: 'border.tips.ronagoNovazzano',
+ },
+ {
+ name: 'Crociale dei Mulini',
+ italianSide: 'Faloppio',
+ canton: 'TI',
+ province: 'CO',
+ lat: 45.8340,
+ lng: 8.9939,
+ type: 'locale',
+ open24h: true,
+ customsPresent: false,
+ hours: '24h',
+ avgWaitMorning: '3-8 min',
+ avgWaitEvening: '5-10 min',
+ trafficLevel: 'low',
+ peak: '7:30-8:30',
+ tips: 'border.tips.crociale',
+ },
+ {
+ name: 'Drezzo-Pedrinate',
+ italianSide: 'Drezzo',
+ canton: 'TI',
+ province: 'CO',
+ lat: 45.8206,
+ lng: 9.0031,
+ type: 'locale',
+ open24h: true,
+ customsPresent: false,
+ hours: '24h',
+ avgWaitMorning: '2-5 min',
+ avgWaitEvening: '3-8 min',
+ trafficLevel: 'low',
+ peak: 'border.peak.lowTraffic',
+ tips: 'border.tips.drezzoPedrinate',
+ },
+ {
+ name: "Lanzo d'Intelvi-Arogno",
+ italianSide: "Lanzo d'Intelvi",
+ canton: 'TI',
+ province: 'CO',
+ lat: 45.9624,
+ lng: 9.0091,
+ type: 'locale',
+ open24h: true,
+ customsPresent: false,
+ hours: '24h',
+ avgWaitMorning: '2-5 min',
+ avgWaitEvening: '3-8 min',
+ trafficLevel: 'low',
+ peak: 'border.peak.lowTraffic',
+ tips: 'border.tips.lanzoArogno',
+ },
+ {
+ name: "Campione d'Italia-Bissone",
+ italianSide: 'Campione (enclave)',
+ canton: 'TI',
+ province: 'CO',
+ lat: 45.9618,
+ lng: 8.9686,
+ type: 'locale',
+ open24h: true,
+ customsPresent: false,
+ hours: '24h',
+ avgWaitMorning: '2-5 min',
+ avgWaitEvening: '3-8 min',
+ trafficLevel: 'low',
+ peak: 'border.peak.alwaysCalm',
+ tips: 'border.tips.campioneBissone',
+ },
+ {
+ name: 'Oria-Gandria',
+ italianSide: 'Valsolda',
+ canton: 'TI',
+ province: 'CO',
+ lat: 46.0168,
+ lng: 9.0223,
+ type: 'locale',
+ open24h: true,
+ customsPresent: false,
+ hours: '24h',
+ avgWaitMorning: '2-5 min',
+ avgWaitEvening: '3-6 min',
+ trafficLevel: 'low',
+ peak: 'border.peak.lowTraffic',
+ tips: 'border.tips.oriaGandria',
+ bazgCoverage: true,
+ },
+ // VARESE - TICINO
+ {
+ name: 'Gaggiolo (Cantello-Stabio)',
+ italianSide: 'Cantello',
+ canton: 'TI',
+ province: 'VA',
+ lat: 45.8411,
+ lng: 8.9134,
+ type: 'statale',
+ open24h: true,
+ customsPresent: true,
+ hours: '24h',
+ avgWaitMorning: '10-20 min',
+ avgWaitEvening: '15-30 min',
+ trafficLevel: 'high',
+ peak: '7:00-8:30, 17:00-18:30',
+ tips: 'border.tips.gaggiolo',
+ bazgCoverage: true,
+ webcams: [
+ {
+ label: 'A24 – Stabio direzione nord',
+ imageUrl: 'https://www4.ti.ch/fileadmin/DT/temi/webcams/wct_immagini/02.0N.gif',
+ sourceName: TI_POLCA_SOURCE_NAME,
+ sourceUrl: TI_POLCA_SOURCE_URL,
+ refreshIntervalMs: 60000,
+ },
+ {
+ label: 'A2 – Mendrisio-Stabio direzione sud',
+ imageUrl: 'https://www4.ti.ch/fileadmin/DT/temi/webcams/wct_immagini/06.8S.gif',
+ sourceName: TI_POLCA_SOURCE_NAME,
+ sourceUrl: TI_POLCA_SOURCE_URL,
+ refreshIntervalMs: 60000,
+ },
+ ],
+ },
+ {
+ name: 'San Pietro (Clivio-Stabio)',
+ italianSide: 'Clivio',
+ canton: 'TI',
+ province: 'VA',
+ lat: 45.8595,
+ lng: 8.9321,
+ type: 'statale',
+ open24h: true,
+ customsPresent: false,
+ hours: '24h',
+ avgWaitMorning: '5-12 min',
+ avgWaitEvening: '8-18 min',
+ trafficLevel: 'medium',
+ peak: '7:00-8:30, 17:00-18:30',
+ tips: 'border.tips.sanPietro',
+ webcams: [
+ {
+ label: 'A24 – Stabio direzione nord',
+ imageUrl: 'https://www4.ti.ch/fileadmin/DT/temi/webcams/wct_immagini/02.0N.gif',
+ sourceName: TI_POLCA_SOURCE_NAME,
+ sourceUrl: TI_POLCA_SOURCE_URL,
+ refreshIntervalMs: 60000,
+ },
+ ],
+ },
+ {
+ name: 'Clivio-Ligornetto',
+ italianSide: 'Clivio',
+ canton: 'TI',
+ province: 'VA',
+ lat: 45.8638,
+ lng: 8.9395,
+ type: 'locale',
+ open24h: true,
+ customsPresent: false,
+ hours: '24h',
+ avgWaitMorning: '4-10 min',
+ avgWaitEvening: '6-15 min',
+ trafficLevel: 'low',
+ peak: '7:30-8:30, 17:30-18:30',
+ tips: 'border.tips.clivioLigornetto',
+ },
+ {
+ name: 'Rodero-Stabio',
+ italianSide: 'Rodero',
+ canton: 'TI',
+ province: 'VA',
+ lat: 45.8334,
+ lng: 8.9262,
+ type: 'locale',
+ open24h: false,
+ customsPresent: false,
+ hours: 'border.hours.pedestrianOnly',
+ avgWaitMorning: '---',
+ avgWaitEvening: '---',
+ trafficLevel: 'closed',
+ peak: '---',
+ tips: 'border.tips.roderoStabio',
+ },
+ {
+ name: 'Saltrio-Arzo',
+ italianSide: 'Saltrio',
+ canton: 'TI',
+ province: 'VA',
+ lat: 45.8740,
+ lng: 8.9336,
+ type: 'locale',
+ open24h: true,
+ customsPresent: false,
+ hours: '24h',
+ avgWaitMorning: '3-8 min',
+ avgWaitEvening: '5-12 min',
+ trafficLevel: 'low',
+ peak: '7:30-8:30',
+ tips: 'border.tips.saltrioArzo',
+ },
+ {
+ name: 'Ponte Tresa',
+ italianSide: 'Lavena Ponte Tresa',
+ canton: 'TI',
+ province: 'VA',
+ lat: 45.9670,
+ lng: 8.8589,
+ type: 'statale',
+ open24h: true,
+ customsPresent: false,
+ hours: '24h',
+ avgWaitMorning: '5-15 min',
+ avgWaitEvening: '10-20 min',
+ trafficLevel: 'medium',
+ peak: '7:30-8:30, 17:30-18:30',
+ tips: 'border.tips.ponteTresa',
+ },
+ {
+ name: 'Porto Ceresio-Brusino',
+ italianSide: 'Porto Ceresio',
+ canton: 'TI',
+ province: 'VA',
+ lat: 45.9135,
+ lng: 8.9042,
+ type: 'locale',
+ open24h: false,
+ customsPresent: false,
+ hours: '06:00-22:00',
+ avgWaitMorning: '3-8 min',
+ avgWaitEvening: '5-12 min',
+ trafficLevel: 'low',
+ peak: '7:30-8:30, 17:30-18:30',
+ tips: 'border.tips.portoCeresioBrusino',
+ },
+ {
+ name: 'Cremenaga-Ponte Cremenaga',
+ italianSide: 'Cremenaga',
+ canton: 'TI',
+ province: 'VA',
+ lat: 45.9907,
+ lng: 8.8075,
+ type: 'locale',
+ open24h: false,
+ customsPresent: false,
+ hours: '06:00-20:00',
+ avgWaitMorning: '2-5 min',
+ avgWaitEvening: '3-8 min',
+ trafficLevel: 'low',
+ peak: 'border.peak.lowTraffic',
+ tips: 'border.tips.cremenaga',
+ },
+ {
+ name: 'Luino-Fornasette',
+ italianSide: 'Luino',
+ canton: 'TI',
+ province: 'VA',
+ lat: 45.9931,
+ lng: 8.7878,
+ type: 'statale',
+ open24h: true,
+ customsPresent: false,
+ hours: '24h',
+ avgWaitMorning: '4-10 min',
+ avgWaitEvening: '6-15 min',
+ trafficLevel: 'medium',
+ peak: '7:30-8:30',
+ tips: 'border.tips.luinoFornasette',
+ },
+ {
+ name: 'Zenna-Dirinella',
+ italianSide: 'Zenna',
+ canton: 'TI',
+ province: 'VA',
+ lat: 46.1040,
+ lng: 8.7579,
+ type: 'locale',
+ open24h: true,
+ customsPresent: false,
+ hours: '24h',
+ avgWaitMorning: '2-5 min',
+ avgWaitEvening: '3-8 min',
+ trafficLevel: 'low',
+ peak: 'border.peak.lowTraffic',
+ tips: 'border.tips.zennaDirinella',
+ },
+ {
+ name: 'Biegno-Indemini',
+ italianSide: 'Curiglia con Monteviasco',
+ canton: 'TI',
+ province: 'VA',
+ lat: 46.0955,
+ lng: 8.8164,
+ type: 'locale',
+ open24h: true,
+ customsPresent: false,
+ hours: '24h',
+ avgWaitMorning: '2-5 min',
+ avgWaitEvening: '3-6 min',
+ trafficLevel: 'low',
+ peak: 'border.peak.lowTraffic',
+ tips: 'border.tips.biegnoIndemini',
+ },
+ {
+ name: 'Dumenza-Cassinone',
+ italianSide: 'Dumenza',
+ canton: 'TI',
+ province: 'VA',
+ lat: 46.0052,
+ lng: 8.7921,
+ type: 'locale',
+ open24h: true,
+ customsPresent: false,
+ hours: '24h',
+ avgWaitMorning: '2-5 min',
+ avgWaitEvening: '3-6 min',
+ trafficLevel: 'low',
+ peak: 'border.peak.lowTraffic',
+ tips: 'border.tips.dumenzaCassinone',
+ },
+];
+
+// ── Computed averages overlay ────────────────────────────────────
+//
+// `data/border-wait-averages.json` is regenerated daily by
+// `scripts/compute-border-wait-averages.mjs` from the rolling 30-day
+// history aggregates. The numbers are TOTAL minutes (approach delay +
+// checkpoint queue), matching the live "Ora" card metric.
+//
+// Editorial defaults above stay as fallback for crossings with no history
+// yet, and as a sane baseline before the first compute run lands in
+// `data/`.
+import computedAverages from './border-wait-averages.json';
+
+function slugifyName(name: string): string {
+ return name
+ .normalize('NFKD')
+ .replace(/[̀-ͯ]/g, '')
+ .replace(/\([^)]*\)/g, '')
+ .replace(/[^a-zA-Z0-9]+/g, '-')
+ .replace(/-+/g, '-')
+ .replace(/^-|-$/g, '')
+ .toLowerCase();
+}
+
+const computed = computedAverages as Record<string, { morning?: string; evening?: string }>;
+for (const c of borderCrossings) {
+ const slug = slugifyName(c.name);
+ const entry = computed[slug];
+ if (!entry) continue;
+ if (entry.morning) c.avgWaitMorning = entry.morning;
+ if (entry.evening) c.avgWaitEvening = entry.evening;
+}
+

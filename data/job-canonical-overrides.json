@@ -1,0 +1,19 @@
+{
+  "_doc": "Per-slug canonical override map for job-detail and search-hub pages. Used by build-plugins/jobsSeoPagesPlugin.ts to consolidate cannibalizing URLs onto a winner. Key = page slug (last URL segment, no leading slash). Value = absolute canonical URL of the winner. Both job-detail slugs (per-locale) and search-hub slugs (e.g. 'search-foo', 'suche-foo') are supported. Source: Semrush DB ch cannibalization audit, 2026-04-24.",
+  "overrides": {
+    "spedizione-casale-sa-lugano-ticino": "https://frontaliereticino.ch/cerca-lavoro-ticino/azienda-casale-sa/",
+    "hse-spezialist-casale-sa-lugano-ticino-b892fl": "https://frontaliereticino.ch/cerca-lavoro-ticino/azienda-casale-sa/",
+    "hse-spezialist-casale-sa-lugano-ticino": "https://frontaliereticino.ch/cerca-lavoro-ticino/azienda-casale-sa/",
+    "instrument-ingegnere-casale-sa-lugano": "https://frontaliereticino.ch/cerca-lavoro-ticino/azienda-casale-sa/",
+    "proposal-manager-casale-sa-lugano-ticino-slm01t": "https://frontaliereticino.ch/cerca-lavoro-ticino/azienda-casale-sa/",
+    "beschleuniger-casale-sa-lugano-ticino": "https://frontaliereticino.ch/cerca-lavoro-ticino/azienda-casale-sa/",
+    "work-with-us-casale-sa-lugano": "https://frontaliereticino.ch/cerca-lavoro-ticino/azienda-casale-sa/",
+    "expediter-casale-sa-lugano": "https://frontaliereticino.ch/cerca-lavoro-ticino/azienda-casale-sa/",
+
+    "unternehmenssteuerleiter-80-100-pwc-switzerland-zurich": "https://frontaliereticino.ch/de/jobs-im-tessin/unternehmen-pwc-switzerland/",
+    "rechtsberatung-regulierung-und-compliance-50-pwc-switzerland-zurich-jt2i9b": "https://frontaliereticino.ch/de/jobs-im-tessin/unternehmen-pwc-switzerland/",
+
+    "impiegato-a-amministrativo-a-eoc-ente-ospedaliero-cantonale-bellinzona": "https://frontaliereticino.ch/cerca-lavoro-ticino/azienda-eoc-ente-ospedaliero-cantonale/",
+    "search-lugano-eoc-ente-ospedaliero-cantonale": "https://frontaliereticino.ch/cerca-lavoro-ticino/azienda-eoc-ente-ospedaliero-cantonale/"
+  }
+}

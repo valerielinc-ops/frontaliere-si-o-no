@@ -1,0 +1,86 @@
+name: Cleanup Stale Job Listings
+
+# Phase 1 (per-slice expired-job pruning) runs daily at 06:00 UTC inside
+# translate-pending.yml.  This workflow adds Phase 2 (cross-crawler dedup
+# writeback) on a weekly cadence so persistent duplicates are removed from
+# the slice files and not re-detected on every deploy.
+on:
+  schedule:
+    - cron: '0 5 * * 0'  # Weekly: Sunday 05:00 UTC (before translate-pending daily run)
+  workflow_dispatch:
+    inputs:
+      stale_days:
+        description: 'Remove jobs older than N days (default: 60)'
+        required: false
+        type: string
+      concurrency:
+        description: 'Max concurrent URL checks (1-20, default: 5)'
+        required: false
+        type: string
+      timeout_ms:
+        description: 'URL check timeout in ms (2000-15000, default: 5000)'
+        required: false
+        type: string
+
+concurrency:
+  group: jobs-data-pipeline
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+env:
+  NODE_OPTIONS: '--disable-warning=DEP0040 --disable-warning=DEP0169'
+
+jobs:
+  cleanup-stale-jobs:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 50
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Cleanup each per-crawler slice
+        env:
+          JOBS_STALE_DAYS: ${{ github.event.inputs.stale_days || '' }}
+          JOBS_HOUSEKEEPING_CONCURRENCY: ${{ github.event.inputs.concurrency || '' }}
+          JOBS_HOUSEKEEPING_TIMEOUT_MS: ${{ github.event.inputs.timeout_ms || '' }}
+        run: |
+          # Iterate over all per-crawler slice files and clean each one
+          for slice in data/jobs/by-crawler/*.json; do
+            [ -f "$slice" ] || continue
+            echo "──── Cleaning: $slice ────"
+            JOBS_SLICE_FILE="$slice" node scripts/cleanup-jobs.mjs || true
+          done
+          echo "✅ Per-slice cleanup complete"
+
+      - name: Commit Phase 1 (per-slice expired jobs)
+        id: phase1_commit
+        run: bash scripts/lib/git-commit-data.sh --slice-only "🧹 Housekeeping — prune expired job listings"
+
+      - name: "Phase 2: Assemble dataset for cross-crawler dedup"
+        run: node scripts/assemble-jobs-dataset.mjs
+
+      - name: "Phase 2: Monolithic cross-crawler dedup pass"
+        env:
+          JOBS_SKIP_URL_VALIDATION: '1'
+        run: node scripts/cleanup-jobs.mjs
+
+      - name: "Phase 2: Prune duplicate jobs from slice files"
+        run: node scripts/prune-dedup-from-slices.mjs
+
+      - name: Commit Phase 2 (cross-crawler duplicates)
+        id: phase2_commit
+        run: bash scripts/lib/git-commit-data.sh --slice-only "🔁 Housekeeping — remove cross-crawler duplicate jobs"

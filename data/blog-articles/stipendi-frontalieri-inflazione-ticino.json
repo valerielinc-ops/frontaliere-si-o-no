@@ -1,0 +1,40 @@
+{
+  "id": "stipendi-frontalieri-inflazione-ticino",
+  "slug": "stipendi-frontalieri-inflazione-ticino",
+  "publishedAt": "2026-05-11T04:33:13.937Z",
+  "cluster": "novita",
+  "_pool": "discovery",
+  "_pool_source": "news",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 7.320197756119536,
+    "confidence": 0.8,
+    "finalScore": 5.856158204895629,
+    "topK": [
+      {
+        "slug": "salari-svizzera-aumentati-2025",
+        "cosine": 0.7813769676899189
+      },
+      {
+        "slug": "stipendi-svizzeri-crescono-2025",
+        "cosine": 0.7808147698871648
+      },
+      {
+        "slug": "aumenti-stipendi-svizzera-2026",
+        "cosine": 0.7787900015797796
+      },
+      {
+        "slug": "tredicesima-avs-stipendio-trattenute",
+        "cosine": 0.7716297658782053
+      },
+      {
+        "slug": "franco-svizzero-a-valori-record-2026",
+        "cosine": 0.7611442495229224
+      }
+    ],
+    "score": 2.9280791024478146,
+    "clusterDiversityBonus": 0.5,
+    "sourceQualityMultiplier": 1,
+    "cluster": "novita"
+  }
+}

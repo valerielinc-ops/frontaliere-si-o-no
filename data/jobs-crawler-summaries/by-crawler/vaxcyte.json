@@ -1,0 +1,61 @@
+{
+  "key": "vaxcyte",
+  "label": "Vaxcyte",
+  "generatedAt": "2026-05-27T00:40:57.188Z",
+  "total": 1,
+  "newCount": 0,
+  "updatedCount": 1,
+  "removedCount": 0,
+  "unchangedCount": 0,
+  "durationMs": 2450,
+  "avgDurationMs": 2450,
+  "durationHistory": [
+    2450
+  ],
+  "newJobs": [],
+  "updatedJobs": [
+    {
+      "id": "vaxcyte-c9c634d0bcbe",
+      "slug": "vice-president-manufacturing-operations-managing-director-vaxcyte-ch",
+      "company": "Vaxcyte",
+      "companyKey": "vaxcyte",
+      "companyDomain": "vaxcyte.com",
+      "title": "Vice President, Manufacturing Operations & Managing Director",
+      "location": "Visp",
+      "canton": "VS",
+      "url": "https://boards.greenhouse.io/vaxcyte/jobs/5193056008?gh_jid=5193056008",
+      "source": "Vaxcyte Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-05-27T00:40:55.128Z",
+      "addressLocality": "Visp",
+      "addressRegion": "VS",
+      "addressCountry": "CH",
+      "postalCode": "1950",
+      "country": "CH",
+      "category": "Produzione",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "Biotecnologia / Farmaceutica",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-17",
+      "applyUrl": "https://boards.greenhouse.io/vaxcyte/jobs/5193056008?gh_jid=5193056008",
+      "department": "Swiss Manufacturing & Supply Chain",
+      "_targetScope": {
+        "canton": "VS",
+        "location": "Visp"
+      },
+      "firstSeenAt": "2026-04-18T10:19:24.971Z",
+      "_qualityScore": 74,
+      "_qualityBreakdown": {
+        "cleanliness": 12,
+        "richness": 20,
+        "translation": 25,
+        "completeness": 17
+      }
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": []
+}

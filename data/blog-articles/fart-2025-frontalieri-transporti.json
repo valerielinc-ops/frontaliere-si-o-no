@@ -1,0 +1,40 @@
+{
+  "id": "fart-2025-frontalieri-transporti",
+  "slug": "fart-2025-frontalieri-transporti",
+  "publishedAt": "2026-05-08T10:18:16.955Z",
+  "cluster": "mobilita",
+  "_pool": "proven",
+  "_pool_source": "media.tio.ch",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 7.056250968037418,
+    "confidence": 0.8,
+    "finalScore": 5.645000774429935,
+    "topK": [
+      {
+        "slug": "tilo-record-passeggeri-2025",
+        "cosine": 0.8820313710046772
+      },
+      {
+        "slug": "boom-viaggiatori-treni-2026-ticino",
+        "cosine": 0.8757175067340954
+      },
+      {
+        "slug": "record-passeggeri-treni-svizzera-2026",
+        "cosine": 0.8708428118912531
+      },
+      {
+        "slug": "tilo-25-milioni-passeggeri-2025",
+        "cosine": 0.8692266065864639
+      },
+      {
+        "slug": "trasporti-pubblici-crescita-svizzera",
+        "cosine": 0.8687583706350667
+      }
+    ],
+    "score": 0.5645000774429935,
+    "clusterDiversityBonus": 0.1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "mobilita"
+  }
+}

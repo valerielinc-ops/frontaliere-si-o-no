@@ -1,0 +1,7 @@
+{
+  "generated": "2026-04-27T16:04:52Z",
+  "_note": "Tightened from 2107 → 0 after the universal 'never truncate <title>' fix landed in commit a7eab849d (run 25003146824 confirmed 0 offenders across 118025 scanned pages). The ratchet now blocks the very first regression — any future plugin that emits title === h1 will fail the deploy gate immediately.",
+  "total": 0,
+  "byFeature": {},
+  "byLocale": {}
+}

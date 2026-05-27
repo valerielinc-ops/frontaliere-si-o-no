@@ -1,0 +1,1271 @@
+{
+  "companyKey": "coop-ticino",
+  "companyName": "Coop Ticino",
+  "companyHost": "coopjobs.ch",
+  "enabled": true,
+  "priority": 10,
+  "crawlerModes": [
+    "jsonld",
+    "html",
+    "generic_ats"
+  ],
+  "seedUrls": [
+    "https://jobs.fust.ch/posti-vacanti/apprendistato-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto/2bef43a6-24ae-4b97-b27d-36d51a64383d",
+    "https://jobs.coopjobs.ch/posti-vacanti/autista-cat-ce-f-m-d/739cc181-77ec-499a-bcae-26244beff883",
+    "https://jobs.fust.ch/posti-vacanti/montatore-trice-di-impianti-sanitari-per-cucine-bagni/8174af09-3d6f-41ad-bd1b-eac6eab8968b",
+    "https://jobs.coopjobs.ch/posti-vacanti/specialista-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto/cf569e51-2a9d-4484-ad79-8ace716d26c5",
+    "https://jobs.coopjobs.ch/posti-vacanti/tecnica-tecnico-alimentarista-afc/fa5abd1c-240f-47f3-a434-16de9d78b65b",
+    "https://jobs.coopjobs.ch/posti-vacanti/impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto/561fdaa0-f9bd-4ff0-8612-8676ea173ea9",
+    "https://jobs.coopjobs.ch/posti-vacanti/impiegata-impiegato-di-gastronomia-standardizzata-afc/80c8d89d-100d-4219-a707-99b51fc4f4a0",
+    "https://jobs.coopjobs.ch/posti-vacanti/specialista-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto/a73b82db-3e54-4e75-a125-bf068902fa8f",
+    "https://jobs.coopjobs.ch/posti-vacanti/impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto/fdb1dce1-714f-4a9e-a1fd-b994c3c04321",
+    "https://jobs.coopjobs.ch/posti-vacanti/impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto/79deb1f1-c79a-48f3-aa33-dfa6935b7b7b",
+    "https://jobs.coopjobs.ch/posti-vacanti/impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto/855a2b6e-13fa-47de-a2f7-1e02cf3704a7",
+    "https://jobs.coopjobs.ch/posti-vacanti/impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto/1f3b50bf-4f07-4612-b8ff-73b06793a210",
+    "https://jobs.coopjobs.ch/posti-vacanti/specialista-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto/fc8177e3-fb47-40ea-8032-dde6a2d98e34",
+    "https://jobs.coopjobs.ch/posti-vacanti/assistente-del-commercio-al-dettaglio-cfp/b439e351-d467-4615-8c04-e4311f0e0c29",
+    "https://jobs.coopjobs.ch/posti-vacanti/assistente-del-commercio-al-dettaglio-cfp/a422d6fb-5bb3-461f-b83f-29858bf5504d",
+    "https://jobs.coopjobs.ch/posti-vacanti/impiegata-impiegato-di-gastronomia-standardizzata-afc/9ffe5b63-6eab-402c-a8fe-274a50f15c0c",
+    "https://jobs.coopjobs.ch/posti-vacanti/impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto/9e55e90a-86d9-408b-a3ca-ad1278ad9522",
+    "https://jobs.coopjobs.ch/posti-vacanti/impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto/c597e73f-348a-4e59-bff3-f246089fe0ac",
+    "https://jobs.coopjobs.ch/offene-stellen/specialista-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto/181e0a7f-621e-42bf-90af-e06344c70b8a",
+    "https://jobs.coopjobs.ch/offene-stellen/impiegato-a/ceff60e6-318d-4cfc-ad90-f13207435c74",
+    "https://jobs.coopjobs.ch/offene-stellen/impiegato-a/a59a66d8-66e3-4959-8776-aafea2a5fe05",
+    "https://jobs.coopjobs.ch/offene-stellen/impiegato-a/c9efa1c9-a57f-4402-8cef-8bf2fc70722a",
+    "https://jobs.coopjobs.ch/offene-stellen/impiegato-a/9c9cba3a-09d1-4921-ad11-a9bb8cc315c1",
+    "https://jobs.coopjobs.ch/offene-stellen/impiegato-a/17b80505-e189-4dfb-879a-038ecc69676e",
+    "https://jobs.coopjobs.ch/offene-stellen/impiegato-a/6183ef73-c906-418c-9462-7d68baf6267c",
+    "https://jobs.coopjobs.ch/offene-stellen/impiegato-a/433b55d3-ba48-48d2-bd11-819d3ce7d1ae",
+    "https://jobs.coopjobs.ch/offene-stellen/specialista-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto/4644ca65-9ae4-433f-89a7-fe444e38fffb",
+    "https://jobs.coopjobs.ch/offene-stellen/impiegata-impiegato-di-gastronomia-standardizzata-afc/b9b4cdc6-55f5-4358-ad37-8d48335d2e74",
+    "https://jobs.coopjobs.ch/offene-stellen/impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto/724ef50b-132d-489f-9a9d-ef63aa162d90",
+    "https://jobs.coopjobs.ch/offene-stellen/impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto/5bf5715d-0dc3-4968-a81b-4c98bc3945e1",
+    "https://jobs.coopjobs.ch/offene-stellen/impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto/1ee22fbe-ffd8-4a60-ae6b-e0d41ac3a8db",
+    "https://jobs.coopjobs.ch/offene-stellen/assistente-del-commercio-al-dettaglio-cfp/76220e37-c0e7-445d-a58f-eff219d19d57",
+    "https://jobs.coopjobs.ch/offene-stellen/impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto/51349c30-bfcf-4be3-bee2-8a837d2772f6",
+    "https://jobs.coopjobs.ch/offene-stellen/assistente-del-commercio-al-dettaglio-cfp/c1c96fc0-c9ad-4c8d-b076-8689af9d6b95",
+    "https://jobs.coopjobs.ch/offene-stellen/impiegata-o-di-gastronomia-standardizzata-addettao-digastronomia-standardizzata/1f83499a-a0f3-45f0-9b95-49a88c5d3e7d",
+    "https://jobs.coopjobs.ch/offene-stellen/impiegata-impiegato-di-gastronomia-standardizzata-afc/4ce3d6a5-26eb-4d84-a94b-05d05feba8fd",
+    "https://jobs.coopjobs.ch/offene-stellen/addetta-o-di-gastronomia-standardizzata-cfp/5ac98158-274d-494f-a287-7d050ce09fba",
+    "https://jobs.coopjobs.ch/offene-stellen/impiegata-o-di-gastronomia-standardizzata-addettao-digastronomia-standardizzata/36d5f0af-8385-4c9c-b9b7-b49f7c774a7d",
+    "https://jobs.coopjobs.ch/offene-stellen/addetta-o-di-gastronomia-standardizzata-cfp/e8e1455e-e3d8-4c58-a604-7d5e7afba8da",
+    "https://jobs.coopjobs.ch/offene-stellen/rayonleiter-in-do-it-und-deco-inkl-stellvertretung-der-geschaeftsfuehrung/3554d553-16a8-4f5a-b586-66952a0ed2cb",
+    "https://jobs.coopjobs.ch/offene-stellen/verkaufsberater-in/95a8cdf8-db76-44da-837d-77dcad2459d5",
+    "https://jobs.coopjobs.ch/offene-stellen/geschaeftsfuehrer-in/2964d547-afe2-4957-8822-b60e98b4337e",
+    "https://jobs.coopjobs.ch/offene-stellen/verkaufsberater-in-kosmetik/b1e0a82d-85b4-4739-8a20-864cfcc69a35",
+    "https://jobs.coopjobs.ch/offene-stellen/metzger-in-fleischfachfrau-fleischfachmann/c0442d47-30a0-47b6-a74b-b88eb846c1ef",
+    "https://jobs.coopjobs.ch/offene-stellen/rayonleiter-in-nonfood/7c2647d9-ab6f-4f0e-8422-13ce46ee7772",
+    "https://jobs.coopjobs.ch/offene-stellen/metzger-in-fleischfachfrau-fleischfachmann/14708748-a451-4e05-8f43-8557d624c204",
+    "https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-frischprodukte-brot-und-kasse/2a17ed5e-c0d4-4f99-bb74-b4407662f2d8",
+    "https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-nonfood/ffdeb312-9343-4e6a-b26b-e9bc22299407",
+    "https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-food/b768296d-6589-44f2-b9ba-240af963f0ea",
+    "https://jobs.coopjobs.ch/offene-stellen/mitarbeiter-in-inventuren/0f24208b-9d8f-43e8-adbd-670658a16e9c",
+    "https://jobs.coopjobs.ch/offene-stellen/kundenberater-in-depositenkasse/40d5062f-0efd-4555-86c7-0473742d5aed",
+    "https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-food/615fc277-1df8-4f89-8e15-18a27011b4e7",
+    "https://jobs.coopjobs.ch/offene-stellen/koechin-koch-w-m-d/66452d97-2c64-49ff-b49f-4d26413220cd",
+    "https://jobs.fust.ch/offene-stellen/heimliefermonteur-in-von-elektrohaushaltgeraeten/1446d7d4-d209-431f-ac07-3f6dee0fca6b",
+    "https://jobs.coopjobs.ch/offene-stellen/verkausberater-in-schmuck/b8659075-acd1-4ff2-b37f-d5ccca5b7ba5",
+    "https://jobs.coopjobs.ch/offene-stellen/verkaufsberater-in-textil/ecbbf341-223f-4cba-b6bd-e60efa3e2ebc",
+    "https://jobs.coopjobs.ch/offene-stellen/verkaufsberater-in/f9774688-7921-415d-96e9-b5c2ade04787",
+    "https://jobs.coopjobs.ch/offene-stellen/metzger-in-fleischfachfrau-fleischfachmann/724eb43a-d710-4368-b13a-e6a3efa66489",
+    "https://jobs.coopjobs.ch/offene-stellen/verkaufsberater-in/21d4c13c-270d-44be-87cb-8c91624ab77a",
+    "https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-kassen-services/34404f83-3ac6-4462-8a88-6b035ba27286",
+    "https://jobs.coopjobs.ch/offene-stellen/verkaufsberater-in-garden/fac3c83b-7e3c-495b-afbd-a3931566abda",
+    "https://jobs.coopjobs.ch/offene-stellen/verkaufsberater-in-kosmetik/79606628-1a5b-43f0-8c4b-68f3a3a82919",
+    "https://jobs.coopjobs.ch/offene-stellen/verkaufsberater-in/7ad9fe77-5df2-48b6-8d6d-c65e9cb0ac54",
+    "https://jobs.coopjobs.ch/offene-stellen/crewmember-burger-king-w-m-d/5291f12a-16a1-4dd5-a927-7b79eab05c8a",
+    "https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-kassen-services/96cd5b8d-f99f-418d-806f-4762903e5523",
+    "https://jobs.coopjobs.ch/offene-stellen/verkaufsberater-in-do-it/7e81c159-3741-4298-b1e7-06fb0fb4f4ca",
+    "https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-food-frischprodukte-blumen-kiosk/c2f188df-65b6-4ea4-b2e6-3ece76ec91eb",
+    "https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-food/a8c526b0-48f6-45d2-8186-8a8cd944e6ce",
+    "https://jobs.coopjobs.ch/offene-stellen/verkaufsberater-in-do-it/1527c38d-0f8a-4e55-9c44-e123eb73bf59",
+    "https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-food/cd358a71-d486-4ae1-b6c5-9237ce491299",
+    "https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-food-brot-frische/4347142c-15a9-4f36-8f2e-4a482b7d6b8b",
+    "https://jobs.coopjobs.ch/offene-stellen/rayonleiter-in-convenience-fleisch/968d58b5-0a15-47f5-ba85-6f2d333d8f9d",
+    "https://jobs.transgourmet.ch/offene-stellen/chauffeuse-chauffeur-kat-c/a3973031-2aca-44c7-ad1d-f0ffca1f530c",
+    "https://jobs.coopjobs.ch/offene-stellen/detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen/1d44dc86-32cf-4c8a-bec3-40cca019128a",
+    "https://jobs.coopjobs.ch/offene-stellen/mitarbeiter-in-gastronomie/d9a6febe-5bec-46f0-b07f-042313ec97e0",
+    "https://jobs.coopjobs.ch/offene-stellen/mitarbeiter-in-gastronomie/64c30f49-ff12-4f8a-9f69-45fa6e6ff6d9",
+    "https://jobs.coopjobs.ch/offene-stellen/metzger-in-fleischfachfrau-fleischfachmann/72affcf4-ab97-481c-a686-aef663890d66",
+    "https://jobs.coopjobs.ch/offene-stellen/metzger-in-fleischfachfrau-fleischfachmann-quereinstieg-moeglich/72b5a726-1987-4189-b683-5762509cc3b4",
+    "https://jobs.coopjobs.ch/offene-stellen/metzger-in-fleischfachfrau-fleischfachmann/b78c5960-d116-4276-bf1a-abc4c35f4eee",
+    "https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-food/d4bc5412-45ca-4af2-96a2-c5e10fddb0ae",
+    "https://jobs.coopjobs.ch/offene-stellen/verkaufsberater-in-do-it/8b1a67af-486d-45fe-9aac-208d816ee299",
+    "https://jobs.coopjobs.ch/offene-stellen/rayonleiter-in-grundnahrungsmittel/13ac0553-fe0f-40e5-a56f-dc9ada6e639e",
+    "https://jobs.coopjobs.ch/offene-stellen/mechaniker-in/9520a55b-18f2-4194-a7b6-940d1dbce0a5",
+    "https://jobs.coopjobs.ch/offene-stellen/aspirant-in/4bfa99a8-d78b-4fe9-b6f2-b076ed69d598",
+    "https://jobs.coopjobs.ch/offene-stellen/nachwuchskader-verkauf/d2cd3866-4692-4f2d-a013-d1a92f21bebf",
+    "https://jobs.coopjobs.ch/offene-stellen/quereinstieg-koch-koechin-in-der-systemgastronomie-f-m-d/224198d9-9902-49be-a1e9-fccb1cf40ea5",
+    "https://jobs.coopjobs.ch/offene-stellen/mitarbeiter-in-saison/568272fd-384d-411f-ba35-6f77d1c3761f",
+    "https://jobs.coopjobs.ch/offene-stellen/nachwuchskader-verkauf/069bdc4e-b9f7-4ac6-a3c6-9fd307f86fe7",
+    "https://jobs.coopjobs.ch/offene-stellen/nachwuchskader-verkauf/e668960f-7bdf-4031-ad41-46c8e2213aa2",
+    "https://jobs.coopjobs.ch/offene-stellen/quereinstieg-mitarbeiter-in-fleisch-und-fisch/834d3d83-8f5d-4711-9be2-8daa981bd4b5",
+    "https://jobs.coopjobs.ch/offene-stellen/quereinstieg-mitarbeiter-in-fleisch-und-fisch/d3acd339-9e5f-4ebe-b614-304329c8d2b1",
+    "https://jobs.coopjobs.ch/offene-stellen/detailhandelsfachfrau-mann-assistent-in/db69b904-0604-41f0-8864-ba8dfb72d38c",
+    "https://jobs.coopjobs.ch/offene-stellen/detailhandelsfachfrau-mann/9049ce42-2e2f-4199-a18b-c24aa18b77c7",
+    "https://jobs.coopjobs.ch/offene-stellen/detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen/8c36865f-f338-47a7-b00f-4a1823b429f7",
+    "https://jobs.coopjobs.ch/offene-stellen/detailhandelsfachfrau-mann-assistent-in/27788c69-37f2-4051-bdbb-0a417ed1e1cd",
+    "https://jobs.coopjobs.ch/offene-stellen/detailhandelsassistent-in-eba/66cc2d86-1af8-4f2f-a4aa-9cbd5136f46c",
+    "https://jobs.coopjobs.ch/offene-stellen/detailhandelsfachfrau-mann-assistent-in/ed7ec48b-6508-4a1c-89cf-a376ccb3ea95",
+    "https://jobs.coopjobs.ch/offene-stellen/detailhandelsfachfrau-mann-assistent-in/9ec068e4-b2ef-4240-83db-c2d1f3201f13",
+    "https://jobs.coopjobs.ch/offene-stellen/detailhandelsassistent-in-eba/57e19fd1-8c06-493c-aadc-2224d732f0e0",
+    "https://jobs.coopjobs.ch/offene-stellen/detailhandelsfachfrau-mann-assistent-in/0f9c06b5-efc8-4b70-af78-e46bed94cee4",
+    "https://jobs.coopjobs.ch/offene-stellen/detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen/40502db0-2616-4f76-9930-1837943f088a",
+    "https://jobs.coopjobs.ch/offene-stellen/detailhandelsfachfrau-mann/8bbcade5-1251-4e55-b03a-d1a22832aff6",
+    "https://jobs.coopjobs.ch/offene-stellen/detailhandelsfachfrau-mann/578ed5ad-d11f-4031-941e-c27861e69460",
+    "https://jobs.coopjobs.ch/offene-stellen/detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen/9dd58c8c-4da3-4050-930b-a5c2684ca530",
+    "https://jobs.coopjobs.ch/offene-stellen/detailhandelsassistent-in-eba/0ddf48a8-5558-4dd7-b4a7-008d180987f6",
+    "https://jobs.coopjobs.ch/offene-stellen/detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen/a5ca09d9-9b0b-4a59-b367-df15d698dd7c",
+    "https://jobs.coopjobs.ch/offene-stellen/detailhandelsassistent-in-eba/02c8d73f-bcd3-48ed-952e-6f67c611e42d",
+    "https://jobs.coopjobs.ch/offene-stellen/detailhandelsfachfrau-mann-assistent-in/6e02506d-efb1-4e90-9c73-1d6481e305e5",
+    "https://jobs.coopjobs.ch/offene-stellen/detailhandelsassistent-in-eba/5bc2b36b-c575-417d-a4c1-e1633b7f8910",
+    "https://jobs.coopjobs.ch/offene-stellen/systemgastronomiefachfrau-mann-efz/d9ed0a88-6139-4e92-97ed-d8428d1a6c1c",
+    "https://jobs.coopjobs.ch/offene-stellen/detailhandelsfachfrau-mann-assistent-in/35d1d281-4ade-4546-ae9a-ee576e20797a",
+    "https://jobs.coopjobs.ch/offene-stellen/detailhandelsassistent-in-eba/a8ae233c-cda6-44bc-ba93-1d1cab131435",
+    "https://jobs.coopjobs.ch/offene-stellen/detailhandelsfachfrau-mann/83903281-1866-4caf-8662-76b2cb3a68ad",
+    "https://jobs.coopjobs.ch/offene-stellen/detailhandelsfachfrau-mann-assistent-in/fed85282-5f23-4caa-9168-516cc01c93a5",
+    "https://jobs.coopjobs.ch/offene-stellen/detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen/47de2d28-10d4-4868-ba2a-e938ad556d8f",
+    "https://jobs.coopjobs.ch/offene-stellen/detailhandelsassistent-in-eba/f77ad880-6c3d-41ba-a592-a6c460717880",
+    "https://jobs.coopjobs.ch/offene-stellen/detailhandelsassistent-in-eba/c760222f-31d2-42c7-ba0a-5af3b397c6f7",
+    "https://jobs.coopjobs.ch/offene-stellen/detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen/0890c07e-6cfb-4981-b093-ea1ff2390fc1",
+    "https://jobs.coopjobs.ch/offene-stellen/detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen/c488b63c-10a3-43dc-8ce2-4a838fd5e22e",
+    "https://jobs.coopjobs.ch/offene-stellen/detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen/25327f20-df5a-44e8-aaa8-9c76b21c21e9",
+    "https://jobs.coopjobs.ch/offene-stellen/detailhandelsassistent-in-eba/ac39cc38-9465-4ed9-a336-bcb3e3e9429d",
+    "https://jobs.coopjobs.ch/offene-stellen/detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen/0ca78a48-6150-4fcc-9caf-90198cde85ad",
+    "https://jobs.coopjobs.ch/offene-stellen/detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen/28f49501-c904-4581-b6cc-bb98ee5255d3",
+    "https://jobs.coopjobs.ch/offene-stellen/detailhandelsassistent-in-eba/f7f6c281-d87d-460c-8e96-0865eac9e0d2",
+    "https://jobs.coopjobs.ch/offene-stellen/detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen/6b0a6140-bfcd-4672-8162-336a015d9841",
+    "https://jobs.coopjobs.ch/offene-stellen/detailhandelsfachfrau-mann-assistent-in/f2c09e3a-1cf8-4d66-ab7b-2bac7a63af51",
+    "https://jobs.coopjobs.ch/offene-stellen/detailhandelsassistent-in-eba/787abbd7-ed8d-47de-9cf5-ed52c22ae3f4",
+    "https://jobs.coopjobs.ch/offene-stellen/logistiker-in-eba/564a1e6c-7030-43ee-934d-4f9d2ba68553",
+    "https://jobs.coopjobs.ch/offene-stellen/detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen/06c8405b-d1a1-4231-b3f0-ab86e147321f",
+    "https://jobs.coopjobs.ch/offene-stellen/systemgastronomiepraktiker-in-eba/c32b1635-0a98-4fef-834e-838f9082ee4f",
+    "https://jobs.coopjobs.ch/offene-stellen/baecker-in-konditor-in-confiseur-in/db210cd2-c893-4d53-bbf6-325d59c1a945",
+    "https://jobs.coopjobs.ch/offene-stellen/logistiker-in-efz/facc01c9-0aa8-43cc-8110-9cad0ba2dedf",
+    "https://jobs.coopjobs.ch/offene-stellen/detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen/f5195363-45fd-425c-a8af-5f7e95f51bac",
+    "https://jobs.coopjobs.ch/offene-stellen/detailhandelsfachfrau-mann-assistent-in/aa147801-9a8a-49c8-84ef-9c45f6006345",
+    "https://jobs.coopjobs.ch/offene-stellen/detailhandelsassistent-in-eba/9318cccd-8fec-4f27-8c33-5082c5b4dbd3",
+    "https://jobs.coopjobs.ch/offene-stellen/detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen/0a43e029-fa12-4114-b4c6-8e812294168e",
+    "https://jobs.coopjobs.ch/offene-stellen/detailhandelsassistent-in-eba/20b92cdf-e256-45d3-99a2-ae7222249b5a",
+    "https://jobs.coopjobs.ch/offene-stellen/systemgastronomiefachfrau-mann-praktiker-in/3e8484ea-765c-4db7-b0bd-0ec63126c536",
+    "https://jobs.coopjobs.ch/offene-stellen/detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen/9a3466c0-6475-4662-9ddf-9449a5ac7deb",
+    "https://jobs.coopjobs.ch/offene-stellen/detailhandelsassistent-in-eba/73d22766-b608-487c-bf8a-d18a36f5b66a",
+    "https://jobs.coopjobs.ch/offene-stellen/detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen/e0ebf1ff-fd6b-4b99-8548-25677d795f56",
+    "https://jobs.coopjobs.ch/offene-stellen/detailhandelsassistent-in-eba/4420bf7f-51bc-4563-b46f-a0fec05c052b",
+    "https://jobs.coopjobs.ch/offene-stellen/detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen/d9e63e11-c7b6-4532-b8c8-8e2ba1c1a55d",
+    "https://jobs.coopjobs.ch/offene-stellen/detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen/8150f7e8-8f84-409f-be80-d1dd014d7062",
+    "https://jobs.coopjobs.ch/offene-stellen/detailhandelsfachfrau-mann-assistent-in/006be8bc-8292-44de-a0ba-ed2b90b0d878",
+    "https://jobs.coopjobs.ch/offene-stellen/detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen/c449f8cf-e189-494e-8262-0c2a62afebbe",
+    "https://jobs.coopjobs.ch/offene-stellen/detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen/7acb5ed1-e8ce-4e25-b35d-5212094e6551",
+    "https://jobs.coopjobs.ch/offene-stellen/detailhandelsfachfrau-mann-assistent-in/83ae6622-395b-49bf-a337-f59076404f09",
+    "https://jobs.coopjobs.ch/offene-stellen/detailhandelsfachfrau-mann-assistent-in/d7ba7743-d6b6-421f-bdc6-c8223d54967e",
+    "https://jobs.coopjobs.ch/offene-stellen/detailhandelsfachfrau-mann/72b0c9ab-c144-4c8a-9fd1-ae2f5ef0d944",
+    "https://jobs.coopjobs.ch/offene-stellen/detailhandelsfachfrau-mann-assistent-in/3742c0b8-54c9-4104-9698-4f5ced19f324",
+    "https://jobs.coopjobs.ch/offene-stellen/detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen/4670aebb-95a6-48df-9b1f-00e38904bed1",
+    "https://jobs.coopjobs.ch/offene-stellen/detailhandelsfachfrau-mann-assistent-in/8d09cac6-5e32-4c57-9da3-20b170fa3841",
+    "https://jobs.coopjobs.ch/offene-stellen/detailhandelsassistent-in-eba/a2f0d68f-68f8-4b2f-bce6-c8527bbe9f48",
+    "https://jobs.coopjobs.ch/offene-stellen/detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen/c9b9f813-a5b5-43ed-8791-a68abb8b34cb",
+    "https://jobs.coopjobs.ch/offene-stellen/detailhandelsfachfrau-mann-assistent-in/9552cc2b-ed23-488d-a6ae-8d69faa439b9",
+    "https://jobs.coopjobs.ch/offene-stellen/detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen/a21c188e-4fa2-4ad8-a659-61b7926b8566",
+    "https://jobs.coopjobs.ch/offene-stellen/detailhandelsfachfrau-mann/cff55ff0-e92e-4e28-920b-9a4f9079bb55",
+    "https://jobs.coopjobs.ch/offene-stellen/detailhandelsassistent-in-eba/dfe62f27-6133-40d3-a36e-ea819aa3a545",
+    "https://jobs.coopjobs.ch/offene-stellen/detailhandelsassistent-in-eba/5c882c92-3011-4c1a-8b8f-7eeb408c6f8d",
+    "https://jobs.coopjobs.ch/offene-stellen/detailhandelsfachfrau-mann-assistent-in/8d486ad6-0186-40aa-81d6-b543feef4bbd",
+    "https://jobs.coopjobs.ch/offene-stellen/detailhandelsfachfrau-mann-assistent-in/736f824b-388d-4bbd-9788-d04f748d04d3",
+    "https://jobs.coopjobs.ch/offene-stellen/detailhandelsfachfrau-mann-assistent-in/d54f8eb3-2f07-4607-a697-9c43d2ccaaa5",
+    "https://jobs.coopjobs.ch/offene-stellen/detailhandelsfachfrau-mann-assistent-in/f0241dd6-5b4a-41c3-aaf7-3a0593a2667e",
+    "https://jobs.coopjobs.ch/offene-stellen/detailhandelsfachfrau-mann-assistent-in/937f823a-8adf-4580-95fc-58814d1fa74d",
+    "https://jobs.coopjobs.ch/offene-stellen/detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen/693945af-eabe-40d4-98da-b3f40ef49d34",
+    "https://jobs.coopjobs.ch/offene-stellen/detailhandelsassistent-in-eba/80271c7c-c1c1-44a0-9407-be8658986944",
+    "https://jobs.coopjobs.ch/offene-stellen/detailhandelsassistent-in-eba/41e3a694-c866-4b99-bd88-490305c984a5",
+    "https://jobs.coopjobs.ch/offene-stellen/systemgastronomiefachfrau-mann-praktiker-in/5a07947c-9d74-4f1d-a622-34606e766717",
+    "https://jobs.coopjobs.ch/offene-stellen/detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen/12a81a76-2881-483f-a7b7-91bb883110c0",
+    "https://jobs.coopjobs.ch/offene-stellen/detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen/b249a0a3-fff5-4b7c-9dcd-78ed86aa7566",
+    "https://jobs.coopjobs.ch/offene-stellen/detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen/5bd67e44-b1a6-4542-bf7b-a671f000dd53",
+    "https://jobs.coopjobs.ch/offene-stellen/detailhandelsassistent-in-eba/17b2022f-a656-4df5-93b4-588432f51678",
+    "https://jobs.coopjobs.ch/offene-stellen/systemgastronomiepraktiker-in-eba/2738ec24-88b9-4a86-aecb-005c3d4cf0fb",
+    "https://jobs.coopjobs.ch/offene-stellen/systemgastronomiefachfrau-mann-efz/f3eed375-bdd9-473d-81cd-5e6943658058",
+    "https://jobs.coopjobs.ch/offene-stellen/detailhandelsassistent-in-eba/5f45d707-ad11-4c0c-b7b7-b371f6e59222",
+    "https://jobs.coopjobs.ch/offene-stellen/detailhandelsassistent-in-eba/7307523e-d111-49ae-8d40-88d4d4b9e7e0",
+    "https://jobs.coopjobs.ch/offene-stellen/detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen/65744926-063d-4919-9421-879d41ce82a7",
+    "https://jobs.coopjobs.ch/offene-stellen/detailhandelsassistent-in-eba/d4fe62f1-40c2-4b23-a902-c94f81207a09"
+  ],
+  "notes": "Prospective.ch JobBooster platform — detail URLs from JSON API covering Offerte di lavoro + Posti di apprendistato + Tirocini di prova. Each page has JSON-LD JobPosting.",
+  "updatedAt": "2026-03-16T12:42:35.384Z",
+  "seedMetaByUrl": {
+    "https://jobs.fust.ch/posti-vacanti/apprendistato-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto/2bef43a6-24ae-4b97-b27d-36d51a64383d": {
+      "location": "Ticino",
+      "canton": "TI",
+      "company": "Fust",
+      "contract": "A tempo determinato"
+    },
+    "https://jobs.coopjobs.ch/posti-vacanti/autista-cat-ce-f-m-d/739cc181-77ec-499a-bcae-26244beff883": {
+      "location": "Ticino",
+      "canton": "TI",
+      "company": "Coop",
+      "contract": "A tempo indeterminato"
+    },
+    "https://jobs.fust.ch/posti-vacanti/montatore-trice-di-impianti-sanitari-per-cucine-bagni/8174af09-3d6f-41ad-bd1b-eac6eab8968b": {
+      "location": "Ticino",
+      "canton": "TI",
+      "company": "Fust",
+      "contract": "A tempo indeterminato"
+    },
+    "https://jobs.coopjobs.ch/posti-vacanti/specialista-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto/cf569e51-2a9d-4484-ad79-8ace716d26c5": {
+      "location": "Ticino",
+      "canton": "TI",
+      "company": "Interdiscount",
+      "contract": "A tempo determinato"
+    },
+    "https://jobs.coopjobs.ch/posti-vacanti/tecnica-tecnico-alimentarista-afc/fa5abd1c-240f-47f3-a434-16de9d78b65b": {
+      "location": "Ticino",
+      "canton": "TI",
+      "company": "Coop",
+      "contract": "A tempo determinato"
+    },
+    "https://jobs.coopjobs.ch/posti-vacanti/impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto/561fdaa0-f9bd-4ff0-8612-8676ea173ea9": {
+      "location": "Ticino",
+      "canton": "TI",
+      "company": "Coop City",
+      "contract": "A tempo determinato"
+    },
+    "https://jobs.coopjobs.ch/posti-vacanti/impiegata-impiegato-di-gastronomia-standardizzata-afc/80c8d89d-100d-4219-a707-99b51fc4f4a0": {
+      "location": "Ticino",
+      "canton": "TI",
+      "company": "Coop Ristorante",
+      "contract": "A tempo determinato"
+    },
+    "https://jobs.coopjobs.ch/posti-vacanti/specialista-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto/a73b82db-3e54-4e75-a125-bf068902fa8f": {
+      "location": "Ticino",
+      "canton": "TI",
+      "company": "Interdiscount",
+      "contract": "A tempo determinato"
+    },
+    "https://jobs.coopjobs.ch/posti-vacanti/impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto/fdb1dce1-714f-4a9e-a1fd-b994c3c04321": {
+      "location": "Ticino",
+      "canton": "TI",
+      "company": "Coop",
+      "contract": "A tempo determinato"
+    },
+    "https://jobs.coopjobs.ch/posti-vacanti/impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto/79deb1f1-c79a-48f3-aa33-dfa6935b7b7b": {
+      "location": "Ticino",
+      "canton": "TI",
+      "company": "Jumbo",
+      "contract": "A tempo determinato"
+    },
+    "https://jobs.coopjobs.ch/posti-vacanti/impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto/855a2b6e-13fa-47de-a2f7-1e02cf3704a7": {
+      "location": "Ticino",
+      "canton": "TI",
+      "company": "Jumbo",
+      "contract": "A tempo determinato"
+    },
+    "https://jobs.coopjobs.ch/posti-vacanti/impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto/1f3b50bf-4f07-4612-b8ff-73b06793a210": {
+      "location": "Ticino",
+      "canton": "TI",
+      "company": "Jumbo",
+      "contract": "A tempo determinato"
+    },
+    "https://jobs.coopjobs.ch/posti-vacanti/specialista-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto/fc8177e3-fb47-40ea-8032-dde6a2d98e34": {
+      "location": "Ticino",
+      "canton": "TI",
+      "company": "Interdiscount",
+      "contract": "A tempo determinato"
+    },
+    "https://jobs.coopjobs.ch/posti-vacanti/assistente-del-commercio-al-dettaglio-cfp/b439e351-d467-4615-8c04-e4311f0e0c29": {
+      "location": "Ticino",
+      "canton": "TI",
+      "company": "Coop",
+      "contract": "A tempo determinato"
+    },
+    "https://jobs.coopjobs.ch/posti-vacanti/assistente-del-commercio-al-dettaglio-cfp/a422d6fb-5bb3-461f-b83f-29858bf5504d": {
+      "location": "Ticino",
+      "canton": "TI",
+      "company": "Coop",
+      "contract": "A tempo determinato"
+    },
+    "https://jobs.coopjobs.ch/posti-vacanti/impiegata-impiegato-di-gastronomia-standardizzata-afc/9ffe5b63-6eab-402c-a8fe-274a50f15c0c": {
+      "location": "Ticino",
+      "canton": "TI",
+      "company": "Coop Ristorante",
+      "contract": "A tempo determinato"
+    },
+    "https://jobs.coopjobs.ch/posti-vacanti/impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto/9e55e90a-86d9-408b-a3ca-ad1278ad9522": {
+      "location": "Ticino",
+      "canton": "TI",
+      "company": "Coop",
+      "contract": "A tempo determinato"
+    },
+    "https://jobs.coopjobs.ch/posti-vacanti/impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto/c597e73f-348a-4e59-bff3-f246089fe0ac": {
+      "location": "Ticino",
+      "canton": "TI",
+      "company": "Jumbo",
+      "contract": "A tempo determinato"
+    },
+    "https://jobs.coopjobs.ch/offene-stellen/specialista-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto/181e0a7f-621e-42bf-90af-e06344c70b8a": {
+      "location": "Ticino",
+      "canton": "TI",
+      "company": "Interdiscount",
+      "contract": "A tempo determinato"
+    },
+    "https://jobs.coopjobs.ch/offene-stellen/impiegato-a/ceff60e6-318d-4cfc-ad90-f13207435c74": {
+      "location": "Ticino",
+      "canton": "TI",
+      "company": "Interdiscount",
+      "contract": "A tempo determinato"
+    },
+    "https://jobs.coopjobs.ch/offene-stellen/impiegato-a/a59a66d8-66e3-4959-8776-aafea2a5fe05": {
+      "location": "Ticino",
+      "canton": "TI",
+      "company": "Interdiscount",
+      "contract": "A tempo determinato"
+    },
+    "https://jobs.coopjobs.ch/offene-stellen/impiegato-a/c9efa1c9-a57f-4402-8cef-8bf2fc70722a": {
+      "location": "Ticino",
+      "canton": "TI",
+      "company": "Interdiscount",
+      "contract": "A tempo determinato"
+    },
+    "https://jobs.coopjobs.ch/offene-stellen/impiegato-a/9c9cba3a-09d1-4921-ad11-a9bb8cc315c1": {
+      "location": "Ticino",
+      "canton": "TI",
+      "company": "Interdiscount",
+      "contract": "A tempo determinato"
+    },
+    "https://jobs.coopjobs.ch/offene-stellen/impiegato-a/17b80505-e189-4dfb-879a-038ecc69676e": {
+      "location": "Ticino",
+      "canton": "TI",
+      "company": "Interdiscount",
+      "contract": "A tempo determinato"
+    },
+    "https://jobs.coopjobs.ch/offene-stellen/impiegato-a/6183ef73-c906-418c-9462-7d68baf6267c": {
+      "location": "Ticino",
+      "canton": "TI",
+      "company": "Interdiscount",
+      "contract": "A tempo determinato"
+    },
+    "https://jobs.coopjobs.ch/offene-stellen/impiegato-a/433b55d3-ba48-48d2-bd11-819d3ce7d1ae": {
+      "location": "Ticino",
+      "canton": "TI",
+      "company": "Interdiscount",
+      "contract": "A tempo determinato"
+    },
+    "https://jobs.coopjobs.ch/offene-stellen/specialista-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto/4644ca65-9ae4-433f-89a7-fe444e38fffb": {
+      "location": "Ticino",
+      "canton": "TI",
+      "company": "Interdiscount",
+      "contract": "A tempo determinato"
+    },
+    "https://jobs.coopjobs.ch/offene-stellen/impiegata-impiegato-di-gastronomia-standardizzata-afc/b9b4cdc6-55f5-4358-ad37-8d48335d2e74": {
+      "location": "Ticino",
+      "canton": "TI",
+      "company": "Marché",
+      "contract": "A tempo determinato"
+    },
+    "https://jobs.coopjobs.ch/offene-stellen/impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto/724ef50b-132d-489f-9a9d-ef63aa162d90": {
+      "location": "Ticino",
+      "canton": "TI",
+      "company": "Coop",
+      "contract": "A tempo determinato"
+    },
+    "https://jobs.coopjobs.ch/offene-stellen/impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto/5bf5715d-0dc3-4968-a81b-4c98bc3945e1": {
+      "location": "Ticino",
+      "canton": "TI",
+      "company": "Coop",
+      "contract": "A tempo determinato"
+    },
+    "https://jobs.coopjobs.ch/offene-stellen/impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto/1ee22fbe-ffd8-4a60-ae6b-e0d41ac3a8db": {
+      "location": "Ticino",
+      "canton": "TI",
+      "company": "Coop City",
+      "contract": "A tempo determinato"
+    },
+    "https://jobs.coopjobs.ch/offene-stellen/assistente-del-commercio-al-dettaglio-cfp/76220e37-c0e7-445d-a58f-eff219d19d57": {
+      "location": "Ticino",
+      "canton": "TI",
+      "company": "Coop",
+      "contract": "A tempo determinato"
+    },
+    "https://jobs.coopjobs.ch/offene-stellen/impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto/51349c30-bfcf-4be3-bee2-8a837d2772f6": {
+      "location": "Ticino",
+      "canton": "TI",
+      "company": "Coop",
+      "contract": "A tempo determinato"
+    },
+    "https://jobs.coopjobs.ch/offene-stellen/assistente-del-commercio-al-dettaglio-cfp/c1c96fc0-c9ad-4c8d-b076-8689af9d6b95": {
+      "location": "Ticino",
+      "canton": "TI",
+      "company": "Coop",
+      "contract": "A tempo determinato"
+    },
+    "https://jobs.coopjobs.ch/offene-stellen/impiegata-o-di-gastronomia-standardizzata-addettao-digastronomia-standardizzata/1f83499a-a0f3-45f0-9b95-49a88c5d3e7d": {
+      "location": "Ticino",
+      "canton": "TI",
+      "company": "Marché",
+      "contract": "A tempo determinato"
+    },
+    "https://jobs.coopjobs.ch/offene-stellen/impiegata-impiegato-di-gastronomia-standardizzata-afc/4ce3d6a5-26eb-4d84-a94b-05d05feba8fd": {
+      "location": "Ticino",
+      "canton": "TI",
+      "company": "Marché",
+      "contract": "A tempo determinato"
+    },
+    "https://jobs.coopjobs.ch/offene-stellen/addetta-o-di-gastronomia-standardizzata-cfp/5ac98158-274d-494f-a287-7d050ce09fba": {
+      "location": "Ticino",
+      "canton": "TI",
+      "company": "Marché",
+      "contract": "A tempo determinato"
+    },
+    "https://jobs.coopjobs.ch/offene-stellen/impiegata-o-di-gastronomia-standardizzata-addettao-digastronomia-standardizzata/36d5f0af-8385-4c9c-b9b7-b49f7c774a7d": {
+      "location": "Ticino",
+      "canton": "TI",
+      "company": "Marché",
+      "contract": "A tempo determinato"
+    },
+    "https://jobs.coopjobs.ch/offene-stellen/addetta-o-di-gastronomia-standardizzata-cfp/e8e1455e-e3d8-4c58-a604-7d5e7afba8da": {
+      "location": "Ticino",
+      "canton": "TI",
+      "company": "Marché",
+      "contract": "A tempo determinato"
+    },
+    "https://jobs.coopjobs.ch/offene-stellen/rayonleiter-in-do-it-und-deco-inkl-stellvertretung-der-geschaeftsfuehrung/3554d553-16a8-4f5a-b586-66952a0ed2cb": {
+      "location": "Grigioni",
+      "canton": "GR",
+      "company": "Jumbo",
+      "contract": "A tempo indeterminato"
+    },
+    "https://jobs.coopjobs.ch/offene-stellen/verkaufsberater-in/95a8cdf8-db76-44da-837d-77dcad2459d5": {
+      "location": "Grigioni",
+      "canton": "GR",
+      "company": "CHRIST Orologi & Gioielli",
+      "contract": "A tempo indeterminato"
+    },
+    "https://jobs.coopjobs.ch/offene-stellen/geschaeftsfuehrer-in/2964d547-afe2-4957-8822-b60e98b4337e": {
+      "location": "Grigioni",
+      "canton": "GR",
+      "company": "CHRIST Orologi & Gioielli",
+      "contract": "A tempo indeterminato"
+    },
+    "https://jobs.coopjobs.ch/offene-stellen/verkaufsberater-in-kosmetik/b1e0a82d-85b4-4739-8a20-864cfcc69a35": {
+      "location": "Grigioni",
+      "canton": "GR",
+      "company": "Coop City",
+      "contract": "A tempo indeterminato"
+    },
+    "https://jobs.coopjobs.ch/offene-stellen/metzger-in-fleischfachfrau-fleischfachmann/c0442d47-30a0-47b6-a74b-b88eb846c1ef": {
+      "location": "Grigioni",
+      "canton": "GR",
+      "company": "Coop",
+      "contract": "A tempo indeterminato"
+    },
+    "https://jobs.coopjobs.ch/offene-stellen/rayonleiter-in-nonfood/7c2647d9-ab6f-4f0e-8422-13ce46ee7772": {
+      "location": "Grigioni",
+      "canton": "GR",
+      "company": "Coop",
+      "contract": "A tempo indeterminato"
+    },
+    "https://jobs.coopjobs.ch/offene-stellen/metzger-in-fleischfachfrau-fleischfachmann/14708748-a451-4e05-8f43-8557d624c204": {
+      "location": "Grigioni",
+      "canton": "GR",
+      "company": "Coop",
+      "contract": "A tempo indeterminato"
+    },
+    "https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-frischprodukte-brot-und-kasse/2a17ed5e-c0d4-4f99-bb74-b4407662f2d8": {
+      "location": "Grigioni",
+      "canton": "GR",
+      "company": "Coop",
+      "contract": "A tempo indeterminato"
+    },
+    "https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-nonfood/ffdeb312-9343-4e6a-b26b-e9bc22299407": {
+      "location": "Grigioni",
+      "canton": "GR",
+      "company": "Coop",
+      "contract": "A tempo indeterminato"
+    },
+    "https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-food/b768296d-6589-44f2-b9ba-240af963f0ea": {
+      "location": "Grigioni",
+      "canton": "GR",
+      "company": "Coop",
+      "contract": "A tempo indeterminato"
+    },
+    "https://jobs.coopjobs.ch/offene-stellen/mitarbeiter-in-inventuren/0f24208b-9d8f-43e8-adbd-670658a16e9c": {
+      "location": "Grigioni",
+      "canton": "GR",
+      "company": "Coop",
+      "contract": "A tempo indeterminato"
+    },
+    "https://jobs.coopjobs.ch/offene-stellen/kundenberater-in-depositenkasse/40d5062f-0efd-4555-86c7-0473742d5aed": {
+      "location": "Grigioni",
+      "canton": "GR",
+      "company": "Coop Cassa Depositi",
+      "contract": "A tempo indeterminato"
+    },
+    "https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-food/615fc277-1df8-4f89-8e15-18a27011b4e7": {
+      "location": "Grigioni",
+      "canton": "GR",
+      "company": "Coop",
+      "contract": "A tempo determinato"
+    },
+    "https://jobs.coopjobs.ch/offene-stellen/koechin-koch-w-m-d/66452d97-2c64-49ff-b49f-4d26413220cd": {
+      "location": "Grigioni",
+      "canton": "GR",
+      "company": "Coop Ristorante",
+      "contract": "A tempo indeterminato"
+    },
+    "https://jobs.fust.ch/offene-stellen/heimliefermonteur-in-von-elektrohaushaltgeraeten/1446d7d4-d209-431f-ac07-3f6dee0fca6b": {
+      "location": "Grigioni",
+      "canton": "GR",
+      "company": "Fust",
+      "contract": "A tempo indeterminato"
+    },
+    "https://jobs.coopjobs.ch/offene-stellen/verkausberater-in-schmuck/b8659075-acd1-4ff2-b37f-d5ccca5b7ba5": {
+      "location": "Grigioni",
+      "canton": "GR",
+      "company": "Coop City",
+      "contract": "A tempo indeterminato"
+    },
+    "https://jobs.coopjobs.ch/offene-stellen/verkaufsberater-in-textil/ecbbf341-223f-4cba-b6bd-e60efa3e2ebc": {
+      "location": "Grigioni",
+      "canton": "GR",
+      "company": "Coop City",
+      "contract": "A tempo indeterminato"
+    },
+    "https://jobs.coopjobs.ch/offene-stellen/verkaufsberater-in/f9774688-7921-415d-96e9-b5c2ade04787": {
+      "location": "Grigioni",
+      "canton": "GR",
+      "company": "Import Parfumerie",
+      "contract": "A tempo indeterminato"
+    },
+    "https://jobs.coopjobs.ch/offene-stellen/metzger-in-fleischfachfrau-fleischfachmann/724eb43a-d710-4368-b13a-e6a3efa66489": {
+      "location": "Grigioni",
+      "canton": "GR",
+      "company": "Coop",
+      "contract": "A tempo indeterminato"
+    },
+    "https://jobs.coopjobs.ch/offene-stellen/verkaufsberater-in/21d4c13c-270d-44be-87cb-8c91624ab77a": {
+      "location": "Grigioni",
+      "canton": "GR",
+      "company": "Import Parfumerie",
+      "contract": "A tempo indeterminato"
+    },
+    "https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-kassen-services/34404f83-3ac6-4462-8a88-6b035ba27286": {
+      "location": "Grigioni",
+      "canton": "GR",
+      "company": "Jumbo",
+      "contract": "A tempo indeterminato"
+    },
+    "https://jobs.coopjobs.ch/offene-stellen/verkaufsberater-in-garden/fac3c83b-7e3c-495b-afbd-a3931566abda": {
+      "location": "Grigioni",
+      "canton": "GR",
+      "company": "Jumbo",
+      "contract": "A tempo indeterminato"
+    },
+    "https://jobs.coopjobs.ch/offene-stellen/verkaufsberater-in-kosmetik/79606628-1a5b-43f0-8c4b-68f3a3a82919": {
+      "location": "Grigioni",
+      "canton": "GR",
+      "company": "Coop City",
+      "contract": "A tempo indeterminato"
+    },
+    "https://jobs.coopjobs.ch/offene-stellen/verkaufsberater-in/7ad9fe77-5df2-48b6-8d6d-c65e9cb0ac54": {
+      "location": "Grigioni",
+      "canton": "GR",
+      "company": "Interdiscount",
+      "contract": "A tempo indeterminato"
+    },
+    "https://jobs.coopjobs.ch/offene-stellen/crewmember-burger-king-w-m-d/5291f12a-16a1-4dd5-a927-7b79eab05c8a": {
+      "location": "Grigioni",
+      "canton": "GR",
+      "company": "Marché",
+      "contract": "A tempo indeterminato"
+    },
+    "https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-kassen-services/96cd5b8d-f99f-418d-806f-4762903e5523": {
+      "location": "Grigioni",
+      "canton": "GR",
+      "company": "Coop",
+      "contract": "A tempo indeterminato"
+    },
+    "https://jobs.coopjobs.ch/offene-stellen/verkaufsberater-in-do-it/7e81c159-3741-4298-b1e7-06fb0fb4f4ca": {
+      "location": "Grigioni",
+      "canton": "GR",
+      "company": "Jumbo",
+      "contract": "A tempo indeterminato"
+    },
+    "https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-food-frischprodukte-blumen-kiosk/c2f188df-65b6-4ea4-b2e6-3ece76ec91eb": {
+      "location": "Grigioni",
+      "canton": "GR",
+      "company": "Coop",
+      "contract": "A tempo indeterminato"
+    },
+    "https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-food/a8c526b0-48f6-45d2-8186-8a8cd944e6ce": {
+      "location": "Grigioni",
+      "canton": "GR",
+      "company": "Coop",
+      "contract": "A tempo indeterminato"
+    },
+    "https://jobs.coopjobs.ch/offene-stellen/verkaufsberater-in-do-it/1527c38d-0f8a-4e55-9c44-e123eb73bf59": {
+      "location": "Grigioni",
+      "canton": "GR",
+      "company": "Jumbo",
+      "contract": "A tempo indeterminato"
+    },
+    "https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-food/cd358a71-d486-4ae1-b6c5-9237ce491299": {
+      "location": "Grigioni",
+      "canton": "GR",
+      "company": "Coop",
+      "contract": "A tempo indeterminato"
+    },
+    "https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-food-brot-frische/4347142c-15a9-4f36-8f2e-4a482b7d6b8b": {
+      "location": "Grigioni",
+      "canton": "GR",
+      "company": "Coop",
+      "contract": "A tempo indeterminato"
+    },
+    "https://jobs.coopjobs.ch/offene-stellen/rayonleiter-in-convenience-fleisch/968d58b5-0a15-47f5-ba85-6f2d333d8f9d": {
+      "location": "Grigioni",
+      "canton": "GR",
+      "company": "Coop",
+      "contract": "A tempo indeterminato"
+    },
+    "https://jobs.transgourmet.ch/offene-stellen/chauffeuse-chauffeur-kat-c/a3973031-2aca-44c7-ad1d-f0ffca1f530c": {
+      "location": "Grigioni",
+      "canton": "GR",
+      "company": "Transgourmet/Prodega",
+      "contract": "A tempo indeterminato"
+    },
+    "https://jobs.coopjobs.ch/offene-stellen/detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen/1d44dc86-32cf-4c8a-bec3-40cca019128a": {
+      "location": "Grigioni",
+      "canton": "GR",
+      "company": "Coop",
+      "contract": "A tempo determinato"
+    },
+    "https://jobs.coopjobs.ch/offene-stellen/mitarbeiter-in-gastronomie/d9a6febe-5bec-46f0-b07f-042313ec97e0": {
+      "location": "Grigioni",
+      "canton": "GR",
+      "company": "Coop Ristorante",
+      "contract": "A tempo indeterminato"
+    },
+    "https://jobs.coopjobs.ch/offene-stellen/mitarbeiter-in-gastronomie/64c30f49-ff12-4f8a-9f69-45fa6e6ff6d9": {
+      "location": "Grigioni",
+      "canton": "GR",
+      "company": "Coop Ristorante",
+      "contract": "A tempo indeterminato"
+    },
+    "https://jobs.coopjobs.ch/offene-stellen/metzger-in-fleischfachfrau-fleischfachmann/72affcf4-ab97-481c-a686-aef663890d66": {
+      "location": "Grigioni",
+      "canton": "GR",
+      "company": "Coop",
+      "contract": "A tempo indeterminato"
+    },
+    "https://jobs.coopjobs.ch/offene-stellen/metzger-in-fleischfachfrau-fleischfachmann-quereinstieg-moeglich/72b5a726-1987-4189-b683-5762509cc3b4": {
+      "location": "Grigioni",
+      "canton": "GR",
+      "company": "Coop",
+      "contract": "A tempo indeterminato"
+    },
+    "https://jobs.coopjobs.ch/offene-stellen/metzger-in-fleischfachfrau-fleischfachmann/b78c5960-d116-4276-bf1a-abc4c35f4eee": {
+      "location": "Grigioni",
+      "canton": "GR",
+      "company": "Coop",
+      "contract": "A tempo indeterminato"
+    },
+    "https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-food/d4bc5412-45ca-4af2-96a2-c5e10fddb0ae": {
+      "location": "Grigioni",
+      "canton": "GR",
+      "company": "Coop",
+      "contract": "A tempo determinato"
+    },
+    "https://jobs.coopjobs.ch/offene-stellen/verkaufsberater-in-do-it/8b1a67af-486d-45fe-9aac-208d816ee299": {
+      "location": "Grigioni",
+      "canton": "GR",
+      "company": "Jumbo",
+      "contract": "A tempo indeterminato"
+    },
+    "https://jobs.coopjobs.ch/offene-stellen/rayonleiter-in-grundnahrungsmittel/13ac0553-fe0f-40e5-a56f-dc9ada6e639e": {
+      "location": "Grigioni",
+      "canton": "GR",
+      "company": "Coop",
+      "contract": "A tempo indeterminato"
+    },
+    "https://jobs.coopjobs.ch/offene-stellen/mechaniker-in/9520a55b-18f2-4194-a7b6-940d1dbce0a5": {
+      "location": "Grigioni",
+      "canton": "GR",
+      "company": "Coop",
+      "contract": "A tempo indeterminato"
+    },
+    "https://jobs.coopjobs.ch/offene-stellen/aspirant-in/4bfa99a8-d78b-4fe9-b6f2-b076ed69d598": {
+      "location": "Grigioni",
+      "canton": "GR",
+      "company": "coop.ch",
+      "contract": "A tempo indeterminato"
+    },
+    "https://jobs.coopjobs.ch/offene-stellen/nachwuchskader-verkauf/d2cd3866-4692-4f2d-a013-d1a92f21bebf": {
+      "location": "Grigioni",
+      "canton": "GR",
+      "company": "Coop",
+      "contract": "A tempo indeterminato"
+    },
+    "https://jobs.coopjobs.ch/offene-stellen/quereinstieg-koch-koechin-in-der-systemgastronomie-f-m-d/224198d9-9902-49be-a1e9-fccb1cf40ea5": {
+      "location": "Grigioni",
+      "canton": "GR",
+      "company": "Coop Ristorante",
+      "contract": "A tempo indeterminato"
+    },
+    "https://jobs.coopjobs.ch/offene-stellen/mitarbeiter-in-saison/568272fd-384d-411f-ba35-6f77d1c3761f": {
+      "location": "Grigioni",
+      "canton": "GR",
+      "company": "Coop",
+      "contract": "A tempo determinato"
+    },
+    "https://jobs.coopjobs.ch/offene-stellen/nachwuchskader-verkauf/069bdc4e-b9f7-4ac6-a3c6-9fd307f86fe7": {
+      "location": "Grigioni",
+      "canton": "GR",
+      "company": "Coop",
+      "contract": "A tempo indeterminato"
+    },
+    "https://jobs.coopjobs.ch/offene-stellen/nachwuchskader-verkauf/e668960f-7bdf-4031-ad41-46c8e2213aa2": {
+      "location": "Grigioni",
+      "canton": "GR",
+      "company": "Coop",
+      "contract": "A tempo indeterminato"
+    },
+    "https://jobs.coopjobs.ch/offene-stellen/quereinstieg-mitarbeiter-in-fleisch-und-fisch/834d3d83-8f5d-4711-9be2-8daa981bd4b5": {
+      "location": "Grigioni",
+      "canton": "GR",
+      "company": "Coop",
+      "contract": "A tempo indeterminato"
+    },
+    "https://jobs.coopjobs.ch/offene-stellen/quereinstieg-mitarbeiter-in-fleisch-und-fisch/d3acd339-9e5f-4ebe-b614-304329c8d2b1": {
+      "location": "Grigioni",
+      "canton": "GR",
+      "company": "Coop",
+      "contract": "A tempo indeterminato"
+    },
+    "https://jobs.coopjobs.ch/offene-stellen/detailhandelsfachfrau-mann-assistent-in/db69b904-0604-41f0-8864-ba8dfb72d38c": {
+      "location": "Grigioni",
+      "canton": "GR",
+      "company": "Coop",
+      "contract": "A tempo determinato"
+    },
+    "https://jobs.coopjobs.ch/offene-stellen/detailhandelsfachfrau-mann/9049ce42-2e2f-4199-a18b-c24aa18b77c7": {
+      "location": "Grigioni",
+      "canton": "GR",
+      "company": "Interdiscount",
+      "contract": "A tempo determinato"
+    },
+    "https://jobs.coopjobs.ch/offene-stellen/detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen/8c36865f-f338-47a7-b00f-4a1823b429f7": {
+      "location": "Grigioni",
+      "canton": "GR",
+      "company": "Jumbo",
+      "contract": "A tempo determinato"
+    },
+    "https://jobs.coopjobs.ch/offene-stellen/detailhandelsfachfrau-mann-assistent-in/27788c69-37f2-4051-bdbb-0a417ed1e1cd": {
+      "location": "Grigioni",
+      "canton": "GR",
+      "company": "Coop",
+      "contract": "A tempo determinato"
+    },
+    "https://jobs.coopjobs.ch/offene-stellen/detailhandelsassistent-in-eba/66cc2d86-1af8-4f2f-a4aa-9cbd5136f46c": {
+      "location": "Grigioni",
+      "canton": "GR",
+      "company": "Coop",
+      "contract": "A tempo determinato"
+    },
+    "https://jobs.coopjobs.ch/offene-stellen/detailhandelsfachfrau-mann-assistent-in/ed7ec48b-6508-4a1c-89cf-a376ccb3ea95": {
+      "location": "Grigioni",
+      "canton": "GR",
+      "company": "Coop",
+      "contract": "A tempo determinato"
+    },
+    "https://jobs.coopjobs.ch/offene-stellen/detailhandelsfachfrau-mann-assistent-in/9ec068e4-b2ef-4240-83db-c2d1f3201f13": {
+      "location": "Grigioni",
+      "canton": "GR",
+      "company": "Coop",
+      "contract": "A tempo determinato"
+    },
+    "https://jobs.coopjobs.ch/offene-stellen/detailhandelsassistent-in-eba/57e19fd1-8c06-493c-aadc-2224d732f0e0": {
+      "location": "Grigioni",
+      "canton": "GR",
+      "company": "Jumbo",
+      "contract": "A tempo determinato"
+    },
+    "https://jobs.coopjobs.ch/offene-stellen/detailhandelsfachfrau-mann-assistent-in/0f9c06b5-efc8-4b70-af78-e46bed94cee4": {
+      "location": "Grigioni",
+      "canton": "GR",
+      "company": "Coop",
+      "contract": "A tempo determinato"
+    },
+    "https://jobs.coopjobs.ch/offene-stellen/detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen/40502db0-2616-4f76-9930-1837943f088a": {
+      "location": "Grigioni",
+      "canton": "GR",
+      "company": "Coop",
+      "contract": "A tempo determinato"
+    },
+    "https://jobs.coopjobs.ch/offene-stellen/detailhandelsfachfrau-mann/8bbcade5-1251-4e55-b03a-d1a22832aff6": {
+      "location": "Grigioni",
+      "canton": "GR",
+      "company": "Interdiscount",
+      "contract": "A tempo determinato"
+    },
+    "https://jobs.coopjobs.ch/offene-stellen/detailhandelsfachfrau-mann/578ed5ad-d11f-4031-941e-c27861e69460": {
+      "location": "Grigioni",
+      "canton": "GR",
+      "company": "Interdiscount",
+      "contract": "A tempo determinato"
+    },
+    "https://jobs.coopjobs.ch/offene-stellen/detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen/9dd58c8c-4da3-4050-930b-a5c2684ca530": {
+      "location": "Grigioni",
+      "canton": "GR",
+      "company": "Coop",
+      "contract": "A tempo determinato"
+    },
+    "https://jobs.coopjobs.ch/offene-stellen/detailhandelsassistent-in-eba/0ddf48a8-5558-4dd7-b4a7-008d180987f6": {
+      "location": "Grigioni",
+      "canton": "GR",
+      "company": "Coop",
+      "contract": "A tempo determinato"
+    },
+    "https://jobs.coopjobs.ch/offene-stellen/detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen/a5ca09d9-9b0b-4a59-b367-df15d698dd7c": {
+      "location": "Grigioni",
+      "canton": "GR",
+      "company": "Coop",
+      "contract": "A tempo determinato"
+    },
+    "https://jobs.coopjobs.ch/offene-stellen/detailhandelsassistent-in-eba/02c8d73f-bcd3-48ed-952e-6f67c611e42d": {
+      "location": "Grigioni",
+      "canton": "GR",
+      "company": "Coop",
+      "contract": "A tempo determinato"
+    },
+    "https://jobs.coopjobs.ch/offene-stellen/detailhandelsfachfrau-mann-assistent-in/6e02506d-efb1-4e90-9c73-1d6481e305e5": {
+      "location": "Grigioni",
+      "canton": "GR",
+      "company": "Coop",
+      "contract": "A tempo determinato"
+    },
+    "https://jobs.coopjobs.ch/offene-stellen/detailhandelsassistent-in-eba/5bc2b36b-c575-417d-a4c1-e1633b7f8910": {
+      "location": "Grigioni",
+      "canton": "GR",
+      "company": "Coop",
+      "contract": "A tempo determinato"
+    },
+    "https://jobs.coopjobs.ch/offene-stellen/systemgastronomiefachfrau-mann-efz/d9ed0a88-6139-4e92-97ed-d8428d1a6c1c": {
+      "location": "Grigioni",
+      "canton": "GR",
+      "company": "Coop Ristorante",
+      "contract": "A tempo determinato"
+    },
+    "https://jobs.coopjobs.ch/offene-stellen/detailhandelsfachfrau-mann-assistent-in/35d1d281-4ade-4546-ae9a-ee576e20797a": {
+      "location": "Grigioni",
+      "canton": "GR",
+      "company": "Coop",
+      "contract": "A tempo determinato"
+    },
+    "https://jobs.coopjobs.ch/offene-stellen/detailhandelsassistent-in-eba/a8ae233c-cda6-44bc-ba93-1d1cab131435": {
+      "location": "Grigioni",
+      "canton": "GR",
+      "company": "Coop",
+      "contract": "A tempo determinato"
+    },
+    "https://jobs.coopjobs.ch/offene-stellen/detailhandelsfachfrau-mann/83903281-1866-4caf-8662-76b2cb3a68ad": {
+      "location": "Grigioni",
+      "canton": "GR",
+      "company": "Interdiscount",
+      "contract": "A tempo determinato"
+    },
+    "https://jobs.coopjobs.ch/offene-stellen/detailhandelsfachfrau-mann-assistent-in/fed85282-5f23-4caa-9168-516cc01c93a5": {
+      "location": "Grigioni",
+      "canton": "GR",
+      "company": "Coop",
+      "contract": "A tempo determinato"
+    },
+    "https://jobs.coopjobs.ch/offene-stellen/detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen/47de2d28-10d4-4868-ba2a-e938ad556d8f": {
+      "location": "Grigioni",
+      "canton": "GR",
+      "company": "Coop",
+      "contract": "A tempo determinato"
+    },
+    "https://jobs.coopjobs.ch/offene-stellen/detailhandelsassistent-in-eba/f77ad880-6c3d-41ba-a592-a6c460717880": {
+      "location": "Grigioni",
+      "canton": "GR",
+      "company": "Coop",
+      "contract": "A tempo determinato"
+    },
+    "https://jobs.coopjobs.ch/offene-stellen/detailhandelsassistent-in-eba/c760222f-31d2-42c7-ba0a-5af3b397c6f7": {
+      "location": "Grigioni",
+      "canton": "GR",
+      "company": "Coop",
+      "contract": "A tempo determinato"
+    },
+    "https://jobs.coopjobs.ch/offene-stellen/detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen/0890c07e-6cfb-4981-b093-ea1ff2390fc1": {
+      "location": "Grigioni",
+      "canton": "GR",
+      "company": "Coop",
+      "contract": "A tempo determinato"
+    },
+    "https://jobs.coopjobs.ch/offene-stellen/detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen/c488b63c-10a3-43dc-8ce2-4a838fd5e22e": {
+      "location": "Grigioni",
+      "canton": "GR",
+      "company": "Coop",
+      "contract": "A tempo determinato"
+    },
+    "https://jobs.coopjobs.ch/offene-stellen/detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen/25327f20-df5a-44e8-aaa8-9c76b21c21e9": {
+      "location": "Grigioni",
+      "canton": "GR",
+      "company": "Jumbo",
+      "contract": "A tempo determinato"
+    },
+    "https://jobs.coopjobs.ch/offene-stellen/detailhandelsassistent-in-eba/ac39cc38-9465-4ed9-a336-bcb3e3e9429d": {
+      "location": "Grigioni",
+      "canton": "GR",
+      "company": "Coop",
+      "contract": "A tempo determinato"
+    },
+    "https://jobs.coopjobs.ch/offene-stellen/detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen/0ca78a48-6150-4fcc-9caf-90198cde85ad": {
+      "location": "Grigioni",
+      "canton": "GR",
+      "company": "Coop",
+      "contract": "A tempo determinato"
+    },
+    "https://jobs.coopjobs.ch/offene-stellen/detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen/28f49501-c904-4581-b6cc-bb98ee5255d3": {
+      "location": "Grigioni",
+      "canton": "GR",
+      "company": "Coop",
+      "contract": "A tempo determinato"
+    },
+    "https://jobs.coopjobs.ch/offene-stellen/detailhandelsassistent-in-eba/f7f6c281-d87d-460c-8e96-0865eac9e0d2": {
+      "location": "Grigioni",
+      "canton": "GR",
+      "company": "Coop",
+      "contract": "A tempo determinato"
+    },
+    "https://jobs.coopjobs.ch/offene-stellen/detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen/6b0a6140-bfcd-4672-8162-336a015d9841": {
+      "location": "Grigioni",
+      "canton": "GR",
+      "company": "Coop",
+      "contract": "A tempo determinato"
+    },
+    "https://jobs.coopjobs.ch/offene-stellen/detailhandelsfachfrau-mann-assistent-in/f2c09e3a-1cf8-4d66-ab7b-2bac7a63af51": {
+      "location": "Grigioni",
+      "canton": "GR",
+      "company": "Coop",
+      "contract": "A tempo determinato"
+    },
+    "https://jobs.coopjobs.ch/offene-stellen/detailhandelsassistent-in-eba/787abbd7-ed8d-47de-9cf5-ed52c22ae3f4": {
+      "location": "Grigioni",
+      "canton": "GR",
+      "company": "Coop",
+      "contract": "A tempo determinato"
+    },
+    "https://jobs.coopjobs.ch/offene-stellen/logistiker-in-eba/564a1e6c-7030-43ee-934d-4f9d2ba68553": {
+      "location": "Grigioni",
+      "canton": "GR",
+      "company": "Coop",
+      "contract": "A tempo determinato"
+    },
+    "https://jobs.coopjobs.ch/offene-stellen/detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen/06c8405b-d1a1-4231-b3f0-ab86e147321f": {
+      "location": "Grigioni",
+      "canton": "GR",
+      "company": "Coop",
+      "contract": "A tempo determinato"
+    },
+    "https://jobs.coopjobs.ch/offene-stellen/systemgastronomiepraktiker-in-eba/c32b1635-0a98-4fef-834e-838f9082ee4f": {
+      "location": "Grigioni",
+      "canton": "GR",
+      "company": "Coop Ristorante",
+      "contract": "A tempo determinato"
+    },
+    "https://jobs.coopjobs.ch/offene-stellen/baecker-in-konditor-in-confiseur-in/db210cd2-c893-4d53-bbf6-325d59c1a945": {
+      "location": "Grigioni",
+      "canton": "GR",
+      "company": "Coop",
+      "contract": "A tempo determinato"
+    },
+    "https://jobs.coopjobs.ch/offene-stellen/logistiker-in-efz/facc01c9-0aa8-43cc-8110-9cad0ba2dedf": {
+      "location": "Grigioni",
+      "canton": "GR",
+      "company": "Coop",
+      "contract": "A tempo determinato"
+    },
+    "https://jobs.coopjobs.ch/offene-stellen/detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen/f5195363-45fd-425c-a8af-5f7e95f51bac": {
+      "location": "Grigioni",
+      "canton": "GR",
+      "company": "Coop",
+      "contract": "A tempo determinato"
+    },
+    "https://jobs.coopjobs.ch/offene-stellen/detailhandelsfachfrau-mann-assistent-in/aa147801-9a8a-49c8-84ef-9c45f6006345": {
+      "location": "Grigioni",
+      "canton": "GR",
+      "company": "Coop",
+      "contract": "A tempo determinato"
+    },
+    "https://jobs.coopjobs.ch/offene-stellen/detailhandelsassistent-in-eba/9318cccd-8fec-4f27-8c33-5082c5b4dbd3": {
+      "location": "Grigioni",
+      "canton": "GR",
+      "company": "Coop",
+      "contract": "A tempo determinato"
+    },
+    "https://jobs.coopjobs.ch/offene-stellen/detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen/0a43e029-fa12-4114-b4c6-8e812294168e": {
+      "location": "Grigioni",
+      "canton": "GR",
+      "company": "Coop",
+      "contract": "A tempo determinato"
+    },
+    "https://jobs.coopjobs.ch/offene-stellen/detailhandelsassistent-in-eba/20b92cdf-e256-45d3-99a2-ae7222249b5a": {
+      "location": "Grigioni",
+      "canton": "GR",
+      "company": "Coop",
+      "contract": "A tempo determinato"
+    },
+    "https://jobs.coopjobs.ch/offene-stellen/systemgastronomiefachfrau-mann-praktiker-in/3e8484ea-765c-4db7-b0bd-0ec63126c536": {
+      "location": "Grigioni",
+      "canton": "GR",
+      "company": "Coop Ristorante",
+      "contract": "A tempo determinato"
+    },
+    "https://jobs.coopjobs.ch/offene-stellen/detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen/9a3466c0-6475-4662-9ddf-9449a5ac7deb": {
+      "location": "Grigioni",
+      "canton": "GR",
+      "company": "Coop",
+      "contract": "A tempo determinato"
+    },
+    "https://jobs.coopjobs.ch/offene-stellen/detailhandelsassistent-in-eba/73d22766-b608-487c-bf8a-d18a36f5b66a": {
+      "location": "Grigioni",
+      "canton": "GR",
+      "company": "Coop",
+      "contract": "A tempo determinato"
+    },
+    "https://jobs.coopjobs.ch/offene-stellen/detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen/e0ebf1ff-fd6b-4b99-8548-25677d795f56": {
+      "location": "Grigioni",
+      "canton": "GR",
+      "company": "Coop",
+      "contract": "A tempo determinato"
+    },
+    "https://jobs.coopjobs.ch/offene-stellen/detailhandelsassistent-in-eba/4420bf7f-51bc-4563-b46f-a0fec05c052b": {
+      "location": "Grigioni",
+      "canton": "GR",
+      "company": "Coop",
+      "contract": "A tempo determinato"
+    },
+    "https://jobs.coopjobs.ch/offene-stellen/detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen/d9e63e11-c7b6-4532-b8c8-8e2ba1c1a55d": {
+      "location": "Grigioni",
+      "canton": "GR",
+      "company": "Interdiscount",
+      "contract": "A tempo determinato"
+    },
+    "https://jobs.coopjobs.ch/offene-stellen/detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen/8150f7e8-8f84-409f-be80-d1dd014d7062": {
+      "location": "Grigioni",
+      "canton": "GR",
+      "company": "Coop",
+      "contract": "A tempo determinato"
+    },
+    "https://jobs.coopjobs.ch/offene-stellen/detailhandelsfachfrau-mann-assistent-in/006be8bc-8292-44de-a0ba-ed2b90b0d878": {
+      "location": "Grigioni",
+      "canton": "GR",
+      "company": "Coop",
+      "contract": "A tempo determinato"
+    },
+    "https://jobs.coopjobs.ch/offene-stellen/detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen/c449f8cf-e189-494e-8262-0c2a62afebbe": {
+      "location": "Grigioni",
+      "canton": "GR",
+      "company": "Interdiscount",
+      "contract": "A tempo determinato"
+    },
+    "https://jobs.coopjobs.ch/offene-stellen/detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen/7acb5ed1-e8ce-4e25-b35d-5212094e6551": {
+      "location": "Grigioni",
+      "canton": "GR",
+      "company": "Coop",
+      "contract": "A tempo determinato"
+    },
+    "https://jobs.coopjobs.ch/offene-stellen/detailhandelsfachfrau-mann-assistent-in/83ae6622-395b-49bf-a337-f59076404f09": {
+      "location": "Grigioni",
+      "canton": "GR",
+      "company": "Coop",
+      "contract": "A tempo determinato"
+    },
+    "https://jobs.coopjobs.ch/offene-stellen/detailhandelsfachfrau-mann-assistent-in/d7ba7743-d6b6-421f-bdc6-c8223d54967e": {
+      "location": "Grigioni",
+      "canton": "GR",
+      "company": "Coop",
+      "contract": "A tempo determinato"
+    },
+    "https://jobs.coopjobs.ch/offene-stellen/detailhandelsfachfrau-mann/72b0c9ab-c144-4c8a-9fd1-ae2f5ef0d944": {
+      "location": "Grigioni",
+      "canton": "GR",
+      "company": "Interdiscount",
+      "contract": "A tempo determinato"
+    },
+    "https://jobs.coopjobs.ch/offene-stellen/detailhandelsfachfrau-mann-assistent-in/3742c0b8-54c9-4104-9698-4f5ced19f324": {
+      "location": "Grigioni",
+      "canton": "GR",
+      "company": "Coop",
+      "contract": "A tempo determinato"
+    },
+    "https://jobs.coopjobs.ch/offene-stellen/detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen/4670aebb-95a6-48df-9b1f-00e38904bed1": {
+      "location": "Grigioni",
+      "canton": "GR",
+      "company": "LIVIQUE",
+      "contract": "A tempo determinato"
+    },
+    "https://jobs.coopjobs.ch/offene-stellen/detailhandelsfachfrau-mann-assistent-in/8d09cac6-5e32-4c57-9da3-20b170fa3841": {
+      "location": "Grigioni",
+      "canton": "GR",
+      "company": "Coop",
+      "contract": "A tempo determinato"
+    },
+    "https://jobs.coopjobs.ch/offene-stellen/detailhandelsassistent-in-eba/a2f0d68f-68f8-4b2f-bce6-c8527bbe9f48": {
+      "location": "Grigioni",
+      "canton": "GR",
+      "company": "Coop",
+      "contract": "A tempo determinato"
+    },
+    "https://jobs.coopjobs.ch/offene-stellen/detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen/c9b9f813-a5b5-43ed-8791-a68abb8b34cb": {
+      "location": "Grigioni",
+      "canton": "GR",
+      "company": "Coop City",
+      "contract": "A tempo determinato"
+    },
+    "https://jobs.coopjobs.ch/offene-stellen/detailhandelsfachfrau-mann-assistent-in/9552cc2b-ed23-488d-a6ae-8d69faa439b9": {
+      "location": "Grigioni",
+      "canton": "GR",
+      "company": "Coop",
+      "contract": "A tempo determinato"
+    },
+    "https://jobs.coopjobs.ch/offene-stellen/detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen/a21c188e-4fa2-4ad8-a659-61b7926b8566": {
+      "location": "Grigioni",
+      "canton": "GR",
+      "company": "Interdiscount",
+      "contract": "A tempo determinato"
+    },
+    "https://jobs.coopjobs.ch/offene-stellen/detailhandelsfachfrau-mann/cff55ff0-e92e-4e28-920b-9a4f9079bb55": {
+      "location": "Grigioni",
+      "canton": "GR",
+      "company": "Interdiscount",
+      "contract": "A tempo determinato"
+    },
+    "https://jobs.coopjobs.ch/offene-stellen/detailhandelsassistent-in-eba/dfe62f27-6133-40d3-a36e-ea819aa3a545": {
+      "location": "Grigioni",
+      "canton": "GR",
+      "company": "Coop",
+      "contract": "A tempo determinato"
+    },
+    "https://jobs.coopjobs.ch/offene-stellen/detailhandelsassistent-in-eba/5c882c92-3011-4c1a-8b8f-7eeb408c6f8d": {
+      "location": "Grigioni",
+      "canton": "GR",
+      "company": "Coop",
+      "contract": "A tempo determinato"
+    },
+    "https://jobs.coopjobs.ch/offene-stellen/detailhandelsfachfrau-mann-assistent-in/8d486ad6-0186-40aa-81d6-b543feef4bbd": {
+      "location": "Grigioni",
+      "canton": "GR",
+      "company": "Coop",
+      "contract": "A tempo determinato"
+    },
+    "https://jobs.coopjobs.ch/offene-stellen/detailhandelsfachfrau-mann-assistent-in/736f824b-388d-4bbd-9788-d04f748d04d3": {
+      "location": "Grigioni",
+      "canton": "GR",
+      "company": "Coop",
+      "contract": "A tempo determinato"
+    },
+    "https://jobs.coopjobs.ch/offene-stellen/detailhandelsfachfrau-mann-assistent-in/d54f8eb3-2f07-4607-a697-9c43d2ccaaa5": {
+      "location": "Grigioni",
+      "canton": "GR",
+      "company": "LIVIQUE",
+      "contract": "A tempo determinato"
+    },
+    "https://jobs.coopjobs.ch/offene-stellen/detailhandelsfachfrau-mann-assistent-in/f0241dd6-5b4a-41c3-aaf7-3a0593a2667e": {
+      "location": "Grigioni",
+      "canton": "GR",
+      "company": "Coop City",
+      "contract": "A tempo determinato"
+    },
+    "https://jobs.coopjobs.ch/offene-stellen/detailhandelsfachfrau-mann-assistent-in/937f823a-8adf-4580-95fc-58814d1fa74d": {
+      "location": "Grigioni",
+      "canton": "GR",
+      "company": "Jumbo",
+      "contract": "A tempo determinato"
+    },
+    "https://jobs.coopjobs.ch/offene-stellen/detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen/693945af-eabe-40d4-98da-b3f40ef49d34": {
+      "location": "Grigioni",
+      "canton": "GR",
+      "company": "Coop",
+      "contract": "A tempo determinato"
+    },
+    "https://jobs.coopjobs.ch/offene-stellen/detailhandelsassistent-in-eba/80271c7c-c1c1-44a0-9407-be8658986944": {
+      "location": "Grigioni",
+      "canton": "GR",
+      "company": "Coop",
+      "contract": "A tempo determinato"
+    },
+    "https://jobs.coopjobs.ch/offene-stellen/detailhandelsassistent-in-eba/41e3a694-c866-4b99-bd88-490305c984a5": {
+      "location": "Grigioni",
+      "canton": "GR",
+      "company": "Coop",
+      "contract": "A tempo determinato"
+    },
+    "https://jobs.coopjobs.ch/offene-stellen/systemgastronomiefachfrau-mann-praktiker-in/5a07947c-9d74-4f1d-a622-34606e766717": {
+      "location": "Grigioni",
+      "canton": "GR",
+      "company": "Marché",
+      "contract": "A tempo determinato"
+    },
+    "https://jobs.coopjobs.ch/offene-stellen/detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen/12a81a76-2881-483f-a7b7-91bb883110c0": {
+      "location": "Grigioni",
+      "canton": "GR",
+      "company": "Coop",
+      "contract": "A tempo determinato"
+    },
+    "https://jobs.coopjobs.ch/offene-stellen/detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen/b249a0a3-fff5-4b7c-9dcd-78ed86aa7566": {
+      "location": "Grigioni",
+      "canton": "GR",
+      "company": "Coop",
+      "contract": "A tempo determinato"
+    },
+    "https://jobs.coopjobs.ch/offene-stellen/detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen/5bd67e44-b1a6-4542-bf7b-a671f000dd53": {
+      "location": "Grigioni",
+      "canton": "GR",
+      "company": "Coop",
+      "contract": "A tempo determinato"
+    },
+    "https://jobs.coopjobs.ch/offene-stellen/detailhandelsassistent-in-eba/17b2022f-a656-4df5-93b4-588432f51678": {
+      "location": "Grigioni",
+      "canton": "GR",
+      "company": "Coop",
+      "contract": "A tempo determinato"
+    },
+    "https://jobs.coopjobs.ch/offene-stellen/systemgastronomiepraktiker-in-eba/2738ec24-88b9-4a86-aecb-005c3d4cf0fb": {
+      "location": "Grigioni",
+      "canton": "GR",
+      "company": "Marché",
+      "contract": "A tempo determinato"
+    },
+    "https://jobs.coopjobs.ch/offene-stellen/systemgastronomiefachfrau-mann-efz/f3eed375-bdd9-473d-81cd-5e6943658058": {
+      "location": "Grigioni",
+      "canton": "GR",
+      "company": "Marché",
+      "contract": "A tempo determinato"
+    },
+    "https://jobs.coopjobs.ch/offene-stellen/detailhandelsassistent-in-eba/5f45d707-ad11-4c0c-b7b7-b371f6e59222": {
+      "location": "Grigioni",
+      "canton": "GR",
+      "company": "Coop",
+      "contract": "A tempo determinato"
+    },
+    "https://jobs.coopjobs.ch/offene-stellen/detailhandelsassistent-in-eba/7307523e-d111-49ae-8d40-88d4d4b9e7e0": {
+      "location": "Grigioni",
+      "canton": "GR",
+      "company": "Coop",
+      "contract": "A tempo determinato"
+    },
+    "https://jobs.coopjobs.ch/offene-stellen/detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen/65744926-063d-4919-9421-879d41ce82a7": {
+      "location": "Grigioni",
+      "canton": "GR",
+      "company": "Coop",
+      "contract": "A tempo determinato"
+    },
+    "https://jobs.coopjobs.ch/offene-stellen/detailhandelsassistent-in-eba/d4fe62f1-40c2-4b23-a902-c94f81207a09": {
+      "location": "Grigioni",
+      "canton": "GR",
+      "company": "Coop",
+      "contract": "A tempo determinato"
+    }
+  }
+}

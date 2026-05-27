@@ -1,0 +1,22 @@
+{
+  "companyKey": "aldi-suisse-logistica",
+  "companyName": "Aldi Suisse (logistica)",
+  "companyHost": "aldi-suisse.ch",
+  "enabled": true,
+  "priority": 0,
+  "crawlerModes": [
+    "generic_ats",
+    "html",
+    "jsonld"
+  ],
+  "seedUrls": [
+    "https://www.aldi-suisse.ch/careers",
+    "https://www.aldi-suisse.ch/career",
+    "https://www.aldi-suisse.ch/jobs",
+    "https://www.aldi-suisse.ch/karriere",
+    "https://www.aldi-suisse.ch/offene-stellen",
+    "https://www.aldi-suisse.ch/lavora-con-noi"
+  ],
+  "notes": "",
+  "updatedAt": "2026-02-27T17:06:06.920Z"
+}

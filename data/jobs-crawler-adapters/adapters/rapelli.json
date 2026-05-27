@@ -1,0 +1,22 @@
+{
+  "companyKey": "rapelli",
+  "companyName": "Rapelli",
+  "companyHost": "rapelli.ch",
+  "enabled": true,
+  "priority": 0,
+  "crawlerModes": [
+    "generic_ats",
+    "html",
+    "jsonld"
+  ],
+  "seedUrls": [
+    "https://www.rapelli.ch/careers",
+    "https://www.rapelli.ch/career",
+    "https://www.rapelli.ch/jobs",
+    "https://www.rapelli.ch/karriere",
+    "https://www.rapelli.ch/offene-stellen",
+    "https://www.rapelli.ch/lavora-con-noi"
+  ],
+  "notes": "",
+  "updatedAt": "2026-02-27T17:06:06.972Z"
+}

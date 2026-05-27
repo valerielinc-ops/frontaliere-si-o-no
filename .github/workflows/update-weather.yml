@@ -1,0 +1,71 @@
+name: Update Weather Snapshot (council-of-sources)
+
+on:
+  schedule:
+    # 6×/day, every 4 hours, offset 23 mins to avoid colliding with other crons
+    - cron: '23 0,4,8,12,16,20 * * *'
+  workflow_dispatch: {}
+
+concurrency:
+  group: weather-snapshot
+  cancel-in-progress: true
+
+permissions:
+  contents: write
+
+jobs:
+  update-weather:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 1
+          persist-credentials: true
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies (minimal — tsx + types only)
+        run: npm ci --no-audit --no-fund --ignore-scripts
+
+      - name: Run weather snapshot updater
+        run: npx tsx scripts/update-weather.ts
+        env:
+          NODE_ENV: production
+
+      - name: Commit snapshot (rebase-retry pattern)
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -e
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          # Stage only the snapshot file (cache files are gitignored)
+          git add data/weather-snapshot.json
+          if git diff --cached --quiet; then
+            echo "No snapshot diff, skipping commit"
+            exit 0
+          fi
+
+          git commit -m "🌦️ Refresh weather snapshot (council)"
+
+          # Rebase-retry loop (max 5 attempts)
+          for attempt in 1 2 3 4 5; do
+            if git push origin HEAD:main; then
+              echo "push ok on attempt $attempt"
+              exit 0
+            fi
+            echo "push failed (attempt $attempt), rebasing..."
+            git fetch origin main
+            git rebase origin/main || { git rebase --abort; sleep 2; continue; }
+            sleep $((attempt * 2))
+          done
+          echo "::warning::push failed after 5 attempts — leaving snapshot uncommitted"
+          exit 0

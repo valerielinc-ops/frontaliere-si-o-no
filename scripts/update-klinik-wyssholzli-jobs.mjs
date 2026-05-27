@@ -1,0 +1,355 @@
+#!/usr/bin/env node
+/**
+ * Dedicated Klinik Wysshölzli (Herzogenbuchsee, BE) crawler runner.
+ *
+ * Privatklinik for psychiatric and psychotherapeutic care, specialised in
+ * women with addiction and eating disorders. Postings are PDF-only:
+ *
+ *   Career page: https://www.wysshoelzli.ch/jobs-karriere
+ *   PDF folder:  /uploads/Stelleninserate/*.pdf
+ */
+import fs from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+import {
+  printPublishedJobUrls,
+  writeJobsSummary,
+  snapshotJobSlugs,
+  computeCrawlDiff,
+  printCrawlChangeSummary,
+  writeCrawlChangeSummaryToGH,
+  setCrawlerStartTime,
+  getCrawlerElapsedMs,
+} from './jobs-url-helper.mjs';
+import {
+  writeJobsCrawlerSlice,
+  writeSummaryCrawlerSlice,
+  registerCrawlerSummaryGuard,
+  assembleJobsDataset,
+  readExistingCrawlerJobs,
+} from './assemble-jobs-dataset.mjs';
+import { validateJobUrls } from './lib/validate-job-url.mjs';
+import {
+  translateMissingJobLocales,
+  validateDedicatedLocaleCoverage,
+  detectLang,
+  mergePreserveLocaleData,
+} from './lib/dedicated-crawler-common.mjs';
+import { extractPdfJobContentFromUrl } from './lib/pdf-job-content.mjs';
+import {
+  parseKlinikWysshholzliListing,
+  buildKlinikWysshholzliDescription,
+  KLINIK_WYSSHOLZLI_KEY,
+  KLINIK_WYSSHOLZLI_COMPANY_NAME,
+  KLINIK_WYSSHOLZLI_COMPANY_DOMAIN,
+  KLINIK_WYSSHOLZLI_CAREERS_URL,
+} from './lib/klinik-wyssholzli-job-parser.mjs';
+import { extractStableJobId } from './lib/job-match-key.mjs';
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const ROOT = path.resolve(__dirname, '..');
+const DATA_JOBS = path.resolve(ROOT, 'data', 'jobs.json');
+const PUBLIC_JOBS = path.resolve(ROOT, 'public', 'data', 'jobs.json');
+const ADAPTER_PATH = path.resolve(
+  ROOT,
+  'data',
+  'jobs-crawler-adapters',
+  'adapters',
+  `${KLINIK_WYSSHOLZLI_KEY}.json`
+);
+
+const COMPANY_KEY = KLINIK_WYSSHOLZLI_KEY;
+const COMPANY_NAME = KLINIK_WYSSHOLZLI_COMPANY_NAME;
+const COMPANY_HOST = `www.${KLINIK_WYSSHOLZLI_COMPANY_DOMAIN}`;
+const COMPANY_DOMAIN = KLINIK_WYSSHOLZLI_COMPANY_DOMAIN;
+const CAREERS_URL = KLINIK_WYSSHOLZLI_CAREERS_URL;
+const LOCALES = ['it', 'en', 'de', 'fr'];
+
+// Hardcoded HQ (Herzogenbuchsee BE). crawler-location-config.mjs is read-only here.
+const HQ = {
+  city: 'Herzogenbuchsee',
+  canton: 'BE',
+  postalCode: '3360',
+  addressRegion: 'BE',
+};
+
+function readJson(filePath, fallback) {
+  try {
+    return JSON.parse(fs.readFileSync(filePath, 'utf8'));
+  } catch {
+    return fallback;
+  }
+}
+
+function writeJson(filePath, value) {
+  fs.mkdirSync(path.dirname(filePath), { recursive: true });
+  fs.writeFileSync(filePath, `${JSON.stringify(value, null, 2)}\n`, 'utf8');
+}
+
+function normalize(value = '') {
+  return String(value || '').trim().toLowerCase();
+}
+
+function normalizeKey(value = '') {
+  return String(value || '')
+    .trim()
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[̀-ͯ]/g, '')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '');
+}
+
+function slugify(text = '') {
+  return String(text || '')
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[̀-ͯ]/g, '')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '')
+    .slice(0, 200);
+}
+
+async function fetchPage(url, timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000) {
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), timeoutMs);
+  try {
+    const res = await fetch(url, {
+      signal: controller.signal,
+      headers: {
+        Accept: 'text/html,application/xhtml+xml',
+        'User-Agent':
+          'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)',
+      },
+    });
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    return await res.text();
+  } finally {
+    clearTimeout(timer);
+  }
+}
+
+function isTargetJob(job = {}) {
+  const key = normalizeKey(job.companyKey || job.company || '');
+  const company = normalize(job.company || '');
+  const url = String(job.url || '').toLowerCase();
+  return (
+    key === COMPANY_KEY ||
+    key.startsWith('klinik-wyssh') ||
+    company.includes('wyssh') ||
+    url.includes('wysshoelzli.ch')
+  );
+}
+
+function isTrustedDomain(rawUrl = '') {
+  try {
+    const host = new URL(rawUrl).hostname.toLowerCase();
+    return host === COMPANY_DOMAIN || host === `www.${COMPANY_DOMAIN}`;
+  } catch {
+    return false;
+  }
+}
+
+function jobMatchKey(job = {}) {
+  return (
+    extractStableJobId(job.url) ||
+    `slug:${String(job.slug || job.titleByLocale?.de || job.title || '').toLowerCase()}`
+  );
+}
+
+function buildJob({ title, pdfUrl, pdfText, filename }) {
+  const slug = slugify(`${title}-${COMPANY_KEY}`);
+  const description = buildKlinikWysshholzliDescription({ title, pdfText, pdfUrl }).description;
+  return {
+    title,
+    slug,
+    url: pdfUrl,
+    applyUrl: CAREERS_URL,
+    company: COMPANY_NAME,
+    companyKey: COMPANY_KEY,
+    companyDomain: COMPANY_DOMAIN,
+    location: HQ.city,
+    addressLocality: HQ.city,
+    addressRegion: HQ.addressRegion,
+    postalCode: HQ.postalCode,
+    addressCountry: 'CH',
+    canton: HQ.canton,
+    country: 'CH',
+    category: 'health',
+    sector: 'Psychiatrie und Psychotherapie',
+    employmentType: 'full-time',
+    contractType: 'full-time',
+    source: `${COMPANY_KEY}-dedicated-crawler`,
+    sourceLang: detectLang(`${title} ${pdfText}`, 'de'),
+    postedDate: new Date().toISOString().slice(0, 10),
+    validThrough: '',
+    needsRetranslation: true,
+    description,
+    titleByLocale: { de: title },
+    descriptionByLocale: { de: description },
+    slugByLocale: { de: slug },
+    _meta: { sourceFilename: filename },
+  };
+}
+
+async function mergeJobs(discoveredJobs) {
+  const existing = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS);
+  const nonTargetJobs = existing.filter((job) => !isTargetJob(job));
+  const existingTarget = existing.filter(isTargetJob);
+  const existingByKey = new Map(existingTarget.map((job) => [jobMatchKey(job), job]));
+
+  const mergedTarget = mergePreserveLocaleData(existingTarget, discoveredJobs);
+  for (const job of mergedTarget) {
+    job.needsRetranslation = true;
+  }
+
+  const beforeSnapshot = snapshotJobSlugs(existingTarget);
+  const allJobs = [...nonTargetJobs, ...mergedTarget];
+  writeJson(DATA_JOBS, allJobs);
+  writeJson(PUBLIC_JOBS, allJobs);
+
+  const newJobs = mergedTarget.filter((job) => !existingByKey.has(jobMatchKey(job)));
+  if (newJobs.length > 0) {
+    console.log(`🔗 Validating URLs for ${newJobs.length} newly inserted jobs…`);
+    const results = await validateJobUrls(newJobs, { concurrency: 4 });
+    const invalid = results.filter((r) => !r.valid);
+    if (invalid.length > 0) {
+      console.warn(`⚠️  ${invalid.length} URL(s) failed validation:`);
+      for (const inv of invalid) console.warn(`     - ${inv.url}: ${inv.reason}`);
+      throw new Error(`Klinik Wysshölzli inserted ${invalid.length} invalid job URLs.`);
+    }
+    console.log(`✅ All ${newJobs.length} new job URLs validated successfully`);
+  }
+
+  const afterSnapshot = snapshotJobSlugs(mergedTarget);
+  const diff = computeCrawlDiff(beforeSnapshot, afterSnapshot);
+  printCrawlChangeSummary(diff, 'Klinik Wysshölzli');
+  writeCrawlChangeSummaryToGH(diff, 'Klinik Wysshölzli');
+  writeJobsSummary(mergedTarget, 'Klinik Wysshölzli');
+  printPublishedJobUrls(mergedTarget, 'Klinik Wysshölzli');
+  const removed = Math.max(0, existingTarget.length - mergedTarget.length);
+  console.log(
+    `📦 Merge results:\n  ➕ Added: ${newJobs.length}\n  🔄 Updated: ${mergedTarget.length - newJobs.length}\n  🗑️  Removed (stale): ${removed}\n  📊 Total jobs in file: ${allJobs.length}`
+  );
+  return { diff };
+}
+
+function updateAdapterConfig(jobs) {
+  const seedMetaByUrl = {};
+  for (const job of jobs) {
+    seedMetaByUrl[job.url] = {
+      location: job.location,
+      canton: job.canton,
+      company: COMPANY_NAME,
+      postedDate: job.postedDate,
+    };
+  }
+  writeJson(ADAPTER_PATH, {
+    companyKey: COMPANY_KEY,
+    companyName: COMPANY_NAME,
+    companyHost: COMPANY_HOST,
+    enabled: true,
+    priority: 10,
+    crawlerModes: ['html', 'pdf'],
+    seedUrls: jobs.map((job) => job.url),
+    notes:
+      'Dedicated Klinik Wysshölzli crawler scrapes /jobs-karriere and extracts descriptions from the /uploads/Stelleninserate PDFs.',
+    updatedAt: new Date().toISOString(),
+    seedMetaByUrl,
+  });
+}
+
+function validateLocales() {
+  validateDedicatedLocaleCoverage({
+    strictEnvVar: 'JOBS_KLINIK_WYSSHOLZLI_STRICT',
+    label: 'Klinik Wysshölzli',
+    dataJobsPath: DATA_JOBS,
+    isTargetJob,
+    locales: LOCALES,
+    isTrustedDomain,
+    untrustedDomainReason: 'url_not_wysshoelzli_domain',
+    failWhenNoJobs: true,
+    noJobsMessage: 'No Klinik Wysshölzli jobs found after dedicated crawl.',
+    detectSourceLang: (text) => detectLang(text, 'de'),
+  });
+}
+
+async function main() {
+  setCrawlerStartTime();
+  registerCrawlerSummaryGuard(COMPANY_KEY, 'Klinik Wysshölzli');
+  console.log('═══════════════════════════════════════════════');
+  console.log('  Klinik Wysshölzli — Dedicated Crawler');
+  console.log('═══════════════════════════════════════════════');
+  console.log(`  Careers page: ${CAREERS_URL}\n`);
+
+  const html = await fetchPage(CAREERS_URL);
+  const listings = parseKlinikWysshholzliListing(html);
+  console.log(`📋 PDF stelleninserate found: ${listings.length}`);
+  if (listings.length === 0) {
+    throw new Error('Klinik Wysshölzli discovery returned 0 PDF jobs.');
+  }
+
+  const discoveredJobs = [];
+  for (const listing of listings) {
+    console.log(`  📄 Extracting PDF: ${listing.filename}`);
+    const pdf = await extractPdfJobContentFromUrl(listing.pdfUrl);
+    if (pdf.error) console.warn(`     ⚠️ PDF error: ${pdf.error}`);
+    const pdfText = pdf.text || '';
+    if (!pdfText) {
+      console.warn(`     ⚠️ Empty PDF text — skipping ${listing.filename}`);
+      continue;
+    }
+    discoveredJobs.push(
+      buildJob({
+        title: listing.titleFromFilename,
+        pdfUrl: listing.pdfUrl,
+        pdfText,
+        filename: listing.filename,
+      })
+    );
+  }
+
+  if (discoveredJobs.length === 0) {
+    throw new Error('Klinik Wysshölzli discovered 0 jobs with extractable PDF text.');
+  }
+
+  updateAdapterConfig(discoveredJobs);
+  const { diff } = await mergeJobs(discoveredJobs);
+
+  console.log('\n🌐 Running locale fill for Klinik Wysshölzli jobs...');
+  await translateMissingJobLocales({
+    dataJobsPath: DATA_JOBS,
+    isTargetJob,
+  });
+
+  validateLocales();
+  console.log('\n✅ Klinik Wysshölzli crawler complete.');
+
+  const _durationMs = getCrawlerElapsedMs();
+  const _sliceRaw = fs.existsSync(DATA_JOBS) ? JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8')) : [];
+  const _sliceJobs = Array.isArray(_sliceRaw) ? _sliceRaw.filter(isTargetJob) : [];
+  writeJobsCrawlerSlice(COMPANY_KEY, _sliceJobs);
+  writeSummaryCrawlerSlice({
+    key: COMPANY_KEY,
+    label: 'Klinik Wysshölzli',
+    generatedAt: new Date().toISOString(),
+    total: _sliceJobs.length,
+    newCount: diff.newJobs.length,
+    updatedCount: diff.updatedJobs.length,
+    removedCount: diff.removedJobs.length,
+    unchangedCount: diff.unchangedCount,
+    durationMs: _durationMs,
+    avgDurationMs: _durationMs,
+    durationHistory: [_durationMs],
+    newJobs: diff.newJobs.slice(0, 30),
+    updatedJobs: diff.updatedJobs.slice(0, 30),
+    removedJobs: diff.removedJobs.slice(0, 30),
+    unchangedJobs: (diff.unchangedJobs || []).slice(0, 30),
+  });
+  await assembleJobsDataset();
+}
+
+main().catch((err) => {
+  console.error(`❌ Klinik Wysshölzli crawler failed: ${err?.message || err}`);
+  process.exit(1);
+});

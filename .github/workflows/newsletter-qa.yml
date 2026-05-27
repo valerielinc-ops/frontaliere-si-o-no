@@ -1,0 +1,54 @@
+name: Newsletter QA Gate
+
+on:
+  schedule:
+    - cron: '30 4 * * *' # Daily at 04:30 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  qa:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Playwright Chromium
+        run: npx playwright install chromium --with-deps
+
+      - name: Prepare Firebase credentials
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -n "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+            echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+          else
+            echo "⚠️ FIREBASE_SERVICE_ACCOUNT_JSON missing — proceeding without secrets"
+          fi
+
+      - name: Load secrets from Remote Config
+        continue-on-error: true
+        run: node scripts/load-rc-env.mjs
+
+      - name: Assemble jobs dataset
+        continue-on-error: true
+        run: node scripts/assemble-jobs-dataset.mjs 2>&1 || echo "⚠️ Jobs assembly failed"
+
+      - name: Run newsletter QA
+        run: node scripts/newsletter-qa.mjs
+
+      - name: Commit QA report
+        run: bash scripts/lib/git-commit-data.sh "📋 Auto-generated newsletter QA report" docs/newsletter-qa/

@@ -1,0 +1,40 @@
+{
+  "id": "lapo-elkann-lucerna-2024",
+  "slug": "lapo-elkann-lucerna-2024",
+  "publishedAt": "2026-05-08T19:47:22.004Z",
+  "cluster": "fiscale",
+  "_pool": "discovery",
+  "_pool_source": "news",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 11.158340198094244,
+    "confidence": 0.8,
+    "finalScore": 8.926672158475396,
+    "topK": [
+      {
+        "slug": "miliardari-dubai-svizzera-lugano",
+        "cosine": 0.8132758976011063
+      },
+      {
+        "slug": "la-quinta-svizzera-che-ha-un-debole-per-milano",
+        "cosine": 0.8091907772054873
+      },
+      {
+        "slug": "ricchi-fuga-medio-oriente-ticino",
+        "cosine": 0.8052828736171165
+      },
+      {
+        "slug": "lugano-red-carpet-contribuenti-2026",
+        "cosine": 0.8050704098598953
+      },
+      {
+        "slug": "banche-svizzere-pronti-clienti-golfo-2026",
+        "cosine": 0.8037103099557967
+      }
+    ],
+    "score": 0.8926672158475397,
+    "clusterDiversityBonus": 0.1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "fiscale"
+  }
+}

@@ -1,0 +1,794 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:is(.dark *));
+
+/* Dark mode color-scheme — fixes native scrollbars, inputs, form controls */
+html.dark { color-scheme: dark; }
+
+/* ── Semantic Design Tokens ──
+   Intermediate vars (--_*) hold mode-specific values.
+   @theme references them so Tailwind generates utilities:
+   bg-surface, text-muted, border-edge, etc.
+   Each utility auto-switches between light/dark — no dark: prefix needed. */
+:root {
+  /* Surfaces */
+  --_surface: #ffffff;       /* white */
+  --_surface-alt: #f8fafc;   /* slate-50 */
+  --_surface-raised: #f1f5f9; /* slate-100 */
+  /* Text */
+  --_muted: #64748b;         /* slate-500 — helper text */
+  --_subtle: #475569;        /* slate-600 — secondary content */
+  --_body: #334155;          /* slate-700 — default body */
+  --_strong: #1e293b;        /* slate-800 — emphasized */
+  --_heading: #0f172a;       /* slate-900 — headings */
+  /* Borders */
+  --_edge: #e2e8f0;          /* slate-200 */
+  /* Interactive — Stripe-inspired purple */
+  --_link: #533afd;          /* stripe-purple */
+  --_accent: #533afd;        /* stripe-purple */
+  --_accent-hover: #4529e6;  /* stripe-purple-dark */
+  /* Status */
+  --_success: #059669;
+  --_warning: #d97706;
+  --_danger: #dc2626;
+  /* Status — subtle backgrounds */
+  --_success-subtle: #ecfdf5;    /* emerald-50 */
+  --_warning-subtle: #fffbeb;    /* amber-50 */
+  --_danger-subtle: #fef2f2;     /* red-50 */
+  /* Status — borders */
+  --_success-border: #a7f3d0;    /* emerald-200 */
+  --_warning-border: #fde68a;    /* amber-200 */
+  --_danger-border: #fecaca;     /* red-200 */
+  /* Accent — subtle background & border */
+  --_accent-subtle: #f5f3ff;     /* stripe-50 */
+  --_accent-border: #ddd6fe;     /* stripe-200 */
+  /* Info — teal (cross-border tips, informational callouts) */
+  --_info: #0d9488;              /* teal-600 */
+  --_info-subtle: #f0fdfa;       /* teal-50 */
+  --_info-border: #99f6e4;       /* teal-200 */
+  /* Neutral — warm/stone (neutral callout boxes) */
+  --_neutral: #57534e;           /* stone-600 */
+  --_neutral-subtle: #fafaf9;    /* stone-50 */
+  --_neutral-border: #e7e5e4;    /* stone-200 */
+  /* Surface inverted — intentionally dark sections (headers, stat boxes) */
+  --_surface-inverted: #1e293b;  /* slate-800 */
+  --_surface-muted: #475569;     /* slate-600 — neutral/dismiss buttons */
+  --_surface-muted-hover: #334155; /* slate-700 */
+  /* Text on solid-colored backgrounds (buttons, badges) */
+  --_on-accent: #ffffff;
+  /* Solid button/badge backgrounds (strong = 600-level, strong-hover = 700-level) */
+  --_accent-strong: #533afd;     /* stripe-600 */
+  --_accent-strong-hover: #4529e6; /* stripe-700 */
+  --_success-strong: #059669;    /* emerald-600 */
+  --_success-strong-hover: #047857; /* emerald-700 */
+  --_warning-strong: #d97706;    /* amber-600 */
+  --_warning-strong-hover: #b45309; /* amber-700 */
+  --_danger-strong: #dc2626;     /* red-600 */
+  --_danger-strong-hover: #b91c1c; /* red-700 */
+  --_info-strong: #0d9488;       /* teal-600 */
+  --_info-strong-hover: #0f766e; /* teal-700 */
+  /* Navigation — subtab bar */
+  --_tab-active-bg: #ede9fe;
+  --_tab-active-text: #4529e6;
+  --_tab-active-border: #a78bfa;
+  --_tab-inactive-text: #64748b;
+  --_tab-hover-bg: #f1f5f9;
+  /* Navigation — segment control */
+  --_segment-active-bg: #ffffff;
+  --_segment-container-bg: #f1f5f9;
+  /* Section accent colors */
+  --_section-calculator: #533afd;
+  --_section-confronti: #059669;
+  --_section-fisco: #059669;
+  --_section-guida: #533afd;
+  --_section-vita: #d97706;
+  --_section-stats: #533afd;
+  /* Chart chrome — axis, grid, tooltip (auto-switches in dark mode) */
+  --_chart-grid: #e2e8f0;
+  --_chart-tick: #64748b;
+  --_chart-tooltip-bg: #ffffff;
+  --_chart-tooltip-text: #1e293b;
+  --_chart-tooltip-border: #e2e8f0;
+  /* Chart series — line, filled area, data dots, axis labels (SEO static SVG) */
+  --_chart-line: #4338ca;
+  --_chart-area: #c7d2fe;
+  --_chart-dot: #1e293b;
+  --_chart-label: #475569;
+}
+html.dark {
+  --_surface: #1e293b;       /* slate-800 */
+  --_surface-alt: #0f172a;   /* slate-900 */
+  --_surface-raised: #334155; /* slate-700 */
+  --_muted: #94a3b8;         /* slate-400 */
+  --_subtle: #94a3b8;        /* slate-400 */
+  --_body: #cbd5e1;          /* slate-300 */
+  --_strong: #e2e8f0;        /* slate-200 */
+  --_heading: #f1f5f9;       /* slate-100 */
+  --_edge: #334155;          /* slate-700 */
+  --_link: #7a5af8;          /* stripe-purple-light */
+  --_accent: #7a5af8;        /* stripe-purple-light */
+  --_accent-hover: #9b8afb;  /* stripe-purple-lighter */
+  --_success: #34d399;
+  --_warning: #fbbf24;
+  --_danger: #f87171;
+  --_success-subtle: rgba(5, 150, 105, 0.15);   /* emerald-900/15 */
+  --_warning-subtle: rgba(217, 119, 6, 0.15);   /* amber-900/15 */
+  --_danger-subtle: rgba(220, 38, 38, 0.15);    /* red-900/15 */
+  --_success-border: #065f46;    /* emerald-800 */
+  --_warning-border: #92400e;    /* amber-800 */
+  --_danger-border: #991b1b;     /* red-800 */
+  --_accent-subtle: rgba(46, 26, 158, 0.15);    /* stripe-900/15 */
+  --_accent-border: #3b1fc7;     /* stripe-800 */
+  /* Info — teal */
+  --_info: #2dd4bf;              /* teal-400 */
+  --_info-subtle: rgba(13, 148, 136, 0.15);
+  --_info-border: #115e59;       /* teal-800 */
+  /* Neutral — warm/stone */
+  --_neutral: #a8a29e;           /* stone-400 */
+  --_neutral-subtle: rgba(87, 83, 78, 0.15);
+  --_neutral-border: #44403c;    /* stone-800 */
+  /* Surface inverted */
+  --_surface-inverted: #334155;  /* slate-700 */
+  --_surface-muted: #64748b;     /* slate-500 */
+  --_surface-muted-hover: #475569; /* slate-600 */
+  --_on-accent: #ffffff;
+  --_accent-strong: #7a5af8;     /* stripe-500 */
+  --_accent-strong-hover: #9b8afb; /* stripe-400 */
+  --_success-strong: #34d399;    /* emerald-400 */
+  --_success-strong-hover: #6ee7b7; /* emerald-300 */
+  --_warning-strong: #fbbf24;    /* amber-400 */
+  --_warning-strong-hover: #fcd34d; /* amber-300 */
+  --_danger-strong: #f87171;     /* red-400 */
+  --_danger-strong-hover: #fca5a5; /* red-300 */
+  --_info-strong: #2dd4bf;       /* teal-400 */
+  --_info-strong-hover: #5eead4; /* teal-300 */
+  /* Navigation — subtab bar */
+  --_tab-active-bg: rgba(46, 26, 158, 0.3);
+  --_tab-active-text: #c4b5fd;
+  --_tab-active-border: #4529e6;
+  --_tab-inactive-text: #94a3b8;
+  --_tab-hover-bg: #1e293b;
+  /* Navigation — segment control */
+  --_segment-active-bg: #334155;
+  --_segment-container-bg: #0f172a;
+  /* Section accent colors */
+  --_section-calculator: #a78bfa;
+  --_section-confronti: #34d399;
+  --_section-fisco: #34d399;
+  --_section-guida: #a78bfa;
+  --_section-vita: #fbbf24;
+  --_section-stats: #a78bfa;
+  /* Chart chrome */
+  --_chart-grid: #334155;
+  --_chart-tick: #94a3b8;
+  --_chart-tooltip-bg: #1e293b;
+  --_chart-tooltip-text: #e2e8f0;
+  --_chart-tooltip-border: #334155;
+  /* Chart series — dark mode (SEO static SVG) */
+  --_chart-line: #a78bfa;
+  --_chart-area: rgba(167, 139, 250, 0.25);
+  --_chart-dot: #e2e8f0;
+  --_chart-label: #94a3b8;
+}
+
+/* Hero gradient — decorative radial glow using semantic info + surface tokens */
+.bg-hero-info {
+  background:
+    radial-gradient(circle at top right, color-mix(in srgb, var(--color-info) 14%, transparent), transparent 38%),
+    linear-gradient(180deg, var(--color-surface-alt), var(--color-surface));
+}
+
+/* Eliminate 300ms tap delay on all interactive elements (mobile) */
+button, a, [role="button"], input, select, textarea, label, summary {
+  touch-action: manipulation;
+}
+
+/* Tabular numbers for financial data alignment */
+.tabular-nums, [data-numeric], td, th, output, .font-mono {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Respect user motion preferences — disable all animations/transitions */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Prevent modal/drawer scroll bleed */
+[role="dialog"], [role="alertdialog"], .modal-overlay {
+  overscroll-behavior: contain;
+}
+
+/* Global keyboard focus indicator — Stripe purple ring on all interactive elements */
+button:focus-visible, a:focus-visible, [role="button"]:focus-visible,
+input:focus-visible, select:focus-visible, textarea:focus-visible {
+  outline: 2px solid #533afd;
+  outline-offset: 2px;
+}
+
+/* Prevent scrollbar appearance from causing layout shift (CLS) */
+html { scrollbar-gutter: stable; }
+
+/* Prevent 3rd-party widgets (Google Sign-In, AdSense) from causing horizontal overflow on mobile */
+body { overflow-x: hidden; }
+
+/* Prevent Google AdSense side-rail auto-ads from overriding page layout.
+   AdSense injects display:grid + max-width:1120px on <main> for side-rail ads. */
+main:not(.seo-static-content) { display: block !important; }
+
+/* Leave room for AdSense side-rail ads (160px wide, placed ~130px from viewport edge).
+   On wide screens, shrink main so side-rails sit outside the content area.
+   Scoped to non-SEO pages so static feature pages retain their natural width. */
+@media (min-width: 1400px) {
+  main:not(.seo-static-content) { max-width: calc(100vw - 360px) !important; }
+}
+@media (min-width: 1800px) {
+  main:not(.seo-static-content) { max-width: calc(100vw - 420px) !important; }
+}
+
+/* Static SEO feature pages — centered, fluid container aligned with the
+   site-wide layout so wide viewports don't left-hug content while the
+   footer (which uses a centered container) stays centered. */
+main.seo-static-content {
+  max-width: min(100%, 1120px);
+  margin-inline: auto;
+  padding-inline: clamp(16px, 4vw, 32px);
+  box-sizing: border-box;
+}
+
+/* Static SEO card hover state (used by seoContentTokens renderers) */
+.seo-card-link { transition: transform 120ms ease, border-color 120ms ease, box-shadow 120ms ease; }
+.seo-card-link:hover { border-color: var(--color-accent-border); box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
+.seo-card-link:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 2px; }
+
+/* Entity card (F3): flex-row card with logo/icon + title + metric.
+   The element's inline style owns layout/colors; this rule adds the
+   interactive affordances (hover / focus-visible) plus the anchor
+   text-decoration reset. */
+.seo-entity-card {
+  transition: transform 120ms ease, box-shadow 120ms ease, border-color 120ms ease;
+}
+a.seo-entity-card { text-decoration: none; color: inherit; }
+a.seo-entity-card:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px var(--color-shadow-soft, rgba(15, 23, 42, 0.08));
+  border-color: var(--color-accent-border);
+}
+a.seo-entity-card:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+/* ── Footer SEO content blocks (homepage / calculator / job-board) ──────────
+   Substantive prerendered content injected as sibling of #root so React
+   hydration leaves it untouched. Sits below the footer; presented as a
+   minimal collapsible "Approfondimenti" panel via native <details>/<summary>
+   so the visual footprint stays small while the content remains fully
+   indexable by search engines. Colors use design-token CSS vars so the
+   block auto-adapts to dark mode. */
+aside.seo-footer-block {
+  max-width: 1100px;
+  margin: 24px auto 56px;
+  padding: 0 20px;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  color: var(--color-body);
+  line-height: 1.65;
+  border-top: 1px solid var(--color-edge);
+  padding-top: 24px;
+}
+aside.seo-footer-block .seo-fb-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--color-heading);
+  margin: 0 0 10px;
+}
+aside.seo-footer-block .seo-fb-intro {
+  font-size: 14px;
+  color: var(--color-subtle);
+  margin: 0 0 16px;
+  max-width: 70ch;
+}
+aside.seo-footer-block details {
+  border-top: 1px solid var(--color-edge);
+}
+aside.seo-footer-block details:first-of-type {
+  border-top: none;
+}
+aside.seo-footer-block summary {
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--color-heading);
+  list-style: none;
+  padding: 12px 32px 12px 0;
+  position: relative;
+  user-select: none;
+}
+aside.seo-footer-block summary::-webkit-details-marker { display: none; }
+aside.seo-footer-block summary::after {
+  content: "+";
+  position: absolute;
+  right: 4px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 20px;
+  font-weight: 400;
+  color: var(--color-subtle);
+}
+aside.seo-footer-block details[open] summary::after { content: "−"; }
+aside.seo-footer-block summary:hover { color: var(--color-link); }
+aside.seo-footer-block summary:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+aside.seo-footer-block .seo-fb-section-body {
+  padding: 4px 0 18px;
+  color: var(--color-body);
+}
+aside.seo-footer-block .seo-fb-section-body p {
+  margin: 0 0 12px;
+  font-size: 14px;
+  line-height: 1.65;
+  color: var(--color-body);
+}
+aside.seo-footer-block .seo-fb-section-body p:last-child { margin-bottom: 0; }
+aside.seo-footer-block .seo-fb-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px;
+  margin: 0 0 14px;
+}
+aside.seo-footer-block .seo-fb-card {
+  background: var(--color-surface-alt);
+  border: 1px solid var(--color-edge);
+  border-radius: 12px;
+  padding: 14px;
+}
+aside.seo-footer-block .seo-fb-card h3 {
+  font-size: 14px;
+  font-weight: 700;
+  margin: 0 0 6px;
+  color: var(--color-heading);
+}
+aside.seo-footer-block .seo-fb-card p {
+  margin: 0;
+  font-size: 13px;
+  color: var(--color-body);
+  line-height: 1.5;
+}
+aside.seo-footer-block dl { margin: 0; }
+aside.seo-footer-block dt {
+  font-weight: 600;
+  color: var(--color-heading);
+  margin: 12px 0 4px;
+  font-size: 14px;
+}
+aside.seo-footer-block dt:first-child { margin-top: 0; }
+aside.seo-footer-block dd {
+  margin: 0 0 12px;
+  color: var(--color-body);
+  font-size: 14px;
+  line-height: 1.65;
+}
+aside.seo-footer-block .seo-fb-disclaimer {
+  margin: 18px 0 0;
+  padding-top: 12px;
+  border-top: 1px solid var(--color-edge);
+  font-size: 12px;
+  color: var(--color-subtle);
+  font-style: italic;
+}
+/* Underline inline prose links inside the SEO footer aside.
+   Squirrel a11y/link-in-text-block flags un-underlined links that share
+   color contrast with surrounding body text. Scope is limited to <p>/<dd>
+   bodies so structural pills/CTAs elsewhere keep their pill chrome. */
+aside.seo-footer-block p a,
+aside.seo-footer-block dd a,
+aside.seo-footer-block .seo-fb-section-body a {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  text-decoration-thickness: 1px;
+}
+aside.seo-footer-block p a:hover,
+aside.seo-footer-block dd a:hover,
+aside.seo-footer-block .seo-fb-section-body a:hover {
+  text-decoration-thickness: 2px;
+}
+
+/* Hide reCAPTCHA badge — required notice is in privacy policy */
+.grecaptcha-badge { visibility: hidden !important; }
+
+/* Hide AdSense auto-ads when a high-priority modal is open.
+   AdSense overlays use z-index up to 2147483647, which covers our popups.
+   Using display:none (not just visibility:hidden) to fully remove the ads'
+   stacking context — visibility:hidden keeps the element in the stacking
+   order and its z-index still competes with the modal.
+   Toggled by adding .modal-open to <body> when newsletter/critical modals show. */
+body.modal-open ins.adsbygoogle,
+body.modal-open [id^="google_ads"],
+body.modal-open [id^="aswift_"],
+body.modal-open [id^="aswift_"] ~ *,
+body.modal-open iframe[id^="aswift_"],
+body.modal-open div[data-ad-client],
+body.modal-open div[id^="google_ads_iframe"],
+body.modal-open .adsbygoogle[data-ad-status],
+body.modal-open iframe[src*="doubleclick"],
+body.modal-open iframe[src*="googlesyndication"],
+body.modal-open div[id^="div-gpt-ad"],
+body.modal-open .google-auto-placed {
+  display: none !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
+/* ===== Auto-Ad Containment + CLS Bounding (P0.1.C / P0.1.D) ═════════════
+   Google Auto Ads inject `.google-auto-placed` divs anywhere on the page,
+   bypassing our React component reservation. We can't pre-reserve space
+   (the shift has already happened by the time the class lands in the DOM),
+   but we can:
+     1. Cap their max-height so the shift is bounded.
+     2. Use `contain: layout` so the shift does NOT propagate up to siblings
+        — only the local container reflows.
+     3. Set an `aspect-ratio` hint so the browser allocates rough space when
+        the iframe is being measured (browser still picks max-content if
+        unset, which is what causes the violent shift).
+     4. Collapse fully when ad failed to fill so empty space doesn't sit. */
+.google-auto-placed {
+  contain: layout;
+  aspect-ratio: 4 / 1;
+}
+@media (max-width: 767px) {
+  .google-auto-placed {
+    max-height: 250px;
+    overflow: hidden;
+  }
+  /* Collapse auto-ad containers that fail to fill */
+  .google-auto-placed:empty,
+  .google-auto-placed:has(ins[data-ad-status="unfilled"]) {
+    max-height: 0;
+    margin: 0;
+    padding: 0;
+  }
+}
+@media (min-width: 768px) {
+  .google-auto-placed {
+    max-height: 400px;
+    overflow: hidden;
+  }
+  .google-auto-placed:empty,
+  .google-auto-placed:has(ins[data-ad-status="unfilled"]) {
+    max-height: 0;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+/* P0.1.D — `main { contain: layout }` was reverted on 2026-05-08 because
+   the visual-regression baseline on / and /calcola-stipendio/ flagged a
+   ~28-px page-wide shift starting at the news ticker, traceable to the
+   containment context changing how absolutely-positioned descendants of
+   <main> resolve their layout pass.
+   The 5-10% CLS recovery from `contain: layout` is small compared to the
+   blast radius (every page on the site uses the same <main>), so the
+   correct trade is to keep this off until we re-introduce it on a
+   narrower selector that doesn't cross the visual baseline. Tracked as
+   follow-up. */
+
+/* ===== Non-critical CSS moved from inline <style> to reduce render-blocking ===== */
+
+/* Entrance animations — only needed after React mounts */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.animate-fade-in-up { animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+.animate-fade-in { animation: fadeIn 0.4s ease-out forwards; }
+.delay-100 { animation-delay: 100ms; }
+.delay-200 { animation-delay: 200ms; }
+.delay-300 { animation-delay: 300ms; }
+
+/* Custom Scrollbar — cosmetic, non-critical */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+.dark ::-webkit-scrollbar-thumb { background: #475569; }
+.dark ::-webkit-scrollbar-thumb:hover { background: #64748b; }
+
+/* Hide scrollbar for horizontal scroll strips (sub-tabs on mobile) */
+.scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+.scrollbar-hide::-webkit-scrollbar { display: none; }
+
+/* Content-visibility for off-screen content — performance, non-critical */
+.content-auto { content-visibility: auto; contain-intrinsic-size: auto 850px; }
+
+/* Hide native spin buttons — cosmetic */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+input[type=number] { -moz-appearance: textfield; }
+
+/* Prevent iOS Safari auto-zoom on focus for inputs with font-size < 16px.
+   On mobile (< 768px) we enforce a floor of 16px on all form controls.
+   Desktop keeps the original (possibly smaller) sizes untouched. */
+@media screen and (max-width: 767px) {
+  input, select, textarea {
+    font-size: max(16px, 1em) !important;
+  }
+}
+
+@theme {
+  --font-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-display: 'Space Grotesk', ui-sans-serif, system-ui, -apple-system, sans-serif;
+
+  --color-slate-850: #1e293b;
+  --color-slate-950: #020617;
+
+  /* Stripe purple palette */
+  --color-stripe-50: #f5f3ff;
+  --color-stripe-100: #ede9fe;
+  --color-stripe-200: #ddd6fe;
+  --color-stripe-300: #c4b5fd;
+  --color-stripe-400: #a78bfa;
+  --color-stripe-500: #7a5af8;
+  --color-stripe-600: #533afd;
+  --color-stripe-700: #4529e6;
+  --color-stripe-800: #3b1fc7;
+  --color-stripe-900: #2e1a9e;
+  --color-stripe-950: #1a0f5e;
+
+  /* Navy palette — footer, dark surfaces */
+  --color-navy-800: #243b53;
+  --color-navy-900: #0a2540;
+  --color-navy-950: #061b30;
+
+  /* Blue-tinted shadows (Stripe signature) */
+  --shadow-stripe-sm: 0 1px 3px rgba(50,50,93,0.08), 0 1px 2px rgba(0,0,0,0.04);
+  --shadow-stripe: 0 4px 6px rgba(50,50,93,0.11), 0 1px 3px rgba(0,0,0,0.08);
+  --shadow-stripe-md: 0 6px 12px rgba(50,50,93,0.1), 0 3px 6px rgba(0,0,0,0.06);
+  --shadow-stripe-lg: 0 13px 27px rgba(50,50,93,0.12), 0 8px 16px rgba(0,0,0,0.06);
+  --shadow-stripe-xl: 0 30px 60px rgba(50,50,93,0.15), 0 18px 36px rgba(0,0,0,0.08);
+
+  /* Stripe border radius */
+  --radius-stripe: 6px;
+
+  /* Semantic color tokens — auto-switch light/dark via --_* intermediaries */
+  --color-surface: var(--_surface);
+  --color-surface-alt: var(--_surface-alt);
+  --color-surface-raised: var(--_surface-raised);
+  --color-muted: var(--_muted);
+  --color-subtle: var(--_subtle);
+  --color-body: var(--_body);
+  --color-strong: var(--_strong);
+  --color-heading: var(--_heading);
+  --color-edge: var(--_edge);
+  --color-link: var(--_link);
+  --color-accent: var(--_accent);
+  --color-accent-hover: var(--_accent-hover);
+  --color-success: var(--_success);
+  --color-warning: var(--_warning);
+  --color-danger: var(--_danger);
+  --color-success-subtle: var(--_success-subtle);
+  --color-warning-subtle: var(--_warning-subtle);
+  --color-danger-subtle: var(--_danger-subtle);
+  --color-success-border: var(--_success-border);
+  --color-warning-border: var(--_warning-border);
+  --color-danger-border: var(--_danger-border);
+  --color-accent-subtle: var(--_accent-subtle);
+  --color-accent-border: var(--_accent-border);
+  --color-info: var(--_info);
+  --color-info-subtle: var(--_info-subtle);
+  --color-info-border: var(--_info-border);
+  --color-neutral: var(--_neutral);
+  --color-neutral-subtle: var(--_neutral-subtle);
+  --color-neutral-border: var(--_neutral-border);
+  --color-surface-inverted: var(--_surface-inverted);
+  --color-surface-muted: var(--_surface-muted);
+  --color-surface-muted-hover: var(--_surface-muted-hover);
+  --color-on-accent: var(--_on-accent);
+  --color-accent-strong: var(--_accent-strong);
+  --color-accent-strong-hover: var(--_accent-strong-hover);
+  --color-success-strong: var(--_success-strong);
+  --color-success-strong-hover: var(--_success-strong-hover);
+  --color-warning-strong: var(--_warning-strong);
+  --color-warning-strong-hover: var(--_warning-strong-hover);
+  --color-danger-strong: var(--_danger-strong);
+  --color-danger-strong-hover: var(--_danger-strong-hover);
+  --color-info-strong: var(--_info-strong);
+  --color-info-strong-hover: var(--_info-strong-hover);
+
+  /* Navigation — subtab bar */
+  --color-tab-active-bg: var(--_tab-active-bg);
+  --color-tab-active-text: var(--_tab-active-text);
+  --color-tab-active-border: var(--_tab-active-border);
+  --color-tab-inactive-text: var(--_tab-inactive-text);
+  --color-tab-hover-bg: var(--_tab-hover-bg);
+
+  /* Navigation — segment control */
+  --color-segment-active-bg: var(--_segment-active-bg);
+  --color-segment-container-bg: var(--_segment-container-bg);
+
+  /* Section accent colors — per-section identity */
+  --color-section-calculator: var(--_section-calculator);
+  --color-section-confronti: var(--_section-confronti);
+  --color-section-fisco: var(--_section-fisco);
+  --color-section-guida: var(--_section-guida);
+  --color-section-vita: var(--_section-vita);
+  --color-section-stats: var(--_section-stats);
+  /* Chart chrome */
+  --color-chart-grid: var(--_chart-grid);
+  --color-chart-tick: var(--_chart-tick);
+  --color-chart-tooltip-bg: var(--_chart-tooltip-bg);
+  --color-chart-tooltip-text: var(--_chart-tooltip-text);
+  --color-chart-tooltip-border: var(--_chart-tooltip-border);
+  --color-chart-line: var(--_chart-line);
+  --color-chart-area: var(--_chart-area);
+  --color-chart-dot: var(--_chart-dot);
+  --color-chart-label: var(--_chart-label);
+
+  /* Third-party brand colors (constant, no light/dark switch) */
+  --color-brand-linkedin: #0A66C2;
+  --color-brand-linkedin-hover: #004182;
+  --color-brand-whatsapp: #25D366;
+  --color-brand-whatsapp-hover: #20bd5a;
+  --color-brand-facebook: #1877F2;
+  --color-brand-facebook-hover: #1565d8;
+  --color-brand-telegram: #0088cc;
+
+  --animate-slide-up: slide-up 0.3s ease-out both;
+
+  @keyframes slide-up {
+    0% {
+      opacity: 0;
+      transform: translateY(16px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  --animate-slide-down: slide-down 0.3s ease-out both;
+
+  @keyframes slide-down {
+    0% {
+      opacity: 0;
+      transform: translateY(-16px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  --animate-modal-in: modal-in 0.2s ease-out both;
+
+  @keyframes modal-in {
+    0% {
+      opacity: 0;
+      transform: scale(0.96) translateY(0);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1) translateY(0);
+    }
+  }
+
+  --animate-toast-in: toast-in 0.35s ease-out both;
+
+  @keyframes toast-in {
+    0% {
+      opacity: 0;
+      transform: translateY(16px) scale(0.95);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  @keyframes shrink {
+    from {
+      transform: scaleX(1);
+    }
+    to {
+      transform: scaleX(0);
+    }
+  }
+
+  /* Stock-ticker net-delta animations — used by ResultsView NetDeltaBadge (FRO-107) */
+  --animate-net-tick-up: net-tick-up 1.6s ease-out forwards;
+
+  @keyframes net-tick-up {
+    0%   { opacity: 0; transform: translateY(5px); }
+    12%  { opacity: 1; transform: translateY(-3px); }
+    70%  { opacity: 1; transform: translateY(-2px); }
+    100% { opacity: 0; transform: translateY(-8px); }
+  }
+
+  --animate-net-tick-down: net-tick-down 1.6s ease-out forwards;
+
+  @keyframes net-tick-down {
+    0%   { opacity: 0; transform: translateY(-5px); }
+    12%  { opacity: 1; transform: translateY(3px); }
+    70%  { opacity: 1; transform: translateY(2px); }
+    100% { opacity: 0; transform: translateY(8px); }
+  }
+}
+
+/* Print styles */
+@media print {
+  body { background: white !important; }
+  header, footer, nav, aside, .print\:hidden,
+  [aria-label="cookie"], [class*="adsense"], [class*="AdSense"],
+  [class*="bottom-sheet"], [class*="SocialProof"], [class*="AdSense"],
+  button:not([data-print-keep]), details, [class*="skeleton"] { display: none !important; }
+  article { max-width: 100% !important; border: none !important; box-shadow: none !important; }
+  a { color: inherit !important; text-decoration: underline; }
+  a[href]::after { content: " (" attr(href) ")"; font-size: 0.8em; color: #666; }
+  /* Calculator results: force single-column, remove shadows */
+  .grid { display: block !important; }
+  .grid > * { margin-bottom: 1.5rem !important; break-inside: avoid; }
+  .shadow-sm, .shadow-md, .shadow-lg, .shadow-2xl { box-shadow: none !important; }
+  .rounded-3xl, .rounded-2xl, .rounded-xl { border-radius: 8px !important; }
+  /* Ensure result cards don't split across pages */
+  [class*="result"], [class*="comparison"] { break-inside: avoid; page-break-inside: avoid; }
+}
+
+@keyframes seo-fade-in {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: none; }
+}
+.seo-fade-in {
+  animation: seo-fade-in 320ms ease-out both;
+}
+@media (prefers-reduced-motion: reduce) {
+  .seo-fade-in { animation: none; }
+}
+
+/* ── SEO card atoms (job-card + employer-card) ──
+   Replace ~900 B of Tailwind utility strings per card in
+   build-plugins/shared/jobCardHtml.ts + employerCardHtml.ts with short atom
+   names. Tailwind v4 expands @apply at build into the same utility CSS
+   already in the SPA bundle, so static SEO pages (which load
+   /assets/index-*.css) render byte-identically. With ~16k hub pages × ~12
+   cards/page × ~800 B saving per card, this cuts ~150 MB across the artifact.
+   Keep atoms scoped (.jc-* / .ec-*) — do NOT use bare names like .card. */
+@layer components {
+  /* Job card (jobCardHtml.ts) */
+  .jc-card { @apply rounded-xl border p-3 sm:p-4 transition-colors min-h-[72px] border-edge bg-surface/50 hover:border-accent-border; }
+  .jc-card.jc-card-fea { @apply border-warning-border bg-warning-subtle hover:border-warning; }
+  .jc-link { @apply block cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-lg; }
+  .jc-row { @apply flex items-start gap-3; }
+  .jc-logoslot { @apply w-10 h-10 sm:w-14 sm:h-14 rounded-lg bg-surface-raised flex items-center justify-center overflow-hidden border border-edge shrink-0; }
+  .jc-logoimg { @apply w-7 h-7 sm:w-10 sm:h-10 object-contain; }
+  .jc-meta { @apply min-w-0 flex-1; }
+  .jc-title { @apply text-sm sm:text-base font-bold font-display text-heading leading-tight; }
+  .jc-sub { @apply text-xs sm:text-sm text-subtle mt-0.5 line-clamp-2; }
+  .jc-salary { @apply mt-1 inline-flex items-center gap-1 text-xs sm:text-sm font-semibold text-success; }
+  .jc-chips { @apply mt-2 sm:mt-3 flex flex-wrap items-center gap-2 sm:gap-1.5 text-xs text-muted; }
+  .jc-chip { @apply inline-flex items-center gap-1; }
+  .jc-chip-pill { @apply px-1.5 py-0.5 rounded bg-surface-raised text-subtle; }
+  .jc-newbadge { @apply ml-1.5 sm:ml-2 inline-flex items-center gap-0.5 px-1.5 py-0.5 text-xs font-bold uppercase tracking-wide rounded-full bg-success-subtle text-success; }
+
+  /* Employer card (employerCardHtml.ts) */
+  .ec-card { @apply rounded-xl border border-edge bg-surface/50 hover:border-accent-border transition-colors p-3 sm:p-4; }
+  .ec-link { @apply block focus:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-lg; }
+  .ec-row { @apply flex items-center gap-3; }
+  .ec-row-start { @apply flex items-start gap-3; }
+  .ec-logoslot { @apply rounded-lg bg-surface-raised flex items-center justify-center overflow-hidden border border-edge shrink-0; }
+  .ec-logoimg { @apply w-7 h-7 sm:w-9 sm:h-9 object-contain; }
+  .ec-title { @apply text-sm sm:text-base font-bold font-display text-heading leading-tight; }
+  .ec-sub { @apply mt-1 text-xs sm:text-sm text-subtle leading-snug; }
+  .ec-pill { @apply px-1.5 py-0.5 rounded bg-surface-raised text-subtle text-xs; }
+  .ec-meta { @apply min-w-0 flex-1; }
+  .ec-cmpct { @apply flex items-center gap-2.5 rounded-xl border border-edge bg-surface/50 p-3 hover:border-accent-border transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-accent text-inherit no-underline; }
+}

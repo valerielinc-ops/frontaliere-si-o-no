@@ -1,0 +1,40 @@
+{
+  "id": "fedeli-chiedono-chiarezza-diocesi-2026",
+  "slug": "fedeli-chiedono-chiarezza-diocesi-2026",
+  "publishedAt": "2026-05-10T06:34:30.847Z",
+  "cluster": "salute",
+  "_pool": "proven",
+  "_pool_source": "media.tio.ch",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 7.355298423703554,
+    "confidence": 0.8,
+    "finalScore": 5.884238738962844,
+    "topK": [
+      {
+        "slug": "chiasso-comunita-cambiamento-valori",
+        "cosine": 0.8160073507646536
+      },
+      {
+        "slug": "frontalieri-lugano-chiarezza-2026",
+        "cosine": 0.8107358368588802
+      },
+      {
+        "slug": "sicurezza-privata-chiasso-nebiopoli",
+        "cosine": 0.8085533739872292
+      },
+      {
+        "slug": "moschea-pregassona-udc-interroga-municipio",
+        "cosine": 0.8069946280753998
+      },
+      {
+        "slug": "aeroporto-lugano-costi-interpellanza-2025",
+        "cosine": 0.8041708646265456
+      }
+    ],
+    "score": 1.471059684740711,
+    "clusterDiversityBonus": 0.25,
+    "sourceQualityMultiplier": 1,
+    "cluster": "salute"
+  }
+}

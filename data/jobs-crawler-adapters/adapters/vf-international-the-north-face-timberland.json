@@ -1,0 +1,22 @@
+{
+  "companyKey": "vf-international-the-north-face-timberland",
+  "companyName": "VF International (The North Face, Timberland)",
+  "companyHost": "vfc.com",
+  "enabled": true,
+  "priority": 0,
+  "crawlerModes": [
+    "generic_ats",
+    "html",
+    "jsonld"
+  ],
+  "seedUrls": [
+    "https://www.vfc.com/careers",
+    "https://www.vfc.com/career",
+    "https://www.vfc.com/jobs",
+    "https://www.vfc.com/karriere",
+    "https://www.vfc.com/offene-stellen",
+    "https://www.vfc.com/lavora-con-noi"
+  ],
+  "notes": "",
+  "updatedAt": "2026-02-27T17:06:07.000Z"
+}

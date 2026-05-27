@@ -1,0 +1,22 @@
+{
+  "companyKey": "diesel-otb",
+  "companyName": "Diesel (OTB)",
+  "companyHost": "diesel.com",
+  "enabled": true,
+  "priority": 0,
+  "crawlerModes": [
+    "generic_ats",
+    "html",
+    "jsonld"
+  ],
+  "seedUrls": [
+    "https://www.diesel.com/careers",
+    "https://www.diesel.com/career",
+    "https://www.diesel.com/jobs",
+    "https://www.diesel.com/karriere",
+    "https://www.diesel.com/offene-stellen",
+    "https://www.diesel.com/lavora-con-noi"
+  ],
+  "notes": "",
+  "updatedAt": "2026-02-27T17:06:06.938Z"
+}

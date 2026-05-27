@@ -1,0 +1,388 @@
+/**
+ * Tests for geo-hub city pages (Lugano / Mendrisio / Bellinzona).
+ *
+ * Covers:
+ *  - `cityJobsHub` helper module: paths, SEO copy (count + fire), job matching, counting.
+ *  - Router integration: `parsePath` recognizes `/cerca-lavoro-ticino/<city>/` etc.
+ *    and `buildPath` emits the clean canonical URL from `{ jobBoardCity }`.
+ */
+
+import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
+import { parsePath, buildPath } from '@/services/router';
+import {
+  CITY_HUB_KEYS,
+  CITY_HUB_SLUG,
+  allCityHubPaths,
+  buildCityHubPath,
+  buildCityHubSeo,
+  countCityJobsByLocale,
+  jobMatchesCity,
+  parseCityHubPath,
+  CITY_HUB_FIRE_THRESHOLD,
+} from '../build-plugins/cityJobsHub';
+
+const YEAR = 2026;
+
+describe('cityJobsHub — paths', () => {
+  it('exposes exactly 5 city keys', () => {
+    expect(CITY_HUB_KEYS).toEqual(['lugano', 'mendrisio', 'bellinzona', 'locarno', 'chiasso']);
+  });
+
+  it('builds canonical path per locale', () => {
+    expect(buildCityHubPath('it', 'lugano')).toBe('/cerca-lavoro-ticino/lugano/');
+    expect(buildCityHubPath('en', 'lugano')).toBe('/en/find-jobs-ticino/lugano/');
+    expect(buildCityHubPath('de', 'mendrisio')).toBe('/de/jobs-im-tessin/mendrisio/');
+    expect(buildCityHubPath('fr', 'bellinzona')).toBe('/fr/trouver-emploi-tessin/bellinzona/');
+    expect(buildCityHubPath('fr', 'locarno')).toBe('/fr/trouver-emploi-tessin/locarno/');
+    expect(buildCityHubPath('fr', 'chiasso')).toBe('/fr/trouver-emploi-tessin/chiasso/');
+    expect(buildCityHubPath('en', 'locarno')).toBe('/en/find-jobs-ticino/locarno/');
+    expect(buildCityHubPath('de', 'chiasso')).toBe('/de/jobs-im-tessin/chiasso/');
+  });
+
+  it('produces exactly 20 paths (5 cities × 4 locales)', () => {
+    const paths = allCityHubPaths();
+    expect(paths).toHaveLength(20);
+    const unique = new Set(paths.map((p) => p.path));
+    expect(unique.size).toBe(20);
+    for (const p of paths) expect(p.path.endsWith('/')).toBe(true);
+  });
+
+  it('round-trips via parseCityHubPath', () => {
+    for (const p of allCityHubPaths()) {
+      const parsed = parseCityHubPath(p.path);
+      expect(parsed).not.toBeNull();
+      expect(parsed?.locale).toBe(p.locale);
+      expect(parsed?.city).toBe(p.city);
+    }
+  });
+
+  it('returns null for unrelated paths', () => {
+    expect(parseCityHubPath('/cerca-lavoro-ticino/')).toBeNull();
+    expect(parseCityHubPath('/cerca-lavoro-ticino/software-engineer-eoc/')).toBeNull();
+    expect(parseCityHubPath('/')).toBeNull();
+  });
+});
+
+describe('cityJobsHub — SEO copy (F3a — CTR-optimized short titles)', () => {
+  it('Italian title includes live count and city name', () => {
+    const seo = buildCityHubSeo('it', 'lugano', 123, YEAR);
+    expect(seo.title).toContain('Lugano');
+    expect(seo.title).toContain('123');
+    expect(seo.title).toContain(String(YEAR));
+    // F3a: short <title> uses "Lavoro {City}" to save chars.
+    expect(seo.title).toContain('Lavoro Lugano');
+    // OG title and H1 retain the verbose legacy "Offerte di Lavoro" phrasing.
+    expect(seo.ogT).toContain('Offerte di Lavoro');
+    expect(seo.h1).toBe('123 Offerte di Lavoro a Lugano');
+  });
+
+  it('adds fire emoji to title only when count ≥ threshold', () => {
+    const below = buildCityHubSeo('it', 'lugano', CITY_HUB_FIRE_THRESHOLD - 1, YEAR);
+    const at = buildCityHubSeo('it', 'lugano', CITY_HUB_FIRE_THRESHOLD, YEAR);
+    expect(below.title.includes('🔥')).toBe(false);
+    expect(at.title.includes('🔥')).toBe(true);
+  });
+
+  it('omits count prefix entirely when count is 0', () => {
+    const seo = buildCityHubSeo('it', 'mendrisio', 0, YEAR);
+    expect(seo.title).not.toContain('🔥');
+    expect(seo.title).not.toMatch(/— \d/);
+    expect(seo.h1).toBe('Offerte di Lavoro a Mendrisio');
+  });
+
+  it('produces locale-appropriate copy for EN/DE/FR', () => {
+    const en = buildCityHubSeo('en', 'lugano', 50, YEAR);
+    expect(en.title).toContain('Jobs in Lugano');
+    expect(en.ogT).toContain('Updated Daily');
+
+    const de = buildCityHubSeo('de', 'bellinzona', 50, YEAR);
+    expect(de.title).toContain('Bellinzona');
+    expect(de.ogT).toContain('Täglich Aktualisiert');
+
+    const fr = buildCityHubSeo('fr', 'mendrisio', 50, YEAR);
+    expect(fr.title).toContain('Mendrisio');
+    expect(fr.ogT).toContain('Mises à Jour Quotidiennes');
+  });
+
+  it('enforces 50-60 visible-char title length for SERP safety', () => {
+    for (const locale of ['it', 'en', 'de', 'fr'] as const) {
+      for (const city of CITY_HUB_KEYS) {
+        for (const count of [0, 1, 42, 148, 500, 2408]) {
+          const seo = buildCityHubSeo(locale, city, count, YEAR);
+          const visible = [...seo.title].length;
+          expect(
+            visible,
+            `${locale}/${city} count=${count}: "${seo.title}" length=${visible}`,
+          ).toBeGreaterThanOrEqual(50);
+          expect(visible).toBeLessThanOrEqual(60);
+        }
+      }
+    }
+  });
+});
+
+describe('cityJobsHub — job filtering', () => {
+  const baseJob = {
+    description: 'A'.repeat(10) + ' ' + 'word '.repeat(60),
+    expired: false,
+  };
+
+  it('matches city by substring (case-insensitive) in location or addressLocality', () => {
+    expect(jobMatchesCity({ location: 'Lugano' }, 'lugano')).toBe(true);
+    expect(jobMatchesCity({ location: 'LUGANO' }, 'lugano')).toBe(true);
+    expect(jobMatchesCity({ location: 'Paradiso (Lugano)' }, 'lugano')).toBe(true);
+    expect(jobMatchesCity({ addressLocality: 'Mendrisio' }, 'mendrisio')).toBe(true);
+    expect(jobMatchesCity({ location: 'Locarno' }, 'lugano')).toBe(false);
+    expect(jobMatchesCity({}, 'lugano')).toBe(false);
+  });
+
+  it('counts only non-expired jobs with ≥50 words in description', () => {
+    const jobs = [
+      { ...baseJob, location: 'Lugano' },
+      { ...baseJob, location: 'Mendrisio' },
+      { ...baseJob, location: 'Lugano', expired: true },
+      { ...baseJob, location: 'Bellinzona', description: 'short' },
+      { ...baseJob, location: 'Locarno' },
+      { ...baseJob, location: 'Chiasso' },
+    ];
+    const counts = countCityJobsByLocale(jobs);
+    expect(counts.it.lugano).toBe(1);
+    expect(counts.it.mendrisio).toBe(1);
+    expect(counts.it.bellinzona).toBe(0);
+    expect(counts.it.locarno).toBe(1);
+    expect(counts.it.chiasso).toBe(1);
+  });
+
+  it('handles per-locale retranslation flags', () => {
+    const jobs = [
+      {
+        location: 'Lugano',
+        description: 'word '.repeat(60),
+        descriptionByLocale: { en: 'word '.repeat(60) },
+        needsRetranslation: { de: true, fr: true },
+      },
+    ];
+    const counts = countCityJobsByLocale(jobs);
+    expect(counts.it.lugano).toBe(1);
+    expect(counts.en.lugano).toBe(1);
+    expect(counts.de.lugano).toBe(0);
+    expect(counts.fr.lugano).toBe(0);
+  });
+});
+
+describe('router — city hub URLs', () => {
+  beforeEach(() => {
+    vi.stubGlobal('history', {
+      pushState: vi.fn(),
+      replaceState: vi.fn(),
+      state: null,
+    });
+    vi.stubGlobal('window', {
+      ...(globalThis as any).window,
+      location: { pathname: '/', search: '', hash: '' },
+      history: (globalThis as any).history,
+      addEventListener: vi.fn(),
+      removeEventListener: vi.fn(),
+      scrollTo: vi.fn(),
+    });
+  });
+
+  afterEach(() => {
+    vi.unstubAllGlobals();
+  });
+
+  const cases = [
+    { locale: 'it', city: 'lugano', path: '/cerca-lavoro-ticino/lugano/', editorialPrefix: 'ricerca' },
+    { locale: 'it', city: 'mendrisio', path: '/cerca-lavoro-ticino/mendrisio/', editorialPrefix: 'ricerca' },
+    { locale: 'it', city: 'bellinzona', path: '/cerca-lavoro-ticino/bellinzona/', editorialPrefix: 'ricerca' },
+    { locale: 'en', city: 'lugano', path: '/en/find-jobs-ticino/lugano/', editorialPrefix: 'search' },
+    { locale: 'en', city: 'mendrisio', path: '/en/find-jobs-ticino/mendrisio/', editorialPrefix: 'search' },
+    { locale: 'en', city: 'bellinzona', path: '/en/find-jobs-ticino/bellinzona/', editorialPrefix: 'search' },
+    { locale: 'de', city: 'lugano', path: '/de/jobs-im-tessin/lugano/', editorialPrefix: 'suche' },
+    { locale: 'de', city: 'mendrisio', path: '/de/jobs-im-tessin/mendrisio/', editorialPrefix: 'suche' },
+    { locale: 'de', city: 'bellinzona', path: '/de/jobs-im-tessin/bellinzona/', editorialPrefix: 'suche' },
+    { locale: 'fr', city: 'lugano', path: '/fr/trouver-emploi-tessin/lugano/', editorialPrefix: 'recherche' },
+    { locale: 'fr', city: 'mendrisio', path: '/fr/trouver-emploi-tessin/mendrisio/', editorialPrefix: 'recherche' },
+    { locale: 'fr', city: 'bellinzona', path: '/fr/trouver-emploi-tessin/bellinzona/', editorialPrefix: 'recherche' },
+    { locale: 'it', city: 'locarno', path: '/cerca-lavoro-ticino/locarno/', editorialPrefix: 'ricerca' },
+    { locale: 'it', city: 'chiasso', path: '/cerca-lavoro-ticino/chiasso/', editorialPrefix: 'ricerca' },
+    { locale: 'en', city: 'locarno', path: '/en/find-jobs-ticino/locarno/', editorialPrefix: 'search' },
+    { locale: 'en', city: 'chiasso', path: '/en/find-jobs-ticino/chiasso/', editorialPrefix: 'search' },
+    { locale: 'de', city: 'locarno', path: '/de/jobs-im-tessin/locarno/', editorialPrefix: 'suche' },
+    { locale: 'de', city: 'chiasso', path: '/de/jobs-im-tessin/chiasso/', editorialPrefix: 'suche' },
+    { locale: 'fr', city: 'locarno', path: '/fr/trouver-emploi-tessin/locarno/', editorialPrefix: 'recherche' },
+    { locale: 'fr', city: 'chiasso', path: '/fr/trouver-emploi-tessin/chiasso/', editorialPrefix: 'recherche' },
+  ] as const;
+
+  for (const c of cases) {
+    it(`parsePath resolves ${c.path} → jobBoardCity=${c.city}`, () => {
+      const r = parsePath(c.path);
+      expect(r.locale).toBe(c.locale);
+      expect(r.route.activeTab).toBe('job-board');
+      expect(r.route.jobBoardCity).toBe(c.city);
+      expect(r.route.jobSlug).toBe(`${c.editorialPrefix}-${c.city}`);
+      expect(r.notFoundPath).toBeUndefined();
+    });
+
+    it(`buildPath emits clean URL for ${c.locale}/${c.city}`, () => {
+      const out = buildPath(
+        { activeTab: 'job-board', jobBoardCity: c.city },
+        c.locale,
+      );
+      expect(out).toBe(c.path);
+    });
+  }
+
+  it('non-hub slugs still resolve as legacy jobSlug', () => {
+    const r = parsePath('/cerca-lavoro-ticino/software-engineer-eoc/');
+    expect(r.route.activeTab).toBe('job-board');
+    expect(r.route.jobBoardCity).toBeUndefined();
+    expect(r.route.jobSlug).toBe('software-engineer-eoc');
+  });
+
+  it('job-board landing (no sub-slug) still works', () => {
+    const r = parsePath('/cerca-lavoro-ticino/');
+    expect(r.route.activeTab).toBe('job-board');
+    expect(r.route.jobBoardCity).toBeUndefined();
+    expect(r.route.jobSlug).toBeUndefined();
+  });
+
+  it('CITY_HUB_SLUG is consistent across locales', () => {
+    for (const locale of ['it', 'en', 'de', 'fr'] as const) {
+      for (const city of CITY_HUB_KEYS) {
+        expect(CITY_HUB_SLUG[locale][city]).toBe(city);
+      }
+    }
+  });
+});
+
+// ──────────────────────────────────────────────────────────────────────
+// PR #318 regression — buildCityHubSeo forwards cantonDisplay through to
+// both buildCityHubTitle and buildCityHubMeta. Cross-canton city hubs like
+// /cerca-lavoro-basilea/pratteln/ must not say "in Ticino" / "Tessin".
+// ──────────────────────────────────────────────────────────────────────
+describe('buildCityHubSeo — non-TI cantonDisplay forwarded to title and meta', () => {
+  it('IT non-TI: title omits "in Ticino" pad when cantonDisplay is set', () => {
+    const tiPratteln = buildCityHubSeo('it', 'pratteln' as never, 3, YEAR);
+    const bsPratteln = buildCityHubSeo('it', 'pratteln' as never, 3, YEAR, 'Basilea Città');
+    // With no cantonDisplay, short titles fall back to "in Ticino" pad
+    // (preserves legacy TI behaviour). With cantonDisplay, the pad swaps to
+    // the actual canton — so the BS variant must not say "Ticino" anywhere.
+    expect(bsPratteln.title).not.toContain('Ticino');
+    expect(bsPratteln.title).not.toContain('Tessin');
+    // If the IT title was short enough to trigger pad-to-min, verify the
+    // substitution actually happened.
+    if (tiPratteln.title.includes('in Ticino')) {
+      expect(bsPratteln.title).toContain('Basilea Città');
+    }
+  });
+
+  it('EN/DE/FR non-TI: title + meta substitute the actual canton', () => {
+    const cantonByLocale = {
+      en: 'Basel-City',
+      de: 'Basel-Stadt',
+      fr: 'Bâle-Ville',
+    } as const;
+    for (const locale of ['en', 'de', 'fr'] as const) {
+      const seo = buildCityHubSeo(locale, 'pratteln' as never, 3, YEAR, cantonByLocale[locale]);
+      expect(seo.title, `${locale} title`).not.toContain('Ticino');
+      expect(seo.title, `${locale} title`).not.toContain('Tessin');
+      expect(seo.title, `${locale} title`).toContain(cantonByLocale[locale]);
+      expect(seo.desc, `${locale} desc`).not.toContain('Ticino');
+      expect(seo.desc, `${locale} desc`).not.toContain('Tessin');
+      expect(seo.desc, `${locale} desc`).toContain(cantonByLocale[locale]);
+    }
+  });
+
+  it('TI callers (no 5th arg) keep legacy Ticino/Tessin copy — byte-identical guarantee', () => {
+    const legacyLugano = buildCityHubSeo('en', 'lugano', 50, YEAR);
+    const explicitNoCanton = buildCityHubSeo('en', 'lugano', 50, YEAR, undefined);
+    expect(legacyLugano.title).toBe(explicitNoCanton.title);
+    expect(legacyLugano.desc).toBe(explicitNoCanton.desc);
+    expect(legacyLugano.h1).toBe(explicitNoCanton.h1);
+    expect(legacyLugano.title).toContain('Ticino');
+  });
+});
+
+// ──────────────────────────────────────────────────────────────────────
+// Regression — per-canton city hub HTML shell must be hydration-safe.
+//
+// Bug surfaced 2026-05-20 on /cerca-lavoro-basilea/basel/ (and every other
+// non-TI city hub): the page emitted `<main class="static-job-page">`
+// INSIDE `<div id="root">`. React hydrates `#root` and wipes that static
+// `<main>`; App.tsx then skips rendering its own `<main id="main-content">`
+// because the route is `staticOverlay:true` — leaving end users with a blank
+// page (just header + sub-nav, no content, no footer because there is no
+// `<div id="footer-root">` portal target either). Crawlers (no JS) still saw
+// the SSR content, so audits passed; only SPA users were affected.
+//
+// Fix: emit via `buildSeoPageHtml` (the same shell PR #376 applied to the
+// per-canton COMPANY hub at line ~6344). That helper puts the static body in
+// `<main class="seo-static-content">` OUTSIDE `#root` AND adds the
+// `<div id="footer-root"></div>` portal target — both required by App.tsx +
+// useNavigationState for the lite-shell rendering path.
+// ──────────────────────────────────────────────────────────────────────
+describe('per-canton city hub — hydration-safe SPA shell', () => {
+  it('jobsSeoPagesPlugin per-canton city hub block calls buildSeoPageHtml (not buildSimplePage)', async () => {
+    const { readFileSync } = await import('fs');
+    const { resolve } = await import('path');
+    const src = readFileSync(
+      resolve(__dirname, '../build-plugins/jobsSeoPagesPlugin.ts'),
+      'utf8',
+    );
+    const anchorStart = src.indexOf('Per-canton city hubs (Phase 3.1)');
+    const anchorEnd = src.indexOf('Static paginated listing pages');
+    expect(anchorStart, 'phase 3.1 anchor present').toBeGreaterThan(0);
+    expect(anchorEnd, 'next phase anchor present').toBeGreaterThan(anchorStart);
+    const block = src.slice(anchorStart, anchorEnd);
+    // Reverting to buildSimplePage at this site reintroduces the
+    // blank-on-hydrate bug on /cerca-lavoro-{canton}/{city}/.
+    expect(block, 'must call buildSeoPageHtml').toContain('buildSeoPageHtml({');
+    expect(block, 'must NOT call buildSimplePage').not.toContain('buildSimplePage({');
+  });
+
+  it('buildSeoPageHtml emits main.seo-static-content + footer-root portal', async () => {
+    const { buildSeoPageHtml } = await import('../build-plugins/shared/seoPageShell');
+    const html = buildSeoPageHtml({
+      locale: 'it',
+      title: 'Lavoro Basel 2026',
+      description: 'Test',
+      canonicalUrl: 'https://frontaliereticino.ch/cerca-lavoro-basilea/basel/',
+      bodyHtml: '<h1>373 Offerte di Lavoro a Basel</h1>',
+    });
+    expect(html).toMatch(/<main\b[^>]*class=["']?seo-static-content["']?/);
+    expect(html).toMatch(/<div\b[^>]*id=["']?footer-root["']?/);
+    expect(html).toMatch(/<div\b[^>]*id=["']?root["']?/);
+    // The legacy wrapper would put <main class="static-job-page"> INSIDE
+    // #root — confirm we are NOT emitting that shape for city hubs.
+    expect(html).not.toMatch(/<div id="root">\s*<main class="static-job-page"/);
+  });
+
+  // Anti-regression sweep — every staticOverlay page emit in jobsSeoPagesPlugin
+  // (pagination / categoria / sector / company-city / keyword / search / combo)
+  // must use buildSeoPageHtml. The legacy buildSimplePage default mode wraps
+  // body in <main class="static-job-page"> INSIDE #root; on hydration React
+  // wipes that node and App.tsx skips its own <main> for staticOverlay routes,
+  // leaving the page visibly blank. Crawlers (no JS) still see SSR content so
+  // audits pass — only SPA users are affected. PR #416 fixed city hubs;
+  // this PR fixed the remaining 9 sites in one sweep.
+  it('jobsSeoPagesPlugin emits ZERO buildSimplePage calls (all staticOverlay pages use buildSeoPageHtml)', async () => {
+    const { readFileSync } = await import('fs');
+    const { resolve } = await import('path');
+    const src = readFileSync(
+      resolve(__dirname, '../build-plugins/jobsSeoPagesPlugin.ts'),
+      'utf8',
+    );
+    // buildSimplePage stays imported (and may appear in comments / type refs);
+    // what we lock down is the CALL — `buildSimplePage({` followed by args.
+    // Every staticOverlay-route emit must go through buildSeoPageHtml so the
+    // shell stays hydration-safe (seo-static-content + footer-root portal).
+    const callMatches = src.match(/\bbuildSimplePage\s*\(\s*\{/g) ?? [];
+    expect(
+      callMatches.length,
+      `jobsSeoPagesPlugin contains ${callMatches.length} buildSimplePage({ ... }) call(s). ` +
+        `All staticOverlay-route emits must use buildSeoPageHtml — otherwise the page ` +
+        `goes blank for SPA users after React hydration. See PR #416 + #418 for context.`,
+    ).toBe(0);
+  });
+});

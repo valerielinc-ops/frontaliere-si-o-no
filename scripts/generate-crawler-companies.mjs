@@ -1,0 +1,169 @@
+#!/usr/bin/env node
+/**
+ * Auto-generate company entries for the companies directory page
+ * from crawler infrastructure.
+ *
+ * Sources:
+ *   1. COMPANY_HQ registry (crawler-location-config.mjs) — slugs + locations
+ *   2. Job slices (data/jobs/by-crawler/{slug}.json) — company name + domain
+ *   3. Runner/parser files — fallback for name/domain extraction
+ *
+ * Output: data/crawler-companies-auto.json
+ *
+ * Run after scaffolding new crawlers or during assemble step.
+ * The TicinoCompanies component imports this file and merges it with
+ * hardcoded + manual entries, so deduplication handles overlaps.
+ */
+import fs from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const ROOT = path.resolve(__dirname, '..');
+const SLICES_DIR = path.resolve(ROOT, 'data', 'jobs', 'by-crawler');
+const RUNNERS_DIR = path.resolve(ROOT, 'scripts');
+const PARSERS_DIR = path.resolve(ROOT, 'scripts', 'lib');
+const OUTPUT = path.resolve(ROOT, 'data', 'crawler-companies-auto.json');
+
+// ─── Import COMPANY_HQ ─────────────────────────────────────────────────────
+const { COMPANY_HQ } = await import('./lib/crawler-location-config.mjs');
+
+// ─── Discover all crawler slugs from runner files ───────────────────────────
+function discoverCrawlerSlugs() {
+  const files = fs.readdirSync(RUNNERS_DIR).filter(
+    (f) => f.startsWith('update-') && f.endsWith('-jobs.mjs')
+  );
+  return files.map((f) => f.replace(/^update-/, '').replace(/-jobs\.mjs$/, ''));
+}
+
+// ─── Read company metadata from job slice ───────────────────────────────────
+function readFromSlice(slug) {
+  const slicePath = path.join(SLICES_DIR, `${slug}.json`);
+  try {
+    if (!fs.existsSync(slicePath)) return null;
+    const data = JSON.parse(fs.readFileSync(slicePath, 'utf8'));
+    const jobs = Array.isArray(data) ? data : data?.jobs || [];
+    if (!jobs.length) return null;
+    const job = jobs[0];
+    return {
+      company: job.company || '',
+      companyDomain: job.companyDomain || '',
+    };
+  } catch {
+    return null;
+  }
+}
+
+// ─── Regex-extract company metadata from runner or parser file ──────────────
+function extractFromFile(filePath) {
+  try {
+    if (!fs.existsSync(filePath)) return {};
+    const src = fs.readFileSync(filePath, 'utf8');
+    const result = {};
+
+    // Try multiple patterns for company name
+    const namePatterns = [
+      /(?:COMPANY_NAME|companyLabel)\s*[:=]\s*['"`]([^'"`]+)['"`]/,
+      /const\s+\w+_COMPANY_NAME\s*=\s*['"`]([^'"`]+)['"`]/,
+      /company:\s*['"`]([^'"`]+)['"`]/,
+    ];
+    for (const pat of namePatterns) {
+      const m = src.match(pat);
+      if (m) { result.company = m[1]; break; }
+    }
+
+    // Try multiple patterns for domain
+    const domainPatterns = [
+      /(?:COMPANY_DOMAIN|COMPANY_HOST|companyDomain)\s*[:=]\s*['"`]([^'"`]+)['"`]/,
+      /const\s+\w+_COMPANY_DOMAIN\s*=\s*['"`]([^'"`]+)['"`]/,
+    ];
+    for (const pat of domainPatterns) {
+      const m = src.match(pat);
+      if (m) { result.companyDomain = m[1]; break; }
+    }
+
+    // Try to extract careers URL
+    const careersPatterns = [
+      /CAREERS_URL\s*=\s*['"`]([^'"`]+)['"`]/,
+      /careersUrl\s*[:=]\s*['"`]([^'"`]+)['"`]/,
+    ];
+    for (const pat of careersPatterns) {
+      const m = src.match(pat);
+      if (m) { result.careersUrl = m[1]; break; }
+    }
+
+    return result;
+  } catch {
+    return {};
+  }
+}
+
+// ─── Prettify a slug into a human-readable name ─────────────────────────────
+function slugToName(slug) {
+  return slug
+    .split('-')
+    .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
+    .join(' ');
+}
+
+// ─── Main ───────────────────────────────────────────────────────────────────
+const slugs = discoverCrawlerSlugs();
+const companies = [];
+const seen = new Set();
+
+for (const slug of slugs) {
+  // Skip aliases in COMPANY_HQ (they point to the same company)
+  if (seen.has(slug)) continue;
+  seen.add(slug);
+
+  // Location from COMPANY_HQ
+  const hq = COMPANY_HQ[slug];
+
+  // Company metadata: try slice first, then runner, then parser
+  const sliceData = readFromSlice(slug);
+  const runnerData = extractFromFile(path.join(RUNNERS_DIR, `update-${slug}-jobs.mjs`));
+  const parserData = extractFromFile(path.join(PARSERS_DIR, `${slug}-job-parser.mjs`));
+
+  const companyName =
+    sliceData?.company ||
+    runnerData?.company ||
+    parserData?.company ||
+    slugToName(slug);
+
+  const companyDomain =
+    sliceData?.companyDomain ||
+    runnerData?.companyDomain ||
+    parserData?.companyDomain ||
+    '';
+
+  const careersUrl = runnerData?.careersUrl || parserData?.careersUrl || '';
+  const website = companyDomain
+    ? `https://www.${companyDomain.replace(/^www\./, '')}`
+    : '';
+
+  const entry = {
+    name: companyName,
+    key: slug,
+    website: website || undefined,
+    careersUrl: careersUrl || undefined,
+    city: hq?.city || 'Lugano',
+    canton: hq?.canton || 'TI',
+    country: 'CH',
+    hasDedicatedCrawler: true,
+    autoGenerated: true,
+  };
+
+  // Clean undefined values
+  Object.keys(entry).forEach((k) => {
+    if (entry[k] === undefined) delete entry[k];
+  });
+
+  companies.push(entry);
+}
+
+// Sort alphabetically by name
+companies.sort((a, b) => a.name.localeCompare(b.name, 'it'));
+
+fs.writeFileSync(OUTPUT, JSON.stringify(companies, null, 2) + '\n', 'utf8');
+
+console.log(`✅ Generated ${companies.length} crawler company entries → ${path.relative(ROOT, OUTPUT)}`);

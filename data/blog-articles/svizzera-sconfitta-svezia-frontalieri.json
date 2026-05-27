@@ -1,0 +1,40 @@
+{
+  "id": "svizzera-sconfitta-svezia-frontalieri",
+  "slug": "svizzera-sconfitta-svezia-frontalieri",
+  "publishedAt": "2026-05-09T20:54:53.437Z",
+  "cluster": "mobilita",
+  "_pool": "proven",
+  "_pool_source": "media.laregione.ch",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 7.8329781355992525,
+    "confidence": 0.8,
+    "finalScore": 6.266382508479403,
+    "topK": [
+      {
+        "slug": "stop-export-materiale-bellico",
+        "cosine": 0.8390599681638818
+      },
+      {
+        "slug": "crans-montana-nuovo-solco-italia-svizzera-2026",
+        "cosine": 0.8362697757366918
+      },
+      {
+        "slug": "crans-montana-disgelo-italia-svizzera",
+        "cosine": 0.835825476240224
+      },
+      {
+        "slug": "svizzera-italia-nuova-fase-relazioni",
+        "cosine": 0.8320970501215359
+      },
+      {
+        "slug": "pagare-vittime-crans-montana-2026",
+        "cosine": 0.8316264333841911
+      }
+    ],
+    "score": 1.5665956271198507,
+    "clusterDiversityBonus": 0.25,
+    "sourceQualityMultiplier": 1,
+    "cluster": "mobilita"
+  }
+}

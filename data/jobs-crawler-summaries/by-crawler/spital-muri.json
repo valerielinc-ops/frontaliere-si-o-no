@@ -1,0 +1,57 @@
+{
+  "key": "spital-muri",
+  "label": "Spital Muri",
+  "generatedAt": "2026-05-27T00:16:09.666Z",
+  "total": 1,
+  "newCount": 0,
+  "updatedCount": 1,
+  "removedCount": 0,
+  "unchangedCount": 0,
+  "durationMs": 4375,
+  "avgDurationMs": 4375,
+  "durationHistory": [
+    4375
+  ],
+  "newJobs": [],
+  "updatedJobs": [
+    {
+      "id": "spital-muri-f630033e83b2",
+      "slug": "teststelle-rav-schnittstelle-spital-muri-muri",
+      "company": "Spital Muri",
+      "companyKey": "spital-muri",
+      "companyDomain": "spital-muri.ch",
+      "title": "Teststelle RAV Schnittstelle",
+      "needsRetranslation": false,
+      "location": "Muri",
+      "canton": "AG",
+      "url": "https://recruitingapp-2997.umantis.com/Vacancies/239/Description/1",
+      "source": "Spital Muri Dedicated Parser (Umantis listing tenant 2997)",
+      "sourceLang": "de",
+      "crawledAt": "2026-05-27T00:16:07.898Z",
+      "addressLocality": "Muri",
+      "addressRegion": "AG",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "5630",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-19",
+      "applyUrl": "https://recruitingapp-2997.umantis.com/Vacancies/239/Application/CheckLogin/1",
+      "firstSeenAt": "2026-05-19T11:37:39.059Z",
+      "_qualityScore": 70,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 3,
+        "translation": 25,
+        "completeness": 17
+      }
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": []
+}

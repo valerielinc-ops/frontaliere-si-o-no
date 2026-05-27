@@ -1,0 +1,141 @@
+{
+  "key": "banca-raiffeisen-vedeggio-cassarate",
+  "label": "Raiffeisen VC",
+  "generatedAt": "2026-05-26T23:57:19.078Z",
+  "total": 3,
+  "newCount": 0,
+  "updatedCount": 1,
+  "removedCount": 0,
+  "unchangedCount": 2,
+  "durationMs": 21603,
+  "avgDurationMs": 21603,
+  "durationHistory": [
+    21603
+  ],
+  "newJobs": [],
+  "updatedJobs": [
+    {
+      "id": "company-m99b74",
+      "slug": "consulente-clientela-affluent-banca-raiffeisen-vedeggio-cassarate-gravesano-ticino",
+      "company": "Banca Raiffeisen Vedeggio Cassarate",
+      "title": "Consulente Clientela Affluent",
+      "location": "Gravesano, Ticino",
+      "canton": "TI",
+      "category": "finance",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-03-12",
+      "url": "https://jobs.raiffeisen.ch/posti-vacanti/consulente-clientela-affluent/16373dcd-1f0f-4802-a1fd-582e79a601e7",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Gravesano",
+        "canton": "TI"
+      },
+      "companyKey": "banca-raiffeisen-vedeggio-cassarate",
+      "companyDomain": "raiffeisen.ch",
+      "crawledAt": "2026-05-17T10:54:51.136Z",
+      "firstSeenAt": "2026-05-17T10:54:51.136Z",
+      "sourceLang": "it",
+      "salaryMin": 85500,
+      "salaryMax": 150000,
+      "streetAddress": "Piazza Indipendenza",
+      "postalCode": "6814",
+      "addressLocality": "Gravesano, Ticino",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "_qualityScore": 96,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
+        "translation": 21,
+        "completeness": 25
+      }
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
+    {
+      "id": "company-yifl2t",
+      "slug": "consulente-clientela-privata-individuale-banca-raiffeisen-vedeggio-cassarate-rivera-ticino-yifl2t",
+      "company": "Banca Raiffeisen Vedeggio Cassarate",
+      "title": "Consulente clientela privata individuale",
+      "location": "Rivera, Ticino",
+      "canton": "TI",
+      "category": "finance",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-03-12",
+      "url": "https://jobs.raiffeisen.ch/posti-vacanti/consulente-clientela-privata-individuale/c2ac6252-022c-4309-9fe3-92d318e4fc3a",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Gravesano",
+        "canton": "TI"
+      },
+      "companyKey": "banca-raiffeisen-vedeggio-cassarate",
+      "companyDomain": "raiffeisen.ch",
+      "crawledAt": "2026-05-17T10:54:51.136Z",
+      "firstSeenAt": "2026-05-17T10:54:51.136Z",
+      "sourceLang": "it",
+      "salaryMin": 85500,
+      "salaryMax": 150000,
+      "streetAddress": "Piazza Indipendenza",
+      "postalCode": "6814",
+      "addressLocality": "Rivera, Ticino",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "_qualityScore": 91,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 19,
+        "completeness": 25
+      }
+    },
+    {
+      "id": "company-q14jnx",
+      "slug": "consulente-clientela-privata-individuale-banca-raiffeisen-vedeggio-cassarate-gravesano-ticino-q14jnx",
+      "company": "Banca Raiffeisen Vedeggio Cassarate",
+      "title": "Consulente clientela privata individuale",
+      "location": "Gravesano, Ticino",
+      "canton": "TI",
+      "category": "finance",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-03-11",
+      "url": "https://jobs.raiffeisen.ch/posti-vacanti/consulente-clientela-privata-individuale/e2c8937c-104e-4234-8353-3b21a3a51b46",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Gravesano",
+        "canton": "TI"
+      },
+      "companyKey": "banca-raiffeisen-vedeggio-cassarate",
+      "companyDomain": "raiffeisen.ch",
+      "crawledAt": "2026-05-17T10:54:51.136Z",
+      "firstSeenAt": "2026-05-17T10:54:51.136Z",
+      "sourceLang": "it",
+      "salaryMin": 85500,
+      "salaryMax": 150000,
+      "streetAddress": "Piazza Indipendenza",
+      "postalCode": "6814",
+      "addressLocality": "Gravesano, Ticino",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "_qualityScore": 91,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 19,
+        "completeness": 25
+      }
+    }
+  ]
+}

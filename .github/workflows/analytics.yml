@@ -1,0 +1,350 @@
+name: Weekly Analytics Report
+
+on:
+  schedule:
+    # Every Monday at 07:00 UTC (09:00 CET)
+    - cron: '0 7 * * 1'
+  workflow_dispatch:
+    inputs:
+      days:
+        description: 'Report period in days (default: 30)'
+        required: false
+        default: '30'
+        type: string
+      sections:
+        description: 'Which reports to run (all, gsc, pagespeed, ga4, indexing, bing, clarity)'
+        required: false
+        default: 'all'
+        type: choice
+        options:
+          - all
+          - gsc
+          - pagespeed
+          - ga4
+          - indexing
+          - bing
+          - clarity
+
+permissions:
+  contents: read
+
+jobs:
+  analytics:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Prepare Firebase credentials
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -n "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+          else
+            echo "⚠️ Firebase secrets not set — secrets will not be loaded from Remote Config."
+          fi
+          if [ -f /tmp/firebase-sa.json ]; then
+            echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+          fi
+
+      - name: Load secrets from Remote Config
+        run: node scripts/load-rc-env.mjs
+
+      - name: Run Analytics Report
+        run: |
+          DAYS="${{ inputs.days || '30' }}"
+          SECTION="${{ inputs.sections || 'all' }}"
+          
+          mkdir -p reports
+          
+          FLAGS="--days $DAYS --save"
+          if [ "$SECTION" != "all" ]; then
+            FLAGS="$FLAGS --$SECTION"
+          fi
+          
+          echo "📊 Running analytics report ($SECTION, last $DAYS days)..."
+          node scripts/analytics-report.mjs $FLAGS
+        continue-on-error: true
+
+      - name: Generate Report Summary
+        if: always()
+        run: |
+          if [ -f reports/analytics-latest.json ]; then
+            node -e "
+              const r = JSON.parse(require('fs').readFileSync('reports/analytics-latest.json','utf8'));
+              const snapshot = require('fs').existsSync('reports/analytics-snapshot-latest.json')
+                ? JSON.parse(require('fs').readFileSync('reports/analytics-snapshot-latest.json','utf8'))
+                : null;
+              const g = r.ga4 || {};
+              const s = g.summary || {};
+              const safe = (v) => String(v ?? '').replace(/\|/g, '\\|');
+              console.log('## 📊 Weekly Analytics Summary');
+              console.log('');
+              console.log('| Metric | Value |');
+              console.log('|--------|-------|');
+              console.log('| Sessions | ' + (s.sessions || 'N/A') + ' |');
+              console.log('| Users | ' + (s.users || 'N/A') + ' |');
+              console.log('| Bounce Rate | ' + (s.bounceRate ? (s.bounceRate*100).toFixed(1)+'%' : 'N/A') + ' |');
+              console.log('| Avg Duration | ' + (s.avgSessionDuration ? Math.round(s.avgSessionDuration)+'s' : 'N/A') + ' |');
+              if (g.weekOverWeek) {
+                const w = g.weekOverWeek;
+                console.log('| WoW Users | ' + (w.users?.delta || '?') + '% |');
+                console.log('| WoW Sessions | ' + (w.sessions?.delta || '?') + '% |');
+              }
+              if (g.recommendations) {
+                const high = g.recommendations.filter(r=>r.severity==='high').length;
+                const med = g.recommendations.filter(r=>r.severity==='medium').length;
+                console.log('| 🔴 High Issues | ' + high + ' |');
+                console.log('| 🟡 Medium Issues | ' + med + ' |');
+              }
+              if (r.crux) {
+                for (const [k,v] of Object.entries(r.crux)) {
+                  if (v.p75 !== undefined) console.log('| CrUX ' + k + ' p75 | ' + v.p75 + ' |');
+                }
+              }
+
+              const topPages = Array.isArray(g.topPages) ? g.topPages.slice(0, 20) : [];
+              if (topPages.length) {
+                console.log('');
+                console.log('### Top 20 pagine più visitate');
+                console.log('');
+                console.log('| # | Pagina | Views | Users | Avg durata |');
+                console.log('|---|--------|------:|------:|-----------:|');
+                topPages.forEach((p, i) => {
+                  console.log('| ' + (i + 1) + ' | ' + safe(p.path) + ' | ' + (p.views || 0) + ' | ' + (p.users || 0) + ' | ' + (p.avgDuration || 0) + 's |');
+                });
+              }
+
+              const topArticles = Array.isArray(g.topArticlePages) ? g.topArticlePages.slice(0, 20) : [];
+              if (topArticles.length) {
+                console.log('');
+                console.log('### Top 20 articoli più visitati');
+                console.log('');
+                console.log('| # | Articolo | Views | Users | Avg durata |');
+                console.log('|---|----------|------:|------:|-----------:|');
+                topArticles.forEach((p, i) => {
+                  console.log('| ' + (i + 1) + ' | ' + safe(p.path) + ' | ' + (p.views || 0) + ' | ' + (p.users || 0) + ' | ' + (p.avgDuration || 0) + 's |');
+                });
+              }
+
+              const topArticlesByTime = Array.isArray(g.topArticlePagesByTime) ? g.topArticlePagesByTime.slice(0, 20) : [];
+              if (topArticlesByTime.length) {
+                console.log('');
+                console.log('### Articoli con tempo medio più alto');
+                console.log('');
+                console.log('| # | Articolo | Views | Avg durata |');
+                console.log('|---|----------|------:|-----------:|');
+                topArticlesByTime.forEach((p, i) => {
+                  console.log('| ' + (i + 1) + ' | ' + safe(p.path) + ' | ' + (p.views || 0) + ' | ' + (p.avgDuration || 0) + 's |');
+                });
+              }
+
+              const pageKw = Array.isArray(g.keywordInterest) ? g.keywordInterest.slice(0, 20) : [];
+              const articleKw = Array.isArray(g.articleKeywordInterest) ? g.articleKeywordInterest.slice(0, 20) : [];
+              if (pageKw.length || articleKw.length) {
+                console.log('');
+                console.log('### Keyword intent da pagine top');
+                if (pageKw.length) {
+                  console.log('- **Top keyword pagine**: ' + pageKw.slice(0, 12).map(k => safe(k.keyword) + ' (' + (k.score || 0) + ')').join(', '));
+                }
+                if (articleKw.length) {
+                  console.log('- **Top keyword articoli**: ' + articleKw.slice(0, 12).map(k => safe(k.keyword) + ' (' + (k.score || 0) + ')').join(', '));
+                }
+              }
+
+              if (g.keywordStrategyComment) {
+                console.log('');
+                console.log('### Direzione keyword consigliata');
+                console.log(g.keywordStrategyComment);
+              }
+
+              if (snapshot?.searchConsole?.nearWinQueries?.length) {
+                console.log('');
+                console.log('### Near-win SEO queries');
+                console.log('| Query | Impressions | CTR | Position |');
+                console.log('|-------|------------:|----:|---------:|');
+                snapshot.searchConsole.nearWinQueries.slice(0, 10).forEach((q) => {
+                  console.log('| ' + safe(q.query) + ' | ' + (q.impressions || 0) + ' | ' + (q.ctr || 0) + '% | ' + (q.position || 0) + ' |');
+                });
+              }
+
+              if (snapshot?.searchConsole?.pageTemplatePerformance?.length) {
+                console.log('');
+                console.log('### Search performance by page template');
+                console.log('| Template | Impressions | Clicks | CTR | Avg position |');
+                console.log('|----------|------------:|-------:|----:|-------------:|');
+                snapshot.searchConsole.pageTemplatePerformance.slice(0, 10).forEach((row) => {
+                  console.log('| ' + safe(row.pageTemplate) + ' | ' + (row.impressions || 0) + ' | ' + (row.clicks || 0) + ' | ' + (row.ctr || 0) + '% | ' + (row.avgPosition || 0) + ' |');
+                });
+              }
+
+              if (snapshot?.ga4?.pageTemplatePerformance?.length) {
+                console.log('');
+                console.log('### GA4 engagement by page template');
+                console.log('| Template | Views | Users | Avg duration |');
+                console.log('|----------|------:|------:|-------------:|');
+                snapshot.ga4.pageTemplatePerformance.slice(0, 10).forEach((row) => {
+                  console.log('| ' + safe(row.pageTemplate) + ' | ' + (row.views || 0) + ' | ' + (row.users || 0) + ' | ' + (row.avgDuration || 0) + 's |');
+                });
+              }
+
+              if (snapshot?.ga4?.internalSearchTerms?.length) {
+                console.log('');
+                console.log('### Internal search demand');
+                console.log('| Search term | Searches | Users |');
+                console.log('|-------------|---------:|------:|');
+                snapshot.ga4.internalSearchTerms.slice(0, 12).forEach((row) => {
+                  console.log('| ' + safe(row.term) + ' | ' + (row.searches || 0) + ' | ' + (row.users || 0) + ' |');
+                });
+              }
+
+              if (r.bing && r.bing.traffic) {
+                const b = r.bing.traffic;
+                console.log('');
+                console.log('### 🔵 Bing Webmaster');
+                console.log('| Metric | Value |');
+                console.log('|--------|-------|');
+                console.log('| Bing Clicks | ' + (b.clicks || 0) + ' |');
+                console.log('| Bing Impressions | ' + (b.impressions || 0) + ' |');
+                console.log('| Bing CTR | ' + (b.ctr || 0) + '% |');
+              }
+
+              if (r.historical && r.historical.deltas) {
+                const d = r.historical.deltas;
+                console.log('');
+                console.log('### 📈 Confronto con report precedente');
+                console.log('| Metric | Change |');
+                console.log('|--------|--------|');
+                if (d.searchConsole) {
+                  console.log('| GSC Clicks | ' + (d.searchConsole.clicks.change > 0 ? '+' : '') + d.searchConsole.clicks.change + ' |');
+                  console.log('| GSC Impressions | ' + (d.searchConsole.impressions.change > 0 ? '+' : '') + d.searchConsole.impressions.change + ' |');
+                }
+                if (d.ga4) {
+                  console.log('| GA4 Sessions | ' + (d.ga4.sessions.change > 0 ? '+' : '') + d.ga4.sessions.change + ' |');
+                  console.log('| GA4 Users | ' + (d.ga4.users.change > 0 ? '+' : '') + d.ga4.users.change + ' |');
+                }
+              }
+
+              // Error health summary
+              const eh = g.errorHealth;
+              if (eh && eh.totalErrors > 0) {
+                console.log('');
+                console.log('### 🔴 Error Health — ' + (eh.healthStatus || 'unknown'));
+                console.log('| Metric | Value |');
+                console.log('|--------|-------|');
+                console.log('| Total Errors | ' + eh.totalErrors + ' |');
+                console.log('| Error Rate | ' + (eh.errorRate || 0).toFixed(2) + '% |');
+                console.log('| Affected Users | ' + (eh.affectedUsers || 'N/A') + ' |');
+
+                // Errors by type breakdown
+                if (eh.errorsByType && eh.errorsByType.length > 0) {
+                  console.log('');
+                  console.log('#### Error Types');
+                  console.log('| Type | Count | Users |');
+                  console.log('|------|------:|------:|');
+                  for (const t of eh.errorsByType) {
+                    console.log('| ' + safe(t.errorType) + ' | ' + t.count + ' | ' + t.users + ' |');
+                  }
+                }
+
+                // Top error messages (the debugging table)
+                if (eh.appErrors && eh.appErrors.length > 0) {
+                  console.log('');
+                  console.log('#### Top Error Messages');
+                  console.log('| Type | Message | Page | Count | Users |');
+                  console.log('|------|---------|------|------:|------:|');
+                  for (const err of eh.appErrors.slice(0, 15)) {
+                    console.log('| ' + safe(err.errorType) + ' | ' + safe(String(err.errorMessage || '').slice(0, 60)) + ' | ' + safe(String(err.pagePath || '').slice(0, 40)) + ' | ' + err.count + ' | ' + err.users + ' |');
+                  }
+                }
+
+                // Stack traces
+                if (eh.topStacks && eh.topStacks.length > 0) {
+                  console.log('');
+                  console.log('#### Stack Traces');
+                  for (const s of eh.topStacks.slice(0, 5)) {
+                    console.log('- **' + safe(String(s.message || '').slice(0, 80)) + '** (' + s.count + 'x)');
+                    const lines = String(s.stack || '').split(/\\\\n|at /).filter(Boolean).slice(0, 2);
+                    for (const line of lines) {
+                      console.log('  - `' + safe(line.trim().slice(0, 80)) + '`');
+                    }
+                  }
+                }
+
+                // Component stacks (React)
+                if (eh.componentStacks && eh.componentStacks.length > 0) {
+                  console.log('');
+                  console.log('#### Crashing React Components');
+                  console.log('| Component | Message | Page | Count |');
+                  console.log('|-----------|---------|------|------:|');
+                  for (const c of eh.componentStacks.slice(0, 5)) {
+                    const comp = String(c.componentStack || '').split(/\\\\n|at /).filter(Boolean)[0] || '';
+                    console.log('| ' + safe(comp.trim().slice(0, 40)) + ' | ' + safe(String(c.message || '').slice(0, 50)) + ' | ' + safe(String(c.pagePath || '').slice(0, 30)) + ' | ' + c.count + ' |');
+                  }
+                }
+
+                // Device/browser breakdown
+                if (eh.errorsByDevice && eh.errorsByDevice.length > 0) {
+                  console.log('');
+                  console.log('#### Error Environment');
+                  console.log('| Device | OS | Browser | Count | Users |');
+                  console.log('|--------|----|---------| -----:|------:|');
+                  for (const d of eh.errorsByDevice.slice(0, 10)) {
+                    console.log('| ' + safe(d.device) + ' | ' + safe(d.os) + ' | ' + safe(d.browser) + ' | ' + d.count + ' | ' + d.users + ' |');
+                  }
+                }
+
+                // Top error pages
+                if (eh.topErrorPages && eh.topErrorPages.length > 0) {
+                  console.log('');
+                  console.log('#### Top Error Pages');
+                  console.log('| Page | Errors | Users |');
+                  console.log('|------|-------:|------:|');
+                  for (const p of eh.topErrorPages.slice(0, 10)) {
+                    console.log('| ' + safe(p.path) + ' | ' + p.errors + ' | ' + p.users + ' |');
+                  }
+                }
+
+                // Daily trend (last 7 days)
+                if (eh.dailyTrend && eh.dailyTrend.length > 0) {
+                  console.log('');
+                  console.log('#### Daily Error Trend');
+                  console.log('| Date | Errors | Users |');
+                  console.log('|------|-------:|------:|');
+                  for (const d of eh.dailyTrend.slice(-7)) {
+                    console.log('| ' + d.date + ' | ' + d.errors + ' | ' + d.users + ' |');
+                  }
+                }
+              }
+
+              // Recommendations summary
+              if (g.recommendations && g.recommendations.length > 0) {
+                console.log('');
+                console.log('### 💡 Raccomandazioni');
+                for (const rec of g.recommendations) {
+                  const icon = rec.severity === 'high' ? '🔴' : '🟡';
+                  console.log('- ' + icon + ' **[' + rec.area + ']** ' + safe(rec.message));
+                }
+              }
+            " >> "$GITHUB_STEP_SUMMARY" 2>/dev/null || echo "⚠️ Could not generate summary"
+          fi
+
+      - name: Upload Report Artifact
+        if: always()
+        uses: actions/upload-artifact@v5
+        with:
+          name: analytics-report-${{ github.run_number }}
+          path: |
+            reports/analytics-*.json
+          retention-days: 90

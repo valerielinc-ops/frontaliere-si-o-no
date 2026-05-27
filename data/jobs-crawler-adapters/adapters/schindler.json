@@ -1,0 +1,18 @@
+{
+  "companyKey": "schindler",
+  "companyName": "Schindler",
+  "companyHost": "job.schindler.com",
+  "enabled": true,
+  "priority": 0,
+  "crawlerModes": [
+    "generic_ats",
+    "html",
+    "jsonld"
+  ],
+  "seedUrls": [
+    "https://job.schindler.com/search/?q=&locationsearch=Switzerland",
+    "https://job.schindler.com/careers"
+  ],
+  "notes": "Migrated from SmartRecruiters to SAP SuccessFactors jobs2web (job.schindler.com). Listings span multiple SF tenants (Schindler, ASZ, ASZ_Fitter, SCH_Fitter, SBB, Jardine_Schindler) all under job.schindler.com.",
+  "updatedAt": "2026-05-19T00:00:00.000Z"
+}

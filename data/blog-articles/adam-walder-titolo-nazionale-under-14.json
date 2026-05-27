@@ -1,0 +1,40 @@
+{
+  "id": "adam-walder-titolo-nazionale-under-14",
+  "slug": "adam-walder-titolo-nazionale-under-14",
+  "publishedAt": "2026-05-08T10:11:07.764Z",
+  "cluster": "lavoro",
+  "_pool": "proven",
+  "_pool_source": "media.laregione.ch",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 12.366121562760602,
+    "confidence": 0.8,
+    "finalScore": 9.892897250208483,
+    "topK": [
+      {
+        "slug": "ginnastica-artistica-ticino-2026",
+        "cosine": 0.7728825976725376
+      },
+      {
+        "slug": "ecolight-camarda-presidente-2026-2028",
+        "cosine": 0.7690895244326359
+      },
+      {
+        "slug": "hockey-chiasso-wild-boars-bis",
+        "cosine": 0.76037454022633
+      },
+      {
+        "slug": "inter-scudetto-chivu-2026",
+        "cosine": 0.7589150707033105
+      },
+      {
+        "slug": "arco-e-frecce-per-far-centro",
+        "cosine": 0.7548465794141926
+      }
+    ],
+    "score": 1.2366121562760604,
+    "clusterDiversityBonus": 0.125,
+    "sourceQualityMultiplier": 1,
+    "cluster": "lavoro"
+  }
+}

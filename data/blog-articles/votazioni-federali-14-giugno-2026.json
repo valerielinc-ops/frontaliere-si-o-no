@@ -1,0 +1,40 @@
+{
+  "id": "votazioni-federali-14-giugno-2026",
+  "slug": "votazioni-federali-14-giugno-2026",
+  "publishedAt": "2026-05-10T11:18:24.426Z",
+  "cluster": "generic",
+  "_pool": "proven",
+  "_pool_source": "rsi.ch",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 11.871985350827444,
+    "confidence": 0.8,
+    "finalScore": 9.497588280661956,
+    "topK": [
+      {
+        "slug": "dl-bollette-novita-consumatori-2026",
+        "cosine": 0.7914656900551629
+      },
+      {
+        "slug": "nuove-regole-scambio-informazioni-ader-enti-creditori",
+        "cosine": 0.7913107520928281
+      },
+      {
+        "slug": "relazioni-italo-svizzere-2026",
+        "cosine": 0.7897790251155504
+      },
+      {
+        "slug": "raffica-chiusure-a9-2026",
+        "cosine": 0.7852739154113417
+      },
+      {
+        "slug": "g7-evian-frontiere-chiuse-2026",
+        "cosine": 0.7851428957642685
+      }
+    ],
+    "score": 0.9497588280661957,
+    "clusterDiversityBonus": 0.1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "generic"
+  }
+}

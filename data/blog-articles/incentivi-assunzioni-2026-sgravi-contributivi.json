@@ -1,0 +1,40 @@
+{
+  "id": "incentivi-assunzioni-2026-sgravi-contributivi",
+  "slug": "incentivi-assunzioni-2026-sgravi-contributivi",
+  "publishedAt": "2026-05-08T11:22:00.226Z",
+  "cluster": "fiscale",
+  "_pool": "proven",
+  "_pool_source": "commercialistatelematico.com",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 10.234116280074202,
+    "confidence": 0.8,
+    "finalScore": 8.187293024059363,
+    "topK": [
+      {
+        "slug": "tredicesima-avs-busta-paga-frontaliere",
+        "cosine": 0.8528430233395169
+      },
+      {
+        "slug": "nessun-prelievo-avs-sulle-mance",
+        "cosine": 0.8464603258167572
+      },
+      {
+        "slug": "tredicesima-avs-stipendi-iva",
+        "cosine": 0.8404412446524859
+      },
+      {
+        "slug": "decreto-lavoro-meloni-2026-frontalieri",
+        "cosine": 0.8377338681979328
+      },
+      {
+        "slug": "tredicesima-avs-finanziamento-contributi",
+        "cosine": 0.8373088283025426
+      }
+    ],
+    "score": 0.8187293024059363,
+    "clusterDiversityBonus": 0.1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "fiscale"
+  }
+}

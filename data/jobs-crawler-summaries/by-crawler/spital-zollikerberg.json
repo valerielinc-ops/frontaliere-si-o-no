@@ -1,0 +1,57 @@
+{
+  "key": "spital-zollikerberg",
+  "label": "Spital Zollikerberg",
+  "generatedAt": "2026-05-27T00:19:23.245Z",
+  "total": 6,
+  "newCount": 0,
+  "updatedCount": 1,
+  "removedCount": 0,
+  "unchangedCount": 0,
+  "durationMs": 2415,
+  "avgDurationMs": 2415,
+  "durationHistory": [
+    2415
+  ],
+  "newJobs": [],
+  "updatedJobs": [
+    {
+      "id": "spital-zollikerberg-3bd7d04cabb1",
+      "slug": "berufsbildner-in-per-dipl-fachfrau-dipl-fachmann-operationstechnik-o-con-wille-per-bb-weiterbildung-medizintechnische-bereiche-spital-zollikerberg",
+      "company": "Spital Zollikerberg",
+      "companyKey": "spital-zollikerberg",
+      "companyDomain": "spitalzollikerberg.ch",
+      "title": "Berufsbildner:in für Dipl. Fachfrau / Dipl. Fachmann Operationstechnik (oder mit Wille für BB Weiterbildung) Medizintechnische Bereiche",
+      "needsRetranslation": false,
+      "location": "Zollikerberg",
+      "canton": "ZH",
+      "url": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=db955c42-df5c-409b-924b-5ba24a1a360b,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
+      "source": "Spital Zollikerberg Dedicated Parser (Next.js SSR)",
+      "sourceLang": "de",
+      "crawledAt": "2026-05-27T00:19:21.315Z",
+      "addressLocality": "Zollikerberg",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8125",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-21",
+      "applyUrl": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=db955c42-df5c-409b-924b-5ba24a1a360b,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
+      "firstSeenAt": "2026-05-19T12:20:47.142Z",
+      "_qualityScore": 79,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 19,
+        "completeness": 17
+      }
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": []
+}

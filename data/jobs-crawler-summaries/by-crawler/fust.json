@@ -1,0 +1,101 @@
+{
+  "key": "fust",
+  "label": "Fust",
+  "generatedAt": "2026-05-26T22:52:46.417Z",
+  "total": 2,
+  "newCount": 0,
+  "updatedCount": 1,
+  "removedCount": 0,
+  "unchangedCount": 1,
+  "durationMs": 18028,
+  "avgDurationMs": 18028,
+  "durationHistory": [
+    18028
+  ],
+  "newJobs": [],
+  "updatedJobs": [
+    {
+      "id": "company-29z0lf",
+      "slug": "home-fornitore-negli-elettrodomestici-elettrici-fust-grigioni",
+      "company": "Fust",
+      "title": "Heimliefermonteur:in von Elektrohaushaltgeräten",
+      "location": "Grigioni",
+      "canton": "GR",
+      "category": "admin",
+      "contract": "part-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-04",
+      "url": "https://jobs.fust.ch/offene-stellen/heimliefermonteur-in-von-elektrohaushaltgeraeten/e5f3d8c8-ba6d-4036-8767-8e6acd0733b3",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Grigioni",
+        "canton": "GR"
+      },
+      "companyKey": "fust",
+      "companyDomain": "fust.ch",
+      "crawledAt": "2026-05-04T10:54:17.145Z",
+      "firstSeenAt": "2026-05-04T10:54:17.145Z",
+      "sourceLang": "de",
+      "streetAddress": "Via Industria 1",
+      "postalCode": "6593",
+      "addressLocality": "Grigioni",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "_qualityScore": 99,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 25,
+        "completeness": 25
+      }
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
+    {
+      "id": "company-lesziv",
+      "slug": "montatore-trice-di-impianti-sanitari-per-cucine-bagni-fust-bellinzona-ticino-lesziv",
+      "company": "Fust",
+      "title": "Montatore/trice di impianti sanitari per cucine & bagni",
+      "location": "Bellinzona, Ticino",
+      "canton": "TI",
+      "category": "health",
+      "contract": "part-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-18",
+      "url": "https://jobs.fust.ch/posti-vacanti/montatore-trice-di-impianti-sanitari-per-cucine-bagni/d6f8e0ea-dc4e-4756-a34c-9e81ade56af4",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Ticino",
+        "canton": "TI"
+      },
+      "companyKey": "fust",
+      "companyDomain": "fust.ch",
+      "crawledAt": "2026-05-18T21:57:21.831Z",
+      "firstSeenAt": "2026-05-18T21:57:21.831Z",
+      "sourceLang": "it",
+      "salaryMin": 70500,
+      "salaryMax": 98500,
+      "streetAddress": "Via Industria 1",
+      "postalCode": "6593",
+      "addressLocality": "Bellinzona, Ticino",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "_qualityScore": 93,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 19,
+        "completeness": 25
+      }
+    }
+  ]
+}

@@ -1,0 +1,569 @@
+/**
+ * Central location configuration for all job crawlers.
+ *
+ * This module is the SINGLE SOURCE OF TRUTH for:
+ * - Which cantons to target (TARGET_CANTONS)
+ * - All 26 Swiss canton codes and their names/aliases
+ * - Company HQ defaults for Cat-C crawlers
+ *
+ * To expand crawling to all of Switzerland, change TARGET_CANTONS.
+ */
+
+// ─── THE SWITCH ─────────────────────────────────────────────────────────────
+// Cathedral CH-wide: expanded to all 26 Swiss cantons (2026-05-10, P1.6).
+// Brand "Frontaliere Ticino" intoccato (D1 SEO-first); per-canton URLs emit
+// via canton-quorum-gate (D7) + slug-registry frozen-URL strategy (E9).
+// Legacy three-canton scope was: ['TI', 'GR', 'VS'].
+export const TARGET_CANTONS = ['AG', 'AI', 'AR', 'BE', 'BL', 'BS', 'FR', 'GE', 'GL', 'GR', 'JU', 'LU', 'NE', 'NW', 'OW', 'SG', 'SH', 'SO', 'SZ', 'TG', 'TI', 'UR', 'VD', 'VS', 'ZG', 'ZH'];
+
+// ─── ALL 26 SWISS CANTONS ──────────────────────────────────────────────────
+// Each canton has: code, names (all official languages + common aliases),
+// and static tokens for location matching.
+export const SWISS_CANTONS = {
+  AG: { code: 'AG', names: ['aargau', 'argovie', 'argovia', 'aarau', 'baden', 'wettingen', 'brugg', 'lenzburg'] },
+  AI: { code: 'AI', names: ['appenzell innerrhoden', 'appenzell rhodes-intérieures', 'appenzello interno', 'appenzell'] },
+  AR: { code: 'AR', names: ['appenzell ausserrhoden', 'appenzell rhodes-extérieures', 'appenzello esterno', 'herisau', 'teufen'] },
+  BE: { code: 'BE', names: ['bern', 'berne', 'berna', 'thun', 'biel', 'bienne', 'burgdorf', 'langenthal', 'köniz', 'ostermundigen', 'spiez', 'interlaken', 'münsingen'] },
+  BL: { code: 'BL', names: ['basel-landschaft', 'bâle-campagne', 'basilea campagna', 'liestal', 'allschwil', 'reinach', 'muttenz', 'pratteln', 'binningen'] },
+  BS: { code: 'BS', names: ['basel-stadt', 'bâle-ville', 'basilea città', 'basel', 'bâle', 'basilea'] },
+  FR: { code: 'FR', names: ['fribourg', 'freiburg', 'friborgo', 'friburgo', 'bulle', 'murten', 'morat'] },
+  GE: { code: 'GE', names: ['genève', 'geneva', 'genf', 'ginevra', 'carouge', 'vernier', 'lancy', 'meyrin', 'onex'] },
+  GL: { code: 'GL', names: ['glarus', 'glaris', 'glarona'] },
+  GR: {
+    code: 'GR',
+    names: [
+      'graubünden', 'graubunden', 'grisons', 'grigioni', 'grischun',
+      'engadina', 'engadin', 'mesolcina', 'calanca',
+    ],
+  },
+  JU: { code: 'JU', names: ['jura', 'giura', 'delémont', 'delemont', 'porrentruy'] },
+  LU: { code: 'LU', names: ['luzern', 'lucerne', 'lucerna', 'emmen', 'kriens', 'horw', 'sursee'] },
+  NE: { code: 'NE', names: ['neuchâtel', 'neuchatel', 'neuenburg', 'la chaux-de-fonds'] },
+  NW: { code: 'NW', names: ['nidwalden', 'nidwald', 'nidvaldo', 'stans'] },
+  OW: { code: 'OW', names: ['obwalden', 'obwald', 'obvaldo', 'sarnen'] },
+  SG: { code: 'SG', names: ['st. gallen', 'st gallen', 'saint-gall', 'san gallo', 'sankt gallen', 'st-gallen', 'rapperswil', 'buchs', 'gossau', 'wil'] },
+  SH: { code: 'SH', names: ['schaffhausen', 'schaffhouse', 'sciaffusa'] },
+  SO: { code: 'SO', names: ['solothurn', 'soleure', 'soletta', 'olten', 'grenchen'] },
+  SZ: { code: 'SZ', names: ['schwyz', 'svitto', 'einsiedeln'] },
+  TG: { code: 'TG', names: ['thurgau', 'thurgovie', 'turgovia', 'frauenfeld', 'kreuzlingen', 'weinfelden', 'amriswil'] },
+  TI: {
+    code: 'TI',
+    names: [
+      'ticino', 'tessin',
+      'cantone ticino', 'canton ticino', 'canton tessin',
+      'mendrisiotto', 'sopraceneri', 'sottoceneri',
+      'leventina', 'vallemaggia', 'svizzera italiana',
+      'gottardo', 'san gottardo', 'gotthard',
+    ],
+  },
+  UR: { code: 'UR', names: ['uri', 'altdorf'] },
+  VD: { code: 'VD', names: ['vaud', 'waadt', 'lausanne', 'montreux', 'vevey', 'nyon', 'morges', 'renens', 'yverdon', 'yverdon-les-bains'] },
+  VS: { code: 'VS', names: ['valais', 'wallis', 'vallese', 'sion', 'sitten', 'brig', 'visp', 'martigny', 'monthey', 'zermatt', 'sierre', 'naters', 'crans-montana', 'leukerbad', 'saas-fee', 'verbier'] },
+  ZG: { code: 'ZG', names: ['zug', 'zoug', 'zugo', 'baar', 'cham'] },
+  ZH: { code: 'ZH', names: ['zürich', 'zurich', 'zuerich', 'zurigo', 'winterthur', 'uster', 'dübendorf', 'kloten', 'wetzikon', 'dietikon', 'opfikon', 'spreitenbach'] },
+};
+
+export const ALL_CANTON_CODES = Object.keys(SWISS_CANTONS);
+
+/**
+ * Check if a canton code is in the current target scope.
+ */
+export function isTargetCanton(cantonCode = '') {
+  return TARGET_CANTONS.includes(String(cantonCode).toUpperCase().trim());
+}
+
+/**
+ * Normalize a free-text canton name to its 2-letter code.
+ * Searches ALL 26 cantons (not just target cantons).
+ * Returns '' if not recognized.
+ */
+export function normalizeAnyCantonCode(raw = '') {
+  const lower = String(raw || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9 ]/g, ' ').trim();
+  if (!lower) return '';
+  // Direct 2-letter code match
+  const upper = lower.toUpperCase();
+  if (SWISS_CANTONS[upper]) return upper;
+  // Search names/aliases
+  for (const [code, canton] of Object.entries(SWISS_CANTONS)) {
+    if (canton.names.some((name) => name === lower || lower === name.normalize('NFD').replace(/[\u0300-\u036f]/g, ''))) {
+      return code;
+    }
+  }
+  return '';
+}
+
+// ─── COMPANY HQ REGISTRY ───────────────────────────────────────────────────
+// Default location for Cat-C crawlers (single-location companies).
+// Used by crawlers via getCompanyDefaults(slug).
+export const COMPANY_HQ = {
+  // ── TI companies ──
+  'a-plus-plus-group':            { city: 'Massagno',           canton: 'TI', postalCode: '6900', addressRegion: 'TI' },
+  'ail':                          { city: 'Lugano',             canton: 'TI', postalCode: '6900', addressRegion: 'TI' },
+  'aldi-suisse':                  { city: 'Lugano',             canton: 'TI', postalCode: '6900', addressRegion: 'TI' },
+  'artisa':                       { city: 'Lugano',             canton: 'TI', postalCode: '6900', addressRegion: 'TI' },
+  'banca-sempione':               { city: 'Lugano',             canton: 'TI', postalCode: '6900', addressRegion: 'TI' },
+  'bosch':                        { city: 'Lugano',             canton: 'TI', postalCode: '6900', addressRegion: 'TI' },
+  'bps-suisse':                   { city: 'Lugano',             canton: 'TI', postalCode: '6900', addressRegion: 'TI' },
+  'cambiavalute':                 { city: 'Chiasso',            canton: 'TI', postalCode: '6830', addressRegion: 'TI' },
+  'casale':                       { city: 'Lugano',             canton: 'TI', postalCode: '6900', addressRegion: 'TI' },
+  'caseificio-gottardo':          { city: 'Airolo',             canton: 'TI', postalCode: '6780', addressRegion: 'TI' },
+  'centiel':                      { city: 'Cadro',              canton: 'TI', postalCode: '6965', addressRegion: 'TI' },
+  'convit':                       { city: 'Massagno',           canton: 'TI', postalCode: '6900', addressRegion: 'TI' },
+  'cerbios-pharma':               { city: 'Barbengo',           canton: 'TI', postalCode: '6917', addressRegion: 'TI' },
+  'citta-di-bellinzona':          { city: 'Bellinzona',         canton: 'TI', postalCode: '6500', addressRegion: 'TI' },
+  'citta-di-locarno':             { city: 'Locarno',            canton: 'TI', postalCode: '6600', addressRegion: 'TI' },
+  'citta-di-lugano':              { city: 'Lugano',             canton: 'TI', postalCode: '6900', addressRegion: 'TI' },
+  'corner':                       { city: 'Lugano',             canton: 'TI', postalCode: '6901', addressRegion: 'TI' },
+  'csc-costruzioni':              { city: 'Lugano',             canton: 'TI', postalCode: '6900', addressRegion: 'TI' },
+  'damiani':                      { city: 'Lugano',             canton: 'TI', postalCode: '6900', addressRegion: 'TI' },
+  'delvitech':                    { city: 'Bioggio',            canton: 'TI', postalCode: '6934', addressRegion: 'TI' },
+  'engelvoelkers':                { city: 'Lugano',             canton: 'TI', postalCode: '6900', addressRegion: 'TI' },
+  'eoc':                          { city: 'Bellinzona',         canton: 'TI', postalCode: '6500', addressRegion: 'TI' },
+  'fart':                         { city: 'Locarno',            canton: 'TI', postalCode: '6601', addressRegion: 'TI' },
+  'goline':                       { city: 'Stabio',             canton: 'TI', postalCode: '6934', addressRegion: 'TI' },
+  'has-healthcare':               { city: 'Biasca',             canton: 'TI', postalCode: '6710', addressRegion: 'TI' },
+  'helsinn':                      { city: 'Lugano',             canton: 'TI', postalCode: '6912', addressRegion: 'TI' },
+  'julius-baer':                  { city: 'Lugano',             canton: 'TI', postalCode: '6900', addressRegion: 'TI' },
+  'lafonte':                      { city: 'Lugano',             canton: 'TI', postalCode: '6900', addressRegion: 'TI' },
+  'lastminute':                   { city: 'Chiasso',            canton: 'TI', postalCode: '6830', addressRegion: 'TI' },
+  'linnea':                       { city: 'Riazzino',           canton: 'TI', postalCode: '6595', addressRegion: 'TI' },
+  'lis':                          { city: 'Pregassona',         canton: 'TI', postalCode: '6963', addressRegion: 'TI' },
+  'livingcircle':                 { city: 'Ascona',             canton: 'TI', postalCode: '6612', addressRegion: 'TI' },
+  'lwphr':                        { city: 'Manno',              canton: 'TI', postalCode: '6928', addressRegion: 'TI' },
+  'medacta':                      { city: 'Castel San Pietro',  canton: 'TI', postalCode: '6874', addressRegion: 'TI' },
+  'mendrisio':                    { city: 'Mendrisio',          canton: 'TI', postalCode: '6850', addressRegion: 'TI' },
+  'otis':                         { city: 'Lugano',             canton: 'TI', postalCode: '6900', addressRegion: 'TI' },
+  'oscam':                        { city: 'Caslano',            canton: 'TI', postalCode: '6987', addressRegion: 'TI' },
+  'prada':                        { city: 'Mendrisio',          canton: 'TI', postalCode: '6850', addressRegion: 'TI' },
+  'raiffeisen-vc':                { city: 'Cadempino',          canton: 'TI', postalCode: '6814', addressRegion: 'TI' },
+  'rapelli':                      { city: 'Stabio',             canton: 'TI', postalCode: '6855', addressRegion: 'TI' },
+  'sintetica':                    { city: 'Mendrisio',          canton: 'TI', postalCode: '6850', addressRegion: 'TI' },
+  'supsi':                        { city: 'Manno',              canton: 'TI', postalCode: '6928', addressRegion: 'TI' },
+  'tarchini-group':               { city: 'Lumino',             canton: 'TI', postalCode: '6533', addressRegion: 'TI' },
+  'tich':                         { city: 'Bellinzona',         canton: 'TI', postalCode: '6501', addressRegion: 'TI' },
+  'tinext':                       { city: 'Manno',              canton: 'TI', postalCode: '6928', addressRegion: 'TI' },
+  'tpl-lugano':                   { city: 'Lugano',             canton: 'TI', postalCode: '6900', addressRegion: 'TI' },
+  'usi':                          { city: 'Lugano',             canton: 'TI', postalCode: '6900', addressRegion: 'TI' },
+  'vir-biotechnology':            { city: 'Bellinzona',         canton: 'TI', postalCode: '6500', addressRegion: 'TI' },
+  // ── GR companies ──
+  'cedes':                        { city: 'Landquart',          canton: 'GR', postalCode: '7302', addressRegion: 'GR' },
+  'davos-klosters-bergbahnen':    { city: 'Davos',              canton: 'GR', postalCode: '7270', addressRegion: 'GR' },
+  'ems-chemie':                   { city: 'Domat/Ems',          canton: 'GR', postalCode: '7013', addressRegion: 'GR' },
+  'ferrovia-retica':              { city: 'Chur',               canton: 'GR', postalCode: '7000', addressRegion: 'GR' },
+  'grace':                        { city: 'St. Moritz',         canton: 'GR', postalCode: '7500', addressRegion: 'GR' },
+  'kronenhof':                    { city: 'Pontresina',         canton: 'GR', postalCode: '7504', addressRegion: 'GR' },
+  'ksgr':                         { city: 'Chur',               canton: 'GR', postalCode: '7000', addressRegion: 'GR' },
+  'stadt-chur':                   { city: 'Chur',               canton: 'GR', postalCode: '7000', addressRegion: 'GR' },
+  'pdgr':                         { city: 'Chur',               canton: 'GR', postalCode: '7000', addressRegion: 'GR' },
+  'kanton-gr':                    { city: 'Chur',               canton: 'GR', postalCode: '7000', addressRegion: 'GR' },
+  'kulm-hotel':                   { city: 'St. Moritz',         canton: 'GR', postalCode: '7500', addressRegion: 'GR' },
+  'weisse-arena':                 { city: 'Laax',               canton: 'GR', postalCode: '7031', addressRegion: 'GR' },
+  'flury-stiftung':               { city: 'Schiers',            canton: 'GR', postalCode: '7220', addressRegion: 'GR' },
+  'hochgebirgsklinik-davos':      { city: 'Davos',              canton: 'GR', postalCode: '7270', addressRegion: 'GR' },
+  'badrutts-palace':              { city: 'St. Moritz',         canton: 'GR', postalCode: '7500', addressRegion: 'GR' },
+  'rss-surselva':                 { city: 'Ilanz',              canton: 'GR', postalCode: '7130', addressRegion: 'GR' },
+  'integra-biosciences':          { city: 'Zizers',             canton: 'GR', postalCode: '7205', addressRegion: 'GR' },
+  'spital-thusis':                { city: 'Thusis',             canton: 'GR', postalCode: '7430', addressRegion: 'GR' },
+  'gkb':                          { city: 'Chur',               canton: 'GR', postalCode: '7000', addressRegion: 'GR' },
+  'tschuggen':                    { city: 'Arosa',              canton: 'GR', postalCode: '7050', addressRegion: 'GR' },
+  'cseb':                         { city: 'Scuol',              canton: 'GR', postalCode: '7550', addressRegion: 'GR' },
+  'somedia':                      { city: 'Chur',               canton: 'GR', postalCode: '7000', addressRegion: 'GR' },
+  'spital-davos':                 { city: 'Davos',              canton: 'GR', postalCode: '7270', addressRegion: 'GR' },
+  'fhgr':                         { city: 'Chur',               canton: 'GR', postalCode: '7000', addressRegion: 'GR' },
+  'wuerth-international':         { city: 'Chur',               canton: 'GR', postalCode: '7000', addressRegion: 'GR' },
+  'heineken-ch':                  { city: 'Chur',               canton: 'GR', postalCode: '7000', addressRegion: 'GR' },
+  'giardino':                     { city: 'Champfèr',           canton: 'GR', postalCode: '7512', addressRegion: 'GR' },
+  'gemeinde-st-moritz':           { city: 'St. Moritz',         canton: 'GR', postalCode: '7500', addressRegion: 'GR' },
+  // ── Aliases (crawler COMPANY_KEY → canonical config slug) ──
+  'a-group':                      { city: 'Massagno',           canton: 'TI', postalCode: '6900', addressRegion: 'TI' },
+  'ail-lugano':                   { city: 'Lugano',             canton: 'TI', postalCode: '6900', addressRegion: 'TI' },
+  'artisa-group':                 { city: 'Lugano',             canton: 'TI', postalCode: '6900', addressRegion: 'TI' },
+  'eoc-ente-ospedaliero-cantonale': { city: 'Bellinzona',       canton: 'TI', postalCode: '6500', addressRegion: 'TI' },
+  'grace-la-margna':              { city: 'St. Moritz',         canton: 'GR', postalCode: '7500', addressRegion: 'GR' },
+  'grand-hotel-kronenhof':        { city: 'Pontresina',         canton: 'GR', postalCode: '7504', addressRegion: 'GR' },
+  'kantonsspital-graubuenden-ksgr': { city: 'Chur',             canton: 'GR', postalCode: '7000', addressRegion: 'GR' },
+  'la-fonte':                     { city: 'Lugano',             canton: 'TI', postalCode: '6900', addressRegion: 'TI' },
+  // ── Valais / Wallis (VS) — major employers ──
+  'lonza':                        { city: 'Visp',               canton: 'VS', postalCode: '3930', addressRegion: 'VS' },
+  'hopital-du-valais':            { city: 'Sion',               canton: 'VS', postalCode: '1950', addressRegion: 'VS' },
+  'etat-du-valais':               { city: 'Sion',               canton: 'VS', postalCode: '1950', addressRegion: 'VS' },
+  'groupe-mutuel':                { city: 'Martigny',            canton: 'VS', postalCode: '1920', addressRegion: 'VS' },
+  'hes-so-valais':                { city: 'Sion',               canton: 'VS', postalCode: '1950', addressRegion: 'VS' },
+  'novelis':                      { city: 'Sierre',             canton: 'VS', postalCode: '3960', addressRegion: 'VS' },
+  'commune-de-sion':              { city: 'Sion',               canton: 'VS', postalCode: '1950', addressRegion: 'VS' },
+  'clinique-de-valere':           { city: 'Sion',               canton: 'VS', postalCode: '1950', addressRegion: 'VS' },
+  'cimo-sa':                      { city: 'Monthey',            canton: 'VS', postalCode: '1870', addressRegion: 'VS' },
+  // ── New Valais crawlers (Apr 2026) ──
+  'marriott':                     { city: 'Zermatt',            canton: 'VS', postalCode: '3920', addressRegion: 'VS' },
+  'reboot-monkey':                { city: 'Visp',               canton: 'VS', postalCode: '3930', addressRegion: 'VS' },
+  'arxada':                       { city: 'Visp',               canton: 'VS', postalCode: '3930', addressRegion: 'VS' },
+  // Cathedral CH-wide expansion (2026-05-10): UBS HQ is Zürich. Per-job
+  // canton is set by the canton-quorum-gate on the parser output.
+  'ubs':                          { city: 'Zürich',             canton: 'ZH', postalCode: '8001', addressRegion: 'ZH' },
+  'interdiscount':                { city: 'Naters',             canton: 'VS', postalCode: '3904', addressRegion: 'VS' },
+  'matterhorn-gotthard-bahn':     { city: 'Brig',               canton: 'VS', postalCode: '3900', addressRegion: 'VS' },
+  'swiss-life':                   { city: 'Sion',               canton: 'VS', postalCode: '1950', addressRegion: 'VS' },
+  'siegfried':                    { city: 'Evionnaz',            canton: 'VS', postalCode: '1902', addressRegion: 'VS' },
+  'vaxcyte':                      { city: 'Sion',               canton: 'VS', postalCode: '1950', addressRegion: 'VS' },
+  'srg-ssr':                      { city: 'Bern',               canton: 'BE', postalCode: '3000', addressRegion: 'BE' },
+  'inselspital':                  { city: 'Bern',               canton: 'BE', postalCode: '3010', addressRegion: 'BE' },
+  // ── Cathedral Phase 3 hospital crawlers ──
+  'usz':                          { city: 'Zürich',             canton: 'ZH', postalCode: '8091', addressRegion: 'ZH' },
+  'unispital-basel':              { city: 'Basel',              canton: 'BS', postalCode: '4031', addressRegion: 'BS' },
+  'kssg':                         { city: 'St. Gallen',         canton: 'SG', postalCode: '9007', addressRegion: 'SG' },
+  'stadtspital-zuerich':          { city: 'Zürich',             canton: 'ZH', postalCode: '8063', addressRegion: 'ZH' },
+  'luks':                         { city: 'Luzern',             canton: 'LU', postalCode: '6000', addressRegion: 'LU' },
+  // ── Cathedral Phase 5 hospital crawlers (wave 2) ──
+  'hirslanden':                   { city: 'Zürich',             canton: 'ZH', postalCode: '8008', addressRegion: 'ZH' },
+  'spital-sts':                   { city: 'Thun',               canton: 'BE', postalCode: '3600', addressRegion: 'BE' },
+  'lindenhofgruppe':              { city: 'Bern',               canton: 'BE', postalCode: '3012', addressRegion: 'BE' },
+  'ehc-vd':                       { city: 'Morges',             canton: 'VD', postalCode: '1110', addressRegion: 'VD' },
+  'hrc':                          { city: 'Rennaz',             canton: 'VD', postalCode: '1847', addressRegion: 'VD' },
+  'hib-broye':                    { city: 'Payerne',            canton: 'VD', postalCode: '1530', addressRegion: 'VD' },
+  'hopital-la-tour':              { city: 'Meyrin',             canton: 'GE', postalCode: '1217', addressRegion: 'GE' },
+  'bethesda-spital':              { city: 'Basel',              canton: 'BS', postalCode: '4052', addressRegion: 'BS' },
+  'adullam':                      { city: 'Basel',              canton: 'BS', postalCode: '4054', addressRegion: 'BS' },
+  'klinik-sonnenhalde':           { city: 'Riehen',             canton: 'BS', postalCode: '4125', addressRegion: 'BS' },
+  'pole-sante-pays-enhaut':       { city: 'Château-d\'Oex',     canton: 'VD', postalCode: '1660', addressRegion: 'VD' },
+  'ehnv':                         { city: 'Yverdon-les-Bains',  canton: 'VD', postalCode: '1400', addressRegion: 'VD' },
+  'ksbl':                         { city: 'Liestal',            canton: 'BL', postalCode: '4410', addressRegion: 'BL' },
+  'rsbj':                         { city: 'Sainte-Croix',       canton: 'VD', postalCode: '1450', addressRegion: 'VD' },
+  'cs-bregaglia':                 { city: 'Promontogno',        canton: 'GR', postalCode: '7606', addressRegion: 'GR' },
+  'csvp-poschiavo':               { city: 'Poschiavo',          canton: 'GR', postalCode: '7742', addressRegion: 'GR' },
+  'csvm-mustair':                 { city: 'Sta. Maria Val Müstair', canton: 'GR', postalCode: '7536', addressRegion: 'GR' },
+  'klinik-arlesheim':             { city: 'Arlesheim',          canton: 'BL', postalCode: '4144', addressRegion: 'BL' },
+  'rehab-basel':                  { city: 'Basel',              canton: 'BS', postalCode: '4055', addressRegion: 'BS' },
+  'kliniken-valens':              { city: 'Valens',             canton: 'SG', postalCode: '7317', addressRegion: 'SG' },
+  'merian-iselin':                { city: 'Basel',              canton: 'BS', postalCode: '4054', addressRegion: 'BS' },
+  'berner-klinik-montana':        { city: 'Crans-Montana',      canton: 'VS', postalCode: '3963', addressRegion: 'VS' },
+  'zurzach-care':                 { city: 'Bad Zurzach',        canton: 'AG', postalCode: '5330', addressRegion: 'AG' },
+  'spital-muri':                  { city: 'Muri',               canton: 'AG', postalCode: '5630', addressRegion: 'AG' },
+  'spital-zofingen':              { city: 'Zofingen',           canton: 'AG', postalCode: '4800', addressRegion: 'AG' },
+  'hopital-de-lavaux':            { city: 'Cully',              canton: 'VD', postalCode: '1096', addressRegion: 'VD' },
+  'riveneuve':                    { city: 'Blonay',             canton: 'VD', postalCode: '1807', addressRegion: 'VD' },
+  'institution-lavigny':          { city: 'Lavigny',            canton: 'VD', postalCode: '1175', addressRegion: 'VD' },
+  'ophtalmique':                  { city: 'Lausanne',           canton: 'VD', postalCode: '1004', addressRegion: 'VD' },
+  'clinique-la-source':           { city: 'Lausanne',           canton: 'VD', postalCode: '1004', addressRegion: 'VD' },
+  // ── Batch 5 (SPA + EMS networks + Prospective discovery) ──
+  'spital-buelach':               { city: 'Bülach',             canton: 'ZH', postalCode: '8180', addressRegion: 'ZH' },
+  'gzo-wetzikon':                 { city: 'Wetzikon',           canton: 'ZH', postalCode: '8620', addressRegion: 'ZH' },
+  'spital-affoltern':             { city: 'Affoltern am Albis', canton: 'ZH', postalCode: '8910', addressRegion: 'ZH' },
+  'spital-zollikerberg':          { city: 'Zollikerberg',       canton: 'ZH', postalCode: '8125', addressRegion: 'ZH' },
+  'klinik-schuetzen':             { city: 'Rheinfelden',        canton: 'AG', postalCode: '4310', addressRegion: 'AG' },
+  'klinik-barmelweid':            { city: 'Barmelweid',         canton: 'AG', postalCode: '5017', addressRegion: 'AG' },
+  'senevita':                     { city: 'Münchenbuchsee',     canton: 'BE', postalCode: '3053', addressRegion: 'BE' },
+  'tertianum':                    { city: 'Zürich',             canton: 'ZH', postalCode: '8002', addressRegion: 'ZH' },
+  'spitex-ch':                    { city: 'Bern',               canton: 'BE', postalCode: '3000', addressRegion: 'BE' },
+  'klinik-lengg':                 { city: 'Zürich',             canton: 'ZH', postalCode: '8008', addressRegion: 'ZH' },
+  'spitaeler-schaffhausen':       { city: 'Schaffhausen',       canton: 'SH', postalCode: '8208', addressRegion: 'SH' },
+  'claraspital':                  { city: 'Basel',              canton: 'BS', postalCode: '4002', addressRegion: 'BS' },
+  // ── Batch 6 (LUKS swap + Prospective SSR + cantonal SSR + small cantons) ──
+  'ksgl':                         { city: 'Glarus',             canton: 'GL', postalCode: '8750', addressRegion: 'GL' },
+  'lups':                         { city: 'Luzern',             canton: 'LU', postalCode: '6000', addressRegion: 'LU' },
+  'soh-solothurner-spitaeler':    { city: 'Solothurn',          canton: 'SO', postalCode: '4500', addressRegion: 'SO' },
+  'hfr-hopital-fribourgeois':     { city: 'Fribourg',           canton: 'FR', postalCode: '1708', addressRegion: 'FR' },
+  'h-ju-hopital-du-jura':         { city: 'Delémont',           canton: 'JU', postalCode: '2800', addressRegion: 'JU' },
+  'rhne-reseau-hospitalier-neuchatelois': { city: 'Neuchâtel',  canton: 'NE', postalCode: '2000', addressRegion: 'NE' },
+  'zuger-kantonsspital':          { city: 'Baar',               canton: 'ZG', postalCode: '6340', addressRegion: 'ZG' },
+  'spital-schwyz':                { city: 'Schwyz',             canton: 'SZ', postalCode: '6430', addressRegion: 'SZ' },
+  'kantonsspital-uri':            { city: 'Altdorf',            canton: 'UR', postalCode: '6460', addressRegion: 'UR' },
+  'cnp':                          { city: 'Marin-Epagnier',     canton: 'NE', postalCode: '2074', addressRegion: 'NE' },
+  'spital-lachen':                { city: 'Lachen',             canton: 'SZ', postalCode: '8853', addressRegion: 'SZ' },
+  'klinik-adelheid':              { city: 'Unterägeri',         canton: 'ZG', postalCode: '6314', addressRegion: 'ZG' },
+  'klinik-schloss-mammern':       { city: 'Mammern',            canton: 'TG', postalCode: '8265', addressRegion: 'TG' },
+  // ── Batch 7 (sub-clinics + small private + GE/VS) ──
+  'balgrist':                     { city: 'Zürich',             canton: 'ZH', postalCode: '8008', addressRegion: 'ZH' },
+  'sro':                          { city: 'Langenthal',         canton: 'BE', postalCode: '4900', addressRegion: 'BE' },
+  'spital-emmental':              { city: 'Burgdorf',           canton: 'BE', postalCode: '3400', addressRegion: 'BE' },
+  'daler-hopital':                { city: 'Fribourg',           canton: 'FR', postalCode: '1700', addressRegion: 'FR' },
+  'lhm-luzerner-hohenklinik-montana': { city: 'Crans-Montana',  canton: 'VS', postalCode: '3963', addressRegion: 'VS' },
+  'arsante-clinique-de-carouge':  { city: 'Carouge',            canton: 'GE', postalCode: '1227', addressRegion: 'GE' },
+  'clinique-cic':                 { city: 'Saxon',              canton: 'VS', postalCode: '1907', addressRegion: 'VS' },
+  'crr-suva-sion':                { city: 'Sion',               canton: 'VS', postalCode: '1950', addressRegion: 'VS' },
+  // ── Batch 8 (JobPublish/Jobalino/Solique + Prospective+Umantis + EMS) ──
+  'reha-bellikon':                { city: 'Bellikon',           canton: 'AG', postalCode: '5454', addressRegion: 'AG' },
+  'privatklinik-meiringen':       { city: 'Meiringen',          canton: 'BE', postalCode: '3860', addressRegion: 'BE' },
+  'michel-gruppe':                { city: 'Meiringen',          canton: 'BE', postalCode: '3860', addressRegion: 'BE' },
+  'svar-spitalverbund-ar':        { city: 'Heiden',             canton: 'AR', postalCode: '9410', addressRegion: 'AR' },
+  'spz':                          { city: 'Nottwil',            canton: 'LU', postalCode: '6207', addressRegion: 'LU' },
+  'kispi-zurich':                 { city: 'Zürich',             canton: 'ZH', postalCode: '8032', addressRegion: 'ZH' },
+  'upd':                          { city: 'Bern',               canton: 'BE', postalCode: '3000', addressRegion: 'BE' },
+  'hoch-health':                  { city: 'St. Gallen',         canton: 'SG', postalCode: '9007', addressRegion: 'SG' },
+  'viva-luzern':                  { city: 'Luzern',             canton: 'LU', postalCode: '6000', addressRegion: 'LU' },
+  'sanatorium-kilchberg':         { city: 'Kilchberg',          canton: 'ZH', postalCode: '8802', addressRegion: 'ZH' },
+  'caritas-schweiz':              { city: 'Luzern',             canton: 'LU', postalCode: '6002', addressRegion: 'LU' },
+  'privatklinik-hohenegg':        { city: 'Meilen',             canton: 'ZH', postalCode: '8706', addressRegion: 'ZH' },
+  // ── Batch 9 (STGAG custom subdomain + Clienia + Vitrea/onlyfy) ──
+  'stgag':                        { city: 'Münsterlingen',      canton: 'TG', postalCode: '8596', addressRegion: 'TG' },
+  'clienia-ag':                   { city: 'Pfäffikon',          canton: 'ZH', postalCode: '8330', addressRegion: 'ZH' },
+  'vitrea-gesundheit':            { city: 'Seewis im Prättigau', canton: 'GR', postalCode: '7212', addressRegion: 'GR' },
+  // ── Batch 10 (more EMS + KSB Baden Workday) ──
+  'ksb':                          { city: 'Baden',              canton: 'AG', postalCode: '5404', addressRegion: 'AG' },
+  'solina':                       { city: 'Spiez',              canton: 'BE', postalCode: '3700', addressRegion: 'BE' },
+  'sonnweid':                     { city: 'Wetzikon',           canton: 'ZH', postalCode: '8620', addressRegion: 'ZH' },
+  'diakoniewerk-neumuenster':     { city: 'Zollikerberg',       canton: 'ZH', postalCode: '8125', addressRegion: 'ZH' },
+  'spitex-basel':                 { city: 'Basel',              canton: 'BS', postalCode: '4051', addressRegion: 'BS' },
+  // ── Batch 11 (FMI + disability foundations) ──
+  'fmi':                          { city: 'Unterseen',          canton: 'BE', postalCode: '3800', addressRegion: 'BE' },
+  'bachtelen':                    { city: 'Grenchen',           canton: 'SO', postalCode: '2540', addressRegion: 'SO' },
+  'pigna':                        { city: 'Kloten',             canton: 'ZH', postalCode: '8302', addressRegion: 'ZH' },
+  'wagerenhof':                   { city: 'Uster',              canton: 'ZH', postalCode: '8610', addressRegion: 'ZH' },
+  // ── Batch 12 (Prospective discovery + SPG + small TI/GR) ──
+  'schulthess-klinik':            { city: 'Zürich',             canton: 'ZH', postalCode: '8008', addressRegion: 'ZH' },
+  'cds-savognin':                 { city: 'Savognin',           canton: 'GR', postalCode: '7460', addressRegion: 'GR' },
+  'concara':                      { city: 'Bern',               canton: 'BE', postalCode: '3012', addressRegion: 'BE' },
+  'epi-stiftung':                 { city: 'Zürich',             canton: 'ZH', postalCode: '8008', addressRegion: 'ZH' },
+  'paraplegie':                   { city: 'Nottwil',            canton: 'LU', postalCode: '6207', addressRegion: 'LU' },
+  // ── Batch 13 (Umantis + Refline sweep) ──
+  'ipw':                          { city: 'Winterthur',         canton: 'ZH', postalCode: '8408', addressRegion: 'ZH' },
+  'gesundheitszentrum-fricktal':  { city: 'Rheinfelden',        canton: 'AG', postalCode: '4310', addressRegion: 'AG' },
+  'pdag':                         { city: 'Windisch',           canton: 'AG', postalCode: '5210', addressRegion: 'AG' },
+  'klinik-im-hasel':              { city: 'Gontenschwil',       canton: 'AG', postalCode: '5728', addressRegion: 'AG' },
+  'medics-labor':                 { city: 'Bern',               canton: 'BE', postalCode: '3001', addressRegion: 'BE' },
+  'stiftung-kind-autismus':       { city: 'Zürich',             canton: 'ZH', postalCode: '8002', addressRegion: 'ZH' },
+  'spitex-zuerich':               { city: 'Zürich',             canton: 'ZH', postalCode: '8001', addressRegion: 'ZH' },
+  // ── Batch 14 (Workday + Prospective extended + TI Pro Senectute) ──
+  'stryker':                      { city: 'Biberist',           canton: 'SO', postalCode: '4562', addressRegion: 'SO' },
+  'asana-spital':                 { city: 'Menziken',           canton: 'AG', postalCode: '5737', addressRegion: 'AG' },
+  'gz-dielsdorf':                 { city: 'Dielsdorf',          canton: 'ZH', postalCode: '8157', addressRegion: 'ZH' },
+  'pzm-muensingen':               { city: 'Münsingen',          canton: 'BE', postalCode: '3110', addressRegion: 'BE' },
+  'prosenectute-ti':              { city: 'Lugano',             canton: 'TI', postalCode: '6900', addressRegion: 'TI' },
+  'spital-limmattal':             { city: 'Schlieren',          canton: 'ZH', postalCode: '8952', addressRegion: 'ZH' },
+  'huntsman':                     { city: 'Monthey',            canton: 'VS', postalCode: '1870', addressRegion: 'VS' },
+  'fielmann':                     { city: 'Sion',               canton: 'VS', postalCode: '1950', addressRegion: 'VS' },
+  'fusalp':                       { city: 'Annecy',             canton: 'VS', postalCode: '1950', addressRegion: 'VS' },
+  'localsearch':                  { city: 'Zurich',             canton: 'ZH', postalCode: '8001', addressRegion: 'ZH' },
+  'tally-weijl':                  { city: 'Basel',              canton: 'BS', postalCode: '4001', addressRegion: 'BS' },
+  'transgourmet':                 { city: 'Basel',              canton: 'BS', postalCode: '4002', addressRegion: 'BS' },
+  'novartis':                     { city: 'Basel',              canton: 'BS', postalCode: '4002', addressRegion: 'BS' },
+  'roche':                        { city: 'Basel',              canton: 'BS', postalCode: '4070', addressRegion: 'BS' },
+  'bcvs':                         { city: 'Sion',               canton: 'VS', postalCode: '1950', addressRegion: 'VS' },
+  'coopers':                      { city: 'Visp',               canton: 'VS', postalCode: '3930', addressRegion: 'VS' },
+  'kone':                         { city: 'Luzern',             canton: 'LU', postalCode: '6003', addressRegion: 'LU' },
+  'mobiliar':                     { city: 'Bern',               canton: 'BE', postalCode: '3001', addressRegion: 'BE' },
+  // Cathedral CH-wide marquee batch (2026-05-10) — Pictet + HUG.
+  'pictet':                       { city: 'Genève',             canton: 'GE', postalCode: '1204', addressRegion: 'GE' },
+  'hug':                          { city: 'Genève',             canton: 'GE', postalCode: '1205', addressRegion: 'GE' },
+  'bms-building':                 { city: 'Naters',             canton: 'VS', postalCode: '3904', addressRegion: 'VS' },
+  'bls':                          { city: 'Bern',               canton: 'BE', postalCode: '3001', addressRegion: 'BE' },
+  'berner-montage':               { city: 'Visp',               canton: 'VS', postalCode: '3930', addressRegion: 'VS' },
+  'siemens-healthineers':         { city: 'Zurich',             canton: 'ZH', postalCode: '8047', addressRegion: 'ZH' },
+  'csd-engineers':                { city: 'Sion',               canton: 'VS', postalCode: '1950', addressRegion: 'VS' },
+  'fondation-domus':              { city: 'Sion',               canton: 'VS', postalCode: '1950', addressRegion: 'VS' },
+  'jumbo':                        { city: 'Dietlikon',          canton: 'ZH', postalCode: '8305', addressRegion: 'ZH' },
+  'omega':                        { city: 'Biel/Bienne',        canton: 'BE', postalCode: '2502', addressRegion: 'BE' },
+  'air-zermatt':                  { city: 'Raron',              canton: 'VS', postalCode: '3942', addressRegion: 'VS' },
+  'engadin-tourismus':            { city: 'St. Moritz',         canton: 'GR', postalCode: '7500', addressRegion: 'GR' },
+  // ── New batch: 25 crawlers (Apr 2026) ──
+  'stadler-rail':                 { city: 'Bellinzona',         canton: 'TI', postalCode: '6500', addressRegion: 'TI' },
+  'tether':                       { city: 'Lugano',             canton: 'TI', postalCode: '6900', addressRegion: 'TI' },
+  'bitfinex':                     { city: 'Lugano',             canton: 'TI', postalCode: '6900', addressRegion: 'TI' },
+  'sika':                         { city: 'Visp',               canton: 'VS', postalCode: '3930', addressRegion: 'VS' },
+  'logitech':                     { city: 'Lausanne',           canton: 'VD', postalCode: '1015', addressRegion: 'VD' },
+  'holcim':                       { city: 'Zug',                canton: 'ZG', postalCode: '6300', addressRegion: 'ZG' },
+  'constellium':                  { city: 'Sierre',             canton: 'VS', postalCode: '3960', addressRegion: 'VS' },
+  'canton-valais':                { city: 'Sion',               canton: 'VS', postalCode: '1950', addressRegion: 'VS' },
+  'zermatt-bergbahnen':           { city: 'Zermatt',            canton: 'VS', postalCode: '3920', addressRegion: 'VS' },
+  'ikea':                         { city: 'Grancia',            canton: 'TI', postalCode: '6916', addressRegion: 'TI' },
+  'benteler':                     { city: 'Manno',              canton: 'TI', postalCode: '6928', addressRegion: 'TI' },
+  'moncucco':                     { city: 'Lugano',             canton: 'TI', postalCode: '6900', addressRegion: 'TI' },
+  'bally':                        { city: 'Caslano',            canton: 'TI', postalCode: '6987', addressRegion: 'TI' },
+  'mabetex':                      { city: 'Lugano',             canton: 'TI', postalCode: '6900', addressRegion: 'TI' },
+  'arosa-lenzerheide':            { city: 'Arosa',              canton: 'GR', postalCode: '7050', addressRegion: 'GR' },
+  'oerlikon':                     { city: 'Balzers',            canton: 'GR', postalCode: '9496', addressRegion: 'GR' },
+  'riri':                         { city: 'Mendrisio',          canton: 'TI', postalCode: '6850', addressRegion: 'TI' },
+  'chicco-doro':                  { city: 'Balerna',            canton: 'TI', postalCode: '6828', addressRegion: 'TI' },
+  'ubp':                          { city: 'Lugano',             canton: 'TI', postalCode: '6900', addressRegion: 'TI' },
+  'apg-sga':                      { city: 'Lugano',             canton: 'TI', postalCode: '6900', addressRegion: 'TI' },
+  'imerys':                       { city: 'Bodio',              canton: 'TI', postalCode: '6743', addressRegion: 'TI' },
+  'faulhaber':                    { city: 'Croglio',            canton: 'TI', postalCode: '6981', addressRegion: 'TI' },
+  'alprose':                      { city: 'Caslano',            canton: 'TI', postalCode: '6987', addressRegion: 'TI' },
+  'kudelski-nagra':               { city: 'Lugano',             canton: 'TI', postalCode: '6900', addressRegion: 'TI' },
+  'franklin-university':          { city: 'Sorengo',            canton: 'TI', postalCode: '6924', addressRegion: 'TI' },
+  'elettra-1938':                 { city: 'Mendrisio',          canton: 'TI', postalCode: '6850', addressRegion: 'TI' },
+  'zurich-insurance':             { city: 'Zürich',             canton: 'ZH', postalCode: '8002', addressRegion: 'ZH' },
+  // ── Cathedral Phase 2 Wave C Batch 2 ──
+  'nestle':                       { city: 'Vevey',              canton: 'VD', postalCode: '1800', addressRegion: 'VD' },
+  'migros-hq':                    { city: 'Zürich',             canton: 'ZH', postalCode: '8005', addressRegion: 'ZH' },
+  'schindler':                    { city: 'Ebikon',             canton: 'LU', postalCode: '6030', addressRegion: 'LU' },
+  // ── Cathedral Phase 2 Wave C Batch 3 ──
+  'swiss-re':                     { city: 'Zürich',             canton: 'ZH', postalCode: '8022', addressRegion: 'ZH' },
+  'eth-zurich':                   { city: 'Zürich',             canton: 'ZH', postalCode: '8092', addressRegion: 'ZH' },
+  'epfl':                         { city: 'Lausanne',           canton: 'VD', postalCode: '1015', addressRegion: 'VD' },
+  // ── Cathedral Phase 2 Wave C Batch 3 Wave 2 ──
+  'chuv':                         { city: 'Lausanne',           canton: 'VD', postalCode: '1011', addressRegion: 'VD' },
+  // ── Cathedral Phase 4 T4.1b — tier-2 marquee ──
+  'sulzer':                       { city: 'Winterthur',         canton: 'ZH', postalCode: '8401', addressRegion: 'ZH' },
+  'givaudan':                     { city: 'Vernier',            canton: 'GE', postalCode: '1214', addressRegion: 'GE' },
+  // ── Cathedral Phase 4 T4.2 wave 1 — hospitals ──
+  'ksa':                          { city: 'Aarau',              canton: 'AG', postalCode: '5001', addressRegion: 'AG' },
+  'ksw':                          { city: 'Winterthur',         canton: 'ZH', postalCode: '8400', addressRegion: 'ZH' },
+  'spital-thurgau':               { city: 'Münsterlingen',      canton: 'TG', postalCode: '8596', addressRegion: 'TG' },
+  'solothurner-spitaeler':        { city: 'Solothurn',          canton: 'SO', postalCode: '4500', addressRegion: 'SO' },
+  // ── Cathedral Phase 6 T6.5 wave 1 — tier-3 marquee (banking/luxury/shipping/industrial/insurance) ──
+  'lombard-odier':                { city: 'Geneva',             canton: 'GE', postalCode: '1204', addressRegion: 'GE' },
+  'richemont':                    { city: 'Bellevue',           canton: 'GE', postalCode: '1293', addressRegion: 'GE' },
+  'msc-cargo':                    { city: 'Geneva',             canton: 'GE', postalCode: '1201', addressRegion: 'GE' },
+  'bobst':                        { city: 'Mex',                canton: 'VD', postalCode: '1031', addressRegion: 'VD' },
+  'vaudoise':                     { city: 'Lausanne',           canton: 'VD', postalCode: '1007', addressRegion: 'VD' },
+  // ── Cathedral Phase 6 T6.6 wave 1 — hospitals ──
+  'gzo-wetzikon':                 { city: 'Wetzikon',           canton: 'ZH', postalCode: '8620', addressRegion: 'ZH' },
+  'spital-maennedorf':            { city: 'Männedorf',          canton: 'ZH', postalCode: '8708', addressRegion: 'ZH' },
+  'spital-uster':                 { city: 'Uster',              canton: 'ZH', postalCode: '8610', addressRegion: 'ZH' },
+  'ksb':                          { city: 'Baden',              canton: 'AG', postalCode: '5404', addressRegion: 'AG' },
+  'see-spital':                   { city: 'Horgen',             canton: 'ZH', postalCode: '8810', addressRegion: 'ZH' },
+  // ── Legacy update-{crawler}.mjs HQ fallbacks (registered to retire TARGET_CANTONS[0] default) ──
+  'guess-europe':                 { city: 'Bioggio',            canton: 'TI', postalCode: '6934', addressRegion: 'TI' },
+  'convit-holding':               { city: 'Massagno',           canton: 'TI', postalCode: '6900', addressRegion: 'TI' },
+  'engel-voelkers':               { city: 'Lugano',             canton: 'TI', postalCode: '6900', addressRegion: 'TI' },
+  'mikron':                       { city: 'Agno',               canton: 'TI', postalCode: '6982', addressRegion: 'TI' },
+  'amag-group':                   { city: 'Cham',               canton: 'ZG', postalCode: '6330', addressRegion: 'ZG' },
+  'damiani-group':                { city: 'Lugano',             canton: 'TI', postalCode: '6900', addressRegion: 'TI' },
+  'international-school-of-ticino': { city: 'Lugano',           canton: 'TI', postalCode: '6900', addressRegion: 'TI' },
+  'lombardi-group':               { city: 'Minusio',            canton: 'TI', postalCode: '6648', addressRegion: 'TI' },
+  'fincons-group':                { city: 'Lugano',             canton: 'TI', postalCode: '6900', addressRegion: 'TI' },
+  'abb-svizzera-sede-ticino':     { city: 'Quartino',           canton: 'TI', postalCode: '6595', addressRegion: 'TI' },
+  'mtic-group':                   { city: 'Lugano',             canton: 'TI', postalCode: '6900', addressRegion: 'TI' },
+  'dxt-commodities':              { city: 'Lugano',             canton: 'TI', postalCode: '6900', addressRegion: 'TI' },
+  'alten-switzerland':            { city: 'Lausanne',           canton: 'VD', postalCode: '1003', addressRegion: 'VD' },
+  'delvitech-sa':                 { city: 'Bioggio',            canton: 'TI', postalCode: '6934', addressRegion: 'TI' },
+  'allianz-suisse':               { city: 'Wallisellen',        canton: 'ZH', postalCode: '8304', addressRegion: 'ZH' },
+  'lastminute-com':               { city: 'Chiasso',            canton: 'TI', postalCode: '6830', addressRegion: 'TI' },
+  'interroll':                    { city: "Sant'Antonino",      canton: 'TI', postalCode: '6592', addressRegion: 'TI' },
+  'rittmeyer-ag':                 { city: 'Baar',               canton: 'ZG', postalCode: '6340', addressRegion: 'ZG' },
+  'swiss-medical-network':        { city: 'Genolier',           canton: 'VD', postalCode: '1272', addressRegion: 'VD' },
+  'mks-pamp':                     { city: 'Castel San Pietro',  canton: 'TI', postalCode: '6874', addressRegion: 'TI' },
+  'pemsa':                        { city: 'Camorino',           canton: 'TI', postalCode: '6528', addressRegion: 'TI' },
+  'relewant':                     { city: 'Lugano',             canton: 'TI', postalCode: '6900', addressRegion: 'TI' },
+  'galenica':                     { city: 'Bern',               canton: 'BE', postalCode: '3001', addressRegion: 'BE' },
+  'denner':                       { city: 'Zürich',             canton: 'ZH', postalCode: '8045', addressRegion: 'ZH' },
+  'banca-cler':                   { city: 'Basel',              canton: 'BS', postalCode: '4002', addressRegion: 'BS' },
+  'manor':                        { city: 'Basel',              canton: 'BS', postalCode: '4002', addressRegion: 'BS' },
+  'zambon':                       { city: 'Cadempino',          canton: 'TI', postalCode: '6814', addressRegion: 'TI' },
+  'lidl-svizzera':                { city: 'Weinfelden',         canton: 'TG', postalCode: '8570', addressRegion: 'TG' },
+  'hugo-boss':                    { city: 'Coldrerio',          canton: 'TI', postalCode: '6877', addressRegion: 'TI' },
+  'ffs-officine-ferrovie-federali': { city: 'Bellinzona',       canton: 'TI', postalCode: '6500', addressRegion: 'TI' },
+  'ibsa-institut-biochimique':    { city: 'Lugano',             canton: 'TI', postalCode: '6903', addressRegion: 'TI' },
+  'bosch-thermotechnik-ag':       { city: 'Lugano',             canton: 'TI', postalCode: '6900', addressRegion: 'TI' },
+  'confederazione-ticino':        { city: 'Bellinzona',         canton: 'TI', postalCode: '6500', addressRegion: 'TI' },
+  'capri-holdings':                { city: 'Mendrisio',          canton: 'TI', postalCode: '6850', addressRegion: 'TI' },
+  // ── Second-wave per-crawler HQ registry (retire script-local filters) ──
+  'burkhalter-group':              { city: 'Zürich',              canton: 'ZH', postalCode: '8050', addressRegion: 'ZH' },
+  'trumpf-schweiz':                { city: 'Grüsch',              canton: 'GR', postalCode: '7214', addressRegion: 'GR' },
+  'ermenegildo-zegna-logistica':   { city: 'Stabio',              canton: 'TI', postalCode: '6855', addressRegion: 'TI' },
+};
+
+/**
+ * Get HQ defaults for a company by crawler slug.
+ * Returns { city, canton, postalCode, addressRegion } or null.
+ */
+export function getCompanyDefaults(slug = '') {
+  return COMPANY_HQ[slug] || null;
+}
+
+// ─── PROSPECTIVE.CH REGION IDS ─────────────────────────────────────────────
+// Per-platform canton-to-regionId mapping for Prospective.ch crawlers.
+// Canonical source: data/platform-region-ids.json (maintained manually + discovery script).
+// This inline copy is kept for backward compatibility and fast access.
+export const PROSPECTIVE_REGION_IDS = {
+  // medium 1000103 (Coop, Fust) — attribute 30 = canton
+  'm1000103': { TI: '1024522', GR: '1024512' },
+  // medium 1000624 (Confederazione, VTG) — attribute = region
+  // Romandie macro-region covers VS+VD+GE+NE+FR+JU — needs post-filtering
+  'm1000624': { TI: '1083341', GR_OSTSCHWEIZ: '1083334', VS_ROMANDIE: '1083337' },
+  // CC 2193 (AXA) — filter_20 = region
+  'cc2193': { TI: '68794', GR_OSTSCHWEIZ: '68792' },
+  // CC 1001859 (Volg) — filter_20 = region
+  'cc1001859': { TI: '1164274', GR: '1164264', VS: '1164278' },
+};
+
+/**
+ * Get Prospective.ch region IDs for target cantons on a given platform.
+ * @param {string} platformKey - e.g. 'm1000103', 'cc2193'
+ * @returns {Array<{canton: string, regionId: string}>}
+ */
+export function getProspectiveRegionIds(platformKey) {
+  const mapping = PROSPECTIVE_REGION_IDS[platformKey];
+  if (!mapping) return [];
+  return Object.entries(mapping)
+    .filter(([canton]) => TARGET_CANTONS.some((tc) => canton.startsWith(tc)))
+    .map(([canton, regionId]) => ({ canton, regionId }));
+}
+
+// ─── ALIASES REQUIRED BY docs/crawler-parametrizzazione-plan.md ───────────
+// The plan specifies HQ_REGISTRY + getCantonForLocation names. We expose them
+// here as thin aliases over COMPANY_HQ + location→canton resolution so the
+// plan's contract is satisfied without churning the existing API.
+
+/** Alias for COMPANY_HQ — kept for naming parity with the param plan. */
+export const HQ_REGISTRY = COMPANY_HQ;
+
+/**
+ * Localized human-readable name for a canton code, used by crawlers that
+ * embed a region label in the job description. Replaces hardcoded ternaries
+ * like `canton === 'GR' ? 'Grigioni' : 'Ticino'` (docs/crawler-parametrizzazione-plan.md).
+ *
+ * @param {string} cantonCode - 2-letter canton code (TI, GR, VS, …)
+ * @param {'it'|'de'|'fr'|'en'} locale - output language; defaults to 'it'
+ * @returns {string} canton name in the requested language, or the raw code if unknown.
+ */
+export function getCantonDisplayName(cantonCode = '', locale = 'it') {
+  const code = String(cantonCode).toUpperCase().trim();
+  const entry = SWISS_CANTONS[code];
+  if (!entry) return cantonCode;
+
+  const map = {
+    TI: { it: 'Ticino', de: 'Tessin', fr: 'Tessin', en: 'Ticino' },
+    GR: { it: 'Grigioni', de: 'Graubünden', fr: 'Grisons', en: 'Graubünden' },
+    VS: { it: 'Vallese', de: 'Wallis', fr: 'Valais', en: 'Valais' },
+    ZH: { it: 'Zurigo', de: 'Zürich', fr: 'Zurich', en: 'Zurich' },
+    BE: { it: 'Berna', de: 'Bern', fr: 'Berne', en: 'Bern' },
+    LU: { it: 'Lucerna', de: 'Luzern', fr: 'Lucerne', en: 'Lucerne' },
+    BS: { it: 'Basilea Città', de: 'Basel-Stadt', fr: 'Bâle-Ville', en: 'Basel-Stadt' },
+    GE: { it: 'Ginevra', de: 'Genf', fr: 'Genève', en: 'Geneva' },
+    VD: { it: 'Vaud', de: 'Waadt', fr: 'Vaud', en: 'Vaud' },
+    FR: { it: 'Friburgo', de: 'Freiburg', fr: 'Fribourg', en: 'Fribourg' },
+    NE: { it: 'Neuchâtel', de: 'Neuenburg', fr: 'Neuchâtel', en: 'Neuchâtel' },
+    JU: { it: 'Giura', de: 'Jura', fr: 'Jura', en: 'Jura' },
+  };
+
+  const loc = map[code];
+  if (loc && loc[locale]) return loc[locale];
+  // Fallback to the first canonical name from SWISS_CANTONS.
+  return (entry.names[0] || code).replace(/\b\w/g, (c) => c.toUpperCase());
+}
+
+/**
+ * Resolve a free-text location (city or canton string) to its 2-letter
+ * canton code. Returns '' if nothing recognizable matched.
+ *
+ * Matching strategy:
+ *   1. Exact / normalized match against every canton's `names` list.
+ *   2. Token-substring match (location contains any canton alias).
+ *
+ * @param {string} rawLocation - free-text location, e.g. "Lugano, Ticino".
+ * @returns {string} 2-letter canton code or ''.
+ */
+export function getCantonForLocation(rawLocation = '') {
+  const normalized = String(rawLocation || '')
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^a-z0-9 ]+/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+  if (!normalized) return '';
+
+  const direct = normalizeAnyCantonCode(normalized);
+  if (direct) return direct;
+
+  for (const [code, canton] of Object.entries(SWISS_CANTONS)) {
+    for (const name of canton.names) {
+      const token = name.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+      if (!token) continue;
+      const re = new RegExp(`(^|\\s)${token.replace(/[.*+?^${}()|[\\]\\\\]/g, '\\$&')}(\\s|$)`);
+      if (re.test(normalized)) return code;
+    }
+  }
+  return '';
+}

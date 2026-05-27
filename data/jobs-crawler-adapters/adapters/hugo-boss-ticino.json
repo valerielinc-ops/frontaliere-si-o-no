@@ -1,0 +1,22 @@
+{
+  "companyKey": "hugo-boss-ticino",
+  "companyName": "Hugo Boss Ticino",
+  "companyHost": "hugoboss.com",
+  "enabled": true,
+  "priority": 0,
+  "crawlerModes": [
+    "generic_ats",
+    "html",
+    "jsonld"
+  ],
+  "seedUrls": [
+    "https://www.hugoboss.com/careers",
+    "https://www.hugoboss.com/career",
+    "https://www.hugoboss.com/jobs",
+    "https://www.hugoboss.com/karriere",
+    "https://www.hugoboss.com/offene-stellen",
+    "https://www.hugoboss.com/lavora-con-noi"
+  ],
+  "notes": "",
+  "updatedAt": "2026-02-27T17:06:06.953Z"
+}

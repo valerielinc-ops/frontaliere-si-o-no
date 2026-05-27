@@ -1,0 +1,114 @@
+name: Snapshot Jobs Weekly (F5)
+
+# Writes data/jobs-snapshots-history/{YYYY-WW}.json every Monday 06:00 UTC
+# so the weekly-employers build plugin can compute per-city delta.
+# Also regenerates data/weekly-employers-delta.json as a human-readable
+# companion file. Safe to re-run: the snapshot file for the current ISO week
+# is overwritten (last-writer-wins).
+
+on:
+  schedule:
+    - cron: '0 6 * * 1' # Every Monday 06:00 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  snapshot:
+    runs-on: ubuntu-latest
+    # 45 = 10 (snapshot+delta+pairs) + 30 (AI enrichment cap) + 5 buffer
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+
+      - name: Install dependencies (light)
+        run: npm ci --ignore-scripts
+
+      - name: Assemble jobs dataset
+        # Produces data/jobs.json from per-crawler slices. Soft-fails if the
+        # slices are stale — the snapshot script handles missing jobs.json.
+        run: node scripts/assemble-jobs-dataset.mjs || true
+
+      - name: Write weekly snapshot
+        run: node scripts/snapshot-jobs-weekly.mjs
+
+      - name: Compute weekly employer delta (report file)
+        run: node scripts/compute-weekly-employer-delta.mjs
+
+      - name: Refresh weekly-employers footer link list
+        # Regenerates data/weekly-employers-top-pairs.json so the SPA footer
+        # only links to (city × company) pages that actually qualify under
+        # MIN_JOBS_PER_COMPANY_IN_CITY. Without this refresh the footer
+        # accumulates stale links over time as the labour market shifts.
+        run: node scripts/refresh-weekly-employers-top-pairs.mjs
+
+      - name: Audit related-search candidates
+        # Regenerates data/related-search-candidates.json from the assembled
+        # jobs.json. This drives the related-search cluster landing-page
+        # plugin (~1,500 SEO landings under /{lang}/{section}/search-{slug}/).
+        # Soft-fail: a missing audit blocks enrichment but not the snapshot.
+        run: node scripts/audit-related-search-candidates.mjs || true
+
+      - name: Re-ingest GSC orphan slugs into candidates
+        # The audit above regenerates candidates from current jobs.json only,
+        # which DROPS synthetic candidates for cluster URLs Google has 404'd
+        # but whose underlying jobs have since expired (so they no longer
+        # produce any keyword emission via the SPA). This step re-merges the
+        # download/frontaliereticino.ch-Coverage-*/Tabella.csv exports back
+        # in as gscMatch=true synthetics, so the cluster plugin keeps trying
+        # to recover them via OR-fill matching on every build.
+        # Idempotent + soft-fail: missing CSV directory is treated as a no-op.
+        run: node scripts/ingest-gsc-orphans-into-candidates.mjs || true
+
+      - name: Prepare Firebase credentials (for AI enrichment via Remote Config)
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -n "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+            echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+          else
+            echo "ℹ️ Firebase secret not set — AI enrichment will skip."
+          fi
+
+      - name: Load AI keys from Remote Config
+        if: env.GOOGLE_APPLICATION_CREDENTIALS != ''
+        run: node scripts/load-rc-env.mjs
+        continue-on-error: true
+
+      - name: Enrich related-search clusters (incremental, AI)
+        # Generates 80-120 word AI intros + 3 FAQ per cluster. Incremental:
+        # cached entries are skipped via SHA-256 fingerprint of the input
+        # candidate. Best-effort — never blocks the snapshot.
+        if: env.GH_MODELS_PAT != '' || env.GITHUB_PAT != '' || env.GEMINI_API_KEY != '' || env.OPENROUTER_API_KEY != ''
+        run: node scripts/enrich-related-search-clusters.mjs --verbose
+        continue-on-error: true
+        timeout-minutes: 30
+
+      - name: Commit snapshot + delta + footer pairs + cluster data
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/jobs-snapshots-history/ data/weekly-employers-delta.json data/weekly-employers-top-pairs.json data/related-search-candidates.json data/related-search-enriched.json 2>/dev/null || true
+          if git diff --cached --quiet; then
+            echo "No changes to snapshot — nothing to commit."
+            exit 0
+          fi
+          git commit -m "chore(seo): refresh weekly-employers snapshot + related-search clusters
+
+          Co-authored-by: Copilot <223556219+Copilot@users.noreply.github.com>"
+
+          # Centralized rebase-retry helper survives concurrent pushes from
+          # other scheduled workflows. On rebase conflict, regenerate the
+          # snapshot + delta + footer pairs + cluster data on top of the new base.
+          bash scripts/lib/git-push-with-retry.sh \
+            --regenerate-cmd "node scripts/assemble-jobs-dataset.mjs || true; node scripts/snapshot-jobs-weekly.mjs; node scripts/compute-weekly-employer-delta.mjs; node scripts/refresh-weekly-employers-top-pairs.mjs; node scripts/audit-related-search-candidates.mjs || true; node scripts/ingest-gsc-orphans-into-candidates.mjs || true; git add data/jobs-snapshots-history/ data/weekly-employers-delta.json data/weekly-employers-top-pairs.json data/related-search-candidates.json data/related-search-enriched.json 2>/dev/null || true"

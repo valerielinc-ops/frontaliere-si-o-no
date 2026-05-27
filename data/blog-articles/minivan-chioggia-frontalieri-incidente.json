@@ -1,0 +1,40 @@
+{
+  "id": "minivan-chioggia-frontalieri-incidente",
+  "slug": "minivan-chioggia-frontalieri-incidente",
+  "publishedAt": "2026-05-10T05:26:47.761Z",
+  "cluster": "salute",
+  "_pool": "proven",
+  "_pool_source": "media.laregione.ch",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 6.585088006420715,
+    "confidence": 0.8,
+    "finalScore": 5.268070405136573,
+    "topK": [
+      {
+        "slug": "gravincidente-stradale-regina-feriti",
+        "cosine": 0.8231360008025894
+      },
+      {
+        "slug": "tragedia-lago-como-frontalieri",
+        "cosine": 0.8061935208513767
+      },
+      {
+        "slug": "trin-tunnel-grave-frontalieri",
+        "cosine": 0.8042673410276637
+      },
+      {
+        "slug": "tramonto-a-cadenazzo",
+        "cosine": 0.8014124326566007
+      },
+      {
+        "slug": "laghi-lombardi-sicurezza-estate-2026",
+        "cosine": 0.8000636024193795
+      }
+    ],
+    "score": 5.268070405136573,
+    "clusterDiversityBonus": 1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "salute"
+  }
+}

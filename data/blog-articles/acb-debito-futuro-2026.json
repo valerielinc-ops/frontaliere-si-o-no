@@ -1,0 +1,40 @@
+{
+  "id": "acb-debito-futuro-2026",
+  "slug": "acb-debito-futuro-2026",
+  "publishedAt": "2026-05-10T09:50:29.480Z",
+  "cluster": "pratico",
+  "_pool": "proven",
+  "_pool_source": "media.laregione.ch",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 3.248593579430641,
+    "confidence": 0.8,
+    "finalScore": 2.5988748635445127,
+    "topK": [
+      {
+        "slug": "aggregazione-rischio-basso-mendrisiotto",
+        "cosine": 0.8121483948576602
+      },
+      {
+        "slug": "chiasso-valore-economico-aggregazione",
+        "cosine": 0.8102444647256141
+      },
+      {
+        "slug": "dfp-bankitalia-margini-debito-ue-2026",
+        "cosine": 0.8048907323819103
+      },
+      {
+        "slug": "banca-piazza-petruzzella-abt-2026",
+        "cosine": 0.8044238020125002
+      },
+      {
+        "slug": "nuove-regole-scambio-informazioni-ader-enti-creditori",
+        "cosine": 0.8022650845964842
+      }
+    ],
+    "score": 2.5988748635445127,
+    "clusterDiversityBonus": 1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "pratico"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "companyKey": "banca-cler",
+  "companyName": "Banca Cler",
+  "companyHost": "cler.ch",
+  "enabled": true,
+  "priority": 0,
+  "crawlerModes": [
+    "generic_ats",
+    "html",
+    "jsonld"
+  ],
+  "seedUrls": [
+    "https://www.cler.ch/it/banca-cler/jobs-und-karriere/cercare-candidatura/offene-stellen",
+    "https://www.cler.ch/de/bank-cler/jobs-und-karriere/stellen-suchen/offene-stellen",
+    "https://www.cler.ch/fr/banque-cler/jobs-und-karriere/rechercher-un-poste/offene-stellen",
+    "https://www.cler.ch/en/bank-cler/jobs-und-karriere/find-a-job/offene-stellen"
+  ],
+  "notes": "",
+  "updatedAt": "2026-02-27T17:06:06.926Z"
+}

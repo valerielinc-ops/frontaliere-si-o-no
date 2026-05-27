@@ -1,0 +1,15 @@
+{
+  "companyKey": "dxt-commodities",
+  "companyName": "DXT Commodities S.A.",
+  "companyHost": "dxt.com",
+  "enabled": true,
+  "priority": 10,
+  "crawlerModes": [
+    "html"
+  ],
+  "seedUrls": [
+    "https://dxt.com/careers/"
+  ],
+  "notes": "WordPress + WPSM accordion at dxt.com/careers/ — job listings extracted directly from inline accordion panels, no individual detail pages.",
+  "updatedAt": "2026-05-26T22:41:36.013Z"
+}

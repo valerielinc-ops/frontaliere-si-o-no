@@ -1,0 +1,13 @@
+page_key,canonical_path,group,num_claims,source_authority,notes
+fisco,/tasse-e-pensione,pillars,5,Nuovo Accordo 2023/AFC/AdE,EXISTING — 5 myth-busting ClaimReviews already shipped (Sprint 6)
+pillarTasseSvizzere,/tasse-e-pensione/tasse-svizzere-frontalieri,pillars,3,AFC/Convenzione Italia-Svizzera,Adds verifiable withholding-tax range + franchigia + credito d'imposta claims
+pillarNuovaLegge2026,/tasse-e-pensione/nuova-legge-frontalieri-2026,pillars,3,Legge 83/2023 + Accordo 23/12/2023,Franchigia 10.000€ + 25% telelavoro + 2033 transition
+pillarStipendiChVsIt,/statistiche/stipendi-svizzera-vs-italia,hubs,3,USTAT/ISTAT/UST,Swiss-Italian salary differential 1.8-2.2x + Lugano cost of living +30-40%
+pillarLavoroLugano,/vita-in-ticino/lavoro-a-lugano,hubs,2,USTAT/Job board data,Lugano job counts 80-120/week + sector shares
+pillarOssSvizzera,/vita-in-ticino/oss-svizzera,hubs,2,SRK/CCL Sanità Ticino,OSS stipendio CHF 55-75k + riconoscimento SRK 4-6 mesi
+pension,/tasse-e-pensione/calcola-previdenza,pillars,3,UFAS AVS/UFSS LPP,AVS max CHF 2.450 + LPP aliquote età + totalizzazione bilaterali
+permits,/guida-frontaliere/permessi-di-lavoro,pillars,2,SEM/UFM 20km rule,Permit G 20km residence + 5-year validity
+withholdingRates,/tasse-e-pensione/aliquote-imposta-alla-fonte-ticino-2026,annual-report,2,AFC Ticino tabelle A/B/C/H,Tax rate 3-35% + table assignment rules
+healthPremiums,/statistiche/premi-malattia-comuni,hubs,2,UFSP/Comparis LAMal,LAMal premium cantonal variance + per-commune delta
+pillar3,/tasse-e-pensione/simula-terzo-pilastro,pillars,2,UFAS/3a legal limits,3a cap CHF 7.258 + fiscal savings 12-15%
+holidays,/tasse-e-pensione/festivita-ticino,annual-report,2,Canton Ticino Legge festività + CO art 110,15 holidays + lex loci laboris

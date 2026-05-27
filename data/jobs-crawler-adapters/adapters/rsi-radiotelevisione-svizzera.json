@@ -1,0 +1,22 @@
+{
+  "companyKey": "rsi-radiotelevisione-svizzera",
+  "companyName": "RSI (Radiotelevisione Svizzera)",
+  "companyHost": "rsi.ch",
+  "enabled": true,
+  "priority": 0,
+  "crawlerModes": [
+    "generic_ats",
+    "html",
+    "jsonld"
+  ],
+  "seedUrls": [
+    "https://www.rsi.ch/careers",
+    "https://www.rsi.ch/career",
+    "https://www.rsi.ch/jobs",
+    "https://www.rsi.ch/karriere",
+    "https://www.rsi.ch/offene-stellen",
+    "https://www.rsi.ch/lavora-con-noi"
+  ],
+  "notes": "",
+  "updatedAt": "2026-02-27T17:06:06.974Z"
+}

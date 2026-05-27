@@ -1,0 +1,16 @@
+{
+  "companyKey": "capri-holdings",
+  "companyName": "Capri Holdings (Michael Kors / Versace)",
+  "companyHost": "capri.wd1.myworkdayjobs.com",
+  "enabled": true,
+  "priority": 10,
+  "crawlerModes": [
+    "api"
+  ],
+  "seedUrls": [
+    "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors",
+    "https://capri.wd1.myworkdayjobs.com/en-US/Versace"
+  ],
+  "notes": "Workday API at capri.wd1.myworkdayjobs.com — Michael Kors + Versace. Swiss positions (Mendrisio TI logistics hub).",
+  "updatedAt": "2026-05-26T22:16:12.345Z"
+}

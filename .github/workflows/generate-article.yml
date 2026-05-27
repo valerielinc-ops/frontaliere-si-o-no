@@ -1,0 +1,537 @@
+name: Generate Blog Article
+
+on:
+  schedule:
+    # Every 30 minutes.  Body expansion is now capped at 600 words/field
+    # and translation uses dynamic maxTokens + sub-chunking, so free-tier
+    # models no longer truncate.  Duplicate-check exits early (no API calls)
+    # for most runs, keeping actual model consumption low.
+    - cron: '7,37 * * * *'
+  workflow_dispatch:
+    inputs:
+      url:
+        description: 'Optional: specific article URL to generate from (leave empty for auto-scan)'
+        required: false
+        type: string
+      retry_count:
+        description: 'Internal: retry counter for self-trigger chain (do not set manually)'
+        required: false
+        type: string
+        default: '0'
+      no_changes_streak:
+        description: 'Internal: consecutive no_changes counter for back-off (do not set manually)'
+        required: false
+        type: string
+        default: '0'
+
+concurrency:
+  # Shared group: only 1 run active at a time, next run queues (not skipped).
+  # GitHub keeps at most 1 pending — if a 3rd arrives, it replaces the pending one.
+  group: article-generation
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+  actions: read
+
+jobs:
+  generate:
+    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    steps:
+      # Free ~25-30 GB on the ubuntu-latest runner before any cache restore
+      # or generated media lands on disk. Mirror deploy.yml's cleanup: delete
+      # toolchains this repo never uses (Android SDK, .NET, Haskell, CodeQL,
+      # Swift, Boost). Node 22, npm cache, and Python tooling stay intact.
+      - name: Free disk space (remove unused toolchains)
+        shell: bash
+        run: |
+          echo "::group::Disk usage BEFORE cleanup"
+          df -h /
+          echo "::endgroup::"
+          sudo rm -rf /usr/local/lib/android &
+          sudo rm -rf /usr/share/dotnet &
+          sudo rm -rf /opt/ghc &
+          sudo rm -rf /usr/local/share/boost &
+          sudo rm -rf /opt/hostedtoolcache/CodeQL &
+          sudo rm -rf /usr/share/swift &
+          wait
+          echo "::group::Disk usage AFTER cleanup"
+          df -h /
+          echo "::endgroup::"
+
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 50
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Prepare Firebase credentials
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -n "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+          else
+            echo "⚠️ Firebase secrets not set — secrets will not be loaded from Remote Config."
+          fi
+          if [ -f /tmp/firebase-sa.json ]; then
+            echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+          fi
+
+      - name: Load secrets from Remote Config
+        run: node scripts/load-rc-env.mjs
+
+      - name: Cleanup stale news sitemap entries
+        run: node scripts/cleanup-news-sitemap.mjs
+
+      - name: Generate article
+        id: generate
+        env:
+          CREATE_ARTICLE_REPORT_FILE: .tmp/create-article-run-report.json
+        run: |
+          echo "📰 Generating blog article..."
+          if [ -n "${{ inputs.url }}" ]; then
+            node scripts/create-article.mjs "${{ inputs.url }}"
+          else
+            node scripts/create-article.mjs
+          fi
+
+      - name: Create-article final report
+        if: always()
+        run: |
+          # shellcheck disable=SC2016
+          node -e '
+            const fs = require("fs");
+            const p = ".tmp/create-article-run-report.json";
+            if (!fs.existsSync(p)) {
+              fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY, "## Create-article report\n\nNo report file produced.\n");
+              process.exit(0);
+            }
+            const r = JSON.parse(fs.readFileSync(p, "utf8"));
+            const dup = r.duplicateReasonBreakdown || {};
+            const dupLines = Object.keys(dup).length
+              ? Object.entries(dup).map(([k,v]) => `- ${k}: ${v}`).join("\n")
+              : "- none";
+            const lines = [
+              "## Create-article report",
+              "",
+              `- status: ${r.status || "unknown"}`,
+              `- selected article type: ${r.selectedArticleType || "n/a"}`,
+              `- sources scanned: ${r.sources?.scanned ?? 0}/${r.sources?.configured ?? 0} (ok=${r.sources?.succeeded ?? 0}, failed=${r.sources?.failed ?? 0})`,
+              `- recent vs undated used: recent=${r.selectionUsage?.attemptsRecent ?? 0}, undated=${r.selectionUsage?.attemptsUndated ?? 0}`,
+              "",
+              "### Duplicate reason breakdown",
+              dupLines,
+              "",
+              "### Headline pool stats",
+              `- total=${r.headlines?.total ?? 0}, recent=${r.headlines?.recent ?? 0}, undated=${r.headlines?.undated ?? 0}`,
+              `- usedRecent=${r.headlines?.usedRecent ?? 0}, usedUndated=${r.headlines?.usedUndated ?? 0}`,
+              "",
+              "### Report file",
+              `- \`${p}\``
+            ];
+            fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY, lines.join("\n") + "\n");
+          '
+
+      - name: Check for changes
+        id: changes
+        run: |
+          if git diff --quiet && git diff --cached --quiet; then
+            echo "has_changes=false" >> "$GITHUB_OUTPUT"
+            echo "ℹ️  No new article generated (no relevant news or duplicate detected)"
+          else
+            echo "has_changes=true" >> "$GITHUB_OUTPUT"
+            echo "📝 New article files detected:"
+            git status --short
+          fi
+
+      - name: Run article-critical tests
+        if: steps.changes.outputs.has_changes == 'true'
+        run: npm run test:articles
+
+      - name: Cache responsive image thumbnails
+        if: steps.changes.outputs.has_changes == 'true'
+        id: thumb-cache
+        uses: actions/cache@v5
+        with:
+          path: |
+            public/images/blog/thumbnails
+            public/images/places/thumbnails
+          key: thumbnails-v2-${{ github.run_id }}
+          restore-keys: |
+            thumbnails-v2-
+
+      - name: Generate responsive image thumbnails
+        if: steps.changes.outputs.has_changes == 'true'
+        run: node scripts/generate-image-thumbnails.mjs
+
+      # Do not run `npm run build:prod` here. This workflow commits generated
+      # article source and dispatches deploy.yml, which already assembles the
+      # jobs dataset and performs the full Vite/GitHub Pages build. Running the
+      # same production build inside article generation duplicates 20+ minutes
+      # of CPU work and has caused runner shutdowns before the article can be
+      # committed (run 26324239287, 2026-05-23).
+
+      - name: Commit and push
+        id: commit
+        if: steps.changes.outputs.has_changes == 'true'
+        # Pass step outputs via env: rather than inline `${{ }}` interpolation
+        # so they survive bash quoting safely. Article titles can contain
+        # double quotes ('No a una LAMal "low cost"') which break inline
+        # substitution: the literal `"` closes the bash assignment and
+        # subsequent tokens are interpreted as commands. With env: GitHub
+        # injects the value as a real env var, accessed via "$VAR".
+        env:
+          ARTICLE_TITLE: ${{ steps.generate.outputs.article_title }}
+          AUTHOR_SLUG: ${{ steps.generate.outputs.author_slug }}
+          AUTHOR_NAME: ${{ steps.generate.outputs.author_name }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          # Source the centralized append-only conflict resolver. Article
+          # generation only APPENDS entries to structured files (BlogArticles.tsx,
+          # router.ts, routerBlogData.ts, blog-articles-data.ts, sitemaps,
+          # article-source-urls.json). When both sides add entries at the same
+          # insertion point, git marks it as a conflict but both additions are
+          # valid; the function strips conflict markers and keeps both sides,
+          # then dedupes single-declaration conflicts in router.ts.
+          source scripts/lib/resolve-append-conflicts.sh
+
+          # ── Sync with remote BEFORE committing ──
+          git fetch origin main
+          LOCAL=$(git rev-parse HEAD)
+          REMOTE=$(git rev-parse origin/main)
+
+          if [ "$LOCAL" != "$REMOTE" ]; then
+            echo "⚠️  Remote has new commits since checkout — rebasing before commit..."
+            git stash --include-untracked
+            if ! git rebase origin/main; then
+              git rebase --abort
+              git stash pop 2>/dev/null || git stash drop
+              echo "⚠️  Rebase conflict — deferring article to next scheduled run"
+              echo "committed=false" >> "$GITHUB_OUTPUT"
+              exit 0
+            fi
+            if ! git stash pop; then
+              echo "⚠️  Stash pop had conflicts — attempting auto-resolution..."
+              if ! resolve_append_conflicts; then
+                echo "❌ Auto-resolution failed — deferring article to next run"
+                git checkout -- . 2>/dev/null || true
+                git clean -fd 2>/dev/null || true
+                git stash drop 2>/dev/null || true
+                echo "committed=false" >> "$GITHUB_OUTPUT"
+                exit 0
+              fi
+              # Drop the stash reference since we've resolved the conflicts
+              git stash drop 2>/dev/null || true
+            fi
+          fi
+
+          git add -A
+          # A2: descriptive commit message with article title + Reviewed-by
+          # trailer pointing to the assigned author from the registry.
+          # Falls back to the generic message when the create-article step
+          # didn't emit byline outputs (older runs / generation failure).
+          # ARTICLE_TITLE / AUTHOR_SLUG / AUTHOR_NAME come from env: above.
+          if [ -n "$ARTICLE_TITLE" ]; then
+            COMMIT_SUBJECT="feat(article): ${ARTICLE_TITLE}"
+            if [ -n "$AUTHOR_SLUG" ] && [ -n "$AUTHOR_NAME" ]; then
+              git commit -m "$COMMIT_SUBJECT" -m "Reviewed-by: ${AUTHOR_NAME} <${AUTHOR_SLUG}@frontaliereticino.ch>"
+            elif [ -n "$AUTHOR_SLUG" ]; then
+              git commit -m "$COMMIT_SUBJECT" -m "Reviewed-by: ${AUTHOR_SLUG}"
+            else
+              git commit -m "$COMMIT_SUBJECT"
+            fi
+          else
+            git commit -m "📰 Auto-generated blog article"
+          fi
+
+          # Push with centralized rebase-retry helper. The append-only files
+          # the article generator touches can conflict with concurrent main
+          # writers; --in-place-resolver-cmd keeps the local commit and runs
+          # resolve_append_conflicts inside the rebase, then `rebase --continue`.
+          if bash scripts/lib/git-push-with-retry.sh \
+            --max-attempts 3 \
+            --in-place-resolver-cmd "source scripts/lib/resolve-append-conflicts.sh && resolve_append_conflicts && git add -A"; then
+            echo "✅ Article committed and pushed to main"
+            echo "committed=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "⚠️  Push helper failed — deferring article to next run"
+            echo "committed=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+      - name: Verify article exists in committed source
+        if: steps.commit.outputs.committed == 'true' && steps.generate.outputs.article_id != ''
+        id: verify_article
+        run: |
+          ARTICLE_ID="${{ steps.generate.outputs.article_id }}"
+          echo "🔍 Verifying article: $ARTICLE_ID"
+
+          # Check 1: Article ID exists in blog-articles-data.ts
+          # (FRO-328 moved ARTICLES array from BlogArticles.tsx to data/blog-articles-data.ts)
+          if ! grep -q "$ARTICLE_ID" data/blog-articles-data.ts; then
+            echo "❌ Article '$ARTICLE_ID' NOT found in data/blog-articles-data.ts"
+            echo "exists=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          echo "  ✅ Found in data/blog-articles-data.ts"
+
+          echo "✅ Source checks passed for '$ARTICLE_ID'"
+          echo "exists=true" >> "$GITHUB_OUTPUT"
+
+      # Trigger deploy.yml (GITHUB_TOKEN pushes don't trigger other workflows)
+      # Uses env: block to safely pass values containing quotes/special chars
+      - name: Trigger deploy workflow
+        id: trigger_deploy
+        if: steps.commit.outputs.committed == 'true' && steps.verify_article.outputs.exists == 'true'
+        env:
+          DEPLOY_ARTICLE_ID: ${{ steps.generate.outputs.article_id }}
+          DEPLOY_ARTICLE_URL: ${{ steps.generate.outputs.article_url }}
+          DEPLOY_ARTICLE_OG_TITLE: ${{ steps.generate.outputs.og_title }}
+          DEPLOY_ARTICLE_OG_DESCRIPTION: ${{ steps.generate.outputs.og_description }}
+          DEPLOY_ARTICLE_OG_IMAGE: ${{ steps.generate.outputs.og_image }}
+          DEPLOY_ARTICLE_CATEGORY: ${{ steps.generate.outputs.category }}
+        run: |
+          EXPECTED_SHA="$(git rev-parse HEAD)" \
+          bash scripts/lib/trigger-deploy.sh
+
+      # ── Notify Google Indexing API ────────────────────────────────────
+      # Notify Google immediately so it crawls the new article within minutes.
+      # This runs AFTER deploy is triggered — Google will find the page live
+      # by the time it attempts to crawl (deploy takes ~2-3 min).
+      # Errors here never block the workflow.
+      - name: Notify Google Indexing API
+        if: steps.commit.outputs.committed == 'true' && steps.verify_article.outputs.exists == 'true'
+        continue-on-error: true
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          node --input-type=module -e "
+            import { notifyGoogleIndexing } from './scripts/lib/indexing-api.mjs';
+            import fs from 'fs';
+            const id = '${{ steps.generate.outputs.article_id }}';
+            if (!id) { console.log('[indexing-api] No article ID — skip'); process.exit(0); }
+            const BASE = 'https://frontaliereticino.ch'; // FRO-348: no www
+            // Read locale-specific slugs from BlogArticles.tsx BLOG_SLUGS map
+            const src = fs.readFileSync('components/community/BlogArticles.tsx', 'utf8');
+            const match = src.match(new RegExp(\"'\" + id + \"':\\\\s*\\\\{([^}]+)\\\\}\"));
+            const slugs = { it: id, en: id, de: id, fr: id };
+            if (match) {
+              for (const [, k, v] of match[1].matchAll(/(it|en|de|fr):\\s*'([^']+)'/g)) slugs[k] = v;
+            }
+            const urls = [
+              \`\${BASE}/articoli-frontaliere/\${slugs.it}/\`,
+              \`\${BASE}/en/cross-border-articles/\${slugs.en}/\`,
+              \`\${BASE}/de/grenzgaenger-artikel/\${slugs.de}/\`,
+              \`\${BASE}/fr/articles-frontalier/\${slugs.fr}/\`,
+            ];
+            await notifyGoogleIndexing(urls);
+          "
+
+      # ── Final disposition report ──────────────────────────────────────
+      # This step runs ALWAYS to give a clear summary of what happened
+      # to the generated article (committed? verified? submitted?).
+      - name: Article final disposition
+        if: always() && steps.generate.outputs.article_id != ''
+        run: |
+          ARTICLE_ID="${{ steps.generate.outputs.article_id }}"
+          ARTICLE_URL="${{ steps.generate.outputs.article_url }}"
+          SOURCE_URL="${{ steps.generate.outputs.source_url }}"
+          HAS_CHANGES="${{ steps.changes.outputs.has_changes }}"
+          COMMITTED="${{ steps.commit.outputs.committed }}"
+          VERIFIED="${{ steps.verify_article.outputs.exists }}"
+          DEPLOY_DISPATCHED="${{ steps.trigger_deploy.outputs.dispatch_sent }}"
+
+          # Determine final status
+          if [ "$VERIFIED" == "true" ] && [ "$DEPLOY_DISPATCHED" == "true" ]; then
+            STATUS="✅ Committed, verified in source, deploy triggered"
+            ICON="🟢"
+          elif [ "$VERIFIED" == "true" ] && [ "$DEPLOY_DISPATCHED" != "true" ]; then
+            STATUS="⚠️ Committed and verified in source, but deploy dispatch was not confirmed"
+            ICON="🟠"
+          elif [ "$COMMITTED" == "true" ] && [ "$VERIFIED" != "true" ]; then
+            STATUS="⚠️ Committed but verification FAILED — article may be broken"
+            ICON="🟠"
+          elif [ "$COMMITTED" == "false" ]; then
+            STATUS="❌ DEFERRED — commit/push failed (rebase conflict or push race). Article is LOST."
+            ICON="🔴"
+          elif [ "$HAS_CHANGES" == "true" ]; then
+            STATUS="❌ BLOCKED — tests failed before commit. Article is LOST."
+            ICON="🔴"
+          elif [ "$HAS_CHANGES" == "false" ]; then
+            STATUS="ℹ️ No changes detected (article generation produced no file changes)"
+            ICON="⚪"
+          else
+            STATUS="❓ Unknown — generate step may have failed"
+            ICON="⚪"
+          fi
+
+          echo ""
+          echo "$ICON FINAL DISPOSITION: $STATUS"
+          echo "   Article: $ARTICLE_ID"
+          echo "   URL: $ARTICLE_URL"
+          echo "   Source: $SOURCE_URL"
+          echo "   committed=$COMMITTED  verified=$VERIFIED  deploy_dispatched=$DEPLOY_DISPATCHED  has_changes=$HAS_CHANGES"
+          echo ""
+
+          # Append to step summary for clear visibility
+          {
+            echo "## $ICON Article Final Disposition"
+            echo ""
+            echo "| Field | Value |"
+            echo "|-------|-------|"
+            echo "| Article | \`$ARTICLE_ID\` |"
+            echo "| URL | $ARTICLE_URL |"
+            echo "| Source | $SOURCE_URL |"
+            echo "| Status | **$STATUS** |"
+            echo "| Changes detected | $HAS_CHANGES |"
+            echo "| Committed to main | $COMMITTED |"
+            echo "| Verified in source | $VERIFIED |"
+            echo "| Deploy dispatched | $DEPLOY_DISPATCHED |"
+          } >> "$GITHUB_STEP_SUMMARY"
+
+          # Emit warning annotation for lost articles (visible in PR / Actions UI)
+          if [ "$ICON" == "🔴" ]; then
+            echo ""
+            echo "::warning::Article '$ARTICLE_ID' was generated but LOST — $STATUS"
+            if [ -n "$SOURCE_URL" ]; then
+              echo ""
+              echo "🔁 To retry this article, trigger a manual workflow_dispatch with URL:"
+              echo "   $SOURCE_URL"
+              {
+                echo ""
+                echo "> **🔁 Retry**: trigger \`workflow_dispatch\` with URL: \`$SOURCE_URL\`"
+              } >> "$GITHUB_STEP_SUMMARY"
+            fi
+          fi
+
+      # ── Self-trigger chain ────────────────────────────────────────────
+      # GitHub Actions silently skips ~66% of cron slots (measured 34%
+      # utilization on this 30-min cron). At end of every run we dispatch
+      # the next via workflow_dispatch + PAT to bypass cron unreliability.
+      # The concurrency group `article-generation` already prevents overlap.
+      # The cron schedule remains as a fallback safety net.
+      - name: Determine self-trigger decision
+        id: decide_trigger
+        if: always()
+        env:
+          HAS_CHANGES: ${{ steps.changes.outputs.has_changes }}
+          COMMITTED: ${{ steps.commit.outputs.committed }}
+          VERIFIED: ${{ steps.verify_article.outputs.exists }}
+          GENERATE_OUTCOME: ${{ steps.generate.outcome }}
+          # Retry counter passed via workflow_dispatch input (default 0 for cron-triggered runs)
+          RETRY_COUNT: ${{ github.event.inputs.retry_count || '0' }}
+          NO_CHANGES_STREAK: ${{ github.event.inputs.no_changes_streak || '0' }}
+        run: |
+          # Outcome decision tree:
+          # ✅ verified=true → self-trigger immediately, retry_count=0, streak=0
+          # ⚪ has_changes=false (no source / all duplicates) → back-off based on streak length
+          # 🟠 committed=false (rebase/push race) → self-trigger after 60s, retry_count=0
+          # 🟠 verified=false (committed but missing from source) → RETRY with backoff
+          # 🔴 generate step failure → RETRY with backoff
+          # Backoff schedule (failures): 60s → 300s → 1800s, max 3 retries
+          # Back-off schedule (no_changes streak): 0,1,2 → 0s ; 3-5 → 600s ; 6-9 → 1800s ; 10+ → stop, cron resumes
+
+          SHOULD_TRIGGER="false"
+          DELAY="0"
+          REASON="unknown"
+          NEXT_RETRY="0"
+          NEXT_STREAK="0"
+
+          if [ "$VERIFIED" = "true" ]; then
+            SHOULD_TRIGGER="true"
+            DELAY="0"
+            REASON="success"
+            NEXT_RETRY="0"
+            NEXT_STREAK="0"
+          elif [ "$HAS_CHANGES" = "false" ]; then
+            CUR_STREAK="${NO_CHANGES_STREAK:-0}"
+            NEXT_STREAK=$((CUR_STREAK + 1))
+            if [ "$NEXT_STREAK" -le 2 ]; then
+              SHOULD_TRIGGER="true"
+              DELAY="0"
+              REASON="no_changes_streak_${NEXT_STREAK}"
+            elif [ "$NEXT_STREAK" -le 5 ]; then
+              SHOULD_TRIGGER="true"
+              DELAY="600"
+              REASON="no_changes_streak_${NEXT_STREAK}_backoff_600s"
+            elif [ "$NEXT_STREAK" -le 9 ]; then
+              SHOULD_TRIGGER="true"
+              DELAY="1800"
+              REASON="no_changes_streak_${NEXT_STREAK}_backoff_1800s"
+            else
+              SHOULD_TRIGGER="false"
+              REASON="no_changes_streak_exhausted_${NEXT_STREAK}_cron_takes_over"
+              NEXT_STREAK="0"
+            fi
+            NEXT_RETRY="0"
+          elif [ "$COMMITTED" = "false" ] && [ "$HAS_CHANGES" = "true" ]; then
+            SHOULD_TRIGGER="true"
+            DELAY="60"
+            REASON="rebase_failed"
+            NEXT_RETRY="0"
+            NEXT_STREAK="0"
+          else
+            # Failure path: verify_failed OR generate_failed
+            CUR_RETRY="${RETRY_COUNT:-0}"
+            if [ "$CUR_RETRY" -lt 3 ]; then
+              NEXT_RETRY=$((CUR_RETRY + 1))
+              case "$NEXT_RETRY" in
+                1) DELAY=60 ;;
+                2) DELAY=300 ;;
+                3) DELAY=1800 ;;
+              esac
+              SHOULD_TRIGGER="true"
+              REASON="retry_${NEXT_RETRY}_of_3"
+            else
+              SHOULD_TRIGGER="false"
+              REASON="retry_exhausted"
+            fi
+            NEXT_STREAK="0"
+          fi
+
+          {
+            echo "should_trigger=$SHOULD_TRIGGER"
+            echo "delay=$DELAY"
+            echo "reason=$REASON"
+            echo "next_retry=$NEXT_RETRY"
+            echo "next_streak=$NEXT_STREAK"
+          } >> "$GITHUB_OUTPUT"
+
+          {
+            echo "## 🔁 Self-trigger decision"
+            echo ""
+            echo "| Field | Value |"
+            echo "|-------|-------|"
+            echo "| Should trigger | \`$SHOULD_TRIGGER\` |"
+            echo "| Reason | \`$REASON\` |"
+            echo "| Delay (s) | \`$DELAY\` |"
+            echo "| Retry count (next) | \`$NEXT_RETRY\` |"
+            echo "| no_changes streak (next) | \`$NEXT_STREAK\` |"
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Self-trigger next run
+        if: steps.decide_trigger.outputs.should_trigger == 'true'
+        continue-on-error: true
+        env:
+          # GITHUB_PAT is loaded into $GITHUB_ENV by `Load secrets from Remote Config`
+          # (Firebase RC, not an Actions secret). Do NOT shadow it with secrets.GITHUB_PAT
+          # — that resolves to empty and bricks the chain.
+          WORKFLOW_FILE: generate-article.yml
+          DELAY_SECONDS: ${{ steps.decide_trigger.outputs.delay }}
+          SELF_TRIGGER_REASON: ${{ steps.decide_trigger.outputs.reason }}
+          RETRY_COUNT: ${{ steps.decide_trigger.outputs.next_retry }}
+          NO_CHANGES_STREAK: ${{ steps.decide_trigger.outputs.next_streak }}
+        run: bash scripts/lib/trigger-self.sh

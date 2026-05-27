@@ -1,0 +1,22 @@
+{
+  "companyKey": "nozomi-networks",
+  "companyName": "Nozomi Networks",
+  "companyHost": "nozominetworks.com",
+  "enabled": true,
+  "priority": 0,
+  "crawlerModes": [
+    "generic_ats",
+    "html",
+    "jsonld"
+  ],
+  "seedUrls": [
+    "https://www.nozominetworks.com/careers",
+    "https://www.nozominetworks.com/career",
+    "https://www.nozominetworks.com/jobs",
+    "https://www.nozominetworks.com/karriere",
+    "https://www.nozominetworks.com/offene-stellen",
+    "https://www.nozominetworks.com/lavora-con-noi"
+  ],
+  "notes": "",
+  "updatedAt": "2026-02-27T17:06:06.963Z"
+}

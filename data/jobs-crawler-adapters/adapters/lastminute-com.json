@@ -1,0 +1,34 @@
+{
+  "companyKey": "lastminute-com",
+  "companyName": "lastminute.com",
+  "companyHost": "corporate.lastminute.com",
+  "enabled": true,
+  "priority": 10,
+  "crawlerModes": [
+    "generic_ats",
+    "html",
+    "jsonld"
+  ],
+  "seedUrls": [
+    "https://corporate.lastminute.com/careers/jobs/job?id=744000124373324&jobName=Data+Engineer",
+    "https://corporate.lastminute.com/careers/jobs/job?id=744000113487537&jobName=Global+Payroll"
+  ],
+  "notes": "Dedicated lastminute.com crawler seeds from Chiasso listing pages and canonicalizes detail URLs under corporate.lastminute.com/careers/jobs/job?id=...",
+  "updatedAt": "2026-05-26T23:28:22.914Z",
+  "seedMetaByUrl": {
+    "https://corporate.lastminute.com/careers/jobs/job?id=744000124373324&jobName=Data+Engineer": {
+      "location": "Chiasso",
+      "canton": "TI",
+      "country": "CH",
+      "company": "lastminute.com",
+      "companyDomain": "lastminute.com"
+    },
+    "https://corporate.lastminute.com/careers/jobs/job?id=744000113487537&jobName=Global+Payroll": {
+      "location": "Chiasso",
+      "canton": "TI",
+      "country": "CH",
+      "company": "lastminute.com",
+      "companyDomain": "lastminute.com"
+    }
+  }
+}

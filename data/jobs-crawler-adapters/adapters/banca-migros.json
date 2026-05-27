@@ -1,0 +1,17 @@
+{
+  "companyKey": "banca-migros",
+  "companyName": "Banca Migros",
+  "companyHost": "jobs.migros.ch",
+  "enabled": true,
+  "priority": 0,
+  "crawlerModes": [
+    "nuxt_ssr",
+    "html",
+    "jsonld"
+  ],
+  "seedUrls": [
+    "https://jobs.migros.ch/it/le-nostre-imprese/banca-migros/posti-di-lavoro-vacanti"
+  ],
+  "notes": "Banca Migros jobs are on jobs.migros.ch (shared Migros platform). No Ticino jobs found as of 2025-07. Jobs are in Zurich, Basel, Bern, Lausanne etc.",
+  "updatedAt": "2026-02-27T17:06:06.927Z"
+}

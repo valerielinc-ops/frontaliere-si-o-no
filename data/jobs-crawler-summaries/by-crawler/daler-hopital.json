@@ -1,0 +1,58 @@
+{
+  "key": "daler-hopital",
+  "label": "Hôpital Daler",
+  "generatedAt": "2026-05-26T22:38:07.014Z",
+  "total": 1,
+  "newCount": 0,
+  "updatedCount": 1,
+  "removedCount": 0,
+  "unchangedCount": 0,
+  "durationMs": 7477,
+  "avgDurationMs": 7477,
+  "durationHistory": [
+    7477
+  ],
+  "newJobs": [],
+  "updatedJobs": [
+    {
+      "id": "daler-hopital-be8e8ee2da33",
+      "slug": "technicien-ne-en-salle-d-operation-tso-infirmier-ere-instrumentiste-daler-hopital-fribourg",
+      "company": "Hôpital Daler",
+      "companyKey": "daler-hopital",
+      "companyDomain": "daler.ch",
+      "title": "Technicien·ne en salle d'opération (TSO) / Infirmier·ère instrumentiste",
+      "needsRetranslation": false,
+      "location": "Fribourg",
+      "canton": "FR",
+      "url": "https://daler.ch/emplois#offer/3103/technicienne-en-salle-doperation-tso-infirmierere-instrumentiste",
+      "source": "Hôpital Daler Dedicated Parser (Johdi Suite)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-05-26T22:38:04.997Z",
+      "addressLocality": "Fribourg",
+      "addressRegion": "FR",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1700",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-02",
+      "applyUrl": "https://daler.ch/emplois#offer/3103/technicienne-en-salle-doperation-tso-infirmierere-instrumentiste",
+      "externalId": "3103",
+      "firstSeenAt": "2026-05-19T13:47:22.199Z",
+      "_qualityScore": 85,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 17
+      }
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": []
+}

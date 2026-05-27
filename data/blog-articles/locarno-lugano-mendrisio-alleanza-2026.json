@@ -1,0 +1,40 @@
+{
+  "id": "locarno-lugano-mendrisio-alleanza-2026",
+  "slug": "locarno-lugano-mendrisio-alleanza-2026",
+  "publishedAt": "2026-05-10T11:39:07.552Z",
+  "cluster": "generic",
+  "_pool": "proven",
+  "_pool_source": "media.laregione.ch",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 7.110914611782058,
+    "confidence": 0.8,
+    "finalScore": 5.688731689425647,
+    "topK": [
+      {
+        "slug": "comuni-locarno-futuro-aggregazione",
+        "cosine": 0.8888643264727573
+      },
+      {
+        "slug": "mendrisio-capitale-culturale-opportunita",
+        "cosine": 0.8734596183153821
+      },
+      {
+        "slug": "locarno-abitanti-domiciliati-2026",
+        "cosine": 0.8623924015706917
+      },
+      {
+        "slug": "progetto-prossimita-locarno-2026",
+        "cosine": 0.8569154922003684
+      },
+      {
+        "slug": "lugano-red-carpet-contribuenti-2026",
+        "cosine": 0.8516864748328882
+      }
+    ],
+    "score": 0.5688731689425647,
+    "clusterDiversityBonus": 0.1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "generic"
+  }
+}

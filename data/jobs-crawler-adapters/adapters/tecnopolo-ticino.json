@@ -1,0 +1,22 @@
+{
+  "companyKey": "tecnopolo-ticino",
+  "companyName": "Tecnopolo Ticino",
+  "companyHost": "tecnopolo.ch",
+  "enabled": true,
+  "priority": 0,
+  "crawlerModes": [
+    "generic_ats",
+    "html",
+    "jsonld"
+  ],
+  "seedUrls": [
+    "https://www.tecnopolo.ch/careers",
+    "https://www.tecnopolo.ch/career",
+    "https://www.tecnopolo.ch/jobs",
+    "https://www.tecnopolo.ch/karriere",
+    "https://www.tecnopolo.ch/offene-stellen",
+    "https://www.tecnopolo.ch/lavora-con-noi"
+  ],
+  "notes": "",
+  "updatedAt": "2026-02-27T17:06:06.991Z"
+}

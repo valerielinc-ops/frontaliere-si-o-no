@@ -1,0 +1,23 @@
+{
+  "companyKey": "the-living-circle",
+  "companyName": "The Living Circle",
+  "companyHost": "jobs.thelivingcircle.ch",
+  "enabled": true,
+  "priority": 10,
+  "crawlerModes": [
+    "jsonld"
+  ],
+  "seedUrls": [
+    "https://jobs.thelivingcircle.ch/#jobs:location=%5B%22Ascona%22%5D"
+  ],
+  "notes": "Dedicated The Living Circle crawler uses the public Softgarden jobs.feed.json feed and filters vacancies in Ascona, Ticino.",
+  "updatedAt": "2026-03-16T05:56:47.855Z",
+  "seedMetaByUrl": {
+    "https://jobs.thelivingcircle.ch/jobs/63228739/Assistant-Gouvernante-100%25/": {
+      "location": "Ascona",
+      "canton": "TI",
+      "company": "The Living Circle",
+      "postedDate": "2026-03-02"
+    }
+  }
+}

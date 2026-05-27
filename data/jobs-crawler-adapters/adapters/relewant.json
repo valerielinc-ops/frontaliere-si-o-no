@@ -1,0 +1,131 @@
+{
+  "companyKey": "relewant",
+  "companyName": "ReleWant",
+  "companyHost": "relewant.zohorecruit.com",
+  "enabled": true,
+  "priority": 18,
+  "crawlerModes": [
+    "json"
+  ],
+  "seedUrls": [
+    "https://relewant.zohorecruit.com/jobs/Careers"
+  ],
+  "notes": "Dedicated ReleWant crawler reads the Zoho Recruit public JSON API. No HTML scraping needed. Keeps Ticino IT consulting vacancies.",
+  "updatedAt": "2026-03-16T12:21:44.157Z",
+  "seedMetaByUrl": {
+    "https://relewant.zohorecruit.com/jobs/Careers/467189000019111019/Consulente-Expert-–-Senior-Program-Project-Manager": {
+      "location": "Chiasso",
+      "canton": "TI",
+      "company": "ReleWant",
+      "postedDate": "2026-03-16"
+    },
+    "https://relewant.zohorecruit.com/jobs/Careers/467189000019303005/Senior-System-Engineer": {
+      "location": "Chiasso",
+      "canton": "TI",
+      "company": "ReleWant",
+      "postedDate": "2026-03-16"
+    },
+    "https://relewant.zohorecruit.com/jobs/Careers/467189000019203019/Network-Engineer": {
+      "location": "Chiasso",
+      "canton": "TI",
+      "company": "ReleWant",
+      "postedDate": "2026-03-16"
+    },
+    "https://relewant.zohorecruit.com/jobs/Careers/467189000019329033/Automation-MFT-Specialist": {
+      "location": "Lugano",
+      "canton": "TI",
+      "company": "ReleWant",
+      "postedDate": "2026-03-16"
+    },
+    "https://relewant.zohorecruit.com/jobs/Careers/467189000019315047/Business-Solutions-Specialist": {
+      "location": "Chiasso",
+      "canton": "TI",
+      "company": "ReleWant",
+      "postedDate": "2026-03-16"
+    },
+    "https://relewant.zohorecruit.com/jobs/Careers/467189000019329001/BI-Specialist": {
+      "location": "Bellinzona",
+      "canton": "TI",
+      "company": "ReleWant",
+      "postedDate": "2026-03-16"
+    },
+    "https://relewant.zohorecruit.com/jobs/Careers/467189000019238015/Senior-IT-Security-Architect": {
+      "location": "Chiasso",
+      "canton": "TI",
+      "company": "ReleWant",
+      "postedDate": "2026-03-16"
+    },
+    "https://relewant.zohorecruit.com/jobs/Careers/467189000018774085/Full-Stack-Java-Developer-middle": {
+      "location": "Chiasso",
+      "canton": "TI",
+      "company": "ReleWant",
+      "postedDate": "2026-03-16"
+    },
+    "https://relewant.zohorecruit.com/jobs/Careers/467189000018616085/Java-Developer": {
+      "location": "Chiasso",
+      "canton": "TI",
+      "company": "ReleWant",
+      "postedDate": "2026-03-16"
+    },
+    "https://relewant.zohorecruit.com/jobs/Careers/467189000019200104/Sviluppatore-PL-SQL": {
+      "location": "Chiasso",
+      "canton": "TI",
+      "company": "ReleWant",
+      "postedDate": "2026-03-16"
+    },
+    "https://relewant.zohorecruit.com/jobs/Careers/467189000019151001/DevOps": {
+      "location": "Chiasso",
+      "canton": "TI",
+      "company": "ReleWant",
+      "postedDate": "2026-03-16"
+    },
+    "https://relewant.zohorecruit.com/jobs/Careers/467189000018947014/IT-Card-Management-Analyst-Specialist": {
+      "location": "Chiasso",
+      "canton": "TI",
+      "company": "ReleWant",
+      "postedDate": "2026-03-16"
+    },
+    "https://relewant.zohorecruit.com/jobs/Careers/467189000019159045/Senior-NET-Developer": {
+      "location": "Chiasso",
+      "canton": "TI",
+      "company": "ReleWant",
+      "postedDate": "2026-03-16"
+    },
+    "https://relewant.zohorecruit.com/jobs/Careers/467189000018819055/Analista-Funzionale": {
+      "location": "Chiasso",
+      "canton": "TI",
+      "company": "ReleWant",
+      "postedDate": "2026-03-16"
+    },
+    "https://relewant.zohorecruit.com/jobs/Careers/467189000018942049/SENIOR-FULLSTACK-JAVA-DEVELOPER": {
+      "location": "Chiasso",
+      "canton": "TI",
+      "company": "ReleWant",
+      "postedDate": "2026-03-16"
+    },
+    "https://relewant.zohorecruit.com/jobs/Careers/467189000019071079/Cloud-Engineer": {
+      "location": "Lugano",
+      "canton": "TI",
+      "company": "ReleWant",
+      "postedDate": "2026-03-16"
+    },
+    "https://relewant.zohorecruit.com/jobs/Careers/467189000018942001/Sviluppatore-PLSQL": {
+      "location": "Chiasso",
+      "canton": "TI",
+      "company": "ReleWant",
+      "postedDate": "2026-03-16"
+    },
+    "https://relewant.zohorecruit.com/jobs/Careers/467189000018808056/Senior-Backend-Engineer-Node-js-C": {
+      "location": "Chiasso",
+      "canton": "TI",
+      "company": "ReleWant",
+      "postedDate": "2026-03-16"
+    },
+    "https://relewant.zohorecruit.com/jobs/Careers/467189000018774112/Full-Stack-Java-Developer-Expert": {
+      "location": "Chiasso",
+      "canton": "TI",
+      "company": "ReleWant",
+      "postedDate": "2026-03-16"
+    }
+  }
+}

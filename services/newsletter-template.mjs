@@ -1,0 +1,796 @@
+/**
+ * Newsletter HTML template — v3 (redesigned, dark hero, light body)
+ *
+ * Generates a branded, engaging, responsive HTML email.
+ * Structure: dark hero (exchange rate) → editorial → metrics → jobs → article → tools → footer.
+ * All links use direct https://frontaliereticino.ch/ URLs.
+ * Autologin is handled externally by wrapping links with Firebase auth.
+ */
+
+const BASE_URL = 'https://frontaliereticino.ch';
+const BRAND_ORANGE = '#f97316';
+const BRAND_DARK = '#0f172a';
+const DARK_CARD = '#1e293b';
+const LIGHT_BG = '#f1f5f9';
+const CARD_BG = '#f8fafc';
+const WHITE = '#ffffff';
+const TEXT_COLOR = '#334155';
+const MUTED_COLOR = '#64748b';
+const BORDER_COLOR = '#e2e8f0';
+const GREEN = '#22c55e';
+const RED = '#ef4444';
+
+const NL_I18N = {
+  it: {
+    greeting: 'Buongiorno, frontaliere.',
+    greetingSub: 'Ecco cosa succede ai tuoi soldi questa settimana.',
+    rateCta: 'Confronta i tassi di cambio \u2192',
+    editorialTitle: 'Parliamoci chiaro.',
+    editorialBody1: 'Ogni settimana ti dicono che "il mercato \u00e8 volatile" e che "bisogna stare attenti". Grazie, utilissimo. Come dire a uno che sta annegando che l\u2019acqua \u00e8 bagnata.',
+    editorialSign: '\u2014 Il team di Frontaliere Ticino, quelli che leggono i cedolini per hobby.',
+    jobsTitle: 'Le offerte che non trovi su LinkedIn',
+    jobsSub: 'Selezionate a mano, non da un algoritmo che pensa che tu voglia fare il "Growth Hacker" a Zugo.',
+    jobsCta: 'Tutte le {n} offerte \u2192',
+    articleTitle: 'Da leggere',
+    toolsTitle: 'I tuoi attrezzi da frontaliere',
+    toolsSub: 'Quelli che il tuo commercialista usa di nascosto (e ti fa pagare 200\u20ac a consulenza).',
+    closerText: 'Ti è piaciuta questa email? Inoltrala a quel collega che chiede sempre "ma com\u2019è il cambio oggi?".',
+    closerTag: 'Alla prossima. ☕',
+    footerReason: 'Ricevi questa email perch\u00e9 ti sei iscritto su',
+    unsubText: 'Non la vuoi pi\u00f9? {link} \u2014 giuro che non piangeremo. (Forse un po\u2019.)',
+    unsubLink: 'Cancellati',
+    prefsLink: 'Gestisci preferenze',
+    copyright: 'Newsletter artigianale, 0% spam, 100% frontaliere',
+    jobsLabel: 'Lavoro',
+    toolsLabel: 'Strumenti',
+    topClicked: '\ud83d\udd25 Più cliccata',
+    realtimeUpdate: '\u26a1 Aggiornamento in tempo reale',
+    rateLabel: 'Tasso CHF \u2192 EUR',
+    vsLastWeek: 'vs settimana scorsa',
+    salaryImpact: 'Su uno stipendio di <strong style="color:{orange};font-size:15px;">5\u2019000 CHF</strong>, questa settimana {verb} <strong style="color:{orange};font-size:15px;">\u20ac{weekly}</strong> in più rispetto a lunedì scorso.{yearly}',
+    salaryImpactYearly: ' In un anno fa <strong style="color:{orange};font-size:15px;">\u20ac{amount}</strong>. Forse vale la pena controllare, no?',
+    salaryImpactVerb: ['guadagni', 'perdi'],
+    compareHint: 'Ma se confronti dove cambi, puoi recuperarne <strong style="color:{orange};">300\u2011500\u20ac</strong>. Non sono noccioline.',
+    metricJobs: 'Offerte lavoro',
+    metricUnemployment: 'Disoccupazione CH',
+    metricLamal: 'Premio LAMal Lugano',
+    editorialFallback: 'Noi preferiamo i numeri. Quelli veri, quelli che trovi in busta paga. Questa settimana: il cambio scende (di nuovo){jobs}, e c\u2019\u00e8 una votazione che forse ti sei perso tra un cappuccino e la coda a Brogeda.',
+    editorialFallbackJobs: ', le offerte di lavoro salgono a <strong>{n}</strong>',
+    articleCta: 'Leggi l\u2019analisi completa \u2192',
+    topRead: '\ud83d\udd25 Più letto',
+    defaultQuote: 'La cosa più bella di vivere al confine è che puoi scegliere in quale Paese avere il mal di testa fiscale.',
+    defaultQuoteSource: 'Anonimo frontaliere, probabilmente in coda a Brogeda',
+    toolCalc: 'Calcola Stipendio',
+    toolCalcDesc: 'Dal lordo al netto in 5 secondi. Con AVS, LPP, imposta alla fonte e conversione CHF/EUR.',
+    toolLamal: 'Confronto LAMal',
+    toolLamalDesc: '14 assicuratori, tutti i modelli, tutte le franchigie. Trova il premio più basso per il tuo profilo.',
+    tool730: 'Guida 730',
+    tool730Desc: 'Step by step per la dichiarazione dei redditi italiana. Franchigia, quadro RC, deduzioni \u2014 tutto spiegato senza legalese.',
+    toolFx: 'Cambio Valuta',
+    toolFxDesc: 'Tasso aggiornato ogni ora + confronto tra banche e servizi. Perché 0.2% di differenza su 60k sono 120\u20ac.',
+  },
+  en: {
+    greeting: 'Good morning, frontaliere.',
+    greetingSub: 'Here\u2019s what\u2019s happening to your money this week.',
+    rateCta: 'Compare exchange rates \u2192',
+    editorialTitle: 'Let\u2019s be honest.',
+    editorialBody1: 'Every week they tell you "the market is volatile" and "you should be careful". Thanks, very helpful. Like telling someone who\u2019s drowning that water is wet.',
+    editorialSign: '\u2014 The Frontaliere Ticino team, the ones who read payslips for fun.',
+    jobsTitle: 'Jobs you won\u2019t find on LinkedIn',
+    jobsSub: 'Hand-picked, not by an algorithm that thinks you want to be a "Growth Hacker" in Zug.',
+    jobsCta: 'All {n} jobs \u2192',
+    articleTitle: 'Worth reading',
+    toolsTitle: 'Your frontaliere toolkit',
+    toolsSub: 'The ones your accountant uses secretly (and charges you \u20ac200 per consultation).',
+    closerText: 'Liked this email? Forward it to that colleague who always asks "what\u2019s the rate today?".',
+    closerTag: 'See you next time. ☕',
+    footerReason: 'You receive this email because you subscribed on',
+    unsubText: 'Had enough? {link} \u2014 no hard feelings. (Maybe a little.)',
+    unsubLink: 'Unsubscribe',
+    prefsLink: 'Manage preferences',
+    copyright: 'Handcrafted newsletter, 0% spam, 100% frontaliere',
+    jobsLabel: 'Jobs',
+    toolsLabel: 'Tools',
+    topClicked: '\ud83d\udd25 Most clicked',
+    realtimeUpdate: '\u26a1 Real-time update',
+    rateLabel: 'Rate CHF \u2192 EUR',
+    vsLastWeek: 'vs last week',
+    salaryImpact: 'On a salary of <strong style="color:{orange};font-size:15px;">CHF 5\u2019000</strong>, this week you {verb} <strong style="color:{orange};font-size:15px;">\u20ac{weekly}</strong> compared to last Monday.{yearly}',
+    salaryImpactYearly: ' Over a year that\u2019s <strong style="color:{orange};font-size:15px;">\u20ac{amount}</strong>. Maybe worth checking?',
+    salaryImpactVerb: ['gain', 'lose'],
+    compareHint: 'But if you compare where you exchange, you could save <strong style="color:{orange};">300\u2011500\u20ac</strong>. Not peanuts.',
+    metricJobs: 'Job offers',
+    metricUnemployment: 'Unemployment CH',
+    metricLamal: 'LAMal premium Lugano',
+    editorialFallback: 'We prefer numbers. Real ones, the kind you find on your payslip. This week: the exchange rate drops (again){jobs}, and there\u2019s a vote you may have missed between your morning coffee and the queue at Brogeda.',
+    editorialFallbackJobs: ', job offers climb to <strong>{n}</strong>',
+    articleCta: 'Read the full analysis \u2192',
+    topRead: '\ud83d\udd25 Most read',
+    defaultQuote: 'The best thing about living on the border is choosing which country gives you the fiscal headache.',
+    defaultQuoteSource: 'Anonymous frontaliere, probably stuck in the Brogeda queue',
+    toolCalc: 'Salary Calculator',
+    toolCalcDesc: 'From gross to net in 5 seconds. With AVS, LPP, withholding tax, and CHF/EUR conversion.',
+    toolLamal: 'LAMal Comparison',
+    toolLamalDesc: '14 insurers, all models, all deductibles. Find the lowest premium for your profile.',
+    tool730: 'Tax Return Guide',
+    tool730Desc: 'Step by step for your Italian tax return. Allowances, income section, deductions \u2014 explained without legalese.',
+    toolFx: 'Currency Exchange',
+    toolFxDesc: 'Rate updated hourly + comparison across banks and services. Because 0.2% on 60k is \u20ac120.',
+  },
+  de: {
+    greeting: 'Guten Morgen, Grenzg\u00e4nger.',
+    greetingSub: 'Das passiert diese Woche mit deinem Geld.',
+    rateCta: 'Wechselkurse vergleichen \u2192',
+    editorialTitle: 'Mal ehrlich.',
+    editorialBody1: 'Jede Woche sagen sie dir, der Markt sei volatil und man solle aufpassen. Danke, sehr hilfreich. Wie einem Ertrinkenden zu sagen, dass Wasser nass ist.',
+    editorialSign: '\u2014 Das Frontaliere-Ticino-Team, die Leute, die Lohnzettel als Hobby lesen.',
+    jobsTitle: 'Stellen, die du auf LinkedIn nicht findest',
+    jobsSub: 'Von Hand ausgew\u00e4hlt, nicht von einem Algorithmus.',
+    jobsCta: 'Alle {n} Stellen \u2192',
+    articleTitle: 'Lesenswert',
+    toolsTitle: 'Dein Grenzg\u00e4nger-Werkzeugkasten',
+    toolsSub: 'Die Tools, die dein Steuerberater heimlich nutzt.',
+    closerText: 'Hat dir diese E-Mail gefallen? Leite sie an den Kollegen weiter, der immer fragt "Wie steht der Kurs?".',
+    closerTag: 'Bis zum nächsten Mal. ☕',
+    footerReason: 'Du erh\u00e4ltst diese E-Mail, weil du dich angemeldet hast auf',
+    unsubText: 'Genug? {link} \u2014 wir weinen nicht. (Vielleicht ein bisschen.)',
+    unsubLink: 'Abmelden',
+    prefsLink: 'Einstellungen verwalten',
+    copyright: 'Handgemachter Newsletter, 0% Spam, 100% Grenzg\u00e4nger',
+    jobsLabel: 'Stellen',
+    toolsLabel: 'Tools',
+    topClicked: '\ud83d\udd25 Meistgeklickt',
+    realtimeUpdate: '\u26a1 Echtzeit-Update',
+    rateLabel: 'Kurs CHF \u2192 EUR',
+    vsLastWeek: 'vs letzte Woche',
+    salaryImpact: 'Bei einem Gehalt von <strong style="color:{orange};font-size:15px;">CHF 5\u2019000</strong> {verb} du diese Woche <strong style="color:{orange};font-size:15px;">\u20ac{weekly}</strong> im Vergleich zu letztem Montag.{yearly}',
+    salaryImpactYearly: ' Auf ein Jahr gerechnet sind das <strong style="color:{orange};font-size:15px;">\u20ac{amount}</strong>. Vielleicht lohnt sich ein Blick?',
+    salaryImpactVerb: ['gewinnst', 'verlierst'],
+    compareHint: 'Aber wenn du vergleichst, wo du wechselst, kannst du <strong style="color:{orange};">300\u2011500\u20ac</strong> sparen. Keine Kleinigkeit.',
+    metricJobs: 'Stellenangebote',
+    metricUnemployment: 'Arbeitslosigkeit CH',
+    metricLamal: 'KVG-Pr\u00e4mie Lugano',
+    editorialFallback: 'Wir bevorzugen Zahlen. Echte, die du auf deiner Lohnabrechnung findest. Diese Woche: der Kurs f\u00e4llt (wieder){jobs}, und es gibt eine Abstimmung, die du vielleicht zwischen Kaffee und der Schlange am Brogeda verpasst hast.',
+    editorialFallbackJobs: ', die Stellenangebote steigen auf <strong>{n}</strong>',
+    articleCta: 'Vollst\u00e4ndige Analyse lesen \u2192',
+    topRead: '\ud83d\udd25 Meistgelesen',
+    defaultQuote: 'Das Sch\u00f6nste am Leben an der Grenze ist, dass man w\u00e4hlen kann, in welchem Land man die Steuer-Kopfschmerzen hat.',
+    defaultQuoteSource: 'Anonymer Grenzg\u00e4nger, wahrscheinlich in der Schlange am Brogeda',
+    toolCalc: 'Gehaltsrechner',
+    toolCalcDesc: 'Vom Brutto zum Netto in 5 Sekunden. Mit AHV, BVG, Quellensteuer und CHF/EUR-Umrechnung.',
+    toolLamal: 'KVG-Vergleich',
+    toolLamalDesc: '14 Versicherer, alle Modelle, alle Franchisen. Finde die g\u00fcnstigste Pr\u00e4mie f\u00fcr dein Profil.',
+    tool730: 'Steuererkl\u00e4rung',
+    tool730Desc: 'Schritt f\u00fcr Schritt zur italienischen Steuererkl\u00e4rung. Freibetr\u00e4ge, Einkommensteil, Abz\u00fcge \u2014 ohne Juristendeutsch.',
+    toolFx: 'W\u00e4hrungsrechner',
+    toolFxDesc: 'St\u00fcndlich aktualisierter Kurs + Vergleich zwischen Banken. 0,2% bei 60k sind 120\u20ac.',
+  },
+  fr: {
+    greeting: 'Bonjour, frontalier.',
+    greetingSub: 'Voici ce qui arrive \u00e0 ton argent cette semaine.',
+    rateCta: 'Comparer les taux de change \u2192',
+    editorialTitle: 'Soyons honn\u00eates.',
+    editorialBody1: 'Chaque semaine on te dit que "le march\u00e9 est volatil" et qu\u2019il faut "faire attention". Merci, tr\u00e8s utile. Comme dire \u00e0 quelqu\u2019un qui se noie que l\u2019eau est mouill\u00e9e.',
+    editorialSign: '\u2014 L\u2019\u00e9quipe Frontaliere Ticino, ceux qui lisent les fiches de paie pour le plaisir.',
+    jobsTitle: 'Les offres que tu ne trouves pas sur LinkedIn',
+    jobsSub: 'S\u00e9lectionn\u00e9es \u00e0 la main, pas par un algorithme.',
+    jobsCta: 'Toutes les {n} offres \u2192',
+    articleTitle: '\u00c0 lire',
+    toolsTitle: 'Tes outils de frontalier',
+    toolsSub: 'Ceux que ton comptable utilise en secret (et te facture 200\u20ac la consultation).',
+    closerText: 'Tu as aimé cet email ? Transfère-le au collègue qui demande toujours "c\u2019est quoi le taux ?".',
+    closerTag: 'À la prochaine. ☕',
+    footerReason: 'Tu re\u00e7ois cet email car tu t\u2019es inscrit sur',
+    unsubText: 'Tu n\u2019en veux plus ? {link} \u2014 on ne pleurera pas. (Un peu peut-\u00eatre.)',
+    unsubLink: 'Se d\u00e9sinscrire',
+    prefsLink: 'G\u00e9rer les pr\u00e9f\u00e9rences',
+    copyright: 'Newsletter artisanale, 0% spam, 100% frontalier',
+    jobsLabel: 'Emplois',
+    toolsLabel: 'Outils',
+    topClicked: '\ud83d\udd25 Plus cliqu\u00e9e',
+    realtimeUpdate: '\u26a1 Mise \u00e0 jour en temps r\u00e9el',
+    rateLabel: 'Taux CHF \u2192 EUR',
+    vsLastWeek: 'vs semaine derni\u00e8re',
+    salaryImpact: 'Sur un salaire de <strong style="color:{orange};font-size:15px;">CHF 5\u2019000</strong>, cette semaine tu {verb} <strong style="color:{orange};font-size:15px;">\u20ac{weekly}</strong> par rapport \u00e0 lundi dernier.{yearly}',
+    salaryImpactYearly: ' Sur un an, \u00e7a fait <strong style="color:{orange};font-size:15px;">\u20ac{amount}</strong>. Peut-\u00eatre que \u00e7a vaut le coup de v\u00e9rifier\u2009?',
+    salaryImpactVerb: ['gagnes', 'perds'],
+    compareHint: 'Mais si tu compares o\u00f9 tu changes, tu peux r\u00e9cup\u00e9rer <strong style="color:{orange};">300\u2011500\u20ac</strong>. C\u2019est pas des cacahu\u00e8tes.',
+    metricJobs: 'Offres d\u2019emploi',
+    metricUnemployment: 'Ch\u00f4mage CH',
+    metricLamal: 'Prime LAMal Lugano',
+    editorialFallback: 'Nous, on pr\u00e9f\u00e8re les chiffres. Les vrais, ceux qu\u2019on trouve sur la fiche de paie. Cette semaine\u2009: le taux baisse (encore){jobs}, et il y a un vote que tu as peut-\u00eatre rat\u00e9 entre un caf\u00e9 et la file au Brogeda.',
+    editorialFallbackJobs: ', les offres d\u2019emploi grimpent \u00e0 <strong>{n}</strong>',
+    articleCta: 'Lire l\u2019analyse compl\u00e8te \u2192',
+    topRead: '\ud83d\udd25 Plus lu',
+    defaultQuote: 'Le plus beau quand on vit \u00e0 la fronti\u00e8re, c\u2019est de pouvoir choisir dans quel pays avoir la migraine fiscale.',
+    defaultQuoteSource: 'Frontalier anonyme, probablement dans la file au Brogeda',
+    toolCalc: 'Calcul de salaire',
+    toolCalcDesc: 'Du brut au net en 5 secondes. Avec AVS, LPP, imp\u00f4t \u00e0 la source et conversion CHF/EUR.',
+    toolLamal: 'Comparaison LAMal',
+    toolLamalDesc: '14 assureurs, tous les mod\u00e8les, toutes les franchises. Trouve la prime la plus basse pour ton profil.',
+    tool730: 'Guide fiscal',
+    tool730Desc: '\u00c9tape par \u00e9tape pour ta d\u00e9claration italienne. Abattement, revenus, d\u00e9ductions \u2014 sans jargon.',
+    toolFx: 'Change de devises',
+    toolFxDesc: 'Taux mis \u00e0 jour toutes les heures + comparaison entre banques. 0,2% sur 60k font 120\u20ac.',
+  },
+};
+
+export function nlNormLocale(raw) {
+  if (!raw) return 'it';
+  const lang = String(raw).toLowerCase().split(/[-_]/)[0];
+  return ['en', 'de', 'fr'].includes(lang) ? lang : 'it';
+}
+
+function nlT(locale, key) {
+  const lang = nlNormLocale(locale);
+  return NL_I18N[lang]?.[key] || NL_I18N.it[key] || key;
+}
+
+/**
+ * Truncate text at a word boundary without appending an ellipsis.
+ * Keeps the result tidy (no trailing "…" or cut-off word). If the string
+ * already fits the limit it is returned unchanged.
+ */
+export function truncateAtWordBoundary(text, max) {
+  const s = String(text || '');
+  if (s.length <= max) return s;
+  const slice = s.slice(0, max);
+  const lastSpace = slice.lastIndexOf(' ');
+  // Only break at a word boundary if it's reasonably deep in the string,
+  // otherwise fall back to the hard cut (avoids 1-2 word stubs).
+  const cutAt = lastSpace > max * 0.6 ? lastSpace : max;
+  return slice.slice(0, cutAt).replace(/[\s.,;:–—-]+$/u, '');
+}
+
+function escapeHtml(str) {
+  return String(str)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+}
+
+export function directUrl(path) {
+  if (/^https?:\/\//i.test(path)) return path;
+  return `${BASE_URL}${path.startsWith('/') ? path : '/' + path}`;
+}
+
+// Locale-aware path map. IT is the canonical (no prefix); other locales get
+// the /{lang}/ prefix and translated slugs. Keys are the canonical IT paths.
+// Used to ensure newsletter links resolve to the correct localized page.
+const LOCALE_PATH_MAP = {
+  '/cerca-lavoro-ticino': {
+    it: '/cerca-lavoro-ticino',
+    en: '/en/find-jobs-ticino',
+    de: '/de/jobs-im-tessin',
+    fr: '/fr/trouver-emploi-tessin',
+  },
+  '/compara-servizi/cambio-franco-euro': {
+    it: '/compara-servizi/cambio-franco-euro',
+    en: '/en/service-comparison/chf-eur-exchange-rate',
+    de: '/de/service-vergleich/chf-eur-wechselkurs',
+    fr: '/fr/comparaison-services/taux-change-chf-eur',
+  },
+  '/compara-servizi/confronta-casse-malati': {
+    it: '/compara-servizi/confronta-casse-malati',
+    en: '/en/service-comparison/compare-health-insurance',
+    de: '/de/service-vergleich/krankenkassen-vergleichen',
+    fr: '/fr/comparaison-services/comparer-caisses-maladie',
+  },
+  '/statistiche': {
+    it: '/statistiche',
+    en: '/en/statistics',
+    de: '/de/statistiken',
+    fr: '/fr/statistiques',
+  },
+  '/calcola-stipendio': {
+    it: '/calcola-stipendio',
+    en: '/en/calculate-salary',
+    de: '/de/gehalt-berechnen',
+    fr: '/fr/calculer-salaire',
+  },
+  '/tasse-e-pensione/dichiarazione-redditi': {
+    it: '/tasse-e-pensione/dichiarazione-redditi',
+    en: '/en/taxes-and-pension/tax-return-guide',
+    de: '/de/steuern-und-vorsorge/steuererklaerung',
+    fr: '/fr/impots-et-retraite/declaration-revenus',
+  },
+};
+
+/**
+ * Resolve a canonical IT path to its locale variant and return an absolute URL.
+ * Falls back to the IT path if the path is unknown (still safe, just not localized).
+ */
+export function localizedUrl(itPath, locale) {
+  const lang = nlNormLocale(locale);
+  const variants = LOCALE_PATH_MAP[itPath];
+  const path = variants ? (variants[lang] || variants.it) : itPath;
+  return directUrl(path);
+}
+
+function formatDate(locale) {
+  const now = new Date();
+  const localeMap = { it: 'it-IT', en: 'en-GB', de: 'de-CH', fr: 'fr-CH' };
+  return now.toLocaleDateString(localeMap[locale] || 'it-IT', {
+    weekday: 'long', day: 'numeric', month: 'long', year: 'numeric',
+  });
+}
+
+function getWeekNumber() {
+  const now = new Date();
+  const start = new Date(now.getFullYear(), 0, 1);
+  const diff = now - start;
+  return Math.ceil((diff / 86400000 + start.getDay() + 1) / 7);
+}
+
+// Fallback: week-based issue number (used only when real count is unavailable)
+function getIssueNumberFallback() {
+  const now = new Date();
+  const weeksSinceBase = Math.floor((now - new Date(2025, 0, 6)) / (7 * 86400000));
+  return Math.max(1, weeksSinceBase + 1);
+}
+
+/** @deprecated Use getFeaturedTools(locale) instead */
+export const FEATURED_TOOLS = [
+  { icon: '\ud83d\udcb0', title: 'Calcola Stipendio', popular: true, description: 'Dal lordo al netto in 5 secondi. Con AVS, LPP, imposta alla fonte e conversione CHF/EUR.', toolUrl: '/calcola-stipendio' },
+  { icon: '\ud83c\udfe5', title: 'Confronto LAMal', description: '14 assicuratori, tutti i modelli, tutte le franchigie. Trova il premio pi\u00f9 basso per il tuo profilo.', toolUrl: '/compara-servizi/confronta-casse-malati' },
+  { icon: '\ud83d\udccb', title: 'Guida 730', description: 'Step by step per la dichiarazione dei redditi italiana. Franchigia, quadro RC, deduzioni \u2014 tutto spiegato senza legalese.', toolUrl: '/tasse-e-pensione/dichiarazione-redditi' },
+  { icon: '\ud83d\udcb1', title: 'Cambio Valuta', description: 'Tasso aggiornato ogni ora + confronto tra banche e servizi. Perch\u00e9 0.2% di differenza su 60k sono 120\u20ac.', toolUrl: '/compara-servizi/cambio-franco-euro' },
+];
+
+export function getFeaturedTools(locale) {
+  return [
+    { icon: '\ud83d\udcb0', title: nlT(locale, 'toolCalc'), popular: true, description: nlT(locale, 'toolCalcDesc'), toolUrl: '/calcola-stipendio' },
+    { icon: '\ud83c\udfe5', title: nlT(locale, 'toolLamal'), description: nlT(locale, 'toolLamalDesc'), toolUrl: '/compara-servizi/confronta-casse-malati' },
+    { icon: '\ud83d\udccb', title: nlT(locale, 'tool730'), description: nlT(locale, 'tool730Desc'), toolUrl: '/tasse-e-pensione/dichiarazione-redditi' },
+    { icon: '\ud83d\udcb1', title: nlT(locale, 'toolFx'), description: nlT(locale, 'toolFxDesc'), toolUrl: '/compara-servizi/cambio-franco-euro' },
+  ];
+}
+
+// ── Section renderers ─────────────────────────────────────────
+
+function renderTopBar(locale, issueNumberOverride) {
+  const weekNum = getWeekNumber();
+  const issueNum = issueNumberOverride || getIssueNumberFallback();
+  const now = new Date();
+  const monthNames = {
+    it: ['gen', 'feb', 'mar', 'apr', 'mag', 'giu', 'lug', 'ago', 'set', 'ott', 'nov', 'dic'],
+    en: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+    de: ['Jan', 'Feb', 'M\u00e4r', 'Apr', 'Mai', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dez'],
+    fr: ['jan', 'f\u00e9v', 'mar', 'avr', 'mai', 'jun', 'jul', 'ao\u00fb', 'sep', 'oct', 'nov', 'd\u00e9c'],
+  };
+  const month = (monthNames[locale] || monthNames.it)[now.getMonth()];
+  return `
+    <tr><td class="topbar-pad" style="background:${BRAND_DARK};padding:10px 28px;">
+      <table width="100%" cellpadding="0" cellspacing="0"><tr>
+        <td style="font-size:15px;font-weight:900;color:${BRAND_ORANGE};letter-spacing:-0.3px;">Frontaliere Ticino</td>
+        <td align="right" style="font-size:11px;color:${MUTED_COLOR};">#${issueNum} \u00b7 ${now.getDate()} ${month}. ${now.getFullYear()}</td>
+      </tr></table>
+    </td></tr>`;
+}
+
+function renderHeroExchangeRate({ rate, previousRate, locale }) {
+  const diff = rate - previousRate;
+  const pct = previousRate > 0 ? Math.abs((diff / previousRate) * 100).toFixed(1) : '0.0';
+  const isDown = diff < -0.0005;
+  const isUp = diff > 0.0005;
+  const arrow = isUp ? '\u25b2' : isDown ? '\u25bc' : '\u25cf';
+  const arrowColor = isUp ? GREEN : isDown ? RED : MUTED_COLOR;
+  const sign = isDown ? '-' : isUp ? '+' : '';
+
+  // Calculate savings impact on 5000 CHF
+  const monthlyLoss = Math.abs(diff * 5000);
+  const yearlyLoss = Math.round(monthlyLoss * 52);
+
+  // Build salary impact box
+  const verbs = nlT(locale, 'salaryImpactVerb');
+  const verb = isDown ? (verbs[1] || verbs) : (verbs[0] || verbs);
+  const yearlyStr = yearlyLoss > 50
+    ? nlT(locale, 'salaryImpactYearly').replace('{amount}', String(yearlyLoss)).replace('{orange}', BRAND_ORANGE)
+    : '';
+  const impactHtml = nlT(locale, 'salaryImpact')
+    .replace('{verb}', verb)
+    .replace('{weekly}', String(Math.round(monthlyLoss)))
+    .replace('{yearly}', yearlyStr)
+    .replace(/\{orange\}/g, BRAND_ORANGE);
+  const compareHtml = nlT(locale, 'compareHint').replace(/\{orange\}/g, BRAND_ORANGE);
+
+  return `
+    <tr><td class="section-pad" style="background:${BRAND_DARK};color:#fff;padding:32px 28px 28px;text-align:center;">
+      <div style="font-size:13px;text-transform:uppercase;letter-spacing:2px;color:${BRAND_ORANGE};font-weight:700;margin-bottom:6px;">${nlT(locale, 'realtimeUpdate')}</div>
+      <div style="font-size:28px;font-weight:800;margin:0 0 4px;line-height:1.2;color:#fff;">${nlT(locale, 'greeting')}</div>
+      <div style="font-size:14px;color:#94a3b8;margin:0 0 20px;">${nlT(locale, 'greetingSub')}</div>
+
+      <!--[if mso]><table cellpadding="0" cellspacing="0" align="center"><tr><td style="background:#1e293b;border-radius:16px;padding:20px 36px;"><![endif]-->
+      <a href="${localizedUrl('/compara-servizi/cambio-franco-euro', locale)}" style="text-decoration:none;display:inline-block;">
+      <div class="rate-box" style="display:inline-block;background:linear-gradient(135deg,#1e293b,#334155);border-radius:16px;padding:20px 36px;margin:8px 0 16px;">
+        <div style="font-size:12px;color:#94a3b8;text-transform:uppercase;letter-spacing:1px;">${nlT(locale, 'rateLabel')}</div>
+        <div class="hero-rate" style="font-size:52px;font-weight:900;color:${BRAND_ORANGE};letter-spacing:-1px;line-height:1.1;">${rate.toFixed(4)}</div>
+        <div style="font-size:14px;margin-top:4px;color:${arrowColor};">${arrow} ${sign}${pct}% ${nlT(locale, 'vsLastWeek')}</div>
+      </div>
+      </a>
+      <!--[if mso]></td></tr></table><![endif]-->
+
+      ${monthlyLoss > 1 ? `
+      <div style="background:rgba(249,115,22,0.12);border:1px solid rgba(249,115,22,0.3);border-radius:10px;padding:12px 18px;margin-top:14px;font-size:13px;color:#fdba74;">
+        ${impactHtml}
+      </div>` : ''}
+
+      <div style="margin-top:12px;font-size:14px;color:#e2e8f0;line-height:1.5;">${compareHtml}</div>
+
+      <div style="margin-top:16px;">
+        <a href="${localizedUrl('/compara-servizi/cambio-franco-euro', locale)}" style="display:inline-block;background:${BRAND_ORANGE};color:#fff;font-weight:700;font-size:14px;text-decoration:none;padding:12px 28px;border-radius:8px;">${nlT(locale, 'rateCta')}</a>
+      </div>
+    </td></tr>`;
+}
+
+function renderEditorial(locale, aiBriefing, totalJobs) {
+  const jobCount = totalJobs || 0;
+  const pStyle = `font-size:14px;color:${TEXT_COLOR};line-height:1.65;margin:0 0 14px;`;
+  // If AI briefing is provided, inject inline styles into its <p> tags
+  const bodyContent = aiBriefing
+    ? aiBriefing
+        .replace(/<p>/gi, `<p style="${pStyle}">`)
+        .replace(/<p style="[^"]*">/gi, `<p style="${pStyle}">`)
+    : `<p style="${pStyle}">${nlT(locale, 'editorialBody1')}</p>
+       <p style="${pStyle}">${nlT(locale, 'editorialFallback').replace('{jobs}', jobCount > 0 ? nlT(locale, 'editorialFallbackJobs').replace('{n}', String(jobCount)) : '')}</p>`;
+
+  return `
+    <tr><td class="section-pad" style="background:${WHITE};padding:28px 28px 8px;">
+      <div style="font-size:20px;font-weight:800;color:${BRAND_DARK};margin:0 0 12px;">${nlT(locale, 'editorialTitle')}</div>
+      ${bodyContent}
+      <div style="font-size:13px;color:${MUTED_COLOR};font-style:italic;margin-top:8px;">${nlT(locale, 'editorialSign')}</div>
+    </td></tr>`;
+}
+
+function renderMetrics(totalJobs, metrics, locale) {
+  const m = metrics || {};
+  const unemploymentRate = m.unemploymentRate || '2.8%';
+  const unemploymentLabel = m.unemploymentLabel || nlT(locale, 'metricUnemployment');
+  const lamalPremium = m.lamalPremium || 'CHF 467';
+  const lamalLabel = m.lamalLabel || nlT(locale, 'metricLamal');
+
+  return `
+    <tr><td class="section-pad" style="background:${WHITE};padding:8px 28px 8px;">
+      <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0"><tr><td width="33%" valign="top"><![endif]-->
+      <table width="100%" cellpadding="0" cellspacing="0"><tr class="metric-row">
+        <td width="33%" style="padding:0 4px 0 0;">
+          <a href="${localizedUrl('/cerca-lavoro-ticino', locale)}" style="text-decoration:none;display:block;">
+            <div style="background:${CARD_BG};border:1px solid ${BORDER_COLOR};border-radius:12px;padding:14px 12px;text-align:center;">
+              <div style="font-size:22px;margin-bottom:4px;">\ud83d\udcbc</div>
+              <div style="font-size:20px;font-weight:800;color:${BRAND_DARK};">${totalJobs || '200+'}</div>
+              <div style="font-size:11px;color:${MUTED_COLOR};text-transform:uppercase;letter-spacing:0.5px;margin-top:2px;">${nlT(locale, 'metricJobs')}</div>
+            </div>
+          </a>
+        </td>
+        <!--[if mso]></td><td width="33%" valign="top"><![endif]-->
+        <td width="33%" style="padding:0 4px;">
+          <a href="${localizedUrl('/statistiche', locale)}" style="text-decoration:none;display:block;">
+            <div style="background:${CARD_BG};border:1px solid ${BORDER_COLOR};border-radius:12px;padding:14px 12px;text-align:center;">
+              <div style="font-size:22px;margin-bottom:4px;">\ud83d\udcca</div>
+              <div style="font-size:20px;font-weight:800;color:${BRAND_DARK};">${unemploymentRate}</div>
+              <div style="font-size:11px;color:${MUTED_COLOR};text-transform:uppercase;letter-spacing:0.5px;margin-top:2px;">${unemploymentLabel}</div>
+            </div>
+          </a>
+        </td>
+        <!--[if mso]></td><td width="33%" valign="top"><![endif]-->
+        <td width="33%" style="padding:0 0 0 4px;">
+          <a href="${localizedUrl('/compara-servizi/confronta-casse-malati', locale)}" style="text-decoration:none;display:block;">
+            <div style="background:${CARD_BG};border:1px solid ${BORDER_COLOR};border-radius:12px;padding:14px 12px;text-align:center;">
+              <div style="font-size:22px;margin-bottom:4px;">\ud83c\udfe5</div>
+              <div style="font-size:20px;font-weight:800;color:${BRAND_DARK};">${lamalPremium}</div>
+              <div style="font-size:11px;color:${MUTED_COLOR};text-transform:uppercase;letter-spacing:0.5px;margin-top:2px;">${lamalLabel}</div>
+            </div>
+          </a>
+        </td>
+      </tr></table>
+      <!--[if mso]></td></tr></table><![endif]-->
+    </td></tr>`;
+}
+
+function renderDivider() {
+  return `<tr><td class="section-pad" style="padding:12px 28px;"><div style="border-top:1px solid ${BORDER_COLOR};"></div></td></tr>`;
+}
+
+function renderJobs(matchedJobs, locale, totalJobs) {
+  if (!matchedJobs || matchedJobs.length === 0) return '';
+  const jobCount = totalJobs || matchedJobs.length;
+  const jobCards = matchedJobs.slice(0, 4).map((job, i) => {
+    const initial = (job.company || '?')[0].toUpperCase();
+    const truncatedTitle = truncateAtWordBoundary(job.title, 55);
+    const tags = [];
+    if (job.alertMatch) tags.push(`<span style="font-size:10px;background:rgba(234,179,8,0.2);color:#fde047;padding:2px 8px;border-radius:6px;letter-spacing:0.5px;font-weight:600;">🔔 Il tuo alert</span>`);
+    if (i === 0 && !job.alertMatch) tags.push(`<span style="font-size:10px;background:rgba(239,68,68,0.2);color:#fca5a5;padding:2px 8px;border-radius:6px;text-transform:uppercase;letter-spacing:0.5px;font-weight:600;">${nlT(locale, 'topClicked')}</span>`);
+    if (job.contract) tags.push(`<span style="font-size:10px;background:rgba(249,115,22,0.15);color:#fdba74;padding:2px 8px;border-radius:6px;text-transform:uppercase;letter-spacing:0.5px;font-weight:600;">${escapeHtml(job.contract)}</span>`);
+    if (job.location) tags.push(`<span style="font-size:10px;background:rgba(249,115,22,0.15);color:#fdba74;padding:2px 8px;border-radius:6px;text-transform:uppercase;letter-spacing:0.5px;font-weight:600;">${escapeHtml(job.location)}</span>`);
+
+    return `
+      <tr><td style="padding:0 0 10px;">
+        <a href="${directUrl(job.url)}" style="text-decoration:none;display:block;">
+          <table width="100%" cellpadding="0" cellspacing="0" style="background:${BRAND_DARK};border-radius:12px;">
+            <tr>
+              <td width="58" style="padding:16px 0 16px 18px;vertical-align:middle;">
+                ${job.logoUrl
+                  ? `<div style="width:44px;height:44px;border-radius:10px;background:#fff;overflow:hidden;display:flex;align-items:center;justify-content:center;">
+                       <img src="${escapeHtml(job.logoUrl)}" width="44" height="44" alt="${escapeHtml(job.company || '')}" style="width:44px;height:44px;object-fit:contain;border-radius:10px;display:block;">
+                     </div>`
+                  : `<div style="width:44px;height:44px;border-radius:10px;background:linear-gradient(135deg,#1e293b,#334155);text-align:center;line-height:44px;font-size:18px;font-weight:800;color:${BRAND_ORANGE};">${initial}</div>`
+                }
+              </td>
+              <td style="padding:16px 18px 16px 14px;vertical-align:middle;">
+                <div class="job-title" style="font-size:14px;font-weight:700;color:#f1f5f9;margin:0;line-height:1.3;">${escapeHtml(truncatedTitle)}</div>
+                <div style="font-size:12px;color:#94a3b8;margin-top:2px;">${job.companyUrl ? `<a href="${directUrl(job.companyUrl)}" style="color:#94a3b8;text-decoration:underline;">${escapeHtml(job.company)}</a>` : escapeHtml(job.company)}${job.location ? ' \u00b7 ' + escapeHtml(job.location) : ''}</div>
+                ${tags.length > 0 ? `<div style="margin-top:4px;">${tags.join(' ')}</div>` : ''}
+              </td>
+            </tr>
+          </table>
+        </a>
+      </td></tr>`;
+  }).join('');
+
+  const ctaText = nlT(locale, 'jobsCta').replace('{n}', String(jobCount));
+
+  return `
+    <tr><td class="section-pad" style="background:${WHITE};padding:8px 28px 20px;">
+      <table width="100%" cellpadding="0" cellspacing="0">
+        ${jobCards}
+        <tr><td style="text-align:center;padding-top:14px;">
+          <a href="${localizedUrl('/cerca-lavoro-ticino', locale)}" style="display:inline-block;background:transparent;border:2px solid ${BRAND_ORANGE};color:${BRAND_ORANGE};font-weight:700;font-size:13px;text-decoration:none;padding:11px 28px;border-radius:8px;">${ctaText}</a>
+        </td></tr>
+      </table>
+    </td></tr>`;
+}
+
+function renderQuote(fact, locale) {
+  const text = fact?.text || nlT(locale, 'defaultQuote');
+  const source = fact?.source || nlT(locale, 'defaultQuoteSource');
+  return `
+    <tr><td class="section-pad" style="padding:8px 28px 16px;">
+      <div style="background:linear-gradient(135deg,${BRAND_ORANGE},#ea580c);border-radius:12px;padding:20px 22px;text-align:center;">
+        <div style="font-size:16px;font-weight:700;color:#fff;line-height:1.4;">\u201c${escapeHtml(text)}\u201d</div>
+        <div style="font-size:11px;color:rgba(255,255,255,0.7);margin-top:6px;">\u2014 ${escapeHtml(source)}</div>
+      </div>
+    </td></tr>`;
+}
+
+// FRO-275: Emoji per articolo basate su categoria/titolo del contenuto
+const ARTICLE_EMOJI_MAP = {
+  fiscale:     '💰 📊 🇨🇭',
+  tasse:       '💰 📊 🧾',
+  lavoro:      '💼 🏢 🇨🇭',
+  pratico:     '📋 ✅ 🇨🇭',
+  pensione:    '🏦 📈 🇨🇭',
+  sanita:      '🏥 💊 🇨🇭',
+  novita:      '🗞️ ⚡ 🇨🇭',
+  votazioni:   '🗳️ 🏔️ 🇨🇭',
+  cambio:      '💱 📉 🇨🇭',
+  traffico:    '🚗 🛃 🇨🇭',
+  assicurazione:'🛡️ 📋 🇨🇭',
+  default:     '📰 🏔️ 🇨🇭',
+};
+
+function deriveArticleEmoji(article) {
+  if (!article) return ARTICLE_EMOJI_MAP.default;
+  const text = `${article.title || ''} ${article.excerpt || ''} ${article.badge || ''} ${article.category || ''}`.toLowerCase();
+  for (const [key, emoji] of Object.entries(ARTICLE_EMOJI_MAP)) {
+    if (key === 'default') continue;
+    if (text.includes(key)) return emoji;
+  }
+  // Keyword fallback
+  if (text.match(/impost|irpef|730|dichiarazion/)) return ARTICLE_EMOJI_MAP.fiscale;
+  if (text.match(/stipendio|salario|contratt/)) return ARTICLE_EMOJI_MAP.lavoro;
+  if (text.match(/avs|lpp|pilastro|rendita/)) return ARTICLE_EMOJI_MAP.pensione;
+  if (text.match(/lamal|cassa malat|medic/)) return ARTICLE_EMOJI_MAP.sanita;
+  if (text.match(/vot|referendum|iniziativa/)) return ARTICLE_EMOJI_MAP.votazioni;
+  if (text.match(/chf|eur|franco|cambio/)) return ARTICLE_EMOJI_MAP.cambio;
+  if (text.match(/dogana|valico|frontalier.*auto/)) return ARTICLE_EMOJI_MAP.traffico;
+  return ARTICLE_EMOJI_MAP.default;
+}
+
+function renderArticle(article, locale) {
+  if (!article) return '';
+  const emoji = deriveArticleEmoji(article);
+  return `
+    <tr><td class="section-pad" style="background:${WHITE};padding:0 28px 8px;">
+      <a href="${directUrl(article.url)}" style="text-decoration:none;display:block;">
+        <div style="background:${CARD_BG};border:1px solid ${BORDER_COLOR};border-radius:14px;overflow:hidden;">
+          <div style="width:100%;height:200px;background:linear-gradient(135deg,#1e293b 0%,${BRAND_DARK} 50%,${BRAND_ORANGE} 100%);text-align:center;line-height:200px;">
+            <span style="font-size:56px;letter-spacing:8px;">${emoji}</span>
+          </div>
+          <div style="padding:18px 20px;">
+            ${article.badge ? `<span style="display:inline-block;background:#fef3c7;color:#92400e;font-size:10px;font-weight:700;padding:3px 10px;border-radius:6px;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:8px;">${escapeHtml(nlT(locale, 'topRead'))}</span>` : ''}
+            <div style="font-size:17px;font-weight:800;color:${BRAND_DARK};margin:0 0 8px;line-height:1.3;">${escapeHtml(article.title)}</div>
+            <div style="font-size:13px;color:#475569;line-height:1.55;margin:0 0 14px;">${escapeHtml(article.excerpt)}</div>
+            <span style="display:inline-block;background:${BRAND_DARK};color:#fff;font-weight:700;font-size:13px;padding:10px 22px;border-radius:8px;">${nlT(locale, 'articleCta')}</span>
+          </div>
+        </div>
+      </a>
+    </td></tr>`;
+}
+
+function renderTools(locale) {
+  const tools = getFeaturedTools(locale);
+  const toolCards = tools.map((tool, i) => {
+    const isFeatured = tool.popular;
+    const bg = isFeatured ? '#fff7ed' : CARD_BG;
+    const border = isFeatured ? BRAND_ORANGE : BORDER_COLOR;
+    const nameColor = isFeatured ? '#c2410c' : BRAND_DARK;
+    const popular = isFeatured ? `<span style="font-size:9px;background:${BRAND_ORANGE};color:#fff;padding:2px 6px;border-radius:4px;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;margin-left:4px;vertical-align:middle;">\u2605 #1</span>` : '';
+    return `
+      <td width="50%" class="tool-cell" style="padding:${i % 2 === 0 ? '0 5px 10px 0' : '0 0 10px 5px'};vertical-align:top;">
+        <a href="${localizedUrl(tool.toolUrl, locale)}" style="text-decoration:none;display:block;">
+          <div style="background:${bg};border:1px solid ${border};border-radius:12px;padding:16px 14px;">
+            <div style="font-size:24px;margin-bottom:6px;">${tool.icon}</div>
+            <div style="font-size:13px;font-weight:700;color:${nameColor};margin:0 0 4px;">${escapeHtml(tool.title)}${popular}</div>
+            <div style="font-size:11px;color:${MUTED_COLOR};line-height:1.4;margin:0;">${escapeHtml(tool.description)}</div>
+          </div>
+        </a>
+      </td>`;
+  });
+  // Build 2-column rows
+  const rows = [];
+  for (let i = 0; i < toolCards.length; i += 2) {
+    rows.push(`<tr class="tool-row">${toolCards[i]}${toolCards[i + 1] || '<td></td>'}</tr>`);
+  }
+  return `
+    <tr><td class="section-pad" style="background:${WHITE};padding:0 28px 24px;">
+      <table width="100%" cellpadding="0" cellspacing="0">
+        ${rows.join('')}
+      </table>
+    </td></tr>`;
+}
+
+function renderCloser(locale) {
+  return `
+    <tr><td class="section-pad" style="background:${WHITE};padding:0 28px 20px;">
+      <div style="background:#f1f5f9;border-radius:12px;padding:18px 20px;text-align:center;">
+        <div style="font-size:14px;color:${TEXT_COLOR};line-height:1.5;margin:0 0 8px;">${nlT(locale, 'closerText')}</div>
+        <div style="font-size:12px;color:${BRAND_ORANGE};font-weight:700;">${nlT(locale, 'closerTag')}</div>
+      </div>
+    </td></tr>`;
+}
+
+function renderFooter(locale, unsubscribeUrl, preferencesUrl) {
+  const unsubLink = `<a href="${unsubscribeUrl || '{{UNSUBSCRIBE_URL}}'}" style="color:${BRAND_ORANGE};text-decoration:underline;">${nlT(locale, 'unsubLink')}</a>`;
+  const unsubLine = nlT(locale, 'unsubText').replace('{link}', unsubLink);
+  const prefsLine = preferencesUrl
+    ? `<div style="font-size:12px;color:${MUTED_COLOR};margin:4px 0;"><a href="${preferencesUrl}" style="color:${BRAND_ORANGE};text-decoration:underline;">${nlT(locale, 'prefsLink')}</a></div>`
+    : '';
+  return `
+    <tr><td class="footer-pad" style="background:${BRAND_DARK};padding:28px;text-align:center;">
+      <div style="margin-bottom:12px;">
+        <a href="https://www.facebook.com/profile.php?id=61588174947294" style="display:inline-block;margin:0 6px;font-size:18px;text-decoration:none;">\ud83d\udcd8</a>
+        <a href="https://www.linkedin.com/company/frontaliere-ticino" style="display:inline-block;margin:0 6px;font-size:18px;text-decoration:none;">\ud83d\udcbc</a>
+        <a href="${BASE_URL}" style="display:inline-block;margin:0 6px;font-size:18px;text-decoration:none;">\ud83c\udf10</a>
+      </div>
+      <div style="font-size:12px;color:${MUTED_COLOR};margin:4px 0;">${nlT(locale, 'footerReason')} <a href="${BASE_URL}" style="color:${BRAND_ORANGE};text-decoration:underline;">frontaliereticino.ch</a></div>
+      <div style="font-size:12px;color:${MUTED_COLOR};margin:4px 0;">${unsubLine}</div>
+      ${prefsLine}
+      <div style="font-size:12px;color:#475569;margin-top:12px;">\u00a9 ${new Date().getFullYear()} Frontaliere Ticino \u00b7 ${nlT(locale, 'copyright')}</div>
+    </td></tr>`;
+}
+
+/**
+ * Build the newsletter HTML.
+ * @param {object} data
+ * @param {string}  [data.aiBriefing]    — AI-generated personalized briefing (HTML with <p> tags)
+ * @param {object}  [data.exchangeRate]  — { rate, previousRate }
+ * @param {Array}   [data.matchedJobs]   — [{ title, url, company, location, contract }]
+ * @param {number}  [data.totalJobs]     — Total number of available jobs
+ * @param {object}  [data.featuredTool]  — (legacy, ignored in v3 — tools grid is built-in)
+ * @param {object}  [data.weeklyFact]    — { text, source }
+ * @param {object}  [data.article]       — { title, excerpt, url, badge }
+ * @param {object}  [data.metrics]       — { unemploymentRate, unemploymentLabel, lamalPremium, lamalLabel }
+ * @param {string}  [data.locale]        — 'it' | 'en' | 'de' | 'fr'
+ * @param {string}  [data.unsubscribeUrl]
+ * @param {string}  [data.resubscribeUrl]
+ * @param {string}  [data.preheaderText]
+ * @returns {string}
+ */
+export function buildNewsletter(data) {
+  const locale = nlNormLocale(data.locale);
+  const dateStr = formatDate(locale);
+  const preheader = data.preheaderText || (data.exchangeRate
+    ? 'CHF/EUR ' + data.exchangeRate.rate.toFixed(4) + ' \u00b7 ' + dateStr
+    : dateStr);
+
+  const totalJobs = data.totalJobs || 0;
+
+  let html = '';
+
+  // 1. Top bar
+  html += renderTopBar(locale, data.issueNumber);
+
+  // 2. Hero exchange rate
+  if (data.exchangeRate) html += renderHeroExchangeRate({ ...data.exchangeRate, locale });
+
+  // 3. Editorial (AI briefing or fallback)
+  html += renderEditorial(locale, data.aiBriefing, totalJobs);
+
+  // 4. Dashboard metrics
+  html += renderMetrics(totalJobs, data.metrics, locale);
+
+  // 5. Divider
+  html += renderDivider();
+
+  // 6. Section header: Jobs (only if there are matched jobs)
+  if (data.matchedJobs && data.matchedJobs.length > 0) {
+    html += `<tr><td class="section-pad" style="background:${WHITE};padding:24px 28px 8px;">
+      <div style="font-size:11px;text-transform:uppercase;letter-spacing:2px;color:${BRAND_ORANGE};font-weight:700;margin:0 0 2px;">\ud83d\udcbc ${nlT(locale, 'jobsLabel')}</div>
+      <div style="font-size:18px;font-weight:800;color:${BRAND_DARK};margin:0;">${nlT(locale, 'jobsTitle')}</div>
+      <div style="font-size:13px;color:${MUTED_COLOR};margin:4px 0 0;">${nlT(locale, 'jobsSub')}</div>
+    </td></tr>`;
+    html += renderJobs(data.matchedJobs, locale, totalJobs);
+  }
+
+  // 7. Quote (from weekly fact or default)
+  html += renderQuote(data.weeklyFact, locale);
+
+  // 8. Divider
+  html += renderDivider();
+
+  // 9. Article section
+  if (data.article) {
+    html += `<tr><td class="section-pad" style="background:${WHITE};padding:24px 28px 8px;">
+      <div style="font-size:11px;text-transform:uppercase;letter-spacing:2px;color:${BRAND_ORANGE};font-weight:700;margin:0 0 2px;">\ud83d\udcf0 ${nlT(locale, 'articleTitle')}</div>
+    </td></tr>`;
+    html += renderArticle(data.article, locale);
+  }
+
+  // 10. Divider
+  html += renderDivider();
+
+  // 11. Section header: Tools
+  html += `<tr><td class="section-pad" style="background:${WHITE};padding:24px 28px 8px;">
+    <div style="font-size:11px;text-transform:uppercase;letter-spacing:2px;color:${BRAND_ORANGE};font-weight:700;margin:0 0 2px;">\ud83e\uddf0 ${nlT(locale, 'toolsLabel')}</div>
+    <div style="font-size:18px;font-weight:800;color:${BRAND_DARK};margin:0;">${nlT(locale, 'toolsTitle')}</div>
+    <div style="font-size:13px;color:${MUTED_COLOR};margin:4px 0 0;">${nlT(locale, 'toolsSub')}</div>
+  </td></tr>`;
+  html += renderTools(locale);
+
+  // 12. Closer
+  html += renderCloser(locale);
+
+  // 13. Footer
+  html += renderFooter(locale, data.unsubscribeUrl, data.preferencesUrl);
+
+  return `<!DOCTYPE html>
+<html lang="${locale}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <title>Frontaliere Weekly</title>
+  <!--[if mso]><style>table{border-collapse:collapse;}td{padding:0;}</style><![endif]-->
+  <style>
+    body{margin:0;padding:0;background:${LIGHT_BG};font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;-webkit-text-size-adjust:100%;}
+    table{border-collapse:collapse;}
+    img{border:0;max-width:100%;}
+    .preheader{display:none!important;font-size:1px;line-height:1px;max-height:0;max-width:0;opacity:0;overflow:hidden;}
+    @media only screen and (max-width:620px){
+      .outer-table{width:100%!important;}
+      .hero-rate{font-size:40px!important;}
+      .rate-box{padding:16px 20px!important;}
+      .section-pad{padding-left:16px!important;padding-right:16px!important;}
+      .topbar-pad{padding-left:16px!important;padding-right:16px!important;}
+      .metric-card{display:block!important;width:100%!important;padding:0 0 8px 0!important;}
+      .metric-row td{display:block!important;width:100%!important;padding:0 0 8px 0!important;}
+      .tool-cell{display:block!important;width:100%!important;padding:0 0 10px 0!important;}
+      .tool-row td{display:block!important;width:100%!important;padding:0 0 10px 0!important;}
+      .job-title{white-space:normal!important;}
+      .footer-pad{padding:20px 16px!important;}
+    }
+  </style>
+</head>
+<body>
+  <div class="preheader">${escapeHtml(preheader)}&nbsp;\u200c\u200c\u200c\u200c\u200c\u200c\u200c</div>
+  <table width="100%" cellpadding="0" cellspacing="0" style="background:${LIGHT_BG};">
+    <tr><td align="center" style="padding:0;">
+      <table width="620" cellpadding="0" cellspacing="0" style="width:100%;max-width:620px;background:${WHITE};">
+        ${html}
+      </table>
+    </td></tr>
+  </table>
+</body>
+</html>`;
+}

@@ -1,0 +1,40 @@
+{
+  "id": "ffs-tagli-ticino-frontalieri-2026",
+  "slug": "ffs-tagli-ticino-frontalieri-2026",
+  "publishedAt": "2026-05-18T06:56:27.938Z",
+  "cluster": "fiscale",
+  "_pool": "proven",
+  "_pool_source": "media.tio.ch",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 5.086371138944546,
+    "confidence": 0.8,
+    "finalScore": 4.069096911155637,
+    "topK": [
+      {
+        "slug": "mobilitazione-deposito-macchinisti-chiasso",
+        "cosine": 0.8477285231574243
+      },
+      {
+        "slug": "ffs-dirigenza-ticino-deposito-chiasso",
+        "cosine": 0.8434468935759402
+      },
+      {
+        "slug": "tassa-salute-ticino-riforme-invece-aggravi",
+        "cosine": 0.8373726285593146
+      },
+      {
+        "slug": "sisa-contro-tagli-governo-2024",
+        "cosine": 0.8361077785394925
+      },
+      {
+        "slug": "udc-sostenibilita-lavoro-ticino-2026",
+        "cosine": 0.8342309453116985
+      }
+    ],
+    "score": 4.069096911155637,
+    "clusterDiversityBonus": 1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "fiscale"
+  }
+}

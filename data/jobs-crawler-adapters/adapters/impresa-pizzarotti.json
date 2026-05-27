@@ -1,0 +1,24 @@
+{
+  "companyKey": "impresa-pizzarotti",
+  "companyName": "Impresa Pizzarotti & C. S.p.A.",
+  "companyHost": "www.pizzarotti.it",
+  "enabled": true,
+  "priority": 18,
+  "crawlerModes": [
+    "html"
+  ],
+  "seedUrls": [
+    "https://www.pizzarotti.it/persone/carriere/selezioni-in-corso/",
+    "https://inrecruiting.intervieweb.it/app.php?module=iframeAnnunci&lang=it&k=4b540470d86438622d22d56b1b3e761a&d=www.pizzarotti.it&LAC=impresapizzarotti&utype=&act1=23&defgroup=name&gnavenable=1&desc=1&annType=published&h=&typeView=large"
+  ],
+  "notes": "Dedicated Pizzarotti crawler parses InRecruiting/Intervieweb listing and detail pages, keeping only Swiss-located vacancies.",
+  "updatedAt": "2026-03-13T12:13:31.044Z",
+  "seedMetaByUrl": {
+    "https://inrecruiting.intervieweb.it/impresapizzarotti/jobs/chef-de-controle-de-projet-le-locle-678790/it/": {
+      "location": "Neuchâtel, Svizzera",
+      "canton": "NE",
+      "company": "Impresa Pizzarotti & C. S.p.A.",
+      "postedDate": "2026-03-13"
+    }
+  }
+}

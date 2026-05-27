@@ -1,0 +1,50 @@
+{
+  "key": "artisa-group",
+  "label": "Artisa Group",
+  "generatedAt": "2026-05-26T22:02:54.533Z",
+  "total": 3,
+  "newCount": 0,
+  "updatedCount": 1,
+  "removedCount": 0,
+  "unchangedCount": 0,
+  "durationMs": 5819,
+  "avgDurationMs": 5819,
+  "durationHistory": [
+    5819
+  ],
+  "newJobs": [],
+  "updatedJobs": [
+    {
+      "title": "Consulente vendita immobiliare",
+      "slug": "consulente-vendita-immobiliare-artisa-group-lugano",
+      "url": "https://artisagroup.com/carriera#consulente-vendita-immobiliare",
+      "applyUrl": "https://app.smartsheet.com/b/form/019d5244cd6e781289e24c00e583720e",
+      "company": "Artisa Group",
+      "companyKey": "artisa-group",
+      "companyDomain": "artisagroup.com",
+      "location": "Lugano",
+      "addressLocality": "Lugano",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "category": "other",
+      "sector": "Immobiliare & Architettura",
+      "source": "artisa-dedicated-crawler",
+      "sourceLang": "it",
+      "postedDate": "2026-05-26",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "",
+      "_qualityScore": 71,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 10,
+        "completeness": 14
+      }
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": []
+}

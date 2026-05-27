@@ -1,0 +1,185 @@
+#!/usr/bin/env node
+
+/**
+ * Pipeline validation: ensures no blog-meta or seo-blog entry contains
+ * literal placeholder template strings from create-article.mjs.
+ *
+ * Background:
+ *  When the blog article generator (scripts/create-article.mjs) calls the LLM
+ *  with a JSON skeleton template, the model occasionally returns the skeleton
+ *  verbatim instead of filling it in. The result was that articles like
+ *  fronteria-ticino-scarpata-airogno shipped to production with titles like
+ *  "Titolo giornalistico con keyword (max 60 chars)" — visible to real users.
+ *
+ *  This validator scans services/locales/blog-meta-*.ts and
+ *  services/seo/seo-blog.ts for any literal placeholder strings and exits 1
+ *  if any are found, blocking the build.
+ *
+ *  Run from npm scripts and from .githooks/pre-push.
+ */
+
+import { readFileSync, readdirSync, statSync } from 'fs';
+import { join } from 'path';
+
+// Literal placeholder strings from the LLM JSON template in create-article.mjs.
+// If any of these appear in a meta or seo-blog file, the LLM returned the
+// template verbatim and we must block the build.
+const PLACEHOLDER_PATTERNS = [
+  'Titolo giornalistico con keyword',
+  'Sottotitolo con dati concreti',
+  'max 60 chars',
+  'max 160 chars',
+  'OG title (',
+  'OG desc (',
+  'Headline JSON-LD',
+  'Meta description 150-160 chars',
+  'SEO Title | Frontaliere Ticino',
+  '6-8 keywords IT',
+  'Breadcrumb 2-3 parole',
+  'Lead giornalistico: FATTI',
+  'Analisi tecnica: normative',
+  'Azione pratica: procedura step-by-step',
+];
+
+const FILES_TO_SCAN = [];
+
+// Add all blog-meta-{lang}.ts files
+const localesDir = 'services/locales';
+for (const file of readdirSync(localesDir)) {
+  if (/^blog-meta-[a-z]{2}\.ts$/.test(file)) {
+    FILES_TO_SCAN.push(join(localesDir, file));
+  }
+}
+
+// Add all seo-blog-N.ts chunks (auto-discovered so new splits are picked up automatically)
+const seoBlogDir = 'services/seo';
+FILES_TO_SCAN.push(join(seoBlogDir, 'seo-blog.ts'));
+for (let n = 2; n <= 20; n++) {
+  const p = join(seoBlogDir, `seo-blog-${n}.ts`);
+  try { statSync(p); FILES_TO_SCAN.push(p); } catch { break; }
+}
+
+// Add all blog body files
+const blogBodyRoot = 'services/locales/blog-body';
+try {
+  const langEntries = readdirSync(blogBodyRoot).filter((name) => {
+    try {
+      return statSync(join(blogBodyRoot, name)).isDirectory();
+    } catch {
+      return false;
+    }
+  });
+  for (const lang of langEntries) {
+    const langDir = join(blogBodyRoot, lang);
+    for (const file of readdirSync(langDir)) {
+      if (file.endsWith('.ts')) {
+        FILES_TO_SCAN.push(join(langDir, file));
+      }
+    }
+  }
+} catch (err) {
+  // blog-body directory may not exist in some checkouts; that's fine
+}
+
+const violations = [];
+
+for (const filePath of FILES_TO_SCAN) {
+  let content;
+  try {
+    content = readFileSync(filePath, 'utf-8');
+  } catch (err) {
+    console.error(`[validate-blog-meta-placeholders] cannot read ${filePath}: ${err.message}`);
+    process.exit(2);
+  }
+
+  const lines = content.split('\n');
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i];
+    for (const pattern of PLACEHOLDER_PATTERNS) {
+      if (line.includes(pattern)) {
+        violations.push({
+          file: filePath,
+          line: i + 1,
+          pattern,
+          context: line.trim().slice(0, 200),
+        });
+      }
+    }
+  }
+}
+
+if (violations.length === 0) {
+  console.log(`[validate-blog-meta-placeholders] OK — scanned ${FILES_TO_SCAN.length} files, no LLM template placeholders found.`);
+} else {
+  console.error('');
+  console.error('❌ BLOG META PLACEHOLDER VALIDATION FAILED');
+  console.error('');
+  console.error(`Found ${violations.length} literal placeholder string(s) from create-article.mjs JSON template.`);
+  console.error('This means the LLM returned the skeleton verbatim instead of filling it in.');
+  console.error('');
+  console.error('Violations:');
+  for (const v of violations) {
+    console.error(`  ${v.file}:${v.line}`);
+    console.error(`    pattern: ${JSON.stringify(v.pattern)}`);
+    console.error(`    line:    ${v.context}`);
+  }
+  console.error('');
+  console.error('Fix: rewrite the affected entries with real content matching the article body.');
+  console.error('See CLAUDE.md "Never accept thin content" + "Fix root cause".');
+  process.exit(1);
+}
+
+// ── Untranslated title/excerpt check ──────────────────────────────────
+// Detects blog-meta entries where EN/DE/FR title or excerpt is identical
+// to the Italian version (translation failure — LLM returned IT unchanged).
+// Skip articles whose IT text is already in the target language (e.g.,
+// pfaffikon-kanton-schwyz — German-origin article, IT file has German text).
+const parseTitles = (filePath) => {
+  const out = {};
+  try {
+    const src = readFileSync(filePath, 'utf-8');
+    const rx = /'blog\.article\.([^']+)\.(title|excerpt)'\s*:\s*'((?:[^'\\]|\\.)*)'/g;
+    let m;
+    while ((m = rx.exec(src)) !== null) {
+      if (!out[m[1]]) out[m[1]] = {};
+      out[m[1]][m[2]] = m[3];
+    }
+  } catch { /* file may not exist */ }
+  return out;
+};
+
+// Articles whose IT version is NOT Italian (German-origin, etc.) — skip match check
+const FOREIGN_ORIGIN_ARTICLES = new Set([
+  'pfaffikon-kanton-schwyz-franzosi-einbrecher',
+]);
+
+const itMeta = parseTitles(join(localesDir, 'blog-meta-it.ts'));
+const untranslated = [];
+
+for (const locale of ['en', 'de', 'fr']) {
+  const locMeta = parseTitles(join(localesDir, `blog-meta-${locale}.ts`));
+  for (const [articleId, fields] of Object.entries(locMeta)) {
+    if (!itMeta[articleId]) continue;
+    if (FOREIGN_ORIGIN_ARTICLES.has(articleId)) continue;
+    for (const field of ['title', 'excerpt']) {
+      if (fields[field] && itMeta[articleId][field] && fields[field] === itMeta[articleId][field]) {
+        untranslated.push({ locale, articleId, field, value: fields[field].slice(0, 80) });
+      }
+    }
+  }
+}
+
+if (untranslated.length > 0) {
+  console.error('');
+  console.error(`⚠️  UNTRANSLATED BLOG META WARNING: ${untranslated.length} entries identical to Italian`);
+  console.error('');
+  for (const u of untranslated) {
+    console.error(`  blog-meta-${u.locale}.ts → ${u.articleId}.${u.field}: "${u.value}..."`);
+  }
+  console.error('');
+  console.error('These entries have the Italian text instead of a proper translation.');
+  console.error('Fix: translate the title/excerpt in the target language.');
+  // Warning only — don't block build, but visible in CI logs
+}
+
+process.exit(0);

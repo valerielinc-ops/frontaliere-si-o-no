@@ -1,0 +1,16 @@
+{
+  "companyKey": "international-school-of-ticino",
+  "companyName": "International School of Ticino",
+  "companyHost": "jobs.inspirededu.com",
+  "enabled": true,
+  "priority": 10,
+  "crawlerModes": [
+    "html",
+    "jsonld"
+  ],
+  "seedUrls": [
+    "https://jobs.inspirededu.com/job/Lugano-German-Teacher/1359419457/"
+  ],
+  "notes": "TalentBrew/iCIMS portal at jobs.inspirededu.com — search by Lugano + Graubünden locations for IST TI/GR positions.",
+  "updatedAt": "2026-05-26T23:12:31.969Z"
+}
