@@ -389,12 +389,12 @@
     },
     {
       "id": "privatklinik-obach-27f57603aa9d",
-      "slug": "lagerungspfleger-in-privatklinik-obach-solothurn",
+      "slug": "cure-di-stoccaggio-privatklinik-obach-solothurn",
       "slugByLocale": {
         "de": "lagerungspfleger-in-privatklinik-obach-solothurn",
-        "it": "lagerungspfleger-in-privatklinik-obach-solothurn",
-        "en": "lagerungspfleger-in-privatklinik-obach-solothurn",
-        "fr": "lagerungspfleger-in-privatklinik-obach-solothurn"
+        "it": "cure-di-stoccaggio-privatklinik-obach-solothurn",
+        "en": "storage-careers-privatklinik-obach-solothurn",
+        "fr": "carrieres-de-stockage-privatklinik-obach-solothurn"
       },
       "company": "Privatklinik Obach",
       "companyKey": "privatklinik-obach",
@@ -440,14 +440,22 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "lagerungspfleger-in-privatklinik-obach"
+          "lagerungspfleger-in-privatklinik-obach",
+          "lagerungspfleger-in-privatklinik-obach-solothurn"
         ],
         "de": [
           "lagerungspfleger-in-privatklinik-obach"
+        ],
+        "en": [
+          "lagerungspfleger-in-privatklinik-obach-solothurn"
+        ],
+        "fr": [
+          "lagerungspfleger-in-privatklinik-obach-solothurn"
         ]
       },
       "previousSlugs": [
-        "lagerungspfleger-in-privatklinik-obach"
+        "lagerungspfleger-in-privatklinik-obach",
+        "lagerungspfleger-in-privatklinik-obach-solothurn"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,

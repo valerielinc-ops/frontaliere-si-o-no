@@ -669,7 +669,7 @@
         "it": "ingegnere-di-vendita-sulzer-winterthur",
         "en": "sales-engineer-sulzer-winterthur",
         "de": "sales-ingenieur-sulzer-winterthur",
-        "fr": "sales-engineer-sulzer-ch"
+        "fr": "ingenieur-commercial-sulzer-winterthur"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -722,15 +722,13 @@
           "vertriebsingenieur-sulzer-winterthur"
         ],
         "fr": [
-          "ingenieur-commercial-sulzer-winterthur",
           "sales-engineer-sulzer-ch"
         ]
       },
       "previousSlugs": [
         "sales-engineer-sulzer-ch",
         "sales-ingegnere-sulzer-winterthur",
-        "vertriebsingenieur-sulzer-winterthur",
-        "ingenieur-commercial-sulzer-winterthur"
+        "vertriebsingenieur-sulzer-winterthur"
       ],
       "firstSeenAt": "2026-05-21T23:58:00.571Z",
       "salaryMin": 49500,
@@ -2559,7 +2557,7 @@
         "fr": "jr-logistics-officer-sulzer-ch",
         "it": "jr-logistics-officer-sulzer-madrid",
         "en": "jr-logistics-officer-sulzer-ch",
-        "de": "jr-logistics-officer-sulzer-ch"
+        "de": "jr-logistik-officer-sulzer-madrid"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -2604,6 +2602,9 @@
       "previousSlugsByLocale": {
         "it": [
           "jr-logistics-officer-sulzer-ch"
+        ],
+        "de": [
+          "jr-logistics-officer-sulzer-ch"
         ]
       },
       "previousSlugs": [
@@ -2626,11 +2627,11 @@
     },
     {
       "id": "sulzer-7a83100a4887",
-      "slug": "service-engineer-sulzer-ch",
+      "slug": "service-ingegnere-sulzer-dublin",
       "slugByLocale": {
         "en": "service-engineer-sulzer-dublin",
-        "it": "service-engineer-sulzer-ch",
-        "de": "service-engineer-sulzer-ch",
+        "it": "service-ingegnere-sulzer-dublin",
+        "de": "service-ingenieur-sulzer-dublin",
         "fr": "service-engineer-sulzer-ch"
       },
       "company": "Sulzer",
@@ -2686,14 +2687,25 @@
         }
       },
       "postalCode": "8001",
-      "firstSeenAt": "2026-05-27T14:05:56.272Z"
+      "firstSeenAt": "2026-05-27T14:05:56.272Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "service-engineer-sulzer-ch"
+        ],
+        "de": [
+          "service-engineer-sulzer-ch"
+        ]
+      },
+      "previousSlugs": [
+        "service-engineer-sulzer-ch"
+      ]
     },
     {
       "id": "sulzer-81e872ed1ce0",
-      "slug": "service-engineer-sulzer-ch-2",
+      "slug": "service-ingegnere-sulzer-sevilla",
       "slugByLocale": {
         "fr": "service-engineer-sulzer-ch",
-        "it": "service-engineer-sulzer-ch-2",
+        "it": "service-ingegnere-sulzer-sevilla",
         "en": "service-engineer-sulzer-sevilla",
         "de": "service-engineer-sulzer-ch-2"
       },
@@ -2750,14 +2762,22 @@
         }
       },
       "postalCode": "8001",
-      "firstSeenAt": "2026-05-27T14:05:55.526Z"
+      "firstSeenAt": "2026-05-27T14:05:55.526Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "service-engineer-sulzer-ch-2"
+        ]
+      },
+      "previousSlugs": [
+        "service-engineer-sulzer-ch-2"
+      ]
     },
     {
       "id": "sulzer-3eb1547ffdfe",
-      "slug": "service-engineer-sulzer-ch-3",
+      "slug": "service-ingegnere-sulzer-sevilla-193276",
       "slugByLocale": {
         "fr": "service-engineer-sulzer-ch",
-        "it": "service-engineer-sulzer-ch-3",
+        "it": "service-ingegnere-sulzer-sevilla-193276",
         "en": "service-engineer-sulzer-sevilla",
         "de": "service-engineer-sulzer-ch-3"
       },
@@ -2814,14 +2834,22 @@
         }
       },
       "postalCode": "8001",
-      "firstSeenAt": "2026-05-27T14:05:54.788Z"
+      "firstSeenAt": "2026-05-27T14:05:54.788Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "service-engineer-sulzer-ch-3"
+        ]
+      },
+      "previousSlugs": [
+        "service-engineer-sulzer-ch-3"
+      ]
     },
     {
       "id": "sulzer-c0c75bde6387",
-      "slug": "sales-engineer-sulzer-ch-2",
+      "slug": "sales-ingegnere-sulzer-madrid-wws",
       "slugByLocale": {
         "fr": "sales-engineer-sulzer-ch",
-        "it": "sales-engineer-sulzer-ch-2",
+        "it": "sales-ingegnere-sulzer-madrid-wws",
         "en": "sales-engineer-sulzer-madrid-wws",
         "de": "sales-engineer-sulzer-ch-2"
       },
@@ -2878,7 +2906,15 @@
         }
       },
       "postalCode": "8001",
-      "firstSeenAt": "2026-05-27T14:05:54.053Z"
+      "firstSeenAt": "2026-05-27T14:05:54.053Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sales-engineer-sulzer-ch-2"
+        ]
+      },
+      "previousSlugs": [
+        "sales-engineer-sulzer-ch-2"
+      ]
     },
     {
       "id": "sulzer-495f33b05a41",

@@ -89,7 +89,7 @@
       "id": "pdag-0959c8081c1a",
       "slug": "assistente-psicologo-o-psicologa-specializzata-psychiatrische-dienste-aargau-pdag-windisch",
       "slugByLocale": {
-        "it": "assistenzpsychologin-assistenzpsychologe-o-fachpsychologin-fachpsychologe-psychiatrische-dienste-aargau-pdag-windisch",
+        "it": "assistente-psicologo-o-psicologa-specializzata-psychiatrische-dienste-aargau-pdag-windisch",
         "en": "psychologist-assistant-or-specialist-psychologist-psychiatrische-dienste-aargau-pdag-windisch",
         "de": "assistenzpsychologin-assistenzpsychologe-oder-fachpsychologin-fachpsychologe-pdag-windisch",
         "fr": "psychologue-assistant-ou-psychologue-specialiste-psychiatrische-dienste-aargau-pdag-windisch"
@@ -137,14 +137,15 @@
       "previousSlugs": [
         "assistenzpsychologin-assistenzpsychologe-oder-fachpsychologin-fachpsychologe-pdag-windisch",
         "assistente-psicologo-assistente-psicologo-psicologo-psychiatrische-dienste-aargau-pdag-windisch",
+        "assistenzpsychologin-assistenzpsychologe-o-fachpsychologin-fachpsychologe-psychiatrische-dienste-aargau-pdag-windisch",
         "assistant-psychologist-assistant-psychologist-psychologist-psychiatrische-dienste-aargau-pdag-windisch",
-        "psychologue-adjoint-psychologue-adjoint-psychologue-psychiatrische-dienste-aargau-pdag-windisch",
-        "assistente-psicologo-o-psicologa-specializzata-psychiatrische-dienste-aargau-pdag-windisch"
+        "psychologue-adjoint-psychologue-adjoint-psychologue-psychiatrische-dienste-aargau-pdag-windisch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "assistenzpsychologin-assistenzpsychologe-oder-fachpsychologin-fachpsychologe-pdag-windisch",
-          "assistente-psicologo-assistente-psicologo-psicologo-psychiatrische-dienste-aargau-pdag-windisch"
+          "assistente-psicologo-assistente-psicologo-psicologo-psychiatrische-dienste-aargau-pdag-windisch",
+          "assistenzpsychologin-assistenzpsychologe-o-fachpsychologin-fachpsychologe-psychiatrische-dienste-aargau-pdag-windisch"
         ],
         "en": [
           "assistenzpsychologin-assistenzpsychologe-oder-fachpsychologin-fachpsychologe-pdag-windisch",
@@ -736,12 +737,12 @@
     },
     {
       "id": "pdag-c50abfdc7357",
-      "slug": "dipl-pflegefachfrau-pflegefachmann-hf-fh-nachtwachen-equipe-pdag-windisch",
+      "slug": "dipl-specialista-di-cura-hf-fh-nightwax-attrezzature-psychiatrische-dienste-aargau-pdag-windisch",
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-pflegefachmann-hf-fh-nachtwachen-equipe-pdag-windisch",
-        "it": "dipl-pflegefachfrau-pflegefachmann-hf-fh-nachtwachen-equipe-pdag-windisch",
-        "en": "dipl-pflegefachfrau-pflegefachmann-hf-fh-nachtwachen-equipe-pdag-windisch",
-        "fr": "dipl-pflegefachfrau-pflegefachmann-hf-fh-nachtwachen-equipe-pdag-windisch"
+        "it": "dipl-specialista-di-cura-hf-fh-nightwax-attrezzature-psychiatrische-dienste-aargau-pdag-windisch",
+        "en": "dipl-care-specialist-hf-fh-nightwax-equipe-psychiatrische-dienste-aargau-pdag-windisch",
+        "fr": "dipl-specialiste-des-soins-hf-fh-psychiatrische-dienste-aargau-pdag-windisch"
       },
       "company": "Psychiatrische Dienste Aargau (PDAG)",
       "companyKey": "pdag",
@@ -796,7 +797,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-27T13:28:42.222Z"
+      "firstSeenAt": "2026-05-27T13:28:42.222Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-nachtwachen-equipe-pdag-windisch"
+        ],
+        "en": [
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-nachtwachen-equipe-pdag-windisch"
+        ],
+        "fr": [
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-nachtwachen-equipe-pdag-windisch"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-nachtwachen-equipe-pdag-windisch"
+      ]
     }
   ]
 }

@@ -4,10 +4,10 @@
   "jobs": [
     {
       "id": "senevita-fe51cbd9ecf2",
-      "slug": "lernende-r-koch-kochin-efz-senevita-bern-be",
+      "slug": "apprendista-koch-kochin-cfc-senevita-bern-be",
       "slugByLocale": {
         "de": "lernende-r-koch-kochin-efz-senevita-bern-be",
-        "it": "lernende-r-koch-kochin-efz-senevita-bern-be",
+        "it": "apprendista-koch-kochin-cfc-senevita-bern-be",
         "en": "lernende-r-koch-kochin-efz-senevita-bern-be",
         "fr": "lernende-r-koch-kochin-efz-senevita-bern-be"
       },
@@ -66,14 +66,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-27T13:48:28.376Z"
+      "firstSeenAt": "2026-05-27T13:48:28.376Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "lernende-r-koch-kochin-efz-senevita-bern-be"
+        ]
+      },
+      "previousSlugs": [
+        "lernende-r-koch-kochin-efz-senevita-bern-be"
+      ]
     },
     {
       "id": "senevita-619abbc651f0",
-      "slug": "lernende-praktikerin-lernender-praktiker-hotellerie-hauswirtschaft-eba-senevita-studen-be",
+      "slug": "apprendista-praktikerin-apprendista-praktiker-hotellerie-hauswirtschaft-afp-senevita-studen-be",
       "slugByLocale": {
         "de": "lernende-praktikerin-lernender-praktiker-hotellerie-hauswirtschaft-eba-senevita-studen-be",
-        "it": "lernende-praktikerin-lernender-praktiker-hotellerie-hauswirtschaft-eba-senevita-studen-be",
+        "it": "apprendista-praktikerin-apprendista-praktiker-hotellerie-hauswirtschaft-afp-senevita-studen-be",
         "en": "lernende-praktikerin-lernender-praktiker-hotellerie-hauswirtschaft-eba-senevita-studen-be",
         "fr": "lernende-praktikerin-lernender-praktiker-hotellerie-hauswirtschaft-eba-senevita-studen-be"
       },
@@ -132,7 +140,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-27T13:48:27.904Z"
+      "firstSeenAt": "2026-05-27T13:48:27.904Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "lernende-praktikerin-lernender-praktiker-hotellerie-hauswirtschaft-eba-senevita-studen-be"
+        ]
+      },
+      "previousSlugs": [
+        "lernende-praktikerin-lernender-praktiker-hotellerie-hauswirtschaft-eba-senevita-studen-be"
+      ]
     },
     {
       "id": "senevita-707fc74dabc3",
