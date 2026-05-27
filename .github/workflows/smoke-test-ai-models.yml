@@ -1,0 +1,72 @@
+name: Smoke-Test AI Models
+
+# Manual-only. One ping per model in DEFAULT_CHAIN; records pass/4xx/5xx/timeout.
+# Use after touching scripts/lib/ai-models.mjs to confirm new IDs work and to
+# spot newly deprecated models before they brick a production workflow
+# (cf. run 26534353239 where gemini-3.1-flash-lite-preview kept winning the
+# fallback selector after Google deprecated it).
+on:
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Prepare Firebase credentials
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -n "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+            echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+          else
+            echo "⚠️ Firebase secrets not set — Remote Config keys will not load."
+          fi
+
+      - name: Load secrets from Remote Config
+        run: node scripts/load-rc-env.mjs
+
+      - name: Run smoke-test (one ping per model)
+        run: |
+          mkdir -p .tmp
+          node scripts/smoke-test-ai-models.mjs > .tmp/smoke.json 2> .tmp/smoke.log
+          echo "## Smoke-test summary" >> "$GITHUB_STEP_SUMMARY"
+          echo '```json' >> "$GITHUB_STEP_SUMMARY"
+          node -e "const r=require('./.tmp/smoke.json');console.log(JSON.stringify(r.summary,null,2))" >> "$GITHUB_STEP_SUMMARY"
+          echo '```' >> "$GITHUB_STEP_SUMMARY"
+          echo "" >> "$GITHUB_STEP_SUMMARY"
+          echo "## Dead models (HTTP 404)" >> "$GITHUB_STEP_SUMMARY"
+          node -e "
+            const r=require('./.tmp/smoke.json');
+            const dead=(r.results||[]).filter(x=>x.status==='http_404');
+            if(!dead.length){console.log('_None._');return;}
+            console.log('| Model | Detail |');
+            console.log('|-------|--------|');
+            for(const d of dead){console.log('| \`'+d.model+'\` | '+(d.detail||'').replace(/\\|/g,'\\\\|').slice(0,120)+' |');}
+          " >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Upload smoke-test artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ai-models-smoke-${{ github.run_id }}
+          path: |
+            .tmp/smoke.json
+            .tmp/smoke.log
+          retention-days: 30
