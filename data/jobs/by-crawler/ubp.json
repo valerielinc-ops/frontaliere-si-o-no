@@ -1,6 +1,6 @@
 {
   "crawlerKey": "ubp",
-  "assembledAt": "2026-05-25T23:52:39.274Z",
+  "assembledAt": "2026-05-27T00:38:21.105Z",
   "jobs": [
     {
       "id": "ubp-5622be80e37a",
@@ -33,7 +33,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/297",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-25T23:52:36.811Z",
+      "crawledAt": "2026-05-27T00:38:13.812Z",
       "addressLocality": "London, United Kingdom",
       "addressRegion": "TI",
       "addressCountry": "",
@@ -51,10 +51,10 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
-        "en": [
+        "it": [
           "banking-operations-officer-ubp-ch"
         ],
-        "it": [
+        "en": [
           "banking-operations-officer-ubp-ch"
         ]
       },
@@ -63,6 +63,7 @@
         "agente-delle-operazioni-bancarie-union-bancaire-privee-london-united-kingdom"
       ],
       "firstSeenAt": "2026-05-17T11:17:36.670Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -107,7 +108,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/265",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-25T23:52:36.335Z",
+      "crawledAt": "2026-05-27T00:38:13.268Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -125,13 +126,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
-        "en": [
-          "it-business-analyst-risk-management-ubp-ch"
-        ],
         "it": [
           "it-business-analyst-risk-management-ubp-ch"
         ],
         "fr": [
+          "it-business-analyst-risk-management-ubp-ch"
+        ],
+        "en": [
           "it-business-analyst-risk-management-ubp-ch"
         ]
       },
@@ -184,7 +185,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/383",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-25T23:52:35.867Z",
+      "crawledAt": "2026-05-27T00:38:12.737Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -202,13 +203,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
-        "en": [
-          "it-business-analyst-credit-it-ubp-ch"
-        ],
         "it": [
           "it-business-analyst-credit-it-ubp-ch"
         ],
         "fr": [
+          "it-business-analyst-credit-it-ubp-ch"
+        ],
+        "en": [
           "it-business-analyst-credit-it-ubp-ch"
         ]
       },
@@ -261,7 +262,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/514",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-25T23:52:35.397Z",
+      "crawledAt": "2026-05-27T00:38:12.201Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -279,10 +280,10 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
-        "en": [
+        "it": [
           "team-leader-it-compliance-ubp-ch"
         ],
-        "it": [
+        "en": [
           "team-leader-it-compliance-ubp-ch"
         ]
       },
@@ -335,7 +336,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/519",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-25T23:52:34.917Z",
+      "crawledAt": "2026-05-27T00:38:11.659Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -353,10 +354,10 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
-        "en": [
+        "it": [
           "middle-officer-ubp-ch"
         ],
-        "it": [
+        "en": [
           "middle-officer-ubp-ch"
         ]
       },
@@ -409,7 +410,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/542",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-25T23:52:34.436Z",
+      "crawledAt": "2026-05-27T00:38:11.118Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -427,9 +428,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
-        "en": [
-          "investment-advisor-ubp-ch"
-        ],
         "it": [
           "investment-advisor-ubp-ch"
         ],
@@ -437,6 +435,9 @@
           "investment-advisor-ubp-ch"
         ],
         "fr": [
+          "investment-advisor-ubp-ch"
+        ],
+        "en": [
           "investment-advisor-ubp-ch"
         ]
       },
@@ -489,7 +490,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/605",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-25T23:52:33.957Z",
+      "crawledAt": "2026-05-27T00:38:10.582Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -552,7 +553,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/627",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-25T23:52:33.483Z",
+      "crawledAt": "2026-05-27T00:38:10.047Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -570,9 +571,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
-        "en": [
-          "structured-product-engineer-ubp-ch"
-        ],
         "it": [
           "structured-product-engineer-ubp-ch"
         ],
@@ -580,6 +578,9 @@
           "structured-product-engineer-ubp-ch"
         ],
         "fr": [
+          "structured-product-engineer-ubp-ch"
+        ],
+        "en": [
           "structured-product-engineer-ubp-ch"
         ]
       },
@@ -632,7 +633,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/657",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-25T23:52:33.006Z",
+      "crawledAt": "2026-05-27T00:38:09.517Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -650,10 +651,10 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
-        "en": [
+        "it": [
           "team-head-cash-services-ubp-ch"
         ],
-        "it": [
+        "en": [
           "team-head-cash-services-ubp-ch"
         ]
       },
@@ -707,7 +708,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/661",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-25T23:52:32.530Z",
+      "crawledAt": "2026-05-27T00:38:08.979Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -729,6 +730,7 @@
           "tax-specialist-ubp-ch"
         ],
         "it": [
+          "tax-specialist-ubp-ch",
           "tax-specialist-ubp-ch-3"
         ],
         "de": [
@@ -788,7 +790,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/673",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-25T23:52:32.050Z",
+      "crawledAt": "2026-05-27T00:38:08.447Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -806,10 +808,10 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
-        "en": [
+        "it": [
           "help-desk-officer-1st-level-of-support-ubp-ch"
         ],
-        "it": [
+        "en": [
           "help-desk-officer-1st-level-of-support-ubp-ch"
         ]
       },
@@ -862,7 +864,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/733",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-25T23:52:31.559Z",
+      "crawledAt": "2026-05-27T00:38:07.915Z",
       "addressLocality": "London, United Kingdom",
       "addressRegion": "TI",
       "addressCountry": "",
@@ -880,9 +882,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
-        "en": [
-          "head-of-internal-audit-ubp-ch"
-        ],
         "it": [
           "head-of-internal-audit-ubp-ch"
         ],
@@ -890,6 +889,9 @@
           "head-of-internal-audit-ubp-ch"
         ],
         "fr": [
+          "head-of-internal-audit-ubp-ch"
+        ],
+        "en": [
           "head-of-internal-audit-ubp-ch"
         ]
       },
@@ -942,7 +944,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/408",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-25T23:52:31.083Z",
+      "crawledAt": "2026-05-27T00:38:07.375Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1013,7 +1015,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/753",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-25T23:52:30.608Z",
+      "crawledAt": "2026-05-27T00:38:06.842Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1031,10 +1033,10 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
-        "en": [
+        "it": [
           "graduate-programme-operations-office-team-ubp-ch"
         ],
-        "it": [
+        "en": [
           "graduate-programme-operations-office-team-ubp-ch"
         ]
       },
@@ -1043,6 +1045,7 @@
         "programma-di-laurea-squadra-operativa-union-bancaire-privee-geneva-switzerland"
       ],
       "firstSeenAt": "2026-05-17T11:17:28.504Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1087,7 +1090,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/766",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-25T23:52:30.137Z",
+      "crawledAt": "2026-05-27T00:38:06.301Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1105,10 +1108,10 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
-        "en": [
+        "it": [
           "stock-exchange-settlement-officer-ubp-ch"
         ],
-        "it": [
+        "en": [
           "stock-exchange-settlement-officer-ubp-ch"
         ]
       },
@@ -1162,7 +1165,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/758",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-25T23:52:29.665Z",
+      "crawledAt": "2026-05-27T00:38:05.772Z",
       "addressLocality": "Frankfurt am Main, Germany",
       "addressRegion": "TI",
       "addressCountry": "",
@@ -1181,11 +1184,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "institutional-client-service-officer-m-f-12-months-temporary-contract-ubp-ch",
+        "institutional-client-service-officer-m-f-x-12-months-temporary-contract-ubp-ch",
         "responsabile-del-servizio-clienti-istituzionale-m-f-contratto-temporaneo-di-12-mesi-union-bancaire-privee-frankfurt-am-m"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "institutional-client-service-officer-m-f-12-months-temporary-contract-ubp-ch"
+          "institutional-client-service-officer-m-f-12-months-temporary-contract-ubp-ch",
+          "institutional-client-service-officer-m-f-x-12-months-temporary-contract-ubp-ch"
         ],
         "de": [
           "institutional-client-service-officer-m-f-12-months-temporary-contract-ubp-ch"
@@ -1237,7 +1242,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/229",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-25T23:52:29.183Z",
+      "crawledAt": "2026-05-27T00:38:05.232Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1255,9 +1260,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
-        "en": [
-          "client-documentation-specialist-ubp-ch"
-        ],
         "it": [
           "client-documentation-specialist-ubp-ch"
         ],
@@ -1265,6 +1267,9 @@
           "client-documentation-specialist-ubp-ch"
         ],
         "fr": [
+          "client-documentation-specialist-ubp-ch"
+        ],
+        "en": [
           "client-documentation-specialist-ubp-ch"
         ]
       },
@@ -1288,11 +1293,11 @@
     },
     {
       "id": "ubp-0f55b2dedd3e",
-      "slug": "senior-legal-consulente-management-company-m-f-union-bancaire-privee-luxembourg",
+      "slug": "senior-legal-consulente-management-company-m-f-x-union-bancaire-privee-luxembourg",
       "slugByLocale": {
-        "it": "senior-legal-consulente-management-company-m-f-union-bancaire-privee-luxembourg",
-        "en": "senior-legal-advisor-management-company-m-f-x-union-bancaire-privee-luxembourg",
-        "de": "senior-legal-berater-management-company-m-f-union-bancaire-privee-luxembourg",
+        "it": "senior-legal-consulente-management-company-m-f-x-union-bancaire-privee-luxembourg",
+        "en": "senior-legal-advisor-management-company-m-f-union-bancaire-privee-luxembourg",
+        "de": "senior-legal-berater-management-company-m-f-x-union-bancaire-privee-luxembourg",
         "fr": "senior-legal-conseiller-management-company-m-f-union-bancaire-privee-luxembourg"
       },
       "company": "Union Bancaire Privée",
@@ -1317,7 +1322,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/767",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-25T23:52:28.704Z",
+      "crawledAt": "2026-05-27T00:38:04.690Z",
       "addressLocality": "Luxembourg",
       "addressRegion": "TI",
       "addressCountry": "",
@@ -1336,14 +1341,18 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "en": [
+          "senior-legal-advisor-management-company-m-f-x-ubp-ch",
+          "senior-legal-advisor-management-company-m-f-x-union-bancaire-privee-luxembourg",
           "senior-legal-advisor-management-company-m-f-ubp-ch",
-          "senior-legal-advisor-management-company-m-f-union-bancaire-privee-luxembourg",
-          "senior-legal-advisor-management-company-m-f-x-ubp-ch"
+          "senior-legal-advisor-management-company-m-f-union-bancaire-privee-luxembourg"
         ],
         "it": [
+          "senior-legal-consulente-management-company-m-f-union-bancaire-privee-luxembourg",
+          "senior-legal-advisor-management-company-m-f-x-ubp-ch",
           "senior-legal-advisor-management-company-m-f-ubp-ch"
         ],
         "de": [
+          "senior-legal-berater-management-company-m-f-union-bancaire-privee-luxembourg",
           "senior-legal-advisor-management-company-m-f-ubp-ch"
         ],
         "fr": [
@@ -1351,9 +1360,11 @@
         ]
       },
       "previousSlugs": [
+        "senior-legal-advisor-management-company-m-f-x-ubp-ch",
+        "senior-legal-advisor-management-company-m-f-x-union-bancaire-privee-luxembourg",
+        "senior-legal-consulente-management-company-m-f-union-bancaire-privee-luxembourg",
         "senior-legal-advisor-management-company-m-f-ubp-ch",
-        "senior-legal-advisor-management-company-m-f-union-bancaire-privee-luxembourg",
-        "senior-legal-advisor-management-company-m-f-x-ubp-ch"
+        "senior-legal-berater-management-company-m-f-union-bancaire-privee-luxembourg"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-17T11:17:25.798Z",
@@ -1401,7 +1412,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/763",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-25T23:52:28.222Z",
+      "crawledAt": "2026-05-27T00:38:04.145Z",
       "addressLocality": "Jersey",
       "addressRegion": "TI",
       "addressCountry": "",
@@ -1473,7 +1484,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/713",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-25T23:52:27.722Z",
+      "crawledAt": "2026-05-27T00:38:03.595Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1491,10 +1502,10 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
-        "en": [
+        "it": [
           "accounts-payable-officer-ubp-ch"
         ],
-        "it": [
+        "en": [
           "accounts-payable-officer-ubp-ch"
         ]
       },
@@ -1548,7 +1559,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/823",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-25T23:52:27.252Z",
+      "crawledAt": "2026-05-27T00:38:03.060Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1566,10 +1577,10 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
-        "en": [
+        "it": [
           "process-transformation-officer-ubp-ch"
         ],
-        "it": [
+        "en": [
           "process-transformation-officer-ubp-ch"
         ]
       },
@@ -1623,7 +1634,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/821",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-25T23:52:26.772Z",
+      "crawledAt": "2026-05-27T00:38:02.504Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1645,6 +1656,9 @@
       ],
       "previousSlugsByLocale": {
         "fr": [
+          "phone-operator-ubp-ch"
+        ],
+        "it": [
           "phone-operator-ubp-ch"
         ]
       },
@@ -1694,7 +1708,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/831",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-25T23:52:26.300Z",
+      "crawledAt": "2026-05-27T00:38:01.963Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1712,10 +1726,10 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
-        "en": [
+        "it": [
           "funds-execution-officer-ubp-ch"
         ],
-        "it": [
+        "en": [
           "funds-execution-officer-ubp-ch"
         ]
       },
@@ -1768,7 +1782,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/865",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-25T23:52:25.818Z",
+      "crawledAt": "2026-05-27T00:38:01.421Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1786,9 +1800,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
-        "en": [
-          "hr-reporting-specialist-ubp-ch"
-        ],
         "it": [
           "hr-reporting-specialist-ubp-ch"
         ],
@@ -1796,6 +1807,9 @@
           "hr-reporting-specialist-ubp-ch"
         ],
         "fr": [
+          "hr-reporting-specialist-ubp-ch"
+        ],
+        "en": [
           "hr-reporting-specialist-ubp-ch"
         ]
       },
@@ -1848,7 +1862,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/849",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-25T23:52:25.344Z",
+      "crawledAt": "2026-05-27T00:38:00.880Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1866,9 +1880,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
-        "en": [
-          "full-stack-developer-wealth-management-ubp-ch"
-        ],
         "it": [
           "full-stack-developer-wealth-management-ubp-ch"
         ],
@@ -1876,6 +1887,9 @@
           "full-stack-developer-wealth-management-ubp-ch"
         ],
         "fr": [
+          "full-stack-developer-wealth-management-ubp-ch"
+        ],
+        "en": [
           "full-stack-developer-wealth-management-ubp-ch"
         ]
       },
@@ -1928,7 +1942,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/867",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-25T23:52:24.873Z",
+      "crawledAt": "2026-05-27T00:38:00.342Z",
       "addressLocality": "London, United Kingdom",
       "addressRegion": "TI",
       "addressCountry": "",
@@ -2003,7 +2017,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/840",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-25T23:52:24.398Z",
+      "crawledAt": "2026-05-27T00:37:59.808Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -2021,10 +2035,10 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
-        "en": [
+        "it": [
           "compliance-officer-transaction-monitoring-temporary-6-months-ubp-ch"
         ],
-        "it": [
+        "en": [
           "compliance-officer-transaction-monitoring-temporary-6-months-ubp-ch"
         ]
       },
@@ -2078,7 +2092,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/826",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-25T23:52:23.922Z",
+      "crawledAt": "2026-05-27T00:37:59.272Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -2096,10 +2110,10 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
-        "en": [
+        "it": [
           "central-vault-operations-manager-ubp-ch"
         ],
-        "it": [
+        "en": [
           "central-vault-operations-manager-ubp-ch"
         ]
       },
@@ -2153,7 +2167,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/974",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-25T23:52:23.445Z",
+      "crawledAt": "2026-05-27T00:37:58.741Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -2225,7 +2239,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/986",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-25T23:52:22.971Z",
+      "crawledAt": "2026-05-27T00:37:58.209Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -2243,10 +2257,10 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
-        "en": [
+        "it": [
           "wm-business-risk-manager-ubp-ch"
         ],
-        "it": [
+        "en": [
           "wm-business-risk-manager-ubp-ch"
         ]
       },
@@ -2299,7 +2313,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/982",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-25T23:52:22.499Z",
+      "crawledAt": "2026-05-27T00:37:57.673Z",
       "addressLocality": "Hong Kong, Hong Kong",
       "addressRegion": "TI",
       "addressCountry": "",
@@ -2371,7 +2385,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/948",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-25T23:52:22.022Z",
+      "crawledAt": "2026-05-27T00:37:57.134Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -2389,17 +2403,17 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
-        "en": [
+        "it": [
+          "cyber-risk-manager-second-line-kontrollen-union-bancaire-privee-geneva-switzerland",
           "cyber-risk-manager-second-line-controls-ubp-ch"
         ],
-        "it": [
-          "cyber-risk-manager-second-line-controls-ubp-ch",
-          "cyber-risk-manager-second-line-kontrollen-union-bancaire-privee-geneva-switzerland"
+        "en": [
+          "cyber-risk-manager-second-line-controls-ubp-ch"
         ]
       },
       "previousSlugs": [
-        "cyber-risk-manager-second-line-controls-ubp-ch",
-        "cyber-risk-manager-second-line-kontrollen-union-bancaire-privee-geneva-switzerland"
+        "cyber-risk-manager-second-line-kontrollen-union-bancaire-privee-geneva-switzerland",
+        "cyber-risk-manager-second-line-controls-ubp-ch"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-17T11:17:17.192Z",
@@ -2421,7 +2435,7 @@
       "slug": "system-ingegnere-messaging-specialista-union-bancaire-privee-geneva-switzerland",
       "slugByLocale": {
         "it": "system-ingegnere-messaging-specialista-union-bancaire-privee-geneva-switzerland",
-        "en": "system-engineer-messaging-specialist-union-bancaire-privee-geneva-switzerland",
+        "en": "system-engineer-union-bancaire-privee-geneva-switzerland",
         "de": "system-ingenieur-messaging-spezialist-union-bancaire-privee-geneva-switzerland",
         "fr": "system-ingenieur-messaging-specialiste-union-bancaire-privee-geneva-switzerland"
       },
@@ -2447,7 +2461,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/946",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-25T23:52:21.549Z",
+      "crawledAt": "2026-05-27T00:37:56.603Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -2466,9 +2480,11 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "en": [
-          "system-engineer-messaging-specialist-ubp-ch"
+          "system-engineer-messaging-specialist-ubp-ch",
+          "system-engineer-messaging-specialist-union-bancaire-privee-geneva-switzerland"
         ],
         "it": [
+          "system-engineer-messaging-specialist-ubp-ch",
           "system-engineer-ubp-ch"
         ],
         "de": [
@@ -2480,6 +2496,7 @@
       },
       "previousSlugs": [
         "system-engineer-messaging-specialist-ubp-ch",
+        "system-engineer-messaging-specialist-union-bancaire-privee-geneva-switzerland",
         "system-engineer-ubp-ch"
       ],
       "needsRetranslation": true,
@@ -2528,7 +2545,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1027",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-25T23:52:21.074Z",
+      "crawledAt": "2026-05-27T00:37:56.075Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -2591,7 +2608,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1028",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-25T23:52:20.597Z",
+      "crawledAt": "2026-05-27T00:37:55.535Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -2666,7 +2683,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/991",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-25T23:52:20.122Z",
+      "crawledAt": "2026-05-27T00:37:54.998Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -2714,7 +2731,7 @@
       "slug": "investment-content-designer-temporaneo-12-mesi-union-bancaire-privee-geneva-switzerland",
       "slugByLocale": {
         "it": "investment-content-designer-temporaneo-12-mesi-union-bancaire-privee-geneva-switzerland",
-        "en": "investment-content-designer-temporary-12-months-union-bancaire-privee-geneva-switzerland",
+        "en": "investment-marketing-content-manager-temporary-12-months-union-bancaire-privee-geneva-switzerland",
         "de": "investment-marketing-content-manager-temporary-12-months-ubp-ch",
         "fr": "investment-marketing-content-manager-temporary-12-months-ubp-ch"
       },
@@ -2740,7 +2757,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/572",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-25T23:52:19.650Z",
+      "crawledAt": "2026-05-27T00:37:54.466Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -2759,14 +2776,17 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "en": [
-          "investment-content-designer-temporary-12-months-ubp-ch"
+          "investment-content-designer-temporary-12-months-ubp-ch",
+          "investment-content-designer-temporary-12-months-union-bancaire-privee-geneva-switzerland"
         ],
         "it": [
+          "investment-content-designer-temporary-12-months-ubp-ch",
           "investment-marketing-content-manager-temporary-12-months-ubp-ch"
         ]
       },
       "previousSlugs": [
         "investment-content-designer-temporary-12-months-ubp-ch",
+        "investment-content-designer-temporary-12-months-union-bancaire-privee-geneva-switzerland",
         "investment-marketing-content-manager-temporary-12-months-ubp-ch",
         "investment-content-designer-temporary-12-mesi-union-bancaire-privee-geneva-switzerland"
       ],
@@ -2816,7 +2836,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1015",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-25T23:52:19.177Z",
+      "crawledAt": "2026-05-27T00:37:53.935Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -2866,87 +2886,6 @@
       }
     },
     {
-      "id": "ubp-967b0831912c",
-      "slug": "tax-specialista-union-bancaire-privee-geneva-switzerland-53af7f",
-      "slugByLocale": {
-        "it": "tax-specialista-union-bancaire-privee-geneva-switzerland-53af7f",
-        "en": "tax-specialist-union-bancaire-privee-geneva-switzerland",
-        "de": "tax-spezialist-union-bancaire-privee-geneva-switzerland-53af7f",
-        "fr": "tax-specialiste-union-bancaire-privee-geneva-switzerland-53af7f"
-      },
-      "company": "Union Bancaire Privée",
-      "companyKey": "ubp",
-      "companyDomain": "ubp.com",
-      "title": "Tax Specialist",
-      "titleByLocale": {
-        "it": "Tax Specialista",
-        "en": "Tax Specialist",
-        "de": "Tax Spezialist",
-        "fr": "Tax Spécialiste"
-      },
-      "description": "• Mission\n As part of the Tax Services team, the Tax Specialist is a key element to ensure the quality and accuracy of the reporting done by the Bank, as a regulatory obligation, in an environment which is subject to constant changes and evolutions. Within the Daily Regulatory Reporting team, the employee’s mission also includes constant monitoring and reconciliation of the data to be reported. The tax and regulatory topics include MIFID II/ EMIR / FMIA / FINFRAG / Duty to disclose.\n\n• Main responsibilities\n• Daily monitoring and control of regulatory reporting (MIFID II / EMIR / FMIA / FINFRAG) sent to the reporting platform(s) (i.e. locals regulators)\n\n• Monthly reconciliations, quality control and statistics of the data reported\n\n• Manage inquiries and investigate questions and issues about the taxes or regulatory reporting from other departments of the Bank or from external counterparties\n\n• Understand regulatory risk sensitivity and has an end-to-end view of the Bank’s flow/process\n\n• Correction of consistency issues, update reporting tool’s database\n\n• Liaising and coordinating with the department responsible for the underlying data for the necessary corrections, explanations, data input and resubmission of the corrected report(s)\n\n• Communication with the reporting engine providers (ARM, APA, TR)\n\n• Performing regular and ad-hoc reporting related to statistics for internal and external parties\n\n• Contribute to all testing linked to regulatory and reporting updates\n\n• Active participation in EMIR/MIFID/DTD projects (Audit inquiries, Provider specifications changes & Regulator inquiries) including data mining and in-depth investigation\n\n• Open mind and team orientation:\nBe open to other’s ideas.\nExpress and accept constructive criticism.\n\n• Innovation and development:\nPropose and seek improvement of the current tools and processes.\nBe positive towards change and seek opportunities to improve the quality of the working environment.\nConitunuously work on knowledge improvement.\n\n• Corporate culture:\nBe ‘solution oriented’ and have a strong sense of customer services.\nBe proactive and driven.\nDevelopp and maintain a relationship network within the various Bank departments.\nComply consistently with internal and external regulations.\n\n• Your Profile\n• Good knowledge of the financial products and associated transactions\n\n• 3-5 years of experience in banking or financial services\n\n• Project management experience\n\n• Strong Excel, Access skills\n\n• Strong analytical skills, able to make complex data reconciliation\n\n• Ability to efficiently manage priorities\n\n• Be able to work independently but also as a team\n\n• Seek opportunities to improve the existing set-up\n\n• Go beyond specific assignments, walk the extra mile\n\n• Consistently comply with internal & external regulations\n\n• Maintain quality standards despite schedule pressures\n\n• Fluent in French and English\n\n• Others\n• Swiss Residence\n\nCore Competencies : Adherence to the company’s values: Dedication, Conviction, Agility and Responsibility - Compliance with regulations and internal directives",
-      "descriptionByLocale": {
-        "it": "• Mission As part of the Tax Services team, the Tax Specialist is a key element to ensure the quality and accuracy of the reporting done by the Bank, as a regulatory obligation, in an environment which is subject to constant changes and evolutions. Within the Daily Regulatory Reporting team, the employee’s mission also includes constant monitoring and reconciliation of the data to be reported. The tax and regulatory topics include MIFID II/ EMIR / FMIA / FINFRAG / Duty to disclose.\n• Main responsibilities\n• Daily monitoring and control of regulatory reporting (MIFID II / EMIR / FMIA / FINFRAG) sent to the reporting platform(s) (i.e. locals regulators)\n• Monthly reconciliations, quality control and statistics of the data reported\n• Manage inquiries and investigate questions and issues about the taxes or regulatory reporting from other departments of the Bank or from external counterparties\n• Understand regulatory risk sensitivity and has an end-to-end view of the Bank’s flow/process\n• Correction of consistency issues, update reporting tool’s database\n• Liaising and coordinating with the department responsible for the underlying data for the necessary corrections, explanations, data input and resubmission of the corrected report(s)\n• Communication with the reporting engine providers (ARM, APA, TR)\n• Performing regular and ad-hoc reporting related to statistics for internal and external parties\n• Contribute to all testing linked to regulatory and reporting updates\n• Active participation in EMIR/MIFID/DTD projects (Audit inquiries, Provider specifications changes & Regulator inquiries) including data mining and in-depth investigation\n• Open mind and team orientation: Be open to other’s ideas. Express and accept constructive criticism.\n• Innovation and development: Propose and seek improvement of the current tools and processes. Be positive towards change and seek opportunities to improve the quality of the working environment. Conitunuously work on knowledge improvement.\n• Corporate culture: Be ‘solution oriented’ and have a strong sense of customer services. Be proactive and driven. Developp and maintain a relationship network within the various Bank departments. Comply consistently with internal and external regulations.\n• Your Profile\n• Good knowledge of the financial products and associated transactions\n• 3-5 years of experience in banking or financial services\n• Project management experience\n• Strong Excel, Access skills\n• Strong analytical skills, able to make complex data reconciliation\n• Ability to efficiently manage priorities\n• Be able to work independently but also as a team\n• Seek opportunities to improve the existing set-up\n• Go beyond specific assignments, walk the extra mile\n• Consistently comply with internal & external regulations\n• Maintain quality standards despite schedule pressures\n• Fluent in French and English\n• Others\n• Swiss Residence Core Competencies : Adherence to the company’s values: Dedication, Conviction, Agility and Responsibility - Compliance with regulations and internal directives",
-        "en": "• Mission As part of the Tax Services team, the Tax Specialist is a key element to ensure the quality and accuracy of the reporting done by the Bank, as a regulatory obligation, in an environment which is subject to constant changes and evolutions. Within the Daily Regulatory Reporting team, the employee’s mission also includes constant monitoring and reconciliation of the data to be reported. The tax and regulatory topics include MIFID II/ EMIR / FMIA / FINFRAG / Duty to disclose.\n• Main responsibilities\n• Daily monitoring and control of regulatory reporting (MIFID II / EMIR / FMIA / FINFRAG) sent to the reporting platform(s) (i.e. locals regulators)\n• Monthly reconciliations, quality control and statistics of the data reported\n• Manage inquiries and investigate questions and issues about the taxes or regulatory reporting from other departments of the Bank or from external counterparties\n• Understand regulatory risk sensitivity and has an end-to-end view of the Bank’s flow/process\n• Correction of consistency issues, update reporting tool’s database\n• Liaising and coordinating with the department responsible for the underlying data for the necessary corrections, explanations, data input and resubmission of the corrected report(s)\n• Communication with the reporting engine providers (ARM, APA, TR)\n• Performing regular and ad-hoc reporting related to statistics for internal and external parties\n• Contribute to all testing linked to regulatory and reporting updates\n• Active participation in EMIR/MIFID/DTD projects (Audit inquiries, Provider specifications changes & Regulator inquiries) including data mining and in-depth investigation\n• Open mind and team orientation: Be open to other’s ideas. Express and accept constructive criticism.\n• Innovation and development: Propose and seek improvement of the current tools and processes. Be positive towards change and seek opportunities to improve the quality of the working environment. Conitunuously work on knowledge improvement.\n• Corporate culture: Be ‘solution oriented’ and have a strong sense of customer services. Be proactive and driven. Developp and maintain a relationship network within the various Bank departments. Comply consistently with internal and external regulations.\n• Your Profile\n• Good knowledge of the financial products and associated transactions\n• 3-5 years of experience in banking or financial services\n• Project management experience\n• Strong Excel, Access skills\n• Strong analytical skills, able to make complex data reconciliation\n• Ability to efficiently manage priorities\n• Be able to work independently but also as a team\n• Seek opportunities to improve the existing set-up\n• Go beyond specific assignments, walk the extra mile\n• Consistently comply with internal & external regulations\n• Maintain quality standards despite schedule pressures\n• Fluent in French and English\n• Others\n• Swiss Residence Core Competencies : Adherence to the company’s values: Dedication, Conviction, Agility and Responsibility - Compliance with regulations and internal directives",
-        "de": "• Mission As part of the Tax Services team, the Tax Specialist is a key element to ensure the quality and accuracy of the reporting done by the Bank, as a regulatory obligation, in an environment which is subject to constant changes and evolutions. Within the Daily Regulatory Reporting team, the employee’s mission also includes constant monitoring and reconciliation of the data to be reported. The tax and regulatory topics include MIFID II/ EMIR / FMIA / FINFRAG / Duty to disclose.\n• Main responsibilities\n• Daily monitoring and control of regulatory reporting (MIFID II / EMIR / FMIA / FINFRAG) sent to the reporting platform(s) (i.e. locals regulators)\n• Monthly reconciliations, quality control and statistics of the data reported\n• Manage inquiries and investigate questions and issues about the taxes or regulatory reporting from other departments of the Bank or from external counterparties\n• Understand regulatory risk sensitivity and has an end-to-end view of the Bank’s flow/process\n• Correction of consistency issues, update reporting tool’s database\n• Liaising and coordinating with the department responsible for the underlying data for the necessary corrections, explanations, data input and resubmission of the corrected report(s)\n• Communication with the reporting engine providers (ARM, APA, TR)\n• Performing regular and ad-hoc reporting related to statistics for internal and external parties\n• Contribute to all testing linked to regulatory and reporting updates\n• Active participation in EMIR/MIFID/DTD projects (Audit inquiries, Provider specifications changes & Regulator inquiries) including data mining and in-depth investigation\n• Open mind and team orientation: Be open to other’s ideas. Express and accept constructive criticism.\n• Innovation and development: Propose and seek improvement of the current tools and processes. Be positive towards change and seek opportunities to improve the quality of the working environment. Conitunuously work on knowledge improvement.\n• Corporate culture: Be ‘solution oriented’ and have a strong sense of customer services. Be proactive and driven. Developp and maintain a relationship network within the various Bank departments. Comply consistently with internal and external regulations.\n• Your Profile\n• Good knowledge of the financial products and associated transactions\n• 3-5 years of experience in banking or financial services\n• Project management experience\n• Strong Excel, Access skills\n• Strong analytical skills, able to make complex data reconciliation\n• Ability to efficiently manage priorities\n• Be able to work independently but also as a team\n• Seek opportunities to improve the existing set-up\n• Go beyond specific assignments, walk the extra mile\n• Consistently comply with internal & external regulations\n• Maintain quality standards despite schedule pressures\n• Fluent in French and English\n• Others\n• Swiss Residence Core Competencies : Adherence to the company’s values: Dedication, Conviction, Agility and Responsibility - Compliance with regulations and internal directives",
-        "fr": "• Mission As part of the Tax Services team, the Tax Specialist is a key element to ensure the quality and accuracy of the reporting done by the Bank, as a regulatory obligation, in an environment which is subject to constant changes and evolutions. Within the Daily Regulatory Reporting team, the employee’s mission also includes constant monitoring and reconciliation of the data to be reported. The tax and regulatory topics include MIFID II/ EMIR / FMIA / FINFRAG / Duty to disclose.\n• Main responsibilities\n• Daily monitoring and control of regulatory reporting (MIFID II / EMIR / FMIA / FINFRAG) sent to the reporting platform(s) (i.e. locals regulators)\n• Monthly reconciliations, quality control and statistics of the data reported\n• Manage inquiries and investigate questions and issues about the taxes or regulatory reporting from other departments of the Bank or from external counterparties\n• Understand regulatory risk sensitivity and has an end-to-end view of the Bank’s flow/process\n• Correction of consistency issues, update reporting tool’s database\n• Liaising and coordinating with the department responsible for the underlying data for the necessary corrections, explanations, data input and resubmission of the corrected report(s)\n• Communication with the reporting engine providers (ARM, APA, TR)\n• Performing regular and ad-hoc reporting related to statistics for internal and external parties\n• Contribute to all testing linked to regulatory and reporting updates\n• Active participation in EMIR/MIFID/DTD projects (Audit inquiries, Provider specifications changes & Regulator inquiries) including data mining and in-depth investigation\n• Open mind and team orientation: Be open to other’s ideas. Express and accept constructive criticism.\n• Innovation and development: Propose and seek improvement of the current tools and processes. Be positive towards change and seek opportunities to improve the quality of the working environment. Conitunuously work on knowledge improvement.\n• Corporate culture: Be ‘solution oriented’ and have a strong sense of customer services. Be proactive and driven. Developp and maintain a relationship network within the various Bank departments. Comply consistently with internal and external regulations.\n• Your Profile\n• Good knowledge of the financial products and associated transactions\n• 3-5 years of experience in banking or financial services\n• Project management experience\n• Strong Excel, Access skills\n• Strong analytical skills, able to make complex data reconciliation\n• Ability to efficiently manage priorities\n• Be able to work independently but also as a team\n• Seek opportunities to improve the existing set-up\n• Go beyond specific assignments, walk the extra mile\n• Consistently comply with internal & external regulations\n• Maintain quality standards despite schedule pressures\n• Fluent in French and English\n• Others\n• Swiss Residence Core Competencies : Adherence to the company’s values: Dedication, Conviction, Agility and Responsibility - Compliance with regulations and internal directives"
-      },
-      "location": "Geneva, Switzerland",
-      "canton": "GE",
-      "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/603",
-      "source": "Union Bancaire Privée Oracle HCM API",
-      "sourceLang": "en",
-      "crawledAt": "2026-05-25T23:52:18.692Z",
-      "addressLocality": "Geneva, Switzerland",
-      "addressRegion": "GE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "6900",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Banca / Gestione patrimoniale",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-06",
-      "applyUrl": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/603",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugsByLocale": {
-        "en": [
-          "tax-specialist-ubp-ch"
-        ],
-        "it": [
-          "tax-specialist-ubp-ch-2"
-        ],
-        "de": [
-          "tax-specialist-ubp-ch-2"
-        ],
-        "fr": [
-          "tax-specialist-ubp-ch-2"
-        ]
-      },
-      "previousSlugs": [
-        "tax-specialist-ubp-ch",
-        "tax-specialist-ubp-ch-2"
-      ],
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-05-17T11:17:12.874Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "ubp-d6d2fb70bd2e",
       "slug": "financial-controller-retrocession-specialista-union-bancaire-privee-geneva-switzerland",
       "slugByLocale": {
@@ -2977,7 +2916,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1061",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-25T23:52:18.202Z",
+      "crawledAt": "2026-05-27T00:37:52.859Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -3057,7 +2996,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1060",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-25T23:52:17.714Z",
+      "crawledAt": "2026-05-27T00:37:52.319Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -3129,7 +3068,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1011",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-25T23:52:17.217Z",
+      "crawledAt": "2026-05-27T00:37:51.785Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -3202,7 +3141,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1076",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-25T23:52:16.741Z",
+      "crawledAt": "2026-05-27T00:37:51.253Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -3232,6 +3171,7 @@
         "responsabile-della-trasformazione-junior-union-bancaire-privee-geneva-switzerland"
       ],
       "firstSeenAt": "2026-05-17T11:17:10.175Z",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -3276,7 +3216,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1072",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-25T23:52:16.262Z",
+      "crawledAt": "2026-05-27T00:37:50.711Z",
       "addressLocality": "Hong Kong, Hong Kong",
       "addressRegion": "TI",
       "addressCountry": "",
@@ -3347,7 +3287,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/47",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-25T23:52:15.782Z",
+      "crawledAt": "2026-05-27T00:37:50.176Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -3421,7 +3361,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/998",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-25T23:52:15.310Z",
+      "crawledAt": "2026-05-27T00:37:49.636Z",
       "addressLocality": "Luxembourg",
       "addressRegion": "TI",
       "addressCountry": "",
@@ -3449,6 +3389,7 @@
         ]
       },
       "firstSeenAt": "2026-05-18T13:25:07.937Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -3493,7 +3434,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1094",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-25T23:52:14.825Z",
+      "crawledAt": "2026-05-27T00:37:49.097Z",
       "addressLocality": "Hong Kong, Hong Kong",
       "addressRegion": "TI",
       "addressCountry": "",
@@ -3567,7 +3508,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1073",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-25T23:52:14.330Z",
+      "crawledAt": "2026-05-27T00:37:48.545Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -3641,7 +3582,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/768",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-25T23:52:13.729Z",
+      "crawledAt": "2026-05-27T00:37:48.010Z",
       "addressLocality": "Singapore, Singapore",
       "addressRegion": "TI",
       "addressCountry": "",
@@ -3712,7 +3653,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1085",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-25T23:52:13.228Z",
+      "crawledAt": "2026-05-27T00:37:47.429Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -3743,6 +3684,71 @@
           "unitText": "YEAR"
         }
       }
+    },
+    {
+      "id": "ubp-fbb676f1d027",
+      "slug": "operation-specialist-ubp-ch",
+      "slugByLocale": {
+        "en": "operation-specialist-union-bancaire-privee-geneva-switzerland",
+        "it": "operation-specialist-ubp-ch",
+        "de": "operation-specialist-ubp-ch",
+        "fr": "operation-specialist-ubp-ch"
+      },
+      "company": "Union Bancaire Privée",
+      "companyKey": "ubp",
+      "companyDomain": "ubp.com",
+      "title": "Operation Specialist",
+      "titleByLocale": {
+        "en": "Operation Specialist",
+        "it": "Operation Specialista",
+        "de": "Operation Spezialist",
+        "fr": "Operation Spécialiste"
+      },
+      "description": "SECURITIES TRANSFER OFFICER - 6 MONTHS MISSION\n Mission\n Ensure the clients' assets delivery/receipt for all the activities associated with the transfer of securities to a different financial establishment or within the Bank.\n\nThis includes all type of assets with expertise primarily required in alternative assets such as mutual funds, Private Equities and Hedge Funds\n\nEffective date : ASAP.\n\nMain responsibilities\n\n• Crossed analysis of the received information: custodian’s swifts, agent prospectus, contract notes and financial providers such as: Bloomberg, Telekurs.\n\n• Perform control of reconciliation of holdings, entitlements determination, pending positions management.\n\n• Be able to manage and control securities transfer instructions received from Wealth Management and external parties (transfer IN/OUT/Internal and funds registration process).\n\n• Control transmission of the deposits to our correspondents/Transfer Agents/Administrators and control of their safe delivery and acceptance.\n\n• Follow-up of the topics and issues over the lifecycle of the securities transfer activities.\n\n• Good understanding of the risks inherent in the Corporate Actions environment related to ongoing securities transfers and demonstrate good discipline around control and escalation.\n\n• Ensure daily follow up in respect of pending issues and take appropriate measures for resolution.\n\nYour Profile\n\n• Education : Master Degree\n\n• Languages : french and english\n\n• Others\n• Swiss Residence\n\nCore Competencies : Adherence to the company’s values: Dedication, Conviction, Agility and Responsibility - Compliance with regulations and internal directives",
+      "descriptionByLocale": {
+        "en": "SECURITIES TRANSFER OFFICER - 6 MONTHS MISSION\n Mission\n Ensure the clients' assets delivery/receipt for all the activities associated with the transfer of securities to a different financial establishment or within the Bank.\n\nThis includes all type of assets with expertise primarily required in alternative assets such as mutual funds, Private Equities and Hedge Funds\n\nEffective date : ASAP.\n\nMain responsibilities\n\n• Crossed analysis of the received information: custodian’s swifts, agent prospectus, contract notes and financial providers such as: Bloomberg, Telekurs.\n\n• Perform control of reconciliation of holdings, entitlements determination, pending positions management.\n\n• Be able to manage and control securities transfer instructions received from Wealth Management and external parties (transfer IN/OUT/Internal and funds registration process).\n\n• Control transmission of the deposits to our correspondents/Transfer Agents/Administrators and control of their safe delivery and acceptance.\n\n• Follow-up of the topics and issues over the lifecycle of the securities transfer activities.\n\n• Good understanding of the risks inherent in the Corporate Actions environment related to ongoing securities transfers and demonstrate good discipline around control and escalation.\n\n• Ensure daily follow up in respect of pending issues and take appropriate measures for resolution.\n\nYour Profile\n\n• Education : Master Degree\n\n• Languages : french and english\n\n• Others\n• Swiss Residence\n\nCore Competencies : Adherence to the company’s values: Dedication, Conviction, Agility and Responsibility - Compliance with regulations and internal directives",
+        "it": "SECURITIES TRANSFER OFFICER - 6 MONTHS MISSION\n Mission\n Ensure the clients' assets delivery/receipt for all the activities associated with the transfer of securities to a different financial establishment or within the Bank.\n\nThis includes all type of assets with expertise primarily required in alternative assets such as mutual funds, Private Equities and Hedge Funds\n\nEffective date : ASAP.\n\nMain responsibilities\n\n• Crossed analysis of the received information: custodian’s swifts, agent prospectus, contract notes and financial providers such as: Bloomberg, Telekurs.\n\n• Perform control of reconciliation of holdings, entitlements determination, pending positions management.\n\n• Be able to manage and control securities transfer instructions received from Wealth Management and external parties (transfer IN/OUT/Internal and funds registration process).\n\n• Control transmission of the deposits to our correspondents/Transfer Agents/Administrators and control of their safe delivery and acceptance.\n\n• Follow-up of the topics and issues over the lifecycle of the securities transfer activities.\n\n• Good understanding of the risks inherent in the Corporate Actions environment related to ongoing securities transfers and demonstrate good discipline around control and escalation.\n\n• Ensure daily follow up in respect of pending issues and take appropriate measures for resolution.\n\nYour Profile\n\n• Education : Master Degree\n\n• Languages : french and english\n\n• Others\n• Swiss Residence\n\nCore Competencies : Adherence to the company’s values: Dedication, Conviction, Agility and Responsibility - Compliance with regulations and internal directives",
+        "de": "SECURITIES TRANSFER OFFICER - 6 MONTHS MISSION\n Mission\n Ensure the clients' assets delivery/receipt for all the activities associated with the transfer of securities to a different financial establishment or within the Bank.\n\nThis includes all type of assets with expertise primarily required in alternative assets such as mutual funds, Private Equities and Hedge Funds\n\nEffective date : ASAP.\n\nMain responsibilities\n\n• Crossed analysis of the received information: custodian’s swifts, agent prospectus, contract notes and financial providers such as: Bloomberg, Telekurs.\n\n• Perform control of reconciliation of holdings, entitlements determination, pending positions management.\n\n• Be able to manage and control securities transfer instructions received from Wealth Management and external parties (transfer IN/OUT/Internal and funds registration process).\n\n• Control transmission of the deposits to our correspondents/Transfer Agents/Administrators and control of their safe delivery and acceptance.\n\n• Follow-up of the topics and issues over the lifecycle of the securities transfer activities.\n\n• Good understanding of the risks inherent in the Corporate Actions environment related to ongoing securities transfers and demonstrate good discipline around control and escalation.\n\n• Ensure daily follow up in respect of pending issues and take appropriate measures for resolution.\n\nYour Profile\n\n• Education : Master Degree\n\n• Languages : french and english\n\n• Others\n• Swiss Residence\n\nCore Competencies : Adherence to the company’s values: Dedication, Conviction, Agility and Responsibility - Compliance with regulations and internal directives",
+        "fr": "SECURITIES TRANSFER OFFICER - 6 MONTHS MISSION\n Mission\n Ensure the clients' assets delivery/receipt for all the activities associated with the transfer of securities to a different financial establishment or within the Bank.\n\nThis includes all type of assets with expertise primarily required in alternative assets such as mutual funds, Private Equities and Hedge Funds\n\nEffective date : ASAP.\n\nMain responsibilities\n\n• Crossed analysis of the received information: custodian’s swifts, agent prospectus, contract notes and financial providers such as: Bloomberg, Telekurs.\n\n• Perform control of reconciliation of holdings, entitlements determination, pending positions management.\n\n• Be able to manage and control securities transfer instructions received from Wealth Management and external parties (transfer IN/OUT/Internal and funds registration process).\n\n• Control transmission of the deposits to our correspondents/Transfer Agents/Administrators and control of their safe delivery and acceptance.\n\n• Follow-up of the topics and issues over the lifecycle of the securities transfer activities.\n\n• Good understanding of the risks inherent in the Corporate Actions environment related to ongoing securities transfers and demonstrate good discipline around control and escalation.\n\n• Ensure daily follow up in respect of pending issues and take appropriate measures for resolution.\n\nYour Profile\n\n• Education : Master Degree\n\n• Languages : french and english\n\n• Others\n• Swiss Residence\n\nCore Competencies : Adherence to the company’s values: Dedication, Conviction, Agility and Responsibility - Compliance with regulations and internal directives"
+      },
+      "location": "Geneva, Switzerland",
+      "canton": "GE",
+      "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/232",
+      "source": "Union Bancaire Privée Oracle HCM API",
+      "sourceLang": "en",
+      "crawledAt": "2026-05-27T00:37:46.883Z",
+      "addressLocality": "Geneva, Switzerland",
+      "addressRegion": "GE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "6900",
+      "category": "Produzione",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Banca / Gestione patrimoniale",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-26",
+      "applyUrl": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/232",
+      "requirements": [],
+      "requirementsByLocale": {
+        "en": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-05-27T00:37:46.883Z"
     }
   ]
 }
