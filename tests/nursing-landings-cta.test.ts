@@ -49,11 +49,13 @@ describe('nursingLandingsPlugin — CTA target sector map', () => {
 
   it('uses ctaJobsUrl (the filtered URL) on the primary CTA, never the unfiltered jobBoardUrl', () => {
     // Source guard: the primary CTA <a> must reference ctaJobsUrl, not jobBoardUrl.
+    // PR #681 migrated `style="${CTA_PRIMARY_STYLE}"` → `class="s-cta"` for byte savings;
+    // accept either form so this regression test keeps catching the URL swap mistake.
     expect(PLUGIN_SRC).toMatch(
-      /<a href="\$\{esc\(ctaJobsUrl\)\}" style="\$\{CTA_PRIMARY_STYLE\}">/,
+      /<a href="\$\{esc\(ctaJobsUrl\)\}" (?:style="\$\{CTA_PRIMARY_STYLE\}"|class="s-cta")>/,
     );
     expect(PLUGIN_SRC).not.toMatch(
-      /<a href="\$\{esc\(jobBoardUrl\)\}" style="\$\{CTA_PRIMARY_STYLE\}">/,
+      /<a href="\$\{esc\(jobBoardUrl\)\}" (?:style="\$\{CTA_PRIMARY_STYLE\}"|class="s-cta")>/,
     );
   });
 });
