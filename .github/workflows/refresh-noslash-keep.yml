@@ -1,0 +1,82 @@
+name: Refresh no-slash keep-list
+# Weekly: union of GSC + GA4 + PostHog trafficked no-slash job-section URLs.
+# The build plugin reads `data/noslash-keep.json` and emits flat `.html`
+# shadows ONLY for paths in the keep-list. All other job-section flats
+# (~470 k files, ~2.3 GB raw) are dropped, bringing the tar artifact under
+# the 10 GB GitHub Pages cap.
+#
+# Script: scripts/refresh-noslash-keep.mjs
+
+on:
+  schedule:
+    - cron: '0 5 * * 1'  # Every Monday at 05:00 UTC (after article-performance @ 04:00 UTC)
+  workflow_dispatch:
+    inputs:
+      days:
+        description: 'Lookback window in days'
+        required: false
+        default: '90'
+      min_impressions:
+        description: 'Minimum impressions/views to keep a path'
+        required: false
+        default: '1'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: noslash-keep-refresh
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Write Firebase service-account JSON to /tmp
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -n "${FIREBASE_SERVICE_ACCOUNT_JSON:-}" ]; then
+            printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+            echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+          else
+            echo "::warning::No FIREBASE_SERVICE_ACCOUNT_JSON — GSC + GA4 will be skipped gracefully."
+          fi
+
+      - name: Load secrets from Remote Config
+        # Maps SERVER_GA4_PROPERTY_ID / SERVER_POSTHOG_* (set in Firebase RC)
+        # to their unprefixed names in $GITHUB_ENV so the script can read them.
+        run: node scripts/load-rc-env.mjs
+
+      - name: Refresh no-slash keep-list
+        env:
+          DAYS: ${{ inputs.days || '90' }}
+          MIN_IMP: ${{ inputs.min_impressions || '1' }}
+        run: node scripts/refresh-noslash-keep.mjs --days "$DAYS" --min-impressions "$MIN_IMP"
+
+      - name: Commit if changed
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/noslash-keep.json
+          if git diff --cached --quiet; then
+            echo "No change to noslash-keep.json"
+            exit 0
+          fi
+          git commit -m "chore(seo): refresh no-slash keep-list (GSC+GA4+PostHog union)"
+          bash scripts/lib/git-push-with-retry.sh \
+            --regenerate-cmd "node scripts/refresh-noslash-keep.mjs --days $DAYS --min-impressions $MIN_IMP && git add data/noslash-keep.json"
