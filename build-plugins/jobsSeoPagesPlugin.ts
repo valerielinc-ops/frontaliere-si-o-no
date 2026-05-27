@@ -2887,7 +2887,7 @@ ${staticAnalyticsHtml}
  const ctaLink = `<p class="cbl"><a href="${cHref}">${esc(anchorText)} &rarr;</a></p>`;
  return card + ctaLink;
  })()}
- ${related.length > 0 ? `<section class="related"><h2>${esc(localeCopy[locale].relatedJobs)}</h2>${JOB_CARD_ICON_SYMBOLS}<ul class="rul">${relatedHtml}</ul></section>` : ''}
+ ${related.length > 0 ? `<section class="related"><h2>${esc(localeCopy[locale].relatedJobs)}</h2><ul class="rul">${relatedHtml}</ul></section>` : ''}
  ${recentArticlesHtmlFor(locale)}
  ${(() => {
  const __tPh_prose = phaseTimer();
