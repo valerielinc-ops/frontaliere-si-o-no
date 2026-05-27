@@ -13,12 +13,13 @@
     "https://www.supsi.ch/lavora-con-noi"
   ],
   "notes": "Dedicated SUPSI crawler seeds from lavora-con-noi (including pagination via POST) and canonicalizes job URLs under supsi.ch.",
-  "updatedAt": "2026-05-25T23:43:52.089Z",
+  "updatedAt": "2026-05-27T00:28:57.694Z",
   "seedDetailUrls": [
     "https://www.supsi.ch/bando26_4004",
     "https://www.supsi.ch/bando26_9001",
     "https://www.supsi.ch/bando26_4005",
     "https://www.supsi.ch/bando26_4006",
+    "https://www.supsi.ch/bando26_2006",
     "https://www.supsi.ch/bando26_1013",
     "https://www.supsi.ch/dottorando/a-in-esperienze-interattive-adattive-in-contesti-multimodali-supsi-26_5024-",
     "https://www.supsi.ch/bando26_1008",
@@ -69,6 +70,15 @@
       "companyDomain": "supsi.ch",
       "contract": "Full-time",
       "expiresAt": "2026-06-02"
+    },
+    "https://www.supsi.ch/bando26_2006": {
+      "location": "Manno",
+      "canton": "TI",
+      "country": "CH",
+      "company": "SUPSI / DTI",
+      "companyDomain": "supsi.ch",
+      "contract": "Part-time",
+      "expiresAt": "2026-06-14"
     },
     "https://www.supsi.ch/bando26_1013": {
       "location": "Mendrisio",
