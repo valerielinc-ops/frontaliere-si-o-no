@@ -2072,7 +2072,20 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
       // has ~15 transitive .ts deps. Proper fix requires extracting
       // renderClusterPage into a standalone module with explicit `.ts`
       // imports (deferred). For now we keep the sequential loop.
+      let __renderClusterCounter = 0;
       for (const ctx of contexts) {
+        // Backpressure every 2000 iterations — relatedSearchClustersPlugin
+        // emits ~360k files (180k cluster pages × 2 [index.html + flat]).
+        // Without this, WriteCollector closures pile up the same way they
+        // did in jobsSeoPagesPlugin pre-PR #628: render-cluster-page
+        // measured 1.18 ms avg in run 26490352942 (~213 s total), doubled
+        // from the 0.59 ms / 106 s baseline because heap pressure under
+        // the 12 GB cap forced V8 into constant scavenges. Capping
+        // in-flight at 2 keeps pending HTML closures bounded → V8 GC has
+        // less to chase → per-page render returns to baseline speed.
+        if (++__renderClusterCounter % 2000 === 0) {
+          await collector.awaitDrainSlot(2);
+        }
         const __tRenderCluster = profileStart();
         const locale = ctx.candidate.locale;
         const altKey = `${normalizeText(ctx.keyword)}|${normalizeText(ctx.city || '')}`;
