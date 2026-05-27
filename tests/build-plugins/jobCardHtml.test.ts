@@ -218,7 +218,9 @@ describe('jobCardHtml — renderJobCardListHtml', () => {
       ],
       { locale: 'it' },
     );
-    expect(html.startsWith('<ul role="list" class="')).toBe(true);
+    // PR #640 prepends JOB_CARD_ICON_SYMBOLS once per list before <ul> for SVG sprite dedup;
+    // accept the symbols block as optional prefix so the <ul role="list"> shape is what matters.
+    expect(html).toMatch(/^(?:<svg[^>]*>(?:[^<]|<[^/]|<\/[^s]|<\/s[^v])*<\/svg>)?<ul role="list" class="/);
     expect(html).toContain('<li><article');
     // Two <article> elements, one per job
     const articleCount = (html.match(/<article /g) || []).length;
