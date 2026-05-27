@@ -44,8 +44,6 @@ import {
 } from './constants';
 import { buildSeoPageHtml } from './shared/seoPageShell';
 import {
-  BREADCRUMB_LINK_STYLE,
-  BREADCRUMB_STYLE,
   CTA_PRIMARY_STYLE,
   CARD_STYLE,
   H1_STYLE,
@@ -626,8 +624,8 @@ function renderPage(opts: {
   const indexable = matchingJobs.length >= MIN_MATCHING_JOBS;
 
   const body = `
-    <nav style="${BREADCRUMB_STYLE}">
-      <a href="${BASE_URL}/" style="${BREADCRUMB_LINK_STYLE}">${esc(t('orphanLanding.breadcrumbHome', 'Home'))}</a>
+    <nav class="s-bcr">
+      <a href="${BASE_URL}/" class="s-bcl">${esc(t('orphanLanding.breadcrumbHome', 'Home'))}</a>
       <span> / </span>
       <span>${esc(cluster.canonicalQuery)}</span>
     </nav>
@@ -1023,8 +1021,8 @@ export function orphanQueryLandingPlugin(rootDir: string): Plugin {
         };
 
         const bodyHtml = `<article class="s-xzWvwM">
-          <nav style="${BREADCRUMB_STYLE}">
-            <a href="${BASE_URL}/" style="${BREADCRUMB_LINK_STYLE}">${esc(copy.breadcrumbHome)}</a>
+          <nav class="s-bcr">
+            <a href="${BASE_URL}/" class="s-bcl">${esc(copy.breadcrumbHome)}</a>
             <span> / </span>
             <span>${esc(copy.sectionLabel)}</span>
           </nav>

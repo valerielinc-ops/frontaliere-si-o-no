@@ -82,8 +82,6 @@ import {
   WEEKLY_EMPLOYERS_SECTION,
 } from './weeklyEmployersData';
 import {
-  BREADCRUMB_LINK_STYLE,
-  BREADCRUMB_STYLE,
   CARD_BODY_STYLE,
   CARD_STYLE,
   CTA_PRIMARY_STYLE,
@@ -1790,8 +1788,8 @@ function renderPage(inp: PageInputs): string {
   // Main body markup (kept plain + inline-styled so we don't depend on the
   // SPA bundle and the static page ranks on its own).
   const bodyHtml = `<article class="s-xzWvwM">
-  <nav style="${BREADCRUMB_STYLE}">
-    <a href="${BASE_URL}/" style="${BREADCRUMB_LINK_STYLE}">${esc(copy.breadcrumbHome)}</a>
+  <nav class="s-bcr">
+    <a href="${BASE_URL}/" class="s-bcl">${esc(copy.breadcrumbHome)}</a>
     <span> / </span>
     <span>${esc(fuelLabel)}</span>
     <span> / </span>
@@ -2082,10 +2080,10 @@ function renderArchive(inp: ArchiveInputs): string {
   const archiveProse = renderFuelArchiveProse({ locale, fuelLabel, zoneLabel, monthKey, avgFmt: formatPrice(avg, locale) });
 
   const bodyHtml = `<article class="s-xzWvwM">
-        <nav style="${BREADCRUMB_STYLE}">
-          <a href="${BASE_URL}/" style="${BREADCRUMB_LINK_STYLE}">${esc(copy.breadcrumbHome)}</a>
+        <nav class="s-bcr">
+          <a href="${BASE_URL}/" class="s-bcl">${esc(copy.breadcrumbHome)}</a>
           <span> / </span>
-          <a href="${BASE_URL}${buildFuelTodayPath(locale, fuel, zone)}" style="${BREADCRUMB_LINK_STYLE}">${esc(zoneLabel)}</a>
+          <a href="${BASE_URL}${buildFuelTodayPath(locale, fuel, zone)}" class="s-bcl">${esc(zoneLabel)}</a>
           <span> / </span>
           <span>${esc(monthKey)}</span>
         </nav>
@@ -3157,12 +3155,12 @@ function renderStationPage(opts: {
     : '';
 
   const bodyHtml = `<article class="s-xzWvwM">
-  <nav aria-label="Breadcrumb" style="${BREADCRUMB_STYLE}">
-    <a href="${BASE_URL}/" style="${BREADCRUMB_LINK_STYLE}">Home</a>
+  <nav aria-label="Breadcrumb" class="s-bcr">
+    <a href="${BASE_URL}/" class="s-bcl">Home</a>
     <span> / </span>
-    <a href="${BASE_URL}${FUEL_LOCALE_PREFIX[locale]}/${FUEL_SECTION_SLUG[locale][fuel]}/${FUEL_TODAY_SLUG[locale]}/" style="${BREADCRUMB_LINK_STYLE}">${esc(fuelLabel)}</a>
+    <a href="${BASE_URL}${FUEL_LOCALE_PREFIX[locale]}/${FUEL_SECTION_SLUG[locale][fuel]}/${FUEL_TODAY_SLUG[locale]}/" class="s-bcl">${esc(fuelLabel)}</a>
     <span> / </span>
-    <a href="${BASE_URL}${buildFuelTodayPath(locale, fuel, ctx.zone)}" style="${BREADCRUMB_LINK_STYLE}">${esc(zoneLabel)}</a>
+    <a href="${BASE_URL}${buildFuelTodayPath(locale, fuel, ctx.zone)}" class="s-bcl">${esc(zoneLabel)}</a>
     <span> / </span>
     <span>${esc(ctx.brandDisplay)} ${esc(ctx.streetDisplay)}</span>
   </nav>
@@ -3671,10 +3669,10 @@ function renderItalianCityPage(opts: {
   const description = intro.slice(0, 180);
 
   const bodyHtml = `<article class="s-xzWvwM">
-  <nav aria-label="Breadcrumb" style="${BREADCRUMB_STYLE}">
-    <a href="${BASE_URL}/" style="${BREADCRUMB_LINK_STYLE}">Home</a>
+  <nav aria-label="Breadcrumb" class="s-bcr">
+    <a href="${BASE_URL}/" class="s-bcl">Home</a>
     <span> / </span>
-    <a href="${BASE_URL}${FUEL_LOCALE_PREFIX[locale]}/${FUEL_SECTION_SLUG[locale][fuel]}/${FUEL_TODAY_SLUG[locale]}/" style="${BREADCRUMB_LINK_STYLE}">${esc(fuelLabel)}</a>
+    <a href="${BASE_URL}${FUEL_LOCALE_PREFIX[locale]}/${FUEL_SECTION_SLUG[locale][fuel]}/${FUEL_TODAY_SLUG[locale]}/" class="s-bcl">${esc(fuelLabel)}</a>
     <span> / </span>
     <span>${esc(entry.display)}</span>
   </nav>
@@ -4570,12 +4568,12 @@ function renderItalianStationPage(opts: {
   const lastUpdatedLine = `<p class="s-oF62Kj">${esc(redesignLabels.historyLastUpdated(dateStamp))}</p>`;
 
   const bodyHtml = `<article class="s-xzWvwM">
-  <nav aria-label="Breadcrumb" style="${BREADCRUMB_STYLE}">
-    <a href="${BASE_URL}/" style="${BREADCRUMB_LINK_STYLE}">${esc(copy.breadcrumbHome)}</a>
+  <nav aria-label="Breadcrumb" class="s-bcr">
+    <a href="${BASE_URL}/" class="s-bcl">${esc(copy.breadcrumbHome)}</a>
     <span> / </span>
-    <a href="${BASE_URL}${FUEL_LOCALE_PREFIX[locale]}/${FUEL_SECTION_SLUG[locale][fuel]}/${FUEL_TODAY_SLUG[locale]}/" style="${BREADCRUMB_LINK_STYLE}">${esc(fuelLabel)}</a>
+    <a href="${BASE_URL}${FUEL_LOCALE_PREFIX[locale]}/${FUEL_SECTION_SLUG[locale][fuel]}/${FUEL_TODAY_SLUG[locale]}/" class="s-bcl">${esc(fuelLabel)}</a>
     <span> / </span>
-    <a href="${BASE_URL}${cityHubPath}" style="${BREADCRUMB_LINK_STYLE}">${esc(cityName)}</a>
+    <a href="${BASE_URL}${cityHubPath}" class="s-bcl">${esc(cityName)}</a>
     <span> / </span>
     <span>${esc(ctx.brandDisplay)} ${esc(ctx.streetDisplay)}</span>
   </nav>

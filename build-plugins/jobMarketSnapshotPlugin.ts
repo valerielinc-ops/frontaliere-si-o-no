@@ -86,8 +86,6 @@ import {
   WEEKLY_EMPLOYERS_SECTION,
 } from './weeklyEmployersData';
 import {
-  BREADCRUMB_LINK_STYLE,
-  BREADCRUMB_STYLE,
   CARD_STYLE,
   H1_STYLE,
   H2_STYLE,
@@ -1722,10 +1720,10 @@ function renderSnapshotPage(inp: SnapshotPageInputs): string {
   const robots = noindex ? 'noindex,follow' : 'index,follow';
 
   const bodyHtml = `<article class="s-xzWvwM">
-    <nav style="${BREADCRUMB_STYLE}">
-      <a href="${BASE_URL}/" style="${BREADCRUMB_LINK_STYLE}">${esc(copy.breadcrumbHome)}</a>
+    <nav class="s-bcr">
+      <a href="${BASE_URL}/" class="s-bcl">${esc(copy.breadcrumbHome)}</a>
       <span> / </span>
-      <a href="${BASE_URL}${buildHubPath(locale)}" style="${BREADCRUMB_LINK_STYLE}">${esc(JOB_MARKET_HUB_NAME[locale])}</a>
+      <a href="${BASE_URL}${buildHubPath(locale)}" class="s-bcl">${esc(JOB_MARKET_HUB_NAME[locale])}</a>
       <span> / </span>
       <span>${esc(periodRange)}</span>
     </nav>
@@ -1999,8 +1997,8 @@ function renderHubPage(inp: HubPageInputs): string {
   };
 
   const bodyHtml = `<article class="s-xzWvwM">
-    <nav style="${BREADCRUMB_STYLE}">
-      <a href="${BASE_URL}/" style="${BREADCRUMB_LINK_STYLE}">${esc(copy.breadcrumbHome)}</a>
+    <nav class="s-bcr">
+      <a href="${BASE_URL}/" class="s-bcl">${esc(copy.breadcrumbHome)}</a>
       <span> / </span>
       <span>${esc(JOB_MARKET_HUB_NAME[locale])}</span>
     </nav>
@@ -2963,10 +2961,10 @@ function renderSectorPage(inp: SectorPageInputs): string {
   };
 
   const bodyHtml = `<article class="s-xzWvwM">
-    <nav style="${BREADCRUMB_STYLE}">
-      <a href="${BASE_URL}/" style="${BREADCRUMB_LINK_STYLE}">${esc(copy.breadcrumbHome)}</a>
+    <nav class="s-bcr">
+      <a href="${BASE_URL}/" class="s-bcl">${esc(copy.breadcrumbHome)}</a>
       <span> / </span>
-      <a href="${BASE_URL}${buildHubPath(locale)}" style="${BREADCRUMB_LINK_STYLE}">${esc(JOB_MARKET_HUB_NAME[locale])}</a>
+      <a href="${BASE_URL}${buildHubPath(locale)}" class="s-bcl">${esc(JOB_MARKET_HUB_NAME[locale])}</a>
       <span> / </span>
       <span>${esc(sectorLabel)}</span>
     </nav>

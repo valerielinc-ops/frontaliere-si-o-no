@@ -55,8 +55,6 @@ import {
   STAT_TILE_VALUE,
   STAT_TILE_ACCENT,
   CARD_STYLE,
-  BREADCRUMB_STYLE,
-  BREADCRUMB_LINK_STYLE,
   HERO_EYEBROW_STYLE,
   H1_STYLE,
   LEDE_STYLE,
@@ -848,8 +846,8 @@ function renderReport(opts: {
 
   // Body.
   const body = `
-    <nav style="${BREADCRUMB_STYLE}">
-      <a href="${esc(homeUrl)}" style="${BREADCRUMB_LINK_STYLE}">${esc(copy.breadcrumbHome)}</a>
+    <nav class="s-bcr">
+      <a href="${esc(homeUrl)}" class="s-bcl">${esc(copy.breadcrumbHome)}</a>
       <span> / </span>
       <span>${esc(copy.breadcrumbReport)}</span>
     </nav>

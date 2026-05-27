@@ -44,8 +44,6 @@ import type { Plugin } from 'vite';
 import { BASE_URL } from './constants';
 import { buildSeoPageHtml } from './shared/seoPageShell';
 import {
-  BREADCRUMB_LINK_STYLE,
-  BREADCRUMB_STYLE,
   CARD_BODY_STYLE,
   CARD_PADDING_STYLE,
   H1_STYLE,
@@ -1056,8 +1054,8 @@ function renderSectionPage(opts: {
   const articlesHtml = renderArticleList(articles, locale);
 
   const body = `
-    <nav style="${BREADCRUMB_STYLE}" aria-label="breadcrumb">
-      <a href="${esc(homeUrl)}" style="${BREADCRUMB_LINK_STYLE}">${esc(localeCopy.homeBreadcrumb)}</a>
+    <nav class="s-bcr" aria-label="breadcrumb">
+      <a href="${esc(homeUrl)}" class="s-bcl">${esc(localeCopy.homeBreadcrumb)}</a>
       <span aria-hidden="true"> / </span>
       <span>${esc(copy.h1)}</span>
     </nav>

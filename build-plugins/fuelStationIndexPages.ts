@@ -66,8 +66,6 @@ import { BASE_URL } from './constants';
 import { buildSeoPageHtml } from './shared/seoPageShell';
 import { renderHreflangTags } from './shared/hreflang';
 import {
-  BREADCRUMB_LINK_STYLE,
-  BREADCRUMB_STYLE,
   CARD_STYLE,
   CTA_PRIMARY_STYLE,
   H1_STYLE,
@@ -945,10 +943,10 @@ function renderIndexPage(opts: RenderIndexOpts): string {
   </section>`;
 
   const bodyHtml = `<article class="s-xzWvwM">
-  <nav style="${BREADCRUMB_STYLE}">
-    <a href="${BASE_URL}/" style="${BREADCRUMB_LINK_STYLE}">${esc(copy.breadcrumbHome)}</a>
+  <nav class="s-bcr">
+    <a href="${BASE_URL}/" class="s-bcl">${esc(copy.breadcrumbHome)}</a>
     <span> / </span>
-    <a href="${BASE_URL}${FUEL_LOCALE_PREFIX[locale]}/${FUEL_SECTION_SLUG[locale][fuel]}/" style="${BREADCRUMB_LINK_STYLE}">${esc(fuelLabel)}</a>
+    <a href="${BASE_URL}${FUEL_LOCALE_PREFIX[locale]}/${FUEL_SECTION_SLUG[locale][fuel]}/" class="s-bcl">${esc(fuelLabel)}</a>
     <span> / </span>
     <span>${esc(titles.h1)}</span>
   </nav>

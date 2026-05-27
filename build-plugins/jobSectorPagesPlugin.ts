@@ -26,8 +26,6 @@ import {
   STAT_TILE_LABEL,
   STAT_TILE_VALUE,
   CARD_STYLE,
-  BREADCRUMB_STYLE,
-  BREADCRUMB_LINK_STYLE,
   HERO_EYEBROW_STYLE,
   H1_STYLE,
   LEDE_STYLE,
@@ -332,10 +330,10 @@ ${alternates}
   <body>
     <div id="root"></div>
     <main class="seo-static-content s-Ziv1Xn">
-        <nav style="${BREADCRUMB_STYLE}">
-          <a href="${BASE_URL}/" style="${BREADCRUMB_LINK_STYLE}">Home</a>
+        <nav class="s-bcr">
+          <a href="${BASE_URL}/" class="s-bcl">Home</a>
           <span> / </span>
-          <a href="${sectionRootUrl}" style="${BREADCRUMB_LINK_STYLE}">${esc(SECTION_NAME[locale])}</a>
+          <a href="${sectionRootUrl}" class="s-bcl">${esc(SECTION_NAME[locale])}</a>
           <span> / </span>
           <span>${esc(seo.h1)}</span>
         </nav>

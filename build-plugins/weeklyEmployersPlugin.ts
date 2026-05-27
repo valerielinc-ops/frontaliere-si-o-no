@@ -75,8 +75,6 @@ import {
 import { generateRelatedLinksBlock } from './shared/relatedLinks';
 import { adSlotHtml } from './lib/adSlotHtml';
 import {
-  BREADCRUMB_LINK_STYLE,
-  BREADCRUMB_STYLE,
   CARD_STYLE,
   CTA_PRIMARY_STYLE,
   H1_STYLE,
@@ -2412,8 +2410,8 @@ export function renderTopHubPage(inp: TopHubPageInputs): string {
   const topJobBoardCtaHtml = `<p class="s-ziawP1"><a href="${esc(weeklyEmployersJobBoardPath(locale, 'TI'))}" style="${CTA_PRIMARY_STYLE};font-size:15px">${esc(WEEKLY_EMPLOYERS_TILE_LABELS[locale].jobBoardCta)} →</a></p>`;
 
   const bodyHtml = `<article class="s-xzWvwM">
-  <nav style="${BREADCRUMB_STYLE}" aria-label="breadcrumb">
-    <a href="${BASE_URL}/" style="${BREADCRUMB_LINK_STYLE}">${esc(copy.breadcrumbHome)}</a>
+  <nav class="s-bcr" aria-label="breadcrumb">
+    <a href="${BASE_URL}/" class="s-bcl">${esc(copy.breadcrumbHome)}</a>
     <span> / </span>
     <span>${esc(t.topHubTitle)}</span>
   </nav>
@@ -2912,10 +2910,10 @@ export function renderWeeklyEmployersPage(inp: WeeklyEmployersPageInputs): strin
       : '';
 
   const bodyHtml = `<article class="s-xzWvwM">
-  <nav style="${BREADCRUMB_STYLE}" aria-label="breadcrumb">
-    <a href="${BASE_URL}/" style="${BREADCRUMB_LINK_STYLE}">${esc(copy.breadcrumbHome)}</a>
+  <nav class="s-bcr" aria-label="breadcrumb">
+    <a href="${BASE_URL}/" class="s-bcl">${esc(copy.breadcrumbHome)}</a>
     <span> / </span>
-    <a href="${esc(topHubPath(locale))}" style="${BREADCRUMB_LINK_STYLE}">${esc(copy.sectionLabel)}</a>
+    <a href="${esc(topHubPath(locale))}" class="s-bcl">${esc(copy.sectionLabel)}</a>
     <span> / </span>
     <span>${esc(cityDisplay)}</span>
   </nav>
@@ -3446,12 +3444,12 @@ export function renderCompanyCityPage(inp: CompanyCityPageInputs): string {
   const ccCtaHtml = `<p class="s-ziawP1"><a href="${esc(ccJobBoardPath)}?city=${esc(city)}&q=${encodeURIComponent(employer)}" style="${CTA_PRIMARY_STYLE};font-size:15px">${esc(ccTileLabels.cityCta(`${employer} · ${cityDisplay}`))} →</a></p>`;
 
   const bodyHtml = `<article class="s-xzWvwM">
-  <nav style="${BREADCRUMB_STYLE}" aria-label="breadcrumb">
-    <a href="${BASE_URL}/" style="${BREADCRUMB_LINK_STYLE}">${esc(copy.breadcrumbHome)}</a>
+  <nav class="s-bcr" aria-label="breadcrumb">
+    <a href="${BASE_URL}/" class="s-bcl">${esc(copy.breadcrumbHome)}</a>
     <span> / </span>
-    <a href="${BASE_URL}${WEEKLY_EMPLOYERS_LOCALE_PREFIX[locale]}/${WEEKLY_EMPLOYERS_SECTION[locale]}/ticino/${WEEKLY_EMPLOYERS_CURRENT_SLUG[locale]}/" style="${BREADCRUMB_LINK_STYLE}">${esc(copy.sectionLabel)}</a>
+    <a href="${BASE_URL}${WEEKLY_EMPLOYERS_LOCALE_PREFIX[locale]}/${WEEKLY_EMPLOYERS_SECTION[locale]}/ticino/${WEEKLY_EMPLOYERS_CURRENT_SLUG[locale]}/" class="s-bcl">${esc(copy.sectionLabel)}</a>
     <span> / </span>
-    <a href="${esc(parentHubHref)}" style="${BREADCRUMB_LINK_STYLE}">${esc(cityDisplay)}</a>
+    <a href="${esc(parentHubHref)}" class="s-bcl">${esc(cityDisplay)}</a>
     <span> / </span>
     <span>${esc(employer)}</span>
   </nav>
