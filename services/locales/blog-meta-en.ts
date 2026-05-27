@@ -7807,6 +7807,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.varese-camera-commercio-lavoro-frontalieri-ticino.title': 'Varese: new job and trade opportunities for cross-border workers',
     'blog.article.varese-camera-commercio-lavoro-frontalieri-ticino.excerpt': 'Over 5,000 expressions of interest for jobs from cross-border workers in Ticino. Varese Chamber of Commerce signs agreement with employment agencies.',
     'blog.article.varese-camera-commercio-lavoro-frontalieri-ticino.imageAlt': 'Modern office in Bellinzona, Ticino, with a city view.',
+    'blog.article.frontaliere-con-figli-asilo-nido-svizzera.title': 'Cross-Border Workers with Children: Swiss Daycare Explained',
+    'blog.article.frontaliere-con-figli-asilo-nido-svizzera.excerpt': 'Practical Guide for Cross-Border Workers with Children: Ticino Daycare, Costs, Waitlists, Subsidies, Italian Alternatives',
+    'blog.article.frontaliere-con-figli-asilo-nido-svizzera.imageAlt': 'Children in a Swiss kindergarten',
 };
 
 export default blogMetaEn;

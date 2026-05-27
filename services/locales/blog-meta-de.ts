@@ -7806,6 +7806,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.varese-camera-commercio-lavoro-frontalieri-ticino.title': 'Varese: neue Chancen für Grenzgänger in Arbeit und Handel',
     'blog.article.varese-camera-commercio-lavoro-frontalieri-ticino.excerpt': 'Über 5.000 Interessenbekundungen von Grenzgängern im Tessin. Handelskammer Varese schließt Vereinbarung mit Arbeitsagenturen ab.',
     'blog.article.varese-camera-commercio-lavoro-frontalieri-ticino.imageAlt': 'Modernes Büro in Bellinzona, Tessin, mit Stadtblick.',
+    'blog.article.frontaliere-con-figli-asilo-nido-svizzera.title': 'Grenzgänger mit Kindern: Wie funktioniert der Kindergarten in der Schweiz',
+    'blog.article.frontaliere-con-figli-asilo-nido-svizzera.excerpt': 'Praktische Anleitung für Grenzgänger mit Kindern: Kindergärten im Tessin, Kosten, Warteliste, Zuschüsse, alternative in Italien',
+    'blog.article.frontaliere-con-figli-asilo-nido-svizzera.imageAlt': 'Kinder in einem Schweizer Kindergarten',
 };
 
 export default blogMetaDe;

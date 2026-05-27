@@ -7808,6 +7808,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.varese-camera-commercio-lavoro-frontalieri-ticino.title': 'Varese: nuove opportunità per frontalieri dal lavoro e commercio',
     'blog.article.varese-camera-commercio-lavoro-frontalieri-ticino.excerpt': 'Oltre 5.000 manifestazioni di interesse per lavoro da parte di frontalieri in Ticino. Camera di Commercio di Varese firma accordo con agenzie per il lavoro.',
     'blog.article.varese-camera-commercio-lavoro-frontalieri-ticino.imageAlt': 'Ufficio moderno a Bellinzona, Ticino, con vista sulla città.',
+    'blog.article.frontaliere-con-figli-asilo-nido-svizzera.title': 'Frontalieri con figli: come funziona l\'asilo nido in Svizzera',
+    'blog.article.frontaliere-con-figli-asilo-nido-svizzera.excerpt': 'Guida pratica per i frontalieri con figli: asili nido ticinesi, costi, lista d\'attesa, sussidi, alternative italiane',
+    'blog.article.frontaliere-con-figli-asilo-nido-svizzera.imageAlt': 'Bambini in un asilo nido in Svizzera',
 };
 
 export default blogMetaIt;

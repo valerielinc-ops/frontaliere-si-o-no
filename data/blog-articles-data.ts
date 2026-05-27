@@ -24797,4 +24797,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'frontaliere-con-figli-asilo-nido-svizzera',
+ category: 'pratico',
+ date: '2026-05-27T02:22:22.449Z',
+ image: '/images/blog/frontaliere-con-figli-asilo-nido-svizzera.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
