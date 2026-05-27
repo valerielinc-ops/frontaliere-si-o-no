@@ -10981,6 +10981,15 @@ ${staticAnalyticsHtml}
  console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m Generated ${crossLocaleCount} cross-locale reconciliation pages`);
  }
 
+ // Cross-locale-active-bridge was the last reader of `jobHtmlCache`. The
+ // cache holds the FULL minified active-job HTML for every (locale, slug)
+ // pair — ~24k entries × ~30 KB ≈ ~720 MB held in the closeBundle heap
+ // until end of plugin. Release it now so the heap headroom is reclaimed
+ // before the heaviest writes (self-healing + flush) follow. Build run
+ // 26494155252 OOM'd at heap=10.8 GB during this stretch with the 12 GB
+ // cap — freeing this Map removes the biggest single accumulator.
+ jobHtmlCache.clear();
+
  /* ── Self-healing: cover any tracking paths not yet written ──── */
  // Safety net: any tracking path that wasn't covered by active, soft-landing,
  // or bridge pages gets a minimal redirect page pointing to the job listing.
