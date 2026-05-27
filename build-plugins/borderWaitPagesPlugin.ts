@@ -91,8 +91,6 @@ import {
   WEEKLY_EMPLOYERS_SECTION,
 } from './weeklyEmployersData';
 import {
-  BREADCRUMB_LINK_STYLE,
-  BREADCRUMB_STYLE,
   CARD_STYLE,
   H1_STYLE,
   H2_STYLE,
@@ -1673,12 +1671,12 @@ function renderLeafPage(inp: LeafInputs): string {
   const hydrationScript = `\n  ${BORDER_WAIT_HYDRATION_SCRIPT_TAG}`;
 
   const bodyHtml = `<article class="s-xzWvwM">
-  <nav style="${BREADCRUMB_STYLE}" aria-label="Breadcrumb">
-    <a href="${BASE_URL}/" style="${BREADCRUMB_LINK_STYLE}">${esc(copy.breadcrumbHome)}</a>
+  <nav class="s-bcr" aria-label="Breadcrumb">
+    <a href="${BASE_URL}/" class="s-bcl">${esc(copy.breadcrumbHome)}</a>
     <span> / </span>
-    <a href="${BASE_URL}${buildRootHubPath(locale)}" style="${BREADCRUMB_LINK_STYLE}">${esc(copy.rootH1.split(' —')[0])}</a>
+    <a href="${BASE_URL}${buildRootHubPath(locale)}" class="s-bcl">${esc(copy.rootH1.split(' —')[0])}</a>
     <span> / </span>
-    <a href="${BASE_URL}${buildRegionalHubPath(locale, region)}" style="${BREADCRUMB_LINK_STYLE}">${esc(regionDisplay)}</a>
+    <a href="${BASE_URL}${buildRegionalHubPath(locale, region)}" class="s-bcl">${esc(regionDisplay)}</a>
     <span> / </span>
     <span>${esc(crossingDisplay)}</span>
   </nav>
@@ -2018,10 +2016,10 @@ function renderHubPage(inp: HubInputs): string {
           : `snapshot of ${dateStamp}`;
 
   const bodyHtml = `<article class="s-xzWvwM">
-  <nav style="${BREADCRUMB_STYLE}" aria-label="Breadcrumb">
-    <a href="${BASE_URL}/" style="${BREADCRUMB_LINK_STYLE}">${esc(copy.breadcrumbHome)}</a>
+  <nav class="s-bcr" aria-label="Breadcrumb">
+    <a href="${BASE_URL}/" class="s-bcl">${esc(copy.breadcrumbHome)}</a>
     <span> / </span>
-    ${region ? `<a href="${BASE_URL}${buildRootHubPath(locale)}" style="${BREADCRUMB_LINK_STYLE}">${esc(copy.rootH1.split(' —')[0])}</a><span> / </span><span>${esc(regionDisplay)}</span>` : `<span>${esc(h1)}</span>`}
+    ${region ? `<a href="${BASE_URL}${buildRootHubPath(locale)}" class="s-bcl">${esc(copy.rootH1.split(' —')[0])}</a><span> / </span><span>${esc(regionDisplay)}</span>` : `<span>${esc(h1)}</span>`}
   </nav>
   <header class="s-Nv0GaD">
     <p style="${HERO_EYEBROW_STYLE}">${esc(copy.updatedLabel)} · ${dateStamp} <span class="s-k7sbVR" data-bw-live-badge>${esc(hubSnapshotBadgeText)}</span></p>
@@ -2350,10 +2348,10 @@ function renderArchivePage(inp: ArchiveInputs): string {
   </section>`;
 
   const bodyHtml = `<article class="s-xzWvwM">
-        <nav style="${BREADCRUMB_STYLE}" aria-label="Breadcrumb">
-          <a href="${BASE_URL}/" style="${BREADCRUMB_LINK_STYLE}">${esc(copy.breadcrumbHome)}</a>
+        <nav class="s-bcr" aria-label="Breadcrumb">
+          <a href="${BASE_URL}/" class="s-bcl">${esc(copy.breadcrumbHome)}</a>
           <span> / </span>
-          <a href="${BASE_URL}${buildOggiPath(locale, crossing)}" style="${BREADCRUMB_LINK_STYLE}">${esc(crossingDisplay)}</a>
+          <a href="${BASE_URL}${buildOggiPath(locale, crossing)}" class="s-bcl">${esc(crossingDisplay)}</a>
           <span> / </span>
           <span>${esc(monthKey)}</span>
         </nav>

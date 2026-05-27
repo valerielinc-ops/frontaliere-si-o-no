@@ -1561,3 +1561,10 @@ aside.seo-footer-block .seo-fb-section-body a:hover,
    identical to the previous inline `style="..."` form; moved to CSS to save
    ~250 B × ~6 chips × 96k active-job emits ≈ ~24 MB on the dist artifact. */
 .aj-chip { display:inline-block;margin:0 6px 6px 0;padding:4px 10px;font-size:12px;font-weight:600;border-radius:9999px;background:var(--color-accent-subtle);color:var(--color-accent);text-decoration:none;border:1px solid var(--color-accent-border) }
+
+/* Breadcrumb nav + link atoms used by SEO landing plugins. Extracted from
+   BREADCRUMB_STYLE/BREADCRUMB_LINK_STYLE inline-style constants in
+   build-plugins/shared/seoContentTokens.ts. ~250 B per breadcrumb × ~300k
+   pages ≈ ~50 MB compressed savings on the dist artifact. */
+.s-bcr { margin:0 0 14px;font-size:13px;color:var(--color-subtle) }
+.s-bcl { color:var(--color-link);text-decoration:none }

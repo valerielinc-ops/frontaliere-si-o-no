@@ -50,10 +50,6 @@ import { WriteCollector } from './batchWrite';
 import { BASE_URL } from './constants';
 import { buildFlatBridgeFromSibling } from './flatHtmlRedirectPlugin';
 import { buildSeoPageHtml } from './shared/seoPageShell';
-import {
-  BREADCRUMB_LINK_STYLE,
-  BREADCRUMB_STYLE,
-} from './shared/seoContentTokens';
 import { buildTitleWithBrand, TITLE_MAX_CHARS } from './shared/titleSuffix';
 import {
   renderJobBoardCommuterContext,
@@ -1574,10 +1570,10 @@ function renderHubPage(input: HubPageInput): { urlPath: string; html: string; lo
   });
 
   const bodyHtml = `<article class="s-haN35X">
-    <nav style="${BREADCRUMB_STYLE}">
-      <a href="${BASE_URL}/" style="${BREADCRUMB_LINK_STYLE}">${esc(copy.homeBreadcrumb)}</a>
+    <nav class="s-bcr">
+      <a href="${BASE_URL}/" class="s-bcl">${esc(copy.homeBreadcrumb)}</a>
       <span> / </span>
-      <a href="${esc(sectionUrl)}" style="${BREADCRUMB_LINK_STYLE}">${esc(copy.jobsBreadcrumb)}</a>
+      <a href="${esc(sectionUrl)}" class="s-bcl">${esc(copy.jobsBreadcrumb)}</a>
       <span> / </span>
       <span>${esc(copy.searchBreadcrumb)}</span>
     </nav>

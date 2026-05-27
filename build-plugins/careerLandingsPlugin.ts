@@ -78,8 +78,6 @@ import {
   type EmployerCardEmployer,
 } from './shared/employerCardHtml';
 import {
-  BREADCRUMB_STYLE,
-  BREADCRUMB_LINK_STYLE,
   H1_STYLE,
   LEDE_STYLE,
   BODY_STYLE,
@@ -499,10 +497,10 @@ function renderPage(opts: {
   const sourcesHtml = renderSources(copy.sources, copy.sourcesLabel);
 
   const body = `
-    <nav style="${BREADCRUMB_STYLE}">
-      <a href="${esc(homeUrl)}" style="${BREADCRUMB_LINK_STYLE}">${esc(copy.breadcrumbHome)}</a>
+    <nav class="s-bcr">
+      <a href="${esc(homeUrl)}" class="s-bcl">${esc(copy.breadcrumbHome)}</a>
       <span> / </span>
-      <a href="${esc(jobBoardUrl)}" style="${BREADCRUMB_LINK_STYLE}">${esc(copy.breadcrumbJobs)}</a>
+      <a href="${esc(jobBoardUrl)}" class="s-bcl">${esc(copy.breadcrumbJobs)}</a>
       <span> / </span>
       <span>${esc(copy.h1)}</span>
     </nav>
