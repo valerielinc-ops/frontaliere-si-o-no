@@ -3848,6 +3848,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-frontaliere-con-figli-asilo-nido-svizzera': { name: 'Asilo nido Svizzera', path: '/articoli-frontaliere/frontaliere-con-figli-asilo-nido-svizzera', parent: 'blog' },
     'blog-aumento-beneficiari-rendite-avs-ticino': { name: 'Pensione AVS', path: '/articoli-frontaliere/aumento-beneficiari-rendite-avs-ticino', parent: 'blog' },
     'blog-ucraini-con-permesso-b-preoccupazione': { name: 'Novità', path: '/articoli-frontaliere/ucraini-con-permesso-b-preoccupazione', parent: 'blog' },
+    'blog-porrentruy-piscina-frontaliere-tariffe': { name: 'Piscina Porrentruy', path: '/articoli-frontaliere/porrentruy-piscina-frontaliere-tariffe', parent: 'blog' },
  };
 
  const info = sectionNames[section];

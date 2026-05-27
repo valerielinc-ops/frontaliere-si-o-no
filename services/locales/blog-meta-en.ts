@@ -7816,6 +7816,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.ucraini-con-permesso-b-preoccupazione.title': 'Ukrainians with B permit, concerns arise',
     'blog.article.ucraini-con-permesso-b-preoccupazione.excerpt': 'In Lugano, the automatic transition of Ukrainian refugees with S protection status to a B permit in 2027 may raise concerns.',
     'blog.article.ucraini-con-permesso-b-preoccupazione.imageAlt': 'Ukrainian family in Lugano',
+    'blog.article.porrentruy-piscina-frontaliere-tariffe.title': 'Porrentruy: double pool tickets for cross-border workers',
+    'blog.article.porrentruy-piscina-frontaliere-tariffe.excerpt': 'In Porrentruy, pool tickets for cross-border workers have doubled and season passes are no longer available: adults pay 15 CHF, youths 10 CHF, tickets only sold online.',
+    'blog.article.porrentruy-piscina-frontaliere-tariffe.imageAlt': 'Crowded public pool in Lugano with cross-border commuters waiting',
 };
 
 export default blogMetaEn;

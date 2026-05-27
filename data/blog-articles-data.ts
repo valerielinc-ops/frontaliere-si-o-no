@@ -24824,4 +24824,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'porrentruy-piscina-frontaliere-tariffe',
+ category: 'pratico',
+ date: '2026-05-27T03:08:28.091Z',
+ image: '/images/blog/porrentruy-piscina-frontaliere-tariffe.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

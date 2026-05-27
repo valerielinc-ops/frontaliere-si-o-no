@@ -7815,6 +7815,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.ucraini-con-permesso-b-preoccupazione.title': 'Ukraine-Flüchtlinge: Umstellung auf B-Bewilligung',
     'blog.article.ucraini-con-permesso-b-preoccupazione.excerpt': 'In Lugano könnte die automatische Umstellung von ukrainischen Flüchtlingen mit S-Schutzstatus auf eine B-Bewilligung im Jahr 2027 Anlass zur Sorge geben.',
     'blog.article.ucraini-con-permesso-b-preoccupazione.imageAlt': 'Ukrainische Familie in Lugano',
+    'blog.article.porrentruy-piscina-frontaliere-tariffe.title': 'Porrentruy: Stadtbad, Grenzgänger zahlen doppelt',
+    'blog.article.porrentruy-piscina-frontaliere-tariffe.excerpt': 'In Porrentruy, Eintrittspreise für das Schwimmbad für Grenzgänger verdoppelt und Abonnements gestoppt: Erwachsene 15 Franken, Jugendliche 10 Franken, nur online verfügbar.',
+    'blog.article.porrentruy-piscina-frontaliere-tariffe.imageAlt': 'Überfülltes Schwimmbad in Lugano mit Grenzgängern',
 };
 
 export default blogMetaDe;

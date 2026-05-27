@@ -7817,6 +7817,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.ucraini-con-permesso-b-preoccupazione.title': 'Ucraini con permesso B, c\'è preoccupazione?',
     'blog.article.ucraini-con-permesso-b-preoccupazione.excerpt': 'A Lugano, il passaggio automatico dei rifugiati ucraini con Statuto di protezione S a permesso B nel 2027 potrebbe creare preoccupazioni.',
     'blog.article.ucraini-con-permesso-b-preoccupazione.imageAlt': 'Familia ucraina a Lugano',
+    'blog.article.porrentruy-piscina-frontaliere-tariffe.title': 'Porrentruy: piscina comunale, frontalieri pagano il doppio',
+    'blog.article.porrentruy-piscina-frontaliere-tariffe.excerpt': 'A Porrentruy, biglietti piscina raddoppiati per frontalieri e stop agli abbonamenti: adulti 15 CHF, giovani 10 CHF, solo online.',
+    'blog.article.porrentruy-piscina-frontaliere-tariffe.imageAlt': 'Piscina comunale affollata a Lugano con frontalieri in attesa',
 };
 
 export default blogMetaIt;

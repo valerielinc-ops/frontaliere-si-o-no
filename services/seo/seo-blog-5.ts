@@ -40478,6 +40478,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-porrentruy-piscina-frontaliere-tariffe': {
+    title: 'Porrentruy: piscina comunale, frontalieri pagano il doppio',
+    description: 'A Porrentruy, frontalieri e non residenti pagano tariffe doppie: adulti 15 CHF, giovani 10 CHF. Abbonamenti vietati, ingresso solo online. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, porrentruy, piscina, comunale, pagano',
+    ogTitle: 'Porrentruy: piscina comunale, tariffe doppie per frontalieri',
+    ogDescription: 'Frontalieri e non residenti pagano il doppio per entrare in piscina a Porrentruy. Abbonamenti vietati, biglietti solo online.',
+    canonicalPath: '/articoli-frontaliere/porrentruy-piscina-frontaliere-tariffe',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Porrentruy: piscina comunale, frontalieri pagano il doppio",
+      "description": "A Porrentruy, frontalieri e non residenti pagano tariffe doppie: adulti 15 CHF, giovani 10 CHF. Abbonamenti vietati, ingresso solo online. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/porrentruy-piscina-frontaliere-tariffe.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Piscina comunale affollata a Lugano con frontalieri in attesa"
+      },
+      "datePublished": "2026-05-27T03:08:28+00:00",
+      "dateModified": "2026-05-27T03:08:28+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/porrentruy-piscina-frontaliere-tariffe`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
