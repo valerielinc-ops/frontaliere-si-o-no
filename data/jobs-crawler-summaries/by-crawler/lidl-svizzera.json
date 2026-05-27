@@ -1,53 +1,18 @@
 {
   "key": "lidl-svizzera",
   "label": "Lidl",
-  "generatedAt": "2026-05-26T23:29:38.919Z",
-  "total": 10,
-  "newCount": 1,
+  "generatedAt": "2026-05-27T13:08:56.259Z",
+  "total": 9,
+  "newCount": 0,
   "updatedCount": 9,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 11807,
-  "avgDurationMs": 11807,
+  "durationMs": 14477,
+  "avgDurationMs": 14477,
   "durationHistory": [
-    11807
+    14477
   ],
-  "newJobs": [
-    {
-      "id": "company-nuf61k",
-      "slug": "venditore-venditrice-m-f-d-40-lidl-svizzera-locarno-nuf61k",
-      "company": "Lidl Svizzera",
-      "title": "Venditore / Venditrice (m/f/d) 40%",
-      "location": "Locarno",
-      "canton": "ti",
-      "category": "sales",
-      "contract": "part-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-26",
-      "url": "https://team.lidl.ch/it/jobs/venditore-venditrice-m-f-d-40-locarno-658586",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Locarno",
-        "canton": "TI"
-      },
-      "companyKey": "lidl-svizzera",
-      "companyDomain": "lidl.ch",
-      "crawledAt": "2026-05-26T23:29:38.586Z",
-      "firstSeenAt": "2026-05-26T23:29:38.586Z",
-      "needsRetranslation": true,
-      "country": "CH",
-      "sourceLang": "it",
-      "_qualityScore": 66,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 25,
-        "translation": 2,
-        "completeness": 14
-      }
-    }
-  ],
+  "newJobs": [],
   "updatedJobs": [
     {
       "id": "company-alqha9",
@@ -81,11 +46,12 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "needsRetranslation": true,
-      "_qualityScore": 87,
+      "retranslationAttempts": 1,
+      "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 15,
+        "translation": 9,
         "completeness": 25
       }
     },
@@ -121,11 +87,12 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "needsRetranslation": true,
-      "_qualityScore": 87,
+      "retranslationAttempts": 1,
+      "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 15,
+        "translation": 9,
         "completeness": 25
       }
     },
