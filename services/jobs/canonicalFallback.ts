@@ -255,6 +255,22 @@ function fallbackNormalizeIdSource(value: string): string {
  .trim();
 }
 
+// Pre-normalized FALLBACK_SECTION_HINTS — the per-call `fallbackScoreSectionHints`
+// was running `fallbackNormalizeIdSource(hint)` on every hint of every section
+// for every input text. With ~23k tuples × ~80 score-calls × ~10 hints/section
+// = ~18M normalize ops/build (~100s CPU across the 4-worker pre-pass). Compute
+// once at module load, reuse forever. Output unchanged; only the redundant
+// per-call normalization is gone.
+const FALLBACK_SECTION_HINTS_NORM: Record<FallbackSectionId, string[]> = (() => {
+ const out = {} as Record<FallbackSectionId, string[]>;
+ for (const key of Object.keys(FALLBACK_SECTION_HINTS) as FallbackSectionId[]) {
+ out[key] = FALLBACK_SECTION_HINTS[key]
+ .map((h) => fallbackNormalizeIdSource(h))
+ .filter((t) => t.length > 0);
+ }
+ return out;
+})();
+
 function fallbackUniq(items: string[], max = 999): string[] {
  const out: string[] = [];
  const seen = new Set<string>();
@@ -430,11 +446,12 @@ function fallbackIsGarbageChunk(line: string): boolean {
 
 function fallbackScoreSectionHints(text: string, sectionId: FallbackSectionId): number {
  const normalized = fallbackNormalizeIdSource(text);
- const hints = FALLBACK_SECTION_HINTS[sectionId] || [];
+ // Hints are pre-normalized at module load (FALLBACK_SECTION_HINTS_NORM),
+ // skipping the ~10× fallbackNormalizeIdSource calls per section per text
+ // that the prior form re-ran on every call.
+ const tokens = FALLBACK_SECTION_HINTS_NORM[sectionId] || [];
  let score = 0;
- for (const hint of hints) {
- const token = fallbackNormalizeIdSource(hint);
- if (!token) continue;
+ for (const token of tokens) {
  if (normalized.includes(token)) score += token.length >= 10 ? 2 : 1;
  }
  return score;

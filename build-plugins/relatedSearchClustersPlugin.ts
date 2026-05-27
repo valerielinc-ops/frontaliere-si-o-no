@@ -2033,10 +2033,17 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
       }
 
       // Group by (normalized keyword + city) for cross-locale hreflang lookup.
+      // The composite key is also reused inside the per-cluster render loop
+      // (the `altKey` lookup against `byKeywordCity`), so we cache it onto a
+      // side Map keyed by ctx — `normalizeText` is NFKD + regex per call,
+      // ~180k × 2 calls/page in the render loop = ~360k normalizeText ops we
+      // skip by sharing the result.
       const __tGroupHreflang = profileStart();
       const byKeywordCity = new Map<string, Map<Locale, ClusterContext>>();
+      const altKeyByCtx = new Map<ClusterContext, string>();
       for (const ctx of contexts) {
         const key = `${normalizeText(ctx.keyword)}|${normalizeText(ctx.city || '')}`;
+        altKeyByCtx.set(ctx, key);
         let inner = byKeywordCity.get(key);
         if (!inner) {
           inner = new Map();
@@ -2100,7 +2107,11 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
         }
         const __tRenderCluster = profileStart();
         const locale = ctx.candidate.locale;
-        const altKey = `${normalizeText(ctx.keyword)}|${normalizeText(ctx.city || '')}`;
+        // altKey was precomputed in the group-hreflang loop above and cached
+        // on `altKeyByCtx` so we don't re-normalize ctx.keyword + ctx.city
+        // here. Falls back to fresh compute for safety on the (impossible
+        // in practice) ctx-not-in-map path.
+        const altKey = altKeyByCtx.get(ctx) ?? `${normalizeText(ctx.keyword)}|${normalizeText(ctx.city || '')}`;
         const altMap = byKeywordCity.get(altKey);
         const hreflang = altMap
           ? Array.from(altMap.entries()).map(([loc, otherCtx]) => ({
