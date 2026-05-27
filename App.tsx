@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, useMemo, useCallback, Suspense, useDeferredValue } from 'react';
+import React, { useState, useEffect, useLayoutEffect, useRef, useMemo, useCallback, Suspense, useDeferredValue } from 'react';
 import { createPortal } from 'react-dom';
 import { lazyRetry } from '@/services/lazyRetry';
 // Analytics proxy: lazy, fire-and-forget, deferred to user interaction (FRO-367)
@@ -194,7 +194,14 @@ const App: React.FC = () => {
  // static fallback so the hydrated SPA view is what the user sees, while crawlers (no JS)
  // continue to receive the original HTML. Restore on cleanup if the route flips back to
  // a staticOverlay variant during client-side navigation. See CLAUDE.md rule #14.
- useEffect(() => {
+ //
+ // Use useLayoutEffect (not useEffect) so the display toggle happens synchronously
+ // before the browser paints the first hydrated frame. Otherwise the static SEO body
+ // is briefly visible after hydration, then collapsed → a ~500px upward shift on
+ // every SPA-route page that has a static fallback. Measured CLS = 0.59 on
+ // /cerca-lavoro-ticino/ (2026-05-27 desktop). On the server pass useLayoutEffect
+ // falls back to a no-op, which is fine — the toggle is purely a client concern.
+ useLayoutEffect(() => {
    const staticMain = document.querySelector<HTMLElement>('main.seo-static-content');
    if (!staticMain) return;
    if (staticOverlay) {
@@ -214,7 +221,10 @@ const App: React.FC = () => {
  // direct child of `<body>` once React has mounted; the SPA's own copy lives
  // inside the App wrapper (deeper than body) and is untouched.
  // See CLAUDE.md rule #14.
- useEffect(() => {
+ // Use useLayoutEffect to remove the duplicate before paint — same reasoning
+ // as the staticOverlay toggle above: a post-paint removal causes the SPA
+ // sub-nav (and everything below it) to shift upward by the static nav's height.
+ useLayoutEffect(() => {
    const body = document.body;
    if (!body) return;
    for (const nav of Array.from(body.children)) {
