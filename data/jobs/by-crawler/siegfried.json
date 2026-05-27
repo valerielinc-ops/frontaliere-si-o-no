@@ -1,6 +1,6 @@
 {
   "crawlerKey": "siegfried",
-  "assembledAt": "2026-05-25T23:25:35.005Z",
+  "assembledAt": "2026-05-27T00:08:54.969Z",
   "jobs": [
     {
       "id": "siegfried-32003d941376",
@@ -33,7 +33,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Betriebselektriker-in_R25_632",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-25T23:25:32.418Z",
+      "crawledAt": "2026-05-27T00:08:52.732Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -94,6 +94,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:14:43.288Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -139,7 +140,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Oprateur-de-production-4-8_R26_173",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-25T23:25:31.685Z",
+      "crawledAt": "2026-05-27T00:08:52.094Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -214,7 +215,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Process-Safety-Engineer_R26_215",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-25T23:25:30.779Z",
+      "crawledAt": "2026-05-27T00:08:51.444Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -246,6 +247,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:14:40.286Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -291,7 +293,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Lab-Technician-AD_R26_315",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-25T23:25:29.996Z",
+      "crawledAt": "2026-05-27T00:08:50.755Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -347,6 +349,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:14:35.504Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -392,7 +395,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Teamleiter-Werkschutz_R26_305",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-25T23:25:29.270Z",
+      "crawledAt": "2026-05-27T00:08:50.112Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -443,6 +446,7 @@
         "teamleiter-werkschutz-siegfried-ch"
       ],
       "firstSeenAt": "2026-04-13T11:14:34.800Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -488,7 +492,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Analytical-Data-Reviewer_R26_289",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-25T23:25:28.565Z",
+      "crawledAt": "2026-05-27T00:08:49.462Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -514,6 +518,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:14:34.210Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -533,9 +538,9 @@
       "slug": "meccanico-m-f-d-siegfried-zofingen",
       "slugByLocale": {
         "it": "meccanico-m-f-d-siegfried-zofingen",
-        "en": "mechanic-m-f-d-siegfried-zofingen",
+        "en": "engineer-m-w-d-siegfried-zofingen",
         "de": "mechaniker-m-w-d-siegfried-zofingen",
-        "fr": "mecanicien-m-f-d-siegfried-zofingen"
+        "fr": "ingenieur-m-m-j-siegfried-zofingen"
       },
       "company": "Siegfried",
       "companyKey": "siegfried",
@@ -559,7 +564,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Mechaniker--m-w-d-_R26_349",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-25T23:25:27.798Z",
+      "crawledAt": "2026-05-27T00:08:48.667Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -586,20 +591,23 @@
         ],
         "en": [
           "mechaniker-m-w-d-siegfried-ch",
+          "mechanic-m-f-d-siegfried-zofingen",
           "engineer-m-w-d-siegfried-zofingen"
         ],
         "fr": [
           "mechaniker-m-w-d-siegfried-ch",
+          "mecanicien-m-f-d-siegfried-zofingen",
           "ingenieur-m-m-j-siegfried-zofingen"
         ]
       },
       "previousSlugs": [
         "mechaniker-m-w-d-siegfried-ch",
         "ingegnere-m-w-d-siegfried-zofingen",
-        "engineer-m-w-d-siegfried-zofingen",
-        "ingenieur-m-m-j-siegfried-zofingen"
+        "mechanic-m-f-d-siegfried-zofingen",
+        "mecanicien-m-f-d-siegfried-zofingen"
       ],
       "firstSeenAt": "2026-04-14T22:22:01.733Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -645,7 +653,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Kalibriertechniker--in_R26_347",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-25T23:25:26.856Z",
+      "crawledAt": "2026-05-27T00:08:48.023Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -663,25 +671,26 @@
       "jobReqId": "R26_347",
       "hiringOrganization": "Siegfried AG",
       "previousSlugsByLocale": {
-        "de": [
-          "kalibriertechniker-m-w-d-siegfried-ch"
-        ],
         "it": [
-          "kalibriertechniker-m-w-d-siegfried-ch",
-          "kalibriertechniker-m-w-d-siegfried-zofingen"
+          "kalibriertechniker-m-w-d-siegfried-zofingen",
+          "kalibriertechniker-m-w-d-siegfried-ch"
         ],
         "en": [
           "kalibriertechniker-m-w-d-siegfried-zofingen"
         ],
         "fr": [
           "kalibriertechniker-m-w-d-siegfried-zofingen"
+        ],
+        "de": [
+          "kalibriertechniker-m-w-d-siegfried-ch"
         ]
       },
       "previousSlugs": [
-        "kalibriertechniker-m-w-d-siegfried-ch",
-        "kalibriertechniker-m-w-d-siegfried-zofingen"
+        "kalibriertechniker-m-w-d-siegfried-zofingen",
+        "kalibriertechniker-m-w-d-siegfried-ch"
       ],
       "firstSeenAt": "2026-04-14T22:22:01.733Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -702,7 +711,7 @@
       "slugByLocale": {
         "it": "site-risorse-umane-head-siegfried-evionnaz",
         "en": "site-hr-head-siegfried-evionnaz",
-        "de": "standort-hr-head-siegfried-evionnaz",
+        "de": "site-personalwesen-head-siegfried-evionnaz",
         "fr": "site-ressources-humaines-head-siegfried-evionnaz"
       },
       "company": "Siegfried",
@@ -727,7 +736,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Site-HR-Head_R26_379",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-25T23:25:26.124Z",
+      "crawledAt": "2026-05-27T00:08:47.211Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -745,24 +754,26 @@
       "jobReqId": "R26_379",
       "hiringOrganization": "Siegfried Evionnaz SA",
       "previousSlugsByLocale": {
-        "en": [
+        "it": [
+          "sito-hr-head-siegfried-evionnaz",
           "site-hr-head-siegfried-ch"
         ],
-        "it": [
-          "site-hr-head-siegfried-ch",
-          "sito-hr-head-siegfried-evionnaz"
-        ],
         "de": [
+          "standort-hr-head-siegfried-evionnaz",
           "site-hr-head-siegfried-ch"
         ],
         "fr": [
-          "site-hr-head-siegfried-ch",
-          "site-hr-chef-siegfried-evionnaz"
+          "site-hr-chef-siegfried-evionnaz",
+          "site-hr-head-siegfried-ch"
+        ],
+        "en": [
+          "site-hr-head-siegfried-ch"
         ]
       },
       "previousSlugs": [
-        "site-hr-head-siegfried-ch",
         "sito-hr-head-siegfried-evionnaz",
+        "site-hr-head-siegfried-ch",
+        "standort-hr-head-siegfried-evionnaz",
         "site-hr-chef-siegfried-evionnaz"
       ],
       "firstSeenAt": "2026-04-30T11:26:45.280Z",
@@ -811,7 +822,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Administrative-Assistent-in-Analytik--60----m-w-d-_R26_406",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-25T23:25:25.339Z",
+      "crawledAt": "2026-05-27T00:08:46.517Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -829,6 +840,7 @@
       "jobReqId": "R26_406",
       "hiringOrganization": "Siegfried AG",
       "firstSeenAt": "2026-05-01T22:19:23.354Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -842,84 +854,6 @@
         }
       },
       "postalCode": "5000"
-    },
-    {
-      "id": "siegfried-89a17c5fbec6",
-      "slug": "specialista-di-supporto-operativo-siegfried-evionnaz",
-      "slugByLocale": {
-        "it": "specialista-di-supporto-operativo-siegfried-evionnaz",
-        "en": "operations-support-specialist-siegfried-ch",
-        "de": "spezialist-fur-die-operative-unterstutzung-siegfried-evionnaz",
-        "fr": "operations-support-specialist-siegfried-ch"
-      },
-      "company": "Siegfried",
-      "companyKey": "siegfried",
-      "companyDomain": "siegfried.ch",
-      "title": "Operations support specialist",
-      "titleByLocale": {
-        "it": "Specialista di supporto operativo",
-        "en": "Operations support specialist",
-        "de": "Spezialist für die operative Unterstützung",
-        "fr": "Operations support Spécialiste"
-      },
-      "description": "\"Expect to grow\", personnellement et professionnellement : Chez Siegfried, nous offrons des défis passionnants et de nombreuses opportunités de mettre en valeur vos talents. En tant que partenaire de confiance et respecté de l'industrie pharmaceutique, nous respectons les normes les plus élevées en matière de sécurité, de qualité et de durabilité, tout en cultivant une culture qui vous permet de vous épanouir. Rejoignez une entreprise mondiale en pleine expansion, où des perspectives et des expériences diverses se rassemblent dans un environnement collaboratif. Ici, vous trouverez un lieu de travail qui valorise autant le succès collectif que vos contributions individuelles—offrant des opportunités à long terme pour évoluer et avoir un impact.\n\nYour Role:\nVotre rôle :\nSupport aux processus & administration opérationnelle\n•\tEcrire ou modifier des recettes dans SAP, selon indications données par le chimiste en charge du procédé\n•\tParticiper à la validation des documents maitres de fabrication\n•\tGénérer les dossiers de fabrication\n•\tCréer et gérer les ordres de fabrication dans SAP selon indications données par le chimiste en charge du procédé\n•\tImprimer les documents de fabrication et les étiquettes produits en respectant la conformité documentaire selon les procédures internes (qualité, HSE, GMP)\n\nSupport aux projets transverses\n•\tParticiper activement à des projets internes en lien avec la Supply Chain, la qualité, l’IT ou l’organisation\n•\tContribuer à l’amélioration continue des processus administratifs\n Your Profile:\n Votre profil :\n Nous recherchons avant tout une personne expérimentée dans des fonctions administratives structurées, à l’aise dans des environnements exigeants et réglementés.\n\n• CFC d'employé de commerce ou titre jugé équivalent\n\n• Expérience confirmée dans un rôle administratif\n\n• Excellente maîtrise des outils informatiques (Office ; ERP un atout)\n\n• Très grand sens de la rigueur, de l’ordre et du détail\n\n• Capacité à travailler de manière autonome, méthodique et fiable\n\n• À l’aise dans la collaboration avec différents métiers\n\n• Esprit d’analyse, anticipation et sens des responsabilités\n\nYour Benefits:\n Your Benefits:\n\n• Horaires de travail flexibles permettant de concilier vie de famille, loisirs et profession\n\n• Parking gratuit\n\n• Assurances maladie : jusqu’à 10 % de rabais sur les assurances complémentaires auprès de nos partenaires\n\n• Plan d’achat d’actions généreux et personnalisable\n\n• Allocation pour enfants : Siegfried AG augmente l’allocation légale cantonale de 10 % et verse en plus CHF 100 par mois\n\n• Possibilités de formation continue individuelles\n\n• Chèques Reka : Siegfried AG accorde à ses collaborateurs un rabais de 20 %\n\n• Caisse de pension d’entreprise attrayante\n\n• Cours de sport sur site et nombreux événements d'entreprises\n\n• Accès à la plateforme d’avantages collaborateurs Swibeco\n\n• 5 semaines de vacances et possibilité de rachat allant jusqu'à 2 semaines\n\nFondée en 1873 à Zofingue, en Suisse, Siegfried est devenue un réseau mondial de 13 sites répartis sur trois continents. Avec une équipe de plus de 3 800 professionnels hautement qualifiés, nous portons les innovations de nos clients pharmaceutiques à l’échelle industrielle et fabriquons des médicaments sûrs pour les patients du monde entier. En tant que CDMO entièrement intégrée, Siegfried est l’une des rares organisations capables aujourd’hui d’assurer le développement et la production de principes actifs (APIs) et de formes galéniques finies sous un même toit. Cette combinaison unique de savoir-faire et d’expérience fait de nous le partenaire le plus fiable de l’industrie pharmaceutique.\n\nSiegfried is a leading CDMO (Contract Development & Manufacturing Organization) headquartered in Zofingen, Switzerland. The company operates manufacturing sites in Evionnaz (Valais), Zofingen (Aargau), and Schlieren (Zurich).",
-      "descriptionByLocale": {
-        "it": "Descrizione \"Aspettatevi di crescere\", personalmente e professionalmente: noi di Siegfried offriamo sfide entusiasmanti e molte opportunità per mostrare i vostri talenti. In qualità di partner fidato e rispettato dell'industria farmaceutica, sosteniamo i più elevati standard di sicurezza, qualità e sostenibilità, coltivando al tempo stesso una cultura che ti consente di prosperare. Unisciti a un'azienda globale in crescita, dove prospettive ed esperienze diverse si uniscono in un ambiente collaborativo. Qui troverai un ambiente di lavoro che valorizza il successo collettivo tanto quanto i tuoi contributi individuali, offrendo opportunità a lungo termine per crescere e avere un impatto. ## Il tuo ruolo Il tuo ruolo: Supporto al processo e amministrazione operativa - Scrivere o modificare ricette in SAP, secondo le indicazioni fornite dal chimico responsabile del processo - Partecipare alla validazione dei documenti principali di produzione - Generare file di produzione - Creare e gestire ordini di produzione in SAP secondo le indicazioni fornite dal chimico responsabile del processo - Stampare documenti di produzione ed etichette di prodotto rispettando la conformità documentale secondo le procedure interne (qualità, HSE, GMP) Supporto per progetti interfunzionali - Partecipare attivamente a progetti interni relativi alla fornitura Catena, qualità, IT o organizzazione - Contribuisci al miglioramento continuo dei processi amministrativi ## Il tuo profilo\n• Cerchiamo soprattutto una persona esperta in funzioni amministrative strutturate, a suo agio in ambienti esigenti e regolamentati. - Impiegato commerciale CFC o titolo equiparato - Esperienza confermata in un ruolo amministrativo - Ottima padronanza degli strumenti informatici (Office; ERP una risorsa) - Molto grande senso del rigore, dell'ordine e del dettaglio - Capacità di lavorare in modo indipendente, metodico e affidabile - A proprio agio nella collaborazione con diverse professioni - Spirito analitico, anticipazione e senso di responsabilità ## Cosa\n• Offriamo - Orari di lavoro flessibili che consentono di conciliare vita familiare, tempo libero e vita professionale - Parcheggio gratuito - Assicurazione sanitaria: sconto fino al 10% sulle assicurazioni complementari dei nostri partner - Piano di acquisto di azioni generoso e personalizzabile - Assegno per figli: Siegfried AG aumenta del 10% l'assegno legale cantonale e paga in più CHF 100 al mese - Opportunità di formazione continua individuale - Buoni Reka: Siegfried AG concede ai suoi dipendenti uno sconto del 20% - Interessante cassa pensioni aziendale - Lezioni sportive sul posto e numerosi eventi aziendali - Accesso alla piattaforma di previdenza Swibeco - 5 settimane di ferie e possibilità di riscatto fino a 2 settimane ## Contatto Fondata nel Fondata nel 1873 a Zofingen, in Svizzera, Siegfried è diventata una rete globale di 13 sedi sparse in tre continenti. Con un team di oltre 3.800 professionisti altamente qualificati, portiamo le innovazioni dei nostri clienti farmaceutici su scala industriale e produciamo farmaci sicuri per i pazienti di tutto il mondo. In quanto CDMO completamente integrato, Siegfried è oggi una delle poche organizzazioni in grado di garantire lo sviluppo e la produzione di principi attivi (API) e forme di dosaggio finite sotto lo stesso tetto. Questa combinazione unica di know-how ed esperienza ci rende il partner più affidabile nel settore farmaceutico. Siegfried è una delle principali CDMO (Contract Development & Manufacturing Organization) con sede a Zofingen, Svizzera. L'azienda gestisce siti di produzione a Evionnaz (Vallese), Zofingen (Argovia) e Schlieren (Zurigo).",
-        "en": "Descrizione \"Expect to grow\", personally and professionally: At Siegfried, we offer exciting challenges and many opportunities to showcase your talents. As a trusted and respected partner of the pharmaceutical industry, we meet the highest standards of safety, quality and sustainability, while cultivating a culture that allows you to flourish. Join a growing global company, where diverse perspectives and experiences come together in a collaborative environment. Here, you will find a workplace that values both collective success and your individual contributions—giving long-term opportunities to evolve and have an impact. ## Your Role Your role: Support for business processes and administration - Write or modify revenues in SAP, as specified by the process chemist - Participate in the validation of manufacturing documents - Generate manufacturing records - Create and manage manufacturing orders in SAP as specified by the process chemist - Print manufacturing documents and labels produced according to documentary compliance according to the procedures - Participate in the validation of manufacturing documents - Generate manufacturing records - Create and manage manufacturing orders in SAP according to instructions given by the process chemist - Write or modify receipts in SAP, as specified by the process chemist in charge of the process - Participate in the process of the process of the process of the process of the process of the process of the process of the process of the process of the process of the process of the process of the process of the process of the process of the process of the process of the process of the process of the process of the process of the process of the process of the process of the process of the process of the process of the process of the process of the process of the process of the process of the process of the process of the process of the process of the process of the process of the process of the process of the process of the process of the process of the process of the process of the process of the process of the process of the process of the process of the process of the process of the process of the process of the process of the process of the process of the process of the process of the process of the process of the process of the process of the process of the process of the process of the process of the process of the process of the process of the process of the process of the process of the process of the process of the process of the process of the process of the process of the process of the process of the process of the process of the process of the process of the process of the process of the process of the process of",
-        "de": "Beschreibung \"Expect to grow\", persönlich und professionell: Bei Siegfried bieten wir spannende Herausforderungen und viele Möglichkeiten, Ihre Talente zu präsentieren. Als vertrauenswürdiger und respektierter Partner in der pharmazeutischen Industrie erfüllen wir höchste Standards in Sicherheit, Qualität und Nachhaltigkeit, während wir eine Kultur kultivieren, die es Ihnen ermöglicht, zu blühen. Begleiten Sie ein wachsendes globales Unternehmen, in dem vielfältige Perspektiven und Erfahrungen in einem kollaborativen Umfeld zusammenkommen. Hier finden Sie einen Arbeitsplatz, der den kollektiven Erfolg so gut wie Ihre einzelnen Beiträge wertet – indem Sie langfristige Chancen haben, sich zu entwickeln und Auswirkungen zu haben. Ihre Rolle Ihre Rolle: Prozessunterstützung & Betriebswirtschaft - Schreiben oder Modifizieren von Rezepten in SAP, wie durch den Chemiker, der für den Prozess verantwortlich ist - Erwarten Sie die Validierung von Master-Herstellungsdokumenten - Erstellen Sie Fertigungsprotokolle - Erstellen und verwalten Sie Fertigungsaufträge in SAP nach Anweisungen des Chemikers, die für den Prozess verantwortlich sind - Drucken Sie die Fertigungsdokumente und -labels, die nach den dokumentarischen Konformitäts erstellt werden Wir suchen eine Person, die in strukturierten administrativen Funktionen erfahren wird, komfortabel in anspruchsvollen und geregelten Umgebungen. - Facharbeiter CFC oder gleichwertig - Erfahrung bestätigt in einer administrativen Rolle - Ausgezeichnete Beherrschung von Computer-Tools (Büro; ERP ein Vermögen) - Großes Gefühl von Robustheit, Ordnung und Detail - Fähigkeit, unabhängig, methodisch und zuverlässig zu arbeiten - Bequem in Zusammenarbeit mit drei Berufen - Geist der Analyse, Vorfreude und Sinn der Verantwortung Mit einem Team von mehr als 3.800 hochqualifizierten Fachleuten bringen wir die Innovationen unserer Pharmakunden in den industriellen Maßstab und produzieren sichere Medikamente für Patienten auf der ganzen Welt. Als voll integriertes CDMO ist Siegfried eine der wenigen Organisationen, die heute die Entwicklung und Produktion von Wirkstoffen (APIs) und fertigen galenischen Formen unter einem Dach sicherstellen können. Diese einzigartige Kombination aus Know-how und Erfahrung macht uns zum zuverlässigsten Partner in der Pharmaindustrie. Siegfried ist eine führende CDMO (Contract Development & Manufacturing Organization) mit Sitz in Zofingen, Schweiz. Die Betreiber produzieren Standorte in Evionnaz (Valais), Zofingen (Aargau) und Schlieren (Zurich).",
-        "fr": "\"Expect to grow\", personnellement et professionnellement : Chez Siegfried, nous offrons des défis passionnants et de nombreuses opportunités de mettre en valeur vos talents. En tant que partenaire de confiance et respecté de l'industrie pharmaceutique, nous respectons les normes les plus élevées en matière de sécurité, de qualité et de durabilité, tout en cultivant une culture qui vous permet de vous épanouir. Rejoignez une entreprise mondiale en pleine expansion, où des perspectives et des expériences diverses se rassemblent dans un environnement collaboratif. Ici, vous trouverez un lieu de travail qui valorise autant le succès collectif que vos contributions individuelles—offrant des opportunités à long terme pour évoluer et avoir un impact. Your Role: Votre rôle : Support aux processus & administration opérationnelle\n• Ecrire ou modifier des recettes dans SAP, selon indications données par le chimiste en charge du procédé\n• Participer à la validation des documents maitres de fabrication\n• Générer les dossiers de fabrication\n• Créer et gérer les ordres de fabrication dans SAP selon indications données par le chimiste en charge du procédé\n• Imprimer les documents de fabrication et les étiquettes produits en respectant la conformité documentaire selon les procédures internes (qualité, HSE, GMP) Support aux projets transverses\n• Participer activement à des projets internes en lien avec la Supply Chain, la qualité, l’IT ou l’organisation\n• Contribuer à l’amélioration continue des processus administratifs Your Profile: Votre profil : Nous recherchons avant tout une personne expérimentée dans des fonctions administratives structurées, à l’aise dans des environnements exigeants et réglementés.\n• CFC d'employé de commerce ou titre jugé équivalent\n• Expérience confirmée dans un rôle administratif\n• Excellente maîtrise des outils informatiques (Office ; ERP un atout)\n• Très grand sens de la rigueur, de l’ordre et du détail\n• Capacité à travailler de manière autonome, méthodique et fiable\n• À l’aise dans la collaboration avec différents métiers\n• Esprit d’analyse, anticipation et sens des responsabilités Your Benefits: Your Benefits:\n• Horaires de travail flexibles permettant de concilier vie de famille, loisirs et profession\n• Parking gratuit\n• Assurances maladie : jusqu’à 10 % de rabais sur les assurances complémentaires auprès de nos partenaires\n• Plan d’achat d’actions généreux et personnalisable\n• Allocation pour enfants : Siegfried AG augmente l’allocation légale cantonale de 10 % et verse en plus CHF 100 par mois\n• Possibilités de formation continue individuelles\n• Chèques Reka : Siegfried AG accorde à ses collaborateurs un rabais de 20 %\n• Caisse de pension d’entreprise attrayante\n• Cours de sport sur site et nombreux événements d'entreprises\n• Accès à la plateforme d’avantages collaborateurs Swibeco\n• 5 semaines de vacances et possibilité de rachat allant jusqu'à 2 semaines Fondée en 1873 à Zofingue, en Suisse, Siegfried est devenue un réseau mondial de 13 sites répartis sur trois continents. Avec une équipe de plus de 3 800 professionnels hautement qualifiés, nous portons les innovations de nos clients pharmaceutiques à l’échelle industrielle et fabriquons des médicaments sûrs pour les patients du monde entier. En tant que CDMO entièrement intégrée, Siegfried est l’une des rares organisations capables aujourd’hui d’assurer le développement et la production de principes actifs (APIs) et de formes galéniques finies sous un même toit. Cette combinaison unique de savoir-faire et d’expérience fait de nous le partenaire le plus fiable de l’industrie pharmaceutique. Siegfried is a leading CDMO (Contract Development & Manufacturing Organization) headquartered in Zofingen, Switzerland. The company operates manufacturing sites in Evionnaz (Valais), Zofingen (Aargau), and Schlieren (Zurich)."
-      },
-      "location": "Evionnaz",
-      "canton": "VS",
-      "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Operations-support-specialist_R26_313",
-      "source": "Siegfried Dedicated Parser (Workday)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-05-25T23:25:24.568Z",
-      "addressLocality": "Evionnaz",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Produzione",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Farmaceutica / Biotecnologia",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-01",
-      "applyUrl": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Operations-support-specialist_R26_313",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "jobReqId": "R26_313",
-      "hiringOrganization": "Siegfried Evionnaz SA",
-      "previousSlugs": [
-        "operations-support-specialist-siegfried-ch",
-        "specialiste-de-l-appui-aux-operations-siegfried-evionnaz",
-        "operations-support-specialista-siegfried-evionnaz",
-        "operations-support-specialiste-siegfried-evionnaz",
-        "operations-support-spezialist-siegfried-evionnaz"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "operations-support-specialist-siegfried-ch"
-        ],
-        "fr": [
-          "specialiste-de-l-appui-aux-operations-siegfried-evionnaz"
-        ]
-      },
-      "firstSeenAt": "2026-04-13T11:14:36.115Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "1950"
     },
     {
       "id": "siegfried-4b6c9cd7c2b2",
@@ -952,7 +886,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Global-Head-DP-Development---Technology_R26_123",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-25T23:25:23.805Z",
+      "crawledAt": "2026-05-27T00:08:45.867Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -1029,7 +963,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Emergency-and-Fire-Services-Coordinator_R26_416",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-25T23:25:23.065Z",
+      "crawledAt": "2026-05-27T00:08:45.194Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -1058,6 +992,7 @@
         ]
       },
       "firstSeenAt": "2026-05-06T22:37:48.270Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1103,7 +1038,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Betriebsingenieur-in_R26_362",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-25T23:25:22.255Z",
+      "crawledAt": "2026-05-27T00:08:44.520Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -1134,6 +1069,7 @@
         ]
       },
       "firstSeenAt": "2026-05-08T10:35:32.137Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1154,7 +1090,7 @@
       "slugByLocale": {
         "it": "ingegnere-di-software-senior-m-w-d-siegfried-zofingen",
         "en": "senior-lab-technician-metrologie-m-w-d-siegfried-ch",
-        "de": "spezialist-in-geratewartung-labor-m-w-d-siegfried-ch",
+        "de": "spezialist-in-geratewartung-labor-m-w-d-siegfried-zofingen",
         "fr": "senior-lab-technicien-metrologie-m-w-d-siegfried-zofingen"
       },
       "company": "Siegfried",
@@ -1179,7 +1115,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Senior-Lab-Technician-Metrologie_R26_401",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-25T23:25:21.461Z",
+      "crawledAt": "2026-05-27T00:08:43.872Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -1197,20 +1133,23 @@
       "jobReqId": "R26_401",
       "hiringOrganization": "Siegfried AG",
       "previousSlugs": [
-        "senior-lab-technician-metrologie-m-w-d-siegfried-ch"
+        "senior-lab-technician-metrologie-m-w-d-siegfried-ch",
+        "spezialist-in-geratewartung-labor-m-w-d-siegfried-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "senior-lab-technician-metrologie-m-w-d-siegfried-ch",
+          "spezialist-in-geratewartung-labor-m-w-d-siegfried-ch"
+        ],
+        "fr": [
           "senior-lab-technician-metrologie-m-w-d-siegfried-ch"
         ],
         "de": [
           "senior-lab-technician-metrologie-m-w-d-siegfried-ch"
-        ],
-        "fr": [
-          "senior-lab-technician-metrologie-m-w-d-siegfried-ch"
         ]
       },
       "firstSeenAt": "2026-05-01T22:19:22.405Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -1256,7 +1195,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Senior-Lab-Technician-R-D_R26_104",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-25T23:25:20.655Z",
+      "crawledAt": "2026-05-27T00:08:43.165Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -1285,6 +1224,7 @@
         ]
       },
       "firstSeenAt": "2026-05-11T12:28:48.174Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -1330,7 +1270,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Maintenance-Technician-III_R26_278",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-25T23:25:19.834Z",
+      "crawledAt": "2026-05-27T00:08:42.341Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -1381,6 +1321,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:14:38.458Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1426,7 +1367,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Logistic-Professionnal--temporary-_R26_434",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-25T23:25:19.133Z",
+      "crawledAt": "2026-05-27T00:08:41.693Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -1444,6 +1385,7 @@
       "jobReqId": "R26_434",
       "hiringOrganization": "Siegfried Evionnaz SA",
       "firstSeenAt": "2026-05-13T11:50:27.648Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1489,7 +1431,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Lab-Technician_R26_410",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-25T23:25:18.266Z",
+      "crawledAt": "2026-05-27T00:08:41.056Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -1568,7 +1510,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Lab-Technician-R-D_R26_438",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-25T23:25:17.538Z",
+      "crawledAt": "2026-05-27T00:08:40.327Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -1594,6 +1536,7 @@
         ]
       },
       "firstSeenAt": "2026-05-18T13:08:56.939Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1639,7 +1582,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Executive-Assistant_R26_413",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-25T23:25:16.734Z",
+      "crawledAt": "2026-05-27T00:08:39.706Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -1665,6 +1608,7 @@
         ]
       },
       "firstSeenAt": "2026-05-12T11:59:11.839Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
