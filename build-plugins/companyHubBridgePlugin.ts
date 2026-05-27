@@ -55,6 +55,17 @@ const COMP_PREFIX: Record<Locale, string> = {
 const LOCALE_PREFIX: Record<Locale, string> = { it: '', en: '/en', de: '/de', fr: '/fr' };
 const OG_LOCALE: Record<Locale, string> = { it: 'it_IT', en: 'en_US', de: 'de_DE', fr: 'fr_FR' };
 
+// Switzerland-wide aggregator hub used as canonical target for unmatched
+// (`Azienda non più attiva`) bridges. The aggregator covers every canton,
+// not just TI, so it is the safe consolidation target for cross-canton
+// company URLs (e.g. `azienda-grace-la-margna-st-moritz` → GR canton).
+const AGGREGATOR_SLUG: Record<Locale, string> = {
+  it: 'cerca-lavoro-svizzera',
+  en: 'find-jobs-switzerland',
+  de: 'jobs-in-schweiz',
+  fr: 'trouver-emploi-suisse',
+};
+
 interface HubEntry {
   readonly locale: Locale;
   readonly companySlug: string;
@@ -139,6 +150,181 @@ function buildSectionCanonical(locale: Locale): string {
   return `${BASE_URL}${LOCALE_PREFIX[locale]}/${SECTION_SLUG[locale]}/`.replace(/(?<!:)\/+/g, '/');
 }
 
+function buildAggregatorCanonical(locale: Locale): string {
+  return `${BASE_URL}${LOCALE_PREFIX[locale]}/${AGGREGATOR_SLUG[locale]}/`.replace(/(?<!:)\/+/g, '/');
+}
+
+const SECTION_TO_LOCALE: ReadonlyArray<readonly [string, Locale]> = [
+  ['cerca-lavoro-ticino', 'it'],
+  ['find-jobs-ticino', 'en'],
+  ['jobs-im-tessin', 'de'],
+  ['trouver-emploi-tessin', 'fr'],
+];
+
+const COMP_PREFIX_TO_LOCALE: Record<string, Locale> = {
+  azienda: 'it',
+  company: 'en',
+  unternehmen: 'de',
+  entreprise: 'fr',
+};
+
+/**
+ * Slug-segment normalizer mirroring runtime `slugifyCompany` in
+ * components/community/JobBoard.tsx so auto-discovered bridge URLs match
+ * the slugs that `buildCompanySearchSlug` produces from job-detail pages.
+ */
+function slugifyCompanyName(value: string): string {
+  return String(value || '')
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[̀-ͯ]/g, '')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '')
+    .trim();
+}
+
+/**
+ * Title-case helper for derived display names when the crawler dataset
+ * does not provide a real `job.company` string (orphan-only entries).
+ */
+function humanizeSlug(slug: string): string {
+  return slug
+    .split('-')
+    .filter(Boolean)
+    .map((p) => (p.length <= 2 ? p.toUpperCase() : p.charAt(0).toUpperCase() + p.slice(1)))
+    .join(' ');
+}
+
+interface ParsedCompanyHubUrl {
+  readonly locale: Locale;
+  readonly companySlug: string;
+}
+
+/**
+ * Parse `/[locale-prefix]/{section}/{compPrefix}-{slug}/` URLs (absolute or
+ * path-only). Returns null when the URL does not match a company-hub shape.
+ */
+function parseCompanyHubUrl(rawUrl: string): ParsedCompanyHubUrl | null {
+  if (!rawUrl) return null;
+  let pathname: string;
+  try {
+    pathname = rawUrl.startsWith('http')
+      ? new URL(rawUrl).pathname
+      : (rawUrl.startsWith('/') ? rawUrl : `/${rawUrl}`);
+  } catch { return null; }
+  const segments = pathname.split('/').filter(Boolean);
+  if (segments.length < 2) return null;
+  let cursor = 0;
+  if (['en', 'de', 'fr'].includes(segments[0])) cursor = 1;
+  const sectionSeg = segments[cursor];
+  const companySeg = segments[cursor + 1];
+  if (!sectionSeg || !companySeg) return null;
+  const sectionMatch = SECTION_TO_LOCALE.find(([s]) => s === sectionSeg);
+  if (!sectionMatch) return null;
+  const sectionLocale = sectionMatch[1];
+  const dashIdx = companySeg.indexOf('-');
+  if (dashIdx <= 0) return null;
+  const prefix = companySeg.slice(0, dashIdx);
+  const slug = companySeg.slice(dashIdx + 1);
+  const prefixLocale = COMP_PREFIX_TO_LOCALE[prefix];
+  if (!prefixLocale || prefixLocale !== sectionLocale) return null;
+  if (!slug) return null;
+  return { locale: sectionLocale, companySlug: slug };
+}
+
+/**
+ * Auto-discover company-hub orphan URLs from the broadest available data
+ * sources, so the bridge plugin covers every `azienda-*` (or locale
+ * equivalent) URL that Google has indexed OR that the crawler has ever
+ * generated, even when the company is no longer in `data/jobs.json`.
+ *
+ * Sources (union):
+ *  1. `data/gsc-job-urls.json`             — GSC-confirmed indexed URLs.
+ *  2. `data/orphan-pages-audit.json`       — sitemap-derived orphan examples.
+ *  3. `data/orphan-indexed-job-slugs.json` — indexed slugs whose company segment we approximate.
+ *  4. `data/jobs/by-crawler/<key>.json`    — forward coverage for every crawler-known company.
+ *
+ * Entries are always emitted as `kind: 'unmatched'` because the canonical
+ * company landing for in-dataset companies is already emitted by
+ * `jobsSeoPagesPlugin`; the bridge's existing `fs.existsSync` guard skips
+ * any auto-discovered slug whose canonical HTML was already written.
+ */
+function autoDiscoverCompanyHubs(rootDir: string): HubEntry[] {
+  const seen = new Map<string, HubEntry>(); // key = `${locale}::${companySlug}`
+  const displayNameByItSlug = new Map<string, string>();
+
+  // (4) Crawler universe — also seeds display names for matching IT slugs.
+  const crawlerDir = path.join(rootDir, 'data', 'jobs', 'by-crawler');
+  if (fs.existsSync(crawlerDir)) {
+    for (const file of fs.readdirSync(crawlerDir)) {
+      if (!file.endsWith('.json')) continue;
+      try {
+        const raw = JSON.parse(fs.readFileSync(path.join(crawlerDir, file), 'utf-8'));
+        const jobs: Array<{ company?: string }> = Array.isArray(raw?.jobs) ? raw.jobs : [];
+        const sample = jobs.find((j) => j?.company);
+        if (!sample?.company) continue;
+        const slug = slugifyCompanyName(sample.company);
+        if (!slug) continue;
+        displayNameByItSlug.set(slug, sample.company);
+        const key = `it::${slug}`;
+        if (!seen.has(key)) {
+          seen.set(key, {
+            locale: 'it',
+            companySlug: slug,
+            url: `${BASE_URL}/cerca-lavoro-ticino/azienda-${slug}/`,
+            kind: 'unmatched',
+            displayName: sample.company,
+            jobCount: 0,
+          });
+        }
+      } catch { /* skip malformed crawler file */ }
+    }
+  }
+
+  const ingestUrl = (rawUrl: string): void => {
+    const parsed = parseCompanyHubUrl(rawUrl);
+    if (!parsed) return;
+    const key = `${parsed.locale}::${parsed.companySlug}`;
+    if (seen.has(key)) return;
+    const display =
+      displayNameByItSlug.get(parsed.companySlug) ?? humanizeSlug(parsed.companySlug);
+    seen.set(key, {
+      locale: parsed.locale,
+      companySlug: parsed.companySlug,
+      url: `${BASE_URL}${buildHubPath(parsed.locale, parsed.companySlug)}`,
+      kind: 'unmatched',
+      displayName: display,
+      jobCount: 0,
+    });
+  };
+
+  // (1) GSC indexed URLs.
+  const gscUrlsPath = path.join(rootDir, 'data', 'gsc-job-urls.json');
+  if (fs.existsSync(gscUrlsPath)) {
+    try {
+      const arr = JSON.parse(fs.readFileSync(gscUrlsPath, 'utf-8'));
+      if (Array.isArray(arr)) for (const u of arr) ingestUrl(String(u));
+    } catch { /* skip */ }
+  }
+
+  // (2) sitemap-derived orphan examples.
+  const orphanAuditPath = path.join(rootDir, 'data', 'orphan-pages-audit.json');
+  if (fs.existsSync(orphanAuditPath)) {
+    try {
+      const audit = JSON.parse(fs.readFileSync(orphanAuditPath, 'utf-8'));
+      const perSitemap = audit?.perSitemap;
+      if (perSitemap && typeof perSitemap === 'object') {
+        for (const entry of Object.values<any>(perSitemap)) {
+          const examples = Array.isArray(entry?.examples) ? entry.examples : [];
+          for (const u of examples) ingestUrl(String(u));
+        }
+      }
+    } catch { /* skip */ }
+  }
+
+  return [...seen.values()];
+}
+
 function renderMatchedPage(entry: HubEntry, distDir: string): string {
   const locale = entry.locale;
   const copy = COPY[locale];
@@ -193,9 +379,11 @@ function renderMatchedPage(entry: HubEntry, distDir: string): string {
 function renderUnmatchedPage(entry: HubEntry, distDir: string): string {
   const locale = entry.locale;
   const copy = COPY[locale];
-  // Canonical points to the section landing for unmatched entries; the
+  // Canonical points to the Switzerland-wide aggregator so cross-canton
+  // company URLs (e.g. /azienda-grace-la-margna-st-moritz/ → GR) consolidate
+  // onto the Swiss-wide hub instead of the TI section landing. The
   // BreadcrumbList still describes the bridge URL the visitor landed on.
-  const canonicalUrl = buildSectionCanonical(locale);
+  const canonicalUrl = buildAggregatorCanonical(locale);
   const sectionPath = buildSectionCanonical(locale);
   const hubAbsoluteUrl = `${BASE_URL}${buildHubPath(locale, entry.companySlug)}`;
   // ── audit:text-html-ratio gate ────────────────────────────────────
@@ -245,24 +433,39 @@ export function companyHubBridgePlugin(rootDir: string): Plugin {
     apply: 'build',
     enforce: 'post',
     async closeBundle() {
-      const dataPath = path.join(rootDir, 'data', 'gsc-company-hubs.json');
-      if (!fs.existsSync(dataPath)) {
-        console.warn('\x1b[33m[company-hub-bridge]\x1b[0m data/gsc-company-hubs.json missing — skipping');
-        return;
-      }
       const distDir = path.join(rootDir, 'dist');
       if (!fs.existsSync(distDir)) return;
 
-      let file: HubsFile;
-      try { file = JSON.parse(fs.readFileSync(dataPath, 'utf-8')); }
-      catch (err) { console.warn('\x1b[33m[company-hub-bridge]\x1b[0m parse failed:', err); return; }
-      if (!Array.isArray(file.hubs) || file.hubs.length === 0) return;
+      // Curated cohort 4 hubs (15 manually-classified URLs). May be absent
+      // on greenfield checkouts — auto-discovery still runs.
+      const curatedPath = path.join(rootDir, 'data', 'gsc-company-hubs.json');
+      const curatedHubs: HubEntry[] = (() => {
+        if (!fs.existsSync(curatedPath)) return [];
+        try {
+          const parsed = JSON.parse(fs.readFileSync(curatedPath, 'utf-8')) as HubsFile;
+          return Array.isArray(parsed?.hubs) ? parsed.hubs : [];
+        } catch (err) {
+          console.warn('\x1b[33m[company-hub-bridge]\x1b[0m parse of gsc-company-hubs.json failed:', err);
+          return [];
+        }
+      })();
+
+      // Auto-discovered hubs from GSC URLs, orphan-pages-audit, and the
+      // crawler universe. Curated entries always win on conflict so
+      // hand-classified matched/unmatched data stays authoritative.
+      const discovered = autoDiscoverCompanyHubs(rootDir);
+      const curatedKeys = new Set(curatedHubs.map((h) => `${h.locale}::${h.companySlug}`));
+      const merged: HubEntry[] = [
+        ...curatedHubs,
+        ...discovered.filter((h) => !curatedKeys.has(`${h.locale}::${h.companySlug}`)),
+      ];
+      if (merged.length === 0) return;
 
       let emitted = 0;
       let skipped = 0;
       const start = Date.now();
 
-      for (const entry of file.hubs) {
+      for (const entry of merged) {
         const hubPath = buildHubPath(entry.locale, entry.companySlug);
         const indexTarget = path.join(distDir, hubPath, 'index.html');
         const flatTarget = path.join(distDir, hubPath.replace(/\/+$/, '') + '.html');
@@ -284,7 +487,7 @@ export function companyHubBridgePlugin(rootDir: string): Plugin {
 
       const dur = ((Date.now() - start) / 1000).toFixed(1);
       console.log(
-        `\x1b[36m[company-hub-bridge]\x1b[0m emitted ${emitted} bridge files (${file.hubs.length - skipped} pages, ${skipped} skipped) in ${dur}s`,
+        `\x1b[36m[company-hub-bridge]\x1b[0m emitted ${emitted} bridge files (${merged.length - skipped} pages from ${curatedHubs.length} curated + ${discovered.length} auto-discovered, ${skipped} skipped) in ${dur}s`,
       );
     },
   };
