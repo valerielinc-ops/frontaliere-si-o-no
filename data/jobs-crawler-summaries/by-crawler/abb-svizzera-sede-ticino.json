@@ -1,21 +1,22 @@
 {
   "key": "abb-svizzera-sede-ticino",
   "label": "ABB",
-  "generatedAt": "2026-05-26T21:52:21.005Z",
+  "generatedAt": "2026-05-27T11:28:53.839Z",
   "total": 14,
-  "newCount": 1,
-  "updatedCount": 12,
+  "newCount": 0,
+  "updatedCount": 13,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 38846,
-  "avgDurationMs": 38846,
+  "durationMs": 44722,
+  "avgDurationMs": 44722,
   "durationHistory": [
-    38846
+    44722
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "company-l4n7mk",
-      "slug": "position-76059728-production-engineering-technician-abb-svizzera-sede-ticino-quartino-ticino",
+      "slug": "position-76059728-production-engineering-technician-abb-svizzera-sede-ticino-quartino-ticino-l4n7mk",
       "company": "ABB Svizzera (sede Ticino)",
       "title": "Position 76059728 Production Engineering Technician",
       "location": "Quartino, Ticino",
@@ -39,16 +40,22 @@
       "needsRetranslation": true,
       "country": "CH",
       "sourceLang": "en",
-      "_qualityScore": 64,
+      "salaryMin": 85500,
+      "salaryMax": 150000,
+      "streetAddress": "Via Luserte Sud 9",
+      "postalCode": "6572",
+      "addressLocality": "Quartino, Ticino",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "_qualityScore": 75,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 20,
         "translation": 13,
-        "completeness": 14
+        "completeness": 25
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "company-ujl61l",
       "slug": "customer-quality-specialista-abb-svizzera-sede-ticino-quartino-ticino-ujl61l",
