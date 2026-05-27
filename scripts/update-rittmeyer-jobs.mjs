@@ -76,21 +76,45 @@ function normalizeKey(value = '') {
 }
 
 async function fetchText(url, timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000) {
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), timeoutMs);
-  try {
-    const res = await fetch(url, {
-      signal: controller.signal,
-      headers: {
-        Accept: 'text/html,application/xhtml+xml',
-        'User-Agent': 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)',
-      },
-    });
-    if (!res.ok) throw new Error(`HTTP ${res.status}`);
-    return await res.text();
-  } finally {
-    clearTimeout(timer);
+  const maxAttempts = Math.max(1, Number(process.env.JOBS_CRAWLER_FETCH_ATTEMPTS) || 3);
+  let lastErr;
+  for (let attempt = 1; attempt <= maxAttempts; attempt += 1) {
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), timeoutMs);
+    try {
+      const res = await fetch(url, {
+        signal: controller.signal,
+        headers: {
+          Accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+          'Accept-Language': 'de-CH,de;q=0.9,it;q=0.8,en;q=0.7',
+          'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36',
+        },
+      });
+      clearTimeout(timer);
+      if (!res.ok) {
+        const retriable = res.status === 408 || res.status === 429 || res.status >= 500;
+        const err = new Error(`HTTP ${res.status} from ${url}`);
+        if (retriable && attempt < maxAttempts) {
+          lastErr = err;
+          await new Promise((r) => setTimeout(r, 500 * attempt));
+          continue;
+        }
+        throw err;
+      }
+      return await res.text();
+    } catch (err) {
+      clearTimeout(timer);
+      const isNetwork = err?.name === 'AbortError'
+        || /fetch failed|ECONN|ENOTFOUND|ETIMEDOUT|EAI_AGAIN/i.test(err?.message || '');
+      if (isNetwork && attempt < maxAttempts) {
+        lastErr = err;
+        await new Promise((r) => setTimeout(r, 500 * attempt));
+        continue;
+      }
+      throw err;
+    }
   }
+  throw lastErr || new Error(`fetchText exhausted retries for ${url}`);
 }
 
 function absoluteUrl(raw = '') {
