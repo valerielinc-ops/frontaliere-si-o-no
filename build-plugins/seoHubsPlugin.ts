@@ -1172,6 +1172,7 @@ function buildHtml(args: BuildHtmlArgs): string {
 ${hreflangs}${xDefault}${prevLink}${nextLink}
     <script type="application/ld+json">${breadcrumbLd}</script>
     <script type="application/ld+json">${collectionLd}</script>${hasSpaBundle ? `\n    <link rel="stylesheet" href="/assets/${entryCss}" crossorigin media="all">` : ''}
+    ${SEO_STATIC_CSS_LINK}
     ${ADSENSE_SNIPPET}
   </head>
   <body class="bg-surface-alt text-heading overflow-x-hidden">
