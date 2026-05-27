@@ -155,7 +155,7 @@ import {
 import SkeletonFallback, { SkeletonPageShell, SkeletonComparator, SkeletonGuide, SkeletonDashboard, SkeletonFisco, SkeletonStats, SkeletonBlog, SkeletonVita, SkeletonNewsTicker, SkeletonWeeklyFact, SkeletonInputCard, SkeletonFooterSlot } from '@/components/shared/Skeletons';
 
 const LazyFallback = () => <SkeletonFallback />;
-const ADMIN_EMAIL_WHITELIST = ['valerielinc@gmail.com', 'valerielinc@gmail.com'];
+const ADMIN_EMAIL_WHITELIST = ['valerielinc@gmail.com'];
 
 const App: React.FC = () => {
  const { t, locale } = useTranslation();

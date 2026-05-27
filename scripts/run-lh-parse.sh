@@ -1,5 +1,5 @@
 #!/bin/bash
-cd ~/Projects/frontaliere-si-o-no
+cd "$(git rev-parse --show-toplevel)"
 rm -f lighthouse-fresh.json
 npx lighthouse http://localhost:4173 --output json --output-path lighthouse-fresh.json --chrome-flags='--headless=new --no-sandbox' --preset=perf --only-categories=performance,accessibility,best-practices,seo 2>/dev/null
 echo "DONE:$?"

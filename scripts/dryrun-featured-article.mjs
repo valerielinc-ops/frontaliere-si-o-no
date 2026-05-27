@@ -16,8 +16,11 @@ import { selectFeaturedArticleId } from '../services/newsletter-article-rotation
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
 
-const SA_PATH = process.env.GOOGLE_APPLICATION_CREDENTIALS
-  || '~/Downloads/Lavoro/Sviluppo-IT/frontaliere-ticino-firebase-adminsdk-fbsvc-a0c02a5654.json';
+const SA_PATH = process.env.GOOGLE_APPLICATION_CREDENTIALS;
+if (!SA_PATH) {
+  console.error('Set GOOGLE_APPLICATION_CREDENTIALS to the Firebase admin SA JSON path.');
+  process.exit(1);
+}
 
 const sa = JSON.parse(readFileSync(SA_PATH, 'utf8'));
 admin.initializeApp({ credential: admin.credential.cert(sa) });

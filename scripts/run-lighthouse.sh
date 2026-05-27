@@ -1,5 +1,5 @@
 #!/bin/bash
-cd ~/Projects/frontaliere-si-o-no
+cd "$(git rev-parse --show-toplevel)"
 npx lighthouse http://localhost:4173 \
   --output json \
   --output-path lighthouse-fresh.json \

@@ -2,7 +2,9 @@
 """Analyze 'Crawled - currently not indexed' URLs from Google Search Console."""
 import csv, os, sys
 
-csv_path = '~/Downloads/frontaliereticino.ch-Coverage-Drilldown-2026-03-06 (5)/Tabella.csv'
+csv_path = os.environ.get('GSC_CSV_PATH') or (sys.argv[1] if len(sys.argv) > 1 else None)
+if not csv_path:
+    sys.exit('Usage: GSC_CSV_PATH=/path/to/Tabella.csv analyze-not-indexed.py  (or pass as argv[1])')
 urls = []
 with open(csv_path, 'r') as f:
     reader = csv.DictReader(f)

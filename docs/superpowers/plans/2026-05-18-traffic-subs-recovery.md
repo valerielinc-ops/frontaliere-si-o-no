@@ -1292,7 +1292,7 @@ If ≥1 metric fails, open a follow-up issue with the specific gap (don't widen 
 
 ```bash
 # Use the auto-memory system: write a project memory at
-# ~/.claude/projects/-Users-valerielinc-Projects-frontaliere-si-o-no/memory/
+# ~/.claude/projects/-Users-USER-Projects-frontaliere-si-o-no/memory/
 # project_recovery_may18_outcome.md
 # with description summarizing what worked / what didn't.
 ```

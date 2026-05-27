@@ -17,7 +17,7 @@ import type { UserProfileData } from '@/components/pages/UserProfile';
 import type { ContactPrefill } from '@/components/pages/ContactPage';
 import type { SimulationInputs } from '@/types';
 
-const ADMIN_EMAIL_WHITELIST = ['valerielinc@gmail.com', 'valerielinc@gmail.com'];
+const ADMIN_EMAIL_WHITELIST = ['valerielinc@gmail.com'];
 
 import { Analytics, unlockAchievement } from '@/services/analyticsProxy';
 
