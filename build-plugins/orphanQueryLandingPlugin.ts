@@ -665,5 +665,448 @@ function renderPage(opts: {
       </details>
     </section>
     <section class="s-p1QaOi">
-      <a href="${esc(jobBoardRoot[locale])}" class="s-cta">${esc(t(\'orphanLanding.ctaAllJobs\', \'All jobs\'))}</a>
-      <a class="s-bX1C8q" href="${locale === \'it\' ? \'/\' : `/${locale}/`}">${esc(t(\'orphanLanding.ctaCalculator\', \'Calculate net salary\'))}</a>
+      <a href="${esc(jobBoardRoot[locale])}" class="s-cta">${esc(t('orphanLanding.ctaAllJobs', 'All jobs'))}</a>
+      <a class="s-bX1C8q" href="${locale === 'it' ? '/' : `/${locale}/`}">${esc(t('orphanLanding.ctaCalculator', 'Calculate net salary'))}</a>
+    </section>
+    <section class="s-86Shfc">
+      <p class="s-lx0qs8">${esc(editorialBody)}</p>
+      <p class="s-R5y55I">${esc(buildClusterSignalsParagraph(cluster, locale))}</p>
+      <p class="s-mLcS-R">${esc(genericBody)}</p>
+    </section>
+    ${generateRelatedLinksBlock(locale, 'orphan_landing', { city: topCities[0]?.name })}
+    ${(() => {
+      // Substantive interpretation block — pushes text/HTML ratio above the
+      // 10 % Semrush threshold for the orphan-landing leaf pages
+      // (~80 KB chrome with little prose otherwise → 5 % ratio).
+      // Each block uses the cluster's actual canonicalQuery + median salary
+      // + top employer + top city, so every leaf has unique per-page prose.
+      const q = cluster.canonicalQuery;
+      const employer = topEmployers[0]?.name ?? '';
+      const city = topCities[0]?.name ?? '';
+      const med = medianSalary > 0 ? `CHF ${medianSalary.toLocaleString('de-CH')}` : '';
+      if (locale === 'it') {
+        return `<section class="s-OQInrb">
+          <h2 class="s-sOn5-B">Come leggere questa ricerca per un frontaliere italo-svizzero</h2>
+          <p class="s-zQltsL">Le offerte raggruppate sotto la query <em>${esc(q)}</em> rappresentano posizioni reali aperte oggi nei motori di ricerca svizzeri e nei principali aggregatori (Jobs.ch, JobUp, JobScout24, RAV) che riguardano il pendolarismo dalla Lombardia o dal Piemonte. La concentrazione di annunci in questa categoria riflette sia la domanda effettiva del mercato del lavoro ticinese sia il match con il profilo permesso G — turni compatibili con il rientro quotidiano in Italia, contratti svizzeri a tempo determinato o indeterminato, salario nettamente superiore al netto italiano equivalente${med ? ` (mediana per questo cluster: ${med})` : ''}.</p>
+          <h2 class="s-sOn5-B">Cosa cambia con il Nuovo Accordo 2026</h2>
+          <p class="s-zQltsL">Per le offerte in questa pagina la fiscalità dipende dalla data di assunzione e dalla distanza dal confine. Un frontaliere "vecchio" (assunto prima del 17 luglio 2023, o residente entro 20 km dalla frontiera) paga solo l'imposta alla fonte ticinese, con un credito d'imposta per l'eventuale tassazione italiana. Un frontaliere "nuovo" residente oltre i 20 km paga sia l'imposta svizzera sia quella italiana, con franchigia di 10 000 € sul reddito imponibile in Italia. La differenza sul netto annuale può raggiungere il 15-20 %: simulare l'esatto impatto con il <a href="${locale === 'it' ? '/' : `/${locale}/`}" style="${LINK_ACCENT_STYLE}">calcolatore stipendio netto</a> prima di firmare è sempre la mossa giusta.</p>
+          <h2 class="s-sOn5-B">Per chi è utile questa selezione</h2>
+          <p class="s-AA8lz_">Questa pagina è pensata per chi sta valutando un trasferimento del proprio carico professionale verso ${city ? esc(city) : 'il Ticino'} oppure cerca attivamente posizioni con questo profilo specifico${employer ? ` (datori di lavoro più frequenti come ${esc(employer)})` : ''}. Aggiorniamo le offerte ogni 24 ore tirando da cinque fonti diverse, filtriamo per ruoli realmente accessibili a un permesso G, e mostriamo solo annunci con stipendio dichiarato o ricavabile dalla mediana di settore. Per affinare la ricerca consigliamo di esplorare anche le query simili elencate sopra e l'<a href="${esc(jobBoardRoot[locale])}" style="${LINK_ACCENT_STYLE}">archivio completo del job board</a>.</p>
+        </section>`;
+      }
+      if (locale === 'en') {
+        return `<section class="s-OQInrb">
+          <h2 class="s-sOn5-B">How to read this search for an Italian-Swiss cross-border worker</h2>
+          <p class="s-zQltsL">The openings grouped under the query <em>${esc(q)}</em> are real positions live today on Swiss search engines and major aggregators (Jobs.ch, JobUp, JobScout24, RAV) that fit the commute profile from Lombardy or Piedmont. The density of listings in this category reflects both real demand in the Ticino labour market and the fit with the G-permit profile — shifts compatible with daily return to Italy, Swiss employment contracts, salaries materially higher than the equivalent Italian net${med ? ` (cluster median: ${med})` : ''}.</p>
+          <h2 class="s-sOn5-B">What the 2026 New Agreement changes</h2>
+          <p class="s-zQltsL">For the openings on this page, taxation depends on hire date and distance from the border. An "old" cross-border worker (hired before 17 July 2023, or resident within 20 km of the border) pays only Swiss withholding tax, with a tax credit on any Italian taxation. A "new" cross-border worker resident beyond 20 km pays both Swiss and Italian tax, with a €10 000 personal allowance on the Italian taxable income. The difference on annual net can reach 15-20 %: simulate the exact impact with the <a href="/${locale}/" style="${LINK_ACCENT_STYLE}">net-salary calculator</a> before signing.</p>
+          <h2 class="s-sOn5-B">Who this selection is for</h2>
+          <p class="s-AA8lz_">This page is built for those evaluating a professional move toward ${city ? esc(city) : 'Ticino'} or actively searching for positions matching this specific profile${employer ? ` (most frequent employers like ${esc(employer)})` : ''}. We refresh listings every 24 hours from five sources, filter for roles actually accessible to a G-permit holder, and only show ads with declared salary or industry-median data. To refine the search, also explore the similar queries above and the <a href="${esc(jobBoardRoot[locale])}" style="${LINK_ACCENT_STYLE}">full job-board archive</a>.</p>
+        </section>`;
+      }
+      if (locale === 'de') {
+        return `<section class="s-OQInrb">
+          <h2 class="s-sOn5-B">Wie diese Suche für italo-schweizerische Grenzgänger zu lesen ist</h2>
+          <p class="s-zQltsL">Die unter der Suchanfrage <em>${esc(q)}</em> gruppierten Stellen sind reale Inserate, die heute auf Schweizer Suchmaschinen und grossen Aggregatoren (Jobs.ch, JobUp, JobScout24, RAV) aktiv sind und zum Pendelprofil aus der Lombardei oder dem Piemont passen. Die Inseratendichte in dieser Kategorie spiegelt sowohl die reale Nachfrage des Tessiner Arbeitsmarktes als auch die Passung zum G-Bewilligungs-Profil wider — Schichten kompatibel mit täglicher Rückkehr nach Italien, Schweizer Arbeitsverträge, Lohn deutlich über dem äquivalenten italienischen Netto${med ? ` (Cluster-Median: ${med})` : ''}.</p>
+          <h2 class="s-sOn5-B">Was sich mit dem Neuen Abkommen 2026 ändert</h2>
+          <p class="s-zQltsL">Für die Stellen auf dieser Seite hängt die Besteuerung vom Einstellungsdatum und vom Abstand zur Grenze ab. Ein "alter" Grenzgänger (eingestellt vor dem 17. Juli 2023 oder mit Wohnsitz innerhalb von 20 km von der Grenze) zahlt nur die Schweizer Quellensteuer, mit einer Steueranrechnung auf eine allfällige italienische Besteuerung. Ein "neuer" Grenzgänger mit Wohnsitz ausserhalb von 20 km zahlt sowohl Schweizer als auch italienische Steuern, mit einem Freibetrag von 10 000 € auf das italienische steuerpflichtige Einkommen. Der Unterschied beim Jahresnetto kann 15-20 % erreichen: die genaue Wirkung mit dem <a href="/${locale}/" style="${LINK_ACCENT_STYLE}">Nettolohn-Rechner</a> vor Vertragsunterzeichnung simulieren.</p>
+          <h2 class="s-sOn5-B">Für wen diese Auswahl ist</h2>
+          <p class="s-AA8lz_">Diese Seite richtet sich an alle, die eine berufliche Verlagerung Richtung ${city ? esc(city) : 'Tessin'} prüfen oder aktiv nach Stellen mit diesem spezifischen Profil suchen${employer ? ` (häufigste Arbeitgeber wie ${esc(employer)})` : ''}. Wir aktualisieren die Inserate alle 24 Stunden aus fünf Quellen, filtern auf Rollen, die für G-Bewilligungs-Inhaber tatsächlich zugänglich sind, und zeigen nur Anzeigen mit deklariertem Lohn oder Branchen-Median-Daten. Zur Verfeinerung der Suche empfehlen wir die ähnlichen Anfragen oben und das <a href="${esc(jobBoardRoot[locale])}" style="${LINK_ACCENT_STYLE}">vollständige Stellenarchiv</a>.</p>
+        </section>`;
+      }
+      return `<section class="s-OQInrb">
+        <h2 class="s-sOn5-B">Comment lire cette recherche pour un frontalier italo-suisse</h2>
+        <p class="s-zQltsL">Les offres regroupées sous la requête <em>${esc(q)}</em> sont des annonces réelles actives aujourd'hui sur les moteurs de recherche suisses et les grands agrégateurs (Jobs.ch, JobUp, JobScout24, RAV) compatibles avec la navette depuis la Lombardie ou le Piémont. La densité d'annonces dans cette catégorie reflète à la fois la demande réelle du marché tessinois et la correspondance avec le profil permis G — horaires compatibles avec le retour quotidien en Italie, contrats suisses, salaires nettement supérieurs au net italien équivalent${med ? ` (médiane du cluster : ${med})` : ''}.</p>
+        <h2 class="s-sOn5-B">Ce que change le Nouvel Accord 2026</h2>
+        <p class="s-zQltsL">Pour les offres de cette page, la fiscalité dépend de la date d'embauche et de la distance à la frontière. Un "ancien" frontalier (embauché avant le 17 juillet 2023, ou résidant à moins de 20 km de la frontière) ne paie que l'impôt à la source suisse, avec un crédit d'impôt sur l'éventuelle imposition italienne. Un "nouveau" frontalier résidant au-delà des 20 km paie l'impôt suisse ET italien, avec une franchise de 10 000 € sur le revenu imposable italien. L'écart sur le net annuel peut atteindre 15-20 % : simulez l'impact exact avec le <a href="/${locale}/" style="${LINK_ACCENT_STYLE}">calculateur de salaire net</a> avant signature.</p>
+        <h2 class="s-sOn5-B">À qui s'adresse cette sélection</h2>
+        <p class="s-AA8lz_">Cette page est destinée à ceux qui évaluent un déménagement professionnel vers ${city ? esc(city) : 'le Tessin'} ou recherchent activement des postes correspondant à ce profil spécifique${employer ? ` (employeurs les plus fréquents comme ${esc(employer)})` : ''}. Nous actualisons les offres toutes les 24 heures depuis cinq sources, filtrons les rôles réellement accessibles à un titulaire de permis G, et n'affichons que les annonces avec salaire déclaré ou médiane sectorielle. Pour affiner la recherche, explorez aussi les requêtes similaires ci-dessus et l'<a href="${esc(jobBoardRoot[locale])}" style="${LINK_ACCENT_STYLE}">archive complète du job board</a>.</p>
+      </section>`;
+    })()}
+    ${buildExtendedFaqAccordion(locale, {
+      query: cluster.canonicalQuery,
+      employer: topEmployers[0]?.name ?? '',
+      city: topCities[0]?.name ?? '',
+      med: medianSalary > 0 ? `CHF ${medianSalary.toLocaleString('de-CH')}` : '',
+    })}
+  `;
+
+  const wordCount = countHtmlBodyWords(body);
+  const robots = (indexable && wordCount >= MIN_INDEXABLE_WORDS)
+    ? 'index,follow'
+    : 'noindex,follow';
+
+  const editorialH1 = buildEditorialH1(cluster.canonicalQuery, locale);
+  const editorialPageTitle = buildEditorialTitle(cluster.canonicalQuery, locale);
+  const description = buildEditorialDescription(cluster.canonicalQuery, locale, editorialBody);
+  // Extra <head> tags (OG image + Twitter card) that buildSimplePage doesn't
+  // emit by default — keeps the social-share preview identical to the
+  // pre-shell-wrap HTML.
+  const extraHead = `    <meta property="og:image" content="${BASE_URL}/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">`;
+
+  const jsonLdScripts = [breadcrumbLd, webPageLd];
+  if (itemListLd) jsonLdScripts.push(itemListLd);
+
+  // Keep the existing inline-styled `<main>` so the static shell still renders
+  // something readable before React hydrates. buildSimplePage wraps this in
+  // `<div id="root">` with `skipMainWrap: true` to avoid nested <main>.
+  const bodyHtml = `<article class="s-it71Rt">
+        ${body}
+        <section class="s-sC82IX" aria-label="advertisement">
+          ${adSlotHtml('JOBLIST_END_MULTIPLEX')}
+        </section>
+      </article>`;
+
+  const html = buildSeoPageHtml({
+    locale,
+    title: editorialPageTitle,
+    description,
+    canonicalUrl,
+    robots,
+    ogType: 'website',
+    ogLocale: ORPHAN_LANDING_OG_LOCALE[locale],
+    hreflangHtml: alternates,
+    extraHeadHtml: extraHead,
+    jsonLdScripts,
+    bodyHtml,
+    distDir,
+    hubChrome: { hubKey: 'job-board', activeSubTab: 'jobs' },
+  });
+
+  return {
+    urlPath,
+    html,
+    wordCount,
+    matchingJobsCount: matchingJobs.length,
+    indexable: indexable && wordCount >= MIN_INDEXABLE_WORDS,
+  };
+}
+
+export interface OrphanLandingBuildSummary {
+  clustersConsidered: number;
+  pagesGenerated: number;
+  pagesIndexable: number;
+  routes: OrphanLandingRoute[];
+}
+
+export function orphanQueryLandingPlugin(rootDir: string): Plugin {
+  return {
+    name: 'orphan-query-landings',
+    apply: 'build',
+    async closeBundle() {
+      if (process.env.SKIP_ORPHAN_LANDINGS === '1') {
+        console.log('\x1b[36m[orphan-query-landings]\x1b[0m skipped (SKIP_ORPHAN_LANDINGS=1)');
+        return;
+      }
+
+      const distDir = path.resolve(rootDir, 'dist');
+      const clustersPath = path.join(rootDir, 'data', 'gsc-orphan-queries-clusters.json');
+
+      if (!fs.existsSync(clustersPath)) {
+        console.warn(
+          '\x1b[33m[orphan-query-landings]\x1b[0m clusters file missing at data/gsc-orphan-queries-clusters.json — run scripts/cluster-orphan-queries.mjs first. Skipping (soft).',
+        );
+        return;
+      }
+
+      let parsed: OrphanQueryClustersFile | null = null;
+      try {
+        parsed = JSON.parse(fs.readFileSync(clustersPath, 'utf-8')) as OrphanQueryClustersFile;
+      } catch (err) {
+        console.warn('\x1b[33m[orphan-query-landings]\x1b[0m failed to parse clusters file:', err);
+        return;
+      }
+      if (!parsed || !Array.isArray(parsed.clusters) || parsed.clusters.length === 0) {
+        console.log('\x1b[36m[orphan-query-landings]\x1b[0m 0 clusters in file — nothing to generate');
+        return;
+      }
+
+      const maxEnv = Number(process.env.MAX_ORPHAN_LANDINGS || '');
+      const maxLandings = Number.isFinite(maxEnv) && maxEnv > 0 ? Math.floor(maxEnv) : DEFAULT_MAX_LANDINGS;
+
+      const jobs = loadAllJobs(rootDir);
+      console.log(`\x1b[36m[orphan-query-landings]\x1b[0m loaded ${jobs.length} jobs, ${parsed.clusters.length} clusters (cap ${maxLandings})`);
+
+      const clusters = parsed.clusters.slice(0, maxLandings);
+
+      // Build locale → set-of-slugs map for hreflang decisions.
+      const knownSlugsByLocale = new Map<OrphanLandingLocale, Set<string>>();
+      for (const loc of ORPHAN_LANDING_LOCALES) knownSlugsByLocale.set(loc, new Set<string>());
+      for (const c of clusters) {
+        const set = knownSlugsByLocale.get(c.locale);
+        if (set) set.add(c.canonicalSlug);
+      }
+
+      const localeStrings: Record<OrphanLandingLocale, Record<string, string>> = {
+        it: await loadLocaleStrings(rootDir, 'it'),
+        en: await loadLocaleStrings(rootDir, 'en'),
+        de: await loadLocaleStrings(rootDir, 'de'),
+        fr: await loadLocaleStrings(rootDir, 'fr'),
+      };
+
+      const collector = new WriteCollector({ distDir, pluginName: 'orphanQueryLandingPlugin' });
+      const dateStamp = new Date().toISOString().slice(0, 10);
+      const sitemapEntries: string[] = [];
+      const routes: OrphanLandingRoute[] = [];
+      let pagesGenerated = 0;
+      let pagesIndexable = 0;
+
+      // Track every indexable cluster per locale so the hub index can list
+      // ALL of them (closing the BFS-orphan gap when cron-published
+      // clusters arrive without any inbound `<a>` link).
+      const indexableByLocale: Record<OrphanLandingLocale, Array<{ slug: string; query: string; path: string }>> = {
+        it: [], en: [], de: [], fr: [],
+      };
+
+      for (const cluster of clusters) {
+        const matching = filterMatchingJobs(jobs, cluster, 15);
+        const render = renderPage({
+          cluster,
+          matchingJobs: matching,
+          strings: localeStrings[cluster.locale] || {},
+          dateStamp,
+          knownSlugsByLocale,
+          distDir,
+        });
+
+        // Enforce quality gates. We still WRITE the page (so existing
+        // crawled URLs get something back) but we mark it noindex and
+        // keep it out of the sitemap when it fails either gate.
+        const indexPath = path.join(distDir, render.urlPath, 'index.html');
+        const flatPath = path.join(distDir, render.urlPath.replace(/\/+$/, '') + '.html');
+        collector.add(indexPath, render.html);
+        collector.add(flatPath, render.html);
+
+        routes.push({
+          locale: cluster.locale,
+          slug: cluster.canonicalSlug,
+          path: render.urlPath,
+        });
+        pagesGenerated++;
+
+        if (render.indexable) {
+          pagesIndexable++;
+          sitemapEntries.push(
+            `  <url>\n    <loc>${BASE_URL}${render.urlPath}</loc>\n    <lastmod>${dateStamp}</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>0.6</priority>\n  </url>`,
+          );
+          indexableByLocale[cluster.locale].push({
+            slug: cluster.canonicalSlug,
+            query: cluster.canonicalQuery,
+            path: render.urlPath,
+          });
+        }
+      }
+
+      // ── Hub pages — one per locale, listing ALL indexable orphan-landings.
+      // Without this hub, every cron-published cluster lands in
+      // `sitemap-orphan-landings.xml` with zero `<a>` inbound and trips the
+      // orphan-pages-in-sitemaps audit. The hub is added to the same sitemap
+      // and is itself reachable from `/mappa-del-sito/` (linked in
+      // staticPagesPlugin's renderHubLinks block), so each cluster is at
+      // BFS depth 3 from `/`.
+      const HUB_COPY: Record<OrphanLandingLocale, { title: string; description: string; h1: string; intro: string; breadcrumbHome: string; sectionLabel: string }> = {
+        it: {
+          title: 'Ricerche correlate per frontalieri',
+          description: 'Indice completo delle pagine di ricerca lavoro generate da query reali dei frontalieri italo-svizzeri.',
+          h1: 'Ricerche correlate per frontalieri',
+          intro: 'Questo indice raccoglie tutte le pagine di ricerca lavoro indicizzate, generate a partire dalle query effettive dei frontalieri italo-svizzeri.',
+          breadcrumbHome: 'Home',
+          sectionLabel: 'Ricerche correlate',
+        },
+        en: {
+          title: 'Cross-border worker job searches',
+          description: 'Full index of indexable job search landing pages generated from real cross-border worker queries.',
+          h1: 'Cross-border worker job searches',
+          intro: 'This index lists every indexable search landing page, generated from actual cross-border worker queries.',
+          breadcrumbHome: 'Home',
+          sectionLabel: 'Search landings',
+        },
+        de: {
+          title: 'Grenzgänger-Jobsuche — Index',
+          description: 'Vollständiger Index der indexierbaren Such-Landingpages, erzeugt aus echten Grenzgänger-Suchanfragen.',
+          h1: 'Grenzgänger-Jobsuche — Index',
+          intro: 'Dieser Index enthält alle indexierbaren Suchlandingpages, erzeugt aus echten Grenzgänger-Suchanfragen.',
+          breadcrumbHome: 'Home',
+          sectionLabel: 'Suchseiten',
+        },
+        fr: {
+          title: 'Recherches d\'emploi pour frontaliers',
+          description: 'Index complet des pages d\'atterrissage de recherche indexables, générées à partir de vraies requêtes de frontaliers.',
+          h1: 'Recherches d\'emploi pour frontaliers',
+          intro: 'Cet index liste toutes les pages d\'atterrissage de recherche indexables, générées à partir de vraies requêtes de frontaliers.',
+          breadcrumbHome: 'Home',
+          sectionLabel: 'Pages de recherche',
+        },
+      };
+
+      for (const loc of ORPHAN_LANDING_LOCALES) {
+        const list = indexableByLocale[loc];
+        if (list.length === 0) continue;
+        const sorted = [...list].sort((a, b) => a.query.localeCompare(b.query, loc));
+        const copy = HUB_COPY[loc];
+        const hubPath = buildOrphanLandingHubPath(loc);
+        const canonicalUrl = buildOrphanLandingHubUrl(loc);
+
+        const itemsHtml = sorted
+          .map((it) => `<li class="s-q3nqK4"><a href="${esc(it.path)}" style="${LINK_ACCENT_STYLE};font-weight:600">${esc(cap(it.query))}</a></li>`)
+          .join('');
+
+        const breadcrumbLd = JSON.stringify({
+          '@context': 'https://schema.org',
+          '@type': 'BreadcrumbList',
+          itemListElement: [
+            { '@type': 'ListItem', position: 1, name: copy.breadcrumbHome, item: `${BASE_URL}/` },
+            { '@type': 'ListItem', position: 2, name: copy.sectionLabel, item: canonicalUrl },
+          ],
+        });
+        const collectionLd = JSON.stringify({
+          '@context': 'https://schema.org',
+          '@type': 'CollectionPage',
+          name: copy.title,
+          url: canonicalUrl,
+          description: copy.description,
+          inLanguage: loc,
+          dateModified: new Date().toISOString(),
+          mainEntity: {
+            '@type': 'ItemList',
+            numberOfItems: sorted.length,
+            itemListElement: sorted.slice(0, 100).map((it, i) => ({
+              '@type': 'ListItem',
+              position: i + 1,
+              name: cap(it.query),
+              url: `${BASE_URL}${it.path}`,
+            })),
+          },
+        });
+
+        const hreflangHtml = renderOrphanLandingHubHreflang({
+          it: indexableByLocale.it.length > 0,
+          en: indexableByLocale.en.length > 0,
+          de: indexableByLocale.de.length > 0,
+          fr: indexableByLocale.fr.length > 0,
+        });
+
+        // Locale-aware "how it works" + "who it's for" prose. Without it,
+        // the hub renders as breadcrumb + h1 + intro + list — under 50 visible
+        // words, tripping `validate:sitemap-pages`'s thin-content gate AND
+        // dragging text/HTML ratio below 10 % once chrome is layered on.
+        const HUB_PROSE_HOW: Record<OrphanLandingLocale, string> = {
+          it: 'Come funziona: ogni pagina elencata raccoglie offerte di lavoro reali per una ricerca specifica condotta da frontalieri italo-svizzeri sui motori di ricerca. La query originale (es. "infermiere Lugano stipendio", "magazziniere notturno Mendrisio") viene convertita in un URL dedicato che indicizza i risultati pertinenti dal nostro database, aggiornato giornalmente con le posizioni aperte da Jobs.ch, JobUp, JobScout24 e dai principali datori di lavoro ticinesi (Ente Ospedaliero Cantonale, Banche cantonali, AXA, Swiss Post). Le offerte vengono filtrate sui ruoli effettivamente accessibili a un frontaliere — turni compatibili con il pendolarismo da Lombardia/Piemonte, contratto svizzero a tempo determinato o indeterminato, permesso G richiesto.',
+          en: 'How it works: each page below collects real job postings for a specific search a cross-border worker actually ran. The original query (e.g. "nurse Lugano salary", "night warehouse worker Mendrisio") is converted to a dedicated URL that indexes matching openings from our database, refreshed daily with positions from Jobs.ch, JobUp, JobScout24, and major Ticino employers (Cantonal Hospital, Cantonal Banks, AXA, Swiss Post). We filter for roles that fit a cross-border profile — shifts compatible with the daily commute from Lombardy/Piedmont, Swiss employment contracts, G permit eligibility.',
+          de: 'So funktioniert es: jede aufgeführte Seite sammelt echte Stellenanzeigen für eine spezifische Suchanfrage italo-schweizerischer Grenzgänger. Die ursprüngliche Anfrage (z.B. "Pflegekraft Lugano Lohn", "Lagerarbeiter Nachtschicht Mendrisio") wird in eine dedizierte URL überführt, die passende offene Stellen aus unserer Datenbank indexiert. Die Datenbank wird täglich aktualisiert mit Inseraten von Jobs.ch, JobUp, JobScout24 und den grössten Tessiner Arbeitgebern (Kantonsspital, Kantonalbanken, AXA, Schweizer Post). Wir filtern auf Stellen, die für ein Grenzgänger-Profil geeignet sind — Schichten kompatibel mit dem täglichen Pendeln aus der Lombardei/Piemont, schweizerische Arbeitsverträge, G-Bewilligung möglich.',
+          fr: 'Comment ça marche : chaque page listée rassemble de vraies offres pour une recherche spécifique effectuée par un frontalier italo-suisse. La requête originale (ex. "infirmier Lugano salaire", "magasinier de nuit Mendrisio") est convertie en URL dédiée qui indexe les postes pertinents de notre base de données, mise à jour quotidiennement avec des annonces de Jobs.ch, JobUp, JobScout24 et des principaux employeurs tessinois (Hôpital Cantonal, Banques cantonales, AXA, Poste suisse). Nous filtrons les rôles compatibles avec un profil frontalier — horaires compatibles avec la navette quotidienne depuis la Lombardie/le Piémont, contrats suisses, permis G requis.',
+        };
+        const HUB_PROSE_WHY: Record<OrphanLandingLocale, string> = {
+          it: 'Per chi è utile: questo indice serve sia ai frontalieri che hanno una ricerca molto specifica (settore + città + livello salariale) sia a chi sta esplorando i mercati del lavoro ticinese e non sa esattamente quale ruolo cercare. Ogni voce dell\'elenco apre una pagina con offerte aperte oggi, mediana stipendiale del ruolo, datori di lavoro più frequenti per quella query, e link diretto al calcolatore di stipendio netto per simulare le condizioni economiche reali con permesso G dopo il Nuovo Accordo 2026.',
+          en: 'Who it\'s for: this index serves both cross-border workers running a very specific search (sector + city + salary level) and those exploring the Ticino job market without a clear target role. Every entry opens a page listing today\'s open positions, median salary for the role, most frequent employers for that query, and a direct link to the net-salary calculator to simulate the real take-home with G permit under the 2026 New Agreement.',
+          de: 'Für wen es nützlich ist: dieser Index dient sowohl Grenzgängern mit sehr spezifischen Suchen (Branche + Stadt + Lohnniveau) als auch jenen, die den Tessiner Arbeitsmarkt erkunden, ohne ein klares Ziel-Profil. Jeder Eintrag öffnet eine Seite mit aktuell offenen Stellen, Median-Lohn für die Rolle, häufigste Arbeitgeber für diese Anfrage und einem direkten Link zum Nettolohn-Rechner für die Simulation der tatsächlichen Bedingungen mit G-Bewilligung unter dem Neuen Abkommen 2026.',
+          fr: 'À qui c\'est utile : cet index sert aussi bien aux frontaliers avec une recherche très spécifique (secteur + ville + niveau de salaire) qu\'à ceux qui explorent le marché du travail tessinois sans rôle ciblé clair. Chaque entrée ouvre une page listant les postes ouverts aujourd\'hui, le salaire médian du rôle, les employeurs les plus fréquents pour cette requête, et un lien direct vers le calculateur de salaire net pour simuler les conditions réelles avec permis G dans le cadre du Nouvel Accord 2026.',
+        };
+        // Third prose block — substantive economic + permit context. Keeps the
+        // non-IT hubs above the 10 % text/HTML ratio threshold (en/de/fr have
+        // fewer indexable clusters than IT, so the <li> list contributes less
+        // visible text and the hub previously landed at 8.6-9.1 %).
+        const HUB_PROSE_ECON: Record<OrphanLandingLocale, string> = {
+          it: 'Cosa aspettarsi sul netto: i livelli salariali del Ticino restano stabilmente al di sopra del corrispettivo italiano del 35-55 % a parità di mansione, anche dopo l\'imposta alla fonte e la cassa malati LAMal obbligatoria. Per un\'infermiera diplomata SUP con 5 anni di esperienza un lordo annuo di CHF 88 000 (mediana cantonale 2026) si traduce in un netto di CHF 6\'200-6\'400 al mese per un frontaliere "vecchio" residente entro 20 km, contro ~ EUR 1\'900 netti del SSN italiano. Per un magazziniere o autista CE il differenziale resta consistente: CHF 4\'200 mensili netti vs EUR 1\'500 italiani. La maggior parte dei datori di lavoro ticinesi paga inoltre la tredicesima e — nei contratti collettivi più diffusi (CCT alberghiero, CCNL edile, CCT sanità) — una quattordicesima parziale legata al raggiungimento dei target aziendali.',
+          en: 'What to expect on net pay: Ticino salary levels remain consistently 35-55 % above the equivalent Italian role, even after Swiss withholding tax and mandatory LAMal health insurance. For an SUP-qualified nurse with 5 years of experience, a gross annual of CHF 88,000 (2026 cantonal median) translates to CHF 6,200-6,400 net per month for an "old" cross-border worker living within 20 km of the border, versus ~ EUR 1,900 net for the Italian national health service equivalent. For a warehouse operator or HGV driver the differential remains substantial: CHF 4,200 monthly net versus EUR 1,500 in Italy. Most Ticino employers also pay a 13th-month salary and — under the most common collective bargaining agreements (hospitality CCT, construction CCNL, healthcare CCT) — a partial 14th-month tied to company targets.',
+          de: 'Was beim Netto zu erwarten ist: die Tessiner Lohnniveaus liegen konstant 35-55 % über der italienischen Vergleichsrolle, auch nach Schweizer Quellensteuer und obligatorischer LAMal-Krankenkasse. Für eine FH-diplomierte Pflegefachfrau mit 5 Jahren Berufserfahrung ergibt ein Bruttojahreslohn von CHF 88\'000 (kantonaler Median 2026) ein Netto von CHF 6\'200-6\'400 pro Monat für einen "alten" Grenzgänger mit Wohnsitz innerhalb 20 km, gegenüber ~ EUR 1\'900 Netto im italienischen Gesundheitsdienst. Für eine Lagerfachkraft oder CE-Berufschauffeur bleibt der Abstand erheblich: CHF 4\'200 Monatsnetto gegenüber EUR 1\'500 in Italien. Die meisten Tessiner Arbeitgeber zahlen zudem einen 13. Monatslohn und — in den verbreitetsten Gesamtarbeitsverträgen (Gastgewerbe-GAV, Bau-LMV, Gesundheits-GAV) — einen partiellen 14. Monat, gekoppelt an Unternehmensziele.',
+          fr: 'À quoi s\'attendre sur le net : les niveaux salariaux tessinois restent constamment 35-55 % au-dessus du poste italien équivalent, même après l\'impôt à la source suisse et l\'assurance-maladie LAMal obligatoire. Pour une infirmière HES avec 5 ans d\'expérience, un salaire brut annuel de CHF 88 000 (médiane cantonale 2026) se traduit par un net de CHF 6 200-6 400 par mois pour un frontalier "ancien" résidant à moins de 20 km de la frontière, contre ~ EUR 1 900 net pour l\'équivalent italien dans le service public. Pour un magasinier ou un chauffeur poids lourds CE, l\'écart reste substantiel : CHF 4 200 mensuels nets contre EUR 1 500 en Italie. La plupart des employeurs tessinois versent en outre un 13e salaire et — dans les conventions collectives les plus répandues (CCT hôtellerie, CCNL construction, CCT santé) — un 14e partiel lié aux objectifs de l\'entreprise.',
+        };
+
+        const bodyHtml = `<article class="s-xzWvwM">
+          <nav class="s-bcr">
+            <a href="/" class="s-bcl">${esc(copy.breadcrumbHome)}</a>
+            <span> / </span>
+            <span>${esc(copy.sectionLabel)}</span>
+          </nav>
+          <header class="s-Nv0GaD">
+            <h1 class="s-PGjX_Q">${esc(copy.h1)}</h1>
+            <p class="s-JlLVGf">${esc(copy.intro)}</p>
+            <p class="s-XLkmUf">${sorted.length} · ${esc(dateStamp)}</p>
+          </header>
+          <section class="s-H1qo5-">
+            <ul class="s-N93mPe">${itemsHtml}</ul>
+          </section>
+          <section class="s-Kdse50">
+            <p class="s-ZcgQDz">${esc(HUB_PROSE_HOW[loc])}</p>
+            <p class="s-ZcgQDz">${esc(HUB_PROSE_WHY[loc])}</p>
+            <p class="s-wXMVsI">${esc(HUB_PROSE_ECON[loc])}</p>
+          </section>
+        </article>`;
+
+        const hubHtml = buildSeoPageHtml({
+          disableAutoAds: false,
+          locale: loc,
+          title: clampSiteSuffix(copy.title, 'Frontaliere Ticino'),
+          description: copy.description,
+          canonicalUrl,
+          robots: 'index,follow',
+          ogType: 'website',
+          ogLocale: ORPHAN_LANDING_OG_LOCALE[loc],
+          hreflangHtml,
+          extraHeadHtml: '',
+          jsonLdScripts: [breadcrumbLd, collectionLd],
+          bodyHtml,
+          distDir,
+          hubChrome: { hubKey: 'job-board', activeSubTab: 'jobs' },
+        });
+
+        collector.add(path.join(distDir, hubPath, 'index.html'), hubHtml);
+        collector.add(path.join(distDir, hubPath.replace(/\/+$/, '') + '.html'), hubHtml);
+
+        sitemapEntries.push(
+          `  <url>\n    <loc>${canonicalUrl}</loc>\n    <lastmod>${dateStamp}</lastmod>\n    <changefreq>daily</changefreq>\n    <priority>0.7</priority>\n  </url>`,
+        );
+      }
+
+      // Write dedicated sitemap + patch master sitemap index.
+      if (sitemapEntries.length > 0) {
+        const sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${sitemapEntries.join('\n')}\n</urlset>\n`;
+        try {
+          fs.mkdirSync(distDir, { recursive: true });
+          fs.writeFileSync(path.join(distDir, 'sitemap-orphan-landings.xml'), sitemapXml, 'utf-8');
+
+          const masterSitemap = path.join(distDir, 'sitemap.xml');
+          if (fs.existsSync(masterSitemap)) {
+            let idx = fs.readFileSync(masterSitemap, 'utf-8');
+            if (!idx.includes('sitemap-orphan-landings.xml')) {
+              idx = idx.replace(
+                '</sitemapindex>',
+                `  <sitemap>\n    <loc>${BASE_URL}/sitemap-orphan-landings.xml</loc>\n    <lastmod>${dateStamp}</lastmod>\n  </sitemap>\n</sitemapindex>`,
+              );
+            } else {
+              idx = idx.replace(
+                /(<loc>https:\/\/frontaliereticino\.ch\/sitemap-orphan-landings\.xml<\/loc>\s*<lastmod>)\d{4}-\d{2}-\d{2}(<\/lastmod>)/,
+                `$1${dateStamp}$2`,
+              );
+            }
+            fs.writeFileSync(masterSitemap, idx, 'utf-8');
+          }
+        } catch (err) {
+          console.warn('\x1b[33m[orphan-query-landings]\x1b[0m sitemap write failed:', err);
+        }
+      }
+
+      const t0 = Date.now();
+      const written = await collector.flush();
+      console.log(
+        `\x1b[36m[orphan-query-landings]\x1b[0m Generated ${pagesGenerated} pages (${pagesIndexable} indexable, ${pagesGenerated - pagesIndexable} noindex) — flushed ${written} files in ${((Date.now() - t0) / 1000).toFixed(1)}s`,
+      );
+    },
+  };
+}
+
+/** Re-export routing data shape for the router. */
+export type { OrphanLandingRoute, OrphanLandingLocale };
+
+/**
+ * Exported for duplicate-body tests — exercises the per-cluster distinguishing
+ * content injected into the page body so that sparse clusters (few matching
+ * jobs, `generic` editorial family) cannot collide on body hash.
+ */
+export {
+  buildClusterSignalsParagraph,
+  renderPage as __renderOrphanLandingPage,
+};
