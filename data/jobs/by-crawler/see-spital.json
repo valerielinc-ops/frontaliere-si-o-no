@@ -7,7 +7,7 @@
       "slug": "unterassistent-in-pj-absolvent-in-chirurgie-see-spital-ch",
       "slugByLocale": {
         "it": "unterassistent-in-pj-absolvent-in-chirurgie-see-spital-ch",
-        "en": "pj-absolvent-in-chirurgies-see-spital-horgen",
+        "en": "sub-assistant-pj-graduate-surgery-see-spital-horgen",
         "de": "pj-absolvens-in-chirurgie-see-spital-horgen",
         "fr": "sous-assistant-e-diplome-e-pj-en-chirurgie-see-spital-horgen"
       },
@@ -52,11 +52,13 @@
       "department": "See-Spital",
       "contractDuration": "temporary",
       "previousSlugs": [
-        "sub-assistant-pj-graduate-surgery-see-spital-horgen"
+        "sub-assistant-pj-graduate-surgery-see-spital-horgen",
+        "pj-absolvent-in-chirurgies-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "en": [
-          "sub-assistant-pj-graduate-surgery-see-spital-horgen"
+          "sub-assistant-pj-graduate-surgery-see-spital-horgen",
+          "pj-absolvent-in-chirurgies-see-spital-horgen"
         ]
       },
       "firstSeenAt": "2026-05-26T14:56:09.180Z",
@@ -78,9 +80,9 @@
       "slug": "infermiere-diplomato-sss-per-il-pool-di-assistenza-max-60-see-spital-horgen",
       "slugByLocale": {
         "it": "infermiere-diplomato-sss-per-il-pool-di-assistenza-max-60-see-spital-horgen",
-        "en": "qualified-nurse-hf-for-the-nursing-pool-max-60-see-spital-horgen",
+        "en": "miterbeiter-in-service-hourly-wage-klinik-sonnenhalde-riehen",
         "de": "miterbeiter-in-service-stundenlohn-klinik-sonnenhalde-riehen",
-        "fr": "infirmier-diplome-es-pour-le-bassin-de-soins-max-60-see-spital-horgen"
+        "fr": "mitarbeiter-in-service-salaire-horaire-klinik-sonnenhalde-riehen"
       },
       "company": "See-Spital",
       "companyKey": "see-spital",
@@ -135,17 +137,21 @@
         "miterbeiter-in-service-hourly-wage-klinik-sonnenhalde-riehen",
         "dipl-pflegefachperson-hf-fur-den-pflegepool-max-60-see-spital-horgen",
         "mitarbeiter-in-service-salaire-horaire-klinik-sonnenhalde-riehen",
-        "dipl-pflegefachperson-hf-fur-den-pflegepool-max-60-see-spital-ch"
+        "dipl-pflegefachperson-hf-fur-den-pflegepool-max-60-see-spital-ch",
+        "qualified-nurse-hf-for-the-nursing-pool-max-60-see-spital-horgen",
+        "infirmier-diplome-es-pour-le-bassin-de-soins-max-60-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "en": [
-          "miterbeiter-in-service-hourly-wage-klinik-sonnenhalde-riehen"
+          "miterbeiter-in-service-hourly-wage-klinik-sonnenhalde-riehen",
+          "qualified-nurse-hf-for-the-nursing-pool-max-60-see-spital-horgen"
         ],
         "de": [
           "dipl-pflegefachperson-hf-fur-den-pflegepool-max-60-see-spital-horgen"
         ],
         "fr": [
-          "mitarbeiter-in-service-salaire-horaire-klinik-sonnenhalde-riehen"
+          "mitarbeiter-in-service-salaire-horaire-klinik-sonnenhalde-riehen",
+          "infirmier-diplome-es-pour-le-bassin-de-soins-max-60-see-spital-horgen"
         ],
         "it": [
           "dipl-pflegefachperson-hf-fur-den-pflegepool-max-60-see-spital-ch"
@@ -630,7 +636,7 @@
       "id": "see-spital-34c8b3dc8dd5",
       "slug": "dipl-persona-di-cura-hf-chirurgia-see-spital-horgen",
       "slugByLocale": {
-        "it": "dipl-persona-di-cura-hf-chirurgia-see-spital-horgen",
+        "it": "spitex-assistente-sanitario-50-100-spital-davos-davos",
         "en": "dipl-pflegefachperson-hf-chirurgie-see-spital-horgen",
         "de": "spitex-fachperson-gesundheit-50-100-spital-davos-ch",
         "fr": "dipl-professionnel-de-soins-hf-chirurgie-see-spital-horgen"
@@ -712,8 +718,7 @@
           "dipl-pflegefachperson-hf-chirurgie-see-spital-ch"
         ],
         "it": [
-          "dipl-pflegefachperson-hf-chirurgie-see-spital-ch",
-          "spitex-assistente-sanitario-50-100-spital-davos-davos"
+          "dipl-pflegefachperson-hf-chirurgie-see-spital-ch"
         ],
         "en": [
           "spitex-health-care-assistant-50-100-spital-davos-davos"
@@ -724,9 +729,11 @@
       },
       "previousSlugs": [
         "dipl-pflegefachperson-hf-chirurgie-see-spital-ch",
-        "spitex-assistente-sanitario-50-100-spital-davos-davos",
         "spitex-health-care-assistant-50-100-spital-davos-davos",
-        "spitex-assistant-de-sante-50-100-spital-davos-davos"
+        "spitex-assistant-de-sante-50-100-spital-davos-davos",
+        "dipl-persona-di-cura-hf-chirurgia-see-spital-horgen",
+        "dipl-pflegefachperson-hf-chirurgie-see-spital-horgen",
+        "dipl-professionnel-de-soins-hf-chirurgie-see-spital-horgen"
       ],
       "firstSeenAt": "2026-05-26T14:56:02.178Z",
       "salaryMin": 49500,
@@ -849,17 +856,17 @@
       "id": "see-spital-6187b90ced28",
       "slug": "medico-specialista-in-ginecologia-e-ostetricia-see-spital-horgen",
       "slugByLocale": {
-        "it": "medico-specialista-in-ginecologia-e-ostetricia-see-spital-horgen",
-        "en": "gynecologist-and-obstetrician-see-spital-horgen",
-        "de": "oberarzt-arztin-frauenklinik-see-spital-horgen",
-        "fr": "gynecologue-et-obstetricien-see-spital-horgen"
+        "it": "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio",
+        "en": "qualified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio",
+        "de": "diplomierter-physiotherapeut-eoc-ente-ospedaliero-cantonale-novaggio",
+        "fr": "physiotherapeute-qualifie-eoc-ente-ospedaliero-cantonale-novaggio"
       },
       "company": "See-Spital",
       "companyKey": "see-spital",
       "companyDomain": "see-spital.ch",
       "title": "Oberarzt*ärztin Frauenklinik",
       "titleByLocale": {
-        "it": "Medico Specialista in Ginecologia e Ostetricia",
+        "it": "Medico senior*",
         "en": "Gynecologist and Obstetrician",
         "de": "Oberarzt*ärztin Frauenklinik",
         "fr": "Gynécologue et Obstétricien"
@@ -867,16 +874,15 @@
       "description": "## Profilo richiesto\n\n- Facharzt*ärztin per Gynäkologia e Ostetricia o in procinto di conseguire la qualifica\n- Buona qualificazione professionale e esperienza lavorativa\n- Personalità motivata e team-oriented\n- Alta competenza sociale e impegno\n- Disponibilità alla collaborazione multidisciplinare\n- Esperienza in attività ambulatoriale di vantaggio\n- Possesso di specializzazione di vantaggio\n\n## Cosa offriamo\n\n- Attività lavorativa varia, autonoma e responsabile all'interno di un team aperto\n- Un posto di lavoro attraente con infrastruttura moderna\n- La possibilità di svolgere attività di consultazione in propria pratica esterna\n- Opportunità di formazione varie (incluse Ostetricia e Ginecologia operativa)\n- Ampio spettro di attività in Ginecologia e Ostetricia\n- Alto valore di tempo libero in un ambiente attraente\n\n## Contatto\n\n- Le domande di lavoro possono essere inviate solo via e-mail. Le domande di lavoro inviate per posta non saranno prese in considerazione.",
       "descriptionByLocale": {
         "it": "## Profilo richiesto\n\n- Facharzt*ärztin per Gynäkologia e Ostetricia o in procinto di conseguire la qualifica\n- Buona qualificazione professionale e esperienza lavorativa\n- Personalità motivata e team-oriented\n- Alta competenza sociale e impegno\n- Disponibilità alla collaborazione multidisciplinare\n- Esperienza in attività ambulatoriale di vantaggio\n- Possesso di specializzazione di vantaggio\n\n## Cosa offriamo\n\n- Attività lavorativa varia, autonoma e responsabile all'interno di un team aperto\n- Un posto di lavoro attraente con infrastruttura moderna\n- La possibilità di svolgere attività di consultazione in propria pratica esterna\n- Opportunità di formazione varie (incluse Ostetricia e Ginecologia operativa)\n- Ampio spettro di attività in Ginecologia e Ostetricia\n- Alto valore di tempo libero in un ambiente attraente\n\n## Contatto\n\n- Le domande di lavoro possono essere inviate solo via e-mail. Le domande di lavoro inviate per posta non saranno prese in considerazione.",
-        "en": "Ensemble Le domande di lavoro inviate per posta non saranno prese in considerazione.",
-        "de": "Profilo richiesto\n\n- Facharzt*ärztin per Gynäkologia e Ostetricia o in procinto di conseguire la qualifica\n- Buona qualificazione professionale e esperienza lavorativa\n- Personalità motivata e team-oriented\n- Alta competenza sociale e impegno\n- Disponibilità alla collaborazione multidisciplinare\n- Esperienza in attività ambulatoriale di vantaggio\n- Possesso di specializzazione di vantaggio\n\nCosa offriamo\n\n- Attività lavorativa varia, autonoma e responsabile all'interno di un team aperto\n- Un posto di lavoro attraente con infrastruttura moderna\n- La possibilità di svolgere attività di consultazione in propria pratica esterna\n- Opportunità di formazione varie (incluse Ostetricia e Ginecologia operativa)\n- Ampio spettro di attività in Ginecologia e Ostetricia\n- Alto valore di tempo libero in un ambiente attraente\n\nContatto\n\n- Le domande di lavoro possono essere inviate solo via e-mail. Le domande di lavoro inviate per posta non saranno prese in considerazione.",
-        "fr": "Ensemble Le domande di lavoro inviate per posta non saranno prese in considerazione."
+        "en": "Profile requested\n\n- Facharzt*ärztin for Gynäkology and Obstetrics or in the process of qualification\n- Good professional qualification and work experience\n- Motivated staff and team-oriented\n- High social competence and commitment\n- Availability of multidisciplinary collaboration\n- Experience in outpatient activity of advantage\n- Possess of advantage specialization\n\nWhat we offer\n\n- Various work activities, autonomous and responsible within an open team\n- An attractive workplace with modern infrastructure\n- The possibility of conducting consultation activities in its own external practice\n- Various training opportunities (including Ostetricia and operational Gynaecology)\n- Wide range of activities in Gynaecology and Obstetrics\n- High free time value in an attractive environment\n\nContact\n\n- Job applications can only be sent via email. Applications sent by mail will not be considered.",
+        "de": "Profil\n\n- Facharzt*ärztin für Gynäkologie und Geburtshilfe oder im Qualifizierungsprozess\n- Gute Berufsqualifikation und Berufserfahrung\n- Motiviertes Personal und teamorientiert\n- Hohe soziale Kompetenz und Engagement\n- Verfügbarkeit multidisziplinärer Zusammenarbeit\n- Erfahrung in der ambulanten Wirksamkeit von Vorteil\n- Vorteile der Spezialisierung\n\nWas wir bieten\n\n- Verschiedene Arbeitsaktivitäten, autonom und verantwortlich innerhalb eines offenen Teams\n- Ein attraktiver Arbeitsplatz mit moderner Infrastruktur\n- die Möglichkeit, Konsultationen in eigener externer Praxis durchzuführen\n- Verschiedene Ausbildungsmöglichkeiten (einschließlich Ostetricia und operative Gynäkologie)\n- Große Auswahl an Aktivitäten in der Gynäkologie und Geburtshilfe\n- Hoher Freizeitwert in attraktiver Umgebung\n\nKontakt\n\n- Bewerbungen können nur per E-Mail gesendet werden. Anträge per Post werden nicht berücksichtigt.",
+        "fr": "Profil demandé\n\n- Facharzt*ärztin pour la Gynäkologie et l'obstétrique ou en cours de qualification\n- Bonne qualification professionnelle et expérience professionnelle\n- Personnel motivé et orienté équipe\n- Haute compétence et engagement social\n- Disponibilité d'une collaboration multidisciplinaire\n- Expérience dans l'activité ambulatoire d'avantage\n- Posesses de spécialisation d'avantage\n\nCe que nous offrons\n\n- Activités diverses, autonomes et responsables au sein d'une équipe ouverte\n- Un lieu de travail attrayant avec une infrastructure moderne\n- La possibilité de mener des activités de consultation dans sa propre pratique extérieure\n- Diverses possibilités de formation (dont l ' ostétricité et la gynécologie opérationnelle)\n- Large gamme d'activités en Gynécologie et obstétrique\n- Haute valeur du temps libre dans un environnement attrayant\n\nPersonne à contacter\n\n- Les candidatures ne peuvent être envoyées que par e-mail. Les demandes envoyées par la poste ne seront pas prises en considération."
       },
       "location": "Horgen",
       "canton": "ZH",
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/957/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "it",
-      "needsRetranslation": true,
       "crawledAt": "2026-05-27T05:36:08.024Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
@@ -925,25 +931,23 @@
       "contractDuration": "permanent",
       "previousSlugs": [
         "oberarzt-arztin-frauenklinik-see-spital-ch",
-        "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio",
-        "qualified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio",
-        "diplomierter-physiotherapeut-eoc-ente-ospedaliero-cantonale-novaggio",
-        "physiotherapeute-qualifie-eoc-ente-ospedaliero-cantonale-novaggio"
+        "gynecologist-and-obstetrician-see-spital-horgen",
+        "oberarzt-arztin-frauenklinik-see-spital-horgen",
+        "gynecologue-et-obstetricien-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "oberarzt-arztin-frauenklinik-see-spital-ch",
-          "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio"
+          "oberarzt-arztin-frauenklinik-see-spital-ch"
         ],
         "en": [
-          "qualified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio"
+          "gynecologist-and-obstetrician-see-spital-horgen"
         ],
         "de": [
           "oberarzt-arztin-frauenklinik-see-spital-ch",
-          "diplomierter-physiotherapeut-eoc-ente-ospedaliero-cantonale-novaggio"
+          "oberarzt-arztin-frauenklinik-see-spital-horgen"
         ],
         "fr": [
-          "physiotherapeute-qualifie-eoc-ente-ospedaliero-cantonale-novaggio"
+          "gynecologue-et-obstetricien-see-spital-horgen"
         ]
       },
       "firstSeenAt": "2026-05-26T14:56:00.275Z",
@@ -958,8 +962,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 1
+      }
     },
     {
       "id": "see-spital-407c1c2c9e98",
@@ -2664,7 +2667,7 @@
       "id": "see-spital-393f16ddea42",
       "slug": "impiegato-a-segreteria-terapie-see-spital-horgen",
       "slugByLocale": {
-        "it": "impiegato-a-segreteria-terapie-see-spital-horgen",
+        "it": "segretaria-terapie-see-spital-horgen",
         "en": "employee-for-therapy-secretariat-see-spital-horgen",
         "de": "mitarbeiter-in-sekretariat-therapien-see-spital-ch",
         "fr": "employe-e-secretariat-therapies-see-spital-horgen"
@@ -2742,15 +2745,16 @@
       "contractDuration": "permanent",
       "previousSlugs": [
         "mitarbeiter-in-sekretariat-therapien-see-spital-ch",
-        "segretaria-terapie-see-spital-horgen",
         "staff-in-secretariat-therapies-see-spital-horgen",
         "secretary-therapies-see-spital-horgen",
-        "secretaire-therapeutique-see-spital-horgen"
+        "secretaire-therapeutique-see-spital-horgen",
+        "impiegato-a-segreteria-terapie-see-spital-horgen",
+        "employee-for-therapy-secretariat-see-spital-horgen",
+        "employe-e-secretariat-therapies-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-sekretariat-therapien-see-spital-ch",
-          "segretaria-terapie-see-spital-horgen"
+          "mitarbeiter-in-sekretariat-therapien-see-spital-ch"
         ],
         "en": [
           "staff-in-secretariat-therapies-see-spital-horgen",
@@ -3985,7 +3989,7 @@
       "id": "see-spital-1bfa5ad69173",
       "slug": "operatore-notturno-centro-di-sonno-see-spital-horgen",
       "slugByLocale": {
-        "it": "operatore-notturno-centro-di-sonno-see-spital-horgen",
+        "it": "stagiaire-per-l-ottenimento-della-maturita-professionale-commerciale-52-settimane-100-eoc-ente-ospedaliero-cantonale-locarno",
         "en": "night-shift-staff-sleep-center-see-spital-horgen",
         "de": "mitarbeiter-in-schlafzentrum-spat-und-nachtdienst-see-spital-horgen",
         "fr": "personnel-de-nuit-centre-de-sommeil-see-spital-horgen"
@@ -4063,15 +4067,17 @@
       "contractDuration": "permanent",
       "previousSlugs": [
         "mitarbeiter-in-schlafzentrum-spat-und-nachtdienst-see-spital-ch",
-        "stagiaire-per-l-ottenimento-della-maturita-professionale-commerciale-52-settimane-100-eoc-ente-ospedaliero-cantonale-locarno",
         "internship-for-commercial-professional-maturity-52-weeks-100-eoc-ente-ospedaliero-cantonale-locarno",
         "praktikum-fur-kaufmannische-berufsreife-52-wochen-100-eoc-ente-ospedaliero-cantonale-locarno",
-        "stagiaire-per-l-ottenimento-della-maturita-professionale-commerciale-52-settimane-100-eoc-ente-ospedaliero-cantonale-locarno-uil0fk"
+        "stagiaire-per-l-ottenimento-della-maturita-professionale-commerciale-52-settimane-100-eoc-ente-ospedaliero-cantonale-locarno-uil0fk",
+        "operatore-notturno-centro-di-sonno-see-spital-horgen",
+        "night-shift-staff-sleep-center-see-spital-horgen",
+        "mitarbeiter-in-schlafzentrum-spat-und-nachtdienst-see-spital-horgen",
+        "personnel-de-nuit-centre-de-sommeil-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-schlafzentrum-spat-und-nachtdienst-see-spital-ch",
-          "stagiaire-per-l-ottenimento-della-maturita-professionale-commerciale-52-settimane-100-eoc-ente-ospedaliero-cantonale-locarno"
+          "mitarbeiter-in-schlafzentrum-spat-und-nachtdienst-see-spital-ch"
         ],
         "en": [
           "internship-for-commercial-professional-maturity-52-weeks-100-eoc-ente-ospedaliero-cantonale-locarno"
