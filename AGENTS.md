@@ -10,6 +10,7 @@ This file is intentionally compact: it is injected into every agent session. Kee
 4. Never accept indexed thin content under 50 words.
 5. If a test fails, treat the test as right until proven otherwise.
 6. Keep changes surgical: no drive-by refactors, no speculative abstractions, no unrelated formatting churn.
+7. Never disable Google AdSense Auto Ads (anchor / in-page / vignette) — not globally, not per-route, not via loader gating, not via `enable_page_level_ads:false`, not via meta opt-outs. Auto Ads are ~95% of revenue. CLS or layout problems caused by Auto Ads must be solved by reserving space, container sizing (`min-height`, `aspect-ratio`, `contain: layout`), pre-declared `<ins>` placeholders with fixed dimensions, or image/font width-height fixes — never by suppressing the ad system itself.
 
 ## Workflow
 
