@@ -1,6 +1,6 @@
 {
   "crawlerKey": "ipw",
-  "assembledAt": "2026-05-27T12:59:39.628Z",
+  "assembledAt": "2026-05-27T23:19:18.197Z",
   "jobs": [
     {
       "id": "ipw-98af632c7194",
@@ -9,7 +9,7 @@
         "it": "psicologa-senior-psicologo-senior-60-80-integrierte-psychiatrie-winterthur-ipw-winterthur",
         "en": "senior-psychologist-60-80-integrierte-psychiatrie-winterthur-ipw-winterthur",
         "de": "oberpsychologin-oberpsychologe-60-80-ipw-winterthur",
-        "fr": "psychologue-senior-60-80-integrierte-psychiatrie-winterthur-ipw-winterthur"
+        "fr": "psychologue-principal-60-80-integrierte-psychiatrie-winterthur-ipw-winterthur"
       },
       "company": "Integrierte Psychiatrie Winterthur (ipw)",
       "companyKey": "ipw",
@@ -34,7 +34,7 @@
       "url": "https://recruitingapp-2906.umantis.com/Vacancies/3634/Description/1",
       "source": "Integrierte Psychiatrie Winterthur (ipw) Dedicated Parser (Umantis listing tenant 2906)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T12:59:37.915Z",
+      "crawledAt": "2026-05-27T23:19:16.057Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -54,7 +54,7 @@
       "previousSlugs": [
         "oberpsychologin-oberpsychologe-60-80-ipw-winterthur",
         "psicologa-o-capo-60-80-integrierte-psychiatrie-winterthur-ipw-winterthur",
-        "psychologue-principal-60-80-integrierte-psychiatrie-winterthur-ipw-winterthur"
+        "psychologue-senior-60-80-integrierte-psychiatrie-winterthur-ipw-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -62,6 +62,7 @@
           "psicologa-o-capo-60-80-integrierte-psychiatrie-winterthur-ipw-winterthur"
         ],
         "fr": [
+          "psychologue-senior-60-80-integrierte-psychiatrie-winterthur-ipw-winterthur",
           "psychologue-principal-60-80-integrierte-psychiatrie-winterthur-ipw-winterthur"
         ]
       },
@@ -84,7 +85,7 @@
       "slug": "assistente-di-salute-mentale-con-diploma-hf-o-fh-80-100-integrierte-psychiatrie-winterthur-ipw-winterthur",
       "slugByLocale": {
         "it": "assistente-di-salute-mentale-con-diploma-hf-o-fh-80-100-integrierte-psychiatrie-winterthur-ipw-winterthur",
-        "en": "psychiatric-caregiver-hf-fh-80-100-integrierte-psychiatrie-winterthur-ipw-winterthur",
+        "en": "nursing-professional-hf-or-fh-80-100-integrierte-psychiatrie-winterthur-ipw-winterthur",
         "de": "pflegefachfrau-pflegefachmann-hf-oder-fh-80-100-ipw-winterthur",
         "fr": "infirmier-ere-de-base-hf-ou-fh-80-100-integrierte-psychiatrie-winterthur-ipw-winterthur"
       },
@@ -111,7 +112,7 @@
       "url": "https://recruitingapp-2906.umantis.com/Vacancies/3799/Description/1",
       "source": "Integrierte Psychiatrie Winterthur (ipw) Dedicated Parser (Umantis listing tenant 2906)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T12:59:37.311Z",
+      "crawledAt": "2026-05-27T23:19:15.340Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -131,7 +132,7 @@
       "previousSlugs": [
         "pflegefachfrau-pflegefachmann-hf-oder-fh-80-100-ipw-winterthur",
         "infermiere-istruttore-a-di-assistenza-di-base-hf-o-fh-80-100-integrierte-psychiatrie-winterthur-ipw-winterthur",
-        "nursing-professional-hf-or-fh-80-100-integrierte-psychiatrie-winterthur-ipw-winterthur"
+        "psychiatric-caregiver-hf-fh-80-100-integrierte-psychiatrie-winterthur-ipw-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -139,6 +140,7 @@
           "infermiere-istruttore-a-di-assistenza-di-base-hf-o-fh-80-100-integrierte-psychiatrie-winterthur-ipw-winterthur"
         ],
         "en": [
+          "psychiatric-caregiver-hf-fh-80-100-integrierte-psychiatrie-winterthur-ipw-winterthur",
           "nursing-professional-hf-or-fh-80-100-integrierte-psychiatrie-winterthur-ipw-winterthur"
         ]
       },
@@ -161,9 +163,9 @@
       "slug": "dipl-pflegefachfrau-pflegefachmann-fh-hf-80-100-ipw-winterthur",
       "slugByLocale": {
         "it": "dipl-pflegefachfrau-pflegefachmann-fh-hf-80-100-ipw-winterthur",
-        "en": "dipl-care-specialist-fh-hf-80-100-integrierte-psychiatrie-winterthur-ipw-winterthur",
+        "en": "diploma-in-nursing-fh-hf-80-100-integrierte-psychiatrie-winterthur-ipw-winterthur",
         "de": "dipl-pflegefachfrau-pflegefachmann-fh-hf-80-100-ipw-winterthur",
-        "fr": "infirmier-e-diplome-e-fh-hf-80-100-integrierte-psychiatrie-winterthur-ipw-winterthur"
+        "fr": "diplome-e-en-soins-infirmiers-fh-hf-80-100-integrierte-psychiatrie-winterthur-ipw-winterthur"
       },
       "company": "Integrierte Psychiatrie Winterthur (ipw)",
       "companyKey": "ipw",
@@ -172,22 +174,23 @@
       "titleByLocale": {
         "it": "Dipl. Pflegefachfrau / Pflegefachmann FH / HF 80-100 %",
         "en": "Dipl. Care specialist FH / HF 80-100 %",
-        "de": "Pflegefachfrau / Pflegefachmann FH / HF 80-100 %",
+        "de": "Dipl. Pflegefachfrau / Pflegefachmann FH / HF 80-100 %",
         "fr": "Infirmier(e) diplômé(e) (FH/HF) 80-100%"
       },
       "description": "Dipl. Pflegefachfrau / Pflegefachmann FH / HF 80-100 % bei Integrierte Psychiatrie Winterthur - Zürcher Unterland in Winterthur (8408, ZH), Schweiz.\n\n• Befristung: Unbefristet\n• Standort: Winterthur (ZH)\n• Bewerbung über das Umantis-Karriereportal von Integrierte Psychiatrie Winterthur (ipw)",
       "descriptionByLocale": {
         "it": "Posizione vacante Descrizione Dipl. Infermiera / Infermiere FH / HF 80-100% presso la Psichiatria integrata Winterthur - Zürcher Unterland a Winterthur (8408, ZH), Svizzera. --- Informazioni Generali - Tipo di contratto: a tempo determinato: a tempo indeterminato - Luogo di lavoro: Winterthur (ZH) --- Contatto Candidatura tramite il portale della carriera Umantis di Integrated Psychiatrie Winterthur (ipw)",
-        "en": "## Posizione Vacante\n\n### Descrizione\nDipl. Care specialist FH / HF 80-100 % for integrated psychiatry Winterthur - Zürcher Unterland in Winterthur (8408, ZH), Switzerland.\n\n---\n\n# Informazioni Generali\n- **Tipo di contratto**: Duration: Unlimited\n- **Luogo di lavoro**: Winterthur (ZH)\n\n---\n\n# Contatto\nApplication via the Umantis career portal of Integrated Psychiatry Winterthur (ipw)",
-        "de": "## Posizione Vacante\n\n### Descrizione\nDipl. Pflegefachfrau / Pflegefachmann FH / HF 80-100 % bei Integrierte Psychiatrie Winterthur - Zürcher Unterland in Winterthur (8408, ZH), Schweiz.\n\n---\n\n## Informazioni Generali\n- **Tipo di contratto**: Befristung: Unbefristet\n- **Luogo di lavoro**: Winterthur (ZH)\n\n---\n\n## Contatto\nBewerbung über das Umantis-Karriereportal von Integrierte Psychiatrie Winterthur (ipw)",
+        "en": "## Posizione Vacante ### Descrizione Dipl. Care specialist FH / HF 80-100 % for integrated psychiatry Winterthur - Zürcher Unterland in Winterthur (8408, ZH), Switzerland. --- # Informazioni Generali - **Tipo di contratto**: Duration: Unlimited - **Luogo di lavoro**: Winterthur (ZH) --- # Contatto Application via the Umantis career portal of Integrated Psychiatry Winterthur (ipw)",
+        "de": "Dipl. Pflegefachfrau / Pflegefachmann FH / HF 80-100 % bei Integrierte Psychiatrie Winterthur - Zürcher Unterland in Winterthur (8408, ZH), Schweiz.\n• Befristung: Unbefristet\n• Standort: Winterthur (ZH)\n• Bewerbung über das Umantis-Karriereportal von Integrierte Psychiatrie Winterthur (ipw)",
         "fr": "Posizione Vacante Descrizione Dipl. Infirmière / infirmier HES / HF 80-100 % en psychiatrie intégrée Winterthour - Unterland zurichois à Winterthour (8408, ZH), Suisse. --- Informazioni Generali - Tipo di contratto : Durée : Illimitée - Luogo di lavoro : Winterthur (ZH) --- Contatto Candidature via le portail carrière Umantis de Psychiatrie intégrée Winterthur (ipw)"
       },
+      "needsRetranslation": true,
       "location": "Winterthur",
       "canton": "ZH",
       "url": "https://recruitingapp-2906.umantis.com/Vacancies/3755/Description/1",
       "source": "Integrierte Psychiatrie Winterthur (ipw) Dedicated Parser (Umantis listing tenant 2906)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T12:59:36.699Z",
+      "crawledAt": "2026-05-27T23:19:14.640Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -205,19 +208,21 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
+        "dipl-care-specialist-fh-hf-80-100-integrierte-psychiatrie-winterthur-ipw-winterthur",
         "pflegefachfrau-pflegefachmann-fh-hf-80-100-integrierte-psychiatrie-winterthur-ipw-winterthur",
-        "diplome-e-en-soins-infirmiers-fh-hf-80-100-integrierte-psychiatrie-winterthur-ipw-winterthur",
-        "diploma-in-nursing-fh-hf-80-100-integrierte-psychiatrie-winterthur-ipw-winterthur"
+        "infirmier-e-diplome-e-fh-hf-80-100-integrierte-psychiatrie-winterthur-ipw-winterthur"
       ],
       "previousSlugsByLocale": {
+        "en": [
+          "dipl-care-specialist-fh-hf-80-100-integrierte-psychiatrie-winterthur-ipw-winterthur",
+          "diploma-in-nursing-fh-hf-80-100-integrierte-psychiatrie-winterthur-ipw-winterthur"
+        ],
         "de": [
           "pflegefachfrau-pflegefachmann-fh-hf-80-100-integrierte-psychiatrie-winterthur-ipw-winterthur"
         ],
         "fr": [
+          "infirmier-e-diplome-e-fh-hf-80-100-integrierte-psychiatrie-winterthur-ipw-winterthur",
           "diplome-e-en-soins-infirmiers-fh-hf-80-100-integrierte-psychiatrie-winterthur-ipw-winterthur"
-        ],
-        "en": [
-          "diploma-in-nursing-fh-hf-80-100-integrierte-psychiatrie-winterthur-ipw-winterthur"
         ]
       },
       "firstSeenAt": "2026-05-19T18:25:40.252Z",
@@ -241,7 +246,7 @@
         "it": "dipl-pflegefachfrau-pflegefachmann-hf-fh-60-100-ipw-winterthur",
         "en": "dipl-nurse-hf-fh-60-100-integrierte-psychiatrie-winterthur-ipw-winterthur",
         "de": "dipl-pflegefachfrau-pflegefachmann-hf-fh-60-100-ipw-winterthur",
-        "fr": "diplomee-e-infirmiere-polytechnicienne-en-soins-infirmiers-hf-fh-integrierte-psychiatrie-winterthur-ipw-winterthur"
+        "fr": "infirmier-ere-dipl-hf-fh-60-100-integrierte-psychiatrie-winterthur-ipw-winterthur"
       },
       "company": "Integrierte Psychiatrie Winterthur (ipw)",
       "companyKey": "ipw",
@@ -260,12 +265,13 @@
         "de": "Dipl. Pflegefachfrau / Pflegefachmann HF / FH 60-100 % bei Integrierte Psychiatrie Winterthur - Zürcher Unterland in Winterthur (8408, ZH), Schweiz.\n• Befristung: Unbefristet\n• Standort: Winterthur (ZH)\n• Bewerbung über das Umantis-Karriereportal von Integrierte Psychiatrie Winterthur (ipw)",
         "fr": "Position disponible Pflegefachfrau / Pflegefachmann HF / FH - Taux d'emploi: 60-100% - Lieu: Integrierte Psychiatrie Winterthur - Zürcher Unterland, Winterthur (8408, ZH), Suisse Conditions de travail - Type de contrat: Befristet (non officiel) Personne à contacter - Site d'application : Umantis-Karriereportal par Integrierte Psychiatrie Winterthur (ipw)"
       },
+      "needsRetranslation": true,
       "location": "Winterthur",
       "canton": "ZH",
       "url": "https://recruitingapp-2906.umantis.com/Vacancies/3703/Description/1",
       "source": "Integrierte Psychiatrie Winterthur (ipw) Dedicated Parser (Umantis listing tenant 2906)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T12:59:35.924Z",
+      "crawledAt": "2026-05-27T23:19:13.644Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -285,7 +291,7 @@
       "previousSlugs": [
         "diploma-nurse-polytechnic-nurse-hf-fh-integrierte-psychiatrie-winterthur-ipw-winterthur",
         "pflegefachfrau-pflegefachmann-hf-fh-60-100-integrierte-psychiatrie-winterthur-ipw-winterthur",
-        "infirmier-ere-dipl-hf-fh-60-100-integrierte-psychiatrie-winterthur-ipw-winterthur"
+        "diplomee-e-infirmiere-polytechnicienne-en-soins-infirmiers-hf-fh-integrierte-psychiatrie-winterthur-ipw-winterthur"
       ],
       "previousSlugsByLocale": {
         "en": [
@@ -295,6 +301,7 @@
           "pflegefachfrau-pflegefachmann-hf-fh-60-100-integrierte-psychiatrie-winterthur-ipw-winterthur"
         ],
         "fr": [
+          "diplomee-e-infirmiere-polytechnicienne-en-soins-infirmiers-hf-fh-integrierte-psychiatrie-winterthur-ipw-winterthur",
           "infirmier-ere-dipl-hf-fh-60-100-integrierte-psychiatrie-winterthur-ipw-winterthur"
         ]
       },
@@ -319,7 +326,7 @@
         "it": "segretaria-medica-segretario-medico-50-80-integrierte-psychiatrie-winterthur-ipw-winterthur",
         "en": "medical-secretary-50-80-integrierte-psychiatrie-winterthur-ipw-winterthur",
         "de": "arztsekretarin-arztsekretar-50-80-ipw-winterthur",
-        "fr": "secretaire-medicale-50-80-integrierte-psychiatrie-winterthur-ipw-winterthur"
+        "fr": "secretaire-medical-e-50-80-integrierte-psychiatrie-winterthur-ipw-winterthur"
       },
       "company": "Integrierte Psychiatrie Winterthur (ipw)",
       "companyKey": "ipw",
@@ -344,7 +351,7 @@
       "url": "https://recruitingapp-2906.umantis.com/Vacancies/3819/Description/1",
       "source": "Integrierte Psychiatrie Winterthur (ipw) Dedicated Parser (Umantis listing tenant 2906)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T12:59:35.333Z",
+      "crawledAt": "2026-05-27T23:19:12.907Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -363,13 +370,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "arztsekretarin-arztsekretar-50-80-ipw-winterthur",
-        "secretaire-medical-e-50-80-integrierte-psychiatrie-winterthur-ipw-winterthur"
+        "secretaire-medicale-50-80-integrierte-psychiatrie-winterthur-ipw-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "arztsekretarin-arztsekretar-50-80-ipw-winterthur"
         ],
         "fr": [
+          "secretaire-medicale-50-80-integrierte-psychiatrie-winterthur-ipw-winterthur",
           "secretaire-medical-e-50-80-integrierte-psychiatrie-winterthur-ipw-winterthur"
         ]
       },
@@ -419,7 +427,7 @@
       "url": "https://recruitingapp-2906.umantis.com/Vacancies/3753/Description/1",
       "source": "Integrierte Psychiatrie Winterthur (ipw) Dedicated Parser (Umantis listing tenant 2906)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T12:59:34.725Z",
+      "crawledAt": "2026-05-27T23:19:12.217Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -467,9 +475,9 @@
       "slug": "apprendista-logista-efz-integrierte-psychiatrie-winterthur-ipw-winterthur",
       "slugByLocale": {
         "it": "apprendista-logista-efz-integrierte-psychiatrie-winterthur-ipw-winterthur",
-        "en": "apprentice-logistikerin-apprentice-logistiker-efz-integrierte-psychiatrie-winterthur-ipw-winterthur",
-        "de": "dipl-pflegefachfrau-dipl-pflegefachmann-80-100-kispi-zurich-zurich",
-        "fr": "apprenti-e-logistikerin-apprenti-e-logistiker-efz-integrierte-psychiatrie-winterthur-ipw-winterthur"
+        "en": "registered-nurse-80-100-universitats-kinderspital-zurich-kispi-zurich",
+        "de": "lernende-logistikerin-lernender-logistiker-efz-integrierte-psychiatrie-winterthur-ipw-winterthur",
+        "fr": "infirmier-ere-diplome-e-80-100-universitats-kinderspital-zurich-kispi-zurich"
       },
       "company": "Integrierte Psychiatrie Winterthur (ipw)",
       "companyKey": "ipw",
@@ -488,12 +496,13 @@
         "de": "Lernende Logistikerin / Lernender Logistiker EFZ bei Integrierte Psychiatrie Winterthur - Zürcher Unterland in Winterthur (8408, ZH), Schweiz.\n• Befristung: Befristet\n• Standort: Winterthur (ZH)\n• Bewerbung über das Umantis-Karriereportal von Integrierte Psychiatrie Winterthur (ipw)",
         "fr": "Posizione disponibile Apprentie logisticienne / apprentie logisticienne CFC presso Psychiatrie intégrée Winterthour - Unterland zurichois à Winterthour (8408, ZH), Suisse. --- Informazioni generali - Tipo di contratto : Temporaire - Luogo di lavoro : Winterthur (ZH) --- Contatto Candidature via il Portail de carrière Umantis di Psychiatrie intégrée Winterthur (ipw)"
       },
+      "needsRetranslation": true,
       "location": "Winterthur",
       "canton": "ZH",
       "url": "https://recruitingapp-2906.umantis.com/Vacancies/3665/Description/1",
       "source": "Integrierte Psychiatrie Winterthur (ipw) Dedicated Parser (Umantis listing tenant 2906)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T12:59:33.968Z",
+      "crawledAt": "2026-05-27T23:19:11.227Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -510,18 +519,11 @@
       "applyUrl": "https://recruitingapp-2906.umantis.com/Vacancies/3665/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "dipl-pflegefachfrau-dipl-pflegefachmann-80-100-kispi-zurich-zurich",
-        "lernende-logistikerin-lernender-logistiker-efz-ipw-winterthur",
-        "logistics-apprentice-efz-integrierte-psychiatrie-winterthur-ipw-winterthur",
-        "apprentice-logistician-efz-integrierte-psychiatrie-winterthur-ipw-winterthur",
-        "registered-nurse-80-100-universitats-kinderspital-zurich-kispi-zurich",
-        "lernende-logistikerin-lernender-logistiker-efz-integrierte-psychiatrie-winterthur-ipw-winterthur",
-        "apprenti-logisticien-efz-integrierte-psychiatrie-winterthur-ipw-winterthur",
-        "apprenti-e-logistique-efz-integrierte-psychiatrie-winterthur-ipw-winterthur",
-        "infirmier-ere-diplome-e-80-100-universitats-kinderspital-zurich-kispi-zurich"
-      ],
       "previousSlugsByLocale": {
+        "de": [
+          "dipl-pflegefachfrau-dipl-pflegefachmann-80-100-kispi-zurich-zurich",
+          "lernende-logistikerin-lernender-logistiker-efz-integrierte-psychiatrie-winterthur-ipw-winterthur"
+        ],
         "it": [
           "dipl-pflegefachfrau-dipl-pflegefachmann-80-100-kispi-zurich-zurich",
           "lernende-logistikerin-lernender-logistiker-efz-ipw-winterthur"
@@ -529,17 +531,26 @@
         "en": [
           "logistics-apprentice-efz-integrierte-psychiatrie-winterthur-ipw-winterthur",
           "apprentice-logistician-efz-integrierte-psychiatrie-winterthur-ipw-winterthur",
+          "apprentice-logistikerin-apprentice-logistiker-efz-integrierte-psychiatrie-winterthur-ipw-winterthur",
           "registered-nurse-80-100-universitats-kinderspital-zurich-kispi-zurich"
-        ],
-        "de": [
-          "lernende-logistikerin-lernender-logistiker-efz-integrierte-psychiatrie-winterthur-ipw-winterthur"
         ],
         "fr": [
           "apprenti-logisticien-efz-integrierte-psychiatrie-winterthur-ipw-winterthur",
           "apprenti-e-logistique-efz-integrierte-psychiatrie-winterthur-ipw-winterthur",
+          "apprenti-e-logistikerin-apprenti-e-logistiker-efz-integrierte-psychiatrie-winterthur-ipw-winterthur",
           "infirmier-ere-diplome-e-80-100-universitats-kinderspital-zurich-kispi-zurich"
         ]
       },
+      "previousSlugs": [
+        "dipl-pflegefachfrau-dipl-pflegefachmann-80-100-kispi-zurich-zurich",
+        "lernende-logistikerin-lernender-logistiker-efz-ipw-winterthur",
+        "logistics-apprentice-efz-integrierte-psychiatrie-winterthur-ipw-winterthur",
+        "apprentice-logistician-efz-integrierte-psychiatrie-winterthur-ipw-winterthur",
+        "apprentice-logistikerin-apprentice-logistiker-efz-integrierte-psychiatrie-winterthur-ipw-winterthur",
+        "apprenti-logisticien-efz-integrierte-psychiatrie-winterthur-ipw-winterthur",
+        "apprenti-e-logistique-efz-integrierte-psychiatrie-winterthur-ipw-winterthur",
+        "apprenti-e-logistikerin-apprenti-e-logistiker-efz-integrierte-psychiatrie-winterthur-ipw-winterthur"
+      ],
       "firstSeenAt": "2026-05-19T18:25:36.156Z",
       "salaryMin": 41600,
       "salaryMax": 63000,
@@ -580,12 +591,13 @@
         "de": "Oberärztin / Oberarzt oder Oberpsychologin / Oberpsychologe 50 - 100 % bei Integrierte Psychiatrie Winterthur - Zürcher Unterland in Winterthur (8408, ZH), Schweiz.\n• Befristung: Unbefristet\n• Standort: Winterthur (ZH)\n• Bewerbung über das Umantis-Karriereportal von Integrierte Psychiatrie Winterthur (ipw)",
         "fr": "Posizione disponibile Médecin-chef ou psychologue-chef 50 - 100 % - SEDE : Psychiatrie intégrée Winterthur - Unterland zurichois, Winterthur (8408, ZH), Svizzera - Tipo di contratto : Limite de temps : indéterminée Descrizione Candidature via le portail de carrière Umantis de Psychiatrie intégrée Winterthur (IPW)"
       },
+      "needsRetranslation": true,
       "location": "Winterthur",
       "canton": "ZH",
       "url": "https://recruitingapp-2906.umantis.com/Vacancies/3820/Description/1",
       "source": "Integrierte Psychiatrie Winterthur (ipw) Dedicated Parser (Umantis listing tenant 2906)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T12:59:33.368Z",
+      "crawledAt": "2026-05-27T23:19:10.505Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -630,9 +642,9 @@
       "id": "ipw-f66954b76109",
       "slug": "arztsekretarin-arztsekretar-60-mutterschaftsvertretung-ipw-winterthur",
       "slugByLocale": {
-        "de": "arztsekretarin-arztsekretar-60-mutterschaftsvertretung-integrierte-psychiatrie-winterthur-ipw-winterthur",
         "it": "arztsekretarin-arztsekretar-60-mutterschaftsvertretung-ipw-winterthur",
         "en": "arztsekretarin-arztsekretar-60-mutterschaftsvertretung-ipw-winterthur",
+        "de": "arztsekretarin-arztsekretar-60-mutterschaftsvertretung-integrierte-psychiatrie-winterthur-ipw-winterthur",
         "fr": "arztsekretarin-arztsekretar-60-mutterschaftsvertretung-ipw-winterthur"
       },
       "company": "Integrierte Psychiatrie Winterthur (ipw)",
@@ -640,17 +652,17 @@
       "companyDomain": "ipw.ch",
       "title": "Arztsekretärin / Arztsekretär 60 % - Mutterschaftsvertretung",
       "titleByLocale": {
-        "de": "Arztsekretärin / Arztsekretär 60 % - Mutterschaftsvertretung",
         "it": "Arztsekretärin / Arztsekretär 60 % - Mutterschaftsvertretung",
         "en": "Arztsekretärin / Arztsekretär 60 % - Mutterschaftsvertretung",
+        "de": "Arztsekretärin / Arztsekretär 60 % - Mutterschaftsvertretung",
         "fr": "Arztsekretärin / Arztsekretär 60 % - Mutterschaftsvertretung"
       },
       "description": "Arztsekretärin / Arztsekretär 60 % - Mutterschaftsvertretung bei Integrierte Psychiatrie Winterthur - Zürcher Unterland in Winterthur (8408, ZH), Schweiz.\n\n• Befristung: Befristet\n• Standort: Winterthur (ZH)\n• Bewerbung über das Umantis-Karriereportal von Integrierte Psychiatrie Winterthur (ipw)",
       "descriptionByLocale": {
-        "de": "Arztsekretärin / Arztsekretär 60 % - Mutterschaftsvertretung bei Integrierte Psychiatrie Winterthur - Zürcher Unterland in Winterthur (8408, ZH), Schweiz.\n\n• Befristung: Befristet\n• Standort: Winterthur (ZH)\n• Bewerbung über das Umantis-Karriereportal von Integrierte Psychiatrie Winterthur (ipw)",
-        "it": "Arztsekretärin / Arztsekretär 60 % - Mutterschaftsvertretung bei Integrierte Psychiatrie Winterthur - Zürcher Unterland in Winterthur (8408, ZH), Schweiz.\n\n• Befristung: Befristet\n• Standort: Winterthur (ZH)\n• Bewerbung über das Umantis-Karriereportal von Integrierte Psychiatrie Winterthur (ipw)",
-        "en": "Arztsekretärin / Arztsekretär 60 % - Mutterschaftsvertretung bei Integrierte Psychiatrie Winterthur - Zürcher Unterland in Winterthur (8408, ZH), Schweiz.\n\n• Befristung: Befristet\n• Standort: Winterthur (ZH)\n• Bewerbung über das Umantis-Karriereportal von Integrierte Psychiatrie Winterthur (ipw)",
-        "fr": "Arztsekretärin / Arztsekretär 60 % - Mutterschaftsvertretung bei Integrierte Psychiatrie Winterthur - Zürcher Unterland in Winterthur (8408, ZH), Schweiz.\n\n• Befristung: Befristet\n• Standort: Winterthur (ZH)\n• Bewerbung über das Umantis-Karriereportal von Integrierte Psychiatrie Winterthur (ipw)"
+        "it": "Arztsekretärin / Arztsekretär 60 % - Mutterschaftsvertretung bei Integrierte Psychiatrie Winterthur - Zürcher Unterland in Winterthur (8408, ZH), Schweiz.\n• Befristung: Befristet\n• Standort: Winterthur (ZH)\n• Bewerbung über das Umantis-Karriereportal von Integrierte Psychiatrie Winterthur (ipw)",
+        "en": "Arztsekretärin / Arztsekretär 60 % - Mutterschaftsvertretung bei Integrierte Psychiatrie Winterthur - Zürcher Unterland in Winterthur (8408, ZH), Schweiz.\n• Befristung: Befristet\n• Standort: Winterthur (ZH)\n• Bewerbung über das Umantis-Karriereportal von Integrierte Psychiatrie Winterthur (ipw)",
+        "de": "Arztsekretärin / Arztsekretär 60 % - Mutterschaftsvertretung bei Integrierte Psychiatrie Winterthur - Zürcher Unterland in Winterthur (8408, ZH), Schweiz.\n• Befristung: Befristet\n• Standort: Winterthur (ZH)\n• Bewerbung über das Umantis-Karriereportal von Integrierte Psychiatrie Winterthur (ipw)",
+        "fr": "Arztsekretärin / Arztsekretär 60 % - Mutterschaftsvertretung bei Integrierte Psychiatrie Winterthur - Zürcher Unterland in Winterthur (8408, ZH), Schweiz.\n• Befristung: Befristet\n• Standort: Winterthur (ZH)\n• Bewerbung über das Umantis-Karriereportal von Integrierte Psychiatrie Winterthur (ipw)"
       },
       "needsRetranslation": true,
       "location": "Winterthur",
@@ -658,7 +670,7 @@
       "url": "https://recruitingapp-2906.umantis.com/Vacancies/3831/Description/1",
       "source": "Integrierte Psychiatrie Winterthur (ipw) Dedicated Parser (Umantis listing tenant 2906)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T12:59:32.763Z",
+      "crawledAt": "2026-05-27T23:19:09.787Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -674,17 +686,16 @@
       "postedDate": "2026-05-27",
       "applyUrl": "https://recruitingapp-2906.umantis.com/Vacancies/3831/Application/CheckLogin/1",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "dipl-pflegefachfrau-dipl-pflegefachmann-hf-nachtdienst-im-klinikbereich-neuropsychiatrie"
+      ],
       "previousSlugsByLocale": {
         "de": [
           "dipl-pflegefachfrau-dipl-pflegefachmann-hf-nachtdienst-im-klinikbereich-neuropsychiatrie"
         ]
       },
-      "previousSlugs": [
-        "dipl-pflegefachfrau-dipl-pflegefachmann-hf-nachtdienst-im-klinikbereich-neuropsychiatrie"
-      ],
+      "firstSeenAt": "2026-05-27T12:59:32.763Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -696,17 +707,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-05-27T12:59:32.763Z",
-      "retranslationAttempts": 1
+      }
     },
     {
       "id": "ipw-220bbb293a87",
       "slug": "specialista-specialista-finanziaria-60-rappresentanza-premaman-integrierte-psychiatrie-winterthur-ipw-winterthur",
       "slugByLocale": {
-        "de": "sachbearbeiterin-sachbearbeiter-finanzbuchhaltung-60-mutterschaftsvertretung-ipw",
         "it": "specialista-specialista-finanziaria-60-rappresentanza-premaman-integrierte-psychiatrie-winterthur-ipw-winterthur",
         "en": "specialist-specialist-financial-accounting-60-maternity-representation-integrierte-psychiatrie-winterthur-ipw-winterthur",
+        "de": "sachbearbeiterin-sachbearbeiter-finanzbuchhaltung-60-mutterschaftsvertretung-ipw",
         "fr": "specialiste-specialiste-comptabilite-financiere-60-representation-de-la-maternite-integrierte-psychiatrie-winterthur-ipw"
       },
       "company": "Integrierte Psychiatrie Winterthur (ipw)",
@@ -714,24 +723,25 @@
       "companyDomain": "ipw.ch",
       "title": "Sachbearbeiterin / Sachbearbeiter Finanzbuchhaltung 60 % - Mutterschaftsvertretung",
       "titleByLocale": {
-        "de": "Sachbearbeiterin / Sachbearbeiter Finanzbuchhaltung 60 % - Mutterschaftsvertretung",
         "it": "Specialista / Specialista Finanziaria 60% - Rappresentanza Premaman",
         "en": "Specialist / specialist Financial accounting 60% - Maternity representation",
+        "de": "Sachbearbeiterin / Sachbearbeiter Finanzbuchhaltung 60 % - Mutterschaftsvertretung",
         "fr": "Spécialiste / spécialiste Comptabilité financière 60% - Représentation de la maternité"
       },
       "description": "Sachbearbeiterin / Sachbearbeiter Finanzbuchhaltung 60 % - Mutterschaftsvertretung bei Integrierte Psychiatrie Winterthur - Zürcher Unterland in Winterthur (8408, ZH), Schweiz.\n\n• Befristung: Befristet\n• Standort: Winterthur (ZH)\n• Bewerbung über das Umantis-Karriereportal von Integrierte Psychiatrie Winterthur (ipw)",
       "descriptionByLocale": {
-        "de": "Sachbearbeiterin / Sachbearbeiter Finanzbuchhaltung 60 % - Mutterschaftsvertretung bei Integrierte Psychiatrie Winterthur - Zürcher Unterland in Winterthur (8408, ZH), Schweiz.\n\n• Befristung: Befristet\n• Standort: Winterthur (ZH)\n• Bewerbung über das Umantis-Karriereportal von Integrierte Psychiatrie Winterthur (ipw)",
-        "it": "Specialista / Specialista Finanziaria 60% - Rappresentanza di maternità in Psichiatria Integrata Winterthur - Zürcher Unterland in Winterthur (8408, ZH), Svizzera.\n\n• Scadenza: Limitato\n• Posizione: Winterthur (ZH)\n• Applicazione tramite il portale di carriera di Umantis della Psichiatria Integrata Winterthur (ipw)",
-        "en": "Specialist / specialist Financial accounting 60% - Maternity representation at Integrated Psychiatry Winterthur - Zürcher Unterland in Winterthur (8408, ZH), Switzerland.\n\n• Deadline: Limited\n• Location: Winterthur (ZH)\n• Application via the Umantis career portal of Integrated Psychiatry Winterthur (ipw)",
-        "fr": "Spécialiste / spécialiste Comptabilité financière 60% - Représentation de la maternité à la psychiatrie intégrée Winterthur - Zürcher Unterland à Winterthur (8408, ZH), Suisse.\n\n• Délai: limité\n• Lieu: Winterthur (ZH)\n• Application via le portail de carrière Umantis de la psychiatrie intégrée Winterthur (ipw)"
+        "it": "Specialista / Specialista Finanziaria 60% - Rappresentanza di maternità in Psichiatria Integrata Winterthur - Zürcher Unterland in Winterthur (8408, ZH), Svizzera.\n• Scadenza: Limitato\n• Posizione: Winterthur (ZH)\n• Applicazione tramite il portale di carriera di Umantis della Psichiatria Integrata Winterthur (ipw)",
+        "en": "Specialist / specialist Financial accounting 60% - Maternity representation at Integrated Psychiatry Winterthur - Zürcher Unterland in Winterthur (8408, ZH), Switzerland.\n• Deadline: Limited\n• Location: Winterthur (ZH)\n• Application via the Umantis career portal of Integrated Psychiatry Winterthur (ipw)",
+        "de": "Sachbearbeiterin / Sachbearbeiter Finanzbuchhaltung 60 % - Mutterschaftsvertretung bei Integrierte Psychiatrie Winterthur - Zürcher Unterland in Winterthur (8408, ZH), Schweiz.\n• Befristung: Befristet\n• Standort: Winterthur (ZH)\n• Bewerbung über das Umantis-Karriereportal von Integrierte Psychiatrie Winterthur (ipw)",
+        "fr": "Spécialiste / spécialiste Comptabilité financière 60% - Représentation de la maternité à la psychiatrie intégrée Winterthur - Zürcher Unterland à Winterthur (8408, ZH), Suisse.\n• Délai: limité\n• Lieu: Winterthur (ZH)\n• Application via le portail de carrière Umantis de la psychiatrie intégrée Winterthur (ipw)"
       },
+      "needsRetranslation": false,
       "location": "Winterthur",
       "canton": "ZH",
       "url": "https://recruitingapp-2906.umantis.com/Vacancies/3833/Description/1",
       "source": "Integrierte Psychiatrie Winterthur (ipw) Dedicated Parser (Umantis listing tenant 2906)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T12:59:31.052Z",
+      "crawledAt": "2026-05-27T23:19:06.757Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -747,22 +757,10 @@
       "postedDate": "2026-05-27",
       "applyUrl": "https://recruitingapp-2906.umantis.com/Vacancies/3833/Application/CheckLogin/1",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-05-27T12:59:31.052Z",
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "sachbearbeiterin-sachbearbeiter-finanzbuchhaltung-60-mutterschaftsvertretung-ipw"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "sachbearbeiterin-sachbearbeiter-finanzbuchhaltung-60-mutterschaftsvertretung-ipw"
@@ -774,9 +772,19 @@
           "sachbearbeiterin-sachbearbeiter-finanzbuchhaltung-60-mutterschaftsvertretung-ipw"
         ]
       },
-      "previousSlugs": [
-        "sachbearbeiterin-sachbearbeiter-finanzbuchhaltung-60-mutterschaftsvertretung-ipw"
-      ]
+      "firstSeenAt": "2026-05-27T12:59:31.052Z",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      }
     }
   ]
 }
