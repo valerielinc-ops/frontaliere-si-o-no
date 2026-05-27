@@ -94,9 +94,9 @@
       "slug": "dipl-pflegefachfrau-dipl-pflegefachmann-80-100-kispi-zurich-zurich-2",
       "slugByLocale": {
         "it": "dipl-pflegefachfrau-dipl-pflegefachmann-80-100-kispi-zurich-zurich-2",
-        "en": "dipl-career-dipl-care-specialist-80-100-universitats-kinderspital-zurich-kispi-zurich",
+        "en": "registered-nurse-80-100-universitats-kinderspital-zurich-kispi-zurich",
         "de": "dipl-pflegefachfrau-dipl-pflegefachmann-80-100-kispi-zurich-zurich",
-        "fr": "dipl-carriere-dipl-specialiste-des-soins-80-100-universitats-kinderspital-zurich-kispi-zurich"
+        "fr": "infirmier-ere-diplome-e-80-100-universitats-kinderspital-zurich-kispi-zurich"
       },
       "company": "Universitäts-Kinderspital Zürich (Kispi)",
       "companyKey": "kispi-zurich",
@@ -104,9 +104,9 @@
       "title": "Dipl. Pflegefachfrau / Dipl. Pflegefachmann 80-100%",
       "titleByLocale": {
         "it": "Dipl. Pflegefachfrau / Dipl. Pflegefachmann 80-100%",
-        "en": "Dipl. Career / Dipl. Care specialist 80-100 %",
+        "en": "Qualified nurse 80-100%",
         "de": "Dipl. Pflegefachfrau / Dipl. Pflegefachmann 80-100 %",
-        "fr": "Dipl. Carrière / Dipl. Spécialiste des soins 80-100 %"
+        "fr": "Infirmière /Infirmier diplômé 80-100 %"
       },
       "description": "Dipl. Pflegefachfrau / Dipl. Pflegefachmann 80-100% bei Kinderspital Zürich Eleonorenstiftung in Zürich (8032, ZH), Schweiz.\n\n• Art: Vollzeit\n• Befristung: unbefristet\n• Standort: Zürich (ZH)\n• Bewerbung über das Umantis-Karriereportal von Universitäts-Kinderspital Zürich (Kispi)",
       "descriptionByLocale": {
@@ -174,22 +174,26 @@
       },
       "previousSlugsByLocale": {
         "en": [
-          "registered-nurse-80-100-universitats-kinderspital-zurich-kispi-zurich"
+          "registered-nurse-80-100-universitats-kinderspital-zurich-kispi-zurich",
+          "dipl-career-dipl-care-specialist-80-100-universitats-kinderspital-zurich-kispi-zurich"
         ],
         "fr": [
-          "infirmier-ere-diplome-e-80-100-universitats-kinderspital-zurich-kispi-zurich"
+          "infirmier-ere-diplome-e-80-100-universitats-kinderspital-zurich-kispi-zurich",
+          "dipl-carriere-dipl-specialiste-des-soins-80-100-universitats-kinderspital-zurich-kispi-zurich"
         ]
       },
       "previousSlugs": [
         "registered-nurse-80-100-universitats-kinderspital-zurich-kispi-zurich",
-        "infirmier-ere-diplome-e-80-100-universitats-kinderspital-zurich-kispi-zurich"
+        "infirmier-ere-diplome-e-80-100-universitats-kinderspital-zurich-kispi-zurich",
+        "dipl-career-dipl-care-specialist-80-100-universitats-kinderspital-zurich-kispi-zurich",
+        "dipl-carriere-dipl-specialiste-des-soins-80-100-universitats-kinderspital-zurich-kispi-zurich"
       ]
     },
     {
       "id": "kispi-zurich-8dab6d28c585",
       "slug": "medico-senior-80-100-universitats-kinderspital-zurich-kispi-zurich",
       "slugByLocale": {
-        "it": "medico-senior-80-100-universitats-kinderspital-zurich-kispi-zurich",
+        "it": "primario-80-100-universitats-kinderspital-zurich-kispi-zurich",
         "en": "senior-physician-80-100-universitats-kinderspital-zurich-kispi-zurich",
         "de": "oberarztin-oberarzt-80-100-kispi-zurich-zurich",
         "fr": "medecin-aine-80-100-universitats-kinderspital-zurich-kispi-zurich"
@@ -236,12 +240,11 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "oberarztin-oberarzt-80-100-kispi-zurich-zurich",
-        "primario-80-100-universitats-kinderspital-zurich-kispi-zurich"
+        "medico-senior-80-100-universitats-kinderspital-zurich-kispi-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "oberarztin-oberarzt-80-100-kispi-zurich-zurich",
-          "primario-80-100-universitats-kinderspital-zurich-kispi-zurich"
+          "oberarztin-oberarzt-80-100-kispi-zurich-zurich"
         ],
         "en": [
           "oberarztin-oberarzt-80-100-kispi-zurich-zurich"
@@ -477,7 +480,7 @@
       "id": "kispi-zurich-f2e0b8b7d974",
       "slug": "consulente-senior-m-w-universitats-kinderspital-zurich-kispi-zurich",
       "slugByLocale": {
-        "it": "consulente-senior-m-w-universitats-kinderspital-zurich-kispi-zurich",
+        "it": "segretaria-medica-m-f-60-80-universitats-kinderspital-zurich-kispi-zurich",
         "en": "senior-consultant-m-w-universitats-kinderspital-zurich-kispi-zurich",
         "de": "arztsekretarin-m-w-60-80-universitats-kinderspital-zurich-kispi-zurich",
         "fr": "consultant-principal-m-m-universitats-kinderspital-zurich-kispi-zurich"
@@ -527,8 +530,7 @@
           "arztsekretarin-m-w-60-80-kispi-zurich-zurich"
         ],
         "it": [
-          "arztsekretarin-m-w-60-80-kispi-zurich-zurich",
-          "segretaria-medica-m-f-60-80-universitats-kinderspital-zurich-kispi-zurich"
+          "arztsekretarin-m-w-60-80-kispi-zurich-zurich"
         ],
         "en": [
           "arztsekretarin-m-w-60-80-kispi-zurich-zurich"
@@ -539,7 +541,9 @@
       },
       "previousSlugs": [
         "arztsekretarin-m-w-60-80-kispi-zurich-zurich",
-        "segretaria-medica-m-f-60-80-universitats-kinderspital-zurich-kispi-zurich"
+        "consulente-senior-m-w-universitats-kinderspital-zurich-kispi-zurich",
+        "senior-consultant-m-w-universitats-kinderspital-zurich-kispi-zurich",
+        "consultant-principal-m-m-universitats-kinderspital-zurich-kispi-zurich"
       ],
       "firstSeenAt": "2026-05-20T23:19:34.031Z",
       "salaryMin": 68000,
