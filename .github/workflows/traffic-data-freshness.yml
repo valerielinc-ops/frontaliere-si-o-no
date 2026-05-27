@@ -8,6 +8,7 @@ on:
 permissions:
   contents: read
   issues: write
+  actions: write
 
 jobs:
   freshness-check:
@@ -26,6 +27,7 @@ jobs:
           if [ "$CURRENT_HOUR" -lt 6 ] || [ "$CURRENT_HOUR" -ge 20 ]; then
             echo "Outside peak hours, skipping freshness check"
             echo "STALE=false" >> "$GITHUB_OUTPUT"
+            echo "AGE_MINUTES=0" >> "$GITHUB_OUTPUT"
             exit 0
           fi
 
@@ -33,6 +35,7 @@ jobs:
           if [ ! -f "$FILE" ]; then
             echo "STALE=true" >> "$GITHUB_OUTPUT"
             echo "REASON=File missing" >> "$GITHUB_OUTPUT"
+            echo "AGE_MINUTES=0" >> "$GITHUB_OUTPUT"
             exit 0
           fi
 
@@ -45,6 +48,7 @@ jobs:
           if [ -z "$LAST_MODIFIED" ]; then
             echo "STALE=true" >> "$GITHUB_OUTPUT"
             echo "REASON=No lastUpdate field found" >> "$GITHUB_OUTPUT"
+            echo "AGE_MINUTES=0" >> "$GITHUB_OUTPUT"
             exit 0
           fi
 
@@ -55,6 +59,7 @@ jobs:
           ")
 
           echo "Data age: ${AGE_MINUTES} minutes"
+          echo "AGE_MINUTES=${AGE_MINUTES}" >> "$GITHUB_OUTPUT"
 
           if [ "$AGE_MINUTES" -gt 240 ]; then
             echo "STALE=true" >> "$GITHUB_OUTPUT"
@@ -63,18 +68,60 @@ jobs:
             echo "STALE=false" >> "$GITHUB_OUTPUT"
           fi
 
-      - name: Open issue if data is stale
+      # Self-heal: when stale, dispatch traffic-scheduler immediately so the next freshness run
+      # (3h later) sees recovered data and auto-closes the issue.
+      - name: Self-heal — dispatch traffic-scheduler
         if: steps.check.outputs.STALE == 'true'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          # Check if a stale-data issue is already open to avoid duplicates
-          EXISTING=$(gh issue list --label "traffic-stale" --state open --json number --jq '.[0].number')
-          if [ -n "$EXISTING" ]; then
-            echo "Stale data issue #$EXISTING already open — skipping"
+          echo "Dispatching traffic-scheduler.yml to attempt self-heal"
+          gh workflow run traffic-scheduler.yml --ref main || echo "dispatch failed (non-fatal)"
+
+      # Auto-close confirmed + pending stale issues when data recovers.
+      - name: Auto-close stale issues on recovery
+        if: steps.check.outputs.STALE == 'false'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          AGE_MINUTES: ${{ steps.check.outputs.AGE_MINUTES }}
+        run: |
+          for LABEL in "traffic-stale" "traffic-stale-pending"; do
+            for NUM in $(gh issue list --label "$LABEL" --state open --json number --jq '.[].number'); do
+              gh issue comment "$NUM" --body "Data recovered. Latest snapshot is ${AGE_MINUTES} minutes old (threshold 240 min). Auto-closing."
+              gh issue close "$NUM" --reason completed
+              echo "Closed issue #$NUM (label=$LABEL)"
+            done
+          done
+
+      # Debounced opener: first stale reading → pending. Second consecutive → promote to confirmed.
+      - name: Open / debounce stale issue
+        if: steps.check.outputs.STALE == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REASON: ${{ steps.check.outputs.REASON }}
+        run: |
+          CONFIRMED=$(gh issue list --label "traffic-stale" --state open --json number --jq '.[0].number')
+          if [ -n "$CONFIRMED" ]; then
+            gh issue comment "$CONFIRMED" --body "Still stale at $(date -u +%FT%TZ) — ${REASON}. Self-heal dispatch attempted."
+            echo "Updated existing confirmed issue #$CONFIRMED"
             exit 0
           fi
+
+          PENDING=$(gh issue list --label "traffic-stale-pending" --state open --json number --jq '.[0].number')
+          if [ -n "$PENDING" ]; then
+            # 2nd consecutive stale → promote.
+            gh issue edit "$PENDING" \
+              --add-label "traffic-stale" --add-label "bug" \
+              --remove-label "traffic-stale-pending" \
+              --title "Traffic data is stale — cron may have failed"
+            gh issue comment "$PENDING" --body "Confirmed: 2 consecutive freshness checks reported stale data. ${REASON}. Self-heal dispatched; check traffic-scheduler workflow for failures."
+            echo "Promoted pending issue #$PENDING to confirmed"
+            exit 0
+          fi
+
+          # First stale reading — open a pending issue. Will be auto-closed next run if data recovers.
           gh issue create \
-            --title "Traffic data is stale — cron may have failed" \
-            --body "The traffic data freshness check detected that \`data/border-wait-current.json\` is more than 4 hours old during peak hours. Reason: ${{ steps.check.outputs.REASON }}. Check the traffic-scheduler workflow for failures." \
-            --label "traffic-stale" --label "bug"
+            --title "[pending] Traffic data freshness — 1st stale reading" \
+            --body "First stale reading detected at $(date -u +%FT%TZ). Reason: ${REASON}. Self-heal dispatched traffic-scheduler. This issue will be auto-closed on next freshness run if data recovers, or promoted to a confirmed bug if it remains stale." \
+            --label "traffic-stale-pending"
+          echo "Opened pending issue"
