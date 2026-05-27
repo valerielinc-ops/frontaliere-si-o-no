@@ -3846,6 +3846,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-sciopero-train-tilo-28-29-maggio-2025': { name: 'Scioperi trasporti', path: '/articoli-frontaliere/sciopero-train-tilo-28-29-maggio-2025', parent: 'blog' },
     'blog-varese-camera-commercio-lavoro-frontalieri-ticino': { name: 'Lavoro Varese frontalieri', path: '/articoli-frontaliere/varese-camera-commercio-lavoro-frontalieri-ticino', parent: 'blog' },
     'blog-frontaliere-con-figli-asilo-nido-svizzera': { name: 'Asilo nido Svizzera', path: '/articoli-frontaliere/frontaliere-con-figli-asilo-nido-svizzera', parent: 'blog' },
+    'blog-aumento-beneficiari-rendite-avs-ticino': { name: 'Pensione AVS', path: '/articoli-frontaliere/aumento-beneficiari-rendite-avs-ticino', parent: 'blog' },
  };
 
  const info = sectionNames[section];

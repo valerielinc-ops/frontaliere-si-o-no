@@ -40400,6 +40400,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-aumento-beneficiari-rendite-avs-ticino': {
+    title: 'Aumento beneficiari rendite AVS in Ticino: +40.400 nel 2025',
+    description: 'L\'AVS ha erogato 2,64 milioni di rendite nel 2025, con +1,6% rispetto al 2024. Scopri le implicazioni per i frontalieri. Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, aumento, beneficiari, rendite, 2025',
+    ogTitle: 'Aumento beneficiari rendite AVS in Ticino: +40.400 nel 2025',
+    ogDescription: 'L\'AVS ha erogato 2,64 milioni di rendite nel 2025, con +1,6% rispetto al 2024. Scopri le implicazioni per i frontalieri.',
+    canonicalPath: '/articoli-frontaliere/aumento-beneficiari-rendite-avs-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Aumento beneficiari rendite AVS in Ticino: +40.400 nel 2025",
+      "description": "L'AVS ha erogato 2,64 milioni di rendite nel 2025, con +1,6% rispetto al 2024. Scopri le implicazioni per i frontalieri. Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/aumento-beneficiari-rendite-avs-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista panoramica di Lugano con il lago e le montagne"
+      },
+      "datePublished": "2026-05-27T02:33:07+00:00",
+      "dateModified": "2026-05-27T02:33:07+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/aumento-beneficiari-rendite-avs-ticino`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

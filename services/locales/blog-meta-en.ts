@@ -7810,6 +7810,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.frontaliere-con-figli-asilo-nido-svizzera.title': 'Cross-Border Workers with Children: Swiss Daycare Explained',
     'blog.article.frontaliere-con-figli-asilo-nido-svizzera.excerpt': 'Practical Guide for Cross-Border Workers with Children: Ticino Daycare, Costs, Waitlists, Subsidies, Italian Alternatives',
     'blog.article.frontaliere-con-figli-asilo-nido-svizzera.imageAlt': 'Children in a Swiss kindergarten',
+    'blog.article.aumento-beneficiari-rendite-avs-ticino.title': 'Increase in AVS pension recipients in Ticino: +40,400 in 2025',
+    'blog.article.aumento-beneficiari-rendite-avs-ticino.excerpt': 'The AVS disbursed 2.64 million pensions in 2025, a +1.6% increase from 2024',
+    'blog.article.aumento-beneficiari-rendite-avs-ticino.imageAlt': 'Panoramic view of Lugano with lake and mountains',
 };
 
 export default blogMetaEn;

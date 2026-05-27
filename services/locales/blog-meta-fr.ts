@@ -7811,6 +7811,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.frontaliere-con-figli-asilo-nido-svizzera.title': 'Frontaliers avec enfants: comment fonctionne la crèche en Suisse',
     'blog.article.frontaliere-con-figli-asilo-nido-svizzera.excerpt': 'Guide pratique pour les frontaliers avec enfants: crèches tessinoises, coûts, liste d\'attente, subventions, alternatives italiennes',
     'blog.article.frontaliere-con-figli-asilo-nido-svizzera.imageAlt': 'Enfants dans une garderie en Suisse',
+    'blog.article.aumento-beneficiari-rendite-avs-ticino.title': 'Augmentation des bénéficiaires de rentes AVS au Tessin: +40.400 en 2025',
+    'blog.article.aumento-beneficiari-rendite-avs-ticino.excerpt': 'L\'AVS a versé 2,64 millions de rentes en 2025, avec +1,6% par rapport à 2024',
+    'blog.article.aumento-beneficiari-rendite-avs-ticino.imageAlt': 'Vue panoramique de Lugano avec lac et montagnes',
 };
 
 export default blogMetaFr;

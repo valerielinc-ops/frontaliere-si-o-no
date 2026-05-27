@@ -7811,6 +7811,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.frontaliere-con-figli-asilo-nido-svizzera.title': 'Frontalieri con figli: come funziona l\'asilo nido in Svizzera',
     'blog.article.frontaliere-con-figli-asilo-nido-svizzera.excerpt': 'Guida pratica per i frontalieri con figli: asili nido ticinesi, costi, lista d\'attesa, sussidi, alternative italiane',
     'blog.article.frontaliere-con-figli-asilo-nido-svizzera.imageAlt': 'Bambini in un asilo nido in Svizzera',
+    'blog.article.aumento-beneficiari-rendite-avs-ticino.title': 'Aumento beneficiari rendite AVS in Ticino: +40.400 nel 2025',
+    'blog.article.aumento-beneficiari-rendite-avs-ticino.excerpt': 'L\'AVS ha erogato 2,64 milioni di rendite nel 2025, con +1,6% rispetto al 2024',
+    'blog.article.aumento-beneficiari-rendite-avs-ticino.imageAlt': 'Vista panoramica di Lugano con il lago e le montagne',
 };
 
 export default blogMetaIt;

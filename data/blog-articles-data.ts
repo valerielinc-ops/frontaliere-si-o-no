@@ -24806,4 +24806,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'aumento-beneficiari-rendite-avs-ticino',
+ category: 'pensione',
+ date: '2026-05-27T02:33:06.970Z',
+ image: '/images/blog/aumento-beneficiari-rendite-avs-ticino.webp',
+ hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
+ },
 ] satisfies Article[];

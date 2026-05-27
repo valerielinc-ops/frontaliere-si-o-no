@@ -7809,6 +7809,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.frontaliere-con-figli-asilo-nido-svizzera.title': 'Grenzgänger mit Kindern: Wie funktioniert der Kindergarten in der Schweiz',
     'blog.article.frontaliere-con-figli-asilo-nido-svizzera.excerpt': 'Praktische Anleitung für Grenzgänger mit Kindern: Kindergärten im Tessin, Kosten, Warteliste, Zuschüsse, alternative in Italien',
     'blog.article.frontaliere-con-figli-asilo-nido-svizzera.imageAlt': 'Kinder in einem Schweizer Kindergarten',
+    'blog.article.aumento-beneficiari-rendite-avs-ticino.title': 'Steigerung der AVS-Rentenempfänger im Tessin: +40.400 im Jahr 2025',
+    'blog.article.aumento-beneficiari-rendite-avs-ticino.excerpt': 'Die AVS hat im Jahr 2025 2,64 Millionen Renten ausgezahlt, mit +1,6% im Vergleich zum Jahr 2024',
+    'blog.article.aumento-beneficiari-rendite-avs-ticino.imageAlt': 'Panoramablick auf Lugano mit See und Bergen',
 };
 
 export default blogMetaDe;
