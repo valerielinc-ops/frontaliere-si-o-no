@@ -1,6 +1,6 @@
 {
   "crawlerKey": "ubp",
-  "assembledAt": "2026-05-27T00:38:21.105Z",
+  "assembledAt": "2026-05-27T14:18:18.459Z",
   "jobs": [
     {
       "id": "ubp-5622be80e37a",
@@ -33,7 +33,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/297",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-27T00:38:13.812Z",
+      "crawledAt": "2026-05-27T14:18:15.743Z",
       "addressLocality": "London, United Kingdom",
       "addressRegion": "TI",
       "addressCountry": "",
@@ -63,6 +63,7 @@
         "agente-delle-operazioni-bancarie-union-bancaire-privee-london-united-kingdom"
       ],
       "firstSeenAt": "2026-05-17T11:17:36.670Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -107,7 +108,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/265",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-27T00:38:13.268Z",
+      "crawledAt": "2026-05-27T14:18:15.249Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -184,7 +185,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/383",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-27T00:38:12.737Z",
+      "crawledAt": "2026-05-27T14:18:14.757Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -261,7 +262,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/514",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-27T00:38:12.201Z",
+      "crawledAt": "2026-05-27T14:18:14.264Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -305,80 +306,6 @@
       }
     },
     {
-      "id": "ubp-69ca21fc1d2c",
-      "slug": "agente-centrale-union-bancaire-privee-geneva-switzerland",
-      "slugByLocale": {
-        "it": "agente-centrale-union-bancaire-privee-geneva-switzerland",
-        "en": "middle-officer-union-bancaire-privee-geneva-switzerland",
-        "de": "middle-officer-ubp-ch",
-        "fr": "middle-officer-ubp-ch"
-      },
-      "company": "Union Bancaire Privée",
-      "companyKey": "ubp",
-      "companyDomain": "ubp.com",
-      "title": "Middle Officer",
-      "titleByLocale": {
-        "it": "Agente centrale",
-        "en": "Middle Officer",
-        "de": "Middle Officer",
-        "fr": "Middle Officer"
-      },
-      "description": "• Mission\n\n• The Middle Officer in Asset Management acts as the central point of contact for operational queries, ensuring timely client responses and smooth transaction processing. Key responsibilities include trade matching, settlement follow-up, daily reconciliations, collateral management, and issue resolution. The role also involves producing activity reports, collaborating with counterparties, and implementing new processes to enhance operational efficiency.\n\n• Main responsibilities\n\n• Act as the central point of contact for operational queries, and always available to respond to our client queries in a timely manner\n\n• Securities & FX trade matching, instruction to relevant third parties and settlement follow-up\n\n• OTC & ETD trade matching, and clearing monitoring\n\n• Produce the daily activity reports to third parties\n\n• Perform daily reconciliations of portfolio positions, cash balances and transactions.\n\n• Breaks analysis, investigation until resolution\n\n• Participation in the implementation of new processes and controls\n\n• Oversee the daily management of collateral for derivatives\n\n• Perform daily reconciliations of collateral balances with counterparties, resolving discrepancies in a timely manner.\n\n• Collaborate with counterparties, clearing brokers, and custodians to ensure smooth collateral movements and settlements.\n\n• Your Profile\n\n• +5 years of experience in Asset Management / Operations or FX activities\n\n• University degree(s) in accounting, finance and/or business management\n\n• Strong knowledge of fund structures, share class operations, and regulatory frameworks (e.g., EMIR, UCITS, AIFMD).\n\n• Deep understanding of currency markets, hedging instruments (e.g., forwards, swaps), and collateral management practices.\n\n• Specific competencies\n\n• Strong Analytical skills and problem-solving skills.\n\n• Excellent communication and interpersonal skills, with the ability to collaborate across teams.\n\n• High attention to detail and ability to work under pressure in a fast-paced environment.\n\n• Awareness of risks and focus on risks mitigation techniques\n\n• Rigour and organization skills\n\n• Result oriented, driven to succeed\n\n• Ability to work in a dynamic, high demand environment\n\n• Fluent in French and English, other language(s) a plus\n\n• Ability to manage multiple priorities and deliver results within tight deadlines.\n\n• Proactive mindset with a focus on continuous improvement and innovation.\n\n• Swiss residency\n\nCore Competencies : Adherence to the company’s values: Dedication, Conviction, Agility and Responsibility - Compliance with regulations and internal directives",
-      "descriptionByLocale": {
-        "it": "• Mission\n• The Middle Officer in Asset Management acts as the central point of contact for operational queries, ensuring timely client responses and smooth transaction processing. Key responsibilities include trade matching, settlement follow-up, daily reconciliations, collateral management, and issue resolution. The role also involves producing activity reports, collaborating with counterparties, and implementing new processes to enhance operational efficiency.\n• Main responsibilities\n• Act as the central point of contact for operational queries, and always available to respond to our client queries in a timely manner\n• Securities & FX trade matching, instruction to relevant third parties and settlement follow-up\n• OTC & ETD trade matching, and clearing monitoring\n• Produce the daily activity reports to third parties\n• Perform daily reconciliations of portfolio positions, cash balances and transactions.\n• Breaks analysis, investigation until resolution\n• Participation in the implementation of new processes and controls\n• Oversee the daily management of collateral for derivatives\n• Perform daily reconciliations of collateral balances with counterparties, resolving discrepancies in a timely manner.\n• Collaborate with counterparties, clearing brokers, and custodians to ensure smooth collateral movements and settlements.\n• Your Profile\n• +5 years of experience in Asset Management / Operations or FX activities\n• University degree(s) in accounting, finance and/or business management\n• Strong knowledge of fund structures, share class operations, and regulatory frameworks (e.g., EMIR, UCITS, AIFMD).\n• Deep understanding of currency markets, hedging instruments (e.g., forwards, swaps), and collateral management practices.\n• Specific competencies\n• Strong Analytical skills and problem-solving skills.\n• Excellent communication and interpersonal skills, with the ability to collaborate across teams.\n• High attention to detail and ability to work under pressure in a fast-paced environment.\n• Awareness of risks and focus on risks mitigation techniques\n• Rigour and organization skills\n• Result oriented, driven to succeed\n• Ability to work in a dynamic, high demand environment\n• Fluent in French and English, other language(s) a plus\n• Ability to manage multiple priorities and deliver results within tight deadlines.\n• Proactive mindset with a focus on continuous improvement and innovation.\n• Swiss residency Core Competencies : Adherence to the company’s values: Dedication, Conviction, Agility and Responsibility - Compliance with regulations and internal directives",
-        "en": "• Mission\n• The Middle Officer in Asset Management acts as the central point of contact for operational queries, ensuring timely client responses and smooth transaction processing. Key responsibilities include trade matching, settlement follow-up, daily reconciliations, collateral management, and issue resolution. The role also involves producing activity reports, collaborating with counterparties, and implementing new processes to enhance operational efficiency.\n• Main responsibilities\n• Act as the central point of contact for operational queries, and always available to respond to our client queries in a timely manner\n• Securities & FX trade matching, instruction to relevant third parties and settlement follow-up\n• OTC & ETD trade matching, and clearing monitoring\n• Produce the daily activity reports to third parties\n• Perform daily reconciliations of portfolio positions, cash balances and transactions.\n• Breaks analysis, investigation until resolution\n• Participation in the implementation of new processes and controls\n• Oversee the daily management of collateral for derivatives\n• Perform daily reconciliations of collateral balances with counterparties, resolving discrepancies in a timely manner.\n• Collaborate with counterparties, clearing brokers, and custodians to ensure smooth collateral movements and settlements.\n• Your Profile\n• +5 years of experience in Asset Management / Operations or FX activities\n• University degree(s) in accounting, finance and/or business management\n• Strong knowledge of fund structures, share class operations, and regulatory frameworks (e.g., EMIR, UCITS, AIFMD).\n• Deep understanding of currency markets, hedging instruments (e.g., forwards, swaps), and collateral management practices.\n• Specific competencies\n• Strong Analytical skills and problem-solving skills.\n• Excellent communication and interpersonal skills, with the ability to collaborate across teams.\n• High attention to detail and ability to work under pressure in a fast-paced environment.\n• Awareness of risks and focus on risks mitigation techniques\n• Rigour and organization skills\n• Result oriented, driven to succeed\n• Ability to work in a dynamic, high demand environment\n• Fluent in French and English, other language(s) a plus\n• Ability to manage multiple priorities and deliver results within tight deadlines.\n• Proactive mindset with a focus on continuous improvement and innovation.\n• Swiss residency Core Competencies : Adherence to the company’s values: Dedication, Conviction, Agility and Responsibility - Compliance with regulations and internal directives",
-        "de": "• Mission\n• The Middle Officer in Asset Management acts as the central point of contact for operational queries, ensuring timely client responses and smooth transaction processing. Key responsibilities include trade matching, settlement follow-up, daily reconciliations, collateral management, and issue resolution. The role also involves producing activity reports, collaborating with counterparties, and implementing new processes to enhance operational efficiency.\n• Main responsibilities\n• Act as the central point of contact for operational queries, and always available to respond to our client queries in a timely manner\n• Securities & FX trade matching, instruction to relevant third parties and settlement follow-up\n• OTC & ETD trade matching, and clearing monitoring\n• Produce the daily activity reports to third parties\n• Perform daily reconciliations of portfolio positions, cash balances and transactions.\n• Breaks analysis, investigation until resolution\n• Participation in the implementation of new processes and controls\n• Oversee the daily management of collateral for derivatives\n• Perform daily reconciliations of collateral balances with counterparties, resolving discrepancies in a timely manner.\n• Collaborate with counterparties, clearing brokers, and custodians to ensure smooth collateral movements and settlements.\n• Your Profile\n• +5 years of experience in Asset Management / Operations or FX activities\n• University degree(s) in accounting, finance and/or business management\n• Strong knowledge of fund structures, share class operations, and regulatory frameworks (e.g., EMIR, UCITS, AIFMD).\n• Deep understanding of currency markets, hedging instruments (e.g., forwards, swaps), and collateral management practices.\n• Specific competencies\n• Strong Analytical skills and problem-solving skills.\n• Excellent communication and interpersonal skills, with the ability to collaborate across teams.\n• High attention to detail and ability to work under pressure in a fast-paced environment.\n• Awareness of risks and focus on risks mitigation techniques\n• Rigour and organization skills\n• Result oriented, driven to succeed\n• Ability to work in a dynamic, high demand environment\n• Fluent in French and English, other language(s) a plus\n• Ability to manage multiple priorities and deliver results within tight deadlines.\n• Proactive mindset with a focus on continuous improvement and innovation.\n• Swiss residency Core Competencies : Adherence to the company’s values: Dedication, Conviction, Agility and Responsibility - Compliance with regulations and internal directives",
-        "fr": "• Mission\n• The Middle Officer in Asset Management acts as the central point of contact for operational queries, ensuring timely client responses and smooth transaction processing. Key responsibilities include trade matching, settlement follow-up, daily reconciliations, collateral management, and issue resolution. The role also involves producing activity reports, collaborating with counterparties, and implementing new processes to enhance operational efficiency.\n• Main responsibilities\n• Act as the central point of contact for operational queries, and always available to respond to our client queries in a timely manner\n• Securities & FX trade matching, instruction to relevant third parties and settlement follow-up\n• OTC & ETD trade matching, and clearing monitoring\n• Produce the daily activity reports to third parties\n• Perform daily reconciliations of portfolio positions, cash balances and transactions.\n• Breaks analysis, investigation until resolution\n• Participation in the implementation of new processes and controls\n• Oversee the daily management of collateral for derivatives\n• Perform daily reconciliations of collateral balances with counterparties, resolving discrepancies in a timely manner.\n• Collaborate with counterparties, clearing brokers, and custodians to ensure smooth collateral movements and settlements.\n• Your Profile\n• +5 years of experience in Asset Management / Operations or FX activities\n• University degree(s) in accounting, finance and/or business management\n• Strong knowledge of fund structures, share class operations, and regulatory frameworks (e.g., EMIR, UCITS, AIFMD).\n• Deep understanding of currency markets, hedging instruments (e.g., forwards, swaps), and collateral management practices.\n• Specific competencies\n• Strong Analytical skills and problem-solving skills.\n• Excellent communication and interpersonal skills, with the ability to collaborate across teams.\n• High attention to detail and ability to work under pressure in a fast-paced environment.\n• Awareness of risks and focus on risks mitigation techniques\n• Rigour and organization skills\n• Result oriented, driven to succeed\n• Ability to work in a dynamic, high demand environment\n• Fluent in French and English, other language(s) a plus\n• Ability to manage multiple priorities and deliver results within tight deadlines.\n• Proactive mindset with a focus on continuous improvement and innovation.\n• Swiss residency Core Competencies : Adherence to the company’s values: Dedication, Conviction, Agility and Responsibility - Compliance with regulations and internal directives"
-      },
-      "location": "Geneva, Switzerland",
-      "canton": "GE",
-      "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/519",
-      "source": "Union Bancaire Privée Oracle HCM API",
-      "sourceLang": "en",
-      "crawledAt": "2026-05-27T00:38:11.659Z",
-      "addressLocality": "Geneva, Switzerland",
-      "addressRegion": "GE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "6900",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Banca / Gestione patrimoniale",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-01-16",
-      "applyUrl": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/519",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugsByLocale": {
-        "it": [
-          "middle-officer-ubp-ch"
-        ],
-        "en": [
-          "middle-officer-ubp-ch"
-        ]
-      },
-      "previousSlugs": [
-        "middle-officer-ubp-ch"
-      ],
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-05-17T11:17:34.495Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "ubp-5433463079ec",
       "slug": "investment-consulente-union-bancaire-privee-geneva-switzerland",
       "slugByLocale": {
@@ -409,7 +336,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/542",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-27T00:38:11.118Z",
+      "crawledAt": "2026-05-27T14:18:13.769Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -489,7 +416,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/605",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-27T00:38:10.582Z",
+      "crawledAt": "2026-05-27T14:18:13.278Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -552,7 +479,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/627",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-27T00:38:10.047Z",
+      "crawledAt": "2026-05-27T14:18:12.781Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -632,7 +559,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/657",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-27T00:38:09.517Z",
+      "crawledAt": "2026-05-27T14:18:12.285Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -707,7 +634,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/661",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-27T00:38:08.979Z",
+      "crawledAt": "2026-05-27T14:18:11.766Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -789,7 +716,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/673",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-27T00:38:08.447Z",
+      "crawledAt": "2026-05-27T14:18:11.277Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -863,7 +790,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/733",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-27T00:38:07.915Z",
+      "crawledAt": "2026-05-27T14:18:10.782Z",
       "addressLocality": "London, United Kingdom",
       "addressRegion": "TI",
       "addressCountry": "",
@@ -913,77 +840,6 @@
       }
     },
     {
-      "id": "ubp-66e580c8f3ae",
-      "slug": "servizi-ufficiale-temporario-union-bancaire-privee-geneva-switzerland",
-      "slugByLocale": {
-        "it": "servizi-ufficiale-temporario-union-bancaire-privee-geneva-switzerland",
-        "en": "facilities-officer-temporary-union-bancaire-privee-geneva-switzerland",
-        "de": "facilities-officer-temporary-ubp-ch",
-        "fr": "facilities-officer-temporary-ubp-ch"
-      },
-      "company": "Union Bancaire Privée",
-      "companyKey": "ubp",
-      "companyDomain": "ubp.com",
-      "title": "Facilities Officer (Temporary)",
-      "titleByLocale": {
-        "it": "Servizi Ufficiale (Temporario)",
-        "en": "Facilities Officer (Temporary)",
-        "de": "Facilities Officer (Temporary)",
-        "fr": "Facilities Officer (Temporary)"
-      },
-      "description": "• Mission\n Veiller à la maintenance et à la sécurité des locaux tout en assurant le bien-être de leurs occupants.\nCapacité à trouver des solutions efficaces et pragmatiques répondant aux besoins techniques des utilisateurs\n\n• Main responsibilities\n• Répondre aux demandes des collaborateurs sur les problématiques liées aux locaux et équipements.\n\n• Effectuer les petites réparations et interventions de maintenance de premier niveau.\n\n• Contrôler l'état général des bâtiments et signaler les anomalies.\n\n• Coordonner et accompagner les prestataires lors des interventions en s'assurant du respect des règles de sécurité de la banque.\n\n• Vérifier visuellement les installations techniques et remonter les différents problèmes.\n\n• Participer à l'organisation des espaces de travail.\n\n• Effectuer des déménagements internes et des mises en place de mobiliers.\n\n• Participer à la gestion des stocks de fournitures et passer les commandes validées par le responsable.\n\n• Vérifier le bon fonctionnement des équipements de sécurité.\n\n• Appliquer les consignes de sécurité de la banque.\n\n• Participer au piquet technique.\n\n• Your Profile\n• Expérience attendue de Facilities officer en interne ou dans une société de service.\n\n• Connaissances en bâtiment.\no Electricité : vérification des installations et relamping.\no Plomberie : Débouchage de canalisations simples et entretien des sanitaires.\no Serrurerie/Menuiserie : Ajustement portes des fenêtres et du mobilier, changement des serrures.\no Revêtement : remplacement de revêtement sols.\n\n• Polyvalence et autonomie dans l'exécution des tâches.\n\n• Réactivité et capacité à gérer les urgences.\n\n• Sens du service et excellent relationnel.\n\n• Rigueur et respect des consignes.\n\n• Background\n• High School/ Maturité / Baccalauréat\n\n• Connaissances en sécurité incendie et accessibilité des bâtiments.\n\n• Excel, GMAO, Ticketing.\n\nCore Competencies : Adherence to the company’s values: Dedication, Conviction, Agility and Responsibility - Compliance with regulations and internal directives",
-      "descriptionByLocale": {
-        "it": "• Mission Veiller à la maintenance et à la sécurité des locaux tout en assurant le bien-être de leurs occupants. Capacité à trouver des solutions efficaces et pragmatiques répondant aux besoins techniques des utilisateurs\n• Main responsibilities\n• Répondre aux demandes des collaborateurs sur les problématiques liées aux locaux et équipements.\n• Effectuer les petites réparations et interventions de maintenance de premier niveau.\n• Contrôler l'état général des bâtiments et signaler les anomalies.\n• Coordonner et accompagner les prestataires lors des interventions en s'assurant du respect des règles de sécurité de la banque.\n• Vérifier visuellement les installations techniques et remonter les différents problèmes.\n• Participer à l'organisation des espaces de travail.\n• Effectuer des déménagements internes et des mises en place de mobiliers.\n• Participer à la gestion des stocks de fournitures et passer les commandes validées par le responsable.\n• Vérifier le bon fonctionnement des équipements de sécurité.\n• Appliquer les consignes de sécurité de la banque.\n• Participer au piquet technique.\n• Your Profile\n• Expérience attendue de Facilities officer en interne ou dans une société de service.\n• Connaissances en bâtiment. o Electricité : vérification des installations et relamping. o Plomberie : Débouchage de canalisations simples et entretien des sanitaires. o Serrurerie/Menuiserie : Ajustement portes des fenêtres et du mobilier, changement des serrures. o Revêtement : remplacement de revêtement sols.\n• Polyvalence et autonomie dans l'exécution des tâches.\n• Réactivité et capacité à gérer les urgences.\n• Sens du service et excellent relationnel.\n• Rigueur et respect des consignes.\n• Background\n• High School/ Maturité / Baccalauréat\n• Connaissances en sécurité incendie et accessibilité des bâtiments.\n• Excel, GMAO, Ticketing. Core Competencies : Adherence to the company’s values: Dedication, Conviction, Agility and Responsibility - Compliance with regulations and internal directives",
-        "en": "• Mission Veiller à la maintenance et à la sécurité des locaux tout en assurant le bien-être de leurs occupants. Capacité à trouver des solutions efficaces et pragmatiques répondant aux besoins techniques des utilisateurs\n• Main responsibilities\n• Répondre aux demandes des collaborateurs sur les problématiques liées aux locaux et équipements.\n• Effectuer les petites réparations et interventions de maintenance de premier niveau.\n• Contrôler l'état général des bâtiments et signaler les anomalies.\n• Coordonner et accompagner les prestataires lors des interventions en s'assurant du respect des règles de sécurité de la banque.\n• Vérifier visuellement les installations techniques et remonter les différents problèmes.\n• Participer à l'organisation des espaces de travail.\n• Effectuer des déménagements internes et des mises en place de mobiliers.\n• Participer à la gestion des stocks de fournitures et passer les commandes validées par le responsable.\n• Vérifier le bon fonctionnement des équipements de sécurité.\n• Appliquer les consignes de sécurité de la banque.\n• Participer au piquet technique.\n• Your Profile\n• Expérience attendue de Facilities officer en interne ou dans une société de service.\n• Connaissances en bâtiment. o Electricité : vérification des installations et relamping. o Plomberie : Débouchage de canalisations simples et entretien des sanitaires. o Serrurerie/Menuiserie : Ajustement portes des fenêtres et du mobilier, changement des serrures. o Revêtement : remplacement de revêtement sols.\n• Polyvalence et autonomie dans l'exécution des tâches.\n• Réactivité et capacité à gérer les urgences.\n• Sens du service et excellent relationnel.\n• Rigueur et respect des consignes.\n• Background\n• High School/ Maturité / Baccalauréat\n• Connaissances en sécurité incendie et accessibilité des bâtiments.\n• Excel, GMAO, Ticketing. Core Competencies : Adherence to the company’s values: Dedication, Conviction, Agility and Responsibility - Compliance with regulations and internal directives",
-        "de": "• Mission Veiller à la maintenance et à la sécurité des locaux tout en assurant le bien-être de leurs occupants. Capacité à trouver des solutions efficaces et pragmatiques répondant aux besoins techniques des utilisateurs\n• Main responsibilities\n• Répondre aux demandes des collaborateurs sur les problématiques liées aux locaux et équipements.\n• Effectuer les petites réparations et interventions de maintenance de premier niveau.\n• Contrôler l'état général des bâtiments et signaler les anomalies.\n• Coordonner et accompagner les prestataires lors des interventions en s'assurant du respect des règles de sécurité de la banque.\n• Vérifier visuellement les installations techniques et remonter les différents problèmes.\n• Participer à l'organisation des espaces de travail.\n• Effectuer des déménagements internes et des mises en place de mobiliers.\n• Participer à la gestion des stocks de fournitures et passer les commandes validées par le responsable.\n• Vérifier le bon fonctionnement des équipements de sécurité.\n• Appliquer les consignes de sécurité de la banque.\n• Participer au piquet technique.\n• Your Profile\n• Expérience attendue de Facilities officer en interne ou dans une société de service.\n• Connaissances en bâtiment. o Electricité : vérification des installations et relamping. o Plomberie : Débouchage de canalisations simples et entretien des sanitaires. o Serrurerie/Menuiserie : Ajustement portes des fenêtres et du mobilier, changement des serrures. o Revêtement : remplacement de revêtement sols.\n• Polyvalence et autonomie dans l'exécution des tâches.\n• Réactivité et capacité à gérer les urgences.\n• Sens du service et excellent relationnel.\n• Rigueur et respect des consignes.\n• Background\n• High School/ Maturité / Baccalauréat\n• Connaissances en sécurité incendie et accessibilité des bâtiments.\n• Excel, GMAO, Ticketing. Core Competencies : Adherence to the company’s values: Dedication, Conviction, Agility and Responsibility - Compliance with regulations and internal directives",
-        "fr": "• Mission Veiller à la maintenance et à la sécurité des locaux tout en assurant le bien-être de leurs occupants. Capacité à trouver des solutions efficaces et pragmatiques répondant aux besoins techniques des utilisateurs\n• Main responsibilities\n• Répondre aux demandes des collaborateurs sur les problématiques liées aux locaux et équipements.\n• Effectuer les petites réparations et interventions de maintenance de premier niveau.\n• Contrôler l'état général des bâtiments et signaler les anomalies.\n• Coordonner et accompagner les prestataires lors des interventions en s'assurant du respect des règles de sécurité de la banque.\n• Vérifier visuellement les installations techniques et remonter les différents problèmes.\n• Participer à l'organisation des espaces de travail.\n• Effectuer des déménagements internes et des mises en place de mobiliers.\n• Participer à la gestion des stocks de fournitures et passer les commandes validées par le responsable.\n• Vérifier le bon fonctionnement des équipements de sécurité.\n• Appliquer les consignes de sécurité de la banque.\n• Participer au piquet technique.\n• Your Profile\n• Expérience attendue de Facilities officer en interne ou dans une société de service.\n• Connaissances en bâtiment. o Electricité : vérification des installations et relamping. o Plomberie : Débouchage de canalisations simples et entretien des sanitaires. o Serrurerie/Menuiserie : Ajustement portes des fenêtres et du mobilier, changement des serrures. o Revêtement : remplacement de revêtement sols.\n• Polyvalence et autonomie dans l'exécution des tâches.\n• Réactivité et capacité à gérer les urgences.\n• Sens du service et excellent relationnel.\n• Rigueur et respect des consignes.\n• Background\n• High School/ Maturité / Baccalauréat\n• Connaissances en sécurité incendie et accessibilité des bâtiments.\n• Excel, GMAO, Ticketing. Core Competencies : Adherence to the company’s values: Dedication, Conviction, Agility and Responsibility - Compliance with regulations and internal directives"
-      },
-      "location": "Geneva, Switzerland",
-      "canton": "GE",
-      "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/408",
-      "source": "Union Bancaire Privée Oracle HCM API",
-      "sourceLang": "fr",
-      "crawledAt": "2026-05-27T00:38:07.375Z",
-      "addressLocality": "Geneva, Switzerland",
-      "addressRegion": "GE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "6900",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Banca / Gestione patrimoniale",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-03-18",
-      "applyUrl": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/408",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "facilities-officer-temporary-ubp-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "facilities-officer-temporary-ubp-ch"
-        ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-05-17T11:17:29.040Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "ubp-4c71773b3b69",
       "slug": "programma-di-laurea-team-dell-ufficio-operativo-union-bancaire-privee-geneva-switzerland",
       "slugByLocale": {
@@ -1014,7 +870,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/753",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-27T00:38:06.842Z",
+      "crawledAt": "2026-05-27T14:18:10.276Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1044,6 +900,7 @@
         "programma-di-laurea-squadra-operativa-union-bancaire-privee-geneva-switzerland"
       ],
       "firstSeenAt": "2026-05-17T11:17:28.504Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1088,7 +945,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/766",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-27T00:38:06.301Z",
+      "crawledAt": "2026-05-27T14:18:09.780Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1163,7 +1020,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/758",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-27T00:38:05.772Z",
+      "crawledAt": "2026-05-27T14:18:09.288Z",
       "addressLocality": "Frankfurt am Main, Germany",
       "addressRegion": "TI",
       "addressCountry": "",
@@ -1240,7 +1097,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/229",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-27T00:38:05.232Z",
+      "crawledAt": "2026-05-27T14:18:08.787Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1320,7 +1177,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/767",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-27T00:38:04.690Z",
+      "crawledAt": "2026-05-27T14:18:08.284Z",
       "addressLocality": "Luxembourg",
       "addressRegion": "TI",
       "addressCountry": "",
@@ -1409,7 +1266,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/763",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-27T00:38:04.145Z",
+      "crawledAt": "2026-05-27T14:18:07.788Z",
       "addressLocality": "Jersey",
       "addressRegion": "TI",
       "addressCountry": "",
@@ -1481,7 +1338,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/713",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-27T00:38:03.595Z",
+      "crawledAt": "2026-05-27T14:18:07.281Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1556,7 +1413,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/823",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-27T00:38:03.060Z",
+      "crawledAt": "2026-05-27T14:18:06.791Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1631,7 +1488,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/821",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-27T00:38:02.504Z",
+      "crawledAt": "2026-05-27T14:18:06.291Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1652,10 +1509,10 @@
         "phone-operator-ubp-ch"
       ],
       "previousSlugsByLocale": {
-        "fr": [
+        "it": [
           "phone-operator-ubp-ch"
         ],
-        "it": [
+        "fr": [
           "phone-operator-ubp-ch"
         ]
       },
@@ -1705,7 +1562,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/831",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-27T00:38:01.963Z",
+      "crawledAt": "2026-05-27T14:18:05.794Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1779,7 +1636,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/865",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-27T00:38:01.421Z",
+      "crawledAt": "2026-05-27T14:18:05.237Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1859,7 +1716,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/849",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-27T00:38:00.880Z",
+      "crawledAt": "2026-05-27T14:18:04.744Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1939,7 +1796,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/867",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-27T00:38:00.342Z",
+      "crawledAt": "2026-05-27T14:18:04.252Z",
       "addressLocality": "London, United Kingdom",
       "addressRegion": "TI",
       "addressCountry": "",
@@ -2014,7 +1871,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/840",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-27T00:37:59.808Z",
+      "crawledAt": "2026-05-27T14:18:03.741Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -2089,7 +1946,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/826",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-27T00:37:59.272Z",
+      "crawledAt": "2026-05-27T14:18:03.237Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -2164,7 +2021,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/974",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-27T00:37:58.741Z",
+      "crawledAt": "2026-05-27T14:18:02.742Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -2236,7 +2093,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/986",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-27T00:37:58.209Z",
+      "crawledAt": "2026-05-27T14:18:02.246Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -2310,7 +2167,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/982",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-27T00:37:57.673Z",
+      "crawledAt": "2026-05-27T14:18:01.749Z",
       "addressLocality": "Hong Kong, Hong Kong",
       "addressRegion": "TI",
       "addressCountry": "",
@@ -2382,7 +2239,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/948",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-27T00:37:57.134Z",
+      "crawledAt": "2026-05-27T14:18:01.236Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -2458,7 +2315,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/946",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-27T00:37:56.603Z",
+      "crawledAt": "2026-05-27T14:18:00.737Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -2542,7 +2399,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1027",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-27T00:37:56.075Z",
+      "crawledAt": "2026-05-27T14:18:00.239Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -2605,7 +2462,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1028",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-27T00:37:55.535Z",
+      "crawledAt": "2026-05-27T14:17:59.743Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -2680,7 +2537,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/991",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-27T00:37:54.998Z",
+      "crawledAt": "2026-05-27T14:17:59.252Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -2754,7 +2611,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/572",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-27T00:37:54.466Z",
+      "crawledAt": "2026-05-27T14:17:58.760Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -2833,7 +2690,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1015",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-27T00:37:53.935Z",
+      "crawledAt": "2026-05-27T14:17:58.266Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -2883,6 +2740,82 @@
       }
     },
     {
+      "id": "ubp-967b0831912c",
+      "slug": "tax-specialist-ubp-ch-2",
+      "slugByLocale": {
+        "en": "tax-specialist-union-bancaire-privee-geneva-switzerland",
+        "it": "tax-specialist-ubp-ch-2",
+        "de": "tax-specialist-ubp-ch-2",
+        "fr": "tax-specialist-ubp-ch-2"
+      },
+      "company": "Union Bancaire Privée",
+      "companyKey": "ubp",
+      "companyDomain": "ubp.com",
+      "title": "Tax Specialist",
+      "titleByLocale": {
+        "en": "Tax Specialist",
+        "it": "Tax Specialista",
+        "de": "Tax Spezialist",
+        "fr": "Tax Spécialiste"
+      },
+      "description": "• Mission\n As part of the Tax Services team, the Tax Specialist is a key element to ensure the quality and accuracy of the reporting done by the Bank, as a regulatory obligation, in an environment which is subject to constant changes and evolutions. Within the Daily Regulatory Reporting team, the employee’s mission also includes constant monitoring and reconciliation of the data to be reported. The tax and regulatory topics include MIFID II/ EMIR / FMIA / FINFRAG / Duty to disclose.\n\n• Main responsibilities\n• Daily monitoring and control of regulatory reporting (MIFID II / EMIR / FMIA / FINFRAG) sent to the reporting platform(s) (i.e. locals regulators)\n\n• Monthly reconciliations, quality control and statistics of the data reported\n\n• Manage inquiries and investigate questions and issues about the taxes or regulatory reporting from other departments of the Bank or from external counterparties\n\n• Understand regulatory risk sensitivity and has an end-to-end view of the Bank’s flow/process\n\n• Correction of consistency issues, update reporting tool’s database\n\n• Liaising and coordinating with the department responsible for the underlying data for the necessary corrections, explanations, data input and resubmission of the corrected report(s)\n\n• Communication with the reporting engine providers (ARM, APA, TR)\n\n• Performing regular and ad-hoc reporting related to statistics for internal and external parties\n\n• Contribute to all testing linked to regulatory and reporting updates\n\n• Active participation in EMIR/MIFID/DTD projects (Audit inquiries, Provider specifications changes & Regulator inquiries) including data mining and in-depth investigation\n\n• Open mind and team orientation:\nBe open to other’s ideas.\nExpress and accept constructive criticism.\n\n• Innovation and development:\nPropose and seek improvement of the current tools and processes.\nBe positive towards change and seek opportunities to improve the quality of the working environment.\nConitunuously work on knowledge improvement.\n\n• Corporate culture:\nBe ‘solution oriented’ and have a strong sense of customer services.\nBe proactive and driven.\nDevelopp and maintain a relationship network within the various Bank departments.\nComply consistently with internal and external regulations.\n\n• Your Profile\n• Good knowledge of the financial products and associated transactions\n\n• 3-5 years of experience in banking or financial services\n\n• Project management experience\n\n• Strong Excel, Access skills\n\n• Strong analytical skills, able to make complex data reconciliation\n\n• Ability to efficiently manage priorities\n\n• Be able to work independently but also as a team\n\n• Seek opportunities to improve the existing set-up\n\n• Go beyond specific assignments, walk the extra mile\n\n• Consistently comply with internal & external regulations\n\n• Maintain quality standards despite schedule pressures\n\n• Fluent in French and English\n\n• Others\n• Swiss Residence\n\nCore Competencies : Adherence to the company’s values: Dedication, Conviction, Agility and Responsibility - Compliance with regulations and internal directives",
+      "descriptionByLocale": {
+        "en": "• Mission\n As part of the Tax Services team, the Tax Specialist is a key element to ensure the quality and accuracy of the reporting done by the Bank, as a regulatory obligation, in an environment which is subject to constant changes and evolutions. Within the Daily Regulatory Reporting team, the employee’s mission also includes constant monitoring and reconciliation of the data to be reported. The tax and regulatory topics include MIFID II/ EMIR / FMIA / FINFRAG / Duty to disclose.\n\n• Main responsibilities\n• Daily monitoring and control of regulatory reporting (MIFID II / EMIR / FMIA / FINFRAG) sent to the reporting platform(s) (i.e. locals regulators)\n\n• Monthly reconciliations, quality control and statistics of the data reported\n\n• Manage inquiries and investigate questions and issues about the taxes or regulatory reporting from other departments of the Bank or from external counterparties\n\n• Understand regulatory risk sensitivity and has an end-to-end view of the Bank’s flow/process\n\n• Correction of consistency issues, update reporting tool’s database\n\n• Liaising and coordinating with the department responsible for the underlying data for the necessary corrections, explanations, data input and resubmission of the corrected report(s)\n\n• Communication with the reporting engine providers (ARM, APA, TR)\n\n• Performing regular and ad-hoc reporting related to statistics for internal and external parties\n\n• Contribute to all testing linked to regulatory and reporting updates\n\n• Active participation in EMIR/MIFID/DTD projects (Audit inquiries, Provider specifications changes & Regulator inquiries) including data mining and in-depth investigation\n\n• Open mind and team orientation:\nBe open to other’s ideas.\nExpress and accept constructive criticism.\n\n• Innovation and development:\nPropose and seek improvement of the current tools and processes.\nBe positive towards change and seek opportunities to improve the quality of the working environment.\nConitunuously work on knowledge improvement.\n\n• Corporate culture:\nBe ‘solution oriented’ and have a strong sense of customer services.\nBe proactive and driven.\nDevelopp and maintain a relationship network within the various Bank departments.\nComply consistently with internal and external regulations.\n\n• Your Profile\n• Good knowledge of the financial products and associated transactions\n\n• 3-5 years of experience in banking or financial services\n\n• Project management experience\n\n• Strong Excel, Access skills\n\n• Strong analytical skills, able to make complex data reconciliation\n\n• Ability to efficiently manage priorities\n\n• Be able to work independently but also as a team\n\n• Seek opportunities to improve the existing set-up\n\n• Go beyond specific assignments, walk the extra mile\n\n• Consistently comply with internal & external regulations\n\n• Maintain quality standards despite schedule pressures\n\n• Fluent in French and English\n\n• Others\n• Swiss Residence\n\nCore Competencies : Adherence to the company’s values: Dedication, Conviction, Agility and Responsibility - Compliance with regulations and internal directives",
+        "it": "• Mission\n As part of the Tax Services team, the Tax Specialist is a key element to ensure the quality and accuracy of the reporting done by the Bank, as a regulatory obligation, in an environment which is subject to constant changes and evolutions. Within the Daily Regulatory Reporting team, the employee’s mission also includes constant monitoring and reconciliation of the data to be reported. The tax and regulatory topics include MIFID II/ EMIR / FMIA / FINFRAG / Duty to disclose.\n\n• Main responsibilities\n• Daily monitoring and control of regulatory reporting (MIFID II / EMIR / FMIA / FINFRAG) sent to the reporting platform(s) (i.e. locals regulators)\n\n• Monthly reconciliations, quality control and statistics of the data reported\n\n• Manage inquiries and investigate questions and issues about the taxes or regulatory reporting from other departments of the Bank or from external counterparties\n\n• Understand regulatory risk sensitivity and has an end-to-end view of the Bank’s flow/process\n\n• Correction of consistency issues, update reporting tool’s database\n\n• Liaising and coordinating with the department responsible for the underlying data for the necessary corrections, explanations, data input and resubmission of the corrected report(s)\n\n• Communication with the reporting engine providers (ARM, APA, TR)\n\n• Performing regular and ad-hoc reporting related to statistics for internal and external parties\n\n• Contribute to all testing linked to regulatory and reporting updates\n\n• Active participation in EMIR/MIFID/DTD projects (Audit inquiries, Provider specifications changes & Regulator inquiries) including data mining and in-depth investigation\n\n• Open mind and team orientation:\nBe open to other’s ideas.\nExpress and accept constructive criticism.\n\n• Innovation and development:\nPropose and seek improvement of the current tools and processes.\nBe positive towards change and seek opportunities to improve the quality of the working environment.\nConitunuously work on knowledge improvement.\n\n• Corporate culture:\nBe ‘solution oriented’ and have a strong sense of customer services.\nBe proactive and driven.\nDevelopp and maintain a relationship network within the various Bank departments.\nComply consistently with internal and external regulations.\n\n• Your Profile\n• Good knowledge of the financial products and associated transactions\n\n• 3-5 years of experience in banking or financial services\n\n• Project management experience\n\n• Strong Excel, Access skills\n\n• Strong analytical skills, able to make complex data reconciliation\n\n• Ability to efficiently manage priorities\n\n• Be able to work independently but also as a team\n\n• Seek opportunities to improve the existing set-up\n\n• Go beyond specific assignments, walk the extra mile\n\n• Consistently comply with internal & external regulations\n\n• Maintain quality standards despite schedule pressures\n\n• Fluent in French and English\n\n• Others\n• Swiss Residence\n\nCore Competencies : Adherence to the company’s values: Dedication, Conviction, Agility and Responsibility - Compliance with regulations and internal directives",
+        "de": "• Mission\n As part of the Tax Services team, the Tax Specialist is a key element to ensure the quality and accuracy of the reporting done by the Bank, as a regulatory obligation, in an environment which is subject to constant changes and evolutions. Within the Daily Regulatory Reporting team, the employee’s mission also includes constant monitoring and reconciliation of the data to be reported. The tax and regulatory topics include MIFID II/ EMIR / FMIA / FINFRAG / Duty to disclose.\n\n• Main responsibilities\n• Daily monitoring and control of regulatory reporting (MIFID II / EMIR / FMIA / FINFRAG) sent to the reporting platform(s) (i.e. locals regulators)\n\n• Monthly reconciliations, quality control and statistics of the data reported\n\n• Manage inquiries and investigate questions and issues about the taxes or regulatory reporting from other departments of the Bank or from external counterparties\n\n• Understand regulatory risk sensitivity and has an end-to-end view of the Bank’s flow/process\n\n• Correction of consistency issues, update reporting tool’s database\n\n• Liaising and coordinating with the department responsible for the underlying data for the necessary corrections, explanations, data input and resubmission of the corrected report(s)\n\n• Communication with the reporting engine providers (ARM, APA, TR)\n\n• Performing regular and ad-hoc reporting related to statistics for internal and external parties\n\n• Contribute to all testing linked to regulatory and reporting updates\n\n• Active participation in EMIR/MIFID/DTD projects (Audit inquiries, Provider specifications changes & Regulator inquiries) including data mining and in-depth investigation\n\n• Open mind and team orientation:\nBe open to other’s ideas.\nExpress and accept constructive criticism.\n\n• Innovation and development:\nPropose and seek improvement of the current tools and processes.\nBe positive towards change and seek opportunities to improve the quality of the working environment.\nConitunuously work on knowledge improvement.\n\n• Corporate culture:\nBe ‘solution oriented’ and have a strong sense of customer services.\nBe proactive and driven.\nDevelopp and maintain a relationship network within the various Bank departments.\nComply consistently with internal and external regulations.\n\n• Your Profile\n• Good knowledge of the financial products and associated transactions\n\n• 3-5 years of experience in banking or financial services\n\n• Project management experience\n\n• Strong Excel, Access skills\n\n• Strong analytical skills, able to make complex data reconciliation\n\n• Ability to efficiently manage priorities\n\n• Be able to work independently but also as a team\n\n• Seek opportunities to improve the existing set-up\n\n• Go beyond specific assignments, walk the extra mile\n\n• Consistently comply with internal & external regulations\n\n• Maintain quality standards despite schedule pressures\n\n• Fluent in French and English\n\n• Others\n• Swiss Residence\n\nCore Competencies : Adherence to the company’s values: Dedication, Conviction, Agility and Responsibility - Compliance with regulations and internal directives",
+        "fr": "• Mission\n As part of the Tax Services team, the Tax Specialist is a key element to ensure the quality and accuracy of the reporting done by the Bank, as a regulatory obligation, in an environment which is subject to constant changes and evolutions. Within the Daily Regulatory Reporting team, the employee’s mission also includes constant monitoring and reconciliation of the data to be reported. The tax and regulatory topics include MIFID II/ EMIR / FMIA / FINFRAG / Duty to disclose.\n\n• Main responsibilities\n• Daily monitoring and control of regulatory reporting (MIFID II / EMIR / FMIA / FINFRAG) sent to the reporting platform(s) (i.e. locals regulators)\n\n• Monthly reconciliations, quality control and statistics of the data reported\n\n• Manage inquiries and investigate questions and issues about the taxes or regulatory reporting from other departments of the Bank or from external counterparties\n\n• Understand regulatory risk sensitivity and has an end-to-end view of the Bank’s flow/process\n\n• Correction of consistency issues, update reporting tool’s database\n\n• Liaising and coordinating with the department responsible for the underlying data for the necessary corrections, explanations, data input and resubmission of the corrected report(s)\n\n• Communication with the reporting engine providers (ARM, APA, TR)\n\n• Performing regular and ad-hoc reporting related to statistics for internal and external parties\n\n• Contribute to all testing linked to regulatory and reporting updates\n\n• Active participation in EMIR/MIFID/DTD projects (Audit inquiries, Provider specifications changes & Regulator inquiries) including data mining and in-depth investigation\n\n• Open mind and team orientation:\nBe open to other’s ideas.\nExpress and accept constructive criticism.\n\n• Innovation and development:\nPropose and seek improvement of the current tools and processes.\nBe positive towards change and seek opportunities to improve the quality of the working environment.\nConitunuously work on knowledge improvement.\n\n• Corporate culture:\nBe ‘solution oriented’ and have a strong sense of customer services.\nBe proactive and driven.\nDevelopp and maintain a relationship network within the various Bank departments.\nComply consistently with internal and external regulations.\n\n• Your Profile\n• Good knowledge of the financial products and associated transactions\n\n• 3-5 years of experience in banking or financial services\n\n• Project management experience\n\n• Strong Excel, Access skills\n\n• Strong analytical skills, able to make complex data reconciliation\n\n• Ability to efficiently manage priorities\n\n• Be able to work independently but also as a team\n\n• Seek opportunities to improve the existing set-up\n\n• Go beyond specific assignments, walk the extra mile\n\n• Consistently comply with internal & external regulations\n\n• Maintain quality standards despite schedule pressures\n\n• Fluent in French and English\n\n• Others\n• Swiss Residence\n\nCore Competencies : Adherence to the company’s values: Dedication, Conviction, Agility and Responsibility - Compliance with regulations and internal directives"
+      },
+      "location": "Geneva, Switzerland",
+      "canton": "GE",
+      "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/603",
+      "source": "Union Bancaire Privée Oracle HCM API",
+      "sourceLang": "en",
+      "crawledAt": "2026-05-27T14:17:57.770Z",
+      "addressLocality": "Geneva, Switzerland",
+      "addressRegion": "GE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "6900",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Banca / Gestione patrimoniale",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-06",
+      "applyUrl": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/603",
+      "requirements": [],
+      "requirementsByLocale": {
+        "en": []
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "tax-specialist-ubp-ch"
+        ],
+        "en": [
+          "tax-specialist-ubp-ch"
+        ]
+      },
+      "previousSlugs": [
+        "tax-specialist-ubp-ch"
+      ],
+      "needsRetranslation": true,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-05-27T14:17:57.770Z"
+    },
+    {
       "id": "ubp-d6d2fb70bd2e",
       "slug": "financial-controller-retrocession-specialista-union-bancaire-privee-geneva-switzerland",
       "slugByLocale": {
@@ -2913,7 +2846,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1061",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-27T00:37:52.859Z",
+      "crawledAt": "2026-05-27T14:17:57.153Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -2993,7 +2926,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1060",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-27T00:37:52.319Z",
+      "crawledAt": "2026-05-27T14:17:56.662Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -3048,7 +2981,7 @@
       "companyDomain": "ubp.com",
       "title": "Database administrator",
       "titleByLocale": {
-        "it": "Amministratore di database",
+        "it": "Database administrator",
         "en": "Database administrator",
         "de": "Database administrator",
         "fr": "Database administrator"
@@ -3065,7 +2998,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1011",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-27T00:37:51.785Z",
+      "crawledAt": "2026-05-27T14:17:56.167Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -3138,7 +3071,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1076",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-27T00:37:51.253Z",
+      "crawledAt": "2026-05-27T14:17:55.668Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -3168,6 +3101,7 @@
         "responsabile-della-trasformazione-junior-union-bancaire-privee-geneva-switzerland"
       ],
       "firstSeenAt": "2026-05-17T11:17:10.175Z",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -3212,7 +3146,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1072",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-27T00:37:50.711Z",
+      "crawledAt": "2026-05-27T14:17:55.138Z",
       "addressLocality": "Hong Kong, Hong Kong",
       "addressRegion": "TI",
       "addressCountry": "",
@@ -3283,7 +3217,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/47",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-27T00:37:50.176Z",
+      "crawledAt": "2026-05-27T14:17:54.640Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -3357,7 +3291,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/998",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-27T00:37:49.636Z",
+      "crawledAt": "2026-05-27T14:17:54.140Z",
       "addressLocality": "Luxembourg",
       "addressRegion": "TI",
       "addressCountry": "",
@@ -3385,6 +3319,7 @@
         ]
       },
       "firstSeenAt": "2026-05-18T13:25:07.937Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -3429,7 +3364,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1094",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-27T00:37:49.097Z",
+      "crawledAt": "2026-05-27T14:17:53.647Z",
       "addressLocality": "Hong Kong, Hong Kong",
       "addressRegion": "TI",
       "addressCountry": "",
@@ -3503,7 +3438,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1073",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-27T00:37:48.545Z",
+      "crawledAt": "2026-05-27T14:17:53.125Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -3577,7 +3512,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/768",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-27T00:37:48.010Z",
+      "crawledAt": "2026-05-27T14:17:52.630Z",
       "addressLocality": "Singapore, Singapore",
       "addressRegion": "TI",
       "addressCountry": "",
@@ -3648,7 +3583,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1085",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-27T00:37:47.429Z",
+      "crawledAt": "2026-05-27T14:17:52.106Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -3684,8 +3619,8 @@
       "id": "ubp-fbb676f1d027",
       "slug": "operation-specialista-union-bancaire-privee-geneva-switzerland",
       "slugByLocale": {
-        "en": "operation-specialist-union-bancaire-privee-geneva-switzerland",
         "it": "operation-specialista-union-bancaire-privee-geneva-switzerland",
+        "en": "operation-specialist-union-bancaire-privee-geneva-switzerland",
         "de": "operation-spezialist-union-bancaire-privee-geneva-switzerland",
         "fr": "operation-specialiste-union-bancaire-privee-geneva-switzerland"
       },
@@ -3694,24 +3629,24 @@
       "companyDomain": "ubp.com",
       "title": "Operation Specialist",
       "titleByLocale": {
-        "en": "Operation Specialist",
         "it": "Operation Specialista",
+        "en": "Operation Specialist",
         "de": "Operation Spezialist",
         "fr": "Operation Spécialiste"
       },
       "description": "SECURITIES TRANSFER OFFICER - 6 MONTHS MISSION\n Mission\n Ensure the clients' assets delivery/receipt for all the activities associated with the transfer of securities to a different financial establishment or within the Bank.\n\nThis includes all type of assets with expertise primarily required in alternative assets such as mutual funds, Private Equities and Hedge Funds\n\nEffective date : ASAP.\n\nMain responsibilities\n\n• Crossed analysis of the received information: custodian’s swifts, agent prospectus, contract notes and financial providers such as: Bloomberg, Telekurs.\n\n• Perform control of reconciliation of holdings, entitlements determination, pending positions management.\n\n• Be able to manage and control securities transfer instructions received from Wealth Management and external parties (transfer IN/OUT/Internal and funds registration process).\n\n• Control transmission of the deposits to our correspondents/Transfer Agents/Administrators and control of their safe delivery and acceptance.\n\n• Follow-up of the topics and issues over the lifecycle of the securities transfer activities.\n\n• Good understanding of the risks inherent in the Corporate Actions environment related to ongoing securities transfers and demonstrate good discipline around control and escalation.\n\n• Ensure daily follow up in respect of pending issues and take appropriate measures for resolution.\n\nYour Profile\n\n• Education : Master Degree\n\n• Languages : french and english\n\n• Others\n• Swiss Residence\n\nCore Competencies : Adherence to the company’s values: Dedication, Conviction, Agility and Responsibility - Compliance with regulations and internal directives",
       "descriptionByLocale": {
-        "en": "SECURITIES TRANSFER OFFICER - 6 MONTHS MISSION\n Mission\n Ensure the clients' assets delivery/receipt for all the activities associated with the transfer of securities to a different financial establishment or within the Bank.\n\nThis includes all type of assets with expertise primarily required in alternative assets such as mutual funds, Private Equities and Hedge Funds\n\nEffective date : ASAP.\n\nMain responsibilities\n\n• Crossed analysis of the received information: custodian’s swifts, agent prospectus, contract notes and financial providers such as: Bloomberg, Telekurs.\n\n• Perform control of reconciliation of holdings, entitlements determination, pending positions management.\n\n• Be able to manage and control securities transfer instructions received from Wealth Management and external parties (transfer IN/OUT/Internal and funds registration process).\n\n• Control transmission of the deposits to our correspondents/Transfer Agents/Administrators and control of their safe delivery and acceptance.\n\n• Follow-up of the topics and issues over the lifecycle of the securities transfer activities.\n\n• Good understanding of the risks inherent in the Corporate Actions environment related to ongoing securities transfers and demonstrate good discipline around control and escalation.\n\n• Ensure daily follow up in respect of pending issues and take appropriate measures for resolution.\n\nYour Profile\n\n• Education : Master Degree\n\n• Languages : french and english\n\n• Others\n• Swiss Residence\n\nCore Competencies : Adherence to the company’s values: Dedication, Conviction, Agility and Responsibility - Compliance with regulations and internal directives",
-        "it": "SECURITIES TRANSFER OFFICER - 6 MONTHS MISSION\n Mission\n Ensure the clients' assets delivery/receipt for all the activities associated with the transfer of securities to a different financial establishment or within the Bank.\n\nThis includes all type of assets with expertise primarily required in alternative assets such as mutual funds, Private Equities and Hedge Funds\n\nEffective date : ASAP.\n\nMain responsibilities\n\n• Crossed analysis of the received information: custodian’s swifts, agent prospectus, contract notes and financial providers such as: Bloomberg, Telekurs.\n\n• Perform control of reconciliation of holdings, entitlements determination, pending positions management.\n\n• Be able to manage and control securities transfer instructions received from Wealth Management and external parties (transfer IN/OUT/Internal and funds registration process).\n\n• Control transmission of the deposits to our correspondents/Transfer Agents/Administrators and control of their safe delivery and acceptance.\n\n• Follow-up of the topics and issues over the lifecycle of the securities transfer activities.\n\n• Good understanding of the risks inherent in the Corporate Actions environment related to ongoing securities transfers and demonstrate good discipline around control and escalation.\n\n• Ensure daily follow up in respect of pending issues and take appropriate measures for resolution.\n\nYour Profile\n\n• Education : Master Degree\n\n• Languages : french and english\n\n• Others\n• Swiss Residence\n\nCore Competencies : Adherence to the company’s values: Dedication, Conviction, Agility and Responsibility - Compliance with regulations and internal directives",
-        "de": "SECURITIES TRANSFER OFFICER - 6 MONTHS MISSION\n Mission\n Ensure the clients' assets delivery/receipt for all the activities associated with the transfer of securities to a different financial establishment or within the Bank.\n\nThis includes all type of assets with expertise primarily required in alternative assets such as mutual funds, Private Equities and Hedge Funds\n\nEffective date : ASAP.\n\nMain responsibilities\n\n• Crossed analysis of the received information: custodian’s swifts, agent prospectus, contract notes and financial providers such as: Bloomberg, Telekurs.\n\n• Perform control of reconciliation of holdings, entitlements determination, pending positions management.\n\n• Be able to manage and control securities transfer instructions received from Wealth Management and external parties (transfer IN/OUT/Internal and funds registration process).\n\n• Control transmission of the deposits to our correspondents/Transfer Agents/Administrators and control of their safe delivery and acceptance.\n\n• Follow-up of the topics and issues over the lifecycle of the securities transfer activities.\n\n• Good understanding of the risks inherent in the Corporate Actions environment related to ongoing securities transfers and demonstrate good discipline around control and escalation.\n\n• Ensure daily follow up in respect of pending issues and take appropriate measures for resolution.\n\nYour Profile\n\n• Education : Master Degree\n\n• Languages : french and english\n\n• Others\n• Swiss Residence\n\nCore Competencies : Adherence to the company’s values: Dedication, Conviction, Agility and Responsibility - Compliance with regulations and internal directives",
-        "fr": "SECURITIES TRANSFER OFFICER - 6 MONTHS MISSION\n Mission\n Ensure the clients' assets delivery/receipt for all the activities associated with the transfer of securities to a different financial establishment or within the Bank.\n\nThis includes all type of assets with expertise primarily required in alternative assets such as mutual funds, Private Equities and Hedge Funds\n\nEffective date : ASAP.\n\nMain responsibilities\n\n• Crossed analysis of the received information: custodian’s swifts, agent prospectus, contract notes and financial providers such as: Bloomberg, Telekurs.\n\n• Perform control of reconciliation of holdings, entitlements determination, pending positions management.\n\n• Be able to manage and control securities transfer instructions received from Wealth Management and external parties (transfer IN/OUT/Internal and funds registration process).\n\n• Control transmission of the deposits to our correspondents/Transfer Agents/Administrators and control of their safe delivery and acceptance.\n\n• Follow-up of the topics and issues over the lifecycle of the securities transfer activities.\n\n• Good understanding of the risks inherent in the Corporate Actions environment related to ongoing securities transfers and demonstrate good discipline around control and escalation.\n\n• Ensure daily follow up in respect of pending issues and take appropriate measures for resolution.\n\nYour Profile\n\n• Education : Master Degree\n\n• Languages : french and english\n\n• Others\n• Swiss Residence\n\nCore Competencies : Adherence to the company’s values: Dedication, Conviction, Agility and Responsibility - Compliance with regulations and internal directives"
+        "it": "SECURITIES TRANSFER OFFICER - 6 MONTHS MISSION Mission Ensure the clients' assets delivery/receipt for all the activities associated with the transfer of securities to a different financial establishment or within the Bank. This includes all type of assets with expertise primarily required in alternative assets such as mutual funds, Private Equities and Hedge Funds Effective date : ASAP. Main responsibilities\n• Crossed analysis of the received information: custodian’s swifts, agent prospectus, contract notes and financial providers such as: Bloomberg, Telekurs.\n• Perform control of reconciliation of holdings, entitlements determination, pending positions management.\n• Be able to manage and control securities transfer instructions received from Wealth Management and external parties (transfer IN/OUT/Internal and funds registration process).\n• Control transmission of the deposits to our correspondents/Transfer Agents/Administrators and control of their safe delivery and acceptance.\n• Follow-up of the topics and issues over the lifecycle of the securities transfer activities.\n• Good understanding of the risks inherent in the Corporate Actions environment related to ongoing securities transfers and demonstrate good discipline around control and escalation.\n• Ensure daily follow up in respect of pending issues and take appropriate measures for resolution. Your Profile\n• Education : Master Degree\n• Languages : french and english\n• Others\n• Swiss Residence Core Competencies : Adherence to the company’s values: Dedication, Conviction, Agility and Responsibility - Compliance with regulations and internal directives",
+        "en": "SECURITIES TRANSFER OFFICER - 6 MONTHS MISSION Mission Ensure the clients' assets delivery/receipt for all the activities associated with the transfer of securities to a different financial establishment or within the Bank. This includes all type of assets with expertise primarily required in alternative assets such as mutual funds, Private Equities and Hedge Funds Effective date : ASAP. Main responsibilities\n• Crossed analysis of the received information: custodian’s swifts, agent prospectus, contract notes and financial providers such as: Bloomberg, Telekurs.\n• Perform control of reconciliation of holdings, entitlements determination, pending positions management.\n• Be able to manage and control securities transfer instructions received from Wealth Management and external parties (transfer IN/OUT/Internal and funds registration process).\n• Control transmission of the deposits to our correspondents/Transfer Agents/Administrators and control of their safe delivery and acceptance.\n• Follow-up of the topics and issues over the lifecycle of the securities transfer activities.\n• Good understanding of the risks inherent in the Corporate Actions environment related to ongoing securities transfers and demonstrate good discipline around control and escalation.\n• Ensure daily follow up in respect of pending issues and take appropriate measures for resolution. Your Profile\n• Education : Master Degree\n• Languages : french and english\n• Others\n• Swiss Residence Core Competencies : Adherence to the company’s values: Dedication, Conviction, Agility and Responsibility - Compliance with regulations and internal directives",
+        "de": "SECURITIES TRANSFER OFFICER - 6 MONTHS MISSION Mission Ensure the clients' assets delivery/receipt for all the activities associated with the transfer of securities to a different financial establishment or within the Bank. This includes all type of assets with expertise primarily required in alternative assets such as mutual funds, Private Equities and Hedge Funds Effective date : ASAP. Main responsibilities\n• Crossed analysis of the received information: custodian’s swifts, agent prospectus, contract notes and financial providers such as: Bloomberg, Telekurs.\n• Perform control of reconciliation of holdings, entitlements determination, pending positions management.\n• Be able to manage and control securities transfer instructions received from Wealth Management and external parties (transfer IN/OUT/Internal and funds registration process).\n• Control transmission of the deposits to our correspondents/Transfer Agents/Administrators and control of their safe delivery and acceptance.\n• Follow-up of the topics and issues over the lifecycle of the securities transfer activities.\n• Good understanding of the risks inherent in the Corporate Actions environment related to ongoing securities transfers and demonstrate good discipline around control and escalation.\n• Ensure daily follow up in respect of pending issues and take appropriate measures for resolution. Your Profile\n• Education : Master Degree\n• Languages : french and english\n• Others\n• Swiss Residence Core Competencies : Adherence to the company’s values: Dedication, Conviction, Agility and Responsibility - Compliance with regulations and internal directives",
+        "fr": "SECURITIES TRANSFER OFFICER - 6 MONTHS MISSION Mission Ensure the clients' assets delivery/receipt for all the activities associated with the transfer of securities to a different financial establishment or within the Bank. This includes all type of assets with expertise primarily required in alternative assets such as mutual funds, Private Equities and Hedge Funds Effective date : ASAP. Main responsibilities\n• Crossed analysis of the received information: custodian’s swifts, agent prospectus, contract notes and financial providers such as: Bloomberg, Telekurs.\n• Perform control of reconciliation of holdings, entitlements determination, pending positions management.\n• Be able to manage and control securities transfer instructions received from Wealth Management and external parties (transfer IN/OUT/Internal and funds registration process).\n• Control transmission of the deposits to our correspondents/Transfer Agents/Administrators and control of their safe delivery and acceptance.\n• Follow-up of the topics and issues over the lifecycle of the securities transfer activities.\n• Good understanding of the risks inherent in the Corporate Actions environment related to ongoing securities transfers and demonstrate good discipline around control and escalation.\n• Ensure daily follow up in respect of pending issues and take appropriate measures for resolution. Your Profile\n• Education : Master Degree\n• Languages : french and english\n• Others\n• Swiss Residence Core Competencies : Adherence to the company’s values: Dedication, Conviction, Agility and Responsibility - Compliance with regulations and internal directives"
       },
       "location": "Geneva, Switzerland",
       "canton": "GE",
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/232",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-27T00:37:46.883Z",
+      "crawledAt": "2026-05-27T14:17:51.551Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -3727,24 +3662,11 @@
       "postedDate": "2026-05-26",
       "applyUrl": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/232",
       "requirements": [],
-      "requirementsByLocale": {
-        "en": []
-      },
-      "needsRetranslation": true,
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-05-27T00:37:46.883Z",
+      "requirementsByLocale": {},
       "previousSlugsByLocale": {
+        "en": [
+          "operation-specialist-ubp-ch"
+        ],
         "it": [
           "operation-specialist-ubp-ch"
         ],
@@ -3757,7 +3679,86 @@
       },
       "previousSlugs": [
         "operation-specialist-ubp-ch"
-      ]
+      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-27T00:37:46.883Z",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "ubp-7306d5031c2a",
+      "slug": "assistant-relationship-manager-turkey-ubp-ch",
+      "slugByLocale": {
+        "en": "assistant-relationship-manager-turkey-union-bancaire-privee-geneva-switzerland",
+        "it": "assistant-relationship-manager-turkey-ubp-ch",
+        "de": "assistant-relationship-manager-turkey-ubp-ch",
+        "fr": "assistant-relationship-manager-turkey-ubp-ch"
+      },
+      "company": "Union Bancaire Privée",
+      "companyKey": "ubp",
+      "companyDomain": "ubp.com",
+      "title": "Assistant Relationship Manager Turkey",
+      "titleByLocale": {
+        "en": "Assistant Relationship Manager Turkey",
+        "it": "Assistant Relationship Manager Turkey",
+        "de": "Assistent Relationship Manager Turkey",
+        "fr": "Assistant Relationship Manager Turkey"
+      },
+      "description": "Mission\n Assist the relationship manager(s) in opening new relationships and serving clients, in compliance with\n the Bank’s internal regulations and guidelines within our Turkish desk.\n\nMain responsibilities\n\n• Prepare the necessary documentation for client meetings and business trips for relationship managers\n\n• Handle and monitor stock exchange orders, forex transactions, fiduciary relationships, loans, payment orders and credit card applications\n\n• Provide administrative support to the Team Head & Relationship Manager(s)\n\n• Cash Management\n\n• Assist in AML clarifications and prepare clients KYC and related updates\n\n• Direct interaction with clients by phone, e-mail and, occasionally in meetings\n\n• Prepare and monitor account openings, closings and mutations\n\n• Maintain records in compliance with internal and external regulation (for example: portfolio reviews, AML, KYC, etc.)\n\n• Perform other administrative tasks as needed (for example: preparing presentations, travel arrangements, helping clients with any requests, banking and non-banking, etc.)\n\n• Deputy of other assistants if needed\n\nYour Profile\n\n• Degree in a related field (banking apprenticeship, CYP, banking internship or similar)\n\n• Private Banking certificate, SAQ or other equivalent certification a plus\n\n• Minimum 5 years of experience in a similar role or within private banking\n\n• Strong banking, Compliance and KYC knowledge\n\n• Team spirit, inter-personal skills, highly service and client oriented as well as communication skills\n\n• Fluent in French, English and Turkish. Any additional language is an added value\n\nOthers\n\n• Swiss Residence is mandatory\n\nCore Competencies : Adherence to the company’s values: Dedication, Conviction, Agility and Responsibility - Compliance with regulations and internal directives",
+      "descriptionByLocale": {
+        "en": "Mission\n Assist the relationship manager(s) in opening new relationships and serving clients, in compliance with\n the Bank’s internal regulations and guidelines within our Turkish desk.\n\nMain responsibilities\n\n• Prepare the necessary documentation for client meetings and business trips for relationship managers\n\n• Handle and monitor stock exchange orders, forex transactions, fiduciary relationships, loans, payment orders and credit card applications\n\n• Provide administrative support to the Team Head & Relationship Manager(s)\n\n• Cash Management\n\n• Assist in AML clarifications and prepare clients KYC and related updates\n\n• Direct interaction with clients by phone, e-mail and, occasionally in meetings\n\n• Prepare and monitor account openings, closings and mutations\n\n• Maintain records in compliance with internal and external regulation (for example: portfolio reviews, AML, KYC, etc.)\n\n• Perform other administrative tasks as needed (for example: preparing presentations, travel arrangements, helping clients with any requests, banking and non-banking, etc.)\n\n• Deputy of other assistants if needed\n\nYour Profile\n\n• Degree in a related field (banking apprenticeship, CYP, banking internship or similar)\n\n• Private Banking certificate, SAQ or other equivalent certification a plus\n\n• Minimum 5 years of experience in a similar role or within private banking\n\n• Strong banking, Compliance and KYC knowledge\n\n• Team spirit, inter-personal skills, highly service and client oriented as well as communication skills\n\n• Fluent in French, English and Turkish. Any additional language is an added value\n\nOthers\n\n• Swiss Residence is mandatory\n\nCore Competencies : Adherence to the company’s values: Dedication, Conviction, Agility and Responsibility - Compliance with regulations and internal directives",
+        "it": "Mission\n Assist the relationship manager(s) in opening new relationships and serving clients, in compliance with\n the Bank’s internal regulations and guidelines within our Turkish desk.\n\nMain responsibilities\n\n• Prepare the necessary documentation for client meetings and business trips for relationship managers\n\n• Handle and monitor stock exchange orders, forex transactions, fiduciary relationships, loans, payment orders and credit card applications\n\n• Provide administrative support to the Team Head & Relationship Manager(s)\n\n• Cash Management\n\n• Assist in AML clarifications and prepare clients KYC and related updates\n\n• Direct interaction with clients by phone, e-mail and, occasionally in meetings\n\n• Prepare and monitor account openings, closings and mutations\n\n• Maintain records in compliance with internal and external regulation (for example: portfolio reviews, AML, KYC, etc.)\n\n• Perform other administrative tasks as needed (for example: preparing presentations, travel arrangements, helping clients with any requests, banking and non-banking, etc.)\n\n• Deputy of other assistants if needed\n\nYour Profile\n\n• Degree in a related field (banking apprenticeship, CYP, banking internship or similar)\n\n• Private Banking certificate, SAQ or other equivalent certification a plus\n\n• Minimum 5 years of experience in a similar role or within private banking\n\n• Strong banking, Compliance and KYC knowledge\n\n• Team spirit, inter-personal skills, highly service and client oriented as well as communication skills\n\n• Fluent in French, English and Turkish. Any additional language is an added value\n\nOthers\n\n• Swiss Residence is mandatory\n\nCore Competencies : Adherence to the company’s values: Dedication, Conviction, Agility and Responsibility - Compliance with regulations and internal directives",
+        "de": "Mission\n Assist the relationship manager(s) in opening new relationships and serving clients, in compliance with\n the Bank’s internal regulations and guidelines within our Turkish desk.\n\nMain responsibilities\n\n• Prepare the necessary documentation for client meetings and business trips for relationship managers\n\n• Handle and monitor stock exchange orders, forex transactions, fiduciary relationships, loans, payment orders and credit card applications\n\n• Provide administrative support to the Team Head & Relationship Manager(s)\n\n• Cash Management\n\n• Assist in AML clarifications and prepare clients KYC and related updates\n\n• Direct interaction with clients by phone, e-mail and, occasionally in meetings\n\n• Prepare and monitor account openings, closings and mutations\n\n• Maintain records in compliance with internal and external regulation (for example: portfolio reviews, AML, KYC, etc.)\n\n• Perform other administrative tasks as needed (for example: preparing presentations, travel arrangements, helping clients with any requests, banking and non-banking, etc.)\n\n• Deputy of other assistants if needed\n\nYour Profile\n\n• Degree in a related field (banking apprenticeship, CYP, banking internship or similar)\n\n• Private Banking certificate, SAQ or other equivalent certification a plus\n\n• Minimum 5 years of experience in a similar role or within private banking\n\n• Strong banking, Compliance and KYC knowledge\n\n• Team spirit, inter-personal skills, highly service and client oriented as well as communication skills\n\n• Fluent in French, English and Turkish. Any additional language is an added value\n\nOthers\n\n• Swiss Residence is mandatory\n\nCore Competencies : Adherence to the company’s values: Dedication, Conviction, Agility and Responsibility - Compliance with regulations and internal directives",
+        "fr": "Mission\n Assist the relationship manager(s) in opening new relationships and serving clients, in compliance with\n the Bank’s internal regulations and guidelines within our Turkish desk.\n\nMain responsibilities\n\n• Prepare the necessary documentation for client meetings and business trips for relationship managers\n\n• Handle and monitor stock exchange orders, forex transactions, fiduciary relationships, loans, payment orders and credit card applications\n\n• Provide administrative support to the Team Head & Relationship Manager(s)\n\n• Cash Management\n\n• Assist in AML clarifications and prepare clients KYC and related updates\n\n• Direct interaction with clients by phone, e-mail and, occasionally in meetings\n\n• Prepare and monitor account openings, closings and mutations\n\n• Maintain records in compliance with internal and external regulation (for example: portfolio reviews, AML, KYC, etc.)\n\n• Perform other administrative tasks as needed (for example: preparing presentations, travel arrangements, helping clients with any requests, banking and non-banking, etc.)\n\n• Deputy of other assistants if needed\n\nYour Profile\n\n• Degree in a related field (banking apprenticeship, CYP, banking internship or similar)\n\n• Private Banking certificate, SAQ or other equivalent certification a plus\n\n• Minimum 5 years of experience in a similar role or within private banking\n\n• Strong banking, Compliance and KYC knowledge\n\n• Team spirit, inter-personal skills, highly service and client oriented as well as communication skills\n\n• Fluent in French, English and Turkish. Any additional language is an added value\n\nOthers\n\n• Swiss Residence is mandatory\n\nCore Competencies : Adherence to the company’s values: Dedication, Conviction, Agility and Responsibility - Compliance with regulations and internal directives"
+      },
+      "location": "Geneva, Switzerland",
+      "canton": "GE",
+      "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1086",
+      "source": "Union Bancaire Privée Oracle HCM API",
+      "sourceLang": "en",
+      "crawledAt": "2026-05-27T14:17:51.012Z",
+      "addressLocality": "Geneva, Switzerland",
+      "addressRegion": "GE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "6900",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Banca / Gestione patrimoniale",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-27",
+      "applyUrl": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1086",
+      "requirements": [],
+      "requirementsByLocale": {
+        "en": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 68000,
+      "salaryMax": 103000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68000,
+          "maxValue": 103000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-05-27T14:17:51.012Z"
     }
   ]
 }
