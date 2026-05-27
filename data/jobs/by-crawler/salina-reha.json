@@ -1,6 +1,6 @@
 {
   "crawlerKey": "salina-reha",
-  "assembledAt": "2026-05-25T23:22:05.217Z",
+  "assembledAt": "2026-05-27T00:05:05.262Z",
   "jobs": [
     {
       "id": "salina-reha-82a299965c28",
@@ -33,7 +33,7 @@
       "url": "https://link.ostendis.com/publication/fachfrau-mann-gesundheit-rehaklinik/8aqq0aguzneiegzipazxf0gpk3365pw3sk67howz1381b2isz5m0jpstx28mw6hh",
       "source": "Salina Rehaklinik Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-25T23:22:03.397Z",
+      "crawledAt": "2026-05-27T00:05:03.434Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -75,6 +75,7 @@
           "Bonne maîtrise de l'allemand (oral et écrit)"
         ]
       },
+      "needsRetranslation": true,
       "previousSlugs": [
         "fachfrau-mann-gesundheit-rehaklinik-salina-rheinfelden"
       ],
@@ -128,7 +129,7 @@
       "url": "https://link.ostendis.com/publication/dipl-pflegefachperson-fachperson-gesundheit-pool-im-stundenlohn/mnm2zldquioi3p2vwvpjvoromzh705yx9lgvzswlhue6kp5kl777vfjkra5vn3sv",
       "source": "Salina Rehaklinik Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-25T23:22:01.650Z",
+      "crawledAt": "2026-05-27T00:05:01.595Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -176,6 +177,7 @@
           "Très bonnes connaissances de l'allemand (oral et écrit)"
         ]
       },
+      "needsRetranslation": true,
       "previousSlugs": [
         "dipl-pflegefachperson-fachperson-gesundheit-pool-im-stundenlohn-salina-rheinfelden"
       ],
@@ -229,7 +231,7 @@
       "url": "https://link.ostendis.com/publication/psychotherapeut-in/busy2qktsvis75ecdf8xwhe1tpdb7bg3ejrbltowe83y40uy5nylbe38wthkei25",
       "source": "Salina Rehaklinik Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-25T23:21:59.686Z",
+      "crawledAt": "2026-05-27T00:04:59.819Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -277,6 +279,7 @@
           "Compétences linguistiques supplémentaires"
         ]
       },
+      "needsRetranslation": true,
       "previousSlugs": [
         "psychotherapeut-in-salina-rheinfelden"
       ],
@@ -330,7 +333,7 @@
       "url": "https://link.ostendis.com/publication/facharzt-fachaerztin-ambulant/zltjilsrep8my2zyizc3ca3su3flqwjdd1yiqkbphkwk4dxd7qffb76pmeuvvl8d",
       "source": "Salina Rehaklinik Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-25T23:21:57.929Z",
+      "crawledAt": "2026-05-27T00:04:57.987Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -347,6 +350,7 @@
       "applyUrl": "https://link.ostendis.com/publication/facharzt-fachaerztin-ambulant/zltjilsrep8my2zyizc3ca3su3flqwjdd1yiqkbphkwk4dxd7qffb76pmeuvvl8d",
       "requirements": [],
       "requirementsByLocale": {},
+      "needsRetranslation": true,
       "previousSlugs": [
         "facharzt-facharztin-ambulant-60-100-salina-rheinfelden"
       ],
