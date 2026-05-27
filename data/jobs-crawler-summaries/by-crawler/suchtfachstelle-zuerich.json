@@ -1,18 +1,19 @@
 {
   "key": "suchtfachstelle-zuerich",
   "label": "Suchtfachstelle Zürich",
-  "generatedAt": "2026-05-27T00:25:07.778Z",
+  "generatedAt": "2026-05-27T14:04:43.255Z",
   "total": 1,
-  "newCount": 1,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 4284,
-  "avgDurationMs": 4284,
+  "durationMs": 3839,
+  "avgDurationMs": 3839,
   "durationHistory": [
-    4284
+    3839
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "suchtfachstelle-zuerich-66484a5a7b3f",
       "slug": "praventionsfachperson-60-suchtfachstelle-zuerich",
@@ -20,13 +21,13 @@
       "companyKey": "suchtfachstelle-zuerich",
       "companyDomain": "suchtfachstelle.zuerich",
       "title": "Präventionsfachperson (60 %)",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Zürich",
       "canton": "ZH",
       "url": "https://www.suchtfachstelle.zuerich/stellenausschreibung-fachperson-fuer-praevention-60",
       "source": "Suchtfachstelle Zürich Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T00:25:05.733Z",
+      "crawledAt": "2026-05-27T14:04:41.557Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -41,16 +42,16 @@
       "featured": false,
       "postedDate": "2026-05-27",
       "applyUrl": "https://www.suchtfachstelle.zuerich/stellenausschreibung-fachperson-fuer-praevention-60",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-27T00:25:05.733Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": []
 }
