@@ -358,7 +358,6 @@
         "fachperson-gesundheit-m-w-d-interdisziplinare-privatstation-ameos-einsiedeln",
         "projektleiter-m-w-d-ameos-schweiz-einsiedeln-1f2f0e",
         "ausbildungsplatz-als-rettungssanitater-m-w-d-ameos-einsiedeln",
-        "projektleiter-m-w-d-ameos-schweiz-einsiedeln",
         "ausbildungsplatz-come-rettungssanitater-m-w-d-ameos-schweiz-einsiedeln"
       ],
       "previousSlugsByLocale": {
@@ -854,7 +853,7 @@
       "id": "ameos-ch-0ec0846fb3f4",
       "slug": "fisioterapia-m-w-d-ameos-schweiz-einsiedeln",
       "slugByLocale": {
-        "it": "physiotherapeut-m-w-d-ameos-schweiz-einsiedeln",
+        "it": "fisioterapia-m-w-d-ameos-schweiz-einsiedeln",
         "en": "physiotherapeut-m-w-d-ameos-schweiz-einsiedeln",
         "de": "physiotherapeut-m-w-d-ameos-einsiedeln",
         "fr": "physiotherapie-m-p-p-ameos-schweiz-einsiedeln"
@@ -900,13 +899,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "physiotherapeut-m-w-d-ameos-einsiedeln",
-        "physiotherapeut-m-w-d-ameos-schweiz-einsiedeln",
-        "fisioterapia-m-w-d-ameos-schweiz-einsiedeln",
-        "physiotherapie-m-p-p-ameos-schweiz-einsiedeln"
+        "physiotherapeut-m-w-d-ameos-schweiz-einsiedeln"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "physiotherapeut-m-w-d-ameos-einsiedeln"
+          "physiotherapeut-m-w-d-ameos-einsiedeln",
+          "physiotherapeut-m-w-d-ameos-schweiz-einsiedeln"
         ],
         "fr": [
           "physiotherapeut-m-w-d-ameos-schweiz-einsiedeln"
@@ -1006,10 +1004,10 @@
     },
     {
       "id": "ameos-ch-dfcab33ff3d8",
-      "slug": "dipl-pflegefachperson-hf-m-w-d-nachtdienst-ameos-brunnen",
+      "slug": "infermiere-dipl-sss-m-f-d-servizio-notturno-ameos-schweiz-brunnen",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-hf-m-w-d-nachtdienst-ameos-brunnen",
-        "it": "dipl-pflegefachperson-hf-m-w-d-nachtdienst-ameos-brunnen",
+        "it": "infermiere-dipl-sss-m-f-d-servizio-notturno-ameos-schweiz-brunnen",
         "en": "dipl-pflegefachperson-hf-m-w-d-nachtdienst-ameos-brunnen",
         "fr": "dipl-pflegefachperson-hf-m-w-d-nachtdienst-ameos-brunnen"
       },
@@ -1068,7 +1066,15 @@
         }
       },
       "firstSeenAt": "2026-05-26T22:00:33.241Z",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-hf-m-w-d-nachtdienst-ameos-brunnen"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachperson-hf-m-w-d-nachtdienst-ameos-brunnen"
+      ]
     },
     {
       "id": "ameos-ch-765684bf7f03",

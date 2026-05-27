@@ -2018,10 +2018,10 @@
     },
     {
       "id": "novartis-96f498d8a87c",
-      "slug": "therapeutic-area-head-pk-science-neuroscience-novartis-ch",
+      "slug": "responsabile-area-terapeutica-scienze-pk-neuroscienze-novartis-basel-city",
       "slugByLocale": {
         "en": "therapeutic-area-head-pk-science-neuroscience-novartis-ch",
-        "it": "therapeutic-area-head-pk-science-neuroscience-novartis-ch",
+        "it": "responsabile-area-terapeutica-scienze-pk-neuroscienze-novartis-basel-city",
         "de": "therapeutic-area-head-pk-science-neuroscience-novartis-ch",
         "fr": "therapeutic-area-head-pk-science-neuroscience-novartis-ch"
       },
@@ -2077,7 +2077,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-26T23:44:56.028Z"
+      "firstSeenAt": "2026-05-26T23:44:56.028Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "therapeutic-area-head-pk-science-neuroscience-novartis-ch"
+        ]
+      },
+      "previousSlugs": [
+        "therapeutic-area-head-pk-science-neuroscience-novartis-ch"
+      ]
     },
     {
       "id": "novartis-d0a2b88dd07a",

@@ -515,8 +515,7 @@
         ]
       },
       "previousSlugs": [
-        "fachperson-hauswirtschaft-efz-60-100-concara-bern",
-        "fachperson-hauswirtschaft-cfc-60-100-concara-domicil-spitex-bern-bern"
+        "fachperson-hauswirtschaft-efz-60-100-concara-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1822,10 +1821,7 @@
         "dipl-pflegefachperson-oder-fachperson-gesundheit-mit-tagesverantwortung-60-90-concara",
         "dipl-curatore-o-specialista-salute-con-responsabilita-quotidiana-60-90-concara-domicil-spitex-bern-munchenbuchsee",
         "diploma-in-care-or-health-professional-with-daily-responsibility-60-90-concara-domicil-spitex-bern-munchenbuchsee",
-        "diplome-e-en-soins-ou-professionnel-le-de-la-sante-avec-responsabilites-quotidiennes-60-90-seb-concara-domicil-spitex",
-        "dipl-pflegefachperson-o-fachperson-gesundheit-con-tagesverantwortung-60-90-concara-domicil-spitex-bern-munchenbuchsee",
-        "dipl-career-or-specialist-health-with-daily-responsibility-60-90-concara-domicil-spitex-bern-munchenbuchsee",
-        "dipl-carriere-ou-specialiste-sante-avec-responsabilite-quotidienne-60-90-concara-domicil-spitex-bern-munchenbuchsee"
+        "diplome-e-en-soins-ou-professionnel-le-de-la-sante-avec-responsabilites-quotidiennes-60-90-seb-concara-domicil-spitex"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1952,7 +1948,7 @@
       "slug": "dipl-pflegefachperson-con-tagesverantwortung-40-100-concara-domicil-spitex-bern-bern",
       "slugByLocale": {
         "it": "dipl-pflegefachperson-con-tagesverantwortung-40-100-concara-domicil-spitex-bern-bern",
-        "en": "diploma-in-nursing-with-daily-responsibility-40-100-concara-domicil-spitex-bern-bern",
+        "en": "dipl-career-with-day-responsibility-40-100-concara-domicil-spitex-bern-bern-921f85",
         "de": "dipl-pflegefachperson-mit-tagesverantwortung-40-100-concara-bern",
         "fr": "diplome-en-soins-infirmiers-avec-responsabilite-quotidienne-40-100-concara-domicil-spitex-bern-bern"
       },
@@ -2005,12 +2001,16 @@
       },
       "previousSlugs": [
         "dipl-pflegefachperson-mit-tagesverantwortung-40-100-concara-bern",
-        "diplomato-di-assistenza-infermieristica-con-responsabilita-quotidiane-40-100-concara-domicil-spitex-bern-bern"
+        "diplomato-di-assistenza-infermieristica-con-responsabilita-quotidiane-40-100-concara-domicil-spitex-bern-bern",
+        "diploma-in-nursing-with-daily-responsibility-40-100-concara-domicil-spitex-bern-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-mit-tagesverantwortung-40-100-concara-bern",
           "diplomato-di-assistenza-infermieristica-con-responsabilita-quotidiane-40-100-concara-domicil-spitex-bern-bern"
+        ],
+        "en": [
+          "diploma-in-nursing-with-daily-responsibility-40-100-concara-domicil-spitex-bern-bern"
         ]
       },
       "firstSeenAt": "2026-05-19T15:48:33.342Z",
@@ -2127,7 +2127,7 @@
       "slug": "stage-stage-di-orientamento-per-formazione-sociale-e-assistenziale-al-80-100-concara-domicil-spitex-bern-bern",
       "slugByLocale": {
         "it": "stage-stage-di-orientamento-per-formazione-sociale-e-assistenziale-al-80-100-concara-domicil-spitex-bern-bern",
-        "en": "intern-orientation-internship-for-social-and-care-training-80-100-concara-domicil-spitex-bern-bern",
+        "en": "intern-in-vorpraktikum-fur-sozial-und-pflegebildung-80-100-concara-domicil-spitex-bern-bern",
         "de": "praktikant-in-vorpraktikum-fur-soziale-und-pflegerische-ausbildung-80-100-concara-bern",
         "fr": "stagiaire-stage-d-orientation-pour-la-formation-sociale-et-de-soins-80-100-concara-domicil-spitex-bern-bern"
       },
@@ -2172,16 +2172,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "praktikant-in-vorpraktikum-fur-soziale-und-pflegerische-ausbildung-80-100-concara-bern",
-        "intern-orientation-internship-for-social-and-care-training-80-100-concara-domicil-spitex-bern-bern",
-        "intern-in-vorpraktikum-fur-sozial-und-pflegebildung-80-100-concara-domicil-spitex-bern-bern"
+        "intern-orientation-internship-for-social-and-care-training-80-100-concara-domicil-spitex-bern-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "praktikant-in-vorpraktikum-fur-soziale-und-pflegerische-ausbildung-80-100-concara-bern"
         ],
         "en": [
-          "intern-orientation-internship-for-social-and-care-training-80-100-concara-domicil-spitex-bern-bern",
-          "intern-in-vorpraktikum-fur-sozial-und-pflegebildung-80-100-concara-domicil-spitex-bern-bern"
+          "intern-orientation-internship-for-social-and-care-training-80-100-concara-domicil-spitex-bern-bern"
         ]
       },
       "firstSeenAt": "2026-05-19T15:48:33.341Z",
@@ -3094,7 +3092,6 @@
         "diploma-in-nursing-with-daily-responsibility-40-100-concara-domicil-spitex-bern-bern",
         "diplome-en-soins-infirmiers-avec-responsabilite-quotidienne-40-100-concara-domicil-spitex-bern-bern",
         "diplomato-di-assistenza-infermieristica-con-responsabilita-quotidiane-40-100-concara-domicil-spitex-bern-bern",
-        "dipl-pflegefachperson-mit-tagesverantwortung-40-100-concara-bern",
         "dipl-pflegefachperson-con-tagesverantwortung-40-100-concara-domicil-spitex-bern-bern"
       ],
       "previousSlugsByLocale": {
@@ -3679,8 +3676,7 @@
         ]
       },
       "previousSlugs": [
-        "fachperson-mit-tagesverantwortung-60-100-concara-bern",
-        "fachperson-con-tagesverantwortung-60-100-concara-domicil-spitex-bern-bern"
+        "fachperson-mit-tagesverantwortung-60-100-concara-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4531,8 +4527,7 @@
         ]
       },
       "previousSlugs": [
-        "fachperson-gesundheit-mit-tagesverantwortung-40-100-concara-bern",
-        "fachperson-gesundheit-con-tagesverantwortung-40-100-concara-domicil-spitex-bern-bern"
+        "fachperson-gesundheit-mit-tagesverantwortung-40-100-concara-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4759,8 +4754,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fachperson-gesundheit-50-100-concara-bern",
-        "salute-specialistica-50-100-concara-domicil-spitex-bern-bern"
+        "fachperson-gesundheit-50-100-concara-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4791,7 +4785,7 @@
       "id": "concara-4b8ad57ea87a",
       "slug": "dipl-curatore-o-specialista-salute-come-guardia-notturna-40-60-concara-domicil-spitex-bern-bern",
       "slugByLocale": {
-        "it": "dipl-pflegefachperson-o-fachperson-gesundheit-come-nachtwache-40-60-concara-domicil-spitex-bern",
+        "it": "dipl-curatore-o-specialista-salute-come-guardia-notturna-40-60-concara-domicil-spitex-bern-bern",
         "en": "dipl-career-or-specialist-health-as-night-guard-40-60-concara-domicil-spitex-bern-bern",
         "de": "dipl-pflegefachperson-oder-fachperson-gesundheit-als-nachtwache-40-60-concara-bern",
         "fr": "dipl-carriere-ou-specialiste-sante-comme-garde-de-nuit-40-60-concara-domicil-spitex-bern-bern"
@@ -4837,11 +4831,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "dipl-pflegefachperson-oder-fachperson-gesundheit-als-nachtwache-40-60-concara-bern",
-        "dipl-curatore-o-specialista-salute-come-guardia-notturna-40-60-concara-domicil-spitex-bern-bern"
+        "dipl-pflegefachperson-o-fachperson-gesundheit-come-nachtwache-40-60-concara-domicil-spitex-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-oder-fachperson-gesundheit-als-nachtwache-40-60-concara-bern"
+          "dipl-pflegefachperson-oder-fachperson-gesundheit-als-nachtwache-40-60-concara-bern",
+          "dipl-pflegefachperson-o-fachperson-gesundheit-come-nachtwache-40-60-concara-domicil-spitex-bern"
         ],
         "en": [
           "dipl-pflegefachperson-oder-fachperson-gesundheit-als-nachtwache-40-60-concara-bern"

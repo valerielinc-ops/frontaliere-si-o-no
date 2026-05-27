@@ -88,9 +88,9 @@
     },
     {
       "id": "tschuggen-f6bf7211a6a1",
-      "slug": "night-auditor-m-w-d-wintersaison-2026-2027-tschuggen-collection-st-moritz",
+      "slug": "auditore-notturno-m-w-d-stagione-invernale-2026-2027-tschuggen-collection-st-moritz",
       "slugByLocale": {
-        "it": "night-auditor-m-w-d-wintersaison-2026-2027-tschuggen-collection-st-moritz",
+        "it": "auditore-notturno-m-w-d-stagione-invernale-2026-2027-tschuggen-collection-st-moritz",
         "en": "night-auditor-m-w-d-wintersaison-2026-2027-tschuggen-ch",
         "de": "night-auditor-m-w-d-wintersaison-2026-2027-tschuggen-ch",
         "fr": "night-auditor-m-w-d-wintersaison-2026-2027-tschuggen-ch"
@@ -137,12 +137,12 @@
       "hotelName": "Carlton Hotel St. Moritz",
       "previousSlugs": [
         "night-auditor-m-w-d-wintersaison-2026-2027-tschuggen-ch",
-        "auditore-notturno-m-w-d-stagione-invernale-2026-2027-tschuggen-collection-st-moritz"
+        "night-auditor-m-w-d-wintersaison-2026-2027-tschuggen-collection-st-moritz"
       ],
       "previousSlugsByLocale": {
         "it": [
           "night-auditor-m-w-d-wintersaison-2026-2027-tschuggen-ch",
-          "auditore-notturno-m-w-d-stagione-invernale-2026-2027-tschuggen-collection-st-moritz"
+          "night-auditor-m-w-d-wintersaison-2026-2027-tschuggen-collection-st-moritz"
         ]
       },
       "firstSeenAt": "2026-05-17T11:16:35.204Z",
@@ -672,7 +672,7 @@
       "id": "tschuggen-9d2cf0abe326",
       "slug": "account-manager-m-w-d-tschuggen-collection-ascona",
       "slugByLocale": {
-        "it": "etagen-portier-m-w-d-tschuggen-ch",
+        "it": "account-manager-m-w-d-tschuggen-collection-ascona",
         "en": "etagen-portier-m-w-d-tschuggen-ch",
         "de": "etagen-portier-m-w-d-tschuggen-collection-ascona",
         "fr": "gestionnaire-de-compte-m-w-d-tschuggen-collection-ascona"
@@ -722,12 +722,13 @@
         ],
         "de": [
           "etagen-portier-m-w-d-tschuggen-ch"
+        ],
+        "it": [
+          "etagen-portier-m-w-d-tschuggen-ch"
         ]
       },
       "previousSlugs": [
-        "etagen-portier-m-w-d-tschuggen-ch",
-        "account-manager-m-w-d-tschuggen-collection-ascona",
-        "gestionnaire-de-compte-m-w-d-tschuggen-collection-ascona"
+        "etagen-portier-m-w-d-tschuggen-ch"
       ],
       "firstSeenAt": "2026-05-06T11:50:09.955Z",
       "salaryMin": 68000,

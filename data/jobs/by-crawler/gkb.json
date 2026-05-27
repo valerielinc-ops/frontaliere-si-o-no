@@ -4,10 +4,10 @@
   "jobs": [
     {
       "id": "gkb-df282d796264",
-      "slug": "mediamatiker-in-in-chur-lehrbeginn-2027-gkb-ch",
+      "slug": "mediamatico-a-coira-inizio-apprendistato-2027-graubundner-kantonalbank-chur",
       "slugByLocale": {
         "de": "mediamatiker-in-in-chur-lehrbeginn-2027-graubundner-kantonalbank-chur",
-        "it": "mediamatiker-in-in-chur-lehrbeginn-2027-gkb-ch",
+        "it": "mediamatico-a-coira-inizio-apprendistato-2027-graubundner-kantonalbank-chur",
         "en": "mediamatiker-in-in-chur-lehrbeginn-2027-gkb-ch",
         "fr": "mediamatiker-in-in-chur-lehrbeginn-2027-gkb-ch"
       },
@@ -66,13 +66,21 @@
         }
       },
       "firstSeenAt": "2026-05-26T22:56:35.808Z",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "mediamatiker-in-in-chur-lehrbeginn-2027-gkb-ch"
+        ]
+      },
+      "previousSlugs": [
+        "mediamatiker-in-in-chur-lehrbeginn-2027-gkb-ch"
+      ]
     },
     {
       "id": "gkb-afd1b5a70e43",
       "slug": "sviluppatore-in-business-digitale-a-chur-inizio-del-2027-graubundner-kantonalbank-chur",
       "slugByLocale": {
-        "it": "entwickler-in-digitales-business-in-chur-lehrbeginn-2027-gkb-ch",
+        "it": "sviluppatore-in-business-digitale-a-chur-inizio-del-2027-graubundner-kantonalbank-chur",
         "en": "developer-in-digital-business-in-chur-beginning-of-2027-graubundner-kantonalbank-chur",
         "de": "entwickler-in-digitales-business-in-chur-lehrbeginn-2027-graubundner-kantonalbank-chur",
         "fr": "developpeur-dans-les-affaires-numeriques-a-chur-debut-de-2027-graubundner-kantonalbank-chur"
@@ -125,13 +133,13 @@
         ],
         "de": [
           "entwickler-in-digitales-business-in-chur-lehrbeginn-2027-gkb-ch"
+        ],
+        "it": [
+          "entwickler-in-digitales-business-in-chur-lehrbeginn-2027-gkb-ch"
         ]
       },
       "previousSlugs": [
-        "entwickler-in-digitales-business-in-chur-lehrbeginn-2027-gkb-ch",
-        "sviluppatore-in-business-digitale-a-chur-inizio-del-2027-graubundner-kantonalbank-chur",
-        "developer-in-digital-business-in-chur-beginning-of-2027-graubundner-kantonalbank-chur",
-        "developpeur-dans-les-affaires-numeriques-a-chur-debut-de-2027-graubundner-kantonalbank-chur"
+        "entwickler-in-digitales-business-in-chur-lehrbeginn-2027-gkb-ch"
       ],
       "firstSeenAt": "2026-04-30T21:51:29.061Z",
       "salaryMin": 50500,
@@ -389,7 +397,7 @@
       "id": "gkb-d829938f33ae",
       "slug": "specialista-in-servizio-legale-compliance-80-100-graubundner-kantonalbank-chur",
       "slugByLocale": {
-        "it": "fachspezialist-in-rechtsdienst-compliance-80-100-gkb-ch",
+        "it": "specialista-in-servizio-legale-compliance-80-100-graubundner-kantonalbank-chur",
         "en": "specialist-in-legal-service-compliance-80-100-graubundner-kantonalbank-chur",
         "de": "fachspezialist-in-rechtsdienst-compliance-80-100-graubundner-kantonalbank-chur",
         "fr": "specialiste-en-service-juridique-conformite-80-100-graubundner-kantonalbank-chur"
@@ -445,13 +453,13 @@
         ],
         "de": [
           "fachspezialist-in-rechtsdienst-compliance-80-100-gkb-ch"
+        ],
+        "it": [
+          "fachspezialist-in-rechtsdienst-compliance-80-100-gkb-ch"
         ]
       },
       "previousSlugs": [
-        "fachspezialist-in-rechtsdienst-compliance-80-100-gkb-ch",
-        "specialista-in-servizio-legale-compliance-80-100-graubundner-kantonalbank-chur",
-        "specialist-in-legal-service-compliance-80-100-graubundner-kantonalbank-chur",
-        "specialiste-en-service-juridique-conformite-80-100-graubundner-kantonalbank-chur"
+        "fachspezialist-in-rechtsdienst-compliance-80-100-gkb-ch"
       ],
       "firstSeenAt": "2026-05-07T21:54:03.719Z",
       "salaryMin": 49500,
@@ -550,9 +558,9 @@
       "slug": "co-responsabile-privatkunden-60-100-graubundner-kantonalbank-chur",
       "slugByLocale": {
         "it": "co-responsabile-privatkunden-60-100-graubundner-kantonalbank-chur",
-        "en": "co-leiter-in-privatkunden-60-100-gkb-ch",
+        "en": "co-leader-in-private-customers-60-100-graubundner-kantonalbank-chur",
         "de": "co-leiter-in-privatkunden-60-100-graubundner-kantonalbank-chur",
-        "fr": "co-leiter-in-privatkunden-60-100-gkb-ch"
+        "fr": "cochef-de-file-60-100-graubundner-kantonalbank-chur"
       },
       "company": "Graubündner Kantonalbank",
       "companyKey": "gkb",
@@ -604,18 +612,14 @@
           "co-leiter-in-privatkunden-60-100-gkb-ch"
         ],
         "en": [
-          "co-leiter-in-privatkunden-60-100-gkb-ch",
-          "co-leader-in-private-customers-60-100-graubundner-kantonalbank-chur"
+          "co-leiter-in-privatkunden-60-100-gkb-ch"
         ],
         "fr": [
-          "co-leiter-in-privatkunden-60-100-gkb-ch",
-          "cochef-de-file-60-100-graubundner-kantonalbank-chur"
+          "co-leiter-in-privatkunden-60-100-gkb-ch"
         ]
       },
       "previousSlugs": [
-        "co-leiter-in-privatkunden-60-100-gkb-ch",
-        "co-leader-in-private-customers-60-100-graubundner-kantonalbank-chur",
-        "cochef-de-file-60-100-graubundner-kantonalbank-chur"
+        "co-leiter-in-privatkunden-60-100-gkb-ch"
       ],
       "firstSeenAt": "2026-05-15T11:04:48.667Z",
       "salaryMin": 68000,
@@ -635,7 +639,7 @@
       "id": "gkb-f18088b38714",
       "slug": "consulente-in-clienti-privati-60-graubundner-kantonalbank-thusis",
       "slugByLocale": {
-        "it": "consulente-clientela-privata-60-graubundner-kantonalbank-thusis",
+        "it": "consulente-in-clienti-privati-60-graubundner-kantonalbank-thusis",
         "en": "adviser-in-private-customers-60-graubundner-kantonalbank-thusis",
         "de": "berater-in-privatkunden-60-graubundner-kantonalbank-thusis",
         "fr": "conseiller-aupres-de-clients-prives-60-graubundner-kantonalbank-thusis"
@@ -687,7 +691,8 @@
           "berater-in-privatkunden-60-gkb-ch"
         ],
         "it": [
-          "berater-in-privatkunden-60-gkb-ch"
+          "berater-in-privatkunden-60-gkb-ch",
+          "consulente-clientela-privata-60-graubundner-kantonalbank-thusis"
         ],
         "en": [
           "private-client-advisor-60-graubundner-kantonalbank-thusis"
@@ -698,11 +703,9 @@
       },
       "previousSlugs": [
         "berater-in-privatkunden-60-gkb-ch",
+        "consulente-clientela-privata-60-graubundner-kantonalbank-thusis",
         "private-client-advisor-60-graubundner-kantonalbank-thusis",
-        "conseiller-ere-clientele-privee-60-graubundner-kantonalbank-thusis",
-        "consulente-in-clienti-privati-60-graubundner-kantonalbank-thusis",
-        "adviser-in-private-customers-60-graubundner-kantonalbank-thusis",
-        "conseiller-aupres-de-clients-prives-60-graubundner-kantonalbank-thusis"
+        "conseiller-ere-clientele-privee-60-graubundner-kantonalbank-thusis"
       ],
       "firstSeenAt": "2026-05-19T22:20:03.849Z",
       "salaryMin": 49500,

@@ -2821,9 +2821,9 @@
     },
     {
       "id": "sulzer-b09d52a97c1b",
-      "slug": "asm-casting-buying-expediting-sulzer-ch",
+      "slug": "asm-casting-acquisto-e-spedizione-sulzer-navi-mumbai",
       "slugByLocale": {
-        "it": "asm-casting-buying-expediting-sulzer-ch",
+        "it": "asm-casting-acquisto-e-spedizione-sulzer-navi-mumbai",
         "en": "asm-casting-buying-expediting-sulzer-ch",
         "de": "asm-casting-buying-expediting-sulzer-ch",
         "fr": "asm-casting-buying-expediting-sulzer-ch"
@@ -2880,7 +2880,15 @@
         }
       },
       "postalCode": "8001",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "asm-casting-buying-expediting-sulzer-ch"
+        ]
+      },
+      "previousSlugs": [
+        "asm-casting-buying-expediting-sulzer-ch"
+      ]
     },
     {
       "id": "sulzer-80659319fac8",

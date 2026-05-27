@@ -360,7 +360,7 @@
       "id": "octapharma-11ec14a6a590",
       "slug": "avviso-legale-octapharma-lachen",
       "slugByLocale": {
-        "it": "consulente-legale-octapharma-lachen",
+        "it": "avviso-legale-octapharma-lachen",
         "en": "legal-counsel-octapharma-lachen",
         "de": "legal-counsel-octapharma-lachen",
         "fr": "conseiller-juridique-octapharma-lachen"
@@ -438,11 +438,12 @@
       },
       "previousSlugs": [
         "legal-counsel-octapharma-lachen",
-        "avviso-legale-octapharma-lachen"
+        "consulente-legale-octapharma-lachen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "legal-counsel-octapharma-lachen"
+          "legal-counsel-octapharma-lachen",
+          "consulente-legale-octapharma-lachen"
         ]
       },
       "firstSeenAt": "2026-05-19T19:53:24.139Z",
@@ -634,7 +635,7 @@
       "slug": "assistente-legale-60-80-octapharma-lachen",
       "slugByLocale": {
         "it": "assistente-legale-60-80-octapharma-lachen",
-        "en": "rechtsassistent-in-60-80-octapharma-lachen",
+        "en": "legal-assistant-60-80-octapharma-lachen",
         "de": "rechtsassistent-in-60-80-octapharma-lachen",
         "fr": "assistant-juridique-60-80-octapharma-lachen"
       },
@@ -704,7 +705,6 @@
       },
       "previousSlugsByLocale": {
         "en": [
-          "legal-assistant-60-80-octapharma-lachen",
           "rechtsassistent-in-60-80-octapharma-lachen"
         ],
         "it": [
@@ -712,8 +712,7 @@
         ]
       },
       "previousSlugs": [
-        "rechtsassistent-in-60-80-octapharma-lachen",
-        "legal-assistant-60-80-octapharma-lachen"
+        "rechtsassistent-in-60-80-octapharma-lachen"
       ],
       "firstSeenAt": "2026-05-19T19:53:23.554Z",
       "salaryMin": 49500,

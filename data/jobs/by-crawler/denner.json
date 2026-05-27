@@ -183,9 +183,9 @@
     },
     {
       "id": "denner-fc423f4f9179",
-      "slug": "verkaufer-in-denner-glis",
+      "slug": "venditore-denner-glis",
       "slugByLocale": {
-        "it": "verkaufer-in-denner-glis",
+        "it": "venditore-denner-glis",
         "en": "verkaufer-in-denner-glis",
         "de": "verkaufer-in-denner-glis",
         "fr": "verkaufer-in-denner-glis"
@@ -248,7 +248,8 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-denner"
+          "verkaufer-in-denner",
+          "verkaufer-in-denner-glis"
         ],
         "en": [
           "verkaufer-in-denner"
@@ -262,6 +263,7 @@
       },
       "previousSlugs": [
         "verkaufer-in-denner",
+        "verkaufer-in-denner-glis",
         "verkaufer-in-denner-rubigen"
       ],
       "salaryMin": 59000,

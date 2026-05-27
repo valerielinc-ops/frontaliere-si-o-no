@@ -80,10 +80,10 @@
     },
     {
       "id": "badrutts-palace-b285db822441",
-      "slug": "revenue-manager-badrutts-palace-ch",
+      "slug": "responsabile-delle-entrate-badrutt-s-palace-hotel-st-moritz",
       "slugByLocale": {
         "en": "revenue-manager-badrutt-s-palace-hotel-st-moritz",
-        "it": "revenue-manager-badrutts-palace-ch",
+        "it": "responsabile-delle-entrate-badrutt-s-palace-hotel-st-moritz",
         "de": "revenue-manager-badrutts-palace-ch",
         "fr": "revenue-manager-badrutts-palace-ch"
       },
@@ -140,7 +140,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-26T22:07:05.997Z"
+      "firstSeenAt": "2026-05-26T22:07:05.997Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "revenue-manager-badrutts-palace-ch"
+        ]
+      },
+      "previousSlugs": [
+        "revenue-manager-badrutts-palace-ch"
+      ]
     },
     {
       "id": "badrutts-palace-8e21c80d9918",

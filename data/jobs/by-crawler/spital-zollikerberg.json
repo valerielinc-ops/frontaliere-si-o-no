@@ -353,10 +353,10 @@
     },
     {
       "id": "spital-zollikerberg-a47b6de88222",
-      "slug": "pharma-assistentin-pharma-assistenten-bzw-fachfrau-fachmann-apotheke-diverses-spital",
+      "slug": "assistente-farmaceutico-assistente-farmaceutico-specialist-professional-pharmacy-diverses-spital-zollikerberg",
       "slugByLocale": {
         "de": "pharma-assistentin-pharma-assistenten-bzw-fachfrau-fachmann-apotheke-diverses-spital",
-        "it": "pharma-assistentin-pharma-assistenten-bzw-fachfrau-fachmann-apotheke-diverses-spital",
+        "it": "assistente-farmaceutico-assistente-farmaceutico-specialist-professional-pharmacy-diverses-spital-zollikerberg",
         "en": "pharma-assistentin-pharma-assistenten-bzw-fachfrau-fachmann-apotheke-diverses-spital",
         "fr": "pharma-assistentin-pharma-assistenten-bzw-fachfrau-fachmann-apotheke-diverses-spital"
       },
@@ -414,7 +414,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-19T12:20:47.142Z"
+      "firstSeenAt": "2026-05-19T12:20:47.142Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "pharma-assistentin-pharma-assistenten-bzw-fachfrau-fachmann-apotheke-diverses-spital"
+        ]
+      },
+      "previousSlugs": [
+        "pharma-assistentin-pharma-assistenten-bzw-fachfrau-fachmann-apotheke-diverses-spital"
+      ]
     }
   ]
 }

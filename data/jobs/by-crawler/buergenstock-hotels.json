@@ -3630,10 +3630,10 @@
     },
     {
       "id": "buergenstock-hotels-72f208050e7a",
-      "slug": "barkeeper-100-w-m-i-burgenstock-hotels-ag-obburgen",
+      "slug": "barista-100-f-m-i-burgenstock-hotels-ag-obburgen",
       "slugByLocale": {
         "de": "barkeeper-100-w-m-i-buergenstock-hotels-obburgen",
-        "it": "barkeeper-100-w-m-i-burgenstock-hotels-ag-obburgen",
+        "it": "barista-100-f-m-i-burgenstock-hotels-ag-obburgen",
         "en": "barkeeper-100-w-m-i-buergenstock-hotels-obburgen",
         "fr": "barkeeper-100-w-m-i-buergenstock-hotels-obburgen"
       },
@@ -3681,11 +3681,13 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "barkeeper-100-w-m-i-buergenstock-hotels-obburgen"
+          "barkeeper-100-w-m-i-buergenstock-hotels-obburgen",
+          "barkeeper-100-w-m-i-burgenstock-hotels-ag-obburgen"
         ]
       },
       "previousSlugs": [
-        "barkeeper-100-w-m-i-buergenstock-hotels-obburgen"
+        "barkeeper-100-w-m-i-buergenstock-hotels-obburgen",
+        "barkeeper-100-w-m-i-burgenstock-hotels-ag-obburgen"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,

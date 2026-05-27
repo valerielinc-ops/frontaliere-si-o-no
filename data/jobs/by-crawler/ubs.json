@@ -2024,9 +2024,9 @@
     },
     {
       "id": "ubs-ad40e2b9e0b5",
-      "slug": "operations-officer-ubs",
+      "slug": "agente-operativo-ubs",
       "slugByLocale": {
-        "it": "operations-officer-ubs",
+        "it": "agente-operativo-ubs",
         "en": "operations-officer-ubs",
         "de": "operations-officer-ubs",
         "fr": "operations-officer-ubs"
@@ -2090,7 +2090,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "operations-officer-ubs"
+        ]
+      },
+      "previousSlugs": [
+        "operations-officer-ubs"
+      ]
     },
     {
       "id": "ubs-b62286f3b0e6",
@@ -2329,10 +2337,10 @@
     },
     {
       "id": "ubs-e845860076f2",
-      "slug": "market-operation-officer-ubs",
+      "slug": "responsabile-delle-operazioni-di-mercato-ubs",
       "slugByLocale": {
         "en": "market-operation-officer-ubs",
-        "it": "market-operation-officer-ubs",
+        "it": "responsabile-delle-operazioni-di-mercato-ubs",
         "de": "market-operation-officer-ubs",
         "fr": "market-operation-officer-ubs"
       },
@@ -2397,14 +2405,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-27T00:38:07.436Z"
+      "firstSeenAt": "2026-05-27T00:38:07.436Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "market-operation-officer-ubs"
+        ]
+      },
+      "previousSlugs": [
+        "market-operation-officer-ubs"
+      ]
     },
     {
       "id": "ubs-4a0c74ffbc77",
-      "slug": "compliance-officer-ubs",
+      "slug": "ufficiale-di-conformita-ubs",
       "slugByLocale": {
         "en": "compliance-officer-ubs",
-        "it": "compliance-officer-ubs",
+        "it": "ufficiale-di-conformita-ubs",
         "de": "compliance-officer-ubs",
         "fr": "compliance-officer-ubs"
       },
@@ -2469,7 +2485,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-27T00:38:07.435Z"
+      "firstSeenAt": "2026-05-27T00:38:07.435Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "compliance-officer-ubs"
+        ]
+      },
+      "previousSlugs": [
+        "compliance-officer-ubs"
+      ]
     },
     {
       "id": "ubs-49a10e5a3e8d",
@@ -2772,10 +2796,10 @@
     },
     {
       "id": "ubs-ae69aebe7dd0",
-      "slug": "credit-risk-officer-hedge-funds-ubs",
+      "slug": "credit-risk-officer-fondi-di-copertura-ubs",
       "slugByLocale": {
         "en": "credit-risk-officer-hedge-funds-ubs",
-        "it": "credit-risk-officer-hedge-funds-ubs",
+        "it": "credit-risk-officer-fondi-di-copertura-ubs",
         "de": "credit-risk-officer-hedge-funds-ubs",
         "fr": "credit-risk-officer-hedge-funds-ubs"
       },
@@ -2840,14 +2864,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-27T00:38:07.428Z"
+      "firstSeenAt": "2026-05-27T00:38:07.428Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "credit-risk-officer-hedge-funds-ubs"
+        ]
+      },
+      "previousSlugs": [
+        "credit-risk-officer-hedge-funds-ubs"
+      ]
     },
     {
       "id": "ubs-e8585cbfd638",
-      "slug": "risk-expert-ib-derivatives-solutions-ubs",
+      "slug": "esperto-del-rischio-ib-derivatives-solutions-ubs",
       "slugByLocale": {
         "en": "risk-expert-ib-derivatives-solutions-ubs",
-        "it": "risk-expert-ib-derivatives-solutions-ubs",
+        "it": "esperto-del-rischio-ib-derivatives-solutions-ubs",
         "de": "risk-expert-ib-derivatives-solutions-ubs",
         "fr": "risk-expert-ib-derivatives-solutions-ubs"
       },
@@ -2912,7 +2944,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-27T00:38:07.427Z"
+      "firstSeenAt": "2026-05-27T00:38:07.427Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "risk-expert-ib-derivatives-solutions-ubs"
+        ]
+      },
+      "previousSlugs": [
+        "risk-expert-ib-derivatives-solutions-ubs"
+      ]
     },
     {
       "id": "ubs-a02084f685bc",
@@ -2988,10 +3028,10 @@
     },
     {
       "id": "ubs-c124aae28888",
-      "slug": "registered-client-associate-ubs",
+      "slug": "cliente-associato-registrato-ubs",
       "slugByLocale": {
         "en": "registered-client-associate-ubs",
-        "it": "registered-client-associate-ubs",
+        "it": "cliente-associato-registrato-ubs",
         "de": "registered-client-associate-ubs",
         "fr": "registered-client-associate-ubs"
       },
@@ -3056,14 +3096,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-27T00:38:07.424Z"
+      "firstSeenAt": "2026-05-27T00:38:07.424Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "registered-client-associate-ubs"
+        ]
+      },
+      "previousSlugs": [
+        "registered-client-associate-ubs"
+      ]
     },
     {
       "id": "ubs-4b82addbe146",
-      "slug": "competitive-underwriter-ubs",
+      "slug": "sottoscrittore-competitivo-ubs",
       "slugByLocale": {
         "en": "competitive-underwriter-ubs",
-        "it": "competitive-underwriter-ubs",
+        "it": "sottoscrittore-competitivo-ubs",
         "de": "competitive-underwriter-ubs",
         "fr": "competitive-underwriter-ubs"
       },
@@ -3128,14 +3176,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-27T00:38:07.423Z"
+      "firstSeenAt": "2026-05-27T00:38:07.423Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "competitive-underwriter-ubs"
+        ]
+      },
+      "previousSlugs": [
+        "competitive-underwriter-ubs"
+      ]
     },
     {
       "id": "ubs-ef5fef2f8b24",
-      "slug": "event-attendant-im-stundenlohn-ubs",
+      "slug": "evento-partecipante-in-salario-orario-ubs",
       "slugByLocale": {
         "de": "event-attendant-im-stundenlohn-ubs",
-        "it": "event-attendant-im-stundenlohn-ubs",
+        "it": "evento-partecipante-in-salario-orario-ubs",
         "en": "event-attendant-im-stundenlohn-ubs",
         "fr": "event-attendant-im-stundenlohn-ubs"
       },
@@ -3200,14 +3256,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-27T00:38:07.422Z"
+      "firstSeenAt": "2026-05-27T00:38:07.422Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "event-attendant-im-stundenlohn-ubs"
+        ]
+      },
+      "previousSlugs": [
+        "event-attendant-im-stundenlohn-ubs"
+      ]
     },
     {
       "id": "ubs-a47c274c044d",
-      "slug": "event-attendant-im-stundenlohn-ubs-2",
+      "slug": "evento-partecipante-in-salario-orario-ubs-39439b",
       "slugByLocale": {
         "de": "event-attendant-im-stundenlohn-ubs",
-        "it": "event-attendant-im-stundenlohn-ubs-2",
+        "it": "evento-partecipante-in-salario-orario-ubs-39439b",
         "en": "event-attendant-im-stundenlohn-ubs-2",
         "fr": "event-attendant-im-stundenlohn-ubs-2"
       },
@@ -3272,14 +3336,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-27T00:38:07.420Z"
+      "firstSeenAt": "2026-05-27T00:38:07.420Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "event-attendant-im-stundenlohn-ubs-2"
+        ]
+      },
+      "previousSlugs": [
+        "event-attendant-im-stundenlohn-ubs-2"
+      ]
     },
     {
       "id": "ubs-43ed015d1d2e",
-      "slug": "client-associate-ubs-5",
+      "slug": "cliente-associato-ubs-69b66b",
       "slugByLocale": {
         "en": "client-associate-ubs",
-        "it": "client-associate-ubs-5",
+        "it": "cliente-associato-ubs-69b66b",
         "de": "client-associate-ubs-5",
         "fr": "client-associate-ubs-5"
       },
@@ -3344,7 +3416,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-27T00:38:07.419Z"
+      "firstSeenAt": "2026-05-27T00:38:07.419Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "client-associate-ubs-5"
+        ]
+      },
+      "previousSlugs": [
+        "client-associate-ubs-5"
+      ]
     },
     {
       "id": "ubs-0415fe83957c",
@@ -3429,10 +3509,10 @@
     },
     {
       "id": "ubs-ee2abb33dbbb",
-      "slug": "supervisory-officer-ubs",
+      "slug": "agente-di-vigilanza-ubs",
       "slugByLocale": {
         "en": "supervisory-officer-ubs",
-        "it": "supervisory-officer-ubs",
+        "it": "agente-di-vigilanza-ubs",
         "de": "supervisory-officer-ubs",
         "fr": "supervisory-officer-ubs"
       },
@@ -3497,7 +3577,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-27T00:38:07.416Z"
+      "firstSeenAt": "2026-05-27T00:38:07.416Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "supervisory-officer-ubs"
+        ]
+      },
+      "previousSlugs": [
+        "supervisory-officer-ubs"
+      ]
     },
     {
       "id": "ubs-f2853ddea7d9",
