@@ -1,94 +1,7 @@
 {
   "crawlerKey": "kispi-zurich",
-  "assembledAt": "2026-05-26T23:16:10.432Z",
+  "assembledAt": "2026-05-27T13:01:06.931Z",
   "jobs": [
-    {
-      "id": "kispi-zurich-ae0b2f3fc68d",
-      "slug": "dipl-pflegefachfrau-dipl-pflegefachmann-80-100-kispi-zurich-zurich",
-      "slugByLocale": {
-        "it": "dipl-pflegefachfrau-dipl-pflegefachmann-80-100-kispi-zurich-zurich",
-        "en": "registered-nurse-80-100-universitats-kinderspital-zurich-kispi-zurich",
-        "de": "dipl-pflegefachfrau-dipl-pflegefachmann-80-100-kispi-zurich-zurich",
-        "fr": "infirmier-ere-diplome-e-80-100-universitats-kinderspital-zurich-kispi-zurich"
-      },
-      "company": "Universitäts-Kinderspital Zürich (Kispi)",
-      "companyKey": "kispi-zurich",
-      "companyDomain": "kispi.uzh.ch",
-      "title": "Dipl. Pflegefachfrau / Dipl. Pflegefachmann 80-100%",
-      "titleByLocale": {
-        "it": "Dipl. Pflegefachfrau / Dipl. Pflegefachmann 80-100%",
-        "en": "Registered Nurse 80-100%",
-        "de": "Dipl. Pflegefachfrau / Dipl. Pflegefachmann 80-100%",
-        "fr": "Infirmier/ère diplômé/e 80-100%"
-      },
-      "description": "Dipl. Pflegefachfrau / Dipl. Pflegefachmann 80-100% bei Kinderspital Zürich Eleonorenstiftung in Zürich (8032, ZH), Schweiz.\n\n• Art: Vollzeit\n• Befristung: befristet\n• Standort: Zürich (ZH)\n• Bewerbung über das Umantis-Karriereportal von Universitäts-Kinderspital Zürich (Kispi)",
-      "descriptionByLocale": {
-        "it": "Kinderspital Zürich Eleonorenstiftung online dal : 19.05.2026 Kinder-Reha Schweiz, reparto bambini - fino al 31 dicembre 2026. Descrizione - Ti prendi cura e ti prendi cura dei bambini e degli adolescenti e delle loro famiglie che necessitano di una riabilitazione ospedaliera intensiva a causa delle conseguenze di una malattia congenita o acquisita o dopo un incidente. Dettagli lavoro - Tipo: a tempo pieno - Tempo determinato: a tempo determinato Contatto - (no contact information provided)",
-        "en": "Children's Hospital Zurich Eleonorenstiftung online since : 05/19/2026 Children's rehabilitation Switzerland, Children's ward - limited until 31 December 2026. Descrizione - You nurse and care for children and adolescents as well as their families who need intensive inpatient rehabilitation due to the consequences of a congenital or acquired disease or after an accident. Dettagli lavoro - Type: Full-time - Fixed-term: temporary Contatto - (no contact information provided)",
-        "de": "Dipl. Pflegefachfrau / Dipl. Pflegefachmann 80-100% bei Kinderspital Zürich Eleonorenstiftung in Zürich (8032, ZH), Schweiz.\n• Art: Vollzeit\n• Befristung: befristet\n• Standort: Zürich (ZH)\n• Bewerbung über das Umantis-Karriereportal von Universitäts-Kinderspital Zürich (Kispi)",
-        "fr": "Kinderspital Zürich Eleonorenstiftung en ligne depuis : 19/05/2026 Kinder-Reha Schweiz, service Kinder - limité au 31 décembre 2026. Descrizione - Tu soignes et tu t'occupes des enfants et des adolescents ainsi que de leurs familles qui ont besoin d'une rééducation stationnaire intensive en raison des conséquences d'une maladie congénitale ou acquise ou après un accident. Dettagli lavoro - Type : à temps plein - Durée : temporaire Contatto - (no contact information provided)"
-      },
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://recruitingapp-2316.umantis.com/Vacancies/3665/Description/1",
-      "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
-      "sourceLang": "de",
-      "crawledAt": "2026-05-26T23:16:08.336Z",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8032",
-      "category": "Sanità / Ospedali",
-      "contract": "temporary",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-19",
-      "applyUrl": "https://recruitingapp-2316.umantis.com/Vacancies/3665/Application/CheckLogin/1",
-      "requirements": [],
-      "requirementsByLocale": {
-        "it": [
-          "Diploma di infermiere/a",
-          "Esperienza in ambito pediatrico",
-          "Capacità di lavorare in team multidisciplinari",
-          "Empatia e orientamento al paziente",
-          "Flessibilità oraria",
-          "Ottima conoscenza della lingua tedesca"
-        ],
-        "en": [
-          "Registered Nurse qualification",
-          "Experience in pediatric care",
-          "Ability to work in multidisciplinary teams",
-          "Empathy and patient-centered approach",
-          "Flexibility in working hours",
-          "Excellent command of the German language"
-        ],
-        "fr": [
-          "Diplôme d'infirmier/ère",
-          "Expérience en soins pédiatriques",
-          "Capacité à travailler en équipes pluridisciplinaires",
-          "Empathie et approche centrée sur le patient",
-          "Flexibilité des horaires",
-          "Excellente maîtrise de la langue allemande"
-        ]
-      },
-      "firstSeenAt": "2026-05-19T14:36:57.021Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      }
-    },
     {
       "id": "kispi-zurich-0c19b1269ab9",
       "slug": "dipl-pflegefachfrau-dipl-pflegefachmann-80-100-kispi-zurich-zurich-2",
@@ -105,22 +18,23 @@
       "titleByLocale": {
         "it": "Dipl. Pflegefachfrau / Dipl. Pflegefachmann 80-100%",
         "en": "Qualified nurse 80-100%",
-        "de": "Dipl. Pflegefachfrau / Dipl. Pflegefachmann 80-100 %",
+        "de": "Dipl. Pflegefachfrau / Dipl. Pflegefachmann 80-100%",
         "fr": "Infirmière /Infirmier diplômé 80-100 %"
       },
       "description": "Dipl. Pflegefachfrau / Dipl. Pflegefachmann 80-100% bei Kinderspital Zürich Eleonorenstiftung in Zürich (8032, ZH), Schweiz.\n\n• Art: Vollzeit\n• Befristung: unbefristet\n• Standort: Zürich (ZH)\n• Bewerbung über das Umantis-Karriereportal von Universitäts-Kinderspital Zürich (Kispi)",
       "descriptionByLocale": {
-        "it": "Descrizione\nDipl. Carriera / Dipl. Specialista di cura 80-100% presso Kinderspital Zürich Eleonorenstiftung a Zurigo (8032, ZH), Svizzera.\n\n- Tipo: Tempo pieno\n- Scadenza: illimitato\n- Posizione: Zurigo (ZH)\n- Applicazione tramite Umantis-Karriereportal von Universitäts-Kinderspital Zürich (Kispi)",
-        "en": "Descrizione\nDipl. Career / Dipl. Care specialist 80-100% at Kinderspital Zürich Eleonorenstiftung in Zurich (8032, ZH), Switzerland.\n\n- Type: Full time\n- Deadline: unlimited\n- Location: Zurich (ZH)\n- Application via the Umantis-Karriereportal von Universitäts-Kinderspital Zürich (Kispi)",
-        "de": "Descrizione\nDipl. Pflegefachfrau / Dipl. Pflegefachmann 80-100% bei Kinderspital Zürich Eleonorenstiftung in Zürich (8032, ZH), Schweiz.\n\n- Art: Vollzeit\n- Befristung: unbefristet\n- Standort: Zürich (ZH)\n- Bewerbung über das Umantis-Karriereportal von Universitäts-Kinderspital Zürich (Kispi)",
-        "fr": "Descrizione\nDipl. Carrière / Dipl. Spécialiste des soins 80-100% chez Kinderspital Zürich Eleonorenstiftung à Zurich (8032, ZH), Suisse.\n\n- Type: Temps plein\n- Délai: illimité\n- Lieu: Zurich (ZH)\n- Application via le Umantis-Karriereportal von Universitäts-Kinderspital Zürich (Kispi)"
+        "it": "Descrizione Dipl. Carriera / Dipl. Specialista di cura 80-100% presso Kinderspital Zürich Eleonorenstiftung a Zurigo (8032, ZH), Svizzera. - Tipo: Tempo pieno - Scadenza: illimitato - Posizione: Zurigo (ZH) - Applicazione tramite Umantis-Karriereportal von Universitäts-Kinderspital Zürich (Kispi)",
+        "en": "Descrizione Dipl. Career / Dipl. Care specialist 80-100% at Kinderspital Zürich Eleonorenstiftung in Zurich (8032, ZH), Switzerland. - Type: Full time - Deadline: unlimited - Location: Zurich (ZH) - Application via the Umantis-Karriereportal von Universitäts-Kinderspital Zürich (Kispi)",
+        "de": "Dipl. Pflegefachfrau / Dipl. Pflegefachmann 80-100% bei Kinderspital Zürich Eleonorenstiftung in Zürich (8032, ZH), Schweiz.\n• Art: Vollzeit\n• Befristung: unbefristet\n• Standort: Zürich (ZH)\n• Bewerbung über das Umantis-Karriereportal von Universitäts-Kinderspital Zürich (Kispi)",
+        "fr": "Descrizione Dipl. Carrière / Dipl. Spécialiste des soins 80-100% chez Kinderspital Zürich Eleonorenstiftung à Zurich (8032, ZH), Suisse. - Type: Temps plein - Délai: illimité - Lieu: Zurich (ZH) - Application via le Umantis-Karriereportal von Universitäts-Kinderspital Zürich (Kispi)"
       },
+      "needsRetranslation": true,
       "location": "Zürich",
       "canton": "ZH",
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3599/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-26T23:16:07.272Z",
+      "crawledAt": "2026-05-27T13:01:05.036Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -159,6 +73,18 @@
           "Maîtrise de la langue allemande"
         ]
       },
+      "previousSlugs": [
+        "dipl-career-dipl-care-specialist-80-100-universitats-kinderspital-zurich-kispi-zurich",
+        "dipl-carriere-dipl-specialiste-des-soins-80-100-universitats-kinderspital-zurich-kispi-zurich"
+      ],
+      "previousSlugsByLocale": {
+        "en": [
+          "dipl-career-dipl-care-specialist-80-100-universitats-kinderspital-zurich-kispi-zurich"
+        ],
+        "fr": [
+          "dipl-carriere-dipl-specialiste-des-soins-80-100-universitats-kinderspital-zurich-kispi-zurich"
+        ]
+      },
       "firstSeenAt": "2026-05-19T14:36:55.986Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -171,19 +97,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "en": [
-          "dipl-career-dipl-care-specialist-80-100-universitats-kinderspital-zurich-kispi-zurich"
-        ],
-        "fr": [
-          "dipl-carriere-dipl-specialiste-des-soins-80-100-universitats-kinderspital-zurich-kispi-zurich"
-        ]
-      },
-      "previousSlugs": [
-        "dipl-career-dipl-care-specialist-80-100-universitats-kinderspital-zurich-kispi-zurich",
-        "dipl-carriere-dipl-specialiste-des-soins-80-100-universitats-kinderspital-zurich-kispi-zurich"
-      ]
+      }
     },
     {
       "id": "kispi-zurich-8dab6d28c585",
@@ -217,7 +131,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3668/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-26T23:16:06.190Z",
+      "crawledAt": "2026-05-27T13:01:04.185Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -296,7 +210,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3446/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-26T23:16:05.259Z",
+      "crawledAt": "2026-05-27T13:01:03.334Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -361,12 +275,13 @@
         "de": "Kinderspital Zürich Eleonorenstiftung | online seit : 21.05.2026 Deine Aufgaben\n• Du planst, organisierst und optimierst das OP-Tagesprogramm sowie das Programm für den Folgetag.\n• Art: Vollzeit\n• Befristung: unbefristet",
         "fr": "Kinderspital Zürich Eleonorenstiftung (en anglais seulement) en ligne depuis: 21.05.2026 Vos tâches\n• Vous planifiez, organisez et optimisez le programme OP-Tags et le programme pour le lendemain. Type: Temps plein Durée: illimitée"
       },
+      "needsRetranslation": true,
       "location": "Zürich",
       "canton": "ZH",
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3673/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-26T23:16:04.350Z",
+      "crawledAt": "2026-05-27T13:01:02.489Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -423,12 +338,13 @@
         "de": "Kinderspital Zürich Eleonorenstiftung | online seit : 22.05.2026 Deine Aufgaben\n• Du führst den Assistenzpool selbständig und koordinierst dabei eine grosse Aufgabenvielfalt sowie divergierende Bedürfnisse und Prioritäten.\n• Art: Vollzeit\n• Befristung: unbefristet",
         "fr": "Mansioni - Vous dirigez le pool d'assistance indépendamment et coordonnez un large éventail de tâches et de besoins et priorités divergents. Types de Durata - Type: Temps plein - Délai: illimité"
       },
+      "needsRetranslation": true,
       "location": "Zürich",
       "canton": "ZH",
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3676/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-26T23:16:03.457Z",
+      "crawledAt": "2026-05-27T13:01:01.647Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -478,9 +394,9 @@
       "slug": "consulente-senior-m-w-universitats-kinderspital-zurich-kispi-zurich",
       "slugByLocale": {
         "it": "consulente-senior-m-w-universitats-kinderspital-zurich-kispi-zurich",
-        "en": "senior-consultant-m-w-universitats-kinderspital-zurich-kispi-zurich",
+        "en": "arztsekretarin-m-w-60-80-kispi-zurich-zurich",
         "de": "arztsekretarin-m-w-60-80-universitats-kinderspital-zurich-kispi-zurich",
-        "fr": "consultant-principal-m-m-universitats-kinderspital-zurich-kispi-zurich"
+        "fr": "arztsekretarin-m-w-60-80-kispi-zurich-zurich"
       },
       "company": "Universitäts-Kinderspital Zürich (Kispi)",
       "companyKey": "kispi-zurich",
@@ -505,7 +421,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3672/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-26T23:16:02.512Z",
+      "crawledAt": "2026-05-27T13:01:00.800Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -531,15 +447,19 @@
           "segretaria-medica-m-f-60-80-universitats-kinderspital-zurich-kispi-zurich"
         ],
         "en": [
+          "senior-consultant-m-w-universitats-kinderspital-zurich-kispi-zurich",
           "arztsekretarin-m-w-60-80-kispi-zurich-zurich"
         ],
         "fr": [
+          "consultant-principal-m-m-universitats-kinderspital-zurich-kispi-zurich",
           "arztsekretarin-m-w-60-80-kispi-zurich-zurich"
         ]
       },
       "previousSlugs": [
         "arztsekretarin-m-w-60-80-kispi-zurich-zurich",
-        "segretaria-medica-m-f-60-80-universitats-kinderspital-zurich-kispi-zurich"
+        "segretaria-medica-m-f-60-80-universitats-kinderspital-zurich-kispi-zurich",
+        "senior-consultant-m-w-universitats-kinderspital-zurich-kispi-zurich",
+        "consultant-principal-m-m-universitats-kinderspital-zurich-kispi-zurich"
       ],
       "firstSeenAt": "2026-05-20T23:19:34.031Z",
       "salaryMin": 68000,
@@ -559,9 +479,9 @@
       "id": "kispi-zurich-ccee53300790",
       "slug": "esperto-di-cura-apn-60-70-universitats-kinderspital-zurich-kispi-zurich",
       "slugByLocale": {
-        "de": "pflegeexpertin-pflegeexperte-apn-60-70-kispi-zurich-zurich",
         "it": "esperto-di-cura-apn-60-70-universitats-kinderspital-zurich-kispi-zurich",
         "en": "pflegeexpertin-pflegeexperte-apn-60-70-kispi-zurich-zurich",
+        "de": "pflegeexpertin-pflegeexperte-apn-60-70-kispi-zurich-zurich",
         "fr": "expert-en-soins-apn-60-70-universitats-kinderspital-zurich-kispi-zurich"
       },
       "company": "Universitäts-Kinderspital Zürich (Kispi)",
@@ -569,24 +489,25 @@
       "companyDomain": "kispi.uzh.ch",
       "title": "Pflegeexpertin / Pflegeexperte APN 60-70%",
       "titleByLocale": {
-        "de": "<think> Okay, let's tackle this translation. The job title is \"Pflegeexpertin / Pflegeexperte APN 60-70%\". First, I need to translate each part into German. \"Pflegeexpertin\" and \"Pflegeexperte\" are already in German, so those stay. \"APN\" is an acronym, probably for",
-        "en": "Pflegeexpertin / Pflegeexperte APN 60-70%",
         "it": "Esperto di cura APN 60-70 %",
+        "en": "Pflegeexpertin / Pflegeexperte APN 60-70%",
+        "de": "Pflegeexpertin / Pflegeexperte APN 60-70%",
         "fr": "Expert en soins APN 60-70 %"
       },
       "description": "Pflegeexpertin / Pflegeexperte APN 60-70% bei Kinderspital Zürich Eleonorenstiftung in Zürich (8032, ZH), Schweiz.\n\n• Art: Teilzeit\n• Befristung: unbefristet\n• Standort: Zürich (ZH)\n• Bewerbung über das Umantis-Karriereportal von Universitäts-Kinderspital Zürich (Kispi)",
       "descriptionByLocale": {
-        "de": "Pflegeexpertin / Pflegeexperte APN 60-70% bei Kinderspital Zürich Eleonorenstiftung in Zürich (8032, ZH), Schweiz.\n\n• Art: Teilzeit\n• Befristung: unbefristet\n• Standort: Zürich (ZH)\n• Bewerbung über das Umantis-Karriereportal von Universitäts-Kinderspital Zürich (Kispi)",
-        "it": "Esperto di cura APN 60-70% presso Kinderspital Zürich Eleonorenstiftung a Zurigo (8032, ZH), Svizzera.\n\n• Tipo: Parttime\n• Durata: illimitato\n• Posizione: Zurigo (ZH)\n• Applicazione tramite Umantis-Karriereportal von Universitäts-Kinderspital Zürich (Kispi)",
-        "en": "Care expert APN 60-70% at Kinderspital Zürich Eleonorenstiftung in Zurich (8032, ZH), Switzerland.\n\n• Type: Parttime\n• Duration: unlimited\n• Location: Zurich (ZH)\n• Application via the Umantis-Karriereportal von Universitäts-Kinderspital Zürich (Kispi)",
-        "fr": "Expert en soins APN 60-70% à Kinderspital Zürich Eleonorenstiftung à Zurich (8032, ZH), Suisse.\n\n• Type: temps partiel\n• Durée: illimitée\n• Lieu: Zurich (ZH)\n• Demande via le Umantis-Karriereportal von Universitäts-Kinderspital Zürich (Kispi)"
+        "it": "Esperto di cura APN 60-70% presso Kinderspital Zürich Eleonorenstiftung a Zurigo (8032, ZH), Svizzera.\n• Tipo: Parttime\n• Durata: illimitato\n• Posizione: Zurigo (ZH)\n• Applicazione tramite Umantis-Karriereportal von Universitäts-Kinderspital Zürich (Kispi)",
+        "en": "Care expert APN 60-70% at Kinderspital Zürich Eleonorenstiftung in Zurich (8032, ZH), Switzerland.\n• Type: Parttime\n• Duration: unlimited\n• Location: Zurich (ZH)\n• Application via the Umantis-Karriereportal von Universitäts-Kinderspital Zürich (Kispi)",
+        "de": "Pflegeexpertin / Pflegeexperte APN 60-70% bei Kinderspital Zürich Eleonorenstiftung in Zürich (8032, ZH), Schweiz.\n• Art: Teilzeit\n• Befristung: unbefristet\n• Standort: Zürich (ZH)\n• Bewerbung über das Umantis-Karriereportal von Universitäts-Kinderspital Zürich (Kispi)",
+        "fr": "Expert en soins APN 60-70% à Kinderspital Zürich Eleonorenstiftung à Zurich (8032, ZH), Suisse.\n• Type: temps partiel\n• Durée: illimitée\n• Lieu: Zurich (ZH)\n• Demande via le Umantis-Karriereportal von Universitäts-Kinderspital Zürich (Kispi)"
       },
+      "needsRetranslation": true,
       "location": "Zürich",
       "canton": "ZH",
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3667/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-26T23:16:01.582Z",
+      "crawledAt": "2026-05-27T13:00:59.956Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -602,9 +523,19 @@
       "postedDate": "2026-05-26",
       "applyUrl": "https://recruitingapp-2316.umantis.com/Vacancies/3667/Application/CheckLogin/1",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "pflegeexpertin-pflegeexperte-apn-60-70-kispi-zurich-zurich"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegeexpertin-pflegeexperte-apn-60-70-kispi-zurich-zurich"
+        ],
+        "fr": [
+          "pflegeexpertin-pflegeexperte-apn-60-70-kispi-zurich-zurich"
+        ]
       },
+      "firstSeenAt": "2026-05-26T23:16:01.582Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -616,19 +547,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-05-26T23:16:01.582Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "pflegeexpertin-pflegeexperte-apn-60-70-kispi-zurich-zurich"
-        ],
-        "fr": [
-          "pflegeexpertin-pflegeexperte-apn-60-70-kispi-zurich-zurich"
-        ]
-      },
-      "previousSlugs": [
-        "pflegeexpertin-pflegeexperte-apn-60-70-kispi-zurich-zurich"
-      ]
+      }
     },
     {
       "id": "kispi-zurich-3ece0151b0c7",
@@ -662,7 +581,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3670/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-26T23:16:00.685Z",
+      "crawledAt": "2026-05-27T13:00:59.128Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -735,12 +654,13 @@
         "de": "Biomedizinische Analytikerin (m/w) 80-100% bei Kinderspital Zürich Eleonorenstiftung in Zürich (8032, ZH), Schweiz.\n• Art: Vollzeit\n• Befristung: unbefristet\n• Standort: Zürich (ZH)\n• Bewerbung über das Umantis-Karriereportal von Universitäts-Kinderspital Zürich (Kispi)",
         "fr": "Kinderspital Zürich Eleonorenstiftung (en anglais seulement) en ligne depuis: 21.05.2026 Vos tâches\n• Après une incorporation soignée et structurée, vous effectuez nos analyses de bactériologie classique, sérologie des infections, microbiologie moléculaire et immunohématologie indépendamment. Type: Temps plein Durée: illimitée"
       },
+      "needsRetranslation": true,
       "location": "Zürich",
       "canton": "ZH",
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3671/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-26T23:15:59.532Z",
+      "crawledAt": "2026-05-27T13:00:58.272Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -784,6 +704,71 @@
           "unitText": "YEAR"
         }
       }
+    },
+    {
+      "id": "kispi-zurich-6832f6aa9952",
+      "slug": "berufsbildnerin-pflege-m-w-kispi-zurich-zurich",
+      "slugByLocale": {
+        "de": "berufsbildnerin-pflege-m-w-kispi-zurich-zurich",
+        "it": "berufsbildnerin-pflege-m-w-kispi-zurich-zurich",
+        "en": "berufsbildnerin-pflege-m-w-kispi-zurich-zurich",
+        "fr": "berufsbildnerin-pflege-m-w-kispi-zurich-zurich"
+      },
+      "company": "Universitäts-Kinderspital Zürich (Kispi)",
+      "companyKey": "kispi-zurich",
+      "companyDomain": "kispi.uzh.ch",
+      "title": "Berufsbildnerin Pflege (m/w)",
+      "titleByLocale": {
+        "de": "Berufsbildnerin Pflege (m/w)",
+        "it": "Berufsbildnerin Pflege (m/w)",
+        "en": "Berufsbildnerin Pflege (m/w)",
+        "fr": "Berufsbildnerin Pflege (m/w)"
+      },
+      "description": "Kinderspital Zürich Eleonorenstiftung | online seit : 27.05.2026 In Kombination mit einer Anstellung als dipl. Pflegefachperson auf der Schwerpunktstation 1.1 für Neurologie, Neurochirurgie und Allgemeine Pädiatrie Deine Aufgaben\n• Du übernimmst delegiert Verantwortung für die Ausbildung von Lernenden und Studierenden.\n\n• Art: Teilzeit\n• Befristung: unbefristet",
+      "descriptionByLocale": {
+        "de": "Kinderspital Zürich Eleonorenstiftung | online seit : 27.05.2026 In Kombination mit einer Anstellung als dipl. Pflegefachperson auf der Schwerpunktstation 1.1 für Neurologie, Neurochirurgie und Allgemeine Pädiatrie Deine Aufgaben\n• Du übernimmst delegiert Verantwortung für die Ausbildung von Lernenden und Studierenden.\n\n• Art: Teilzeit\n• Befristung: unbefristet",
+        "it": "Kinderspital Zürich Eleonorenstiftung | online seit : 27.05.2026 In Kombination mit einer Anstellung als dipl. Pflegefachperson auf der Schwerpunktstation 1.1 für Neurologie, Neurochirurgie und Allgemeine Pädiatrie Deine Aufgaben\n• Du übernimmst delegiert Verantwortung für die Ausbildung von Lernenden und Studierenden.\n\n• Art: Teilzeit\n• Befristung: unbefristet",
+        "en": "Kinderspital Zürich Eleonorenstiftung | online seit : 27.05.2026 In Kombination mit einer Anstellung als dipl. Pflegefachperson auf der Schwerpunktstation 1.1 für Neurologie, Neurochirurgie und Allgemeine Pädiatrie Deine Aufgaben\n• Du übernimmst delegiert Verantwortung für die Ausbildung von Lernenden und Studierenden.\n\n• Art: Teilzeit\n• Befristung: unbefristet",
+        "fr": "Kinderspital Zürich Eleonorenstiftung | online seit : 27.05.2026 In Kombination mit einer Anstellung als dipl. Pflegefachperson auf der Schwerpunktstation 1.1 für Neurologie, Neurochirurgie und Allgemeine Pädiatrie Deine Aufgaben\n• Du übernimmst delegiert Verantwortung für die Ausbildung von Lernenden und Studierenden.\n\n• Art: Teilzeit\n• Befristung: unbefristet"
+      },
+      "needsRetranslation": true,
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://recruitingapp-2316.umantis.com/Vacancies/3677/Description/1",
+      "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
+      "sourceLang": "de",
+      "crawledAt": "2026-05-27T13:00:57.406Z",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8032",
+      "category": "Sanità / Ospedali",
+      "contract": "temporary",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-27",
+      "applyUrl": "https://recruitingapp-2316.umantis.com/Vacancies/3677/Application/CheckLogin/1",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-05-27T13:00:57.406Z"
     }
   ]
 }
