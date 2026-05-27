@@ -61,8 +61,11 @@ const MAX_PAGES = 10;
 
 const PUBLIC_CAREER_URL = 'https://www.gzo.ch/karriere/offene-stellen';
 
+// publicjobs.ch / Cloudflare started returning 403 for our bot UA
+// (run 26479966740). Mirror the IGS Bern parser — a realistic Chrome UA
+// + the same Accept-Language / Sec-Fetch-* shape the real widget sends.
 const USER_AGENT = process.env.JOBS_CRAWLER_USER_AGENT
-  || 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)';
+  || 'Mozilla/5.0 (Macintosh; Intel Mac OS X 14_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36';
 
 /* ── Helpers ───────────────────────────────────────────────── */
 
@@ -209,11 +212,15 @@ async function fetchPastaHrPage(page = 1) {
       method: 'POST',
       headers: {
         Accept: 'application/json, text/javascript, */*; q=0.01',
+        'Accept-Language': 'de-CH,de;q=0.9,en;q=0.8',
         'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
         'User-Agent': USER_AGENT,
         'X-Requested-With': 'XMLHttpRequest',
         Referer: PASTAHR_REFERER,
         Origin: 'https://www.gzo.ch',
+        'Sec-Fetch-Dest': 'empty',
+        'Sec-Fetch-Mode': 'cors',
+        'Sec-Fetch-Site': 'cross-site',
       },
       body: params.toString(),
       signal: controller.signal,
