@@ -43,8 +43,6 @@ import { WriteCollector } from './batchWrite';
 import { resolveProfessionLandingsFlushed } from './shared/buildSignals';
 import { imageObjectLd } from '../services/seo/imageObjectLd';
 import {
-  BREADCRUMB_LINK_STYLE,
-  BREADCRUMB_STYLE,
   CTA_PRIMARY_STYLE,
   CARD_STYLE,
   LINK_ACCENT_STYLE,
@@ -506,10 +504,10 @@ function renderPage(opts: {
   const sourcesHtml = renderSourcesBlock(id, copy.sourcesLabel);
 
   const body = `
-    <nav style="${BREADCRUMB_STYLE}">
-      <a href="${esc(homeUrl)}" style="${BREADCRUMB_LINK_STYLE}">${esc(copy.breadcrumbHome)}</a>
+    <nav class="s-bcr">
+      <a href="${esc(homeUrl)}" class="s-bcl">${esc(copy.breadcrumbHome)}</a>
       <span> / </span>
-      <a href="${esc(jobBoardUrl)}" style="${BREADCRUMB_LINK_STYLE}">${esc(copy.breadcrumbJobs)}</a>
+      <a href="${esc(jobBoardUrl)}" class="s-bcl">${esc(copy.breadcrumbJobs)}</a>
       <span> / </span>
       <span>${esc(copy.h1)}</span>
     </nav>

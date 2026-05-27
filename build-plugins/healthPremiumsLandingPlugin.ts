@@ -63,8 +63,6 @@ import { generateRelatedLinksBlock } from './shared/relatedLinks';
 import { adSlotHtml } from './lib/adSlotHtml';
 import { cleanNamespaces, cleanSitemapFiles } from './shared/distNamespaceCleanup';
 import {
-  BREADCRUMB_LINK_STYLE,
-  BREADCRUMB_STYLE,
   CARD_STYLE,
   CTA_PRIMARY_STYLE,
   H1_STYLE,
@@ -2331,12 +2329,12 @@ function renderLeafPage(inp: LeafInputs): string {
   const description = introLong.slice(0, 180);
 
   const bodyHtml = `<article class="s-xzWvwM">
-  <nav style="${BREADCRUMB_STYLE}">
-    <a href="${BASE_URL}/" style="${BREADCRUMB_LINK_STYLE}">${esc(copy.breadcrumbHome)}</a>
+  <nav class="s-bcr">
+    <a href="${BASE_URL}/" class="s-bcl">${esc(copy.breadcrumbHome)}</a>
     <span> / </span>
-    <a href="${BASE_URL}${buildHealthPremiumsRootPath(locale)}" style="${BREADCRUMB_LINK_STYLE}">${esc(copy.breadcrumbRoot)}</a>
+    <a href="${BASE_URL}${buildHealthPremiumsRootPath(locale)}" class="s-bcl">${esc(copy.breadcrumbRoot)}</a>
     <span> / </span>
-    <a href="${BASE_URL}${buildHealthPremiumsCantonPath(locale, canton)}" style="${BREADCRUMB_LINK_STYLE}">${esc(cantonLabel)}</a>
+    <a href="${BASE_URL}${buildHealthPremiumsCantonPath(locale, canton)}" class="s-bcl">${esc(cantonLabel)}</a>
     <span> / </span>
     <span>${esc(ageLabel)}</span>
   </nav>
@@ -2640,10 +2638,10 @@ function renderCantonHubPage(inp: CantonHubInputs): string {
   const description = introLong.slice(0, 180);
 
   const bodyHtml = `<article class="s-xzWvwM">
-  <nav style="${BREADCRUMB_STYLE}">
-    <a href="${BASE_URL}/" style="${BREADCRUMB_LINK_STYLE}">${esc(copy.breadcrumbHome)}</a>
+  <nav class="s-bcr">
+    <a href="${BASE_URL}/" class="s-bcl">${esc(copy.breadcrumbHome)}</a>
     <span> / </span>
-    <a href="${BASE_URL}${buildHealthPremiumsRootPath(locale)}" style="${BREADCRUMB_LINK_STYLE}">${esc(leafCopy.breadcrumbRoot)}</a>
+    <a href="${BASE_URL}${buildHealthPremiumsRootPath(locale)}" class="s-bcl">${esc(leafCopy.breadcrumbRoot)}</a>
     <span> / </span>
     <span>${esc(cantonLabel)}</span>
   </nav>
@@ -2911,8 +2909,8 @@ function renderRootHubPage(inp: RootHubInputs): string {
     : '';
 
   const bodyHtml = `<article class="s-xzWvwM">
-  <nav style="${BREADCRUMB_STYLE}">
-    <a href="${BASE_URL}/" style="${BREADCRUMB_LINK_STYLE}">${esc(copy.breadcrumbHome)}</a>
+  <nav class="s-bcr">
+    <a href="${BASE_URL}/" class="s-bcl">${esc(copy.breadcrumbHome)}</a>
     <span> / </span>
     <span>${esc(leafCopy.breadcrumbRoot)}</span>
   </nav>

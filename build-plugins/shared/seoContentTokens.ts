@@ -48,6 +48,15 @@ export const BREADCRUMB_STYLE =
 export const BREADCRUMB_LINK_STYLE =
   'color:var(--color-link);text-decoration:none';
 
+/**
+ * Class-name equivalents of BREADCRUMB_STYLE / BREADCRUMB_LINK_STYLE.
+ * Defined in `public/assets/seo-static.css` (`.s-bcr`, `.s-bcl`).
+ * Prefer these in static SEO plugins to cut ~250 B per page off the dist
+ * tarball (~50 MB across all SEO landings).
+ */
+export const BREADCRUMB_CLASS = 's-bcr';
+export const BREADCRUMB_LINK_CLASS = 's-bcl';
+
 // ── Cards ─────────────────────────────────────────────────────────────────────
 
 /**
@@ -516,9 +525,9 @@ export function renderBreadcrumb(
     if (isLast || !item.href) {
       return `<span>${esc(item.label)}</span>`;
     }
-    return `<a href="${esc(item.href)}" style="${BREADCRUMB_LINK_STYLE}">${esc(item.label)}</a>`;
+    return `<a href="${esc(item.href)}" class="${BREADCRUMB_LINK_CLASS}">${esc(item.label)}</a>`;
   });
-  return `<nav aria-label="breadcrumb" style="${BREADCRUMB_STYLE}">${parts.join('<span> / </span>')}</nav>`;
+  return `<nav aria-label="breadcrumb" class="${BREADCRUMB_CLASS}">${parts.join('<span> / </span>')}</nav>`;
 }
 
 /**

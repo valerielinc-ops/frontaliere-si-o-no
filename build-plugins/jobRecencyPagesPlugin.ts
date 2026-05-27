@@ -24,8 +24,6 @@ import {
 } from './jobRecencyLanding';
 import type { JobLandingLocale } from './jobEditorialLanding';
 import {
-  BREADCRUMB_STYLE,
-  BREADCRUMB_LINK_STYLE,
   H1_STYLE,
   LEDE_STYLE,
   BODY_STYLE,
@@ -312,10 +310,10 @@ ${alternates}
   <body class="bg-surface-alt text-heading overflow-x-hidden">
     <div id="root"></div>
     <main class="seo-static-content s-xzWvwM">
-      <nav style="${BREADCRUMB_STYLE}">
-        <a href="${BASE_URL}/" style="${BREADCRUMB_LINK_STYLE}">Home</a>
+      <nav class="s-bcr">
+        <a href="${BASE_URL}/" class="s-bcl">Home</a>
         <span> / </span>
-        <a href="${sectionRootUrl}" style="${BREADCRUMB_LINK_STYLE}">${esc(SECTION_NAME[locale])}</a>
+        <a href="${sectionRootUrl}" class="s-bcl">${esc(SECTION_NAME[locale])}</a>
         <span> / </span>
         <span>${esc(model.timeframeLabel)}</span>
       </nav>

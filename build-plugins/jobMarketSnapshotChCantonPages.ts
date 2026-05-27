@@ -34,8 +34,6 @@ import { BASE_URL, MIN_INDEXABLE_WORDS, countHtmlBodyWords } from './constants';
 import { buildSeoPageHtml } from './shared/seoPageShell';
 import { WriteCollector } from './batchWrite';
 import {
-  BREADCRUMB_LINK_STYLE,
-  BREADCRUMB_STYLE,
   CARD_STYLE,
   CTA_PRIMARY_STYLE,
   H1_STYLE,
@@ -427,8 +425,8 @@ function renderSnapshotPage(inp: RenderInputs): string {
   const cantonName = inp.cantonName;
   const homeHref = inp.locale === 'it' ? '/' : `${LOCALE_PREFIX[inp.locale]}/`;
 
-  const breadcrumb = `<nav aria-label="breadcrumb" style="${BREADCRUMB_STYLE}">
-    <a href="${homeHref}" style="${BREADCRUMB_LINK_STYLE}">${esc(c.breadcrumbHome)}</a>
+  const breadcrumb = `<nav aria-label="breadcrumb" class="s-bcr">
+    <a href="${homeHref}" class="s-bcl">${esc(c.breadcrumbHome)}</a>
     <span> / </span>
     <span>${esc(c.breadcrumbSwitzerland)}</span>
     <span> / </span>

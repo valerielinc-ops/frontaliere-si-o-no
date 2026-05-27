@@ -63,8 +63,6 @@ import { buildSeoPageHtml } from './shared/seoPageShell';
 import { WriteCollector } from './batchWrite';
 import { imageObjectLd } from '../services/seo/imageObjectLd';
 import {
-  BREADCRUMB_STYLE,
-  BREADCRUMB_LINK_STYLE,
   H1_STYLE,
   LEDE_STYLE,
   BODY_STYLE,
@@ -435,10 +433,10 @@ function renderPage(opts: RenderOpts): RenderResult {
   const dividerHtml = renderApprofondisciDivider('Pour aller plus loin');
 
   const body = `
-    <nav style="${BREADCRUMB_STYLE}">
-      <a href="${esc(homeUrl)}" style="${BREADCRUMB_LINK_STYLE}">Accueil</a>
+    <nav class="s-bcr">
+      <a href="${esc(homeUrl)}" class="s-bcl">Accueil</a>
       <span> / </span>
-      <a href="${esc(calcUrl)}" style="${BREADCRUMB_LINK_STYLE}">Calculer le salaire</a>
+      <a href="${esc(calcUrl)}" class="s-bcl">Calculer le salaire</a>
       <span> / </span>
       <span>Calcul salaire net frontalier Suisse 2026</span>
     </nav>

@@ -67,8 +67,6 @@ import {
   getLocaleStrings,
 } from './costOfLivingLandingsCopy';
 import {
-  BREADCRUMB_STYLE,
-  BREADCRUMB_LINK_STYLE,
   H1_STYLE,
   H2_STYLE,
   CARD_STYLE,
@@ -497,10 +495,10 @@ function renderPage(opts: {
 
   const body = `
     ${sharedStyleBlock}
-    <nav style="${BREADCRUMB_STYLE}">
-      <a href="${esc(homeUrl)}" style="${BREADCRUMB_LINK_STYLE}">${esc(L.breadcrumbHome)}</a>
+    <nav class="s-bcr">
+      <a href="${esc(homeUrl)}" class="s-bcl">${esc(L.breadcrumbHome)}</a>
       <span> / </span>
-      <a href="${esc(hubUrl)}" style="${BREADCRUMB_LINK_STYLE}">${esc(L.breadcrumbHub)}</a>
+      <a href="${esc(hubUrl)}" class="s-bcl">${esc(L.breadcrumbHub)}</a>
       <span> / </span>
       <span>${esc(cityName)}</span>
     </nav>
