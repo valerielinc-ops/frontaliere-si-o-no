@@ -739,7 +739,7 @@ const BORDER_CROSSING_SEO_OVERRIDES: Record<string, SEOMetadata> = {
    keywords: 'traffico dogana chiasso brogeda, tempi di attesa dogana chiasso, coda dogana chiasso, dogana chiasso centro, valico brogeda tempi, frontaliere ticino, code dogana chiasso',
    ogTitle: 'Traffico Dogana Chiasso Centro e Brogeda | Tempi di Attesa',
    ogDescription: 'Tempi di attesa dogana Chiasso Centro e Brogeda: coda in tempo reale, orari e consigli per frontalieri.',
-   canonicalPath: '/guida-frontaliere/tempi-attesa-dogana/chiasso-centro',
+   canonicalPath: '/guida-frontaliere/tempi-attesa-dogana/chiasso-centro/',
    structuredData: {
      '@context': 'https://schema.org',
      '@type': 'WebPage',

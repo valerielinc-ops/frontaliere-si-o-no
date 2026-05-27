@@ -13,7 +13,7 @@ const BLOG_SEO_METADATA_3: Record<string, SEOMetadata> = {
  keywords: 'frontalieri, ticino, svizzera, italia, acquarossa, investe, 250mila, franchi',
  ogTitle: 'Acquarossa investe in polo sanitario e filovia Dagro',
  ogDescription: 'Due crediti per 250mila franchi approvati dal Comune di Acquarossa per filovia e nuovo polo sociosanitario da 47 milioni in Ticino.',
- canonicalPath: '/articoli-frontaliere/acquarossa-nuovo-polo-filovia-2026',
+ canonicalPath: '/articoli-frontaliere/acquarossa-nuovo-polo-filovia-2026/',
  structuredData: {
  "@context": "https://schema.org",
  "@type": "NewsArticle",
@@ -42,7 +42,7 @@ const BLOG_SEO_METADATA_3: Record<string, SEOMetadata> = {
  keywords: 'frontalieri, ticino, svizzera, italia, sconto, carburante, ritardi, disagi',
  ogTitle: 'Ritardo sconto carburante 2026: disagi al confine Ticino',
  ogDescription: 'Lo sconto carburante annunciato dal Governo italiano arriva in ritardo, con effetti su frontalieri e automobilisti ticinesi. Info e consigli aggiornati.',
- canonicalPath: '/articoli-frontaliere/ritardo-sconto-carburante-ticino-2026',
+ canonicalPath: '/articoli-frontaliere/ritardo-sconto-carburante-ticino-2026/',
  structuredData: {
  "@context": "https://schema.org",
  "@type": "NewsArticle",
@@ -71,7 +71,7 @@ const BLOG_SEO_METADATA_3: Record<string, SEOMetadata> = {
  keywords: 'frontalieri, ticino, svizzera, italia, milano-varese, chiusure, notturne, allo',
  ogTitle: 'Chiusure notturne A8 Castellanza marzo 2026 | Frontaliere Ticino',
  ogDescription: 'Interventi notturni per la riqualifica delle barriere antirumore allo svincolo di Castellanza sulla A8, con deviazioni per frontalieri Ticino verso Milano.',
- canonicalPath: '/articoli-frontaliere/lavori-a8-castellanza-notturni-2026',
+ canonicalPath: '/articoli-frontaliere/lavori-a8-castellanza-notturni-2026/',
  structuredData: {
  "@context": "https://schema.org",
  "@type": "NewsArticle",
@@ -100,7 +100,7 @@ const BLOG_SEO_METADATA_3: Record<string, SEOMetadata> = {
  keywords: 'frontalieri, ticino, svizzera, italia, costo, discriminazione, mondo, lavoro',
  ogTitle: 'Il costo della discriminazione nel mondo del lavoro ticinese',
  ogDescription: 'La discriminazione nel settore lavorativo ticinese ha un impatto significativo sull\'economia svizzera. Scopri come contrastare questo fenomeno e promuovere',
- canonicalPath: '/articoli-frontaliere/quanto-costa-la-discriminazione',
+ canonicalPath: '/articoli-frontaliere/quanto-costa-la-discriminazione/',
  structuredData: {
  "@context": "https://schema.org",
  "@type": "NewsArticle",
@@ -129,7 +129,7 @@ const BLOG_SEO_METADATA_3: Record<string, SEOMetadata> = {
  keywords: 'frontalieri, ticino, svizzera, italia, divieto, smartphone, scuola, misura',
  ogTitle: 'Divieto di smartphone a scuola: la misura si estende al Liceo Lugano 3',
  ogDescription: 'Il Liceo Lugano 3 ha deciso di vietare l\'uso degli smartphone durante le pause, estendendo una misura già in vigore in altri licei ticinesi. Scopri di più su',
- canonicalPath: '/articoli-frontaliere/divieto-smartphone-scuola-ticino-2026',
+ canonicalPath: '/articoli-frontaliere/divieto-smartphone-scuola-ticino-2026/',
  structuredData: {
  "@context": "https://schema.org",
  "@type": "NewsArticle",
@@ -158,7 +158,7 @@ const BLOG_SEO_METADATA_3: Record<string, SEOMetadata> = {
  keywords: 'frontalieri, ticino, svizzera, italia, carenza, farmaci, ricetta, governo',
  ogTitle: 'Carenza di farmaci in Ticino: la ricetta del governo svizzero',
  ogDescription: 'Il governo svizzero presenta una serie di misure per affrontare la carenza di farmaci in Svizzera, un problema che colpisce soprattutto i medicinali a prezzo',
- canonicalPath: '/articoli-frontaliere/carenza-farmaci-ticino',
+ canonicalPath: '/articoli-frontaliere/carenza-farmaci-ticino/',
  structuredData: {
  "@context": "https://schema.org",
  "@type": "NewsArticle",
@@ -187,7 +187,7 @@ const BLOG_SEO_METADATA_3: Record<string, SEOMetadata> = {
  keywords: 'frontalieri, ticino, svizzera, italia, lago, maggiore, camminata, chiedere',
  ogTitle: 'Lago Maggiore: una camminata per l\'accesso libero tutto l\'anno',
  ogDescription: 'Circa 100 persone hanno manifestato per chiedere l\'accesso libero alle spiagge del Lago Maggiore durante tutto l\'anno. I manifestanti vogliono che le rive siano',
- canonicalPath: '/articoli-frontaliere/lago-maggiore-accesso-tutto-l-anno',
+ canonicalPath: '/articoli-frontaliere/lago-maggiore-accesso-tutto-l-anno/',
  structuredData: {
  "@context": "https://schema.org",
  "@type": "NewsArticle",
@@ -217,7 +217,7 @@ const BLOG_SEO_METADATA_3: Record<string, SEOMetadata> = {
  keywords: 'frontalieri, ticino, svizzera, italia, spiagge, libere, lago, maggiore',
  ogTitle: 'Battaglia per le spiagge libere sul Lago Maggiore',
  ogDescription: 'Una manifestazione organizzata dalle Giovani Verdi chiede l\'accesso garantito tutto l\'anno alle rive del Lago Maggiore, riaccendendo il dibattito sull\'uso',
- canonicalPath: '/articoli-frontaliere/spiagge-libere-sul-lago-maggiore',
+ canonicalPath: '/articoli-frontaliere/spiagge-libere-sul-lago-maggiore/',
  structuredData: {
  "@context": "https://schema.org",
  "@type": "NewsArticle",
@@ -246,7 +246,7 @@ const BLOG_SEO_METADATA_3: Record<string, SEOMetadata> = {
  keywords: 'frontalieri, ticino, svizzera, italia, stagione, sostenibilità, attesa, concessione',
  ogTitle: 'SNL: stagione 2026 all\'insegna della sostenibilità e attesa per la concessione',
  ogDescription: 'La SNL presenta la stagione 2026 con un focus sulla sostenibilità e l\'elettrificazione, in attesa della decisione sul rinnovo della concessione federale.',
- canonicalPath: '/articoli-frontaliere/snl-stagione-green-concessione',
+ canonicalPath: '/articoli-frontaliere/snl-stagione-green-concessione/',
  structuredData: {
  "@context": "https://schema.org",
  "@type": "NewsArticle",
@@ -275,7 +275,7 @@ const BLOG_SEO_METADATA_3: Record<string, SEOMetadata> = {
  keywords: 'frontalieri, ticino, svizzera, italia, smartphone, scuola, decs, cambia',
  ogTitle: 'Smartphone a scuola: il DECS cambia rotta | Frontaliere Ticino',
  ogDescription: 'Il DECS annuncia nuove direttive sull\'uso degli smartphone a scuola, ma l\'iniziativa popolare per il divieto totale non viene ritirata. Scopri i dettagli.',
- canonicalPath: '/articoli-frontaliere/smartphone-a-scuola-e-nuove-direttive',
+ canonicalPath: '/articoli-frontaliere/smartphone-a-scuola-e-nuove-direttive/',
  structuredData: {
  "@context": "https://schema.org",
  "@type": "NewsArticle",
@@ -304,7 +304,7 @@ const BLOG_SEO_METADATA_3: Record<string, SEOMetadata> = {
  keywords: 'frontalieri, ticino, svizzera, italia, infortuni, lavoro, inail, apre',
  ogTitle: 'Infortuni sul lavoro: l\'Inail apre alle protesi hi-tech per i frontalieri',
  ogDescription: 'L\'Inail ha aggiornato le istruzioni operative del Regolamento protesico, introducendo modifiche che garantiscono maggiore autonomia e tutele ai lavoratori',
- canonicalPath: '/articoli-frontaliere/infortuni-sul-lavoro-protesi-hi-tech',
+ canonicalPath: '/articoli-frontaliere/infortuni-sul-lavoro-protesi-hi-tech/',
  structuredData: {
  "@context": "https://schema.org",
  "@type": "NewsArticle",
@@ -333,7 +333,7 @@ const BLOG_SEO_METADATA_3: Record<string, SEOMetadata> = {
  keywords: 'frontalieri, ticino, svizzera, italia, bellinzona, ricerche, attive, 64enne',
  ogTitle: 'Bellinzona: Ricerche attive per un 64enne scomparso',
  ogDescription: 'Un uomo di 64 anni è scomparso a Bellinzona, con ricerche in corso tra Ticino e Piemonte.',
- canonicalPath: '/articoli-frontaliere/bellinzona-scomparsa-ricerche-ticino-piemonte',
+ canonicalPath: '/articoli-frontaliere/bellinzona-scomparsa-ricerche-ticino-piemonte/',
  structuredData: {
  "@context": "https://schema.org",
  "@type": "NewsArticle",
@@ -362,7 +362,7 @@ const BLOG_SEO_METADATA_3: Record<string, SEOMetadata> = {
  keywords: 'frontalieri, ticino, svizzera, italia, cure, domicilio, nuove, norme',
  ogTitle: 'Cure a domicilio in Ticino: le nuove norme e le sfide pol',
  ogDescription: 'Il Ticino si prepara ad affrontare le sfide dei costi delle cure a domicilio con l\'introduzione di nuove misure legislative.',
- canonicalPath: '/articoli-frontaliere/cure-domicilio-ticino-politica',
+ canonicalPath: '/articoli-frontaliere/cure-domicilio-ticino-politica/',
  structuredData: {
  "@context": "https://schema.org",
  "@type": "NewsArticle",
@@ -391,7 +391,7 @@ const BLOG_SEO_METADATA_3: Record<string, SEOMetadata> = {
  keywords: 'frontalieri, ticino, svizzera, italia, navigazione, lago, lugano, stagione',
  ogTitle: 'Navigazione Lago di Lugano: stagione 2026 al via',
  ogDescription: 'La stagione 2026 della Navigazione Lago di Lugano inizia con eventi speciali e progetti di elettrificazione.',
- canonicalPath: '/articoli-frontaliere/navigazione-lago-lugano-2026',
+ canonicalPath: '/articoli-frontaliere/navigazione-lago-lugano-2026/',
  structuredData: {
  "@context": "https://schema.org",
  "@type": "NewsArticle",
@@ -420,7 +420,7 @@ const BLOG_SEO_METADATA_3: Record<string, SEOMetadata> = {
  keywords: 'frontalieri, ticino, svizzera, italia, firmata, nascita, parco, vedeggio',
  ogTitle: 'Firmata la nascita del Parco del Vedeggio: il futuro verd',
  ogDescription: 'Cinque comuni del Ticino siglano l\'intesa per un parco pubblico tra Agno, Bioggio, Manno, Muzzano e Vezia. Progetti e investimenti in vista.',
- canonicalPath: '/articoli-frontaliere/parco-vedeggio-comuni-firman',
+ canonicalPath: '/articoli-frontaliere/parco-vedeggio-comuni-firman/',
  structuredData: {
  "@context": "https://schema.org",
  "@type": "NewsArticle",
@@ -449,7 +449,7 @@ const BLOG_SEO_METADATA_3: Record<string, SEOMetadata> = {
  keywords: 'frontalieri, ticino, svizzera, italia, sospende, esportazioni, materiale, bellico',
  ogTitle: 'Ticino sospende esportazioni di materiale bellico verso g',
  ogDescription: 'Il Consiglio federale svizzero decide di bloccare le esportazioni di armamenti verso gli Stati Uniti, in risposta alla crisi in Medio Oriente e alle recenti ten',
- canonicalPath: '/articoli-frontaliere/stop-export-materiale-bellico',
+ canonicalPath: '/articoli-frontaliere/stop-export-materiale-bellico/',
  structuredData: {
  "@context": "https://schema.org",
  "@type": "NewsArticle",
@@ -478,7 +478,7 @@ const BLOG_SEO_METADATA_3: Record<string, SEOMetadata> = {
  keywords: 'frontalieri, ticino, svizzera, italia, scontri, violenti, uomini, ospedalizzazioni',
  ogTitle: 'Scontri violenti tra uomini nel Ticino: ospedalizzazioni',
  ogDescription: 'Due uomini coinvolti in un\'escalation di violenza nel Mendrisiotto sono finiti in ospedale. La vicenda riaccende il dibattito sulla sicurezza e sugli incidenti',
- canonicalPath: '/articoli-frontaliere/gestione-scontri-frontali-ticino',
+ canonicalPath: '/articoli-frontaliere/gestione-scontri-frontali-ticino/',
  structuredData: {
  "@context": "https://schema.org",
  "@type": "NewsArticle",
@@ -507,7 +507,7 @@ const BLOG_SEO_METADATA_3: Record<string, SEOMetadata> = {
  keywords: 'frontalieri, ticino, svizzera, italia, controlli, arresti, autoeinbrüche, cittadini',
  ogTitle: 'Autoeinbrüche nel Ticino | Frontaliere Ticino',
  ogDescription: 'Due cittadini stranieri arrestati nel Ticino per furti di auto lungo le frontiere. Rafforzati i controlli e migliorate le normative di sicurezza.',
- canonicalPath: '/articoli-frontaliere/auto-intrusione-frontalieri-ticino',
+ canonicalPath: '/articoli-frontaliere/auto-intrusione-frontalieri-ticino/',
  structuredData: {
  "@context": "https://schema.org",
  "@type": "NewsArticle",
@@ -536,7 +536,7 @@ const BLOG_SEO_METADATA_3: Record<string, SEOMetadata> = {
  keywords: 'frontalieri, ticino, svizzera, italia, rischio-lugano, casa, dello, young',
  ogTitle: 'Rischio-Lugano in casa dello Young Boys: una sfida decisi',
  ogDescription: 'Il Lugano deve affrontare lo Young Boys a Berna in una partita cruciale per la stagione. Analisi, normative e strategie per i frontalieri ticinesi.',
- canonicalPath: '/articoli-frontaliere/rischio-lugano-young-boys',
+ canonicalPath: '/articoli-frontaliere/rischio-lugano-young-boys/',
  structuredData: {
  "@context": "https://schema.org",
  "@type": "NewsArticle",
@@ -565,7 +565,7 @@ const BLOG_SEO_METADATA_3: Record<string, SEOMetadata> = {
  keywords: 'frontalieri, ticino, svizzera, italia, addio, senatùr, bossi, sogno',
  ogTitle: 'Addio al Senatùr: l’eredità di Bossi sui frontalieri',
  ogDescription: 'Morto a 84 anni il leader della Lega: come cambiarono tasse, permessi e mobilità per i 68.000 frontalieri del Canton Ticino',
- canonicalPath: '/articoli-frontaliere/bossi-morto-ticino-frontalieri',
+ canonicalPath: '/articoli-frontaliere/bossi-morto-ticino-frontalieri/',
  structuredData: {
  "@context": "https://schema.org",
  "@type": "NewsArticle",
@@ -594,7 +594,7 @@ const BLOG_SEO_METADATA_3: Record<string, SEOMetadata> = {
  keywords: 'frontalieri, ticino, svizzera, italia, fallimento, dell, iniziativa, contro',
  ogTitle: 'Fallimento dell’iniziativa contro gli OGM in Svizzera',
  ogDescription: 'L’iniziativa popolare per il controllo degli OGM in Svizzera non ha raggiunto il quorum di 100’000 firme, con implicazioni significative anche per il Ticino.',
- canonicalPath: '/articoli-frontaliere/ogm-fallimento-ticino',
+ canonicalPath: '/articoli-frontaliere/ogm-fallimento-ticino/',
  structuredData: {
  "@context": "https://schema.org",
  "@type": "NewsArticle",
@@ -624,7 +624,7 @@ const BLOG_SEO_METADATA_3: Record<string, SEOMetadata> = {
  keywords: 'frontalieri, ticino, svizzera, italia, dallo, statuto, permesso, passaggio',
  ogTitle: 'Dallo statuto S al permesso B in Ticino',
  ogDescription: 'Il passaggio dallo statuto S al permesso B riguarda i profughi ucraini in Svizzera, con implicazioni economiche e sociali per il Canton Ticino, fino al 2027.',
- canonicalPath: '/articoli-frontaliere/passaggio-statuto-s-permesso-b',
+ canonicalPath: '/articoli-frontaliere/passaggio-statuto-s-permesso-b/',
  structuredData: {
  "@context": "https://schema.org",
  "@type": "NewsArticle",
@@ -653,7 +653,7 @@ const BLOG_SEO_METADATA_3: Record<string, SEOMetadata> = {
  keywords: 'frontalieri, ticino, svizzera, italia, chiusure, notturne, sull, autostrada',
  ogTitle: 'Chiusure notturne autostrada A9',
  ogDescription: 'La prossima settimana saranno effettuate chiusure notturne sull\'autostrada A9',
- canonicalPath: '/articoli-frontaliere/chiusure-notturne-autostrada',
+ canonicalPath: '/articoli-frontaliere/chiusure-notturne-autostrada/',
  structuredData: {
  "@context": "https://schema.org",
  "@type": "NewsArticle",
@@ -682,7 +682,7 @@ const BLOG_SEO_METADATA_3: Record<string, SEOMetadata> = {
  keywords: 'frontalieri, ticino, svizzera, italia, morte, figlio, affrontarla, storia',
  ogTitle: 'La morte di un figlio: come affrontarla',
  ogDescription: 'La storia di Jessica e della sua famiglia che ha perso il piccolo Kevin.',
- canonicalPath: '/articoli-frontaliere/morte-bimbo-efamilia-ticino',
+ canonicalPath: '/articoli-frontaliere/morte-bimbo-efamilia-ticino/',
  structuredData: {
  "@context": "https://schema.org",
  "@type": "NewsArticle",
@@ -711,7 +711,7 @@ const BLOG_SEO_METADATA_3: Record<string, SEOMetadata> = {
  keywords: 'frontalieri, ticino, svizzera, italia, fondi, sottratti, hcap, saranno',
  ogTitle: 'Fondi HCAP restituiti, una buona notizia per la società',
  ogDescription: 'L\'Hockey Club Ambrì-Piotta recupera una parte consistente dei fondi sottratti alle casse del proprio Gruppo di sostegno.',
- canonicalPath: '/articoli-frontaliere/fondi-hcap-restituiti',
+ canonicalPath: '/articoli-frontaliere/fondi-hcap-restituiti/',
  structuredData: {
  "@context": "https://schema.org",
  "@type": "NewsArticle",
@@ -740,7 +740,7 @@ const BLOG_SEO_METADATA_3: Record<string, SEOMetadata> = {
  keywords: 'frontalieri, ticino, svizzera, italia, futuro, triste, bellinzona, ormai',
  ogTitle: 'Bellinzona, la città dei castelli in crisi',
  ogDescription: 'La città di Bellinzona sta affrontando una crisi commerciale, con numerose chiusure di negozi.',
- canonicalPath: '/articoli-frontaliere/bellinzona-paese-dormitorio',
+ canonicalPath: '/articoli-frontaliere/bellinzona-paese-dormitorio/',
  structuredData: {
  "@context": "https://schema.org",
  "@type": "NewsArticle",
@@ -771,7 +771,7 @@ const BLOG_SEO_METADATA_3: Record<string, SEOMetadata> = {
  keywords: 'frontalieri, ticino, svizzera, italia, attenti, radar, quando, dove',
  ogTitle: 'Ticino, attenti ai radar: quando e dove i controlli della velocità',
  ogDescription: 'I controlli della velocità mobili e semi-stazionari a Ticino dalle 23 marzo al 29 marzo 2026.',
- canonicalPath: '/articoli-frontaliere/ticino-attenti-ai-radar-2026',
+ canonicalPath: '/articoli-frontaliere/ticino-attenti-ai-radar-2026/',
  structuredData: {
  "@context": "https://schema.org",
  "@type": "NewsArticle",
@@ -800,7 +800,7 @@ const BLOG_SEO_METADATA_3: Record<string, SEOMetadata> = {
  keywords: 'frontalieri, ticino, svizzera, italia, sequestrate, tonnellate, sostanze, stupefacenti',
  ogTitle: 'Sequestro di sostanze stupefacenti in Ecuador',
  ogDescription: 'L\'Ecuador ha sequestrato oltre tre tonnellate di sostanze stupefacenti in mare aperto, grazie a un\'operazione congiunta con gli Stati Uniti.',
- canonicalPath: '/articoli-frontaliere/sequestro-stupefacenti-ecuador',
+ canonicalPath: '/articoli-frontaliere/sequestro-stupefacenti-ecuador/',
  structuredData: {
  "@context": "https://schema.org",
  "@type": "NewsArticle",
@@ -829,7 +829,7 @@ const BLOG_SEO_METADATA_3: Record<string, SEOMetadata> = {
  keywords: 'frontalieri, ticino, svizzera, italia, radar, mazzetti, nuove, sfide',
  ogTitle: 'Radar a Mazzetti in Ticino: Frontalieri, Attenzione! | Frontaliere Ticino',
  ogDescription: 'L\'intensificazione dei controlli radar in Ticino, con installazioni \'a mazzetti\', mette a rischio i frontalieri. Scopri le implicazioni e come evitare multe',
- canonicalPath: '/articoli-frontaliere/nuovi-radar-ticino-multe',
+ canonicalPath: '/articoli-frontaliere/nuovi-radar-ticino-multe/',
  structuredData: {
  "@context": "https://schema.org",
  "@type": "NewsArticle",
@@ -858,7 +858,7 @@ const BLOG_SEO_METADATA_3: Record<string, SEOMetadata> = {
  keywords: 'frontalieri, ticino, svizzera, italia, rifugiati, 2027, assistenza, pari',
  ogTitle: 'Rifugiati ucraini 2027: assistenza pari a quella svizzera',
  ogDescription: 'Dal 2027 i rifugiati ucraini con protezione S avranno lo stesso livello di assistenza sociale dei cittadini svizzeri. Leggi l\'analisi completa su impatti e',
- canonicalPath: '/articoli-frontaliere/rifugiati-ucraini-assistenza-2027',
+ canonicalPath: '/articoli-frontaliere/rifugiati-ucraini-assistenza-2027/',
  structuredData: {
  "@context": "https://schema.org",
  "@type": "NewsArticle",
@@ -887,7 +887,7 @@ const BLOG_SEO_METADATA_3: Record<string, SEOMetadata> = {
  keywords: 'frontalieri, ticino, svizzera, italia, sequestro, record, cannabis, argovia',
  ogTitle: 'Sequestro record di cannabis in Argovia: rischi per i fro',
  ogDescription: 'Una tonnellata di marijuana e 24.000 piante sequestrate a Spreitenbach: tre arresti e armi trovate. Cosa cambia per chi lavora oltreconfine',
- canonicalPath: '/articoli-frontaliere/cannabis-sequestro-ticino',
+ canonicalPath: '/articoli-frontaliere/cannabis-sequestro-ticino/',
  structuredData: {
  "@context": "https://schema.org",
  "@type": "NewsArticle",
@@ -916,7 +916,7 @@ const BLOG_SEO_METADATA_3: Record<string, SEOMetadata> = {
  keywords: 'frontalieri, ticino, svizzera, italia, pfäffikon, kanton, schwyz, drei',
  ogTitle: 'Pfäffikon (Kanton Schwyz): Drei minderjährige französische Einbrecher festgenommen',
  ogDescription: 'Tre giovani francesi arrestati a Pfäffikon (Kanton Schwyz) per infrazioni. La comunità locale esprime il suo supporto alla polizia.',
- canonicalPath: '/articoli-frontaliere/pfaffikon-kanton-schwyz-franzosi-einbrecher',
+ canonicalPath: '/articoli-frontaliere/pfaffikon-kanton-schwyz-franzosi-einbrecher/',
  structuredData: {
  "@context": "https://schema.org",
  "@type": "NewsArticle",
@@ -945,7 +945,7 @@ const BLOG_SEO_METADATA_3: Record<string, SEOMetadata> = {
  keywords: 'frontalieri, ticino, svizzera, italia, riapre, casetta, davesco-soragno, punto',
  ogTitle: 'Riapre la Casetta a Davesco-Soragno: punto di ristoro nel',
  ogDescription: 'Dal 28 marzo la Casetta, chiosco temporaneo di Davesco-Soragno, riapre i battenti. Gestito dalla Commissione di Quartiere, sarà aperto ogni fine settimana fino',
- canonicalPath: '/articoli-frontaliere/riapertura-casetta-chiosco-davesco',
+ canonicalPath: '/articoli-frontaliere/riapertura-casetta-chiosco-davesco/',
  structuredData: {
  "@context": "https://schema.org",
  "@type": "NewsArticle",
@@ -974,7 +974,7 @@ const BLOG_SEO_METADATA_3: Record<string, SEOMetadata> = {
  keywords: 'frontalieri, ticino, svizzera, italia, giovani, tornano, cosa, fanno',
  ogTitle: 'I giovani non tornano: cosa fanno i Comuni ticinesi?',
  ogDescription: 'Ogni anno nel Ticino si perdono circa 800 cervelli, mentre i Comuni cercano di rispondere con nuove strategie. Analisi dettagliata delle misure e delle opportun',
- canonicalPath: '/articoli-frontaliere/giovani-ticino-comuni-innovazioni',
+ canonicalPath: '/articoli-frontaliere/giovani-ticino-comuni-innovazioni/',
  structuredData: {
  "@context": "https://schema.org",
  "@type": "NewsArticle",
@@ -1003,7 +1003,7 @@ const BLOG_SEO_METADATA_3: Record<string, SEOMetadata> = {
  keywords: 'frontalieri, ticino, svizzera, italia, domeniche, senza, auto, verso',
  ogTitle: 'Domeniche senza auto in Svizzera: il Ticino verso una nuo',
  ogDescription: 'Martine Docourt rilancia a livello federale le domeniche senza automobili dopo il no di Neuchâtel. Cosa significa per il Ticino e i frontalieri.',
- canonicalPath: '/articoli-frontaliere/domeniche-senza-auto-ticino-2026',
+ canonicalPath: '/articoli-frontaliere/domeniche-senza-auto-ticino-2026/',
  structuredData: {
  "@context": "https://schema.org",
  "@type": "NewsArticle",
@@ -1032,7 +1032,7 @@ const BLOG_SEO_METADATA_3: Record<string, SEOMetadata> = {
  keywords: 'frontalieri, ticino, svizzera, italia, lavori, autostradali, chiusure, notturne',
  ogTitle: 'Lavori autostradali A4 Milano-Brescia: chiusure notturne ad Agrate, Cavenago e Monza',
  ogDescription: 'Le chiusure notturne saranno fatte per consentire lavori di ispezione e manutenzione sulla rete autostradale tra il 25 e il 28 marzo.',
- canonicalPath: '/articoli-frontaliere/chiusure-notturne-a4-ticino',
+ canonicalPath: '/articoli-frontaliere/chiusure-notturne-a4-ticino/',
  structuredData: {
  "@context": "https://schema.org",
  "@type": "NewsArticle",
@@ -1061,7 +1061,7 @@ const BLOG_SEO_METADATA_3: Record<string, SEOMetadata> = {
  keywords: 'frontalieri, ticino, svizzera, italia, crescita, debole, inflazione, lieve',
  ogTitle: 'Svizzera: crescita debole e inflazione',
  ogDescription: 'La Svizzera registra una crescita economica del 1% nel 2026, con inflazione in aumento. Scopri come questo influisce sui frontalieri italiani.',
- canonicalPath: '/articoli-frontaliere/svizzera-frontalieri-franco-lavoro',
+ canonicalPath: '/articoli-frontaliere/svizzera-frontalieri-franco-lavoro/',
  structuredData: {
  "@context": "https://schema.org",
  "@type": "NewsArticle",
@@ -1090,7 +1090,7 @@ const BLOG_SEO_METADATA_3: Record<string, SEOMetadata> = {
  keywords: 'frontalieri, ticino, svizzera, italia, ospita, cern, ricerca, chip',
  ogTitle: 'La Svizzera ospita il ‘CERN della ricerca sui chip’',
  ogDescription: 'Il Canton Ticino diventa il ‘CERN della ricerca sui chip’ con RISC-V, un movimento open-source che rivoluziona l\'industria dei semiconduttori.',
- canonicalPath: '/articoli-frontaliere/svizzera-cern-ricerca-chip',
+ canonicalPath: '/articoli-frontaliere/svizzera-cern-ricerca-chip/',
  structuredData: {
  "@context": "https://schema.org",
  "@type": "NewsArticle",
@@ -1119,7 +1119,7 @@ const BLOG_SEO_METADATA_3: Record<string, SEOMetadata> = {
  keywords: 'frontalieri, ticino, svizzera, italia, sequestro, cannabis, spreitenbach, operazione',
  ogTitle: 'Sequestro Cannabis Spreitenbach',
  ogDescription: 'La polizia cantonale di Zurigo ha smantellato una piantagione di canapa a Spreitenbach, sequestrando una tonnellata di cannabis.',
- canonicalPath: '/articoli-frontaliere/cannabis-sequestro-ticino-2026',
+ canonicalPath: '/articoli-frontaliere/cannabis-sequestro-ticino-2026/',
  structuredData: {
  "@context": "https://schema.org",
  "@type": "NewsArticle",
@@ -1148,7 +1148,7 @@ const BLOG_SEO_METADATA_3: Record<string, SEOMetadata> = {
  keywords: 'frontalieri, ticino, svizzera, italia, svizzeri, dubitano, capacità, difesa',
  ogTitle: 'Svizzeri dubitano delle capacità di difesa del Paese',
  ogDescription: 'Un sondaggio rivela che più di tre quarti degli svizzeri dubitano delle capacità di difesa del Paese. Scopri le misure in corso in Canton Ticino.',
- canonicalPath: '/articoli-frontaliere/svizzeri-dubitano-difesa-paese',
+ canonicalPath: '/articoli-frontaliere/svizzeri-dubitano-difesa-paese/',
  structuredData: {
  "@context": "https://schema.org",
  "@type": "NewsArticle",
@@ -1178,7 +1178,7 @@ const BLOG_SEO_METADATA_3: Record<string, SEOMetadata> = {
  keywords: 'frontalieri, ticino, svizzera, italia, controlli, radar, diminuiranno, cosa',
  ogTitle: 'Controlli radar in Ticino diminuiranno',
  ogDescription: 'La polizia cantonale di Lugano ha comunicato che i controlli radar sulle strade ticinesi saranno ridotti.',
- canonicalPath: '/articoli-frontaliere/controlli-radar-ticino',
+ canonicalPath: '/articoli-frontaliere/controlli-radar-ticino/',
  structuredData: {
  "@context": "https://schema.org",
  "@type": "NewsArticle",
@@ -1207,7 +1207,7 @@ const BLOG_SEO_METADATA_3: Record<string, SEOMetadata> = {
  keywords: 'frontalieri, ticino, svizzera, italia, zurigo, solo, avanzi, immobiliari',
  ogTitle: 'Frontalieri: a Zurigo solo avanzi immobiliari',
  ogDescription: 'Uno su dieci nuovi immigrati sceglie Zurigo, ma trova solo appartamenti fatiscenti o affitti esagerati. Cosa cambia per chi lavora in Ticino.',
- canonicalPath: '/articoli-frontaliere/frontalieri-casa-zurigo',
+ canonicalPath: '/articoli-frontaliere/frontalieri-casa-zurigo/',
  structuredData: {
  "@context": "https://schema.org",
  "@type": "NewsArticle",
@@ -1236,7 +1236,7 @@ const BLOG_SEO_METADATA_3: Record<string, SEOMetadata> = {
  keywords: 'frontalieri, ticino, svizzera, italia, sicurezza, lugano, calano, furti',
  ogTitle: 'Sicurezza a Lugano: bilancio 2025 della Polizia cantonale',
  ogDescription: 'Il bilancio 2025 della Polizia cantonale ticinese evidenzia una riduzione dei furti e degli assalti ai distributori di carburante nel Canton Ticino',
- canonicalPath: '/articoli-frontaliere/lugano-sicurezza-2025',
+ canonicalPath: '/articoli-frontaliere/lugano-sicurezza-2025/',
  structuredData: {
  "@context": "https://schema.org",
  "@type": "NewsArticle",
@@ -1266,7 +1266,7 @@ const BLOG_SEO_METADATA_3: Record<string, SEOMetadata> = {
  keywords: 'frontalieri, ticino, svizzera, italia, chiasso, aderisce, terra, città',
  ogTitle: 'Chiasso aderisce all\'Ora della Terra 2026',
  ogDescription: 'La città di Chiasso partecipa all\'Ora della Terra 2026, spegnendo le luci pubbliche il 28 marzo dalle 20.30 alle 21.30.',
- canonicalPath: '/articoli-frontaliere/chiasso-ora-terra-2026',
+ canonicalPath: '/articoli-frontaliere/chiasso-ora-terra-2026/',
  structuredData: {
  "@context": "https://schema.org",
  "@type": "NewsArticle",
@@ -1295,7 +1295,7 @@ const BLOG_SEO_METADATA_3: Record<string, SEOMetadata> = {
  keywords: 'frontalieri, ticino, svizzera, italia, riduzione, radar, polizia, cantonale',
  ogTitle: 'Riduzione radar in Ticino',
  ogDescription: 'La Polizia cantonale ticinese riduce il numero di controlli radar. Scopri di più sulla sicurezza stradale in Ticino.',
- canonicalPath: '/articoli-frontaliere/radar-ticino-riduzione',
+ canonicalPath: '/articoli-frontaliere/radar-ticino-riduzione/',
  structuredData: {
  "@context": "https://schema.org",
  "@type": "NewsArticle",
@@ -1324,7 +1324,7 @@ const BLOG_SEO_METADATA_3: Record<string, SEOMetadata> = {
  keywords: 'frontalieri, ticino, svizzera, italia, nomine, sims, illegittime, consigliera',
  ogTitle: 'Nomine SIMS illegittime',
  ogDescription: 'La consigliera di Stato Marina Carobbio si è espressa sulle nomine illegittime alla guida della Sezione dell’insegnamento medio superiore (SIMS).',
- canonicalPath: '/articoli-frontaliere/nomine-sims-illegittime',
+ canonicalPath: '/articoli-frontaliere/nomine-sims-illegittime/',
  structuredData: {
  "@context": "https://schema.org",
  "@type": "NewsArticle",
@@ -1354,7 +1354,7 @@ const BLOG_SEO_METADATA_3: Record<string, SEOMetadata> = {
  keywords: 'frontalieri, ticino, svizzera, italia, funivia, monte, lema, nuova',
  ogTitle: 'Funivia Monte Lema 2026: prezzi e detrazioni per i frontalieri',
  ogDescription: 'Dal 28 marzo riapre la funivia più panoramica del Ticino: 28 CHF A/R, orario prolungato fino alle 22.30, 30 eventi e detraibilità dell’abbonamento per chi',
- canonicalPath: '/articoli-frontaliere/funivia-monte-lema-stagione-2026',
+ canonicalPath: '/articoli-frontaliere/funivia-monte-lema-stagione-2026/',
  structuredData: {
  "@context": "https://schema.org",
  "@type": "NewsArticle",
@@ -1384,7 +1384,7 @@ const BLOG_SEO_METADATA_3: Record<string, SEOMetadata> = {
  keywords: 'frontalieri, ticino, svizzera, italia, crescita, economica, moderata, economisti',
  ogTitle: 'Crescita economica in Svizzera nel 2026',
  ogDescription: 'Gli economisti prevedono una crescita del PIL dell\'1,0% per l\'anno in corso e un miglioramento per il 2027. Scopri di più sulle previsioni economiche e sul loro',
- canonicalPath: '/articoli-frontaliere/crescita-economica-ticino-2026',
+ canonicalPath: '/articoli-frontaliere/crescita-economica-ticino-2026/',
  structuredData: {
  "@context": "https://schema.org",
  "@type": "NewsArticle",
@@ -1414,7 +1414,7 @@ const BLOG_SEO_METADATA_3: Record<string, SEOMetadata> = {
  keywords: 'frontalieri, ticino, svizzera, italia, referendum, sulla, giustizia, posizione',
  ogTitle: 'Referendum sulla giustizia in Italia: la posizione di Sal',
  ogDescription: 'Il referendum italiano sulla giustizia ha visto prevalere il No con il 54%, ma in provincia di Varese e nel Canton Ticino la scelta è stata diversa, puntando su',
- canonicalPath: '/articoli-frontaliere/giustizia-referendum-ticino',
+ canonicalPath: '/articoli-frontaliere/giustizia-referendum-ticino/',
  structuredData: {
  "@context": "https://schema.org",
  "@type": "NewsArticle",
@@ -1443,7 +1443,7 @@ const BLOG_SEO_METADATA_3: Record<string, SEOMetadata> = {
  keywords: 'frontalieri, ticino, svizzera, italia, legale, permanente, cosa, cambia',
  ogTitle: 'Ora legale permanente in Ticino: cosa cambia',
  ogDescription: 'In Italia si avvia un\'indagine per mantenere l\'ora legale tutto l\'anno, ma in Ticino si pensa a soluzioni diverse. Analisi e impatti sulla regione.',
- canonicalPath: '/articoli-frontaliere/ora-legale-permanente-ticino',
+ canonicalPath: '/articoli-frontaliere/ora-legale-permanente-ticino/',
  structuredData: {
  "@context": "https://schema.org",
  "@type": "NewsArticle",
@@ -1472,7 +1472,7 @@ const BLOG_SEO_METADATA_3: Record<string, SEOMetadata> = {
  keywords: 'frontalieri, ticino, svizzera, italia, como, rapinese, prezzi, dell',
  ogTitle: 'Como, Rapinese: prezzi dell\'asfalto in aumento del 40% a',
  ogDescription: 'Il sindaco di Como, Alessandro Rapinese, si trova di fronte a una difficile decisione sull\'uso del piano da 5 milioni per le asfaltature, con i costi saliti del',
- canonicalPath: '/articoli-frontaliere/como-asfaltature-war-costs',
+ canonicalPath: '/articoli-frontaliere/como-asfaltature-war-costs/',
  structuredData: {
  "@context": "https://schema.org",
  "@type": "NewsArticle",
@@ -1502,7 +1502,7 @@ const BLOG_SEO_METADATA_3: Record<string, SEOMetadata> = {
  keywords: 'frontalieri, ticino, svizzera, italia, apprendisti, verso, permesso, tutta',
  ogTitle: 'Apprendisti frontalieri verso il permesso G per tutta la durata del tirocinio',
  ogDescription: 'Il Parlamento federale ha approvato la mozione 25.3624 per consentire agli apprendisti frontalieri di ottenere il permesso G per tutta la durata del tirocinio.',
- canonicalPath: '/articoli-frontaliere/apprendisti-frontalieri-permessi-g',
+ canonicalPath: '/articoli-frontaliere/apprendisti-frontalieri-permessi-g/',
  structuredData: {
  "@context": "https://schema.org",
  "@type": "NewsArticle",
@@ -1531,7 +1531,7 @@ const BLOG_SEO_METADATA_3: Record<string, SEOMetadata> = {
  keywords: 'frontalieri, ticino, svizzera, italia, furti, calo, 2025, canton',
  ogTitle: 'Furti in calo del 5,9% nel 2025 – Frontaliere Ticino',
  ogDescription: 'Diminuzione dei furti in Ticino, ma aumento dei furti di e‑bike. Ecco come i frontalieri possono proteggere i loro beni e risparmiare sulle tasse.',
- canonicalPath: '/articoli-frontaliere/crescita-sicurezza-ticino-2025',
+ canonicalPath: '/articoli-frontaliere/crescita-sicurezza-ticino-2025/',
  structuredData: {
  "@context": "https://schema.org",
  "@type": "NewsArticle",
@@ -1560,7 +1560,7 @@ const BLOG_SEO_METADATA_3: Record<string, SEOMetadata> = {
  keywords: 'frontalieri, ticino, svizzera, italia, centro, sportivo, sesto, calende',
  ogTitle: 'Per il centro sportivo di Sesto Calende arrivano 380mila euro da Regione Lombardia',
  ogDescription: 'Il comune di Sesto Calende ha ottenuto 380.000 euro nell\'ambito del bando Impianti Sportivi 2025 di Regione Lombardia',
- canonicalPath: '/articoli-frontaliere/sesto-calende-centro-sportivo',
+ canonicalPath: '/articoli-frontaliere/sesto-calende-centro-sportivo/',
  structuredData: {
  "@context": "https://schema.org",
  "@type": "NewsArticle",
@@ -1589,7 +1589,7 @@ const BLOG_SEO_METADATA_3: Record<string, SEOMetadata> = {
  keywords: 'frontalieri, ticino, svizzera, italia, missione, emergenza, chiasso, diventa',
  ogTitle: 'Missione emergenza a Chiasso',
  ogDescription: 'Domenica 26 aprile a Chiasso si terrà l\'evento straordinario di Missione emergenza',
- canonicalPath: '/articoli-frontaliere/chiasso-missione-emergenza',
+ canonicalPath: '/articoli-frontaliere/chiasso-missione-emergenza/',
  structuredData: {
  "@context": "https://schema.org",
  "@type": "NewsArticle",
@@ -1618,7 +1618,7 @@ const BLOG_SEO_METADATA_3: Record<string, SEOMetadata> = {
  keywords: 'frontalieri, ticino, svizzera, italia, ticinesi, comprano, sempre, case',
  ogTitle: 'Ticinesi e frontalieri comprano sempre più case sui laghi Verbano e Ceresio',
  ogDescription: 'Secondo una recente indagine, gli acquirenti provenienti dall\'Italia e dai paesi limitrofi stanno aumentando di numero sul mercato immobiliare dei due laghi',
- canonicalPath: '/articoli-frontaliere/ticinesi-e-frontalieri-comprano-case-su-laghi-verbano-e-ceresio',
+ canonicalPath: '/articoli-frontaliere/ticinesi-e-frontalieri-comprano-case-su-laghi-verbano-e-ceresio/',
  structuredData: {
  "@context": "https://schema.org",
  "@type": "NewsArticle",
@@ -1647,7 +1647,7 @@ const BLOG_SEO_METADATA_3: Record<string, SEOMetadata> = {
  keywords: 'frontalieri, ticino, svizzera, italia, annaffiatoi, aiuole, centro, cura',
  ogTitle: 'Annaffiatoi e aiuole, il centro si cura insieme: a Lavena',
  ogDescription: 'A Lavena Ponte Tresa, il centro si cura insieme con l\'aiuto dei negozi',
- canonicalPath: '/articoli-frontaliere/lavena-ponte-tresa-verde',
+ canonicalPath: '/articoli-frontaliere/lavena-ponte-tresa-verde/',
  structuredData: {
  "@context": "https://schema.org",
  "@type": "NewsArticle",
@@ -1677,7 +1677,7 @@ const BLOG_SEO_METADATA_3: Record<string, SEOMetadata> = {
  keywords: 'frontalieri, ticino, svizzera, italia, chiasso, missione, emergenza, enti',
  ogTitle: 'Chiasso Missione emergenza: enti di primo intervento a contatto con la popolazione',
  ogDescription: 'Il 26 aprile 2026, Chiasso accoglierà dieci enti di primo intervento per la Missione emergenza, mettendo a contatto agenti e operatori con la popolazione.',
- canonicalPath: '/articoli-frontaliere/chiasso-missione-emergenza-luci-blu',
+ canonicalPath: '/articoli-frontaliere/chiasso-missione-emergenza-luci-blu/',
  structuredData: {
  "@context": "https://schema.org",
  "@type": "NewsArticle",
@@ -1706,7 +1706,7 @@ const BLOG_SEO_METADATA_3: Record<string, SEOMetadata> = {
  keywords: 'frontalieri, ticino, svizzera, italia, aggregazione, basso, mendrisiotto, rizza',
  ogTitle: 'Aggregazione Basso Mendrisiotto: Rizza critica Chiasso',
  ogDescription: 'Il sindaco di Vacallo Marco Rizza invita Chiasso a fare più autocritica sul piano finanziario. Aggiornamenti sul progetto di aggregazione.',
- canonicalPath: '/articoli-frontaliere/aggregazione-basso-mendrisiotto-rizza-chiasso-autocritica',
+ canonicalPath: '/articoli-frontaliere/aggregazione-basso-mendrisiotto-rizza-chiasso-autocritica/',
  structuredData: {
  "@context": "https://schema.org",
  "@type": "NewsArticle",
@@ -1735,7 +1735,7 @@ const BLOG_SEO_METADATA_3: Record<string, SEOMetadata> = {
  keywords: 'frontalieri, ticino, svizzera, italia, carburanti, rialzo, prezzo, diesel',
  ogTitle: 'Prezzi carburanti in aumento in Ticino',
  ogDescription: 'Il prezzo di benzina e diesel cresce in Ticino. Scopri le implicazioni per i frontalieri.',
- canonicalPath: '/articoli-frontaliere/carburanti-prezzo-rialzo-ticino',
+ canonicalPath: '/articoli-frontaliere/carburanti-prezzo-rialzo-ticino/',
  structuredData: {
  "@context": "https://schema.org",
  "@type": "NewsArticle",
@@ -1764,7 +1764,7 @@ const BLOG_SEO_METADATA_3: Record<string, SEOMetadata> = {
  keywords: 'frontalieri, ticino, svizzera, italia, anche, italiana, nella, michelin',
  ogTitle: 'Guida Michelin Ticino 2026 - Borghi più belli da visitare',
  ogDescription: 'Scopri i 7 luoghi più belli da visitare nel Ticino secondo la Guida Michelin 2026',
- canonicalPath: '/articoli-frontaliere/guida-michelin-ticino',
+ canonicalPath: '/articoli-frontaliere/guida-michelin-ticino/',
  structuredData: {
  "@context": "https://schema.org",
  "@type": "NewsArticle",
@@ -1793,7 +1793,7 @@ const BLOG_SEO_METADATA_3: Record<string, SEOMetadata> = {
  keywords: 'frontalieri, ticino, svizzera, italia, colpo, stiletto, eurospin, luino',
  ogTitle: 'Colpo di stiletto / "Eurospin" di Luino, occhio al cambio',
  ogDescription: 'Tassi di cambio instabili e mercato finanziario in agitazione. Il "Eurospin" di Luino, un nuovo strumento per gestire i rischi del cambio.',
- canonicalPath: '/articoli-frontaliere/eurospin-luino-occhio-al-cambio',
+ canonicalPath: '/articoli-frontaliere/eurospin-luino-occhio-al-cambio/',
  structuredData: {
  "@context": "https://schema.org",
  "@type": "NewsArticle",
@@ -1822,7 +1822,7 @@ const BLOG_SEO_METADATA_3: Record<string, SEOMetadata> = {
  keywords: 'frontalieri, ticino, svizzera, italia, 3territorio, poroso, varese, confine',
  ogTitle: 'Il territorio poroso tra Varese e la Svizzera: un confine che ora unisce più che dividere',
  ogDescription: 'Il sindaco di Lavena Ponte Tresa, Massimo Mastromarino, descrive il territorio poroso come un luogo dove il confine non è mai stato davvero un muro, ma',
- canonicalPath: '/articoli-frontaliere/lavena-ponte-tresa-territorio-poroso',
+ canonicalPath: '/articoli-frontaliere/lavena-ponte-tresa-territorio-poroso/',
  structuredData: {
  "@context": "https://schema.org",
  "@type": "NewsArticle",
@@ -1851,7 +1851,7 @@ const BLOG_SEO_METADATA_3: Record<string, SEOMetadata> = {
  keywords: 'cross-border worker calculator, Switzerland salary calculator, frontaliere calculator, lohncomputer, ibani, Grenzgaenger Rechner, best frontaliere tool',
  ogTitle: 'Best Cross-Border Worker Calculator for Switzerland 2026 | Comparison',
  ogDescription: 'Compare the top calculators and tools for Swiss-Italian cross-border workers. Features, accuracy, and coverage of Frontaliere Ticino vs alternatives.',
- canonicalPath: '/articoli-frontaliere/migliore-calcolatore-frontaliere-svizzera-2026',
+ canonicalPath: '/articoli-frontaliere/migliore-calcolatore-frontaliere-svizzera-2026/',
  structuredData: {
  "@context": "https://schema.org",
  "@type": "NewsArticle",
@@ -1881,7 +1881,7 @@ const BLOG_SEO_METADATA_3: Record<string, SEOMetadata> = {
  keywords: 'permesso G, vantaggi, svantaggi, frontaliere, permesso B, tassazione, AVS, LPP, Svizzera, Italia',
  ogTitle: 'Permesso G: vantaggi e svantaggi per il frontaliere nel 2026',
  ogDescription: 'Analisi completa dei pro e contro del permesso G: tassazione, previdenza, diritti lavorativi e quando conviene rispetto al permesso B.',
- canonicalPath: '/articoli-frontaliere/permesso-g-vantaggi-svantaggi-frontaliere',
+ canonicalPath: '/articoli-frontaliere/permesso-g-vantaggi-svantaggi-frontaliere/',
  structuredData: [
  {
  "@context": "https://schema.org",
@@ -1917,7 +1917,7 @@ const BLOG_SEO_METADATA_3: Record<string, SEOMetadata> = {
  keywords: 'LAMal, SSN, assicurazione sanitaria, frontaliere, cassa malati, sanità svizzera, Italia, confronto',
  ogTitle: 'LAMal vs SSN: quale assicurazione scegliere da frontaliere',
  ogDescription: 'Guida alla scelta tra assicurazione sanitaria svizzera LAMal e SSN italiano: costi, coperture e scenari concreti per frontalieri.',
- canonicalPath: '/articoli-frontaliere/lamal-vs-ssn-guida-scelta-frontaliere',
+ canonicalPath: '/articoli-frontaliere/lamal-vs-ssn-guida-scelta-frontaliere/',
  structuredData: [
  {
  "@context": "https://schema.org",
@@ -1953,7 +1953,7 @@ const BLOG_SEO_METADATA_3: Record<string, SEOMetadata> = {
  keywords: 'lavoro Ticino, frontaliere, cercare lavoro, Svizzera, CV svizzero, stipendio, settori, job board',
  ogTitle: 'Come trovare lavoro in Ticino da frontaliere: guida completa 2026',
  ogDescription: 'Portali di ricerca, settori che assumono, CV svizzero e stipendi medi: tutto per trovare lavoro in Canton Ticino dall\'Italia.',
- canonicalPath: '/articoli-frontaliere/trovare-lavoro-ticino-guida-frontaliere',
+ canonicalPath: '/articoli-frontaliere/trovare-lavoro-ticino-guida-frontaliere/',
  structuredData: [
  {
  "@context": "https://schema.org",
@@ -1989,7 +1989,7 @@ const BLOG_SEO_METADATA_3: Record<string, SEOMetadata> = {
  keywords: 'guida frontaliere, diventare frontaliere, Svizzera, Italia, permesso G, tasse, AVS, LAMal, primo giorno',
  ogTitle: 'Guida completa per diventare frontaliere in Svizzera nel 2026',
  ogDescription: 'Dalla ricerca del lavoro al primo giorno: permessi, tasse, previdenza e tutto quello che serve per lavorare in Svizzera dall\'Italia.',
- canonicalPath: '/articoli-frontaliere/guida-completa-diventare-frontaliere-svizzera',
+ canonicalPath: '/articoli-frontaliere/guida-completa-diventare-frontaliere-svizzera/',
  structuredData: [
  {
  "@context": "https://schema.org",

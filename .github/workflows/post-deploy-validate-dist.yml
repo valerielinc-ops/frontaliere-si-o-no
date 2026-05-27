@@ -379,6 +379,8 @@ jobs:
             npm run audit:hreflang
           spawn_capped audit:sitemap-canonicals      /tmp/g15.log \
             npm run audit:sitemap-canonicals
+          spawn_capped audit:canonical-trailing-slash /tmp/g15b.log \
+            npm run audit:canonical-trailing-slash
           spawn_capped audit:news-sitemap            /tmp/g16.log \
             npm run audit:news-sitemap
           # audit:image-object-license migrated into `npm run audit:all`
