@@ -1,18 +1,19 @@
 {
   "key": "see-spital",
   "label": "See-Spital",
-  "generatedAt": "2026-05-26T15:13:27.661Z",
+  "generatedAt": "2026-05-27T00:08:45.429Z",
   "total": 42,
-  "newCount": 42,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 42,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 1070924,
-  "avgDurationMs": 1070924,
+  "durationMs": 49707,
+  "avgDurationMs": 49707,
   "durationHistory": [
-    1070924
+    49707
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "see-spital-40d1260515f2",
       "slug": "arztsekretar-in-mpa-chirurgie-mit-vereinzelten-mpa-aufgaben-see-spital-ch",
@@ -25,8 +26,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1236/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "needsRetranslation": true,
-      "crawledAt": "2026-05-26T14:55:43.177Z",
+      "needsRetranslation": false,
+      "crawledAt": "2026-05-27T00:08:03.099Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -42,11 +43,12 @@
       "applyUrl": "https://recruitingapp-2939.umantis.com/Vacancies/1236/Application/CheckLogin/1",
       "department": "See-Spital",
       "contractDuration": "permanent",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-26T14:55:43.177Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -62,8 +64,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1253/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "needsRetranslation": true,
-      "crawledAt": "2026-05-26T14:55:43.643Z",
+      "needsRetranslation": false,
+      "crawledAt": "2026-05-27T00:08:04.103Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -79,17 +81,18 @@
       "applyUrl": "https://recruitingapp-2939.umantis.com/Vacancies/1253/Application/CheckLogin/1",
       "department": "See-Spital",
       "contractDuration": "permanent",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-26T14:55:43.643Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
     {
       "id": "see-spital-b31b0f026929",
-      "slug": "radiologiefachfrau-mann-hf-see-spital-ch",
+      "slug": "radiologiefachfrau-mann-hf-see-spital-horgen",
       "company": "See-Spital",
       "companyKey": "see-spital",
       "companyDomain": "see-spital.ch",
@@ -100,7 +103,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": true,
-      "crawledAt": "2026-05-26T14:55:44.131Z",
+      "crawledAt": "2026-05-27T00:08:05.114Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -116,11 +119,12 @@
       "applyUrl": "https://recruitingapp-2939.umantis.com/Vacancies/1256/Application/CheckLogin/1",
       "department": "See-Spital",
       "contractDuration": "permanent",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-26T14:55:44.131Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -137,7 +141,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": true,
-      "crawledAt": "2026-05-26T14:55:44.594Z",
+      "crawledAt": "2026-05-27T00:08:06.070Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -153,11 +157,12 @@
       "applyUrl": "https://recruitingapp-2939.umantis.com/Vacancies/1254/Application/CheckLogin/1",
       "department": "See-Spital",
       "contractDuration": "permanent",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-26T14:55:44.594Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -174,7 +179,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": true,
-      "crawledAt": "2026-05-26T14:55:45.181Z",
+      "crawledAt": "2026-05-27T00:08:07.011Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -190,11 +195,12 @@
       "applyUrl": "https://recruitingapp-2939.umantis.com/Vacancies/1259/Application/CheckLogin/1",
       "department": "See-Spital",
       "contractDuration": "permanent",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-26T14:55:45.181Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -210,8 +216,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1258/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "needsRetranslation": true,
-      "crawledAt": "2026-05-26T14:55:45.626Z",
+      "needsRetranslation": false,
+      "crawledAt": "2026-05-27T00:08:07.997Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -227,11 +233,12 @@
       "applyUrl": "https://recruitingapp-2939.umantis.com/Vacancies/1258/Application/CheckLogin/1",
       "department": "See-Spital",
       "contractDuration": "permanent",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-26T14:55:45.626Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -247,8 +254,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1257/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "needsRetranslation": true,
-      "crawledAt": "2026-05-26T14:55:46.089Z",
+      "needsRetranslation": false,
+      "crawledAt": "2026-05-27T00:08:08.970Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -264,11 +271,12 @@
       "applyUrl": "https://recruitingapp-2939.umantis.com/Vacancies/1257/Application/CheckLogin/1",
       "department": "See-Spital",
       "contractDuration": "permanent",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-26T14:55:46.089Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -285,7 +293,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": true,
-      "crawledAt": "2026-05-26T14:55:46.690Z",
+      "crawledAt": "2026-05-27T00:08:09.954Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -301,11 +309,12 @@
       "applyUrl": "https://recruitingapp-2939.umantis.com/Vacancies/1219/Application/CheckLogin/1",
       "department": "See-Spital",
       "contractDuration": "permanent",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-26T14:55:46.690Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -321,8 +330,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1247/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "needsRetranslation": true,
-      "crawledAt": "2026-05-26T14:55:47.293Z",
+      "needsRetranslation": false,
+      "crawledAt": "2026-05-27T00:08:10.951Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -338,11 +347,12 @@
       "applyUrl": "https://recruitingapp-2939.umantis.com/Vacancies/1247/Application/CheckLogin/1",
       "department": "See-Spital",
       "contractDuration": "permanent",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-26T14:55:47.293Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -358,8 +368,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1241/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "needsRetranslation": true,
-      "crawledAt": "2026-05-26T14:55:47.754Z",
+      "needsRetranslation": false,
+      "crawledAt": "2026-05-27T00:08:11.926Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -375,11 +385,12 @@
       "applyUrl": "https://recruitingapp-2939.umantis.com/Vacancies/1241/Application/CheckLogin/1",
       "department": "See-Spital",
       "contractDuration": "permanent",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-26T14:55:47.754Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -396,7 +407,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": true,
-      "crawledAt": "2026-05-26T14:55:48.355Z",
+      "crawledAt": "2026-05-27T00:08:12.890Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -412,11 +423,12 @@
       "applyUrl": "https://recruitingapp-2939.umantis.com/Vacancies/1238/Application/CheckLogin/1",
       "department": "See-Spital",
       "contractDuration": "permanent",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-26T14:55:48.355Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -432,8 +444,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1206/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "needsRetranslation": true,
-      "crawledAt": "2026-05-26T14:55:48.823Z",
+      "needsRetranslation": false,
+      "crawledAt": "2026-05-27T00:08:13.871Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -449,11 +461,12 @@
       "applyUrl": "https://recruitingapp-2939.umantis.com/Vacancies/1206/Application/CheckLogin/1",
       "department": "See-Spital",
       "contractDuration": "permanent",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-26T14:55:48.823Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -470,7 +483,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": true,
-      "crawledAt": "2026-05-26T14:55:49.412Z",
+      "crawledAt": "2026-05-27T00:08:14.826Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -486,11 +499,12 @@
       "applyUrl": "https://recruitingapp-2939.umantis.com/Vacancies/1248/Application/CheckLogin/1",
       "department": "See-Spital",
       "contractDuration": "permanent",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-26T14:55:49.412Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -506,8 +520,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1222/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "needsRetranslation": true,
-      "crawledAt": "2026-05-26T14:55:49.874Z",
+      "needsRetranslation": false,
+      "crawledAt": "2026-05-27T00:08:15.830Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -523,11 +537,12 @@
       "applyUrl": "https://recruitingapp-2939.umantis.com/Vacancies/1222/Application/CheckLogin/1",
       "department": "See-Spital",
       "contractDuration": "permanent",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-26T14:55:49.874Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -543,8 +558,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1225/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "needsRetranslation": true,
-      "crawledAt": "2026-05-26T14:55:50.484Z",
+      "needsRetranslation": false,
+      "crawledAt": "2026-05-27T00:08:16.843Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -560,11 +575,12 @@
       "applyUrl": "https://recruitingapp-2939.umantis.com/Vacancies/1225/Application/CheckLogin/1",
       "department": "See-Spital",
       "contractDuration": "permanent",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-26T14:55:50.484Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -580,8 +596,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1240/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "needsRetranslation": true,
-      "crawledAt": "2026-05-26T14:55:51.108Z",
+      "needsRetranslation": false,
+      "crawledAt": "2026-05-27T00:08:17.842Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -597,11 +613,12 @@
       "applyUrl": "https://recruitingapp-2939.umantis.com/Vacancies/1240/Application/CheckLogin/1",
       "department": "See-Spital",
       "contractDuration": "permanent",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-26T14:55:51.108Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -617,8 +634,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1200/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "needsRetranslation": true,
-      "crawledAt": "2026-05-26T14:55:51.710Z",
+      "needsRetranslation": false,
+      "crawledAt": "2026-05-27T00:08:18.825Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -634,11 +651,12 @@
       "applyUrl": "https://recruitingapp-2939.umantis.com/Vacancies/1200/Application/CheckLogin/1",
       "department": "See-Spital",
       "contractDuration": "permanent",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-26T14:55:51.710Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -654,8 +672,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1235/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "needsRetranslation": true,
-      "crawledAt": "2026-05-26T14:55:52.311Z",
+      "needsRetranslation": false,
+      "crawledAt": "2026-05-27T00:08:19.798Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -671,11 +689,12 @@
       "applyUrl": "https://recruitingapp-2939.umantis.com/Vacancies/1235/Application/CheckLogin/1",
       "department": "See-Spital",
       "contractDuration": "permanent",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-26T14:55:52.311Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -692,7 +711,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": true,
-      "crawledAt": "2026-05-26T14:55:52.774Z",
+      "crawledAt": "2026-05-27T00:08:20.736Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -708,11 +727,12 @@
       "applyUrl": "https://recruitingapp-2939.umantis.com/Vacancies/1237/Application/CheckLogin/1",
       "department": "See-Spital",
       "contractDuration": "temporary",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-26T14:55:52.774Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -728,8 +748,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1144/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "needsRetranslation": true,
-      "crawledAt": "2026-05-26T14:55:53.373Z",
+      "needsRetranslation": false,
+      "crawledAt": "2026-05-27T00:08:21.713Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -745,11 +765,12 @@
       "applyUrl": "https://recruitingapp-2939.umantis.com/Vacancies/1144/Application/CheckLogin/1",
       "department": "See-Spital",
       "contractDuration": "permanent",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-26T14:55:53.373Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -765,8 +786,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/313/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "needsRetranslation": true,
-      "crawledAt": "2026-05-26T14:55:53.834Z",
+      "needsRetranslation": false,
+      "crawledAt": "2026-05-27T00:08:22.685Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -782,11 +803,12 @@
       "applyUrl": "https://recruitingapp-2939.umantis.com/Vacancies/313/Application/CheckLogin/1",
       "department": "See-Spital",
       "contractDuration": "permanent",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-26T14:55:53.834Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -802,8 +824,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1212/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "needsRetranslation": true,
-      "crawledAt": "2026-05-26T14:55:54.431Z",
+      "needsRetranslation": false,
+      "crawledAt": "2026-05-27T00:08:23.668Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -819,11 +841,12 @@
       "applyUrl": "https://recruitingapp-2939.umantis.com/Vacancies/1212/Application/CheckLogin/1",
       "department": "See-Spital",
       "contractDuration": "permanent",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-26T14:55:54.431Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -839,8 +862,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1198/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "needsRetranslation": true,
-      "crawledAt": "2026-05-26T14:55:55.019Z",
+      "needsRetranslation": false,
+      "crawledAt": "2026-05-27T00:08:24.664Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -856,11 +879,12 @@
       "applyUrl": "https://recruitingapp-2939.umantis.com/Vacancies/1198/Application/CheckLogin/1",
       "department": "See-Spital",
       "contractDuration": "permanent",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-26T14:55:55.019Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -876,8 +900,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1032/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "needsRetranslation": true,
-      "crawledAt": "2026-05-26T14:55:55.490Z",
+      "needsRetranslation": false,
+      "crawledAt": "2026-05-27T00:08:25.644Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -893,11 +917,12 @@
       "applyUrl": "https://recruitingapp-2939.umantis.com/Vacancies/1032/Application/CheckLogin/1",
       "department": "See-Spital",
       "contractDuration": "temporary",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-26T14:55:55.490Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -913,8 +938,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1129/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "needsRetranslation": true,
-      "crawledAt": "2026-05-26T14:55:55.950Z",
+      "needsRetranslation": false,
+      "crawledAt": "2026-05-27T00:08:26.632Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -930,11 +955,12 @@
       "applyUrl": "https://recruitingapp-2939.umantis.com/Vacancies/1129/Application/CheckLogin/1",
       "department": "See-Spital",
       "contractDuration": "temporary",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-26T14:55:55.950Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -950,8 +976,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1137/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "needsRetranslation": true,
-      "crawledAt": "2026-05-26T14:55:56.535Z",
+      "needsRetranslation": false,
+      "crawledAt": "2026-05-27T00:08:27.626Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -967,11 +993,12 @@
       "applyUrl": "https://recruitingapp-2939.umantis.com/Vacancies/1137/Application/CheckLogin/1",
       "department": "See-Spital",
       "contractDuration": "permanent",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-26T14:55:56.535Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -988,7 +1015,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": true,
-      "crawledAt": "2026-05-26T14:55:57.138Z",
+      "crawledAt": "2026-05-27T00:08:28.604Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1004,11 +1031,12 @@
       "applyUrl": "https://recruitingapp-2939.umantis.com/Vacancies/717/Application/CheckLogin/1",
       "department": "See-Spital",
       "contractDuration": "permanent",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-26T14:55:57.138Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -1024,8 +1052,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/880/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "needsRetranslation": true,
-      "crawledAt": "2026-05-26T14:55:57.723Z",
+      "needsRetranslation": false,
+      "crawledAt": "2026-05-27T00:08:29.572Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1041,11 +1069,12 @@
       "applyUrl": "https://recruitingapp-2939.umantis.com/Vacancies/880/Application/CheckLogin/1",
       "department": "See-Spital",
       "contractDuration": "permanent",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-26T14:55:57.723Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -1062,7 +1091,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": true,
-      "crawledAt": "2026-05-26T14:55:58.325Z",
+      "crawledAt": "2026-05-27T00:08:30.583Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1078,11 +1107,12 @@
       "applyUrl": "https://recruitingapp-2939.umantis.com/Vacancies/972/Application/CheckLogin/1",
       "department": "See-Spital",
       "contractDuration": "permanent",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-26T14:55:58.325Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -1098,8 +1128,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/470/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "needsRetranslation": true,
-      "crawledAt": "2026-05-26T14:55:58.768Z",
+      "needsRetranslation": false,
+      "crawledAt": "2026-05-27T00:08:31.548Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1115,16 +1145,16 @@
       "applyUrl": "https://recruitingapp-2939.umantis.com/Vacancies/470/Application/CheckLogin/1",
       "department": "See-Spital",
       "contractDuration": "temporary",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-26T14:55:58.768Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": []
 }
