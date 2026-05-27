@@ -1,18 +1,56 @@
 {
   "key": "wagerenhof",
   "label": "Stiftung Wagerenhof",
-  "generatedAt": "2026-05-27T00:44:50.380Z",
+  "generatedAt": "2026-05-27T14:25:12.661Z",
   "total": 5,
   "newCount": 1,
   "updatedCount": 4,
   "removedCount": 1,
   "unchangedCount": 0,
-  "durationMs": 8112,
-  "avgDurationMs": 8112,
+  "durationMs": 8229,
+  "avgDurationMs": 8229,
   "durationHistory": [
-    8112
+    8229
   ],
   "newJobs": [
+    {
+      "id": "wagerenhof-286c3d16273a",
+      "slug": "teamleitung-der-wohngemeinschaft-seestern-orange-80-100-wagerenhof-uster",
+      "company": "Stiftung Wagerenhof",
+      "companyKey": "wagerenhof",
+      "companyDomain": "wagerenhof.ch",
+      "title": "Teamleitung der Wohngemeinschaft Seestern orange (80 - 100%)",
+      "needsRetranslation": true,
+      "location": "Uster",
+      "canton": "ZH",
+      "url": "https://www.wagerenhof.ch/wagerenhof/arbeiten-beim-wagerenhof/offene-stellen/vacancy-details?reference=2026-526&cHash=a232f8925c264cdd288b039486a469ee",
+      "source": "Wagerenhof Dedicated Parser (TYPO3 HTML)",
+      "sourceLang": "de",
+      "crawledAt": "2026-05-27T14:25:06.835Z",
+      "addressLocality": "Uster",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8610",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "Sociale / Educazione",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-27",
+      "applyUrl": "https://www.wagerenhof.ch/wagerenhof/arbeiten-beim-wagerenhof/offene-stellen/vacancy-details?reference=2026-526&cHash=a232f8925c264cdd288b039486a469ee",
+      "_qualityScore": 64,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 4,
+        "completeness": 17
+      }
+    }
+  ],
+  "updatedJobs": [
     {
       "id": "wagerenhof-3a0a85187af4",
       "slug": "system-engineer-in-2nd-level-support-wagerenhof-uster",
@@ -26,7 +64,7 @@
       "url": "https://www.wagerenhof.ch/wagerenhof/arbeiten-beim-wagerenhof/offene-stellen/vacancy-details?reference=2026-521&cHash=7da42f35da4a8a9acf471f80b55a8a67",
       "source": "Wagerenhof Dedicated Parser (TYPO3 HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T00:44:44.292Z",
+      "crawledAt": "2026-05-27T14:25:07.739Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -41,16 +79,15 @@
       "featured": false,
       "postedDate": "2026-05-27",
       "applyUrl": "https://www.wagerenhof.ch/wagerenhof/arbeiten-beim-wagerenhof/offene-stellen/vacancy-details?reference=2026-521&cHash=7da42f35da4a8a9acf471f80b55a8a67",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-27T00:44:44.292Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "wagerenhof-4a1664f08e9a",
       "slug": "fachperson-betreuung-fabe-per-la-wohngemeinschaft-trompete-80-100-stiftung-wagerenhof-uster",
@@ -64,7 +101,7 @@
       "url": "https://www.wagerenhof.ch/wagerenhof/arbeiten-beim-wagerenhof/offene-stellen/vacancy-details?reference=2025-481&cHash=ab6ec5d181bc2200b9091dacde2898b9",
       "source": "Wagerenhof Dedicated Parser (TYPO3 HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T00:44:45.153Z",
+      "crawledAt": "2026-05-27T14:25:08.692Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -101,7 +138,7 @@
       "url": "https://www.wagerenhof.ch/wagerenhof/arbeiten-beim-wagerenhof/offene-stellen/vacancy-details?reference=2026-524&cHash=cd19b4cda2c15627cb4d731bb67eb9e8",
       "source": "Wagerenhof Dedicated Parser (TYPO3 HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T00:44:46.192Z",
+      "crawledAt": "2026-05-27T14:25:09.580Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -138,7 +175,7 @@
       "url": "https://www.wagerenhof.ch/wagerenhof/arbeiten-beim-wagerenhof/offene-stellen/vacancy-details?reference=2026-517&cHash=cdf9bc22215d115fffe71e01a2ceba81",
       "source": "Wagerenhof Dedicated Parser (TYPO3 HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T00:44:47.409Z",
+      "crawledAt": "2026-05-27T14:25:10.500Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -161,15 +198,16 @@
         "translation": 25,
         "completeness": 17
       }
-    },
+    }
+  ],
+  "removedJobs": [
     {
       "id": "wagerenhof-bd4a61e982ac",
-      "slug": "sozialpadagogin-sozialpadagoge-fur-das-wohnheim-strahlegg-im-tosstal-50-80-wagerenhof",
+      "slug": "educatore-sociale-per-la-casa-di-cura-strahlegg-nella-valle-del-tosstal-50-80-stiftung-wagerenhof-bauma",
       "company": "Stiftung Wagerenhof",
       "companyKey": "wagerenhof",
       "companyDomain": "wagerenhof.ch",
       "title": "Sozialpädagogin / Sozialpädagoge für das Wohnheim Strahlegg im Tösstal (50 – 80 %)",
-      "needsRetranslation": false,
       "location": "Bauma",
       "canton": "ZH",
       "url": "https://www.wagerenhof.ch/wagerenhof/arbeiten-beim-wagerenhof/offene-stellen/vacancy-details?reference=2026-496&cHash=ab8b4947005e7fcc52ec66840b136463",
@@ -191,46 +229,8 @@
       "postedDate": "2026-05-19",
       "applyUrl": "https://www.wagerenhof.ch/wagerenhof/arbeiten-beim-wagerenhof/offene-stellen/vacancy-details?reference=2026-496&cHash=ab8b4947005e7fcc52ec66840b136463",
       "firstSeenAt": "2026-05-19T15:32:04.603Z",
-      "_qualityScore": 85,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 17
-      }
-    }
-  ],
-  "removedJobs": [
-    {
-      "id": "wagerenhof-960e85b55337",
-      "slug": "educatore-sociale-come-capo-team-per-il-sito-di-steg-nel-tosstal-80-100-stiftung-wagerenhof-bauma",
-      "company": "Stiftung Wagerenhof",
-      "companyKey": "wagerenhof",
-      "companyDomain": "wagerenhof.ch",
-      "title": "Sozialpädagogin/ Sozialpädagoge als Teamleitung für den Standort Steg im Tösstal (80 – 100%)",
-      "location": "Bauma",
-      "canton": "ZH",
-      "url": "https://www.wagerenhof.ch/wagerenhof/arbeiten-beim-wagerenhof/offene-stellen/vacancy-details?reference=2026-511&cHash=f2e20edb1dd6f065f8c6e62248937788",
-      "source": "Wagerenhof Dedicated Parser (TYPO3 HTML)",
-      "sourceLang": "de",
-      "crawledAt": "2026-05-25T23:59:24.861Z",
-      "addressLocality": "Bauma",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8494",
-      "category": "IT",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "intern",
-      "sector": "Sociale / Educazione",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-19",
-      "applyUrl": "https://www.wagerenhof.ch/wagerenhof/arbeiten-beim-wagerenhof/offene-stellen/vacancy-details?reference=2026-511&cHash=f2e20edb1dd6f065f8c6e62248937788",
-      "firstSeenAt": "2026-05-19T15:32:05.558Z",
-      "salaryMin": 51500,
-      "salaryMax": 88000,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
