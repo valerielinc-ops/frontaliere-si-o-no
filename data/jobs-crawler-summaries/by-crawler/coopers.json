@@ -1,18 +1,53 @@
 {
   "key": "coopers",
   "label": "Coopers Group AG",
-  "generatedAt": "2026-05-27T12:16:21.441Z",
-  "total": 2,
-  "newCount": 0,
+  "generatedAt": "2026-05-27T22:41:40.921Z",
+  "total": 3,
+  "newCount": 1,
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 5775,
-  "avgDurationMs": 5775,
+  "durationMs": 6416,
+  "avgDurationMs": 6416,
   "durationHistory": [
-    5775
+    6416
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "id": "coopers-ab1752bb6b8f",
+      "slug": "engineering-planer-m-f-d-coopers-wallis",
+      "company": "Coopers Group AG",
+      "companyKey": "coopers",
+      "companyDomain": "coopers.ch",
+      "title": "Engineering Planer (m/f/d)",
+      "location": "Wallis",
+      "canton": "VS",
+      "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=5QI3F8",
+      "source": "Coopers Group AG Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-05-27T22:41:36.318Z",
+      "addressLocality": "Wallis",
+      "addressRegion": "VS",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Ingegneria",
+      "contract": "contracting",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Farmaceutica / Life Sciences",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-27",
+      "applyUrl": "https://www.coopers.ch/en/jobs/detail.php?refCode=5QI3F8",
+      "_qualityScore": 64,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 21,
+        "translation": 4,
+        "completeness": 14
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "id": "coopers-d88735da8e0a",
@@ -26,7 +61,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=9W1L7K",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-27T12:16:17.844Z",
+      "crawledAt": "2026-05-27T22:41:37.606Z",
       "addressLocality": "Wallis",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -61,7 +96,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=979PJR",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-27T12:16:19.158Z",
+      "crawledAt": "2026-05-27T22:41:38.850Z",
       "addressLocality": "Wallis",
       "addressRegion": "VS",
       "addressCountry": "CH",

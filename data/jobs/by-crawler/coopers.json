@@ -1,6 +1,6 @@
 {
   "crawlerKey": "coopers",
-  "assembledAt": "2026-05-27T12:16:21.441Z",
+  "assembledAt": "2026-05-27T22:41:40.921Z",
   "jobs": [
     {
       "id": "coopers-2623bcf0eafe",
@@ -33,7 +33,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=979PJR",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-27T12:16:19.158Z",
+      "crawledAt": "2026-05-27T22:41:38.850Z",
       "addressLocality": "Wallis",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -111,9 +111,9 @@
     },
     {
       "id": "coopers-d88735da8e0a",
-      "slug": "qa-raw-material-compliance-specialist-m-f-d-coopers-wallis",
+      "slug": "qa-raw-material-compliance-specialista-m-f-d-coopers-group-ag-wallis",
       "slugByLocale": {
-        "it": "qa-raw-material-compliance-specialist-m-f-d-coopers-wallis",
+        "it": "qa-raw-material-compliance-specialista-m-f-d-coopers-group-ag-wallis",
         "en": "qa-raw-material-compliance-specialist-m-f-d-coopers-wallis",
         "de": "qa-rohstoff-compliance-spezialist-m-f-d-coopers-group-ag-wallis",
         "fr": "specialiste-de-la-conformite-des-matieres-premieres-de-l-aq-m-f-d-coopers-group-ag-wallis"
@@ -140,7 +140,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=9W1L7K",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-27T12:16:17.844Z",
+      "crawledAt": "2026-05-27T22:41:37.606Z",
       "addressLocality": "Wallis",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -176,6 +176,15 @@
         ]
       },
       "firstSeenAt": "2026-05-26T22:34:26.824Z",
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "qa-raw-material-compliance-specialist-m-f-d-coopers-wallis"
+        ]
+      },
+      "previousSlugs": [
+        "qa-raw-material-compliance-specialist-m-f-d-coopers-wallis"
+      ],
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -189,6 +198,85 @@
         }
       },
       "postalCode": "1950"
+    },
+    {
+      "id": "coopers-ab1752bb6b8f",
+      "slug": "engineering-planer-m-f-d-coopers-wallis",
+      "slugByLocale": {
+        "en": "engineering-planer-m-f-d-coopers-wallis",
+        "it": "engineering-planer-m-f-d-coopers-wallis",
+        "de": "engineering-planer-m-f-d-coopers-wallis",
+        "fr": "engineering-planer-m-f-d-coopers-wallis"
+      },
+      "company": "Coopers Group AG",
+      "companyKey": "coopers",
+      "companyDomain": "coopers.ch",
+      "title": "Engineering Planer (m/f/d)",
+      "titleByLocale": {
+        "en": "Engineering Planer (m/f/d)",
+        "it": "Engineering Planer (m/f/d)",
+        "de": "Engineering Planer (m/f/d)",
+        "fr": "Engineering Planer (m/f/d)"
+      },
+      "description": "For our client, we are looking for an experienced Maintenance Planner / Scheduler who confidently coordinates maintenance and troubleshooting activities in a GMP-regulated environment, effectively collaborates with production and workshop teams, and brings strong expertise in maintenance planning, SAP PM, and resource coordination, in order to ensure reliable, compliant, and on-time execution of maintenance activities for facilities, utilities, and equipment.\n\nStart date: 01.06.2026\nEnd date: 31.10.2026\nWorkload:100%\nContract Type: Contracting\nLocation: Visp\n\nYour Tasks:\n\n• Create and maintain maintenance schedules for facilities, utilities, and equipment\n\n• Ensure maintenance tasks are completed on time and escalate delays when required\n\n• Coordinate manpower, resources, and external contractors\n\n• Manage procurement and allocation of spare parts, materials, and consumables\n\n• Prepare KPI reports and maintenance performance reports\n\n• Ensure all maintenance activities are performed safely and in compliance with GMP requirements\n\n• Continuously improve planning and scheduling processes\n\nYour Profile:\n\n• Technical or engineering qualification (HND/HNC or equivalent)\n\n• Experience in maintenance planning and engineering maintenance activities\n\n• Ideally experience in pharmaceutical, GMP, or highly regulated environments\n\n• Strong knowledge of maintenance planning and scheduling processes\n\n• SAP PM experience required\n\n• Fluent in German and English",
+      "descriptionByLocale": {
+        "en": "For our client, we are looking for an experienced Maintenance Planner / Scheduler who confidently coordinates maintenance and troubleshooting activities in a GMP-regulated environment, effectively collaborates with production and workshop teams, and brings strong expertise in maintenance planning, SAP PM, and resource coordination, in order to ensure reliable, compliant, and on-time execution of maintenance activities for facilities, utilities, and equipment.\n\nStart date: 01.06.2026\nEnd date: 31.10.2026\nWorkload:100%\nContract Type: Contracting\nLocation: Visp\n\nYour Tasks:\n\n• Create and maintain maintenance schedules for facilities, utilities, and equipment\n\n• Ensure maintenance tasks are completed on time and escalate delays when required\n\n• Coordinate manpower, resources, and external contractors\n\n• Manage procurement and allocation of spare parts, materials, and consumables\n\n• Prepare KPI reports and maintenance performance reports\n\n• Ensure all maintenance activities are performed safely and in compliance with GMP requirements\n\n• Continuously improve planning and scheduling processes\n\nYour Profile:\n\n• Technical or engineering qualification (HND/HNC or equivalent)\n\n• Experience in maintenance planning and engineering maintenance activities\n\n• Ideally experience in pharmaceutical, GMP, or highly regulated environments\n\n• Strong knowledge of maintenance planning and scheduling processes\n\n• SAP PM experience required\n\n• Fluent in German and English",
+        "it": "For our client, we are looking for an experienced Maintenance Planner / Scheduler who confidently coordinates maintenance and troubleshooting activities in a GMP-regulated environment, effectively collaborates with production and workshop teams, and brings strong expertise in maintenance planning, SAP PM, and resource coordination, in order to ensure reliable, compliant, and on-time execution of maintenance activities for facilities, utilities, and equipment.\n\nStart date: 01.06.2026\nEnd date: 31.10.2026\nWorkload:100%\nContract Type: Contracting\nLocation: Visp\n\nYour Tasks:\n\n• Create and maintain maintenance schedules for facilities, utilities, and equipment\n\n• Ensure maintenance tasks are completed on time and escalate delays when required\n\n• Coordinate manpower, resources, and external contractors\n\n• Manage procurement and allocation of spare parts, materials, and consumables\n\n• Prepare KPI reports and maintenance performance reports\n\n• Ensure all maintenance activities are performed safely and in compliance with GMP requirements\n\n• Continuously improve planning and scheduling processes\n\nYour Profile:\n\n• Technical or engineering qualification (HND/HNC or equivalent)\n\n• Experience in maintenance planning and engineering maintenance activities\n\n• Ideally experience in pharmaceutical, GMP, or highly regulated environments\n\n• Strong knowledge of maintenance planning and scheduling processes\n\n• SAP PM experience required\n\n• Fluent in German and English",
+        "de": "For our client, we are looking for an experienced Maintenance Planner / Scheduler who confidently coordinates maintenance and troubleshooting activities in a GMP-regulated environment, effectively collaborates with production and workshop teams, and brings strong expertise in maintenance planning, SAP PM, and resource coordination, in order to ensure reliable, compliant, and on-time execution of maintenance activities for facilities, utilities, and equipment.\n\nStart date: 01.06.2026\nEnd date: 31.10.2026\nWorkload:100%\nContract Type: Contracting\nLocation: Visp\n\nYour Tasks:\n\n• Create and maintain maintenance schedules for facilities, utilities, and equipment\n\n• Ensure maintenance tasks are completed on time and escalate delays when required\n\n• Coordinate manpower, resources, and external contractors\n\n• Manage procurement and allocation of spare parts, materials, and consumables\n\n• Prepare KPI reports and maintenance performance reports\n\n• Ensure all maintenance activities are performed safely and in compliance with GMP requirements\n\n• Continuously improve planning and scheduling processes\n\nYour Profile:\n\n• Technical or engineering qualification (HND/HNC or equivalent)\n\n• Experience in maintenance planning and engineering maintenance activities\n\n• Ideally experience in pharmaceutical, GMP, or highly regulated environments\n\n• Strong knowledge of maintenance planning and scheduling processes\n\n• SAP PM experience required\n\n• Fluent in German and English",
+        "fr": "For our client, we are looking for an experienced Maintenance Planner / Scheduler who confidently coordinates maintenance and troubleshooting activities in a GMP-regulated environment, effectively collaborates with production and workshop teams, and brings strong expertise in maintenance planning, SAP PM, and resource coordination, in order to ensure reliable, compliant, and on-time execution of maintenance activities for facilities, utilities, and equipment.\n\nStart date: 01.06.2026\nEnd date: 31.10.2026\nWorkload:100%\nContract Type: Contracting\nLocation: Visp\n\nYour Tasks:\n\n• Create and maintain maintenance schedules for facilities, utilities, and equipment\n\n• Ensure maintenance tasks are completed on time and escalate delays when required\n\n• Coordinate manpower, resources, and external contractors\n\n• Manage procurement and allocation of spare parts, materials, and consumables\n\n• Prepare KPI reports and maintenance performance reports\n\n• Ensure all maintenance activities are performed safely and in compliance with GMP requirements\n\n• Continuously improve planning and scheduling processes\n\nYour Profile:\n\n• Technical or engineering qualification (HND/HNC or equivalent)\n\n• Experience in maintenance planning and engineering maintenance activities\n\n• Ideally experience in pharmaceutical, GMP, or highly regulated environments\n\n• Strong knowledge of maintenance planning and scheduling processes\n\n• SAP PM experience required\n\n• Fluent in German and English"
+      },
+      "location": "Wallis",
+      "canton": "VS",
+      "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=5QI3F8",
+      "source": "Coopers Group AG Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-05-27T22:41:36.318Z",
+      "addressLocality": "Wallis",
+      "addressRegion": "VS",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Ingegneria",
+      "contract": "contracting",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Farmaceutica / Life Sciences",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-27",
+      "applyUrl": "https://www.coopers.ch/en/jobs/detail.php?refCode=5QI3F8",
+      "requirements": [
+        "Technical or engineering qualification (HND/HNC or equivalent)",
+        "Experience in maintenance planning and engineering maintenance activities",
+        "Ideally experience in pharmaceutical, GMP, or highly regulated environments",
+        "Strong knowledge of maintenance planning and scheduling processes",
+        "SAP PM experience required",
+        "Fluent in German and English"
+      ],
+      "requirementsByLocale": {
+        "en": [
+          "Technical or engineering qualification (HND/HNC or equivalent)",
+          "Experience in maintenance planning and engineering maintenance activities",
+          "Ideally experience in pharmaceutical, GMP, or highly regulated environments",
+          "Strong knowledge of maintenance planning and scheduling processes",
+          "SAP PM experience required",
+          "Fluent in German and English"
+        ]
+      },
+      "needsRetranslation": true,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "1950",
+      "firstSeenAt": "2026-05-27T22:41:36.318Z"
     }
   ]
 }
