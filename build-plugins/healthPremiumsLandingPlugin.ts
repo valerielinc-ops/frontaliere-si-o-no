@@ -2330,11 +2330,11 @@ function renderLeafPage(inp: LeafInputs): string {
 
   const bodyHtml = `<article class="s-xzWvwM">
   <nav class="s-bcr">
-    <a href="${BASE_URL}/" class="s-bcl">${esc(copy.breadcrumbHome)}</a>
+    <a href="/" class="s-bcl">${esc(copy.breadcrumbHome)}</a>
     <span> / </span>
-    <a href="${BASE_URL}${buildHealthPremiumsRootPath(locale)}" class="s-bcl">${esc(copy.breadcrumbRoot)}</a>
+    <a href="${buildHealthPremiumsRootPath(locale)}" class="s-bcl">${esc(copy.breadcrumbRoot)}</a>
     <span> / </span>
-    <a href="${BASE_URL}${buildHealthPremiumsCantonPath(locale, canton)}" class="s-bcl">${esc(cantonLabel)}</a>
+    <a href="${buildHealthPremiumsCantonPath(locale, canton)}" class="s-bcl">${esc(cantonLabel)}</a>
     <span> / </span>
     <span>${esc(ageLabel)}</span>
   </nav>
@@ -2639,9 +2639,9 @@ function renderCantonHubPage(inp: CantonHubInputs): string {
 
   const bodyHtml = `<article class="s-xzWvwM">
   <nav class="s-bcr">
-    <a href="${BASE_URL}/" class="s-bcl">${esc(copy.breadcrumbHome)}</a>
+    <a href="/" class="s-bcl">${esc(copy.breadcrumbHome)}</a>
     <span> / </span>
-    <a href="${BASE_URL}${buildHealthPremiumsRootPath(locale)}" class="s-bcl">${esc(leafCopy.breadcrumbRoot)}</a>
+    <a href="${buildHealthPremiumsRootPath(locale)}" class="s-bcl">${esc(leafCopy.breadcrumbRoot)}</a>
     <span> / </span>
     <span>${esc(cantonLabel)}</span>
   </nav>
@@ -2910,7 +2910,7 @@ function renderRootHubPage(inp: RootHubInputs): string {
 
   const bodyHtml = `<article class="s-xzWvwM">
   <nav class="s-bcr">
-    <a href="${BASE_URL}/" class="s-bcl">${esc(copy.breadcrumbHome)}</a>
+    <a href="/" class="s-bcl">${esc(copy.breadcrumbHome)}</a>
     <span> / </span>
     <span>${esc(leafCopy.breadcrumbRoot)}</span>
   </nav>

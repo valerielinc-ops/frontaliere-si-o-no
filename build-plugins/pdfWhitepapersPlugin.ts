@@ -513,8 +513,8 @@ nav a{color:#2563eb;text-decoration:none}
 <p class="meta">Formato PDF · Gratuito · Aggiornato ${dateStamp}</p>
 </div>
 <p>${esc(guide.bodyText)}</p>
-<p>Questa guida fa parte delle risorse gratuite di <a href="${BASE_URL}/">Frontaliere Ticino</a> per i lavoratori transfrontalieri tra Svizzera e Italia.</p>
-<p>Consulta anche l'<a href="${BASE_URL}/articoli-frontaliere/${guide.articleUrlSlug}/">articolo completo online</a> per la versione aggiornata in tempo reale.</p>
+<p>Questa guida fa parte delle risorse gratuite di <a href="/">Frontaliere Ticino</a> per i lavoratori transfrontalieri tra Svizzera e Italia.</p>
+<p>Consulta anche l'<a href="/articoli-frontaliere/${guide.articleUrlSlug}/">articolo completo online</a> per la versione aggiornata in tempo reale.</p>
 </article>
 <nav>
 <a href="/">Simulatore Fiscale</a> · <a href="/guida-frontaliere/">Guida Frontaliere</a> · <a href="/articoli-frontaliere/">Articoli</a> · <a href="/cerca-lavoro-ticino/">Lavoro Ticino</a>

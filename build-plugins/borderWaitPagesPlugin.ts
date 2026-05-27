@@ -1672,11 +1672,11 @@ function renderLeafPage(inp: LeafInputs): string {
 
   const bodyHtml = `<article class="s-xzWvwM">
   <nav class="s-bcr" aria-label="Breadcrumb">
-    <a href="${BASE_URL}/" class="s-bcl">${esc(copy.breadcrumbHome)}</a>
+    <a href="/" class="s-bcl">${esc(copy.breadcrumbHome)}</a>
     <span> / </span>
-    <a href="${BASE_URL}${buildRootHubPath(locale)}" class="s-bcl">${esc(copy.rootH1.split(' —')[0])}</a>
+    <a href="${buildRootHubPath(locale)}" class="s-bcl">${esc(copy.rootH1.split(' —')[0])}</a>
     <span> / </span>
-    <a href="${BASE_URL}${buildRegionalHubPath(locale, region)}" class="s-bcl">${esc(regionDisplay)}</a>
+    <a href="${buildRegionalHubPath(locale, region)}" class="s-bcl">${esc(regionDisplay)}</a>
     <span> / </span>
     <span>${esc(crossingDisplay)}</span>
   </nav>
@@ -1813,7 +1813,7 @@ function renderHubPage(inp: HubInputs): string {
     const waitFmt = wait === null ? '—' : `${wait} min`;
     return `<tr data-bw-crossing="${esc(c)}">
       <td style="${TABLE_CELL_STYLE}">
-        <a href="${BASE_URL}${buildOggiPath(locale, c)}" style="${LINK_ACCENT_STYLE};font-weight:600">${esc(BORDER_CROSSING_DISPLAY[c])}</a>
+        <a href="${buildOggiPath(locale, c)}" style="${LINK_ACCENT_STYLE};font-weight:600">${esc(BORDER_CROSSING_DISPLAY[c])}</a>
       </td>
       <td style="${TABLE_CELL_STYLE};text-align:right">
         <span data-bw-field="totalCrossingMinutes" style="display:inline-block;padding:4px 10px;border-radius:9999px;font-size:13px;font-weight:700;background:${sc.bg};color:${sc.text};border:1px solid ${sc.border}">${esc(waitFmt)}</span>
@@ -1955,7 +1955,7 @@ function renderHubPage(inp: HubInputs): string {
                 : 'This page in other languages';
         const others = (BORDER_WAIT_LOCALES as ReadonlyArray<BorderWaitLocale>).filter((l) => l !== locale);
         const items = others
-          .map((l) => `<li class="s-xu5DGK"><a href="${BASE_URL}${buildRootHubPath(l)}" hreflang="${l}" style="${LINK_ACCENT_STYLE};text-decoration:underline">${esc(labels[l])}</a></li>`)
+          .map((l) => `<li class="s-xu5DGK"><a href="${buildRootHubPath(l)}" hreflang="${l}" style="${LINK_ACCENT_STYLE};text-decoration:underline">${esc(labels[l])}</a></li>`)
           .join('');
         return `<section class="s-ziawP1" aria-label="${esc(heading)}"><h2 style="${H2_STYLE}">${esc(heading)}</h2><ul class="s-dGFnBg">${items}</ul></section>`;
       })()
@@ -2017,9 +2017,9 @@ function renderHubPage(inp: HubInputs): string {
 
   const bodyHtml = `<article class="s-xzWvwM">
   <nav class="s-bcr" aria-label="Breadcrumb">
-    <a href="${BASE_URL}/" class="s-bcl">${esc(copy.breadcrumbHome)}</a>
+    <a href="/" class="s-bcl">${esc(copy.breadcrumbHome)}</a>
     <span> / </span>
-    ${region ? `<a href="${BASE_URL}${buildRootHubPath(locale)}" class="s-bcl">${esc(copy.rootH1.split(' —')[0])}</a><span> / </span><span>${esc(regionDisplay)}</span>` : `<span>${esc(h1)}</span>`}
+    ${region ? `<a href="${buildRootHubPath(locale)}" class="s-bcl">${esc(copy.rootH1.split(' —')[0])}</a><span> / </span><span>${esc(regionDisplay)}</span>` : `<span>${esc(h1)}</span>`}
   </nav>
   <header class="s-Nv0GaD">
     <p style="${HERO_EYEBROW_STYLE}">${esc(copy.updatedLabel)} · ${dateStamp} <span class="s-k7sbVR" data-bw-live-badge>${esc(hubSnapshotBadgeText)}</span></p>
@@ -2349,9 +2349,9 @@ function renderArchivePage(inp: ArchiveInputs): string {
 
   const bodyHtml = `<article class="s-xzWvwM">
         <nav class="s-bcr" aria-label="Breadcrumb">
-          <a href="${BASE_URL}/" class="s-bcl">${esc(copy.breadcrumbHome)}</a>
+          <a href="/" class="s-bcl">${esc(copy.breadcrumbHome)}</a>
           <span> / </span>
-          <a href="${BASE_URL}${buildOggiPath(locale, crossing)}" class="s-bcl">${esc(crossingDisplay)}</a>
+          <a href="${buildOggiPath(locale, crossing)}" class="s-bcl">${esc(crossingDisplay)}</a>
           <span> / </span>
           <span>${esc(monthKey)}</span>
         </nav>

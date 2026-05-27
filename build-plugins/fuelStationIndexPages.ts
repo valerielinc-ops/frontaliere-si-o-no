@@ -944,9 +944,9 @@ function renderIndexPage(opts: RenderIndexOpts): string {
 
   const bodyHtml = `<article class="s-xzWvwM">
   <nav class="s-bcr">
-    <a href="${BASE_URL}/" class="s-bcl">${esc(copy.breadcrumbHome)}</a>
+    <a href="/" class="s-bcl">${esc(copy.breadcrumbHome)}</a>
     <span> / </span>
-    <a href="${BASE_URL}${FUEL_LOCALE_PREFIX[locale]}/${FUEL_SECTION_SLUG[locale][fuel]}/" class="s-bcl">${esc(fuelLabel)}</a>
+    <a href="${FUEL_LOCALE_PREFIX[locale]}/${FUEL_SECTION_SLUG[locale][fuel]}/" class="s-bcl">${esc(fuelLabel)}</a>
     <span> / </span>
     <span>${esc(titles.h1)}</span>
   </nav>

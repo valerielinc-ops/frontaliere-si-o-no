@@ -311,7 +311,7 @@ ${alternates}
     <div id="root"></div>
     <main class="seo-static-content s-xzWvwM">
       <nav class="s-bcr">
-        <a href="${BASE_URL}/" class="s-bcl">Home</a>
+        <a href="/" class="s-bcl">Home</a>
         <span> / </span>
         <a href="${sectionRootUrl}" class="s-bcl">${esc(SECTION_NAME[locale])}</a>
         <span> / </span>
