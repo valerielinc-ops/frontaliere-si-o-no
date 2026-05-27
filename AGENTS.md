@@ -12,6 +12,17 @@ This file is intentionally compact: it is injected into every agent session. Kee
 6. Keep changes surgical: no drive-by refactors, no speculative abstractions, no unrelated formatting churn.
 7. Never disable Google AdSense Auto Ads (anchor / in-page / vignette) — not globally, not per-route, not via loader gating, not via `enable_page_level_ads:false`, not via meta opt-outs. Auto Ads are ~95% of revenue. CLS or layout problems caused by Auto Ads must be solved by reserving space, container sizing (`min-height`, `aspect-ratio`, `contain: layout`), pre-declared `<ins>` placeholders with fixed dimensions, or image/font width-height fixes — never by suppressing the ad system itself.
 
+## Privacy
+
+- Canonical git identity for this repo: `Valerie Linc <valerielinc@gmail.com>`. Do not author/commit under any other identity.
+- Before every `git commit`, scan staged content and the commit message against the local blocklist at `.git/info/pii-blocklist.txt` (untracked, per-clone). If the file is missing, prompt the user to populate it.
+  - Recommended scan: `git diff --cached | grep -niE -f .git/info/pii-blocklist.txt` and `grep -niE -f .git/info/pii-blocklist.txt <commit-msg-file>`.
+  - If any match, abort the commit and ask the user how to sanitize.
+- Strip any `Co-authored-by:` trailer whose email is not the canonical identity before finalizing the commit.
+- Never commit absolute home paths (`/Users/<anyone>/...`) in code or config. Use relative paths, `$HOME`, `~`, `git rev-parse --show-toplevel`, or env vars.
+- Never hard-code personal emails in code, config, or data dumps. Prefer env vars (`process.env.*`) or the canonical address.
+- When in doubt about whether a string in a diff is personal/leaky, ask the user before committing.
+
 ## Workflow
 
 - Worktree-first is mandatory for every task that will edit, commit, or push files: create a dedicated branch worktree before making changes. Treat the local `main` checkout as shared/read-only for status and inspection only.
