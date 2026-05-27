@@ -160,7 +160,7 @@
       "id": "hug-f42d692de83d",
       "slug": "assistente-medico-con-una-specializzazione-in-radiologia-pediatrica-o-head-o-head-of-clinic-per-una-formazione",
       "slugByLocale": {
-        "it": "medecin-adjoint-ou-adjointe-avec-titre-de-specialite-en-radiologie-pediatrique-ou-chef-ou-cheffe-de-clinique-pour-une-formation-approfondie-en-radiologie-pediatrique-100-hug-geneve",
+        "it": "assistente-medico-con-una-specializzazione-in-radiologia-pediatrica-o-head-o-head-of-clinic-per-una-formazione",
         "en": "assistant-physician-with-a-specialty-in-pediatric-radiology-or-head-or-head-of-clinic-for-in-depth-training-in-pediatric",
         "de": "assistenzarzt-mit-einer-spezialitat-in-der-padiatrischen-radiologie-oder-leiter-oder-leiter-der-klinik-fur-tiefgehende",
         "fr": "medecin-adjoint-ou-adjointe-avec-titre-de-specialite-en-radiologie-pediatrique-ou-chef-ou"
@@ -206,11 +206,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "medecin-adjoint-ou-adjointe-avec-titre-de-specialite-en-radiologie-pediatrique-ou-chef-ou",
-        "assistente-medico-con-una-specializzazione-in-radiologia-pediatrica-o-head-o-head-of-clinic-per-una-formazione"
+        "medecin-adjoint-ou-adjointe-avec-titre-de-specialite-en-radiologie-pediatrique-ou-chef-ou-cheffe-de-clinique-pour-une-formation-approfondie-en-radiologie-pediatrique-100-hug-geneve"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "medecin-adjoint-ou-adjointe-avec-titre-de-specialite-en-radiologie-pediatrique-ou-chef-ou"
+          "medecin-adjoint-ou-adjointe-avec-titre-de-specialite-en-radiologie-pediatrique-ou-chef-ou",
+          "medecin-adjoint-ou-adjointe-avec-titre-de-specialite-en-radiologie-pediatrique-ou-chef-ou-cheffe-de-clinique-pour-une-formation-approfondie-en-radiologie-pediatrique-100-hug-geneve"
         ],
         "en": [
           "medecin-adjoint-ou-adjointe-avec-titre-de-specialite-en-radiologie-pediatrique-ou-chef-ou"
@@ -774,12 +775,12 @@
     },
     {
       "id": "hug-58011518d834",
-      "slug": "chef-ou-cheffe-de-clinique-avec-ou-sans-titre-de-specialite-au-service-des-urgences-80-a-2",
+      "slug": "capo-o-capo-di-clinica-con-o-senza-specializzazione-in-servizi-di-emergenza-80-al-100-hug-geneve-9cbab1",
       "slugByLocale": {
         "fr": "chef-ou-cheffe-de-clinique-avec-ou-sans-titre-de-specialite-au-service-des-urgences-80-a",
-        "it": "chef-ou-cheffe-de-clinique-avec-ou-sans-titre-de-specialite-au-service-des-urgences-80-a-2",
-        "en": "chef-ou-cheffe-de-clinique-avec-ou-sans-titre-de-specialite-au-service-des-urgences-80-a-2",
-        "de": "chef-ou-cheffe-de-clinique-avec-ou-sans-titre-de-specialite-au-service-des-urgences-80-a-2"
+        "it": "capo-o-capo-di-clinica-con-o-senza-specializzazione-in-servizi-di-emergenza-80-al-100-hug-geneve-9cbab1",
+        "en": "chief-or-chief-of-clinic-with-or-without-specialty-status-in-emergency-services-80-to-100-hug-geneve-9cbab1",
+        "de": "chief-oder-chief-of-clinic-mit-oder-ohne-spezialstatus-in-notfalldiensten-80-bis-100-hug-geneve-9cbab1"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -824,11 +825,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "chef-ou-cheffe-de-clinique-avec-ou-sans-titre-de-specialite-au-service-des-urgences-80-a"
+          "chef-ou-cheffe-de-clinique-avec-ou-sans-titre-de-specialite-au-service-des-urgences-80-a",
+          "chef-ou-cheffe-de-clinique-avec-ou-sans-titre-de-specialite-au-service-des-urgences-80-a-2"
+        ],
+        "en": [
+          "chef-ou-cheffe-de-clinique-avec-ou-sans-titre-de-specialite-au-service-des-urgences-80-a-2"
+        ],
+        "de": [
+          "chef-ou-cheffe-de-clinique-avec-ou-sans-titre-de-specialite-au-service-des-urgences-80-a-2"
         ]
       },
       "previousSlugs": [
-        "chef-ou-cheffe-de-clinique-avec-ou-sans-titre-de-specialite-au-service-des-urgences-80-a"
+        "chef-ou-cheffe-de-clinique-avec-ou-sans-titre-de-specialite-au-service-des-urgences-80-a",
+        "chef-ou-cheffe-de-clinique-avec-ou-sans-titre-de-specialite-au-service-des-urgences-80-a-2"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -1366,7 +1375,7 @@
       "id": "hug-447506adef5c",
       "slug": "assistente-medico-o-assistente-responsabile-dell-unita-sanitaria-asilo-e-rifugiati-usar-100-hug-geneve",
       "slugByLocale": {
-        "it": "medecin-adjoint-ou-adjointe-responsable-de-l-unite-sante-asile-et-refugies-usar-100-hug-geneve",
+        "it": "assistente-medico-o-assistente-responsabile-dell-unita-sanitaria-asilo-e-rifugiati-usar-100-hug-geneve",
         "en": "assistant-physician-or-assistant-responsible-for-the-asylum-and-refugee-health-unit-usar-100-hug-geneve",
         "de": "assistent-arzt-oder-assistent-fur-die-asyl-und-fluchtlingsgesundheitseinheit-usar-100-hug-geneve",
         "fr": "medecin-adjoint-ou-adjointe-responsable-de-l-unite-sante-asile-et-refugies-usar-100-hug"
@@ -1412,11 +1421,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "medecin-adjoint-ou-adjointe-responsable-de-l-unite-sante-asile-et-refugies-usar-100-hug",
-        "assistente-medico-o-assistente-responsabile-dell-unita-sanitaria-asilo-e-rifugiati-usar-100-hug-geneve"
+        "medecin-adjoint-ou-adjointe-responsable-de-l-unite-sante-asile-et-refugies-usar-100-hug-geneve"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "medecin-adjoint-ou-adjointe-responsable-de-l-unite-sante-asile-et-refugies-usar-100-hug"
+          "medecin-adjoint-ou-adjointe-responsable-de-l-unite-sante-asile-et-refugies-usar-100-hug",
+          "medecin-adjoint-ou-adjointe-responsable-de-l-unite-sante-asile-et-refugies-usar-100-hug-geneve"
         ],
         "en": [
           "medecin-adjoint-ou-adjointe-responsable-de-l-unite-sante-asile-et-refugies-usar-100-hug"
@@ -4142,7 +4152,7 @@
       "id": "hug-79957ec25a81",
       "slug": "assistente-medico-trattamento-e-prevenzione-della-demenza-in-psichiatria-geriatrica-100-hug-thonex",
       "slugByLocale": {
-        "it": "medecin-adjoint-ou-adjointe-traitement-et-prevention-des-demences-en-psychiatrie-geriatrique-100-hug-thonex",
+        "it": "assistente-medico-trattamento-e-prevenzione-della-demenza-in-psichiatria-geriatrica-100-hug-thonex",
         "en": "assistant-physician-treatment-and-prevention-of-dementia-in-geriatric-psychiatry-100-hug-thonex",
         "de": "assistenzarzt-behandlung-und-pravention-von-demenz-in-der-geriatrischen-psychiatrie-100-hug-thonex",
         "fr": "medecin-adjoint-ou-adjointe-traitement-et-prevention-des-demences-en-psychiatrie"
@@ -4188,11 +4198,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "medecin-adjoint-ou-adjointe-traitement-et-prevention-des-demences-en-psychiatrie",
-        "assistente-medico-trattamento-e-prevenzione-della-demenza-in-psichiatria-geriatrica-100-hug-thonex"
+        "medecin-adjoint-ou-adjointe-traitement-et-prevention-des-demences-en-psychiatrie-geriatrique-100-hug-thonex"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "medecin-adjoint-ou-adjointe-traitement-et-prevention-des-demences-en-psychiatrie"
+          "medecin-adjoint-ou-adjointe-traitement-et-prevention-des-demences-en-psychiatrie",
+          "medecin-adjoint-ou-adjointe-traitement-et-prevention-des-demences-en-psychiatrie-geriatrique-100-hug-thonex"
         ],
         "en": [
           "medecin-adjoint-ou-adjointe-traitement-et-prevention-des-demences-en-psychiatrie"
@@ -4217,12 +4228,12 @@
     },
     {
       "id": "hug-536a1defb76a",
-      "slug": "responsable-rh-adjointe-ou-adjointe-80-hug-chene-bourg",
+      "slug": "assistente-responsabile-delle-risorse-umane-80-hug-chene-bourg",
       "slugByLocale": {
         "fr": "responsable-rh-adjointe-ou-adjointe-80-hug-chene-bourg",
-        "it": "responsable-rh-adjointe-ou-adjointe-80-hug-chene-bourg",
-        "en": "responsable-rh-adjointe-ou-adjointe-80-hug-chene-bourg",
-        "de": "responsable-rh-adjointe-ou-adjointe-80-hug-chene-bourg"
+        "it": "assistente-responsabile-delle-risorse-umane-80-hug-chene-bourg",
+        "en": "assistant-hr-officer-80-hug-chene-bourg",
+        "de": "assistent-hr-officer-80-hug-chene-bourg"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -4277,16 +4288,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-27T12:58:59.532Z"
+      "firstSeenAt": "2026-05-27T12:58:59.532Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "responsable-rh-adjointe-ou-adjointe-80-hug-chene-bourg"
+        ],
+        "en": [
+          "responsable-rh-adjointe-ou-adjointe-80-hug-chene-bourg"
+        ],
+        "de": [
+          "responsable-rh-adjointe-ou-adjointe-80-hug-chene-bourg"
+        ]
+      },
+      "previousSlugs": [
+        "responsable-rh-adjointe-ou-adjointe-80-hug-chene-bourg"
+      ]
     },
     {
       "id": "hug-fce35b36b843",
-      "slug": "data-analyst-pour-la-direction-des-blocs-operatoires-100-hug-geneve",
+      "slug": "analisi-dei-dati-per-la-direzione-delle-unita-operative-100-hug-geneve",
       "slugByLocale": {
         "fr": "data-analyst-pour-la-direction-des-blocs-operatoires-100-hug-geneve",
-        "it": "data-analyst-pour-la-direction-des-blocs-operatoires-100-hug-geneve",
-        "en": "data-analyst-pour-la-direction-des-blocs-operatoires-100-hug-geneve",
-        "de": "data-analyst-pour-la-direction-des-blocs-operatoires-100-hug-geneve"
+        "it": "analisi-dei-dati-per-la-direzione-delle-unita-operative-100-hug-geneve",
+        "en": "data-analytics-for-operating-unit-direction-100-hug-geneve",
+        "de": "datenanalyse-fur-betriebseinheitsrichtung-100-hug-geneve"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -4342,16 +4367,30 @@
         }
       },
       "postalCode": "1201",
-      "firstSeenAt": "2026-05-27T12:58:59.530Z"
+      "firstSeenAt": "2026-05-27T12:58:59.530Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "data-analyst-pour-la-direction-des-blocs-operatoires-100-hug-geneve"
+        ],
+        "en": [
+          "data-analyst-pour-la-direction-des-blocs-operatoires-100-hug-geneve"
+        ],
+        "de": [
+          "data-analyst-pour-la-direction-des-blocs-operatoires-100-hug-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "data-analyst-pour-la-direction-des-blocs-operatoires-100-hug-geneve"
+      ]
     },
     {
       "id": "hug-6a13f4fa866c",
-      "slug": "ingenieur-ou-ingenieure-biomedicale-pour-la-direction-des-blocs-operatoires-100-hug-geneve",
+      "slug": "ingegnere-biomedico-o-ingegnere-per-la-gestione-delle-unita-operative-100-hug-geneve",
       "slugByLocale": {
         "fr": "ingenieur-ou-ingenieure-biomedicale-pour-la-direction-des-blocs-operatoires-100-hug-geneve",
-        "it": "ingenieur-ou-ingenieure-biomedicale-pour-la-direction-des-blocs-operatoires-100-hug-geneve",
-        "en": "ingenieur-ou-ingenieure-biomedicale-pour-la-direction-des-blocs-operatoires-100-hug-geneve",
-        "de": "ingenieur-ou-ingenieure-biomedicale-pour-la-direction-des-blocs-operatoires-100-hug-geneve"
+        "it": "ingegnere-biomedico-o-ingegnere-per-la-gestione-delle-unita-operative-100-hug-geneve",
+        "en": "biomedical-engineer-or-engineer-for-the-management-of-operating-units-100-hug-geneve",
+        "de": "biomedizinischer-ingenieur-oder-ingenieur-fur-die-verwaltung-von-betriebseinheiten-100-hug-geneve"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -4407,16 +4446,30 @@
         }
       },
       "postalCode": "1201",
-      "firstSeenAt": "2026-05-27T12:58:59.529Z"
+      "firstSeenAt": "2026-05-27T12:58:59.529Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "ingenieur-ou-ingenieure-biomedicale-pour-la-direction-des-blocs-operatoires-100-hug-geneve"
+        ],
+        "en": [
+          "ingenieur-ou-ingenieure-biomedicale-pour-la-direction-des-blocs-operatoires-100-hug-geneve"
+        ],
+        "de": [
+          "ingenieur-ou-ingenieure-biomedicale-pour-la-direction-des-blocs-operatoires-100-hug-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "ingenieur-ou-ingenieure-biomedicale-pour-la-direction-des-blocs-operatoires-100-hug-geneve"
+      ]
     },
     {
       "id": "hug-4d213fec09a2",
-      "slug": "stage-conventionne-en-gestion-de-projet-100-hug-geneve",
+      "slug": "stage-di-gestione-dei-progetti-contratti-100-hug-geneve",
       "slugByLocale": {
         "fr": "stage-conventionne-en-gestion-de-projet-100-hug-geneve",
-        "it": "stage-conventionne-en-gestion-de-projet-100-hug-geneve",
-        "en": "stage-conventionne-en-gestion-de-projet-100-hug-geneve",
-        "de": "stage-conventionne-en-gestion-de-projet-100-hug-geneve"
+        "it": "stage-di-gestione-dei-progetti-contratti-100-hug-geneve",
+        "en": "contracted-project-management-internship-100-hug-geneve",
+        "de": "projektmanagementpraktikum-100-hug-geneve"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -4472,16 +4525,30 @@
         }
       },
       "postalCode": "1201",
-      "firstSeenAt": "2026-05-27T12:58:59.527Z"
+      "firstSeenAt": "2026-05-27T12:58:59.527Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "stage-conventionne-en-gestion-de-projet-100-hug-geneve"
+        ],
+        "en": [
+          "stage-conventionne-en-gestion-de-projet-100-hug-geneve"
+        ],
+        "de": [
+          "stage-conventionne-en-gestion-de-projet-100-hug-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "stage-conventionne-en-gestion-de-projet-100-hug-geneve"
+      ]
     },
     {
       "id": "hug-7810a6cadb7c",
-      "slug": "charge-ou-chargee-de-projets-culturels-60-hug-geneve",
+      "slug": "responsabile-dei-progetti-culturali-60-hug-geneve",
       "slugByLocale": {
         "fr": "charge-ou-chargee-de-projets-culturels-60-hug-geneve",
-        "it": "charge-ou-chargee-de-projets-culturels-60-hug-geneve",
-        "en": "charge-ou-chargee-de-projets-culturels-60-hug-geneve",
-        "de": "charge-ou-chargee-de-projets-culturels-60-hug-geneve"
+        "it": "responsabile-dei-progetti-culturali-60-hug-geneve",
+        "en": "responsible-for-cultural-projects-60-hug-geneve",
+        "de": "verantwortlich-fur-kulturprojekte-60-hug-geneve"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -4537,7 +4604,21 @@
         }
       },
       "postalCode": "1201",
-      "firstSeenAt": "2026-05-27T12:58:59.518Z"
+      "firstSeenAt": "2026-05-27T12:58:59.518Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "charge-ou-chargee-de-projets-culturels-60-hug-geneve"
+        ],
+        "en": [
+          "charge-ou-chargee-de-projets-culturels-60-hug-geneve"
+        ],
+        "de": [
+          "charge-ou-chargee-de-projets-culturels-60-hug-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "charge-ou-chargee-de-projets-culturels-60-hug-geneve"
+      ]
     }
   ]
 }

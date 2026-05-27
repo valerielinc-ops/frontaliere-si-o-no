@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "prada-40ab28ec043e",
-      "slug": "industrial-controller-intern-prada-group-terranuova-bracciolini-industrial-controller-intern",
+      "slug": "industrial-controller-tirocinante-prada-group-terranuova-bracciolini-industrial-controller-intern",
       "slugByLocale": {
         "en": "industrial-controller-intern-prada-group-terranuova-bracciolini-industrial-controller-intern",
-        "it": "industrial-controller-intern-prada-group-terranuova-bracciolini-industrial-controller-intern",
-        "de": "industrial-controller-intern-prada-group-terranuova-bracciolini-industrial-controller-intern",
-        "fr": "industrial-controller-intern-prada-group-terranuova-bracciolini-industrial-controller-intern"
+        "it": "industrial-controller-tirocinante-prada-group-terranuova-bracciolini-industrial-controller-intern",
+        "de": "industrial-controller-praktikant-prada-group-terranuova-bracciolini-industrial-controller-intern",
+        "fr": "industrial-controller-stagiaire-prada-group-terranuova-bracciolini-industrial-controller-intern"
       },
       "company": "Prada Group",
       "companyKey": "prada",
@@ -60,16 +60,30 @@
         }
       },
       "postalCode": "6500",
-      "firstSeenAt": "2026-05-27T13:32:02.169Z"
+      "firstSeenAt": "2026-05-27T13:32:02.169Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "industrial-controller-intern-prada-group-terranuova-bracciolini-industrial-controller-intern"
+        ],
+        "de": [
+          "industrial-controller-intern-prada-group-terranuova-bracciolini-industrial-controller-intern"
+        ],
+        "fr": [
+          "industrial-controller-intern-prada-group-terranuova-bracciolini-industrial-controller-intern"
+        ]
+      },
+      "previousSlugs": [
+        "industrial-controller-intern-prada-group-terranuova-bracciolini-industrial-controller-intern"
+      ]
     },
     {
       "id": "prada-e59d538b6dce",
       "slug": "addetto-a-laboratorio-abbigliamento-prada-group-levanella-buresta-addettoa-laboratorio-abbigliamento",
       "slugByLocale": {
-        "en": "addetto-a-laboratorio-abbigliamento-prada-group-levanella-buresta-addettoa-laboratorio-abbigliamento",
+        "en": "associate-laboratorio-abbigliamento-prada-group-levanella-buresta-addettoa-laboratorio-abbigliamento",
         "it": "addetto-a-laboratorio-abbigliamento-prada-group-levanella-buresta-addettoa-laboratorio-abbigliamento",
-        "de": "addetto-a-laboratorio-abbigliamento-prada-group-levanella-buresta-addettoa-laboratorio-abbigliamento",
-        "fr": "addetto-a-laboratorio-abbigliamento-prada-group-levanella-buresta-addettoa-laboratorio-abbigliamento"
+        "de": "mitarbeiter-in-laboratorio-abbigliamento-prada-group-levanella-buresta-addettoa-laboratorio-abbigliamento",
+        "fr": "prepose-e-laboratorio-abbigliamento-prada-group-levanella-buresta-addettoa-laboratorio-abbigliamento"
       },
       "company": "Prada Group",
       "companyKey": "prada",

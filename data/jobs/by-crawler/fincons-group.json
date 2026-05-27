@@ -387,8 +387,7 @@
       "previousSlugs": [
         "servicenow-sviluppatore-itsm-cmdb-fincons-group-lugano",
         "servicenow-developer-itsm-cmdb-fincons-group-lugano-switzerland",
-        "servicenow-developer-itsm-cmdb-fincons-group-lugano",
-        "sviluppatore-servicenow-itsm-cmdb-fincons-group-lugano"
+        "servicenow-developer-itsm-cmdb-fincons-group-lugano"
       ],
       "salaryMin": 72500,
       "salaryMax": 97500,
@@ -423,7 +422,7 @@
     },
     {
       "title": "Test Automation Engineer",
-      "slug": "test-automation-engineer-fincons-group-lugano-ticino-switzerland",
+      "slug": "test-automation-ingegnere-fincons-group-lugano",
       "url": "https://fincons.applytojob.com/apply/efLM5m39uG/Test-Automation-Engineer",
       "applyUrl": "https://fincons.applytojob.com/apply/efLM5m39uG/Test-Automation-Engineer",
       "company": "Fincons Group",
@@ -459,9 +458,9 @@
       },
       "slugByLocale": {
         "en": "test-automation-engineer-fincons-group-lugano-ticino-switzerland",
-        "it": "test-automation-engineer-fincons-group-lugano-ticino-switzerland",
-        "de": "test-automation-engineer-fincons-group-lugano-ticino-switzerland",
-        "fr": "test-automation-engineer-fincons-group-lugano-ticino-switzerland"
+        "it": "test-automation-ingegnere-fincons-group-lugano",
+        "de": "test-automation-ingenieur-fincons-group-lugano",
+        "fr": "ingenieur-d-automatisation-des-essais-fincons-group-lugano"
       },
       "metadata": {
         "experienceRequirements": "Experienced",
@@ -484,7 +483,21 @@
         }
       },
       "streetAddress": "Via Industria 3",
-      "firstSeenAt": "2026-05-27T12:27:52.100Z"
+      "firstSeenAt": "2026-05-27T12:27:52.100Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "test-automation-engineer-fincons-group-lugano-ticino-switzerland"
+        ],
+        "de": [
+          "test-automation-engineer-fincons-group-lugano-ticino-switzerland"
+        ],
+        "fr": [
+          "test-automation-engineer-fincons-group-lugano-ticino-switzerland"
+        ]
+      },
+      "previousSlugs": [
+        "test-automation-engineer-fincons-group-lugano-ticino-switzerland"
+      ]
     }
   ]
 }

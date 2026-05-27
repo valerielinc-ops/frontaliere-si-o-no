@@ -8,8 +8,8 @@
       "slugByLocale": {
         "it": "specialista-del-servizio-tecnico-m-w-d-medtronic-bern",
         "en": "technical-service-specialist-m-w-d-medtronic-ch",
-        "de": "technischer-servicemitarbeiter-m-w-d-medtronic-bern",
-        "fr": "specialiste-du-service-technique-h-f-medtronic-bern"
+        "de": "technischer-mitarbeiter-m-w-d-medtronic-bern",
+        "fr": "specialiste-des-services-techniques-m-w-d-medtronic-bern"
       },
       "company": "Medtronic",
       "companyKey": "medtronic",
@@ -80,19 +80,17 @@
       "jobReqId": "R58182",
       "previousSlugs": [
         "technical-service-specialist-m-w-d-medtronic-ch",
-        "technischer-mitarbeiter-m-w-d-medtronic-bern",
-        "specialiste-des-services-techniques-m-w-d-medtronic-bern"
+        "technischer-servicemitarbeiter-m-w-d-medtronic-bern",
+        "specialiste-du-service-technique-h-f-medtronic-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "technical-service-specialist-m-w-d-medtronic-ch"
         ],
         "de": [
-          "technischer-mitarbeiter-m-w-d-medtronic-bern",
           "technischer-servicemitarbeiter-m-w-d-medtronic-bern"
         ],
         "fr": [
-          "specialiste-des-services-techniques-m-w-d-medtronic-bern",
           "specialiste-du-service-technique-h-f-medtronic-bern"
         ]
       },
@@ -192,8 +190,7 @@
       "jobReqId": "R62994",
       "previousSlugs": [
         "senior-system-software-engineer-1-year-contract-medtronic-ch",
-        "senior-system-software-engineer-contratto-di-1-anno-medtronic-lausanne",
-        "senior-system-software-ingegnere-1-year-contract-medtronic-lausanne"
+        "senior-system-software-engineer-contratto-di-1-anno-medtronic-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -220,10 +217,10 @@
       "id": "medtronic-4e0812af1ba0",
       "slug": "consegna-digitale-della-salute-dach-francia-m-f-d-medtronic-tolochenaz",
       "slugByLocale": {
-        "it": "digital-health-delivery-lead-dach-francia-medtronic-tolochenaz",
+        "it": "consegna-digitale-della-salute-dach-francia-m-f-d-medtronic-tolochenaz",
         "en": "digital-health-delivery-lead-dach-france-m-f-d-medtronic-ch",
         "de": "digital-health-delivery-lead-dach-frankreich-medtronic-tolochenaz",
-        "fr": "responsable-de-la-livraison-de-la-sante-numerique-dach-france-medtronic-tolochenaz"
+        "fr": "dach-et-france-m-f-d-medtronic-tolochenaz"
       },
       "company": "Medtronic",
       "companyKey": "medtronic",
@@ -267,15 +264,16 @@
       "jobReqId": "R63943",
       "previousSlugs": [
         "digital-health-delivery-lead-dach-france-m-f-d-medtronic-ch",
-        "dach-et-france-m-f-d-medtronic-tolochenaz",
-        "consegna-digitale-della-salute-dach-francia-m-f-d-medtronic-tolochenaz"
+        "digital-health-delivery-lead-dach-francia-medtronic-tolochenaz",
+        "responsable-de-la-livraison-de-la-sante-numerique-dach-france-medtronic-tolochenaz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "digital-health-delivery-lead-dach-france-m-f-d-medtronic-ch"
+          "digital-health-delivery-lead-dach-france-m-f-d-medtronic-ch",
+          "digital-health-delivery-lead-dach-francia-medtronic-tolochenaz"
         ],
         "fr": [
-          "dach-et-france-m-f-d-medtronic-tolochenaz"
+          "responsable-de-la-livraison-de-la-sante-numerique-dach-france-medtronic-tolochenaz"
         ]
       },
       "firstSeenAt": "2026-05-19T17:18:38.950Z",
@@ -372,8 +370,7 @@
       },
       "jobReqId": "R65816",
       "previousSlugs": [
-        "senior-validation-engineer-12-months-contract-medtronic-ch",
-        "senior-validation-ingegnere-12-months-contract-medtronic-lausanne"
+        "senior-validation-engineer-12-months-contract-medtronic-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -746,12 +743,12 @@
     },
     {
       "id": "medtronic-d5d16714c6c7",
-      "slug": "tech-consultant-medtronic-ch",
+      "slug": "consulente-tecnico-medtronic-bern",
       "slugByLocale": {
         "de": "tech-consultant-medtronic-ch",
-        "it": "tech-consultant-medtronic-ch",
+        "it": "consulente-tecnico-medtronic-bern",
         "en": "tech-consultant-medtronic-bern",
-        "fr": "tech-consultant-medtronic-ch"
+        "fr": "conseiller-technique-medtronic-bern"
       },
       "company": "Medtronic",
       "companyKey": "medtronic",
@@ -807,7 +804,18 @@
         }
       },
       "postalCode": "3001",
-      "firstSeenAt": "2026-05-27T13:15:35.676Z"
+      "firstSeenAt": "2026-05-27T13:15:35.676Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "tech-consultant-medtronic-ch"
+        ],
+        "fr": [
+          "tech-consultant-medtronic-ch"
+        ]
+      },
+      "previousSlugs": [
+        "tech-consultant-medtronic-ch"
+      ]
     },
     {
       "id": "medtronic-cb80e83aa55d",

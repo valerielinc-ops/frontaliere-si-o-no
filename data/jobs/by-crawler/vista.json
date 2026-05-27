@@ -369,10 +369,10 @@
       "id": "vista-906bca422992",
       "slug": "optometrista-stra-60-vista-augenpraxen-kliniken-zurich",
       "slugByLocale": {
-        "it": "ottico-60-vista-augenpraxen-kliniken-zurich",
-        "en": "optician-60-vista-augenpraxen-kliniken-zurich",
+        "it": "optometrista-stra-60-vista-augenpraxen-kliniken-zurich",
+        "en": "optometrist-60-vista-augenpraxen-kliniken-zurich",
         "de": "augenoptiker-in-60-vista-augenpraxen-kliniken-zurich",
-        "fr": "opticien-ne-60-vista-augenpraxen-kliniken-zurich"
+        "fr": "optometriste-60-vista-augenpraxen-kliniken-zurich"
       },
       "company": "Vista Augenpraxen & Kliniken",
       "companyKey": "vista",
@@ -454,20 +454,21 @@
           "augenoptiker-in-60-vista-zurich"
         ],
         "it": [
-          "augenoptiker-in-60-vista-zurich"
+          "augenoptiker-in-60-vista-zurich",
+          "ottico-60-vista-augenpraxen-kliniken-zurich"
         ],
         "en": [
-          "optometrist-60-vista-augenpraxen-kliniken-zurich"
+          "optician-60-vista-augenpraxen-kliniken-zurich"
         ],
         "fr": [
-          "optometriste-60-vista-augenpraxen-kliniken-zurich"
+          "opticien-ne-60-vista-augenpraxen-kliniken-zurich"
         ]
       },
       "previousSlugs": [
         "augenoptiker-in-60-vista-zurich",
-        "optometrist-60-vista-augenpraxen-kliniken-zurich",
-        "optometriste-60-vista-augenpraxen-kliniken-zurich",
-        "optometrista-stra-60-vista-augenpraxen-kliniken-zurich"
+        "ottico-60-vista-augenpraxen-kliniken-zurich",
+        "optician-60-vista-augenpraxen-kliniken-zurich",
+        "opticien-ne-60-vista-augenpraxen-kliniken-zurich"
       ],
       "firstSeenAt": "2026-05-19T21:02:09.236Z",
       "salaryMin": 49500,
@@ -783,9 +784,9 @@
       "slug": "tecnico-di-sala-operatoria-infermiera-strumentista-40-60-vista-pazzallo",
       "slugByLocale": {
         "it": "tecnico-di-sala-operatoria-infermiera-strumentista-40-60-vista-pazzallo",
-        "en": "tecnico-di-sala-operatoria-infermiera-strumentista-40-60-vista-pazzallo",
-        "de": "tecnico-di-sala-operatoria-infermiera-strumentista-40-60-vista-pazzallo",
-        "fr": "tecnico-di-sala-operatoria-infermiera-strumentista-40-60-vista-pazzallo"
+        "en": "operating-room-technician-instrumentist-nurse-40-60-vista-augenpraxen-kliniken-pazzallo",
+        "de": "operationssaal-techniker-instrumentist-krankenschwester-40-60-vista-augenpraxen-kliniken-pazzallo",
+        "fr": "technicien-en-salle-d-operation-infirmiere-instrumentiste-40-60-vista-augenpraxen-kliniken-pazzallo"
       },
       "company": "Vista Augenpraxen & Kliniken",
       "companyKey": "vista",

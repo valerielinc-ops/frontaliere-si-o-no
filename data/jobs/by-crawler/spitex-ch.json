@@ -9,7 +9,7 @@
         "it": "teamleiter-m-w-d-spitex-dienste-rutu-oberhofen-am-thunersee",
         "en": "team-leader-care-m-f-d-spitex-dienste-rutu-oberhofen-am-thunersee",
         "de": "teamleitung-pflege-m-w-d-spitex-ch-oberhofen-am-thunersee",
-        "fr": "responsable-equipe-soins-h-f-d-spitex-dienste-rutu-oberhofen-am-thunersee"
+        "fr": "equipeur-m-m-j-spitex-dienste-rutu-oberhofen-am-thunersee"
       },
       "company": "SPITEX-Dienste RUTU",
       "companyKey": "spitex-ch",
@@ -55,7 +55,7 @@
       "previousSlugs": [
         "teamleitung-pflege-m-w-d-spitex-ch-oberhofen-am-thunersee",
         "team-leader-assistenza-m-f-d-spitex-dienste-rutu-oberhofen-am-thunersee",
-        "equipeur-m-m-j-spitex-dienste-rutu-oberhofen-am-thunersee"
+        "responsable-equipe-soins-h-f-d-spitex-dienste-rutu-oberhofen-am-thunersee"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -63,7 +63,6 @@
           "team-leader-assistenza-m-f-d-spitex-dienste-rutu-oberhofen-am-thunersee"
         ],
         "fr": [
-          "equipeur-m-m-j-spitex-dienste-rutu-oberhofen-am-thunersee",
           "responsable-equipe-soins-h-f-d-spitex-dienste-rutu-oberhofen-am-thunersee"
         ]
       },
@@ -1150,9 +1149,9 @@
     },
     {
       "id": "spitex-ch-f7bfb6da43d7",
-      "slug": "insegnamento-come-specialista-in-salute-fage-efz-dall-estate-2027-spitex-aachthurland-sulgen-sulgen",
+      "slug": "apprendistato-come-fachfrau-mann-gesundheit-fage-cfc-ab-sommer-2027-spitex-aachthurland-sulgen-sulgen",
       "slugByLocale": {
-        "it": "insegnamento-come-specialista-in-salute-fage-efz-dall-estate-2027-spitex-aachthurland-sulgen-sulgen",
+        "it": "apprendistato-come-fachfrau-mann-gesundheit-fage-cfc-ab-sommer-2027-spitex-aachthurland-sulgen-sulgen",
         "en": "teaching-as-a-specialist-in-health-fage-efz-from-summer-2027-spitex-aachthurland-sulgen-sulgen",
         "de": "lehrstelle-als-fachfrau-mann-gesundheit-fage-efz-ab-sommer-2027-spitex-ch-sulgen",
         "fr": "enseignement-en-tant-que-specialiste-de-la-sante-fage-efz-a-partir-de-l-ete-2027-spitex-aachthurland-sulgen-sulgen"
@@ -1200,12 +1199,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "lehrstelle-als-fachfrau-mann-gesundheit-fage-efz-ab-sommer-2027-spitex-ch-sulgen",
-        "apprendistato-come-fachfrau-mann-gesundheit-fage-cfc-ab-sommer-2027-spitex-aachthurland-sulgen"
+        "apprendistato-come-fachfrau-mann-gesundheit-fage-cfc-ab-sommer-2027-spitex-aachthurland-sulgen",
+        "insegnamento-come-specialista-in-salute-fage-efz-dall-estate-2027-spitex-aachthurland-sulgen-sulgen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-als-fachfrau-mann-gesundheit-fage-efz-ab-sommer-2027-spitex-ch-sulgen",
-          "apprendistato-come-fachfrau-mann-gesundheit-fage-cfc-ab-sommer-2027-spitex-aachthurland-sulgen"
+          "apprendistato-come-fachfrau-mann-gesundheit-fage-cfc-ab-sommer-2027-spitex-aachthurland-sulgen",
+          "insegnamento-come-specialista-in-salute-fage-efz-dall-estate-2027-spitex-aachthurland-sulgen-sulgen"
         ],
         "en": [
           "lehrstelle-als-fachfrau-mann-gesundheit-fage-efz-ab-sommer-2027-spitex-ch-sulgen"
@@ -1639,7 +1640,7 @@
         "it": "pflegefachperson-hf-fh-con-schwerpunkt-demenz-40-80-spitex-gau-oensingen",
         "en": "pflegefachperson-hf-fh-mit-schwerpunkt-demenz-40-80-spitex-ch-oensingen",
         "de": "pflegefachperson-hf-fh-mit-demenz-40-80-spitex-gau-oensingen",
-        "fr": "infirmier-ere-hf-fh-avec-specialisation-en-demence-40-80-spitex-gau-oensingen"
+        "fr": "specialiste-des-soins-hf-fh-avec-accent-sur-la-demence-40-80-spitex-gau-oensingen"
       },
       "company": "Spitex Gäu",
       "companyKey": "spitex-ch",
@@ -1690,7 +1691,6 @@
           "professionista-della-cura-hf-fh-con-specializzazione-in-demenza-40-80-spitex-gau-oensingen"
         ],
         "fr": [
-          "specialiste-des-soins-hf-fh-avec-accent-sur-la-demence-40-80-spitex-gau-oensingen",
           "infirmier-ere-hf-fh-avec-specialisation-en-demence-40-80-spitex-gau-oensingen"
         ]
       },
@@ -1698,7 +1698,7 @@
         "pflegefachperson-hf-fh-mit-schwerpunkt-demenz-40-80-spitex-ch-oensingen",
         "pflegefachperson-hf-fh-mit-schwerpunkt-demenz-40-80-spitex-gau-oensingen",
         "professionista-della-cura-hf-fh-con-specializzazione-in-demenza-40-80-spitex-gau-oensingen",
-        "specialiste-des-soins-hf-fh-avec-accent-sur-la-demence-40-80-spitex-gau-oensingen"
+        "infirmier-ere-hf-fh-avec-specialisation-en-demence-40-80-spitex-gau-oensingen"
       ],
       "firstSeenAt": "2026-05-22T23:36:59.539Z",
       "salaryMin": 49500,
@@ -1719,9 +1719,9 @@
       "slug": "infermiere-a-dipl-hf-fh-30-100-spitex-nuovi-ingressi-benvenuti-spitex-aare-selzach",
       "slugByLocale": {
         "it": "infermiere-a-dipl-hf-fh-30-100-spitex-nuovi-ingressi-benvenuti-spitex-aare-selzach",
-        "en": "registered-nurse-hf-50-80-trainer-for-hf-fh-spitex-aare-selzach",
+        "en": "registered-nurse-hf-fh-30-100-spitex-newcomers-welcome-spitex-aare-selzach",
         "de": "dipl-pflegefachperson-hf-50-bis-80-berufsbildner-in-fur-hf-fh-spitex-ch-selzach",
-        "fr": "infirmier-dipl-hf-50-80-formateur-trice-pour-hf-fh-spitex-aare-selzach"
+        "fr": "infirmier-infirmiere-dipl-hf-fh-30-100-spitex-bienvenue-aux-nouveaux-entrants-spitex-aare-selzach"
       },
       "company": "Spitex Aare",
       "companyKey": "spitex-ch",
@@ -1773,9 +1773,9 @@
         "dipl-pflegefachperson-hf-50-bis-80-berufsbildner-in-fur-hf-fh-spitex-ch-selzach",
         "infermiere-dipl-hf-50-80-formatore-per-hf-fh-spitex-aare-selzach",
         "registered-nurse-hf-fh-30-100-spitex-newcomers-welcome-spitex-region-aarau-aarau",
-        "registered-nurse-hf-fh-30-100-spitex-newcomers-welcome-spitex-aare-selzach",
+        "registered-nurse-hf-50-80-trainer-for-hf-fh-spitex-aare-selzach",
         "infirmier-infirmiere-dipl-hf-fh-30-100-spitex-bienvenue-aux-nouveaux-entrants-spitex-region-aarau-aarau",
-        "infirmier-infirmiere-dipl-hf-fh-30-100-spitex-bienvenue-aux-nouveaux-entrants-spitex-aare-selzach"
+        "infirmier-dipl-hf-50-80-formateur-trice-pour-hf-fh-spitex-aare-selzach"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1786,7 +1786,6 @@
         ],
         "en": [
           "registered-nurse-hf-fh-30-100-spitex-newcomers-welcome-spitex-region-aarau-aarau",
-          "registered-nurse-hf-fh-30-100-spitex-newcomers-welcome-spitex-aare-selzach",
           "registered-nurse-hf-50-80-trainer-for-hf-fh-spitex-aare-selzach"
         ],
         "de": [
@@ -1794,7 +1793,6 @@
         ],
         "fr": [
           "infirmier-infirmiere-dipl-hf-fh-30-100-spitex-bienvenue-aux-nouveaux-entrants-spitex-region-aarau-aarau",
-          "infirmier-infirmiere-dipl-hf-fh-30-100-spitex-bienvenue-aux-nouveaux-entrants-spitex-aare-selzach",
           "infirmier-dipl-hf-50-80-formateur-trice-pour-hf-fh-spitex-aare-selzach"
         ]
       },
