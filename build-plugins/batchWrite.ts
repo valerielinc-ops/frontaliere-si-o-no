@@ -165,7 +165,10 @@ export class WriteCollector {
  private _overwrittenInPlugin = 0;
  private _distDir: string;
  private _pluginName: string;
- private _pendingFlushes: Promise<number>[] = [];
+ // Set so completed flushes can self-remove via the `.finally` callback —
+ // keeps the bookkeeping bounded by ACTUAL in-flight count instead of
+ // accumulating closures of resolved promises.
+ private _pendingFlushes: Set<Promise<number>> = new Set();
  private _firstError: Error | null = null;
  private readonly _concurrency: number;
  private readonly _autoFlushThreshold: number;
@@ -216,16 +219,49 @@ export class WriteCollector {
  // Auto-flush in background once we cross the threshold. add() must stay
  // synchronous for callers, so we kick off the flush without awaiting.
  // Errors are captured on the collector and re-thrown by flush().
+ // The Set self-prunes via the `.finally` callback so memory is bounded
+ // by ACTUAL in-flight flushes (not total ever-spawned).
  if (this.writes.size >= this._autoFlushThreshold) {
  const batch = Array.from(this.writes.values());
  this.writes = new Map();
- const flushPromise = flushWrites(batch, this._concurrency).catch((err: unknown) => {
+ let flushPromise: Promise<number>;
+ // eslint-disable-next-line prefer-const
+ flushPromise = flushWrites(batch, this._concurrency).catch((err: unknown) => {
   if (!this._firstError) {
   this._firstError = err instanceof Error ? err : new Error(String(err));
   }
   return 0;
+ }).finally(() => {
+  this._pendingFlushes.delete(flushPromise);
  });
- this._pendingFlushes.push(flushPromise);
+ this._pendingFlushes.add(flushPromise);
+ }
+ }
+
+ /**
+  * Async backpressure for hot emit loops: returns once the number of
+  * in-flight background flushes drops below `maxInflight`. Without this
+  * a caller adding ~60k entries faster than the disk can drain (e.g.
+  * jobsSeoPagesPlugin's expired-soft-landing emit) accumulates 10+
+  * in-flight `flushWrites` calls, each holding a 5000-entry `batch`
+  * closure → peak heap blew past the 12 GB cap on the GHA runner and
+  * Node aborted with `Ineffective mark-compacts near heap limit`
+  * (run 26488854594, exit 134).
+  *
+  * Call between emit phases — at the bottom of each tight loop, OR
+  * after each major emit category. Drains synchronously to libuv's
+  * writer pool before returning.
+  *
+  * Default maxInflight=2 → peak in-memory = (1 active map + 2 in-flight)
+  * × autoFlushThreshold × ~30 KB ≈ 450 MB at 5000-entry batches; well
+  * under the 12 GB heap cap.
+  */
+ async awaitDrainSlot(maxInflight = 2): Promise<void> {
+ while (this._pendingFlushes.size > maxInflight) {
+ // Promise.race returns when ANY pending flush resolves; the `.finally`
+ // on each flushPromise removes it from the Set so the next loop check
+ // sees the reduced count.
+ await Promise.race(this._pendingFlushes);
  }
  }
 
@@ -260,12 +296,17 @@ export class WriteCollector {
  const remaining = Array.from(this.writes.values());
  this.writes = new Map();
  if (remaining.length > 0) {
- this._pendingFlushes.push(flushWrites(remaining, concurrency));
+ let drainPromise: Promise<number>;
+ // eslint-disable-next-line prefer-const
+ drainPromise = flushWrites(remaining, concurrency).finally(() => {
+ this._pendingFlushes.delete(drainPromise);
+ });
+ this._pendingFlushes.add(drainPromise);
  }
 
  // Await all outstanding flushes (background + final drain).
  const results = await Promise.all(this._pendingFlushes);
- this._pendingFlushes = [];
+ this._pendingFlushes.clear();
 
  // Surface any error captured during a background flush.
  if (this._firstError) {

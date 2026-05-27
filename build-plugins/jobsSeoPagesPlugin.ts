@@ -8076,6 +8076,14 @@ ${staticAnalyticsHtml}
  _canonicalCleanedCacheSizeAtEnd = canonicalCleanedCache.size;
  canonicalCleanedCache.clear();
 
+ // Backpressure: drain pending WriteCollector flushes before the next
+ // emit phase queues more. Run 26488854594 OOM'd Node at the 12 GB
+ // heap cap because the 6 sequential emit phases stacked 60+ in-flight
+ // flushes each holding a 5000-entry closure (FATAL "Ineffective
+ // mark-compacts near heap limit"). awaitDrainSlot(2) caps in-flight
+ // memory at ~450 MB regardless of total page volume.
+ await collector.awaitDrainSlot(2);
+
  /* ───────────────────────────────────────────────────────────────────
   * P1.11 — Canton-aware additive emission
   * ───────────────────────────────────────────────────────────────────
@@ -10555,6 +10563,9 @@ ${staticAnalyticsHtml}
 
  if (expiredCount > 0) {
  console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m Generated ${expiredCount} soft-landing pages for ${expiredSlugs.length} expired jobs${legacyCount > 0 ? ` (+ ${legacyCount} legacy slug bridges)` : ''}`);
+ // Backpressure between expired-soft-landing (~150k pages) and the
+ // next big emit (previousSlugs full-content ~65k pages).
+ await collector.awaitDrainSlot(2);
  }
 
  /* ── Cross-locale reconciliation for expired jobs ──────────── */
@@ -10855,6 +10866,9 @@ ${staticAnalyticsHtml}
  ? ` (${bridgeSkippedNotWinner} duplicate emits skipped — see data/previous-slug-winners.json for the canonical owner per slug)`
  : '';
  console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m Generated ${bridgeCount} previousSlugs full-content pages${skipNote}`);
+ // Backpressure between previousSlugs full-content (~65k pages) and
+ // the next big emit (cross-locale-active-bridge ~56k pages).
+ await collector.awaitDrainSlot(2);
  }
 
  // Garbage-collect entries whose oldSlug nobody has claimed in the last
