@@ -1,14 +1,14 @@
 {
   "crawlerKey": "bcvs",
-  "assembledAt": "2026-05-26T22:08:37.311Z",
+  "assembledAt": "2026-05-27T22:15:48.538Z",
   "jobs": [
     {
       "id": "bcvs-9887e8d5b2a3",
       "slug": "back-office-manager-credits-banque-cantonale-du-valais-sion",
       "slugByLocale": {
         "it": "back-office-manager-credits-banque-cantonale-du-valais-sion",
-        "en": "gestionnaire-back-office-credits-bcvs-sion",
-        "de": "gestionnaire-back-office-credits-bcvs-sion",
+        "en": "back-office-manager-credits-banque-cantonale-du-valais-sion",
+        "de": "back-office-manager-credits-banque-cantonale-du-valais-sion",
         "fr": "gestionnaire-back-office-credits-banque-cantonale-du-valais-sion"
       },
       "company": "Banque Cantonale du Valais",
@@ -33,7 +33,7 @@
       "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/gestionnaire-back-office-credits-2513",
       "source": "Banque Cantonale du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-26T22:08:35.047Z",
+      "crawledAt": "2026-05-27T22:15:46.464Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -69,6 +69,12 @@
           "gestionnaire-back-office-credits-banque-cantonale-du-valais-sion",
           "gestionnaire-back-office-credits-bcvs-sion"
         ],
+        "en": [
+          "gestionnaire-back-office-credits-bcvs-sion"
+        ],
+        "de": [
+          "gestionnaire-back-office-credits-bcvs-sion"
+        ],
         "fr": [
           "gestionnaire-back-office-credits-bcvs-sion"
         ]
@@ -78,6 +84,7 @@
         "gestionnaire-back-office-credits-bcvs-sion"
       ],
       "firstSeenAt": "2026-04-13T10:04:10.904Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -123,7 +130,7 @@
       "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/responsable-dagence-conseiller-ere-en-gestion-de-fortune-2524",
       "source": "Banque Cantonale du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-26T22:08:34.599Z",
+      "crawledAt": "2026-05-27T22:15:45.963Z",
       "addressLocality": "Crans-Montana",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -157,6 +164,9 @@
         ]
       },
       "previousSlugsByLocale": {
+        "it": [
+          "responsable-d-agence-conseiller-ere-en-gestion-de-fortune-bcvs-crans-montana"
+        ],
         "en": [
           "responsable-d-agence-conseiller-ere-en-gestion-de-fortune-bcvs-crans-montana"
         ],
@@ -165,15 +175,13 @@
         ],
         "fr": [
           "responsable-d-agence-conseiller-ere-en-gestion-de-fortune-bcvs-crans-montana"
-        ],
-        "it": [
-          "responsable-d-agence-conseiller-ere-en-gestion-de-fortune-bcvs-crans-montana"
         ]
       },
       "previousSlugs": [
         "responsable-d-agence-conseiller-ere-en-gestion-de-fortune-bcvs-crans-montana"
       ],
       "firstSeenAt": "2026-04-14T09:26:21.120Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -219,7 +227,7 @@
       "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/bankberater-in-2526",
       "source": "Banque Cantonale du Valais Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-26T22:08:34.024Z",
+      "crawledAt": "2026-05-27T22:15:45.458Z",
       "addressLocality": "Zermatt",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -237,6 +245,9 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
+        "it": [
+          "bankberater-in-bcvs-zermatt"
+        ],
         "en": [
           "bankberater-in-bcvs-zermatt"
         ],
@@ -244,9 +255,6 @@
           "bankberater-in-bcvs-zermatt"
         ],
         "de": [
-          "bankberater-in-bcvs-zermatt"
-        ],
-        "it": [
           "bankberater-in-bcvs-zermatt"
         ]
       },
@@ -299,7 +307,7 @@
       "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/specialiste-tresorerie-devises-2540",
       "source": "Banque Cantonale du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-26T22:08:33.576Z",
+      "crawledAt": "2026-05-27T22:15:44.954Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -328,6 +336,9 @@
         ]
       },
       "previousSlugsByLocale": {
+        "it": [
+          "specialiste-tresorerie-devises-bcvs-sion"
+        ],
         "en": [
           "specialiste-tresorerie-devises-bcvs-sion"
         ],
@@ -336,15 +347,13 @@
         ],
         "fr": [
           "specialiste-tresorerie-devises-bcvs-sion"
-        ],
-        "it": [
-          "specialiste-tresorerie-devises-bcvs-sion"
         ]
       },
       "previousSlugs": [
         "specialiste-tresorerie-devises-bcvs-sion"
       ],
       "firstSeenAt": "2026-05-06T21:27:36.448Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -390,7 +399,7 @@
       "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/conseiller-conseillere-en-gestion-de-fortune-2552",
       "source": "Banque Cantonale du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-26T22:08:33.123Z",
+      "crawledAt": "2026-05-27T22:15:44.447Z",
       "addressLocality": "Martigny",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -424,6 +433,9 @@
         ]
       },
       "previousSlugsByLocale": {
+        "it": [
+          "conseiller-conseillere-en-gestion-de-fortune-bcvs-martigny"
+        ],
         "en": [
           "conseiller-conseillere-en-gestion-de-fortune-bcvs-martigny"
         ],
@@ -432,15 +444,13 @@
         ],
         "fr": [
           "conseiller-conseillere-en-gestion-de-fortune-bcvs-martigny"
-        ],
-        "it": [
-          "conseiller-conseillere-en-gestion-de-fortune-bcvs-martigny"
         ]
       },
       "previousSlugs": [
         "conseiller-conseillere-en-gestion-de-fortune-bcvs-martigny"
       ],
       "firstSeenAt": "2026-05-07T10:31:53.966Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -486,7 +496,7 @@
       "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/gestionnaire-economat-courrier-et-ged-2555",
       "source": "Banque Cantonale du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-26T22:08:32.677Z",
+      "crawledAt": "2026-05-27T22:15:44.037Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -533,6 +543,7 @@
         "gestionnaire-economat-courrier-et-ged-bcvs-sion"
       ],
       "firstSeenAt": "2026-05-07T10:31:53.489Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -549,36 +560,36 @@
     },
     {
       "id": "bcvs-6ce6f06b80b0",
-      "slug": "assistant-asset-management-bcvs-sion",
+      "slug": "asset-management-assistant-banque-cantonale-du-valais-sion",
       "slugByLocale": {
-        "fr": "assistant-asset-management-banque-cantonale-du-valais-sion",
-        "it": "assistant-asset-management-bcvs-sion",
-        "en": "assistant-asset-management-bcvs-sion",
-        "de": "assistentin-des-managements-banque-cantonale-du-valais-sion"
+        "it": "asset-management-assistant-banque-cantonale-du-valais-sion",
+        "en": "asset-management-assistant-banque-cantonale-du-valais-sion",
+        "de": "assistent-asset-management-banque-cantonale-du-valais-sion",
+        "fr": "assistant-asset-management-banque-cantonale-du-valais-sion"
       },
       "company": "Banque Cantonale du Valais",
       "companyKey": "bcvs",
       "companyDomain": "bcvs.ch",
       "title": "Assistant Asset management",
       "titleByLocale": {
-        "fr": "Assistant Asset management",
         "it": "Asset Management Assistant",
         "en": "Asset Management Assistant",
-        "de": "Assistentin des Managements"
+        "de": "Assistent Asset management",
+        "fr": "Assistant Asset management"
       },
       "description": "Pas de résultats\n\n•\n\nContacter un conseiller Contacter un conseiller\n\nChat\n\nAssistant Asset management\n\n• Sion\n\n• 80-100%\n\nVous portez un intérêt pour les marchés financiers et souhaitez être au cœur de la gestion de nos produits de placements ? Vous avez un bon sens de l'analyse et aimez le contact avec les conseillers à la clientèle ? Cette opportunité est faite pour vous.\n\nConcrètement ?\n\n• Vous participez au suivi administratif des portefeuilles et mandats de conseil (gestion administrative, monitoring, préparation de supports).\n\n• Vous mettez en place et assurez la mise à jour des supports de communication de nos différents produits de placements en collaboration avec les équipes du département Asset management & Advisory.\n\n• Vous soutiendrez les teams Investment Management et Investment Solutions & Advisory dans le suivi administratif des mandats de gestion, des mandats de conseil et dans ses autres activités de soutien à nos conseillers. En outre, vous serez une personne de contact pour les demandes internes concernant les marchés financiers et produits d’investissement.\n\n• Vous participerez à des projets au niveau de l’Asset Management.\n\nLe défi vous tente ?\n Ce poste est fait pour vous si…\n\n• Vous êtes au bénéfice d’une formation commerciale (Maturité commerciale et/ou HES).\n\n• Les marchés financiers vous attirent et vous avez une affinité avec les systèmes technologiques relatifs à ce secteur d’activité.\n\n• Vous possédez de bonnes connaissances écrites et orales de l’allemand et de l’anglais.\n\n• Vous vous décrivez comme étant une personne flexible sachant s’adapter tant aux situations nouvelles qu’aux personnalités diverses et êtes en mesure de collaborer avec différentes équipes.\n\n• Vous êtes doté-e d’excellentes capacités de communication, vous apportez des solutions d’améliorations de manière constructive.\n\nVous souhaitez nous rejoindre ?\n Rencontrons-nous !\n Nous nous réjouissons de découvrir votre candidature.\nPour ce faire, envoyez votre dossier complet à Marisa Berclaz, notre HR Business Partner, à l’adresse : recrutement@bcvs.ch au plus tard pour le 19 juin 2026.",
       "descriptionByLocale": {
-        "fr": "Pas de résultats\n\n•\n\nContacter un conseiller Contacter un conseiller\n\nChat\n\nAssistant Asset management\n\n• Sion\n\n• 80-100%\n\nVous portez un intérêt pour les marchés financiers et souhaitez être au cœur de la gestion de nos produits de placements ? Vous avez un bon sens de l'analyse et aimez le contact avec les conseillers à la clientèle ? Cette opportunité est faite pour vous.\n\nConcrètement ?\n\n• Vous participez au suivi administratif des portefeuilles et mandats de conseil (gestion administrative, monitoring, préparation de supports).\n\n• Vous mettez en place et assurez la mise à jour des supports de communication de nos différents produits de placements en collaboration avec les équipes du département Asset management & Advisory.\n\n• Vous soutiendrez les teams Investment Management et Investment Solutions & Advisory dans le suivi administratif des mandats de gestion, des mandats de conseil et dans ses autres activités de soutien à nos conseillers. En outre, vous serez une personne de contact pour les demandes internes concernant les marchés financiers et produits d’investissement.\n\n• Vous participerez à des projets au niveau de l’Asset Management.\n\nLe défi vous tente ?\n Ce poste est fait pour vous si…\n\n• Vous êtes au bénéfice d’une formation commerciale (Maturité commerciale et/ou HES).\n\n• Les marchés financiers vous attirent et vous avez une affinité avec les systèmes technologiques relatifs à ce secteur d’activité.\n\n• Vous possédez de bonnes connaissances écrites et orales de l’allemand et de l’anglais.\n\n• Vous vous décrivez comme étant une personne flexible sachant s’adapter tant aux situations nouvelles qu’aux personnalités diverses et êtes en mesure de collaborer avec différentes équipes.\n\n• Vous êtes doté-e d’excellentes capacités de communication, vous apportez des solutions d’améliorations de manière constructive.\n\nVous souhaitez nous rejoindre ?\n Rencontrons-nous !\n Nous nous réjouissons de découvrir votre candidature.\nPour ce faire, envoyez votre dossier complet à Marisa Berclaz, notre HR Business Partner, à l’adresse : recrutement@bcvs.ch au plus tard pour le 19 juin 2026.",
-        "it": "Nessun risultato\n\n•\n\nContatta un consulente Contatta un consulente\n\nGatto\n\nAsset Management Assistant\n\n• Sion\n\n• 80-100%\n\nHai un interesse per i mercati finanziari e vuoi essere al centro della gestione dei nostri prodotti di investimento? Hai un buon senso di analisi e come il contatto con i consulenti dei clienti? Questa opportunita' e' per te.\n\nIn particolare?\n\n• Partecipa al monitoraggio amministrativo dei portafogli e dei mandati di consulenza (gestione amministrativa, monitoraggio, preparazione del supporto).\n\n• Stai mettendo in atto e aggiornando i media di comunicazione dei nostri vari prodotti di investimento in collaborazione con i team del Dipartimento Asset Management & Advisory.\n\n• Sosterrete i team di Investment Management e Investment Solutions & Advisory nel monitoraggio amministrativo dei mandati di gestione, dei mandati di consulenza e di altre attività a supporto dei nostri consulenti. Inoltre, sarai una persona di contatto per le richieste interne relative ai mercati finanziari e ai prodotti di investimento.\n\n• Parteciperete a progetti a livello di Asset Management.\n\nLa sfida ti sta tentando?\nQuesto post è per voi se...\n\n• L'utente beneficia della formazione commerciale (maturità commerciale e/o HES).\n\n• I mercati finanziari ti attirano e hai un'affinità con i sistemi tecnologici relativi a questo settore.\n\n• Hai una buona conoscenza scritta e orale del tedesco e dell'inglese.\n\n• Si descrive come una persona flessibile che può adattarsi sia a nuove situazioni che a diverse personalità e può collaborare con diverse squadre.\n\n• Hai eccellenti capacità di comunicazione, fornisci soluzioni per migliorare in modo costruttivo.\n\nVuoi unirti a noi?\nIncontriamoci!\nNon vediamo l'ora di scoprire la tua applicazione.\nPer fare questo, invia il tuo file completo a Marisa Berclaz, il nostro HR Business Partner, a recruit@bcvs.ch entro il 19 giugno 2026.",
-        "en": "No results\n\n•\n\nContact an advisor Contact an advisor\n\nCat\n\nAsset Management Assistant\n\n• Zion\n\n• 80-100%\n\nDo you have an interest in financial markets and want to be at the heart of managing our investment products? Do you have a good sense of analysis and like contact with customer advisors? This opportunity is for you.\n\nSpecifically?\n\n• You participate in the administrative monitoring of portfolios and advisory mandates (administrative management, monitoring, preparation of support).\n\n• You are putting in place and updating the communication media of our various investment products in collaboration with the teams of the Asset Management & Advisory Department.\n\n• You will support Investment Management and Investment Solutions & Advisory teams in the administrative monitoring of management mandates, consulting mandates and other activities supporting our advisors. In addition, you will be a contact person for internal requests regarding financial markets and investment products.\n\n• You will participate in projects at the level of Asset Management.\n\nThe challenge is tempting you?\nThis post is for you if...\n\n• You benefit from commercial training (Commercial maturity and/or HES).\n\n• The financial markets attract you and you have an affinity with the technological systems related to this industry.\n\n• You have good written and oral knowledge of German and English.\n\n• You describe yourself as a flexible person who can adapt both to new situations and to various personalities and can collaborate with different teams.\n\n• You have excellent communication capabilities, you provide solutions for improvement in a constructive way.\n\nWould you like to join us?\nLet's meet!\nWe look forward to discovering your application.\nTo do this, send your complete file to Marisa Berclaz, our HR Business Partner, at recruitment@bcvs.ch no later than June 19, 2026.",
-        "de": "Keine Ergebnisse\n\n•\n\nKontaktieren Sie einen Berater\n\nRinder\n\nAssistentin des Managements\n\n• Zion\n\n• 80-100%\n\nHaben Sie ein Interesse an den Finanzmärkten und wollen im Mittelpunkt unserer Investitionsprodukte stehen? Haben Sie ein gutes Gefühl der Analyse und wie Kontakt mit Kundenberatern? Diese Gelegenheit ist für Sie.\n\nKonkret?\n\n• Sie nehmen an der administrativen Überwachung von Portfolios und Beratungsaufträgen teil (administratives Management, Monitoring, Vorbereitung der Unterstützung).\n\n• Sie setzen die Kommunikationsmedien unserer verschiedenen Anlageprodukte in Zusammenarbeit mit den Teams der Asset Management & Advisory Abteilung ein und aktualisieren diese.\n\n• Sie unterstützen Investment Management und Investment Solutions & Beiratsteams bei der administrativen Überwachung von Managementmandate, Beratungsmandate und anderen Aktivitäten, die unsere Berater unterstützen. Darüber hinaus sind Sie Ansprechpartner für interne Anfragen zu Finanzmärkten und Investitionsprodukten.\n\n• Sie werden an Projekten auf der Ebene des Asset Management teilnehmen.\n\nDie Herausforderung verlockt dich?\nDieser Beitrag ist für Sie, wenn...\n\n• Sie profitieren von kommerzieller Ausbildung (Commercial Reife und/oder HES).\n\n• Die Finanzmärkte ziehen Sie an und Sie haben eine Affinität mit den technologischen Systemen in Verbindung mit dieser Branche.\n\n• Sie haben gute schriftliche und mündliche Kenntnisse in Deutsch und Englisch.\n\n• Sie beschreiben sich als flexible Person, die sich sowohl an neue Situationen als auch an verschiedene Persönlichkeiten anpassen kann und mit verschiedenen Teams zusammenarbeiten kann.\n\n• Sie haben hervorragende Kommunikationsfähigkeiten, Sie bieten Lösungen für eine konstruktive Verbesserung.\n\nMöchten Sie mitkommen?\nTreffen wir uns!\nWir freuen uns auf Ihre Anwendung zu entdecken.\nZu diesem Zweck senden Sie Ihre vollständige Datei an Marisa Berclaz, unseren HR Business Partner, spätestens am 19. Juni 2026 an rekrut@bcvs.ch."
+        "it": "Nessun risultato\n• Contatta un consulente Contatta un consulente Gatto Asset Management Assistant\n• Sion\n• 80-100% Hai un interesse per i mercati finanziari e vuoi essere al centro della gestione dei nostri prodotti di investimento? Hai un buon senso di analisi e come il contatto con i consulenti dei clienti? Questa opportunita' e' per te. In particolare?\n• Partecipa al monitoraggio amministrativo dei portafogli e dei mandati di consulenza (gestione amministrativa, monitoraggio, preparazione del supporto).\n• Stai mettendo in atto e aggiornando i media di comunicazione dei nostri vari prodotti di investimento in collaborazione con i team del Dipartimento Asset Management & Advisory.\n• Sosterrete i team di Investment Management e Investment Solutions & Advisory nel monitoraggio amministrativo dei mandati di gestione, dei mandati di consulenza e di altre attività a supporto dei nostri consulenti. Inoltre, sarai una persona di contatto per le richieste interne relative ai mercati finanziari e ai prodotti di investimento.\n• Parteciperete a progetti a livello di Asset Management. La sfida ti sta tentando? Questo post è per voi se...\n• L'utente beneficia della formazione commerciale (maturità commerciale e/o HES).\n• I mercati finanziari ti attirano e hai un'affinità con i sistemi tecnologici relativi a questo settore.\n• Hai una buona conoscenza scritta e orale del tedesco e dell'inglese.\n• Si descrive come una persona flessibile che può adattarsi sia a nuove situazioni che a diverse personalità e può collaborare con diverse squadre.\n• Hai eccellenti capacità di comunicazione, fornisci soluzioni per migliorare in modo costruttivo. Vuoi unirti a noi? Incontriamoci! Non vediamo l'ora di scoprire la tua applicazione. Per fare questo, invia il tuo file completo a Marisa Berclaz, il nostro HR Business Partner, a recruit@bcvs.ch entro il 19 giugno 2026.",
+        "en": "No results\n• Contact an advisor Contact an advisor Cat Asset Management Assistant\n• Zion\n• 80-100% Do you have an interest in financial markets and want to be at the heart of managing our investment products? Do you have a good sense of analysis and like contact with customer advisors? This opportunity is for you. Specifically?\n• You participate in the administrative monitoring of portfolios and advisory mandates (administrative management, monitoring, preparation of support).\n• You are putting in place and updating the communication media of our various investment products in collaboration with the teams of the Asset Management & Advisory Department.\n• You will support Investment Management and Investment Solutions & Advisory teams in the administrative monitoring of management mandates, consulting mandates and other activities supporting our advisors. In addition, you will be a contact person for internal requests regarding financial markets and investment products.\n• You will participate in projects at the level of Asset Management. The challenge is tempting you? This post is for you if...\n• You benefit from commercial training (Commercial maturity and/or HES).\n• The financial markets attract you and you have an affinity with the technological systems related to this industry.\n• You have good written and oral knowledge of German and English.\n• You describe yourself as a flexible person who can adapt both to new situations and to various personalities and can collaborate with different teams.\n• You have excellent communication capabilities, you provide solutions for improvement in a constructive way. Would you like to join us? Let's meet! We look forward to discovering your application. To do this, send your complete file to Marisa Berclaz, our HR Business Partner, at recruitment@bcvs.ch no later than June 19, 2026.",
+        "de": "Keine Ergebnisse\n• Kontaktieren Sie einen Berater Rinder Assistentin des Managements\n• Zion\n• 80-100% Haben Sie ein Interesse an den Finanzmärkten und wollen im Mittelpunkt unserer Investitionsprodukte stehen? Haben Sie ein gutes Gefühl der Analyse und wie Kontakt mit Kundenberatern? Diese Gelegenheit ist für Sie. Konkret?\n• Sie nehmen an der administrativen Überwachung von Portfolios und Beratungsaufträgen teil (administratives Management, Monitoring, Vorbereitung der Unterstützung).\n• Sie setzen die Kommunikationsmedien unserer verschiedenen Anlageprodukte in Zusammenarbeit mit den Teams der Asset Management & Advisory Abteilung ein und aktualisieren diese.\n• Sie unterstützen Investment Management und Investment Solutions & Beiratsteams bei der administrativen Überwachung von Managementmandate, Beratungsmandate und anderen Aktivitäten, die unsere Berater unterstützen. Darüber hinaus sind Sie Ansprechpartner für interne Anfragen zu Finanzmärkten und Investitionsprodukten.\n• Sie werden an Projekten auf der Ebene des Asset Management teilnehmen. Die Herausforderung verlockt dich? Dieser Beitrag ist für Sie, wenn...\n• Sie profitieren von kommerzieller Ausbildung (Commercial Reife und/oder HES).\n• Die Finanzmärkte ziehen Sie an und Sie haben eine Affinität mit den technologischen Systemen in Verbindung mit dieser Branche.\n• Sie haben gute schriftliche und mündliche Kenntnisse in Deutsch und Englisch.\n• Sie beschreiben sich als flexible Person, die sich sowohl an neue Situationen als auch an verschiedene Persönlichkeiten anpassen kann und mit verschiedenen Teams zusammenarbeiten kann.\n• Sie haben hervorragende Kommunikationsfähigkeiten, Sie bieten Lösungen für eine konstruktive Verbesserung. Möchten Sie mitkommen? Treffen wir uns! Wir freuen uns auf Ihre Anwendung zu entdecken. Zu diesem Zweck senden Sie Ihre vollständige Datei an Marisa Berclaz, unseren HR Business Partner, spätestens am 19. Juni 2026 an rekrut@bcvs.ch.",
+        "fr": "Pas de résultats\n• Pas de résultats\n• Contacter un conseiller Contacter un conseiller Chat Assistant Asset management\n• Sion\n• 80-100% Vous portez un intérêt pour les marchés financiers et souhaitez être au cœur de la gestion de nos produits de placements ? Vous avez un bon sens de l'analyse et aimez le contact avec les conseillers à la clientèle ? Cette opportunité est faite pour vous. Concrètement ?\n• Vous participez au suivi administratif des portefeuilles et mandats de conseil (gestion administrative, monitoring, préparation de supports).\n• Vous mettez en place et assurez la mise à jour des supports de communication de nos différents produits de placements en collaboration avec les équipes du département Asset management & Advisory.\n• Vous soutiendrez les teams Investment Management et Investment Solutions & Advisory dans le suivi administratif des mandats de gestion, des mandats de conseil et dans ses autres activités de soutien à nos conseillers. En outre, vous serez une personne de contact pour les demandes internes concernant les marchés financiers et produits d’investissement.\n• Vous participerez à des projets au niveau de l’Asset Management. Le défi vous tente ? Ce poste est fait pour vous si…\n• Vous êtes au bénéfice d’une formation commerciale (Maturité commerciale et/ou HES).\n• Les marchés financiers vous attirent et vous avez une affinité avec les systèmes technologiques relatifs à ce secteur d’activité.\n• Vous possédez de bonnes connaissances écrites et orales de l’allemand et de l’anglais.\n• Vous vous décrivez comme étant une personne flexible sachant s’adapter tant aux situations nouvelles qu’aux personnalités diverses et êtes en mesure de collaborer avec différentes équipes.\n• Vous êtes doté-e d’excellentes capacités de communication, vous apportez des solutions d’améliorations de manière constructive. Vous souhaitez nous rejoindre ? Rencontrons-nous ! Nous nous réjouissons de découvrir votre candidature. Pour ce faire, envoyez votre dossier complet à Marisa Berclaz, notre HR Business Partner, à l’adresse : recrutement@bcvs.ch au plus tard pour le 19 juin 2026."
       },
       "location": "Sion",
       "canton": "VS",
       "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/assistant-asset-management-2568",
       "source": "Banque Cantonale du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-26T22:08:32.225Z",
+      "crawledAt": "2026-05-27T22:15:43.536Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -603,12 +614,27 @@
       "requirementsByLocale": {
         "fr": [
           "Vous êtes au bénéfice d’une formation commerciale (Maturité commerciale et/ou HES).",
-          "Les marchés financiers vous attirent et vous avez une affinité avec les systèmes technologiques relatifs à ce secteur d’activité.",
-          "Vous possédez de bonnes connaissances écrites et orales de l’allemand et de l’anglais.",
-          "Vous vous décrivez comme étant une personne flexible sachant s’adapter tant aux situations nouvelles qu’aux personnalités diverses et êtes en mesure de collaborer avec différentes équipes.",
-          "Vous êtes doté-e d’excellentes capacités de communication, vous apportez des solutions d’améliorations de manière constructive."
+          "Vous possédez de bonnes connaissances écrites et orales de l’allemand et de l’anglais."
         ]
       },
+      "previousSlugsByLocale": {
+        "de": [
+          "assistentin-des-managements-banque-cantonale-du-valais-sion",
+          "assistent-asset-management-banque-cantonale-du-valais-sion"
+        ],
+        "it": [
+          "assistant-asset-management-bcvs-sion"
+        ],
+        "en": [
+          "assistant-asset-management-bcvs-sion"
+        ]
+      },
+      "previousSlugs": [
+        "assistentin-des-managements-banque-cantonale-du-valais-sion",
+        "assistant-asset-management-bcvs-sion"
+      ],
+      "firstSeenAt": "2026-05-26T22:08:32.225Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -621,49 +647,40 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1950",
-      "firstSeenAt": "2026-05-26T22:08:32.225Z",
-      "previousSlugsByLocale": {
-        "de": [
-          "assistent-asset-management-banque-cantonale-du-valais-sion"
-        ]
-      },
-      "previousSlugs": [
-        "assistent-asset-management-banque-cantonale-du-valais-sion"
-      ]
+      "postalCode": "1950"
     },
     {
       "id": "bcvs-a529502ccd83",
       "slug": "senior-immobiliare-esperto-banque-cantonale-du-valais-sion",
       "slugByLocale": {
-        "fr": "expert-e-immobilier-senior-bcvs-sion",
         "it": "senior-immobiliare-esperto-banque-cantonale-du-valais-sion",
         "en": "expert-e-immobilier-senior-banque-cantonale-du-valais-sion",
-        "de": "senior-immobilienexperte-banque-cantonale-du-valais-sion"
+        "de": "senior-immobilienexperte-banque-cantonale-du-valais-sion",
+        "fr": "expert-e-immobilier-senior-bcvs-sion"
       },
       "company": "Banque Cantonale du Valais",
       "companyKey": "bcvs",
       "companyDomain": "bcvs.ch",
       "title": "Expert-e immobilier senior",
       "titleByLocale": {
-        "fr": "Expert-conseil en immobilier",
-        "en": "Expert-e immobilier senior",
         "it": "Senior immobiliare esperto",
-        "de": "Senior Immobilienexperte"
+        "en": "Expert-e immobilier senior",
+        "de": "Senior Immobilienexperte",
+        "fr": "Expert-e immobilier senior"
       },
       "description": "Pas de résultats\n\n•\n\nContacter un conseiller Contacter un conseiller\n\nChat\n\nExpert-e immobilier senior\n\n• Sion\n\n• 80-90%\n\nOrienté-e client, vos capacités d’analyse et votre passion des estimations immobilières vous permettent de répondre à différents cas d’affaires avec succès ? Cette opportunité d’expert-e immobilier senior saura vous combler. En étroite collaboration avec nos conseillers-ères, notre service des immeubles évalue une multitude de dossiers variés et partage son expertise à l’interne.\n\nConcrètement ?\n\n• En étroite collaboration avec les conseillères, conseillers et services internes, vous les soutiendrez en matière immobilière et en estimation d’immeubles. Cela implique des analyses, des contrôles et des validations des estimations par des rapports et expertises à l’intention de diverses unités au sein de la BCVS.\n\n• Par votre expertise et votre suivi du marché immobilier, vous élaborerez les concepts, outils et politiques en matière d’estimation d’immeubles et participerez à la stratégie immobilière.\n\n• Dans le cadre d’achats, de projets, d’entretiens et de ventes d’immeubles, vous soutiendrez le responsable du service et proposerez les mesures pertinentes d’amélioration. Vous serez amené à rédiger des rapports à l’intention des organes décisionnaires.\n\n• Vous serez la personne clé dans la formation et le conseil de vos collègues ainsi que dans la connaissance à l’interne de tout ce qui a trait aux estimations immobilières.\n\nLe défi vous tente ?\n Ce poste est fait pour vous si…\n\n• Vous êtes au bénéfice du Brevet fédéral d'expert-e en estimations immobilières et d’une expérience solide et confirmée à cette même fonction. Vous disposez également d’une bonne connaissance du marché immobilier local et Suisse.\n\n• Habile en communication et avec la passion de transmettre vos connaissances, vous êtes à l’aise dans la formation interne de collègues.\n\n• Doté-e de fortes capacités d’analyse, de synthèse et orienté-e résultats, vous performez dans l’élaboration de rapports et expertises d’estimations immobilières. Vous savez mettre en valeur les indicateurs pertinents de votre domaine d’intervention.\n\n• Vos très bonnes compétences en français se complètent par de bonnes connaissances en allemand (niveau B1) et vous êtes parfaitement à l’aise dans l’utilisation des outils IT de votre domaine.\n\nVous souhaitez nous rejoindre ?\n Rencontrons-nous !\n Nous nous réjouissons de découvrir votre candidature.\nPour ce faire, envoyez votre dossier complet à Marisa Berclaz, notre HR Business Partner, à l’adresse : recrutement@bcvs.ch d’ici au 12 juin 2026.",
       "descriptionByLocale": {
-        "fr": "Pas de résultats\n\n•\n\nContacter un conseiller Contacter un conseiller\n\nChat\n\nExpert-e immobilier senior\n\n• Sion\n\n• 80-90%\n\nOrienté-e client, vos capacités d’analyse et votre passion des estimations immobilières vous permettent de répondre à différents cas d’affaires avec succès ? Cette opportunité d’expert-e immobilier senior saura vous combler. En étroite collaboration avec nos conseillers-ères, notre service des immeubles évalue une multitude de dossiers variés et partage son expertise à l’interne.\n\nConcrètement ?\n\n• En étroite collaboration avec les conseillères, conseillers et services internes, vous les soutiendrez en matière immobilière et en estimation d’immeubles. Cela implique des analyses, des contrôles et des validations des estimations par des rapports et expertises à l’intention de diverses unités au sein de la BCVS.\n\n• Par votre expertise et votre suivi du marché immobilier, vous élaborerez les concepts, outils et politiques en matière d’estimation d’immeubles et participerez à la stratégie immobilière.\n\n• Dans le cadre d’achats, de projets, d’entretiens et de ventes d’immeubles, vous soutiendrez le responsable du service et proposerez les mesures pertinentes d’amélioration. Vous serez amené à rédiger des rapports à l’intention des organes décisionnaires.\n\n• Vous serez la personne clé dans la formation et le conseil de vos collègues ainsi que dans la connaissance à l’interne de tout ce qui a trait aux estimations immobilières.\n\nLe défi vous tente ?\n Ce poste est fait pour vous si…\n\n• Vous êtes au bénéfice du Brevet fédéral d'expert-e en estimations immobilières et d’une expérience solide et confirmée à cette même fonction. Vous disposez également d’une bonne connaissance du marché immobilier local et Suisse.\n\n• Habile en communication et avec la passion de transmettre vos connaissances, vous êtes à l’aise dans la formation interne de collègues.\n\n• Doté-e de fortes capacités d’analyse, de synthèse et orienté-e résultats, vous performez dans l’élaboration de rapports et expertises d’estimations immobilières. Vous savez mettre en valeur les indicateurs pertinents de votre domaine d’intervention.\n\n• Vos très bonnes compétences en français se complètent par de bonnes connaissances en allemand (niveau B1) et vous êtes parfaitement à l’aise dans l’utilisation des outils IT de votre domaine.\n\nVous souhaitez nous rejoindre ?\n Rencontrons-nous !\n Nous nous réjouissons de découvrir votre candidature.\nPour ce faire, envoyez votre dossier complet à Marisa Berclaz, notre HR Business Partner, à l’adresse : recrutement@bcvs.ch d’ici au 12 juin 2026.",
-        "it": "Nessun risultato\n\n•\n\nContatta un consulente Contatta un consulente\n\nGatto\n\nSenior immobiliare esperto\n\n• Sion\n\n• 80-90%\n\nLe tue capacità di analisi e la tua passione per le stime immobiliari ti permettono di rispondere con successo a diversi casi aziendali? Questa opportunità di esperto immobiliare senior vi riempirà. In stretta collaborazione con i nostri consulenti, il nostro reparto di costruzione valuta una moltitudine di vari file e ne condivide le competenze internamente.\n\nIn particolare?\n\n• In stretta collaborazione con consiglieri, consiglieri e servizi interni, li supporterete nelle stime immobiliari e degli edifici. Ciò comporta analisi, controlli e validazioni delle stime per rapporti e competenze per varie unità all'interno del BCVS.\n\n• Attraverso la vostra competenza e il monitoraggio del mercato immobiliare, svilupperete concetti, strumenti e politiche per stimare gli edifici e partecipare alla strategia immobiliare.\n\n• Nell'ambito dell'acquisto, dei progetti, della manutenzione e delle vendite di edifici, sosterrete il capo del servizio e proporrete le pertinenti misure di miglioramento. Dovrete preparare i rapporti per gli organi decisionali.\n\n• Sarete la persona chiave nella formazione e consulenza dei vostri colleghi, nonché nella conoscenza interna di tutto ciò che riguarda le stime di proprietà.\n\nLa sfida ti sta tentando?\nQuesto post è per voi se...\n\n• Si beneficia del brevetto federale delle stime immobiliari e di un'esperienza solida e confermata in questa stessa funzione. Hai anche una buona conoscenza del mercato immobiliare locale e della Svizzera.\n\n• Abilitato nella comunicazione e con la passione per trasmettere le tue conoscenze, sei a tuo agio nella formazione interna dei colleghi.\n\n• Con forti capacità analitiche, di sintesi e orientate ai risultati, si esibisce nello sviluppo di rapporti e competenze sulle stime immobiliari. È possibile evidenziare gli indicatori rilevanti nella vostra area di intervento.\n\n• Le tue ottime competenze in francese si completano a vicenda con una buona conoscenza in tedesco (livello B1) e sei perfettamente a tuo agio utilizzando gli strumenti IT nel tuo campo.\n\nVuoi unirti a noi?\nIncontriamoci!\nNon vediamo l'ora di scoprire la tua applicazione.\nPer fare questo, invia il tuo file completo a Marisa Berclaz, il nostro HR Business Partner, a recruit@bcvs.ch entro il 12 giugno 2026.",
-        "en": "No results\n\n•\n\nContact an advisor Contact an advisor\n\nCat\n\nSenior real estate expert\n\n• Zion\n\n• 80-90%\n\nCustomer-oriented, your analysis capabilities and your passion for real estate estimates allow you to respond to different business cases successfully? This senior real estate expert opportunity will fill you. In close collaboration with our advisors, our building department evaluates a multitude of various files and shares its expertise internally.\n\nSpecifically?\n\n• In close cooperation with advisors, advisors and internal services, you will support them in real estate and building estimates. This involves analyses, checks and validations of estimates by reports and expertise for various units within the BCVS.\n\n• Through your expertise and monitoring of the real estate market, you will develop concepts, tools and policies for estimating buildings and participate in the real estate strategy.\n\n• In the context of purchasing, projects, maintenance and sales of buildings, you will support the head of the service and propose the relevant measures of improvement. You will have to prepare reports for decision-making bodies.\n\n• You will be the key person in the training and advice of your colleagues as well as in internal knowledge of everything related to property estimates.\n\nThe challenge is tempting you?\nThis post is for you if...\n\n• You benefit from the Federal Patent of Real Estate Estimates and from a solid and confirmed experience in this same function. You also have a good knowledge of the local real estate market and Switzerland.\n\n• Skilled in communication and with the passion to transmit your knowledge, you are comfortable in the in-house training of colleagues.\n\n• With strong analytical, synthesis and results-oriented capabilities, you perform in the development of real estate estimates reports and expertise. You can highlight the relevant indicators in your area of intervention.\n\n• Your very good skills in French complement each other with good knowledge in German (level B1) and you are perfectly comfortable using the IT tools in your field.\n\nWould you like to join us?\nLet's meet!\nWe look forward to discovering your application.\nTo do this, send your complete file to Marisa Berclaz, our HR Business Partner, at recruitment@bcvs.ch by 12 June 2026.",
-        "de": "Keine Ergebnisse\n\n•\n\nKontaktieren Sie einen Berater\n\nRinder\n\nSenior Immobilienexperte\n\n• Zion\n\n• 80-90%\n\nKundenorientiert, Ihre Analysefähigkeiten und Ihre Leidenschaft für Immobilienschätzungen ermöglichen es Ihnen, auf verschiedene Geschäftsfälle erfolgreich zu reagieren? Diese Senior Immobilienexperte Gelegenheit wird Sie füllen. In enger Zusammenarbeit mit unseren Beratern wertet unsere Gebäudeabteilung eine Vielzahl von Dateien aus und teilt ihre Expertise intern.\n\nKonkret?\n\n• In enger Zusammenarbeit mit Beratern, Beratern und internen Diensten unterstützen Sie sie in Immobilien- und Gebäudeschätzungen. Dazu gehören Analysen, Überprüfungen und Validierungen von Schätzungen nach Berichten und Fachwissen für verschiedene Einheiten innerhalb des BCVS.\n\n• Durch Ihre Expertise und Überwachung des Immobilienmarktes entwickeln Sie Konzepte, Werkzeuge und Strategien zur Schätzung von Gebäuden und nehmen an der Immobilienstrategie teil.\n\n• Im Rahmen des Kaufs, der Projekte, der Instandhaltung und des Verkaufs von Gebäuden unterstützen Sie den Leiter des Dienstes und schlagen die relevanten Verbesserungsmaßnahmen vor. Sie müssen Berichte für Entscheidungsorgane vorbereiten.\n\n• Sie werden die Schlüsselperson in der Ausbildung und Beratung Ihrer Kollegen sowie in internen Kenntnissen über alles im Zusammenhang mit Immobilienschätzungen sein.\n\nDie Herausforderung verlockt dich?\nDieser Beitrag ist für Sie, wenn...\n\n• Sie profitieren von den Schätzungen des Bundespatents und von einer soliden und bestätigten Erfahrung in dieser gleichen Funktion. Sie haben auch ein gutes Wissen über den lokalen Immobilienmarkt und die Schweiz.\n\n• Gefertigt in Kommunikation und mit der Leidenschaft, Ihr Wissen zu übermitteln, sind Sie bequem in der hauseigenen Ausbildung von Kollegen.\n\n• Mit starken analytischen, synthetischen und ergebnisorientierten Fähigkeiten führen Sie bei der Entwicklung von Immobilienschätzungen und -kompetenzen durch. Sie können die relevanten Indikatoren in Ihrem Interventionsbereich hervorheben.\n\n• Ihre sehr guten Fähigkeiten auf Französisch ergänzen sich mit guten Kenntnissen auf Deutsch (Level B1) und Sie sind mit den IT-Tools in Ihrem Bereich perfekt bequem.\n\nMöchten Sie mitkommen?\nTreffen wir uns!\nWir freuen uns auf Ihre Anwendung zu entdecken.\nSenden Sie Ihre vollständige Datei an Marisa Berclaz, unseren HR Business Partner, bis 12. Juni 2026 an rekrutierungs@bcvs.ch."
+        "it": "Nessun risultato\n• Contatta un consulente Contatta un consulente Gatto Senior immobiliare esperto\n• Sion\n• 80-90% Le tue capacità di analisi e la tua passione per le stime immobiliari ti permettono di rispondere con successo a diversi casi aziendali? Questa opportunità di esperto immobiliare senior vi riempirà. In stretta collaborazione con i nostri consulenti, il nostro reparto di costruzione valuta una moltitudine di vari file e ne condivide le competenze internamente. In particolare?\n• In stretta collaborazione con consiglieri, consiglieri e servizi interni, li supporterete nelle stime immobiliari e degli edifici. Ciò comporta analisi, controlli e validazioni delle stime per rapporti e competenze per varie unità all'interno del BCVS.\n• Attraverso la vostra competenza e il monitoraggio del mercato immobiliare, svilupperete concetti, strumenti e politiche per stimare gli edifici e partecipare alla strategia immobiliare.\n• Nell'ambito dell'acquisto, dei progetti, della manutenzione e delle vendite di edifici, sosterrete il capo del servizio e proporrete le pertinenti misure di miglioramento. Dovrete preparare i rapporti per gli organi decisionali.\n• Sarete la persona chiave nella formazione e consulenza dei vostri colleghi, nonché nella conoscenza interna di tutto ciò che riguarda le stime di proprietà. La sfida ti sta tentando? Questo post è per voi se...\n• Si beneficia del brevetto federale delle stime immobiliari e di un'esperienza solida e confermata in questa stessa funzione. Hai anche una buona conoscenza del mercato immobiliare locale e della Svizzera.\n• Abilitato nella comunicazione e con la passione per trasmettere le tue conoscenze, sei a tuo agio nella formazione interna dei colleghi.\n• Con forti capacità analitiche, di sintesi e orientate ai risultati, si esibisce nello sviluppo di rapporti e competenze sulle stime immobiliari. È possibile evidenziare gli indicatori rilevanti nella vostra area di intervento.\n• Le tue ottime competenze in francese si completano a vicenda con una buona conoscenza in tedesco (livello B1) e sei perfettamente a tuo agio utilizzando gli strumenti IT nel tuo campo. Vuoi unirti a noi? Incontriamoci! Non vediamo l'ora di scoprire la tua applicazione. Per fare questo, invia il tuo file completo a Marisa Berclaz, il nostro HR Business Partner, a recruit@bcvs.ch entro il 12 giugno 2026.",
+        "en": "No results\n• Contact an advisor Contact an advisor Cat Senior real estate expert\n• Zion\n• 80-90% Customer-oriented, your analysis capabilities and your passion for real estate estimates allow you to respond to different business cases successfully? This senior real estate expert opportunity will fill you. In close collaboration with our advisors, our building department evaluates a multitude of various files and shares its expertise internally. Specifically?\n• In close cooperation with advisors, advisors and internal services, you will support them in real estate and building estimates. This involves analyses, checks and validations of estimates by reports and expertise for various units within the BCVS.\n• Through your expertise and monitoring of the real estate market, you will develop concepts, tools and policies for estimating buildings and participate in the real estate strategy.\n• In the context of purchasing, projects, maintenance and sales of buildings, you will support the head of the service and propose the relevant measures of improvement. You will have to prepare reports for decision-making bodies.\n• You will be the key person in the training and advice of your colleagues as well as in internal knowledge of everything related to property estimates. The challenge is tempting you? This post is for you if...\n• You benefit from the Federal Patent of Real Estate Estimates and from a solid and confirmed experience in this same function. You also have a good knowledge of the local real estate market and Switzerland.\n• Skilled in communication and with the passion to transmit your knowledge, you are comfortable in the in-house training of colleagues.\n• With strong analytical, synthesis and results-oriented capabilities, you perform in the development of real estate estimates reports and expertise. You can highlight the relevant indicators in your area of intervention.\n• Your very good skills in French complement each other with good knowledge in German (level B1) and you are perfectly comfortable using the IT tools in your field. Would you like to join us? Let's meet! We look forward to discovering your application. To do this, send your complete file to Marisa Berclaz, our HR Business Partner, at recruitment@bcvs.ch by 12 June 2026.",
+        "de": "Keine Ergebnisse\n• Kontaktieren Sie einen Berater Rinder Senior Immobilienexperte\n• Zion\n• 80-90% Kundenorientiert, Ihre Analysefähigkeiten und Ihre Leidenschaft für Immobilienschätzungen ermöglichen es Ihnen, auf verschiedene Geschäftsfälle erfolgreich zu reagieren? Diese Senior Immobilienexperte Gelegenheit wird Sie füllen. In enger Zusammenarbeit mit unseren Beratern wertet unsere Gebäudeabteilung eine Vielzahl von Dateien aus und teilt ihre Expertise intern. Konkret?\n• In enger Zusammenarbeit mit Beratern, Beratern und internen Diensten unterstützen Sie sie in Immobilien- und Gebäudeschätzungen. Dazu gehören Analysen, Überprüfungen und Validierungen von Schätzungen nach Berichten und Fachwissen für verschiedene Einheiten innerhalb des BCVS.\n• Durch Ihre Expertise und Überwachung des Immobilienmarktes entwickeln Sie Konzepte, Werkzeuge und Strategien zur Schätzung von Gebäuden und nehmen an der Immobilienstrategie teil.\n• Im Rahmen des Kaufs, der Projekte, der Instandhaltung und des Verkaufs von Gebäuden unterstützen Sie den Leiter des Dienstes und schlagen die relevanten Verbesserungsmaßnahmen vor. Sie müssen Berichte für Entscheidungsorgane vorbereiten.\n• Sie werden die Schlüsselperson in der Ausbildung und Beratung Ihrer Kollegen sowie in internen Kenntnissen über alles im Zusammenhang mit Immobilienschätzungen sein. Die Herausforderung verlockt dich? Dieser Beitrag ist für Sie, wenn...\n• Sie profitieren von den Schätzungen des Bundespatents und von einer soliden und bestätigten Erfahrung in dieser gleichen Funktion. Sie haben auch ein gutes Wissen über den lokalen Immobilienmarkt und die Schweiz.\n• Gefertigt in Kommunikation und mit der Leidenschaft, Ihr Wissen zu übermitteln, sind Sie bequem in der hauseigenen Ausbildung von Kollegen.\n• Mit starken analytischen, synthetischen und ergebnisorientierten Fähigkeiten führen Sie bei der Entwicklung von Immobilienschätzungen und -kompetenzen durch. Sie können die relevanten Indikatoren in Ihrem Interventionsbereich hervorheben.\n• Ihre sehr guten Fähigkeiten auf Französisch ergänzen sich mit guten Kenntnissen auf Deutsch (Level B1) und Sie sind mit den IT-Tools in Ihrem Bereich perfekt bequem. Möchten Sie mitkommen? Treffen wir uns! Wir freuen uns auf Ihre Anwendung zu entdecken. Senden Sie Ihre vollständige Datei an Marisa Berclaz, unseren HR Business Partner, bis 12. Juni 2026 an rekrutierungs@bcvs.ch.",
+        "fr": "Pas de résultats\n• Pas de résultats\n• Contacter un conseiller Contacter un conseiller Chat Expert-e immobilier senior\n• Sion\n• 80-90% Orienté-e client, vos capacités d’analyse et votre passion des estimations immobilières vous permettent de répondre à différents cas d’affaires avec succès ? Cette opportunité d’expert-e immobilier senior saura vous combler. En étroite collaboration avec nos conseillers-ères, notre service des immeubles évalue une multitude de dossiers variés et partage son expertise à l’interne. Concrètement ?\n• En étroite collaboration avec les conseillères, conseillers et services internes, vous les soutiendrez en matière immobilière et en estimation d’immeubles. Cela implique des analyses, des contrôles et des validations des estimations par des rapports et expertises à l’intention de diverses unités au sein de la BCVS.\n• Par votre expertise et votre suivi du marché immobilier, vous élaborerez les concepts, outils et politiques en matière d’estimation d’immeubles et participerez à la stratégie immobilière.\n• Dans le cadre d’achats, de projets, d’entretiens et de ventes d’immeubles, vous soutiendrez le responsable du service et proposerez les mesures pertinentes d’amélioration. Vous serez amené à rédiger des rapports à l’intention des organes décisionnaires.\n• Vous serez la personne clé dans la formation et le conseil de vos collègues ainsi que dans la connaissance à l’interne de tout ce qui a trait aux estimations immobilières. Le défi vous tente ? Ce poste est fait pour vous si…\n• Vous êtes au bénéfice du Brevet fédéral d'expert-e en estimations immobilières et d’une expérience solide et confirmée à cette même fonction. Vous disposez également d’une bonne connaissance du marché immobilier local et Suisse.\n• Habile en communication et avec la passion de transmettre vos connaissances, vous êtes à l’aise dans la formation interne de collègues.\n• Doté-e de fortes capacités d’analyse, de synthèse et orienté-e résultats, vous performez dans l’élaboration de rapports et expertises d’estimations immobilières. Vous savez mettre en valeur les indicateurs pertinents de votre domaine d’intervention.\n• Vos très bonnes compétences en français se complètent par de bonnes connaissances en allemand (niveau B1) et vous êtes parfaitement à l’aise dans l’utilisation des outils IT de votre domaine. Vous souhaitez nous rejoindre ? Rencontrons-nous ! Nous nous réjouissons de découvrir votre candidature. Pour ce faire, envoyez votre dossier complet à Marisa Berclaz, notre HR Business Partner, à l’adresse : recrutement@bcvs.ch d’ici au 12 juin 2026."
       },
       "location": "Sion",
       "canton": "VS",
       "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/expert-e-immobilier-senior-2570",
       "source": "Banque Cantonale du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-26T22:08:31.768Z",
+      "crawledAt": "2026-05-27T22:15:43.125Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -684,14 +701,20 @@
         "Doté-e de fortes capacités d’analyse, de synthèse et orienté-e résultats, vous performez dans l’élaboration de rapports et expertises d’estimations immobilières. Vous savez mettre en valeur les indicateurs pertinents de votre domaine d’intervention.",
         "Vos très bonnes compétences en français se complètent par de bonnes connaissances en allemand (niveau B1) et vous êtes parfaitement à l’aise dans l’utilisation des outils IT de votre domaine."
       ],
-      "requirementsByLocale": {
-        "fr": [
-          "Vous êtes au bénéfice du Brevet fédéral d'expert-e en estimations immobilières et d’une expérience solide et confirmée à cette même fonction. Vous disposez également d’une bonne connaissance du marché immobilier local et Suisse.",
-          "Habile en communication et avec la passion de transmettre vos connaissances, vous êtes à l’aise dans la formation interne de collègues.",
-          "Doté-e de fortes capacités d’analyse, de synthèse et orienté-e résultats, vous performez dans l’élaboration de rapports et expertises d’estimations immobilières. Vous savez mettre en valeur les indicateurs pertinents de votre domaine d’intervention.",
-          "Vos très bonnes compétences en français se complètent par de bonnes connaissances en allemand (niveau B1) et vous êtes parfaitement à l’aise dans l’utilisation des outils IT de votre domaine."
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "expert-e-immobilier-senior-bcvs-sion"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "expert-e-immobilier-senior-bcvs-sion"
+        ],
+        "de": [
+          "expert-e-immobilier-senior-bcvs-sion"
         ]
       },
+      "firstSeenAt": "2026-05-26T22:08:31.768Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -704,19 +727,73 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1950",
-      "firstSeenAt": "2026-05-26T22:08:31.768Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "expert-e-immobilier-senior-bcvs-sion"
-        ],
-        "de": [
-          "expert-e-immobilier-senior-bcvs-sion"
-        ]
+      "postalCode": "1950"
+    },
+    {
+      "id": "bcvs-15772aec343d",
+      "slug": "berater-in-customer-center-bcvs-sion",
+      "slugByLocale": {
+        "de": "berater-in-customer-center-bcvs-sion",
+        "it": "berater-in-customer-center-bcvs-sion",
+        "en": "berater-in-customer-center-banque-cantonale-du-valais-sion",
+        "fr": "berater-in-customer-center-bcvs-sion"
       },
-      "previousSlugs": [
-        "expert-e-immobilier-senior-bcvs-sion"
-      ]
+      "company": "Banque Cantonale du Valais",
+      "companyKey": "bcvs",
+      "companyDomain": "bcvs.ch",
+      "title": "Berater/in Customer Center",
+      "titleByLocale": {
+        "de": "Berater/in Customer Center",
+        "en": "Berater/in Customer Center",
+        "it": "Berater/in Customer Center",
+        "fr": "Berater/in Customer Center"
+      },
+      "description": "Pas de résultats\n\n•\n\nContacter un conseiller Contacter un conseiller\n\nChat\n\nBerater/in Customer Center\n\n• Sitten\n\n• 80-100%\n\nSind Sie interessiert, Kundenanfragen zu beantworten, Kunden und Kundinnen per Telefon, E-Mail und Chat zu beraten und dabei eine hohe Servicequalität zu gewährleisten? Unser Customer Center sucht einen Kundenberater oder eine Kundenberaterin!\n\nWas heisst das konkret?\n\n• Sie identifizieren systematisch die Kunden, erteilen Auskünfte, kommunizieren die Bedingungen und Informationen zu den verschiedenen Produkten und Dienstleistungen und nutzen das Verkaufspotenzial.\n\n• Sie geben Informationen weiter, die für die Aktualisierung der IT-Daten hinsichtlich des Kundenservices und der Marktsteuerung erforderlich sind.\n\n• Sie beraten telefonisch über Basisprodukte/-dienstleistungen (Konten, Karten, E-Banking) und geben erste Informationen zu anderen Bankprodukten weiter.\n\n• Sie begleiten und unterstützen unsere Kundschaft bei unseren digitalen Produkten und schaffen so einen Mehrwert für deren Kundenerlebnis.\n\n• Sie planen die Termine mit unseren Beratern und Beraterinnen.\n\nSie mögen Herausforderungen?\n Diese Stelle ist wie für Sie geschaffen, wenn …\n\n• Sie über eine kaufmännische Ausbildung (EFZ, MPC, ESC, Maturität Typus E) verfügen.\n\n• Sie Erfahrung in einem Customer Center und ausgezeichnete Kenntnis der Bürokommunikationsmittel haben.\n\n• Sie effizient in Deutsch und Französisch kommunizieren. Weitere Sprachen sind von Vorteil.\n\n• Sie eine pragmatische und disziplinierte Person sind, die konstruktive Verbesserungsvorschläge vorbringt und gewandt im telefonischen Kontakt ist.\n\n• Sie Teamarbeit schätzen und mühelos mit Kollegen und Kolleginnen zusammenarbeiten.\n\nDann sollten wir uns kennenlernen!\n Sie möchten Teil unseres Teams werden?\n Wir freuen uns auf Ihre Bewerbung.\nSenden Sie dazu Ihre vollständigen Unterlagen bis spätestens zum 19. Juni an unsere HR-Business-Partnerin Yolanda Fernandez an die Adresse: rekrutierung@wkb.ch .",
+      "descriptionByLocale": {
+        "de": "Pas de résultats\n\n•\n\nContacter un conseiller Contacter un conseiller\n\nChat\n\nBerater/in Customer Center\n\n• Sitten\n\n• 80-100%\n\nSind Sie interessiert, Kundenanfragen zu beantworten, Kunden und Kundinnen per Telefon, E-Mail und Chat zu beraten und dabei eine hohe Servicequalität zu gewährleisten? Unser Customer Center sucht einen Kundenberater oder eine Kundenberaterin!\n\nWas heisst das konkret?\n\n• Sie identifizieren systematisch die Kunden, erteilen Auskünfte, kommunizieren die Bedingungen und Informationen zu den verschiedenen Produkten und Dienstleistungen und nutzen das Verkaufspotenzial.\n\n• Sie geben Informationen weiter, die für die Aktualisierung der IT-Daten hinsichtlich des Kundenservices und der Marktsteuerung erforderlich sind.\n\n• Sie beraten telefonisch über Basisprodukte/-dienstleistungen (Konten, Karten, E-Banking) und geben erste Informationen zu anderen Bankprodukten weiter.\n\n• Sie begleiten und unterstützen unsere Kundschaft bei unseren digitalen Produkten und schaffen so einen Mehrwert für deren Kundenerlebnis.\n\n• Sie planen die Termine mit unseren Beratern und Beraterinnen.\n\nSie mögen Herausforderungen?\n Diese Stelle ist wie für Sie geschaffen, wenn …\n\n• Sie über eine kaufmännische Ausbildung (EFZ, MPC, ESC, Maturität Typus E) verfügen.\n\n• Sie Erfahrung in einem Customer Center und ausgezeichnete Kenntnis der Bürokommunikationsmittel haben.\n\n• Sie effizient in Deutsch und Französisch kommunizieren. Weitere Sprachen sind von Vorteil.\n\n• Sie eine pragmatische und disziplinierte Person sind, die konstruktive Verbesserungsvorschläge vorbringt und gewandt im telefonischen Kontakt ist.\n\n• Sie Teamarbeit schätzen und mühelos mit Kollegen und Kolleginnen zusammenarbeiten.\n\nDann sollten wir uns kennenlernen!\n Sie möchten Teil unseres Teams werden?\n Wir freuen uns auf Ihre Bewerbung.\nSenden Sie dazu Ihre vollständigen Unterlagen bis spätestens zum 19. Juni an unsere HR-Business-Partnerin Yolanda Fernandez an die Adresse: rekrutierung@wkb.ch .",
+        "it": "Pas de résultats\n\n•\n\nContacter un conseiller Contacter un conseiller\n\nChat\n\nBerater/in Customer Center\n\n• Sitten\n\n• 80-100%\n\nSind Sie interessiert, Kundenanfragen zu beantworten, Kunden und Kundinnen per Telefon, E-Mail und Chat zu beraten und dabei eine hohe Servicequalität zu gewährleisten? Unser Customer Center sucht einen Kundenberater oder eine Kundenberaterin!\n\nWas heisst das konkret?\n\n• Sie identifizieren systematisch die Kunden, erteilen Auskünfte, kommunizieren die Bedingungen und Informationen zu den verschiedenen Produkten und Dienstleistungen und nutzen das Verkaufspotenzial.\n\n• Sie geben Informationen weiter, die für die Aktualisierung der IT-Daten hinsichtlich des Kundenservices und der Marktsteuerung erforderlich sind.\n\n• Sie beraten telefonisch über Basisprodukte/-dienstleistungen (Konten, Karten, E-Banking) und geben erste Informationen zu anderen Bankprodukten weiter.\n\n• Sie begleiten und unterstützen unsere Kundschaft bei unseren digitalen Produkten und schaffen so einen Mehrwert für deren Kundenerlebnis.\n\n• Sie planen die Termine mit unseren Beratern und Beraterinnen.\n\nSie mögen Herausforderungen?\n Diese Stelle ist wie für Sie geschaffen, wenn …\n\n• Sie über eine kaufmännische Ausbildung (EFZ, MPC, ESC, Maturität Typus E) verfügen.\n\n• Sie Erfahrung in einem Customer Center und ausgezeichnete Kenntnis der Bürokommunikationsmittel haben.\n\n• Sie effizient in Deutsch und Französisch kommunizieren. Weitere Sprachen sind von Vorteil.\n\n• Sie eine pragmatische und disziplinierte Person sind, die konstruktive Verbesserungsvorschläge vorbringt und gewandt im telefonischen Kontakt ist.\n\n• Sie Teamarbeit schätzen und mühelos mit Kollegen und Kolleginnen zusammenarbeiten.\n\nDann sollten wir uns kennenlernen!\n Sie möchten Teil unseres Teams werden?\n Wir freuen uns auf Ihre Bewerbung.\nSenden Sie dazu Ihre vollständigen Unterlagen bis spätestens zum 19. Juni an unsere HR-Business-Partnerin Yolanda Fernandez an die Adresse: rekrutierung@wkb.ch .",
+        "en": "Pas de résultats\n\n•\n\nContacter un conseiller Contacter un conseiller\n\nChat\n\nBerater/in Customer Center\n\n• Sitten\n\n• 80-100%\n\nSind Sie interessiert, Kundenanfragen zu beantworten, Kunden und Kundinnen per Telefon, E-Mail und Chat zu beraten und dabei eine hohe Servicequalität zu gewährleisten? Unser Customer Center sucht einen Kundenberater oder eine Kundenberaterin!\n\nWas heisst das konkret?\n\n• Sie identifizieren systematisch die Kunden, erteilen Auskünfte, kommunizieren die Bedingungen und Informationen zu den verschiedenen Produkten und Dienstleistungen und nutzen das Verkaufspotenzial.\n\n• Sie geben Informationen weiter, die für die Aktualisierung der IT-Daten hinsichtlich des Kundenservices und der Marktsteuerung erforderlich sind.\n\n• Sie beraten telefonisch über Basisprodukte/-dienstleistungen (Konten, Karten, E-Banking) und geben erste Informationen zu anderen Bankprodukten weiter.\n\n• Sie begleiten und unterstützen unsere Kundschaft bei unseren digitalen Produkten und schaffen so einen Mehrwert für deren Kundenerlebnis.\n\n• Sie planen die Termine mit unseren Beratern und Beraterinnen.\n\nSie mögen Herausforderungen?\n Diese Stelle ist wie für Sie geschaffen, wenn …\n\n• Sie über eine kaufmännische Ausbildung (EFZ, MPC, ESC, Maturität Typus E) verfügen.\n\n• Sie Erfahrung in einem Customer Center und ausgezeichnete Kenntnis der Bürokommunikationsmittel haben.\n\n• Sie effizient in Deutsch und Französisch kommunizieren. Weitere Sprachen sind von Vorteil.\n\n• Sie eine pragmatische und disziplinierte Person sind, die konstruktive Verbesserungsvorschläge vorbringt und gewandt im telefonischen Kontakt ist.\n\n• Sie Teamarbeit schätzen und mühelos mit Kollegen und Kolleginnen zusammenarbeiten.\n\nDann sollten wir uns kennenlernen!\n Sie möchten Teil unseres Teams werden?\n Wir freuen uns auf Ihre Bewerbung.\nSenden Sie dazu Ihre vollständigen Unterlagen bis spätestens zum 19. Juni an unsere HR-Business-Partnerin Yolanda Fernandez an die Adresse: rekrutierung@wkb.ch .",
+        "fr": "Pas de résultats\n\n•\n\nContacter un conseiller Contacter un conseiller\n\nChat\n\nBerater/in Customer Center\n\n• Sitten\n\n• 80-100%\n\nSind Sie interessiert, Kundenanfragen zu beantworten, Kunden und Kundinnen per Telefon, E-Mail und Chat zu beraten und dabei eine hohe Servicequalität zu gewährleisten? Unser Customer Center sucht einen Kundenberater oder eine Kundenberaterin!\n\nWas heisst das konkret?\n\n• Sie identifizieren systematisch die Kunden, erteilen Auskünfte, kommunizieren die Bedingungen und Informationen zu den verschiedenen Produkten und Dienstleistungen und nutzen das Verkaufspotenzial.\n\n• Sie geben Informationen weiter, die für die Aktualisierung der IT-Daten hinsichtlich des Kundenservices und der Marktsteuerung erforderlich sind.\n\n• Sie beraten telefonisch über Basisprodukte/-dienstleistungen (Konten, Karten, E-Banking) und geben erste Informationen zu anderen Bankprodukten weiter.\n\n• Sie begleiten und unterstützen unsere Kundschaft bei unseren digitalen Produkten und schaffen so einen Mehrwert für deren Kundenerlebnis.\n\n• Sie planen die Termine mit unseren Beratern und Beraterinnen.\n\nSie mögen Herausforderungen?\n Diese Stelle ist wie für Sie geschaffen, wenn …\n\n• Sie über eine kaufmännische Ausbildung (EFZ, MPC, ESC, Maturität Typus E) verfügen.\n\n• Sie Erfahrung in einem Customer Center und ausgezeichnete Kenntnis der Bürokommunikationsmittel haben.\n\n• Sie effizient in Deutsch und Französisch kommunizieren. Weitere Sprachen sind von Vorteil.\n\n• Sie eine pragmatische und disziplinierte Person sind, die konstruktive Verbesserungsvorschläge vorbringt und gewandt im telefonischen Kontakt ist.\n\n• Sie Teamarbeit schätzen und mühelos mit Kollegen und Kolleginnen zusammenarbeiten.\n\nDann sollten wir uns kennenlernen!\n Sie möchten Teil unseres Teams werden?\n Wir freuen uns auf Ihre Bewerbung.\nSenden Sie dazu Ihre vollständigen Unterlagen bis spätestens zum 19. Juni an unsere HR-Business-Partnerin Yolanda Fernandez an die Adresse: rekrutierung@wkb.ch ."
+      },
+      "location": "Sion",
+      "canton": "VS",
+      "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/berater-in-customer-center-2572",
+      "source": "Banque Cantonale du Valais Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-05-27T22:15:42.716Z",
+      "addressLocality": "Sion",
+      "addressRegion": "VS",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "pensum": "80-100%",
+      "sector": "Banca / Finanza",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-27",
+      "applyUrl": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/berater-in-customer-center-2572",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "1950",
+      "firstSeenAt": "2026-05-27T22:15:42.716Z"
     }
   ]
 }
