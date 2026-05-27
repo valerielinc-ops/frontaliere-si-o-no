@@ -1,6 +1,6 @@
 {
   "crawlerKey": "ermenegildo-zegna-logistica",
-  "assembledAt": "2026-05-26T00:00:53.791Z",
+  "assembledAt": "2026-05-27T00:46:14.139Z",
   "jobs": [
     {
       "url": "https://careers.zegnagroup.com/jobs/job-details?JobID=267802502&Team=231361275",
@@ -79,7 +79,8 @@
       },
       "previousSlugs": [
         "senior-legal-specialist-zegna"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "url": "https://careers.zegnagroup.com/jobs/job-details?JobID=267752702&Team=231361275",
@@ -158,7 +159,8 @@
       },
       "previousSlugs": [
         "sap-business-continuity-service-manager-zegna"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "url": "https://careers.zegnagroup.com/jobs/job-details?JobID=266304035&Team=231361275",
@@ -246,9 +248,6 @@
       "addressCountry": "CH",
       "id": "ermenegildo-zegna-logistica-debbf7175cfe",
       "previousSlugsByLocale": {
-        "en": [
-          "it-sales-project-manager-zegna"
-        ],
         "it": [
           "it-sales-project-manager-zegna"
         ],
@@ -256,6 +255,9 @@
           "it-sales-project-manager-zegna"
         ],
         "fr": [
+          "it-sales-project-manager-zegna"
+        ],
+        "en": [
           "it-sales-project-manager-zegna"
         ]
       },
