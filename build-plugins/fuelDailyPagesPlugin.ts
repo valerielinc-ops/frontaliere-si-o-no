@@ -82,9 +82,6 @@ import {
   WEEKLY_EMPLOYERS_SECTION,
 } from './weeklyEmployersData';
 import {
-  CARD_BODY_STYLE,
-  CARD_STYLE,
-  CTA_PRIMARY_STYLE,
   H1_STYLE,
   H2_STYLE,
   HERO_EYEBROW_STYLE,
@@ -98,16 +95,10 @@ import {
   renderDiscoverMore,
   renderEntityCard,
   resolveBrandLogoUrl,
-  STAT_TILE_ACCENT,
   STAT_TILE_BASE,
   STAT_TILE_DANGER,
-  STAT_TILE_LABEL,
   STAT_TILE_SUCCESS,
-  STAT_TILE_VALUE,
   STAT_TILE_WARNING,
-  TABLE_CELL_STYLE,
-  TABLE_HEAD_STYLE,
-  TABLE_STYLE,
   clampSiteSuffix,
   differentiateH1FromTitle,
 } from './shared/seoContentTokens';
@@ -1458,7 +1449,7 @@ function renderFuelTodayMethodologyAndScenarios(args: {
   const c = copy[locale] || copy.it;
   const extraFaqHtml = c.extraFaqs
     .map(
-      (f) => `<details style="${CARD_STYLE};margin-bottom:8px">
+      (f) => `<details class="s-card" style="margin-bottom:8px">
         <summary class="s-HBR0NM">${esc(f.q)}</summary>
         <p class="s-OCic8j">${esc(f.a)}</p>
       </details>`,
@@ -1555,7 +1546,7 @@ function renderRecentMonthsArchiveNav(args: {
     })
     .join('');
 
-  return `<aside style="${CARD_STYLE};margin:24px 0;padding:18px 20px" aria-labelledby="fuelArchiveNav">
+  return `<aside class="s-card" style="margin:24px 0;padding:18px 20px" aria-labelledby="fuelArchiveNav">
     <h2 id="fuelArchiveNav" style="${H2_STYLE};margin:0 0 8px;font-size:18px">${esc(heading)}</h2>
     ${groups}
   </aside>`;
@@ -1682,21 +1673,21 @@ function renderPage(inp: PageInputs): string {
     currency: 'CHF',
   });
 
-  const trendTableHtml = `<table style="${TABLE_STYLE};font-size:14px">
+  const trendTableHtml = `<table class="s-tbl" style="font-size:14px">
     <thead><tr>
-      <th scope="col" style="${TABLE_HEAD_STYLE}">${esc(locale === 'it' ? 'Data' : locale === 'de' ? 'Datum' : 'Date')}</th>
-      <th scope="col" style="${TABLE_HEAD_STYLE};text-align:right">${esc(copy.avgLabel)}</th>
+      <th scope="col" class="s-thd">${esc(locale === 'it' ? 'Data' : locale === 'de' ? 'Datum' : 'Date')}</th>
+      <th scope="col" class="s-thd" style="text-align:right">${esc(copy.avgLabel)}</th>
     </tr></thead>
     <tbody>${trendRows
       .map((r) => `<tr>
-        <td style="${TABLE_CELL_STYLE}">${esc(r.date)}</td>
-        <td style="${TABLE_CELL_STYLE};text-align:right;font-variant-numeric:tabular-nums">${r.price === null ? '—' : formatPrice(r.price, locale) + ' CHF'}</td>
+        <td class="s-tcl">${esc(r.date)}</td>
+        <td class="s-tcl" style="text-align:right;font-variant-numeric:tabular-nums">${r.price === null ? '—' : formatPrice(r.price, locale) + ' CHF'}</td>
       </tr>`)
       .join('')}${
         periodAvg !== null
           ? `<tr>
-        <th scope="row" style="${TABLE_CELL_STYLE};font-weight:700">${esc(copy.periodAvgLabel)}</th>
-        <td style="${TABLE_CELL_STYLE};text-align:right;font-variant-numeric:tabular-nums;font-weight:700">${esc(
+        <th scope="row" class="s-tcl" style="font-weight:700">${esc(copy.periodAvgLabel)}</th>
+        <td class="s-tcl" style="text-align:right;font-variant-numeric:tabular-nums;font-weight:700">${esc(
               periodAvgFmt,
             )} CHF</td>
       </tr>`
@@ -1726,7 +1717,7 @@ function renderPage(inp: PageInputs): string {
     <h2 id="fuelDailyFaq" style="${H2_STYLE}">${esc(copy.faqTitle)}</h2>
     ${faqItems
       .map(
-        (f) => `<details style="${CARD_STYLE};margin-bottom:8px">
+        (f) => `<details class="s-card" style="margin-bottom:8px">
         <summary class="s-HBR0NM">${esc(f.q)}</summary>
         <p class="s-OCic8j">${esc(f.a(fuelLabel, zoneLabel))}</p>
       </details>`,
@@ -1801,22 +1792,22 @@ function renderPage(inp: PageInputs): string {
     <p style="${LEDE_STYLE}">${esc(introTagline)}</p>
   </header>
   <section class="s-Bk-L3k">
-    <div style="${STAT_TILE_ACCENT}">
-      <div style="${STAT_TILE_LABEL}">${esc(copy.avgLabel)}</div>
-      <div style="${STAT_TILE_VALUE};font-size:32px">${priceFmt}</div>
+    <div class="s-tacc">
+      <div class="s-tlbl">${esc(copy.avgLabel)}</div>
+      <div class="s-tval" style="font-size:32px">${priceFmt}</div>
       <div class="s-iydat0">${esc(copy.currencyLabel)}</div>
     </div>
     <div style="${deltaYest === null ? STAT_TILE_BASE : deltaYest < 0 ? STAT_TILE_SUCCESS : deltaYest > 0 ? STAT_TILE_WARNING : STAT_TILE_BASE}">
-      <div style="${STAT_TILE_LABEL}">${esc(copy.vsYesterday)}</div>
-      <div style="${STAT_TILE_VALUE};font-size:22px">${esc(deltaYestFmt)}</div>
+      <div class="s-tlbl">${esc(copy.vsYesterday)}</div>
+      <div class="s-tval" style="font-size:22px">${esc(deltaYestFmt)}</div>
     </div>
     <div style="${delta7 === null ? STAT_TILE_BASE : delta7 < 0 ? STAT_TILE_SUCCESS : delta7 > 0 ? STAT_TILE_WARNING : STAT_TILE_BASE}">
-      <div style="${STAT_TILE_LABEL}">${esc(copy.vs7d)}</div>
-      <div style="${STAT_TILE_VALUE};font-size:22px">${esc(delta7Fmt)}</div>
+      <div class="s-tlbl">${esc(copy.vs7d)}</div>
+      <div class="s-tval" style="font-size:22px">${esc(delta7Fmt)}</div>
     </div>
   </section>
   ${unavailableNoteHtml}
-  <section style="margin:0 0 24px;${CARD_STYLE}" aria-labelledby="fuelReview">
+  <section class="s-card" style="margin:0 0 24px" aria-labelledby="fuelReview">
     <h2 id="fuelReview" style="${H2_STYLE}">${esc(editorialAssessment.heading)}</h2>
     <p class="s-E7ZJqo">${esc(editorialAssessment.body)}</p>
   </section>
@@ -2001,14 +1992,14 @@ function renderArchive(inp: ArchiveInputs): string {
     fr: `Archive mensuelle ${fuelLabel} à ${zoneLabel} (${monthKey}) : moyenne ${formatPrice(avg, locale)} CHF/litre.`,
   };
 
-  const tableHtml = `<table style="${TABLE_STYLE};font-size:14px">
+  const tableHtml = `<table class="s-tbl" style="font-size:14px">
     <thead><tr>
-      <th style="${TABLE_HEAD_STYLE}">${esc(locale === 'it' ? 'Data' : locale === 'de' ? 'Datum' : 'Date')}</th>
-      <th style="${TABLE_HEAD_STYLE};text-align:right">${esc(copy.avgLabel)}</th>
+      <th class="s-thd">${esc(locale === 'it' ? 'Data' : locale === 'de' ? 'Datum' : 'Date')}</th>
+      <th class="s-thd" style="text-align:right">${esc(copy.avgLabel)}</th>
     </tr></thead>
     <tbody>${rows.map((r) => `<tr>
-      <td style="${TABLE_CELL_STYLE}">${esc(r.date)}</td>
-      <td style="${TABLE_CELL_STYLE};text-align:right;font-variant-numeric:tabular-nums">${r.price === null ? '—' : formatPrice(r.price, locale) + ' CHF'}</td>
+      <td class="s-tcl">${esc(r.date)}</td>
+      <td class="s-tcl" style="text-align:right;font-variant-numeric:tabular-nums">${r.price === null ? '—' : formatPrice(r.price, locale) + ' CHF'}</td>
     </tr>`).join('')}</tbody>
   </table>`;
 
@@ -2670,12 +2661,12 @@ function renderStationHero(inp: StationHeroInput): string {
     : '';
 
   const actionsHtml = `<div class="s-2AE7uV">
-    <a href="${esc(inp.zonePath)}" style="${CTA_PRIMARY_STYLE};font-size:14px;padding:9px 14px">${ICON_BAR_CHART_SVG} ${esc(labels.viewRanking(inp.city))} →</a>
+    <a href="${esc(inp.zonePath)}" class="s-cta" style="font-size:14px;padding:9px 14px">${ICON_BAR_CHART_SVG} ${esc(labels.viewRanking(inp.city))} →</a>
     ${hasCoords ? `<a class="s-MTU2pO" href="${esc(gmapsHref)}" target="_blank" rel="noopener">${ICON_MAP_PIN_SVG} ${esc(labels.openInMaps)}</a>` : ''}
     ${hasCoords ? `<a class="s-MTU2pO" href="${esc(wazeHref)}" target="_blank" rel="noopener">${ICON_NAVIGATION_SVG} ${esc(labels.openInWaze)}</a>` : ''}
   </div>`;
 
-  return `<section style="${CARD_BODY_STYLE};padding:22px 22px 20px;margin:0 0 18px" aria-label="${esc(inp.brand)} ${esc(inp.city)}">
+  return `<section class="s-cbody" style="padding:22px 22px 20px;margin:0 0 18px" aria-label="${esc(inp.brand)} ${esc(inp.city)}">
   <div class="s-uKHM4F">
     ${logo}
     <div class="s-iFWoC6">
@@ -2751,7 +2742,7 @@ function renderStationLocationCard(inp: StationLocationInput): string {
   const labelWaze = `${labels.openInWaze} (${ext})`;
   const labelOsm = `${labels.openInOsm} (${ext})`;
 
-  return `<section style="${CARD_BODY_STYLE};padding:0;margin:0 0 22px;overflow:hidden" aria-labelledby="stationLocation">
+  return `<section class="s-cbody" style="padding:0;margin:0 0 22px;overflow:hidden" aria-labelledby="stationLocation">
   <div class="s-1vBAVL">
     <div class="s-_Zpi92">
       <iframe
@@ -3173,11 +3164,11 @@ function renderStationPage(opts: {
   ${adviceHtml}
   ${locationHtml}
   ${historyHtml}
-  <section style="margin:0 0 24px;${CARD_STYLE}" aria-labelledby="stationReview">
+  <section class="s-card" style="margin:0 0 24px" aria-labelledby="stationReview">
     <h2 id="stationReview" style="${H2_STYLE};margin:0 0 12px;font-size:20px">${esc(editorialAssessment.heading)}</h2>
     <p class="s-E7ZJqo">${esc(editorialAssessment.body)}</p>
   </section>
-  <section style="margin:0 0 24px;${CARD_STYLE}" aria-labelledby="stationInfo">
+  <section class="s-card" style="margin:0 0 24px" aria-labelledby="stationInfo">
     <h2 id="stationInfo" style="${H2_STYLE};margin:0 0 12px;font-size:20px">${esc(copy.infoHeading)}</h2>
     <dl class="s-RPPdPW">
       <dt class="s-bovPrI">${esc(copy.infoBrand)}</dt><dd class="s-q3nqK4">${esc(ctx.brandDisplay)}</dd>
@@ -3600,17 +3591,17 @@ function renderItalianCityPage(opts: {
             return `<li class="s-6FVpHG">${card}</li>`;
           })
           .join('')}</ol>`
-      : `<table style="${TABLE_STYLE};font-size:14px">
+      : `<table class="s-tbl" style="font-size:14px">
         <thead><tr>
-          <th scope="col" style="${TABLE_HEAD_STYLE}">${esc(copy.tableStation)}</th>
-          <th scope="col" style="${TABLE_HEAD_STYLE}">${esc(copy.tableAddress)}</th>
-          <th scope="col" style="${TABLE_HEAD_STYLE};text-align:right">${esc(copy.tablePrice)}</th>
+          <th scope="col" class="s-thd">${esc(copy.tableStation)}</th>
+          <th scope="col" class="s-thd">${esc(copy.tableAddress)}</th>
+          <th scope="col" class="s-thd" style="text-align:right">${esc(copy.tablePrice)}</th>
         </tr></thead>
         <tbody>${sortedStations
           .map((s) => `<tr>
-            <td style="${TABLE_CELL_STYLE}">${esc(s.stationName || s.brand || '—')}</td>
-            <td style="${TABLE_CELL_STYLE};color:var(--color-subtle)">${esc(s.address || '—')}</td>
-            <td style="${TABLE_CELL_STYLE};text-align:right;font-variant-numeric:tabular-nums">${typeof s.priceEur === 'number' ? formatPrice(s.priceEur, locale) + ' EUR' : '—'}</td>
+            <td class="s-tcl">${esc(s.stationName || s.brand || '—')}</td>
+            <td class="s-tcl" style="color:var(--color-subtle)">${esc(s.address || '—')}</td>
+            <td class="s-tcl" style="text-align:right;font-variant-numeric:tabular-nums">${typeof s.priceEur === 'number' ? formatPrice(s.priceEur, locale) + ' EUR' : '—'}</td>
           </tr>`)
           .join('')}</tbody>
       </table>`;
@@ -3682,1436 +3673,11 @@ function renderItalianCityPage(opts: {
     <p style="${LEDE_STYLE}">${esc(italianCityTaglineByLocale[locale])}</p>
   </header>
   <section class="s-gfdc7T">
-    <div style="${STAT_TILE_ACCENT}">
-      <div style="${STAT_TILE_LABEL}">${esc(locale === 'it' ? 'Prezzo minimo' : locale === 'de' ? 'Mindestpreis' : locale === 'fr' ? 'Prix minimum' : 'Minimum price')}</div>
-      <div style="${STAT_TILE_VALUE};font-size:32px">${esc(minPriceFmt)}</div>
+    <div class="s-tacc">
+      <div class="s-tlbl">${esc(locale === 'it' ? 'Prezzo minimo' : locale === 'de' ? 'Mindestpreis' : locale === 'fr' ? 'Prix minimum' : 'Minimum price')}</div>
+      <div class="s-tval" style="font-size:32px">${esc(minPriceFmt)}</div>
       <div class="s-iydat0">${esc(copy.currency)}</div>
     </div>
-    <div style="${STAT_TILE_SUCCESS}">
-      <div style="${STAT_TILE_LABEL}">${esc(locale === 'it' ? 'Zona Ticino più vicina' : locale === 'de' ? 'Nächste Tessiner Zone' : locale === 'fr' ? 'Zone tessinoise la plus proche' : 'Nearest Ticino zone')}</div>
-      <div style="${STAT_TILE_VALUE};font-size:22px"><a class="s-z7KUiE" href="${buildFuelTodayPath(locale, fuel, entry.nearestZone)}">${esc(nearestZoneLabel)}</a></div>
-    </div>
-  </section>
-  <section class="s-ziawP1" aria-labelledby="itCityTable">
-    <h2 id="itCityTable" style="${H2_STYLE}">${esc(copy.tableTitle(entry.display))}</h2>
-    ${stationListHtml}
-  </section>
-  ${historyCard
-    ? `<section class="s-ziawP1" aria-labelledby="itCityTrend">
-        <h2 id="itCityTrend" style="${H2_STYLE}">${esc(IT_TREND_LABEL[locale])}</h2>
-        <p class="s-C63fWv">${esc(IT_TREND_INTRO[locale])}</p>
-        ${historyCard}
-      </section>`
-    : ''}
-  <section class="s-d9ZwXC">
-    <p class="s-BMekyJ">${esc(copy.crossBorderTip)}</p>
-  </section>
-  <section class="s-ziawP1" aria-labelledby="itCityContext">
-    <h2 id="itCityContext" style="${H2_STYLE}">${esc(copy.contextHeading)}</h2>
-    ${copy.contextParagraphs(fuelLabel, entry.display, nearestZoneLabel)
-      .map((p) => `<p class="s-ZLNNaY">${p}</p>`)
-      .join('')}
-  </section>
-  <section class="s-ziawP1" aria-labelledby="itCityTips">
-    <h2 id="itCityTips" style="${H2_STYLE}">${esc(copy.tipsHeading)}</h2>
-    <ul class="s-diIsZC">
-      ${copy.tipsItems.map((t) => `<li class="s-Pkexk_">${esc(t)}</li>`).join('')}
-    </ul>
-  </section>
-  ${renderItalianCityFrontalierExtra({ locale, fuelLabel, cityDisplay: entry.display, nearestZoneLabel, minPriceFmt })}
-  <section class="s-GCEyQg" aria-label="${esc(copy.contextHeading)}">
-    <p class="s-kvHUMU">${esc(intro)}</p>
-    <p class="s-yOfiVn">${esc(paragraph)}</p>
-  </section>
-  <p class="s-QpkSyQ"><a href="${buildFuelTodayPath(locale, fuel, entry.nearestZone)}" style="${LINK_ACCENT_STYLE};font-weight:600">→ ${esc(copy.backLink)} (${esc(nearestZoneLabel)})</a></p>
-  ${generateRelatedLinksBlock(locale, 'fuel_italian_city', {
-    fuelType: fuel,
-    italianCitySlug: entry.slug,
-    italianCityDisplay: entry.display,
-    fuelZone: entry.nearestZone,
-  })}
-  <section class="s-sC82IX" aria-label="advertisement">
-    ${adSlotHtml('ARTICLE_END_MULTIPLEX')}
-  </section>
-</article>`;
-
-  const extraHead = `    <meta property="og:image" content="${BASE_URL}/og-image.png">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">`;
-
-  return buildSeoPageHtml({
-    disableAutoAds: false,
-    locale,
-    title,
-    description,
-    canonicalUrl,
-    robots: 'index,follow',
-    ogType: 'website',
-    ogLocale: LOCALE_OG[locale],
-    hreflangHtml: alternatesHtml,
-    extraHeadHtml: extraHead,
-    jsonLdScripts: [breadcrumbLd, webPageLd, itemListLd],
-    bodyHtml,
-    distDir,
-    hubChrome: { hubKey: 'stats', activeSubTab: 'fuel-prices' },
-  });
-}
-
-// ── Exported generators for station + IT-city pages ────────────
-
-/**
- * Generate per-station HTML pages for every (Ticino station × fuel × locale).
- * Returns a map of canonical path → HTML string.
- *
- * Safety cap: MAX_FUEL_STATION_PAGES_PER_BUILD (env var). When exceeded the
- * generator stops emitting and logs a warning.
- *
- * Single source of truth (2026-04-29 anti-orphan fix): callers may pass a
- * pre-collected `contexts` array. The fuel-station browseable index plugin
- * MUST be fed the same list so the index links every station that has a
- * detail page — otherwise stations whose detail page is emitted but whose
- * index link is missing become orphans in `sitemap-fuel-stations.xml`.
- */
-export function generateFuelStationPages(opts: {
-  dataset: FuelPricesDataset;
-  today?: Date;
-  distDir?: string;
-  maxPages?: number;
-  /**
-   * Optional pre-collected contexts. When provided, the function skips its
-   * own `collectSwissStationContexts(dataset)` call. Used by the closeBundle
-   * hook so the index plugin and the detail-page generator share one list.
-   */
-  contexts?: readonly StationContext[];
-  /** History snapshots — drives the per-page zone history chart. */
-  history?: readonly HistorySnapshot[];
-  /** Project root dir — passed to renderStationPage so it can resolve brand logos. */
-  rootDir?: string;
-}): Record<string, string> {
-  const dataset = opts.dataset;
-  const today = opts.today ?? new Date();
-  const distDir = opts.distDir;
-  const history = opts.history;
-  const rootDir = opts.rootDir;
-  const maxPages = opts.maxPages ?? Number(process.env.MAX_FUEL_STATION_PAGES_PER_BUILD || 1500);
-  const pages: Record<string, string> = {};
-
-  const contexts = opts.contexts ?? collectSwissStationContexts(dataset);
-  if (contexts.length === 0) return pages;
-
-  const zoneGroups = groupByZone(contexts);
-
-  // Precompute zone averages per fuel
-  const zoneAvg: Record<FuelZone, Record<FuelType, number | null>> = {
-    chiasso: { diesel: null, benzina: null },
-    mendrisio: { diesel: null, benzina: null },
-    lugano: { diesel: null, benzina: null },
-    bellinzona: { diesel: null, benzina: null },
-    locarno: { diesel: null, benzina: null },
-  };
-  for (const zone of FUEL_ZONES) {
-    const ctxList = zoneGroups.get(zone) ?? [];
-    for (const fuel of FUEL_TYPES) {
-      const prices = ctxList.map((c) => c.prices[fuel]);
-      zoneAvg[zone][fuel] = mean(prices);
-    }
-  }
-
-  let emitted = 0;
-  outer: for (const fuel of FUEL_TYPES) {
-    for (const locale of FUEL_DAILY_LOCALES) {
-      for (const ctx of contexts) {
-        const canonicalPath = buildFuelStationPath(locale, fuel, ctx.zone, ctx.slug);
-        // Precompute alternates for all 4 locales
-        const alternates: Record<FuelDailyLocale, string> = { it: '', en: '', de: '', fr: '' };
-        for (const alt of FUEL_DAILY_LOCALES) {
-          alternates[alt] = buildFuelStationPath(alt, fuel, ctx.zone, ctx.slug);
-        }
-        const zoneStations = zoneGroups.get(ctx.zone) ?? [];
-        const html = renderStationPage({
-          ctx,
-          locale,
-          fuel,
-          zoneAvg: zoneAvg[ctx.zone][fuel],
-          zoneStations,
-          today,
-          canonicalPath,
-          alternates,
-          distDir,
-          history,
-          rootDir,
-        });
-        pages[canonicalPath] = html;
-        emitted++;
-        if (emitted >= maxPages) {
-          console.warn(`[fuel-daily-pages] MAX_FUEL_STATION_PAGES_PER_BUILD=${maxPages} reached — halting station page emission`);
-          break outer;
-        }
-      }
-    }
-  }
-  return pages;
-}
-
-/**
- * Generate Italian per-city hub pages for the curated list of border cities.
- */
-export function generateFuelItalianCityPages(opts: {
-  dataset: FuelPricesDataset;
-  history?: HistorySnapshot[];
-  today?: Date;
-  distDir?: string;
-}): Record<string, string> {
-  const dataset = opts.dataset;
-  const history = opts.history ?? [];
-  const today = opts.today ?? new Date();
-  const distDir = opts.distDir;
-  const pages: Record<string, string> = {};
-
-  // Precompute Italian per-station contexts once. Cards on the city pages
-  // link to per-station detail pages (which only exist for benzina today).
-  const allItalianContexts = collectItalianStationContexts(dataset);
-  const contextsByCity = groupItalianContextsByCity(allItalianContexts);
-
-  for (const entry of FUEL_ITALIAN_CITIES) {
-    const stations = collectItalianCityStations(dataset, entry);
-    if (stations.length === 0) continue; // skip if no station data
-    const cityContexts = contextsByCity.get(entry.slug) ?? [];
-    for (const fuel of FUEL_TYPES) {
-      for (const locale of FUEL_DAILY_LOCALES) {
-        const canonicalPath = buildFuelItalianCityPath(locale, fuel, entry.slug);
-        const alternates: Record<FuelDailyLocale, string> = { it: '', en: '', de: '', fr: '' };
-        for (const alt of FUEL_DAILY_LOCALES) {
-          alternates[alt] = buildFuelItalianCityPath(alt, fuel, entry.slug);
-        }
-        // Per-station detail pages only exist for benzina (see
-        // generateFuelItalianStationPages comment block). On diesel city
-        // pages we omit stationContexts so the renderer falls back to a
-        // non-clickable table — avoids broken /prezzi-diesel/.../stazioni/...
-        // links until MIMIT-Gasolio ingestion lands.
-        const stationContexts = fuel === 'benzina' ? cityContexts : undefined;
-        const html = renderItalianCityPage({
-          entry,
-          locale,
-          fuel,
-          stations,
-          stationContexts,
-          history,
-          canonicalPath,
-          alternates,
-          today,
-          distDir,
-        });
-        pages[canonicalPath] = html;
-      }
-    }
-  }
-  return pages;
-}
-
-// ── Italian per-station rendering ──────────────────────────────
-//
-// Mirror of the Swiss per-station pipeline (collectSwissStationContexts +
-// renderStationPage + generateFuelStationPages) but for Italian curated
-// border cities. The MIMIT dataset gives us per-station identity (id,
-// stationName, brand, address, lat/lng, priceEur) so we can emit one
-// page per station with editorial copy + structured data.
-//
-// Caveat: scripts/generate-fuel-prices-dataset.mjs currently only ingests
-// MIMIT records with descCarburante === 'Benzina'. Diesel (Gasolio) is
-// available in the upstream CSV but not yet pulled into our dataset, so
-// we only emit /prezzi-benzina/italia/{city}/stazioni/{slug}/ — never the
-// diesel variant. When the ingestion script is extended, this block can
-// drop the fuel filter.
-
-interface ItalianStationContext {
-  readonly station: ItalianCityStation;
-  readonly cityEntry: ItalianCityEntry;
-  readonly slug: string;
-  readonly brandDisplay: string;
-  readonly streetDisplay: string;
-  readonly priceEur: number;
-}
-
-/**
- * Collect Italian per-station contexts grouped by curated city. Dedupes
- * by station id (each station appears twice in the dataset — once for
- * `isSelf:true` and once for `isSelf:false`) keeping the cheaper variant.
- */
-function collectItalianStationContexts(
-  dataset: FuelPricesDataset,
-): ItalianStationContext[] {
-  const out: ItalianStationContext[] = [];
-  const slugSeen = new Set<string>();
-
-  for (const entry of FUEL_ITALIAN_CITIES) {
-    const rawStations = collectItalianCityStations(dataset, entry);
-    // Dedupe by id, prefer the cheapest variant (typically self-service).
-    const byId = new Map<string, ItalianCityStation>();
-    for (const s of rawStations) {
-      if (!s.id) continue;
-      if (typeof s.priceEur !== 'number' || !Number.isFinite(s.priceEur)) continue;
-      const existing = byId.get(s.id);
-      if (!existing || (existing.priceEur ?? Infinity) > s.priceEur) {
-        byId.set(s.id, s);
-      }
-    }
-
-    for (const s of byId.values()) {
-      if (!s.brand && !s.stationName) continue;
-      const baseSlug = buildStationSlug({
-        brand: s.brand,
-        name: s.stationName,
-        address: s.address,
-      });
-      if (!baseSlug) continue;
-
-      // Ensure slug uniqueness within this city
-      let slug = baseSlug;
-      let suffix = 2;
-      while (slugSeen.has(`${entry.slug}/${slug}`)) {
-        slug = `${baseSlug}-${suffix++}`;
-      }
-      slugSeen.add(`${entry.slug}/${slug}`);
-
-      // Strip postal-code suffix from address tail to get a clean street label
-      const rawAddr = (s.address ?? '').trim();
-      const street = rawAddr.replace(/\s+\d{5}\s*$/, '').trim() || rawAddr;
-      const baseBrandDisplay =
-        s.brand && s.brand.toUpperCase() !== 'UNDEFINED'
-          ? titleCase(s.brand)
-          : s.stationName
-            ? titleCase(s.stationName.split(/\s+/)[0] ?? 'Stazione')
-            : 'Stazione';
-      // Title-uniqueness fix (2026-04-27): same as Swiss path — append the
-      // slug-disambiguator number to brand so the 60-char clamp doesn't
-      // collapse two same-brand-and-street stations to the identical title.
-      const slugTailNum = (() => {
-        const m = slug.match(/-(\d+)$/);
-        return m ? m[1] : '';
-      })();
-      const brandDisplay = slugTailNum ? `${baseBrandDisplay} ${slugTailNum}` : baseBrandDisplay;
-
-      out.push({
-        station: s,
-        cityEntry: entry,
-        slug,
-        brandDisplay,
-        streetDisplay: street,
-        priceEur: s.priceEur as number,
-      });
-    }
-  }
-  return out;
-}
-
-function groupItalianContextsByCity(
-  contexts: readonly ItalianStationContext[],
-): Map<string, ItalianStationContext[]> {
-  const out = new Map<string, ItalianStationContext[]>();
-  for (const c of contexts) {
-    const arr = out.get(c.cityEntry.slug) ?? [];
-    arr.push(c);
-    out.set(c.cityEntry.slug, arr);
-  }
-  return out;
-}
-
-interface ItalianStationCopy {
-  readonly h1: (brand: string, street: string, city: string, fuelLabel: string) => string;
-  readonly intro: (brand: string, city: string, price: string, fuelLabel: string) => string;
-  readonly paragraph: (brand: string, city: string, price: string, cityAvg: string, fuelLabel: string) => string;
-  readonly ranking: (rank: string, total: number, city: string) => string;
-  readonly infoHeading: string;
-  readonly infoBrand: string;
-  readonly infoAddress: string;
-  readonly infoUpdated: string;
-  readonly infoSelfService: string;
-  readonly currency: string;
-  readonly backToCity: (city: string) => string;
-  readonly rankCheapest: string;
-  readonly rankMedian: string;
-  readonly rankPremium: string;
-  readonly deltaVsCity: string;
-  readonly priceLabel: string;
-  readonly contextHeading: string;
-  readonly contextParagraphs: (brand: string, city: string, nearestZoneLabel: string) => string[];
-  readonly siblingsHeading: string;
-  readonly breadcrumbHome: string;
-  readonly italyLabel: string;
-}
-
-const IT_STATION_COPY: Record<FuelDailyLocale, ItalianStationCopy> = {
-  it: {
-    h1: (b, st, c, f) => `Prezzo ${f.toLowerCase()} ${b} ${st} a ${c}`,
-    intro: (b, c, p, f) =>
-      `La stazione ${b} a ${c} oggi vende ${f.toLowerCase()} a ${p} EUR/litro. I prezzi vengono aggiornati ogni mattina dalle rilevazioni MIMIT delle stazioni italiane attive — utili per pianificare il rifornimento prima del valico.`,
-    paragraph: (b, c, p, cAvg, f) =>
-      `Alla stazione ${b} di ${c} il prezzo del ${f.toLowerCase()} è ${p} EUR/litro contro una media città di ${cAvg} EUR/litro. Confronta questo dato con la media svizzera della zona Ticino più vicina per decidere da che lato del confine conviene fare il pieno oggi. La differenza tipica fra Italia e Ticino è di 0,10-0,30 EUR/litro a favore dell'Italia, ma controlla sempre la coda al valico: 30 minuti di attesa possono annullare il vantaggio.`,
-    ranking: (r, t, c) => `Posizione nella classifica di ${c}: ${r} (${t} stazioni rilevate).`,
-    infoHeading: 'Informazioni stazione',
-    infoBrand: 'Marchio',
-    infoAddress: 'Indirizzo',
-    infoUpdated: 'Ultimo aggiornamento prezzo',
-    infoSelfService: 'Modalità rifornimento',
-    currency: 'EUR/litro',
-    backToCity: (c) => `Torna al prezzo medio a ${c}`,
-    rankCheapest: 'più economica',
-    rankMedian: 'mediana',
-    rankPremium: 'premium',
-    deltaVsCity: 'vs media città',
-    priceLabel: 'Prezzo oggi',
-    contextHeading: 'Conviene fare il pieno qui prima del valico?',
-    contextParagraphs: (_b, c, nz) => [
-      `${c} è uno dei comuni di confine più frequentati dai frontalieri ticinesi. La stazione qui sotto si valuta rispetto a tre parametri: distanza dal valico più vicino, differenza di prezzo rispetto alla zona Ticino di ${nz}, modalità di rifornimento (self-service è in genere 0,10-0,15 EUR/litro più conveniente). Se rientri la sera dopo il lavoro in Ticino, fare il pieno qui è quasi sempre vantaggioso quando il prezzo svizzero supera di 0,10 EUR/litro quello italiano.`,
-      `Considera però il tempo: una coda di 30 minuti al valico al rientro vale circa 5-8 EUR di costo opportunità. Per un pieno da 50 litri il vantaggio massimo italiano (0,30 EUR/litro = 15 EUR) si dimezza. Controlla sempre i tempi di attesa alla dogana prima di programmare la deviazione, e leggi la guida frontalieri per stimare il costo complessivo del tragitto giornaliero.`,
-      `Da dove arriva il prezzo: la cifra in alto è la rilevazione MIMIT (Ministero delle Imprese e del Made in Italy) per la stazione di ${c}, dichiarata dal gestore tramite il portale Osservaprezzi e replicata qui ogni mattina. Il prezzo italiano alla pompa è composto da prezzo industriale (legato al Brent e al cambio EUR/USD), accisa fissa (≈ 0,617 EUR/litro per la benzina, ≈ 0,617 EUR/litro per il gasolio dopo l'allineamento del 2024), IVA al 22 % e margine del distributore: quest'ultima componente fa la differenza fra una pompa indipendente lontana dal valico e una stazione brand vicina al confine, dove la sovrattassa frontaliera è tipicamente di 0,03-0,07 EUR/litro. La pagina collega la stazione di ${c} alla zona Ticino più vicina (${nz}) per fornire al frontaliere un confronto immediato fra le due sponde del valico.`,
-      `Quanto costa un mese di rifornimenti partendo da ${c}: per un frontaliere che percorre 80 km/giorno (es. ${c}-Lugano o ${c}-Mendrisio passando dal valico di Brogeda o di Stabio) e fa un pieno di 50 litri ogni 7-9 giorni — circa 200 litri al mese — il costo mensile da questa stazione equivale a 4 pieni × prezzo attuale × 50 L. Confronta questo importo con 200 litri sul lato Ticino (a media ${nz}) e considera il tempo aggiuntivo: 30 minuti di coda al valico al rientro × 4 settimane = ~2 ore/mese di costo-tempo, equivalenti a ~25-35 EUR per chi guadagna 4.000-6.000 CHF/mese. Quando il delta Italia-Ticino scende sotto 0,08 EUR/litro la convenienza italiana sparisce; sopra 0,15 EUR/litro restano 30-90 EUR netti al mese di risparmio.`,
-      `Quale giorno e quale momento conviene fare il pieno qui. I prezzi MIMIT a ${c} hanno una stagionalità prevedibile: lunedì e martedì sono i giorni più convenienti perché molti gestori reimpostano i listini all'inizio della settimana, mentre venerdì pomeriggio e domenica registrano un premio di 0,02-0,05 EUR/litro per via della domanda di vacanza. In termini di orario, le prime ore del mattino (06:00-08:30) e tarda serata (dopo le 21:00) consentono di evitare la coda dovuta al traffico di lavoratori. Se la stazione di ${c} è self-service, il differenziale tipico è di 0,10-0,15 EUR/litro a favore tuo rispetto alla modalità "servito" — sempre vantaggioso per un pieno da 50 litri (≈ 5-7 EUR di risparmio). Le pompe bianche e gli ipermercati periferici di ${c} sono in genere ulteriori 0,03-0,07 EUR/litro più convenienti dei brand integrati. Per scegliere l'opzione più economica del giorno consulta tutte le stazioni della città dalla pagina hub di ${c} e abbinala al prezzo del lato Ticino in zona ${nz}: l'<a class="s-IjpSYt" href="/calcola-stipendio/">simulatore stipendio</a> netta carburante e tempo perso sull'intero pendolarismo.`,
-    ],
-    siblingsHeading: 'Altre stazioni in città',
-    breadcrumbHome: 'Home',
-    italyLabel: 'Italia',
-  },
-  en: {
-    h1: (b, st, c, f) => `${f} price ${b} ${st} in ${c}`,
-    intro: (b, c, p, f) =>
-      `The ${b} station in ${c} currently sells ${f.toLowerCase()} at ${p} EUR per litre. Prices are refreshed daily from the Italian Ministry (MIMIT) station feed — useful to plan your fill-up before the border crossing.`,
-    paragraph: (b, c, p, cAvg, f) =>
-      `At the ${b} station in ${c} the ${f.toLowerCase()} price is ${p} EUR per litre vs the city average of ${cAvg} EUR per litre. Compare this figure with the Swiss Ticino zone average to decide which side of the border to fill up on today. The typical Italy-vs-Ticino gap is 0.10-0.30 EUR/litre in Italy's favour, but always check the border queue: a 30-minute wait can wipe out the saving.`,
-    ranking: (r, t, c) => `Rank in ${c}: ${r} (${t} stations observed).`,
-    infoHeading: 'Station info',
-    infoBrand: 'Brand',
-    infoAddress: 'Address',
-    infoUpdated: 'Last price update',
-    infoSelfService: 'Service mode',
-    currency: 'EUR/litre',
-    backToCity: (c) => `Back to ${c} city average`,
-    rankCheapest: 'cheapest',
-    rankMedian: 'median',
-    rankPremium: 'premium',
-    deltaVsCity: 'vs city avg',
-    priceLabel: 'Price today',
-    contextHeading: 'Worth filling up here before crossing?',
-    contextParagraphs: (_b, c, nz) => [
-      `${c} is one of the busiest border towns for Ticino cross-border commuters. This station is evaluated against three factors: distance from the nearest crossing, price gap with the Ticino ${nz} zone, and service mode (self-service is typically 0.10-0.15 EUR/litre cheaper). If you drive home in the evening after work in Ticino, filling up here is almost always worth it when the Swiss price is more than 0.10 EUR/litre above the Italian one.`,
-      `Factor in time though: a 30-minute border queue costs ~5-8 EUR in opportunity. For a 50-litre tank the max Italian advantage (0.30 EUR/litre = 15 EUR) is halved. Always check live border wait times before planning the detour, and read the cross-border commuter guide to estimate total daily commute costs.`,
-      `Where this price comes from: the figure shown at the top is the MIMIT (Italian Ministry of Enterprise) reading for this station in ${c}, self-declared by the operator through the Osservaprezzi portal and refreshed here every morning. The Italian pump price breaks down into the industrial price (linked to Brent and EUR/USD), the fixed excise duty (≈ 0.617 EUR/litre for petrol, ≈ 0.617 EUR/litre for diesel after the 2024 alignment), 22 % VAT, and the operator margin — the last component is what separates an independent pump far from the border from a branded station next to the crossing, where the frontaliere premium is typically 0.03-0.07 EUR/litre. The page maps this ${c} station to its nearest Ticino zone (${nz}) so that cross-border workers see both sides of the border at a glance.`,
-      `Monthly refuel cost from ${c}: a frontaliere driving 80 km/day (for example ${c}-Lugano or ${c}-Mendrisio through Brogeda or Stabio) refuels 50 litres every 7-9 days — about 200 litres per month — so the monthly bill from this station is roughly 4 fills × today's price × 50 L. Compare that with 200 litres on the Ticino side (using the ${nz} zone average) and add the time penalty: 30 minutes of border queue × 4 weeks = ~2 hours/month, worth ~25-35 EUR for someone earning 4,000-6,000 CHF/month. When the Italy-vs-Ticino delta drops under 0.08 EUR/litre the Italian advantage disappears; above 0.15 EUR/litre 30-90 EUR/month of net saving remains.`,
-      `Best day and time to fill up here. MIMIT prices in ${c} follow a predictable cadence: Monday and Tuesday are the cheapest days because many operators reset their lists at the start of the week, while Friday afternoons and Sundays carry a 0.02-0.05 EUR/litre premium driven by holiday demand. Time-of-day matters too: early morning (06:00-08:30) and late evening (after 21:00) avoid the working-traffic queue. If the station in ${c} is self-service, the typical differential is 0.10-0.15 EUR/litre in your favour against the "served" mode — always worth taking on a 50-litre fill (≈ 5-7 EUR saved). Independent "pompe bianche" and peripheral hypermarket stations in ${c} are usually a further 0.03-0.07 EUR/litre cheaper than the integrated brand stations. Pick today's lowest from the ${c} city hub and pair it with the Ticino-side ${nz} zone price: the <a class="s-IjpSYt" href="/en/calculate-salary/">salary calculator</a> nets fuel and lost time across the whole commute.`,
-    ],
-    siblingsHeading: 'Other stations in town',
-    breadcrumbHome: 'Home',
-    italyLabel: 'Italy',
-  },
-  de: {
-    h1: (b, st, c, f) => `${f}preis ${b} ${st} in ${c}`,
-    intro: (b, c, p, f) =>
-      `Die Tankstelle ${b} in ${c} verkauft heute ${f} zum Preis von ${p} EUR pro Liter. Die Preise werden täglich aus den MIMIT-Daten aktiver italienischer Tankstellen aktualisiert — nützlich, um das Tanken vor dem Grenzübertritt zu planen.`,
-    paragraph: (b, c, p, cAvg, f) =>
-      `An der Tankstelle ${b} in ${c} liegt der ${f}preis bei ${p} EUR pro Liter gegenüber einem Stadtdurchschnitt von ${cAvg} EUR pro Liter. Vergleiche den Wert mit dem Tessiner Zonendurchschnitt, um zu entscheiden, auf welcher Grenzseite du heute tanken solltest. Der typische Vorteil Italiens gegenüber dem Tessin liegt bei 0,10-0,30 EUR/Liter, aber prüfe immer die Wartezeit am Grenzübergang: 30 Minuten zehren den Vorteil auf.`,
-    ranking: (r, t, c) => `Rang in ${c}: ${r} (${t} erfasste Tankstellen).`,
-    infoHeading: 'Tankstellen-Infos',
-    infoBrand: 'Marke',
-    infoAddress: 'Adresse',
-    infoUpdated: 'Letzte Preisaktualisierung',
-    infoSelfService: 'Bedienmodus',
-    currency: 'EUR/Liter',
-    backToCity: (c) => `Zurück zum Stadtdurchschnitt ${c}`,
-    rankCheapest: 'günstigste',
-    rankMedian: 'Median',
-    rankPremium: 'Premium',
-    deltaVsCity: 'vs Stadt-Ø',
-    priceLabel: 'Preis heute',
-    contextHeading: 'Lohnt sich das Tanken hier vor dem Grenzübergang?',
-    contextParagraphs: (_b, c, nz) => [
-      `${c} ist einer der meistgenutzten Grenzorte der Tessiner Grenzgänger. Die Tankstelle hier bewertet sich nach drei Faktoren: Distanz zum nächsten Grenzübergang, Preisdifferenz zur Tessiner Zone ${nz} und Bedienmodus (Self-Service ist typischerweise 0,10-0,15 EUR/Liter günstiger). Wenn du abends nach der Arbeit im Tessin nach Hause fährst, lohnt sich das Tanken hier fast immer, sobald der Schweizer Preis mehr als 0,10 EUR/Liter über dem italienischen liegt.`,
-      `Berücksichtige aber die Zeit: 30 Minuten Grenzwartezeit kosten etwa 5-8 EUR an Opportunitätskosten. Bei 50 Liter halbiert das den maximalen italienischen Vorteil (0,30 EUR/Liter = 15 EUR). Prüfe stets die aktuellen Grenzwartezeiten und lies den Grenzgänger-Leitfaden für die gesamte Pendel-Kostenrechnung.`,
-      `Woher der Preis kommt: Der oben gezeigte Wert ist die MIMIT-Erhebung (Italienisches Ministerium für Unternehmen und Made in Italy) für die Tankstelle in ${c}, vom Betreiber über das Osservaprezzi-Portal selbst gemeldet und hier morgens aktualisiert. Der italienische Pumpenpreis setzt sich zusammen aus dem Industriepreis (gekoppelt an Brent und EUR/USD), der fixen Verbrauchsteuer (≈ 0,617 EUR/Liter Benzin und ≈ 0,617 EUR/Liter Diesel nach dem Angleich 2024), 22 % Mehrwertsteuer und der Marge des Betreibers — letzterer Hebel macht den Unterschied zwischen einer unabhängigen Tankstelle weit weg von der Grenze und einer Markentankstelle direkt am Übergang, wo der Grenzgänger-Aufschlag typischerweise 0,03-0,07 EUR/Liter beträgt. Diese Tankstelle in ${c} wird der nächstgelegenen Tessiner Zone (${nz}) zugeordnet, damit Grenzgänger beide Seiten der Grenze auf einen Blick vergleichen können.`,
-      `Monatliche Tankkosten von ${c}: Ein Grenzgänger mit 80 km Tagesstrecke (z. B. ${c}-Lugano oder ${c}-Mendrisio über Brogeda oder Stabio) tankt etwa 50 Liter alle 7-9 Tage — rund 200 Liter im Monat — daher beträgt die Monatsrechnung an dieser Tankstelle ungefähr 4 Tankfüllungen × heutiger Preis × 50 L. Vergleiche das mit 200 Litern auf der Tessiner Seite (zum ${nz}-Zonendurchschnitt) und kalkuliere die Zeitkosten ein: 30 Minuten Grenzwartezeit × 4 Wochen = ~2 Stunden/Monat, entsprechend ~25-35 EUR für jemand mit 4.000-6.000 CHF/Monat Lohn. Wenn der Italien-Tessin-Delta unter 0,08 EUR/Liter sinkt, verschwindet der italienische Vorteil; über 0,15 EUR/Liter bleiben 30-90 EUR/Monat Nettoersparnis.`,
-      `Bester Tag und beste Tageszeit zum Tanken hier. Die MIMIT-Preise in ${c} folgen einem vorhersehbaren Rhythmus: Montag und Dienstag sind die günstigsten Tage, weil viele Betreiber zu Wochenbeginn die Preislisten zurücksetzen, während Freitagnachmittag und Sonntag einen Aufschlag von 0,02-0,05 EUR/Liter aufgrund der Ferienverkehrnachfrage tragen. Auch die Tageszeit zählt: frühmorgens (06:00-08:30) und spätabends (nach 21:00) vermeidet man die Schlange der Berufspendler. Ist die Tankstelle in ${c} im Self-Service-Modus, beträgt die typische Differenz 0,10-0,15 EUR/Liter zu Ihren Gunsten gegenüber dem "Bedienmodus" — bei einer 50-Liter-Tankfüllung lohnt sich das immer (≈ 5-7 EUR gespart). Unabhängige "pompe bianche" und peripher gelegene Hypermarkt-Tankstellen in ${c} sind üblicherweise nochmals 0,03-0,07 EUR/Liter günstiger als die integrierten Markentankstellen. Wählen Sie das günstigste Angebot des Tages aus der ${c}-Stadt-Hub-Seite und vergleichen Sie es mit der Tessiner ${nz}-Zone: Der <a class="s-IjpSYt" href="/de/gehalt-berechnen/">Gehaltsrechner</a> verrechnet Treibstoff- und Zeitkosten über das gesamte Pendeln.`,
-    ],
-    siblingsHeading: 'Andere Tankstellen in der Stadt',
-    breadcrumbHome: 'Startseite',
-    italyLabel: 'Italien',
-  },
-  fr: {
-    h1: (b, st, c, f) => `Prix du ${f.toLowerCase()} ${b} ${st} à ${c}`,
-    intro: (b, c, p, f) =>
-      `La station ${b} à ${c} vend aujourd'hui du ${f.toLowerCase()} à ${p} EUR le litre. Les prix sont mis à jour chaque jour à partir des données MIMIT des stations italiennes actives — utile pour planifier le plein avant le passage à la frontière.`,
-    paragraph: (b, c, p, cAvg, f) =>
-      `À la station ${b} de ${c} le prix du ${f.toLowerCase()} est de ${p} EUR le litre contre une moyenne ville de ${cAvg} EUR le litre. Comparez cet écart avec la moyenne tessinoise la plus proche pour choisir de quel côté de la frontière faire le plein aujourd'hui. L'écart typique Italie/Tessin est de 0,10-0,30 EUR/litre en faveur de l'Italie, mais vérifiez toujours la file au passage frontalier : 30 minutes d'attente peuvent annuler l'économie.`,
-    ranking: (r, t, c) => `Classement à ${c} : ${r} (${t} stations observées).`,
-    infoHeading: 'Infos station',
-    infoBrand: 'Marque',
-    infoAddress: 'Adresse',
-    infoUpdated: 'Dernière mise à jour du prix',
-    infoSelfService: 'Mode de service',
-    currency: 'EUR/litre',
-    backToCity: (c) => `Retour à la moyenne ville ${c}`,
-    rankCheapest: 'la moins chère',
-    rankMedian: 'médiane',
-    rankPremium: 'premium',
-    deltaVsCity: 'vs moy. ville',
-    priceLabel: 'Prix aujourd\'hui',
-    contextHeading: 'Faire le plein ici avant la frontière en vaut-il la peine ?',
-    contextParagraphs: (_b, c, nz) => [
-      `${c} est l'une des villes-frontière les plus fréquentées par les frontaliers tessinois. Cette station s'évalue selon trois facteurs : distance du poste-frontière le plus proche, écart de prix avec la zone tessinoise de ${nz}, et mode de service (le self-service est typiquement 0,10-0,15 EUR/litre moins cher). Si vous rentrez le soir après le travail au Tessin, faire le plein ici est presque toujours rentable lorsque le prix suisse dépasse de plus de 0,10 EUR/litre le prix italien.`,
-      `Tenez compte du temps : 30 minutes d'attente à la frontière coûtent ~5-8 EUR en coût d'opportunité. Pour un plein de 50 litres, l'avantage italien maximal (0,30 EUR/litre = 15 EUR) est divisé par deux. Vérifiez toujours les temps d'attente en direct avant de planifier le détour et lisez le guide frontalier pour estimer le coût total du trajet quotidien.`,
-      `D'où vient ce prix : la valeur affichée en haut est le relevé MIMIT (ministère italien de l'Entreprise et du Made in Italy) pour la station de ${c}, déclaré par l'exploitant via le portail Osservaprezzi et reproduit ici chaque matin. Le prix italien à la pompe se compose du prix industriel (lié au Brent et au cours EUR/USD), de l'accise fixe (≈ 0,617 EUR/litre pour l'essence et ≈ 0,617 EUR/litre pour le gasoil après l'alignement de 2024), de la TVA à 22 % et de la marge de l'exploitant — c'est cette dernière qui distingue une pompe indépendante éloignée du poste-frontière d'une station de marque collée à la frontière, où la surtaxe frontalière atteint typiquement 0,03-0,07 EUR/litre. La page met en relation cette station de ${c} avec la zone tessinoise la plus proche (${nz}) afin que les frontaliers voient les deux côtés de la frontière d'un coup d'œil.`,
-      `Coût mensuel de plein depuis ${c} : un frontalier qui parcourt 80 km/jour (par exemple ${c}-Lugano ou ${c}-Mendrisio via Brogeda ou Stabio) refait son plein de 50 litres tous les 7-9 jours — environ 200 litres par mois — donc la facture mensuelle depuis cette station équivaut à 4 pleins × prix du jour × 50 L. Comparez ce montant à 200 litres côté tessinois (sur la moyenne de la zone ${nz}) et ajoutez la pénalité temporelle : 30 minutes de file × 4 semaines = ~2 heures/mois, ce qui représente ~25-35 EUR pour un revenu de 4.000-6.000 CHF/mois. Quand l'écart Italie/Tessin descend sous 0,08 EUR/litre l'avantage italien disparaît ; au-dessus de 0,15 EUR/litre il reste 30-90 EUR nets d'économie mensuelle.`,
-      `Meilleur jour et meilleur moment pour faire le plein ici. Les prix MIMIT à ${c} suivent un rythme prévisible : lundi et mardi sont les jours les moins chers parce que beaucoup d'exploitants réinitialisent leurs listes en début de semaine, tandis que le vendredi après-midi et le dimanche affichent un supplément de 0,02-0,05 EUR/litre tiré par la demande de vacances. L'heure de la journée compte aussi : tôt le matin (06:00-08:30) et tard le soir (après 21:00) évitent la file des trajets domicile-travail. Si la station de ${c} est en self-service, le différentiel typique est de 0,10-0,15 EUR/litre en votre faveur par rapport au mode "servi" — toujours rentable sur un plein de 50 litres (≈ 5-7 EUR économisés). Les "pompes blanches" indépendantes et les hypermarchés périphériques de ${c} sont en général encore 0,03-0,07 EUR/litre moins chers que les stations de marque intégrées. Choisissez l'option la plus économique du jour depuis la page hub de ${c} et appariez-la au prix tessinois de la zone ${nz} : le <a class="s-IjpSYt" href="/fr/calculer-salaire/">simulateur de salaire</a> intègre carburant et temps perdu sur l'ensemble du pendulaire.`,
-    ],
-    siblingsHeading: 'Autres stations en ville',
-    breadcrumbHome: 'Accueil',
-    italyLabel: 'Italie',
-  },
-};
-
-/**
- * Locale-aware frontalier-context prose for Italian per-station detail pages.
- * Mirrors {@link renderItalianCityFrontalierExtra} but interpolates the
- * station-level identifiers (brand, street, city, today's price, nearest
- * Ticino zone) so each page emits page-specific copy — Google sees per-station
- * variation rather than template boilerplate, and the visible text/HTML ratio
- * stays comfortably above the Semrush 10 % threshold even with the SVG history
- * card and stat tiles dominating the markup.
- */
-function renderItalianStationFrontalierExtra(args: {
-  locale: FuelDailyLocale;
-  fuelLabel: string;
-  brandDisplay: string;
-  streetDisplay: string;
-  cityDisplay: string;
-  nearestZoneLabel: string;
-  priceFmt: string;
-  cityAvgFmt: string;
-}): string {
-  const { locale, fuelLabel, brandDisplay, streetDisplay, cityDisplay, nearestZoneLabel, priceFmt, cityAvgFmt } = args;
-  const stationLabel = `${brandDisplay} ${streetDisplay}`.trim();
-  const copy: Record<FuelDailyLocale, { h: string; p1: string; p2: string }> = {
-    it: {
-      h: `${stationLabel} a ${cityDisplay}: matematica del rifornimento per il frontaliere`,
-      p1: `Il prezzo di ${priceFmt} EUR/litro alla pompa ${stationLabel} di ${cityDisplay} si scompone secondo la struttura tipica del ${fuelLabel.toLowerCase()} italiano: circa il 40 % è prezzo industriale legato al Brent e al cambio EUR/USD, il 35 % è accisa fissa (≈ 0,617 EUR/litro dopo l'allineamento del 2024), il 22 % è IVA, e il restante è margine del distributore — è proprio quest'ultima componente, non le tasse, a separare una stazione brand vicina al valico da una pompa indipendente in periferia di ${cityDisplay}. Confronta il prezzo di oggi (${priceFmt} EUR) con la media città di ${cityAvgFmt} EUR e con la media della zona Ticino di ${nearestZoneLabel}: quando il delta Italia-Ticino supera 0,15 EUR/litro fare il pieno qui prima del valico ha senso anche tenendo conto del costo opportunità di una coda di 30 minuti al confine; quando scende sotto 0,08 EUR/litro l'unico vantaggio residuo è logistico (si rientra a casa già con il pieno).`,
-      p2: `Calcolo annuale concreto per chi pendola da ${cityDisplay} verso il Ticino passando da questa stazione. Su 220 giorni lavorativi × 60 km medi andata-ritorno = 13'200 km annui, un'auto con consumo di 6 L/100 km consuma circa 792 litri all'anno: alla pompa ${stationLabel} a ${priceFmt} EUR/litro la spesa annua di carburante è circa 792 × ${priceFmt.replace(/[^0-9,.]/g, '').replace(',', '.')} EUR ≈ il 15-25 % del costo totale del pendolarismo. Il resto si compone di usura veicolo (~CHF 0,15/km × 13'200 km = CHF 1'980/anno), bollo (CHF 200-400 secondo cilindrata), assicurazione RC (CHF 600-1'200), revisione e tagliandi (~CHF 600/anno) e tempo perso ai valichi (30 minuti × 220 giorni × tariffa oraria del proprio salario CHF). Per il calcolo netto-lordo dello stipendio frontaliere che integra carburante, tempo e usura usa il <a class="s-IjpSYt" href="/calcola-stipendio/">simulatore stipendio frontaliere</a>; per la convenienza fiscale aggiornata al nuovo accordo 2026 confronta il regime fiscale del Permesso G nel comparatore dedicato.`,
-    },
-    en: {
-      h: `${stationLabel} in ${cityDisplay}: refuelling math for cross-border workers`,
-      p1: `Today's ${priceFmt} EUR/litre at the ${stationLabel} pump in ${cityDisplay} breaks down along the standard Italian ${fuelLabel.toLowerCase()} structure: about 40 % is industrial price (linked to Brent and the EUR/USD rate), 35 % is fixed excise duty (≈ 0.617 EUR/litre after the 2024 alignment), 22 % is VAT, and the rest is the operator's margin — and it is the margin, not the tax stack, that separates a branded station next to the border crossing from an independent pump on the outskirts of ${cityDisplay}. Compare today's price (${priceFmt} EUR) with the city average of ${cityAvgFmt} EUR and with the Ticino-side ${nearestZoneLabel} zone average: when the Italy-vs-Ticino delta is above 0.15 EUR/litre, filling up here before crossing pays off even after a 30-minute border queue; below 0.08 EUR/litre the only remaining advantage is logistical (you arrive home already topped up).`,
-      p2: `Concrete yearly maths for someone commuting from ${cityDisplay} into Ticino through this station. Across 220 working days × 60 km round-trip on average = 13,200 km/year, a car with 6 L/100 km consumption uses roughly 792 litres/year: at the ${stationLabel} pump priced at ${priceFmt} EUR/litre that's about 792 × ${priceFmt.replace(/[^0-9,.]/g, '').replace(',', '.')} EUR per year — typically 15-25 % of total commute cost. The remaining 75-85 % is vehicle wear (~CHF 0.15/km × 13,200 km = CHF 1,980/year), road tax (CHF 200-400 depending on engine size), liability insurance (CHF 600-1,200), inspection and servicing (~CHF 600/year) and the opportunity cost of border-queue time (30 minutes × 220 days × your hourly CHF rate). For the gross-to-net cross-border salary calculation including fuel, time and wear use the <a class="s-IjpSYt" href="/en/calculate-salary/">cross-border salary simulator</a>; for the fiscal break-even under the 2026 New Agreement, compare the Permit G regime side-by-side in the dedicated comparator.`,
-    },
-    de: {
-      h: `${stationLabel} in ${cityDisplay}: Tank-Mathematik für Grenzgänger`,
-      p1: `Der heutige Preis von ${priceFmt} EUR/Liter an der Tankstelle ${stationLabel} in ${cityDisplay} setzt sich nach der typischen Struktur des italienischen ${fuelLabel.toLowerCase()} zusammen: rund 40 % entfallen auf den Industriepreis (gekoppelt an Brent und EUR/USD-Kurs), 35 % auf die fixe Verbrauchsteuer (≈ 0,617 EUR/Liter nach dem Angleich 2024), 22 % auf die Mehrwertsteuer und der Rest auf die Marge des Betreibers — und gerade letztere, nicht die Abgaben, trennt eine Marken-Tankstelle direkt am Grenzübergang von einer unabhängigen Pumpe am Stadtrand von ${cityDisplay}. Vergleichen Sie den heutigen Preis (${priceFmt} EUR) mit dem Stadtdurchschnitt von ${cityAvgFmt} EUR und mit dem Tessiner Zonendurchschnitt von ${nearestZoneLabel}: liegt der Italien-Tessin-Delta über 0,15 EUR/Liter, lohnt sich das Tanken hier vor dem Grenzübertritt selbst nach 30 Minuten Wartezeit; unter 0,08 EUR/Liter bleibt nur noch der logistische Vorteil (man fährt schon vollgetankt nach Hause).`,
-      p2: `Konkrete Jahresrechnung für jemand, der von ${cityDisplay} ins Tessin pendelt und an dieser Tankstelle tankt. Über 220 Arbeitstage × 60 km Hin- und Rückfahrt im Durchschnitt = 13'200 km/Jahr verbraucht ein Auto mit 6 L/100 km rund 792 Liter pro Jahr: an der ${stationLabel}-Pumpe zum Preis von ${priceFmt} EUR/Liter ergibt das ungefähr 792 × ${priceFmt.replace(/[^0-9,.]/g, '').replace(',', '.')} EUR jährlich — typisch 15-25 % der gesamten Pendelkosten. Die restlichen 75-85 % verteilen sich auf Fahrzeugverschleiss (~CHF 0,15/km × 13'200 km = CHF 1'980/Jahr), Motorfahrzeugsteuer (CHF 200-400 je nach Hubraum), Haftpflichtversicherung (CHF 600-1'200), Service und Abgaswartung (~CHF 600/Jahr) und Opportunitätskosten der Wartezeit am Grenzübergang (30 Minuten × 220 Tage × Stundenlohn). Für die Brutto-Netto-Berechnung des Grenzgängerlohns inklusive Treibstoff, Zeit und Verschleiss nutzen Sie den <a class="s-IjpSYt" href="/de/gehalt-berechnen/">Grenzgänger-Lohnsimulator</a>; für die steuerliche Wirtschaftlichkeit nach dem neuen Abkommen 2026 vergleichen Sie das Grenzgänger-G-Regime im dedizierten Vergleichsrechner.`,
-    },
-    fr: {
-      h: `${stationLabel} à ${cityDisplay} : mathématique du plein pour le frontalier`,
-      p1: `Le prix d'aujourd'hui de ${priceFmt} EUR/litre à la pompe ${stationLabel} de ${cityDisplay} se décompose selon la structure typique du ${fuelLabel.toLowerCase()} italien : environ 40 % est le prix industriel (lié au Brent et au taux EUR/USD), 35 % est l'accise fixe (≈ 0,617 EUR/litre après l'alignement 2024), 22 % est la TVA et le reste correspond à la marge de l'exploitant — et c'est précisément cette dernière, et non la fiscalité, qui sépare une station de marque collée à la frontière d'une pompe indépendante en périphérie de ${cityDisplay}. Comparez le prix d'aujourd'hui (${priceFmt} EUR) avec la moyenne ville de ${cityAvgFmt} EUR et avec la moyenne tessinoise de la zone ${nearestZoneLabel} : quand l'écart Italie/Tessin dépasse 0,15 EUR/litre, faire le plein ici avant le passage est rentable même après 30 minutes d'attente ; en dessous de 0,08 EUR/litre il ne reste que l'avantage logistique (on rentre déjà fait le plein).`,
-      p2: `Calcul annuel concret pour qui pendule depuis ${cityDisplay} vers le Tessin via cette station. Sur 220 jours ouvrables × 60 km aller-retour moyen = 13'200 km/an, une voiture consommant 6 L/100 km utilise environ 792 litres/an : à la pompe ${stationLabel} à ${priceFmt} EUR/litre cela représente environ 792 × ${priceFmt.replace(/[^0-9,.]/g, '').replace(',', '.')} EUR par an — typiquement 15-25 % du coût total du trajet. Les 75-85 % restants se composent d'usure du véhicule (~CHF 0,15/km × 13'200 km = CHF 1'980/an), taxe de circulation (CHF 200-400 selon la cylindrée), assurance responsabilité civile (CHF 600-1'200), contrôle technique et entretien (~CHF 600/an) et coût d'opportunité du temps perdu à la frontière (30 minutes × 220 jours × votre taux horaire CHF). Pour le calcul brut-net du salaire frontalier intégrant carburant, temps et usure, utilisez le <a class="s-IjpSYt" href="/fr/calculer-salaire/">simulateur de salaire frontalier</a> ; pour la rentabilité fiscale selon le nouvel accord 2026, comparez le régime du Permis G dans le comparateur dédié.`,
-    },
-  };
-  const c = copy[locale] || copy.it;
-  return `<section class="s-ziawP1" aria-labelledby="itStationFrontalierExtra">
-    <h2 id="itStationFrontalierExtra" style="${H2_STYLE}">${esc(c.h)}</h2>
-    <p class="s-KwuhOL">${c.p1}</p>
-    <p class="s-E7ZJqo">${c.p2}</p>
-  </section>`;
-}
-
-// ── Italian per-station hero + advice helpers (2026-05-18 parity) ──
-//
-// Mirrors the Swiss-side hero/advice components (`renderStationHero`,
-// `renderStationAdvice`) but localises currency (EUR), rank-link target
-// (city hub instead of zone hub), and advice copy ("media città" vs
-// "media zona"). All other above-the-fold affordances — map+location
-// card, lucide SVG icons, OSM fallback, last-updated timestamp — are
-// rendered by the same shared helpers the Swiss path uses, so any UX
-// change to those affects both countries simultaneously.
-
-interface ItalianStationHeroInput {
-  readonly locale: FuelDailyLocale;
-  readonly brand: string;
-  readonly street: string;
-  readonly city: string;
-  readonly cityHubPath: string;
-  readonly priceFmt: string;
-  readonly fuelLabel: string;
-  readonly deltaCity: number | null;
-  readonly deltaCityFmt: string;
-  readonly rankIdx: number;
-  readonly total: number;
-  readonly lat: number | null;
-  readonly lng: number | null;
-  readonly rootDir: string | undefined;
-}
-
-function renderItalianStationHero(inp: ItalianStationHeroInput): string {
-  const labels = STATION_REDESIGN[inp.locale];
-  const logo = renderBrandVisual(inp.rootDir, inp.brand, 64);
-  const rankText = labels.rankSuffix(inp.rankIdx, inp.total);
-  const deltaTone =
-    inp.deltaCity === null
-      ? 'var(--color-subtle)'
-      : inp.deltaCity < -0.005
-        ? 'var(--color-success)'
-        : inp.deltaCity > 0.005
-          ? 'var(--color-danger)'
-          : 'var(--color-subtle)';
-  const deltaBg =
-    inp.deltaCity === null
-      ? 'var(--color-surface-alt)'
-      : inp.deltaCity < -0.005
-        ? 'var(--color-success-subtle)'
-        : inp.deltaCity > 0.005
-          ? 'var(--color-danger-subtle)'
-          : 'var(--color-surface-alt)';
-  const hasCoords = inp.lat !== null && inp.lng !== null;
-  const gmapsHref = hasCoords
-    ? `https://www.google.com/maps/search/?api=1&query=${inp.lat!.toFixed(6)},${inp.lng!.toFixed(6)}`
-    : '';
-  const wazeHref = hasCoords
-    ? `https://www.waze.com/ul?ll=${inp.lat!.toFixed(6)}%2C${inp.lng!.toFixed(6)}&navigate=yes`
-    : '';
-  const ext = labels.externalLinkSuffix;
-  const labelGmaps = `${labels.openInMaps} (${ext})`;
-  const labelWaze = `${labels.openInWaze} (${ext})`;
-
-  const actionsHtml = `<div class="s-2AE7uV">
-    <a href="${esc(inp.cityHubPath)}" style="${CTA_PRIMARY_STYLE};font-size:14px;padding:9px 14px">${ICON_BAR_CHART_SVG} ${esc(labels.viewRanking(inp.city))} →</a>
-    ${hasCoords ? `<a class="s-MTU2pO" href="${esc(gmapsHref)}" target="_blank" rel="noopener" aria-label="${esc(labelGmaps)}">${ICON_MAP_PIN_SVG} ${esc(labels.openInMaps)}<span class="s--xxlQD" aria-hidden="true">↗</span></a>` : ''}
-    ${hasCoords ? `<a class="s-MTU2pO" href="${esc(wazeHref)}" target="_blank" rel="noopener" aria-label="${esc(labelWaze)}">${ICON_NAVIGATION_SVG} ${esc(labels.openInWaze)}<span class="s--xxlQD" aria-hidden="true">↗</span></a>` : ''}
-  </div>`;
-
-  return `<section style="${CARD_BODY_STYLE};padding:22px 22px 20px;margin:0 0 18px" aria-label="${esc(inp.brand)} ${esc(inp.city)}">
-  <div class="s-uKHM4F">
-    ${logo}
-    <div class="s-iFWoC6">
-      <div class="s-Yv6nXB">${esc(inp.brand)}</div>
-      <div class="s-BJbpLa">${esc(inp.street || inp.city)} · ${esc(inp.city)}</div>
-    </div>
-  </div>
-  <div class="s-FqOGbC">
-    <div>
-      <div class="s-k3C5vt">${esc(inp.priceFmt)}</div>
-      <div class="s-6aG_zc">EUR/litro · ${esc(inp.fuelLabel)}</div>
-    </div>
-    <div class="s-D7-ehZ">
-      <span style="display:inline-flex;align-items:center;gap:6px;padding:6px 12px;border-radius:999px;background:${deltaBg};color:${deltaTone};font-weight:700;font-size:13px;font-variant-numeric:tabular-nums">${esc(inp.deltaCityFmt)} vs ${esc(inp.city)}</span>
-      <a class="s-Ys_0Hs" href="${esc(inp.cityHubPath)}">${ICON_TROPHY_SVG} ${esc(rankText)} a ${esc(inp.city)} →</a>
-    </div>
-  </div>
-  ${actionsHtml}
-</section>`;
-}
-
-/**
- * IT-side advice banner — same tone palette as the Swiss path
- * (`renderStationAdvice`), but the copy says "media città X" instead of
- * "media zona X" so the recommendation matches the data source the user
- * is reading. Currency stays in the rendered delta string.
- */
-function renderItalianStationAdvice(
-  locale: FuelDailyLocale,
-  deltaCity: number | null,
-  deltaCityFmt: string,
-  city: string,
-): string {
-  // formatDelta with EUR override returns "+0.012 EUR" — strip sign + " EUR"
-  // suffix so the advice template controls punctuation.
-  const absDeltaFmt = deltaCityFmt.replace(/^[-+]/, '').replace(/\s*EUR\s*$/, '');
-  let text: string;
-  let tone: string;
-  if (deltaCity === null || Math.abs(deltaCity) <= 0.02) {
-    text = IT_STATION_ADVICE[locale].median(city);
-    tone = STAT_TILE_WARNING;
-  } else if (deltaCity < 0) {
-    text = IT_STATION_ADVICE[locale].cheaper(absDeltaFmt, city);
-    tone = STAT_TILE_SUCCESS;
-  } else {
-    text = IT_STATION_ADVICE[locale].premium(absDeltaFmt, city);
-    tone = STAT_TILE_DANGER;
-  }
-  return `<aside data-station-advice style="${tone};margin:0 0 22px;font-weight:600;line-height:1.5">${esc(text)}</aside>`;
-}
-
-interface ItalianAdviceCopy {
-  readonly cheaper: (delta: string, city: string) => string;
-  readonly median: (city: string) => string;
-  readonly premium: (delta: string, city: string) => string;
-}
-
-const IT_STATION_ADVICE: Record<FuelDailyLocale, ItalianAdviceCopy> = {
-  it: {
-    cheaper: (d, c) => `Buona scelta: oggi questa stazione è ${d} EUR/litro più economica della media città ${c}.`,
-    median: (c) => `Prezzo in linea con la media della città ${c}: scegli in base alla comodità del percorso.`,
-    premium: (d, c) => `Attenzione: oggi questa stazione è ${d} EUR/litro più cara della media città ${c}. Valuta una stazione più economica nella classifica.`,
-  },
-  en: {
-    cheaper: (d, c) => `Good pick: today this station is ${d} EUR/litre cheaper than the ${c} city average.`,
-    median: (c) => `Price in line with the ${c} city average: pick by route convenience.`,
-    premium: (d, c) => `Heads up: today this station is ${d} EUR/litre above the ${c} city average. Consider a cheaper one from the ranking.`,
-  },
-  de: {
-    cheaper: (d, c) => `Gute Wahl: heute ist diese Tankstelle ${d} EUR/Liter günstiger als der Stadt-${c}-Schnitt.`,
-    median: (c) => `Preis im Schnitt der Stadt ${c}: wähle nach Route.`,
-    premium: (d, c) => `Achtung: heute ist diese Tankstelle ${d} EUR/Liter teurer als der Stadt-${c}-Schnitt.`,
-  },
-  fr: {
-    cheaper: (d, c) => `Bon choix : aujourd'hui cette station est ${d} EUR/litre moins chère que la moyenne de la ville ${c}.`,
-    median: (c) => `Prix conforme à la moyenne de la ville ${c} : choisissez selon votre itinéraire.`,
-    premium: (d, c) => `Attention : aujourd'hui cette station est ${d} EUR/litre plus chère que la moyenne de la ville ${c}.`,
-  },
-};
-
-function renderItalianStationPage(opts: {
-  readonly ctx: ItalianStationContext;
-  readonly locale: FuelDailyLocale;
-  readonly fuel: FuelType;
-  readonly cityAvg: number | null;
-  readonly cityStations: ItalianStationContext[];
-  readonly history?: HistorySnapshot[];
-  readonly today: Date;
-  readonly canonicalPath: string;
-  readonly alternates: Record<FuelDailyLocale, string>;
-  readonly distDir?: string;
-  /** Project root for resolving brand logos via resolveBrandLogoUrl. */
-  readonly rootDir?: string;
-}): string {
-  const { ctx, locale, fuel, cityAvg, cityStations, history, today, canonicalPath, alternates, distDir, rootDir } = opts;
-  const copy = IT_STATION_COPY[locale];
-  const redesignLabels = STATION_REDESIGN[locale];
-  const fuelLabel = FUEL_TYPE_LABEL[locale][fuel];
-  const cityName = ctx.cityEntry.display;
-  const dateStamp = today.toISOString().slice(0, 10);
-  const canonicalUrl = `${BASE_URL}${canonicalPath}`;
-
-  const price = ctx.priceEur;
-  const priceFmt = formatPrice(price, locale);
-  const cityAvgFmt = formatPrice(cityAvg, locale);
-
-  // Rank within city by price
-  const sortedByPrice = [...cityStations].sort((a, b) => a.priceEur - b.priceEur);
-  const rankIdx = sortedByPrice.findIndex((c) => c.slug === ctx.slug);
-  const total = sortedByPrice.length;
-  const rankLabel =
-    rankIdx < total / 3
-      ? copy.rankCheapest
-      : rankIdx < (2 * total) / 3
-        ? copy.rankMedian
-        : copy.rankPremium;
-
-  const deltaCity = cityAvg !== null ? Number((price - cityAvg).toFixed(3)) : null;
-  const deltaCityFmt = formatDelta(deltaCity, locale).replace('CHF', 'EUR');
-
-  let h1 = copy.h1(ctx.brandDisplay, ctx.streetDisplay, cityName, fuelLabel);
-  const intro = copy.intro(ctx.brandDisplay, cityName, priceFmt, fuelLabel);
-  const paragraph = copy.paragraph(ctx.brandDisplay, cityName, priceFmt, cityAvgFmt, fuelLabel);
-  const rankingLine = copy.ranking(rankLabel, total, cityName);
-  // Above-the-fold tagline (≤120 chars). Long intro/paragraph migrate
-  // to the body section below the action area, preserving text-to-HTML ratio.
-  const italianStationTaglineByLocale: Record<FuelDailyLocale, string> = {
-    it: `${ctx.brandDisplay} a ${cityName}: ${fuelLabel} a ${priceFmt} €/L · vs media città ${deltaCityFmt}.`,
-    en: `${ctx.brandDisplay} in ${cityName}: ${fuelLabel} at ${priceFmt} €/L · vs city average ${deltaCityFmt}.`,
-    de: `${ctx.brandDisplay} in ${cityName}: ${fuelLabel} zu ${priceFmt} €/L · vs Stadt-Durchschnitt ${deltaCityFmt}.`,
-    fr: `${ctx.brandDisplay} à ${cityName} : ${fuelLabel} à ${priceFmt} €/L · vs moyenne ville ${deltaCityFmt}.`,
-  };
-
-  const alternatesHtml = renderHreflangTags(alternates);
-
-  // Sibling stations for related-links (max 6, exclude self)
-  const siblingStations = cityStations
-    .filter((s) => s.slug !== ctx.slug)
-    .slice(0, 6);
-
-  // JSON-LD
-  const breadcrumbLd = JSON.stringify({
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      { '@type': 'ListItem', position: 1, name: copy.breadcrumbHome, item: `${BASE_URL}/` },
-      { '@type': 'ListItem', position: 2, name: fuelLabel, item: `${BASE_URL}${FUEL_LOCALE_PREFIX[locale]}/${FUEL_SECTION_SLUG[locale][fuel]}/` },
-      { '@type': 'ListItem', position: 3, name: copy.italyLabel, item: `${BASE_URL}${FUEL_LOCALE_PREFIX[locale]}/${FUEL_SECTION_SLUG[locale][fuel]}/${FUEL_ITALY_SLUG[locale]}/` },
-      { '@type': 'ListItem', position: 4, name: cityName, item: `${BASE_URL}${buildFuelItalianCityPath(locale, fuel, ctx.cityEntry.slug)}` },
-      { '@type': 'ListItem', position: 5, name: `${ctx.brandDisplay} ${ctx.streetDisplay}`.trim(), item: canonicalUrl },
-    ],
-  });
-
-  const webPageLd = JSON.stringify({
-    '@context': 'https://schema.org',
-    '@type': 'WebPage',
-    name: h1,
-    url: canonicalUrl,
-    description: intro,
-    inLanguage: locale,
-    dateModified: today.toISOString(),
-    datePublished: today.toISOString(),
-  });
-
-  const gasStationLd = JSON.stringify({
-    '@context': 'https://schema.org',
-    '@type': 'GasStation',
-    name: `${ctx.brandDisplay} ${ctx.streetDisplay}`.trim(),
-    address: {
-      '@type': 'PostalAddress',
-      streetAddress: ctx.streetDisplay,
-      addressLocality: cityName,
-      addressRegion: ctx.cityEntry.province,
-      addressCountry: 'IT',
-    },
-    ...(typeof ctx.station.lat === 'number' && typeof ctx.station.lng === 'number'
-      ? {
-          geo: {
-            '@type': 'GeoCoordinates',
-            latitude: ctx.station.lat,
-            longitude: ctx.station.lng,
-          },
-        }
-      : {}),
-    brand: ctx.brandDisplay,
-    url: canonicalUrl,
-  });
-
-  // Phase 3A — total <title> ≤60 char (Semrush W2): trim H1 to fit, then
-  // optionally append the dated badge + brand suffix as long as room remains.
-  const titleBudget = 60;
-  const trimmedH1 = h1.length <= titleBudget
-    ? h1
-    : (() => {
-        const slice = h1.slice(0, titleBudget);
-        const lastSpace = slice.lastIndexOf(' ');
-        const base = lastSpace > 30 ? slice.slice(0, lastSpace) : slice;
-        return base.replace(/[\s.,;:\-–—|]+$/u, '');
-      })();
-  const dated = `${trimmedH1} (${dateStamp})`;
-  const withDate = dated.length <= titleBudget ? dated : trimmedH1;
-  const title = clampSiteSuffix(withDate, 'Frontaliere Ticino', titleBudget);
-  // When buildTitleWithBrand drops the brand suffix (headline + brand > 66
-  // chars), the rendered <title> collapses to the H1 string verbatim. The
-  // helper appends a locale-aware narrative tag so the
-  // `audit:h1-title-duplicates` ratchet (baseline 0) accepts the page.
-  h1 = differentiateH1FromTitle(h1, title, locale);
-  const description = intro.slice(0, 180);
-
-  const nearestZoneLabel = FUEL_ZONE_DISPLAY[ctx.cityEntry.nearestZone];
-  const cityHubPath = buildFuelItalianCityPath(locale, fuel, ctx.cityEntry.slug);
-
-  // Chart card: re-uses the city-level history (per-station history isn't
-  // tracked). Frames the chart as the city trend so users understand the
-  // data source. Only emitted when history is provided + benzina (the only
-  // fuel currently in the IT pipeline).
-  const historyCard = history && fuel === 'benzina'
-    ? (() => {
-        const seriesByRange = FUEL_RANGE_KEYS.reduce(
-          (acc, rk) => {
-            acc[rk] = buildItalianHistorySeries(history, ctx.cityEntry.slug, FUEL_RANGE_DAYS[rk], today, cityAvg);
-            return acc;
-          },
-          {} as Record<FuelRangeKey, FuelSeriesPoint[]>,
-        );
-        return renderFuelHistoryCard({
-          locale,
-          trendLabel: IT_TREND_LABEL[locale],
-          buildAriaLabel: (avgFmt) => IT_CHART_ARIA[locale](cityName, avgFmt),
-          seriesByRange,
-          currency: 'EUR',
-        });
-      })()
-    : '';
-
-  const siblingsHtml = siblingStations.length > 0
-    ? `<section class="s-ZqtBbL" aria-labelledby="itStationSiblings">
-        <h2 id="itStationSiblings" style="${H2_STYLE}">${esc(copy.siblingsHeading)}</h2>
-        <ul class="s-RBoxs1">
-          ${siblingStations
-            .map((s) => {
-              const href = buildFuelItalianStationPath(locale, fuel, s.cityEntry.slug, s.slug);
-              return `<li class="s-q3nqK4"><a href="${esc(href)}" style="${LINK_ACCENT_STYLE};font-weight:600;display:block;padding:10px 12px;border-radius:10px;background:var(--color-surface);border:1px solid var(--color-edge);text-decoration:none">${esc(s.brandDisplay)} ${esc(s.streetDisplay)}</a></li>`;
-            })
-            .join('')}
-        </ul>
-      </section>`
-    : '';
-
-  const hasGeo =
-    typeof ctx.station.lat === 'number' &&
-    typeof ctx.station.lng === 'number' &&
-    Number.isFinite(ctx.station.lat) &&
-    Number.isFinite(ctx.station.lng);
-  const heroHtml = renderItalianStationHero({
-    locale,
-    brand: ctx.brandDisplay,
-    street: ctx.streetDisplay,
-    city: cityName,
-    cityHubPath: `${BASE_URL}${cityHubPath}`,
-    priceFmt,
-    fuelLabel,
-    deltaCity,
-    deltaCityFmt,
-    rankIdx: Math.max(rankIdx, 0),
-    total,
-    lat: hasGeo ? (ctx.station.lat as number) : null,
-    lng: hasGeo ? (ctx.station.lng as number) : null,
-    rootDir,
-  });
-  const adviceHtml = renderItalianStationAdvice(locale, deltaCity, deltaCityFmt, cityName);
-  const locationHtml = hasGeo
-    ? renderStationLocationCard({
-        locale,
-        brand: ctx.brandDisplay,
-        city: cityName,
-        address: ctx.station.address ?? '',
-        lat: ctx.station.lat as number,
-        lng: ctx.station.lng as number,
-      })
-    : '';
-  const lastUpdatedLine = `<p class="s-oF62Kj">${esc(redesignLabels.historyLastUpdated(dateStamp))}</p>`;
-
-  const bodyHtml = `<article class="s-xzWvwM">
-  <nav aria-label="Breadcrumb" class="s-bcr">
-    <a href="/" class="s-bcl">${esc(copy.breadcrumbHome)}</a>
-    <span> / </span>
-    <a href="${FUEL_LOCALE_PREFIX[locale]}/${FUEL_SECTION_SLUG[locale][fuel]}/${FUEL_TODAY_SLUG[locale]}/" class="s-bcl">${esc(fuelLabel)}</a>
-    <span> / </span>
-    <a href="${cityHubPath}" class="s-bcl">${esc(cityName)}</a>
-    <span> / </span>
-    <span>${esc(ctx.brandDisplay)} ${esc(ctx.streetDisplay)}</span>
-  </nav>
-  <header class="s-S1RSUf">
-    <p style="${HERO_EYEBROW_STYLE}">${esc(dateStamp)}</p>
-    <h1 style="${H1_STYLE}">${esc(h1)}</h1>
-    <p style="${LEDE_STYLE}">${esc(italianStationTaglineByLocale[locale])}</p>
-  </header>
-  ${heroHtml}
-  ${adviceHtml}
-  ${locationHtml}
-  ${historyCard
-    ? `<section class="s-ziawP1" aria-labelledby="itStationTrend">
-        <h2 id="itStationTrend" style="${H2_STYLE};margin:0 0 8px;font-size:20px">${esc(IT_TREND_LABEL[locale])}</h2>
-        <p class="s-zYNVmR">${esc(IT_TREND_INTRO[locale])}</p>
-        ${historyCard}
-        ${lastUpdatedLine}
-      </section>`
-    : ''}
-  <section style="margin:0 0 24px;${CARD_STYLE}" aria-labelledby="itStationInfo">
-    <h2 id="itStationInfo" style="${H2_STYLE};margin:0 0 12px;font-size:20px">${esc(copy.infoHeading)}</h2>
-    <dl class="s-RPPdPW">
-      <dt class="s-bovPrI">${esc(copy.infoBrand)}</dt><dd class="s-q3nqK4">${esc(ctx.brandDisplay)}</dd>
-      <dt class="s-bovPrI">${esc(copy.infoAddress)}</dt><dd class="s-q3nqK4">${esc(ctx.station.address ?? '—')}, ${esc(cityName)} (${esc(ctx.cityEntry.province)})</dd>
-      ${typeof ctx.station.isSelf === 'boolean' ? `<dt class="s-bovPrI">${esc(copy.infoSelfService)}</dt><dd class="s-q3nqK4">${ctx.station.isSelf ? 'Self-service' : (locale === 'it' ? 'Servito' : locale === 'de' ? 'Bedient' : locale === 'fr' ? 'Servi' : 'Served')}</dd>` : ''}
-      ${ctx.station.updatedAt ? `<dt class="s-bovPrI">${esc(copy.infoUpdated)}</dt><dd class="s-q3nqK4">${esc(String(ctx.station.updatedAt).slice(0, 10))}</dd>` : ''}
-    </dl>
-  </section>
-  <section class="s-ziawP1" aria-labelledby="itStationContext">
-    <h2 id="itStationContext" style="${H2_STYLE};margin:0 0 12px;font-size:20px">${esc(copy.contextHeading)}</h2>
-    <p class="s-ZLNNaY">${esc(intro)}</p>
-    <p class="s-ZLNNaY">${esc(paragraph)}</p>
-    ${copy.contextParagraphs(ctx.brandDisplay, cityName, nearestZoneLabel)
-      .map((p) => `<p class="s-ZLNNaY">${p}</p>`)
-      .join('')}
-  </section>
-  ${renderItalianStationFrontalierExtra({
-    locale,
-    fuelLabel,
-    brandDisplay: ctx.brandDisplay,
-    streetDisplay: ctx.streetDisplay,
-    cityDisplay: cityName,
-    nearestZoneLabel,
-    priceFmt,
-    cityAvgFmt,
-  })}
-  <p class="s-USY9TF"><a href="${cityHubPath}" style="${LINK_ACCENT_STYLE};font-weight:600">← ${esc(copy.backToCity(cityName))}</a></p>
-  ${siblingsHtml}
-  <section class="s-sC82IX" aria-label="advertisement">
-    ${adSlotHtml('ARTICLE_END_MULTIPLEX')}
-  </section>
-</article>`;
-
-  const extraHead = `    <meta property="og:image" content="${BASE_URL}/og-image.png">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">`;
-
-  return buildSeoPageHtml({
-    disableAutoAds: false,
-    locale,
-    title,
-    description,
-    canonicalUrl,
-    robots: 'index,follow',
-    ogType: 'website',
-    ogLocale: LOCALE_OG[locale],
-    hreflangHtml: alternatesHtml,
-    extraHeadHtml: extraHead,
-    jsonLdScripts: [breadcrumbLd, webPageLd, gasStationLd],
-    bodyHtml,
-    distDir,
-    hubChrome: { hubKey: 'stats', activeSubTab: 'fuel-prices' },
-  });
-}
-
-/**
- * Generate Italian per-station detail pages for all curated cities.
- * Currently emits only for benzina (the only fuel in our IT dataset).
- */
-export function generateFuelItalianStationPages(opts: {
-  dataset: FuelPricesDataset;
-  history?: HistorySnapshot[];
-  today?: Date;
-  distDir?: string;
-  /**
-   * Optional pre-collected contexts (single-source-of-truth pattern; see
-   * generateFuelStationPages for rationale). When provided, the function
-   * skips its own `collectItalianStationContexts(dataset)` call.
-   */
-  contexts?: readonly ItalianStationContext[];
-  /** Project root — passed to renderItalianStationPage so it can resolve brand logos. */
-  rootDir?: string;
-}): Record<string, string> {
-  const dataset = opts.dataset;
-  const history = opts.history ?? [];
-  const today = opts.today ?? new Date();
-  const distDir = opts.distDir;
-  const rootDir = opts.rootDir;
-  const pages: Record<string, string> = {};
-
-  const contexts = opts.contexts ?? collectItalianStationContexts(dataset);
-  if (contexts.length === 0) return pages;
-
-  const cityGroups = groupItalianContextsByCity(contexts);
-
-  // Precompute per-city averages
-  const cityAvg = new Map<string, number>();
-  for (const [citySlug, list] of cityGroups) {
-    const avg = mean(list.map((c) => c.priceEur));
-    if (avg !== null) cityAvg.set(citySlug, avg);
-  }
-
-  // ⚠️ Benzina-only: see comment block above. When MIMIT-Gasolio
-  // ingestion lands in scripts/generate-fuel-prices-dataset.mjs, replace
-  // the literal with FUEL_TYPES.
-  const fuelsToEmit: FuelType[] = ['benzina'];
-
-  for (const fuel of fuelsToEmit) {
-    for (const locale of FUEL_DAILY_LOCALES) {
-      for (const ctx of contexts) {
-        const canonicalPath = buildFuelItalianStationPath(locale, fuel, ctx.cityEntry.slug, ctx.slug);
-        const alternates: Record<FuelDailyLocale, string> = { it: '', en: '', de: '', fr: '' };
-        for (const alt of FUEL_DAILY_LOCALES) {
-          alternates[alt] = buildFuelItalianStationPath(alt, fuel, ctx.cityEntry.slug, ctx.slug);
-        }
-        const cityStations = cityGroups.get(ctx.cityEntry.slug) ?? [];
-        const html = renderItalianStationPage({
-          ctx,
-          locale,
-          fuel,
-          cityAvg: cityAvg.get(ctx.cityEntry.slug) ?? null,
-          cityStations,
-          history,
-          today,
-          canonicalPath,
-          alternates,
-          distDir,
-          rootDir,
-        });
-        pages[canonicalPath] = html;
-      }
-    }
-  }
-
-  return pages;
-}
-
-// ── Plugin ─────────────────────────────────────────────────────
-
-interface PluginResult {
-  pagesWritten: number;
-  archivesWritten: number;
-  skippedForWordCount: number;
-  stationPagesWritten?: number;
-  italianCityPagesWritten?: number;
-  italianStationPagesWritten?: number;
-}
-
-/**
- * Pure generator — used by both the Vite plugin (closeBundle) and tests.
- * Produces a map of canonical path → HTML string.
- */
-export function generateFuelDailyPages(opts: {
-  rootDir: string;
-  dataset: FuelPricesDataset;
-  history?: HistorySnapshot[];
-  today?: Date;
-  /** dist directory; when provided the page renders with hydration tags. */
-  distDir?: string;
-}): Record<string, string> {
-  const dataset = opts.dataset;
-  const history = opts.history ?? [];
-  const today = opts.today ?? new Date();
-  const distDir = opts.distDir;
-  const rootDir = opts.rootDir;
-
-  const pages: Record<string, string> = {};
-
-  for (const fuel of FUEL_TYPES) {
-    for (const locale of FUEL_DAILY_LOCALES) {
-      // Precompute alternates for this fuel & zone combination
-      const buildAlternates = (zone: FuelZone | null): Record<FuelDailyLocale, string> => {
-        const out: Record<FuelDailyLocale, string> = { it: '', en: '', de: '', fr: '' };
-        for (const alt of FUEL_DAILY_LOCALES) {
-          out[alt] = zone ? buildFuelTodayPath(alt, fuel, zone) : buildFuelTodayPath(alt, fuel);
-        }
-        return out;
-      };
-
-      // Regional page
-      const regionalPath = buildFuelTodayPath(locale, fuel);
-      pages[regionalPath] = renderPage({
-        locale,
-        fuel,
-        zone: null,
-        dataset,
-        history,
-        canonicalPath: regionalPath,
-        today,
-        alternates: buildAlternates(null),
-        distDir,
-        rootDir,
-      });
-
-      // Per-zone pages
-      for (const zone of FUEL_ZONES) {
-        const zonePath = buildFuelTodayPath(locale, fuel, zone);
-        pages[zonePath] = renderPage({
-          locale,
-          fuel,
-          zone,
-          dataset,
-          history,
-          canonicalPath: zonePath,
-          today,
-          alternates: buildAlternates(zone),
-          distDir,
-          rootDir,
-        });
-      }
-    }
-  }
-
-  return pages;
-}
-
-/**
- * Enumerate archive pages from available history snapshots.
- * Only past months are emitted — the current month remains served by the
- * /oggi / /today pages.
- */
-export function generateFuelArchivePages(opts: {
-  history: HistorySnapshot[];
-  today?: Date;
-  distDir?: string;
-}): Record<string, string> {
-  const history = opts.history;
-  const today = opts.today ?? new Date();
-  const distDir = opts.distDir;
-  const currentMonth = today.toISOString().slice(0, 7);
-
-  const pages: Record<string, string> = {};
-  const monthsInHistory = new Set<string>();
-  for (const snap of history) {
-    if (typeof snap.date === 'string' && snap.date.length >= 7) {
-      monthsInHistory.add(snap.date.slice(0, 7));
-    }
-  }
-
-  for (const monthKey of monthsInHistory) {
-    if (monthKey >= currentMonth) continue; // skip current/future months
-    for (const locale of FUEL_DAILY_LOCALES) {
-      for (const fuel of FUEL_TYPES) {
-        for (const zone of FUEL_ZONES) {
-          const path = buildFuelArchivePath(locale, fuel, zone, monthKey);
-          pages[path] = renderArchive({
-            locale,
-            fuel,
-            zone,
-            monthKey,
-            snapshots: history,
-            canonicalPath: path,
-            today,
-            distDir,
-          });
-        }
-      }
-    }
-  }
-  return pages;
-}
-
-export function fuelDailyPagesPlugin(rootDir: string): Plugin {
-  return {
-    name: 'fuel-daily-pages',
-    apply: 'build',
-    async closeBundle() {
-      if (process.env.SKIP_FUEL_DAILY === '1') {
-        console.log('\x1b[33m[fuel-daily-pages]\x1b[0m Skipped (SKIP_FUEL_DAILY=1)');
-        return;
-      }
-      const distDir = np.resolve(rootDir, 'dist');
-      const dataPath = np.resolve(rootDir, 'data', 'fuel-prices.json');
-
-      // Ext3 task 3 — wipe owned namespaces before regen so stations/cities
-      // that drop out of today's dataset don't leave stale index.html files.
-      cleanNamespaces(distDir, [
-        'prezzi-diesel', 'prezzi-benzina',
-        'en/diesel-price-switzerland', 'en/gasoline-price-switzerland',
-        'de/dieselpreis-schweiz', 'de/benzinpreis-schweiz',
-        'fr/prix-gasoil-suisse', 'fr/prix-essence-suisse',
-      ]);
-      cleanSitemapFiles(distDir, [
-        'sitemap-fuel-daily.xml',
-        'sitemap-fuel-stations.xml',
-        'sitemap-fuel-italian-cities.xml',
-        'sitemap-fuel-italian-stations.xml',
-        'sitemap-fuel-indexes.xml',
-      ]);
-
-      // Read fuel-prices.json — soft-fail to keep the build green on worktrees
-      // where the data file is absent.
-      let dataset: FuelPricesDataset = {};
-      try {
-        if (fs.existsSync(dataPath)) {
-          dataset = JSON.parse(fs.readFileSync(dataPath, 'utf-8')) as FuelPricesDataset;
-        }
-      } catch (err) {
-        console.warn('[fuel-daily-pages] failed to read data/fuel-prices.json', err);
-      }
-
-      const history = readHistory(rootDir);
-      const today = new Date();
-
-      // ── Single source of truth for station contexts (2026-04-29) ─
-      // Compute Swiss + Italian contexts ONCE before any generator runs,
-      // then thread the SAME list through both the per-station page
-      // generators AND the browseable-index generator. This guarantees the
-      // index links every station whose detail page we emit — eliminating
-      // the divergence that was leaking new orphans into
-      // `sitemap-fuel-stations.xml` whenever the index source happened to
-      // disagree with the detail-page source on a fresh dataset.
-      const swissContexts = collectSwissStationContexts(dataset);
-      const italianContexts = collectItalianStationContexts(dataset);
-
-      const pages = generateFuelDailyPages({ rootDir, dataset, history, today, distDir });
-      const archives = generateFuelArchivePages({ history, today, distDir });
-      const stationPages = generateFuelStationPages({
-        dataset,
-        today,
-        distDir,
-        contexts: swissContexts,
-        history,
-        rootDir,
-      });
-      const italianCityPages = generateFuelItalianCityPages({ dataset, history, today, distDir });
-      const italianStationPages = generateFuelItalianStationPages({
-        dataset,
-        history,
-        today,
-        distDir,
-        contexts: italianContexts,
-        rootDir,
-      });
-
-      // ── F6.5: Browseable indexes (anti-orphan-page fix) ────────
-      // Build leaf lists from the SAME contexts used for the per-station
-      // pages above, so what we link from the index is exactly what we
-      // publish. Any divergence here re-introduces orphans.
-      const swissLeaves: SwissStationLeaf[] = swissContexts.map((c) => ({
-        zone: c.zone,
-        slug: c.slug,
-        name: c.station.name ?? c.brandDisplay,
-        brand: c.brandDisplay,
-        address: c.station.address ?? '',
-      }));
-      const italianLeaves: ItalianStationLeaf[] = italianContexts.map((c) => ({
-        citySlug: c.cityEntry.slug,
-        cityDisplay: c.cityEntry.display,
-        stationSlug: c.slug,
-        name: c.station.stationName ?? c.brandDisplay,
-        brand: c.brandDisplay,
-        address: c.station.address ?? '',
-      }));
-      const indexPages = generateFuelIndexPages({
-        distDir,
-        rootDir,
-        today,
-        swissStations: swissLeaves,
-        italianStations: italianLeaves,
-      });
-
-      const collector = new WriteCollector({ distDir, pluginName: 'fuelDailyPagesPlugin' });
-
-      let pagesWritten = 0;
-      let skipped = 0;
-      const sitemapPaths: string[] = [];
-      for (const [path, html] of Object.entries(pages)) {
-        const words = countHtmlBodyWords(html);
-        if (words < MIN_INDEXABLE_WORDS) {
-          skipped++;
-          console.warn(`[fuel-daily-pages] thin content (${words} words) for ${path} — skipping`);
-          continue;
-        }
-        const outDir = np.join(distDir, path.replace(/^\/+/, ''));
-        collector.add(np.join(outDir, 'index.html'), html);
-        sitemapPaths.push(path);
-        pagesWritten++;
-      }
-
-      let archivesWritten = 0;
-      for (const [path, html] of Object.entries(archives)) {
-        const words = countHtmlBodyWords(html);
-        if (words < MIN_INDEXABLE_WORDS) {
-          skipped++;
-          continue;
-        }
-        const outDir = np.join(distDir, path.replace(/^\/+/, ''));
-        collector.add(np.join(outDir, 'index.html'), html);
-        sitemapPaths.push(path);
-        archivesWritten++;
-      }
-
-      // ── D-2A: Per-station + Italian-city emission ───────────────
-      // Separate sitemap files so they can be refreshed independently and
-      // the master index (sitemapAliasPlugin) picks them up automatically.
-      const STATION_MIN_WORDS = 250;
-      const stationSitemapPaths: string[] = [];
-      let stationPagesWritten = 0;
-      for (const [path, html] of Object.entries(stationPages)) {
-        const words = countHtmlBodyWords(html);
-        if (words < STATION_MIN_WORDS) {
-          skipped++;
-          console.warn(`[fuel-daily-pages] station thin content (${words} words) for ${path} — skipping`);
-          continue;
-        }
-        const outDir = np.join(distDir, path.replace(/^\/+/, ''));
-        collector.add(np.join(outDir, 'index.html'), html);
-        stationSitemapPaths.push(path);
-        stationPagesWritten++;
-      }
-
-      const italianCitySitemapPaths: string[] = [];
-      let italianCityPagesWritten = 0;
-      for (const [path, html] of Object.entries(italianCityPages)) {
-        const words = countHtmlBodyWords(html);
-        if (words < STATION_MIN_WORDS) {
-          skipped++;
-          console.warn(`[fuel-daily-pages] IT-city thin content (${words} words) for ${path} — skipping`);
-          continue;
-        }
-        const outDir = np.join(distDir, path.replace(/^\/+/, ''));
-        collector.add(np.join(outDir, 'index.html'), html);
-        italianCitySitemapPaths.push(path);
-        italianCityPagesWritten++;
-      }
-
-      const italianStationSitemapPaths: string[] = [];
-      let italianStationPagesWritten = 0;
-      for (const [path, html] of Object.entries(italianStationPages)) {
-        const words = countHtmlBodyWords(html);
-        if (words < STATION_MIN_WORDS) {
-          skipped++;
-          console.warn(`[fuel-daily-pages] IT-station thin content (${words} words) for ${path} — skipping`);
-          continue;
-        }
-        const outDir = np.join(distDir, path.replace(/^\/+/, ''));
-        collector.add(np.join(outDir, 'index.html'), html);
-        italianStationSitemapPaths.push(path);
-        italianStationPagesWritten++;
-      }
-
-      // ── F6.5: Index pages (anti-orphan-page fix) ───────────────
-      // These pages exist exactly to surface every per-station / per-city leaf
-      // via internal <a href> links, so the orphan-pages-in-sitemaps gate
-      // (CLAUDE.md "SEO content gate — orphan pages in sitemaps") sees them
-      // reachable from the homepage BFS. Word-count gate is intentionally a
-      // touch lower than per-station pages because each index has a long anchor
-      // list that contributes meaningfully to the visible content surface.
-      const INDEX_MIN_WORDS = 220;
-      const indexSitemapPaths: string[] = [];
-      let indexPagesWritten = 0;
-      for (const [path, html] of Object.entries(indexPages)) {
-        const words = countHtmlBodyWords(html);
-        if (words < INDEX_MIN_WORDS) {
-          // Loud failure: skipping a fuel index page silently orphans every
-          // per-station / per-city leaf it would have linked. Emit an error
-          // (not a warning) so CI surfaces it before the orphan-pages gate
-          // catches the downstream regression.
-          skipped++;
-          console.error(
-            `[fuel-daily-pages] CRITICAL: index thin content (${words} words < ${INDEX_MIN_WORDS}) for ${path} — skipping. ` +
-              `Per-station leaves it should link will be orphaned in sitemap-fuel-stations.xml. ` +
-              `Investigate fuelStationIndexPages.ts copy + station data integrity.`,
-          );
-          continue;
-        }
-        const outDir = np.join(distDir, path.replace(/^\/+/, ''));
-        collector.add(np.join(outDir, 'index.html'), html);
-        indexSitemapPaths.push(path);
-        indexPagesWritten++;
-      }
-
-      await collector.flush();
-
-      // ── Emit sitemap-fuel-daily.xml ─────────────────────────────
-      // The sitemapAliasPlugin auto-discovers every `sitemap-*.xml` in dist/
-      // and weaves it into the master sitemap index, so no manual patching
-      // of `dist/sitemap.xml` is needed here.
-      const writeSitemap = (paths: string[], filename: string, changefreq: string): void => {
-        if (paths.length === 0) return;
-        try {
-          const dateStamp = today.toISOString().slice(0, 10);
-          const urlEntries = paths
-            .map((p) => {
-              return `  <url>\n    <loc>${BASE_URL}${p}</loc>\n    <lastmod>${dateStamp}</lastmod>\n    <changefreq>${changefreq}</changefreq>\n    <priority>0.6</priority>\n  </url>`;
-            })
-            .join('\n');
-          const sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${urlEntries}
-</urlset>
-`;
-          fs.writeFileSync(np.join(distDir, filename), sitemapXml, 'utf-8');
-          console.log(
-            `\x1b[36m[fuel-daily-pages]\x1b[0m Wrote ${filename} (${paths.length} URLs)`,
-          );
-        } catch (err) {
-          console.warn(`[fuel-daily-pages] failed to write ${filename}`, err);
-        }
-      };
-
-      writeSitemap(sitemapPaths, 'sitemap-fuel-daily.xml', 'daily');
-      writeSitemap(stationSitemapPaths, 'sitemap-fuel-stations.xml', 'daily');
-      writeSitemap(italianCitySitemapPaths, 'sitemap-fuel-italian-cities.xml', 'daily');
-      writeSitemap(italianStationSitemapPaths, 'sitemap-fuel-italian-stations.xml', 'daily');
-      writeSitemap(indexSitemapPaths, 'sitemap-fuel-indexes.xml', 'daily');
-
-      const result: PluginResult = {
-        pagesWritten,
-        archivesWritten,
-        skippedForWordCount: skipped,
-        stationPagesWritten,
-        italianCityPagesWritten,
-        italianStationPagesWritten,
-      };
-      console.log(
-        `\x1b[36m[fuel-daily-pages]\x1b[0m Generated ${result.pagesWritten} daily + ${result.archivesWritten} archives + ${stationPagesWritten} CH-station + ${italianCityPagesWritten} IT-city + ${italianStationPagesWritten} IT-station + ${indexPagesWritten} indexes (skipped ${result.skippedForWordCount})`,
-      );
-    },
-  };
-}
-
-/**
- * Exported for duplicate-body tests. The signature paragraph is the key
- * per-entity differentiator for stations that share (brand, city, zone,
- * fuel) — it references the street, slug, coordinates, last-update date and
- * ranking slot, all of which are always per-station.
- */
-export { buildStationSignaturePargaraph };
-export type { StationSignatureInput };
+    <div class="s-tok">
+      <div class="s-tlbl">${esc(locale === \'it\' ? \'Zona Ticino più vicina\' : locale === \'de\' ? \'Nächste Tessiner Zone\' : locale === \'fr\' ? \'Zone tessinoise la plus proche\' : \'Nearest Ticino zone\')}</div>
+      <div class="s-tval" style="font-size:22px"><a class="s-z7KUiE" href="${buildFuelTodayPath(locale, fuel, entry.nearestZone)}">${esc(nearestZoneLabel)}</a></div>

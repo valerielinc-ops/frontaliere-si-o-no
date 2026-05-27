@@ -75,8 +75,6 @@ import {
 import { generateRelatedLinksBlock } from './shared/relatedLinks';
 import { adSlotHtml } from './lib/adSlotHtml';
 import {
-  CARD_STYLE,
-  CTA_PRIMARY_STYLE,
   H1_STYLE,
   H2_STYLE,
   HERO_EYEBROW_STYLE,
@@ -86,9 +84,7 @@ import {
   SMALL_HEADING_STYLE,
   STAT_TILE_ACCENT,
   STAT_TILE_BASE,
-  STAT_TILE_LABEL,
   STAT_TILE_SUCCESS,
-  STAT_TILE_VALUE,
   clampSiteSuffix,
   renderDiscoverMore,
   resolveBrandLogoUrl,
@@ -2391,23 +2387,23 @@ export function renderTopHubPage(inp: TopHubPageInputs): string {
   };
 
   const topStatsHtml = `<section class="s-Bk-L3k" aria-label="${esc(copy.kickerCurrent)}">
-    <div style="${STAT_TILE_ACCENT}">
-      <div style="${STAT_TILE_LABEL}">${esc(WEEKLY_EMPLOYERS_TILE_LABELS[locale].jobs)}</div>
-      <div style="${STAT_TILE_VALUE};font-size:32px;font-weight:800;font-variant-numeric:tabular-nums">${formatLocalisedInteger(jobsCount, locale)}</div>
+    <div class="s-tacc">
+      <div class="s-tlbl">${esc(WEEKLY_EMPLOYERS_TILE_LABELS[locale].jobs)}</div>
+      <div class="s-tval" style="font-size:32px;font-weight:800;font-variant-numeric:tabular-nums">${formatLocalisedInteger(jobsCount, locale)}</div>
     </div>
-    <div style="${STAT_TILE_SUCCESS}">
-      <div style="${STAT_TILE_LABEL}">${esc(WEEKLY_EMPLOYERS_TILE_LABELS[locale].companies)}</div>
-      <div style="${STAT_TILE_VALUE};font-size:24px;font-variant-numeric:tabular-nums">${formatLocalisedInteger(companiesCount, locale)}</div>
+    <div class="s-tok">
+      <div class="s-tlbl">${esc(WEEKLY_EMPLOYERS_TILE_LABELS[locale].companies)}</div>
+      <div class="s-tval" style="font-size:24px;font-variant-numeric:tabular-nums">${formatLocalisedInteger(companiesCount, locale)}</div>
     </div>
-    <div style="${STAT_TILE_BASE}">
-      <div style="${STAT_TILE_LABEL}">${esc(WEEKLY_EMPLOYERS_TILE_LABELS[locale].cities)}</div>
-      <div style="${STAT_TILE_VALUE};font-size:24px;font-variant-numeric:tabular-nums">${WEEKLY_EMPLOYERS_CITIES.length}</div>
+    <div class="s-tbase">
+      <div class="s-tlbl">${esc(WEEKLY_EMPLOYERS_TILE_LABELS[locale].cities)}</div>
+      <div class="s-tval" style="font-size:24px;font-variant-numeric:tabular-nums">${WEEKLY_EMPLOYERS_CITIES.length}</div>
     </div>
   </section>`;
 
   // Top hub is the TI aggregate — pass 'TI' so the legacy slug is preserved
   // (helper early-returns `cerca-lavoro-ticino`).
-  const topJobBoardCtaHtml = `<p class="s-ziawP1"><a href="${esc(weeklyEmployersJobBoardPath(locale, 'TI'))}" style="${CTA_PRIMARY_STYLE};font-size:15px">${esc(WEEKLY_EMPLOYERS_TILE_LABELS[locale].jobBoardCta)} →</a></p>`;
+  const topJobBoardCtaHtml = `<p class="s-ziawP1"><a href="${esc(weeklyEmployersJobBoardPath(locale, 'TI'))}" class="s-cta" style="font-size:15px">${esc(WEEKLY_EMPLOYERS_TILE_LABELS[locale].jobBoardCta)} →</a></p>`;
 
   const bodyHtml = `<article class="s-xzWvwM">
   <nav class="s-bcr" aria-label="breadcrumb">
@@ -2712,17 +2708,17 @@ export function renderWeeklyEmployersPage(inp: WeeklyEmployersPageInputs): strin
       ? `W${weekNum} ${year}`
       : `W${getIsoWeekAndYear(today).week} ${getIsoWeekAndYear(today).year}`;
   const cityStatsHtml = `<section class="s-Bk-L3k" aria-label="${esc(kicker)}">
-    <div style="${STAT_TILE_ACCENT}">
-      <div style="${STAT_TILE_LABEL}">${esc(tileLabels.jobs)}</div>
-      <div style="${STAT_TILE_VALUE};font-size:32px;font-weight:800;font-variant-numeric:tabular-nums">${formatLocalisedInteger(jobsCount, locale)}</div>
+    <div class="s-tacc">
+      <div class="s-tlbl">${esc(tileLabels.jobs)}</div>
+      <div class="s-tval" style="font-size:32px;font-weight:800;font-variant-numeric:tabular-nums">${formatLocalisedInteger(jobsCount, locale)}</div>
     </div>
-    <div style="${STAT_TILE_SUCCESS}">
-      <div style="${STAT_TILE_LABEL}">${esc(tileLabels.companies)}</div>
-      <div style="${STAT_TILE_VALUE};font-size:24px;font-variant-numeric:tabular-nums">${formatLocalisedInteger(companiesCount, locale)}</div>
+    <div class="s-tok">
+      <div class="s-tlbl">${esc(tileLabels.companies)}</div>
+      <div class="s-tval" style="font-size:24px;font-variant-numeric:tabular-nums">${formatLocalisedInteger(companiesCount, locale)}</div>
     </div>
-    <div style="${STAT_TILE_BASE}">
-      <div style="${STAT_TILE_LABEL}">${esc(tileLabels.week)}</div>
-      <div style="${STAT_TILE_VALUE};font-size:20px;font-variant-numeric:tabular-nums">${esc(weekTileValue)}</div>
+    <div class="s-tbase">
+      <div class="s-tlbl">${esc(tileLabels.week)}</div>
+      <div class="s-tval" style="font-size:20px;font-variant-numeric:tabular-nums">${esc(weekTileValue)}</div>
     </div>
   </section>`;
 
@@ -2758,7 +2754,7 @@ export function renderWeeklyEmployersPage(inp: WeeklyEmployersPageInputs): strin
   // so the CTA + role-search URLs point at the correct per-canton job
   // board (still TI for TI cities → byte-identical).
   const cityJobBoardPath = weeklyEmployersJobBoardPath(locale, cityCanton);
-  const cityCtaHtml = `<p class="s-ziawP1"><a href="${esc(cityJobBoardPath)}?city=${esc(city)}" style="${CTA_PRIMARY_STYLE};font-size:15px">${esc(tileLabels.cityCta(cityDisplay))} →</a></p>`;
+  const cityCtaHtml = `<p class="s-ziawP1"><a href="${esc(cityJobBoardPath)}?city=${esc(city)}" class="s-cta" style="font-size:15px">${esc(tileLabels.cityCta(cityDisplay))} →</a></p>`;
 
   const jobBoardSearchBase: Record<WeeklyEmployersLocale, string> = {
     it: cityJobBoardPath,
@@ -2961,15 +2957,15 @@ export function renderWeeklyEmployersPage(inp: WeeklyEmployersPageInputs): strin
   </section>
   <section class="s-u4apOs" aria-labelledby="weeklyFaq">
     <h2 id="weeklyFaq" style="${H2_STYLE}">${esc(copy.faqTitle)}</h2>
-    <details style="${CARD_STYLE};margin-bottom:8px">
+    <details class="s-card" style="margin-bottom:8px">
       <summary class="s-HBR0NM">${esc(copy.faqHowOftenQ)}</summary>
       <p class="s-OCic8j">${esc(copy.faqHowOftenA)}</p>
     </details>
-    <details style="${CARD_STYLE};margin-bottom:8px">
+    <details class="s-card" style="margin-bottom:8px">
       <summary class="s-HBR0NM">${esc(copy.faqDeltaQ)}</summary>
       <p class="s-OCic8j">${esc(copy.faqDeltaA)}</p>
     </details>
-    <details style="${CARD_STYLE};margin-bottom:8px">
+    <details class="s-card" style="margin-bottom:8px">
       <summary class="s-HBR0NM">${esc(copy.faqApplyQ)}</summary>
       <p class="s-OCic8j">${esc(copy.faqApplyA)}</p>
     </details>
@@ -3404,19 +3400,19 @@ export function renderCompanyCityPage(inp: CompanyCityPageInputs): string {
     fr: 'Rôle principal',
   };
   const ccStatsHtml = `<section class="s-Bk-L3k" aria-label="${esc(copy.companyCityKicker)}">
-    <div style="${STAT_TILE_ACCENT}">
-      <div style="${STAT_TILE_LABEL}">${esc(ccTileLabels.jobs)}</div>
-      <div style="${STAT_TILE_VALUE};font-size:32px;font-weight:800;font-variant-numeric:tabular-nums">${formatLocalisedInteger(stats.activeJobsCount, locale)}</div>
+    <div class="s-tacc">
+      <div class="s-tlbl">${esc(ccTileLabels.jobs)}</div>
+      <div class="s-tval" style="font-size:32px;font-weight:800;font-variant-numeric:tabular-nums">${formatLocalisedInteger(stats.activeJobsCount, locale)}</div>
     </div>${topRoleDisplay
       ? `
-    <div style="${STAT_TILE_BASE}">
-      <div style="${STAT_TILE_LABEL}">${esc(ccTopRoleLabel[locale])}</div>
-      <div style="${STAT_TILE_VALUE};font-size:18px">${esc(topRoleDisplay)}</div>
+    <div class="s-tbase">
+      <div class="s-tlbl">${esc(ccTopRoleLabel[locale])}</div>
+      <div class="s-tval" style="font-size:18px">${esc(topRoleDisplay)}</div>
     </div>`
       : ''}
-    <div style="${STAT_TILE_BASE}">
-      <div style="${STAT_TILE_LABEL}">${esc(ccTileLabels.week)}</div>
-      <div style="${STAT_TILE_VALUE};font-size:20px;font-variant-numeric:tabular-nums">${esc(ccWeekTileValue)}</div>
+    <div class="s-tbase">
+      <div class="s-tlbl">${esc(ccTileLabels.week)}</div>
+      <div class="s-tval" style="font-size:20px;font-variant-numeric:tabular-nums">${esc(ccWeekTileValue)}</div>
     </div>
   </section>`;
 
@@ -3441,7 +3437,7 @@ export function renderCompanyCityPage(inp: CompanyCityPageInputs): string {
   // Phase 6 (Cathedral): per-company×city CTA points at the city's canton-
   // resolved job board (TI cities → legacy slug, byte-identical).
   const ccJobBoardPath = weeklyEmployersJobBoardPath(locale, cityWeeklyEmployerCanton(city));
-  const ccCtaHtml = `<p class="s-ziawP1"><a href="${esc(ccJobBoardPath)}?city=${esc(city)}&q=${encodeURIComponent(employer)}" style="${CTA_PRIMARY_STYLE};font-size:15px">${esc(ccTileLabels.cityCta(`${employer} · ${cityDisplay}`))} →</a></p>`;
+  const ccCtaHtml = `<p class="s-ziawP1"><a href="${esc(ccJobBoardPath)}?city=${esc(city)}&q=${encodeURIComponent(employer)}" class="s-cta" style="font-size:15px">${esc(ccTileLabels.cityCta(`${employer} · ${cityDisplay}`))} →</a></p>`;
 
   const bodyHtml = `<article class="s-xzWvwM">
   <nav class="s-bcr" aria-label="breadcrumb">
@@ -3491,23 +3487,23 @@ export function renderCompanyCityPage(inp: CompanyCityPageInputs): string {
   </section>
   <section class="s-u4apOs" aria-labelledby="companyCityFaq">
     <h2 id="companyCityFaq" style="${H2_STYLE}">${esc(copy.faqTitle)}</h2>
-    <details style="${CARD_STYLE};margin-bottom:8px">
+    <details class="s-card" style="margin-bottom:8px">
       <summary class="s-HBR0NM">${esc(copy.companyCityFaqWhyQ(employer))}</summary>
       <p class="s-OCic8j">${esc(copy.companyCityFaqWhyA(employer, cityDisplay))}</p>
     </details>
-    <details style="${CARD_STYLE};margin-bottom:8px">
+    <details class="s-card" style="margin-bottom:8px">
       <summary class="s-HBR0NM">${esc(copy.companyCityFaqHowApplyQ)}</summary>
       <p class="s-OCic8j">${esc(copy.companyCityFaqHowApplyA(employer))}</p>
     </details>
-    <details style="${CARD_STYLE};margin-bottom:8px">
+    <details class="s-card" style="margin-bottom:8px">
       <summary class="s-HBR0NM">${esc(copy.companyCityFaqUpdateQ)}</summary>
       <p class="s-OCic8j">${esc(copy.companyCityFaqUpdateA)}</p>
     </details>
-    <details style="${CARD_STYLE};margin-bottom:8px">
+    <details class="s-card" style="margin-bottom:8px">
       <summary class="s-HBR0NM">${esc(copy.companyCityFaqTeleworkQ(employer))}</summary>
       <p class="s-OCic8j">${esc(copy.companyCityFaqTeleworkA(employer, cityDisplay))}</p>
     </details>
-    <details style="${CARD_STYLE};margin-bottom:8px">
+    <details class="s-card" style="margin-bottom:8px">
       <summary class="s-HBR0NM">${esc(copy.companyCityFaqEquivalenceQ)}</summary>
       <p class="s-OCic8j">${esc(copy.companyCityFaqEquivalenceA(employer))}</p>
     </details>

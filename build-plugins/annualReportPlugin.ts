@@ -50,19 +50,11 @@ import { buildSeoPageHtml } from './shared/seoPageShell';
 import { resolveCantonSection, type CantonLocale } from './shared/cantonSection';
 import { renderHreflangTags, type HreflangPaths } from './shared/hreflang';
 import {
-  STAT_TILE_BASE,
-  STAT_TILE_LABEL,
-  STAT_TILE_VALUE,
-  STAT_TILE_ACCENT,
-  CARD_STYLE,
   HERO_EYEBROW_STYLE,
   H1_STYLE,
   LEDE_STYLE,
   BODY_STYLE,
   H2_STYLE,
-  TABLE_HEAD_STYLE,
-  TABLE_CELL_STYLE,
-  CTA_PRIMARY_STYLE,
   LINK_ACCENT_STYLE,
 } from './shared/seoContentTokens';
 import { imageObjectLd } from '../services/seo/imageObjectLd';
@@ -663,7 +655,7 @@ function renderTable(headers: readonly string[], rows: readonly (readonly string
   const h = headers
     .map(
       (x) =>
-        `<th style="${TABLE_HEAD_STYLE}">${esc(x)}</th>`,
+        `<th class="s-thd">${esc(x)}</th>`,
     )
     .join('');
   const body = rows
@@ -671,7 +663,7 @@ function renderTable(headers: readonly string[], rows: readonly (readonly string
       const tds = r
         .map(
           (c, idx) =>
-            `<td style="${TABLE_CELL_STYLE}${idx === 0 ? ';font-weight:600' : ''}">${c}</td>`,
+            `<td class="s-tcl"${idx === 0 ? ' style="font-weight:600"' : ''}>${c}</td>`,
         )
         .join('');
       return `<tr>${tds}</tr>`;
@@ -742,17 +734,17 @@ function renderReport(opts: {
   // Headline stat cards.
   const statCards = `
     <section class="s-oLqKsI">
-      <div style="${STAT_TILE_BASE}">
-        <div style="${STAT_TILE_LABEL}">${esc(copy.medianLabel)}</div>
-        <div style="${STAT_TILE_VALUE}">${esc(formatCHF(agg.overallMedian))}</div>
+      <div class="s-tbase">
+        <div class="s-tlbl">${esc(copy.medianLabel)}</div>
+        <div class="s-tval">${esc(formatCHF(agg.overallMedian))}</div>
       </div>
-      <div style="${STAT_TILE_BASE}">
-        <div style="${STAT_TILE_LABEL}">${esc(copy.observationsLabel)}</div>
-        <div style="${STAT_TILE_VALUE}">${formatNumber(agg.salaryCoverageCount)}</div>
+      <div class="s-tbase">
+        <div class="s-tlbl">${esc(copy.observationsLabel)}</div>
+        <div class="s-tval">${formatNumber(agg.salaryCoverageCount)}</div>
       </div>
-      <div style="${STAT_TILE_BASE}">
-        <div style="${STAT_TILE_LABEL}">${esc(copy.yoyLabel)}</div>
-        <div style="${STAT_TILE_VALUE}">${esc(formatPct(agg.yoyPct))}</div>
+      <div class="s-tbase">
+        <div class="s-tlbl">${esc(copy.yoyLabel)}</div>
+        <div class="s-tval">${esc(formatPct(agg.yoyPct))}</div>
       </div>
     </section>`;
 
@@ -889,7 +881,7 @@ function renderReport(opts: {
     <section class="s-AV5A4S">
       <h2 style="${H2_STYLE}">${esc(copy.downloadH2)}</h2>
       <p style="${BODY_STYLE}">${esc(copy.downloadP)}</p>
-      <a href="/data/jobs-salary-aggregate.csv" download style="${CTA_PRIMARY_STYLE}">${esc(copy.downloadCsvLabel)}</a>
+      <a href="/data/jobs-salary-aggregate.csv" download class="s-cta">${esc(copy.downloadCsvLabel)}</a>
     </section>
     <section class="s-KZc0LQ">
       <h2 style="${H2_STYLE}">${esc(copy.shareH2)}</h2>
@@ -969,7 +961,7 @@ function patchJobMarketHubs(distDir: string, logger: (msg: string) => void): voi
 <aside class="s-PvJP35" aria-labelledby="annualReportCallout">
   <h2 class="s-8pnpWY" id="annualReportCallout">${esc(copy.relatedCalloutTitle)}</h2>
   <p class="s-Qeytrn">${esc(copy.relatedCalloutBody)}</p>
-  <a href="${esc(reportUrl)}" style="${CTA_PRIMARY_STYLE}">${esc(copy.relatedCalloutCta)}</a>
+  <a href="${esc(reportUrl)}" class="s-cta">${esc(copy.relatedCalloutCta)}</a>
 </aside>`;
 
       // Inject right before </main> (first occurrence).

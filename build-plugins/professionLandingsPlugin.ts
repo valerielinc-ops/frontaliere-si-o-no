@@ -43,11 +43,7 @@ import { WriteCollector } from './batchWrite';
 import { resolveProfessionLandingsFlushed } from './shared/buildSignals';
 import { imageObjectLd } from '../services/seo/imageObjectLd';
 import {
-  CTA_PRIMARY_STYLE,
-  CARD_STYLE,
   LINK_ACCENT_STYLE,
-  TABLE_HEAD_STYLE,
-  TABLE_CELL_STYLE,
   HERO_EYEBROW_STYLE,
   H1_STYLE,
   LEDE_STYLE,
@@ -191,7 +187,7 @@ function renderFeaturedJobs(
     } satisfies JobCardJob,
     href: buildFeaturedJobUrl(j, locale),
   }));
-  const emptyHtml = `<p style="${CARD_STYLE};color:var(--color-subtle);font-size:14px;margin:0">${esc(pickEmptyState(id, locale))}</p>`;
+  const emptyHtml = `<p class="s-card" style="color:var(--color-subtle);font-size:14px;margin:0">${esc(pickEmptyState(id, locale))}</p>`;
   const listHtml = renderJobCardListHtml(items, {
     locale,
     emptyStateHtml: emptyHtml,
@@ -287,8 +283,8 @@ function renderEmployersTable(
     .map(
       (emp, i) => `
         <tr>
-          <td style="${TABLE_CELL_STYLE}">${esc(emp)}</td>
-          <td style="${TABLE_CELL_STYLE}">${esc(facts.topCities[i % facts.topCities.length])}</td>
+          <td class="s-tcl">${esc(emp)}</td>
+          <td class="s-tcl">${esc(facts.topCities[i % facts.topCities.length])}</td>
         </tr>`,
     )
     .join('');
@@ -298,8 +294,8 @@ function renderEmployersTable(
       <table class="s-QbQwZ0">
         <thead>
           <tr>
-            <th style="${TABLE_HEAD_STYLE}">${esc(headings.employer)}</th>
-            <th style="${TABLE_HEAD_STYLE}">${esc(headings.city)}</th>
+            <th class="s-thd">${esc(headings.employer)}</th>
+            <th class="s-thd">${esc(headings.city)}</th>
           </tr>
         </thead>
         <tbody>${rows}</tbody>
@@ -317,7 +313,7 @@ function renderSalaryBandTable(
   const [min, max] = facts.typicalSalaryRange;
   return `<section class="s-86Shfc">
     <h2 class="s-zlWKhs">${esc(title)}</h2>
-    <div style="${CARD_STYLE};padding:16px 18px">
+    <div class="s-card" style="padding:16px 18px">
       <p class="s-P8V7XF">${esc(salaryLabel)}</p>
       <p class="s-g7fdha">CHF ${min.toLocaleString('en-CH')} &ndash; ${max.toLocaleString('en-CH')}</p>
       <p class="s--zidT1">Mediana: CHF ${facts.medianSalaryChf.toLocaleString('en-CH')}</p>
@@ -355,7 +351,7 @@ function renderSourcesBlock(id: ProfessionId, label: string): string {
     )
     .join('');
   // Replaces the previous border-left:4px accent stripe (banned pattern).
-  return `<section style="margin:0 0 24px;${CARD_STYLE};max-width:860px">
+  return `<section class="s-card" style="margin:0 0 24px;max-width:860px">
     <p style="${SMALL_HEADING_STYLE};margin:0 0 10px">${esc(label)}</p>
     <ul class="s-KjHm8e">${lis}</ul>
   </section>`;
@@ -490,7 +486,7 @@ function renderPage(opts: {
     { label: copy.statTileFreshLabel, value: copy.statFreshValue, tone: pickStatTileTone('fresh', snapshot.fresh30Count) },
   ])}</div>`;
 
-  const primaryCtaHtml = `<div class="s-KZc0LQ"><a href="${esc(calculatorUrl)}" style="${CTA_PRIMARY_STYLE}">${esc(copy.primaryCtaLabel)} →</a></div>`;
+  const primaryCtaHtml = `<div class="s-KZc0LQ"><a href="${esc(calculatorUrl)}" class="s-cta">${esc(copy.primaryCtaLabel)} →</a></div>`;
 
   const featuredHtml = renderFeaturedJobs(id, locale, snapshot, copyView);
   const employerGridHtml = renderEmployerGrid(snapshot, id, copyView, locale);
@@ -531,7 +527,7 @@ function renderPage(opts: {
     </section>
     ${relatedHtml}
     <section class="s-p1QaOi">
-      <a href="${esc(jobBoardUrl)}" style="${CTA_PRIMARY_STYLE}">${esc(copy.ctaJobs)}</a>
+      <a href="${esc(jobBoardUrl)}" class="s-cta">${esc(copy.ctaJobs)}</a>
       <a class="s-eXgANZ" href="${esc(calculatorUrl)}">${esc(copy.ctaSimulator)}</a>
     </section>
     <section class="s-GCEyQg" aria-label="${esc(copy.h1)}">

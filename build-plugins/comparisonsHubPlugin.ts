@@ -37,8 +37,6 @@ import type { Plugin } from 'vite';
 import { BASE_URL, MIN_INDEXABLE_WORDS, countHtmlBodyWords } from './constants';
 import { buildSeoPageHtml } from './shared/seoPageShell';
 import {
-  TABLE_HEAD_STYLE,
-  TABLE_CELL_STYLE,
   LINK_ACCENT_STYLE,
 } from './shared/seoContentTokens';
 import { WriteCollector } from './batchWrite';
@@ -158,15 +156,15 @@ function renderSalaryTable(copy: ComparisonsHubCopy, rows: readonly SalarySector
     <table class="s-Tiw3aV">
       <thead class="s-_esAK2">
         <tr>
-          <th style="${TABLE_HEAD_STYLE};text-align:left">${esc(copy.tSalaryColSector)}</th>
-          <th style="${TABLE_HEAD_STYLE};text-align:right">${esc(copy.tSalaryColObservations)}</th>
-          <th style="${TABLE_HEAD_STYLE};text-align:right">${esc(copy.tSalaryColCh)}</th>
-          <th style="${TABLE_HEAD_STYLE};text-align:right">${esc(copy.tSalaryColIt)}</th>
-          <th style="${TABLE_HEAD_STYLE};text-align:right">${esc(copy.tSalaryColRatio)}</th>
+          <th class="s-thd" style="text-align:left">${esc(copy.tSalaryColSector)}</th>
+          <th class="s-thd" style="text-align:right">${esc(copy.tSalaryColObservations)}</th>
+          <th class="s-thd" style="text-align:right">${esc(copy.tSalaryColCh)}</th>
+          <th class="s-thd" style="text-align:right">${esc(copy.tSalaryColIt)}</th>
+          <th class="s-thd" style="text-align:right">${esc(copy.tSalaryColRatio)}</th>
         </tr>
       </thead>
       <tbody class="s-_B4enX">
-        ${tbody.replace(/<td>/g, `<td style="${TABLE_CELL_STYLE}">`).replace(/<td class="s-XzJlZK">/g, `<td style="${TABLE_CELL_STYLE};text-align:right">`)}
+        ${tbody.replace(/<td>/g, `<td class="s-tcl">`).replace(/<td class="s-XzJlZK">/g, `<td class="s-tcl" style="text-align:right">`)}
       </tbody>
     </table>
   </div>
@@ -178,10 +176,10 @@ function renderTaxTable(copy: ComparisonsHubCopy): string {
   const rows = copy.tTaxScenarios
     .map(
       (s) => `<tr>
-        <td style="${TABLE_CELL_STYLE}">${esc(s.label)}</td>
-        <td style="${TABLE_CELL_STYLE};text-align:right">${esc(s.chPct)}</td>
-        <td style="${TABLE_CELL_STYLE};text-align:right">${esc(s.itPct)}</td>
-        <td style="${TABLE_CELL_STYLE};text-align:right;font-weight:600">${esc(s.delta)}</td>
+        <td class="s-tcl">${esc(s.label)}</td>
+        <td class="s-tcl" style="text-align:right">${esc(s.chPct)}</td>
+        <td class="s-tcl" style="text-align:right">${esc(s.itPct)}</td>
+        <td class="s-tcl" style="text-align:right;font-weight:600">${esc(s.delta)}</td>
       </tr>`,
     )
     .join('');
@@ -191,10 +189,10 @@ function renderTaxTable(copy: ComparisonsHubCopy): string {
     <table class="s-Tiw3aV">
       <thead class="s-_esAK2">
         <tr>
-          <th style="${TABLE_HEAD_STYLE};text-align:left">${esc(copy.tTaxColScenario)}</th>
-          <th style="${TABLE_HEAD_STYLE};text-align:right">${esc(copy.tTaxColChTotal)}</th>
-          <th style="${TABLE_HEAD_STYLE};text-align:right">${esc(copy.tTaxColItTotal)}</th>
-          <th style="${TABLE_HEAD_STYLE};text-align:right">${esc(copy.tTaxColNetDelta)}</th>
+          <th class="s-thd" style="text-align:left">${esc(copy.tTaxColScenario)}</th>
+          <th class="s-thd" style="text-align:right">${esc(copy.tTaxColChTotal)}</th>
+          <th class="s-thd" style="text-align:right">${esc(copy.tTaxColItTotal)}</th>
+          <th class="s-thd" style="text-align:right">${esc(copy.tTaxColNetDelta)}</th>
         </tr>
       </thead>
       <tbody class="s-_B4enX">${rows}</tbody>
@@ -208,9 +206,9 @@ function renderHealthTable(copy: ComparisonsHubCopy, rows: readonly LamalCantonR
   const tbody = rows
     .map(
       (r) => `<tr>
-        <td style="${TABLE_CELL_STYLE}">${esc(r.canton)}</td>
-        <td style="${TABLE_CELL_STYLE};text-align:right">${fmtInt(r.medianMonthlyCHF, locale)}</td>
-        <td style="${TABLE_CELL_STYLE};text-align:right">${fmtInt(r.annualCHF, locale)}</td>
+        <td class="s-tcl">${esc(r.canton)}</td>
+        <td class="s-tcl" style="text-align:right">${fmtInt(r.medianMonthlyCHF, locale)}</td>
+        <td class="s-tcl" style="text-align:right">${fmtInt(r.annualCHF, locale)}</td>
       </tr>`,
     )
     .join('');
@@ -220,9 +218,9 @@ function renderHealthTable(copy: ComparisonsHubCopy, rows: readonly LamalCantonR
     <table class="s-8y_5Dt">
       <thead class="s-_esAK2">
         <tr>
-          <th style="${TABLE_HEAD_STYLE};text-align:left">${esc(copy.tHealthColCanton)}</th>
-          <th style="${TABLE_HEAD_STYLE};text-align:right">${esc(copy.tHealthColMonthly)}</th>
-          <th style="${TABLE_HEAD_STYLE};text-align:right">${esc(copy.tHealthColAnnual)}</th>
+          <th class="s-thd" style="text-align:left">${esc(copy.tHealthColCanton)}</th>
+          <th class="s-thd" style="text-align:right">${esc(copy.tHealthColMonthly)}</th>
+          <th class="s-thd" style="text-align:right">${esc(copy.tHealthColAnnual)}</th>
         </tr>
       </thead>
       <tbody class="s-_B4enX">${tbody}</tbody>
@@ -237,9 +235,9 @@ function renderBenefitsTable(copy: ComparisonsHubCopy): string {
   const rows = copy.tBenefitsRows
     .map(
       (r) => `<tr>
-        <td style="${TABLE_CELL_STYLE};font-weight:600;vertical-align:top">${esc(r.area)}</td>
-        <td style="${TABLE_CELL_STYLE};vertical-align:top">${esc(r.ch)}</td>
-        <td style="${TABLE_CELL_STYLE};vertical-align:top">${esc(r.it)}</td>
+        <td class="s-tcl" style="font-weight:600;vertical-align:top">${esc(r.area)}</td>
+        <td class="s-tcl" style="vertical-align:top">${esc(r.ch)}</td>
+        <td class="s-tcl" style="vertical-align:top">${esc(r.it)}</td>
       </tr>`,
     )
     .join('');
@@ -249,9 +247,9 @@ function renderBenefitsTable(copy: ComparisonsHubCopy): string {
     <table class="s-iPczBT">
       <thead class="s-_esAK2">
         <tr>
-          <th style="${TABLE_HEAD_STYLE};text-align:left">${esc(copy.tBenefitsColArea)}</th>
-          <th style="${TABLE_HEAD_STYLE};text-align:left">${esc(copy.tBenefitsColCh)}</th>
-          <th style="${TABLE_HEAD_STYLE};text-align:left">${esc(copy.tBenefitsColIt)}</th>
+          <th class="s-thd" style="text-align:left">${esc(copy.tBenefitsColArea)}</th>
+          <th class="s-thd" style="text-align:left">${esc(copy.tBenefitsColCh)}</th>
+          <th class="s-thd" style="text-align:left">${esc(copy.tBenefitsColIt)}</th>
         </tr>
       </thead>
       <tbody class="s-_B4enX">${rows}</tbody>
@@ -265,9 +263,9 @@ function renderCostTable(copy: ComparisonsHubCopy): string {
   const rows = copy.tCostRows
     .map(
       (r) => `<tr>
-        <td style="${TABLE_CELL_STYLE};vertical-align:top">${esc(r.item)}</td>
-        <td style="${TABLE_CELL_STYLE};text-align:right;vertical-align:top">${esc(r.ch)}</td>
-        <td style="${TABLE_CELL_STYLE};text-align:right;vertical-align:top">${esc(r.it)}</td>
+        <td class="s-tcl" style="vertical-align:top">${esc(r.item)}</td>
+        <td class="s-tcl" style="text-align:right;vertical-align:top">${esc(r.ch)}</td>
+        <td class="s-tcl" style="text-align:right;vertical-align:top">${esc(r.it)}</td>
       </tr>`,
     )
     .join('');
@@ -277,9 +275,9 @@ function renderCostTable(copy: ComparisonsHubCopy): string {
     <table class="s-asm5zV">
       <thead class="s-_esAK2">
         <tr>
-          <th style="${TABLE_HEAD_STYLE};text-align:left">${esc(copy.tCostColItem)}</th>
-          <th style="${TABLE_HEAD_STYLE};text-align:right">${esc(copy.tCostColCh)}</th>
-          <th style="${TABLE_HEAD_STYLE};text-align:right">${esc(copy.tCostColIt)}</th>
+          <th class="s-thd" style="text-align:left">${esc(copy.tCostColItem)}</th>
+          <th class="s-thd" style="text-align:right">${esc(copy.tCostColCh)}</th>
+          <th class="s-thd" style="text-align:right">${esc(copy.tCostColIt)}</th>
         </tr>
       </thead>
       <tbody class="s-_B4enX">${rows}</tbody>

@@ -21,18 +21,11 @@ import {
   SEO_STATIC_CSS_LINK,
 } from './constants';
 import {
-  STAT_TILE_ACCENT,
-  STAT_TILE_WARNING,
-  STAT_TILE_LABEL,
-  STAT_TILE_VALUE,
-  CARD_STYLE,
   HERO_EYEBROW_STYLE,
   H1_STYLE,
   LEDE_STYLE,
   BODY_STYLE,
   LINK_ACCENT_STYLE,
-  TABLE_HEAD_STYLE,
-  TABLE_CELL_STYLE,
 } from './shared/seoContentTokens';
 import {
   renderJobCardListHtml,
@@ -199,7 +192,7 @@ export function buildSectorLandingHtml(opts: BuildSectorLandingHtmlOptions): str
   const faqHtml = seo.faq.length > 0
     ? `<section class="s-m_ILbB">
     <h2 class="s-sOn5-B">FAQ</h2>
-    ${seo.faq.map((f) => `<details style="${CARD_STYLE};margin-bottom:8px"><summary class="s-HBR0NM">${esc(f.question)}</summary><p class="s-bOIp6r">${esc(f.answer)}</p></details>`).join('')}
+    ${seo.faq.map((f) => `<details class="s-card" style="margin-bottom:8px"><summary class="s-HBR0NM">${esc(f.question)}</summary><p class="s-bOIp6r">${esc(f.answer)}</p></details>`).join('')}
   </section>`
     : '';
 
@@ -344,11 +337,11 @@ ${alternates}
           <p style="${BODY_STYLE}">${esc(seo.intro)}</p>
         </header>
         <section class="s-uhqVU-">
-          <div style="${STAT_TILE_ACCENT}">
-            <div style="${STAT_TILE_LABEL}">${esc(countsLabelByLocale[locale])}</div>
-            <div style="${STAT_TILE_VALUE};font-size:32px">${count}</div>
+          <div class="s-tacc">
+            <div class="s-tlbl">${esc(countsLabelByLocale[locale])}</div>
+            <div class="s-tval" style="font-size:32px">${count}</div>
           </div>
-          <a href="${sectionRootUrl}" style="${STAT_TILE_WARNING};text-decoration:none;font-weight:700;display:flex;align-items:center">${esc(openAllByLocale[locale])} →</a>
+          <a href="${sectionRootUrl}" class="s-twrn" style="text-decoration:none;font-weight:700;display:flex;align-items:center">${esc(openAllByLocale[locale])} →</a>
         </section>
         ${prose.html}
         <section class="s-ziawP1">

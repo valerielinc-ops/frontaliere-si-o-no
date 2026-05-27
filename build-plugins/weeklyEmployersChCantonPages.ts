@@ -27,18 +27,11 @@ import { BASE_URL, MIN_INDEXABLE_WORDS, countHtmlBodyWords } from './constants';
 import { buildSeoPageHtml } from './shared/seoPageShell';
 import { WriteCollector } from './batchWrite';
 import {
-  CARD_STYLE,
-  CTA_PRIMARY_STYLE,
   H1_STYLE,
   H2_STYLE,
   HERO_EYEBROW_STYLE,
   LEDE_STYLE,
   LINK_ACCENT_STYLE,
-  STAT_TILE_ACCENT,
-  STAT_TILE_BASE,
-  STAT_TILE_LABEL,
-  STAT_TILE_SUCCESS,
-  STAT_TILE_VALUE,
 } from './shared/seoContentTokens';
 import {
   buildCantonJobsIndex,
@@ -350,21 +343,21 @@ function renderEmployersPage(inp: RenderInputs): string {
   </header>`;
 
   const tilesBlock = `<section class="s-s0ShLV" aria-label="${esc(c.eyebrow)}">
-    <div style="${STAT_TILE_ACCENT}">
-      <span style="${STAT_TILE_LABEL}">${esc(c.activeEmployersLabel)}</span>
-      <span style="${STAT_TILE_VALUE}">${inp.totalEmployers}</span>
+    <div class="s-tacc">
+      <span class="s-tlbl">${esc(c.activeEmployersLabel)}</span>
+      <span class="s-tval">${inp.totalEmployers}</span>
     </div>
-    <div style="${STAT_TILE_SUCCESS}">
-      <span style="${STAT_TILE_LABEL}">${esc(c.activeJobsLabel)}</span>
-      <span style="${STAT_TILE_VALUE}">${inp.totalJobs}</span>
+    <div class="s-tok">
+      <span class="s-tlbl">${esc(c.activeJobsLabel)}</span>
+      <span class="s-tval">${inp.totalJobs}</span>
     </div>
-    <div style="${STAT_TILE_BASE}">
-      <span style="${STAT_TILE_LABEL}">${esc(c.employersHeading)}</span>
-      <span style="${STAT_TILE_VALUE}">${inp.topEmployers.length}</span>
+    <div class="s-tbase">
+      <span class="s-tlbl">${esc(c.employersHeading)}</span>
+      <span class="s-tval">${inp.topEmployers.length}</span>
     </div>
   </section>`;
 
-  const ctaBlock = `<p class="s-O3JTly"><a href="${esc(inp.searchHref)}" style="${CTA_PRIMARY_STYLE}">${esc(c.ctaLabel)} →</a></p>`;
+  const ctaBlock = `<p class="s-O3JTly"><a href="${esc(inp.searchHref)}" class="s-cta">${esc(c.ctaLabel)} →</a></p>`;
 
   const employerRows = inp.topEmployers
     .map(
@@ -374,7 +367,7 @@ function renderEmployersPage(inp: RenderInputs): string {
     .join('\n');
   const employerTable = inp.topEmployers.length
     ? `<section><h2 style="${H2_STYLE}">${esc(c.employersHeading)}</h2>
-        <div style="${CARD_STYLE}"><table class="s-CuZHSN">
+        <div class="s-card"><table class="s-CuZHSN">
           <thead><tr><th class="s-Gu4ahz">${esc(c.employerColumn)}</th><th class="s-R7ZZFv">${esc(c.countColumn)}</th></tr></thead>
           <tbody>${employerRows}</tbody>
         </table></div></section>`

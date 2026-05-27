@@ -86,7 +86,6 @@ import {
   WEEKLY_EMPLOYERS_SECTION,
 } from './weeklyEmployersData';
 import {
-  CARD_STYLE,
   H1_STYLE,
   H2_STYLE,
   HERO_EYEBROW_STYLE,
@@ -95,9 +94,7 @@ import {
   LINK_ACCENT_STYLE,
   STAT_TILE_ACCENT,
   STAT_TILE_BASE,
-  STAT_TILE_LABEL,
   STAT_TILE_SUCCESS,
-  STAT_TILE_VALUE,
   STAT_TILE_WARNING,
   clampSiteSuffix,
   renderDiscoverMore,
@@ -1172,7 +1169,7 @@ function renderSvgTrendChart(
   ariaLabel: string,
 ): string {
   if (series.length < 2) {
-    return `<p style="${STAT_TILE_WARNING};padding:14px 16px;border-radius:12px;margin:0">${esc(trendEmptyCopy)}</p>`;
+    return `<p class="s-twrn" style="padding:14px 16px;border-radius:12px;margin:0">${esc(trendEmptyCopy)}</p>`;
   }
   const values = series.map((s) => s.value);
   const maxValue = Math.max(...values);
@@ -1212,7 +1209,7 @@ function renderSvgTrendChart(
 }
 
 function renderRelatedLinks(copy: LocalisedCopy): string {
-  return `<aside style="margin:28px 0 0;${CARD_STYLE}" aria-labelledby="relatedLinks">
+  return `<aside class="s-card" style="margin:28px 0 0" aria-labelledby="relatedLinks">
     <h2 id="relatedLinks" style="${H2_STYLE};font-size:18px;margin-bottom:10px">${esc(copy.relatedLinksHeading)}</h2>
     <ul class="s-_tVWUV">
       ${copy.relatedLinks
@@ -1230,7 +1227,7 @@ function renderFaq(copy: LocalisedCopy): string {
     <h2 id="jobMarketFaq" style="${H2_STYLE}">${esc(copy.faqTitle)}</h2>
     ${copy.faq
       .map(
-        (f) => `<details style="${CARD_STYLE};margin-bottom:8px">
+        (f) => `<details class="s-card" style="margin-bottom:8px">
       <summary class="s-HBR0NM">${esc(f.q)}</summary>
       <p class="s-OCic8j">${esc(f.a)}</p>
     </details>`,
@@ -1253,8 +1250,8 @@ function renderStatTile(
       ? STAT_TILE_BASE
       : STAT_TILE_ACCENT;
   return `<div style="${tileStyle}">
-    <div style="${STAT_TILE_LABEL}">${esc(label)}</div>
-    <div style="${STAT_TILE_VALUE}">${esc(value)}</div>
+    <div class="s-tlbl">${esc(label)}</div>
+    <div class="s-tval">${esc(value)}</div>
   </div>`;
 }
 
@@ -1335,7 +1332,7 @@ function renderCityBreakdown(
       const label = hubKeys.has(c.key)
         ? `<a class="s-RsZACC" href="${esc(cityLinkBase[locale])}/${esc(c.key)}/">${esc(c.name)}</a>`
         : `<span class="s-FDf_dB">${esc(c.name)}</span>`;
-      return `<li style="${CARD_STYLE};margin-bottom:8px">
+      return `<li class="s-card" style="margin-bottom:8px">
     <div class="s-nVM1cq">
       ${label}
       <span class="s-peGxAI">${esc(String(c.added))} · ${esc(c.percentage.toFixed(1))}%</span>
@@ -1814,7 +1811,7 @@ function renderHubPage(inp: HubPageInputs): string {
         <ol class="s-HyJ7O3">
           ${latestWeeks
             .map(
-              (w) => `<li style="${CARD_STYLE}">
+              (w) => `<li class="s-card">
                 <a class="s-lWX0iP" href="${esc(w.href)}">
                   <div class="s-_A1Pie">${esc(copy.weeklyHeading(w.week, w.year))}</div>
                   <div class="s-3U98wH">${esc(w.rangeLabel)}</div>
@@ -2831,7 +2828,7 @@ function renderSectorPage(inp: SectorPageInputs): string {
         <h2 id="sectorFaq" style="${H2_STYLE}">${esc(copy.faqTitle)}</h2>
         ${faqEntries
           .map(
-            (f) => `<details style="${CARD_STYLE};margin-bottom:8px">
+            (f) => `<details class="s-card" style="margin-bottom:8px">
               <summary class="s-HBR0NM">${esc(f.q)}</summary>
               <p class="s-OCic8j">${esc(f.a)}</p>
             </details>`,

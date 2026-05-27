@@ -91,7 +91,6 @@ import {
   WEEKLY_EMPLOYERS_SECTION,
 } from './weeklyEmployersData';
 import {
-  CARD_STYLE,
   H1_STYLE,
   H2_STYLE,
   HERO_EYEBROW_STYLE,
@@ -100,9 +99,6 @@ import {
   STAT_TILE_DANGER,
   STAT_TILE_SUCCESS,
   STAT_TILE_WARNING,
-  TABLE_CELL_STYLE,
-  TABLE_HEAD_STYLE,
-  TABLE_STYLE,
   renderDiscoverMore,
   differentiateH1FromTitle,
 } from './shared/seoContentTokens';
@@ -876,11 +872,11 @@ function renderLeafLivePlanningProse(
     <h2 style="${H2_STYLE}">${esc(headline)}</h2>
     ${paragraphs.map((p) => `<p class="s-KwuhOL">${esc(p)}</p>`).join('\n    ')}
     <h3 class="s-lGLtkq">${esc(faqLabels.title)}</h3>
-    <details style="${CARD_STYLE};margin-bottom:8px">
+    <details class="s-card" style="margin-bottom:8px">
       <summary class="s-HBR0NM">${esc(faqLabels.q1)}</summary>
       <p class="s-OCic8j">${esc(faqLabels.a1)}</p>
     </details>
-    <details style="${CARD_STYLE};margin-bottom:0">
+    <details class="s-card" style="margin-bottom:0">
       <summary class="s-HBR0NM">${esc(faqLabels.q2)}</summary>
       <p class="s-OCic8j">${esc(faqLabels.a2)}</p>
     </details>
@@ -966,11 +962,11 @@ function renderHubPlanningProse(
     <h2 style="${H2_STYLE}">${esc(headline)}</h2>
     ${paragraphs.map((p) => `<p class="s-KwuhOL">${esc(p)}</p>`).join('\n    ')}
     <h3 class="s-lGLtkq">${esc(faqLabels.title)}</h3>
-    <details style="${CARD_STYLE};margin-bottom:8px">
+    <details class="s-card" style="margin-bottom:8px">
       <summary class="s-HBR0NM">${esc(faqLabels.q1)}</summary>
       <p class="s-OCic8j">${esc(faqLabels.a1)}</p>
     </details>
-    <details style="${CARD_STYLE};margin-bottom:0">
+    <details class="s-card" style="margin-bottom:0">
       <summary class="s-HBR0NM">${esc(faqLabels.q2)}</summary>
       <p class="s-OCic8j">${esc(faqLabels.a2)}</p>
     </details>
@@ -1472,7 +1468,7 @@ function renderLeafPage(inp: LeafInputs): string {
             const href = `${BASE_URL}${buildOggiPath(locale, slug)}`;
             const altDisp = BORDER_CROSSING_DISPLAY[slug];
             const detail = `${copy.crossingTypeLabel[altReg.type]} · ${altReg.open24h ? copy.open24h : esc(altReg.hours)} · ${esc(altReg.avgWaitMorning)}`;
-            return `<li style="${CARD_STYLE};border-radius:10px;margin-bottom:8px"><a href="${href}" style="${LINK_ACCENT_STYLE};font-weight:700">${esc(altDisp)}</a><div class="s-otj8TI">${detail}</div></li>`;
+            return `<li class="s-card" style="border-radius:10px;margin-bottom:8px"><a href="${href}" style="${LINK_ACCENT_STYLE};font-weight:700">${esc(altDisp)}</a><div class="s-otj8TI">${detail}</div></li>`;
           })
           .filter(Boolean)
           .join('');
@@ -1493,7 +1489,7 @@ function renderLeafPage(inp: LeafInputs): string {
     ${faqItems
       .map(
         (f) =>
-          `<details style="${CARD_STYLE};margin-bottom:8px">
+          `<details class="s-card" style="margin-bottom:8px">
         <summary class="s-HBR0NM">${esc(f.q(crossingDisplay))}</summary>
         <p class="s-OCic8j">${esc(f.a(crossingDisplay))}</p>
       </details>`,
@@ -1812,23 +1808,23 @@ function renderHubPage(inp: HubInputs): string {
     const sc = statusColor(wait);
     const waitFmt = wait === null ? '—' : `${wait} min`;
     return `<tr data-bw-crossing="${esc(c)}">
-      <td style="${TABLE_CELL_STYLE}">
+      <td class="s-tcl">
         <a href="${buildOggiPath(locale, c)}" style="${LINK_ACCENT_STYLE};font-weight:600">${esc(BORDER_CROSSING_DISPLAY[c])}</a>
       </td>
-      <td style="${TABLE_CELL_STYLE};text-align:right">
+      <td class="s-tcl" style="text-align:right">
         <span data-bw-field="totalCrossingMinutes" style="display:inline-block;padding:4px 10px;border-radius:9999px;font-size:13px;font-weight:700;background:${sc.bg};color:${sc.text};border:1px solid ${sc.border}">${esc(waitFmt)}</span>
       </td>
-      <td style="${TABLE_CELL_STYLE};font-size:12px;color:var(--color-subtle)">${esc(sourceLabel(src, copy))}</td>
+      <td class="s-tcl" style="font-size:12px;color:var(--color-subtle)">${esc(sourceLabel(src, copy))}</td>
     </tr>`;
   });
 
-  const tableHtml = `<table style="${TABLE_STYLE};font-size:14px">
+  const tableHtml = `<table class="s-tbl" style="font-size:14px">
     <thead><tr>
-      <th style="${TABLE_HEAD_STYLE}">${esc(
+      <th class="s-thd">${esc(
         locale === 'it' ? 'Valico' : locale === 'de' ? 'Grenzübergang' : locale === 'fr' ? 'Poste' : 'Crossing',
       )}</th>
-      <th style="${TABLE_HEAD_STYLE};text-align:right">${esc(copy.waitMinutesLabel)}</th>
-      <th style="${TABLE_HEAD_STYLE}">${esc(copy.sourceLabel)}</th>
+      <th class="s-thd" style="text-align:right">${esc(copy.waitMinutesLabel)}</th>
+      <th class="s-thd">${esc(copy.sourceLabel)}</th>
     </tr></thead>
     <tbody>${rows.join('')}</tbody>
   </table>`;
@@ -2178,11 +2174,11 @@ function renderArchiveContextProse(
     <h2 id="archiveContext" style="${H2_STYLE}">${esc(headline)}</h2>
     ${paragraphs.map((p) => `<p class="s-KwuhOL">${esc(p)}</p>`).join('\n    ')}
     <h3 class="s-lGLtkq">${esc(faqLabels.title)}</h3>
-    <details style="${CARD_STYLE};margin-bottom:8px">
+    <details class="s-card" style="margin-bottom:8px">
       <summary class="s-HBR0NM">${esc(faqLabels.q1)}</summary>
       <p class="s-OCic8j">${esc(faqLabels.a1)}</p>
     </details>
-    <details style="${CARD_STYLE};margin-bottom:0">
+    <details class="s-card" style="margin-bottom:0">
       <summary class="s-HBR0NM">${esc(faqLabels.q2)}</summary>
       <p class="s-OCic8j">${esc(faqLabels.a2)}</p>
     </details>
@@ -2253,8 +2249,8 @@ function renderArchivePage(inp: ArchiveInputs): string {
   const rows = hourAvgs
     .map(
       (v, h) => `<tr>
-      <td style="${TABLE_CELL_STYLE}">${String(h).padStart(2, '0')}:00</td>
-      <td style="${TABLE_CELL_STYLE};text-align:right;font-variant-numeric:tabular-nums">${v === null ? '—' : v + ' min'}</td>
+      <td class="s-tcl">${String(h).padStart(2, '0')}:00</td>
+      <td class="s-tcl" style="text-align:right;font-variant-numeric:tabular-nums">${v === null ? '—' : v + ' min'}</td>
     </tr>`,
     )
     .join('');
@@ -2362,10 +2358,10 @@ function renderArchivePage(inp: ArchiveInputs): string {
         ${archiveStatsHtml}
         <section>
           <h2 style="${H2_STYLE}">${esc(copy.hourlyTodayLabel)}</h2>
-          <table style="${TABLE_STYLE};font-size:14px">
+          <table class="s-tbl" style="font-size:14px">
             <thead><tr>
-              <th style="${TABLE_HEAD_STYLE}">Ora</th>
-              <th style="${TABLE_HEAD_STYLE};text-align:right">${esc(copy.waitMinutesLabel)}</th>
+              <th class="s-thd">Ora</th>
+              <th class="s-thd" style="text-align:right">${esc(copy.waitMinutesLabel)}</th>
             </tr></thead>
             <tbody>${rows}</tbody>
           </table>

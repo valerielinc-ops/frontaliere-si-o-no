@@ -71,7 +71,6 @@ import {
   H2_STYLE,
   CARD_STYLE,
   LINK_ACCENT_STYLE,
-  CTA_PRIMARY_STYLE,
   HERO_EYEBROW_STYLE,
   LEDE_STYLE,
   SMALL_HEADING_STYLE,
@@ -183,7 +182,7 @@ export function renderFeaturedJobs(
     href: buildFeaturedJobUrl(j, locale),
   }));
   const allJobsHref = buildJobBoardUrl(locale);
-  const emptyHtml = `<div style="${CARD_STYLE};display:flex;flex-direction:column;gap:10px">
+  const emptyHtml = `<div class="s-card" style="display:flex;flex-direction:column;gap:10px">
     <p class="s-roj_d-">${esc(pickEmptyState(cityId, locale))}</p>
     <a href="${esc(allJobsHref)}" style="${LINK_ACCENT_STYLE};font-weight:700;font-size:15px">${esc(view.featuredJobsCtaAll)}</a>
   </div>`;
@@ -459,7 +458,7 @@ function renderPage(opts: {
     },
   ])}</div>`;
 
-  const primaryCtaHtml = `<div class="s-KZc0LQ"><a href="${esc(calculatorUrl)}" style="${CTA_PRIMARY_STYLE}">${esc(view.primaryCtaLabel)} →</a></div>`;
+  const primaryCtaHtml = `<div class="s-KZc0LQ"><a href="${esc(calculatorUrl)}" class="s-cta">${esc(view.primaryCtaLabel)} →</a></div>`;
   const featuredHtml = renderFeaturedJobs(city, locale, snapshot, view);
   const employerGridHtml = renderEmployerGrid(snapshot, view, locale, city);
   const dividerHtml = renderApprofondisciDivider(view.approfondisciHeading);
@@ -474,7 +473,7 @@ function renderPage(opts: {
   //
   // Resolution: define the shared style block ONCE at the top of <main>
   // (so the rules apply to BOTH tables in sectionsHtml AND the FAQ block
-  // that follows), and replace `style="${TABLE_HEAD_STYLE}"` with
+  // that follows), and replace `class="s-thd"` with
   // `class="t-h"` in costOfLivingLandingsCopy.ts. Saves ~3-5 KB per page
   // on top of the FAQ extraction already in place. Classes (.cf/.cs/.ca
   // for FAQ; .t-h/.t-c for tables) intentionally short to minimise
@@ -529,8 +528,8 @@ function renderPage(opts: {
       <ul class="s-1HBTZ4">${relatedHtml}</ul>
     </section>
     <section class="s-p1QaOi">
-      <a href="${esc(calculatorUrl)}" style="${CTA_PRIMARY_STYLE}">${esc(L.ctaSimulator)}</a>
-      <a href="${esc(hubUrl)}" style="${CARD_STYLE};text-decoration:none;font-weight:700;border-radius:12px">${esc(L.ctaCompare)}</a>
+      <a href="${esc(calculatorUrl)}" class="s-cta">${esc(L.ctaSimulator)}</a>
+      <a href="${esc(hubUrl)}" class="s-card" style="text-decoration:none;font-weight:700;border-radius:12px">${esc(L.ctaCompare)}</a>
     </section>`;
 
   const bodyHtml = `<main class="seo-static-content s-xzWvwM">${body}</main>`;
