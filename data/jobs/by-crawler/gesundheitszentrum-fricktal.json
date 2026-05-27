@@ -1,15 +1,15 @@
 {
   "crawlerKey": "gesundheitszentrum-fricktal",
-  "assembledAt": "2026-05-27T12:32:37.915Z",
+  "assembledAt": "2026-05-27T23:01:16.598Z",
   "jobs": [
     {
       "id": "gesundheitszentrum-fricktal-2456a5ddfe34",
       "slug": "medico-assistente-malattie-infettive-e-medicina-di-viaggio-gesundheitszentrum-fricktal-rheinfelden",
       "slugByLocale": {
         "it": "medico-assistente-malattie-infettive-e-medicina-di-viaggio-gesundheitszentrum-fricktal-rheinfelden",
-        "en": "medical-assistant-infectious-diseases-and-travel-medicine-gesundheitszentrum-fricktal-rheinfelden",
+        "en": "medico-assistente-malattie-infettive-e-medicina-di-viaggio-eoc-ente-ospedaliero-cantonale-bellinzona-uilmrr",
         "de": "abteilungsleitung-pflegeheim-seora-rheinfelden-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
-        "fr": "assistant-medical-maladies-infectieuses-et-medecine-des-voyages-gesundheitszentrum-fricktal-rheinfelden"
+        "fr": "medecin-assistant-en-maladies-infectieuses-et-medecine-du-voyage-eoc-ente-ospedaliero-cantonale-bellinzona"
       },
       "company": "Gesundheitszentrum Fricktal",
       "companyKey": "gesundheitszentrum-fricktal",
@@ -34,7 +34,7 @@
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/2190/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T12:32:36.109Z",
+      "crawledAt": "2026-05-27T23:01:14.594Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -55,10 +55,10 @@
         "abteilungsleitung-pflegeheim-seora-rheinfelden-m-w-d-gesundheitszentrum-fricktal",
         "medico-assistente-malattie-infettive-e-medicina-di-viaggio-eoc-ente-ospedaliero-cantonale-bellinzona",
         "medical-assistant-infectious-diseases-and-travel-medicine-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "medico-assistente-malattie-infettive-e-medicina-di-viaggio-eoc-ente-ospedaliero-cantonale-bellinzona-uilmrr",
+        "medical-assistant-infectious-diseases-and-travel-medicine-gesundheitszentrum-fricktal-rheinfelden",
         "medizinische-assistentin-infektionskrankheiten-und-reisemedizin-eoc-ente-ospedaliero-cantonale-bellinzona",
         "assistenzarzt-arztin-infektiologie-und-reisemedizin-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "medecin-assistant-en-maladies-infectieuses-et-medecine-du-voyage-eoc-ente-ospedaliero-cantonale-bellinzona"
+        "assistant-medical-maladies-infectieuses-et-medecine-des-voyages-gesundheitszentrum-fricktal-rheinfelden"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -67,6 +67,7 @@
         ],
         "en": [
           "medical-assistant-infectious-diseases-and-travel-medicine-eoc-ente-ospedaliero-cantonale-bellinzona",
+          "medical-assistant-infectious-diseases-and-travel-medicine-gesundheitszentrum-fricktal-rheinfelden",
           "medico-assistente-malattie-infettive-e-medicina-di-viaggio-eoc-ente-ospedaliero-cantonale-bellinzona-uilmrr"
         ],
         "de": [
@@ -75,6 +76,7 @@
           "assistenzarzt-arztin-infektiologie-und-reisemedizin-eoc-ente-ospedaliero-cantonale-bellinzona"
         ],
         "fr": [
+          "assistant-medical-maladies-infectieuses-et-medecine-des-voyages-gesundheitszentrum-fricktal-rheinfelden",
           "medecin-assistant-en-maladies-infectieuses-et-medecine-du-voyage-eoc-ente-ospedaliero-cantonale-bellinzona"
         ]
       },
@@ -97,9 +99,9 @@
       "slug": "consulente-senior-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
       "slugByLocale": {
         "it": "consulente-senior-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
-        "en": "dipl-senior-consultant-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
+        "en": "biomedical-analysis-technician-eoc-ente-ospedaliero-cantonale-bellinzona",
         "de": "dipl-pflegefachperson-hf-uberwachungspflege-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
-        "fr": "dipl-consultant-principal-m-m-j-gesundheitszentrum-fricktal-rheinfelden"
+        "fr": "technicien-en-analyse-biomedicale-eoc-ente-ospedaliero-cantonale-bellinzona"
       },
       "company": "Gesundheitszentrum Fricktal",
       "companyKey": "gesundheitszentrum-fricktal",
@@ -124,7 +126,7 @@
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/2165/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T12:32:35.293Z",
+      "crawledAt": "2026-05-27T23:01:13.712Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -144,9 +146,9 @@
       "previousSlugs": [
         "dipl-pflegefachperson-hf-uberwachungspflege-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
         "tecnico-a-in-analisi-biomediche-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "biomedical-analysis-technician-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "dipl-senior-consultant-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
         "techniker-fur-biomedizinische-analysen-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "technicien-en-analyse-biomedicale-eoc-ente-ospedaliero-cantonale-bellinzona"
+        "dipl-consultant-principal-m-m-j-gesundheitszentrum-fricktal-rheinfelden"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -154,12 +156,14 @@
           "tecnico-a-in-analisi-biomediche-eoc-ente-ospedaliero-cantonale-bellinzona"
         ],
         "en": [
+          "dipl-senior-consultant-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
           "biomedical-analysis-technician-eoc-ente-ospedaliero-cantonale-bellinzona"
         ],
         "de": [
           "techniker-fur-biomedizinische-analysen-eoc-ente-ospedaliero-cantonale-bellinzona"
         ],
         "fr": [
+          "dipl-consultant-principal-m-m-j-gesundheitszentrum-fricktal-rheinfelden",
           "technicien-en-analyse-biomedicale-eoc-ente-ospedaliero-cantonale-bellinzona"
         ]
       },
@@ -182,9 +186,9 @@
       "slug": "medico-capoclinica-chirurgia-ortopedica-gesundheitszentrum-fricktal-rheinfelden",
       "slugByLocale": {
         "it": "medico-capoclinica-chirurgia-ortopedica-gesundheitszentrum-fricktal-rheinfelden",
-        "en": "medical-orthopedic-surgery-gesundheitszentrum-fricktal-rheinfelden",
+        "en": "medico-capoclinica-chirurgia-ortopedica-eoc-ente-ospedaliero-cantonale-lugano-uilm12",
         "de": "fachperson-gesundheit-efz-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
-        "fr": "chirurgie-orthopedique-medicale-gesundheitszentrum-fricktal-rheinfelden"
+        "fr": "chef-de-clinique-en-chirurgie-orthopedique-eoc-ente-ospedaliero-cantonale-lugano"
       },
       "company": "Gesundheitszentrum Fricktal",
       "companyKey": "gesundheitszentrum-fricktal",
@@ -209,7 +213,7 @@
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/2090/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T12:32:34.466Z",
+      "crawledAt": "2026-05-27T23:01:12.661Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -230,11 +234,11 @@
         "fachperson-gesundheit-efz-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
         "medico-capoclinica-chirurgia-ortopedica-eoc-ente-ospedaliero-cantonale-lugano",
         "medical-orthopedic-surgery-eoc-ente-ospedaliero-cantonale-lugano",
-        "medico-capoclinica-chirurgia-ortopedica-eoc-ente-ospedaliero-cantonale-lugano-uilm12",
+        "medical-orthopedic-surgery-gesundheitszentrum-fricktal-rheinfelden",
         "medizinische-orthopadische-chirurgie-eoc-ente-ospedaliero-cantonale-lugano",
         "leitender-arzt-orthopadische-chirurgie-eoc-ente-ospedaliero-cantonale-lugano",
         "chirurgie-orthopedique-medicale-eoc-ente-ospedaliero-cantonale-lugano",
-        "chef-de-clinique-en-chirurgie-orthopedique-eoc-ente-ospedaliero-cantonale-lugano"
+        "chirurgie-orthopedique-medicale-gesundheitszentrum-fricktal-rheinfelden"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -243,6 +247,7 @@
         ],
         "en": [
           "medical-orthopedic-surgery-eoc-ente-ospedaliero-cantonale-lugano",
+          "medical-orthopedic-surgery-gesundheitszentrum-fricktal-rheinfelden",
           "medico-capoclinica-chirurgia-ortopedica-eoc-ente-ospedaliero-cantonale-lugano-uilm12"
         ],
         "de": [
@@ -251,6 +256,7 @@
         ],
         "fr": [
           "chirurgie-orthopedique-medicale-eoc-ente-ospedaliero-cantonale-lugano",
+          "chirurgie-orthopedique-medicale-gesundheitszentrum-fricktal-rheinfelden",
           "chef-de-clinique-en-chirurgie-orthopedique-eoc-ente-ospedaliero-cantonale-lugano"
         ]
       },
@@ -300,7 +306,7 @@
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/2032/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T12:32:33.668Z",
+      "crawledAt": "2026-05-27T23:01:11.589Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -371,12 +377,13 @@
         "de": "Du betreust unsere Patient:innen individuell und mit viel Einfühlungsvermögen – ihre Bedürfnisse stehen für dich stets im Mittelpunkt\n• Bereich: Villa Robersten\n• Art: Teilzeit\n• Befristung: Unbefristet",
         "fr": "Mansioni - Accompagnement des patients individuellement et avec beaucoup d'empathie - Diverses activités dans les disciplines de la chirurgie plastique, reconstructive et esthétique, de l'orthopédie du sport ainsi que de la chirurgie de la main et générale Ambiente di lavoro - Ambiance exceptionnelle dans un ancien grand hôtel directement au bord du Rhin - Collaboration avec une équipe de l'hôtellerie dans le cadre du service de soins Orario di lavoro - Temps partiel Durata del contratto - Contatto à durée indéterminée - Lieu de travail : Villa Robersten Rheinfelden - Zone : Villa Robersten"
       },
+      "needsRetranslation": true,
       "location": "Rheinfelden",
       "canton": "AG",
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/2087/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T12:32:32.791Z",
+      "crawledAt": "2026-05-27T23:01:10.674Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -441,12 +448,13 @@
         "de": "Gesundheitszentrum Fricktal AG | online seit : 22.05.2026 Arbeitsort : GZF Rheinfelden/Laufenburg\n• Du arbeitest mit Freude in einem interdisziplinären Team? Du betreust und berätst Menschen und ihre Angehörigen mit viel Herzblut? Dann bist du bei uns richtig. Aufgrund einer Pensionierung suchen wir eine engagierte Persönlichkeit, die unser Case Management Team verstärkt.\n• Als Profi für soziale Angelegenheiten hältst du alle Fäden in der Hand: Vom Eintritt bis zum Austritt bist du die zentrale Ansprechperson für die sozialen Belange der Patientinnen und ihrer Vertrauenspersonen\n• Art: Teilzeit\n• Befristung: Unbefristet",
         "fr": "Descrizione Gesundheitszentrum Fricktal AG | en ligne depuis : 19/05/2026 Lieu de travail : GZF Rheinfelden/Laufenburg - Tu travailles avec plaisir dans une équipe interdisciplinaire ? Tu encadres et conseilles les gens et leurs proches avec beaucoup de cœur et d'âme ? Alors vous êtes au bon endroit. En raison d'une retraite, nous recherchons une personnalité engagée qui renforcera notre équipe de gestion de cas. - En tant que professionnel des affaires sociales, vous avez toutes les cartes en main : de l'entrée à la sortie, vous êtes l'interlocuteur central pour les intérêts sociaux des patientes et de leurs personnes de confiance - Type : temps partiel - Durée : indéterminée"
       },
+      "needsRetranslation": true,
       "location": "Rheinfelden",
       "canton": "AG",
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/2225/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T12:32:31.972Z",
+      "crawledAt": "2026-05-27T23:01:09.752Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -511,12 +519,13 @@
         "de": "Bist du auf der Suche nach einer spannenden und abwechslungsreichen Tätigkeit, bei der du in verschiedenen Abteilungen und Teams arbeiten kannst?\n• Bereich: GZF Pflegedienst\n• Art: Vollzeit\n• Befristung: Unbefristet",
         "fr": "Vous recherchez une activité passionnante et variée où vous pouvez travailler dans différents départements et équipes?\n• Zone: Service de soins GZF\n• Type: plein temps\n• Date limite: illimitée"
       },
+      "needsRetranslation": true,
       "location": "Rheinfelden",
       "canton": "AG",
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/1861/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T12:32:31.156Z",
+      "crawledAt": "2026-05-27T23:01:08.870Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -581,12 +590,13 @@
         "de": "Gesundheitszentrum Fricktal AG | online seit : 22.05.2026 Keine Details erfasst\n• Willkommen in der Akutgeriatrie am GZF! Bei uns steht der Mensch im Mittelpunkt – für eine würdevolle und respektvolle Pflege. Wir widmen uns der ganzheitlichen Versorgung älterer Menschen mit akuten gesundheitlichen Herausforderungen. Unser interdisziplinäres Team aus Pflegefachpersonen, Ärzten und Therapeuten arbeiten Hand in Hand um die Lebensqualität und Selbstständigkeit unserer Patientinnen und Patienten zu fördern. Du pflegst ältere Menschen mit viel Herzblut und arbeitest gerne im Team? Dann bist du bei uns genau richtig – unser Pflegeteam freut sich auf deine Verstärkung!\n• Übernimm die Verantwortung und organisiere aktiv eine Pflegegruppe, in der du einen echten Unterschied machst\n• Befristung: Unbefristet",
         "fr": "Descrizione Mansioni - Benvenuto nella Geriatria Acuta del GZF ! Qui, la persona è al centro di tutto - per una cura dignitosa e rispettosa. - Ci dedichiamo alla cura global degli anziani con problemi di salu acuti. - Il nostro team interdisciplinare composto da infermieri, medici e terapeuti lavora a stretto contatto per promuovere la qualité della vita e l'indipendenza dei nostri pazienti. - Ti prendi cura degli anziani con tanto cuore e lavori volenteri en équipe ? Allora be nel posto giusto - il nostro team di infermieri non vede l'ora di averti a bordo! Compiti - Assumer la responsabilité à e organizza ativamente un gruppo di cure in cui fai la differente. Contrat - Contratto un tempo indéterminato"
       },
+      "needsRetranslation": true,
       "location": "Rheinfelden",
       "canton": "AG",
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/1833/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T12:32:30.339Z",
+      "crawledAt": "2026-05-27T23:01:07.971Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -664,7 +674,7 @@
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/2227/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T12:32:29.505Z",
+      "crawledAt": "2026-05-27T23:01:07.092Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -713,9 +723,9 @@
       "id": "gesundheitszentrum-fricktal-4f1253e3b545",
       "slug": "assistente-in-salute-e-affari-sociali-ags-o-assistente-di-cura-in-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
       "slugByLocale": {
-        "de": "assistent-in-gesundheit-und-soziales-ags-oder-pflegeassistent-in-m-w-d-gesundheitszentrum",
         "it": "assistente-in-salute-e-affari-sociali-ags-o-assistente-di-cura-in-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
         "en": "assistant-in-health-and-social-affairs-ags-or-care-assistant-in-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
+        "de": "assistent-in-gesundheit-und-soziales-ags-oder-pflegeassistent-in-m-w-d-gesundheitszentrum",
         "fr": "assistant-dans-le-domaine-de-la-sante-et-des-affaires-sociales-ags-ou-assistant-aux-soins-in-m-m-j-gesundheitszentrum"
       },
       "company": "Gesundheitszentrum Fricktal",
@@ -723,24 +733,25 @@
       "companyDomain": "gzf.ch",
       "title": "Assistent:in Gesundheit und Soziales (AGS) oder Pflegeassistent:in (m/w/d)",
       "titleByLocale": {
-        "de": "Assistent:in Gesundheit und Soziales (AGS) oder Pflegeassistent:in (m/w/d)",
         "it": "Assistente:in Salute e Affari Sociali (AGS) o Assistente di Cura:in (m/w/d)",
         "en": "Assistant:in Health and Social Affairs (AGS) or Care Assistant:in (m/w/d)",
+        "de": "Assistent:in Gesundheit und Soziales (AGS) oder Pflegeassistent:in (m/w/d)",
         "fr": "Assistant:dans le domaine de la santé et des affaires sociales (AGS) ou assistant aux soins:in (m/m/j)"
       },
       "description": "Gesundheitszentrum Fricktal AG | online seit : 27.05.2026 Arbeitsort : GZF Rheinfelden\n• Du pflegst ältere Menschen respektvoll, empathisch und persönlich, und ihre Selbstbestimmung liegt dir wirklich am Herzen? Dann könntest du hervorragend zu uns passen. Wir begleiten ältere Menschen nach einem Aufenthalt im Akutspital oder in der Rehabilitation im Rahmen professioneller Übergangspflege während eines Kurzaufenthaltes. Dabei stehen Qualität, Menschlichkeit und eine individuell abgestimmte Betreuung stets im Zentrum unseres Handelns. Unser rund 14-köpfiges Pflegeteam arbeitet interdisziplinär und partnerschaftlich auf Augenhöhe mit dem ärztlichen Team zusammen. Wir fördern ein offenes, wertschätzendes Miteinander und leben Innovation, Transformation sowie Lean Management im Alltag. Neue Ideen, frische Perspektiven und der Mut, Dinge weiterzudenken, sind bei uns ausdrücklich willkommen.\n\n• Du sorgst im Alltag für die Pflege und Betreuung von Patienten:innen auf unserer Station mit 20 Betten\n\n• Art: Vollzeit\n• Befristung: Unbefristet",
       "descriptionByLocale": {
-        "de": "Gesundheitszentrum Fricktal AG | online seit : 27.05.2026 Arbeitsort : GZF Rheinfelden\n• Du pflegst ältere Menschen respektvoll, empathisch und persönlich, und ihre Selbstbestimmung liegt dir wirklich am Herzen? Dann könntest du hervorragend zu uns passen. Wir begleiten ältere Menschen nach einem Aufenthalt im Akutspital oder in der Rehabilitation im Rahmen professioneller Übergangspflege während eines Kurzaufenthaltes. Dabei stehen Qualität, Menschlichkeit und eine individuell abgestimmte Betreuung stets im Zentrum unseres Handelns. Unser rund 14-köpfiges Pflegeteam arbeitet interdisziplinär und partnerschaftlich auf Augenhöhe mit dem ärztlichen Team zusammen. Wir fördern ein offenes, wertschätzendes Miteinander und leben Innovation, Transformation sowie Lean Management im Alltag. Neue Ideen, frische Perspektiven und der Mut, Dinge weiterzudenken, sind bei uns ausdrücklich willkommen.\n\n• Du sorgst im Alltag für die Pflege und Betreuung von Patienten:innen auf unserer Station mit 20 Betten\n\n• Art: Vollzeit\n• Befristung: Unbefristet",
-        "it": "Centro sanitario Fricktal AG | online dal: 27.05.2026 Luogo di lavoro : GZF Rheinfelden\n• Rispetti le persone anziane, empatiche e personali, e la loro autodeterminazione è davvero il tuo cuore? Allora potresti adattarci perfettamente. Accompagniamo le persone anziane dopo un soggiorno in ospedale acuto o in riabilitazione come parte di cure professionali di transizione durante un breve soggiorno. Qualità, umanità e cura coordinata individualmente sono sempre al centro della nostra azione. Il nostro team di cura di 14 persone lavora interdisciplinare e partnership con il team medico. Promuoviamo un rapporto aperto e rassicurante sul valore e innovazione dal vivo, trasformazione e gestione magra nella vita quotidiana. Nuove idee, prospettive fresche e il coraggio di pensare alle cose sono esplicitamente benvenuti.\n\n• Nella vita quotidiana ti interessano i pazienti: all'interno della nostra stazione con 20 letti\n\n• Tipo: Tempo pieno\n• Termine ultimo: illimitato",
-        "en": "Health center Fricktal AG | online since : 27.05.2026 Place of work : GZF Rheinfelden\n• You respect older people, empathic and personal, and their self-determination is really your heart? Then you could fit us perfectly. We accompany older people after a stay in the acute hospital or in rehabilitation as part of professional transitional care during a short stay. Quality, humanity and individually coordinated care are always at the centre of our action. Our 14-person nursing team works interdisciplinary and partnership with the medical team. We promote an open, value-assuring relationship and live innovation, transformation and lean management in everyday life. New ideas, fresh perspectives and the courage to think about things are explicitly welcome.\n\n• In everyday life you care for patients: inside our station with 20 beds\n\n• Type: Full time\n• Deadline: Unlimited",
-        "fr": "Centre de santé Fricktal AG- en ligne depuis : 27.05.2026 Lieu de travail : GZF Rheinfelden\n• Vous respectez les personnes âgées, empathiques et personnelles, et leur autodétermination est vraiment votre cœur? Alors tu pourrais parfaitement nous adapter. Nous accompagnons les personnes âgées après un séjour à l'hôpital aigu ou en réadaptation dans le cadre des soins professionnels de transition pendant un court séjour. La qualité, l'humanité et les soins individuellement coordonnés sont toujours au centre de notre action. Notre équipe de soins infirmiers de 14 personnes travaille interdisciplinaire et en partenariat avec l'équipe médicale. Nous promouvons une relation ouverte, garante de valeur et l'innovation vivante, la transformation et la gestion maigre dans la vie quotidienne. De nouvelles idées, de nouvelles perspectives et le courage de penser aux choses sont explicitement les bienvenus.\n\n• Dans la vie quotidienne, vous prenez soin des patients: à l'intérieur de notre station avec 20 lits\n\n• Type: plein temps\n• Date limite: illimitée"
+        "it": "Centro sanitario Fricktal AG | online dal: 27.05.2026 Luogo di lavoro : GZF Rheinfelden\n• Rispetti le persone anziane, empatiche e personali, e la loro autodeterminazione è davvero il tuo cuore? Allora potresti adattarci perfettamente. Accompagniamo le persone anziane dopo un soggiorno in ospedale acuto o in riabilitazione come parte di cure professionali di transizione durante un breve soggiorno. Qualità, umanità e cura coordinata individualmente sono sempre al centro della nostra azione. Il nostro team di cura di 14 persone lavora interdisciplinare e partnership con il team medico. Promuoviamo un rapporto aperto e rassicurante sul valore e innovazione dal vivo, trasformazione e gestione magra nella vita quotidiana. Nuove idee, prospettive fresche e il coraggio di pensare alle cose sono esplicitamente benvenuti.\n• Nella vita quotidiana ti interessano i pazienti: all'interno della nostra stazione con 20 letti\n• Tipo: Tempo pieno\n• Termine ultimo: illimitato",
+        "en": "Health center Fricktal AG | online since : 27.05.2026 Place of work : GZF Rheinfelden\n• You respect older people, empathic and personal, and their self-determination is really your heart? Then you could fit us perfectly. We accompany older people after a stay in the acute hospital or in rehabilitation as part of professional transitional care during a short stay. Quality, humanity and individually coordinated care are always at the centre of our action. Our 14-person nursing team works interdisciplinary and partnership with the medical team. We promote an open, value-assuring relationship and live innovation, transformation and lean management in everyday life. New ideas, fresh perspectives and the courage to think about things are explicitly welcome.\n• In everyday life you care for patients: inside our station with 20 beds\n• Type: Full time\n• Deadline: Unlimited",
+        "de": "Gesundheitszentrum Fricktal AG | online seit : 27.05.2026 Arbeitsort : GZF Rheinfelden\n• Du pflegst ältere Menschen respektvoll, empathisch und persönlich, und ihre Selbstbestimmung liegt dir wirklich am Herzen? Dann könntest du hervorragend zu uns passen. Wir begleiten ältere Menschen nach einem Aufenthalt im Akutspital oder in der Rehabilitation im Rahmen professioneller Übergangspflege während eines Kurzaufenthaltes. Dabei stehen Qualität, Menschlichkeit und eine individuell abgestimmte Betreuung stets im Zentrum unseres Handelns. Unser rund 14-köpfiges Pflegeteam arbeitet interdisziplinär und partnerschaftlich auf Augenhöhe mit dem ärztlichen Team zusammen. Wir fördern ein offenes, wertschätzendes Miteinander und leben Innovation, Transformation sowie Lean Management im Alltag. Neue Ideen, frische Perspektiven und der Mut, Dinge weiterzudenken, sind bei uns ausdrücklich willkommen.\n• Du sorgst im Alltag für die Pflege und Betreuung von Patienten:innen auf unserer Station mit 20 Betten\n• Art: Vollzeit\n• Befristung: Unbefristet",
+        "fr": "Centre de santé Fricktal AG- en ligne depuis : 27.05.2026 Lieu de travail : GZF Rheinfelden\n• Vous respectez les personnes âgées, empathiques et personnelles, et leur autodétermination est vraiment votre cœur? Alors tu pourrais parfaitement nous adapter. Nous accompagnons les personnes âgées après un séjour à l'hôpital aigu ou en réadaptation dans le cadre des soins professionnels de transition pendant un court séjour. La qualité, l'humanité et les soins individuellement coordonnés sont toujours au centre de notre action. Notre équipe de soins infirmiers de 14 personnes travaille interdisciplinaire et en partenariat avec l'équipe médicale. Nous promouvons une relation ouverte, garante de valeur et l'innovation vivante, la transformation et la gestion maigre dans la vie quotidienne. De nouvelles idées, de nouvelles perspectives et le courage de penser aux choses sont explicitement les bienvenus.\n• Dans la vie quotidienne, vous prenez soin des patients: à l'intérieur de notre station avec 20 lits\n• Type: plein temps\n• Date limite: illimitée"
       },
+      "needsRetranslation": false,
       "location": "Rheinfelden",
       "canton": "AG",
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/1980/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T12:32:28.607Z",
+      "crawledAt": "2026-05-27T23:01:06.016Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -756,9 +767,11 @@
       "postedDate": "2026-05-27",
       "applyUrl": "https://recruitingapp-2924.umantis.com/Vacancies/1980/Application/CheckLogin/1",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "assistent-in-gesundheit-und-soziales-ags-oder-pflegeassistent-in-m-w-d-gesundheitszentrum",
+        "assistent-in-gesundheit-e-soziales-ags-o-pflegeassistent-in-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "assistent-in-gesundheit-und-soziales-ags-oder-pflegeassistent-in-m-w-d-gesundheitszentrum",
@@ -771,10 +784,7 @@
           "assistent-in-gesundheit-und-soziales-ags-oder-pflegeassistent-in-m-w-d-gesundheitszentrum"
         ]
       },
-      "previousSlugs": [
-        "assistent-in-gesundheit-und-soziales-ags-oder-pflegeassistent-in-m-w-d-gesundheitszentrum",
-        "assistent-in-gesundheit-e-soziales-ags-o-pflegeassistent-in-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
-      ],
+      "firstSeenAt": "2026-05-27T12:32:28.607Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -786,8 +796,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-05-27T12:32:28.607Z"
+      }
     }
   ]
 }
