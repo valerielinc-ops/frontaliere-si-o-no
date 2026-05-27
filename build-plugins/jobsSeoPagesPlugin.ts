@@ -24,6 +24,7 @@ import { CRAWLED_COMPANY_LOGOS } from '../services/jobDataNormalization';
 import {
  renderJobCardHtml,
  renderJobCardListHtml,
+ JOB_CARD_ICON_SYMBOLS,
  type JobCardJob,
  type JobCardLocale,
 } from './shared/jobCardHtml';
@@ -2886,7 +2887,7 @@ ${staticAnalyticsHtml}
  const ctaLink = `<p class="cbl"><a href="${cHref}">${esc(anchorText)} &rarr;</a></p>`;
  return card + ctaLink;
  })()}
- ${related.length > 0 ? `<section class="related"><h2>${esc(localeCopy[locale].relatedJobs)}</h2><ul class="rul">${relatedHtml}</ul></section>` : ''}
+ ${related.length > 0 ? `<section class="related"><h2>${esc(localeCopy[locale].relatedJobs)}</h2>${JOB_CARD_ICON_SYMBOLS}<ul class="rul">${relatedHtml}</ul></section>` : ''}
  ${recentArticlesHtmlFor(locale)}
  ${(() => {
  const __tPh_prose = phaseTimer();
@@ -8538,6 +8539,7 @@ ${staticAnalyticsHtml}
      // renderer). data-listing-grid is preserved for tests / selectors.
      const listingGrid = cantonJobs.length > 0
        ? `<section data-listing-grid class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 my-6">` +
+         JOB_CARD_ICON_SYMBOLS +
          cantonJobs.map((j) => {
            const jt = j as {
              slugByLocale?: Record<string, string>;
@@ -10980,15 +10982,6 @@ ${staticAnalyticsHtml}
  if (crossLocaleCount > 0) {
  console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m Generated ${crossLocaleCount} cross-locale reconciliation pages`);
  }
-
- // Cross-locale-active-bridge was the last reader of `jobHtmlCache`. The
- // cache holds the FULL minified active-job HTML for every (locale, slug)
- // pair — ~24k entries × ~30 KB ≈ ~720 MB held in the closeBundle heap
- // until end of plugin. Release it now so the heap headroom is reclaimed
- // before the heaviest writes (self-healing + flush) follow. Build run
- // 26494155252 OOM'd at heap=10.8 GB during this stretch with the 12 GB
- // cap — freeing this Map removes the biggest single accumulator.
- jobHtmlCache.clear();
 
  /* ── Self-healing: cover any tracking paths not yet written ──── */
  // Safety net: any tracking path that wasn't covered by active, soft-landing,
