@@ -757,7 +757,8 @@
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-food-coop-felsberg-graubunden-9fezrn",
-          "verkaufer-in-food-coop-chur-graubunden-0l919m"
+          "verkaufer-in-food-coop-chur-graubunden-0l919m",
+          "seller-in-food-coop-genossenschaft-chur-vnskkx"
         ],
         "en": [
           "verkaufer-in-food-coop-felsberg-graubunden-9fezrn",
@@ -778,7 +779,6 @@
         ]
       },
       "previousSlugs": [
-        "verkaufer-in-food-coop-felsberg-graubunden-9fezrn",
         "verkaufer-in-food-coop-chur-graubunden-0l919m",
         "seller-in-food-coop-genossenschaft-felsberg",
         "verkaufer-in-food-coop-felsberg-graubunden-lzsoh3",
@@ -797,7 +797,8 @@
         "vendeur-dans-la-nourriture-coop-genossenschaft-chur-62c54a",
         "vendeur-dans-la-nourriture-coop-genossenschaft-chur-7ee3d2",
         "seller-in-food-coop-genossenschaft-felsberg-e76443",
-        "vendeur-dans-la-nourriture-coop-genossenschaft-felsberg-e76443"
+        "vendeur-dans-la-nourriture-coop-genossenschaft-felsberg-e76443",
+        "seller-in-food-coop-genossenschaft-chur-vnskkx"
       ],
       "needsRetranslation": true
     },
@@ -989,14 +990,17 @@
           "seller-in-food-coop-genossenschaft-chur",
           "vendeur-dans-la-nourriture-coop-genossenschaft-chur",
           "verkaufer-in-food-coop-chur-graubunden",
-          "verkaufer-in-food-coop-genossenschaft-felsberg-9fezrn"
+          "verkaufer-in-food-coop-genossenschaft-felsberg-9fezrn",
+          "verkaufer-in-food-coop-felsberg-graubunden-lzsoh3",
+          "seller-in-food-coop-genossenschaft-felsberg-339410",
+          "vendeur-dans-la-nourriture-coop-genossenschaft-felsberg-339410",
+          "verkaufer-in-food-coop-genossenschaft-felsberg-lzsoh3",
+          "verkaufer-in-food-coop-felsberg-graubunden",
+          "venditore-in-food-coop-genossenschaft-chur",
+          "seller-in-food-coop-genossenschaft-chur-62c54a"
         ]
       },
       "previousSlugs": [
-        "seller-in-food-coop-genossenschaft-arosa",
-        "verkaufer-in-food-coop-arosa-graubunden-8ij9x8",
-        "vendeur-dans-la-nourriture-coop-genossenschaft-arosa",
-        "verkaufer-in-food-coop-genossenschaft-chur-0l919m",
         "verkaufer-in-food-coop-chur-graubunden-vnskkx",
         "seller-in-food-coop-genossenschaft-chur-7ee3d2",
         "verkaufer-in-food-coop-genossenschaft-chur-vnskkx",
@@ -1009,7 +1013,14 @@
         "verkaufer-in-food-coop-chur-graubunden",
         "verkaufer-in-food-coop-genossenschaft-felsberg-9fezrn",
         "seller-in-food-coop-genossenschaft-felsberg",
-        "vendeur-dans-la-nourriture-coop-genossenschaft-felsberg"
+        "vendeur-dans-la-nourriture-coop-genossenschaft-felsberg",
+        "verkaufer-in-food-coop-felsberg-graubunden-lzsoh3",
+        "seller-in-food-coop-genossenschaft-felsberg-339410",
+        "vendeur-dans-la-nourriture-coop-genossenschaft-felsberg-339410",
+        "verkaufer-in-food-coop-genossenschaft-felsberg-lzsoh3",
+        "verkaufer-in-food-coop-felsberg-graubunden",
+        "venditore-in-food-coop-genossenschaft-chur",
+        "seller-in-food-coop-genossenschaft-chur-62c54a"
       ],
       "needsRetranslation": true,
       "retranslationAttempts": 2
@@ -6300,7 +6311,6 @@
         }
       },
       "previousSlugs": [
-        "detailhandelsassistent-in-afp-coop-grigioni-sz1j6n",
         "retailer-man-coop-gossau-c56811",
         "detaillant-homme-coop-gossau-c56811",
         "retailer-man-coop-gossau-207b00",
@@ -6318,13 +6328,17 @@
         "detailhandelsassistent-in-afp-coop-grigioni-2zdn0o",
         "detailhandelsassistent-in-eba-coop-grigioni-2zdn0o",
         "detailhandelsassistent-in-afp-coop-grigioni-6y8rn9",
-        "detailhandelsassistent-in-eba-coop-grigioni-6y8rn9"
+        "detailhandelsassistent-in-eba-coop-grigioni-6y8rn9",
+        "detailhandelsfachfrau-mann-interdiscount-jegensdorf-h9i811",
+        "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-coop-grigioni-11"
       ],
       "previousSlugsByLocale": {
         "it": [
           "detailhandelsassistent-in-afp-coop-grigioni-sz1j6n",
           "retailer-man-coop-gossau-c56811",
-          "detaillant-homme-coop-gossau-c56811"
+          "detaillant-homme-coop-gossau-c56811",
+          "detailhandelsfachfrau-mann-interdiscount-jegensdorf-h9i811",
+          "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-coop-grigioni-11"
         ],
         "en": [
           "retailer-man-coop-gossau-207b00",
@@ -6399,12 +6413,6 @@
         }
       },
       "previousSlugs": [
-        "detailhandelsassistent-in-afp-coop-grigioni-sz1j6n",
-        "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-coop-grigioni-13",
-        "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-coop-grigioni-11",
-        "detailhandelsassistent-in-afp-coop-grigioni-6y8rn9",
-        "detailhandelsassistent-in-eba-coop-grigioni-6y8rn9",
-        "detailhandelsfachfrau-mann-interdiscount-jegensdorf-h9i811",
         "retailer-man-coop-gossau-baa02a",
         "detaillant-homme-coop-gossau-baa02a",
         "retailer-man-coop-gossau-207b00",
@@ -6417,7 +6425,14 @@
         "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-coop-grigioni-jeizv7",
         "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-coop-grigioni-ymbv0r",
         "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-coop-grigioni-ymbv0r",
-        "detailhandelsfachfrau-mann-assistent-in-coop-gossau-ataxgb"
+        "detailhandelsfachfrau-mann-assistent-in-coop-gossau-ataxgb",
+        "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-coop-grigioni-nsscih",
+        "detailhandelsassistent-in-afp-coop-grigioni-y26sob",
+        "detailhandelsassistent-in-eba-coop-grigioni-y26sob",
+        "detailhandelsassistent-in-afp-coop-grigioni-2zdn0o",
+        "detailhandelsassistent-in-eba-coop-grigioni-2zdn0o",
+        "retailer-man-coop-gossau-c56811",
+        "detaillant-homme-coop-gossau-c56811"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -6428,7 +6443,14 @@
           "detailhandelsassistent-in-eba-coop-grigioni-6y8rn9",
           "detailhandelsfachfrau-mann-interdiscount-jegensdorf-h9i811",
           "retailer-man-coop-gossau-baa02a",
-          "detaillant-homme-coop-gossau-baa02a"
+          "detaillant-homme-coop-gossau-baa02a",
+          "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-coop-grigioni-nsscih",
+          "detailhandelsassistent-in-afp-coop-grigioni-y26sob",
+          "detailhandelsassistent-in-eba-coop-grigioni-y26sob",
+          "detailhandelsassistent-in-afp-coop-grigioni-2zdn0o",
+          "detailhandelsassistent-in-eba-coop-grigioni-2zdn0o",
+          "retailer-man-coop-gossau-c56811",
+          "detaillant-homme-coop-gossau-c56811"
         ],
         "en": [
           "retailer-man-coop-gossau-207b00",
@@ -6591,7 +6613,6 @@
         }
       },
       "previousSlugs": [
-        "retailer-man-coop-gossau-1945a6",
         "detaillant-homme-coop-gossau-1945a6",
         "retailer-man-coop-gossau-b1b7fb",
         "detailhandelsfachfrau-mann-interdiscount-jegensdorf-h9i811",
@@ -6609,7 +6630,9 @@
         "detailhandelsassistent-in-afp-coop-grigioni-y26sob",
         "detailhandelsassistent-in-eba-coop-grigioni-y26sob",
         "detailhandelsassistent-in-afp-coop-grigioni-2zdn0o",
-        "detailhandelsassistent-in-eba-coop-grigioni-2zdn0o"
+        "detailhandelsassistent-in-eba-coop-grigioni-2zdn0o",
+        "detailhandelsassistent-in-afp-coop-grigioni-6y8rn9",
+        "detailhandelsassistent-in-eba-coop-grigioni-6y8rn9"
       ],
       "previousSlugsByLocale": {
         "en": [
@@ -6623,7 +6646,9 @@
         "it": [
           "retailer-man-coop-gossau-b1b7fb",
           "detailhandelsfachfrau-mann-interdiscount-jegensdorf-h9i811",
-          "detaillant-homme-coop-gossau-b1b7fb"
+          "detaillant-homme-coop-gossau-b1b7fb",
+          "detailhandelsassistent-in-afp-coop-grigioni-6y8rn9",
+          "detailhandelsassistent-in-eba-coop-grigioni-6y8rn9"
         ]
       }
     },
@@ -6701,8 +6726,6 @@
           "detailhandelsassistent-in-eba-coop-grigioni-cxtwa6"
         ],
         "it": [
-          "detailhandelsassistent-in-afp-coop-grigioni-cxtwa6",
-          "detailhandelsassistent-in-eba-coop-grigioni-y26sob",
           "detailhandelsassistent-in-afp-coop-grigioni-2zdn0o",
           "detailhandelsassistent-in-eba-coop-grigioni-2zdn0o",
           "detailhandelsassistent-in-afp-coop-grigioni-6y8rn9",
@@ -6718,12 +6741,14 @@
           "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-coop-grigioni-jeizv7",
           "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-coop-grigioni-ymbv0r",
           "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-coop-grigioni-ymbv0r",
-          "retailer-man-coop-gossau-b1b7fb"
+          "retailer-man-coop-gossau-b1b7fb",
+          "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-interdiscount-jegensdorf",
+          "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-interdiscount-grigioni",
+          "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-interdiscount-grigioni-3",
+          "detaillant-homme-coop-gossau-b1b7fb"
         ]
       },
       "previousSlugs": [
-        "retailer-man-coop-gossau-1945a6",
-        "detailhandelsassistent-in-eba-coop-grigioni-cxtwa6",
         "retailer-mann-efz-creating-shopping-experiences-interdiscount-jegensdorf",
         "detaillant-homme-coop-gossau-1945a6",
         "detaillant-mann-efz-creer-des-experiences-d-achat-interdiscount-jegensdorf",
@@ -6739,7 +6764,11 @@
         "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-coop-grigioni-nsscih",
         "detailhandelsassistent-in-eba-coop-grigioni-h288f8",
         "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-coop-grigioni-iu0e2b",
-        "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-coop-grigioni-iu0e2b"
+        "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-coop-grigioni-iu0e2b",
+        "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-interdiscount-jegensdorf",
+        "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-interdiscount-grigioni",
+        "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-interdiscount-grigioni-3",
+        "detaillant-homme-coop-gossau-b1b7fb"
       ]
     },
     {
@@ -7245,7 +7274,8 @@
         "it": [
           "detailhandelsfachfrau-mann-assistent-in-coop-grigioni-k1bc5i",
           "assistente-di-vendita-coop-grigioni",
-          "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-interdiscount-grigioni-s8ey7i"
+          "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-interdiscount-grigioni-s8ey7i",
+          "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-interdiscount-grigioni-s8ey7i"
         ],
         "de": [
           "detailhandelsfachfrau-mann-assistent-in-coop-gossau-k1bc5i",
@@ -7272,7 +7302,8 @@
         "detailhandelsfachfrau-mann-assistent-in-coop-grigioni-4iugqw",
         "venditore-di-dettaglio-interdiscount-grigioni",
         "detailhandelsfachfrau-mann-assistent-in-coop-grigioni-bho34r",
-        "detailhandelsfachfrau-mann-assistent-in-coop-gossau-bho34r"
+        "detailhandelsfachfrau-mann-assistent-in-coop-gossau-bho34r",
+        "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-interdiscount-grigioni-s8ey7i"
       ]
     },
     {
@@ -7356,13 +7387,15 @@
           "detailhandelsfachfrau-mann-assistent-in-coop-grigioni-k1bc5i",
           "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-interdiscount-grigioni-s8ey7i",
           "detaillant-mann-efz-creer-des-experiences-d-achat-coop-gossau",
-          "detailhandelsfachfrau-mann-interdiscount-grigioni-96xkec"
+          "detailhandelsfachfrau-mann-interdiscount-grigioni-96xkec",
+          "detailhandelsfachfrau-mann-assistent-in-coop-grigioni-bho34r",
+          "detailhandelsfachfrau-mann-assistent-in-coop-gossau-bho34r",
+          "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-interdiscount-grigioni-s8ey7i",
+          "detaillant-homme-interdiscount-jegensdorf-96xkec",
+          "assistente-di-vendita-coop-grigioni"
         ]
       },
       "previousSlugs": [
-        "retailer-man-interdiscount-jegensdorf-5e5998",
-        "detaillant-homme-assistant-in-coop-gossau-611c2c",
-        "retailer-man-assistant-in-coop-gossau-611c2c",
         "detailhandelsfachfrau-mann-interdiscount-grigioni-96xkec",
         "retailer-man-interdiscount-jegensdorf-0ecf66",
         "detaillant-homme-interdiscount-jegensdorf-5e5998",
@@ -7377,7 +7410,12 @@
         "detailhandelsfachfrau-mann-assistent-in-coop-grigioni-4iugqw",
         "assistante-de-vente-coop-grigioni",
         "retailer-mann-efz-creating-shopping-experiences-coop-gossau",
-        "retailer-man-interdiscount-jegensdorf-96xkec"
+        "retailer-man-interdiscount-jegensdorf-96xkec",
+        "detailhandelsfachfrau-mann-assistent-in-coop-grigioni-bho34r",
+        "detailhandelsfachfrau-mann-assistent-in-coop-gossau-bho34r",
+        "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-interdiscount-grigioni-s8ey7i",
+        "detaillant-homme-interdiscount-jegensdorf-96xkec",
+        "assistente-di-vendita-coop-grigioni"
       ]
     },
     {
@@ -7718,12 +7756,14 @@
         "retailer-man-assistant-in-coop-gossau-1b3812",
         "retailer-man-assistant-in-coop-gossau-hwivop",
         "detaillant-homme-assistant-in-coop-gossau-1b3812",
-        "detaillant-homme-assistant-in-coop-gossau-hwivop"
+        "detaillant-homme-assistant-in-coop-gossau-hwivop",
+        "retailer-man-coop-gossau-1ceqqh"
       ],
       "previousSlugsByLocale": {
         "it": [
           "detailhandelsfachfrau-mann-assistent-in-coop-grigioni-1ceqqh",
-          "detailhandelsfachfrau-mann-assistent-in-coop-grigioni-hwivop"
+          "detailhandelsfachfrau-mann-assistent-in-coop-grigioni-hwivop",
+          "retailer-man-coop-gossau-1ceqqh"
         ],
         "en": [
           "detailhandelsfachfrau-mann-assistent-in-coop-gossau-6v37ek",
@@ -9457,18 +9497,6 @@
           "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-interdiscount-grigioni-s8ey7i"
         ],
         "it": [
-          "detailhandelsassistent-in-afp-coop-grigioni-y26sob",
-          "detailhandelsassistent-in-eba-coop-grigioni-y26sob",
-          "detailhandelsassistent-in-afp-coop-grigioni-2zdn0o",
-          "detailhandelsfachfrau-mann-assistent-in-coop-grigioni-13",
-          "specialiste-de-vente-au-detail-efz-creer-des-experiences-d-achat-interdiscount-grigioni",
-          "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-interdiscount-jegensdorf",
-          "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-interdiscount-grigioni-3",
-          "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-coop-grigioni-jeizv7",
-          "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-coop-grigioni-jeizv7",
-          "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-coop-grigioni-ymbv0r",
-          "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-coop-grigioni-ymbv0r",
-          "detailhandelsfachfrau-mann-assistent-in-coop-gossau-ataxgb",
           "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-coop-grigioni-nsscih",
           "retailer-man-coop-gossau-1945a6",
           "detaillant-homme-coop-gossau-1945a6",
@@ -9477,32 +9505,24 @@
           "specialista-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-interdiscount-jegensdorf-oal0zl",
           "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-interdiscount-grigioni-2kwafk",
           "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-interdiscount-grigioni-s8ey7i",
-          "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-interdiscount-grigioni"
+          "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-interdiscount-grigioni",
+          "specialista-del-commercio-al-dettaglio-afc-creazione-di-esperienze-di-acquisto-interdiscount-grigioni",
+          "detailhandelsassistent-in-eba-coop-grigioni-2zdn0o",
+          "detailhandelsassistent-in-afp-coop-grigioni-6y8rn9",
+          "detailhandelsassistent-in-eba-coop-grigioni-6y8rn9",
+          "detailhandelsfachfrau-mann-interdiscount-jegensdorf-h9i811",
+          "retailer-mann-efz-creating-shopping-experiences-interdiscount-jegensdorf",
+          "detailhandelsassistent-in-eba-coop-grigioni-cxtwa6",
+          "detailhandelsassistent-in-eba-coop-grigioni-h288f8",
+          "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-coop-grigioni-iu0e2b",
+          "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-coop-grigioni-iu0e2b",
+          "detaillant-mann-efz-creer-des-experiences-d-achat-interdiscount-jegensdorf"
         ],
         "de": [
           "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-interdiscount-jegensdorf"
         ]
       },
       "previousSlugs": [
-        "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-interdiscount-grigioni-s8ey7i",
-        "retail-sales-specialist-efz-shaping-shopping-experiences-interdiscount-grigioni",
-        "detailhandelsassistent-in-afp-coop-grigioni-y26sob",
-        "detailhandelsassistent-in-eba-coop-grigioni-y26sob",
-        "detailhandelsassistent-in-afp-coop-grigioni-2zdn0o",
-        "detailhandelsfachfrau-mann-assistent-in-coop-grigioni-13",
-        "specialiste-de-vente-au-detail-efz-creer-des-experiences-d-achat-interdiscount-grigioni",
-        "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-interdiscount-jegensdorf",
-        "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-interdiscount-grigioni-3",
-        "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-coop-grigioni-jeizv7",
-        "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-coop-grigioni-jeizv7",
-        "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-coop-grigioni-ymbv0r",
-        "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-coop-grigioni-ymbv0r",
-        "detailhandelsfachfrau-mann-assistent-in-coop-gossau-ataxgb",
-        "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-coop-grigioni-nsscih",
-        "retailer-man-coop-gossau-1945a6",
-        "detaillant-homme-coop-gossau-1945a6",
-        "detailhandelsassistent-in-afp-coop-grigioni-cxtwa6",
-        "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-interdiscount-grigioni-2kwafk",
         "specialista-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-interdiscount-ticino",
         "retail-trade-specialist-afc-creation-of-buying-experiences-interdiscount-jegensdorf-oal0zl",
         "retail-trade-specialist-afc-creation-of-buying-experiences-interdiscount-jegensdorf-2237c8",
@@ -9511,7 +9531,18 @@
         "specialiste-du-commerce-de-detail-afc-creation-d-experiences-d-achat-interdiscount-jegensdorf-2237c8",
         "specialista-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-interdiscount-jegensdorf-2",
         "specialista-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-interdiscount-jegensdorf-3",
-        "specialista-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-interdiscount-jegensdorf-4"
+        "specialista-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-interdiscount-jegensdorf-4",
+        "specialista-del-commercio-al-dettaglio-afc-creazione-di-esperienze-di-acquisto-interdiscount-grigioni",
+        "detailhandelsassistent-in-eba-coop-grigioni-2zdn0o",
+        "detailhandelsassistent-in-afp-coop-grigioni-6y8rn9",
+        "detailhandelsassistent-in-eba-coop-grigioni-6y8rn9",
+        "detailhandelsfachfrau-mann-interdiscount-jegensdorf-h9i811",
+        "retailer-mann-efz-creating-shopping-experiences-interdiscount-jegensdorf",
+        "detailhandelsassistent-in-eba-coop-grigioni-cxtwa6",
+        "detailhandelsassistent-in-eba-coop-grigioni-h288f8",
+        "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-coop-grigioni-iu0e2b",
+        "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-coop-grigioni-iu0e2b",
+        "detaillant-mann-efz-creer-des-experiences-d-achat-interdiscount-jegensdorf"
       ],
       "sourceLang": "de"
     },
@@ -9578,7 +9609,8 @@
           "retailer-man-assistant-in-coop-gossau-09337e",
           "retailer-man-assistant-in-coop-gossau-6v37ek",
           "retailer-mann-efz-creating-shopping-experiences-jumbo-dietlikon-2f5eaf",
-          "retail-specialist-efz-for-shaping-shopping-experiences-jumbo-grigioni"
+          "retail-specialist-efz-for-shaping-shopping-experiences-jumbo-grigioni",
+          "detaillant-homme-assistant-in-coop-gossau-6v37ek"
         ],
         "fr": [
           "detaillant-mann-efz-creer-des-experiences-d-achat-jumbo-dietlikon",
@@ -9592,12 +9624,13 @@
           "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-jumbo-dietlikon",
           "detaillant-homme-coop-gossau-2a7c2e",
           "retailer-man-coop-gossau-2a7c2e",
-          "detailhandelsfachfrau-mann-assistent-in-coop-grigioni-6v37ek"
+          "detailhandelsfachfrau-mann-assistent-in-coop-grigioni-6v37ek",
+          "detailhandelsfachfrau-mann-assistent-in-coop-grigioni-10",
+          "detailhandelsfachfrau-mann-assistent-in-coop-grigioni-1ceqqh",
+          "detailhandelsfachfrau-mann-assistent-in-coop-gossau-1ceqqh"
         ]
       },
       "previousSlugs": [
-        "retailer-mann-efz-creating-shopping-experiences-jumbo-dietlikon",
-        "retailer-man-assistant-in-coop-gossau-09337e",
         "retailer-man-assistant-in-coop-gossau-6v37ek",
         "retailer-mann-efz-creating-shopping-experiences-jumbo-dietlikon-2f5eaf",
         "detaillant-mann-efz-creer-des-experiences-d-achat-jumbo-dietlikon",
@@ -9613,7 +9646,11 @@
         "detailhandelsfachfrau-mann-assistent-in-coop-gossau-hwivop",
         "retail-salesperson-interdiscount-grigioni",
         "vendeur-e-en-detail-interdiscount-grigioni",
-        "detailhandelsfachfrau-mann-assistent-in-coop-grigioni-4"
+        "detailhandelsfachfrau-mann-assistent-in-coop-grigioni-4",
+        "detailhandelsfachfrau-mann-assistent-in-coop-grigioni-10",
+        "detailhandelsfachfrau-mann-assistent-in-coop-grigioni-1ceqqh",
+        "detailhandelsfachfrau-mann-assistent-in-coop-gossau-1ceqqh",
+        "detaillant-homme-assistant-in-coop-gossau-6v37ek"
       ],
       "sourceLang": "de"
     },
@@ -10942,7 +10979,8 @@
         "cuisiniere-cuisinier-w-m-d-coop-genossenschaft-chur",
         "cuoca-cuoco-w-m-d-coop-genossenschaft-chur",
         "mecanique-en-coop-genossenschaft-chur",
-        "mechanic-coop-genossenschaft-chur"
+        "mechanic-coop-genossenschaft-chur",
+        "mechanics-in-coop-genossenschaft-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -10950,7 +10988,8 @@
           "verkaufsberater-in-coop-genossenschaft-chur",
           "cuoco-a-con-funzione-aggiuntiva-di-vice-direttore-trice-coop-genossenschaft-chur",
           "koch-kochin-mit-zusatzfunktion-stv-geschaftsfuhrer-in-coop-ristorante-chur-graubunden",
-          "koch-kochin-con-zusatzfunktion-stv-geschaftsfuhrer-in-coop-ristorante-chur-graubunden-qvpnyt"
+          "koch-kochin-con-zusatzfunktion-stv-geschaftsfuhrer-in-coop-ristorante-chur-graubunden-qvpnyt",
+          "mechanics-in-coop-genossenschaft-chur"
         ],
         "de": [
           "koch-kochin-mit-zusatzfunktion-stv-geschaftsfuhrer-in-coop-genossenschaft-chur"
