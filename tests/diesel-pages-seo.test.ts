@@ -104,8 +104,8 @@ describe('diesel/carburanti SEO pages — 2026 rewrite', () => {
  it('both articles keep their published canonical paths', () => {
  const dieselMeta = (BLOG_SEO_METADATA_4 as Record<string, { canonicalPath: string }>)[`blog-${DIESEL_ID}`];
  const carburantiMeta = (BLOG_SEO_METADATA_4 as Record<string, { canonicalPath: string }>)[`blog-${CARBURANTI_ID}`];
- expect(dieselMeta.canonicalPath).toBe(`/articoli-frontaliere/${DIESEL_ID}`);
- expect(carburantiMeta.canonicalPath).toBe(`/articoli-frontaliere/${CARBURANTI_ID}`);
+ expect(dieselMeta.canonicalPath).toBe(`/articoli-frontaliere/${DIESEL_ID}/`);
+ expect(carburantiMeta.canonicalPath).toBe(`/articoli-frontaliere/${CARBURANTI_ID}/`);
  });
  });
 });
