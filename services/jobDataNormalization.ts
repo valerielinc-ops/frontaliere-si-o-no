@@ -117,6 +117,7 @@ export const CRAWLED_COMPANY_LOGOS: Record<string, string> = {
  'givaudan': cLogo('givaudan.com'),
  'goline': gFavicon('goline.ch'),
  'guess-europe': gFavicon('guess.eu'),
+ 'gzo-wetzikon': '/images/logos/gzo-wetzikon.svg',
  'has-healthcare': cLogo('has-pharma.com'),
  'hirslanden': cLogo('hirslanden.ch'),
  'holcim': cLogo('holcim.com'),
