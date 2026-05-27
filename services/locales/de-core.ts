@@ -710,6 +710,8 @@ const deCore: Record<string, string> = {
  'jobBoard.searchFallback.hint': 'Zeige verwandte Angebote basierend auf den Stichwörtern Ihrer Suche, sortiert nach Relevanz.',
  'jobBoard.crossCantonFallback.title': 'Keine Angebote im Kanton für «{query}» — {count} Treffer aus anderen Kantonen',
  'jobBoard.crossCantonFallback.hint': 'Für Grenzgänger aus Italien kann jeder Schweizer Kanton relevant sein: Wir zeigen die nächstgelegenen Treffer in der ganzen Schweiz.',
+ 'jobBoard.crossLocaleFallback.title': 'Keine deutschen Treffer für «{query}» — {count} Inserate aus anderssprachigen Listings',
+ 'jobBoard.crossLocaleFallback.hint': 'Wir zeigen Schweizer Inserate, deren Titel auf Italienisch, Französisch oder Englisch ist: der Detail-Link bleibt auf der deutschen URL.',
  'jobBoard.companyHeading': 'Unternehmen',
  'jobBoard.sourceLabel': 'Quelle',
  'jobBoard.snapshotTitle': 'Stellen-Snapshot',
