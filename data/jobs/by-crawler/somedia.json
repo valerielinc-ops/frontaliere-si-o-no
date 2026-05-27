@@ -1,6 +1,6 @@
 {
   "crawlerKey": "somedia",
-  "assembledAt": "2026-05-25T23:29:14.903Z",
+  "assembledAt": "2026-05-27T00:12:44.243Z",
   "jobs": [
     {
       "id": "somedia-9a0ca8ab845a",
@@ -33,7 +33,7 @@
       "url": "https://jobs.somedia.ch/Geschaeftsfuehrerin-communicaziunch-100-de-j390.html",
       "source": "Somedia AG Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-25T23:29:12.262Z",
+      "crawledAt": "2026-05-27T00:12:41.785Z",
       "addressLocality": "Ilanz",
       "addressCountry": "CH",
       "country": "CH",
@@ -128,7 +128,7 @@
       "url": "https://jobs.somedia.ch/Grafikerin-80-100-de-j387.html",
       "source": "Somedia AG Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-25T23:29:11.434Z",
+      "crawledAt": "2026-05-27T00:12:40.983Z",
       "addressLocality": "Ilanz",
       "addressCountry": "CH",
       "country": "CH",
@@ -227,7 +227,7 @@
       "url": "https://jobs.somedia.ch/Lehrstelle-als-Kauffrau-Kaufmann-EFZ-2027-de-j391.html",
       "source": "Somedia AG Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-25T23:29:10.441Z",
+      "crawledAt": "2026-05-27T00:12:40.048Z",
       "addressLocality": "Chur",
       "addressCountry": "CH",
       "country": "CH",
@@ -265,6 +265,7 @@
         ]
       },
       "firstSeenAt": "2026-05-18T22:44:48.417Z",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -309,7 +310,7 @@
       "url": "https://jobs.somedia.ch/Leiterin-People-Culture-Leiterin-HR-100-de-j371.html",
       "source": "Somedia AG Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-25T23:29:09.456Z",
+      "crawledAt": "2026-05-27T00:12:39.119Z",
       "addressLocality": "Chur",
       "addressCountry": "CH",
       "country": "CH",
@@ -362,6 +363,7 @@
         ]
       },
       "firstSeenAt": "2026-04-29T11:28:02.545Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -406,7 +408,7 @@
       "url": "https://jobs.somedia.ch/Praktikantin-Multimediaproduktion-100-de-j374.html",
       "source": "Somedia AG Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-25T23:29:08.312Z",
+      "crawledAt": "2026-05-27T00:12:38.086Z",
       "addressLocality": "Chur",
       "addressCountry": "CH",
       "country": "CH",
@@ -463,6 +465,7 @@
         ]
       },
       "firstSeenAt": "2026-04-20T22:17:37.118Z",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -507,7 +510,7 @@
       "url": "https://jobs.somedia.ch/Projektleiterin-Marketing-80100-de-j385.html",
       "source": "Somedia AG Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-25T23:29:07.174Z",
+      "crawledAt": "2026-05-27T00:12:37.054Z",
       "addressLocality": "Ilanz",
       "addressCountry": "CH",
       "country": "CH",
@@ -554,6 +557,9 @@
       ],
       "previousSlugsByLocale": {
         "fr": [
+          "projektleiter-in-marketing-80-100-somedia-ch"
+        ],
+        "it": [
           "projektleiter-in-marketing-80-100-somedia-ch"
         ]
       },
@@ -603,7 +609,7 @@
       "url": "https://jobs.somedia.ch/Teamleiterin-Logistik-100-de-j384.html",
       "source": "Somedia AG Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-25T23:29:06.019Z",
+      "crawledAt": "2026-05-27T00:12:36.108Z",
       "addressLocality": "Chur",
       "addressCountry": "CH",
       "country": "CH",
@@ -664,6 +670,7 @@
         ]
       },
       "firstSeenAt": "2026-05-11T12:31:36.041Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
