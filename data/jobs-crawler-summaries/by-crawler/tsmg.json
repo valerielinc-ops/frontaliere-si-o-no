@@ -1,16 +1,16 @@
 {
   "key": "tsmg",
   "label": "TSMG",
-  "generatedAt": "2026-05-27T00:37:29.024Z",
+  "generatedAt": "2026-05-27T14:17:34.696Z",
   "total": 33,
   "newCount": 0,
-  "updatedCount": 33,
+  "updatedCount": 32,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 9174,
-  "avgDurationMs": 9174,
+  "unchangedCount": 1,
+  "durationMs": 8105,
+  "avgDurationMs": 8105,
   "durationHistory": [
-    9174
+    8105
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -1156,5 +1156,44 @@
     }
   ],
   "removedJobs": [],
-  "unchangedJobs": []
+  "unchangedJobs": [
+    {
+      "title": "Remote Vehicle Supervisor / Teleoperator",
+      "slug": "remote-vehicle-supervisor-teleoperator-tsmg-bern-5b79d7da",
+      "slugDisambiguator": "5b79d7da",
+      "url": "https://jobs.lever.co/tsmg/5b79d7da-bf41-4a97-a320-96b0e2a71898",
+      "applyUrl": "https://jobs.lever.co/tsmg/5b79d7da-bf41-4a97-a320-96b0e2a71898/apply",
+      "company": "TSMG",
+      "companyKey": "tsmg",
+      "companyDomain": "tsmg.co",
+      "location": "Bern",
+      "addressLocality": "Bern",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "canton": "BE",
+      "country": "CH",
+      "category": "other",
+      "sector": "Tecnologia & IT",
+      "source": "tsmg-dedicated-crawler",
+      "sourceLang": "en",
+      "postedDate": "2026-05-27",
+      "employmentType": "part-time",
+      "contractType": "part-time",
+      "validThrough": "",
+      "id": "tsmg-32c6e0801aac",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "streetAddress": "Via Cantonale 1",
+      "postalCode": "6928",
+      "firstSeenAt": "2026-05-10T11:02:15.330Z",
+      "_qualityScore": 99,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 25,
+        "completeness": 25
+      }
+    }
+  ]
 }
