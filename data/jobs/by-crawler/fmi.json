@@ -7,7 +7,7 @@
       "slug": "interno-nella-cura-a-lungo-termine-100-spitaler-fmi-ag-unterseen",
       "slugByLocale": {
         "it": "interno-nella-cura-a-lungo-termine-100-spitaler-fmi-ag-unterseen",
-        "en": "full-time-long-term-care-trainee-spitaler-fmi-ag-unterseen",
+        "en": "intern-in-long-term-care-100-spitaler-fmi-ag-unterseen",
         "de": "praktikant-in-langzeitpflege-100-fmi-unterseen",
         "fr": "stagiaire-en-soins-de-longue-duree-a-temps-plein-spitaler-fmi-ag-unterseen"
       },
@@ -72,7 +72,7 @@
       "previousSlugs": [
         "praktikant-in-langzeitpflege-100-fmi-unterseen",
         "stage-a-tempo-pieno-per-la-cura-a-lungo-termine-spitaler-fmi-ag-unterseen",
-        "intern-in-long-term-care-100-spitaler-fmi-ag-unterseen"
+        "full-time-long-term-care-trainee-spitaler-fmi-ag-unterseen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -80,7 +80,6 @@
           "stage-a-tempo-pieno-per-la-cura-a-lungo-termine-spitaler-fmi-ag-unterseen"
         ],
         "en": [
-          "intern-in-long-term-care-100-spitaler-fmi-ag-unterseen",
           "full-time-long-term-care-trainee-spitaler-fmi-ag-unterseen"
         ]
       },
@@ -173,9 +172,9 @@
       "slug": "specializzato-infermieristica-psichiatria-stazionario-60-100-spitaler-fmi-ag-unterseen",
       "slugByLocale": {
         "it": "specializzato-infermieristica-psichiatria-stazionario-60-100-spitaler-fmi-ag-unterseen",
-        "en": "psychiatric-nurse-spitaler-fmi-ag-unterseen",
+        "en": "nursing-specialist-psychiatry-stationary-60-100-spitaler-fmi-ag-unterseen",
         "de": "pflegefachperson-psychiatrie-stationar-60-100-fmi-unterseen",
-        "fr": "infirmier-infirmiere-en-psychiatrie-spitaler-fmi-ag-unterseen"
+        "fr": "specialiste-des-soins-infirmiers-psychiatrie-stationnaire-60-100-spitaler-fmi-ag-unterseen"
       },
       "company": "Spitäler fmi AG",
       "companyKey": "fmi",
@@ -220,8 +219,8 @@
       "previousSlugs": [
         "pflegefachperson-psychiatrie-stationar-60-100-fmi-unterseen",
         "infermiere-a-di-psichiatria-spitaler-fmi-ag-unterseen",
-        "nursing-specialist-psychiatry-stationary-60-100-spitaler-fmi-ag-unterseen",
-        "specialiste-des-soins-infirmiers-psychiatrie-stationnaire-60-100-spitaler-fmi-ag-unterseen"
+        "psychiatric-nurse-spitaler-fmi-ag-unterseen",
+        "infirmier-infirmiere-en-psychiatrie-spitaler-fmi-ag-unterseen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -229,11 +228,9 @@
           "infermiere-a-di-psichiatria-spitaler-fmi-ag-unterseen"
         ],
         "en": [
-          "nursing-specialist-psychiatry-stationary-60-100-spitaler-fmi-ag-unterseen",
           "psychiatric-nurse-spitaler-fmi-ag-unterseen"
         ],
         "fr": [
-          "specialiste-des-soins-infirmiers-psychiatrie-stationnaire-60-100-spitaler-fmi-ag-unterseen",
           "infirmier-infirmiere-en-psychiatrie-spitaler-fmi-ag-unterseen"
         ]
       },
@@ -764,8 +761,7 @@
         ],
         "en": [
           "apprentice-health-and-social-care-assistant-eba-seniorenpark-frutigen-2026-spitaler-fmi-ag-frutigen",
-          "learning-r-assistant-in-health-and-social-eba-seniorenpark-frutigen-2026-spitaler-fmi-ag-frutigen",
-          "apprentice-r-assistent-in-gesundheit-und-soziales-eba-seniorenpark-frutigen-2026-spitaler-fmi-ag-frutigen"
+          "learning-r-assistant-in-health-and-social-eba-seniorenpark-frutigen-2026-spitaler-fmi-ag-frutigen"
         ]
       },
       "firstSeenAt": "2026-05-19T15:32:54.410Z",
@@ -1805,7 +1801,7 @@
       "slug": "psichiatria-superiore-80-100-spitaler-fmi-ag-frutigen",
       "slugByLocale": {
         "it": "psichiatria-superiore-80-100-spitaler-fmi-ag-frutigen",
-        "en": "senior-psychiatrist-80-100-spitaler-fmi-ag-frutigen",
+        "en": "senior-physician-psychiatry-80-100-spitaler-fmi-ag-frutigen",
         "de": "oberarztin-oberarzt-psychiatrie-80-100-fmi-frutigen",
         "fr": "medecin-specialiste-en-psychiatrie-80-100-spitaler-fmi-ag-frutigen"
       },
@@ -1873,7 +1869,7 @@
       "previousSlugs": [
         "oberarztin-oberarzt-psychiatrie-80-100-fmi-frutigen",
         "medico-specialista-di-psichiatria-80-100-spitaler-fmi-ag-frutigen",
-        "senior-physician-psychiatry-80-100-spitaler-fmi-ag-frutigen"
+        "senior-psychiatrist-80-100-spitaler-fmi-ag-frutigen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1881,7 +1877,6 @@
           "medico-specialista-di-psichiatria-80-100-spitaler-fmi-ag-frutigen"
         ],
         "en": [
-          "senior-physician-psychiatry-80-100-spitaler-fmi-ag-frutigen",
           "senior-psychiatrist-80-100-spitaler-fmi-ag-frutigen"
         ]
       },

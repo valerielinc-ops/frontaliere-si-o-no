@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "suchtfachstelle-zuerich-66484a5a7b3f",
-      "slug": "praventionsfachperson-60-suchtfachstelle-zurich-zurich",
+      "slug": "oggetto-di-prevenzione-60-suchtfachstelle-zurich-zurich",
       "slugByLocale": {
         "de": "praventionsfachperson-60-suchtfachstelle-zurich-zurich",
-        "it": "praventionsfachperson-60-suchtfachstelle-zurich-zurich",
-        "en": "praventionsfachperson-60-suchtfachstelle-zurich-zurich",
-        "fr": "praventionsfachperson-60-suchtfachstelle-zurich-zurich"
+        "it": "oggetto-di-prevenzione-60-suchtfachstelle-zurich-zurich",
+        "en": "prevention-subject-60-suchtfachstelle-zurich-zurich",
+        "fr": "sujet-de-prevention-60-suchtfachstelle-zurich-zurich"
       },
       "company": "Suchtfachstelle Zürich",
       "companyKey": "suchtfachstelle-zuerich",
@@ -54,14 +54,22 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "praventionsfachperson-60-suchtfachstelle-zuerich"
+          "praventionsfachperson-60-suchtfachstelle-zuerich",
+          "praventionsfachperson-60-suchtfachstelle-zurich-zurich"
         ],
         "de": [
           "praventionsfachperson-60-suchtfachstelle-zuerich"
+        ],
+        "en": [
+          "praventionsfachperson-60-suchtfachstelle-zurich-zurich"
+        ],
+        "fr": [
+          "praventionsfachperson-60-suchtfachstelle-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "praventionsfachperson-60-suchtfachstelle-zuerich"
+        "praventionsfachperson-60-suchtfachstelle-zuerich",
+        "praventionsfachperson-60-suchtfachstelle-zurich-zurich"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,

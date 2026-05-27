@@ -305,7 +305,7 @@
       "slug": "sostanza-in-anestesia-100-spital-davos-davos",
       "slugByLocale": {
         "it": "sostanza-in-anestesia-100-spital-davos-davos",
-        "en": "anesthesia-assistant-100-spital-davos-davos",
+        "en": "subassistance-in-anaesthesia-100-spital-davos-davos",
         "de": "unterassistent-in-anasthesie-100-spital-davos-ch",
         "fr": "assistant-en-anesthesie-100-spital-davos-davos"
       },
@@ -377,7 +377,7 @@
       "previousSlugs": [
         "unterassistent-in-anasthesie-100-spital-davos-ch",
         "assistente-anestesia-100-spital-davos-davos",
-        "subassistance-in-anaesthesia-100-spital-davos-davos"
+        "anesthesia-assistant-100-spital-davos-davos"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -385,7 +385,6 @@
           "assistente-anestesia-100-spital-davos-davos"
         ],
         "en": [
-          "subassistance-in-anaesthesia-100-spital-davos-davos",
           "anesthesia-assistant-100-spital-davos-davos"
         ]
       },
@@ -2100,7 +2099,7 @@
         "it": "dipl-stazione-di-monitoraggio-hf-specialista-di-cura-40-60-spital-davos-davos",
         "en": "dipl-nurse-hf-monitoring-station-40-60-spital-davos-davos",
         "de": "dipl-pflegefachperson-hf-uberwachungsstation-40-60-spital-davos-ch",
-        "fr": "dipl-infirmiere-hf-service-de-surveillance-40-60-spital-davos-davos"
+        "fr": "dipl-station-de-surveillance-hf-40-60-spital-davos-davos"
       },
       "company": "Spital Davos",
       "companyKey": "spital-davos",
@@ -2152,7 +2151,7 @@
         "dipl-health-care-assistant-hf-monitoring-station-70-100-spital-davos-davos",
         "dipl-pflegefachperson-hf-uberwachungsstation-70-100-spital-davos-ch",
         "dipl-auxiliaire-de-sante-hf-station-de-surveillance-70-100-spital-davos-davos",
-        "dipl-station-de-surveillance-hf-40-60-spital-davos-davos",
+        "dipl-infirmiere-hf-service-de-surveillance-40-60-spital-davos-davos",
         "dipl-pflegefachperson-hf-pensum-60-100-spital-davos-davos"
       ],
       "previousSlugsByLocale": {
@@ -2169,7 +2168,6 @@
         ],
         "fr": [
           "dipl-auxiliaire-de-sante-hf-station-de-surveillance-70-100-spital-davos-davos",
-          "dipl-station-de-surveillance-hf-40-60-spital-davos-davos",
           "dipl-infirmiere-hf-service-de-surveillance-40-60-spital-davos-davos"
         ]
       },

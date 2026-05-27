@@ -23,9 +23,12 @@
       "employmentType": "80 - 100%",
       "category": "Gesundheitswesen",
       "crawledAt": "2026-05-26T23:25:29.274Z",
-      "slug": "hr-assistent-in-kantonsspital-graubunden-chur",
+      "slug": "assistente-di-risorse-umane-kantonsspital-graubunden-chur",
       "slugByLocale": {
-        "de": "hr-assistent-in-kantonsspital-graubunden-chur"
+        "de": "hr-assistent-in-kantonsspital-graubunden-chur",
+        "it": "assistente-di-risorse-umane-kantonsspital-graubunden-chur",
+        "en": "hr-assistant-in-kantonsspital-graubunden-chur",
+        "fr": "assistant-rh-kantonsspital-graubunden-chur"
       },
       "titleByLocale": {
         "de": "HR Assistent:in",
@@ -54,7 +57,15 @@
       "salaryMin": 41080,
       "salaryMax": 75000,
       "currency": "CHF",
-      "firstSeenAt": "2026-05-26T23:25:29.274Z"
+      "firstSeenAt": "2026-05-26T23:25:29.274Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "hr-assistent-in-kantonsspital-graubunden-chur"
+        ]
+      },
+      "previousSlugs": [
+        "hr-assistent-in-kantonsspital-graubunden-chur"
+      ]
     },
     {
       "id": "10047866",
@@ -79,7 +90,9 @@
       "crawledAt": "2026-05-26T23:25:29.274Z",
       "slug": "pflegefachfrau-pflegefachmann-dialyse-kantonsspital-graubunden-chur",
       "slugByLocale": {
-        "de": "pflegefachfrau-pflegefachmann-dialyse-kantonsspital-graubunden-chur"
+        "de": "pflegefachfrau-pflegefachmann-dialyse-kantonsspital-graubunden-chur",
+        "en": "dialysis-nurse-kantonsspital-graubunden-chur",
+        "fr": "infirmier-ere-en-dialyse-kantonsspital-graubunden-chur"
       },
       "titleByLocale": {
         "de": "Pflegefachfrau / Pflegefachmann Dial",
@@ -131,9 +144,11 @@
       "employmentType": "80 - 100%",
       "category": "Gesundheitswesen",
       "crawledAt": "2026-05-26T23:25:29.274Z",
-      "slug": "expertin-experte-notfall-kantonsspital-graubunden-chur",
+      "slug": "esperto-emergenza-esperto-kantonsspital-graubunden-chur",
       "slugByLocale": {
-        "de": "expertin-experte-notfall-kantonsspital-graubunden-chur"
+        "de": "expertin-experte-notfall-kantonsspital-graubunden-chur",
+        "it": "esperto-emergenza-esperto-kantonsspital-graubunden-chur",
+        "fr": "expert-expert-urgence-kantonsspital-graubunden-chur"
       },
       "titleByLocale": {
         "de": "Expertin / Sachverständiger Notfall",
@@ -162,7 +177,15 @@
       "salaryMin": 41080,
       "salaryMax": 75000,
       "currency": "CHF",
-      "firstSeenAt": "2026-05-26T23:25:29.274Z"
+      "firstSeenAt": "2026-05-26T23:25:29.274Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "expertin-experte-notfall-kantonsspital-graubunden-chur"
+        ]
+      },
+      "previousSlugs": [
+        "expertin-experte-notfall-kantonsspital-graubunden-chur"
+      ]
     },
     {
       "id": "10046276",
@@ -1175,12 +1198,12 @@
       "employmentType": "100 - 100%",
       "category": "Gesundheitswesen",
       "crawledAt": "2026-05-26T23:25:29.274Z",
-      "slug": "apprendista-hotelieria-e-gestione-alberghiera-kantonsspital-graubunden-chur",
+      "slug": "apprendistato-professionale-operatore-a-di-ristorazione-e-servizi-alberghieri-kantonsspital-graubunden-chur",
       "slugByLocale": {
         "de": "berufslehre-fachfrau-fachmann-hotellerie-hauswirtschaft-kantonsspital-graubunden-chur",
-        "it": "apprendista-hotelieria-e-gestione-alberghiera-kantonsspital-graubunden-chur",
-        "en": "apprentice-hotelier-and-housekeeping-kantonsspital-graubunden-chur",
-        "fr": "apprenti-e-hotellerie-et-gestion-d-hotellerie-kantonsspital-graubunden-chur"
+        "it": "apprendistato-professionale-operatore-a-di-ristorazione-e-servizi-alberghieri-kantonsspital-graubunden-chur",
+        "en": "professional-apprenticeship-hotel-and-catering-specialist-kantonsspital-graubunden-chur",
+        "fr": "apprentissage-professionnel-specialiste-en-hotellerie-et-restauration-kantonsspital-graubunden-chur"
       },
       "titleByLocale": {
         "de": "Berufslehre Fachfrau / Fachmann Hotellerie-Hauswirtschaft",
@@ -1206,11 +1229,21 @@
       },
       "featured": false,
       "previousSlugs": [
-        "berufslehre-fachfrau-fachmann-hotellerie-hauswirtschaft-kantonsspital-graubunden-chur"
+        "berufslehre-fachfrau-fachmann-hotellerie-hauswirtschaft-kantonsspital-graubunden-chur",
+        "apprendista-hotelieria-e-gestione-alberghiera-kantonsspital-graubunden-chur",
+        "apprentice-hotelier-and-housekeeping-kantonsspital-graubunden-chur",
+        "apprenti-e-hotellerie-et-gestion-d-hotellerie-kantonsspital-graubunden-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "berufslehre-fachfrau-fachmann-hotellerie-hauswirtschaft-kantonsspital-graubunden-chur"
+          "berufslehre-fachfrau-fachmann-hotellerie-hauswirtschaft-kantonsspital-graubunden-chur",
+          "apprendista-hotelieria-e-gestione-alberghiera-kantonsspital-graubunden-chur"
+        ],
+        "en": [
+          "apprentice-hotelier-and-housekeeping-kantonsspital-graubunden-chur"
+        ],
+        "fr": [
+          "apprenti-e-hotellerie-et-gestion-d-hotellerie-kantonsspital-graubunden-chur"
         ]
       },
       "needsRetranslation": false,
@@ -1566,7 +1599,7 @@
       "slug": "apprendistato-come-cuoco-a-kantonsspital-graubunden-chur",
       "slugByLocale": {
         "de": "berufslehre-kochin-koch-kantonsspital-graubunden-chur",
-        "it": "cucina-professionale-cuoco-kantonsspital-graubunden-chur",
+        "it": "apprendistato-come-cuoco-a-kantonsspital-graubunden-chur",
         "en": "apprenticeship-as-a-chef-kantonsspital-graubunden-chur",
         "fr": "apprentissage-de-cuisinier-ere-kantonsspital-graubunden-chur"
       },
@@ -1596,16 +1629,15 @@
       "previousSlugs": [
         "berufslehre-kochin-koch-kantonsspital-graubunden-chur",
         "berufslehre-kochin-koch-kantonsspital-graubunden-chur-2",
+        "cucina-professionale-cuoco-kantonsspital-graubunden-chur",
         "cuoco-dietetico-cuoco-dietetico-kantonsspital-graubunden-chur",
-        "diet-chef-kantonsspital-graubunden-chur",
-        "apprenticeship-as-a-chef-kantonsspital-graubunden-chur",
-        "apprendistato-come-cuoco-a-kantonsspital-graubunden-chur",
-        "apprentissage-de-cuisinier-ere-kantonsspital-graubunden-chur"
+        "diet-chef-kantonsspital-graubunden-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "berufslehre-kochin-koch-kantonsspital-graubunden-chur",
-          "berufslehre-kochin-koch-kantonsspital-graubunden-chur-2"
+          "berufslehre-kochin-koch-kantonsspital-graubunden-chur-2",
+          "cucina-professionale-cuoco-kantonsspital-graubunden-chur"
         ]
       },
       "needsRetranslation": false,
@@ -1807,7 +1839,6 @@
           "nachdiplomstudium-dipl-expertin-experte-notfallpflege-hf-fur-padiatrie-kantonsspital-graubunden-chur"
         ],
         "de": [
-          "nachdiplomstudium-dipl-expertin-experte-notfallpflege-hf-fur-padiatrie-kantonsspital-graubunden-chur",
           "nach-dem-tod-dipl-expertin-experte-notfallpflege-hf-fur-padiatrie-kantonsspital-graubunden-chur"
         ]
       },
@@ -5099,12 +5130,12 @@
       "employmentType": "40 - 100%",
       "category": "Gesundheitswesen",
       "crawledAt": "2026-05-26T23:25:29.275Z",
-      "slug": "operatrice-operatore-di-sala-operatoria-kantonsspital-graubunden-chur",
+      "slug": "specialista-di-tecnologia-operativa-kantonsspital-graubunden-chur",
       "slugByLocale": {
         "de": "fachfrau-fachmann-operationstechnik-kantonsspital-graubunden-chur",
-        "it": "operatrice-operatore-di-sala-operatoria-kantonsspital-graubunden-chur",
+        "it": "specialista-di-tecnologia-operativa-kantonsspital-graubunden-chur",
         "en": "operating-room-technician-kantonsspital-graubunden-chur",
-        "fr": "technicien-technicienne-de-salle-d-operation-kantonsspital-graubunden-chur"
+        "fr": "specialiste-en-technologie-operatoire-kantonsspital-graubunden-chur"
       },
       "titleByLocale": {
         "de": "Fachfrau / Fachmann Operationstechnik",
@@ -5131,11 +5162,17 @@
       "featured": false,
       "previousSlugs": [
         "fachfrau-fachmann-operationstechnik-kantonsspital-graubunden-chur",
+        "operatrice-operatore-di-sala-operatoria-kantonsspital-graubunden-chur",
+        "technicien-technicienne-de-salle-d-operation-kantonsspital-graubunden-chur",
         "fachfrau-fachmann-operationstechnik-kantonsspital-graubunden-chur-2"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachfrau-fachmann-operationstechnik-kantonsspital-graubunden-chur"
+          "fachfrau-fachmann-operationstechnik-kantonsspital-graubunden-chur",
+          "operatrice-operatore-di-sala-operatoria-kantonsspital-graubunden-chur"
+        ],
+        "fr": [
+          "technicien-technicienne-de-salle-d-operation-kantonsspital-graubunden-chur"
         ]
       },
       "needsRetranslation": false,
@@ -5462,8 +5499,7 @@
       },
       "featured": false,
       "previousSlugs": [
-        "fachfrau-fachmann-operationstechnik-kantonsspital-graubunden-chur-2",
-        "fachfrau-fachmann-operationstechnik-kantonsspital-graubunden-chur"
+        "fachfrau-fachmann-operationstechnik-kantonsspital-graubunden-chur-2"
       ],
       "needsRetranslation": false,
       "_targetScope": "grigioni",

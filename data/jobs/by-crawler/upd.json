@@ -4,10 +4,10 @@
   "jobs": [
     {
       "id": "upd-b33d080496d2",
-      "slug": "physiotherapeutin-physiotherapeut-upd-bern",
+      "slug": "fisioterapie-fisioterapia-universitare-psychiatrische-dienste-bern-upd-bern",
       "slugByLocale": {
         "de": "physiotherapeutin-physiotherapeut-upd-bern",
-        "it": "physiotherapeutin-physiotherapeut-upd-bern",
+        "it": "fisioterapie-fisioterapia-universitare-psychiatrische-dienste-bern-upd-bern",
         "en": "physiotherapeutin-physiotherapeut-upd-bern",
         "fr": "physiotherapeutin-physiotherapeut-upd-bern"
       },
@@ -64,16 +64,24 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-27T00:39:13.527Z"
+      "firstSeenAt": "2026-05-27T00:39:13.527Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "physiotherapeutin-physiotherapeut-upd-bern"
+        ]
+      },
+      "previousSlugs": [
+        "physiotherapeutin-physiotherapeut-upd-bern"
+      ]
     },
     {
       "id": "upd-914332df7e65",
-      "slug": "dipl-pflegefachperson-come-vertretung-spezialstation-wernicke-universitare-psychiatrische-dienste-bern-upd-bern",
+      "slug": "infermiere-specialista-di-rimpiazzo-per-la-stazione-specializzata-wernicke-universitare-psychiatrische-dienste-bern-upd",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-als-vertretung-spezialstation-wernicke-upd-bern",
-        "it": "dipl-pflegefachperson-come-vertretung-spezialstation-wernicke-universitare-psychiatrische-dienste-bern-upd-bern",
+        "it": "infermiere-specialista-di-rimpiazzo-per-la-stazione-specializzata-wernicke-universitare-psychiatrische-dienste-bern-upd",
         "en": "dipl-pflegefachperson-als-vertretung-spezialstation-wernicke-upd-bern",
-        "fr": "dipl-pflegefachperson-als-vertretung-spezialstation-wernicke-upd-bern"
+        "fr": "specialiste-en-soins-infirmiers-pour-la-station-specialisee-wernicke-universitare-psychiatrische-dienste-bern-upd-bern"
       },
       "company": "Universitäre Psychiatrische Dienste Bern (UPD)",
       "companyKey": "upd",
@@ -118,11 +126,16 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "dipl-pflegefachperson-als-vertretung-spezialstation-wernicke-upd-bern",
+          "dipl-pflegefachperson-come-vertretung-spezialstation-wernicke-universitare-psychiatrische-dienste-bern-upd-bern"
+        ],
+        "fr": [
           "dipl-pflegefachperson-als-vertretung-spezialstation-wernicke-upd-bern"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachperson-als-vertretung-spezialstation-wernicke-upd-bern"
+        "dipl-pflegefachperson-als-vertretung-spezialstation-wernicke-upd-bern",
+        "dipl-pflegefachperson-come-vertretung-spezialstation-wernicke-universitare-psychiatrische-dienste-bern-upd-bern"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -140,12 +153,12 @@
     },
     {
       "id": "upd-62f498e40fc1",
-      "slug": "oberarztin-oberarzt-neuropsychiatrie-e-interventionelle-psychiatrie-im-stationaren-bereich-universitare-psychiatrische-dienste-bern-upd-bern",
+      "slug": "medico-specialista-in-neuropsichiatria-e-psichiatria-interventiva-nel-reparto-ospedaliero-universitare-psychiatrische",
       "slugByLocale": {
         "de": "oberarztin-oberarzt-neuropsychiatrie-und-interventionelle-psychiatrie-im-stationaren",
-        "it": "oberarztin-oberarzt-neuropsychiatrie-e-interventionelle-psychiatrie-im-stationaren-bereich-universitare-psychiatrische-dienste-bern-upd-bern",
-        "en": "oberarztin-oberarzt-neuropsychiatrie-und-interventionelle-psychiatrie-im-stationaren",
-        "fr": "oberarztin-oberarzt-neuropsychiatrie-und-interventionelle-psychiatrie-im-stationaren"
+        "it": "medico-specialista-in-neuropsichiatria-e-psichiatria-interventiva-nel-reparto-ospedaliero-universitare-psychiatrische",
+        "en": "senior-physician-in-neuropsychiatry-and-interventional-psychiatry-in-the-inpatient-setting-universitare-psychiatrische",
+        "fr": "medecin-specialiste-en-neuropsychiatrie-et-psychiatrie-interventionnelle-en-milieu-hospitalier-universitare"
       },
       "company": "Universitäre Psychiatrische Dienste Bern (UPD)",
       "companyKey": "upd",
@@ -190,11 +203,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "oberarztin-oberarzt-neuropsychiatrie-und-interventionelle-psychiatrie-im-stationaren",
+          "oberarztin-oberarzt-neuropsychiatrie-e-interventionelle-psychiatrie-im-stationaren-bereich-universitare-psychiatrische-dienste-bern-upd-bern"
+        ],
+        "en": [
+          "oberarztin-oberarzt-neuropsychiatrie-und-interventionelle-psychiatrie-im-stationaren"
+        ],
+        "fr": [
           "oberarztin-oberarzt-neuropsychiatrie-und-interventionelle-psychiatrie-im-stationaren"
         ]
       },
       "previousSlugs": [
-        "oberarztin-oberarzt-neuropsychiatrie-und-interventionelle-psychiatrie-im-stationaren"
+        "oberarztin-oberarzt-neuropsychiatrie-und-interventionelle-psychiatrie-im-stationaren",
+        "oberarztin-oberarzt-neuropsychiatrie-e-interventionelle-psychiatrie-im-stationaren-bereich-universitare-psychiatrische-dienste-bern-upd-bern"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -217,7 +238,7 @@
         "de": "dipl-pflegefachperson-fachverantwortung-station-marbach-upd-bern",
         "it": "dipl-pflegefachperson-fachverantwortung-station-marbach-upd-bern",
         "en": "dipl-pflegefachperson-fachverantwortung-station-marbach-upd-bern",
-        "fr": "dipl-pflegefachperson-fachverantwortung-station-marbach-upd-bern"
+        "fr": "infirmier-ere-diplome-e-responsable-du-service-de-marbach-universitare-psychiatrische-dienste-bern-upd-bern"
       },
       "company": "Universitäre Psychiatrische Dienste Bern (UPD)",
       "companyKey": "upd",
@@ -348,12 +369,12 @@
     },
     {
       "id": "upd-6622e9150421",
-      "slug": "nachtarztin-nachtarzt-upd-bern",
+      "slug": "medico-notturno-universitare-psychiatrische-dienste-bern-upd-bern",
       "slugByLocale": {
         "de": "nachtarztin-nachtarzt-upd-bern",
-        "it": "nachtarztin-nachtarzt-upd-bern",
-        "en": "nachtarztin-nachtarzt-upd-bern",
-        "fr": "nachtarztin-nachtarzt-upd-bern"
+        "it": "medico-notturno-universitare-psychiatrische-dienste-bern-upd-bern",
+        "en": "night-doctor-universitare-psychiatrische-dienste-bern-upd-bern",
+        "fr": "docteur-de-nuit-universitare-psychiatrische-dienste-bern-upd-bern"
       },
       "company": "Universitäre Psychiatrische Dienste Bern (UPD)",
       "companyKey": "upd",
@@ -410,16 +431,30 @@
         }
       },
       "firstSeenAt": "2026-05-27T00:39:09.018Z",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "nachtarztin-nachtarzt-upd-bern"
+        ],
+        "en": [
+          "nachtarztin-nachtarzt-upd-bern"
+        ],
+        "fr": [
+          "nachtarztin-nachtarzt-upd-bern"
+        ]
+      },
+      "previousSlugs": [
+        "nachtarztin-nachtarzt-upd-bern"
+      ]
     },
     {
       "id": "upd-2617f609680b",
-      "slug": "junior-stationsleitung-alterspsychiatrie-upd-bern",
+      "slug": "junior-station-head-age-psichiatria-universitare-psychiatrische-dienste-bern-upd-bern",
       "slugByLocale": {
         "de": "junior-stationsleitung-alterspsychiatrie-upd-bern",
-        "it": "junior-stationsleitung-alterspsychiatrie-upd-bern",
-        "en": "junior-stationsleitung-alterspsychiatrie-upd-bern",
-        "fr": "junior-stationsleitung-alterspsychiatrie-upd-bern"
+        "it": "junior-station-head-age-psichiatria-universitare-psychiatrische-dienste-bern-upd-bern",
+        "en": "junior-station-head-age-psychiatry-universitare-psychiatrische-dienste-bern-upd-bern",
+        "fr": "psychiatrie-de-l-age-de-la-tete-de-gare-junior-universitare-psychiatrische-dienste-bern-upd-bern"
       },
       "company": "Universitäre Psychiatrische Dienste Bern (UPD)",
       "companyKey": "upd",
@@ -474,16 +509,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-27T00:39:08.106Z"
+      "firstSeenAt": "2026-05-27T00:39:08.106Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "junior-stationsleitung-alterspsychiatrie-upd-bern"
+        ],
+        "en": [
+          "junior-stationsleitung-alterspsychiatrie-upd-bern"
+        ],
+        "fr": [
+          "junior-stationsleitung-alterspsychiatrie-upd-bern"
+        ]
+      },
+      "previousSlugs": [
+        "junior-stationsleitung-alterspsychiatrie-upd-bern"
+      ]
     },
     {
       "id": "upd-96c5242792bf",
-      "slug": "oberarztin-oberarzt-stationare-alterspsychiatrie-upd-bern",
+      "slug": "medico-specialista-in-psichiatria-geriatrica-stazionaria-universitare-psychiatrische-dienste-bern-upd-bern",
       "slugByLocale": {
         "de": "oberarztin-oberarzt-stationare-alterspsychiatrie-upd-bern",
-        "it": "oberarztin-oberarzt-stationare-alterspsychiatrie-upd-bern",
-        "en": "oberarztin-oberarzt-stationare-alterspsychiatrie-upd-bern",
-        "fr": "oberarztin-oberarzt-stationare-alterspsychiatrie-upd-bern"
+        "it": "medico-specialista-in-psichiatria-geriatrica-stazionaria-universitare-psychiatrische-dienste-bern-upd-bern",
+        "en": "senior-psychiatrist-in-geriatric-stationary-care-universitare-psychiatrische-dienste-bern-upd-bern",
+        "fr": "medecin-specialiste-en-psychiatrie-geriatrique-stationnaire-universitare-psychiatrische-dienste-bern-upd-bern"
       },
       "company": "Universitäre Psychiatrische Dienste Bern (UPD)",
       "companyKey": "upd",
@@ -538,7 +587,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-27T00:39:07.188Z"
+      "firstSeenAt": "2026-05-27T00:39:07.188Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "oberarztin-oberarzt-stationare-alterspsychiatrie-upd-bern"
+        ],
+        "en": [
+          "oberarztin-oberarzt-stationare-alterspsychiatrie-upd-bern"
+        ],
+        "fr": [
+          "oberarztin-oberarzt-stationare-alterspsychiatrie-upd-bern"
+        ]
+      },
+      "previousSlugs": [
+        "oberarztin-oberarzt-stationare-alterspsychiatrie-upd-bern"
+      ]
     },
     {
       "id": "upd-a67318c29a3f",
@@ -606,12 +669,12 @@
     },
     {
       "id": "upd-e7c1119f4613",
-      "slug": "oberarztin-oberarzt-kinder-e-jugendliche-universitare-psychiatrische-dienste-bern-upd-bern",
+      "slug": "medico-specialista-in-pediatria-e-adolescenza-universitare-psychiatrische-dienste-bern-upd-bern",
       "slugByLocale": {
         "de": "oberarztin-oberarzt-kinder-und-jugendliche-upd-bern",
-        "it": "oberarztin-oberarzt-kinder-e-jugendliche-universitare-psychiatrische-dienste-bern-upd-bern",
-        "en": "oberarztin-oberarzt-kinder-und-jugendliche-upd-bern",
-        "fr": "oberarztin-oberarzt-kinder-und-jugendliche-upd-bern"
+        "it": "medico-specialista-in-pediatria-e-adolescenza-universitare-psychiatrische-dienste-bern-upd-bern",
+        "en": "senior-physician-in-child-and-adolescent-psychiatry-universitare-psychiatrische-dienste-bern-upd-bern",
+        "fr": "medecin-specialiste-en-psychiatrie-de-l-enfant-et-de-l-adolescent-universitare-psychiatrische-dienste-bern-upd-bern"
       },
       "company": "Universitäre Psychiatrische Dienste Bern (UPD)",
       "companyKey": "upd",
@@ -656,11 +719,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "oberarztin-oberarzt-kinder-und-jugendliche-upd-bern",
+          "oberarztin-oberarzt-kinder-e-jugendliche-universitare-psychiatrische-dienste-bern-upd-bern"
+        ],
+        "en": [
+          "oberarztin-oberarzt-kinder-und-jugendliche-upd-bern"
+        ],
+        "fr": [
           "oberarztin-oberarzt-kinder-und-jugendliche-upd-bern"
         ]
       },
       "previousSlugs": [
-        "oberarztin-oberarzt-kinder-und-jugendliche-upd-bern"
+        "oberarztin-oberarzt-kinder-und-jugendliche-upd-bern",
+        "oberarztin-oberarzt-kinder-e-jugendliche-universitare-psychiatrische-dienste-bern-upd-bern"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,

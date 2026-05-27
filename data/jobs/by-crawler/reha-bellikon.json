@@ -1079,8 +1079,7 @@
       "contractDuration": "permanent",
       "previousSlugs": [
         "hr-fachspezialistin-fachspezialist-betriebliches-gesundheitsmanagement-reha-bellikon",
-        "hr-specialista-specialist-business-health-management-rehaklinik-bellikon-bellikon",
-        "risorse-umane-fachspezialistin-fachspezialist-betriebliches-gesundheitsmanagement-rehaklinik-bellikon-bellikon"
+        "hr-specialista-specialist-business-health-management-rehaklinik-bellikon-bellikon"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1303,7 +1302,7 @@
       "id": "reha-bellikon-9d3bbc52411e",
       "slug": "koch-kochin-cfc-rehaklinik-bellikon-bellikon",
       "slugByLocale": {
-        "it": "koch-kochin-efz-reha-bellikon-bellikon",
+        "it": "koch-kochin-cfc-rehaklinik-bellikon-bellikon",
         "en": "cook-cook-efz-rehaklinik-bellikon-bellikon",
         "de": "koch-kochin-efz-rehaklinik-bellikon-bellikon",
         "fr": "faire-cuire-faire-cuire-efz-rehaklinik-bellikon-bellikon"
@@ -1355,7 +1354,8 @@
       "contractDuration": "permanent",
       "previousSlugsByLocale": {
         "it": [
-          "cucinare-cucinare-efz-rehaklinik-bellikon-bellikon"
+          "cucinare-cucinare-efz-rehaklinik-bellikon-bellikon",
+          "koch-kochin-efz-reha-bellikon-bellikon"
         ],
         "en": [
           "koch-kochin-efz-reha-bellikon-bellikon"
@@ -1369,10 +1369,7 @@
       },
       "previousSlugs": [
         "cucinare-cucinare-efz-rehaklinik-bellikon-bellikon",
-        "koch-kochin-efz-reha-bellikon-bellikon",
-        "koch-kochin-cfc-rehaklinik-bellikon-bellikon",
-        "cook-cook-efz-rehaklinik-bellikon-bellikon",
-        "faire-cuire-faire-cuire-efz-rehaklinik-bellikon-bellikon"
+        "koch-kochin-efz-reha-bellikon-bellikon"
       ],
       "firstSeenAt": "2026-05-24T23:03:38.539Z",
       "salaryMin": 51500,
@@ -1390,12 +1387,12 @@
     },
     {
       "id": "reha-bellikon-c5c59a56df9f",
-      "slug": "apprendista-r-assistent-in-gesundheit-e-soziales-afp-rehaklinik-bellikon",
+      "slug": "istruttore-r-assistente-in-salute-e-sociale-eba-rehaklinik-bellikon-bellikon",
       "slugByLocale": {
         "de": "lernende-r-assistent-in-gesundheit-und-soziales-eba-reha-bellikon-bellikon",
-        "it": "apprendista-r-assistent-in-gesundheit-e-soziales-afp-rehaklinik-bellikon",
-        "en": "lernende-r-assistent-in-gesundheit-und-soziales-eba-reha-bellikon-bellikon",
-        "fr": "lernende-r-assistent-in-gesundheit-und-soziales-eba-reha-bellikon-bellikon"
+        "it": "istruttore-r-assistente-in-salute-e-sociale-eba-rehaklinik-bellikon-bellikon",
+        "en": "learner-r-assistant-in-health-and-social-eba-rehaklinik-bellikon-bellikon",
+        "fr": "apprentis-r-assistant-en-sante-et-social-eba-rehaklinik-bellikon-bellikon"
       },
       "company": "Rehaklinik Bellikon",
       "companyKey": "reha-bellikon",
@@ -1445,11 +1442,19 @@
       "contractDuration": "temporary",
       "previousSlugsByLocale": {
         "it": [
+          "lernende-r-assistent-in-gesundheit-und-soziales-eba-reha-bellikon-bellikon",
+          "apprendista-r-assistent-in-gesundheit-e-soziales-afp-rehaklinik-bellikon"
+        ],
+        "en": [
+          "lernende-r-assistent-in-gesundheit-und-soziales-eba-reha-bellikon-bellikon"
+        ],
+        "fr": [
           "lernende-r-assistent-in-gesundheit-und-soziales-eba-reha-bellikon-bellikon"
         ]
       },
       "previousSlugs": [
-        "lernende-r-assistent-in-gesundheit-und-soziales-eba-reha-bellikon-bellikon"
+        "lernende-r-assistent-in-gesundheit-und-soziales-eba-reha-bellikon-bellikon",
+        "apprendista-r-assistent-in-gesundheit-e-soziales-afp-rehaklinik-bellikon"
       ],
       "salaryMin": 41600,
       "salaryMax": 63000,
@@ -1467,11 +1472,11 @@
     },
     {
       "id": "reha-bellikon-45701426c825",
-      "slug": "lernende-r-entwickler-in-digitales-business-efz-reha-bellikon-bellikon",
+      "slug": "apprendimento-r-sviluppatore-in-digital-business-efz-rehaklinik-bellikon-bellikon",
       "slugByLocale": {
         "de": "lernende-r-entwickler-in-digitales-business-efz-reha-bellikon-bellikon",
-        "it": "lernende-r-entwickler-in-digitales-business-efz-reha-bellikon-bellikon",
-        "en": "lernende-r-entwickler-in-digitales-business-efz-reha-bellikon-bellikon",
+        "it": "apprendimento-r-sviluppatore-in-digital-business-efz-rehaklinik-bellikon-bellikon",
+        "en": "learning-r-developer-in-digital-business-efz-rehaklinik-bellikon-bellikon",
         "fr": "lernende-r-entwickler-in-digitales-business-efz-reha-bellikon-bellikon"
       },
       "company": "Rehaklinik Bellikon",
@@ -1532,16 +1537,27 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-26T23:59:05.514Z"
+      "firstSeenAt": "2026-05-26T23:59:05.514Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "lernende-r-entwickler-in-digitales-business-efz-reha-bellikon-bellikon"
+        ],
+        "en": [
+          "lernende-r-entwickler-in-digitales-business-efz-reha-bellikon-bellikon"
+        ]
+      },
+      "previousSlugs": [
+        "lernende-r-entwickler-in-digitales-business-efz-reha-bellikon-bellikon"
+      ]
     },
     {
       "id": "reha-bellikon-f836e871cce2",
-      "slug": "lernende-r-fachfrau-fachmann-gesundheit-efz-reha-bellikon-bellikon",
+      "slug": "imparare-professional-health-efz-rehaklinik-bellikon-bellikon",
       "slugByLocale": {
         "de": "lernende-r-fachfrau-fachmann-gesundheit-efz-reha-bellikon-bellikon",
-        "it": "lernende-r-fachfrau-fachmann-gesundheit-efz-reha-bellikon-bellikon",
-        "en": "lernende-r-fachfrau-fachmann-gesundheit-efz-reha-bellikon-bellikon",
-        "fr": "lernende-r-fachfrau-fachmann-gesundheit-efz-reha-bellikon-bellikon"
+        "it": "imparare-professional-health-efz-rehaklinik-bellikon-bellikon",
+        "en": "learning-professional-health-efz-rehaklinik-bellikon-bellikon",
+        "fr": "apprentissage-sante-professionnelle-efz-rehaklinik-bellikon-bellikon"
       },
       "company": "Rehaklinik Bellikon",
       "companyKey": "reha-bellikon",
@@ -1601,15 +1617,29 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-26T23:59:05.043Z"
+      "firstSeenAt": "2026-05-26T23:59:05.043Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "lernende-r-fachfrau-fachmann-gesundheit-efz-reha-bellikon-bellikon"
+        ],
+        "en": [
+          "lernende-r-fachfrau-fachmann-gesundheit-efz-reha-bellikon-bellikon"
+        ],
+        "fr": [
+          "lernende-r-fachfrau-fachmann-gesundheit-efz-reha-bellikon-bellikon"
+        ]
+      },
+      "previousSlugs": [
+        "lernende-r-fachfrau-fachmann-gesundheit-efz-reha-bellikon-bellikon"
+      ]
     },
     {
       "id": "reha-bellikon-308f16f1be8c",
-      "slug": "lernende-r-ict-fachfrau-fachmann-efz-reha-bellikon-bellikon",
+      "slug": "apprendista-r-ict-fachfrau-fachmann-cfc-rehaklinik-bellikon-bellikon",
       "slugByLocale": {
         "de": "lernende-r-ict-fachfrau-fachmann-efz-reha-bellikon-bellikon",
-        "it": "lernende-r-ict-fachfrau-fachmann-efz-reha-bellikon-bellikon",
-        "en": "lernende-r-ict-fachfrau-fachmann-efz-reha-bellikon-bellikon",
+        "it": "apprendista-r-ict-fachfrau-fachmann-cfc-rehaklinik-bellikon-bellikon",
+        "en": "learning-r-ict-specialist-efz-rehaklinik-bellikon-bellikon",
         "fr": "lernende-r-ict-fachfrau-fachmann-efz-reha-bellikon-bellikon"
       },
       "company": "Rehaklinik Bellikon",
@@ -1670,7 +1700,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-26T23:59:04.568Z"
+      "firstSeenAt": "2026-05-26T23:59:04.568Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "lernende-r-ict-fachfrau-fachmann-efz-reha-bellikon-bellikon"
+        ],
+        "en": [
+          "lernende-r-ict-fachfrau-fachmann-efz-reha-bellikon-bellikon"
+        ]
+      },
+      "previousSlugs": [
+        "lernende-r-ict-fachfrau-fachmann-efz-reha-bellikon-bellikon"
+      ]
     },
     {
       "id": "reha-bellikon-d97dfe99bd1f",
@@ -1743,11 +1784,11 @@
     },
     {
       "id": "reha-bellikon-57ff40de5d6f",
-      "slug": "lernende-r-kochin-koch-efz-reha-bellikon-bellikon",
+      "slug": "imparare-r-cucinare-cucinare-efz-rehaklinik-bellikon-bellikon",
       "slugByLocale": {
         "de": "lernende-r-kochin-koch-efz-reha-bellikon-bellikon",
-        "it": "lernende-r-kochin-koch-efz-reha-bellikon-bellikon",
-        "en": "lernende-r-kochin-koch-efz-reha-bellikon-bellikon",
+        "it": "imparare-r-cucinare-cucinare-efz-rehaklinik-bellikon-bellikon",
+        "en": "learning-r-cook-cook-efz-rehaklinik-bellikon-bellikon",
         "fr": "lernende-r-kochin-koch-efz-reha-bellikon-bellikon"
       },
       "company": "Rehaklinik Bellikon",
@@ -1808,16 +1849,27 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-26T23:59:03.615Z"
+      "firstSeenAt": "2026-05-26T23:59:03.615Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "lernende-r-kochin-koch-efz-reha-bellikon-bellikon"
+        ],
+        "en": [
+          "lernende-r-kochin-koch-efz-reha-bellikon-bellikon"
+        ]
+      },
+      "previousSlugs": [
+        "lernende-r-kochin-koch-efz-reha-bellikon-bellikon"
+      ]
     },
     {
       "id": "reha-bellikon-6916876e9784",
-      "slug": "lernender-r-fachfrau-fachmann-reinigungstechnik-efz-reha-bellikon-bellikon",
+      "slug": "imparare-professional-cleaning-technology-efz-rehaklinik-bellikon-bellikon",
       "slugByLocale": {
         "de": "lernender-r-fachfrau-fachmann-reinigungstechnik-efz-reha-bellikon-bellikon",
-        "it": "lernender-r-fachfrau-fachmann-reinigungstechnik-efz-reha-bellikon-bellikon",
-        "en": "lernender-r-fachfrau-fachmann-reinigungstechnik-efz-reha-bellikon-bellikon",
-        "fr": "lernender-r-fachfrau-fachmann-reinigungstechnik-efz-reha-bellikon-bellikon"
+        "it": "imparare-professional-cleaning-technology-efz-rehaklinik-bellikon-bellikon",
+        "en": "learning-professional-cleaning-technology-efz-rehaklinik-bellikon-bellikon",
+        "fr": "apprentissage-technologie-de-nettoyage-professionnelle-efz-rehaklinik-bellikon-bellikon"
       },
       "company": "Rehaklinik Bellikon",
       "companyKey": "reha-bellikon",
@@ -1877,16 +1929,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-26T23:59:03.147Z"
+      "firstSeenAt": "2026-05-26T23:59:03.147Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "lernender-r-fachfrau-fachmann-reinigungstechnik-efz-reha-bellikon-bellikon"
+        ],
+        "en": [
+          "lernender-r-fachfrau-fachmann-reinigungstechnik-efz-reha-bellikon-bellikon"
+        ],
+        "fr": [
+          "lernender-r-fachfrau-fachmann-reinigungstechnik-efz-reha-bellikon-bellikon"
+        ]
+      },
+      "previousSlugs": [
+        "lernender-r-fachfrau-fachmann-reinigungstechnik-efz-reha-bellikon-bellikon"
+      ]
     },
     {
       "id": "reha-bellikon-0e10ba0c4fae",
-      "slug": "lernende-r-restaurantfachfrau-restaurantfachmann-efz-reha-bellikon-bellikon",
+      "slug": "learning-r-specialista-ristorante-specialista-ristorante-efz-rehaklinik-bellikon-bellikon",
       "slugByLocale": {
         "de": "lernende-r-restaurantfachfrau-restaurantfachmann-efz-reha-bellikon-bellikon",
-        "it": "lernende-r-restaurantfachfrau-restaurantfachmann-efz-reha-bellikon-bellikon",
-        "en": "lernende-r-restaurantfachfrau-restaurantfachmann-efz-reha-bellikon-bellikon",
-        "fr": "lernende-r-restaurantfachfrau-restaurantfachmann-efz-reha-bellikon-bellikon"
+        "it": "learning-r-specialista-ristorante-specialista-ristorante-efz-rehaklinik-bellikon-bellikon",
+        "en": "learning-r-restaurant-specialist-restaurant-specialist-efz-rehaklinik-bellikon-bellikon",
+        "fr": "apprentissage-r-specialiste-des-restaurants-specialiste-des-restaurants-efz-rehaklinik-bellikon-bellikon"
       },
       "company": "Rehaklinik Bellikon",
       "companyKey": "reha-bellikon",
@@ -1946,7 +2012,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-26T23:59:02.666Z"
+      "firstSeenAt": "2026-05-26T23:59:02.666Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "lernende-r-restaurantfachfrau-restaurantfachmann-efz-reha-bellikon-bellikon"
+        ],
+        "en": [
+          "lernende-r-restaurantfachfrau-restaurantfachmann-efz-reha-bellikon-bellikon"
+        ],
+        "fr": [
+          "lernende-r-restaurantfachfrau-restaurantfachmann-efz-reha-bellikon-bellikon"
+        ]
+      },
+      "previousSlugs": [
+        "lernende-r-restaurantfachfrau-restaurantfachmann-efz-reha-bellikon-bellikon"
+      ]
     }
   ]
 }

@@ -7,7 +7,7 @@
       "slug": "offerta-non-richiesta-centro-medico-permanenze-ensemble-hospitalier-de-la-cote-ehc-morges",
       "slugByLocale": {
         "it": "offerta-non-richiesta-centro-medico-permanenze-ensemble-hospitalier-de-la-cote-ehc-morges",
-        "en": "spontaneous-offer-medical-centers-waiting-rooms-ensemble-hospitalier-de-la-cote-ehc-morges",
+        "en": "unsolicited-offer-medical-centre-permanences-ensemble-hospitalier-de-la-cote-ehc-morges",
         "de": "spontane-offerte-medizinische-zentren-wartezimmer-ensemble-hospitalier-de-la-cote-ehc-morges",
         "fr": "offre-spontanee-centre-medicaux-permanences-ehc-vd-morges"
       },
@@ -71,7 +71,7 @@
       "previousSlugs": [
         "offre-spontanee-centre-medicaux-permanences-ehc-vd-morges",
         "offerta-spontanea-centri-medici-presenze-ensemble-hospitalier-de-la-cote-ehc-morges",
-        "unsolicited-offer-medical-centre-permanences-ensemble-hospitalier-de-la-cote-ehc-morges"
+        "spontaneous-offer-medical-centers-waiting-rooms-ensemble-hospitalier-de-la-cote-ehc-morges"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -79,7 +79,6 @@
           "offerta-spontanea-centri-medici-presenze-ensemble-hospitalier-de-la-cote-ehc-morges"
         ],
         "en": [
-          "unsolicited-offer-medical-centre-permanences-ensemble-hospitalier-de-la-cote-ehc-morges",
           "spontaneous-offer-medical-centers-waiting-rooms-ensemble-hospitalier-de-la-cote-ehc-morges"
         ]
       },
@@ -1867,7 +1866,7 @@
       "slug": "medico-pediatra-con-interesse-per-lo-sviluppo-neurologico-f-m-ensemble-hospitalier-de-la-cote-ehc-lavigny",
       "slugByLocale": {
         "it": "medico-pediatra-con-interesse-per-lo-sviluppo-neurologico-f-m-ensemble-hospitalier-de-la-cote-ehc-lavigny",
-        "en": "pediatrician-with-interest-in-neurodevelopment-f-m-ensemble-hospitalier-de-la-cote-ehc-lavigny",
+        "en": "pediatric-doctor-with-interest-in-neurodevelopment-f-h-ensemble-hospitalier-de-la-cote-ehc-lavigny",
         "de": "padiater-mit-interesse-an-der-neuroentwicklung-f-m-ensemble-hospitalier-de-la-cote-ehc-lavigny",
         "fr": "medecin-pediatre-avec-interet-pour-le-neurodeveloppement-f-h-ehc-vd-lavigny"
       },
@@ -1922,14 +1921,13 @@
       },
       "previousSlugs": [
         "medecin-pediatre-avec-interet-pour-le-neurodeveloppement-f-h-ehc-vd-lavigny",
-        "pediatric-doctor-with-interest-in-neurodevelopment-f-h-ensemble-hospitalier-de-la-cote-ehc-lavigny"
+        "pediatrician-with-interest-in-neurodevelopment-f-m-ensemble-hospitalier-de-la-cote-ehc-lavigny"
       ],
       "previousSlugsByLocale": {
         "it": [
           "medecin-pediatre-avec-interet-pour-le-neurodeveloppement-f-h-ehc-vd-lavigny"
         ],
         "en": [
-          "pediatric-doctor-with-interest-in-neurodevelopment-f-h-ensemble-hospitalier-de-la-cote-ehc-lavigny",
           "pediatrician-with-interest-in-neurodevelopment-f-m-ensemble-hospitalier-de-la-cote-ehc-lavigny"
         ]
       },
@@ -4180,8 +4178,7 @@
           "infirmier-f-h-ehc-vd-morges"
         ],
         "fr": [
-          "infirmier-f-h-ehc-vd-morges",
-          "infirmation-f-h-ensemble-hospitalier-de-la-cote-ehc-morges"
+          "infirmier-f-h-ehc-vd-morges"
         ]
       },
       "firstSeenAt": "2026-05-19T09:58:50.896Z",

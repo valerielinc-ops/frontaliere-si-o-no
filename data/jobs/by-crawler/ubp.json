@@ -1341,8 +1341,7 @@
         "en": [
           "senior-legal-advisor-management-company-m-f-x-ubp-ch",
           "senior-legal-advisor-management-company-m-f-x-union-bancaire-privee-luxembourg",
-          "senior-legal-advisor-management-company-m-f-ubp-ch",
-          "senior-legal-advisor-management-company-m-f-union-bancaire-privee-luxembourg"
+          "senior-legal-advisor-management-company-m-f-ubp-ch"
         ],
         "it": [
           "senior-legal-consulente-management-company-m-f-union-bancaire-privee-luxembourg",
@@ -3683,12 +3682,12 @@
     },
     {
       "id": "ubp-fbb676f1d027",
-      "slug": "operation-specialist-ubp-ch",
+      "slug": "operation-specialista-union-bancaire-privee-geneva-switzerland",
       "slugByLocale": {
         "en": "operation-specialist-union-bancaire-privee-geneva-switzerland",
-        "it": "operation-specialist-ubp-ch",
-        "de": "operation-specialist-ubp-ch",
-        "fr": "operation-specialist-ubp-ch"
+        "it": "operation-specialista-union-bancaire-privee-geneva-switzerland",
+        "de": "operation-spezialist-union-bancaire-privee-geneva-switzerland",
+        "fr": "operation-specialiste-union-bancaire-privee-geneva-switzerland"
       },
       "company": "Union Bancaire Privée",
       "companyKey": "ubp",
@@ -3744,7 +3743,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-27T00:37:46.883Z"
+      "firstSeenAt": "2026-05-27T00:37:46.883Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "operation-specialist-ubp-ch"
+        ],
+        "de": [
+          "operation-specialist-ubp-ch"
+        ],
+        "fr": [
+          "operation-specialist-ubp-ch"
+        ]
+      },
+      "previousSlugs": [
+        "operation-specialist-ubp-ch"
+      ]
     }
   ]
 }

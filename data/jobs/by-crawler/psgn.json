@@ -317,7 +317,7 @@
       "id": "psgn-8e4400972fe0",
       "slug": "stage-commerciale-psychiatrie-st-gallen-wil-sg",
       "slugByLocale": {
-        "it": "kaufmannisches-praktikum-psgn-wil-sg",
+        "it": "stage-commerciale-psychiatrie-st-gallen-wil-sg",
         "en": "commercial-internship-psychiatrie-st-gallen-wil-sg",
         "de": "kaufmannisches-praktikum-psychiatrie-st-gallen-wil-sg",
         "fr": "stage-commercial-psychiatrie-st-gallen-wil-sg"
@@ -371,13 +371,13 @@
         ],
         "de": [
           "kaufmannisches-praktikum-psgn-wil-sg"
+        ],
+        "it": [
+          "kaufmannisches-praktikum-psgn-wil-sg"
         ]
       },
       "previousSlugs": [
-        "kaufmannisches-praktikum-psgn-wil-sg",
-        "stage-commerciale-psychiatrie-st-gallen-wil-sg",
-        "commercial-internship-psychiatrie-st-gallen-wil-sg",
-        "stage-commercial-psychiatrie-st-gallen-wil-sg"
+        "kaufmannisches-praktikum-psgn-wil-sg"
       ],
       "firstSeenAt": "2026-05-21T13:00:34.690Z",
       "salaryMin": 41600,
@@ -479,7 +479,7 @@
       "id": "psgn-945c1e1a12a8",
       "slug": "medico-senior-psychiatrie-st-gallen-wil-sg",
       "slugByLocale": {
-        "it": "oberarztin-oberarzt-psgn-wil-sg",
+        "it": "medico-senior-psychiatrie-st-gallen-wil-sg",
         "en": "senior-doctor-psychiatrie-st-gallen-wil-sg",
         "de": "oberarztin-oberarzt-psychiatrie-st-gallen-wil-sg",
         "fr": "medecin-principal-psychiatrie-st-gallen-wil-sg"
@@ -533,13 +533,13 @@
         ],
         "de": [
           "oberarztin-oberarzt-psgn-wil-sg"
+        ],
+        "it": [
+          "oberarztin-oberarzt-psgn-wil-sg"
         ]
       },
       "previousSlugs": [
-        "oberarztin-oberarzt-psgn-wil-sg",
-        "medico-senior-psychiatrie-st-gallen-wil-sg",
-        "senior-doctor-psychiatrie-st-gallen-wil-sg",
-        "medecin-principal-psychiatrie-st-gallen-wil-sg"
+        "oberarztin-oberarzt-psgn-wil-sg"
       ],
       "firstSeenAt": "2026-05-21T13:00:33.161Z",
       "salaryMin": 68000,
@@ -721,12 +721,12 @@
     },
     {
       "id": "psgn-60f65ca926ee",
-      "slug": "kaufmannisches-praktikum-psgn-wil-sg-2",
+      "slug": "stage-commerciale-psychiatrie-st-gallen-wil-sg-31a5b0",
       "slugByLocale": {
         "de": "kaufmannisches-praktikum-psychiatrie-st-gallen-wil-sg",
-        "it": "kaufmannisches-praktikum-psgn-wil-sg-2",
-        "en": "kaufmannisches-praktikum-psgn-wil-sg-2",
-        "fr": "kaufmannisches-praktikum-psgn-wil-sg-2"
+        "it": "stage-commerciale-psychiatrie-st-gallen-wil-sg-31a5b0",
+        "en": "commercial-internship-psychiatrie-st-gallen-wil-sg-31a5b0",
+        "fr": "stage-commercial-psychiatrie-st-gallen-wil-sg-31a5b0"
       },
       "company": "Psychiatrie St.Gallen",
       "companyKey": "psgn",
@@ -772,10 +772,20 @@
       "previousSlugsByLocale": {
         "de": [
           "kaufmannisches-praktikum-psgn-wil-sg"
+        ],
+        "it": [
+          "kaufmannisches-praktikum-psgn-wil-sg-2"
+        ],
+        "en": [
+          "kaufmannisches-praktikum-psgn-wil-sg-2"
+        ],
+        "fr": [
+          "kaufmannisches-praktikum-psgn-wil-sg-2"
         ]
       },
       "previousSlugs": [
-        "kaufmannisches-praktikum-psgn-wil-sg"
+        "kaufmannisches-praktikum-psgn-wil-sg",
+        "kaufmannisches-praktikum-psgn-wil-sg-2"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,

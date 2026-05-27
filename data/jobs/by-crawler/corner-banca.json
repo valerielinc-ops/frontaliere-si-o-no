@@ -8,8 +8,8 @@
       "slugByLocale": {
         "it": "customer-consulente-40-corner-banca-wallisellen",
         "en": "customer-advisor-40-corner-banca-wallisellen",
-        "de": "customer-advisor-evening-and-weekend-40-corner-banca-wallisellen",
-        "fr": "customer-advisor-evening-and-weekend-40-corner-banca-wallisellen"
+        "de": "customer-berater-40-corner-banca-wallisellen",
+        "fr": "customer-conseiller-40-corner-banca-wallisellen"
       },
       "company": "Cornèr Banca",
       "companyKey": "corner-banca",
@@ -69,8 +69,6 @@
         "consulente-clienti-40-corner-banca-wallisellen",
         "customer-advisor-60-corner-banca-wallisellen",
         "customer-advisor-40-corner-banca-wallisellen",
-        "customer-berater-40-corner-banca-wallisellen",
-        "customer-conseiller-40-corner-banca-wallisellen",
         "customer-advisor-evening-and-weekend-40-corner-banca-wallisellen"
       ],
       "previousSlugsByLocale": {
@@ -80,11 +78,9 @@
           "customer-advisor-40-corner-banca-wallisellen"
         ],
         "de": [
-          "customer-berater-40-corner-banca-wallisellen",
           "customer-advisor-evening-and-weekend-40-corner-banca-wallisellen"
         ],
         "fr": [
-          "customer-conseiller-40-corner-banca-wallisellen",
           "customer-advisor-evening-and-weekend-40-corner-banca-wallisellen"
         ],
         "en": [
@@ -115,7 +111,7 @@
       "slugByLocale": {
         "it": "candidatura-spontanea-apprendistato-corner-banca-switzerland",
         "en": "unsolicited-application-apprenticeship-corner-banca-switzerland",
-        "de": "initiativbewerbung-fur-lehrstelle-corner-banca-switzerland",
+        "de": "initiativbewerbung-lehre-corner-banca-switzerland",
         "fr": "unsolicited-application-apprenticeship-corner-banca-switzerland"
       },
       "company": "Cornèr Banca",
@@ -167,11 +163,11 @@
       "firstSeenAt": "2026-05-17T10:02:58.679Z",
       "previousSlugsByLocale": {
         "de": [
-          "initiativbewerbung-lehre-corner-banca-switzerland"
+          "initiativbewerbung-fur-lehrstelle-corner-banca-switzerland"
         ]
       },
       "previousSlugs": [
-        "initiativbewerbung-lehre-corner-banca-switzerland"
+        "initiativbewerbung-fur-lehrstelle-corner-banca-switzerland"
       ],
       "salaryMin": 59500,
       "salaryMax": 104000,
@@ -293,9 +289,9 @@
       "slug": "collaboratore-servizi-logistici-ufficio-tecnico-corner-banca-lugano",
       "slugByLocale": {
         "it": "collaboratore-servizi-logistici-ufficio-tecnico-corner-banca-lugano",
-        "en": "collaboratore-servizi-logistici-ufficio-tecnico-corner-banca-lugano-h1bnmt",
-        "de": "collaboratore-servizi-logistici-ufficio-tecnico-corner-banca-lugano-h1bnmt",
-        "fr": "collaboratore-servizi-logistici-ufficio-tecnico-corner-banca-lugano-h1bnmt"
+        "en": "logistics-services-coordinator-technical-office-corner-banca-lugano",
+        "de": "logistikdienstleistungskoordinator-technisches-buro-corner-banca-lugano",
+        "fr": "coordinateur-coordinateuse-des-services-logistiques-bureau-technique-corner-banca-lugano"
       },
       "company": "Cornèr Banca",
       "companyKey": "corner-banca",
@@ -360,11 +356,8 @@
       "previousSlugs": [
         "collaboratore-servizi-logistici-ufficio-technician-corner-banca-lugano",
         "collaboratore-servizi-logistici-ufficio-tecnico-corner-banca-lugano-h1bnmt",
-        "logistics-services-coordinator-technical-office-corner-banca-lugano",
         "collaboratore-servizi-logistici-ufficio-techniker-corner-banca-lugano",
-        "logistikdienstleistungskoordinator-technisches-buro-corner-banca-lugano",
         "collaboratore-servizi-logistici-ufficio-technicien-corner-banca-lugano",
-        "coordinateur-coordinateuse-des-services-logistiques-bureau-technique-corner-banca-lugano",
         "technicien-des-services-logistiques-bureau-technique-corner-banca-lugano",
         "logistikdienstleister-technisches-buro-corner-banca-lugano",
         "coordinateur-services-logistiques-bureau-technique-corner-banca-lugano"
@@ -376,19 +369,16 @@
         ],
         "en": [
           "collaboratore-servizi-logistici-ufficio-technician-corner-banca-lugano",
-          "logistics-services-coordinator-technical-office-corner-banca-lugano",
           "collaboratore-servizi-logistici-ufficio-tecnico-corner-banca-lugano-h1bnmt"
         ],
         "de": [
           "collaboratore-servizi-logistici-ufficio-technician-corner-banca-lugano",
           "collaboratore-servizi-logistici-ufficio-techniker-corner-banca-lugano",
-          "logistikdienstleistungskoordinator-technisches-buro-corner-banca-lugano",
           "collaboratore-servizi-logistici-ufficio-tecnico-corner-banca-lugano-h1bnmt"
         ],
         "fr": [
           "collaboratore-servizi-logistici-ufficio-technician-corner-banca-lugano",
           "collaboratore-servizi-logistici-ufficio-technicien-corner-banca-lugano",
-          "coordinateur-coordinateuse-des-services-logistiques-bureau-technique-corner-banca-lugano",
           "collaboratore-servizi-logistici-ufficio-tecnico-corner-banca-lugano-h1bnmt"
         ]
       },
@@ -593,8 +583,7 @@
         "en": [
           "leitender-compliance-beauftragter-corner-banca-lugano-nnfx9o",
           "compliance-officer-senior-corner-banca-lugano",
-          "responsabile-compliance-senior-corner-banca-lugano",
-          "compliance-officer-senior-corner-banca-lugano-nnfx9o"
+          "responsabile-compliance-senior-corner-banca-lugano"
         ],
         "de": [
           "leitender-compliance-beauftragter-corner-banca-lugano-nnfx9o",

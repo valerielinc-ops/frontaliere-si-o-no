@@ -1143,10 +1143,10 @@
       "id": "sulzer-72cda1302c27",
       "slug": "ingegnere-di-vendita-sulzer-winterthur",
       "slugByLocale": {
-        "it": "sales-ingegnere-sulzer-winterthur",
+        "it": "ingegnere-di-vendita-sulzer-winterthur",
         "en": "sales-engineer-sulzer-winterthur",
         "de": "sales-ingenieur-sulzer-winterthur",
-        "fr": "sales-engineer-sulzer-ch"
+        "fr": "ingenieur-commercial-sulzer-winterthur"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -1191,21 +1191,21 @@
           "sales-engineer-sulzer-ch"
         ],
         "it": [
-          "sales-engineer-sulzer-ch"
+          "sales-engineer-sulzer-ch",
+          "sales-ingegnere-sulzer-winterthur"
         ],
         "de": [
           "sales-engineer-sulzer-ch",
           "vertriebsingenieur-sulzer-winterthur"
         ],
         "fr": [
-          "ingenieur-commercial-sulzer-winterthur"
+          "sales-engineer-sulzer-ch"
         ]
       },
       "previousSlugs": [
         "sales-engineer-sulzer-ch",
-        "vertriebsingenieur-sulzer-winterthur",
-        "ingenieur-commercial-sulzer-winterthur",
-        "ingegnere-di-vendita-sulzer-winterthur"
+        "sales-ingegnere-sulzer-winterthur",
+        "vertriebsingenieur-sulzer-winterthur"
       ],
       "firstSeenAt": "2026-05-21T23:58:00.571Z",
       "salaryMin": 49500,
@@ -2493,8 +2493,7 @@
       "previousSlugsByLocale": {
         "it": [
           "service-center-administrator-sulzer-ch",
-          "amministratore-del-centro-servizi-sulzer-pasadena",
-          "service-center-administrator-sulzer-pasadena"
+          "amministratore-del-centro-servizi-sulzer-pasadena"
         ]
       },
       "firstSeenAt": "2026-05-22T23:43:00.083Z",
@@ -2885,12 +2884,12 @@
     },
     {
       "id": "sulzer-80659319fac8",
-      "slug": "tendering-engineer-sulzer-ch",
+      "slug": "ingegnere-di-gara-sulzer-winterthur",
       "slugByLocale": {
         "en": "tendering-engineer-sulzer-winterthur",
-        "it": "tendering-engineer-sulzer-ch",
-        "de": "tendering-engineer-sulzer-ch",
-        "fr": "tendering-engineer-sulzer-ch"
+        "it": "ingegnere-di-gara-sulzer-winterthur",
+        "de": "ausschreibungsingenieur-sulzer-winterthur",
+        "fr": "ingenieur-d-appel-d-offres-sulzer-winterthur"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -2944,7 +2943,21 @@
         }
       },
       "postalCode": "8400",
-      "firstSeenAt": "2026-05-27T00:26:07.386Z"
+      "firstSeenAt": "2026-05-27T00:26:07.386Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "tendering-engineer-sulzer-ch"
+        ],
+        "de": [
+          "tendering-engineer-sulzer-ch"
+        ],
+        "fr": [
+          "tendering-engineer-sulzer-ch"
+        ]
+      },
+      "previousSlugs": [
+        "tendering-engineer-sulzer-ch"
+      ]
     },
     {
       "id": "sulzer-d15b0ef00bc4",
