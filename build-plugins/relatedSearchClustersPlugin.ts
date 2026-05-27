@@ -53,7 +53,6 @@ import { buildSeoPageHtml } from './shared/seoPageShell';
 import {
   BREADCRUMB_LINK_STYLE,
   BREADCRUMB_STYLE,
-  LINK_ACCENT_STYLE,
 } from './shared/seoContentTokens';
 import { buildTitleWithBrand, TITLE_MAX_CHARS } from './shared/titleSuffix';
 import {
@@ -1321,7 +1320,7 @@ export function renderClusterPage(inputs: PageInputs): PageOutput {
   const relatedHtml = related.length > 0
     ? `<nav aria-label="${esc(copy.relatedHeading)}" class="rsc-related s-i-dyT1">
         <h3 class="s-yj2sXC">${esc(copy.relatedHeading)}</h3>
-        <ul class="s-tQuvrl">${related.map((r) => `<li><a href="${esc(r.url)}" style="${LINK_ACCENT_STYLE};display:inline-block;padding:4px 10px;background:var(--color-surface);border:1px solid var(--color-edge);border-radius:9999px;font-size:13px">${esc(r.keyword)}</a></li>`).join('')}</ul>
+        <ul class="s-tQuvrl">${related.map((r) => `<li><a class="s-cpill" href="${esc(r.url)}">${esc(r.keyword)}</a></li>`).join('')}</ul>
       </nav>`
     : '';
 
@@ -1497,7 +1496,7 @@ function renderPageNavigator(locale: Locale, totalPages: number, currentPage: nu
     if (p === currentPage) {
       links.push(`<span class="s-v7bb9T">${p}</span>`);
     } else {
-      links.push(`<a href="${esc(url)}" style="${LINK_ACCENT_STYLE};padding:6px 10px;border-radius:8px;border:1px solid var(--color-edge);background:var(--color-surface)">${p}</a>`);
+      links.push(`<a class="s-cpag" href="${esc(url)}">${p}</a>`);
     }
   }
   return `<nav class="s-SU718R" aria-label="${esc(copy.pageNavigatorLabel)}">${links.join('')}</nav>`;
@@ -1668,7 +1667,7 @@ function injectHubLinkIntoSectionLanding(
   const pageLinkBlock = pageLinks
     ? `<details><summary>${esc(copy.pageNavigatorLabel)}</summary><p>${pageLinks}</p></details>`
     : '';
-  const linkBlock = `<nav class="s-4FS1gg" data-related-search-hub-link="1" aria-label="${esc(copy.searchBreadcrumb)}"><a href="${esc(hubUrl)}" style="${LINK_ACCENT_STYLE};font-weight:600">${esc(copy.hubH1)}</a>${pageLinkBlock}</nav>`;
+  const linkBlock = `<nav class="s-4FS1gg" data-related-search-hub-link="1" aria-label="${esc(copy.searchBreadcrumb)}"><a class="s-chub" href="${esc(hubUrl)}">${esc(copy.hubH1)}</a>${pageLinkBlock}</nav>`;
 
   let patched: string | null = null;
   if (html.includes('<!-- end:job-board-main -->')) {
