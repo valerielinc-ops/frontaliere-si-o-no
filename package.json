@@ -8,7 +8,7 @@
     "predev": "node scripts/assemble-jobs-dataset.mjs --stats",
     "prebuild": "node scripts/generate-image-thumbnails.mjs && node scripts/prebuild-webp.mjs && node scripts/assemble-jobs-dataset.mjs --stats",
     "build": "NODE_OPTIONS='--max-old-space-size=18432' FAST_BUILD=1 vite build",
-    "build:ci": "NODE_OPTIONS='--max-old-space-size=18432' vite build --minify esbuild",
+    "build:ci": "NODE_OPTIONS='--max-old-space-size=12288 --expose-gc' vite build --minify esbuild",
     "build:prod": "NODE_OPTIONS='--max-old-space-size=18432' vite build",
     "preview": "vite preview",
     "test": "vitest run",

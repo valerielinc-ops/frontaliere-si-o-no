@@ -78,14 +78,26 @@ export function withProfile(plugin: Plugin): Plugin {
           `[profile-detail] ${name.padEnd(40)} wall_s=${(dur / 1000).toFixed(2)} cpu_s=${(cpuMs / 1000).toFixed(2)}`,
         );
       }
-      // Memory profile per-plugin. Deploy runs since 2026-05-26 14:27Z have
-      // died with SIGTERM mid-closeBundle (exit code 143) — pre-existing
-      // analysis pegs the runner OOM as the likely cause (Node V8 told
-      // `--max-old-space-size=18432` on a 7 GB GHA free-tier box; peak
-      // memory accumulates across sequential plugins). Logging RSS + heap
-      // after every plugin gives us the smoking gun the next time the
-      // build dies: the LAST `[profile-mem]` line before the SIGTERM
-      // pinpoints which plugin tipped us over the kernel OOM threshold.
+      // Force V8 GC + RSS shrink between plugins. Run 26480152688 memory
+      // profile proved heap GREW to ~13 GB during jobs-seo-pages, V8 then
+      // reclaimed 9 GB (heap dropped 13,655 → 4,472 MB between job-sector
+      // and fuel-daily) BUT RSS stayed pinned at 12-13 GB due to V8 heap
+      // fragmentation. The kernel OOM trips at ~13.1 GB on the GHA runner
+      // — last log line before exit 143 was nursing-landings rss=13,100.
+      //
+      // `global.gc(true)` (exposed by NODE_OPTIONS --expose-gc in
+      // build:ci) runs a full STOP-THE-WORLD major GC + memory-reduction
+      // pass. Unlike the default scavenger, this WILL return pages to
+      // the OS, shrinking RSS. Cost: ~50-200 ms per call × ~30 plugins =
+      // ~3-6 s total; cheap insurance vs SIGTERM at 27-min mark.
+      // Guarded by `typeof global.gc === 'function'` so local dev (no
+      // --expose-gc) is unaffected.
+      if (typeof (globalThis as { gc?: () => void }).gc === 'function') {
+        (globalThis as { gc: () => void }).gc();
+      }
+      // Memory profile per-plugin. RSS logged AFTER the forced GC so the
+      // value reflects post-shrink RSS — the gap vs pre-GC heapUsed shows
+      // how much V8 actually returned to the OS this iteration.
       // ~1 process.memoryUsage() call per plugin (~30 plugins) → < 1 ms total
       // overhead, no behaviour change.
       const m = process.memoryUsage();
