@@ -1,6 +1,6 @@
 {
   "crawlerKey": "mobiliar",
-  "assembledAt": "2026-05-27T13:22:13.750Z",
+  "assembledAt": "2026-05-27T23:50:35.462Z",
   "jobs": [
     {
       "id": "mobiliar-2c0d317b38cd",
@@ -33,7 +33,7 @@
       "url": "https://jobs.mobiliar.ch/job/Biel-KV-Lehrstelle-EFZ-2027-%28wmd%29-Generalagentur-Biel/1164623355/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:22:10.247Z",
+      "crawledAt": "2026-05-27T23:50:31.714Z",
       "addressLocality": "Biel",
       "addressCountry": "CH",
       "country": "CH",
@@ -76,6 +76,7 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:09:13.543Z",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -121,7 +122,7 @@
       "url": "https://jobs.mobiliar.ch/job/Neuch%C3%A2tel-Collaborateur-du-support-vente-%28fhd%29-agence-g%C3%A9n%C3%A9rale-de-Neuch%C3%A2tel/1164454055/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-27T13:22:09.445Z",
+      "crawledAt": "2026-05-27T23:50:30.823Z",
       "addressLocality": "Neuchâtel",
       "addressCountry": "CH",
       "country": "CH",
@@ -152,6 +153,7 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:09:10.518Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -197,7 +199,7 @@
       "url": "https://jobs.mobiliar.ch/job/Burgdorf-Schadenspezialist-%28wm%29-Personensch%C3%A4den-UVGKrankentaggeld-Generalagentur-Burgdorf/1163707355/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:22:08.650Z",
+      "crawledAt": "2026-05-27T23:50:29.936Z",
       "addressLocality": "Burgdorf",
       "addressCountry": "CH",
       "country": "CH",
@@ -248,6 +250,7 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:09:36.542Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -293,7 +296,7 @@
       "url": "https://jobs.mobiliar.ch/job/Bern-Frontend-Entwickler-%28wmd%29/1164628455/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:22:07.858Z",
+      "crawledAt": "2026-05-27T23:50:29.038Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -342,6 +345,7 @@
         ]
       },
       "firstSeenAt": "2026-05-11T12:15:52.439Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -360,9 +364,9 @@
       "id": "mobiliar-7d06f9938e2d",
       "slug": "business-analista-w-m-d-die-mobiliar-bern",
       "slugByLocale": {
-        "de": "business-analyst-w-m-d-mobiliar-ch",
         "it": "business-analista-w-m-d-die-mobiliar-bern",
         "en": "business-analyst-w-m-d-die-mobiliar-bern",
+        "de": "business-analyst-w-m-d-mobiliar-ch",
         "fr": "analyste-des-activites-m-j-die-mobiliar-bern"
       },
       "company": "die Mobiliar",
@@ -370,24 +374,24 @@
       "companyDomain": "mobiliar.ch",
       "title": "Business Analyst (w/m/d)",
       "titleByLocale": {
-        "de": "Wirtschaftsanalytiker (w/m/d)",
-        "en": "Business Analyst (w/m/d)",
         "it": "Business Analista (w/m/d)",
+        "en": "Business Analyst (w/m/d)",
+        "de": "Business Analyst (w/m/d)",
         "fr": "Analyste des activités (m/j)"
       },
       "description": "Das erwartet dich:\nAls Business Analyst im Prozess Produktentwicklung bewegst du dich zwischen Fach und IT, strukturierst komplexe Themen und bringst Ideen in die Umsetzung.\n\nDas bewirkst du bei uns:\nDu erhebst und analysierst fachliche Anforderungen, hinterfragst sie mit Blick auf Kundennutzen und Wirtschaftlichkeit und entwickelst daraus tragfähige Lösungsvorschläge. Auf dieser Basis erstellst du Entscheidungsgrundlagen und setzt die entsprechenden Lösungen gemeinsam mit deinem Team um.\n\nIn den Entwicklungsvorhaben bringst du eine kundenzentrierte Denkhaltung ein, strukturierst und schärfst fachliche Anforderungen und arbeitest eng mit deinem Product Owner, Softwareentwickler:innen und weiteren Spezialist:innen zusammen.\n\nDas bringst du mit:\n• Abgeschlossenes Studium oder Weiterbildung in Betriebswirtschaft, Wirtschaftsinformatik oder einem vergleichbaren Bereich sowie mehrjährige Erfahrung in der Business Analyse / im Requirements Engineering\n\n• Erfahrung in der Versicherungsbranche im Bereich Nicht-Leben ist von Vorteil\n\n• Mehrjährige Erfahrung in der Business Analyse sowie die Souveränität, in einem stark getakteten Umfeld Klarheit zu schaffen und Entscheidungen vorzubereiten\n\n• Sicherer Umgang mit Tools wie Jira, Confluence und Bitbucket/GitLab sowie praktische Erfahrung mit SQL-Datenbanken\n\n• Freude an komplexen Fragestellungen und technischen Neuerungen sowie die Fähigkeit, auch anspruchsvolle Zusammenhänge einfach und verständlich zu erklären\n\n• Bereitschaft, in einem Setup mit einem Offshore-Team zusammenzuarbeiten, ist von Vorteil\n\n• Proaktive Herangehensweise an Themen, hohe Beharrlichkeit auch bei anspruchsvollen Fragestellungen sowie strukturiertes, analytisches und vernetztes Denken\n\n• Wertschätzende, flexible und verantwortungsbewusste Arbeitsweise\n\n• Fliessende Deutschkenntnisse und gute Englischkenntnisse\n\nBei uns arbeiten:\nAuf dich wartet ein engagiertes, motiviertes Team, das in einem abwechslungsreichen und herausfordernden Umfeld gemeinsam den Prozess Produktentwicklung und Underwriting sicherstellt. Wir leben eine kommunikative, selbstständige und lösungsorientierte Arbeitsweise und begegnen uns stets auf Augenhöhe.\n\nDas bieten wir:\nVereinbarkeit\n\nWir ermöglichen flexible Arbeitsmodelle und bieten 20 Wochen Mutterschafts- sowie 6 Wochen Vaterschaftsurlaub, überdurchschnittliche Familienzulagen und eine nachhaltig finanzierte Pensionskasse.\n\nWeiterbildung und Entwicklung\n\nWir bieten ein vielfältiges internes Kursangebot sowie die Teilnahme an möglichen Auslandsprogrammen an. Bei jobrelevanten, externen Weiterbildungen beteiligen wir uns grosszügig.\n\nVergünstigungen\n\nWir bieten dir unter anderem bis zu 25% Prämienrabatt, ein Halbtax-Abonnement, Rabatte auf Mobiltelefone sowie kostenlose Abonnemente mit Flatrate und Ermässigungen bei kulturellen Veranstaltungen.\n\npresent\n\nWeitere Anstellungsbedingungen\n\ngo_to_link\n\nManager für Cookie-Einwilligungen:\nWenn Sie eine Website besuchen, kann diese Informationen zu Ihrem Browser - meistens in Form von Cookies - speichern und abrufen. Da wir Ihr Recht auf Privatsphäre respektieren, können Sie bestimmte Cookies ablehnen. Wenn Sie jedoch bestimmte Cookies blockieren, kann sich dies negativ auf Ihre Erfahrung auf der Site und die von uns angebotenen Services auswirken.\n\nNotwendige Cookies\n\nDiese Cookies sind für die Verwendung dieser Website erforderlich und können nicht deaktiviert werden.\n\nMehr Details anzeigen\n\nAnbieter\n Beschreibung\n Aktiviert\n\nSAP as service provider\n\nWir verwenden die folgenden Sitzungs-Cookies, die alle für die Funktionsfähigkeit der Website erforderlich sind:\n\n• \"route\" wird für Sitzungs-Stickiness verwendet\n\n• \"careerSiteCompanyId\" wird verwendet, um die Anforderung an das richtige Rechenzentrum zu senden\n\n• \"JSESSIONID\" wird während der Sitzung auf dem Gerät des Besuchers abgelegt, damit der Server den Besucher identifizieren kann\n\n• \"Load balancer cookie\" (tatsächlicher Cookie-Name kann abweichen) verhindert, dass ein Besucher von einer Instanz zu einer anderen springt",
       "descriptionByLocale": {
-        "de": "## Das erwartet dich:\nAls Business Analyst im Prozess Produktentwicklung bewegst du dich zwischen Fach und IT, strukturierst komplexe Themen und bringst Ideen in die Umsetzung.\n\n## Das bewirkst du bei uns:\n- Du erhebst und analysierst fachliche Anforderungen, hinterfragst sie mit Blick auf Kundennutzen und Wirtschaftlichkeit und entwickelst daraus tragfähige Lösungsvorschläge. Auf dieser Basis erstellst du Entscheidungsgrundlagen und setzt die entsprechenden Lösungen gemeinsam mit deinem Team um.\n\n## In den Entwicklungsvorhaben\n- In den Entwicklungsvorhaben bringst du eine kundenzentrierte Denkhaltung ein, strukturierst und schärfst fachliche Anforderungen und arbeitest eng mit deinem Product Owner, Softwareentwickler:innen und weiteren Spezialist:innen zusammen.\n\n## Das bringst du mit:\n- Abgeschlossenes Studium oder Weiterbildung in Betriebswirtschaft, Wirtschaftsinformatik oder einem vergleichbaren Bereich sowie mehrjährige Erfahrung in der Business Analyse / im Requirements Engineering\n- Erfahrung in der Versicherungsbranche im Bereich Nicht-Leben ist von Vorteil\n- Mehrjährige Erfahrung in der Business Analyse sowie die Souveränität, in einem stark getakteten Umfeld Klarheit zu schaffen und Entscheidungen vorzubereiten\n- Sicherer Umgang mit Tools wie Jira, Confluence und Bitbucket/GitLab sowie praktische Erfahrung mit SQL-Datenbanken\n- Freude an komplexen Fragestellungen und technischen Neuerungen sowie die Fähigkeit, auch anspruchsvolle Zusammenhänge einfach und verständlich zu erklären\n- Bereitschaft, in einem Setup mit einem Offshore-Team zusammenzuarbeiten, ist von Vorteil\n- Proaktive Herangehensweise an Themen, hohe Beharrlichkeit auch bei anspruchsvollen Fragestellungen sowie strukturiertes, analytisches und vernetztes Denken\n- Wertschätzende, flexible und verantwortungsbewusste Arbeitsweise\n- Fliessende Deutschkenntnisse und gute Englischkenntnisse\n\n## Bei uns arbeiten:\n- Auf dich wartet ein engagiertes, motiviertes Team, das in einem abwechslungsreichen und herausfordernden Umfeld gemeinsam den Prozess Produktentwicklung und Underwriting sicherstellt.\n- Wir leben eine kommunikative, selbstständige und lösungsorientierte Arbeitsweise und begegnen uns stets auf Augenhöhe.\n\n## Das bieten wir:\n- Vereinbarkeit\n  - Wir ermöglichen flexible Arbeitsmodelle und bieten 20 Wochen Mutterschafts- sowie 6 Wochen Vaterschaftsurlaub, überdurchschnittliche Familienzulagen und eine nachhaltig finanzierte Pensionskasse.\n- Weiterbildung und Entwicklung\n  - Wir bieten ein vielfältiges internes Kursangebot sowie die Teilnahme an möglichen Auslandsprogrammen an. Bei jobrelevanten, externen Weiterbildungen beteiligen wir uns grosszügig.\n- Vergünstigungen\n  - Wir bieten dir unter anderem bis zu 25% Prämienrabatt, ein Halbtax-Abonnement, Rabatte auf Mobiltelefone sowie kostenlose Abonnemente mit Flatrate und Ermässigungen bei kulturellen Veranstaltungen.\n\n## present\n\n## Weitere Anstellungsbedingungen\ngo_to_link\n\n## Manager für Cookie-Einwilligungen:\nWenn Sie eine Website besuchen, kann diese Informationen zu Ihrem Browser - meistens in Form von Cookies - speichern und abrufen. Da wir Ihr Recht auf Privatsphäre respektieren, können Sie bestimmte Cookies ablehnen. Wenn Sie jedoch bestimmte Cookies blockieren, kann sich dies negativ auf Ihre Erfahrung auf der Site und die von uns angebotenen Services auswirken.\n\n## Notwendige Cookies\nDiese Cookies sind für die Verwendung dieser Website erforderlich und können nicht deaktiviert werden.\n\nMehr Details anzeigen\n\n## Anbieter\n## Beschreibung\n## Aktiviert\n\n## SAP as service provider\nWir verwenden die folgenden Sitzungs-Cookies, die alle für die Funktionsfähigkeit der Website erforderlich sind:\n- \"route\" wird für Sitzungs-Stick",
-        "it": "Questo è ciò che ti aspetti: Come analista di business nel processo di sviluppo del prodotto, si sposta tra specialisti e IT, strutturando argomenti complessi e portando idee in attuazione. Questo è ciò che fai con noi: - Lei solleva e analizza i requisiti tecnici, li interroga in vista del valore del cliente e dell'efficacia dei costi e sviluppa soluzioni robuste. Su questa base, si imposta la base per il processo decisionale e implementare le soluzioni corrispondenti insieme al vostro team. Nei progetti di sviluppo - Nei progetti di sviluppo si introduce un atteggiamento orientato al cliente, struttura e affinare i requisiti tecnici e lavorare a stretto contatto con il proprietario del prodotto, sviluppatore del software: interno e altro specialista: interno. Lavorare insieme a: - Studio completo o ulteriore formazione in affari, informatica aziendale o un campo comparabile, nonché esperienza pluriennale nell'analisi aziendale / in ingegneria dei requisiti - L'esperienza nel settore assicurativo nel campo della non-vita è di vantaggio - Esperienza pluriennale nell'analisi aziendale e la sovranità per creare chiarezza in un ambiente altamente impegnato e preparare le decisioni - Gestione sicura di strumenti come Jira, Confluence e Bitbuck - Viviamo una soluzione comunicativa, indipendente e orientata. Offriamo questo: - Compatibilità - Permettiamo ai modelli di lavoro flessibili e offriamo 20 settimane di maternità e 6 settimane di congedo di paternità, oltre le indennità familiari medie e un fondo pensionistico sostenibile. - Formazione continua e sviluppo - Offriamo una vasta gamma di corsi interni e la partecipazione a possibili programmi stranieri. In caso di formazione professionale e esterna, partecipiamo generosamente. - Vantaggi - Offriamo fino al 25% di sconto premium, abbonamenti a mezza quota, sconti sui telefoni cellulari e abbonamenti gratuiti con tariffa piatta e sconti agli eventi culturali. Termini di servizio vai al link Manager per le autorizzazioni dei cookie: Se visiti un sito web, queste informazioni sul tuo browser - di solito sotto forma di cookie - possono essere salvate e recuperate. Nel rispetto del diritto alla privacy, è possibile rifiutare alcuni cookie. Tuttavia, se si bloccano alcuni cookie, questo potrebbe avere un impatto negativo sulla vostra esperienza sul Sito e sui servizi che offriamo. Questi cookie sono necessari per l'utilizzo di questo sito e non possono essere disabilitati. Descrizione SAP attivato come fornitore di servizi Utilizziamo i seguenti cookie di sessione, tutti necessari per la funzionalità del sito: - \"route\" sarà utilizzato per la stick di sessione",
-        "en": "That's what you expect:\nAs a business analyst in the process of product development, you move between specialist and IT, structuring complex topics and bringing ideas into implementation.\n\nThis is what you do with us:\n- You raise and analyze technical requirements, question them with a view to customer value and cost-effectiveness and develop robust solutions. On this basis, you will set the basis for decision-making and implement the corresponding solutions together with your team.\n\nIn development projects\n- In the development projects you introduce a customer-centric attitude, structure and sharpen technical requirements and work closely with your Product Owner, software developer:inside and other specialist:inside.\n\nThat's what you bring:\n- Completed studies or further training in business, business informatics or a comparable field as well as multiannual experience in business analysis / in requirements engineering\n- Experience in the insurance industry in the field of non-life is advantageous\n- Multiannual experience in business analysis as well as the sovereignty of creating clarity in a highly clocked environment and preparing decisions\n- Safe handling of tools like Jira, Confluence and Bitbucket/GitLab as well as practical experience with SQL databases\n- Joy in complex questions and technical innovations as well as the ability to explain even challenging relationships easily and understandably\n- Ready to work with an offshore team in a setup is advantageous\n- Proactive approach to topics, high perseverance even in demanding questions, as well as structured, analytical and networked thinking\n- Valuable, flexible and responsible operation\n- German knowledge and good English skills\n\nWorking with us:\n- A dedicated, motivated team awaits you, which together ensures the process of product development and underwriting in a varied and challenging environment.\n- We live a communicative, independent and solution-oriented way of working and always meet at eye level.\n\nWe offer:\n- Compatibility\n- We enable flexible working models and offer 20 weeks of maternity and 6 weeks of paternity leave, above average family allowances and a sustainable pension fund.\n- Training and development\n- We offer a wide range of internal courses and participation in possible foreign programmes. In the case of job-relevant, external trainings, we participate generously.\n- Benefits\n- We offer up to 25% premium discount, a half-tax subscription, discounts on mobile phones and free subscriptions with flat rate and discounts at cultural events.\n\npresent\n\nFurther Terms of Service\ngo to link\n\nManager for cookie permissions:\nIf you visit a website, this information about your browser - usually in the form of cookies - can be saved and retrieved. As we respect your right to privacy, you can reject certain cookies. However, if you block certain cookies, this may have a negative impact on your experience on the Site and the services we offer.\n\nNecessary cookies\nThese cookies are required for the use of this website and cannot be disabled.\n\nMore details\n\nSuppliers\nDescription\nActivated\n\nSAP as service provider\nWe use the following session cookies, all necessary for the functionality of the website:\n- \"route\" becomes for session stick",
-        "fr": "C'est ce que vous attendez : En tant qu'analyste d'affaires dans le processus de développement de produits, vous vous déplacez entre spécialiste et informatique, structurant des sujets complexes et apportant des idées dans la mise en œuvre. C'est ce que vous faites avec nous: - Vous soulevez et analysez des exigences techniques, les questionnez en vue de la valeur client et de la rentabilité et développez des solutions robustes. Sur cette base, vous définirez la base pour la prise de décision et mettre en œuvre les solutions correspondantes avec votre équipe. Dans les projets de développement - Dans les projets de développement, vous introduisez une attitude centrée sur le client, structurez et aiguisez les exigences techniques et travaillez en étroite collaboration avec votre propriétaire de produit, développeur de logiciels:intérieur et autre spécialiste:intérieur. Collaborer avec : - une étude ou une formation complémentaire dans les domaines des affaires, de l'informatique des affaires ou d'un domaine comparable ainsi qu'une expérience pluriannuelle dans l'analyse des entreprises / dans l'ingénierie des exigences - l'expérience dans le secteur de l'assurance dans le domaine de la non-vie est d'un avantage - une expérience pluriannuelle dans l'analyse des affaires ainsi que la souveraineté pour créer la clarté dans un environnement fortement engagé et préparer les décisions - une manipulation sûre d'outils tels que Jira, Confluence et Bitbuck - Nous vivons une manière de travailler communicative, indépendante et orientée vers la solution et nous rencontrons toujours au niveau des yeux. Nous offrons ceci: - Compatibilité - Nous permettons des modèles de travail flexibles et offrons 20 semaines de maternité et 6 semaines de congé de paternité, des allocations familiales supérieures à la moyenne et un fonds de pension durable. - Formation continue et développement - Nous offrons un large éventail de cours internes et de participation à d'éventuels programmes étrangers. Dans le cas d'une formation externe adaptée à l'emploi, nous participons généreusement. - Avantages - Nous offrons jusqu'à 25% de réduction, un abonnement demi-taxe, des réductions sur les téléphones mobiles et des abonnements gratuits avec un tarif forfaitaire et des réductions lors d'événements culturels. Présenter Plus de modalités de service aller à link Manager pour les autorisations de cookies: Si vous visitez un site Web, ces informations sur votre navigateur - généralement sous forme de cookies - peuvent être enregistrées et récupérées. Comme nous respectons votre droit à la vie privée, vous pouvez rejeter certains cookies. Cependant, si vous bloquez certains cookies, cela peut avoir un impact négatif sur votre expérience sur le Site et les services que nous offrons. Ces cookies sont nécessaires à l'utilisation de ce site et ne peuvent être désactivés. Description SAP activé comme fournisseur de services Nous utilisons les cookies de session suivants, tous nécessaires pour la fonctionnalité du site: - \"route\" sera utilisé pour la session stick"
+        "it": "Questo è ciò che ti aspetti: Come analista di business nel processo di sviluppo del prodotto, si sposta tra specialisti e IT, strutturando argomenti complessi e portando idee in attuazione. Questo è ciò che fai con noi: - Lei solleva e analizza i requisiti tecnici, li interroga in vista del valore del cliente e dell'efficacia dei costi e sviluppa soluzioni robuste. Su questa base, si imposta la base per il processo decisionale e implementare le soluzioni corrispondenti insieme al vostro team. Nei progetti di sviluppo - Nei progetti di sviluppo si introduce un atteggiamento orientato al cliente, struttura e affinare i requisiti tecnici e lavorare a stretto contatto con il proprietario del prodotto, sviluppatore del software: interno e altro specialista: interno. Lavorare insieme a: - Studio completo o ulteriore formazione in affari, informatica aziendale o un campo comparabile, nonché esperienza pluriennale nell'analisi aziendale / in ingegneria dei requisiti - L'esperienza nel settore assicurativo nel campo della non-vita è di vantaggio - Esperienza pluriennale nell'analisi aziendale e la sovranità per creare chiarezza in un ambiente altamente impegnato e preparare le decisioni - Gestione sicura di strumenti come Jira, Confluence e Bitbuck - Viviamo una soluzione comunicativa, indipendente e orientata. \n• Offriamo questo: - Compatibilità - Permettiamo ai modelli di lavoro flessibili e offriamo 20 settimane di maternità e 6 settimane di congedo di paternità, oltre le indennità familiari medie e un fondo pensionistico sostenibile. - Formazione continua e sviluppo - \n• Offriamo una vasta gamma di corsi interni e la partecipazione a possibili programmi stranieri. In caso di formazione professionale e esterna, partecipiamo generosamente. - Vantaggi - \n• Offriamo fino al 25% di sconto premium, abbonamenti a mezza quota, sconti sui telefoni cellulari e abbonamenti gratuiti con tariffa piatta e sconti agli eventi culturali. Termini di servizio vai al link Manager per le autorizzazioni dei cookie: Se visiti un sito web, queste informazioni sul tuo browser - di solito sotto forma di cookie - possono essere salvate e recuperate. Nel rispetto del diritto alla privacy, è possibile rifiutare alcuni cookie. Tuttavia, se si bloccano alcuni cookie, questo potrebbe avere un impatto negativo sulla vostra esperienza sul Sito e sui servizi che offriamo. Questi cookie sono necessari per l'utilizzo di questo sito e non possono essere disabilitati. Descrizione SAP attivato come fornitore di servizi Utilizziamo i seguenti cookie di sessione, tutti necessari per la funzionalità del sito: - \"route\" sarà utilizzato per la stick di sessione",
+        "en": "That's what you expect: As a business analyst in the process of product development, you move between specialist and IT, structuring complex topics and bringing ideas into implementation. This is what you do with us: - You raise and analyze technical requirements, question them with a view to customer value and cost-effectiveness and develop robust solutions. On this basis, you will set the basis for decision-making and implement the corresponding solutions together with your team. In development projects - In the development projects you introduce a customer-centric attitude, structure and sharpen technical requirements and work closely with your Product Owner, software developer:inside and other specialist:inside. That's what you bring: - Completed studies or further training in business, business informatics or a comparable field as well as multiannual experience in business analysis / in requirements engineering - Experience in the insurance industry in the field of non-life is advantageous - Multiannual experience in business analysis as well as the sovereignty of creating clarity in a highly clocked environment and preparing decisions - Safe handling of tools like Jira, Confluence and Bitbucket/GitLab as well as practical experience with SQL databases - Joy in complex questions and technical innovations as well as the ability to explain even challenging relationships easily and understandably - Ready to work with an offshore team in a setup is advantageous - Proactive approach to topics, high perseverance even in demanding questions, as well as structured, analytical and networked thinking - Valuable, flexible and responsible operation - German knowledge and good English skills Working with us: - A dedicated, motivated team awaits you, which together ensures the process of product development and underwriting in a varied and challenging environment. - We live a communicative, independent and solution-oriented way of working and always meet at eye level. \n• We offer: - Compatibility - We enable flexible working models and offer 20 weeks of maternity and 6 weeks of paternity leave, above average family allowances and a sustainable pension fund. - Training and development - \n• We offer a wide range of internal courses and participation in possible foreign programmes. In the case of job-relevant, external trainings, we participate generously. - Benefits - \n• We offer up to 25% premium discount, a half-tax subscription, discounts on mobile phones and free subscriptions with flat rate and discounts at cultural events. present Further Terms of Service go to link Manager for cookie permissions: If you visit a website, this information about your browser - usually in the form of cookies - can be saved and retrieved. As we respect your right to privacy, you can reject certain cookies. However, if you block certain cookies, this may have a negative impact on your experience on the Site and the services we offer. Necessary cookies These cookies are required for the use of this website and cannot be disabled. More details Suppliers Description Activated SAP as service provider We use the following session cookies, all necessary for the functionality of the website: - \"route\" becomes for session stick",
+        "de": "Das erwartet dich: Als Business Analyst im Prozess Produktentwicklung bewegst du dich zwischen Fach und IT, strukturierst komplexe Themen und bringst Ideen in die Umsetzung. Das bewirkst du bei uns: Du erhebst und analysierst fachliche Anforderungen, hinterfragst sie mit Blick auf Kundennutzen und Wirtschaftlichkeit und entwickelst daraus tragfähige Lösungsvorschläge. Auf dieser Basis erstellst du Entscheidungsgrundlagen und setzt die entsprechenden Lösungen gemeinsam mit deinem Team um. In den Entwicklungsvorhaben bringst du eine kundenzentrierte Denkhaltung ein, strukturierst und schärfst fachliche Anforderungen und arbeitest eng mit deinem Product Owner, Softwareentwickler:innen und weiteren Spezialist:innen zusammen. Das bringst du mit:\n• Abgeschlossenes Studium oder Weiterbildung in Betriebswirtschaft, Wirtschaftsinformatik oder einem vergleichbaren Bereich sowie mehrjährige Erfahrung in der Business Analyse / im Requirements Engineering\n• Erfahrung in der Versicherungsbranche im Bereich Nicht-Leben ist von Vorteil\n• Mehrjährige Erfahrung in der Business Analyse sowie die Souveränität, in einem stark getakteten Umfeld Klarheit zu schaffen und Entscheidungen vorzubereiten\n• Sicherer Umgang mit Tools wie Jira, Confluence und Bitbucket/GitLab sowie praktische Erfahrung mit SQL-Datenbanken\n• Freude an komplexen Fragestellungen und technischen Neuerungen sowie die Fähigkeit, auch anspruchsvolle Zusammenhänge einfach und verständlich zu erklären\n• Bereitschaft, in einem Setup mit einem Offshore-Team zusammenzuarbeiten, ist von Vorteil\n• Proaktive Herangehensweise an Themen, hohe Beharrlichkeit auch bei anspruchsvollen Fragestellungen sowie strukturiertes, analytisches und vernetztes Denken\n• Wertschätzende, flexible und verantwortungsbewusste Arbeitsweise\n• Fliessende Deutschkenntnisse und gute Englischkenntnisse Bei uns arbeiten: Auf dich wartet ein engagiertes, motiviertes Team, das in einem abwechslungsreichen und herausfordernden Umfeld gemeinsam den Prozess Produktentwicklung und Underwriting sicherstellt. Wir leben eine kommunikative, selbstständige und lösungsorientierte Arbeitsweise und begegnen uns stets auf Augenhöhe. Das bieten wir: Vereinbarkeit Wir ermöglichen flexible Arbeitsmodelle und bieten 20 Wochen Mutterschafts- sowie 6 Wochen Vaterschaftsurlaub, überdurchschnittliche Familienzulagen und eine nachhaltig finanzierte Pensionskasse. Weiterbildung und Entwicklung Wir bieten ein vielfältiges internes Kursangebot sowie die Teilnahme an möglichen Auslandsprogrammen an. Bei jobrelevanten, externen Weiterbildungen beteiligen wir uns grosszügig. Vergünstigungen Wir bieten dir unter anderem bis zu 25% Prämienrabatt, ein Halbtax-Abonnement, Rabatte auf Mobiltelefone sowie kostenlose Abonnemente mit Flatrate und Ermässigungen bei kulturellen Veranstaltungen. present Weitere Anstellungsbedingungen go_to_link Manager für Cookie-Einwilligungen: Wenn Sie eine Website besuchen, kann diese Informationen zu Ihrem Browser - meistens in Form von Cookies - speichern und abrufen. Da wir Ihr Recht auf Privatsphäre respektieren, können Sie bestimmte Cookies ablehnen. Wenn Sie jedoch bestimmte Cookies blockieren, kann sich dies negativ auf Ihre Erfahrung auf der Site und die von uns angebotenen Services auswirken. Notwendige Cookies Diese Cookies sind für die Verwendung dieser Website erforderlich und können nicht deaktiviert werden. Notwendige Cookies Mehr Details anzeigen Notwendige Cookies Anbieter Beschreibung Aktiviert SAP as service provider Wir verwenden die folgenden Sitzungs-Cookies, die alle für die Funktionsfähigkeit der Website erforderlich sind:\n• \"route\" wird für Sitzungs-Stickiness verwendet\n• \"careerSiteCompanyId\" wird verwendet, um die Anforderung an das richtige Rechenzentrum zu senden\n• \"JSESSIONID\" wird während der Sitzung auf dem Gerät des Besuchers abgelegt, damit der Server den Besucher identifizieren kann\n• \"Load balancer cookie\" (tatsächlicher Cookie-Name kann abweichen) verhindert, dass ein Besucher von einer Instanz zu einer anderen springt",
+        "fr": "C'est ce que vous attendez : En tant qu'analyste d'affaires dans le processus de développement de produits, vous vous déplacez entre spécialiste et informatique, structurant des sujets complexes et apportant des idées dans la mise en œuvre. C'est ce que vous faites avec nous: - Vous soulevez et analysez des exigences techniques, les questionnez en vue de la valeur client et de la rentabilité et développez des solutions robustes. Sur cette base, vous définirez la base pour la prise de décision et mettre en œuvre les solutions correspondantes avec votre équipe. Dans les projets de développement - Dans les projets de développement, vous introduisez une attitude centrée sur le client, structurez et aiguisez les exigences techniques et travaillez en étroite collaboration avec votre propriétaire de produit, développeur de logiciels:intérieur et autre spécialiste:intérieur. Collaborer avec : - une étude ou une formation complémentaire dans les domaines des affaires, de l'informatique des affaires ou d'un domaine comparable ainsi qu'une expérience pluriannuelle dans l'analyse des entreprises / dans l'ingénierie des exigences - l'expérience dans le secteur de l'assurance dans le domaine de la non-vie est d'un avantage - une expérience pluriannuelle dans l'analyse des affaires ainsi que la souveraineté pour créer la clarté dans un environnement fortement engagé et préparer les décisions - une manipulation sûre d'outils tels que Jira, Confluence et Bitbuck - Nous vivons une manière de travailler communicative, indépendante et orientée vers la solution et nous rencontrons toujours au niveau des yeux. \n• Nous offrons ceci: - Compatibilité - Nous permettons des modèles de travail flexibles et offrons 20 semaines de maternité et 6 semaines de congé de paternité, des allocations familiales supérieures à la moyenne et un fonds de pension durable. - Formation continue et développement - \n• Nous offrons un large éventail de cours internes et de participation à d'éventuels programmes étrangers. Dans le cas d'une formation externe adaptée à l'emploi, nous participons généreusement. - Avantages - \n• Nous offrons jusqu'à 25% de réduction, un abonnement demi-taxe, des réductions sur les téléphones mobiles et des abonnements gratuits avec un tarif forfaitaire et des réductions lors d'événements culturels. Présenter Plus de modalités de service aller à link Manager pour les autorisations de cookies: Si vous visitez un site Web, ces informations sur votre navigateur - généralement sous forme de cookies - peuvent être enregistrées et récupérées. Comme nous respectons votre droit à la vie privée, vous pouvez rejeter certains cookies. Cependant, si vous bloquez certains cookies, cela peut avoir un impact négatif sur votre expérience sur le Site et les services que nous offrons. Ces cookies sont nécessaires à l'utilisation de ce site et ne peuvent être désactivés. Description SAP activé comme fournisseur de services Nous utilisons les cookies de session suivants, tous nécessaires pour la fonctionnalité du site: - \"route\" sera utilisé pour la session stick"
       },
       "location": "Bern",
       "canton": "BE",
       "url": "https://jobs.mobiliar.ch/job/Bern-Business-Analyst-%28wmd%29/1164795755/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:22:07.065Z",
+      "crawledAt": "2026-05-27T23:50:28.138Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -414,18 +418,27 @@
       ],
       "requirementsByLocale": {
         "de": [
-          "Abgeschlossenes Studium oder Weiterbildung in Betriebswirtschaft, Wirtschaftsinformatik oder einem vergleichbaren Bereich sowie mehrjährige Erfahrung in der Business Analyse / im Requirements Engineering",
           "Erfahrung in der Versicherungsbranche im Bereich Nicht-Leben ist von Vorteil",
-          "Mehrjährige Erfahrung in der Business Analyse sowie die Souveränität, in einem stark getakteten Umfeld Klarheit zu schaffen und Entscheidungen vorzubereiten",
           "Sicherer Umgang mit Tools wie Jira, Confluence und Bitbucket/GitLab sowie praktische Erfahrung mit SQL-Datenbanken",
-          "Freude an komplexen Fragestellungen und technischen Neuerungen sowie die Fähigkeit, auch anspruchsvolle Zusammenhänge einfach und verständlich zu erklären",
           "Bereitschaft, in einem Setup mit einem Offshore-Team zusammenzuarbeiten, ist von Vorteil",
-          "Proaktive Herangehensweise an Themen, hohe Beharrlichkeit auch bei anspruchsvollen Fragestellungen sowie strukturiertes, analytisches und vernetztes Denken",
           "Wertschätzende, flexible und verantwortungsbewusste Arbeitsweise",
           "Fliessende Deutschkenntnisse und gute Englischkenntnisse"
         ]
       },
       "sfJobId": "1164795755",
+      "previousSlugs": [
+        "business-analyst-w-m-d-mobiliar-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "business-analyst-w-m-d-mobiliar-ch"
+        ],
+        "fr": [
+          "business-analyst-w-m-d-mobiliar-ch"
+        ]
+      },
+      "firstSeenAt": "2026-05-27T13:22:07.065Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -438,19 +451,7 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "3001",
-      "firstSeenAt": "2026-05-27T13:22:07.065Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "business-analyst-w-m-d-mobiliar-ch"
-        ],
-        "fr": [
-          "business-analyst-w-m-d-mobiliar-ch"
-        ]
-      },
-      "previousSlugs": [
-        "business-analyst-w-m-d-mobiliar-ch"
-      ]
+      "postalCode": "3001"
     },
     {
       "id": "mobiliar-9ceb91fd8179",
@@ -483,7 +484,7 @@
       "url": "https://jobs.mobiliar.ch/job/Bern-User-Experience-Architect-%28wmd%29/1164792255/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:22:06.273Z",
+      "crawledAt": "2026-05-27T23:50:27.250Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -533,6 +534,7 @@
         ]
       },
       "firstSeenAt": "2026-05-26T23:43:41.713Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -578,7 +580,7 @@
       "url": "https://jobs.mobiliar.ch/job/Bern-Product-Owner-%28wmd%29/1164791955/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:22:05.468Z",
+      "crawledAt": "2026-05-27T23:50:26.359Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -609,7 +611,9 @@
         ]
       },
       "sfJobId": "1164791955",
-      "firstSeenAt": "2026-05-26T23:43:40.907Z",
+      "previousSlugs": [
+        "product-owner-w-m-d-mobiliar-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "product-owner-w-m-d-mobiliar-ch"
@@ -618,9 +622,8 @@
           "product-owner-w-m-d-mobiliar-ch"
         ]
       },
-      "previousSlugs": [
-        "product-owner-w-m-d-mobiliar-ch"
-      ],
+      "firstSeenAt": "2026-05-26T23:43:40.907Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -666,7 +669,7 @@
       "url": "https://jobs.mobiliar.ch/job/B%C3%BCtschwil-Leiter-Vorsorge-Generalagentur-Wil-%28wmd%29/1164253255/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:22:04.672Z",
+      "crawledAt": "2026-05-27T23:50:25.466Z",
       "addressLocality": "Bütschwil",
       "addressCountry": "CH",
       "country": "CH",
@@ -720,8 +723,7 @@
           "maxValue": 103000,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 1
+      }
     },
     {
       "id": "mobiliar-260520fa4625",
@@ -754,7 +756,7 @@
       "url": "https://jobs.mobiliar.ch/job/Bern-Frontend-Angular-Developer-%28wmd%29/1164783555/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:22:03.875Z",
+      "crawledAt": "2026-05-27T23:50:24.583Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -797,6 +799,7 @@
         ]
       },
       "firstSeenAt": "2026-05-25T23:01:15.035Z",
+      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "baseSalary": {
@@ -842,7 +845,7 @@
       "url": "https://jobs.mobiliar.ch/job/Bern-Product-Manager-%28wmd%29/1164792155/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:22:03.079Z",
+      "crawledAt": "2026-05-27T23:50:23.696Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -876,15 +879,16 @@
         ]
       },
       "sfJobId": "1164792155",
-      "firstSeenAt": "2026-05-26T23:43:37.711Z",
+      "previousSlugs": [
+        "product-manager-w-m-d-mobiliar-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "product-manager-w-m-d-mobiliar-ch"
         ]
       },
-      "previousSlugs": [
-        "product-manager-w-m-d-mobiliar-ch"
-      ],
+      "firstSeenAt": "2026-05-26T23:43:37.711Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -930,7 +934,7 @@
       "url": "https://jobs.mobiliar.ch/job/Bern-JuristRechtsanwalt-Arbeitsrecht-%28wmd%29/1164791855/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:22:01.891Z",
+      "crawledAt": "2026-05-27T23:50:22.283Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -976,6 +980,7 @@
         ]
       },
       "firstSeenAt": "2026-05-26T23:43:36.532Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1011,17 +1016,17 @@
       },
       "description": "Das erwartet dich:\nIn dieser Rolle übernimmst du eine zentrale Funktion in einem strategisch wichtigen Transformationsvorhaben mit viel Gestaltungsspielraum und Eigenverantwortung. Gemeinsam mit motivierten Fach- und IT-Expert:innen arbeitest du an modernen Technologien und zukunftsorientierten Datenplattformen und gestaltest aktiv die Zukunft unserer aktuariellen Reservingprozesse mit.\n\nDas bewirkst du bei uns:\nDu verantwortest die fachliche Weiterentwicklung des Value Streams Reserving und steuerst sowie priorisierst das Backlog in enger Zusammenarbeit mit Fachbereichen, IT und weiteren Stakeholdern. Dabei gestaltest du den neuen aktuariellen Abschlussprozess in der Cloud aktiv mit, treibst dessen Umsetzung voran und verantwortest den zukünftigen Betrieb.\n\nZudem entwickelst du Lösungen rund um Reserving, Risikomanagement sowie Hochrechnungen im Bereich Elementarschäden weiter. Du übersetzt fachliche Anforderungen in umsetzbare User Stories und Features und stellst eine nachhaltige sowie qualitativ hochwertige Daten- und Prozesslandschaft sicher.\n\nIn enger Zusammenarbeit mit interdisziplinären Teams arbeitest du in einem agilen Umfeld und förderst moderne Technologien und Arbeitsweisen rund um Databricks, Databricks Apps und Cloud-Lösungen.\n\nDas bringst du mit:\n• Hochschulabschluss in Wirtschaftsinformatik, Betriebswirtschaft, Mathematik, Statistik oder vergleichbare Ausbildung\n\n• Erfahrung als Product Owner, Business Analyst oder in einer vergleichbaren Rolle\n\n• Idealerweise Erfahrung in der Versicherungsbranche mit Fokus auf projektorientiertes Arbeiten\n\n• Verständnis vom Zusammenspiel von Daten, Machine Learning Modellen, Applikationen\n\n• Erfahrung in agilen Arbeitsweisen (Scrum / SAFe von Vorteil)\n\n• Kenntnisse in Databricks sind ein Plus\n\n• Freude am Zusammenspiel zwischen Fachlichkeit und Technologie\n\n• Strukturierte, kommunikative und lösungsorientierte Arbeitsweise\n\n• Fliessende Deutschkenntnisse und gute Englischkenntnisse\n\nBei uns arbeiten:\nIn der Abteilung erwarten dich engagierte Kolleginnen und Kollegen, interdisziplinäre Teams in einer modernen Netzwerkorganisation und ein Arbeitsumfeld, in dem du etwas bewegen kannst. Wir pflegen eine kommunikative, selbständige und lösungsorientierte Arbeitsweise und begegnen uns auf Augenhöhe.\n\nDas bieten wir:\nVereinbarkeit\n\nWir ermöglichen flexible Arbeitsmodelle und bieten 20 Wochen Mutterschafts- sowie 6 Wochen Vaterschaftsurlaub, überdurchschnittliche Familienzulagen und eine nachhaltig finanzierte Pensionskasse.\n\nWeiterbildung und Entwicklung\n\nWir bieten ein vielfältiges internes Kursangebot sowie die Teilnahme an möglichen Auslandsprogrammen an. Bei jobrelevanten, externen Weiterbildungen beteiligen wir uns grosszügig.\n\nVergünstigungen\n\nWir bieten dir unter anderem bis zu 25% Prämienrabatt, ein Halbtax-Abonnement, Rabatte auf Mobiltelefone sowie kostenlose Abonnemente mit Flatrate und Ermässigungen bei kulturellen Veranstaltungen.\n\npresent\n\nWeitere Anstellungsbedingungen\n\ngo_to_link\n\nManager für Cookie-Einwilligungen:\nWenn Sie eine Website besuchen, kann diese Informationen zu Ihrem Browser - meistens in Form von Cookies - speichern und abrufen. Da wir Ihr Recht auf Privatsphäre respektieren, können Sie bestimmte Cookies ablehnen. Wenn Sie jedoch bestimmte Cookies blockieren, kann sich dies negativ auf Ihre Erfahrung auf der Site und die von uns angebotenen Services auswirken.\n\nNotwendige Cookies\n\nDiese Cookies sind für die Verwendung dieser Website erforderlich und können nicht deaktiviert werden.\n\nMehr Details anzeigen\n\nAnbieter\n Beschreibung\n Aktiviert\n\nSAP as service provider\n\nWir verwenden die folgenden Sitzungs-Cookies, die alle für die Funktionsfähigkeit der Website erforderlich sind:\n\n• \"route\" wird für Sitzungs-Stickiness verwendet\n\n• \"careerSiteCompanyId\" wird verwendet, um die Anforderung an das richtige Rechenzentrum zu senden\n\n• \"JSESSIONID\" wird während der Sitzung auf dem Gerät des Besuchers abgelegt, damit der Server den Besucher identifizieren kann\n\n• \"Load balancer cookie\" (tatsächlicher Cookie-Name kann abweichen) verhindert, dass ein Besucher von einer Instanz zu einer anderen springt",
       "descriptionByLocale": {
-        "it": "Mansioni In questa posizione, assumonorai un ruolo centrale in un importante progetto di trasformazione strategica con ampio spazio per la creatività e la responsabilità personale. Lavorerai a stretto contatto con esperti motivati di settore e IT su tecnologie moderne e piattaforme dati future-oriented, aggiunto contribuendo a plasmare il futuro dei nostri processi di riserva attuariale. Cosa fai da noi - Responsabile dello sviluppo funzionale del fluo di valore Reserving e gestisci il backlog in collaborazione con i reparti funzionali, l'IT e altri stakeholder. - Attivamente partecipa alla progettazione del nuovo processo di chiusura attuariale in cloud e ne promuovi l'implementazione, assumendone la responsabilità futura. - Sviluppi soluzioni relative a Reserving, gestione del rischio e proiezioni nel settore dei theni elementari. - Tradurre i requisiti funzionali in user story e funzionalità eseguibili e garantire un paesaggio dati e di processo sostenibile e di alta qualità. -re in un ambiente agile in collaborazione con team interdisciplinari e promuovere tecnologie e metodi di lavoro moderni intorno a Databricks, Databricks Apps e soluzioni cloud. \n• Requisiti - Laurea informatica aziendale, economia aziendale, matematica, statistica o formazione equivalente. - Esperienza come Product Owner, Business Analyst o in una posizione simile. - Idealments, esperienza nel settore assicurativo con focus sul lavoro orientaleto al progetto. - Comprensione dell'interazione tra i dati, i modelli di machine learning, le applicazioni. - Esperienza in metodologie di lavoro agili (Scrum / SAFe, un vantaggio). Conoscenze di Databricks sono un plus. - Piacere per l'interazione tra la funzionalità e la tecnologia. - Modalità di lavoro strutturata, comunicativa e orientaleta alla soluzione dei problemi. - Buone conoscenze di tedesco e inglese fluente. Lavorare con noi - In questo reparto ti aspettano motivati, team interdisciplinari in una moderna organizzazione di rete e un ambiente di lavoro in cui puoi fare la differenta. - Promuoviamo un approccio comunicativo, autonomo e orientaleto alla soluzione dei problemi e ci incontriamo su un piano di ascolto. \n• Cosa offriamo - Conciliabilità modelli di lavoro flessibili e 20 settimane di congedo di coppia 6 settimane di congedo di paternità, sovvenzioni familiari superiori alla media e un fondo pensione finanziato in modo sostenibile. - Formazione e sviluppo offerta un'ampia gamma di corsi interni nonché la partecipazione a possibili programmi all'estero. In caso di formazione esterna dipendente per il lavoro, contribuiamo in modo generoso. - Sconti scontati, tra gli altri, fino al 25% sulla tariffa, un abbonamento semestrale, sconti sui telefoni mobili nonché abbonamenti gratuiti con flat rate e sconti per eventi culturali. Cookie Consent Manager Se visiti un sito web, questo può memorizzare e recuperare informazioni sul tuo browser, generalmente sotto forma di cookie. Per favore riaspetta il tuo diritto alla privacy, puoi dimostrare alcuni cookie. Tuttavia, se blocchi determinati cookie, potrebbe in negativo sulla tua esperienza sul sito e sui servizi che offrono. Cookie necessari Questi cookie sono necessari per l'uso di questo sito web e non possono essere disattivati. Caratteristiche tecniche",
-        "en": "Mansioni In questa posizione, assumerai un ruolo centrale in un importante progetto di trasformazione strategica con ampio spazio per la creatività e la responsabilità personale. Lavorerai a stretto contatto con esperti motivati di settore e IT su tecnologie moderne e piattaforme dati future-oriented, attivamente contribuendo a plasmare il futuro dei nostri processi di riserva attuariale. Cosa fai da noi - Responsabile dello sviluppo funzionale del fluo di valore Reserving e gestisci il backlog in collaborazione con i reparti funzionali, l'IT e altri stakeholder. - Attivamente partecipi alla progettazione del nuovo processo di chiusura attuariale in cloud e ne promuovi l'implementazione, assumendone la responsabilità futura. - Sviluppi soluzioni relative a Reserving, gestione del rischio e proiezioni nel settore dei theni elementari. - Tradurre i requisiti funzionali in user stories e funzionalità eseguibili e garantire un paesaggio dati e di processo sostenibile e di alta qualità. - Lavorare in un ambiente agile in collaborazione con team interdisciplinari e promuovere tecnologie e metodi di lavoro moderni intorno a Databricks, Databricks Apps e soluzioni cloud. \n• Requisiti - Laurea informatica aziendale, economia aziendale, matematica, statistica o formazione equivalente. - Esperienza come Product Owner, Business Analyst o in una posizione simile. - Idealments, esperienza nel settore assicurativo con focus sul lavoro orientato al progetto. - Comprensione dell'interazione tra i dati, i modelli di machine learning, le applicazioni. - Esperienza in metodologie di lavoro agili (Scrum / SAFe, un vantaggio). Conoscenze di Databricks sono un plus. - Piacere per l'interazione tra la funzionalità e la tecnologia. - Modalità di lavoro strutturata, comunicativa e orientata alla soluzione dei problemi. - Buone conoscenze di tedesco e inglese fluente. Lavorare con noi - In questo reparto ti aspettano colleghi motivati, team interdisciplinari in una moderna organizzazione di rete e un ambiente di lavoro in cui puoi fare la differenta. - Promuoviamo un approccio comunicativo, autonomo e orientato alla soluzione dei problemi e ci incontriamo su un piano di parità. \n• Cosa offriamo - Conciliabilità \n• Offriamo modelli di lavoro flessibili e 20 settimane di congedo di maternità nonché 6 settimane di congedo di paternità, sovvenzioni familiari superiori alla media e un fondo pensione finanziato in modo sostenibile. - Formazione e sviluppo \n• Offriamo un'ampia gamma di corsi interni nonché la partecipazione a possibili programmi all'estero. In caso di formazione esterna rilevante per il lavoro, contribuiamo in modo generoso. - Sconti \n• Offriamo sconti, tra gli altri, fino al 25% sulla tariffa, un abbonamento semestrale, sconti sui telefoni mobili nonché abbonamenti gratuiti con flat rate e sconti per eventi culturali. Cookie Consent Manager Se visiti un sito web, questo può memorizzare e recuperare informazioni sul tuo browser, generalmente sotto forma di cookie. Poiché rispettiamo il tuo diritto alla privacy, puoi rifiutare alcuni cookie. Tuttavia, se blocchi determinati cookie, potrebbe influire negativeamente sulla tua esperienza sul sito e sui servizi che offriamo. Cookie necessari Questi cookie sono necessari per l'uso di questo sito web e non possono essere disattivati. fornitori Descrizione Attivato",
+        "it": "Mansioni In questa posizione, assumonorai un ruolo centrale in un importante progetto di trasformazione strategica con ampio spazio per la creatività e la responsabilità personale. Lavorerai a stretto contatto con esperti motivati di settore e IT su tecnologie moderne e piattaforme dati future-oriented, aggiunto contribuendo a plasmare il futuro dei nostri processi di riserva attuariale. Cosa fai da noi - Responsabile dello sviluppo funzionale del fluo di valore Reserving e gestisci il backlog in collaborazione con i reparti funzionali, l'IT e altri stakeholder. - Attivamente partecipa alla progettazione del nuovo processo di chiusura attuariale in cloud e ne promuovi l'implementazione, assumendone la responsabilità futura. - Sviluppi soluzioni relative a Reserving, gestione del rischio e proiezioni nel settore dei theni elementari. - Tradurre i requisiti funzionali in user story e funzionalità eseguibili e garantire un paesaggio dati e di processo sostenibile e di alta qualità. -re in un ambiente agile in collaborazione con team interdisciplinari e promuovere tecnologie e metodi di lavoro moderni intorno a Databricks, Databricks Apps e soluzioni cloud.\n• Requisiti - Laurea informatica aziendale, economia aziendale, matematica, statistica o formazione equivalente. - Esperienza come Product Owner, Business Analyst o in una posizione simile. - Idealments, esperienza nel settore assicurativo con focus sul lavoro orientaleto al progetto. - Comprensione dell'interazione tra i dati, i modelli di machine learning, le applicazioni. - Esperienza in metodologie di lavoro agili (Scrum / SAFe, un vantaggio). Conoscenze di Databricks sono un plus. - Piacere per l'interazione tra la funzionalità e la tecnologia. - Modalità di lavoro strutturata, comunicativa e orientaleta alla soluzione dei problemi. - Buone conoscenze di tedesco e inglese fluente. Lavorare con noi - In questo reparto ti aspettano motivati, team interdisciplinari in una moderna organizzazione di rete e un ambiente di lavoro in cui puoi fare la differenta. - Promuoviamo un approccio comunicativo, autonomo e orientaleto alla soluzione dei problemi e ci incontriamo su un piano di ascolto.\n• Cosa offriamo - Conciliabilità modelli di lavoro flessibili e 20 settimane di congedo di coppia 6 settimane di congedo di paternità, sovvenzioni familiari superiori alla media e un fondo pensione finanziato in modo sostenibile. - Formazione e sviluppo offerta un'ampia gamma di corsi interni nonché la partecipazione a possibili programmi all'estero. In caso di formazione esterna dipendente per il lavoro, contribuiamo in modo generoso. - Sconti scontati, tra gli altri, fino al 25% sulla tariffa, un abbonamento semestrale, sconti sui telefoni mobili nonché abbonamenti gratuiti con flat rate e sconti per eventi culturali. Cookie Consent Manager Se visiti un sito web, questo può memorizzare e recuperare informazioni sul tuo browser, generalmente sotto forma di cookie. Per favore riaspetta il tuo diritto alla privacy, puoi dimostrare alcuni cookie. Tuttavia, se blocchi determinati cookie, potrebbe in negativo sulla tua esperienza sul sito e sui servizi che offrono. Cookie necessari Questi cookie sono necessari per l'uso di questo sito web e non possono essere disattivati. Caratteristiche tecniche",
+        "en": "Mansioni In questa posizione, assumerai un ruolo centrale in un importante progetto di trasformazione strategica con ampio spazio per la creatività e la responsabilità personale. Lavorerai a stretto contatto con esperti motivati di settore e IT su tecnologie moderne e piattaforme dati future-oriented, attivamente contribuendo a plasmare il futuro dei nostri processi di riserva attuariale. Cosa fai da noi - Responsabile dello sviluppo funzionale del fluo di valore Reserving e gestisci il backlog in collaborazione con i reparti funzionali, l'IT e altri stakeholder. - Attivamente partecipi alla progettazione del nuovo processo di chiusura attuariale in cloud e ne promuovi l'implementazione, assumendone la responsabilità futura. - Sviluppi soluzioni relative a Reserving, gestione del rischio e proiezioni nel settore dei theni elementari. - Tradurre i requisiti funzionali in user stories e funzionalità eseguibili e garantire un paesaggio dati e di processo sostenibile e di alta qualità. - Lavorare in un ambiente agile in collaborazione con team interdisciplinari e promuovere tecnologie e metodi di lavoro moderni intorno a Databricks, Databricks Apps e soluzioni cloud.\n• Requisiti - Laurea informatica aziendale, economia aziendale, matematica, statistica o formazione equivalente. - Esperienza come Product Owner, Business Analyst o in una posizione simile. - Idealments, esperienza nel settore assicurativo con focus sul lavoro orientato al progetto. - Comprensione dell'interazione tra i dati, i modelli di machine learning, le applicazioni. - Esperienza in metodologie di lavoro agili (Scrum / SAFe, un vantaggio). Conoscenze di Databricks sono un plus. - Piacere per l'interazione tra la funzionalità e la tecnologia. - Modalità di lavoro strutturata, comunicativa e orientata alla soluzione dei problemi. - Buone conoscenze di tedesco e inglese fluente. Lavorare con noi - In questo reparto ti aspettano colleghi motivati, team interdisciplinari in una moderna organizzazione di rete e un ambiente di lavoro in cui puoi fare la differenta. - Promuoviamo un approccio comunicativo, autonomo e orientato alla soluzione dei problemi e ci incontriamo su un piano di parità.\n• Cosa offriamo - Conciliabilità\n• Offriamo modelli di lavoro flessibili e 20 settimane di congedo di maternità nonché 6 settimane di congedo di paternità, sovvenzioni familiari superiori alla media e un fondo pensione finanziato in modo sostenibile. - Formazione e sviluppo\n• Offriamo un'ampia gamma di corsi interni nonché la partecipazione a possibili programmi all'estero. In caso di formazione esterna rilevante per il lavoro, contribuiamo in modo generoso. - Sconti\n• Offriamo sconti, tra gli altri, fino al 25% sulla tariffa, un abbonamento semestrale, sconti sui telefoni mobili nonché abbonamenti gratuiti con flat rate e sconti per eventi culturali. Cookie Consent Manager Se visiti un sito web, questo può memorizzare e recuperare informazioni sul tuo browser, generalmente sotto forma di cookie. Poiché rispettiamo il tuo diritto alla privacy, puoi rifiutare alcuni cookie. Tuttavia, se blocchi determinati cookie, potrebbe influire negativeamente sulla tua esperienza sul sito e sui servizi che offriamo. Cookie necessari Questi cookie sono necessari per l'uso di questo sito web e non possono essere disattivati. fornitori Descrizione Attivato",
         "de": "Das erwartet dich: In dieser Rolle übernimmst du eine zentrale Funktion in einem strategisch wichtigen Transformationsvorhaben mit viel Gestaltungsspielraum und Eigenverantwortung. Gemeinsam mit motivierten Fach- und IT-Expert:innen arbeitest du an modernen Technologien und zukunftsorientierten Datenplattformen und gestaltest aktiv die Zukunft unserer aktuariellen Reservingprozesse mit. Das bewirkst du bei uns: Du verantwortest die fachliche Weiterentwicklung des Value Streams Reserving und steuerst sowie priorisierst das Backlog in enger Zusammenarbeit mit Fachbereichen, IT und weiteren Stakeholdern. Dabei gestaltest du den neuen aktuariellen Abschlussprozess in der Cloud aktiv mit, treibst dessen Umsetzung voran und verantwortest den zukünftigen Betrieb. Zudem entwickelst du Lösungen rund um Reserving, Risikomanagement sowie Hochrechnungen im Bereich Elementarschäden weiter. Du übersetzt fachliche Anforderungen in umsetzbare User Stories und Features und stellst eine nachhaltige sowie qualitativ hochwertige Daten- und Prozesslandschaft sicher. In enger Zusammenarbeit mit interdisziplinären Teams arbeitest du in einem agilen Umfeld und förderst moderne Technologien und Arbeitsweisen rund um Databricks, Databricks Apps und Cloud-Lösungen. Das bringst du mit:\n• Hochschulabschluss in Wirtschaftsinformatik, Betriebswirtschaft, Mathematik, Statistik oder vergleichbare Ausbildung\n• Erfahrung als Product Owner, Business Analyst oder in einer vergleichbaren Rolle\n• Idealerweise Erfahrung in der Versicherungsbranche mit Fokus auf projektorientiertes Arbeiten\n• Verständnis vom Zusammenspiel von Daten, Machine Learning Modellen, Applikationen\n• Erfahrung in agilen Arbeitsweisen (Scrum / SAFe von Vorteil)\n• Kenntnisse in Databricks sind ein Plus\n• Freude am Zusammenspiel zwischen Fachlichkeit und Technologie\n• Strukturierte, kommunikative und lösungsorientierte Arbeitsweise\n• Fliessende Deutschkenntnisse und gute Englischkenntnisse Bei uns arbeiten: In der Abteilung erwarten dich engagierte Kolleginnen und Kollegen, interdisziplinäre Teams in einer modernen Netzwerkorganisation und ein Arbeitsumfeld, in dem du etwas bewegen kannst. Wir pflegen eine kommunikative, selbständige und lösungsorientierte Arbeitsweise und begegnen uns auf Augenhöhe. Das bieten wir: Vereinbarkeit Wir ermöglichen flexible Arbeitsmodelle und bieten 20 Wochen Mutterschafts- sowie 6 Wochen Vaterschaftsurlaub, überdurchschnittliche Familienzulagen und eine nachhaltig finanzierte Pensionskasse. Weiterbildung und Entwicklung Wir bieten ein vielfältiges internes Kursangebot sowie die Teilnahme an möglichen Auslandsprogrammen an. Bei jobrelevanten, externen Weiterbildungen beteiligen wir uns grosszügig. Vergünstigungen Wir bieten dir unter anderem bis zu 25% Prämienrabatt, ein Halbtax-Abonnement, Rabatte auf Mobiltelefone sowie kostenlose Abonnemente mit Flatrate und Ermässigungen bei kulturellen Veranstaltungen. present Weitere Anstellungsbedingungen go_to_link Manager für Cookie-Einwilligungen: Wenn Sie eine Website besuchen, kann diese Informationen zu Ihrem Browser - meistens in Form von Cookies - speichern und abrufen. Da wir Ihr Recht auf Privatsphäre respektieren, können Sie bestimmte Cookies ablehnen. Wenn Sie jedoch bestimmte Cookies blockieren, kann sich dies negativ auf Ihre Erfahrung auf der Site und die von uns angebotenen Services auswirken. Notwendige Cookies Diese Cookies sind für die Verwendung dieser Website erforderlich und können nicht deaktiviert werden. Notwendige Cookies Mehr Details anzeigen Notwendige Cookies Anbieter Beschreibung Aktiviert SAP as service provider Wir verwenden die folgenden Sitzungs-Cookies, die alle für die Funktionsfähigkeit der Website erforderlich sind:\n• \"route\" wird für Sitzungs-Stickiness verwendet\n• \"careerSiteCompanyId\" wird verwendet, um die Anforderung an das richtige Rechenzentrum zu senden\n• \"JSESSIONID\" wird während der Sitzung auf dem Gerät des Besuchers abgelegt, damit der Server den Besucher identifizieren kann\n• \"Load balancer cookie\" (tatsächlicher Cookie-Name kann abweichen) verhindert, dass ein Besucher von einer Instanz zu einer anderen springt",
-        "fr": "Mansioni Dans questa posizione, assumera un ruolo centrale in un important progetto di trasformazione strategica con ampio spazio per la creatività e la responsabilità personale. Lavorerai a stretto contatto con esperti motivati di setore e IT su tecnologie moderne e piattaforme dati prospective, attivamente contribuendo a plasmare il futuro dei nostri processi di riserva attuariale. Cosa fai da noi - Responsabile dello sviluppo funzionale del fluo di valore Reserving e gestisci il arriéré en collaboration con i reparti funzionale, l'IT e altri partie prenante. - Attivamente partecipi alla progettazione del nuovo processo di chiusura attuariale in cloud e ne promuovi l'implementazione, assume la responsabilitéà futura. - Sviluppi soluzioni relatif a Reserving, gestioone del rischio e proiezioni nel settore dei theni elementari. - Tradurre i requisiti funzionali in user stories e funzionalità eseguibili e garantie un paesaggio dati e di processo sostenibile e di alta qualità. - Lavorare in un ambiente agile in collabazione con team interdisciplinari e promuovere tecnologie e metodi di lavoro moderni intorno a Databricks, Databricks Apps e soluzioni cloud. \n• Requisiti - Laurea informatica aziendale, économia aziendale, matématica, statistica o formazione équivalente. - Esperienza come Product Owner, Business Analyst o in una posizione similile. - Idéalités, esperienza nel settore assicurativo con focus sul lavoro orientalato al progetto. - Comprensione dell'interazione tra i dati, i modelli di machine learning, le applicazioni. - Espérienza in metodologie di lavoro agili (Scrum / SAFe, un vantaggio). Conoscenze di Databricks sono un plus. - Piacere per l'interazione tra la funzionalità e la tecnologia. - Modalità di lavoro strutturata, comunicativa e orientalata alla soluzione dei problemi. - Buone conoscenze di tedesco e inglese colease. Lavorare con noi - Dans questo reparto ti aspettano colleghi motivati, l'équipe interdisciplinari in una moderna organizzazione di rete e un ambiente di lavoro in cui puoi fare la differente. - Promuoviamo un approccio comunicativo, autonomo e orientalato alla soluzione dei problemi e ci incontriamo su un piano di parità. \n• Cosa offriamo - Conciliabilità \n• Offriamo modelli di lavoro flessibili e 20 settimane di congedo di maternità nonché 6 settimane di congedo di paternità, sovvenzioni famili superiori alla media e un fondo pensione finanziato in modo sostenibile. - Formazione e sviluppo \n• Offriamo un'ampia gamma di corsi interni nonché la partecipazione a possibili programmi all'estero. En caso di formazione esterna rilevante per il lavoro, contribuiamo in modo generoso. - Sconti \n• Offriamo sconti, tra gli altri, fino al 25% sulla tarifa, un abbonamento semestrale, sconti sui telefoni mobi nonché abbonamento gratuiti con plat rate e sconti per eventi culturali. Gestionnaire de consentement aux cookies Se visiter un sito web, questo può memorizzare e recuperare informazioni sul tuo browser, généralmente sotto forma di cookie. Poiché rispettiamo il tuo diritto alla privacy, puoi rifiutare alcuni cookie. Tuttavia, se blocchi determinati cookie, potrebbe influence négatif sulla tua esperienza sul sito e sui servizi che offriamo. Cookie necessari Questi cookie sono necessari per l'uso di questo sito web e non Possono essere disattivati. fornitori Descrizione Attivato"
+        "fr": "Mansioni Dans questa posizione, assumera un ruolo centrale in un important progetto di trasformazione strategica con ampio spazio per la creatività e la responsabilità personale. Lavorerai a stretto contatto con esperti motivati di setore e IT su tecnologie moderne e piattaforme dati prospective, attivamente contribuendo a plasmare il futuro dei nostri processi di riserva attuariale. Cosa fai da noi - Responsabile dello sviluppo funzionale del fluo di valore Reserving e gestisci il arriéré en collaboration con i reparti funzionale, l'IT e altri partie prenante. - Attivamente partecipi alla progettazione del nuovo processo di chiusura attuariale in cloud e ne promuovi l'implementazione, assume la responsabilitéà futura. - Sviluppi soluzioni relatif a Reserving, gestioone del rischio e proiezioni nel settore dei theni elementari. - Tradurre i requisiti funzionali in user stories e funzionalità eseguibili e garantie un paesaggio dati e di processo sostenibile e di alta qualità. - Lavorare in un ambiente agile in collabazione con team interdisciplinari e promuovere tecnologie e metodi di lavoro moderni intorno a Databricks, Databricks Apps e soluzioni cloud.\n• Requisiti - Laurea informatica aziendale, économia aziendale, matématica, statistica o formazione équivalente. - Esperienza come Product Owner, Business Analyst o in una posizione similile. - Idéalités, esperienza nel settore assicurativo con focus sul lavoro orientalato al progetto. - Comprensione dell'interazione tra i dati, i modelli di machine learning, le applicazioni. - Espérienza in metodologie di lavoro agili (Scrum / SAFe, un vantaggio). Conoscenze di Databricks sono un plus. - Piacere per l'interazione tra la funzionalità e la tecnologia. - Modalità di lavoro strutturata, comunicativa e orientalata alla soluzione dei problemi. - Buone conoscenze di tedesco e inglese colease. Lavorare con noi - Dans questo reparto ti aspettano colleghi motivati, l'équipe interdisciplinari in una moderna organizzazione di rete e un ambiente di lavoro in cui puoi fare la differente. - Promuoviamo un approccio comunicativo, autonomo e orientalato alla soluzione dei problemi e ci incontriamo su un piano di parità.\n• Cosa offriamo - Conciliabilità\n• Offriamo modelli di lavoro flessibili e 20 settimane di congedo di maternità nonché 6 settimane di congedo di paternità, sovvenzioni famili superiori alla media e un fondo pensione finanziato in modo sostenibile. - Formazione e sviluppo\n• Offriamo un'ampia gamma di corsi interni nonché la partecipazione a possibili programmi all'estero. En caso di formazione esterna rilevante per il lavoro, contribuiamo in modo generoso. - Sconti\n• Offriamo sconti, tra gli altri, fino al 25% sulla tarifa, un abbonamento semestrale, sconti sui telefoni mobi nonché abbonamento gratuiti con plat rate e sconti per eventi culturali. Gestionnaire de consentement aux cookies Se visiter un sito web, questo può memorizzare e recuperare informazioni sul tuo browser, généralmente sotto forma di cookie. Poiché rispettiamo il tuo diritto alla privacy, puoi rifiutare alcuni cookie. Tuttavia, se blocchi determinati cookie, potrebbe influence négatif sulla tua esperienza sul sito e sui servizi che offriamo. Cookie necessari Questi cookie sono necessari per l'uso di questo sito web e non Possono essere disattivati. fornitori Descrizione Attivato"
       },
       "location": "Bern",
       "canton": "BE",
       "url": "https://jobs.mobiliar.ch/job/Bern-Product-Owner-%28wmd%29/1164777655/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:22:00.942Z",
+      "crawledAt": "2026-05-27T23:50:21.213Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1071,6 +1076,7 @@
         ]
       },
       "firstSeenAt": "2026-05-21T23:18:20.503Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1116,7 +1122,7 @@
       "url": "https://jobs.mobiliar.ch/job/Langenthal-KV-Lehrstelle-EFZ-2027-%28wmd%29-Generalagentur-Langenthal/1164609655/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:22:00.134Z",
+      "crawledAt": "2026-05-27T23:50:20.326Z",
       "addressLocality": "Langenthal",
       "addressCountry": "CH",
       "country": "CH",
@@ -1193,7 +1199,7 @@
       "url": "https://jobs.mobiliar.ch/job/Vaduz-KV-Lehrstelle-EFZ-2027-%28wmd%29-Generalagentur-Vaduz/940913874/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:21:59.302Z",
+      "crawledAt": "2026-05-27T23:50:19.449Z",
       "addressLocality": "237 65 51",
       "addressCountry": "CH",
       "country": "CH",
@@ -1244,8 +1250,7 @@
           "maxValue": 63000,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 1
+      }
     },
     {
       "id": "mobiliar-56f43ad6f0ab",
@@ -1278,7 +1283,7 @@
       "url": "https://jobs.mobiliar.ch/job/St_-Gallen-Schadenmitarbeiter-in-Personenschaden-%28mw%29-Generalagentur-St_-Gallen/1164288655/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:21:58.480Z",
+      "crawledAt": "2026-05-27T23:50:18.572Z",
       "addressLocality": "St_",
       "addressCountry": "CH",
       "country": "CH",
@@ -1330,8 +1335,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 1
+      }
     },
     {
       "id": "mobiliar-a9d6ae470257",
@@ -1364,7 +1368,7 @@
       "url": "https://jobs.mobiliar.ch/job/Z%C3%BCrich-Senior-Underwriter-Personenversicherungen-%28KTGUVGUVGZ%29-mit-Branchenverantwortung-%28wmd%29/1163846755/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:21:57.674Z",
+      "crawledAt": "2026-05-27T23:50:17.693Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1411,6 +1415,7 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:09:41.273Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -1456,7 +1461,7 @@
       "url": "https://jobs.mobiliar.ch/job/Olten-Mitarbeiter-Verkaufssupport-%28wm%29-Generalagentur-Olten/1164603255/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:21:56.874Z",
+      "crawledAt": "2026-05-27T23:50:16.810Z",
       "addressLocality": "Olten",
       "addressCountry": "CH",
       "country": "CH",
@@ -1512,6 +1517,7 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:09:09.710Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -1557,7 +1563,7 @@
       "url": "https://jobs.mobiliar.ch/job/Z%C3%BCrich-Versicherungs-und-Vorsorgeberater-%28wm%29-Generalagentur-Glattal-%28Z%C3%BCrich-Nord%29/1164271355/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:21:56.077Z",
+      "crawledAt": "2026-05-27T23:50:15.933Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1634,7 +1640,7 @@
       "url": "https://jobs.mobiliar.ch/job/Bern-Jurist-Wohnen-%28wmd%29/1164779155/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:21:54.844Z",
+      "crawledAt": "2026-05-27T23:50:14.485Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1682,6 +1688,7 @@
         ]
       },
       "firstSeenAt": "2026-05-21T23:18:22.962Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1727,7 +1734,7 @@
       "url": "https://jobs.mobiliar.ch/job/Bern-Fachspezialist-Wetterversicherung-f%C3%BCr-den-Ackerbau-%28wmd%29/1164251355/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:21:53.775Z",
+      "crawledAt": "2026-05-27T23:50:13.418Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1783,6 +1790,7 @@
         ]
       },
       "firstSeenAt": "2026-05-21T12:48:45.642Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1828,7 +1836,7 @@
       "url": "https://jobs.mobiliar.ch/job/Affoltern-am-Albis-KV-Lehrstelle-EFZ-2027-Generalagentur-Affoltern-am-Albis/940912874/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:21:52.956Z",
+      "crawledAt": "2026-05-27T23:50:12.532Z",
       "addressLocality": "Affoltern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1874,6 +1882,7 @@
         ]
       },
       "firstSeenAt": "2026-05-21T12:48:47.640Z",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -1919,7 +1928,7 @@
       "url": "https://jobs.mobiliar.ch/job/Nyon-Responsable-team-Sinistres-de-personnes-%28fhd%29/1164778855/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-27T13:21:52.138Z",
+      "crawledAt": "2026-05-27T23:50:11.650Z",
       "addressLocality": "Nyon",
       "addressCountry": "CH",
       "country": "CH",
@@ -1951,6 +1960,7 @@
         ]
       },
       "firstSeenAt": "2026-05-21T23:18:22.106Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -1996,7 +2006,7 @@
       "url": "https://jobs.mobiliar.ch/job/Bern-Data-Scientist-im-Bereich-Conversational-AI-%28wmd%29/1164754655/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:21:51.343Z",
+      "crawledAt": "2026-05-27T23:50:10.769Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -2049,6 +2059,7 @@
         ]
       },
       "firstSeenAt": "2026-05-19T12:20:05.049Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2094,7 +2105,7 @@
       "url": "https://jobs.mobiliar.ch/job/Bern-JuristRechtsanwalt-Haftpflicht-und-Versicherungsrecht-%28wmd%29/1164635355/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:21:50.239Z",
+      "crawledAt": "2026-05-27T23:50:09.386Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -2142,6 +2153,7 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:09:24.590Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2187,7 +2199,7 @@
       "url": "https://jobs.mobiliar.ch/job/Zug-Versicherungs-und-Vorsorgeberater-%28wmd%29-Generalagentur-Zug/1163527455/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:21:49.284Z",
+      "crawledAt": "2026-05-27T23:50:08.315Z",
       "addressLocality": "Zug",
       "addressCountry": "CH",
       "country": "CH",
@@ -2219,6 +2231,7 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:09:32.107Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -2263,7 +2276,7 @@
       "url": "https://jobs.mobiliar.ch/job/Luzern-KV-Lehrstelle-EFZ-2027-Generalagentur-Luzern/1164429655/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:21:48.468Z",
+      "crawledAt": "2026-05-27T23:50:07.426Z",
       "addressLocality": "Generalagentur Luzern",
       "addressCountry": "CH",
       "country": "CH",
@@ -2316,8 +2329,7 @@
           "maxValue": 63000,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 1
+      }
     },
     {
       "id": "mobiliar-abfe60173fa1",
@@ -2350,7 +2362,7 @@
       "url": "https://jobs.mobiliar.ch/job/Uster-KV-Lehrstelle-EFZ-2027-%28wmd%29-Generalagentur-Uster/1164775855/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:21:47.362Z",
+      "crawledAt": "2026-05-27T23:50:06.537Z",
       "addressLocality": "Uster",
       "addressCountry": "CH",
       "country": "CH",
@@ -2390,6 +2402,7 @@
         ]
       },
       "firstSeenAt": "2026-05-21T12:48:48.388Z",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -2435,7 +2448,7 @@
       "url": "https://jobs.mobiliar.ch/job/Nyon-D%C3%A9veloppeuse-IT-%28fhd%29-Travailler-en-parall%C3%A8le-de-ses-%C3%A9tudes/1164774455/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-27T13:21:46.556Z",
+      "crawledAt": "2026-05-27T23:50:05.644Z",
       "addressLocality": "Nyon",
       "addressCountry": "CH",
       "country": "CH",
@@ -2473,6 +2486,7 @@
         ]
       },
       "firstSeenAt": "2026-05-21T12:48:44.901Z",
+      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "baseSalary": {
@@ -2518,7 +2532,7 @@
       "url": "https://jobs.mobiliar.ch/job/Schwyz-KV-Lehrstelle-EFZ-2027-Generalagentur-Schwyz/1164585855/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:21:45.594Z",
+      "crawledAt": "2026-05-27T23:50:04.752Z",
       "addressLocality": "Generalagentur Schwyz",
       "addressCountry": "CH",
       "country": "CH",
@@ -2569,8 +2583,7 @@
           "maxValue": 63000,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 1
+      }
     },
     {
       "id": "mobiliar-392c41197447",
@@ -2603,7 +2616,7 @@
       "url": "https://jobs.mobiliar.ch/job/Affoltern-am-Albis-Mitarbeiter-Verkaufssupport-%28wmd%29-Generalagentur-Affoltern-am-Albis/1163881455/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:21:44.631Z",
+      "crawledAt": "2026-05-27T23:50:03.874Z",
       "addressLocality": "Affoltern am Albis",
       "addressCountry": "CH",
       "country": "CH",
@@ -2690,7 +2703,7 @@
       "url": "https://jobs.mobiliar.ch/job/Wetzikon-Versicherungs-und-Vorsorgeberater-%28wmd%29-Generalagentur-Wetzikon-Pf%C3%A4ffikon/1163375655/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:21:43.828Z",
+      "crawledAt": "2026-05-27T23:50:02.976Z",
       "addressLocality": "Wetzikon",
       "addressCountry": "CH",
       "country": "CH",
@@ -2722,6 +2735,7 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:09:03.271Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -2767,7 +2781,7 @@
       "url": "https://jobs.mobiliar.ch/job/Bern-Fachspezialist-Produktmanagement-Mobilit%C3%A4tsversicherung-%28wmd%29/1164768155/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:21:43.036Z",
+      "crawledAt": "2026-05-27T23:50:02.098Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -2813,6 +2827,7 @@
         ]
       },
       "firstSeenAt": "2026-05-19T12:20:08.098Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2858,7 +2873,7 @@
       "url": "https://jobs.mobiliar.ch/job/Wil-Mitarbeiter-Verkaufssupport-%28wmd%29-Generalagentur-Wil/1164757455/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:21:42.231Z",
+      "crawledAt": "2026-05-27T23:50:01.192Z",
       "addressLocality": "Wil",
       "addressCountry": "CH",
       "country": "CH",
@@ -2912,6 +2927,7 @@
         ]
       },
       "firstSeenAt": "2026-05-19T12:20:07.335Z",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -2957,7 +2973,7 @@
       "url": "https://jobs.mobiliar.ch/job/Bern-Koch-%28wmd%29-Kita-Mikado-80/1164756955/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:21:41.427Z",
+      "crawledAt": "2026-05-27T23:50:00.303Z",
       "addressLocality": "eine engagierte und herzliche Persönlichkeit als",
       "addressCountry": "CH",
       "country": "CH",
@@ -3006,8 +3022,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 1
+      }
     },
     {
       "id": "mobiliar-15291c509aaf",
@@ -3040,7 +3055,7 @@
       "url": "https://jobs.mobiliar.ch/job/Bern-Microsoft-Power-Platform-DevSecOps-Engineer-%28wmd%29/1164561055/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:21:40.619Z",
+      "crawledAt": "2026-05-27T23:49:59.404Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -3093,6 +3108,7 @@
         "devsecops-engineer-w-m-d-mobiliar-ch"
       ],
       "firstSeenAt": "2026-05-10T22:09:37.439Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -3138,7 +3154,7 @@
       "url": "https://jobs.mobiliar.ch/job/Worb-Mitarbeiter-Verkaufssupport-%28wm%29-Generalagentur-Emmental/1164762455/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:21:39.622Z",
+      "crawledAt": "2026-05-27T23:49:58.524Z",
       "addressLocality": "Worb",
       "addressCountry": "CH",
       "country": "CH",
@@ -3188,6 +3204,7 @@
         ]
       },
       "firstSeenAt": "2026-05-21T12:48:36.527Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -3233,7 +3250,7 @@
       "url": "https://jobs.mobiliar.ch/job/Lenzburg-Schadenmitarbeiter-%28wmd%29-Generalagentur-Lenzburg/1164762355/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:21:38.811Z",
+      "crawledAt": "2026-05-27T23:49:57.642Z",
       "addressLocality": "Lenzburg",
       "addressCountry": "CH",
       "country": "CH",
@@ -3284,6 +3301,7 @@
         ]
       },
       "firstSeenAt": "2026-05-21T12:48:35.788Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -3328,7 +3346,7 @@
       "url": "https://jobs.mobiliar.ch/job/Bern-KV-Lehrstelle-EFZ-2027-Generalagentur-Bern-West/940918874/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:21:38.013Z",
+      "crawledAt": "2026-05-27T23:49:56.761Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -3405,7 +3423,7 @@
       "url": "https://jobs.mobiliar.ch/job/Z%C3%BCrich-Verantwortlicher-Immobilien-Transaktionen-Markt-Ost-%28wmd%29/1164752455/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:21:37.219Z",
+      "crawledAt": "2026-05-27T23:49:55.879Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -3452,6 +3470,7 @@
         ]
       },
       "firstSeenAt": "2026-05-18T22:29:36.358Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -3497,7 +3516,7 @@
       "url": "https://jobs.mobiliar.ch/job/Bern-Sachbearbeiter-Beratung-und-Schaden-%28wmd%29/1164481355/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:21:35.886Z",
+      "crawledAt": "2026-05-27T23:49:54.661Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -3549,6 +3568,7 @@
         ]
       },
       "firstSeenAt": "2026-05-18T12:56:26.117Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -3594,7 +3614,7 @@
       "url": "https://jobs.mobiliar.ch/job/Wallis-KV-Lehrstelle-EFZ-2027-Generalagentur-Oberwallis/1164099655/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:21:34.905Z",
+      "crawledAt": "2026-05-27T23:49:53.593Z",
       "addressLocality": "Generalagentur Oberwallis",
       "addressCountry": "CH",
       "country": "CH",
@@ -3645,8 +3665,7 @@
           "maxValue": 63000,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 1
+      }
     },
     {
       "id": "mobiliar-225b1dbbeaef",
@@ -3679,7 +3698,7 @@
       "url": "https://jobs.mobiliar.ch/job/Dielsdorf-Mitarbeiter-Verkaufssupport-%28wmd%29-Generalagentur-Dielsdorf/1164751955/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:21:34.074Z",
+      "crawledAt": "2026-05-27T23:49:52.521Z",
       "addressLocality": "Dielsdorf",
       "addressCountry": "CH",
       "country": "CH",
@@ -3760,7 +3779,7 @@
       "url": "https://jobs.mobiliar.ch/job/Bern-Quality-Master-%28wmd%29/1164709855/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:21:33.259Z",
+      "crawledAt": "2026-05-27T23:49:51.617Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -3807,6 +3826,7 @@
         ]
       },
       "firstSeenAt": "2026-05-11T12:15:54.065Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -3852,7 +3872,7 @@
       "url": "https://jobs.mobiliar.ch/job/Bern-KV-Lehrstelle-EFZ-2027-Generalagentur-Bern-Stadt/1164704655/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:21:32.432Z",
+      "crawledAt": "2026-05-27T23:49:50.723Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -3923,7 +3943,7 @@
       "url": "https://jobs.mobiliar.ch/job/Z%C3%BCrich-Fachspezialist-Marktbearbeitung-KMU-%28wmd%29/1164674755/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:21:31.623Z",
+      "crawledAt": "2026-05-27T23:49:49.839Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -3971,6 +3991,7 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:09:39.750Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -4016,7 +4037,7 @@
       "url": "https://jobs.mobiliar.ch/job/Wil-Versicherungs-und-Vorsorgeberater-%28wmd%29-Generalagentur-Wil%2C-Region-Wil-und-Toggenburg/940908174/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:21:30.793Z",
+      "crawledAt": "2026-05-27T23:49:48.950Z",
       "addressLocality": "Wil",
       "addressCountry": "CH",
       "country": "CH",
@@ -4063,6 +4084,7 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:09:00.008Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -4108,7 +4130,7 @@
       "url": "https://jobs.mobiliar.ch/job/Z%C3%BCrich-%28Senior%29-Brokerbetreuer-und-Underwriter-Sachversicherung-Unternehmensgesch%C3%A4ft-%28wmd%29/1164253555/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:21:29.832Z",
+      "crawledAt": "2026-05-27T23:49:48.053Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -4140,6 +4162,7 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:09:40.510Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -4185,7 +4208,7 @@
       "url": "https://jobs.mobiliar.ch/job/Wil-Schadenspezialist-%28wmd%29-Generalagentur-Wil-SG/1164087255/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:21:29.020Z",
+      "crawledAt": "2026-05-27T23:49:47.166Z",
       "addressLocality": "Wil",
       "addressCountry": "CH",
       "country": "CH",
@@ -4236,6 +4259,7 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:08:57.734Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -4280,7 +4304,7 @@
       "url": "https://jobs.mobiliar.ch/job/Basel-Maklerbetreuerin-%28wmd%29-Generalagentur-Basel/1164409555/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:21:28.207Z",
+      "crawledAt": "2026-05-27T23:49:46.281Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -4357,7 +4381,7 @@
       "url": "https://jobs.mobiliar.ch/job/Rorschach-Versicherungs-und-Vorsorgeberater-%28wmd%29-Generalagentur-Arbon-Rorschach/1164744055/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:21:27.398Z",
+      "crawledAt": "2026-05-27T23:49:45.396Z",
       "addressLocality": "oder nach Vereinbarung",
       "addressCountry": "CH",
       "country": "CH",
@@ -4396,8 +4420,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 1
+      }
     },
     {
       "id": "mobiliar-efbf32fd0280",
@@ -4430,7 +4453,7 @@
       "url": "https://jobs.mobiliar.ch/job/Winterthur-Versicherungs-und-Vorsorgeberater-%28mw%29-Generalagentur-Winterthur/1164251755/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:21:26.575Z",
+      "crawledAt": "2026-05-27T23:49:44.489Z",
       "addressLocality": "Winterthur",
       "addressCountry": "CH",
       "country": "CH",
@@ -4513,7 +4536,7 @@
       "url": "https://jobs.mobiliar.ch/job/Ebikon-Versicherungs-und-Vorsorgeberater-%28wmd%29-Generalagentur-Seetal-Rontal/1164548055/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:21:25.764Z",
+      "crawledAt": "2026-05-27T23:49:43.591Z",
       "addressLocality": "Ebikon",
       "addressCountry": "CH",
       "country": "CH",
@@ -4547,6 +4570,7 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:08:56.228Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -4592,7 +4616,7 @@
       "url": "https://jobs.mobiliar.ch/job/D%C3%BCdingen-Lehrstelle-als-Kauffrau-Kaufmann-EFZ-2027-%28Profil-EM%29-Generalagentur-D%C3%BCdingen/1162909055/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:21:24.955Z",
+      "crawledAt": "2026-05-27T23:49:42.702Z",
       "addressLocality": "Düdingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -4625,6 +4649,7 @@
         ]
       },
       "firstSeenAt": "2026-05-14T22:31:28.120Z",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -4669,7 +4694,7 @@
       "url": "https://jobs.mobiliar.ch/job/Weinfelden-Verkaufssupportmitarbeiter-mit-Herz-%28wm%29-Generalagentur-Mittelthurgau/1164539255/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:21:24.128Z",
+      "crawledAt": "2026-05-27T23:49:41.809Z",
       "addressLocality": "Weinfelden",
       "addressCountry": "CH",
       "country": "CH",
@@ -4716,6 +4741,7 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:08:56.981Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -4760,7 +4786,7 @@
       "url": "https://jobs.mobiliar.ch/job/Lugano-Key-Account-Manager-Previdenza-Privata-%28fmd%29/940907274/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "it",
-      "crawledAt": "2026-05-27T13:21:23.319Z",
+      "crawledAt": "2026-05-27T23:49:40.923Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -4778,6 +4804,7 @@
       "requirementsByLocale": {},
       "sfJobId": "940907274",
       "firstSeenAt": "2026-05-10T22:08:53.935Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -4823,7 +4850,7 @@
       "url": "https://jobs.mobiliar.ch/job/Muotathal-Versicherungs-und-Vorsorgeberater-%28wmd%29-Generalagentur-Schwyz%2C-Standort-Muotathal/1163186555/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:21:22.309Z",
+      "crawledAt": "2026-05-27T23:49:40.036Z",
       "addressLocality": "Muotathal",
       "addressCountry": "CH",
       "country": "CH",
@@ -4857,6 +4884,7 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:08:54.704Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -4901,7 +4929,7 @@
       "url": "https://jobs.mobiliar.ch/job/Weinfelden-Versicherungs-und-Vorsorgeberater-mit-Herz-%28wm%29-Generalagentur-Mittelthurgau/1164537855/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:21:21.486Z",
+      "crawledAt": "2026-05-27T23:49:39.144Z",
       "addressLocality": "Weinfelden",
       "addressCountry": "CH",
       "country": "CH",
@@ -4950,6 +4978,7 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:08:50.868Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -4994,7 +5023,7 @@
       "url": "https://jobs.mobiliar.ch/job/Eschenbach-Versicherungs-und-Vorsorgeberater-%28wmd%29-Generalagentur-Rapperswil-Glarus/1163794755/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:21:20.674Z",
+      "crawledAt": "2026-05-27T23:49:38.260Z",
       "addressLocality": "Eschenbach",
       "addressCountry": "CH",
       "country": "CH",
@@ -5048,8 +5077,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 1
+      }
     },
     {
       "id": "mobiliar-82123dc17265",
@@ -5082,7 +5110,7 @@
       "url": "https://jobs.mobiliar.ch/job/Lugano-Key-Account-Manager-Private-Vorsorge-%28wmd%29/940907174/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:21:19.848Z",
+      "crawledAt": "2026-05-27T23:49:37.365Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -5111,6 +5139,7 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:08:51.629Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -5156,7 +5185,7 @@
       "url": "https://jobs.mobiliar.ch/job/Langenthal-Schadeninspektor-%28wmd%29-Generalagentur-Langenthal/1164737355/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:21:19.026Z",
+      "crawledAt": "2026-05-27T23:49:36.470Z",
       "addressLocality": "Langenthal",
       "addressCountry": "CH",
       "country": "CH",
@@ -5207,6 +5236,7 @@
         ]
       },
       "firstSeenAt": "2026-05-13T22:46:00.039Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -5252,7 +5282,7 @@
       "url": "https://jobs.mobiliar.ch/job/Sarnen-Schadenspezialist-%28wmd%29-Generalagentur-Obwalden-und-Nidwalden/1164700455/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:21:18.213Z",
+      "crawledAt": "2026-05-27T23:49:35.578Z",
       "addressLocality": "Sarnen",
       "addressCountry": "CH",
       "country": "CH",
@@ -5304,6 +5334,7 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:09:52.353Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -5348,7 +5379,7 @@
       "url": "https://jobs.mobiliar.ch/job/Biel-Conseiller-en-assurances-et-en-pr%C3%A9voyance-%28fhd%29-%C3%A0-l'agence-g%C3%A9n%C3%A9rale-de-Bienne/1164040055/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-27T13:21:17.398Z",
+      "crawledAt": "2026-05-27T23:49:34.681Z",
       "addressLocality": "Biel",
       "addressCountry": "CH",
       "country": "CH",
@@ -5366,6 +5397,7 @@
       "requirementsByLocale": {},
       "sfJobId": "1164040055",
       "firstSeenAt": "2026-05-10T22:09:55.414Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -5411,7 +5443,7 @@
       "url": "https://jobs.mobiliar.ch/job/Burgdorf-KV-Lehrstelle-EFZ-2027-Generalagentur-Burgdorf-%28wmd%29/1164040155/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:21:16.585Z",
+      "crawledAt": "2026-05-27T23:49:33.791Z",
       "addressLocality": "Burgdorf",
       "addressCountry": "CH",
       "country": "CH",
@@ -5458,6 +5490,7 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:09:54.660Z",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -5502,7 +5535,7 @@
       "url": "https://jobs.mobiliar.ch/job/Biel-Versicherungs-und-Vorsorgeberater-%28wmd%29-Generalagentur-Biel/1164039955/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:21:15.759Z",
+      "crawledAt": "2026-05-27T23:49:32.899Z",
       "addressLocality": "Biel",
       "addressCountry": "CH",
       "country": "CH",
@@ -5538,6 +5571,7 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:09:53.897Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -5583,7 +5617,7 @@
       "url": "https://jobs.mobiliar.ch/job/Schwyz-Versicherungs-und-Vorsorgeberater-%28wmd%29-Generalagentur-Schwyz/1164207255/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:21:14.937Z",
+      "crawledAt": "2026-05-27T23:49:32.013Z",
       "addressLocality": "Schwyz",
       "addressCountry": "CH",
       "country": "CH",
@@ -5633,6 +5667,7 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:09:53.137Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -5677,7 +5712,7 @@
       "url": "https://jobs.mobiliar.ch/job/Bern-Mitarbeiterin-Wrack-und-Flottenmanagement-Motorbusiness-%28wmd%29/1164671955/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:21:13.756Z",
+      "crawledAt": "2026-05-27T23:49:30.764Z",
       "addressLocality": "XpertCenter AG",
       "addressCountry": "CH",
       "country": "CH",
@@ -5732,8 +5767,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 1
+      }
     },
     {
       "id": "mobiliar-f48c812bfd17",
@@ -5766,7 +5800,7 @@
       "url": "https://jobs.mobiliar.ch/job/Lausanne-Gestionnaire-sp%C3%A9cialis%C3%A9-du-support-vente-%C3%A0-l'agence-g%C3%A9n%C3%A9rale-de-Lausanne-Nord-vaudois-%28fhd%29/1164511555/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-27T13:21:12.591Z",
+      "crawledAt": "2026-05-27T23:49:29.544Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -5801,6 +5835,7 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:09:48.954Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -5846,7 +5881,7 @@
       "url": "https://jobs.mobiliar.ch/job/Sursee-Mitarbeiter-Verkaufssupport-%28wmd%29-Generalagentur-Sursee/1164510155/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:21:11.773Z",
+      "crawledAt": "2026-05-27T23:49:28.661Z",
       "addressLocality": "Sursee",
       "addressCountry": "CH",
       "country": "CH",
@@ -5896,6 +5931,7 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:09:48.190Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -5941,7 +5977,7 @@
       "url": "https://jobs.mobiliar.ch/job/Bern-Senior-Scrum-Master-%28wmd%29/1164689855/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:21:10.972Z",
+      "crawledAt": "2026-05-27T23:49:27.771Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -5973,6 +6009,7 @@
       },
       "sfJobId": "1164689855",
       "firstSeenAt": "2026-05-10T22:09:46.655Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -6018,7 +6055,7 @@
       "url": "https://jobs.mobiliar.ch/job/Thun-KV-Lehrstelle-EFZ-2027-%28wmd%29-Generalagentur-Thun/1164683755/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:21:10.158Z",
+      "crawledAt": "2026-05-27T23:49:26.878Z",
       "addressLocality": "Thun",
       "addressCountry": "CH",
       "country": "CH",
@@ -6059,6 +6096,7 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:09:45.893Z",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -6104,7 +6142,7 @@
       "url": "https://jobs.mobiliar.ch/job/Solothurn-KV-Lehrstelle-EFZ-2027-Generalagentur-Solothurn/940915574/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:21:09.237Z",
+      "crawledAt": "2026-05-27T23:49:25.992Z",
       "addressLocality": "Generalagentur Solothurn",
       "addressCountry": "CH",
       "country": "CH",
@@ -6157,8 +6195,7 @@
           "maxValue": 63000,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 1
+      }
     },
     {
       "id": "mobiliar-c2910326d537",
@@ -6191,7 +6228,7 @@
       "url": "https://jobs.mobiliar.ch/job/Horgen-KV-Lehrstelle-EFZ-2027-%28wmd%29-Generalagentur-Horgen/1164683655/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:21:08.424Z",
+      "crawledAt": "2026-05-27T23:49:25.111Z",
       "addressLocality": "Horgen",
       "addressCountry": "CH",
       "country": "CH",
@@ -6232,6 +6269,7 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:09:43.579Z",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -6276,7 +6314,7 @@
       "url": "https://jobs.mobiliar.ch/job/Buchs-Mitarbeiter-Verkaufssupport-%28wmd%29-Generalagentur-Buchs-Sargans/1164682855/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:21:07.467Z",
+      "crawledAt": "2026-05-27T23:49:24.045Z",
       "addressLocality": "Buchs",
       "addressCountry": "CH",
       "country": "CH",
@@ -6326,6 +6364,7 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:09:42.793Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -6371,7 +6410,7 @@
       "url": "https://jobs.mobiliar.ch/job/Schaffhausen-KV-Lehrstelle-EFZ-2027-%28wmd%29-Generalagentur-Schaffhausen/1164681355/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:21:06.662Z",
+      "crawledAt": "2026-05-27T23:49:23.163Z",
       "addressLocality": "Schaffhausen",
       "addressCountry": "CH",
       "country": "CH",
@@ -6414,6 +6453,7 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:09:42.039Z",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -6459,7 +6499,7 @@
       "url": "https://jobs.mobiliar.ch/job/Bern-Souscripteur-Mobilit%C3%A9-dans-le-secteur-Particuliers-%28fhd%29/1164490555/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-27T13:21:05.724Z",
+      "crawledAt": "2026-05-27T23:49:22.275Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -6477,6 +6517,7 @@
       "requirementsByLocale": {},
       "sfJobId": "1164490555",
       "firstSeenAt": "2026-05-10T22:09:38.986Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -6522,7 +6563,7 @@
       "url": "https://jobs.mobiliar.ch/job/Bern-Underwriter-Mobilit%C3%A4t-im-Bereich-Privatpersonen-%28wmd%29/1164490455/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:21:04.902Z",
+      "crawledAt": "2026-05-27T23:49:21.386Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -6569,6 +6610,7 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:09:38.196Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -6614,7 +6656,7 @@
       "url": "https://jobs.mobiliar.ch/job/Spiez-Schadenspezialist-%28wmd%29-Generalagentur-Spiez/1164657255/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:21:04.095Z",
+      "crawledAt": "2026-05-27T23:49:20.490Z",
       "addressLocality": "Spiez",
       "addressCountry": "CH",
       "country": "CH",
@@ -6691,7 +6733,7 @@
       "url": "https://jobs.mobiliar.ch/job/Spiez-KV-Lehrstelle-EFZ-2027-%28wmd%29-Generalagentur-Spiez/1164657055/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:21:03.280Z",
+      "crawledAt": "2026-05-27T23:49:19.595Z",
       "addressLocality": "Spiez",
       "addressCountry": "CH",
       "country": "CH",
@@ -6736,6 +6778,7 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:09:33.626Z",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -6754,8 +6797,8 @@
       "slug": "responsabile-specializzato-dei-broker-di-supporto-alle-vendite-presso-l-agenzia-generale-di-losanna-nord-vaudois-f-h-d",
       "slugByLocale": {
         "it": "responsabile-specializzato-dei-broker-di-supporto-alle-vendite-presso-l-agenzia-generale-di-losanna-nord-vaudois-f-h-d",
-        "en": "specialized-manager-of-sales-support-brokers-at-the-lausanne-nord-vaudois-general-agency-f-h-d-die-mobiliar-yverdon",
-        "de": "spezialisierter-leiter-der-vertriebsunterstutzungsbroker-bei-der-generalagentur-lausanne-nord-vaudois-f-h-d-die-mobiliar",
+        "en": "gestionnaire-specialise-du-support-vente-courtiers-a-l-agence-generale-lausanne-nord-vaudo",
+        "de": "gestionnaire-specialise-du-support-vente-courtiers-a-l-agence-generale-lausanne-nord-vaudo",
         "fr": "gestionnaire-specialise-du-support-vente-courtiers-a-l-agence-generale-lausanne-nord-vaudois-f-h-d-die-mobiliar-yverdon"
       },
       "company": "die Mobiliar",
@@ -6780,7 +6823,7 @@
       "url": "https://jobs.mobiliar.ch/job/Yverdon-les-Bains-Gestionnaire-sp%C3%A9cialis%C3%A9-du-support-vente-courtiers-%C3%A0-l'agence-g%C3%A9n%C3%A9rale-Lausanne-Nord-vaudois-%28fhd%29/1164176155/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-27T13:21:02.482Z",
+      "crawledAt": "2026-05-27T23:49:18.701Z",
       "addressLocality": "Yverdon",
       "addressCountry": "CH",
       "country": "CH",
@@ -6801,6 +6844,8 @@
         "responsabile-specializzato-dei-broker-di-supporto-alle-vendite-presso-l-agenzia-generale-di-losanna-nord-vaudois-f-h-d-d",
         "gestionnaire-specialise-du-support-vente-courtiers-a-l-agence-generale-lausanne-nord",
         "gestionnaire-specialise-du-support-vente-courtiers-a-l-agence-generale-lausanne-nord-vaudois-m-w-d-die-mobiliar-yverdon",
+        "specialized-manager-of-sales-support-brokers-at-the-lausanne-nord-vaudois-general-agency-f-h-d-die-mobiliar-yverdon",
+        "spezialisierter-leiter-der-vertriebsunterstutzungsbroker-bei-der-generalagentur-lausanne-nord-vaudois-f-h-d-die-mobiliar",
         "gestionnaire-specialise-du-support-vente-courtiers-a-l-agence-generale-lausanne-nord-vaudo"
       ],
       "previousSlugsByLocale": {
@@ -6810,9 +6855,11 @@
           "gestionnaire-specialise-du-support-vente-courtiers-a-l-agence-generale-lausanne-nord-vaudois-m-w-d-die-mobiliar-yverdon"
         ],
         "en": [
+          "specialized-manager-of-sales-support-brokers-at-the-lausanne-nord-vaudois-general-agency-f-h-d-die-mobiliar-yverdon",
           "gestionnaire-specialise-du-support-vente-courtiers-a-l-agence-generale-lausanne-nord-vaudo"
         ],
         "de": [
+          "spezialisierter-leiter-der-vertriebsunterstutzungsbroker-bei-der-generalagentur-lausanne-nord-vaudois-f-h-d-die-mobiliar",
           "gestionnaire-specialise-du-support-vente-courtiers-a-l-agence-generale-lausanne-nord-vaudo"
         ],
         "fr": [
@@ -6820,6 +6867,7 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:09:32.866Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -6864,7 +6912,7 @@
       "url": "https://jobs.mobiliar.ch/job/Hochdorf-KV-Lehrstelle-EFZ-2027-Generalagentur-Seetal-Rontal/1164010655/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:21:01.530Z",
+      "crawledAt": "2026-05-27T23:49:17.802Z",
       "addressLocality": "Hochdorf",
       "addressCountry": "CH",
       "country": "CH",
@@ -6905,6 +6953,7 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:09:31.342Z",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -6949,7 +6998,7 @@
       "url": "https://jobs.mobiliar.ch/job/Thurgau-Versicherungs-und-Vorsorgeberater-mit-Herz-%28wm%29-Generalagentur-Mittelthurgau/1164155255/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:21:00.721Z",
+      "crawledAt": "2026-05-27T23:49:16.897Z",
       "addressLocality": "Thurgau",
       "addressCountry": "CH",
       "country": "CH",
@@ -6996,6 +7045,7 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:09:29.807Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -7040,7 +7090,7 @@
       "url": "https://jobs.mobiliar.ch/job/Uster-Versicherungs-und-Vorsorgeberater-%28wmd%29-Generalagentur-Uster/1163443155/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:20:59.907Z",
+      "crawledAt": "2026-05-27T23:49:16.015Z",
       "addressLocality": "Uster",
       "addressCountry": "CH",
       "country": "CH",
@@ -7073,6 +7123,7 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:09:28.286Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -7117,7 +7168,7 @@
       "url": "https://jobs.mobiliar.ch/job/Z%C3%BCrich-KV-Lehrstelle-EFZ-2027-%28wmd%29-Generalagentur-Z%C3%BCrich/1164643255/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:20:59.072Z",
+      "crawledAt": "2026-05-27T23:49:15.131Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -7160,6 +7211,7 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:09:26.764Z",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -7205,7 +7257,7 @@
       "url": "https://jobs.mobiliar.ch/job/Moutier-Responsable-des-sinistres-%28fhd%29-Agence-g%C3%A9n%C3%A9rale-Moutier-Saint-Imier/1164297555/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-27T13:20:58.262Z",
+      "crawledAt": "2026-05-27T23:49:14.248Z",
       "addressLocality": "Moutier",
       "addressCountry": "CH",
       "country": "CH",
@@ -7237,6 +7289,7 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:09:22.847Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -7281,7 +7334,7 @@
       "url": "https://jobs.mobiliar.ch/job/Moutier-Conseiller-en-assurances-et-en-pr%C3%A9voyance-%28fhd%29-%C3%A0-l'agence-g%C3%A9n%C3%A9rale-de-Moutier-Saint-Imier/940912074/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-27T13:20:57.455Z",
+      "crawledAt": "2026-05-27T23:49:13.367Z",
       "addressLocality": "Moutier",
       "addressCountry": "CH",
       "country": "CH",
@@ -7313,6 +7366,7 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:09:21.325Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -7357,7 +7411,7 @@
       "url": "https://jobs.mobiliar.ch/job/Winterthur-KV-Lehrstelle-EFZ-2027-Generalagentur-Winterthur/1164471155/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:20:56.653Z",
+      "crawledAt": "2026-05-27T23:49:12.293Z",
       "addressLocality": "Generalagentur Winterthur",
       "addressCountry": "CH",
       "country": "CH",
@@ -7410,8 +7464,7 @@
           "maxValue": 63000,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 1
+      }
     },
     {
       "id": "mobiliar-2d3b1bf0fcef",
@@ -7444,7 +7497,7 @@
       "url": "https://jobs.mobiliar.ch/job/Conseiller-%C3%A8re-en-assurances%2C-pr%C3%A9voyance-et-hypoth%C3%A8ques-%C3%A0-l'agence-g%C3%A9n%C3%A9rale-Lausanne-Nord-vaudois/1163725955/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-27T13:20:55.794Z",
+      "crawledAt": "2026-05-27T23:49:11.390Z",
       "addressLocality": "Conseiller",
       "addressCountry": "CH",
       "country": "CH",
@@ -7470,6 +7523,7 @@
         ]
       },
       "firstSeenAt": "2026-05-17T10:47:49.813Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -7514,7 +7568,7 @@
       "url": "https://jobs.mobiliar.ch/job/Bern-SAFe-Portfolio-of-Portfolios-Flow-Lead-%28wmd%29/1164131055/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:20:54.964Z",
+      "crawledAt": "2026-05-27T23:49:10.472Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -7544,6 +7598,7 @@
       },
       "sfJobId": "1164131055",
       "firstSeenAt": "2026-05-10T22:09:18.269Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -7589,7 +7644,7 @@
       "url": "https://jobs.mobiliar.ch/job/Versicherungs-und-Vorsorgeberater-%28wmd%29-Generalagentur-Rheintal/1163417355/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:20:54.025Z",
+      "crawledAt": "2026-05-27T23:49:09.573Z",
       "addressLocality": "Versicherungs",
       "addressCountry": "CH",
       "country": "CH",
@@ -7639,8 +7694,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 1
+      }
     }
   ]
 }
