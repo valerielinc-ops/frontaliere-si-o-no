@@ -1,18 +1,55 @@
 {
   "key": "pdag",
   "label": "Psychiatrische Dienste Aargau (PDAG)",
-  "generatedAt": "2026-05-26T23:50:05.170Z",
+  "generatedAt": "2026-05-27T13:28:53.775Z",
   "total": 10,
-  "newCount": 0,
-  "updatedCount": 10,
-  "removedCount": 0,
+  "newCount": 1,
+  "updatedCount": 9,
+  "removedCount": 1,
   "unchangedCount": 0,
-  "durationMs": 14907,
-  "avgDurationMs": 14907,
+  "durationMs": 16056,
+  "avgDurationMs": 16056,
   "durationHistory": [
-    14907
+    16056
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "id": "pdag-c50abfdc7357",
+      "slug": "dipl-pflegefachfrau-pflegefachmann-hf-fh-nachtwachen-equipe-pdag-windisch",
+      "company": "Psychiatrische Dienste Aargau (PDAG)",
+      "companyKey": "pdag",
+      "companyDomain": "pdag.ch",
+      "title": "Dipl. Pflegefachfrau / Pflegefachmann HF/FH Nachtwachen-Equipe",
+      "needsRetranslation": true,
+      "location": "Windisch",
+      "canton": "AG",
+      "url": "https://recruitingapp-22705.umantis.com/Vacancies/4002/Application/CheckLogin/1",
+      "source": "Psychiatrische Dienste Aargau (PDAG) Dedicated Parser (Umantis listing tenant 22705)",
+      "sourceLang": "de",
+      "crawledAt": "2026-05-27T13:28:42.222Z",
+      "addressLocality": "Windisch",
+      "addressRegion": "AG",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "5210",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-27",
+      "applyUrl": "https://recruitingapp-22705.umantis.com/Vacancies/4002/Application/CheckLogin/1",
+      "_qualityScore": 56,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 10,
+        "translation": 4,
+        "completeness": 17
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "id": "pdag-ad1c8545c058",
@@ -27,7 +64,7 @@
       "url": "https://recruitingapp-22705.umantis.com/Vacancies/3997/Application/CheckLogin/1",
       "source": "Psychiatrische Dienste Aargau (PDAG) Dedicated Parser (Umantis listing tenant 22705)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-26T23:49:54.537Z",
+      "crawledAt": "2026-05-27T13:28:43.307Z",
       "addressLocality": "Windisch",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -64,7 +101,7 @@
       "url": "https://recruitingapp-22705.umantis.com/Vacancies/3989/Application/CheckLogin/1",
       "source": "Psychiatrische Dienste Aargau (PDAG) Dedicated Parser (Umantis listing tenant 22705)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-26T23:49:55.428Z",
+      "crawledAt": "2026-05-27T13:28:44.232Z",
       "addressLocality": "Windisch",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -101,7 +138,7 @@
       "url": "https://recruitingapp-22705.umantis.com/Vacancies/3919/Application/CheckLogin/1",
       "source": "Psychiatrische Dienste Aargau (PDAG) Dedicated Parser (Umantis listing tenant 22705)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-26T23:49:56.260Z",
+      "crawledAt": "2026-05-27T13:28:45.532Z",
       "addressLocality": "Windisch",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -138,7 +175,7 @@
       "url": "https://recruitingapp-22705.umantis.com/Vacancies/3998/Application/CheckLogin/1",
       "source": "Psychiatrische Dienste Aargau (PDAG) Dedicated Parser (Umantis listing tenant 22705)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-26T23:49:57.053Z",
+      "crawledAt": "2026-05-27T13:28:46.345Z",
       "addressLocality": "Windisch",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -175,7 +212,7 @@
       "url": "https://recruitingapp-22705.umantis.com/Vacancies/3994/Application/CheckLogin/1",
       "source": "Psychiatrische Dienste Aargau (PDAG) Dedicated Parser (Umantis listing tenant 22705)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-26T23:49:58.374Z",
+      "crawledAt": "2026-05-27T13:28:47.262Z",
       "addressLocality": "Windisch",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -212,7 +249,7 @@
       "url": "https://recruitingapp-22705.umantis.com/Vacancies/3781/Application/CheckLogin/1",
       "source": "Psychiatrische Dienste Aargau (PDAG) Dedicated Parser (Umantis listing tenant 22705)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-26T23:49:59.240Z",
+      "crawledAt": "2026-05-27T13:28:48.164Z",
       "addressLocality": "Windisch",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -249,7 +286,7 @@
       "url": "https://recruitingapp-22705.umantis.com/Vacancies/3831/Application/CheckLogin/1",
       "source": "Psychiatrische Dienste Aargau (PDAG) Dedicated Parser (Umantis listing tenant 22705)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-26T23:50:00.335Z",
+      "crawledAt": "2026-05-27T13:28:49.169Z",
       "addressLocality": "Windisch",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -286,7 +323,7 @@
       "url": "https://recruitingapp-22705.umantis.com/Vacancies/3988/Application/CheckLogin/1",
       "source": "Psychiatrische Dienste Aargau (PDAG) Dedicated Parser (Umantis listing tenant 22705)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-26T23:50:01.123Z",
+      "crawledAt": "2026-05-27T13:28:50.112Z",
       "addressLocality": "Windisch",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -323,7 +360,7 @@
       "url": "https://recruitingapp-22705.umantis.com/Vacancies/3990/Application/CheckLogin/1",
       "source": "Psychiatrische Dienste Aargau (PDAG) Dedicated Parser (Umantis listing tenant 22705)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-26T23:50:02.017Z",
+      "crawledAt": "2026-05-27T13:28:51.636Z",
       "addressLocality": "Windisch",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -346,10 +383,12 @@
         "translation": 25,
         "completeness": 17
       }
-    },
+    }
+  ],
+  "removedJobs": [
     {
       "id": "pdag-a87c93dfedc9",
-      "slug": "leitende-arztin-leitender-arzt-pdag-windisch",
+      "slug": "medico-a-capo-psychiatrische-dienste-aargau-pdag-windisch",
       "company": "Psychiatrische Dienste Aargau (PDAG)",
       "companyKey": "pdag",
       "companyDomain": "pdag.ch",
@@ -376,15 +415,16 @@
       "postedDate": "2026-05-25",
       "applyUrl": "https://recruitingapp-22705.umantis.com/Vacancies/3980/Application/CheckLogin/1",
       "firstSeenAt": "2026-05-25T13:38:49.709Z",
-      "_qualityScore": 77,
+      "salaryMin": 68000,
+      "salaryMax": 103000,
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 10,
         "translation": 25,
-        "completeness": 17
+        "completeness": 22
       }
     }
   ],
-  "removedJobs": [],
   "unchangedJobs": []
 }
