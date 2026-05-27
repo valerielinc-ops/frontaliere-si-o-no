@@ -848,12 +848,12 @@
     },
     {
       "id": "zuger-kantonsspital-1152fdc09210",
-      "slug": "pflegefachperson-hf-fh-per-das-nachdiplomstudium-in-intensivpflege-nds-hf-zuger-kantonsspital-baar",
+      "slug": "infermiere-sss-sup-per-gli-studi-post-diploma-in-terapia-intensiva-nds-sss-zuger-kantonsspital-baar",
       "slugByLocale": {
         "de": "pflegefachperson-hf-fh-fur-das-nachdiplomstudium-in-intensivpflege-nds-hf-zuger",
-        "it": "pflegefachperson-hf-fh-per-das-nachdiplomstudium-in-intensivpflege-nds-hf-zuger-kantonsspital-baar",
-        "en": "pflegefachperson-hf-fh-fur-das-nachdiplomstudium-in-intensivpflege-nds-hf-zuger",
-        "fr": "pflegefachperson-hf-fh-fur-das-nachdiplomstudium-in-intensivpflege-nds-hf-zuger"
+        "it": "infermiere-sss-sup-per-gli-studi-post-diploma-in-terapia-intensiva-nds-sss-zuger-kantonsspital-baar",
+        "en": "nursing-specialist-hf-fh-for-postgraduate-studies-in-intensive-care-nds-hf-zuger-kantonsspital-baar",
+        "fr": "infirmiere-hf-hes-pour-les-etudes-postgrades-en-soins-intensifs-nds-hf-zuger-kantonsspital-baar"
       },
       "company": "Zuger Kantonsspital",
       "companyKey": "zuger-kantonsspital",
@@ -898,11 +898,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "pflegefachperson-hf-fh-fur-das-nachdiplomstudium-in-intensivpflege-nds-hf-zuger",
+          "pflegefachperson-hf-fh-per-das-nachdiplomstudium-in-intensivpflege-nds-hf-zuger-kantonsspital-baar"
+        ],
+        "en": [
+          "pflegefachperson-hf-fh-fur-das-nachdiplomstudium-in-intensivpflege-nds-hf-zuger"
+        ],
+        "fr": [
           "pflegefachperson-hf-fh-fur-das-nachdiplomstudium-in-intensivpflege-nds-hf-zuger"
         ]
       },
       "previousSlugs": [
-        "pflegefachperson-hf-fh-fur-das-nachdiplomstudium-in-intensivpflege-nds-hf-zuger"
+        "pflegefachperson-hf-fh-fur-das-nachdiplomstudium-in-intensivpflege-nds-hf-zuger",
+        "pflegefachperson-hf-fh-per-das-nachdiplomstudium-in-intensivpflege-nds-hf-zuger-kantonsspital-baar"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,

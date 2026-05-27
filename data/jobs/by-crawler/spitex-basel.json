@@ -945,7 +945,7 @@
       "id": "spitex-basel-8797ecb8f0c4",
       "slug": "capo-dello-sviluppo-tecnico-membro-della-direzione-a-spitex-basel-basel",
       "slugByLocale": {
-        "it": "responsabile-sviluppo-specialistico-membro-della-direzione-spitex-basel-basel",
+        "it": "capo-dello-sviluppo-tecnico-membro-della-direzione-a-spitex-basel-basel",
         "en": "head-of-technical-development-member-of-management-a-spitex-basel-basel",
         "de": "leiterin-leiter-fachentwicklung-mitglied-der-geschaftsleitung-a-spitex-basel-weitere",
         "fr": "chef-du-developpement-technique-membre-de-la-direction-a-spitex-basel-basel"
@@ -1019,15 +1019,14 @@
       },
       "previousSlugs": [
         "leiterin-leiter-fachentwicklung-mitglied-der-geschaftsleitung-a-spitex-basel-weitere",
+        "responsabile-sviluppo-specialistico-membro-della-direzione-spitex-basel-basel",
         "head-of-specialty-development-member-of-the-executive-board-spitex-basel-basel",
-        "responsable-du-developpement-specialise-membre-de-la-direction-spitex-basel-basel",
-        "capo-dello-sviluppo-tecnico-membro-della-direzione-a-spitex-basel-basel",
-        "head-of-technical-development-member-of-management-a-spitex-basel-basel",
-        "chef-du-developpement-technique-membre-de-la-direction-a-spitex-basel-basel"
+        "responsable-du-developpement-specialise-membre-de-la-direction-spitex-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "leiterin-leiter-fachentwicklung-mitglied-der-geschaftsleitung-a-spitex-basel-weitere"
+          "leiterin-leiter-fachentwicklung-mitglied-der-geschaftsleitung-a-spitex-basel-weitere",
+          "responsabile-sviluppo-specialistico-membro-della-direzione-spitex-basel-basel"
         ],
         "en": [
           "head-of-specialty-development-member-of-the-executive-board-spitex-basel-basel"
@@ -1054,7 +1053,7 @@
       "id": "spitex-basel-560f55845b87",
       "slug": "esperto-di-risorse-umane-esperto-di-risorse-umane-50-a-spitex-basel-basel",
       "slugByLocale": {
-        "it": "hr-assistente-50-a-spitex-basel-basel",
+        "it": "esperto-di-risorse-umane-esperto-di-risorse-umane-50-a-spitex-basel-basel",
         "en": "hr-expert-hr-expert-50-a-spitex-basel-basel",
         "de": "hr-sachbearbeiterin-hr-sachbearbeiter-50-a-spitex-basel-weitere-berufsgruppen",
         "fr": "ressources-humaines-sachbearbeiterin-ressources-humaines-sachbearbeiter-50-a-spitex-basel-basel"
@@ -1125,16 +1124,15 @@
       },
       "previousSlugs": [
         "hr-sachbearbeiterin-hr-sachbearbeiter-50-a-spitex-basel-weitere-berufsgruppen",
+        "hr-assistente-50-a-spitex-basel-basel",
         "hr-assistant-50-a-spitex-basel-basel",
         "expert-en-rh-expert-en-rh-50-a-spitex-basel-basel",
-        "assistant-e-rh-50-a-spitex-basel-basel",
-        "esperto-di-risorse-umane-esperto-di-risorse-umane-50-a-spitex-basel-basel",
-        "hr-expert-hr-expert-50-a-spitex-basel-basel",
-        "ressources-humaines-sachbearbeiterin-ressources-humaines-sachbearbeiter-50-a-spitex-basel-basel"
+        "assistant-e-rh-50-a-spitex-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "hr-sachbearbeiterin-hr-sachbearbeiter-50-a-spitex-basel-weitere-berufsgruppen"
+          "hr-sachbearbeiterin-hr-sachbearbeiter-50-a-spitex-basel-weitere-berufsgruppen",
+          "hr-assistente-50-a-spitex-basel-basel"
         ],
         "en": [
           "hr-assistant-50-a-spitex-basel-basel"
@@ -1255,12 +1253,12 @@
     },
     {
       "id": "spitex-basel-a98f5d86f221",
-      "slug": "diplomierte-pflegefachperson-hf-fh-schwerpunkt-psychiatrie-ohne-nachtdienste-a-spitex",
+      "slug": "infermiera-laureata-hf-fh-concentrarsi-sulla-psichiatria-senza-servizi-notturni-a-spitex-basel-basel",
       "slugByLocale": {
         "de": "diplomierte-pflegefachperson-hf-fh-schwerpunkt-psychiatrie-ohne-nachtdienste-a-spitex",
-        "it": "diplomierte-pflegefachperson-hf-fh-schwerpunkt-psychiatrie-ohne-nachtdienste-a-spitex",
-        "en": "diplomierte-pflegefachperson-hf-fh-schwerpunkt-psychiatrie-ohne-nachtdienste-a-spitex",
-        "fr": "diplomierte-pflegefachperson-hf-fh-schwerpunkt-psychiatrie-ohne-nachtdienste-a-spitex"
+        "it": "infermiera-laureata-hf-fh-concentrarsi-sulla-psichiatria-senza-servizi-notturni-a-spitex-basel-basel",
+        "en": "graduated-nurse-hf-fh-focus-on-psychiatry-without-night-services-a-spitex-basel-basel",
+        "fr": "infirmiere-diplomee-hf-fh-se-concentrer-sur-la-psychiatrie-sans-services-de-nuit-a-spitex-basel-basel"
       },
       "company": "SPITEX BASEL",
       "companyKey": "spitex-basel",
@@ -1315,16 +1313,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-27T00:19:49.858Z"
+      "firstSeenAt": "2026-05-27T00:19:49.858Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "diplomierte-pflegefachperson-hf-fh-schwerpunkt-psychiatrie-ohne-nachtdienste-a-spitex"
+        ],
+        "en": [
+          "diplomierte-pflegefachperson-hf-fh-schwerpunkt-psychiatrie-ohne-nachtdienste-a-spitex"
+        ],
+        "fr": [
+          "diplomierte-pflegefachperson-hf-fh-schwerpunkt-psychiatrie-ohne-nachtdienste-a-spitex"
+        ]
+      },
+      "previousSlugs": [
+        "diplomierte-pflegefachperson-hf-fh-schwerpunkt-psychiatrie-ohne-nachtdienste-a-spitex"
+      ]
     },
     {
       "id": "spitex-basel-87a4586ed233",
-      "slug": "fachperson-gesundheit-fage-kinder-spitex-padiatrie-a-spitex-basel-pflege",
+      "slug": "salute-specialistica-fage-kinder-spitex-padiatrie-a-spitex-basel-basel",
       "slugByLocale": {
         "de": "fachperson-gesundheit-fage-kinder-spitex-padiatrie-a-spitex-basel-pflege",
-        "it": "fachperson-gesundheit-fage-kinder-spitex-padiatrie-a-spitex-basel-pflege",
-        "en": "fachperson-gesundheit-fage-kinder-spitex-padiatrie-a-spitex-basel-pflege",
-        "fr": "fachperson-gesundheit-fage-kinder-spitex-padiatrie-a-spitex-basel-pflege"
+        "it": "salute-specialistica-fage-kinder-spitex-padiatrie-a-spitex-basel-basel",
+        "en": "specialist-health-fage-kinder-spitex-padiatrie-a-spitex-basel-basel",
+        "fr": "specialiste-de-la-sante-fage-kinder-spitex-padiatrie-a-spitex-basel-basel"
       },
       "company": "SPITEX BASEL",
       "companyKey": "spitex-basel",
@@ -1379,7 +1391,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-27T00:19:49.834Z"
+      "firstSeenAt": "2026-05-27T00:19:49.834Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachperson-gesundheit-fage-kinder-spitex-padiatrie-a-spitex-basel-pflege"
+        ],
+        "en": [
+          "fachperson-gesundheit-fage-kinder-spitex-padiatrie-a-spitex-basel-pflege"
+        ],
+        "fr": [
+          "fachperson-gesundheit-fage-kinder-spitex-padiatrie-a-spitex-basel-pflege"
+        ]
+      },
+      "previousSlugs": [
+        "fachperson-gesundheit-fage-kinder-spitex-padiatrie-a-spitex-basel-pflege"
+      ]
     }
   ]
 }
