@@ -1,6 +1,6 @@
 {
   "crawlerKey": "migros-ticino",
-  "assembledAt": "2026-05-27T13:18:31.173Z",
+  "assembledAt": "2026-05-27T23:46:39.441Z",
   "jobs": [
     {
       "id": "company-idyjw7",
@@ -124,7 +124,8 @@
       },
       "previousSlugs": [
         "stellvertreter-in-der-filialleiterin-genossenschaft-migros-wallis-fiesch-idyjw7"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "company-uaypmp",
@@ -227,7 +228,8 @@
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-vls1ix",
@@ -330,7 +332,8 @@
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-kqhv7y",
@@ -441,7 +444,8 @@
       "addressLocality": "Mels",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-pgglsr",
@@ -551,7 +555,8 @@
       "addressLocality": "Chur",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-70fjie",
@@ -667,7 +672,8 @@
       "addressLocality": "Martigny",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-oi85uq",
@@ -737,7 +743,7 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "consulente-clienti-privato-tutti-migros-bank-bellinzona",
+        "it": "consulente-clienti-privato-tutti-migros-bank-chur",
         "en": "private-customer-advisor-all-migros-bank-chur",
         "de": "privatkundenberater-alle-migros-bank-chur",
         "fr": "conseiller-client-prive-tous-migros-bank-chur"
@@ -746,7 +752,8 @@
       "previousSlugsByLocale": {
         "it": [
           "privatkundenberater-alle-migros-bank-chur",
-          "privatkundenberater-alle-migros-bank-chur-oi85uq"
+          "privatkundenberater-alle-migros-bank-chur-oi85uq",
+          "consulente-clienti-privato-tutti-migros-bank-bellinzona"
         ],
         "en": [
           "privatkundenberater-alle-migros-bank-chur-oi85uq",
@@ -764,6 +771,7 @@
       "previousSlugs": [
         "privatkundenberater-alle-migros-bank-chur",
         "privatkundenberater-alle-migros-bank-chur-oi85uq",
+        "consulente-clienti-privato-tutti-migros-bank-bellinzona",
         "privatkundenberater-alle-migros-bank-bellinzona"
       ],
       "salaryMin": 85500,
@@ -783,7 +791,8 @@
       "addressLocality": "Chur",
       "addressRegion": "GR",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-gep1sj",
@@ -855,7 +864,7 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "candidato-a-in-riqualificazione-in-fachverantwortung-genossenschaft-migros-ostschweiz-bellinzona",
+        "it": "candidato-a-in-riqualificazione-in-fachverantwortung-genossenschaft-migros-ostschweiz-chur",
         "en": "quereinsteiger-in-professional-responsibility-genossenschaft-migros-ostschweiz-chur",
         "de": "quereinsteiger-in-fachverantwortung-genossenschaft-migros-ostschweiz-chur",
         "fr": "quereinsteiger-en-responsabilite-professionnelle-genossenschaft-migros-ostschweiz-chur"
@@ -865,7 +874,8 @@
         "it": [
           "quereinsteiger-in-fachverantwortung-genossenschaft-migros-ostschweiz-chur",
           "candidato-a-in-riqualificazione-in-fachverantwortung-genossenschaft-migros-ostschweiz-chur-gep1sj",
-          "quereinsteiger-nella-responsabilita-professionale-genossenschaft-migros-ostschweiz-chur"
+          "quereinsteiger-nella-responsabilita-professionale-genossenschaft-migros-ostschweiz-chur",
+          "candidato-a-in-riqualificazione-in-fachverantwortung-genossenschaft-migros-ostschweiz-bellinzona"
         ],
         "en": [
           "quereinsteiger-in-fachverantwortung-genossenschaft-migros-ostschweiz-chur-gep1sj",
@@ -884,6 +894,7 @@
         "quereinsteiger-in-fachverantwortung-genossenschaft-migros-ostschweiz-chur",
         "candidato-a-in-riqualificazione-in-fachverantwortung-genossenschaft-migros-ostschweiz-chur-gep1sj",
         "quereinsteiger-nella-responsabilita-professionale-genossenschaft-migros-ostschweiz-chur",
+        "candidato-a-in-riqualificazione-in-fachverantwortung-genossenschaft-migros-ostschweiz-bellinzona",
         "quereinsteiger-in-fachverantwortung-genossenschaft-migros-ostschweiz-chur-gep1sj",
         "quereinsteiger-in-fachverantwortung-genossenschaft-migros-ostschweiz-bellinzona"
       ],
@@ -904,7 +915,8 @@
       "addressLocality": "Chur",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-di1gox",
@@ -1020,7 +1032,8 @@
       "addressLocality": "Samedan",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-qw8bsd",
@@ -1126,7 +1139,8 @@
       "addressLocality": "Davos-Platz",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-cesv8v",
@@ -1238,7 +1252,8 @@
       "addressLocality": "Landquart",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-djv9rd",
@@ -1363,7 +1378,8 @@
       "addressLocality": "Zermatt",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-ymqwfr",
@@ -1472,7 +1488,8 @@
       "addressLocality": "Chur",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-kfqohq",
@@ -1581,7 +1598,8 @@
       "addressLocality": "Chur",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-j8cfo6",
@@ -1694,7 +1712,8 @@
       "addressLocality": "Samedan",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-773mr0",
@@ -1805,7 +1824,8 @@
       "addressLocality": "Davos-Platz",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-gqels1",
@@ -1921,7 +1941,8 @@
       "addressLocality": "Landquart",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-x38a0r",
@@ -2025,7 +2046,8 @@
       "addressLocality": "Chur",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-fkakbw",
@@ -2142,7 +2164,8 @@
       "addressLocality": "Davos-Platz",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-jlrzns",
@@ -2256,7 +2279,8 @@
       "addressLocality": "Chur",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-cy61c",
@@ -2373,7 +2397,8 @@
       "addressLocality": "Chur",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-r4ocfw",
@@ -2490,7 +2515,8 @@
       "addressLocality": "Chur",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-u2uuy",
@@ -2605,7 +2631,8 @@
       "addressLocality": "Chur",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-7s6gs1",
@@ -2724,7 +2751,8 @@
       "addressLocality": "Martigny",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-cewp3w",
@@ -2833,7 +2861,8 @@
           "consulente-clienti-privati-tutti-generi-banca-migros-lugano"
         ]
       },
-      "firstSeenAt": "2026-03-31T21:31:33.102Z"
+      "firstSeenAt": "2026-03-31T21:31:33.102Z",
+      "needsRetranslation": true
     },
     {
       "id": "company-2ai39p",
@@ -2966,7 +2995,8 @@
           "enseignant-cardio-h-f-d-scuola-club-lugano-scuola-club-migros-lugano"
         ]
       },
-      "firstSeenAt": "2026-03-31T21:31:33.102Z"
+      "firstSeenAt": "2026-03-31T21:31:33.102Z",
+      "needsRetranslation": true
     }
   ]
 }
