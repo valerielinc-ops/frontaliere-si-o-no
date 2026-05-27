@@ -153,6 +153,11 @@ export function useNavigationState(): NavigationState {
  // Refs
  const isInitialMount = useRef(true);
  const suppressNextRouteSyncForTabRef = useRef<ActiveTab | null>(null);
+ // Tracks the route applied in the previous navigation so applyRoute() can
+ // distinguish a true detail→list back-nav (where JobBoard restores its own
+ // scroll) from a fresh entry to the job-board list from an external page
+ // (e.g. clicking a career-landing link). Fresh entries must scroll to top.
+ const prevAppliedRouteRef = useRef<AppRoute | null>(null);
 
  // Eagerly prefetch the active tab's component chunk on initial load
  useEffect(() => { prefetchTab(activeTab); }, []);
@@ -268,11 +273,22 @@ export function useNavigationState(): NavigationState {
  updateMetaTags(seoKey);
  trackSectionView(seoKey);
  }
- // Skip auto-scroll when returning to job-board list — JobBoard restores scroll itself
- const isJobBoardReturn = route.activeTab === 'job-board' && !route.jobSlug;
+ // Skip auto-scroll only on a true detail→list back-nav: previous route was
+ // job-board with a jobSlug and we're now going to job-board with no slug.
+ // JobBoard restores its saved scrollY itself in that case. Fresh entries
+ // from an external page (e.g. career-landing /concorsi-pubblici-lugano/ →
+ // /cerca-lavoro-ticino/?q=…) must scroll to top so the user does not land
+ // at the previous page's scroll position.
+ const prev = prevAppliedRouteRef.current;
+ const isJobBoardReturn =
+   route.activeTab === 'job-board'
+   && !route.jobSlug
+   && prev?.activeTab === 'job-board'
+   && !!prev?.jobSlug;
  if (!isJobBoardReturn && !scrollToAnchor()) {
  window.scrollTo({ top: 0, behavior: 'instant' });
  }
+ prevAppliedRouteRef.current = route;
  }, []);
 
  // Listen for browser back/forward navigation
