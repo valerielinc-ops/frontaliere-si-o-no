@@ -7821,6 +7821,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.arresto-ponte-tresa-100-chili-hashish.title': 'Festnahme in Ponte Tresa: 100 Kilo Haschisch im Auto',
     'blog.article.arresto-ponte-tresa-100-chili-hashish.excerpt': 'Ein 44-jähriger Ukrainer wurde am 22. Mai mit 100 kg Haschisch in einem Auto mit polnischem Kennzeichen auf dem Weg nach Italien gestoppt. Die UDSC und Staatsanwältin Lanzillo haben den Fall übernommen.',
     'blog.article.arresto-ponte-tresa-100-chili-hashish.imageAlt': 'Zollübergang Ponte Tresa, frühe Morgenkontrollen an der Grenze Tessin-Italien',
+    'blog.article.mostre-nuove-virtu-e-limit-padiglione-italiano-guendalina-salimei.title': 'Freiere Ausstellungen: Der italienische Pavillon von Guendalina Salimei',
+    'blog.article.mostre-nuove-virtu-e-limit-padiglione-italiano-guendalina-salimei.excerpt': 'Kunstausstellungen ändern sich: Weniger wissenschaftliche Strenge, mehr Freiheit für die Öffentlichkeit und eine aktive Rolle der Kuratoren. Der italienische Pavillon von Guendalina Salimei ist ein Beispiel dafür.',
+    'blog.article.mostre-nuove-virtu-e-limit-padiglione-italiano-guendalina-salimei.imageAlt': 'Kunstausstellung in einer Galerie im Zentrum von Lugano',
 };
 
 export default blogMetaDe;

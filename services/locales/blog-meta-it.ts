@@ -7823,6 +7823,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.arresto-ponte-tresa-100-chili-hashish.title': 'Arresto a Ponte Tresa: 100 chili di hashish trovati in auto',
     'blog.article.arresto-ponte-tresa-100-chili-hashish.excerpt': '44enne di origini ucraine fermato il 22 maggio con 100 kg di hashish occultati in auto con targa polacca, diretto in Italia. UDSC e Procuratrice Lanzillo al caso.',
     'blog.article.arresto-ponte-tresa-100-chili-hashish.imageAlt': 'Valico doganale di Ponte Tresa, controlli all\'alba sul confine Ticino-Italia',
+    'blog.article.mostre-nuove-virtu-e-limit-padiglione-italiano-guendalina-salimei.title': 'Mostre più libere: il Padiglione italiano di Guendalina Salimei',
+    'blog.article.mostre-nuove-virtu-e-limit-padiglione-italiano-guendalina-salimei.excerpt': 'Le mostre d\'arte stanno cambiando: meno rigore scientifico, più libertà per il pubblico e un ruolo attivo dei curatori. Il Padiglione italiano di Guendalina Salimei ne è un esempio.',
+    'blog.article.mostre-nuove-virtu-e-limit-padiglione-italiano-guendalina-salimei.imageAlt': 'Mostra d\'arte contemporanea in una galleria del centro di Lugano',
 };
 
 export default blogMetaIt;

@@ -3850,6 +3850,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-ucraini-con-permesso-b-preoccupazione': { name: 'Novità', path: '/articoli-frontaliere/ucraini-con-permesso-b-preoccupazione', parent: 'blog' },
     'blog-porrentruy-piscina-frontaliere-tariffe': { name: 'Piscina Porrentruy', path: '/articoli-frontaliere/porrentruy-piscina-frontaliere-tariffe', parent: 'blog' },
     'blog-arresto-ponte-tresa-100-chili-hashish': { name: 'Arresto Ponte Tresa', path: '/articoli-frontaliere/arresto-ponte-tresa-100-chili-hashish', parent: 'blog' },
+    'blog-mostre-nuove-virtu-e-limit-padiglione-italiano-guendalina-salimei': { name: 'Mostre d\'arte', path: '/articoli-frontaliere/mostre-nuove-virtu-e-limit-padiglione-italiano-guendalina-salimei', parent: 'blog' },
  };
 
  const info = sectionNames[section];

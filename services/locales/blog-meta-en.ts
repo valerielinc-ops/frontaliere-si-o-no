@@ -7822,6 +7822,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.arresto-ponte-tresa-100-chili-hashish.title': 'Arrest in Ponte Tresa: 100kg of hashish found in car',
     'blog.article.arresto-ponte-tresa-100-chili-hashish.excerpt': 'A 44-year-old of Ukrainian origin was stopped on May 22 with 100kg of hashish hidden in a car with Polish plates, heading to Italy. The FOC and Prosecutor Lanzillo are handling the case.',
     'blog.article.arresto-ponte-tresa-100-chili-hashish.imageAlt': 'Ponte Tresa customs crossing, early morning controls at the Ticino-Italy border',
+    'blog.article.mostre-nuove-virtu-e-limit-padiglione-italiano-guendalina-salimei.title': 'Freer Exhibitions: Guendalina Salimei\'s Italian Pavilion',
+    'blog.article.mostre-nuove-virtu-e-limit-padiglione-italiano-guendalina-salimei.excerpt': 'Art exhibitions are changing: less scientific rigor, more freedom for the public, and an active role for curators. Guendalina Salimei\'s Italian Pavilion is an example of this.',
+    'blog.article.mostre-nuove-virtu-e-limit-padiglione-italiano-guendalina-salimei.imageAlt': 'Contemporary art exhibition in a gallery in the center of Lugano',
 };
 
 export default blogMetaEn;

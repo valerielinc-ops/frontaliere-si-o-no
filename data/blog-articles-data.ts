@@ -24842,4 +24842,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'mostre-nuove-virtu-e-limit-padiglione-italiano-guendalina-salimei',
+ category: 'novita',
+ date: '2026-05-27T06:07:49.736Z',
+ image: '/images/blog/mostre-nuove-virtu-e-limit-padiglione-italiano-guendalina-salimei.webp',
+ hasCalculator: false,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
