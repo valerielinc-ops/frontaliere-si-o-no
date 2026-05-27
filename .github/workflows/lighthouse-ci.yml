@@ -48,7 +48,7 @@ jobs:
           cache: 'npm'
 
       - name: Run Lighthouse CI against production
-        uses: treosh/lighthouse-ci-action@v10
+        uses: treosh/lighthouse-ci-action@v12
         with:
           # URLs must exist in the live sitemap and serve 200 (no redirect).
           # Lighthouse aborts the whole run on any 404 — see issue
@@ -61,7 +61,11 @@ jobs:
             https://frontaliereticino.ch/prezzi-diesel/chiasso/oggi/
             https://frontaliereticino.ch/premi-cassa-malati/ticino/
             https://frontaliereticino.ch/traffico-dogane/chiasso-brogeda/oggi/
-          budgetPath: ./lighthouse-budget.json
+          # lhci rejects both budgetPath + configPath:assert.assertions
+          # ("Cannot use both budgets AND assertions"). Assertions in
+          # lighthouserc.json supersede budgets — they cover the same
+          # timings plus category-level scores (perf/seo/a11y).
+          # lighthouse-budget.json is kept for reference but no longer wired.
           configPath: ./lighthouserc.json
           uploadArtifacts: true
           temporaryPublicStorage: true
