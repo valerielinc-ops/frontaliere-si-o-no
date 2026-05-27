@@ -186,13 +186,26 @@ export function isJobNew(
 // ── Logo resolution ──────────────────────────────────────────────────
 // Helpers live in ./companyLogoResolver.ts (imported above).
 
-// ── Inline icons (lucide-react parity) ───────────────────────────────
+// ── Inline icons (lucide-react parity, SVG-symbol form) ─────────────
+//
+// Pre-2026-05-27 each card emitted ~5 full <svg>…</svg> blocks (~500 B
+// each) inline. Across ~30 k pages × ~30 cards × ~4 icons/card the wire
+// cost was ~1.5 GB of identical SVG markup. The new form emits the symbol
+// DEFS once per page (`JOB_CARD_ICON_SYMBOLS`, prepended by
+// `renderJobCardListHtml`), and each card uses `<svg …><use href="#i-jc-…"/></svg>`
+// (~150 B vs ~500 B). Net save ≈ 350 B × ~100 icons/page × ~30 k pages
+// ≈ ~1 GB on the dist artifact. Computed render is identical: `<use>` pulls
+// in the path elements from the matching `<symbol>` and inherits stroke,
+// fill, etc. from the parent `<svg>` — same visual output as the prior
+// inline form.
 
-const ICON_EURO = '<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-euro w-3.5 h-3.5" aria-hidden="true"><path d="M4 10h12"></path><path d="M4 14h9"></path><path d="M19 6a7.7 7.7 0 0 0-5.2-2A7.9 7.9 0 0 0 6 12c0 4.4 3.5 8 7.8 8 2 0 3.8-.8 5.2-2"></path></svg>';
-const ICON_MAPPIN = '<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-map-pin w-3 h-3" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"></path><circle cx="12" cy="10" r="3"></circle></svg>';
-const ICON_CLOCK = '<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-clock w-3 h-3" aria-hidden="true"><path d="M12 6v6l4 2"></path><circle cx="12" cy="12" r="10"></circle></svg>';
-const ICON_STAR = '<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-star inline-block w-3.5 h-3.5 ml-1.5 text-warning fill-warning" aria-hidden="true"><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"></path></svg>';
-const ICON_SPARKLES = '<svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sparkles w-2.5 h-2.5" aria-hidden="true"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"></path></svg>';
+export const JOB_CARD_ICON_SYMBOLS = '<svg style="display:none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><symbol id="i-jc-eur" viewBox="0 0 24 24"><path d="M4 10h12"/><path d="M4 14h9"/><path d="M19 6a7.7 7.7 0 0 0-5.2-2A7.9 7.9 0 0 0 6 12c0 4.4 3.5 8 7.8 8 2 0 3.8-.8 5.2-2"/></symbol><symbol id="i-jc-mp" viewBox="0 0 24 24"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></symbol><symbol id="i-jc-cl" viewBox="0 0 24 24"><path d="M12 6v6l4 2"/><circle cx="12" cy="12" r="10"/></symbol><symbol id="i-jc-st" viewBox="0 0 24 24"><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"/></symbol><symbol id="i-jc-sp" viewBox="0 0 24 24"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/></symbol></svg>';
+
+const ICON_EURO = '<svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-euro w-3.5 h-3.5" aria-hidden="true"><use href="#i-jc-eur"/></svg>';
+const ICON_MAPPIN = '<svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-map-pin w-3 h-3" aria-hidden="true"><use href="#i-jc-mp"/></svg>';
+const ICON_CLOCK = '<svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-clock w-3 h-3" aria-hidden="true"><use href="#i-jc-cl"/></svg>';
+const ICON_STAR = '<svg width="14" height="14" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-star inline-block w-3.5 h-3.5 ml-1.5 text-warning fill-warning" aria-hidden="true"><use href="#i-jc-st"/></svg>';
+const ICON_SPARKLES = '<svg width="10" height="10" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sparkles w-2.5 h-2.5" aria-hidden="true"><use href="#i-jc-sp"/></svg>';
 
 // ── Salary formatting ────────────────────────────────────────────────
 
@@ -306,7 +319,14 @@ export function renderJobCardHtml(
   // compliant name than a hand-built label that omits parts of the visible
   // text and uses a separator (—) the visible UI does not show.
 
-  return `<article class="${articleClasses}"><a href="${escHtml(href)}" class="jc-link"><div class="jc-row">${renderLogoSlot(job, logoSrc)}<div class="jc-meta"><h3 class="jc-title">${escHtml(title)}${featuredBadge}${newBadge}</h3><p class="jc-sub">${companyAndLocation}</p>${salaryHtml}</div></div><div class="jc-chips">${locChip}${contractChip}${postedChip}</div></a></article>`;
+  // Site-relative href in the body anchor (browser resolves against the
+  // current document URL → same destination). Spec-required absolute URLs
+  // (canonical, OG, JSON-LD `@id`/`url`, hreflang) live in the page <head>
+  // and are unaffected. Saves ~28 B × ~30 cards/page × ~30 k pages
+  // ≈ ~25 MB on the dist artifact.
+  const relativeHref = href.replace(/^https:\/\/frontaliereticino\.ch/, '');
+
+  return `<article class="${articleClasses}"><a href="${escHtml(relativeHref)}" class="jc-link"><div class="jc-row">${renderLogoSlot(job, logoSrc)}<div class="jc-meta"><h3 class="jc-title">${escHtml(title)}${featuredBadge}${newBadge}</h3><p class="jc-sub">${companyAndLocation}</p>${salaryHtml}</div></div><div class="jc-chips">${locChip}${contractChip}${postedChip}</div></a></article>`;
 }
 
 // ── List renderer ────────────────────────────────────────────────────
@@ -346,5 +366,11 @@ export function renderJobCardListHtml(
       })}</li>`,
     )
     .join('');
-  return `<ul role="list" class="${escHtml(ulClass)}">${cards}</ul>`;
+  // Prepend the SVG symbol DEFS once per list. Each card's `<svg><use>` then
+  // references these symbols by ID. If a page contains more than one card
+  // list the defs appear multiple times — duplicate <symbol> IDs are
+  // tolerated by browsers (first match wins, all are identical) but
+  // increase wire by ~700 B per extra list. The vast majority of hub pages
+  // emit a single list so the cost is one-off per page.
+  return `${JOB_CARD_ICON_SYMBOLS}<ul role="list" class="${escHtml(ulClass)}">${cards}</ul>`;
 }

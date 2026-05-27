@@ -101,7 +101,7 @@ import { resolveCantonSection as sharedResolveCantonSection } from './shared/can
 import { getCityCanton } from './shared/cantonCities';
 import { EMPLOYER_BRANDS } from '../services/employerBrands';
 import { CRAWLED_COMPANY_LOGOS, resolveCompanyLogoUrl } from '../services/jobDataNormalization';
-import { renderJobCardHtml, type JobCardJob } from './shared/jobCardHtml';
+import { renderJobCardHtml, JOB_CARD_ICON_SYMBOLS, type JobCardJob } from './shared/jobCardHtml';
 // Note: resolveFallbackAddress / deriveCantonFromCity are now used indirectly
 // via the canonical `buildJobPostingSchema` builder.
 import { buildJobPostingSchema, type JobInput } from './shared/jobPostingSchema';
@@ -3211,7 +3211,7 @@ export function renderCompanyCityPage(inp: CompanyCityPageInputs): string {
 
   const jobsListHtml =
     stats.activeJobs.length > 0
-      ? `<ol class="s-LqkLeN">${stats.activeJobs
+      ? `${JOB_CARD_ICON_SYMBOLS}<ol class="s-LqkLeN">${stats.activeJobs
           .map((job, idx) => {
             const cardJob: JobCardJob = {
               title: job.title || `${OPEN_POSITION_LABEL[locale]} ${idx + 1}`,
