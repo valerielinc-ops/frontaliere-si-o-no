@@ -7812,6 +7812,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.aumento-beneficiari-rendite-avs-ticino.title': 'Steigerung der AVS-Rentenempfänger im Tessin: +40.400 im Jahr 2025',
     'blog.article.aumento-beneficiari-rendite-avs-ticino.excerpt': 'Die AVS hat im Jahr 2025 2,64 Millionen Renten ausgezahlt, mit +1,6% im Vergleich zum Jahr 2024',
     'blog.article.aumento-beneficiari-rendite-avs-ticino.imageAlt': 'Panoramablick auf Lugano mit See und Bergen',
+    'blog.article.ucraini-con-permesso-b-preoccupazione.title': 'Ukraine-Flüchtlinge: Umstellung auf B-Bewilligung',
+    'blog.article.ucraini-con-permesso-b-preoccupazione.excerpt': 'In Lugano könnte die automatische Umstellung von ukrainischen Flüchtlingen mit S-Schutzstatus auf eine B-Bewilligung im Jahr 2027 Anlass zur Sorge geben.',
+    'blog.article.ucraini-con-permesso-b-preoccupazione.imageAlt': 'Ukrainische Familie in Lugano',
 };
 
 export default blogMetaDe;

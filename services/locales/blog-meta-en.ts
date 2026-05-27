@@ -7813,6 +7813,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.aumento-beneficiari-rendite-avs-ticino.title': 'Increase in AVS pension recipients in Ticino: +40,400 in 2025',
     'blog.article.aumento-beneficiari-rendite-avs-ticino.excerpt': 'The AVS disbursed 2.64 million pensions in 2025, a +1.6% increase from 2024',
     'blog.article.aumento-beneficiari-rendite-avs-ticino.imageAlt': 'Panoramic view of Lugano with lake and mountains',
+    'blog.article.ucraini-con-permesso-b-preoccupazione.title': 'Ukrainians with B permit, concerns arise',
+    'blog.article.ucraini-con-permesso-b-preoccupazione.excerpt': 'In Lugano, the automatic transition of Ukrainian refugees with S protection status to a B permit in 2027 may raise concerns.',
+    'blog.article.ucraini-con-permesso-b-preoccupazione.imageAlt': 'Ukrainian family in Lugano',
 };
 
 export default blogMetaEn;

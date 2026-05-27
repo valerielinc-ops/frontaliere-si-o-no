@@ -40439,6 +40439,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-ucraini-con-permesso-b-preoccupazione': {
+    title: 'Ucraini con permesso B, c\'è preoccupazione? | Frontaliere Ticino',
+    description: 'A Lugano, i rifugiati ucraini con Statuto di protezione S passeranno a un permesso B nel 2027. Cosa significa questo per loro e per la città?. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, ucraini, permesso, preoccupazione, lugano',
+    ogTitle: 'Ucraini con permesso B a Lugano: cosa cambia',
+    ogDescription: 'Il passaggio a un permesso B per i rifugiati ucraini a Lugano potrebbe avere importanti implicazioni sociali ed economiche.',
+    canonicalPath: '/articoli-frontaliere/ucraini-con-permesso-b-preoccupazione',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Ucraini con permesso B, c'è preoccupazione?",
+      "description": "A Lugano, i rifugiati ucraini con Statuto di protezione S passeranno a un permesso B nel 2027. Cosa significa questo per loro e per la città?. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/ucraini-con-permesso-b-preoccupazione.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Familia ucraina a Lugano"
+      },
+      "datePublished": "2026-05-27T02:54:37+00:00",
+      "dateModified": "2026-05-27T02:54:37+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ucraini-con-permesso-b-preoccupazione`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

@@ -24815,4 +24815,13 @@ export const ARTICLES = [
  authorSlug: 'laura-bianchi',
  authorName: 'Laura Bianchi',
  },
+ {
+ id: 'ucraini-con-permesso-b-preoccupazione',
+ category: 'novita',
+ date: '2026-05-27T02:54:36.978Z',
+ image: '/images/blog/ucraini-con-permesso-b-preoccupazione.webp',
+ hasCalculator: false,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

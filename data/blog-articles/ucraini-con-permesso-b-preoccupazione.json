@@ -1,0 +1,18 @@
+{
+  "id": "ucraini-con-permesso-b-preoccupazione",
+  "slug": "ucraini-con-permesso-b-preoccupazione",
+  "publishedAt": "2026-05-27T02:54:38.480Z",
+  "cluster": "pratico",
+  "_pool": "proven",
+  "_pool_source": "ticinonews.ch",
+  "_score_breakdown": {
+    "stage": "cluster",
+    "rawScore": 3.5,
+    "confidence": 0.3,
+    "finalScore": 1.05,
+    "cluster": "pratico",
+    "score": 1.05,
+    "clusterDiversityBonus": 1,
+    "sourceQualityMultiplier": 1
+  }
+}
