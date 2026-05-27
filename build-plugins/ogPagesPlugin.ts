@@ -586,7 +586,7 @@ export function ogPagesPlugin(rootDir: string): Plugin {
  const slug = blogSlugs[art.articleId]?.[locale] ?? art.articleId;
  const indexSlug = blogIndexSlug[locale] ?? 'articoli-frontaliere';
  const prefix = locale === 'it' ? '' : `/${locale}`;
- const href = `${BASE_URL}${prefix}/${indexSlug}/${slug}/`;
+ const href = `${prefix}/${indexSlug}/${slug}/`;
  const title = art.ogT.replace(/\s*\|\s*Frontaliere Ticino\s*$/i, '');
  return `<li class="s-65FRzB"><a class="s-ty-PxH" href="${esc(href)}">${esc(title)}</a></li>`;
  }).join('');

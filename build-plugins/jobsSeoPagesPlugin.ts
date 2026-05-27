@@ -10277,7 +10277,7 @@ ${staticAnalyticsHtml}
  const companyJobsList = sameCompanyActiveJobs.map((j: any) => {
  const jSlug = localizedSlug(j, locale);
  const jPath = `${localePrefix[locale]}/${sectionByLocale[locale]}/${jSlug}`.replace(/\/+/g, '/');
- const jHref = `${BASE_URL}${withSlash(jPath)}`;
+ const jHref = withSlash(jPath);
  const jTitle = String(j?.titleByLocale?.[locale] || j.title || '');
  return `<li><a href="${jHref}">${esc(jTitle)}</a> — ${esc(j.location)}</li>`;
  }).join('');
@@ -10342,7 +10342,7 @@ ${staticAnalyticsHtml}
  const recentList = recentJobs.map((j: any) => {
  const jSlug = localizedSlug(j, locale);
  const jPath = `${localePrefix[locale]}/${sectionByLocale[locale]}/${jSlug}`.replace(/\/+/g, '/');
- const jHref = `${BASE_URL}${withSlash(jPath)}`;
+ const jHref = withSlash(jPath);
  const jTitle = String(j?.titleByLocale?.[locale] || j.title || '');
  const jCompany = String(j.company || '');
  const jLoc = String(j.location || '');
