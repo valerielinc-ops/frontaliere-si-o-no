@@ -71,7 +71,7 @@ const LANDING_SEO_METADATA: Record<string, SEOMetadata> = {
  keywords: 'stipendio netto 40000 chf, calcolo netto frontaliere, simulazione tasse 2026, imposta alla fonte ticino, irpef frontalieri',
  ogTitle: 'Stipendio netto frontaliere 40.000 CHF (2026)',
  ogDescription: 'Con 40.000 CHF lordi/anno, un frontaliere netta circa 2.400–2.600 €/mese dopo AVS, imposta alla fonte e IRPEF (accordo 2026). Simula il tuo netto.',
- canonicalPath: '/calcola-stipendio/stipendio-netto-40000-chf',
+ canonicalPath: '/calcola-stipendio/stipendio-netto-40000-chf/',
  structuredData: [
  {
  '@context': 'https://schema.org',
@@ -90,7 +90,7 @@ const LANDING_SEO_METADATA: Record<string, SEOMetadata> = {
  keywords: 'stipendio netto 60000 chf, calcolo netto frontaliere, simulazione tasse 2026, imposta alla fonte ticino, irpef frontalieri',
  ogTitle: 'Stipendio netto frontaliere 60.000 CHF (2026)',
  ogDescription: 'Con 60.000 CHF lordi/anno, un frontaliere netta circa 3.200–3.500 €/mese dopo AVS, imposta alla fonte e IRPEF (accordo 2026). Simula il tuo netto.',
- canonicalPath: '/calcola-stipendio/stipendio-netto-60000-chf',
+ canonicalPath: '/calcola-stipendio/stipendio-netto-60000-chf/',
  structuredData: [
  {
  '@context': 'https://schema.org',
@@ -109,7 +109,7 @@ const LANDING_SEO_METADATA: Record<string, SEOMetadata> = {
  keywords: 'stipendio netto 80000 chf, calcolo netto frontaliere, simulazione tasse 2026, imposta alla fonte ticino, irpef frontalieri',
  ogTitle: 'Stipendio netto frontaliere 80.000 CHF (2026)',
  ogDescription: 'Con 80.000 CHF lordi/anno, un frontaliere netta circa 4.200–4.600 €/mese dopo AVS, LPP, imposta alla fonte e IRPEF (accordo 2026). Simula il tuo netto.',
- canonicalPath: '/calcola-stipendio/stipendio-netto-80000-chf',
+ canonicalPath: '/calcola-stipendio/stipendio-netto-80000-chf/',
  structuredData: [
  { '@context': 'https://schema.org', '@type': 'WebPage', name: 'Stipendio netto frontaliere 80.000 CHF', url: `${BASE_URL}/calcola-stipendio/stipendio-netto-80000-chf`, description: 'Simulazione netto per 80.000 CHF/anno (accordo 2026).' },
  SALARY_LANDING_FAQ_SCHEMA,
@@ -122,7 +122,7 @@ const LANDING_SEO_METADATA: Record<string, SEOMetadata> = {
  keywords: 'stipendio netto 100000 chf, calcolo netto frontaliere, simulazione tasse 2026, imposta alla fonte ticino, irpef frontalieri',
  ogTitle: 'Stipendio netto frontaliere 100.000 CHF (2026)',
  ogDescription: 'Con 100.000 CHF lordi/anno, un frontaliere netta circa 5.100–5.600 €/mese dopo AVS, LPP e imposta alla fonte (accordo 2026). Simula il tuo netto.',
- canonicalPath: '/calcola-stipendio/stipendio-netto-100000-chf',
+ canonicalPath: '/calcola-stipendio/stipendio-netto-100000-chf/',
  structuredData: [
  { '@context': 'https://schema.org', '@type': 'WebPage', name: 'Stipendio netto frontaliere 100.000 CHF', url: `${BASE_URL}/calcola-stipendio/stipendio-netto-100000-chf`, description: 'Simulazione netto per 100.000 CHF/anno (accordo 2026).' },
  SALARY_LANDING_FAQ_SCHEMA,
@@ -135,7 +135,7 @@ const LANDING_SEO_METADATA: Record<string, SEOMetadata> = {
  keywords: 'stipendio netto 120000 chf, calcolo netto frontaliere, simulazione tasse 2026, imposta alla fonte ticino, irpef frontalieri',
  ogTitle: 'Stipendio netto frontaliere 120.000 CHF (2026)',
  ogDescription: 'Con 120.000 CHF lordi/anno, un frontaliere netta circa 5.900–6.500 €/mese dopo AVS, LPP e imposta alla fonte (accordo 2026). Simula il tuo netto.',
- canonicalPath: '/calcola-stipendio/stipendio-netto-120000-chf',
+ canonicalPath: '/calcola-stipendio/stipendio-netto-120000-chf/',
  structuredData: [
  { '@context': 'https://schema.org', '@type': 'WebPage', name: 'Stipendio netto frontaliere 120.000 CHF', url: `${BASE_URL}/calcola-stipendio/stipendio-netto-120000-chf`, description: 'Simulazione netto per 120.000 CHF/anno (accordo 2026).' },
  SALARY_LANDING_FAQ_SCHEMA,
@@ -148,7 +148,7 @@ const LANDING_SEO_METADATA: Record<string, SEOMetadata> = {
  keywords: 'vecchio frontaliere 60000 chf, imposta alla fonte ticino, netto frontaliere',
  ogTitle: 'Vecchio frontaliere: netto 60.000 CHF',
  ogDescription: 'Simula il netto per 60.000 CHF nel regime vecchio frontaliere.',
- canonicalPath: '/calcola-stipendio/stipendio-netto-60000-chf-vecchio-frontaliere',
+ canonicalPath: '/calcola-stipendio/stipendio-netto-60000-chf-vecchio-frontaliere/',
  structuredData: [
  { '@context': 'https://schema.org', '@type': 'WebPage', name: 'Vecchio frontaliere: netto 60.000 CHF', url: `${BASE_URL}/calcola-stipendio/stipendio-netto-60000-chf-vecchio-frontaliere`, description: 'Simulazione netto vecchio frontaliere per 60.000 CHF.' },
  SALARY_LANDING_FAQ_SCHEMA,
@@ -161,7 +161,7 @@ const LANDING_SEO_METADATA: Record<string, SEOMetadata> = {
  keywords: 'nuovo frontaliere 2026 60000 chf, franchigia 10000, credito imposta, netto frontaliere',
  ogTitle: 'Nuovo frontaliere 2026: netto 60.000 CHF',
  ogDescription: 'Simula il netto per 60.000 CHF nel regime nuovo frontaliere 2026.',
- canonicalPath: '/calcola-stipendio/stipendio-netto-60000-chf-nuovo-frontaliere-2026',
+ canonicalPath: '/calcola-stipendio/stipendio-netto-60000-chf-nuovo-frontaliere-2026/',
  structuredData: [
  { '@context': 'https://schema.org', '@type': 'WebPage', name: 'Nuovo frontaliere 2026: netto 60.000 CHF', url: `${BASE_URL}/calcola-stipendio/stipendio-netto-60000-chf-nuovo-frontaliere-2026`, description: 'Simulazione netto nuovo frontaliere per 60.000 CHF (accordo 2026).' },
  SALARY_LANDING_FAQ_SCHEMA,
@@ -174,7 +174,7 @@ const LANDING_SEO_METADATA: Record<string, SEOMetadata> = {
  keywords: 'vecchio frontaliere 80000 chf, imposta alla fonte ticino, netto frontaliere',
  ogTitle: 'Vecchio frontaliere: netto 80.000 CHF',
  ogDescription: 'Simula il netto per 80.000 CHF nel regime vecchio frontaliere.',
- canonicalPath: '/calcola-stipendio/stipendio-netto-80000-chf-vecchio-frontaliere',
+ canonicalPath: '/calcola-stipendio/stipendio-netto-80000-chf-vecchio-frontaliere/',
  structuredData: [
  { '@context': 'https://schema.org', '@type': 'WebPage', name: 'Vecchio frontaliere: netto 80.000 CHF', url: `${BASE_URL}/calcola-stipendio/stipendio-netto-80000-chf-vecchio-frontaliere`, description: 'Simulazione netto vecchio frontaliere per 80.000 CHF.' },
  SALARY_LANDING_FAQ_SCHEMA,
@@ -187,7 +187,7 @@ const LANDING_SEO_METADATA: Record<string, SEOMetadata> = {
  keywords: 'nuovo frontaliere 2026 80000 chf, franchigia 10000, credito imposta, netto frontaliere',
  ogTitle: 'Nuovo frontaliere 2026: netto 80.000 CHF',
  ogDescription: 'Simula il netto per 80.000 CHF nel regime nuovo frontaliere 2026.',
- canonicalPath: '/calcola-stipendio/stipendio-netto-80000-chf-nuovo-frontaliere-2026',
+ canonicalPath: '/calcola-stipendio/stipendio-netto-80000-chf-nuovo-frontaliere-2026/',
  structuredData: [
  { '@context': 'https://schema.org', '@type': 'WebPage', name: 'Nuovo frontaliere 2026: netto 80.000 CHF', url: `${BASE_URL}/calcola-stipendio/stipendio-netto-80000-chf-nuovo-frontaliere-2026`, description: 'Simulazione netto nuovo frontaliere per 80.000 CHF (accordo 2026).' },
  SALARY_LANDING_FAQ_SCHEMA,
@@ -200,7 +200,7 @@ const LANDING_SEO_METADATA: Record<string, SEOMetadata> = {
  keywords: 'vecchio frontaliere 100000 chf, imposta alla fonte ticino, netto frontaliere',
  ogTitle: 'Vecchio frontaliere: netto 100.000 CHF',
  ogDescription: 'Simula il netto per 100.000 CHF nel regime vecchio frontaliere.',
- canonicalPath: '/calcola-stipendio/stipendio-netto-100000-chf-vecchio-frontaliere',
+ canonicalPath: '/calcola-stipendio/stipendio-netto-100000-chf-vecchio-frontaliere/',
  structuredData: [
  { '@context': 'https://schema.org', '@type': 'WebPage', name: 'Vecchio frontaliere: netto 100.000 CHF', url: `${BASE_URL}/calcola-stipendio/stipendio-netto-100000-chf-vecchio-frontaliere`, description: 'Simulazione netto vecchio frontaliere per 100.000 CHF.' },
  SALARY_LANDING_FAQ_SCHEMA,
@@ -213,7 +213,7 @@ const LANDING_SEO_METADATA: Record<string, SEOMetadata> = {
  keywords: 'nuovo frontaliere 2026 100000 chf, franchigia 10000, credito imposta, netto frontaliere',
  ogTitle: 'Nuovo frontaliere 2026: netto 100.000 CHF',
  ogDescription: 'Simula il netto per 100.000 CHF nel regime nuovo frontaliere 2026.',
- canonicalPath: '/calcola-stipendio/stipendio-netto-100000-chf-nuovo-frontaliere-2026',
+ canonicalPath: '/calcola-stipendio/stipendio-netto-100000-chf-nuovo-frontaliere-2026/',
  structuredData: [
  { '@context': 'https://schema.org', '@type': 'WebPage', name: 'Nuovo frontaliere 2026: netto 100.000 CHF', url: `${BASE_URL}/calcola-stipendio/stipendio-netto-100000-chf-nuovo-frontaliere-2026`, description: 'Simulazione netto nuovo frontaliere per 100.000 CHF (accordo 2026).' },
  SALARY_LANDING_FAQ_SCHEMA,
@@ -226,7 +226,7 @@ const LANDING_SEO_METADATA: Record<string, SEOMetadata> = {
  keywords: 'stipendio netto 60000 chf sposato 2 figli, imposta alla fonte ticino famiglia, irpef frontalieri figli',
  ogTitle: 'Netto 60.000 CHF (sposato, 2 figli)',
  ogDescription: 'Simula il netto per 60.000 CHF con famiglia (2 figli).',
- canonicalPath: '/calcola-stipendio/stipendio-netto-60000-chf-sposato-2-figli',
+ canonicalPath: '/calcola-stipendio/stipendio-netto-60000-chf-sposato-2-figli/',
  structuredData: [
  { '@context': 'https://schema.org', '@type': 'WebPage', name: 'Netto 60.000 CHF: sposato con 2 figli', url: `${BASE_URL}/calcola-stipendio/stipendio-netto-60000-chf-sposato-2-figli`, description: 'Simulazione netto 60.000 CHF per famiglia (2 figli).' },
  SALARY_LANDING_FAQ_SCHEMA,
@@ -239,7 +239,7 @@ const LANDING_SEO_METADATA: Record<string, SEOMetadata> = {
  keywords: 'stipendio netto 80000 chf sposato 2 figli, imposta alla fonte ticino famiglia, irpef frontalieri figli',
  ogTitle: 'Netto 80.000 CHF (sposato, 2 figli)',
  ogDescription: 'Simula il netto per 80.000 CHF con famiglia (2 figli).',
- canonicalPath: '/calcola-stipendio/stipendio-netto-80000-chf-sposato-2-figli',
+ canonicalPath: '/calcola-stipendio/stipendio-netto-80000-chf-sposato-2-figli/',
  structuredData: [
  { '@context': 'https://schema.org', '@type': 'WebPage', name: 'Netto 80.000 CHF: sposato con 2 figli', url: `${BASE_URL}/calcola-stipendio/stipendio-netto-80000-chf-sposato-2-figli`, description: 'Simulazione netto 80.000 CHF per famiglia (2 figli).' },
  SALARY_LANDING_FAQ_SCHEMA,
@@ -252,7 +252,7 @@ const LANDING_SEO_METADATA: Record<string, SEOMetadata> = {
  keywords: 'stipendio netto 100000 chf sposato 2 figli, imposta alla fonte ticino famiglia, irpef frontalieri figli',
  ogTitle: 'Netto 100.000 CHF (sposato, 2 figli)',
  ogDescription: 'Simula il netto per 100.000 CHF con famiglia (2 figli).',
- canonicalPath: '/calcola-stipendio/stipendio-netto-100000-chf-sposato-2-figli',
+ canonicalPath: '/calcola-stipendio/stipendio-netto-100000-chf-sposato-2-figli/',
  structuredData: [
  { '@context': 'https://schema.org', '@type': 'WebPage', name: 'Netto 100.000 CHF: sposato con 2 figli', url: `${BASE_URL}/calcola-stipendio/stipendio-netto-100000-chf-sposato-2-figli`, description: 'Simulazione netto 100.000 CHF per famiglia (2 figli).' },
  SALARY_LANDING_FAQ_SCHEMA,
@@ -265,7 +265,7 @@ const LANDING_SEO_METADATA: Record<string, SEOMetadata> = {
  keywords: 'stipendio netto 80000 chf oltre 20km, distanza residenza frontalieri, simulazione tasse',
  ogTitle: 'Netto 80.000 CHF (oltre 20 km)',
  ogDescription: 'Simula il netto per 80.000 CHF con residenza oltre 20 km.',
- canonicalPath: '/calcola-stipendio/stipendio-netto-80000-chf-residenza-oltre-20km',
+ canonicalPath: '/calcola-stipendio/stipendio-netto-80000-chf-residenza-oltre-20km/',
  structuredData: [
  { '@context': 'https://schema.org', '@type': 'WebPage', name: 'Netto 80.000 CHF: residenza oltre 20 km', url: `${BASE_URL}/calcola-stipendio/stipendio-netto-80000-chf-residenza-oltre-20km`, description: 'Simulazione netto 80.000 CHF con residenza oltre 20 km.' },
  SALARY_LANDING_FAQ_SCHEMA,
@@ -278,7 +278,7 @@ const LANDING_SEO_METADATA: Record<string, SEOMetadata> = {
  keywords: 'stipendio netto 80000 chf entro 20km, distanza residenza frontalieri, simulazione tasse',
  ogTitle: 'Netto 80.000 CHF (entro 20 km)',
  ogDescription: 'Simula il netto per 80.000 CHF con residenza entro 20 km.',
- canonicalPath: '/calcola-stipendio/stipendio-netto-80000-chf-residenza-entro-20km',
+ canonicalPath: '/calcola-stipendio/stipendio-netto-80000-chf-residenza-entro-20km/',
  structuredData: [
  { '@context': 'https://schema.org', '@type': 'WebPage', name: 'Netto 80.000 CHF: residenza entro 20 km', url: `${BASE_URL}/calcola-stipendio/stipendio-netto-80000-chf-residenza-entro-20km`, description: 'Simulazione netto 80.000 CHF con residenza entro 20 km.' },
  SALARY_LANDING_FAQ_SCHEMA,
@@ -291,7 +291,7 @@ const LANDING_SEO_METADATA: Record<string, SEOMetadata> = {
  keywords: 'calcolo tasse frontalieri oltre 20 km, stipendio netto 60000 chf oltre 20km, nuovo frontaliere oltre 20 km, tasse frontaliere distanza confine',
  ogTitle: 'Netto 60.000 CHF (oltre 20 km dal confine)',
  ogDescription: 'Calcolo tasse frontalieri oltre 20 km: simulazione netto per 60.000 CHF/anno con confronto vecchio vs nuovo regime.',
- canonicalPath: '/calcola-stipendio/stipendio-netto-60000-chf-residenza-oltre-20km',
+ canonicalPath: '/calcola-stipendio/stipendio-netto-60000-chf-residenza-oltre-20km/',
  structuredData: [
  { '@context': 'https://schema.org', '@type': 'WebPage', name: 'Calcolo tasse frontaliere 60.000 CHF: residenza oltre 20 km', url: `${BASE_URL}/calcola-stipendio/stipendio-netto-60000-chf-residenza-oltre-20km`, description: 'Simulazione netto frontaliere 60.000 CHF con residenza oltre 20 km dal confine.' },
  SALARY_LANDING_FAQ_SCHEMA,
@@ -305,7 +305,7 @@ const LANDING_SEO_METADATA: Record<string, SEOMetadata> = {
  keywords: 'stipendio netto 60000 chf frontaliere, calcolo tasse frontalieri entro 20 km, stipendio netto 60000 chf entro 20km, vecchio frontaliere entro 20 km, comuni frontiera 20 km',
  ogTitle: 'Netto 60.000 CHF (entro 20 km dal confine)',
  ogDescription: 'Calcolo tasse frontalieri entro 20 km: simulazione netto per 60.000 CHF/anno con vecchio ordinamento.',
- canonicalPath: '/calcola-stipendio/stipendio-netto-60000-chf-residenza-entro-20km',
+ canonicalPath: '/calcola-stipendio/stipendio-netto-60000-chf-residenza-entro-20km/',
  structuredData: [
  { '@context': 'https://schema.org', '@type': 'WebPage', name: 'Calcolo tasse frontaliere 60.000 CHF: residenza entro 20 km', url: `${BASE_URL}/calcola-stipendio/stipendio-netto-60000-chf-residenza-entro-20km`, description: 'Simulazione netto frontaliere 60.000 CHF con residenza entro 20 km dal confine.' },
  SALARY_LANDING_FAQ_SCHEMA,
@@ -318,7 +318,7 @@ const LANDING_SEO_METADATA: Record<string, SEOMetadata> = {
  keywords: 'calcolo tasse frontalieri oltre 20 km, stipendio netto 100000 chf oltre 20km, nuovo frontaliere oltre 20 km, tasse frontaliere alto reddito',
  ogTitle: 'Netto 100.000 CHF (oltre 20 km dal confine)',
  ogDescription: 'Calcolo tasse frontalieri oltre 20 km: simulazione netto per 100.000 CHF/anno. Confronto regimi.',
- canonicalPath: '/calcola-stipendio/stipendio-netto-100000-chf-residenza-oltre-20km',
+ canonicalPath: '/calcola-stipendio/stipendio-netto-100000-chf-residenza-oltre-20km/',
  structuredData: [
  { '@context': 'https://schema.org', '@type': 'WebPage', name: 'Calcolo tasse frontaliere 100.000 CHF: residenza oltre 20 km', url: `${BASE_URL}/calcola-stipendio/stipendio-netto-100000-chf-residenza-oltre-20km`, description: 'Simulazione netto frontaliere 100.000 CHF con residenza oltre 20 km dal confine.' },
  SALARY_LANDING_FAQ_SCHEMA,
@@ -332,7 +332,7 @@ const LANDING_SEO_METADATA: Record<string, SEOMetadata> = {
  keywords: 'stipendio netto 100000 chf frontaliere, calcolo tasse frontalieri entro 20 km, stipendio netto 100000 chf entro 20km, vecchio frontaliere entro 20 km, tasse frontaliere alto reddito',
  ogTitle: 'Netto 100.000 CHF (entro 20 km dal confine)',
  ogDescription: 'Calcolo tasse frontalieri entro 20 km: simulazione netto per 100.000 CHF/anno. Vecchio ordinamento.',
- canonicalPath: '/calcola-stipendio/stipendio-netto-100000-chf-residenza-entro-20km',
+ canonicalPath: '/calcola-stipendio/stipendio-netto-100000-chf-residenza-entro-20km/',
  structuredData: [
  { '@context': 'https://schema.org', '@type': 'WebPage', name: 'Calcolo tasse frontaliere 100.000 CHF: residenza entro 20 km', url: `${BASE_URL}/calcola-stipendio/stipendio-netto-100000-chf-residenza-entro-20km`, description: 'Simulazione netto frontaliere 100.000 CHF con residenza entro 20 km dal confine.' },
  SALARY_LANDING_FAQ_SCHEMA,
@@ -345,7 +345,7 @@ const LANDING_SEO_METADATA: Record<string, SEOMetadata> = {
  keywords: 'calcolo tasse frontalieri oltre 20 km, nuovi frontalieri oltre 20 km, simulazione tasse oltre 20 km, frontalieri oltre 20 km tasse 2026, calcolo netto oltre 20 km, confronto entro oltre 20 km, nuovo frontaliere oltre 20 km',
  ogTitle: 'Calcolo tasse frontalieri oltre 20 km | Simulazione 2026',
  ogDescription: 'Calcolo tasse frontalieri oltre 20 km: simulazione netto, casi pratici e confronto entro/oltre 20 km.',
- canonicalPath: '/calcola-stipendio/nuovi-frontalieri-oltre-20-km',
+ canonicalPath: '/calcola-stipendio/nuovi-frontalieri-oltre-20-km/',
  structuredData: [
  {
  '@context': 'https://schema.org',
@@ -405,7 +405,7 @@ const LANDING_SEO_METADATA: Record<string, SEOMetadata> = {
  keywords: 'confronto netto 2025 2026 frontalieri, frontalieri entro 20 km, calcolo tasse frontalieri 2026',
  ogTitle: 'Confronto netto 2025 vs 2026 (entro 20 km)',
  ogDescription: 'Simulazione confronto netto anno su anno per frontalieri entro 20 km.',
- canonicalPath: '/calcola-stipendio/confronto-netto-2025-2026-entro-20km',
+ canonicalPath: '/calcola-stipendio/confronto-netto-2025-2026-entro-20km/',
  structuredData: [
  { '@context': 'https://schema.org', '@type': 'WebPage', name: 'Confronto netto 2025 vs 2026 entro 20 km', url: `${BASE_URL}/calcola-stipendio/confronto-netto-2025-2026-entro-20km`, description: 'Confronto netto frontaliere anno su anno (entro 20 km).' },
  SALARY_LANDING_FAQ_SCHEMA,
@@ -418,7 +418,7 @@ const LANDING_SEO_METADATA: Record<string, SEOMetadata> = {
  keywords: 'permit g vs b frontalieri, confronto netto permit g permit b, frontalieri entro 20 km',
  ogTitle: 'Permit G vs B (entro 20 km)',
  ogDescription: 'Confronto netto tra Permit G e Permit B per frontalieri entro 20 km.',
- canonicalPath: '/calcola-stipendio/confronto-permesso-g-vs-b-entro-20km',
+ canonicalPath: '/calcola-stipendio/confronto-permesso-g-vs-b-entro-20km/',
  structuredData: [
  { '@context': 'https://schema.org', '@type': 'WebPage', name: 'Confronto Permit G vs B entro 20 km', url: `${BASE_URL}/calcola-stipendio/confronto-permesso-g-vs-b-entro-20km`, description: 'Confronto netto Permit G vs B per frontalieri entro 20 km.' },
  SALARY_LANDING_FAQ_SCHEMA,
@@ -431,7 +431,7 @@ const LANDING_SEO_METADATA: Record<string, SEOMetadata> = {
  keywords: 'confronto netto 2025 2026 frontalieri oltre 20 km, calcolo tasse frontalieri oltre 20 km',
  ogTitle: 'Confronto netto 2025 vs 2026 (oltre 20 km)',
  ogDescription: 'Simulazione confronto netto anno su anno per frontalieri oltre 20 km.',
- canonicalPath: '/calcola-stipendio/confronto-netto-2025-2026-oltre-20km',
+ canonicalPath: '/calcola-stipendio/confronto-netto-2025-2026-oltre-20km/',
  structuredData: [
  { '@context': 'https://schema.org', '@type': 'WebPage', name: 'Confronto netto 2025 vs 2026 oltre 20 km', url: `${BASE_URL}/calcola-stipendio/confronto-netto-2025-2026-oltre-20km`, description: 'Confronto netto frontaliere anno su anno (oltre 20 km).' },
  SALARY_LANDING_FAQ_SCHEMA,
@@ -444,7 +444,7 @@ const LANDING_SEO_METADATA: Record<string, SEOMetadata> = {
  keywords: 'permit g vs b frontalieri oltre 20 km, confronto netto permit g permit b',
  ogTitle: 'Permit G vs B (oltre 20 km)',
  ogDescription: 'Confronto netto tra Permit G e Permit B per frontalieri oltre 20 km.',
- canonicalPath: '/calcola-stipendio/confronto-permesso-g-vs-b-oltre-20km',
+ canonicalPath: '/calcola-stipendio/confronto-permesso-g-vs-b-oltre-20km/',
  structuredData: [
  { '@context': 'https://schema.org', '@type': 'WebPage', name: 'Confronto Permit G vs B oltre 20 km', url: `${BASE_URL}/calcola-stipendio/confronto-permesso-g-vs-b-oltre-20km`, description: 'Confronto netto Permit G vs B per frontalieri oltre 20 km.' },
  SALARY_LANDING_FAQ_SCHEMA,
