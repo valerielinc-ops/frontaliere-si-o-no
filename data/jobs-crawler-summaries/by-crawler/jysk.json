@@ -1,21 +1,21 @@
 {
   "key": "jysk",
   "label": "JYSK",
-  "generatedAt": "2026-05-27T12:59:26.252Z",
+  "generatedAt": "2026-05-27T23:20:46.935Z",
   "total": 17,
   "newCount": 1,
   "updatedCount": 8,
   "removedCount": 1,
   "unchangedCount": 8,
-  "durationMs": 31562,
-  "avgDurationMs": 31562,
+  "durationMs": 28515,
+  "avgDurationMs": 28515,
   "durationHistory": [
-    31562
+    28515
   ],
   "newJobs": [
     {
-      "id": "company-esp7om",
-      "slug": "apprendista-impiegato-a-del-commercio-al-dettaglio-cfc-a-in-der-filiale-schattdorf-jysk-schattdorf-esp7om",
+      "id": "company-qrsmyr",
+      "slug": "apprendista-impiegato-a-del-commercio-al-dettaglio-cfc-a-in-der-filiale-schattdorf-jysk-schattdorf-qrsmyr",
       "company": "JYSK",
       "title": "Lernende Detailhandelsfachfrau/-mann EFZ (a) in der Filiale Schattdorf",
       "location": "Schattdorf",
@@ -24,13 +24,13 @@
       "contract": "full-time",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-05-18",
-      "url": "https://jobs.de.jysk.ch/offene-stellen/lernende-detailhandelsfachfrau-mann-efz-der-filiale-schattdorf-0",
+      "postedDate": "2026-04-25",
+      "url": "https://jobs.de.jysk.ch/offene-stellen/lernende-detailhandelsfachfrau-mann-efz-der-filiale-schattdorf",
       "source": "Company Careers Crawler",
       "companyKey": "jysk",
       "companyDomain": "jysk.ch",
-      "crawledAt": "2026-05-27T12:59:25.794Z",
-      "firstSeenAt": "2026-05-27T12:59:25.794Z",
+      "crawledAt": "2026-05-27T23:20:46.427Z",
+      "firstSeenAt": "2026-05-27T23:20:46.427Z",
       "sourceLang": "de",
       "_qualityScore": 82,
       "_qualityBreakdown": {
@@ -277,8 +277,8 @@
   ],
   "removedJobs": [
     {
-      "id": "company-qrsmyr",
-      "slug": "efz-a-nel-ramo-schattdorf-jysk-schattdorf",
+      "id": "company-esp7om",
+      "slug": "apprendista-impiegato-a-del-commercio-al-dettaglio-cfc-a-in-der-filiale-schattdorf-jysk-schattdorf-esp7om",
       "company": "JYSK",
       "title": "Lernende Detailhandelsfachfrau/-mann EFZ (a) in der Filiale Schattdorf",
       "location": "Schattdorf",
@@ -287,22 +287,22 @@
       "contract": "full-time",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-04-25",
-      "url": "https://jobs.de.jysk.ch/offene-stellen/lernende-detailhandelsfachfrau-mann-efz-der-filiale-schattdorf",
+      "postedDate": "2026-05-18",
+      "url": "https://jobs.de.jysk.ch/offene-stellen/lernende-detailhandelsfachfrau-mann-efz-der-filiale-schattdorf-0",
       "source": "Company Careers Crawler",
       "companyKey": "jysk",
       "companyDomain": "jysk.ch",
-      "crawledAt": "2026-05-26T23:13:59.528Z",
-      "firstSeenAt": "2026-05-26T23:13:59.528Z",
+      "crawledAt": "2026-05-27T12:59:25.794Z",
+      "firstSeenAt": "2026-05-27T12:59:25.794Z",
       "sourceLang": "de",
       "salaryMin": 41600,
       "salaryMax": 63000,
       "employmentType": "FULL_TIME",
-      "_qualityScore": 91,
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 25,
+        "translation": 21,
         "completeness": 19
       }
     }
