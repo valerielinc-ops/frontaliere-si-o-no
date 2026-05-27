@@ -1,18 +1,49 @@
 {
   "key": "damiani-group",
   "label": "Damiani Group",
-  "generatedAt": "2026-05-27T12:20:22.237Z",
-  "total": 3,
-  "newCount": 0,
+  "generatedAt": "2026-05-27T22:45:37.762Z",
+  "total": 4,
+  "newCount": 1,
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 3721,
-  "avgDurationMs": 3721,
+  "durationMs": 5641,
+  "avgDurationMs": 5641,
   "durationHistory": [
-    3721
+    5641
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "title": "Ecommerce Merchandising Specialist",
+      "slug": "ecommerce-merchandising-specialist-damiani-group-mendrisio",
+      "url": "https://careers.damianigroup.com/job/Mendrisio-Ecommerce-Merchandising-Specialist/1353588155/",
+      "applyUrl": "https://careers.damianigroup.com/talentcommunity/apply/1353588155/?locale=en_US",
+      "company": "Damiani Group",
+      "companyKey": "damiani-group",
+      "companyDomain": "damianigroup.com",
+      "location": "Mendrisio",
+      "addressLocality": "Mendrisio",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "category": "other",
+      "sector": "Lusso & Gioielleria",
+      "source": "damiani-dedicated-crawler",
+      "sourceLang": "en",
+      "postedDate": "2026-05-27",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "2026-05-27",
+      "_qualityScore": 73,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 10,
+        "completeness": 14
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "title": "IT Business Intelligence Specialist",
