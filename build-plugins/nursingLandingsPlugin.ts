@@ -51,8 +51,6 @@ import { buildSeoPageHtml } from './shared/seoPageShell';
 import { WriteCollector } from './batchWrite';
 import { imageObjectLd } from '../services/seo/imageObjectLd';
 import {
-  CTA_PRIMARY_STYLE,
-  CARD_STYLE,
   LINK_ACCENT_STYLE,
   HERO_EYEBROW_STYLE,
   H1_STYLE,
@@ -245,7 +243,7 @@ function renderFeaturedJobs(
     } satisfies JobCardJob,
     href: buildFeaturedJobUrl(j, locale),
   }));
-  const emptyHtml = `<p style="${CARD_STYLE};color:var(--color-subtle);font-size:14px;margin:0">${esc(pickEmptyState(id, locale))}</p>`;
+  const emptyHtml = `<p class="s-card" style="color:var(--color-subtle);font-size:14px;margin:0">${esc(pickEmptyState(id, locale))}</p>`;
   const listHtml = renderJobCardListHtml(items, {
     locale,
     emptyStateHtml: emptyHtml,
@@ -409,7 +407,7 @@ function renderPage(opts: {
     { label: copy.shell.statTileFreshLabel, value: copy.statFreshValue, tone: pickStatTileTone('fresh', snapshot.fresh30Count) },
   ])}</div>`;
 
-  const primaryCtaHtml = `<div class="s-KZc0LQ"><a href="${esc(calculatorUrl)}" style="${CTA_PRIMARY_STYLE}">${esc(copy.shell.primaryCtaLabel)} →</a></div>`;
+  const primaryCtaHtml = `<div class="s-KZc0LQ"><a href="${esc(calculatorUrl)}" class="s-cta">${esc(copy.shell.primaryCtaLabel)} →</a></div>`;
 
   const featuredHtml = renderFeaturedJobs(id, locale, snapshot, copy);
   const employerGridHtml = renderEmployerGrid(snapshot, copy, locale);
@@ -450,7 +448,7 @@ function renderPage(opts: {
     </section>
     ${relatedHtml}
     <section class="s-p1QaOi">
-      <a href="${esc(ctaJobsUrl)}" style="${CTA_PRIMARY_STYLE}">${esc(copy.ctaJobs)}</a>
+      <a href="${esc(ctaJobsUrl)}" class="s-cta">${esc(copy.ctaJobs)}</a>
       <a class="s-bX1C8q" href="${esc(calculatorUrl)}">${esc(copy.ctaSimulator)}</a>
     </section>
     <section class="s-GCEyQg" aria-label="${esc(copy.h1)}">

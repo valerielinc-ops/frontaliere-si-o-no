@@ -24,7 +24,7 @@ import type { ColCityId, ColLocale } from './costOfLivingLandingsData';
 import { COL_CITY_DISPLAY } from './costOfLivingLandingsData';
 // Note: table head/cell styling now lives in a single <style> block emitted
 // at the top of <main> by costOfLivingLandingsPlugin.ts. The rendered HTML
-// uses class="t-h" / class="t-c" instead of inline `style="${TABLE_HEAD_STYLE}"`
+// uses class="t-h" / class="t-c" instead of inline `class="s-thd"`
 // — saves ~3-5 KB per page across the rent + basket + comparison tables.
 // See the `sharedStyleBlock` comment in costOfLivingLandingsPlugin.ts for the
 // text-html ratio rationale.

@@ -66,8 +66,6 @@ import { BASE_URL } from './constants';
 import { buildSeoPageHtml } from './shared/seoPageShell';
 import { renderHreflangTags } from './shared/hreflang';
 import {
-  CARD_STYLE,
-  CTA_PRIMARY_STYLE,
   H1_STYLE,
   H2_STYLE,
   HERO_EYEBROW_STYLE,
@@ -77,9 +75,7 @@ import {
   LINK_ACCENT_STYLE,
   STAT_TILE_ACCENT,
   STAT_TILE_BASE,
-  STAT_TILE_LABEL,
   STAT_TILE_SUCCESS,
-  STAT_TILE_VALUE,
   clampSiteSuffix,
   renderEntityCard,
   resolveBrandLogoUrl,
@@ -771,7 +767,7 @@ function renderStatBar(
   const primaryLabel = isCityIndex ? copy.statLabels.cities : copy.statLabels.stations;
   const secondaryLabel = isCityIndex ? copy.statLabels.zones : copy.statLabels.zones;
   const tile = (style: string, label: string, value: string) =>
-    `<div style="${style}"><div style="${STAT_TILE_LABEL}">${esc(label)}</div><div style="${STAT_TILE_VALUE}">${esc(value)}</div></div>`;
+    `<div style="${style}"><div class="s-tlbl">${esc(label)}</div><div class="s-tval">${esc(value)}</div></div>`;
   return `<div style="${STAT_GRID_STYLE}">
     ${tile(STAT_TILE_ACCENT, primaryLabel, String(totalAnchors))}
     ${tile(STAT_TILE_SUCCESS, secondaryLabel, String(totalGroups))}
@@ -794,7 +790,7 @@ function renderAdviceBanner(copy: IndexCopy, kind: FuelIndexKind, fuelLabel: str
 
 /** Render the primary CTA row (link to the matching daily-hub page). */
 function renderCtaRow(href: string, label: string): string {
-  return `<div style="${CTA_ROW_STYLE}"><a href="${esc(href)}" style="${CTA_PRIMARY_STYLE}">${esc(label)} →</a></div>`;
+  return `<div style="${CTA_ROW_STYLE}"><a href="${esc(href)}" class="s-cta">${esc(label)} →</a></div>`;
 }
 
 /** Render the horizontally-scrollable zone-chip quick-jump nav. */
@@ -851,7 +847,7 @@ function renderIndexPage(opts: RenderIndexOpts): string {
 
   // Cross-links to sibling indexes + daily hub.
   const relatedHtml = relatedLinks.length > 0
-    ? `<aside style="${CARD_STYLE};margin:24px 0;padding:18px 20px"><h2 style="${H2_STYLE};margin:0 0 12px;font-size:18px">${esc(copy.relatedHeading)}</h2><ul class="s-UdsQkK">${relatedLinks
+    ? `<aside class="s-card" style="margin:24px 0;padding:18px 20px"><h2 style="${H2_STYLE};margin:0 0 12px;font-size:18px">${esc(copy.relatedHeading)}</h2><ul class="s-UdsQkK">${relatedLinks
         .map(
           (rl) => `<li class="s-q3nqK4"><a href="${esc(rl.href)}" style="${LINK_ACCENT_STYLE};font-weight:600">${esc(rl.label)} →</a></li>`,
         )

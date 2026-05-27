@@ -63,23 +63,14 @@ import { generateRelatedLinksBlock } from './shared/relatedLinks';
 import { adSlotHtml } from './lib/adSlotHtml';
 import { cleanNamespaces, cleanSitemapFiles } from './shared/distNamespaceCleanup';
 import {
-  CARD_STYLE,
-  CTA_PRIMARY_STYLE,
   H1_STYLE,
   H2_STYLE,
   HERO_EYEBROW_STYLE,
   LEDE_STYLE,
   LINK_ACCENT_STYLE,
   STAT_TILE_ACCENT,
-  STAT_TILE_BASE,
-  STAT_TILE_DANGER,
-  STAT_TILE_LABEL,
   STAT_TILE_SUCCESS,
-  STAT_TILE_VALUE,
   STAT_TILE_WARNING,
-  TABLE_CELL_STYLE,
-  TABLE_HEAD_STYLE,
-  TABLE_STYLE,
   clampSiteSuffix,
   renderDiscoverMore,
 } from './shared/seoContentTokens';
@@ -2081,18 +2072,18 @@ function renderLeafPage(inp: LeafInputs): string {
     : '';
 
   // Top-20 table
-  const tableHtml = `<table style="${TABLE_STYLE};font-size:14px">
+  const tableHtml = `<table class="s-tbl" style="font-size:14px">
     <thead><tr>
-      <th style="${TABLE_HEAD_STYLE}">${esc(copy.tableHeaders.rank)}</th>
-      <th style="${TABLE_HEAD_STYLE}">${esc(copy.tableHeaders.insurer)}</th>
-      <th style="${TABLE_HEAD_STYLE};text-align:right">${esc(copy.tableHeaders.premium)}</th>
+      <th class="s-thd">${esc(copy.tableHeaders.rank)}</th>
+      <th class="s-thd">${esc(copy.tableHeaders.insurer)}</th>
+      <th class="s-thd" style="text-align:right">${esc(copy.tableHeaders.premium)}</th>
     </tr></thead>
     <tbody>${top20
       .map(
         (r, i) => `<tr>
-        <td style="${TABLE_CELL_STYLE};font-variant-numeric:tabular-nums">${i + 1}</td>
-        <td style="${TABLE_CELL_STYLE}">${esc(r.insurerName)}</td>
-        <td style="${TABLE_CELL_STYLE};color:var(--color-link);font-weight:700;text-align:right;font-variant-numeric:tabular-nums">${formatCHF(r.price, locale)} ${esc(copy.priceUnit)}</td>
+        <td class="s-tcl" style="font-variant-numeric:tabular-nums">${i + 1}</td>
+        <td class="s-tcl">${esc(r.insurerName)}</td>
+        <td class="s-tcl" style="color:var(--color-link);font-weight:700;text-align:right;font-variant-numeric:tabular-nums">${formatCHF(r.price, locale)} ${esc(copy.priceUnit)}</td>
       </tr>`,
       )
       .join('')}</tbody>
@@ -2122,18 +2113,18 @@ function renderLeafPage(inp: LeafInputs): string {
     if (b.price === null) return -1;
     return a.price - b.price;
   });
-  const rankingHtml = `<table style="${TABLE_STYLE};font-size:14px">
+  const rankingHtml = `<table class="s-tbl" style="font-size:14px">
     <thead><tr>
-      <th style="${TABLE_HEAD_STYLE}">#</th>
-      <th style="${TABLE_HEAD_STYLE}">${esc(LEAF_COPY[locale].tableHeaders.insurer === 'Cassa Malati' ? 'Cantone' : locale === 'en' ? 'Canton' : locale === 'de' ? 'Kanton' : 'Canton')}</th>
-      <th style="${TABLE_HEAD_STYLE};text-align:right">${esc(LEAF_COPY[locale].statsLabels.median)}</th>
+      <th class="s-thd">#</th>
+      <th class="s-thd">${esc(LEAF_COPY[locale].tableHeaders.insurer === 'Cassa Malati' ? 'Cantone' : locale === 'en' ? 'Canton' : locale === 'de' ? 'Kanton' : 'Canton')}</th>
+      <th class="s-thd" style="text-align:right">${esc(LEAF_COPY[locale].statsLabels.median)}</th>
     </tr></thead>
     <tbody>${rankingRows
       .map(
         (r, i) => `<tr class="s-UGbkWC"${r.canton === canton ? '' : ''}>
-        <td style="${TABLE_CELL_STYLE};font-variant-numeric:tabular-nums">${i + 1}</td>
-        <td style="${TABLE_CELL_STYLE}${r.canton === canton ? ';font-weight:700' : ''}">${esc(HEALTH_PREMIUM_CANTON_DISPLAY[locale][r.canton])}</td>
-        <td style="${TABLE_CELL_STYLE};text-align:right;font-variant-numeric:tabular-nums">${r.price === null ? '—' : formatCHF(r.price, locale) + ' ' + esc(copy.priceUnit)}</td>
+        <td class="s-tcl" style="font-variant-numeric:tabular-nums">${i + 1}</td>
+        <td class="s-tcl"${r.canton === canton ? ' style="font-weight:700"' : ''}>${esc(HEALTH_PREMIUM_CANTON_DISPLAY[locale][r.canton])}</td>
+        <td class="s-tcl" style="text-align:right;font-variant-numeric:tabular-nums">${r.price === null ? '—' : formatCHF(r.price, locale) + ' ' + esc(copy.priceUnit)}</td>
       </tr>`,
       )
       .join('')}</tbody>
@@ -2146,31 +2137,31 @@ function renderLeafPage(inp: LeafInputs): string {
   const bracketYoy = yoy?.byBracket[age] ?? null;
   const showYoyTile = bracketYoy !== null && bracketYoy.medianPct !== null && bracketYoy.sourceInsurers >= 3;
   const yoyTileHtml = showYoyTile && bracketYoy
-    ? `<div style="${STAT_TILE_DANGER}">
-      <div style="${STAT_TILE_LABEL}">Δ vs ${yoy?.priorYear ?? ''}</div>
-      <div style="${STAT_TILE_VALUE};font-size:24px;color:${(bracketYoy.medianPct ?? 0) >= 0 ? 'var(--color-danger)' : 'var(--color-success)'}">${esc(formatPct(bracketYoy.medianPct, locale))}</div>
+    ? `<div class="s-tdng">
+      <div class="s-tlbl">Δ vs ${yoy?.priorYear ?? ''}</div>
+      <div class="s-tval" style="font-size:24px;color:${(bracketYoy.medianPct ?? 0) >= 0 ? 'var(--color-danger)' : 'var(--color-success)'}">${esc(formatPct(bracketYoy.medianPct, locale))}</div>
       <div class="s-iydat0">${bracketYoy.sourceInsurers} casse</div>
     </div>`
     : '';
   const statsHtml = `<section class="s-XENO3U">
-    <div style="${STAT_TILE_ACCENT}">
-      <div style="${STAT_TILE_LABEL}">${esc(copy.statsLabels.median)}</div>
-      <div style="${STAT_TILE_VALUE};font-size:32px;font-weight:800">${medFmt}</div>
+    <div class="s-tacc">
+      <div class="s-tlbl">${esc(copy.statsLabels.median)}</div>
+      <div class="s-tval" style="font-size:32px;font-weight:800">${medFmt}</div>
       <div class="s-iydat0">${esc(copy.priceUnit)}</div>
     </div>
-    <div style="${STAT_TILE_SUCCESS}">
-      <div style="${STAT_TILE_LABEL}">${esc(copy.statsLabels.min)}</div>
-      <div style="${STAT_TILE_VALUE};font-size:24px">${minFmt}</div>
+    <div class="s-tok">
+      <div class="s-tlbl">${esc(copy.statsLabels.min)}</div>
+      <div class="s-tval" style="font-size:24px">${minFmt}</div>
       <div class="s-iydat0">${esc(copy.priceUnit)}</div>
     </div>
-    <div style="${STAT_TILE_WARNING}">
-      <div style="${STAT_TILE_LABEL}">${esc(copy.statsLabels.max)}</div>
-      <div style="${STAT_TILE_VALUE};font-size:24px">${maxFmt}</div>
+    <div class="s-twrn">
+      <div class="s-tlbl">${esc(copy.statsLabels.max)}</div>
+      <div class="s-tval" style="font-size:24px">${maxFmt}</div>
       <div class="s-iydat0">${esc(copy.priceUnit)}</div>
     </div>
-    <div style="${STAT_TILE_BASE}">
-      <div style="${STAT_TILE_LABEL}">${esc(copy.statsLabels.insurers)}</div>
-      <div style="${STAT_TILE_VALUE};font-size:24px">${perInsurer.length}</div>
+    <div class="s-tbase">
+      <div class="s-tlbl">${esc(copy.statsLabels.insurers)}</div>
+      <div class="s-tval" style="font-size:24px">${perInsurer.length}</div>
     </div>
     ${yoyTileHtml}
   </section>`;
@@ -2191,11 +2182,11 @@ function renderLeafPage(inp: LeafInputs): string {
       .slice(0, 20);
     if (rows.length === 0) return '';
     const medPctFmt = formatPct(bracketYoy.medianPct, locale);
-    const table = `<table style="${TABLE_STYLE};font-size:14px">
+    const table = `<table class="s-tbl" style="font-size:14px">
       <thead><tr>
-        <th style="${TABLE_HEAD_STYLE}">${esc(copy.yoy.tableHeaders.rank)}</th>
-        <th style="${TABLE_HEAD_STYLE}">${esc(copy.yoy.tableHeaders.insurer)}</th>
-        <th style="${TABLE_HEAD_STYLE};text-align:right">${esc(copy.yoy.tableHeaders.delta)}</th>
+        <th class="s-thd">${esc(copy.yoy.tableHeaders.rank)}</th>
+        <th class="s-thd">${esc(copy.yoy.tableHeaders.insurer)}</th>
+        <th class="s-thd" style="text-align:right">${esc(copy.yoy.tableHeaders.delta)}</th>
       </tr></thead>
       <tbody>${rows
         .map((r, i) => {
@@ -2203,9 +2194,9 @@ function renderLeafPage(inp: LeafInputs): string {
           const neutral = r.delta === 0;
           const deltaColor = neutral ? 'var(--color-subtle)' : positive ? 'var(--color-danger)' : 'var(--color-success)';
           return `<tr>
-          <td style="${TABLE_CELL_STYLE};font-variant-numeric:tabular-nums">${i + 1}</td>
-          <td style="${TABLE_CELL_STYLE}">${esc(r.insurerName)}</td>
-          <td style="${TABLE_CELL_STYLE};color:${deltaColor};font-weight:700;text-align:right;font-variant-numeric:tabular-nums">${esc(formatPct(r.delta, locale))}</td>
+          <td class="s-tcl" style="font-variant-numeric:tabular-nums">${i + 1}</td>
+          <td class="s-tcl">${esc(r.insurerName)}</td>
+          <td class="s-tcl" style="color:${deltaColor};font-weight:700;text-align:right;font-variant-numeric:tabular-nums">${esc(formatPct(r.delta, locale))}</td>
         </tr>`;
         })
         .join('')}</tbody>
@@ -2240,8 +2231,8 @@ function renderLeafPage(inp: LeafInputs): string {
       <h2 id="triYear" style="${H2_STYLE}">${esc(copy.triYear.sectionTitle(oldestYear, currentYear))}</h2>
       <p class="s-1j3K91">${esc(copy.triYear.summary(cantonLabel, ageLabel, oldestYear, priorYear, currentYear, yoyOlderFmt, yoyRecentFmt, cumFmt))}</p>
       <div class="s-nYwIZw">
-        <div style="${STAT_TILE_ACCENT};padding:14px 18px;border-radius:14px">
-          <div style="${STAT_TILE_LABEL};font-size:11px">${esc(sequence)}</div>
+        <div class="s-tacc" style="padding:14px 18px;border-radius:14px">
+          <div class="s-tlbl" style="font-size:11px">${esc(sequence)}</div>
           <div class="s--RQH7i">${esc(yoyOlderFmt)} · ${esc(yoyRecentFmt)}</div>
           <div class="s-Xya6Gm">${esc(cumFmt)}</div>
         </div>
@@ -2256,7 +2247,7 @@ function renderLeafPage(inp: LeafInputs): string {
     <h2 id="hpFaq" style="${H2_STYLE}">${esc(copy.faqTitle)}</h2>
     ${faqItems
       .map(
-        (f) => `<details style="${CARD_STYLE};margin-bottom:8px">
+        (f) => `<details class="s-card" style="margin-bottom:8px">
         <summary class="s-HBR0NM">${esc(f.q(cantonLabel, ageLabel))}</summary>
         <p class="s-OCic8j">${esc(f.a(cantonLabel, ageLabel, medFmt, minFmt, maxFmt))}</p>
       </details>`,
@@ -2349,7 +2340,7 @@ function renderLeafPage(inp: LeafInputs): string {
   <section class="s-ziawP1" aria-labelledby="comparatorCta">
     <h2 id="comparatorCta" style="${H2_STYLE}">${esc(copy.comparatorCTA)}</h2>
     <p class="s-1j3K91">${esc(copy.comparatorCTAText)}</p>
-    <a href="${esc(comparatorHref)}" style="${CTA_PRIMARY_STYLE};font-size:15px">${esc(copy.comparatorCTA)}</a>
+    <a href="${esc(comparatorHref)}" class="s-cta" style="font-size:15px">${esc(copy.comparatorCTA)}</a>
   </section>
   <section class="s-ziawP1" aria-labelledby="top20">
     <h2 id="top20" style="${H2_STYLE}">${esc(copy.top20Title(cantonLabel, ageLabel))}</h2>
@@ -2454,18 +2445,18 @@ function renderCantonHubPage(inp: CantonHubInputs): string {
     const leafPath = buildHealthPremiumsLeafPath(locale, canton, ab.id);
     return { ab, med, leafPath };
   });
-  const ageGridHtml = `<table style="${TABLE_STYLE};font-size:14px">
+  const ageGridHtml = `<table class="s-tbl" style="font-size:14px">
     <thead><tr>
-      <th style="${TABLE_HEAD_STYLE}">${esc(copy.ageGridHeaders.age)}</th>
-      <th style="${TABLE_HEAD_STYLE};text-align:right">${esc(copy.ageGridHeaders.median)}</th>
-      <th style="${TABLE_HEAD_STYLE};text-align:right">${esc(copy.ageGridHeaders.slug)}</th>
+      <th class="s-thd">${esc(copy.ageGridHeaders.age)}</th>
+      <th class="s-thd" style="text-align:right">${esc(copy.ageGridHeaders.median)}</th>
+      <th class="s-thd" style="text-align:right">${esc(copy.ageGridHeaders.slug)}</th>
     </tr></thead>
     <tbody>${ageGridRows
       .map(
         (r) => `<tr>
-        <td style="${TABLE_CELL_STYLE}">${esc(HEALTH_PREMIUM_AGE_LABEL[locale][r.ab.id])}</td>
-        <td style="${TABLE_CELL_STYLE};text-align:right;font-variant-numeric:tabular-nums">${formatCHF(r.med, locale)} ${esc(copy.priceUnit)}</td>
-        <td style="${TABLE_CELL_STYLE};text-align:right"><a href="${esc(r.leafPath)}" style="${LINK_ACCENT_STYLE};font-weight:700">${esc(copy.openLeafCTA)} →</a></td>
+        <td class="s-tcl">${esc(HEALTH_PREMIUM_AGE_LABEL[locale][r.ab.id])}</td>
+        <td class="s-tcl" style="text-align:right;font-variant-numeric:tabular-nums">${formatCHF(r.med, locale)} ${esc(copy.priceUnit)}</td>
+        <td class="s-tcl" style="text-align:right"><a href="${esc(r.leafPath)}" style="${LINK_ACCENT_STYLE};font-weight:700">${esc(copy.openLeafCTA)} →</a></td>
       </tr>`,
       )
       .join('')}</tbody>
@@ -2478,29 +2469,29 @@ function renderCantonHubPage(inp: CantonHubInputs): string {
   // glance, instead of forcing the visitor to scroll to the full YoY
   // section below.
   const cantonHubYoyTileHtml = yoyAdult !== null
-    ? `<div style="${STAT_TILE_DANGER}">
-      <div style="${STAT_TILE_LABEL}">Δ vs ${esc(String(yoy?.priorYear ?? ''))}</div>
-      <div style="${STAT_TILE_VALUE};font-size:24px;color:${yoyAdult >= 0 ? 'var(--color-danger)' : 'var(--color-success)'}">${esc(formatPct(yoyAdult, locale))}</div>
+    ? `<div class="s-tdng">
+      <div class="s-tlbl">Δ vs ${esc(String(yoy?.priorYear ?? ''))}</div>
+      <div class="s-tval" style="font-size:24px;color:${yoyAdult >= 0 ? 'var(--color-danger)' : 'var(--color-success)'}">${esc(formatPct(yoyAdult, locale))}</div>
     </div>`
     : '';
 
   const statsHtml = `<section class="s-XENO3U">
-    <div style="${STAT_TILE_ACCENT}">
-      <div style="${STAT_TILE_LABEL}">${esc(leafCopy.statsLabels.median)}</div>
-      <div style="${STAT_TILE_VALUE};font-size:32px;font-weight:800">${medFmt}</div>
+    <div class="s-tacc">
+      <div class="s-tlbl">${esc(leafCopy.statsLabels.median)}</div>
+      <div class="s-tval" style="font-size:32px;font-weight:800">${medFmt}</div>
       <div class="s-iydat0">${esc(copy.priceUnit)}</div>
     </div>
-    <div style="${STAT_TILE_SUCCESS}">
-      <div style="${STAT_TILE_LABEL}">${esc(leafCopy.statsLabels.min)}</div>
-      <div style="${STAT_TILE_VALUE};font-size:24px">${minFmt}</div>
+    <div class="s-tok">
+      <div class="s-tlbl">${esc(leafCopy.statsLabels.min)}</div>
+      <div class="s-tval" style="font-size:24px">${minFmt}</div>
     </div>
-    <div style="${STAT_TILE_WARNING}">
-      <div style="${STAT_TILE_LABEL}">${esc(leafCopy.statsLabels.max)}</div>
-      <div style="${STAT_TILE_VALUE};font-size:24px">${maxFmt}</div>
+    <div class="s-twrn">
+      <div class="s-tlbl">${esc(leafCopy.statsLabels.max)}</div>
+      <div class="s-tval" style="font-size:24px">${maxFmt}</div>
     </div>
-    <div style="${STAT_TILE_BASE}">
-      <div style="${STAT_TILE_LABEL}">${esc(leafCopy.statsLabels.insurers)}</div>
-      <div style="${STAT_TILE_VALUE};font-size:24px">${stats.ranked.length}</div>
+    <div class="s-tbase">
+      <div class="s-tlbl">${esc(leafCopy.statsLabels.insurers)}</div>
+      <div class="s-tval" style="font-size:24px">${stats.ranked.length}</div>
     </div>
     ${cantonHubYoyTileHtml}
   </section>`;
@@ -2519,17 +2510,17 @@ function renderCantonHubPage(inp: CantonHubInputs): string {
     }).filter((r) => r.pct !== null);
     if (rows.length === 0) return '';
     const adultPctFmt = formatPct(yoy.adultMedianPct, locale);
-    const gridTable = `<table style="${TABLE_STYLE};font-size:14px">
+    const gridTable = `<table class="s-tbl" style="font-size:14px">
       <thead><tr>
-        <th style="${TABLE_HEAD_STYLE}">${esc(copy.yoy.gridHeaders.age)}</th>
-        <th style="${TABLE_HEAD_STYLE};text-align:right">${esc(copy.yoy.gridHeaders.delta)}</th>
+        <th class="s-thd">${esc(copy.yoy.gridHeaders.age)}</th>
+        <th class="s-thd" style="text-align:right">${esc(copy.yoy.gridHeaders.delta)}</th>
       </tr></thead>
       <tbody>${rows
         .map((r) => {
           const color = (r.pct ?? 0) > 0 ? 'var(--color-danger)' : (r.pct ?? 0) < 0 ? 'var(--color-success)' : 'var(--color-subtle)';
           return `<tr>
-          <td style="${TABLE_CELL_STYLE}">${esc(HEALTH_PREMIUM_AGE_LABEL[locale][r.ab.id])}</td>
-          <td style="${TABLE_CELL_STYLE};color:${color};font-weight:700;text-align:right;font-variant-numeric:tabular-nums">${esc(formatPct(r.pct, locale))}</td>
+          <td class="s-tcl">${esc(HEALTH_PREMIUM_AGE_LABEL[locale][r.ab.id])}</td>
+          <td class="s-tcl" style="color:${color};font-weight:700;text-align:right;font-variant-numeric:tabular-nums">${esc(formatPct(r.pct, locale))}</td>
         </tr>`;
         })
         .join('')}</tbody>
@@ -2567,7 +2558,7 @@ function renderCantonHubPage(inp: CantonHubInputs): string {
     <h2 id="hpFaq" style="${H2_STYLE}">${esc(copy.faqTitle)}</h2>
     ${faqItems
       .map(
-        (f) => `<details style="${CARD_STYLE};margin-bottom:8px">
+        (f) => `<details class="s-card" style="margin-bottom:8px">
         <summary class="s-HBR0NM">${esc(f.q(cantonLabel))}</summary>
         <p class="s-OCic8j">${esc(f.a(cantonLabel, medFmt, year))}</p>
       </details>`,
@@ -2656,7 +2647,7 @@ function renderCantonHubPage(inp: CantonHubInputs): string {
   <section class="s-ziawP1" aria-labelledby="cantonComparatorCta">
     <h2 id="cantonComparatorCta" style="${H2_STYLE}">${esc(copy.comparatorCTA)}</h2>
     <p class="s-1j3K91">${esc(copy.comparatorCTAText)}</p>
-    <a href="${esc(comparatorHref)}" style="${CTA_PRIMARY_STYLE};font-size:15px">${esc(copy.comparatorCTA)}</a>
+    <a href="${esc(comparatorHref)}" class="s-cta" style="font-size:15px">${esc(copy.comparatorCTA)}</a>
   </section>
   <section class="s-ziawP1" aria-labelledby="ageGrid">
     <h2 id="ageGrid" style="${H2_STYLE}">${esc(copy.ageGridTitle(cantonLabel))}</h2>
@@ -2783,24 +2774,24 @@ function renderRootHubPage(inp: RootHubInputs): string {
       max: s.adultMax,
     };
   });
-  const cantonGridHtml = `<table style="${TABLE_STYLE};font-size:14px">
+  const cantonGridHtml = `<table class="s-tbl" style="font-size:14px">
     <thead><tr>
-      <th style="${TABLE_HEAD_STYLE}">${esc(copy.cantonGridHeaders.canton)}</th>
-      <th style="${TABLE_HEAD_STYLE};text-align:right">${esc(copy.cantonGridHeaders.median)}</th>
-      <th style="${TABLE_HEAD_STYLE};text-align:right">${esc(copy.cantonGridHeaders.min)}</th>
-      <th style="${TABLE_HEAD_STYLE};text-align:right">${esc(copy.cantonGridHeaders.max)}</th>
-      <th style="${TABLE_HEAD_STYLE};text-align:right">&nbsp;</th>
+      <th class="s-thd">${esc(copy.cantonGridHeaders.canton)}</th>
+      <th class="s-thd" style="text-align:right">${esc(copy.cantonGridHeaders.median)}</th>
+      <th class="s-thd" style="text-align:right">${esc(copy.cantonGridHeaders.min)}</th>
+      <th class="s-thd" style="text-align:right">${esc(copy.cantonGridHeaders.max)}</th>
+      <th class="s-thd" style="text-align:right">&nbsp;</th>
     </tr></thead>
     <tbody>${cantonRows
       .map((r) => {
         const cantonPath = buildHealthPremiumsCantonPath(locale, r.canton);
         const name = HEALTH_PREMIUM_CANTON_DISPLAY[locale][r.canton];
         return `<tr>
-        <td style="${TABLE_CELL_STYLE};font-weight:700"><a href="${esc(cantonPath)}" style="${LINK_ACCENT_STYLE}">${esc(name)}</a></td>
-        <td style="${TABLE_CELL_STYLE};text-align:right;font-variant-numeric:tabular-nums">${r.med === null ? '—' : formatCHF(r.med, locale) + ' ' + esc(copy.priceUnit)}</td>
-        <td style="${TABLE_CELL_STYLE};text-align:right;font-variant-numeric:tabular-nums">${r.min === null ? '—' : formatCHF(r.min, locale)}</td>
-        <td style="${TABLE_CELL_STYLE};text-align:right;font-variant-numeric:tabular-nums">${r.max === null ? '—' : formatCHF(r.max, locale)}</td>
-        <td style="${TABLE_CELL_STYLE};text-align:right"><a href="${esc(cantonPath)}" style="${LINK_ACCENT_STYLE};font-weight:700">${esc(copy.viewCantonCTA(name))} →</a></td>
+        <td class="s-tcl" style="font-weight:700"><a href="${esc(cantonPath)}" style="${LINK_ACCENT_STYLE}">${esc(name)}</a></td>
+        <td class="s-tcl" style="text-align:right;font-variant-numeric:tabular-nums">${r.med === null ? '—' : formatCHF(r.med, locale) + ' ' + esc(copy.priceUnit)}</td>
+        <td class="s-tcl" style="text-align:right;font-variant-numeric:tabular-nums">${r.min === null ? '—' : formatCHF(r.min, locale)}</td>
+        <td class="s-tcl" style="text-align:right;font-variant-numeric:tabular-nums">${r.max === null ? '—' : formatCHF(r.max, locale)}</td>
+        <td class="s-tcl" style="text-align:right"><a href="${esc(cantonPath)}" style="${LINK_ACCENT_STYLE};font-weight:700">${esc(copy.viewCantonCTA(name))} →</a></td>
       </tr>`;
       })
       .join('')}</tbody>
@@ -2811,7 +2802,7 @@ function renderRootHubPage(inp: RootHubInputs): string {
     <h2 id="hpFaq" style="${H2_STYLE}">${esc(copy.faqTitle)}</h2>
     ${faqItems
       .map(
-        (f) => `<details style="${CARD_STYLE};margin-bottom:8px">
+        (f) => `<details class="s-card" style="margin-bottom:8px">
         <summary class="s-HBR0NM">${esc(f.q)}</summary>
         <p class="s-OCic8j">${esc(f.a(year))}</p>
       </details>`,
@@ -2887,23 +2878,23 @@ function renderRootHubPage(inp: RootHubInputs): string {
   const rootTl = rootTileLabels[locale];
   const rootStatsHtml = cantonsCount > 0
     ? `<section class="s-kdmhjX">
-    <div style="${STAT_TILE_BASE}">
-      <div style="${STAT_TILE_LABEL}">${esc(rootTl.cantons)}</div>
-      <div style="${STAT_TILE_VALUE};font-size:24px;font-variant-numeric:tabular-nums">${cantonsCount}</div>
+    <div class="s-tbase">
+      <div class="s-tlbl">${esc(rootTl.cantons)}</div>
+      <div class="s-tval" style="font-size:24px;font-variant-numeric:tabular-nums">${cantonsCount}</div>
     </div>
-    <div style="${STAT_TILE_ACCENT}">
-      <div style="${STAT_TILE_LABEL}">${esc(rootTl.median)}</div>
-      <div style="${STAT_TILE_VALUE};font-size:32px;font-weight:800;font-variant-numeric:tabular-nums">${esc(formatCHF(nationalMedian, locale))}</div>
+    <div class="s-tacc">
+      <div class="s-tlbl">${esc(rootTl.median)}</div>
+      <div class="s-tval" style="font-size:32px;font-weight:800;font-variant-numeric:tabular-nums">${esc(formatCHF(nationalMedian, locale))}</div>
       <div class="s-iydat0">${esc(copy.priceUnit)}</div>
     </div>
-    <div style="${STAT_TILE_SUCCESS}">
-      <div style="${STAT_TILE_LABEL}">${esc(rootTl.cheapest)}</div>
-      <div style="${STAT_TILE_VALUE};font-size:22px;font-variant-numeric:tabular-nums">${esc(formatCHF(nationalCheapest, locale))}</div>
+    <div class="s-tok">
+      <div class="s-tlbl">${esc(rootTl.cheapest)}</div>
+      <div class="s-tval" style="font-size:22px;font-variant-numeric:tabular-nums">${esc(formatCHF(nationalCheapest, locale))}</div>
       ${cheapestCantonName ? `<div class="s-iydat0">${esc(cheapestCantonName)}</div>` : ''}
     </div>
-    <div style="${STAT_TILE_WARNING}">
-      <div style="${STAT_TILE_LABEL}">${esc(rootTl.mostExp)}</div>
-      <div style="${STAT_TILE_VALUE};font-size:22px;font-variant-numeric:tabular-nums">${esc(formatCHF(nationalMostExpensive, locale))}</div>
+    <div class="s-twrn">
+      <div class="s-tlbl">${esc(rootTl.mostExp)}</div>
+      <div class="s-tval" style="font-size:22px;font-variant-numeric:tabular-nums">${esc(formatCHF(nationalMostExpensive, locale))}</div>
     </div>
   </section>`
     : '';
@@ -2923,7 +2914,7 @@ function renderRootHubPage(inp: RootHubInputs): string {
   <section class="s-ziawP1" aria-labelledby="rootComparatorCta">
     <h2 id="rootComparatorCta" style="${H2_STYLE}">${esc(copy.comparatorCTA)}</h2>
     <p class="s-1j3K91">${esc(copy.comparatorCTAText)}</p>
-    <a href="${esc(HEALTH_PREMIUM_COMPARATOR_PATH[locale])}" style="${CTA_PRIMARY_STYLE};font-size:15px">${esc(copy.comparatorCTA)}</a>
+    <a href="${esc(HEALTH_PREMIUM_COMPARATOR_PATH[locale])}" class="s-cta" style="font-size:15px">${esc(copy.comparatorCTA)}</a>
   </section>
   <section class="s-ziawP1" aria-labelledby="cantonGrid">
     <h2 id="cantonGrid" style="${H2_STYLE}">${esc(copy.cantonGridTitle)}</h2>

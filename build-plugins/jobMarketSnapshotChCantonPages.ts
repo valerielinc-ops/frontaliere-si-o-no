@@ -34,18 +34,11 @@ import { BASE_URL, MIN_INDEXABLE_WORDS, countHtmlBodyWords } from './constants';
 import { buildSeoPageHtml } from './shared/seoPageShell';
 import { WriteCollector } from './batchWrite';
 import {
-  CARD_STYLE,
-  CTA_PRIMARY_STYLE,
   H1_STYLE,
   H2_STYLE,
   HERO_EYEBROW_STYLE,
   LEDE_STYLE,
   LINK_ACCENT_STYLE,
-  STAT_TILE_ACCENT,
-  STAT_TILE_BASE,
-  STAT_TILE_LABEL,
-  STAT_TILE_SUCCESS,
-  STAT_TILE_VALUE,
 } from './shared/seoContentTokens';
 import {
   buildActiveJobsPool,
@@ -442,21 +435,21 @@ function renderSnapshotPage(inp: RenderInputs): string {
   </header>`;
 
   const tilesBlock = `<section class="s-s0ShLV" aria-label="${esc(c.totalJobsLabel)}">
-    <div style="${STAT_TILE_ACCENT}">
-      <span style="${STAT_TILE_LABEL}">${esc(c.totalJobsLabel)}</span>
-      <span style="${STAT_TILE_VALUE}">${inp.totalJobs}</span>
+    <div class="s-tacc">
+      <span class="s-tlbl">${esc(c.totalJobsLabel)}</span>
+      <span class="s-tval">${inp.totalJobs}</span>
     </div>
-    <div style="${STAT_TILE_SUCCESS}">
-      <span style="${STAT_TILE_LABEL}">${esc(c.citiesHeading)}</span>
-      <span style="${STAT_TILE_VALUE}">${inp.topCities.length}</span>
+    <div class="s-tok">
+      <span class="s-tlbl">${esc(c.citiesHeading)}</span>
+      <span class="s-tval">${inp.topCities.length}</span>
     </div>
-    <div style="${STAT_TILE_BASE}">
-      <span style="${STAT_TILE_LABEL}">${esc(c.sectorsHeading)}</span>
-      <span style="${STAT_TILE_VALUE}">${inp.topSectors.length}</span>
+    <div class="s-tbase">
+      <span class="s-tlbl">${esc(c.sectorsHeading)}</span>
+      <span class="s-tval">${inp.topSectors.length}</span>
     </div>
   </section>`;
 
-  const ctaBlock = `<p class="s-O3JTly"><a href="${esc(inp.hiringHubHref)}" style="${CTA_PRIMARY_STYLE}">${esc(c.ctaLabel)} →</a></p>`;
+  const ctaBlock = `<p class="s-O3JTly"><a href="${esc(inp.hiringHubHref)}" class="s-cta">${esc(c.ctaLabel)} →</a></p>`;
 
   const cityRows = inp.topCities
     .map(
@@ -466,7 +459,7 @@ function renderSnapshotPage(inp: RenderInputs): string {
     .join('\n');
   const cityTable = inp.topCities.length
     ? `<section><h2 style="${H2_STYLE}">${esc(c.citiesHeading)}</h2>
-        <div style="${CARD_STYLE}"><table class="s-CuZHSN">
+        <div class="s-card"><table class="s-CuZHSN">
           <thead><tr><th class="s-Gu4ahz">${esc(c.cityColumn)}</th><th class="s-R7ZZFv">${esc(c.countColumn)}</th></tr></thead>
           <tbody>${cityRows}</tbody>
         </table></div></section>`
@@ -480,7 +473,7 @@ function renderSnapshotPage(inp: RenderInputs): string {
     .join('\n');
   const sectorTable = inp.topSectors.length
     ? `<section><h2 style="${H2_STYLE}">${esc(c.sectorsHeading)}</h2>
-        <div style="${CARD_STYLE}"><table class="s-CuZHSN">
+        <div class="s-card"><table class="s-CuZHSN">
           <thead><tr><th class="s-Gu4ahz">${esc(c.sectorColumn)}</th><th class="s-R7ZZFv">${esc(c.countColumn)}</th></tr></thead>
           <tbody>${sectorRows}</tbody>
         </table></div></section>`

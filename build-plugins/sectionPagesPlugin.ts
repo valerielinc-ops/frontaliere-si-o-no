@@ -44,8 +44,6 @@ import type { Plugin } from 'vite';
 import { BASE_URL } from './constants';
 import { buildSeoPageHtml } from './shared/seoPageShell';
 import {
-  CARD_BODY_STYLE,
-  CARD_PADDING_STYLE,
   H1_STYLE,
   H2_STYLE,
   LEDE_STYLE,
@@ -955,7 +953,7 @@ function renderArticleList(
       const href = buildArticleHref(a.localeSlug, locale);
       const dateLabel = formatDate(a.date, locale);
       return `
-        <li style="${CARD_PADDING_STYLE};${CARD_BODY_STYLE};margin:0 0 12px;list-style:none">
+        <li class="s-cpad s-cbody" style="margin:0 0 12px;list-style:none">
           <h3 class="s-0UflqU"><a href="${esc(href)}" style="${LINK_ACCENT_STYLE};font-weight:700">${esc(a.displayTitle)}</a></h3>
           <p class="s-TR0f1t">
             <time datetime="${esc(a.date.slice(0, 10))}">${esc(dateLabel)}</time>
