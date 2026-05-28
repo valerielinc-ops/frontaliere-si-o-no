@@ -6,7 +6,7 @@
       "id": "vaudoise-3a0f67aa3621",
       "slug": "consigliere-consigliere-h-f-x-100-vaudoise-assurances-chatel-saint-denis",
       "slugByLocale": {
-        "it": "consigliere-consigliere-h-f-x-100-vaudoise-assurances-chatel-saint-denis",
+        "it": "conseiller-conseillere-h-f-x-100-vaudoise-ch-3",
         "en": "counsellor-counsellor-h-f-x-100-vaudoise-assurances-chatel-saint-denis",
         "de": "berater-berater-h-f-x-100-vaudoise-assurances-chatel-saint-denis",
         "fr": "conseiller-conseillere-h-f-x-100-vaudoise-ch"
@@ -51,12 +51,14 @@
       "jobCategory": "Vendita, commercio e servizio alla clientela",
       "previousSlugs": [
         "conseiller-conseillere-h-f-x-100-vaudoise-ch",
-        "conseiller-conseillere-h-f-x-100-vaudoise-ch-3"
+        "conseiller-conseillere-h-f-x-100-vaudoise-ch-3",
+        "consigliere-consigliere-h-f-x-100-vaudoise-assurances-chatel-saint-denis",
+        "counsellor-counsellor-h-f-x-100-vaudoise-assurances-chatel-saint-denis",
+        "berater-berater-h-f-x-100-vaudoise-assurances-chatel-saint-denis"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "conseiller-conseillere-h-f-x-100-vaudoise-ch",
-          "conseiller-conseillere-h-f-x-100-vaudoise-ch-3"
+          "conseiller-conseillere-h-f-x-100-vaudoise-ch"
         ],
         "en": [
           "conseiller-conseillere-h-f-x-100-vaudoise-ch-3"
@@ -83,7 +85,7 @@
       "id": "vaudoise-3fafe24b02b8",
       "slug": "manager-backoffice-servizio-ipotecario-h-f-x-100-9-mese-cdd-da-luglio-vaudoise-assurances-lausanne",
       "slugByLocale": {
-        "it": "manager-backoffice-servizio-ipotecario-h-f-x-100-9-mese-cdd-da-luglio-vaudoise-assurances-lausanne",
+        "it": "gestionnaire-backoffice-service-hypotheques-m-w-d-100-cdd-de-9-mois-a-partir-de-juillet-vaudoise-assurances-lausanne",
         "en": "manager-backoffice-mortgage-service-h-f-x-100-9-month-cdd-from-july-vaudoise-assurances-lausanne",
         "de": "manager-backoffice-hypothekenservice-h-f-x-100-9-monate-cdd-ab-juli-vaudoise-assurances-lausanne",
         "fr": "gestionnaire-backoffice-service-hypotheques-h-f-x-100-cdd-de-9-mois-a-partir-de-juillet"
@@ -128,12 +130,11 @@
       "jobCategory": "Amministrazione e segretariato",
       "previousSlugs": [
         "gestionnaire-backoffice-service-hypotheques-h-f-x-100-cdd-de-9-mois-a-partir-de-juillet",
-        "gestionnaire-backoffice-service-hypotheques-m-w-d-100-cdd-de-9-mois-a-partir-de-juillet-vaudoise-assurances-lausanne"
+        "manager-backoffice-servizio-ipotecario-h-f-x-100-9-mese-cdd-da-luglio-vaudoise-assurances-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "gestionnaire-backoffice-service-hypotheques-h-f-x-100-cdd-de-9-mois-a-partir-de-juillet",
-          "gestionnaire-backoffice-service-hypotheques-m-w-d-100-cdd-de-9-mois-a-partir-de-juillet-vaudoise-assurances-lausanne"
+          "gestionnaire-backoffice-service-hypotheques-h-f-x-100-cdd-de-9-mois-a-partir-de-juillet"
         ],
         "en": [
           "gestionnaire-backoffice-service-hypotheques-h-f-x-100-cdd-de-9-mois-a-partir-de-juillet"
@@ -303,13 +304,14 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "vaudoise-4f12584d52a9",
       "slug": "senior-benefit-manager-laa-casi-complessi-h-f-x-80-vaudoise-assurances-lausanne",
       "slugByLocale": {
-        "it": "senior-benefit-manager-laa-casi-complessi-h-f-x-80-vaudoise-assurances-lausanne",
+        "it": "gestionnaire-senior-prestations-cas-complexes-laa-m-w-d-80-vaudoise-assurances-lausanne",
         "en": "senior-benefits-manager-laa-complex-cases-h-f-x-80-vaudoise-assurances-lausanne",
         "de": "senior-benefit-manager-laa-komplexe-falle-h-f-x-80-vaudoise-assurances-lausanne",
         "fr": "gestionnaire-senior-prestations-cas-complexes-laa-h-f-x-80-vaudoise-ch"
@@ -354,12 +356,11 @@
       "jobCategory": "Vendita, commercio e servizio alla clientela",
       "previousSlugs": [
         "gestionnaire-senior-prestations-cas-complexes-laa-h-f-x-80-vaudoise-ch",
-        "gestionnaire-senior-prestations-cas-complexes-laa-m-w-d-80-vaudoise-assurances-lausanne"
+        "senior-benefit-manager-laa-casi-complessi-h-f-x-80-vaudoise-assurances-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "gestionnaire-senior-prestations-cas-complexes-laa-h-f-x-80-vaudoise-ch",
-          "gestionnaire-senior-prestations-cas-complexes-laa-m-w-d-80-vaudoise-assurances-lausanne"
+          "gestionnaire-senior-prestations-cas-complexes-laa-h-f-x-80-vaudoise-ch"
         ],
         "en": [
           "gestionnaire-senior-prestations-cas-complexes-laa-h-f-x-80-vaudoise-ch"
@@ -675,7 +676,6 @@
         ]
       },
       "firstSeenAt": "2026-05-18T13:27:20.941Z",
-      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -819,7 +819,6 @@
         ]
       },
       "firstSeenAt": "2026-05-18T13:27:20.379Z",
-      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -890,7 +889,6 @@
         ]
       },
       "firstSeenAt": "2026-05-18T13:27:20.094Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -909,7 +907,7 @@
       "id": "vaudoise-aec22eec18e8",
       "slug": "consigliere-consigliere-h-f-x-100-vaudoise-assurances-fribourg",
       "slugByLocale": {
-        "it": "consigliere-consigliere-h-f-x-100-vaudoise-assurances-fribourg",
+        "it": "conseiller-conseillere-h-f-x-100-vaudoise-ch-4",
         "en": "counsellor-counsellor-h-f-x-100-vaudoise-assurances-fribourg",
         "de": "berater-berater-h-f-x-100-vaudoise-assurances-fribourg",
         "fr": "conseiller-conseillere-h-f-x-100-vaudoise-ch"
@@ -954,12 +952,14 @@
       "jobCategory": "Vendita, commercio e servizio alla clientela",
       "previousSlugs": [
         "conseiller-conseillere-h-f-x-100-vaudoise-ch",
-        "conseiller-conseillere-h-f-x-100-vaudoise-ch-4"
+        "conseiller-conseillere-h-f-x-100-vaudoise-ch-4",
+        "consigliere-consigliere-h-f-x-100-vaudoise-assurances-fribourg",
+        "counsellor-counsellor-h-f-x-100-vaudoise-assurances-fribourg",
+        "berater-berater-h-f-x-100-vaudoise-assurances-fribourg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "conseiller-conseillere-h-f-x-100-vaudoise-ch",
-          "conseiller-conseillere-h-f-x-100-vaudoise-ch-4"
+          "conseiller-conseillere-h-f-x-100-vaudoise-ch"
         ],
         "en": [
           "conseiller-conseillere-h-f-x-100-vaudoise-ch-4"
@@ -1120,7 +1120,6 @@
         ]
       },
       "firstSeenAt": "2026-05-18T13:27:18.413Z",
-      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -1183,7 +1182,6 @@
       "requirementsByLocale": {},
       "jobCategory": "Assicurazioni Direzione",
       "firstSeenAt": "2026-05-18T13:27:18.134Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1202,7 +1200,7 @@
       "id": "vaudoise-3a5568bf32f4",
       "slug": "gestione-delle-controversie-fr-de-e-h-x-80-100-vaudoise-assurances-lausanne",
       "slugByLocale": {
-        "it": "gestione-delle-controversie-fr-de-e-h-x-80-100-vaudoise-assurances-lausanne",
+        "it": "gestionnaire-contentieux-fr-de-m-w-d-80-100-vaudoise-assurances-lausanne",
         "en": "dispute-manager-fr-de-e-h-x-80-100-vaudoise-assurances-lausanne",
         "de": "gestionnaire-contentieux-fr-de-f-h-x-80-100-vaudoise-ch",
         "fr": "gestionnaire-contentieux-fr-de-f-h-x-80-100-vaudoise-ch"
@@ -1247,12 +1245,11 @@
       "jobCategory": "Finanze",
       "previousSlugs": [
         "gestionnaire-contentieux-fr-de-f-h-x-80-100-vaudoise-ch",
-        "gestionnaire-contentieux-fr-de-m-w-d-80-100-vaudoise-assurances-lausanne"
+        "gestione-delle-controversie-fr-de-e-h-x-80-100-vaudoise-assurances-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "gestionnaire-contentieux-fr-de-f-h-x-80-100-vaudoise-ch",
-          "gestionnaire-contentieux-fr-de-m-w-d-80-100-vaudoise-assurances-lausanne"
+          "gestionnaire-contentieux-fr-de-f-h-x-80-100-vaudoise-ch"
         ],
         "en": [
           "gestionnaire-contentieux-fr-de-f-h-x-80-100-vaudoise-ch"
@@ -1405,7 +1402,6 @@
         ]
       },
       "firstSeenAt": "2026-05-18T13:27:17.298Z",
-      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -1468,7 +1464,6 @@
       "requirementsByLocale": {},
       "jobCategory": "Assicurazioni Direzione",
       "firstSeenAt": "2026-05-18T13:27:17.020Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1607,7 +1602,6 @@
       "requirementsByLocale": {},
       "jobCategory": "Diritto e compliance",
       "firstSeenAt": "2026-05-18T13:27:16.467Z",
-      "needsRetranslation": true,
       "salaryMin": 46000,
       "salaryMax": 78500,
       "baseSalary": {
@@ -1678,7 +1672,6 @@
         ]
       },
       "firstSeenAt": "2026-05-18T13:27:16.184Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1752,7 +1745,6 @@
         ]
       },
       "firstSeenAt": "2026-05-18T13:27:15.898Z",
-      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -2054,7 +2046,6 @@
         ]
       },
       "firstSeenAt": "2026-05-18T13:27:27.916Z",
-      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -2201,7 +2192,6 @@
         ]
       },
       "firstSeenAt": "2026-05-21T13:44:40.604Z",
-      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -2278,7 +2268,6 @@
         ]
       },
       "firstSeenAt": "2026-05-21T13:44:40.327Z",
-      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -2417,7 +2406,6 @@
       "requirementsByLocale": {},
       "jobCategory": "Assicurazioni Direzione",
       "firstSeenAt": "2026-05-18T13:27:27.359Z",
-      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -2436,7 +2424,7 @@
       "id": "vaudoise-fd644763f735",
       "slug": "responsabile-broker-m-w-d-100-vaudoise-assurances-bern",
       "slugByLocale": {
-        "it": "responsabile-broker-m-w-d-100-vaudoise-assurances-bern",
+        "it": "brokerbetreuer-in-m-w-d-100-vaudoise-ch",
         "en": "broker-advisor-m-w-d-100-vaudoise-assurances-bern",
         "de": "brokerbetreuer-in-m-w-d-100-vaudoise-assurances-bern",
         "fr": "conseiller-broker-m-w-d-100-vaudoise-assurances-bern"
@@ -2480,9 +2468,6 @@
       "requirementsByLocale": {},
       "jobCategory": "Vendita, commercio e servizio alla clientela",
       "previousSlugsByLocale": {
-        "it": [
-          "brokerbetreuer-in-m-w-d-100-vaudoise-ch"
-        ],
         "en": [
           "brokerbetreuer-in-m-w-d-100-vaudoise-ch"
         ],
@@ -2494,7 +2479,10 @@
         ]
       },
       "previousSlugs": [
-        "brokerbetreuer-in-m-w-d-100-vaudoise-ch"
+        "brokerbetreuer-in-m-w-d-100-vaudoise-ch",
+        "responsabile-broker-m-w-d-100-vaudoise-assurances-bern",
+        "broker-advisor-m-w-d-100-vaudoise-assurances-bern",
+        "conseiller-broker-m-w-d-100-vaudoise-assurances-bern"
       ],
       "firstSeenAt": "2026-05-18T13:27:27.079Z",
       "salaryMin": 68000,
@@ -2570,7 +2558,6 @@
         ]
       },
       "firstSeenAt": "2026-05-18T13:27:26.801Z",
-      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -2589,7 +2576,7 @@
       "id": "vaudoise-8c3dc5e78b46",
       "slug": "prestazioni-pensionistiche-nei-rami-dell-assicurazione-ricchezza-h-f-x-80-100-vaudoise-assurances-lausanne",
       "slugByLocale": {
-        "it": "prestazioni-pensionistiche-nei-rami-dell-assicurazione-ricchezza-h-f-x-80-100-vaudoise-assurances-lausanne",
+        "it": "gestionnaire-prestations-sinistres-dans-les-branches-de-l-assurance-patrimoine-m-w-d-80-100-vaudoise-assurances-lausanne",
         "en": "manager-pension-benefits-in-the-branches-of-wealth-insurance-h-f-x-80-100-vaudoise-assurances-lausanne",
         "de": "manager-pension-profitiert-in-den-zweigen-der-vermogensversicherung-h-f-x-80-100-vaudoise-assurances-lausanne",
         "fr": "gestionnaire-prestations-sinistres-dans-les-branches-de-l-assurance-patrimoine-h-f-x-80"
@@ -2634,12 +2621,11 @@
       "jobCategory": "Vendita, commercio e servizio alla clientela",
       "previousSlugs": [
         "gestionnaire-prestations-sinistres-dans-les-branches-de-l-assurance-patrimoine-h-f-x-80",
-        "gestionnaire-prestations-sinistres-dans-les-branches-de-l-assurance-patrimoine-m-w-d-80-100-vaudoise-assurances-lausanne"
+        "prestazioni-pensionistiche-nei-rami-dell-assicurazione-ricchezza-h-f-x-80-100-vaudoise-assurances-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "gestionnaire-prestations-sinistres-dans-les-branches-de-l-assurance-patrimoine-h-f-x-80",
-          "gestionnaire-prestations-sinistres-dans-les-branches-de-l-assurance-patrimoine-m-w-d-80-100-vaudoise-assurances-lausanne"
+          "gestionnaire-prestations-sinistres-dans-les-branches-de-l-assurance-patrimoine-h-f-x-80"
         ],
         "en": [
           "gestionnaire-prestations-sinistres-dans-les-branches-de-l-assurance-patrimoine-h-f-x-80"
@@ -2807,7 +2793,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "vaudoise-dde64aff63f2",
@@ -2873,7 +2860,6 @@
         ]
       },
       "firstSeenAt": "2026-05-18T13:27:25.121Z",
-      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -2947,7 +2933,6 @@
         ]
       },
       "firstSeenAt": "2026-05-27T00:40:51.425Z",
-      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -3204,17 +3189,17 @@
       "companyDomain": "vaudoise.ch",
       "title": "DevOps Engineer (h/f/x) - 80 à 100%",
       "titleByLocale": {
-        "fr": "DevOps Ingénieur (h/f/x) - 80 à 100%",
+        "fr": "Ingénieur DevOps (h/f/x) - 80 à 100%",
         "de": "DevOps Engineer (h/f/x) - 80 à 100%",
-        "it": "DevOps Ingegnere (h/f/x) - 80 à 100%",
-        "en": "DevOps Engineer (h/f/x) - 80 à 100%"
+        "it": "DevOps Engineer (h/f/x) - 80 al 100%",
+        "en": "DevOps Engineer (h/f/x) - 80 to 100%"
       },
       "description": "Employeur solide et tourné vers l’avenir, la Vaudoise est l’un des assureurs leaders en Suisse. Fidèle à sa nature coopérative et à ses valeurs, elle encourage la création d’un environnement de travail sain, inclusif et inspirant, idéal pour développer votre talent. Fortement engagée dans sa transformation digitale, la Vaudoise Assurances désire renforcer son équipe Solutions Fonctions Corporate et recherche un/e DevOps Engineer, entre 80 et 100%. Ce poste se positionne au sein du Département TD/SI. Au travers de ce rôle, vous intégrerez une équipe agile et deviendrez progressivement un interlocuteur privilégié pour accompagner les différentes équipes de développement (Dev, Ops, Product Owners et Business Analysts). Les missions qui vous attendent :\n• Créer et améliorer des services au sein de notre plateforme interne de développement\n• Soutenir les équipes de développement dans la mise en place des pipelines de CI/CD et de l'infrastructure des projets\n• Automatiser les processus en s’appuyant sur une toolchain DevOps standardisée\n• Accompagner les équipes IT dans l’adoption des bonnes pratiques\n• Fournir l’accompagnement nécessaire à l’amélioration continue et la résolution des incidents\n• Mettre en place les outils de suivi, d’alerting et de reporting Votre profil :\n• Formation supérieure type HES, Université, EPF, ingénierie ou équivalent en informatique\n• 3 ans d’expérience minimum dans un rôle de DevOps Engineer, et une excellente maîtrise des concepts DevOps et des outils DevOps (Azure DevOps, Jenkins, Sonarqube, Artifactory, Bitbucket, Ansible)\n• Expérience confirmée en intégration continue sur des projets de CI/CD\n• Maîtrise des concepts Infra as Code et de scripting Terraform, Ansible et Groovy\n• Maîtrise des outils de monitoring de type Grafana\n• Langues : français (langue maternelle), anglais (minimum B2) Doté(e) d’un solide leadership technique, vous faites preuve de proactivité et d’un fort esprit d’équipe. Vous êtes capable de vulgariser des concepts techniques auprès d’interlocuteurs non techniques et démontrez un excellent sens de l’organisation, avec une forte orientation qualité. Nous vous offrons :\n• Un environnement de travail sain dans une entreprise mutualiste labelisée \"Meilleur Employeur\"\n• Des avantages sociaux multiples, dont la flexibilité dans l'organisation du travail\n• Un travail au sein d'une équipe dynamique et passionnée\n• Des valeurs humaines centrées sur le bien-être des collaborateurs Nous nous réjouissons de recevoir votre dossier de candidature complet par voie digitale (avec curriculum vitae, lettre de motivation, copie des certificats de travail et diplômes).",
       "descriptionByLocale": {
         "fr": "Employeur solide et tourné vers l’avenir, la Vaudoise est l’un des assureurs leaders en Suisse. Fidèle à sa nature coopérative et à ses valeurs, elle encourage la création d’un environnement de travail sain, inclusif et inspirant, idéal pour développer votre talent. Fortement engagée dans sa transformation digitale, la Vaudoise Assurances désire renforcer son équipe Solutions Fonctions Corporate et recherche un/e DevOps Engineer, entre 80 et 100%. Ce poste se positionne au sein du Département TD/SI. Au travers de ce rôle, vous intégrerez une équipe agile et deviendrez progressivement un interlocuteur privilégié pour accompagner les différentes équipes de développement (Dev, Ops, Product Owners et Business Analysts). Les missions qui vous attendent :\n• Créer et améliorer des services au sein de notre plateforme interne de développement\n• Soutenir les équipes de développement dans la mise en place des pipelines de CI/CD et de l'infrastructure des projets\n• Automatiser les processus en s’appuyant sur une toolchain DevOps standardisée\n• Accompagner les équipes IT dans l’adoption des bonnes pratiques\n• Fournir l’accompagnement nécessaire à l’amélioration continue et la résolution des incidents\n• Mettre en place les outils de suivi, d’alerting et de reporting Votre profil :\n• Formation supérieure type HES, Université, EPF, ingénierie ou équivalent en informatique\n• 3 ans d’expérience minimum dans un rôle de DevOps Engineer, et une excellente maîtrise des concepts DevOps et des outils DevOps (Azure DevOps, Jenkins, Sonarqube, Artifactory, Bitbucket, Ansible)\n• Expérience confirmée en intégration continue sur des projets de CI/CD\n• Maîtrise des concepts Infra as Code et de scripting Terraform, Ansible et Groovy\n• Maîtrise des outils de monitoring de type Grafana\n• Langues : français (langue maternelle), anglais (minimum B2) Doté(e) d’un solide leadership technique, vous faites preuve de proactivité et d’un fort esprit d’équipe. Vous êtes capable de vulgariser des concepts techniques auprès d’interlocuteurs non techniques et démontrez un excellent sens de l’organisation, avec une forte orientation qualité. Nous vous offrons :\n• Un environnement de travail sain dans une entreprise mutualiste labelisée \"Meilleur Employeur\"\n• Des avantages sociaux multiples, dont la flexibilité dans l'organisation du travail\n• Un travail au sein d'une équipe dynamique et passionnée\n• Des valeurs humaines centrées sur le bien-être des collaborateurs Nous nous réjouissons de recevoir votre dossier de candidature complet par voie digitale (avec curriculum vitae, lettre de motivation, copie des certificats de travail et diplômes).",
-        "it": "Employeur solide et tourné vers l’avenir, la Vaudoise est l’un des assureurs leaders en Suisse. Fidèle à sa nature coopérative et à ses valeurs, elle encourage la création d’un environnement de travail sain, inclusif et inspirant, idéal pour développer votre talent. Fortement engagée dans sa transformation digitale, la Vaudoise Assurances désire renforcer son équipe Solutions Fonctions Corporate et recherche un/e DevOps Engineer, entre 80 et 100%. Ce poste se positionne au sein du Département TD/SI. Au travers de ce rôle, vous intégrerez une équipe agile et deviendrez progressivement un interlocuteur privilégié pour accompagner les différentes équipes de développement (Dev, Ops, Product Owners et Business Analysts). Les missions qui vous attendent :\n• Créer et améliorer des services au sein de notre plateforme interne de développement\n• Soutenir les équipes de développement dans la mise en place des pipelines de CI/CD et de l'infrastructure des projets\n• Automatiser les processus en s’appuyant sur une toolchain DevOps standardisée\n• Accompagner les équipes IT dans l’adoption des bonnes pratiques\n• Fournir l’accompagnement nécessaire à l’amélioration continue et la résolution des incidents\n• Mettre en place les outils de suivi, d’alerting et de reporting Votre profil :\n• Formation supérieure type HES, Université, EPF, ingénierie ou équivalent en informatique\n• 3 ans d’expérience minimum dans un rôle de DevOps Engineer, et une excellente maîtrise des concepts DevOps et des outils DevOps (Azure DevOps, Jenkins, Sonarqube, Artifactory, Bitbucket, Ansible)\n• Expérience confirmée en intégration continue sur des projets de CI/CD\n• Maîtrise des concepts Infra as Code et de scripting Terraform, Ansible et Groovy\n• Maîtrise des outils de monitoring de type Grafana\n• Langues : français (langue maternelle), anglais (minimum B2) Doté(e) d’un solide leadership technique, vous faites preuve de proactivité et d’un fort esprit d’équipe. Vous êtes capable de vulgariser des concepts techniques auprès d’interlocuteurs non techniques et démontrez un excellent sens de l’organisation, avec une forte orientation qualité. Nous vous offrons :\n• Un environnement de travail sain dans une entreprise mutualiste labelisée \"Meilleur Employeur\"\n• Des avantages sociaux multiples, dont la flexibilité dans l'organisation du travail\n• Un travail au sein d'une équipe dynamique et passionnée\n• Des valeurs humaines centrées sur le bien-être des collaborateurs Nous nous réjouissons de recevoir votre dossier de candidature complet par voie digitale (avec curriculum vitae, lettre de motivation, copie des certificats de travail et diplômes).",
-        "en": "Employeur solide et tourné vers l’avenir, la Vaudoise est l’un des assureurs leaders en Suisse. Fidèle à sa nature coopérative et à ses valeurs, elle encourage la création d’un environnement de travail sain, inclusif et inspirant, idéal pour développer votre talent. Fortement engagée dans sa transformation digitale, la Vaudoise Assurances désire renforcer son équipe Solutions Fonctions Corporate et recherche un/e DevOps Engineer, entre 80 et 100%. Ce poste se positionne au sein du Département TD/SI. Au travers de ce rôle, vous intégrerez une équipe agile et deviendrez progressivement un interlocuteur privilégié pour accompagner les différentes équipes de développement (Dev, Ops, Product Owners et Business Analysts). Les missions qui vous attendent :\n• Créer et améliorer des services au sein de notre plateforme interne de développement\n• Soutenir les équipes de développement dans la mise en place des pipelines de CI/CD et de l'infrastructure des projets\n• Automatiser les processus en s’appuyant sur une toolchain DevOps standardisée\n• Accompagner les équipes IT dans l’adoption des bonnes pratiques\n• Fournir l’accompagnement nécessaire à l’amélioration continue et la résolution des incidents\n• Mettre en place les outils de suivi, d’alerting et de reporting Votre profil :\n• Formation supérieure type HES, Université, EPF, ingénierie ou équivalent en informatique\n• 3 ans d’expérience minimum dans un rôle de DevOps Engineer, et une excellente maîtrise des concepts DevOps et des outils DevOps (Azure DevOps, Jenkins, Sonarqube, Artifactory, Bitbucket, Ansible)\n• Expérience confirmée en intégration continue sur des projets de CI/CD\n• Maîtrise des concepts Infra as Code et de scripting Terraform, Ansible et Groovy\n• Maîtrise des outils de monitoring de type Grafana\n• Langues : français (langue maternelle), anglais (minimum B2) Doté(e) d’un solide leadership technique, vous faites preuve de proactivité et d’un fort esprit d’équipe. Vous êtes capable de vulgariser des concepts techniques auprès d’interlocuteurs non techniques et démontrez un excellent sens de l’organisation, avec une forte orientation qualité. Nous vous offrons :\n• Un environnement de travail sain dans une entreprise mutualiste labelisée \"Meilleur Employeur\"\n• Des avantages sociaux multiples, dont la flexibilité dans l'organisation du travail\n• Un travail au sein d'une équipe dynamique et passionnée\n• Des valeurs humaines centrées sur le bien-être des collaborateurs Nous nous réjouissons de recevoir votre dossier de candidature complet par voie digitale (avec curriculum vitae, lettre de motivation, copie des certificats de travail et diplômes).",
-        "de": "Employeur solide et tourné vers l’avenir, la Vaudoise est l’un des assureurs leaders en Suisse. Fidèle à sa nature coopérative et à ses valeurs, elle encourage la création d’un environnement de travail sain, inclusif et inspirant, idéal pour développer votre talent. Fortement engagée dans sa transformation digitale, la Vaudoise Assurances désire renforcer son équipe Solutions Fonctions Corporate et recherche un/e DevOps Engineer, entre 80 et 100%. Ce poste se positionne au sein du Département TD/SI. Au travers de ce rôle, vous intégrerez une équipe agile et deviendrez progressivement un interlocuteur privilégié pour accompagner les différentes équipes de développement (Dev, Ops, Product Owners et Business Analysts). Les missions qui vous attendent :\n• Créer et améliorer des services au sein de notre plateforme interne de développement\n• Soutenir les équipes de développement dans la mise en place des pipelines de CI/CD et de l'infrastructure des projets\n• Automatiser les processus en s’appuyant sur une toolchain DevOps standardisée\n• Accompagner les équipes IT dans l’adoption des bonnes pratiques\n• Fournir l’accompagnement nécessaire à l’amélioration continue et la résolution des incidents\n• Mettre en place les outils de suivi, d’alerting et de reporting Votre profil :\n• Formation supérieure type HES, Université, EPF, ingénierie ou équivalent en informatique\n• 3 ans d’expérience minimum dans un rôle de DevOps Engineer, et une excellente maîtrise des concepts DevOps et des outils DevOps (Azure DevOps, Jenkins, Sonarqube, Artifactory, Bitbucket, Ansible)\n• Expérience confirmée en intégration continue sur des projets de CI/CD\n• Maîtrise des concepts Infra as Code et de scripting Terraform, Ansible et Groovy\n• Maîtrise des outils de monitoring de type Grafana\n• Langues : français (langue maternelle), anglais (minimum B2) Doté(e) d’un solide leadership technique, vous faites preuve de proactivité et d’un fort esprit d’équipe. Vous êtes capable de vulgariser des concepts techniques auprès d’interlocuteurs non techniques et démontrez un excellent sens de l’organisation, avec une forte orientation qualité. Nous vous offrons :\n• Un environnement de travail sain dans une entreprise mutualiste labelisée \"Meilleur Employeur\"\n• Des avantages sociaux multiples, dont la flexibilité dans l'organisation du travail\n• Un travail au sein d'une équipe dynamique et passionnée\n• Des valeurs humaines centrées sur le bien-être des collaborateurs Nous nous réjouissons de recevoir votre dossier de candidature complet par voie digitale (avec curriculum vitae, lettre de motivation, copie des certificats de travail et diplômes)."
+        "it": "Un datore di lavoro forte e preesistente, Vaudoise è uno dei principali assicuratori in Svizzera. Fedele alla sua natura cooperativa e ai suoi valori, incoraggia la creazione di un ambiente di lavoro sano, inclusivo e stimolante, ideale per sviluppare il tuo talento. Fortemente impegnata nella sua trasformazione digitale, Vaudoise Assurances vuole rafforzare il suo team Corporate Functions Solutions e cerca un DevOps Engineer, tra l'80 e il 100%. Questa posizione si trova all'interno del Dipartimento TD/SI. Attraverso questo ruolo, si integra un team agile e gradualmente diventare un interlocutore privilegiato per sostenere i vari team di sviluppo (Dev, Ops, Product Owners e Business Analysts). Le missioni che vi aspettano:\n• Creare e migliorare i servizi all'interno della nostra piattaforma di sviluppo interno\n• Sostegno ai team di sviluppo nell'implementazione di tubazioni IC/CD e infrastrutture di progetto\n• Automatizzare i processi utilizzando una toolchain DevOps standardizzata\n• Sostenere i team IT nell'adottare buone pratiche\n• Fornire il supporto necessario per il miglioramento continuo e la risoluzione degli incidenti\n• Posizionare gli strumenti per tracciare, tracciare e segnalare il tuo profilo:\n• Tipo di istruzione superiore HES, Università, EPF, ingegneria o equivalente in informatica\n• 3 anni di esperienza minima in un ruolo di DevOps Engineer, e eccellente padronanza dei concetti DevOps e strumenti DevOps (Azure DevOps, Jenkins, Sonarqube, Artifactory, Bitbucket, Ansible)\n• Esperienza confermata nella continua integrazione dei progetti IC/CD\n• Mastering Infra come Code and Terraform, concetti di scripting Ansible e Groovy\n• Mastering strumenti di monitoraggio di tipo Grafana\n• Lingue: Francese (lingua madre), Inglese (minimo B2) Con una forte leadership tecnica, si mostra la proattività e uno spirito di squadra forte. Siete in grado di divulgare concetti tecnici con interlocutori non tecnici e dimostrare un eccellente senso di organizzazione, con un orientamento di qualità forte. Vi offriamo:\n• Un ambiente di lavoro sano in una società comune denominata \"Best Employer\"\n• Vantaggi sociali multipli, compresa la flessibilità nell'organizzazione del lavoro\n• Lavorare in un team dinamico e appassionato\n• Valori umani focalizzati sul benessere dei dipendenti Non vediamo l'ora di ricevere il tuo pacchetto completo di applicazioni digitalmente (con curriculum vitae, lettera di copertura, copie di certificati di lavoro e diplomi).",
+        "en": "A strong and forward-looking employer, Vaudoise is one of the leading insurers in Switzerland. True to its cooperative nature and values, it encourages the creation of a healthy, inclusive and inspiring work environment, ideal for developing your talent. Strongly committed to its digital transformation, Vaudoise Assurances wants to strengthen its Corporate Functions Solutions team and seeks a DevOps Engineer, between 80 and 100%. This position is located within the TD/SI Department. Through this role, you will integrate an agile team and gradually become a privileged interlocutor to support the various development teams (Dev, Ops, Product Owners and Business Analysts). The missions that await you:\n• Create and improve services within our internal development platform\n• Support development teams in the implementation of IC/CD pipelines and project infrastructure\n• Automate processes using a standardized DevOps toolchain\n• Support IT teams in adopting good practice\n• Provide the necessary support for continuous improvement and incident resolution\n• Putting in place the tools to track, track and report Your profile:\n• Higher education type HES, University, EPF, engineering or equivalent in computer science\n• 3 years of minimum experience in a role of DevOps Engineer, and excellent mastery of DevOps concepts and DevOps tools (Azure DevOps, Jenkins, Sonarqube, Artifactory, Bitbucket, Ansible)\n• Confirmed experience in continuous integration on IC/CD projects\n• Mastering Infra as Code and Terraform, Ansible and Groovy scripting concepts\n• Mastering Grafana-type monitoring tools\n• Languages: French (mother tongue), English (minimum B2) With strong technical leadership, you show proactivity and a strong team spirit. You are able to popularize technical concepts with non-technical interlocutors and demonstrate an excellent sense of organization, with a strong quality orientation. We offer you :\n• A healthy working environment in a mutual company labeled \"Best Employer\"\n• Multiple social benefits, including flexibility in work organisation\n• Working in a dynamic and passionate team\n• Human values focused on the well-being of employees We look forward to receiving your complete application package digitally (with curriculum vitae, cover letter, copies of work certificates and diplomas).",
+        "de": "Vaudoise ist einer der führenden Versicherer in der Schweiz. Getreu seiner kooperativen Natur und ihren Werten fördert sie die Schaffung eines gesunden, inklusiven und inspirierenden Arbeitsumfelds, ideal für die Entwicklung Ihres Talents. Vaudoise Assurances will sein Corporate Functions Solutions Team stärken und einen DevOps Engineer zwischen 80 und 100 % suchen. Diese Position befindet sich innerhalb der TD/SI Abteilung. Durch diese Rolle werden Sie ein agiles Team integrieren und allmählich zu einem privilegierten Gesprächspartner werden, um die verschiedenen Entwicklungsteams (Dev, Ops, Product Owners und Business Analysts) zu unterstützen. Die Missionen, die Sie erwarten:\n• Dienstleistungen innerhalb unserer internen Entwicklungsplattform erstellen und verbessern\n• Unterstützung von Entwicklungsteams bei der Umsetzung von IC/CD-Pipelines und Projektinfrastruktur\n• Automatische Prozesse mit einer standardisierten DevOps-Toolchain\n• Unterstützung von IT-Teams bei der Einführung guter Praxis\n• Bereitstellung der notwendigen Unterstützung für die kontinuierliche Verbesserung und Auflösung von Zwischenfällen\n• Setzen Sie die Werkzeuge ein, um Ihr Profil zu verfolgen, zu verfolgen und zu melden:\n• Hochschultyp HES, Universität, EPF, Ingenieurwesen oder Äquivalent in Informatik\n• 3 Jahre Mindesterfahrung in einer Rolle von DevOps Engineer, und ausgezeichnete Meisterschaft von DevOps-Konzepten und DevOps-Tools (Azure DevOps, Jenkins, Sonarqube, Artifactory, Bitbucket, Ansible)\n• Konfirmierte Erfahrung in der kontinuierlichen Integration auf IC/CD-Projekten\n• Mastering Infra als Code und Terraform, Ansible und Groovy Skriptkonzepte\n• Mastering Grafana-Typ Überwachungstools\n• Sprachen: Französisch (Muttersprache), Englisch (mindestens B2) Mit starker technischer Führung zeigen Sie Proaktivität und einen starken Teamgeist. Sie sind in der Lage, technische Konzepte mit nicht-technischen Gesprächspartnern zu popularisieren und ein ausgezeichnetes Organisationsgefühl mit einer starken Qualitätsorientierung zu demonstrieren. Wir bieten Ihnen an:\n• Ein gesundes Arbeitsumfeld in einem gemeinsamen Unternehmen mit dem Titel \"Best Employer\"\n• Mehrere soziale Vorteile, einschließlich Flexibilität in der Arbeitsorganisation\n• Arbeiten in einem dynamischen und leidenschaftlichen Team\n• Humanwerte konzentrierten sich auf das Wohlbefinden der Mitarbeiter Wir freuen uns darauf, Ihr komplettes Bewerbungspaket digital zu erhalten (mit Lehrplan, Brief, Kopien von Arbeitszeugnissen und Diplomen)."
       },
       "location": "Lausanne",
       "canton": "VD",
@@ -3239,7 +3224,6 @@
         "fr": []
       },
       "jobCategory": "Informatica e tecnologia",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
