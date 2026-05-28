@@ -4,6 +4,51 @@
  */
 import { JSDOM } from 'jsdom';
 
+// Localized labels Cler exposes in `.JobDetail__item`. Multilingual to survive
+// any future locale switch of the source site.
+const META_LABELS = {
+  arbeitsort: ['arbeitsort', 'lieu de travail', 'luogo di lavoro', 'workplace', 'work location'],
+  pensum:     ['pensum', 'taux d\'occupation', 'percentuale', 'workload'],
+  start:      ['stellenantritt', 'entrée en fonction', 'inizio', 'start date'],
+  bereich:    ['bereich / abteilung', 'domaine / département', 'ambito / reparto', 'department'],
+};
+
+function pickMetaValue(meta, kind) {
+  const wanted = META_LABELS[kind];
+  if (!wanted) return '';
+  for (const [rawKey, val] of Object.entries(meta)) {
+    const k = rawKey.toLowerCase().trim();
+    if (wanted.some((w) => k === w || k.startsWith(w))) return val;
+  }
+  return '';
+}
+
+/**
+ * Extract structured job metadata (location, workload, start date, department)
+ * from a Cler detail page. Returns empty strings for any field not present.
+ */
+export function extractJobMeta(html) {
+  if (!html) return { arbeitsort: '', pensum: '', start: '', bereich: '', raw: {} };
+  const dom = new JSDOM(html);
+  const doc = dom.window.document;
+  const meta = {};
+  for (const item of doc.querySelectorAll('.JobDetail__item')) {
+    const slots = item.querySelectorAll('.JobDetail__item-slot');
+    if (slots.length >= 2) {
+      const key = slots[0].textContent.trim();
+      const val = slots[1].textContent.trim();
+      if (key && val) meta[key] = val;
+    }
+  }
+  return {
+    arbeitsort: pickMetaValue(meta, 'arbeitsort'),
+    pensum:     pickMetaValue(meta, 'pensum'),
+    start:      pickMetaValue(meta, 'start'),
+    bereich:    pickMetaValue(meta, 'bereich'),
+    raw: meta,
+  };
+}
+
 /**
  * Convert Cler job detail HTML to structured markdown.
  * Parses `.m-richtext__content` for headings, paragraphs, and lists,
