@@ -1,18 +1,66 @@
 {
   "key": "efg-international",
   "label": "EFG",
-  "generatedAt": "2026-05-27T22:49:33.381Z",
-  "total": 34,
-  "newCount": 0,
-  "updatedCount": 15,
+  "generatedAt": "2026-05-28T12:24:39.710Z",
+  "total": 35,
+  "newCount": 1,
+  "updatedCount": 13,
   "removedCount": 0,
-  "unchangedCount": 19,
-  "durationMs": 32236,
-  "avgDurationMs": 32236,
+  "unchangedCount": 21,
+  "durationMs": 26277,
+  "avgDurationMs": 26277,
   "durationHistory": [
-    32236
+    26277
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "id": "efg-6071",
+      "slug": "it-data-service-manager-efg-geneve",
+      "company": "EFG International AG",
+      "title": "IT Data Service Manager",
+      "location": "Geneve",
+      "canton": "GE",
+      "category": "tech",
+      "contract": "permanent",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-28",
+      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6071",
+      "source": "Oracle HCM API",
+      "sourceLang": "en",
+      "companyKey": "efg-international",
+      "companyDomain": "efginternational.com",
+      "canonicalContent": {
+        "byLocale": {
+          "en": {
+            "summary": [
+              "<p><span><strong>General Info</strong></span></p><ul style=\"list-style-type: disc;\"><li><span><strong>Department:</strong> DataOps / IT</span></li><li><span><strong>Work time Percentage:</strong> 100%</span></li><li><span><strong>Location:</strong> Geneva</span></li></ul><p> </p><p><span><strong>Our Company</strong></span></p><p><span>EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice.</span></p><p><span>EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation.</span></p><p><span><strong>Our Purpose and Mission</strong></span></p><p><span>Empowering entrepreneurial minds to create value – today and for the future.</span></p><p><span>We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value.</span></p><p><span><strong>Job Description</strong></span></p><p><span><strong>DataOps Service & Governance Engineer</strong></span></p><p><span>DataOps Services’ mission is to ensure the reliable and efficient servicing of all data interfaces supported by our data platform. This includes a broad spectrum of interfaces, ranging from highly critical order-processing flows to regular analytical and reporting systems. The DataOps team supports global systems serving the entire Group worldwide.</span></p><p><span>We are looking for a reliable and well-organised expert to join our DataOps team in Geneva. As our platform and data landscape evolve, robust operational governance has become increasingly important. With growing regulatory requirements, rising business expectations for data quality, and the need for consistent service delivery, we must ensure that our processes are well-documented, controlled, and transparent.</span></p><p><span>In this context, we are seeking a profile dedicated to overseeing documentation, managing Standard Operating Procedures (SOPs), and monitoring Service Level Agreements (SLAs). By reinforcing these governance pillars, you will help us ensure continuity and quality of operations, while facilitating clear communication and alignment among our technical and business teams.</span></p><p><span><strong>Key Responsibilities</strong></span></p><ul style=\"list-style-type: disc;\"><li><span>Coordinate operational activities related to data integration services under the responsibility of the DataOps Team Manager, ensuring effective change management, quality assurance, SLA monitoring, and comprehensive SOP documentation.</span></li><li><span>Monitor and track the smooth operation of critical business processes, acting as the primary contact for SLA- and procedure-related topics.</span></li><li><span>Create, maintain, and continuously improve documentation and operational procedures (SOPs) to ensure alignment with internal standards, audit requirements, and applicable regulations.</span></li><li><span>Collaborate closely with IT, production support, and business teams to strengthen governance around data integration processes and ensure documentation is accurate, up to date, and consistently applied.</span></li><li><span>Ensure traceability, consolidation, and regular updates of performance indicators (KPIs) related to SLAs, operational quality, and service reliability.</span></li><li><span>Prepare and contribute to regular service reviews and reporting, highlighting risks, issues, and improvement opportunities.</span></li><li><span>Improve internal team processes by gathering stakeholder feedback, identifying pain points, and proposing optimisations to SOPs and workflows in collaboration with the line manager.</span></li><li><span>Support incident and problem management from a governance perspective (e.g. post-incident documentation, lessons learned, action follow-up).</span></li><li><span>Facilitate effective communication and coordination across teams to support operational excellence and a culture of continuous improvement.</span></li></ul><p><span><strong>Requirements and Qualifications</strong></span></p><ul style=\"list-style-type: disc;\"><li><span>At least 5 years of experience in operational governance, documentation management, service management, or PMO roles within a data-driven or IT/operations environment (e.g. data platforms, integration, production support).</span></li><li><span>Proven experience in managing and monitoring SLAs and SOPs, with the ability to structure, validate, implement, and track procedures across multiple stakeholders.</span></li><li><span>Strong writing, organisational, and analytical skills, with a demonstrated ability to produce clear, concise, and audit-ready documentation.</span></li><li><span>Experience in tracking performance indicators (KPIs), preparing service quality reports, and presenting findings to management and stakeholders.</span></li><li><span>Good understanding of data integration and data platform environments; knowledge of Kafka, Opcon orchestrator, microservice architectures, and REST-based communication is a strong plus.</span></li><li><span>Strong communication and interpersonal skills, with the ability to interact effectively with both technical and non-technical stakeholders and to facilitate coordination across teams.</span></li><li><span>High attention to detail, rigor, and autonomy in managing tasks and priorities in a dynamic environment.</span></li><li><span>Good command of spoken and written English; French is an asset.</span></li></ul><p><span><strong>Personal Attributes</strong></span></p><ul style=\"list-style-type: disc;\"><li><span>Responsible and reliable, especially during critical operational periods and in the context of production incidents or major changes.</span></li><li><span>Methodical, structured, and rigorous in documentation, process management, and follow-up.</span></li><li><span>Proactive and a strong team player, with the ability to work effectively within cross-functional and international teams.</span></li><li><span>Curious and motivated to learn and grow in a transforming technological environment, embracing change and continuous improvement.</span></li><li><span>Comfortable challenging the status quo constructively and proposing pragmatic, risk-aware solutions.</span></li></ul><p><span><strong>Our Values</strong></span></p><ul style=\"list-style-type: disc;\"><li><span><strong>Accountability:</strong> Taking ownership for tasks and challenges, as well as seeking continuous improvement.</span></li><li><span><strong>Hands-on:</strong> Being proactive to rapidly deliver high-quality results.</span></li><li><span><strong>Passionate:</strong> Being committed and striving for excellence.</span></li><li><span><strong>Solution-driven:</strong> Focusing on client outcomes and treating clients fairly with a risk-aware mindset.</span></li><li><span><strong>Partnership-oriented:</strong> Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.</span></li></ul><p> </p><p><span>Please ensure to attach a cover letter to your CV when filling the application.</span></p><p> </p>"
+            ],
+            "responsibilities": [],
+            "requirements": [],
+            "benefits": [],
+            "process": [],
+            "highlights": [],
+            "keywords": [],
+            "sections": [],
+            "readingMinutes": 4
+          }
+        }
+      },
+      "crawledAt": "2026-05-28T12:24:37.370Z",
+      "addressLocality": "Geneve",
+      "addressCountry": "CH",
+      "needsRetranslation": true,
+      "datePosted": "2026-05-28",
+      "_qualityScore": 67,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 4,
+        "completeness": 14
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "id": "efg-6212",
@@ -133,7 +181,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-27T22:49:30.834Z",
+      "crawledAt": "2026-05-28T12:24:37.399Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-04-17",
@@ -187,7 +235,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-27T22:49:30.831Z",
+      "crawledAt": "2026-05-28T12:24:37.397Z",
       "addressLocality": "St. Moritz",
       "addressCountry": "CH",
       "datePosted": "2026-04-01",
@@ -199,143 +247,12 @@
       "employmentType": "FULL_TIME",
       "firstSeenAt": "2026-05-17T10:08:35.143Z",
       "needsRetranslation": true,
+      "retranslationAttempts": 1,
       "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 19,
-        "completeness": 25
-      }
-    },
-    {
-      "id": "efg-6168",
-      "slug": "stage-in-talent-acquisition-efg-international-ag-geneve",
-      "company": "EFG International AG",
-      "title": "Talent Acquisition Internship",
-      "location": "Geneve",
-      "canton": "GE",
-      "category": "finance",
-      "contract": "temporary",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-09",
-      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6168",
-      "source": "Oracle HCM API",
-      "sourceLang": "en",
-      "companyKey": "efg-international",
-      "companyDomain": "efginternational.com",
-      "canonicalContent": {
-        "byLocale": {
-          "en": {
-            "summary": [
-              "The Talent Acquisition (TA) team is part of the Human Resources function and is responsible for attracting and hiring the best talent in the market for EFG Bank.",
-              "We are looking for a motivated Talent Acquisition Intern to join our team for a 6‑month internship in Lugano or Geneva. In this role, you will play a key part in enhancing the candidate experience, supporting Talent Acquisition in day‑to‑day activities, and contributing to reporting and process optimisation. You will also have the opportunity to support, and progressively manage, some junior recruitment mandates under guidance.",
-              "Key Responsibilities"
-            ],
-            "responsibilities": [
-              "Act as a point of contact for candidates, ensuring clear, timely and professional communication throughout the recruitment process.",
-              "Coordinate and schedule interviews with hiring managers and other stakeholders.",
-              "Support Talent Acquisition Specialists in screening CVs and assessing candidates against role requirements.",
-              "Draft and post job advertisements on internal and external platforms, ensuring consistency with EFG’s employer brand.",
-              "Execute daily operations in the Applicant Tracking System (ATS), including data entry, data quality checks and status updates.",
-              "Maintain accurate candidate records and ensure proper documentation of each recruitment step.",
-              "Prepare standard correspondence and communication to candidates and hiring managers.",
-              "Support coordination of assessments (tests, case studies, reference checks), where applicable.",
-              "Support the preparation of regular recruitment reports and simple dashboards (e.g. pipeline status, time‑to‑hire, sources of hire).",
-              "Help monitor key TA metrics and identify basic trends or bottlenecks in the process.",
-              "Contribute ideas to streamline and standardise recruitment processes, templates and communication flows.",
-              "Participate in small projects aimed at improving tools, candidate experience and internal TA efficiency.",
-              "Assist in sourcing candidates via LinkedIn Recruiter, job boards, referrals and other channels.",
-              "Conduct initial phone or video pre‑screenings for selected roles, under supervision.",
-              "Support employer branding initiatives (e.g. content preparation for social media or the career site, or job fairs).",
-              "Progressively support and, where appropriate, manage end‑to‑end recruitment for selected junior or intern positions, under the guidance of a Talent Acquisition Specialist."
-            ],
-            "requirements": [
-              "Master’s degree (or currently enrolled in a Master’s program) in Human Resources, Business Administration, Psychology or a related field.",
-              "Previous experience (internship, part time role or similar) in recruiting, HR or employer branding is a plus.",
-              "Experience in data management, reporting or working with HR/ATS systems is an advantage.",
-              "Excellent command of English (spoken and written).",
-              "Good command of Italian or French is considered a strong plus, depending on the location.",
-              "Interest in working with HR tools and platforms (e.g. Applicant Tracking Systems, LinkedIn Recruiter, career websites).",
-              "Good MS Office skills, especially in Excel and PowerPoint, with an interest in reporting and basic analytics.",
-              "High attention to detail and accuracy in handling data and administrative tasks.",
-              "Strong interest in Talent Acquisition, the banking industry and investment management.",
-              "Excellent communication and interpersonal skills, with a natural focus on service and candidate experience.",
-              "Organised, structured and able to manage multiple tasks and priorities.",
-              "Proactive, curious and willing to take ownership of tasks and suggest improvements.",
-              "Team oriented, collaborative and comfortable working in an international and multicultural environment.",
-              "Alignment with EFG’s entrepreneurial culture: hands on, solutions oriented and open to learning."
-            ],
-            "benefits": [
-              "Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement",
-              "Hands-on: Being proactive to rapidly deliver high-quality results",
-              "Passionate: Being committed and striving for excellence",
-              "Solution-driven: Focusing on client outcomes and treating clients fairly with a risk-aware mindset",
-              "Partnership-oriented: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit."
-            ],
-            "process": [],
-            "highlights": [
-              "Act as a point of contact for candidates, ensuring clear, timely and professional communication throughout the recruitment process.",
-              "Coordinate and schedule interviews with hiring managers and other stakeholders.",
-              "Support Talent Acquisition Specialists in screening CVs and assessing candidates against role requirements.",
-              "Master’s degree (or currently enrolled in a Master’s program) in Human Resources, Business Administration, Psychology or a related field.",
-              "Previous experience (internship, part time role or similar) in recruiting, HR or employer branding is a plus.",
-              "Experience in data management, reporting or working with HR/ATS systems is an advantage.",
-              "Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement",
-              "Hands-on: Being proactive to rapidly deliver high-quality results"
-            ],
-            "keywords": [
-              "Master’s degree (or currently enrolled in a Master’s program) in Human Resources",
-              "Previous experience (internship",
-              "Experience in data management",
-              "Excellent command of English (spoken and written).",
-              "Good command of Italian or French is considered a strong plus",
-              "Act as a point of contact for candidates",
-              "Coordinate and schedule interviews with hiring managers and other stakeholders.",
-              "Support Talent Acquisition Specialists in screening CVs and assessing candidates against role requirements.",
-              "Draft and post job advertisements on internal and external platforms"
-            ],
-            "sections": [
-              {
-                "id": "company",
-                "heading": "Our Company",
-                "paragraphs": [
-                  "EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice.",
-                  "EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation."
-                ],
-                "bullets": []
-              },
-              {
-                "id": "company",
-                "heading": "Our Purpose and Mission",
-                "paragraphs": [
-                  "Empowering entrepreneurial minds to create value – today and for the future.",
-                  "We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value."
-                ],
-                "bullets": []
-              }
-            ],
-            "readingMinutes": 5
-          }
-        }
-      },
-      "crawledAt": "2026-05-27T22:49:30.828Z",
-      "addressLocality": "Geneve",
-      "addressCountry": "CH",
-      "datePosted": "2026-04-09",
-      "salaryMin": 85500,
-      "salaryMax": 150000,
-      "streetAddress": "Via Pretorio 22",
-      "postalCode": "6900",
-      "addressRegion": "TI",
-      "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-04-13T21:36:50.620Z",
-      "needsRetranslation": true,
-      "_qualityScore": 100,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 25,
-        "translation": 25,
         "completeness": 25
       }
     },
@@ -419,7 +336,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-27T22:49:30.827Z",
+      "crawledAt": "2026-05-28T12:24:37.393Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "sourceLang": "en",
@@ -500,7 +417,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-27T22:49:30.826Z",
+      "crawledAt": "2026-05-28T12:24:37.392Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-04-02",
@@ -617,7 +534,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-27T22:49:30.825Z",
+      "crawledAt": "2026-05-28T12:24:37.391Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "sourceLang": "en",
@@ -633,6 +550,60 @@
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
+        "translation": 25,
+        "completeness": 25
+      }
+    },
+    {
+      "id": "efg-6046",
+      "slug": "senior-private-markets-product-specialista-efg-international-ag-zurich",
+      "company": "EFG International AG",
+      "title": "Senior Private Markets Product Specialist",
+      "location": "Zurich",
+      "canton": "ZH",
+      "category": "finance",
+      "contract": "permanent",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-21",
+      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6046",
+      "source": "Oracle HCM API",
+      "sourceLang": "en",
+      "companyKey": "efg-international",
+      "companyDomain": "efginternational.com",
+      "canonicalContent": {
+        "byLocale": {
+          "en": {
+            "summary": [
+              "<p><span lang=\"DE\">General Info</span></p><ul style=\"list-style-type: disc;\"><li><span lang=\"EN-GB\">Department: </span><span lang=\"FR-CH\">Private Markets</span></li><li><span lang=\"EN-GB\">Work time Percentage: 100%</span></li><li><span lang=\"EN-GB\">Location: Zurich (or Lugano) </span></li></ul><p><span lang=\"IT-CH\"><strong>Our Company</strong></span></p><p><span lang=\"EN-GB\">EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice. </span></p><p><span lang=\"EN-GB\">EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation.</span></p><p><span>Our Purpose and Mission</span></p><p><span lang=\"EN-GB\">Empowering entrepreneurial minds to create value – today and for the future.</span></p><p><span lang=\"EN-GB\">We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value.</span></p><p><span lang=\"EN-GB\"><strong>Job Description</strong></span></p><p><span lang=\"EN-GB\">To strengthen our growing private markets franchise, we are looking for a Swiss based (Senior) Private Markets Product Specialist. </span></p><p><span lang=\"EN-GB\"> We are searching for a candidate who shares our enthusiasm for delivering a first-class client experience through an engaging and proactive relationship approach. This is an excellent opportunity to join a growing, seasoned and entrepreneurial global team with strong personal and professional development opportunities.</span></p><p><span lang=\"EN-GB\"><strong>Tasks and Responsibilities</strong></span></p><ul style=\"list-style-type: disc;\"><li><span lang=\"EN-GB\">Accountable for driving a strategic and hands-on distribution effort across our private markets solutions, focusing on EFG’s in-house private markets program and product suite of perpetual/evergreen funds</span></li><li><span lang=\"EN-GB\">Strategic partner to Client Relationship Officers (CROs), Investment Counsellors (ICs) and their clients to increase overall allocations to the asset class</span></li><li><span lang=\"EN-GB\">Responsible for impactful and tailor-made marketing content for in-person and written presentations, both internally and for our global client base</span></li><li><span lang=\"EN-GB\">Foster the ongoing development of our private markets franchise by identifying client demands and trends to shape our future product offering</span></li><li><span lang=\"EN-GB\">Design educational initiatives to drive asset class-specific learning excellence and impact across various stakeholder groups within EFG</span></li></ul><p> </p><p><span lang=\"EN-GB\"><strong>Requirements and Qualifications</strong></span></p><ul style=\"list-style-type: disc;\"><li><span lang=\"EN-GB\">5+ years working experience in distribution and/or sales within the private markets (including real estate) industry, preferably focused on private wealth clients</span></li><li><i><span lang=\"EN-GB\">For senior-level role:</span></i><span lang=\"EN-GB\"> 10+ years of relevant working experience required</span></li><li><span lang=\"EN-GB\">Ambitious and self-motivation personality with the ability to work in a target driven high-performance culture while maintaining “down-to-earth” attitude </span></li><li><span lang=\"EN-GB\">Entrepreneurial mindset with an enthusiastic, flexible and hands-on approach</span></li><li><span lang=\"EN-GB\">Excellent communication, presentation and interpersonal skills, with proficiency in English and Italien (German beneficial)</span></li><li><span lang=\"EN-GB\">Master’s degree in Finance or similar and further professional qualifications (CFA, CAIA, etc.)</span></li><li><span lang=\"EN-GB\">Advanced proficiency in PowerPoint and Excel, with the ability to create impactful client-facing marketing material</span></li></ul><p><span lang=\"EN-GB\"> </span></p><p><span lang=\"EN-GB\"><strong>Our Values</strong></span></p><ul style=\"list-style-type: disc;\"><li><span lang=\"EN-GB\">Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement</span></li><li><span lang=\"EN-GB\">Hands-on: Being proactive to rapidly deliver high-quality results</span></li><li><span lang=\"EN-GB\">Passionate: Being committed and striving for excellence</span></li><li><span lang=\"EN-GB\">Solution-driven: Focusing on client outcomes and treating clients fairly with a risk-aware mindset</span></li><li><span lang=\"EN-GB\">Partnership-oriented: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.</span></li></ul><p><span lang=\"EN-GB\"><strong>Please ensure to attach a cover letter to your CV when filling the application.</strong></span></p><p><span lang=\"EN-GB\">Application</span></p><p><span lang=\"EN-GB\">Should you wish to apply for this position use this link to apply.</span></p><p> </p>"
+            ],
+            "responsibilities": [],
+            "requirements": [],
+            "benefits": [],
+            "process": [],
+            "highlights": [],
+            "keywords": [],
+            "sections": [],
+            "readingMinutes": 3
+          }
+        }
+      },
+      "crawledAt": "2026-05-28T12:24:37.388Z",
+      "addressLocality": "Zurich",
+      "addressCountry": "CH",
+      "datePosted": "2026-04-21",
+      "salaryMin": 142000,
+      "salaryMax": 249500,
+      "streetAddress": "Via Pretorio 22",
+      "postalCode": "6900",
+      "addressRegion": "TI",
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-05-10T21:30:00.892Z",
+      "needsRetranslation": true,
+      "_qualityScore": 99,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
         "translation": 25,
         "completeness": 25
       }
@@ -695,7 +666,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-27T22:49:30.822Z",
+      "crawledAt": "2026-05-28T12:24:37.388Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "datePosted": "2026-04-02",
@@ -707,60 +678,6 @@
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
       "firstSeenAt": "2026-04-13T10:28:21.940Z",
-      "_qualityScore": 99,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
-    {
-      "id": "efg-6046",
-      "slug": "senior-private-markets-product-specialista-efg-international-ag-zurich",
-      "company": "EFG International AG",
-      "title": "Senior Private Markets Product Specialist",
-      "location": "Zurich",
-      "canton": "ZH",
-      "category": "finance",
-      "contract": "permanent",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-21",
-      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6046",
-      "source": "Oracle HCM API",
-      "sourceLang": "en",
-      "companyKey": "efg-international",
-      "companyDomain": "efginternational.com",
-      "canonicalContent": {
-        "byLocale": {
-          "en": {
-            "summary": [
-              "<p><span lang=\"DE\">General Info</span></p><ul style=\"list-style-type: disc;\"><li><span lang=\"EN-GB\">Department: </span><span lang=\"FR-CH\">Private Markets</span></li><li><span lang=\"EN-GB\">Work time Percentage: 100%</span></li><li><span lang=\"EN-GB\">Location: Zurich (or Lugano) </span></li></ul><p><span lang=\"IT-CH\"><strong>Our Company</strong></span></p><p><span lang=\"EN-GB\">EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice. </span></p><p><span lang=\"EN-GB\">EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation.</span></p><p><span>Our Purpose and Mission</span></p><p><span lang=\"EN-GB\">Empowering entrepreneurial minds to create value – today and for the future.</span></p><p><span lang=\"EN-GB\">We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value.</span></p><p><span lang=\"EN-GB\"><strong>Job Description</strong></span></p><p><span lang=\"EN-GB\">To strengthen our growing private markets franchise, we are looking for a Swiss based (Senior) Private Markets Product Specialist. </span></p><p><span lang=\"EN-GB\"> We are searching for a candidate who shares our enthusiasm for delivering a first-class client experience through an engaging and proactive relationship approach. This is an excellent opportunity to join a growing, seasoned and entrepreneurial global team with strong personal and professional development opportunities.</span></p><p><span lang=\"EN-GB\"><strong>Tasks and Responsibilities</strong></span></p><ul style=\"list-style-type: disc;\"><li><span lang=\"EN-GB\">Accountable for driving a strategic and hands-on distribution effort across our private markets solutions, focusing on EFG’s in-house private markets program and product suite of perpetual/evergreen funds</span></li><li><span lang=\"EN-GB\">Strategic partner to Client Relationship Officers (CROs), Investment Counsellors (ICs) and their clients to increase overall allocations to the asset class</span></li><li><span lang=\"EN-GB\">Responsible for impactful and tailor-made marketing content for in-person and written presentations, both internally and for our global client base</span></li><li><span lang=\"EN-GB\">Foster the ongoing development of our private markets franchise by identifying client demands and trends to shape our future product offering</span></li><li><span lang=\"EN-GB\">Design educational initiatives to drive asset class-specific learning excellence and impact across various stakeholder groups within EFG</span></li></ul><p> </p><p><span lang=\"EN-GB\"><strong>Requirements and Qualifications</strong></span></p><ul style=\"list-style-type: disc;\"><li><span lang=\"EN-GB\">5+ years working experience in distribution and/or sales within the private markets (including real estate) industry, preferably focused on private wealth clients</span></li><li><i><span lang=\"EN-GB\">For senior-level role:</span></i><span lang=\"EN-GB\"> 10+ years of relevant working experience required</span></li><li><span lang=\"EN-GB\">Ambitious and self-motivation personality with the ability to work in a target driven high-performance culture while maintaining “down-to-earth” attitude </span></li><li><span lang=\"EN-GB\">Entrepreneurial mindset with an enthusiastic, flexible and hands-on approach</span></li><li><span lang=\"EN-GB\">Excellent communication, presentation and interpersonal skills, with proficiency in English and Italien (German beneficial)</span></li><li><span lang=\"EN-GB\">Master’s degree in Finance or similar and further professional qualifications (CFA, CAIA, etc.)</span></li><li><span lang=\"EN-GB\">Advanced proficiency in PowerPoint and Excel, with the ability to create impactful client-facing marketing material</span></li></ul><p><span lang=\"EN-GB\"> </span></p><p><span lang=\"EN-GB\"><strong>Our Values</strong></span></p><ul style=\"list-style-type: disc;\"><li><span lang=\"EN-GB\">Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement</span></li><li><span lang=\"EN-GB\">Hands-on: Being proactive to rapidly deliver high-quality results</span></li><li><span lang=\"EN-GB\">Passionate: Being committed and striving for excellence</span></li><li><span lang=\"EN-GB\">Solution-driven: Focusing on client outcomes and treating clients fairly with a risk-aware mindset</span></li><li><span lang=\"EN-GB\">Partnership-oriented: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.</span></li></ul><p><span lang=\"EN-GB\"><strong>Please ensure to attach a cover letter to your CV when filling the application.</strong></span></p><p><span lang=\"EN-GB\">Application</span></p><p><span lang=\"EN-GB\">Should you wish to apply for this position use this link to apply.</span></p><p> </p>"
-            ],
-            "responsibilities": [],
-            "requirements": [],
-            "benefits": [],
-            "process": [],
-            "highlights": [],
-            "keywords": [],
-            "sections": [],
-            "readingMinutes": 3
-          }
-        }
-      },
-      "crawledAt": "2026-05-27T22:49:30.821Z",
-      "addressLocality": "Zurich",
-      "addressCountry": "CH",
-      "datePosted": "2026-04-21",
-      "salaryMin": 142000,
-      "salaryMax": 249500,
-      "streetAddress": "Via Pretorio 22",
-      "postalCode": "6900",
-      "addressRegion": "TI",
-      "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-05-10T21:30:00.892Z",
-      "needsRetranslation": true,
       "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -871,7 +788,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-27T22:49:30.818Z",
+      "crawledAt": "2026-05-28T12:24:37.385Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "sourceLang": "en",
@@ -882,134 +799,6 @@
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
       "datePosted": "2026-02-11",
-      "firstSeenAt": "2026-04-13T21:36:50.620Z",
-      "needsRetranslation": true,
-      "_qualityScore": 100,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 25,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
-    {
-      "id": "efg-5967",
-      "slug": "responsabile-della-fondazione-efg-international-ag-zurich",
-      "company": "EFG International AG",
-      "title": "Pension Fund Manager",
-      "location": "Zurich",
-      "canton": "ZH",
-      "category": "finance",
-      "contract": "permanent",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2025-11-26",
-      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/5967",
-      "source": "Oracle HCM API",
-      "companyKey": "efg-international",
-      "companyDomain": "efginternational.com",
-      "canonicalContent": {
-        "byLocale": {
-          "en": {
-            "summary": [],
-            "responsibilities": [
-              "Overall responsibility for the administrative management, technical-accounting and business activities of Fondazione",
-              "Define the financial and actuarial regulations and parameters underlying the plan in order to achieve long-term financial equilibrium",
-              "Administrative and operational management of the pension fund, including enrolment of members, management of contributions and benefits.",
-              "Supervises the establishment of the Annual Report, the accounting and actuarial reporting to the foundation board and the supervisory bodies as well as the reporting according to IAS 19 to EFG SA",
-              "Coordination with external bodies (actuarial consultants, auditors, supervisory authorities) and service providers (custodian banks, asset managers).",
-              "Supervision of pension fund investments, in accordance with the investment regulations and risk criteria.",
-              "Supervision and control of annual accounts, financial statements and documentation required by supervisory bodies.",
-              "Supporting the Board of Foundation in defining the pension fund's strategy, ensuring the financial stability of the foundation",
-              "Managing communications to members, including information on benefits and regulatory changes.",
-              "Monitoring regulatory developments in the field of pensions and updating internal procedures.",
-              "Supervises the internal control system",
-              "Ensure constant collaboration with the human resources department of EFG SA, agreeing procedures, identifying synergies and jointly analysing common topics",
-              "Prepare and coordinate the meetings of the foundation board and investment committee, drawing up the relevant minutes",
-              "Actively provide pension advice to all insured persons (active employees and pensioners."
-            ],
-            "requirements": [
-              "Degree in Economics, Finance, Actuarial Science or related disciplines.",
-              "Proven experience in the management of pension funds, provident funds or similar institutions.",
-              "Sound knowledge of pension legislation (e.g. LOB in Switzerland or equivalent local legislation).",
-              "Expertise in financial management and investment supervision.",
-              "Excellent organisational, analytical and interpersonal skills.",
-              "Advanced knowledge of IT tools for pension management and reporting.",
-              "Managerial competences.",
-              "Languages: Italian, English – German and French are assets"
-            ],
-            "benefits": [],
-            "process": [],
-            "highlights": [
-              "Overall responsibility for the administrative management, technical-accounting and business activities of Fondazione",
-              "Define the financial and actuarial regulations and parameters underlying the plan in order to achieve long-term financial equilibrium",
-              "Administrative and operational management of the pension fund, including enrolment of members, management of contributions and benefits.",
-              "Degree in Economics, Finance, Actuarial Science or related disciplines.",
-              "Proven experience in the management of pension funds, provident funds or similar institutions.",
-              "Sound knowledge of pension legislation (e.g. LOB in Switzerland or equivalent local legislation)."
-            ],
-            "keywords": [
-              "Degree in Economics",
-              "Proven experience in the management of pension funds",
-              "Sound knowledge of pension legislation (e.g. LOB in Switzerland or equivalent local legislation).",
-              "Expertise in financial management and investment supervision.",
-              "Excellent organisational",
-              "Overall responsibility for the administrative management",
-              "Define the financial and actuarial regulations and parameters underlying the plan in order to achieve long-term financial equilibrium",
-              "Administrative and operational management of the pension fund",
-              "Supervises the establishment of the Annual Report"
-            ],
-            "sections": [
-              {
-                "id": "details",
-                "heading": "Job Summary",
-                "paragraphs": [
-                  "The Pension Fund Manager is in charge of managing and administering the company pension fund, ensuring compliance with current regulations and protection of the interests of the employees of affiliated companies against the economic consequences of old age, death, and disability. He/she coordinates all operational, financial, and administrative activities of the pension fund, in line with the foundation regulations, policies and legal provisions."
-                ],
-                "bullets": []
-              },
-              {
-                "id": "details",
-                "heading": "Working Relationships",
-                "paragraphs": [
-                  "The Administration of the Foundation is composed of a small team, where collaboration between the Pension Fund Manager and all other roles of the Team is essential.",
-                  "The role implies frequent interactions with Board members, external auditors, actuaries, human resources office, reinsurer, investment advisory, responsible of investment mandates, relationship manager of the Custodian Bank."
-                ],
-                "bullets": []
-              },
-              {
-                "id": "details",
-                "heading": "Decision-Making & Autonomy",
-                "paragraphs": [
-                  "Autonomous and structured management of all tasks, with a global overview of the entire operations of the Foundation.",
-                  "Plans and organizes activities quickly, recognizing priorities, formulating solutions appropriate to the circumstances. Communicates his views to colleagues in a timely manner, seeking to promote transparency, circulation of information within the team and process efficiency."
-                ],
-                "bullets": []
-              },
-              {
-                "id": "details",
-                "heading": "Working Conditions",
-                "paragraphs": [
-                  "Work in EFG Office Lugano with frequent travel to EFG offices or to service providers (Actuary, Investment Controller, cooperating financial institutions, …) in Geneva or Zurich."
-                ],
-                "bullets": []
-              }
-            ],
-            "readingMinutes": 3
-          }
-        }
-      },
-      "crawledAt": "2026-05-27T22:49:30.817Z",
-      "addressLocality": "Zurich",
-      "addressCountry": "CH",
-      "sourceLang": "en",
-      "salaryMin": 109000,
-      "salaryMax": 147000,
-      "streetAddress": "Via Pretorio 22",
-      "postalCode": "6900",
-      "addressRegion": "TI",
-      "employmentType": "FULL_TIME",
-      "datePosted": "2025-11-26",
       "firstSeenAt": "2026-04-13T21:36:50.620Z",
       "needsRetranslation": true,
       "_qualityScore": 100,
@@ -1054,7 +843,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-27T22:49:30.806Z",
+      "crawledAt": "2026-05-28T12:24:37.375Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-05-20",
@@ -1286,7 +1075,6 @@
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
       "firstSeenAt": "2026-04-13T21:36:50.620Z",
-      "needsRetranslation": true,
       "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1478,7 +1266,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-27T22:49:30.835Z",
+      "crawledAt": "2026-05-28T12:24:37.400Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-05-08",
@@ -1493,154 +1281,6 @@
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
-    {
-      "id": "efg-6242",
-      "slug": "corporate-tax-tirocinante-finanza-department-geneva-efg-international-ag-geneve",
-      "company": "EFG International AG",
-      "title": "Corporate Tax Intern – Finance Department (Geneva)",
-      "location": "Geneve",
-      "canton": "GE",
-      "category": "finance",
-      "contract": "temporary",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-17",
-      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6242",
-      "source": "Oracle HCM API",
-      "sourceLang": "en",
-      "companyKey": "efg-international",
-      "companyDomain": "efginternational.com",
-      "canonicalContent": {
-        "byLocale": {
-          "en": {
-            "summary": [
-              "<p><span lang=\"DE\"><strong>General Info</strong></span></p><ul style=\"list-style-type:disc;\"><li style=\"tab-stops:list 36.0pt;\"><span lang=\"EN-GB\">Department: </span><span lang=\"FR-CH\">Corporate Tax</span></li><li style=\"tab-stops:list 36.0pt;\"><span lang=\"EN-GB\">Work time Percentage: 100%</span></li><li style=\"tab-stops:list 36.0pt;\"><span lang=\"EN-GB\">Location: Geneva</span></li><li style=\"tab-stops:list 36.0pt;\"><span lang=\"EN-GB\">Duration 8-9 months – part of mandatory curricular internship and with tripartite agreement.</span></li></ul><p><span lang=\"IT-CH\"><strong>Our Company</strong></span></p><p><span lang=\"EN-GB\">EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice. </span></p><p><span lang=\"EN-GB\">EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation.</span></p><p><span><strong>Our Purpose and Mission</strong></span></p><p><span lang=\"EN-GB\">Empowering entrepreneurial minds to create value – today and for the future.</span></p><p><span lang=\"EN-GB\"> We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value.</span></p><p><span lang=\"EN-GB\"><strong>Job Description</strong></span></p><p><span>We are looking for a competent university student to gain hands-on experience in a dynamic financial services environment. If you have the skills and enthusiasm we are looking for and are excited about the opportunity to enhance our Finance - Corporate Tax functions, please apply today.</span></p><p><span><strong><u>Key areas of responsibilities:</u></strong></span></p><ul><li><span> Tax audits preparation including analysing any potential mismatches</span></li><li><p style=\"tab-stops:35.45pt;\"><span>GloBE/Pillar II implementation of the dedicated IT tool</span></p></li><li><p style=\"tab-stops:35.45pt;\"><span>Extraction and analysis of accounting and other data that has an impact on VAT</span></p></li><li><p style=\"tab-stops:35.45pt;\"><span>Other useful tasks/extractions from Power BI</span></p></li><li><p style=\"tab-stops:35.45pt;\"><span>TP Genie (IT tool) implementation – intra-group financial flows</span></p></li><li><p style=\"tab-stops:35.45pt;\"><span>TP (Transfer Pricing) analysis – reconciliations and Globus/HFM checks</span></p></li><li><p style=\"tab-stops:35.45pt;\"><span>Tracking unpaid invoices</span></p></li><li><p style=\"tab-stops:35.45pt;\"><span>Tracking unsigned intra group agreements</span></p></li><li><p style=\"tab-stops:35.45pt;\"><span>Any ad-hoc question or urgency which would arise during the assignment</span></p><p style=\"tab-stops:35.45pt;\"> </p></li></ul><p><span> </span><span lang=\"EN-GB\"><strong>Requirements and Qualifications</strong></span></p><ul style=\"list-style-type:disc;\"><li style=\"tab-stops:list 36.0pt;\"><span> University student, preferably in Corporate Finance.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Fluent in English, French is a plus.</span></li><li><p style=\"tab-stops:35.45pt;\"><span>Excellent analytical and research skills with detail orientation</span></p></li><li><p style=\"tab-stops:35.45pt;\"><span>Good knowledge of accounting and bookkeeping procedures</span></p></li><li><p style=\"tab-stops:35.45pt;\"><span>Strong ability to organize and prioritize tasks</span></p></li><li><p style=\"tab-stops:35.45pt;\"><span>Reporting and numeracy skills</span></p></li><li><p style=\"tab-stops:35.45pt;\"><span>Good at meeting deadlines and solving problems</span></p></li><li><p style=\"tab-stops:35.45pt;\"><span>Ability to work well independently as well as the ability to work well with stakeholders </span></p></li></ul><p><span lang=\"EN-GB\"> </span></p><p><span lang=\"EN-GB\"><strong>Our Values</strong></span></p><ul style=\"list-style-type:disc;\"><li style=\"tab-stops:list 36.0pt;\"><span lang=\"EN-GB\">Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement</span></li><li style=\"tab-stops:list 36.0pt;\"><span lang=\"EN-GB\">Hands-on: Being proactive to rapidly deliver high-quality results</span></li><li style=\"tab-stops:list 36.0pt;\"><span lang=\"EN-GB\">Passionate: Being committed and striving for excellence</span></li><li style=\"tab-stops:list 36.0pt;\"><span lang=\"EN-GB\">Solution-driven: Focusing on client outcomes and treating clients fairly with a risk-aware mindset</span></li><li style=\"tab-stops:list 36.0pt;\"><p><span lang=\"EN-GB\">Partnership-oriented: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.</span></p><p> </p></li></ul><p><span lang=\"EN-GB\"><strong>Please ensure to attach a cover letter to your CV when filling the application.</strong></span></p><p><span lang=\"EN-GB\">Application</span></p><p><span lang=\"EN-GB\">Should you wish to apply for this position use this link to apply.</span></p>"
-            ],
-            "responsibilities": [],
-            "requirements": [],
-            "benefits": [],
-            "process": [],
-            "highlights": [],
-            "keywords": [],
-            "sections": [],
-            "readingMinutes": 3
-          }
-        }
-      },
-      "crawledAt": "2026-05-27T22:49:30.835Z",
-      "addressLocality": "Geneve",
-      "addressCountry": "CH",
-      "datePosted": "2026-04-17",
-      "salaryMin": 59500,
-      "salaryMax": 104000,
-      "streetAddress": "Via Pretorio 22",
-      "postalCode": "6900",
-      "addressRegion": "TI",
-      "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-05-10T21:30:00.911Z",
-      "needsRetranslation": true,
-      "_qualityScore": 99,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
-    {
-      "id": "efg-6197",
-      "slug": "technology-cyber-information-security-risk-analyst-temporary-efg-zurich",
-      "company": "EFG International AG",
-      "title": "Technology & Cyber Information Security Risk Analyst (Temporary)",
-      "location": "Zurich",
-      "canton": "ZH",
-      "category": "finance",
-      "contract": "temporary",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-09",
-      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6197",
-      "source": "Oracle HCM API",
-      "sourceLang": "en",
-      "companyKey": "efg-international",
-      "companyDomain": "efginternational.com",
-      "canonicalContent": {
-        "byLocale": {
-          "en": {
-            "summary": [
-              "The Technology & Cyber Information Security Risk Analyst will be part of the Operational Risk team. We are looking for a passionate IT risk, cyber and information security to cover a global role located in Switzerland.<br>",
-              "Location: Geneva, Zurich, Lugano.<br>"
-            ],
-            "responsibilities": [
-              "Master’s degree in Computer Science, Cyber Security, Information Technology, or equivalent.",
-              "Professional certification, e.g. Information Systems Security Professional (CISSP), Information Security Manager, (CISM), Information Systems Auditor (CISA), Risk and",
-              "Information Systems Control (CRISC) or equivalent.",
-              "At least 3-5 years of experience in banking IT platforms, operational processes and IT controls, or in consulting/audit with a leading professional services firm; a combination of both is considered an advantage.",
-              "Excellent communication skills in English, both verbal and written. Knowledge of German, French, or Italian is a plus.",
-              "In-depth understanding of key technology and information security concepts relevant to banking. In particular, strong knowledge of IT organisation, business processes and systems (e.g. IT Security, data management, architecture and planning, life cycle management and regulatory matters).",
-              "Proven ability to write reports and communicate effectively with a senior audience.",
-              "Self-motivated, diligent, highly organized, able to prioritize and multi-task, and thrive in a fast-paced environment.",
-              "Excellent analytical and problem-solving skills, able to work autonomously and as part of a global team."
-            ],
-            "requirements": [],
-            "benefits": [
-              "<strong>Accountability</strong>: Taking ownership for tasks and challenges as well as seeking continuous improvement.",
-              "<strong>Hands-on</strong>: Being proactive to rapidly deliver high-quality results.",
-              "<strong>Passionate</strong>: Being committed and striving for excellence.",
-              "<strong>Solution-driven</strong>: Focusing on client outcomes and treating clients fairly with a risk-aware mindset.",
-              "<strong>Partnership-oriented</strong>: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit."
-            ],
-            "process": [],
-            "highlights": [
-              "Master’s degree in Computer Science, Cyber Security, Information Technology, or equivalent.",
-              "Professional certification, e.g. Information Systems Security Professional (CISSP), Information Security Manager, (CISM), Information Systems Auditor (CISA), Risk and",
-              "Information Systems Control (CRISC) or equivalent.",
-              "<strong>Accountability</strong>: Taking ownership for tasks and challenges as well as seeking continuous improvement.",
-              "<strong>Hands-on</strong>: Being proactive to rapidly deliver high-quality results."
-            ],
-            "keywords": [
-              "Master’s degree in Computer Science",
-              "Professional certification",
-              "Information Systems Control (CRISC) or equivalent.",
-              "At least 3-5 years of experience in banking IT platforms"
-            ],
-            "sections": [
-              {
-                "id": "company",
-                "heading": "Our Company",
-                "paragraphs": [
-                  "<br>EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice.",
-                  "<br>EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation.",
-                  "<br><strong>Our Purpose and Mission</strong>",
-                  "<br>Empowering entrepreneurial minds to create value – today and for the future.",
-                  "We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value.<br>"
-                ],
-                "bullets": []
-              }
-            ],
-            "readingMinutes": 3
-          }
-        }
-      },
-      "crawledAt": "2026-05-27T22:49:30.833Z",
-      "addressLocality": "Zurich",
-      "addressCountry": "CH",
-      "datePosted": "2026-04-09",
-      "salaryMin": 85500,
-      "salaryMax": 150000,
-      "streetAddress": "Via Pretorio 22",
-      "postalCode": "6900",
-      "addressRegion": "TI",
-      "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-05-10T21:30:00.907Z",
-      "_qualityScore": 99,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
         "translation": 25,
         "completeness": 25
       }
@@ -1740,7 +1380,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-27T22:49:30.832Z",
+      "crawledAt": "2026-05-28T12:24:37.398Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-04-15",
@@ -1869,7 +1509,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-27T22:49:30.829Z",
+      "crawledAt": "2026-05-28T12:24:37.395Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-04-01",
@@ -1885,6 +1525,138 @@
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
+        "translation": 25,
+        "completeness": 25
+      }
+    },
+    {
+      "id": "efg-6168",
+      "slug": "stage-in-talent-acquisition-efg-international-ag-geneve",
+      "company": "EFG International AG",
+      "title": "Talent Acquisition Internship",
+      "location": "Geneve",
+      "canton": "GE",
+      "category": "finance",
+      "contract": "temporary",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-09",
+      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6168",
+      "source": "Oracle HCM API",
+      "sourceLang": "en",
+      "companyKey": "efg-international",
+      "companyDomain": "efginternational.com",
+      "canonicalContent": {
+        "byLocale": {
+          "en": {
+            "summary": [
+              "The Talent Acquisition (TA) team is part of the Human Resources function and is responsible for attracting and hiring the best talent in the market for EFG Bank.",
+              "We are looking for a motivated Talent Acquisition Intern to join our team for a 6‑month internship in Lugano or Geneva. In this role, you will play a key part in enhancing the candidate experience, supporting Talent Acquisition in day‑to‑day activities, and contributing to reporting and process optimisation. You will also have the opportunity to support, and progressively manage, some junior recruitment mandates under guidance.",
+              "Key Responsibilities"
+            ],
+            "responsibilities": [
+              "Act as a point of contact for candidates, ensuring clear, timely and professional communication throughout the recruitment process.",
+              "Coordinate and schedule interviews with hiring managers and other stakeholders.",
+              "Support Talent Acquisition Specialists in screening CVs and assessing candidates against role requirements.",
+              "Draft and post job advertisements on internal and external platforms, ensuring consistency with EFG’s employer brand.",
+              "Execute daily operations in the Applicant Tracking System (ATS), including data entry, data quality checks and status updates.",
+              "Maintain accurate candidate records and ensure proper documentation of each recruitment step.",
+              "Prepare standard correspondence and communication to candidates and hiring managers.",
+              "Support coordination of assessments (tests, case studies, reference checks), where applicable.",
+              "Support the preparation of regular recruitment reports and simple dashboards (e.g. pipeline status, time‑to‑hire, sources of hire).",
+              "Help monitor key TA metrics and identify basic trends or bottlenecks in the process.",
+              "Contribute ideas to streamline and standardise recruitment processes, templates and communication flows.",
+              "Participate in small projects aimed at improving tools, candidate experience and internal TA efficiency.",
+              "Assist in sourcing candidates via LinkedIn Recruiter, job boards, referrals and other channels.",
+              "Conduct initial phone or video pre‑screenings for selected roles, under supervision.",
+              "Support employer branding initiatives (e.g. content preparation for social media or the career site, or job fairs).",
+              "Progressively support and, where appropriate, manage end‑to‑end recruitment for selected junior or intern positions, under the guidance of a Talent Acquisition Specialist."
+            ],
+            "requirements": [
+              "Master’s degree (or currently enrolled in a Master’s program) in Human Resources, Business Administration, Psychology or a related field.",
+              "Previous experience (internship, part time role or similar) in recruiting, HR or employer branding is a plus.",
+              "Experience in data management, reporting or working with HR/ATS systems is an advantage.",
+              "Excellent command of English (spoken and written).",
+              "Good command of Italian or French is considered a strong plus, depending on the location.",
+              "Interest in working with HR tools and platforms (e.g. Applicant Tracking Systems, LinkedIn Recruiter, career websites).",
+              "Good MS Office skills, especially in Excel and PowerPoint, with an interest in reporting and basic analytics.",
+              "High attention to detail and accuracy in handling data and administrative tasks.",
+              "Strong interest in Talent Acquisition, the banking industry and investment management.",
+              "Excellent communication and interpersonal skills, with a natural focus on service and candidate experience.",
+              "Organised, structured and able to manage multiple tasks and priorities.",
+              "Proactive, curious and willing to take ownership of tasks and suggest improvements.",
+              "Team oriented, collaborative and comfortable working in an international and multicultural environment.",
+              "Alignment with EFG’s entrepreneurial culture: hands on, solutions oriented and open to learning."
+            ],
+            "benefits": [
+              "Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement",
+              "Hands-on: Being proactive to rapidly deliver high-quality results",
+              "Passionate: Being committed and striving for excellence",
+              "Solution-driven: Focusing on client outcomes and treating clients fairly with a risk-aware mindset",
+              "Partnership-oriented: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit."
+            ],
+            "process": [],
+            "highlights": [
+              "Act as a point of contact for candidates, ensuring clear, timely and professional communication throughout the recruitment process.",
+              "Coordinate and schedule interviews with hiring managers and other stakeholders.",
+              "Support Talent Acquisition Specialists in screening CVs and assessing candidates against role requirements.",
+              "Master’s degree (or currently enrolled in a Master’s program) in Human Resources, Business Administration, Psychology or a related field.",
+              "Previous experience (internship, part time role or similar) in recruiting, HR or employer branding is a plus.",
+              "Experience in data management, reporting or working with HR/ATS systems is an advantage.",
+              "Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement",
+              "Hands-on: Being proactive to rapidly deliver high-quality results"
+            ],
+            "keywords": [
+              "Master’s degree (or currently enrolled in a Master’s program) in Human Resources",
+              "Previous experience (internship",
+              "Experience in data management",
+              "Excellent command of English (spoken and written).",
+              "Good command of Italian or French is considered a strong plus",
+              "Act as a point of contact for candidates",
+              "Coordinate and schedule interviews with hiring managers and other stakeholders.",
+              "Support Talent Acquisition Specialists in screening CVs and assessing candidates against role requirements.",
+              "Draft and post job advertisements on internal and external platforms"
+            ],
+            "sections": [
+              {
+                "id": "company",
+                "heading": "Our Company",
+                "paragraphs": [
+                  "EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice.",
+                  "EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation."
+                ],
+                "bullets": []
+              },
+              {
+                "id": "company",
+                "heading": "Our Purpose and Mission",
+                "paragraphs": [
+                  "Empowering entrepreneurial minds to create value – today and for the future.",
+                  "We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value."
+                ],
+                "bullets": []
+              }
+            ],
+            "readingMinutes": 5
+          }
+        }
+      },
+      "crawledAt": "2026-05-28T12:24:37.394Z",
+      "addressLocality": "Geneve",
+      "addressCountry": "CH",
+      "datePosted": "2026-04-09",
+      "salaryMin": 85500,
+      "salaryMax": 150000,
+      "streetAddress": "Via Pretorio 22",
+      "postalCode": "6900",
+      "addressRegion": "TI",
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-04-13T21:36:50.620Z",
+      "needsRetranslation": true,
+      "_qualityScore": 100,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
         "translation": 25,
         "completeness": 25
       }
@@ -1993,7 +1765,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-27T22:49:30.824Z",
+      "crawledAt": "2026-05-28T12:24:37.390Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-01-19",
@@ -2047,7 +1819,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-27T22:49:30.823Z",
+      "crawledAt": "2026-05-28T12:24:37.389Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-04-07",
@@ -2101,7 +1873,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-27T22:49:30.820Z",
+      "crawledAt": "2026-05-28T12:24:37.387Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "datePosted": "2026-04-08",
@@ -2154,7 +1926,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-27T22:49:30.819Z",
+      "crawledAt": "2026-05-28T12:24:37.386Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-04-08",
@@ -2170,6 +1942,134 @@
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
+        "translation": 25,
+        "completeness": 25
+      }
+    },
+    {
+      "id": "efg-5967",
+      "slug": "responsabile-della-fondazione-efg-international-ag-zurich",
+      "company": "EFG International AG",
+      "title": "Pension Fund Manager",
+      "location": "Zurich",
+      "canton": "ZH",
+      "category": "finance",
+      "contract": "permanent",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2025-11-26",
+      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/5967",
+      "source": "Oracle HCM API",
+      "companyKey": "efg-international",
+      "companyDomain": "efginternational.com",
+      "canonicalContent": {
+        "byLocale": {
+          "en": {
+            "summary": [],
+            "responsibilities": [
+              "Overall responsibility for the administrative management, technical-accounting and business activities of Fondazione",
+              "Define the financial and actuarial regulations and parameters underlying the plan in order to achieve long-term financial equilibrium",
+              "Administrative and operational management of the pension fund, including enrolment of members, management of contributions and benefits.",
+              "Supervises the establishment of the Annual Report, the accounting and actuarial reporting to the foundation board and the supervisory bodies as well as the reporting according to IAS 19 to EFG SA",
+              "Coordination with external bodies (actuarial consultants, auditors, supervisory authorities) and service providers (custodian banks, asset managers).",
+              "Supervision of pension fund investments, in accordance with the investment regulations and risk criteria.",
+              "Supervision and control of annual accounts, financial statements and documentation required by supervisory bodies.",
+              "Supporting the Board of Foundation in defining the pension fund's strategy, ensuring the financial stability of the foundation",
+              "Managing communications to members, including information on benefits and regulatory changes.",
+              "Monitoring regulatory developments in the field of pensions and updating internal procedures.",
+              "Supervises the internal control system",
+              "Ensure constant collaboration with the human resources department of EFG SA, agreeing procedures, identifying synergies and jointly analysing common topics",
+              "Prepare and coordinate the meetings of the foundation board and investment committee, drawing up the relevant minutes",
+              "Actively provide pension advice to all insured persons (active employees and pensioners."
+            ],
+            "requirements": [
+              "Degree in Economics, Finance, Actuarial Science or related disciplines.",
+              "Proven experience in the management of pension funds, provident funds or similar institutions.",
+              "Sound knowledge of pension legislation (e.g. LOB in Switzerland or equivalent local legislation).",
+              "Expertise in financial management and investment supervision.",
+              "Excellent organisational, analytical and interpersonal skills.",
+              "Advanced knowledge of IT tools for pension management and reporting.",
+              "Managerial competences.",
+              "Languages: Italian, English – German and French are assets"
+            ],
+            "benefits": [],
+            "process": [],
+            "highlights": [
+              "Overall responsibility for the administrative management, technical-accounting and business activities of Fondazione",
+              "Define the financial and actuarial regulations and parameters underlying the plan in order to achieve long-term financial equilibrium",
+              "Administrative and operational management of the pension fund, including enrolment of members, management of contributions and benefits.",
+              "Degree in Economics, Finance, Actuarial Science or related disciplines.",
+              "Proven experience in the management of pension funds, provident funds or similar institutions.",
+              "Sound knowledge of pension legislation (e.g. LOB in Switzerland or equivalent local legislation)."
+            ],
+            "keywords": [
+              "Degree in Economics",
+              "Proven experience in the management of pension funds",
+              "Sound knowledge of pension legislation (e.g. LOB in Switzerland or equivalent local legislation).",
+              "Expertise in financial management and investment supervision.",
+              "Excellent organisational",
+              "Overall responsibility for the administrative management",
+              "Define the financial and actuarial regulations and parameters underlying the plan in order to achieve long-term financial equilibrium",
+              "Administrative and operational management of the pension fund",
+              "Supervises the establishment of the Annual Report"
+            ],
+            "sections": [
+              {
+                "id": "details",
+                "heading": "Job Summary",
+                "paragraphs": [
+                  "The Pension Fund Manager is in charge of managing and administering the company pension fund, ensuring compliance with current regulations and protection of the interests of the employees of affiliated companies against the economic consequences of old age, death, and disability. He/she coordinates all operational, financial, and administrative activities of the pension fund, in line with the foundation regulations, policies and legal provisions."
+                ],
+                "bullets": []
+              },
+              {
+                "id": "details",
+                "heading": "Working Relationships",
+                "paragraphs": [
+                  "The Administration of the Foundation is composed of a small team, where collaboration between the Pension Fund Manager and all other roles of the Team is essential.",
+                  "The role implies frequent interactions with Board members, external auditors, actuaries, human resources office, reinsurer, investment advisory, responsible of investment mandates, relationship manager of the Custodian Bank."
+                ],
+                "bullets": []
+              },
+              {
+                "id": "details",
+                "heading": "Decision-Making & Autonomy",
+                "paragraphs": [
+                  "Autonomous and structured management of all tasks, with a global overview of the entire operations of the Foundation.",
+                  "Plans and organizes activities quickly, recognizing priorities, formulating solutions appropriate to the circumstances. Communicates his views to colleagues in a timely manner, seeking to promote transparency, circulation of information within the team and process efficiency."
+                ],
+                "bullets": []
+              },
+              {
+                "id": "details",
+                "heading": "Working Conditions",
+                "paragraphs": [
+                  "Work in EFG Office Lugano with frequent travel to EFG offices or to service providers (Actuary, Investment Controller, cooperating financial institutions, …) in Geneva or Zurich."
+                ],
+                "bullets": []
+              }
+            ],
+            "readingMinutes": 3
+          }
+        }
+      },
+      "crawledAt": "2026-05-28T12:24:37.383Z",
+      "addressLocality": "Zurich",
+      "addressCountry": "CH",
+      "sourceLang": "en",
+      "salaryMin": 109000,
+      "salaryMax": 147000,
+      "streetAddress": "Via Pretorio 22",
+      "postalCode": "6900",
+      "addressRegion": "TI",
+      "employmentType": "FULL_TIME",
+      "datePosted": "2025-11-26",
+      "firstSeenAt": "2026-04-13T21:36:50.620Z",
+      "needsRetranslation": true,
+      "_qualityScore": 100,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
         "translation": 25,
         "completeness": 25
       }
@@ -2208,7 +2108,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-27T22:49:30.816Z",
+      "crawledAt": "2026-05-28T12:24:37.382Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2025-12-10",
@@ -2223,59 +2123,6 @@
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
-    {
-      "id": "efg-5869",
-      "slug": "ufficiale-di-pianificazione-strategica-efg-international-ag-lugano",
-      "company": "EFG International AG",
-      "title": "Strategic Planning Officer",
-      "location": "Lugano",
-      "canton": "TI",
-      "category": "finance",
-      "contract": "permanent",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-08",
-      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/5869",
-      "source": "Oracle HCM API",
-      "sourceLang": "en",
-      "companyKey": "efg-international",
-      "companyDomain": "efginternational.com",
-      "canonicalContent": {
-        "byLocale": {
-          "en": {
-            "summary": [
-              "<p><span><strong>Our Company</strong></span></p><p><span>EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice. </span></p><p><span>EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation.</span></p><p><span><strong>Our Purpose and Mission</strong></span></p><p><span>Empowering entrepreneurial minds to create value – today and for the future.</span></p><p><span>We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value.</span></p><p><span>Job Description</span></p><p><span>The Strategic Planning Officer will be part of the Strategy & Corporate Development Team in Lugano and</span><a name=\"_Hlk72419592\"><span> </span></a><span>will contribute to run an integrated planning, reporting and performance review process to facilitate value-driven business decision-making. In his role as a business partner and challenger of business performance he will focus on value-added decision support through granular analysis of performance root causes and by providing insights on value creation levers.</span></p><p><span>The Strategic Planning Officer will play an active role in the business performance dialogues, support business development and provide value-added decision support using data modelling and forecasting intelligence. </span></p><p> </p><p><span><strong>Main responsibilities</strong></span></p><ul><li><span>Business analyst and power user of MI data</span></li><li><span>Establish and compile presentations to senior management</span></li><li><span>Take active role in the business performance dialogues</span></li><li><span>Design and maintain data models for analysis and forecasting</span></li><li><span>Active collaboration with Planning & Controlling unit during budgeting and forecasting process </span></li><li><span>Develop strong relationship with business management and business controllers to build a role as business partner</span></li><li><span>Develop recurring benchmarking analysis in collaboration with external advisors</span></li><li><p><span>Key collaboration in corporate development projects and strategic initiatives, including M&A transactions</span></p><p> </p></li></ul><p><span><strong>Skills and experience</strong></span></p><ul><li><span>Have professional experience in Financial Services Industry, in particular in Corporate Finance activities</span></li><li><span>Ability to understand large datasets and experience of data modelling, providing accurate data analysis</span></li><li><span>Power user of MS-Excel and MS-PowerPoint; Knowledge of using Excel Macros, VBA, Python, Power BI as a plus</span></li><li><span>Quick learner, accurate and efficient</span></li><li><span>Proactive attitude and willingness to take on new knowledge and skills</span></li><li><span>Ability to work under pressure and adapt to unforeseen work demands</span></li><li><span>Good communication skills to communicate effectively with internal stakeholders at all levels</span></li><li><p><span>Fluent in English and fluent in Italian</span></p><p> </p></li></ul><p><span><strong>Our Values</strong></span></p><ul><li><span><strong>Accountability</strong>: Taking ownership for tasks and challenges, as well as seeking continuous improvement</span></li><li><span><strong>Hands-on</strong>: Being proactive to rapidly deliver high-quality results</span></li><li><span><strong>Passionate</strong>: Being committed and striving for excellence</span></li><li><span><strong>Solution-driven</strong>: Focusing on client outcomes and treating clients fairly with a risk-aware mindset</span></li><li><span><strong>Partnership-oriented</strong>: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.</span></li></ul>"
-            ],
-            "responsibilities": [],
-            "requirements": [],
-            "benefits": [],
-            "process": [],
-            "highlights": [],
-            "keywords": [],
-            "sections": [],
-            "readingMinutes": 3
-          }
-        }
-      },
-      "crawledAt": "2026-05-27T22:49:30.815Z",
-      "addressLocality": "Lugano",
-      "addressCountry": "CH",
-      "datePosted": "2026-04-08",
-      "salaryMin": 82500,
-      "salaryMax": 111500,
-      "streetAddress": "Via Pretorio 22",
-      "postalCode": "6900",
-      "addressRegion": "TI",
-      "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-04-13T10:28:21.931Z",
-      "_qualityScore": 97,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
         "translation": 25,
         "completeness": 25
       }
@@ -2383,7 +2230,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-27T22:49:30.814Z",
+      "crawledAt": "2026-05-28T12:24:37.381Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-04-14",
@@ -2399,6 +2246,59 @@
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
+        "translation": 25,
+        "completeness": 25
+      }
+    },
+    {
+      "id": "efg-5869",
+      "slug": "ufficiale-di-pianificazione-strategica-efg-international-ag-lugano",
+      "company": "EFG International AG",
+      "title": "Strategic Planning Officer",
+      "location": "Lugano",
+      "canton": "TI",
+      "category": "finance",
+      "contract": "permanent",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-08",
+      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/5869",
+      "source": "Oracle HCM API",
+      "sourceLang": "en",
+      "companyKey": "efg-international",
+      "companyDomain": "efginternational.com",
+      "canonicalContent": {
+        "byLocale": {
+          "en": {
+            "summary": [
+              "<p><span><strong>Our Company</strong></span></p><p><span>EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice. </span></p><p><span>EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation.</span></p><p><span><strong>Our Purpose and Mission</strong></span></p><p><span>Empowering entrepreneurial minds to create value – today and for the future.</span></p><p><span>We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value.</span></p><p><span>Job Description</span></p><p><span>The Strategic Planning Officer will be part of the Strategy & Corporate Development Team in Lugano and</span><a name=\"_Hlk72419592\"><span> </span></a><span>will contribute to run an integrated planning, reporting and performance review process to facilitate value-driven business decision-making. In his role as a business partner and challenger of business performance he will focus on value-added decision support through granular analysis of performance root causes and by providing insights on value creation levers.</span></p><p><span>The Strategic Planning Officer will play an active role in the business performance dialogues, support business development and provide value-added decision support using data modelling and forecasting intelligence. </span></p><p> </p><p><span><strong>Main responsibilities</strong></span></p><ul><li><span>Business analyst and power user of MI data</span></li><li><span>Establish and compile presentations to senior management</span></li><li><span>Take active role in the business performance dialogues</span></li><li><span>Design and maintain data models for analysis and forecasting</span></li><li><span>Active collaboration with Planning & Controlling unit during budgeting and forecasting process </span></li><li><span>Develop strong relationship with business management and business controllers to build a role as business partner</span></li><li><span>Develop recurring benchmarking analysis in collaboration with external advisors</span></li><li><p><span>Key collaboration in corporate development projects and strategic initiatives, including M&A transactions</span></p><p> </p></li></ul><p><span><strong>Skills and experience</strong></span></p><ul><li><span>Have professional experience in Financial Services Industry, in particular in Corporate Finance activities</span></li><li><span>Ability to understand large datasets and experience of data modelling, providing accurate data analysis</span></li><li><span>Power user of MS-Excel and MS-PowerPoint; Knowledge of using Excel Macros, VBA, Python, Power BI as a plus</span></li><li><span>Quick learner, accurate and efficient</span></li><li><span>Proactive attitude and willingness to take on new knowledge and skills</span></li><li><span>Ability to work under pressure and adapt to unforeseen work demands</span></li><li><span>Good communication skills to communicate effectively with internal stakeholders at all levels</span></li><li><p><span>Fluent in English and fluent in Italian</span></p><p> </p></li></ul><p><span><strong>Our Values</strong></span></p><ul><li><span><strong>Accountability</strong>: Taking ownership for tasks and challenges, as well as seeking continuous improvement</span></li><li><span><strong>Hands-on</strong>: Being proactive to rapidly deliver high-quality results</span></li><li><span><strong>Passionate</strong>: Being committed and striving for excellence</span></li><li><span><strong>Solution-driven</strong>: Focusing on client outcomes and treating clients fairly with a risk-aware mindset</span></li><li><span><strong>Partnership-oriented</strong>: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.</span></li></ul>"
+            ],
+            "responsibilities": [],
+            "requirements": [],
+            "benefits": [],
+            "process": [],
+            "highlights": [],
+            "keywords": [],
+            "sections": [],
+            "readingMinutes": 3
+          }
+        }
+      },
+      "crawledAt": "2026-05-28T12:24:37.381Z",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "datePosted": "2026-04-08",
+      "salaryMin": 82500,
+      "salaryMax": 111500,
+      "streetAddress": "Via Pretorio 22",
+      "postalCode": "6900",
+      "addressRegion": "TI",
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-04-13T10:28:21.931Z",
+      "_qualityScore": 97,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
         "translation": 25,
         "completeness": 25
       }
@@ -2531,7 +2431,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-27T22:49:30.813Z",
+      "crawledAt": "2026-05-28T12:24:37.380Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-02-11",
@@ -2585,7 +2485,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-27T22:49:30.811Z",
+      "crawledAt": "2026-05-28T12:24:37.378Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-05-15",
@@ -2671,7 +2571,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-27T22:49:30.810Z",
+      "crawledAt": "2026-05-28T12:24:37.377Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "datePosted": "2026-05-18",
@@ -2798,7 +2698,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-27T22:49:30.808Z",
+      "crawledAt": "2026-05-28T12:24:37.373Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-05-15",
@@ -2814,6 +2714,153 @@
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
+        "translation": 25,
+        "completeness": 25
+      }
+    },
+    {
+      "id": "efg-6242",
+      "slug": "corporate-tax-tirocinante-finanza-department-geneva-efg-international-ag-geneve",
+      "company": "EFG International AG",
+      "title": "Corporate Tax Intern – Finance Department (Geneva)",
+      "location": "Geneve",
+      "canton": "GE",
+      "category": "finance",
+      "contract": "temporary",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-17",
+      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6242",
+      "source": "Oracle HCM API",
+      "sourceLang": "en",
+      "companyKey": "efg-international",
+      "companyDomain": "efginternational.com",
+      "canonicalContent": {
+        "byLocale": {
+          "en": {
+            "summary": [
+              "<p><span lang=\"DE\"><strong>General Info</strong></span></p><ul style=\"list-style-type:disc;\"><li style=\"tab-stops:list 36.0pt;\"><span lang=\"EN-GB\">Department: </span><span lang=\"FR-CH\">Corporate Tax</span></li><li style=\"tab-stops:list 36.0pt;\"><span lang=\"EN-GB\">Work time Percentage: 100%</span></li><li style=\"tab-stops:list 36.0pt;\"><span lang=\"EN-GB\">Location: Geneva</span></li><li style=\"tab-stops:list 36.0pt;\"><span lang=\"EN-GB\">Duration 8-9 months – part of mandatory curricular internship and with tripartite agreement.</span></li></ul><p><span lang=\"IT-CH\"><strong>Our Company</strong></span></p><p><span lang=\"EN-GB\">EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice. </span></p><p><span lang=\"EN-GB\">EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation.</span></p><p><span><strong>Our Purpose and Mission</strong></span></p><p><span lang=\"EN-GB\">Empowering entrepreneurial minds to create value – today and for the future.</span></p><p><span lang=\"EN-GB\"> We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value.</span></p><p><span lang=\"EN-GB\"><strong>Job Description</strong></span></p><p><span>We are looking for a competent university student to gain hands-on experience in a dynamic financial services environment. If you have the skills and enthusiasm we are looking for and are excited about the opportunity to enhance our Finance - Corporate Tax functions, please apply today.</span></p><p><span><strong><u>Key areas of responsibilities:</u></strong></span></p><ul><li><span> Tax audits preparation including analysing any potential mismatches</span></li><li><p style=\"tab-stops:35.45pt;\"><span>GloBE/Pillar II implementation of the dedicated IT tool</span></p></li><li><p style=\"tab-stops:35.45pt;\"><span>Extraction and analysis of accounting and other data that has an impact on VAT</span></p></li><li><p style=\"tab-stops:35.45pt;\"><span>Other useful tasks/extractions from Power BI</span></p></li><li><p style=\"tab-stops:35.45pt;\"><span>TP Genie (IT tool) implementation – intra-group financial flows</span></p></li><li><p style=\"tab-stops:35.45pt;\"><span>TP (Transfer Pricing) analysis – reconciliations and Globus/HFM checks</span></p></li><li><p style=\"tab-stops:35.45pt;\"><span>Tracking unpaid invoices</span></p></li><li><p style=\"tab-stops:35.45pt;\"><span>Tracking unsigned intra group agreements</span></p></li><li><p style=\"tab-stops:35.45pt;\"><span>Any ad-hoc question or urgency which would arise during the assignment</span></p><p style=\"tab-stops:35.45pt;\"> </p></li></ul><p><span> </span><span lang=\"EN-GB\"><strong>Requirements and Qualifications</strong></span></p><ul style=\"list-style-type:disc;\"><li style=\"tab-stops:list 36.0pt;\"><span> University student, preferably in Corporate Finance.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Fluent in English, French is a plus.</span></li><li><p style=\"tab-stops:35.45pt;\"><span>Excellent analytical and research skills with detail orientation</span></p></li><li><p style=\"tab-stops:35.45pt;\"><span>Good knowledge of accounting and bookkeeping procedures</span></p></li><li><p style=\"tab-stops:35.45pt;\"><span>Strong ability to organize and prioritize tasks</span></p></li><li><p style=\"tab-stops:35.45pt;\"><span>Reporting and numeracy skills</span></p></li><li><p style=\"tab-stops:35.45pt;\"><span>Good at meeting deadlines and solving problems</span></p></li><li><p style=\"tab-stops:35.45pt;\"><span>Ability to work well independently as well as the ability to work well with stakeholders </span></p></li></ul><p><span lang=\"EN-GB\"> </span></p><p><span lang=\"EN-GB\"><strong>Our Values</strong></span></p><ul style=\"list-style-type:disc;\"><li style=\"tab-stops:list 36.0pt;\"><span lang=\"EN-GB\">Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement</span></li><li style=\"tab-stops:list 36.0pt;\"><span lang=\"EN-GB\">Hands-on: Being proactive to rapidly deliver high-quality results</span></li><li style=\"tab-stops:list 36.0pt;\"><span lang=\"EN-GB\">Passionate: Being committed and striving for excellence</span></li><li style=\"tab-stops:list 36.0pt;\"><span lang=\"EN-GB\">Solution-driven: Focusing on client outcomes and treating clients fairly with a risk-aware mindset</span></li><li style=\"tab-stops:list 36.0pt;\"><p><span lang=\"EN-GB\">Partnership-oriented: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.</span></p><p> </p></li></ul><p><span lang=\"EN-GB\"><strong>Please ensure to attach a cover letter to your CV when filling the application.</strong></span></p><p><span lang=\"EN-GB\">Application</span></p><p><span lang=\"EN-GB\">Should you wish to apply for this position use this link to apply.</span></p>"
+            ],
+            "responsibilities": [],
+            "requirements": [],
+            "benefits": [],
+            "process": [],
+            "highlights": [],
+            "keywords": [],
+            "sections": [],
+            "readingMinutes": 3
+          }
+        }
+      },
+      "crawledAt": "2026-05-27T22:49:30.835Z",
+      "addressLocality": "Geneve",
+      "addressCountry": "CH",
+      "datePosted": "2026-04-17",
+      "salaryMin": 59500,
+      "salaryMax": 104000,
+      "streetAddress": "Via Pretorio 22",
+      "postalCode": "6900",
+      "addressRegion": "TI",
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-05-10T21:30:00.911Z",
+      "_qualityScore": 99,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 25,
+        "completeness": 25
+      }
+    },
+    {
+      "id": "efg-6197",
+      "slug": "technology-cyber-information-security-risk-analyst-temporary-efg-zurich",
+      "company": "EFG International AG",
+      "title": "Technology & Cyber Information Security Risk Analyst (Temporary)",
+      "location": "Zurich",
+      "canton": "ZH",
+      "category": "finance",
+      "contract": "temporary",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-09",
+      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6197",
+      "source": "Oracle HCM API",
+      "sourceLang": "en",
+      "companyKey": "efg-international",
+      "companyDomain": "efginternational.com",
+      "canonicalContent": {
+        "byLocale": {
+          "en": {
+            "summary": [
+              "The Technology & Cyber Information Security Risk Analyst will be part of the Operational Risk team. We are looking for a passionate IT risk, cyber and information security to cover a global role located in Switzerland.<br>",
+              "Location: Geneva, Zurich, Lugano.<br>"
+            ],
+            "responsibilities": [
+              "Master’s degree in Computer Science, Cyber Security, Information Technology, or equivalent.",
+              "Professional certification, e.g. Information Systems Security Professional (CISSP), Information Security Manager, (CISM), Information Systems Auditor (CISA), Risk and",
+              "Information Systems Control (CRISC) or equivalent.",
+              "At least 3-5 years of experience in banking IT platforms, operational processes and IT controls, or in consulting/audit with a leading professional services firm; a combination of both is considered an advantage.",
+              "Excellent communication skills in English, both verbal and written. Knowledge of German, French, or Italian is a plus.",
+              "In-depth understanding of key technology and information security concepts relevant to banking. In particular, strong knowledge of IT organisation, business processes and systems (e.g. IT Security, data management, architecture and planning, life cycle management and regulatory matters).",
+              "Proven ability to write reports and communicate effectively with a senior audience.",
+              "Self-motivated, diligent, highly organized, able to prioritize and multi-task, and thrive in a fast-paced environment.",
+              "Excellent analytical and problem-solving skills, able to work autonomously and as part of a global team."
+            ],
+            "requirements": [],
+            "benefits": [
+              "<strong>Accountability</strong>: Taking ownership for tasks and challenges as well as seeking continuous improvement.",
+              "<strong>Hands-on</strong>: Being proactive to rapidly deliver high-quality results.",
+              "<strong>Passionate</strong>: Being committed and striving for excellence.",
+              "<strong>Solution-driven</strong>: Focusing on client outcomes and treating clients fairly with a risk-aware mindset.",
+              "<strong>Partnership-oriented</strong>: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit."
+            ],
+            "process": [],
+            "highlights": [
+              "Master’s degree in Computer Science, Cyber Security, Information Technology, or equivalent.",
+              "Professional certification, e.g. Information Systems Security Professional (CISSP), Information Security Manager, (CISM), Information Systems Auditor (CISA), Risk and",
+              "Information Systems Control (CRISC) or equivalent.",
+              "<strong>Accountability</strong>: Taking ownership for tasks and challenges as well as seeking continuous improvement.",
+              "<strong>Hands-on</strong>: Being proactive to rapidly deliver high-quality results."
+            ],
+            "keywords": [
+              "Master’s degree in Computer Science",
+              "Professional certification",
+              "Information Systems Control (CRISC) or equivalent.",
+              "At least 3-5 years of experience in banking IT platforms"
+            ],
+            "sections": [
+              {
+                "id": "company",
+                "heading": "Our Company",
+                "paragraphs": [
+                  "<br>EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice.",
+                  "<br>EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation.",
+                  "<br><strong>Our Purpose and Mission</strong>",
+                  "<br>Empowering entrepreneurial minds to create value – today and for the future.",
+                  "We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value.<br>"
+                ],
+                "bullets": []
+              }
+            ],
+            "readingMinutes": 3
+          }
+        }
+      },
+      "crawledAt": "2026-05-27T22:49:30.833Z",
+      "addressLocality": "Zurich",
+      "addressCountry": "CH",
+      "datePosted": "2026-04-09",
+      "salaryMin": 85500,
+      "salaryMax": 150000,
+      "streetAddress": "Via Pretorio 22",
+      "postalCode": "6900",
+      "addressRegion": "TI",
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-05-10T21:30:00.907Z",
+      "_qualityScore": 99,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
         "translation": 25,
         "completeness": 25
       }
