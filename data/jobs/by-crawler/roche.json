@@ -9962,10 +9962,10 @@
       "id": "roche-6a22d86ce3f8",
       "slug": "interno-di-creazione-di-marchi-e-contenuti-dal-2026-luglio-per-9-12-mesi-a-basilea-roche-basel",
       "slugByLocale": {
-        "it": "employer-brand-content-creation-tirocinante-as-of-july-2026-for-9-12-month-in-basel-roche-basel",
+        "it": "interno-di-creazione-di-marchi-e-contenuti-dal-2026-luglio-per-9-12-mesi-a-basilea-roche-basel",
         "en": "employer-brand-content-creation-intern-as-of-july-2026-for-9-12-month-in-basel-roche-ch",
         "de": "employer-brand-content-creation-praktikant-as-of-july-2026-for-9-12-month-in-basel-roche-basel",
-        "fr": "employer-brand-content-creation-stagiaire-as-of-july-2026-for-9-12-month-in-basel-roche-basel"
+        "fr": "stage-de-creation-de-marque-et-de-contenu-de-l-employeur-en-date-de-juillet-2026-pour-9-12-mois-a-bale-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -10006,19 +10006,20 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "employer-brand-content-creation-intern-as-of-july-2026-for-9-12-month-in-basel-roche-ch",
-        "stage-de-creation-de-marque-et-de-contenu-de-l-employeur-en-date-de-juillet-2026-pour-9-12-mois-a-bale-roche-basel",
-        "interno-di-creazione-di-marchi-e-contenuti-dal-2026-luglio-per-9-12-mesi-a-basilea-roche-basel"
+        "employer-brand-content-creation-tirocinante-as-of-july-2026-for-9-12-month-in-basel-roche-basel",
+        "employer-brand-content-creation-stagiaire-as-of-july-2026-for-9-12-month-in-basel-roche-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "employer-brand-content-creation-intern-as-of-july-2026-for-9-12-month-in-basel-roche-ch"
+          "employer-brand-content-creation-intern-as-of-july-2026-for-9-12-month-in-basel-roche-ch",
+          "employer-brand-content-creation-tirocinante-as-of-july-2026-for-9-12-month-in-basel-roche-basel"
         ],
         "de": [
           "employer-brand-content-creation-intern-as-of-july-2026-for-9-12-month-in-basel-roche-ch"
         ],
         "fr": [
           "employer-brand-content-creation-intern-as-of-july-2026-for-9-12-month-in-basel-roche-ch",
-          "stage-de-creation-de-marque-et-de-contenu-de-l-employeur-en-date-de-juillet-2026-pour-9-12-mois-a-bale-roche-basel"
+          "employer-brand-content-creation-stagiaire-as-of-july-2026-for-9-12-month-in-basel-roche-basel"
         ]
       },
       "firstSeenAt": "2026-05-21T13:09:46.810Z",
@@ -10189,7 +10190,7 @@
         "it": "data-information-architetto-data-platforms-roche-basel",
         "en": "data-information-architect-data-platforms-roche-ch",
         "de": "data-information-architect-data-platforms-roche-ch",
-        "fr": "data-information-architecte-data-platforms-roche-basel"
+        "fr": "architecte-de-donnees-d-information-plateformes-de-donnees-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -10231,7 +10232,7 @@
       "previousSlugs": [
         "data-information-architect-data-platforms-roche-ch",
         "data-information-architect-piattaforme-di-dati-roche-basel",
-        "architecte-de-donnees-d-information-plateformes-de-donnees-roche-basel",
+        "data-information-architecte-data-platforms-roche-basel",
         "data-information-architect-piattaforme-di-dati-roche-basel-sjekzs",
         "data-information-architect-datenplattformen-roche-basel",
         "architecte-de-donnees-d-information-plateformes-de-donnees-roche-basel-e88a1e"
@@ -10243,7 +10244,6 @@
         ],
         "fr": [
           "data-information-architect-data-platforms-roche-ch",
-          "architecte-de-donnees-d-information-plateformes-de-donnees-roche-basel",
           "data-information-architecte-data-platforms-roche-basel"
         ]
       },
@@ -11630,7 +11630,7 @@
       "id": "roche-1c76aa4362fa",
       "slug": "ingegnere-di-manutenzione-roche-basel",
       "slugByLocale": {
-        "it": "maintenance-ingegnere-roche-basel",
+        "it": "ingegnere-di-manutenzione-roche-basel",
         "en": "maintenance-engineer-roche-basel",
         "de": "maintenance-ingenieur-roche-basel",
         "fr": "maintenance-engineer-roche-ch"
@@ -11677,7 +11677,8 @@
           "maintenance-engineer-roche-ch"
         ],
         "it": [
-          "maintenance-engineer-roche-ch"
+          "maintenance-engineer-roche-ch",
+          "maintenance-ingegnere-roche-basel"
         ],
         "de": [
           "maintenance-engineer-roche-ch"
@@ -11685,7 +11686,7 @@
       },
       "previousSlugs": [
         "maintenance-engineer-roche-ch",
-        "ingegnere-di-manutenzione-roche-basel"
+        "maintenance-ingegnere-roche-basel"
       ],
       "firstSeenAt": "2026-05-21T23:38:01.006Z",
       "salaryMin": 49500,
@@ -12209,7 +12210,7 @@
       "id": "roche-0481c12981e8",
       "slug": "qa-manager-qualificazione-e-convalida-di-sistemi-dispositivi-e-sistemi-roche-basel",
       "slugByLocale": {
-        "it": "qa-manager-qualifizierung-e-validierung-von-anlagen-geraten-e-systemen-roche-basel",
+        "it": "qa-manager-qualificazione-e-convalida-di-sistemi-dispositivi-e-sistemi-roche-basel",
         "en": "qa-manager-qualification-and-validation-of-systems-devices-and-systems-roche-basel",
         "de": "qa-manager-qualifizierung-und-validierung-von-anlagen-geraten-und-systemen-roche-ch",
         "fr": "qa-manager-qualifizierung-und-validierung-von-anlagen-geraten-und-systemen-roche-ch"
@@ -12253,11 +12254,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "qa-manager-qualifizierung-und-validierung-von-anlagen-geraten-und-systemen-roche-ch",
-        "qa-manager-qualificazione-e-convalida-di-sistemi-dispositivi-e-sistemi-roche-basel"
+        "qa-manager-qualifizierung-e-validierung-von-anlagen-geraten-e-systemen-roche-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "qa-manager-qualifizierung-und-validierung-von-anlagen-geraten-und-systemen-roche-ch"
+          "qa-manager-qualifizierung-und-validierung-von-anlagen-geraten-und-systemen-roche-ch",
+          "qa-manager-qualifizierung-e-validierung-von-anlagen-geraten-e-systemen-roche-basel"
         ],
         "en": [
           "qa-manager-qualifizierung-und-validierung-von-anlagen-geraten-und-systemen-roche-ch"
@@ -15081,7 +15083,7 @@
       "id": "roche-5a9a074d622a",
       "slug": "prakticante-per-support-manufacturing-nell-unita-di-assemblaggio-e-confezionamento-da-settembre-2026-12-mesi-roche",
       "slugByLocale": {
-        "it": "praktikum-per-studierende-im-bereich-manufacturing-support-in-der-manufacturing-unit-assembly-packaging-ab-september-2026-12-monate-roche-kaiseraugst",
+        "it": "prakticante-per-support-manufacturing-nell-unita-di-assemblaggio-e-confezionamento-da-settembre-2026-12-mesi-roche",
         "en": "practical-internship-in-manufacturing-support-assembly-packaging-september-2026-12-months-roche-kaiseraugst",
         "de": "praktikum-fur-studierende-im-bereich-manufacturing-support-in-der-manufacturing-unit",
         "fr": "stage-en-soutien-manufacturing-assemblage-emballage-septembre-2026-12-mois-roche-kaiseraugst"
@@ -15126,14 +15128,15 @@
       "previousSlugs": [
         "praktikum-fur-studierende-im-bereich-manufacturing-support-in-der-manufacturing-unit",
         "prakticante-nell-ambito-supporto-alla-produzione-assemblaggio-e-imballaggio-settembre-2026-12-mesi-roche-kaiseraugst",
+        "praktikum-per-studierende-im-bereich-manufacturing-support-in-der-manufacturing-unit-assembly-packaging-ab-september-2026-12-monate-roche-kaiseraugst",
         "practicum-in-manufacturing-support-assembly-packaging-september-2026-12-months-roche-kaiseraugst",
-        "stage-dans-le-domaine-du-support-de-production-montage-et-emballage-septembre-2026-12-mois-roche-kaiseraugst",
-        "prakticante-per-support-manufacturing-nell-unita-di-assemblaggio-e-confezionamento-da-settembre-2026-12-mesi-roche"
+        "stage-dans-le-domaine-du-support-de-production-montage-et-emballage-septembre-2026-12-mois-roche-kaiseraugst"
       ],
       "previousSlugsByLocale": {
         "it": [
           "praktikum-fur-studierende-im-bereich-manufacturing-support-in-der-manufacturing-unit",
-          "prakticante-nell-ambito-supporto-alla-produzione-assemblaggio-e-imballaggio-settembre-2026-12-mesi-roche-kaiseraugst"
+          "prakticante-nell-ambito-supporto-alla-produzione-assemblaggio-e-imballaggio-settembre-2026-12-mesi-roche-kaiseraugst",
+          "praktikum-per-studierende-im-bereich-manufacturing-support-in-der-manufacturing-unit-assembly-packaging-ab-september-2026-12-monate-roche-kaiseraugst"
         ],
         "en": [
           "praktikum-fur-studierende-im-bereich-manufacturing-support-in-der-manufacturing-unit",
@@ -15587,9 +15590,6 @@
         "architecte-de-donnees-d-information-plateformes-de-donnees-roche-basel",
         "data-information-architecte-data-platforms-roche-basel",
         "data-information-architect-piattaforme-di-dati-roche-basel-sjekzs",
-        "data-information-architect-piattaforme-di-dati-roche-basel",
-        "data-information-architect-datenplattformen-roche-basel",
-        "architecte-de-donnees-d-information-plateformes-de-donnees-roche-basel-e88a1e",
         "data-information-architetto-data-platforms-roche-basel"
       ],
       "previousSlugsByLocale": {
@@ -25218,7 +25218,7 @@
       "slugByLocale": {
         "it": "interno-di-funzionamento-del-regolatore-roche-basel",
         "en": "regulatory-operation-intern-roche-ch",
-        "de": "regulatorische-operation-intern-roche-basel",
+        "de": "regulatory-operation-praktikant-roche-basel",
         "fr": "operation-de-reglementation-interne-roche-basel"
       },
       "company": "Roche",
@@ -25260,6 +25260,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "regulatory-operation-intern-roche-ch",
+        "regulatorische-operation-intern-roche-basel",
         "interno-di-funzionamento-del-regolatore-roche-basel-l32gh0",
         "interno-di-funzionamento-del-regolatore-roche-basel-74ec59",
         "regulatory-operation-intern-roche-ch-2",
@@ -25273,7 +25274,8 @@
           "regulatory-operation-intern-roche-ch"
         ],
         "de": [
-          "regulatory-operation-intern-roche-ch"
+          "regulatory-operation-intern-roche-ch",
+          "regulatorische-operation-intern-roche-basel"
         ]
       },
       "firstSeenAt": "2026-05-27T13:43:09.247Z",
@@ -26018,7 +26020,6 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "praktikumsstelle-im-schullabor-experio-roche-kaiseraugst-12-monate-roche-ch",
           "praktikum-im-bereich-mint-bildung-und-labor-kaiseraugst-12-monate-roche-kaiseraugst"
         ],
         "it": [
@@ -26033,7 +26034,6 @@
         ]
       },
       "previousSlugs": [
-        "praktikumsstelle-im-schullabor-experio-roche-kaiseraugst-12-monate-roche-ch",
         "praktikum-im-bereich-mint-bildung-e-labor-kaiseraugst-12-monate-roche-kaiseraugst",
         "praktikum-im-bereich-mint-bildung-und-labor-kaiseraugst-12-monate-roche-ch",
         "praktikum-im-bereich-mint-bildung-und-labor-kaiseraugst-12-monate-roche-kaiseraugst"
@@ -26339,10 +26339,10 @@
     },
     {
       "id": "roche-8fc4a3484731",
-      "slug": "affiliate-demand-review-support-pharma-international-supply-chain-ptsr-internship-basel-3",
+      "slug": "sostegno-alla-domanda-di-affiliazione-pharma-international-supply-chain-ptsr-internship-basel-3-6-mesi-roche-basel",
       "slugByLocale": {
         "en": "affiliate-demand-review-support-pharma-international-supply-chain-ptsr-internship-basel-3",
-        "it": "affiliate-demand-review-support-pharma-international-supply-chain-ptsr-internship-basel-3",
+        "it": "sostegno-alla-domanda-di-affiliazione-pharma-international-supply-chain-ptsr-internship-basel-3-6-mesi-roche-basel",
         "de": "affiliate-demand-review-support-pharma-international-supply-chain-ptsr-internship-basel-3",
         "fr": "affiliate-demand-review-support-pharma-international-supply-chain-ptsr-internship-basel-3"
       },
@@ -26398,16 +26398,24 @@
         }
       },
       "postalCode": "4001",
-      "firstSeenAt": "2026-05-28T00:10:42.829Z"
+      "firstSeenAt": "2026-05-28T00:10:42.829Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "affiliate-demand-review-support-pharma-international-supply-chain-ptsr-internship-basel-3"
+        ]
+      },
+      "previousSlugs": [
+        "affiliate-demand-review-support-pharma-international-supply-chain-ptsr-internship-basel-3"
+      ]
     },
     {
       "id": "roche-5fd800570756",
-      "slug": "patient-safety-and-anti-counterfeiting-gracc-internship-basel-3-6-months-roche-ch",
+      "slug": "sicurezza-dei-pazienti-e-anti-paese-gracc-internship-basel-3-6-mesi-roche-basel",
       "slugByLocale": {
         "en": "patient-safety-and-anti-counterfeiting-gracc-internship-basel-3-6-months-roche-ch",
-        "it": "patient-safety-and-anti-counterfeiting-gracc-internship-basel-3-6-months-roche-ch",
-        "de": "patient-safety-and-anti-counterfeiting-gracc-internship-basel-3-6-months-roche-ch",
-        "fr": "patient-safety-and-anti-counterfeiting-gracc-internship-basel-3-6-months-roche-ch"
+        "it": "sicurezza-dei-pazienti-e-anti-paese-gracc-internship-basel-3-6-mesi-roche-basel",
+        "de": "patientensicherheit-und-anti-counterfeiting-gracc-praktikum-basel-3-6-monate-roche-basel",
+        "fr": "securite-des-patients-et-lutte-contre-la-contrefacon-gracc-stage-bale-3-6-mois-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -26461,7 +26469,21 @@
         }
       },
       "postalCode": "4001",
-      "firstSeenAt": "2026-05-28T00:10:42.040Z"
+      "firstSeenAt": "2026-05-28T00:10:42.040Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "patient-safety-and-anti-counterfeiting-gracc-internship-basel-3-6-months-roche-ch"
+        ],
+        "de": [
+          "patient-safety-and-anti-counterfeiting-gracc-internship-basel-3-6-months-roche-ch"
+        ],
+        "fr": [
+          "patient-safety-and-anti-counterfeiting-gracc-internship-basel-3-6-months-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "patient-safety-and-anti-counterfeiting-gracc-internship-basel-3-6-months-roche-ch"
+      ]
     },
     {
       "id": "roche-65113793062b",
@@ -26853,7 +26875,7 @@
         "en": "test-lead-irm-solution-rdt-information-security-roche-ch",
         "it": "test-lead-irm-solution-rdt-information-security-roche-ch",
         "de": "test-lead-irm-solution-rdt-information-security-roche-ch",
-        "fr": "test-lead-irm-solution-rdt-information-security-roche-ch"
+        "fr": "solution-irm-pour-le-plomb-d-essai-rdt-securite-de-l-information-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -26911,12 +26933,12 @@
     },
     {
       "id": "roche-ddaac7181f30",
-      "slug": "praktikant-in-im-service-au-endienst-medizintechnik-im-raum-hamburg-hannover-bremen-m-w-d",
+      "slug": "tirocinante-servizio-esterno-medizintecnica-m-w-d-roche-basel",
       "slugByLocale": {
         "de": "praktikant-in-im-service-au-endienst-medizintechnik-im-raum-hamburg-hannover-bremen-m-w-d",
-        "it": "praktikant-in-im-service-au-endienst-medizintechnik-im-raum-hamburg-hannover-bremen-m-w-d",
-        "en": "praktikant-in-im-service-au-endienst-medizintechnik-im-raum-hamburg-hannover-bremen-m-w-d",
-        "fr": "praktikant-in-im-service-au-endienst-medizintechnik-im-raum-hamburg-hannover-bremen-m-w-d"
+        "it": "tirocinante-servizio-esterno-medizintecnica-m-w-d-roche-basel",
+        "en": "internship-in-external-service-medical-technology-m-w-d-roche-basel",
+        "fr": "stage-en-service-externe-technologie-medicale-h-f-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -26970,7 +26992,21 @@
         }
       },
       "postalCode": "4001",
-      "firstSeenAt": "2026-05-28T00:10:35.757Z"
+      "firstSeenAt": "2026-05-28T00:10:35.757Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "praktikant-in-im-service-au-endienst-medizintechnik-im-raum-hamburg-hannover-bremen-m-w-d"
+        ],
+        "en": [
+          "praktikant-in-im-service-au-endienst-medizintechnik-im-raum-hamburg-hannover-bremen-m-w-d"
+        ],
+        "fr": [
+          "praktikant-in-im-service-au-endienst-medizintechnik-im-raum-hamburg-hannover-bremen-m-w-d"
+        ]
+      },
+      "previousSlugs": [
+        "praktikant-in-im-service-au-endienst-medizintechnik-im-raum-hamburg-hannover-bremen-m-w-d"
+      ]
     },
     {
       "id": "roche-c56e46571896",
@@ -26978,7 +27014,7 @@
       "slugByLocale": {
         "en": "estagiario-de-estrategia-e-solucoes-integradas-roche-ch",
         "it": "estagiario-de-estrategia-e-solucoes-integradas-roche-ch",
-        "de": "estagiario-de-estrategia-e-solucoes-integradas-roche-ch",
+        "de": "strategische-planung-und-integrierte-losungen-roche-basel",
         "fr": "estagiario-de-estrategia-e-solucoes-integradas-roche-ch"
       },
       "company": "Roche",
@@ -27101,12 +27137,12 @@
     },
     {
       "id": "roche-217f76c2df92",
-      "slug": "senior-principal-data-adoption-lead-roche-ch",
+      "slug": "guida-per-l-adozione-dei-dati-principali-senior-roche-basel",
       "slugByLocale": {
         "en": "senior-principal-data-adoption-lead-roche-ch",
-        "it": "senior-principal-data-adoption-lead-roche-ch",
-        "de": "senior-principal-data-adoption-lead-roche-ch",
-        "fr": "senior-principal-data-adoption-lead-roche-ch"
+        "it": "guida-per-l-adozione-dei-dati-principali-senior-roche-basel",
+        "de": "senior-principal-leitung-datenubernahme-roche-basel",
+        "fr": "responsable-principal-principal-de-l-adoption-des-donnees-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -27160,16 +27196,30 @@
         }
       },
       "postalCode": "4001",
-      "firstSeenAt": "2026-05-28T00:10:33.165Z"
+      "firstSeenAt": "2026-05-28T00:10:33.165Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-principal-data-adoption-lead-roche-ch"
+        ],
+        "de": [
+          "senior-principal-data-adoption-lead-roche-ch"
+        ],
+        "fr": [
+          "senior-principal-data-adoption-lead-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "senior-principal-data-adoption-lead-roche-ch"
+      ]
     },
     {
       "id": "roche-ac28acba74cd",
-      "slug": "patient-journey-partner-roche-ch-3",
+      "slug": "partner-del-viaggio-paziente-roche-basel",
       "slugByLocale": {
         "fr": "patient-journey-partner-roche-ch",
-        "it": "patient-journey-partner-roche-ch-3",
+        "it": "partner-del-viaggio-paziente-roche-basel",
         "en": "patient-journey-partner-roche-ch-3",
-        "de": "patient-journey-partner-roche-ch-3"
+        "de": "partner-von-patientenreise-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -27223,7 +27273,18 @@
         }
       },
       "postalCode": "4001",
-      "firstSeenAt": "2026-05-28T00:10:32.379Z"
+      "firstSeenAt": "2026-05-28T00:10:32.379Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "patient-journey-partner-roche-ch-3"
+        ],
+        "de": [
+          "patient-journey-partner-roche-ch-3"
+        ]
+      },
+      "previousSlugs": [
+        "patient-journey-partner-roche-ch-3"
+      ]
     },
     {
       "id": "roche-56a3ea8f8fca",
@@ -27683,12 +27744,12 @@
     },
     {
       "id": "roche-d5c0b5d5980f",
-      "slug": "clinical-site-manager-roche-ch-2",
+      "slug": "responsabile-del-sito-clinico-roche-basel-8e72c8",
       "slugByLocale": {
         "en": "clinical-site-manager-roche-ch",
-        "it": "clinical-site-manager-roche-ch-2",
-        "de": "clinical-site-manager-roche-ch-2",
-        "fr": "clinical-site-manager-roche-ch-2"
+        "it": "responsabile-del-sito-clinico-roche-basel-8e72c8",
+        "de": "klinischer-standortmanager-roche-basel-8e72c8",
+        "fr": "gestionnaire-de-site-clinique-roche-basel-8e72c8"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -27742,7 +27803,21 @@
         }
       },
       "postalCode": "4001",
-      "firstSeenAt": "2026-05-28T00:10:25.282Z"
+      "firstSeenAt": "2026-05-28T00:10:25.282Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "clinical-site-manager-roche-ch-2"
+        ],
+        "de": [
+          "clinical-site-manager-roche-ch-2"
+        ],
+        "fr": [
+          "clinical-site-manager-roche-ch-2"
+        ]
+      },
+      "previousSlugs": [
+        "clinical-site-manager-roche-ch-2"
+      ]
     },
     {
       "id": "roche-4fc1c68aa931",

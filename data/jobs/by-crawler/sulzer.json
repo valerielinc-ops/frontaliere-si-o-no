@@ -290,7 +290,7 @@
         "it": "ingegnere-di-vendita-sulzer-winterthur",
         "en": "sales-engineer-sulzer-winterthur",
         "de": "sales-ingenieur-sulzer-winterthur",
-        "fr": "sales-engineer-sulzer-ch"
+        "fr": "ingenieur-commercial-sulzer-winterthur"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -343,15 +343,13 @@
           "vertriebsingenieur-sulzer-winterthur"
         ],
         "fr": [
-          "ingenieur-commercial-sulzer-winterthur",
           "sales-engineer-sulzer-ch"
         ]
       },
       "previousSlugs": [
         "sales-engineer-sulzer-ch",
         "sales-ingegnere-sulzer-winterthur",
-        "vertriebsingenieur-sulzer-winterthur",
-        "ingenieur-commercial-sulzer-winterthur"
+        "vertriebsingenieur-sulzer-winterthur"
       ],
       "firstSeenAt": "2026-05-21T23:58:00.571Z",
       "salaryMin": 49500,
@@ -2622,11 +2620,11 @@
     },
     {
       "id": "sulzer-7e41397d9a1f",
-      "slug": "sales-engineer-sulzer-ch-3",
+      "slug": "sales-ingegnere-sulzer-cuautitlan-izcalli",
       "slugByLocale": {
         "en": "sales-engineer-sulzer-cuautitlan-izcalli",
-        "it": "sales-engineer-sulzer-ch-3",
-        "de": "sales-engineer-sulzer-ch-3",
+        "it": "sales-ingegnere-sulzer-cuautitlan-izcalli",
+        "de": "sales-ingenieur-sulzer-cuautitlan-izcalli",
         "fr": "sales-engineer-sulzer-ch-3"
       },
       "company": "Sulzer",
@@ -2672,10 +2670,17 @@
       "previousSlugsByLocale": {
         "en": [
           "sales-engineer-sulzer-ch"
+        ],
+        "it": [
+          "sales-engineer-sulzer-ch-3"
+        ],
+        "de": [
+          "sales-engineer-sulzer-ch-3"
         ]
       },
       "previousSlugs": [
-        "sales-engineer-sulzer-ch"
+        "sales-engineer-sulzer-ch",
+        "sales-engineer-sulzer-ch-3"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,

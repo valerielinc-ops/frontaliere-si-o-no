@@ -108,7 +108,7 @@
       "id": "ukbb-0a70150fbb3e",
       "slug": "dipl-carriera-hf-o-esperto-nell-assistenza-di-emergenza-nds-hf-80-100-universitats-kinderspital-beider-basel-basel",
       "slugByLocale": {
-        "it": "dipl-professionista-della-salute-hf-o-esperto-in-cura-d-emergenza-nds-hf-80-100-universitats-kinderspital-beider-basel",
+        "it": "dipl-carriera-hf-o-esperto-nell-assistenza-di-emergenza-nds-hf-80-100-universitats-kinderspital-beider-basel-basel",
         "en": "dipl-pflegefachperson-hf-oder-expert-in-notfallpflege-nds-hf-80-100-universitats-kinderspital-beider-basel-basel",
         "de": "dipl-pflegefachperson-hf-oder-expert-in-notfallpflege-nds-hf-80-100-ukbb-basel",
         "fr": "dipl-professionnel-de-la-sante-hf-ou-expert-en-soins-d-urgence-nds-hf-80-100-universitats-kinderspital-beider-basel"
@@ -183,12 +183,13 @@
       },
       "previousSlugs": [
         "dipl-pflegefachperson-hf-oder-expert-in-notfallpflege-nds-hf-80-100-ukbb-basel",
-        "dipl-ing-pflegefachperson-hf-oder-expert-in-notfallpflege-nds-hf-80-100-universitats-kinderspital-beider-basel-basel",
-        "dipl-carriera-hf-o-esperto-nell-assistenza-di-emergenza-nds-hf-80-100-universitats-kinderspital-beider-basel-basel"
+        "dipl-professionista-della-salute-hf-o-esperto-in-cura-d-emergenza-nds-hf-80-100-universitats-kinderspital-beider-basel",
+        "dipl-ing-pflegefachperson-hf-oder-expert-in-notfallpflege-nds-hf-80-100-universitats-kinderspital-beider-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-hf-oder-expert-in-notfallpflege-nds-hf-80-100-ukbb-basel"
+          "dipl-pflegefachperson-hf-oder-expert-in-notfallpflege-nds-hf-80-100-ukbb-basel",
+          "dipl-professionista-della-salute-hf-o-esperto-in-cura-d-emergenza-nds-hf-80-100-universitats-kinderspital-beider-basel"
         ],
         "de": [
           "dipl-ing-pflegefachperson-hf-oder-expert-in-notfallpflege-nds-hf-80-100-universitats-kinderspital-beider-basel-basel"
@@ -215,7 +216,7 @@
         "it": "fisioterapista-centro-per-l-analisi-del-movimento-80-universitats-kinderspital-beider-basel-basel",
         "en": "physiotherapist-movement-analysis-center-80-universitats-kinderspital-beider-basel-basel",
         "de": "physiotherapeut-in-zentrum-fur-bewegungsanalyse-80-universitats-kinderspital-beider-basel-basel",
-        "fr": "therapeute-en-kinesitherapie-centre-d-analyse-du-mouvement-80-universitats-kinderspital-beider-basel-basel"
+        "fr": "physiotherapeute-au-centre-d-analyse-des-mouvements-80-universitats-kinderspital-beider-basel-basel"
       },
       "company": "Universitäts-Kinderspital beider Basel",
       "companyKey": "ukbb",
@@ -297,14 +298,13 @@
           "physiotherapist-in-center-for-motion-analysis-80-universitats-kinderspital-beider-basel-basel"
         ],
         "fr": [
-          "physiotherapeute-au-centre-d-analyse-des-mouvements-80-universitats-kinderspital-beider-basel-basel"
+          "therapeute-en-kinesitherapie-centre-d-analyse-du-mouvement-80-universitats-kinderspital-beider-basel-basel"
         ]
       },
       "previousSlugs": [
         "physiotherapeut-in-zentrum-fur-bewegungsanalyse-80-ukbb-basel",
         "physiotherapist-in-center-for-motion-analysis-80-universitats-kinderspital-beider-basel-basel",
-        "physiotherapeute-au-centre-d-analyse-des-mouvements-80-universitats-kinderspital-beider-basel-basel",
-        "physiotherapeut-in-zentrum-per-bewegungsanalyse-80-universitats-kinderspital-beider-basel-basel"
+        "therapeute-en-kinesitherapie-centre-d-analyse-du-mouvement-80-universitats-kinderspital-beider-basel-basel"
       ],
       "firstSeenAt": "2026-05-19T20:46:02.277Z",
       "salaryMin": 49500,
@@ -780,12 +780,12 @@
     },
     {
       "id": "ukbb-ee9b97916de9",
-      "slug": "klinikmanager-in-kinderchirurgie-40-universitats-kinderspital-beider-basel-basel",
+      "slug": "responsabile-clinica-in-kinderchirurgie-40-universitats-kinderspital-beider-basel-basel",
       "slugByLocale": {
         "de": "klinikmanager-in-kinderchirurgie-40-universitats-kinderspital-beider-basel-basel",
-        "it": "klinikmanager-in-kinderchirurgie-40-universitats-kinderspital-beider-basel-basel",
-        "en": "klinikmanager-in-kinderchirurgie-40-universitats-kinderspital-beider-basel-basel",
-        "fr": "klinikmanager-in-kinderchirurgie-40-universitats-kinderspital-beider-basel-basel"
+        "it": "responsabile-clinica-in-kinderchirurgie-40-universitats-kinderspital-beider-basel-basel",
+        "en": "clinic-manager-in-kinderchirurgie-40-universitats-kinderspital-beider-basel-basel",
+        "fr": "directeur-de-clinique-a-kinderchirurgie-40-universitats-kinderspital-beider-basel-basel"
       },
       "company": "Universitäts-Kinderspital beider Basel",
       "companyKey": "ukbb",
@@ -831,14 +831,22 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "klinikmanager-in-kinderchirurgie-40-ukbb-basel"
+          "klinikmanager-in-kinderchirurgie-40-ukbb-basel",
+          "klinikmanager-in-kinderchirurgie-40-universitats-kinderspital-beider-basel-basel"
         ],
         "de": [
           "klinikmanager-in-kinderchirurgie-40-ukbb-basel"
+        ],
+        "en": [
+          "klinikmanager-in-kinderchirurgie-40-universitats-kinderspital-beider-basel-basel"
+        ],
+        "fr": [
+          "klinikmanager-in-kinderchirurgie-40-universitats-kinderspital-beider-basel-basel"
         ]
       },
       "previousSlugs": [
-        "klinikmanager-in-kinderchirurgie-40-ukbb-basel"
+        "klinikmanager-in-kinderchirurgie-40-ukbb-basel",
+        "klinikmanager-in-kinderchirurgie-40-universitats-kinderspital-beider-basel-basel"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -1445,7 +1453,7 @@
       "id": "ukbb-a49cbc60a583",
       "slug": "sede-centrale-a3-90-universitats-kinderspital-beider-basel-basel",
       "slugByLocale": {
-        "it": "leitung-pflege-station-a3-90-ukbb-basel",
+        "it": "sede-centrale-a3-90-universitats-kinderspital-beider-basel-basel",
         "en": "head-of-care-station-a3-90-universitats-kinderspital-beider-basel-basel",
         "de": "leitung-pflege-station-a3-90-universitats-kinderspital-beider-basel-basel",
         "fr": "chef-du-centre-de-soins-a3-90-universitats-kinderspital-beider-basel-basel"
@@ -1500,13 +1508,13 @@
         ],
         "de": [
           "leitung-pflege-station-a3-90-ukbb-basel"
+        ],
+        "it": [
+          "leitung-pflege-station-a3-90-ukbb-basel"
         ]
       },
       "previousSlugs": [
-        "leitung-pflege-station-a3-90-ukbb-basel",
-        "sede-centrale-a3-90-universitats-kinderspital-beider-basel-basel",
-        "head-of-care-station-a3-90-universitats-kinderspital-beider-basel-basel",
-        "chef-du-centre-de-soins-a3-90-universitats-kinderspital-beider-basel-basel"
+        "leitung-pflege-station-a3-90-ukbb-basel"
       ],
       "firstSeenAt": "2026-05-22T23:54:43.296Z",
       "salaryMin": 68000,

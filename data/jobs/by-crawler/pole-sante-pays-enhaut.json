@@ -258,11 +258,11 @@
     },
     {
       "id": "pole-sante-pays-enhaut-1a778bc302ed",
-      "slug": "assistant-e-medical-e-pole-sante-pays-enhaut-chateau-d-oex",
+      "slug": "assistente-medico-pole-sante-pays-d-enhaut-chateau-d-oex",
       "slugByLocale": {
-        "it": "assistant-e-medical-e-pole-sante-pays-enhaut-chateau-d-oex",
+        "it": "assistente-medico-pole-sante-pays-d-enhaut-chateau-d-oex",
         "en": "assistant-e-medical-e-pole-sante-pays-enhaut-chateau-d-oex",
-        "de": "assistent-e-medical-e-pole-sante-pays-d-enhaut-chateau-d-oex",
+        "de": "medizinischer-assistent-pole-sante-pays-d-enhaut-chateau-d-oex",
         "fr": "assistant-e-medical-e-pole-sante-pays-enhaut-chateau-d-oex"
       },
       "company": "Pôle Santé Pays-d'Enhaut",
@@ -316,7 +316,19 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "assistant-e-medical-e-pole-sante-pays-enhaut-chateau-d-oex"
+        ],
+        "de": [
+          "assistent-e-medical-e-pole-sante-pays-d-enhaut-chateau-d-oex"
+        ]
+      },
+      "previousSlugs": [
+        "assistant-e-medical-e-pole-sante-pays-enhaut-chateau-d-oex",
+        "assistent-e-medical-e-pole-sante-pays-d-enhaut-chateau-d-oex"
+      ]
     },
     {
       "id": "pole-sante-pays-enhaut-bc6dc9b489c7",

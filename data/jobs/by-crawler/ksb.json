@@ -3451,12 +3451,12 @@
     },
     {
       "id": "ksb-33f3eeca8ba2",
-      "slug": "koch-kochin-100-befristet-2-monate-kantonsspital-baden-ksb-baden",
+      "slug": "koch-kochin-100-limitato-2-mesi-kantonsspital-baden-ksb-baden",
       "slugByLocale": {
         "de": "koch-kochin-100-befristet-2-monate-ksb-ch",
-        "it": "koch-kochin-100-befristet-2-monate-kantonsspital-baden-ksb-baden",
-        "en": "koch-kochin-100-befristet-2-monate-ksb-ch",
-        "fr": "koch-kochin-100-befristet-2-monate-ksb-ch"
+        "it": "koch-kochin-100-limitato-2-mesi-kantonsspital-baden-ksb-baden",
+        "en": "koch-kochin-100-limited-2-months-kantonsspital-baden-ksb-baden",
+        "fr": "koch-kochin-100-limite-a-2-mois-kantonsspital-baden-ksb-baden"
       },
       "company": "Kantonsspital Baden (KSB)",
       "companyKey": "ksb",
@@ -3501,11 +3501,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "koch-kochin-100-befristet-2-monate-ksb-ch",
+          "koch-kochin-100-befristet-2-monate-kantonsspital-baden-ksb-baden"
+        ],
+        "en": [
+          "koch-kochin-100-befristet-2-monate-ksb-ch"
+        ],
+        "fr": [
           "koch-kochin-100-befristet-2-monate-ksb-ch"
         ]
       },
       "previousSlugs": [
-        "koch-kochin-100-befristet-2-monate-ksb-ch"
+        "koch-kochin-100-befristet-2-monate-ksb-ch",
+        "koch-kochin-100-befristet-2-monate-kantonsspital-baden-ksb-baden"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
