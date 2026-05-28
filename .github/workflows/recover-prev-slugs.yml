@@ -181,7 +181,7 @@ jobs:
 
       - name: Upload scan artifacts
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: recover-prev-slugs-scan-${{ github.run_id }}
           path: /tmp/prev-slug-recovery/
