@@ -11,12 +11,15 @@ permissions:
 jobs:
   auto-merge:
     # Trigger condizioni:
-    # - review autore = "claude" (GitHub App del reviewer)
+    # - review autore = GitHub App con login "claude[bot]" (verificato via API:
+    #   user.login == "claude[bot]", user.type == "Bot", user.id == 209825114).
+    #   Usiamo type == 'Bot' + startsWith come safety net se il login cambia.
     # - review.state = "commented" (gh pr review --comment)
     # - body senza 🔴 (LGTM o solo 🟡 Nit)
     # - PR non draft
     if: |
-      github.event.review.user.login == 'claude' &&
+      github.event.review.user.type == 'Bot' &&
+      startsWith(github.event.review.user.login, 'claude') &&
       github.event.review.state == 'commented' &&
       !contains(github.event.review.body, '🔴') &&
       github.event.pull_request.draft == false
