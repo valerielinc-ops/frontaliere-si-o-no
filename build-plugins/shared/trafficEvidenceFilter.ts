@@ -125,24 +125,52 @@ export class TrafficEvidenceFilter {
     const evidencePath = path.join(rootDir, 'data', 'evidence-index.json');
     const promotionsPath = path.join(rootDir, 'data', 'thin-page-promotions-active.json');
     const approvedPath = path.join(rootDir, 'data', 'url-pruning-approved-patterns.json');
+    const indexedClusterPath = path.join(rootDir, 'data', 'indexed-cluster-urls.json');
 
     // Build a single normalized "has traffic" set from every signal source.
     const trafficSet = new Set<string>();
+    let evGa4 = 0, evPosthog = 0, evGscTop = 0, evIndexed = 0, evPromo = 0;
     const ev = tryRead<EvidenceIndex>(evidencePath);
     if (ev) {
       for (const path of Object.keys(ev.ga4?.pages ?? {})) {
+        if (!trafficSet.has(normalizePath(path))) evGa4++;
         trafficSet.add(normalizePath(path));
       }
       for (const path of Object.keys(ev.posthog?.pages ?? {})) {
+        if (!trafficSet.has(normalizePath(path))) evPosthog++;
         trafficSet.add(normalizePath(path));
       }
       for (const q of Object.values(ev.gsc?.queries ?? {})) {
-        if (q?.topLandingPage) trafficSet.add(normalizePath(q.topLandingPage));
+        if (q?.topLandingPage) {
+          if (!trafficSet.has(normalizePath(q.topLandingPage))) evGscTop++;
+          trafficSet.add(normalizePath(q.topLandingPage));
+        }
+      }
+    }
+    // PR #743 follow-up: `data/indexed-cluster-urls.json` is the merged
+    // GSC + GA4 + PostHog union of cluster URLs Google has indexed in
+    // the last 90 d, populated by .github/workflows/refresh-indexed-
+    // cluster-urls.yml. It carries ~4.9 k URLs vs the ~300 cluster
+    // URLs that surface as GSC `topLandingPage` in evidence-index.json
+    // (which thresholds at min 5 impressions and keeps only the
+    // top-1 landing per query). Without this source the cluster
+    // filter false-thinned ~all cluster pages that rank #2+ for any
+    // query — the cluster's own `indexedClusterUrlsByKey` lookup uses
+    // the same file for mirror promotion, so the data is already
+    // production-trusted.
+    const indexedCluster = tryRead<{ indexedPaths?: string[] }>(indexedClusterPath);
+    if (Array.isArray(indexedCluster?.indexedPaths)) {
+      for (const p of indexedCluster.indexedPaths) {
+        if (!trafficSet.has(normalizePath(p))) evIndexed++;
+        trafficSet.add(normalizePath(p));
       }
     }
     const promo = tryRead<ThinPromotions>(promotionsPath);
     if (promo?.urls) {
-      for (const u of promo.urls) trafficSet.add(normalizePath(u));
+      for (const u of promo.urls) {
+        if (!trafficSet.has(normalizePath(u))) evPromo++;
+        trafficSet.add(normalizePath(u));
+      }
     }
     this.trafficSet = trafficSet;
 
@@ -161,7 +189,8 @@ export class TrafficEvidenceFilter {
     if (this.active) {
       const patternCount = approved?.patterns?.length ?? 0;
       console.log(
-        `[traffic-evidence-filter] traffic-set=${trafficSet.size} paths, ${patternCount} approved patterns`
+        `[traffic-evidence-filter] traffic-set=${trafficSet.size} paths, ${patternCount} approved patterns ` +
+        `(sources: ga4=${evGa4} posthog=${evPosthog} gsc-top=${evGscTop} indexed-cluster=${evIndexed} promotions=${evPromo})`
       );
     } else {
       console.log(
