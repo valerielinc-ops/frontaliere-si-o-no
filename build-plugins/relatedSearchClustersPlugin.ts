@@ -1866,10 +1866,16 @@ async function dropOverwrittenLocs(
   const DROP_MISSING = 4;
   const flags = new Uint8Array(locs.length);
 
-  // Concurrency cap for in-flight async readFile attempts. 32 matches the
-  // postWalkWorker IN_FLIGHT × workers budget (4 workers × 8 in-flight) and
-  // stays well under the ulimit guard (see batchWrite.ts conservative 1024).
-  const IN_FLIGHT = 32;
+  // Concurrency cap for in-flight async readFile attempts. Bumped 32 → 64
+  // (commit TBD) after the [related-search-profile] table on run 26604491084
+  // measured sw:drop-overwritten still at 20.0 s (down from 41.4 s sync in
+  // PR #776, but the dominant cost inside sitemap-write at 5.9% of the
+  // plugin's wall). The walk runs on the main thread (no worker_threads
+  // budget contention) and the file reads are pure I/O — Linux readahead
+  // saturates well above 32 in-flight ops on a 4-vCPU ubuntu-latest runner.
+  // Aggregate fd ceiling: 64 simultaneous open files, three orders of
+  // magnitude under the ulimit 65535 default.
+  const IN_FLIGHT = 64;
   let cursor = 0;
 
   const lane = async (): Promise<void> => {
