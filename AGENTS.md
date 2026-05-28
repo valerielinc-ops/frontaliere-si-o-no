@@ -1,44 +1,44 @@
 # Project Agent Instructions
 
-This file is intentionally compact: it is injected into every agent session. Keep durable detail in docs and load it only when needed.
+Iniettato in ogni sessione agent. Detail durevole nei docs, carica on-demand.
 
 ## Non-Negotiables
 
-1. Never lower quality thresholds, test tolerances, validation criteria, SEO gates, or moratorium thresholds to pass a build. Fix the root cause.
-2. Never downgrade errors to warnings to unblock deploys.
-3. Job page structured data must always include `baseSalary`, `postalCode`, `streetAddress`, `title`, `description`, `datePosted`, `hiringOrganization.name`, `jobLocation`, and `employmentType` in every locale. Missing source data means generate safe defaults, not remove checks.
-4. Never accept indexed thin content under 50 words.
-5. If a test fails, treat the test as right until proven otherwise.
-6. Keep changes surgical: no drive-by refactors, no speculative abstractions, no unrelated formatting churn.
-7. Never disable Google AdSense Auto Ads (anchor / in-page / vignette) — not globally, not per-route, not via loader gating, not via `enable_page_level_ads:false`, not via meta opt-outs. Auto Ads are ~95% of revenue. CLS or layout problems caused by Auto Ads must be solved by reserving space, container sizing (`min-height`, `aspect-ratio`, `contain: layout`), pre-declared `<ins>` placeholders with fixed dimensions, or image/font width-height fixes — never by suppressing the ad system itself.
+1. Mai abbassare quality threshold/test tolerance/validation/SEO gate/moratorium per passare build. Fix root cause.
+2. Mai downgrade error → warning per sbloccare deploy.
+3. Job page structured data DEVE includere in ogni locale: `baseSalary`, `postalCode`, `streetAddress`, `title`, `description`, `datePosted`, `hiringOrganization.name`, `jobLocation`, `employmentType`. Source mancante → safe default, non rimozione check.
+4. Mai accettare thin content indicizzato <50 parole.
+5. Test fail → trattare test come right finché non provato contrario.
+6. Changes chirurgiche: no drive-by refactor, no speculative abstraction, no formatting churn.
+7. Mai disabilitare AdSense Auto Ads (anchor/in-page/vignette). Mai globale, per-route, loader gating, `enable_page_level_ads:false`, meta opt-out. ~95% revenue. CLS/layout fix da Auto Ads → reserve space (`min-height`/`aspect-ratio`/`contain: layout`), pre-declared `<ins>` placeholder fixed dim, image/font width-height fix. MAI sopprimere ad system.
 
 ## Privacy
 
-- Canonical git identity for this repo: `Valerie Linc <valerielinc@gmail.com>`. Do not author/commit under any other identity.
-- Before every `git commit`, scan staged content and the commit message against the local blocklist at `.git/info/pii-blocklist.txt` (untracked, per-clone). If the file is missing, prompt the user to populate it.
-  - Recommended scan: `git diff --cached | grep -niE -f .git/info/pii-blocklist.txt` and `grep -niE -f .git/info/pii-blocklist.txt <commit-msg-file>`.
-  - If any match, abort the commit and ask the user how to sanitize.
-- Strip any `Co-authored-by:` trailer whose email is not the canonical identity before finalizing the commit.
-- Never commit absolute home paths (`/Users/<anyone>/...`) in code or config. Use relative paths, `$HOME`, `~`, `git rev-parse --show-toplevel`, or env vars.
-- Never hard-code personal emails in code, config, or data dumps. Prefer env vars (`process.env.*`) or the canonical address.
-- When in doubt about whether a string in a diff is personal/leaky, ask the user before committing.
+- Git identity canonica: `Valerie Linc <valerielinc@gmail.com>`. Mai altre identità.
+- Pre-commit PII scan vs `.git/info/pii-blocklist.txt` (untracked, per-clone). Mancante → prompt user.
+  - Scan: `git diff --cached | grep -niE -f .git/info/pii-blocklist.txt` + same per commit-msg file.
+  - Match → abort + chiedi sanitize.
+- Strip `Co-authored-by:` con email non canonica.
+- Mai committare absolute home `/Users/<anyone>/...`. Usa relative, `$HOME`, `~`, `git rev-parse --show-toplevel`, env.
+- Mai hard-code personal email in code/config/data. Usa env (`process.env.*`) o canonical.
+- Stringa in diff dubbia → chiedi user.
 
 ## Workflow
 
-- Worktree-first is mandatory for every task that will edit, commit, or push files: create a dedicated branch worktree before making changes. Treat the local `main` checkout as shared/read-only for status and inspection only.
-- Never edit, stage, stash, restore, commit, rebase, or merge in the local `main` checkout unless the user explicitly asks for that exact operation. Existing dirty files on `main` are foreign work and must be left untouched.
-- Parallel/subagent work must always use isolated worktrees; never share a working directory between agents.
-- Auto commit and push successful tasks. Use PR-as-merge-vehicle when landing on `main`: create PR, squash merge, delete remote branch, then remove the worktree.
-- Every PR body MUST contain two sections: `## Implementato` (what the PR actually does) and `## Non implementato (ancora)` (scope items NOT done, with reason: out of scope / follow-up / blocked / volutamente posposto). The automated reviewer reads these to gate the merge: critical missing items for monetization or organic traffic block the PR. See `REVIEW.md` for the reviewer's contract.
-- When a PR is ready for `main`, wait for the `pr-review-loop` workflow to complete and read the posted review. Gate the merge on it: `## LGTM` → merge immediately; `🔴 Important` finding → push fix and wait for re-review; `🟡 Nit` only → merge (optionally address in a follow-up PR); 🔴 process finding "missing sections" → fix PR body and wait for re-review. Other CI checks (tests, lighthouse, build) are not awaited — observe them on `main` after merge as before. Exception: PRs that modify `.github/workflows/pr-review-loop.yml` or `REVIEW.md` cause the GitHub App workflow-validation failure on the action and the reviewer cannot post; merge without waiting and verify on the next organic PR.
-- If post-merge checks/deploy fail, do not fix directly on `main`; create a fresh worktree and branch, fix the root cause, open a new PR, merge it, then observe `main` again.
-- Before closing any task, audit Codex worktrees/branches. If the PR was merged, delete the remote branch and remove the local worktree immediately; if it was not merged, leave the worktree/branch in place and state the explicit merge/abandon decision needed.
-- GitHub operations use `gh` CLI only.
-- Never run `send-newsletter.mjs --send` locally. Use `--preview` or `--test --target-email <email>`.
-- New GitHub Actions workflows must be run live on `main` after merge with `gh workflow run <workflow>.yml --ref main`.
-- Use Playwright CLI or the Codex Browser for E2E. Do not rely on preview-only tools.
-- When touching a function/class/method, run GitNexus impact analysis first. Before committing code changes, run GitNexus detect changes.
-- Never run the full build locally; trigger/validate builds online through GitHub Actions.
+- Worktree-first obbligatorio per task che edita/committa/pusha. Local `main` checkout = shared/read-only (status/inspection).
+- Mai edit/stage/stash/restore/commit/rebase/merge sul local `main` salvo richiesta esplicita user. File dirty su `main` = lavoro foreign, intoccabile.
+- Parallel/subagent → sempre worktree isolati, mai shared dir.
+- Auto commit+push task successful. PR-as-merge-vehicle: create PR, squash merge, delete remote branch, remove worktree.
+- PR body OBBLIGATORIO con `## Implementato` (cosa fa) + `## Non implementato (ancora)` (scope NON fatto + motivo: out of scope / follow-up / blocked / posposto). Reviewer automatico legge per gating. Vedi `REVIEW.md`.
+- PR ready per `main` → attendi run `pr-review-loop` e leggi review. Gating: `## LGTM` → merge; `🔴 Important` → push fix + re-review; `🟡 Nit` only → merge; 🔴 process "missing sections" → fix PR body + re-review. Altre CI (test/lighthouse/build) NON attese — osserva su `main` post-merge. **Eccezione:** PR che modifica `.github/workflows/pr-review-loop.yml` o `REVIEW.md` → workflow-validation failure GitHub App, reviewer non posta → merge senza attendere, verifica su prossima PR organica.
+- Post-merge check/deploy fail → mai fix diretto su `main`; nuovo worktree+branch, fix root cause, nuova PR, merge, riosserva `main`.
+- Pre-task-close: audit worktree/branch. PR merged → delete remote branch + remove worktree immediato. Not merged → lascia + dichiara decisione merge/abandon esplicita.
+- GitHub operations: `gh` CLI only.
+- Mai `send-newsletter.mjs --send` locale. Usa `--preview` o `--test --target-email <email>`.
+- Nuovi GitHub Actions workflow → run live su `main` post-merge: `gh workflow run <workflow>.yml --ref main`.
+- E2E: Playwright CLI o Codex Browser. No preview-only tools.
+- Touch function/class/method → GitNexus impact analysis prima. Pre-commit → GitNexus detect changes.
+- Mai full build locale; trigger/validate via GitHub Actions.
 
 ## Build And Test
 
@@ -48,61 +48,52 @@ npm run build
 npm test
 ```
 
-Agent sessions inherit `FAST_BUILD=1`; override it when validating SEO plugin output:
+Agent sessions ereditano `FAST_BUILD=1`; override per validare SEO plugin output:
 
 ```bash
 FAST_BUILD= npx vite build
 ```
 
-Full local SEO builds can OOM and waste local I/O. Use remote CI or audit replay for full SEO/build-plugin validation; do not run full local SEO builds unless the user explicitly asks. Prefer audit replay for dist-only audit verification:
+Full local SEO builds OOM. Usa remote CI o audit replay; no full local SEO build salvo richiesta esplicita user. Audit replay dist-only:
 
 ```bash
 gh workflow run audit-dist-from-run.yml -f deploy_run_id=<run_id> -f audits=<audit-list>
 ```
 
-CI test gate: `npm ci`, `node scripts/assemble-jobs-dataset.mjs --stats`, `node scripts/migrate-all-known-job-slugs-canton-aware.mjs`, then `npm test`.
+CI test gate: `npm ci`, `node scripts/assemble-jobs-dataset.mjs --stats`, `node scripts/migrate-all-known-job-slugs-canton-aware.mjs`, `npm test`.
 
 ## Architecture
 
 - React 19 + TypeScript + Vite + Tailwind.
-- No React Router. Routing is hand-rolled in `services/router.ts`; `App.tsx` owns navigation state.
-- Canonical production domain: `https://frontaliereticino.ch` with no `www`.
-- Primary locale is Italian; EN/DE/FR are supported through chunked locale files under `services/locales/`.
-- Navigation caps: 6 top-level tabs and 8 sub-tabs per category.
+- No React Router. Routing hand-rolled in `services/router.ts`; `App.tsx` owns navigation state.
+- Canonical prod domain: `https://frontaliereticino.ch` (no `www`).
+- Primary locale Italian; EN/DE/FR via chunked locale files in `services/locales/`.
+- Nav caps: 6 top-level tabs, 8 sub-tabs/category.
 
 ## Static SEO Pages
 
-- Every static SSG page emitted by build plugins must use `build-plugins/shared/seoPageShell.ts` via `buildSeoPageHtml`.
+- Static SSG page emit via build plugin DEVE usare `build-plugins/shared/seoPageShell.ts` → `buildSeoPageHtml`.
 - Static plugin contract: `apply: 'build'`, `enforce: 'post'`, emit in `closeBundle()`, pass `distDir`.
-- Body styling in emitted static HTML must use Tailwind utilities only. `tailwind.config.js` content must include `./build-plugins/**/*.{js,ts}`.
-- SPA/static handoff is router-driven via `staticOverlay`; do not reintroduce DOM heuristics for `main.seo-static-content`.
-- Mobile first: real content must appear immediately after H1/tagline. Long intros, methodology, and FAQs go below the action/data area or in collapsed accordions.
-- SEO landing order: breadcrumb, header with one-line lede <=120 chars, 3-5 stat tiles, advice banner when useful, primary CTA, data area, then long prose.
-- Use existing semantic color tokens only; no new inline hex colors.
-- Dedicated crawlers must merge jobs by stable id using `extractStableJobId(job.url)`, preserve previous slugs, and truncate with `truncateSlugAtWordBoundary`.
-- SEO automation moratorium: no new build-plugin SEO landings while `data/gsc-position-rolling.json` 7-day average position is above 7.5, except bug fixes, net-reducing consolidation, and redirect/bridge emitters.
+- Body styling HTML statico: Tailwind utilities only. `tailwind.config.js` content DEVE includere `./build-plugins/**/*.{js,ts}`.
+- SPA/static handoff = router-driven via `staticOverlay`; mai reintrodurre DOM heuristic per `main.seo-static-content`.
+- Mobile-first: real content subito dopo H1/tagline. Long intro/methodology/FAQ sotto action/data area o in accordion collassati.
+- SEO landing order: breadcrumb, header con one-line lede ≤120 chars, 3-5 stat tile, advice banner se utile, primary CTA, data area, prose lunga.
+- Solo semantic color token esistenti; no inline hex.
+- Crawler dedicati: merge job by stable id `extractStableJobId(job.url)`, preserva previous slug, truncate via `truncateSlugAtWordBoundary`.
+- SEO automation moratorium: no nuove build-plugin SEO landing finché `data/gsc-position-rolling.json` 7-day avg position >7.5. Eccezioni: bug fix, net-reducing consolidation, redirect/bridge emitter.
 
 ## Accessibility And UX
 
-- Every new page needs SEO metadata, sitemap coverage, accessibility checks, and translated keys in all 4 locales when user-facing text is added.
-- Contrast minimum: 4.5:1 normal text, 3:1 large text.
-- Do not use `text-slate-400` on light backgrounds.
-- Every button needs an accessible name. Every image needs `width`, `height`, and `alt`.
-- Do not add `dark:` color classes except `dark:prose-invert`; use semantic tokens in `index.css`.
-- User-facing features need an entry in `WhatsNewModal.tsx`.
+- Nuova pagina richiede: SEO metadata, sitemap coverage, accessibility check, translated key in tutti 4 locali (se user-facing text).
+- Contrast min: 4.5:1 normal, 3:1 large.
+- Mai `text-slate-400` su bg chiari.
+- Button → accessible name. Image → `width`, `height`, `alt`.
+- No `dark:` color class salvo `dark:prose-invert`; usa semantic token in `index.css`.
+- User-facing feature → entry in `WhatsNewModal.tsx`.
 
 ## Reference Docs
 
-- CI/CD: `docs/CI-CD-PIPELINE.md`
-- SEO rules: `docs/SEO-RULES.md`
-- SEO gates: `docs/SEO-GATES.md`
-- SEO features: `docs/SEO-FEATURES.md`
-- Crawlers: `docs/CRAWLERS.md`
-- Cathedral plan: `docs/CATHEDRAL-IMPLEMENTATION-PLAN.md`
-- Rollback: `docs/CATHEDRAL-ROLLBACK.md`
-- Design: `docs/DESIGN-CONTEXT.md`
-- Local dev: `docs/LOCAL-DEV.md`
-- GitNexus: `docs/GITNEXUS.md`
+CI/CD `docs/CI-CD-PIPELINE.md` · SEO rules `docs/SEO-RULES.md` · SEO gates `docs/SEO-GATES.md` · SEO features `docs/SEO-FEATURES.md` · Crawlers `docs/CRAWLERS.md` · Cathedral plan `docs/CATHEDRAL-IMPLEMENTATION-PLAN.md` · Rollback `docs/CATHEDRAL-ROLLBACK.md` · Design `docs/DESIGN-CONTEXT.md` · Local dev `docs/LOCAL-DEV.md` · GitNexus `docs/GITNEXUS.md`
 
 <!-- gitnexus:start -->
 # GitNexus — Code Intelligence

@@ -43,53 +43,20 @@ jobs:
           show_full_output: true
           claude_args: "--max-turns 15 --model claude-sonnet-4-6 --allowedTools 'Bash(gh:*),Read,Grep,Glob'"
           prompt: |
-            Sei il reviewer automatico per la PR #${{ github.event.pull_request.number }} ("${{ github.event.pull_request.title }}").
+            Reviewer automatico PR #${{ github.event.pull_request.number }} ("${{ github.event.pull_request.title }}").
 
-            ## Bootstrap (in quest'ordine)
-            1. Leggi `REVIEW.md` nella root del repo. **Quel file è il tuo contratto operativo: severity, filtro scopo progetto, completeness contract, formato output, esempi.** Tutto ciò che segue qui sotto è secondario rispetto a REVIEW.md.
-            2. Leggi `AGENTS.md` solo come contesto di progetto (non-negotiables, architettura).
-            3. Carica la PR:
-               - `gh pr view $PR_NUMBER --json title,body,labels,baseRefName,headRefName`
-               - `gh pr diff $PR_NUMBER`
-               - `gh pr view $PR_NUMBER --json files`
+            **Bootstrap:**
+            1. Leggi `REVIEW.md` — contratto operativo completo (severity, filtro scopo, completeness contract, format, esempi).
+            2. `AGENTS.md` solo come contesto progetto (non-negotiables, architettura) — opzionale, leggi solo se serve.
+            3. Carica PR: `gh pr view $PR_NUMBER --json title,body,labels`, `gh pr diff $PR_NUMBER`, `gh pr view $PR_NUMBER --json files`.
 
-            ## Workflow di review
+            **Esegui workflow di review come specificato in REVIEW.md** (steps: completeness contract → Implementato critical thinking → Non implementato filtro scopo → scope drift → output).
 
-            **Step 1 — verifica completeness contract.**
-            La PR description DEVE contenere le sezioni `## Implementato` e `## Non implementato (ancora)` (vedi REVIEW.md). Se mancano una o entrambe, posta UN SOLO finding 🔴 process:
-            `PR body:L0: 🔴 Important: mancano sezioni Implementato / Non implementato. Aggiungere per consentire review sostanziale.`
-            e termina (no altri finding).
+            **Posta UNA review:**
+            `gh pr review $PR_NUMBER --comment --body "<markdown formato REVIEW.md>"`
 
-            **Step 2 — review degli item in "Implementato".**
-            Per ogni voce: pensiero critico sulla correttezza (logica, edge case, semplicità, fa davvero quello che dichiara). Filtra ogni candidato finding attraverso il filtro scopo progetto di REVIEW.md (monetizzazione / traffico organico / funzionamento funnel). Se non passa il filtro, NON riportarlo.
-
-            **Step 3 — review degli item in "Non implementato (ancora)".**
-            Per ogni voce: domandati se è **critica per monetizzazione o traffico organico**. Se sì → finding 🔴 Important chiedendo o implementazione pre-merge o follow-up issue documentata. Se no → ignora.
-
-            **Step 4 — scope drift.**
-            Cose nel diff non dichiarate in nessuna delle due sezioni → 🟡 Nit (cap a 3 per review).
-
-            **Step 5 — posta la review.**
-            Un singolo comando:
-            `gh pr review $PR_NUMBER --comment --body "<markdown>"`
-
-            Formato body (esatto):
-            ```
-            ## Scope
-            <una frase: cosa la PR dichiara di fare>
-
-            ## Findings (Important: N, Nit: M)
-            <una riga per finding, formato REVIEW.md>
-            ```
-
-            Se zero 🔴 Important e zero 🟡 Nit: chiudi con `## LGTM` + una frase di recap. Non inventare finding per riempire.
-
-            ## Constraint operativi
-
-            - **Single-pass**: una sola review per run. Non aprire più review.
-            - **No push, no edit file**: sei in modalità lettura. Non modificare il repo.
-            - **No security cavilli**: ignora XSS, injection, secret leak, path traversal — fuori scope (vedi REVIEW.md "Cosa IGNORARE").
-            - **No style nitpick**: ignora naming, formatting, type strictness salvo che mascherino bug logici reali.
-            - **Verification bar**: se incerto su un comportamento, usa `❓ q:` invece di un 🔴/🟡 speculativo.
-
-            Il tuo obiettivo è dare un secondo paio d'occhi che faccia chiudere lo scope del progetto (monetizzazione + traffico), non un compitino di code review accademico.
+            **Constraint:**
+            - Single-pass, una sola review per run.
+            - Read-only: no push, no edit file.
+            - Zero finding accettabile → chiudi con `## LGTM`. Non inventare per riempire.
+            - Incerto → `❓ q:`, no speculazione.
