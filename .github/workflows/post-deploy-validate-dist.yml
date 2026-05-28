@@ -9,7 +9,7 @@ name: Post-deploy Validate (dist)
 #
 # Same-run model:
 #   • github.sha is invariant — no more workflow_run.head_sha drift
-#   • actions/download-artifact@v5 with run-id same-run → no API lag
+#   • actions/download-artifact@v7 with run-id same-run → no API lag
 #   • 1:1 deploy↔validate mapping in the Actions UI by construction;
 #     no more "cancelled" post-deploys for cancelled/skipped deploys
 #     (the parent gates this entire workflow with `if: success()`)
@@ -113,19 +113,19 @@ jobs:
       # Sequential layout: download → tar → run each validator one at a time
       # and emit a per-gate ✅/❌ row. Adds ~10-15s wall vs parallel but is
       # deterministic, easier to reason about, and avoids the race entirely.
-      # Same-run artifact download. `actions/download-artifact@v5` reads
+      # Same-run artifact download. `actions/download-artifact@v7` reads
       # from the current run's artifact storage synchronously — no API
       # propagation lag, no retry, no `gh run download --name` lookup
       # quirks. This is the architectural payoff of unifying deploy +
       # validate in one workflow.
       - name: Download GitHub Pages artifact
-        uses: actions/download-artifact@v5
+        uses: actions/download-artifact@v7
         with:
           name: github-pages
           path: /tmp/github-pages-artifact
 
       - name: Download pre-deploy sitemap snapshot (optional)
-        uses: actions/download-artifact@v5
+        uses: actions/download-artifact@v7
         continue-on-error: true   # snapshot is optional — IndexNow diff falls back gracefully
         with:
           name: pre-deploy-snapshot-${{ inputs.deploy_run_id }}
@@ -138,7 +138,7 @@ jobs:
       # with titleByLocale / descriptionByLocale. We download it back to
       # data/jobs.json so the resolve-data-path lookup picks it up.
       - name: Download master jobs.json (for source validators)
-        uses: actions/download-artifact@v5
+        uses: actions/download-artifact@v7
         with:
           name: jobs-master-${{ inputs.deploy_run_id }}
           path: /tmp/jobs-master

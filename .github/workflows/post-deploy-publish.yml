@@ -76,21 +76,21 @@ jobs:
 
       # Small JSON artifacts only — NO github-pages download here.
       - name: Download pre-deploy sitemap snapshot (optional)
-        uses: actions/download-artifact@v5
+        uses: actions/download-artifact@v7
         continue-on-error: true
         with:
           name: pre-deploy-snapshot-${{ inputs.deploy_run_id }}
           path: /tmp/pre-deploy-snapshot
 
       - name: Download previous-slug winners (optional)
-        uses: actions/download-artifact@v5
+        uses: actions/download-artifact@v7
         continue-on-error: true
         with:
           name: winners-${{ inputs.deploy_run_id }}
           path: /tmp/winners
 
       - name: Download sitemaps bundle (pre-deploy + new + build-id)
-        uses: actions/download-artifact@v5
+        uses: actions/download-artifact@v7
         continue-on-error: true
         with:
           name: sitemaps-${{ inputs.deploy_run_id }}
