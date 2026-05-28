@@ -1,0 +1,37 @@
+name: Auto-merge on Claude LGTM
+
+on:
+  pull_request_review:
+    types: [submitted]
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  auto-merge:
+    # Trigger condizioni:
+    # - review autore = GitHub App con login "claude[bot]" (verificato via API:
+    #   user.login == "claude[bot]", user.type == "Bot", user.id == 209825114).
+    #   Usiamo type == 'Bot' + startsWith come safety net se il login cambia.
+    # - review.state = "commented" (gh pr review --comment)
+    # - body senza 🔴 (LGTM o solo 🟡 Nit)
+    # - PR non draft
+    if: |
+      github.event.review.user.type == 'Bot' &&
+      startsWith(github.event.review.user.login, 'claude') &&
+      github.event.review.state == 'commented' &&
+      !contains(github.event.review.body, '🔴') &&
+      github.event.pull_request.draft == false
+    runs-on: ubuntu-latest
+    steps:
+      - name: Squash-merge + delete branch
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+        run: |
+          echo "Auto-merge PR #$PR_NUMBER triggered by Claude LGTM review."
+          gh pr merge "$PR_NUMBER" \
+            --squash \
+            --delete-branch \
+            --repo "${{ github.repository }}"
