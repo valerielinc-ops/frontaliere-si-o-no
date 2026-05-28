@@ -1,21 +1,19 @@
 {
   "key": "giorgio-armani",
   "label": "giorgio-armani",
-  "generatedAt": "2026-05-27T23:02:14.161Z",
+  "generatedAt": "2026-05-28T12:39:32.273Z",
   "total": 1,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 10544,
-  "avgDurationMs": 10544,
+  "unchangedCount": 0,
+  "durationMs": 18709,
+  "avgDurationMs": 18709,
   "durationHistory": [
-    10544
+    18709
   ],
   "newJobs": [],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "updatedJobs": [
     {
       "title": "Sales Associate - Armani Outlet Mendrisio Seasonal Contract",
       "slug": "sales-associate-armani-outlet-mendrisio-seasonal-contract-giorgio-armani-s-p-a-mendrisio-seasonal-contract",
@@ -34,7 +32,7 @@
       "sector": "Moda & Lusso",
       "source": "giorgio-armani-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-05-27",
+      "postedDate": "2026-05-28",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -52,5 +50,7 @@
         "completeness": 19
       }
     }
-  ]
+  ],
+  "removedJobs": [],
+  "unchangedJobs": []
 }
