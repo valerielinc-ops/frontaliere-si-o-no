@@ -15,11 +15,20 @@ function isNamedPlugin(plugin: unknown): plugin is { name: string } {
 }
 
 function pluginNames(): string[] {
-  const resolved = typeof viteConfig === 'function'
-    ? viteConfig({ command: 'build', mode: 'production' })
-    : viteConfig;
-  const plugins = Array.isArray(resolved.plugins) ? resolved.plugins.flat() : [];
-  return plugins.filter(isNamedPlugin).map((plugin) => plugin.name);
+  // Agent sessions inherit FAST_BUILD=1 from .claude/settings.json, which
+  // strips the SEO plugin block this test asserts on. CI runs with FAST_BUILD
+  // explicitly cleared (see cathedral-seo-gates-check.yml); mirror that here.
+  const saved = process.env.FAST_BUILD;
+  delete process.env.FAST_BUILD;
+  try {
+    const resolved = typeof viteConfig === 'function'
+      ? viteConfig({ command: 'build', mode: 'production' })
+      : viteConfig;
+    const plugins = Array.isArray(resolved.plugins) ? resolved.plugins.flat() : [];
+    return plugins.filter(isNamedPlugin).map((plugin) => plugin.name);
+  } finally {
+    if (saved !== undefined) process.env.FAST_BUILD = saved;
+  }
 }
 
 function expectPluginAfter(names: string[], consumer: string, producer: string): void {

@@ -90,13 +90,14 @@ const __dirname = path.dirname(__filename);
  * npm run build:ci → esbuild + ALL plugins + 8GB heap (~3-4 min, prepush)
  * npm run build:prod → terser + ALL plugins + 8GB heap (~5-6 min, deploy)
  * ─────────────────────────────────────────────────────────────── */
-const isFastBuild = !!process.env.FAST_BUILD;
-
 /* ================================================================
  * Vite configuration
  * ================================================================ */
 export default defineConfig(({ mode }) => {
  const env = loadEnv(mode, '.', '');
+ // Read at callback time (not module-import time) so tests and tooling can
+ // clear FAST_BUILD per invocation without re-importing this module.
+ const isFastBuild = !!process.env.FAST_BUILD;
  // Build the unified plugin list, then wrap every entry in `withProfile()`
  // and append `profileSummaryPlugin()` last so it emits the total line
  // after every wrapped closeBundle has resolved. Profiling is on by default;
