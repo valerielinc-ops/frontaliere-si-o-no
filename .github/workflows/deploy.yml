@@ -790,22 +790,33 @@ jobs:
             --run-id="${GITHUB_RUN_ID}" \
             --sha="${GITHUB_SHA}"
 
+      # Maintain data/url-first-seen.json — stamps every URL that
+      # appears in dist sitemaps with today's date the first time we
+      # see it. Consumed by build-plugins/shared/trafficEvidenceFilter.ts
+      # for the minAgeDays grace window (currently 15 d for every
+      # approved pattern). Stat-only walk over sitemap-*.xml files (<5 s
+      # even on the full dist). Commit handled in the dist-history step
+      # below so we don't double-push.
+      - name: Refresh url-first-seen (grace-window seed)
+        if: github.event.inputs.profile_sequential != 'true'
+        run: node scripts/refresh-url-first-seen.mjs --dist=dist
+
       # Persist the JSONL row the audit script just appended on the runner.
       # The deploy workflow runs on every push to main, so this is roughly
       # one append per deploy. Retries on push to absorb the rare race when
       # two builds finish near-simultaneously (typically resolved by the
       # rebase since each appends a distinct line keyed on runId).
-      - name: Commit dist-size-history row
+      - name: Commit dist-size-history row + url-first-seen updates
         if: github.event.inputs.profile_sequential != 'true'
         continue-on-error: true
         run: |
-          if git diff --quiet -- data/dist-size-history.jsonl; then
-            echo "[dist-history] no new row to commit"
+          if git diff --quiet -- data/dist-size-history.jsonl data/url-first-seen.json; then
+            echo "[dist-history] no diff to commit"
             exit 0
           fi
           git config user.name "dist-history-bot"
           git config user.email "dist-history-bot@frontaliereticino.ch"
-          git add data/dist-size-history.jsonl
+          git add data/dist-size-history.jsonl data/url-first-seen.json
           git commit -m "chore(dist-history): append run ${GITHUB_RUN_ID} (${GITHUB_SHA::8})"
           for i in 1 2 3; do
             if git pull --rebase origin main && git push origin HEAD:main; then
