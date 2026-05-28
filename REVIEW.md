@@ -32,6 +32,17 @@ Non passa nessuno → drop. Non importante per questo progetto.
 - "Aggiungi test" generico senza target+motivo funnel
 - Cavilli architetturali se la soluzione attuale funziona
 
+## Tier review (effort + adversarial depth)
+
+Determina tier dai file toccati. Reviewer regola depth+probing in base a tier.
+
+| Tier | Trigger files | Adversarial depth |
+|---|---|---|
+| **high** | `tests/**`, `.github/workflows/**`, `scripts/**` (validators, migrators, crawlers), `build-plugins/**` | Bug nel test/CI/build = falso senso sicurezza che si propaga su ogni merge. Probe regex/assertion/exit-code/idempotency. Lista 3 cose NON verificate prima dell'output (`## Adversarial check`). |
+| **normal** | tutto il resto | Single-pass standard. No adversarial step obbligatorio. |
+
+High-tier non implica più 🔴 — implica più probing. Filtro scopo identico.
+
 ## Completeness contract
 
 PR body DEVE avere:
@@ -50,6 +61,12 @@ PR body DEVE avere:
 2. **Non implementato item** → filtro scopo: critico per monetizzazione/traffico? SÌ → 🔴 chiedi impl pre-merge o follow-up issue. NO → ignora.
 3. **Diff fa cose non dichiarate** → 🟡 scope drift: "diff fa X non in scope. PR separata o aggiungi a Implementato."
 4. **Sezioni mancanti** → 🔴 process: "manca Implementato/Non implementato nel PR body. Aggiungere prima review sostanziale." Termina, no altri finding.
+5. **Cross-file pattern repetition** → quando il diff fix-a un pattern (regex, parsing idiom, assertion shape) in 1 file, `rg`/`grep` su pattern equivalente nel resto repo. Se stesso anti-pattern presente altrove non toccato → 🔴 se file funnel-critico (crawler/build-plugin/test gate), 🟡 altrove. Esempio: A3 fix regex `<link rel="canonical"...>` → cerca regex simili su HTML in altri test/crawler.
+6. **Test plan compliance** → PR body con `## Test plan` o checklist `- [ ]`: ogni voce è verificabile pre-merge o richiede live? Se richiede live, ok merged-without-tick MA flag come 🟡 ricorda spunta post-merge. Se verificabile pre-merge + non spuntata + reviewer non può confermare dal diff → 🟡 chiedi conferma o issue follow-up.
+
+### Pre-output adversarial check (tier high)
+
+PR a tier `high` (`tests/**`, `.github/workflows/**`, `scripts/**`, `build-plugins/**`): prima del summary finale, includi sezione `## Adversarial check` con 3 cose NON verificate (regex edge case non testato, exit-code path non esplorato, file related non aperto, idempotency assumption). Surface come ❓ q dove pertinente. Tier normal: skip questa sezione.
 
 ## Verification
 
@@ -82,17 +99,22 @@ Prefix: `🔴 Important` / `🟡 Nit` / `🟣 Pre-existing` / `❓ q:`.
 - `services/router.ts:L42: 🔴 Important: parsePath() ritorna null per /lavoro/ticino, route non hydrata. Aggiungere case prima del fallback.`
 - `build-plugins/job-page.ts:L88: 🔴 Important: jobLocation omesso da JSON-LD quando city null. Google rifiuta structured data → de-index. Defaultare "Ticino"/"Switzerland".`
 - `components/AdSlot.tsx:L23: 🔴 Important: container senza min-height, Auto Ads anchor → CLS 0.18 mobile. min-height: 90px.`
+- `scripts/lib/bls-job-parser.mjs:L182: 🔴 Important: regex `<span class="info">` quote-strict, stesso anti-pattern fixato in `tests/seo/cathedral-previous-slug-canton.test.ts:L153` di questa PR. Crawler funnel-critico → silent zero-match su class variant. Allarga a `class=["']?[^"'>]*\binfo\b`.`
 - `lib/locale.ts:L17: 🟡 Nit: switch 4 rami → map literal. -12 righe.`
 - `pages/SoftLandingPage.tsx:L156: ❓ q: check staticOverlay dopo parsePath() — corretto vs feedback router_preserve_search?`
+- `PR body Test plan L3: 🟡 Nit: checkbox "post-deploy gate verde" richiede live, ok merge ma flagga spunta o crea issue follow-up post-deploy.`
 
 ## Summary body
 
 ```markdown
 ## Scope
-<una frase: scopo PR>
+<una frase: scopo PR> (tier: high|normal)
 
 ## Findings (Important: N, Nit: M)
 <lista>
+
+## Adversarial check
+<solo tier high: 3 cose NON verificate>
 ```
 
-Zero 🔴 Important: chiudi con `## LGTM` + frase recap.
+Zero 🔴 Important: chiudi con `## LGTM` + frase recap. **Critico:** la stringa esatta `## LGTM` triggera auto-merge in `auto-merge-on-lgtm.yml`. Non scrivere mai `## LGTM` se hai aperto un 🔴 in findings o adversarial check.
