@@ -172,6 +172,24 @@ export class TrafficEvidenceFilter {
   }
 
   decide(urlPath: string, urlClass: UrlClass): FilterDecision {
+    return this.decideMulti([urlPath], urlClass);
+  }
+
+  /**
+   * Multi-path variant: when a single piece of content is emitted at
+   * multiple URLs (canonical + locale mirrors + legacy-canton mirrors),
+   * traffic may land at ANY of them — typically the historically-
+   * indexed mirror, not the freshly-promoted canonical. Check every
+   * candidate path against the traffic-set; if ANY matches we keep the
+   * content full.
+   *
+   * Critical for relatedSearchClustersPlugin: cluster pages
+   * canonicalize to `/cerca-lavoro-svizzera/ricerca-X/` but GSC + GA4
+   * see traffic at the legacy `/cerca-lavoro-ticino/ricerca-X/`
+   * mirrors. A `decide(canonical, …)` call alone would falsely report
+   * zero traffic for ~all clusters.
+   */
+  decideMulti(urlPaths: readonly string[], urlClass: UrlClass): FilterDecision {
     if (!this.active) {
       this.decisionsFull++;
       return { action: 'full', reason: 'filter-dormant' };
@@ -181,16 +199,29 @@ export class TrafficEvidenceFilter {
       this.decisionsFull++;
       return { action: 'full', reason: 'no-pattern' };
     }
-    const norm = normalizePath(urlPath);
-    if (this.trafficSet.has(norm)) {
-      this.decisionsFull++;
-      return { action: 'full', reason: 'has-traffic' };
+    for (const p of urlPaths) {
+      if (this.trafficSet.has(normalizePath(p))) {
+        this.decisionsFull++;
+        return { action: 'full', reason: 'has-traffic' };
+      }
     }
-    // URL has zero traffic AND matches a pattern. First pattern wins.
+    // No path in the candidate set has traffic. Pattern decides.
     const pattern = patterns[0];
     if (pattern.action === 'thin') this.decisionsThin++;
     else if (pattern.action === 'skip') this.decisionsSkip++;
     return { action: pattern.action, reason: pattern.id };
+  }
+
+  /**
+   * Direct traffic-set lookup. Returns true iff the URL appears in the
+   * merged GSC topLandingPage / GA4 sessions / PostHog pages / hourly
+   * thin-page-promotions set. Use only for diagnostic/audit code —
+   * production plugins should call `decide()` or `decideMulti()` to
+   * get a complete tier decision (pattern matching + grace windows
+   * once implemented).
+   */
+  hasTraffic(urlPath: string): boolean {
+    return this.trafficSet.has(normalizePath(urlPath));
   }
 
   summary(): string {
