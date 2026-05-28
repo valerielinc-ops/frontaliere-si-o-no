@@ -45,7 +45,7 @@ jobs:
           cd _restore && unzip -q artifact.zip
 
       - name: Re-upload as fresh github-pages artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: github-pages
           path: _restore/artifact.tar
