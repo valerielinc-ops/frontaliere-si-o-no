@@ -10,7 +10,7 @@
  * with the title link, posted date, and reference number.
  */
 import { createHash } from 'node:crypto';
-import { detectLang } from './dedicated-crawler-common.mjs';
+import { detectLang, isCivilServiceListing } from './dedicated-crawler-common.mjs';
 import { slugify } from './crawler-template.mjs';
 import {
   fetchHtml,
@@ -83,8 +83,18 @@ export async function fetchAllRehabBaselJobs() {
 
   const todayIso = new Date().toISOString().slice(0, 10);
   const jobs = [];
+  let skippedCivilService = 0;
   for (const it of items) {
     const title = it.title;
+    // Skip Swiss compulsory civil-service (Zivildienst) placements — they
+    // require Swiss citizenship and a conscription waiver, so they are
+    // never accessible to cross-border workers. Their thin descriptions
+    // also tend to trip the boilerplate guard when the listing pool is
+    // small (see issue #685).
+    if (isCivilServiceListing(title, it.fullTitle)) {
+      skippedCivilService++;
+      continue;
+    }
     const intro = `${title} bei REHAB Basel — Klinik für Neurorehabilitation und Paraplegiologie, Basel (4055, BS), Schweiz.`;
     const bullets = [];
     if (it.ref) bullets.push(`• Referenz: ${it.ref}`);
@@ -136,6 +146,9 @@ export async function fetchAllRehabBaselJobs() {
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },
     });
+  }
+  if (skippedCivilService > 0) {
+    console.log(`  ⏭️  Skipped ${skippedCivilService} Zivildienst/civil-service listing(s) (not relevant for cross-border workers)`);
   }
   console.log(`📋 Total ${REHAB_BASEL_COMPANY_NAME} jobs discovered: ${jobs.length}`);
   return jobs;
