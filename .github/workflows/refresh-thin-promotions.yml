@@ -44,7 +44,16 @@ jobs:
     steps:
       - uses: actions/checkout@v5
         with:
-          fetch-depth: 1
+          # fetch-depth: 0 (full history) is required for the rebase-retry
+          # loop in the "Commit if changed" step (added #794, closes #799).
+          # `fetch-depth: 1` ran shallow with only HEAD; on bursts of ≥20
+          # parallel commits to main (crawlers + scheduled refreshers +
+          # post-merge auto-commits) the rebase parent may live past the
+          # shallow horizon, causing `git rebase origin/main` to fail with
+          # "fatal: shallow file has changed since we read it" or worse.
+          # Full clone is ~10 s extra on this repo and removes the entire
+          # class of "shallow + burst" rebase failures.
+          fetch-depth: 0
           token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Setup Node
