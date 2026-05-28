@@ -700,6 +700,26 @@ export function getCompanyBoilerplateIT(company = '') {
  * Returns true if the text is a short boilerplate template that should be cleared.
  * Patterns: recruiter portal notices, "full description available at", etc.
  */
+/**
+ * True if the title/description points to a Swiss compulsory civil-service
+ * (Zivildienst / "Zivi") position rather than a regular job opening.
+ *
+ * Zivi positions are reserved for Swiss conscripts performing alternative
+ * service in lieu of military duty — they require Swiss citizenship and a
+ * conscription waiver, so they are never accessible to cross-border workers.
+ * Their listings are also typically thin (a few lines describing the
+ * placement type), which tends to trip the boilerplate guard when present
+ * alongside only one or two real openings.
+ */
+export function isCivilServiceListing(title = '', description = '') {
+  const haystack = `${String(title || '')}\n${String(description || '')}`.toLowerCase();
+  // German: Zivi / Zivildienst / Zivildienstleistender
+  // Italian / French: servizio civile / service civil
+  // Be specific enough to avoid false positives on legitimate roles
+  // (Civilingenieur, Civicare, etc.).
+  return /\b(zivi|zivildienst(?:leistend(?:er|e))?|servizio civile|service civil)\b/i.test(haystack);
+}
+
 export function isPlaceholderDescription(text = '') {
   const clean = String(text || '').trim();
   if (!clean || clean.length >= 500) return false; // Long texts likely have real content

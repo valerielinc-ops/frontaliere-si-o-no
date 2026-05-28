@@ -398,6 +398,61 @@ async function fetchListingRows(context) {
 }
 
 /**
+ * Plain-HTTP fallback for the Heineken Switzerland listing.
+ *
+ * Cloudflare on the new Drupal careers site challenges Playwright's browser
+ * fingerprint from GH Actions IPs roughly half the time (the listing renders
+ * a "Just a moment…" interstitial that never resolves before our 20s wait,
+ * leaving us with 0 rows discovered — see issue #655). A bare GET with a
+ * realistic Safari UA bypasses the JS challenge for the listing page, which
+ * is server-rendered HTML containing the same `/job/heineken-switzerland/`
+ * anchors that the Playwright path scrapes. We only need to dedupe by href
+ * (each row has a titled link plus an "Ansicht"/"View" CTA pointing at the
+ * same URL).
+ */
+async function fetchListingRowsHttp() {
+  let html;
+  try {
+    const res = await fetch(LISTING_URL, {
+      headers: {
+        'User-Agent': BROWSER_UA,
+        Accept: 'text/html,application/xhtml+xml',
+        'Accept-Language': 'de,de-CH;q=0.9,en;q=0.8',
+      },
+    });
+    if (!res.ok) {
+      console.warn(`⚠️ Heineken HTTP listing fallback: HTTP ${res.status}`);
+      return [];
+    }
+    html = await res.text();
+  } catch (err) {
+    console.warn(`⚠️ Heineken HTTP listing fallback failed: ${err?.message || err}`);
+    return [];
+  }
+
+  const rows = [];
+  const seen = new Set();
+  // Anchors look like:
+  //   <a href="/job/heineken-switzerland/switzerland/<slug>" ...>Title</a>
+  //   <a href="/job/heineken-switzerland/<slug>" ...>Ansicht</a> (legacy)
+  const anchorRe = /<a[^>]+href="(\/job\/heineken-switzerland\/[^"]+)"[^>]*>([\s\S]*?)<\/a>/gi;
+  let m;
+  while ((m = anchorRe.exec(html)) !== null) {
+    const href = m[1];
+    if (!href || seen.has(href)) continue;
+    seen.add(href);
+    const title = m[2].replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim();
+    // Skip the "Ansicht"/"View"/"Voir" CTAs that share the same href as the
+    // titled anchor — the seen-set above already dedupes by href, so when we
+    // hit one of these first we'd lose the title. Filter to entries with a
+    // meaningful (non-CTA) title.
+    if (!title || /^(ansicht|view|voir|leggi|details?)$/i.test(title)) continue;
+    rows.push({ href, title });
+  }
+  return rows;
+}
+
+/**
  * Open one detail page and extract title, location, function, description,
  * and apply URL.
  *
@@ -527,12 +582,22 @@ export async function fetchAllHeinekenChJobs() {
     browser = await createBrowser({ userAgent: BROWSER_UA });
     const context = await createPoliteContext(browser, { userAgent: BROWSER_UA });
 
-    const rows = await fetchListingRows(context);
-    console.log(`  📋 Discovered ${rows.length} job links`);
+    let rows = await fetchListingRows(context);
+    console.log(`  📋 Discovered ${rows.length} job links (Playwright)`);
 
     if (rows.length === 0) {
-      console.warn('⚠️ No Heineken Switzerland job links found on listing page.');
-      return [];
+      // Cloudflare on the new Drupal careers site occasionally challenges
+      // Playwright's fingerprint from GH Actions IPs, leaving the listing
+      // empty (see issue #655). The listing page is server-rendered HTML
+      // and bypasses the challenge under a bare GET with a realistic Safari
+      // UA — retry once via plain HTTP before giving up.
+      const httpRows = await fetchListingRowsHttp();
+      if (httpRows.length === 0) {
+        console.warn('⚠️ No Heineken Switzerland job links found on listing page (Playwright + HTTP fallback both empty).');
+        return [];
+      }
+      console.log(`  📋 Discovered ${httpRows.length} job links (HTTP fallback)`);
+      rows = httpRows;
     }
 
     const jobs = [];
