@@ -1,18 +1,19 @@
 {
   "key": "privatklinik-obach",
   "label": "Privatklinik Obach",
-  "generatedAt": "2026-05-27T13:33:34.674Z",
+  "generatedAt": "2026-05-28T00:01:09.749Z",
   "total": 5,
-  "newCount": 1,
-  "updatedCount": 4,
+  "newCount": 0,
+  "updatedCount": 5,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 14768,
-  "avgDurationMs": 14768,
+  "durationMs": 11255,
+  "avgDurationMs": 11255,
   "durationHistory": [
-    14768
+    11255
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "privatklinik-obach-27f57603aa9d",
       "slug": "lagerungspfleger-in-privatklinik-obach",
@@ -20,14 +21,14 @@
       "companyKey": "privatklinik-obach",
       "companyDomain": "swissmedical.net",
       "title": "Lagerungspfleger/-in",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Solothurn",
       "canton": "SO",
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000128642099-lagerungspfleger-in",
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000128642099-lagerungspfleger-in",
       "source": "Privatklinik Obach Dedicated Parser (SMN clinic=PKO)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:33:28.250Z",
+      "crawledAt": "2026-05-28T00:01:03.891Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -42,16 +43,15 @@
       "featured": false,
       "postedDate": "2026-05-27",
       "datePosted": "2026-05-27",
-      "_qualityScore": 62,
+      "firstSeenAt": "2026-05-27T13:33:28.250Z",
+      "_qualityScore": 83,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "privatklinik-obach-599ab13cf31e",
       "slug": "op-koordinator-anasthesiepflege-privatklinik-obach",
@@ -66,7 +66,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000128463249--op-koordinator-anasthesiepflege",
       "source": "Privatklinik Obach Dedicated Parser (SMN clinic=PKO)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:33:29.464Z",
+      "crawledAt": "2026-05-28T00:01:04.974Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -104,7 +104,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000127447243-dipl-pflegefachperson-hf-fh-aufwachraum-60-100-",
       "source": "Privatklinik Obach Dedicated Parser (SMN clinic=PKO)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:33:30.469Z",
+      "crawledAt": "2026-05-28T00:01:05.933Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -142,7 +142,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000122175817-dipl-expertin-experte-anasthesiepflege-hf-40-100-",
       "source": "Privatklinik Obach Dedicated Parser (SMN clinic=PKO)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:33:31.474Z",
+      "crawledAt": "2026-05-28T00:01:06.918Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -180,7 +180,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000118055792-dipl-fachperson-operationstechnik-hf",
       "source": "Privatklinik Obach Dedicated Parser (SMN clinic=PKO)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:33:32.502Z",
+      "crawledAt": "2026-05-28T00:01:07.889Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
