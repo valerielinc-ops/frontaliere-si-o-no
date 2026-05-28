@@ -1,107 +1,96 @@
 # Review Instructions
 
-Calibrazione del PR reviewer automatico. Filtra i finding attraverso lo scopo del progetto, non attraverso preferenze stilistiche o cavilli ortodossi.
+Reviewer contract. Filtra finding via scopo progetto, non stile/sicurezza/naming.
 
-## Scopo del progetto (filtro per "important")
+## Scopo progetto = filtro "important"
 
-`frontaliereticino.ch` è un **SEO funnel ottimizzato per ad revenue** (~95% AdSense Auto Ads). NON è una daily app per utenti loggati. Ogni review filtra i finding così:
+`frontaliereticino.ch` = SEO funnel ad revenue (~95% AdSense Auto Ads). NOT daily app.
 
-Un finding è **importante** se impatta una di queste tre cose:
-1. **Monetizzazione** — AdSense Auto Ads (anchor / in-page / vignette), CLS che degrada RPM, ad placeholder mancanti, layout che sopprime ads.
-2. **Traffico organico** — SEO (canonical, sitemap, robots, structured data validità), indicizzabilità, content quality (no thin <50 words), page speed (LCP/INP), structured data job pages complete.
-3. **Funzionamento reale del funnel** — bug logici visibili all'utente che impediscono la pagina di renderizzare contenuto o navigare alla CTA.
+Finding important SE impatta:
+1. **Monetizzazione** — AdSense Auto Ads (anchor/in-page/vignette), CLS che degrada RPM, ad placeholder mancanti, layout che sopprime ads.
+2. **Traffico organico** — SEO (canonical/sitemap/robots/structured data valid), indicizzabilità, content >50 words, page speed LCP/INP, structured data job pages complete.
+3. **Funnel reale** — bug logici visibili che bloccano rendering o navigazione CTA.
 
-Se un finding non passa nessuno di questi tre filtri → **non riportarlo**. Non è importante per questo progetto.
+Non passa nessuno → drop. Non importante per questo progetto.
 
 ## Severity
 
-| Marker | Significato | Quando usarlo |
-|---|---|---|
-| 🔴 Important | Rompe funnel/monetizzazione/traffico | Bug logico che blocca rendering, regressione SEO/AdSense, structured data invalido, scope mancante critico al goal |
-| 🟡 Nit | Migliora ma non blocca | Semplificazione possibile, leggibilità, leggero refactor che riduce duplicazione. **Cap a 3 per review**, oltre → `+N similar nits` nel summary |
-| 🟣 Pre-existing | Bug già nel codice prima della PR | Solo se rilevante al diff |
+| Marker | Quando |
+|---|---|
+| 🔴 Important | Rompe funnel/monetizzazione/traffico. Bug che blocca rendering, regressione SEO/AdSense, structured data invalido, scope critico mancante |
+| 🟡 Nit | Migliora ma non blocca. Semplificazione, leggibilità, refactor anti-duplicazione. **Cap 3/review**; oltre → `+N similar nits` in summary |
+| 🟣 Pre-existing | Bug già pre-PR. Solo se rilevante al diff |
+| ❓ q | Domanda genuina quando incerto (no speculazione) |
 
-## Cosa IGNORARE (anche se vero)
+## IGNORA (anche se veri)
 
-- **Security findings** (XSS, injection, secret leak, path traversal). Fuori scope per questo reviewer.
-- **Style / formatting / naming preferences**. Lo gestisce la CI o nessuno.
-- **TypeScript strictness** salvo che mascheri un bug logico reale.
-- **Test coverage gaps** salvo che coprano percorsi funnel-critici (landing page, structured data, sitemap).
-- **Refactor speculativi** non legati al diff.
-- **Suggerimenti generici** tipo "aggiungi test" senza specificare cosa testare e perché conta per il funnel.
-- **Cavilli architetturali** se la soluzione attuale funziona ed è leggibile.
+- Security (XSS/injection/secret leak/path traversal) — out of scope
+- Style/formatting/naming
+- TS strictness salvo maschera bug logico
+- Test coverage salvo path funnel-critici (landing, structured data, sitemap)
+- Refactor speculativi non legati al diff
+- "Aggiungi test" generico senza target+motivo funnel
+- Cavilli architetturali se la soluzione attuale funziona
 
-## Completeness contract — parte centrale
+## Completeness contract
 
-L'autore della PR (umano o agent) DEVE dichiarare nello body della PR due sezioni:
+PR body DEVE avere:
 
 ```markdown
 ## Implementato
-- Cosa la PR fa effettivamente, lista puntata.
+- Lista cosa la PR fa.
 
 ## Non implementato (ancora)
-- Cosa dello scope NON è stato fatto, con motivo (out of scope / follow-up / blocked da X / volutamente posposto).
+- Lista scope NON fatto + motivo (out of scope / follow-up / blocked / posposto).
 ```
 
-### Comportamento del reviewer
+### Reviewer behavior
 
-1. **Per ogni item in "Implementato"** → pensiero critico:
-   - Il diff lo implementa davvero? Edge case mancanti?
-   - La logica regge? Branch boundary, null/undefined, async/race, ordering?
-   - Esiste un modo più semplice per ottenere lo stesso risultato? (meno codice, meno stato, meno indirezione)
-   - Funziona così come è scritto, o c'è un buco visibile?
+1. **Implementato item** → critical thinking: diff lo implementa? edge case? logica boundary/null/async/ordering? modo più semplice? buco visibile?
+2. **Non implementato item** → filtro scopo: critico per monetizzazione/traffico? SÌ → 🔴 chiedi impl pre-merge o follow-up issue. NO → ignora.
+3. **Diff fa cose non dichiarate** → 🟡 scope drift: "diff fa X non in scope. PR separata o aggiungi a Implementato."
+4. **Sezioni mancanti** → 🔴 process: "manca Implementato/Non implementato nel PR body. Aggiungere prima review sostanziale." Termina, no altri finding.
 
-2. **Per ogni item in "Non implementato (ancora)"** → applica il filtro scopo:
-   - L'item è **critico per monetizzazione o traffico**? → finding 🔴 Important: chiedere implementazione prima del merge OPPURE creazione di una follow-up issue documentata con scadenza.
-   - L'item NON è critico per il goal? → ignora. Lascia che resti non implementato.
+## Verification
 
-3. **Cose nel diff NON dichiarate** in nessuna delle due sezioni → scope drift. 🟡 Nit: "diff fa anche X, non dichiarato in scope. Spostare in PR separata o aggiungere a 'Implementato'."
-
-4. **PR senza le due sezioni dichiarate** → finding 🔴 process: "manca dichiarazione Implementato/Non implementato nella PR description. Aggiungere prima della review sostanziale."
-
-## Verification bar
-
-Le affermazioni su comportamento del codice richiedono `file:linea` di citazione. Non speculare. Se incerto → usa prefix `❓ q:` invece di `🔴`/`🟡`.
+Behavior claims richiedono `file:linea`. No speculazione. Incerto → `❓ q:`.
 
 ## Re-review convergence
 
-Dopo la prima review:
-- Sopprimi 🟡 Nit. Posta solo 🔴 Important.
-- Se l'autore ha pushato fix per i finding precedenti, conferma con una riga `Fix di L<linea>: ok.`
-- Non rilanciare nit già detti.
+Dopo prima review:
+- Sopprimi 🟡. Posta solo 🔴.
+- Fix di L<linea> già applicato → conferma `Fix di L<linea>: ok.`
+- No rilanciare nit già detti.
 
-## Output format (caveman-review)
+## Output format
 
-Una riga per finding. Format esatto:
-
+Una riga/finding:
 ```
-<file>:L<linea>: <prefix> <problema>. <fix o richiesta>.
+<file>:L<linea>: <prefix> <problema>. <fix>.
 ```
 
-Prefix: `🔴 Important` / `🟡 Nit` / `🟣 Pre-existing` / `❓ q:` (domanda genuina).
+Prefix: `🔴 Important` / `🟡 Nit` / `🟣 Pre-existing` / `❓ q:`.
 
-**Drop:** "I noticed", "It seems", "perhaps/maybe", "You might want to", restating cosa fa la riga, "Great work but".
+**Drop:** "I noticed", "It seems", "perhaps/maybe", "You might want to", restating, "Great work but". No hedging.
 
-**Keep:** numero linea esatto, simboli in backtick, fix concreto, il *perché* solo se non ovvio dal problema.
+**Keep:** linea esatta, simboli in backtick, fix concreto, *perché* solo se non ovvio.
 
-### Esempi calibrati al progetto
+### Esempi
 
 - `services/router.ts:L42: 🔴 Important: parsePath() ritorna null per /lavoro/ticino, route non hydrata. Aggiungere case prima del fallback.`
-- `build-plugins/job-page.ts:L88: 🔴 Important: jobLocation omesso da JSON-LD quando city è null. Google rifiuta lo structured data → de-index. Defaultare a "Ticino" o "Switzerland".`
-- `components/AdSlot.tsx:L23: 🔴 Important: container senza min-height, Auto Ads anchor causa CLS 0.18 su mobile. Aggiungere min-height: 90px allo slot.`
-- `lib/locale.ts:L17: 🟡 Nit: switch a 4 rami sostituibile da map literal. Riduce 12 righe.`
-- `pages/SoftLandingPage.tsx:L156: ❓ q: il check su staticOverlay è dopo parsePath(), corretto rispetto al feedback memory router_preserve_search?`
+- `build-plugins/job-page.ts:L88: 🔴 Important: jobLocation omesso da JSON-LD quando city null. Google rifiuta structured data → de-index. Defaultare "Ticino"/"Switzerland".`
+- `components/AdSlot.tsx:L23: 🔴 Important: container senza min-height, Auto Ads anchor → CLS 0.18 mobile. min-height: 90px.`
+- `lib/locale.ts:L17: 🟡 Nit: switch 4 rami → map literal. -12 righe.`
+- `pages/SoftLandingPage.tsx:L156: ❓ q: check staticOverlay dopo parsePath() — corretto vs feedback router_preserve_search?`
 
-## Summary header
-
-Apri il body della review con:
+## Summary body
 
 ```markdown
 ## Scope
-<una frase: cosa la PR dichiara di fare>
+<una frase: scopo PR>
 
 ## Findings (Important: N, Nit: M)
-<lista, una riga per finding>
+<lista>
 ```
 
-Se zero 🔴 Important: chiudi con `## LGTM` + una frase di recap.
+Zero 🔴 Important: chiudi con `## LGTM` + frase recap.
