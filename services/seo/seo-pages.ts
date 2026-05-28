@@ -1197,7 +1197,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
 
  mobile: {
  title: 'Operatori Mobili Svizzera e Italia | Frontaliere Ticino',
- description: 'Confronta 17 operatori mobili italiani e svizzeri per frontalieri: Vodafone, Fastweb e ho. Mobile con Roam-Like-Home CH, Spusu Oltreconfine, Wingo, Sunrise, Yallo, M-Budget. Costi reali aggiornati maggio 2026.',
+ description: 'Confronta 17 operatori mobili IT+CH per frontalieri: Vodafone, Fastweb, ho. Mobile con Roam-Like-Home CH, Spusu, Wingo, Sunrise, Yallo. Costi reali maggio 2026.',
  keywords: 'operatori mobili svizzera italia frontalieri, roaming svizzera, vodafone roam like home svizzera, fastweb mobile svizzera, spusu oltreconfine, ho mobile svizzera, swisscom salt sunrise yallo wingo, m-budget digitec connect, opzione svizzera tim windtre',
  ogTitle: 'Operatori Mobili IT+CH per Frontalieri | Confronto 2026',
  ogDescription: '📱 Confronta 17 operatori mobili IT+CH con roaming Italia↔Svizzera. Vodafone e Fastweb includono 32 GB CH, Spusu 10 GB CH a 9.98€/mese. Trova il piano migliore per frontalieri.',
