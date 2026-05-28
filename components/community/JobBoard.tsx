@@ -1492,7 +1492,14 @@ function normalizeUrlForDedup(raw: string): string {
  }
 }
 
-function buildListingDedupKey(job: JobListing): string {
+export function buildListingDedupKey(job: JobListing): string {
+ // Stable crawler-assigned id is the strongest dedup signal — preserves
+ // distinct vacancies that share an ATS landing URL (e.g. Galenica's
+ // `jobs.galenica.com/it/jobs/#job.id=NNNN`, where the job-id lives in
+ // the hash and `normalizeUrlForDedup` strips it). Aligns with the
+ // build-side dedup heuristic in `jobsSeoPagesPlugin.ts:dedupKey`.
+ const id = String(job.id || '').trim();
+ if (id) return `id|${id}`;
  const company = normalizeSearchText(job.company);
  const title = normalizeSearchText(sanitizeJobTitle(job.title));
  const location = normalizeSearchText(job.location);
@@ -1515,7 +1522,7 @@ function scoreListingJob(job: JobListing): number {
  return score;
 }
 
-function dedupeJobsForListing(jobs: JobListing[]): JobListing[] {
+export function dedupeJobsForListing(jobs: JobListing[]): JobListing[] {
  const byKey = new Map<string, JobListing>();
  for (const job of jobs) {
  const key = buildListingDedupKey(job);
