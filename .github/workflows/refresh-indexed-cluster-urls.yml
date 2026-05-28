@@ -34,6 +34,15 @@ jobs:
   refresh:
     runs-on: ubuntu-latest
     timeout-minutes: 10
+    # Job-level env so BOTH the run-script step and the commit step can read
+    # $DAYS / $MIN_IMP. A step-scoped `env:` only on the run-script step
+    # leaves these unset for the commit step, where `--regenerate-cmd
+    # "... $DAYS ..."` is expanded by bash under `set -euo pipefail` and
+    # aborts the push (run 26558153944: local commit OK, push aborted,
+    # runner discarded the commit).
+    env:
+      DAYS: ${{ inputs.days || '90' }}
+      MIN_IMP: ${{ inputs.min_impressions || '1' }}
     steps:
       - uses: actions/checkout@v5
         with:
@@ -64,9 +73,6 @@ jobs:
         run: node scripts/load-rc-env.mjs
 
       - name: Refresh indexed cluster URL list
-        env:
-          DAYS: ${{ inputs.days || '90' }}
-          MIN_IMP: ${{ inputs.min_impressions || '1' }}
         run: node scripts/refresh-indexed-cluster-urls.mjs --days "$DAYS" --min-impressions "$MIN_IMP"
 
       - name: Commit if changed
