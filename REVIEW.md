@@ -18,7 +18,7 @@ Non passa nessuno → drop. Non importante per questo progetto.
 | Marker | Quando |
 |---|---|
 | 🔴 Important | Rompe funnel/monetizzazione/traffico. Bug che blocca rendering, regressione SEO/AdSense, structured data invalido, scope critico mancante |
-| 🟡 Nit | Migliora ma non blocca. Semplificazione, leggibilità, refactor anti-duplicazione. **Cap 3/review**; oltre → `+N similar nits` in summary |
+| 🟡 Nit | Migliora ma non blocca. Semplificazione, leggibilità, refactor anti-duplicazione, **code-smell che crea maintenance debt** (hardcoded values che invecchiano, comment grossly oversized, test mancanti su path funnel-critici). **Cap 3/review**; oltre → `+N similar nits` in summary |
 | 🟣 Pre-existing | Bug già pre-PR. Solo se rilevante al diff |
 | ❓ q | Domanda genuina quando incerto (no speculazione) |
 
@@ -27,7 +27,7 @@ Non passa nessuno → drop. Non importante per questo progetto.
 - Security (XSS/injection/secret leak/path traversal) — out of scope
 - Style/formatting/naming
 - TS strictness salvo maschera bug logico
-- Test coverage salvo path funnel-critici (landing, structured data, sitemap)
+- Test coverage salvo path funnel-critici (qualunque script o modulo che decide cosa viene indicizzato, emit di structured data, sitemap, AdSense placement). Fix su tali path senza test → 🟡 Nit.
 - Refactor speculativi non legati al diff
 - "Aggiungi test" generico senza target+motivo funnel
 - Cavilli architetturali se la soluzione attuale funziona
@@ -46,7 +46,7 @@ PR body DEVE avere:
 
 ### Reviewer behavior
 
-1. **Implementato item** → critical thinking: diff lo implementa? edge case? logica boundary/null/async/ordering? modo più semplice? buco visibile?
+1. **Implementato item** → critical thinking: diff lo implementa? edge case? logica boundary/null/async/ordering? modo più semplice? buco visibile? Code-smell con maintenance debt anche se non blocca il funnel → 🟡 Nit.
 2. **Non implementato item** → filtro scopo: critico per monetizzazione/traffico? SÌ → 🔴 chiedi impl pre-merge o follow-up issue. NO → ignora.
 3. **Diff fa cose non dichiarate** → 🟡 scope drift: "diff fa X non in scope. PR separata o aggiungi a Implementato."
 4. **Sezioni mancanti** → 🔴 process: "manca Implementato/Non implementato nel PR body. Aggiungere prima review sostanziale." Termina, no altri finding.
@@ -54,6 +54,8 @@ PR body DEVE avere:
 ## Verification
 
 Behavior claims richiedono `file:linea`. No speculazione. Incerto → `❓ q:`.
+
+**Edge case probing via `❓ q:`** anche quando sei sicuro dell'implementazione: input degenere, race condition, default che diventa permanente, refresh manuale dell'autore. Surface come domanda, non assumere che l'autore l'abbia considerato.
 
 ## Re-review convergence
 
