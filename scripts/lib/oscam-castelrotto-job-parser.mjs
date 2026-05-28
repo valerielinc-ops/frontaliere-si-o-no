@@ -38,6 +38,7 @@ import {
   detectHealthcareExperienceLevel,
   detectHealthcareEmploymentType,
 } from './hospital-custom-html-helpers.mjs';
+import { buildPdfBackedDescription, extractPdfJobContentFromUrl } from './pdf-job-content.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -156,19 +157,16 @@ export function parseOscamCastelrottoListing(html = '') {
 
 /* ── Description fallback ──────────────────────────────────── */
 
-function buildDescription(title, pdfUrl) {
-  const lines = [
-    `${title} presso l'Ospedale Malcantonese OSCAM (Fondazione Giuseppe Rossi), Castelrotto (Malcantone, Canton Ticino).`,
-    '',
-    "L'OSCAM è un ospedale di cure acute con sede a Castelrotto che serve la regione del Malcantone. La fondazione Giuseppe Rossi gestisce reparti di medicina interna, chirurgia, psichiatria, ostetricia-ginecologia e cure palliative, oltre a un pronto soccorso e a servizi ambulatoriali per la popolazione del distretto di Lugano-Malcantone.",
-    '',
-    'Il concorso è pubblicato come bando ufficiale. Il dettaglio completo (requisiti, profilo professionale, modalità di candidatura, termine di presentazione, contatti del personale di riferimento) è disponibile nel documento PDF allegato. Le candidature avvengono via posta o e-mail alla direzione amministrativa dell\'OSCAM secondo le istruzioni del bando.',
-  ];
-  if (pdfUrl) {
-    lines.push('');
-    lines.push(`Bando completo (PDF): ${pdfUrl}`);
-  }
-  return lines.join('\n');
+function buildDescription(title, pdfUrl, pdfText = '') {
+  return buildPdfBackedDescription({
+    introLines: [
+      `${title} presso l'Ospedale Malcantonese OSCAM (Fondazione Giuseppe Rossi), Castelrotto (Malcantone, Canton Ticino).`,
+      "L'OSCAM è un ospedale di cure acute con sede a Castelrotto che serve la regione del Malcantone. La fondazione Giuseppe Rossi gestisce reparti di medicina interna, chirurgia, psichiatria, ostetricia-ginecologia e cure palliative, oltre a un pronto soccorso e a servizi ambulatoriali per la popolazione del distretto di Lugano-Malcantone.",
+    ],
+    pdfText,
+    fallbackText: "Il concorso è pubblicato come bando ufficiale. Il dettaglio completo (requisiti, profilo professionale, modalità di candidatura, termine di presentazione, contatti del personale di riferimento) è disponibile nel documento PDF allegato. Le candidature avvengono via posta o e-mail alla direzione amministrativa dell'OSCAM secondo le istruzioni del bando.",
+    footerLines: pdfUrl ? [`Bando completo (PDF): ${pdfUrl}`] : [],
+  });
 }
 
 /* ── Main fetch ────────────────────────────────────────────── */
@@ -199,7 +197,15 @@ export async function fetchAllOscamCastelrottoJobs() {
   for (const listing of listings) {
     const title = listing.title;
     const sourceLang = 'it';
-    const description = buildDescription(title, listing.pdfUrl);
+    let pdfText = '';
+    if (listing.pdfUrl) {
+      console.log(`  📄 Extracting PDF: ${listing.pdfUrl.split('/').pop()}`);
+      const pdf = await extractPdfJobContentFromUrl(listing.pdfUrl, { timeoutMs });
+      if (pdf.error) console.warn(`     ⚠️ PDF error: ${pdf.error}`);
+      if (pdf.warning) console.warn(`     ⚠️ ${pdf.warning}`);
+      pdfText = pdf.rawText || pdf.text || '';
+    }
+    const description = buildDescription(title, listing.pdfUrl, pdfText);
     const haystack = `${title} ${description}`;
 
     const url = `${PUBLIC_CAREER_URL}#${listing.id}`;
