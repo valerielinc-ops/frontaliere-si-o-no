@@ -26,16 +26,8 @@
     "https://careers.abb/global/en/job/ABB1GLOBALJR00035139EXTERNALENGLOBAL/Position-76059728-Production-Engineering-Technician"
   ],
   "notes": "Dedicated ABB crawler seeds from careers.abb search-results (keywords: ticino, graubünden, grisons, chur, davos, engadin), then resolves canonical careers.abb job detail URLs.",
-  "updatedAt": "2026-05-28T11:28:44.970Z",
+  "updatedAt": "2026-05-28T21:58:27.551Z",
   "seedMetaByUrl": {
-    "https://careers.abb/global/en/job/ABB1GLOBALJR00025482EXTERNALENGLOBAL/Product-Trainer": {
-      "location": "Quartino, Ticino, Switzerland",
-      "canton": "TI",
-      "country": "CH",
-      "company": "ABB Svizzera (sede Ticino)",
-      "companyDomain": "abb.ch",
-      "contract": "Full-time"
-    },
     "https://careers.abb/global/en/job/ABB1GLOBALJR00034548EXTERNALENGLOBAL/Technical-Support-Engineer--80-100": {
       "location": "Quartino, Ticino, Switzerland",
       "canton": "TI",
@@ -117,6 +109,14 @@
       "contract": "Full-time"
     },
     "https://careers.abb/global/en/job/ABB1GLOBALJR00028639EXTERNALENGLOBAL/Shift-Leader-Collaudo-IPU-Standalone": {
+      "location": "Quartino, Ticino, Switzerland",
+      "canton": "TI",
+      "country": "CH",
+      "company": "ABB Svizzera (sede Ticino)",
+      "companyDomain": "abb.ch",
+      "contract": "Full-time"
+    },
+    "https://careers.abb/global/en/job/ABB1GLOBALJR00025482EXTERNALENGLOBAL/Product-Trainer": {
       "location": "Quartino, Ticino, Switzerland",
       "canton": "TI",
       "country": "CH",
