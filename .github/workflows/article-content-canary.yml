@@ -1,0 +1,108 @@
+name: article-content-canary
+
+# Article content canary — catches the article-stub regression class
+# (and any failure mode that reduces an article URL to <5 KB or strips
+# the SPA bundle) by probing 20 random articles from sitemap-blog.xml
+# every 30 minutes.
+#
+# Companion to:
+#   - production-canary.yml (5XX probe, 15 min cadence — catches HTTP errors)
+#   - post-deploy-validate-live.yml (probes after every deploy)
+#   - audit:no-dotfile-html (pre-deploy gate in validate-dist)
+#
+# The unique value here: catches regressions BETWEEN deploys (cache
+# invalidation, CDN routing change, GH Pages quirk, accidental rebuild
+# from an older artifact) AND regressions whose dist/-time fingerprint
+# does not match the existing audits' patterns. If a stub of a different
+# class slips past the dist-time gates, this canary catches it within
+# 30 min.
+#
+# Why 30 min (not 15 like the 5XX canary): the article-content probe
+# downloads ~20 × ~50 KB bodies + sitemap (~500 KB). 30 min is dense
+# enough to keep total RPM loss under 5% of one day's revenue if a
+# regression slips through (worst observed: -56% in 24h from incident
+# 2026-05-28), without doubling the egress of the 5XX canary.
+
+on:
+  schedule:
+    # Every 30 minutes. Cron runs in UTC.
+    - cron: '*/30 * * * *'
+  workflow_dispatch:
+    inputs:
+      samples:
+        description: 'Number of random articles to sample (default 20)'
+        required: false
+        default: '20'
+        type: string
+
+concurrency:
+  # Only one canary in flight at a time; cancel an older run if a newer one starts.
+  group: article-content-canary
+  cancel-in-progress: true
+
+jobs:
+  probe:
+    name: Probe article-content on prod
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+      issues: write   # open GitHub issue on regression
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Run article-content canary
+        id: canary
+        continue-on-error: true
+        env:
+          SAMPLES: ${{ github.event.inputs.samples || '20' }}
+        run: |
+          set -o pipefail
+          node scripts/canary-article-content.mjs --samples="$SAMPLES" --json \
+            > canary-result.json 2> canary.log
+          echo "exit_code=$?" >> "$GITHUB_OUTPUT"
+
+      - name: Upload canary result artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: article-content-canary-${{ github.run_id }}
+          path: |
+            canary-result.json
+            canary.log
+          if-no-files-found: ignore
+          retention-days: 14
+
+      - name: Build issue body from canary result
+        if: steps.canary.outcome == 'failure' || steps.canary.outputs.exit_code != '0'
+        env:
+          RUN_URL: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: node scripts/build-canary-issue-body.mjs canary-result.json > canary-issue-body.md
+
+      - name: Open GitHub issue on regression
+        if: steps.canary.outcome == 'failure' || steps.canary.outputs.exit_code != '0'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          node scripts/lib/github-issue-creator.mjs \
+            --title "Article content canary: regression detected" \
+            --description "$(cat canary-issue-body.md)" \
+            --priority 1 \
+            --label Bug \
+            --label article-content-canary \
+            --workflow "article-content-canary"
+
+      - name: Fail the workflow if canary failed
+        if: steps.canary.outcome == 'failure' || steps.canary.outputs.exit_code != '0'
+        run: |
+          echo "::error::Article content canary detected regressions — see GitHub issue + artifact"
+          exit 1
