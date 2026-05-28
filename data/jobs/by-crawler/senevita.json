@@ -77,12 +77,12 @@
     },
     {
       "id": "senevita-619abbc651f0",
-      "slug": "apprendista-praktikerin-apprendista-praktiker-hotellerie-hauswirtschaft-afp-senevita-studen-be",
+      "slug": "imparare-tirocinante-tirocinante-industria-alberghiera-eba-senevita-studen-be",
       "slugByLocale": {
-        "it": "apprendista-praktikerin-apprendista-praktiker-hotellerie-hauswirtschaft-afp-senevita-studen-be",
-        "en": "lernende-praktikerin-lernender-praktiker-hotellerie-hauswirtschaft-eba-senevita-studen-be",
+        "it": "imparare-tirocinante-tirocinante-industria-alberghiera-eba-senevita-studen-be",
+        "en": "learning-intern-learning-trainees-hotel-industry-eba-senevita-studen-be",
         "de": "lernende-praktikerin-lernender-praktiker-hotellerie-hauswirtschaft-eba-senevita-studen-be",
-        "fr": "lernende-praktikerin-lernender-praktiker-hotellerie-hauswirtschaft-eba-senevita-studen-be"
+        "fr": "apprentissage-stagiaires-stagiaires-dans-l-hotellerie-eba-senevita-studen-be"
       },
       "company": "Senevita",
       "companyKey": "senevita",
@@ -125,10 +125,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lernende-praktikerin-lernender-praktiker-hotellerie-hauswirtschaft-eba-senevita-studen-be"
+        "lernende-praktikerin-lernender-praktiker-hotellerie-hauswirtschaft-eba-senevita-studen-be",
+        "apprendista-praktikerin-apprendista-praktiker-hotellerie-hauswirtschaft-afp-senevita-studen-be"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "lernende-praktikerin-lernender-praktiker-hotellerie-hauswirtschaft-eba-senevita-studen-be",
+          "apprendista-praktikerin-apprendista-praktiker-hotellerie-hauswirtschaft-afp-senevita-studen-be"
+        ],
+        "en": [
+          "lernende-praktikerin-lernender-praktiker-hotellerie-hauswirtschaft-eba-senevita-studen-be"
+        ],
+        "fr": [
           "lernende-praktikerin-lernender-praktiker-hotellerie-hauswirtschaft-eba-senevita-studen-be"
         ]
       },
@@ -148,9 +156,9 @@
     },
     {
       "id": "senevita-707fc74dabc3",
-      "slug": "leitung-betriebsunterhalt-senevita-dietikon-zh",
+      "slug": "servizio-di-gestione-senevita-dietikon-zh",
       "slugByLocale": {
-        "it": "leitung-betriebsunterhalt-senevita-dietikon-zh",
+        "it": "servizio-di-gestione-senevita-dietikon-zh",
         "en": "leitung-betriebsunterhalt-senevita-dietikon-zh",
         "de": "leitung-betriebsunterhalt-senevita-dietikon-zh",
         "fr": "leitung-betriebsunterhalt-senevita-dietikon-zh"
@@ -209,7 +217,15 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "leitung-betriebsunterhalt-senevita-dietikon-zh"
+        ]
+      },
+      "previousSlugs": [
+        "leitung-betriebsunterhalt-senevita-dietikon-zh"
+      ]
     },
     {
       "id": "senevita-5b9f14c32d95",
@@ -3997,8 +4013,7 @@
         ]
       },
       "previousSlugs": [
-        "fachfrau-fachmann-gesundheit-efz-30-50-im-stundenlohn-auf-abruf-pool-senevita-buchs-zh",
-        "fachfrau-fachmann-gesundheit-cfc-30-50-im-stundenlohn-auf-abruf-pool-senevita-buchs-zh"
+        "fachfrau-fachmann-gesundheit-efz-30-50-im-stundenlohn-auf-abruf-pool-senevita-buchs-zh"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4481,8 +4496,7 @@
         ]
       },
       "previousSlugs": [
-        "fachfrau-mann-gesundheit-efz-60-100-senevita-erlenbach-zh",
-        "fachfrau-mann-gesundheit-cfc-60-100-senevita-erlenbach-zh"
+        "fachfrau-mann-gesundheit-efz-60-100-senevita-erlenbach-zh"
       ],
       "previousSlugsByLocale": {
         "it": [

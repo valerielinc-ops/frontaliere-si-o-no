@@ -1543,9 +1543,9 @@
     },
     {
       "id": "spitex-ch-bdab6d40b374",
-      "slug": "dipl-pflegefachperson-hf-40-80-spitex-ch-hasle-ruegsau",
+      "slug": "dipl-specialista-di-cura-hf-40-80-spitex-region-lueg-hasle-ruegsau",
       "slugByLocale": {
-        "it": "dipl-pflegefachperson-hf-40-80-spitex-ch-hasle-ruegsau",
+        "it": "dipl-specialista-di-cura-hf-40-80-spitex-region-lueg-hasle-ruegsau",
         "en": "dipl-pflegefachperson-hf-40-80-spitex-ch-hasle-ruegsau",
         "de": "dipl-pflegefachperson-hf-40-80-spitex-ch-hasle-ruegsau",
         "fr": "dipl-pflegefachperson-hf-40-80-spitex-ch-hasle-ruegsau"
@@ -1604,7 +1604,15 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-hf-40-80-spitex-ch-hasle-ruegsau"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachperson-hf-40-80-spitex-ch-hasle-ruegsau"
+      ]
     },
     {
       "id": "spitex-ch-881e9abbb8d2",

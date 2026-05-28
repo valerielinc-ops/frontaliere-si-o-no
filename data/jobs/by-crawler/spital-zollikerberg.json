@@ -209,9 +209,9 @@
     },
     {
       "id": "spital-zollikerberg-30d0364f9106",
-      "slug": "alterszentrum-hottingen-dipl-pflegefachfrau-dipl-pflegefachmann-leitung",
+      "slug": "centro-di-eta-hottingen-dipl-carriera-dipl-specialista-di-cura-responsabile-della-cura-del-giorno-spital-zollikerberg",
       "slugByLocale": {
-        "it": "alterszentrum-hottingen-dipl-pflegefachfrau-dipl-pflegefachmann-leitung",
+        "it": "centro-di-eta-hottingen-dipl-carriera-dipl-specialista-di-cura-responsabile-della-cura-del-giorno-spital-zollikerberg",
         "en": "alterszentrum-hottingen-dipl-pflegefachfrau-dipl-pflegefachmann-leitung",
         "de": "alterszentrum-hottingen-dipl-pflegefachfrau-dipl-pflegefachmann-leitung",
         "fr": "alterszentrum-hottingen-dipl-pflegefachfrau-dipl-pflegefachmann-leitung"
@@ -268,7 +268,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "alterszentrum-hottingen-dipl-pflegefachfrau-dipl-pflegefachmann-leitung"
+        ]
+      },
+      "previousSlugs": [
+        "alterszentrum-hottingen-dipl-pflegefachfrau-dipl-pflegefachmann-leitung"
+      ]
     },
     {
       "id": "spital-zollikerberg-a47b6de88222",
@@ -343,9 +351,9 @@
     },
     {
       "id": "spital-zollikerberg-f96813c2b6bc",
-      "slug": "praktikantin-praktikanten-pflege-spital-zollikerberg-zollikerberg",
+      "slug": "interni-interni-spital-zollikerberg-zollikerberg",
       "slugByLocale": {
-        "it": "praktikantin-praktikanten-pflege-spital-zollikerberg-zollikerberg",
+        "it": "interni-interni-spital-zollikerberg-zollikerberg",
         "en": "praktikantin-praktikanten-pflege-spital-zollikerberg-zollikerberg",
         "de": "praktikantin-praktikanten-pflege-spital-zollikerberg-zollikerberg",
         "fr": "praktikantin-praktikanten-pflege-spital-zollikerberg-zollikerberg"
@@ -402,7 +410,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "praktikantin-praktikanten-pflege-spital-zollikerberg-zollikerberg"
+        ]
+      },
+      "previousSlugs": [
+        "praktikantin-praktikanten-pflege-spital-zollikerberg-zollikerberg"
+      ]
     }
   ]
 }

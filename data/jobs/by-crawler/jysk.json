@@ -4,7 +4,7 @@
   "jobs": [
     {
       "id": "company-qrsmyr",
-      "slug": "apprendista-impiegato-a-del-commercio-al-dettaglio-cfc-a-in-der-filiale-schattdorf-jysk-schattdorf-qrsmyr",
+      "slug": "efz-a-nel-ramo-schattdorf-jysk-schattdorf",
       "company": "JYSK",
       "title": "Lernende Detailhandelsfachfrau/-mann EFZ (a) in der Filiale Schattdorf",
       "location": "Schattdorf",
@@ -23,10 +23,10 @@
       "crawledAt": "2026-05-27T23:20:46.427Z",
       "firstSeenAt": "2026-05-27T23:20:46.427Z",
       "slugByLocale": {
-        "it": "apprendista-impiegato-a-del-commercio-al-dettaglio-cfc-a-in-der-filiale-schattdorf-jysk-schattdorf-qrsmyr",
-        "en": "apprentice-detailhandelsfachfrau-mann-efz-a-in-der-filiale-schattdorf-jysk-schattdorf-qrsmyr",
+        "it": "efz-a-nel-ramo-schattdorf-jysk-schattdorf",
+        "en": "learning-retailer-efz-a-in-the-schattdorf-branch-jysk-schattdorf",
         "de": "lernende-detailhandelsfachfrau-mann-efz-a-in-der-filiale-schattdorf-jysk-schattdorf-qrsmyr",
-        "fr": "apprenti-e-detailhandelsfachfrau-mann-efz-a-in-der-filiale-schattdorf-jysk-schattdorf-qrsmyr"
+        "fr": "detaillant-d-apprentissage-efz-a-dans-la-succursale-de-schattdorf-jysk-schattdorf"
       },
       "titleByLocale": {
         "de": "Lernende Detailhandelsfachfrau/-mann EFZ (a) in der Filiale Schattdorf",
@@ -54,7 +54,23 @@
           "unitText": "YEAR"
         }
       },
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugsByLocale": {
+        "it": [
+          "apprendista-impiegato-a-del-commercio-al-dettaglio-cfc-a-in-der-filiale-schattdorf-jysk-schattdorf-qrsmyr"
+        ],
+        "en": [
+          "apprentice-detailhandelsfachfrau-mann-efz-a-in-der-filiale-schattdorf-jysk-schattdorf-qrsmyr"
+        ],
+        "fr": [
+          "apprenti-e-detailhandelsfachfrau-mann-efz-a-in-der-filiale-schattdorf-jysk-schattdorf-qrsmyr"
+        ]
+      },
+      "previousSlugs": [
+        "apprendista-impiegato-a-del-commercio-al-dettaglio-cfc-a-in-der-filiale-schattdorf-jysk-schattdorf-qrsmyr",
+        "apprentice-detailhandelsfachfrau-mann-efz-a-in-der-filiale-schattdorf-jysk-schattdorf-qrsmyr",
+        "apprenti-e-detailhandelsfachfrau-mann-efz-a-in-der-filiale-schattdorf-jysk-schattdorf-qrsmyr"
+      ]
     },
     {
       "id": "company-i1lex3",
@@ -90,7 +106,7 @@
       },
       "requirementsByLocale": {},
       "slugByLocale": {
-        "it": "verkaufsleiter-in-apprendista-a-100-per-la-region-zentralschweiz-jysk-schwyz-i1lex3",
+        "it": "responsabile-vendite-a-100-per-la-svizzera-centrale-jysk-schwyz",
         "en": "sales-manager-a-100-for-central-switzerland-jysk-schwyz",
         "de": "verkaufsleiter-in-trainee-a-100-fur-die-region-zentralschweiz-jysk-schwyz-i1lex3",
         "fr": "responsable-des-ventes-a-100-pour-la-suisse-centrale-jysk-schwyz"
@@ -98,7 +114,8 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufsleiter-in-trainee-a-100-fur-die-region-zentralschweiz-jysk-schwyz"
+          "verkaufsleiter-in-trainee-a-100-fur-die-region-zentralschweiz-jysk-schwyz",
+          "verkaufsleiter-in-apprendista-a-100-per-la-region-zentralschweiz-jysk-schwyz-i1lex3"
         ],
         "en": [
           "verkaufsleiter-in-trainee-a-100-fur-die-region-zentralschweiz-jysk-schwyz-i1lex3"
@@ -109,10 +126,9 @@
       },
       "previousSlugs": [
         "verkaufsleiter-in-trainee-a-100-fur-die-region-zentralschweiz-jysk-schwyz",
+        "verkaufsleiter-in-apprendista-a-100-per-la-region-zentralschweiz-jysk-schwyz-i1lex3",
         "verkaufsleiter-in-trainee-a-100-fur-die-region-zentralschweiz-jysk-schwyz-i1lex3",
-        "verkaufsleiter-in-apprenti-a-100-fur-die-region-zentralschweiz-jysk-schwyz-i1lex3",
-        "responsabile-vendite-a-100-per-la-svizzera-centrale-jysk-schwyz",
-        "responsable-des-ventes-a-100-pour-la-suisse-centrale-jysk-schwyz"
+        "verkaufsleiter-in-apprenti-a-100-fur-die-region-zentralschweiz-jysk-schwyz-i1lex3"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -180,8 +196,7 @@
       "previousSlugs": [
         "facility-coordinator-a-80-jysk-zofingen",
         "coordinateur-de-l-installation-a-80-jysk-zofingen",
-        "facility-coordinateur-a-80-jysk-zofingen",
-        "coordinatore-della-facility-a-80-jysk-zofingen"
+        "facility-coordinateur-a-80-jysk-zofingen"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -570,7 +585,7 @@
         "it": "store-manager-apprendista-a-80-100-per-la-filiale-seewen-jysk-schwyz-wmr65o",
         "en": "store-manager-trainee-a-80-100-fur-die-filiale-seewen-jysk-schwyz-wmr65o",
         "de": "store-manager-auszubildender-a-80-100-fur-die-filiale-seewen-jysk-schwyz-wmr65o",
-        "fr": "store-manager-apprenti-a-80-100-fur-die-filiale-seewen-jysk-schwyz-wmr65o"
+        "fr": "gestionnaire-de-magasin-trainee-a-80-100-pour-la-succursale-seewen-jysk-schwyz"
       },
       "sourceLang": "de",
       "previousSlugsByLocale": {
@@ -579,16 +594,14 @@
           "store-manager-trainee-a-80-100-per-il-ramo-seewen-jysk-schwyz"
         ],
         "fr": [
-          "store-manager-apprenti-a-80-100-fur-die-filiale-seewen-jysk-schwyz-wmr65o",
-          "gestionnaire-de-magasin-trainee-a-80-100-pour-la-succursale-seewen-jysk-schwyz"
+          "store-manager-apprenti-a-80-100-fur-die-filiale-seewen-jysk-schwyz-wmr65o"
         ]
       },
       "previousSlugs": [
         "store-manager-trainee-a-80-100-fur-die-filiale-seewen-jysk-schwyz",
         "store-manager-trainee-a-80-100-per-il-ramo-seewen-jysk-schwyz",
         "store-manager-apprenti-a-80-100-fur-die-filiale-seewen-jysk-schwyz-wmr65o",
-        "store-manager-apprendista-a-80-100-per-la-filiale-seewen-jysk-schwyz",
-        "gestionnaire-de-magasin-trainee-a-80-100-pour-la-succursale-seewen-jysk-schwyz"
+        "store-manager-apprendista-a-80-100-per-la-filiale-seewen-jysk-schwyz"
       ],
       "salaryMin": 41600,
       "salaryMax": 63000,
@@ -780,7 +793,7 @@
       },
       "requirementsByLocale": {},
       "slugByLocale": {
-        "it": "risorse-umane-assistant-40-jysk-zofingen-q9agao",
+        "it": "assistente-hr-40-jysk-zofingen",
         "en": "hr-assistant-40-jysk-zofingen-q9agao",
         "de": "personalwesen-assistent-40-jysk-zofingen-q9agao",
         "fr": "hr-assistant-40-jysk-zofingen"
@@ -788,7 +801,8 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "hr-assistant-40-jysk-zofingen"
+          "hr-assistant-40-jysk-zofingen",
+          "risorse-umane-assistant-40-jysk-zofingen-q9agao"
         ],
         "fr": [
           "hr-assistant-40-jysk-zofingen-q9agao"
@@ -796,8 +810,8 @@
       },
       "previousSlugs": [
         "hr-assistant-40-jysk-zofingen",
-        "hr-assistant-40-jysk-zofingen-q9agao",
-        "assistente-hr-40-jysk-zofingen"
+        "risorse-umane-assistant-40-jysk-zofingen-q9agao",
+        "hr-assistant-40-jysk-zofingen-q9agao"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -922,7 +936,7 @@
         "it": "store-manager-apprendista-a-100-per-la-region-luzern-jysk-emmen-t2zzvq",
         "en": "store-manager-trainee-a-100-fur-die-region-luzern-jysk-emmen-t2zzvq",
         "de": "store-manager-auszubildender-a-100-fur-die-region-luzern-jysk-emmen-t2zzvq",
-        "fr": "store-manager-apprenti-a-100-fur-die-region-luzern-jysk-emmen-t2zzvq"
+        "fr": "stagiaire-responsable-des-magasins-a-100-pour-la-region-de-lucerne-jysk-emmen"
       },
       "sourceLang": "de",
       "previousSlugsByLocale": {
@@ -932,16 +946,14 @@
           "store-manager-apprendista-a-100-per-la-region-luzern-jysk-emmen"
         ],
         "fr": [
-          "store-manager-apprenti-a-100-fur-die-region-luzern-jysk-emmen-t2zzvq",
-          "stagiaire-responsable-des-magasins-a-100-pour-la-region-de-lucerne-jysk-emmen"
+          "store-manager-apprenti-a-100-fur-die-region-luzern-jysk-emmen-t2zzvq"
         ]
       },
       "previousSlugs": [
         "store-manager-trainee-a-100-fur-die-region-luzern-jysk-emmen",
         "store-manager-trainee-a-100-per-la-regione-di-lucerna-jysk-emmen",
         "store-manager-apprendista-a-100-per-la-region-luzern-jysk-emmen",
-        "store-manager-apprenti-a-100-fur-die-region-luzern-jysk-emmen-t2zzvq",
-        "stagiaire-responsable-des-magasins-a-100-pour-la-region-de-lucerne-jysk-emmen"
+        "store-manager-apprenti-a-100-fur-die-region-luzern-jysk-emmen-t2zzvq"
       ],
       "salaryMin": 41600,
       "salaryMax": 63000,
@@ -994,7 +1006,7 @@
         "it": "store-manager-apprendista-a-80-100-per-la-region-netstal-jysk-glarus-lp3vb0",
         "en": "store-manager-trainee-a-80-100-fur-die-region-netstal-jysk-glarus-lp3vb0",
         "de": "store-manager-auszubildender-a-80-100-fur-die-region-netstal-jysk-glarus-lp3vb0",
-        "fr": "store-manager-apprenti-a-80-100-fur-die-region-netstal-jysk-glarus-lp3vb0"
+        "fr": "stagiaire-responsable-des-magasins-a-80-100-pour-la-region-de-netstal-jysk-glarus"
       },
       "sourceLang": "de",
       "previousSlugsByLocale": {
@@ -1003,15 +1015,13 @@
           "store-manager-trainee-a-80-100-per-la-regione-netstal-jysk-glarus"
         ],
         "fr": [
-          "store-manager-apprenti-a-80-100-fur-die-region-netstal-jysk-glarus-lp3vb0",
-          "stagiaire-responsable-des-magasins-a-80-100-pour-la-region-de-netstal-jysk-glarus"
+          "store-manager-apprenti-a-80-100-fur-die-region-netstal-jysk-glarus-lp3vb0"
         ]
       },
       "previousSlugs": [
         "store-manager-trainee-a-80-100-fur-die-region-netstal-jysk-glarus",
         "store-manager-trainee-a-80-100-per-la-regione-netstal-jysk-glarus",
-        "store-manager-apprenti-a-80-100-fur-die-region-netstal-jysk-glarus-lp3vb0",
-        "stagiaire-responsable-des-magasins-a-80-100-pour-la-region-de-netstal-jysk-glarus"
+        "store-manager-apprenti-a-80-100-fur-die-region-netstal-jysk-glarus-lp3vb0"
       ],
       "salaryMin": 41600,
       "salaryMax": 63000,
@@ -1061,7 +1071,7 @@
       },
       "requirementsByLocale": {},
       "slugByLocale": {
-        "it": "verkaufer-in-con-lagerverantwortung-80-in-der-filiale-baden-dattwil-jysk-baden-v11lwi",
+        "it": "venditore-con-responsabilita-del-magazzino-80-nella-filiale-baden-dattwil-jysk-baden",
         "en": "seller-with-warehouse-responsibility-80-in-the-branch-baden-dattwil-jysk-baden",
         "de": "verkaufer-in-mit-lagerverantwortung-80-in-der-filiale-baden-dattwil-jysk-baden-v11lwi",
         "fr": "vendeur-responsable-de-l-entrepot-80-dans-la-succursale-baden-dattwil-jysk-baden"
@@ -1069,7 +1079,8 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-mit-lagerverantwortung-80-in-der-filiale-baden-dattwil-jysk-baden"
+          "verkaufer-in-mit-lagerverantwortung-80-in-der-filiale-baden-dattwil-jysk-baden",
+          "verkaufer-in-con-lagerverantwortung-80-in-der-filiale-baden-dattwil-jysk-baden-v11lwi"
         ],
         "en": [
           "verkaufer-in-mit-lagerverantwortung-80-in-der-filiale-baden-dattwil-jysk-baden-v11lwi"
@@ -1080,8 +1091,8 @@
       },
       "previousSlugs": [
         "verkaufer-in-mit-lagerverantwortung-80-in-der-filiale-baden-dattwil-jysk-baden",
-        "verkaufer-in-mit-lagerverantwortung-80-in-der-filiale-baden-dattwil-jysk-baden-v11lwi",
-        "venditore-con-responsabilita-del-magazzino-80-nella-filiale-baden-dattwil-jysk-baden"
+        "verkaufer-in-con-lagerverantwortung-80-in-der-filiale-baden-dattwil-jysk-baden-v11lwi",
+        "verkaufer-in-mit-lagerverantwortung-80-in-der-filiale-baden-dattwil-jysk-baden-v11lwi"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",

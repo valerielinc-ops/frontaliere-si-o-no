@@ -4,11 +4,11 @@
   "jobs": [
     {
       "id": "h-ju-hopital-du-jura-109bc56fe553",
-      "slug": "medecin-assistant-e-en-medecine-urologique-h-ju-hopital-du-jura-delemont",
+      "slug": "assistente-medico-in-medicina-urologica-hopital-du-jura-h-ju-delemont",
       "slugByLocale": {
         "fr": "medecin-assistant-e-en-medecine-urologique-h-ju-hopital-du-jura-delemont",
-        "it": "medecin-assistant-e-en-medecine-urologique-h-ju-hopital-du-jura-delemont",
-        "en": "medecin-assistant-e-en-medecine-urologique-h-ju-hopital-du-jura-delemont",
+        "it": "assistente-medico-in-medicina-urologica-hopital-du-jura-h-ju-delemont",
+        "en": "assistant-physician-in-urological-medicine-hopital-du-jura-h-ju-delemont",
         "de": "medecin-assistant-e-en-medecine-urologique-h-ju-hopital-du-jura-delemont"
       },
       "company": "Hôpital du Jura (H-JU)",
@@ -65,7 +65,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-19T13:03:11.923Z"
+      "firstSeenAt": "2026-05-19T13:03:11.923Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "medecin-assistant-e-en-medecine-urologique-h-ju-hopital-du-jura-delemont"
+        ],
+        "en": [
+          "medecin-assistant-e-en-medecine-urologique-h-ju-hopital-du-jura-delemont"
+        ]
+      },
+      "previousSlugs": [
+        "medecin-assistant-e-en-medecine-urologique-h-ju-hopital-du-jura-delemont"
+      ]
     }
   ]
 }

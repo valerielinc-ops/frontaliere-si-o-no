@@ -2069,9 +2069,9 @@
     },
     {
       "id": "lonza-4a6781c68358",
-      "slug": "teamlead-downstream-production-lonza-ch",
+      "slug": "teamlead-produzione-a-valle-lonza-ch",
       "slugByLocale": {
-        "it": "teamlead-downstream-production-lonza-ch",
+        "it": "teamlead-produzione-a-valle-lonza-ch",
         "en": "teamlead-downstream-production-lonza-ch",
         "de": "teamlead-downstream-production-lonza-ch",
         "fr": "teamlead-downstream-production-lonza-ch"
@@ -2127,7 +2127,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "teamlead-downstream-production-lonza-ch"
+        ]
+      },
+      "previousSlugs": [
+        "teamlead-downstream-production-lonza-ch"
+      ]
     },
     {
       "id": "lonza-dafb39cac6cc",
