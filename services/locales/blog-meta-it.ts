@@ -7826,6 +7826,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.mostre-nuove-virtu-e-limit-padiglione-italiano-guendalina-salimei.title': 'Mostre più libere: il Padiglione italiano di Guendalina Salimei',
     'blog.article.mostre-nuove-virtu-e-limit-padiglione-italiano-guendalina-salimei.excerpt': 'Le mostre d\'arte stanno cambiando: meno rigore scientifico, più libertà per il pubblico e un ruolo attivo dei curatori. Il Padiglione italiano di Guendalina Salimei ne è un esempio.',
     'blog.article.mostre-nuove-virtu-e-limit-padiglione-italiano-guendalina-salimei.imageAlt': 'Mostra d\'arte contemporanea in una galleria del centro di Lugano',
+    'blog.article.tilo-gallarate-malpensa-maggio-2026.title': 'TILO: cambi di percorso per Malpensa il 30-31 maggio',
+    'blog.article.tilo-gallarate-malpensa-maggio-2026.excerpt': 'I treni TILO S50 avranno come capolinea Gallarate il prossimo weekend a causa di lavori sulla rete italiana.',
+    'blog.article.tilo-gallarate-malpensa-maggio-2026.imageAlt': 'Treno TILO alla stazione di Gallarate con passeggeri in attesa',
 };
 
 export default blogMetaIt;
