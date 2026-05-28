@@ -14,7 +14,12 @@ jobs:
   review:
     runs-on: ubuntu-latest
     timeout-minutes: 15
-    if: github.event.pull_request.draft == false
+    # DISABILITATO: il run 26586585273 ha registrato total_cost_usd: 0.64 nonostante
+    # claude_code_oauth_token settato. Da chiarire se telemetria informativa
+    # (subscription quota, mostrata in USD equivalente) o consumo reale API credits.
+    # Riabilitare SOLO dopo verifica su console.anthropic.com / claude.ai/usage
+    # che il billing non addebita le run dell'action.
+    if: false && github.event.pull_request.draft == false
     steps:
       - name: Checkout
         uses: actions/checkout@v5
