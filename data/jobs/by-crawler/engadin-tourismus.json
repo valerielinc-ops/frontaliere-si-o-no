@@ -1,6 +1,6 @@
 {
   "crawlerKey": "engadin-tourismus",
-  "assembledAt": "2026-05-27T22:50:54.707Z",
+  "assembledAt": "2026-05-28T12:26:20.797Z",
   "jobs": [
     {
       "id": "engadin-tourismus-f9482812da90",
@@ -46,7 +46,7 @@
       "applyUrl": "https://www.engadintourismus.ch/ueber-uns/jobs/jobs/lehrstelle-kauffrau-kaufmann-efz-hotel-gastro-tourismus-hgt",
       "source": "Engadin Tourismus Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T22:50:53.273Z",
+      "crawledAt": "2026-05-28T12:26:19.382Z",
       "previousSlugs": [
         "lehrstelle-kauffrau-kaufmann-efz-hotel-gastro-tourismus-hgt-st-moritz-engadin-tourismus"
       ],
@@ -56,6 +56,7 @@
         ]
       },
       "firstSeenAt": "2026-05-17T10:09:22.701Z",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "currency": "CHF",
@@ -114,7 +115,7 @@
       "applyUrl": "https://www.engadintourismus.ch/ueber-uns/jobs/jobs/guest-experience-specialist-100-m-w-d",
       "source": "Engadin Tourismus Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T22:50:53.004Z",
+      "crawledAt": "2026-05-28T12:26:19.127Z",
       "previousSlugs": [
         "guest-experience-specialist-100-m-w-d-tourist-information-zuoz-und-regionale-gasteberatung"
       ],
