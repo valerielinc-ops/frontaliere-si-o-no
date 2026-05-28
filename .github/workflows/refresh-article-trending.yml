@@ -19,6 +19,7 @@ on:
 
 permissions:
   contents: write
+  issues: write     # for github-issue-creator on failure
 
 concurrency:
   group: refresh-article-trending
@@ -69,7 +70,7 @@ jobs:
           bash scripts/lib/git-push-with-retry.sh \
             --regenerate-cmd "node scripts/fetch-article-trending.mjs && git add public/article-trending.json"
 
-      - name: Report failure to Linear
+      - name: Report failure to GitHub Issues
         if: failure()
         continue-on-error: true
         env:
