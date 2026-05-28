@@ -1,66 +1,18 @@
 {
   "key": "efg-international",
   "label": "EFG",
-  "generatedAt": "2026-05-28T12:24:39.710Z",
+  "generatedAt": "2026-05-28T22:53:54.631Z",
   "total": 35,
-  "newCount": 1,
+  "newCount": 0,
   "updatedCount": 13,
   "removedCount": 0,
-  "unchangedCount": 21,
-  "durationMs": 26277,
-  "avgDurationMs": 26277,
+  "unchangedCount": 22,
+  "durationMs": 29187,
+  "avgDurationMs": 29187,
   "durationHistory": [
-    26277
+    29187
   ],
-  "newJobs": [
-    {
-      "id": "efg-6071",
-      "slug": "it-data-service-manager-efg-geneve",
-      "company": "EFG International AG",
-      "title": "IT Data Service Manager",
-      "location": "Geneve",
-      "canton": "GE",
-      "category": "tech",
-      "contract": "permanent",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-28",
-      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6071",
-      "source": "Oracle HCM API",
-      "sourceLang": "en",
-      "companyKey": "efg-international",
-      "companyDomain": "efginternational.com",
-      "canonicalContent": {
-        "byLocale": {
-          "en": {
-            "summary": [
-              "<p><span><strong>General Info</strong></span></p><ul style=\"list-style-type: disc;\"><li><span><strong>Department:</strong> DataOps / IT</span></li><li><span><strong>Work time Percentage:</strong> 100%</span></li><li><span><strong>Location:</strong> Geneva</span></li></ul><p> </p><p><span><strong>Our Company</strong></span></p><p><span>EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice.</span></p><p><span>EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation.</span></p><p><span><strong>Our Purpose and Mission</strong></span></p><p><span>Empowering entrepreneurial minds to create value – today and for the future.</span></p><p><span>We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value.</span></p><p><span><strong>Job Description</strong></span></p><p><span><strong>DataOps Service & Governance Engineer</strong></span></p><p><span>DataOps Services’ mission is to ensure the reliable and efficient servicing of all data interfaces supported by our data platform. This includes a broad spectrum of interfaces, ranging from highly critical order-processing flows to regular analytical and reporting systems. The DataOps team supports global systems serving the entire Group worldwide.</span></p><p><span>We are looking for a reliable and well-organised expert to join our DataOps team in Geneva. As our platform and data landscape evolve, robust operational governance has become increasingly important. With growing regulatory requirements, rising business expectations for data quality, and the need for consistent service delivery, we must ensure that our processes are well-documented, controlled, and transparent.</span></p><p><span>In this context, we are seeking a profile dedicated to overseeing documentation, managing Standard Operating Procedures (SOPs), and monitoring Service Level Agreements (SLAs). By reinforcing these governance pillars, you will help us ensure continuity and quality of operations, while facilitating clear communication and alignment among our technical and business teams.</span></p><p><span><strong>Key Responsibilities</strong></span></p><ul style=\"list-style-type: disc;\"><li><span>Coordinate operational activities related to data integration services under the responsibility of the DataOps Team Manager, ensuring effective change management, quality assurance, SLA monitoring, and comprehensive SOP documentation.</span></li><li><span>Monitor and track the smooth operation of critical business processes, acting as the primary contact for SLA- and procedure-related topics.</span></li><li><span>Create, maintain, and continuously improve documentation and operational procedures (SOPs) to ensure alignment with internal standards, audit requirements, and applicable regulations.</span></li><li><span>Collaborate closely with IT, production support, and business teams to strengthen governance around data integration processes and ensure documentation is accurate, up to date, and consistently applied.</span></li><li><span>Ensure traceability, consolidation, and regular updates of performance indicators (KPIs) related to SLAs, operational quality, and service reliability.</span></li><li><span>Prepare and contribute to regular service reviews and reporting, highlighting risks, issues, and improvement opportunities.</span></li><li><span>Improve internal team processes by gathering stakeholder feedback, identifying pain points, and proposing optimisations to SOPs and workflows in collaboration with the line manager.</span></li><li><span>Support incident and problem management from a governance perspective (e.g. post-incident documentation, lessons learned, action follow-up).</span></li><li><span>Facilitate effective communication and coordination across teams to support operational excellence and a culture of continuous improvement.</span></li></ul><p><span><strong>Requirements and Qualifications</strong></span></p><ul style=\"list-style-type: disc;\"><li><span>At least 5 years of experience in operational governance, documentation management, service management, or PMO roles within a data-driven or IT/operations environment (e.g. data platforms, integration, production support).</span></li><li><span>Proven experience in managing and monitoring SLAs and SOPs, with the ability to structure, validate, implement, and track procedures across multiple stakeholders.</span></li><li><span>Strong writing, organisational, and analytical skills, with a demonstrated ability to produce clear, concise, and audit-ready documentation.</span></li><li><span>Experience in tracking performance indicators (KPIs), preparing service quality reports, and presenting findings to management and stakeholders.</span></li><li><span>Good understanding of data integration and data platform environments; knowledge of Kafka, Opcon orchestrator, microservice architectures, and REST-based communication is a strong plus.</span></li><li><span>Strong communication and interpersonal skills, with the ability to interact effectively with both technical and non-technical stakeholders and to facilitate coordination across teams.</span></li><li><span>High attention to detail, rigor, and autonomy in managing tasks and priorities in a dynamic environment.</span></li><li><span>Good command of spoken and written English; French is an asset.</span></li></ul><p><span><strong>Personal Attributes</strong></span></p><ul style=\"list-style-type: disc;\"><li><span>Responsible and reliable, especially during critical operational periods and in the context of production incidents or major changes.</span></li><li><span>Methodical, structured, and rigorous in documentation, process management, and follow-up.</span></li><li><span>Proactive and a strong team player, with the ability to work effectively within cross-functional and international teams.</span></li><li><span>Curious and motivated to learn and grow in a transforming technological environment, embracing change and continuous improvement.</span></li><li><span>Comfortable challenging the status quo constructively and proposing pragmatic, risk-aware solutions.</span></li></ul><p><span><strong>Our Values</strong></span></p><ul style=\"list-style-type: disc;\"><li><span><strong>Accountability:</strong> Taking ownership for tasks and challenges, as well as seeking continuous improvement.</span></li><li><span><strong>Hands-on:</strong> Being proactive to rapidly deliver high-quality results.</span></li><li><span><strong>Passionate:</strong> Being committed and striving for excellence.</span></li><li><span><strong>Solution-driven:</strong> Focusing on client outcomes and treating clients fairly with a risk-aware mindset.</span></li><li><span><strong>Partnership-oriented:</strong> Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.</span></li></ul><p> </p><p><span>Please ensure to attach a cover letter to your CV when filling the application.</span></p><p> </p>"
-            ],
-            "responsibilities": [],
-            "requirements": [],
-            "benefits": [],
-            "process": [],
-            "highlights": [],
-            "keywords": [],
-            "sections": [],
-            "readingMinutes": 4
-          }
-        }
-      },
-      "crawledAt": "2026-05-28T12:24:37.370Z",
-      "addressLocality": "Geneve",
-      "addressCountry": "CH",
-      "needsRetranslation": true,
-      "datePosted": "2026-05-28",
-      "_qualityScore": 67,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 4,
-        "completeness": 14
-      }
-    }
-  ],
+  "newJobs": [],
   "updatedJobs": [
     {
       "id": "efg-6212",
@@ -181,7 +133,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-28T12:24:37.399Z",
+      "crawledAt": "2026-05-28T22:53:52.182Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-04-17",
@@ -235,7 +187,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-28T12:24:37.397Z",
+      "crawledAt": "2026-05-28T22:53:52.180Z",
       "addressLocality": "St. Moritz",
       "addressCountry": "CH",
       "datePosted": "2026-04-01",
@@ -247,7 +199,7 @@
       "employmentType": "FULL_TIME",
       "firstSeenAt": "2026-05-17T10:08:35.143Z",
       "needsRetranslation": true,
-      "retranslationAttempts": 1,
+      "retranslationAttempts": 2,
       "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -336,7 +288,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-28T12:24:37.393Z",
+      "crawledAt": "2026-05-28T22:53:52.176Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "sourceLang": "en",
@@ -417,7 +369,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-28T12:24:37.392Z",
+      "crawledAt": "2026-05-28T22:53:52.175Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-04-02",
@@ -534,7 +486,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-28T12:24:37.391Z",
+      "crawledAt": "2026-05-28T22:53:52.175Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "sourceLang": "en",
@@ -550,60 +502,6 @@
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
-    {
-      "id": "efg-6046",
-      "slug": "senior-private-markets-product-specialista-efg-international-ag-zurich",
-      "company": "EFG International AG",
-      "title": "Senior Private Markets Product Specialist",
-      "location": "Zurich",
-      "canton": "ZH",
-      "category": "finance",
-      "contract": "permanent",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-21",
-      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6046",
-      "source": "Oracle HCM API",
-      "sourceLang": "en",
-      "companyKey": "efg-international",
-      "companyDomain": "efginternational.com",
-      "canonicalContent": {
-        "byLocale": {
-          "en": {
-            "summary": [
-              "<p><span lang=\"DE\">General Info</span></p><ul style=\"list-style-type: disc;\"><li><span lang=\"EN-GB\">Department: </span><span lang=\"FR-CH\">Private Markets</span></li><li><span lang=\"EN-GB\">Work time Percentage: 100%</span></li><li><span lang=\"EN-GB\">Location: Zurich (or Lugano) </span></li></ul><p><span lang=\"IT-CH\"><strong>Our Company</strong></span></p><p><span lang=\"EN-GB\">EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice. </span></p><p><span lang=\"EN-GB\">EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation.</span></p><p><span>Our Purpose and Mission</span></p><p><span lang=\"EN-GB\">Empowering entrepreneurial minds to create value – today and for the future.</span></p><p><span lang=\"EN-GB\">We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value.</span></p><p><span lang=\"EN-GB\"><strong>Job Description</strong></span></p><p><span lang=\"EN-GB\">To strengthen our growing private markets franchise, we are looking for a Swiss based (Senior) Private Markets Product Specialist. </span></p><p><span lang=\"EN-GB\"> We are searching for a candidate who shares our enthusiasm for delivering a first-class client experience through an engaging and proactive relationship approach. This is an excellent opportunity to join a growing, seasoned and entrepreneurial global team with strong personal and professional development opportunities.</span></p><p><span lang=\"EN-GB\"><strong>Tasks and Responsibilities</strong></span></p><ul style=\"list-style-type: disc;\"><li><span lang=\"EN-GB\">Accountable for driving a strategic and hands-on distribution effort across our private markets solutions, focusing on EFG’s in-house private markets program and product suite of perpetual/evergreen funds</span></li><li><span lang=\"EN-GB\">Strategic partner to Client Relationship Officers (CROs), Investment Counsellors (ICs) and their clients to increase overall allocations to the asset class</span></li><li><span lang=\"EN-GB\">Responsible for impactful and tailor-made marketing content for in-person and written presentations, both internally and for our global client base</span></li><li><span lang=\"EN-GB\">Foster the ongoing development of our private markets franchise by identifying client demands and trends to shape our future product offering</span></li><li><span lang=\"EN-GB\">Design educational initiatives to drive asset class-specific learning excellence and impact across various stakeholder groups within EFG</span></li></ul><p> </p><p><span lang=\"EN-GB\"><strong>Requirements and Qualifications</strong></span></p><ul style=\"list-style-type: disc;\"><li><span lang=\"EN-GB\">5+ years working experience in distribution and/or sales within the private markets (including real estate) industry, preferably focused on private wealth clients</span></li><li><i><span lang=\"EN-GB\">For senior-level role:</span></i><span lang=\"EN-GB\"> 10+ years of relevant working experience required</span></li><li><span lang=\"EN-GB\">Ambitious and self-motivation personality with the ability to work in a target driven high-performance culture while maintaining “down-to-earth” attitude </span></li><li><span lang=\"EN-GB\">Entrepreneurial mindset with an enthusiastic, flexible and hands-on approach</span></li><li><span lang=\"EN-GB\">Excellent communication, presentation and interpersonal skills, with proficiency in English and Italien (German beneficial)</span></li><li><span lang=\"EN-GB\">Master’s degree in Finance or similar and further professional qualifications (CFA, CAIA, etc.)</span></li><li><span lang=\"EN-GB\">Advanced proficiency in PowerPoint and Excel, with the ability to create impactful client-facing marketing material</span></li></ul><p><span lang=\"EN-GB\"> </span></p><p><span lang=\"EN-GB\"><strong>Our Values</strong></span></p><ul style=\"list-style-type: disc;\"><li><span lang=\"EN-GB\">Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement</span></li><li><span lang=\"EN-GB\">Hands-on: Being proactive to rapidly deliver high-quality results</span></li><li><span lang=\"EN-GB\">Passionate: Being committed and striving for excellence</span></li><li><span lang=\"EN-GB\">Solution-driven: Focusing on client outcomes and treating clients fairly with a risk-aware mindset</span></li><li><span lang=\"EN-GB\">Partnership-oriented: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.</span></li></ul><p><span lang=\"EN-GB\"><strong>Please ensure to attach a cover letter to your CV when filling the application.</strong></span></p><p><span lang=\"EN-GB\">Application</span></p><p><span lang=\"EN-GB\">Should you wish to apply for this position use this link to apply.</span></p><p> </p>"
-            ],
-            "responsibilities": [],
-            "requirements": [],
-            "benefits": [],
-            "process": [],
-            "highlights": [],
-            "keywords": [],
-            "sections": [],
-            "readingMinutes": 3
-          }
-        }
-      },
-      "crawledAt": "2026-05-28T12:24:37.388Z",
-      "addressLocality": "Zurich",
-      "addressCountry": "CH",
-      "datePosted": "2026-04-21",
-      "salaryMin": 142000,
-      "salaryMax": 249500,
-      "streetAddress": "Via Pretorio 22",
-      "postalCode": "6900",
-      "addressRegion": "TI",
-      "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-05-10T21:30:00.892Z",
-      "needsRetranslation": true,
-      "_qualityScore": 99,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
         "translation": 25,
         "completeness": 25
       }
@@ -666,7 +564,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-28T12:24:37.388Z",
+      "crawledAt": "2026-05-28T22:53:52.172Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "datePosted": "2026-04-02",
@@ -678,6 +576,60 @@
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
       "firstSeenAt": "2026-04-13T10:28:21.940Z",
+      "_qualityScore": 99,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 25,
+        "completeness": 25
+      }
+    },
+    {
+      "id": "efg-6046",
+      "slug": "senior-private-markets-product-specialista-efg-international-ag-zurich",
+      "company": "EFG International AG",
+      "title": "Senior Private Markets Product Specialist",
+      "location": "Zurich",
+      "canton": "ZH",
+      "category": "finance",
+      "contract": "permanent",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-21",
+      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6046",
+      "source": "Oracle HCM API",
+      "sourceLang": "en",
+      "companyKey": "efg-international",
+      "companyDomain": "efginternational.com",
+      "canonicalContent": {
+        "byLocale": {
+          "en": {
+            "summary": [
+              "<p><span lang=\"DE\">General Info</span></p><ul style=\"list-style-type: disc;\"><li><span lang=\"EN-GB\">Department: </span><span lang=\"FR-CH\">Private Markets</span></li><li><span lang=\"EN-GB\">Work time Percentage: 100%</span></li><li><span lang=\"EN-GB\">Location: Zurich (or Lugano) </span></li></ul><p><span lang=\"IT-CH\"><strong>Our Company</strong></span></p><p><span lang=\"EN-GB\">EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice. </span></p><p><span lang=\"EN-GB\">EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation.</span></p><p><span>Our Purpose and Mission</span></p><p><span lang=\"EN-GB\">Empowering entrepreneurial minds to create value – today and for the future.</span></p><p><span lang=\"EN-GB\">We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value.</span></p><p><span lang=\"EN-GB\"><strong>Job Description</strong></span></p><p><span lang=\"EN-GB\">To strengthen our growing private markets franchise, we are looking for a Swiss based (Senior) Private Markets Product Specialist. </span></p><p><span lang=\"EN-GB\"> We are searching for a candidate who shares our enthusiasm for delivering a first-class client experience through an engaging and proactive relationship approach. This is an excellent opportunity to join a growing, seasoned and entrepreneurial global team with strong personal and professional development opportunities.</span></p><p><span lang=\"EN-GB\"><strong>Tasks and Responsibilities</strong></span></p><ul style=\"list-style-type: disc;\"><li><span lang=\"EN-GB\">Accountable for driving a strategic and hands-on distribution effort across our private markets solutions, focusing on EFG’s in-house private markets program and product suite of perpetual/evergreen funds</span></li><li><span lang=\"EN-GB\">Strategic partner to Client Relationship Officers (CROs), Investment Counsellors (ICs) and their clients to increase overall allocations to the asset class</span></li><li><span lang=\"EN-GB\">Responsible for impactful and tailor-made marketing content for in-person and written presentations, both internally and for our global client base</span></li><li><span lang=\"EN-GB\">Foster the ongoing development of our private markets franchise by identifying client demands and trends to shape our future product offering</span></li><li><span lang=\"EN-GB\">Design educational initiatives to drive asset class-specific learning excellence and impact across various stakeholder groups within EFG</span></li></ul><p> </p><p><span lang=\"EN-GB\"><strong>Requirements and Qualifications</strong></span></p><ul style=\"list-style-type: disc;\"><li><span lang=\"EN-GB\">5+ years working experience in distribution and/or sales within the private markets (including real estate) industry, preferably focused on private wealth clients</span></li><li><i><span lang=\"EN-GB\">For senior-level role:</span></i><span lang=\"EN-GB\"> 10+ years of relevant working experience required</span></li><li><span lang=\"EN-GB\">Ambitious and self-motivation personality with the ability to work in a target driven high-performance culture while maintaining “down-to-earth” attitude </span></li><li><span lang=\"EN-GB\">Entrepreneurial mindset with an enthusiastic, flexible and hands-on approach</span></li><li><span lang=\"EN-GB\">Excellent communication, presentation and interpersonal skills, with proficiency in English and Italien (German beneficial)</span></li><li><span lang=\"EN-GB\">Master’s degree in Finance or similar and further professional qualifications (CFA, CAIA, etc.)</span></li><li><span lang=\"EN-GB\">Advanced proficiency in PowerPoint and Excel, with the ability to create impactful client-facing marketing material</span></li></ul><p><span lang=\"EN-GB\"> </span></p><p><span lang=\"EN-GB\"><strong>Our Values</strong></span></p><ul style=\"list-style-type: disc;\"><li><span lang=\"EN-GB\">Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement</span></li><li><span lang=\"EN-GB\">Hands-on: Being proactive to rapidly deliver high-quality results</span></li><li><span lang=\"EN-GB\">Passionate: Being committed and striving for excellence</span></li><li><span lang=\"EN-GB\">Solution-driven: Focusing on client outcomes and treating clients fairly with a risk-aware mindset</span></li><li><span lang=\"EN-GB\">Partnership-oriented: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.</span></li></ul><p><span lang=\"EN-GB\"><strong>Please ensure to attach a cover letter to your CV when filling the application.</strong></span></p><p><span lang=\"EN-GB\">Application</span></p><p><span lang=\"EN-GB\">Should you wish to apply for this position use this link to apply.</span></p><p> </p>"
+            ],
+            "responsibilities": [],
+            "requirements": [],
+            "benefits": [],
+            "process": [],
+            "highlights": [],
+            "keywords": [],
+            "sections": [],
+            "readingMinutes": 3
+          }
+        }
+      },
+      "crawledAt": "2026-05-28T22:53:52.171Z",
+      "addressLocality": "Zurich",
+      "addressCountry": "CH",
+      "datePosted": "2026-04-21",
+      "salaryMin": 142000,
+      "salaryMax": 249500,
+      "streetAddress": "Via Pretorio 22",
+      "postalCode": "6900",
+      "addressRegion": "TI",
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-05-10T21:30:00.892Z",
+      "needsRetranslation": true,
       "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -788,7 +740,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-28T12:24:37.385Z",
+      "crawledAt": "2026-05-28T22:53:52.168Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "sourceLang": "en",
@@ -843,7 +795,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-28T12:24:37.375Z",
+      "crawledAt": "2026-05-28T22:53:52.157Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-05-20",
@@ -1266,7 +1218,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-28T12:24:37.400Z",
+      "crawledAt": "2026-05-28T22:53:52.183Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-05-08",
@@ -1380,7 +1332,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-28T12:24:37.398Z",
+      "crawledAt": "2026-05-28T22:53:52.181Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-04-15",
@@ -1509,7 +1461,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-28T12:24:37.395Z",
+      "crawledAt": "2026-05-28T22:53:52.179Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-04-01",
@@ -1641,7 +1593,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-28T12:24:37.394Z",
+      "crawledAt": "2026-05-28T22:53:52.177Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-04-09",
@@ -1765,7 +1717,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-28T12:24:37.390Z",
+      "crawledAt": "2026-05-28T22:53:52.174Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-01-19",
@@ -1819,7 +1771,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-28T12:24:37.389Z",
+      "crawledAt": "2026-05-28T22:53:52.173Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-04-07",
@@ -1873,7 +1825,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-28T12:24:37.387Z",
+      "crawledAt": "2026-05-28T22:53:52.170Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "datePosted": "2026-04-08",
@@ -1926,7 +1878,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-28T12:24:37.386Z",
+      "crawledAt": "2026-05-28T22:53:52.169Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-04-08",
@@ -2053,7 +2005,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-28T12:24:37.383Z",
+      "crawledAt": "2026-05-28T22:53:52.167Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "sourceLang": "en",
@@ -2108,7 +2060,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-28T12:24:37.382Z",
+      "crawledAt": "2026-05-28T22:53:52.165Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2025-12-10",
@@ -2230,7 +2182,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-28T12:24:37.381Z",
+      "crawledAt": "2026-05-28T22:53:52.164Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-04-14",
@@ -2284,7 +2236,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-28T12:24:37.381Z",
+      "crawledAt": "2026-05-28T22:53:52.164Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "datePosted": "2026-04-08",
@@ -2431,7 +2383,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-28T12:24:37.380Z",
+      "crawledAt": "2026-05-28T22:53:52.163Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-02-11",
@@ -2485,7 +2437,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-28T12:24:37.378Z",
+      "crawledAt": "2026-05-28T22:53:52.161Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-05-15",
@@ -2571,7 +2523,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-28T12:24:37.377Z",
+      "crawledAt": "2026-05-28T22:53:52.159Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "datePosted": "2026-05-18",
@@ -2698,7 +2650,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-28T12:24:37.373Z",
+      "crawledAt": "2026-05-28T22:53:52.156Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-05-15",
@@ -2714,6 +2666,59 @@
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
+        "translation": 25,
+        "completeness": 25
+      }
+    },
+    {
+      "id": "efg-6071",
+      "slug": "responsabile-del-servizio-dati-it-efg-international-ag-geneve",
+      "company": "EFG International AG",
+      "title": "IT Data Service Manager",
+      "location": "Geneve",
+      "canton": "GE",
+      "category": "tech",
+      "contract": "permanent",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-28",
+      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6071",
+      "source": "Oracle HCM API",
+      "sourceLang": "en",
+      "companyKey": "efg-international",
+      "companyDomain": "efginternational.com",
+      "canonicalContent": {
+        "byLocale": {
+          "en": {
+            "summary": [
+              "<p><span><strong>General Info</strong></span></p><ul style=\"list-style-type: disc;\"><li><span><strong>Department:</strong> DataOps / IT</span></li><li><span><strong>Work time Percentage:</strong> 100%</span></li><li><span><strong>Location:</strong> Geneva</span></li></ul><p> </p><p><span><strong>Our Company</strong></span></p><p><span>EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice.</span></p><p><span>EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation.</span></p><p><span><strong>Our Purpose and Mission</strong></span></p><p><span>Empowering entrepreneurial minds to create value – today and for the future.</span></p><p><span>We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value.</span></p><p><span><strong>Job Description</strong></span></p><p><span><strong>DataOps Service & Governance Engineer</strong></span></p><p><span>DataOps Services’ mission is to ensure the reliable and efficient servicing of all data interfaces supported by our data platform. This includes a broad spectrum of interfaces, ranging from highly critical order-processing flows to regular analytical and reporting systems. The DataOps team supports global systems serving the entire Group worldwide.</span></p><p><span>We are looking for a reliable and well-organised expert to join our DataOps team in Geneva. As our platform and data landscape evolve, robust operational governance has become increasingly important. With growing regulatory requirements, rising business expectations for data quality, and the need for consistent service delivery, we must ensure that our processes are well-documented, controlled, and transparent.</span></p><p><span>In this context, we are seeking a profile dedicated to overseeing documentation, managing Standard Operating Procedures (SOPs), and monitoring Service Level Agreements (SLAs). By reinforcing these governance pillars, you will help us ensure continuity and quality of operations, while facilitating clear communication and alignment among our technical and business teams.</span></p><p><span><strong>Key Responsibilities</strong></span></p><ul style=\"list-style-type: disc;\"><li><span>Coordinate operational activities related to data integration services under the responsibility of the DataOps Team Manager, ensuring effective change management, quality assurance, SLA monitoring, and comprehensive SOP documentation.</span></li><li><span>Monitor and track the smooth operation of critical business processes, acting as the primary contact for SLA- and procedure-related topics.</span></li><li><span>Create, maintain, and continuously improve documentation and operational procedures (SOPs) to ensure alignment with internal standards, audit requirements, and applicable regulations.</span></li><li><span>Collaborate closely with IT, production support, and business teams to strengthen governance around data integration processes and ensure documentation is accurate, up to date, and consistently applied.</span></li><li><span>Ensure traceability, consolidation, and regular updates of performance indicators (KPIs) related to SLAs, operational quality, and service reliability.</span></li><li><span>Prepare and contribute to regular service reviews and reporting, highlighting risks, issues, and improvement opportunities.</span></li><li><span>Improve internal team processes by gathering stakeholder feedback, identifying pain points, and proposing optimisations to SOPs and workflows in collaboration with the line manager.</span></li><li><span>Support incident and problem management from a governance perspective (e.g. post-incident documentation, lessons learned, action follow-up).</span></li><li><span>Facilitate effective communication and coordination across teams to support operational excellence and a culture of continuous improvement.</span></li></ul><p><span><strong>Requirements and Qualifications</strong></span></p><ul style=\"list-style-type: disc;\"><li><span>At least 5 years of experience in operational governance, documentation management, service management, or PMO roles within a data-driven or IT/operations environment (e.g. data platforms, integration, production support).</span></li><li><span>Proven experience in managing and monitoring SLAs and SOPs, with the ability to structure, validate, implement, and track procedures across multiple stakeholders.</span></li><li><span>Strong writing, organisational, and analytical skills, with a demonstrated ability to produce clear, concise, and audit-ready documentation.</span></li><li><span>Experience in tracking performance indicators (KPIs), preparing service quality reports, and presenting findings to management and stakeholders.</span></li><li><span>Good understanding of data integration and data platform environments; knowledge of Kafka, Opcon orchestrator, microservice architectures, and REST-based communication is a strong plus.</span></li><li><span>Strong communication and interpersonal skills, with the ability to interact effectively with both technical and non-technical stakeholders and to facilitate coordination across teams.</span></li><li><span>High attention to detail, rigor, and autonomy in managing tasks and priorities in a dynamic environment.</span></li><li><span>Good command of spoken and written English; French is an asset.</span></li></ul><p><span><strong>Personal Attributes</strong></span></p><ul style=\"list-style-type: disc;\"><li><span>Responsible and reliable, especially during critical operational periods and in the context of production incidents or major changes.</span></li><li><span>Methodical, structured, and rigorous in documentation, process management, and follow-up.</span></li><li><span>Proactive and a strong team player, with the ability to work effectively within cross-functional and international teams.</span></li><li><span>Curious and motivated to learn and grow in a transforming technological environment, embracing change and continuous improvement.</span></li><li><span>Comfortable challenging the status quo constructively and proposing pragmatic, risk-aware solutions.</span></li></ul><p><span><strong>Our Values</strong></span></p><ul style=\"list-style-type: disc;\"><li><span><strong>Accountability:</strong> Taking ownership for tasks and challenges, as well as seeking continuous improvement.</span></li><li><span><strong>Hands-on:</strong> Being proactive to rapidly deliver high-quality results.</span></li><li><span><strong>Passionate:</strong> Being committed and striving for excellence.</span></li><li><span><strong>Solution-driven:</strong> Focusing on client outcomes and treating clients fairly with a risk-aware mindset.</span></li><li><span><strong>Partnership-oriented:</strong> Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.</span></li></ul><p> </p><p><span>Please ensure to attach a cover letter to your CV when filling the application.</span></p><p> </p>"
+            ],
+            "responsibilities": [],
+            "requirements": [],
+            "benefits": [],
+            "process": [],
+            "highlights": [],
+            "keywords": [],
+            "sections": [],
+            "readingMinutes": 4
+          }
+        }
+      },
+      "crawledAt": "2026-05-28T22:53:52.152Z",
+      "addressLocality": "Geneve",
+      "addressCountry": "CH",
+      "datePosted": "2026-05-28",
+      "salaryMin": 79500,
+      "salaryMax": 135000,
+      "streetAddress": "Via Pretorio 22",
+      "postalCode": "6900",
+      "addressRegion": "TI",
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-05-28T12:24:37.370Z",
+      "_qualityScore": 99,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
         "translation": 25,
         "completeness": 25
       }
