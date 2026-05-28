@@ -41,7 +41,7 @@ jobs:
             Sei un reviewer single-pass per la PR #${{ github.event.pull_request.number }} ("${{ github.event.pull_request.title }}").
 
             ## Contesto progetto
-            Leggi `AGENTS.md` per i gate non-negoziabili (SEO, AdSense Auto Ads, structured data job pages, accessibility, privacy, workflow).
+            Leggi `AGENTS.md` per capire convenzioni e gate del progetto (SEO, AdSense Auto Ads, structured data job pages, accessibility, workflow).
 
             ## Input
             1. Descrizione + corpo PR: `gh pr view $PR_NUMBER --json title,body,labels,baseRefName,headRefName`
@@ -49,31 +49,44 @@ jobs:
             3. File modificati: `gh pr view $PR_NUMBER --json files`
 
             ## Compito
-            Single-pass review. Estrai lo SCOPO dichiarato dalla PR description. Verifica che il diff implementi quello scopo SENZA introdurre regressioni.
+            Single-pass review focalizzata sulla LOGICA DI IMPLEMENTAZIONE.
 
-            Segnala SOLO blocker findings:
-            - Bug logici reali (non ipotesi remote)
-            - Security issue (XSS, injection, secret leak, path traversal)
-            - Regressioni dei gate AGENTS.md:
-              * Quality threshold/test tolerance abbassati
-              * Errori downgraded a warning
-              * Structured data job pages incompleti (baseSalary/postalCode/streetAddress/title/description/datePosted/hiringOrganization.name/jobLocation/employmentType)
-              * Thin content < 50 parole indicizzato
-              * AdSense Auto Ads disabilitati (qualsiasi forma)
-              * Identità git non canonica nei commit
-              * Path assoluti `/Users/...` nel codice
-            - Scope drift: diff fa cose NON menzionate nella PR description
-            - Accessibility: button senza accessible name, img senza width/height/alt, contrast `text-slate-400` su bg chiari
-            - Routing: nuovi top-level tab > 6 o sub-tab > 8
+            Step 1 — estrai dalla PR description lo SCOPO dichiarato (cosa la PR dice di fare, perché, come).
 
-            NO nitpick. NO style. NO suggerimenti opzionali. NO refactor proposals.
+            Step 2 — leggi il diff e rispondi a queste domande:
+            - Il diff implementa effettivamente lo scopo dichiarato? Casi mancanti?
+            - La logica è corretta? Branch, edge case, condizioni boundary, off-by-one, null/undefined, ordering, async/race, side effect non gestiti.
+            - Esiste un modo più pulito o più semplice di raggiungere lo stesso risultato (meno codice, meno stato, meno indirezione, meno duplicazione)?
+            - Astrazioni introdotte sono giustificate dallo scope o sono speculative?
+            - Naming chiaro? Funzioni/variabili che mentono o nascondono comportamento?
+            - Errori/eccezioni gestiti dove serve, ignorati dove non serve?
+            - Test/data fixtures coerenti con i cambi di logica?
+
+            Step 3 — segnala SOLO findings sostanziali:
+            - **Punto critico**: 1 problema reale di logica o design che impatta il risultato (non ipotesi remote, non micro-ottimizzazioni).
+            - **Possibili migliorie**: 1-3 suggerimenti concreti per rendere l'implementazione più semplice / corretta / leggibile, ognuno con razionale chiaro.
+
+            Considera anche regressioni dei gate AGENTS.md se evidenti dal diff (SEO/AdSense/structured data/accessibility/routing caps), ma NON è il focus principale.
+
+            NO nitpick di stile. NO commenti su formatting. NO suggerimenti generici tipo "aggiungi test" senza specificare cosa testare. NO refactor speculativi non legati al diff.
 
             ## Output
             Posta UNA review via:
             `gh pr review $PR_NUMBER --comment --body "<markdown>"`
 
             Formato body:
-            - Se zero blocker: `## LGTM` + una riga che riassume cosa fa la PR.
-            - Altrimenti: `## Blocker findings` + lista bullet, ogni bullet: `**file:linea** — descrizione + fix suggerito (1 frase)`.
+            - Se zero findings sostanziali: `## LGTM` + una riga che riassume cosa fa la PR e perché la logica regge.
+            - Altrimenti:
+              ```
+              ## Scopo dichiarato
+              <1 frase riassuntiva>
+
+              ## Punto critico
+              **file:linea** — <problema + perché conta>
+
+              ## Possibili migliorie
+              - **file:linea** — <suggerimento + razionale>
+              - ...
+              ```
 
             Single-pass: NON aprire più di una review. NON fare push. NON modificare file.
