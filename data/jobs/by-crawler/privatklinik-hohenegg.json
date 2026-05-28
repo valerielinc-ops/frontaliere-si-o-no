@@ -1,6 +1,6 @@
 {
   "crawlerKey": "privatklinik-hohenegg",
-  "assembledAt": "2026-05-27T13:32:44.298Z",
+  "assembledAt": "2026-05-28T00:00:25.894Z",
   "jobs": [
     {
       "id": "privatklinik-hohenegg-7be8cb70eb70",
@@ -34,7 +34,7 @@
       "url": "https://apply.refline.ch/640332/0061/pub/1/index.html",
       "source": "Privatklinik Hohenegg Dedicated Parser (Refline 640332)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:32:41.294Z",
+      "crawledAt": "2026-05-28T00:00:22.613Z",
       "addressLocality": "Meilen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -54,25 +54,6 @@
       "pensumMin": 90,
       "pensumMax": 90,
       "pensum": "90%",
-      "previousSlugsByLocale": {
-        "de": [
-          "dipl-pflegefachfrau-mann-hf-in-ausbildung-privatklinik-hohenegg-ch",
-          "pflegefachperson-hf-mit-schwerpunkt-psychiatrie-60-100-privatklinik-hohenegg-ch",
-          "mitarbeiter-in-eintrittsmanagement-disposition-60-100-privatklinik-hohenegg-ch"
-        ],
-        "it": [
-          "dipl-pflegefachfrau-mann-hf-in-ausbildung-privatklinik-hohenegg-ch",
-          "pflegefachperson-hf-mit-schwerpunkt-psychiatrie-60-100-privatklinik-hohenegg-ch",
-          "mitarbeiter-in-eintrittsmanagement-disposition-60-100-privatklinik-hohenegg-ch",
-          "leitung-human-resources-90-100-privatklinik-hohenegg-ch"
-        ],
-        "en": [
-          "diploma-in-nursing-hf-in-training-privatklinik-hohenegg-meilen"
-        ],
-        "fr": [
-          "infirmier-specialise-en-psychiatrie-60-100-privatklinik-hohenegg-meilen"
-        ]
-      },
       "previousSlugs": [
         "dipl-pflegefachfrau-mann-hf-in-ausbildung-privatklinik-hohenegg-ch",
         "pflegefachperson-hf-mit-schwerpunkt-psychiatrie-60-100-privatklinik-hohenegg-ch",
@@ -82,6 +63,25 @@
         "infirmier-specialise-en-psychiatrie-60-100-privatklinik-hohenegg-meilen",
         "pflegefachperson-hf-con-specializzazione-in-psichiatria-60-100-privatklinik-hohenegg-meilen"
       ],
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachfrau-mann-hf-in-ausbildung-privatklinik-hohenegg-ch",
+          "pflegefachperson-hf-mit-schwerpunkt-psychiatrie-60-100-privatklinik-hohenegg-ch",
+          "mitarbeiter-in-eintrittsmanagement-disposition-60-100-privatklinik-hohenegg-ch",
+          "leitung-human-resources-90-100-privatklinik-hohenegg-ch"
+        ],
+        "en": [
+          "diploma-in-nursing-hf-in-training-privatklinik-hohenegg-meilen"
+        ],
+        "de": [
+          "dipl-pflegefachfrau-mann-hf-in-ausbildung-privatklinik-hohenegg-ch",
+          "pflegefachperson-hf-mit-schwerpunkt-psychiatrie-60-100-privatklinik-hohenegg-ch",
+          "mitarbeiter-in-eintrittsmanagement-disposition-60-100-privatklinik-hohenegg-ch"
+        ],
+        "fr": [
+          "infirmier-specialise-en-psychiatrie-60-100-privatklinik-hohenegg-meilen"
+        ]
+      },
       "firstSeenAt": "2026-05-19T14:37:00.548Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
