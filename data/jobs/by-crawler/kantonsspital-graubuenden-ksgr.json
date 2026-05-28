@@ -1,7 +1,56 @@
 {
   "crawlerKey": "kantonsspital-graubuenden-ksgr",
-  "assembledAt": "2026-05-27T23:31:59.914Z",
+  "assembledAt": "2026-05-28T13:13:23.676Z",
   "jobs": [
+    {
+      "id": "10051987",
+      "title": "Fachfrau / Fachmann Gesundheit Notfall",
+      "description": "Starte am 1. Juli 2026 als\n\nAufgaben:\n• Du unterstüzt das Pflegeteam in einem dynamischen und abwechslungsreichen Arbeitsumfeld in der Zentralen Notfallstation\n\n• Du bist die rechte Hand der Pflegekraft und agierst mit ihr im Zweierteam\n\n• Du assistierst bei diagnostisch-therapeutischen Verrichtungen\n\n• Du übernimmst pflegerische, hauswirtschaftliche und administrative Tätigkeiten\n\nAnforderungen:\n• Du hast einen Abschluss als Fachfrau / Fachmann Gesundheit und bereits Berufserfahrung in einem Akutspital gesammelt\n\n• Du hast die Bereitschaft, dir innerhalb des Spitals zusätzliche Kompetenzen anzueignen, um die Tätigkeiten auf der Zentralen Notfallstation auszuführen\n\n• Deine zuverlässige und speditive Arbeitsweise sowie deine rasche Auffassungsgabe zeichnen dich aus\n\n• Deine offene und aufgestellte Art ist eine Bereicherung für das Team\n\nDu kannst etwas, was andere nicht können?\nDu machst den Unterschied aus?\nDann gehörst du zu uns!",
+      "url": "https://jobs.ksgr.ch/offene-stellen/fachfrau-fachmann-gesundheit-notfall/9b00c0bd-a1b7-4655-aced-a8ebee15cd8a",
+      "company": "Kantonsspital Graubünden",
+      "companyKey": "kantonsspital-graubuenden-ksgr",
+      "companyDomain": "ksgr.ch",
+      "source": "KSGR Dedicated Parser (Prospective API)",
+      "sourceLang": "de",
+      "location": "Chur",
+      "addressLocality": "Chur",
+      "addressRegion": "Graubünden",
+      "addressCountry": "CH",
+      "canton": "GR",
+      "postalCode": "7000",
+      "streetAddress": "Loëstrasse 170",
+      "postedDate": "2026-05-28",
+      "employmentType": "80 - 100%",
+      "category": "Gesundheitswesen",
+      "crawledAt": "2026-05-28T13:13:23.626Z",
+      "slug": "fachfrau-fachmann-gesundheit-notfall-kantonsspital-graubunden-chur",
+      "slugByLocale": {
+        "de": "fachfrau-fachmann-gesundheit-notfall-kantonsspital-graubunden-chur"
+      },
+      "titleByLocale": {
+        "de": "Fachfrau / Fachmann Gesundheit Notfall"
+      },
+      "descriptionByLocale": {
+        "de": "Starte am 1. Juli 2026 als\n\nAufgaben:\n• Du unterstüzt das Pflegeteam in einem dynamischen und abwechslungsreichen Arbeitsumfeld in der Zentralen Notfallstation\n\n• Du bist die rechte Hand der Pflegekraft und agierst mit ihr im Zweierteam\n\n• Du assistierst bei diagnostisch-therapeutischen Verrichtungen\n\n• Du übernimmst pflegerische, hauswirtschaftliche und administrative Tätigkeiten\n\nAnforderungen:\n• Du hast einen Abschluss als Fachfrau / Fachmann Gesundheit und bereits Berufserfahrung in einem Akutspital gesammelt\n\n• Du hast die Bereitschaft, dir innerhalb des Spitals zusätzliche Kompetenzen anzueignen, um die Tätigkeiten auf der Zentralen Notfallstation auszuführen\n\n• Deine zuverlässige und speditive Arbeitsweise sowie deine rasche Auffassungsgabe zeichnen dich aus\n\n• Deine offene und aufgestellte Art ist eine Bereicherung für das Team\n\nDu kannst etwas, was andere nicht können?\nDu machst den Unterschied aus?\nDann gehörst du zu uns!"
+      },
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 41080,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "featured": false,
+      "needsRetranslation": true,
+      "_targetScope": "grigioni",
+      "salaryMin": 41080,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "firstSeenAt": "2026-05-28T13:13:23.626Z"
+    },
     {
       "id": "10048203",
       "title": "HR Assistent:in",
@@ -22,7 +71,7 @@
       "postedDate": "2026-05-26",
       "employmentType": "80 - 100%",
       "category": "Gesundheitswesen",
-      "crawledAt": "2026-05-27T23:31:59.853Z",
+      "crawledAt": "2026-05-28T13:13:23.626Z",
       "slug": "assistente-di-risorse-umane-kantonsspital-graubunden-chur",
       "slugByLocale": {
         "de": "hr-assistent-in-kantonsspital-graubunden-chur",
@@ -88,7 +137,7 @@
       "postedDate": "2026-05-26",
       "employmentType": "80 - 100%",
       "category": "Gesundheitswesen",
-      "crawledAt": "2026-05-27T23:31:59.853Z",
+      "crawledAt": "2026-05-28T13:13:23.626Z",
       "slug": "pflegefachfrau-pflegefachmann-dialyse-kantonsspital-graubunden-chur",
       "slugByLocale": {
         "de": "pflegefachfrau-pflegefachmann-dialyse-kantonsspital-graubunden-chur",
@@ -119,6 +168,7 @@
         }
       },
       "featured": false,
+      "needsRetranslation": true,
       "_targetScope": "grigioni",
       "salaryMin": 41080,
       "salaryMax": 75000,
@@ -145,7 +195,7 @@
       "postedDate": "2026-05-26",
       "employmentType": "80 - 100%",
       "category": "Gesundheitswesen",
-      "crawledAt": "2026-05-27T23:31:59.853Z",
+      "crawledAt": "2026-05-28T13:13:23.626Z",
       "slug": "esperto-emergenza-esperto-kantonsspital-graubunden-chur",
       "slugByLocale": {
         "de": "expertin-experte-notfall-kantonsspital-graubunden-chur",
@@ -211,7 +261,7 @@
       "postedDate": "2026-05-22",
       "employmentType": "80 - 100%",
       "category": "Gesundheitswesen",
-      "crawledAt": "2026-05-27T23:31:59.853Z",
+      "crawledAt": "2026-05-28T13:13:23.626Z",
       "slug": "capo-della-stazione-in-cardiologia-nefrologia-kantonsspital-graubunden-chur",
       "slugByLocale": {
         "de": "stationsleiter-in-kardiologie-nephrologie-kantonsspital-graubunden-chur",
@@ -279,7 +329,7 @@
       "postedDate": "2026-05-13",
       "employmentType": "80 - 100%",
       "category": "Gesundheitswesen",
-      "crawledAt": "2026-05-27T23:31:59.853Z",
+      "crawledAt": "2026-05-28T13:13:23.626Z",
       "slug": "capo-della-contabilita-finanziaria-kantonsspital-graubunden-chur",
       "slugByLocale": {
         "de": "bereichsleiter-in-finanzielles-rechnungswesen-kantonsspital-graubunden-chur",
@@ -345,7 +395,7 @@
       "postedDate": "2026-05-13",
       "employmentType": "70 - 90%",
       "category": "Gesundheitswesen",
-      "crawledAt": "2026-05-27T23:31:59.853Z",
+      "crawledAt": "2026-05-28T13:13:23.626Z",
       "slug": "medico-assistente-pratico-in-cardiologia-ambulatoriale-kantonsspital-graubunden-chur",
       "slugByLocale": {
         "de": "medizinische-r-praxisassistent-in-ambulante-kardiologie-kantonsspital-graubunden-chur",
@@ -411,7 +461,7 @@
       "postedDate": "2026-05-13",
       "employmentType": "40 - 40%",
       "category": "Gesundheitswesen",
-      "crawledAt": "2026-05-27T23:31:59.853Z",
+      "crawledAt": "2026-05-28T13:13:23.626Z",
       "slug": "medico-assistente-pratico-kantonsspital-graubunden-chur",
       "slugByLocale": {
         "de": "medizinische-r-praxisassistent-in-frauenklinik-kantonsspital-graubunden-chur",
@@ -477,7 +527,7 @@
       "postedDate": "2026-05-12",
       "employmentType": "80 - 100%",
       "category": "Gesundheitswesen",
-      "crawledAt": "2026-05-27T23:31:59.853Z",
+      "crawledAt": "2026-05-28T13:13:23.626Z",
       "slug": "chirurgia-sanitaria-professionale-kantonsspital-graubunden-chur",
       "slugByLocale": {
         "de": "fachfrau-fachmann-gesundheit-chirurgie-kantonsspital-graubunden-chur",
@@ -543,7 +593,7 @@
       "postedDate": "2026-05-12",
       "employmentType": "30 - 90%",
       "category": "Gesundheitswesen",
-      "crawledAt": "2026-05-27T23:31:59.853Z",
+      "crawledAt": "2026-05-28T13:13:23.626Z",
       "slug": "pflegefachfrau-pflegefachmann-cure-palliative-kantonsspital-graubunden-walenstadt",
       "slugByLocale": {
         "de": "pflegefachfrau-pflegefachmann-palliative-care-kantonsspital-graubunden-walenstadt",
@@ -582,6 +632,7 @@
           "pflegefachfrau-pflegefachmann-palliative-care-kantonsspital-graubunden-walenstadt"
         ]
       },
+      "needsRetranslation": true,
       "_targetScope": "grigioni",
       "salaryMin": 41080,
       "salaryMax": 75000,
@@ -608,7 +659,7 @@
       "postedDate": "2026-05-12",
       "employmentType": "80 - 100%",
       "category": "Gesundheitswesen",
-      "crawledAt": "2026-05-27T23:31:59.853Z",
+      "crawledAt": "2026-05-28T13:13:23.626Z",
       "slug": "responsabile-della-gestione-della-qualita-dei-processi-e-dei-rischi-kantonsspital-graubunden-chur",
       "slugByLocale": {
         "de": "bereichsleiter-in-qualitats-prozess-und-risikomanagement-kantonsspital-graubunden-chur",
@@ -674,7 +725,7 @@
       "postedDate": "2026-05-11",
       "employmentType": "80 - 80%",
       "category": "Gesundheitswesen",
-      "crawledAt": "2026-05-27T23:31:59.853Z",
+      "crawledAt": "2026-05-28T13:13:23.626Z",
       "slug": "cure-palliative-pflegefachfrau-pflegefachmann-kantonsspital-graubunden-chur",
       "slugByLocale": {
         "de": "pflegefachfrau-pflegefachmann-palliative-care-kantonsspital-graubunden-chur",
@@ -713,77 +764,12 @@
           "pflegefachfrau-pflegefachmann-palliative-care-kantonsspital-graubunden-chur"
         ]
       },
+      "needsRetranslation": true,
       "_targetScope": "grigioni",
       "salaryMin": 41080,
       "salaryMax": 75000,
       "currency": "CHF",
       "firstSeenAt": "2026-05-11T22:23:19.521Z"
-    },
-    {
-      "id": "10026445",
-      "title": "Berufsbildner:in Pflege Akutgeriatrie",
-      "description": "Starte am 1. Juli 2026 oder nach Vereinbarung als\n\nAufgaben:\n• Du gestaltest die Umsetzung unseres Bildungsauftrags aktiv mit und bringst deine Ideen ein\n\n• Du planst, begleitest und evaluierst die Bildungsprozesse unserer Lernenden und Studierenden gemäss Ausbildungsplan und Lernzielen\n\n• Du unterstützt Lernende und Studierende in anspruchsvollen Situationen – fachlich wie menschlich – insbesondere im Umgang mit medizinischen Krankheitsbildern und Krisensituationen\n\n• Du beteiligst dich an der Weiterentwicklung unseres Bildungskonzepts, sowohl auf der Station als auch spitalweit\n\nAnforderungen:\n• Du verfügst über ein Diplom als Pflegefachfrau / Pflegefachmann HF/FH sowie Berufserfahrung in einer Schweizer Gesundheitsinstitution\n\n• Du besitzt bereits den Berufsbildnerkurs sowie das SVEB-Zertifikat (Stufe 1) oder bringst die Motivation mit, diese Qualifikationen zeitnah zu erwerben\n\n• Deine Arbeitsweise ist geprägt von einer verantwortungsbewussten, proaktiven Haltung und einer echten Leidenschaft für die Ausbildung junger Menschen\n\n• Du bist ein:e kommunikative:r Teamplayer:in und hast grosse Lust darauf, die Pflegequalität und die Lernkultur in unserer Akutgeriatrie gemeinsam weiterzuentwickeln\n\nDu kannst etwas, was andere nicht können?\nDu machst den Unterschied aus?\nDann gehörst du zu uns!",
-      "url": "https://jobs.ksgr.ch/offene-stellen/berufsbildner-in-pflege-akutgeriatrie/e2f9f869-bcd5-407b-94d9-9b330960e9d4",
-      "company": "Kantonsspital Graubünden",
-      "companyKey": "kantonsspital-graubuenden-ksgr",
-      "companyDomain": "ksgr.ch",
-      "source": "KSGR Dedicated Parser (Prospective API)",
-      "sourceLang": "de",
-      "location": "Chur",
-      "addressLocality": "Chur",
-      "addressRegion": "Graubünden",
-      "addressCountry": "CH",
-      "canton": "GR",
-      "postalCode": "7000",
-      "streetAddress": "Loëstrasse 170",
-      "postedDate": "2026-05-06",
-      "employmentType": "80 - 100%",
-      "category": "Gesundheitswesen",
-      "crawledAt": "2026-05-27T23:31:59.853Z",
-      "slug": "professionista-in-allattamento-akutgeriatrie-kantonsspital-graubunden-chur",
-      "slugByLocale": {
-        "de": "berufsbildner-in-pflege-akutgeriatrie-kantonsspital-graubunden-chur",
-        "it": "professionista-in-allattamento-akutgeriatrie-kantonsspital-graubunden-chur",
-        "en": "professional-in-nursing-akutgeriatrie-kantonsspital-graubunden-chur",
-        "fr": "professionnel-en-soins-infirmiers-akutgeriatrie-kantonsspital-graubunden-chur"
-      },
-      "titleByLocale": {
-        "de": "Berufsbildner:in Pflege Akutgeriatrie",
-        "it": "Professionista: in allattamento Akutgeriatrie",
-        "en": "Professional:in nursing Akutgeriatrie",
-        "fr": "Professionnel: en soins infirmiers Akutgeriatrie"
-      },
-      "descriptionByLocale": {
-        "de": "## Descrizione\nStarte am 1. Juli 2026 oder nach Vereinbarung als\n\n## Aufgaben:\n- Du gestaltest die Umsetzung unseres Bildungsauftrags aktiv mit und bringst deine Ideen ein\n- Du planst, begleitest und evaluierst die Bildungsprozesse unserer Lernenden und Studierenden gemäss Ausbildungsplan und Lernzielen\n- Du unterstützt Lernende und Studierende in anspruchsvollen Situationen – fachlich wie menschlich – insbesondere im Umgang mit medizinischen Krankheitsbildern und Krisensituationen\n- Du beteiligst dich an der Weiterentwicklung unseres Bildungskonzepts, sowohl auf der Station als auch spitalweit\n\n## Anforderungen:\n- Du verfügst über ein Diplom als Pflegefachfrau / Pflegefachmann HF/FH sowie Berufserfahrung in einer Schweizer Gesundheitsinstitution\n- Du besitzt bereits den Berufsbildnerkurs sowie das SVEB-Zertifikat (Stufe 1) oder bringst die Motivation mit, diese Qualifikationen zeitnah zu erwerben\n- Deine Arbeitsweise ist geprägt von einer verantwortungsbewussten, proaktiven Haltung und einer echten Leidenschaft für die Ausbildung junger Menschen\n- Du bist ein:e kommunikative:r Teamplayer:in und hast grosse Lust darauf, die Pflegequalität und die Lernkultur in unserer Akutgeriatrie gemeinsam weiterzuentwickeln\n\nDu kannst etwas, was andere nicht können?\nDu machst den Unterschied aus?\nDann gehörst du zu uns!",
-        "it": "##STR1##\nIniziare su 1. Luglio 2026 o d'accordo\n\n## Compiti:\n- Formate attivamente l'attuazione della nostra missione educativa e portate le vostre idee\n- Pianifica, accompagna e valuta i processi educativi dei nostri studenti e studenti secondo il piano di formazione e obiettivi di apprendimento\n- Sostieni studenti e studenti in situazioni difficili – sia professionalmente che umanamente – soprattutto nel trattare immagini di malattia medica e situazioni di crisi\n- Partecipate all'ulteriore sviluppo del nostro concetto educativo, sia in stazione che a livello spital\n\n## Requisiti:\n- Hai un diploma come specialista in allattamento / infermieristica HF/FH e un'esperienza professionale in un istituto sanitario svizzero\n- Lei possiede già il corso di formazione professionale e il certificato SVEB (livello 1) o porta la motivazione ad acquisire tali qualifiche in modo tempestivo.\n- Il vostro lavoro è caratterizzato da un atteggiamento responsabile, proattivo e da una vera passione per l'educazione dei giovani\n- Sei un:e kommunikative:r Teamplayer:in e sono desiderosi di sviluppare la qualità della cura e la cultura dell'apprendimento nel nostro acutgeriatry insieme\n\nPuoi fare qualcosa che gli altri non possono fare?\nFai la differenza?\nAllora appartieni a noi!",
-        "en": "##STR1##\nStart on 1. July 2026 or by agreement as\n\n## Tasks:\n- You actively shape the implementation of our education mission and bring your ideas\n- You plan, accompany and evaluate the educational processes of our learners and students according to training plan and learning objectives\n- You support learners and students in challenging situations – both professionally and humanly – especially in dealing with medical illness images and crisis situations\n- You participate in the further development of our educational concept, both at the station and at the spital level\n\n## Requirements:\n- You have a diploma as a nursing specialist / nursing professional HF/FH as well as professional experience in a Swiss health institution\n- You already own the vocational training course and the SVEB certificate (level 1) or bring the motivation to acquire these qualifications in a timely manner.\n- Your work is characterised by a responsible, proactive attitude and a genuine passion for young people's education\n- You are a:e kommunikative:r Teamplayer:in and are keen to develop the quality of care and the culture of learning in our acutgeriatry together\n\nYou can do something that others can't?\nYou make the difference?\nThen you belong to us!",
-        "fr": "C'est vrai.\nCommencez par 1. Juillet 2026 ou par accord\n\n## Tâches :\n- Vous façonnez activement la mise en œuvre de notre mission éducative et apportez vos idées\n- Vous planifiez, accompagnez et évaluez les processus éducatifs de nos apprenants et étudiants selon le plan de formation et les objectifs d'apprentissage\n- Vous aidez les apprenants et les étudiants dans des situations difficiles – tant professionnelles qu'humaines – en particulier dans le traitement des images de maladies médicales et des situations de crise\n- Vous participez au développement de notre concept éducatif, tant au niveau de la station qu'au niveau craché\n\n## Exigences :\n- Vous avez un diplôme de spécialiste des soins infirmiers / professionnel des soins infirmiers HF/FH ainsi qu'une expérience professionnelle dans un établissement de santé suisse\n- Vous possédez déjà le cours de formation professionnelle et le certificat SVEB (niveau 1) ou apportez la motivation pour acquérir ces qualifications en temps utile.\n- Votre travail se caractérise par une attitude responsable, proactive et une véritable passion pour l'éducation des jeunes\n- Vous êtes un:e kommunikative:r Teamplayer:in et êtes désireux de développer la qualité des soins et la culture de l'apprentissage dans notre acutgeriatry ensemble\n\nTu peux faire quelque chose que les autres ne peuvent pas faire ?\nTu fais la différence ?\nAlors tu nous appartiens !"
-      },
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 41080,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "featured": false,
-      "previousSlugs": [
-        "berufsbildner-in-pflege-akutgeriatrie-kantonsspital-graubunden-chur"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "berufsbildner-in-pflege-akutgeriatrie-kantonsspital-graubunden-chur"
-        ]
-      },
-      "needsRetranslation": false,
-      "_targetScope": "grigioni",
-      "salaryMin": 41080,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "firstSeenAt": "2026-05-06T22:14:17.115Z"
     },
     {
       "id": "10023657",
@@ -805,7 +791,7 @@
       "postedDate": "2026-05-04",
       "employmentType": "100 - 100%",
       "category": "Gesundheitswesen",
-      "crawledAt": "2026-05-27T23:31:59.853Z",
+      "crawledAt": "2026-05-28T13:13:23.626Z",
       "slug": "capo-reparto-medicina-interna-kantonsspital-graubunden-walenstadt",
       "slugByLocale": {
         "de": "stationsleiter-in-innere-medizin-kantonsspital-graubunden-walenstadt",
@@ -871,7 +857,7 @@
       "postedDate": "2026-05-03",
       "employmentType": "100 - 100%",
       "category": "Gesundheitswesen",
-      "crawledAt": "2026-05-27T23:31:59.853Z",
+      "crawledAt": "2026-05-28T13:13:23.626Z",
       "slug": "specialista-di-insegnamento-professionale-lavoratore-specializzato-kantonsspital-graubunden-chur",
       "slugByLocale": {
         "de": "berufslehre-fachfrau-fachmann-betriebsunterhalt-kantonsspital-graubunden-chur",
@@ -937,7 +923,7 @@
       "postedDate": "2026-05-03",
       "employmentType": "100 - 100%",
       "category": "Gesundheitswesen",
-      "crawledAt": "2026-05-27T23:31:59.853Z",
+      "crawledAt": "2026-05-28T13:13:23.626Z",
       "slug": "apprendista-commerciale-kantonsspital-graubunden-chur",
       "slugByLocale": {
         "de": "berufslehre-kauffrau-kaufmann-kantonsspital-graubunden-chur",
@@ -1003,7 +989,7 @@
       "postedDate": "2026-05-03",
       "employmentType": "100 - 100%",
       "category": "Gesundheitswesen",
-      "crawledAt": "2026-05-27T23:31:59.853Z",
+      "crawledAt": "2026-05-28T13:13:23.626Z",
       "slug": "apprendista-in-assistenza-sanitaria-kantonsspital-graubunden-walenstadt",
       "slugByLocale": {
         "de": "berufslehre-fachfrau-fachmann-gesundheit-kantonsspital-graubunden-walenstadt",
@@ -1069,7 +1055,7 @@
       "postedDate": "2026-05-03",
       "employmentType": "100 - 100%",
       "category": "Gesundheitswesen",
-      "crawledAt": "2026-05-27T23:31:59.853Z",
+      "crawledAt": "2026-05-28T13:13:23.626Z",
       "slug": "apprendista-ingegnere-edile-kantonsspital-graubunden-chur",
       "slugByLocale": {
         "de": "berufslehre-gebaudeinformatiker-in-kantonsspital-graubunden-chur",
@@ -1135,7 +1121,7 @@
       "postedDate": "2026-05-03",
       "employmentType": "100 - 100%",
       "category": "Gesundheitswesen",
-      "crawledAt": "2026-05-27T23:31:59.853Z",
+      "crawledAt": "2026-05-28T13:13:23.626Z",
       "slug": "specialista-di-insegnamento-professionale-salute-professionale-kantonsspital-graubunden-chur",
       "slugByLocale": {
         "de": "berufslehre-fachfrau-fachmann-gesundheit-kantonsspital-graubunden-chur",
@@ -1201,7 +1187,7 @@
       "postedDate": "2026-05-03",
       "employmentType": "100 - 100%",
       "category": "Gesundheitswesen",
-      "crawledAt": "2026-05-27T23:31:59.853Z",
+      "crawledAt": "2026-05-28T13:13:23.626Z",
       "slug": "apprendistato-in-alberghiero-economia-domestica-kantonsspital-graubunden-chur",
       "slugByLocale": {
         "de": "berufslehre-fachfrau-fachmann-hotellerie-hauswirtschaft-kantonsspital-graubunden-chur",
@@ -1287,7 +1273,7 @@
       "postedDate": "2026-05-03",
       "employmentType": "100 - 100%",
       "category": "Gesundheitswesen",
-      "crawledAt": "2026-05-27T23:31:59.853Z",
+      "crawledAt": "2026-05-28T13:13:23.626Z",
       "slug": "medico-assistente-pratico-in-kantonsspital-graubunden-chur",
       "slugByLocale": {
         "de": "berufslehre-medizinische-r-praxisassistent-in-kantonsspital-graubunden-chur",
@@ -1353,7 +1339,7 @@
       "postedDate": "2026-05-03",
       "employmentType": "100 - 100%",
       "category": "Gesundheitswesen",
-      "crawledAt": "2026-05-27T23:31:59.853Z",
+      "crawledAt": "2026-05-28T13:13:23.626Z",
       "slug": "interno-in-kauffrau-kaufmann-kantonsspital-graubunden-chur",
       "slugByLocale": {
         "de": "praktikant-in-kauffrau-kaufmann-kantonsspital-graubunden-chur",
@@ -1419,7 +1405,7 @@
       "postedDate": "2026-05-03",
       "employmentType": "100 - 100%",
       "category": "Gesundheitswesen",
-      "crawledAt": "2026-05-27T23:31:59.853Z",
+      "crawledAt": "2026-05-28T13:13:23.626Z",
       "slug": "apprendista-informatico-kantonsspital-graubunden-chur",
       "slugByLocale": {
         "de": "berufslehre-informatiker-in-kantonsspital-graubunden-chur",
@@ -1485,7 +1471,7 @@
       "postedDate": "2026-05-03",
       "employmentType": "100 - 100%",
       "category": "Gesundheitswesen",
-      "crawledAt": "2026-05-27T23:31:59.853Z",
+      "crawledAt": "2026-05-28T13:13:23.626Z",
       "slug": "specialista-ict-professionale-kantonsspital-graubunden-chur",
       "slugByLocale": {
         "de": "berufslehre-ict-fachfrau-ict-fachmann-kantonsspital-graubunden-chur",
@@ -1551,7 +1537,7 @@
       "postedDate": "2026-05-03",
       "employmentType": "100 - 100%",
       "category": "Gesundheitswesen",
-      "crawledAt": "2026-05-27T23:31:59.853Z",
+      "crawledAt": "2026-05-28T13:13:23.626Z",
       "slug": "berufslehre-fachfrau-fachmann-hotellerie-hauswirtschaft-kantonsspital-graubunden-chur",
       "slugByLocale": {
         "de": "berufslehre-fachfrau-fachmann-hotellerie-hauswirtschaft-kantonsspital-graubunden-chur",
@@ -1609,7 +1595,7 @@
       "postedDate": "2026-05-03",
       "employmentType": "100 - 100%",
       "category": "Gesundheitswesen",
-      "crawledAt": "2026-05-27T23:31:59.853Z",
+      "crawledAt": "2026-05-28T13:13:23.626Z",
       "slug": "apprendistato-come-cuoco-a-kantonsspital-graubunden-chur",
       "slugByLocale": {
         "de": "berufslehre-kochin-koch-kantonsspital-graubunden-chur",
@@ -1681,7 +1667,7 @@
       "postedDate": "2026-05-03",
       "employmentType": "100 - 100%",
       "category": "Gesundheitswesen",
-      "crawledAt": "2026-05-27T23:31:59.853Z",
+      "crawledAt": "2026-05-28T13:13:23.626Z",
       "slug": "cucina-professionale-cuoco-kantonsspital-graubunden-walenstadt",
       "slugByLocale": {
         "de": "berufslehre-kochin-koch-kantonsspital-graubunden-walenstadt",
@@ -1747,7 +1733,7 @@
       "postedDate": "2026-05-03",
       "employmentType": "100 - 100%",
       "category": "Gesundheitswesen",
-      "crawledAt": "2026-05-27T23:31:59.853Z",
+      "crawledAt": "2026-05-28T13:13:23.626Z",
       "slug": "apprendista-logistica-kantonsspital-graubunden-chur",
       "slugByLocale": {
         "de": "berufslehre-logistiker-in-kantonsspital-graubunden-chur",
@@ -1813,7 +1799,7 @@
       "postedDate": "2026-05-01",
       "employmentType": "100 - 100%",
       "category": "Gesundheitswesen",
-      "crawledAt": "2026-05-27T23:31:59.853Z",
+      "crawledAt": "2026-05-28T13:13:23.626Z",
       "slug": "nachdiplomstudium-dipl-expertin-experte-notfallpflege-hf-per-padiatrie-kantonsspital-graubunden-chur",
       "slugByLocale": {
         "de": "nachdiplomstudium-dipl-expertin-experte-notfallpflege-hf-fur-padiatrie-kantonsspital-graubunden-chur",
@@ -1883,7 +1869,7 @@
       "postedDate": "2026-05-01",
       "employmentType": "80 - 100%",
       "category": "Gesundheitswesen",
-      "crawledAt": "2026-05-27T23:31:59.853Z",
+      "crawledAt": "2026-05-28T13:13:23.626Z",
       "slug": "fachfrau-fachmann-gesundheit-notfallstation-kinder-e-jugendmedizin-kantonsspital-graubunden-chur",
       "slugByLocale": {
         "de": "fachfrau-fachmann-gesundheit-notfallstation-kinder-und-jugendmedizin-kantonsspital-graubunden-chur",
@@ -1951,7 +1937,7 @@
       "postedDate": "2026-04-30",
       "employmentType": "100 - 100%",
       "category": "Gesundheitswesen",
-      "crawledAt": "2026-05-27T23:31:59.853Z",
+      "crawledAt": "2026-05-28T13:13:23.626Z",
       "slug": "professione-in-allattamento-neurochirugie-e-hals-nasen-ohrenklinik-kantonsspital-graubunden-chur",
       "slugByLocale": {
         "de": "berufsbildner-in-pflege-neurochirugie-und-hals-nasen-ohrenklinik-kantonsspital-graubunden-chur",
@@ -2017,7 +2003,7 @@
       "postedDate": "2026-04-23",
       "employmentType": "80 - 100%",
       "category": "Gesundheitswesen",
-      "crawledAt": "2026-05-27T23:31:59.853Z",
+      "crawledAt": "2026-05-28T13:13:23.626Z",
       "slug": "responsabile-del-team-di-medicina-del-sonno-kantonsspital-graubunden-chur",
       "slugByLocale": {
         "de": "teamleiter-in-pflege-schlafmedizin-kantonsspital-graubunden-chur",
@@ -2083,7 +2069,7 @@
       "postedDate": "2026-04-23",
       "employmentType": "80 - 100%",
       "category": "Gesundheitswesen",
-      "crawledAt": "2026-05-27T23:31:59.853Z",
+      "crawledAt": "2026-05-28T13:13:23.626Z",
       "slug": "responsabile-di-progetto-ict-kantonsspital-graubunden-chur",
       "slugByLocale": {
         "de": "projektleiter-in-ict-kantonsspital-graubunden-chur",
@@ -2151,7 +2137,7 @@
       "postedDate": "2026-04-20",
       "employmentType": "80 - 100%",
       "category": "Gesundheitswesen",
-      "crawledAt": "2026-05-27T23:31:59.853Z",
+      "crawledAt": "2026-05-28T13:13:23.626Z",
       "slug": "senior-medico-mbf-senior-medico-mbf-radio-oncologia-kantonsspital-graubunden-chur",
       "slugByLocale": {
         "de": "oberarztin-mbf-oberarzt-mbf-radio-onkologie-kantonsspital-graubunden-chur",
@@ -2217,7 +2203,7 @@
       "postedDate": "2026-04-15",
       "employmentType": "80 - 100%",
       "category": "Gesundheitswesen",
-      "crawledAt": "2026-05-27T23:31:59.853Z",
+      "crawledAt": "2026-05-28T13:13:23.626Z",
       "slug": "leader-del-team-nella-pneumologia-ambulatoriale-kantonsspital-graubunden-chur",
       "slugByLocale": {
         "de": "teamleiter-in-pflege-ambulante-pneumologie-kantonsspital-graubunden-chur",
@@ -2283,7 +2269,7 @@
       "postedDate": "2026-04-13",
       "employmentType": "80 - 100%",
       "category": "Gesundheitswesen",
-      "crawledAt": "2026-05-27T23:31:59.853Z",
+      "crawledAt": "2026-05-28T13:13:23.626Z",
       "slug": "senior-medico-senior-medico-assistenza-sanitaria-kantonsspital-graubunden-chur",
       "slugByLocale": {
         "de": "oberarztin-oberarzt-oder-leitende-arztin-leitender-arzt-pathologie-kantonsspital-graubunden-chur",
@@ -2349,7 +2335,7 @@
       "postedDate": "2026-04-13",
       "employmentType": "80 - 100%",
       "category": "Gesundheitswesen",
-      "crawledAt": "2026-05-27T23:31:59.853Z",
+      "crawledAt": "2026-05-28T13:13:23.626Z",
       "slug": "pflegefachfrau-pflegefachmann-invasive-ambulante-kardiologie-kantonsspital-graubunden-chur",
       "slugByLocale": {
         "it": "pflegefachfrau-pflegefachmann-invasive-ambulante-kardiologie-kantonsspital-graubunden-chur",
@@ -2380,6 +2366,7 @@
         }
       },
       "featured": false,
+      "needsRetranslation": true,
       "_targetScope": "grigioni",
       "salaryMin": 41080,
       "salaryMax": 75000,
@@ -2406,7 +2393,7 @@
       "postedDate": "2026-04-13",
       "employmentType": "90 - 100%",
       "category": "Gesundheitswesen",
-      "crawledAt": "2026-05-27T23:31:59.853Z",
+      "crawledAt": "2026-05-28T13:13:23.626Z",
       "slug": "fisioterapista-in-kantonsspital-graubunden-chur",
       "slugByLocale": {
         "de": "physiotherapeut-in-kantonsspital-graubunden-chur",
@@ -2472,7 +2459,7 @@
       "postedDate": "2026-04-13",
       "employmentType": "50 - 70%",
       "category": "Gesundheitswesen",
-      "crawledAt": "2026-05-27T23:31:59.853Z",
+      "crawledAt": "2026-05-28T13:13:23.626Z",
       "slug": "specialista-infermieristica-radio-oncologia-kantonsspital-graubunden-chur",
       "slugByLocale": {
         "de": "pflegefachfrau-pflegefachmann-radio-onkologie-kantonsspital-graubunden-chur",
@@ -2539,7 +2526,7 @@
       "postedDate": "2026-04-12",
       "employmentType": "60 - 100%",
       "category": "Gesundheitswesen",
-      "crawledAt": "2026-05-27T23:31:59.853Z",
+      "crawledAt": "2026-05-28T13:13:23.626Z",
       "slug": "senior-medico-senior-medico-mbf-senior-medico-mbf-neurologia-kantonsspital-graubunden-chur",
       "slugByLocale": {
         "de": "oberarztin-oberarzt-oder-oberarztin-mbf-oberarzt-mbf-neurologie-kantonsspital-graubunden-chur",
@@ -2608,7 +2595,7 @@
       "postedDate": "2026-04-08",
       "employmentType": "80 - 90%",
       "category": "Gesundheitswesen",
-      "crawledAt": "2026-05-27T23:31:59.853Z",
+      "crawledAt": "2026-05-28T13:13:23.626Z",
       "slug": "addetto-al-room-service-kantonsspital-graubunden-chur",
       "slugByLocale": {
         "de": "mitarbeiter-in-room-service-kantonsspital-graubunden-chur",
@@ -2679,7 +2666,7 @@
       "postedDate": "2026-04-08",
       "employmentType": "80 - 100%",
       "category": "Gesundheitswesen",
-      "crawledAt": "2026-05-27T23:31:59.853Z",
+      "crawledAt": "2026-05-28T13:13:23.626Z",
       "slug": "co-responsabile-area-geriatria-acuta-kantonsspital-graubunden-chur",
       "slugByLocale": {
         "de": "co-stationsleiter-in-akutgeriatrie-kantonsspital-graubunden-chur",
@@ -2745,7 +2732,7 @@
       "postedDate": "2026-04-08",
       "employmentType": "20 - 90%",
       "category": "Gesundheitswesen",
-      "crawledAt": "2026-05-27T23:31:59.853Z",
+      "crawledAt": "2026-05-28T13:13:23.626Z",
       "slug": "infermiere-a-medicina-interna-pool-infermieristico-kantonsspital-graubunden-chur",
       "slugByLocale": {
         "de": "pflegefachfrau-pflegefachmann-innere-medizin-pflegepool-kantonsspital-graubunden-chur",
@@ -2811,7 +2798,7 @@
       "postedDate": "2026-04-08",
       "employmentType": "60 - 90%",
       "category": "Gesundheitswesen",
-      "crawledAt": "2026-05-27T23:31:59.853Z",
+      "crawledAt": "2026-05-28T13:13:23.626Z",
       "slug": "ergoterapista-kantonsspital-graubunden-chur",
       "slugByLocale": {
         "de": "ergotherapeut-in-kantonsspital-graubunden-chur",
@@ -2877,7 +2864,7 @@
       "postedDate": "2026-04-02",
       "employmentType": "80 - 100%",
       "category": "Gesundheitswesen",
-      "crawledAt": "2026-05-27T23:31:59.853Z",
+      "crawledAt": "2026-05-28T13:13:23.626Z",
       "slug": "primario-a-di-ematologia-kantonsspital-graubunden-chur",
       "slugByLocale": {
         "de": "oberarztin-oberarzt-hamatologie-kantonsspital-graubunden-chur",
@@ -2945,7 +2932,7 @@
       "postedDate": "2026-04-01",
       "employmentType": "80 - 100%",
       "category": "Gesundheitswesen",
-      "crawledAt": "2026-05-27T23:31:59.853Z",
+      "crawledAt": "2026-05-28T13:13:23.626Z",
       "slug": "analista-biomedico-kantonsspital-graubunden-chur",
       "slugByLocale": {
         "de": "biomedizinische-r-analytiker-in-kantonsspital-graubunden-chur",
@@ -3011,7 +2998,7 @@
       "postedDate": "2026-04-01",
       "employmentType": "80 - 100%",
       "category": "Gesundheitswesen",
-      "crawledAt": "2026-05-27T23:31:59.853Z",
+      "crawledAt": "2026-05-28T13:13:23.626Z",
       "slug": "assistente-di-studio-medico-orl-kantonsspital-graubunden-chur",
       "slugByLocale": {
         "de": "medizinische-r-praxisassistent-in-hals-nasen-ohren-klinik-kantonsspital-graubunden-chur",
@@ -3077,7 +3064,7 @@
       "postedDate": "2026-03-31",
       "employmentType": "80 - 100%",
       "category": "Gesundheitswesen",
-      "crawledAt": "2026-05-27T23:31:59.853Z",
+      "crawledAt": "2026-05-28T13:13:23.626Z",
       "slug": "coordinatore-di-ricerca-kantonsspital-graubunden-chur",
       "slugByLocale": {
         "de": "forschungskoordinator-in-forschungszentrum-kantonsspital-graubunden-chur",
@@ -3146,7 +3133,7 @@
       "postedDate": "2026-03-31",
       "employmentType": "80 - 100%",
       "category": "Gesundheitswesen",
-      "crawledAt": "2026-05-27T23:31:59.853Z",
+      "crawledAt": "2026-05-28T13:13:23.626Z",
       "slug": "tecnico-di-laboratorio-biomedico-in-microbiologia-kantonsspital-graubunden-chur",
       "slugByLocale": {
         "de": "biomedizinische-r-analytiker-in-mikrobiologie-kantonsspital-graubunden-chur",
@@ -3193,78 +3180,6 @@
       "firstSeenAt": "2026-04-13T10:51:03.996Z"
     },
     {
-      "id": "9968682",
-      "title": "Mitarbeiter:in Küche",
-      "description": "Starte am 1. Juli 2026 als\n\nAufgaben:\n• Geschirraufbereitung, allgemeine Reinigungsarbeiten in der Küche sowie der Speisewagentransport gehören zu deinen Hauptaufgaben\n\n• Du bist flexibel im gesamten Office-Bereich einsetzbar und übernimmst dabei eine wichtige Rolle im Team\n\n• Die vielfältigen Aufgaben erledigst du eigenverantwortlich in den definierten Arbeitsprozessen\n\nAnforderungen:\n• Du konntest bereits Erfahrungen in der Küche sammeln und hast dabei gelernt, dass Sauberkeit und Hygiene einen wichtigen Stellenwert hat\n\n• Du bist ein:e Teamplayer:in, welche:r gerne in einem dynamischen Umfeld arbeitet\n\n• Du verfügst über gute Deutschkenntnisse, mündlich und beim Lesen, sowie einer schnellen Auffassungsgabe\n\nDu kannst etwas, was andere nicht können?\nDu machst den Unterschied aus?\nDann gehörst du zu uns!",
-      "url": "https://jobs.ksgr.ch/offene-stellen/mitarbeiter-in-kueche/dada38d7-f441-497a-96b6-f68154aa7237",
-      "company": "Kantonsspital Graubünden",
-      "companyKey": "kantonsspital-graubuenden-ksgr",
-      "companyDomain": "ksgr.ch",
-      "source": "KSGR Dedicated Parser (Prospective API)",
-      "sourceLang": "de",
-      "location": "Walenstadt",
-      "addressLocality": "Walenstadt",
-      "addressRegion": "Graubünden",
-      "addressCountry": "CH",
-      "canton": "GR",
-      "postalCode": "8880",
-      "streetAddress": "Spitalstrasse 5",
-      "postedDate": "2026-03-30",
-      "employmentType": "60 - 60%",
-      "category": "Gesundheitswesen",
-      "crawledAt": "2026-05-27T23:31:59.853Z",
-      "slug": "addetto-a-cucina-kantonsspital-graubunden-walenstadt",
-      "slugByLocale": {
-        "de": "mitarbeiter-in-kuche-kantonsspital-graubunden-walenstadt",
-        "it": "addetto-a-cucina-kantonsspital-graubunden-walenstadt",
-        "en": "associate-kuche-kantonsspital-graubunden-walenstadt",
-        "fr": "assistant-e-de-cuisine-kantonsspital-graubunden-walenstadt"
-      },
-      "titleByLocale": {
-        "de": "Mitarbeiter:in Küche",
-        "it": "Addetto/a cucina",
-        "en": "Associate Küche",
-        "fr": "Assistant(e) de cuisine"
-      },
-      "descriptionByLocale": {
-        "de": "Starte am 1. Juli 2026 als\n• Aufgaben: - Geschirraufbereitung, allgemeine Reinigungsarbeiten in der Küche sowie der Speisewagentransport gehören zu deinen Hauptaufgaben - Du bist flexibel im gesamten Office-Bereich einsetzbar und übernimmst dabei eine wichtige Rolle im Team - Die vielfältigen\n• Aufgaben erledigst du eigenverantwortlich in den definierten Arbeitsprozessen\n• Anforderungen: - Du konntest bereits Erfahrungen in der Küche sammeln und hast dabei gelernt, dass Sauberkeit und Hygiene einen wichtigen Stellenwert hat - Du bist ein:e Teamplayer:in, welche:r gerne in einem dynamischen Umfeld arbeitet - Du verfügst über gute Deutschkenntnisse, mündlich und beim Lesen, sowie einer schnellen Auffassungsgabe Du kannst etwas, was andere nicht können? Du machst den Unterschied aus? Dann gehörst du zu uns!",
-        "it": "Inizia il 1° luglio 2026 come Compiti: - La preparazione delle stoviglie, le pulizie generali della cucina e il trasporto dei carrelli delle vivande fanno parte dei tuoi compiti principali - Sei flessibile e puoi essere impiegato in tutta l'area operativa, svolgendo un ruolo importante all'interno del team - Affronti le varie mansioni in modo autonomo, seguendo i processi lavorativi definiti\n• Requisiti: - Hai già acquisito esperienza in cucina e sai che pulizia e igiene sono fondamentali - Sei una persona che ama lavorare in team e si adatta facilmente a un ambiente dinamico - Possiedi buone conoscenze della lingua tedesca, sia a livello orale che scritto, oltre a una buona capacità di apprendimento Sai fare qualcosa che gli altri non sanno fare? Fai la differenza? Allora vieni a lavorare con noi!",
-        "en": "Start on July 1, 2026 as Tasks: - Dishwashing, general cleaning in the kitchen, and transporting food trolleys are among your main responsibilities - You are flexible and can be deployed across the entire operational area, playing an important role within the team - You handle the various tasks independently, following the defined work processes\n• Requirements: - You have already gained experience in a kitchen environment and understand that cleanliness and hygiene are of great importance - You are a team player who enjoys working in a dynamic environment - You have good German language skills, both orally and in writing, as well as a quick grasp of new information Can you do something others can't? Do you make a difference? Then you belong with us!",
-        "fr": "Commencez le 1er juillet 2026 en tant que Missions : - La préparation de la vaisselle, le nettoyage général de la cuisine ainsi que le transport des chariots de repas font partie de vos principales tâches - Vous êtes flexible et pouvez être affecté(e) dans l'ensemble de la zone opérationnelle, jouant un rôle important au sein de l'équipe - Vous gérez les différentes tâches de manière autonome, en suivant les processus de travail définis\n• Exigences : - Vous avez déjà acquis de l'expérience en cuisine et savez que la propreté et l'hygiène sont essentielles - Vous êtes une personne qui aime travailler en équipe et qui s'adapte facilement à un environnement dynamique - Vous possédez de bonnes connaissances de la langue allemande, à l'oral comme à l'écrit, ainsi qu'une bonne capacité d'apprentissage Savez-vous faire quelque chose que les autres ne savent pas faire ? Faites-vous la différence ? Alors rejoignez-nous !"
-      },
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 41080,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "featured": false,
-      "previousSlugs": [
-        "mitarbeiter-in-kuche-kantonsspital-graubunden-walenstadt",
-        "kitchen-assistant-kantonsspital-graubunden-walenstadt",
-        "collaboratore-trice-kuche-kantonsspital-graubunden-walenstadt",
-        "mitarbeiter-in-technischer-dienst-kantonsspital-graubunden-walenstadt"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "mitarbeiter-in-kuche-kantonsspital-graubunden-walenstadt"
-        ],
-        "en": [
-          "kitchen-assistant-kantonsspital-graubunden-walenstadt"
-        ]
-      },
-      "needsRetranslation": false,
-      "_targetScope": "grigioni",
-      "salaryMin": 41080,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "firstSeenAt": "2026-04-13T10:51:03.996Z"
-    },
-    {
       "id": "9976596",
       "title": "Assistenzärztin / Assistenzarzt Gefässchirurgie",
       "description": "Starte 1. Januar 2027 oder nach Vereinbarung als\n\nAufgaben:\n• Du betreust die stationären Patientinnen und Patienten in der Gefässchirurgie, in enger Zusammenarbeit mit dem fachärztlichen Kader\n\n• Du hast Gelegenheit in der ambulanten Sprechstunde mitzuarbeiten\n\n• Du bist ein Teil der Dienstequipe auf der Notfallstation (i.d.R. ein Zyklus à sechs Wochen pro Jahr)\n\n• Du assistierst im Operationssaal und lernst verschiedene Eingriffe je nach deinem Weiterbildungsstand\n\nAnforderungen:\n• Du hast das eidgenössische Diplom in Humanmedizin (Staatsexamen) oder ein äquivalentes ausländisches Diplom mit MEBEKO-Anerkennung\n\n• Du hast vorzugsweise 2 Jahre in der Allgemeinchirurgie (Common Trunk) gearbeitet oder das Core Surgical Curriculum absolviert\n\n• Du strebst den Facharzttitel Gefässchirurgie an\n\n• Du zeichnest dich durch hohe Leistungsbereitschaft und Engagement aus\n\n• Deine empathische und offene Art ist eine Bereicherung für unser Team und für unsere Patientinnen und Patienten\n\nDu kannst etwas, was andere nicht können?\nDu machst den Unterschied aus?\nDann gehörst du zu uns!",
@@ -3284,7 +3199,7 @@
       "postedDate": "2026-03-27",
       "employmentType": "100 - 100%",
       "category": "Gesundheitswesen",
-      "crawledAt": "2026-05-27T23:31:59.853Z",
+      "crawledAt": "2026-05-28T13:13:23.626Z",
       "slug": "assistente-medico-in-chirurgia-vascolare-kantonsspital-graubunden-chur",
       "slugByLocale": {
         "de": "assistenzarztin-assistenzarzt-gefasschirurgie-kantonsspital-graubunden-chur",
@@ -3350,7 +3265,7 @@
       "postedDate": "2026-03-25",
       "employmentType": "100 - 100%",
       "category": "Gesundheitswesen",
-      "crawledAt": "2026-05-27T23:31:59.853Z",
+      "crawledAt": "2026-05-28T13:13:23.626Z",
       "slug": "primario-a-supplente-in-chirurgia-vascolare-kantonsspital-graubunden-chur",
       "slugByLocale": {
         "de": "oberarztin-oberarzt-i-v-gefasschirurgie-kantonsspital-graubunden-chur",
@@ -3416,7 +3331,7 @@
       "postedDate": "2026-03-24",
       "employmentType": "40 - 100%",
       "category": "Gesundheitswesen",
-      "crawledAt": "2026-05-27T23:31:59.853Z",
+      "crawledAt": "2026-05-28T13:13:23.626Z",
       "slug": "pflegefachfrau-pflegefachmann-akutgeriatrie-kantonsspital-graubunden-walenstadt",
       "slugByLocale": {
         "de": "pflegefachfrau-pflegefachmann-akutgeriatrie-kantonsspital-graubunden-walenstadt",
@@ -3456,6 +3371,7 @@
           "pflegefachkraft-akutgeriatrie-kantonsspital-graubunden-walenstadt"
         ]
       },
+      "needsRetranslation": true,
       "_targetScope": "grigioni",
       "salaryMin": 41080,
       "salaryMax": 75000,
@@ -3482,7 +3398,7 @@
       "postedDate": "2026-03-16",
       "employmentType": "60 - 100%",
       "category": "Gesundheitswesen",
-      "crawledAt": "2026-05-27T23:31:59.853Z",
+      "crawledAt": "2026-05-28T13:13:23.626Z",
       "slug": "tecnico-operatore-kantonsspital-graubunden-walenstadt",
       "slugByLocale": {
         "de": "fachfrau-fachmann-operationstechnik-kantonsspital-graubunden-walenstadt",
@@ -3548,7 +3464,7 @@
       "postedDate": "2026-03-16",
       "employmentType": "60 - 100%",
       "category": "Gesundheitswesen",
-      "crawledAt": "2026-05-27T23:31:59.853Z",
+      "crawledAt": "2026-05-28T13:13:23.626Z",
       "slug": "pflegefachfrau-pflegefachmann-akutgeriatrie-kantonsspital-graubunden-chur",
       "slugByLocale": {
         "de": "pflegefachfrau-pflegefachmann-akutgeriatrie-kantonsspital-graubunden-chur",
@@ -3587,6 +3503,7 @@
           "pflegefachkraft-akutgeriatrie-kantonsspital-graubunden-chur"
         ]
       },
+      "needsRetranslation": true,
       "_targetScope": "grigioni",
       "salaryMin": 41080,
       "salaryMax": 75000,
@@ -3613,7 +3530,7 @@
       "postedDate": "2026-03-16",
       "employmentType": "80 - 100%",
       "category": "Gesundheitswesen",
-      "crawledAt": "2026-05-27T23:31:59.853Z",
+      "crawledAt": "2026-05-28T13:13:23.626Z",
       "slug": "specialista-in-salute-in-geriatria-acuta-kantonsspital-graubunden-walenstadt",
       "slugByLocale": {
         "de": "fachfrau-fachmann-gesundheit-akutgeriatrie-kantonsspital-graubunden-walenstadt",
@@ -3679,7 +3596,7 @@
       "postedDate": "2026-03-11",
       "employmentType": "50 - 50%",
       "category": "Gesundheitswesen",
-      "crawledAt": "2026-05-27T23:31:59.853Z",
+      "crawledAt": "2026-05-28T13:13:23.626Z",
       "slug": "farmacista-clinico-kantonsspital-graubunden-chur",
       "slugByLocale": {
         "de": "apotheker-in-klinische-pharmazie-kantonsspital-graubunden-chur",
@@ -3745,7 +3662,7 @@
       "postedDate": "2026-02-19",
       "employmentType": "40 - 60%",
       "category": "Gesundheitswesen",
-      "crawledAt": "2026-05-27T23:31:59.853Z",
+      "crawledAt": "2026-05-28T13:13:23.626Z",
       "slug": "neuropsicologa-neuropsicologo-pediatria-kantonsspital-graubunden-chur",
       "slugByLocale": {
         "de": "neuropsychologin-neuropsychologe-padiatrie-kantonsspital-graubunden-chur",
@@ -3811,7 +3728,7 @@
       "postedDate": "2026-02-17",
       "employmentType": "80 - 100%",
       "category": "Gesundheitswesen",
-      "crawledAt": "2026-05-27T23:31:59.853Z",
+      "crawledAt": "2026-05-28T13:13:23.626Z",
       "slug": "responsabile-del-settore-infermieristico-urologia-e-chirurgia-d-urgenza-kantonsspital-graubunden-chur",
       "slugByLocale": {
         "de": "pflegefachverantwortliche-r-urologie-und-unfallchirurgie-kantonsspital-graubunden-chur",
@@ -3882,7 +3799,7 @@
       "postedDate": "2026-02-17",
       "employmentType": "80 - 100%",
       "category": "Gesundheitswesen",
-      "crawledAt": "2026-05-27T23:31:59.853Z",
+      "crawledAt": "2026-05-28T13:13:23.626Z",
       "slug": "responsabile-infermieristico-viscerale-chirurgia-kantonsspital-graubunden-chur",
       "slugByLocale": {
         "de": "pflegefachverantwortliche-r-viszeralchirurgie-kantonsspital-graubunden-chur",
@@ -3949,7 +3866,7 @@
       "postedDate": "2026-02-13",
       "employmentType": "50 - 80%",
       "category": "Gesundheitswesen",
-      "crawledAt": "2026-05-27T23:31:59.853Z",
+      "crawledAt": "2026-05-28T13:13:23.626Z",
       "slug": "analista-biomedico-kantonsspital-graubunden-samedan",
       "slugByLocale": {
         "de": "biomedizinische-r-analytiker-in-kantonsspital-graubunden-samedan",
@@ -4015,7 +3932,7 @@
       "postedDate": "2026-02-09",
       "employmentType": "80 - 100%",
       "category": "Gesundheitswesen",
-      "crawledAt": "2026-05-27T23:31:59.853Z",
+      "crawledAt": "2026-05-28T13:13:23.626Z",
       "slug": "medico-specialista-in-angiologia-kantonsspital-graubunden-chur",
       "slugByLocale": {
         "de": "oberarztin-oberarzt-angiologie-kantonsspital-graubunden-chur",
@@ -4082,7 +3999,7 @@
       "postedDate": "2026-02-04",
       "employmentType": "60 - 100%",
       "category": "Gesundheitswesen",
-      "crawledAt": "2026-05-27T23:31:59.853Z",
+      "crawledAt": "2026-05-28T13:13:23.626Z",
       "slug": "formatore-sanitario-in-medicina-per-la-stazione-privata-kantonsspital-graubunden-chur",
       "slugByLocale": {
         "de": "berufsbildner-in-pflege-medizin-privatstation-kantonsspital-graubunden-chur",
@@ -4148,7 +4065,7 @@
       "postedDate": "2026-02-04",
       "employmentType": "50 - 100%",
       "category": "Gesundheitswesen",
-      "crawledAt": "2026-05-27T23:31:59.853Z",
+      "crawledAt": "2026-05-28T13:13:23.626Z",
       "slug": "medico-specialista-in-endocrinologia-diabetologia-kantonsspital-graubunden-chur",
       "slugByLocale": {
         "de": "oberarztin-oberarzt-endokrinologie-diabetologie-kantonsspital-graubunden-chur",
@@ -4215,7 +4132,7 @@
       "postedDate": "2026-01-20",
       "employmentType": "80 - 100%",
       "category": "Gesundheitswesen",
-      "crawledAt": "2026-05-27T23:31:59.853Z",
+      "crawledAt": "2026-05-28T13:13:23.626Z",
       "slug": "soccorritore-kantonsspital-graubunden-chur",
       "slugByLocale": {
         "de": "rettungssanitater-in-kantonsspital-graubunden-chur",
@@ -4281,7 +4198,7 @@
       "postedDate": "2026-01-16",
       "employmentType": "40 - 100%",
       "category": "Gesundheitswesen",
-      "crawledAt": "2026-05-27T23:31:59.853Z",
+      "crawledAt": "2026-05-28T13:13:23.626Z",
       "slug": "esperta-esperto-di-terapia-intensiva-kantonsspital-graubunden-chur",
       "slugByLocale": {
         "de": "expertin-experte-intensivpflege-kantonsspital-graubunden-chur",
@@ -4347,7 +4264,7 @@
       "postedDate": "2026-01-15",
       "employmentType": "80 - 100%",
       "category": "Gesundheitswesen",
-      "crawledAt": "2026-05-27T23:31:59.853Z",
+      "crawledAt": "2026-05-28T13:13:23.626Z",
       "slug": "infermiere-specializzato-in-chirurgia-vascolare-toracica-mano-e-plastica-kantonsspital-graubunden-chur",
       "slugByLocale": {
         "de": "pflegefachfrau-pflegefachmann-gefass-thorax-hand-und-plastische-chirurgie-kantonsspital-graubunden-chur",
@@ -4413,7 +4330,7 @@
       "postedDate": "2026-01-12",
       "employmentType": "80 - 100%",
       "category": "Gesundheitswesen",
-      "crawledAt": "2026-05-27T23:31:59.853Z",
+      "crawledAt": "2026-05-28T13:13:23.626Z",
       "slug": "responsabile-di-team-gestione-magazzino-sala-operatoria-kantonsspital-graubunden-chur",
       "slugByLocale": {
         "de": "teamleiter-in-op-lagerung-kantonsspital-graubunden-chur",
@@ -4479,7 +4396,7 @@
       "postedDate": "2026-01-09",
       "employmentType": "90 - 100%",
       "category": "Gesundheitswesen",
-      "crawledAt": "2026-05-27T23:31:59.853Z",
+      "crawledAt": "2026-05-28T13:13:23.626Z",
       "slug": "assistente-clinico-in-radiologia-kantonsspital-graubunden-chur",
       "slugByLocale": {
         "de": "klinische-r-assistent-in-radiologie-kantonsspital-graubunden-chur",
@@ -4545,7 +4462,7 @@
       "postedDate": "2026-01-09",
       "employmentType": "80 - 100%",
       "category": "Gesundheitswesen",
-      "crawledAt": "2026-05-27T23:31:59.853Z",
+      "crawledAt": "2026-05-28T13:13:23.626Z",
       "slug": "infermiera-infermiere-specializzata-in-urologia-e-traumatologia-kantonsspital-graubunden-chur",
       "slugByLocale": {
         "de": "pflegefachfrau-pflegefachmann-urologie-und-unfallchirurgie-kantonsspital-graubunden-chur",
@@ -4612,7 +4529,7 @@
       "postedDate": "2026-01-08",
       "employmentType": "100 - 100%",
       "category": "Gesundheitswesen",
-      "crawledAt": "2026-05-27T23:31:59.853Z",
+      "crawledAt": "2026-05-28T13:13:23.626Z",
       "slug": "assistente-medico-in-chirurgia-kantonsspital-graubunden-chur",
       "slugByLocale": {
         "de": "assistenzarztin-assistenzarzt-chirurgie-kantonsspital-graubunden-chur",
@@ -4678,7 +4595,7 @@
       "postedDate": "2026-01-08",
       "employmentType": "100 - 100%",
       "category": "Gesundheitswesen",
-      "crawledAt": "2026-05-27T23:31:59.853Z",
+      "crawledAt": "2026-05-28T13:13:23.626Z",
       "slug": "corso-di-laurea-a-tempo-pieno-in-radiologia-dipl-hf-kantonsspital-graubunden-chur",
       "slugByLocale": {
         "de": "vollzeitstudium-dipl-radiologiefachfrau-radiologiefachmann-hf-kantonsspital-graubunden-chur",
@@ -4744,7 +4661,7 @@
       "postedDate": "2026-01-08",
       "employmentType": "60 - 80%",
       "category": "Gesundheitswesen",
-      "crawledAt": "2026-05-27T23:31:59.853Z",
+      "crawledAt": "2026-05-28T13:13:23.626Z",
       "slug": "tecnico-di-radiologia-specializzato-in-senologia-kantonsspital-graubunden-chur",
       "slugByLocale": {
         "de": "radiologiefachfrau-radiologiefachmann-brustzentrum-kantonsspital-graubunden-chur",
@@ -4810,7 +4727,7 @@
       "postedDate": "2026-01-08",
       "employmentType": "80 - 100%",
       "category": "Gesundheitswesen",
-      "crawledAt": "2026-05-27T23:31:59.853Z",
+      "crawledAt": "2026-05-28T13:13:23.626Z",
       "slug": "operatore-operatrice-sanitario-in-geriatria-acuta-kantonsspital-graubunden-chur",
       "slugByLocale": {
         "de": "fachfrau-fachmann-gesundheit-akutgeriatrie-kantonsspital-graubunden-chur",
@@ -4877,7 +4794,7 @@
       "postedDate": "2025-12-24",
       "employmentType": "100 - 100%",
       "category": "Gesundheitswesen",
-      "crawledAt": "2026-05-27T23:31:59.853Z",
+      "crawledAt": "2026-05-28T13:13:23.626Z",
       "slug": "diploma-di-perfezionamento-in-cure-infermieristiche-anestesiologiche-kantonsspital-graubunden-chur",
       "slugByLocale": {
         "de": "nachdiplomstudium-dipl-expertin-experte-anasthesiepflege-hf-kantonsspital-graubunden-chur",
@@ -4943,7 +4860,7 @@
       "postedDate": "2025-12-24",
       "employmentType": "80 - 100%",
       "category": "Gesundheitswesen",
-      "crawledAt": "2026-05-27T23:31:59.853Z",
+      "crawledAt": "2026-05-28T13:13:23.626Z",
       "slug": "specializzazione-post-diploma-esperto-a-in-cure-intensive-per-adulti-kantonsspital-graubunden-chur",
       "slugByLocale": {
         "de": "nachdiplomstudium-dipl-expertin-experte-intensivpflege-hf-fur-erwachsene-kantonsspital-graubunden-chur",
@@ -5011,7 +4928,7 @@
       "postedDate": "2025-12-19",
       "employmentType": "40 - 100%",
       "category": "Gesundheitswesen",
-      "crawledAt": "2026-05-27T23:31:59.853Z",
+      "crawledAt": "2026-05-28T13:13:23.626Z",
       "slug": "esperta-esperto-in-cure-intensive-pediatriche-kantonsspital-graubunden-chur",
       "slugByLocale": {
         "de": "expertin-experte-intensivpflege-kinderintensivstation-kantonsspital-graubunden-chur",
@@ -5077,7 +4994,7 @@
       "postedDate": "2025-12-10",
       "employmentType": "40 - 100%",
       "category": "Gesundheitswesen",
-      "crawledAt": "2026-05-27T23:31:59.853Z",
+      "crawledAt": "2026-05-28T13:13:23.626Z",
       "slug": "specialista-di-tecnologia-operativa-kantonsspital-graubunden-chur",
       "slugByLocale": {
         "de": "fachfrau-fachmann-operationstechnik-kantonsspital-graubunden-chur",
@@ -5093,9 +5010,9 @@
       },
       "descriptionByLocale": {
         "de": "Starte, wann du möchtest und sei dabei als\n\nAufgaben:\n• Du bereitest Operationen vor und nach, instrumentierst fachgerecht und assistierst bei verschiedensten Eingriffen mit modernster OP-Technik\n\n• Du übernimmst die pflegerische Betreuung der Patientinnen und Patienten in Lokalanästhesie – vor, während und nach der OP\n\n• Du stellst eigenverantwortlich die Hygienestandards sicher, sorgst für sterile Abläufe und kümmerst dich um die medizintechnischen Geräte\n\n• Du koordinierst interprofessionell die Patientenprozesse und sorgst für einen reibungslosen Ablauf im OP-Saal – damit alles rund läuft, von der ersten Minute bis zum Abschluss\n\nAnforderungen:\n• Du bringst ein Diplom als Fachfrau / Fachmann Operationstechnik HF, Pflegefachfrau / Pflegefachmann OP FA oder eine gleichwertige Qualifikation mit\n\n• Du bist physisch und psychisch belastbar, verfügst über gute Konzentrationsfähigkeit und die nötige Ruhe, um auch in hektischen Situationen den Überblick zu behalten\n\n• Dich begeistern modernste Technik wie z.B. Da Vinci-Operationsroboter Xi\n\n• Dir bereitet es Freude selbstständig zu arbeiten, Verantwortung zu übernehmen und in einem heterogenen Team zu arbeiten\n\nDu kannst etwas, was andere nicht können?\nDu machst den Unterschied aus?\nDann gehörst du zu uns!",
-        "it": "Iniziare quando si desidera e essere come un compito: • Preparare le operazioni prima e dopo, dotare professionalmente e assistere con una varietà di interventi con la più moderna tecnica chirurgica • Si prende cura di pazienti in anestesia locale prima, durante e dopo l'intervento chirurgico • Assicurare i propri standard di igiene, garantire procedure sterili e prendersi cura di dispositivi medici • Coordinate i processi del paziente in modo interprofessionale e assicurate un buon funzionamento nella sala OP – così tutto va arrotondato, dal primo minuto alla conclusione Requisiti: • Portate un diploma come specialista / tecnologia chirurgica operaia qualificata HF, specialista di allattamento OP FA o una qualifica equivalente con • Sei fisicamente e psicologicamente resiliente, hai una buona concentrazione e il riposo necessario per mantenere una panoramica anche in situazioni frenetiche • Sei entusiasta della tecnologia all'avanguardia come i robot Da Vinci • Si sta preparando a lavorare in modo indipendente, prendere la responsabilità e lavorare in una squadra eterogenea Si può fare qualcosa che gli altri non possono? Fai la differenza? Allora appartieni a noi!",
+        "it": "Iniziare quando si desidera e essere come un compito:\n• Preparare le operazioni prima e dopo, dotare professionalmente e assistere con una varietà di interventi con la più moderna tecnica chirurgica\n• Si prende cura di pazienti in anestesia locale prima, durante e dopo l'intervento chirurgico\n• Assicurare i propri standard di igiene, garantire procedure sterili e prendersi cura di dispositivi medici\n• Coordinate i processi del paziente in modo interprofessionale e assicurate un buon funzionamento nella sala OP – così tutto va arrotondato, dal primo minuto alla conclusione Requisiti:\n• Portate un diploma come specialista / tecnologia chirurgica operaia qualificata HF, specialista di allattamento OP FA o una qualifica equivalente con\n• Sei fisicamente e psicologicamente resiliente, hai una buona concentrazione e il riposo necessario per mantenere una panoramica anche in situazioni frenetiche\n• Sei entusiasta della tecnologia all'avanguardia come i robot Da Vinci\n• Si sta preparando a lavorare in modo indipendente, prendere la responsabilità e lavorare in una squadra eterogenea Si può fare qualcosa che gli altri non possono? Fai la differenza? Allora appartieni a noi!",
         "en": "Start when you want and be as\n\nTasks:\n• You prepare operations before and after, perform professionally and assist with a variety of interventions with the most modern surgical technique\n\n• You take care of patients in local anaesthesia before, during and after surgery\n\n• You ensure the hygiene standards by yourself, ensure sterile procedures and take care of the medical devices\n\n• You coordinate patient processes interprofessionally and ensure a smooth run in the OP room – so everything goes round, from the first minute to the conclusion\n\nRequirements:\n• You bring a diploma as a specialist / expert surgical technique HF, nursing professional / nursing professional OP FA or an equivalent qualification with\n\n• You are physically and psychologically resilient, have good concentration and the necessary rest to keep an overview even in hectic situations\n\n• You're thrilling with state-of-the-art technology such as Da Vinci surgical robot Xi\n\n• You are prepared to work independently, take responsibility and work in a heterogeneous team\n\nYou can do something that others can't?\nYou make the difference?\nThen you belong to us!",
-        "fr": "Commencez quand vous voulez et soyez comme une tâche: • Vous préparez les opérations avant et après, équipez professionnellement et aidez avec une variété d'interventions avec la technique chirurgicale la plus moderne • Vous prenez soin des patients en anesthésie locale avant, pendant et après l'opération • Vous assurez vos propres normes d'hygiène, vous assurez des procédures stériles et prenez soin des dispositifs médicaux • Vous coordonnez les processus de patient interprofessionnels et vous assurez un bon fonctionnement dans la salle OP – tout va donc de la première minute à la conclusion Exigences: • Vous apportez un diplôme en tant que spécialiste / travailleur qualifié technologie chirurgicale HF, spécialiste en soins infirmiers OP FA ou une qualification équivalente avec • Vous êtes physiquement et psychologiquement résilient, avez une bonne concentration et le repos nécessaire pour garder un aperçu même dans des situations mouvementées • Vous êtes passionnant avec la technologie de pointe comme les robots Da Vinci • Vous vous préparez à travailler de manière indépendante, à prendre des responsabilités et à travailler dans une équipe hétérogène Vous pouvez faire quelque chose que d'autres ne peuvent pas faire? Tu fais la différence ? Alors tu nous appartiens !"
+        "fr": "Commencez quand vous voulez et soyez comme une tâche:\n• Vous préparez les opérations avant et après, équipez professionnellement et aidez avec une variété d'interventions avec la technique chirurgicale la plus moderne\n• Vous prenez soin des patients en anesthésie locale avant, pendant et après l'opération\n• Vous assurez vos propres normes d'hygiène, vous assurez des procédures stériles et prenez soin des dispositifs médicaux\n• Vous coordonnez les processus de patient interprofessionnels et vous assurez un bon fonctionnement dans la salle OP – tout va donc de la première minute à la conclusion Exigences:\n• Vous apportez un diplôme en tant que spécialiste / travailleur qualifié technologie chirurgicale HF, spécialiste en soins infirmiers OP FA ou une qualification équivalente avec\n• Vous êtes physiquement et psychologiquement résilient, avez une bonne concentration et le repos nécessaire pour garder un aperçu même dans des situations mouvementées\n• Vous êtes passionnant avec la technologie de pointe comme les robots Da Vinci\n• Vous vous préparez à travailler de manière indépendante, à prendre des responsabilités et à travailler dans une équipe hétérogène Vous pouvez faire quelque chose que d'autres ne peuvent pas faire? Tu fais la différence ? Alors tu nous appartiens !"
       },
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -5154,7 +5071,7 @@
       "postedDate": "2025-12-08",
       "employmentType": "80 - 100%",
       "category": "Gesundheitswesen",
-      "crawledAt": "2026-05-27T23:31:59.853Z",
+      "crawledAt": "2026-05-28T13:13:23.626Z",
       "slug": "primario-a-di-medicina-d-urgenza-clinica-kantonsspital-graubunden-chur",
       "slugByLocale": {
         "de": "oberarztin-oberarzt-mbf-klinische-notfallmedizin-kantonsspital-graubunden-chur",
@@ -5221,7 +5138,7 @@
       "postedDate": "2025-11-12",
       "employmentType": "80 - 100%",
       "category": "Gesundheitswesen",
-      "crawledAt": "2026-05-27T23:31:59.853Z",
+      "crawledAt": "2026-05-28T13:13:23.626Z",
       "slug": "medico-in-formazione-specialistica-in-radiologia-kantonsspital-graubunden-chur",
       "slugByLocale": {
         "de": "assistenzarztin-assistenzarzt-radiologie-kantonsspital-graubunden-chur",
@@ -5287,7 +5204,7 @@
       "postedDate": "2025-11-04",
       "employmentType": "80 - 100%",
       "category": "Gesundheitswesen",
-      "crawledAt": "2026-05-27T23:31:59.853Z",
+      "crawledAt": "2026-05-28T13:13:23.626Z",
       "slug": "specializzando-in-radiologia-cardiaca-e-toracica-kantonsspital-graubunden-chur",
       "slugByLocale": {
         "de": "fellow-kardiale-thorakale-radiologie-kantonsspital-graubunden-chur",
@@ -5353,7 +5270,7 @@
       "postedDate": "2025-10-15",
       "employmentType": "80 - 100%",
       "category": "Gesundheitswesen",
-      "crawledAt": "2026-05-27T23:31:59.853Z",
+      "crawledAt": "2026-05-28T13:13:23.626Z",
       "slug": "ingegnere-di-rete-ict-kantonsspital-graubunden-chur",
       "slugByLocale": {
         "de": "ict-network-engineer-kantonsspital-graubunden-chur",
@@ -5419,7 +5336,7 @@
       "postedDate": "2025-10-12",
       "employmentType": "80 - 100%",
       "category": "Gesundheitswesen",
-      "crawledAt": "2026-05-27T23:31:59.853Z",
+      "crawledAt": "2026-05-28T13:13:23.626Z",
       "slug": "fachfrau-fachmann-operationstechnik-kantonsspital-graubunden-chur",
       "slugByLocale": {
         "de": "fachfrau-fachmann-operationstechnik-kantonsspital-graubunden-chur",
@@ -5480,7 +5397,7 @@
       "postedDate": "2025-09-10",
       "employmentType": "80 - 100%",
       "category": "Gesundheitswesen",
-      "crawledAt": "2026-05-27T23:31:59.853Z",
+      "crawledAt": "2026-05-28T13:13:23.626Z",
       "slug": "infermiera-infermiere-specializzata-in-chirurgia-viscerale-kantonsspital-graubunden-chur",
       "slugByLocale": {
         "de": "pflegefachfrau-pflegefachmann-viszeralchirurgie-kantonsspital-graubunden-chur",
@@ -5519,6 +5436,7 @@
           "pflegefachfrau-pflegefachmann-viszeralchirurgie-kantonsspital-graubunden-chur"
         ]
       },
+      "needsRetranslation": true,
       "_targetScope": "grigioni",
       "salaryMin": 41080,
       "salaryMax": 75000,
@@ -5545,7 +5463,7 @@
       "postedDate": "2025-09-10",
       "employmentType": "80 - 100%",
       "category": "Gesundheitswesen",
-      "crawledAt": "2026-05-27T23:31:59.853Z",
+      "crawledAt": "2026-05-28T13:13:23.626Z",
       "slug": "infermiera-infermiere-di-neurochirurgia-clinica-orl-kantonsspital-graubunden-chur",
       "slugByLocale": {
         "de": "pflegefachfrau-pflegefachmann-neurochirurgie-hals-nasen-ohrenklinik-kantonsspital-graubunden-chur",
@@ -5611,7 +5529,7 @@
       "postedDate": "2025-09-10",
       "employmentType": "20 - 20%",
       "category": "Gesundheitswesen",
-      "crawledAt": "2026-05-27T23:31:59.853Z",
+      "crawledAt": "2026-05-28T13:13:23.626Z",
       "slug": "psicologa-psicologo-kantonsspital-graubunden-chur",
       "slugByLocale": {
         "de": "psychologin-psychologe-kantonsspital-graubunden-chur",
@@ -5677,7 +5595,7 @@
       "postedDate": "2025-08-13",
       "employmentType": "80 - 100%",
       "category": "Gesundheitswesen",
-      "crawledAt": "2026-05-27T23:31:59.853Z",
+      "crawledAt": "2026-05-28T13:13:23.626Z",
       "slug": "fellow-in-radiologia-muscoloscheletrica-kantonsspital-graubunden-chur",
       "slugByLocale": {
         "de": "fellow-muskuloskelettale-radiologie-kantonsspital-graubunden-chur",
@@ -5743,7 +5661,7 @@
       "postedDate": "2025-08-11",
       "employmentType": "40 - 90%",
       "category": "Gesundheitswesen",
-      "crawledAt": "2026-05-27T23:31:59.853Z",
+      "crawledAt": "2026-05-28T13:13:23.626Z",
       "slug": "infermiere-oncologico-kantonsspital-graubunden-chur",
       "slugByLocale": {
         "de": "cancer-care-nurse-onkologie-kantonsspital-graubunden-chur",
@@ -5809,7 +5727,7 @@
       "postedDate": "2025-07-10",
       "employmentType": "30 - 80%",
       "category": "Gesundheitswesen",
-      "crawledAt": "2026-05-27T23:31:59.853Z",
+      "crawledAt": "2026-05-28T13:13:23.626Z",
       "slug": "medico-specialista-in-ginecologia-con-focus-in-medicina-della-riproduzione-kantonsspital-graubunden-chur",
       "slugByLocale": {
         "de": "facharztin-facharzt-gynakologie-mit-schwerpunkt-reproduktionsmedizin-kantonsspital-graubunden-chur",
@@ -5875,7 +5793,7 @@
       "postedDate": "2025-06-22",
       "employmentType": "100 - Standort%",
       "category": "Gesundheitswesen",
-      "crawledAt": "2026-05-27T23:31:59.853Z",
+      "crawledAt": "2026-05-28T13:13:23.626Z",
       "slug": "medico-in-formazione-specialistica-in-medicina-intensiva-kantonsspital-graubunden-chur",
       "slugByLocale": {
         "de": "assistenzarztin-assistenzarzt-intensivmedizin-kantonsspital-graubunden-chur",
@@ -5941,7 +5859,7 @@
       "postedDate": "2025-05-04",
       "employmentType": "100",
       "category": "Gesundheitswesen",
-      "crawledAt": "2026-05-27T23:31:59.853Z",
+      "crawledAt": "2026-05-28T13:13:23.626Z",
       "slug": "cucina-professionale-cuoco-kantonsspital-graubunden-chur",
       "slugByLocale": {
         "de": "berufslehre-kochin-koch-kantonsspital-graubunden-chur",
@@ -6019,7 +5937,7 @@
       "postedDate": "2025-04-23",
       "employmentType": "80 - 100%",
       "category": "Gesundheitswesen",
-      "crawledAt": "2026-05-27T23:31:59.853Z",
+      "crawledAt": "2026-05-28T13:13:23.626Z",
       "slug": "assistente-medico-in-anatomia-patologica-kantonsspital-graubunden-chur",
       "slugByLocale": {
         "de": "assistenzarztin-assistenzarzt-pathologie-kantonsspital-graubunden-chur",
@@ -6085,7 +6003,7 @@
       "postedDate": "2025-04-11",
       "employmentType": "60 - 100%",
       "category": "Gesundheitswesen",
-      "crawledAt": "2026-05-27T23:31:59.853Z",
+      "crawledAt": "2026-05-28T13:13:23.626Z",
       "slug": "medico-cadre-in-neuropediatria-kantonsspital-graubunden-chur",
       "slugByLocale": {
         "de": "kaderarztin-kaderarzt-neuropadiatrie-kantonsspital-graubunden-chur",
@@ -6151,7 +6069,7 @@
       "postedDate": "2025-03-17",
       "employmentType": "80 - 100%",
       "category": "Gesundheitswesen",
-      "crawledAt": "2026-05-27T23:31:59.853Z",
+      "crawledAt": "2026-05-28T13:13:23.627Z",
       "slug": "radiologiefachfrau-radiologiefachmann-diagnostik-kantonsspital-graubunden-chur",
       "slugByLocale": {
         "de": "radiologiefachfrau-radiologiefachmann-diagnostik-kantonsspital-graubunden-chur",
@@ -6194,6 +6112,7 @@
           "technicien-en-radiologie-diagnostique-kantonsspital-graubunden-chur"
         ]
       },
+      "needsRetranslation": true,
       "_targetScope": "grigioni",
       "salaryMin": 41080,
       "salaryMax": 75000,
@@ -6220,7 +6139,7 @@
       "postedDate": "2025-02-24",
       "employmentType": "100 - 100%",
       "category": "Gesundheitswesen",
-      "crawledAt": "2026-05-27T23:31:59.853Z",
+      "crawledAt": "2026-05-28T13:13:23.627Z",
       "slug": "tirocinio-di-assistenza-infermieristica-durante-gli-studi-di-medicina-kantonsspital-graubunden-chur",
       "slugByLocale": {
         "de": "pflegepraktikant-in-wahrend-medizinstudium-34-hafelipraktikum-34-kantonsspital-graubunden-chur",
@@ -6286,7 +6205,7 @@
       "postedDate": "2025-02-20",
       "employmentType": "80 - 100%",
       "category": "Gesundheitswesen",
-      "crawledAt": "2026-05-27T23:31:59.853Z",
+      "crawledAt": "2026-05-28T13:13:23.627Z",
       "slug": "medico-in-formazione-specialistica-in-radioterapia-oncologica-kantonsspital-graubunden-chur",
       "slugByLocale": {
         "de": "assistenzarztin-assistenzarzt-radio-onkologie-kantonsspital-graubunden-chur",
@@ -6354,7 +6273,7 @@
       "postedDate": "2025-02-13",
       "employmentType": "100%",
       "category": "Gesundheitswesen",
-      "crawledAt": "2026-05-27T23:31:59.853Z",
+      "crawledAt": "2026-05-28T13:13:23.627Z",
       "slug": "medico-in-formazione-specialistica-in-medicina-generale-programma-capricorn-kantonsspital-graubunden-chur",
       "slugByLocale": {
         "de": "assistenzarztin-assistenzarzt-hausarztmedizin-programm-capricorn-kantonsspital-graubunden-chur",
@@ -6420,7 +6339,7 @@
       "postedDate": "2025-02-13",
       "employmentType": "100%",
       "category": "Gesundheitswesen",
-      "crawledAt": "2026-05-27T23:31:59.854Z",
+      "crawledAt": "2026-05-28T13:13:23.627Z",
       "slug": "medico-in-formazione-specialistica-in-medicina-generale-programma-di-formazione-per-medici-di-famiglia-kantonsspital-gra",
       "slugByLocale": {
         "de": "assistenzarztin-assistenzarzt-hausarztmedizin-programm-hausarztcurriculum-kantonsspital-graubunden-chur",
@@ -6486,7 +6405,7 @@
       "postedDate": "2025-01-31",
       "employmentType": "80 - 100%",
       "category": "Gesundheitswesen",
-      "crawledAt": "2026-05-27T23:31:59.854Z",
+      "crawledAt": "2026-05-28T13:13:23.627Z",
       "slug": "medico-assistente-in-ginecologia-e-ostetricia-kantonsspital-graubunden-chur",
       "slugByLocale": {
         "de": "assistenzarztin-assistenzarzt-gynakologie-und-geburtshilfe-kantonsspital-graubunden-chur",
@@ -6552,7 +6471,7 @@
       "postedDate": "2024-12-19",
       "employmentType": "80 - 100%",
       "category": "Gesundheitswesen",
-      "crawledAt": "2026-05-27T23:31:59.854Z",
+      "crawledAt": "2026-05-28T13:13:23.627Z",
       "slug": "medico-assistente-in-pediatria-e-medicina-dell-adolescenza-kantonsspital-graubunden-chur",
       "slugByLocale": {
         "de": "assistenzarztin-assistenzarzt-kinder-und-jugendmedizin-kantonsspital-graubunden-chur",
@@ -6618,7 +6537,7 @@
       "postedDate": "2024-11-18",
       "employmentType": "50 - 100%",
       "category": "Gesundheitswesen",
-      "crawledAt": "2026-05-27T23:31:59.854Z",
+      "crawledAt": "2026-05-28T13:13:23.627Z",
       "slug": "parrucchiera-parrucchiere-kantonsspital-graubunden-chur",
       "slugByLocale": {
         "de": "coiffeuse-coiffeur-kantonsspital-graubunden-chur",
@@ -6684,7 +6603,7 @@
       "postedDate": "2024-11-18",
       "employmentType": "60 - 100%",
       "category": "Gesundheitswesen",
-      "crawledAt": "2026-05-27T23:31:59.854Z",
+      "crawledAt": "2026-05-28T13:13:23.627Z",
       "slug": "medico-dirigente-in-terapia-intensiva-pediatrica-o-neonatologia-kantonsspital-graubunden-chur",
       "slugByLocale": {
         "de": "leitende-r-arztin-arzt-padiatrische-intensivmedizin-oder-neonatologie-kantonsspital-graubunden-chur",
@@ -6754,7 +6673,7 @@
       "postedDate": "2024-10-03",
       "employmentType": "40 - 100%",
       "category": "Gesundheitswesen",
-      "crawledAt": "2026-05-27T23:31:59.854Z",
+      "crawledAt": "2026-05-28T13:13:23.627Z",
       "slug": "pflegefachfrau-pflegefachmann-intermediate-care-kantonsspital-graubunden-chur",
       "slugByLocale": {
         "de": "pflegefachfrau-pflegefachmann-intermediate-care-kantonsspital-graubunden-chur",
@@ -6785,6 +6704,7 @@
         }
       },
       "featured": false,
+      "needsRetranslation": true,
       "_targetScope": "grigioni",
       "salaryMin": 41080,
       "salaryMax": 75000,
@@ -6811,7 +6731,7 @@
       "postedDate": "2024-08-23",
       "employmentType": "100 - 100%",
       "category": "Gesundheitswesen",
-      "crawledAt": "2026-05-27T23:31:59.854Z",
+      "crawledAt": "2026-05-28T13:13:23.627Z",
       "slug": "corso-di-laurea-a-tempo-pieno-in-infermiere-specializzato-in-pediatria-e-salute-familiare-kantonsspital-graubunden-chur",
       "slugByLocale": {
         "de": "vollzeitstudium-pflegefachfrau-pflegefachmann-hf-mit-schwerpunkt-kjff-kantonsspital-graubunden-chur",
@@ -6879,7 +6799,7 @@
       "postedDate": "2024-08-23",
       "employmentType": "100 - 100%",
       "category": "Gesundheitswesen",
-      "crawledAt": "2026-05-27T23:31:59.854Z",
+      "crawledAt": "2026-05-28T13:13:23.627Z",
       "slug": "tirocinante-maturita-professionale-specializzata-in-sanita-kantonsspital-graubunden-chur",
       "slugByLocale": {
         "de": "praktikant-in-fachmaturitat-gesundheit-kantonsspital-graubunden-chur",
@@ -6945,7 +6865,7 @@
       "postedDate": "2024-08-22",
       "employmentType": "100 - 100%",
       "category": "Gesundheitswesen",
-      "crawledAt": "2026-05-27T23:31:59.854Z",
+      "crawledAt": "2026-05-28T13:13:23.627Z",
       "slug": "corso-di-laurea-a-tempo-pieno-in-infermieristica-hf-kantonsspital-graubunden-chur",
       "slugByLocale": {
         "de": "vollzeitstudium-pflegefachfrau-pflegefachmann-hf-kantonsspital-graubunden-chur",
@@ -7011,7 +6931,7 @@
       "postedDate": "2024-06-07",
       "employmentType": "100 - 100%",
       "category": "Gesundheitswesen",
-      "crawledAt": "2026-05-27T23:31:59.854Z",
+      "crawledAt": "2026-05-28T13:13:23.627Z",
       "slug": "tirocinante-in-room-service-kantonsspital-graubunden-chur",
       "slugByLocale": {
         "de": "kaderpraktikant-in-room-service-kantonsspital-graubunden-chur",
@@ -7077,7 +6997,7 @@
       "postedDate": "2024-05-02",
       "employmentType": "90 - 100%",
       "category": "Gesundheitswesen",
-      "crawledAt": "2026-05-27T23:31:59.854Z",
+      "crawledAt": "2026-05-28T13:13:23.627Z",
       "slug": "corso-post-diploma-esperto-a-in-cure-intensive-pediatriche-nds-hf-kantonsspital-graubunden-chur",
       "slugByLocale": {
         "de": "nachdiplomstudium-dipl-expertin-experte-intensivpflege-hf-fur-padiatrie-kantonsspital-graubunden-chur",
@@ -7143,7 +7063,7 @@
       "postedDate": "2024-03-11",
       "employmentType": "100 - 100%",
       "category": "Gesundheitswesen",
-      "crawledAt": "2026-05-27T23:31:59.854Z",
+      "crawledAt": "2026-05-28T13:13:23.627Z",
       "slug": "tirocinio-in-farmacia-kantonsspital-graubunden-chur",
       "slugByLocale": {
         "de": "pharmaziepraktikant-in-kantonsspital-graubunden-chur",
@@ -7209,7 +7129,7 @@
       "postedDate": "2023-03-23",
       "employmentType": "Vollzeit, Teilzeit möglich",
       "category": "Gesundheitswesen",
-      "crawledAt": "2026-05-27T23:31:59.854Z",
+      "crawledAt": "2026-05-28T13:13:23.627Z",
       "slug": "volontario-a-kantonsspital-graubunden-chur",
       "slugByLocale": {
         "de": "freiwillige-r-helfer-in-kantonsspital-graubunden-chur",
@@ -7275,7 +7195,7 @@
       "postedDate": "2023-03-21",
       "employmentType": "100 - 100",
       "category": "Gesundheitswesen",
-      "crawledAt": "2026-05-27T23:31:59.854Z",
+      "crawledAt": "2026-05-28T13:13:23.627Z",
       "slug": "assistenti-in-formazione-kantonsspital-graubunden-chur",
       "slugByLocale": {
         "de": "unterassistentinnen-und-unterassistenten-kantonsspital-graubunden-chur",
@@ -7342,7 +7262,7 @@
       "postedDate": "2023-03-09",
       "employmentType": "100",
       "category": "Gesundheitswesen",
-      "crawledAt": "2026-05-27T23:31:59.854Z",
+      "crawledAt": "2026-05-28T13:13:23.627Z",
       "slug": "corso-di-laurea-a-tempo-pieno-in-tecnico-a-di-sala-operatoria-dipl-hf-kantonsspital-graubunden-chur",
       "slugByLocale": {
         "de": "vollzeitstudium-dipl-fachfrau-fachmann-operationstechnik-hf-kantonsspital-graubunden-chur",
@@ -7408,7 +7328,7 @@
       "postedDate": "2023-03-06",
       "employmentType": "Standort%",
       "category": "Gesundheitswesen",
-      "crawledAt": "2026-05-27T23:31:59.854Z",
+      "crawledAt": "2026-05-28T13:13:23.627Z",
       "slug": "formazione-dipl-analista-biomedico-a-hf-kantonsspital-graubunden-chur",
       "slugByLocale": {
         "de": "weiterbildung-dipl-biomedizinische-r-analytiker-in-hf-kantonsspital-graubunden-chur",
@@ -7474,7 +7394,7 @@
       "postedDate": "2023-03-02",
       "employmentType": "Standort%",
       "category": "Gesundheitswesen",
-      "crawledAt": "2026-05-27T23:31:59.854Z",
+      "crawledAt": "2026-05-28T13:13:23.627Z",
       "slug": "corso-di-laurea-a-tempo-pieno-in-infermiere-professionale-hf-kantonsspital-graubunden-walenstadt",
       "slugByLocale": {
         "de": "vollzeitstudium-pflegefachfrau-pflegefachmann-hf-kantonsspital-graubunden-walenstadt",
@@ -7540,7 +7460,7 @@
       "postedDate": "2023-03-02",
       "employmentType": "Standort%",
       "category": "Gesundheitswesen",
-      "crawledAt": "2026-05-27T23:31:59.854Z",
+      "crawledAt": "2026-05-28T13:13:23.627Z",
       "slug": "anno-di-pratica-strutturato-kantonsspital-graubunden-chur",
       "slugByLocale": {
         "de": "strukturiertes-praxisjahr-kantonsspital-graubunden-chur",
