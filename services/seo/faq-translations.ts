@@ -1997,6 +1997,20 @@ export const FAQ_TRANSLATIONS: FaqLocaleMap = {
  a: "Swisscom, Salt et Sunrise incluent le roaming européen (Italie comprise) dans leurs forfaits premium. Yallo et Wingo proposent des forfaits avec roaming UE dès CHF 19.95/mois. Vérifiez toujours les conditions spécifiques."
  }
  },
+ "Quale operatore italiano include il roaming in Svizzera per frontalieri?": {
+ en: {
+ q: "Which Italian operator includes Switzerland roaming for cross-border workers?",
+ a: "Since September 2025, Vodafone Italy (32 GB CH included in the Start plan at €9.95), Fastweb Mobile (32 GB CH at €9.95) and ho. Mobile (Roam-Like-Home CH from 8 September 2025) apply national conditions in Switzerland too. Spusu Oltreconfine includes 10 GB dedicated CH data plus 2000 minutes to CH numbers at €9.98/month."
+ },
+ de: {
+ q: "Welcher italienische Mobilfunkanbieter beinhaltet das Schweiz-Roaming für Grenzgänger?",
+ a: "Seit September 2025 wenden Vodafone Italien (32 GB CH im Start-Tarif für 9,95 €), Fastweb Mobile (32 GB CH für 9,95 €) und ho. Mobile (Roam-Like-Home CH ab 8. September 2025) auch in der Schweiz die nationalen Bedingungen an. Spusu Oltreconfine bietet 10 GB dedizierte CH-Daten plus 2000 Minuten zu CH-Nummern für 9,98 €/Monat."
+ },
+ fr: {
+ q: "Quel opérateur italien inclut le roaming en Suisse pour les frontaliers ?",
+ a: "Depuis septembre 2025, Vodafone Italie (32 Go CH inclus dans le forfait Start à 9,95 €), Fastweb Mobile (32 Go CH à 9,95 €) et ho. Mobile (Roam-Like-Home CH dès le 8 septembre 2025) appliquent aussi les conditions nationales en Suisse. Spusu Oltreconfine inclut 10 Go dédiés CH et 2000 minutes vers les numéros CH à 9,98 €/mois."
+ }
+ },
  "Quanto costa un abbonamento mobile in Svizzera per frontalieri?": {
  en: {
  q: "How much does a mobile plan cost in Switzerland for cross-border workers?",
