@@ -1,64 +1,20 @@
 {
   "key": "ermenegildo-zegna-logistica",
   "label": "Zegna",
-  "generatedAt": "2026-05-27T14:26:39.572Z",
+  "generatedAt": "2026-05-28T00:52:38.904Z",
   "total": 2,
   "newCount": 0,
   "updatedCount": 0,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 6259,
-  "avgDurationMs": 6259,
+  "durationMs": 6518,
+  "avgDurationMs": 6518,
   "durationHistory": [
-    6259
+    6518
   ],
   "newJobs": [],
   "updatedJobs": [],
-  "removedJobs": [
-    {
-      "url": "https://careers.zegnagroup.com/jobs/job-details?JobID=266304035&Team=231361275",
-      "applyUrl": "https://careers.zegnagroup.com/jobs/job-details?JobID=266304035&Team=231361275",
-      "title": "IT Sales Project Manager",
-      "company": "Ermenegildo Zegna Group",
-      "companyKey": "ermenegildo-zegna-logistica",
-      "location": "Stabio",
-      "canton": "TI",
-      "country": "CH",
-      "slug": "manager-progetti-it-sales-ermenegildo-zegna-group-stabio",
-      "department": "Corporate and Staff Functions/Information Technology",
-      "category": "Corporate and Staff Functions/Information Technology",
-      "datePosted": "2026-04-02",
-      "source": "zegna-careers-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "",
-      "sector": "IT",
-      "brand": "Zegna",
-      "contractType": "Permanent Job",
-      "_targetScope": {
-        "canton": "TI",
-        "location": "Stabio"
-      },
-      "crawledAt": "",
-      "sourceLang": "en",
-      "salaryMin": 72000,
-      "salaryMax": 97000,
-      "currency": "CHF",
-      "streetAddress": "Via Lugano 13",
-      "postalCode": "6855",
-      "addressLocality": "Stabio",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "id": "ermenegildo-zegna-logistica-debbf7175cfe",
-      "firstSeenAt": "2026-04-13T22:40:41.511Z",
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 20
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "url": "https://careers.zegnagroup.com/jobs/job-details?JobID=267802502&Team=231361275",
