@@ -73,7 +73,7 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "tschuggen-569e89ca49d1",
@@ -138,7 +138,7 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "tschuggen-01d1354d56c4",
@@ -212,7 +212,7 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "tschuggen-8d1a677afc27",
@@ -286,7 +286,7 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "tschuggen-b8ea0b25f793",
@@ -360,7 +360,7 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "tschuggen-f50e3b0b4f33",
@@ -436,7 +436,7 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "tschuggen-aab5770d3181",
@@ -501,7 +501,7 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "tschuggen-f9f0ae3ba780",
@@ -566,7 +566,7 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "tschuggen-2e54f859be33",
@@ -633,13 +633,13 @@
         }
       },
       "firstSeenAt": "2026-05-28T00:43:20.731Z",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "tschuggen-9d2cf0abe326",
       "slug": "account-manager-m-w-d-tschuggen-collection-ascona",
       "slugByLocale": {
-        "it": "account-manager-m-w-d-tschuggen-collection-ascona",
+        "it": "etagen-portier-m-w-d-tschuggen-ch",
         "en": "etagen-portier-m-w-d-tschuggen-ch",
         "de": "etagen-portier-m-w-d-tschuggen-collection-ascona",
         "fr": "gestionnaire-de-compte-m-w-d-tschuggen-collection-ascona"
@@ -689,13 +689,12 @@
         ],
         "de": [
           "etagen-portier-m-w-d-tschuggen-ch"
-        ],
-        "it": [
-          "etagen-portier-m-w-d-tschuggen-ch"
         ]
       },
       "previousSlugs": [
-        "etagen-portier-m-w-d-tschuggen-ch"
+        "etagen-portier-m-w-d-tschuggen-ch",
+        "gestionnaire-de-compte-m-w-d-tschuggen-collection-ascona",
+        "account-manager-m-w-d-tschuggen-collection-ascona"
       ],
       "firstSeenAt": "2026-05-06T11:50:09.955Z",
       "salaryMin": 68000,
