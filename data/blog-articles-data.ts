@@ -24878,4 +24878,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'tram-treno-ricorso-zali',
+ category: 'novita',
+ date: '2026-05-28T06:21:29.120Z',
+ image: '/images/blog/tram-treno-ricorso-zali.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

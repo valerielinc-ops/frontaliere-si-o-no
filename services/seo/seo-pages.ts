@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2666,
+ "numberOfItems": 2667,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7306,7 +7306,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2663, "name": "Mostre più libere: il Padiglione italiano di Gu...", "url": `${BASE_URL}/articoli-frontaliere/mostre-nuove-virtu-e-limit-padiglione-italiano-guendalina-salimei` },
           { "@type": "ListItem", "position": 2664, "name": "TILO: cambi di percorso per Malpensa il 30-31 m...", "url": `${BASE_URL}/articoli-frontaliere/tilo-gallarate-malpensa-maggio-2026` },
           { "@type": "ListItem", "position": 2665, "name": "Indipendenza finanziaria e pensionamento antici...", "url": `${BASE_URL}/articoli-frontaliere/indipendenza-finanziaria-ticino` },
-          { "@type": "ListItem", "position": 2666, "name": "Intelligenza artificiale in Ticino: impatti sul...", "url": `${BASE_URL}/articoli-frontaliere/ia-aziende-svizzere-occupazione-ticino` }
+          { "@type": "ListItem", "position": 2666, "name": "Intelligenza artificiale in Ticino: impatti sul...", "url": `${BASE_URL}/articoli-frontaliere/ia-aziende-svizzere-occupazione-ticino` },
+          { "@type": "ListItem", "position": 2667, "name": "Tram-treno, ancora un ricorso. Zali: «Contestaz...", "url": `${BASE_URL}/articoli-frontaliere/tram-treno-ricorso-zali` }
  ]
  },
  {
