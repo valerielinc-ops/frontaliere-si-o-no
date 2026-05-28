@@ -15,7 +15,7 @@ import { writeJobsCrawlerSlice, writeSummaryCrawlerSlice,
 } from './assemble-jobs-dataset.mjs';
 import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, mergeLocaleTextMap, detectLang } from './lib/dedicated-crawler-common.mjs';
 import { parseListingPage, parseDetailPage, slugify, detectCategory, detectExperienceLevel, inferEmploymentType, MIN_DESC_LENGTH } from './lib/sintetica-job-parser.mjs';
-import { getCompanyDefaults, normalizeAnyCantonCode, isTargetCanton } from './lib/crawler-location-config.mjs';
+import { normalizeAnyCantonCode, isTargetCanton } from './lib/crawler-location-config.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -24,13 +24,35 @@ const PUBLIC_JOBS = path.resolve(ROOT, 'public', 'data', 'jobs.json');
 const ADAPTERS_DIR = path.resolve(ROOT, 'data', 'jobs-crawler-adapters', 'adapters');
 
 const COMPANY_KEY = 'sintetica';
-const HQ = getCompanyDefaults('sintetica');
 const COMPANY_NAME = 'Sintetica SA';
 const COMPANY_HOST = 'app.ncoreplat.com';
 const CAREERS_URL = 'https://app.ncoreplat.com/jobboard/1255/sintetica';
 const LOCALES = ['it', 'en', 'de', 'fr'];
 
+// Sintetica operates two Swiss production sites; address attribution must
+// follow the site named in the job title, not the HQ default.
+export const SINTETICA_SITES = {
+  mendrisio: {
+    location: 'Mendrisio', addressLocality: 'Mendrisio',
+    canton: 'TI', addressRegion: 'TI', addressCountry: 'CH',
+    postalCode: '6850', streetAddress: 'Via Penate 5',
+  },
+  couvet: {
+    location: 'Couvet', addressLocality: 'Couvet',
+    canton: 'NE', addressRegion: 'NE', addressCountry: 'CH',
+    postalCode: '2108', streetAddress: "Rue de l'Ecluse 28",
+  },
+};
+
 function normalize(v = '') { return String(v || '').trim().toLowerCase(); }
+
+/** Detect Sintetica production site from job title. Returns 'mendrisio' | 'couvet' | ''. */
+export function detectSinteticaSite(title = '') {
+  const t = normalize(title);
+  if (/\bcouvet\b/.test(t)) return 'couvet';
+  if (/\bmendrisio\b/.test(t)) return 'mendrisio';
+  return '';
+}
 
 /** Extract canton from title patterns like "... - Mendrisio site (Ticino)" or "... (Neuchâtel)" */
 function detectCantonFromTitle(title = '') {
@@ -70,7 +92,22 @@ async function fetchJobs() {
 
   const jobs = [];
   for (const raw of listings) {
-    // Skip jobs at non-target-canton sites (e.g. Couvet/Neuchâtel)
+    // Resolve the production site from the title (Mendrisio vs Couvet).
+    // Default to Mendrisio when the title has no site marker (HQ + most postings).
+    const siteKey = detectSinteticaSite(raw.title) || 'mendrisio';
+    const site = SINTETICA_SITES[siteKey];
+    if (!site) {
+      console.log(`  ⏭️ Skipping job at unknown Sintetica site: "${raw.title}"`);
+      continue;
+    }
+    // Drop jobs at sites whose canton is outside our target list.
+    if (!isTargetCanton(site.canton)) {
+      console.log(`  ⏭️ Skipping non-target canton job: "${raw.title}" (canton: ${site.canton})`);
+      continue;
+    }
+    // Belt-and-braces: the title may parenthesise a canton that disagrees
+    // with the site we picked (e.g. typo, future site). Trust the explicit
+    // canton tag when it points outside our target list.
     const titleCanton = detectCantonFromTitle(raw.title);
     if (titleCanton && !isTargetCanton(titleCanton)) {
       console.log(`  ⏭️ Skipping non-target canton job: "${raw.title}" (canton: ${titleCanton})`);
@@ -78,7 +115,7 @@ async function fetchJobs() {
     }
 
     const slug = slugify(raw.title, 'sintetica');
-    const fallbackDesc = `${raw.title} — posizione aperta presso Sintetica SA a Mendrisio, Canton Ticino, Svizzera. Sintetica SA è un'azienda farmaceutica svizzera specializzata nella produzione di farmaci sterili iniettabili. Con sede a Mendrisio, l'azienda offre un ambiente di lavoro innovativo nel settore farmaceutico, con opportunità di crescita professionale nel cuore del Ticino.`;
+    const fallbackDesc = `${raw.title} — posizione aperta presso Sintetica SA al sito di ${site.location} (${site.canton}), Svizzera. Sintetica SA è un'azienda farmaceutica svizzera specializzata nella produzione di farmaci sterili iniettabili.`;
 
     // Fetch detail page for full job description
     let description = raw.snippet || '';
@@ -94,7 +131,7 @@ async function fetchJobs() {
           console.log(`    🚫 Detail page reports position closed: "${raw.title}"`);
           detailClosed = true;
         } else if (detail.body && detail.body.length >= MIN_DESC_LENGTH) {
-          description = `${raw.title} — Sintetica SA, Mendrisio (TI).\n\n${detail.body}`;
+          description = `${raw.title} — Sintetica SA, ${site.location} (${site.canton}).\n\n${detail.body}`;
           console.log(`    ✅ Detail description: ${detail.body.length} chars`);
         } else {
           console.log(`    ⚠️ Detail page description too short (${(detail.body || '').length} chars), using fallback`);
@@ -111,9 +148,9 @@ async function fetchJobs() {
     jobs.push({
       url: raw.url, applyUrl: raw.url, title: raw.title,
       company: COMPANY_NAME, companyKey: COMPANY_KEY,
-      location: 'Mendrisio', canton: HQ.canton, country: 'CH',
-      addressLocality: 'Mendrisio', addressRegion: HQ.addressRegion, addressCountry: 'CH',
-      postalCode: HQ.postalCode, streetAddress: 'Via Penate 5',
+      location: site.location, canton: site.canton, country: 'CH',
+      addressLocality: site.addressLocality, addressRegion: site.addressRegion, addressCountry: site.addressCountry,
+      postalCode: site.postalCode, streetAddress: site.streetAddress,
       description,
       titleByLocale: { en: raw.title }, descriptionByLocale: {},
       slug, slugByLocale: { en: slug, it: slug },
@@ -122,7 +159,7 @@ async function fetchJobs() {
       source: 'sintetica-careers-crawler', employmentType: inferEmploymentType(raw.title, raw.snippet || ''),
       experienceLevel: detectExperienceLevel(raw.title),
       sector: 'Farmaceutica',
-      _targetScope: { canton: HQ.canton, location: 'Mendrisio' },
+      _targetScope: { canton: site.canton, location: site.location },
       sourceLang: detectLang(description || raw.title, 'en'),
     });
   }

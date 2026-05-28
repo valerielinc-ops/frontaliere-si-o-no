@@ -49,6 +49,47 @@ const CAREERS_URL = 'https://karriere.rittmeyer.com/offene-stellen/?suche=&locat
 const DETAIL_BASE = 'https://karriere.rittmeyer.com';
 const LOCALES = ['it', 'en', 'de', 'fr'];
 
+// Rittmeyer publishes jobs across multiple Swiss sites; address attribution
+// must follow the `Schweiz` field extracted from the detail page, not the HQ
+// default that applyCompanyDefaults would otherwise inject (Baar ZG 6340).
+// `aliases` matches the strings the source actually emits (e.g. "Tessin" DE).
+export const RITTMEYER_SITES = [
+  {
+    key: 'camorino',
+    aliases: ['camorino', 'tessin', 'ticino'],
+    location: 'Camorino', addressLocality: 'Camorino',
+    canton: 'TI', addressRegion: 'TI', addressCountry: 'CH',
+    postalCode: '6528', streetAddress: 'Via Sottomontagna 9',
+  },
+  {
+    key: 'romanshorn',
+    aliases: ['romanshorn'],
+    location: 'Romanshorn', addressLocality: 'Romanshorn',
+    canton: 'TG', addressRegion: 'TG', addressCountry: 'CH',
+    postalCode: '8590', streetAddress: 'Romanshorn',
+  },
+  {
+    key: 'baar',
+    aliases: ['baar', 'zug', 'zugo'],
+    location: 'Baar', addressLocality: 'Baar',
+    canton: 'ZG', addressRegion: 'ZG', addressCountry: 'CH',
+    postalCode: '6340', streetAddress: 'Inwilerriedstrasse 57',
+  },
+];
+
+/**
+ * Resolve a Rittmeyer office address from the `Schweiz` value the parser
+ * extracts from the detail page. Falls back to the HQ (Baar ZG) when the
+ * value is empty or unknown — never to a wrong canton's defaults.
+ */
+export function resolveRittmeyerSiteAddress(rawLocation = '') {
+  const text = String(rawLocation || '').toLowerCase();
+  for (const site of RITTMEYER_SITES) {
+    if (site.aliases.some((a) => text.includes(a))) return site;
+  }
+  return RITTMEYER_SITES[RITTMEYER_SITES.length - 1];
+}
+
 function readJson(filePath, fallback) {
   try {
     return JSON.parse(fs.readFileSync(filePath, 'utf8'));
@@ -165,6 +206,9 @@ async function buildRittmeyerJob(listing) {
   const html = await fetchText(detailUrl);
   const detail = parseRittmeyerJobDetail(html);
   const localized = buildRittmeyerLocalizedContent(detail);
+  // Trust the parsed `Schweiz` field (and fall back to the listing title
+  // when missing) so off-Camorino postings get the right canton + postal.
+  const site = resolveRittmeyerSiteAddress(detail.location || listing.title || '');
   return {
     title: localized.titleByLocale.it || detail.title,
     slug: localized.slugByLocale.it,
@@ -173,11 +217,13 @@ async function buildRittmeyerJob(listing) {
     company: COMPANY_NAME,
     companyKey: COMPANY_KEY,
     companyDomain: COMPANY_DOMAIN,
-    location: 'Camorino',
-    addressLocality: 'Camorino',
-    addressRegion: 'TI',
-    addressCountry: 'CH',
-    canton: DEFAULT_CANTON,
+    location: site.location,
+    addressLocality: site.addressLocality,
+    addressRegion: site.addressRegion,
+    addressCountry: site.addressCountry,
+    postalCode: site.postalCode,
+    streetAddress: site.streetAddress,
+    canton: site.canton,
     country: 'CH',
     category: inferCategory(detail),
     sector: 'Energia',
@@ -241,7 +287,7 @@ function updateAdapterConfig(jobs) {
   for (const job of jobs) {
     seedMetaByUrl[job.url] = {
       location: job.location,
-      canton: DEFAULT_CANTON,
+      canton: job.canton || DEFAULT_CANTON,
       company: COMPANY_NAME,
       postedDate: job.postedDate,
     };
