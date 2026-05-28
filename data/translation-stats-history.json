@@ -11142,5 +11142,117 @@
         "pending": 16
       }
     ]
+  },
+  {
+    "timestamp": "2026-05-28T18:04:27.496Z",
+    "label": "before",
+    "total": 9026,
+    "needsRetranslation": 5701,
+    "incomplete": 985,
+    "complete": 8041,
+    "missingByLocale": {
+      "it": 778,
+      "en": 502,
+      "de": 452,
+      "fr": 770
+    },
+    "topPending": [
+      {
+        "company": "Sulzer",
+        "pending": 161
+      },
+      {
+        "company": "IWC",
+        "pending": 105
+      },
+      {
+        "company": "Geiser AG",
+        "pending": 77
+      },
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 73
+      },
+      {
+        "company": "Roche",
+        "pending": 62
+      },
+      {
+        "company": "Kantonsspital Baden (KSB)",
+        "pending": 49
+      },
+      {
+        "company": "UBS",
+        "pending": 29
+      },
+      {
+        "company": "EOC – Ente Ospedaliero Cantonale",
+        "pending": 24
+      },
+      {
+        "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
+        "pending": 21
+      },
+      {
+        "company": "VF International (The North Face, Timberland)",
+        "pending": 21
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-05-28T23:00:06.292Z",
+    "label": "after",
+    "total": 9026,
+    "needsRetranslation": 1931,
+    "incomplete": 722,
+    "complete": 8304,
+    "missingByLocale": {
+      "it": 603,
+      "en": 338,
+      "de": 377,
+      "fr": 577
+    },
+    "topPending": [
+      {
+        "company": "Sulzer",
+        "pending": 161
+      },
+      {
+        "company": "Geiser AG",
+        "pending": 76
+      },
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 72
+      },
+      {
+        "company": "Roche",
+        "pending": 62
+      },
+      {
+        "company": "UBS",
+        "pending": 29
+      },
+      {
+        "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
+        "pending": 21
+      },
+      {
+        "company": "VF International (The North Face, Timberland)",
+        "pending": 21
+      },
+      {
+        "company": "Nestlé",
+        "pending": 16
+      },
+      {
+        "company": "IWC",
+        "pending": 16
+      },
+      {
+        "company": "Regionalspital Surselva",
+        "pending": 15
+      }
+    ]
   }
 ]
