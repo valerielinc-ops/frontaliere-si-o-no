@@ -37,6 +37,7 @@ concurrency:
 
 permissions:
   contents: write
+  issues: write     # for github-issue-creator on failure
 
 env:
   NODE_OPTIONS: '--disable-warning=DEP0040 --disable-warning=DEP0169'
@@ -232,7 +233,7 @@ jobs:
             echo "   The next cron run will retry and trigger deploy once all jobs are translated."
           fi
 
-      - name: Report failure to Linear
+      - name: Report failure to GitHub Issues
         if: failure()
         continue-on-error: true
         env:

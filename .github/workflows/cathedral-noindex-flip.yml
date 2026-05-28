@@ -39,6 +39,7 @@ on:
 
 permissions:
   contents: write
+  issues: write     # for github-issue-creator on failure
 
 concurrency:
   group: cathedral-noindex-flip
@@ -116,7 +117,7 @@ jobs:
           bash scripts/lib/git-push-with-retry.sh \
             --regenerate-cmd "node scripts/cathedral-noindex-flip.mjs --no-dry-run --threshold=${{ steps.mode.outputs.threshold }} && git add data/cathedral-flip-log.json"
 
-      - name: Report failure to Linear
+      - name: Report failure to GitHub Issues
         if: failure()
         continue-on-error: true
         env:

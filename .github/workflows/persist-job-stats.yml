@@ -9,6 +9,7 @@ on:
 
 permissions:
   contents: write
+  issues: write     # for github-issue-creator on failure
 
 concurrency:
   group: persist-job-stats
@@ -59,7 +60,7 @@ jobs:
           bash scripts/lib/git-push-with-retry.sh \
             --regenerate-cmd "node scripts/assemble-jobs-dataset.mjs --stats && git add data/jobs-stats-history.json data/jobs-keys-snapshot.json"
 
-      - name: Report failure to Linear
+      - name: Report failure to GitHub Issues
         if: failure()
         continue-on-error: true
         env:
