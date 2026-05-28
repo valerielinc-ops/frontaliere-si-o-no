@@ -1,49 +1,21 @@
 {
   "key": "rado",
   "label": "rado",
-  "generatedAt": "2026-05-27T14:09:54.839Z",
+  "generatedAt": "2026-05-28T00:36:31.847Z",
   "total": 6,
-  "newCount": 16,
+  "newCount": 15,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 27422,
-  "avgDurationMs": 27422,
+  "durationMs": 37542,
+  "avgDurationMs": 37542,
   "durationHistory": [
-    27422
+    37542
   ],
   "newJobs": [
     {
-      "id": "company-7uarki",
-      "slug": "brand-executive-the-swatch-group-malaysia-sdn-bhd-50200-kuala-lumpur-malaysia-company-address-the-swatch-group-mal-7uarki",
-      "company": "The Swatch Group (Malaysia) SDN BHD",
-      "title": "Brand Executive",
-      "location": "50200 Kuala Lumpur (Kuala Lumpur) Malaysia Company address The Swatch Group (Mal",
-      "canton": "BE",
-      "category": "admin",
-      "contract": "internship",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-27",
-      "url": "https://www.swatchgroup.com/en/job/31348",
-      "source": "Company Careers Crawler",
-      "companyKey": "swatch-group-assembly",
-      "companyDomain": "swatchgroup.com",
-      "crawledAt": "2026-05-27T14:09:53.609Z",
-      "firstSeenAt": "2026-05-27T14:09:53.609Z",
-      "needsRetranslation": true,
-      "sourceLang": "en",
-      "_qualityScore": 64,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 21,
-        "translation": 4,
-        "completeness": 14
-      }
-    },
-    {
       "id": "company-7ubca6",
-      "slug": "kunststofftechnologe-einrichter-grunlingfertigung-vor-ort-eta-sa-manufacture-horlogere-suisse-schmelzistrasse-16-2540-grenchen-solothurn-sch",
+      "slug": "kunststofftechnologe-einrichter-grunlingfertigung-vor-ort-eta-sa-manufacture-horlogere-suisse-schmelzistrasse-16-2540-grenchen-solothurn-sch-7ubca6",
       "company": "ETA SA Manufacture Horlogère Suisse",
       "title": "Kunststofftechnologe / Einrichter Grünlingfertigung, vor Ort",
       "location": "Schmelzistrasse 16 2540 Grenchen (Solothurn) Schweiz Firmenadresse ETA SA Manufa",
@@ -61,17 +33,25 @@
       "firstSeenAt": "2026-05-27T14:09:53.609Z",
       "needsRetranslation": true,
       "sourceLang": "de",
-      "_qualityScore": 61,
+      "salaryMin": 58000,
+      "salaryMax": 88000,
+      "streetAddress": "Bielstrasse 45",
+      "postalCode": "2543",
+      "addressLocality": "Schmelzistrasse 16 2540 Grenchen (Solothurn) Schweiz Firmenadresse ETA SA Manufa",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "_qualityScore": 80,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
-        "completeness": 14
+        "translation": 12,
+        "completeness": 25
       }
     },
     {
       "id": "company-7ubca4",
-      "slug": "omega-luxury-timepieces-boutique-manager-nashville-the-swatch-group-u-s-inc-0200-english-search-omega-luxury-timepieces",
+      "slug": "omega-luxury-timepieces-boutique-manager-nashville-the-swatch-group-u-s-inc-0200-english-search-omega-luxury-timepieces-7ubca4",
       "company": "The Swatch Group (U.S.) Inc.",
       "title": "OMEGA Luxury Timepieces - Boutique Manager - Nashville",
       "location": "0200 English Search Search OMEGA Luxury Timepieces",
@@ -89,17 +69,25 @@
       "firstSeenAt": "2026-05-27T14:09:53.609Z",
       "needsRetranslation": true,
       "sourceLang": "en",
-      "_qualityScore": 64,
+      "salaryMin": 95000,
+      "salaryMax": 132500,
+      "streetAddress": "Bielstrasse 45",
+      "postalCode": "2543",
+      "addressLocality": "0200 English Search Search OMEGA Luxury Timepieces",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "_qualityScore": 83,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
-        "translation": 4,
-        "completeness": 14
+        "translation": 12,
+        "completeness": 25
       }
     },
     {
       "id": "company-7ubca3",
-      "slug": "full-time-sales-lead-robson-street-the-swatch-group-canada-ltd-safety-standards-and-act-as-a-model-for-company-policies-and-procedures",
+      "slug": "tempo-pieno-sales-lead-robson-street-the-swatch-group-canada-ltd-safety-standards-and-act-as-a-model-for-company-policies-and-procedures-7ubca3",
       "company": "The Swatch Group (Canada) Ltd.",
       "title": "Full-Time Sales Lead (Robson Street)",
       "location": "safety standards and act as a model for company policies and procedures",
@@ -117,17 +105,25 @@
       "firstSeenAt": "2026-05-27T14:09:53.609Z",
       "needsRetranslation": true,
       "sourceLang": "en",
-      "_qualityScore": 75,
+      "salaryMin": 142000,
+      "salaryMax": 249500,
+      "streetAddress": "Bielstrasse 45",
+      "postalCode": "2543",
+      "addressLocality": "safety standards and act as a model for company policies and procedures",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
-        "translation": 15,
-        "completeness": 14
+        "translation": 23,
+        "completeness": 25
       }
     },
     {
       "id": "company-7ubca1",
-      "slug": "store-manager-100-shop-in-shop-manor-lausanne-the-swatch-group-les-boutiques-ltd-rue-pichard-3-1002-lausanne-vaud-suisse-adresse-de-l-entrep-7ubca1",
+      "slug": "store-manager-100-shop-in-shop-manor-losanna-the-swatch-group-les-boutiques-ltd-rue-pichard-3-1002-lausanne-vaud-suisse",
       "company": "The Swatch Group Les Boutiques Ltd",
       "title": "Store Manager 100% – Shop-in-Shop Manor Lausanne",
       "location": "Rue Pichard 3 1002 Lausanne (Vaud) Suisse Adresse de l'entreprise The Swatch Gro",
