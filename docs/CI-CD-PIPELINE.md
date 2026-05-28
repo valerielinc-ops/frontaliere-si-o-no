@@ -174,6 +174,39 @@ After dispatching, **does not wait**. All crawlers run concurrently. `translate-
 
 ---
 
+### PR review + auto-merge + follow-up triage (PR #769)
+
+> Operational contracts live in `REVIEW.md` (review tiers, signal grammar, scope filter) and `FOLLOWUP.md` (follow-up issue contract). This section is just the workflow surface — do not duplicate contract content here.
+
+| Workflow | Trigger | Role |
+|---|---|---|
+| `.github/workflows/pr-review-loop.yml` | `pull_request` (sync/open) | Tiered Claude review; emits structured `REVIEW.md` signals + `## LGTM` when green |
+| `.github/workflows/auto-merge-on-lgtm.yml` | `pull_request_review` submitted by the review bot | Squash-merges the PR when the review body contains the literal `## LGTM` marker |
+| `.github/workflows/post-merge-followup.yml` | `pull_request` `closed` + `merged == true` | Reads PR body `## Non implementato` + reviewer 🟡 / ❓ / adversarial bullets, applies the scope filter, dedups against open follow-up issues, files new issues (labels `follow-up` + `funnel-*`, cap 10/PR) and posts a summary comment on the merged PR |
+
+**`pr-review-loop.yml` — tiered review (PR #769)**
+
+- `Determine review tier` step inspects the PR's changed paths and computes `model` + `max_turns` dynamically:
+  - **high tier** — triggered by changes under `tests/`, `.github/workflows/`, `scripts/`, or `build-plugins/`. Uses Opus, `max_turns: 25`, runs the adversarial-check sweep on top of the baseline review.
+  - **normal tier** — everything else. Uses Sonnet, `max_turns: 15`.
+- Tool whitelist widened to include `Bash(rg:*)` and `Bash(git:*)` so the reviewer can do cross-file pattern probing (`REVIEW.md` step 5) and PR-history checks.
+- Test plan compliance is enforced by `REVIEW.md` step 6 — the reviewer cross-checks the PR body's test plan against the diff.
+- Green output ends with the literal `## LGTM` marker; that is the single signal `auto-merge-on-lgtm.yml` watches for. See `REVIEW.md` for what scenarios are allowed to emit `## LGTM`.
+
+**`post-merge-followup.yml` — scope-filtered follow-up issues (PR #769)**
+
+- Runs only on merged PRs (`pull_request.closed && merged == true`).
+- Parses two sources: the PR description's `## Non implementato` block (author-declared deferred work) and the reviewer's 🟡 / ❓ / adversarial bullets from the latest `pr-review-loop` review.
+- Applies the `REVIEW.md` scope filter (monetization / traffic / SEO funnel impact); cosmetic or out-of-scope bullets are dropped.
+- Dedups candidates against currently open issues labelled `follow-up` before opening anything new.
+- Creates at most **10 issues per merged PR**, all labelled `follow-up` plus the relevant `funnel-*` label, and posts a summary comment back on the merged PR linking each new issue.
+- Issue body contract (titles, sections, linkbacks) is defined in `FOLLOWUP.md`.
+
+**`auto-merge-on-lgtm.yml`**
+
+- Fires on `pull_request_review` events where the review author is the Claude review bot.
+- If the review body contains the exact marker `## LGTM`, squash-merges the PR via `gh pr merge --squash --delete-branch`. Any other body content is a no-op. See `REVIEW.md` for which review outcomes are allowed to emit `## LGTM`.
+
 ### GITHUB_TOKEN Limitation
 
 Pushes made with the default `GITHUB_TOKEN` **do not trigger other workflows** (GitHub anti-loop rule). Only `translate-pending` and `article-generation` trigger deploy — they use `GITHUB_PAT` (from Firebase Remote Config) via `scripts/lib/trigger-deploy.sh`.
