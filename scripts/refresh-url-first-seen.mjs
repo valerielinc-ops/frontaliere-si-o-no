@@ -1,0 +1,148 @@
+#!/usr/bin/env node
+// refresh-url-first-seen.mjs
+//
+// Scan dist/sitemap-*.xml for every emitted URL, merge into
+// data/url-first-seen.json. New URLs get today's date; existing entries
+// are preserved (monotonic — never overwrite an earlier first-seen).
+//
+// Consumed by build-plugins/shared/trafficEvidenceFilter.ts to apply
+// the `minAgeDays` grace window per approved-patterns entry:
+// freshly-emitted URLs (age < minAgeDays from first-seen) get a `full`
+// override even when no evidence source recognizes them, protecting
+// them from being indexed thin before evidence has time to accumulate.
+//
+// Run from the deploy workflow after build, before the audit step, so
+// the row committed to history reflects today's emit set.
+//
+// Usage:
+//   node scripts/refresh-url-first-seen.mjs [--dist=dist]
+//                                           [--out=data/url-first-seen.json]
+//                                           [--dry-run]
+//
+// Exit codes:
+//   0  ok (file unchanged OR updated)
+//   2  dist dir missing / unreadable
+
+import { readFile, writeFile } from 'node:fs/promises';
+import { existsSync, readdirSync, readFileSync } from 'node:fs';
+import { dirname, join, isAbsolute } from 'node:path';
+import { fileURLToPath } from 'node:url';
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
+const ROOT = join(__dirname, '..');
+
+function parseArgs(argv) {
+  const out = {
+    dist: 'dist',
+    out: 'data/url-first-seen.json',
+    dryRun: false,
+  };
+  for (const a of argv) {
+    if (a === '--dry-run') out.dryRun = true;
+    else if (a.startsWith('--dist=')) out.dist = a.slice(7);
+    else if (a.startsWith('--out=')) out.out = a.slice(6);
+  }
+  return out;
+}
+
+function normalizePath(p) {
+  if (!p) return '';
+  let s = p;
+  if (s.startsWith('http://') || s.startsWith('https://')) {
+    try { s = new URL(s).pathname; } catch { return ''; }
+  }
+  const q = s.indexOf('?'); if (q >= 0) s = s.slice(0, q);
+  const h = s.indexOf('#'); if (h >= 0) s = s.slice(0, h);
+  s = s.replace(/\/index\.html$/, '/');
+  if (s.length > 1 && s.endsWith('/')) s = s.slice(0, -1);
+  if (!s.startsWith('/')) s = '/' + s;
+  return s;
+}
+
+// Extract `<loc>...</loc>` URLs from a sitemap XML string. Regex is
+// safer than an XML parser here — sitemaps are very regular and we
+// don't need namespace awareness.
+const LOC_RX = /<loc>([^<]+)<\/loc>/g;
+
+function extractUrlsFromSitemap(xml) {
+  const urls = new Set();
+  let m;
+  while ((m = LOC_RX.exec(xml)) !== null) {
+    const norm = normalizePath(m[1]);
+    if (norm) urls.add(norm);
+  }
+  return urls;
+}
+
+async function main() {
+  const args = parseArgs(process.argv.slice(2));
+  const distDir = isAbsolute(args.dist) ? args.dist : join(ROOT, args.dist);
+  if (!existsSync(distDir)) {
+    console.error(`[url-first-seen] dist not found: ${distDir}`);
+    process.exit(2);
+  }
+
+  // Find all sitemap-*.xml files in dist root. sitemap.xml itself is
+  // the index — its <loc> entries point to the per-section sitemaps.
+  // Scan both: the index gives us section-level URLs, the per-section
+  // shards give us the leaf-page URLs.
+  const allUrls = new Set();
+  const entries = readdirSync(distDir);
+  const sitemapFiles = entries.filter(f => f.startsWith('sitemap') && f.endsWith('.xml'));
+  console.log(`[url-first-seen] scanning ${sitemapFiles.length} sitemap files in ${distDir}`);
+  for (const f of sitemapFiles) {
+    try {
+      const xml = readFileSync(join(distDir, f), 'utf8');
+      const urls = extractUrlsFromSitemap(xml);
+      for (const u of urls) allUrls.add(u);
+    } catch (err) {
+      console.warn(`[url-first-seen] could not read ${f}: ${err.message}`);
+    }
+  }
+  console.log(`[url-first-seen] discovered ${allUrls.size} unique URLs across all sitemaps`);
+
+  // Load existing url-first-seen.json (monotonic — never overwrite an
+  // earlier first-seen date).
+  const outPath = isAbsolute(args.out) ? args.out : join(ROOT, args.out);
+  let existing = {};
+  if (existsSync(outPath)) {
+    try {
+      const raw = await readFile(outPath, 'utf8');
+      const parsed = JSON.parse(raw);
+      if (parsed && typeof parsed === 'object' && !Array.isArray(parsed)) {
+        existing = parsed;
+      }
+    } catch (err) {
+      console.warn(`[url-first-seen] could not parse existing ${outPath}: ${err.message}`);
+    }
+  }
+
+  const today = new Date().toISOString().slice(0, 10);
+  let added = 0;
+  for (const u of allUrls) {
+    if (!existing[u]) {
+      existing[u] = today;
+      added++;
+    }
+  }
+  console.log(`[url-first-seen] ${added} new URLs stamped with ${today}; ${Object.keys(existing).length} total entries`);
+
+  if (args.dryRun) {
+    console.log(`[url-first-seen] dry-run — file not written`);
+    return;
+  }
+  if (added === 0) {
+    console.log(`[url-first-seen] no new URLs — file unchanged`);
+    return;
+  }
+  // Sort keys so the file diff is predictable in git.
+  const sorted = {};
+  for (const k of Object.keys(existing).sort()) sorted[k] = existing[k];
+  await writeFile(outPath, JSON.stringify(sorted, null, 2) + '\n');
+  console.log(`[url-first-seen] wrote ${outPath}`);
+}
+
+main().catch(err => {
+  console.error('[url-first-seen] fatal:', err);
+  process.exit(2);
+});
