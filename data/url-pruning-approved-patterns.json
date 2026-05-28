@@ -11,6 +11,11 @@
       "id": "zero-traffic-soft-landing-expired",
       "urlClass": "soft-landing-expired",
       "action": "thin"
+    },
+    {
+      "id": "zero-traffic-gsc-keyword-landing",
+      "urlClass": "gsc-keyword-landing",
+      "action": "thin"
     }
   ]
 }

@@ -205,9 +205,19 @@ const App: React.FC = () => {
  // by trafficEvidenceFilter. Kept inline (no shared module) since the
  // hourly fetcher classifies server-side via the same prefixes — see
  // scripts/fetch-thin-page-promotions.mjs.
- const urlClass =
- /^(\/(cerca-lavoro-ticino|en\/find-jobs-ticino|de\/jobs-im-tessin|fr\/trouver-emploi-tessin))\//.test(path)
- ? 'previousSlug'
+ //
+ // gsc-keyword-landing URLs live under
+ // `/<canton-section>/(ricerca|search|suche|recherche)-<slug>/` where
+ // <canton-section> is one of cerca-lavoro-X / find-jobs-X / jobs-im-X
+ // / jobs-in-X / trouver-emploi-X. Match before previousSlug so the
+ // search-slug pattern wins (a previousSlug for a job named
+ // `ricerca-X` is rare; the route-prefix check is more specific).
+ const isJobSection = /^\/(?:cerca-lavoro|en\/find-jobs|de\/jobs-(?:in|im)|fr\/trouver-emploi)-[a-z-]+\//;
+ const searchLeaf = /^\/(?:cerca-lavoro|en\/find-jobs|de\/jobs-(?:in|im)|fr\/trouver-emploi)-[a-z-]+\/(?:ricerca|search|suche|recherche)-/;
+ const urlClass = searchLeaf.test(path)
+ ? 'gsc-keyword-landing'
+ : isJobSection.test(path)
+ ? 'previousSlug'  // active/bridge/soft share this shape; tag as previousSlug for promotion routing
  : /^\/(ricerca|en\/search-cluster|de\/such-cluster|fr\/recherche-cluster)\//.test(path)
  ? 'cluster'
  : 'unknown';

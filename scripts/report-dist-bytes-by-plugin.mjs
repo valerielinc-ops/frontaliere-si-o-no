@@ -160,6 +160,12 @@ const PLUGIN_RULES = [
 // canton-section prefix has been stripped) so the same rule fires for
 // IT/EN/DE/FR locale variants.
 const URL_CLASS_RULES = [
+  // GSC-derived search/keyword landing pages — by far the largest
+  // jobs-seo sub-bucket (517k pages, ~5.2 GB on the 2026-05-28 dist).
+  // Three emit sites in jobsSeoPagesPlugin.ts share this URL shape:
+  // recordEmit('gsc-keyword-landing'), recordEmit('search-stats-landing'),
+  // recordEmit('search-combo-landing').
+  { urlClass: 'gsc-keyword-landing',     regex: /^(?:ricerca|search|suche|recherche)-/ },
   { urlClass: 'paginated-listing',       regex: /(?:^|\/)(?:page|pagina|seite)-[0-9]+(?:\/|$)/ },
   { urlClass: 'category-listing-all',    regex: /(?:^|\/)(?:tutti|tutte|alle|all|tous)(?:\/|$)/ },
   { urlClass: 'company-canton-hub',      regex: /(?:^|\/)(?:per-azienda|by-company|nach-firma|par-entreprise)(?:\/|$)/ },
