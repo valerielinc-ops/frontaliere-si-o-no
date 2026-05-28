@@ -42,10 +42,14 @@ function walkTs(root: string): string[] {
   return out;
 }
 
-function findOffenders(root: string, re: RegExp) {
+function findOffenders(root: string, re: RegExp, fastFilter: string) {
   const offenders: { file: string; lines: string[] }[] = [];
   for (const file of walkTs(root)) {
     const src = readFileSync(file, 'utf8');
+    // Fast substring pre-filter — services/ has ~10k .ts files (146 MB), most
+    // are blog/locale content with no meta code. Skipping them via an
+    // includes() check turns this gate from ~minutes to <1 s.
+    if (!src.includes(fastFilter)) continue;
     re.lastIndex = 0;
     const matches = [...src.matchAll(re)];
     if (matches.length === 0) continue;
@@ -62,7 +66,7 @@ function findOffenders(root: string, re: RegExp) {
 
 describe('no twitter:* meta in source', () => {
   it('forbids static <meta name="twitter:*"> in build-plugins/*.ts', () => {
-    const offenders = findOffenders('build-plugins', STATIC_META_RE);
+    const offenders = findOffenders('build-plugins', STATIC_META_RE, 'twitter:');
     if (offenders.length > 0) {
       const report = offenders.map((o) => `${o.file}:\n  ${o.lines.join('\n  ')}`).join('\n');
       throw new Error(
@@ -74,7 +78,7 @@ describe('no twitter:* meta in source', () => {
   });
 
   it('forbids client-side updateOrCreateMetaTag("name","twitter:*",…) in services/*.ts', () => {
-    const offenders = findOffenders('services', RUNTIME_META_RE);
+    const offenders = findOffenders('services', RUNTIME_META_RE, 'updateOrCreateMetaTag(');
     if (offenders.length > 0) {
       const report = offenders.map((o) => `${o.file}:\n  ${o.lines.join('\n  ')}`).join('\n');
       throw new Error(
