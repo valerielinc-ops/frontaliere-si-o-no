@@ -709,7 +709,8 @@
       "streetAddress": "Via Industria 20",
       "postalCode": "6807",
       "firstSeenAt": "2026-05-19T23:12:33.521Z",
-      "needsRetranslation": true
+      "needsRetranslation": true,
+      "retranslationAttempts": 1
     },
     {
       "title": "INSTALLATORE IDRAULICO",
@@ -1063,7 +1064,13 @@
       },
       "streetAddress": "Via Industria 20",
       "postalCode": "6807",
-      "firstSeenAt": "2026-05-18T13:02:39.416Z"
+      "firstSeenAt": "2026-05-18T13:02:39.416Z",
+      "previousSlugs": [
+        "muratore-carpentiere-pemsa-bellinzona",
+        "mason-carpenter-pemsa-bellinzona",
+        "maurer-zimmermann-pemsa-bellinzona",
+        "macon-charpentier-pemsa-bellinzona"
+      ]
     },
     {
       "title": "Installatore impianti ventilazione",
@@ -1956,7 +1963,10 @@
       "postalCode": "6807",
       "firstSeenAt": "2026-05-15T11:40:31.010Z",
       "previousSlugs": [
-        "idraulico-impianti-sanitari-pemsa-mendrisio"
+        "idraulico-impianti-sanitari-pemsa-mendrisio",
+        "health-implementations-pemsa-mendrisio",
+        "gesundheitsbedingungen-pemsa-mendrisio",
+        "mises-en-uvre-de-la-sante-pemsa-mendrisio"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2021,7 +2031,14 @@
       },
       "streetAddress": "Via Industria 20",
       "postalCode": "6807",
-      "firstSeenAt": "2026-05-15T11:40:31.010Z"
+      "firstSeenAt": "2026-05-15T11:40:31.010Z",
+      "previousSlugs": [
+        "muratore-pemsa-locarno",
+        "murder-pemsa-locarno",
+        "giardiniere-muratore-pemsa-locarno",
+        "muratore-carpentiere-pemsa-locarno",
+        "carpentiere-tetti-pemsa-locarno"
+      ]
     },
     {
       "title": "Manovale edile",
@@ -2316,7 +2333,13 @@
       },
       "streetAddress": "Via Industria 20",
       "postalCode": "6807",
-      "firstSeenAt": "2026-05-14T22:36:38.307Z"
+      "firstSeenAt": "2026-05-14T22:36:38.307Z",
+      "previousSlugs": [
+        "pittore-pemsa-bellinzona",
+        "painter-pemsa-bellinzona",
+        "maler-pemsa-bellinzona",
+        "peintre-pemsa-bellinzona"
+      ]
     },
     {
       "title": "IDRAULICO",
@@ -2461,15 +2484,15 @@
       "description": "Vuoi la libertà di un lavoro temporaneo e la sicurezza di uno permanente? Da 30 anni, assistiamo centinaia di aziende nei settori tecnici dell'edilizia, delle costruzioni e dell'industria in tutta la Svizzera, offrendo loro i migliori talenti. Non ti mentiremo, ma siamo esigenti. Quindi, se sei una persona motivata ed entusiasta, si unisciti al clan per la posizione di QUADRISTA CABALTORE\n\n## Missione :\n• Incarico tramite agenzia di circa 1 mese.\n• Assemblaggio, cablaggio e verifica quadri elettrici.\n• Utilizzo di strumenti di misura per esecuzione controlli impianto, secondo normative vigenti.\n\n## Profilo :\n• Esperienza di almeno 5 anni in medesima funzione.\n• Diploma in ambito elettrico o affine.\n• Capacità nell’assemblaggio, cablaggio e verifica di quadri elettrici per macchinari/impianti industriali.\n• Conoscenza ed interpretazione del disegno tecnico elettrico.\n• Completa autonomia nel lavoro da svolgere.\n• Residenza in Ticino o fascia di confine.\n• Patente B.\n• Disponibilità IMMEDIATA.",
       "titleByLocale": {
         "it": "QUADRISTA CABALTORE",
-        "en": "QUADRISTA CABALTORE",
-        "de": "QUADRISTA CABALTORE",
-        "fr": "QUADRISTA CABALTORE"
+        "en": "PANEL BUILDER CABATRICE",
+        "de": "PLATTENBAUER CABATRICE",
+        "fr": "CABATRICE DE PANNEAUX"
       },
       "descriptionByLocale": {
-        "it": "Vuoi la libertà di un lavoro temporaneo e la sicurezza di uno permanente? Da 30 anni, assistiamo centinaia di aziende nei settori tecnici dell'edilizia, delle costruzioni e dell'industria in tutta la Svizzera, offrendo loro i migliori talenti. Non ti mentiremo, ma siamo esigenti. Quindi, se sei una persona motivata ed entusiasta, si unisciti al clan per la posizione di QUADRISTA CABALTORE ## Missione :\n• Incarico tramite agenzia di circa 1 mese.\n• Assemblaggio, cablaggio e verifica quadri elettrici.\n• Utilizzo di strumenti di misura per esecuzione controlli impianto, secondo normative vigenti. ## Profilo :\n• Esperienza di almeno 5 anni in medesima funzione.\n• Diploma in ambito elettrico o affine.\n• Capacità nell’assemblaggio, cablaggio e verifica di quadri elettrici per macchinari/impianti industriali.\n• Conoscenza ed interpretazione del disegno tecnico elettrico.\n• Completa autonomia nel lavoro da svolgere.\n• Residenza in Ticino o fascia di confine.\n• Patente B.\n• Disponibilità IMMEDIATA.",
-        "en": "PEMSA, a staffing agency specialised in construction and technical trades, is looking for a QUADRISTA CABALTORE in Mezzovico. PEMSA ensures optimal working conditions and professional support. Apply through the official portal.",
-        "de": "PEMSA, eine auf Bau und Technik spezialisierte Personalvermittlung, sucht ein Profil als QUADRISTA CABALTORE in Mezzovico. PEMSA gewährleistet optimale Arbeitsbedingungen und professionelle Unterstützung. Bewirb dich über das offizielle Portal.",
-        "fr": "PEMSA, agence de recrutement spécialisée dans le bâtiment et la technique, recherche un profil QUADRISTA CABALTORE à Mezzovico. PEMSA garantit des conditions de travail optimales et un accompagnement professionnel. Postulez via le portail officiel."
+        "it": "Vuoi la libertà di un lavoro temporaneo e la sicurezza di uno permanente? Da 30 anni, assistiamo centinaia di aziende nei settori tecnici dell'edilizia, delle costruzioni e dell'industria in tutta la Svizzera, offrendo loro i migliori talenti. Non ti mentiremo, ma siamo esigenti. Quindi, se sei una persona motivata ed entusiasta, si unisciti al clan per la posizione di QUADRISTA CABALTORE\n\n## Missione :\n• Incarico tramite agenzia di circa 1 mese.\n• Assemblaggio, cablaggio e verifica quadri elettrici.\n• Utilizzo di strumenti di misura per esecuzione controlli impianto, secondo normative vigenti.\n\n## Profilo :\n• Esperienza di almeno 5 anni in medesima funzione.\n• Diploma in ambito elettrico o affine.\n• Capacità nell’assemblaggio, cablaggio e verifica di quadri elettrici per macchinari/impianti industriali.\n• Conoscenza ed interpretazione del disegno tecnico elettrico.\n• Completa autonomia nel lavoro da svolgere.\n• Residenza in Ticino o fascia di confine.\n• Patente B.\n• Disponibilità IMMEDIATA.",
+        "en": "Do you want the freedom of temporary work and the safety of a permanent? For 30 years, we have witnessed hundreds of companies in the technical fields of construction, construction and industry throughout Switzerland, offering them the best talents. We won't lie to you, but we're demanding. So, if you're a motivated and enthusiastic person, join the clan for the position of QUADRISTA CABALTORE\n\nMission:\n• Incarriage by agency of about 1 month.\n• Assembling, wiring and checking electrical paintings.\n• Using measuring instruments for plant control execution, according to current regulations.\n\nProfile :\n• Experience of at least 5 years in the same function.\n• Diploma in electrical or affine.\n• Capacity in assembly, wiring and verification of electrical panels for industrial machinery/plants.\n• Knowledge and interpretation of electrical technical design.\n• Complete autonomy in the work to be done.\n• Ticino residence or border.\n• License B.\n• IMMEDIATE availability.",
+        "de": "Wollen Sie die Freiheit der vorübergehenden Arbeit und die Sicherheit eines dauerhaften? Seit 30 Jahren haben wir Hunderte von Unternehmen in den technischen Bereichen Bau, Bau und Industrie in der ganzen Schweiz erlebt und bieten ihnen die besten Talente. Wir lügen dich nicht an, aber wir fordern. Also, wenn Sie ein motivierter und begeisterter Mensch sind, treten Sie mit dem Clan für die Position von QUADRISTA CABALTORE\n\nMission:\n• Inkarriere durch Agentur von etwa 1 Monat.\n• Montage, Verdrahtung und Überprüfung von elektrischen Gemälden.\n• Verwendung von Messgeräten zur Anlagensteuerung, nach aktuellen Vorschriften.\n\nProfil :\n• Erfahrung von mindestens 5 Jahren in der gleichen Funktion.\n• Diplom in Elektro oder Affine.\n• Kapazität bei der Montage, Verdrahtung und Überprüfung von elektrischen Platten für industrielle Maschinen/Anlagen.\n• Kenntnisse und Interpretation des elektrischen technischen Designs.\n• Vollständige Autonomie in der zu leistenden Arbeit.\n• Tessin Residenz oder Grenze.\n• Lizenz B.\n• IMMEDIATE Verfügbarkeit.",
+        "fr": "Voulez-vous la liberté du travail temporaire et la sécurité d'un permanent? Depuis 30 ans, nous avons vu des centaines d'entreprises dans les domaines techniques de la construction, de la construction et de l'industrie en Suisse, en leur offrant les meilleurs talents. Nous ne vous mentirons pas, mais nous exigeons. Donc, si vous êtes une personne motivée et enthousiaste, rejoignez le clan pour la position de QUADRISTA CABALTORE\n\nMission :\n• Mariage par agence d'environ 1 mois.\n• Montage, câblage et vérification des tableaux électriques.\n• Utiliser des instruments de mesure pour l'exécution du contrôle des installations, conformément à la réglementation en vigueur.\n\nProfil :\n• Expérience d'au moins 5 ans dans la même fonction.\n• Diplôme en électricité ou en affinerie.\n• Capacité d'assemblage, de câblage et de vérification des panneaux électriques pour machines et installations industrielles.\n• Connaissance et interprétation de la conception technique électrique.\n• Une autonomie totale dans le travail à accomplir.\n• Résidence ou frontière du Tessin.\n• Licence B.\n• Disponibilité immédiate."
       },
       "slugByLocale": {
         "it": "quadrista-cabaltore-pemsa-mezzovico",
@@ -2478,7 +2501,6 @@
         "fr": "quadrista-cabaltore-pemsa-mezzovico"
       },
       "id": "pemsa-2a5747b4e733",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -2520,16 +2542,16 @@
       "validThrough": "2026-06-07",
       "description": "Vuoi la libertà di un lavoro temporaneo e la sicurezza di uno permanente? Da 30 anni, assistiamo centinaia di aziende nei settori tecnici dell'edilizia, delle costruzioni e dell'industria in tutta la Svizzera, offrendo loro i migliori talenti. Non ti mentiremo, ma siamo esigenti. Quindi, se sei una persona motivata ed entusiasta, si unisciti al clan per la posizione di GIARDINIERE/AIUTO GIARDINIERE\n\n## Missione :\n• Incarico temporaneo tramite agenzia.\n• Cura del verde, piantumazione, potatura, semina, taglio erba e siepi.\n\n## Profilo :\n• Diploma AFC di Giardiniere o pregressa esperienza di almeno 5 anni, meglio se in Svizzera..\n• Completa autonomia nella costruzione e manutenzione di giardini.\n• Ottimo utilizzo attrezzi da lavoro.\n• Disponibilità IMMEDIATA.\n• Patente B e automunito\n• Residenza in Ticino o nella fascia di confine.",
       "titleByLocale": {
-        "it": "GIARDINIERE/AIUTO GIARDINIERE",
-        "en": "GIARDINIERE/AIUTO GIARDINIERE",
+        "it": "GIARDINI",
+        "en": "GARDINISHING/HYING",
         "de": "GIARDINIERE/AIUTO GIARDINIERE",
-        "fr": "GIARDINIERE/AIUTO GIARDINIERE"
+        "fr": "GARANTIE"
       },
       "descriptionByLocale": {
-        "it": "Vuoi la libertà di un lavoro temporaneo e la sicurezza di uno permanente? Da 30 anni, assistiamo centinaia di aziende nei settori tecnici dell'edilizia, delle costruzioni e dell'industria in tutta la Svizzera, offrendo loro i migliori talenti. Non ti mentiremo, ma siamo esigenti. Quindi, se sei una persona motivata ed entusiasta, si unisciti al clan per la posizione di GIARDINIERE/AIUTO GIARDINIERE ## Missione :\n• Incarico temporaneo tramite agenzia.\n• Cura del verde, piantumazione, potatura, semina, taglio erba e siepi. ## Profilo :\n• Diploma AFC di Giardiniere o pregressa esperienza di almeno 5 anni, meglio se in Svizzera..\n• Completa autonomia nella costruzione e manutenzione di giardini.\n• Ottimo utilizzo attrezzi da lavoro.\n• Disponibilità IMMEDIATA.\n• Patente B e automunito\n• Residenza in Ticino o nella fascia di confine.",
-        "en": "PEMSA, a staffing agency specialised in construction and technical trades, is looking for a GIARDINIERE/AIUTO GIARDINIERE in Rivera. PEMSA ensures optimal working conditions and professional support. Apply through the official portal.",
-        "de": "PEMSA, eine auf Bau und Technik spezialisierte Personalvermittlung, sucht ein Profil als GIARDINIERE/AIUTO GIARDINIERE in Rivera. PEMSA gewährleistet optimale Arbeitsbedingungen und professionelle Unterstützung. Bewirb dich über das offizielle Portal.",
-        "fr": "PEMSA, agence de recrutement spécialisée dans le bâtiment et la technique, recherche un profil GIARDINIERE/AIUTO GIARDINIERE à Rivera. PEMSA garantit des conditions de travail optimales et un accompagnement professionnel. Postulez via le portail officiel."
+        "it": "Vuoi la libertà di un lavoro temporaneo e la sicurezza di uno permanente? Da 30 anni, assistiamo centinaia di aziende nei settori tecnici dell'edilizia, delle costruzioni e dell'industria in tutta la Svizzera, offrendo loro i migliori talenti. Non ti mentiremo, ma siamo esigenti. Quindi, se sei una persona motivata ed entusiasta, si unisciti al clan per la posizione di GIARDINIERE/AIUTO GIARDINIERE\n\n## Missione :\n• Incarico temporaneo tramite agenzia.\n• Cura del verde, piantumazione, potatura, semina, taglio erba e siepi.\n\n## Profilo :\n• Diploma AFC di Giardiniere o pregressa esperienza di almeno 5 anni, meglio se in Svizzera..\n• Completa autonomia nella costruzione e manutenzione di giardini.\n• Ottimo utilizzo attrezzi da lavoro.\n• Disponibilità IMMEDIATA.\n• Patente B e automunito\n• Residenza in Ticino o nella fascia di confine.",
+        "en": "Do you want the freedom of temporary work and the safety of a permanent? For 30 years, we have witnessed hundreds of companies in the technical fields of construction, construction and industry throughout Switzerland, offering them the best talents. We won't lie to you, but we're demanding. So, if you're a motivated and enthusiastic person, join the clan for the position of GARDEN/WARNING AID\n\nMission:\n• Temporary incarceration by agency.\n• Care of green, planting, pruning, sowing, cutting grass and hedges.\n\nProfile :\n• AFC Diploma of Giardiniere or previous experience of at least 5 years, better if in Switzerland. .\n• Complete autonomy in the construction and maintenance of gardens.\n• Great use of work tools.\n• IMMEDIATE availability.\n• Patent B and self-immune\n• Residence in Ticino or in the border.",
+        "de": "Wollen Sie die Freiheit der vorübergehenden Arbeit und die Sicherheit eines dauerhaften? Seit 30 Jahren haben wir Hunderte von Unternehmen in den technischen Bereichen Bau, Bau und Industrie in der ganzen Schweiz erlebt und bieten ihnen die besten Talente. Wir lügen dich nicht an, aber wir fordern. Also, wenn Sie ein motivierter und begeisterter Mensch sind, treten Sie dem Clan für die Position von GARDEN/WARNING AID bei\n\nMission:\n• vorübergehende Inhaftierung durch Agentur.\n• Pflege von Grün, Bepflanzung, Schneiden, Säen, Schneiden von Gras und Hecken.\n\nProfil :\n• AFC-Diplom von Giardiniere oder vorherige Erfahrung von mindestens 5 Jahren, besser, wenn in der Schweiz.\n• Vollständige Autonomie bei der Konstruktion und Wartung von Gärten.\n• Großer Einsatz von Arbeitswerkzeugen.\n• IMMEDIATE Verfügbarkeit.\n• Patent B und Selbstimmun\n• Residence in Tessin oder an der Grenze.",
+        "fr": "Voulez-vous la liberté du travail temporaire et la sécurité d'un permanent? Depuis 30 ans, nous avons vu des centaines d'entreprises dans les domaines techniques de la construction, de la construction et de l'industrie en Suisse, en leur offrant les meilleurs talents. Nous ne vous mentirons pas, mais nous exigeons. Donc, si vous êtes une personne motivée et enthousiaste, rejoignez le clan pour la position de GARDEN/AIDE D'AVENIR\n\nMission :\n• L'incarcération temporaire par agence.\n• Entretien du vert, plantation, élagage, semis, coupe d'herbe et haies.\n\nProfil :\n• Diplôme AFC de Giardiniere ou expérience antérieure d'au moins 5 ans, mieux si en Suisse. .\n• Une autonomie totale dans la construction et l'entretien des jardins.\n• Grande utilisation des outils de travail.\n• Disponibilité immédiate.\n• Brevet B et auto-immun\n• Résidence au Tessin ou à la frontière."
       },
       "slugByLocale": {
         "it": "giardiniere-aiuto-giardiniere-pemsa-rivera",
@@ -2538,7 +2560,6 @@
         "fr": "giardiniere-aiuto-giardiniere-pemsa-rivera"
       },
       "id": "pemsa-d3d3e07c5b24",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -3090,7 +3111,21 @@
         "idraulico-impianti-riscaldamento-pemsa-lugano",
         "idraulico-impianti-riscaldamento-pemsa-mendrisio",
         "impianti-idraulici-riscaldamento-pemsa-mendrisio",
-        "idraulico-impianti-riscaldamento-pemsa-mendrisio"
+        "idraulico-impianti-riscaldamento-pemsa-mendrisio",
+        "implementations-pemsa-lugano",
+        "klempner-heizungsanlagen-pemsa-lugano",
+        "impianti-idraulici-riscaldamento-pemsa-lugano",
+        "plumber-heating-systems-specialist-pemsa-lugano-m1dbsv",
+        "idrauliko-impianti-riscaldamento-wird-zu-heizungsanlagen-idrianiker-pemsa-lugano",
+        "plombier-systemes-de-chauffage-pemsa-lugano",
+        "heating-systems-plumber-pemsa-lugano",
+        "heizungsinstallateur-pemsa-lugano",
+        "idraulico-impianti-sanitari-e-riscaldamento-pemsa-lugano",
+        "idraulico-impianti-sanitari-pemsa-lugano",
+        "impianti-riscaldamento-pemsa-lugano",
+        "plumber-heating-systems-specialist-pemsa-lugano",
+        "hydraulic-sanitary-and-heating-systems-pemsa-lugano",
+        "hydraulic-sanitary-systems-pemsa-lugano"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3123,15 +3158,15 @@
       "description": "Vuoi la libertà di un lavoro temporaneo e la sicurezza di uno permanente? Da 30 anni, assistiamo centinaia di aziende nei settori tecnici dell'edilizia, delle costruzioni e dell'industria in tutta la Svizzera, offrendo loro i migliori talenti. Non ti mentiremo, ma siamo esigenti. Quindi, se sei una persona motivata ed entusiasta, si unisciti al clan per la posizione di MONTATORE MECCANICO DI MACCHINARI INDUSTRIALI\n\n## Missione :\n• Incarico tramite agenzia con possibilità di assunzione dopo periodo di prova.\n• Montaggio/assemblaggio meccanico bordo macchina di macchinari industriali ramo packaging.\n\n## Profilo :\n• Esperienza nel montaggio/assemblaggio meccanico di macchinari di automatizzati (meglio se ramo packaging).\n• Diploma in ambito meccanico o affine.\n• Lettura del disegno tecnico.\n• Conoscenza della pneumatica.\n• Residenza in Ticino o nella fascia di confine.\n• Disponibile da SUBITO .\n• Patente B e automunito.",
       "titleByLocale": {
         "it": "MONTATORE MECCANICO DI MACCHINARI INDUSTRIALI",
-        "en": "MONTATORE MECCANICO DI MACCHINARI INDUSTRIALI",
-        "de": "MONTATORE MECCANICO DI MACCHINARI INDUSTRIALI",
-        "fr": "MONTATORE MECCANICO DI MACCHINARI INDUSTRIALI"
+        "en": "INDUSTRIAL MACHINERY",
+        "de": "INDUSTRIE",
+        "fr": "MACHINERIE INDUSTRIELLE"
       },
       "descriptionByLocale": {
-        "it": "Vuoi la libertà di un lavoro temporaneo e la sicurezza di uno permanente? Da 30 anni, assistiamo centinaia di aziende nei settori tecnici dell'edilizia, delle costruzioni e dell'industria in tutta la Svizzera, offrendo loro i migliori talenti. Non ti mentiremo, ma siamo esigenti. Quindi, se sei una persona motivata ed entusiasta, si unisciti al clan per la posizione di MONTATORE MECCANICO DI MACCHINARI INDUSTRIALI ## Missione :\n• Incarico tramite agenzia con possibilità di assunzione dopo periodo di prova.\n• Montaggio/assemblaggio meccanico bordo macchina di macchinari industriali ramo packaging. ## Profilo :\n• Esperienza nel montaggio/assemblaggio meccanico di macchinari di automatizzati (meglio se ramo packaging).\n• Diploma in ambito meccanico o affine.\n• Lettura del disegno tecnico.\n• Conoscenza della pneumatica.\n• Residenza in Ticino o nella fascia di confine.\n• Disponibile da SUBITO .\n• Patente B e automunito.",
-        "en": "PEMSA, a staffing agency specialised in construction and technical trades, is looking for a MONTATORE MECCANICO DI MACCHINARI INDUSTRIALI in Lugano. PEMSA ensures optimal working conditions and professional support. Apply through the official portal.",
-        "de": "PEMSA, eine auf Bau und Technik spezialisierte Personalvermittlung, sucht ein Profil als MONTATORE MECCANICO DI MACCHINARI INDUSTRIALI in Lugano. PEMSA gewährleistet optimale Arbeitsbedingungen und professionelle Unterstützung. Bewirb dich über das offizielle Portal.",
-        "fr": "PEMSA, agence de recrutement spécialisée dans le bâtiment et la technique, recherche un profil MONTATORE MECCANICO DI MACCHINARI INDUSTRIALI à Lugano. PEMSA garantit des conditions de travail optimales et un accompagnement professionnel. Postulez via le portail officiel."
+        "it": "Vuoi la libertà di un lavoro temporaneo e la sicurezza di uno permanente? Da 30 anni, assistiamo centinaia di aziende nei settori tecnici dell'edilizia, delle costruzioni e dell'industria in tutta la Svizzera, offrendo loro i migliori talenti. Non ti mentiremo, ma siamo esigenti. Quindi, se sei una persona motivata ed entusiasta, si unisciti al clan per la posizione di MONTATORE MECCANICO DI MACCHINARI INDUSTRIALI\n\n## Missione :\n• Incarico tramite agenzia con possibilità di assunzione dopo periodo di prova.\n• Montaggio/assemblaggio meccanico bordo macchina di macchinari industriali ramo packaging.\n\n## Profilo :\n• Esperienza nel montaggio/assemblaggio meccanico di macchinari di automatizzati (meglio se ramo packaging).\n• Diploma in ambito meccanico o affine.\n• Lettura del disegno tecnico.\n• Conoscenza della pneumatica.\n• Residenza in Ticino o nella fascia di confine.\n• Disponibile da SUBITO .\n• Patente B e automunito.",
+        "en": "Do you want the freedom of temporary work and the safety of a permanent? For 30 years, we have witnessed hundreds of companies in the technical fields of construction, construction and industry throughout Switzerland, offering them the best talents. We won't lie to you, but we're demanding. So, if you are a motivated and enthusiastic person, join the clan for the position of INDUSTRIAL MOTOR\n\nMission:\n• Incarious by agency with possibility of recruitment after trial period.\n• Mechanical assembly/assembly machine edge of industrial machinery branch packaging.\n\nProfile :\n• Experience in mechanical assembly/assembly of automated machinery (better if branch packaging).\n• Diploma in mechanical or affine.\n• Technical drawing reading.\n• Knowledge of the tire.\n• Residence in Ticino or in the border.\n• Available from SUBITO .\n• License B and automunito.",
+        "de": "Wollen Sie die Freiheit der vorübergehenden Arbeit und die Sicherheit eines dauerhaften? Seit 30 Jahren haben wir Hunderte von Unternehmen in den technischen Bereichen Bau, Bau und Industrie in der ganzen Schweiz erlebt und bieten ihnen die besten Talente. Wir lügen dich nicht an, aber wir fordern. Also, wenn Sie ein motivierter und begeisterter Mensch sind, treten Sie mit dem Clan für die Position von INDUSTRIEMOTOR\n\nMission:\n• Inhaftiert durch Agentur mit Möglichkeit der Rekrutierung nach Studienzeit.\n• Mechanische Montage / Montage Maschinenkante der Industriemaschinen Zweigverpackung.\n\nProfil :\n• Erfahrung in der mechanischen Montage/Montage von automatisierten Maschinen (besser, wenn Verzweigung Verpackung).\n• Diplom in Mechanik oder Affine.\n• Technische Zeichnung lesen.\n• Kenntnisse des Reifens.\n• Residence in Tessin oder an der Grenze.\n• Verfügbar von SUBITO .\n• Lizenz B und automunito.",
+        "fr": "Voulez-vous la liberté du travail temporaire et la sécurité d'un permanent? Depuis 30 ans, nous avons vu des centaines d'entreprises dans les domaines techniques de la construction, de la construction et de l'industrie en Suisse, en leur offrant les meilleurs talents. Nous ne vous mentirons pas, mais nous exigeons. Donc, si vous êtes une personne motivée et enthousiaste, rejoignez le clan pour la position de MOTEUR INDUSTRIEL\n\nMission :\n• Divers par agence avec possibilité de recrutement après la période d'essai.\n• Assemblage mécanique/assemblage de l'embout de la machine industrielle.\n\nProfil :\n• Expérience de l'assemblage/assemblage mécanique de machines automatisées (meilleur emballage de branche).\n• Diplôme en mécanique ou en affinerie.\n• Lecture technique du dessin.\n• Connaissance du pneu.\n• Résidence au Tessin ou à la frontière.\n• Disponible auprès de SUBITO .\n• Licence B et automunito."
       },
       "slugByLocale": {
         "it": "montatore-meccanico-di-macchinari-industriali-pemsa-lugano",
@@ -3140,7 +3175,6 @@
         "fr": "montatore-meccanico-di-macchinari-industriali-pemsa-lugano"
       },
       "id": "pemsa-9a269097d319",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -3577,9 +3611,9 @@
       },
       "slugByLocale": {
         "it": "metalcostruttore-amp-8211-saldatore-pemsa-bellinzona",
-        "en": "metal-constructor-welder-pemsa-bellinzona",
+        "en": "metalcostruttore-saldatore-pemsa-bellinzona",
         "de": "metallbauer-schwei-er-pemsa-bellinzona",
-        "fr": "metallier-soudeur-pemsa-bellinzona"
+        "fr": "metalcostruttore-saldatore-pemsa-bellinzona"
       },
       "previousSlugs": [
         "metalcostruttore-saldatore-pemsa-bellinzona",
@@ -3591,7 +3625,9 @@
         "muuratore-amp-8211-construction-carpenter-pemsa-bellinzona",
         "cartongessista-amp-8211-chalkboard-maker-pemsa-bellinzona",
         "muuratore-amp-8211-building-carpenter-pemsa-bellinzona",
-        "muuratore-amp-8211-charpentier-de-construction-pemsa-bellinzona"
+        "muuratore-amp-8211-charpentier-de-construction-pemsa-bellinzona",
+        "metal-constructor-welder-pemsa-bellinzona",
+        "metallier-soudeur-pemsa-bellinzona"
       ],
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -3614,13 +3650,15 @@
           "metalcostruttore-saldatore-pemsa-bellinzona"
         ],
         "en": [
-          "metalcostruttore-saldatore-pemsa-bellinzona"
+          "metalcostruttore-saldatore-pemsa-bellinzona",
+          "metal-constructor-welder-pemsa-bellinzona"
         ],
         "de": [
           "metalcostruttore-saldatore-pemsa-bellinzona"
         ],
         "fr": [
-          "metalcostruttore-saldatore-pemsa-bellinzona"
+          "metalcostruttore-saldatore-pemsa-bellinzona",
+          "metallier-soudeur-pemsa-bellinzona"
         ]
       },
       "firstSeenAt": "2026-04-13T22:15:31.704Z"
@@ -3721,9 +3759,9 @@
       },
       "slugByLocale": {
         "it": "macchinista-pemsa-bellinzona",
-        "en": "earrings-pemsa-bellinzona",
-        "de": "ohrringe-pemsa-bellinzona",
-        "fr": "boucles-d-oreille-pemsa-bellinzona-85e9a3"
+        "en": "train-master-pemsa-bellinzona",
+        "de": "lokfuhrer-pemsa-bellinzona",
+        "fr": "machiniste-pemsa-bellinzona"
       },
       "id": "pemsa-7aebb676628d",
       "salaryMin": 49500,
@@ -3744,14 +3782,24 @@
       "firstSeenAt": "2026-05-10T10:42:15.850Z",
       "previousSlugs": [
         "macchinista-pemsa-mendrisio",
-        "boucles-d-oreille-pemsa-bellinzona"
+        "boucles-d-oreille-pemsa-bellinzona",
+        "boucles-d-oreille-pemsa-bellinzona-85e9a3",
+        "earrings-pemsa-bellinzona",
+        "ohrringe-pemsa-bellinzona"
       ],
       "previousSlugsByLocale": {
         "it": [
           "macchinista-pemsa-mendrisio"
         ],
         "fr": [
-          "boucles-d-oreille-pemsa-bellinzona"
+          "boucles-d-oreille-pemsa-bellinzona",
+          "boucles-d-oreille-pemsa-bellinzona-85e9a3"
+        ],
+        "en": [
+          "earrings-pemsa-bellinzona"
+        ],
+        "de": [
+          "ohrringe-pemsa-bellinzona"
         ]
       }
     },
@@ -3794,7 +3842,7 @@
         "it": "rullista-pemsa-bellinzona",
         "en": "rollerist-pemsa-bellinzona",
         "de": "rollenbahn-pemsa-bellinzona",
-        "fr": "convoyeur-a-rouleaux-pemsa-bellinzona"
+        "fr": "rouleau-pemsa-bellinzona"
       },
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -3815,7 +3863,8 @@
         "rollerist-pemsa-bellinzona-82esm3",
         "rollenbahn-pemsa-bellinzona-82esm3",
         "rouleau-pemsa-bellinzona-82esm3",
-        "rouleau-pemsa-bellinzona"
+        "rouleau-pemsa-bellinzona",
+        "convoyeur-a-rouleaux-pemsa-bellinzona"
       ],
       "id": "pemsa-ce7bf1905028",
       "previousSlugsByLocale": {
@@ -3838,7 +3887,8 @@
           "rollerist-pemsa-bellinzona-82esm3",
           "rollenbahn-pemsa-bellinzona-82esm3",
           "rouleau-pemsa-bellinzona-82esm3",
-          "rouleau-pemsa-bellinzona"
+          "rouleau-pemsa-bellinzona",
+          "convoyeur-a-rouleaux-pemsa-bellinzona"
         ]
       },
       "firstSeenAt": "2026-04-13T22:15:31.704Z"
@@ -3880,9 +3930,9 @@
       },
       "slugByLocale": {
         "it": "selciatore-pemsa-bellinzona",
-        "en": "pavior-and-kerb-layer-pemsa-bellinzona-l71bxi",
-        "de": "pflaster-pemsa-bellinzona",
-        "fr": "pave-pemsa-bellinzona"
+        "en": "pavior-and-kerb-layer-pemsa-bellinzona",
+        "de": "pflasterer-pemsa-bellinzona",
+        "fr": "paveur-pemsa-bellinzona"
       },
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -3904,7 +3954,10 @@
         "paveur-pemsa-bellinzona-l71bxi",
         "pflasterer-pemsa-bellinzona",
         "pavior-and-kerb-layer-pemsa-bellinzona",
-        "paveur-pemsa-bellinzona"
+        "paveur-pemsa-bellinzona",
+        "pavior-and-kerb-layer-pemsa-bellinzona-l71bxi",
+        "pflaster-pemsa-bellinzona",
+        "pave-pemsa-bellinzona"
       ],
       "id": "pemsa-0da263d705ed",
       "previousSlugsByLocale": {
@@ -3915,17 +3968,20 @@
         "en": [
           "pflasterer-pemsa-bellinzona-l71bxi",
           "paveur-pemsa-bellinzona-l71bxi",
-          "pavior-and-kerb-layer-pemsa-bellinzona"
+          "pavior-and-kerb-layer-pemsa-bellinzona",
+          "pavior-and-kerb-layer-pemsa-bellinzona-l71bxi"
         ],
         "de": [
           "pflasterer-pemsa-bellinzona-l71bxi",
           "paveur-pemsa-bellinzona-l71bxi",
-          "pflasterer-pemsa-bellinzona"
+          "pflasterer-pemsa-bellinzona",
+          "pflaster-pemsa-bellinzona"
         ],
         "fr": [
           "pflasterer-pemsa-bellinzona-l71bxi",
           "paveur-pemsa-bellinzona-l71bxi",
-          "paveur-pemsa-bellinzona"
+          "paveur-pemsa-bellinzona",
+          "pave-pemsa-bellinzona"
         ]
       },
       "firstSeenAt": "2026-04-13T22:15:31.704Z"
@@ -3966,9 +4022,9 @@
         "fr": "Voulez-vous la liberté d’un emploi temporaire et la sécurité d’un emploi permanent ? Depuis 30 ans, nous accompagnons des centaines d'entreprises des secteurs techniques du bâtiment, de la construction et de l'industrie dans toute la Suisse, en leur proposant les meilleurs talents. Nous ne vous mentirons pas, mais nous sommes exigeants. Alors, si vous êtes une personne motivée et enthousiaste, rejoignez le clan pour le poste de Mécanicien Véhicules Lourds ## Mission : - Embauche temporaire en agence en vue d'un emploi permanent - Connaissance des pièces mécaniques, électroniques et hydrauliques - Expérience en Suisse ## Profil : - De nombreuses années d'expérience dans le domaine de la mécanique poids lourds - Effectuer les réparations courantes et remplacer les pièces défectueuses - Excellente utilisation des outils de travail"
       },
       "slugByLocale": {
-        "it": "meccanico-di-mezzi-pesanti-pemsa-bellinzona",
-        "en": "meccanico-di-mezzi-weighti-pemsa-bellinzona",
-        "de": "schwerlastfahrzeugmechaniker-pemsa-bellinzona",
+        "it": "meccanico-di-mezzi-graviti-pemsa-bellinzona",
+        "en": "meccanico-di-mezzi-pesanti-pemsa-bellinzona-ens3sh",
+        "de": "meccanico-di-mezzi-pesanti-pemsa-bellinzona-ens3sh",
         "fr": "meccanico-di-mezzi-pesanti-pemsa-bellinzona"
       },
       "salaryMin": 58000,
@@ -3992,7 +4048,10 @@
         "meccanico-di-mezzi-pesanti-pemsa-bellinzona-ens3sh",
         "heavy-equipment-mechanic-pemsa-bellinzona-ens3sh",
         "heavy-equipment-mechanic-pemsa-bellinzona",
-        "meccanico-di-mezzi-pesi-pemsa-bellinzona"
+        "meccanico-di-mezzi-pesi-pemsa-bellinzona",
+        "meccanico-di-mezzi-weighti-pemsa-bellinzona",
+        "schwerlastfahrzeugmechaniker-pemsa-bellinzona",
+        "meccanico-di-mezzi-pesanti-pemsa-bellinzona"
       ],
       "id": "pemsa-a5bdddcb7a6f",
       "previousSlugsByLocale": {
@@ -4000,19 +4059,22 @@
           "schwerlastfahrzeugmechaniker-pemsa-bellinzona-ens3sh",
           "meccanico-di-mezzi-graviti-pemsa-bellinzona",
           "meccanico-di-mezzi-pesanti-pemsa-bellinzona-ens3sh",
-          "heavy-equipment-mechanic-pemsa-bellinzona-ens3sh"
+          "heavy-equipment-mechanic-pemsa-bellinzona-ens3sh",
+          "meccanico-di-mezzi-pesanti-pemsa-bellinzona"
         ],
         "en": [
           "schwerlastfahrzeugmechaniker-pemsa-bellinzona-ens3sh",
           "meccanico-di-mezzi-graviti-pemsa-bellinzona",
           "meccanico-di-mezzi-pesanti-pemsa-bellinzona-ens3sh",
-          "heavy-equipment-mechanic-pemsa-bellinzona-ens3sh"
+          "heavy-equipment-mechanic-pemsa-bellinzona-ens3sh",
+          "meccanico-di-mezzi-weighti-pemsa-bellinzona"
         ],
         "de": [
           "schwerlastfahrzeugmechaniker-pemsa-bellinzona-ens3sh",
           "meccanico-di-mezzi-graviti-pemsa-bellinzona",
           "meccanico-di-mezzi-pesanti-pemsa-bellinzona-ens3sh",
-          "heavy-equipment-mechanic-pemsa-bellinzona-ens3sh"
+          "heavy-equipment-mechanic-pemsa-bellinzona-ens3sh",
+          "schwerlastfahrzeugmechaniker-pemsa-bellinzona"
         ],
         "fr": [
           "schwerlastfahrzeugmechaniker-pemsa-bellinzona-ens3sh",
@@ -4060,8 +4122,8 @@
       },
       "slugByLocale": {
         "it": "lattoniere-pemsa-bellinzona",
-        "en": "sheet-metal-worker-pemsa-bellinzona-o8tlzm",
-        "de": "blechschmiede-pemsa-bellinzona",
+        "en": "sheet-metal-worker-pemsa-bellinzona",
+        "de": "spengler-pemsa-bellinzona",
         "fr": "ferblantier-pemsa-bellinzona"
       },
       "salaryMin": 58000,
@@ -4083,7 +4145,9 @@
         "ferblantier-pemsa-bellinzona-o8tlzm",
         "spengler-pemsa-bellinzona-o8tlzm",
         "spengler-pemsa-bellinzona",
-        "sheet-metal-worker-pemsa-bellinzona"
+        "sheet-metal-worker-pemsa-bellinzona",
+        "sheet-metal-worker-pemsa-bellinzona-o8tlzm",
+        "blechschmiede-pemsa-bellinzona"
       ],
       "id": "pemsa-b68abb58f9a3",
       "previousSlugsByLocale": {
@@ -4094,12 +4158,14 @@
         "en": [
           "ferblantier-pemsa-bellinzona-o8tlzm",
           "spengler-pemsa-bellinzona-o8tlzm",
-          "sheet-metal-worker-pemsa-bellinzona"
+          "sheet-metal-worker-pemsa-bellinzona",
+          "sheet-metal-worker-pemsa-bellinzona-o8tlzm"
         ],
         "de": [
           "ferblantier-pemsa-bellinzona-o8tlzm",
           "spengler-pemsa-bellinzona-o8tlzm",
-          "spengler-pemsa-bellinzona"
+          "spengler-pemsa-bellinzona",
+          "blechschmiede-pemsa-bellinzona"
         ],
         "fr": [
           "ferblantier-pemsa-bellinzona-o8tlzm",
@@ -4145,9 +4211,9 @@
       },
       "slugByLocale": {
         "it": "elettricista-pemsa-lugano",
-        "en": "electricity-pemsa-lugano",
-        "de": "elektrizitat-pemsa-lugano",
-        "fr": "electricite-pemsa-lugano"
+        "en": "electrician-pemsa-lugano",
+        "de": "elektriker-pemsa-lugano",
+        "fr": "electricien-pemsa-lugano"
       },
       "id": "pemsa-b48712113f67",
       "salaryMin": 49500,
@@ -4165,7 +4231,23 @@
       },
       "streetAddress": "Via Industria 20",
       "postalCode": "6807",
-      "firstSeenAt": "2026-05-05T22:23:14.484Z"
+      "firstSeenAt": "2026-05-05T22:23:14.484Z",
+      "previousSlugs": [
+        "electricity-pemsa-lugano",
+        "elektrizitat-pemsa-lugano",
+        "electricite-pemsa-lugano"
+      ],
+      "previousSlugsByLocale": {
+        "en": [
+          "electricity-pemsa-lugano"
+        ],
+        "de": [
+          "elektrizitat-pemsa-lugano"
+        ],
+        "fr": [
+          "electricite-pemsa-lugano"
+        ]
+      }
     },
     {
       "title": "Elettrotecnico per sistemi di allarme",
