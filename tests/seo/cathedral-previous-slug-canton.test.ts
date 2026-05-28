@@ -150,24 +150,26 @@ describe('cathedral Phase 8b — previousSlugs bridges canton-aware', () => {
         // Bridge IS for this job. Its <link rel="canonical"> must point to the
         // canton-aware URL — not to /cerca-lavoro-ticino/ — so Google folds
         // equity into the new canton section.
-        // The HTML minifier strips quotes around simple attribute values
-        // (`rel=canonical href=https://…`) so the regex must tolerate both
-        // quoted and unquoted forms in either attribute order. Pre-2026-05-28
-        // the strict double-quoted form falsely flagged minified bridges as
-        // "no canonical" (post-deploy run 26592389280) even though the tag
-        // was present and pointing at the canton-aware URL.
-        const canonicalMatch =
-          html.match(/<link\b[^>]*\brel=["']?canonical["']?[^>]*\bhref=["']?([^"'\s>]+)/i)
-          ?? html.match(/<link\b[^>]*\bhref=["']?([^"'\s>]+)[^>]*\brel=["']?canonical["']?/i);
-        if (!canonicalMatch) {
+        // Use the DOM parser provided by vitest's jsdom environment so the
+        // assertion survives every flavour of HTML-minify output (stripped
+        // quotes, reordered attributes). The previous regex variant
+        // false-negatived minified bridges on post-deploy run 26592389280
+        // (`<link rel=canonical href="...">` with the quotes stripped from
+        // the rel value), reporting "no canonical" on bridges whose
+        // canonical was actually present and correctly pointing canton-aware.
+        const canonicalHref = new DOMParser()
+          .parseFromString(html, 'text/html')
+          .querySelector('link[rel~="canonical" i]')
+          ?.getAttribute('href') ?? null;
+        if (!canonicalHref) {
           mismatches.push(
             `non-TI job ${canonicalSlug} (canton=${job.canton}) legacy TI bridge has no canonical: cerca-lavoro-ticino/${oldSlug}/`,
           );
           continue;
         }
-        if (/\/cerca-lavoro-ticino\//.test(canonicalMatch[1])) {
+        if (/\/cerca-lavoro-ticino\//.test(canonicalHref)) {
           mismatches.push(
-            `non-TI job ${canonicalSlug} (canton=${job.canton}) legacy TI bridge canonicalises to TI: ${canonicalMatch[1]}`,
+            `non-TI job ${canonicalSlug} (canton=${job.canton}) legacy TI bridge canonicalises to TI: ${canonicalHref}`,
           );
         }
       }

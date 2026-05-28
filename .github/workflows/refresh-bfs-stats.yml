@@ -19,6 +19,7 @@ on:
 permissions:
   contents: read
   actions: write
+  issues: write     # for github-issue-creator on failure
 
 concurrency:
   group: refresh-bfs-stats
@@ -109,9 +110,11 @@ jobs:
           echo "" >> "$GITHUB_STEP_SUMMARY"
           echo "Dispatched with \`url=$URL\` for new quarter \`$NEW_QUARTER\`." >> "$GITHUB_STEP_SUMMARY"
 
-      - name: Report failure to Linear
+      - name: Report failure to GitHub Issues
         if: failure()
         continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           node scripts/lib/github-issue-creator.mjs \
             --title "CI Failure: Refresh BFS Stats — run ${{ github.run_number }}" \

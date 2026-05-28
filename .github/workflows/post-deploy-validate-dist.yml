@@ -33,6 +33,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       actions: read     # for download-artifact same-run (github-pages, sitemaps)
+      issues: write     # for github-issue-creator on validation failure (run 26592389280 surfaced "Resource not accessible by integration (createIssue)")
     steps:
       - name: Checkout (same SHA as deploy — invariant in workflow_call)
         uses: actions/checkout@v5
@@ -536,9 +537,11 @@ jobs:
           if-no-files-found: ignore
           retention-days: 7
 
-      - name: Report failure to Linear
+      - name: Report failure to GitHub Issues
         if: failure()
         continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           node scripts/lib/github-issue-creator.mjs \
             --title "Validation Failure (dist): post-deploy — run ${{ github.run_number }}" \

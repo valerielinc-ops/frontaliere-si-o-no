@@ -36,6 +36,7 @@ jobs:
     permissions:
       contents: write   # for git push in sync-previous-slug-winners
       actions: read     # for download-artifact same-run
+      issues: write     # for github-issue-creator on publish failure
     steps:
       - name: Checkout (same SHA as deploy — invariant in workflow_call)
         uses: actions/checkout@v5
@@ -246,9 +247,11 @@ jobs:
             --run-id="${{ github.run_id }}" \
             --sha="${{ github.sha }}"
 
-      - name: Report failure to Linear
+      - name: Report failure to GitHub Issues
         if: failure()
         continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           node scripts/lib/github-issue-creator.mjs \
             --title "Publish post-deploy fallita — run ${{ github.run_number }}" \

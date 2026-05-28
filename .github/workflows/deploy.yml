@@ -73,6 +73,7 @@ permissions:
   contents: read
   pages: write
   id-token: write
+  issues: write     # for github-issue-creator on build/deploy failure
 
 jobs:
   build:
@@ -896,9 +897,11 @@ jobs:
           retention-days: 7
           if-no-files-found: ignore
 
-      - name: Report failure to Linear (build)
+      - name: Report failure to GitHub Issues (build)
         if: failure()
         continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           node scripts/lib/github-issue-creator.mjs \
             --title "CI Failure (build): ${{ github.workflow }} — run ${{ github.run_number }}" \
@@ -1077,9 +1080,11 @@ jobs:
             --og-image="${OG_IMAGE}" \
             --article-category="${ARTICLE_CATEGORY}"
 
-      - name: Report failure to Linear (deploy)
+      - name: Report failure to GitHub Issues (deploy)
         if: failure()
         continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           node scripts/lib/github-issue-creator.mjs \
             --title "CI Failure (deploy): ${{ github.workflow }} — run ${{ github.run_number }}" \
@@ -1403,9 +1408,11 @@ jobs:
           timeout: 1800000
           error_count: 100
 
-      - name: Report rollback to Linear
+      - name: Report rollback to GitHub Issues
         if: always()
         continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           if [ "${{ steps.still-live.outputs.still_live }}" != "true" ]; then
             MSG="## Rollback skippato (newer deploy already live)

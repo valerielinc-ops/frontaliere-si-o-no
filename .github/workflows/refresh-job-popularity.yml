@@ -17,6 +17,7 @@ on:
 
 permissions:
   contents: write
+  issues: write     # for github-issue-creator on failure
 
 concurrency:
   group: refresh-job-popularity
@@ -66,7 +67,7 @@ jobs:
           bash scripts/lib/git-push-with-retry.sh \
             --regenerate-cmd "node scripts/fetch-job-popularity.mjs && git add data/job-popularity.json"
 
-      - name: Report failure to Linear
+      - name: Report failure to GitHub Issues
         if: failure()
         continue-on-error: true
         env:

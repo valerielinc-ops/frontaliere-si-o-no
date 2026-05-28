@@ -10,6 +10,7 @@ on:
 
 permissions:
   contents: read
+  issues: write     # for github-issue-creator on failure
 
 concurrency:
   group: deploy-firestore-rules
@@ -51,7 +52,7 @@ jobs:
       - name: Deploy Firestore security rules
         run: firebase deploy --only firestore:rules --project frontaliere-ticino
 
-      - name: Report failure to Linear
+      - name: Report failure to GitHub Issues
         if: failure()
         continue-on-error: true
         env:

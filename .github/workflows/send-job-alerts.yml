@@ -17,6 +17,7 @@ concurrency:
 
 permissions:
   contents: read
+  issues: write     # for github-issue-creator on failure
 
 jobs:
   send-alerts:
@@ -65,7 +66,7 @@ jobs:
           SKIP_NEWSLETTER_COOLDOWN: ${{ inputs.target_email != '' && '1' || '' }}
         run: node scripts/send-job-alerts.mjs
 
-      - name: Report failure to Linear
+      - name: Report failure to GitHub Issues
         if: steps.send-alerts.outcome == 'failure'
         continue-on-error: true
         env:
