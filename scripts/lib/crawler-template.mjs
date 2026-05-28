@@ -150,6 +150,7 @@ import {
   detectLang,
   deriveLocalizedSlug,
 } from './dedicated-crawler-common.mjs';
+import { archiveRemovedJobsToSlice } from './expired-jobs-archive.mjs';
 
 /* ── Shared Utilities (re-exported for parser convenience) ──────────── */
 
@@ -592,6 +593,22 @@ export async function runStandardCrawlerPipeline(config) {
   writeCrawlChangeSummaryToGH(diff, companyLabel);
   printPublishedJobUrls(clean, companyLabel);
   writeJobsSummary(clean, companyLabel);
+
+  // ─── Step 4b: Archive removed jobs to per-crawler expired slice ──
+  // mergePreserveLocaleData drops entries not present in the fresh fetch
+  // (it iterates only freshJobs). Without this archival those drops leave
+  // indexed Google URLs returning 404 instead of JobExpiredView. Captures
+  // `diff.removedJobs` (full job objects, with slug + locale data) into
+  // `data/jobs/expired/by-crawler/<companyKey>.json` so the build plugin
+  // can emit the soft-landing page.
+  if (diff.removedJobs && diff.removedJobs.length > 0) {
+    const archived = archiveRemovedJobsToSlice(diff.removedJobs, companyKey);
+    if (archived > 0) {
+      console.log(
+        `📦 Archived ${archived} removed jobs → data/jobs/expired/by-crawler/${companyKey}.json`,
+      );
+    }
+  }
 
   // ─── Step 5: AI Localization ────────────────────────────────
   // Translates titles + descriptions to all 4 locales via AI.
