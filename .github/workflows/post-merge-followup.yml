@@ -3,6 +3,12 @@ name: Post-merge follow-up triage
 on:
   pull_request:
     types: [closed]
+  workflow_dispatch:
+    inputs:
+      pr_number:
+        description: 'PR number to backfill follow-up triage for (must be already-merged + same-owner author).'
+        required: true
+        type: string
 
 permissions:
   contents: read
@@ -18,9 +24,17 @@ jobs:
     # - Auth via CLAUDE_CODE_OAUTH_TOKEN (subscription Max, zero API cost).
     # Lo scope è leggere PR body `## Non implementato` + reviewer 🟡/❓ e creare
     # issue con label `follow-up` quando il filtro scopo passa. Vedi FOLLOWUP.md.
+    #
+    # workflow_dispatch path (closes #774): backfill manuale di PR già mergiate
+    # ma non triagiate al momento del merge originario (es. PR vecchie pre
+    # post-merge-followup adoption). Le condizioni "merged + same-owner"
+    # vengono ri-verificate dentro il claude prompt sul PR risolto via API,
+    # quindi qui basta gate sul fatto che dispatch sia volontario.
     if: |
-      github.event.pull_request.merged == true &&
-      github.event.pull_request.user.login == 'valerielinc-ops'
+      (github.event_name == 'pull_request' &&
+       github.event.pull_request.merged == true &&
+       github.event.pull_request.user.login == 'valerielinc-ops') ||
+      github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
@@ -38,15 +52,27 @@ jobs:
         uses: anthropics/claude-code-action@v1
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          PR_NUMBER: ${{ github.event.pull_request.number }}
+          # Pull-request event passes the closed PR's number directly;
+          # workflow_dispatch passes it via the `pr_number` input.
+          # Title is fetched inside the prompt to keep the dispatch path
+          # self-contained (no need to pre-resolve via API in the env block).
+          PR_NUMBER: ${{ github.event.pull_request.number || github.event.inputs.pr_number }}
           PR_TITLE: ${{ github.event.pull_request.title }}
           REPO: ${{ github.repository }}
+          EVENT_NAME: ${{ github.event_name }}
         with:
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           show_full_output: true
           claude_args: "--max-turns 15 --model claude-sonnet-4-6 --allowedTools 'Bash(gh:*),Read,Grep,Glob'"
           prompt: |
-            Triage automatico follow-up per PR #${{ github.event.pull_request.number }} ("${{ github.event.pull_request.title }}") appena mergiata.
+            Triage automatico follow-up per PR #${{ github.event.pull_request.number || github.event.inputs.pr_number }} (${{ github.event_name }}).
+
+            **Event-aware bootstrap:**
+            - Se `EVENT_NAME=pull_request`, la PR è appena stata chiusa+mergiata (auto-triage); `PR_TITLE` è già esposta come env var.
+            - Se `EVENT_NAME=workflow_dispatch`, la PR è un BACKFILL manuale di una PR vecchia. Ri-verifica che:
+              - `gh pr view $PR_NUMBER --json state,mergedAt,user --jq '.mergedAt'` sia non-null (PR mergiata)
+              - `gh pr view $PR_NUMBER --json user --jq '.user.login'` == `valerielinc-ops` (same-owner gate)
+              - Se uno dei due fallisce → emetti `## Post-merge follow-up triage (backfill skipped): PR not eligible (not merged or different author)` e termina.
 
             **Bootstrap:**
             1. Leggi `FOLLOWUP.md` — contratto operativo completo (parse rules, filtro scopo, dedup, issue format, closing comment).
