@@ -1,0 +1,79 @@
+name: PR Review (Claude single-pass)
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+permissions:
+  contents: read
+  pull-requests: write
+  issues: write
+  id-token: write
+
+jobs:
+  review:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    if: github.event.pull_request.draft == false
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+
+      - name: Run Claude review
+        uses: anthropics/claude-code-action@v1
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          PR_TITLE: ${{ github.event.pull_request.title }}
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+        with:
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          claude_args: "--max-turns 15 --model claude-sonnet-4-6"
+          prompt: |
+            Sei un reviewer single-pass per la PR #${{ github.event.pull_request.number }} ("${{ github.event.pull_request.title }}").
+
+            ## Contesto progetto
+            Leggi `AGENTS.md` per i gate non-negoziabili (SEO, AdSense Auto Ads, structured data job pages, accessibility, privacy, workflow).
+
+            ## Input
+            1. Descrizione + corpo PR: `gh pr view $PR_NUMBER --json title,body,labels,baseRefName,headRefName`
+            2. Diff completo: `gh pr diff $PR_NUMBER`
+            3. File modificati: `gh pr view $PR_NUMBER --json files`
+
+            ## Compito
+            Single-pass review. Estrai lo SCOPO dichiarato dalla PR description. Verifica che il diff implementi quello scopo SENZA introdurre regressioni.
+
+            Segnala SOLO blocker findings:
+            - Bug logici reali (non ipotesi remote)
+            - Security issue (XSS, injection, secret leak, path traversal)
+            - Regressioni dei gate AGENTS.md:
+              * Quality threshold/test tolerance abbassati
+              * Errori downgraded a warning
+              * Structured data job pages incompleti (baseSalary/postalCode/streetAddress/title/description/datePosted/hiringOrganization.name/jobLocation/employmentType)
+              * Thin content < 50 parole indicizzato
+              * AdSense Auto Ads disabilitati (qualsiasi forma)
+              * Identità git non canonica nei commit
+              * Path assoluti `/Users/...` nel codice
+            - Scope drift: diff fa cose NON menzionate nella PR description
+            - Accessibility: button senza accessible name, img senza width/height/alt, contrast `text-slate-400` su bg chiari
+            - Routing: nuovi top-level tab > 6 o sub-tab > 8
+
+            NO nitpick. NO style. NO suggerimenti opzionali. NO refactor proposals.
+
+            ## Output
+            Posta UNA review via:
+            `gh pr review $PR_NUMBER --comment --body "<markdown>"`
+
+            Formato body:
+            - Se zero blocker: `## LGTM` + una riga che riassume cosa fa la PR.
+            - Altrimenti: `## Blocker findings` + lista bullet, ogni bullet: `**file:linea** — descrizione + fix suggerito (1 frase)`.
+
+            Single-pass: NON aprire più di una review. NON fare push. NON modificare file.
