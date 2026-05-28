@@ -31,16 +31,32 @@ import { fileURLToPath } from 'node:url';
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
 
+// Initial seed date — used the FIRST time this script runs against an
+// empty url-first-seen.json. Backfills every URL discovered in dist
+// sitemaps with a historical date so the 15-day grace window does not
+// retroactively mark every existing URL as `full` for two weeks.
+// Effective semantics:
+//   - File empty (initial seed)  → stamp all current URLs with this date
+//                                  (past the longest grace window in any
+//                                  approved pattern → no grace → thinning
+//                                  decisions match current behaviour)
+//   - File non-empty (steady state) → stamp NEW URLs with today's date
+//                                     (15-day grace protects them)
+// Override with `--initial-seed-date=YYYY-MM-DD` for local backfills.
+const DEFAULT_INITIAL_SEED_DATE = '2026-04-01';
+
 function parseArgs(argv) {
   const out = {
     dist: 'dist',
     out: 'data/url-first-seen.json',
     dryRun: false,
+    initialSeedDate: DEFAULT_INITIAL_SEED_DATE,
   };
   for (const a of argv) {
     if (a === '--dry-run') out.dryRun = true;
     else if (a.startsWith('--dist=')) out.dist = a.slice(7);
     else if (a.startsWith('--out=')) out.out = a.slice(6);
+    else if (a.startsWith('--initial-seed-date=')) out.initialSeedDate = a.slice(20);
   }
   return out;
 }
@@ -117,15 +133,28 @@ async function main() {
     }
   }
 
+  // Initial seed = empty file. Without special-casing, every URL would
+  // get stamped with today's date, putting the entire emit set inside
+  // the 15-day grace window and effectively disabling thinning until
+  // those entries age out. Use a historical seed date (well past every
+  // approved pattern's `minAgeDays`) so existing URLs behave as
+  // "already old" and only URLs added in FUTURE runs receive today's
+  // stamp + real 15-day protection.
+  const isInitialSeed = Object.keys(existing).length === 0;
   const today = new Date().toISOString().slice(0, 10);
+  const stampDate = isInitialSeed ? args.initialSeedDate : today;
+  console.log(
+    `[url-first-seen] mode: ${isInitialSeed ? 'INITIAL-SEED' : 'incremental'} ` +
+    `(stampDate=${stampDate})`
+  );
   let added = 0;
   for (const u of allUrls) {
     if (!existing[u]) {
-      existing[u] = today;
+      existing[u] = stampDate;
       added++;
     }
   }
-  console.log(`[url-first-seen] ${added} new URLs stamped with ${today}; ${Object.keys(existing).length} total entries`);
+  console.log(`[url-first-seen] ${added} new URLs stamped with ${stampDate}; ${Object.keys(existing).length} total entries`);
 
   if (args.dryRun) {
     console.log(`[url-first-seen] dry-run — file not written`);
