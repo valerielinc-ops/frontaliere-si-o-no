@@ -1114,6 +1114,7 @@ jobs:
     permissions:
       contents: read    # checkout
       actions: read     # download-artifact same-run
+      issues: write     # github-issue-creator on validation failure (PR #772 added to the called job; must be declared at this caller too or the reusable workflow startup_failures)
 
   # ───────────────────────────────────────────────────────────────────────
   # validate-live: live smoke + social posting + indexing submission.
@@ -1132,6 +1133,7 @@ jobs:
     permissions:
       contents: write   # sync previous-slug winners (git push)
       actions: read     # download small artifacts (sitemaps, winners)
+      issues: write     # github-issue-creator on validation failure (PR #772 added to the called job; must be declared at this caller too or the reusable workflow startup_failures)
 
   # ───────────────────────────────────────────────────────────────────────
   # publish: side-effects + mark last_known_good. Runs ONLY when build,
@@ -1166,6 +1168,7 @@ jobs:
     permissions:
       contents: write   # sync previous-slug winners (git push)
       actions: read     # download small artifacts (sitemaps, winners)
+      issues: write     # github-issue-creator on publish failure (PR #772 added to the called job; must be declared at this caller too or the reusable workflow startup_failures)
 
   # ───────────────────────────────────────────────────────────────────────
   # rollback: revert Pages to last_known_good if either validate fails.
