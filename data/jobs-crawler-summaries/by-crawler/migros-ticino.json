@@ -1,67 +1,18 @@
 {
   "key": "migros-ticino",
   "label": "Migros",
-  "generatedAt": "2026-05-28T13:30:40.007Z",
+  "generatedAt": "2026-05-28T23:58:24.575Z",
   "total": 25,
-  "newCount": 1,
+  "newCount": 0,
   "updatedCount": 8,
   "removedCount": 0,
-  "unchangedCount": 16,
-  "durationMs": 51523,
-  "avgDurationMs": 51523,
+  "unchangedCount": 17,
+  "durationMs": 47609,
+  "avgDurationMs": 47609,
   "durationHistory": [
-    51523
+    47609
   ],
-  "newJobs": [
-    {
-      "id": "company-e96fdx",
-      "slug": "vendeur-caissier-m-w-d-societe-cooperative-migros-valais-montana",
-      "company": "Société coopérative Migros Valais",
-      "title": "Vendeur-caissier (f/h/d)",
-      "location": "Montana",
-      "canton": "VS",
-      "category": "other",
-      "contract": "full-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-28",
-      "url": "https://jobs.migros.ch/fr/nos-entreprises/job/societe-cooperative-migros-valais/vendeur-caissier-fhd/07baded0-68b6-4433-9f9d-b29bdac7ba76",
-      "source": "Company Careers Crawler",
-      "_migrosResponsibilities": [
-        "Accueillir, conseiller et fidéliser la clientèle",
-        "Présentation des produits et contrôle de la qualité",
-        "Approvisionnement et suivi des rayons",
-        "Soutien à la caisse",
-        "Polyvalence sur l'ensemble du magasin"
-      ],
-      "_migrosBenefits": [
-        "Infrastructure moderne: L'accès à des outils de travail modernes",
-        "Travailler en bonne santé: Mesures actives et innovantes en lien avec la santé, le mouvement et le bien-être",
-        "Congé maternité/congé paternité: Durée des congés maternité & paternité supérieurs au minimum légal / Droit à un congé pour adoption",
-        "Rémunération equitable: Label We pay fair",
-        "Prévoyance professionnelle: Possibilité de retraite anticipée dès 58 ans / Prestations supérieurs à la loi sur la prévoyance professionnelle",
-        "Prestations sociales: Prestations sociales supérieures à la moyenne",
-        "Vacances: 5 semaines de vacances / Dès 20 ans de service ou 50 ans: 6 semaines / Dès 30 ans de service ou 60 ans: 7 semaines",
-        "Promotion ciblée: Perspectives d’évolution intéressantes à la hauteur de vos talents",
-        "Formation continue individuelle: Formations permettant d'acquérir et de développer des compétences",
-        "Conseil social et personnel: Conseils avisés de la part du service de l'orientation sociale pour des questions d'ordre professionnel ou personnel"
-      ],
-      "_migrosWorkPercentage": "76%",
-      "companyKey": "migros-ticino",
-      "companyDomain": "migros.ch",
-      "crawledAt": "2026-05-28T13:30:37.009Z",
-      "firstSeenAt": "2026-05-28T13:30:37.009Z",
-      "needsRetranslation": true,
-      "sourceLang": "fr",
-      "_qualityScore": 73,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 25,
-        "translation": 9,
-        "completeness": 14
-      }
-    }
-  ],
+  "newJobs": [],
   "updatedJobs": [
     {
       "id": "company-pgglsr",
@@ -464,6 +415,62 @@
   ],
   "removedJobs": [],
   "unchangedJobs": [
+    {
+      "id": "company-e96fdx",
+      "slug": "vendeur-caissier-m-w-d-societe-cooperative-migros-valais-montana",
+      "company": "Société coopérative Migros Valais",
+      "title": "Vendeur-caissier (f/h/d)",
+      "location": "Montana",
+      "canton": "VS",
+      "category": "other",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-28",
+      "url": "https://jobs.migros.ch/fr/nos-entreprises/job/societe-cooperative-migros-valais/vendeur-caissier-fhd/07baded0-68b6-4433-9f9d-b29bdac7ba76",
+      "source": "Company Careers Crawler",
+      "_migrosResponsibilities": [
+        "Accueillir, conseiller et fidéliser la clientèle",
+        "Présentation des produits et contrôle de la qualité",
+        "Approvisionnement et suivi des rayons",
+        "Soutien à la caisse",
+        "Polyvalence sur l'ensemble du magasin"
+      ],
+      "_migrosBenefits": [
+        "Infrastructure moderne: L'accès à des outils de travail modernes",
+        "Travailler en bonne santé: Mesures actives et innovantes en lien avec la santé, le mouvement et le bien-être",
+        "Congé maternité/congé paternité: Durée des congés maternité & paternité supérieurs au minimum légal / Droit à un congé pour adoption",
+        "Rémunération equitable: Label We pay fair",
+        "Prévoyance professionnelle: Possibilité de retraite anticipée dès 58 ans / Prestations supérieurs à la loi sur la prévoyance professionnelle",
+        "Prestations sociales: Prestations sociales supérieures à la moyenne",
+        "Vacances: 5 semaines de vacances / Dès 20 ans de service ou 50 ans: 6 semaines / Dès 30 ans de service ou 60 ans: 7 semaines",
+        "Promotion ciblée: Perspectives d’évolution intéressantes à la hauteur de vos talents",
+        "Formation continue individuelle: Formations permettant d'acquérir et de développer des compétences",
+        "Conseil social et personnel: Conseils avisés de la part du service de l'orientation sociale pour des questions d'ordre professionnel ou personnel"
+      ],
+      "_migrosWorkPercentage": "76%",
+      "companyKey": "migros-ticino",
+      "companyDomain": "migros.ch",
+      "crawledAt": "2026-05-28T13:30:37.009Z",
+      "firstSeenAt": "2026-05-28T13:30:37.009Z",
+      "needsRetranslation": true,
+      "sourceLang": "fr",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "streetAddress": "Via Lugano 2",
+      "postalCode": "6500",
+      "addressLocality": "Montana",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "_qualityScore": 94,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
+        "translation": 19,
+        "completeness": 25
+      }
+    },
     {
       "id": "company-idyjw7",
       "slug": "direttore-aggiunto-della-filiale-genossenschaft-migros-wallis-fiesch",
