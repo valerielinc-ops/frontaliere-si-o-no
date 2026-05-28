@@ -7840,6 +7840,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.mancato-pagamento-stipendio-lavoratrice.title': 'Unpaid wages: the Nidil Cgil Varese case',
     'blog.article.mancato-pagamento-stipendio-lavoratrice.excerpt': 'A worker is still waiting for payment for eleven days of work in April. Nidil Cgil Varese denounces the precarious nature of temporary employment contracts.',
     'blog.article.mancato-pagamento-stipendio-lavoratrice.imageAlt': 'Office building in Mendrisiotto, Ticino',
+    'blog.article.chiusura-amministrazione-ticino-2025.title': 'Administrative Services Closure in Ticino: 31 December 2025',
+    'blog.article.chiusura-amministrazione-ticino-2025.excerpt': 'Afternoon of 31 December 2025, the administrative services of the Canton will be closed.',
+    'blog.article.chiusura-amministrazione-ticino-2025.imageAlt': 'Evening view of Bellinzona administrative center in winter.',
 };
 
 export default blogMetaEn;

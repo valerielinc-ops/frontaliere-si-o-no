@@ -3855,6 +3855,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-ia-aziende-svizzere-occupazione-ticino': { name: 'IA e lavoro Ticino', path: '/articoli-frontaliere/ia-aziende-svizzere-occupazione-ticino', parent: 'blog' },
     'blog-tram-treno-ricorso-zali': { name: 'novita tram', path: '/articoli-frontaliere/tram-treno-ricorso-zali', parent: 'blog' },
     'blog-mancato-pagamento-stipendio-lavoratrice': { name: 'Caso stipendio non pagato', path: '/articoli-frontaliere/mancato-pagamento-stipendio-lavoratrice', parent: 'blog' },
+    'blog-chiusura-amministrazione-ticino-2025': { name: 'Chiusura amministrativa Ticino', path: '/articoli-frontaliere/chiusura-amministrazione-ticino-2025', parent: 'blog' },
  };
 
  const info = sectionNames[section];
