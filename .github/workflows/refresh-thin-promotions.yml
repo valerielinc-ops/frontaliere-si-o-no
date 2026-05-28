@@ -9,6 +9,12 @@ name: Refresh thin-page promotions
 # Cadence: every hour at :15. Cheap (two API calls), idempotent — when
 # nothing fresh lands the active.json file is left unchanged so no commit
 # happens.
+#
+# Secrets pattern mirrors build-evidence-and-tune.yml: the only GH-Actions
+# secret needed is FIREBASE_SERVICE_ACCOUNT_JSON. All other env vars
+# (POSTHOG_PERSONAL_API_KEY, POSTHOG_PROJECT_ID, POSTHOG_HOST,
+# GA4_PROPERTY_ID) are loaded from Firebase Remote Config at workflow
+# runtime via scripts/load-rc-env.mjs, which writes them to $GITHUB_ENV.
 
 on:
   schedule:
@@ -49,13 +55,21 @@ jobs:
 
       - run: npm ci --no-audit --no-fund
 
-      - name: Fetch thin-page promotions
+      - name: Prepare Firebase service-account credentials
+        run: |
+          echo '${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}' > /tmp/firebase-sa.json
+          echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+
+      - name: Load secrets from Remote Config
+        run: node scripts/load-rc-env.mjs
         env:
           FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
-          GA4_PROPERTY_ID: ${{ secrets.GA4_PROPERTY_ID }}
-          POSTHOG_PERSONAL_API_KEY: ${{ secrets.POSTHOG_PERSONAL_API_KEY }}
-          POSTHOG_PROJECT_ID: ${{ secrets.POSTHOG_PROJECT_ID }}
-          POSTHOG_HOST: ${{ secrets.POSTHOG_HOST }}
+
+      # POSTHOG_* + GA4_PROPERTY_ID are populated via load-rc-env above.
+      # No explicit `env:` here — that would shadow RC values with empty
+      # GitHub secret refs. FIREBASE_SERVICE_ACCOUNT_JSON / GOOGLE_APPLICATION_CREDENTIALS
+      # already in env from the first step.
+      - name: Fetch thin-page promotions
         run: |
           node scripts/fetch-thin-page-promotions.mjs \
             --window-hours="${{ github.event.inputs.window_hours || '24' }}" \
@@ -67,8 +81,8 @@ jobs:
             echo "no change"
             exit 0
           fi
-          git config user.name "Valerie Linc"
-          git config user.email "valerielinc@gmail.com"
+          git config user.name "thin-promotions-bot"
+          git config user.email "thin-promotions-bot@frontaliereticino.ch"
           git add data/thin-page-promotions-active.json data/thin-page-promotions.jsonl
           git commit -m "chore(thin-promotions): refresh self-heal feedback (last hour)"
           git push

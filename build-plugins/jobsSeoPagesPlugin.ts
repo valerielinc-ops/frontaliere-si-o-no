@@ -619,6 +619,14 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  let bridgeThinCount = 0;
  let softLandingFullCount = 0;
  let softLandingThinCount = 0;
+ // Track ACTUAL bytes saved per page (full length − thin length). The
+ // counters above record FILTER DECISIONS — when buildBridgeThinHtml /
+ // buildSoftLandingThinHtml's regex doesn't match (e.g. PR #729 bug
+ // before that fix landed), the helper returns the cached HTML
+ // unchanged, the decision still says "thin" but the byte saving is
+ // zero. These two trackers surface that discrepancy in the build log.
+ let bridgeBytesSaved = 0;
+ let softLandingBytesSaved = 0;
 
  // `cacheDateStamp` is used as today's stamp throughout the plugin and
  // in the always-run sitemap-index patch below.
@@ -10602,8 +10610,12 @@ ${staticAnalyticsHtml}
  __slAction === 'thin'
  ? buildSoftLandingThinHtml(__slFullHtml, locale)
  : __slFullHtml;
- if (__slAction === 'thin') softLandingThinCount++;
- else softLandingFullCount++;
+ if (__slAction === 'thin') {
+ softLandingThinCount++;
+ softLandingBytesSaved += __slFullHtml.length - softLandingHtml.length;
+ } else {
+ softLandingFullCount++;
+ }
  recordPhase('ejp:shell', __tEjpShell);
 
  // Dedup membership: __slPathKey is computed and checked at the top of
@@ -10965,6 +10977,11 @@ ${staticAnalyticsHtml}
  __brDecision.action === 'thin' ? 'thin' : 'full';
  if (__brAction === 'thin') bridgeThinCount++; else bridgeFullCount++;
  const { indexHtml, flatHtml } = ensureBridgeHtml(__brAction);
+ // Real bytes saved per file emit (counter above tracks decisions
+ // only, not byte deltas — see PR #729 lesson).
+ const __brDelta = __brAction === 'thin'
+ ? (cachedHtml.length - indexHtml.length)
+ : 0;
 
  _md(outDir);
  _qw(np.join(outDir, 'index.html'), indexHtml);
@@ -10972,6 +10989,7 @@ ${staticAnalyticsHtml}
  const flatFile = np.join(distDir, oldPath.replace(/^\//, '') + '.html');
  _md(np.dirname(flatFile));
  _qwFlat(flatFile, indexHtml);
+ bridgeBytesSaved += __brDelta * 2;
  bridgeCount++;
  recordEmit('previous-slug-bridge', __tPrevSlugBridge);
 
@@ -11002,6 +11020,7 @@ ${staticAnalyticsHtml}
  const legacyTIFlatFile = np.join(distDir, legacyTIRelPath + '.html');
  _md(np.dirname(legacyTIFlatFile));
  _qwFlat(legacyTIFlatFile, indexHtml);
+ bridgeBytesSaved += __brDelta * 2;
  bridgeCount++;
  recordEmit('previous-slug-bridge-legacy-ti', __tPrevSlugLegacyTIBridge);
  }
@@ -11251,18 +11270,39 @@ ${staticAnalyticsHtml}
  // behavior (cached canonical HTML reused). 'thin' = bridge body
  // replaced with a slim ≥50-word block; HEAD signals unchanged. See
  // build-plugins/shared/bridgeThinShell.ts and trafficEvidenceFilter.ts.
+ // Formats a byte count as "X.YGB" / "X.YMB" / "X KB" (1024-base, to
+ // match dist-bytes-report's units). Inline because there's no shared
+ // formatter in this plugin file.
+ const fmtBytes = (n: number): string => {
+ if (n < 1024) return `${n}B`;
+ if (n < 1024 * 1024) return `${(n / 1024).toFixed(1)}KB`;
+ if (n < 1024 * 1024 * 1024) return `${(n / (1024 * 1024)).toFixed(1)}MB`;
+ return `${(n / (1024 * 1024 * 1024)).toFixed(2)}GB`;
+ };
  if (bridgeThinCount > 0 || bridgeFullCount > 0) {
  console.log(
  `\x1b[36m[jobs-seo-pages]\x1b[0m bridge tier: ` +
- `full=${bridgeFullCount} thin=${bridgeThinCount}`
+ `full=${bridgeFullCount} thin=${bridgeThinCount} ` +
+ `bytes_saved=${fmtBytes(bridgeBytesSaved)}`
  );
  }
  if (softLandingThinCount > 0 || softLandingFullCount > 0) {
  console.log(
  `\x1b[36m[jobs-seo-pages]\x1b[0m soft-landing tier: ` +
- `full=${softLandingFullCount} thin=${softLandingThinCount}`
+ `full=${softLandingFullCount} thin=${softLandingThinCount} ` +
+ `bytes_saved=${fmtBytes(softLandingBytesSaved)}`
  );
  }
+ // Total real dist saving from tiered emission. PR #729 lesson: the
+ // tier counters above record FILTER DECISIONS, not byte deltas. A
+ // build where the thin-shell regex misses (e.g. unquoted-class bug
+ // pre-#729) shows `thin=N high` but `bytes_saved=0`. This single
+ // line is the ground truth.
+ console.log(
+ `\x1b[36m[jobs-seo-pages]\x1b[0m tiered emission saved ` +
+ `${fmtBytes(bridgeBytesSaved + softLandingBytesSaved)} ` +
+ `(bridges=${fmtBytes(bridgeBytesSaved)}, soft-landings=${fmtBytes(softLandingBytesSaved)})`
+ );
  console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m ${trafficFilter.summary()}`);
  },
  };
