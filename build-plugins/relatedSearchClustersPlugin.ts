@@ -62,6 +62,7 @@ import {
   getSearchSlugPrefix,
 } from '../services/relatedSearchClusters';
 import {
+  AGGREGATE_KEY,
   resolveCantonSection,
   resolveJobCanton,
   type CantonLocale,
@@ -494,15 +495,29 @@ interface ClusterContext {
   matchingJobs: RawJob[];
   topCompanies: string[];
   /**
-   * URL canton group key derived from the cluster's top-ranked matching job
-   * (`resolveJobCanton(matchingJobs[0])` → e.g. 'TI', 'BASILEA', 'ZH').
-   * Drives `buildClusterPath` so a Liestal-only cluster lands at
-   * `/cerca-lavoro-basilea/ricerca-{slug}/` instead of the legacy TI hardcode
-   * that produced empty SERPs after the SPA's canton filter ran.
+   * URL canton group key used for the cluster's CANONICAL URL. Now hardcoded
+   * to `AGGREGATE_KEY` so every cluster canonicalizes to the Switzerland-wide
+   * section (`/cerca-lavoro-svizzera/ricerca-{slug}/` and locale variants).
+   * The SPA on `_AGGREGATE_` does not apply a canton filter, so the user sees
+   * all matching jobs cross-canton — strictly more results than the previous
+   * per-canton pinning, which arbitrarily picked the canton of `matching[0]`
+   * and hid the rest behind the SPA's canton filter.
    *
-   * Falls back to `'TI'` when no jobs match (MIN_MATCHING_JOBS=0 allows it).
+   * Used by `buildClusterPath` for the canonical URL AND for every cross-link
+   * (hreflang alternates, related-cluster anchors, hub-item URLs) — so the
+   * internal link graph is fully consistent with the canonical.
    */
   cantonGroup: string;
+  /**
+   * Canton group derived from `resolveJobCanton(matchingJobs[0])`. Preserved
+   * separately from `cantonGroup` (which is now always AGGREGATE_KEY for the
+   * canonical) so the emit loop can still write a legacy per-canton mirror
+   * at the URL the build was producing before this refactor. Mirrors share
+   * the canonical's HTML byte-for-byte; their `<link rel="canonical">` still
+   * points at the Svizzera URL — Google folds the mirror into the canonical
+   * over time while indexed legacy URLs stay 200 OK in the interim.
+   */
+  legacyCantonGroup: string;
 }
 
 // ── Inverted index for token → posting list of jobIdx ────────────────────
@@ -847,17 +862,24 @@ function buildClusterContext(
     .map(([name]) => name);
   profileRecord('bc:top-companies', __tTop);
 
-  // Pin the cluster page to its source canton's URL section. Without this
-  // every cluster lands at `/cerca-lavoro-ticino/ricerca-{slug}/` regardless
-  // of where the matching jobs live. The SPA then applies a TI canton filter
-  // and the BL/ZH/etc jobs disappear → 0-result SERP. `matchingJobs[0]` is
-  // the highest-ranked match (corpus-order AND-match, then OR), so it best
-  // represents the cluster's locality intent. `resolveJobCanton` collapses
-  // half-cantons (AI/AR→APPENZELLO, BL/BS→BASILEA) and falls back to the
-  // BFS city map when job.canton is missing.
-  const cantonGroup = matching.length > 0 ? resolveJobCanton(matching[0]) : 'TI';
+  // Canonical URL is now the Switzerland-wide aggregate so the cluster page
+  // surfaces cross-canton jobs (the SPA's canton filter is disabled on
+  // `_AGGREGATE_`). Previously every cluster pinned to `matching[0]`'s
+  // canton — that arbitrarily hid the other ~95% of matching jobs behind a
+  // canton filter and produced an orphan URL on every other canton each time
+  // an internal link defaulted to a different section (the JobBoard
+  // related-search widget at JobBoard.tsx:5776 defaulted to TI, leaking
+  // ~30k orphan URLs into Google's index per locale).
+  //
+  // `legacyCantonGroup` keeps the old behaviour available for the emit-loop
+  // mirror writes — the per-canton URL the build was previously emitting is
+  // mirrored alongside the new canonical (same HTML, canonical href → Svizzera)
+  // so already-indexed sitemap entries stay 200 OK and Google consolidates them
+  // into the new canonical instead of 404-ing.
+  const legacyCantonGroup = matching.length > 0 ? resolveJobCanton(matching[0]) : 'TI';
+  const cantonGroup = AGGREGATE_KEY;
 
-  return { candidate, keyword: keyword.trim(), city, matchingJobs: matching, topCompanies, cantonGroup };
+  return { candidate, keyword: keyword.trim(), city, matchingJobs: matching, topCompanies, cantonGroup, legacyCantonGroup };
 }
 
 // ── Page emission ───────────────────────────────────────────────────────
@@ -2149,6 +2171,50 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
         emittedFiles.push(path.relative(distDir, indexPath));
         emittedFiles.push(path.relative(distDir, flatPath));
         sitemapLocs.push(out.loc);
+
+        // ── Legacy mirrors ──────────────────────────────────────────────
+        // Emit byte-identical copies of the canonical (Svizzera) HTML at the
+        // legacy per-canton paths that this cluster previously occupied. The
+        // mirror's `<link rel="canonical">` already points to Svizzera (it's
+        // baked into the rendered HTML), so search engines fold the mirror
+        // into the canonical instead of treating it as a duplicate. Two
+        // mirror cantons are covered:
+        //   1. `ctx.legacyCantonGroup` — the canton of `matchingJobs[0]`,
+        //      which is where the pre-refactor build emitted the cluster
+        //      AND where the sitemap-search-clusters shards still advertise
+        //      it from previous deploys (every URL Google has crawled).
+        //   2. `'TI'` — the legacy default section. The JobBoard related-
+        //      search widget (components/community/JobBoard.tsx:5776) used
+        //      `buildPath` without `jobBoardCanton`, which falls back to
+        //      `table.jobBoard` (cerca-lavoro-ticino / find-jobs-ticino /
+        //      jobs-im-tessin / trouver-emploi-tessin) — so Googlebot
+        //      followed those internal links and indexed the TI variant
+        //      across all locales.
+        // Mirrors are NOT added to sitemapLocs: only the Svizzera canonical
+        // appears in sitemap-search-clusters.xml, so audit:sitemap-canonicals
+        // continues to pass. Mirrors stay out of the index over time.
+        const mirrorCantons = new Set<string>([ctx.legacyCantonGroup, 'TI']);
+        // The canonical was already written under AGGREGATE_KEY → don't
+        // re-emit at the same path even if legacyCantonGroup somehow
+        // collapses to AGGREGATE (currently impossible: resolveJobCanton
+        // never returns it). Defensive only.
+        mirrorCantons.delete(AGGREGATE_KEY);
+        for (const mirrorCanton of mirrorCantons) {
+          const mirrorPath = buildClusterPath(locale, ctx.candidate.slug, mirrorCanton);
+          if (mirrorPath === out.urlPath) continue; // never overwrite canonical
+          // Mirrors emit ONLY index.html — no flat .html bridge. The slash
+          // mirror already canonicalizes to Svizzera (via the rendered
+          // HTML's `<link rel="canonical">`), so a flat .html bridge would
+          // be a second redirect hop for a low-value URL form (visitors
+          // typing the URL without trailing slash). Cuts mirror file count
+          // in half — relevant because ~70% of clusters emit 2 mirrors
+          // (legacyCanton + TI when legacy ≠ TI) so doubling mirrors via
+          // flat bridges would add hundreds of thousands of files for a
+          // negligible UX gain.
+          const mirrorIndexPath = path.join(distDir, mirrorPath, 'index.html');
+          collector.add(mirrorIndexPath, out.html);
+          emittedFiles.push(path.relative(distDir, mirrorIndexPath));
+        }
         profileRecord('render-cluster-page', __tRenderCluster);
       }
 
