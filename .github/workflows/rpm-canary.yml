@@ -57,6 +57,15 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '22'
+          cache: 'npm'
+
+      # load-rc-env.mjs imports `firebase-admin` to talk to Remote Config;
+      # without npm deps it falls back to "no secrets loaded" and the
+      # AdSense call later errors with "missing OAuth credentials". Same
+      # install pattern as revenue-monitor.yml (`--ignore-scripts` since
+      # we don't need postinstall hooks for this read-only canary).
+      - name: Install dependencies
+        run: npm ci --ignore-scripts
 
       - name: Write Service Account credentials
         env:
