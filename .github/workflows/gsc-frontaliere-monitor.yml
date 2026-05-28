@@ -97,7 +97,31 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add data/gsc-frontaliere-baseline.json
           git commit -m "chore(gsc): refresh frontaliere brand baseline ($(date -u +%Y-%m-%d))"
-          git push
+          # Retry-on-rebase: many scheduled workflows push to main concurrently
+          # (crawlers, fuel, weather, thin-promotions, etc.); a non-fast-forward
+          # push is the expected failure mode, NOT a code bug. Mirror the
+          # rebase loop already used by crawler-health-monitor.yml,
+          # refresh-thin-promotions.yml, and deploy.yml's dist-history step.
+          MAX_ATTEMPTS=5
+          BACKOFF_BASE=3
+          attempt=1
+          while [ "$attempt" -le "$MAX_ATTEMPTS" ]; do
+            if git push origin HEAD:main; then
+              echo "✅ Pushed gsc baseline refresh."
+              exit 0
+            fi
+            echo "⚠️ Push rejected (attempt $attempt/$MAX_ATTEMPTS) — fetch + rebase, then retry…"
+            git fetch origin main
+            if ! git rebase origin/main; then
+              echo "⚠️ Rebase conflict on data/gsc-frontaliere-baseline.json — aborting and resetting."
+              git rebase --abort || true
+              exit 1
+            fi
+            sleep $((BACKOFF_BASE * attempt))
+            attempt=$((attempt + 1))
+          done
+          echo "❌ Push failed after $MAX_ATTEMPTS attempts — leaving baseline uncommitted."
+          exit 1
 
       - name: Open brand drift issue
         if: ${{ steps.status.outputs.drift == 'true' }}
