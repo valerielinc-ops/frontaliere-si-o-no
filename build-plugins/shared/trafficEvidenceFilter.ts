@@ -9,10 +9,10 @@
 //   data/evidence-index.json
 //     - gsc.queries[query].topLandingPage  → URLs that own a search query
 //     - ga4.pages[path].sessions           → URLs with ≥3 sessions in 90d
-//     - posthog.pages[path].pageviews      → (currently empty in production,
-//                                            kept here so a future fix to
-//                                            scripts/build-evidence-index.mjs
-//                                            picks it up automatically)
+//     - posthog.pages[path]                → either newsletterSignups OR
+//                                            pageviews (or both); key
+//                                            presence alone qualifies as
+//                                            "has traffic"
 //
 //   data/thin-page-promotions-active.json
 //     - { urls: [path, ...], generatedAt }
