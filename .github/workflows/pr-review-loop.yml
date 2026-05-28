@@ -43,6 +43,17 @@ jobs:
         run: |
           set -euo pipefail
           files=$(gh pr view "$PR_NUMBER" --json files --jq '.files[].path')
+          # Guard PR vuota (rebase-only, base == head): files vuoto. Default tier
+          # normal + log esplicito, evita di affidarsi al fallback implicito
+          # `grep -q` su input vuoto. Reviewer comunque posta `## LGTM` (no
+          # finding) e auto-merge scatta.
+          if [ -z "$files" ]; then
+            echo "Empty file list (rebase-only or empty PR), tier=normal."
+            echo "tier=normal" >> "$GITHUB_OUTPUT"
+            echo "model=claude-sonnet-4-6" >> "$GITHUB_OUTPUT"
+            echo "max_turns=15" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
           if echo "$files" | grep -qE '^(tests/|\.github/workflows/|scripts/|build-plugins/)'; then
             echo "tier=high" >> "$GITHUB_OUTPUT"
             echo "model=claude-opus-4-7" >> "$GITHUB_OUTPUT"

@@ -19,12 +19,19 @@ jobs:
     #   `!contains(body, '🔴')` che generava false negatives quando il bot
     #   scriveva meta-language tipo "Nessun 🔴 Important" per affermare zero
     #   blocker — l'emoji nel testo di negazione bloccava il merge.
+    # - body NON contiene `🔴 Important` (guard belt-and-suspenders contro
+    #   reviewer-error: se il bot scrive `## LGTM` per sbaglio E lascia un
+    #   `🔴 Important` nei findings, l'auto-merge non scatta). Token
+    #   `🔴 Important` (non solo emoji 🔴) per evitare di bloccare merge dove
+    #   l'emoji appare in legend/meta-language. REVIEW.md istruisce comunque
+    #   il reviewer a NON scrivere `## LGTM` con 🔴 aperto.
     # - PR non draft.
     if: |
       github.event.review.user.type == 'Bot' &&
       startsWith(github.event.review.user.login, 'claude') &&
       github.event.review.state == 'commented' &&
       contains(github.event.review.body, '## LGTM') &&
+      !contains(github.event.review.body, '🔴 Important') &&
       github.event.pull_request.draft == false
     runs-on: ubuntu-latest
     steps:
