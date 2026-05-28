@@ -1836,30 +1836,89 @@ function normalizeLocForCanonicalCmp(u: string): string {
     return u.trim();
   }
 }
-function dropOverwrittenLocs(distDir: string, locs: ReadonlyArray<string>): string[] {
+/**
+ * Async parallel variant. Replaced the sync version (180k `fs.readFileSync`
+ * + 360k `fs.existsSync` per build, ~41s under `sitemap-write` in run
+ * 26597194374) with a fixed-size concurrency pool of async readFile attempts.
+ * Order-preserving: each location's decision is recorded into a pre-allocated
+ * Uint8Array indexed by input position, then the output `string[]` is
+ * collected in input order — byte-identical sitemap content vs sync path.
+ *
+ * The async pool overlaps SSD reads across N in-flight ops per main-thread
+ * lane (no worker_threads needed since the work is pure I/O). With
+ * IN_FLIGHT=32 on a 4-vCPU runner the kernel readahead pipeline stays
+ * saturated; higher values returned diminishing gains in microbenchmarks
+ * and risk fd contention with concurrent plugins still flushing writes.
+ *
+ * Missing-HTML semantics preserved: the original code silently skipped a
+ * loc when neither `<urlPath>/index.html` nor `<urlPath>.html` existed
+ * (no counter); this path collapses both `existsSync` probes into the
+ * `readFile` attempts and flags `DROP_MISSING` only for logging-skip — the
+ * net output is identical (loc absent from result, no log line).
+ */
+async function dropOverwrittenLocs(
+  distDir: string,
+  locs: ReadonlyArray<string>,
+): Promise<string[]> {
+  const KEEP = 1;
+  const DROP_NOINDEX = 2;
+  const DROP_NONCANON = 3;
+  const DROP_MISSING = 4;
+  const flags = new Uint8Array(locs.length);
+
+  // Concurrency cap for in-flight async readFile attempts. 32 matches the
+  // postWalkWorker IN_FLIGHT × workers budget (4 workers × 8 in-flight) and
+  // stays well under the ulimit guard (see batchWrite.ts conservative 1024).
+  const IN_FLIGHT = 32;
+  let cursor = 0;
+
+  const lane = async (): Promise<void> => {
+    while (cursor < locs.length) {
+      const i = cursor++;
+      const loc = locs[i];
+      const urlPath = new URL(loc).pathname.replace(/\/+$/, '');
+      const indexPath = path.join(distDir, urlPath, 'index.html');
+      const flatPath = path.join(distDir, urlPath + '.html');
+      let html: string | null = null;
+      try {
+        html = await fs.promises.readFile(indexPath, 'utf-8');
+      } catch {
+        try {
+          html = await fs.promises.readFile(flatPath, 'utf-8');
+        } catch {
+          flags[i] = DROP_MISSING;
+          continue;
+        }
+      }
+      if (NOINDEX_RE.test(html)) {
+        flags[i] = DROP_NOINDEX;
+        continue;
+      }
+      const canonMatch =
+        html.match(CANONICAL_HREF_RE) || html.match(CANONICAL_HREF_REVERSED_RE);
+      if (canonMatch && canonMatch[1]) {
+        const canonHref = canonMatch[1].trim();
+        if (normalizeLocForCanonicalCmp(canonHref) !== normalizeLocForCanonicalCmp(loc)) {
+          flags[i] = DROP_NONCANON;
+          continue;
+        }
+      }
+      flags[i] = KEEP;
+    }
+  };
+
+  const lanes: Promise<void>[] = [];
+  for (let l = 0; l < Math.min(IN_FLIGHT, locs.length); l++) lanes.push(lane());
+  await Promise.all(lanes);
+
   const out: string[] = [];
   let droppedNoindex = 0;
   let droppedNonCanonical = 0;
-  for (const loc of locs) {
-    const urlPath = new URL(loc).pathname.replace(/\/+$/, '');
-    const indexPath = path.join(distDir, urlPath, 'index.html');
-    const flatPath = path.join(distDir, urlPath + '.html');
-    const target = fs.existsSync(indexPath) ? indexPath : flatPath;
-    if (!fs.existsSync(target)) continue; // missing HTML — skip silently
-    const html = fs.readFileSync(target, 'utf-8');
-    if (NOINDEX_RE.test(html)) {
-      droppedNoindex++;
-      continue;
-    }
-    const canonMatch = html.match(CANONICAL_HREF_RE) || html.match(CANONICAL_HREF_REVERSED_RE);
-    if (canonMatch && canonMatch[1]) {
-      const canonHref = canonMatch[1].trim();
-      if (normalizeLocForCanonicalCmp(canonHref) !== normalizeLocForCanonicalCmp(loc)) {
-        droppedNonCanonical++;
-        continue;
-      }
-    }
-    out.push(loc);
+  for (let i = 0; i < locs.length; i++) {
+    const f = flags[i];
+    if (f === KEEP) out.push(locs[i]);
+    else if (f === DROP_NOINDEX) droppedNoindex++;
+    else if (f === DROP_NONCANON) droppedNonCanonical++;
   }
   if (droppedNoindex > 0 || droppedNonCanonical > 0) {
     console.log(
@@ -1881,28 +1940,38 @@ async function writeSitemap(
   // without this barrier the cluster sitemap is written while bridge files
   // are still buffered and bridge URLs whose canonical points elsewhere
   // leak into sitemap-search-clusters.xml — audit:sitemap-canonicals fails.
+  const __tFlushWait = profileStart();
   await jobsSeoPagesFlushed;
-  const locs = dropOverwrittenLocs(distDir, allLocs);
+  profileRecord('sw:wait-jobs-flush', __tFlushWait);
+  const __tDrop = profileStart();
+  const locs = await dropOverwrittenLocs(distDir, allLocs);
+  profileRecord('sw:drop-overwritten', __tDrop);
   if (locs.length === 0) return [];
 
   // Clear any stale single-file legacy sitemap or shard residue from a
   // previous run that produced more shards than this one. Without this,
   // a shrinking corpus would leave dangling sitemap-search-clusters-NNN.xml
   // files referenced by the auto-discovered sitemap.xml index.
+  const __tClearStale = profileStart();
   clearStaleClusterSitemaps(distDir);
+  profileRecord('sw:clear-stale', __tClearStale);
 
   const totalShards = Math.max(1, Math.ceil(locs.length / SITEMAP_SHARD_CAP));
   const written: string[] = [];
   try {
     fs.mkdirSync(distDir, { recursive: true });
     for (let i = 0; i < totalShards; i++) {
+      const __tSerialize = profileStart();
       const slice = locs.slice(i * SITEMAP_SHARD_CAP, (i + 1) * SITEMAP_SHARD_CAP);
       const entries = slice.map((loc) =>
         `  <url>\n    <loc>${loc}</loc>\n    <lastmod>${dateStamp}</lastmod>\n    <changefreq>daily</changefreq>\n    <priority>0.6</priority>\n  </url>`,
       ).join('\n');
       const xml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${entries}\n</urlset>\n`;
+      profileRecord('sw:serialize-xml', __tSerialize);
+      const __tWriteShard = profileStart();
       const file = shardFilename(i + 1);
       fs.writeFileSync(path.join(distDir, file), xml, 'utf-8');
+      profileRecord('sw:write-shard', __tWriteShard);
       written.push(file);
     }
   } catch (err) {
@@ -1912,7 +1981,9 @@ async function writeSitemap(
   console.log(
     `\x1b[36m[related-search-clusters]\x1b[0m sharded ${locs.length} URLs into ${written.length} file(s) at ${SITEMAP_SHARD_CAP}/shard`,
   );
+  const __tPatchMaster = profileStart();
   patchMasterSitemap(distDir, dateStamp, written);
+  profileRecord('sw:patch-master', __tPatchMaster);
   return written;
 }
 
