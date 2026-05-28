@@ -30,6 +30,30 @@ jobs:
         with:
           node-version: '22'
 
+      - name: Determine review tier
+        id: tier
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+        # Tier high (opus, max-turns 25, adversarial pass): toccato test gate,
+        # workflow CI, script crawler/migrator/validator, build-plugin. Bug in
+        # questi path = falso senso di sicurezza che si propaga su ogni merge,
+        # quindi probing più profondo paga. Tier normal (sonnet, max-turns 15)
+        # per tutto il resto. Vedi REVIEW.md → "Tier review".
+        run: |
+          set -euo pipefail
+          files=$(gh pr view "$PR_NUMBER" --json files --jq '.files[].path')
+          if echo "$files" | grep -qE '^(tests/|\.github/workflows/|scripts/|build-plugins/)'; then
+            echo "tier=high" >> "$GITHUB_OUTPUT"
+            echo "model=claude-opus-4-7" >> "$GITHUB_OUTPUT"
+            echo "max_turns=25" >> "$GITHUB_OUTPUT"
+          else
+            echo "tier=normal" >> "$GITHUB_OUTPUT"
+            echo "model=claude-sonnet-4-6" >> "$GITHUB_OUTPUT"
+            echo "max_turns=15" >> "$GITHUB_OUTPUT"
+          fi
+          echo "Review tier: $(grep tier= "$GITHUB_OUTPUT" | head -1)"
+
       - name: Run Claude review
         uses: anthropics/claude-code-action@v1
         env:
@@ -38,19 +62,28 @@ jobs:
           PR_TITLE: ${{ github.event.pull_request.title }}
           BASE_SHA: ${{ github.event.pull_request.base.sha }}
           HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+          REVIEW_TIER: ${{ steps.tier.outputs.tier }}
         with:
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           show_full_output: true
-          claude_args: "--max-turns 15 --model claude-sonnet-4-6 --allowedTools 'Bash(gh:*),Read,Grep,Glob'"
+          # Tool expansion: aggiunti `Bash(rg:*)`, `Bash(git:*)` per consentire
+          # cross-file pattern search (REVIEW.md → Reviewer behavior step 5) e
+          # navigation history (`git log -L`, `git blame`, `git show`). Tier high
+          # paga il bump opus per probing regex/assertion/idempotency.
+          claude_args: "--max-turns ${{ steps.tier.outputs.max_turns }} --model ${{ steps.tier.outputs.model }} --allowedTools 'Bash(gh:*),Bash(rg:*),Bash(git:*),Read,Grep,Glob'"
           prompt: |
-            Reviewer automatico PR #${{ github.event.pull_request.number }} ("${{ github.event.pull_request.title }}").
+            Reviewer automatico PR #${{ github.event.pull_request.number }} ("${{ github.event.pull_request.title }}"). Tier: ${{ steps.tier.outputs.tier }}.
 
             **Bootstrap:**
-            1. Leggi `REVIEW.md` — contratto operativo completo (severity, filtro scopo, completeness contract, format, esempi).
+            1. Leggi `REVIEW.md` — contratto operativo completo (tier, severity, filtro scopo, completeness contract, cross-file pattern repetition, test plan compliance, adversarial check, format).
             2. `AGENTS.md` solo come contesto progetto (non-negotiables, architettura) — opzionale, leggi solo se serve.
             3. Carica PR: `gh pr view $PR_NUMBER --json title,body,labels`, `gh pr diff $PR_NUMBER`, `gh pr view $PR_NUMBER --json files`.
 
-            **Esegui workflow di review come specificato in REVIEW.md** (steps: completeness contract → Implementato critical thinking → Non implementato filtro scopo → scope drift → output).
+            **Esegui workflow di review come specificato in REVIEW.md:**
+            - completeness contract → Implementato critical thinking → Non implementato filtro scopo → scope drift → cross-file pattern repetition (step 5) → test plan compliance (step 6) → output.
+            - Tier high: aggiungi sezione `## Adversarial check` con 3 cose NON verificate prima del summary finale.
+
+            **Cross-file pattern probing (REVIEW.md step 5):** quando il diff fix-a un pattern (regex, parsing idiom, assertion shape), usa `rg` per cercare il pattern equivalente nel resto del repo. Pattern presente non toccato in file funnel-critico → 🔴; altrove → 🟡.
 
             **Posta UNA review:**
             `gh pr review $PR_NUMBER --comment --body "<markdown formato REVIEW.md>"`
@@ -58,5 +91,6 @@ jobs:
             **Constraint:**
             - Single-pass, una sola review per run.
             - Read-only: no push, no edit file.
-            - Zero finding accettabile → chiudi con `## LGTM`. Non inventare per riempire.
+            - Zero finding accettabile → chiudi con `## LGTM` (string esatta triggera auto-merge). Non inventare per riempire.
+            - 🔴 aperto → NON scrivere `## LGTM`.
             - Incerto → `❓ q:`, no speculazione.
