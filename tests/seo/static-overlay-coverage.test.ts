@@ -44,6 +44,10 @@ const cases: ReadonlyArray<{ url: string; tab: string }> = [
   { url: '/en/living-in-ticino/border-municipalities/como/', tab: 'vita' },
   { url: '/de/leben-im-tessin/grenzgemeinden/como/', tab: 'vita' },
   { url: '/fr/vivre-au-tessin/communes-frontiere/como/', tab: 'vita' },
+  { url: '/vivere-in-ticino/comuni-di-frontiera/villadossola/', tab: 'vita' },
+  { url: '/en/living-in-ticino/border-municipalities/villadossola/', tab: 'vita' },
+  { url: '/de/leben-im-tessin/grenzgemeinden/villadossola/', tab: 'vita' },
+  { url: '/fr/vivre-au-tessin/communes-frontiere/villadossola/', tab: 'vita' },
 ];
 
 describe('static-overlay coverage — SEO shell URLs must be recognised by parsePath', () => {
