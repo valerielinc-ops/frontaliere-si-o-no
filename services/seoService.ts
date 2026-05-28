@@ -151,8 +151,8 @@ const serpExperimentState: SerpExperimentState = {
 
 let serpExperimentLoadPromise: Promise<void> | null = null;
 let lastSerpExposureContext: { section: string; path: string; variant: SerpExperimentVariant } | null = null;
-let jobsBySlugCache: Map<string, any> | null = null;
-let jobsBySlugPromise: Promise<Map<string, any>> | null = null;
+const jobsBySlugCacheByLocale: Partial<Record<Locale, Map<string, any>>> = {};
+const jobsBySlugPromiseByLocale: Partial<Record<Locale, Promise<Map<string, any>>>> = {};
 let totalActiveJobCount: number | null = null;
 
 function normalizeSeoText(input: string): string {
@@ -261,38 +261,35 @@ function localizedJobKeywords(locale: Locale, title: string, company: string, lo
  return `${role}, ${org}, ${loc}, ${baseByLocale[locale]}`;
 }
 
-async function loadJobsBySlug(): Promise<Map<string, any>> {
- if (jobsBySlugCache) return jobsBySlugCache;
- if (jobsBySlugPromise) return jobsBySlugPromise;
- jobsBySlugPromise = (async () => {
+async function loadJobsBySlug(locale: Locale): Promise<Map<string, any>> {
+ const cached = jobsBySlugCacheByLocale[locale];
+ if (cached) return cached;
+ const pending = jobsBySlugPromiseByLocale[locale];
+ if (pending) return pending;
+ // Per-locale fetch: `jobs-{locale}.json` is the master `jobs.json` flattened
+ // to one locale. The cross-locale `slugByLocale` is no longer in this file
+ // — that lookup table lives in `jobs-slug-map.json` and is consumed by the
+ // router. For the SEO meta path we only need the active-locale slug, so
+ // the per-locale shard is sufficient.
+ const promise = (async () => {
  const out = new Map<string, any>();
  try {
- const res = await fetch('/data/jobs.json');
+ const res = await fetch(`/data/jobs-${locale}.json`);
  if (!res.ok) return out;
  const list = await res.json();
  if (!Array.isArray(list)) return out;
  for (const item of list) {
- const slugCandidates = new Set<string>();
  const canonicalSlug = normalizeSeoText(String(item?.slug || ''));
- if (canonicalSlug) slugCandidates.add(canonicalSlug);
- const slugByLocale = item?.slugByLocale && typeof item.slugByLocale === 'object'
- ? Object.values(item.slugByLocale)
- : [];
- for (const localizedSlug of slugByLocale) {
- const normalized = normalizeSeoText(String(localizedSlug || ''));
- if (normalized) slugCandidates.add(normalized);
- }
- for (const slug of slugCandidates) {
- if (!out.has(slug)) out.set(slug, item);
- }
+ if (canonicalSlug && !out.has(canonicalSlug)) out.set(canonicalSlug, item);
  }
  } catch {
  // Ignore runtime fetch failures; keep SEO fallback.
  }
- jobsBySlugCache = out;
+ jobsBySlugCacheByLocale[locale] = out;
  return out;
  })();
- return jobsBySlugPromise;
+ jobsBySlugPromiseByLocale[locale] = promise;
+ return promise;
 }
 
 /**
@@ -300,17 +297,19 @@ async function loadJobsBySlug(): Promise<Map<string, any>> {
  * Returns a rounded-down label like "1500+" for SEO titles, or null if
  * data hasn't loaded yet (fallback to static title).
  */
-async function getActiveJobCountLabel(): Promise<string | null> {
+async function getActiveJobCountLabel(locale: Locale): Promise<string | null> {
  if (totalActiveJobCount !== null) {
  const rounded = Math.floor(totalActiveJobCount / 100) * 100;
  return `${rounded}+`;
  }
  try {
- const map = await loadJobsBySlug();
- // Count distinct job objects (map contains multiple slugs per job)
- const uniqueJobs = new Set<any>();
- for (const job of map.values()) uniqueJobs.add(job);
- totalActiveJobCount = uniqueJobs.size;
+ // Count is locale-invariant (same job set, just localised strings) — we
+ // ask the loader for the current visitor's locale to share the cache
+ // with the SEO meta resolver call that follows on the same page.
+ const map = await loadJobsBySlug(locale);
+ // Each slug maps to one job object now (per-locale shard has no
+ // cross-locale slug aliases). Map.size == active job count.
+ totalActiveJobCount = map.size;
  const rounded = Math.floor(totalActiveJobCount / 100) * 100;
  return rounded > 0 ? `${rounded}+` : null;
  } catch {
@@ -331,7 +330,7 @@ async function resolveJobSeoBySlug(
 } | null> {
  const cleanSlug = normalizeSeoText(slug);
  if (!cleanSlug) return null;
- const map = await loadJobsBySlug();
+ const map = await loadJobsBySlug(locale);
  const job = map.get(cleanSlug);
  if (!job) return null;
  const localizedTitle = normalizeSeoText(String(job?.titleByLocale?.[locale] || job?.title || ''));
@@ -4002,7 +4001,7 @@ export async function updateMetaTags(section: string): Promise<void> {
  const isJobboardListing = sectionKey === 'jobboard' && !isJobDetailPage;
  let jobCountLabel: string | null = null;
  if (isJobboardListing) {
- try { jobCountLabel = await getActiveJobCountLabel(); } catch { /* keep null */ }
+ try { jobCountLabel = await getActiveJobCountLabel(locale); } catch { /* keep null */ }
  }
 
  const baseMetaTitle = jobSeo

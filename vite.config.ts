@@ -48,6 +48,7 @@ import { llmsTxtPlugin } from './build-plugins/llmsTxtPlugin';
 import { adminDataPlugin } from './build-plugins/adminDataPlugin';
 import { crawlerRegistryPlugin } from './build-plugins/crawlerRegistryPlugin';
 import { localeJobsSplitPlugin } from './build-plugins/localeJobsSplitPlugin';
+import { jobsJsonDistCleanupPlugin } from './build-plugins/jobsJsonDistCleanupPlugin';
 import { webpPlugin } from './build-plugins/webpPlugin';
 import { pdfWhitepapersPlugin } from './build-plugins/pdfWhitepapersPlugin';
 import { salaryHubPlugin } from './build-plugins/salaryHubPlugin';
@@ -126,6 +127,11 @@ export default defineConfig(({ mode }) => {
  adminDataPlugin(__dirname),
  crawlerRegistryPlugin(__dirname),
  localeJobsSplitPlugin(__dirname), // SPA reads per-locale job JSONs at runtime
+ // Strip the 88 MB master `dist/data/jobs.json` after every build plugin
+ // has consumed `public/data/jobs.json`. Frees ~88 MB on the deploy
+ // artifact (10 GB GH Pages cap). `enforce: 'post'` runs after every
+ // other closeBundle.
+ jobsJsonDistCleanupPlugin(__dirname),
  affiliateRedirectPlugin(__dirname),
  // ── SEO plugins (skipped when FAST_BUILD=1) ──────────────────
  ...(isFastBuild ? [] : [
