@@ -20,7 +20,7 @@
  *   7. Every callsite of `trackCtaClick(` passes a cta id as first argument.
  */
 
-import { readFileSync, readdirSync, statSync } from 'node:fs';
+import { readFileSync, readdirSync, lstatSync } from 'node:fs';
 import { resolve, join } from 'node:path';
 
 import { describe, expect, it } from 'vitest';
@@ -41,7 +41,9 @@ function collectSourceFiles(dir: string, acc: string[] = []): string[] {
   for (const entry of readdirSync(dir)) {
     if (entry === 'node_modules' || entry === 'dist' || entry === '.git' || entry === 'tests') continue;
     const full = join(dir, entry);
-    const stat = statSync(full);
+    // lstat (not stat) so broken symlinks don't throw ENOENT — they're skipped.
+    const stat = lstatSync(full);
+    if (stat.isSymbolicLink()) continue;
     if (stat.isDirectory()) {
       collectSourceFiles(full, acc);
     } else if (/\.(ts|tsx)$/.test(entry) && !entry.endsWith('.d.ts')) {
