@@ -1,0 +1,12 @@
+{
+  "refreshedAt": "1970-01-01T00:00:00.000Z",
+  "lookbackDays": 90,
+  "minImpressions": 1,
+  "sources": {
+    "gsc": { "ok": false, "reason": "not yet populated — first run pending" },
+    "ga4": { "ok": false, "reason": "not yet populated — first run pending" },
+    "posthog": { "ok": false, "reason": "not yet populated — first run pending" }
+  },
+  "indexedCount": 0,
+  "indexedPaths": []
+}
