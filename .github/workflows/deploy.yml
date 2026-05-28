@@ -751,6 +751,29 @@ jobs:
           # (instead of only at the deploy-pages "Deployment failed"
           # tail) — the artifact size is the binding constraint.
           ls -lh "$RUNNER_TEMP/artifact.tar"
+          # Export for downstream report step (Audit dist bytes).
+          TAR_BYTES=$(stat -c %s "$RUNNER_TEMP/artifact.tar")
+          echo "TAR_BYTES=$TAR_BYTES" >> "$GITHUB_ENV"
+
+      # ┌────────────────────────────────────────────────────────────────┐
+      # │ Audit dist bytes — attribute size per plugin/locale, append    │
+      # │ to data/dist-size-history.jsonl, and HARD GATE the build       │
+      # │ before upload if tar > 9.5 GB. GitHub Pages enforces a 10 GB   │
+      # │ cap on the artifact tarball; failing here surfaces the         │
+      # │ regression in the build log instead of as an opaque            │
+      # │ "Deployment failed" tail. PR #712 cleared the cap by ~160 MB   │
+      # │ — this gate keeps that headroom enforceable.                   │
+      # │ Cost: stat-only walk, < 30 s on ~470 k files.                  │
+      # └────────────────────────────────────────────────────────────────┘
+      - name: Audit dist bytes (per-plugin + 9.5 GB hard gate)
+        if: github.event.inputs.profile_sequential != 'true'
+        run: |
+          node scripts/report-dist-bytes-by-plugin.mjs \
+            --dist=dist \
+            --tar-size-bytes="${TAR_BYTES}" \
+            --gate-total-bytes=9500000000 \
+            --run-id="${GITHUB_RUN_ID}" \
+            --sha="${GITHUB_SHA}"
 
       - name: Upload Pages artifact (compression-level 9)
         if: github.event.inputs.profile_sequential != 'true'
