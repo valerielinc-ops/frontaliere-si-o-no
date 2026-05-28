@@ -247,9 +247,9 @@ export function buildJobUrl(job: JobRecord, locale: Locale): string {
 // ─── Main entrypoint ──────────────────────────────────────────────────────
 
 /** Safe dataset loader — returns [] on any error so the tool never throws. */
-async function loadJobs(): Promise<JobRecord[]> {
+async function loadJobs(locale: Locale): Promise<JobRecord[]> {
  try {
- const res = await fetch('/data/jobs.json', { cache: 'force-cache' });
+ const res = await fetch(`/data/jobs-${locale}.json`, { cache: 'force-cache' });
  if (!res.ok) return [];
  const data = await res.json();
  return Array.isArray(data) ? (data as JobRecord[]) : [];
@@ -271,7 +271,7 @@ export async function searchJobs(
  const { query, locale, limit = 5, jobs, extractor } = params;
 
  if (!query || !query.trim()) return [];
- const dataset = jobs ?? (await loadJobs());
+ const dataset = jobs ?? (await loadJobs(locale));
  if (dataset.length === 0) return [];
 
  // Extract query structure (LLM if provided, else heuristic). Fallback on failure.

@@ -47,6 +47,7 @@
  */
 
 import { expandCantonGroup } from './cantonList';
+import type { Locale } from './i18n';
 
 /**
  * Permissive Job shape. The full Job interface lives in component-level types,
@@ -399,26 +400,28 @@ export function getDefaultCantonForVisit(): string {
 }
 
 // --------------------------------------------------------------------------
-// Backward-compat: monolithic `public/data/jobs.json` loader
+// Backward-compat: locale-flattened jobs loader
 // --------------------------------------------------------------------------
 
 /**
- * @deprecated  D9: monolithic `public/data/jobs.json` is being phased out in
- *              favor of per-canton shards. Migrate consumers to
+ * @deprecated  D9: per-canton shards are the new source of truth. Migrate to
  *              {@link fetchJobsForCanton} or {@link fetchAggregatedJobs}.
  *
- * Provided as a thin pass-through so legacy callers (chatbotTools,
- * newsletterPreview, seoService, JobBoard fallback path) keep working during
- * the rollout window. Bypasses the IDB cache entirely.
+ * Fetches `/data/jobs-{locale}.json` (~24 MB, all cantons mixed, locale-
+ * flattened). Used by JobBoard as a final fallback when both the slim-index
+ * and the canton shards are unavailable. The master `/data/jobs.json` (88 MB
+ * with all *ByLocale fields) is no longer shipped to the deploy artifact —
+ * it lives in `public/data/` for build-plugin consumers and is stripped from
+ * `dist/` by `jobsJsonDistCleanupPlugin`. Bypasses the IDB cache entirely.
  */
-export async function fetchAllJobs(): Promise<Job[]> {
- const res = await fetch('/data/jobs.json');
+export async function fetchAllJobs(locale: Locale): Promise<Job[]> {
+ const res = await fetch(`/data/jobs-${locale}.json`);
  if (!res.ok) {
-  throw new Error(`[jobsService] fetchAllJobs: HTTP ${res.status}`);
+  throw new Error(`[jobsService] fetchAllJobs(${locale}): HTTP ${res.status}`);
  }
  const data = (await res.json()) as unknown;
  if (!Array.isArray(data)) {
-  throw new Error('[jobsService] fetchAllJobs: payload is not an array');
+  throw new Error(`[jobsService] fetchAllJobs(${locale}): payload is not an array`);
  }
  return data as Job[];
 }

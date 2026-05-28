@@ -1941,8 +1941,11 @@ const JobBoard: React.FC<JobBoardProps> = ({
  if (res.ok) return (await res.json()) as JobListing[];
  throw new Error(`locale jobs ${res.status}`);
  } catch {
- // Final fallback — monolithic, deprecated path.
- const all = (await fetchAllJobs()) as unknown as JobListing[];
+ // Final fallback — locale-flattened JSON (same URL as the tier above,
+ // but kept as a discrete attempt so a transient slim-index 5xx doesn't
+ // cascade into a hard failure when the full-locale file is reachable
+ // through a different CDN cache key).
+ const all = (await fetchAllJobs(locale)) as unknown as JobListing[];
  return Array.isArray(all) ? all : [];
  }
  }

@@ -14,9 +14,10 @@
  * sharp (PNG → WebP q80) renders each card in ~30-60ms. 2100 jobs ≈ 1-2 min
  * in CI. Skipped under FAST_BUILD=1 (gating happens in vite.config.ts).
  *
- * Why WebP: at quality 80 each card is ~30 KB vs ~160 KB for PNG (−80%).
- * FB/X/LinkedIn have supported WebP og:image since 2021. Saves ~390 MB
- * across 3000+ cards in dist/.
+ * Why WebP: at quality 65 + effort 6 each card is ~20 KB vs ~160 KB for
+ * PNG (−87%). FB/X/LinkedIn show 600×315 previews so q65 has no visible
+ * degradation. Saves ~390 MB vs PNG + an extra ~60 MB vs the previous q80
+ * baseline across the ~6k active jobs.
  *
  * Caching: idempotent. If the output WebP already exists for a slug, we skip
  * regeneration. To force regeneration of one job, delete its WebP.
@@ -47,7 +48,7 @@ const CACHE_SUBDIR = '.cache/og-jobs';
  * re-renders. Old cached files become orphaned and age out automatically
  * when the GitHub Actions cache evicts them (~7-day TTL).
  */
-const OG_RENDER_VERSION = 'v3-2026-05-13-webp';
+const OG_RENDER_VERSION = 'v4-2026-05-28-q65';
 const PNG_WIDTH = 1200;
 const PNG_HEIGHT = 630;
 

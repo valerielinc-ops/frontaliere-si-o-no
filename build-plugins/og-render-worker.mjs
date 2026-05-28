@@ -7,9 +7,11 @@
  * ~50 min single-threaded. Pooling 4 workers cuts cold-start build
  * time to ~12-15 min.
  *
- * Why WebP: at quality 80 each card is ~30 KB vs ~160 KB for PNG (−80%).
- * FB/X/LinkedIn have supported WebP og:image since 2021. Saves ~390 MB
- * across 3000+ cards in dist/.
+ * Why WebP: at quality 65 + effort 6 each card is ~20 KB vs ~160 KB for
+ * PNG (−87%). FB/X/LinkedIn have supported WebP og:image since 2021 and
+ * accept the lower quality with no visible degradation on social cards
+ * (1200×630 is downscaled to ~600×315 in feed previews). The q80 → q65
+ * step trims ~10 KB per card → ~60 MB across the active job set.
  *
  * Lifecycle: main thread spawns N workers (one per CPU, capped at 4),
  * each receives the font buffers + brand background once via
@@ -30,8 +32,8 @@ const fonts = [
   { name: 'Roboto', data: fontBold, weight: 700, style: 'normal' },
 ];
 
-const WEBP_QUALITY = 80;
-const WEBP_EFFORT = 4;
+const WEBP_QUALITY = 65;
+const WEBP_EFFORT = 6;
 
 if (!parentPort) {
   throw new Error('og-render-worker: no parentPort (not running as worker)');

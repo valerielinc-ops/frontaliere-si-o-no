@@ -1120,11 +1120,15 @@ function BlogArticles({
  if (!res.ok) throw new Error(`${res.status}`);
  return res.json();
  })
- .catch(() => fetch('/data/jobs.json').then(res => res.json()))
  .then((data: JobPreview[]) => {
  if (!cancelled && Array.isArray(data)) setCrossLinkJobs(data);
  })
- .catch(() => {});
+ .catch(() => {
+ // Locale shard unreachable — the master /data/jobs.json (88 MB) is
+ // no longer shipped to the artifact, so we just skip the cross-link
+ // sidebar instead of falling back to the master. The article still
+ // renders fully.
+ });
  return () => { cancelled = true; };
  }, [selectedArticle, locale]);
 
