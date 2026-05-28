@@ -191,6 +191,20 @@ jobs:
             cp /tmp/winners/previous-slug-winners.json data/previous-slug-winners.json
           fi
 
+      - name: Migrate all-known-job-slugs to canton-aware paths
+        # Phase 8c: the committed `data/all-known-job-slugs.json` accumulates
+        # tracking entries from previous builds. The builder
+        # (jobsSeoPagesPlugin.ts ~line 9081) only writes NEW entries (guarded
+        # by `if (!tracking[job.slug])`), so any stale TI-section path minted
+        # before the canton-aware refactor stays forever. The one-shot
+        # migration script rewrites them in-place using the canton resolver,
+        # mirroring exactly what `tests.yml` already runs before unit tests.
+        # Without this step gate:seo-source fails on every deploy that
+        # introduces a non-TI job whose prior tracking entry was TI-legacy
+        # (cathedral-expired-tracking-canton.test.ts:95 — post-deploy run
+        # 26592389280).
+        run: node scripts/migrate-all-known-job-slugs-canton-aware.mjs
+
       - name: Run source validators sequentially
         run: |
           : > /tmp/source-val-results.txt

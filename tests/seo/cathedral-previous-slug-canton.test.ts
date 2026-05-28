@@ -150,7 +150,15 @@ describe('cathedral Phase 8b — previousSlugs bridges canton-aware', () => {
         // Bridge IS for this job. Its <link rel="canonical"> must point to the
         // canton-aware URL — not to /cerca-lavoro-ticino/ — so Google folds
         // equity into the new canton section.
-        const canonicalMatch = html.match(/<link\s+rel="canonical"\s+href="([^"]+)"/);
+        // The HTML minifier strips quotes around simple attribute values
+        // (`rel=canonical href=https://…`) so the regex must tolerate both
+        // quoted and unquoted forms in either attribute order. Pre-2026-05-28
+        // the strict double-quoted form falsely flagged minified bridges as
+        // "no canonical" (post-deploy run 26592389280) even though the tag
+        // was present and pointing at the canton-aware URL.
+        const canonicalMatch =
+          html.match(/<link\b[^>]*\brel=["']?canonical["']?[^>]*\bhref=["']?([^"'\s>]+)/i)
+          ?? html.match(/<link\b[^>]*\bhref=["']?([^"'\s>]+)[^>]*\brel=["']?canonical["']?/i);
         if (!canonicalMatch) {
           mismatches.push(
             `non-TI job ${canonicalSlug} (canton=${job.canton}) legacy TI bridge has no canonical: cerca-lavoro-ticino/${oldSlug}/`,
