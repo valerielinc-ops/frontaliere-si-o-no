@@ -1196,11 +1196,11 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  },
 
  mobile: {
- title: 'Operatori Mobili Svizzera | Frontaliere Ticino',
- description: 'Confronta operatori mobili svizzeri per frontalieri: Swisscom, Salt, Sunrise, Yallo, Wingo, Aldi Mobile. Costi mensili reali con roaming illimitato in.',
- keywords: 'operatori mobili svizzera, roaming svizzera italia, swisscom frontalieri, salt mobile costi, sunrise abbonamenti, yallo wingo confronto, aldi mobile svizzera, roaming illimitato italia',
- ogTitle: 'Operatori Mobili Svizzera | Confronto con Roaming',
- ogDescription: '📱 Confronta 6 operatori mobili svizzeri con roaming illimitato in Italia. Costi reali mensili da CHF 9.95/mese. Trova il piano migliore per frontalieri!',
+ title: 'Operatori Mobili Svizzera e Italia | Frontaliere Ticino',
+ description: 'Confronta 17 operatori mobili IT+CH per frontalieri: Vodafone, Fastweb, ho. Mobile con Roam-Like-Home CH, Spusu, Wingo, Sunrise, Yallo. Costi reali maggio 2026.',
+ keywords: 'operatori mobili svizzera italia frontalieri, roaming svizzera, vodafone roam like home svizzera, fastweb mobile svizzera, spusu oltreconfine, ho mobile svizzera, swisscom salt sunrise yallo wingo, m-budget digitec connect, opzione svizzera tim windtre',
+ ogTitle: 'Operatori Mobili IT+CH per Frontalieri | Confronto 2026',
+ ogDescription: '📱 Confronta 17 operatori mobili IT+CH con roaming Italia↔Svizzera. Vodafone e Fastweb includono 32 GB CH, Spusu 10 GB CH a 9.98€/mese. Trova il piano migliore per frontalieri.',
  canonicalPath: '/compara-servizi/confronta-operatori-mobili/',
  structuredData: [
  {
@@ -1208,7 +1208,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@type": "WebPage",
  "name": "Confronto Operatori Mobili per Frontalieri",
  "url": `${BASE_URL}/compara-servizi/confronta-operatori-mobili`,
- "description": "Confronto costi mensili di 6 operatori mobili svizzeri con roaming illimitato in Italia",
+ "description": "Confronto costi mensili di 17 operatori mobili italiani e svizzeri (8 IT + 9 CH) con roaming Italia↔Svizzera per frontalieri",
  "applicationCategory": "UtilitiesApplication",
  "operatingSystem": "Web Browser",
  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CHF" },
@@ -1219,10 +1219,10 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "FAQPage",
  "mainEntity": [
- { "@type": "Question", "name": "Quale operatore mobile svizzero ha il roaming illimitato in Italia?", "acceptedAnswer": { "@type": "Answer", "text": "Swisscom, Salt e Sunrise includono roaming in Europa (Italia inclusa) nei piani premium. Yallo e Wingo offrono piani con roaming UE da CHF 19.95/mese. Verifica sempre le condizioni specifiche." } },
- { "@type": "Question", "name": "Quanto costa un abbonamento mobile in Svizzera per frontalieri?", "acceptedAnswer": { "@type": "Answer", "text": "I piani partono da CHF 9.95/mese (Aldi Mobile) fino a CHF 65/mese (Swisscom premium). Per frontalieri, un buon piano con roaming Italia costa circa CHF 25-40/mese." } },
- { "@type": "Question", "name": "Posso usare una SIM italiana in Svizzera come frontaliere?", "acceptedAnswer": { "@type": "Answer", "text": "Sì, ma il roaming UE ha limiti di utilizzo. Dopo 4 mesi di uso prevalente all'estero, l'operatore può applicare sovrapprezzi. Per uso quotidiano in Svizzera, conviene un operatore svizzero." } },
- { "@type": "Question", "name": "Qual è il piano mobile più economico con roaming per frontalieri?", "acceptedAnswer": { "@type": "Answer", "text": "Yallo e Wingo offrono i piani più economici con roaming in Italia incluso, a partire da CHF 19.95/mese con chiamate illimitate in Svizzera e dati in roaming." } }
+ { "@type": "Question", "name": "Quale operatore italiano include il roaming in Svizzera per frontalieri?", "acceptedAnswer": { "@type": "Answer", "text": "Dal settembre 2025 Vodafone Italia (32 GB CH inclusi nel piano Start a 9.95€), Fastweb Mobile (32 GB CH a 9.95€) e ho. Mobile (Roam-Like-Home CH dall'8 settembre 2025) applicano le condizioni nazionali anche in Svizzera. Spusu Oltreconfine include 10 GB CH dedicati + 2000 min verso numeri CH a 9.98€/mese." } },
+ { "@type": "Question", "name": "Quanto costa un abbonamento mobile in Svizzera per frontalieri?", "acceptedAnswer": { "@type": "Answer", "text": "I piani CH per frontalieri partono da CHF 25/mese (Digitec Connect, 1 GB UE) e CHF 27.95/mese (Wingo Europe Go, 8 GB UE) fino a CHF 81.80/mese (Swisscom blue M, 40 GB UE). Un buon compromesso si trova attorno a CHF 29.90/mese con Yallo Europe o Sunrise Swiss Travel+ (illim 8 paesi UE inclusa IT)." } },
+ { "@type": "Question", "name": "Posso usare una SIM italiana in Svizzera come frontaliere?", "acceptedAnswer": { "@type": "Answer", "text": "Sì, e dal settembre 2025 Vodafone, Fastweb e ho. Mobile non applicano più costi extra in Svizzera. Resta valido il limite di uso prevalente all'estero (oltre 4 mesi) oltre il quale l'operatore può applicare sovrapprezzi. Per uso prevalente in CH conviene un operatore svizzero." } },
+ { "@type": "Question", "name": "Qual è il piano mobile più economico con roaming per frontalieri?", "acceptedAnswer": { "@type": "Answer", "text": "Lato Italia il più economico è Spusu Oltreconfine a 9.98€/mese con 10 GB CH dedicati + 2000 min verso CH, seguito da Vodafone Start e Fastweb Mobile Start a 9.95€ con 32 GB CH inclusi. Lato Svizzera il più economico con roaming UE è Digitec Connect a CHF 25/mese (1 GB UE) o Wingo Europe Go a CHF 27.95/mese (8 GB UE)." } }
  ]
  }
  ]

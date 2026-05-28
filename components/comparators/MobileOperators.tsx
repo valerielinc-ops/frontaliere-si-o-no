@@ -55,73 +55,72 @@ const operators: MobileOperator[] = [
  sms: 'illimitati',
  roamingInSwitzerland: {
  included: false,
- monthlyFee: 5,
- dataLimit: 1,
- notes: 'Opzione Extra UE: 5€/mese per 1GB dati + 100 min. Senza opzione: 0.49€/min, 0.16€/SMS, 4.88€/MB'
+ monthlyFee: 4.99,
+ dataLimit: 5,
+ notes: 'Opzione "5 GB in Svizzera" 4.99€/mese per 5 GB dati. Attivabile una volta al mese, si disattiva dopo 30 gg. Senza opzione: tariffe Extra UE.'
  },
  setupCost: 9.99,
  contractType: 'prepagato',
  color: 'from-danger-strong to-warning-strong',
- features: ['200 GB + 5G incluso', 'Prezzo per sempre', 'Opzione CH 5€/mese'],
+ features: ['Giga 200 — 200 GB + 5G', 'Opzione CH 4.99€ per 5 GB', 'Prezzo per sempre'],
  website: 'https://www.iliad.it/offerte-iliad-mobile.html'
  },
  {
  name: 'ho. Mobile',
  slug: 'ho-mobile',
  country: 'IT',
- monthlyCost: 4.95,
- dataGB: 100,
+ monthlyCost: 6.95,
+ dataGB: 150,
  minutes: 'illimitati',
  sms: 200,
  roamingInSwitzerland: {
- included: false,
- costPerMB: 4.88,
- costPerMinute: 0.49,
- notes: 'Nessun roaming CH incluso. Extra UE: 0.49€/min, 0.16€/SMS, 4.88€/MB'
+ included: true,
+ dataLimit: 14,
+ notes: 'Roaming CH gratuito come UE dall\'8 settembre 2025 (Roam Like At Home esteso). FUP UE applicata ai GB del piano.'
  },
  setupCost: 2.99,
  contractType: 'prepagato',
  color: 'from-success-strong to-success-strong',
- features: ['5G incluso', 'Rete Fastweb', 'Da 4.95€ per sempre', 'Roaming CH costoso'],
+ features: ['Roam Like Home CH dal 09/2025', 'Rete Vodafone', '5G incluso', 'Da 6.95€ per sempre'],
  website: 'https://www.ho-mobile.it/tutte-le-offerte.html'
  },
  {
  name: 'Vodafone',
  slug: 'vodafone-it',
  country: 'IT',
- monthlyCost: 9.99,
- dataGB: 100,
+ monthlyCost: 9.95,
+ dataGB: 150,
  minutes: 'illimitati',
  sms: 200,
  roamingInSwitzerland: {
- included: false,
- costPerDay: 5,
- notes: 'Pass giornaliero 5€ per 200MB + min/SMS. Senza pass: 6.19€/min, 1.86€/SMS, 6.19€/MB'
+ included: true,
+ dataLimit: 32,
+ notes: 'Roaming CH come Italia dal 5 settembre 2025 per clienti offerte Privati. Vodafone Start: 32 GB UE+UK+Svizzera inclusi.'
  },
  setupCost: 6.99,
  contractType: 'prepagato',
  color: 'from-danger-strong to-danger-strong-hover',
- features: ['Rete capillare', 'Roaming CH molto costoso', '5G disponibile'],
+ features: ['32 GB roaming CH inclusi', 'Roam Like Home CH dal 09/2025', '5G disponibile'],
  website: 'https://www.vodafone.it/offerte/mobile'
  },
  {
- name: 'TIM',
+ name: 'TIM Mobile Digital',
  slug: 'tim',
  country: 'IT',
- monthlyCost: 14.99,
- dataGB: 100,
+ monthlyCost: 9.99,
+ dataGB: 150,
  minutes: 'illimitati',
- sms: 'illimitati',
+ sms: 200,
  roamingInSwitzerland: {
  included: false,
- monthlyFee: 10,
- dataLimit: 3,
- notes: 'Tim in Viaggio Extra UE: 10€/mese per 3GB + 250 min. Senza opzione: tariffe Extra UE elevate'
+ monthlyFee: 5,
+ dataLimit: 5,
+ notes: 'TIM Opzione Svizzera 5€/mese: 5 GB + 500 min (250 chiamate CH/IT, 250 in ricezione). Attivazione gratis, promo entro 28/06/2026. Solo prepagati TIM.'
  },
- setupCost: 25,
- contractType: 'abbonamento',
+ setupCost: 10,
+ contractType: 'prepagato',
  color: 'from-accent-strong to-accent-strong-hover',
- features: ['Copertura eccellente', 'Opzione CH 10€/mese', 'Costoso complessivamente'],
+ features: ['150 GB in 5G ULTRA', 'Opzione CH 5€ per 5 GB + 500 min', 'Copertura eccellente'],
  website: 'https://www.tim.it/offerte/mobile'
  },
  {
@@ -134,14 +133,15 @@ const operators: MobileOperator[] = [
  sms: 200,
  roamingInSwitzerland: {
  included: false,
- costPerDay: 5,
- notes: 'Pass giornaliero 5€ per 200MB + 60 min. Senza pass: tariffe Extra UE molto elevate'
+ monthlyFee: 19.99,
+ dataLimit: 15,
+ notes: 'Travel Pass Svizzera Monthly 19.99€/30 gg: 15 GB + 200 min + 100 SMS. Attivazione 2.99€. Alternativa Weekly 9.99€/7 gg.'
  },
  setupCost: 0,
  contractType: 'abbonamento',
  color: 'from-warning-strong to-warning-strong-hover',
- features: ['Giga illimitati in Italia', 'Buona copertura', 'Roaming CH costoso'],
- website: 'https://www.windtre.it/offerte-mobile'
+ features: ['Giga illimitati in Italia', 'Travel Pass CH 19.99€/15 GB', 'Buona copertura'],
+ website: 'https://www.windtre.it/offerte-all-estero/travel-pass-svizzera'
  },
  {
  name: 'Very Mobile',
@@ -150,37 +150,56 @@ const operators: MobileOperator[] = [
  monthlyCost: 6.99,
  dataGB: 200,
  minutes: 'illimitati',
- sms: 'illimitati',
+ sms: 200,
  roamingInSwitzerland: {
  included: false,
  costPerMB: 4.88,
  costPerMinute: 0.49,
- notes: 'Nessun roaming CH incluso. Extra UE: 0.49€/min, 0.16€/SMS, 4.88€/MB'
+ notes: 'Nessun roaming CH incluso e nessuna opzione dedicata. Extra UE: 0.49€/min, 0.16€/SMS, 4.88€/MB.'
  },
  setupCost: 0,
  contractType: 'prepagato',
  color: 'from-danger-strong to-danger-strong-hover',
- features: ['200 GB + 5G Full Speed', 'SIM e spedizione gratis', 'Rete WindTre', 'Roaming CH costoso'],
+ features: ['200 GB + 5G Full Speed', 'SIM e spedizione gratis', 'Rete WindTre', 'Roaming CH non incluso'],
  website: 'https://www.verymobile.it/offerte'
  },
  {
  name: 'Fastweb Mobile',
  slug: 'fastweb-mobile',
  country: 'IT',
- monthlyCost: 7.95,
+ monthlyCost: 9.95,
  dataGB: 150,
  minutes: 'illimitati',
- sms: 100,
+ sms: 200,
  roamingInSwitzerland: {
  included: true,
- dataLimit: 11,
- notes: 'Roaming Svizzera incluso: 11 GB, minuti/SMS illimitati (fair use policy)'
+ dataLimit: 32,
+ notes: 'Fastweb Mobile Start: 32 GB roaming UE+UK+Svizzera (17 GB normativi + 15 GB extra). Min illim, 200 SMS in fair use.'
  },
  setupCost: 10,
  contractType: 'prepagato',
  color: 'from-warning-strong to-warning-strong-hover',
- features: ['11 GB roaming CH incluso', 'Rete WindTre', 'Ottimo rapporto qualità/prezzo', '🎁 Porta un amico: GRATIS Fastweb Casa per 2 mesi'],
- website: 'https://www.fastweb.it/mobile/offerte-mobile/'
+ features: ['32 GB roaming CH inclusi', 'Rete WindTre', 'Ottimo rapporto qualità/prezzo'],
+ website: 'https://www.fastweb.it/adsl-fibra-ottica/fastweb-mobile-start/'
+ },
+ {
+ name: 'Spusu Oltreconfine',
+ slug: 'spusu-oltreconfine',
+ country: 'IT',
+ monthlyCost: 9.98,
+ dataGB: 150,
+ minutes: 2000,
+ sms: 500,
+ roamingInSwitzerland: {
+ included: true,
+ dataLimit: 10,
+ notes: '10 GB inclusi in Svizzera + 2000 min verso numeri CH/IT/UE/UK. Bonus 2026: 14,87 GB UE roaming. Rete WindTre.'
+ },
+ setupCost: 0,
+ contractType: 'prepagato',
+ color: 'from-info-strong to-warning-strong',
+ features: ['10 GB CH + 2000 min CH', 'Pensato per chi viaggia in CH', 'Rete WindTre IT (4G+)'],
+ website: 'https://www.spusu.it/spusuoltreconfine'
  },
 
  // Swiss Operators
@@ -188,24 +207,24 @@ const operators: MobileOperator[] = [
  name: 'Swisscom blue M',
  slug: 'swisscom',
  country: 'CH',
- monthlyCost: 79.90,
+ monthlyCost: 81.80,
  dataGB: 'illimitati',
  minutes: 'illimitati',
  sms: 'illimitati',
  roamingInItaly: {
  included: true,
- dataLimit: 'illimitati',
- notes: 'Roaming UE/UK illimitato: dati, minuti e SMS inclusi (fair use policy)'
+ dataLimit: 40,
+ notes: '40 GB UE/UK a velocità max, poi throttle a 128 kbit/s. Min/SMS illim. Promo 12 mesi a 59.90 CHF.'
  },
  setupCost: 0,
  contractType: 'abbonamento',
  color: 'from-accent-strong-hover to-accent-strong-hover',
- features: ['Rete migliore CH', 'Roaming UE illimitato', 'Premium'],
- website: 'https://www.swisscom.ch'
+ features: ['Rete migliore CH', '40 GB UE alta velocità', 'Premium'],
+ website: 'https://www.swisscom.ch/en/residential/mobile-subscription/blue-mobile-m.html'
  },
  {
  name: 'Salt Travel',
- slug: 'salt',
+ slug: 'salt-travel',
  country: 'CH',
  monthlyCost: 29.95,
  dataGB: 'illimitati',
@@ -214,35 +233,35 @@ const operators: MobileOperator[] = [
  roamingInItaly: {
  included: true,
  dataLimit: 20,
- notes: 'Roaming UE/USA/CAN: dati illimitati (20 GB high-speed), 100 min chiamate in roaming. Sconto -65% a vita online'
+ notes: 'Dati illimitati UE/USA/CAN (20 GB high-speed) + 100 min in roaming. Sconto -68% a vita online.'
  },
  setupCost: 0,
  contractType: 'abbonamento',
  color: 'from-warning-strong to-warning-strong-hover',
- features: ['Dati illimitati CH+UE', '20 GB high-speed roaming', 'Sconto -65% a vita'],
+ features: ['Dati illimitati CH+UE', '20 GB high-speed roaming', 'Sconto -68% a vita'],
  website: 'https://www.salt.ch/en/mobile/plans/travel'
  },
  {
  name: 'Salt Swiss Max',
- slug: 'salt',
+ slug: 'salt-swiss-max',
  country: 'CH',
- monthlyCost: 26.95,
+ monthlyCost: 22.95,
  dataGB: 'illimitati',
  minutes: 'illimitati',
  sms: 'illimitati',
  roamingInItaly: {
  included: true,
  dataLimit: 1,
- notes: 'Solo 1 GB roaming UE incluso. Sconto -63% a vita online. Per chi usa poco il roaming'
+ notes: 'Solo 1 GB roaming UE incluso. Sconto -68% a vita online. Per chi usa poco il roaming.'
  },
  setupCost: 0,
  contractType: 'abbonamento',
  color: 'from-warning-strong to-warning-strong',
- features: ['Dati illimitati CH', 'Solo 1 GB roaming UE', 'Sconto -63% a vita'],
+ features: ['Dati illimitati CH', 'Solo 1 GB roaming UE', 'Sconto -68% a vita'],
  website: 'https://www.salt.ch/en/mobile/plans/swiss-max'
  },
  {
- name: 'Sunrise',
+ name: 'Sunrise Swiss Travel+',
  slug: 'sunrise',
  country: 'CH',
  monthlyCost: 39.90,
@@ -251,27 +270,27 @@ const operators: MobileOperator[] = [
  sms: 'illimitati',
  roamingInItaly: {
  included: true,
- dataLimit: 15,
- notes: 'Roaming UE/USA: 15 GB inclusi'
+ dataLimit: 3,
+ notes: 'Illim dati/min in 8 paesi UE (DE/AT/FR/IT/LI/GR/ES/PT) + 3 GB extra in Europa/USA/CAN. Esente da rincaro 08/2026.'
  },
  setupCost: 0,
  contractType: 'abbonamento',
  color: 'from-warning-strong to-danger-strong-hover',
- features: ['Dati illimitati', '15 GB roaming', 'USA incluso'],
- website: 'https://www.sunrise.ch'
+ features: ['Illim 8 paesi UE (Italia inclusa)', '+ 3 GB extra USA/CAN', 'Min/SMS illim'],
+ website: 'https://www.sunrise.ch/en/mobile/swiss-travel-product-page'
  },
  {
  name: 'Yallo Europe',
  slug: 'yallo',
  country: 'CH',
- monthlyCost: 27.90,
+ monthlyCost: 29.90,
  dataGB: 'illimitati',
  minutes: 'illimitati',
  sms: 'illimitati',
  roamingInItaly: {
  included: true,
  dataLimit: 'illimitati',
- notes: 'Roaming UE/USA/CAN/Turchia: dati illimitati, 60 min chiamate in roaming. Rete Sunrise 5G'
+ notes: 'Dati illimitati UE/USA/CAN/Turchia + 60 min chiamate in roaming. Rete Sunrise 5G fino a 2 Gbit/s.'
  },
  setupCost: 59,
  contractType: 'prepagato',
@@ -280,42 +299,80 @@ const operators: MobileOperator[] = [
  website: 'https://www.yallo.ch/en/mobile-products/yallo_europe'
  },
  {
- name: 'Wingo',
+ name: 'Wingo Europe Go',
  slug: 'wingo',
  country: 'CH',
- monthlyCost: 25.00,
- dataGB: 40,
+ monthlyCost: 27.95,
+ dataGB: 'illimitati',
  minutes: 'illimitati',
  sms: 'illimitati',
  roamingInItaly: {
  included: true,
- dataLimit: 10,
- notes: 'Roaming UE incluso: 10 GB al mese'
+ dataLimit: 8,
+ notes: '8 GB UE/UK + 100 min chiamate UE/UK. Dati e chiamate illimitati in CH.'
  },
- setupCost: 0,
+ setupCost: 59,
  contractType: 'prepagato',
  color: 'from-info-strong to-accent-strong-hover',
- features: ['Rete Swisscom', 'Roaming UE incluso', 'Buon prezzo'],
- website: 'https://www.wingo.ch/it'
+ features: ['Rete Swisscom 5G', 'Illim CH + 8 GB UE', '100 min roaming UE'],
+ website: 'https://www.wingo.ch/it/mobile/wingo-europe-go'
  },
  {
- name: 'Aldi Mobile CH',
+ name: 'Aldi Mobile CH Swiss Unlimited Extra',
  slug: 'aldi-mobile-ch',
  country: 'CH',
- monthlyCost: 17.95,
- dataGB: 15,
+ monthlyCost: 29.90,
+ dataGB: 'illimitati',
  minutes: 'illimitati',
  sms: 'illimitati',
  roamingInItaly: {
- included: false,
- costPerMB: 0.20,
- notes: 'Nessun roaming incluso. 0.20 CHF/MB in UE'
+ included: true,
+ dataLimit: 5,
+ notes: 'Dati illimitati CH + 5 GB roaming UE/USA/CAN. Min/SMS illim in CH.'
  },
- setupCost: 0,
+ setupCost: 1,
  contractType: 'prepagato',
  color: 'from-surface-muted to-surface-muted-hover',
- features: ['Molto economico', 'Rete Swisscom', 'Roaming costoso'],
+ features: ['Rete Sunrise 5G', 'Illim CH + 5 GB UE', 'Attivazione 1 CHF'],
  website: 'https://www.aldi-mobile.ch'
+ },
+ {
+ name: 'M-Budget Mobile Maxi + europePLUS',
+ slug: 'm-budget-mobile',
+ country: 'CH',
+ monthlyCost: 39,
+ dataGB: 4,
+ minutes: 'illimitati',
+ sms: 'illimitati',
+ roamingInItaly: {
+ included: true,
+ dataLimit: 4,
+ notes: 'europePLUS (+10 CHF/mese): chiamate/SMS illim UE come a casa, 4 GB UE rigenerati. Base Maxi 29 CHF + europePLUS 10 CHF.'
+ },
+ setupCost: 0,
+ contractType: 'abbonamento',
+ color: 'from-info-strong to-success-strong',
+ features: ['Rete Swisscom', 'Roam-Like-Home UE con europePLUS', 'MVNO Migros'],
+ website: 'https://shop.m-budget.migros.ch/it/abbonamenti-mobili'
+ },
+ {
+ name: 'Digitec Connect',
+ slug: 'digitec-connect',
+ country: 'CH',
+ monthlyCost: 25,
+ dataGB: 3,
+ minutes: 'illimitati',
+ sms: 'illimitati',
+ roamingInItaly: {
+ included: true,
+ dataLimit: 1,
+ notes: '1 GB roaming UE/USA. Family+Friends di 5: data flat nazionale a 25 CHF/sub. Senza attivazione.'
+ },
+ setupCost: 0,
+ contractType: 'abbonamento',
+ color: 'from-success-strong to-accent-strong-hover',
+ features: ['Rete Sunrise', 'No attivazione', 'Sconto Family+Friends'],
+ website: 'https://www.digitecconnect.ch'
  }
 ];
 
@@ -378,10 +435,18 @@ const MobileOperators: React.FC = () => {
  }
  }), [filterCountry, sortBy]);
 
- const bestForFrontierWorkers = operators.filter(op => 
+ const bestForFrontierWorkers = operators
+ .filter(op =>
  (op.country === 'IT' && op.roamingInSwitzerland?.included) ||
  (op.country === 'CH' && op.roamingInItaly?.included)
- );
+ )
+ .sort((a, b) => {
+ const aLimit = a.country === 'IT' ? a.roamingInSwitzerland?.dataLimit : a.roamingInItaly?.dataLimit;
+ const bLimit = b.country === 'IT' ? b.roamingInSwitzerland?.dataLimit : b.roamingInItaly?.dataLimit;
+ const aScore = aLimit === 'illimitati' ? Infinity : (typeof aLimit === 'number' ? aLimit : 0);
+ const bScore = bLimit === 'illimitati' ? Infinity : (typeof bLimit === 'number' ? bLimit : 0);
+ return bScore - aScore;
+ });
 
  return (
  <div className="space-y-6 pb-8">
@@ -394,7 +459,7 @@ const MobileOperators: React.FC = () => {
  <p className="text-muted text-lg">
  {t('mobile.subtitle')}
  </p>
- <div className="mt-3"><DataFreshness lastUpdated="2026-01" source="Operatori ufficiali" variant="badge" /></div>
+ <div className="mt-3"><DataFreshness lastUpdated="2026-05" source="Operatori ufficiali" variant="badge" /></div>
  </div>
 
  {/* Warning Banner */}
