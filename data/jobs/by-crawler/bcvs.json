@@ -1,14 +1,14 @@
 {
   "crawlerKey": "bcvs",
-  "assembledAt": "2026-05-27T22:15:48.538Z",
+  "assembledAt": "2026-05-28T11:47:23.714Z",
   "jobs": [
     {
       "id": "bcvs-9887e8d5b2a3",
       "slug": "back-office-manager-credits-banque-cantonale-du-valais-sion",
       "slugByLocale": {
         "it": "back-office-manager-credits-banque-cantonale-du-valais-sion",
-        "en": "gestionnaire-back-office-credits-bcvs-sion",
-        "de": "gestionnaire-back-office-credits-bcvs-sion",
+        "en": "back-office-manager-credits-banque-cantonale-du-valais-sion",
+        "de": "back-office-manager-credits-banque-cantonale-du-valais-sion",
         "fr": "gestionnaire-back-office-credits-banque-cantonale-du-valais-sion"
       },
       "company": "Banque Cantonale du Valais",
@@ -33,7 +33,7 @@
       "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/gestionnaire-back-office-credits-2513",
       "source": "Banque Cantonale du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-27T22:15:46.464Z",
+      "crawledAt": "2026-05-28T11:47:21.290Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -69,6 +69,12 @@
           "gestionnaire-back-office-credits-banque-cantonale-du-valais-sion",
           "gestionnaire-back-office-credits-bcvs-sion"
         ],
+        "en": [
+          "gestionnaire-back-office-credits-bcvs-sion"
+        ],
+        "de": [
+          "gestionnaire-back-office-credits-bcvs-sion"
+        ],
         "fr": [
           "gestionnaire-back-office-credits-bcvs-sion"
         ]
@@ -78,6 +84,7 @@
         "gestionnaire-back-office-credits-bcvs-sion"
       ],
       "firstSeenAt": "2026-04-13T10:04:10.904Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -123,7 +130,7 @@
       "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/responsable-dagence-conseiller-ere-en-gestion-de-fortune-2524",
       "source": "Banque Cantonale du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-27T22:15:45.963Z",
+      "crawledAt": "2026-05-28T11:47:20.832Z",
       "addressLocality": "Crans-Montana",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -157,6 +164,9 @@
         ]
       },
       "previousSlugsByLocale": {
+        "it": [
+          "responsable-d-agence-conseiller-ere-en-gestion-de-fortune-bcvs-crans-montana"
+        ],
         "en": [
           "responsable-d-agence-conseiller-ere-en-gestion-de-fortune-bcvs-crans-montana"
         ],
@@ -165,15 +175,13 @@
         ],
         "fr": [
           "responsable-d-agence-conseiller-ere-en-gestion-de-fortune-bcvs-crans-montana"
-        ],
-        "it": [
-          "responsable-d-agence-conseiller-ere-en-gestion-de-fortune-bcvs-crans-montana"
         ]
       },
       "previousSlugs": [
         "responsable-d-agence-conseiller-ere-en-gestion-de-fortune-bcvs-crans-montana"
       ],
       "firstSeenAt": "2026-04-14T09:26:21.120Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -219,7 +227,7 @@
       "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/bankberater-in-2526",
       "source": "Banque Cantonale du Valais Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T22:15:45.458Z",
+      "crawledAt": "2026-05-28T11:47:20.378Z",
       "addressLocality": "Zermatt",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -237,6 +245,9 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
+        "it": [
+          "bankberater-in-bcvs-zermatt"
+        ],
         "en": [
           "bankberater-in-bcvs-zermatt"
         ],
@@ -244,9 +255,6 @@
           "bankberater-in-bcvs-zermatt"
         ],
         "de": [
-          "bankberater-in-bcvs-zermatt"
-        ],
-        "it": [
           "bankberater-in-bcvs-zermatt"
         ]
       },
@@ -299,7 +307,7 @@
       "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/specialiste-tresorerie-devises-2540",
       "source": "Banque Cantonale du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-27T22:15:44.954Z",
+      "crawledAt": "2026-05-28T11:47:19.925Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -328,6 +336,9 @@
         ]
       },
       "previousSlugsByLocale": {
+        "it": [
+          "specialiste-tresorerie-devises-bcvs-sion"
+        ],
         "en": [
           "specialiste-tresorerie-devises-bcvs-sion"
         ],
@@ -336,15 +347,13 @@
         ],
         "fr": [
           "specialiste-tresorerie-devises-bcvs-sion"
-        ],
-        "it": [
-          "specialiste-tresorerie-devises-bcvs-sion"
         ]
       },
       "previousSlugs": [
         "specialiste-tresorerie-devises-bcvs-sion"
       ],
       "firstSeenAt": "2026-05-06T21:27:36.448Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -390,7 +399,7 @@
       "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/conseiller-conseillere-en-gestion-de-fortune-2552",
       "source": "Banque Cantonale du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-27T22:15:44.447Z",
+      "crawledAt": "2026-05-28T11:47:19.331Z",
       "addressLocality": "Martigny",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -424,6 +433,9 @@
         ]
       },
       "previousSlugsByLocale": {
+        "it": [
+          "conseiller-conseillere-en-gestion-de-fortune-bcvs-martigny"
+        ],
         "en": [
           "conseiller-conseillere-en-gestion-de-fortune-bcvs-martigny"
         ],
@@ -432,15 +444,13 @@
         ],
         "fr": [
           "conseiller-conseillere-en-gestion-de-fortune-bcvs-martigny"
-        ],
-        "it": [
-          "conseiller-conseillere-en-gestion-de-fortune-bcvs-martigny"
         ]
       },
       "previousSlugs": [
         "conseiller-conseillere-en-gestion-de-fortune-bcvs-martigny"
       ],
       "firstSeenAt": "2026-05-07T10:31:53.966Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -486,7 +496,7 @@
       "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/gestionnaire-economat-courrier-et-ged-2555",
       "source": "Banque Cantonale du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-27T22:15:44.037Z",
+      "crawledAt": "2026-05-28T11:47:18.876Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -533,6 +543,7 @@
         "gestionnaire-economat-courrier-et-ged-bcvs-sion"
       ],
       "firstSeenAt": "2026-05-07T10:31:53.489Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -551,8 +562,8 @@
       "id": "bcvs-6ce6f06b80b0",
       "slug": "asset-management-assistant-banque-cantonale-du-valais-sion",
       "slugByLocale": {
-        "it": "assistant-asset-management-bcvs-sion",
-        "en": "assistant-asset-management-bcvs-sion",
+        "it": "asset-management-assistant-banque-cantonale-du-valais-sion",
+        "en": "asset-management-assistant-banque-cantonale-du-valais-sion",
         "de": "assistent-asset-management-banque-cantonale-du-valais-sion",
         "fr": "assistant-asset-management-banque-cantonale-du-valais-sion"
       },
@@ -578,7 +589,7 @@
       "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/assistant-asset-management-2568",
       "source": "Banque Cantonale du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-27T22:15:43.536Z",
+      "crawledAt": "2026-05-28T11:47:18.283Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -609,12 +620,20 @@
       "previousSlugsByLocale": {
         "de": [
           "assistentin-des-managements-banque-cantonale-du-valais-sion"
+        ],
+        "it": [
+          "assistant-asset-management-bcvs-sion"
+        ],
+        "en": [
+          "assistant-asset-management-bcvs-sion"
         ]
       },
       "previousSlugs": [
-        "assistentin-des-managements-banque-cantonale-du-valais-sion"
+        "assistentin-des-managements-banque-cantonale-du-valais-sion",
+        "assistant-asset-management-bcvs-sion"
       ],
       "firstSeenAt": "2026-05-26T22:08:32.225Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -660,7 +679,7 @@
       "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/expert-e-immobilier-senior-2570",
       "source": "Banque Cantonale du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-27T22:15:43.125Z",
+      "crawledAt": "2026-05-28T11:47:17.691Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -694,6 +713,7 @@
         ]
       },
       "firstSeenAt": "2026-05-26T22:08:31.768Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -712,9 +732,9 @@
       "id": "bcvs-15772aec343d",
       "slug": "consulente-centro-clienti-banque-cantonale-du-valais-sion",
       "slugByLocale": {
-        "de": "berater-in-customer-center-bcvs-sion",
         "it": "consulente-centro-clienti-banque-cantonale-du-valais-sion",
         "en": "berater-in-customer-center-banque-cantonale-du-valais-sion",
+        "de": "berater-in-customer-center-bcvs-sion",
         "fr": "conseiller-conseillere-centre-client-banque-cantonale-du-valais-sion"
       },
       "company": "Banque Cantonale du Valais",
@@ -722,24 +742,24 @@
       "companyDomain": "bcvs.ch",
       "title": "Berater/in Customer Center",
       "titleByLocale": {
-        "de": "Berater im Kundencenter",
-        "en": "Berater/in Customer Center",
         "it": "Consulente Centro Clienti",
+        "en": "Berater/in Customer Center",
+        "de": "Berater/in Customer Center",
         "fr": "Conseiller/Conseillère Centre Client"
       },
       "description": "Pas de résultats\n\n•\n\nContacter un conseiller Contacter un conseiller\n\nChat\n\nBerater/in Customer Center\n\n• Sitten\n\n• 80-100%\n\nSind Sie interessiert, Kundenanfragen zu beantworten, Kunden und Kundinnen per Telefon, E-Mail und Chat zu beraten und dabei eine hohe Servicequalität zu gewährleisten? Unser Customer Center sucht einen Kundenberater oder eine Kundenberaterin!\n\nWas heisst das konkret?\n\n• Sie identifizieren systematisch die Kunden, erteilen Auskünfte, kommunizieren die Bedingungen und Informationen zu den verschiedenen Produkten und Dienstleistungen und nutzen das Verkaufspotenzial.\n\n• Sie geben Informationen weiter, die für die Aktualisierung der IT-Daten hinsichtlich des Kundenservices und der Marktsteuerung erforderlich sind.\n\n• Sie beraten telefonisch über Basisprodukte/-dienstleistungen (Konten, Karten, E-Banking) und geben erste Informationen zu anderen Bankprodukten weiter.\n\n• Sie begleiten und unterstützen unsere Kundschaft bei unseren digitalen Produkten und schaffen so einen Mehrwert für deren Kundenerlebnis.\n\n• Sie planen die Termine mit unseren Beratern und Beraterinnen.\n\nSie mögen Herausforderungen?\n Diese Stelle ist wie für Sie geschaffen, wenn …\n\n• Sie über eine kaufmännische Ausbildung (EFZ, MPC, ESC, Maturität Typus E) verfügen.\n\n• Sie Erfahrung in einem Customer Center und ausgezeichnete Kenntnis der Bürokommunikationsmittel haben.\n\n• Sie effizient in Deutsch und Französisch kommunizieren. Weitere Sprachen sind von Vorteil.\n\n• Sie eine pragmatische und disziplinierte Person sind, die konstruktive Verbesserungsvorschläge vorbringt und gewandt im telefonischen Kontakt ist.\n\n• Sie Teamarbeit schätzen und mühelos mit Kollegen und Kolleginnen zusammenarbeiten.\n\nDann sollten wir uns kennenlernen!\n Sie möchten Teil unseres Teams werden?\n Wir freuen uns auf Ihre Bewerbung.\nSenden Sie dazu Ihre vollständigen Unterlagen bis spätestens zum 19. Juni an unsere HR-Business-Partnerin Yolanda Fernandez an die Adresse: rekrutierung@wkb.ch .",
       "descriptionByLocale": {
-        "de": "Pas de résultats\n\n•\n\nContacter un conseiller Contacter un conseiller\n\nChat\n\nBerater/in Customer Center\n\n• Sitten\n\n• 80-100%\n\nSind Sie interessiert, Kundenanfragen zu beantworten, Kunden und Kundinnen per Telefon, E-Mail und Chat zu beraten und dabei eine hohe Servicequalität zu gewährleisten? Unser Customer Center sucht einen Kundenberater oder eine Kundenberaterin!\n\nWas heisst das konkret?\n\n• Sie identifizieren systematisch die Kunden, erteilen Auskünfte, kommunizieren die Bedingungen und Informationen zu den verschiedenen Produkten und Dienstleistungen und nutzen das Verkaufspotenzial.\n\n• Sie geben Informationen weiter, die für die Aktualisierung der IT-Daten hinsichtlich des Kundenservices und der Marktsteuerung erforderlich sind.\n\n• Sie beraten telefonisch über Basisprodukte/-dienstleistungen (Konten, Karten, E-Banking) und geben erste Informationen zu anderen Bankprodukten weiter.\n\n• Sie begleiten und unterstützen unsere Kundschaft bei unseren digitalen Produkten und schaffen so einen Mehrwert für deren Kundenerlebnis.\n\n• Sie planen die Termine mit unseren Beratern und Beraterinnen.\n\nSie mögen Herausforderungen?\nDiese Stelle ist wie für Sie geschaffen, wenn …\n\n• Sie über eine kaufmännische Ausbildung (EFZ, MPC, ESC, Maturität Typus E) verfügen.\n\n• Sie Erfahrung in einem Customer Center und ausgezeichnete Kenntnis der Bürokommunikationsmittel haben.\n\n• Sie effizient in Deutsch und Französisch kommunizieren. Weitere Sprachen sind von Vorteil.\n\n• Sie eine pragmatische und disziplinierte Person sind, die konstruktive Verbesserungsvorschläge vorbringt und gewandt im telefonischen Kontakt ist.\n\n• Sie Teamarbeit schätzen und mühelos mit Kollegen und Kolleginnen zusammenarbeiten.\n\nDann sollten wir uns kennenlernen!\nSie möchten Teil unseres Teams werden?\nWir freuen uns auf Ihre Bewerbung.\nSenden Sie dazu Ihre vollständigen Unterlagen bis spätestens zum 19. Juni an unsere HR-Business-Partnerin Yolanda Fernandez an die Adresse: rekrutierung@wkb.ch .",
-        "it": "Pas de résultats • Contattore un conseiller Contacter un conseiller Chat Advisor/in Customer Center • Sitten • 80-100% Sei interessato a rispondere alle richieste dei clienti, consultare i clienti per telefono, e-mail e chat, garantendo alta qualità del servizio? Il nostro Centro Clienti è alla ricerca di un consulente clienti o di un consulente clienti! Cosa significa? • Essi identificano sistematicamente i clienti, forniscono informazioni, comunicano le condizioni e le informazioni sui diversi prodotti e servizi e utilizzano il potenziale di vendita. Essi forniscono informazioni necessarie per l'aggiornamento dei dati IT per quanto riguarda il servizio clienti e il controllo del mercato. • Essi consigliano per telefono su prodotti / servizi di base (cons, carte, e-banking) e forniscono le prime informazioni su altri prodotti bancari. • Essi accompagnano e supportano i nostri clienti nei nostri prodotti digitali e creano valore aggiunto per la loro esperienza di cliente. • Hai pianificato gli appuntamenti con i nostri consulenti. Ti piacciono le sfide? Questo posto è creato come per voi se ... • avete una formazione commerciale (EFZ, MPC, ESC, tipo di maturità E). • Hai esperienza in un centro clienti e ottima conoscenza delle comunicazioni di ufficio. • Comunicano in modo efficiente in tedesco e francese. Altre lingue sono vantaggiose. • Sono una persona pragmatica e disciplinata che fornisce suggerimenti costruttivi per il miglioramento ed è in contatto con il telefono. • Apprezzi il lavoro di squadra e lavora senza sforzo con i colleghi. Andiamo a conoscerci. Vuoi far parte della nostra squadra? Attendiamo con ansia la vostra applicazione. Invia i tuoi documenti completi al nostro partner commerciale HR Yolanda Fernandez entro il 19 giugno al più tardi, all'indirizzo: recruit@wkb.ch .",
-        "en": "Pas de résultats\n\n•\n\nContacter un conseiller Contacter un conseiller\n\nChat\n\nConsultant/in Customer Center\n\n• Sitting\n\n• 80-100 %\n\nAre you interested in answering customer requests, consulting customers by phone, email and chat while ensuring high service quality? Our customer center is looking for a customer advisor or a customer consultant!\n\nWhat does that mean?\n\n• They systematically identify customers, provide information, communicate the conditions and information about the different products and services and use the sales potential.\n\n• They provide information necessary for updating the IT data with regard to customer service and market management.\n\n• They advise on basic products/services (cons, maps, e-banking) and provide first information on other banking products.\n\n• They accompany and support our customers in our digital products and create added value for their customer experience.\n\n• You plan the appointments with our consultants.\n\nYou like challenges?\nThis place is created as for you when...\n\n• They have a commercial training (EFZ, MPC, ESC, maturity type E).\n\n• You have experience in a customer center and excellent knowledge of office communications.\n\n• They communicate efficiently in German and French. Other languages are advantageous.\n\n• They are a pragmatic and disciplined person who presents constructive suggestions for improvement and is in contact with the phone.\n\n• You appreciate teamwork and work effortlessly with colleagues.\n\nLet's get to know each other.\nYou want to be part of our team?\nWe look forward to your application.\nSend your complete documents to our HR business partner Yolanda Fernandez by June 19 at the latest, to the address: recruitment@wkb.ch .",
-        "fr": "Pas de résultats • Contacter un conseiller Contacter un conseiller Chat Advisor/in Customer Center • Sitten • 80-100% Êtes-vous intéressé à répondre aux demandes des clients, consulter les clients par téléphone, e-mail et chat tout en assurant une haute qualité de service? Notre centre client recherche un conseiller client ou un conseiller client! Qu'est-ce que ça veut dire? • Ils identifient systématiquement les clients, fournissent des informations, communiquent les conditions et les informations concernant les différents produits et services et utilisent le potentiel de vente. Ils fournissent les informations nécessaires à la mise à jour des données informatiques concernant le service à la clientèle et le contrôle du marché. • Ils conseillent par téléphone sur les produits/services de base (conservateurs, cartes, banque électronique) et fournissent les premières informations sur d'autres produits bancaires. • Ils accompagnent et soutiennent nos clients dans nos produits numériques et créent une valeur ajoutée pour leur expérience client. • Vous planifiez les rendez-vous avec nos consultants. Vous aimez les défis ? Cet endroit est créé comme pour vous si ... • vous avez une formation commerciale (EFZ, MPC, ESC, maturité type E). • Vous avez de l'expérience dans un centre client et une excellente connaissance des communications de bureau. • Ils communiquent efficacement en allemand et en français. Les autres langues sont avantageuses. • Ils sont une personne pragmatique et disciplinée qui fournit des suggestions constructives pour l'amélioration et est en contact avec le téléphone. • Vous appréciez le travail d'équipe et le travail sans effort avec vos collègues. Apprenons à nous connaître. Tu veux faire partie de notre équipe ? Nous attendons avec impatience votre candidature. Envoyez vos documents complets à notre partenaire d'affaires RH Yolanda Fernandez au plus tard le 19 juin, à l'adresse suivante : recruter@wkb.ch ."
+        "it": "Pas de résultats\n• Contattore un conseiller Contacter un conseiller Chat Advisor/in Customer Center\n• Sitten\n• 80-100% Sei interessato a rispondere alle richieste dei clienti, consultare i clienti per telefono, e-mail e chat, garantendo alta qualità del servizio? Il nostro Centro Clienti è alla ricerca di un consulente clienti o di un consulente clienti! Cosa significa?\n• Essi identificano sistematicamente i clienti, forniscono informazioni, comunicano le condizioni e le informazioni sui diversi prodotti e servizi e utilizzano il potenziale di vendita. Essi forniscono informazioni necessarie per l'aggiornamento dei dati IT per quanto riguarda il servizio clienti e il controllo del mercato.\n• Essi consigliano per telefono su prodotti / servizi di base (cons, carte, e-banking) e forniscono le prime informazioni su altri prodotti bancari.\n• Essi accompagnano e supportano i nostri clienti nei nostri prodotti digitali e creano valore aggiunto per la loro esperienza di cliente.\n• Hai pianificato gli appuntamenti con i nostri consulenti. Ti piacciono le sfide? Questo posto è creato come per voi se ...\n• avete una formazione commerciale (EFZ, MPC, ESC, tipo di maturità E).\n• Hai esperienza in un centro clienti e ottima conoscenza delle comunicazioni di ufficio.\n• Comunicano in modo efficiente in tedesco e francese. Altre lingue sono vantaggiose.\n• Sono una persona pragmatica e disciplinata che fornisce suggerimenti costruttivi per il miglioramento ed è in contatto con il telefono.\n• Apprezzi il lavoro di squadra e lavora senza sforzo con i colleghi. Andiamo a conoscerci. Vuoi far parte della nostra squadra? Attendiamo con ansia la vostra applicazione. Invia i tuoi documenti completi al nostro partner commerciale HR Yolanda Fernandez entro il 19 giugno al più tardi, all'indirizzo: recruit@wkb.ch .",
+        "en": "Pas de résultats\n• Contacter un conseiller Contacter un conseiller Chat Consultant/in Customer Center\n• Sitting\n• 80-100 % Are you interested in answering customer requests, consulting customers by phone, email and chat while ensuring high service quality? Our customer center is looking for a customer advisor or a customer consultant! What does that mean?\n• They systematically identify customers, provide information, communicate the conditions and information about the different products and services and use the sales potential.\n• They provide information necessary for updating the IT data with regard to customer service and market management.\n• They advise on basic products/services (cons, maps, e-banking) and provide first information on other banking products.\n• They accompany and support our customers in our digital products and create added value for their customer experience.\n• You plan the appointments with our consultants. You like challenges? This place is created as for you when...\n• They have a commercial training (EFZ, MPC, ESC, maturity type E).\n• You have experience in a customer center and excellent knowledge of office communications.\n• They communicate efficiently in German and French. Other languages are advantageous.\n• They are a pragmatic and disciplined person who presents constructive suggestions for improvement and is in contact with the phone.\n• You appreciate teamwork and work effortlessly with colleagues. Let's get to know each other. You want to be part of our team? We look forward to your application. Send your complete documents to our HR business partner Yolanda Fernandez by June 19 at the latest, to the address: recruitment@wkb.ch .",
+        "de": "Pas de résultats\n• Pas de résultats\n• Contacter un conseiller Contacter un conseiller Chat Berater/in Customer Center\n• Sitten\n• 80-100% Sind Sie interessiert, Kundenanfragen zu beantworten, Kunden und Kundinnen per Telefon, E-Mail und Chat zu beraten und dabei eine hohe Servicequalität zu gewährleisten? Unser Customer Center sucht einen Kundenberater oder eine Kundenberaterin! Was heisst das konkret?\n• Sie identifizieren systematisch die Kunden, erteilen Auskünfte, kommunizieren die Bedingungen und Informationen zu den verschiedenen Produkten und Dienstleistungen und nutzen das Verkaufspotenzial.\n• Sie geben Informationen weiter, die für die Aktualisierung der IT-Daten hinsichtlich des Kundenservices und der Marktsteuerung erforderlich sind.\n• Sie beraten telefonisch über Basisprodukte/-dienstleistungen (Konten, Karten, E-Banking) und geben erste Informationen zu anderen Bankprodukten weiter.\n• Sie begleiten und unterstützen unsere Kundschaft bei unseren digitalen Produkten und schaffen so einen Mehrwert für deren Kundenerlebnis.\n• Sie planen die Termine mit unseren Beratern und Beraterinnen. Sie mögen Herausforderungen? Diese Stelle ist wie für Sie geschaffen, wenn …\n• Sie über eine kaufmännische Ausbildung (EFZ, MPC, ESC, Maturität Typus E) verfügen.\n• Sie Erfahrung in einem Customer Center und ausgezeichnete Kenntnis der Bürokommunikationsmittel haben.\n• Sie effizient in Deutsch und Französisch kommunizieren. Weitere Sprachen sind von Vorteil.\n• Sie eine pragmatische und disziplinierte Person sind, die konstruktive Verbesserungsvorschläge vorbringt und gewandt im telefonischen Kontakt ist.\n• Sie Teamarbeit schätzen und mühelos mit Kollegen und Kolleginnen zusammenarbeiten. Dann sollten wir uns kennenlernen! Sie möchten Teil unseres Teams werden? Wir freuen uns auf Ihre Bewerbung. Senden Sie dazu Ihre vollständigen Unterlagen bis spätestens zum 19. Juni an unsere HR-Business-Partnerin Yolanda Fernandez an die Adresse: rekrutierung@wkb.ch .",
+        "fr": "Pas de résultats\n• Contacter un conseiller Contacter un conseiller Chat Advisor/in Customer Center\n• Sitten\n• 80-100% Êtes-vous intéressé à répondre aux demandes des clients, consulter les clients par téléphone, e-mail et chat tout en assurant une haute qualité de service? Notre centre client recherche un conseiller client ou un conseiller client! Qu'est-ce que ça veut dire?\n• Ils identifient systématiquement les clients, fournissent des informations, communiquent les conditions et les informations concernant les différents produits et services et utilisent le potentiel de vente. Ils fournissent les informations nécessaires à la mise à jour des données informatiques concernant le service à la clientèle et le contrôle du marché.\n• Ils conseillent par téléphone sur les produits/services de base (conservateurs, cartes, banque électronique) et fournissent les premières informations sur d'autres produits bancaires.\n• Ils accompagnent et soutiennent nos clients dans nos produits numériques et créent une valeur ajoutée pour leur expérience client.\n• Vous planifiez les rendez-vous avec nos consultants. Vous aimez les défis ? Cet endroit est créé comme pour vous si ...\n• vous avez une formation commerciale (EFZ, MPC, ESC, maturité type E).\n• Vous avez de l'expérience dans un centre client et une excellente connaissance des communications de bureau.\n• Ils communiquent efficacement en allemand et en français. Les autres langues sont avantageuses.\n• Ils sont une personne pragmatique et disciplinée qui fournit des suggestions constructives pour l'amélioration et est en contact avec le téléphone.\n• Vous appréciez le travail d'équipe et le travail sans effort avec vos collègues. Apprenons à nous connaître. Tu veux faire partie de notre équipe ? Nous attendons avec impatience votre candidature. Envoyez vos documents complets à notre partenaire d'affaires RH Yolanda Fernandez au plus tard le 19 juin, à l'adresse suivante : recruter@wkb.ch ."
       },
       "location": "Sion",
       "canton": "VS",
       "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/berater-in-customer-center-2572",
       "source": "Banque Cantonale du Valais Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T22:15:42.716Z",
+      "crawledAt": "2026-05-28T11:47:17.096Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -755,9 +775,20 @@
       "postedDate": "2026-05-27",
       "applyUrl": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/berater-in-customer-center-2572",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "berater-in-customer-center-bcvs-sion"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "berater-in-customer-center-bcvs-sion"
+        ],
+        "fr": [
+          "berater-in-customer-center-bcvs-sion"
+        ]
       },
+      "firstSeenAt": "2026-05-27T22:15:42.716Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -770,19 +801,7 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1950",
-      "firstSeenAt": "2026-05-27T22:15:42.716Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "berater-in-customer-center-bcvs-sion"
-        ],
-        "fr": [
-          "berater-in-customer-center-bcvs-sion"
-        ]
-      },
-      "previousSlugs": [
-        "berater-in-customer-center-bcvs-sion"
-      ]
+      "postalCode": "1950"
     }
   ]
 }
