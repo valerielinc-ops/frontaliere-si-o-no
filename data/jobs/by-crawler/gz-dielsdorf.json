@@ -282,9 +282,7 @@
       "previousSlugs": [
         "studium-pflegefachfrau-mann-hf-fachrichtung-langzeitpflege-gz-dielsdorf-dielsdorf",
         "studi-pflegefachfrau-mann-hf-dipartimento-di-cura-a-lungo-termine-gesundheitszentrum-dielsdorf-dielsdorf",
-        "health-care-assistant-hf-specialization-in-long-term-care-gesundheitszentrum-dielsdorf-dielsdorf",
-        "studium-pflegefachfrau-mann-hf-specializzazione-langzeitpflege-gesundheitszentrum-dielsdorf",
-        "studie-pflegefachfrau-mann-hf-department-of-long-term-care-gesundheitszentrum-dielsdorf-dielsdorf"
+        "health-care-assistant-hf-specialization-in-long-term-care-gesundheitszentrum-dielsdorf-dielsdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -316,7 +314,7 @@
         "it": "dipl-infermiere-hf-spitex-gesundheitszentrum-dielsdorf-regensdorf",
         "en": "dipl-pflegefachperson-hf-spitex-gz-dielsdorf-regensdorf",
         "de": "fachperson-gesundheit-40-100-br-medizin-palliativ-care-sro-langenthal",
-        "fr": "professionnel-de-la-sante-40-100-medecine-soins-palliatifs-sro-ag-spital-region-oberaargau-langenthal"
+        "fr": "diplome-e-en-soins-infirmiers-hf-spitex-gesundheitszentrum-dielsdorf-regensdorf"
       },
       "company": "Gesundheitszentrum Dielsdorf",
       "companyKey": "gz-dielsdorf",
@@ -395,14 +393,13 @@
           "professionista-della-salute-40-100-medicina-palliativ-care-sro-ag-spital-region-oberaargau-langenthal"
         ],
         "fr": [
-          "diplome-e-en-soins-infirmiers-hf-spitex-gesundheitszentrum-dielsdorf-regensdorf",
           "professionnel-de-la-sante-40-100-medecine-soins-palliatifs-sro-ag-spital-region-oberaargau-langenthal"
         ]
       },
       "previousSlugs": [
         "dipl-pflegefachperson-hf-spitex-gz-dielsdorf-regensdorf",
         "professionista-della-salute-40-100-medicina-palliativ-care-sro-ag-spital-region-oberaargau-langenthal",
-        "diplome-e-en-soins-infirmiers-hf-spitex-gesundheitszentrum-dielsdorf-regensdorf"
+        "professionnel-de-la-sante-40-100-medecine-soins-palliatifs-sro-ag-spital-region-oberaargau-langenthal"
       ],
       "firstSeenAt": "2026-05-19T17:51:20.859Z",
       "salaryMin": 49500,
@@ -1785,12 +1782,12 @@
     },
     {
       "id": "gz-dielsdorf-33de3b8af461",
-      "slug": "assistent-in-gesundheit-e-soziales-afp-schwerpunkt-langzeitpflege-gesundheitszentrum-dielsdorf",
+      "slug": "assistente-in-salute-e-eba-sociale-concentrarsi-sulla-cura-a-lungo-termine-gesundheitszentrum-dielsdorf-dielsdorf",
       "slugByLocale": {
-        "it": "assistent-in-gesundheit-e-soziales-afp-schwerpunkt-langzeitpflege-gesundheitszentrum-dielsdorf",
-        "en": "assistent-in-gesundheit-und-soziales-eba-schwerpunkt-langzeitpflege-gz-dielsdorf-dielsdorf",
+        "it": "assistente-in-salute-e-eba-sociale-concentrarsi-sulla-cura-a-lungo-termine-gesundheitszentrum-dielsdorf-dielsdorf",
+        "en": "assistant-in-health-and-social-eba-focus-on-long-term-care-gesundheitszentrum-dielsdorf-dielsdorf",
         "de": "assistent-in-gesundheit-und-soziales-eba-schwerpunkt-langzeitpflege-gz-dielsdorf-dielsdorf",
-        "fr": "assistent-in-gesundheit-und-soziales-eba-schwerpunkt-langzeitpflege-gz-dielsdorf-dielsdorf"
+        "fr": "assistant-dans-le-domaine-de-la-sante-et-de-l-abe-sociale-se-concentrer-sur-les-soins-de-longue-duree-gesundheitszentrum"
       },
       "company": "Gesundheitszentrum Dielsdorf",
       "companyKey": "gz-dielsdorf",
@@ -1832,10 +1829,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "assistent-in-gesundheit-und-soziales-eba-schwerpunkt-langzeitpflege-gz-dielsdorf-dielsdorf"
+        "assistent-in-gesundheit-und-soziales-eba-schwerpunkt-langzeitpflege-gz-dielsdorf-dielsdorf",
+        "assistent-in-gesundheit-e-soziales-afp-schwerpunkt-langzeitpflege-gesundheitszentrum-dielsdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "assistent-in-gesundheit-und-soziales-eba-schwerpunkt-langzeitpflege-gz-dielsdorf-dielsdorf",
+          "assistent-in-gesundheit-e-soziales-afp-schwerpunkt-langzeitpflege-gesundheitszentrum-dielsdorf"
+        ],
+        "en": [
+          "assistent-in-gesundheit-und-soziales-eba-schwerpunkt-langzeitpflege-gz-dielsdorf-dielsdorf"
+        ],
+        "fr": [
           "assistent-in-gesundheit-und-soziales-eba-schwerpunkt-langzeitpflege-gz-dielsdorf-dielsdorf"
         ]
       },
@@ -1855,12 +1860,12 @@
     },
     {
       "id": "gz-dielsdorf-116400525b5b",
-      "slug": "stv-kuchenchef-in-gz-dielsdorf-dielsdorf",
+      "slug": "stv-chef-in-gesundheitszentrum-dielsdorf-dielsdorf",
       "slugByLocale": {
         "de": "stv-kuchenchef-in-gesundheitszentrum-dielsdorf-dielsdorf",
-        "it": "stv-kuchenchef-in-gz-dielsdorf-dielsdorf",
+        "it": "stv-chef-in-gesundheitszentrum-dielsdorf-dielsdorf",
         "en": "stv-kuchenchef-in-gz-dielsdorf-dielsdorf",
-        "fr": "stv-kuchenchef-in-gz-dielsdorf-dielsdorf"
+        "fr": "chef-in-gesundheitszentrum-dielsdorf-dielsdorf"
       },
       "company": "Gesundheitszentrum Dielsdorf",
       "companyKey": "gz-dielsdorf",
@@ -1915,16 +1920,27 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-27T23:05:52.372Z"
+      "firstSeenAt": "2026-05-27T23:05:52.372Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "stv-kuchenchef-in-gz-dielsdorf-dielsdorf"
+        ],
+        "fr": [
+          "stv-kuchenchef-in-gz-dielsdorf-dielsdorf"
+        ]
+      },
+      "previousSlugs": [
+        "stv-kuchenchef-in-gz-dielsdorf-dielsdorf"
+      ]
     },
     {
       "id": "gz-dielsdorf-ab5b1cd88407",
-      "slug": "collaboratore-trice-hauswirtschaft-reinigung-gesundheitszentrum-dielsdorf",
+      "slug": "personale-in-pulizia-pulizia-gesundheitszentrum-dielsdorf-dielsdorf",
       "slugByLocale": {
         "de": "mitarbeiter-in-hauswirtschaft-reinigung-gz-dielsdorf-dielsdorf",
-        "it": "collaboratore-trice-hauswirtschaft-reinigung-gesundheitszentrum-dielsdorf",
-        "en": "mitarbeiter-in-hauswirtschaft-reinigung-gz-dielsdorf-dielsdorf",
-        "fr": "mitarbeiter-in-hauswirtschaft-reinigung-gz-dielsdorf-dielsdorf"
+        "it": "personale-in-pulizia-pulizia-gesundheitszentrum-dielsdorf-dielsdorf",
+        "en": "staff-in-housekeeping-cleaning-gesundheitszentrum-dielsdorf-dielsdorf",
+        "fr": "personnel-menage-nettoyage-gesundheitszentrum-dielsdorf-dielsdorf"
       },
       "company": "Gesundheitszentrum Dielsdorf",
       "companyKey": "gz-dielsdorf",
@@ -1969,11 +1985,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-hauswirtschaft-reinigung-gz-dielsdorf-dielsdorf",
+          "collaboratore-trice-hauswirtschaft-reinigung-gesundheitszentrum-dielsdorf"
+        ],
+        "en": [
+          "mitarbeiter-in-hauswirtschaft-reinigung-gz-dielsdorf-dielsdorf"
+        ],
+        "fr": [
           "mitarbeiter-in-hauswirtschaft-reinigung-gz-dielsdorf-dielsdorf"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-hauswirtschaft-reinigung-gz-dielsdorf-dielsdorf"
+        "mitarbeiter-in-hauswirtschaft-reinigung-gz-dielsdorf-dielsdorf",
+        "collaboratore-trice-hauswirtschaft-reinigung-gesundheitszentrum-dielsdorf"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,

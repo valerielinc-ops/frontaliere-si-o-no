@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "klinik-gut-3198-9e114b2e2f20",
-      "slug": "med-praxisassistent-in-o-arztsekretar-in-klinik-gut-ag-chur",
+      "slug": "med-assistente-pratico-o-segretario-medico-klinik-gut-ag-chur",
       "slugByLocale": {
         "de": "med-praxisassistent-in-oder-arztsekretar-in-klinik-gut-chur",
-        "it": "med-praxisassistent-in-o-arztsekretar-in-klinik-gut-ag-chur",
-        "en": "med-praxisassistent-in-oder-arztsekretar-in-klinik-gut-chur",
-        "fr": "med-praxisassistent-in-oder-arztsekretar-in-klinik-gut-chur"
+        "it": "med-assistente-pratico-o-segretario-medico-klinik-gut-ag-chur",
+        "en": "med-practical-assistant-or-doctor-s-secretary-klinik-gut-ag-chur",
+        "fr": "medicament-assistant-pratique-ou-secretaire-de-medecin-klinik-gut-ag-chur"
       },
       "company": "Klinik Gut AG",
       "companyKey": "klinik-gut",
@@ -54,11 +54,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "med-praxisassistent-in-oder-arztsekretar-in-klinik-gut-chur",
+          "med-praxisassistent-in-o-arztsekretar-in-klinik-gut-ag-chur"
+        ],
+        "en": [
+          "med-praxisassistent-in-oder-arztsekretar-in-klinik-gut-chur"
+        ],
+        "fr": [
           "med-praxisassistent-in-oder-arztsekretar-in-klinik-gut-chur"
         ]
       },
       "previousSlugs": [
-        "med-praxisassistent-in-oder-arztsekretar-in-klinik-gut-chur"
+        "med-praxisassistent-in-oder-arztsekretar-in-klinik-gut-chur",
+        "med-praxisassistent-in-o-arztsekretar-in-klinik-gut-ag-chur"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,

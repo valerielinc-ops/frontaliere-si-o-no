@@ -77,9 +77,9 @@
       "slug": "stage-di-prova-merian-iselin-klinik-basel",
       "slugByLocale": {
         "it": "stage-di-prova-merian-iselin-klinik-basel",
-        "en": "trial-internship-merian-iselin-klinik-basel",
+        "en": "taster-internship-merian-iselin-klinik-basel",
         "de": "schnupperpraktikum-merian-iselin-basel",
-        "fr": "stage-d-essai-merian-iselin-klinik-basel"
+        "fr": "stage-de-decouverte-merian-iselin-klinik-basel"
       },
       "company": "Merian Iselin Klinik",
       "companyKey": "merian-iselin",
@@ -133,8 +133,8 @@
       "previousSlugs": [
         "schnupperpraktikum-merian-iselin-basel",
         "stage-di-orientamento-merian-iselin-klinik-basel",
-        "taster-internship-merian-iselin-klinik-basel",
-        "stage-de-decouverte-merian-iselin-klinik-basel"
+        "trial-internship-merian-iselin-klinik-basel",
+        "stage-d-essai-merian-iselin-klinik-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -142,11 +142,9 @@
           "stage-di-orientamento-merian-iselin-klinik-basel"
         ],
         "en": [
-          "taster-internship-merian-iselin-klinik-basel",
           "trial-internship-merian-iselin-klinik-basel"
         ],
         "fr": [
-          "stage-de-decouverte-merian-iselin-klinik-basel",
           "stage-d-essai-merian-iselin-klinik-basel"
         ]
       },
@@ -248,7 +246,7 @@
         "it": "stage-infermieristico-fh-modulo-aggiuntivo-b-merian-iselin-klinik-basel",
         "en": "fh-nursing-practice-module-b-merian-iselin-klinik-basel",
         "de": "praktikum-pflege-fh-zusatzmodul-b-merian-iselin-basel",
-        "fr": "stage-en-soins-infirmiers-hes-module-supplementaire-b-merian-iselin-klinik-basel"
+        "fr": "stage-infirmier-fh-module-b-merian-iselin-klinik-basel"
       },
       "company": "Merian Iselin Klinik",
       "companyKey": "merian-iselin",
@@ -293,7 +291,7 @@
       "previousSlugs": [
         "praktikum-pflege-fh-zusatzmodul-b-merian-iselin-basel",
         "stage-infirmier-fh-module-supplementaire-b-merian-iselin-klinik-basel",
-        "stage-infirmier-fh-module-b-merian-iselin-klinik-basel"
+        "stage-en-soins-infirmiers-hes-module-supplementaire-b-merian-iselin-klinik-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -301,7 +299,6 @@
         ],
         "fr": [
           "stage-infirmier-fh-module-supplementaire-b-merian-iselin-klinik-basel",
-          "stage-infirmier-fh-module-b-merian-iselin-klinik-basel",
           "stage-en-soins-infirmiers-hes-module-supplementaire-b-merian-iselin-klinik-basel"
         ]
       },

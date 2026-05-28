@@ -4,9 +4,9 @@
   "jobs": [
     {
       "id": "kulm-hotel-4343b98f6093",
-      "slug": "terapeuta-spa-m-w-d-kulm-hotel-st-moritz-pontresina",
+      "slug": "terapia-spa-m-w-d-kulm-hotel-st-moritz-pontresina",
       "slugByLocale": {
-        "it": "terapeuta-spa-m-w-d-kulm-hotel-st-moritz-pontresina",
+        "it": "terapia-spa-m-w-d-kulm-hotel-st-moritz-pontresina",
         "en": "spa-therapist-m-w-d-kulm-hotel-st-moritz",
         "de": "spa-therapeut-m-w-d-kulm-hotel-st-moritz-pontresina",
         "fr": "therapeute-spa-m-f-x-kulm-hotel-st-moritz-pontresina"
@@ -78,12 +78,11 @@
       "pensum": "100%",
       "previousSlugs": [
         "spa-therapist-m-w-d-kulm-hotel-st-moritz",
-        "terapia-spa-m-w-d-kulm-hotel-st-moritz-pontresina"
+        "terapeuta-spa-m-w-d-kulm-hotel-st-moritz-pontresina"
       ],
       "previousSlugsByLocale": {
         "it": [
           "spa-therapist-m-w-d-kulm-hotel-st-moritz",
-          "terapia-spa-m-w-d-kulm-hotel-st-moritz-pontresina",
           "terapeuta-spa-m-w-d-kulm-hotel-st-moritz-pontresina"
         ]
       },
@@ -181,9 +180,9 @@
       "id": "kulm-hotel-b94b20f04f54",
       "slug": "assistente-alla-piscina-guardia-di-vita-m-w-d-kulm-hotel-st-moritz-pontresina",
       "slugByLocale": {
-        "it": "addetto-alla-piscina-bagnino-m-w-d-kulm-hotel-st-moritz-pontresina",
+        "it": "assistente-alla-piscina-guardia-di-vita-m-w-d-kulm-hotel-st-moritz-pontresina",
         "en": "pool-attendant-life-guard-m-w-d-kulm-hotel-st-moritz",
-        "de": "pool-attendant-bademeister-m-w-d-kulm-hotel-st-moritz-pontresina",
+        "de": "poolmitarbeiter-bademeister-m-w-d-kulm-hotel-st-moritz-pontresina",
         "fr": "pool-attendant-life-guard-m-w-d-kulm-hotel-st-moritz"
       },
       "company": "Kulm Hotel St. Moritz",
@@ -250,15 +249,16 @@
       "pensum": "100%",
       "previousSlugs": [
         "pool-attendant-life-guard-m-w-d-kulm-hotel-st-moritz",
-        "poolmitarbeiter-bademeister-m-w-d-kulm-hotel-st-moritz-pontresina",
-        "assistente-alla-piscina-guardia-di-vita-m-w-d-kulm-hotel-st-moritz-pontresina"
+        "addetto-alla-piscina-bagnino-m-w-d-kulm-hotel-st-moritz-pontresina",
+        "pool-attendant-bademeister-m-w-d-kulm-hotel-st-moritz-pontresina"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "pool-attendant-life-guard-m-w-d-kulm-hotel-st-moritz"
+          "pool-attendant-life-guard-m-w-d-kulm-hotel-st-moritz",
+          "addetto-alla-piscina-bagnino-m-w-d-kulm-hotel-st-moritz-pontresina"
         ],
         "de": [
-          "poolmitarbeiter-bademeister-m-w-d-kulm-hotel-st-moritz-pontresina"
+          "pool-attendant-bademeister-m-w-d-kulm-hotel-st-moritz-pontresina"
         ]
       },
       "firstSeenAt": "2026-04-13T22:00:28.646Z",
@@ -429,7 +429,7 @@
       "slugByLocale": {
         "it": "commis-de-rang-assistente-cameriere-m-p-g-kulm-hotel-st-moritz-pontresina",
         "en": "line-clerk-assistant-waiter-m-w-d-kulm-hotel-st-moritz-pontresina",
-        "de": "commis-de-rang-assistenzkellner-m-w-d-kulm-hotel-st-moritz-pontresina",
+        "de": "commis-de-rang-assistent-waiter-m-w-d-kulm-hotel-st-moritz-pontresina",
         "fr": "commis-de-rang-assistant-waiter-m-w-d-kulm-hotel-st-moritz"
       },
       "company": "Kulm Hotel St. Moritz",
@@ -476,14 +476,13 @@
       "pensum": "100%",
       "previousSlugs": [
         "commis-de-rang-assistant-waiter-m-w-d-kulm-hotel-st-moritz",
-        "commis-de-rang-assistent-waiter-m-w-d-kulm-hotel-st-moritz-pontresina"
+        "commis-de-rang-assistenzkellner-m-w-d-kulm-hotel-st-moritz-pontresina"
       ],
       "previousSlugsByLocale": {
         "it": [
           "commis-de-rang-assistant-waiter-m-w-d-kulm-hotel-st-moritz"
         ],
         "de": [
-          "commis-de-rang-assistent-waiter-m-w-d-kulm-hotel-st-moritz-pontresina",
           "commis-de-rang-assistenzkellner-m-w-d-kulm-hotel-st-moritz-pontresina"
         ]
       },
@@ -683,10 +682,10 @@
       "id": "kulm-hotel-6dd397cdebf9",
       "slug": "responsabile-prenotazioni-m-w-d-kulm-hotel-st-moritz-pontresina",
       "slugByLocale": {
-        "it": "assistente-alla-gestione-delle-prenotazioni-m-w-d-kulm-hotel-st-moritz-pontresina",
+        "it": "responsabile-prenotazioni-m-w-d-kulm-hotel-st-moritz-pontresina",
         "en": "assistant-reservations-manager-m-w-d-kulm-hotel-st-moritz",
-        "de": "assistent-reservations-manager-m-w-d-kulm-hotel-st-moritz-pontresina",
-        "fr": "assistant-reservations-manager-m-w-d-kulm-hotel-st-moritz"
+        "de": "mitarbeiter-m-w-d-kulm-hotel-st-moritz-pontresina",
+        "fr": "gestionnaire-adjoint-des-reservations-m-w-d-kulm-hotel-st-moritz-pontresina"
       },
       "company": "Kulm Hotel St. Moritz",
       "companyKey": "kulm-hotel",
@@ -750,20 +749,20 @@
       "pensum": "100%",
       "previousSlugsByLocale": {
         "fr": [
-          "gestionnaire-adjoint-des-reservations-m-w-d-kulm-hotel-st-moritz-pontresina"
-        ],
-        "it": [
           "assistant-reservations-manager-m-w-d-kulm-hotel-st-moritz"
         ],
+        "it": [
+          "assistant-reservations-manager-m-w-d-kulm-hotel-st-moritz",
+          "assistente-alla-gestione-delle-prenotazioni-m-w-d-kulm-hotel-st-moritz-pontresina"
+        ],
         "de": [
-          "mitarbeiter-m-w-d-kulm-hotel-st-moritz-pontresina"
+          "assistent-reservations-manager-m-w-d-kulm-hotel-st-moritz-pontresina"
         ]
       },
       "previousSlugs": [
-        "gestionnaire-adjoint-des-reservations-m-w-d-kulm-hotel-st-moritz-pontresina",
         "assistant-reservations-manager-m-w-d-kulm-hotel-st-moritz",
-        "mitarbeiter-m-w-d-kulm-hotel-st-moritz-pontresina",
-        "responsabile-prenotazioni-m-w-d-kulm-hotel-st-moritz-pontresina"
+        "assistente-alla-gestione-delle-prenotazioni-m-w-d-kulm-hotel-st-moritz-pontresina",
+        "assistent-reservations-manager-m-w-d-kulm-hotel-st-moritz-pontresina"
       ],
       "firstSeenAt": "2026-04-13T22:00:28.646Z",
       "salaryMin": 68000,

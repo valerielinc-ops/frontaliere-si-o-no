@@ -2336,12 +2336,12 @@
     },
     {
       "id": "lonza-c2c365fdd8ae",
-      "slug": "waste-logistics-specialist-open-80-100-lonza-ch",
+      "slug": "waste-logistica-specialista-open-80-100-lonza-ch",
       "slugByLocale": {
         "de": "waste-logistics-specialist-open-80-100-lonza-ch",
-        "it": "waste-logistics-specialist-open-80-100-lonza-ch",
+        "it": "waste-logistica-specialista-open-80-100-lonza-ch",
         "en": "waste-logistics-specialist-open-80-100-lonza-ch",
-        "fr": "waste-logistics-specialist-open-80-100-lonza-ch"
+        "fr": "waste-logistique-specialiste-open-80-100-lonza-ch"
       },
       "company": "Lonza",
       "companyKey": "lonza",
@@ -2396,7 +2396,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-27T23:39:27.032Z"
+      "firstSeenAt": "2026-05-27T23:39:27.032Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "waste-logistics-specialist-open-80-100-lonza-ch"
+        ],
+        "fr": [
+          "waste-logistics-specialist-open-80-100-lonza-ch"
+        ]
+      },
+      "previousSlugs": [
+        "waste-logistics-specialist-open-80-100-lonza-ch"
+      ]
     },
     {
       "id": "lonza-ce7f0d00e680",

@@ -264,7 +264,7 @@
       "slug": "senior-ingegnere-di-produzione-m-f-d-tecnologia-medica-stryker-selzach",
       "slugByLocale": {
         "it": "senior-ingegnere-di-produzione-m-f-d-tecnologia-medica-stryker-selzach",
-        "en": "senior-manufacturing-engineer-m-f-d-medical-technology-stryker-selzach",
+        "en": "senior-projektingenieur-m-w-d-medizintechnik-stryker-selzach",
         "de": "senior-produktionsingenieur-m-w-d-medizintechnik-stryker-ch",
         "fr": "senior-produktionsingenieur-m-w-d-medizintechnik-stryker-ch"
       },
@@ -337,14 +337,13 @@
       "jobReqId": "R559490",
       "previousSlugs": [
         "senior-produktionsingenieur-m-w-d-medizintechnik-stryker-ch",
-        "senior-projektingenieur-m-w-d-medizintechnik-stryker-selzach"
+        "senior-manufacturing-engineer-m-f-d-medical-technology-stryker-selzach"
       ],
       "previousSlugsByLocale": {
         "it": [
           "senior-produktionsingenieur-m-w-d-medizintechnik-stryker-ch"
         ],
         "en": [
-          "senior-projektingenieur-m-w-d-medizintechnik-stryker-selzach",
           "senior-manufacturing-engineer-m-f-d-medical-technology-stryker-selzach"
         ]
       },
@@ -487,8 +486,7 @@
       "jobReqId": "R563824",
       "previousSlugs": [
         "field-clinical-specialist-northern-new-jersey-area-peripheral-vascular-stryker-selzach",
-        "field-clinical-specialist-northern-new-jersey-area-peripheral-vascular-stryker-ch",
-        "field-clinical-specialista-northern-new-jersey-area-peripheral-vascular-stryker-selzach"
+        "field-clinical-specialist-northern-new-jersey-area-peripheral-vascular-stryker-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -598,7 +596,7 @@
       "id": "stryker-878bf762bafa",
       "slug": "apprendista-produzione-stryker-selzach",
       "slugByLocale": {
-        "it": "apprentice-manufacturing-stryker-ch",
+        "it": "apprendista-produzione-stryker-selzach",
         "en": "apprentice-manufacturing-stryker-selzach",
         "de": "ausbildung-fertigung-stryker-selzach",
         "fr": "apprentissage-fabrication-stryker-selzach"
@@ -652,13 +650,13 @@
         ],
         "en": [
           "apprentice-manufacturing-stryker-ch"
+        ],
+        "it": [
+          "apprentice-manufacturing-stryker-ch"
         ]
       },
       "previousSlugs": [
-        "apprentice-manufacturing-stryker-ch",
-        "apprendista-produzione-stryker-selzach",
-        "ausbildung-fertigung-stryker-selzach",
-        "apprentissage-fabrication-stryker-selzach"
+        "apprentice-manufacturing-stryker-ch"
       ],
       "firstSeenAt": "2026-05-21T00:24:36.169Z",
       "salaryMin": 41600,
@@ -676,12 +674,12 @@
     },
     {
       "id": "stryker-9dee61e2c5da",
-      "slug": "cnc-mechaniker-m-w-d-langdrehen-fertigung-prozessoptimierung-stryker-ch",
+      "slug": "ingegnere-meccanico-cnc-m-w-d-stryker-selzach",
       "slugByLocale": {
-        "it": "cnc-mechaniker-m-w-d-langdrehen-fertigung-prozessoptimierung-stryker-ch",
-        "en": "cnc-mechaniker-m-w-d-langdrehen-fertigung-prozessoptimierung-stryker-ch",
+        "it": "ingegnere-meccanico-cnc-m-w-d-stryker-selzach",
+        "en": "cnc-mechanical-engineer-m-w-d-stryker-selzach",
         "de": "cnc-mechaniker-m-w-d-langdrehen-fertigung-prozessoptimierung-stryker-ch",
-        "fr": "cnc-mechaniker-m-w-d-langdrehen-fertigung-prozessoptimierung-stryker-ch"
+        "fr": "mecanicien-du-cnc-m-m-j-stryker-selzach"
       },
       "company": "Stryker",
       "companyKey": "stryker",
@@ -734,7 +732,21 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "cnc-mechaniker-m-w-d-langdrehen-fertigung-prozessoptimierung-stryker-ch"
+        ],
+        "en": [
+          "cnc-mechaniker-m-w-d-langdrehen-fertigung-prozessoptimierung-stryker-ch"
+        ],
+        "fr": [
+          "cnc-mechaniker-m-w-d-langdrehen-fertigung-prozessoptimierung-stryker-ch"
+        ]
+      },
+      "previousSlugs": [
+        "cnc-mechaniker-m-w-d-langdrehen-fertigung-prozessoptimierung-stryker-ch"
+      ]
     }
   ]
 }
