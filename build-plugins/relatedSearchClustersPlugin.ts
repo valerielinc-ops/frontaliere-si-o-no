@@ -51,6 +51,8 @@ import { BASE_URL } from './constants';
 import { buildFlatBridgeFromSibling } from './flatHtmlRedirectPlugin';
 import { buildSeoPageHtml } from './shared/seoPageShell';
 import { buildTitleWithBrand, TITLE_MAX_CHARS } from './shared/titleSuffix';
+import { getTrafficEvidenceFilter } from './shared/trafficEvidenceFilter';
+import { buildClusterThinHtml } from './shared/clusterThinShell';
 import {
   renderJobBoardCommuterContext,
   renderSearchQueryIntro,
@@ -1979,6 +1981,22 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
       const startedAt = Date.now();
       const dateStamp = new Date().toISOString().slice(0, 10);
 
+      // Tiered emission for cluster pages (urlClass: 'gsc-keyword-landing').
+      // 2026-05-28 dist: 517 k pages = 5.17 GB = 57 % of jobs-seo bucket;
+      // sample shows `<main class=cluster-seo-prose>` block accounts for
+      // 77 % of each page's bytes. Filter consults
+      // data/evidence-index.json + data/thin-page-promotions-active.json
+      // + data/url-pruning-approved-patterns.json. URL with traffic stays
+      // full; URL without and matching the approved pattern becomes a
+      // thin shell (HEAD preserved verbatim; main block replaced with a
+      // slim h1 + ≥50-word paragraph linking back to the canonical hub).
+      // SPA hydrates the filtered listing client-side from the URL.
+      // See build-plugins/shared/clusterThinShell.ts.
+      const trafficFilter = getTrafficEvidenceFilter(rootDir);
+      let clusterFullCount = 0;
+      let clusterThinCount = 0;
+      let clusterBytesSaved = 0;
+
       // Cache fast path. If inputs haven't changed since the last emit,
       // restore the cluster + hub HTML + sitemap fragment from disk, run
       // the cross-plugin patches (master sitemap + hub-link injection)
@@ -2233,16 +2251,31 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
           dateStamp,
         });
 
+        // Tiered emission decision per cluster context. The same html
+        // payload is reused for the canonical + the flat-bridge source
+        // + every legacy-canton mirror, so we decide once and apply
+        // uniformly. byte-saving accumulator counts the delta per
+        // emitted FILE (canonical + mirrors); the flat bridge is
+        // already small and doesn't materially benefit.
+        const __clDecision = trafficFilter.decide(out.urlPath, 'gsc-keyword-landing');
+        const __clAction: 'full' | 'thin' = __clDecision.action === 'thin' ? 'thin' : 'full';
+        const __clHtml = __clAction === 'thin'
+          ? buildClusterThinHtml(out.html, locale)
+          : out.html;
+        const __clDelta = __clAction === 'thin' ? out.html.length - __clHtml.length : 0;
+        if (__clAction === 'thin') clusterThinCount++; else clusterFullCount++;
+
         const indexPath = path.join(distDir, out.urlPath, 'index.html');
         const flatPath = path.join(distDir, out.urlPath.replace(/\/+$/, '') + '.html');
-        collector.add(indexPath, out.html);
+        collector.add(indexPath, __clHtml);
+        clusterBytesSaved += __clDelta;
         // Emit the flat .html as a redirect bridge directly: postWalkCoordinator
         // would otherwise read this file (~30 KB), build the same bridge from
         // the sibling, and rewrite (~500 B). Pre-emitting the bridge cuts
         // ~52k × 30 KB writes here AND post-walk's `html === original` guard
         // skips the rewrite. Trims ~30-50 s off closeBundle.
         const slashUrl = `${BASE_URL}${out.urlPath.replace(/\/+$/, '')}/`;
-        const flatBridge = buildFlatBridgeFromSibling(out.html, slashUrl);
+        const flatBridge = buildFlatBridgeFromSibling(__clHtml, slashUrl);
         collector.add(flatPath, flatBridge);
         emittedFiles.push(path.relative(distDir, indexPath));
         emittedFiles.push(path.relative(distDir, flatPath));
@@ -2302,7 +2335,8 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
           // via flat bridges would add hundreds of thousands of files for a
           // negligible UX gain.
           const mirrorIndexPath = path.join(distDir, mirrorPath, 'index.html');
-          collector.add(mirrorIndexPath, out.html);
+          collector.add(mirrorIndexPath, __clHtml);
+          clusterBytesSaved += __clDelta;
           emittedFiles.push(path.relative(distDir, mirrorIndexPath));
         }
         profileRecord('render-cluster-page', __tRenderCluster);
@@ -2391,6 +2425,25 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
       console.log(
         `\x1b[36m[related-search-clusters]\x1b[0m emitted ${ctxCount} cluster pages + ${hubCount} hubs (${written} files) in ${((Date.now() - startedAt) / 1000).toFixed(1)}s`,
       );
+      // Tiered emission summary. Counter records FILTER DECISIONS;
+      // bytes_saved is the REAL delta (full html length − thin html
+      // length) accumulated per emitted file (canonical + every legacy
+      // mirror that reused the html). See PR #729 / #734 lesson:
+      // counter ≠ saving when the regex misses.
+      if (clusterThinCount > 0 || clusterFullCount > 0) {
+        const fmtBytes = (n: number): string => {
+          if (n < 1024) return `${n}B`;
+          if (n < 1024 * 1024) return `${(n / 1024).toFixed(1)}KB`;
+          if (n < 1024 * 1024 * 1024) return `${(n / (1024 * 1024)).toFixed(1)}MB`;
+          return `${(n / (1024 * 1024 * 1024)).toFixed(2)}GB`;
+        };
+        console.log(
+          `\x1b[36m[related-search-clusters]\x1b[0m cluster tier: ` +
+          `full=${clusterFullCount} thin=${clusterThinCount} ` +
+          `bytes_saved=${fmtBytes(clusterBytesSaved)}`,
+        );
+        console.log(`\x1b[36m[related-search-clusters]\x1b[0m ${trafficFilter.summary()}`);
+      }
       printRelatedSearchProfile();
     },
   };
