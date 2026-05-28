@@ -24887,4 +24887,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'mancato-pagamento-stipendio-lavoratrice',
+ category: 'pratico',
+ date: '2026-05-28T06:49:28.885Z',
+ image: '/images/blog/mancato-pagamento-stipendio-lavoratrice.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

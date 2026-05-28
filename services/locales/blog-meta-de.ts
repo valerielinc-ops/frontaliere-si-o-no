@@ -7836,6 +7836,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.tram-treno-ricorso-zali.title': 'Tram-Bahn: Neuer Rekurs. Zali: «Mutwillige Beanstandung»',
     'blog.article.tram-treno-ricorso-zali.excerpt': 'Das Bundesgericht erhält einen neuen Rekurs gegen das Projekt der Tram-Bahn von Lugano, aber ohne aufschiebende Wirkung. Zali: «Mutwillige Beanstandung».',
     'blog.article.tram-treno-ricorso-zali.imageAlt': 'Panoramablick auf Locarno mit Tram im Vordergrund.',
+    'blog.article.mancato-pagamento-stipendio-lavoratrice.title': 'Ausbleibende Lohnzahlung: Der Fall Nidil Cgil Varese',
+    'blog.article.mancato-pagamento-stipendio-lavoratrice.excerpt': 'Eine Arbeitnehmerin wartet noch immer auf ihren Lohn für elf Arbeitstage im April. Nidil Cgil Varese prangert die Prekarität von Leiharbeitsverträgen an.',
+    'blog.article.mancato-pagamento-stipendio-lavoratrice.imageAlt': 'Bürogebäude in Mendrisiotto, Tessin',
 };
 
 export default blogMetaDe;

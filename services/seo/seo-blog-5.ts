@@ -40751,6 +40751,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-mancato-pagamento-stipendio-lavoratrice': {
+    title: 'Mancato pagamento stipendio: il caso Nidil Cgil Varese',
+    description: 'Una lavoratrice denuncia il mancato pagamento dello stipendio dopo mesi di lavoro. Nidil Cgil Varese punta il dito contro le agenzie interinali. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, mancato, pagamento, stipendio, caso',
+    ogTitle: 'Mancato stipendio: il caso Nidil Cgil Varese e i diritti',
+    ogDescription: 'Una lavoratrice denuncia il mancato pagamento dello stipendio dopo mesi di lavoro. Nidil Cgil Varese punta il dito contro le agenzie interinali.',
+    canonicalPath: '/articoli-frontaliere/mancato-pagamento-stipendio-lavoratrice',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Mancato pagamento stipendio: il caso Nidil Cgil Varese",
+      "description": "Una lavoratrice denuncia il mancato pagamento dello stipendio dopo mesi di lavoro. Nidil Cgil Varese punta il dito contro le agenzie interinali. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/mancato-pagamento-stipendio-lavoratrice.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ufficio nel Mendrisiotto, Ticino"
+      },
+      "datePublished": "2026-05-28T06:49:28+00:00",
+      "dateModified": "2026-05-28T06:49:28+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/mancato-pagamento-stipendio-lavoratrice`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

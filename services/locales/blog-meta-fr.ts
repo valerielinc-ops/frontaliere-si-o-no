@@ -7838,6 +7838,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.tram-treno-ricorso-zali.title': 'Tram-train, nouveau recours. Zali : «Contestation téméraire»',
     'blog.article.tram-treno-ricorso-zali.excerpt': 'Le Tribunal fédéral reçoit un nouveau recours contre le projet de tram-train du Luganais, mais sans effet suspensif. Zali : «Contestation téméraire».',
     'blog.article.tram-treno-ricorso-zali.imageAlt': 'Vue panoramique de Locarno avec tram au premier plan.',
+    'blog.article.mancato-pagamento-stipendio-lavoratrice.title': 'Non-paiement salaire',
+    'blog.article.mancato-pagamento-stipendio-lavoratrice.excerpt': 'Une travailleuse attend toujours ses revenus pour onze jours de travail en avril. Nidil Cgil Varese dénonce la précarité des contrats de somministrazione.',
+    'blog.article.mancato-pagamento-stipendio-lavoratrice.imageAlt': 'Bâtiment de bureaux à Mendrisiotto, Tessin',
 };
 
 export default blogMetaFr;
