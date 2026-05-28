@@ -845,6 +845,28 @@ describe('Router — SPA equivalent wins over static landing', () => {
     expect(route.staticOverlay).toBeFalsy();
   });
 
+  // Post-2026-05-28 cluster canonical migration: cluster pages now live at
+  // /cerca-lavoro-svizzera/ricerca-{slug}/ (and per-locale aggregator
+  // equivalents). The router must recognise these as `job-board` with the
+  // `_AGGREGATE_` canton sentinel so the SPA renders the search-query view
+  // without applying a canton filter — strictly more results than the
+  // previous per-canton pinning.
+  it('IT /cerca-lavoro-svizzera/ricerca-* routes to JobBoard with _AGGREGATE_ canton', () => {
+    const { route } = parsePath('/cerca-lavoro-svizzera/ricerca-data-center-technician');
+    expect(route.activeTab).toBe('job-board');
+    expect(route.jobBoardCanton).toBe('_AGGREGATE_');
+    expect(route.jobSlug).toBe('ricerca-data-center-technician');
+    expect(route.staticOverlay).toBeFalsy();
+  });
+
+  it('EN /en/find-jobs-switzerland/search-* routes to JobBoard with _AGGREGATE_ canton', () => {
+    const { route } = parsePath('/en/find-jobs-switzerland/search-data-center-technician');
+    expect(route.activeTab).toBe('job-board');
+    expect(route.jobBoardCanton).toBe('_AGGREGATE_');
+    expect(route.jobSlug).toBe('search-data-center-technician');
+    expect(route.staticOverlay).toBeFalsy();
+  });
+
   // Salary-hub scenario index (build-plugins/salaryHubIndex.ts): emits the
   // curated index of all salary scenarios. Must keep staticOverlay so the
   // SPA does not replace it with the default calculator view.

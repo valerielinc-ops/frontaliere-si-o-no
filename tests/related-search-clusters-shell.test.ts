@@ -24,6 +24,46 @@ afterEach(() => {
 });
 
 describe('canton-aware cluster URL emission', () => {
+  // Post-2026-05-28 refactor: `buildClusterContext` always sets
+  // `cantonGroup: AGGREGATE_KEY` so every cluster canonicalizes to
+  // /cerca-lavoro-svizzera/ricerca-{slug}/ regardless of the top-match
+  // canton. Legacy per-canton URLs are emitted as mirror copies (see the
+  // emit loop in `closeBundle`). `renderClusterPage` itself remains
+  // canton-agnostic — it honours whatever `ctx.cantonGroup` is passed,
+  // so the per-canton tests below still exercise the rendering path that
+  // produces the mirror HTML.
+  it('emits canonical at /cerca-lavoro-svizzera/ when cantonGroup is _AGGREGATE_', () => {
+    const distDir = makeDist();
+    const page = renderClusterPage({
+      distDir,
+      dateStamp: '2026-05-28',
+      ctx: {
+        candidate: {
+          slug: 'ricerca-offerte-lavoro-addetto-a-cucina',
+          locale: 'it',
+          jobCount: 1,
+          sampleTerms: ['offerte lavoro Addetto a cucina'],
+          editorialCollision: null,
+        },
+        keyword: 'addetto a cucina',
+        city: null,
+        matchingJobs: [
+          { id: 'ksgr-x', title: 'Mitarbeiter:in Küche', company: 'KSGR', location: 'Walenstadt', canton: 'SG', slug: 'mitarbeiter-kueche-walenstadt' },
+        ],
+        topCompanies: ['KSGR'],
+        cantonGroup: '_AGGREGATE_',
+        legacyCantonGroup: 'SG',
+      } as any,
+      enriched: undefined,
+      hreflang: [],
+      related: [],
+    });
+
+    expect(page.urlPath).toBe('/cerca-lavoro-svizzera/ricerca-offerte-lavoro-addetto-a-cucina/');
+    expect(page.loc).toBe('https://frontaliereticino.ch/cerca-lavoro-svizzera/ricerca-offerte-lavoro-addetto-a-cucina/');
+    expect(page.html).toMatch(/<link rel=canonical href="https:\/\/frontaliereticino\.ch\/cerca-lavoro-svizzera\/ricerca-offerte-lavoro-addetto-a-cucina\/"/);
+  });
+
   it('pins a Liestal-only cluster under /cerca-lavoro-basilea/ via cantonGroup', () => {
     const distDir = makeDist();
     const page = renderClusterPage({

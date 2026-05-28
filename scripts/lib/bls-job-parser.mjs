@@ -104,10 +104,15 @@ function detectEmploymentType(text = '') {
 
 /* ── Valais keywords for location filtering ──────────────── */
 
+// Canton VS (Valais) locations where BLS operates. Goppenstein is the south
+// portal of the Lötschberg tunnel (VS) — BLS lists it as "Goppenstein" on the
+// careers page, so it must match here. Kandersteg is BE but kept for the
+// adjacent Lötschberg corridor where BLS rotates VS-side staff.
 const VALAIS_KEYWORDS = [
   'brig', 'visp', 'sion', 'sierre', 'martigny', 'monthey',
   'naters', 'glis', 'wallis', 'valais', 'steg', 'raron',
-  'leuk', 'gampel', 'kandersteg', 'lötschberg',
+  'leuk', 'gampel', 'kandersteg', 'lötschberg', 'loetschberg',
+  'goppenstein', 'iselle', 'hohtenn', 'ausserberg',
 ];
 
 /* ── HTTP helpers ─────────────────────────────────────────── */
@@ -170,12 +175,20 @@ function parseListingPage(html = '') {
     const titleMatch = afterLink.match(/href="[^"]*"[^>]*>\s*([\s\S]*?)\s*<\/a>/i);
     const title = titleMatch ? normalizeSpace(stripHtml(titleMatch[1])) : slug.replace(/-/g, ' ');
 
-    // Extract location from the context
-    const locMatch = context.match(/(?:Brig|Visp|Sion|Bern|Thun|Spiez|Frutigen|Interlaken|Bönigen|Givisiez|Emmental|Oberaargau|Belgium|Germany)[^<]*/i);
-    const locationRaw = locMatch ? normalizeSpace(locMatch[0]) : '';
+    // Extract location + pensum from the listing's structured info span:
+    //   <span class="info">Goppenstein, 80-100%</span>
+    // This was previously a hardcoded city whitelist that silently dropped
+    // any Valais town not enumerated (notably Goppenstein, Hohtenn, Naters)
+    // and also failed on the German labels "Belgien"/"Deutschland".
+    const infoMatch = context.match(
+      /<span class="info">\s*([^<,%]+?)\s*(?:,\s*([0-9]{1,3}(?:\s*[-–]\s*[0-9]{1,3})?\s*%))?\s*<\/span>/i
+    );
+    const locationRaw = infoMatch ? normalizeSpace(infoMatch[1]) : '';
 
-    // Extract employment percentage
-    const pctMatch = context.match(/(\d{1,3})\s*(?:[-–]\s*(\d{1,3}))?\s*%/);
+    // Extract employment percentage (prefer info-span pensum, fall back to context).
+    const pctMatch = infoMatch?.[2]
+      ? infoMatch[2].match(/(\d{1,3})\s*(?:[-–]\s*(\d{1,3}))?\s*%/)
+      : context.match(/(\d{1,3})\s*(?:[-–]\s*(\d{1,3}))?\s*%/);
     const pensum = pctMatch
       ? pctMatch[2]
         ? `${pctMatch[1]}-${pctMatch[2]}%`
