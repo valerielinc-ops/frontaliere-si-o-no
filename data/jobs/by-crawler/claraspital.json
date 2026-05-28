@@ -974,9 +974,9 @@
       "slug": "assistente-medico-aim-st-claraspital-basel",
       "slugByLocale": {
         "it": "assistente-medico-aim-st-claraspital-basel",
-        "en": "medical-internist-assistant-st-claraspital-basel",
+        "en": "assistant-physician-aim-st-claraspital-basel",
         "de": "assistenzarztin-assistenzarzt-aim-claraspital-basel",
-        "fr": "assistant-en-medecine-interne-st-claraspital-basel"
+        "fr": "medecin-adjoint-aim-st-claraspital-basel"
       },
       "company": "St. Claraspital",
       "companyKey": "claraspital",
@@ -1046,8 +1046,8 @@
       "previousSlugs": [
         "assistenzarztin-assistenzarzt-aim-claraspital-basel",
         "medico-specializzando-aim-st-claraspital-basel",
-        "assistant-physician-aim-st-claraspital-basel",
-        "medecin-adjoint-aim-st-claraspital-basel"
+        "medical-internist-assistant-st-claraspital-basel",
+        "assistant-en-medecine-interne-st-claraspital-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1055,11 +1055,9 @@
           "medico-specializzando-aim-st-claraspital-basel"
         ],
         "en": [
-          "assistant-physician-aim-st-claraspital-basel",
           "medical-internist-assistant-st-claraspital-basel"
         ],
         "fr": [
-          "medecin-adjoint-aim-st-claraspital-basel",
           "assistant-en-medecine-interne-st-claraspital-basel"
         ]
       },
@@ -1551,7 +1549,7 @@
       "slug": "assistente-farmaceutico-a-st-claraspital-basel",
       "slugByLocale": {
         "it": "assistente-farmaceutico-a-st-claraspital-basel",
-        "en": "pharmacy-assistant-st-claraspital-basel",
+        "en": "pharmaceutical-assistant-st-claraspital-basel",
         "de": "pharma-assistent-in-claraspital-basel",
         "fr": "assistant-en-pharmacie-st-claraspital-basel"
       },
@@ -1625,14 +1623,13 @@
       },
       "previousSlugs": [
         "pharma-assistent-in-claraspital-basel",
-        "pharmaceutical-assistant-st-claraspital-basel"
+        "pharmacy-assistant-st-claraspital-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
           "pharma-assistent-in-claraspital-basel"
         ],
         "en": [
-          "pharmaceutical-assistant-st-claraspital-basel",
           "pharmacy-assistant-st-claraspital-basel"
         ]
       },
@@ -1957,7 +1954,7 @@
         "it": "ambulante-n-case-manager-in-endokrinologie-e-ernahrungszentrum-st-claraspital-basel",
         "en": "outpatient-case-manager-in-endocrinology-and-nutrition-center-st-claraspital-basel",
         "de": "ambulante-n-case-manager-in-endokrinologie-und-ernahrungszentrum-claraspital-basel",
-        "fr": "gestionnaire-de-dossiers-ambulatoire-en-endocrinologie-et-centre-nutritionnel-st-claraspital-basel"
+        "fr": "patients-externes-n-gestionnaire-de-cas-centre-d-endocrinologie-et-de-nutrition-st-claraspital-basel"
       },
       "company": "St. Claraspital",
       "companyKey": "claraspital",
@@ -2026,7 +2023,7 @@
         "ambulante-n-case-manager-in-endokrinologie-und-ernahrungszentrum-claraspital-basel",
         "expatient-n-case-manager-in-endocrinologia-e-centro-nutrizione-st-claraspital-basel",
         "case-manager-ambulatoriale-endocrinologia-e-centro-nutrizionale-st-claraspital-basel",
-        "patients-externes-n-gestionnaire-de-cas-centre-d-endocrinologie-et-de-nutrition-st-claraspital-basel"
+        "gestionnaire-de-dossiers-ambulatoire-en-endocrinologie-et-centre-nutritionnel-st-claraspital-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2035,7 +2032,6 @@
           "case-manager-ambulatoriale-endocrinologia-e-centro-nutrizionale-st-claraspital-basel"
         ],
         "fr": [
-          "patients-externes-n-gestionnaire-de-cas-centre-d-endocrinologie-et-de-nutrition-st-claraspital-basel",
           "gestionnaire-de-dossiers-ambulatoire-en-endocrinologie-et-centre-nutritionnel-st-claraspital-basel"
         ]
       },

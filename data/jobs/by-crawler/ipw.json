@@ -6,7 +6,7 @@
       "id": "ipw-98af632c7194",
       "slug": "psicologa-senior-psicologo-senior-60-80-integrierte-psychiatrie-winterthur-ipw-winterthur",
       "slugByLocale": {
-        "it": "psicologa-o-capo-60-80-integrierte-psychiatrie-winterthur-ipw-winterthur",
+        "it": "psicologa-senior-psicologo-senior-60-80-integrierte-psychiatrie-winterthur-ipw-winterthur",
         "en": "senior-psychologist-60-80-integrierte-psychiatrie-winterthur-ipw-winterthur",
         "de": "oberpsychologin-oberpsychologe-60-80-ipw-winterthur",
         "fr": "psychologue-senior-60-80-integrierte-psychiatrie-winterthur-ipw-winterthur"
@@ -53,13 +53,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "oberpsychologin-oberpsychologe-60-80-ipw-winterthur",
-        "psychologue-principal-60-80-integrierte-psychiatrie-winterthur-ipw-winterthur",
-        "psicologa-senior-psicologo-senior-60-80-integrierte-psychiatrie-winterthur-ipw-winterthur",
-        "psychologue-senior-60-80-integrierte-psychiatrie-winterthur-ipw-winterthur"
+        "psicologa-o-capo-60-80-integrierte-psychiatrie-winterthur-ipw-winterthur",
+        "psychologue-principal-60-80-integrierte-psychiatrie-winterthur-ipw-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "oberpsychologin-oberpsychologe-60-80-ipw-winterthur"
+          "oberpsychologin-oberpsychologe-60-80-ipw-winterthur",
+          "psicologa-o-capo-60-80-integrierte-psychiatrie-winterthur-ipw-winterthur"
         ],
         "fr": [
           "psychologue-principal-60-80-integrierte-psychiatrie-winterthur-ipw-winterthur"
@@ -83,7 +83,7 @@
       "id": "ipw-341d7248a68d",
       "slug": "assistente-di-salute-mentale-con-diploma-hf-o-fh-80-100-integrierte-psychiatrie-winterthur-ipw-winterthur",
       "slugByLocale": {
-        "it": "infermiere-istruttore-a-di-assistenza-di-base-hf-o-fh-80-100-integrierte-psychiatrie-winterthur-ipw-winterthur",
+        "it": "assistente-di-salute-mentale-con-diploma-hf-o-fh-80-100-integrierte-psychiatrie-winterthur-ipw-winterthur",
         "en": "psychiatric-caregiver-hf-fh-80-100-integrierte-psychiatrie-winterthur-ipw-winterthur",
         "de": "pflegefachfrau-pflegefachmann-hf-oder-fh-80-100-ipw-winterthur",
         "fr": "infirmier-ere-de-base-hf-ou-fh-80-100-integrierte-psychiatrie-winterthur-ipw-winterthur"
@@ -130,13 +130,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "pflegefachfrau-pflegefachmann-hf-oder-fh-80-100-ipw-winterthur",
-        "nursing-professional-hf-or-fh-80-100-integrierte-psychiatrie-winterthur-ipw-winterthur",
-        "assistente-di-salute-mentale-con-diploma-hf-o-fh-80-100-integrierte-psychiatrie-winterthur-ipw-winterthur",
-        "psychiatric-caregiver-hf-fh-80-100-integrierte-psychiatrie-winterthur-ipw-winterthur"
+        "infermiere-istruttore-a-di-assistenza-di-base-hf-o-fh-80-100-integrierte-psychiatrie-winterthur-ipw-winterthur",
+        "nursing-professional-hf-or-fh-80-100-integrierte-psychiatrie-winterthur-ipw-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "pflegefachfrau-pflegefachmann-hf-oder-fh-80-100-ipw-winterthur"
+          "pflegefachfrau-pflegefachmann-hf-oder-fh-80-100-ipw-winterthur",
+          "infermiere-istruttore-a-di-assistenza-di-base-hf-o-fh-80-100-integrierte-psychiatrie-winterthur-ipw-winterthur"
         ],
         "en": [
           "nursing-professional-hf-or-fh-80-100-integrierte-psychiatrie-winterthur-ipw-winterthur"
@@ -161,9 +161,9 @@
       "slug": "dipl-pflegefachfrau-pflegefachmann-fh-hf-80-100-ipw-winterthur",
       "slugByLocale": {
         "it": "dipl-pflegefachfrau-pflegefachmann-fh-hf-80-100-ipw-winterthur",
-        "en": "diploma-in-nursing-fh-hf-80-100-integrierte-psychiatrie-winterthur-ipw-winterthur",
+        "en": "dipl-care-specialist-fh-hf-80-100-integrierte-psychiatrie-winterthur-ipw-winterthur",
         "de": "dipl-pflegefachfrau-pflegefachmann-fh-hf-80-100-ipw-winterthur",
-        "fr": "diplome-e-en-soins-infirmiers-fh-hf-80-100-integrierte-psychiatrie-winterthur-ipw-winterthur"
+        "fr": "infirmier-e-diplome-e-fh-hf-80-100-integrierte-psychiatrie-winterthur-ipw-winterthur"
       },
       "company": "Integrierte Psychiatrie Winterthur (ipw)",
       "companyKey": "ipw",
@@ -207,21 +207,17 @@
       "previousSlugs": [
         "diploma-in-nursing-fh-hf-80-100-integrierte-psychiatrie-winterthur-ipw-winterthur",
         "pflegefachfrau-pflegefachmann-fh-hf-80-100-integrierte-psychiatrie-winterthur-ipw-winterthur",
-        "diplome-e-en-soins-infirmiers-fh-hf-80-100-integrierte-psychiatrie-winterthur-ipw-winterthur",
-        "dipl-care-specialist-fh-hf-80-100-integrierte-psychiatrie-winterthur-ipw-winterthur",
-        "infirmier-e-diplome-e-fh-hf-80-100-integrierte-psychiatrie-winterthur-ipw-winterthur"
+        "diplome-e-en-soins-infirmiers-fh-hf-80-100-integrierte-psychiatrie-winterthur-ipw-winterthur"
       ],
       "previousSlugsByLocale": {
         "en": [
-          "diploma-in-nursing-fh-hf-80-100-integrierte-psychiatrie-winterthur-ipw-winterthur",
-          "dipl-care-specialist-fh-hf-80-100-integrierte-psychiatrie-winterthur-ipw-winterthur"
+          "diploma-in-nursing-fh-hf-80-100-integrierte-psychiatrie-winterthur-ipw-winterthur"
         ],
         "de": [
           "pflegefachfrau-pflegefachmann-fh-hf-80-100-integrierte-psychiatrie-winterthur-ipw-winterthur"
         ],
         "fr": [
-          "diplome-e-en-soins-infirmiers-fh-hf-80-100-integrierte-psychiatrie-winterthur-ipw-winterthur",
-          "infirmier-e-diplome-e-fh-hf-80-100-integrierte-psychiatrie-winterthur-ipw-winterthur"
+          "diplome-e-en-soins-infirmiers-fh-hf-80-100-integrierte-psychiatrie-winterthur-ipw-winterthur"
         ]
       },
       "firstSeenAt": "2026-05-19T18:25:40.252Z",
@@ -245,7 +241,7 @@
         "it": "dipl-pflegefachfrau-pflegefachmann-hf-fh-60-100-ipw-winterthur",
         "en": "dipl-nurse-hf-fh-60-100-integrierte-psychiatrie-winterthur-ipw-winterthur",
         "de": "dipl-pflegefachfrau-pflegefachmann-hf-fh-60-100-ipw-winterthur",
-        "fr": "infirmier-ere-dipl-hf-fh-60-100-integrierte-psychiatrie-winterthur-ipw-winterthur"
+        "fr": "diplomee-e-infirmiere-polytechnicienne-en-soins-infirmiers-hf-fh-integrierte-psychiatrie-winterthur-ipw-winterthur"
       },
       "company": "Integrierte Psychiatrie Winterthur (ipw)",
       "companyKey": "ipw",
@@ -290,7 +286,7 @@
         "diploma-nurse-polytechnic-nurse-hf-fh-integrierte-psychiatrie-winterthur-ipw-winterthur",
         "dipl-care-specialist-hf-fh-60-100-integrierte-psychiatrie-winterthur-ipw-winterthur",
         "pflegefachfrau-pflegefachmann-hf-fh-60-100-integrierte-psychiatrie-winterthur-ipw-winterthur",
-        "diplomee-e-infirmiere-polytechnicienne-en-soins-infirmiers-hf-fh-integrierte-psychiatrie-winterthur-ipw-winterthur"
+        "infirmier-ere-dipl-hf-fh-60-100-integrierte-psychiatrie-winterthur-ipw-winterthur"
       ],
       "previousSlugsByLocale": {
         "en": [
@@ -301,7 +297,7 @@
           "pflegefachfrau-pflegefachmann-hf-fh-60-100-integrierte-psychiatrie-winterthur-ipw-winterthur"
         ],
         "fr": [
-          "diplomee-e-infirmiere-polytechnicienne-en-soins-infirmiers-hf-fh-integrierte-psychiatrie-winterthur-ipw-winterthur"
+          "infirmier-ere-dipl-hf-fh-60-100-integrierte-psychiatrie-winterthur-ipw-winterthur"
         ]
       },
       "firstSeenAt": "2026-05-19T18:25:38.185Z",
@@ -327,7 +323,7 @@
         "it": "segretaria-medica-segretario-medico-50-80-integrierte-psychiatrie-winterthur-ipw-winterthur",
         "en": "medical-secretary-50-80-integrierte-psychiatrie-winterthur-ipw-winterthur",
         "de": "arztsekretarin-arztsekretar-50-80-ipw-winterthur",
-        "fr": "secretaire-medical-e-50-80-integrierte-psychiatrie-winterthur-ipw-winterthur"
+        "fr": "secretaire-medicale-50-80-integrierte-psychiatrie-winterthur-ipw-winterthur"
       },
       "company": "Integrierte Psychiatrie Winterthur (ipw)",
       "companyKey": "ipw",
@@ -371,16 +367,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "arztsekretarin-arztsekretar-50-80-ipw-winterthur",
-        "secretaire-medical-e-50-80-integrierte-psychiatrie-winterthur-ipw-winterthur",
-        "secretaire-medicale-50-80-integrierte-psychiatrie-winterthur-ipw-winterthur"
+        "secretaire-medical-e-50-80-integrierte-psychiatrie-winterthur-ipw-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "arztsekretarin-arztsekretar-50-80-ipw-winterthur"
         ],
         "fr": [
-          "secretaire-medical-e-50-80-integrierte-psychiatrie-winterthur-ipw-winterthur",
-          "secretaire-medicale-50-80-integrierte-psychiatrie-winterthur-ipw-winterthur"
+          "secretaire-medical-e-50-80-integrierte-psychiatrie-winterthur-ipw-winterthur"
         ]
       },
       "firstSeenAt": "2026-05-19T18:25:37.385Z",
@@ -401,7 +395,7 @@
       "id": "ipw-75669802a294",
       "slug": "assistente-hr-praktica-80-100-integrierte-psychiatrie-winterthur-ipw-winterthur",
       "slugByLocale": {
-        "it": "hr-tirocinante-80-100-integrierte-psychiatrie-winterthur-ipw-winterthur",
+        "it": "assistente-hr-praktica-80-100-integrierte-psychiatrie-winterthur-ipw-winterthur",
         "en": "hr-intern-80-100-integrierte-psychiatrie-winterthur-ipw-winterthur",
         "de": "hr-praktikantin-hr-praktikant-80-100-ipw-winterthur",
         "fr": "stagiaire-rh-80-100-integrierte-psychiatrie-winterthur-ipw-winterthur"
@@ -449,12 +443,13 @@
       "previousSlugs": [
         "hr-praktikantin-hr-praktikant-80-100-ipw-winterthur",
         "risorse-umane-praktikantin-risorse-umane-praktikant-80-100-integrierte-psychiatrie-winterthur-ipw-winterthur",
-        "assistente-hr-praktica-80-100-integrierte-psychiatrie-winterthur-ipw-winterthur"
+        "hr-tirocinante-80-100-integrierte-psychiatrie-winterthur-ipw-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "hr-praktikantin-hr-praktikant-80-100-ipw-winterthur",
-          "risorse-umane-praktikantin-risorse-umane-praktikant-80-100-integrierte-psychiatrie-winterthur-ipw-winterthur"
+          "risorse-umane-praktikantin-risorse-umane-praktikant-80-100-integrierte-psychiatrie-winterthur-ipw-winterthur",
+          "hr-tirocinante-80-100-integrierte-psychiatrie-winterthur-ipw-winterthur"
         ]
       },
       "firstSeenAt": "2026-05-19T18:25:36.771Z",
@@ -476,9 +471,9 @@
       "slug": "apprendista-logista-efz-integrierte-psychiatrie-winterthur-ipw-winterthur",
       "slugByLocale": {
         "it": "apprendista-logista-efz-integrierte-psychiatrie-winterthur-ipw-winterthur",
-        "en": "registered-nurse-80-100-universitats-kinderspital-zurich-kispi-zurich",
+        "en": "apprentice-logistikerin-apprentice-logistiker-efz-integrierte-psychiatrie-winterthur-ipw-winterthur",
         "de": "dipl-pflegefachfrau-dipl-pflegefachmann-80-100-kispi-zurich-zurich",
-        "fr": "infirmier-ere-diplome-e-80-100-universitats-kinderspital-zurich-kispi-zurich"
+        "fr": "apprenti-e-logistikerin-apprenti-e-logistiker-efz-integrierte-psychiatrie-winterthur-ipw-winterthur"
       },
       "company": "Integrierte Psychiatrie Winterthur (ipw)",
       "companyKey": "ipw",
@@ -530,14 +525,12 @@
         "en": [
           "logistics-apprentice-efz-integrierte-psychiatrie-winterthur-ipw-winterthur",
           "apprentice-logistician-efz-integrierte-psychiatrie-winterthur-ipw-winterthur",
-          "registered-nurse-80-100-universitats-kinderspital-zurich-kispi-zurich",
-          "apprentice-logistikerin-apprentice-logistiker-efz-integrierte-psychiatrie-winterthur-ipw-winterthur"
+          "registered-nurse-80-100-universitats-kinderspital-zurich-kispi-zurich"
         ],
         "fr": [
           "apprenti-logisticien-efz-integrierte-psychiatrie-winterthur-ipw-winterthur",
           "apprenti-e-logistique-efz-integrierte-psychiatrie-winterthur-ipw-winterthur",
-          "infirmier-ere-diplome-e-80-100-universitats-kinderspital-zurich-kispi-zurich",
-          "apprenti-e-logistikerin-apprenti-e-logistiker-efz-integrierte-psychiatrie-winterthur-ipw-winterthur"
+          "infirmier-ere-diplome-e-80-100-universitats-kinderspital-zurich-kispi-zurich"
         ]
       },
       "previousSlugs": [
@@ -549,9 +542,7 @@
         "registered-nurse-80-100-universitats-kinderspital-zurich-kispi-zurich",
         "apprenti-logisticien-efz-integrierte-psychiatrie-winterthur-ipw-winterthur",
         "apprenti-e-logistique-efz-integrierte-psychiatrie-winterthur-ipw-winterthur",
-        "infirmier-ere-diplome-e-80-100-universitats-kinderspital-zurich-kispi-zurich",
-        "apprentice-logistikerin-apprentice-logistiker-efz-integrierte-psychiatrie-winterthur-ipw-winterthur",
-        "apprenti-e-logistikerin-apprenti-e-logistiker-efz-integrierte-psychiatrie-winterthur-ipw-winterthur"
+        "infirmier-ere-diplome-e-80-100-universitats-kinderspital-zurich-kispi-zurich"
       ],
       "firstSeenAt": "2026-05-19T18:25:36.156Z",
       "salaryMin": 41600,
@@ -641,9 +632,9 @@
     },
     {
       "id": "ipw-f66954b76109",
-      "slug": "arztsekretarin-arztsekretar-60-mutterschaftsvertretung-ipw-winterthur",
+      "slug": "segretario-del-dottore-60-rappresentanza-della-maternita-integrierte-psychiatrie-winterthur-ipw-winterthur",
       "slugByLocale": {
-        "it": "arztsekretarin-arztsekretar-60-mutterschaftsvertretung-ipw-winterthur",
+        "it": "segretario-del-dottore-60-rappresentanza-della-maternita-integrierte-psychiatrie-winterthur-ipw-winterthur",
         "en": "arztsekretarin-arztsekretar-60-mutterschaftsvertretung-ipw-winterthur",
         "de": "arztsekretarin-arztsekretar-60-mutterschaftsvertretung-integrierte-psychiatrie-winterthur-ipw-winterthur",
         "fr": "arztsekretarin-arztsekretar-60-mutterschaftsvertretung-ipw-winterthur"
@@ -688,11 +679,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "dipl-pflegefachfrau-dipl-pflegefachmann-hf-nachtdienst-im-klinikbereich-neuropsychiatrie"
+        "dipl-pflegefachfrau-dipl-pflegefachmann-hf-nachtdienst-im-klinikbereich-neuropsychiatrie",
+        "arztsekretarin-arztsekretar-60-mutterschaftsvertretung-ipw-winterthur"
       ],
       "previousSlugsByLocale": {
         "de": [
           "dipl-pflegefachfrau-dipl-pflegefachmann-hf-nachtdienst-im-klinikbereich-neuropsychiatrie"
+        ],
+        "it": [
+          "arztsekretarin-arztsekretar-60-mutterschaftsvertretung-ipw-winterthur"
         ]
       },
       "firstSeenAt": "2026-05-27T12:59:32.763Z",

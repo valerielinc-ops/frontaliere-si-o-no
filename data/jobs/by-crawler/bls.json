@@ -4,10 +4,10 @@
   "jobs": [
     {
       "id": "bls-5c544ee2cd27",
-      "slug": "vorarbeiter-in-bls-ch",
+      "slug": "prelavoratore-in-bls-ag-ferden",
       "slugByLocale": {
         "de": "vorarbeiter-in-bls-ag-ferden",
-        "it": "vorarbeiter-in-bls-ch",
+        "it": "prelavoratore-in-bls-ag-ferden",
         "en": "vorarbeiter-in-bls-ch",
         "fr": "vorarbeiter-in-bls-ch"
       },
@@ -80,7 +80,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-28T11:50:07.185Z"
+      "firstSeenAt": "2026-05-28T11:50:07.185Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "vorarbeiter-in-bls-ch"
+        ]
+      },
+      "previousSlugs": [
+        "vorarbeiter-in-bls-ch"
+      ]
     }
   ]
 }

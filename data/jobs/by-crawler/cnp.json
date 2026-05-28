@@ -1514,7 +1514,7 @@
       "slug": "clinical-medical-officer-tca-centre-neuchatelois-de-psychiatrie-cnp-neuchatel",
       "slugByLocale": {
         "it": "clinical-medical-officer-tca-centre-neuchatelois-de-psychiatrie-cnp-neuchatel",
-        "en": "chief-medical-officer-tca-centre-neuchatelois-de-psychiatrie-cnp-neuchatel",
+        "en": "tca-centre-neuchatelois-de-psychiatrie-cnp-neuchatel",
         "de": "chefarzt-arztin-der-klinik-tca-centre-neuchatelois-de-psychiatrie-cnp-neuchatel",
         "fr": "medecin-chef-fe-de-clinique-tca-cnp-neuchatel"
       },
@@ -1592,7 +1592,7 @@
       "previousSlugs": [
         "medecin-chef-fe-de-clinique-tca-cnp-neuchatel",
         "medico-capo-clinica-tca-centre-neuchatelois-de-psychiatrie-cnp-neuchatel",
-        "tca-centre-neuchatelois-de-psychiatrie-cnp-neuchatel"
+        "chief-medical-officer-tca-centre-neuchatelois-de-psychiatrie-cnp-neuchatel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1600,7 +1600,6 @@
           "medico-capo-clinica-tca-centre-neuchatelois-de-psychiatrie-cnp-neuchatel"
         ],
         "en": [
-          "tca-centre-neuchatelois-de-psychiatrie-cnp-neuchatel",
           "chief-medical-officer-tca-centre-neuchatelois-de-psychiatrie-cnp-neuchatel"
         ]
       },
@@ -2274,9 +2273,9 @@
     },
     {
       "id": "cnp-33917466a9a2",
-      "slug": "infirmier-ere-unites-hospitalieres-adultes-cnp-marin-epagnier",
+      "slug": "infermiera-unita-ospedaliere-per-adulti-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier",
       "slugByLocale": {
-        "it": "infirmier-ere-unites-hospitalieres-adultes-cnp-marin-epagnier",
+        "it": "infermiera-unita-ospedaliere-per-adulti-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier",
         "en": "infirmier-ere-unites-hospitalieres-adultes-cnp-marin-epagnier",
         "de": "infirmier-ere-unites-hospitalieres-adultes-cnp-marin-epagnier",
         "fr": "infirmier-ere-unites-hospitalieres-adultes-cnp-marin-epagnier"
@@ -2333,13 +2332,21 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "infirmier-ere-unites-hospitalieres-adultes-cnp-marin-epagnier"
+        ]
+      },
+      "previousSlugs": [
+        "infirmier-ere-unites-hospitalieres-adultes-cnp-marin-epagnier"
+      ]
     },
     {
       "id": "cnp-05e384f8fc05",
-      "slug": "aide-soignant-e-unites-hospitalieres-adultes-cnp-marin-epagnier",
+      "slug": "caregiver-unita-ospedaliere-per-adulti-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier",
       "slugByLocale": {
-        "it": "aide-soignant-e-unites-hospitalieres-adultes-cnp-marin-epagnier",
+        "it": "caregiver-unita-ospedaliere-per-adulti-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier",
         "en": "aide-soignant-e-unites-hospitalieres-adultes-cnp-marin-epagnier",
         "de": "aide-soignant-e-unites-hospitalieres-adultes-cnp-marin-epagnier",
         "fr": "aide-soignant-e-unites-hospitalieres-adultes-cnp-marin-epagnier"
@@ -2396,7 +2403,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "aide-soignant-e-unites-hospitalieres-adultes-cnp-marin-epagnier"
+        ]
+      },
+      "previousSlugs": [
+        "aide-soignant-e-unites-hospitalieres-adultes-cnp-marin-epagnier"
+      ]
     }
   ]
 }

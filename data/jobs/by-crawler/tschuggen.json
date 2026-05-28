@@ -570,10 +570,10 @@
     },
     {
       "id": "tschuggen-2e54f859be33",
-      "slug": "front-office-manager-m-w-d-in-unbefristeter-anstellung-tschuggen-ch",
+      "slug": "projektmanager-m-w-d-tschuggen-collection-st-moritz",
       "slugByLocale": {
         "de": "front-office-manager-m-w-d-in-unbefristeter-anstellung-tschuggen-ch",
-        "it": "front-office-manager-m-w-d-in-unbefristeter-anstellung-tschuggen-ch",
+        "it": "projektmanager-m-w-d-tschuggen-collection-st-moritz",
         "en": "front-office-manager-m-w-d-in-unbefristeter-anstellung-tschuggen-ch",
         "fr": "front-office-manager-m-w-d-in-unbefristeter-anstellung-tschuggen-ch"
       },
@@ -633,13 +633,21 @@
         }
       },
       "firstSeenAt": "2026-05-28T00:43:20.731Z",
-      "retranslationAttempts": 2
+      "retranslationAttempts": 2,
+      "previousSlugsByLocale": {
+        "it": [
+          "front-office-manager-m-w-d-in-unbefristeter-anstellung-tschuggen-ch"
+        ]
+      },
+      "previousSlugs": [
+        "front-office-manager-m-w-d-in-unbefristeter-anstellung-tschuggen-ch"
+      ]
     },
     {
       "id": "tschuggen-9d2cf0abe326",
       "slug": "account-manager-m-w-d-tschuggen-collection-ascona",
       "slugByLocale": {
-        "it": "etagen-portier-m-w-d-tschuggen-ch",
+        "it": "account-manager-m-w-d-tschuggen-collection-ascona",
         "en": "etagen-portier-m-w-d-tschuggen-ch",
         "de": "etagen-portier-m-w-d-tschuggen-collection-ascona",
         "fr": "gestionnaire-de-compte-m-w-d-tschuggen-collection-ascona"
@@ -689,12 +697,13 @@
         ],
         "de": [
           "etagen-portier-m-w-d-tschuggen-ch"
+        ],
+        "it": [
+          "etagen-portier-m-w-d-tschuggen-ch"
         ]
       },
       "previousSlugs": [
-        "etagen-portier-m-w-d-tschuggen-ch",
-        "gestionnaire-de-compte-m-w-d-tschuggen-collection-ascona",
-        "account-manager-m-w-d-tschuggen-collection-ascona"
+        "etagen-portier-m-w-d-tschuggen-ch"
       ],
       "firstSeenAt": "2026-05-06T11:50:09.955Z",
       "salaryMin": 68000,

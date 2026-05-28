@@ -209,9 +209,9 @@
     },
     {
       "id": "diakoniewerk-neumuenster-f77902dea3a3",
-      "slug": "praktikantin-praktikanten-pflege-diakoniewerk-neumuenster-zollikerberg",
+      "slug": "interni-interni-diakoniewerk-neumunster-gesundheitswelt-zollikerberg-spital-zollikerberg-zollikerberg",
       "slugByLocale": {
-        "it": "praktikantin-praktikanten-pflege-diakoniewerk-neumuenster-zollikerberg",
+        "it": "interni-interni-diakoniewerk-neumunster-gesundheitswelt-zollikerberg-spital-zollikerberg-zollikerberg",
         "en": "praktikantin-praktikanten-pflege-diakoniewerk-neumuenster-zollikerberg",
         "de": "praktikantin-praktikanten-pflege-diakoniewerk-neumunster-gesundheitswelt-zollikerberg-spital-zollikerberg-zollikerberg",
         "fr": "praktikantin-praktikanten-pflege-diakoniewerk-neumuenster-zollikerberg"
@@ -268,7 +268,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "praktikantin-praktikanten-pflege-diakoniewerk-neumuenster-zollikerberg"
+        ]
+      },
+      "previousSlugs": [
+        "praktikantin-praktikanten-pflege-diakoniewerk-neumuenster-zollikerberg"
+      ]
     },
     {
       "id": "diakoniewerk-neumuenster-6e0bf596c162",
@@ -343,9 +351,9 @@
     },
     {
       "id": "diakoniewerk-neumuenster-0e0f45acbebb",
-      "slug": "dipl-pflegefachfrau-dipl-pflegefachmann-leitung-tagesbetreuungsangebot-diakoniewerk",
+      "slug": "dipl-carriera-dipl-specialista-di-cura-responsabile-della-cura-del-giorno-diakoniewerk-neumunster-gesundheitswelt",
       "slugByLocale": {
-        "it": "dipl-pflegefachfrau-dipl-pflegefachmann-leitung-tagesbetreuungsangebot-diakoniewerk",
+        "it": "dipl-carriera-dipl-specialista-di-cura-responsabile-della-cura-del-giorno-diakoniewerk-neumunster-gesundheitswelt",
         "en": "dipl-pflegefachfrau-dipl-pflegefachmann-leitung-tagesbetreuungsangebot-diakoniewerk",
         "de": "dipl-pflegefachfrau-dipl-pflegefachmann-leitung-tagesbetreuungsangebot-diakoniewerk",
         "fr": "dipl-pflegefachfrau-dipl-pflegefachmann-leitung-tagesbetreuungsangebot-diakoniewerk"
@@ -402,7 +410,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachfrau-dipl-pflegefachmann-leitung-tagesbetreuungsangebot-diakoniewerk"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachfrau-dipl-pflegefachmann-leitung-tagesbetreuungsangebot-diakoniewerk"
+      ]
     }
   ]
 }

@@ -7643,9 +7643,9 @@
     },
     {
       "id": "hoch-health-40d137d2808f",
-      "slug": "dipl-radiologiefachfrau-mann-hf-80-100-hoch-health-ostschweiz-st-gallen",
+      "slug": "dipl-specialista-di-radiologia-hf-80-100-hoch-health-ostschweiz-st-gallen",
       "slugByLocale": {
-        "it": "dipl-radiologiefachfrau-mann-hf-80-100-hoch-health-ostschweiz-st-gallen",
+        "it": "dipl-specialista-di-radiologia-hf-80-100-hoch-health-ostschweiz-st-gallen",
         "en": "dipl-radiologiefachfrau-mann-hf-80-100-hoch-health-st-gallen",
         "de": "dipl-radiologiefachfrau-mann-hf-80-100-hoch-health-st-gallen",
         "fr": "dipl-radiologiefachfrau-mann-hf-80-100-hoch-health-st-gallen"
@@ -7692,14 +7692,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "dipl-radiologiefachfrau-mann-hf-80-100-hoch-health-st-gallen",
-        "dipl-specialista-di-radiologia-hf-80-100-hoch-health-ostschweiz-st-gallen",
-        "specialista-in-radiologia-dipl-sss-80-100-hoch-health-ostschweiz-st-gallen"
+        "specialista-in-radiologia-dipl-sss-80-100-hoch-health-ostschweiz-st-gallen",
+        "dipl-radiologiefachfrau-mann-hf-80-100-hoch-health-ostschweiz-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-radiologiefachfrau-mann-hf-80-100-hoch-health-st-gallen",
-          "dipl-specialista-di-radiologia-hf-80-100-hoch-health-ostschweiz-st-gallen",
-          "specialista-in-radiologia-dipl-sss-80-100-hoch-health-ostschweiz-st-gallen"
+          "specialista-in-radiologia-dipl-sss-80-100-hoch-health-ostschweiz-st-gallen",
+          "dipl-radiologiefachfrau-mann-hf-80-100-hoch-health-ostschweiz-st-gallen"
         ]
       },
       "firstSeenAt": "2026-05-21T12:10:12.578Z",
@@ -15414,9 +15414,9 @@
     },
     {
       "id": "hoch-health-3ee3eec26480",
-      "slug": "zentrumsleiter-in-hausarztmedizin-80-100-hoch-health-st-gallen",
+      "slug": "capo-del-centro-80-100-hoch-health-ostschweiz-st-gallen",
       "slugByLocale": {
-        "it": "zentrumsleiter-in-hausarztmedizin-80-100-hoch-health-st-gallen",
+        "it": "capo-del-centro-80-100-hoch-health-ostschweiz-st-gallen",
         "en": "zentrumsleiter-in-hausarztmedizin-80-100-hoch-health-st-gallen",
         "de": "zentrumsleiter-in-hausarztmedizin-80-100-hoch-health-st-gallen",
         "fr": "zentrumsleiter-in-hausarztmedizin-80-100-hoch-health-st-gallen"
@@ -15474,13 +15474,21 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "zentrumsleiter-in-hausarztmedizin-80-100-hoch-health-st-gallen"
+        ]
+      },
+      "previousSlugs": [
+        "zentrumsleiter-in-hausarztmedizin-80-100-hoch-health-st-gallen"
+      ]
     },
     {
       "id": "hoch-health-148857bee904",
-      "slug": "oberarztin-arzt-80-100-hoch-health-st-gallen-2",
+      "slug": "medico-senior-80-100-hoch-health-ostschweiz-st-gallen",
       "slugByLocale": {
-        "it": "oberarztin-arzt-80-100-hoch-health-st-gallen-2",
+        "it": "medico-senior-80-100-hoch-health-ostschweiz-st-gallen",
         "en": "oberarztin-arzt-80-100-hoch-health-st-gallen-2",
         "de": "oberarztin-arzt-80-100-hoch-health-st-gallen",
         "fr": "oberarztin-arzt-80-100-hoch-health-st-gallen-2"
@@ -15538,7 +15546,15 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "oberarztin-arzt-80-100-hoch-health-st-gallen-2"
+        ]
+      },
+      "previousSlugs": [
+        "oberarztin-arzt-80-100-hoch-health-st-gallen-2"
+      ]
     },
     {
       "id": "hoch-health-283b3d92b559",

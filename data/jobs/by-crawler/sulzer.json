@@ -2891,10 +2891,10 @@
     },
     {
       "id": "sulzer-ad305b8887f9",
-      "slug": "journeylevel-mechanic-sulzer-ch",
+      "slug": "meccanica-del-livello-di-viaggio-sulzer-chattanooga",
       "slugByLocale": {
         "en": "journeylevel-mechanic-sulzer-chattanooga",
-        "it": "journeylevel-mechanic-sulzer-ch",
+        "it": "meccanica-del-livello-di-viaggio-sulzer-chattanooga",
         "de": "journeylevel-mechanic-sulzer-ch",
         "fr": "journeylevel-mechanic-sulzer-ch"
       },
@@ -2951,7 +2951,15 @@
         }
       },
       "postalCode": "8001",
-      "firstSeenAt": "2026-05-28T00:32:34.053Z"
+      "firstSeenAt": "2026-05-28T00:32:34.053Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "journeylevel-mechanic-sulzer-ch"
+        ]
+      },
+      "previousSlugs": [
+        "journeylevel-mechanic-sulzer-ch"
+      ]
     }
   ]
 }
