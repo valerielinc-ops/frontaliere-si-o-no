@@ -6,7 +6,7 @@
       "id": "spital-affoltern-8d1c306b007c",
       "slug": "apprendistato-kaufmann-kauffrau-cfc-spital-affoltern-ag-affoltern-am-albis",
       "slugByLocale": {
-        "it": "apprendistato-di-commerciante-commerciante-efz-spital-affoltern-ag-affoltern-am-albis",
+        "it": "apprendistato-kaufmann-kauffrau-cfc-spital-affoltern-ag-affoltern-am-albis",
         "en": "apprenticeship-commercial-clerk-commercial-clerk-efz-spital-affoltern-ag-affoltern-am-albis",
         "de": "lehrstelle-kaufmann-kauffrau-efz-spital-affoltern-affoltern-am-albis",
         "fr": "apprentissage-employe-e-de-commerce-employe-e-de-commerce-cfc-spital-affoltern-ag-affoltern-am-albis"
@@ -83,11 +83,12 @@
       },
       "previousSlugs": [
         "lehrstelle-kaufmann-kauffrau-efz-spital-affoltern-affoltern-am-albis",
-        "apprendistato-kaufmann-kauffrau-cfc-spital-affoltern-ag-affoltern-am-albis"
+        "apprendistato-di-commerciante-commerciante-efz-spital-affoltern-ag-affoltern-am-albis"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-kaufmann-kauffrau-efz-spital-affoltern-affoltern-am-albis"
+          "lehrstelle-kaufmann-kauffrau-efz-spital-affoltern-affoltern-am-albis",
+          "apprendistato-di-commerciante-commerciante-efz-spital-affoltern-ag-affoltern-am-albis"
         ]
       },
       "firstSeenAt": "2026-05-19T12:20:56.231Z",
@@ -108,7 +109,7 @@
       "id": "spital-affoltern-a742f022f5ee",
       "slug": "apprendistato-apprendistato-impiegato-a-in-logistica-cfc-specializzazione-magazzino-spital-affoltern-ag-affoltern-am",
       "slugByLocale": {
-        "it": "apprendistato-logista-logista-efz-specializzazione-magazzino-spital-affoltern-ag-affoltern-am-albis",
+        "it": "apprendistato-apprendistato-impiegato-a-in-logistica-cfc-specializzazione-magazzino-spital-affoltern-ag-affoltern-am",
         "en": "apprenticeship-logistics-specialist-logistics-specialist-efz-specialization-warehouse-spital-affoltern-ag-affoltern-am",
         "de": "lehrstelle-lehrstelle-logistiker-in-efz-fachrichtung-lager-spital-affoltern-affoltern-am",
         "fr": "apprentissage-logistics-specialist-logistics-specialist-efz-specialisation-magasin-spital-affoltern-ag-affoltern-am"
@@ -185,11 +186,12 @@
       },
       "previousSlugs": [
         "lehrstelle-lehrstelle-logistiker-in-efz-fachrichtung-lager-spital-affoltern-affoltern-am",
-        "apprendistato-apprendistato-impiegato-a-in-logistica-cfc-specializzazione-magazzino-spital-affoltern-ag-affoltern-am"
+        "apprendistato-logista-logista-efz-specializzazione-magazzino-spital-affoltern-ag-affoltern-am-albis"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-lehrstelle-logistiker-in-efz-fachrichtung-lager-spital-affoltern-affoltern-am"
+          "lehrstelle-lehrstelle-logistiker-in-efz-fachrichtung-lager-spital-affoltern-affoltern-am",
+          "apprendistato-logista-logista-efz-specializzazione-magazzino-spital-affoltern-ag-affoltern-am-albis"
         ]
       },
       "firstSeenAt": "2026-05-19T12:20:55.804Z",
@@ -255,8 +257,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "praktikum-studierende-pflege-hf-vollzeit-100-oder-berufsbegleitend-mind-60-moglich-spital",
-        "praktikum-studierende-pflege-hf-vollzeit-100-o-berufsbegleitend-mind-60-moglich-spital-affoltern-ag-affoltern-am-albis"
+        "praktikum-studierende-pflege-hf-vollzeit-100-oder-berufsbegleitend-mind-60-moglich-spital"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -513,12 +514,12 @@
     },
     {
       "id": "spital-affoltern-195694aa3834",
-      "slug": "assistenzarztin-assistenzarzt-psychiatrie-stationar-spital-affoltern-affoltern-am-albis",
+      "slug": "assistente-medico-psichiatria-stazionario-spital-affoltern-ag-affoltern-am-albis",
       "slugByLocale": {
         "de": "assistenzarztin-assistenzarzt-psychiatrie-stationar-spital-affoltern-affoltern-am-albis",
-        "it": "assistenzarztin-assistenzarzt-psychiatrie-stationar-spital-affoltern-affoltern-am-albis",
-        "en": "assistenzarztin-assistenzarzt-psychiatrie-stationar-spital-affoltern-affoltern-am-albis",
-        "fr": "assistenzarztin-assistenzarzt-psychiatrie-stationar-spital-affoltern-affoltern-am-albis"
+        "it": "assistente-medico-psichiatria-stazionario-spital-affoltern-ag-affoltern-am-albis",
+        "en": "assistant-doctor-psychiatry-stationary-spital-affoltern-ag-affoltern-am-albis",
+        "fr": "assistant-medecin-psychiatrie-stationnaire-spital-affoltern-ag-affoltern-am-albis"
       },
       "company": "Spital Affoltern AG",
       "companyKey": "spital-affoltern",
@@ -573,7 +574,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-28T14:09:04.589Z"
+      "firstSeenAt": "2026-05-28T14:09:04.589Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistenzarztin-assistenzarzt-psychiatrie-stationar-spital-affoltern-affoltern-am-albis"
+        ],
+        "en": [
+          "assistenzarztin-assistenzarzt-psychiatrie-stationar-spital-affoltern-affoltern-am-albis"
+        ],
+        "fr": [
+          "assistenzarztin-assistenzarzt-psychiatrie-stationar-spital-affoltern-affoltern-am-albis"
+        ]
+      },
+      "previousSlugs": [
+        "assistenzarztin-assistenzarzt-psychiatrie-stationar-spital-affoltern-affoltern-am-albis"
+      ]
     },
     {
       "id": "spital-affoltern-1c987f675e48",
@@ -646,8 +661,7 @@
         ]
       },
       "previousSlugs": [
-        "ergotherapeutin-ergotherapeut-zentrum-fur-psychiatrie-und-psychotherapie-spital-affoltern",
-        "ergotherapeutin-ergotherapeut-zentrum-per-psychiatrie-e-psychotherapie-spital-affoltern-ag-affoltern-am-albis"
+        "ergotherapeutin-ergotherapeut-zentrum-fur-psychiatrie-und-psychotherapie-spital-affoltern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -829,8 +843,7 @@
         ]
       },
       "previousSlugs": [
-        "pharmazeutin-pharmazeut-fur-spitalapotheke-in-kombination-mit-phd-in-clinical-sciences-an",
-        "pharmazeutin-pharmazeut-per-spitalapotheke-in-kombination-con-phd-in-clinical-sciences-an-der-universitat-bern-spital"
+        "pharmazeutin-pharmazeut-fur-spitalapotheke-in-kombination-mit-phd-in-clinical-sciences-an"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1088,9 +1101,9 @@
       "slug": "praktikantin-praktikant-psychiatrie-fokus-alters-e-erwachsenenpsychiatrie-befr-6-12-monate-spital-affoltern-ag-affoltern",
       "slugByLocale": {
         "it": "tirocinante-tirocinante-psichiatria-psichiatria-per-anziani-e-adulti-a-tempo-determinato-6-12-mesi-spital-affoltern-ag",
-        "en": "intern-intern-psychiatric-care-geriatric-and-adult-psychiatry-fixed-term-6-12-months-spital-affoltern-ag-affoltern-am",
+        "en": "intern-intern-psychiatry-focus-age-and-adult-psychiatry-befr-6-12-months-spital-affoltern-ag-affoltern-am-albis",
         "de": "praktikantin-praktikant-psychiatrie-alters-und-erwachsenenpsychiatrie-befr-6-12-monate",
-        "fr": "stagiaire-stagiaire-en-psychiatrie-psychiatrie-pour-personnes-agees-et-adultes-en-contrat-a-duree-determinee-6-12-mois"
+        "fr": "psychiatrie-interne-age-du-focus-et-psychiatrie-des-adultes-de-6-a-12-mois-spital-affoltern-ag-affoltern-am-albis"
       },
       "company": "Spital Affoltern AG",
       "companyKey": "spital-affoltern",
@@ -1140,18 +1153,17 @@
           "praktikantin-praktikant-psychiatrie-fokus-alters-und-erwachsenenpsychiatrie-befr-6-12"
         ],
         "en": [
-          "intern-intern-psychiatry-focus-age-and-adult-psychiatry-befr-6-12-months-spital-affoltern-ag-affoltern-am-albis"
+          "intern-intern-psychiatric-care-geriatric-and-adult-psychiatry-fixed-term-6-12-months-spital-affoltern-ag-affoltern-am"
         ],
         "fr": [
-          "psychiatrie-interne-age-du-focus-et-psychiatrie-des-adultes-de-6-a-12-mois-spital-affoltern-ag-affoltern-am-albis"
+          "stagiaire-stagiaire-en-psychiatrie-psychiatrie-pour-personnes-agees-et-adultes-en-contrat-a-duree-determinee-6-12-mois"
         ]
       },
       "previousSlugs": [
         "praktikantin-praktikant-psychiatrie-fokus-alters-und-erwachsenenpsychiatrie-befr-6-12",
         "interno-interno-psichiatria-focus-eta-e-psichiatria-adulta-befr-6-12-mesi-spital-affoltern-ag-affoltern-am-albis",
-        "intern-intern-psychiatry-focus-age-and-adult-psychiatry-befr-6-12-months-spital-affoltern-ag-affoltern-am-albis",
-        "psychiatrie-interne-age-du-focus-et-psychiatrie-des-adultes-de-6-a-12-mois-spital-affoltern-ag-affoltern-am-albis",
-        "praktikantin-praktikant-psychiatrie-fokus-alters-e-erwachsenenpsychiatrie-befr-6-12-monate-spital-affoltern-ag-affoltern"
+        "intern-intern-psychiatric-care-geriatric-and-adult-psychiatry-fixed-term-6-12-months-spital-affoltern-ag-affoltern-am",
+        "stagiaire-stagiaire-en-psychiatrie-psychiatrie-pour-personnes-agees-et-adultes-en-contrat-a-duree-determinee-6-12-mois"
       ],
       "firstSeenAt": "2026-05-21T13:18:45.758Z",
       "salaryMin": 41600,
@@ -1426,8 +1438,8 @@
       "slugByLocale": {
         "de": "fachperson-gesundheit-efz-delir-unit-spital-affoltern-affoltern-am-albis",
         "it": "fachperson-gesundheit-efz-delir-unit-spital-affoltern-affoltern-am-albis",
-        "en": "fachperson-gesundheit-efz-delir-unit-spital-affoltern-affoltern-am-albis",
-        "fr": "fachperson-gesundheit-efz-delir-unit-spital-affoltern-affoltern-am-albis"
+        "en": "specialist-health-efz-delir-unit-spital-affoltern-ag-affoltern-am-albis",
+        "fr": "unite-specialisee-sante-efz-delir-spital-affoltern-ag-affoltern-am-albis"
       },
       "company": "Spital Affoltern AG",
       "companyKey": "spital-affoltern",

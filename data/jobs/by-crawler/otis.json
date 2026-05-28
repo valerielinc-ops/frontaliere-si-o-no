@@ -407,8 +407,7 @@
           "technical-expert-m-f-d-otis-sa-belp"
         ],
         "de": [
-          "technical-expert-m-w-d-otis-belp",
-          "technischer-sachverstandiger-m-w-d-otis-sa-belp"
+          "technical-expert-m-w-d-otis-belp"
         ],
         "fr": [
           "technical-expert-m-w-d-otis-belp",
@@ -631,9 +630,6 @@
         ],
         "fr": [
           "expert-technique-h-f-otis-sa-belp"
-        ],
-        "de": [
-          "technischer-sachverstandiger-m-w-d-otis-sa-belp"
         ]
       },
       "firstSeenAt": "2026-05-17T10:51:15.295Z",
@@ -936,8 +932,7 @@
           "gruppenleiter-reparatur-svc-m-w-d-otis-postfach-123"
         ],
         "de": [
-          "gruppenleiter-reparatur-svc-m-w-d-otis-postfach-123",
-          "gruppenleiter-reparatur-svc-m-w-d-otis-sa-belp"
+          "gruppenleiter-reparatur-svc-m-w-d-otis-postfach-123"
         ],
         "fr": [
           "gruppenleiter-reparatur-svc-m-w-d-otis-postfach-123"
@@ -2001,8 +1996,7 @@
       "crawledAt": "2026-05-28T13:39:39.521Z",
       "previousSlugsByLocale": {
         "en": [
-          "o-t-sales-lead-oa-otis-cp-1136",
-          "o-t-sales-lead-oa-otis-sa-fribourg"
+          "o-t-sales-lead-oa-otis-cp-1136"
         ],
         "it": [
           "o-t-sales-lead-oa-otis-cp-1136",
@@ -2036,12 +2030,12 @@
     },
     {
       "id": "otis-dd28c0864d38",
-      "slug": "quality-specialist-otis-fribourg",
+      "slug": "quality-specialista-otis-sa-fribourg",
       "slugByLocale": {
         "en": "quality-specialist-otis-fribourg",
-        "it": "quality-specialist-otis-fribourg",
-        "de": "quality-specialist-otis-fribourg",
-        "fr": "quality-specialist-otis-fribourg"
+        "it": "quality-specialista-otis-sa-fribourg",
+        "de": "qualitat-spezialist-otis-sa-fribourg",
+        "fr": "qualite-specialiste-otis-sa-fribourg"
       },
       "company": "Otis SA",
       "companyKey": "otis",
@@ -2092,7 +2086,21 @@
         }
       },
       "postalCode": "1700",
-      "firstSeenAt": "2026-05-28T13:39:38.747Z"
+      "firstSeenAt": "2026-05-28T13:39:38.747Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "quality-specialist-otis-fribourg"
+        ],
+        "de": [
+          "quality-specialist-otis-fribourg"
+        ],
+        "fr": [
+          "quality-specialist-otis-fribourg"
+        ]
+      },
+      "previousSlugs": [
+        "quality-specialist-otis-fribourg"
+      ]
     },
     {
       "id": "otis-ea310853cd90",
