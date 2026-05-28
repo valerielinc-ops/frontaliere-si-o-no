@@ -61,7 +61,7 @@ jobs:
 
       - name: Upload report artifacts
         if: always() && inputs.dry_run != 'true'
-        uses: actions/upload-artifact@v5
+        uses: actions/upload-artifact@v7
         with:
           name: ai-visibility-${{ github.run_number }}
           path: reports/ai-visibility-*
