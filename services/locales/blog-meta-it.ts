@@ -7829,6 +7829,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.tilo-gallarate-malpensa-maggio-2026.title': 'TILO: cambi di percorso per Malpensa il 30-31 maggio',
     'blog.article.tilo-gallarate-malpensa-maggio-2026.excerpt': 'I treni TILO S50 avranno come capolinea Gallarate il prossimo weekend a causa di lavori sulla rete italiana.',
     'blog.article.tilo-gallarate-malpensa-maggio-2026.imageAlt': 'Treno TILO alla stazione di Gallarate con passeggeri in attesa',
+    'blog.article.indipendenza-finanziaria-ticino.title': 'Indipendenza finanziaria e pensionamento anticipato',
+    'blog.article.indipendenza-finanziaria-ticino.excerpt': 'L\'economista di Raiffeisen Jeffrey Hochegger commenta il movimento FIRE e offre consigli pratici per investire e risparmiare in Ticino.',
+    'blog.article.indipendenza-finanziaria-ticino.imageAlt': 'Vista panoramica di Lugano con edifici finanziari e montagne sullo sfondo',
 };
 
 export default blogMetaIt;

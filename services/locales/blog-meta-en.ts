@@ -7828,6 +7828,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.tilo-gallarate-malpensa-maggio-2026.title': 'TILO: route changes for Malpensa on May 30-31',
     'blog.article.tilo-gallarate-malpensa-maggio-2026.excerpt': 'TILO S50 trains will have Gallarate as their terminus next weekend due to work on the Italian network.',
     'blog.article.tilo-gallarate-malpensa-maggio-2026.imageAlt': 'TILO train at Gallarate station with waiting passengers',
+    'blog.article.indipendenza-finanziaria-ticino.title': 'Financial Independence and Early Retirement',
+    'blog.article.indipendenza-finanziaria-ticino.excerpt': 'Raiffeisen economist Jeffrey Hochegger discusses the FIRE movement and offers practical advice for investing and saving in Ticino.',
+    'blog.article.indipendenza-finanziaria-ticino.imageAlt': 'Panoramic view of Lugano with financial buildings and mountains in the background',
 };
 
 export default blogMetaEn;

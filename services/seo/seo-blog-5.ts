@@ -40634,6 +40634,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-indipendenza-finanziaria-ticino': {
+    title: 'Indipendenza finanziaria e pensionamento anticipato',
+    description: 'Raiffeisen commenta il movimento FIRE e offre consigli per risparmiare e investire nel Canton Ticino, utili per frontalieri. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, indipendenza, finanziaria, pensionamento, anticipato',
+    ogTitle: 'Indipendenza finanziaria e pensionamento anticipato in Ticino',
+    ogDescription: 'Raiffeisen e il movimento FIRE: come risparmiare e investire per i frontalieri in Ticino.',
+    canonicalPath: '/articoli-frontaliere/indipendenza-finanziaria-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Indipendenza finanziaria e pensionamento anticipato",
+      "description": "Raiffeisen commenta il movimento FIRE e offre consigli per risparmiare e investire nel Canton Ticino, utili per frontalieri. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/indipendenza-finanziaria-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista panoramica di Lugano con edifici finanziari e montagne sullo sfondo"
+      },
+      "datePublished": "2026-05-28T05:33:53+00:00",
+      "dateModified": "2026-05-28T05:33:53+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/indipendenza-finanziaria-ticino`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

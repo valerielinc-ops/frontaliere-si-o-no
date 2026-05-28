@@ -24860,4 +24860,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'indipendenza-finanziaria-ticino',
+ category: 'pensione',
+ date: '2026-05-28T05:33:53.474Z',
+ image: '/images/blog/indipendenza-finanziaria-ticino.webp',
+ hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
+ },
 ] satisfies Article[];
