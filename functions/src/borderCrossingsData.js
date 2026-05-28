@@ -54,4 +54,8 @@ export const BORDER_CROSSINGS = [
  { name: 'Zenna-Dirinella', lat: 46.1040, lng: 8.7579 },
  { name: 'Biegno-Indemini', lat: 46.0955, lng: 8.8164 },
  { name: 'Dumenza-Cassinone', lat: 46.0052, lng: 8.7921 },
+ // Verbania – Ticino / Vallese
+ { name: 'Piaggio Valmara (Cannobio-Brissago)', lat: 46.0905, lng: 8.7240 },
+ { name: 'Camedo (Re-Centovalli)', lat: 46.1592, lng: 8.6312 },
+ { name: 'Sempione (Iselle-Gondo)', lat: 46.2422, lng: 8.1430 },
 ];
