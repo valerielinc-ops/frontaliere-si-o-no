@@ -36,6 +36,15 @@ if (!parentPort) {
 const { transformFlatRedirect } = await import('./flatHtmlRedirectPlugin.ts');
 const { injectContextualLinks } = await import('./blogContextualLinksPlugin.ts');
 const { transformHreflang } = await import('./hreflangPostprocessPlugin.ts');
+// Per-phase profiler — bucketed into the same SerializedBuckets shape the
+// coordinator merges via ingestBuckets() before printing the unified
+// [post-walk-profile] table. tsx loader (execArgv in coordinator) makes
+// this .ts import resolve from the .mjs entry point.
+const {
+  startTimer: profileStart,
+  recordEmit: profileRecord,
+  dumpBuckets: profileDumpBuckets,
+} = await import('./shared/postWalkCoordinatorProfiler.ts');
 
 const {
   distDir,
@@ -116,18 +125,24 @@ function isPreEmittedFlatBridge(html) {
 
 async function processFile(filePath) {
   let html;
+  const __tRead = profileStart();
   try {
     html = await fs.promises.readFile(filePath, 'utf-8');
   } catch {
+    profileRecord('read', __tRead);
     return;
   }
+  profileRecord('read', __tRead);
   const original = html;
   let mutated = false;
   let isBridge = false;
 
   const baseName = path.basename(filePath);
   if (baseName !== 'index.html' && !baseName.startsWith('.')) {
-    if (isPreEmittedFlatBridge(html)) {
+    const __tCheck = profileStart();
+    const preEmitted = isPreEmittedFlatBridge(html);
+    profileRecord('bridge-check', __tCheck);
+    if (preEmitted) {
       // Pre-emitted by the originating plugin and byte-identical to what
       // transformFlatRedirect would produce. Counts as bridgeConverted for
       // the summary line; skips both sibling read + (no-op) write.
@@ -135,12 +150,14 @@ async function processFile(filePath) {
       bridgeConverted++;
       return;
     }
+    const __tBridge = profileStart();
     const bridge = transformFlatRedirect({
       filePath,
       distDir,
       trimmedBase,
       readSibling,
     });
+    profileRecord('bridge-transform', __tBridge);
     if (bridge !== null) {
       html = bridge;
       mutated = true;
@@ -154,7 +171,9 @@ async function processFile(filePath) {
   if (!isBridge) {
     const locale = blogIndexHtmlByPath.get(filePath);
     if (locale !== undefined) {
+      const __tBlog = profileStart();
       const result = injectContextualLinks(html, locale);
+      profileRecord('blog-inject', __tBlog);
       if (result.injected.length > 0 && result.html !== html) {
         html = result.html;
         mutated = true;
@@ -165,7 +184,9 @@ async function processFile(filePath) {
   }
 
   if (!isBridge) {
+    const __tHl = profileStart();
     const hreflangResult = transformHreflang(html, distDir, baseUrl, existsCheck);
+    profileRecord('hreflang-transform', __tHl);
     if (hreflangResult !== null) {
       html = hreflangResult.html;
       mutated = true;
@@ -176,6 +197,7 @@ async function processFile(filePath) {
   }
 
   if (mutated && html !== original) {
+    const __tWrite = profileStart();
     try {
       await fs.promises.writeFile(filePath, html, 'utf-8');
       totalWrites++;
@@ -183,6 +205,7 @@ async function processFile(filePath) {
       const msg = err instanceof Error ? err.message : String(err);
       writeFailures.push({ filePath, msg });
     }
+    profileRecord('write', __tWrite);
   }
 }
 
@@ -210,4 +233,8 @@ parentPort.postMessage({
   hreflangLinksDropped,
   totalWrites,
   writeFailures,
+  // Empty array when POST_WALK_PROFILE/BUILD_PROFILE are off — coordinator
+  // ingestBuckets() is a no-op on empty input and an early no-op when its
+  // own ENABLED gate is false, so the round-trip cost is bounded.
+  profilerBuckets: profileDumpBuckets(),
 });
