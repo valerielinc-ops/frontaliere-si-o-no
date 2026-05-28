@@ -751,6 +751,27 @@ jobs:
           # (instead of only at the deploy-pages "Deployment failed"
           # tail) — the artifact size is the binding constraint.
           ls -lh "$RUNNER_TEMP/artifact.tar"
+          # Export for downstream report step (Audit dist bytes).
+          TAR_BYTES=$(stat -c %s "$RUNNER_TEMP/artifact.tar")
+          echo "TAR_BYTES=$TAR_BYTES" >> "$GITHUB_ENV"
+
+      # ┌────────────────────────────────────────────────────────────────┐
+      # │ Audit dist bytes — attribute size per plugin/locale and append │
+      # │ to data/dist-size-history.jsonl. Observability only: the step  │
+      # │ NEVER blocks the upload. If GitHub Pages rejects the tar at    │
+      # │ 10 GB the deploy fails downstream with the canonical error,    │
+      # │ but we always attempt the upload so we can compare "did fit"   │
+      # │ vs "tried and bounced" across runs.                            │
+      # │ Cost: stat-only walk, < 30 s on ~470 k files.                  │
+      # └────────────────────────────────────────────────────────────────┘
+      - name: Audit dist bytes (per-plugin report)
+        if: github.event.inputs.profile_sequential != 'true'
+        run: |
+          node scripts/report-dist-bytes-by-plugin.mjs \
+            --dist=dist \
+            --tar-size-bytes="${TAR_BYTES}" \
+            --run-id="${GITHUB_RUN_ID}" \
+            --sha="${GITHUB_SHA}"
 
       - name: Upload Pages artifact (compression-level 9)
         if: github.event.inputs.profile_sequential != 'true'
