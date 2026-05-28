@@ -1,18 +1,19 @@
 {
   "key": "ems-chemie",
   "label": "EMS-Chemie AG",
-  "generatedAt": "2026-05-28T12:26:00.142Z",
+  "generatedAt": "2026-05-28T22:54:58.843Z",
   "total": 10,
-  "newCount": 2,
+  "newCount": 0,
   "updatedCount": 8,
-  "removedCount": 2,
-  "unchangedCount": 0,
-  "durationMs": 3039,
-  "avgDurationMs": 3039,
+  "removedCount": 0,
+  "unchangedCount": 2,
+  "durationMs": 2552,
+  "avgDurationMs": 2552,
   "durationHistory": [
-    3039
+    2552
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "title": "Leiter Produktion LFT (m/w/d) 100%",
       "company": "EMS-Chemie AG",
@@ -31,12 +32,19 @@
       "postedDate": "2026-05-28",
       "source": "company-website",
       "slug": "leiter-produktion-lft-m-w-d-100-ems-chemie-domat-ems",
-      "_qualityScore": 60,
+      "crawledAt": "",
+      "id": "ems-chemie-9afe6f06f891",
+      "sourceLang": "it",
+      "salaryMin": 68000,
+      "salaryMax": 103000,
+      "currency": "CHF",
+      "firstSeenAt": "2026-05-28T12:26:00.141Z",
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 10,
-        "translation": 8,
-        "completeness": 17
+        "translation": 25,
+        "completeness": 22
       }
     },
     {
@@ -57,16 +65,21 @@
       "postedDate": "2026-05-28",
       "source": "company-website",
       "slug": "projektleiter-kunststoffverpackungen-aus-spezialpolyamiden-m-w-d-100-ems-chemie-domat-ems",
-      "_qualityScore": 60,
+      "crawledAt": "",
+      "id": "ems-chemie-bb68005b7b66",
+      "sourceLang": "it",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "firstSeenAt": "2026-05-28T12:26:00.141Z",
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 10,
-        "translation": 8,
-        "completeness": 17
+        "translation": 25,
+        "completeness": 22
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "title": "Anwendungstechniker Technische Fasern 100%",
       "company": "EMS-Chemie AG",
@@ -125,72 +138,6 @@
       "salaryMax": 103000,
       "currency": "CHF",
       "firstSeenAt": "2026-05-26T22:43:22.109Z",
-      "_qualityScore": 82,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 10,
-        "translation": 25,
-        "completeness": 22
-      }
-    },
-    {
-      "title": "Prozessingenieur Betriebsentwicklung (m/w/d) 100%",
-      "company": "EMS-Chemie AG",
-      "companyKey": "ems-chemie",
-      "url": "https://jobs.ems-group.com/offene-stellen/prozessingenieur-betriebsentwicklung-m-w-d/0a58200c-ae69-4959-82d0-30a170b379ec",
-      "location": "Domat/Ems",
-      "canton": "GR",
-      "country": "CH",
-      "postalCode": "7013",
-      "streetAddress": "Via Innovativa 1",
-      "addressLocality": "Domat/Ems",
-      "addressRegion": "GR",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "category": "science",
-      "postedDate": "2026-05-28",
-      "source": "company-website",
-      "slug": "prozessingenieur-betriebsentwicklung-m-w-d-100-ems-chemie-domat-ems",
-      "crawledAt": "",
-      "id": "ems-chemie-226eecdfe74e",
-      "sourceLang": "it",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "firstSeenAt": "2026-05-21T11:48:33.899Z",
-      "_qualityScore": 82,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 10,
-        "translation": 25,
-        "completeness": 22
-      }
-    },
-    {
-      "title": "Prozessingenieur / Betriebsentwickler Produktion (m/w/d) 100%",
-      "company": "EMS-Chemie AG",
-      "companyKey": "ems-chemie",
-      "url": "https://jobs.ems-group.com/offene-stellen/prozessingenieur-betriebsentwickler-produktion-m-w-d/5f332ef4-0adc-4a9e-9d6e-8ab599719d2e",
-      "location": "Domat/Ems",
-      "canton": "GR",
-      "country": "CH",
-      "postalCode": "7013",
-      "streetAddress": "Via Innovativa 1",
-      "addressLocality": "Domat/Ems",
-      "addressRegion": "GR",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "category": "science",
-      "postedDate": "2026-05-28",
-      "source": "company-website",
-      "slug": "prozessingenieur-betriebsentwickler-produktion-m-w-d-100-ems-chemie-domat-ems",
-      "crawledAt": "",
-      "id": "ems-chemie-56bd94411a73",
-      "sourceLang": "it",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "firstSeenAt": "2026-05-21T11:48:33.899Z",
       "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -332,74 +279,7 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "title": "Leiter Produktionscontrolling (m/w/d) 100%",
-      "company": "EMS-Chemie AG",
-      "companyKey": "ems-chemie",
-      "url": "https://jobs.ems-group.com/offene-stellen/leiter-produktionscontrolling-m-w-d/dbfa62c6-42ed-44df-9a49-c03e1286a1ea",
-      "location": "Domat/Ems",
-      "canton": "GR",
-      "country": "CH",
-      "postalCode": "7013",
-      "streetAddress": "Via Innovativa 1",
-      "addressLocality": "Domat/Ems",
-      "addressRegion": "GR",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "category": "science",
-      "postedDate": "2026-05-27",
-      "source": "company-website",
-      "slug": "manager-m-w-d-ems-chemie-ag-domat-ems",
-      "crawledAt": "",
-      "id": "ems-chemie-70f09f51e40c",
-      "sourceLang": "it",
-      "salaryMin": 68000,
-      "salaryMax": 103000,
-      "currency": "CHF",
-      "firstSeenAt": "2026-05-11T21:58:29.653Z",
-      "_qualityScore": 82,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 10,
-        "translation": 25,
-        "completeness": 22
-      }
-    },
-    {
-      "title": "Polymechaniker (w/m/d) 100%",
-      "company": "EMS-Chemie AG",
-      "companyKey": "ems-chemie",
-      "url": "https://jobs.ems-group.com/offene-stellen/polymechaniker-w-m-d/42f940aa-5ec6-469f-ac2b-e8bec09d1ca0",
-      "location": "Domat/Ems",
-      "canton": "GR",
-      "country": "CH",
-      "postalCode": "7013",
-      "streetAddress": "Via Innovativa 1",
-      "addressLocality": "Domat/Ems",
-      "addressRegion": "GR",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "category": "science",
-      "postedDate": "2026-05-27",
-      "source": "company-website",
-      "slug": "polymechaniker-w-m-d-100-ems-chemie-domat-ems",
-      "crawledAt": "",
-      "id": "ems-chemie-98966fdbdcfd",
-      "sourceLang": "it",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "firstSeenAt": "2026-05-11T21:58:29.653Z",
-      "_qualityScore": 82,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 10,
-        "translation": 25,
-        "completeness": 22
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "title": "Leiter Produktion LFT (m/w/d) 100%",
@@ -418,19 +298,19 @@
       "category": "science",
       "postedDate": "2026-05-28",
       "source": "company-website",
-      "slug": "leiter-produktion-lft-m-w-d-100-ems-chemie-ag-domat-ems",
+      "slug": "testa-di-produzione-lft-m-w-d-100-ems-chemie-ag-domat-ems",
       "crawledAt": "",
-      "needsRetranslation": true,
       "id": "ems-chemie-9afe6f06f891",
       "sourceLang": "it",
       "salaryMin": 68000,
       "salaryMax": 103000,
       "currency": "CHF",
-      "_qualityScore": 73,
+      "firstSeenAt": "2026-05-28T12:26:00.141Z",
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 10,
-        "translation": 16,
+        "translation": 25,
         "completeness": 22
       }
     },
@@ -451,19 +331,20 @@
       "category": "science",
       "postedDate": "2026-05-28",
       "source": "company-website",
-      "slug": "projektleiter-kunststoffverpackungen-aus-spezialpolyamiden-m-w-d-100-ems-chemie-ag-domat-ems",
+      "slug": "projektleiter-kunstoffverpackungen-aus-spezialpolyamiden-m-w-d-100-ems-chemie-ag-domat-ems",
       "crawledAt": "",
-      "needsRetranslation": true,
       "id": "ems-chemie-bb68005b7b66",
       "sourceLang": "it",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
-      "_qualityScore": 73,
+      "firstSeenAt": "2026-05-28T12:26:00.141Z",
+      "needsRetranslation": true,
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 10,
-        "translation": 16,
+        "translation": 25,
         "completeness": 22
       }
     },
