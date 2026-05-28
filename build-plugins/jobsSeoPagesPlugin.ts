@@ -18,6 +18,7 @@ import { minifyHtml } from './shared/htmlMinify';
 import { getTrafficEvidenceFilter } from './shared/trafficEvidenceFilter';
 import { buildBridgeThinHtml } from './shared/bridgeThinShell';
 import { buildSoftLandingThinHtml } from './shared/softLandingThinShell';
+import { buildGscKeywordThinBody, GSC_KEYWORD_THIN_HEAD_SCRIPT } from './shared/gscKeywordThinShell';
 import { jobDescriptionTextToHtml, inlineTextToHtml } from './shared/jobDescription/toHtml';
 import { markCantonNoindex } from './shared/cantonNoindexRegistry';
 import { WriteCollector } from './batchWrite';
@@ -627,6 +628,16 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  // zero. These two trackers surface that discrepancy in the build log.
  let bridgeBytesSaved = 0;
  let softLandingBytesSaved = 0;
+ // GSC keyword landings (`/cerca-lavoro-X/ricerca-Y/`, `/en/find-jobs-X/
+ // search-Y/`, `/de/jobs-im-X/suche-Y/`, `/fr/trouver-emploi-X/recherche-Y/`)
+ // — auto-generated SEO landings for long-tail search queries. Three
+ // emit sites share this URL shape: predefined keyword landings,
+ // search-stats landings, search-combo landings. The 2026-05-28 dist
+ // showed 517 k of these for ~5.17 GB of jobs-seo (57 % of the
+ // bucket) — by far the largest unattacked target.
+ let gscKeywordFullCount = 0;
+ let gscKeywordThinCount = 0;
+ let gscKeywordBytesSaved = 0;
 
  // `cacheDateStamp` is used as today's stamp throughout the plugin and
  // in the always-run sitemap-index patch below.
@@ -7394,6 +7405,25 @@ ${staticAnalyticsHtml}
  ],
  });
  // buildSeoPageHtml (hydration-safe shell). See city-hub fix at line ~5420.
+ // Tiered emission for GSC keyword landings (urlClass:
+ // 'gsc-keyword-landing'). URL with traffic in evidence-index or
+ // thin-page-promotions stays full; URL without and matching the
+ // approved pattern becomes a thin shell (HEAD identical, body shrunk
+ // to ≥50-word paragraph + link to listing). SPA hydrates the full
+ // filtered listing client-side from the URL slug
+ // (components/community/JobBoard.tsx parseSearchSlugFilter).
+ const __kwDecision = trafficFilter.decide(kwCanonicalPath, 'gsc-keyword-landing');
+ const __kwAction: 'full' | 'thin' = __kwDecision.action === 'thin' ? 'thin' : 'full';
+ const __kwFullBody = `<h1>${esc(itCopy.heading)}</h1>\n <p>${esc(kwDesc)}</p>\n ${kwQueryIntro}\n ${kwIntro}\n <p>${esc(kwCta)}</p>\n <ul class="s-0WjlyL">${kwListHtml}</ul>\n <p><a href="${kwSectionUrl}">${esc(kwOpenAllLabel)}</a></p>\n ${kwMarketSection}\n ${renderJobBoardListingDensityProse(locale, { subject: _kwQuery || kwQueryDisplay || itCopy.heading, location: _kwCity ? _kwCity.charAt(0).toUpperCase() + _kwCity.slice(1) : 'Ticino', resultCount: kwJobs.length, companyCount: kwUniqueCompanies.length, locationCount: kwUniqueLocations.length })}\n ${kwCommuterBlock}`;
+ const __kwBody = __kwAction === 'thin'
+ ? buildGscKeywordThinBody({ locale, query: String(kwQueryDisplay || _kwQuery || itCopy.heading || ''), listingUrl: kwSectionUrl, h1Title: esc(itCopy.heading) })
+ : __kwFullBody;
+ if (__kwAction === 'thin') {
+ gscKeywordThinCount++;
+ gscKeywordBytesSaved += __kwFullBody.length - __kwBody.length;
+ } else {
+ gscKeywordFullCount++;
+ }
  const kwHtml = buildSeoPageHtml({
  locale,
  title: kwTitle,
@@ -7402,7 +7432,8 @@ ${staticAnalyticsHtml}
  ogLocale: localeOg[locale],
  hreflangHtml: kwAlternates,
  jsonLdScripts: [kwBreadcrumbLd, kwCollLd],
- bodyHtml: `<h1>${esc(itCopy.heading)}</h1>\n <p>${esc(kwDesc)}</p>\n ${kwQueryIntro}\n ${kwIntro}\n <p>${esc(kwCta)}</p>\n <ul class="s-0WjlyL">${kwListHtml}</ul>\n <p><a href="${kwSectionUrl}">${esc(kwOpenAllLabel)}</a></p>\n ${kwMarketSection}\n ${renderJobBoardListingDensityProse(locale, { subject: _kwQuery || kwQueryDisplay || itCopy.heading, location: _kwCity ? _kwCity.charAt(0).toUpperCase() + _kwCity.slice(1) : 'Ticino', resultCount: kwJobs.length, companyCount: kwUniqueCompanies.length, locationCount: kwUniqueLocations.length })}\n ${kwCommuterBlock}`,
+ bodyHtml: __kwBody,
+ extraHeadHtml: __kwAction === 'thin' ? GSC_KEYWORD_THIN_HEAD_SCRIPT : undefined,
  distDir,
  });
  const kwOutDir = np.join(distDir, kwCanonicalPath.slice(1));
@@ -7560,6 +7591,22 @@ ${staticAnalyticsHtml}
  // (e.g. `search-lugano-eoc-...` → company hub). Page still emitted at its
  // own path so backlinks resolve.
  const effectiveCanonicalUrl = resolveCanonicalUrl(fullSlug, canonicalUrl);
+ // Tiered emission: shares 'gsc-keyword-landing' urlClass with the
+ // predefined-keyword + search-combo emit sites — same URL shape
+ // (`/cerca-lavoro-X/ricerca-Y/`), same SPA hydration path. Build
+ // both variants and pick based on filter decision.
+ const __ssFullBody = `<h1>${esc(copy.heading(name))}</h1>\n <p>${esc(description)}</p>\n${searchBodyParts.join('\n')}`;
+ const __ssDecision = trafficFilter.decide(canonicalPath, 'gsc-keyword-landing');
+ const __ssAction: 'full' | 'thin' = __ssDecision.action === 'thin' ? 'thin' : 'full';
+ const __ssBody = __ssAction === 'thin'
+ ? buildGscKeywordThinBody({ locale, query: String(name || key || ''), listingUrl: _sListUrl, h1Title: esc(copy.heading(name)) })
+ : __ssFullBody;
+ if (__ssAction === 'thin') {
+ gscKeywordThinCount++;
+ gscKeywordBytesSaved += __ssFullBody.length - __ssBody.length;
+ } else {
+ gscKeywordFullCount++;
+ }
  // buildSeoPageHtml (hydration-safe shell). See city-hub fix at line ~5420.
  const searchHtml = buildSeoPageHtml({
  locale,
@@ -7580,7 +7627,8 @@ ${staticAnalyticsHtml}
  ogLocale: localeOg[locale],
  hreflangHtml: alternates,
  jsonLdScripts: [searchBreadcrumbLd],
- bodyHtml: `<h1>${esc(copy.heading(name))}</h1>\n <p>${esc(description)}</p>\n${searchBodyParts.join('\n')}`,
+ bodyHtml: __ssBody,
+ extraHeadHtml: __ssAction === 'thin' ? GSC_KEYWORD_THIN_HEAD_SCRIPT : undefined,
  distDir,
  });
 
@@ -7722,6 +7770,21 @@ ${staticAnalyticsHtml}
  { '@type': 'ListItem', position: 3, name: copy.heading, item: canonicalUrl },
  ],
  });
+ // Tiered emission: same 'gsc-keyword-landing' urlClass as the
+ // predefined-keyword + search-stats emit sites — they share the URL
+ // shape (`/cerca-lavoro-X/ricerca-Y/`) and SPA hydration path.
+ const __cmFullBody = `<h1>${esc(copy.heading)}</h1>\n <p>${esc(description)}</p>\n${comboBodyParts.join('\n')}`;
+ const __cmDecision = trafficFilter.decide(canonicalPath, 'gsc-keyword-landing');
+ const __cmAction: 'full' | 'thin' = __cmDecision.action === 'thin' ? 'thin' : 'full';
+ const __cmBody = __cmAction === 'thin'
+ ? buildGscKeywordThinBody({ locale, query: String(copy.heading || comboTitle || ''), listingUrl: _cListUrl, h1Title: esc(copy.heading) })
+ : __cmFullBody;
+ if (__cmAction === 'thin') {
+ gscKeywordThinCount++;
+ gscKeywordBytesSaved += __cmFullBody.length - __cmBody.length;
+ } else {
+ gscKeywordFullCount++;
+ }
  // buildSeoPageHtml (hydration-safe shell). See city-hub fix at line ~5420.
  const comboHtml = buildSeoPageHtml({
  locale,
@@ -7730,9 +7793,12 @@ ${staticAnalyticsHtml}
  canonicalUrl,
  ogLocale: localeOg[locale],
  hreflangHtml: alternates,
- extraHeadHtml: comboOgImage,
+ // Preserve OG image override; append thin-shell signal when applicable.
+ extraHeadHtml: __cmAction === 'thin'
+ ? `${comboOgImage || ''}${GSC_KEYWORD_THIN_HEAD_SCRIPT}`
+ : comboOgImage,
  jsonLdScripts: [comboBreadcrumbLd],
- bodyHtml: `<h1>${esc(copy.heading)}</h1>\n <p>${esc(description)}</p>\n${comboBodyParts.join('\n')}`,
+ bodyHtml: __cmBody,
  distDir,
  });
 
@@ -11293,6 +11359,13 @@ ${staticAnalyticsHtml}
  `bytes_saved=${fmtBytes(softLandingBytesSaved)}`
  );
  }
+ if (gscKeywordThinCount > 0 || gscKeywordFullCount > 0) {
+ console.log(
+ `\x1b[36m[jobs-seo-pages]\x1b[0m gsc-keyword-landing tier: ` +
+ `full=${gscKeywordFullCount} thin=${gscKeywordThinCount} ` +
+ `bytes_saved=${fmtBytes(gscKeywordBytesSaved)}`
+ );
+ }
  // Total real dist saving from tiered emission. PR #729 lesson: the
  // tier counters above record FILTER DECISIONS, not byte deltas. A
  // build where the thin-shell regex misses (e.g. unquoted-class bug
@@ -11300,8 +11373,8 @@ ${staticAnalyticsHtml}
  // line is the ground truth.
  console.log(
  `\x1b[36m[jobs-seo-pages]\x1b[0m tiered emission saved ` +
- `${fmtBytes(bridgeBytesSaved + softLandingBytesSaved)} ` +
- `(bridges=${fmtBytes(bridgeBytesSaved)}, soft-landings=${fmtBytes(softLandingBytesSaved)})`
+ `${fmtBytes(bridgeBytesSaved + softLandingBytesSaved + gscKeywordBytesSaved)} ` +
+ `(bridges=${fmtBytes(bridgeBytesSaved)}, soft-landings=${fmtBytes(softLandingBytesSaved)}, gsc-keyword=${fmtBytes(gscKeywordBytesSaved)})`
  );
  console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m ${trafficFilter.summary()}`);
  },
