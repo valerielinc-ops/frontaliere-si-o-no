@@ -1483,8 +1483,6 @@
       "addressCountry": "CH",
       "sourceLang": "en",
       "previousSlugs": [
-        "international-payroll-specialista-efg-international-ag-lugano",
-        "international-payroll-specialiste-efg-international-ag-lugano-n9331q",
         "internationaler-gehaltsabrechnungsspezialist-efg-international-ag-lugano",
         "specialiste-en-paie-internationale-efg-international-ag-lugano",
         "specialiste-de-la-paie-internationale-efg-international-ag-lugano",
@@ -1502,7 +1500,9 @@
         "internationaler-gehaltsabrechnungs-spezialist-efg-international-ag-lugano",
         "internationaler-lohnspezialist-efg-international-ag-lugano",
         "internationaler-payroll-spezialist-efg-international-ag-lugano",
-        "leiter-pensionskasse-efg-international-ag-lugano"
+        "leiter-pensionskasse-efg-international-ag-lugano",
+        "specialista-delle-paga-internazionale-efg-international-ag-lugano",
+        "specialista-internazionale-di-payroll-efg-international-ag-lugano"
       ],
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -1531,7 +1531,9 @@
           "esg-verwaltungsassistent-in-efg-international-ag-lugano",
           "specialista-paga-internazionale-efg-international-ag-lugano",
           "specialista-payroll-internazionale-efg-international-ag-lugano",
-          "international-payroll-specialista-efg-international-ag-lugano-n9331q"
+          "international-payroll-specialista-efg-international-ag-lugano-n9331q",
+          "specialista-delle-paga-internazionale-efg-international-ag-lugano",
+          "specialista-internazionale-di-payroll-efg-international-ag-lugano"
         ],
         "en": [
           "international-payroll-specialiste-efg-international-ag-lugano-n9331q",
@@ -4727,7 +4729,6 @@
       "employmentType": "FULL_TIME",
       "previousSlugsByLocale": {
         "de": [
-          "lehre-kaufmann-frau-efz-bankwesen-efg-international-ag-lugano",
           "bankkaufmann-frau-efq-lehre-efg-international-ag-lugano",
           "kaufmannischer-ausbildungsplatz-bei-afc-bank-efg-international-ag-lugano",
           "kaufmannischer-auszubildender-afc-bank-efg-international-ag-lugano",
@@ -4746,10 +4747,10 @@
           "kaufmannische-r-lehrling-afc-banking-efg-international-ag-lugano",
           "lehre-kauffrau-kaufmann-efz-branche-bank-efg-international-ag-lugano",
           "bankkaufmann-frau-efz-efg-international-ag-efg-international-ag-lugano",
-          "afc-bank-kaufmannslehrling-efg-international-ag-lugano"
+          "afc-bank-kaufmannslehrling-efg-international-ag-lugano",
+          "lehre-kaufmann-frau-efz-bank-efg-international-ag-lugano"
         ],
         "fr": [
-          "apprentissage-employe-e-de-commerce-cfc-efg-international-ag-efg-international-ag-lugano",
           "apprenti-commercial-chez-afc-bank-efg-international-ag-lugano",
           "apprenti-en-commerce-chez-afc-bank-efg-international-ag-lugano",
           "apprentissage-commercial-chez-afc-banque-efg-international-ag-lugano",
@@ -4768,7 +4769,8 @@
           "apprenti-e-commercial-cfc-banque-efg-international-ag-lugano",
           "apprenti-e-commercial-banca-afc-efg-international-ag-lugano",
           "apprenti-e-employe-e-de-commerce-afc-banque-efg-international-ag-lugano",
-          "apprentissage-employe-e-de-commerce-cfc-banque-efg-international-ag-lugano"
+          "apprentissage-employe-e-de-commerce-cfc-banque-efg-international-ag-lugano",
+          "apprenti-e-en-commerce-afc-banque-efg-international-ag-lugano"
         ],
         "en": [
           "commercial-apprentice-afc-bank-efg-international-ag-lugano",
@@ -4784,8 +4786,6 @@
         ]
       },
       "previousSlugs": [
-        "lehre-kaufmann-frau-efz-bankwesen-efg-international-ag-lugano",
-        "bankkaufmann-frau-efq-lehre-efg-international-ag-lugano",
         "kaufmannischer-ausbildungsplatz-bei-afc-bank-efg-international-ag-lugano",
         "kaufmannischer-auszubildender-afc-bank-efg-international-ag-lugano",
         "lehre-kaufmann-frau-efg-bank-efg-international-ag-lugano",
@@ -4803,7 +4803,9 @@
         "kaufmannische-r-lehrling-afc-banking-efg-international-ag-lugano",
         "lehre-kauffrau-kaufmann-efz-branche-bank-efg-international-ag-lugano",
         "bankkaufmann-frau-efz-efg-international-ag-efg-international-ag-lugano",
-        "afc-bank-kaufmannslehrling-efg-international-ag-lugano"
+        "afc-bank-kaufmannslehrling-efg-international-ag-lugano",
+        "lehre-kaufmann-frau-efz-bank-efg-international-ag-lugano",
+        "apprenti-e-en-commerce-afc-banque-efg-international-ag-lugano"
       ],
       "firstSeenAt": "2026-04-13T21:36:50.620Z",
       "needsRetranslation": true

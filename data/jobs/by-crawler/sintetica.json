@@ -708,7 +708,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-27T00:09:57.244Z"
+      "firstSeenAt": "2026-05-27T00:09:57.244Z",
+      "previousSlugsByLocale": {
+        "en": [
+          "maintenance-technician-couvet-site-sintetica-sa-mendrisio"
+        ]
+      },
+      "previousSlugs": [
+        "maintenance-technician-couvet-site-sintetica-sa-mendrisio"
+      ]
     },
     {
       "url": "https://app.ncoreplat.com/jobposition/778848/quality-control-microbiological-laboratory-technician-ch/sintetica",
@@ -1057,8 +1065,18 @@
       "firstSeenAt": "2026-05-21T07:33:30.027Z",
       "needsRetranslation": true,
       "previousSlugs": [
-        "applicazione-spontanea-sito-couvet-neuchatel-sintetica-sa-mendrisio"
-      ]
+        "applicazione-spontanea-sito-couvet-neuchatel-sintetica-sa-mendrisio",
+        "spontane-bewerbung-couvet-site-neuchatel-sintetica-sa-mendrisio",
+        "candidature-spontanee-site-de-couvet-neuchatel-sintetica-sa-mendrisio"
+      ],
+      "previousSlugsByLocale": {
+        "de": [
+          "spontane-bewerbung-couvet-site-neuchatel-sintetica-sa-mendrisio"
+        ],
+        "fr": [
+          "candidature-spontanee-site-de-couvet-neuchatel-sintetica-sa-mendrisio"
+        ]
+      }
     }
   ]
 }
