@@ -1,6 +1,6 @@
 {
   "crawlerKey": "schindler",
-  "assembledAt": "2026-05-27T13:47:41.646Z",
+  "assembledAt": "2026-05-28T00:14:48.914Z",
   "jobs": [
     {
       "id": "schindler-65144c70dea6",
@@ -33,7 +33,7 @@
       "url": "https://job.schindler.com/SCH_Service_TechnikerIn/job/St_-Gallen-Hydraulics-Technician-%28mwd%29-80-100-St_/1377340533/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:47:33.325Z",
+      "crawledAt": "2026-05-28T00:14:42.625Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -98,7 +98,7 @@
       "url": "https://job.schindler.com/ASZ_Service_TechnikerIn/job/K%C3%BCssnacht-a_-R_-Servicetechnikerin-Region-Cham-%28mwd%29-80-100-Schw/1386078133/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:47:32.554Z",
+      "crawledAt": "2026-05-28T00:14:41.987Z",
       "addressLocality": "Küssnacht a. R.",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -171,7 +171,7 @@
       "url": "https://job.schindler.com/ASZ_Service_TechnikerIn/job/K%C3%BCssnacht-a_-R_-Servicetechnikerin-Region-Zug%C3%84geri-%28mwd%29-80-100-Schw/1380250033/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:47:31.787Z",
+      "crawledAt": "2026-05-28T00:14:41.379Z",
       "addressLocality": "Küssnacht a. R.",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -244,7 +244,7 @@
       "url": "https://job.schindler.com/ASZ/job/Steinach-Verkaufsprofi-Liftmodernisierung-%28mwd%29-80-100-Region-Ostschweiz-St_/1278144101/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:47:31.001Z",
+      "crawledAt": "2026-05-28T00:14:40.757Z",
       "addressLocality": "Steinach",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -302,9 +302,9 @@
       "slug": "montatore-ascensori-m-f-d-80-100-schindler-castione-arbedo",
       "slugByLocale": {
         "it": "montatore-ascensori-m-f-d-80-100-schindler-castione-arbedo",
-        "en": "elevator-installer-m-f-d-80-100-schindler-castione-arbedo",
-        "de": "aufzugsmonteur-m-w-d-80-100-schindler-castione-arbedo",
-        "fr": "monteur-d-ascenseurs-h-f-d-80-100-schindler-castione-arbedo"
+        "en": "montatore-ascensori-m-f-d-80-100-schindler-castione-arbedo-ws9hyc",
+        "de": "montatore-ascensori-m-f-d-80-100-schindler-castione-arbedo-ws9hyc",
+        "fr": "montatore-ascensori-m-f-d-80-100-schindler-castione-arbedo-ws9hyc"
       },
       "company": "Schindler",
       "companyKey": "schindler",
@@ -328,7 +328,7 @@
       "url": "https://job.schindler.com/ASZ/job/Castione-Arbedo-Montatore-ascensori-%28mfd%29-80-100-Tici/1368086633/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "it",
-      "crawledAt": "2026-05-27T13:47:30.228Z",
+      "crawledAt": "2026-05-28T00:14:40.138Z",
       "addressLocality": "Castione-Arbedo",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -347,25 +347,31 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "lift-m-f-d-80-100-schindler-castione-arbedo",
-        "montatore-ascensori-m-f-d-80-100-schindler-castione-arbedo-ws9hyc",
+        "elevator-installer-m-f-d-80-100-schindler-castione-arbedo",
         "aufzug-m-w-d-80-100-schindler-castione-arbedo",
-        "ascenseur-m-f-j-80-100-schindler-castione-arbedo"
+        "aufzugsmonteur-m-w-d-80-100-schindler-castione-arbedo",
+        "ascenseur-m-f-j-80-100-schindler-castione-arbedo",
+        "monteur-d-ascenseurs-h-f-d-80-100-schindler-castione-arbedo"
       ],
       "previousSlugsByLocale": {
         "en": [
           "lift-m-f-d-80-100-schindler-castione-arbedo",
+          "elevator-installer-m-f-d-80-100-schindler-castione-arbedo",
           "montatore-ascensori-m-f-d-80-100-schindler-castione-arbedo-ws9hyc"
         ],
         "de": [
           "aufzug-m-w-d-80-100-schindler-castione-arbedo",
+          "aufzugsmonteur-m-w-d-80-100-schindler-castione-arbedo",
           "montatore-ascensori-m-f-d-80-100-schindler-castione-arbedo-ws9hyc"
         ],
         "fr": [
           "ascenseur-m-f-j-80-100-schindler-castione-arbedo",
+          "monteur-d-ascenseurs-h-f-d-80-100-schindler-castione-arbedo",
           "montatore-ascensori-m-f-d-80-100-schindler-castione-arbedo-ws9hyc"
         ]
       },
       "firstSeenAt": "2026-05-19T12:34:10.207Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -412,7 +418,7 @@
       "url": "https://job.schindler.com/ASZ/job/Steinach-Teamleiter-Aufzugsmontage-im-Z%C3%BCri-Oberland-%28mwd%29-80-100-St_/1377533533/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:47:29.452Z",
+      "crawledAt": "2026-05-28T00:14:39.528Z",
       "addressLocality": "Steinach",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -466,6 +472,71 @@
       "postalCode": "6934"
     },
     {
+      "id": "schindler-a0263678dc22",
+      "slug": "servicetechniker-in-raum-zurich-m-w-d-80-100-schindler-wettswil",
+      "slugByLocale": {
+        "it": "servicetechniker-in-raum-zurich-m-w-d-80-100-schindler-wettswil",
+        "en": "servicetechniker-in-raum-zurich-m-w-d-80-100-schindler-wettswil",
+        "de": "servicetechniker-in-raum-zurich-m-w-d-80-100-schindler-wettswil",
+        "fr": "servicetechniker-in-raum-zurich-m-w-d-80-100-schindler-wettswil"
+      },
+      "company": "Schindler",
+      "companyKey": "schindler",
+      "companyDomain": "schindler.com",
+      "title": "Servicetechniker*in Raum Zürich (m/w/d) 80-100%",
+      "titleByLocale": {
+        "it": "Servicetechniker* in Raum Zürich (m/w/d) 80-100 %",
+        "en": "Servicetechniker*in Raum Zürich (m/w/d) 80-100%",
+        "de": "Servicetechniker*in Raum Zürich (m/w/d) 80-100%",
+        "fr": "Servicetechniker*in Raum Zürich (m/w/d) 80-100%"
+      },
+      "description": "Wir sind AS Aufzüge\n\nAS Aufzüge ist schweizweiter Partner für die Montage, Modernisierung und den Unterhalt von Aufzügen. Die Vielfältigkeit und Individualisierung unserer Produkte zeichnet uns aus. Sei auch du so einzigartig wie wir!\n\nErlebe den AS-Spirit als\n\nServicetechniker*in Raum Zürich (m/w/d) 80-100%\n\nDurch deinen Start bei AS Aufzüge profitierst du von einem wertschätzenden und familiären Umfeld. So fördern wir den Zusammenhalt unter den Mitarbeitenden durch unsere Du-Kultur und verschiedene Events. Mehr zu uns erfährst du hier: Video\n\nWas dich erwartet\n\n• Selbstständige Planung und Ausführung von Wartungsarbeiten nach vorgegebenem Turnus\n\n• Behebung von Störungen\n\n• Ausführung von kleineren Reparaturen\n\n• Interessante Piketteinsätze\n\n• Kundenkommunikation\n\nWas du mitbringst\n\n• Abgeschlossene Berufslehre im mechanischen, elektrischen oder hydraulischen Bereich (z. B. Polymechaniker*in, Automechaniker*in, Anlagen- und Apparatebauer*in oder Elektroinstallateur*in)\n\n• Einige Jahre Berufserfahrung, idealerweise mit Kundenkontakt\n\n• Tadellose Umgangsformen und hohe Lernbereitschaft\n\n• Gute Kenntnisse der Gebietssprache, weitere Sprachen von Vorteil\n\n• Gültiger Führerschein – ohne geht’s nicht\n\nDeine vielen Vorteile\n\n• 2-monatige Einarbeitung bei vollem Lohn in unserem Lift Camp für deine optimale Vorbereitung auf deinen neuen Job.\n\n• Eigenes Firmenfahrzeug , welches du auch privat nutzen darfst.\n\n• Entschädigung für deine Mittagsverpflegung, faire Bereitschaftsentschädigung für Pikett und die Reinigung deiner Arbeitskleider, welche dir selbstverständlich von uns kostenlos zur Verfügung gestellt werden.\n\n• Exzellente Entwicklungsmöglichkeiten : Personalentwicklung wird bei uns gelebt. Unseren Mitarbeitenden stellen wir verschiedene nationale und internationale Talentprogramme zur Verfügung und unterstützen sie zeitlich sowie finanziell bei Aus- und Weiterbildungen.\n\n• Work-Life-Balance : 40h Woche, 25 bis 30 Ferientage, flexible Arbeitszeiten, Teilzeitpensum und unbezahlter Urlaub.\n\n• Gesunde Arbeitsumgebung : Hohe Gesundheits- & Sicherheitsstandards und eigenes betriebliches Gesundheitsmanagement inklusive Sozialberatung und Gesundheitsförderung.\n\n• Mitarbeitervergünstigungen : Grosszügige Beteiligung am ÖV- und Fitness-Abo, Flottenrabatte, vergünstigter Bezug von Reka-Geld, vergünstigte Versicherungsprämien sowie diverse Vergünstigungen.\n\nBefördere dich jetzt selbst und sende uns deine vollständigen Bewerbungsunterlagen\n\nBei AS legen wir Wert auf Inklusion und Vielfalt und praktizieren Gleichberechtigung, um gleiche Chancen für alle zu schaffen. Wir sind bestrebt, alle qualifizierten Bewerbenden ohne Rücksicht auf Alter, ethnische Herkunft, Hautfarbe, Religionszugehörigkeit, Gewerkschaftszugehörigkeit, Geschlecht, Geschlechtsidentität, sexuelle Orientierung, Familienstand, nationale Herkunft, Nationalität, genetische Veranlagung und Gesundheit oder Behinderung für eine Einstellung in Betracht zu ziehen.\n\nJegliche unaufgeforderte Bewerbung von Personalvermittlungsagenturen wird als abgelehnt betrachtet und stellt in keiner Weise ein Angebot seitens einer Personalvermittlungsagentur dar.",
+      "descriptionByLocale": {
+        "it": "Wir sind AS Aufzüge AS Aufzüge ist schweizweiter Partner für die Montage, Modernisierung und den Unterhalt von Aufzügen. Die Vielfältigkeit und Individualisierung unserer Produkte zeichnet uns aus. Sei auch du so einzigartig wie wir! Erlebe den AS-Spirit als Servicetechniker*in Raum Zürich (m/w/d) 80-100% Durch deinen Start bei AS Aufzüge profitierst du von einem wertschätzenden und familiären Umfeld. So fördern wir den Zusammenhalt unter den Mitarbeitenden durch unsere Du-Kultur und verschiedene Events. Mehr zu uns erfährst du hier: Video Was dich erwartet\n• Selbstständige Planung und Ausführung von Wartungsarbeiten nach vorgegebenem Turnus\n• Behebung von Störungen\n• Ausführung von kleineren Reparaturen\n• Interessante Piketteinsätze\n• Kundenkommunikation Was du mitbringst\n• Abgeschlossene Berufslehre im mechanischen, elektrischen oder hydraulischen Bereich (z. B. Polymechaniker*in, Automechaniker*in, Anlagen- und Apparatebauer*in oder Elektroinstallateur*in)\n• Einige Jahre Berufserfahrung, idealerweise mit Kundenkontakt\n• Tadellose Umgangsformen und hohe Lernbereitschaft\n• Gute Kenntnisse der Gebietssprache, weitere Sprachen von Vorteil\n• Gültiger Führerschein – ohne geht’s nicht Deine vielen Vorteile\n• 2-monatige Einarbeitung bei vollem Lohn in unserem Lift Camp für deine optimale Vorbereitung auf deinen neuen Job.\n• Eigenes Firmenfahrzeug , welches du auch privat nutzen darfst.\n• Entschädigung für deine Mittagsverpflegung, faire Bereitschaftsentschädigung für Pikett und die Reinigung deiner Arbeitskleider, welche dir selbstverständlich von uns kostenlos zur Verfügung gestellt werden.\n• Exzellente Entwicklungsmöglichkeiten : Personalentwicklung wird bei uns gelebt. Unseren Mitarbeitenden stellen wir verschiedene nationale und internationale Talentprogramme zur Verfügung und unterstützen sie zeitlich sowie finanziell bei Aus- und Weiterbildungen.\n• Work-Life-Balance : 40h Woche, 25 bis 30 Ferientage, flexible Arbeitszeiten, Teilzeitpensum und unbezahlter Urlaub.\n• Gesunde Arbeitsumgebung : Hohe Gesundheits- & Sicherheitsstandards und eigenes betriebliches Gesundheitsmanagement inklusive Sozialberatung und Gesundheitsförderung.\n• Mitarbeitervergünstigungen : Grosszügige Beteiligung am ÖV- und Fitness-Abo, Flottenrabatte, vergünstigter Bezug von Reka-Geld, vergünstigte Versicherungsprämien sowie diverse Vergünstigungen. Befördere dich jetzt selbst und sende uns deine vollständigen Bewerbungsunterlagen Bei AS legen wir Wert auf Inklusion und Vielfalt und praktizieren Gleichberechtigung, um gleiche Chancen für alle zu schaffen. Wir sind bestrebt, alle qualifizierten Bewerbenden ohne Rücksicht auf Alter, ethnische Herkunft, Hautfarbe, Religionszugehörigkeit, Gewerkschaftszugehörigkeit, Geschlecht, Geschlechtsidentität, sexuelle Orientierung, Familienstand, nationale Herkunft, Nationalität, genetische Veranlagung und Gesundheit oder Behinderung für eine Einstellung in Betracht zu ziehen. Jegliche unaufgeforderte Bewerbung von Personalvermittlungsagenturen wird als abgelehnt betrachtet und stellt in keiner Weise ein Angebot seitens einer Personalvermittlungsagentur dar.",
+        "en": "Wir sind AS Aufzüge AS Aufzüge ist schweizweiter Partner für die Montage, Modernisierung und den Unterhalt von Aufzügen. Die Vielfältigkeit und Individualisierung unserer Produkte zeichnet uns aus. Sei auch du so einzigartig wie wir! Erlebe den AS-Spirit als Servicetechniker*in Raum Zürich (m/w/d) 80-100% Durch deinen Start bei AS Aufzüge profitierst du von einem wertschätzenden und familiären Umfeld. So fördern wir den Zusammenhalt unter den Mitarbeitenden durch unsere Du-Kultur und verschiedene Events. Mehr zu uns erfährst du hier: Video Was dich erwartet\n• Selbstständige Planung und Ausführung von Wartungsarbeiten nach vorgegebenem Turnus\n• Behebung von Störungen\n• Ausführung von kleineren Reparaturen\n• Interessante Piketteinsätze\n• Kundenkommunikation Was du mitbringst\n• Abgeschlossene Berufslehre im mechanischen, elektrischen oder hydraulischen Bereich (z. B. Polymechaniker*in, Automechaniker*in, Anlagen- und Apparatebauer*in oder Elektroinstallateur*in)\n• Einige Jahre Berufserfahrung, idealerweise mit Kundenkontakt\n• Tadellose Umgangsformen und hohe Lernbereitschaft\n• Gute Kenntnisse der Gebietssprache, weitere Sprachen von Vorteil\n• Gültiger Führerschein – ohne geht’s nicht Deine vielen Vorteile\n• 2-monatige Einarbeitung bei vollem Lohn in unserem Lift Camp für deine optimale Vorbereitung auf deinen neuen Job.\n• Eigenes Firmenfahrzeug , welches du auch privat nutzen darfst.\n• Entschädigung für deine Mittagsverpflegung, faire Bereitschaftsentschädigung für Pikett und die Reinigung deiner Arbeitskleider, welche dir selbstverständlich von uns kostenlos zur Verfügung gestellt werden.\n• Exzellente Entwicklungsmöglichkeiten : Personalentwicklung wird bei uns gelebt. Unseren Mitarbeitenden stellen wir verschiedene nationale und internationale Talentprogramme zur Verfügung und unterstützen sie zeitlich sowie finanziell bei Aus- und Weiterbildungen.\n• Work-Life-Balance : 40h Woche, 25 bis 30 Ferientage, flexible Arbeitszeiten, Teilzeitpensum und unbezahlter Urlaub.\n• Gesunde Arbeitsumgebung : Hohe Gesundheits- & Sicherheitsstandards und eigenes betriebliches Gesundheitsmanagement inklusive Sozialberatung und Gesundheitsförderung.\n• Mitarbeitervergünstigungen : Grosszügige Beteiligung am ÖV- und Fitness-Abo, Flottenrabatte, vergünstigter Bezug von Reka-Geld, vergünstigte Versicherungsprämien sowie diverse Vergünstigungen. Befördere dich jetzt selbst und sende uns deine vollständigen Bewerbungsunterlagen Bei AS legen wir Wert auf Inklusion und Vielfalt und praktizieren Gleichberechtigung, um gleiche Chancen für alle zu schaffen. Wir sind bestrebt, alle qualifizierten Bewerbenden ohne Rücksicht auf Alter, ethnische Herkunft, Hautfarbe, Religionszugehörigkeit, Gewerkschaftszugehörigkeit, Geschlecht, Geschlechtsidentität, sexuelle Orientierung, Familienstand, nationale Herkunft, Nationalität, genetische Veranlagung und Gesundheit oder Behinderung für eine Einstellung in Betracht zu ziehen. Jegliche unaufgeforderte Bewerbung von Personalvermittlungsagenturen wird als abgelehnt betrachtet und stellt in keiner Weise ein Angebot seitens einer Personalvermittlungsagentur dar.",
+        "de": "Wir sind AS Aufzüge AS Aufzüge ist schweizweiter Partner für die Montage, Modernisierung und den Unterhalt von Aufzügen. Die Vielfältigkeit und Individualisierung unserer Produkte zeichnet uns aus. Sei auch du so einzigartig wie wir! Erlebe den AS-Spirit als Servicetechniker*in Raum Zürich (m/w/d) 80-100% Durch deinen Start bei AS Aufzüge profitierst du von einem wertschätzenden und familiären Umfeld. So fördern wir den Zusammenhalt unter den Mitarbeitenden durch unsere Du-Kultur und verschiedene Events. Mehr zu uns erfährst du hier: Video Was dich erwartet\n• Selbstständige Planung und Ausführung von Wartungsarbeiten nach vorgegebenem Turnus\n• Behebung von Störungen\n• Ausführung von kleineren Reparaturen\n• Interessante Piketteinsätze\n• Kundenkommunikation Was du mitbringst\n• Abgeschlossene Berufslehre im mechanischen, elektrischen oder hydraulischen Bereich (z. B. Polymechaniker*in, Automechaniker*in, Anlagen- und Apparatebauer*in oder Elektroinstallateur*in)\n• Einige Jahre Berufserfahrung, idealerweise mit Kundenkontakt\n• Tadellose Umgangsformen und hohe Lernbereitschaft\n• Gute Kenntnisse der Gebietssprache, weitere Sprachen von Vorteil\n• Gültiger Führerschein – ohne geht’s nicht Deine vielen Vorteile\n• 2-monatige Einarbeitung bei vollem Lohn in unserem Lift Camp für deine optimale Vorbereitung auf deinen neuen Job.\n• Eigenes Firmenfahrzeug , welches du auch privat nutzen darfst.\n• Entschädigung für deine Mittagsverpflegung, faire Bereitschaftsentschädigung für Pikett und die Reinigung deiner Arbeitskleider, welche dir selbstverständlich von uns kostenlos zur Verfügung gestellt werden.\n• Exzellente Entwicklungsmöglichkeiten : Personalentwicklung wird bei uns gelebt. Unseren Mitarbeitenden stellen wir verschiedene nationale und internationale Talentprogramme zur Verfügung und unterstützen sie zeitlich sowie finanziell bei Aus- und Weiterbildungen.\n• Work-Life-Balance : 40h Woche, 25 bis 30 Ferientage, flexible Arbeitszeiten, Teilzeitpensum und unbezahlter Urlaub.\n• Gesunde Arbeitsumgebung : Hohe Gesundheits- & Sicherheitsstandards und eigenes betriebliches Gesundheitsmanagement inklusive Sozialberatung und Gesundheitsförderung.\n• Mitarbeitervergünstigungen : Grosszügige Beteiligung am ÖV- und Fitness-Abo, Flottenrabatte, vergünstigter Bezug von Reka-Geld, vergünstigte Versicherungsprämien sowie diverse Vergünstigungen. Befördere dich jetzt selbst und sende uns deine vollständigen Bewerbungsunterlagen Bei AS legen wir Wert auf Inklusion und Vielfalt und praktizieren Gleichberechtigung, um gleiche Chancen für alle zu schaffen. Wir sind bestrebt, alle qualifizierten Bewerbenden ohne Rücksicht auf Alter, ethnische Herkunft, Hautfarbe, Religionszugehörigkeit, Gewerkschaftszugehörigkeit, Geschlecht, Geschlechtsidentität, sexuelle Orientierung, Familienstand, nationale Herkunft, Nationalität, genetische Veranlagung und Gesundheit oder Behinderung für eine Einstellung in Betracht zu ziehen. Jegliche unaufgeforderte Bewerbung von Personalvermittlungsagenturen wird als abgelehnt betrachtet und stellt in keiner Weise ein Angebot seitens einer Personalvermittlungsagentur dar.",
+        "fr": "Wir sind AS Aufzüge AS Aufzüge ist schweizweiter Partner für die Montage, Modernisierung und den Unterhalt von Aufzügen. Die Vielfältigkeit und Individualisierung unserer Produkte zeichnet uns aus. Sei auch du so einzigartig wie wir! Erlebe den AS-Spirit als Servicetechniker*in Raum Zürich (m/w/d) 80-100% Durch deinen Start bei AS Aufzüge profitierst du von einem wertschätzenden und familiären Umfeld. So fördern wir den Zusammenhalt unter den Mitarbeitenden durch unsere Du-Kultur und verschiedene Events. Mehr zu uns erfährst du hier: Video Was dich erwartet\n• Selbstständige Planung und Ausführung von Wartungsarbeiten nach vorgegebenem Turnus\n• Behebung von Störungen\n• Ausführung von kleineren Reparaturen\n• Interessante Piketteinsätze\n• Kundenkommunikation Was du mitbringst\n• Abgeschlossene Berufslehre im mechanischen, elektrischen oder hydraulischen Bereich (z. B. Polymechaniker*in, Automechaniker*in, Anlagen- und Apparatebauer*in oder Elektroinstallateur*in)\n• Einige Jahre Berufserfahrung, idealerweise mit Kundenkontakt\n• Tadellose Umgangsformen und hohe Lernbereitschaft\n• Gute Kenntnisse der Gebietssprache, weitere Sprachen von Vorteil\n• Gültiger Führerschein – ohne geht’s nicht Deine vielen Vorteile\n• 2-monatige Einarbeitung bei vollem Lohn in unserem Lift Camp für deine optimale Vorbereitung auf deinen neuen Job.\n• Eigenes Firmenfahrzeug , welches du auch privat nutzen darfst.\n• Entschädigung für deine Mittagsverpflegung, faire Bereitschaftsentschädigung für Pikett und die Reinigung deiner Arbeitskleider, welche dir selbstverständlich von uns kostenlos zur Verfügung gestellt werden.\n• Exzellente Entwicklungsmöglichkeiten : Personalentwicklung wird bei uns gelebt. Unseren Mitarbeitenden stellen wir verschiedene nationale und internationale Talentprogramme zur Verfügung und unterstützen sie zeitlich sowie finanziell bei Aus- und Weiterbildungen.\n• Work-Life-Balance : 40h Woche, 25 bis 30 Ferientage, flexible Arbeitszeiten, Teilzeitpensum und unbezahlter Urlaub.\n• Gesunde Arbeitsumgebung : Hohe Gesundheits- & Sicherheitsstandards und eigenes betriebliches Gesundheitsmanagement inklusive Sozialberatung und Gesundheitsförderung.\n• Mitarbeitervergünstigungen : Grosszügige Beteiligung am ÖV- und Fitness-Abo, Flottenrabatte, vergünstigter Bezug von Reka-Geld, vergünstigte Versicherungsprämien sowie diverse Vergünstigungen. Befördere dich jetzt selbst und sende uns deine vollständigen Bewerbungsunterlagen Bei AS legen wir Wert auf Inklusion und Vielfalt und praktizieren Gleichberechtigung, um gleiche Chancen für alle zu schaffen. Wir sind bestrebt, alle qualifizierten Bewerbenden ohne Rücksicht auf Alter, ethnische Herkunft, Hautfarbe, Religionszugehörigkeit, Gewerkschaftszugehörigkeit, Geschlecht, Geschlechtsidentität, sexuelle Orientierung, Familienstand, nationale Herkunft, Nationalität, genetische Veranlagung und Gesundheit oder Behinderung für eine Einstellung in Betracht zu ziehen. Jegliche unaufgeforderte Bewerbung von Personalvermittlungsagenturen wird als abgelehnt betrachtet und stellt in keiner Weise ein Angebot seitens einer Personalvermittlungsagentur dar."
+      },
+      "location": "Wettswil",
+      "canton": "ZH",
+      "url": "https://job.schindler.com/ASZ_Service_TechnikerIn/job/Wettswil-Servicetechnikerin-Raum-Z%C3%BCrich-%28mwd%29-80-100-Z%C3%BCri/1387781733/",
+      "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
+      "sourceLang": "de",
+      "crawledAt": "2026-05-28T00:14:38.922Z",
+      "addressLocality": "Wettswil",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Industrial",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-27",
+      "applyUrl": "https://job.schindler.com/talentcommunity/apply/1387781733/?locale=de_DE",
+      "jobReqId": "1387781733",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-19T12:33:29.285Z",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Via Industria 11",
+      "postalCode": "6934"
+    },
+    {
       "id": "schindler-f3f87c900c4e",
       "slug": "formazione-e-informazione-m-w-d-80-100-schindler-ebikon",
       "slugByLocale": {
@@ -496,7 +567,7 @@
       "url": "https://job.schindler.com/Schindler/job/Ebikon-Head-Technical-Training-&-Information-%28mwd%29-80-100-Luze/1392171333/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:47:28.700Z",
+      "crawledAt": "2026-05-28T00:14:38.302Z",
       "addressLocality": "Ebikon",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -527,6 +598,7 @@
         ]
       },
       "firstSeenAt": "2026-05-19T12:34:25.077Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -573,7 +645,7 @@
       "url": "https://job.schindler.com/Schindler/job/Fribourg-Technicien-de-projets-Chef-de-projets-Frib/1394585833/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-27T13:47:27.878Z",
+      "crawledAt": "2026-05-28T00:14:37.684Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -597,10 +669,10 @@
         "it": [
           "technicien-de-projets-chef-de-projets-schindler-fribourg"
         ],
-        "de": [
+        "en": [
           "technicien-de-projets-chef-de-projets-schindler-fribourg"
         ],
-        "en": [
+        "de": [
           "technicien-de-projets-chef-de-projets-schindler-fribourg"
         ]
       },
@@ -651,7 +723,7 @@
       "url": "https://job.schindler.com/ASZ/job/Wettswil-Neukundenberaterin-%28mwd%29-80-100-Z%C3%BCri/1281533801/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:47:27.111Z",
+      "crawledAt": "2026-05-28T00:14:37.063Z",
       "addressLocality": "Wettswil",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -724,7 +796,7 @@
       "url": "https://job.schindler.com/ASZ_Service_TechnikerIn/job/Wettswil-Abnahmetechnikerin-Raum-Z%C3%BCrich-%28mwd%29-80-100-Z%C3%BCri/1386569833/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:47:26.353Z",
+      "crawledAt": "2026-05-28T00:14:36.428Z",
       "addressLocality": "Wettswil",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -753,71 +825,6 @@
       },
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-19T12:33:30.025Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Via Industria 11",
-      "postalCode": "6934"
-    },
-    {
-      "id": "schindler-a0263678dc22",
-      "slug": "servicetechniker-in-raum-zurich-m-w-d-80-100-schindler-wettswil",
-      "slugByLocale": {
-        "it": "servicetechniker-in-raum-zurich-m-w-d-80-100-schindler-wettswil",
-        "en": "servicetechniker-in-raum-zurich-m-w-d-80-100-schindler-wettswil",
-        "de": "servicetechniker-in-raum-zurich-m-w-d-80-100-schindler-wettswil",
-        "fr": "servicetechniker-in-raum-zurich-m-w-d-80-100-schindler-wettswil"
-      },
-      "company": "Schindler",
-      "companyKey": "schindler",
-      "companyDomain": "schindler.com",
-      "title": "Servicetechniker*in Raum Zürich (m/w/d) 80-100%",
-      "titleByLocale": {
-        "it": "Servicetechniker* in Raum Zürich (m/w/d) 80-100 %",
-        "en": "Servicetechniker*in Raum Zürich (m/w/d) 80-100%",
-        "de": "Servicetechniker*in Raum Zürich (m/w/d) 80-100%",
-        "fr": "Servicetechniker*in Raum Zürich (m/w/d) 80-100%"
-      },
-      "description": "Wir sind AS Aufzüge\n\nAS Aufzüge ist schweizweiter Partner für die Montage, Modernisierung und den Unterhalt von Aufzügen. Die Vielfältigkeit und Individualisierung unserer Produkte zeichnet uns aus. Sei auch du so einzigartig wie wir!\n\nErlebe den AS-Spirit als\n\nServicetechniker*in Raum Zürich (m/w/d) 80-100%\n\nDurch deinen Start bei AS Aufzüge profitierst du von einem wertschätzenden und familiären Umfeld. So fördern wir den Zusammenhalt unter den Mitarbeitenden durch unsere Du-Kultur und verschiedene Events. Mehr zu uns erfährst du hier: Video\n\nWas dich erwartet\n\n• Selbstständige Planung und Ausführung von Wartungsarbeiten nach vorgegebenem Turnus\n\n• Behebung von Störungen\n\n• Ausführung von kleineren Reparaturen\n\n• Interessante Piketteinsätze\n\n• Kundenkommunikation\n\nWas du mitbringst\n\n• Abgeschlossene Berufslehre im mechanischen, elektrischen oder hydraulischen Bereich (z. B. Polymechaniker*in, Automechaniker*in, Anlagen- und Apparatebauer*in oder Elektroinstallateur*in)\n\n• Einige Jahre Berufserfahrung, idealerweise mit Kundenkontakt\n\n• Tadellose Umgangsformen und hohe Lernbereitschaft\n\n• Gute Kenntnisse der Gebietssprache, weitere Sprachen von Vorteil\n\n• Gültiger Führerschein – ohne geht’s nicht\n\nDeine vielen Vorteile\n\n• 2-monatige Einarbeitung bei vollem Lohn in unserem Lift Camp für deine optimale Vorbereitung auf deinen neuen Job.\n\n• Eigenes Firmenfahrzeug , welches du auch privat nutzen darfst.\n\n• Entschädigung für deine Mittagsverpflegung, faire Bereitschaftsentschädigung für Pikett und die Reinigung deiner Arbeitskleider, welche dir selbstverständlich von uns kostenlos zur Verfügung gestellt werden.\n\n• Exzellente Entwicklungsmöglichkeiten : Personalentwicklung wird bei uns gelebt. Unseren Mitarbeitenden stellen wir verschiedene nationale und internationale Talentprogramme zur Verfügung und unterstützen sie zeitlich sowie finanziell bei Aus- und Weiterbildungen.\n\n• Work-Life-Balance : 40h Woche, 25 bis 30 Ferientage, flexible Arbeitszeiten, Teilzeitpensum und unbezahlter Urlaub.\n\n• Gesunde Arbeitsumgebung : Hohe Gesundheits- & Sicherheitsstandards und eigenes betriebliches Gesundheitsmanagement inklusive Sozialberatung und Gesundheitsförderung.\n\n• Mitarbeitervergünstigungen : Grosszügige Beteiligung am ÖV- und Fitness-Abo, Flottenrabatte, vergünstigter Bezug von Reka-Geld, vergünstigte Versicherungsprämien sowie diverse Vergünstigungen.\n\nBefördere dich jetzt selbst und sende uns deine vollständigen Bewerbungsunterlagen\n\nBei AS legen wir Wert auf Inklusion und Vielfalt und praktizieren Gleichberechtigung, um gleiche Chancen für alle zu schaffen. Wir sind bestrebt, alle qualifizierten Bewerbenden ohne Rücksicht auf Alter, ethnische Herkunft, Hautfarbe, Religionszugehörigkeit, Gewerkschaftszugehörigkeit, Geschlecht, Geschlechtsidentität, sexuelle Orientierung, Familienstand, nationale Herkunft, Nationalität, genetische Veranlagung und Gesundheit oder Behinderung für eine Einstellung in Betracht zu ziehen.\n\nJegliche unaufgeforderte Bewerbung von Personalvermittlungsagenturen wird als abgelehnt betrachtet und stellt in keiner Weise ein Angebot seitens einer Personalvermittlungsagentur dar.",
-      "descriptionByLocale": {
-        "it": "Wir sind AS Aufzüge AS Aufzüge ist schweizweiter Partner für die Montage, Modernisierung und den Unterhalt von Aufzügen. Die Vielfältigkeit und Individualisierung unserer Produkte zeichnet uns aus. Sei auch du so einzigartig wie wir! Erlebe den AS-Spirit als Servicetechniker*in Raum Zürich (m/w/d) 80-100% Durch deinen Start bei AS Aufzüge profitierst du von einem wertschätzenden und familiären Umfeld. So fördern wir den Zusammenhalt unter den Mitarbeitenden durch unsere Du-Kultur und verschiedene Events. Mehr zu uns erfährst du hier: Video Was dich erwartet\n• Selbstständige Planung und Ausführung von Wartungsarbeiten nach vorgegebenem Turnus\n• Behebung von Störungen\n• Ausführung von kleineren Reparaturen\n• Interessante Piketteinsätze\n• Kundenkommunikation Was du mitbringst\n• Abgeschlossene Berufslehre im mechanischen, elektrischen oder hydraulischen Bereich (z. B. Polymechaniker*in, Automechaniker*in, Anlagen- und Apparatebauer*in oder Elektroinstallateur*in)\n• Einige Jahre Berufserfahrung, idealerweise mit Kundenkontakt\n• Tadellose Umgangsformen und hohe Lernbereitschaft\n• Gute Kenntnisse der Gebietssprache, weitere Sprachen von Vorteil\n• Gültiger Führerschein – ohne geht’s nicht Deine vielen Vorteile\n• 2-monatige Einarbeitung bei vollem Lohn in unserem Lift Camp für deine optimale Vorbereitung auf deinen neuen Job.\n• Eigenes Firmenfahrzeug , welches du auch privat nutzen darfst.\n• Entschädigung für deine Mittagsverpflegung, faire Bereitschaftsentschädigung für Pikett und die Reinigung deiner Arbeitskleider, welche dir selbstverständlich von uns kostenlos zur Verfügung gestellt werden.\n• Exzellente Entwicklungsmöglichkeiten : Personalentwicklung wird bei uns gelebt. Unseren Mitarbeitenden stellen wir verschiedene nationale und internationale Talentprogramme zur Verfügung und unterstützen sie zeitlich sowie finanziell bei Aus- und Weiterbildungen.\n• Work-Life-Balance : 40h Woche, 25 bis 30 Ferientage, flexible Arbeitszeiten, Teilzeitpensum und unbezahlter Urlaub.\n• Gesunde Arbeitsumgebung : Hohe Gesundheits- & Sicherheitsstandards und eigenes betriebliches Gesundheitsmanagement inklusive Sozialberatung und Gesundheitsförderung.\n• Mitarbeitervergünstigungen : Grosszügige Beteiligung am ÖV- und Fitness-Abo, Flottenrabatte, vergünstigter Bezug von Reka-Geld, vergünstigte Versicherungsprämien sowie diverse Vergünstigungen. Befördere dich jetzt selbst und sende uns deine vollständigen Bewerbungsunterlagen Bei AS legen wir Wert auf Inklusion und Vielfalt und praktizieren Gleichberechtigung, um gleiche Chancen für alle zu schaffen. Wir sind bestrebt, alle qualifizierten Bewerbenden ohne Rücksicht auf Alter, ethnische Herkunft, Hautfarbe, Religionszugehörigkeit, Gewerkschaftszugehörigkeit, Geschlecht, Geschlechtsidentität, sexuelle Orientierung, Familienstand, nationale Herkunft, Nationalität, genetische Veranlagung und Gesundheit oder Behinderung für eine Einstellung in Betracht zu ziehen. Jegliche unaufgeforderte Bewerbung von Personalvermittlungsagenturen wird als abgelehnt betrachtet und stellt in keiner Weise ein Angebot seitens einer Personalvermittlungsagentur dar.",
-        "en": "Wir sind AS Aufzüge AS Aufzüge ist schweizweiter Partner für die Montage, Modernisierung und den Unterhalt von Aufzügen. Die Vielfältigkeit und Individualisierung unserer Produkte zeichnet uns aus. Sei auch du so einzigartig wie wir! Erlebe den AS-Spirit als Servicetechniker*in Raum Zürich (m/w/d) 80-100% Durch deinen Start bei AS Aufzüge profitierst du von einem wertschätzenden und familiären Umfeld. So fördern wir den Zusammenhalt unter den Mitarbeitenden durch unsere Du-Kultur und verschiedene Events. Mehr zu uns erfährst du hier: Video Was dich erwartet\n• Selbstständige Planung und Ausführung von Wartungsarbeiten nach vorgegebenem Turnus\n• Behebung von Störungen\n• Ausführung von kleineren Reparaturen\n• Interessante Piketteinsätze\n• Kundenkommunikation Was du mitbringst\n• Abgeschlossene Berufslehre im mechanischen, elektrischen oder hydraulischen Bereich (z. B. Polymechaniker*in, Automechaniker*in, Anlagen- und Apparatebauer*in oder Elektroinstallateur*in)\n• Einige Jahre Berufserfahrung, idealerweise mit Kundenkontakt\n• Tadellose Umgangsformen und hohe Lernbereitschaft\n• Gute Kenntnisse der Gebietssprache, weitere Sprachen von Vorteil\n• Gültiger Führerschein – ohne geht’s nicht Deine vielen Vorteile\n• 2-monatige Einarbeitung bei vollem Lohn in unserem Lift Camp für deine optimale Vorbereitung auf deinen neuen Job.\n• Eigenes Firmenfahrzeug , welches du auch privat nutzen darfst.\n• Entschädigung für deine Mittagsverpflegung, faire Bereitschaftsentschädigung für Pikett und die Reinigung deiner Arbeitskleider, welche dir selbstverständlich von uns kostenlos zur Verfügung gestellt werden.\n• Exzellente Entwicklungsmöglichkeiten : Personalentwicklung wird bei uns gelebt. Unseren Mitarbeitenden stellen wir verschiedene nationale und internationale Talentprogramme zur Verfügung und unterstützen sie zeitlich sowie finanziell bei Aus- und Weiterbildungen.\n• Work-Life-Balance : 40h Woche, 25 bis 30 Ferientage, flexible Arbeitszeiten, Teilzeitpensum und unbezahlter Urlaub.\n• Gesunde Arbeitsumgebung : Hohe Gesundheits- & Sicherheitsstandards und eigenes betriebliches Gesundheitsmanagement inklusive Sozialberatung und Gesundheitsförderung.\n• Mitarbeitervergünstigungen : Grosszügige Beteiligung am ÖV- und Fitness-Abo, Flottenrabatte, vergünstigter Bezug von Reka-Geld, vergünstigte Versicherungsprämien sowie diverse Vergünstigungen. Befördere dich jetzt selbst und sende uns deine vollständigen Bewerbungsunterlagen Bei AS legen wir Wert auf Inklusion und Vielfalt und praktizieren Gleichberechtigung, um gleiche Chancen für alle zu schaffen. Wir sind bestrebt, alle qualifizierten Bewerbenden ohne Rücksicht auf Alter, ethnische Herkunft, Hautfarbe, Religionszugehörigkeit, Gewerkschaftszugehörigkeit, Geschlecht, Geschlechtsidentität, sexuelle Orientierung, Familienstand, nationale Herkunft, Nationalität, genetische Veranlagung und Gesundheit oder Behinderung für eine Einstellung in Betracht zu ziehen. Jegliche unaufgeforderte Bewerbung von Personalvermittlungsagenturen wird als abgelehnt betrachtet und stellt in keiner Weise ein Angebot seitens einer Personalvermittlungsagentur dar.",
-        "de": "Wir sind AS Aufzüge AS Aufzüge ist schweizweiter Partner für die Montage, Modernisierung und den Unterhalt von Aufzügen. Die Vielfältigkeit und Individualisierung unserer Produkte zeichnet uns aus. Sei auch du so einzigartig wie wir! Erlebe den AS-Spirit als Servicetechniker*in Raum Zürich (m/w/d) 80-100% Durch deinen Start bei AS Aufzüge profitierst du von einem wertschätzenden und familiären Umfeld. So fördern wir den Zusammenhalt unter den Mitarbeitenden durch unsere Du-Kultur und verschiedene Events. Mehr zu uns erfährst du hier: Video Was dich erwartet\n• Selbstständige Planung und Ausführung von Wartungsarbeiten nach vorgegebenem Turnus\n• Behebung von Störungen\n• Ausführung von kleineren Reparaturen\n• Interessante Piketteinsätze\n• Kundenkommunikation Was du mitbringst\n• Abgeschlossene Berufslehre im mechanischen, elektrischen oder hydraulischen Bereich (z. B. Polymechaniker*in, Automechaniker*in, Anlagen- und Apparatebauer*in oder Elektroinstallateur*in)\n• Einige Jahre Berufserfahrung, idealerweise mit Kundenkontakt\n• Tadellose Umgangsformen und hohe Lernbereitschaft\n• Gute Kenntnisse der Gebietssprache, weitere Sprachen von Vorteil\n• Gültiger Führerschein – ohne geht’s nicht Deine vielen Vorteile\n• 2-monatige Einarbeitung bei vollem Lohn in unserem Lift Camp für deine optimale Vorbereitung auf deinen neuen Job.\n• Eigenes Firmenfahrzeug , welches du auch privat nutzen darfst.\n• Entschädigung für deine Mittagsverpflegung, faire Bereitschaftsentschädigung für Pikett und die Reinigung deiner Arbeitskleider, welche dir selbstverständlich von uns kostenlos zur Verfügung gestellt werden.\n• Exzellente Entwicklungsmöglichkeiten : Personalentwicklung wird bei uns gelebt. Unseren Mitarbeitenden stellen wir verschiedene nationale und internationale Talentprogramme zur Verfügung und unterstützen sie zeitlich sowie finanziell bei Aus- und Weiterbildungen.\n• Work-Life-Balance : 40h Woche, 25 bis 30 Ferientage, flexible Arbeitszeiten, Teilzeitpensum und unbezahlter Urlaub.\n• Gesunde Arbeitsumgebung : Hohe Gesundheits- & Sicherheitsstandards und eigenes betriebliches Gesundheitsmanagement inklusive Sozialberatung und Gesundheitsförderung.\n• Mitarbeitervergünstigungen : Grosszügige Beteiligung am ÖV- und Fitness-Abo, Flottenrabatte, vergünstigter Bezug von Reka-Geld, vergünstigte Versicherungsprämien sowie diverse Vergünstigungen. Befördere dich jetzt selbst und sende uns deine vollständigen Bewerbungsunterlagen Bei AS legen wir Wert auf Inklusion und Vielfalt und praktizieren Gleichberechtigung, um gleiche Chancen für alle zu schaffen. Wir sind bestrebt, alle qualifizierten Bewerbenden ohne Rücksicht auf Alter, ethnische Herkunft, Hautfarbe, Religionszugehörigkeit, Gewerkschaftszugehörigkeit, Geschlecht, Geschlechtsidentität, sexuelle Orientierung, Familienstand, nationale Herkunft, Nationalität, genetische Veranlagung und Gesundheit oder Behinderung für eine Einstellung in Betracht zu ziehen. Jegliche unaufgeforderte Bewerbung von Personalvermittlungsagenturen wird als abgelehnt betrachtet und stellt in keiner Weise ein Angebot seitens einer Personalvermittlungsagentur dar.",
-        "fr": "Wir sind AS Aufzüge AS Aufzüge ist schweizweiter Partner für die Montage, Modernisierung und den Unterhalt von Aufzügen. Die Vielfältigkeit und Individualisierung unserer Produkte zeichnet uns aus. Sei auch du so einzigartig wie wir! Erlebe den AS-Spirit als Servicetechniker*in Raum Zürich (m/w/d) 80-100% Durch deinen Start bei AS Aufzüge profitierst du von einem wertschätzenden und familiären Umfeld. So fördern wir den Zusammenhalt unter den Mitarbeitenden durch unsere Du-Kultur und verschiedene Events. Mehr zu uns erfährst du hier: Video Was dich erwartet\n• Selbstständige Planung und Ausführung von Wartungsarbeiten nach vorgegebenem Turnus\n• Behebung von Störungen\n• Ausführung von kleineren Reparaturen\n• Interessante Piketteinsätze\n• Kundenkommunikation Was du mitbringst\n• Abgeschlossene Berufslehre im mechanischen, elektrischen oder hydraulischen Bereich (z. B. Polymechaniker*in, Automechaniker*in, Anlagen- und Apparatebauer*in oder Elektroinstallateur*in)\n• Einige Jahre Berufserfahrung, idealerweise mit Kundenkontakt\n• Tadellose Umgangsformen und hohe Lernbereitschaft\n• Gute Kenntnisse der Gebietssprache, weitere Sprachen von Vorteil\n• Gültiger Führerschein – ohne geht’s nicht Deine vielen Vorteile\n• 2-monatige Einarbeitung bei vollem Lohn in unserem Lift Camp für deine optimale Vorbereitung auf deinen neuen Job.\n• Eigenes Firmenfahrzeug , welches du auch privat nutzen darfst.\n• Entschädigung für deine Mittagsverpflegung, faire Bereitschaftsentschädigung für Pikett und die Reinigung deiner Arbeitskleider, welche dir selbstverständlich von uns kostenlos zur Verfügung gestellt werden.\n• Exzellente Entwicklungsmöglichkeiten : Personalentwicklung wird bei uns gelebt. Unseren Mitarbeitenden stellen wir verschiedene nationale und internationale Talentprogramme zur Verfügung und unterstützen sie zeitlich sowie finanziell bei Aus- und Weiterbildungen.\n• Work-Life-Balance : 40h Woche, 25 bis 30 Ferientage, flexible Arbeitszeiten, Teilzeitpensum und unbezahlter Urlaub.\n• Gesunde Arbeitsumgebung : Hohe Gesundheits- & Sicherheitsstandards und eigenes betriebliches Gesundheitsmanagement inklusive Sozialberatung und Gesundheitsförderung.\n• Mitarbeitervergünstigungen : Grosszügige Beteiligung am ÖV- und Fitness-Abo, Flottenrabatte, vergünstigter Bezug von Reka-Geld, vergünstigte Versicherungsprämien sowie diverse Vergünstigungen. Befördere dich jetzt selbst und sende uns deine vollständigen Bewerbungsunterlagen Bei AS legen wir Wert auf Inklusion und Vielfalt und praktizieren Gleichberechtigung, um gleiche Chancen für alle zu schaffen. Wir sind bestrebt, alle qualifizierten Bewerbenden ohne Rücksicht auf Alter, ethnische Herkunft, Hautfarbe, Religionszugehörigkeit, Gewerkschaftszugehörigkeit, Geschlecht, Geschlechtsidentität, sexuelle Orientierung, Familienstand, nationale Herkunft, Nationalität, genetische Veranlagung und Gesundheit oder Behinderung für eine Einstellung in Betracht zu ziehen. Jegliche unaufgeforderte Bewerbung von Personalvermittlungsagenturen wird als abgelehnt betrachtet und stellt in keiner Weise ein Angebot seitens einer Personalvermittlungsagentur dar."
-      },
-      "location": "Wettswil",
-      "canton": "ZH",
-      "url": "https://job.schindler.com/ASZ_Service_TechnikerIn/job/Wettswil-Servicetechnikerin-Raum-Z%C3%BCrich-%28mwd%29-80-100-Z%C3%BCri/1387781733/",
-      "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
-      "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:47:25.577Z",
-      "addressLocality": "Wettswil",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Industrial",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-27",
-      "applyUrl": "https://job.schindler.com/talentcommunity/apply/1387781733/?locale=de_DE",
-      "jobReqId": "1387781733",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-05-19T12:33:29.285Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -864,7 +871,7 @@
       "url": "https://job.schindler.com/ASZ_Office_General/job/Wettswil-Sales-Manager-Service-%28mwd%29-80-100-Z%C3%BCri/1395529833/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:47:24.805Z",
+      "crawledAt": "2026-05-28T00:14:35.816Z",
       "addressLocality": "Wettswil",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -943,7 +950,7 @@
       "url": "https://job.schindler.com/SCH_Service_TechnikerIn/job/Bern-Servicetechnikerin-Fahrtreppen-Region-BE-SO-planbare-Eins%C3%A4tze-im-Oberwallis-%28mwd%29-80-100-Bern/1368633233/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:47:24.039Z",
+      "crawledAt": "2026-05-28T00:14:35.191Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1027,7 +1034,7 @@
       "url": "https://job.schindler.com/SCH_Service_TechnikerIn/job/Z%C3%BCrich-Reparaturtechnikerin-in-der-Region-Z%C3%BCrich-%28mwd%29-80-100-Z%C3%BCri/1277224001/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:47:23.267Z",
+      "crawledAt": "2026-05-28T00:14:34.576Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1107,7 +1114,7 @@
       "url": "https://job.schindler.com/Schindler/job/Oberentfelden-Aufzugsmonteur-in-der-Region-Aarau-%28mwd%29-80-100-Aarg/1368065233/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:47:22.515Z",
+      "crawledAt": "2026-05-28T00:14:33.956Z",
       "addressLocality": "Oberentfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1125,6 +1132,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-05-19T12:33:43.279Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1171,7 +1179,7 @@
       "url": "https://job.schindler.com/SCH_Fitter/job/Z%C3%BCrich-Monteurin-f%C3%BCr-Aufzugsanlagen-im-Grossraum-Z%C3%BCrich-mit-F%C3%BChrungspotenzial-%28mwd%29-80-100-Z%C3%BCri/1159664001/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:47:21.740Z",
+      "crawledAt": "2026-05-28T00:14:33.348Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1229,9 +1237,9 @@
       "slug": "montatore-trice-di-ascensori-senior-m-f-d-80-100-schindler-bioggio",
       "slugByLocale": {
         "it": "montatore-trice-di-ascensori-senior-m-f-d-80-100-schindler-bioggio",
-        "en": "senior-lift-lift-m-f-d-80-100-schindler-bioggio",
-        "de": "senior-lift-lift-m-w-d-80-100-schindler-bioggio",
-        "fr": "soulevant-ascenseur-m-f-j-80-100-schindler-bioggio"
+        "en": "montatore-trice-di-ascensori-senior-m-f-d-80-100-schindler-bioggio-lukq50",
+        "de": "montatore-trice-di-ascensori-senior-m-f-d-80-100-schindler-bioggio-lukq50",
+        "fr": "montatore-trice-di-ascensori-senior-m-f-d-80-100-schindler-bioggio-lukq50"
       },
       "company": "Schindler",
       "companyKey": "schindler",
@@ -1255,7 +1263,7 @@
       "url": "https://job.schindler.com/Schindler/job/Bioggio-Montatoretrice-di-ascensori-SENIOR-%28mfd%29-80-100-Tici/1367856233/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "it",
-      "crawledAt": "2026-05-27T13:47:20.948Z",
+      "crawledAt": "2026-05-28T00:14:32.737Z",
       "addressLocality": "Bioggio",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -1273,16 +1281,21 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "montatore-trice-di-ascensori-senior-m-f-d-80-100-schindler-bioggio-lukq50"
+        "senior-lift-lift-m-f-d-80-100-schindler-bioggio",
+        "senior-lift-lift-m-w-d-80-100-schindler-bioggio",
+        "soulevant-ascenseur-m-f-j-80-100-schindler-bioggio"
       ],
       "previousSlugsByLocale": {
         "en": [
+          "senior-lift-lift-m-f-d-80-100-schindler-bioggio",
           "montatore-trice-di-ascensori-senior-m-f-d-80-100-schindler-bioggio-lukq50"
         ],
         "de": [
+          "senior-lift-lift-m-w-d-80-100-schindler-bioggio",
           "montatore-trice-di-ascensori-senior-m-f-d-80-100-schindler-bioggio-lukq50"
         ],
         "fr": [
+          "soulevant-ascenseur-m-f-j-80-100-schindler-bioggio",
           "montatore-trice-di-ascensori-senior-m-f-d-80-100-schindler-bioggio-lukq50"
         ]
       },
@@ -1333,7 +1346,7 @@
       "url": "https://job.schindler.com/Schindler/job/Ebikon-Project-Manager-Supply-Chain-Management-%28mwd%29-80-100-Luze/1378580033/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:47:20.163Z",
+      "crawledAt": "2026-05-28T00:14:32.111Z",
       "addressLocality": "Ebikon",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1362,6 +1375,7 @@
         ]
       },
       "firstSeenAt": "2026-05-19T12:33:56.687Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -1408,7 +1422,7 @@
       "url": "https://job.schindler.com/SBB/job/Ebikon-Lehrstelle-als-Elektronikerin-EFZ-Way-up-f%C3%BCr-2026-Luze/1219241401/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:47:19.374Z",
+      "crawledAt": "2026-05-28T00:14:31.487Z",
       "addressLocality": "Ebikon",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1485,7 +1499,7 @@
       "url": "https://job.schindler.com/SCH_Fitter/job/Z%C3%BCrich-Monteur-f%C3%BCr-Aufzugsanlagen-in-der-Region-Z%C3%BCrich-%28mwd%29%2C-80-100-Z%C3%BCri/1129812001/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:47:18.588Z",
+      "crawledAt": "2026-05-28T00:14:30.883Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1567,7 +1581,7 @@
       "url": "https://job.schindler.com/SCH_Fitter/job/Z%C3%BCrich-Elektroinstallateurin-f%C3%BCr-die-Liftmontage-Region-Z%C3%BCrich-%28mwd%29-80-100-Z%C3%BCri/1189247101/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:47:17.776Z",
+      "crawledAt": "2026-05-28T00:14:30.258Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1653,7 +1667,7 @@
       "url": "https://job.schindler.com/SCH_Fitter/job/Bern-Aufzugsmonteurin-Region-Bern-%28mwd%29-80-100-Bern/1252421501/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:47:17.023Z",
+      "crawledAt": "2026-05-28T00:14:29.651Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1735,7 +1749,7 @@
       "url": "https://job.schindler.com/SBB_AS/job/Le-Mont-sur-Lausanne-Apprentissage-de-Polym%C3%A9canicien-ne-CFC-avec-sp%C3%A9cialisation-de-monteur-euse-en-ascenseurs-pour-2026-Vaud/1214532301/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-27T13:47:16.243Z",
+      "crawledAt": "2026-05-28T00:14:29.024Z",
       "addressLocality": "Le Mont-sur-Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1821,7 +1835,7 @@
       "url": "https://job.schindler.com/SBB/job/St_-Gallen-Schnupperlehre-als-Polymechanikerin-EFZ-mit-Schwerpunkt-Liftmontage-St_/1254155001/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:47:15.467Z",
+      "crawledAt": "2026-05-28T00:14:28.397Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1908,7 +1922,7 @@
       "url": "https://job.schindler.com/SBB/job/St_-Gallen-Schnupperlehre-als-Anlagen-und-Apparatebauerin-EFZ-mit-Schwerpunkt-Liftmontage-St_/1254105201/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:47:14.675Z",
+      "crawledAt": "2026-05-28T00:14:27.781Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1981,7 +1995,7 @@
       "url": "https://job.schindler.com/Schindler/job/St_-Moritz-Service-Technikerin-im-Engadin-%28mwd%29-80-100-Grau/1379319033/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:47:13.902Z",
+      "crawledAt": "2026-05-28T00:14:27.158Z",
       "addressLocality": "St. Moritz",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -2046,7 +2060,7 @@
       "url": "https://job.schindler.com/Schindler/job/St_-Gallen-Aufzugsmonteurin-%2880-100%29-in-St_-Gallen-St_/1376813233/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:47:13.127Z",
+      "crawledAt": "2026-05-28T00:14:26.540Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -2119,7 +2133,7 @@
       "url": "https://job.schindler.com/ASZ_Office_General/job/Castione-Arbedo-Working-Student-Backoffice-80-Tici/1393138933/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "it",
-      "crawledAt": "2026-05-27T13:47:12.341Z",
+      "crawledAt": "2026-05-28T00:14:25.934Z",
       "addressLocality": "Castione-Arbedo",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -2149,6 +2163,7 @@
         ]
       },
       "firstSeenAt": "2026-05-19T12:34:10.949Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2195,7 +2210,7 @@
       "url": "https://job.schindler.com/Schindler/job/Z%C3%BCrich-Servicetechnikerin-%28mwd%29-Region-linkes-Z%C3%BCrichseeufer%2C-80-100-Z%C3%BCri/1395984233/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:47:11.570Z",
+      "crawledAt": "2026-05-28T00:14:25.318Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2275,7 +2290,7 @@
       "url": "https://job.schindler.com/Schindler/job/Bern-Verkaufsprofi-Liftmodernisierung-in-Bern-%28mwd%29-80-100-Bern/1391463333/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:47:10.803Z",
+      "crawledAt": "2026-05-28T00:14:24.668Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2309,6 +2324,7 @@
         ]
       },
       "firstSeenAt": "2026-05-19T12:34:04.959Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -2355,7 +2371,7 @@
       "url": "https://job.schindler.com/ASZ/job/Wettswil-Projektleiterin-%28mwd%29-80-100-Z%C3%BCri/1391616733/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:47:10.051Z",
+      "crawledAt": "2026-05-28T00:14:24.056Z",
       "addressLocality": "Wettswil",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2428,7 +2444,7 @@
       "url": "https://job.schindler.com/ASZ_Fitter/job/Sch%C3%B6nb%C3%BChl-Aufzugsmonteurin-Region-Basel-%28mwd%29-80-100-Bern/1389964833/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:47:09.258Z",
+      "crawledAt": "2026-05-28T00:14:23.430Z",
       "addressLocality": "Schönbühl",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2501,7 +2517,7 @@
       "url": "https://job.schindler.com/ASZ_Fitter/job/Brig-Aufzugsmonteurin-Region-Oberwallis-%28mwd%29-80-100-Wall/1389352233/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:47:08.508Z",
+      "crawledAt": "2026-05-28T00:14:22.833Z",
       "addressLocality": "Brig",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -2519,6 +2535,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-05-19T12:33:46.988Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2565,7 +2582,7 @@
       "url": "https://job.schindler.com/SCH_Service_TechnikerIn/job/Bern-Servicetechnikerin-in-Bern-%28mwd%29-80-100-Bern/1388810233/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:47:07.710Z",
+      "crawledAt": "2026-05-28T00:14:22.211Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2601,6 +2618,7 @@
         ]
       },
       "firstSeenAt": "2026-05-19T12:34:02.683Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2647,7 +2665,7 @@
       "url": "https://job.schindler.com/ASZ_Fitter/job/Wettswil-Aufzugsmonteurin-Modernisierungen-Region-Z%C3%BCrich-und-Aargau-%28mwd%29-80-100-Z%C3%BCri/1389603133/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:47:06.952Z",
+      "crawledAt": "2026-05-28T00:14:21.566Z",
       "addressLocality": "Wettswil",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2720,7 +2738,7 @@
       "url": "https://job.schindler.com/Schindler/job/Ebikon-Environment-&-Quality-Manager-%28mwd%29-80-100-Luze/1389820133/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:47:06.173Z",
+      "crawledAt": "2026-05-28T00:14:20.963Z",
       "addressLocality": "Ebikon",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -2751,6 +2769,7 @@
         ]
       },
       "firstSeenAt": "2026-05-19T12:34:26.547Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -2797,7 +2816,7 @@
       "url": "https://job.schindler.com/Schindler/job/Z%C3%BCrich-Teamleiter-Service-%28mwd%29-Stadt-Z%C3%BCrich%2C-80-100-Z%C3%BCri/1381760233/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:47:05.404Z",
+      "crawledAt": "2026-05-28T00:14:20.344Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2835,6 +2854,7 @@
         ]
       },
       "firstSeenAt": "2026-05-19T12:34:08.710Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2881,7 +2901,7 @@
       "url": "https://job.schindler.com/Schindler/job/Ebikon-Warehouse-Agent-%28mwd%29-80-100-Luze/1381780533/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:47:04.608Z",
+      "crawledAt": "2026-05-28T00:14:19.719Z",
       "addressLocality": "Ebikon",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -2958,7 +2978,7 @@
       "url": "https://job.schindler.com/ASZ/job/Wettswil-Montagechef-Region-Aargau-und-Z%C3%BCrich-West-80-100-%28mwd%29-Z%C3%BCri/1383438333/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:47:03.828Z",
+      "crawledAt": "2026-05-28T00:14:19.120Z",
       "addressLocality": "Wettswil",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3031,7 +3051,7 @@
       "url": "https://job.schindler.com/ASZ_Fitter/job/Sch%C3%B6nb%C3%BChl-Aufzugsmonteurin-Region-Berner-Oberland-%28mwd%29-80-100-Bern/1395822333/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:47:03.031Z",
+      "crawledAt": "2026-05-28T00:14:18.516Z",
       "addressLocality": "Schönbühl",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3104,7 +3124,7 @@
       "url": "https://job.schindler.com/Schindler/job/Ebikon-Servicetechnikerin-Fahrtreppen-Zentralschweiz-%28mwd%29-80-100-Luze/1395793933/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:47:02.235Z",
+      "crawledAt": "2026-05-28T00:14:17.917Z",
       "addressLocality": "Ebikon",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -3176,7 +3196,7 @@
       "url": "https://job.schindler.com/SBB/job/Bussigny-Apprentissage-de-Constructeur-d'appareils-industriels-CFC-avec-sp%C3%A9c_-monteur-en-ascenseurs-pour-2026-Waad/1212529901/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:47:01.439Z",
+      "crawledAt": "2026-05-28T00:14:17.288Z",
       "addressLocality": "Bussigny",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -3253,7 +3273,7 @@
       "url": "https://job.schindler.com/SBB/job/Bussigny-Apprentissage-de-Constructeur-d'appareils-industriels-CFC-avec-sp%C3%A9c_-monteur-en-ascenseurs-pour-2026-Vaud/1212529801/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-27T13:47:00.639Z",
+      "crawledAt": "2026-05-28T00:14:16.655Z",
       "addressLocality": "Bussigny",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -3331,7 +3351,7 @@
       "url": "https://job.schindler.com/SBB/job/Ebikon-Lehrstelle-als-Anlagen-und-Apparatebauerin-EFZ-mit-Schwerpunkt-Liftmontage-f%C3%BCr-2026-Luze/1213979001/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:46:59.862Z",
+      "crawledAt": "2026-05-28T00:14:16.038Z",
       "addressLocality": "Ebikon",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -3416,7 +3436,7 @@
       "url": "https://job.schindler.com/ASZ/job/Basel-Leadmonteur-Boltshauser-Region-BaselBern-%28mwd%29-80-100-Base/1192926601/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:46:59.099Z",
+      "crawledAt": "2026-05-28T00:14:15.412Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -3442,6 +3462,7 @@
         ]
       },
       "firstSeenAt": "2026-05-19T12:34:17.660Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -3488,7 +3509,7 @@
       "url": "https://job.schindler.com/SCH_Fitter/job/Ebikon-Aufzugsmonteurin-%28mwd%29-80-100-Region-Zentralschweiz-Luze/1270855801/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:46:58.344Z",
+      "crawledAt": "2026-05-28T00:14:14.789Z",
       "addressLocality": "Ebikon",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -3519,6 +3540,7 @@
         ]
       },
       "firstSeenAt": "2026-05-19T12:33:59.655Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -3565,7 +3587,7 @@
       "url": "https://job.schindler.com/SBB/job/Basel-Schnupperlehre-als-Polymechanikerin-EFZ-mit-Schwerpunkt-Liftmontage-%28Lehrstart-2027%29-Base/1263539001/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:46:57.574Z",
+      "crawledAt": "2026-05-28T00:14:14.167Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -3613,9 +3635,9 @@
     },
     {
       "id": "schindler-604676bbf76f",
-      "slug": "gestione-delle-autorizzazioni-dei-cookie-schindler-bern-00d690",
+      "slug": "manager-per-cookie-einwilligungen-schindler-bern",
       "slugByLocale": {
-        "it": "gestione-delle-autorizzazioni-dei-cookie-schindler-bern-00d690",
+        "it": "manager-per-cookie-einwilligungen-schindler-bern",
         "en": "manager-fur-cookie-einwilligungen-schindler-bern",
         "de": "manager-fur-cookie-einwilligungen-schindler-bern",
         "fr": "gestionnaire-pour-les-autorisations-de-cookies-schindler-bern-fd1b8a"
@@ -3642,7 +3664,7 @@
       "url": "https://job.schindler.com/SBB/job/Bern-Schnupperlehre-als-Anlagen-und-Apparatebauerin-EFZ-mit-Schwerpunkt-Liftmontage-%28Lehrstart-2027%29-Bern/1263538801/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:46:56.790Z",
+      "crawledAt": "2026-05-28T00:14:13.549Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3662,13 +3684,14 @@
       "previousSlugs": [
         "gestione-delle-autorizzazioni-dei-cookie-schindler-bern-fd1b8a",
         "manager-fur-cookie-einwilligungen-schindler-bern",
-        "manager-per-cookie-einwilligungen-schindler-bern-2",
-        "manager-per-cookie-einwilligungen-schindler-bern"
+        "gestione-delle-autorizzazioni-dei-cookie-schindler-bern-00d690",
+        "manager-per-cookie-einwilligungen-schindler-bern-2"
       ],
       "previousSlugsByLocale": {
         "it": [
           "gestione-delle-autorizzazioni-dei-cookie-schindler-bern-fd1b8a",
           "manager-fur-cookie-einwilligungen-schindler-bern",
+          "gestione-delle-autorizzazioni-dei-cookie-schindler-bern-00d690",
           "manager-per-cookie-einwilligungen-schindler-bern-2",
           "manager-per-cookie-einwilligungen-schindler-bern"
         ],
@@ -3723,7 +3746,7 @@
       "url": "https://job.schindler.com/SBB_AS/job/Sch%C3%B6nb%C3%BChl-Schnupperlehre-als-Anlagen-und-Apparatebauerin-EFZ-mit-Schwerpunkt-Liftmontage-%28Lehrstart-2027%29-Bern/1263540601/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:46:55.243Z",
+      "crawledAt": "2026-05-28T00:14:12.319Z",
       "addressLocality": "Schönbühl",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3796,7 +3819,7 @@
       "url": "https://job.schindler.com/SBB_AS/job/Sch%C3%B6nb%C3%BChl-Schnupperlehre-als-Polymechanikerin-EFZ-mit-Schwerpunkt-Liftmontage-%28Lehrstart-2027%29-Bern/1263539701/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:46:54.471Z",
+      "crawledAt": "2026-05-28T00:14:11.705Z",
       "addressLocality": "Schönbühl",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3869,7 +3892,7 @@
       "url": "https://job.schindler.com/SBB/job/Basel-Schnupperlehre-als-Anlagen-und-Apparatebauerin-EFZ-mit-Schwerpunkt-Liftmontage-%28Lehrstart-2027%29-Base/1263539301/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:46:53.698Z",
+      "crawledAt": "2026-05-28T00:14:11.085Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -3920,13 +3943,13 @@
       "postalCode": "6934"
     },
     {
-      "id": "schindler-324620d36934",
+      "id": "schindler-6e3cbe691386",
       "slug": "manager-per-cookie-einwilligungen-schindler-ebikon",
       "slugByLocale": {
         "de": "manager-fur-cookie-einwilligungen-schindler-ebikon",
         "it": "manager-per-cookie-einwilligungen-schindler-ebikon",
-        "en": "manager-per-cookie-einwilligungen-schindler-ebikon-2",
-        "fr": "manager-per-cookie-einwilligungen-schindler-ebikon-2"
+        "en": "manager-per-cookie-einwilligungen-schindler-ebikon",
+        "fr": "manager-per-cookie-einwilligungen-schindler-ebikon"
       },
       "company": "Schindler",
       "companyKey": "schindler",
@@ -3938,19 +3961,19 @@
         "en": "Manager für Cookie-Einwilligungen",
         "fr": "Manager für Cookie-Einwilligungen"
       },
-      "description": "Mobilität | seit 1874 | weltweit im Einsatz\n\nDie Schindler Berufsbildung bildet schweizweit über 300 Lernende aus – du bist somit nie allein. Unser gesamtes Team setzt sich täglich für dich ein, damit du am Ende deiner Lehrzeit eine top ausgebildete Fachkraft bist.\n\nSchnupperlehre als Anlagen- und Apparatebauer*in EFZ mit Schwerpunkt Liftmontage (Lehrstart 2027) in Ebikon",
+      "description": "Mobilität | seit 1874 | weltweit im Einsatz\n\nDie Schindler Berufsbildung bildet schweizweit über 300 Lernende aus – du bist somit nie allein. Unser gesamtes Team setzt sich täglich für dich ein, damit du am Ende deiner Lehrzeit eine top ausgebildete Fachkraft bist.\n\nSchnupperlehre als Anlagen- und Apparatebauer*in EFZ (Lehrstart 2027) in Ebikon",
       "descriptionByLocale": {
-        "de": "Mobilität | seit 1874 | weltweit im Einsatz\n\nDie Schindler Berufsbildung bildet schweizweit über 300 Lernende aus – du bist somit nie allein. Unser gesamtes Team setzt sich täglich für dich ein, damit du am Ende deiner Lehrzeit eine top ausgebildete Fachkraft bist.\n\nSchnupperlehre als Anlagen- und Apparatebauer*in EFZ mit Schwerpunkt Liftmontage (Lehrstart 2027) in Ebikon",
-        "it": "Mobilität | seit 1874 | weltweit im Einsatz\n\nDie Schindler Berufsbildung bildet schweizweit über 300 Lernende aus – du bist somit nie allein. Unser gesamtes Team setzt sich täglich für dich ein, damit du am Ende deiner Lehrzeit eine top ausgebildete Fachkraft bist.\n\nSchnupperlehre als Anlagen- und Apparatebauer*in EFZ mit Schwerpunkt Liftmontage (Lehrstart 2027) in Ebikon",
-        "en": "Mobilität | seit 1874 | weltweit im Einsatz\n\nDie Schindler Berufsbildung bildet schweizweit über 300 Lernende aus – du bist somit nie allein. Unser gesamtes Team setzt sich täglich für dich ein, damit du am Ende deiner Lehrzeit eine top ausgebildete Fachkraft bist.\n\nSchnupperlehre als Anlagen- und Apparatebauer*in EFZ mit Schwerpunkt Liftmontage (Lehrstart 2027) in Ebikon",
-        "fr": "Mobilität | seit 1874 | weltweit im Einsatz\n\nDie Schindler Berufsbildung bildet schweizweit über 300 Lernende aus – du bist somit nie allein. Unser gesamtes Team setzt sich täglich für dich ein, damit du am Ende deiner Lehrzeit eine top ausgebildete Fachkraft bist.\n\nSchnupperlehre als Anlagen- und Apparatebauer*in EFZ mit Schwerpunkt Liftmontage (Lehrstart 2027) in Ebikon"
+        "de": "Mobilität | seit 1874 | weltweit im Einsatz\n\nDie Schindler Berufsbildung bildet schweizweit über 300 Lernende aus – du bist somit nie allein. Unser gesamtes Team setzt sich täglich für dich ein, damit du am Ende deiner Lehrzeit eine top ausgebildete Fachkraft bist.\n\nSchnupperlehre als Anlagen- und Apparatebauer*in EFZ (Lehrstart 2027) in Ebikon",
+        "it": "Mobilität | seit 1874 | weltweit im Einsatz\n\nDie Schindler Berufsbildung bildet schweizweit über 300 Lernende aus – du bist somit nie allein. Unser gesamtes Team setzt sich täglich für dich ein, damit du am Ende deiner Lehrzeit eine top ausgebildete Fachkraft bist.\n\nSchnupperlehre als Anlagen- und Apparatebauer*in EFZ (Lehrstart 2027) in Ebikon",
+        "en": "Mobilität | seit 1874 | weltweit im Einsatz\n\nDie Schindler Berufsbildung bildet schweizweit über 300 Lernende aus – du bist somit nie allein. Unser gesamtes Team setzt sich täglich für dich ein, damit du am Ende deiner Lehrzeit eine top ausgebildete Fachkraft bist.\n\nSchnupperlehre als Anlagen- und Apparatebauer*in EFZ (Lehrstart 2027) in Ebikon",
+        "fr": "Mobilität | seit 1874 | weltweit im Einsatz\n\nDie Schindler Berufsbildung bildet schweizweit über 300 Lernende aus – du bist somit nie allein. Unser gesamtes Team setzt sich täglich für dich ein, damit du am Ende deiner Lehrzeit eine top ausgebildete Fachkraft bist.\n\nSchnupperlehre als Anlagen- und Apparatebauer*in EFZ (Lehrstart 2027) in Ebikon"
       },
       "location": "Ebikon",
       "canton": "LU",
-      "url": "https://job.schindler.com/SBB/job/Ebikon-Schnupperlehre-als-Anlagen-und-Apparatebauerin-EFZ-mit-Schwerpunkt-Liftmontage-%28Lehrstart-2027%29-Luze/1260461801/",
+      "url": "https://job.schindler.com/SBB/job/Ebikon-Schnupperlehre-als-Anlagen-und-Apparatebauerin-EFZ-%28Lehrstart-2027%29-Luze/1260463301/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:46:52.170Z",
+      "crawledAt": "2026-05-28T00:14:10.458Z",
       "addressLocality": "Ebikon",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -3963,21 +3986,19 @@
       "currency": "CHF",
       "featured": false,
       "postedDate": "2026-05-21",
-      "applyUrl": "https://job.schindler.com/talentcommunity/apply/1260461801/?locale=de_DE",
-      "jobReqId": "1260461801",
+      "applyUrl": "https://job.schindler.com/talentcommunity/apply/1260463301/?locale=de_DE",
+      "jobReqId": "1260463301",
       "requirements": [],
       "requirementsByLocale": {
         "de": []
       },
       "previousSlugsByLocale": {
         "it": [
-          "manager-fur-cookie-einwilligungen-schindler-ebikon",
-          "manager-per-cookie-einwilligungen-schindler-ebikon-2"
+          "manager-fur-cookie-einwilligungen-schindler-ebikon"
         ]
       },
       "previousSlugs": [
-        "manager-fur-cookie-einwilligungen-schindler-ebikon",
-        "manager-per-cookie-einwilligungen-schindler-ebikon-2"
+        "manager-fur-cookie-einwilligungen-schindler-ebikon"
       ],
       "needsRetranslation": true,
       "salaryMin": 68000,
@@ -3994,7 +4015,7 @@
       },
       "streetAddress": "Via Industria 11",
       "postalCode": "6934",
-      "firstSeenAt": "2026-05-27T13:46:52.170Z"
+      "firstSeenAt": "2026-05-28T00:14:10.458Z"
     },
     {
       "id": "schindler-75a56cb52f43",
@@ -4027,7 +4048,7 @@
       "url": "https://job.schindler.com/SBB/job/Winterthur-Schnupperlehre-als-Polymechanikerin-EFZ-mit-Schwerpunkt-Liftmontage-Z%C3%BCri/1254185601/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:46:49.094Z",
+      "crawledAt": "2026-05-28T00:14:07.416Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4045,26 +4066,25 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
+        "responsabile-consent-cookie-schindler-ebikon",
+        "gestione-delle-autorizzazioni-dei-cookie-schindler-bern-fd1b8a-8f3hgt",
+        "gestione-delle-autorizzazioni-dei-cookie-schindler-bern-fd1b8a",
+        "gestione-delle-autorizzazioni-dei-cookie-schindler-ebikon-i5c82e",
+        "gestione-delle-autorizzazioni-dei-cookie-schindler-oberentfelden",
+        "responsabile-consent-cookie-schindler-ebikon-i5b1st",
+        "gestione-delle-autorizzazioni-dei-cookie-schindler-ebikon",
+        "responsabile-consent-cookie-schindler-ebikon-i5ay3c",
         "gestione-delle-autorizzazioni-dei-cookie-schindler-winterthur-b3da79",
         "manager-fur-cookie-einwilligungen-schindler-winterthur",
         "manager-per-cookie-einwilligungen-schindler-ebikon",
+        "gestione-delle-autorizzazioni-dei-cookie-schindler-winterthur-ofej7n",
+        "gestione-delle-autorizzazioni-dei-cookie-schindler-oberentfelden-8cq51r",
         "manager-per-cookie-einwilligungen-schindler-winterthur",
         "manager-per-cookie-einwilligungen-schindler-ebikon-i5b1st",
         "manager-per-cookie-einwilligungen-schindler-ebikon-i5ay3c",
         "manager-fur-cookie-einwilligungen-schindler-ebikon-2",
         "manager-per-cookie-einwilligungen-schindler-oberentfelden",
-        "manager-fur-cookie-einwilligungen-schindler-ebikon-3",
-        "manager-fur-cookie-einwilligungen-schindler-ebikon",
-        "manager-per-cookie-einwilligungen-schindler-ebikon-2",
-        "manager-per-cookie-einwilligungen-schindler-ebikon-i5afjz",
-        "manager-per-cookie-einwilligungen-schindler-ebikon-i5ae2l",
-        "gestione-delle-autorizzazioni-dei-cookie-schindler-winterthur-ofej7n",
-        "manager-per-cookie-einwilligungen-schindler-winterthur-2",
-        "gestione-delle-autorizzazioni-dei-cookie-schindler-oberentfelden-8cq51r",
-        "manager-fur-cookie-einwilligungen-schindler-oberentfelden",
-        "gestionnaire-pour-les-autorisations-de-cookies-schindler-oberentfelden",
-        "manager-per-cookie-einwilligungen-schindler-oberentfelden-2",
-        "manager-per-cookie-einwilligungen-schindler-bern"
+        "manager-fur-cookie-einwilligungen-schindler-ebikon-3"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4079,9 +4099,9 @@
           "gestione-delle-autorizzazioni-dei-cookie-schindler-winterthur-b3da79",
           "manager-fur-cookie-einwilligungen-schindler-winterthur",
           "manager-per-cookie-einwilligungen-schindler-ebikon",
-          "manager-per-cookie-einwilligungen-schindler-winterthur",
           "gestione-delle-autorizzazioni-dei-cookie-schindler-winterthur-ofej7n",
-          "gestione-delle-autorizzazioni-dei-cookie-schindler-oberentfelden-8cq51r"
+          "gestione-delle-autorizzazioni-dei-cookie-schindler-oberentfelden-8cq51r",
+          "manager-per-cookie-einwilligungen-schindler-winterthur"
         ],
         "en": [
           "manager-per-cookie-einwilligungen-schindler-ebikon-i5b1st",
@@ -4153,7 +4173,7 @@
       "url": "https://job.schindler.com/SBB_AS/job/Steinach-Schnupperlehre-als-Polymechanikerin-EFZ-mit-Schwerpunkt-Liftmontage-St_/1254185401/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:46:48.328Z",
+      "crawledAt": "2026-05-28T00:14:06.805Z",
       "addressLocality": "Steinach",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -4182,6 +4202,7 @@
         ]
       },
       "firstSeenAt": "2026-05-19T12:34:28.777Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -4228,7 +4249,7 @@
       "url": "https://job.schindler.com/SBB_AS/job/Steinach-Schnupperlehre-als-Anlagen-und-Apparatebauerin-EFZ-mit-Schwerpunkt-Liftmontage-St_/1254183401/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:46:47.545Z",
+      "crawledAt": "2026-05-28T00:14:06.176Z",
       "addressLocality": "Steinach",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -4275,9 +4296,9 @@
     },
     {
       "id": "schindler-d075d10ff07d",
-      "slug": "gestione-delle-autorizzazioni-dei-cookie-schindler-winterthur-010822",
+      "slug": "manager-per-cookie-einwilligungen-schindler-winterthur",
       "slugByLocale": {
-        "it": "gestione-delle-autorizzazioni-dei-cookie-schindler-winterthur-010822",
+        "it": "manager-per-cookie-einwilligungen-schindler-winterthur",
         "en": "manager-fur-cookie-einwilligungen-schindler-winterthur",
         "de": "manager-fur-cookie-einwilligungen-schindler-winterthur",
         "fr": "gestionnaire-pour-les-autorisations-de-cookies-schindler-winterthur"
@@ -4304,7 +4325,7 @@
       "url": "https://job.schindler.com/SBB/job/Winterthur-Schnupperlehre-als-Anlagen-und-Apparatebauerin-EFZ-mit-Schwerpunkt-Liftmontage-Z%C3%BCri/1254158801/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:46:46.779Z",
+      "crawledAt": "2026-05-28T00:14:05.559Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4326,8 +4347,8 @@
         "gestione-delle-autorizzazioni-dei-cookie-schindler-winterthur",
         "gestione-delle-autorizzazioni-dei-cookie-schindler-bern-fd1b8a-8f3hgt",
         "manager-fur-cookie-einwilligungen-schindler-winterthur",
+        "gestione-delle-autorizzazioni-dei-cookie-schindler-winterthur-010822",
         "manager-per-cookie-einwilligungen-schindler-winterthur-2",
-        "manager-per-cookie-einwilligungen-schindler-winterthur",
         "manager-fur-cookie-einwilligungen-schindler-ebikon",
         "manager-per-cookie-einwilligungen-schindler-oberentfelden-2",
         "manager-per-cookie-einwilligungen-schindler-bern",
@@ -4348,6 +4369,7 @@
           "gestione-delle-autorizzazioni-dei-cookie-schindler-winterthur",
           "gestione-delle-autorizzazioni-dei-cookie-schindler-bern-fd1b8a-8f3hgt",
           "manager-fur-cookie-einwilligungen-schindler-winterthur",
+          "gestione-delle-autorizzazioni-dei-cookie-schindler-winterthur-010822",
           "manager-per-cookie-einwilligungen-schindler-winterthur-2",
           "manager-per-cookie-einwilligungen-schindler-winterthur"
         ],
@@ -4411,7 +4433,7 @@
       "url": "https://job.schindler.com/SCH_Service_TechnikerIn/job/Ebikon-Servicetechnikerin-Region-SurseeDagmersellen-%28mwd%29-80-100-Luze/1253809101/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:46:45.992Z",
+      "crawledAt": "2026-05-28T00:14:04.911Z",
       "addressLocality": "Ebikon",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -4429,6 +4451,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-05-19T12:33:50.719Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -4475,7 +4498,7 @@
       "url": "https://job.schindler.com/SCH_Service_TechnikerIn/job/Bern-Aufzugsmonteur-Region-Berner-Oberland-%28mwd%29-80-100-Bern/1242184901/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:46:45.178Z",
+      "crawledAt": "2026-05-28T00:14:04.287Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4558,7 +4581,7 @@
       "url": "https://job.schindler.com/SCH_Service_TechnikerIn/job/Z%C3%BCrich-Servicetechnikerin-mit-Potenzial-in-der-Region-Z%C3%BCrich-%28mwd%29-80-100-Z%C3%BCri/1239281901/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:46:44.419Z",
+      "crawledAt": "2026-05-28T00:14:03.665Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4642,7 +4665,7 @@
       "url": "https://job.schindler.com/ASZ_Fitter/job/Chur-Aufzugsmonteurin-%2880-100%29-in-Graub%C3%BCnden-Grau/1266126701/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:46:43.604Z",
+      "crawledAt": "2026-05-28T00:14:03.041Z",
       "addressLocality": "Chur",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -4726,7 +4749,7 @@
       "url": "https://job.schindler.com/SCH_Fitter/job/Fribourg-Monteur-d'ascenseur-80-100-R%C3%A9gion-Fribourg-Frib/1269796001/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-27T13:46:42.840Z",
+      "crawledAt": "2026-05-28T00:14:02.438Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -4804,7 +4827,7 @@
       "url": "https://job.schindler.com/SBB_AS/job/Sch%C3%B6nb%C3%BChl-Schnupperlehre-als-Kaufmannfrau-EFZ-%28Lehrstart-2027%29-Bern/1249975901/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:46:42.042Z",
+      "crawledAt": "2026-05-28T00:14:01.833Z",
       "addressLocality": "Schönbühl",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4877,7 +4900,7 @@
       "url": "https://job.schindler.com/SBB/job/Oberentfelden-Schnupperlehre-als-Polymechanikerin-EFZ-mit-Schwerpunkt-Liftmontage-%28Lehrstart-2027%29-Aarg/1250930501/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:46:40.465Z",
+      "crawledAt": "2026-05-28T00:14:00.583Z",
       "addressLocality": "Oberentfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -4895,26 +4918,25 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
+        "manager-fur-cookie-einwilligungen-schindler-oberentfelden",
+        "manager-per-cookie-einwilligungen-schindler-bern",
+        "gestione-delle-autorizzazioni-dei-cookie-schindler-winterthur",
+        "gestione-delle-autorizzazioni-dei-cookie-schindler-oberentfelden-8cq51r",
+        "gestione-delle-autorizzazioni-dei-cookie-schindler-bern-fd1b8a-8f3hgt",
+        "gestione-delle-autorizzazioni-dei-cookie-schindler-bern-fd1b8a",
         "responsabile-consent-cookie-schindler-ebikon",
         "responsabile-consent-cookie-schindler-ebikon-i5ay3c",
         "gestione-delle-autorizzazioni-dei-cookie-schindler-winterthur-ofej7n",
         "responsabile-consent-cookie-schindler-ebikon-i5b1st",
         "gestione-delle-autorizzazioni-dei-cookie-schindler-oberentfelden-6aa8f4",
         "manager-per-cookie-einwilligungen-schindler-winterthur",
-        "manager-per-cookie-einwilligungen-schindler-oberentfelden",
-        "manager-per-cookie-einwilligungen-schindler-winterthur-2",
-        "manager-per-cookie-einwilligungen-schindler-oberentfelden-2",
-        "manager-per-cookie-einwilligungen-schindler-ebikon-2",
-        "manager-per-cookie-einwilligungen-schindler-ebikon-i5afjz",
-        "manager-per-cookie-einwilligungen-schindler-ebikon-i5ae2l",
-        "manager-fur-cookie-einwilligungen-schindler-winterthur",
-        "gestionnaire-pour-les-autorisations-de-cookies-schindler-ebikon",
         "gestione-delle-autorizzazioni-dei-cookie-schindler-ebikon-i5c82e",
         "gestione-delle-autorizzazioni-dei-cookie-schindler-ebikon",
         "gestione-delle-autorizzazioni-dei-cookie-schindler-winterthur-b3da79",
-        "manager-per-cookie-einwilligungen-schindler-ebikon-i5b1st",
-        "manager-per-cookie-einwilligungen-schindler-ebikon",
-        "manager-fur-cookie-einwilligungen-schindler-ebikon"
+        "manager-per-cookie-einwilligungen-schindler-oberentfelden",
+        "manager-per-cookie-einwilligungen-schindler-winterthur-2",
+        "manager-per-cookie-einwilligungen-schindler-oberentfelden-2",
+        "manager-per-cookie-einwilligungen-schindler-ebikon-2"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4930,10 +4952,10 @@
           "responsabile-consent-cookie-schindler-ebikon-i5b1st",
           "gestione-delle-autorizzazioni-dei-cookie-schindler-oberentfelden-6aa8f4",
           "manager-per-cookie-einwilligungen-schindler-winterthur",
-          "manager-per-cookie-einwilligungen-schindler-oberentfelden",
           "gestione-delle-autorizzazioni-dei-cookie-schindler-ebikon-i5c82e",
           "gestione-delle-autorizzazioni-dei-cookie-schindler-ebikon",
-          "gestione-delle-autorizzazioni-dei-cookie-schindler-winterthur-b3da79"
+          "gestione-delle-autorizzazioni-dei-cookie-schindler-winterthur-b3da79",
+          "manager-per-cookie-einwilligungen-schindler-oberentfelden"
         ],
         "en": [
           "manager-per-cookie-einwilligungen-schindler-winterthur-2",
@@ -4975,9 +4997,9 @@
     },
     {
       "id": "schindler-3a8dc89d7e9f",
-      "slug": "gestione-delle-autorizzazioni-dei-cookie-schindler-oberentfelden-8dbfab",
+      "slug": "manager-per-cookie-einwilligungen-schindler-oberentfelden",
       "slugByLocale": {
-        "it": "gestione-delle-autorizzazioni-dei-cookie-schindler-oberentfelden-8dbfab",
+        "it": "manager-per-cookie-einwilligungen-schindler-oberentfelden",
         "en": "manager-fur-cookie-einwilligungen-schindler-oberentfelden",
         "de": "manager-fur-cookie-einwilligungen-schindler-oberentfelden",
         "fr": "gestionnaire-pour-les-autorisations-de-cookies-schindler-oberentfelden"
@@ -5004,7 +5026,7 @@
       "url": "https://job.schindler.com/SBB/job/Oberentfelden-Schnupperlehre-als-Anlagen-und-Apparatebauerin-EFZ-mit-Schwerpunkt-Liftmontage-%28Lehrstart-2027%29-Aarg/1250932401/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:46:39.703Z",
+      "crawledAt": "2026-05-28T00:13:59.982Z",
       "addressLocality": "Oberentfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -5027,9 +5049,9 @@
         "gestione-delle-autorizzazioni-dei-cookie-schindler-oberentfelden-8cq51r",
         "gestione-delle-autorizzazioni-dei-cookie-schindler-bern-fd1b8a-8f3hgt",
         "manager-fur-cookie-einwilligungen-schindler-oberentfelden",
-        "manager-per-cookie-einwilligungen-schindler-oberentfelden-2",
-        "manager-per-cookie-einwilligungen-schindler-oberentfelden",
         "gestione-delle-autorizzazioni-dei-cookie-schindler-winterthur",
+        "gestione-delle-autorizzazioni-dei-cookie-schindler-oberentfelden-8dbfab",
+        "manager-per-cookie-einwilligungen-schindler-oberentfelden-2",
         "manager-fur-cookie-einwilligungen-schindler-ebikon",
         "manager-per-cookie-einwilligungen-schindler-bern",
         "manager-per-cookie-einwilligungen-schindler-winterthur-2",
@@ -5049,9 +5071,10 @@
           "gestione-delle-autorizzazioni-dei-cookie-schindler-oberentfelden-8cq51r",
           "gestione-delle-autorizzazioni-dei-cookie-schindler-bern-fd1b8a-8f3hgt",
           "manager-fur-cookie-einwilligungen-schindler-oberentfelden",
+          "gestione-delle-autorizzazioni-dei-cookie-schindler-winterthur",
+          "gestione-delle-autorizzazioni-dei-cookie-schindler-oberentfelden-8dbfab",
           "manager-per-cookie-einwilligungen-schindler-oberentfelden-2",
-          "manager-per-cookie-einwilligungen-schindler-oberentfelden",
-          "gestione-delle-autorizzazioni-dei-cookie-schindler-winterthur"
+          "manager-per-cookie-einwilligungen-schindler-oberentfelden"
         ],
         "en": [
           "manager-fur-cookie-einwilligungen-schindler-ebikon",
@@ -5115,7 +5138,7 @@
       "url": "https://job.schindler.com/Schindler/job/Ebikon-Reparaturtechnikerin-Schwerpunkt-Elektrik-Region-Zentralschweiz-%28mwd%29-80-100-Luze/1379511933/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:46:38.950Z",
+      "crawledAt": "2026-05-28T00:13:59.363Z",
       "addressLocality": "Ebikon",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -5147,6 +5170,7 @@
         ]
       },
       "firstSeenAt": "2026-05-19T12:33:55.922Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -5193,7 +5217,7 @@
       "url": "https://job.schindler.com/Schindler/job/Visp-Aufzugsmonteurin-im-Oberwallis-%28mwd%29-80-100-Wall/1380428233/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:46:38.172Z",
+      "crawledAt": "2026-05-28T00:13:58.731Z",
       "addressLocality": "Visp",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -5271,7 +5295,7 @@
       "url": "https://job.schindler.com/ASZ/job/Wettswil-Einstieg-als-Aufzugsmonteur-80-100-%28mwd%29-Region-ZHAG-Z%C3%BCri/1123499901/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:46:37.403Z",
+      "crawledAt": "2026-05-28T00:13:58.106Z",
       "addressLocality": "Wettswil",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5344,7 +5368,7 @@
       "url": "https://job.schindler.com/SCH_Service_TechnikerIn/job/Bussigny-Technicien-de-Service-%28hfd%29-100-Lausanne-1_8_2026-ou-%C3%A0-convenir-Vaud/1377295233/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-27T13:46:36.636Z",
+      "crawledAt": "2026-05-28T00:13:57.447Z",
       "addressLocality": "Bussigny",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -5376,6 +5400,7 @@
         ]
       },
       "firstSeenAt": "2026-05-19T12:33:49.986Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -5422,7 +5447,7 @@
       "url": "https://job.schindler.com/Schindler/job/Ebikon-Polygrafin-%28mwd%29-60-80-Luze/1370436633/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:46:35.850Z",
+      "crawledAt": "2026-05-28T00:13:56.830Z",
       "addressLocality": "Ebikon",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -5454,6 +5479,7 @@
         ]
       },
       "firstSeenAt": "2026-05-19T12:33:55.194Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -5500,7 +5526,7 @@
       "url": "https://job.schindler.com/ASZ_Service_TechnikerIn/job/Wettswil-Servicetechnikerin-Region-Goldk%C3%BCsteStadt-Z%C3%BCrich-%28mwd%29-80-100-Z%C3%BCri/1384129933/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:46:35.087Z",
+      "crawledAt": "2026-05-28T00:13:56.218Z",
       "addressLocality": "Wettswil",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5573,7 +5599,7 @@
       "url": "https://job.schindler.com/SCH_Service_TechnikerIn/job/Bussigny-Technicien-de-Service-ESCALIERS-Canton-de-Vaud-Ao%C3%BBt-2026-%28hfd%29-80-100-Vaud/1386275233/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-27T13:46:34.319Z",
+      "crawledAt": "2026-05-28T00:13:55.607Z",
       "addressLocality": "Bussigny",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -5651,7 +5677,7 @@
       "url": "https://job.schindler.com/Schindler/job/Ebikon-Mitarbeiterin-Dokumentenerfassung-&-Digitalisierung-%28mwd%29-80-100-Luze/1382592733/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:46:33.547Z",
+      "crawledAt": "2026-05-28T00:13:54.967Z",
       "addressLocality": "Ebikon",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -5691,6 +5717,7 @@
         ]
       },
       "firstSeenAt": "2026-05-19T12:33:58.173Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -5737,7 +5764,7 @@
       "url": "https://job.schindler.com/Schindler/job/Bern-Teamleiter-Aufzugsmontage-Projekttechniker-im-Oberwallis-%28mwd%29-80-100-Bern/1382479733/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:46:32.769Z",
+      "crawledAt": "2026-05-28T00:13:54.364Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -5823,7 +5850,7 @@
       "url": "https://job.schindler.com/ASZ_Fitter/job/Brig-Aufzugsmonteurin-Region-Wallis-%28mwd%29-80-100-Wall/1383490433/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:46:31.991Z",
+      "crawledAt": "2026-05-28T00:13:53.744Z",
       "addressLocality": "Brig",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -5849,6 +5876,7 @@
         ]
       },
       "firstSeenAt": "2026-05-19T12:33:47.721Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -5895,7 +5923,7 @@
       "url": "https://job.schindler.com/SCH_Fitter/job/Solothurn-Aufzugsmonteur-Region-Solothurn-%28mwd%29-80-100-Solo/1283370801/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:46:31.228Z",
+      "crawledAt": "2026-05-28T00:13:53.114Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -5973,7 +6001,7 @@
       "url": "https://job.schindler.com/ASZ_Fitter/job/Wettswil-Aufzugsmonteur-Modernisierungen-Region-Zentralschweiz-%28mwd%29-80-100-Z%C3%BCri/1392687533/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:46:30.447Z",
+      "crawledAt": "2026-05-28T00:13:52.504Z",
       "addressLocality": "Wettswil",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -6019,9 +6047,9 @@
       "id": "schindler-aa8845ab590f",
       "slug": "verkaufsprofi-im-servicegeschaft-in-bern-m-w-d-80-100-schindler-bern",
       "slugByLocale": {
-        "de": "verkaufsprofi-im-servicegeschaft-in-bern-m-w-d-80-100-schindler-bern",
         "it": "verkaufsprofi-im-servicegeschaft-in-bern-m-w-d-80-100-schindler-bern",
         "en": "verkaufsprofi-im-servicegeschaft-in-bern-m-w-d-80-100-schindler-bern",
+        "de": "verkaufsprofi-im-servicegeschaft-in-bern-m-w-d-80-100-schindler-bern",
         "fr": "verkaufsprofi-im-servicegeschaft-in-bern-m-w-d-80-100-schindler-bern"
       },
       "company": "Schindler",
@@ -6029,24 +6057,24 @@
       "companyDomain": "schindler.com",
       "title": "Verkaufsprofi im Servicegeschäft in Bern (m/w/d) 80-100%",
       "titleByLocale": {
-        "de": "Verkaufsprofi im Servicegeschäft in Bern (m/w/d) 80-100%",
         "it": "Verkaufsprofi im Servicegeschäft in Bern (m/w/d) 80-100%",
         "en": "Verkaufsprofi im Servicegeschäft in Bern (m/w/d) 80-100%",
+        "de": "Verkaufsprofi im Servicegeschäft in Bern (m/w/d) 80-100%",
         "fr": "Verkaufsprofi im Servicegeschäft in Bern (m/w/d) 80-100%"
       },
       "description": "Über zwei Milliarden Menschen vertrauen täglich auf Schindler. Unsere langjährige Erfahrung und Innovationskraft machen uns zur Nummer eins im Schweizer Aufzugs- und Fahrtreppengeschäft. Als Teil der Schindler Familie gestaltest du Orte für alle barrierefreier, inklusiver und nachhaltiger. Wir kombinieren Innovation, Sicherheit sowie Inklusion und Diversität innerhalb des Unternehmens. Werde Teil unserer 150-jährigen Erfolgsgeschichte und gestalte die Zukunft der Mobilität mit.\n\nGemeinsam ein Stockwerk nach oben als\n\nVerkaufsprofi im Servicegeschäft in Bern (m/w/d) 80-100%\n\nDein Tag – dein Plan! Gestalte deine 40-Stunden-Woche nach deinen Bedürfnissen. Wir legen grossen Wert auf deine Weiterentwicklung und bieten dir genau das, was du brauchst. Mehr über uns erfährst du in diesem Video\n\nDeine neuen Herausforderungen:\n\n• Verkauf von Serviceverträgen und Reparaturen sowie Unterstützung des Verkaufs von Modernisierungen\n\n• Beratung und Betreuung der Kundschaft sowie Erarbeitung und Sicherstellung einer dauerhaften und tragfähigen Kundenbeziehung\n\n• Bearbeitung von Kundenreklamationen und -anfragen und damit Erhöhung der Kundenloyalität\n\n• Enge Zusammenarbeit mit dem Service Teamleader für den zugeteilten Servicekreis\n\nDeine idealen Voraussetzungen:\n\n• Abgeschlossene technische oder kaufmännische Grundausbildung mit Weiterbildung\n\n• Verkaufserfahrung ist von Vorteil, idealerweise im Bereich von Investitionsgütern und/oder technischen Dienstleistungen\n\n• Sicher im Umgang mit MS-Office und SAP-Kenntnisse von Vorteil\n\n• Gute Kenntnisse der Gebietssprache, weitere Sprachen von Vorteil\n\nUnsere Benefits:\n\n• Exzellente Entwicklungsmöglichkeiten : Personalentwicklung wird bei uns gelebt. Unseren Mitarbeitenden stellen wir verschiedene nationale und internationale Talentprogramme zur Verfügung und unterstützen sie zeitlich sowie finanziell bei Aus- und Weiterbildungen.\n\n• Gesunde Arbeitsumgebung : Hohe Gesundheits- & Sicherheitsstandards und eigenes betriebliches Gesundheitsmanagement inklusive Sozialberatung und Gesundheitsförderung.\n\n• Entschädigung für deine Mittagsverpflegung .\n\n• Mitarbeitervergünstigungen : Grosszügige Beteiligung am ÖV- und Fitness-Abo, Flottenrabatte, vergünstigter Bezug von Reka-Geld, vergünstigte Versicherungsprämien sowie diverse Vergünstigungen.\n\n• Kulturelle Vielfalt und Inklusion & Diversität innerhalb des Unternehmens.\n\nBist du bereit, neue Wege zu gehen? Werde Teil von #TeamSchindler!\n\nWeitere Informationen findest du unter: www.schindler.ch/karriere",
       "descriptionByLocale": {
-        "de": "Über zwei Milliarden Menschen vertrauen täglich auf Schindler. Unsere langjährige Erfahrung und Innovationskraft machen uns zur Nummer eins im Schweizer Aufzugs- und Fahrtreppengeschäft. Als Teil der Schindler Familie gestaltest du Orte für alle barrierefreier, inklusiver und nachhaltiger. Wir kombinieren Innovation, Sicherheit sowie Inklusion und Diversität innerhalb des Unternehmens. Werde Teil unserer 150-jährigen Erfolgsgeschichte und gestalte die Zukunft der Mobilität mit.\n\nGemeinsam ein Stockwerk nach oben als\n\nVerkaufsprofi im Servicegeschäft in Bern (m/w/d) 80-100%\n\nDein Tag – dein Plan! Gestalte deine 40-Stunden-Woche nach deinen Bedürfnissen. Wir legen grossen Wert auf deine Weiterentwicklung und bieten dir genau das, was du brauchst. Mehr über uns erfährst du in diesem Video\n\nDeine neuen Herausforderungen:\n\n• Verkauf von Serviceverträgen und Reparaturen sowie Unterstützung des Verkaufs von Modernisierungen\n\n• Beratung und Betreuung der Kundschaft sowie Erarbeitung und Sicherstellung einer dauerhaften und tragfähigen Kundenbeziehung\n\n• Bearbeitung von Kundenreklamationen und -anfragen und damit Erhöhung der Kundenloyalität\n\n• Enge Zusammenarbeit mit dem Service Teamleader für den zugeteilten Servicekreis\n\nDeine idealen Voraussetzungen:\n\n• Abgeschlossene technische oder kaufmännische Grundausbildung mit Weiterbildung\n\n• Verkaufserfahrung ist von Vorteil, idealerweise im Bereich von Investitionsgütern und/oder technischen Dienstleistungen\n\n• Sicher im Umgang mit MS-Office und SAP-Kenntnisse von Vorteil\n\n• Gute Kenntnisse der Gebietssprache, weitere Sprachen von Vorteil\n\nUnsere Benefits:\n\n• Exzellente Entwicklungsmöglichkeiten : Personalentwicklung wird bei uns gelebt. Unseren Mitarbeitenden stellen wir verschiedene nationale und internationale Talentprogramme zur Verfügung und unterstützen sie zeitlich sowie finanziell bei Aus- und Weiterbildungen.\n\n• Gesunde Arbeitsumgebung : Hohe Gesundheits- & Sicherheitsstandards und eigenes betriebliches Gesundheitsmanagement inklusive Sozialberatung und Gesundheitsförderung.\n\n• Entschädigung für deine Mittagsverpflegung .\n\n• Mitarbeitervergünstigungen : Grosszügige Beteiligung am ÖV- und Fitness-Abo, Flottenrabatte, vergünstigter Bezug von Reka-Geld, vergünstigte Versicherungsprämien sowie diverse Vergünstigungen.\n\n• Kulturelle Vielfalt und Inklusion & Diversität innerhalb des Unternehmens.\n\nBist du bereit, neue Wege zu gehen? Werde Teil von #TeamSchindler!\n\nWeitere Informationen findest du unter: www.schindler.ch/karriere",
-        "it": "Über zwei Milliarden Menschen vertrauen täglich auf Schindler. Unsere langjährige Erfahrung und Innovationskraft machen uns zur Nummer eins im Schweizer Aufzugs- und Fahrtreppengeschäft. Als Teil der Schindler Familie gestaltest du Orte für alle barrierefreier, inklusiver und nachhaltiger. Wir kombinieren Innovation, Sicherheit sowie Inklusion und Diversität innerhalb des Unternehmens. Werde Teil unserer 150-jährigen Erfolgsgeschichte und gestalte die Zukunft der Mobilität mit.\n\nGemeinsam ein Stockwerk nach oben als\n\nVerkaufsprofi im Servicegeschäft in Bern (m/w/d) 80-100%\n\nDein Tag – dein Plan! Gestalte deine 40-Stunden-Woche nach deinen Bedürfnissen. Wir legen grossen Wert auf deine Weiterentwicklung und bieten dir genau das, was du brauchst. Mehr über uns erfährst du in diesem Video\n\nDeine neuen Herausforderungen:\n\n• Verkauf von Serviceverträgen und Reparaturen sowie Unterstützung des Verkaufs von Modernisierungen\n\n• Beratung und Betreuung der Kundschaft sowie Erarbeitung und Sicherstellung einer dauerhaften und tragfähigen Kundenbeziehung\n\n• Bearbeitung von Kundenreklamationen und -anfragen und damit Erhöhung der Kundenloyalität\n\n• Enge Zusammenarbeit mit dem Service Teamleader für den zugeteilten Servicekreis\n\nDeine idealen Voraussetzungen:\n\n• Abgeschlossene technische oder kaufmännische Grundausbildung mit Weiterbildung\n\n• Verkaufserfahrung ist von Vorteil, idealerweise im Bereich von Investitionsgütern und/oder technischen Dienstleistungen\n\n• Sicher im Umgang mit MS-Office und SAP-Kenntnisse von Vorteil\n\n• Gute Kenntnisse der Gebietssprache, weitere Sprachen von Vorteil\n\nUnsere Benefits:\n\n• Exzellente Entwicklungsmöglichkeiten : Personalentwicklung wird bei uns gelebt. Unseren Mitarbeitenden stellen wir verschiedene nationale und internationale Talentprogramme zur Verfügung und unterstützen sie zeitlich sowie finanziell bei Aus- und Weiterbildungen.\n\n• Gesunde Arbeitsumgebung : Hohe Gesundheits- & Sicherheitsstandards und eigenes betriebliches Gesundheitsmanagement inklusive Sozialberatung und Gesundheitsförderung.\n\n• Entschädigung für deine Mittagsverpflegung .\n\n• Mitarbeitervergünstigungen : Grosszügige Beteiligung am ÖV- und Fitness-Abo, Flottenrabatte, vergünstigter Bezug von Reka-Geld, vergünstigte Versicherungsprämien sowie diverse Vergünstigungen.\n\n• Kulturelle Vielfalt und Inklusion & Diversität innerhalb des Unternehmens.\n\nBist du bereit, neue Wege zu gehen? Werde Teil von #TeamSchindler!\n\nWeitere Informationen findest du unter: www.schindler.ch/karriere",
-        "en": "Über zwei Milliarden Menschen vertrauen täglich auf Schindler. Unsere langjährige Erfahrung und Innovationskraft machen uns zur Nummer eins im Schweizer Aufzugs- und Fahrtreppengeschäft. Als Teil der Schindler Familie gestaltest du Orte für alle barrierefreier, inklusiver und nachhaltiger. Wir kombinieren Innovation, Sicherheit sowie Inklusion und Diversität innerhalb des Unternehmens. Werde Teil unserer 150-jährigen Erfolgsgeschichte und gestalte die Zukunft der Mobilität mit.\n\nGemeinsam ein Stockwerk nach oben als\n\nVerkaufsprofi im Servicegeschäft in Bern (m/w/d) 80-100%\n\nDein Tag – dein Plan! Gestalte deine 40-Stunden-Woche nach deinen Bedürfnissen. Wir legen grossen Wert auf deine Weiterentwicklung und bieten dir genau das, was du brauchst. Mehr über uns erfährst du in diesem Video\n\nDeine neuen Herausforderungen:\n\n• Verkauf von Serviceverträgen und Reparaturen sowie Unterstützung des Verkaufs von Modernisierungen\n\n• Beratung und Betreuung der Kundschaft sowie Erarbeitung und Sicherstellung einer dauerhaften und tragfähigen Kundenbeziehung\n\n• Bearbeitung von Kundenreklamationen und -anfragen und damit Erhöhung der Kundenloyalität\n\n• Enge Zusammenarbeit mit dem Service Teamleader für den zugeteilten Servicekreis\n\nDeine idealen Voraussetzungen:\n\n• Abgeschlossene technische oder kaufmännische Grundausbildung mit Weiterbildung\n\n• Verkaufserfahrung ist von Vorteil, idealerweise im Bereich von Investitionsgütern und/oder technischen Dienstleistungen\n\n• Sicher im Umgang mit MS-Office und SAP-Kenntnisse von Vorteil\n\n• Gute Kenntnisse der Gebietssprache, weitere Sprachen von Vorteil\n\nUnsere Benefits:\n\n• Exzellente Entwicklungsmöglichkeiten : Personalentwicklung wird bei uns gelebt. Unseren Mitarbeitenden stellen wir verschiedene nationale und internationale Talentprogramme zur Verfügung und unterstützen sie zeitlich sowie finanziell bei Aus- und Weiterbildungen.\n\n• Gesunde Arbeitsumgebung : Hohe Gesundheits- & Sicherheitsstandards und eigenes betriebliches Gesundheitsmanagement inklusive Sozialberatung und Gesundheitsförderung.\n\n• Entschädigung für deine Mittagsverpflegung .\n\n• Mitarbeitervergünstigungen : Grosszügige Beteiligung am ÖV- und Fitness-Abo, Flottenrabatte, vergünstigter Bezug von Reka-Geld, vergünstigte Versicherungsprämien sowie diverse Vergünstigungen.\n\n• Kulturelle Vielfalt und Inklusion & Diversität innerhalb des Unternehmens.\n\nBist du bereit, neue Wege zu gehen? Werde Teil von #TeamSchindler!\n\nWeitere Informationen findest du unter: www.schindler.ch/karriere",
-        "fr": "Über zwei Milliarden Menschen vertrauen täglich auf Schindler. Unsere langjährige Erfahrung und Innovationskraft machen uns zur Nummer eins im Schweizer Aufzugs- und Fahrtreppengeschäft. Als Teil der Schindler Familie gestaltest du Orte für alle barrierefreier, inklusiver und nachhaltiger. Wir kombinieren Innovation, Sicherheit sowie Inklusion und Diversität innerhalb des Unternehmens. Werde Teil unserer 150-jährigen Erfolgsgeschichte und gestalte die Zukunft der Mobilität mit.\n\nGemeinsam ein Stockwerk nach oben als\n\nVerkaufsprofi im Servicegeschäft in Bern (m/w/d) 80-100%\n\nDein Tag – dein Plan! Gestalte deine 40-Stunden-Woche nach deinen Bedürfnissen. Wir legen grossen Wert auf deine Weiterentwicklung und bieten dir genau das, was du brauchst. Mehr über uns erfährst du in diesem Video\n\nDeine neuen Herausforderungen:\n\n• Verkauf von Serviceverträgen und Reparaturen sowie Unterstützung des Verkaufs von Modernisierungen\n\n• Beratung und Betreuung der Kundschaft sowie Erarbeitung und Sicherstellung einer dauerhaften und tragfähigen Kundenbeziehung\n\n• Bearbeitung von Kundenreklamationen und -anfragen und damit Erhöhung der Kundenloyalität\n\n• Enge Zusammenarbeit mit dem Service Teamleader für den zugeteilten Servicekreis\n\nDeine idealen Voraussetzungen:\n\n• Abgeschlossene technische oder kaufmännische Grundausbildung mit Weiterbildung\n\n• Verkaufserfahrung ist von Vorteil, idealerweise im Bereich von Investitionsgütern und/oder technischen Dienstleistungen\n\n• Sicher im Umgang mit MS-Office und SAP-Kenntnisse von Vorteil\n\n• Gute Kenntnisse der Gebietssprache, weitere Sprachen von Vorteil\n\nUnsere Benefits:\n\n• Exzellente Entwicklungsmöglichkeiten : Personalentwicklung wird bei uns gelebt. Unseren Mitarbeitenden stellen wir verschiedene nationale und internationale Talentprogramme zur Verfügung und unterstützen sie zeitlich sowie finanziell bei Aus- und Weiterbildungen.\n\n• Gesunde Arbeitsumgebung : Hohe Gesundheits- & Sicherheitsstandards und eigenes betriebliches Gesundheitsmanagement inklusive Sozialberatung und Gesundheitsförderung.\n\n• Entschädigung für deine Mittagsverpflegung .\n\n• Mitarbeitervergünstigungen : Grosszügige Beteiligung am ÖV- und Fitness-Abo, Flottenrabatte, vergünstigter Bezug von Reka-Geld, vergünstigte Versicherungsprämien sowie diverse Vergünstigungen.\n\n• Kulturelle Vielfalt und Inklusion & Diversität innerhalb des Unternehmens.\n\nBist du bereit, neue Wege zu gehen? Werde Teil von #TeamSchindler!\n\nWeitere Informationen findest du unter: www.schindler.ch/karriere"
+        "it": "Über zwei Milliarden Menschen vertrauen täglich auf Schindler. Unsere langjährige Erfahrung und Innovationskraft machen uns zur Nummer eins im Schweizer Aufzugs- und Fahrtreppengeschäft. Als Teil der Schindler Familie gestaltest du Orte für alle barrierefreier, inklusiver und nachhaltiger. Wir kombinieren Innovation, Sicherheit sowie Inklusion und Diversität innerhalb des Unternehmens. Werde Teil unserer 150-jährigen Erfolgsgeschichte und gestalte die Zukunft der Mobilität mit. Gemeinsam ein Stockwerk nach oben als Verkaufsprofi im Servicegeschäft in Bern (m/w/d) 80-100% Dein Tag – dein Plan! Gestalte deine 40-Stunden-Woche nach deinen Bedürfnissen. Wir legen grossen Wert auf deine Weiterentwicklung und bieten dir genau das, was du brauchst. Mehr über uns erfährst du in diesem Video Deine neuen Herausforderungen:\n• Verkauf von Serviceverträgen und Reparaturen sowie Unterstützung des Verkaufs von Modernisierungen\n• Beratung und Betreuung der Kundschaft sowie Erarbeitung und Sicherstellung einer dauerhaften und tragfähigen Kundenbeziehung\n• Bearbeitung von Kundenreklamationen und -anfragen und damit Erhöhung der Kundenloyalität\n• Enge Zusammenarbeit mit dem Service Teamleader für den zugeteilten Servicekreis Deine idealen Voraussetzungen:\n• Abgeschlossene technische oder kaufmännische Grundausbildung mit Weiterbildung\n• Verkaufserfahrung ist von Vorteil, idealerweise im Bereich von Investitionsgütern und/oder technischen Dienstleistungen\n• Sicher im Umgang mit MS-Office und SAP-Kenntnisse von Vorteil\n• Gute Kenntnisse der Gebietssprache, weitere Sprachen von Vorteil Unsere Benefits:\n• Exzellente Entwicklungsmöglichkeiten : Personalentwicklung wird bei uns gelebt. Unseren Mitarbeitenden stellen wir verschiedene nationale und internationale Talentprogramme zur Verfügung und unterstützen sie zeitlich sowie finanziell bei Aus- und Weiterbildungen.\n• Gesunde Arbeitsumgebung : Hohe Gesundheits- & Sicherheitsstandards und eigenes betriebliches Gesundheitsmanagement inklusive Sozialberatung und Gesundheitsförderung.\n• Entschädigung für deine Mittagsverpflegung .\n• Mitarbeitervergünstigungen : Grosszügige Beteiligung am ÖV- und Fitness-Abo, Flottenrabatte, vergünstigter Bezug von Reka-Geld, vergünstigte Versicherungsprämien sowie diverse Vergünstigungen.\n• Kulturelle Vielfalt und Inklusion & Diversität innerhalb des Unternehmens. Bist du bereit, neue Wege zu gehen? Werde Teil von #TeamSchindler! Weitere Informationen findest du unter: www.schindler.ch/karriere",
+        "en": "Über zwei Milliarden Menschen vertrauen täglich auf Schindler. Unsere langjährige Erfahrung und Innovationskraft machen uns zur Nummer eins im Schweizer Aufzugs- und Fahrtreppengeschäft. Als Teil der Schindler Familie gestaltest du Orte für alle barrierefreier, inklusiver und nachhaltiger. Wir kombinieren Innovation, Sicherheit sowie Inklusion und Diversität innerhalb des Unternehmens. Werde Teil unserer 150-jährigen Erfolgsgeschichte und gestalte die Zukunft der Mobilität mit. Gemeinsam ein Stockwerk nach oben als Verkaufsprofi im Servicegeschäft in Bern (m/w/d) 80-100% Dein Tag – dein Plan! Gestalte deine 40-Stunden-Woche nach deinen Bedürfnissen. Wir legen grossen Wert auf deine Weiterentwicklung und bieten dir genau das, was du brauchst. Mehr über uns erfährst du in diesem Video Deine neuen Herausforderungen:\n• Verkauf von Serviceverträgen und Reparaturen sowie Unterstützung des Verkaufs von Modernisierungen\n• Beratung und Betreuung der Kundschaft sowie Erarbeitung und Sicherstellung einer dauerhaften und tragfähigen Kundenbeziehung\n• Bearbeitung von Kundenreklamationen und -anfragen und damit Erhöhung der Kundenloyalität\n• Enge Zusammenarbeit mit dem Service Teamleader für den zugeteilten Servicekreis Deine idealen Voraussetzungen:\n• Abgeschlossene technische oder kaufmännische Grundausbildung mit Weiterbildung\n• Verkaufserfahrung ist von Vorteil, idealerweise im Bereich von Investitionsgütern und/oder technischen Dienstleistungen\n• Sicher im Umgang mit MS-Office und SAP-Kenntnisse von Vorteil\n• Gute Kenntnisse der Gebietssprache, weitere Sprachen von Vorteil Unsere Benefits:\n• Exzellente Entwicklungsmöglichkeiten : Personalentwicklung wird bei uns gelebt. Unseren Mitarbeitenden stellen wir verschiedene nationale und internationale Talentprogramme zur Verfügung und unterstützen sie zeitlich sowie finanziell bei Aus- und Weiterbildungen.\n• Gesunde Arbeitsumgebung : Hohe Gesundheits- & Sicherheitsstandards und eigenes betriebliches Gesundheitsmanagement inklusive Sozialberatung und Gesundheitsförderung.\n• Entschädigung für deine Mittagsverpflegung .\n• Mitarbeitervergünstigungen : Grosszügige Beteiligung am ÖV- und Fitness-Abo, Flottenrabatte, vergünstigter Bezug von Reka-Geld, vergünstigte Versicherungsprämien sowie diverse Vergünstigungen.\n• Kulturelle Vielfalt und Inklusion & Diversität innerhalb des Unternehmens. Bist du bereit, neue Wege zu gehen? Werde Teil von #TeamSchindler! Weitere Informationen findest du unter: www.schindler.ch/karriere",
+        "de": "Über zwei Milliarden Menschen vertrauen täglich auf Schindler. Unsere langjährige Erfahrung und Innovationskraft machen uns zur Nummer eins im Schweizer Aufzugs- und Fahrtreppengeschäft. Als Teil der Schindler Familie gestaltest du Orte für alle barrierefreier, inklusiver und nachhaltiger. Wir kombinieren Innovation, Sicherheit sowie Inklusion und Diversität innerhalb des Unternehmens. Werde Teil unserer 150-jährigen Erfolgsgeschichte und gestalte die Zukunft der Mobilität mit. Gemeinsam ein Stockwerk nach oben als Verkaufsprofi im Servicegeschäft in Bern (m/w/d) 80-100% Dein Tag – dein Plan! Gestalte deine 40-Stunden-Woche nach deinen Bedürfnissen. Wir legen grossen Wert auf deine Weiterentwicklung und bieten dir genau das, was du brauchst. Mehr über uns erfährst du in diesem Video Deine neuen Herausforderungen:\n• Verkauf von Serviceverträgen und Reparaturen sowie Unterstützung des Verkaufs von Modernisierungen\n• Beratung und Betreuung der Kundschaft sowie Erarbeitung und Sicherstellung einer dauerhaften und tragfähigen Kundenbeziehung\n• Bearbeitung von Kundenreklamationen und -anfragen und damit Erhöhung der Kundenloyalität\n• Enge Zusammenarbeit mit dem Service Teamleader für den zugeteilten Servicekreis Deine idealen Voraussetzungen:\n• Abgeschlossene technische oder kaufmännische Grundausbildung mit Weiterbildung\n• Verkaufserfahrung ist von Vorteil, idealerweise im Bereich von Investitionsgütern und/oder technischen Dienstleistungen\n• Sicher im Umgang mit MS-Office und SAP-Kenntnisse von Vorteil\n• Gute Kenntnisse der Gebietssprache, weitere Sprachen von Vorteil Unsere Benefits:\n• Exzellente Entwicklungsmöglichkeiten : Personalentwicklung wird bei uns gelebt. Unseren Mitarbeitenden stellen wir verschiedene nationale und internationale Talentprogramme zur Verfügung und unterstützen sie zeitlich sowie finanziell bei Aus- und Weiterbildungen.\n• Gesunde Arbeitsumgebung : Hohe Gesundheits- & Sicherheitsstandards und eigenes betriebliches Gesundheitsmanagement inklusive Sozialberatung und Gesundheitsförderung.\n• Entschädigung für deine Mittagsverpflegung .\n• Mitarbeitervergünstigungen : Grosszügige Beteiligung am ÖV- und Fitness-Abo, Flottenrabatte, vergünstigter Bezug von Reka-Geld, vergünstigte Versicherungsprämien sowie diverse Vergünstigungen.\n• Kulturelle Vielfalt und Inklusion & Diversität innerhalb des Unternehmens. Bist du bereit, neue Wege zu gehen? Werde Teil von #TeamSchindler! Weitere Informationen findest du unter: www.schindler.ch/karriere",
+        "fr": "Über zwei Milliarden Menschen vertrauen täglich auf Schindler. Unsere langjährige Erfahrung und Innovationskraft machen uns zur Nummer eins im Schweizer Aufzugs- und Fahrtreppengeschäft. Als Teil der Schindler Familie gestaltest du Orte für alle barrierefreier, inklusiver und nachhaltiger. Wir kombinieren Innovation, Sicherheit sowie Inklusion und Diversität innerhalb des Unternehmens. Werde Teil unserer 150-jährigen Erfolgsgeschichte und gestalte die Zukunft der Mobilität mit. Gemeinsam ein Stockwerk nach oben als Verkaufsprofi im Servicegeschäft in Bern (m/w/d) 80-100% Dein Tag – dein Plan! Gestalte deine 40-Stunden-Woche nach deinen Bedürfnissen. Wir legen grossen Wert auf deine Weiterentwicklung und bieten dir genau das, was du brauchst. Mehr über uns erfährst du in diesem Video Deine neuen Herausforderungen:\n• Verkauf von Serviceverträgen und Reparaturen sowie Unterstützung des Verkaufs von Modernisierungen\n• Beratung und Betreuung der Kundschaft sowie Erarbeitung und Sicherstellung einer dauerhaften und tragfähigen Kundenbeziehung\n• Bearbeitung von Kundenreklamationen und -anfragen und damit Erhöhung der Kundenloyalität\n• Enge Zusammenarbeit mit dem Service Teamleader für den zugeteilten Servicekreis Deine idealen Voraussetzungen:\n• Abgeschlossene technische oder kaufmännische Grundausbildung mit Weiterbildung\n• Verkaufserfahrung ist von Vorteil, idealerweise im Bereich von Investitionsgütern und/oder technischen Dienstleistungen\n• Sicher im Umgang mit MS-Office und SAP-Kenntnisse von Vorteil\n• Gute Kenntnisse der Gebietssprache, weitere Sprachen von Vorteil Unsere Benefits:\n• Exzellente Entwicklungsmöglichkeiten : Personalentwicklung wird bei uns gelebt. Unseren Mitarbeitenden stellen wir verschiedene nationale und internationale Talentprogramme zur Verfügung und unterstützen sie zeitlich sowie finanziell bei Aus- und Weiterbildungen.\n• Gesunde Arbeitsumgebung : Hohe Gesundheits- & Sicherheitsstandards und eigenes betriebliches Gesundheitsmanagement inklusive Sozialberatung und Gesundheitsförderung.\n• Entschädigung für deine Mittagsverpflegung .\n• Mitarbeitervergünstigungen : Grosszügige Beteiligung am ÖV- und Fitness-Abo, Flottenrabatte, vergünstigter Bezug von Reka-Geld, vergünstigte Versicherungsprämien sowie diverse Vergünstigungen.\n• Kulturelle Vielfalt und Inklusion & Diversität innerhalb des Unternehmens. Bist du bereit, neue Wege zu gehen? Werde Teil von #TeamSchindler! Weitere Informationen findest du unter: www.schindler.ch/karriere"
       },
       "location": "Bern",
       "canton": "BE",
       "url": "https://job.schindler.com/Schindler/job/Bern-Verkaufsprofi-im-Servicegesch%C3%A4ft-in-Bern-%28mwd%29-80-100-Bern/1394928333/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:46:29.633Z",
+      "crawledAt": "2026-05-28T00:13:51.887Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -6062,10 +6090,9 @@
       "applyUrl": "https://job.schindler.com/talentcommunity/apply/1394928333/?locale=de_DE",
       "jobReqId": "1394928333",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "needsRetranslation": true,
+      "firstSeenAt": "2026-05-27T13:46:29.633Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -6079,8 +6106,7 @@
         }
       },
       "streetAddress": "Via Industria 11",
-      "postalCode": "6934",
-      "firstSeenAt": "2026-05-27T13:46:29.633Z"
+      "postalCode": "6934"
     },
     {
       "id": "schindler-b0e6ea9b760b",
@@ -6113,7 +6139,7 @@
       "url": "https://job.schindler.com/ASZ/job/Wettswil-Salesperson-New-Installation-Region-Zentralschweiz-%28mwd%29-80-100-Z%C3%BCri/1392906333/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:46:28.883Z",
+      "crawledAt": "2026-05-28T00:13:51.282Z",
       "addressLocality": "Wettswil",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -6186,7 +6212,7 @@
       "url": "https://job.schindler.com/ASZ_Office_General/job/Sch%C3%B6nb%C3%BChl-Working-Student-Kundenberatung-Service-%28mwd%29-60-Bern/1392943733/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:46:28.103Z",
+      "crawledAt": "2026-05-28T00:13:50.634Z",
       "addressLocality": "Schönbühl",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -6259,7 +6285,7 @@
       "url": "https://job.schindler.com/Schindler/job/Neuch%C3%A2tel-Technicienne-de-Service-%28hfd%29-80-100-Neuc/1392090133/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-27T13:46:27.329Z",
+      "crawledAt": "2026-05-28T00:13:50.013Z",
       "addressLocality": "Neuchâtel",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -6291,6 +6317,7 @@
         ]
       },
       "firstSeenAt": "2026-05-19T12:33:44.765Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -6337,7 +6364,7 @@
       "url": "https://job.schindler.com/SCH_Service_TechnikerIn/job/Bern-Teamleiter-f%C3%BCr-unser-Serviceteam-in-Bern-%28mwd%29-80-100-Bern/1394576133/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:46:26.550Z",
+      "crawledAt": "2026-05-28T00:13:49.400Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -6366,6 +6393,7 @@
         ]
       },
       "firstSeenAt": "2026-05-19T12:34:25.810Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -6412,7 +6440,7 @@
       "url": "https://job.schindler.com/ASZ/job/Brig-Projekttechnikerin-Region-Wallis-%28mwd%29-80-100-Wall/1391770633/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T13:46:25.775Z",
+      "crawledAt": "2026-05-28T00:13:48.785Z",
       "addressLocality": "Brig",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -6444,6 +6472,73 @@
       },
       "streetAddress": "Via Industria 11",
       "postalCode": "6934"
+    },
+    {
+      "id": "schindler-56e0f10c77f3",
+      "slug": "working-student-internship-project-event-coordinator-m-f-d-70-100-schindler-ebikon",
+      "slugByLocale": {
+        "en": "working-student-internship-project-event-coordinator-m-f-d-70-100-schindler-ebikon",
+        "it": "working-student-internship-project-event-coordinator-m-f-d-70-100-schindler-ebikon",
+        "de": "working-student-internship-project-event-coordinator-m-f-d-70-100-schindler-ebikon",
+        "fr": "working-student-internship-project-event-coordinator-m-f-d-70-100-schindler-ebikon"
+      },
+      "company": "Schindler",
+      "companyKey": "schindler",
+      "companyDomain": "schindler.com",
+      "title": "Working Student / Internship Project & Event Coordinator (m/f/d) 70-100%",
+      "titleByLocale": {
+        "en": "Working Student / Internship Project & Event Coordinator (m/f/d) 70-100%",
+        "it": "Working Student / Internship Project & Event Coordinatore (m/f/d) 70-100%",
+        "de": "Working Student / Internship Project & Event Koordinator (m/f/d) 70-100%",
+        "fr": "Working Student / Internship Project & Event Coordinateur (m/f/d) 70-100%"
+      },
+      "description": "Location: Ebikon, Lucerne, Switzerland\nJob ID: 88355\n\nWe Elevate... You\n\nJoin Schindler and help us elevate our world: Use your skills to allow megacities to grow. With our elevators and escalators, we keep the urban world moving.\n\nSince 1874 Schindler has been a Citymaker with proud reputation for elevating not only buildings, but the well-being of everyone who lives and works in them. People, passion, and innovation are the pillars of our success.\n\nSchindler is one of the world's leading suppliers of elevators, escalators and moving walkways. We employ talented individuals in over 100 countries worldwide to design, develop, install, maintain and modernize the mobility systems that keep the world's urban population on the move. We offer a dynamic, forward-looking work environment that enables our employees to innovate and excel in their chosen fields.\n\nJoin us as a\n\nWorking Student / Internship Project & Event Coordinator (m/f/d) 70-100%\n\nThe Schindler City Center is an international customer and visitor center in Ebikon and the heart of the Schindler City campus.\n\nAs a member of the Live Communications team you will play a key role in shaping outstanding visitors and event experiences at Schindler City. Working in a dynamic, international environment, you’ll be at the center of a vibrant ecosystem of customers, partners and internal stakeholders, ensuring every visit and event runs smoothly and leaves a lasting impression .\n\nWhat you’ll work on and why it matters\n\n•\nO rganize and coordinate visits and events within Schindler City to ensure a smooth, professional and welcoming experience .\n\n•\nCollaborate with internal and external teams to enhance the visitor experience, ensuring every detail is top-notch.\n\n•\nPlan and book guides, translators, specialists, hosts and senior management participation .\n\n•\nAct as the central point of contact for all Schindler City enquiries, ensuring timely and high-quality responses .\n\n•\nSupport marketing and promotion activities of Schindler City, elevating the company’s global presence and reputation .\n\nHow you like to work\n\nYou enjoy working in a service ‑ oriented, fast ‑ paced environment, stay organized even when juggling multiple stakeholders, and bring a proactive, solution ‑ focused mindset to creating great customer experiences.\n\nWhat you bring and what you’ll develop\n\n•\nCompleted vocational training in a relevant field, recent federal Matura, or current studies in event management, tourism, business administration, or a related discipline\n\n•\nStrong organizational skills, reliability and attention to detail\n\n•\nConfident handling of IT tools and digital systems\n\n•\nFluent German and good level of English\n\nWhy Schindler?\n\nYou will get immediate access to a variety of benefits by working for a TOP employer:\n\n• We will offer you a position in a future-oriented industry with a diverse product range, as well as attractive and performance-related compensation\n\n• Development opportunities: You will start with a job-specific onboarding program and will be supported by us through technical and soft skills development programs\n\n• Work-life balance: We support you in managing your professional and personal life through flexible working hours\n\n• Corporate benefits: You will have the opportunity to benefit from attractive employee discounts\n\n• Diversity: We promote and foster a culture of diversity\n\nCan You Elevate Us?\n\nBe part of a highly driven organization where high performance connects people and is a vital part of achieving strong business results. Please send us your complete application documents (CV, Reference Letters and University Diplomas).\n\nwww.schindler.com",
+      "descriptionByLocale": {
+        "en": "Location: Ebikon, Lucerne, Switzerland\nJob ID: 88355\n\nWe Elevate... You\n\nJoin Schindler and help us elevate our world: Use your skills to allow megacities to grow. With our elevators and escalators, we keep the urban world moving.\n\nSince 1874 Schindler has been a Citymaker with proud reputation for elevating not only buildings, but the well-being of everyone who lives and works in them. People, passion, and innovation are the pillars of our success.\n\nSchindler is one of the world's leading suppliers of elevators, escalators and moving walkways. We employ talented individuals in over 100 countries worldwide to design, develop, install, maintain and modernize the mobility systems that keep the world's urban population on the move. We offer a dynamic, forward-looking work environment that enables our employees to innovate and excel in their chosen fields.\n\nJoin us as a\n\nWorking Student / Internship Project & Event Coordinator (m/f/d) 70-100%\n\nThe Schindler City Center is an international customer and visitor center in Ebikon and the heart of the Schindler City campus.\n\nAs a member of the Live Communications team you will play a key role in shaping outstanding visitors and event experiences at Schindler City. Working in a dynamic, international environment, you’ll be at the center of a vibrant ecosystem of customers, partners and internal stakeholders, ensuring every visit and event runs smoothly and leaves a lasting impression .\n\nWhat you’ll work on and why it matters\n\n•\nO rganize and coordinate visits and events within Schindler City to ensure a smooth, professional and welcoming experience .\n\n•\nCollaborate with internal and external teams to enhance the visitor experience, ensuring every detail is top-notch.\n\n•\nPlan and book guides, translators, specialists, hosts and senior management participation .\n\n•\nAct as the central point of contact for all Schindler City enquiries, ensuring timely and high-quality responses .\n\n•\nSupport marketing and promotion activities of Schindler City, elevating the company’s global presence and reputation .\n\nHow you like to work\n\nYou enjoy working in a service ‑ oriented, fast ‑ paced environment, stay organized even when juggling multiple stakeholders, and bring a proactive, solution ‑ focused mindset to creating great customer experiences.\n\nWhat you bring and what you’ll develop\n\n•\nCompleted vocational training in a relevant field, recent federal Matura, or current studies in event management, tourism, business administration, or a related discipline\n\n•\nStrong organizational skills, reliability and attention to detail\n\n•\nConfident handling of IT tools and digital systems\n\n•\nFluent German and good level of English\n\nWhy Schindler?\n\nYou will get immediate access to a variety of benefits by working for a TOP employer:\n\n• We will offer you a position in a future-oriented industry with a diverse product range, as well as attractive and performance-related compensation\n\n• Development opportunities: You will start with a job-specific onboarding program and will be supported by us through technical and soft skills development programs\n\n• Work-life balance: We support you in managing your professional and personal life through flexible working hours\n\n• Corporate benefits: You will have the opportunity to benefit from attractive employee discounts\n\n• Diversity: We promote and foster a culture of diversity\n\nCan You Elevate Us?\n\nBe part of a highly driven organization where high performance connects people and is a vital part of achieving strong business results. Please send us your complete application documents (CV, Reference Letters and University Diplomas).\n\nwww.schindler.com",
+        "it": "Location: Ebikon, Lucerne, Switzerland\nJob ID: 88355\n\nWe Elevate... You\n\nJoin Schindler and help us elevate our world: Use your skills to allow megacities to grow. With our elevators and escalators, we keep the urban world moving.\n\nSince 1874 Schindler has been a Citymaker with proud reputation for elevating not only buildings, but the well-being of everyone who lives and works in them. People, passion, and innovation are the pillars of our success.\n\nSchindler is one of the world's leading suppliers of elevators, escalators and moving walkways. We employ talented individuals in over 100 countries worldwide to design, develop, install, maintain and modernize the mobility systems that keep the world's urban population on the move. We offer a dynamic, forward-looking work environment that enables our employees to innovate and excel in their chosen fields.\n\nJoin us as a\n\nWorking Student / Internship Project & Event Coordinator (m/f/d) 70-100%\n\nThe Schindler City Center is an international customer and visitor center in Ebikon and the heart of the Schindler City campus.\n\nAs a member of the Live Communications team you will play a key role in shaping outstanding visitors and event experiences at Schindler City. Working in a dynamic, international environment, you’ll be at the center of a vibrant ecosystem of customers, partners and internal stakeholders, ensuring every visit and event runs smoothly and leaves a lasting impression .\n\nWhat you’ll work on and why it matters\n\n•\nO rganize and coordinate visits and events within Schindler City to ensure a smooth, professional and welcoming experience .\n\n•\nCollaborate with internal and external teams to enhance the visitor experience, ensuring every detail is top-notch.\n\n•\nPlan and book guides, translators, specialists, hosts and senior management participation .\n\n•\nAct as the central point of contact for all Schindler City enquiries, ensuring timely and high-quality responses .\n\n•\nSupport marketing and promotion activities of Schindler City, elevating the company’s global presence and reputation .\n\nHow you like to work\n\nYou enjoy working in a service ‑ oriented, fast ‑ paced environment, stay organized even when juggling multiple stakeholders, and bring a proactive, solution ‑ focused mindset to creating great customer experiences.\n\nWhat you bring and what you’ll develop\n\n•\nCompleted vocational training in a relevant field, recent federal Matura, or current studies in event management, tourism, business administration, or a related discipline\n\n•\nStrong organizational skills, reliability and attention to detail\n\n•\nConfident handling of IT tools and digital systems\n\n•\nFluent German and good level of English\n\nWhy Schindler?\n\nYou will get immediate access to a variety of benefits by working for a TOP employer:\n\n• We will offer you a position in a future-oriented industry with a diverse product range, as well as attractive and performance-related compensation\n\n• Development opportunities: You will start with a job-specific onboarding program and will be supported by us through technical and soft skills development programs\n\n• Work-life balance: We support you in managing your professional and personal life through flexible working hours\n\n• Corporate benefits: You will have the opportunity to benefit from attractive employee discounts\n\n• Diversity: We promote and foster a culture of diversity\n\nCan You Elevate Us?\n\nBe part of a highly driven organization where high performance connects people and is a vital part of achieving strong business results. Please send us your complete application documents (CV, Reference Letters and University Diplomas).\n\nwww.schindler.com",
+        "de": "Location: Ebikon, Lucerne, Switzerland\nJob ID: 88355\n\nWe Elevate... You\n\nJoin Schindler and help us elevate our world: Use your skills to allow megacities to grow. With our elevators and escalators, we keep the urban world moving.\n\nSince 1874 Schindler has been a Citymaker with proud reputation for elevating not only buildings, but the well-being of everyone who lives and works in them. People, passion, and innovation are the pillars of our success.\n\nSchindler is one of the world's leading suppliers of elevators, escalators and moving walkways. We employ talented individuals in over 100 countries worldwide to design, develop, install, maintain and modernize the mobility systems that keep the world's urban population on the move. We offer a dynamic, forward-looking work environment that enables our employees to innovate and excel in their chosen fields.\n\nJoin us as a\n\nWorking Student / Internship Project & Event Coordinator (m/f/d) 70-100%\n\nThe Schindler City Center is an international customer and visitor center in Ebikon and the heart of the Schindler City campus.\n\nAs a member of the Live Communications team you will play a key role in shaping outstanding visitors and event experiences at Schindler City. Working in a dynamic, international environment, you’ll be at the center of a vibrant ecosystem of customers, partners and internal stakeholders, ensuring every visit and event runs smoothly and leaves a lasting impression .\n\nWhat you’ll work on and why it matters\n\n•\nO rganize and coordinate visits and events within Schindler City to ensure a smooth, professional and welcoming experience .\n\n•\nCollaborate with internal and external teams to enhance the visitor experience, ensuring every detail is top-notch.\n\n•\nPlan and book guides, translators, specialists, hosts and senior management participation .\n\n•\nAct as the central point of contact for all Schindler City enquiries, ensuring timely and high-quality responses .\n\n•\nSupport marketing and promotion activities of Schindler City, elevating the company’s global presence and reputation .\n\nHow you like to work\n\nYou enjoy working in a service ‑ oriented, fast ‑ paced environment, stay organized even when juggling multiple stakeholders, and bring a proactive, solution ‑ focused mindset to creating great customer experiences.\n\nWhat you bring and what you’ll develop\n\n•\nCompleted vocational training in a relevant field, recent federal Matura, or current studies in event management, tourism, business administration, or a related discipline\n\n•\nStrong organizational skills, reliability and attention to detail\n\n•\nConfident handling of IT tools and digital systems\n\n•\nFluent German and good level of English\n\nWhy Schindler?\n\nYou will get immediate access to a variety of benefits by working for a TOP employer:\n\n• We will offer you a position in a future-oriented industry with a diverse product range, as well as attractive and performance-related compensation\n\n• Development opportunities: You will start with a job-specific onboarding program and will be supported by us through technical and soft skills development programs\n\n• Work-life balance: We support you in managing your professional and personal life through flexible working hours\n\n• Corporate benefits: You will have the opportunity to benefit from attractive employee discounts\n\n• Diversity: We promote and foster a culture of diversity\n\nCan You Elevate Us?\n\nBe part of a highly driven organization where high performance connects people and is a vital part of achieving strong business results. Please send us your complete application documents (CV, Reference Letters and University Diplomas).\n\nwww.schindler.com",
+        "fr": "Location: Ebikon, Lucerne, Switzerland\nJob ID: 88355\n\nWe Elevate... You\n\nJoin Schindler and help us elevate our world: Use your skills to allow megacities to grow. With our elevators and escalators, we keep the urban world moving.\n\nSince 1874 Schindler has been a Citymaker with proud reputation for elevating not only buildings, but the well-being of everyone who lives and works in them. People, passion, and innovation are the pillars of our success.\n\nSchindler is one of the world's leading suppliers of elevators, escalators and moving walkways. We employ talented individuals in over 100 countries worldwide to design, develop, install, maintain and modernize the mobility systems that keep the world's urban population on the move. We offer a dynamic, forward-looking work environment that enables our employees to innovate and excel in their chosen fields.\n\nJoin us as a\n\nWorking Student / Internship Project & Event Coordinator (m/f/d) 70-100%\n\nThe Schindler City Center is an international customer and visitor center in Ebikon and the heart of the Schindler City campus.\n\nAs a member of the Live Communications team you will play a key role in shaping outstanding visitors and event experiences at Schindler City. Working in a dynamic, international environment, you’ll be at the center of a vibrant ecosystem of customers, partners and internal stakeholders, ensuring every visit and event runs smoothly and leaves a lasting impression .\n\nWhat you’ll work on and why it matters\n\n•\nO rganize and coordinate visits and events within Schindler City to ensure a smooth, professional and welcoming experience .\n\n•\nCollaborate with internal and external teams to enhance the visitor experience, ensuring every detail is top-notch.\n\n•\nPlan and book guides, translators, specialists, hosts and senior management participation .\n\n•\nAct as the central point of contact for all Schindler City enquiries, ensuring timely and high-quality responses .\n\n•\nSupport marketing and promotion activities of Schindler City, elevating the company’s global presence and reputation .\n\nHow you like to work\n\nYou enjoy working in a service ‑ oriented, fast ‑ paced environment, stay organized even when juggling multiple stakeholders, and bring a proactive, solution ‑ focused mindset to creating great customer experiences.\n\nWhat you bring and what you’ll develop\n\n•\nCompleted vocational training in a relevant field, recent federal Matura, or current studies in event management, tourism, business administration, or a related discipline\n\n•\nStrong organizational skills, reliability and attention to detail\n\n•\nConfident handling of IT tools and digital systems\n\n•\nFluent German and good level of English\n\nWhy Schindler?\n\nYou will get immediate access to a variety of benefits by working for a TOP employer:\n\n• We will offer you a position in a future-oriented industry with a diverse product range, as well as attractive and performance-related compensation\n\n• Development opportunities: You will start with a job-specific onboarding program and will be supported by us through technical and soft skills development programs\n\n• Work-life balance: We support you in managing your professional and personal life through flexible working hours\n\n• Corporate benefits: You will have the opportunity to benefit from attractive employee discounts\n\n• Diversity: We promote and foster a culture of diversity\n\nCan You Elevate Us?\n\nBe part of a highly driven organization where high performance connects people and is a vital part of achieving strong business results. Please send us your complete application documents (CV, Reference Letters and University Diplomas).\n\nwww.schindler.com"
+      },
+      "location": "Ebikon",
+      "canton": "LU",
+      "url": "https://job.schindler.com/Schindler/job/Ebikon-Working-Student-Internship-Project-&-Event-Coordinator-%28mfd%29-70-100-Luce/1392466933/",
+      "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
+      "sourceLang": "en",
+      "crawledAt": "2026-05-28T00:13:48.153Z",
+      "addressLocality": "Ebikon",
+      "addressRegion": "LU",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Marketing",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "intern",
+      "sector": "Industrial",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-11",
+      "applyUrl": "https://job.schindler.com/talentcommunity/apply/1392466933/?locale=en_US",
+      "jobReqId": "1392466933",
+      "requirements": [],
+      "requirementsByLocale": {
+        "en": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 50500,
+      "salaryMax": 89000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 50500,
+          "maxValue": 89000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Via Industria 11",
+      "postalCode": "6934",
+      "firstSeenAt": "2026-05-28T00:13:48.153Z"
     }
   ]
 }
