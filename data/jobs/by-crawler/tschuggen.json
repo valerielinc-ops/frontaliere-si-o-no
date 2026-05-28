@@ -72,7 +72,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "tschuggen-569e89ca49d1",
@@ -136,7 +137,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "tschuggen-01d1354d56c4",
@@ -209,7 +211,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "tschuggen-8d1a677afc27",
@@ -282,7 +285,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "tschuggen-b8ea0b25f793",
@@ -355,7 +359,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "tschuggen-f50e3b0b4f33",
@@ -373,7 +378,7 @@
       "titleByLocale": {
         "it": "Spa Receptionist (m/w/d) Stagione estiva 2026",
         "en": "Spa Rezeptionist/in (m/w/d) Sommersaison 2026",
-        "de": "Spa Rezeptionist/in (m/w/d) Sommersaison 2026",
+        "de": "Zimmerausstattung (m/w/d) Sommersaison 2026",
         "fr": "Réceptionniste du Spa (m/m/j) Saison estivale 2026"
       },
       "description": "Das Tschuggen Grand Hotel in Arosa ist ein auf 1'800m Höhe gelegenes 5‑Sterne‑Superior‑Luxushotel in den Bündner Bergen. Als eines der vier Häuser der \"The Tschuggen Collection\", bietet unser Haus 128 individuell gestaltete Zimmer, Suiten und Mountainlofts, dazu vier stilvolle Restaurants – darunter das Gourmet‑Highlight La Brezza mit 19 Punkten Gault Millau & zwei Michelin‑Sternen – sowie eine beeindruckende 5 000 m² grosse Spa‑Bergoase, designed by Mario Botta. UNSERE VISION - Wir geben der Zeit Ihren Wert zurück. Sie sind ein leidenschaftlicher und empathischer Gastgeber, wertschätzend & respektvoll? Dann sind Sie bei uns richtig. Eintritt ab Ende Juni Arbeitsverhältnis befristet bis Anfang September 2026 | Sicherheit im Umgang mit MS-Office Programmen, sowie Outlook und TAC-System Berufserfahrung in 5*-Häusern erwünscht Fliessende Deutsch- und Englischkenntnisse sind Voraussetzung, jede weitere Sprache von Vorteil Teamfähig , verantwortungsbewusst und flexibel Gepflegtes Erscheinungsbild und professionelle Umgangsformen Empathische und diskrete Persönlichkeit sowie serviceorientiertes Auftreten | Beratung und Betreuung der Gäste Allgemeine Administrationsarbeiten Koordinierung der Behandlungsterminen Verwaltung des E-mail Accounts Aktiver Verkauf des gesamten Spa Angebots und deren Produkte | Attraktive Mitarbeiterunterkünfte in der Nähe des Hotel Ausgewogenes Menü-Angebot in unserer Mitarbeitertrattoria mit vegetarischen & veganen Optionen 24/7 Nutzung unseres Fitnesscenters Einheimische Vorteile wie Spezialpreise bei Sportgeschäften, Skipässen und vielem mehr Spezialpreise für Übernachtungen in unseren Häusern der \"The Tschuggen Collection\" sowie den Swiss Deluxe Hotels | Fühlen Sie sich angesprochen - Bewerben Sie sich jetzt! Wir freuen uns über Ihr Bewerbungsdossier - gerne digital: Bewerbungsschreiben Vollständiger Lebenslauf inkl. Foto Zeugnisse & Diplome",
@@ -430,7 +435,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "tschuggen-aab5770d3181",
@@ -494,7 +500,8 @@
           "maxValue": 103000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "tschuggen-f9f0ae3ba780",
@@ -558,7 +565,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "tschuggen-2e54f859be33",
@@ -624,14 +632,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-28T00:43:20.731Z"
+      "firstSeenAt": "2026-05-28T00:43:20.731Z",
+      "retranslationAttempts": 1
     },
     {
       "id": "tschuggen-9d2cf0abe326",
       "slug": "account-manager-m-w-d-tschuggen-collection-ascona",
       "slugByLocale": {
-        "it": "account-manager-m-w-d-tschuggen-collection-ascona",
-        "en": "account-manager-m-w-d-tschuggen-collection-ascona",
+        "it": "etagen-portier-m-w-d-tschuggen-ch",
+        "en": "etagen-portier-m-w-d-tschuggen-ch",
         "de": "etagen-portier-m-w-d-tschuggen-collection-ascona",
         "fr": "gestionnaire-de-compte-m-w-d-tschuggen-collection-ascona"
       },
@@ -675,12 +684,6 @@
       "requirementsByLocale": {},
       "hotelName": "Hotel Eden Roc",
       "previousSlugsByLocale": {
-        "it": [
-          "etagen-portier-m-w-d-tschuggen-ch"
-        ],
-        "en": [
-          "etagen-portier-m-w-d-tschuggen-ch"
-        ],
         "fr": [
           "etagen-portier-m-w-d-tschuggen-ch"
         ],
@@ -689,7 +692,9 @@
         ]
       },
       "previousSlugs": [
-        "etagen-portier-m-w-d-tschuggen-ch"
+        "etagen-portier-m-w-d-tschuggen-ch",
+        "account-manager-m-w-d-tschuggen-collection-ascona",
+        "gestionnaire-de-compte-m-w-d-tschuggen-collection-ascona"
       ],
       "firstSeenAt": "2026-05-06T11:50:09.955Z",
       "salaryMin": 68000,

@@ -254,7 +254,7 @@
       "id": "spitaeler-schaffhausen-5b1bf6afd203",
       "slug": "expertin-notfallpflege-con-teamleitung-notfallpraxis-fast-track-spitaler-schaffhausen-schaffhausen",
       "slugByLocale": {
-        "it": "expertin-notfallpflege-con-teamleitung-notfallpraxis-fast-track-spitaler-schaffhausen-schaffhausen",
+        "it": "esperta-in-emergenza-e-coordinatrice-team-emergency-fast-track-spitaler-schaffhausen-schaffhausen",
         "en": "emergency-nurse-specialist-with-team-leadership-emergency-fast-track-spitaler-schaffhausen-schaffhausen",
         "de": "expertin-notfallpflege-mit-teamleitung-notfallpraxis-fast-track-spitaeler-schaffhausen",
         "fr": "infirmiere-d-urgence-avec-leadership-d-equipe-urgences-fast-track-spitaler-schaffhausen-schaffhausen"
@@ -300,12 +300,11 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "expertin-notfallpflege-mit-teamleitung-notfallpraxis-fast-track-spitaeler-schaffhausen",
-        "esperta-in-emergenza-e-coordinatrice-team-emergency-fast-track-spitaler-schaffhausen-schaffhausen"
+        "expertin-notfallpflege-con-teamleitung-notfallpraxis-fast-track-spitaler-schaffhausen-schaffhausen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "expertin-notfallpflege-mit-teamleitung-notfallpraxis-fast-track-spitaeler-schaffhausen",
-          "esperta-in-emergenza-e-coordinatrice-team-emergency-fast-track-spitaler-schaffhausen-schaffhausen"
+          "expertin-notfallpflege-mit-teamleitung-notfallpraxis-fast-track-spitaeler-schaffhausen"
         ]
       },
       "firstSeenAt": "2026-05-19T12:21:35.662Z",
@@ -2967,7 +2966,7 @@
       "id": "spitaeler-schaffhausen-00b321f498f1",
       "slug": "fachfrau-fachmann-gesundheit-cfc-langzeitpsychiatrie-spitaler-schaffhausen-schaffhausen",
       "slugByLocale": {
-        "it": "fachfrau-fachmann-gesundheit-cfc-langzeitpsychiatrie-spitaler-schaffhausen-schaffhausen",
+        "it": "specialista-della-salute-efz-in-psichiatria-a-lungo-termine-spitaler-schaffhausen-schaffhausen",
         "en": "healthcare-specialist-efz-in-long-term-psychiatry-spitaler-schaffhausen-schaffhausen",
         "de": "fachfrau-fachmann-gesundheit-efz-langzeitpsychiatrie-spitaeler-schaffhausen-schaffhausen",
         "fr": "specialiste-en-sante-efz-en-psychiatrie-de-longue-duree-spitaler-schaffhausen-schaffhausen"
@@ -3013,12 +3012,11 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "fachfrau-fachmann-gesundheit-efz-langzeitpsychiatrie-spitaeler-schaffhausen-schaffhausen",
-        "specialista-della-salute-efz-in-psichiatria-a-lungo-termine-spitaler-schaffhausen-schaffhausen"
+        "fachfrau-fachmann-gesundheit-cfc-langzeitpsychiatrie-spitaler-schaffhausen-schaffhausen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachfrau-fachmann-gesundheit-efz-langzeitpsychiatrie-spitaeler-schaffhausen-schaffhausen",
-          "specialista-della-salute-efz-in-psichiatria-a-lungo-termine-spitaler-schaffhausen-schaffhausen"
+          "fachfrau-fachmann-gesundheit-efz-langzeitpsychiatrie-spitaeler-schaffhausen-schaffhausen"
         ]
       },
       "firstSeenAt": "2026-05-22T23:31:33.501Z",
@@ -3917,7 +3915,7 @@
       "id": "spitaeler-schaffhausen-f5e180b17a19",
       "slug": "direzione-assistenza-di-emergenza-spitaler-schaffhausen-schaffhausen",
       "slugByLocale": {
-        "it": "direzione-assistenza-di-emergenza-spitaler-schaffhausen-schaffhausen",
+        "it": "leitung-notfall-pflege-spitaeler-schaffhausen-schaffhausen",
         "en": "emergency-care-leadership-spitaler-schaffhausen-schaffhausen",
         "de": "leitung-notfall-pflege-spitaler-schaffhausen-schaffhausen",
         "fr": "direction-des-soins-d-urgence-spitaler-schaffhausen-schaffhausen"
@@ -3963,9 +3961,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
-        "it": [
-          "leitung-notfall-pflege-spitaeler-schaffhausen-schaffhausen"
-        ],
         "en": [
           "leitung-notfall-pflege-spitaeler-schaffhausen-schaffhausen"
         ],
@@ -3977,7 +3972,10 @@
         ]
       },
       "previousSlugs": [
-        "leitung-notfall-pflege-spitaeler-schaffhausen-schaffhausen"
+        "leitung-notfall-pflege-spitaeler-schaffhausen-schaffhausen",
+        "direzione-assistenza-di-emergenza-spitaler-schaffhausen-schaffhausen",
+        "emergency-care-leadership-spitaler-schaffhausen-schaffhausen",
+        "direction-des-soins-d-urgence-spitaler-schaffhausen-schaffhausen"
       ],
       "firstSeenAt": "2026-05-21T13:18:10.798Z",
       "salaryMin": 49500,
@@ -4297,7 +4295,10 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "fachmann-frau-gesundheit-efz-erwachsenenbildung-nach-art-32-bbv-spitaeler-schaffhausen",
-        "salute-professionale-efz-istruzione-per-adulti-secondo-l-art-32-bbv-spitaler-schaffhausen-schaffhausen"
+        "salute-professionale-efz-istruzione-per-adulti-secondo-l-art-32-bbv-spitaler-schaffhausen-schaffhausen",
+        "specialista-in-salute-formazione-per-adulti-ai-sensi-dell-art-32-bbv-spitaler-schaffhausen-schaffhausen",
+        "healthcare-specialist-adult-education-according-to-art-32-bbv-spitaler-schaffhausen-schaffhausen",
+        "specialiste-en-sante-formation-pour-adultes-conformement-a-l-art-32-bbv-spitaler-schaffhausen-schaffhausen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4379,7 +4380,11 @@
         "salute-professionale-moglie-efz-spitaler-schaffhausen-schaffhausen",
         "fachmann-frau-gesundheit-cfc-spitaler-schaffhausen-2",
         "fachmann-frau-gesundheit-efz-spitaeler-schaffhausen-schaffhausen-3",
-        "fachmann-frau-gesundheit-efz-spitaeler-schaffhausen-schaffhausen-2"
+        "fachmann-frau-gesundheit-efz-spitaeler-schaffhausen-schaffhausen-2",
+        "specialista-della-salute-efz-spitaler-schaffhausen-schaffhausen",
+        "healthcare-specialist-efz-spitaler-schaffhausen-schaffhausen",
+        "specialiste-en-sante-efz-spitaler-schaffhausen-schaffhausen",
+        "esperto-a-in-salute-efz-spitaler-schaffhausen-schaffhausen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4412,7 +4417,7 @@
       "id": "spitaeler-schaffhausen-292ff4595674",
       "slug": "staff-in-servizio-tecnico-spitaler-schaffhausen-schaffhausen",
       "slugByLocale": {
-        "it": "staff-in-servizio-tecnico-spitaler-schaffhausen-schaffhausen",
+        "it": "collaboratore-trice-in-technischer-dienst-spitaler-schaffhausen",
         "en": "staff-in-technical-service-spitaler-schaffhausen-schaffhausen",
         "de": "mitarbeiter-in-technischer-dienst-spitaler-schaffhausen-schaffhausen",
         "fr": "personnel-en-service-technique-spitaler-schaffhausen-schaffhausen"
@@ -4462,8 +4467,7 @@
           "mitarbeiter-in-technischer-dienst-spitaeler-schaffhausen-schaffhausen"
         ],
         "it": [
-          "mitarbeiter-in-technischer-dienst-spitaeler-schaffhausen-schaffhausen",
-          "collaboratore-trice-in-technischer-dienst-spitaler-schaffhausen"
+          "mitarbeiter-in-technischer-dienst-spitaeler-schaffhausen-schaffhausen"
         ],
         "en": [
           "mitarbeiter-in-technischer-dienst-spitaler-schaffhausen-schaffhausen"
@@ -4474,8 +4478,8 @@
       },
       "previousSlugs": [
         "mitarbeiter-in-technischer-dienst-spitaeler-schaffhausen-schaffhausen",
-        "collaboratore-trice-in-technischer-dienst-spitaler-schaffhausen",
-        "mitarbeiter-in-technischer-dienst-spitaler-schaffhausen-schaffhausen"
+        "mitarbeiter-in-technischer-dienst-spitaler-schaffhausen-schaffhausen",
+        "staff-in-servizio-tecnico-spitaler-schaffhausen-schaffhausen"
       ],
       "firstSeenAt": "2026-05-21T13:18:10.784Z",
       "salaryMin": 49500,
@@ -4495,7 +4499,7 @@
       "id": "spitaeler-schaffhausen-6c91ac86c86c",
       "slug": "personale-in-servizio-tecnico-spitaler-schaffhausen-schaffhausen",
       "slugByLocale": {
-        "it": "personale-in-servizio-tecnico-spitaler-schaffhausen-schaffhausen",
+        "it": "collaboratore-trice-technischer-dienst-spitaler-schaffhausen",
         "en": "staff-in-technical-service-spitaler-schaffhausen-schaffhausen-099511",
         "de": "mitarbeiter-in-technischer-dienst-spitaler-schaffhausen-schaffhausen",
         "fr": "personnel-des-services-techniques-spitaler-schaffhausen-schaffhausen"
@@ -4546,8 +4550,7 @@
         ],
         "it": [
           "mitarbeiter-in-technischer-dienst-spitaeler-schaffhausen-schaffhausen-2",
-          "mitarbeiter-in-technischer-dienst-spitaeler-schaffhausen-schaffhausen",
-          "collaboratore-trice-technischer-dienst-spitaler-schaffhausen"
+          "mitarbeiter-in-technischer-dienst-spitaeler-schaffhausen-schaffhausen"
         ],
         "en": [
           "mitarbeiter-in-technischer-dienst-spitaler-schaffhausen-schaffhausen"
@@ -4559,8 +4562,8 @@
       "previousSlugs": [
         "mitarbeiter-in-technischer-dienst-spitaeler-schaffhausen-schaffhausen",
         "mitarbeiter-in-technischer-dienst-spitaeler-schaffhausen-schaffhausen-2",
-        "collaboratore-trice-technischer-dienst-spitaler-schaffhausen",
-        "mitarbeiter-in-technischer-dienst-spitaler-schaffhausen-schaffhausen"
+        "mitarbeiter-in-technischer-dienst-spitaler-schaffhausen-schaffhausen",
+        "personale-in-servizio-tecnico-spitaler-schaffhausen-schaffhausen"
       ],
       "firstSeenAt": "2026-05-21T13:18:10.769Z",
       "salaryMin": 49500,
@@ -4641,7 +4644,10 @@
       },
       "previousSlugs": [
         "praktikant-in-pflege-langzeitpsychiatrie-juli-august-spitaler-schaffhausen-schaffhausen",
-        "praktikant-in-pflege-langzeitpsychiatrie-juli-amp-august-spitaeler-schaffhausen"
+        "praktikant-in-pflege-langzeitpsychiatrie-juli-amp-august-spitaeler-schaffhausen",
+        "stage-in-psichiatria-a-lungo-termine-spitaler-schaffhausen-schaffhausen",
+        "psychiatric-long-term-care-nursing-assistant-july-august-spitaler-schaffhausen-schaffhausen",
+        "stage-en-soins-infirmiers-de-longue-duree-en-psychiatrie-juillet-aout-spitaler-schaffhausen-schaffhausen"
       ],
       "firstSeenAt": "2026-05-22T13:00:54.208Z",
       "salaryMin": 41600,
@@ -4748,19 +4754,18 @@
       "companyDomain": "spitaeler-sh.ch",
       "title": "Fachmann/-frau Gesundheit EFZ (Erwachsenenbildung Art. 32) geriatrischen Rehabilitation und Übergangspflege",
       "titleByLocale": {
-        "it": "Fachmann/-frau Gesundheit CFC (Erwachsenenbildung Art. 32) geriatrischen Rehabilitation e Übergangspflege",
-        "en": "Fachmann/-frau Gesundheit EFZ (Erwachsenenbildung Art. 32) geriatrischen Rehabilitation und Übergangspflege",
+        "it": "Salute professionale EFZ (educazione degli adulti Art. 32) riabilitazione geriatrica e cura di transizione",
+        "en": "Professional health EFZ (adult education Art. 32) geriatric rehabilitation and transition care",
         "de": "Fachmann/-frau Gesundheit EFZ (Erwachsenenbildung Art. 32) geriatrischen Rehabilitation und Übergangspflege",
-        "fr": "Fachmann/-frau Gesundheit EFZ (Erwachsenenbildung Art. 32) geriatrischen Rehabilitation und Übergangspflege"
+        "fr": "Santé professionnelle EFZ (éducation des adultes art. 32) réadaptation gériatrique et soins de transition"
       },
       "description": "In dieser zweijährigen Ausbildung arbeitest Du auf der Station für geriatrischen Rehabilitation und Übergangspflege des Kantonsspitals Schaffhausen, um die Aufgaben einer Fachperson Gesundheit zu erlernen. Du wirst täglich von Deinen Tagesbezugspersonen begleitet und unterstützt. Zudem kannst Du während regelmässiger Lerntage mit Bildungs- und Fachverantwortlichen gezielt auf einzelne Tätigkeiten eingehen. Nach Deinem erfolgreichen Lehrabschluss bist Du bestens ausgebildet und kannst die Aufgaben einer Fachperson Gesundheit selbstständig erledigen.<br/><br/>Sämtliche Gebühren und Auslagen werden von uns als Ausbildungsbetrieb übernommen.<br/><br/>Voraussetzungen für den Ausbildungsbeginn:<ul><li>Eine Anstellung von 6 bis 12 Monaten im Kantonsspital Schaffhausen, je nach beruflicher Erfahrung</li><li>Diese Anstellung dient als Grundlage für eine Eignungsprüfung durch uns, um zu entscheiden, ob wir Dich für die Erwachsenenbildung gemäss Art. 32 BBV empfehlen oder zulassen</li></ul>\n\nAufgaben:\n• Professionelle Pflege und Betreuung von kranken und betagten Menschen\n\n• Interessante pflegerische und medizinaltechnische Aufgaben\n\n• Hauswirtschaftliche und administrative Tätigkeiten\n\n• Verantwortung für die Reinigung, Desinfektion und Funktionstüchtigkeit der Instrumente und Apparate sowie für die Materialbeschaffung\n\nAnforderungen:\n• Mindestens 3 Jahre Berufserfahrung in Vollzeit\n\n• Älter als 25 Jahre\n\n• Arbeitspensum von mindestens 60% und maximal 80%, ergänzt durch einen Schultag pro Woche (20%)\n\n• Gute Deutschkenntnisse (mindestens Sprachniveau B2)\n\nWir bieten:\nDu willst Familie und Beruf gut unter einen Hut bringen? Mit unserer hauseigenen Kinderkrippe direkt auf dem Areal des Kantonsspitals unterstützen wir Dich dabei, für eine gesunde Work-Life-Balance, die nicht nur funktioniert, sondern gut tut.\n\nDie Spitäler Schaffhausen umfassen das Kantonsspital, die Psychiatrischen Dienste, die Praxen Radiologie und Kardiologie Posthof Neuhausen sowie die Praxis Neurologie Schaffhausen Zentrum. Mit über 1'700 Mitarbeitenden sichern wir die erweiterte medizinische und pflegerische Grundversorgung der Region Schaffhausen. Jährlich betreuen wir etwa 11'000 stationäre und 90'000 ambulante Patientinnen und Patienten. Zudem sind wir eine wichtige Ausbildungsstätte im Kanton.",
       "descriptionByLocale": {
-        "it": "In dieser zweijährigen Ausbildung arbeitest Du auf der Station für geriatrischen Rehabilitation und Übergangspflege des Kantonsspitals Schaffhausen, um die Aufgaben einer Fachperson Gesundheit zu erlernen. Du wirst täglich von Deinen Tagesbezugspersonen begleitet und unterstützt. Zudem kannst Du während regelmässiger Lerntage mit Bildungs- und Fachverantwortlichen gezielt auf einzelne Tätigkeiten eingehen. Nach Deinem erfolgreichen Lehrabschluss bist Du bestens ausgebildet und kannst die Aufgaben einer Fachperson Gesundheit selbstständig erledigen.<br/><br/>Sämtliche Gebühren und Auslagen werden von uns als Ausbildungsbetrieb übernommen.<br/><br/>Voraussetzungen für den Ausbildungsbeginn:<ul><li>Eine Anstellung von 6 bis 12 Monaten im Kantonsspital Schaffhausen, je nach beruflicher Erfahrung</li><li>Diese Anstellung dient als Grundlage für eine Eignungsprüfung durch uns, um zu entscheiden, ob wir Dich für die Erwachsenenbildung gemäss Art. 32 BBV empfehlen oder zulassen</li></ul> Aufgaben:\n• Professionelle Pflege und Betreuung von kranken und betagten Menschen\n• Interessante pflegerische und medizinaltechnische Aufgaben\n• Hauswirtschaftliche und administrative Tätigkeiten\n• Verantwortung für die Reinigung, Desinfektion und Funktionstüchtigkeit der Instrumente und Apparate sowie für die Materialbeschaffung Anforderungen:\n• Mindestens 3 Jahre Berufserfahrung in Vollzeit\n• Älter als 25 Jahre\n• Arbeitspensum von mindestens 60% und maximal 80%, ergänzt durch einen Schultag pro Woche (20%)\n• Gute Deutschkenntnisse (mindestens Sprachniveau B2) Wir bieten: Du willst Familie und Beruf gut unter einen Hut bringen? Mit unserer hauseigenen Kinderkrippe direkt auf dem Areal des Kantonsspitals unterstützen wir Dich dabei, für eine gesunde Work-Life-Balance, die nicht nur funktioniert, sondern gut tut. Die Spitäler Schaffhausen umfassen das Kantonsspital, die Psychiatrischen Dienste, die Praxen Radiologie und Kardiologie Posthof Neuhausen sowie die Praxis Neurologie Schaffhausen Zentrum. Mit über 1'700 Mitarbeitenden sichern wir die erweiterte medizinische und pflegerische Grundversorgung der Region Schaffhausen. Jährlich betreuen wir etwa 11'000 stationäre und 90'000 ambulante Patientinnen und Patienten. Zudem sind wir eine wichtige Ausbildungsstätte im Kanton.",
-        "en": "In dieser zweijährigen Ausbildung arbeitest Du auf der Station für geriatrischen Rehabilitation und Übergangspflege des Kantonsspitals Schaffhausen, um die Aufgaben einer Fachperson Gesundheit zu erlernen. Du wirst täglich von Deinen Tagesbezugspersonen begleitet und unterstützt. Zudem kannst Du während regelmässiger Lerntage mit Bildungs- und Fachverantwortlichen gezielt auf einzelne Tätigkeiten eingehen. Nach Deinem erfolgreichen Lehrabschluss bist Du bestens ausgebildet und kannst die Aufgaben einer Fachperson Gesundheit selbstständig erledigen.<br/><br/>Sämtliche Gebühren und Auslagen werden von uns als Ausbildungsbetrieb übernommen.<br/><br/>Voraussetzungen für den Ausbildungsbeginn:<ul><li>Eine Anstellung von 6 bis 12 Monaten im Kantonsspital Schaffhausen, je nach beruflicher Erfahrung</li><li>Diese Anstellung dient als Grundlage für eine Eignungsprüfung durch uns, um zu entscheiden, ob wir Dich für die Erwachsenenbildung gemäss Art. 32 BBV empfehlen oder zulassen</li></ul> Aufgaben:\n• Professionelle Pflege und Betreuung von kranken und betagten Menschen\n• Interessante pflegerische und medizinaltechnische Aufgaben\n• Hauswirtschaftliche und administrative Tätigkeiten\n• Verantwortung für die Reinigung, Desinfektion und Funktionstüchtigkeit der Instrumente und Apparate sowie für die Materialbeschaffung Anforderungen:\n• Mindestens 3 Jahre Berufserfahrung in Vollzeit\n• Älter als 25 Jahre\n• Arbeitspensum von mindestens 60% und maximal 80%, ergänzt durch einen Schultag pro Woche (20%)\n• Gute Deutschkenntnisse (mindestens Sprachniveau B2) Wir bieten: Du willst Familie und Beruf gut unter einen Hut bringen? Mit unserer hauseigenen Kinderkrippe direkt auf dem Areal des Kantonsspitals unterstützen wir Dich dabei, für eine gesunde Work-Life-Balance, die nicht nur funktioniert, sondern gut tut. Die Spitäler Schaffhausen umfassen das Kantonsspital, die Psychiatrischen Dienste, die Praxen Radiologie und Kardiologie Posthof Neuhausen sowie die Praxis Neurologie Schaffhausen Zentrum. Mit über 1'700 Mitarbeitenden sichern wir die erweiterte medizinische und pflegerische Grundversorgung der Region Schaffhausen. Jährlich betreuen wir etwa 11'000 stationäre und 90'000 ambulante Patientinnen und Patienten. Zudem sind wir eine wichtige Ausbildungsstätte im Kanton.",
-        "de": "In dieser zweijährigen Ausbildung arbeitest Du auf der Station für geriatrischen Rehabilitation und Übergangspflege des Kantonsspitals Schaffhausen, um die Aufgaben einer Fachperson Gesundheit zu erlernen. Du wirst täglich von Deinen Tagesbezugspersonen begleitet und unterstützt. Zudem kannst Du während regelmässiger Lerntage mit Bildungs- und Fachverantwortlichen gezielt auf einzelne Tätigkeiten eingehen. Nach Deinem erfolgreichen Lehrabschluss bist Du bestens ausgebildet und kannst die Aufgaben einer Fachperson Gesundheit selbstständig erledigen.<br/><br/>Sämtliche Gebühren und Auslagen werden von uns als Ausbildungsbetrieb übernommen.<br/><br/>Voraussetzungen für den Ausbildungsbeginn:<ul><li>Eine Anstellung von 6 bis 12 Monaten im Kantonsspital Schaffhausen, je nach beruflicher Erfahrung</li><li>Diese Anstellung dient als Grundlage für eine Eignungsprüfung durch uns, um zu entscheiden, ob wir Dich für die Erwachsenenbildung gemäss Art. 32 BBV empfehlen oder zulassen</li></ul> Aufgaben:\n• Professionelle Pflege und Betreuung von kranken und betagten Menschen\n• Interessante pflegerische und medizinaltechnische Aufgaben\n• Hauswirtschaftliche und administrative Tätigkeiten\n• Verantwortung für die Reinigung, Desinfektion und Funktionstüchtigkeit der Instrumente und Apparate sowie für die Materialbeschaffung Anforderungen:\n• Mindestens 3 Jahre Berufserfahrung in Vollzeit\n• Älter als 25 Jahre\n• Arbeitspensum von mindestens 60% und maximal 80%, ergänzt durch einen Schultag pro Woche (20%)\n• Gute Deutschkenntnisse (mindestens Sprachniveau B2) Wir bieten: Du willst Familie und Beruf gut unter einen Hut bringen? Mit unserer hauseigenen Kinderkrippe direkt auf dem Areal des Kantonsspitals unterstützen wir Dich dabei, für eine gesunde Work-Life-Balance, die nicht nur funktioniert, sondern gut tut. Die Spitäler Schaffhausen umfassen das Kantonsspital, die Psychiatrischen Dienste, die Praxen Radiologie und Kardiologie Posthof Neuhausen sowie die Praxis Neurologie Schaffhausen Zentrum. Mit über 1'700 Mitarbeitenden sichern wir die erweiterte medizinische und pflegerische Grundversorgung der Region Schaffhausen. Jährlich betreuen wir etwa 11'000 stationäre und 90'000 ambulante Patientinnen und Patienten. Zudem sind wir eine wichtige Ausbildungsstätte im Kanton.",
-        "fr": "In dieser zweijährigen Ausbildung arbeitest Du auf der Station für geriatrischen Rehabilitation und Übergangspflege des Kantonsspitals Schaffhausen, um die Aufgaben einer Fachperson Gesundheit zu erlernen. Du wirst täglich von Deinen Tagesbezugspersonen begleitet und unterstützt. Zudem kannst Du während regelmässiger Lerntage mit Bildungs- und Fachverantwortlichen gezielt auf einzelne Tätigkeiten eingehen. Nach Deinem erfolgreichen Lehrabschluss bist Du bestens ausgebildet und kannst die Aufgaben einer Fachperson Gesundheit selbstständig erledigen.<br/><br/>Sämtliche Gebühren und Auslagen werden von uns als Ausbildungsbetrieb übernommen.<br/><br/>Voraussetzungen für den Ausbildungsbeginn:<ul><li>Eine Anstellung von 6 bis 12 Monaten im Kantonsspital Schaffhausen, je nach beruflicher Erfahrung</li><li>Diese Anstellung dient als Grundlage für eine Eignungsprüfung durch uns, um zu entscheiden, ob wir Dich für die Erwachsenenbildung gemäss Art. 32 BBV empfehlen oder zulassen</li></ul> Aufgaben:\n• Professionelle Pflege und Betreuung von kranken und betagten Menschen\n• Interessante pflegerische und medizinaltechnische Aufgaben\n• Hauswirtschaftliche und administrative Tätigkeiten\n• Verantwortung für die Reinigung, Desinfektion und Funktionstüchtigkeit der Instrumente und Apparate sowie für die Materialbeschaffung Anforderungen:\n• Mindestens 3 Jahre Berufserfahrung in Vollzeit\n• Älter als 25 Jahre\n• Arbeitspensum von mindestens 60% und maximal 80%, ergänzt durch einen Schultag pro Woche (20%)\n• Gute Deutschkenntnisse (mindestens Sprachniveau B2) Wir bieten: Du willst Familie und Beruf gut unter einen Hut bringen? Mit unserer hauseigenen Kinderkrippe direkt auf dem Areal des Kantonsspitals unterstützen wir Dich dabei, für eine gesunde Work-Life-Balance, die nicht nur funktioniert, sondern gut tut. Die Spitäler Schaffhausen umfassen das Kantonsspital, die Psychiatrischen Dienste, die Praxen Radiologie und Kardiologie Posthof Neuhausen sowie die Praxis Neurologie Schaffhausen Zentrum. Mit über 1'700 Mitarbeitenden sichern wir die erweiterte medizinische und pflegerische Grundversorgung der Region Schaffhausen. Jährlich betreuen wir etwa 11'000 stationäre und 90'000 ambulante Patientinnen und Patienten. Zudem sind wir eine wichtige Ausbildungsstätte im Kanton."
+        "it": "In questa formazione biennale si lavora alla stazione per la riabilitazione geriatrica e la cura transitoria dell'ospedale cantonale Schaffhausen per imparare i compiti di una salute specialistica. Sarete accompagnati e sostenuti ogni giorno dai vostri riferimenti quotidiani. Inoltre, è possibile concentrarsi sulle attività individuali durante i giorni di apprendimento regolari con manager educativi e specialisti. Dopo il vostro apprendistato di successo, siete ben addestrati e può fare i compiti di una salute specialistica indipendentemente.\n\nTutti i costi e le spese sono presi in consegna da noi come uno stabilimento di formazione.\n\nRequisiti per l'inizio della formazione:\n- Lavoro da 6 a 12 mesi presso l'Ospedale cantonale di Sciaffusa, a seconda dell'esperienza professionale\n\n- Questo lavoro serve come base per un test attitudinale da parte nostra per decidere se siamo alla ricerca di un'educazione per adulti secondo l'art. 32 BBV consiglia o consenta\n\nCompiti:\n• Assistenza professionale e cura dei malati e degli anziani\n\n• Assistenza interessante e attività mediche\n\n• Attività agricole e amministrative\n\n• Responsabilità per la pulizia, la disinfezione e la funzionalità degli strumenti e degli apparecchi e per l'approvvigionamento dei materiali\n\nRequisiti:\n• Almeno 3 anni di esperienza professionale a tempo pieno\n\n• Più vecchio di 25 anni\n\n• Carico di lavoro di almeno il 60% e al massimo 80%, completato da una giornata scolastica a settimana (20%)\n\n• Buona conoscenza del tedesco (almeno livello di lingua B2)\n\nOffriamo:\nVuoi ottenere famiglia e professione bene? Con il nostro interno crèche proprio sulla zona dell'ospedale cantonale, vi sosteniamo per un sano equilibrio di vita lavorativa che non solo funziona ma funziona bene.\n\nLa Spitäler Schaffhausen comprende l'Ospedale cantonale, i Servizi psichiatrici, la Radiologia Praxen e la Cardiologia Posthof Neuhausen e la Pratica Neurologia Schaffhausen Center. Con oltre 1'700 dipendenti, garantiamo l'estesa assistenza medica e infermieristica della regione di Schaffhausen. Ogni anno ci interessano 11'000 pazienti stazionari e 90'000 pazienti ambulanti. Siamo anche un importante centro di formazione nel Cantone.",
+        "en": "In this two-year training you work at the station for geriatric rehabilitation and transitional care of the cantonal hospital Schaffhausen to learn the tasks of a specialist health. You will be accompanied and supported daily by your daily references. In addition, you can focus on individual activities during regular learning days with educational and specialist managers. After your successful apprenticeship, you are well trained and can do the tasks of a specialist health independently.\n\nAll fees and expenses are taken over by us as a training establishment.\n\nRequirements for the start of training:\n- An employment of 6 to 12 months in the Cantonal Hospital of Schaffhausen, depending on professional experience\n\n- This job serves as the basis for an aptitude test by us to decide whether we are looking for adult education according to Art. 32 BBV recommend or allow\n\nTasks:\n• Professional care and care of sick and elderly people\n\n• Interesting care and medical tasks\n\n• Agricultural and administrative activities\n\n• Responsibility for cleaning, disinfection and functionality of instruments and apparatus and for material procurement\n\nRequirements:\n• At least 3 years of full-time professional experience\n\n• Older than 25 years\n\n• Workload of at least 60% and at most 80%, supplemented by a school day per week (20%)\n\n• Good knowledge of German (at least language level B2)\n\nWe offer:\nYou want to get family and profession well? With our in-house crèche right on the area of the cantonal hospital, we support you for a healthy work-life balance that not only works but does well.\n\nThe Spitäler Schaffhausen include the Cantonal Hospital, the Psychiatric Services, the Praxen Radiology and Cardiology Posthof Neuhausen and the Practice Neurology Schaffhausen Center. With over 1'700 employees, we secure the extended medical and nursing basic care of the Schaffhausen region. Every year we care about 11'000 stationary and 90'000 outpatient patients. We are also an important training centre in the canton.",
+        "de": "In dieser zweijährigen Ausbildung arbeitest Du auf der Station für geriatrischen Rehabilitation und Übergangspflege des Kantonsspitals Schaffhausen, um die Aufgaben einer Fachperson Gesundheit zu erlernen. Du wirst täglich von Deinen Tagesbezugspersonen begleitet und unterstützt. Zudem kannst Du während regelmässiger Lerntage mit Bildungs- und Fachverantwortlichen gezielt auf einzelne Tätigkeiten eingehen. Nach Deinem erfolgreichen Lehrabschluss bist Du bestens ausgebildet und kannst die Aufgaben einer Fachperson Gesundheit selbstständig erledigen.\n\nSämtliche Gebühren und Auslagen werden von uns als Ausbildungsbetrieb übernommen.\n\nVoraussetzungen für den Ausbildungsbeginn:\n- Eine Anstellung von 6 bis 12 Monaten im Kantonsspital Schaffhausen, je nach beruflicher Erfahrung\n\n- Diese Anstellung dient als Grundlage für eine Eignungsprüfung durch uns, um zu entscheiden, ob wir Dich für die Erwachsenenbildung gemäss Art. 32 BBV empfehlen oder zulassen\n\nAufgaben:\n• Professionelle Pflege und Betreuung von kranken und betagten Menschen\n\n• Interessante pflegerische und medizinaltechnische Aufgaben\n\n• Hauswirtschaftliche und administrative Tätigkeiten\n\n• Verantwortung für die Reinigung, Desinfektion und Funktionstüchtigkeit der Instrumente und Apparate sowie für die Materialbeschaffung\n\nAnforderungen:\n• Mindestens 3 Jahre Berufserfahrung in Vollzeit\n\n• Älter als 25 Jahre\n\n• Arbeitspensum von mindestens 60% und maximal 80%, ergänzt durch einen Schultag pro Woche (20%)\n\n• Gute Deutschkenntnisse (mindestens Sprachniveau B2)\n\nWir bieten:\nDu willst Familie und Beruf gut unter einen Hut bringen? Mit unserer hauseigenen Kinderkrippe direkt auf dem Areal des Kantonsspitals unterstützen wir Dich dabei, für eine gesunde Work-Life-Balance, die nicht nur funktioniert, sondern gut tut.\n\nDie Spitäler Schaffhausen umfassen das Kantonsspital, die Psychiatrischen Dienste, die Praxen Radiologie und Kardiologie Posthof Neuhausen sowie die Praxis Neurologie Schaffhausen Zentrum. Mit über 1'700 Mitarbeitenden sichern wir die erweiterte medizinische und pflegerische Grundversorgung der Region Schaffhausen. Jährlich betreuen wir etwa 11'000 stationäre und 90'000 ambulante Patientinnen und Patienten. Zudem sind wir eine wichtige Ausbildungsstätte im Kanton.",
+        "fr": "Dans cette formation de deux ans, vous travaillez à la station de réadaptation gériatrique et de soins de transition de l'hôpital cantonal Schaffhausen pour apprendre les tâches d'un spécialiste de la santé. Vous serez accompagné et soutenu quotidiennement par vos références quotidiennes. En outre, vous pouvez vous concentrer sur des activités individuelles pendant les journées d'apprentissage régulières avec des gestionnaires éducatifs et spécialisés. Après votre apprentissage réussi, vous êtes bien formé et pouvez accomplir les tâches d'un spécialiste de la santé indépendamment.\n\nTous les frais sont pris en charge par nous en tant qu'établissement de formation.\n\nExigences relatives au début de la formation:\n- Un emploi de 6 à 12 mois à l'hôpital cantonal de Schaffhausen, selon l'expérience professionnelle\n\n- Ce travail sert de base pour un test d'aptitude par nous pour décider si nous sommes à la recherche de l'éducation des adultes selon l'art. 32 BBV recommander ou permettre\n\nTâches :\n• Soins et soins professionnels aux malades et aux personnes âgées\n\n• Soins intéressants et tâches médicales\n\n• Activités agricoles et administratives\n\n• La responsabilité du nettoyage, de la désinfection et de la fonctionnalité des instruments et appareils ainsi que de l'approvisionnement en matériel\n\nExigences:\n• Au moins 3 ans d'expérience professionnelle à temps plein\n\n• Plus de 25 ans\n\n• Charge de travail d'au moins 60 % et d'au plus 80 %, complétée par une journée scolaire par semaine (20 %)\n\n• Bonne connaissance de l'allemand (au moins niveau de langue B2)\n\nNous offrons:\nTu veux bien avoir la famille et la profession ? Avec notre crèche à l'intérieur de l'hôpital cantonal, nous vous accompagnons pour un équilibre sain entre vie professionnelle et vie privée qui fonctionne non seulement mais qui fonctionne bien.\n\nLe Spitäler Schaffhausen comprend l'hôpital cantonal, les services psychiatriques, le Praxen Radiology and Cardiology Posthof Neuhausen et le Practice Neurology Schaffhausen Center. Avec plus de 1'700 employés, nous garantissons les soins médicaux et infirmiers de base de la région de Schaffhausen. Chaque année, nous nous intéressons à environ 11'000 patients stationnaires et 90'000 patients externes. Nous sommes également un important centre de formation dans le canton."
       },
-      "needsRetranslation": true,
       "location": "Schaffhausen",
       "canton": "SH",
       "url": "https://stellen.spitaeler-sh.ch/offene-stellen/fachmann-frau-gesundheit-efz-erwachsenenbildung-art-32-geriatrischen-rehabilitation-und-uebergangspflege/babb96ca-b311-4e44-b1f6-52a926a96802",
@@ -4784,7 +4789,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fachmann-frau-gesundheit-efz-erwachsenenbildung-art-32-geriatrischen-rehabilitation-und"
+        "fachmann-frau-gesundheit-efz-erwachsenenbildung-art-32-geriatrischen-rehabilitation-und",
+        "salute-professionale-efz-educazione-degli-adulti-art-32-riabilitazione-geriatrica-e-cura-di-transizione-spitaler",
+        "professional-health-efz-adult-education-art-32-geriatric-rehabilitation-and-transition-care-spitaler-schaffhausen",
+        "sante-professionnelle-efz-education-des-adultes-art-32-readaptation-geriatrique-et-soins-de-transition-spitaler",
+        "specialista-in-salute-efz-formazione-per-adulti-art-32-in-riabilitazione-geriatrica-e-cure-intermedie-spitaler",
+        "healthcare-specialist-efz-adult-education-art-32-in-geriatric-rehabilitation-and-transitional-care-spitaler-schaffhausen",
+        "specialiste-en-sante-efz-formation-pour-adultes-art-32-en-rehabilitation-geriatrique-et-soins-de-transition-spitaler"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4820,18 +4831,17 @@
       "title": "Fachmann/-frau Gesundheit EFZ mit Option auf Berufsbildner/-in",
       "titleByLocale": {
         "de": "Fachmann/-frau Gesundheit EFZ mit Option auf Berufsbildner/-in",
-        "it": "Fachmann/-frau Gesundheit CFC con Option auf Berufsbildner/-in",
-        "en": "Fachmann/-frau Gesundheit EFZ mit Option auf Berufsbildner/-in",
-        "fr": "Fachmann/-frau Gesundheit EFZ mit Option auf Berufsbildner/-in"
+        "it": "Professional/wife Health EFZ con opzione su trainer/in professionale",
+        "en": "Professional/wife Health EFZ with option on professional trainer/in",
+        "fr": "Professionnel/femme Santé EFZ avec option sur formateur professionnel/in"
       },
       "description": "Aufgaben:\n• Ein aufgeschlossenes Team freut sich auf Dich. Im Mittelpunkt steht bei uns die Patientenbetreuung, hier bringst Du Dich aktiv ein\n\n• Professionelle Pflege und Betreuung von Patienten in enger Zusammenarbeit mit dem diplomierten Pflegepersonal\n\n• Hauswirtschaftliche, administrative und logistische Tätigkeiten\n\n• Mitverantwortung für die Umsetzung des pflegerischen Leistungsauftrages\n\n• Unterstützung bei der Betreuung und Förderung unserer Auszubildenden (auf Wunsch)\n\nAnforderungen:\n• Abgeschlossene Ausbildung und Berufserfahrung als Fachmann/-frau Gesundheit EFZ\n\n• Freude daran, Dein Fachwissen aktiv an unsere Lernenden weiterzugeben\n\n• Berufsbildner-Kurs bereits absolviert oder die Bereitschaft, diesen zu erwerben\n\n• Du bist belastbar, verantwortungsbewusst und hast Lust, Veränderungen aktiv mitzugestalten\n\n• Spass daran, im Team und fachübergreifend gemeinsam Lösungen zu finden\n\nWir bieten:\nDu willst Familie und Beruf gut unter einen Hut bringen? Mit unserer hauseigenen Kinderkrippe direkt auf dem Areal des Kantonsspitals unterstützen wir Dich dabei, für eine gesunde Work-Life-Balance, die nicht nur funktioniert, sondern gut tut.\n\nDie Spitäler Schaffhausen umfassen das Kantonsspital, die Psychiatrischen Dienste, die Praxen Radiologie und Kardiologie Posthof Neuhausen sowie die Praxis Neurologie Schaffhausen Zentrum. Mit über 1'700 Mitarbeitenden sichern wir die erweiterte medizinische und pflegerische Grundversorgung der Region Schaffhausen. Jährlich betreuen wir etwa 11'000 stationäre und 90'000 ambulante Patientinnen und Patienten. Zudem sind wir eine wichtige Ausbildungsstätte im Kanton.",
       "descriptionByLocale": {
         "de": "Aufgaben:\n• Ein aufgeschlossenes Team freut sich auf Dich. Im Mittelpunkt steht bei uns die Patientenbetreuung, hier bringst Du Dich aktiv ein\n\n• Professionelle Pflege und Betreuung von Patienten in enger Zusammenarbeit mit dem diplomierten Pflegepersonal\n\n• Hauswirtschaftliche, administrative und logistische Tätigkeiten\n\n• Mitverantwortung für die Umsetzung des pflegerischen Leistungsauftrages\n\n• Unterstützung bei der Betreuung und Förderung unserer Auszubildenden (auf Wunsch)\n\nAnforderungen:\n• Abgeschlossene Ausbildung und Berufserfahrung als Fachmann/-frau Gesundheit EFZ\n\n• Freude daran, Dein Fachwissen aktiv an unsere Lernenden weiterzugeben\n\n• Berufsbildner-Kurs bereits absolviert oder die Bereitschaft, diesen zu erwerben\n\n• Du bist belastbar, verantwortungsbewusst und hast Lust, Veränderungen aktiv mitzugestalten\n\n• Spass daran, im Team und fachübergreifend gemeinsam Lösungen zu finden\n\nWir bieten:\nDu willst Familie und Beruf gut unter einen Hut bringen? Mit unserer hauseigenen Kinderkrippe direkt auf dem Areal des Kantonsspitals unterstützen wir Dich dabei, für eine gesunde Work-Life-Balance, die nicht nur funktioniert, sondern gut tut.\n\nDie Spitäler Schaffhausen umfassen das Kantonsspital, die Psychiatrischen Dienste, die Praxen Radiologie und Kardiologie Posthof Neuhausen sowie die Praxis Neurologie Schaffhausen Zentrum. Mit über 1'700 Mitarbeitenden sichern wir die erweiterte medizinische und pflegerische Grundversorgung der Region Schaffhausen. Jährlich betreuen wir etwa 11'000 stationäre und 90'000 ambulante Patientinnen und Patienten. Zudem sind wir eine wichtige Ausbildungsstätte im Kanton.",
-        "it": "Aufgaben:\n• Ein aufgeschlossenes Team freut sich auf Dich. Im Mittelpunkt steht bei uns die Patientenbetreuung, hier bringst Du Dich aktiv ein\n\n• Professionelle Pflege und Betreuung von Patienten in enger Zusammenarbeit mit dem diplomierten Pflegepersonal\n\n• Hauswirtschaftliche, administrative und logistische Tätigkeiten\n\n• Mitverantwortung für die Umsetzung des pflegerischen Leistungsauftrages\n\n• Unterstützung bei der Betreuung und Förderung unserer Auszubildenden (auf Wunsch)\n\nAnforderungen:\n• Abgeschlossene Ausbildung und Berufserfahrung als Fachmann/-frau Gesundheit EFZ\n\n• Freude daran, Dein Fachwissen aktiv an unsere Lernenden weiterzugeben\n\n• Berufsbildner-Kurs bereits absolviert oder die Bereitschaft, diesen zu erwerben\n\n• Du bist belastbar, verantwortungsbewusst und hast Lust, Veränderungen aktiv mitzugestalten\n\n• Spass daran, im Team und fachübergreifend gemeinsam Lösungen zu finden\n\nWir bieten:\nDu willst Familie und Beruf gut unter einen Hut bringen? Mit unserer hauseigenen Kinderkrippe direkt auf dem Areal des Kantonsspitals unterstützen wir Dich dabei, für eine gesunde Work-Life-Balance, die nicht nur funktioniert, sondern gut tut.\n\nDie Spitäler Schaffhausen umfassen das Kantonsspital, die Psychiatrischen Dienste, die Praxen Radiologie und Kardiologie Posthof Neuhausen sowie die Praxis Neurologie Schaffhausen Zentrum. Mit über 1'700 Mitarbeitenden sichern wir die erweiterte medizinische und pflegerische Grundversorgung der Region Schaffhausen. Jährlich betreuen wir etwa 11'000 stationäre und 90'000 ambulante Patientinnen und Patienten. Zudem sind wir eine wichtige Ausbildungsstätte im Kanton.",
-        "en": "Aufgaben:\n• Ein aufgeschlossenes Team freut sich auf Dich. Im Mittelpunkt steht bei uns die Patientenbetreuung, hier bringst Du Dich aktiv ein\n\n• Professionelle Pflege und Betreuung von Patienten in enger Zusammenarbeit mit dem diplomierten Pflegepersonal\n\n• Hauswirtschaftliche, administrative und logistische Tätigkeiten\n\n• Mitverantwortung für die Umsetzung des pflegerischen Leistungsauftrages\n\n• Unterstützung bei der Betreuung und Förderung unserer Auszubildenden (auf Wunsch)\n\nAnforderungen:\n• Abgeschlossene Ausbildung und Berufserfahrung als Fachmann/-frau Gesundheit EFZ\n\n• Freude daran, Dein Fachwissen aktiv an unsere Lernenden weiterzugeben\n\n• Berufsbildner-Kurs bereits absolviert oder die Bereitschaft, diesen zu erwerben\n\n• Du bist belastbar, verantwortungsbewusst und hast Lust, Veränderungen aktiv mitzugestalten\n\n• Spass daran, im Team und fachübergreifend gemeinsam Lösungen zu finden\n\nWir bieten:\nDu willst Familie und Beruf gut unter einen Hut bringen? Mit unserer hauseigenen Kinderkrippe direkt auf dem Areal des Kantonsspitals unterstützen wir Dich dabei, für eine gesunde Work-Life-Balance, die nicht nur funktioniert, sondern gut tut.\n\nDie Spitäler Schaffhausen umfassen das Kantonsspital, die Psychiatrischen Dienste, die Praxen Radiologie und Kardiologie Posthof Neuhausen sowie die Praxis Neurologie Schaffhausen Zentrum. Mit über 1'700 Mitarbeitenden sichern wir die erweiterte medizinische und pflegerische Grundversorgung der Region Schaffhausen. Jährlich betreuen wir etwa 11'000 stationäre und 90'000 ambulante Patientinnen und Patienten. Zudem sind wir eine wichtige Ausbildungsstätte im Kanton.",
-        "fr": "Aufgaben:\n• Ein aufgeschlossenes Team freut sich auf Dich. Im Mittelpunkt steht bei uns die Patientenbetreuung, hier bringst Du Dich aktiv ein\n\n• Professionelle Pflege und Betreuung von Patienten in enger Zusammenarbeit mit dem diplomierten Pflegepersonal\n\n• Hauswirtschaftliche, administrative und logistische Tätigkeiten\n\n• Mitverantwortung für die Umsetzung des pflegerischen Leistungsauftrages\n\n• Unterstützung bei der Betreuung und Förderung unserer Auszubildenden (auf Wunsch)\n\nAnforderungen:\n• Abgeschlossene Ausbildung und Berufserfahrung als Fachmann/-frau Gesundheit EFZ\n\n• Freude daran, Dein Fachwissen aktiv an unsere Lernenden weiterzugeben\n\n• Berufsbildner-Kurs bereits absolviert oder die Bereitschaft, diesen zu erwerben\n\n• Du bist belastbar, verantwortungsbewusst und hast Lust, Veränderungen aktiv mitzugestalten\n\n• Spass daran, im Team und fachübergreifend gemeinsam Lösungen zu finden\n\nWir bieten:\nDu willst Familie und Beruf gut unter einen Hut bringen? Mit unserer hauseigenen Kinderkrippe direkt auf dem Areal des Kantonsspitals unterstützen wir Dich dabei, für eine gesunde Work-Life-Balance, die nicht nur funktioniert, sondern gut tut.\n\nDie Spitäler Schaffhausen umfassen das Kantonsspital, die Psychiatrischen Dienste, die Praxen Radiologie und Kardiologie Posthof Neuhausen sowie die Praxis Neurologie Schaffhausen Zentrum. Mit über 1'700 Mitarbeitenden sichern wir die erweiterte medizinische und pflegerische Grundversorgung der Region Schaffhausen. Jährlich betreuen wir etwa 11'000 stationäre und 90'000 ambulante Patientinnen und Patienten. Zudem sind wir eine wichtige Ausbildungsstätte im Kanton."
+        "it": "Compiti:\n• Una squadra aperta non vede l'ora. Il nostro focus è sulla cura dei pazienti, qui si contribuisce attivamente\n\n• Assistenza professionale e cura dei pazienti in stretta collaborazione con il personale di cura qualificato\n\n• Attività domestiche, amministrative e logistiche\n\n• Co-responsabilità per l'attuazione della missione di cura\n\n• Supporto per la cura e la promozione dei nostri tirocinanti (su richiesta)\n\nRequisiti:\n• Formazione completa e esperienza professionale come lavoratore qualificato Salute EFZ\n\n• Piacere di condividere attivamente le tue conoscenze con i nostri studenti\n\n• Corsi di formazione già completati o la volontà di acquisirli\n\n• Sei stressante, responsabile e vuoi modellare attivamente i cambiamenti\n\n• Guarda per trovare soluzioni in un team e in tutto il campo\n\nOffriamo:\nVuoi ottenere famiglia e professione bene? Con il nostro interno crèche proprio sulla zona dell'ospedale cantonale, vi sosteniamo per un sano equilibrio di vita lavorativa che non solo funziona ma funziona bene.\n\nLa Spitäler Schaffhausen comprende l'Ospedale cantonale, i Servizi psichiatrici, la Radiologia Praxen e la Cardiologia Posthof Neuhausen e la Pratica Neurologia Schaffhausen Center. Con oltre 1'700 dipendenti, garantiamo l'estesa assistenza medica e infermieristica della regione di Schaffhausen. Ogni anno ci interessano 11'000 pazienti stazionari e 90'000 pazienti ambulanti. Siamo anche un importante centro di formazione nel Cantone.",
+        "en": "Tasks:\n• An open-minded team is looking forward to you. Our focus is on patient care, here you actively contribute\n\n• Professional care and care of patients in close cooperation with the qualified nursing staff\n\n• Household, administrative and logistical activities\n\n• Co-responsibility for the implementation of the nursing mission\n\n• Support in the care and promotion of our trainees (on request)\n\nRequirements:\n• Complete training and professional experience as a skilled worker Health EFZ\n\n• Pleasure to actively share your knowledge with our learners\n\n• Training courses already completed or the willingness to acquire them\n\n• You are stressful, responsible and you want to actively shape changes\n\n• Watch to find solutions in a team and across the field\n\nWe offer:\nYou want to get family and profession well? With our in-house crèche right on the area of the cantonal hospital, we support you for a healthy work-life balance that not only works but does well.\n\nThe Spitäler Schaffhausen include the Cantonal Hospital, the Psychiatric Services, the Praxen Radiology and Cardiology Posthof Neuhausen and the Practice Neurology Schaffhausen Center. With over 1'700 employees, we secure the extended medical and nursing basic care of the Schaffhausen region. Every year we care about 11'000 stationary and 90'000 outpatient patients. We are also an important training centre in the canton.",
+        "fr": "Tâches :\n• Une équipe ouverte d'esprit vous attend. Nous nous concentrons sur les soins aux patients, ici vous contribuez activement\n\n• Soins professionnels et soins aux patients en étroite collaboration avec le personnel infirmier qualifié\n\n• Activités domestiques, administratives et logistiques\n\n• Coresponsabilité dans la mise en oeuvre de la mission de soins infirmiers\n\n• Soutien aux soins et à la promotion de nos stagiaires (sur demande)\n\nExigences:\n• Formation complète et expérience professionnelle en tant que travailleur qualifié\n\n• Le plaisir de partager activement vos connaissances avec nos apprenants\n\n• Les formations déjà terminées ou la volonté de les acquérir\n\n• Vous êtes stressant, responsable et vous voulez façonner activement les changements\n\n• Veillez à trouver des solutions en équipe et sur le terrain\n\nNous offrons:\nTu veux bien avoir la famille et la profession ? Avec notre crèche à l'intérieur de l'hôpital cantonal, nous vous accompagnons pour un équilibre sain entre vie professionnelle et vie privée qui fonctionne non seulement mais qui fonctionne bien.\n\nLe Spitäler Schaffhausen comprend l'hôpital cantonal, les services psychiatriques, le Praxen Radiology and Cardiology Posthof Neuhausen et le Practice Neurology Schaffhausen Center. Avec plus de 1'700 employés, nous garantissons les soins médicaux et infirmiers de base de la région de Schaffhausen. Chaque année, nous nous intéressons à environ 11'000 patients stationnaires et 90'000 patients externes. Nous sommes également un important centre de formation dans le canton."
       },
-      "needsRetranslation": true,
       "location": "Schaffhausen",
       "canton": "SH",
       "url": "https://stellen.spitaeler-sh.ch/offene-stellen/fachmann-frau-gesundheit-efz-mit-option-auf-berufsbildner-in/545f95fc-c780-47c1-bada-d63808b2c132",
@@ -4862,7 +4872,10 @@
         ]
       },
       "previousSlugs": [
-        "fachmann-frau-gesundheit-efz-mit-option-auf-berufsbildner-in-spitaeler-schaffhausen"
+        "fachmann-frau-gesundheit-efz-mit-option-auf-berufsbildner-in-spitaeler-schaffhausen",
+        "specialista-della-salute-efz-con-opzione-per-la-formazione-professionale-spitaler-schaffhausen-schaffhausen",
+        "healthcare-specialist-efz-with-option-for-vocational-training-spitaler-schaffhausen-schaffhausen",
+        "specialiste-en-sante-efz-avec-option-pour-la-formation-professionnelle-spitaler-schaffhausen-schaffhausen"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
