@@ -3853,6 +3853,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-mostre-nuove-virtu-e-limit-padiglione-italiano-guendalina-salimei': { name: 'Mostre d\'arte', path: '/articoli-frontaliere/mostre-nuove-virtu-e-limit-padiglione-italiano-guendalina-salimei', parent: 'blog' },
     'blog-tilo-gallarate-malpensa-maggio-2026': { name: 'TILO Malpensa', path: '/articoli-frontaliere/tilo-gallarate-malpensa-maggio-2026', parent: 'blog' },
     'blog-indipendenza-finanziaria-ticino': { name: 'Indipendenza finanziaria Ticino', path: '/articoli-frontaliere/indipendenza-finanziaria-ticino', parent: 'blog' },
+    'blog-ia-aziende-svizzere-occupazione-ticino': { name: 'IA e lavoro Ticino', path: '/articoli-frontaliere/ia-aziende-svizzere-occupazione-ticino', parent: 'blog' },
  };
 
  const info = sectionNames[section];

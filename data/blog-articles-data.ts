@@ -24869,4 +24869,13 @@ export const ARTICLES = [
  authorSlug: 'laura-bianchi',
  authorName: 'Laura Bianchi',
  },
+ {
+ id: 'ia-aziende-svizzere-occupazione-ticino',
+ category: 'novita',
+ date: '2026-05-28T05:49:40.687Z',
+ image: '/images/blog/ia-aziende-svizzere-occupazione-ticino.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

@@ -7832,6 +7832,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.indipendenza-finanziaria-ticino.title': 'Indipendenza finanziaria e pensionamento anticipato',
     'blog.article.indipendenza-finanziaria-ticino.excerpt': 'L\'economista di Raiffeisen Jeffrey Hochegger commenta il movimento FIRE e offre consigli pratici per investire e risparmiare in Ticino.',
     'blog.article.indipendenza-finanziaria-ticino.imageAlt': 'Vista panoramica di Lugano con edifici finanziari e montagne sullo sfondo',
+    'blog.article.ia-aziende-svizzere-occupazione-ticino.title': 'Intelligenza artificiale in Ticino: impatti sull\'occupazione',
+    'blog.article.ia-aziende-svizzere-occupazione-ticino.excerpt': 'L’IA è diffusa nelle imprese svizzere, ma il suo effetto sui posti di lavoro resta incerto secondo EY.',
+    'blog.article.ia-aziende-svizzere-occupazione-ticino.imageAlt': 'Vista di un moderno ufficio tecnologico a Lugano, Canton Ticino',
 };
 
 export default blogMetaIt;
