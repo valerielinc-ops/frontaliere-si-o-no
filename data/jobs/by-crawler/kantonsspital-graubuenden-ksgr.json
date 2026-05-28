@@ -28,10 +28,16 @@
         "de": "fachfrau-fachmann-gesundheit-notfall-kantonsspital-graubunden-chur"
       },
       "titleByLocale": {
-        "de": "Fachfrau / Fachmann Gesundheit Notfall"
+        "de": "Fachfrau / Fachmann Gesundheit Notfall",
+        "en": "Specialist health emergency",
+        "it": "Emergenza sanitaria specialistica",
+        "fr": "Urgence sanitaire spécialisée"
       },
       "descriptionByLocale": {
-        "de": "Starte am 1. Juli 2026 als\n\nAufgaben:\n• Du unterstüzt das Pflegeteam in einem dynamischen und abwechslungsreichen Arbeitsumfeld in der Zentralen Notfallstation\n\n• Du bist die rechte Hand der Pflegekraft und agierst mit ihr im Zweierteam\n\n• Du assistierst bei diagnostisch-therapeutischen Verrichtungen\n\n• Du übernimmst pflegerische, hauswirtschaftliche und administrative Tätigkeiten\n\nAnforderungen:\n• Du hast einen Abschluss als Fachfrau / Fachmann Gesundheit und bereits Berufserfahrung in einem Akutspital gesammelt\n\n• Du hast die Bereitschaft, dir innerhalb des Spitals zusätzliche Kompetenzen anzueignen, um die Tätigkeiten auf der Zentralen Notfallstation auszuführen\n\n• Deine zuverlässige und speditive Arbeitsweise sowie deine rasche Auffassungsgabe zeichnen dich aus\n\n• Deine offene und aufgestellte Art ist eine Bereicherung für das Team\n\nDu kannst etwas, was andere nicht können?\nDu machst den Unterschied aus?\nDann gehörst du zu uns!"
+        "de": "## Descrizione\nStarte am 1. Juli 2026 als\n\n## Mansioni\n- Du unterstüzt das Pflegeteam in einem dynamischen und abwechslungsreichen Arbeitsumfeld in der Zentralen Notfallstation\n- Du bist die rechte Hand der Pflegekraft und agierst mit ihr im Zweierteam\n- Du assistierst bei diagnostisch-therapeutischen Verrichtungen\n- Du übernimmst pflegerische, hauswirtschaftliche und administrative Tätigkeiten\n\n## Requisiti\n- Du hast einen Abschluss als Fachfrau / Fachmann Gesundheit und bereits Berufserfahrung in einem Akutspital gesammelt\n- Du hast die Bereitschaft, dir innerhalb des Spitals zusätzliche Kompetenzen anzueignen, um die Tätigkeiten auf der Zentralen Notfallstation auszuführen\n- Deine zuverlässige und speditive Arbeitsweise sowie deine rasche Auffassungsgabe zeichnen dich aus\n- Deine offene und aufgestellte Art ist eine Bereicherung für das Team\n\n## Cosa offriamo\n- Du kannst etwas, was andere nicht können?\n- Du machst den Unterschied aus?\n- Dann gehörst du zu uns!",
+        "en": "Descrizione\nStart on 1. July 2026 as\n\nMansioni\n- You support the nursing team in a dynamic and varied working environment in the Central Emergency Station\n- You are the right hand of nursing power and aspire with it in the team of two\n- You assist in diagnostic-therapeutic procedures\n- You take care, housekeeping and administrative activities\n\nRequisiti\n- You have earned a degree as a specialist health and already professional experience in an acute hospital\n- You have the willingness to acquire additional competencies within the hospital to perform the activities at the Central Emergency Station\n- Your reliable and speditive way of working, as well as your rapid understanding, are the key\n- Your open and up-to-date way is an enrichment for the team\n\nCosa offriamo\n- You can do something that others can't?\n- You make the difference?\n- Then you belong to us!",
+        "it": "Descrizione\nIniziare su 1. Luglio 2026\n\nMansioni\n- Supporti il team di cura in un ambiente di lavoro dinamico e vario nella Stazione Centrale di Emergenza\n- Tu sei la mano destra del potere di allattamento e aspire con esso nel team di due\n- Lei assiste nelle procedure diagnostiche-terapeutiche\n- Si prende cura, pulizia e attività amministrative\n\nRequisiti\n- Hai conseguito una laurea in salute specialistica e già esperienza professionale in un ospedale acuto\n- Lei ha la volontà di acquisire competenze aggiuntive all'interno dell'ospedale per svolgere le attività presso la Stazione Centrale di Emergenza\n- Il vostro modo di lavorare affidabile e spedito, così come la vostra rapida comprensione, sono la chiave\n- Il tuo modo aperto e aggiornato è un arricchimento per il team\n\nCosa?\n- Puoi fare qualcosa che gli altri non possono?\n- Fai la differenza?\n- Allora appartieni a noi!",
+        "fr": "Descrizione\nCommencez par 1. Juillet 2026\n\nMansioni\n- Vous soutenez l'équipe infirmière dans un environnement de travail dynamique et varié au Central Emergency Station\n- Vous êtes la main droite de la puissance infirmière et aspirez avec elle dans l'équipe de deux\n- Vous aidez aux procédures diagnostiques et thérapeutiques\n- Vous prenez soin, le ménage et les activités administratives\n\nRequisiti\n- Vous avez obtenu un diplôme comme spécialiste de la santé et déjà expérience professionnelle dans un hôpital aigu\n- Vous avez la volonté d'acquérir des compétences supplémentaires au sein de l'hôpital pour effectuer les activités au Central Emergency Station\n- Votre façon de travailler fiable et speditive, ainsi que votre compréhension rapide, sont la clé\n- Votre façon ouverte et à jour est un enrichissement pour l'équipe\n\nCosa offriamo\n- Tu peux faire quelque chose que les autres ne peuvent pas faire ?\n- Tu fais la différence ?\n- Alors tu nous appartiens !"
       },
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -44,7 +50,6 @@
         }
       },
       "featured": false,
-      "needsRetranslation": true,
       "_targetScope": "grigioni",
       "salaryMin": 41080,
       "salaryMax": 75000,
@@ -168,7 +173,6 @@
         }
       },
       "featured": false,
-      "needsRetranslation": true,
       "_targetScope": "grigioni",
       "salaryMin": 41080,
       "salaryMax": 75000,
@@ -632,7 +636,6 @@
           "pflegefachfrau-pflegefachmann-palliative-care-kantonsspital-graubunden-walenstadt"
         ]
       },
-      "needsRetranslation": true,
       "_targetScope": "grigioni",
       "salaryMin": 41080,
       "salaryMax": 75000,
@@ -764,7 +767,6 @@
           "pflegefachfrau-pflegefachmann-palliative-care-kantonsspital-graubunden-chur"
         ]
       },
-      "needsRetranslation": true,
       "_targetScope": "grigioni",
       "salaryMin": 41080,
       "salaryMax": 75000,
@@ -1197,15 +1199,15 @@
       },
       "titleByLocale": {
         "de": "Berufslehre Fachfrau / Fachmann Hotellerie-Hauswirtschaft",
-        "it": "Apprendistato in Alberghiero / Economia Domestica",
-        "en": "Apprenticeship in Hospitality / Housekeeping",
-        "fr": "Apprentissage en Hôtellerie / Économie Domestique"
+        "it": "Specialista di insegnamento professionale / Professional Hotellerie-Hauswirtschaft",
+        "en": "Professional Teaching Specialist / Professional Hotellerie-Hauswirtschaft",
+        "fr": "Spécialiste de l'enseignement professionnel / Professional Hotellerie-Hauswirtschaft"
       },
       "descriptionByLocale": {
         "de": "Starte am 1. August 2027 mit der dreijährigen\n\nAufgaben:\n• Vom Empfang bis zur Verabschiedung bist du die Ansprechperson für unsere stationären Patientinnen und Patienten bei allen nichtmedizinischen Fragen\n\n• Du koordinierst die Essensbestellungen, in den Patientenzimmern und Aufenthaltsräumen hältst du Ordnung und trägst damit wesentlich zum Wohlbefinden der Gäste bei\n\n• Die Lebensmittelbestellung und Materialbewirtschaftung erledigst du zuverlässig über unser EDV‑System\n\n• Im Restaurant sowie bei Banketten und Events betreust du unsere Gäste und sorgst für eine angenehme Atmosphäre\n\n• Während deines externen Praktikums in der Bündner Hotellerie lernst du zusätzlich die Abläufe an der Rezeption, im à‑la‑carte‑Service und bei Grossveranstaltungen kennen\n\nAnforderungen:\n• Du hast einen Oberstufen‑Abschluss und überzeugst mit guten schulischen Leistungen\n\n• Der Kontakt mit Menschen bereitet dir Freude, und du trittst dienstleistungsorientiert, hilfsbereit und zuvorkommend auf\n\n• Offenheit und Flexibilität gehören zu deinen persönlichen Stärken\n\n• Dank deinem Organisationstalent behältst du auch in hektischen Momenten den Überblick und handelst überlegt\n\n• Du arbeitest gerne im Team und trägst zu einem positiven Miteinander bei\n\nDu kannst etwas, was andere nicht können?\nDu machst den Unterschied aus?\nDann gehörst du zu uns!",
-        "it": "Iniziare su 1. Agosto 2027 con tre anni\n\nCompiti:\n• Dalla ricezione all'adozione, sei la persona di contatto per i nostri pazienti stazionari in tutte le domande non mediche\n\n• Coordinate gli ordini di cibo, nelle sale e nei salotti del paziente, mantenendo l'ordine e contribuisce in modo significativo al benessere degli ospiti\n\n• L'ordinazione alimentare e la gestione dei materiali possono essere gestite in modo affidabile tramite il nostro sistema informatico\n\n• Nel ristorante così come nei banchetti ed eventi, vi occuperete dei nostri ospiti e vi garantiranno un'atmosfera piacevole\n\n• Durante il vostro stage esterno presso il Bündner Hotellerie, potrete anche conoscere i processi alla reception, nel servizio à‐la‐carte e nei principali eventi.\n\nRequisiti:\n• Hai un livello superiore e convincere con buoni risultati scolastici\n\n• Il contatto con la gente ti prepara la gioia, e si entra in servizio orientato, utile e accomodante\n\n• Apertura e flessibilità sono i vostri punti di forza personali\n\n• Grazie al tuo talento organizzativo, puoi tenere traccia e scambiare momenti frenetici\n\n• Ti piace lavorare nella squadra e contribuire a un rapporto positivo\n\nPuoi fare qualcosa che gli altri non possono fare?\nFai la differenza?\nAllora appartieni a noi!",
-        "en": "Start on 1. August 2027 with three years\n\nTasks:\n• From reception to adoption, you are the contact person for our stationary patients in all non-medical questions\n\n• You co-ordinate the food orders, in the patient rooms and lounges you keep order and thus contribute significantly to the well-being of guests\n\n• Food ordering and material management can be handled reliably via our computer system\n\n• In the restaurant as well as in banquets and events, you will take care of our guests and ensure a pleasant atmosphere\n\n• During your external internship at the Bündner Hotellerie, you will also get to know the processes at the reception, in the à‐la‐carte service and at major events.\n\nRequirements:\n• You have an upper level degree and convince with good school achievements\n\n• Contact with people prepares you joy, and you enter service-oriented, helpful and accommodating\n\n• Openness and flexibility are your personal strengths\n\n• Thanks to your organizational talent, you can keep track of and trade in hectic moments\n\n• You like to work in the team and contribute to a positive relationship\n\nYou can do something that others can't?\nYou make the difference?\nThen you belong to us!",
-        "fr": "Commencez par 1. Août 2027 avec trois ans\n\nTâches :\n• De la réception à l'adoption, vous êtes la personne de contact pour nos patients fixes dans toutes les questions non médicales\n\n• Vous coordonnez les commandes de nourriture, dans les chambres et les salons patients, vous gardez l'ordre et contribuez ainsi de manière significative au bien-être des clients\n\n• La commande des aliments et la gestion du matériel peuvent être gérées de manière fiable via notre système informatique\n\n• Dans le restaurant ainsi que dans les banquets et les événements, vous prendrez soin de nos invités et assurer une atmosphère agréable\n\n• Lors de votre stage externe au Bündner Hotellerie, vous apprendrez également à connaître les processus à la réception, au service à la carte et lors d'événements majeurs.\n\nExigences:\n• Vous avez un diplôme de niveau supérieur et de convaincre avec de bons résultats scolaires\n\n• Le contact avec les gens vous prépare à la joie, et vous entrez dans le service orienté, utile et accommodant\n\n• L'ouverture et la flexibilité sont vos forces personnelles\n\n• Grâce à votre talent organisationnel, vous pouvez suivre et échanger des moments agités\n\n• Vous aimez travailler en équipe et contribuer à une relation positive\n\nTu peux faire quelque chose que les autres ne peuvent pas faire ?\nTu fais la différence ?\nAlors tu nous appartiens !"
+        "it": "Iniziare il 1o agosto 2027 con i compiti di tre anni: • Dalla ricezione all'adozione, sei la persona di contatto per i nostri pazienti stazionari in tutte le domande non mediche • Coordinate gli ordini di cibo, nelle stanze e nei saloni del paziente mantenendo l'ordine e contribuisce in modo significativo al benessere degli ospiti • L'ordinazione alimentare e la gestione dei materiali vengono effettuati in modo affidabile tramite il nostro sistema informatico • Nel ristorante e nei banchetti e negli eventi visiterai i nostri ospiti e garantirai un'atmosfera piacevole • Durante il tuo stage esterno presso la Bündner Hotellerie, avrai anche modo di conoscere i processi alla reception, nel servizio à-la-carte e nei principali eventi Requisiti: • Hai un livello superiore e convincerai con i buoni risultati scolastici • Contattare con le persone ti prepara la gioia e entri in servizio, orientato e disponibile Grazie al tuo talento organizzativo, puoi anche tenere traccia e il commercio di momenti frenetici • Ti piace lavorare nella squadra e avere un rapporto positivo con te qualcosa che gli altri non possono fare? Fai la differenza? Allora appartieni a noi!",
+        "en": "Start on 1 August 2027 with the three-year tasks: • From reception to adoption, you are the contact person for our stationary patients in all non-medical questions • You coordinate the food orders, in the patient's rooms and lounges you keep order and thus contribute significantly to the well-being of the guests • Food ordering and material management are carried out reliably via our computer system • In the restaurant as well as in banquets and events you will visit our guests and ensure a pleasant atmosphere • During your external internship at the Bündner Hotellerie, you will also get to know the processes at the reception, in the à‐la‐carte service and at major events Requirements: • You have an upper level degree and convince with good school achievements • Contact with people prepares you joy, and you enter service-oriented, helpful and accommodating • Openness and flexibility are your personal strengths • Thanks to your organizational talent, you can also keep track of and trade in hectic moments • You like to work in the team and get a positive relationship with you something others can't do? You make the difference? Then you belong to us!",
+        "fr": "Commencez le 1er août 2027 avec les tâches de trois ans: • De la réception à l'adoption, vous êtes la personne de contact pour nos patients fixes dans toutes les questions non médicales • Vous coordonnez les commandes alimentaires, dans les chambres et les salons du patient, vous gardez l'ordre et contribuez ainsi de manière significative au bien-être des clients • La commande alimentaire et la gestion du matériel sont effectuées de manière fiable via notre système informatique • Dans le restaurant ainsi que dans les banquets et les événements, vous visiterez nos invités et assurerez une ambiance agréable • Lors de votre stage externe à l'Hôtellerie Bündner, vous apprendrez également à connaître les processus à la réception, au service à la carte et aux grands événements.Exigences: • Vous avez un diplôme de niveau supérieur et convainquez avec de bonnes réussites scolaires • Le contact avec les gens vous prépare à la joie, et vous entrez dans le service orienté, serviable et accommodant • L'ouverture et la flexibilité sont vos atouts personnels • Grâce à votre talent organisationnel, vous pouvez également suivre et échanger dans les moments agités • Tu aimes travailler dans l'équipe et avoir une relation positive avec toi quelque chose que les autres ne peuvent pas faire ? Tu fais la différence ? Alors tu nous appartiens !"
       },
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -2366,7 +2368,6 @@
         }
       },
       "featured": false,
-      "needsRetranslation": true,
       "_targetScope": "grigioni",
       "salaryMin": 41080,
       "salaryMax": 75000,
@@ -3371,7 +3372,6 @@
           "pflegefachkraft-akutgeriatrie-kantonsspital-graubunden-walenstadt"
         ]
       },
-      "needsRetranslation": true,
       "_targetScope": "grigioni",
       "salaryMin": 41080,
       "salaryMax": 75000,
@@ -3503,7 +3503,6 @@
           "pflegefachkraft-akutgeriatrie-kantonsspital-graubunden-chur"
         ]
       },
-      "needsRetranslation": true,
       "_targetScope": "grigioni",
       "salaryMin": 41080,
       "salaryMax": 75000,
@@ -5010,9 +5009,9 @@
       },
       "descriptionByLocale": {
         "de": "Starte, wann du möchtest und sei dabei als\n\nAufgaben:\n• Du bereitest Operationen vor und nach, instrumentierst fachgerecht und assistierst bei verschiedensten Eingriffen mit modernster OP-Technik\n\n• Du übernimmst die pflegerische Betreuung der Patientinnen und Patienten in Lokalanästhesie – vor, während und nach der OP\n\n• Du stellst eigenverantwortlich die Hygienestandards sicher, sorgst für sterile Abläufe und kümmerst dich um die medizintechnischen Geräte\n\n• Du koordinierst interprofessionell die Patientenprozesse und sorgst für einen reibungslosen Ablauf im OP-Saal – damit alles rund läuft, von der ersten Minute bis zum Abschluss\n\nAnforderungen:\n• Du bringst ein Diplom als Fachfrau / Fachmann Operationstechnik HF, Pflegefachfrau / Pflegefachmann OP FA oder eine gleichwertige Qualifikation mit\n\n• Du bist physisch und psychisch belastbar, verfügst über gute Konzentrationsfähigkeit und die nötige Ruhe, um auch in hektischen Situationen den Überblick zu behalten\n\n• Dich begeistern modernste Technik wie z.B. Da Vinci-Operationsroboter Xi\n\n• Dir bereitet es Freude selbstständig zu arbeiten, Verantwortung zu übernehmen und in einem heterogenen Team zu arbeiten\n\nDu kannst etwas, was andere nicht können?\nDu machst den Unterschied aus?\nDann gehörst du zu uns!",
-        "it": "Iniziare quando si desidera e essere come un compito:\n• Preparare le operazioni prima e dopo, dotare professionalmente e assistere con una varietà di interventi con la più moderna tecnica chirurgica\n• Si prende cura di pazienti in anestesia locale prima, durante e dopo l'intervento chirurgico\n• Assicurare i propri standard di igiene, garantire procedure sterili e prendersi cura di dispositivi medici\n• Coordinate i processi del paziente in modo interprofessionale e assicurate un buon funzionamento nella sala OP – così tutto va arrotondato, dal primo minuto alla conclusione Requisiti:\n• Portate un diploma come specialista / tecnologia chirurgica operaia qualificata HF, specialista di allattamento OP FA o una qualifica equivalente con\n• Sei fisicamente e psicologicamente resiliente, hai una buona concentrazione e il riposo necessario per mantenere una panoramica anche in situazioni frenetiche\n• Sei entusiasta della tecnologia all'avanguardia come i robot Da Vinci\n• Si sta preparando a lavorare in modo indipendente, prendere la responsabilità e lavorare in una squadra eterogenea Si può fare qualcosa che gli altri non possono? Fai la differenza? Allora appartieni a noi!",
+        "it": "Iniziare quando si desidera e essere come\n\nCompiti:\n• Preparare le operazioni prima e dopo, eseguire professionalmente e assistere con una varietà di interventi con la tecnica chirurgica più moderna\n\n• Si prende cura di pazienti in anestesia locale prima, durante e dopo l'intervento chirurgico\n\n• Assicurare gli standard di igiene da soli, garantire procedure sterili e prendersi cura dei dispositivi medici\n\n• Coordinate i processi dei pazienti in modo interprofessionale e assicurate un buon funzionamento nella sala OP – così tutto va in tondo, dal primo minuto alla conclusione\n\nRequisiti:\n• Si porta un diploma come specialista / esperta tecnica chirurgica HF, infermieristica professionale / infermieristica OP FA o una qualifica equivalente con\n\n• Sei fisicamente e psicologicamente resiliente, hai una buona concentrazione e il riposo necessario per mantenere una panoramica anche in situazioni frenetiche\n\n• Sei entusiasta della tecnologia all'avanguardia come il robot chirurgico Da Vinci Xi\n\n• Siete pronti a lavorare in modo indipendente, assumersi la responsabilità e lavorare in un team eterogeneo\n\nPuoi fare qualcosa che gli altri non possono fare?\nFai la differenza?\nAllora appartieni a noi!",
         "en": "Start when you want and be as\n\nTasks:\n• You prepare operations before and after, perform professionally and assist with a variety of interventions with the most modern surgical technique\n\n• You take care of patients in local anaesthesia before, during and after surgery\n\n• You ensure the hygiene standards by yourself, ensure sterile procedures and take care of the medical devices\n\n• You coordinate patient processes interprofessionally and ensure a smooth run in the OP room – so everything goes round, from the first minute to the conclusion\n\nRequirements:\n• You bring a diploma as a specialist / expert surgical technique HF, nursing professional / nursing professional OP FA or an equivalent qualification with\n\n• You are physically and psychologically resilient, have good concentration and the necessary rest to keep an overview even in hectic situations\n\n• You're thrilling with state-of-the-art technology such as Da Vinci surgical robot Xi\n\n• You are prepared to work independently, take responsibility and work in a heterogeneous team\n\nYou can do something that others can't?\nYou make the difference?\nThen you belong to us!",
-        "fr": "Commencez quand vous voulez et soyez comme une tâche:\n• Vous préparez les opérations avant et après, équipez professionnellement et aidez avec une variété d'interventions avec la technique chirurgicale la plus moderne\n• Vous prenez soin des patients en anesthésie locale avant, pendant et après l'opération\n• Vous assurez vos propres normes d'hygiène, vous assurez des procédures stériles et prenez soin des dispositifs médicaux\n• Vous coordonnez les processus de patient interprofessionnels et vous assurez un bon fonctionnement dans la salle OP – tout va donc de la première minute à la conclusion Exigences:\n• Vous apportez un diplôme en tant que spécialiste / travailleur qualifié technologie chirurgicale HF, spécialiste en soins infirmiers OP FA ou une qualification équivalente avec\n• Vous êtes physiquement et psychologiquement résilient, avez une bonne concentration et le repos nécessaire pour garder un aperçu même dans des situations mouvementées\n• Vous êtes passionnant avec la technologie de pointe comme les robots Da Vinci\n• Vous vous préparez à travailler de manière indépendante, à prendre des responsabilités et à travailler dans une équipe hétérogène Vous pouvez faire quelque chose que d'autres ne peuvent pas faire? Tu fais la différence ? Alors tu nous appartiens !"
+        "fr": "Commencez quand vous voulez et soyez comme\n\nTâches :\n• Vous préparez les opérations avant et après, vous effectuez professionnellement et vous assistez avec une variété d'interventions avec la technique chirurgicale la plus moderne\n\n• Vous prenez soin des patients en anesthésie locale avant, pendant et après l'opération\n\n• Vous assurez les normes d'hygiène par vous-même, vous assurez des procédures stériles et prenez soin des dispositifs médicaux\n\n• Vous coordonnez les processus de patient interprofessionnels et vous assurez un bon fonctionnement dans la salle OP – tout tourne donc autour, de la première minute à la conclusion\n\nExigences:\n• Vous apportez un diplôme comme spécialiste / expert technique chirurgicale HF, professionnel des soins infirmiers / professionnel des soins infirmiers OP FA ou une qualification équivalente avec\n\n• Vous êtes physiquement et psychologiquement résilient, avez une bonne concentration et le repos nécessaire pour garder une vue d'ensemble même dans des situations mouvementées\n\n• Vous êtes passionnant avec la technologie de pointe comme Da Vinci robot chirurgical Xi\n\n• Vous êtes prêt à travailler de manière indépendante, à prendre des responsabilités et à travailler dans une équipe hétérogène\n\nTu peux faire quelque chose que les autres ne peuvent pas faire ?\nTu fais la différence ?\nAlors tu nous appartiens !"
       },
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -5368,7 +5367,11 @@
       },
       "featured": false,
       "previousSlugs": [
-        "fachfrau-fachmann-operationstechnik-kantonsspital-graubunden-chur-2"
+        "fachfrau-fachmann-operationstechnik-kantonsspital-graubunden-chur-2",
+        "fachfrau-fachmann-operationstechnik-kantonsspital-graubunden-chur",
+        "operatrice-operatore-di-sala-operatoria-kantonsspital-graubunden-chur",
+        "technicien-technicienne-de-salle-d-operation-kantonsspital-graubunden-chur",
+        "operating-room-technician-kantonsspital-graubunden-chur"
       ],
       "needsRetranslation": false,
       "_targetScope": "grigioni",
@@ -5436,7 +5439,6 @@
           "pflegefachfrau-pflegefachmann-viszeralchirurgie-kantonsspital-graubunden-chur"
         ]
       },
-      "needsRetranslation": true,
       "_targetScope": "grigioni",
       "salaryMin": 41080,
       "salaryMax": 75000,
@@ -5896,6 +5898,7 @@
         "apprentissage-de-cuisinier-ere-kantonsspital-graubunden-chur",
         "cuoco-dietetico-cuoco-dietetico-kantonsspital-graubunden-chur",
         "diet-chef-kantonsspital-graubunden-chur",
+        "cucina-professionale-cuoco-kantonsspital-graubunden-chur",
         "apprendistato-come-cuoco-a-kantonsspital-graubunden-chur"
       ],
       "previousSlugsByLocale": {
@@ -6112,7 +6115,6 @@
           "technicien-en-radiologie-diagnostique-kantonsspital-graubunden-chur"
         ]
       },
-      "needsRetranslation": true,
       "_targetScope": "grigioni",
       "salaryMin": 41080,
       "salaryMax": 75000,
@@ -6704,7 +6706,6 @@
         }
       },
       "featured": false,
-      "needsRetranslation": true,
       "_targetScope": "grigioni",
       "salaryMin": 41080,
       "salaryMax": 75000,
