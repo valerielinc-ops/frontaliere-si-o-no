@@ -387,7 +387,16 @@ export function useNavigationState(): NavigationState {
  window.scrollTo({ top: 0, behavior: 'instant' });
  return;
  }
- if (targetIsStaticOverlay && !onSamePath) {
+ // Footer keyword links like `/cerca-lavoro-ticino/?q=Infermieri` need SPA
+ // navigation so JobBoard can read the query string and pre-fill the search
+ // bar. The bare path matches a staticOverlay route (hub HTML emitted by
+ // professionLandingsLinksPlugin), but any query string signals interactive
+ // intent — strip the overlay flag locally so the SPA branch hydrates
+ // JobBoard instead of falling through to a native full-page navigation.
+ if (targetIsStaticOverlay && search) {
+ (route as { staticOverlay?: boolean }).staticOverlay = false;
+ }
+ if (route.staticOverlay && !onSamePath) {
  return;
  }
 

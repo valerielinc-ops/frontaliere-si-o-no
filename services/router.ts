@@ -2875,7 +2875,15 @@ export function parsePath(pathname: string): ParseResult {
  }
  const jobSlug = rawSecond;
  // P7.1 — legacy /cerca-lavoro-ticino/{slug?} → always TI canton filter.
- return { route: { activeTab: 'job-board', jobBoardCanton: 'TI', ...(jobSlug ? { jobSlug } : {}) }, locale };
+ // Bare hub root (no jobSlug) is a build-time static page emitted by
+ // professionLandingsLinksPlugin with `<aside data-ae3-profession-links>`
+ // + curated city/sector hub links. Without staticOverlay the SPA replaced
+ // the static main with the interactive JobBoard on hydration, producing
+ // CLS 0.702 on /cerca-lavoro-ticino/ (Lighthouse 2026-05-28).
+ if (!jobSlug) {
+ return { route: { activeTab: 'job-board', jobBoardCanton: 'TI', staticOverlay: true }, locale };
+ }
+ return { route: { activeTab: 'job-board', jobBoardCanton: 'TI', jobSlug }, locale };
  }
  }
 
