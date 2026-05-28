@@ -144,6 +144,60 @@ const PLUGIN_RULES = [
   { plugin: 'static-aliases', regex: /^[a-z][a-z0-9-]*\.html$/ },
 ];
 
+// Second-level URL-class classifier for jobs-seo paths. The `recordEmit`
+// calls in jobsSeoPagesPlugin.ts surface 27 distinct emit categories
+// (previous-slug-bridge, expired-soft-landing, editorial-nurses,
+// editorial-care-variant, company-landing, paginated-listing, …). The
+// path itself is enough to identify most of them — except the trio
+// active-job / previousSlug-bridge / expired-soft-landing which share
+// the same path shape (the leaf job URL) and are only distinguishable
+// by HTML content (presence of `__BRIDGE_TARGET_SLUG__` /
+// `__EXPIRED_JOB_DATA__` markers). For those, this classifier returns
+// `job-leaf-mixed`; the tier counters logged by jobsSeoPagesPlugin
+// itself give the breakdown.
+//
+// All rules operate on the JOB-INTERNAL path (the part AFTER the
+// canton-section prefix has been stripped) so the same rule fires for
+// IT/EN/DE/FR locale variants.
+const URL_CLASS_RULES = [
+  { urlClass: 'paginated-listing',       regex: /(?:^|\/)(?:page|pagina|seite)-[0-9]+(?:\/|$)/ },
+  { urlClass: 'category-listing-all',    regex: /(?:^|\/)(?:tutti|tutte|alle|all|tous)(?:\/|$)/ },
+  { urlClass: 'company-canton-hub',      regex: /(?:^|\/)(?:per-azienda|by-company|nach-firma|par-entreprise)(?:\/|$)/ },
+  { urlClass: 'company-city-canton-hub', regex: /(?:^|\/)(?:in-azienda|at-company|bei-firma|chez-entreprise)(?:\/|$)/ },
+  { urlClass: 'company-landing',         regex: /(?:^|\/)(?:azienda|company|unternehmen|entreprise)-/ },
+  { urlClass: 'sector-canton-hub',       regex: /(?:^|\/)(?:per-settore|by-sector|nach-branche|par-secteur)(?:\/|$)/ },
+  { urlClass: 'editorial-jobs-today',    regex: /(?:^|\/)(?:jobs-today|jobs-of-today|lavori-oggi|jobs-heute|emplois-aujourdhui)(?:\/|$)/ },
+  { urlClass: 'editorial-parttime',      regex: /(?:^|\/)(?:parttime|part-time|teilzeit|temps-partiel)(?:\/|$|-)/ },
+  { urlClass: 'editorial-nurses',        regex: /(?:infermier|nurse|krankenpfleg|infirmier)/ },
+  { urlClass: 'editorial-care-variant',  regex: /(?:cura|care|pflege|soin)-/ },
+  { urlClass: 'editorial-contract-type', regex: /(?:^|\/)(?:per-contratto|by-contract|nach-vertragstyp|par-contrat)(?:\/|$)/ },
+  { urlClass: 'editorial-location',      regex: /(?:^|\/)(?:per-luogo|by-location|nach-ort|par-lieu)(?:\/|$)/ },
+  { urlClass: 'editorial-gazette',       regex: /(?:^|\/)(?:gazzetta|gazette)/ },
+  { urlClass: 'editorial-sector',        regex: /(?:^|\/)(?:settore|sector|branche|secteur)-/ },
+  { urlClass: 'search-combo-landing',    regex: /(?:^|\/)(?:combo|filtri|filters|filter|filtres)(?:\/|$)/ },
+  { urlClass: 'search-stats-landing',    regex: /(?:^|\/)(?:statistiche|stats|statistiken|statistiques)-/ },
+  // Catch-all for paths that look like a job-detail leaf
+  // (`cerca-lavoro-ticino/<slug>/`) but didn't match anything above.
+  // Could be an active job, a previousSlug bridge, or an expired
+  // soft-landing — only the HTML content tells them apart. The plugin's
+  // own bridge-tier / soft-landing-tier counters break this down.
+  { urlClass: 'job-leaf-mixed',          regex: /.+/ },
+];
+
+function classifyJobUrlClass(jobsInternalPath) {
+  for (const r of URL_CLASS_RULES) {
+    if (r.regex.test(jobsInternalPath)) return r.urlClass;
+  }
+  return 'unknown';
+}
+
+// Strip the canton-section prefix from a jobs-seo path so the URL-class
+// classifier sees only the job-internal part. For
+// `cerca-lavoro-ticino/azienda-bank-cler/index.html` this returns
+// `azienda-bank-cler/index.html`.
+const JOBS_SECTION_PREFIX_RE =
+  /^(cerca-lavoro|find-jobs|jobs-im|jobs-in|trouver-emploi)-[a-z][a-z-]*\//;
+
 function classify(relPath) {
   // Detect locale (top-level segment)
   let locale = 'it';
@@ -165,18 +219,29 @@ function classify(relPath) {
     if (rule.prefixes) {
       for (const p of rule.prefixes) {
         if (remainder.startsWith(p) || remainder === p.replace(/\/$/, '')) {
-          return { plugin: rule.plugin, locale };
+          return { plugin: rule.plugin, locale, urlClass: urlClassFor(rule.plugin, remainder) };
         }
       }
     }
     if (rule.regex && rule.regex.test(remainder)) {
-      return { plugin: rule.plugin, locale };
+      return { plugin: rule.plugin, locale, urlClass: urlClassFor(rule.plugin, remainder) };
     }
   }
   // Unknown — bucket by top segment of remainder (or 'root' if none)
   const idx = remainder.indexOf('/');
   const topSeg = idx > 0 ? remainder.slice(0, idx) : remainder;
-  return { plugin: `other-${topSeg || 'root'}`, locale };
+  return { plugin: `other-${topSeg || 'root'}`, locale, urlClass: 'unknown' };
+}
+
+// Sub-classifier: when the plugin is `jobs-seo`, surface the URL emit
+// category (paginated-listing, company-landing, editorial-nurses, …)
+// so the dist-bytes-history JSONL row carries the breakdown that
+// matches the recordEmit() labels in jobsSeoPagesPlugin.ts. For every
+// other plugin the urlClass mirrors the plugin name.
+function urlClassFor(plugin, remainder) {
+  if (plugin !== 'jobs-seo') return plugin;
+  const internal = remainder.replace(JOBS_SECTION_PREFIX_RE, '');
+  return classifyJobUrlClass(internal);
 }
 
 async function walk(distDir) {
@@ -186,6 +251,7 @@ async function walk(distDir) {
     byPlugin: {},      // plugin → { bytes, files }
     byLocale: {},      // locale → { bytes, files }
     byPluginLocale: {},// "plugin/locale" → { bytes, files }
+    byUrlClass: {},    // urlClass → { bytes, files } — only useful for jobs-seo
   };
 
   async function recurse(absDir, relDir) {
@@ -205,7 +271,7 @@ async function walk(distDir) {
         let st;
         try { st = await stat(abs); } catch { continue; }
         const bytes = st.size;
-        const { plugin, locale } = classify(rel);
+        const { plugin, locale, urlClass } = classify(rel);
 
         totals.totalBytes += bytes;
         totals.totalFiles += 1;
@@ -219,6 +285,9 @@ async function walk(distDir) {
         const key = `${plugin}/${locale}`;
         const plb = totals.byPluginLocale[key] ||= { bytes: 0, files: 0 };
         plb.bytes += bytes; plb.files += 1;
+
+        const ub = totals.byUrlClass[urlClass] ||= { bytes: 0, files: 0 };
+        ub.bytes += bytes; ub.files += 1;
       }
     }
   }
@@ -246,6 +315,17 @@ function printSummary(totals) {
   for (const [locale, { bytes, files }] of Object.entries(totals.byLocale).sort((a, b) => b[1].bytes - a[1].bytes)) {
     const pct = ((bytes / totals.totalBytes) * 100).toFixed(1);
     console.log(`  ${locale.padEnd(4)} ${fmtBytes(bytes).padStart(10)}  ${pct.padStart(5)}%  (${files} files)`);
+  }
+  // URL emit category breakdown — surfaces the 27 jobs-seo recordEmit
+  // labels (paginated-listing, company-landing, editorial-nurses, …)
+  // mixed with non-jobs plugin names (assets, data, sitemap, etc.).
+  // The `job-leaf-mixed` bucket is the unsplittable active+bridge+soft
+  // trio; the bridge-tier / soft-landing-tier counters in
+  // jobsSeoPagesPlugin.ts break that down further.
+  console.log('\n[dist-bytes-report] by url-class:');
+  for (const [urlClass, { bytes, files }] of Object.entries(totals.byUrlClass).sort((a, b) => b[1].bytes - a[1].bytes)) {
+    const pct = ((bytes / totals.totalBytes) * 100).toFixed(1);
+    console.log(`  ${urlClass.padEnd(32)} ${fmtBytes(bytes).padStart(10)}  ${pct.padStart(5)}%  (${files} files)`);
   }
   console.log(`\n[dist-bytes-report] TOTAL: ${fmtBytes(totals.totalBytes)}  (${totals.totalFiles} files)\n`);
 }
@@ -275,6 +355,7 @@ async function main() {
     byPlugin: totals.byPlugin,
     byLocale: totals.byLocale,
     byPluginLocale: totals.byPluginLocale,
+    byUrlClass: totals.byUrlClass,
   };
 
   if (args.append) {
