@@ -832,14 +832,24 @@ jobs:
           git config user.email "dist-history-bot@frontaliereticino.ch"
           git add data/dist-size-history.jsonl data/url-first-seen.json
           git commit -m "chore(dist-history): append run ${GITHUB_RUN_ID} (${GITHUB_SHA::8})"
+          # The build job leaves dist/ and other generated files dirty
+          # in the working tree. `git pull --rebase` refuses to run
+          # while unstaged changes exist (`cannot pull with rebase: You
+          # have unstaged changes`), so we ran the retry loop three
+          # times for nothing on every deploy and the url-first-seen
+          # update never landed on origin. `rebase.autoStash=true`
+          # stashes those untracked/unstaged files before rebase and
+          # pops them back after — purely scoped to this command, no
+          # leftover stash state.
           for i in 1 2 3; do
-            if git pull --rebase origin main && git push origin HEAD:main; then
+            if git -c rebase.autoStash=true pull --rebase origin main \
+                && git push origin HEAD:main; then
               echo "[dist-history] pushed on attempt $i"
               exit 0
             fi
             sleep 5
           done
-          echo "[dist-history] push failed after 3 attempts (continuing anyway)"
+          echo "::warning::[dist-history] push failed after 3 attempts — url-first-seen.json will not be available to the next build's grace-window check"
 
       - name: Upload Pages artifact (compression-level 9)
         if: github.event.inputs.profile_sequential != 'true'
