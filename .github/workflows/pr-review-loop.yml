@@ -14,12 +14,11 @@ jobs:
   review:
     runs-on: ubuntu-latest
     timeout-minutes: 15
-    # DISABILITATO: il run 26586585273 ha registrato total_cost_usd: 0.64 nonostante
-    # claude_code_oauth_token settato. Da chiarire se telemetria informativa
-    # (subscription quota, mostrata in USD equivalente) o consumo reale API credits.
-    # Riabilitare SOLO dopo verifica su console.anthropic.com / claude.ai/usage
-    # che il billing non addebita le run dell'action.
-    if: false && github.event.pull_request.draft == false
+    # Auth via CLAUDE_CODE_OAUTH_TOKEN da subscription Max (consuma quota piano,
+    # non API credits). Verificato zero-cost: nessuna org Anthropic Console,
+    # Usage credits $0.00 spent, "Extra usage not enabled". I total_cost_usd nel
+    # log dell'action sono telemetria informativa equivalente API, non addebiti.
+    if: github.event.pull_request.draft == false
     steps:
       - name: Checkout
         uses: actions/checkout@v5
@@ -41,7 +40,8 @@ jobs:
           HEAD_SHA: ${{ github.event.pull_request.head.sha }}
         with:
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
-          claude_args: "--max-turns 15 --model claude-sonnet-4-6"
+          show_full_output: true
+          claude_args: "--max-turns 15 --model claude-sonnet-4-6 --allowedTools 'Bash(gh:*),Read,Grep,Glob'"
           prompt: |
             Sei il reviewer automatico per la PR #${{ github.event.pull_request.number }} ("${{ github.event.pull_request.title }}").
 
