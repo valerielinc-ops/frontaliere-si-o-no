@@ -271,6 +271,7 @@
     "audit:news-sitemap": "node scripts/cleanup-news-sitemap.mjs --dry-run",
     "sanitize:news-sitemap": "node scripts/cleanup-news-sitemap.mjs --apply",
     "probe:5xx": "node scripts/probe-5xx.mjs",
+    "canary:article-content": "node scripts/canary-article-content.mjs",
     "prepush": "true",
     "jobs:update:buergenstock-hotels": "node scripts/update-buergenstock-hotels-jobs.mjs",
     "jobs:update:klinik-siloah": "node scripts/update-klinik-siloah-jobs.mjs",
