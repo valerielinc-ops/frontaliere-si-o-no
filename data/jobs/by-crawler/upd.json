@@ -1,6 +1,6 @@
 {
   "crawlerKey": "upd",
-  "assembledAt": "2026-05-27T14:19:27.344Z",
+  "assembledAt": "2026-05-28T00:45:46.059Z",
   "jobs": [
     {
       "id": "upd-b6fe58cbb517",
@@ -28,12 +28,13 @@
         "de": "Dipl. Pflegefachperson Fachverantwortung Station Marbach bei UNIVERSITÄRE PSYCHIATRISCHE DIENSTE BERN (UPD) AG in Bern (3000, BE), Schweiz.\n• Bereich: Pflege | Sozialpädagogik\n• Art: Vollzeit\n• Befristung: Unbefristet\n• Standort: Bern (BE)\n• Bewerbung über das Umantis-Karriereportal von Universitäre Psychiatrische Dienste Bern (UPD)",
         "fr": "Mansioni Dipl. Carrière Spécialiste responsable Station Marbach bei UNIVERSITÄRE PSYCHIATRISCHE DIENSTE BERN (UPD) AG à Berne (3000, BE), Suisse. Domaine - Éducation sociale Tipo - À plein temps Durata - Indeterminato Posizione - Bern (BE) Candidature - Tramite il portail transporteur Umantis di Universitären Services psychiatriques Berne (UPD)"
       },
+      "needsRetranslation": true,
       "location": "Bern",
       "canton": "BE",
       "url": "https://recruitingapp-2908.umantis.com/Vacancies/2896/Description/1",
       "source": "Universitäre Psychiatrische Dienste Bern (UPD) Dedicated Parser (Umantis listing tenant 2908)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T14:19:25.563Z",
+      "crawledAt": "2026-05-28T00:45:43.954Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -50,15 +51,15 @@
       "applyUrl": "https://recruitingapp-2908.umantis.com/Vacancies/2896/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-05-27T00:39:10.828Z",
+      "previousSlugs": [
+        "dipl-pflegefachperson-fachverantwortung-station-marbach-upd-bern"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-fachverantwortung-station-marbach-upd-bern"
         ]
       },
-      "previousSlugs": [
-        "dipl-pflegefachperson-fachverantwortung-station-marbach-upd-bern"
-      ],
+      "firstSeenAt": "2026-05-27T00:39:10.828Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -98,12 +99,13 @@
         "de": "Dipl. Physiotherapeutin / Physiotherapeut als Vertretung bei UNIVERSITÄRE PSYCHIATRISCHE DIENSTE BERN (UPD) AG in Bern (3000, BE), Schweiz.\n• Bereich: Therapeutischer Dienst\n• Art: Teilzeit\n• Befristung: Befristet\n• Standort: Bern (BE)\n• Bewerbung über das Umantis-Karriereportal von Universitäre Psychiatrische Dienste Bern (UPD)",
         "fr": "Mansioni - Dipl. Physiothérapeute / Physiothérapeute représentant à l'UNIVERSITÄRE PSYCHIATRISCHE DIENSTE BERN (UPD) AG à Berne (3000, BE), Suisse. Domaine - Service thérapeutique Tipo - Temps partiel Durata - Délai Posizione - Bern (BE) Candidature - Application via le portail de carrière Umantis des services psychiatriques de l'Université de Berne (UPD)"
       },
+      "needsRetranslation": true,
       "location": "Bern",
       "canton": "BE",
       "url": "https://recruitingapp-2908.umantis.com/Vacancies/2931/Description/1",
       "source": "Universitäre Psychiatrische Dienste Bern (UPD) Dedicated Parser (Umantis listing tenant 2908)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T14:19:24.607Z",
+      "crawledAt": "2026-05-28T00:45:42.894Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -166,10 +168,10 @@
       },
       "description": "Wir suchen eine Nachtärztin / Nachtarzt\n\n• Bereich: Ärztinnen | Ärzte\n• Art: Vollzeit, Teilzeit möglich\n• Befristung: Befristet",
       "descriptionByLocale": {
-        "it": "Mansioni\nMedico notturno\n\nSettore\nMedici | Medici\n\nTipo di impiego\nTempo pieno, tempo parziale possibile\n\nDurata\nScadenza",
-        "en": "Mansioni\nNight doctor\n\nArea\nDoctors | Doctors\n\nTipo di impiego\nFull time, part time possible\n\nDurata\nDeadline",
-        "de": "## Mansioni\nNachtärztin / Nachtarzt\n\n## Area\nÄrztinnen | Ärzte\n\n## Tipo di impiego\nVollzeit, Teilzeit möglich\n\n## Durata\nBefristet",
-        "fr": "Mansioni\nDocteur de nuit\n\nDomaine\nMédecins\n\nTipo di impiego\nTemps plein, temps partiel possible\n\nDurata\nDélai"
+        "it": "Mansioni Medico notturno Settore Medici | Medici Tipo di impiego Tempo pieno, tempo parziale possibile Durata Scadenza",
+        "en": "Mansioni Night doctor Area Doctors | Doctors Tipo di impiego Full time, part time possible Durata Deadline",
+        "de": "Wir suchen eine Nachtärztin / Nachtarzt\n• Bereich: Ärztinnen | Ärzte\n• Art: Vollzeit, Teilzeit möglich\n• Befristung: Befristet",
+        "fr": "Mansioni Docteur de nuit Domaine Médecins Tipo di impiego Temps plein, temps partiel possible Durata Délai"
       },
       "needsRetranslation": true,
       "location": "Bern",
@@ -177,7 +179,7 @@
       "url": "https://recruitingapp-2908.umantis.com/Vacancies/2017/Description/1",
       "source": "Universitäre Psychiatrische Dienste Bern (UPD) Dedicated Parser (Umantis listing tenant 2908)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T14:19:23.696Z",
+      "crawledAt": "2026-05-28T00:45:41.817Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -220,8 +222,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 1
+      }
     },
     {
       "id": "upd-2617f609680b",
@@ -255,7 +256,7 @@
       "url": "https://recruitingapp-2908.umantis.com/Vacancies/3144/Description/1",
       "source": "Universitäre Psychiatrische Dienste Bern (UPD) Dedicated Parser (Umantis listing tenant 2908)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T14:19:22.784Z",
+      "crawledAt": "2026-05-28T00:45:40.715Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -332,7 +333,7 @@
       "url": "https://recruitingapp-2908.umantis.com/Vacancies/2972/Description/1",
       "source": "Universitäre Psychiatrische Dienste Bern (UPD) Dedicated Parser (Umantis listing tenant 2908)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T14:19:21.871Z",
+      "crawledAt": "2026-05-28T00:45:39.631Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -398,17 +399,18 @@
       },
       "description": "Dipl. Pflegefachperson Station Marbach bei UNIVERSITÄRE PSYCHIATRISCHE DIENSTE BERN (UPD) AG in Bern (3000, BE), Schweiz.\n\n• Bereich: Pflege | Sozialpädagogik\n• Art: Vollzeit\n• Befristung: Unbefristet\n• Standort: Bern (BE)\n• Bewerbung über das Umantis-Karriereportal von Universitäre Psychiatrische Dienste Bern (UPD)",
       "descriptionByLocale": {
-        "it": "Mansioni Dipl. Specialista della Stazione Marbach bei UNIVERSITÄRE PSYCHIATRISCHE DIENSTE BERN (UPD) AG di Berna (3000, BE), Svizzera. - Area: Cura | Formazione sociale - Tipo: Tempo pieno - Scadenza: illimitato - Posizione: Berna (BE) - Applicazione tramite il portale di carriera di Umantis dei Servizi Psichiatrici Universitari Berna (UPD) \n• Requisiti Cosa? Contatto",
-        "en": "Mansioni Dipl. Care specialist Station Marbach bei UNIVERSITÄRE PSYCHIATRISCHE DIENSTE BERN (UPD) AG in Bern (3000, BE), Switzerland. - Area: Care | Social education - Type: Full time - Deadline: Unlimited - Location: Bern (BE) - Application via the Umantis career portal of University Psychiatric Services Bern (UPD) \n• Requisiti \n• Cosa offriamo Contatto",
+        "it": "Mansioni Dipl. Specialista della Stazione Marbach bei UNIVERSITÄRE PSYCHIATRISCHE DIENSTE BERN (UPD) AG di Berna (3000, BE), Svizzera. - Area: Cura | Formazione sociale - Tipo: Tempo pieno - Scadenza: illimitato - Posizione: Berna (BE) - Applicazione tramite il portale di carriera di Umantis dei Servizi Psichiatrici Universitari Berna (UPD)\n• Requisiti Cosa? Contatto",
+        "en": "Mansioni Dipl. Care specialist Station Marbach bei UNIVERSITÄRE PSYCHIATRISCHE DIENSTE BERN (UPD) AG in Bern (3000, BE), Switzerland. - Area: Care | Social education - Type: Full time - Deadline: Unlimited - Location: Bern (BE) - Application via the Umantis career portal of University Psychiatric Services Bern (UPD)\n• Requisiti\n• Cosa offriamo Contatto",
         "de": "Dipl. Pflegefachperson Station Marbach bei UNIVERSITÄRE PSYCHIATRISCHE DIENSTE BERN (UPD) AG in Bern (3000, BE), Schweiz.\n• Bereich: Pflege | Sozialpädagogik\n• Art: Vollzeit\n• Befristung: Unbefristet\n• Standort: Bern (BE)\n• Bewerbung über das Umantis-Karriereportal von Universitäre Psychiatrische Dienste Bern (UPD)",
-        "fr": "Mansioni Dipl. Spécialiste des soins Station Marbach bei UNIVERSITÄRE PSYCHIATRISCHE DIENSTE BERN (UPD) AG à Berne (3000, BE), Suisse. - Domaine: soins - Type: Temps plein - Date limite: illimitée - Lieu: Berne (BE) - Application via le portail de carrière Umantis des services psychiatriques de l'Université de Berne (UPD) \n• Requisiti \n• Cosa offriamo Contatto"
+        "fr": "Mansioni Dipl. Spécialiste des soins Station Marbach bei UNIVERSITÄRE PSYCHIATRISCHE DIENSTE BERN (UPD) AG à Berne (3000, BE), Suisse. - Domaine: soins - Type: Temps plein - Date limite: illimitée - Lieu: Berne (BE) - Application via le portail de carrière Umantis des services psychiatriques de l'Université de Berne (UPD)\n• Requisiti\n• Cosa offriamo Contatto"
       },
+      "needsRetranslation": true,
       "location": "Bern",
       "canton": "BE",
       "url": "https://recruitingapp-2908.umantis.com/Vacancies/3034/Description/1",
       "source": "Universitäre Psychiatrische Dienste Bern (UPD) Dedicated Parser (Umantis listing tenant 2908)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T14:19:20.949Z",
+      "crawledAt": "2026-05-28T00:45:38.560Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -425,7 +427,9 @@
       "applyUrl": "https://recruitingapp-2908.umantis.com/Vacancies/3034/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-05-27T00:39:06.289Z",
+      "previousSlugs": [
+        "dipl-pflegefachperson-station-marbach-upd-bern"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-station-marbach-upd-bern"
@@ -434,9 +438,7 @@
           "dipl-pflegefachperson-station-marbach-upd-bern"
         ]
       },
-      "previousSlugs": [
-        "dipl-pflegefachperson-station-marbach-upd-bern"
-      ],
+      "firstSeenAt": "2026-05-27T00:39:06.289Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -482,7 +484,7 @@
       "url": "https://recruitingapp-2908.umantis.com/Vacancies/2386/Description/1",
       "source": "Universitäre Psychiatrische Dienste Bern (UPD) Dedicated Parser (Umantis listing tenant 2908)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T14:19:19.982Z",
+      "crawledAt": "2026-05-28T00:45:37.485Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -531,36 +533,37 @@
     },
     {
       "id": "upd-af7f20719265",
-      "slug": "operatore-socio-sanitario-o-infermiere-diplomato-reparto-flugel-inclusa-la-creazione-di-un-reparto-di-formazione",
+      "slug": "fachperson-gesundheit-o-dipl-pflegefachperson-station-flugel-inkl-aufbau-ausbildungsstation-universitare-psychiatrische",
       "slugByLocale": {
+        "it": "fachperson-gesundheit-o-dipl-pflegefachperson-station-flugel-inkl-aufbau-ausbildungsstation-universitare-psychiatrische",
+        "en": "healthcare-specialist-or-dipl-nursing-specialist-station-flugel-including-establishment-of-a-training-station",
         "de": "fachperson-gesundheit-oder-dipl-pflegefachperson-station-flugel-inkl-aufbau",
-        "it": "operatore-socio-sanitario-o-infermiere-diplomato-reparto-flugel-inclusa-la-creazione-di-un-reparto-di-formazione",
-        "en": "subject-health-or-dipl-nursing-person-station-wing-incl-construction-training-station-universitare-psychiatrische",
-        "fr": "sujet-sante-ou-dipl-poste-de-soins-infirmiers-y-compris-le-poste-de-formation-en-construction-universitare"
+        "fr": "specialiste-en-sante-ou-infirmier-diplome-station-flugel-y-compris-la-creation-d-une-station-de-formation-universitare"
       },
       "company": "Universitäre Psychiatrische Dienste Bern (UPD)",
       "companyKey": "upd",
       "companyDomain": "upd.ch",
       "title": "Fachperson Gesundheit oder Dipl. Pflegefachperson Station Flügel (inkl. Aufbau Ausbildungsstation)",
       "titleByLocale": {
-        "de": "Fachperson Gesundheit oder Dipl. Pflegefachperson Station Flügel (inkl. Aufbau Ausbildungsstation)",
         "it": "Fachperson Gesundheit o Dipl. Pflegefachperson Station Flügel (inkl. Aufbau Ausbildungsstation)",
         "en": "Subject Health or Dipl. Nursing Person Station Wing (incl. construction training station)",
+        "de": "Fachperson Gesundheit oder Dipl. Pflegefachperson Station Flügel (inkl. Aufbau Ausbildungsstation)",
         "fr": "Sujet Santé ou Dipl. Poste de soins infirmiers (y compris le poste de formation en construction)"
       },
       "description": "Fachperson Gesundheit oder Dipl. Pflegefachperson Station Flügel (inkl. Aufbau Ausbildungsstation) bei UNIVERSITÄRE PSYCHIATRISCHE DIENSTE BERN (UPD) AG in Bern (3000, BE), Schweiz.\n\n• Bereich: Pflege | Sozialpädagogik\n• Art: Vollzeit\n• Befristung: Unbefristet\n• Standort: Bern (BE)\n• Bewerbung über das Umantis-Karriereportal von Universitäre Psychiatrische Dienste Bern (UPD)",
       "descriptionByLocale": {
-        "de": "## Posizione Vacante\n\n### **Fachperson Gesundheit oder Dipl. Pflegefachperson Station Flügel (inkl. Aufbau Ausbildungsstation)**\n\n**UPD AG – Universitäre Psychiatrische Dienste Bern**\n**Bern (3000, BE), Schweiz**\n\n---\n\n## **Descrizione del Ruolo**\n- **Area di competenza:** Pflege | Sozialpädagogik\n- **Tipo di contratto:** Vollzeit\n- **Condizione contrattuale:** Befristet (Unbefristet)\n- **Luogo di lavoro:** Bern (BE)\n\n---\n\n## **Contatto per Candidature**\n- **Modalità di candidatura:** Bewerbung über das Umantis-Karriereportal von Universitäre Psychiatrische Dienste Bern (UPD)",
-        "it": "Posizione Vacante\n\nSoggetto Salute o Dipl. Infermieristica Personal Station Wing (incl. stazione di formazione di costruzione)\n\nUPD AG – Servizi Psichiatrici Universitari Berna\nBerna (3000, BE), Svizzera\n\n---\n\nDescrizione del Ruolo\n- Area di competenza: Cura | Formazione sociale\n- Tipo di contratto: Tempo pieno\n- Condizione guidata: Limitato (illimitato)\n- Luogo di lavoro: Bern (BE)\n\n---\n\nContatto per la Candidatura\n- Modalità di candidatura: Applicazione tramite Umantis-Karriereportal von Universitären Psychiatric Services Bern (UPD)",
-        "en": "Posizione Vacante\n\nSubject Health or Dipl. Nursing Person Station Wing (incl. construction training station)\n\nUPD AG – University Psychiatric Services Bern\nBern (3000, BE), Switzerland\n\n---\n\nDescrizione del Ruolo\n- Area di competenza: Care | Social education\n- Tipo di contratto: Full time\n- Condizione contrattuale: Limited (unlimited)\n- Luogo di lavoro: Bern (BE)\n\n---\n\nContatto per Candidature\n- Modalità di candidatura: Application via the Umantis-Karriereportal von Universitären Psychiatric Services Bern (UPD)",
-        "fr": "Posizione Vacante\n\nSujet Santé ou Dipl. Poste de soins infirmiers (y compris le poste de formation en construction)\n\nUPD AG – Services psychiatriques universitaires Berne\nBerne (3000, BE), Suisse\n\n---\n\nDescrizione del Ruolo\n- Zone di competenza: Soins\n- Tipo di contratto: Temps plein\n- Condizione contrattuale: limitée (sans limite)\n- Luogo di lavoro: Berne (BE)\n\n---\n\nContatto par candidature\n- Modalità di candidatura: Demande via le Umantis-Karriereportal von Universitären Services psychiatriques Bern (UPD)"
+        "it": "Posizione Vacante Soggetto Salute o Dipl. Infermieristica Personal Station Wing (incl. stazione di formazione di costruzione) UPD AG – Servizi Psichiatrici Universitari Berna Berna (3000, BE), Svizzera --- Descrizione del Ruolo - Area di competenza: Cura | Formazione sociale - Tipo di contratto: Tempo pieno - Condizione guidata: Limitato (illimitato) - Luogo di lavoro: Bern (BE) --- Contatto per la Candidatura - Modalità di candidatura: Applicazione tramite Umantis-Karriereportal von Universitären Psychiatric Services Bern (UPD)",
+        "en": "Posizione Vacante Subject Health or Dipl. Nursing Person Station Wing (incl. construction training station) UPD AG – University Psychiatric Services Bern Bern (3000, BE), Switzerland --- Descrizione del Ruolo - Area di competenza: Care | Social education - Tipo di contratto: Full time - Condizione contrattuale: Limited (unlimited) - Luogo di lavoro: Bern (BE) --- Contatto per Candidature - Modalità di candidatura: Application via the Umantis-Karriereportal von Universitären Psychiatric Services Bern (UPD)",
+        "de": "Fachperson Gesundheit oder Dipl. Pflegefachperson Station Flügel (inkl. Aufbau Ausbildungsstation) bei UNIVERSITÄRE PSYCHIATRISCHE DIENSTE BERN (UPD) AG in Bern (3000, BE), Schweiz.\n• Bereich: Pflege | Sozialpädagogik\n• Art: Vollzeit\n• Befristung: Unbefristet\n• Standort: Bern (BE)\n• Bewerbung über das Umantis-Karriereportal von Universitäre Psychiatrische Dienste Bern (UPD)",
+        "fr": "Posizione Vacante Sujet Santé ou Dipl. Poste de soins infirmiers (y compris le poste de formation en construction) UPD AG – Services psychiatriques universitaires Berne Berne (3000, BE), Suisse --- Descrizione del Ruolo - Zone di competenza: Soins - Tipo di contratto: Temps plein - Condizione contrattuale: limitée (sans limite) - Luogo di lavoro: Berne (BE) --- Contatto par candidature - Modalità di candidatura: Demande via le Umantis-Karriereportal von Universitären Services psychiatriques Bern (UPD)"
       },
+      "needsRetranslation": false,
       "location": "Bern",
       "canton": "BE",
       "url": "https://recruitingapp-2908.umantis.com/Vacancies/3141/Description/1",
       "source": "Universitäre Psychiatrische Dienste Bern (UPD) Dedicated Parser (Umantis listing tenant 2908)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T14:19:19.007Z",
+      "crawledAt": "2026-05-28T00:45:36.405Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -576,25 +579,28 @@
       "postedDate": "2026-05-27",
       "applyUrl": "https://recruitingapp-2908.umantis.com/Vacancies/3141/Application/CheckLogin/1",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "fachperson-gesundheit-oder-dipl-pflegefachperson-station-flugel-inkl-aufbau",
+        "operatore-socio-sanitario-o-infermiere-diplomato-reparto-flugel-inclusa-la-creazione-di-un-reparto-di-formazione",
+        "subject-health-or-dipl-nursing-person-station-wing-incl-construction-training-station-universitare-psychiatrische",
+        "sujet-sante-ou-dipl-poste-de-soins-infirmiers-y-compris-le-poste-de-formation-en-construction-universitare"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "fachperson-gesundheit-oder-dipl-pflegefachperson-station-flugel-inkl-aufbau"
+          "fachperson-gesundheit-oder-dipl-pflegefachperson-station-flugel-inkl-aufbau",
+          "operatore-socio-sanitario-o-infermiere-diplomato-reparto-flugel-inclusa-la-creazione-di-un-reparto-di-formazione"
         ],
         "en": [
+          "subject-health-or-dipl-nursing-person-station-wing-incl-construction-training-station-universitare-psychiatrische",
           "healthcare-specialist-or-dipl-nursing-specialist-station-flugel-including-establishment-of-a-training-station"
         ],
         "fr": [
+          "sujet-sante-ou-dipl-poste-de-soins-infirmiers-y-compris-le-poste-de-formation-en-construction-universitare",
           "specialiste-en-sante-ou-infirmier-diplome-station-flugel-y-compris-la-creation-d-une-station-de-formation-universitare"
         ]
       },
-      "previousSlugs": [
-        "fachperson-gesundheit-oder-dipl-pflegefachperson-station-flugel-inkl-aufbau",
-        "healthcare-specialist-or-dipl-nursing-specialist-station-flugel-including-establishment-of-a-training-station",
-        "specialiste-en-sante-ou-infirmier-diplome-station-flugel-y-compris-la-creation-d-une-station-de-formation-universitare"
-      ],
+      "firstSeenAt": "2026-05-27T14:19:19.007Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -606,16 +612,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-05-27T14:19:19.007Z"
+      }
     },
     {
       "id": "upd-8edd6aebefcc",
       "slug": "dipl-specialista-hf-fh-o-dipl-social-pedagogue-universitare-psychiatrische-dienste-bern-upd-bern",
       "slugByLocale": {
-        "de": "dipl-pflegefachperson-hf-fh-oder-dipl-sozialpadagogin-sozialpadagoge-upd-bern",
         "it": "dipl-specialista-hf-fh-o-dipl-social-pedagogue-universitare-psychiatrische-dienste-bern-upd-bern",
         "en": "dipl-care-specialist-hf-fh-or-dipl-social-pedagogue-universitare-psychiatrische-dienste-bern-upd-bern",
+        "de": "dipl-pflegefachperson-hf-fh-oder-dipl-sozialpadagogin-sozialpadagoge-upd-bern",
         "fr": "dipl-specialiste-des-soins-hf-fh-ou-dipl-pedagogue-sociale-universitare-psychiatrische-dienste-bern-upd-bern"
       },
       "company": "Universitäre Psychiatrische Dienste Bern (UPD)",
@@ -623,24 +628,25 @@
       "companyDomain": "upd.ch",
       "title": "Dipl. Pflegefachperson HF / FH oder dipl. Sozialpädagogin / Sozialpädagoge",
       "titleByLocale": {
-        "de": "Dipl. Pflegefachperson HF / FH oder dipl. Sozialpädagogin / Sozialpädagoge",
         "it": "Dipl. Specialista HF / FH o dipl. Social pedagogue",
         "en": "Dipl. Care specialist HF / FH or dipl. Social pedagogue",
+        "de": "Dipl. Pflegefachperson HF / FH oder dipl. Sozialpädagogin / Sozialpädagoge",
         "fr": "Dipl. Spécialiste des soins HF/FH ou dipl. Pédagogue sociale"
       },
       "description": "Dipl. Pflegefachperson HF / FH oder dipl. Sozialpädagogin / Sozialpädagoge bei UNIVERSITÄRE PSYCHIATRISCHE DIENSTE BERN (UPD) AG in Bern (3000, BE), Schweiz.\n\n• Bereich: Pflege | Sozialpädagogik\n• Art: Teilzeit\n• Befristung: Unbefristet\n• Standort: Bern (BE)\n• Bewerbung über das Umantis-Karriereportal von Universitäre Psychiatrische Dienste Bern (UPD)",
       "descriptionByLocale": {
-        "de": "Dipl. Pflegefachperson HF / FH oder dipl. Sozialpädagogin / Sozialpädagoge bei UNIVERSITÄRE PSYCHIATRISCHE DIENSTE BERN (UPD) AG in Bern (3000, BE), Schweiz.\n\n• Bereich: Pflege | Sozialpädagogik\n• Art: Teilzeit\n• Befristung: Unbefristet\n• Standort: Bern (BE)\n• Bewerbung über das Umantis-Karriereportal von Universitäre Psychiatrische Dienste Bern (UPD)",
-        "it": "Dipl. Specialista HF / FH o dipl. Social pedagogue / Social pedagogue presso UNIVERSITÄRE PSYCHIATRISCHE DIENSTE BERN (UPD) AG a Berna (3000, BE), Svizzera.\n\n• Area: Care | Formazione sociale\n• Tipo: Parttime\n• Termine ultimo: illimitato\n• Posizione: Berna (BE)\n• Applicazione tramite il portale di carriera di Umantis dei servizi psichiatrici universitari Berna (UPD)",
-        "en": "Dipl. Care specialist HF / FH or dipl. Social pedagogue / Social pedagogue at UNIVERSITÄRE PSYCHIATRISCHE DIENSTE BERN (UPD) AG in Bern (3000, BE), Switzerland.\n\n• Area: Care | Social education\n• Type: Parttime\n• Deadline: Unlimited\n• Location: Bern (BE)\n• Application via the Umantis career portal of University Psychiatric Services Bern (UPD)",
-        "fr": "Dipl. Spécialiste des soins HF/FH ou dipl. Pédagogue sociale / Pédagogue sociale à UNIVERSITÄRE PSYCHIATRISCHE DIENSTE BERN (UPD) AG à Berne (3000, BE), Suisse.\n\n• Domaine: soins\n• Type: temps partiel\n• Date limite: illimitée\n• Lieu: Berne (BE)\n• Application via le portail de carrière Umantis des services psychiatriques universitaires de Berne (UPD)"
+        "it": "Dipl. Specialista HF / FH o dipl. Social pedagogue / Social pedagogue presso UNIVERSITÄRE PSYCHIATRISCHE DIENSTE BERN (UPD) AG a Berna (3000, BE), Svizzera.\n• Area: Care | Formazione sociale\n• Tipo: Parttime\n• Termine ultimo: illimitato\n• Posizione: Berna (BE)\n• Applicazione tramite il portale di carriera di Umantis dei servizi psichiatrici universitari Berna (UPD)",
+        "en": "Dipl. Care specialist HF / FH or dipl. Social pedagogue / Social pedagogue at UNIVERSITÄRE PSYCHIATRISCHE DIENSTE BERN (UPD) AG in Bern (3000, BE), Switzerland.\n• Area: Care | Social education\n• Type: Parttime\n• Deadline: Unlimited\n• Location: Bern (BE)\n• Application via the Umantis career portal of University Psychiatric Services Bern (UPD)",
+        "de": "Dipl. Pflegefachperson HF / FH oder dipl. Sozialpädagogin / Sozialpädagoge bei UNIVERSITÄRE PSYCHIATRISCHE DIENSTE BERN (UPD) AG in Bern (3000, BE), Schweiz.\n• Bereich: Pflege | Sozialpädagogik\n• Art: Teilzeit\n• Befristung: Unbefristet\n• Standort: Bern (BE)\n• Bewerbung über das Umantis-Karriereportal von Universitäre Psychiatrische Dienste Bern (UPD)",
+        "fr": "Dipl. Spécialiste des soins HF/FH ou dipl. Pédagogue sociale / Pédagogue sociale à UNIVERSITÄRE PSYCHIATRISCHE DIENSTE BERN (UPD) AG à Berne (3000, BE), Suisse.\n• Domaine: soins\n• Type: temps partiel\n• Date limite: illimitée\n• Lieu: Berne (BE)\n• Application via le portail de carrière Umantis des services psychiatriques universitaires de Berne (UPD)"
       },
+      "needsRetranslation": true,
       "location": "Bern",
       "canton": "BE",
       "url": "https://recruitingapp-2908.umantis.com/Vacancies/3173/Description/1",
       "source": "Universitäre Psychiatrische Dienste Bern (UPD) Dedicated Parser (Umantis listing tenant 2908)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T14:19:18.027Z",
+      "crawledAt": "2026-05-28T00:45:35.340Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -656,9 +662,11 @@
       "postedDate": "2026-05-27",
       "applyUrl": "https://recruitingapp-2908.umantis.com/Vacancies/3173/Application/CheckLogin/1",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "dipl-pflegefachperson-hf-fh-oder-dipl-sozialpadagogin-sozialpadagoge-upd-bern",
+        "dipl-pflegefachperson-hf-fh-o-dipl-sozialpadagogin-sozialpadagoge-universitare-psychiatrische-dienste-bern-upd-bern"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-hf-fh-oder-dipl-sozialpadagogin-sozialpadagoge-upd-bern",
@@ -671,10 +679,7 @@
           "dipl-pflegefachperson-hf-fh-oder-dipl-sozialpadagogin-sozialpadagoge-upd-bern"
         ]
       },
-      "previousSlugs": [
-        "dipl-pflegefachperson-hf-fh-oder-dipl-sozialpadagogin-sozialpadagoge-upd-bern",
-        "dipl-pflegefachperson-hf-fh-o-dipl-sozialpadagogin-sozialpadagoge-universitare-psychiatrische-dienste-bern-upd-bern"
-      ],
+      "firstSeenAt": "2026-05-27T14:19:18.027Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -686,16 +691,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-05-27T14:19:18.027Z"
+      }
     },
     {
       "id": "upd-a5fef534fd9a",
       "slug": "specialista-ricezione-specialistica-universitare-psychiatrische-dienste-bern-upd-bern",
       "slugByLocale": {
-        "de": "sachbearbeiterin-sachbearbeiter-empfang-upd-bern",
         "it": "specialista-ricezione-specialistica-universitare-psychiatrische-dienste-bern-upd-bern",
         "en": "specialist-specialist-reception-universitare-psychiatrische-dienste-bern-upd-bern",
+        "de": "sachbearbeiterin-sachbearbeiter-empfang-upd-bern",
         "fr": "reception-de-specialistes-universitare-psychiatrische-dienste-bern-upd-bern"
       },
       "company": "Universitäre Psychiatrische Dienste Bern (UPD)",
@@ -703,24 +707,25 @@
       "companyDomain": "upd.ch",
       "title": "Sachbearbeiterin / Sachbearbeiter Empfang",
       "titleByLocale": {
-        "de": "Sachbearbeiterin / Sachbearbeiter Empfang",
         "it": "Specialista / Ricezione specialistica",
         "en": "Specialist / Specialist Reception",
+        "de": "Sachbearbeiterin / Sachbearbeiter Empfang",
         "fr": "Réception de spécialistes"
       },
       "description": "Sachbearbeiterin / Sachbearbeiter Empfang bei UNIVERSITÄRE PSYCHIATRISCHE DIENSTE BERN (UPD) AG in Bern (3000, BE), Schweiz.\n\n• Bereich: Finanzen | HR | Marketing | Administration | Bildung\n• Art: Teilzeit\n• Befristung: Befristet\n• Standort: Bern (BE)\n• Bewerbung über das Umantis-Karriereportal von Universitäre Psychiatrische Dienste Bern (UPD)",
       "descriptionByLocale": {
-        "de": "Sachbearbeiterin / Sachbearbeiter Empfang bei UNIVERSITÄRE PSYCHIATRISCHE DIENSTE BERN (UPD) AG in Bern (3000, BE), Schweiz.\n\n• Bereich: Finanzen | HR | Marketing | Administration | Bildung\n• Art: Teilzeit\n• Befristung: Befristet\n• Standort: Bern (BE)\n• Bewerbung über das Umantis-Karriereportal von Universitäre Psychiatrische Dienste Bern (UPD)",
-        "it": "Personal Officer Reception presso UNIVERSITÄRE PSYCHIATRISCHE DIENSTE BERN (UPD) AG di Berna (3000, BE), Svizzera.\n\n• Area: Finanza | HR | Marketing | Amministrazione | Istruzione\n• Tipo: Parttime\n• Scadenza: Limitato\n• Posizione: Berna (BE)\n• Applicazione tramite il portale di carriera di Umantis dei servizi psichiatrici universitari Berna (UPD)",
-        "en": "Personnel Officer Reception at UNIVERSITÄRE PSYCHIATRISCHE DIENSTE BERN (UPD) AG in Bern (3000, BE), Switzerland.\n\n• Area: Finance | HR | Marketing | Administration | Education\n• Type: Parttime\n• Deadline: Limited\n• Location: Bern (BE)\n• Application via the Umantis career portal of University Psychiatric Services Bern (UPD)",
-        "fr": "Personnel Officier Réception à UNIVERSITÄRE PSYCHIATRISCHE DIENSTE BERN (UPD) AG à Berne (3000, BE), Suisse.\n\n• Domaine: Finances\n• Type: temps partiel\n• Délai: limité\n• Lieu: Berne (BE)\n• Application via le portail de carrière Umantis des services psychiatriques universitaires de Berne (UPD)"
+        "it": "Personal Officer Reception presso UNIVERSITÄRE PSYCHIATRISCHE DIENSTE BERN (UPD) AG di Berna (3000, BE), Svizzera.\n• Area: Finanza | HR | Marketing | Amministrazione | Istruzione\n• Tipo: Parttime\n• Scadenza: Limitato\n• Posizione: Berna (BE)\n• Applicazione tramite il portale di carriera di Umantis dei servizi psichiatrici universitari Berna (UPD)",
+        "en": "Personnel Officer Reception at UNIVERSITÄRE PSYCHIATRISCHE DIENSTE BERN (UPD) AG in Bern (3000, BE), Switzerland.\n• Area: Finance | HR | Marketing | Administration | Education\n• Type: Parttime\n• Deadline: Limited\n• Location: Bern (BE)\n• Application via the Umantis career portal of University Psychiatric Services Bern (UPD)",
+        "de": "Sachbearbeiterin / Sachbearbeiter Empfang bei UNIVERSITÄRE PSYCHIATRISCHE DIENSTE BERN (UPD) AG in Bern (3000, BE), Schweiz.\n• Bereich: Finanzen | HR | Marketing | Administration | Bildung\n• Art: Teilzeit\n• Befristung: Befristet\n• Standort: Bern (BE)\n• Bewerbung über das Umantis-Karriereportal von Universitäre Psychiatrische Dienste Bern (UPD)",
+        "fr": "Personnel Officier Réception à UNIVERSITÄRE PSYCHIATRISCHE DIENSTE BERN (UPD) AG à Berne (3000, BE), Suisse.\n• Domaine: Finances\n• Type: temps partiel\n• Délai: limité\n• Lieu: Berne (BE)\n• Application via le portail de carrière Umantis des services psychiatriques universitaires de Berne (UPD)"
       },
+      "needsRetranslation": false,
       "location": "Bern",
       "canton": "BE",
       "url": "https://recruitingapp-2908.umantis.com/Vacancies/2769/Description/1",
       "source": "Universitäre Psychiatrische Dienste Bern (UPD) Dedicated Parser (Umantis listing tenant 2908)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T14:19:17.114Z",
+      "crawledAt": "2026-05-28T00:45:34.262Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -736,22 +741,10 @@
       "postedDate": "2026-05-27",
       "applyUrl": "https://recruitingapp-2908.umantis.com/Vacancies/2769/Application/CheckLogin/1",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-05-27T14:19:17.114Z",
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "sachbearbeiterin-sachbearbeiter-empfang-upd-bern"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "sachbearbeiterin-sachbearbeiter-empfang-upd-bern"
@@ -763,9 +756,19 @@
           "sachbearbeiterin-sachbearbeiter-empfang-upd-bern"
         ]
       },
-      "previousSlugs": [
-        "sachbearbeiterin-sachbearbeiter-empfang-upd-bern"
-      ]
+      "firstSeenAt": "2026-05-27T14:19:17.114Z",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      }
     }
   ]
 }
