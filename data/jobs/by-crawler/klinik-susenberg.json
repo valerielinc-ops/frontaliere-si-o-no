@@ -1,87 +1,7 @@
 {
   "crawlerKey": "klinik-susenberg",
-  "assembledAt": "2026-05-27T23:28:25.689Z",
+  "assembledAt": "2026-05-28T13:09:22.210Z",
   "jobs": [
-    {
-      "id": "klinik-susenberg-6cce6e576dd1",
-      "slug": "dipl-specialista-hf-fh-in-cura-palliativa-funzione-aggiuntiva-stv-klinik-susenberg-zurich",
-      "slugByLocale": {
-        "de": "dipl-pflegefachperson-hf-fh-in-palliative-care-zusatzfunktion-stv-leitung-pflege-klinik",
-        "it": "dipl-specialista-hf-fh-in-cura-palliativa-funzione-aggiuntiva-stv-klinik-susenberg-zurich",
-        "en": "dipl-care-specialist-hf-fh-in-palliative-care-additional-function-stv-klinik-susenberg-zurich",
-        "fr": "c-est-quoi-specialiste-des-soins-hf-fh-en-soins-palliatifs-fonction-supplementaire-stv-klinik-susenberg-zurich"
-      },
-      "company": "Klinik Susenberg",
-      "companyKey": "klinik-susenberg",
-      "companyDomain": "susenbergklinik.ch",
-      "title": "dipl. Pflegefachperson HF/FH, in Palliative Care, Zusatzfunktion Stv. Leitung Pflege",
-      "titleByLocale": {
-        "de": "dipl. Pflegefachperson HF/FH, in Palliative Care, Zusatzfunktion Stv. Leitung Pflege",
-        "it": "dipl. Specialista HF/FH, in Cura Palliativa, funzione aggiuntiva Stv",
-        "en": "dipl. Care specialist HF/FH, in Palliative Care, additional function Stv",
-        "fr": "c'est quoi ? Spécialiste des soins HF/FH, en soins palliatifs, fonction supplémentaire Stv"
-      },
-      "description": "dipl. Pflegefachperson HF/FH, in Palliative Care, Zusatzfunktion Stv. Leitung Pflege bei der Klinik Susenberg, Schreberweg 9, 8044 Zürich, Schweiz. Tätigkeitsbereich: Pflege. Die Klinik Susenberg ist eine privat geführte Klinik am Zürichberg, spezialisiert auf Akutgeriatrie, internistisch-onkologische Rehabilitation und Palliative Care. \n• Wir bieten attraktive Anstellungsbedingungen und ein angenehmes Arbeitsklima in interprofessionellen Teams an schönster Lage in Zürich. Detailliertes Stellenprofil und Bewerbungsunterlagen siehe verlinktes PDF.",
-      "descriptionByLocale": {
-        "de": "dipl. Pflegefachperson HF/FH, in Palliative Care, Zusatzfunktion Stv. Leitung Pflege bei der Klinik Susenberg, Schreberweg 9, 8044 Zürich, Schweiz. Tätigkeitsbereich: Pflege. Die Klinik Susenberg ist eine privat geführte Klinik am Zürichberg, spezialisiert auf Akutgeriatrie, internistisch-onkologische Rehabilitation und Palliative Care.\n• Wir bieten attraktive Anstellungsbedingungen und ein angenehmes Arbeitsklima in interprofessionellen Teams an schönster Lage in Zürich. Detailliertes Stellenprofil und Bewerbungsunterlagen siehe verlinktes PDF.",
-        "it": "dipl. Specialista HF/FH, in Cura Palliativa, funzione aggiuntiva Campo di attività: Cura. La Clinica Susenberg è una clinica privata a Zurigoberg, specializzata in Akutgeriatrie, riabilitazione interna-oncologica e Cura Palliativa.\n• Offriamo condizioni di lavoro interessanti e un ambiente di lavoro piacevole in team interprofessionali nella posizione più bella di Zurigo. Per il profilo di lavoro dettagliato e documenti applicativi vedere linkato PDF.",
-        "en": "dipl. Care specialist HF/FH, in Palliative Care, additional function Stv. Field of activity: Care. The Susenberg Clinic is a privately run clinic at Zurichberg, specializing in Akutgeriatrie, internalist-oncological rehabilitation and Palliative Care.\n• We offer attractive employment conditions and a pleasant working environment in interprofessional teams in the most beautiful location in Zurich. For detailed job profile and application documents see linked PDF.",
-        "fr": "c'est quoi ? Spécialiste des soins HF/FH, en soins palliatifs, fonction supplémentaire Stv. Domaine d'activité: Soins. La clinique Susenberg est une clinique privée à Zurichberg, spécialisée en Akutgeriatrie, en réhabilitation interne-oncologique et en soins palliatifs.\n• Nous offrons des conditions d'emploi attrayantes et un environnement de travail agréable dans les équipes interprofessionnelles dans le plus bel endroit de Zurich. Pour un profil d'emploi et des documents de candidature détaillés, voir le document PDF lié."
-      },
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://www.susenbergklinik.ch/fileadmin/user_upload/Stellen/15-dipl._Pflegefachperson_HF-FH_PC_u._Stv._LPF_August_2026-05-27.pdf",
-      "source": "Klinik Susenberg Dedicated Parser (TYPO3 PDF listing)",
-      "sourceLang": "de",
-      "crawledAt": "2026-05-27T23:28:23.960Z",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8044",
-      "streetAddress": "Schreberweg 9",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-27",
-      "applyUrl": "https://www.susenbergklinik.ch/jobs/offene-stellen",
-      "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "department": "Pflege",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-05-27T23:28:23.960Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "dipl-pflegefachperson-hf-fh-in-palliative-care-zusatzfunktion-stv-leitung-pflege-klinik"
-        ],
-        "en": [
-          "dipl-pflegefachperson-hf-fh-in-palliative-care-zusatzfunktion-stv-leitung-pflege-klinik"
-        ],
-        "fr": [
-          "dipl-pflegefachperson-hf-fh-in-palliative-care-zusatzfunktion-stv-leitung-pflege-klinik"
-        ]
-      },
-      "previousSlugs": [
-        "dipl-pflegefachperson-hf-fh-in-palliative-care-zusatzfunktion-stv-leitung-pflege-klinik"
-      ]
-    },
     {
       "id": "klinik-susenberg-1af6354976c1",
       "slug": "assistente-medico-ottobre-dicembre-2026-klinik-susenberg-zurich",
@@ -101,19 +21,20 @@
         "de": "Unterassistent/-in, Oktober - Dezember 2026",
         "fr": "Assistant médical, octobre - décembre 2026"
       },
-      "description": "Unterassistent/-in, Oktober - Dezember 2026 bei der Klinik Susenberg, Schreberweg 9, 8044 Zürich, Schweiz. Tätigkeitsbereich: Ärztlicher Dienst. Die Klinik Susenberg ist eine privat geführte Klinik am Zürichberg, spezialisiert auf Akutgeriatrie, internistisch-onkologische Rehabilitation und Palliative Care. \n• Wir bieten attraktive Anstellungsbedingungen und ein angenehmes Arbeitsklima in interprofessionellen Teams an schönster Lage in Zürich. Detailliertes Stellenprofil und Bewerbungsunterlagen siehe verlinktes PDF.",
+      "description": "Unterassistent/-in, Oktober - Dezember 2026 bei der Klinik Susenberg, Schreberweg 9, 8044 Zürich, Schweiz.\n\nTätigkeitsbereich: Ärztlicher Dienst.\n\nDie Klinik Susenberg ist eine privat geführte Klinik am Zürichberg, spezialisiert auf Akutgeriatrie, internistisch-onkologische Rehabilitation und Palliative Care. \n• Wir bieten attraktive Anstellungsbedingungen und ein angenehmes Arbeitsklima in interprofessionellen Teams an schönster Lage in Zürich.\n\nDetailliertes Stellenprofil und Bewerbungsunterlagen siehe verlinktes PDF.\n\nStelleninserat (PDF): https://www.susenbergklinik.ch/fileadmin/user_upload/Stellen/02-Unterassistent_Oktobr-Dezember2026_2026-02-17.pdf",
       "descriptionByLocale": {
         "it": "Descrizione assistente secondario, ottobre - dicembre 2026 presso la Clinica Susenberg, Schreberweg 9, 8044 Zurigo, Svizzera. Settore di attività Servizio medico Specializzazione - Geriatria acuta - Riabilitazione internistico-oncologica - Cure palliative Organizzazione e ambiente - Clinica Susenberg, clinica privata a Zurigo - Condizioni di lavoro Attraggive - Ambiente di lavoro piacevole in team interprofessionali - Ambiente di lavoro in una splendida posizione a Zurigo Informazioni aggiuntive - Profilo professionale dettagliato e documenti di candidatura vedi PDF collegato",
         "en": "Descrizione Sub-Assistant, October - December 2026 at the Susenberg Clinic, Schreberweg 9, 8044 Zurich, Switzerland. Area of activity Medical service Specialization - Acute geriatrics - Internal oncological rehabilitation - Palliative Care Organizzazione e ambiente - Clinic Susenberg, privately run clinic at Zürichberg - Attraggive employment conditions - Pleasant working atmosphere in interprofessional teams - Working environment in a beautiful location in Zurich Informazioni aggiuntive - Detailed job profile and application documents see linked PDF",
-        "de": "Unterassistent/-in, Oktober - Dezember 2026 bei der Klinik Susenberg, Schreberweg 9, 8044 Zürich, Schweiz. Tätigkeitsbereich: Ärztlicher Dienst. Die Klinik Susenberg ist eine privat geführte Klinik am Zürichberg, spezialisiert auf Akutgeriatrie, internistisch-onkologische Rehabilitation und Palliative Care. \n• Wir bieten attraktive Anstellungsbedingungen und ein angenehmes Arbeitsklima in interprofessionellen Teams an schönster Lage in Zürich. Detailliertes Stellenprofil und Bewerbungsunterlagen siehe verlinktes PDF.",
+        "de": "Unterassistent/-in, Oktober - Dezember 2026 bei der Klinik Susenberg, Schreberweg 9, 8044 Zürich, Schweiz. Tätigkeitsbereich: Ärztlicher Dienst. Die Klinik Susenberg ist eine privat geführte Klinik am Zürichberg, spezialisiert auf Akutgeriatrie, internistisch-onkologische Rehabilitation und Palliative Care. \n• Wir bieten attraktive Anstellungsbedingungen und ein angenehmes Arbeitsklima in interprofessionellen Teams an schönster Lage in Zürich. Detailliertes Stellenprofil und Bewerbungsunterlagen siehe verlinktes PDF. Stelleninserat (PDF): https://www.susenbergklinik.ch/fileadmin/user_upload/Stellen/02-Unterassistent_Oktobr-Dezember2026_2026-02-17.pdf",
         "fr": "Descrizione Sous-assistant (e), octobre - décembre 2026 à la Klinik Susenberg, Schreberweg 9, 8044 Zurich, Suisse. Domaine d'activité Service médical Spécialisation - Gériatrie aiguë - Réadaptation oncologique interne - Organisation de soins palliatifs et environnement - Clinique Susenberg, clinique privée à Zurichberg - Conditions de travail favorables à l'emploi - Ambiance de travail agréable dans des équipes interprofessionnelles - Environnement de travail dans un bel emplacement à Zurich Informazioni aggiuntive - Profil détaillé du poste et documents de candidature voir le PDF lié"
       },
+      "needsRetranslation": true,
       "location": "Zürich",
       "canton": "ZH",
       "url": "https://www.susenbergklinik.ch/fileadmin/user_upload/Stellen/02-Unterassistent_Oktobr-Dezember2026_2026-02-17.pdf",
       "source": "Klinik Susenberg Dedicated Parser (TYPO3 PDF listing)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T23:28:23.960Z",
+      "crawledAt": "2026-05-28T13:09:20.190Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -155,6 +76,85 @@
       }
     },
     {
+      "id": "klinik-susenberg-6cce6e576dd1",
+      "slug": "dipl-specialista-hf-fh-in-cura-palliativa-funzione-aggiuntiva-stv-klinik-susenberg-zurich",
+      "slugByLocale": {
+        "it": "dipl-specialista-hf-fh-in-cura-palliativa-funzione-aggiuntiva-stv-klinik-susenberg-zurich",
+        "en": "dipl-care-specialist-hf-fh-in-palliative-care-additional-function-stv-klinik-susenberg-zurich",
+        "de": "dipl-pflegefachperson-hf-fh-in-palliative-care-zusatzfunktion-stv-leitung-pflege-klinik",
+        "fr": "c-est-quoi-specialiste-des-soins-hf-fh-en-soins-palliatifs-fonction-supplementaire-stv-klinik-susenberg-zurich"
+      },
+      "company": "Klinik Susenberg",
+      "companyKey": "klinik-susenberg",
+      "companyDomain": "susenbergklinik.ch",
+      "title": "dipl. Pflegefachperson HF/FH, in Palliative Care, Zusatzfunktion Stv. Leitung Pflege",
+      "titleByLocale": {
+        "it": "dipl. Specialista HF/FH, in Cura Palliativa, funzione aggiuntiva Stv",
+        "en": "dipl. Care specialist HF/FH, in Palliative Care, additional function Stv",
+        "de": "dipl. Pflegefachperson HF/FH, in Palliative Care, Zusatzfunktion Stv. Leitung Pflege",
+        "fr": "c'est quoi ? Spécialiste des soins HF/FH, en soins palliatifs, fonction supplémentaire Stv"
+      },
+      "description": "dipl. Pflegefachperson HF/FH, in Palliative Care, Zusatzfunktion Stv. Leitung Pflege bei der Klinik Susenberg, Schreberweg 9, 8044 Zürich, Schweiz.\n\nTätigkeitsbereich: Pflege.\n\nDie Klinik Susenberg ist eine privat geführte Klinik am Zürichberg, spezialisiert auf Akutgeriatrie, internistisch-onkologische Rehabilitation und Palliative Care. \n• Wir bieten attraktive Anstellungsbedingungen und ein angenehmes Arbeitsklima in interprofessionellen Teams an schönster Lage in Zürich.\n\nDetailliertes Stellenprofil und Bewerbungsunterlagen siehe verlinktes PDF.\n\nStelleninserat (PDF): https://www.susenbergklinik.ch/fileadmin/user_upload/Stellen/15-dipl._Pflegefachperson_HF-FH_PC_u._Stv._LPF_August_2026-05-27.pdf",
+      "descriptionByLocale": {
+        "it": "dipl. Specialista HF/FH, in Cura Palliativa, funzione aggiuntiva Campo di attività: Cura. La Clinica Susenberg è una clinica privata a Zurigoberg, specializzata in Akutgeriatrie, riabilitazione interna-oncologica e Cura Palliativa.\n• Offriamo condizioni di lavoro interessanti e un ambiente di lavoro piacevole in team interprofessionali nella posizione più bella di Zurigo. Per il profilo di lavoro dettagliato e documenti applicativi vedere linkato PDF.",
+        "en": "dipl. Care specialist HF/FH, in Palliative Care, additional function Stv. Field of activity: Care. The Susenberg Clinic is a privately run clinic at Zurichberg, specializing in Akutgeriatrie, internalist-oncological rehabilitation and Palliative Care.\n• We offer attractive employment conditions and a pleasant working environment in interprofessional teams in the most beautiful location in Zurich. For detailed job profile and application documents see linked PDF.",
+        "de": "dipl. Pflegefachperson HF/FH, in Palliative Care, Zusatzfunktion Stv. Leitung Pflege bei der Klinik Susenberg, Schreberweg 9, 8044 Zürich, Schweiz. Tätigkeitsbereich: Pflege. Die Klinik Susenberg ist eine privat geführte Klinik am Zürichberg, spezialisiert auf Akutgeriatrie, internistisch-onkologische Rehabilitation und Palliative Care. \n• Wir bieten attraktive Anstellungsbedingungen und ein angenehmes Arbeitsklima in interprofessionellen Teams an schönster Lage in Zürich. Detailliertes Stellenprofil und Bewerbungsunterlagen siehe verlinktes PDF. Stelleninserat (PDF): https://www.susenbergklinik.ch/fileadmin/user_upload/Stellen/15-dipl._Pflegefachperson_HF-FH_PC_u._Stv._LPF_August_2026-05-27.pdf",
+        "fr": "c'est quoi ? Spécialiste des soins HF/FH, en soins palliatifs, fonction supplémentaire Stv. Domaine d'activité: Soins. La clinique Susenberg est une clinique privée à Zurichberg, spécialisée en Akutgeriatrie, en réhabilitation interne-oncologique et en soins palliatifs.\n• Nous offrons des conditions d'emploi attrayantes et un environnement de travail agréable dans les équipes interprofessionnelles dans le plus bel endroit de Zurich. Pour un profil d'emploi et des documents de candidature détaillés, voir le document PDF lié."
+      },
+      "needsRetranslation": true,
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://www.susenbergklinik.ch/fileadmin/user_upload/Stellen/15-dipl._Pflegefachperson_HF-FH_PC_u._Stv._LPF_August_2026-05-27.pdf",
+      "source": "Klinik Susenberg Dedicated Parser (TYPO3 PDF listing)",
+      "sourceLang": "de",
+      "crawledAt": "2026-05-28T13:09:20.027Z",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8044",
+      "streetAddress": "Schreberweg 9",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-27",
+      "applyUrl": "https://www.susenbergklinik.ch/jobs/offene-stellen",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "department": "Pflege",
+      "previousSlugs": [
+        "dipl-pflegefachperson-hf-fh-in-palliative-care-zusatzfunktion-stv-leitung-pflege-klinik"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-hf-fh-in-palliative-care-zusatzfunktion-stv-leitung-pflege-klinik"
+        ],
+        "en": [
+          "dipl-pflegefachperson-hf-fh-in-palliative-care-zusatzfunktion-stv-leitung-pflege-klinik"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-hf-fh-in-palliative-care-zusatzfunktion-stv-leitung-pflege-klinik"
+        ]
+      },
+      "firstSeenAt": "2026-05-27T23:28:23.960Z",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
       "id": "klinik-susenberg-b8551c50966b",
       "slug": "diplomata-infermiera-professionale-hf-fh-palliative-care-80-100-klinik-susenberg-zurich",
       "slugByLocale": {
@@ -173,19 +173,20 @@
         "de": "dipl. Pflegefachperson HF/FH, in Palliative Care, 80 - 100 %",
         "fr": "Infirmier(e) diplômé(e) HF/FH, Soins Palliatifs, 80 - 100 %"
       },
-      "description": "dipl. Pflegefachperson HF/FH, in Palliative Care, 80 - 100 % bei der Klinik Susenberg, Schreberweg 9, 8044 Zürich, Schweiz. Tätigkeitsbereich: Pflege. Die Klinik Susenberg ist eine privat geführte Klinik am Zürichberg, spezialisiert auf Akutgeriatrie, internistisch-onkologische Rehabilitation und Palliative Care. \n• Wir bieten attraktive Anstellungsbedingungen und ein angenehmes Arbeitsklima in interprofessionellen Teams an schönster Lage in Zürich. Detailliertes Stellenprofil und Bewerbungsunterlagen siehe verlinktes PDF.",
+      "description": "dipl. Pflegefachperson HF/FH, in Palliative Care, 80 - 100 % bei der Klinik Susenberg, Schreberweg 9, 8044 Zürich, Schweiz.\n\nTätigkeitsbereich: Pflege.\n\nDie Klinik Susenberg ist eine privat geführte Klinik am Zürichberg, spezialisiert auf Akutgeriatrie, internistisch-onkologische Rehabilitation und Palliative Care. \n• Wir bieten attraktive Anstellungsbedingungen und ein angenehmes Arbeitsklima in interprofessionellen Teams an schönster Lage in Zürich.\n\nDetailliertes Stellenprofil und Bewerbungsunterlagen siehe verlinktes PDF.\n\nStelleninserat (PDF): https://www.susenbergklinik.ch/fileadmin/user_upload/Stellen/14-dipl._Pflegefachperson_HF-FH_PC_80-100_per_sofort_2026-03-28.pdf",
       "descriptionByLocale": {
         "it": "Descrizione infermiere diplomato SSS/SUP, in cure palliative, 80 - 100% presso la Clinica Susenberg, Schreberweg 9, 8044 Zurigo, Svizzera. Settore di attività - Infermieristica Specializzazione La Clinica Susenberg è una clinica privata a Zurigo, specializzata in geriatria acuta, riabilitazione medico-oncologica e cure palliative. Ambiente di lavoro -\n• Offriamo condizioni di lavoro interessanti - Un ambiente di lavoro piacevole in team interprofessionali - Lavoro in una posizione bellissima a Zurigo Contatto - Profilo dettagliato del lavoro e documenti di candidatura vedi PDF collegato",
         "en": "Descrizione graduate nurse HF/FH, in palliative care, 80 - 100% at the Susenberg Clinic, Schreberweg 9, 8044 Zurich, Switzerland. Area of activity - Nursing specialisation The Susenberg Clinic is a privately run clinic at Zürichberg, specialising in acute geriatrics, internal oncological rehabilitation and palliative care. Ambiente di lavoro -\n• Offriamo Attractive employment conditions - Un ambiente di lavoro piacevole in team interprofessionali - Lavoro in una posizione bellissima a Zurigo Contatto - Detailed job profile and application documents see linked PDF",
-        "de": "dipl. Pflegefachperson HF/FH, in Palliative Care, 80 - 100 % bei der Klinik Susenberg, Schreberweg 9, 8044 Zürich, Schweiz. Tätigkeitsbereich: Pflege. Die Klinik Susenberg ist eine privat geführte Klinik am Zürichberg, spezialisiert auf Akutgeriatrie, internistisch-onkologische Rehabilitation und Palliative Care. \n• Wir bieten attraktive Anstellungsbedingungen und ein angenehmes Arbeitsklima in interprofessionellen Teams an schönster Lage in Zürich. Detailliertes Stellenprofil und Bewerbungsunterlagen siehe verlinktes PDF.",
+        "de": "dipl. Pflegefachperson HF/FH, in Palliative Care, 80 - 100 % bei der Klinik Susenberg, Schreberweg 9, 8044 Zürich, Schweiz. Tätigkeitsbereich: Pflege. Die Klinik Susenberg ist eine privat geführte Klinik am Zürichberg, spezialisiert auf Akutgeriatrie, internistisch-onkologische Rehabilitation und Palliative Care. \n• Wir bieten attraktive Anstellungsbedingungen und ein angenehmes Arbeitsklima in interprofessionellen Teams an schönster Lage in Zürich. Detailliertes Stellenprofil und Bewerbungsunterlagen siehe verlinktes PDF. Stelleninserat (PDF): https://www.susenbergklinik.ch/fileadmin/user_upload/Stellen/14-dipl._Pflegefachperson_HF-FH_PC_80-100_per_sofort_2026-03-28.pdf",
         "fr": "Descrizione infirmière diplômée HF/FH, en soins palliatifs, 80 à 100 % à la Klinik Susenberg, Schreberweg 9, 8044 Zurich, Suisse. Domaine d'activité - Spécialisation en soins La Clinique Susenberg est une clinique privée située à Zurichberg, spécialisée dans la gériatrie aiguë, la rééducation oncologique interne et les soins palliatifs. Ambiente di lavoro -\n• Offriamo conditions d'emploi attrayantes - Un ambiente di lavoro piacevole in team interprofessionali - Lavoro in una posizione bellissima a Zurigo Contatto - Profil détaillé du poste et dossier de candidature voir le PDF lié"
       },
+      "needsRetranslation": true,
       "location": "Zürich",
       "canton": "ZH",
       "url": "https://www.susenbergklinik.ch/fileadmin/user_upload/Stellen/14-dipl._Pflegefachperson_HF-FH_PC_80-100_per_sofort_2026-03-28.pdf",
       "source": "Klinik Susenberg Dedicated Parser (TYPO3 PDF listing)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T23:28:23.959Z",
+      "crawledAt": "2026-05-28T13:09:19.866Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -249,11 +250,11 @@
         "de": "dipl. Pflegefachperson HF/FH, Zusatzfunktion Berufsbildner/-in",
         "fr": "Infirmier(ère) professionnel(le) HF/FH avec fonction supplémentaire de formateur(trice) professionnel(le)"
       },
-      "description": "dipl. Pflegefachperson HF/FH, Zusatzfunktion Berufsbildner/-in bei der Klinik Susenberg, Schreberweg 9, 8044 Zürich, Schweiz. Tätigkeitsbereich: Pflege. Die Klinik Susenberg ist eine privat geführte Klinik am Zürichberg, spezialisiert auf Akutgeriatrie, internistisch-onkologische Rehabilitation und Palliative Care. \n• Wir bieten attraktive Anstellungsbedingungen und ein angenehmes Arbeitsklima in interprofessionellen Teams an schönster Lage in Zürich. Detailliertes Stellenprofil und Bewerbungsunterlagen siehe verlinktes PDF.",
+      "description": "dipl. Pflegefachperson HF/FH, Zusatzfunktion Berufsbildner/-in bei der Klinik Susenberg, Schreberweg 9, 8044 Zürich, Schweiz.\n\nTätigkeitsbereich: Pflege.\n\nDie Klinik Susenberg ist eine privat geführte Klinik am Zürichberg, spezialisiert auf Akutgeriatrie, internistisch-onkologische Rehabilitation und Palliative Care. \n• Wir bieten attraktive Anstellungsbedingungen und ein angenehmes Arbeitsklima in interprofessionellen Teams an schönster Lage in Zürich.\n\nDetailliertes Stellenprofil und Bewerbungsunterlagen siehe verlinktes PDF.\n\nStelleninserat (PDF): https://www.susenbergklinik.ch/fileadmin/user_upload/Stellen/13-dipl._Pflegefachperson-HF-FH_BB_80-100_per_sofort_2026-03-28.pdf",
       "descriptionByLocale": {
         "it": "Descrizione del professionista infermieristico diplomato SSS/SUP, funzione aggiuntiva di formatore/formatrice professionale presso la Clinica Susenberg, Schreberweg 9, 8044 Zurigo, Svizzera. Settore di attività: cura. La Clinica Susenberg è una clinica privata a Zurigo, specializzata in geriatria acuta, riabilitazione medico-oncologica e cure palliative.\n• Offriamo condizioni di lavoro interessanti e un clima di lavoro piacevole in team interprofessionali nella posizione più bella di Zurigo. Per il profilo professionale dettagliato e i documenti di candidatura, vedere il PDF collegato.",
         "en": "Descrizione graduate nurse HF/FH, additional position as a vocational trainer at the Susenberg Clinic, Schreberweg 9, 8044 Zurich, Switzerland. Field of activity: Nursing. Klinik Susenberg is a privately run clinic at Zürichberg, specialising in acute geriatrics, internist-oncological rehabilitation and palliative care.\n• We offer attractive employment conditions and a pleasant working atmosphere in interprofessional teams in the most beautiful location in Zurich. For a detailed job profile and application documents, see the linked PDF.",
-        "de": "dipl. Pflegefachperson HF/FH, Zusatzfunktion Berufsbildner/-in bei der Klinik Susenberg, Schreberweg 9, 8044 Zürich, Schweiz. Tätigkeitsbereich: Pflege. Die Klinik Susenberg ist eine privat geführte Klinik am Zürichberg, spezialisiert auf Akutgeriatrie, internistisch-onkologische Rehabilitation und Palliative Care. \n• Wir bieten attraktive Anstellungsbedingungen und ein angenehmes Arbeitsklima in interprofessionellen Teams an schönster Lage in Zürich. Detailliertes Stellenprofil und Bewerbungsunterlagen siehe verlinktes PDF.",
+        "de": "dipl. Pflegefachperson HF/FH, Zusatzfunktion Berufsbildner/-in bei der Klinik Susenberg, Schreberweg 9, 8044 Zürich, Schweiz. Tätigkeitsbereich: Pflege. Die Klinik Susenberg ist eine privat geführte Klinik am Zürichberg, spezialisiert auf Akutgeriatrie, internistisch-onkologische Rehabilitation und Palliative Care. \n• Wir bieten attraktive Anstellungsbedingungen und ein angenehmes Arbeitsklima in interprofessionellen Teams an schönster Lage in Zürich. Detailliertes Stellenprofil und Bewerbungsunterlagen siehe verlinktes PDF. Stelleninserat (PDF): https://www.susenbergklinik.ch/fileadmin/user_upload/Stellen/13-dipl._Pflegefachperson-HF-FH_BB_80-100_per_sofort_2026-03-28.pdf",
         "fr": "Descrizione infirmière diplômée ES/HES, fonction supplémentaire de formateur/formatrice professionnelle à la Clinique Susenberg, Schreberweg 9, 8044 Zurich, Suisse. Domaine d'activité : Soins infirmiers. La Clinique Susenberg est une clinique privée située à Zurichberg, spécialisée dans la gériatrie aiguë, la rééducation oncologique interne et les soins palliatifs.\n• Nous offrons des conditions de travail attrayantes et un climat de travail agréable dans des équipes interprofessionnelles dans le plus bel emplacement de Zurich. Pour un profil détaillé du poste et les documents de candidature, voir le PDF lié."
       },
       "needsRetranslation": false,
@@ -262,7 +263,7 @@
       "url": "https://www.susenbergklinik.ch/fileadmin/user_upload/Stellen/13-dipl._Pflegefachperson-HF-FH_BB_80-100_per_sofort_2026-03-28.pdf",
       "source": "Klinik Susenberg Dedicated Parser (TYPO3 PDF listing)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-27T23:28:23.958Z",
+      "crawledAt": "2026-05-28T13:09:19.051Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
