@@ -81,7 +81,7 @@ jobs:
               # data/crawler-health.json so conflicts are extremely rare,
               # but rebase keeps us safe even when a parallel push lands
               # between our fetch and push.
-              git fetch origin main
+              git fetch origin main || true  # tolerate transient net failure; rebase below will signal staleness
               if ! git rebase origin/main; then
                 echo "⚠️ Rebase conflict — aborting and resetting."
                 git rebase --abort 2>/dev/null || true
@@ -92,7 +92,7 @@ jobs:
                 # Reset our commit, re-add the file (latest remote may have
                 # touched it), then loop.
                 git reset --mixed HEAD~1 || true
-                git fetch origin main
+                git fetch origin main || true  # tolerate transient net failure; rebase below will signal staleness
                 git reset --hard origin/main
                 # Re-run the script so the state file reflects the new
                 # remote baseline plus today's observations.

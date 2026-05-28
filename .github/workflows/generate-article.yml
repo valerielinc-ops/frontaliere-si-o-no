@@ -209,7 +209,7 @@ jobs:
           source scripts/lib/resolve-append-conflicts.sh
 
           # ── Sync with remote BEFORE committing ──
-          git fetch origin main
+          git fetch origin main || true  # tolerate transient net failure; rebase below will signal staleness
           LOCAL=$(git rev-parse HEAD)
           REMOTE=$(git rev-parse origin/main)
 

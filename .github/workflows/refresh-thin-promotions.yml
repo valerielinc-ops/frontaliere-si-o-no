@@ -99,7 +99,7 @@ jobs:
               exit 0
             fi
             echo "⚠️ Push rejected (attempt $attempt/$MAX_ATTEMPTS) — fetch + rebase, then retry…"
-            git fetch origin main
+            git fetch origin main || true  # tolerate transient net failure; rebase below will signal staleness
             if ! git rebase origin/main; then
               echo "⚠️ Rebase conflict on data/thin-page-promotions-*.json — aborting and resetting."
               git rebase --abort || true
