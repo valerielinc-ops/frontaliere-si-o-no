@@ -1,16 +1,16 @@
 {
   "key": "board-international",
   "label": "board",
-  "generatedAt": "2026-05-27T22:18:59.051Z",
+  "generatedAt": "2026-05-28T11:50:51.568Z",
   "total": 8,
   "newCount": 0,
-  "updatedCount": 8,
+  "updatedCount": 7,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 1701,
-  "avgDurationMs": 1701,
+  "unchangedCount": 1,
+  "durationMs": 1729,
+  "avgDurationMs": 1729,
   "durationHistory": [
-    1701
+    1729
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -32,10 +32,10 @@
       "sector": "Tecnologia & IT",
       "source": "board-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-05-27",
+      "postedDate": "2026-05-28",
       "employmentType": "full time",
       "contractType": "full-time",
-      "validThrough": "2026-05-27",
+      "validThrough": "2026-05-28",
       "id": "board-international-b7509e355f12",
       "salaryMin": 79500,
       "salaryMax": 135000,
@@ -70,7 +70,7 @@
       "sector": "Tecnologia & IT",
       "source": "board-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-02-27",
+      "postedDate": "2026-05-28",
       "employmentType": "full time",
       "contractType": "full-time",
       "validThrough": "2026-05-28",
@@ -124,43 +124,6 @@
         "cleanliness": 20,
         "richness": 24,
         "translation": 19,
-        "completeness": 25
-      }
-    },
-    {
-      "title": "Senior Software Engineer",
-      "slug": "senior-software-engineer-board-international-chiasso-switzerland",
-      "url": "https://boardinternationalsa.applytojob.com/apply/ueKvovaT2t/Senior-Software-Engineer",
-      "applyUrl": "https://boardinternationalsa.applytojob.com/apply/ueKvovaT2t/Senior-Software-Engineer",
-      "company": "Board International",
-      "companyKey": "board-international",
-      "companyDomain": "board.com",
-      "location": "Chiasso, Switzerland",
-      "addressLocality": "Chiasso, Switzerland",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "tech",
-      "sector": "Tecnologia & IT",
-      "source": "board-dedicated-crawler",
-      "sourceLang": "en",
-      "postedDate": "2026-05-27",
-      "employmentType": "full time",
-      "contractType": "full-time",
-      "validThrough": "2026-08-25",
-      "id": "board-international-af8a64818a76",
-      "salaryMin": 79500,
-      "salaryMax": 135000,
-      "currency": "CHF",
-      "streetAddress": "Via Campagna 11",
-      "postalCode": "6982",
-      "firstSeenAt": "2026-05-17T09:46:35.164Z",
-      "_qualityScore": 95,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 21,
         "completeness": 25
       }
     },
@@ -314,5 +277,43 @@
     }
   ],
   "removedJobs": [],
-  "unchangedJobs": []
+  "unchangedJobs": [
+    {
+      "title": "Senior Software Engineer",
+      "slug": "senior-software-engineer-board-international-chiasso-switzerland",
+      "url": "https://boardinternationalsa.applytojob.com/apply/ueKvovaT2t/Senior-Software-Engineer",
+      "applyUrl": "https://boardinternationalsa.applytojob.com/apply/ueKvovaT2t/Senior-Software-Engineer",
+      "company": "Board International",
+      "companyKey": "board-international",
+      "companyDomain": "board.com",
+      "location": "Chiasso, Switzerland",
+      "addressLocality": "Chiasso, Switzerland",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "category": "tech",
+      "sector": "Tecnologia & IT",
+      "source": "board-dedicated-crawler",
+      "sourceLang": "en",
+      "postedDate": "2026-05-27",
+      "employmentType": "full time",
+      "contractType": "full-time",
+      "validThrough": "2026-08-25",
+      "id": "board-international-af8a64818a76",
+      "salaryMin": 79500,
+      "salaryMax": 135000,
+      "currency": "CHF",
+      "streetAddress": "Via Campagna 11",
+      "postalCode": "6982",
+      "firstSeenAt": "2026-05-17T09:46:35.164Z",
+      "_qualityScore": 95,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 21,
+        "completeness": 25
+      }
+    }
+  ]
 }
