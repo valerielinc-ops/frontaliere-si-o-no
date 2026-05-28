@@ -1,16 +1,16 @@
 {
   "key": "sintetica",
   "label": "Sintetica SA",
-  "generatedAt": "2026-05-28T07:21:03.985Z",
-  "total": 14,
+  "generatedAt": "2026-05-28T14:04:47.429Z",
+  "total": 13,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 14,
-  "durationMs": 10996,
-  "avgDurationMs": 10996,
+  "durationMs": 9534,
+  "avgDurationMs": 9534,
   "durationHistory": [
-    10996
+    9534
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -283,16 +283,16 @@
         "location": "Mendrisio"
       },
       "crawledAt": "",
-      "sourceLang": "en",
+      "sourceLang": "it",
       "salaryMin": 98000,
       "salaryMax": 133000,
       "currency": "CHF",
       "firstSeenAt": "2026-04-13T22:24:00.330Z",
       "id": "sintetica-1c4a971f4c85",
-      "_qualityScore": 90,
+      "_qualityScore": 80,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 20,
+        "richness": 10,
         "translation": 25,
         "completeness": 20
       }
@@ -338,46 +338,6 @@
       }
     },
     {
-      "url": "https://app.ncoreplat.com/jobposition/780433/apprendista-tecnologo-di-chimica-e-chimica-farmaceutica-con-maturita-professionale-mendrisio-site-ticino-ch/sintetica",
-      "applyUrl": "https://app.ncoreplat.com/jobposition/780433/apprendista-tecnologo-di-chimica-e-chimica-farmaceutica-con-maturita-professionale-mendrisio-site-ticino-ch/sintetica",
-      "title": "Apprendista tecnologo di chimica e chimica farmaceutica con maturità professionale - Mendrisio site (Ticino)",
-      "company": "Sintetica SA",
-      "companyKey": "sintetica",
-      "location": "Mendrisio",
-      "canton": "TI",
-      "country": "CH",
-      "addressLocality": "Mendrisio",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "postalCode": "6850",
-      "streetAddress": "Via Penate 5",
-      "slug": "apprendista-tecnologo-di-chimica-e-chimica-farmaceutica-con-maturita-professionale-mendrisio-site-ticino-sintetica-sa",
-      "category": "technology",
-      "datePosted": "2026-05-28",
-      "source": "sintetica-careers-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "ENTRY",
-      "sector": "Farmaceutica",
-      "_targetScope": {
-        "canton": "TI",
-        "location": "Mendrisio"
-      },
-      "sourceLang": "it",
-      "crawledAt": "",
-      "id": "sintetica-c865c793351f",
-      "salaryMin": 41600,
-      "salaryMax": 63000,
-      "currency": "CHF",
-      "firstSeenAt": "2026-05-21T07:33:30.027Z",
-      "_qualityScore": 80,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 10,
-        "translation": 25,
-        "completeness": 20
-      }
-    },
-    {
       "url": "https://app.ncoreplat.com/jobposition/779888/technicien-de-maintenance-site-de-couvet-ch/sintetica",
       "applyUrl": "https://app.ncoreplat.com/jobposition/779888/technicien-de-maintenance-site-de-couvet-ch/sintetica",
       "title": "Technicien de maintenance - Couvet site",
@@ -410,11 +370,11 @@
       "salaryMax": 75000,
       "currency": "CHF",
       "firstSeenAt": "2026-05-27T00:09:57.244Z",
-      "_qualityScore": 71,
+      "_qualityScore": 74,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 10,
-        "translation": 16,
+        "translation": 19,
         "completeness": 20
       }
     },
