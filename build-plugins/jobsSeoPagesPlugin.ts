@@ -9416,7 +9416,30 @@ ${staticAnalyticsHtml}
  if (j.slugByLocale) for (const s of Object.values(j.slugByLocale)) if (typeof s === 'string' && s) knownSlugs.add(s);
  for (const s of _allPrevSlugs(j)) knownSlugs.add(s);
  }
- const tokenize = (s: string): string[] => s.split('-').filter(t => t.length >= 3);
+ // Hash trailers like "-w5vlie", "-l7apjs" (4-8 lowercase alnum, often
+ // appended by upstream ATSes to dedupe variants of the same posting) are
+ // per-posting noise — strip before tokenizing so they don't drown out the
+ // discriminant tokens (department, city). Pre-audit (2026-05-28): without
+ // strip, 32% of orphans had a hash trailer that became their "last token".
+ const HASH_TRAILER_RE = /-[a-z0-9]{4,8}$/;
+ const tokenize = (s: string): string[] =>
+   s.replace(HASH_TRAILER_RE, '').split('-').filter(t => t.length >= 3);
+ // Canonical city of a job = tokenised `location` field. Used as a HARD lock
+ // (below) to prevent cross-city mis-attribution. "Domat/Ems" → ["domat","ems"];
+ // "Castel San Pietro" → ["castel","san","pietro"]. Pre-audit: WITHOUT this
+ // lock, 74% of fuzzy matches attributed the orphan to a job in a different
+ // city — the matcher rewarded shared title prose (e.g. "capo della stazione")
+ // over shared location/department tokens, so a Walenstadt orphan would point
+ // its canonical at a Chur job because both shared the generic role words.
+ const cityTokens = (loc: unknown): string[] => {
+   if (typeof loc !== 'string' || !loc) return [];
+   return loc
+     .toLowerCase()
+     .normalize('NFD').replace(/[̀-ͯ]/g, '')
+     .split(/[^a-z0-9]+/)
+     .filter(t => t.length >= 3);
+ };
+ const jobCityTokens: string[][] = validJobs.map(j => cityTokens((j as any).location));
  // Index active jobs by every token that appears in any of their slugs so we
  // can quickly find candidates for a given orphan slug (avoids O(orphan × jobs)).
  const jobsByToken = new Map<string, Set<number>>();
@@ -9435,11 +9458,13 @@ ${staticAnalyticsHtml}
  });
  const SKIP_PREFIX_FUZZY = /^(?:search|ricerca|suche|recherche|azienda|company|unternehmen|entreprise)-/;
  let fuzzyMatched = 0;
+ let cityLockRejections = 0;
  for (const orphanSlug of Object.keys(tracking)) {
  if (knownSlugs.has(orphanSlug)) continue;
  if (SKIP_PREFIX_FUZZY.test(orphanSlug)) continue;
  const orphanTokens = tokenize(orphanSlug);
  if (orphanTokens.length < 4) continue;
+ const orphanTokenSet = new Set(orphanTokens);
  // Candidate jobs share at least one token with the orphan slug
  const candidateIdx = new Map<number, number>();
  for (const t of orphanTokens) {
@@ -9452,6 +9477,13 @@ ${staticAnalyticsHtml}
  let best: { job: any; locale: string; score: number; shared: number } | null = null;
  for (const [idx, shared] of candidateIdx) {
  if (shared < 3) continue;
+ // HARD CITY LOCK: candidate's canonical location (from job.location, not
+ // slug — slugs may end with a cantone token or a hash trailer) must be
+ // fully represented in the orphan's tokens. Jobs without a location
+ // signal cannot be confidently matched and are skipped.
+ const cCity = jobCityTokens[idx];
+ if (cCity.length === 0) { cityLockRejections++; continue; }
+ if (!cCity.every(ct => orphanTokenSet.has(ct))) { cityLockRejections++; continue; }
  const cand = validJobs[idx];
  const sbl = (cand as any).slugByLocale || {};
  for (const locale of localeList) {
@@ -9474,8 +9506,8 @@ ${staticAnalyticsHtml}
  fuzzyMatched++;
  }
  }
- if (fuzzyMatched > 0) {
- console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m Fuzzy-matched ${fuzzyMatched} orphan slugs to active jobs as implicit previousSlugs`);
+ if (fuzzyMatched > 0 || cityLockRejections > 0) {
+ console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m Fuzzy-matched ${fuzzyMatched} orphan slugs to active jobs as implicit previousSlugs (rejected ${cityLockRejections} cross-city candidates)`);
  }
 
  // Collect IT paths of all previous slugs so we can also exclude their
