@@ -81,4 +81,26 @@ jobs:
 
           Manually triggered via regenerate-visual-baselines.yml.
           See workflow run for context."
-          git push
+          # Retry-on-rebase loop — same pattern as #794/#804/#805/#806.
+          # workflow_dispatch-only job, but main is busy with concurrent
+          # producers so a non-fast-forward race is still possible.
+          MAX_ATTEMPTS=5
+          BACKOFF_BASE=3
+          attempt=1
+          while [ "$attempt" -le "$MAX_ATTEMPTS" ]; do
+            if git push origin HEAD:main; then
+              echo "✅ Pushed regenerated baselines."
+              exit 0
+            fi
+            echo "⚠️ Push rejected (attempt $attempt/$MAX_ATTEMPTS) — fetch + rebase, then retry…"
+            git fetch origin main || true
+            if ! git -c rebase.autoStash=true rebase origin/main; then
+              echo "⚠️ Rebase conflict on visual baseline files — aborting and resetting."
+              git rebase --abort || true
+              exit 1
+            fi
+            sleep $((BACKOFF_BASE * attempt))
+            attempt=$((attempt + 1))
+          done
+          echo "❌ Push failed after $MAX_ATTEMPTS attempts — leaving baselines uncommitted."
+          exit 1
