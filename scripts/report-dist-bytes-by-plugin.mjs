@@ -85,18 +85,63 @@ const PLUGIN_RULES = [
   { plugin: 'hub-faq', prefixes: ['faq/', 'domande/', 'fragen/', 'questions/'] },
   { plugin: 'hub-comparison', prefixes: ['confronti/', 'comparisons/', 'vergleiche/', 'comparaisons/'] },
   { plugin: 'hub-section', prefixes: ['sezioni/', 'sections/', 'abschnitte/'] },
-  // assets bundle
-  { plugin: 'assets', prefixes: ['assets/'] },
+  // Daily-feature SEO plugins (fuelDailyPlugin, healthPremiumsPlugin,
+  // borderWaitPagesPlugin, weatherCommutePlugin, salaryCalculatorPlugin).
+  // Each emits under 4 locale-aware section names — regex catches all.
+  { plugin: 'fuel-daily', regex:
+    /^(prix-essence-suisse|prezzi-benzina|benzinpreis-schweiz|gasoline-price-switzerland|prezzi-diesel|prix-gasoil-suisse|dieselpreis-schweiz|diesel-price-switzerland)\// },
+  { plugin: 'health-premiums', regex:
+    /^(primes-assurance-maladie|premi-cassa-malati|krankenkassenpraemien|health-insurance-premiums)\// },
+  { plugin: 'border-wait', regex:
+    /^(temps-attente-douane|wartezeit-grenze|traffico-dogane|border-wait)\// },
+  { plugin: 'weather-commute', regex:
+    /^(meteo-frontalieri|meteo-frontaliers|pendler-wetter|commute-weather)\// },
+  { plugin: 'salary-calculator', regex:
+    /^(calcola-stipendio|calculate-salary|calculer-salaire|gehalt-berechnen)\// },
+  // Editorial / evergreen sections (companies-hiring, living-in-ticino,
+  // ticino-job-market, glossary, guides, taxes-and-pension, statistics,
+  // service-comparison, faq, alerts/reports).
+  { plugin: 'companies-hiring', regex:
+    /^(aziende-che-assumono|companies-hiring|entreprises-recrutent|unternehmen-einstellen|entreprises-qui-recrutent|firmen-die-einstellen)\// },
+  { plugin: 'living-in-ticino', regex:
+    /^(vivere-in-ticino|living-in-ticino|leben-im-tessin|vivre-au-tessin|vita-in-ticino)\// },
+  { plugin: 'job-market', regex:
+    /^(mercato-lavoro-ticino|ticino-job-market|tessiner-arbeitsmarkt|marche-travail-tessin)\// },
+  { plugin: 'glossary', regex:
+    /^(glossario-frontaliere|cross-border-glossary|grenzgaenger-glossar|glossaire-frontalier)\// },
+  { plugin: 'guides', regex:
+    /^(guida-frontaliere|cross-border-guide|grenzgaenger-ratgeber|guide-frontalier)\// },
+  { plugin: 'taxes-pension', regex:
+    /^(tasse-e-pensione|taxes-and-pension|steuern-und-vorsorge|impots-et-retraite)\// },
+  { plugin: 'statistics', regex:
+    /^(statistiche|statistics|statistiken|statistiques)\// },
+  { plugin: 'service-compare', regex:
+    /^(compara-servizi|service-comparison|service-vergleich|comparaison-services)\// },
+  { plugin: 'faq-pages', regex:
+    /^(domande-frequenti-frontalieri|frequently-asked-questions|haeufige-fragen|questions-frequentes)\// },
+  { plugin: 'alerts', regex:
+    /^(allerte|alerts|warnungen|alertes|report|reports)\// },
+  // Site-search root paths (one .html per locale).
+  { plugin: 'site-search', regex: /^(ricerca|search|suche|recherche)(\/|\.html$)/ },
+  // assets bundle (incl. webfonts)
+  { plugin: 'assets', prefixes: ['assets/', 'fonts/'] },
   // data files shipped
   { plugin: 'data', prefixes: ['dati/', 'data/'] },
-  // sitemaps + robots
-  { plugin: 'sitemap', regex: /^sitemap[^/]*\.xml(\.gz)?$|^robots\.txt$/ },
+  // sitemaps + robots + rss feeds + .well-known
+  { plugin: 'sitemap', regex: /^sitemap[^/]*\.xml(\.gz)?$|^robots\.txt$|^rss(-[a-z]{2})?\.xml$|^\.well-known(\/|$)/ },
   // OG images
   { plugin: 'og-images', prefixes: ['og-images/', 'og/'] },
   // public/ root images
   { plugin: 'images', prefixes: ['images/', 'img/'] },
-  // PDFs
+  // PDFs (whitepapers)
   { plugin: 'pdf', regex: /\.pdf$/ },
+  // LLM-facing prose dumps (llms.txt + llms-full.txt)
+  { plugin: 'llms-txt', regex: /^llms(-full)?\.txt$/ },
+  // Root-level static `.html` redirect aliases: lavoro-ticino-{role}.html,
+  // calcolatore.html, contatti.html, glossary.html, etc. These are emitted
+  // by individual small plugins; bucket together so they don't pollute
+  // `other-*` 50+ times each.
+  { plugin: 'static-aliases', regex: /^[a-z][a-z0-9-]*\.html$/ },
 ];
 
 function classify(relPath) {
