@@ -51,10 +51,33 @@ jobs:
           git pull --rebase --autostash origin main
           if git diff --cached --quiet; then
             echo "No evidence changes to commit"
-          else
-            git commit -m "chore(evidence): refresh $(date -u +%Y-%m-%d)"
-            git push origin HEAD:main
+            exit 0
           fi
+          git commit -m "chore(evidence): refresh $(date -u +%Y-%m-%d)"
+          # Retry-on-rebase loop — same pattern as #794/#804/#805/#806.
+          # Concurrent producers on main (crawlers + scheduled refreshers
+          # + post-merge auto-commits) regularly out-race a single push;
+          # mirror the loop already proven elsewhere.
+          MAX_ATTEMPTS=5
+          BACKOFF_BASE=3
+          attempt=1
+          while [ "$attempt" -le "$MAX_ATTEMPTS" ]; do
+            if git push origin HEAD:main; then
+              echo "✅ Pushed evidence refresh."
+              exit 0
+            fi
+            echo "⚠️ Push rejected (attempt $attempt/$MAX_ATTEMPTS) — fetch + rebase, then retry…"
+            git fetch origin main || true
+            if ! git -c rebase.autoStash=true rebase origin/main; then
+              echo "⚠️ Rebase conflict on evidence data files — aborting and resetting."
+              git rebase --abort || true
+              exit 1
+            fi
+            sleep $((BACKOFF_BASE * attempt))
+            attempt=$((attempt + 1))
+          done
+          echo "❌ Push failed after $MAX_ATTEMPTS attempts — leaving evidence uncommitted."
+          exit 1
 
   tune-quota:
     needs: build-evidence
@@ -83,7 +106,27 @@ jobs:
           git pull --rebase --autostash origin main
           if git diff --cached --quiet; then
             echo "No tune changes to commit"
-          else
-            git commit -m "chore(tune): quota update $(date -u +%Y-%m-%d)"
-            git push origin HEAD:main
+            exit 0
           fi
+          git commit -m "chore(tune): quota update $(date -u +%Y-%m-%d)"
+          # Retry-on-rebase loop — same as the build-evidence job above.
+          MAX_ATTEMPTS=5
+          BACKOFF_BASE=3
+          attempt=1
+          while [ "$attempt" -le "$MAX_ATTEMPTS" ]; do
+            if git push origin HEAD:main; then
+              echo "✅ Pushed tune state."
+              exit 0
+            fi
+            echo "⚠️ Push rejected (attempt $attempt/$MAX_ATTEMPTS) — fetch + rebase, then retry…"
+            git fetch origin main || true
+            if ! git -c rebase.autoStash=true rebase origin/main; then
+              echo "⚠️ Rebase conflict on quota state files — aborting and resetting."
+              git rebase --abort || true
+              exit 1
+            fi
+            sleep $((BACKOFF_BASE * attempt))
+            attempt=$((attempt + 1))
+          done
+          echo "❌ Push failed after $MAX_ATTEMPTS attempts — leaving tune uncommitted."
+          exit 1
