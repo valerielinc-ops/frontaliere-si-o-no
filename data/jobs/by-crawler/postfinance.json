@@ -1,77 +1,7 @@
 {
   "crawlerKey": "postfinance",
-  "assembledAt": "2026-05-27T23:59:24.963Z",
+  "assembledAt": "2026-05-28T13:45:08.612Z",
   "jobs": [
-    {
-      "url": "https://job.post.ch/PostFinance/job/Bern-Homeoffice-Architecture-Owner-Telefonie-und-KOP-%28wmd%29/1384004633/",
-      "applyUrl": "https://job.post.ch/PostFinance/job/Bern-Homeoffice-Architecture-Owner-Telefonie-und-KOP-%28wmd%29/1384004633/",
-      "title": "Architecture Owner Telefonie und KOP (w/m/d)",
-      "company": "PostFinance",
-      "companyKey": "postfinance",
-      "location": "Bern",
-      "canton": "BE",
-      "country": "CH",
-      "description": "Das Solution Team «Kundeninteraktion» entwickelt und betreibt mit agilen Delivery Teams digitale Lösungen für die Kund:innen von PostFinance. Als Architecture Owner übernimmst du die Verantwortung für die Architektur der Delivery Teams Telefonie und KOP (Kundenkommunikationsplattform). Du entwickelst ein nachhaltiges Architektur-Zielbild und stellst sicher, dass Lösungen wie Contact-Center-Telefonie, Messaging, Co-Browsing, Videoberatung und Workforce Management optimal in die Applikationslandschaft von PostFinance integriert werden. Mit deiner Leidenschaft und deinem technischen Know-how sorgst du dafür, dass unsere Architektur zukunftsfähig bleibt.\n\nDas kannst du bewirken\n\nGemeinsam mit dem Product Owner und dem Scrum Master bildest du das Leadership-Trio des Delivery Teams – auf Augenhöhe und mit viel Raum für Mitgestaltung\n\nDu entwickelst und pflegst das Architektur-Zielbild für die Integration externer Standardapplikationen wie Contact-Center-Telefonie, Messaging, Co-Browsing, Videoberatung sowie Workforce Management in die Applikationslandschaft von PostFinance und stellst sicher, dass dieses konsequent umgesetzt wird\n\nDu erkennst technische Abhängigkeiten und Risiken frühzeitig und leitest gemeinsam mit dem Product Owner geeignete Massnahmen ein\n\nDu berätst den Product Owner in Architektur-, Technologie- und Security-Fragen und unterstützt bei der Planung und Umsetzung der Produkt-Roadmap\n\nDu vertrittst dein Delivery Team in Architektur-, Technologie- und Sicherheitsbelangen gegenüber internen und externen Stakeholdern\n\nDu stellst sicher, dass technische Dokumentationen und Inventarisierungsdaten aktuell, nutzbringend und nachhaltig gepflegt werden\n\nDas bringst du mit\n\nMehrjährige Erfahrung in der Softwarearchitektur, idealerweise in agilen Produktteams, sowie ein tiefes technisches Verständnis moderner Systemlandschaften\n\nPraktische Erfahrung mit Containerisierung (Docker, Kubernetes), CI/CD mit GitLab sowie im Umgang mit Oracle-Datenbanken und S3-Storage\n\nFreude an interdisziplinärer Zusammenarbeit sowie eine proaktive Arbeitsweise mit hohem Ownership\n\nIdealerweise Know-how im Bereich Contact-Center-Lösungen (Call Routing, IVR), SIP-Protokolle, Voice Gateways und modulare, cloudbasierte Standardapplikationen\n\nVertrautheit mit Sicherheitsstandards (IAM, Verschlüsselung, Zugriffskontrollen, Logging) und deren Anwendung im Cloud- und Schnittstellenumfeld\n\nErfahrung in der Koordination und Kommunikation mit verschiedenen Stakeholdern (z. B. Entwicklung, Betrieb, Infrastruktur, Sicherheit)",
-      "descriptionByLocale": {
-        "it": "Das Solution Team «Kundeninteraktion» entwickelt und betreibt mit agilen Delivery Teams digitale Lösungen für die Kund:innen von PostFinance. Als Architecture Owner übernimmst du die Verantwortung für die Architektur der Delivery Teams Telefonie und KOP (Kundenkommunikationsplattform). Du entwickelst ein nachhaltiges Architektur-Zielbild und stellst sicher, dass Lösungen wie Contact-Center-Telefonie, Messaging, Co-Browsing, Videoberatung und Workforce Management optimal in die Applikationslandschaft von PostFinance integriert werden. Mit deiner Leidenschaft und deinem technischen Know-how sorgst du dafür, dass unsere Architektur zukunftsfähig bleibt.\n\nDas kannst du bewirken\n\nGemeinsam mit dem Product Owner und dem Scrum Master bildest du das Leadership-Trio des Delivery Teams – auf Augenhöhe und mit viel Raum für Mitgestaltung\n\nDu entwickelst und pflegst das Architektur-Zielbild für die Integration externer Standardapplikationen wie Contact-Center-Telefonie, Messaging, Co-Browsing, Videoberatung sowie Workforce Management in die Applikationslandschaft von PostFinance und stellst sicher, dass dieses konsequent umgesetzt wird\n\nDu erkennst technische Abhängigkeiten und Risiken frühzeitig und leitest gemeinsam mit dem Product Owner geeignete Massnahmen ein\n\nDu berätst den Product Owner in Architektur-, Technologie- und Security-Fragen und unterstützt bei der Planung und Umsetzung der Produkt-Roadmap\n\nDu vertrittst dein Delivery Team in Architektur-, Technologie- und Sicherheitsbelangen gegenüber internen und externen Stakeholdern\n\nDu stellst sicher, dass technische Dokumentationen und Inventarisierungsdaten aktuell, nutzbringend und nachhaltig gepflegt werden\n\nDas bringst du mit\n\nMehrjährige Erfahrung in der Softwarearchitektur, idealerweise in agilen Produktteams, sowie ein tiefes technisches Verständnis moderner Systemlandschaften\n\nPraktische Erfahrung mit Containerisierung (Docker, Kubernetes), CI/CD mit GitLab sowie im Umgang mit Oracle-Datenbanken und S3-Storage\n\nFreude an interdisziplinärer Zusammenarbeit sowie eine proaktive Arbeitsweise mit hohem Ownership\n\nIdealerweise Know-how im Bereich Contact-Center-Lösungen (Call Routing, IVR), SIP-Protokolle, Voice Gateways und modulare, cloudbasierte Standardapplikationen\n\nVertrautheit mit Sicherheitsstandards (IAM, Verschlüsselung, Zugriffskontrollen, Logging) und deren Anwendung im Cloud- und Schnittstellenumfeld\n\nErfahrung in der Koordination und Kommunikation mit verschiedenen Stakeholdern (z. B. Entwicklung, Betrieb, Infrastruktur, Sicherheit)",
-        "en": "Mansioni - Architecture Owner per i Delivery Teams Telefonie e KOP (customer communication platform) - Sviluppo di un'immagine di architettura sostenibile e integrazione di soluzioni come Contact Center Telephony, Messaging, Co-Browsing, Videoberatung e Workforce Management nell'ambiente applicativo di PostFinance - Garantire che l'architettura rimanga futura Cosa puoi fare - Formare il trio di leadership del Delivery Team con il Product Owner e il Scrum Master, su un piano di parità e con ampio spazio per la co-creazione - Sviluppare e mantenere l'immagine di architettura per l'integrazione di applicazioni standard esterne come contact center telephony, messaging, co-browsing, video consulting e Workforce Management nell'ambiente applicativo di PostFinance e garantire il suo utilizzo coerente - Riconoscere le dipendenze tecniche e i rischi in anticipo e intraprendere misure appropriate insieme al Product Owner - Consigliare il Product Owner in questioni di architettura, tecnologia e sicurezza e supportare la pianificazione e l'attuazione della roadmap del prodotto - Rappresentare il tuo Delivery Team in questioni di architettura, tecnologia e sicurezza nei confronti degli stakeholder internali ed esterni - Garantire che le documentazioni tecniche e i dati di inventario siano aggiornati, utili e sostenibili\n• Requisiti - Esperienza pluriennale in architettura del software, preferibilmente in team di prodotto agili, nonché una profonda comprensione tecnica delle modern architetture dei sistemi - Esperienza pratica con la containerizzazione (Docker, Kubernetes), CI/CD con GitLab nonché nell'utilizzo di database Oracle e storage S3 - Piacere per la collaborazione interdisciplinare e un approccio proattivo con alto senso di responsabilità - Conoscenza nel campo delle soluzioni Contact Center (Routing delle chiamate, IVR), protocolli SIP, gateway vocali e applicazioni standard modulari basate sul cloud - Familiarità con gli standard di sicurezza (IAM, crittografia, controlli di accesso, logging) e la loro applicazione nell'ambiente cloud e delle interfacce - Esperienza nella coordinazione e comunicazione con diversi stakeholder (ad esempio sviluppo, operazioni, infrastruttura, sicurezza) Contatto Contatto",
-        "de": "# Mansioni - Architecture Owner per i Delivery Teams Telefonie e KOP (Kundenkommunikationsplattform) - Sviluppo di un'immagine di architettura sostenibile e integrazione di soluzioni come Contact-Center-Telefonie, Messaging, Co-Browsing, Videoberatung e Workforce Management nell'ambiente applicativo di PostFinance - Garantire che l'architettura rimanga futura # Cosa puoi fare - Formare il trio di leadership del Delivery Team con il Product Owner e il Scrum Master, su un piano di parità e con ampio spazio per la co-creazione - Sviluppare e mantenere l'immagine di architettura per l'integrazione di applicazioni standard esterne come Contact-Center-Telefonie, Messaging, Co-Browsing, Videoberatung e Workforce Management nell'ambiente applicativo di PostFinance e garantire il suo utilizzo coerente - Riconoscere le dipendenze tecniche e i rischi in anticipo e intraprendere misure appropriate insieme al Product Owner - Consigliare il Product Owner in questioni di architettura, tecnologia e sicurezza e supportare la pianificazione e l'attuazione della roadmap del prodotto - Rappresentare il tuo Delivery Team in questioni di architettura, tecnologia e sicurezza nei confronti degli stakeholder interni ed esterni - Garantire che le documentazioni tecniche e i dati di inventario siano aggiornati, utili e sostenibili #\n• Requisiti - Esperienza pluriennale in architettura del software, preferibilmente in team di prodotto agili, nonché una profonda comprensione tecnica delle moderne architetture dei sistemi - Esperienza pratica con la containerizzazione (Docker, Kubernetes), CI/CD con GitLab nonché nell'utilizzo di database Oracle e storage S3 - Piacere per la collaborazione interdisciplinare e un approccio proattivo con alto senso di responsabilità - Conoscenza nel campo delle soluzioni Contact-Center (Routing delle chiamate, IVR), protocolli SIP, gateway vocali e applicazioni standard modulari basate sul cloud - Familiarità con gli standard di sicurezza (IAM, crittografia, controlli di accesso, logging) e la loro applicazione nell'ambiente cloud e delle interfacce - Esperienza nella coordinazione e comunicazione con diversi stakeholder (ad esempio sviluppo, operazioni, infrastruttura, sicurezza) # Contatto [Contatto](link_al_contatto)",
-        "fr": "Mansioni - Propriétaire d'architecture par i Équipes de livraison Telefonie e KOP (plateforme de communication client) - Sviluppo di un'imagination di architettura sostenibile e integrazione di soluzioni come Centre de contact Téléphonie, Messagerie, Co-Browsing, Videoberatung e Workforce Management nell'ambiente applicivo di PostFinance - Garantie de l'architettura rimanga futura Tarif Cosa puoi - Formare il trio di leadership del Delivery Team con il Product Owner e il Scrum Master, su un piano di parità e con ampio spazio per la co-creazione - Sviluppare e mantenere l'imagination di architettura per l'integrazione di applicazioni standard esterne come contact center téléphonie, messagerie, co-navigation, consultation vidéo e Workforce Management nell'ambiente applicivo di PostFinance e garantie il suo usezo coerente - Riconoscere le dipendenze tecniche e i rischi in anticipo e intraprendere misure appropriate insieme al Product Owner - Consigliare il Product Owner in questioni di architettura, tecnologia e sicurezza e supportare la pianificazione e l'attuazione della roadmap del prodotto - Rappresentare il tuo Delivery Team in questioni di architettura, tecnologia e sicurezza nei confronti degli internali ed esterni - Garantie che le documentazioni tecniche e i dati di inventario siano aggiornati, uti e sostenibil\n• Requisiti - Esperienza pluriennale in architettura del software, preferibilitemente in team di prodotto agili, nonché una profonda comprensione tecnica delle modern architectture dei sistemi - Esperienza pratica con la containerizzazione (Docker, Kubernetes), CI/CD con GitLab nonché nell'utilizzo di database Oracle e storage S3 - Piacere per la collaboration interdisciplinere e un approccio proattivo con alto senso di responsabilità - Conoscenza nel campo delle soluzioni Centre de contact (Routing delle chiamate, IVR), protocole SIP, passerelle vocali e applicazioni standard modulaire basate sul cloud - Familiarità congli standard di sicurezza (IAM, crittografia, controlli di accesso, logging) e la loro applicazione nell'ambiente cloud e delle interfacce - Esperienza nella coordinazione e comunicazione con diversi partie prenante (ad esempio sviluppo, opérazioni, infrastruttura, sicurezza) Contatto Contatto"
-      },
-      "titleByLocale": {
-        "it": "Architecture Owner Telefonie e KOP (w/m/d)",
-        "en": "Architecture Owner Telephony and KOP (f/m/d)",
-        "de": "Architecture Owner Telefonie und KOP (w/m/d)",
-        "fr": "Propriétaire de l'architecture Telefonie und KOP (w/m/d)"
-      },
-      "slug": "architecture-owner-telefonie-e-kop-m-w-d-postfinance-bern",
-      "slugByLocale": {
-        "it": "architecture-owner-telefonie-e-kop-m-w-d-postfinance-bern",
-        "en": "architecture-owner-telefonie-und-kop-w-m-d-postfinance",
-        "de": "architecture-owner-telefonie-und-kop-w-m-d-postfinance",
-        "fr": "architecture-owner-telefonie-und-kop-w-m-d-postfinance"
-      },
-      "sourceLang": "de",
-      "department": "",
-      "category": "servizi-finanziari",
-      "datePosted": "2026-05-16",
-      "validThrough": "",
-      "source": "postfinance-careers-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "",
-      "sector": "Servizi Finanziari",
-      "workload": "",
-      "_targetScope": {
-        "canton": "BE",
-        "location": "Bern"
-      },
-      "crawledAt": "",
-      "id": "postfinance-b4a070864c05",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "3001",
-      "firstSeenAt": "2026-05-16T10:49:06.770Z",
-      "previousSlugs": [
-        "armatore-di-architettura-telefonie-und-kop-w-m-d-postfinance-bern"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "armatore-di-architettura-telefonie-und-kop-w-m-d-postfinance-bern"
-        ]
-      },
-      "needsRetranslation": true
-    },
     {
       "url": "https://job.post.ch/PostFinance/job/Bern-Homeoffice-Solution-Architecture-Owner-Kundeninteraktion-%28wmd%29/1384005833/",
       "applyUrl": "https://job.post.ch/PostFinance/job/Bern-Homeoffice-Solution-Architecture-Owner-Kundeninteraktion-%28wmd%29/1384005833/",
@@ -175,7 +105,7 @@
         "it": "lead-sviluppatore-w-m-d-postfinance-bern",
         "en": "lead-developer-w-m-d-postfinance-bern",
         "de": "lead-developer-w-m-d-postfinance",
-        "fr": "developpeur-principal-m-d-postfinance-bern"
+        "fr": "lead-developpeur-w-m-d-postfinance-bern"
       },
       "sourceLang": "de",
       "department": "",
@@ -215,13 +145,14 @@
         ],
         "fr": [
           "lead-developer-w-m-d-postfinance",
+          "developpeur-principal-m-d-postfinance-bern",
           "lead-developpeur-w-m-d-postfinance-bern"
         ]
       },
       "previousSlugs": [
         "lead-developer-w-m-d-postfinance",
         "sviluppatore-di-piombo-m-d-postfinance-bern",
-        "lead-developpeur-w-m-d-postfinance-bern"
+        "developpeur-principal-m-d-postfinance-bern"
       ],
       "needsRetranslation": true
     },
