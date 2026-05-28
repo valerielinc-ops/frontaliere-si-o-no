@@ -2434,9 +2434,9 @@
       "slug": "radiologiefachfrau-radiologiefachmann-w-m-d-solothurner-spitaler-soh-olten",
       "slugByLocale": {
         "it": "radiologiefachfrau-radiologiefachmann-w-m-d-solothurner-spitaler-soh-olten",
-        "en": "radiologiefachfrau-radiologiefachmann-w-m-d-solothurner-spitaler-soh-olten",
+        "en": "radiology-technician-m-f-solothurner-spitaler-ag-soh-olten",
         "de": "radiologiefachfrau-radiologiefachmann-w-m-d-soh-ch",
-        "fr": "radiologiefachfrau-radiologiefachmann-w-m-d-solothurner-spitaler-soh-olten"
+        "fr": "technicien-ne-en-radiologie-h-f-solothurner-spitaler-ag-soh-olten"
       },
       "company": "Solothurner Spitäler AG (soH)",
       "companyKey": "soh-solothurner-spitaeler",
@@ -2506,14 +2506,12 @@
         "en": [
           "radiology-specialist-w-m-d-solothurner-spitaler-soh-olten",
           "radiology-technician-male-female-solothurner-spitaler-ag-soh-olten",
-          "radiology-technician-m-f-solothurner-spitaler-soh-olten",
-          "radiology-technician-m-f-solothurner-spitaler-ag-soh-olten"
+          "radiology-technician-m-f-solothurner-spitaler-soh-olten"
         ],
         "fr": [
           "specialiste-de-radiologie-w-m-d-solothurner-spitaler-soh-olten",
           "technicien-en-radiologie-h-f-solothurner-spitaler-ag-soh-olten",
-          "technicien-ne-en-radiologie-h-f-solothurner-spitaler-soh-olten",
-          "technicien-ne-en-radiologie-h-f-solothurner-spitaler-ag-soh-olten"
+          "technicien-ne-en-radiologie-h-f-solothurner-spitaler-soh-olten"
         ]
       },
       "previousSlugs": [
@@ -2523,9 +2521,7 @@
         "radiology-technician-m-f-solothurner-spitaler-soh-olten",
         "specialiste-de-radiologie-w-m-d-solothurner-spitaler-soh-olten",
         "technicien-en-radiologie-h-f-solothurner-spitaler-ag-soh-olten",
-        "technicien-ne-en-radiologie-h-f-solothurner-spitaler-soh-olten",
-        "radiology-technician-m-f-solothurner-spitaler-ag-soh-olten",
-        "technicien-ne-en-radiologie-h-f-solothurner-spitaler-ag-soh-olten"
+        "technicien-ne-en-radiologie-h-f-solothurner-spitaler-soh-olten"
       ],
       "firstSeenAt": "2026-05-19T13:04:13.041Z",
       "salaryMin": 49500,
@@ -8513,17 +8509,14 @@
       },
       "previousSlugs": [
         "diploma-in-nursing-gastroenterology-m-f-d-solothurner-spitaler-ag-soh-schweiz",
-        "diploma-in-nursing-gastroenterology-male-female-solothurner-spitaler-soh-solothurn",
         "dipl-pflegefachfrau-pflegefachmann-gastroenterologie-w-m-d-soh-solothurner-spitaeler",
         "diplome-e-en-soins-infirmiers-en-gastroenterologie-h-f-solothurner-spitaler-ag-soh-schweiz",
-        "infirmier-ere-specialise-e-en-gastroenterologie-h-f-solothurner-spitaler-soh-solothurn",
         "diploma-in-nursing-gastroenterology-male-female-solothurner-spitaler-ag-soh-schweiz",
         "infirmier-ere-specialise-e-en-gastroenterologie-h-f-solothurner-spitaler-ag-soh-schweiz"
       ],
       "previousSlugsByLocale": {
         "en": [
           "diploma-in-nursing-gastroenterology-m-f-d-solothurner-spitaler-ag-soh-schweiz",
-          "diploma-in-nursing-gastroenterology-male-female-solothurner-spitaler-soh-solothurn",
           "diploma-in-nursing-gastroenterology-male-female-solothurner-spitaler-ag-soh-schweiz"
         ],
         "de": [
@@ -8531,7 +8524,6 @@
         ],
         "fr": [
           "diplome-e-en-soins-infirmiers-en-gastroenterologie-h-f-solothurner-spitaler-ag-soh-schweiz",
-          "infirmier-ere-specialise-e-en-gastroenterologie-h-f-solothurner-spitaler-soh-solothurn",
           "infirmier-ere-specialise-e-en-gastroenterologie-h-f-solothurner-spitaler-ag-soh-schweiz"
         ]
       },
@@ -11753,12 +11745,12 @@
     },
     {
       "id": "soh-solothurner-spitaeler-e0038529f7c1",
-      "slug": "nachdiplomstudium-hf-intensivpflege-w-m-d-solothurner-spitaler-ag-soh-olten",
+      "slug": "consulente-senior-w-m-d-solothurner-spitaler-ag-soh-olten-f6ffe7",
       "slugByLocale": {
         "de": "nachdiplomstudium-hf-intensivpflege-w-m-d-soh-solothurner-spitaeler-olten",
-        "it": "nachdiplomstudium-hf-intensivpflege-w-m-d-solothurner-spitaler-ag-soh-olten",
-        "en": "nachdiplomstudium-hf-intensivpflege-w-m-d-solothurner-spitaler-ag-soh-olten",
-        "fr": "nachdiplomstudium-hf-intensivpflege-w-m-d-solothurner-spitaler-ag-soh-olten"
+        "it": "consulente-senior-w-m-d-solothurner-spitaler-ag-soh-olten-f6ffe7",
+        "en": "senior-consultant-w-m-d-solothurner-spitaler-ag-soh-olten-f6ffe7",
+        "fr": "consultant-principal-m-j-solothurner-spitaler-ag-soh-olten-f6ffe7"
       },
       "company": "Solothurner Spitäler AG (soH)",
       "companyKey": "soh-solothurner-spitaeler",
@@ -11804,11 +11796,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "nachdiplomstudium-hf-intensivpflege-w-m-d-soh-solothurner-spitaeler-olten"
+          "nachdiplomstudium-hf-intensivpflege-w-m-d-soh-solothurner-spitaeler-olten",
+          "nachdiplomstudium-hf-intensivpflege-w-m-d-solothurner-spitaler-ag-soh-olten"
+        ],
+        "en": [
+          "nachdiplomstudium-hf-intensivpflege-w-m-d-solothurner-spitaler-ag-soh-olten"
+        ],
+        "fr": [
+          "nachdiplomstudium-hf-intensivpflege-w-m-d-solothurner-spitaler-ag-soh-olten"
         ]
       },
       "previousSlugs": [
-        "nachdiplomstudium-hf-intensivpflege-w-m-d-soh-solothurner-spitaeler-olten"
+        "nachdiplomstudium-hf-intensivpflege-w-m-d-soh-solothurner-spitaeler-olten",
+        "nachdiplomstudium-hf-intensivpflege-w-m-d-solothurner-spitaler-ag-soh-olten"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -12147,9 +12147,9 @@
       "slug": "nachdiplomstudium-hf-notfallpflege-w-m-d-solothurner-spitaler-soh-olten",
       "slugByLocale": {
         "it": "nachdiplomstudium-hf-notfallpflege-w-m-d-solothurner-spitaler-soh-olten",
-        "en": "nachdiplomstudium-hf-notfallpflege-w-m-d-solothurner-spitaler-soh-olten",
+        "en": "senior-consultant-m-d-solothurner-spitaler-ag-soh-olten",
         "de": "nachdiplomstudium-hf-notfallpflege-w-m-d-soh-ch",
-        "fr": "nachdiplomstudium-hf-notfallpflege-w-m-d-solothurner-spitaler-soh-olten"
+        "fr": "consultant-principal-m-j-solothurner-spitaler-ag-soh-olten-8c3c55"
       },
       "company": "Solothurner Spitäler AG (soH)",
       "companyKey": "soh-solothurner-spitaeler",
@@ -12200,12 +12200,10 @@
         ],
         "en": [
           "senior-consultant-m-d-solothurner-spitaler-soh-olten-bcc53f",
-          "senior-consultant-m-d-solothurner-spitaler-soh-olten",
-          "senior-consultant-m-d-solothurner-spitaler-ag-soh-olten"
+          "senior-consultant-m-d-solothurner-spitaler-soh-olten"
         ],
         "fr": [
           "consultant-principal-m-j-solothurner-spitaler-soh-olten-bcc53f",
-          "consultant-principal-m-j-solothurner-spitaler-ag-soh-olten-8c3c55",
           "consultant-principal-m-j-solothurner-spitaler-soh-olten",
           "consultant-principal-m-j-solothurner-spitaler-ag-soh-olten"
         ]
@@ -12215,9 +12213,7 @@
         "senior-consultant-m-d-solothurner-spitaler-soh-olten-bcc53f",
         "senior-consultant-m-d-solothurner-spitaler-soh-olten",
         "consultant-principal-m-j-solothurner-spitaler-soh-olten-bcc53f",
-        "consultant-principal-m-j-solothurner-spitaler-ag-soh-olten-8c3c55",
         "consultant-principal-m-j-solothurner-spitaler-soh-olten",
-        "senior-consultant-m-d-solothurner-spitaler-ag-soh-olten",
         "consultant-principal-m-j-solothurner-spitaler-ag-soh-olten"
       ],
       "firstSeenAt": "2026-05-22T23:29:50.696Z",

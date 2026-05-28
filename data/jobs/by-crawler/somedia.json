@@ -282,12 +282,12 @@
     },
     {
       "id": "somedia-f440bf3786f4",
-      "slug": "sachbearbeiter-in-fruhschicht-25-somedia-ag-chur",
+      "slug": "persone-occupate-a-turno-anticipato-25-somedia-ag-chur",
       "slugByLocale": {
         "de": "sachbearbeiter-in-fruhschicht-25-somedia-ag-chur",
-        "it": "sachbearbeiter-in-fruhschicht-25-somedia-ag-chur",
-        "en": "sachbearbeiter-in-fruhschicht-25-somedia-ag-chur",
-        "fr": "sachbearbeiter-in-fruhschicht-25-somedia-ag-chur"
+        "it": "persone-occupate-a-turno-anticipato-25-somedia-ag-chur",
+        "en": "person-employed-in-early-shift-25-somedia-ag-chur",
+        "fr": "personnes-employees-en-debut-de-poste-25-somedia-ag-chur"
       },
       "company": "Somedia AG",
       "companyKey": "somedia",
@@ -350,14 +350,22 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeiter-in-fruhschicht-25-somedia-ch"
+          "sachbearbeiter-in-fruhschicht-25-somedia-ch",
+          "sachbearbeiter-in-fruhschicht-25-somedia-ag-chur"
         ],
         "de": [
           "sachbearbeiter-in-fruhschicht-25-somedia-ch"
+        ],
+        "en": [
+          "sachbearbeiter-in-fruhschicht-25-somedia-ag-chur"
+        ],
+        "fr": [
+          "sachbearbeiter-in-fruhschicht-25-somedia-ag-chur"
         ]
       },
       "previousSlugs": [
-        "sachbearbeiter-in-fruhschicht-25-somedia-ch"
+        "sachbearbeiter-in-fruhschicht-25-somedia-ch",
+        "sachbearbeiter-in-fruhschicht-25-somedia-ag-chur"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,

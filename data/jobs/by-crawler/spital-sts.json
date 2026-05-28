@@ -8,7 +8,7 @@
       "slugByLocale": {
         "de": "dipl-radiologiefachfrau-radiologiefachmann-hf-spital-sts-thun",
         "en": "dipl-radiology-technician-spital-sts-thun",
-        "fr": "technicien-ne-en-radiologie-diplome-e-spital-sts-thun",
+        "fr": "dipl-specialiste-de-radiologie-hf-spital-sts-thun",
         "it": "dipl-radiologiefachfrau-radiologiefachmann-hf-spital-sts-thun"
       },
       "company": "Spital STS",
@@ -64,7 +64,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-28T14:13:42.574Z"
+      "firstSeenAt": "2026-05-28T14:13:42.574Z",
+      "previousSlugsByLocale": {
+        "fr": [
+          "technicien-ne-en-radiologie-diplome-e-spital-sts-thun"
+        ]
+      },
+      "previousSlugs": [
+        "technicien-ne-en-radiologie-diplome-e-spital-sts-thun"
+      ]
     },
     {
       "id": "spital-sts-7d5f03075173",
@@ -596,7 +604,7 @@
       "id": "spital-sts-bc19f72617d9",
       "slug": "assistente-in-salute-e-sociale-spital-sts-thun",
       "slugByLocale": {
-        "it": "assistent-in-gesundheit-e-soziales-spital-sts-thun",
+        "it": "assistente-in-salute-e-sociale-spital-sts-thun",
         "en": "assistant-in-health-and-social-spital-sts-thun",
         "de": "assistent-in-gesundheit-und-soziales-spital-sts-thun",
         "fr": "assistant-en-sante-et-social-spital-sts-thun"
@@ -643,11 +651,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "assistent-in-gesundheit-und-soziales-spital-sts-thun",
-        "assistente-in-salute-e-sociale-spital-sts-thun"
+        "assistent-in-gesundheit-e-soziales-spital-sts-thun"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistent-in-gesundheit-und-soziales-spital-sts-thun"
+          "assistent-in-gesundheit-und-soziales-spital-sts-thun",
+          "assistent-in-gesundheit-e-soziales-spital-sts-thun"
         ],
         "en": [
           "assistent-in-gesundheit-und-soziales-spital-sts-thun"

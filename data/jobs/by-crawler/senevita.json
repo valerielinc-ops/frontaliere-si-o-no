@@ -2397,7 +2397,7 @@
       "slugByLocale": {
         "de": "fachperson-gesundheit-efz-50-100-nachtdienst-senevita-studen-be",
         "it": "specialista-della-salute-efz-50-100-turno-di-notte-senevita-studen-be",
-        "en": "healthcare-professional-efz-50-100-night-shift-senevita-studen-be",
+        "en": "specialist-health-efz-50-100-night-service-senevita-studen-be",
         "fr": "specialiste-en-sante-efz-50-100-service-de-nuit-senevita-studen-be"
       },
       "company": "Senevita",
@@ -2445,10 +2445,14 @@
       "previousSlugsByLocale": {
         "it": [
           "fachperson-gesundheit-efz-50-100-nachtdienst-senevita-studen-be"
+        ],
+        "en": [
+          "healthcare-professional-efz-50-100-night-shift-senevita-studen-be"
         ]
       },
       "previousSlugs": [
-        "fachperson-gesundheit-efz-50-100-nachtdienst-senevita-studen-be"
+        "fachperson-gesundheit-efz-50-100-nachtdienst-senevita-studen-be",
+        "healthcare-professional-efz-50-100-night-shift-senevita-studen-be"
       ],
       "salaryMin": 51500,
       "salaryMax": 88000,
@@ -3855,8 +3859,7 @@
         ]
       },
       "previousSlugs": [
-        "fachfrau-fachmann-gesundheit-efz-30-50-im-stundenlohn-auf-abruf-pool-senevita-buchs-zh",
-        "fachfrau-fachmann-gesundheit-cfc-30-50-im-stundenlohn-auf-abruf-pool-senevita-buchs-zh"
+        "fachfrau-fachmann-gesundheit-efz-30-50-im-stundenlohn-auf-abruf-pool-senevita-buchs-zh"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4339,8 +4342,7 @@
         ]
       },
       "previousSlugs": [
-        "fachfrau-mann-gesundheit-efz-60-100-senevita-erlenbach-zh",
-        "fachfrau-mann-gesundheit-cfc-60-100-senevita-erlenbach-zh"
+        "fachfrau-mann-gesundheit-efz-60-100-senevita-erlenbach-zh"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -6654,11 +6656,11 @@
     },
     {
       "id": "senevita-f798a9dca749",
-      "slug": "dipl-pflegefachperson-50-80-senevita-studen-be",
+      "slug": "dipl-oggetto-di-cura-50-80-senevita-studen-be",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-50-80-senevita-studen-be",
-        "it": "diplomato-di-assistenza-infermieristica-50-80-senevita-studen-be",
-        "fr": "diplome-e-en-soins-infirmiers-50-80-senevita-studen-be",
+        "it": "dipl-oggetto-di-cura-50-80-senevita-studen-be",
+        "fr": "dipl-sujet-de-soins-50-80-senevita-studen-be",
         "en": "dipl-pflegefachperson-50-80-senevita-studen-be"
       },
       "company": "Senevita",
@@ -6717,8 +6719,19 @@
       },
       "firstSeenAt": "2026-05-28T14:03:05.883Z",
       "previousSlugs": [
-        "dipl-pflegefachperson-50-80-senevita-studen-be"
-      ]
+        "diplomato-di-assistenza-infermieristica-50-80-senevita-studen-be",
+        "dipl-pflegefachperson-50-80-senevita-studen-be",
+        "diplome-e-en-soins-infirmiers-50-80-senevita-studen-be"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "diplomato-di-assistenza-infermieristica-50-80-senevita-studen-be",
+          "dipl-pflegefachperson-50-80-senevita-studen-be"
+        ],
+        "fr": [
+          "diplome-e-en-soins-infirmiers-50-80-senevita-studen-be"
+        ]
+      }
     },
     {
       "id": "senevita-43f3483bcacf",

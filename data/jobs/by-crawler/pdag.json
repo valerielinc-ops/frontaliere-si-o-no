@@ -646,12 +646,12 @@
     },
     {
       "id": "pdag-6b637fb1b26d",
-      "slug": "dipl-pflegefachfrau-dipl-pflegefachmann-hf-semi-akutstation-pdag-windisch",
+      "slug": "dipl-specialista-dipl-specialista-di-cura-hf-semi-akutstation-psychiatrische-dienste-aargau-pdag-windisch",
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-dipl-pflegefachmann-hf-semi-akutstation-pdag-windisch",
-        "it": "dipl-pflegefachfrau-dipl-pflegefachmann-hf-semi-akutstation-pdag-windisch",
+        "it": "dipl-specialista-dipl-specialista-di-cura-hf-semi-akutstation-psychiatrische-dienste-aargau-pdag-windisch",
         "en": "dipl-pflegefachfrau-dipl-pflegefachmann-hf-semi-akutstation-pdag-windisch",
-        "fr": "dipl-pflegefachfrau-dipl-pflegefachmann-hf-semi-akutstation-pdag-windisch"
+        "fr": "dipl-specialiste-des-soins-dipl-specialiste-des-soins-hf-semi-akutstation-psychiatrische-dienste-aargau-pdag-windisch"
       },
       "company": "Psychiatrische Dienste Aargau (PDAG)",
       "companyKey": "pdag",
@@ -706,16 +706,27 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-28T13:41:47.330Z"
+      "firstSeenAt": "2026-05-28T13:41:47.330Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachfrau-dipl-pflegefachmann-hf-semi-akutstation-pdag-windisch"
+        ],
+        "fr": [
+          "dipl-pflegefachfrau-dipl-pflegefachmann-hf-semi-akutstation-pdag-windisch"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachfrau-dipl-pflegefachmann-hf-semi-akutstation-pdag-windisch"
+      ]
     },
     {
       "id": "pdag-74e4434d1202",
-      "slug": "psychoonkologin-psychoonkologe-o-psychotherapeutin-psychotherapeut-psychiatrische-dienste-aargau-pdag-windisch",
+      "slug": "psicooncologa-psicooncolologo-o-psicoterapeuta-psicoterapeuta-psychiatrische-dienste-aargau-pdag-windisch",
       "slugByLocale": {
         "de": "psychoonkologin-psychoonkologe-oder-psychotherapeutin-psychotherapeut-pdag-windisch",
-        "it": "psychoonkologin-psychoonkologe-o-psychotherapeutin-psychotherapeut-psychiatrische-dienste-aargau-pdag-windisch",
+        "it": "psicooncologa-psicooncolologo-o-psicoterapeuta-psicoterapeuta-psychiatrische-dienste-aargau-pdag-windisch",
         "en": "psychoonkologin-psychoonkologe-oder-psychotherapeutin-psychotherapeut-pdag-windisch",
-        "fr": "psychoonkologin-psychoonkologe-oder-psychotherapeutin-psychotherapeut-pdag-windisch"
+        "fr": "psychooncologue-psychooncologue-ou-psychotherapeute-psychotherapeute-psychiatrische-dienste-aargau-pdag-windisch"
       },
       "company": "Psychiatrische Dienste Aargau (PDAG)",
       "companyKey": "pdag",
@@ -760,11 +771,16 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "psychoonkologin-psychoonkologe-oder-psychotherapeutin-psychotherapeut-pdag-windisch",
+          "psychoonkologin-psychoonkologe-o-psychotherapeutin-psychotherapeut-psychiatrische-dienste-aargau-pdag-windisch"
+        ],
+        "fr": [
           "psychoonkologin-psychoonkologe-oder-psychotherapeutin-psychotherapeut-pdag-windisch"
         ]
       },
       "previousSlugs": [
-        "psychoonkologin-psychoonkologe-oder-psychotherapeutin-psychotherapeut-pdag-windisch"
+        "psychoonkologin-psychoonkologe-oder-psychotherapeutin-psychotherapeut-pdag-windisch",
+        "psychoonkologin-psychoonkologe-o-psychotherapeutin-psychotherapeut-psychiatrische-dienste-aargau-pdag-windisch"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,

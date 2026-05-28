@@ -1089,7 +1089,7 @@
       "id": "lindenhofgruppe-41ca86f5bef2",
       "slug": "esperto-a-in-emergenza-sanitaria-nds-hf-lindenhofgruppe-bern",
       "slugByLocale": {
-        "it": "dipl-expert-expert-emergency-care-nds-hf-lindenhofgruppe-bern",
+        "it": "esperto-a-in-emergenza-sanitaria-nds-hf-lindenhofgruppe-bern",
         "en": "dipl-expertin-experte-notfallpflege-nds-hf-lindenhofgruppe-ch",
         "de": "dipl-expertin-experte-notfallpflege-nds-hf-lindenhofgruppe-ch",
         "fr": "specialiste-en-urgences-nds-hf-lindenhofgruppe-bern"
@@ -1135,11 +1135,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "dipl-expertin-experte-notfallpflege-nds-hf-lindenhofgruppe-ch",
-        "esperto-a-in-emergenza-sanitaria-nds-hf-lindenhofgruppe-bern"
+        "dipl-expert-expert-emergency-care-nds-hf-lindenhofgruppe-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-expertin-experte-notfallpflege-nds-hf-lindenhofgruppe-ch"
+          "dipl-expertin-experte-notfallpflege-nds-hf-lindenhofgruppe-ch",
+          "dipl-expert-expert-emergency-care-nds-hf-lindenhofgruppe-bern"
         ],
         "fr": [
           "dipl-expertin-experte-notfallpflege-nds-hf-lindenhofgruppe-ch"
@@ -1317,7 +1318,7 @@
       "id": "lindenhofgruppe-d8923161b4c7",
       "slug": "infermiere-a-specializzato-a-in-cardiologia-interventistica-lindenhofgruppe-bern",
       "slugByLocale": {
-        "it": "dipl-specialista-in-allattamento-lindenhofgruppe-bern",
+        "it": "infermiere-a-specializzato-a-in-cardiologia-interventistica-lindenhofgruppe-bern",
         "en": "dipl-pflegefachfrau-mann-herzkatheterlabor-lindenhofgruppe-ch",
         "de": "dipl-pflegefachfrau-mann-herzkatheterlabor-lindenhofgruppe-ch",
         "fr": "infirmier-infirmiere-specialise-e-en-cardiologie-interventionnelle-lindenhofgruppe-bern"
@@ -1364,12 +1365,13 @@
       "previousSlugs": [
         "dipl-pflegefachfrau-mann-herzkatheterlabor-lindenhofgruppe-ch",
         "dipl-pflegefachfrau-mann-herzkatheterlabor-lindenhofgruppe-bern",
-        "infermiere-a-specializzato-a-in-cardiologia-interventistica-lindenhofgruppe-bern"
+        "dipl-specialista-in-allattamento-lindenhofgruppe-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-mann-herzkatheterlabor-lindenhofgruppe-ch",
-          "dipl-pflegefachfrau-mann-herzkatheterlabor-lindenhofgruppe-bern"
+          "dipl-pflegefachfrau-mann-herzkatheterlabor-lindenhofgruppe-bern",
+          "dipl-specialista-in-allattamento-lindenhofgruppe-bern"
         ],
         "fr": [
           "dipl-pflegefachfrau-mann-herzkatheterlabor-lindenhofgruppe-ch"
@@ -1393,7 +1395,7 @@
       "id": "lindenhofgruppe-c7be6e5771e0",
       "slug": "infermiere-a-diplomato-a-hf-fh-con-specializzazione-in-monitoraggio-lindenhofgruppe-bern",
       "slugByLocale": {
-        "it": "dipl-pflegefachfrau-mann-hf-fh-con-weiterbildung-in-uberwachungspflege-lindenhofgruppe-bern",
+        "it": "infermiere-a-diplomato-a-hf-fh-con-specializzazione-in-monitoraggio-lindenhofgruppe-bern",
         "en": "registered-nurse-with-monitoring-specialization-lindenhofgruppe-bern",
         "de": "dipl-pflegefachfrau-mann-hf-fh-mit-weiterbildung-in-uberwachungspflege-lindenhofgruppe-ch",
         "fr": "infirmier-infirmiere-diplome-e-hf-fh-avec-specialisation-en-surveillance-lindenhofgruppe-bern"
@@ -1439,11 +1441,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "dipl-pflegefachfrau-mann-hf-fh-mit-weiterbildung-in-uberwachungspflege-lindenhofgruppe-ch",
-        "infermiere-a-diplomato-a-hf-fh-con-specializzazione-in-monitoraggio-lindenhofgruppe-bern"
+        "dipl-pflegefachfrau-mann-hf-fh-con-weiterbildung-in-uberwachungspflege-lindenhofgruppe-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachfrau-mann-hf-fh-mit-weiterbildung-in-uberwachungspflege-lindenhofgruppe-ch"
+          "dipl-pflegefachfrau-mann-hf-fh-mit-weiterbildung-in-uberwachungspflege-lindenhofgruppe-ch",
+          "dipl-pflegefachfrau-mann-hf-fh-con-weiterbildung-in-uberwachungspflege-lindenhofgruppe-bern"
         ],
         "en": [
           "dipl-pflegefachfrau-mann-hf-fh-mit-weiterbildung-in-uberwachungspflege-lindenhofgruppe-ch"
@@ -1529,7 +1532,6 @@
         ],
         "de": [
           "dipl-expertin-experte-anasthesie-nds-hf-lindenhofgruppe-ch",
-          "dipl-expertin-dipl-experte-anasthesiepflege-nds-hf-lindenhofgruppe-ch",
           "dipl-expertin-experte-anasthesie-nds-hf-lindenhofgruppe-bern"
         ],
         "fr": [
@@ -1554,7 +1556,7 @@
       "id": "lindenhofgruppe-c4e5352195c2",
       "slug": "fisiatra-radiologo-radio-oncologia-lindenhofgruppe-bern",
       "slugByLocale": {
-        "it": "dipl-specialista-della-radiologia-lindenhofgruppe-bern-cdaa54",
+        "it": "fisiatra-radiologo-radio-oncologia-lindenhofgruppe-bern",
         "en": "dipl-radiology-specialist-radio-oncology-lindenhofgruppe-bern",
         "de": "dipl-radiologiefachfrau-mann-radio-onkologie-lindenhofgruppe-ch",
         "fr": "fachien-radiologue-radio-oncologie-lindenhofgruppe-bern"
@@ -1601,12 +1603,13 @@
       "previousSlugs": [
         "dipl-radiologiefachfrau-mann-radio-onkologie-lindenhofgruppe-ch",
         "dipl-radiologiefachfrau-mann-radio-onkologie-lindenhofgruppe-bern",
-        "fisiatra-radiologo-radio-oncologia-lindenhofgruppe-bern"
+        "dipl-specialista-della-radiologia-lindenhofgruppe-bern-cdaa54"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-radiologiefachfrau-mann-radio-onkologie-lindenhofgruppe-ch",
-          "dipl-radiologiefachfrau-mann-radio-onkologie-lindenhofgruppe-bern"
+          "dipl-radiologiefachfrau-mann-radio-onkologie-lindenhofgruppe-bern",
+          "dipl-specialista-della-radiologia-lindenhofgruppe-bern-cdaa54"
         ],
         "en": [
           "dipl-radiologiefachfrau-mann-radio-onkologie-lindenhofgruppe-ch"
@@ -1785,7 +1788,7 @@
       "id": "lindenhofgruppe-117e47d43f00",
       "slug": "techn-assistente-di-sterilizzazione-in-o-dispositivo-medico-technologe-login-efz-lindenhofgruppe-bern",
       "slugByLocale": {
-        "it": "techn-sterilisationsassistent-in-o-medizinproduktetechnologe-login-cfc-lindenhofgruppe-bern",
+        "it": "techn-assistente-di-sterilizzazione-in-o-dispositivo-medico-technologe-login-efz-lindenhofgruppe-bern",
         "en": "techn-sterilization-assistant-in-or-medical-device-technologe-login-efz-lindenhofgruppe-bern",
         "de": "techn-sterilisationsassistent-in-oder-medizinproduktetechnologe-login-efz-lindenhofgruppe-",
         "fr": "technique-assistant-de-sterilisation-in-ou-technologe-de-dispositif-medical-login-efz-lindenhofgruppe-bern"
@@ -1832,12 +1835,13 @@
       "previousSlugs": [
         "techn-sterilisationsassistent-in-oder-medizinproduktetechnologe-login-efz-lindenhofgruppe-",
         "techn-sterilisationsassistent-in-oder-medizinproduktetechnologe-login-efz-lindenhofgruppe",
-        "techn-assistente-di-sterilizzazione-in-o-dispositivo-medico-technologe-login-efz-lindenhofgruppe-bern"
+        "techn-sterilisationsassistent-in-o-medizinproduktetechnologe-login-cfc-lindenhofgruppe-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "techn-sterilisationsassistent-in-oder-medizinproduktetechnologe-login-efz-lindenhofgruppe-",
-          "techn-sterilisationsassistent-in-oder-medizinproduktetechnologe-login-efz-lindenhofgruppe"
+          "techn-sterilisationsassistent-in-oder-medizinproduktetechnologe-login-efz-lindenhofgruppe",
+          "techn-sterilisationsassistent-in-o-medizinproduktetechnologe-login-cfc-lindenhofgruppe-bern"
         ],
         "en": [
           "techn-sterilisationsassistent-in-oder-medizinproduktetechnologe-login-efz-lindenhofgruppe-"
@@ -1940,7 +1944,7 @@
       "id": "lindenhofgruppe-199c9e360d82",
       "slug": "infermiera-ingegnere-professionale-con-responsabilita-in-pediatria-ortopedica-lindenhofgruppe-bern",
       "slugByLocale": {
-        "it": "dipl-pflegefachfrau-mann-con-fachverantwortung-pflege-kinderorthopala-lindenhofgruppe-bern",
+        "it": "infermiera-ingegnere-professionale-con-responsabilita-in-pediatria-ortopedica-lindenhofgruppe-bern",
         "en": "registered-nurse-with-responsibility-in-pediatric-orthopedics-lindenhofgruppe-bern",
         "de": "dipl-pflegefachfrau-mann-mit-fachverantwortung-pflege-kinderorthopadie-lindenhofgruppe-ch",
         "fr": "infirmier-infirmiere-diplome-e-avec-responsabilite-en-orthopedie-pediatrique-lindenhofgruppe-bern"
@@ -1986,11 +1990,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "dipl-pflegefachfrau-mann-mit-fachverantwortung-pflege-kinderorthopadie-lindenhofgruppe-ch",
-        "infermiera-ingegnere-professionale-con-responsabilita-in-pediatria-ortopedica-lindenhofgruppe-bern"
+        "dipl-pflegefachfrau-mann-con-fachverantwortung-pflege-kinderorthopala-lindenhofgruppe-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachfrau-mann-mit-fachverantwortung-pflege-kinderorthopadie-lindenhofgruppe-ch"
+          "dipl-pflegefachfrau-mann-mit-fachverantwortung-pflege-kinderorthopadie-lindenhofgruppe-ch",
+          "dipl-pflegefachfrau-mann-con-fachverantwortung-pflege-kinderorthopala-lindenhofgruppe-bern"
         ],
         "en": [
           "dipl-pflegefachfrau-mann-mit-fachverantwortung-pflege-kinderorthopadie-lindenhofgruppe-ch"
@@ -2017,7 +2022,7 @@
       "id": "lindenhofgruppe-75b96ec92380",
       "slug": "infermiere-a-professionale-con-responsabilita-formativa-lindenhofgruppe-bern",
       "slugByLocale": {
-        "it": "dipl-pflegefachfrau-mann-con-fachverantwortung-berufsbildung-lindenhofgruppe-bern",
+        "it": "infermiere-a-professionale-con-responsabilita-formativa-lindenhofgruppe-bern",
         "en": "registered-nurse-with-training-responsibility-lindenhofgruppe-bern",
         "de": "dipl-pflegefachfrau-mann-mit-fachverantwortung-berufsbildung-lindenhofgruppe-ch",
         "fr": "infirmier-infirmiere-diplome-e-avec-responsabilite-de-formation-lindenhofgruppe-bern"
@@ -2063,11 +2068,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "dipl-pflegefachfrau-mann-mit-fachverantwortung-berufsbildung-lindenhofgruppe-ch",
-        "infermiere-a-professionale-con-responsabilita-formativa-lindenhofgruppe-bern"
+        "dipl-pflegefachfrau-mann-con-fachverantwortung-berufsbildung-lindenhofgruppe-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachfrau-mann-mit-fachverantwortung-berufsbildung-lindenhofgruppe-ch"
+          "dipl-pflegefachfrau-mann-mit-fachverantwortung-berufsbildung-lindenhofgruppe-ch",
+          "dipl-pflegefachfrau-mann-con-fachverantwortung-berufsbildung-lindenhofgruppe-bern"
         ],
         "en": [
           "dipl-pflegefachfrau-mann-mit-fachverantwortung-berufsbildung-lindenhofgruppe-ch"
@@ -2094,7 +2100,7 @@
       "id": "lindenhofgruppe-1666f9551778",
       "slug": "dipl-specialista-di-cura-per-la-nostra-piscina-di-cura-lindenhofgruppe-bern",
       "slugByLocale": {
-        "it": "dipl-pflegefachfrau-mann-per-unseren-pflegepool-lindenhofgruppe-bern",
+        "it": "dipl-specialista-di-cura-per-la-nostra-piscina-di-cura-lindenhofgruppe-bern",
         "en": "dipl-care-specialist-for-our-nursing-pool-lindenhofgruppe-bern",
         "de": "dipl-pflegefachfrau-mann-fur-unseren-pflegepool-lindenhofgruppe-ch",
         "fr": "dipl-specialiste-des-soins-pour-notre-piscine-d-infirmieres-lindenhofgruppe-bern"
@@ -2140,11 +2146,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "dipl-pflegefachfrau-mann-fur-unseren-pflegepool-lindenhofgruppe-ch",
-        "dipl-specialista-di-cura-per-la-nostra-piscina-di-cura-lindenhofgruppe-bern"
+        "dipl-pflegefachfrau-mann-per-unseren-pflegepool-lindenhofgruppe-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachfrau-mann-fur-unseren-pflegepool-lindenhofgruppe-ch"
+          "dipl-pflegefachfrau-mann-fur-unseren-pflegepool-lindenhofgruppe-ch",
+          "dipl-pflegefachfrau-mann-per-unseren-pflegepool-lindenhofgruppe-bern"
         ],
         "en": [
           "dipl-pflegefachfrau-mann-fur-unseren-pflegepool-lindenhofgruppe-ch"
@@ -2171,7 +2178,7 @@
       "id": "lindenhofgruppe-bdd89c3c6be7",
       "slug": "specialista-della-salute-lindenhofgruppe-bern",
       "slugByLocale": {
-        "it": "fachfrau-mann-gesundheit-lindenhofgruppe-bern",
+        "it": "specialista-della-salute-lindenhofgruppe-bern",
         "en": "healthcare-specialist-lindenhofgruppe-bern",
         "de": "fachfrau-mann-gesundheit-lindenhofgruppe-ch",
         "fr": "specialiste-en-soins-de-sante-lindenhofgruppe-bern"
@@ -2217,11 +2224,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "fachfrau-mann-gesundheit-lindenhofgruppe-ch",
-        "specialista-della-salute-lindenhofgruppe-bern"
+        "fachfrau-mann-gesundheit-lindenhofgruppe-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachfrau-mann-gesundheit-lindenhofgruppe-ch"
+          "fachfrau-mann-gesundheit-lindenhofgruppe-ch",
+          "fachfrau-mann-gesundheit-lindenhofgruppe-bern"
         ],
         "en": [
           "fachfrau-mann-gesundheit-lindenhofgruppe-ch"
@@ -2329,12 +2337,12 @@
     },
     {
       "id": "lindenhofgruppe-96e282bc42ea",
-      "slug": "pflegeassistent-in-lindenhofgruppe-bern",
+      "slug": "assistente-di-cura-lindenhofgruppe-bern",
       "slugByLocale": {
         "de": "pflegeassistent-in-lindenhofgruppe-bern",
-        "it": "pflegeassistent-in-lindenhofgruppe-bern",
-        "en": "pflegeassistent-in-lindenhofgruppe-bern",
-        "fr": "pflegeassistent-in-lindenhofgruppe-bern"
+        "it": "assistente-di-cura-lindenhofgruppe-bern",
+        "en": "care-assistant-lindenhofgruppe-bern",
+        "fr": "assistant-de-soins-lindenhofgruppe-bern"
       },
       "company": "Lindenhofgruppe",
       "companyKey": "lindenhofgruppe",
@@ -2379,14 +2387,22 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "pflegeassistent-in-lindenhofgruppe-ch"
+          "pflegeassistent-in-lindenhofgruppe-ch",
+          "pflegeassistent-in-lindenhofgruppe-bern"
         ],
         "de": [
           "pflegeassistent-in-lindenhofgruppe-ch"
+        ],
+        "en": [
+          "pflegeassistent-in-lindenhofgruppe-bern"
+        ],
+        "fr": [
+          "pflegeassistent-in-lindenhofgruppe-bern"
         ]
       },
       "previousSlugs": [
-        "pflegeassistent-in-lindenhofgruppe-ch"
+        "pflegeassistent-in-lindenhofgruppe-ch",
+        "pflegeassistent-in-lindenhofgruppe-bern"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,

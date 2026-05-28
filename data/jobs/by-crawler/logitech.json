@@ -4,11 +4,11 @@
   "jobs": [
     {
       "id": "logitech-da6c68d9ead2",
-      "slug": "gaming-category-marketing-manager-switzerland-logitech-ch",
+      "slug": "gaming-categoria-marketing-manager-svizzera-logitech-zurich",
       "slugByLocale": {
         "en": "gaming-category-marketing-manager-switzerland-logitech-ch",
-        "it": "gaming-category-marketing-manager-switzerland-logitech-ch",
-        "de": "gaming-category-marketing-manager-switzerland-logitech-ch",
+        "it": "gaming-categoria-marketing-manager-svizzera-logitech-zurich",
+        "de": "gaming-kategorie-marketing-manager-schweiz-logitech-zurich",
         "fr": "gaming-category-marketing-manager-switzerland-logitech-ch"
       },
       "company": "Logitech",
@@ -63,7 +63,18 @@
         }
       },
       "postalCode": "8001",
-      "firstSeenAt": "2026-05-28T13:21:27.070Z"
+      "firstSeenAt": "2026-05-28T13:21:27.070Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "gaming-category-marketing-manager-switzerland-logitech-ch"
+        ],
+        "de": [
+          "gaming-category-marketing-manager-switzerland-logitech-ch"
+        ]
+      },
+      "previousSlugs": [
+        "gaming-category-marketing-manager-switzerland-logitech-ch"
+      ]
     },
     {
       "id": "logitech-458d3f83c1b6",
