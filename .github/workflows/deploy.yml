@@ -568,13 +568,14 @@ jobs:
                   }' \
                 | sort -t'|' -k3 -nr
             fi
-            for marker in jobs-seo-profile weekly-employers-profile related-search-profile; do
+            for marker in jobs-seo-profile weekly-employers-profile related-search-profile post-walk-profile; do
               if grep -qE "^\[$marker\]" /tmp/build.log; then
                 echo ""
                 case "$marker" in
                   jobs-seo-profile) echo "## jobsSeoPagesPlugin internal profile" ;;
                   weekly-employers-profile) echo "## weeklyEmployersPlugin internal profile" ;;
                   related-search-profile) echo "## relatedSearchClustersPlugin internal profile" ;;
+                  post-walk-profile) echo "## postWalkCoordinatorPlugin internal profile" ;;
                 esac
                 echo ""
                 echo '```text'

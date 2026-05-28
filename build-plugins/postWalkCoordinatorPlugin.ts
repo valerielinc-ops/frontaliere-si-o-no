@@ -67,6 +67,13 @@ import {
 import type { BlogLinkLocale } from './blogContextualLinksData';
 import { transformFlatRedirect } from './flatHtmlRedirectPlugin';
 import { transformHreflang } from './hreflangPostprocessPlugin';
+import {
+  startTimer as profileStart,
+  recordEmit as profileRecord,
+  ingestBuckets as profileIngestBuckets,
+  printSummary as printPostWalkProfile,
+  type SerializedBuckets,
+} from './shared/postWalkCoordinatorProfiler';
 
 interface CoordinatorOptions {
   readonly baseUrl: string;
@@ -82,6 +89,11 @@ interface WorkerResult {
   hreflangLinksDropped: number;
   totalWrites: number;
   writeFailures: Array<{ filePath: string; msg: string }>;
+  // Worker-emitted per-phase profiler buckets. Empty array when profiler is
+  // disabled (POST_WALK_PROFILE=0 or BUILD_PROFILE=0). Coordinator folds
+  // these into its own module-level buckets via profileIngestBuckets()
+  // before printPostWalkProfile() emits the unified table.
+  profilerBuckets?: SerializedBuckets;
 }
 
 /**
@@ -197,11 +209,14 @@ function runSingleThreaded(
 
   for (const filePath of allHtmlPaths) {
     let html: string;
+    const __tRead = profileStart();
     try {
       html = fs.readFileSync(filePath, 'utf-8');
     } catch {
+      profileRecord('read', __tRead);
       continue;
     }
+    profileRecord('read', __tRead);
     const original = html;
     let mutated = false;
     let isBridge = false;
@@ -212,21 +227,25 @@ function runSingleThreaded(
       // 45399c0779). Avoids a sync 30 KB sibling read + regex pass that
       // would re-derive the same bridge content. Mirrors the worker fast
       // path in postWalkWorker.mjs (commit 7a00222681).
-      if (
+      const __tCheck = profileStart();
+      const preEmitted =
         html.startsWith('<!DOCTYPE html>\n<html lang="it">\n<head>\n<meta charset="utf-8">') &&
         html.includes('<meta name="robots" content="noindex,follow">') &&
-        html.includes('<script>location.replace(')
-      ) {
+        html.includes('<script>location.replace(');
+      profileRecord('bridge-check', __tCheck);
+      if (preEmitted) {
         isBridge = true;
         result.bridgeConverted++;
         continue;
       }
+      const __tBridge = profileStart();
       const bridge = transformFlatRedirect({
         filePath,
         distDir,
         trimmedBase,
         readSibling,
       });
+      profileRecord('bridge-transform', __tBridge);
       if (bridge !== null) {
         html = bridge;
         mutated = true;
@@ -240,7 +259,9 @@ function runSingleThreaded(
     if (!isBridge) {
       const locale = blogIndexHtmlByPath.get(filePath);
       if (locale !== undefined) {
+        const __tBlog = profileStart();
         const r = injectContextualLinks(html, locale);
+        profileRecord('blog-inject', __tBlog);
         if (r.injected.length > 0 && r.html !== html) {
           html = r.html;
           mutated = true;
@@ -251,9 +272,11 @@ function runSingleThreaded(
     }
 
     if (!isBridge) {
+      const __tHl = profileStart();
       const r = transformHreflang(html, distDir, baseUrl, (absPath) =>
         existingHtmlSet.has(absPath),
       );
+      profileRecord('hreflang-transform', __tHl);
       if (r !== null) {
         html = r.html;
         mutated = true;
@@ -264,6 +287,7 @@ function runSingleThreaded(
     }
 
     if (mutated && html !== original) {
+      const __tWrite = profileStart();
       try {
         fs.writeFileSync(filePath, html, 'utf-8');
         result.totalWrites++;
@@ -271,6 +295,7 @@ function runSingleThreaded(
         const msg = err instanceof Error ? err.message : String(err);
         result.writeFailures.push({ filePath, msg });
       }
+      profileRecord('write', __tWrite);
     }
   }
 
@@ -359,6 +384,7 @@ export function postWalkCoordinatorPlugin(
         const startTotal = Date.now();
 
         // ── Phase A: enumerate every emitted HTML file once ──────────
+        const __tWalk = profileStart();
         const allHtmlPaths: string[] = [];
         const processHtmlPaths: string[] = [];
         const existingHtmlSet = new Set<string>();
@@ -372,6 +398,7 @@ export function postWalkCoordinatorPlugin(
             processHtmlPaths.push(file);
           }
         }
+        profileRecord('walk-dist', __tWalk);
         const filesScanned = allHtmlPaths.length;
         if (filesScanned === 0) {
           // eslint-disable-next-line no-console
@@ -380,6 +407,7 @@ export function postWalkCoordinatorPlugin(
         }
 
         // ── Phase B: load blog-articles target map ONCE ──────────────
+        const __tBlogLoad = profileStart();
         const blogIndexSlugs = readBlogIndexSlugs(rootDir);
         const blogArticles: readonly BlogArticleHtmlFile[] = listBlogArticleHtmlFiles(
           distDir,
@@ -391,6 +419,7 @@ export function postWalkCoordinatorPlugin(
             blogIndexHtmlByPath.set(article.absPath, article.locale);
           }
         }
+        profileRecord('load-blog-articles', __tBlogLoad);
 
         // ── Phase C: dispatch work ─────────────────────────────────
         const workerCount = resolveWorkerCount(processHtmlPaths.length);
@@ -405,9 +434,12 @@ export function postWalkCoordinatorPlugin(
                 trimmedBase,
               )
             : await (async () => {
+                const __tChunk = profileStart();
                 const chunks = chunkRoundRobin(processHtmlPaths, workerCount);
+                profileRecord('chunk-roundrobin', __tChunk);
                 const workerUrl = new URL('./postWalkWorker.mjs', import.meta.url);
                 const blogIndexEntries = Array.from(blogIndexHtmlByPath.entries());
+                const __tDispatch = profileStart();
                 const results = await Promise.all(
                   chunks.map((assignedFiles) =>
                     runInWorker(workerUrl, {
@@ -420,7 +452,16 @@ export function postWalkCoordinatorPlugin(
                     }),
                   ),
                 );
-                return mergeResults(results);
+                profileRecord('worker-dispatch', __tDispatch);
+                const __tMerge = profileStart();
+                for (const r of results) {
+                  if (r.profilerBuckets && r.profilerBuckets.length > 0) {
+                    profileIngestBuckets(r.profilerBuckets);
+                  }
+                }
+                const finalMerged = mergeResults(results);
+                profileRecord('merge-results', __tMerge);
+                return finalMerged;
               })();
 
         for (const f of merged.writeFailures) {
@@ -439,6 +480,11 @@ export function postWalkCoordinatorPlugin(
             `hreflang: ${merged.hreflangFilesRewritten} rewritten / ${merged.hreflangLinksKept} kept / ${merged.hreflangLinksDropped} dropped, ` +
             `total writes: ${merged.totalWrites}`,
         );
+
+        // Unified [post-walk-profile] summary table. No-op when the profiler
+        // is gated off. Mirrors the jobs-seo / related-search summary so the
+        // workflow's Build profile summary step can grep+sed it identically.
+        printPostWalkProfile();
       },
     },
   };
