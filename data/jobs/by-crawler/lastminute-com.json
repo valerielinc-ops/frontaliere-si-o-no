@@ -1,6 +1,6 @@
 {
   "crawlerKey": "lastminute-com",
-  "assembledAt": "2026-05-27T23:35:23.182Z",
+  "assembledAt": "2026-05-28T13:17:13.239Z",
   "jobs": [
     {
       "id": "company-2oxpfe",
@@ -98,7 +98,8 @@
       "postalCode": "6900",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-6y6dd3",
@@ -198,7 +199,8 @@
       "postalCode": "6900",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     }
   ]
 }
