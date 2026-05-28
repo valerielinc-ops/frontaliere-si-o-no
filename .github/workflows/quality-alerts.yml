@@ -28,7 +28,34 @@ jobs:
           git pull --rebase --autostash origin main
           if git diff --cached --quiet; then
             echo "No alert state changes to commit"
-          else
-            git commit -m "chore(alerts): $(date -u +%Y-%m-%d)"
-            git push origin main || true
+            exit 0
           fi
+          git commit -m "chore(alerts): $(date -u +%Y-%m-%d)"
+          # Retry-on-rebase loop (closes #798). The previous
+          # `git push origin main || true` silently swallowed every
+          # rejection — even legitimate non-fast-forward races against
+          # concurrent producers (crawlers, fuel, weather, refreshers).
+          # When silenced, alerts-bot snooze + history rows were lost
+          # without surfacing in the workflow log. Mirror the pattern
+          # from refresh-thin-promotions.yml (#794), dist-history
+          # (#804), and gsc-frontaliere-monitor (#805).
+          MAX_ATTEMPTS=5
+          BACKOFF_BASE=3
+          attempt=1
+          while [ "$attempt" -le "$MAX_ATTEMPTS" ]; do
+            if git push origin HEAD:main; then
+              echo "✅ Pushed quality-alerts state."
+              exit 0
+            fi
+            echo "⚠️ Push rejected (attempt $attempt/$MAX_ATTEMPTS) — fetch + rebase, then retry…"
+            git fetch origin main
+            if ! git -c rebase.autoStash=true rebase origin/main; then
+              echo "⚠️ Rebase conflict on alert state files — aborting and resetting."
+              git rebase --abort || true
+              exit 1
+            fi
+            sleep $((BACKOFF_BASE * attempt))
+            attempt=$((attempt + 1))
+          done
+          echo "❌ Push failed after $MAX_ATTEMPTS attempts — leaving alert state uncommitted."
+          exit 1
