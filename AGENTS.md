@@ -30,7 +30,7 @@ Iniettato in ogni sessione agent. Detail durevole nei docs, carica on-demand.
 - Parallel/subagent → sempre worktree isolati, mai shared dir.
 - Auto commit+push task successful. PR-as-merge-vehicle: create PR, squash merge, delete remote branch, remove worktree.
 - PR body OBBLIGATORIO con `## Implementato` (cosa fa) + `## Non implementato (ancora)` (scope NON fatto + motivo: out of scope / follow-up / blocked / posposto). Reviewer automatico legge per gating. Vedi `REVIEW.md`.
-- PR ready per `main` → reviewer Claude posta review e il workflow `auto-merge-on-lgtm.yml` mergia automaticamente se review body non contiene `🔴`. L'agent NON deve mergere a mano: aspetta che `gh pr view <N> --json state` ritorni `MERGED`, poi cleanup worktree + branch locale. Gating: `## LGTM` o solo `🟡 Nit` → auto-merge; `🔴 Important` o 🔴 process "missing sections" → no merge automatico, agent legge la review e applica fix in nuovo commit sullo stesso branch (re-review automatica). Altre CI (test/lighthouse/build) NON attese — osserva su `main` post-merge. **Eccezione:** PR che modifica `.github/workflows/pr-review-loop.yml`, `.github/workflows/auto-merge-on-lgtm.yml` o `REVIEW.md` → workflow-validation failure GitHub App, reviewer non posta, auto-merge non scatta → merge manuale via `gh pr merge --squash --delete-branch`; verifica su prossima PR organica.
+- PR ready per `main` → reviewer Claude posta review e il workflow `auto-merge-on-lgtm.yml` mergia automaticamente se review body contiene la stringa esatta `## LGTM`. L'agent NON deve mergere a mano: aspetta che `gh pr view <N> --json state` ritorni `MERGED`, poi cleanup worktree + branch locale. Gating: `## LGTM` → auto-merge; `🔴 Important` o 🔴 process "missing sections" → no `## LGTM`, no auto-merge, agent legge la review e applica fix in nuovo commit sullo stesso branch (re-review automatica). Altre CI (test/lighthouse/build) NON attese — osserva su `main` post-merge. **Eccezione:** PR che modifica `.github/workflows/pr-review-loop.yml`, `.github/workflows/auto-merge-on-lgtm.yml`, `.github/workflows/post-merge-followup.yml`, `REVIEW.md` o `FOLLOWUP.md` → workflow-validation failure GitHub App, reviewer non posta, auto-merge non scatta → merge manuale via `gh pr merge --squash --delete-branch`; verifica su prossima PR organica.
 - Post-merge check/deploy fail → mai fix diretto su `main`; nuovo worktree+branch, fix root cause, nuova PR, merge, riosserva `main`.
 - Pre-task-close: audit worktree/branch. PR merged → delete remote branch + remove worktree immediato. Not merged → lascia + dichiara decisione merge/abandon esplicita.
 - GitHub operations: `gh` CLI only.
@@ -39,6 +39,14 @@ Iniettato in ogni sessione agent. Detail durevole nei docs, carica on-demand.
 - E2E: Playwright CLI o Codex Browser. No preview-only tools.
 - Touch function/class/method → GitNexus impact analysis prima. Pre-commit → GitNexus detect changes.
 - Mai full build locale; trigger/validate via GitHub Actions.
+
+## Post-merge feedback handling
+
+- Reviewer bot posta 🔴/🟡/❓ in review body. **Mai silent ignore di 🟡/❓.** Workflow `post-merge-followup.yml` triagia automaticamente post-merge: legge PR body `## Non implementato` + reviewer 🟡/❓/adversarial-check, applica filtro scopo (`REVIEW.md`), crea issue `follow-up` + summary commento sulla PR. Contratto in `FOLLOWUP.md`.
+- 🔴 Important blocca merge (auto-merge richiede `## LGTM`). Se compare 🔴 → fix in nuovo commit sullo stesso branch, re-review automatica.
+- Agent inizio task DEVE controllare `gh issue list --label follow-up --state open` se tocca area correlata. Issue follow-up esistente per scope corrente → linkare nel PR body (`## Implementato` chiude issue con `Closes #N`) o aggiornare l'issue con rationale.
+- Test plan PR body con `- [ ]` non spuntate post-merge → spunta dopo verifica live, oppure converti in issue follow-up. Reviewer flagga come 🟡 quelle non verificabili pre-merge (vedi `REVIEW.md → "Test plan compliance"`).
+- Eccezione drop senza issue: nit puro stilistico-deferibile (non funnel) → reply inline sulla PR review thread con motivo "deferred — non funnel-critical". `post-merge-followup.yml` lo include automaticamente nella sezione "Dropped" del summary.
 
 ## Build And Test
 

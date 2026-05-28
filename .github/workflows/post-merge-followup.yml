@@ -1,0 +1,72 @@
+name: Post-merge follow-up triage
+
+on:
+  pull_request:
+    types: [closed]
+
+permissions:
+  contents: read
+  pull-requests: write
+  issues: write
+  id-token: write
+
+jobs:
+  followup:
+    # Trigger condizioni:
+    # - PR merged (non solo chiuso).
+    # - Autore PR = repo owner (skip dependabot/forks).
+    # - Auth via CLAUDE_CODE_OAUTH_TOKEN (subscription Max, zero API cost).
+    # Lo scope è leggere PR body `## Non implementato` + reviewer 🟡/❓ e creare
+    # issue con label `follow-up` quando il filtro scopo passa. Vedi FOLLOWUP.md.
+    if: |
+      github.event.pull_request.merged == true &&
+      github.event.pull_request.user.login == 'valerielinc-ops'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 1
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+
+      - name: Run Claude follow-up triage
+        uses: anthropics/claude-code-action@v1
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          PR_TITLE: ${{ github.event.pull_request.title }}
+          REPO: ${{ github.repository }}
+        with:
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          show_full_output: true
+          claude_args: "--max-turns 15 --model claude-sonnet-4-6 --allowedTools 'Bash(gh:*),Read,Grep,Glob'"
+          prompt: |
+            Triage automatico follow-up per PR #${{ github.event.pull_request.number }} ("${{ github.event.pull_request.title }}") appena mergiata.
+
+            **Bootstrap:**
+            1. Leggi `FOLLOWUP.md` — contratto operativo completo (parse rules, filtro scopo, dedup, issue format, closing comment).
+            2. Leggi `REVIEW.md → "Scopo progetto"` per il filtro funnel.
+            3. Carica:
+               - `gh pr view $PR_NUMBER --json number,title,body,mergedAt,mergeCommit,url`
+               - `gh api repos/$REPO/pulls/$PR_NUMBER/reviews`
+               - `gh issue list --label follow-up --state all --json number,title,body --limit 50`
+
+            **Esegui workflow come specificato in FOLLOWUP.md:**
+            - Parse PR body `## Non implementato` (skip motivi `out of scope` / `posposto`).
+            - Parse reviewer bot review più recente: estrai 🟡 nit, ❓ q, `## Adversarial check` bullets. Skip 🔴 (già fixed o droppato consapevolmente pre-merge).
+            - Filtro scopo (`REVIEW.md`): item passa se impatta monetizzazione / traffico / funnel.
+            - Dedup vs issue `follow-up` esistenti (titolo >70% similar → skip).
+            - Crea issue per candidate validi, max 10/PR. Label: `follow-up` + UNO funnel-* se inferibile.
+            - Posta `## Post-merge follow-up triage` summary commento sulla PR.
+
+            **Constraint:**
+            - Read-only eccetto `gh issue create`, `gh pr comment`.
+            - Mai modificare PR label/state/title.
+            - Mai chiudere/riaprire issue.
+            - Incerto sul filtro → crea con rationale "needs triage".
+            - Zero candidate → `## Post-merge follow-up triage: zero outstanding items.` e termina.
