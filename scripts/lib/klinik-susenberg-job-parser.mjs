@@ -35,6 +35,7 @@ import {
   detectHealthcareExperienceLevel,
   detectHealthcareEmploymentType,
 } from './hospital-custom-html-helpers.mjs';
+import { buildPdfBackedDescription, extractPdfJobContentFromUrl } from './pdf-job-content.mjs';
 
 /**
  * The Susenberg TYPO3 backend rejects the bot User-Agent with HTTP 406. Fall
@@ -131,16 +132,18 @@ export function parseSusenbergJobsPage(html = '') {
   return out;
 }
 
-function buildDescription(row) {
-  const sentences = [
+function buildDescription(row, pdfText = '') {
+  const introLines = [
     `${row.title} bei der ${KLINIK_SUSENBERG_COMPANY_NAME}, ${DEFAULT_STREET}, ${DEFAULT_POSTAL_CODE} ${DEFAULT_CITY}, Schweiz.`,
   ];
-  if (row.department) {
-    sentences.push(`Tätigkeitsbereich: ${row.department}.`);
-  }
-  sentences.push(COMPANY_BOILERPLATE);
-  sentences.push('Detailliertes Stellenprofil und Bewerbungsunterlagen siehe verlinktes PDF.');
-  return sentences.join(' ');
+  if (row.department) introLines.push(`Tätigkeitsbereich: ${row.department}.`);
+  introLines.push(COMPANY_BOILERPLATE);
+  return buildPdfBackedDescription({
+    introLines,
+    pdfText,
+    fallbackText: 'Detailliertes Stellenprofil und Bewerbungsunterlagen siehe verlinktes PDF.',
+    footerLines: row.url ? [`Stelleninserat (PDF): ${row.url}`] : [],
+  });
 }
 
 function parsePostedDate(href = '') {
@@ -162,9 +165,15 @@ export async function fetchAllKlinikSusenbergJobs() {
   console.log(`  ✓ ${rows.length} job PDFs discovered`);
   if (!rows.length) return [];
 
+  const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 30000;
   const jobs = [];
   for (const r of rows) {
-    const description = buildDescription(r);
+    console.log(`  📄 Extracting PDF: ${String(r.url).split('/').pop()}`);
+    const pdf = await extractPdfJobContentFromUrl(r.url, { timeoutMs });
+    if (pdf.error) console.warn(`     ⚠️ PDF error: ${pdf.error}`);
+    if (pdf.warning) console.warn(`     ⚠️ ${pdf.warning}`);
+    const pdfText = pdf.rawText || pdf.text || '';
+    const description = buildDescription(r, pdfText);
     const sourceLang = detectLang(description || r.title, 'de');
     const jobSlug = slugify(`${r.title} ${KLINIK_SUSENBERG_KEY} ${DEFAULT_CITY}`);
     const urlHash = createHash('sha1').update(r.url).digest('hex').slice(0, 12);

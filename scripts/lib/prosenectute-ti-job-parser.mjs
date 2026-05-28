@@ -39,6 +39,7 @@ import {
   detectHealthcareExperienceLevel,
   detectHealthcareEmploymentType,
 } from './hospital-custom-html-helpers.mjs';
+import { buildPdfBackedDescription, extractPdfJobContentFromUrl } from './pdf-job-content.mjs';
 
 export const PROSENECTUTE_TI_KEY = 'prosenectute-ti';
 export const PROSENECTUTE_TI_COMPANY_NAME = 'Pro Senectute Ticino e Moesano';
@@ -116,6 +117,7 @@ export function parseProSenectuteListing(html) {
  * Vanoni 8/10), but each concorso may target the whole canton + Moesano.
  */
 export async function fetchAllProSenectuteTiJobs() {
+  const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 30000;
   console.log(`🤝 Fetching ${PROSENECTUTE_TI_COMPANY_NAME} jobs`);
   console.log(`   Source: ${LISTING_URL}\n`);
   const html = await fetchHtml(LISTING_URL);
@@ -127,12 +129,23 @@ export async function fetchAllProSenectuteTiJobs() {
   const jobs = [];
   for (const it of items) {
     const title = it.title;
-    const description = [
-      `${title}.`,
-      'Pro Senectute Ticino e Moesano pubblica concorsi annuali aperti anche in assenza di un effettivo fabbisogno di personale: le candidature ricevute vengono valutate ed eventualmente richiamate nel corso dell’anno.',
-      `Bando completo (PDF): ${it.pdfUrl}`,
-      'Pro Senectute Ticino e Moesano — Sede di Lugano, attiva su tutto il Cantone Ticino e nella regione Moesano (GR).',
-    ].filter(Boolean).join('\n\n');
+    console.log(`  📄 Extracting PDF: ${it.pdfUrl.split('/').pop()}`);
+    const pdf = await extractPdfJobContentFromUrl(it.pdfUrl, { timeoutMs });
+    if (pdf.error) console.warn(`     ⚠️ PDF error: ${pdf.error}`);
+    if (pdf.warning) console.warn(`     ⚠️ ${pdf.warning}`);
+    const pdfText = pdf.rawText || pdf.text || '';
+    const description = buildPdfBackedDescription({
+      introLines: [
+        `${title}.`,
+        'Pro Senectute Ticino e Moesano pubblica concorsi annuali aperti anche in assenza di un effettivo fabbisogno di personale: le candidature ricevute vengono valutate ed eventualmente richiamate nel corso dell’anno.',
+      ],
+      pdfText,
+      fallbackText: `Bando ${title} di Pro Senectute Ticino e Moesano. I dettagli completi su requisiti, profilo professionale e modalità di candidatura sono nel PDF allegato.`,
+      footerLines: [
+        `Bando completo (PDF): ${it.pdfUrl}`,
+        'Pro Senectute Ticino e Moesano — Sede di Lugano, attiva su tutto il Cantone Ticino e nella regione Moesano (GR).',
+      ],
+    });
     const sourceLang = detectLang(description || title, 'it');
     const jobSlug = slugify(`${title} ${PROSENECTUTE_TI_KEY}`);
     // The PDF URL is the stable key — the AEM `jcr:` UUID stays the same for
