@@ -1,6 +1,6 @@
 {
   "crawlerKey": "oscam",
-  "assembledAt": "2026-05-27T23:54:23.911Z",
+  "assembledAt": "2026-05-28T13:39:20.780Z",
   "jobs": [
     {
       "title": "Concorso assunzione personale avventizio estivo 2026",
@@ -33,7 +33,7 @@
       },
       "slugByLocale": {
         "it": "concorso-assunzione-personale-avventizio-estivo-2026-oscam",
-        "en": "2026-summer-adventitious-personnel-recruitment-contest-oscam-ospedale-e-casa-anziani-malcantonese-castelrotto",
+        "en": "concorso-assunzione-personale-avventizio-estivo-2026-oscam-ospedale-e-casa-anziani-malcantonese-castelrotto-04ttp4",
         "de": "concorso-assunzione-personale-avventizio-estivo-2026-oscam-ospedale-e-casa-anziani-malcantonese-castelrotto-04ttp4",
         "fr": "concorso-assunzione-personale-avventizio-estivo-2026-oscam-ospedale-e-casa-anziani-malcantonese-castelrotto-04ttp4"
       },
@@ -65,12 +65,14 @@
       "firstSeenAt": "2026-05-17T10:50:46.725Z",
       "previousSlugsByLocale": {
         "en": [
+          "2026-summer-adventitious-personnel-recruitment-contest-oscam-ospedale-e-casa-anziani-malcantonese-castelrotto",
           "concorso-assunzione-personale-avventizio-estivo-2026-oscam-ospedale-e-casa-anziani-malcantonese-castelrotto-04ttp4"
         ]
       },
       "previousSlugs": [
-        "concorso-assunzione-personale-avventizio-estivo-2026-oscam-ospedale-e-casa-anziani-malcantonese-castelrotto-04ttp4"
-      ]
+        "2026-summer-adventitious-personnel-recruitment-contest-oscam-ospedale-e-casa-anziani-malcantonese-castelrotto"
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Concorso generale 2026",
@@ -103,7 +105,7 @@
       },
       "slugByLocale": {
         "it": "concorso-generale-2026-oscam",
-        "en": "general-competition-2026-oscam-ospedale-e-casa-anziani-malcantonese-castelrotto",
+        "en": "concorso-generale-2026-oscam-ospedale-e-casa-anziani-malcantonese-castelrotto-4r5k4c",
         "de": "concorso-generale-2026-oscam-ospedale-e-casa-anziani-malcantonese-castelrotto-4r5k4c",
         "fr": "concorso-generale-2026-oscam-ospedale-e-casa-anziani-malcantonese-castelrotto-4r5k4c"
       },
@@ -134,18 +136,20 @@
       "addressCountry": "CH",
       "firstSeenAt": "2026-05-17T10:50:46.725Z",
       "previousSlugs": [
-        "concorso-generale-2026-oscam-ospedale-e-casa-anziani-malcantonese-castelrotto-4r5k4c",
+        "general-competition-2026-oscam-ospedale-e-casa-anziani-malcantonese-castelrotto",
         "concorso-generale-2026-oscam-ospedale-e-casa-anziani-malcantonese-taverne",
         "concorso-generale-2026-oscam-ospedale-e-casa-anziani-malcantonese-castelrotto"
       ],
       "previousSlugsByLocale": {
         "en": [
+          "general-competition-2026-oscam-ospedale-e-casa-anziani-malcantonese-castelrotto",
           "concorso-generale-2026-oscam-ospedale-e-casa-anziani-malcantonese-castelrotto-4r5k4c"
         ],
         "it": [
           "concorso-generale-2026-oscam-ospedale-e-casa-anziani-malcantonese-taverne"
         ]
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "title": "Concorso generale per medici assistenti 2025-2026",
@@ -178,7 +182,7 @@
       },
       "slugByLocale": {
         "it": "concorso-generale-per-medici-assistenti-2025-2026-oscam",
-        "en": "general-competition-for-medical-assistants-2025-2026-oscam-ospedale-e-casa-anziani-malcantonese-castelrotto",
+        "en": "concorso-generale-per-medici-assistenti-2025-2026-oscam-ospedale-e-casa-anziani-malcantonese-castelrotto-95m99t",
         "de": "concorso-generale-per-medici-assistenti-2025-2026-oscam-ospedale-e-casa-anziani-malcantonese-castelrotto-95m99t",
         "fr": "concorso-generale-per-medici-assistenti-2025-2026-oscam-ospedale-e-casa-anziani-malcantonese-castelrotto-95m99t"
       },
@@ -210,6 +214,7 @@
       "firstSeenAt": "2026-05-17T10:50:46.725Z",
       "previousSlugsByLocale": {
         "en": [
+          "general-competition-for-medical-assistants-2025-2026-oscam-ospedale-e-casa-anziani-malcantonese-castelrotto",
           "concorso-generale-per-medici-assistenti-2025-2026-oscam-ospedale-e-casa-anziani-malcantonese-castelrotto-95m99t"
         ],
         "it": [
@@ -217,9 +222,10 @@
         ]
       },
       "previousSlugs": [
-        "concorso-generale-per-medici-assistenti-2025-2026-oscam-ospedale-e-casa-anziani-malcantonese-castelrotto-95m99t",
+        "general-competition-for-medical-assistants-2025-2026-oscam-ospedale-e-casa-anziani-malcantonese-castelrotto",
         "concorso-generale-per-medici-assistenti-2025-2026-oscam-ospedale-e-casa-anziani-malcantonese-castelrotto"
-      ]
+      ],
+      "needsRetranslation": true
     }
   ]
 }
