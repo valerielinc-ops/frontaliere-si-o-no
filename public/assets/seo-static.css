@@ -51,7 +51,12 @@ body > #root > main.static-job-page { padding: 26px; }
    stop applying once the SPA owns the page. Any s-* extracted class or
    `.hero-title` (specificity 0,1,0) inside the static main still wins,
    preserving per-job and inline-styled headings. */
-main.seo-static-content h1 {
+/* Card-title atoms (.jc-title / .ec-title) live in @layer components so any
+   unlayered element rule here would silently defeat their Tailwind sizing
+   (`text-sm/font-bold/leading-tight`) and re-introduce big heading margins
+   inside job/employer cards. Exclude them from the heading reset so card
+   titles fall through to the atom CSS and match the SPA-rendered cards. */
+main.seo-static-content h1:not(.jc-title):not(.ec-title) {
   margin: 0 0 12px;
   font-family: "Outfit", sans-serif;
   font-size: clamp(1.75rem, 4vw, 2.5rem);
@@ -59,7 +64,7 @@ main.seo-static-content h1 {
   line-height: 1.15;
   color: var(--color-heading);
 }
-main.seo-static-content h2 {
+main.seo-static-content h2:not(.jc-title):not(.ec-title) {
   margin: 1.5rem 0 0.5rem;
   font-family: "Outfit", sans-serif;
   font-size: clamp(1.25rem, 2.5vw, 1.75rem);
@@ -67,7 +72,7 @@ main.seo-static-content h2 {
   line-height: 1.25;
   color: var(--color-heading);
 }
-main.seo-static-content h3 {
+main.seo-static-content h3:not(.jc-title):not(.ec-title) {
   margin: 1rem 0 0.5rem;
   font-family: "Outfit", sans-serif;
   font-size: 1.125rem;
@@ -75,7 +80,7 @@ main.seo-static-content h3 {
   line-height: 1.3;
   color: var(--color-heading);
 }
-main.seo-static-content h4 { margin: 0; font-family: "Outfit", sans-serif; }
+main.seo-static-content h4:not(.jc-title):not(.ec-title) { margin: 0; font-family: "Outfit", sans-serif; }
 main.seo-static-content { max-width: 1120px; margin: 0 auto; display: grid; gap: 12px; }
 .proposal {
   border: 1px solid var(--color-edge);
