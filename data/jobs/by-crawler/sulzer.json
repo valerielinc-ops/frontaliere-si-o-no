@@ -200,7 +200,7 @@
       "slugByLocale": {
         "en": "project-assistant-sulzer-belle-chasse",
         "it": "project-assistant-sulzer-ch",
-        "de": "project-assistant-sulzer-ch",
+        "de": "project-assistent-sulzer-belle-chasse",
         "fr": "project-assistant-sulzer-ch"
       },
       "company": "Sulzer",
@@ -260,12 +260,12 @@
     },
     {
       "id": "sulzer-605a51bcd52c",
-      "slug": "hr-specialist-sulzer-ch",
+      "slug": "risorse-umane-specialista-sulzer-shanghai",
       "slugByLocale": {
         "en": "hr-specialist-sulzer-shanghai",
-        "it": "hr-specialist-sulzer-ch",
-        "de": "hr-specialist-sulzer-ch",
-        "fr": "hr-specialist-sulzer-ch"
+        "it": "risorse-umane-specialista-sulzer-shanghai",
+        "de": "personalwesen-spezialist-sulzer-shanghai",
+        "fr": "ressources-humaines-specialiste-sulzer-shanghai"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -320,7 +320,21 @@
         }
       },
       "postalCode": "8001",
-      "firstSeenAt": "2026-05-28T14:26:54.285Z"
+      "firstSeenAt": "2026-05-28T14:26:54.285Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "hr-specialist-sulzer-ch"
+        ],
+        "de": [
+          "hr-specialist-sulzer-ch"
+        ],
+        "fr": [
+          "hr-specialist-sulzer-ch"
+        ]
+      },
+      "previousSlugs": [
+        "hr-specialist-sulzer-ch"
+      ]
     },
     {
       "id": "sulzer-11640bb39328",
@@ -460,11 +474,11 @@
     },
     {
       "id": "sulzer-1cfb5f91a9bf",
-      "slug": "mechanical-engineer-sulzer-ch",
+      "slug": "mechanical-ingegnere-sulzer-purwakarta",
       "slugByLocale": {
         "en": "mechanical-engineer-sulzer-purwakarta",
-        "it": "mechanical-engineer-sulzer-ch",
-        "de": "mechanical-engineer-sulzer-ch",
+        "it": "mechanical-ingegnere-sulzer-purwakarta",
+        "de": "mechanical-ingenieur-sulzer-purwakarta",
         "fr": "mechanical-engineer-sulzer-ch"
       },
       "company": "Sulzer",
@@ -520,15 +534,26 @@
         }
       },
       "postalCode": "8001",
-      "firstSeenAt": "2026-05-28T14:26:51.639Z"
+      "firstSeenAt": "2026-05-28T14:26:51.639Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "mechanical-engineer-sulzer-ch"
+        ],
+        "de": [
+          "mechanical-engineer-sulzer-ch"
+        ]
+      },
+      "previousSlugs": [
+        "mechanical-engineer-sulzer-ch"
+      ]
     },
     {
       "id": "sulzer-53c99b1598f4",
-      "slug": "mechanical-engineer-sulzer-ch-2",
+      "slug": "mechanical-ingegnere-sulzer-winterthur",
       "slugByLocale": {
         "en": "mechanical-engineer-sulzer-winterthur",
-        "it": "mechanical-engineer-sulzer-ch-2",
-        "de": "mechanical-engineer-sulzer-ch-2",
+        "it": "mechanical-ingegnere-sulzer-winterthur",
+        "de": "mechanical-ingenieur-sulzer-winterthur",
         "fr": "mechanical-engineer-sulzer-ch-2"
       },
       "company": "Sulzer",
@@ -574,10 +599,17 @@
       "previousSlugsByLocale": {
         "en": [
           "mechanical-engineer-sulzer-ch"
+        ],
+        "it": [
+          "mechanical-engineer-sulzer-ch-2"
+        ],
+        "de": [
+          "mechanical-engineer-sulzer-ch-2"
         ]
       },
       "previousSlugs": [
-        "mechanical-engineer-sulzer-ch"
+        "mechanical-engineer-sulzer-ch",
+        "mechanical-engineer-sulzer-ch-2"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -980,12 +1012,12 @@
     },
     {
       "id": "sulzer-f0497535b213",
-      "slug": "esh-specialist-sulzer-ch",
+      "slug": "esh-specialista-sulzer-winterthur",
       "slugByLocale": {
         "en": "esh-specialist-sulzer-winterthur",
-        "it": "esh-specialist-sulzer-ch",
-        "de": "esh-specialist-sulzer-ch",
-        "fr": "esh-specialist-sulzer-ch"
+        "it": "esh-specialista-sulzer-winterthur",
+        "de": "esh-spezialist-sulzer-winterthur",
+        "fr": "esh-specialiste-sulzer-winterthur"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -1040,7 +1072,21 @@
         }
       },
       "postalCode": "8400",
-      "firstSeenAt": "2026-05-28T14:26:44.896Z"
+      "firstSeenAt": "2026-05-28T14:26:44.896Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "esh-specialist-sulzer-ch"
+        ],
+        "de": [
+          "esh-specialist-sulzer-ch"
+        ],
+        "fr": [
+          "esh-specialist-sulzer-ch"
+        ]
+      },
+      "previousSlugs": [
+        "esh-specialist-sulzer-ch"
+      ]
     },
     {
       "id": "sulzer-cf55dfd39418",
@@ -1308,12 +1354,12 @@
     },
     {
       "id": "sulzer-0346500d4e6d",
-      "slug": "repair-coordinator-sulzer-ch",
+      "slug": "repair-coordinatore-sulzer-bridgeport",
       "slugByLocale": {
         "en": "repair-coordinator-sulzer-bridgeport",
-        "it": "repair-coordinator-sulzer-ch",
-        "de": "repair-coordinator-sulzer-ch",
-        "fr": "repair-coordinator-sulzer-ch"
+        "it": "repair-coordinatore-sulzer-bridgeport",
+        "de": "repair-koordinator-sulzer-bridgeport",
+        "fr": "repair-coordinateur-sulzer-bridgeport"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -1368,7 +1414,21 @@
         }
       },
       "postalCode": "8001",
-      "firstSeenAt": "2026-05-28T14:26:40.714Z"
+      "firstSeenAt": "2026-05-28T14:26:40.714Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "repair-coordinator-sulzer-ch"
+        ],
+        "de": [
+          "repair-coordinator-sulzer-ch"
+        ],
+        "fr": [
+          "repair-coordinator-sulzer-ch"
+        ]
+      },
+      "previousSlugs": [
+        "repair-coordinator-sulzer-ch"
+      ]
     },
     {
       "id": "sulzer-dc4090757552",
@@ -2524,12 +2584,12 @@
     },
     {
       "id": "sulzer-a9ffd86f1074",
-      "slug": "quality-specialist-i-sulzer-ch",
+      "slug": "quality-specialista-i-sulzer-jundiai",
       "slugByLocale": {
         "en": "quality-specialist-i-sulzer-jundiai",
-        "it": "quality-specialist-i-sulzer-ch",
-        "de": "quality-specialist-i-sulzer-ch",
-        "fr": "quality-specialist-i-sulzer-ch"
+        "it": "quality-specialista-i-sulzer-jundiai",
+        "de": "qualitat-spezialist-i-sulzer-jundiai",
+        "fr": "qualite-specialiste-i-sulzer-jundiai"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -2584,7 +2644,21 @@
         }
       },
       "postalCode": "8001",
-      "firstSeenAt": "2026-05-28T14:26:24.650Z"
+      "firstSeenAt": "2026-05-28T14:26:24.650Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "quality-specialist-i-sulzer-ch"
+        ],
+        "de": [
+          "quality-specialist-i-sulzer-ch"
+        ],
+        "fr": [
+          "quality-specialist-i-sulzer-ch"
+        ]
+      },
+      "previousSlugs": [
+        "quality-specialist-i-sulzer-ch"
+      ]
     },
     {
       "id": "sulzer-e044eba2858b",
@@ -2657,7 +2731,7 @@
         "en": "group-it-team-lead-cpq-manager-sulzer-ch",
         "it": "group-it-team-lead-cpq-manager-sulzer-ch",
         "de": "group-it-team-lead-cpq-manager-sulzer-ch",
-        "fr": "group-it-team-lead-cpq-manager-sulzer-ch"
+        "fr": "group-it-chef-d-equipe-cpq-manager-sulzer-madrid"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -2852,12 +2926,12 @@
     },
     {
       "id": "sulzer-358cc7b786b5",
-      "slug": "project-coordinator-sulzer-ch",
+      "slug": "project-coordinatore-sulzer-santa-ana",
       "slugByLocale": {
         "en": "project-coordinator-sulzer-santa-ana",
-        "it": "project-coordinator-sulzer-ch",
-        "de": "project-coordinator-sulzer-ch",
-        "fr": "project-coordinator-sulzer-ch"
+        "it": "project-coordinatore-sulzer-santa-ana",
+        "de": "project-koordinator-sulzer-santa-ana",
+        "fr": "project-coordinateur-sulzer-santa-ana"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -2912,7 +2986,21 @@
         }
       },
       "postalCode": "8001",
-      "firstSeenAt": "2026-05-28T14:26:20.330Z"
+      "firstSeenAt": "2026-05-28T14:26:20.330Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "project-coordinator-sulzer-ch"
+        ],
+        "de": [
+          "project-coordinator-sulzer-ch"
+        ],
+        "fr": [
+          "project-coordinator-sulzer-ch"
+        ]
+      },
+      "previousSlugs": [
+        "project-coordinator-sulzer-ch"
+      ]
     },
     {
       "id": "sulzer-216a097748e1",
@@ -3569,7 +3657,7 @@
         "en": "lead-architect-data-quality-sulzer-ch",
         "it": "lead-architect-data-quality-sulzer-ch",
         "de": "lead-architect-data-quality-sulzer-ch",
-        "fr": "lead-architect-data-quality-sulzer-ch"
+        "fr": "lead-architecte-data-qualite-sulzer-madrid"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -4340,12 +4428,12 @@
     },
     {
       "id": "sulzer-90686166ee70",
-      "slug": "head-of-hr-sea-clusters-sulzer-ch",
+      "slug": "responsabile-risorse-umane-sea-clusters-sulzer-singapore",
       "slugByLocale": {
         "en": "head-of-hr-sea-clusters-sulzer-ch",
-        "it": "head-of-hr-sea-clusters-sulzer-ch",
-        "de": "head-of-hr-sea-clusters-sulzer-ch",
-        "fr": "head-of-hr-sea-clusters-sulzer-ch"
+        "it": "responsabile-risorse-umane-sea-clusters-sulzer-singapore",
+        "de": "leiter-personalwesen-sea-clusters-sulzer-singapore",
+        "fr": "responsable-ressources-humaines-sea-clusters-sulzer-singapore"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -4400,7 +4488,21 @@
         }
       },
       "postalCode": "8001",
-      "firstSeenAt": "2026-05-28T14:25:59.919Z"
+      "firstSeenAt": "2026-05-28T14:25:59.919Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "head-of-hr-sea-clusters-sulzer-ch"
+        ],
+        "de": [
+          "head-of-hr-sea-clusters-sulzer-ch"
+        ],
+        "fr": [
+          "head-of-hr-sea-clusters-sulzer-ch"
+        ]
+      },
+      "previousSlugs": [
+        "head-of-hr-sea-clusters-sulzer-ch"
+      ]
     },
     {
       "id": "sulzer-54af7dd1564b",
@@ -4799,11 +4901,11 @@
     },
     {
       "id": "sulzer-e0a0602c0e18",
-      "slug": "tendering-engineer-sulzer-ch",
+      "slug": "tendering-ingegnere-sulzer-molndal",
       "slugByLocale": {
         "en": "tendering-engineer-sulzer-molndal",
-        "it": "tendering-engineer-sulzer-ch",
-        "de": "tendering-engineer-sulzer-ch",
+        "it": "tendering-ingegnere-sulzer-molndal",
+        "de": "tendering-ingenieur-sulzer-molndal",
         "fr": "tendering-engineer-sulzer-ch"
       },
       "company": "Sulzer",
@@ -4859,7 +4961,18 @@
         }
       },
       "postalCode": "8001",
-      "firstSeenAt": "2026-05-28T14:25:53.601Z"
+      "firstSeenAt": "2026-05-28T14:25:53.601Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "tendering-engineer-sulzer-ch"
+        ],
+        "de": [
+          "tendering-engineer-sulzer-ch"
+        ]
+      },
+      "previousSlugs": [
+        "tendering-engineer-sulzer-ch"
+      ]
     },
     {
       "id": "sulzer-6be24c14c439",
@@ -4999,11 +5112,11 @@
     },
     {
       "id": "sulzer-3d8c6657368e",
-      "slug": "application-engineer-sulzer-ch",
+      "slug": "application-ingegnere-sulzer-easley",
       "slugByLocale": {
         "en": "application-engineer-sulzer-easley",
-        "it": "application-engineer-sulzer-ch",
-        "de": "application-engineer-sulzer-ch",
+        "it": "application-ingegnere-sulzer-easley",
+        "de": "application-ingenieur-sulzer-easley",
         "fr": "application-engineer-sulzer-ch"
       },
       "company": "Sulzer",
@@ -5059,15 +5172,26 @@
         }
       },
       "postalCode": "8001",
-      "firstSeenAt": "2026-05-28T14:25:51.034Z"
+      "firstSeenAt": "2026-05-28T14:25:51.034Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "application-engineer-sulzer-ch"
+        ],
+        "de": [
+          "application-engineer-sulzer-ch"
+        ]
+      },
+      "previousSlugs": [
+        "application-engineer-sulzer-ch"
+      ]
     },
     {
       "id": "sulzer-2f0ee90eafb1",
-      "slug": "applications-engineer-sulzer-ch",
+      "slug": "applications-ingegnere-sulzer-easley",
       "slugByLocale": {
         "en": "applications-engineer-sulzer-easley",
-        "it": "applications-engineer-sulzer-ch",
-        "de": "applications-engineer-sulzer-ch",
+        "it": "applications-ingegnere-sulzer-easley",
+        "de": "applications-ingenieur-sulzer-easley",
         "fr": "applications-engineer-sulzer-ch"
       },
       "company": "Sulzer",
@@ -5123,16 +5247,27 @@
         }
       },
       "postalCode": "8001",
-      "firstSeenAt": "2026-05-28T14:25:50.181Z"
+      "firstSeenAt": "2026-05-28T14:25:50.181Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "applications-engineer-sulzer-ch"
+        ],
+        "de": [
+          "applications-engineer-sulzer-ch"
+        ]
+      },
+      "previousSlugs": [
+        "applications-engineer-sulzer-ch"
+      ]
     },
     {
       "id": "sulzer-c919d65a99ba",
-      "slug": "applications-engineer-sulzer-ch-2",
+      "slug": "applications-ingegnere-sulzer-easley-5caecb",
       "slugByLocale": {
         "en": "applications-engineer-sulzer-easley",
-        "it": "applications-engineer-sulzer-ch-2",
-        "de": "applications-engineer-sulzer-ch-2",
-        "fr": "applications-engineer-sulzer-ch-2"
+        "it": "applications-ingegnere-sulzer-easley-5caecb",
+        "de": "applications-ingenieur-sulzer-easley-5caecb",
+        "fr": "applications-ingenieur-sulzer-easley"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -5177,10 +5312,20 @@
       "previousSlugsByLocale": {
         "en": [
           "applications-engineer-sulzer-ch"
+        ],
+        "it": [
+          "applications-engineer-sulzer-ch-2"
+        ],
+        "de": [
+          "applications-engineer-sulzer-ch-2"
+        ],
+        "fr": [
+          "applications-engineer-sulzer-ch-2"
         ]
       },
       "previousSlugs": [
-        "applications-engineer-sulzer-ch"
+        "applications-engineer-sulzer-ch",
+        "applications-engineer-sulzer-ch-2"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -5967,11 +6112,11 @@
     },
     {
       "id": "sulzer-fe3346880059",
-      "slug": "tendering-engineer-sulzer-ch-2",
+      "slug": "tendering-ingegnere-sulzer-purwakarta",
       "slugByLocale": {
         "en": "tendering-engineer-sulzer-purwakarta",
-        "it": "tendering-engineer-sulzer-ch-2",
-        "de": "tendering-engineer-sulzer-ch-2",
+        "it": "tendering-ingegnere-sulzer-purwakarta",
+        "de": "tendering-ingenieur-sulzer-purwakarta",
         "fr": "tendering-engineer-sulzer-ch-2"
       },
       "company": "Sulzer",
@@ -6017,10 +6162,17 @@
       "previousSlugsByLocale": {
         "en": [
           "tendering-engineer-sulzer-ch"
+        ],
+        "it": [
+          "tendering-engineer-sulzer-ch-2"
+        ],
+        "de": [
+          "tendering-engineer-sulzer-ch-2"
         ]
       },
       "previousSlugs": [
-        "tendering-engineer-sulzer-ch"
+        "tendering-engineer-sulzer-ch",
+        "tendering-engineer-sulzer-ch-2"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -6815,11 +6967,11 @@
     },
     {
       "id": "sulzer-5d75be67d3f0",
-      "slug": "sr-tendering-engineer-sulzer-ch",
+      "slug": "sr-tendering-ingegnere-sulzer-cuautitlan-izcalli",
       "slugByLocale": {
         "en": "sr-tendering-engineer-sulzer-cuautitlan-izcalli",
-        "it": "sr-tendering-engineer-sulzer-ch",
-        "de": "sr-tendering-engineer-sulzer-ch",
+        "it": "sr-tendering-ingegnere-sulzer-cuautitlan-izcalli",
+        "de": "sr-tendering-ingenieur-sulzer-cuautitlan-izcalli",
         "fr": "sr-tendering-engineer-sulzer-ch"
       },
       "company": "Sulzer",
@@ -6875,7 +7027,18 @@
         }
       },
       "postalCode": "8001",
-      "firstSeenAt": "2026-05-28T14:25:26.545Z"
+      "firstSeenAt": "2026-05-28T14:25:26.545Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sr-tendering-engineer-sulzer-ch"
+        ],
+        "de": [
+          "sr-tendering-engineer-sulzer-ch"
+        ]
+      },
+      "previousSlugs": [
+        "sr-tendering-engineer-sulzer-ch"
+      ]
     },
     {
       "id": "sulzer-e8f6121c5ee8",
@@ -7143,11 +7306,11 @@
     },
     {
       "id": "sulzer-5dbff6bc0c4a",
-      "slug": "mechanical-engineer-sulzer-ch-3",
+      "slug": "mechanical-ingegnere-sulzer-margate",
       "slugByLocale": {
         "en": "mechanical-engineer-sulzer-margate",
-        "it": "mechanical-engineer-sulzer-ch-3",
-        "de": "mechanical-engineer-sulzer-ch-3",
+        "it": "mechanical-ingegnere-sulzer-margate",
+        "de": "mechanical-ingenieur-sulzer-margate",
         "fr": "mechanical-engineer-sulzer-ch-3"
       },
       "company": "Sulzer",
@@ -7193,10 +7356,17 @@
       "previousSlugsByLocale": {
         "en": [
           "mechanical-engineer-sulzer-ch"
+        ],
+        "it": [
+          "mechanical-engineer-sulzer-ch-3"
+        ],
+        "de": [
+          "mechanical-engineer-sulzer-ch-3"
         ]
       },
       "previousSlugs": [
-        "mechanical-engineer-sulzer-ch"
+        "mechanical-engineer-sulzer-ch",
+        "mechanical-engineer-sulzer-ch-3"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -7539,8 +7709,8 @@
       "slugByLocale": {
         "en": "service-technician-sulzer-belle-chasse",
         "it": "service-technician-sulzer-ch",
-        "de": "service-technician-sulzer-ch",
-        "fr": "service-technician-sulzer-ch"
+        "de": "service-techniker-sulzer-belle-chasse",
+        "fr": "service-technicien-sulzer-belle-chasse"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -7668,7 +7838,7 @@
         "en": "machine-operator-sulzer-ch",
         "it": "machine-operator-sulzer-la-porte",
         "de": "machine-operator-sulzer-ch",
-        "fr": "machine-operator-sulzer-ch"
+        "fr": "machine-operateur-sulzer-la-porte"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -7712,6 +7882,9 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "machine-operator-sulzer-ch"
+        ],
+        "fr": [
           "machine-operator-sulzer-ch"
         ]
       },
@@ -9106,12 +9279,12 @@
     },
     {
       "id": "sulzer-29479b34a728",
-      "slug": "specialista-paghe-sulzer-winterthur",
+      "slug": "payroll-specialista-sulzer-winterthur",
       "slugByLocale": {
         "en": "payroll-specialist-sulzer-winterthur",
-        "it": "specialista-paghe-sulzer-winterthur",
-        "de": "lohnbuchhaltungsspezialist-sulzer-winterthur",
-        "fr": "specialiste-de-la-paie-sulzer-winterthur"
+        "it": "payroll-specialista-sulzer-winterthur",
+        "de": "payroll-spezialist-sulzer-winterthur",
+        "fr": "payroll-specialiste-sulzer-winterthur"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -9155,14 +9328,24 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "payroll-specialist-sulzer-ch"
+          "payroll-specialist-sulzer-ch",
+          "specialista-paghe-sulzer-winterthur"
         ],
         "en": [
           "payroll-specialist-sulzer-ch"
+        ],
+        "de": [
+          "lohnbuchhaltungsspezialist-sulzer-winterthur"
+        ],
+        "fr": [
+          "specialiste-de-la-paie-sulzer-winterthur"
         ]
       },
       "previousSlugs": [
-        "payroll-specialist-sulzer-ch"
+        "payroll-specialist-sulzer-ch",
+        "specialista-paghe-sulzer-winterthur",
+        "lohnbuchhaltungsspezialist-sulzer-winterthur",
+        "specialiste-de-la-paie-sulzer-winterthur"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -9634,7 +9817,7 @@
         "en": "laboratory-technician-sulzer-allschwil",
         "it": "tecnico-di-laboratorio-sulzer-allschwil",
         "de": "laboratory-techniker-sulzer-allschwil",
-        "fr": "technicien-de-laboratoire-sulzer-allschwil"
+        "fr": "laboratory-technicien-sulzer-allschwil"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -9682,10 +9865,14 @@
         ],
         "en": [
           "laboratory-technician-sulzer-ch"
+        ],
+        "fr": [
+          "technicien-de-laboratoire-sulzer-allschwil"
         ]
       },
       "previousSlugs": [
-        "laboratory-technician-sulzer-ch"
+        "laboratory-technician-sulzer-ch",
+        "technicien-de-laboratoire-sulzer-allschwil"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -9703,11 +9890,11 @@
     },
     {
       "id": "sulzer-93f81e633155",
-      "slug": "mechanical-engineer-sulzer-ch-4",
+      "slug": "mechanical-ingegnere-sulzer-navi-mumbai",
       "slugByLocale": {
         "en": "mechanical-engineer-sulzer-navi-mumbai",
-        "it": "mechanical-engineer-sulzer-ch-4",
-        "de": "mechanical-engineer-sulzer-ch-4",
+        "it": "mechanical-ingegnere-sulzer-navi-mumbai",
+        "de": "mechanical-ingenieur-sulzer-navi-mumbai",
         "fr": "mechanical-engineer-sulzer-ch-4"
       },
       "company": "Sulzer",
@@ -9753,10 +9940,17 @@
       "previousSlugsByLocale": {
         "en": [
           "mechanical-engineer-sulzer-ch"
+        ],
+        "it": [
+          "mechanical-engineer-sulzer-ch-4"
+        ],
+        "de": [
+          "mechanical-engineer-sulzer-ch-4"
         ]
       },
       "previousSlugs": [
-        "mechanical-engineer-sulzer-ch"
+        "mechanical-engineer-sulzer-ch",
+        "mechanical-engineer-sulzer-ch-4"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -9839,11 +10033,11 @@
     },
     {
       "id": "sulzer-cab6fe601674",
-      "slug": "application-engineer-sulzer-ch-2",
+      "slug": "application-ingegnere-sulzer-navi-mumbai",
       "slugByLocale": {
         "en": "application-engineer-sulzer-navi-mumbai",
-        "it": "application-engineer-sulzer-ch-2",
-        "de": "application-engineer-sulzer-ch-2",
+        "it": "application-ingegnere-sulzer-navi-mumbai",
+        "de": "application-ingenieur-sulzer-navi-mumbai",
         "fr": "application-engineer-sulzer-ch-2"
       },
       "company": "Sulzer",
@@ -9889,10 +10083,17 @@
       "previousSlugsByLocale": {
         "en": [
           "application-engineer-sulzer-ch"
+        ],
+        "it": [
+          "application-engineer-sulzer-ch-2"
+        ],
+        "de": [
+          "application-engineer-sulzer-ch-2"
         ]
       },
       "previousSlugs": [
-        "application-engineer-sulzer-ch"
+        "application-engineer-sulzer-ch",
+        "application-engineer-sulzer-ch-2"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -10197,7 +10398,7 @@
         "it": "ingegnere-di-vendita-sulzer-winterthur",
         "en": "sales-engineer-sulzer-winterthur",
         "de": "sales-ingenieur-sulzer-winterthur",
-        "fr": "sales-engineer-sulzer-ch"
+        "fr": "ingenieur-commercial-sulzer-winterthur"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -10250,15 +10451,13 @@
           "vertriebsingenieur-sulzer-winterthur"
         ],
         "fr": [
-          "ingenieur-commercial-sulzer-winterthur",
           "sales-engineer-sulzer-ch"
         ]
       },
       "previousSlugs": [
         "sales-engineer-sulzer-ch",
         "sales-ingegnere-sulzer-winterthur",
-        "vertriebsingenieur-sulzer-winterthur",
-        "ingenieur-commercial-sulzer-winterthur"
+        "vertriebsingenieur-sulzer-winterthur"
       ],
       "firstSeenAt": "2026-05-21T23:58:00.571Z",
       "salaryMin": 49500,

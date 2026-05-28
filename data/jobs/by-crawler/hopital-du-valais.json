@@ -213,8 +213,7 @@
       "previousSlugsByLocale": {
         "en": [
           "rejoins-l-equipe-de-personnel-de-reserve-hopital-du-valais-sion",
-          "contact-the-reserve-personnel-team-hopital-du-valais-sion",
-          "join-the-reserve-staff-team-hopital-du-valais-sion"
+          "contact-the-reserve-personnel-team-hopital-du-valais-sion"
         ],
         "it": [
           "rejoins-l-equipe-de-personnel-de-reserve-hopital-du-valais-sion",
@@ -404,8 +403,8 @@
       "slug": "capo-dei-segretariati-di-consultazione-e-centro-per-il-seno-con-assistente-medico-cfc-hopital-du-valais-sion",
       "slugByLocale": {
         "it": "capo-dei-segretariati-di-consultazione-e-centro-per-il-seno-con-assistente-medico-cfc-hopital-du-valais-sion",
-        "en": "medical-assistant-responsible-for-consultation-secretariats-at-90-for-oncology-and-breast-center-medical-secretariats-ho",
-        "de": "medizinische-assistentin-fur-die-sekretariate-der-konsultationen-zu-90-fur-die-medizinischen-sekretariate-der-onkologie-",
+        "en": "head-of-secretariats-of-consultation-and-breast-centre-with-cfc-medical-assistant-hopital-du-valais-sion",
+        "de": "leiter-der-sekretariate-der-beratung-und-des-brustzentrums-mit-cfc-medical-assistant-hopital-du-valais-sion",
         "fr": "responsable-des-secretariats-de-consultations-d-oncologie-et-du-centre-du-sein-avec-cfc-d-assistante-medicale-hopital-du"
       },
       "company": "Hôpital du Valais",
@@ -452,8 +451,8 @@
       "previousSlugs": [
         "responsable-des-secretariats-de-consultations-d-oncologie-et-du-centre-du-sein-avec-cfc-d",
         "assistente-medica-responsabile-dei-segretariati-delle-consultazioni-a-90-per-i-segretariati-medici-di-oncologia-e-centro",
-        "head-of-secretariats-of-consultation-and-breast-centre-with-cfc-medical-assistant-hopital-du-valais-sion",
-        "leiter-der-sekretariate-der-beratung-und-des-brustzentrums-mit-cfc-medical-assistant-hopital-du-valais-sion",
+        "medical-assistant-responsible-for-consultation-secretariats-at-90-for-oncology-and-breast-center-medical-secretariats-ho",
+        "medizinische-assistentin-fur-die-sekretariate-der-konsultationen-zu-90-fur-die-medizinischen-sekretariate-der-onkologie-",
         "assistant-e-medical-e-responsable-des-secretariats-de-consultations-a-90-pour-les-secretariats-medicaux-de-l-oncologie-e"
       ],
       "previousSlugsByLocale": {
@@ -462,11 +461,9 @@
           "assistente-medica-responsabile-dei-segretariati-delle-consultazioni-a-90-per-i-segretariati-medici-di-oncologia-e-centro"
         ],
         "en": [
-          "head-of-secretariats-of-consultation-and-breast-centre-with-cfc-medical-assistant-hopital-du-valais-sion",
           "medical-assistant-responsible-for-consultation-secretariats-at-90-for-oncology-and-breast-center-medical-secretariats-ho"
         ],
         "de": [
-          "leiter-der-sekretariate-der-beratung-und-des-brustzentrums-mit-cfc-medical-assistant-hopital-du-valais-sion",
           "medizinische-assistentin-fur-die-sekretariate-der-konsultationen-zu-90-fur-die-medizinischen-sekretariate-der-onkologie-"
         ],
         "fr": [
@@ -654,7 +651,7 @@
       "slug": "medico-aggiunto-specialista-in-radiologia-al-100-hopital-du-valais-sion",
       "slugByLocale": {
         "it": "medico-aggiunto-specialista-in-radiologia-al-100-hopital-du-valais-sion",
-        "en": "associate-physician-specialist-in-radiology-at-100-hopital-du-valais-sion",
+        "en": "100-assistant-x-ray-specialist-hopital-du-valais-sion",
         "de": "100-assistent-rontgen-spezialist-hopital-du-valais-sion",
         "fr": "medecin-adjoint-e-specialiste-en-radiologie-a-100-hopital-du-valais-sion"
       },
@@ -702,18 +699,21 @@
       "previousSlugsByLocale": {
         "it": [
           "100-assistant-x-ray-specialist-hopital-du-valais-sion",
-          "medecin-adjoint-e-specialiste-en-radiologie-a-100-hopital-du-valais-sion",
-          "medico-aggiunto-specialista-in-radiologia-al-100-hopital-du-valais-sion"
+          "medecin-adjoint-e-specialiste-en-radiologie-a-100-hopital-du-valais-sion"
         ],
         "de": [
           "oberarzt-oberarztin-fur-radiologie-zu-100-hopital-du-valais-sion",
           "medecin-adjoint-e-specialiste-en-radiologie-a-100-hopital-du-valais-sion"
+        ],
+        "en": [
+          "associate-physician-specialist-in-radiology-at-100-hopital-du-valais-sion"
         ]
       },
       "previousSlugs": [
         "100-assistant-x-ray-specialist-hopital-du-valais-sion",
         "medecin-adjoint-e-specialiste-en-radiologie-a-100-hopital-du-valais-sion",
-        "oberarzt-oberarztin-fur-radiologie-zu-100-hopital-du-valais-sion"
+        "oberarzt-oberarztin-fur-radiologie-zu-100-hopital-du-valais-sion",
+        "associate-physician-specialist-in-radiology-at-100-hopital-du-valais-sion"
       ],
       "firstSeenAt": "2026-04-13T21:52:21.439Z",
       "needsRetranslation": true,
@@ -1776,7 +1776,7 @@
       "slug": "fachpsychologe-in-ambulatorium-80-100-hopital-du-valais-brig",
       "slugByLocale": {
         "it": "fachpsychologe-in-ambulatorium-80-100-hopital-du-valais-brig",
-        "en": "specialist-psychologist-outpatient-clinic-80-100-hopital-du-valais-brig",
+        "en": "clinical-psychologist-ambulatory-80-100-hopital-du-valais-brig",
         "de": "fachpsychologe-in-ambulatorium-80-100-hopital-du-valais-brig",
         "fr": "psychologue-specialiste-ambulatoire-80-100-hopital-du-valais-brig"
       },
@@ -1822,11 +1822,10 @@
         "site": "BRIG"
       },
       "previousSlugs": [
-        "clinical-psychologist-ambulatory-80-100-hopital-du-valais-brig"
+        "specialist-psychologist-outpatient-clinic-80-100-hopital-du-valais-brig"
       ],
       "previousSlugsByLocale": {
         "en": [
-          "clinical-psychologist-ambulatory-80-100-hopital-du-valais-brig",
           "specialist-psychologist-outpatient-clinic-80-100-hopital-du-valais-brig"
         ]
       },
@@ -2491,8 +2490,8 @@
       "slug": "segretario-medico-e-60-per-il-servizio-flux-management-unit-fmu-hopital-du-valais-sion",
       "slugByLocale": {
         "it": "segretario-medico-e-60-per-il-servizio-flux-management-unit-fmu-hopital-du-valais-sion",
-        "en": "coordinator-for-the-unit-of-flow-management-ugf-at-60-hopital-du-valais-sion",
-        "de": "koordinator-in-fur-die-einheit-der-flussverwaltung-ugf-zu-60-hopital-du-valais-sion",
+        "en": "medical-secretary-e-60-for-the-flux-management-unit-fmu-service-hopital-du-valais-sion",
+        "de": "arztlicher-sekretar-60-fur-den-service-flux-management-unit-fmu-hopital-du-valais-sion",
         "fr": "coordinateur-trice-a-60-pour-le-service-de-l-unite-de-gestion-des-flux-ugf-hopital-du-valais-sion"
       },
       "company": "Hôpital du Valais",
@@ -2547,11 +2546,9 @@
           "coordinatore-per-l-unita-di-gestione-dei-flussi-ugf-al-60-hopital-du-valais-sion"
         ],
         "en": [
-          "medical-secretary-e-60-for-the-flux-management-unit-fmu-service-hopital-du-valais-sion",
           "coordinator-for-the-unit-of-flow-management-ugf-at-60-hopital-du-valais-sion"
         ],
         "de": [
-          "arztlicher-sekretar-60-fur-den-service-flux-management-unit-fmu-hopital-du-valais-sion",
           "koordinator-in-fur-die-einheit-der-flussverwaltung-ugf-zu-60-hopital-du-valais-sion"
         ]
       },
@@ -2560,8 +2557,8 @@
         "secretaire-medical-e-a-60-80-pour-le-service-de-l-unite-de-gestion-des-flux-ugf-hopital-du",
         "secretaire-medical-e-a-60-pour-le-service-de-l-unite-de-gestion-des-flux-ugf-hopital-du",
         "coordinatore-per-l-unita-di-gestione-dei-flussi-ugf-al-60-hopital-du-valais-sion",
-        "medical-secretary-e-60-for-the-flux-management-unit-fmu-service-hopital-du-valais-sion",
-        "arztlicher-sekretar-60-fur-den-service-flux-management-unit-fmu-hopital-du-valais-sion"
+        "coordinator-for-the-unit-of-flow-management-ugf-at-60-hopital-du-valais-sion",
+        "koordinator-in-fur-die-einheit-der-flussverwaltung-ugf-zu-60-hopital-du-valais-sion"
       ],
       "firstSeenAt": "2026-05-11T11:52:26.584Z",
       "salaryMin": 49500,

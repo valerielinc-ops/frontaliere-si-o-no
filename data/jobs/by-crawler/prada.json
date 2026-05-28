@@ -6,10 +6,10 @@
       "id": "prada-da59ed3b834b",
       "slug": "addetto-a-produzione-pelletteria-valdarno-prada-group-terranuova-bracciolini-addettoa-produzione-pelletteria",
       "slugByLocale": {
-        "en": "addetto-a-produzione-pelletteria-valdarno-prada-group-terranuova-bracciolini-addettoa-produzione-pelletteria",
+        "en": "associate-production-pelletteria-valdarno-prada-group-terranuova-bracciolini-addettoa-produzione-pelletteria",
         "it": "addetto-a-produzione-pelletteria-valdarno-prada-group-terranuova-bracciolini-addettoa-produzione-pelletteria",
-        "de": "addetto-a-produzione-pelletteria-valdarno-prada-group-terranuova-bracciolini-addettoa-produzione-pelletteria",
-        "fr": "addetto-a-produzione-pelletteria-valdarno-prada-group-terranuova-bracciolini-addettoa-produzione-pelletteria"
+        "de": "mitarbeiter-in-produktion-pelletteria-valdarno-prada-group-terranuova-bracciolini-addettoa-produzione-pelletteria",
+        "fr": "prepose-e-production-pelletteria-valdarno-prada-group-terranuova-bracciolini-addettoa-produzione-pelletteria"
       },
       "company": "Prada Group",
       "companyKey": "prada",
@@ -136,9 +136,9 @@
     },
     {
       "id": "prada-b8ab80bfb2e1",
-      "slug": "prada-store-manager-zurich-prada-group-zurich",
+      "slug": "prada-store-manager-zurigo-prada-group-zurich-store-manager-zurich",
       "slugByLocale": {
-        "it": "prada-store-manager-zurich-prada-group-zurich",
+        "it": "prada-store-manager-zurigo-prada-group-zurich-store-manager-zurich",
         "en": "prada-store-manager-zurich-prada-group-zurich",
         "de": "prada-store-manager-zurich-prada-group-zurich",
         "fr": "directeur-de-magasin-prada-zurich-prada-group-zurich"
@@ -179,11 +179,13 @@
       "firstSeenAt": "2026-05-16T10:49:17.374Z",
       "previousSlugsByLocale": {
         "it": [
-          "store-manager-zurich-prada-group-zurich-store-manager-zurich"
+          "store-manager-zurich-prada-group-zurich-store-manager-zurich",
+          "prada-store-manager-zurich-prada-group-zurich"
         ]
       },
       "previousSlugs": [
-        "store-manager-zurich-prada-group-zurich-store-manager-zurich"
+        "store-manager-zurich-prada-group-zurich-store-manager-zurich",
+        "prada-store-manager-zurich-prada-group-zurich"
       ],
       "salaryMin": 68000,
       "salaryMax": 103000,
