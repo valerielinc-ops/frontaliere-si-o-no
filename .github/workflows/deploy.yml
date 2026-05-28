@@ -1166,11 +1166,39 @@ jobs:
             "repos/${{ github.repository }}/actions/runs/${{ steps.last-good.outputs.run-id }}/artifacts" \
             --jq '[.artifacts[] | select(.name == "github-pages")] | sort_by(.created_at) | .[0].id // empty')
           if [ -z "$artifact_id" ]; then
-            echo "::error::No github-pages artifact in run ${{ steps.last-good.outputs.run-id }}"
-            exit 1
+            # GitHub Pages artifacts have a 1-hour retention by default;
+            # when the last-known-good is older than that, the artifact is
+            # gone and we cannot fast-rollback by re-uploading. Surface a
+            # warning, leave `id` empty, and let the next step dispatch a
+            # fresh build at the last-known-good SHA as the slow-path
+            # fallback. Incident 2026-05-28 (validation run 10723) wedged
+            # prod for hours because this branch used to `exit 1`.
+            echo "::warning::No github-pages artifact in run ${{ steps.last-good.outputs.run-id }} (likely expired past 1h Pages retention) — will dispatch fresh deploy at last-good SHA"
+            echo "id=" >> "$GITHUB_OUTPUT"
+          else
+            echo "id=$artifact_id" >> "$GITHUB_OUTPUT"
+            echo "Resolved last-good github-pages artifact id: $artifact_id"
           fi
-          echo "id=$artifact_id" >> "$GITHUB_OUTPUT"
-          echo "Resolved last-good github-pages artifact id: $artifact_id"
+
+      # Slow-path rollback: dispatch a fresh `Deploy to GitHub Pages`
+      # workflow_dispatch run pinned to the last-known-good SHA. Used when
+      # the artifact-fast-path above couldn't find the artifact (expired
+      # past Pages' 1-hour retention). Re-runs the full build (~10-15 min)
+      # but produces a guaranteed-good dist that is independent of artifact
+      # retention windows.
+      - name: Dispatch fresh deploy at last-known-good SHA (fallback when artifact expired)
+        if: steps.still-live.outputs.still_live == 'true' && steps.last-good.outputs.run-id != '' && steps.last-good-artifact.outputs.id == '' && steps.last-good.outputs.sha != ''
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          echo "Dispatching deploy.yml at last-known-good SHA ${{ steps.last-good.outputs.sha }}"
+          gh workflow run deploy.yml --ref ${{ steps.last-good.outputs.sha }} \
+            || {
+              echo "::error::Failed to dispatch fresh deploy at last-known-good SHA. Manual recovery required: gh workflow run deploy.yml --ref ${{ steps.last-good.outputs.sha }}"
+              exit 1
+            }
+          echo "Fresh deploy dispatched. Watch: https://github.com/${{ github.repository }}/actions/workflows/deploy.yml"
 
       - name: Download last known good GitHub Pages artifact (by id)
         if: steps.still-live.outputs.still_live == 'true' && steps.last-good.outputs.run-id != '' && steps.last-good-artifact.outputs.id != ''
@@ -1242,9 +1270,14 @@ jobs:
           **Validation run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
           **Last good (NOT rolled back):** ${{ steps.last-good.outputs.run-id }}"
           elif [ "${{ steps.rollback_deploy.outcome }}" = "success" ]; then
-            MSG="## Rollback eseguito
+            MSG="## Rollback eseguito (artifact fast-path)
           **Rollback a run:** ${{ steps.last-good.outputs.run-id }} (sha ${{ steps.last-good.outputs.sha }})
           **Validation run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+          elif [ -z "${{ steps.last-good-artifact.outputs.id }}" ] && [ -n "${{ steps.last-good.outputs.sha }}" ]; then
+            MSG="## Rollback via fresh deploy (slow-path: artifact expired)
+          **Dispatched fresh build at sha:** ${{ steps.last-good.outputs.sha }} (last-good run ${{ steps.last-good.outputs.run-id }})
+          **Validation run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          Pages artifact past 1h retention — full rebuild in progress (~10-15 min)."
           else
             MSG="## Rollback fallito
           **Tentato rollback a run:** ${{ steps.last-good.outputs.run-id }} (sha ${{ steps.last-good.outputs.sha }})

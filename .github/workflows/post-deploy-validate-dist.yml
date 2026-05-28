@@ -375,6 +375,15 @@ jobs:
             npm run validate:sitemap-links
           spawn_capped audit:spa-bundle-injection    /tmp/spa-bundle.log \
             npm run audit:spa-bundle-injection
+          # 0-tolerance: dotfile `dist/**\/.html` files mean a plugin produced
+          # `<dir>/.html` via `path + '.html'` where `path` ended in `/`.
+          # GitHub Pages serves these for `/<dir>/` with
+          # content-type=application/octet-stream, masking the real
+          # index.html. See incident 2026-05-28: ogPagesPlugin emitted
+          # ~2 540 of these for articles, AdSense RPM crashed from 3.04 to
+          # 1.74 CHF/day.
+          spawn_capped audit:no-dotfile-html         /tmp/no-dotfile-html.log \
+            npm run audit:no-dotfile-html
           spawn_capped audit:hreflang                /tmp/g14.log \
             npm run audit:hreflang
           spawn_capped audit:sitemap-canonicals      /tmp/g15.log \

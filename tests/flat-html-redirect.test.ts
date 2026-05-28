@@ -2,7 +2,7 @@ import { describe, expect, it, beforeEach, afterEach } from 'vitest';
 import path from 'node:path';
 import fs from 'node:fs';
 import os from 'node:os';
-import { flatHtmlRedirectPlugin } from '../build-plugins/flatHtmlRedirectPlugin';
+import { flatHtmlRedirectPlugin, transformFlatRedirect } from '../build-plugins/flatHtmlRedirectPlugin';
 
 /**
  * Verifies the redirect bridge emitted by `flatHtmlRedirectPlugin` after
@@ -132,6 +132,41 @@ describe('flatHtmlRedirectPlugin redirect bridge', () => {
     expect(bridge).toContain('og:image:height');
     expect(bridge).toContain('og:image:type');
     expect(bridge).not.toContain('twitter:title');
+  });
+
+  it('skips dotfile basenames like <dir>/.html so they never get rewritten as a bridge', () => {
+    // Regression: ogPagesPlugin used to concat `+ '.html'` onto a path that
+    // already ended in `/` (from canonicalPath), producing
+    // `dist/articoli-frontaliere/<slug>/.html`. transformFlatRedirect would
+    // then read the sibling `<slug>/index.html` (the real article), build a
+    // self-referencing bridge, and write it to the dotfile. GitHub Pages
+    // served that dotfile for the `/<slug>/` URL with content-type=
+    // application/octet-stream, masking the real article and crashing
+    // AdSense RPM. Skip basenames starting with `.` defensively.
+    const tmpRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'flat-html-dotfile-'));
+    try {
+      const distDir = path.join(tmpRoot, 'dist');
+      const fooDir = path.join(distDir, 'foo');
+      fs.mkdirSync(fooDir, { recursive: true });
+      const dotfile = path.join(fooDir, '.html');
+      const siblingFile = path.join(fooDir, 'index.html');
+      fs.writeFileSync(dotfile, 'should not be touched');
+      fs.writeFileSync(
+        siblingFile,
+        '<!DOCTYPE html><html><head><title>Real</title></head><body>full</body></html>',
+      );
+      const readSibling = (p: string): string | null =>
+        fs.existsSync(p) ? fs.readFileSync(p, 'utf-8') : null;
+      const result = transformFlatRedirect({
+        filePath: dotfile,
+        distDir,
+        trimmedBase: 'https://frontaliereticino.ch',
+        readSibling,
+      });
+      expect(result).toBeNull();
+    } finally {
+      fs.rmSync(tmpRoot, { recursive: true, force: true });
+    }
   });
 
   it('falls back to a per-URL string when the sibling has no parsable title', async () => {

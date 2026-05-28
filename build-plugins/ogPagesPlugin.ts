@@ -1045,8 +1045,15 @@ ${headTags}
  // Italian (primary)
  const itHtml = html('it', en.path);
  const flatItHtml = itHtml.replace(/\s*<script>location\.replace\([^<]*\)<\/script>/, '');
+ // canonicalPath is captured WITH trailing slash from seo-blog*.ts. The
+ // sibling index.html target wants the trailing slash, but the flat .html
+ // sibling must NOT inherit it — `path.join(distDir, '/foo/' + '.html')`
+ // emits a dotfile `dist/foo/.html` that GitHub Pages serves with
+ // content-type=application/octet-stream for the URL `/foo/`, masking the
+ // real `index.html`. Strip the trailing slash before the `.html` concat.
+ const itFlatPath = en.path.replace(/\/+$/, '');
  collector.add(np.join(distDir, en.path, 'index.html'), itHtml);
- collector.add(np.join(distDir, en.path + '.html'), flatItHtml);
+ collector.add(np.join(distDir, itFlatPath + '.html'), flatItHtml);
  count++;
 
  // EN / DE / FR
@@ -1054,8 +1061,12 @@ ${headTags}
  if (loc === 'it' || !lPath) continue;
  const locHtml = html(loc, lPath);
  const flatLocHtml = locHtml.replace(/\s*<script>location\.replace\([^<]*\)<\/script>/, '');
+ // Defense-in-depth: locale paths are built without trailing slash
+ // (`/${l}/${bs}/${as}`) but normalize anyway in case the source convention
+ // changes.
+ const locFlatPath = lPath.replace(/\/+$/, '');
  collector.add(np.join(distDir, lPath, 'index.html'), locHtml);
- collector.add(np.join(distDir, lPath + '.html'), flatLocHtml);
+ collector.add(np.join(distDir, locFlatPath + '.html'), flatLocHtml);
  count++;
  }
  }
