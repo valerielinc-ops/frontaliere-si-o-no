@@ -1,16 +1,16 @@
 {
   "key": "sintetica",
   "label": "Sintetica SA",
-  "generatedAt": "2026-05-28T00:16:24.612Z",
+  "generatedAt": "2026-05-28T07:21:03.985Z",
   "total": 14,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 14,
-  "durationMs": 8685,
-  "avgDurationMs": 8685,
+  "durationMs": 10996,
+  "avgDurationMs": 10996,
   "durationHistory": [
-    8685
+    10996
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -283,16 +283,16 @@
         "location": "Mendrisio"
       },
       "crawledAt": "",
-      "sourceLang": "it",
+      "sourceLang": "en",
       "salaryMin": 98000,
       "salaryMax": 133000,
       "currency": "CHF",
       "firstSeenAt": "2026-04-13T22:24:00.330Z",
       "id": "sintetica-1c4a971f4c85",
-      "_qualityScore": 84,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 14,
+        "richness": 20,
         "translation": 25,
         "completeness": 20
       }
@@ -329,10 +329,10 @@
       "currency": "CHF",
       "firstSeenAt": "2026-04-13T22:24:00.330Z",
       "id": "sintetica-f40c8151f417",
-      "_qualityScore": 84,
+      "_qualityScore": 80,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 14,
+        "richness": 10,
         "translation": 25,
         "completeness": 20
       }
@@ -369,10 +369,10 @@
       "salaryMax": 63000,
       "currency": "CHF",
       "firstSeenAt": "2026-05-21T07:33:30.027Z",
-      "_qualityScore": 84,
+      "_qualityScore": 80,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 14,
+        "richness": 10,
         "translation": 25,
         "completeness": 20
       }
@@ -383,14 +383,14 @@
       "title": "Technicien de maintenance - Couvet site",
       "company": "Sintetica SA",
       "companyKey": "sintetica",
-      "location": "Mendrisio",
-      "canton": "TI",
+      "location": "Couvet",
+      "canton": "NE",
       "country": "CH",
-      "addressLocality": "Mendrisio",
-      "addressRegion": "TI",
+      "addressLocality": "Couvet",
+      "addressRegion": "NE",
       "addressCountry": "CH",
-      "postalCode": "6850",
-      "streetAddress": "Via Penate 5",
+      "postalCode": "2108",
+      "streetAddress": "Rue de l'Ecluse 28",
       "slug": "technicien-de-maintenance-couvet-site-sintetica",
       "category": "maintenance",
       "datePosted": "2026-05-28",
@@ -399,8 +399,8 @@
       "experienceLevel": "MID",
       "sector": "Farmaceutica",
       "_targetScope": {
-        "canton": "TI",
-        "location": "Mendrisio"
+        "canton": "NE",
+        "location": "Couvet"
       },
       "sourceLang": "it",
       "crawledAt": "",
@@ -410,11 +410,11 @@
       "salaryMax": 75000,
       "currency": "CHF",
       "firstSeenAt": "2026-05-27T00:09:57.244Z",
-      "_qualityScore": 78,
+      "_qualityScore": 71,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 14,
-        "translation": 19,
+        "richness": 10,
+        "translation": 16,
         "completeness": 20
       }
     },
@@ -444,16 +444,16 @@
         "location": "Mendrisio"
       },
       "crawledAt": "",
-      "sourceLang": "en",
+      "sourceLang": "it",
       "salaryMin": 58000,
       "salaryMax": 78000,
       "currency": "CHF",
       "firstSeenAt": "2026-04-13T22:24:00.330Z",
       "id": "sintetica-8218af8800e4",
-      "_qualityScore": 88,
+      "_qualityScore": 80,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 18,
+        "richness": 10,
         "translation": 25,
         "completeness": 20
       }
@@ -490,10 +490,10 @@
       "currency": "CHF",
       "firstSeenAt": "2026-04-13T22:24:00.330Z",
       "id": "sintetica-9d1cb3bbf1a1",
-      "_qualityScore": 84,
+      "_qualityScore": 80,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 14,
+        "richness": 10,
         "translation": 25,
         "completeness": 20
       }
@@ -531,10 +531,10 @@
       "firstSeenAt": "2026-04-13T22:24:00.330Z",
       "id": "sintetica-2161482f648c",
       "needsRetranslation": true,
-      "_qualityScore": 84,
+      "_qualityScore": 80,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 14,
+        "richness": 10,
         "translation": 25,
         "completeness": 20
       }
@@ -545,15 +545,15 @@
       "title": "Spontaneous application - Couvet Site (Neuchâtel)",
       "company": "Sintetica SA",
       "companyKey": "sintetica",
-      "location": "Mendrisio",
-      "canton": "TI",
+      "location": "Couvet",
+      "canton": "NE",
       "country": "CH",
-      "addressLocality": "Mendrisio",
-      "addressRegion": "TI",
+      "addressLocality": "Couvet",
+      "addressRegion": "NE",
       "addressCountry": "CH",
-      "postalCode": "6850",
-      "streetAddress": "Via Penate 5",
-      "slug": "applicazione-spontanea-sito-couvet-neuchatel-sintetica-sa-mendrisio",
+      "postalCode": "2108",
+      "streetAddress": "Rue de l'Ecluse 28",
+      "slug": "spontaneous-application-couvet-site-neuchatel-sintetica",
       "category": "general",
       "datePosted": "2026-05-28",
       "source": "sintetica-careers-crawler",
@@ -561,8 +561,8 @@
       "experienceLevel": "MID",
       "sector": "Farmaceutica",
       "_targetScope": {
-        "canton": "TI",
-        "location": "Mendrisio"
+        "canton": "NE",
+        "location": "Couvet"
       },
       "sourceLang": "it",
       "crawledAt": "",
@@ -571,11 +571,12 @@
       "salaryMax": 75000,
       "currency": "CHF",
       "firstSeenAt": "2026-05-21T07:33:30.027Z",
-      "_qualityScore": 84,
+      "needsRetranslation": true,
+      "_qualityScore": 71,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 14,
-        "translation": 25,
+        "richness": 10,
+        "translation": 16,
         "completeness": 20
       }
     }
