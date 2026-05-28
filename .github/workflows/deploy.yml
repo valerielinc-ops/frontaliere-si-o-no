@@ -683,6 +683,23 @@ jobs:
           retention-days: 1
           if-no-files-found: ignore
 
+      # Master jobs.json for post-deploy validators. The deploy artifact
+      # strips dist/data/jobs.json (jobsJsonDistCleanupPlugin, PR #712) to
+      # stay under the 10 GB GH Pages cap — runtime SPA fetches the
+      # per-locale shards instead. Validators like
+      # validate:translation-completeness still need the master file with
+      # titleByLocale / descriptionByLocale, so we upload it as a small
+      # dedicated artifact (retention 1d) that post-deploy-validate-dist
+      # downloads back into data/.
+      - name: Upload master jobs.json for post-deploy validators
+        if: github.event.inputs.profile_sequential != 'true'
+        uses: actions/upload-artifact@v7
+        with:
+          name: jobs-master-${{ github.run_id }}
+          path: data/jobs.json
+          retention-days: 1
+          if-no-files-found: error
+
       # Post-build dist shrinker REMOVED 2026-05-22 (PR #480).
       # Originally added (PRs #473+#475+#476+#478) to recover ~190 MB
       # of HTML byte slop. After Round-2 source fixes:
