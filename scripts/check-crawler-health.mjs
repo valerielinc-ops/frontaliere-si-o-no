@@ -77,6 +77,14 @@ const EMPTY_OK_CRAWLERS = new Set([
   // Dedicated regional Zurich Insurance search can legitimately return zero
   // TI/GR openings while the crawler and source are healthy.
   'zurich-insurance-sede-ticino',
+  // Manor sitemap currently lists 160+ jobs across CH but none in Ticino
+  // (Lugano/Locarno/Biasca). Manor has effectively withdrawn from TI hiring
+  // for now; parser is healthy and will re-arm when TI listings reappear.
+  'manor',
+  // Zambon Cadempino (TI) production site: the ncoreplat careers API
+  // (https://www.zambon.com/it/api/careers-api) returns jobs across
+  // BR/DE/IT/FR/ES/CO but currently 0 CH listings. Parser is healthy.
+  'zambon',
 ]);
 
 /** Read JSON file, return null on any error. */

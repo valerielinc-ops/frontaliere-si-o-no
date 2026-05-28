@@ -35,7 +35,7 @@
  * raw umantis.com subdomain always works regardless.
  */
 import { createHash } from 'node:crypto';
-import { detectLang } from './dedicated-crawler-common.mjs';
+import { detectLang, isCivilServiceListing } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 
@@ -510,8 +510,18 @@ export function createUmantisListingParser(config) {
     const jobs = [];
     let detailHits = 0;
 
+    let skippedCivilService = 0;
     for (const entry of entries) {
       const title = entry.title;
+      // Skip Swiss compulsory civil-service (Zivildienst) placements — they
+      // require Swiss citizenship and a conscription waiver, so they are
+      // never accessible to cross-border workers. Their thin descriptions
+      // also tend to trip the boilerplate guard when the listing pool is
+      // small (see issues #683/#685/#693).
+      if (isCivilServiceListing(title, entry.snippet)) {
+        skippedCivilService++;
+        continue;
+      }
       const detailUrl = `${BASE_URL}/Vacancies/${entry.id}/Description/${langCode}`;
       const applyUrl = `${BASE_URL}/Vacancies/${entry.id}/Application/CheckLogin/${langCode}`;
       const jobUrl = canonicalUrlMode === 'application' ? applyUrl : detailUrl;
@@ -610,6 +620,9 @@ export function createUmantisListingParser(config) {
       });
     }
 
+    if (skippedCivilService > 0) {
+      console.log(`  ⏭️  Skipped ${skippedCivilService} Zivildienst/civil-service listing(s) (not relevant for cross-border workers)`);
+    }
     console.log(`\n📋 Total ${companyName} jobs discovered: ${jobs.length} (${detailHits}/${entries.length} with rich detail content)`);
     return jobs;
   }

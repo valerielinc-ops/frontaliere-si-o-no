@@ -286,7 +286,12 @@ export async function* fetchWorkdayJobs(apiBase, options = {}) {
     }
 
     const postings = Array.isArray(data?.jobPostings) ? data.jobPostings : [];
-    if (typeof data?.total === 'number' && Number.isFinite(data.total)) {
+    // Some Workday tenants (e.g. logitech.wd5) return `total: 0` on every
+    // page after the first, which would otherwise trip the
+    // `yielded >= total` early-exit below after page 1. Trust only the
+    // first page's total; rely on `postings.length < pageSize` / empty
+    // payload to detect the genuine end of pagination.
+    if (page === 0 && typeof data?.total === 'number' && Number.isFinite(data.total)) {
       total = data.total;
     }
 
