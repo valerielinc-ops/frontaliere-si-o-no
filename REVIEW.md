@@ -28,6 +28,7 @@ Non passa nessuno → drop. Non importante per questo progetto.
 - Style/formatting/naming
 - TS strictness salvo maschera bug logico
 - Test coverage salvo path funnel-critici (qualunque script o modulo che decide cosa viene indicizzato, emit di structured data, sitemap, AdSense placement). Fix su tali path senza test → 🟡 Nit.
+- Script funnel-critico senza workflow CI corrispondente (manual-only, dipende da SA/credenziali su macchina dev) → 🟡 Nit. Eccezioni motivate (one-shot ammortizzato, dev-only) restano nel `## Non implementato` con motivo esplicito.
 - Refactor speculativi non legati al diff
 - "Aggiungi test" generico senza target+motivo funnel
 - Cavilli architetturali se la soluzione attuale funziona
