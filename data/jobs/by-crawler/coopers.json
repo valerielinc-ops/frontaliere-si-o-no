@@ -1,6 +1,6 @@
 {
   "crawlerKey": "coopers",
-  "assembledAt": "2026-05-28T12:16:08.082Z",
+  "assembledAt": "2026-05-28T22:45:17.964Z",
   "jobs": [
     {
       "id": "coopers-2623bcf0eafe",
@@ -33,7 +33,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=979PJR",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-28T12:16:05.599Z",
+      "crawledAt": "2026-05-28T22:45:15.966Z",
       "addressLocality": "Wallis",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -140,7 +140,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=9W1L7K",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-28T12:16:04.294Z",
+      "crawledAt": "2026-05-28T22:45:14.715Z",
       "addressLocality": "Wallis",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -155,13 +155,12 @@
       "postedDate": "2026-05-22",
       "applyUrl": "https://www.coopers.ch/en/jobs/detail.php?refCode=9W1L7K",
       "requirements": [
-        "Bachelor’s or Master’s degree in Life Sciences, Pharmacy, Chemistry, or a related scientific discipline",
-        "5+ years of professional experience in a similar QA, Supplier Management, Change Control, or GMP support role",
-        "Strong understanding of GMP regulations, quality systems, and change control processes",
-        "Extensive hands-on experience with TrackWise",
-        "Strong organizational skills with high attention to detail and the ability to manage multiple priorities",
-        "Excellent communication and teamwork skills with the ability to work both independently and collaboratively",
-        "Fluent English (German is considered a strong advantage)"
+        "Life Sciences - Regulatory Affairs",
+        "Wallis",
+        "Contracting",
+        "Full Time",
+        "01/06/2026 - 30/11/2026",
+        "TrackWise, QA, GMP, Compliance"
       ],
       "requirementsByLocale": {
         "en": [
@@ -184,6 +183,7 @@
         ]
       },
       "firstSeenAt": "2026-05-26T22:34:26.824Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -229,7 +229,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=5QI3F8",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-28T12:16:02.993Z",
+      "crawledAt": "2026-05-28T22:45:13.464Z",
       "addressLocality": "Wallis",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -244,12 +244,12 @@
       "postedDate": "2026-05-27",
       "applyUrl": "https://www.coopers.ch/en/jobs/detail.php?refCode=5QI3F8",
       "requirements": [
-        "Technical or engineering qualification (HND/HNC or equivalent)",
-        "Experience in maintenance planning and engineering maintenance activities",
-        "Ideally experience in pharmaceutical, GMP, or highly regulated environments",
-        "Strong knowledge of maintenance planning and scheduling processes",
-        "SAP PM experience required",
-        "Fluent in German and English"
+        "Life Sciences - Engineering",
+        "Wallis",
+        "Contracting",
+        "Full Time",
+        "asap - 31.10.2026",
+        "SAP, FUE"
       ],
       "requirementsByLocale": {
         "en": [
@@ -258,29 +258,32 @@
           "Ideally experience in pharmaceutical, GMP, or highly regulated environments",
           "Strong knowledge of maintenance planning and scheduling processes",
           "SAP PM experience required",
-          "Fluent in German and English"
-        ]
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "engineering-planer-m-f-d-coopers-wallis",
-          "engineering-planner-m-f-d-coopers-wallis"
-        ],
-        "de": [
-          "engineering-planer-m-f-d-coopers-wallis"
-        ],
-        "fr": [
-          "engineering-planer-m-f-d-coopers-wallis"
-        ],
-        "en": [
-          "engineering-planer-m-f-d-coopers-wallis"
+          "Fluent in German and English",
+          "Life Sciences - Engineering",
+          "Contracting"
         ]
       },
       "previousSlugs": [
         "engineering-planer-m-f-d-coopers-wallis",
         "engineering-planner-m-f-d-coopers-wallis"
       ],
+      "previousSlugsByLocale": {
+        "it": [
+          "engineering-planer-m-f-d-coopers-wallis",
+          "engineering-planner-m-f-d-coopers-wallis"
+        ],
+        "en": [
+          "engineering-planer-m-f-d-coopers-wallis"
+        ],
+        "de": [
+          "engineering-planer-m-f-d-coopers-wallis"
+        ],
+        "fr": [
+          "engineering-planer-m-f-d-coopers-wallis"
+        ]
+      },
       "firstSeenAt": "2026-05-27T22:41:36.318Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -299,9 +302,9 @@
       "id": "coopers-b71f646bfd28",
       "slug": "physchem-lab-analytical-scientist-m-w-d-coopers-wallis",
       "slugByLocale": {
-        "de": "physchem-lab-analytical-scientist-m-w-d-coopers-wallis",
         "it": "physchem-lab-analytical-scientist-m-w-d-coopers-wallis",
         "en": "physchem-lab-analytical-scientist-m-w-d-coopers-wallis",
+        "de": "physchem-lab-analytical-scientist-m-w-d-coopers-wallis",
         "fr": "physchem-lab-analytical-scientist-m-w-d-coopers-wallis"
       },
       "company": "Coopers Group AG",
@@ -309,24 +312,24 @@
       "companyDomain": "coopers.ch",
       "title": "Physchem Lab Analytical Scientist (m/w/d)",
       "titleByLocale": {
-        "de": "Physchem Lab Analytical Scientist (m/w/d)",
-        "en": "Physchem Lab Analytical Scientist (m/w/d)",
         "it": "Physchem Lab Analytical Scientist (m/w/d)",
+        "en": "Physchem Lab Analytical Scientist (m/w/d)",
+        "de": "Physchem Lab Analytical Scientist (m/w/d)",
         "fr": "Physchem Lab Analytical Scientist (m/w/d)"
       },
-      "description": "Position?\nDann freuen wir uns über vollständige Bewerbungsunterlagen per Onlineformular.\n\nBei Bewerbungen per E-Mail erklärt sich der Sender respektive die Senderin damit einverstanden, dass die übermittelten Daten unter Berücksichtigung unserer Datenschutzrichtlinie verwendet werden.\n\nWeitere offene Stellen gibt es hier: coopers.ch\n\nJob profile (2BI62U)\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tLife Sciences - R&D Laboratory\n\n•\n\nWallis\n\nContracting\n\nFull Time\n\nasap - 15.07.2026\n\nValidation, GMP\n\nSounds interesting?\n\nSimply click \"",
+      "description": "Position?\nDann freuen wir uns über vollständige Bewerbungsunterlagen per Onlineformular.\n\nBei Bewerbungen per E-Mail erklärt sich der Sender respektive die Senderin damit einverstanden, dass die übermittelten Daten unter Berücksichtigung unserer Datenschutzrichtlinie verwendet werden.\n\nWeitere offene Stellen gibt es hier: coopers.ch\n\nJob profile (2BI62U)\n\n•\n\t\t\t\t\t\t\tLife Sciences - R&D Laboratory\n\n•\n\nWallis\n\nContracting\n\nFull Time\n\nasap - 15.07.2026\n\nValidation, GMP\n\nSounds interesting?\n\nSimply click \"",
       "descriptionByLocale": {
-        "de": "Position?\nDann freuen wir uns über vollständige Bewerbungsunterlagen per Onlineformular.\n\nBei Bewerbungen per E-Mail erklärt sich der Sender respektive die Senderin damit einverstanden, dass die übermittelten Daten unter Berücksichtigung unserer Datenschutzrichtlinie verwendet werden.\n\nWeitere offene Stellen gibt es hier: coopers.ch\n\nJob profile (2BI62U)\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tLife Sciences - R&D Laboratory\n\n•\n\nWallis\n\nContracting\n\nFull Time\n\nasap - 15.07.2026\n\nValidation, GMP\n\nSounds interesting?\n\nSimply click \"",
-        "it": "Position?\nDann freuen wir uns über vollständige Bewerbungsunterlagen per Onlineformular.\n\nBei Bewerbungen per E-Mail erklärt sich der Sender respektive die Senderin damit einverstanden, dass die übermittelten Daten unter Berücksichtigung unserer Datenschutzrichtlinie verwendet werden.\n\nWeitere offene Stellen gibt es hier: coopers.ch\n\nJob profile (2BI62U)\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tLife Sciences - R&D Laboratory\n\n•\n\nWallis\n\nContracting\n\nFull Time\n\nasap - 15.07.2026\n\nValidation, GMP\n\nSounds interesting?\n\nSimply click \"",
-        "en": "Position?\nDann freuen wir uns über vollständige Bewerbungsunterlagen per Onlineformular.\n\nBei Bewerbungen per E-Mail erklärt sich der Sender respektive die Senderin damit einverstanden, dass die übermittelten Daten unter Berücksichtigung unserer Datenschutzrichtlinie verwendet werden.\n\nWeitere offene Stellen gibt es hier: coopers.ch\n\nJob profile (2BI62U)\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tLife Sciences - R&D Laboratory\n\n•\n\nWallis\n\nContracting\n\nFull Time\n\nasap - 15.07.2026\n\nValidation, GMP\n\nSounds interesting?\n\nSimply click \"",
-        "fr": "Position?\nDann freuen wir uns über vollständige Bewerbungsunterlagen per Onlineformular.\n\nBei Bewerbungen per E-Mail erklärt sich der Sender respektive die Senderin damit einverstanden, dass die übermittelten Daten unter Berücksichtigung unserer Datenschutzrichtlinie verwendet werden.\n\nWeitere offene Stellen gibt es hier: coopers.ch\n\nJob profile (2BI62U)\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tLife Sciences - R&D Laboratory\n\n•\n\nWallis\n\nContracting\n\nFull Time\n\nasap - 15.07.2026\n\nValidation, GMP\n\nSounds interesting?\n\nSimply click \""
+        "it": "Position? Dann freuen wir uns über vollständige Bewerbungsunterlagen per Onlineformular. Bei Bewerbungen per E-Mail erklärt sich der Sender respektive die Senderin damit einverstanden, dass die übermittelten Daten unter Berücksichtigung unserer Datenschutzrichtlinie verwendet werden. Weitere offene Stellen gibt es hier: coopers.ch Job profile (2BI62U)\n• Life Sciences - R&D Laboratory\n• Wallis Contracting Full Time asap - 15.07.2026 Validation, GMP Sounds interesting? Simply click \"",
+        "en": "Position? Dann freuen wir uns über vollständige Bewerbungsunterlagen per Onlineformular. Bei Bewerbungen per E-Mail erklärt sich der Sender respektive die Senderin damit einverstanden, dass die übermittelten Daten unter Berücksichtigung unserer Datenschutzrichtlinie verwendet werden. Weitere offene Stellen gibt es hier: coopers.ch Job profile (2BI62U)\n• Life Sciences - R&D Laboratory\n• Wallis Contracting Full Time asap - 15.07.2026 Validation, GMP Sounds interesting? Simply click \"",
+        "de": "Position? Dann freuen wir uns über vollständige Bewerbungsunterlagen per Onlineformular. Bei Bewerbungen per E-Mail erklärt sich der Sender respektive die Senderin damit einverstanden, dass die übermittelten Daten unter Berücksichtigung unserer Datenschutzrichtlinie verwendet werden. Weitere offene Stellen gibt es hier: coopers.ch Job profile (2BI62U)\n• Life Sciences - R&D Laboratory\n• Wallis\n• Contracting\n• Full Time\n• asap - 15.07.2026\n• Validation, GMP Sounds interesting? Simply click \"",
+        "fr": "Position? Dann freuen wir uns über vollständige Bewerbungsunterlagen per Onlineformular. Bei Bewerbungen per E-Mail erklärt sich der Sender respektive die Senderin damit einverstanden, dass die übermittelten Daten unter Berücksichtigung unserer Datenschutzrichtlinie verwendet werden. Weitere offene Stellen gibt es hier: coopers.ch Job profile (2BI62U)\n• Life Sciences - R&D Laboratory\n• Wallis Contracting Full Time asap - 15.07.2026 Validation, GMP Sounds interesting? Simply click \""
       },
       "location": "Wallis",
       "canton": "VS",
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=2BI62U",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-28T12:16:01.654Z",
+      "crawledAt": "2026-05-28T22:45:11.176Z",
       "addressLocality": "Wallis",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -341,11 +344,12 @@
       "postedDate": "2026-05-27",
       "applyUrl": "https://www.coopers.ch/en/jobs/detail.php?refCode=2BI62U",
       "requirements": [
-        "Pharma industry /GMP/ transfer and validation experience 5+ years of experience",
-        "Bachelor's in relevant Field and Masters preferred",
-        "Business Fluent English, German is a plus",
-        "Excellent soft skills (Flexibility, critial thinking, customer service, communication",
-        "Tools knowledge: LIMS, Trackwise, DMS"
+        "Life Sciences - R&D Laboratory",
+        "Wallis",
+        "Contracting",
+        "Full Time",
+        "asap - 15.07.2026",
+        "Validation, GMP"
       ],
       "requirementsByLocale": {
         "de": [
@@ -353,10 +357,14 @@
           "Bachelor's in relevant Field and Masters preferred",
           "Business Fluent English, German is a plus",
           "Excellent soft skills (Flexibility, critial thinking, customer service, communication",
-          "Tools knowledge: LIMS, Trackwise, DMS"
+          "Tools knowledge: LIMS, Trackwise, DMS",
+          "Life Sciences - R&D Laboratory",
+          "Contracting",
+          "Full Time"
         ]
       },
       "needsRetranslation": true,
+      "firstSeenAt": "2026-05-28T12:16:01.654Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -369,8 +377,7 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1950",
-      "firstSeenAt": "2026-05-28T12:16:01.654Z"
+      "postalCode": "1950"
     }
   ]
 }
