@@ -1,0 +1,74 @@
+name: Refresh thin-page promotions
+
+# Self-healing feedback loop for tiered emission (artifact-shrink Fase 1).
+# Polls PostHog + GA4 for `thin_page_view` events emitted by App.tsx when
+# window.__THIN_SHELL__ is set on a thinned static page. Any URL hit gets
+# committed into data/thin-page-promotions-active.json; the next deploy's
+# trafficEvidenceFilter sees it and falls back to 'full' for that URL.
+#
+# Cadence: every hour at :15. Cheap (two API calls), idempotent — when
+# nothing fresh lands the active.json file is left unchanged so no commit
+# happens.
+
+on:
+  schedule:
+    - cron: '15 * * * *'
+  workflow_dispatch:
+    inputs:
+      window_hours:
+        description: 'Polling window in hours (default 24)'
+        required: false
+        default: '24'
+      active_window_days:
+        description: 'Active rollup window in days (default 30)'
+        required: false
+        default: '30'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: refresh-thin-promotions
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 1
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Node
+        uses: actions/setup-node@v5
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - run: npm ci --no-audit --no-fund
+
+      - name: Fetch thin-page promotions
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+          GA4_PROPERTY_ID: ${{ secrets.GA4_PROPERTY_ID }}
+          POSTHOG_PERSONAL_API_KEY: ${{ secrets.POSTHOG_PERSONAL_API_KEY }}
+          POSTHOG_PROJECT_ID: ${{ secrets.POSTHOG_PROJECT_ID }}
+          POSTHOG_HOST: ${{ secrets.POSTHOG_HOST }}
+        run: |
+          node scripts/fetch-thin-page-promotions.mjs \
+            --window-hours="${{ github.event.inputs.window_hours || '24' }}" \
+            --active-window-days="${{ github.event.inputs.active_window_days || '30' }}"
+
+      - name: Commit if changed
+        run: |
+          if git diff --quiet -- data/thin-page-promotions-active.json data/thin-page-promotions.jsonl; then
+            echo "no change"
+            exit 0
+          fi
+          git config user.name "Valerie Linc"
+          git config user.email "valerielinc@gmail.com"
+          git add data/thin-page-promotions-active.json data/thin-page-promotions.jsonl
+          git commit -m "chore(thin-promotions): refresh self-heal feedback (last hour)"
+          git push

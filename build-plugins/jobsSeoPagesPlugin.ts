@@ -15,6 +15,8 @@ import { BASE_URL, buildCanonicalBridgePage, SPA_ACTION_REDIRECT_SCRIPT, robotsM
 import { buildSimplePage } from './htmlTemplate';
 import { buildSeoPageHtml } from './shared/seoPageShell';
 import { minifyHtml } from './shared/htmlMinify';
+import { getTrafficEvidenceFilter } from './shared/trafficEvidenceFilter';
+import { buildBridgeThinHtml } from './shared/bridgeThinShell';
 import { jobDescriptionTextToHtml, inlineTextToHtml } from './shared/jobDescription/toHtml';
 import { markCantonNoindex } from './shared/cantonNoindexRegistry';
 import { WriteCollector } from './batchWrite';
@@ -604,6 +606,16 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  const np = await import('node:path');
  const distDir = np.resolve(rootDir, 'dist');
  const jobsPath = np.resolve(rootDir, 'data/jobs.json');
+
+ // Tiered emission filter (artifact-shrink Fase 1). Consults
+ // data/evidence-index.json (90d GSC/GA4/PostHog) + the hourly
+ // data/thin-page-promotions-active.json (self-healing feedback) +
+ // data/url-pruning-approved-patterns.json (user-curated). Defaults
+ // to 'full' on any missing input: zero behavior change until a pattern
+ // is approved. See build-plugins/shared/trafficEvidenceFilter.ts.
+ const trafficFilter = getTrafficEvidenceFilter(rootDir);
+ let bridgeFullCount = 0;
+ let bridgeThinCount = 0;
 
  // `cacheDateStamp` is used as today's stamp throughout the plugin and
  // in the always-run sitemap-index patch below.
@@ -10862,9 +10874,20 @@ ${staticAnalyticsHtml}
  // passes over the ~30-50 KB cachedHtml don't depend on `oldSlug`. Lazy
  // (computed only on the first oldSlug that actually emits a bridge) so
  // the case where every prevSlug is filtered out below stays a no-op.
+ // Tiered cache: 'full' (today's behavior) and 'thin' (artifact-shrink
+ // Fase 1, ~9 KB smaller, same SEO signals — see bridgeThinShell.ts).
  let bridgeIndexHtml: string | null = null;
  let bridgeFlatHtml: string | null = null;
- const ensureBridgeHtml = (): { indexHtml: string; flatHtml: string } => {
+ let bridgeThinIndexHtml: string | null = null;
+ let bridgeThinFlatHtml: string | null = null;
+ const ensureBridgeHtml = (action: 'full' | 'thin'): { indexHtml: string; flatHtml: string } => {
+ if (action === 'thin') {
+ if (bridgeThinIndexHtml === null || bridgeThinFlatHtml === null) {
+ bridgeThinIndexHtml = buildBridgeThinHtml(cachedHtml, currentSlug, locale);
+ bridgeThinFlatHtml = bridgeThinIndexHtml.replace(SPA_ACTION_REDIRECT_SCRIPT, '');
+ }
+ return { indexHtml: bridgeThinIndexHtml, flatHtml: bridgeThinFlatHtml };
+ }
  if (bridgeIndexHtml === null || bridgeFlatHtml === null) {
  const bridgeScript = `<script>window.__BRIDGE_TARGET_SLUG__=${JSON.stringify(currentSlug)};</script>`;
  bridgeIndexHtml = cachedHtml.replace('</head>', ` ${bridgeScript}\n </head>`);
@@ -10915,7 +10938,16 @@ ${staticAnalyticsHtml}
  // Reuse the full active page HTML — canonical already points to the
  // current slug URL. Inject __BRIDGE_TARGET_SLUG__ so the SPA knows to
  // use the current slug for data lookup instead of parsing the old URL.
- const { indexHtml, flatHtml } = ensureBridgeHtml();
+ // Tiered emission: filter consults evidence-index.json + hourly
+ // thin-page-promotions-active.json. Decision applies to BOTH the
+ // primary emit and the legacy-TI mirror emit below so the bridge
+ // pair stays consistent.
+ const __brBridgeUrlPath = oldPath.startsWith('/') ? oldPath : `/${oldPath}`;
+ const __brDecision = trafficFilter.decide(__brBridgeUrlPath, 'previousSlug');
+ const __brAction: 'full' | 'thin' =
+ __brDecision.action === 'thin' ? 'thin' : 'full';
+ if (__brAction === 'thin') bridgeThinCount++; else bridgeFullCount++;
+ const { indexHtml, flatHtml } = ensureBridgeHtml(__brAction);
 
  _md(outDir);
  _qw(np.join(outDir, 'index.html'), indexHtml);
@@ -11197,6 +11229,18 @@ ${staticAnalyticsHtml}
  }
  fs.writeFileSync(sitemapIndexFile, idx, 'utf-8');
  }
+
+ // Tiered emission summary (artifact-shrink Fase 1). 'full' = today's
+ // behavior (cached canonical HTML reused). 'thin' = bridge body
+ // replaced with a slim ≥50-word block; HEAD signals unchanged. See
+ // build-plugins/shared/bridgeThinShell.ts and trafficEvidenceFilter.ts.
+ if (bridgeThinCount > 0 || bridgeFullCount > 0) {
+ console.log(
+ `\x1b[36m[jobs-seo-pages]\x1b[0m bridge tier: ` +
+ `full=${bridgeFullCount} thin=${bridgeThinCount}`
+ );
+ }
+ console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m ${trafficFilter.summary()}`);
  },
  };
 }

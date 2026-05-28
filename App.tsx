@@ -187,6 +187,37 @@ const App: React.FC = () => {
  const { isDarkMode, isFocusMode, showDeferredHomeWidgets, translationsReady, toggleTheme, setIsFocusMode } = useUIState(activeTab);
  useSeoPageTracking();
 
+ // Thin-shell feedback signal (artifact-shrink Fase 1). Build emits
+ // `window.__THIN_SHELL__ = 1` on the thinned variant of a static page
+ // (currently: previousSlug bridges that have zero traffic per the build
+ // gate). Fire one event on mount so the hourly workflow
+ // refresh-thin-promotions.yml can lift the URL back into the "full" set
+ // on its next refresh. Single-shot per page-load — uses a window flag
+ // gate to dedup if React StrictMode double-mounts the component.
+ useEffect(() => {
+ if (typeof window === 'undefined') return;
+ const w = window as unknown as { __THIN_SHELL__?: number; __THIN_SHELL_REPORTED__?: number };
+ if (!w.__THIN_SHELL__) return;
+ if (w.__THIN_SHELL_REPORTED__) return;
+ w.__THIN_SHELL_REPORTED__ = 1;
+ const path = window.location.pathname;
+ // Heuristic classifier mirroring the build-side urlClass buckets used
+ // by trafficEvidenceFilter. Kept inline (no shared module) since the
+ // hourly fetcher classifies server-side via the same prefixes — see
+ // scripts/fetch-thin-page-promotions.mjs.
+ const urlClass =
+ /^(\/(cerca-lavoro-ticino|en\/find-jobs-ticino|de\/jobs-im-tessin|fr\/trouver-emploi-tessin))\//.test(path)
+ ? 'previousSlug'
+ : /^\/(ricerca|en\/search-cluster|de\/such-cluster|fr\/recherche-cluster)\//.test(path)
+ ? 'cluster'
+ : 'unknown';
+ try {
+ Analytics.trackEvent('thin_page_view', { page_path: path, url_class: urlClass });
+ } catch {
+ // Analytics failures must never break SPA mount.
+ }
+ }, []);
+
  // SPA-over-static takeover: build-time SEO pages emit `<main class="seo-static-content">`
  // OUTSIDE `#root` as the crawler-facing fallback. When the URL resolves to a real SPA
  // route (i.e. NOT staticOverlay), the React `<main id="main-content">` mounts inside

@@ -1,0 +1,7 @@
+{
+  "_doc": "Self-healing promotions for tiered emission. URLs that fired thin_page_view in last 30 days via PostHog/GA4. Build plugins read this via build-plugins/shared/trafficEvidenceFilter.ts and emit FULL HTML for these URLs (overriding the thin decision). Empty array = no promotions, normal tier-2 logic applies. Refreshed hourly by .github/workflows/refresh-thin-promotions.yml.",
+  "generatedAt": null,
+  "windowDays": 30,
+  "_seenAt": {},
+  "urls": []
+}
