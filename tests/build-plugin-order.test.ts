@@ -15,11 +15,19 @@ function isNamedPlugin(plugin: unknown): plugin is { name: string } {
 }
 
 function pluginNames(): string[] {
-  const resolved = typeof viteConfig === 'function'
-    ? viteConfig({ command: 'build', mode: 'production' })
-    : viteConfig;
-  const plugins = Array.isArray(resolved.plugins) ? resolved.plugins.flat() : [];
-  return plugins.filter(isNamedPlugin).map((plugin) => plugin.name);
+  // Force the full plugin list — agent sessions inherit FAST_BUILD=1 which
+  // would otherwise skip every SEO plugin under test here.
+  const prev = process.env.FAST_BUILD;
+  delete process.env.FAST_BUILD;
+  try {
+    const resolved = typeof viteConfig === 'function'
+      ? viteConfig({ command: 'build', mode: 'production' })
+      : viteConfig;
+    const plugins = Array.isArray(resolved.plugins) ? resolved.plugins.flat() : [];
+    return plugins.filter(isNamedPlugin).map((plugin) => plugin.name);
+  } finally {
+    if (prev !== undefined) process.env.FAST_BUILD = prev;
+  }
 }
 
 function expectPluginAfter(names: string[], consumer: string, producer: string): void {
