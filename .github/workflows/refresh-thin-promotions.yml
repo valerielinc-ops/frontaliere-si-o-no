@@ -85,4 +85,28 @@ jobs:
           git config user.email "thin-promotions-bot@frontaliereticino.ch"
           git add data/thin-page-promotions-active.json data/thin-page-promotions.jsonl
           git commit -m "chore(thin-promotions): refresh self-heal feedback (last hour)"
-          git push
+          # Retry-on-rebase: many scheduled workflows push to main concurrently
+          # (crawlers, fuel, weather, etc.); a non-fast-forward push is the
+          # expected failure mode, NOT a code bug. Mirror the rebase loop used
+          # by crawler-health-monitor.yml so a parallel push between our fetch
+          # and push does not fail the entire run.
+          MAX_ATTEMPTS=5
+          BACKOFF_BASE=3
+          attempt=1
+          while [ "$attempt" -le "$MAX_ATTEMPTS" ]; do
+            if git push origin HEAD:main; then
+              echo "✅ Pushed thin-promotions refresh."
+              exit 0
+            fi
+            echo "⚠️ Push rejected (attempt $attempt/$MAX_ATTEMPTS) — fetch + rebase, then retry…"
+            git fetch origin main
+            if ! git rebase origin/main; then
+              echo "⚠️ Rebase conflict on data/thin-page-promotions-*.json — aborting and resetting."
+              git rebase --abort || true
+              exit 1
+            fi
+            sleep $((BACKOFF_BASE * attempt))
+            attempt=$((attempt + 1))
+          done
+          echo "❌ Push failed after $MAX_ATTEMPTS attempts — leaving change uncommitted."
+          exit 1
