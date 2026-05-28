@@ -20,6 +20,13 @@
  *   6. Run the base crawler for AI localization (4 locales)
  *   7. Post-process: fix company name, location, canton
  *   8. Validate locale coverage across IT/EN/DE/FR
+ *
+ * NOTE (2026-05-28): Zero-job runs since 2026-05-23 are NOT a parser bug.
+ * The AIL AJAX endpoint currently returns the static message
+ *   "Al momento non ci sono posizioni aperte"
+ * inside a single <div class="inner-title"> (no <article class="job-position">
+ * blocks). Parser logic is intact; source has zero openings. Keep this
+ * crawler enabled — it will resume returning jobs when AIL posts new ones.
  */
 import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 import fs from 'node:fs';
