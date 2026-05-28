@@ -1,6 +1,6 @@
 {
   "crawlerKey": "confederazione-ticino",
-  "assembledAt": "2026-05-27T22:36:52.438Z",
+  "assembledAt": "2026-05-28T12:10:54.462Z",
   "jobs": [
     {
       "title": "Nebenamtliche/r Richter/in der Berufungskammer mit Hauptsprache Französisch",
@@ -132,8 +132,8 @@
       "streetAddress": "Piazza Governo",
       "postalCode": "6501",
       "firstSeenAt": "2026-05-21T11:34:57.137Z",
-      "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "needsRetranslation": true
     },
     {
       "title": "Polymechaniker/-in / Waffenmechaniker/-in",
@@ -201,8 +201,8 @@
       "previousSlugs": [
         "polymechaniker-in-waffenmechaniker-in-confederazione-rivera"
       ],
-      "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "needsRetranslation": true
     },
     {
       "title": "Hochschulpraktikant/in Digitale Transformation",
@@ -343,8 +343,8 @@
       "streetAddress": "Piazza Governo",
       "postalCode": "6501",
       "firstSeenAt": "2026-05-21T22:05:37.638Z",
-      "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "needsRetranslation": true
     },
     {
       "title": "Spezialist/-in Elektrotechnik",
@@ -631,8 +631,8 @@
       "previousSlugs": [
         "assistent-in-der-centerleitung-alc-monteceneri-confederazione-monteceneri"
       ],
-      "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "needsRetranslation": true
     },
     {
       "title": "Raus aus der Routine? Werde Berufsoffizier/-in",
@@ -704,7 +704,8 @@
       },
       "streetAddress": "Piazza Governo",
       "postalCode": "6501",
-      "firstSeenAt": "2026-05-17T09:57:57.728Z"
+      "firstSeenAt": "2026-05-17T09:57:57.728Z",
+      "needsRetranslation": true
     },
     {
       "title": "Dein Beruf sollte mehr bieten? Werde Berufsunteroffizier/-in",
@@ -774,7 +775,8 @@
       },
       "streetAddress": "Piazza Governo",
       "postalCode": "6501",
-      "firstSeenAt": "2026-05-17T09:57:57.728Z"
+      "firstSeenAt": "2026-05-17T09:57:57.728Z",
+      "needsRetranslation": true
     },
     {
       "title": "Asyl-Dolmetscher/-in",
@@ -846,7 +848,8 @@
         "de": [
           "asyl-dolmetscher-in-confederazione-svizzera-alle-standorte-des-sem"
         ]
-      }
+      },
+      "needsRetranslation": true
     }
   ]
 }
