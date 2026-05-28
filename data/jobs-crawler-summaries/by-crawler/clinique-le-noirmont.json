@@ -1,18 +1,54 @@
 {
   "key": "clinique-le-noirmont",
   "label": "Clinique Le Noirmont",
-  "generatedAt": "2026-05-27T22:34:47.583Z",
-  "total": 6,
-  "newCount": 0,
+  "generatedAt": "2026-05-28T12:08:35.589Z",
+  "total": 7,
+  "newCount": 1,
   "updatedCount": 6,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 4092,
-  "avgDurationMs": 4092,
+  "durationMs": 4730,
+  "avgDurationMs": 4730,
   "durationHistory": [
-    4092
+    4730
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "title": "Infirmier (F/H) 60%-100%",
+      "slug": "infirmier-f-h-60-100-clinique-le-noirmont",
+      "url": "https://www.cliniquelenoirmont.ch/FileDownload/Download/1017",
+      "applyUrl": "https://www.cliniquelenoirmont.ch/La-clinique/Offres-demploi",
+      "company": "Clinique Le Noirmont",
+      "companyKey": "clinique-le-noirmont",
+      "companyDomain": "cliniquelenoirmont.ch",
+      "location": "Le Noirmont",
+      "addressLocality": "Le Noirmont",
+      "addressRegion": "JU",
+      "postalCode": "2340",
+      "addressCountry": "CH",
+      "canton": "JU",
+      "country": "CH",
+      "category": "health",
+      "sector": "Réadaptation cardiovasculaire et médecine interne",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "source": "clinique-le-noirmont-dedicated-crawler",
+      "sourceLang": "fr",
+      "postedDate": "2026-05-28",
+      "validThrough": "",
+      "needsRetranslation": true,
+      "_meta": {
+        "sourceIdentifier": "dl:1017"
+      },
+      "_qualityScore": 64,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 4,
+        "completeness": 17
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "title": "Médecin chef réadaptation cardiovasculaire (F/H)",
