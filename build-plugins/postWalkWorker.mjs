@@ -125,7 +125,8 @@ async function processFile(filePath) {
   let mutated = false;
   let isBridge = false;
 
-  if (path.basename(filePath) !== 'index.html') {
+  const baseName = path.basename(filePath);
+  if (baseName !== 'index.html' && !baseName.startsWith('.')) {
     if (isPreEmittedFlatBridge(html)) {
       // Pre-emitted by the originating plugin and byte-identical to what
       // transformFlatRedirect would produce. Counts as bridgeConverted for

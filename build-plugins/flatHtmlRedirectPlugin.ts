@@ -155,6 +155,14 @@ export function transformFlatRedirect(input: FlatRedirectTransformInput): string
   const { filePath, distDir, trimmedBase, readSibling } = input;
   if (path.basename(filePath) === 'index.html') return null;
   if (!filePath.endsWith('.html')) return null;
+  // Defense-in-depth: a dotfile `<dir>/.html` is never a legitimate flat
+  // sibling of `<dir>/index.html`. Some plugins concat `+ '.html'` onto a
+  // path that may end with `/`, producing `<dir>/.html` accidentally; if
+  // we let it pass, transformFlatRedirect would emit a bridge there and
+  // GitHub Pages would serve the bridge for the `/<dir>/` URL with
+  // content-type=application/octet-stream, masking the real index.html.
+  // Skip basenames that start with a dot.
+  if (path.basename(filePath).startsWith('.')) return null;
 
   const stem = filePath.slice(0, -'.html'.length);
   const sibling = path.join(stem, 'index.html');

@@ -206,7 +206,8 @@ function runSingleThreaded(
     let mutated = false;
     let isBridge = false;
 
-    if (path.basename(filePath) !== 'index.html') {
+    const baseName = path.basename(filePath);
+    if (baseName !== 'index.html' && !baseName.startsWith('.')) {
       // Fast-path: pre-emitted bridge from cluster/jobs-seo plugins (commit
       // 45399c0779). Avoids a sync 30 KB sibling read + regex pass that
       // would re-derive the same bridge content. Mirrors the worker fast
