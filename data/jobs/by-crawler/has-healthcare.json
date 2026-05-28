@@ -33,9 +33,9 @@
       },
       "slugByLocale": {
         "it": "tecnica-o-diplomata-o-sss-costruzioni-meccaniche-has-healthcare",
-        "en": "tecnica-o-diplomata-o-sss-costruzioni-meccaniche-has-healthcare-advanced-synthesis-biasca-068qa9",
-        "de": "tecnica-o-diplomata-o-sss-costruzioni-meccaniche-has-healthcare-advanced-synthesis-biasca-068qa9",
-        "fr": "tecnica-o-diplomata-o-sss-costruzioni-meccaniche-has-healthcare-advanced-synthesis-biasca-068qa9"
+        "en": "mechanical-engineering-technician-sss-has-healthcare-advanced-synthesis-biasca",
+        "de": "mechaniker-in-sss-maschinenbau-has-healthcare-advanced-synthesis-biasca",
+        "fr": "technicien-ne-sss-construction-mecanique-has-healthcare-advanced-synthesis-biasca"
       },
       "_targetScope": {
         "canton": "TI",
@@ -65,22 +65,17 @@
       "firstSeenAt": "2026-05-13T22:19:52.888Z",
       "previousSlugsByLocale": {
         "en": [
-          "mechanical-engineering-technician-sss-has-healthcare-advanced-synthesis-biasca",
           "tecnica-o-diplomata-o-sss-costruzioni-meccaniche-has-healthcare-advanced-synthesis-biasca-068qa9"
         ],
         "de": [
-          "mechaniker-in-sss-maschinenbau-has-healthcare-advanced-synthesis-biasca",
           "tecnica-o-diplomata-o-sss-costruzioni-meccaniche-has-healthcare-advanced-synthesis-biasca-068qa9"
         ],
         "fr": [
-          "technicien-ne-sss-construction-mecanique-has-healthcare-advanced-synthesis-biasca",
           "tecnica-o-diplomata-o-sss-costruzioni-meccaniche-has-healthcare-advanced-synthesis-biasca-068qa9"
         ]
       },
       "previousSlugs": [
-        "mechanical-engineering-technician-sss-has-healthcare-advanced-synthesis-biasca",
-        "mechaniker-in-sss-maschinenbau-has-healthcare-advanced-synthesis-biasca",
-        "technicien-ne-sss-construction-mecanique-has-healthcare-advanced-synthesis-biasca",
+        "tecnica-o-diplomata-o-sss-costruzioni-meccaniche-has-healthcare-advanced-synthesis-biasca-068qa9",
         "tecnica-o-diplomata-o-sss-costruzioni-meccaniche-has-healthcare-advanced-synthesis-biasca"
       ]
     },
@@ -115,9 +110,9 @@
       },
       "slugByLocale": {
         "it": "assistente-di-produzione-has-healthcare",
-        "en": "assistente-di-produzione-has-healthcare-advanced-synthesis-biasca-068qb5",
-        "de": "assistente-di-produzione-has-healthcare-advanced-synthesis-biasca-068qb5",
-        "fr": "assistente-di-produzione-has-healthcare-advanced-synthesis-biasca-068qb5"
+        "en": "assistente-di-production-has-healthcare-advanced-synthesis-biasca",
+        "de": "assistente-di-produktion-has-healthcare-advanced-synthesis-biasca",
+        "fr": "assistant-de-production-has-healthcare-advanced-synthesis-biasca"
       },
       "_targetScope": {
         "canton": "TI",
@@ -148,23 +143,18 @@
       "previousSlugsByLocale": {
         "en": [
           "assistente-di-produzione-has-healthcare-advanced-synthesis-biasca",
-          "assistente-di-production-has-healthcare-advanced-synthesis-biasca",
           "assistente-di-produzione-has-healthcare-advanced-synthesis-biasca-068qb5"
         ],
         "de": [
-          "assistente-di-produktion-has-healthcare-advanced-synthesis-biasca",
           "assistente-di-produzione-has-healthcare-advanced-synthesis-biasca-068qb5"
         ],
         "fr": [
-          "assistant-de-production-has-healthcare-advanced-synthesis-biasca",
           "assistente-di-produzione-has-healthcare-advanced-synthesis-biasca-068qb5"
         ]
       },
       "previousSlugs": [
         "assistente-di-produzione-has-healthcare-advanced-synthesis-biasca",
-        "assistente-di-production-has-healthcare-advanced-synthesis-biasca",
-        "assistente-di-produktion-has-healthcare-advanced-synthesis-biasca",
-        "assistant-de-production-has-healthcare-advanced-synthesis-biasca",
+        "assistente-di-produzione-has-healthcare-advanced-synthesis-biasca-068qb5",
         "assistente-di-produzione-has-healthcare-advanced-synthesis-lugano"
       ]
     },
@@ -285,9 +275,9 @@
       },
       "slugByLocale": {
         "it": "operaio-polimeccanico-afc-has-healthcare",
-        "en": "operaio-polimeccanico-afc-has-healthcare-advanced-synthesis-biasca",
-        "de": "operaio-polimeccanico-afc-has-healthcare-advanced-synthesis-biasca",
-        "fr": "operaio-polimeccanico-afc-has-healthcare-advanced-synthesis-biasca"
+        "en": "afc-polimechanics-operator-has-healthcare-advanced-synthesis-biasca",
+        "de": "afc-polimechaniker-has-healthcare-advanced-synthesis-biasca",
+        "fr": "operateur-polymecanique-afc-has-healthcare-advanced-synthesis-biasca"
       },
       "_targetScope": {
         "canton": "TI",
@@ -301,23 +291,17 @@
           "operaio-polimeccanico-afc-has-healthcare-advanced-synthesis-biasca"
         ],
         "en": [
-          "afc-polimechanics-operator-has-healthcare-advanced-synthesis-biasca",
           "operaio-polimeccanico-afc-has-healthcare-advanced-synthesis-biasca"
         ],
         "de": [
-          "afc-polimechaniker-has-healthcare-advanced-synthesis-biasca",
           "operaio-polimeccanico-afc-has-healthcare-advanced-synthesis-biasca"
         ],
         "fr": [
-          "operateur-polymecanique-afc-has-healthcare-advanced-synthesis-biasca",
           "operaio-polimeccanico-afc-has-healthcare-advanced-synthesis-biasca"
         ]
       },
       "previousSlugs": [
-        "operaio-polimeccanico-afc-has-healthcare-advanced-synthesis-biasca",
-        "afc-polimechanics-operator-has-healthcare-advanced-synthesis-biasca",
-        "afc-polimechaniker-has-healthcare-advanced-synthesis-biasca",
-        "operateur-polymecanique-afc-has-healthcare-advanced-synthesis-biasca"
+        "operaio-polimeccanico-afc-has-healthcare-advanced-synthesis-biasca"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
