@@ -92,6 +92,13 @@ interface ThinPromotions {
 function normalizePath(p: string): string {
   if (!p) return '';
   let s = p;
+  // Strip protocol + host (some traffic-source files store absolute URLs
+  // with or without `www`, e.g. `gsc-job-urls.json`). Everything we
+  // store in the traffic set is path-only so the comparison is
+  // host-agnostic.
+  if (s.startsWith('http://') || s.startsWith('https://')) {
+    try { s = new URL(s).pathname; } catch { return ''; }
+  }
   const q = s.indexOf('?'); if (q >= 0) s = s.slice(0, q);
   const h = s.indexOf('#'); if (h >= 0) s = s.slice(0, h);
   s = s.replace(/\/index\.html$/, '/');
@@ -126,10 +133,11 @@ export class TrafficEvidenceFilter {
     const promotionsPath = path.join(rootDir, 'data', 'thin-page-promotions-active.json');
     const approvedPath = path.join(rootDir, 'data', 'url-pruning-approved-patterns.json');
     const indexedClusterPath = path.join(rootDir, 'data', 'indexed-cluster-urls.json');
+    const gscJobUrlsPath = path.join(rootDir, 'data', 'gsc-job-urls.json');
 
     // Build a single normalized "has traffic" set from every signal source.
     const trafficSet = new Set<string>();
-    let evGa4 = 0, evPosthog = 0, evGscTop = 0, evIndexed = 0, evPromo = 0;
+    let evGa4 = 0, evPosthog = 0, evGscTop = 0, evIndexed = 0, evGscJobs = 0, evPromo = 0;
     const ev = tryRead<EvidenceIndex>(evidencePath);
     if (ev) {
       for (const path of Object.keys(ev.ga4?.pages ?? {})) {
@@ -165,6 +173,22 @@ export class TrafficEvidenceFilter {
         trafficSet.add(normalizePath(p));
       }
     }
+    // PR #746 follow-up: `data/gsc-job-urls.json` is the job-page analog
+    // of indexed-cluster-urls.json — a flat array of full URLs (with or
+    // without `www`) that GSC has seen for active or expired job-detail
+    // pages. ~2 k entries on 2026-05-28. Without this, bridge +
+    // soft-landing filtering false-negatives on slugs that still get
+    // GSC impressions despite not being top-1 for any query.
+    const gscJobUrls = tryRead<unknown>(gscJobUrlsPath);
+    if (Array.isArray(gscJobUrls)) {
+      for (const u of gscJobUrls) {
+        if (typeof u !== 'string' || !u) continue;
+        const norm = normalizePath(u);
+        if (!norm) continue;
+        if (!trafficSet.has(norm)) evGscJobs++;
+        trafficSet.add(norm);
+      }
+    }
     const promo = tryRead<ThinPromotions>(promotionsPath);
     if (promo?.urls) {
       for (const u of promo.urls) {
@@ -190,7 +214,7 @@ export class TrafficEvidenceFilter {
       const patternCount = approved?.patterns?.length ?? 0;
       console.log(
         `[traffic-evidence-filter] traffic-set=${trafficSet.size} paths, ${patternCount} approved patterns ` +
-        `(sources: ga4=${evGa4} posthog=${evPosthog} gsc-top=${evGscTop} indexed-cluster=${evIndexed} promotions=${evPromo})`
+        `(sources: ga4=${evGa4} posthog=${evPosthog} gsc-top=${evGscTop} indexed-cluster=${evIndexed} gsc-jobs=${evGscJobs} promotions=${evPromo})`
       );
     } else {
       console.log(
