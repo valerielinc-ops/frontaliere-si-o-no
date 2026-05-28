@@ -2254,10 +2254,24 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
         // Tiered emission decision per cluster context. The same html
         // payload is reused for the canonical + the flat-bridge source
         // + every legacy-canton mirror, so we decide once and apply
-        // uniformly. byte-saving accumulator counts the delta per
-        // emitted FILE (canonical + mirrors); the flat bridge is
-        // already small and doesn't materially benefit.
-        const __clDecision = trafficFilter.decide(out.urlPath, 'gsc-keyword-landing');
+        // uniformly. PR #743 fix: compute the mirror set BEFORE the
+        // decision and pass every candidate path through
+        // `decideMulti` — GSC + GA4 attribute traffic to the legacy
+        // mirror (typically `/cerca-lavoro-ticino/ricerca-X/`), not
+        // the freshly-promoted Svizzera canonical, so checking only
+        // `out.urlPath` would false-negative on essentially every
+        // cluster with real traffic.
+        const __clMirrorPaths = new Set<string>();
+        for (const mirrorCanton of [ctx.legacyCantonGroup, 'TI']) {
+          if (mirrorCanton === AGGREGATE_KEY) continue;
+          __clMirrorPaths.add(buildClusterPath(locale, ctx.candidate.slug, mirrorCanton));
+        }
+        const __clExtraKey = `${locale}::${ctx.candidate.slug}`;
+        const __clExtraPaths = indexedClusterUrlsByKey.get(__clExtraKey);
+        if (__clExtraPaths) for (const p of __clExtraPaths) __clMirrorPaths.add(p);
+        __clMirrorPaths.delete(out.urlPath);
+        const __clAllPaths = [out.urlPath, ...__clMirrorPaths];
+        const __clDecision = trafficFilter.decideMulti(__clAllPaths, 'gsc-keyword-landing');
         const __clAction: 'full' | 'thin' = __clDecision.action === 'thin' ? 'thin' : 'full';
         const __clHtml = __clAction === 'thin'
           ? buildClusterThinHtml(out.html, locale)
@@ -2313,17 +2327,10 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
         // Mirrors are NOT added to sitemapLocs: only the Svizzera canonical
         // appears in sitemap-search-clusters.xml, so audit:sitemap-canonicals
         // continues to pass. Mirrors stay out of the index over time.
-        const mirrorPaths = new Set<string>();
-        for (const mirrorCanton of [ctx.legacyCantonGroup, 'TI']) {
-          if (mirrorCanton === AGGREGATE_KEY) continue; // defensive — never emit canonical as mirror
-          mirrorPaths.add(buildClusterPath(locale, ctx.candidate.slug, mirrorCanton));
-        }
-        const extraIndexedKey = `${locale}::${ctx.candidate.slug}`;
-        const extraIndexedPaths = indexedClusterUrlsByKey.get(extraIndexedKey);
-        if (extraIndexedPaths) {
-          for (const p of extraIndexedPaths) mirrorPaths.add(p);
-        }
-        mirrorPaths.delete(out.urlPath); // never overwrite canonical
+        // Mirror set was collected upstream for the decideMulti call
+        // (PR #743 fix). Reuse it here so canonical-collision dedup
+        // and per-source merging happen in exactly one place.
+        const mirrorPaths = __clMirrorPaths;
         for (const mirrorPath of mirrorPaths) {
           // Mirrors emit ONLY index.html — no flat .html bridge. The slash
           // mirror already canonicalizes to Svizzera (via the rendered
