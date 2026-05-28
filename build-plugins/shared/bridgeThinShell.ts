@@ -115,8 +115,16 @@ export function buildBridgeThinHtml(cachedHtml: string, targetSlug: string, loca
   // regex is non-greedy across newlines and tolerates additional class
   // tokens (e.g. "seo-static-content static-job-page"). The minified
   // bridge HTML has no newlines between tags so `[\s\S]*?` is safe.
+  //
+  // The class attribute may be quoted or unquoted depending on token
+  // count: a multi-token value like `seo-static-content static-job-page`
+  // has a space and PR #478 (removeAttributeQuotes) keeps its quotes,
+  // but a single-token `seo-static-content` would be unquoted. Today the
+  // bridge always emits the multi-token form, but the regex tolerates
+  // both shapes so a future change to the class list doesn't silently
+  // disable thinning.
   const withThinBody = cachedHtml.replace(
-    /<main\s+class=["']seo-static-content[^"']*["'][^>]*>[\s\S]*?<\/main>/i,
+    /<main\s+class=["']?seo-static-content(?=[\s>"'])[^>]*>[\s\S]*?<\/main>/i,
     thinMain,
   );
 

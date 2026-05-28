@@ -96,8 +96,15 @@ export function buildSoftLandingThinHtml(fullHtml: string, locale: string): stri
     `</article>`;
 
   // Replace the entire heavy article with the thin one.
+  //
+  // PR #478 (removeAttributeQuotes) strips quotes from single-token class
+  // values, so the minified output is `<article class=ft-static-article>`
+  // (no quotes) NOT `<article class="ft-static-article">`. The verified
+  // artifact on 2026-05-28 confirmed the unquoted form is in dist. The
+  // lookahead `(?=[\s>"'])` asserts the token ends cleanly (no accidental
+  // match against `ft-static-article-xyz` if such a class is ever added).
   const withThinBody = fullHtml.replace(
-    /<article\s+class=["']ft-static-article["'][^>]*>[\s\S]*?<\/article>/i,
+    /<article\s+class=["']?ft-static-article(?=[\s>"'])[^>]*>[\s\S]*?<\/article>/i,
     thinArticle,
   );
 
