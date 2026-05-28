@@ -4345,6 +4345,16 @@ function updateStructuredData(data: Record<string, any> | Record<string, any>[])
  * - removes dynamic structured data (no schema for 404 pages)
  */
 export function applyNotFoundSeo(path: string): void {
+ // Static overlay = authoritative build-emitted page (soft-landing for compat
+ // slugs, renamed jobs, sector/city landings). If present, the static HTML
+ // already carries real title/desc/canonical/JSON-LD — slapping noindex would
+ // de-index a page that ships full content. Router falsely classified the
+ // route as 404 only because the slug isn't in the live jobs index.
+ if (typeof document !== 'undefined'
+   && document.querySelector('main.seo-static-content')) {
+   return;
+ }
+
  const notFoundTitle = 'Pagina non trovata — Frontaliere Ticino';
 
  // Set noindex to prevent Google from indexing this soft-404
