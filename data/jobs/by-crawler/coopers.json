@@ -1,6 +1,6 @@
 {
   "crawlerKey": "coopers",
-  "assembledAt": "2026-05-27T22:41:40.921Z",
+  "assembledAt": "2026-05-28T12:16:08.082Z",
   "jobs": [
     {
       "id": "coopers-2623bcf0eafe",
@@ -33,7 +33,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=979PJR",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-27T22:41:38.850Z",
+      "crawledAt": "2026-05-28T12:16:05.599Z",
       "addressLocality": "Wallis",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -140,7 +140,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=9W1L7K",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-27T22:41:37.606Z",
+      "crawledAt": "2026-05-28T12:16:04.294Z",
       "addressLocality": "Wallis",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -175,15 +175,16 @@
           "Bachelor s or Master s degree in Life Sciences, Pharmacy, Chemistry, or a related scientific discipline"
         ]
       },
-      "firstSeenAt": "2026-05-26T22:34:26.824Z",
+      "previousSlugs": [
+        "qa-raw-material-compliance-specialist-m-f-d-coopers-wallis"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "qa-raw-material-compliance-specialist-m-f-d-coopers-wallis"
         ]
       },
-      "previousSlugs": [
-        "qa-raw-material-compliance-specialist-m-f-d-coopers-wallis"
-      ],
+      "firstSeenAt": "2026-05-26T22:34:26.824Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -202,34 +203,34 @@
       "id": "coopers-ab1752bb6b8f",
       "slug": "piano-di-ingegneria-m-f-d-coopers-group-ag-wallis",
       "slugByLocale": {
-        "en": "engineering-planer-m-f-d-coopers-wallis",
         "it": "piano-di-ingegneria-m-f-d-coopers-group-ag-wallis",
+        "en": "engineering-planner-m-f-d-coopers-group-ag-wallis",
         "de": "ingenieurburo-m-w-d-coopers-group-ag-wallis",
         "fr": "planificateur-technique-m-f-d-coopers-group-ag-wallis"
       },
       "company": "Coopers Group AG",
       "companyKey": "coopers",
       "companyDomain": "coopers.ch",
-      "title": "Engineering Planer (m/f/d)",
+      "title": "Engineering Planner (m/f/d)",
       "titleByLocale": {
-        "en": "Engineering Planer (m/f/d)",
         "it": "Piano di ingegneria (m/f/d)",
+        "en": "Engineering Planner (m/f/d)",
         "de": "Ingenieurbüro (m/w/d)",
         "fr": "Planificateur technique (m/f/d)"
       },
       "description": "For our client, we are looking for an experienced Maintenance Planner / Scheduler who confidently coordinates maintenance and troubleshooting activities in a GMP-regulated environment, effectively collaborates with production and workshop teams, and brings strong expertise in maintenance planning, SAP PM, and resource coordination, in order to ensure reliable, compliant, and on-time execution of maintenance activities for facilities, utilities, and equipment.\n\nStart date: 01.06.2026\nEnd date: 31.10.2026\nWorkload:100%\nContract Type: Contracting\nLocation: Visp\n\nYour Tasks:\n\n• Create and maintain maintenance schedules for facilities, utilities, and equipment\n\n• Ensure maintenance tasks are completed on time and escalate delays when required\n\n• Coordinate manpower, resources, and external contractors\n\n• Manage procurement and allocation of spare parts, materials, and consumables\n\n• Prepare KPI reports and maintenance performance reports\n\n• Ensure all maintenance activities are performed safely and in compliance with GMP requirements\n\n• Continuously improve planning and scheduling processes\n\nYour Profile:\n\n• Technical or engineering qualification (HND/HNC or equivalent)\n\n• Experience in maintenance planning and engineering maintenance activities\n\n• Ideally experience in pharmaceutical, GMP, or highly regulated environments\n\n• Strong knowledge of maintenance planning and scheduling processes\n\n• SAP PM experience required\n\n• Fluent in German and English",
       "descriptionByLocale": {
-        "en": "For our client, we are looking for an experienced Maintenance Planner / Scheduler who confidently coordinates maintenance and troubleshooting activities in a GMP-regulated environment, effectively collaborates with production and workshop teams, and brings strong expertise in maintenance planning, SAP PM, and resource coordination, in order to ensure reliable, compliant, and on-time execution of maintenance activities for facilities, utilities, and equipment.\n\nStart date: 01.06.2026\nEnd date: 31.10.2026\nWorkload:100%\nContract Type: Contracting\nLocation: Visp\n\nYour Tasks:\n\n• Create and maintain maintenance schedules for facilities, utilities, and equipment\n\n• Ensure maintenance tasks are completed on time and escalate delays when required\n\n• Coordinate manpower, resources, and external contractors\n\n• Manage procurement and allocation of spare parts, materials, and consumables\n\n• Prepare KPI reports and maintenance performance reports\n\n• Ensure all maintenance activities are performed safely and in compliance with GMP requirements\n\n• Continuously improve planning and scheduling processes\n\nYour Profile:\n\n• Technical or engineering qualification (HND/HNC or equivalent)\n\n• Experience in maintenance planning and engineering maintenance activities\n\n• Ideally experience in pharmaceutical, GMP, or highly regulated environments\n\n• Strong knowledge of maintenance planning and scheduling processes\n\n• SAP PM experience required\n\n• Fluent in German and English",
-        "it": "Per il nostro cliente, stiamo cercando un esperto Maintenance Planner / Scheduler che coordina con fiducia le attività di manutenzione e risoluzione dei problemi in un ambiente regolamentato da GMP, collabora efficacemente con i team di produzione e officina, e porta una forte esperienza nella pianificazione della manutenzione, SAP PM, e il coordinamento delle risorse, al fine di garantire l'esecuzione affidabile, conforme e in tempo di attività di manutenzione per strutture, utilità e attrezzature.\n\nData di inizio: 01.06.2026\nData di fine: 31.10.2026\nCarico di lavoro:100%\nTipo di contratto: Contratto\nPosizione: Visp\n\nI vostri compiti:\n\n• Creare e mantenere programmi di manutenzione per strutture, utilità e attrezzature\n\n• Assicurare che le attività di manutenzione siano completate in tempo ed escalate i ritardi quando necessario\n\n• Coordinare la manodopera, le risorse e gli appaltatori esterni\n\n• Gestione dell'approvvigionamento e dell'assegnazione di pezzi di ricambio, materiali e materiali di consumo\n\n• Preparare report KPI e report sulle prestazioni di manutenzione\n\n• Assicurarsi che tutte le attività di manutenzione siano eseguite in modo sicuro e conforme ai requisiti GMP\n\n• Migliorare costantemente i processi di pianificazione e pianificazione\n\nIl tuo profilo:\n\n• qualificazione tecnica o ingegneristica (HND/HNC o equivalente)\n\n• Esperienza nelle attività di manutenzione e manutenzione ingegneristica\n\n• Esperienza ideale in ambienti farmaceutici, GMP o altamente regolamentati\n\n• Forte conoscenza dei processi di pianificazione e pianificazione della manutenzione\n\n• Esperienza SAP PM necessaria\n\n• Fluente in tedesco e inglese",
-        "de": "Für unseren Kunden suchen wir einen erfahrenen Wartungsplaner / Scheduler, der die Wartungs- und Fehlersuche in einer GMP-geregelten Umgebung zuversichtlich koordiniert, effektiv mit Produktions- und Werkstattteams zusammenarbeitet und starkes Know-how in der Instandhaltungsplanung, SAP PM und Ressourcenkoordination bringt, um eine zuverlässige, konforme und zeitnahe Durchführung von Wartungsaktivitäten für Anlagen, Versorgungseinrichtungen und Geräte zu gewährleisten.\n\nStartdatum: 01.06.2026\nEnddatum: 31.10.2026\nArbeitsbelastung: 100%\nVertragsart: Vertrag\nStandort: Visp\n\nIhre Aufgaben:\n\n• Erstellung und Pflege von Wartungsplänen für Anlagen, Versorgungseinrichtungen und Geräte\n\n• Stellen Sie sicher, dass Wartungsaufgaben rechtzeitig abgeschlossen sind und Verzögerungen bei Bedarf eskalieren\n\n• Koordinierte Arbeitskräfte, Ressourcen und externe Auftragnehmer\n\n• Beschaffung und Verteilung von Ersatzteilen, Materialien und Verbrauchsmaterialien verwalten\n\n• Erstellung von Kennzahlenberichten und Wartungsberichten\n\n• Gewährleistung aller Wartungstätigkeiten werden sicher und entsprechend den GMP-Anforderungen durchgeführt\n\n• Kontinuierliche Verbesserung der Planungs- und Planungsprozesse\n\nIhr Profil:\n\n• Technische oder technische Qualifikation (HND/HNC oder gleichwertig)\n\n• Erfahrung in der Instandhaltungsplanung und Instandhaltung\n\n• Ideale Erfahrung in pharmazeutischen, GMP- oder hochregulierten Umgebungen\n\n• Starke Kenntnisse der Wartungsplanung und -planung\n\n• SAP PM Erfahrung erforderlich\n\n• Fluent auf Deutsch und Englisch",
-        "fr": "Pour notre client, nous recherchons un planificateur / planificateur de maintenance expérimenté qui coordonne avec confiance les activités de maintenance et de dépannage dans un environnement réglementé par les BPF, collabore efficacement avec les équipes de production et d'atelier, et apporte une solide expertise dans la planification de maintenance, SAP PM, et la coordination des ressources, afin d'assurer l'exécution fiable, conforme et à temps des activités de maintenance pour les installations, les services publics et l'équipement.\n\nDate de début: 01.06.2026\nDate de clôture: 31.10.2026\nCharge de travail:100%\nType de contrat: Contrat\nLieu: Visp\n\nVos tâches :\n\n• Créer et maintenir des calendriers d'entretien pour les installations, les services publics et l'équipement\n\n• Veiller à ce que les tâches d'entretien soient menées à bien dans les délais prescrits et à ce que les retards augmentent au besoin;\n\n• Coordonner la main-d'œuvre, les ressources et les entrepreneurs externes\n\n• Gérer les achats et la répartition des pièces de rechange, des matériaux et des consommables\n\n• Préparer les rapports de l'ICP et les rapports sur l'exécution de la maintenance\n\n• Veiller à ce que toutes les activités de maintenance soient menées en toute sécurité et conformément aux exigences des BPF\n\n• Améliorer continuellement les processus de planification et de planification\n\nVotre profil:\n\n• Qualification technique ou technique (HND/HNC ou équivalent)\n\n• Expérience en matière de planification de l'entretien et d'entretien technique\n\n• Expérience idéale dans les environnements pharmaceutiques, BPF ou hautement réglementés\n\n• Bonne connaissance des processus de planification et de planification de la maintenance\n\n• Expérience SAP PM requise\n\n• En allemand et en anglais"
+        "it": "Per il nostro cliente, stiamo cercando un esperto Maintenance Planner / Scheduler che coordina con fiducia le attività di manutenzione e risoluzione dei problemi in un ambiente regolamentato da GMP, collabora efficacemente con i team di produzione e officina, e porta una forte esperienza nella pianificazione della manutenzione, SAP PM, e il coordinamento delle risorse, al fine di garantire l'esecuzione affidabile, conforme e in tempo di attività di manutenzione per strutture, utilità e attrezzature. Data di inizio: 01.06.2026 Data di fine: 31.10.2026 Carico di lavoro:100% Tipo di contratto: Contratto Posizione: Visp I vostri compiti:\n• Creare e mantenere programmi di manutenzione per strutture, utilità e attrezzature\n• Assicurare che le attività di manutenzione siano completate in tempo ed escalate i ritardi quando necessario\n• Coordinare la manodopera, le risorse e gli appaltatori esterni\n• Gestione dell'approvvigionamento e dell'assegnazione di pezzi di ricambio, materiali e materiali di consumo\n• Preparare report KPI e report sulle prestazioni di manutenzione\n• Assicurarsi che tutte le attività di manutenzione siano eseguite in modo sicuro e conforme ai requisiti GMP\n• Migliorare costantemente i processi di pianificazione e pianificazione Il tuo profilo:\n• qualificazione tecnica o ingegneristica (HND/HNC o equivalente)\n• Esperienza nelle attività di manutenzione e manutenzione ingegneristica\n• Esperienza ideale in ambienti farmaceutici, GMP o altamente regolamentati\n• Forte conoscenza dei processi di pianificazione e pianificazione della manutenzione\n• Esperienza SAP PM necessaria\n• Fluente in tedesco e inglese",
+        "en": "For our client, we are looking for an experienced Maintenance Planner / Scheduler who confidently coordinates maintenance and troubleshooting activities in a GMP-regulated environment, effectively collaborates with production and workshop teams, and brings strong expertise in maintenance planning, SAP PM, and resource coordination, in order to ensure reliable, compliant, and on-time execution of maintenance activities for facilities, utilities, and equipment. Start date: 01.06.2026 End date: 31.10.2026 Workload:100% Contract Type: Contracting Location: Visp Your Tasks:\n• Create and maintain maintenance schedules for facilities, utilities, and equipment\n• Ensure maintenance tasks are completed on time and escalate delays when required\n• Coordinate manpower, resources, and external contractors\n• Manage procurement and allocation of spare parts, materials, and consumables\n• Prepare KPI reports and maintenance performance reports\n• Ensure all maintenance activities are performed safely and in compliance with GMP requirements\n• Continuously improve planning and scheduling processes Your Profile:\n• Technical or engineering qualification (HND/HNC or equivalent)\n• Experience in maintenance planning and engineering maintenance activities\n• Ideally experience in pharmaceutical, GMP, or highly regulated environments\n• Strong knowledge of maintenance planning and scheduling processes\n• SAP PM experience required\n• Fluent in German and English",
+        "de": "Für unseren Kunden suchen wir einen erfahrenen Wartungsplaner / Scheduler, der die Wartungs- und Fehlersuche in einer GMP-geregelten Umgebung zuversichtlich koordiniert, effektiv mit Produktions- und Werkstattteams zusammenarbeitet und starkes Know-how in der Instandhaltungsplanung, SAP PM und Ressourcenkoordination bringt, um eine zuverlässige, konforme und zeitnahe Durchführung von Wartungsaktivitäten für Anlagen, Versorgungseinrichtungen und Geräte zu gewährleisten. Startdatum: 01.06.2026 Enddatum: 31.10.2026 Arbeitsbelastung: 100% Vertragsart: Vertrag Standort: Visp Ihre Aufgaben:\n• Erstellung und Pflege von Wartungsplänen für Anlagen, Versorgungseinrichtungen und Geräte\n• Stellen Sie sicher, dass Wartungsaufgaben rechtzeitig abgeschlossen sind und Verzögerungen bei Bedarf eskalieren\n• Koordinierte Arbeitskräfte, Ressourcen und externe Auftragnehmer\n• Beschaffung und Verteilung von Ersatzteilen, Materialien und Verbrauchsmaterialien verwalten\n• Erstellung von Kennzahlenberichten und Wartungsberichten\n• Gewährleistung aller Wartungstätigkeiten werden sicher und entsprechend den GMP-Anforderungen durchgeführt\n• Kontinuierliche Verbesserung der Planungs- und Planungsprozesse Ihr Profil:\n• Technische oder technische Qualifikation (HND/HNC oder gleichwertig)\n• Erfahrung in der Instandhaltungsplanung und Instandhaltung\n• Ideale Erfahrung in pharmazeutischen, GMP- oder hochregulierten Umgebungen\n• Starke Kenntnisse der Wartungsplanung und -planung\n• SAP PM Erfahrung erforderlich\n• Fluent auf Deutsch und Englisch",
+        "fr": "Pour notre client, nous recherchons un planificateur / planificateur de maintenance expérimenté qui coordonne avec confiance les activités de maintenance et de dépannage dans un environnement réglementé par les BPF, collabore efficacement avec les équipes de production et d'atelier, et apporte une solide expertise dans la planification de maintenance, SAP PM, et la coordination des ressources, afin d'assurer l'exécution fiable, conforme et à temps des activités de maintenance pour les installations, les services publics et l'équipement. Date de début: 01.06.2026 Date de clôture: 31.10.2026 Charge de travail:100% Type de contrat: Contrat Lieu: Visp Vos tâches :\n• Créer et maintenir des calendriers d'entretien pour les installations, les services publics et l'équipement\n• Veiller à ce que les tâches d'entretien soient menées à bien dans les délais prescrits et à ce que les retards augmentent au besoin;\n• Coordonner la main-d'œuvre, les ressources et les entrepreneurs externes\n• Gérer les achats et la répartition des pièces de rechange, des matériaux et des consommables\n• Préparer les rapports de l'ICP et les rapports sur l'exécution de la maintenance\n• Veiller à ce que toutes les activités de maintenance soient menées en toute sécurité et conformément aux exigences des BPF\n• Améliorer continuellement les processus de planification et de planification Votre profil:\n• Qualification technique ou technique (HND/HNC ou équivalent)\n• Expérience en matière de planification de l'entretien et d'entretien technique\n• Expérience idéale dans les environnements pharmaceutiques, BPF ou hautement réglementés\n• Bonne connaissance des processus de planification et de planification de la maintenance\n• Expérience SAP PM requise\n• En allemand et en anglais"
       },
       "location": "Wallis",
       "canton": "VS",
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=5QI3F8",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-27T22:41:36.318Z",
+      "crawledAt": "2026-05-28T12:16:02.993Z",
       "addressLocality": "Wallis",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -261,6 +262,103 @@
           "Fluent in German and English"
         ]
       },
+      "previousSlugsByLocale": {
+        "it": [
+          "engineering-planer-m-f-d-coopers-wallis",
+          "engineering-planner-m-f-d-coopers-wallis"
+        ],
+        "de": [
+          "engineering-planer-m-f-d-coopers-wallis"
+        ],
+        "fr": [
+          "engineering-planer-m-f-d-coopers-wallis"
+        ],
+        "en": [
+          "engineering-planer-m-f-d-coopers-wallis"
+        ]
+      },
+      "previousSlugs": [
+        "engineering-planer-m-f-d-coopers-wallis",
+        "engineering-planner-m-f-d-coopers-wallis"
+      ],
+      "firstSeenAt": "2026-05-27T22:41:36.318Z",
+      "needsRetranslation": true,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "1950"
+    },
+    {
+      "id": "coopers-b71f646bfd28",
+      "slug": "physchem-lab-analytical-scientist-m-w-d-coopers-wallis",
+      "slugByLocale": {
+        "de": "physchem-lab-analytical-scientist-m-w-d-coopers-wallis",
+        "it": "physchem-lab-analytical-scientist-m-w-d-coopers-wallis",
+        "en": "physchem-lab-analytical-scientist-m-w-d-coopers-wallis",
+        "fr": "physchem-lab-analytical-scientist-m-w-d-coopers-wallis"
+      },
+      "company": "Coopers Group AG",
+      "companyKey": "coopers",
+      "companyDomain": "coopers.ch",
+      "title": "Physchem Lab Analytical Scientist (m/w/d)",
+      "titleByLocale": {
+        "de": "Physchem Lab Analytical Scientist (m/w/d)",
+        "en": "Physchem Lab Analytical Scientist (m/w/d)",
+        "it": "Physchem Lab Analytical Scientist (m/w/d)",
+        "fr": "Physchem Lab Analytical Scientist (m/w/d)"
+      },
+      "description": "Position?\nDann freuen wir uns über vollständige Bewerbungsunterlagen per Onlineformular.\n\nBei Bewerbungen per E-Mail erklärt sich der Sender respektive die Senderin damit einverstanden, dass die übermittelten Daten unter Berücksichtigung unserer Datenschutzrichtlinie verwendet werden.\n\nWeitere offene Stellen gibt es hier: coopers.ch\n\nJob profile (2BI62U)\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tLife Sciences - R&D Laboratory\n\n•\n\nWallis\n\nContracting\n\nFull Time\n\nasap - 15.07.2026\n\nValidation, GMP\n\nSounds interesting?\n\nSimply click \"",
+      "descriptionByLocale": {
+        "de": "Position?\nDann freuen wir uns über vollständige Bewerbungsunterlagen per Onlineformular.\n\nBei Bewerbungen per E-Mail erklärt sich der Sender respektive die Senderin damit einverstanden, dass die übermittelten Daten unter Berücksichtigung unserer Datenschutzrichtlinie verwendet werden.\n\nWeitere offene Stellen gibt es hier: coopers.ch\n\nJob profile (2BI62U)\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tLife Sciences - R&D Laboratory\n\n•\n\nWallis\n\nContracting\n\nFull Time\n\nasap - 15.07.2026\n\nValidation, GMP\n\nSounds interesting?\n\nSimply click \"",
+        "it": "Position?\nDann freuen wir uns über vollständige Bewerbungsunterlagen per Onlineformular.\n\nBei Bewerbungen per E-Mail erklärt sich der Sender respektive die Senderin damit einverstanden, dass die übermittelten Daten unter Berücksichtigung unserer Datenschutzrichtlinie verwendet werden.\n\nWeitere offene Stellen gibt es hier: coopers.ch\n\nJob profile (2BI62U)\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tLife Sciences - R&D Laboratory\n\n•\n\nWallis\n\nContracting\n\nFull Time\n\nasap - 15.07.2026\n\nValidation, GMP\n\nSounds interesting?\n\nSimply click \"",
+        "en": "Position?\nDann freuen wir uns über vollständige Bewerbungsunterlagen per Onlineformular.\n\nBei Bewerbungen per E-Mail erklärt sich der Sender respektive die Senderin damit einverstanden, dass die übermittelten Daten unter Berücksichtigung unserer Datenschutzrichtlinie verwendet werden.\n\nWeitere offene Stellen gibt es hier: coopers.ch\n\nJob profile (2BI62U)\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tLife Sciences - R&D Laboratory\n\n•\n\nWallis\n\nContracting\n\nFull Time\n\nasap - 15.07.2026\n\nValidation, GMP\n\nSounds interesting?\n\nSimply click \"",
+        "fr": "Position?\nDann freuen wir uns über vollständige Bewerbungsunterlagen per Onlineformular.\n\nBei Bewerbungen per E-Mail erklärt sich der Sender respektive die Senderin damit einverstanden, dass die übermittelten Daten unter Berücksichtigung unserer Datenschutzrichtlinie verwendet werden.\n\nWeitere offene Stellen gibt es hier: coopers.ch\n\nJob profile (2BI62U)\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tLife Sciences - R&D Laboratory\n\n•\n\nWallis\n\nContracting\n\nFull Time\n\nasap - 15.07.2026\n\nValidation, GMP\n\nSounds interesting?\n\nSimply click \""
+      },
+      "location": "Wallis",
+      "canton": "VS",
+      "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=2BI62U",
+      "source": "Coopers Group AG Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-05-28T12:16:01.654Z",
+      "addressLocality": "Wallis",
+      "addressRegion": "VS",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "contracting",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Farmaceutica / Life Sciences",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-27",
+      "applyUrl": "https://www.coopers.ch/en/jobs/detail.php?refCode=2BI62U",
+      "requirements": [
+        "Pharma industry /GMP/ transfer and validation experience 5+ years of experience",
+        "Bachelor's in relevant Field and Masters preferred",
+        "Business Fluent English, German is a plus",
+        "Excellent soft skills (Flexibility, critial thinking, customer service, communication",
+        "Tools knowledge: LIMS, Trackwise, DMS"
+      ],
+      "requirementsByLocale": {
+        "de": [
+          "Pharma industry /GMP/ transfer and validation experience 5+ years of experience",
+          "Bachelor's in relevant Field and Masters preferred",
+          "Business Fluent English, German is a plus",
+          "Excellent soft skills (Flexibility, critial thinking, customer service, communication",
+          "Tools knowledge: LIMS, Trackwise, DMS"
+        ]
+      },
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -274,21 +372,7 @@
         }
       },
       "postalCode": "1950",
-      "firstSeenAt": "2026-05-27T22:41:36.318Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "engineering-planer-m-f-d-coopers-wallis"
-        ],
-        "de": [
-          "engineering-planer-m-f-d-coopers-wallis"
-        ],
-        "fr": [
-          "engineering-planer-m-f-d-coopers-wallis"
-        ]
-      },
-      "previousSlugs": [
-        "engineering-planer-m-f-d-coopers-wallis"
-      ]
+      "firstSeenAt": "2026-05-28T12:16:01.654Z"
     }
   ]
 }
