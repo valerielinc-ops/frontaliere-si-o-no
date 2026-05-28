@@ -6,7 +6,7 @@
       "id": "ehc-vd-442b64f7073a",
       "slug": "offerta-non-richiesta-centro-medico-permanenze-ensemble-hospitalier-de-la-cote-ehc-morges",
       "slugByLocale": {
-        "it": "offerta-spontanea-centri-medici-presenze-ensemble-hospitalier-de-la-cote-ehc-morges",
+        "it": "offerta-non-richiesta-centro-medico-permanenze-ensemble-hospitalier-de-la-cote-ehc-morges",
         "en": "unsolicited-offer-medical-centre-permanences-ensemble-hospitalier-de-la-cote-ehc-morges",
         "de": "spontane-offerte-medizinische-zentren-wartezimmer-ensemble-hospitalier-de-la-cote-ehc-morges",
         "fr": "offre-spontanee-centre-medicaux-permanences-ehc-vd-morges"
@@ -70,13 +70,13 @@
       },
       "previousSlugs": [
         "offre-spontanee-centre-medicaux-permanences-ehc-vd-morges",
-        "spontaneous-offer-medical-centers-waiting-rooms-ensemble-hospitalier-de-la-cote-ehc-morges",
-        "offerta-non-richiesta-centro-medico-permanenze-ensemble-hospitalier-de-la-cote-ehc-morges",
-        "unsolicited-offer-medical-centre-permanences-ensemble-hospitalier-de-la-cote-ehc-morges"
+        "offerta-spontanea-centri-medici-presenze-ensemble-hospitalier-de-la-cote-ehc-morges",
+        "spontaneous-offer-medical-centers-waiting-rooms-ensemble-hospitalier-de-la-cote-ehc-morges"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "offre-spontanee-centre-medicaux-permanences-ehc-vd-morges"
+          "offre-spontanee-centre-medicaux-permanences-ehc-vd-morges",
+          "offerta-spontanea-centri-medici-presenze-ensemble-hospitalier-de-la-cote-ehc-morges"
         ],
         "en": [
           "spontaneous-offer-medical-centers-waiting-rooms-ensemble-hospitalier-de-la-cote-ehc-morges"
@@ -100,7 +100,7 @@
       "id": "ehc-vd-2fa0da6c60ca",
       "slug": "offerta-non-richiesta-unita-operativa-anestesia-ambulanze-radiologia-ensemble-hospitalier-de-la-cote-ehc-morges",
       "slugByLocale": {
-        "it": "offerta-spontanea-blocco-operatorio-anestesia-ambulanze-radiologia-ensemble-hospitalier-de-la-cote-ehc-morges",
+        "it": "offerta-non-richiesta-unita-operativa-anestesia-ambulanze-radiologia-ensemble-hospitalier-de-la-cote-ehc-morges",
         "en": "spontaneous-offer-operating-room-anesthesia-ambulances-radiology-ensemble-hospitalier-de-la-cote-ehc-morges",
         "de": "spontane-offerte-operationssaal-anasthesie-rettungsdienst-radiologie-ensemble-hospitalier-de-la-cote-ehc-morges",
         "fr": "offre-spontanee-bloc-operatoire-anesthesie-ambulances-radiologie-ehc-vd-morges"
@@ -163,11 +163,12 @@
       },
       "previousSlugs": [
         "offre-spontanee-bloc-operatoire-anesthesie-ambulances-radiologie-ehc-vd-morges",
-        "offerta-non-richiesta-unita-operativa-anestesia-ambulanze-radiologia-ensemble-hospitalier-de-la-cote-ehc-morges"
+        "offerta-spontanea-blocco-operatorio-anestesia-ambulanze-radiologia-ensemble-hospitalier-de-la-cote-ehc-morges"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "offre-spontanee-bloc-operatoire-anesthesie-ambulances-radiologie-ehc-vd-morges"
+          "offre-spontanee-bloc-operatoire-anesthesie-ambulances-radiologie-ehc-vd-morges",
+          "offerta-spontanea-blocco-operatorio-anestesia-ambulanze-radiologia-ensemble-hospitalier-de-la-cote-ehc-morges"
         ]
       },
       "firstSeenAt": "2026-05-19T09:58:50.983Z",
@@ -1743,15 +1744,10 @@
       "previousSlugsByLocale": {
         "it": [
           "psychiatre-ehc-vd-morges"
-        ],
-        "fr": [
-          "psychiatre-ehc-vd-morges",
-          "psychiatre-ensemble-hospitalier-de-la-cote-ehc-morges"
         ]
       },
       "previousSlugs": [
-        "psychiatre-ehc-vd-morges",
-        "psychiatre-ensemble-hospitalier-de-la-cote-ehc-morges"
+        "psychiatre-ehc-vd-morges"
       ],
       "firstSeenAt": "2026-05-19T09:58:50.957Z",
       "salaryMin": 49500,
@@ -1867,7 +1863,7 @@
       "slug": "medico-pediatra-con-interesse-per-lo-sviluppo-neurologico-f-m-ensemble-hospitalier-de-la-cote-ehc-lavigny",
       "slugByLocale": {
         "it": "medico-pediatra-con-interesse-per-lo-sviluppo-neurologico-f-m-ensemble-hospitalier-de-la-cote-ehc-lavigny",
-        "en": "pediatrician-with-interest-in-neurodevelopment-f-m-ensemble-hospitalier-de-la-cote-ehc-lavigny",
+        "en": "pediatric-doctor-with-interest-in-neurodevelopment-f-h-ensemble-hospitalier-de-la-cote-ehc-lavigny",
         "de": "padiater-mit-interesse-an-der-neuroentwicklung-f-m-ensemble-hospitalier-de-la-cote-ehc-lavigny",
         "fr": "medecin-pediatre-avec-interet-pour-le-neurodeveloppement-f-h-ehc-vd-lavigny"
       },
@@ -1922,16 +1918,14 @@
       },
       "previousSlugs": [
         "medecin-pediatre-avec-interet-pour-le-neurodeveloppement-f-h-ehc-vd-lavigny",
-        "pediatrician-with-interest-in-neurodevelopment-f-m-ensemble-hospitalier-de-la-cote-ehc-lavigny",
-        "pediatric-doctor-with-interest-in-neurodevelopment-f-h-ensemble-hospitalier-de-la-cote-ehc-lavigny"
+        "pediatrician-with-interest-in-neurodevelopment-f-m-ensemble-hospitalier-de-la-cote-ehc-lavigny"
       ],
       "previousSlugsByLocale": {
         "it": [
           "medecin-pediatre-avec-interet-pour-le-neurodeveloppement-f-h-ehc-vd-lavigny"
         ],
         "en": [
-          "pediatrician-with-interest-in-neurodevelopment-f-m-ensemble-hospitalier-de-la-cote-ehc-lavigny",
-          "pediatric-doctor-with-interest-in-neurodevelopment-f-h-ensemble-hospitalier-de-la-cote-ehc-lavigny"
+          "pediatrician-with-interest-in-neurodevelopment-f-m-ensemble-hospitalier-de-la-cote-ehc-lavigny"
         ]
       },
       "firstSeenAt": "2026-05-19T09:58:50.954Z",
@@ -2189,9 +2183,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "auxiliaire-de-sante-aide-soignant-en-ctr-f-h-ehc-vd-aubonne",
-        "auxiliaire-de-sante-aide-soignant-en-ctr-f-h-ehc-vd-gilly",
-        "assistente-sanitaria-ausiliario-socio-sanitario-in-ctr-f-h-ensemble-hospitalier-de-la-cote-ehc-gilly",
-        "auxiliaire-de-sante-aide-soignant-en-ctr-f-h-ensemble-hospitalier-de-la-cote-ehc-gilly"
+        "auxiliaire-de-sante-aide-soignant-en-ctr-f-h-ehc-vd-gilly"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3877,9 +3869,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "assistant-socio-educatif-f-h-ehc-vd-aubonne",
-        "assistant-socio-educatif-f-h-ehc-vd-morges",
-        "assistente-socio-educativa-f-h-ensemble-hospitalier-de-la-cote-ehc-morges",
-        "assistant-socio-educatif-f-h-ensemble-hospitalier-de-la-cote-ehc-morges"
+        "assistant-socio-educatif-f-h-ehc-vd-morges"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4347,12 +4337,12 @@
     },
     {
       "id": "ehc-vd-68e61457298e",
-      "slug": "secretaire-medicale-f-h-ehc-vd-morges",
+      "slug": "segretario-medico-f-h-ensemble-hospitalier-de-la-cote-ehc-morges",
       "slugByLocale": {
         "fr": "secretaire-medicale-f-h-ehc-vd-morges",
-        "it": "secretaire-medicale-f-h-ehc-vd-morges",
-        "en": "secretaire-medicale-f-h-ehc-vd-morges",
-        "de": "secretaire-medicale-f-h-ehc-vd-morges"
+        "it": "segretario-medico-f-h-ensemble-hospitalier-de-la-cote-ehc-morges",
+        "en": "medical-secretary-f-h-ensemble-hospitalier-de-la-cote-ehc-morges",
+        "de": "arztlicher-sekretar-f-h-ensemble-hospitalier-de-la-cote-ehc-morges-bba24a"
       },
       "company": "Ensemble hospitalier de la Côte (EHC)",
       "companyKey": "ehc-vd",
@@ -4407,7 +4397,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-27T22:49:23.868Z"
+      "firstSeenAt": "2026-05-27T22:49:23.868Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "secretaire-medicale-f-h-ehc-vd-morges"
+        ],
+        "en": [
+          "secretaire-medicale-f-h-ehc-vd-morges"
+        ],
+        "de": [
+          "secretaire-medicale-f-h-ehc-vd-morges"
+        ]
+      },
+      "previousSlugs": [
+        "secretaire-medicale-f-h-ehc-vd-morges"
+      ]
     }
   ]
 }

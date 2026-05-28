@@ -449,8 +449,8 @@
       "slug": "dietician-h-f-al-50-hopital-riviera-chablais-hrc-rennaz",
       "slugByLocale": {
         "it": "dietician-h-f-al-50-hopital-riviera-chablais-hrc-rennaz",
-        "en": "dieteticien-h-f-a-50-hrc-rennaz",
-        "de": "dieteticien-h-f-a-50-hrc-rennaz",
+        "en": "dietician-h-f-at-50-hopital-riviera-chablais-hrc-rennaz",
+        "de": "dietician-h-f-bei-50-hopital-riviera-chablais-hrc-rennaz",
         "fr": "dieteticien-h-f-a-50-hopital-riviera-chablais-hrc-rennaz"
       },
       "company": "Hôpital Riviera-Chablais (HRC)",
@@ -501,18 +501,14 @@
           "dieteticien-h-f-a-50-hrc-rennaz"
         ],
         "en": [
-          "dieteticien-h-f-a-50-hrc-rennaz",
-          "dietician-h-f-at-50-hopital-riviera-chablais-hrc-rennaz"
+          "dieteticien-h-f-a-50-hrc-rennaz"
         ],
         "de": [
-          "dieteticien-h-f-a-50-hrc-rennaz",
-          "dietician-h-f-bei-50-hopital-riviera-chablais-hrc-rennaz"
+          "dieteticien-h-f-a-50-hrc-rennaz"
         ]
       },
       "previousSlugs": [
-        "dieteticien-h-f-a-50-hrc-rennaz",
-        "dietician-h-f-at-50-hopital-riviera-chablais-hrc-rennaz",
-        "dietician-h-f-bei-50-hopital-riviera-chablais-hrc-rennaz"
+        "dieteticien-h-f-a-50-hrc-rennaz"
       ],
       "firstSeenAt": "2026-05-21T12:12:29.340Z",
       "salaryMin": 49500,
@@ -530,11 +526,11 @@
     },
     {
       "id": "hrc-f86a30773eeb",
-      "slug": "responsable-de-la-formation-continue-hrc-et-ifhl-h-f-a-80-hrc-rennaz",
+      "slug": "responsabile-della-formazione-continua-hrc-e-ifhl-h-f-all-80-hopital-riviera-chablais-hrc-rennaz",
       "slugByLocale": {
-        "it": "responsable-de-la-formation-continue-hrc-et-ifhl-h-f-a-80-hrc-rennaz",
-        "en": "responsable-de-la-formation-continue-hrc-et-ifhl-h-f-a-80-hrc-rennaz",
-        "de": "responsable-de-la-formation-continue-hrc-et-ifhl-h-f-a-80-hrc-rennaz",
+        "it": "responsabile-della-formazione-continua-hrc-e-ifhl-h-f-all-80-hopital-riviera-chablais-hrc-rennaz",
+        "en": "head-of-continuing-education-hrc-and-ifhl-h-f-at-80-hopital-riviera-chablais-hrc-rennaz",
+        "de": "leiter-weiterbildung-hrc-und-ifhl-h-f-bei-80-hopital-riviera-chablais-hrc-rennaz",
         "fr": "responsable-de-la-formation-continue-hrc-et-ifhl-h-f-a-80-hrc-rennaz"
       },
       "company": "Hôpital Riviera-Chablais (HRC)",
@@ -588,7 +584,21 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "responsable-de-la-formation-continue-hrc-et-ifhl-h-f-a-80-hrc-rennaz"
+        ],
+        "en": [
+          "responsable-de-la-formation-continue-hrc-et-ifhl-h-f-a-80-hrc-rennaz"
+        ],
+        "de": [
+          "responsable-de-la-formation-continue-hrc-et-ifhl-h-f-a-80-hrc-rennaz"
+        ]
+      },
+      "previousSlugs": [
+        "responsable-de-la-formation-continue-hrc-et-ifhl-h-f-a-80-hrc-rennaz"
+      ]
     }
   ]
 }

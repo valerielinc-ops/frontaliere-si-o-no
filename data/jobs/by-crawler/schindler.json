@@ -305,9 +305,9 @@
       "slug": "montatore-ascensori-m-f-d-80-100-schindler-castione-arbedo",
       "slugByLocale": {
         "it": "montatore-ascensori-m-f-d-80-100-schindler-castione-arbedo",
-        "en": "montatore-ascensori-m-f-d-80-100-schindler-castione-arbedo-ws9hyc",
-        "de": "montatore-ascensori-m-f-d-80-100-schindler-castione-arbedo-ws9hyc",
-        "fr": "montatore-ascensori-m-f-d-80-100-schindler-castione-arbedo-ws9hyc"
+        "en": "elevator-installer-m-f-d-80-100-schindler-castione-arbedo",
+        "de": "aufzugsmonteur-m-w-d-80-100-schindler-castione-arbedo",
+        "fr": "monteur-d-ascenseurs-h-f-d-80-100-schindler-castione-arbedo"
       },
       "company": "Schindler",
       "companyKey": "schindler",
@@ -352,26 +352,20 @@
         "lift-m-f-d-80-100-schindler-castione-arbedo",
         "montatore-ascensori-m-f-d-80-100-schindler-castione-arbedo-ws9hyc",
         "aufzug-m-w-d-80-100-schindler-castione-arbedo",
-        "ascenseur-m-f-j-80-100-schindler-castione-arbedo",
-        "elevator-installer-m-f-d-80-100-schindler-castione-arbedo",
-        "aufzugsmonteur-m-w-d-80-100-schindler-castione-arbedo",
-        "monteur-d-ascenseurs-h-f-d-80-100-schindler-castione-arbedo"
+        "ascenseur-m-f-j-80-100-schindler-castione-arbedo"
       ],
       "previousSlugsByLocale": {
         "en": [
           "lift-m-f-d-80-100-schindler-castione-arbedo",
-          "montatore-ascensori-m-f-d-80-100-schindler-castione-arbedo-ws9hyc",
-          "elevator-installer-m-f-d-80-100-schindler-castione-arbedo"
+          "montatore-ascensori-m-f-d-80-100-schindler-castione-arbedo-ws9hyc"
         ],
         "de": [
           "aufzug-m-w-d-80-100-schindler-castione-arbedo",
-          "montatore-ascensori-m-f-d-80-100-schindler-castione-arbedo-ws9hyc",
-          "aufzugsmonteur-m-w-d-80-100-schindler-castione-arbedo"
+          "montatore-ascensori-m-f-d-80-100-schindler-castione-arbedo-ws9hyc"
         ],
         "fr": [
           "ascenseur-m-f-j-80-100-schindler-castione-arbedo",
-          "montatore-ascensori-m-f-d-80-100-schindler-castione-arbedo-ws9hyc",
-          "monteur-d-ascenseurs-h-f-d-80-100-schindler-castione-arbedo"
+          "montatore-ascensori-m-f-d-80-100-schindler-castione-arbedo-ws9hyc"
         ]
       },
       "firstSeenAt": "2026-05-19T12:34:10.207Z",
@@ -929,7 +923,7 @@
       "id": "schindler-04d05415fec4",
       "slug": "tecnico-di-servizio-scale-mobili-regione-be-so-interventi-programmati-nell-alto-vallese-m-f-d-80-100-schindler-bern",
       "slugByLocale": {
-        "it": "servicetechniker-in-fahrtreppen-region-be-so-planbare-einsatze-im-oberwallis-m-w-d-80-100-schindler-bern",
+        "it": "tecnico-di-servizio-scale-mobili-regione-be-so-interventi-programmati-nell-alto-vallese-m-f-d-80-100-schindler-bern",
         "en": "service-technician-escalators-region-be-so-scheduled-assignments-in-upper-valais-m-f-d-80-100-schindler-bern",
         "de": "servicetechniker-in-fahrtreppen-region-be-so-planbare-einsatze-im-oberwallis-m-w-d-80-100",
         "fr": "technicien-de-service-escaliers-mecaniques-region-be-so-interventions-planifiees-dans-le-haut-valais-h-f-d-80-100"
@@ -975,13 +969,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "servicetechniker-in-fahrtreppen-region-be-so-planbare-einsatze-im-oberwallis-m-w-d-80-100",
+        "servicetechniker-in-fahrtreppen-region-be-so-planbare-einsatze-im-oberwallis-m-w-d-80-100-schindler-bern",
         "service-engineer-in-escalator-region-be-so-planable-inserts-in-the-oberwallis-m-w-d-80-100-schindler-bern",
-        "ingenieur-de-service-dans-la-region-escalator-be-so-inserts-planables-dans-l-oberwallis-m-w-d-80-100-schindler-bern",
-        "tecnico-di-servizio-scale-mobili-regione-be-so-interventi-programmati-nell-alto-vallese-m-f-d-80-100-schindler-bern"
+        "ingenieur-de-service-dans-la-region-escalator-be-so-inserts-planables-dans-l-oberwallis-m-w-d-80-100-schindler-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "servicetechniker-in-fahrtreppen-region-be-so-planbare-einsatze-im-oberwallis-m-w-d-80-100"
+          "servicetechniker-in-fahrtreppen-region-be-so-planbare-einsatze-im-oberwallis-m-w-d-80-100",
+          "servicetechniker-in-fahrtreppen-region-be-so-planbare-einsatze-im-oberwallis-m-w-d-80-100-schindler-bern"
         ],
         "en": [
           "servicetechniker-in-fahrtreppen-region-be-so-planbare-einsatze-im-oberwallis-m-w-d-80-100",
@@ -1156,7 +1151,7 @@
       "id": "schindler-5329457d542b",
       "slug": "tecnico-installatore-di-ascensori-nella-regione-di-zurigo-con-potenziale-di-leadership-m-f-d-80-100-schindler-zurich",
       "slugByLocale": {
-        "it": "monteur-in-per-aufzugsanlagen-im-grossraum-zurich-con-fuhrungspotenzial-m-w-d-80-100-schindler-zurich",
+        "it": "tecnico-installatore-di-ascensori-nella-regione-di-zurigo-con-potenziale-di-leadership-m-f-d-80-100-schindler-zurich",
         "en": "elevator-installer-in-the-zurich-area-with-leadership-potential-m-f-d-80-100-schindler-zurich",
         "de": "monteur-in-fur-aufzugsanlagen-im-grossraum-zurich-mit-fuhrungspotenzial-m-w-d-80-100",
         "fr": "monteur-d-ascenseurs-dans-la-region-de-zurich-avec-potentiel-de-leadership-h-f-d-80-100-schindler-zurich"
@@ -1202,13 +1197,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "monteur-in-fur-aufzugsanlagen-im-grossraum-zurich-mit-fuhrungspotenzial-m-w-d-80-100",
+        "monteur-in-per-aufzugsanlagen-im-grossraum-zurich-con-fuhrungspotenzial-m-w-d-80-100-schindler-zurich",
         "monteur-in-for-elevators-in-the-zurich-area-with-leadership-potential-m-w-d-80-100-schindler-zurich",
-        "monteur-in-pour-ascenseurs-dans-la-region-de-zurich-avec-un-potentiel-de-leadership-m-m-j-80-100-schindler-zurich",
-        "tecnico-installatore-di-ascensori-nella-regione-di-zurigo-con-potenziale-di-leadership-m-f-d-80-100-schindler-zurich"
+        "monteur-in-pour-ascenseurs-dans-la-region-de-zurich-avec-un-potentiel-de-leadership-m-m-j-80-100-schindler-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "monteur-in-fur-aufzugsanlagen-im-grossraum-zurich-mit-fuhrungspotenzial-m-w-d-80-100"
+          "monteur-in-fur-aufzugsanlagen-im-grossraum-zurich-mit-fuhrungspotenzial-m-w-d-80-100",
+          "monteur-in-per-aufzugsanlagen-im-grossraum-zurich-con-fuhrungspotenzial-m-w-d-80-100-schindler-zurich"
         ],
         "en": [
           "monteur-in-fur-aufzugsanlagen-im-grossraum-zurich-mit-fuhrungspotenzial-m-w-d-80-100",
@@ -1240,9 +1236,9 @@
       "slug": "montatore-trice-di-ascensori-senior-m-f-d-80-100-schindler-bioggio",
       "slugByLocale": {
         "it": "montatore-trice-di-ascensori-senior-m-f-d-80-100-schindler-bioggio",
-        "en": "montatore-trice-di-ascensori-senior-m-f-d-80-100-schindler-bioggio-lukq50",
-        "de": "montatore-trice-di-ascensori-senior-m-f-d-80-100-schindler-bioggio-lukq50",
-        "fr": "montatore-trice-di-ascensori-senior-m-f-d-80-100-schindler-bioggio-lukq50"
+        "en": "senior-lift-lift-m-f-d-80-100-schindler-bioggio",
+        "de": "senior-lift-lift-m-w-d-80-100-schindler-bioggio",
+        "fr": "soulevant-ascenseur-m-f-j-80-100-schindler-bioggio"
       },
       "company": "Schindler",
       "companyKey": "schindler",
@@ -1284,23 +1280,17 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "montatore-trice-di-ascensori-senior-m-f-d-80-100-schindler-bioggio-lukq50",
-        "senior-lift-lift-m-f-d-80-100-schindler-bioggio",
-        "senior-lift-lift-m-w-d-80-100-schindler-bioggio",
-        "soulevant-ascenseur-m-f-j-80-100-schindler-bioggio"
+        "montatore-trice-di-ascensori-senior-m-f-d-80-100-schindler-bioggio-lukq50"
       ],
       "previousSlugsByLocale": {
         "en": [
-          "montatore-trice-di-ascensori-senior-m-f-d-80-100-schindler-bioggio-lukq50",
-          "senior-lift-lift-m-f-d-80-100-schindler-bioggio"
+          "montatore-trice-di-ascensori-senior-m-f-d-80-100-schindler-bioggio-lukq50"
         ],
         "de": [
-          "montatore-trice-di-ascensori-senior-m-f-d-80-100-schindler-bioggio-lukq50",
-          "senior-lift-lift-m-w-d-80-100-schindler-bioggio"
+          "montatore-trice-di-ascensori-senior-m-f-d-80-100-schindler-bioggio-lukq50"
         ],
         "fr": [
-          "montatore-trice-di-ascensori-senior-m-f-d-80-100-schindler-bioggio-lukq50",
-          "soulevant-ascenseur-m-f-j-80-100-schindler-bioggio"
+          "montatore-trice-di-ascensori-senior-m-f-d-80-100-schindler-bioggio-lukq50"
         ]
       },
       "firstSeenAt": "2026-05-19T12:33:48.463Z",
@@ -1398,7 +1388,7 @@
       "id": "schindler-170ffd486c3b",
       "slug": "gestione-delle-autorizzazioni-dei-cookie-schindler-ebikon",
       "slugByLocale": {
-        "it": "manager-per-cookie-einwilligungen-schindler-ebikon",
+        "it": "gestione-delle-autorizzazioni-dei-cookie-schindler-ebikon",
         "en": "manager-fur-cookie-einwilligungen-schindler-ebikon",
         "de": "manager-fur-cookie-einwilligungen-schindler-ebikon",
         "fr": "gestionnaire-pour-les-autorisations-de-cookies-schindler-ebikon"
@@ -1444,11 +1434,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "manager-fur-cookie-einwilligungen-schindler-ebikon",
-        "gestione-delle-autorizzazioni-dei-cookie-schindler-ebikon"
+        "manager-per-cookie-einwilligungen-schindler-ebikon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "manager-fur-cookie-einwilligungen-schindler-ebikon"
+          "manager-fur-cookie-einwilligungen-schindler-ebikon",
+          "manager-per-cookie-einwilligungen-schindler-ebikon"
         ],
         "fr": [
           "manager-fur-cookie-einwilligungen-schindler-ebikon"
@@ -1474,7 +1465,7 @@
       "id": "schindler-6515abb2e0ce",
       "slug": "tecnico-di-montaggio-per-impianti-di-ascensori-nella-regione-di-zurigo-m-f-d-80-100-schindler-zurich",
       "slugByLocale": {
-        "it": "monteur-in-per-aufzugsanlagen-in-der-region-zurich-m-w-d-80-100-schindler-zurich",
+        "it": "tecnico-di-montaggio-per-impianti-di-ascensori-nella-regione-di-zurigo-m-f-d-80-100-schindler-zurich",
         "en": "elevator-installation-technician-in-the-zurich-region-m-f-d-80-100-schindler-zurich",
         "de": "monteur-in-fur-aufzugsanlagen-in-der-region-zurich-m-w-d-80-100-schindler-zurich",
         "fr": "technicien-ne-d-installation-d-ascenseurs-dans-la-region-de-zurich-h-f-d-80-100-schindler-zurich"
@@ -1521,12 +1512,13 @@
       "previousSlugs": [
         "monteur-in-fur-aufzugsanlagen-in-der-region-zurich-m-w-d-80-100-schindler-zurich",
         "monteur-in-per-ascensori-nella-regione-di-zurigo-m-w-d-80-100-schindler-zurich",
-        "tecnico-di-montaggio-per-impianti-di-ascensori-nella-regione-di-zurigo-m-f-d-80-100-schindler-zurich"
+        "monteur-in-per-aufzugsanlagen-in-der-region-zurich-m-w-d-80-100-schindler-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "monteur-in-fur-aufzugsanlagen-in-der-region-zurich-m-w-d-80-100-schindler-zurich",
-          "monteur-in-per-ascensori-nella-regione-di-zurigo-m-w-d-80-100-schindler-zurich"
+          "monteur-in-per-ascensori-nella-regione-di-zurigo-m-w-d-80-100-schindler-zurich",
+          "monteur-in-per-aufzugsanlagen-in-der-region-zurich-m-w-d-80-100-schindler-zurich"
         ],
         "en": [
           "monteur-in-fur-aufzugsanlagen-in-der-region-zurich-m-w-d-80-100-schindler-zurich"
@@ -1555,7 +1547,7 @@
       "id": "schindler-d5179197fde9",
       "slug": "elettricista-per-il-montaggio-di-ascensori-regione-zurigo-m-f-d-80-100-schindler-zurich",
       "slugByLocale": {
-        "it": "installatore-trice-elettrico-a-in-per-la-liftmontage-region-zurich-m-w-d-80-100-schindler-zurich",
+        "it": "elettricista-per-il-montaggio-di-ascensori-regione-zurigo-m-f-d-80-100-schindler-zurich",
         "en": "electrician-for-elevator-installation-zurich-region-m-f-d-80-100-schindler-zurich",
         "de": "elektroinstallateur-in-fur-die-liftmontage-region-zurich-m-w-d-80-100-schindler-zurich",
         "fr": "electricien-pour-l-installation-d-ascenseurs-region-de-zurich-h-f-d-80-100-schindler-zurich"
@@ -1602,14 +1594,15 @@
       "previousSlugs": [
         "elektroinstallateur-in-fur-die-liftmontage-region-zurich-m-w-d-80-100-schindler-zurich",
         "elettricista-per-il-montaggio-degli-ascensori-regione-zurigo-m-f-d-80-100-schindler-zurich",
+        "installatore-trice-elettrico-a-in-per-la-liftmontage-region-zurich-m-w-d-80-100-schindler-zurich",
         "electrician-for-lift-installation-region-zurich-m-f-d-80-100-schindler-zurich",
-        "electricien-pour-le-montage-des-ascenseurs-region-zurich-h-f-80-100-schindler-zurich",
-        "elettricista-per-il-montaggio-di-ascensori-regione-zurigo-m-f-d-80-100-schindler-zurich"
+        "electricien-pour-le-montage-des-ascenseurs-region-zurich-h-f-80-100-schindler-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "elektroinstallateur-in-fur-die-liftmontage-region-zurich-m-w-d-80-100-schindler-zurich",
-          "elettricista-per-il-montaggio-degli-ascensori-regione-zurigo-m-f-d-80-100-schindler-zurich"
+          "elettricista-per-il-montaggio-degli-ascensori-regione-zurigo-m-f-d-80-100-schindler-zurich",
+          "installatore-trice-elettrico-a-in-per-la-liftmontage-region-zurich-m-w-d-80-100-schindler-zurich"
         ],
         "en": [
           "elektroinstallateur-in-fur-die-liftmontage-region-zurich-m-w-d-80-100-schindler-zurich",
@@ -1723,7 +1716,7 @@
       "id": "schindler-8c9951e4514b",
       "slug": "imparare-il-cfc-polymechanic-ne-con-l-assemblatore-di-ascensore-specializzato-per-il-2026-a-le-mont-sur-lausanne",
       "slugByLocale": {
-        "it": "apprentissage-de-polymecanicien-ne-cfc-avec-specialisation-de-monteur-euse-en-ascenseurs-pour-2026-a-le-mont-sur-lausanne-schindler-le-mont-sur-lausanne",
+        "it": "imparare-il-cfc-polymechanic-ne-con-l-assemblatore-di-ascensore-specializzato-per-il-2026-a-le-mont-sur-lausanne",
         "en": "learning-polymechanic-ne-cfc-with-specialist-elevator-assembler-for-2026-in-le-mont-sur-lausanne-schindler-le-mont-sur",
         "de": "lernen-polymechanic-ne-cfc-mit-spezialisierter-aufzugsmontage-fur-2026-in-le-mont-sur-lausanne-schindler-le-mont-sur",
         "fr": "apprentissage-de-polymecanicien-ne-cfc-avec-specialisation-de-monteur-euse-en-ascenseurs"
@@ -1770,14 +1763,15 @@
       "previousSlugs": [
         "apprentissage-de-polymecanicien-ne-cfc-avec-specialisation-de-monteur-euse-en-ascenseurs",
         "imparare-da-polymechanic-ne-cfc-con-ascensori-specialistici-per-il-2026-a-le-mont-sur-lausanne-schindler-le-mont-sur",
+        "apprentissage-de-polymecanicien-ne-cfc-avec-specialisation-de-monteur-euse-en-ascenseurs-pour-2026-a-le-mont-sur-lausanne-schindler-le-mont-sur-lausanne",
         "learning-from-polymechanic-ne-cfc-with-specialist-elevator-assembler-for-2026-at-le-mont-sur-lausanne-schindler-le-mont",
-        "lernen-von-polymechanic-ne-cfc-mit-spezialisierter-aufzugsmontage-fur-2026-in-le-mont-sur-lausanne-schindler-le-mont-sur",
-        "imparare-il-cfc-polymechanic-ne-con-l-assemblatore-di-ascensore-specializzato-per-il-2026-a-le-mont-sur-lausanne"
+        "lernen-von-polymechanic-ne-cfc-mit-spezialisierter-aufzugsmontage-fur-2026-in-le-mont-sur-lausanne-schindler-le-mont-sur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "apprentissage-de-polymecanicien-ne-cfc-avec-specialisation-de-monteur-euse-en-ascenseurs",
-          "imparare-da-polymechanic-ne-cfc-con-ascensori-specialistici-per-il-2026-a-le-mont-sur-lausanne-schindler-le-mont-sur"
+          "imparare-da-polymechanic-ne-cfc-con-ascensori-specialistici-per-il-2026-a-le-mont-sur-lausanne-schindler-le-mont-sur",
+          "apprentissage-de-polymecanicien-ne-cfc-avec-specialisation-de-monteur-euse-en-ascenseurs-pour-2026-a-le-mont-sur-lausanne-schindler-le-mont-sur-lausanne"
         ],
         "en": [
           "apprentissage-de-polymecanicien-ne-cfc-avec-specialisation-de-monteur-euse-en-ascenseurs",
@@ -2557,7 +2551,7 @@
       "id": "schindler-f5f8b82b905c",
       "slug": "tecnico-di-servizio-a-berna-m-f-d-80-100-schindler-bern",
       "slugByLocale": {
-        "it": "servicetechniker-in-bern-m-w-d-80-100-schindler-bern",
+        "it": "tecnico-di-servizio-a-berna-m-f-d-80-100-schindler-bern",
         "en": "service-technician-in-bern-m-f-d-80-100-schindler-bern",
         "de": "servicetechniker-in-in-bern-m-w-d-80-100-schindler-bern",
         "fr": "technicien-de-service-a-berne-m-f-d-80-100-schindler-bern"
@@ -2603,12 +2597,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "servicetechniker-in-in-bern-m-w-d-80-100-schindler-bern",
-        "technicien-de-service-a-berne-h-f-d-80-100-schindler-bern",
-        "tecnico-di-servizio-a-berna-m-f-d-80-100-schindler-bern"
+        "servicetechniker-in-bern-m-w-d-80-100-schindler-bern",
+        "technicien-de-service-a-berne-h-f-d-80-100-schindler-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "servicetechniker-in-in-bern-m-w-d-80-100-schindler-bern"
+          "servicetechniker-in-in-bern-m-w-d-80-100-schindler-bern",
+          "servicetechniker-in-bern-m-w-d-80-100-schindler-bern"
         ],
         "en": [
           "servicetechniker-in-in-bern-m-w-d-80-100-schindler-bern"
@@ -3170,7 +3165,7 @@
       "id": "schindler-bcae395d112b",
       "slug": "gestione-delle-autorizzazioni-dei-cookie-schindler-bussigny",
       "slugByLocale": {
-        "it": "manager-per-cookie-einwilligungen-schindler-bussigny",
+        "it": "gestione-delle-autorizzazioni-dei-cookie-schindler-bussigny",
         "en": "manager-fur-cookie-einwilligungen-schindler-bussigny",
         "de": "manager-fur-cookie-einwilligungen-schindler-bussigny",
         "fr": "gestionnaire-pour-les-autorisations-de-cookies-schindler-bussigny"
@@ -3216,11 +3211,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "manager-fur-cookie-einwilligungen-schindler-bussigny",
-        "gestione-delle-autorizzazioni-dei-cookie-schindler-bussigny"
+        "manager-per-cookie-einwilligungen-schindler-bussigny"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "manager-fur-cookie-einwilligungen-schindler-bussigny"
+          "manager-fur-cookie-einwilligungen-schindler-bussigny",
+          "manager-per-cookie-einwilligungen-schindler-bussigny"
         ],
         "fr": [
           "manager-fur-cookie-einwilligungen-schindler-bussigny"
@@ -3324,7 +3320,7 @@
       "id": "schindler-94e762288e5d",
       "slug": "responsabile-consent-cookie-schindler-ebikon",
       "slugByLocale": {
-        "it": "manager-per-cookie-einwilligungen-schindler-ebikon",
+        "it": "responsabile-consent-cookie-schindler-ebikon",
         "en": "manager-fur-cookie-einwilligungen-schindler-ebikon",
         "de": "manager-fur-cookie-einwilligungen-schindler-ebikon",
         "fr": "responsable-consent-cookies-schindler-ebikon"
@@ -3372,15 +3368,16 @@
         "gestione-delle-autorizzazioni-dei-cookie-schindler-ebikon",
         "manager-del-consenso-dei-cookie-schindler-ebikon",
         "manager-fur-cookie-einwilligungen-schindler-ebikon",
+        "manager-per-cookie-einwilligungen-schindler-ebikon",
         "gestionnaire-pour-les-autorisations-de-cookies-schindler-ebikon",
-        "gestionnaire-du-consentement-des-cookies-schindler-ebikon",
-        "responsabile-consent-cookie-schindler-ebikon"
+        "gestionnaire-du-consentement-des-cookies-schindler-ebikon"
       ],
       "previousSlugsByLocale": {
         "it": [
           "gestione-delle-autorizzazioni-dei-cookie-schindler-ebikon",
           "manager-del-consenso-dei-cookie-schindler-ebikon",
-          "manager-fur-cookie-einwilligungen-schindler-ebikon"
+          "manager-fur-cookie-einwilligungen-schindler-ebikon",
+          "manager-per-cookie-einwilligungen-schindler-ebikon"
         ],
         "fr": [
           "manager-fur-cookie-einwilligungen-schindler-ebikon",
@@ -3557,7 +3554,7 @@
       "id": "schindler-8f68c9fc6d74",
       "slug": "gestione-delle-autorizzazioni-dei-cookie-schindler-basel",
       "slugByLocale": {
-        "it": "manager-per-cookie-einwilligungen-schindler-basel",
+        "it": "gestione-delle-autorizzazioni-dei-cookie-schindler-basel",
         "en": "manager-fur-cookie-einwilligungen-schindler-basel",
         "de": "manager-fur-cookie-einwilligungen-schindler-basel",
         "fr": "gestionnaire-pour-les-autorisations-de-cookies-schindler-basel"
@@ -3603,11 +3600,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "manager-fur-cookie-einwilligungen-schindler-basel",
-        "gestione-delle-autorizzazioni-dei-cookie-schindler-basel"
+        "manager-per-cookie-einwilligungen-schindler-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "manager-fur-cookie-einwilligungen-schindler-basel"
+          "manager-fur-cookie-einwilligungen-schindler-basel",
+          "manager-per-cookie-einwilligungen-schindler-basel"
         ],
         "fr": [
           "manager-fur-cookie-einwilligungen-schindler-basel"
@@ -3633,7 +3631,7 @@
       "id": "schindler-604676bbf76f",
       "slug": "gestione-delle-autorizzazioni-dei-cookie-schindler-bern-00d690",
       "slugByLocale": {
-        "it": "manager-per-cookie-einwilligungen-schindler-bern",
+        "it": "gestione-delle-autorizzazioni-dei-cookie-schindler-bern-00d690",
         "en": "manager-fur-cookie-einwilligungen-schindler-bern",
         "de": "manager-fur-cookie-einwilligungen-schindler-bern",
         "fr": "gestionnaire-pour-les-autorisations-de-cookies-schindler-bern-fd1b8a"
@@ -3681,13 +3679,14 @@
         "gestione-delle-autorizzazioni-dei-cookie-schindler-bern-fd1b8a",
         "manager-fur-cookie-einwilligungen-schindler-bern",
         "manager-per-cookie-einwilligungen-schindler-bern-2",
-        "gestione-delle-autorizzazioni-dei-cookie-schindler-bern-00d690"
+        "manager-per-cookie-einwilligungen-schindler-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "gestione-delle-autorizzazioni-dei-cookie-schindler-bern-fd1b8a",
           "manager-fur-cookie-einwilligungen-schindler-bern",
-          "manager-per-cookie-einwilligungen-schindler-bern-2"
+          "manager-per-cookie-einwilligungen-schindler-bern-2",
+          "manager-per-cookie-einwilligungen-schindler-bern"
         ],
         "fr": [
           "manager-fur-cookie-einwilligungen-schindler-bern"
@@ -3940,12 +3939,12 @@
     },
     {
       "id": "schindler-6e3cbe691386",
-      "slug": "manager-per-cookie-einwilligungen-schindler-ebikon",
+      "slug": "responsabile-consent-cookie-schindler-ebikon-caf89d",
       "slugByLocale": {
         "de": "manager-fur-cookie-einwilligungen-schindler-ebikon",
-        "it": "manager-per-cookie-einwilligungen-schindler-ebikon",
+        "it": "responsabile-consent-cookie-schindler-ebikon-caf89d",
         "en": "manager-per-cookie-einwilligungen-schindler-ebikon",
-        "fr": "manager-per-cookie-einwilligungen-schindler-ebikon"
+        "fr": "responsable-consent-cookies-schindler-ebikon-caf89d"
       },
       "company": "Schindler",
       "companyKey": "schindler",
@@ -3995,11 +3994,13 @@
           "gestione-delle-autorizzazioni-dei-cookie-schindler-bern-fd1b8a",
           "gestione-delle-autorizzazioni-dei-cookie-schindler-ebikon-i5c82e",
           "gestione-delle-autorizzazioni-dei-cookie-schindler-oberentfelden",
-          "responsabile-consent-cookie-schindler-ebikon-i5b1st"
+          "responsabile-consent-cookie-schindler-ebikon-i5b1st",
+          "manager-per-cookie-einwilligungen-schindler-ebikon"
         ],
         "fr": [
           "gestionnaire-pour-les-autorisations-de-cookies-schindler-bern-fd1b8a",
-          "gestionnaire-pour-les-autorisations-de-cookies-schindler-ebikon"
+          "gestionnaire-pour-les-autorisations-de-cookies-schindler-ebikon",
+          "manager-per-cookie-einwilligungen-schindler-ebikon"
         ],
         "en": [
           "manager-per-cookie-einwilligungen-schindler-ebikon-i5b1st",
@@ -4017,14 +4018,15 @@
         "gestione-delle-autorizzazioni-dei-cookie-schindler-ebikon-i5c82e",
         "gestione-delle-autorizzazioni-dei-cookie-schindler-oberentfelden",
         "responsabile-consent-cookie-schindler-ebikon-i5b1st",
+        "manager-per-cookie-einwilligungen-schindler-ebikon",
         "gestionnaire-pour-les-autorisations-de-cookies-schindler-bern-fd1b8a",
+        "gestionnaire-pour-les-autorisations-de-cookies-schindler-ebikon",
         "manager-per-cookie-einwilligungen-schindler-ebikon-i5b1st",
         "manager-per-cookie-einwilligungen-schindler-ebikon-i5ay3c",
         "manager-fur-cookie-einwilligungen-schindler-ebikon-2",
         "manager-per-cookie-einwilligungen-schindler-oberentfelden",
         "manager-fur-cookie-einwilligungen-schindler-ebikon-3",
-        "gestione-delle-autorizzazioni-dei-cookie-schindler-ebikon",
-        "gestionnaire-pour-les-autorisations-de-cookies-schindler-ebikon"
+        "gestione-delle-autorizzazioni-dei-cookie-schindler-ebikon"
       ],
       "salaryMin": 68000,
       "salaryMax": 103000,
@@ -4046,7 +4048,7 @@
       "id": "schindler-75a56cb52f43",
       "slug": "gestione-delle-autorizzazioni-dei-cookie-schindler-winterthur",
       "slugByLocale": {
-        "it": "manager-per-cookie-einwilligungen-schindler-winterthur",
+        "it": "gestione-delle-autorizzazioni-dei-cookie-schindler-winterthur",
         "en": "manager-fur-cookie-einwilligungen-schindler-winterthur",
         "de": "manager-fur-cookie-einwilligungen-schindler-winterthur",
         "fr": "gestionnaire-pour-les-autorisations-de-cookies-schindler-winterthur"
@@ -4104,12 +4106,13 @@
         "manager-per-cookie-einwilligungen-schindler-ebikon",
         "gestione-delle-autorizzazioni-dei-cookie-schindler-winterthur-ofej7n",
         "gestione-delle-autorizzazioni-dei-cookie-schindler-oberentfelden-8cq51r",
+        "manager-per-cookie-einwilligungen-schindler-winterthur",
         "manager-per-cookie-einwilligungen-schindler-ebikon-i5b1st",
         "manager-per-cookie-einwilligungen-schindler-ebikon-i5ay3c",
         "manager-fur-cookie-einwilligungen-schindler-ebikon-2",
         "manager-per-cookie-einwilligungen-schindler-oberentfelden",
         "manager-fur-cookie-einwilligungen-schindler-ebikon-3",
-        "gestione-delle-autorizzazioni-dei-cookie-schindler-winterthur"
+        "manager-fur-cookie-einwilligungen-schindler-ebikon"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4125,7 +4128,8 @@
           "manager-fur-cookie-einwilligungen-schindler-winterthur",
           "manager-per-cookie-einwilligungen-schindler-ebikon",
           "gestione-delle-autorizzazioni-dei-cookie-schindler-winterthur-ofej7n",
-          "gestione-delle-autorizzazioni-dei-cookie-schindler-oberentfelden-8cq51r"
+          "gestione-delle-autorizzazioni-dei-cookie-schindler-oberentfelden-8cq51r",
+          "manager-per-cookie-einwilligungen-schindler-winterthur"
         ],
         "en": [
           "manager-per-cookie-einwilligungen-schindler-ebikon-i5b1st",
@@ -4321,7 +4325,7 @@
       "id": "schindler-d075d10ff07d",
       "slug": "gestione-delle-autorizzazioni-dei-cookie-schindler-winterthur-010822",
       "slugByLocale": {
-        "it": "manager-per-cookie-einwilligungen-schindler-winterthur",
+        "it": "gestione-delle-autorizzazioni-dei-cookie-schindler-winterthur-010822",
         "en": "manager-fur-cookie-einwilligungen-schindler-winterthur",
         "de": "manager-fur-cookie-einwilligungen-schindler-winterthur",
         "fr": "gestionnaire-pour-les-autorisations-de-cookies-schindler-winterthur"
@@ -4371,6 +4375,7 @@
         "gestione-delle-autorizzazioni-dei-cookie-schindler-bern-fd1b8a-8f3hgt",
         "manager-fur-cookie-einwilligungen-schindler-winterthur",
         "manager-per-cookie-einwilligungen-schindler-winterthur-2",
+        "manager-per-cookie-einwilligungen-schindler-winterthur",
         "manager-fur-cookie-einwilligungen-schindler-ebikon",
         "manager-per-cookie-einwilligungen-schindler-oberentfelden-2",
         "manager-per-cookie-einwilligungen-schindler-bern",
@@ -4383,8 +4388,7 @@
         "responsabile-consent-cookie-schindler-ebikon-i5ay3c",
         "manager-per-cookie-einwilligungen-schindler-ebikon-2",
         "manager-per-cookie-einwilligungen-schindler-ebikon-i5afjz",
-        "manager-per-cookie-einwilligungen-schindler-ebikon-i5ae2l",
-        "gestione-delle-autorizzazioni-dei-cookie-schindler-winterthur-010822"
+        "manager-per-cookie-einwilligungen-schindler-ebikon-i5ae2l"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4392,7 +4396,8 @@
           "gestione-delle-autorizzazioni-dei-cookie-schindler-winterthur",
           "gestione-delle-autorizzazioni-dei-cookie-schindler-bern-fd1b8a-8f3hgt",
           "manager-fur-cookie-einwilligungen-schindler-winterthur",
-          "manager-per-cookie-einwilligungen-schindler-winterthur-2"
+          "manager-per-cookie-einwilligungen-schindler-winterthur-2",
+          "manager-per-cookie-einwilligungen-schindler-winterthur"
         ],
         "en": [
           "manager-fur-cookie-einwilligungen-schindler-ebikon",
@@ -4541,7 +4546,6 @@
         "aufzugsmonteur-in-region-berner-oberland-m-w-d-80-100-schindler-bern",
         "projektleiter-m-w-d-schindler-bern-7ab342",
         "aufzugsmonteur-in-region-bern-m-w-d-80-100-schindler-bern",
-        "projektleiter-m-w-d-schindler-bern",
         "aufzugsmonteur-in-region-bern-m-w-d-80-100-schindler-bern-2",
         "tecnico-ascensorista-regione-berna-m-f-d-80-100-schindler-bern"
       ],
@@ -4578,7 +4582,7 @@
       "id": "schindler-edab4d4f6924",
       "slug": "tecnico-a-di-servizio-con-potenziale-nella-regione-di-zurigo-m-f-d-80-100-schindler-zurich",
       "slugByLocale": {
-        "it": "servicetechniker-in-con-potenzial-in-der-region-zurich-m-w-d-80-100-schindler-zurich",
+        "it": "tecnico-a-di-servizio-con-potenziale-nella-regione-di-zurigo-m-f-d-80-100-schindler-zurich",
         "en": "service-technician-with-potential-in-the-zurich-region-m-f-d-80-100-schindler-zurich",
         "de": "servicetechniker-in-mit-potenzial-in-der-region-zurich-m-w-d-80-100-schindler-zurich",
         "fr": "technicien-ne-de-service-avec-potentiel-dans-la-region-de-zurich-h-f-d-80-100-schindler-zurich"
@@ -4625,13 +4629,14 @@
       "previousSlugs": [
         "servicetechniker-in-mit-potenzial-in-der-region-zurich-m-w-d-80-100-schindler-zurich",
         "tecnico-di-servizio-con-potenziale-nella-regione-di-zurigo-m-f-d-80-100-schindler-zurich",
-        "technicien-de-service-avec-potentiel-dans-la-region-de-zurich-m-f-d-80-100-schindler-zurich",
-        "tecnico-a-di-servizio-con-potenziale-nella-regione-di-zurigo-m-f-d-80-100-schindler-zurich"
+        "servicetechniker-in-con-potenzial-in-der-region-zurich-m-w-d-80-100-schindler-zurich",
+        "technicien-de-service-avec-potentiel-dans-la-region-de-zurich-m-f-d-80-100-schindler-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "servicetechniker-in-mit-potenzial-in-der-region-zurich-m-w-d-80-100-schindler-zurich",
-          "tecnico-di-servizio-con-potenziale-nella-regione-di-zurigo-m-f-d-80-100-schindler-zurich"
+          "tecnico-di-servizio-con-potenziale-nella-regione-di-zurigo-m-f-d-80-100-schindler-zurich",
+          "servicetechniker-in-con-potenzial-in-der-region-zurich-m-w-d-80-100-schindler-zurich"
         ],
         "en": [
           "servicetechniker-in-mit-potenzial-in-der-region-zurich-m-w-d-80-100-schindler-zurich"
@@ -4897,7 +4902,7 @@
       "id": "schindler-cb89735d4ad5",
       "slug": "gestione-delle-autorizzazioni-dei-cookie-schindler-oberentfelden",
       "slugByLocale": {
-        "it": "manager-per-cookie-einwilligungen-schindler-ebikon",
+        "it": "gestione-delle-autorizzazioni-dei-cookie-schindler-oberentfelden",
         "en": "manager-fur-cookie-einwilligungen-schindler-oberentfelden",
         "de": "manager-fur-cookie-einwilligungen-schindler-oberentfelden",
         "fr": "gestionnaire-pour-les-autorisations-de-cookies-schindler-oberentfelden"
@@ -4958,17 +4963,10 @@
         "gestione-delle-autorizzazioni-dei-cookie-schindler-ebikon",
         "gestione-delle-autorizzazioni-dei-cookie-schindler-winterthur-b3da79",
         "manager-per-cookie-einwilligungen-schindler-oberentfelden",
+        "manager-per-cookie-einwilligungen-schindler-ebikon",
         "manager-per-cookie-einwilligungen-schindler-winterthur-2",
         "manager-per-cookie-einwilligungen-schindler-oberentfelden-2",
-        "manager-per-cookie-einwilligungen-schindler-ebikon-2",
-        "manager-fur-cookie-einwilligungen-schindler-ebikon",
-        "gestionnaire-pour-les-autorisations-de-cookies-schindler-bern-fd1b8a",
-        "manager-per-cookie-einwilligungen-schindler-ebikon-i5b1st",
-        "manager-per-cookie-einwilligungen-schindler-ebikon-i5ay3c",
-        "manager-fur-cookie-einwilligungen-schindler-ebikon-2",
-        "manager-fur-cookie-einwilligungen-schindler-ebikon-3",
-        "gestione-delle-autorizzazioni-dei-cookie-schindler-oberentfelden",
-        "manager-fur-cookie-einwilligungen-schindler-bern"
+        "manager-per-cookie-einwilligungen-schindler-ebikon-2"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4987,7 +4985,8 @@
           "gestione-delle-autorizzazioni-dei-cookie-schindler-ebikon-i5c82e",
           "gestione-delle-autorizzazioni-dei-cookie-schindler-ebikon",
           "gestione-delle-autorizzazioni-dei-cookie-schindler-winterthur-b3da79",
-          "manager-per-cookie-einwilligungen-schindler-oberentfelden"
+          "manager-per-cookie-einwilligungen-schindler-oberentfelden",
+          "manager-per-cookie-einwilligungen-schindler-ebikon"
         ],
         "en": [
           "manager-per-cookie-einwilligungen-schindler-winterthur-2",
@@ -5031,7 +5030,7 @@
       "id": "schindler-3a8dc89d7e9f",
       "slug": "gestione-delle-autorizzazioni-dei-cookie-schindler-oberentfelden-8dbfab",
       "slugByLocale": {
-        "it": "manager-per-cookie-einwilligungen-schindler-oberentfelden",
+        "it": "gestione-delle-autorizzazioni-dei-cookie-schindler-oberentfelden-8dbfab",
         "en": "manager-fur-cookie-einwilligungen-schindler-oberentfelden",
         "de": "manager-fur-cookie-einwilligungen-schindler-oberentfelden",
         "fr": "gestionnaire-pour-les-autorisations-de-cookies-schindler-oberentfelden"
@@ -5084,6 +5083,7 @@
         "gestione-delle-autorizzazioni-dei-cookie-schindler-winterthur",
         "manager-per-cookie-einwilligungen-schindler-oberentfelden-2",
         "gestione-delle-autorizzazioni-dei-cookie-schindler-winterthur-ofej7n",
+        "manager-per-cookie-einwilligungen-schindler-oberentfelden",
         "manager-fur-cookie-einwilligungen-schindler-ebikon",
         "manager-per-cookie-einwilligungen-schindler-bern",
         "manager-per-cookie-einwilligungen-schindler-winterthur-2",
@@ -5093,8 +5093,7 @@
         "manager-fur-cookie-einwilligungen-schindler-winterthur",
         "responsable-consent-cookies-schindler-ebikon",
         "gestionnaire-pour-les-autorisations-de-cookies-schindler-winterthur",
-        "gestione-delle-autorizzazioni-dei-cookie-schindler-ebikon",
-        "gestione-delle-autorizzazioni-dei-cookie-schindler-oberentfelden-8dbfab"
+        "gestione-delle-autorizzazioni-dei-cookie-schindler-ebikon"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -5105,7 +5104,8 @@
           "manager-fur-cookie-einwilligungen-schindler-oberentfelden",
           "gestione-delle-autorizzazioni-dei-cookie-schindler-winterthur",
           "manager-per-cookie-einwilligungen-schindler-oberentfelden-2",
-          "gestione-delle-autorizzazioni-dei-cookie-schindler-winterthur-ofej7n"
+          "gestione-delle-autorizzazioni-dei-cookie-schindler-winterthur-ofej7n",
+          "manager-per-cookie-einwilligungen-schindler-oberentfelden"
         ],
         "en": [
           "manager-fur-cookie-einwilligungen-schindler-ebikon",
@@ -5769,7 +5769,7 @@
       "id": "schindler-9d0f47bd404c",
       "slug": "responsabile-e-capo-progetto-per-un-team-di-montaggio-nell-alto-vallese-m-f-d-80-100-schindler-bern",
       "slugByLocale": {
-        "it": "teamleiter-e-projektleiter-per-ein-montageteam-im-oberwallis-m-w-d-80-100-schindler-bern",
+        "it": "responsabile-e-capo-progetto-per-un-team-di-montaggio-nell-alto-vallese-m-f-d-80-100-schindler-bern",
         "en": "team-leader-and-project-manager-for-an-assembly-team-in-upper-valais-m-f-d-80-100-schindler-bern",
         "de": "teamleiter-und-projektleiter-fur-ein-montageteam-im-oberwallis-m-w-d-80-100-schindler-bern",
         "fr": "chef-d-equipe-et-chef-de-projet-pour-une-equipe-de-montage-en-haut-valais-h-f-d-80-100-schindler-bern"
@@ -5816,14 +5816,15 @@
       "previousSlugs": [
         "teamleiter-und-projektleiter-fur-ein-montageteam-im-oberwallis-m-w-d-80-100-schindler-bern",
         "capo-squadra-e-progetto-per-un-team-di-montaggio-nel-vallese-m-w-d-80-100-schindler-bern",
+        "teamleiter-e-projektleiter-per-ein-montageteam-im-oberwallis-m-w-d-80-100-schindler-bern",
         "team-leader-and-project-manager-for-a-montage-team-in-the-upper-valais-m-w-d-80-100-schindler-bern",
-        "chef-d-equipe-et-de-projet-pour-une-equipe-de-montage-dans-le-haut-valais-m-w-d-80-100-schindler-bern",
-        "responsabile-e-capo-progetto-per-un-team-di-montaggio-nell-alto-vallese-m-f-d-80-100-schindler-bern"
+        "chef-d-equipe-et-de-projet-pour-une-equipe-de-montage-dans-le-haut-valais-m-w-d-80-100-schindler-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "teamleiter-und-projektleiter-fur-ein-montageteam-im-oberwallis-m-w-d-80-100-schindler-bern",
-          "capo-squadra-e-progetto-per-un-team-di-montaggio-nel-vallese-m-w-d-80-100-schindler-bern"
+          "capo-squadra-e-progetto-per-un-team-di-montaggio-nel-vallese-m-w-d-80-100-schindler-bern",
+          "teamleiter-e-projektleiter-per-ein-montageteam-im-oberwallis-m-w-d-80-100-schindler-bern"
         ],
         "en": [
           "teamleiter-und-projektleiter-fur-ein-montageteam-im-oberwallis-m-w-d-80-100-schindler-bern",
@@ -6076,12 +6077,12 @@
     },
     {
       "id": "schindler-aa8845ab590f",
-      "slug": "verkaufsprofi-im-servicegeschaft-in-bern-m-w-d-80-100-schindler-bern",
+      "slug": "marketing-manager-m-w-d-80-100-schindler-bern",
       "slugByLocale": {
-        "it": "verkaufsprofi-im-servicegeschaft-in-bern-m-w-d-80-100-schindler-bern",
+        "it": "marketing-manager-m-w-d-80-100-schindler-bern",
         "en": "verkaufsprofi-im-servicegeschaft-in-bern-m-w-d-80-100-schindler-bern",
         "de": "verkaufsprofi-im-servicegeschaft-in-bern-m-w-d-80-100-schindler-bern",
-        "fr": "verkaufsprofi-im-servicegeschaft-in-bern-m-w-d-80-100-schindler-bern"
+        "fr": "directeur-marketing-m-p-p-80-100-schindler-bern"
       },
       "company": "Schindler",
       "companyKey": "schindler",
@@ -6136,7 +6137,18 @@
         }
       },
       "streetAddress": "Via Industria 11",
-      "postalCode": "6934"
+      "postalCode": "6934",
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufsprofi-im-servicegeschaft-in-bern-m-w-d-80-100-schindler-bern"
+        ],
+        "fr": [
+          "verkaufsprofi-im-servicegeschaft-in-bern-m-w-d-80-100-schindler-bern"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufsprofi-im-servicegeschaft-in-bern-m-w-d-80-100-schindler-bern"
+      ]
     },
     {
       "id": "schindler-b0e6ea9b760b",
@@ -6505,10 +6517,10 @@
     },
     {
       "id": "schindler-56e0f10c77f3",
-      "slug": "working-student-internship-project-event-coordinator-m-f-d-70-100-schindler-ebikon",
+      "slug": "lavoro-studente-internship-project-event-coordinatore-m-f-d-70-100-schindler-ebikon",
       "slugByLocale": {
         "en": "working-student-internship-project-event-coordinator-m-f-d-70-100-schindler-ebikon",
-        "it": "working-student-internship-project-event-coordinator-m-f-d-70-100-schindler-ebikon",
+        "it": "lavoro-studente-internship-project-event-coordinatore-m-f-d-70-100-schindler-ebikon",
         "de": "working-student-internship-project-event-coordinator-m-f-d-70-100-schindler-ebikon",
         "fr": "working-student-internship-project-event-coordinator-m-f-d-70-100-schindler-ebikon"
       },
@@ -6567,7 +6579,15 @@
       },
       "streetAddress": "Via Industria 11",
       "postalCode": "6934",
-      "firstSeenAt": "2026-05-28T00:13:48.153Z"
+      "firstSeenAt": "2026-05-28T00:13:48.153Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "working-student-internship-project-event-coordinator-m-f-d-70-100-schindler-ebikon"
+        ]
+      },
+      "previousSlugs": [
+        "working-student-internship-project-event-coordinator-m-f-d-70-100-schindler-ebikon"
+      ]
     }
   ]
 }

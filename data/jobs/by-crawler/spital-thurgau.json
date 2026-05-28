@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "spital-thurgau-904fcdaf9ab0",
-      "slug": "dipl-carriera-donna-acute-station-all-eta-superiore-spital-thurgau-stgag-munsterlingen",
+      "slug": "dipl-infermiere-a-reparto-acuto-per-anziani-spital-thurgau-stgag-munsterlingen",
       "slugByLocale": {
-        "it": "dipl-carriera-donna-acute-station-all-eta-superiore-spital-thurgau-stgag-munsterlingen",
-        "en": "dipl-pflegefachmann-frau-akutstation-im-hoheren-alter-stgag-ch",
+        "it": "dipl-infermiere-a-reparto-acuto-per-anziani-spital-thurgau-stgag-munsterlingen",
+        "en": "dipl-nurse-acute-ward-for-older-patients-spital-thurgau-stgag-munsterlingen",
         "de": "dipl-pflegefachmann-frau-akutstation-im-hoheren-alter-stgag-ch",
-        "fr": "dipl-pflegefachmann-frau-akutstation-im-hoheren-alter-stgag-ch"
+        "fr": "dipl-infirmier-ere-service-aigu-pour-personnes-agees-spital-thurgau-stgag-munsterlingen"
       },
       "company": "Spital Thurgau (STGAG)",
       "companyKey": "spital-thurgau",
@@ -56,6 +56,7 @@
         "dipl-pflegefachmann-frau-akutstation-im-hoheren-alter-stgag-ch",
         "dipl-pflegefachmann-frau-akutstation-im-hoheren-alter-spital-thurgau-stgag-munsterlingen",
         "salute-professionale-moglie-presso-la-piscina-dei-dipendenti-spital-thurgau-stgag-munsterlingen",
+        "dipl-carriera-donna-acute-station-all-eta-superiore-spital-thurgau-stgag-munsterlingen",
         "medico-senior-in-pneumologia-spital-thurgau-stgag-kantonsspital-munsterlingen",
         "fachmann-frau-gesundheit-im-mitarbeiterpool-stundenlohn-stgag-ch",
         "fachmann-frau-gesundheit-im-mitarbeiterpool-stundenlohn-spital-thurgau-stgag-munsterlingen",
@@ -66,7 +67,14 @@
         "it": [
           "dipl-pflegefachmann-frau-akutstation-im-hoheren-alter-stgag-ch",
           "dipl-pflegefachmann-frau-akutstation-im-hoheren-alter-spital-thurgau-stgag-munsterlingen",
-          "salute-professionale-moglie-presso-la-piscina-dei-dipendenti-spital-thurgau-stgag-munsterlingen"
+          "salute-professionale-moglie-presso-la-piscina-dei-dipendenti-spital-thurgau-stgag-munsterlingen",
+          "dipl-carriera-donna-acute-station-all-eta-superiore-spital-thurgau-stgag-munsterlingen"
+        ],
+        "en": [
+          "dipl-pflegefachmann-frau-akutstation-im-hoheren-alter-stgag-ch"
+        ],
+        "fr": [
+          "dipl-pflegefachmann-frau-akutstation-im-hoheren-alter-stgag-ch"
         ]
       },
       "firstSeenAt": "2026-05-10T22:26:54.982Z",
@@ -238,7 +246,7 @@
       "slug": "specialista-dell-istruzione-hf-3-anni-regolari-settembre-2026-bfgs-spital-thurgau-stgag-munsterlingen-886767",
       "slugByLocale": {
         "de": "ausbildung-dipl-pflegefachmann-frau-hf-3-jahre-regular-september-2026-bfgs-stgag-ch",
-        "it": "ausbildung-dipl-pflegefachmann-frau-hf-3-jahre-regular-september-2026-bfgs-spital-thurgau-stgag-munsterlingen",
+        "it": "specialista-dell-istruzione-hf-3-anni-regolari-settembre-2026-bfgs-spital-thurgau-stgag-munsterlingen-886767",
         "en": "education-care-specialist-hf-3-years-regular-september-2026-bfgs-spital-thurgau-stgag-munsterlingen-886767",
         "fr": "specialiste-des-soins-d-education-hf-3-ans-de-routine-septembre-2026-bfgs-spital-thurgau-stgag-munsterlingen-886767"
       },
@@ -287,7 +295,8 @@
       "contractDuration": "permanent",
       "previousSlugsByLocale": {
         "it": [
-          "ausbildung-dipl-pflegefachmann-frau-hf-3-jahre-regular-september-2026-bfgs-stgag-ch"
+          "ausbildung-dipl-pflegefachmann-frau-hf-3-jahre-regular-september-2026-bfgs-stgag-ch",
+          "ausbildung-dipl-pflegefachmann-frau-hf-3-jahre-regular-september-2026-bfgs-spital-thurgau-stgag-munsterlingen"
         ],
         "en": [
           "ausbildung-dipl-pflegefachmann-frau-hf-3-jahre-regular-september-2026-bfgs-spital-thurgau-stgag-munsterlingen"
@@ -298,8 +307,7 @@
       },
       "previousSlugs": [
         "ausbildung-dipl-pflegefachmann-frau-hf-3-jahre-regular-september-2026-bfgs-stgag-ch",
-        "ausbildung-dipl-pflegefachmann-frau-hf-3-jahre-regular-september-2026-bfgs-spital-thurgau-stgag-munsterlingen",
-        "specialista-dell-istruzione-hf-3-anni-regolari-settembre-2026-bfgs-spital-thurgau-stgag-munsterlingen-886767"
+        "ausbildung-dipl-pflegefachmann-frau-hf-3-jahre-regular-september-2026-bfgs-spital-thurgau-stgag-munsterlingen"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -1175,7 +1183,7 @@
       "id": "spital-thurgau-39f64cefd83d",
       "slug": "dipl-specialista-in-allattamento-forensik-spital-thurgau-stgag-munsterlingen",
       "slugByLocale": {
-        "it": "dipl-pflegefachmann-frau-forensik-spital-thurgau-stgag-munsterlingen",
+        "it": "dipl-specialista-in-allattamento-forensik-spital-thurgau-stgag-munsterlingen",
         "en": "dipl-pflegefachmann-frau-forensik-stgag-ch-2",
         "de": "dipl-pflegefachmann-frau-forensik-stgag-ch",
         "fr": "dipl-specialiste-des-soins-infirmiers-forensik-spital-thurgau-stgag-munsterlingen"
@@ -1224,6 +1232,7 @@
       "previousSlugs": [
         "infermiere-a-specializzato-a-in-medicina-forense-spital-thurgau-stgag-munsterlingen",
         "dipl-pflegefachmann-frau-forensik-stgag-ch",
+        "dipl-pflegefachmann-frau-forensik-spital-thurgau-stgag-munsterlingen",
         "dipl-pflegefachmann-frau-forensik-stgag-ch-2",
         "dipl-specialista-di-cura-forense-spital-thurgau-stgag-munsterlingen",
         "formazione-di-infermiere-specializzato-a-hf-4-anni-part-time-bfgs-a-partire-da-gennaio-2027-spital-thurgau-stgag-munster",
@@ -1234,14 +1243,13 @@
         "education-senior-caregiver-hf-4-anni-legato-al-lavoro-bfgs-dal-gennaio-2027-spital-thurgau-stgag-munsterlingen",
         "dipl-pflegefachmann-frau-forensik-spital-thurgau-stgag-munsterlingen-2",
         "dipl-specialiste-de-la-medecine-legale-spital-thurgau-stgag-munsterlingen",
-        "dipl-specialista-in-allattamento-forensik-spital-thurgau-stgag-munsterlingen-r14fca",
-        "dipl-specialista-in-allattamento-forensik-spital-thurgau-stgag-munsterlingen",
-        "dipl-specialiste-des-soins-infirmiers-forensik-spital-thurgau-stgag-munsterlingen"
+        "dipl-specialista-in-allattamento-forensik-spital-thurgau-stgag-munsterlingen-r14fca"
       ],
       "previousSlugsByLocale": {
         "it": [
           "infermiere-a-specializzato-a-in-medicina-forense-spital-thurgau-stgag-munsterlingen",
-          "dipl-pflegefachmann-frau-forensik-stgag-ch"
+          "dipl-pflegefachmann-frau-forensik-stgag-ch",
+          "dipl-pflegefachmann-frau-forensik-spital-thurgau-stgag-munsterlingen"
         ],
         "fr": [
           "dipl-pflegefachmann-frau-forensik-stgag-ch-2"
@@ -1420,7 +1428,7 @@
       "slug": "dipl-specialista-in-allattamento-forensik-spital-thurgau-stgag-munsterlingen-f431a9",
       "slugByLocale": {
         "de": "dipl-pflegefachmann-frau-forensik-stgag-ch",
-        "it": "dipl-pflegefachmann-frau-forensik-spital-thurgau-stgag-munsterlingen",
+        "it": "dipl-specialista-in-allattamento-forensik-spital-thurgau-stgag-munsterlingen-f431a9",
         "en": "dipl-pflegefachmann-frau-forensik-stgag-ch-2",
         "fr": "dipl-specialiste-des-soins-infirmiers-forensik-spital-thurgau-stgag-munsterlingen-f431a9"
       },
@@ -1470,7 +1478,8 @@
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachmann-frau-forensik-stgag-ch",
-          "dipl-pflegefachmann-frau-forensik-spital-thurgau-stgag-munsterlingen-2"
+          "dipl-pflegefachmann-frau-forensik-spital-thurgau-stgag-munsterlingen-2",
+          "dipl-pflegefachmann-frau-forensik-spital-thurgau-stgag-munsterlingen"
         ],
         "en": [
           "dipl-pflegefachmann-frau-forensik-spital-thurgau-stgag-munsterlingen-2"
@@ -1483,6 +1492,7 @@
       "previousSlugs": [
         "dipl-pflegefachmann-frau-forensik-stgag-ch",
         "dipl-pflegefachmann-frau-forensik-spital-thurgau-stgag-munsterlingen-2",
+        "dipl-pflegefachmann-frau-forensik-spital-thurgau-stgag-munsterlingen",
         "dipl-pflegefachmann-frau-forensik-stgag-ch-2",
         "infermiere-a-specializzato-a-in-medicina-forense-spital-thurgau-stgag-munsterlingen",
         "dipl-specialista-in-allattamento-forensik-spital-thurgau-stgag-munsterlingen",
@@ -1495,8 +1505,7 @@
         "ausbildung-dipl-pflegefachmann-frau-hf-4-jahre-berufsbegleitend-bfgs-ab-januar-2027-spital-thurgau-stgag-munsterlingen",
         "education-senior-caregiver-hf-4-anni-legato-al-lavoro-bfgs-dal-gennaio-2027-spital-thurgau-stgag-munsterlingen",
         "dipl-specialiste-de-la-medecine-legale-spital-thurgau-stgag-munsterlingen",
-        "dipl-specialista-in-allattamento-forensik-spital-thurgau-stgag-munsterlingen-r14fca",
-        "dipl-specialista-in-allattamento-forensik-spital-thurgau-stgag-munsterlingen-f431a9"
+        "dipl-specialista-in-allattamento-forensik-spital-thurgau-stgag-munsterlingen-r14fca"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -2423,10 +2432,7 @@
         "dipl-specialista-di-cura-hf-fh-spital-thurgau-stgag-kantonsspital-munsterlingen",
         "neurologia-del-medico-senior-spital-thurgau-stgag-kantonsspital-munsterlingen",
         "diploma-in-nursing-hf-fh-spital-thurgau-stgag-diessenhofen-b4070b",
-        "diplome-e-en-soins-infirmiers-hf-fh-spital-thurgau-stgag-diessenhofen-b4070b",
-        "diploma-in-nursing-hf-fh-spital-thurgau-stgag-diessenhofen",
-        "diplome-e-en-soins-infirmiers-hf-fh-spital-thurgau-stgag-diessenhofen",
-        "dipl-pflegefachmann-frau-hf-fh-spital-thurgau-stgag-kantonsspital-munsterlingen"
+        "diplome-e-en-soins-infirmiers-hf-fh-spital-thurgau-stgag-diessenhofen-b4070b"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2698,9 +2704,9 @@
       "slug": "specialista-dell-istruzione-hf-3-anni-regolari-settembre-2026-bfgs-spital-thurgau-stgag-munsterlingen",
       "slugByLocale": {
         "it": "specialista-dell-istruzione-hf-3-anni-regolari-settembre-2026-bfgs-spital-thurgau-stgag-munsterlingen",
-        "en": "ausbildung-dipl-pflegefachmann-frau-hf-3-jahre-regular-september-2026-bfgs-stgag-ch-2",
+        "en": "education-care-specialist-hf-3-years-regular-september-2026-bfgs-spital-thurgau-stgag-munsterlingen-16c9b0",
         "de": "ausbildung-dipl-pflegefachmann-frau-hf-3-jahre-regular-september-2026-bfgs-stgag-ch",
-        "fr": "ausbildung-dipl-pflegefachmann-frau-hf-3-jahre-regular-september-2026-bfgs-stgag-ch-2"
+        "fr": "specialiste-des-soins-d-education-hf-3-ans-de-routine-septembre-2026-bfgs-spital-thurgau-stgag-munsterlingen-16c9b0"
       },
       "company": "Spital Thurgau (STGAG)",
       "companyKey": "spital-thurgau",
@@ -2745,6 +2751,7 @@
       "contractDuration": "permanent",
       "previousSlugs": [
         "ausbildung-dipl-pflegefachmann-frau-hf-3-jahre-regular-september-2026-bfgs-stgag-ch",
+        "specialista-dell-istruzione-hf-3-anni-abbreviato-legato-al-lavoro-bfgs-gennaio-2026-spital-thurgau-stgag-munsterlingen",
         "education-care-specialist-hf-3-years-shortened-working-related-bfgs-january-2026-spital-thurgau-stgag-munsterlingen",
         "ausbildung-dipl-pflegefachmann-frau-hf-3-jahre-regular-september-2026-bfgs-stgag-ch-2",
         "education-care-specialist-hf-3-years-regular-september-2026-bfgs-spital-thurgau-stgag-munsterlingen",
@@ -2755,11 +2762,7 @@
         "ausbildung-dipl-pflegefachmann-frau-hf-3-jahre-verkurzt-berufsbegleitend-bfgs-januar-2026",
         "ausbildung-dipl-pflegefachmann-frau-hf-3-jahre-regular-september-2026-bfgs-spital-thurgau-stgag-munsterlingen",
         "ausbildung-dipl-pflegefachmann-frau-hf-3-jahre-regular-september-2026-bfgs-stgag-ch-3",
-        "sostanza-in-urologia-spital-thurgau-stgag-kantonsspital-munsterlingen",
-        "specialista-dell-istruzione-hf-3-anni-regolari-settembre-2026-bfgs-spital-thurgau-stgag-munsterlingen",
-        "specialista-dell-istruzione-hf-3-anni-abbreviato-legato-al-lavoro-bfgs-gennaio-2026-spital-thurgau-stgag-munsterlingen",
-        "education-care-specialist-hf-3-years-regular-september-2026-bfgs-spital-thurgau-stgag-munsterlingen-16c9b0",
-        "specialiste-des-soins-d-education-hf-3-ans-de-routine-septembre-2026-bfgs-spital-thurgau-stgag-munsterlingen-16c9b0"
+        "sostanza-in-urologia-spital-thurgau-stgag-kantonsspital-munsterlingen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2769,8 +2772,7 @@
         "en": [
           "education-care-specialist-hf-3-years-shortened-working-related-bfgs-january-2026-spital-thurgau-stgag-munsterlingen",
           "ausbildung-dipl-pflegefachmann-frau-hf-3-jahre-regular-september-2026-bfgs-stgag-ch-2",
-          "education-care-specialist-hf-3-years-regular-september-2026-bfgs-spital-thurgau-stgag-munsterlingen",
-          "education-care-specialist-hf-3-years-regular-september-2026-bfgs-spital-thurgau-stgag-munsterlingen-16c9b0"
+          "education-care-specialist-hf-3-years-regular-september-2026-bfgs-spital-thurgau-stgag-munsterlingen"
         ],
         "de": [
           "ausbildung-dipl-pflegefachmann-frau-hf-3-jahre-verkurzt-berufsbegleitend-bfgs-januar-2026-"
@@ -2778,8 +2780,7 @@
         "fr": [
           "specialiste-de-l-education-hf-3-ans-de-raccourcissement-lie-au-travail-bfgs-janvier-2026-spital-thurgau-stgag-munsterlin",
           "ausbildung-dipl-pflegefachmann-frau-hf-3-jahre-regular-september-2026-bfgs-stgag-ch-2",
-          "specialiste-des-soins-d-education-hf-3-ans-de-routine-septembre-2026-bfgs-spital-thurgau-stgag-munsterlingen",
-          "specialiste-des-soins-d-education-hf-3-ans-de-routine-septembre-2026-bfgs-spital-thurgau-stgag-munsterlingen-16c9b0"
+          "specialiste-des-soins-d-education-hf-3-ans-de-routine-septembre-2026-bfgs-spital-thurgau-stgag-munsterlingen"
         ]
       },
       "firstSeenAt": "2026-05-27T13:57:24.933Z",
@@ -3481,7 +3482,6 @@
         "hebammes-spital-thurgau-stgag-kantonsspital-frauenfeld",
         "dipl-pflegefachmann-frau-externer-psychiatrischer-dienst-weinfelden-stgag-ch",
         "dipl-pflegefachmann-frau-externer-psychiatrischer-dienst-weinfelden-spital-thurgau-stgag-weinfelden",
-        "dipl-infermieristica-donna-alterstagesklinik-weinfelden-spital-thurgau-stgag-weinfelden",
         "dipl-specialista-di-cura-servizio-psichiatrico-esterno-weinfelden-spital-thurgau-stgag-weinfelden"
       ],
       "previousSlugsByLocale": {
@@ -3665,7 +3665,7 @@
       "id": "spital-thurgau-1c0498ba0c32",
       "slug": "dipl-specialista-infermieristico-come-stazione-di-orologio-permanente-per-disturbi-dello-spettro-psicosi-spital-thurgau",
       "slugByLocale": {
-        "it": "dipl-pflegefachmann-frau-come-dauernachtwache-station-per-psychosespektrumstorung-spital-thurgau-stgag-munsterlingen",
+        "it": "dipl-specialista-infermieristico-come-stazione-di-orologio-permanente-per-disturbi-dello-spettro-psicosi-spital-thurgau",
         "en": "dipl-nursing-specialist-as-a-permanent-watch-station-for-psychose-spectrum-disorder-spital-thurgau-stgag-munsterlingen",
         "de": "dipl-pflegefachmann-frau-als-dauernachtwache-station-fur-psychosespektrumstorung-stgag-ch",
         "fr": "dipl-specialiste-des-soins-infirmiers-en-tant-que-poste-de-surveillance-permanent-pour-les-troubles-du-spectre-psychose-"
@@ -3714,13 +3714,14 @@
       "previousSlugs": [
         "dipl-pflegefachmann-frau-als-dauernachtwache-station-fur-psychosespektrumstorung-stgag-ch",
         "dipl-specialista-infermieristico-come-stazione-di-orologio-permanente-per-disturbi-dello-spettro-psicosi-spital-thurgau-",
-        "fachmann-frau-gesundheit-cfc-medizin-spital-thurgau-stgag-kantonsspital-frauenfeld",
-        "dipl-specialista-infermieristico-come-stazione-di-orologio-permanente-per-disturbi-dello-spettro-psicosi-spital-thurgau"
+        "dipl-pflegefachmann-frau-come-dauernachtwache-station-per-psychosespektrumstorung-spital-thurgau-stgag-munsterlingen",
+        "fachmann-frau-gesundheit-cfc-medizin-spital-thurgau-stgag-kantonsspital-frauenfeld"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachmann-frau-als-dauernachtwache-station-fur-psychosespektrumstorung-stgag-ch",
-          "dipl-specialista-infermieristico-come-stazione-di-orologio-permanente-per-disturbi-dello-spettro-psicosi-spital-thurgau-"
+          "dipl-specialista-infermieristico-come-stazione-di-orologio-permanente-per-disturbi-dello-spettro-psicosi-spital-thurgau-",
+          "dipl-pflegefachmann-frau-come-dauernachtwache-station-per-psychosespektrumstorung-spital-thurgau-stgag-munsterlingen"
         ],
         "en": [
           "dipl-pflegefachmann-frau-als-dauernachtwache-station-fur-psychosespektrumstorung-stgag-ch"
@@ -5070,9 +5071,9 @@
       "slug": "dipl-pflegefachmann-frau-hf-fh-spital-thurgau-stgag-diessenhofen",
       "slugByLocale": {
         "it": "dipl-pflegefachmann-frau-hf-fh-spital-thurgau-stgag-diessenhofen",
-        "en": "dipl-pflegefachmann-frau-hf-fh-stgag-ch-3",
+        "en": "diploma-in-nursing-hf-fh-spital-thurgau-stgag-diessenhofen-b4070b",
         "de": "dipl-pflegefachmann-frau-hf-fh-stgag-ch",
-        "fr": "dipl-pflegefachmann-frau-hf-fh-stgag-ch-3"
+        "fr": "diplome-e-en-soins-infirmiers-hf-fh-spital-thurgau-stgag-diessenhofen-b4070b"
       },
       "company": "Spital Thurgau (STGAG)",
       "companyKey": "spital-thurgau",
@@ -5126,9 +5127,7 @@
         "infermiere-a-dipl-sss-sup-spital-thurgau-stgag-kantonsspital-munsterlingen",
         "dipl-specialista-di-cura-hf-fh-spital-thurgau-stgag-kantonsspital-munsterlingen",
         "neurologia-del-medico-senior-spital-thurgau-stgag-kantonsspital-munsterlingen",
-        "dipl-pflegefachmann-frau-hf-fh-spital-thurgau-stgag-kantonsspital-munsterlingen",
-        "diploma-in-nursing-hf-fh-spital-thurgau-stgag-diessenhofen-b4070b",
-        "diplome-e-en-soins-infirmiers-hf-fh-spital-thurgau-stgag-diessenhofen-b4070b"
+        "dipl-pflegefachmann-frau-hf-fh-spital-thurgau-stgag-kantonsspital-munsterlingen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -5137,14 +5136,12 @@
         "en": [
           "dipl-care-specialist-hf-fh-spital-thurgau-stgag-diessenhofen",
           "diploma-in-nursing-hf-fh-spital-thurgau-stgag-diessenhofen",
-          "dipl-pflegefachmann-frau-hf-fh-stgag-ch-3",
-          "diploma-in-nursing-hf-fh-spital-thurgau-stgag-diessenhofen-b4070b"
+          "dipl-pflegefachmann-frau-hf-fh-stgag-ch-3"
         ],
         "fr": [
           "dipl-specialiste-des-soins-hf-fh-spital-thurgau-stgag-diessenhofen",
           "diplome-e-en-soins-infirmiers-hf-fh-spital-thurgau-stgag-diessenhofen",
-          "dipl-pflegefachmann-frau-hf-fh-stgag-ch-3",
-          "diplome-e-en-soins-infirmiers-hf-fh-spital-thurgau-stgag-diessenhofen-b4070b"
+          "dipl-pflegefachmann-frau-hf-fh-stgag-ch-3"
         ]
       },
       "firstSeenAt": "2026-05-10T22:26:54.981Z",
@@ -5707,7 +5704,7 @@
       "id": "spital-thurgau-691f1532b03c",
       "slug": "specialista-per-l-educazione-hf-regolare-abbreviato-o-professionale-2027-spital-thurgau-stgag-diessenhofen",
       "slugByLocale": {
-        "it": "ausbildung-dipl-pflegefachmann-frau-hf-regular-verkurzt-o-berufsbegleitend-2027-spital-thurgau-stgag-diessenhofen",
+        "it": "specialista-per-l-educazione-hf-regolare-abbreviato-o-professionale-2027-spital-thurgau-stgag-diessenhofen",
         "en": "education-care-specialist-hf-regular-shortened-or-professional-2027-spital-thurgau-stgag-diessenhofen",
         "de": "ausbildung-dipl-pflegefachmann-frau-hf-regular-verkurzt-oder-berufsbegleitend-2027-stgag-c",
         "fr": "specialiste-des-soins-d-education-hf-regulier-raccourci-ou-professionnel-2027-spital-thurgau-stgag-diessenhofen"
@@ -5756,13 +5753,14 @@
       "previousSlugs": [
         "ausbildung-dipl-pflegefachmann-frau-hf-regular-verkurzt-oder-berufsbegleitend-2027-stgag-c",
         "ausbildung-dipl-pflegefachmann-frau-hf-regular-verkurzt-oder-berufsbegleitend-2027-stgag",
-        "carriera-hf-fh-nel-salario-orario-spital-thurgau-stgag-kantonsspital-frauenfeld",
-        "specialista-per-l-educazione-hf-regolare-abbreviato-o-professionale-2027-spital-thurgau-stgag-diessenhofen"
+        "ausbildung-dipl-pflegefachmann-frau-hf-regular-verkurzt-o-berufsbegleitend-2027-spital-thurgau-stgag-diessenhofen",
+        "carriera-hf-fh-nel-salario-orario-spital-thurgau-stgag-kantonsspital-frauenfeld"
       ],
       "previousSlugsByLocale": {
         "it": [
           "ausbildung-dipl-pflegefachmann-frau-hf-regular-verkurzt-oder-berufsbegleitend-2027-stgag-c",
-          "ausbildung-dipl-pflegefachmann-frau-hf-regular-verkurzt-oder-berufsbegleitend-2027-stgag"
+          "ausbildung-dipl-pflegefachmann-frau-hf-regular-verkurzt-oder-berufsbegleitend-2027-stgag",
+          "ausbildung-dipl-pflegefachmann-frau-hf-regular-verkurzt-o-berufsbegleitend-2027-spital-thurgau-stgag-diessenhofen"
         ],
         "en": [
           "ausbildung-dipl-pflegefachmann-frau-hf-regular-verkurzt-oder-berufsbegleitend-2027-stgag-c"
@@ -6156,7 +6154,6 @@
         "ernahrungsberater-in-hf-bsc-spital-thurgau-stgag-diessenhofen",
         "ausbildung-dipl-pflegefachmann-frau-hf-2-jahre-verkurzt-september-2026-bfgs-stgag-ch",
         "ausbildung-dipl-pflegefachmann-frau-hf-2-jahre-verkurzt-september-2026-bfgs-spital-thurgau-stgag-munsterlingen",
-        "specialista-per-l-educazione-hf-3-anni-abbreviato-legato-al-lavoro-bfgs-febbraio-2027-spital-thurgau-stgag-munsterlingen",
         "specialista-per-l-educazione-hf-2-anni-abbreviato-settembre-2026-bfgs-spital-thurgau-stgag-munsterlingen"
       ],
       "previousSlugsByLocale": {
@@ -6340,7 +6337,7 @@
       "id": "spital-thurgau-40985ecffc2b",
       "slug": "formazione-di-infermiere-specializzato-a-hf-4-anni-part-time-bfgs-a-partire-da-gennaio-2027-spital-thurgau-stgag",
       "slugByLocale": {
-        "it": "dipl-pflegefachmann-frau-forensik-spital-thurgau-stgag-munsterlingen",
+        "it": "formazione-di-infermiere-specializzato-a-hf-4-anni-part-time-bfgs-a-partire-da-gennaio-2027-spital-thurgau-stgag",
         "en": "training-as-a-specialist-nurse-hf-4-years-part-time-bfgs-starting-january-2027-spital-thurgau-stgag-munsterlingen",
         "de": "ausbildung-dipl-pflegefachmann-frau-hf-4-jahre-berufsbegleitend-bfgs-ab-januar-2027-stgag-",
         "fr": "formation-de-specialiste-en-soins-infirmiers-hf-4-ans-a-temps-partiel-bfgs-a-partir-de-janvier-2027-spital-thurgau-stgag"
@@ -6393,6 +6390,7 @@
         "formazione-di-infermiere-specializzato-a-hf-4-anni-part-time-bfgs-a-partire-da-gennaio-2027-spital-thurgau-stgag-munster",
         "ausbildung-dipl-pflegefachmann-frau-hf-4-jahre-berufsbegleitend-bfgs-ab-januar-2027-stgag",
         "education-senior-caregiver-hf-4-anni-legato-al-lavoro-bfgs-dal-gennaio-2027-spital-thurgau-stgag-munsterlingen",
+        "dipl-pflegefachmann-frau-forensik-spital-thurgau-stgag-munsterlingen",
         "infermiere-a-specializzato-a-in-medicina-forense-spital-thurgau-stgag-munsterlingen",
         "dipl-pflegefachmann-frau-forensik-spital-thurgau-stgag-munsterlingen-2",
         "dipl-specialista-di-cura-forense-spital-thurgau-stgag-munsterlingen",
@@ -6400,8 +6398,7 @@
         "dipl-specialiste-de-la-medecine-legale-spital-thurgau-stgag-munsterlingen",
         "dipl-specialista-in-allattamento-forensik-spital-thurgau-stgag-munsterlingen",
         "dipl-specialiste-des-soins-infirmiers-forensik-spital-thurgau-stgag-munsterlingen",
-        "dipl-specialista-in-allattamento-forensik-spital-thurgau-stgag-munsterlingen-r14fca",
-        "formazione-di-infermiere-specializzato-a-hf-4-anni-part-time-bfgs-a-partire-da-gennaio-2027-spital-thurgau-stgag"
+        "dipl-specialista-in-allattamento-forensik-spital-thurgau-stgag-munsterlingen-r14fca"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -6410,7 +6407,8 @@
           "infermiere-a-specializzato-a-in-medicina-forense-spital-thurgau-stgag-munsterlingen-f431a9",
           "formazione-di-infermiere-specializzato-a-hf-4-anni-part-time-bfgs-a-partire-da-gennaio-2027-spital-thurgau-stgag-munster",
           "ausbildung-dipl-pflegefachmann-frau-hf-4-jahre-berufsbegleitend-bfgs-ab-januar-2027-stgag",
-          "education-senior-caregiver-hf-4-anni-legato-al-lavoro-bfgs-dal-gennaio-2027-spital-thurgau-stgag-munsterlingen"
+          "education-senior-caregiver-hf-4-anni-legato-al-lavoro-bfgs-dal-gennaio-2027-spital-thurgau-stgag-munsterlingen",
+          "dipl-pflegefachmann-frau-forensik-spital-thurgau-stgag-munsterlingen"
         ],
         "en": [
           "ausbildung-dipl-pflegefachmann-frau-hf-4-jahre-berufsbegleitend-bfgs-ab-januar-2027-stgag-"
@@ -6437,7 +6435,7 @@
       "id": "spital-thurgau-a7017a609abc",
       "slug": "infermiere-a-specializzato-a-in-medicina-forense-spital-thurgau-stgag-munsterlingen",
       "slugByLocale": {
-        "it": "dipl-pflegefachmann-frau-forensik-spital-thurgau-stgag-munsterlingen",
+        "it": "infermiere-a-specializzato-a-in-medicina-forense-spital-thurgau-stgag-munsterlingen",
         "en": "dipl-pflegefachmann-frau-forensik-stgag-ch",
         "de": "dipl-pflegefachmann-frau-forensik-stgag-ch",
         "fr": "infirmier-infirmiere-diplome-e-en-medecine-legale-spital-thurgau-stgag-munsterlingen-7b0100"
@@ -6491,6 +6489,7 @@
         "dipl-pflegefachmann-frau-forensik-stgag-ch",
         "education-senior-caregiver-hf-4-anni-legato-al-lavoro-bfgs-dal-gennaio-2027-spital-thurgau-stgag-munsterlingen",
         "dipl-specialista-di-cura-forense-spital-thurgau-stgag-munsterlingen",
+        "dipl-pflegefachmann-frau-forensik-spital-thurgau-stgag-munsterlingen",
         "ausbildung-dipl-pflegefachmann-frau-hf-4-jahre-berufsbegleitend-bfgs-ab-januar-2027-stgag-",
         "ausbildung-dipl-pflegefachmann-frau-hf-4-jahre-berufsbegleitend-bfgs-ab-januar-2027-spital-thurgau-stgag-munsterlingen",
         "dipl-pflegefachmann-frau-forensik-spital-thurgau-stgag-munsterlingen-2",
@@ -6498,8 +6497,7 @@
         "ausbildung-dipl-pflegefachmann-frau-hf-4-jahre-berufsbegleitend-bfgs-ab-januar-2027-stgag",
         "dipl-specialista-in-allattamento-forensik-spital-thurgau-stgag-munsterlingen",
         "dipl-specialiste-des-soins-infirmiers-forensik-spital-thurgau-stgag-munsterlingen",
-        "dipl-specialista-in-allattamento-forensik-spital-thurgau-stgag-munsterlingen-r14fca",
-        "infermiere-a-specializzato-a-in-medicina-forense-spital-thurgau-stgag-munsterlingen"
+        "dipl-specialista-in-allattamento-forensik-spital-thurgau-stgag-munsterlingen-r14fca"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -6509,7 +6507,8 @@
           "infermiere-a-specializzato-a-in-medicina-forense-spital-thurgau-stgag-munsterlingen-7b0100",
           "dipl-pflegefachmann-frau-forensik-stgag-ch",
           "education-senior-caregiver-hf-4-anni-legato-al-lavoro-bfgs-dal-gennaio-2027-spital-thurgau-stgag-munsterlingen",
-          "dipl-specialista-di-cura-forense-spital-thurgau-stgag-munsterlingen"
+          "dipl-specialista-di-cura-forense-spital-thurgau-stgag-munsterlingen",
+          "dipl-pflegefachmann-frau-forensik-spital-thurgau-stgag-munsterlingen"
         ],
         "fr": [
           "dipl-pflegefachmann-frau-forensik-stgag-ch"
@@ -6587,7 +6586,6 @@
         "medico-senior-in-pneumologia-spital-thurgau-stgag-kantonsspital-munsterlingen",
         "fachmann-frau-gesundheit-im-mitarbeiterpool-stundenlohn-stgag-ch",
         "fachmann-frau-gesundheit-im-mitarbeiterpool-stundenlohn-spital-thurgau-stgag-munsterlingen",
-        "medico-senior-forensik-spital-thurgau-stgag-munsterlingen",
         "dipl-carriera-donna-acute-station-all-eta-superiore-spital-thurgau-stgag-munsterlingen"
       ],
       "previousSlugsByLocale": {
@@ -6668,7 +6666,6 @@
         "dipl-pflegefachmann-frau-akutstation-im-hoheren-alter-stgag-ch",
         "dipl-pflegefachmann-frau-akutstation-im-hoheren-alter-spital-thurgau-stgag-munsterlingen",
         "medico-senior-in-pneumologia-spital-thurgau-stgag-kantonsspital-munsterlingen",
-        "salute-professionale-moglie-presso-la-piscina-dei-dipendenti-spital-thurgau-stgag-munsterlingen",
         "dipl-carriera-donna-acute-station-all-eta-superiore-spital-thurgau-stgag-munsterlingen"
       ],
       "previousSlugsByLocale": {
@@ -7470,7 +7467,7 @@
       "id": "spital-thurgau-7343ec7f2767",
       "slug": "abitudine-dipl-pflegefachmann-frau-hf-3-anni-regolari-settembre-2027-bfgs-spital-thurgau-stgag-munsterlingen",
       "slugByLocale": {
-        "it": "ausbildung-dipl-pflegefachmann-frau-hf-3-jahre-regular-september-2027-bfgs-spital-thurgau-stgag-munsterlingen",
+        "it": "abitudine-dipl-pflegefachmann-frau-hf-3-anni-regolari-settembre-2027-bfgs-spital-thurgau-stgag-munsterlingen",
         "en": "diploma-in-nursing-3-years-regular-september-2027-bfgs-spital-thurgau-stgag-munsterlingen",
         "de": "ausbildung-dipl-pflegefachmann-frau-hf-3-jahre-regular-september-2027-bfgs-stgag-ch",
         "fr": "diplome-d-infirmiere-infirmier-3-ans-reguliers-septembre-2027-bfgs-spital-thurgau-stgag-munsterlingen"
@@ -7519,14 +7516,13 @@
       "previousSlugs": [
         "ausbildung-dipl-pflegefachmann-frau-hf-3-jahre-regular-september-2027-bfgs-stgag-ch-3",
         "ausbildung-dipl-pflegefachmann-frau-hf-3-jahre-regular-september-2027-bfgs-stgag-ch",
-        "abitudine-dipl-pflegefachmann-frau-hf-3-anni-regolari-settembre-2027-bfgs-spital-thurgau-stgag-munsterlingen",
-        "diploma-in-nursing-3-years-regular-september-2027-bfgs-spital-thurgau-stgag-munsterlingen",
-        "diplome-d-infirmiere-infirmier-3-ans-reguliers-septembre-2027-bfgs-spital-thurgau-stgag-munsterlingen"
+        "ausbildung-dipl-pflegefachmann-frau-hf-3-jahre-regular-september-2027-bfgs-spital-thurgau-stgag-munsterlingen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "ausbildung-dipl-pflegefachmann-frau-hf-3-jahre-regular-september-2027-bfgs-stgag-ch-3",
-          "ausbildung-dipl-pflegefachmann-frau-hf-3-jahre-regular-september-2027-bfgs-stgag-ch"
+          "ausbildung-dipl-pflegefachmann-frau-hf-3-jahre-regular-september-2027-bfgs-stgag-ch",
+          "ausbildung-dipl-pflegefachmann-frau-hf-3-jahre-regular-september-2027-bfgs-spital-thurgau-stgag-munsterlingen"
         ],
         "en": [
           "ausbildung-dipl-pflegefachmann-frau-hf-3-jahre-regular-september-2027-bfgs-stgag-ch-3"
@@ -7553,7 +7549,7 @@
       "id": "spital-thurgau-757e7b31e3f6",
       "slug": "specialista-dell-educazione-hf-2-anni-abbreviato-settembre-2027-bfgs-spital-thurgau-stgag-munsterlingen",
       "slugByLocale": {
-        "it": "ausbildung-dipl-pflegefachmann-frau-hf-2-jahre-verkurzt-september-2027-bfgs-spital-thurgau-stgag-munsterlingen",
+        "it": "specialista-dell-educazione-hf-2-anni-abbreviato-settembre-2027-bfgs-spital-thurgau-stgag-munsterlingen",
         "en": "education-care-specialist-hf-2-years-shortened-september-2027-bfgs-spital-thurgau-stgag-munsterlingen",
         "de": "ausbildung-dipl-pflegefachmann-frau-hf-2-jahre-verkurzt-september-2027-bfgs-stgag-ch",
         "fr": "specialiste-des-soins-d-education-hf-2-ans-raccourcis-septembre-2027-bfgs-spital-thurgau-stgag-munsterlingen"
@@ -7604,20 +7600,19 @@
         "neuropsicologo-a-spital-thurgau-stgag-munsterlingen-b3fd65",
         "specialista-dell-educazione-hf-2-anni-abbreviato-settembre-2027-bfgs-spital-thurgau-stgag-munsterlingen-7b2d47",
         "ausbildung-dipl-pflegefachmann-frau-hf-2-jahre-verkurzt-september-2027-bfgs-stgag-ch",
+        "ausbildung-dipl-pflegefachmann-frau-hf-2-jahre-verkurzt-september-2027-bfgs-spital-thurgau-stgag-munsterlingen",
         "neuropsicologo-a-spital-thurgau-stgag-munsterlingen",
         "neuropsychologen-in-stgag-ch",
         "neuropsychologen-in-spital-thurgau-stgag-munsterlingen",
-        "psicologo-spital-thurgau-stgag-diessenhofen",
-        "specialista-dell-educazione-hf-2-anni-abbreviato-settembre-2027-bfgs-spital-thurgau-stgag-munsterlingen",
-        "education-care-specialist-hf-2-years-shortened-september-2027-bfgs-spital-thurgau-stgag-munsterlingen",
-        "specialiste-des-soins-d-education-hf-2-ans-raccourcis-septembre-2027-bfgs-spital-thurgau-stgag-munsterlingen"
+        "psicologo-spital-thurgau-stgag-diessenhofen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "ausbildung-dipl-pflegefachmann-frau-hf-2-jahre-verkurzt-september-2027-bfgs-stgag-ch-3",
           "neuropsicologo-a-spital-thurgau-stgag-munsterlingen-b3fd65",
           "specialista-dell-educazione-hf-2-anni-abbreviato-settembre-2027-bfgs-spital-thurgau-stgag-munsterlingen-7b2d47",
-          "ausbildung-dipl-pflegefachmann-frau-hf-2-jahre-verkurzt-september-2027-bfgs-stgag-ch"
+          "ausbildung-dipl-pflegefachmann-frau-hf-2-jahre-verkurzt-september-2027-bfgs-stgag-ch",
+          "ausbildung-dipl-pflegefachmann-frau-hf-2-jahre-verkurzt-september-2027-bfgs-spital-thurgau-stgag-munsterlingen"
         ],
         "en": [
           "ausbildung-dipl-pflegefachmann-frau-hf-2-jahre-verkurzt-september-2027-bfgs-stgag-ch-3"
@@ -7644,7 +7639,7 @@
       "id": "spital-thurgau-e4dcde94c1f6",
       "slug": "neuropsicologo-a-spital-thurgau-stgag-munsterlingen",
       "slugByLocale": {
-        "it": "ausbildung-dipl-pflegefachmann-frau-hf-2-jahre-verkurzt-september-2027-bfgs-spital-thurgau-stgag-munsterlingen",
+        "it": "neuropsicologo-a-spital-thurgau-stgag-munsterlingen",
         "en": "neuropsychologist-spital-thurgau-stgag-munsterlingen",
         "de": "neuropsychologen-in-stgag-ch",
         "fr": "neuropsychologen-in-spital-thurgau-stgag-munsterlingen"
@@ -7695,20 +7690,21 @@
         "neuropsicologo-a-spital-thurgau-stgag-munsterlingen-b3fd65",
         "specialista-dell-educazione-hf-2-anni-abbreviato-settembre-2027-bfgs-spital-thurgau-stgag-munsterlingen",
         "neuropsychologen-in-spital-thurgau-stgag-munsterlingen",
+        "ausbildung-dipl-pflegefachmann-frau-hf-2-jahre-verkurzt-september-2027-bfgs-spital-thurgau-stgag-munsterlingen",
         "psicologo-spital-thurgau-stgag-diessenhofen",
         "ausbildung-dipl-pflegefachmann-frau-hf-2-jahre-verkurzt-september-2027-bfgs-stgag-ch-3",
         "education-care-specialist-hf-2-years-shortened-september-2027-bfgs-spital-thurgau-stgag-munsterlingen",
         "specialiste-des-soins-d-education-hf-2-ans-raccourcis-septembre-2027-bfgs-spital-thurgau-stgag-munsterlingen",
         "specialista-dell-educazione-hf-2-anni-abbreviato-settembre-2027-bfgs-spital-thurgau-stgag-munsterlingen-7b2d47",
-        "ausbildung-dipl-pflegefachmann-frau-hf-2-jahre-verkurzt-september-2027-bfgs-stgag-ch",
-        "neuropsicologo-a-spital-thurgau-stgag-munsterlingen"
+        "ausbildung-dipl-pflegefachmann-frau-hf-2-jahre-verkurzt-september-2027-bfgs-stgag-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "neuropsychologen-in-stgag-ch",
           "neuropsicologo-a-spital-thurgau-stgag-munsterlingen-b3fd65",
           "specialista-dell-educazione-hf-2-anni-abbreviato-settembre-2027-bfgs-spital-thurgau-stgag-munsterlingen",
-          "neuropsychologen-in-spital-thurgau-stgag-munsterlingen"
+          "neuropsychologen-in-spital-thurgau-stgag-munsterlingen",
+          "ausbildung-dipl-pflegefachmann-frau-hf-2-jahre-verkurzt-september-2027-bfgs-spital-thurgau-stgag-munsterlingen"
         ],
         "en": [
           "neuropsychologen-in-spital-thurgau-stgag-munsterlingen"
@@ -7732,7 +7728,7 @@
       "id": "spital-thurgau-4fca9efb3c6b",
       "slug": "psicologo-spital-thurgau-stgag-diessenhofen",
       "slugByLocale": {
-        "it": "ausbildung-dipl-pflegefachmann-frau-hf-2-jahre-verkurzt-september-2027-bfgs-spital-thurgau-stgag-munsterlingen",
+        "it": "psicologo-spital-thurgau-stgag-diessenhofen",
         "en": "psychologist-spital-thurgau-stgag-diessenhofen",
         "de": "psychologe-in-spital-thurgau-stgag-diessenhofen",
         "fr": "psychologue-spital-thurgau-stgag-diessenhofen"
@@ -7783,7 +7779,8 @@
           "neuropsicologo-a-spital-thurgau-stgag-munsterlingen",
           "neuropsicologo-a-spital-thurgau-stgag-munsterlingen-b3fd65",
           "specialista-dell-educazione-hf-2-anni-abbreviato-settembre-2027-bfgs-spital-thurgau-stgag-munsterlingen",
-          "psychologe-in-stgag-ch"
+          "psychologe-in-stgag-ch",
+          "ausbildung-dipl-pflegefachmann-frau-hf-2-jahre-verkurzt-september-2027-bfgs-spital-thurgau-stgag-munsterlingen"
         ],
         "en": [
           "psychologe-in-stgag-ch"
@@ -7800,6 +7797,7 @@
         "neuropsicologo-a-spital-thurgau-stgag-munsterlingen-b3fd65",
         "specialista-dell-educazione-hf-2-anni-abbreviato-settembre-2027-bfgs-spital-thurgau-stgag-munsterlingen",
         "psychologe-in-stgag-ch",
+        "ausbildung-dipl-pflegefachmann-frau-hf-2-jahre-verkurzt-september-2027-bfgs-spital-thurgau-stgag-munsterlingen",
         "psicologo-in-psichiatria-vecchia-clinica-romanshorn-spital-thurgau-stgag-romanshorn",
         "neuropsychologen-in-stgag-ch",
         "neuropsychologen-in-spital-thurgau-stgag-munsterlingen",
@@ -7807,8 +7805,7 @@
         "education-care-specialist-hf-2-years-shortened-september-2027-bfgs-spital-thurgau-stgag-munsterlingen",
         "specialiste-des-soins-d-education-hf-2-ans-raccourcis-septembre-2027-bfgs-spital-thurgau-stgag-munsterlingen",
         "specialista-dell-educazione-hf-2-anni-abbreviato-settembre-2027-bfgs-spital-thurgau-stgag-munsterlingen-7b2d47",
-        "ausbildung-dipl-pflegefachmann-frau-hf-2-jahre-verkurzt-september-2027-bfgs-stgag-ch",
-        "psicologo-spital-thurgau-stgag-diessenhofen"
+        "ausbildung-dipl-pflegefachmann-frau-hf-2-jahre-verkurzt-september-2027-bfgs-stgag-ch"
       ],
       "firstSeenAt": "2026-05-11T12:33:01.374Z",
       "salaryMin": 49500,
@@ -8128,9 +8125,9 @@
       "slug": "salute-professionale-moglie-spital-thurgau-stgag-munsterlingen",
       "slugByLocale": {
         "it": "salute-professionale-moglie-spital-thurgau-stgag-munsterlingen",
-        "en": "fachmann-frau-gesundheit-stgag-ch-3",
+        "en": "professional-wife-health-spital-thurgau-stgag-munsterlingen",
         "de": "fachmann-frau-gesundheit-stgag-ch",
-        "fr": "fachmann-frau-gesundheit-stgag-ch-3"
+        "fr": "professionnels-femmes-sante-spital-thurgau-stgag-munsterlingen"
       },
       "company": "Spital Thurgau (STGAG)",
       "companyKey": "spital-thurgau",
@@ -8177,9 +8174,7 @@
         "fachmann-frau-gesundheit-stgag-ch-3",
         "fachmann-frau-gesundheit-spital-thurgau-stgag-munsterlingen",
         "fachmann-frau-gesundheit-stgag-ch",
-        "stv-gestione-della-stazione-diagnostica-medica-spital-thurgau-stgag-kantonsspital-frauenfeld",
-        "professional-wife-health-spital-thurgau-stgag-munsterlingen",
-        "professionnels-femmes-sante-spital-thurgau-stgag-munsterlingen"
+        "stv-gestione-della-stazione-diagnostica-medica-spital-thurgau-stgag-kantonsspital-frauenfeld"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -8188,12 +8183,10 @@
           "fachmann-frau-gesundheit-stgag-ch"
         ],
         "en": [
-          "fachmann-frau-gesundheit-stgag-ch-3",
-          "professional-wife-health-spital-thurgau-stgag-munsterlingen"
+          "fachmann-frau-gesundheit-stgag-ch-3"
         ],
         "fr": [
-          "fachmann-frau-gesundheit-stgag-ch-3",
-          "professionnels-femmes-sante-spital-thurgau-stgag-munsterlingen"
+          "fachmann-frau-gesundheit-stgag-ch-3"
         ]
       },
       "firstSeenAt": "2026-05-10T22:26:54.978Z",
@@ -8522,7 +8515,7 @@
       "id": "spital-thurgau-05c4bfbf69b5",
       "slug": "assistente-medico-in-formazione-specialistica-avanzata-psichiatria-infantile-e-giovanile-e-psicoterapia-con-interesse",
       "slugByLocale": {
-        "it": "assistenzarzt-arztin-in-fortgeschrittener-facharztweiterbildung-kinder-e-jugendpsychiatrie-e-psychotherapie-con-interess",
+        "it": "assistente-medico-in-formazione-specialistica-avanzata-psichiatria-infantile-e-giovanile-e-psicoterapia-con-interesse",
         "en": "assistant-physician-in-advanced-specialist-training-child-and-youth-psychiatry-and-psychotherapy-with-interest-in-psycho",
         "de": "assistenzarzt-arztin-in-fortgeschrittener-facharztweiterbildung-kinder-und-jugendpsychiatrie-und-psychotherapie-mit-inte",
         "fr": "medecin-adjoint-en-formation-specialisee-avancee-psychiatrie-des-enfants-et-des-jeunes-et-psychotherapie-avec-interet-po"
@@ -8574,10 +8567,10 @@
         "dipl-pflegefachmann-frau-spital-thurgau-stgag-munsterlingen",
         "assistente-medico-in-formazione-specialistica-avanzata-psichiatria-infantile-e-giovanile-e-psicoterapia-con-interesse-ne",
         "assistenzarzt-arztin-in-fortgeschrittener-facharztweiterbildung-kinder-und",
+        "assistenzarzt-arztin-in-fortgeschrittener-facharztweiterbildung-kinder-e-jugendpsychiatrie-e-psychotherapie-con-interess",
         "assistenzarzt-arztin-in-fortgeschrittener-facharztweiterbildung-kinder-und-jugendpsychiatrie-und-psychotherapie-mit-inte",
         "dipl-pflegefachmann-frau-med-praxisassistenten-in-con-op-erfahrung-techn-operationsfachmann-frau-urologische-klinik-spital-thurgau-stgag-kantonsspital-munsterlingen",
-        "dipl-pflegefachmann-frau-stgag-ch",
-        "assistente-medico-in-formazione-specialistica-avanzata-psichiatria-infantile-e-giovanile-e-psicoterapia-con-interesse"
+        "dipl-pflegefachmann-frau-stgag-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -8585,7 +8578,8 @@
           "assistenzarzt-arztin-in-fortgeschrittener-facharztweiterbildung-kinder-e-jugendpsychiatrie-e-psychotherapie-con-interesse-an-psychosomatik-spital-thurgau-stgag-munsterlingen",
           "dipl-pflegefachmann-frau-spital-thurgau-stgag-munsterlingen",
           "assistente-medico-in-formazione-specialistica-avanzata-psichiatria-infantile-e-giovanile-e-psicoterapia-con-interesse-ne",
-          "assistenzarzt-arztin-in-fortgeschrittener-facharztweiterbildung-kinder-und"
+          "assistenzarzt-arztin-in-fortgeschrittener-facharztweiterbildung-kinder-und",
+          "assistenzarzt-arztin-in-fortgeschrittener-facharztweiterbildung-kinder-e-jugendpsychiatrie-e-psychotherapie-con-interess"
         ],
         "en": [
           "assistenzarzt-arztin-in-fortgeschrittener-facharztweiterbildung-kinder-und-jugendpsychiatrie-und-psychotherapie-mit-inte"
@@ -8670,8 +8664,7 @@
         "assistente-medico-in-formazione-specialistica-avanzata-psichiatria-infantile-e-giovanile-e-psicoterapia-con-interesse-ne",
         "assistenzarzt-arztin-in-fortgeschrittener-facharztweiterbildung-kinder-und",
         "assistente-medico-in-formazione-specialistica-avanzata-psichiatria-infantile-e-giovanile-e-psicoterapia-con-interesse",
-        "dipl-pflegefachmann-frau-stgag-ch",
-        "dipl-pflegefachmann-frau-med-praxisassistenten-in-con-op-erfahrung-techn-operationsfachmann-frau-urologische-klinik-spital-thurgau-stgag-kantonsspital-munsterlingen"
+        "dipl-pflegefachmann-frau-stgag-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -8785,9 +8778,9 @@
       "slug": "psicologo-in-spital-thurgau-stgag-munsterlingen",
       "slugByLocale": {
         "it": "psicologo-in-spital-thurgau-stgag-munsterlingen",
-        "en": "psychologen-in-stgag-ch",
+        "en": "psychologist-in-spital-thurgau-stgag-munsterlingen",
         "de": "psychologen-in-spital-thurgau-stgag-munsterlingen",
-        "fr": "psychologen-in-stgag-ch"
+        "fr": "psychologue-in-spital-thurgau-stgag-munsterlingen"
       },
       "company": "Spital Thurgau (STGAG)",
       "companyKey": "spital-thurgau",
@@ -8838,19 +8831,15 @@
           "psychologen-in-stgag-ch"
         ],
         "en": [
-          "psychologen-in-stgag-ch",
-          "psychologist-in-spital-thurgau-stgag-munsterlingen"
+          "psychologen-in-stgag-ch"
         ],
         "fr": [
-          "psychologen-in-stgag-ch",
-          "psychologue-in-spital-thurgau-stgag-munsterlingen"
+          "psychologen-in-stgag-ch"
         ]
       },
       "previousSlugs": [
         "psychologen-in-stgag-ch",
-        "team-manager-in-assistenza-paziente-spital-thurgau-stgag-kantonsspital-frauenfeld",
-        "psychologist-in-spital-thurgau-stgag-munsterlingen",
-        "psychologue-in-spital-thurgau-stgag-munsterlingen"
+        "team-manager-in-assistenza-paziente-spital-thurgau-stgag-kantonsspital-frauenfeld"
       ],
       "firstSeenAt": "2026-05-10T22:26:54.979Z",
       "salaryMin": 49500,
@@ -9645,9 +9634,9 @@
       "slug": "salute-professionale-moglie-spital-thurgau-stgag-diessenhofen",
       "slugByLocale": {
         "it": "salute-professionale-moglie-spital-thurgau-stgag-diessenhofen",
-        "en": "fachmann-frau-gesundheit-stgag-ch-2",
+        "en": "professional-wife-health-spital-thurgau-stgag-diessenhofen",
         "de": "fachmann-frau-gesundheit-stgag-ch",
-        "fr": "fachmann-frau-gesundheit-stgag-ch-2"
+        "fr": "professionnels-femmes-sante-spital-thurgau-stgag-diessenhofen"
       },
       "company": "Spital Thurgau (STGAG)",
       "companyKey": "spital-thurgau",
@@ -9694,9 +9683,7 @@
         "fachmann-frau-gesundheit-stgag-ch-2",
         "fachmann-frau-gesundheit-spital-thurgau-stgag-diessenhofen",
         "fachmann-frau-gesundheit-stgag-ch",
-        "interno-in-assistenza-a-lungo-termine-spital-thurgau-stgag-diessenhofen",
-        "professional-wife-health-spital-thurgau-stgag-diessenhofen",
-        "professionnels-femmes-sante-spital-thurgau-stgag-diessenhofen"
+        "interno-in-assistenza-a-lungo-termine-spital-thurgau-stgag-diessenhofen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -9705,12 +9692,10 @@
           "fachmann-frau-gesundheit-stgag-ch"
         ],
         "en": [
-          "fachmann-frau-gesundheit-stgag-ch-2",
-          "professional-wife-health-spital-thurgau-stgag-diessenhofen"
+          "fachmann-frau-gesundheit-stgag-ch-2"
         ],
         "fr": [
-          "fachmann-frau-gesundheit-stgag-ch-2",
-          "professionnels-femmes-sante-spital-thurgau-stgag-diessenhofen"
+          "fachmann-frau-gesundheit-stgag-ch-2"
         ]
       },
       "firstSeenAt": "2026-05-10T22:26:54.979Z",
@@ -9732,9 +9717,9 @@
       "slug": "interno-in-assistenza-a-lungo-termine-spital-thurgau-stgag-diessenhofen",
       "slugByLocale": {
         "it": "interno-in-assistenza-a-lungo-termine-spital-thurgau-stgag-diessenhofen",
-        "en": "praktikant-in-langzeitpflege-stgag-ch",
+        "en": "intern-in-long-term-care-spital-thurgau-stgag-diessenhofen",
         "de": "praktikant-in-langzeitpflege-spital-thurgau-stgag-diessenhofen",
-        "fr": "praktikant-in-langzeitpflege-stgag-ch"
+        "fr": "stagiaire-en-soins-de-longue-duree-spital-thurgau-stgag-diessenhofen"
       },
       "company": "Spital Thurgau (STGAG)",
       "companyKey": "spital-thurgau",
@@ -9786,26 +9771,21 @@
           "salute-professionale-moglie-spital-thurgau-stgag-diessenhofen"
         ],
         "en": [
-          "praktikant-in-langzeitpflege-stgag-ch",
-          "intern-in-long-term-care-spital-thurgau-stgag-diessenhofen"
+          "praktikant-in-langzeitpflege-stgag-ch"
         ],
         "fr": [
-          "praktikant-in-langzeitpflege-stgag-ch",
-          "stagiaire-en-soins-de-longue-duree-spital-thurgau-stgag-diessenhofen"
+          "praktikant-in-langzeitpflege-stgag-ch"
         ]
       },
       "previousSlugs": [
         "praktikant-in-langzeitpflege-stgag-ch",
+        "salute-professionale-moglie-spital-thurgau-stgag-diessenhofen",
         "formazione-dipl-expert-in-intensive-care-nds-hf-spital-thurgau-stgag-kantonsspital-munsterlingen",
         "fachmann-frau-gesundheit-stgag-ch-2",
         "fachmann-frau-gesundheit-spital-thurgau-stgag-diessenhofen",
         "professional-wife-health-spital-thurgau-stgag-diessenhofen",
         "professionnels-femmes-sante-spital-thurgau-stgag-diessenhofen",
-        "fachmann-frau-gesundheit-stgag-ch",
-        "interno-in-assistenza-a-lungo-termine-spital-thurgau-stgag-diessenhofen",
-        "salute-professionale-moglie-spital-thurgau-stgag-diessenhofen",
-        "intern-in-long-term-care-spital-thurgau-stgag-diessenhofen",
-        "stagiaire-en-soins-de-longue-duree-spital-thurgau-stgag-diessenhofen"
+        "fachmann-frau-gesundheit-stgag-ch"
       ],
       "firstSeenAt": "2026-05-10T22:26:54.979Z",
       "salaryMin": 41600,
@@ -10298,7 +10278,7 @@
       "id": "spital-thurgau-db2fdfa8a426",
       "slug": "dipl-cura-professionale-moglie-con-funzione-aggiuntiva-spital-thurgau-stgag-diessenhofen",
       "slugByLocale": {
-        "it": "dipl-pflegefachmann-frau-con-zusatzfunktion-berufsbildner-in-spital-thurgau-stgag-diessenhofen",
+        "it": "dipl-cura-professionale-moglie-con-funzione-aggiuntiva-spital-thurgau-stgag-diessenhofen",
         "en": "dipl-care-professional-wife-with-additional-function-spital-thurgau-stgag-diessenhofen",
         "de": "dipl-pflegefachmann-frau-mit-zusatzfunktion-berufsbildner-in-stgag-ch",
         "fr": "dipl-professionnel-femme-ayant-une-fonction-supplementaire-spital-thurgau-stgag-diessenhofen"
@@ -10346,11 +10326,12 @@
       "contractDuration": "permanent",
       "previousSlugs": [
         "dipl-pflegefachmann-frau-mit-zusatzfunktion-berufsbildner-in-stgag-ch",
-        "dipl-cura-professionale-moglie-con-funzione-aggiuntiva-spital-thurgau-stgag-diessenhofen"
+        "dipl-pflegefachmann-frau-con-zusatzfunktion-berufsbildner-in-spital-thurgau-stgag-diessenhofen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachmann-frau-mit-zusatzfunktion-berufsbildner-in-stgag-ch"
+          "dipl-pflegefachmann-frau-mit-zusatzfunktion-berufsbildner-in-stgag-ch",
+          "dipl-pflegefachmann-frau-con-zusatzfunktion-berufsbildner-in-spital-thurgau-stgag-diessenhofen"
         ],
         "en": [
           "dipl-pflegefachmann-frau-mit-zusatzfunktion-berufsbildner-in-stgag-ch"
@@ -10377,7 +10358,7 @@
       "id": "spital-thurgau-ff670b2ffe4f",
       "slug": "medico-senior-per-la-riabilitazione-geriatrica-spital-thurgau-stgag-diessenhofen",
       "slugByLocale": {
-        "it": "oberarzt-arztin-per-la-geriatrische-rehabilitation-spital-thurgau-stgag-diessenhofen",
+        "it": "medico-senior-per-la-riabilitazione-geriatrica-spital-thurgau-stgag-diessenhofen",
         "en": "senior-physician-for-geriatric-rehabilitation-spital-thurgau-stgag-diessenhofen",
         "de": "oberarzt-arztin-fur-die-geriatrische-rehabilitation-stgag-ch",
         "fr": "medecin-principal-pour-la-readaptation-geriatrique-spital-thurgau-stgag-diessenhofen"
@@ -10425,11 +10406,12 @@
       "contractDuration": "permanent",
       "previousSlugs": [
         "oberarzt-arztin-fur-die-geriatrische-rehabilitation-stgag-ch",
-        "medico-senior-per-la-riabilitazione-geriatrica-spital-thurgau-stgag-diessenhofen"
+        "oberarzt-arztin-per-la-geriatrische-rehabilitation-spital-thurgau-stgag-diessenhofen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "oberarzt-arztin-fur-die-geriatrische-rehabilitation-stgag-ch"
+          "oberarzt-arztin-fur-die-geriatrische-rehabilitation-stgag-ch",
+          "oberarzt-arztin-per-la-geriatrische-rehabilitation-spital-thurgau-stgag-diessenhofen"
         ],
         "en": [
           "oberarzt-arztin-fur-die-geriatrische-rehabilitation-stgag-ch"
@@ -10456,7 +10438,7 @@
       "id": "spital-thurgau-b336e4297c7b",
       "slug": "stage-per-farmacisti-oncologici-6-mesi-spital-thurgau-stgag-munsterlingen",
       "slugByLocale": {
-        "it": "pharmaziepraktikanten-innen-e-famulanten-innen-per-schwerpunkt-onkologische-pharmazie-6-monate-spital-thurgau-stgag-muns",
+        "it": "stage-per-farmacisti-oncologici-6-mesi-spital-thurgau-stgag-munsterlingen",
         "en": "pharmacy-students-and-interns-for-oncological-pharmacy-focus-6-months-spital-thurgau-stgag-munsterlingen",
         "de": "pharmaziepraktikanten-innen-und-famulanten-innen-fur-schwerpunkt-onkologische-pharmazie-6-",
         "fr": "stagiaires-en-pharmacie-et-internes-pour-se-concentrer-sur-la-pharmacie-oncologique-6-mois-spital-thurgau-stgag"
@@ -10506,14 +10488,15 @@
         "pharmaziepraktikanten-innen-und-famulanten-innen-fur-schwerpunkt-onkologische-pharmazie-6-",
         "pharmaziepraktikanten-innen-e-famulanten-innen-per-schwerpunkt-onkologische-pharmazie-6-monate-spital-thurgau-stgag-munsterlingen",
         "pharmaziepraktikanten-innen-und-famulanten-innen-fur-schwerpunkt-onkologische-pharmazie-6",
-        "stage-per-farmacisti-oncologici-6-mesi-spital-thurgau-stgag-munsterlingen",
+        "pharmaziepraktikanten-innen-e-famulanten-innen-per-schwerpunkt-onkologische-pharmazie-6-monate-spital-thurgau-stgag-muns",
         "stage-per-farmacisti-oncologici-6-mesi-spital-thurgau-stgag-munsterlingen-e8ecd1"
       ],
       "previousSlugsByLocale": {
         "it": [
           "pharmaziepraktikanten-innen-und-famulanten-innen-fur-schwerpunkt-onkologische-pharmazie-6-",
           "pharmaziepraktikanten-innen-e-famulanten-innen-per-schwerpunkt-onkologische-pharmazie-6-monate-spital-thurgau-stgag-munsterlingen",
-          "pharmaziepraktikanten-innen-und-famulanten-innen-fur-schwerpunkt-onkologische-pharmazie-6"
+          "pharmaziepraktikanten-innen-und-famulanten-innen-fur-schwerpunkt-onkologische-pharmazie-6",
+          "pharmaziepraktikanten-innen-e-famulanten-innen-per-schwerpunkt-onkologische-pharmazie-6-monate-spital-thurgau-stgag-muns"
         ],
         "en": [
           "pharmaziepraktikanten-innen-und-famulanten-innen-fur-schwerpunkt-onkologische-pharmazie-6-"
@@ -10617,7 +10600,7 @@
       "id": "spital-thurgau-48be27dfa17d",
       "slug": "prakticante-di-cure-in-riabilitazione-spital-thurgau-stgag-diessenhofen",
       "slugByLocale": {
-        "it": "interno-in-riabilitazione-spital-thurgau-stgag-diessenhofen",
+        "it": "prakticante-di-cure-in-riabilitazione-spital-thurgau-stgag-diessenhofen",
         "en": "rehabilitation-care-practitioner-spital-thurgau-stgag-munsterlingen",
         "de": "pflegepraktikant-in-rehabilitation-spital-thurgau-stgag-diessenhofen",
         "fr": "stagiaire-en-soins-de-rehabilitation-spital-thurgau-stgag-munsterlingen"
@@ -10671,7 +10654,8 @@
         "it": [
           "pflegepraktikant-in-rehabilitation-stgag-ch",
           "pflegepraktikant-in-rehabilitation-spital-thurgau-stgag-diessenhofen",
-          "prakticante-di-cure-in-riabilitazione-spital-thurgau-stgag-munsterlingen"
+          "prakticante-di-cure-in-riabilitazione-spital-thurgau-stgag-munsterlingen",
+          "interno-in-riabilitazione-spital-thurgau-stgag-diessenhofen"
         ],
         "en": [
           "pflegepraktikant-in-rehabilitation-spital-thurgau-stgag-diessenhofen"
@@ -10685,7 +10669,7 @@
         "pflegepraktikant-in-rehabilitation-stgag-munsterlingen",
         "pflegepraktikant-in-rehabilitation-spital-thurgau-stgag-diessenhofen",
         "prakticante-di-cure-in-riabilitazione-spital-thurgau-stgag-munsterlingen",
-        "prakticante-di-cure-in-riabilitazione-spital-thurgau-stgag-diessenhofen"
+        "interno-in-riabilitazione-spital-thurgau-stgag-diessenhofen"
       ],
       "firstSeenAt": "2026-05-10T22:26:54.982Z",
       "salaryMin": 49500,
