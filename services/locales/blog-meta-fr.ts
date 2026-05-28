@@ -7835,6 +7835,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.ia-aziende-svizzere-occupazione-ticino.title': 'Intelligence artificielle au Tessin: impacts sur l\'emploi',
     'blog.article.ia-aziende-svizzere-occupazione-ticino.excerpt': 'L\'IA est répandue dans les entreprises suisses, mais son effet sur l\'emploi reste incertain selon EY.',
     'blog.article.ia-aziende-svizzere-occupazione-ticino.imageAlt': 'Vue d\'un bureau technologique moderne à Lugano, canton du Tessin',
+    'blog.article.tram-treno-ricorso-zali.title': 'Tram-train, nouveau recours. Zali : «Contestation téméraire»',
+    'blog.article.tram-treno-ricorso-zali.excerpt': 'Le Tribunal fédéral reçoit un nouveau recours contre le projet de tram-train du Luganais, mais sans effet suspensif. Zali : «Contestation téméraire».',
+    'blog.article.tram-treno-ricorso-zali.imageAlt': 'Vue panoramique de Locarno avec tram au premier plan.',
 };
 
 export default blogMetaFr;

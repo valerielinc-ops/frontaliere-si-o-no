@@ -7835,6 +7835,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.ia-aziende-svizzere-occupazione-ticino.title': 'Intelligenza artificiale in Ticino: impatti sull\'occupazione',
     'blog.article.ia-aziende-svizzere-occupazione-ticino.excerpt': 'L’IA è diffusa nelle imprese svizzere, ma il suo effetto sui posti di lavoro resta incerto secondo EY.',
     'blog.article.ia-aziende-svizzere-occupazione-ticino.imageAlt': 'Vista di un moderno ufficio tecnologico a Lugano, Canton Ticino',
+    'blog.article.tram-treno-ricorso-zali.title': 'Tram-treno, ancora un ricorso. Zali: «Contestazione temeraria»',
+    'blog.article.tram-treno-ricorso-zali.excerpt': 'Il Tribunale federale riceve un nuovo ricorso contro il progetto del tram-treno del Luganese, ma senza effetto sospensivo. Zali: «Contestazione temeraria».',
+    'blog.article.tram-treno-ricorso-zali.imageAlt': 'Vista panoramica di Locarno con tram in primo piano.',
 };
 
 export default blogMetaIt;

@@ -40712,6 +40712,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-tram-treno-ricorso-zali': {
+    title: 'Tram-treno, ancora un ricorso. Zali: «Contestazione temeraria»',
+    description: 'Il nuovo ricorso al Tribunale federale non dovrebbe fermare l’avvio dei lavori del tram-treno del Luganese, previsto nel 2027. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, tram-treno, ancora, ricorso, zali',
+    ogTitle: 'Tram-treno, nuovo ricorso nel Luganese',
+    ogDescription: 'Il progetto del tram-treno del Luganese prosegue nonostante un nuovo ricorso, con lavori previsti per il 2027.',
+    canonicalPath: '/articoli-frontaliere/tram-treno-ricorso-zali',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Tram-treno, ancora un ricorso. Zali: «Contestazione temeraria»",
+      "description": "Il nuovo ricorso al Tribunale federale non dovrebbe fermare l’avvio dei lavori del tram-treno del Luganese, previsto nel 2027. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/tram-treno-ricorso-zali.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista panoramica di Locarno con tram in primo piano."
+      },
+      "datePublished": "2026-05-28T06:21:29+00:00",
+      "dateModified": "2026-05-28T06:21:29+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/tram-treno-ricorso-zali`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

@@ -7834,6 +7834,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.ia-aziende-svizzere-occupazione-ticino.title': 'Artificial Intelligence in Ticino: Labour Market Impacts',
     'blog.article.ia-aziende-svizzere-occupazione-ticino.excerpt': 'AI is widespread in Swiss businesses, but its effect on employment remains uncertain according to EY. 📊💡⚠️',
     'blog.article.ia-aziende-svizzere-occupazione-ticino.imageAlt': 'View of a modern tech office in Lugano, Canton Ticino',
+    'blog.article.tram-treno-ricorso-zali.title': 'Tram-train, another appeal. Zali: \'Frivolous challenge\'',
+    'blog.article.tram-treno-ricorso-zali.excerpt': 'The Federal Court receives a new appeal against the Lugano tram-train project, but without suspensive effect. Zali: \'Frivolous challenge\'.',
+    'blog.article.tram-treno-ricorso-zali.imageAlt': 'Panoramic view of Locarno with a tram in foreground.',
 };
 
 export default blogMetaEn;
