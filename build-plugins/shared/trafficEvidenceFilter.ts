@@ -63,7 +63,13 @@ interface ApprovedPattern {
   id: string;
   urlClass: UrlClass;
   action: Exclude<FilterAction, 'full'>;
-  /** Reserved for future use. Currently ignored — evidence absence is the gate. */
+  /**
+   * Grace window in days from `data/url-first-seen.json[path]`. When set
+   * and the URL's first-seen timestamp is within `minAgeDays` of now,
+   * decideMulti returns `full` with reason `grace`. Protects freshly-
+   * emitted URLs from being indexed thin before evidence has had time
+   * to accumulate.
+   */
   minAgeDays?: number;
 }
 
@@ -128,31 +134,35 @@ export class TrafficEvidenceFilter {
   private decisionsThin = 0;
   private decisionsSkip = 0;
 
+  private readonly firstSeen: Map<string, number>;
+
   constructor(rootDir: string) {
     const evidencePath = path.join(rootDir, 'data', 'evidence-index.json');
     const promotionsPath = path.join(rootDir, 'data', 'thin-page-promotions-active.json');
     const approvedPath = path.join(rootDir, 'data', 'url-pruning-approved-patterns.json');
     const indexedClusterPath = path.join(rootDir, 'data', 'indexed-cluster-urls.json');
     const gscJobUrlsPath = path.join(rootDir, 'data', 'gsc-job-urls.json');
+    const gscOrphanSlugsPath = path.join(rootDir, 'data', 'gsc-orphan-job-slugs.json');
+    const orphanEnrichedPath = path.join(rootDir, 'data', 'orphan-enriched-data.json');
+    const firstSeenPath = path.join(rootDir, 'data', 'url-first-seen.json');
 
     // Build a single normalized "has traffic" set from every signal source.
     const trafficSet = new Set<string>();
-    let evGa4 = 0, evPosthog = 0, evGscTop = 0, evIndexed = 0, evGscJobs = 0, evPromo = 0;
+    let evGa4 = 0, evPosthog = 0, evGscTop = 0, evIndexed = 0, evGscJobs = 0,
+        evOrphanSlugs = 0, evOrphanEnriched = 0, evPromo = 0;
+    const addToSet = (raw: string | null | undefined, counter: () => void): void => {
+      if (!raw) return;
+      const norm = normalizePath(raw);
+      if (!norm) return; // skip malformed inputs that normalize to ''
+      if (!trafficSet.has(norm)) counter();
+      trafficSet.add(norm);
+    };
     const ev = tryRead<EvidenceIndex>(evidencePath);
     if (ev) {
-      for (const path of Object.keys(ev.ga4?.pages ?? {})) {
-        if (!trafficSet.has(normalizePath(path))) evGa4++;
-        trafficSet.add(normalizePath(path));
-      }
-      for (const path of Object.keys(ev.posthog?.pages ?? {})) {
-        if (!trafficSet.has(normalizePath(path))) evPosthog++;
-        trafficSet.add(normalizePath(path));
-      }
+      for (const p of Object.keys(ev.ga4?.pages ?? {})) addToSet(p, () => evGa4++);
+      for (const p of Object.keys(ev.posthog?.pages ?? {})) addToSet(p, () => evPosthog++);
       for (const q of Object.values(ev.gsc?.queries ?? {})) {
-        if (q?.topLandingPage) {
-          if (!trafficSet.has(normalizePath(q.topLandingPage))) evGscTop++;
-          trafficSet.add(normalizePath(q.topLandingPage));
-        }
+        if (q?.topLandingPage) addToSet(q.topLandingPage, () => evGscTop++);
       }
     }
     // PR #743 follow-up: `data/indexed-cluster-urls.json` is the merged
@@ -168,10 +178,7 @@ export class TrafficEvidenceFilter {
     // production-trusted.
     const indexedCluster = tryRead<{ indexedPaths?: string[] }>(indexedClusterPath);
     if (Array.isArray(indexedCluster?.indexedPaths)) {
-      for (const p of indexedCluster.indexedPaths) {
-        if (!trafficSet.has(normalizePath(p))) evIndexed++;
-        trafficSet.add(normalizePath(p));
-      }
+      for (const p of indexedCluster.indexedPaths) addToSet(p, () => evIndexed++);
     }
     // PR #746 follow-up: `data/gsc-job-urls.json` is the job-page analog
     // of indexed-cluster-urls.json — a flat array of full URLs (with or
@@ -182,21 +189,58 @@ export class TrafficEvidenceFilter {
     const gscJobUrls = tryRead<unknown>(gscJobUrlsPath);
     if (Array.isArray(gscJobUrls)) {
       for (const u of gscJobUrls) {
-        if (typeof u !== 'string' || !u) continue;
-        const norm = normalizePath(u);
-        if (!norm) continue;
-        if (!trafficSet.has(norm)) evGscJobs++;
-        trafficSet.add(norm);
+        if (typeof u === 'string') addToSet(u, () => evGscJobs++);
+      }
+    }
+    // Reviewer MEDIUM #5: `data/gsc-orphan-job-slugs.json` (array of IT
+    // job slugs) and `data/orphan-enriched-data.json` (array of
+    // {locale, slug, path, queries[]}) are produced by the GSC orphan-
+    // discovery pipeline. Each entry represents a URL Google has
+    // already indexed (with at least one impression or click) but
+    // that's not in our active inventory. The soft-landing path is
+    // emitted for these slugs, so they MUST be in trafficSet — otherwise
+    // pattern `zero-traffic-soft-landing-expired` thins them despite
+    // confirmed Google interest.
+    const gscOrphanSlugs = tryRead<unknown>(gscOrphanSlugsPath);
+    if (Array.isArray(gscOrphanSlugs)) {
+      for (const slug of gscOrphanSlugs) {
+        if (typeof slug !== 'string' || !slug) continue;
+        // Construct the IT canton-aware URL the soft-landing emits at.
+        // Non-IT locale variants are added by the cross-locale candidate
+        // sweep at the plugin's decideMulti call site.
+        addToSet(`/cerca-lavoro-ticino/${slug}/`, () => evOrphanSlugs++);
+      }
+    }
+    const orphanEnriched = tryRead<unknown>(orphanEnrichedPath);
+    if (Array.isArray(orphanEnriched)) {
+      for (const entry of orphanEnriched) {
+        if (!entry || typeof entry !== 'object') continue;
+        const p = (entry as { path?: unknown }).path;
+        if (typeof p === 'string') addToSet(p, () => evOrphanEnriched++);
       }
     }
     const promo = tryRead<ThinPromotions>(promotionsPath);
     if (promo?.urls) {
-      for (const u of promo.urls) {
-        if (!trafficSet.has(normalizePath(u))) evPromo++;
-        trafficSet.add(normalizePath(u));
-      }
+      for (const u of promo.urls) addToSet(u, () => evPromo++);
     }
     this.trafficSet = trafficSet;
+
+    // Reviewer HIGH #3: minAgeDays grace window for freshly-emitted
+    // URLs. `data/url-first-seen.json` is a flat `{ path: ISO-date }`
+    // map populated by `scripts/refresh-url-first-seen.mjs` (run from
+    // the deploy workflow after build). When a URL first appears in
+    // sitemap-jobs.xml or sitemap-search-clusters-*.xml the script
+    // stamps it with today's date. Each pattern's `minAgeDays` is
+    // checked against this map: URL's age < minAgeDays → return `full`
+    // with reason `grace`. Missing file → grace check is a no-op
+    // (filter behaves as before — safe default until the workflow runs).
+    const firstSeenRaw = tryRead<Record<string, string>>(firstSeenPath) || {};
+    const firstSeen = new Map<string, number>();
+    for (const [k, v] of Object.entries(firstSeenRaw)) {
+      const ts = Date.parse(v);
+      if (Number.isFinite(ts)) firstSeen.set(normalizePath(k), ts);
+    }
+    this.firstSeen = firstSeen;
 
     const approved = tryRead<ApprovedConfig>(approvedPath);
     this.patternsByClass = new Map();
@@ -213,8 +257,12 @@ export class TrafficEvidenceFilter {
     if (this.active) {
       const patternCount = approved?.patterns?.length ?? 0;
       console.log(
-        `[traffic-evidence-filter] traffic-set=${trafficSet.size} paths, ${patternCount} approved patterns ` +
-        `(sources: ga4=${evGa4} posthog=${evPosthog} gsc-top=${evGscTop} indexed-cluster=${evIndexed} gsc-jobs=${evGscJobs} promotions=${evPromo})`
+        `[traffic-evidence-filter] traffic-set=${trafficSet.size} paths, ${patternCount} approved patterns, ` +
+        `${firstSeen.size} first-seen timestamps ` +
+        `(sources: ga4=${evGa4} posthog=${evPosthog} gsc-top=${evGscTop} ` +
+        `indexed-cluster=${evIndexed} gsc-jobs=${evGscJobs} ` +
+        `orphan-slugs=${evOrphanSlugs} orphan-enriched=${evOrphanEnriched} ` +
+        `promotions=${evPromo})`
       );
     } else {
       console.log(
@@ -258,8 +306,29 @@ export class TrafficEvidenceFilter {
         return { action: 'full', reason: 'has-traffic' };
       }
     }
-    // No path in the candidate set has traffic. Pattern decides.
+    // No path in the candidate set has traffic. Apply grace window
+    // before falling through to the pattern action. Reviewer HIGH #3:
+    // freshly-emitted URLs (no evidence yet) get thinned and indexed
+    // thin before evidence has time to accumulate. minAgeDays protects
+    // against that — when the URL's first-seen timestamp is within the
+    // grace window, override to `full`.
     const pattern = patterns[0];
+    const minAgeDays = pattern.minAgeDays ?? 0;
+    if (minAgeDays > 0 && this.firstSeen.size > 0) {
+      const cutoffMs = Date.now() - minAgeDays * 86_400_000;
+      for (const p of urlPaths) {
+        const seenAt = this.firstSeen.get(normalizePath(p));
+        // URL absent from url-first-seen.json → behave as `cutoff − ε`
+        // (no grace). The refresh script adds entries lazily; without
+        // it the file may be empty and grace is a no-op. Safer than
+        // assuming brand-new URLs (which would over-protect everything
+        // on a fresh-checkout build).
+        if (seenAt !== undefined && seenAt > cutoffMs) {
+          this.decisionsFull++;
+          return { action: 'full', reason: 'grace' };
+        }
+      }
+    }
     if (pattern.action === 'thin') this.decisionsThin++;
     else if (pattern.action === 'skip') this.decisionsSkip++;
     return { action: pattern.action, reason: pattern.id };

@@ -7412,7 +7412,17 @@ ${staticAnalyticsHtml}
  // to ≥50-word paragraph + link to listing). SPA hydrates the full
  // filtered listing client-side from the URL slug
  // (components/community/JobBoard.tsx parseSearchSlugFilter).
- const __kwDecision = trafficFilter.decide(kwCanonicalPath, 'gsc-keyword-landing');
+ // Reviewer HIGH #2: decideMulti across all 4 locale variants of the
+ // same keyword. gsc-job-urls.json is IT-only, so EN/DE/FR landings
+ // false-negative if checked alone — the IT sibling typically carries
+ // the GSC signal and protects all 4 locales.
+ const __kwCandidatePaths: string[] = [kwCanonicalPath];
+ for (const __otherLocale of localeList) {
+ if (__otherLocale === locale) continue;
+ const __otherFullSlug = `${searchRoutePrefix[__otherLocale]}-${kwSlug}`;
+ __kwCandidatePaths.push(withSlash(`${localePrefix[__otherLocale]}/${sectionByLocale[__otherLocale]}/${__otherFullSlug}`.replace(/\/+/g, '/')));
+ }
+ const __kwDecision = trafficFilter.decideMulti(__kwCandidatePaths, 'gsc-keyword-landing');
  const __kwAction: 'full' | 'thin' = __kwDecision.action === 'thin' ? 'thin' : 'full';
  const __kwFullBody = `<h1>${esc(itCopy.heading)}</h1>\n <p>${esc(kwDesc)}</p>\n ${kwQueryIntro}\n ${kwIntro}\n <p>${esc(kwCta)}</p>\n <ul class="s-0WjlyL">${kwListHtml}</ul>\n <p><a href="${kwSectionUrl}">${esc(kwOpenAllLabel)}</a></p>\n ${kwMarketSection}\n ${renderJobBoardListingDensityProse(locale, { subject: _kwQuery || kwQueryDisplay || itCopy.heading, location: _kwCity ? _kwCity.charAt(0).toUpperCase() + _kwCity.slice(1) : 'Ticino', resultCount: kwJobs.length, companyCount: kwUniqueCompanies.length, locationCount: kwUniqueLocations.length })}\n ${kwCommuterBlock}`;
  const __kwBody = __kwAction === 'thin'
@@ -7595,8 +7605,16 @@ ${staticAnalyticsHtml}
  // predefined-keyword + search-combo emit sites — same URL shape
  // (`/cerca-lavoro-X/ricerca-Y/`), same SPA hydration path. Build
  // both variants and pick based on filter decision.
+ // Reviewer HIGH #2: decideMulti across all 4 locale variants (see
+ // ~line 7415 comment).
  const __ssFullBody = `<h1>${esc(copy.heading(name))}</h1>\n <p>${esc(description)}</p>\n${searchBodyParts.join('\n')}`;
- const __ssDecision = trafficFilter.decide(canonicalPath, 'gsc-keyword-landing');
+ const __ssCandidatePaths: string[] = [canonicalPath];
+ for (const __ssOtherLocale of localeList) {
+ if (__ssOtherLocale === locale) continue;
+ const __ssOtherSlug = `${searchRoutePrefix[__ssOtherLocale]}-${key}`;
+ __ssCandidatePaths.push(withSlash(`${localePrefix[__ssOtherLocale]}/${sectionByLocale[__ssOtherLocale]}/${__ssOtherSlug}`.replace(/\/+/g, '/')));
+ }
+ const __ssDecision = trafficFilter.decideMulti(__ssCandidatePaths, 'gsc-keyword-landing');
  const __ssAction: 'full' | 'thin' = __ssDecision.action === 'thin' ? 'thin' : 'full';
  const __ssBody = __ssAction === 'thin'
  ? buildGscKeywordThinBody({ locale, query: String(name || key || ''), listingUrl: _sListUrl, h1Title: esc(copy.heading(name)) })
@@ -7773,8 +7791,15 @@ ${staticAnalyticsHtml}
  // Tiered emission: same 'gsc-keyword-landing' urlClass as the
  // predefined-keyword + search-stats emit sites — they share the URL
  // shape (`/cerca-lavoro-X/ricerca-Y/`) and SPA hydration path.
+ // Reviewer HIGH #2: decideMulti across all 4 locale variants.
  const __cmFullBody = `<h1>${esc(copy.heading)}</h1>\n <p>${esc(description)}</p>\n${comboBodyParts.join('\n')}`;
- const __cmDecision = trafficFilter.decide(canonicalPath, 'gsc-keyword-landing');
+ const __cmCandidatePaths: string[] = [canonicalPath];
+ for (const __cmOtherLocale of localeList) {
+ if (__cmOtherLocale === locale) continue;
+ const __cmOtherSlug = `${searchRoutePrefix[__cmOtherLocale]}-${comboKey}`;
+ __cmCandidatePaths.push(withSlash(`${localePrefix[__cmOtherLocale]}/${sectionByLocale[__cmOtherLocale]}/${__cmOtherSlug}`.replace(/\/+/g, '/')));
+ }
+ const __cmDecision = trafficFilter.decideMulti(__cmCandidatePaths, 'gsc-keyword-landing');
  const __cmAction: 'full' | 'thin' = __cmDecision.action === 'thin' ? 'thin' : 'full';
  const __cmBody = __cmAction === 'thin'
  ? buildGscKeywordThinBody({ locale, query: String(copy.heading || comboTitle || ''), listingUrl: _cListUrl, h1Title: esc(copy.heading) })
@@ -10677,6 +10702,16 @@ ${staticAnalyticsHtml}
  const __slLegacyRel = `/${localePrefix[locale]}/${sectionByLocale[locale]}/${slug}`.replace(/\/+/g, '/');
  if (__slLegacyRel !== relPath) __slCandidatePaths.push(__slLegacyRel);
  }
+ // Reviewer HIGH #1: cross-locale safety net. Soft-landings emit one
+ // page per (slug, locale). gsc-job-urls.json + gsc-orphan-job-slugs
+ // are IT-only sources, so the IT-locale equivalent path is the
+ // strongest historical signal for any slug regardless of which
+ // locale we're currently emitting. Probe every locale variant.
+ for (const __slOtherLocale of localeList) {
+ if (__slOtherLocale === locale) continue;
+ const __slOtherPath = `/${localePrefix[__slOtherLocale]}/${sectionByLocale[__slOtherLocale]}/${slug}`.replace(/\/+/g, '/');
+ if (!__slCandidatePaths.includes(__slOtherPath)) __slCandidatePaths.push(__slOtherPath);
+ }
  const __slDecision = trafficFilter.decideMulti(__slCandidatePaths, 'soft-landing-expired');
  const __slAction: 'full' | 'thin' =
  __slDecision.action === 'thin' ? 'thin' : 'full';
@@ -11054,6 +11089,20 @@ ${staticAnalyticsHtml}
  if (jobCantonForBridge !== 'TI') {
  const __brLegacyTIPath = `/${localePrefix[locale]}/${buildCantonAwareSection(locale, 'TI')}/${oldSlug}`.replace(/\/+/g, '/');
  __brCandidatePaths.push(__brLegacyTIPath);
+ }
+ // Reviewer HIGH #1: gsc-job-urls.json is IT-only — non-IT locale
+ // bridges miss the safety net unless we also probe their IT-locale
+ // equivalent. Cross-locale candidates use the SAME oldSlug at every
+ // other locale's canton-aware section (an oldSlug observed in IT GSC
+ // is the strongest historical signal we have for the job).
+ for (const __brOtherLocale of localeList) {
+ if (__brOtherLocale === locale) continue;
+ const __brOtherPath = `/${localePrefix[__brOtherLocale]}/${buildCantonAwareSection(__brOtherLocale, jobCantonForBridge)}/${oldSlug}`.replace(/\/+/g, '/');
+ __brCandidatePaths.push(__brOtherPath);
+ if (jobCantonForBridge !== 'TI') {
+ // Also the legacy-TI mirror in the other locale.
+ __brCandidatePaths.push(`/${localePrefix[__brOtherLocale]}/${buildCantonAwareSection(__brOtherLocale, 'TI')}/${oldSlug}`.replace(/\/+/g, '/'));
+ }
  }
  const __brDecision = trafficFilter.decideMulti(__brCandidatePaths, 'previousSlug');
  const __brAction: 'full' | 'thin' =

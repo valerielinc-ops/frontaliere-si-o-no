@@ -1,21 +1,24 @@
 {
-  "_doc": "Approved URL-pruning patterns consumed by build-plugins/shared/trafficEvidenceFilter.ts. URL with traffic in data/evidence-index.json (GSC topLandingPage / GA4 sessions >=3 / PostHog pageviews) OR data/thin-page-promotions-active.json (hourly self-heal) stays 'full'; URL not in either set and matching a pattern here gets the pattern's action.",
+  "_doc": "Approved URL-pruning patterns consumed by build-plugins/shared/trafficEvidenceFilter.ts. URL with traffic in any source (data/evidence-index.json GSC topLandingPage / GA4 sessions >=3 / PostHog pageviews + data/indexed-cluster-urls.json + data/gsc-job-urls.json + data/gsc-orphan-job-slugs.json + data/orphan-enriched-data.json + data/thin-page-promotions-active.json) stays 'full'; URL not in any set and matching a pattern here gets the pattern's action AFTER the minAgeDays grace window expires (checked against data/url-first-seen.json).",
   "version": 1,
   "patterns": [
     {
       "id": "zero-traffic-previous-slug",
       "urlClass": "previousSlug",
-      "action": "thin"
+      "action": "thin",
+      "minAgeDays": 15
     },
     {
       "id": "zero-traffic-soft-landing-expired",
       "urlClass": "soft-landing-expired",
-      "action": "thin"
+      "action": "thin",
+      "minAgeDays": 15
     },
     {
       "id": "zero-traffic-gsc-keyword-landing",
       "urlClass": "gsc-keyword-landing",
-      "action": "thin"
+      "action": "thin",
+      "minAgeDays": 15
     }
   ]
 }
