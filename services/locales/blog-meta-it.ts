@@ -7841,6 +7841,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.mancato-pagamento-stipendio-lavoratrice.title': 'Mancato pagamento stipendio: il caso Nidil Cgil Varese',
     'blog.article.mancato-pagamento-stipendio-lavoratrice.excerpt': 'Una lavoratrice attende ancora le spettanze per undici giorni di lavoro ad aprile. Nidil Cgil Varese denuncia la precarietà dei contratti di somministrazione.',
     'blog.article.mancato-pagamento-stipendio-lavoratrice.imageAlt': 'Ufficio nel Mendrisiotto, Ticino',
+    'blog.article.chiusura-amministrazione-ticino-2025.title': 'Chiusura servizi amministrativi Ticino: 31 dicembre 2025',
+    'blog.article.chiusura-amministrazione-ticino-2025.excerpt': 'Il pomeriggio del 31 dicembre 2025 i servizi dell’Amministrazione cantonale saranno chiusi.',
+    'blog.article.chiusura-amministrazione-ticino-2025.imageAlt': 'Vista serale del centro amministrativo di Bellinzona in inverno.',
 };
 
 export default blogMetaIt;

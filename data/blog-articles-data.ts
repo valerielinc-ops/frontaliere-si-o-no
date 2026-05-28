@@ -24896,4 +24896,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'chiusura-amministrazione-ticino-2025',
+ category: 'novita',
+ date: '2026-05-28T07:27:40.905Z',
+ image: '/images/blog/chiusura-amministrazione-ticino-2025.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

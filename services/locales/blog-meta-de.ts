@@ -7839,6 +7839,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.mancato-pagamento-stipendio-lavoratrice.title': 'Ausbleibende Lohnzahlung: Der Fall Nidil Cgil Varese',
     'blog.article.mancato-pagamento-stipendio-lavoratrice.excerpt': 'Eine Arbeitnehmerin wartet noch immer auf ihren Lohn für elf Arbeitstage im April. Nidil Cgil Varese prangert die Prekarität von Leiharbeitsverträgen an.',
     'blog.article.mancato-pagamento-stipendio-lavoratrice.imageAlt': 'Bürogebäude in Mendrisiotto, Tessin',
+    'blog.article.chiusura-amministrazione-ticino-2025.title': 'Schliessung der kantonalen Einrichtungen: 31. Dezember 2025',
+    'blog.article.chiusura-amministrazione-ticino-2025.excerpt': 'Am Nachmittag des 31. Dezember 2025 werden die Einrichtungen der kantonalen Verwaltung geschlossen.',
+    'blog.article.chiusura-amministrazione-ticino-2025.imageAlt': 'Abendblick auf das Verwaltungszentrum Bellinzona im Winter.',
 };
 
 export default blogMetaDe;

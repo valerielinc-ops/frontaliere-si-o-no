@@ -7841,6 +7841,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.mancato-pagamento-stipendio-lavoratrice.title': 'Non-paiement salaire',
     'blog.article.mancato-pagamento-stipendio-lavoratrice.excerpt': 'Une travailleuse attend toujours ses revenus pour onze jours de travail en avril. Nidil Cgil Varese dénonce la précarité des contrats de somministrazione.',
     'blog.article.mancato-pagamento-stipendio-lavoratrice.imageAlt': 'Bâtiment de bureaux à Mendrisiotto, Tessin',
+    'blog.article.chiusura-amministrazione-ticino-2025.title': 'Fermeture des services administratifs du Tessin : 31 décembre 2025',
+    'blog.article.chiusura-amministrazione-ticino-2025.excerpt': 'L\'après-midi du 31 décembre 2025, les services de l\'Administration cantonale seront fermés.',
+    'blog.article.chiusura-amministrazione-ticino-2025.imageAlt': 'Vue du centre administratif de Bellinzona en soirée, en hiver.',
 };
 
 export default blogMetaFr;
