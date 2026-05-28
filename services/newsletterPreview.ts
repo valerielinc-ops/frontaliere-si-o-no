@@ -189,7 +189,10 @@ export async function buildNewsletterPreviewHtml(
 
  let jobs: any[] = [];
  try {
- const res = await fetch('/data/jobs.json');
+ // Newsletter preview is IT-only (sample render for the editor); the
+ // per-locale split (data/jobs-it.json) has identical jobs flattened to
+ // IT strings — same content as the old monolithic jobs.json for IT.
+ const res = await fetch('/data/jobs-it.json');
  jobs = res.ok ? await res.json() : [];
  } catch (e) {
  reportCaughtError(e, 'newsletterPreview.fetchJobsData');

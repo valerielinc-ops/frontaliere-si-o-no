@@ -42,31 +42,20 @@ describe('SEO localization', () => {
     const section = getSeoSection(route);
     const path = buildPath(route, 'it');
 
+    // After the jobs.json → jobs-{locale}.json migration the SEO loader
+    // fetches the per-locale shard. The fixture here mimics the shape that
+    // localeJobsSplitPlugin emits: `slug` is already flattened to the
+    // active locale's variant, and `*ByLocale` fields are dropped.
     const fetchMock = vi.fn(async (input: RequestInfo | URL) => {
-      if (String(input) === '/data/jobs.json') {
+      if (String(input) === '/data/jobs-it.json') {
         return {
           ok: true,
           json: async () => ([
             {
               id: 'efg-5967',
-              slug: 'foundation-manager-efg-lugano',
-              slugByLocale: {
-                it: 'responsabile-fondi-pensione-efg-international-ag-lugano',
-                en: 'foundation-manager-efg-international-ag-lugano',
-                de: 'leiter-pensionskasse-efg-international-ag-lugano',
-                fr: 'responsable-de-la-fondation-de-prevoyance-efg-international-ag-lugano',
-              },
-              title: 'Foundation Manager',
-              titleByLocale: {
-                it: 'Responsabile Fondazione',
-                en: 'Foundation Manager',
-                de: 'Stiftungsleiter',
-                fr: 'Responsable de Fondation',
-              },
-              description: 'Default description',
-              descriptionByLocale: {
-                it: 'Gestione e amministrazione del fondo pensione aziendale a Lugano.',
-              },
+              slug: 'responsabile-fondi-pensione-efg-international-ag-lugano',
+              title: 'Responsabile Fondazione',
+              description: 'Gestione e amministrazione del fondo pensione aziendale a Lugano.',
               company: 'EFG International AG',
               location: 'Lugano',
               contract: 'permanent',
