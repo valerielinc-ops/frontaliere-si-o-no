@@ -2270,7 +2270,30 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
         const __clExtraPaths = indexedClusterUrlsByKey.get(__clExtraKey);
         if (__clExtraPaths) for (const p of __clExtraPaths) __clMirrorPaths.add(p);
         __clMirrorPaths.delete(out.urlPath);
-        const __clAllPaths = [out.urlPath, ...__clMirrorPaths];
+        // PR #749: cross-locale safety net for the DECISION ONLY. Each
+        // cluster context is emitted at a single locale, but the same
+        // slug at the same canton in EN/DE/FR is a separate URL with
+        // its own GSC + GA4 footprint. If any locale variant has
+        // indexation evidence the cluster stays full in EVERY locale
+        // (we own the content idea, not the per-locale page).
+        //
+        // CRITICAL: these probe-only paths are NOT added to
+        // __clMirrorPaths because that Set is reused below for the
+        // actual mirror EMIT loop. Adding cross-locale paths there
+        // would write THIS-locale's HTML at OTHER-locales' URLs —
+        // serving DE content at FR routes, etc. We keep emit + decide
+        // payloads separate.
+        const __clCrossLocaleProbes: string[] = [];
+        for (const __clOtherLocale of ['it', 'en', 'de', 'fr'] as const) {
+          if (__clOtherLocale === locale) continue;
+          for (const __clOtherCanton of [ctx.cantonGroup, ctx.legacyCantonGroup, 'TI']) {
+            if (__clOtherCanton === AGGREGATE_KEY) continue;
+            __clCrossLocaleProbes.push(buildClusterPath(__clOtherLocale, ctx.candidate.slug, __clOtherCanton));
+          }
+          const __clOtherExtras = indexedClusterUrlsByKey.get(`${__clOtherLocale}::${ctx.candidate.slug}`);
+          if (__clOtherExtras) for (const p of __clOtherExtras) __clCrossLocaleProbes.push(p);
+        }
+        const __clAllPaths = [out.urlPath, ...__clMirrorPaths, ...__clCrossLocaleProbes];
         const __clDecision = trafficFilter.decideMulti(__clAllPaths, 'gsc-keyword-landing');
         const __clAction: 'full' | 'thin' = __clDecision.action === 'thin' ? 'thin' : 'full';
         const __clHtml = __clAction === 'thin'
