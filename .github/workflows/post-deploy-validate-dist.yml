@@ -130,6 +130,18 @@ jobs:
           name: pre-deploy-snapshot-${{ inputs.deploy_run_id }}
           path: /tmp/pre-deploy-snapshot
 
+      # Master jobs.json artifact (uploaded by deploy.yml). The deploy
+      # pipeline strips dist/data/jobs.json via jobsJsonDistCleanupPlugin
+      # (PR #712) to stay under the 10 GB GH Pages cap, but validators
+      # like validate:translation-completeness still need the master file
+      # with titleByLocale / descriptionByLocale. We download it back to
+      # data/jobs.json so the resolve-data-path lookup picks it up.
+      - name: Download master jobs.json (for source validators)
+        uses: actions/download-artifact@v5
+        with:
+          name: jobs-master-${{ inputs.deploy_run_id }}
+          path: /tmp/jobs-master
+
       - name: Download previous-slug winners (optional)
         # The build job only uploads `winners-${RUN_ID}` when
         # `data/previous-slug-winners.json` actually changed in the
@@ -157,10 +169,15 @@ jobs:
           rm -rf dist && mkdir -p dist
           tar -xf /tmp/github-pages-artifact/artifact.tar -C dist
 
-          # Expose jobs.json to scripts that expect public/data/jobs.json
-          # (the file is gitignored; dist/data/jobs.json is the built copy).
+          # Restore master data/jobs.json from the dedicated artifact
+          # (jobsJsonDistCleanupPlugin strips it from dist/ to clear the
+          # 10 GB GH Pages cap — validators still need the master copy
+          # with titleByLocale / descriptionByLocale).
+          mkdir -p data
+          cp -f /tmp/jobs-master/jobs.json data/jobs.json
+          # Expose jobs.json to scripts that expect public/data/jobs.json.
           mkdir -p public/data
-          cp -f dist/data/jobs.json public/data/jobs.json 2>/dev/null || true
+          cp -f data/jobs.json public/data/jobs.json
           # validate:crawler-summaries reads data/jobs-crawler-summaries.json,
           # gitignored and produced by `assemble-jobs-dataset.mjs` during
           # build (then copied into dist/data/ by vite). Same pattern.
