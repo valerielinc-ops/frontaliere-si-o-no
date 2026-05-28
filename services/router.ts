@@ -2290,6 +2290,26 @@ export function parsePath(pathname: string): ParseResult {
    }
  }
 
+ // Taxation hub pillar — /guida-tassazione-frontalieri-2026/ + locale variants.
+ // Standalone editorial SEO landing emitted by build-plugins/editorialContent.ts
+ // outside #root. Without staticOverlay the SPA hydration mapped the route to
+ // `activeTab: 'tassazione-hub'`, for which App.tsx has no rendering branch —
+ // it fell through to the FeedbackSection fallback (the "report a bug" page),
+ // wiping the static pillar content on first paint. Route to the fisco tab so
+ // back-nav lands on a usable view, and keep staticOverlay so the SSG HTML
+ // stays visible.
+ {
+   const normalized = pathname.endsWith('/') ? pathname : `${pathname}/`;
+   if (
+     normalized === '/guida-tassazione-frontalieri-2026/' ||
+     normalized === '/en/cross-border-taxation-guide-2026/' ||
+     normalized === '/de/grenzgaenger-besteuerung-leitfaden-2026/' ||
+     normalized === '/fr/guide-imposition-frontaliers-2026/'
+   ) {
+     return { route: { activeTab: 'fisco', staticOverlay: true }, locale };
+   }
+ }
+
  // Border-municipality static SEO pages — one page per Italian comune under
  // the municipalities hub. The build emits the actual page body outside
  // #root; staticOverlay keeps SPA navigation from replacing it with the
