@@ -125,9 +125,15 @@ describe('2c — parsePath invariants for static-overlay routes', () => {
     expect(route.staticOverlay).toBe(true);
   });
 
-  it('parsePath /cerca-lavoro-ticino/ does NOT return staticOverlay', () => {
+  it('parsePath /cerca-lavoro-ticino/ returns staticOverlay:true (hub HTML emitted by professionLandingsLinksPlugin)', () => {
+    // Bare TI root hub is a build-time static SEO page: 1 H1, 893 anchor links
+    // to profession/city/sector landings, no interactive form. Without
+    // staticOverlay the SPA replaced the static main with JobBoard on hydration
+    // → CLS 0.702 on Lighthouse 2026-05-28. Canonical URL via
+    // window.location.pathname matches buildPath output for this route, so the
+    // 2c canonical-refresh guarantee still holds.
     const { route } = parsePath('/cerca-lavoro-ticino/');
-    expect(route.staticOverlay).toBeFalsy();
+    expect(route.staticOverlay).toBe(true);
   });
 
   it('parsePath /cerca-lavoro-ticino/software-engineer-x/ does NOT return staticOverlay', () => {
