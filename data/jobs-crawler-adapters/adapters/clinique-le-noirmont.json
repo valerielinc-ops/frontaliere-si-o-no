@@ -11,49 +11,56 @@
   "seedUrls": [
     "https://www.cliniquelenoirmont.ch/File/515/M%C3%A9decin%20chef%20r%C3%A9adaptation%20cardiovasculaire_2023.pdf",
     "https://www.cliniquelenoirmont.ch/File/405/Annonce%20M%C3%A9decin%20adjoint%20en%20cardiologie_chef%20de%20clinique_2022_FR.pdf",
+    "https://www.cliniquelenoirmont.ch/FileDownload/Download/1017",
     "https://www.cliniquelenoirmont.ch/FileDownload/Download/982",
     "https://www.cliniquelenoirmont.ch/FileDownload/Download/966",
     "https://www.cliniquelenoirmont.ch/FileDownload/Download/964",
     "https://www.cliniquelenoirmont.ch/FileDownload/Download/985"
   ],
   "notes": "Dedicated Clinique Le Noirmont crawler parses the Offres-demploi page and extracts descriptions from /File and /FileDownload PDF endpoints.",
-  "updatedAt": "2026-05-27T22:34:47.511Z",
+  "updatedAt": "2026-05-28T12:08:35.294Z",
   "seedMetaByUrl": {
     "https://www.cliniquelenoirmont.ch/File/515/M%C3%A9decin%20chef%20r%C3%A9adaptation%20cardiovasculaire_2023.pdf": {
       "location": "Le Noirmont",
       "canton": "JU",
       "company": "Clinique Le Noirmont",
-      "postedDate": "2026-05-27"
+      "postedDate": "2026-05-28"
     },
     "https://www.cliniquelenoirmont.ch/File/405/Annonce%20M%C3%A9decin%20adjoint%20en%20cardiologie_chef%20de%20clinique_2022_FR.pdf": {
       "location": "Le Noirmont",
       "canton": "JU",
       "company": "Clinique Le Noirmont",
-      "postedDate": "2026-05-27"
+      "postedDate": "2026-05-28"
+    },
+    "https://www.cliniquelenoirmont.ch/FileDownload/Download/1017": {
+      "location": "Le Noirmont",
+      "canton": "JU",
+      "company": "Clinique Le Noirmont",
+      "postedDate": "2026-05-28"
     },
     "https://www.cliniquelenoirmont.ch/FileDownload/Download/982": {
       "location": "Le Noirmont",
       "canton": "JU",
       "company": "Clinique Le Noirmont",
-      "postedDate": "2026-05-27"
+      "postedDate": "2026-05-28"
     },
     "https://www.cliniquelenoirmont.ch/FileDownload/Download/966": {
       "location": "Le Noirmont",
       "canton": "JU",
       "company": "Clinique Le Noirmont",
-      "postedDate": "2026-05-27"
+      "postedDate": "2026-05-28"
     },
     "https://www.cliniquelenoirmont.ch/FileDownload/Download/964": {
       "location": "Le Noirmont",
       "canton": "JU",
       "company": "Clinique Le Noirmont",
-      "postedDate": "2026-05-27"
+      "postedDate": "2026-05-28"
     },
     "https://www.cliniquelenoirmont.ch/FileDownload/Download/985": {
       "location": "Le Noirmont",
       "canton": "JU",
       "company": "Clinique Le Noirmont",
-      "postedDate": "2026-05-27"
+      "postedDate": "2026-05-28"
     }
   }
 }
