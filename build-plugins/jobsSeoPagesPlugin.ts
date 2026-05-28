@@ -17,6 +17,7 @@ import { buildSeoPageHtml } from './shared/seoPageShell';
 import { minifyHtml } from './shared/htmlMinify';
 import { getTrafficEvidenceFilter } from './shared/trafficEvidenceFilter';
 import { buildBridgeThinHtml } from './shared/bridgeThinShell';
+import { buildSoftLandingThinHtml } from './shared/softLandingThinShell';
 import { jobDescriptionTextToHtml, inlineTextToHtml } from './shared/jobDescription/toHtml';
 import { markCantonNoindex } from './shared/cantonNoindexRegistry';
 import { WriteCollector } from './batchWrite';
@@ -616,6 +617,8 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  const trafficFilter = getTrafficEvidenceFilter(rootDir);
  let bridgeFullCount = 0;
  let bridgeThinCount = 0;
+ let softLandingFullCount = 0;
+ let softLandingThinCount = 0;
 
  // `cacheDateStamp` is used as today's stamp throughout the plugin and
  // in the always-run sitemap-index patch below.
@@ -10582,11 +10585,25 @@ ${staticAnalyticsHtml}
  recordPhase('ejp:jsonld', __tEjpJsonld);
 
  const __tEjpShell = phaseTimer();
- const softLandingHtml = buildSoftLandingHtml(
+ const __slFullHtml = buildSoftLandingHtml(
  locale, pageTitle, pageDesc, expiredRobotsTag,
  selfUrl, hreflangLinks, jsonLdScripts, expiredWindowData,
  staticBody
  );
+ // Tiered emission for soft-landings. Same filter + evidence flow as
+ // previousSlug bridges: URL with traffic stays full; URL without and
+ // matching an approved pattern becomes a thin shell (HEAD verbatim,
+ // article body replaced by a slim h1+p≥50 words). See
+ // build-plugins/shared/softLandingThinShell.ts.
+ const __slDecision = trafficFilter.decide(relPath, 'soft-landing-expired');
+ const __slAction: 'full' | 'thin' =
+ __slDecision.action === 'thin' ? 'thin' : 'full';
+ const softLandingHtml =
+ __slAction === 'thin'
+ ? buildSoftLandingThinHtml(__slFullHtml, locale)
+ : __slFullHtml;
+ if (__slAction === 'thin') softLandingThinCount++;
+ else softLandingFullCount++;
  recordPhase('ejp:shell', __tEjpShell);
 
  // Dedup membership: __slPathKey is computed and checked at the top of
@@ -11238,6 +11255,12 @@ ${staticAnalyticsHtml}
  console.log(
  `\x1b[36m[jobs-seo-pages]\x1b[0m bridge tier: ` +
  `full=${bridgeFullCount} thin=${bridgeThinCount}`
+ );
+ }
+ if (softLandingThinCount > 0 || softLandingFullCount > 0) {
+ console.log(
+ `\x1b[36m[jobs-seo-pages]\x1b[0m soft-landing tier: ` +
+ `full=${softLandingFullCount} thin=${softLandingThinCount}`
  );
  }
  console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m ${trafficFilter.summary()}`);
