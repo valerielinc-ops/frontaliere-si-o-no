@@ -1,6 +1,6 @@
 {
   "crawlerKey": "swisscom-sede-ticino",
-  "assembledAt": "2026-05-27T14:11:32.014Z",
+  "assembledAt": "2026-05-28T00:38:00.640Z",
   "jobs": [
     {
       "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Zurich/Head-Business-Analysis-Avaloq_R-0004999",
@@ -75,7 +75,8 @@
       },
       "previousSlugs": [
         "lead-business-analysis-avaloq-swisscom-zurich-p4qk49"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Zurich/Senior-Avaloq-Consultant_R-0002801-1",
@@ -310,7 +311,8 @@
       "postalCode": "6500",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "firstSeenAt": "2026-05-22T00:03:38.031Z"
+      "firstSeenAt": "2026-05-22T00:03:38.031Z",
+      "needsRetranslation": true
     },
     {
       "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Bern/Business-Controller_R-0005504",
@@ -385,7 +387,8 @@
       },
       "previousSlugs": [
         "business-controller-swisscom-bern-fljbg2"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Bern/DevOps-Engineer---Ansible_R-0005523",
@@ -572,7 +575,7 @@
         "it": "devops-ingegnere-swisscom-sede-ticino-bern-d524ff",
         "en": "devops-engineer-swisscom-sede-ticino-bern",
         "de": "devops-ingenieur-swisscom-sede-ticino-bern",
-        "fr": "ingenieur-devops-swisscom-sede-ticino-bern"
+        "fr": "devops-engineer-swisscom-bern-on9t50"
       },
       "category": "technology",
       "datePosted": "2026-05-19",
@@ -614,11 +617,13 @@
           "devops-engineer-swisscom-bern-on9t50"
         ],
         "fr": [
+          "ingenieur-devops-swisscom-sede-ticino-bern",
           "devops-engineer-swisscom-bern-on9t50"
         ]
       },
       "previousSlugs": [
-        "devops-engineer-swisscom-bern-on9t50"
+        "devops-engineer-swisscom-bern-on9t50",
+        "ingenieur-devops-swisscom-sede-ticino-bern"
       ]
     },
     {
@@ -777,7 +782,8 @@
       },
       "previousSlugs": [
         "system-architect-ansible-swisscom-bern-5dk2mo"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Bern/DevOps-Engineer-PKI_R-0005527",
@@ -855,7 +861,8 @@
       },
       "previousSlugs": [
         "devops-engineer-pki-swisscom-bern-7g85ru"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Bern/DevOps-Engineer-PAM-PKI_R-0005223",
@@ -936,85 +943,8 @@
       },
       "previousSlugs": [
         "devops-engineer-pam-pki-swisscom-bern-jdh6dq"
-      ]
-    },
-    {
-      "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Zurich/Senior-Data-Analyst---Data-Engineer_R-0004945",
-      "applyUrl": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Zurich/Senior-Data-Analyst---Data-Engineer_R-0004945",
-      "title": "Senior Data Analyst / Data Engineer",
-      "company": "Swisscom (sede Ticino)",
-      "companyKey": "swisscom-sede-ticino",
-      "location": "Zurich",
-      "addressLocality": "Zurich",
-      "canton": "ZH",
-      "country": "CH",
-      "description": "# Senior Data Analyst / Data Engineer\n\n## Il tuo futuro inizia qui\nIn dieser Rolle gestaltest du die datengetriebene Zukunft im Versicherungsumfeld aktiv mit. Du arbeitest an der Schnittstelle zwischen Business und Technologie, entwickelst moderne Data Pipelines, analysierst komplexe Datenbestände und bringst dein Know-how ein, um innovative Anwendungsfälle voranzutreiben. Wenn du gerne Verantwortung übernimmst, technische Herausforderungen liebst und echten Mehrwert aus Daten schaffen möchtest, passt diese Position perfekt zu dir.\n- Von Requirements Engineering über Data Engineering bis zu Dashboard-Visualisierungen.\n- Einsatz moderner Datenwerkzeuge und Nutzung aktueller Datenarchitekturen\n- Mitentwicklung smarter Insurance Use Cases und aktive Evaluation neuer Tools und Technologien.\n\n​\n\n## Deine Skills\n- Mehrjährige Erfahrung mit dem Betrieb und der Implementierung von ELK Stacks und dessen Komponenten\n- Analytisches Mindset mit vertiefter Erfahrung in Exploratory Data Analysis (EDA)\n- Sicher im Umgang mit der Aufbereitung von un-/semistrukturierten Daten (Logfile Parsing)\n- Fliessende Deutschkenntnisse, Englisch von Vorteil\n- Expertise mit modernen Datenwerkzeugen wie Airflow, JupyterLab, Python Libs und GitLab\n- Consulting-Erfahrung, Kenntnisse im Versicherungs-/Bankingumfeld runden dein Profil ab\n\nBei uns hast du die Möglichkeit, in einem unserer Offices in der Schweiz oder im Homeoffice zu arbeiten. Dabei kommst du mit agilen Arbeitsmethoden und den neuesten Technologien in Kontakt. Wir bieten eine flexible Arbeitszeitgestaltung, um deinen persönlichen Bedürfnissen gerecht zu werden. Als Mitarbeitende*r von Swisscom kannst du dich auf eine Vielzahl von attraktiven Leistungen freuen, die deine Arbeitserfahrung bereichern werden. Dazu gehören ein angenehmes Arbeitsumfeld, finanzielle Vorteile und spannende Möglichkeiten zur beruflichen Weiterentwicklung. Benefits.\n\n## Is it a match? Candidati ora.\n\n## Scopri le tue possibilità\n\n## Hai delle domande?\nQui troverai risposte alle domande più importanti e frequenti.\nA tutte le agenzie di reclutamento: Swisscom non accetta curriculum inviati dalle agenzie. Vi preghiamo di non inoltrare curriculum all'indirizzo email dedicato alle posizioni di lavoro di Swisscom, né ai dipendenti di Swisscom o a qualsiasi altra sede dell'organizzazione. Swisscom non si assume responsabilità per eventuali spese legate a curriculum non richiesti.\n\n## Persona di contatto\n\n## La tua base operativa",
-      "descriptionByLocale": {
-        "it": "Analista di dati senior / Ingegnere di dati Il tuo futuro inizia qui In questo ruolo si forma attivamente il futuro data-driven nell'ambiente assicurativo. Lavori all'interfaccia tra business e tecnologia, sviluppi moderni datadotti, analizza complessi data stock e introduce il tuo know-how per avanzare applicazioni innovative. Se si desidera assumersi la responsabilità, le sfide tecniche amano e creano un valore aggiunto reale dai dati, questa posizione si adatta perfettamente. - Dall'ingegneria dei requisiti all'ingegneria dei dati alle visualizzazioni di dashboard. - Utilizzo di strumenti di dati moderni e utilizzo di architetture di dati attuali - Sviluppo di casi di uso di assicurazione intelligente e valutazione attiva di nuovi strumenti e tecnologie. Le tue competenze - Esperienza pluriennale con il funzionamento e l'implementazione di ELK Stacks e dei suoi componenti - Mindset analitico con esperienza più approfondita nell'analisi dei dati esplorativi (EDA) - Gestione sicura dei dati non strutturati (Logfile Parsing) - competenze linguistiche tedesche, inglese di vantaggio - Competenza con strumenti di dati moderni come Airflow, JupyterLab, Python Libs e GitLab - Esperienza di consulenza, conoscenza dell'ambiente assicurativo / bancario completa il tuo profilo Con noi avete la possibilità di lavorare in uno dei nostri uffici in Svizzera o in ufficio. Ti metterai in contatto con metodi di lavoro agili e le ultime tecnologie.\n• Offriamo orari di lavoro flessibili per soddisfare le vostre esigenze personali. In qualità di dipendente di Swisscom, puoi aspettarti una varietà di servizi interessanti che arricchiranno la tua esperienza di lavoro. Questi includono un ambiente di lavoro piacevole, vantaggi finanziari e interessanti opportunità di sviluppo professionale. Benefici. E' compatibile?",
-        "en": "Senior Data Analyst / Data Engineer Il tuo futuro inizia qui In this role you actively shape the data-driven future in the insurance environment. You work at the interface between business and technology, develop modern data pipelines, analyzes complex data stocks and introduces your know-how to advance innovative applications. If you want to take responsibility, technical challenges love and create real added value from data, this position fits you perfectly. - From requirements engineering to data engineering to dashboard visualizations. - Use of modern data tools and use of current data architectures - Development of smart insurance use cases and active evaluation of new tools and technologies. Your skills - Multiannual experience with the operation and implementation of ELK Stacks and its components - Analytical Mindset with deeper experience in Exploratory Data Analysis (EDA) - Safe handling of un/semistructured data (Logfile Parsing) - German language skills, English of advantage - Expertise with modern data tools such as Airflow, JupyterLab, Python Libs and GitLab - Consulting experience, knowledge of insurance/banking environment complete your profile With us you have the opportunity to work in one of our offices in Switzerland or at home office. You will get in touch with agile working methods and the latest technologies.\n• We offer flexible working hours to meet your personal needs. As a Swisscom employee, you can look forward to a variety of attractive services that will enrich your work experience. These include a pleasant working environment, financial advantages and exciting opportunities for professional development. Benefits. Is it a match?",
-        "de": "# Senior Data Analyst / Data Engineer ## Il tuo futuro inizia qui In dieser Rolle gestaltest du die datengetriebene Zukunft im Versicherungsumfeld aktiv mit. Du arbeitest an der Schnittstelle zwischen Business und Technologie, entwickelst moderne Data Pipelines, analysierst komplexe Datenbestände und bringst dein Know-how ein, um innovative Anwendungsfälle voranzutreiben. Wenn du gerne Verantwortung übernimmst, technische Herausforderungen liebst und echten Mehrwert aus Daten schaffen möchtest, passt diese Position perfekt zu dir. - Von\n• Requirements Engineering über Data Engineering bis zu Dashboard-Visualisierungen. - Einsatz moderner Datenwerkzeuge und Nutzung aktueller Datenarchitekturen - Mitentwicklung smarter Insurance Use Cases und aktive Evaluation neuer Tools und Technologien. ​ ## Deine Skills - Mehrjährige Erfahrung mit dem Betrieb und der Implementierung von ELK Stacks und dessen Komponenten - Analytisches Mindset mit vertiefter Erfahrung in Exploratory Data Analysis (EDA) - Sicher im Umgang mit der Aufbereitung von un-/semistrukturierten Daten (Logfile Parsing) - Fliessende Deutschkenntnisse, Englisch von Vorteil - Expertise mit modernen Datenwerkzeugen wie Airflow, JupyterLab, Python Libs und GitLab - Consulting-Erfahrung, Kenntnisse im Versicherungs-/Bankingumfeld runden dein Profil ab Bei uns hast du die Möglichkeit, in einem unserer Offices in der Schweiz oder im Homeoffice zu arbeiten. Dabei kommst du mit agilen Arbeitsmethoden und den neuesten Technologien in Kontakt.\n• Wir bieten eine flexible Arbeitszeitgestaltung, um deinen persönlichen Bedürfnissen gerecht zu werden. Als Mitarbeitende*r von Swisscom kannst du dich auf eine Vielzahl von attraktiven Leistungen freuen, die deine Arbeitserfahrung bereichern werden. Dazu gehören ein angenehmes Arbeitsumfeld, finanzielle Vorteile und spannende Möglichkeiten zur beruflichen Weiterentwicklung. Benefits. ## Is it a match? Candidati ora. ## Scopri le tue possibilità ## Hai delle domande? Qui troverai risposte alle domande più importanti e frequenti. A tutte le agenzie di reclutamento: Swisscom non accetta curriculum inviati dalle agenzie. Vi preghiamo di non inoltrare curriculum all'indirizzo email dedicato alle posizioni di lavoro di Swisscom, né ai dipendenti di Swisscom o a qualsiasi altra sede dell'organizzazione. Swisscom non si assume responsabilità per eventuali spese legate a curriculum non richiesti. ## Persona di contatto ## La tua base operativa",
-        "fr": "Analyste principal des données / Ingénieur des données Il tuo futuro inizia qui Dans ce rôle, vous façonnez activement l'avenir des données dans l'environnement des assurances. Vous travaillez à l'interface entre entreprise et technologie, développez des pipelines de données modernes, analysez des stocks de données complexes et présentez votre savoir-faire pour faire avancer des applications innovantes. Si vous voulez prendre la responsabilité, les défis techniques aiment et créer une réelle valeur ajoutée à partir de données, cette position vous convient parfaitement. - De l'ingénierie des exigences à l'ingénierie des données à la visualisation des tableaux de bord. - Utilisation des outils de données modernes et des architectures de données actuelles - Développement de cas d'utilisation intelligente de l'assurance et évaluation active des nouveaux outils et technologies.\n• Vos compétences - Expérience pluriannuelle de l'exploitation et de la mise en œuvre d'ELK Stacks et de ses composants - Mindset analytique avec une expérience plus approfondie dans l'analyse des données exploratoires (EDA) - Gestion sûre des données non/semistructurées (Logfile Parsing) - compétences en langue allemande, anglais d'avantage - Expertise avec des outils de données modernes tels que Airflow, JupyterLab, Python Libs et GitLab - Expérience de conseil, connaissance de l'environnement assurance/banque complète votre profil Avec nous, vous avez la possibilité de travailler dans un de nos bureaux en Suisse ou à domicile. Vous serez en contact avec les méthodes de travail agiles et les dernières technologies.\n• Nous offrons des horaires flexibles pour répondre à vos besoins personnels. En tant qu'employé de Swisscom, vous pouvez vous attendre à une variété de services attrayants qui enrichiront votre expérience de travail. Il s'agit notamment d'un environnement de travail agréable, d'avantages financiers et de possibilités intéressantes de perfectionnement professionnel. Avantages. C'est une correspondance ?"
-      },
-      "requirements": [],
-      "requirementsByLocale": {
-        "it": []
-      },
-      "titleByLocale": {
-        "it": "Analista di dati senior / Ingegnere di dati",
-        "en": "Senior Data Analyst / Data Engineer",
-        "de": "Leitender Datenanalyst / Dateningenieur",
-        "fr": "Senior Data Analyste / Data Ingénieur"
-      },
-      "slug": "senior-data-analista-data-ingegnere-swisscom-sede-ticino-zurich",
-      "slugByLocale": {
-        "it": "senior-data-analista-data-ingegnere-swisscom-sede-ticino-zurich",
-        "en": "senior-data-analyst-data-engineer-swisscom-sede-ticino-zurich",
-        "de": "senior-data-analyst-data-engineer-swisscom-zurich-dyrj2g",
-        "fr": "senior-data-analyste-data-ingenieur-swisscom-sede-ticino-zurich"
-      },
-      "category": "technology",
-      "datePosted": "2026-05-13",
-      "source": "swisscom-workday-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "SENIOR",
-      "sector": "Tecnologia & IT",
-      "_targetScope": {
-        "canton": "ZH",
-        "location": "Zurich"
-      },
-      "sourceLang": "de",
-      "jobReqId": "R-0004945",
-      "crawledAt": "",
-      "id": "swisscom-sede-ticino-36098881e0ad",
-      "salaryMin": 68000,
-      "salaryMax": 103000,
-      "currency": "CHF",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68000,
-          "maxValue": 103000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Via Ghiringhelli 15A",
-      "postalCode": "6500",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "firstSeenAt": "2026-05-13T23:10:51.072Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "senior-data-analyst-data-engineer-swisscom-zurich-dyrj2g"
-        ],
-        "fr": [
-          "senior-data-analyst-data-engineer-swisscom-zurich-dyrj2g"
-        ]
-      },
-      "previousSlugs": [
-        "senior-data-analyst-data-engineer-swisscom-zurich-dyrj2g"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Zurich/DevOps-Engineer-BCA-Cloud_R-0005258-1",
@@ -1095,7 +1025,8 @@
       },
       "previousSlugs": [
         "devops-engineer-bca-cloud-swisscom-zurich-rxxqe9"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Zurich/Product-Owner---Kubernetes-Platform_R-0005123",
@@ -1333,7 +1264,8 @@
       },
       "previousSlugs": [
         "data-platform-engineer-swisscom-bern-94fpo1"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Zurich/Solution-Sales_R-0004162",
@@ -1408,7 +1340,8 @@
       },
       "previousSlugs": [
         "solution-sales-large-enterprise-customers-swisscom-zurich-e032jo"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Fribourg/ICT-Operational-Engineer-II_R-0005331",
@@ -1486,7 +1419,8 @@
       },
       "previousSlugs": [
         "operational-engineer-swisscom-fribourg-eq7f83"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Zurich/Business-Engineer--Syrius-_R-0005211",
@@ -1564,7 +1498,8 @@
       },
       "previousSlugs": [
         "business-engineer-syrius-swisscom-zurich-b0d1aa"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Zurich/Senior-Cyber-Security-Analyst_R-0004250-1",
@@ -1642,7 +1577,8 @@
       },
       "previousSlugs": [
         "senior-cyber-security-analyst-swisscom-zurich-7uipbw"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Bern/Design---Multimedia-Specialist-Corporate-Communications_R-0004388",
@@ -1800,7 +1736,8 @@
       },
       "previousSlugs": [
         "operation-engineer-linux-swisscom-olten-0synuo"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Geneva-Genve/ServiceNow-Business-Senior-Consultant_R-0005339",
@@ -1896,7 +1833,8 @@
       },
       "previousSlugs": [
         "servicenow-business-senior-consultant-swisscom-geneva-geneve-l5ajvo"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Bern/DevOps-Engineer-Microsoft_R-0005286",
@@ -2003,8 +1941,8 @@
       "slug": "imparare-swc-retail-manager-swisscom-sede-ticino-monthey",
       "slugByLocale": {
         "it": "imparare-swc-retail-manager-swisscom-sede-ticino-monthey",
-        "en": "learning-swc-retail-manager-swisscom-sede-ticino-monthey",
-        "de": "lernen-swc-retail-manager-swisscom-sede-ticino-monthey",
+        "en": "apprentissage-gestionnaire-du-commerce-de-detail-cfc-swisscom-monthey-tves62",
+        "de": "apprentissage-gestionnaire-du-commerce-de-detail-cfc-swisscom-monthey-tves62",
         "fr": "apprentissage-gestionnaire-du-commerce-de-detail-cfc-swisscom-sede-ticino-monthey"
       },
       "category": "internship",
@@ -2028,16 +1966,20 @@
           "apprentissage-gestionnaire-du-commerce-de-detail-cfc-swisscom-sede-ticino-grancia"
         ],
         "en": [
+          "learning-swc-retail-manager-swisscom-sede-ticino-monthey",
           "apprentissage-gestionnaire-du-commerce-de-detail-cfc-swisscom-monthey-tves62"
         ],
         "de": [
+          "lernen-swc-retail-manager-swisscom-sede-ticino-monthey",
           "apprentissage-gestionnaire-du-commerce-de-detail-cfc-swisscom-monthey-tves62"
         ]
       },
       "previousSlugs": [
         "apprentissage-gestionnaire-du-commerce-de-detail-cfc-swisscom-monthey-tves62",
         "apprentissage-gestionnaire-du-commerce-de-detail-cfc-swisscom-sede-ticino-monthey",
-        "apprentissage-gestionnaire-du-commerce-de-detail-cfc-swisscom-sede-ticino-grancia"
+        "apprentissage-gestionnaire-du-commerce-de-detail-cfc-swisscom-sede-ticino-grancia",
+        "learning-swc-retail-manager-swisscom-sede-ticino-monthey",
+        "lernen-swc-retail-manager-swisscom-sede-ticino-monthey"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -2088,7 +2030,7 @@
       "slug": "programma-di-formazione-ict-swisscom-sede-ticino-bern",
       "slugByLocale": {
         "it": "programma-di-formazione-ict-swisscom-sede-ticino-bern",
-        "en": "ict-training-program-swisscom-sede-ticino-bern",
+        "en": "ict-trainee-programm-swisscom-bern-k8ry4t",
         "de": "ict-trainee-programm-swisscom-sede-ticino-bern",
         "fr": "ict-apprenti-programm-swisscom-sede-ticino-bern"
       },
@@ -2133,12 +2075,14 @@
           "ict-trainee-programm-swisscom-bern-k8ry4t"
         ],
         "en": [
+          "ict-training-program-swisscom-sede-ticino-bern",
           "ict-trainee-programm-swisscom-bern-k8ry4t"
         ]
       },
       "previousSlugs": [
         "ict-trainee-programm-swisscom-bern-k8ry4t",
-        "ict-apprendista-programm-swisscom-sede-ticino-bern"
+        "ict-apprendista-programm-swisscom-sede-ticino-bern",
+        "ict-training-program-swisscom-sede-ticino-bern"
       ]
     },
     {
@@ -2220,92 +2164,8 @@
       },
       "previousSlugs": [
         "devops-engineer-open-source-collab-betrieb-swisscom-bern-kv6k1v"
-      ]
-    },
-    {
-      "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Zurich/_R-0005107",
-      "applyUrl": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Zurich/_R-0005107",
-      "title": "Kundensupport für Praxisinformationssystem",
-      "company": "Swisscom (sede Ticino)",
-      "companyKey": "swisscom-sede-ticino",
-      "location": "Zurich",
-      "addressLocality": "Zurich",
-      "canton": "ZH",
-      "country": "CH",
-      "description": "# Kundensupport für Praxisinformationssystem\n\n## Il tuo futuro inizia qui\nHast du Freude daran, medizinisches Fachpersonal in der Verwendung unseres Praxisinformationssystems telefonisch und schriftlich zu unterstützen?\nIn unserem engagierten Service Desk unterstützt du medizinisches Fachpersonal aus der ganzen Schweiz bei fachlichen Fragen und Herausforderungen bei der Nutzung unseres Praxisinformationssystems. Du stehst telefonisch oder per E-Mail zur Verfügung und trägst mit deinem Fachwissen massgeblich zu einer kompetenten Betreuung unserer Kunden bei. Dabei nimmst du sowohl komplexe Informationsanfragen als auch Störungsmeldungen entgegen und führst eine erste Analyse und Priorisierung durch. Um sicherzustellen, dass eine genaue Problembeschreibung vorliegt, rekonstruierst du gegebenenfalls die Situation des Kunden. Wo immer möglich bietest du den Kunden direkt Lösungen an oder beziehst bei komplexeren Fällen den 2nd Level Support oder ein anderes Team von Swisscom Health mit ein. Alle Schritte dokumentierst du nachvollziehbar in unserem Ticketsystem und kommunizierst abschliessend die erarbeitete Lösung an den Kunden.\nWir pflegen eine offene Feedback- und Lernkultur, die es uns ermöglicht, uns kontinuierlich zu verbessern. Dabei unterstützen wir uns immer gegenseitig. In unserem kleinen, engagierten Team trägt jeder Einzelne massgeblich zum gemeinsamen Erfolg bei, und wir schätzen die wertvollen Beiträge jedes Teammitglieds.\nMit Engagement, Leidenschaft und breiter Fachexpertise entwickelt und betreibt Swisscom Health das Praxisinformationssystem curaMED. Zusammen mit weiteren Lösungen für Firmenkunden in der Gesundheitsbranche wird das Portfolio komplettiert. Die Plattformen werden laufend weiterentwickelt, um ganz vorne am Markt dabei zu sein. Zu den Kunden gehören ambulante Leistungserbringer verschiedener Fachrichtungen: Einzelpraxen, Gruppenpraxen und sogar Ambulatorien in Spitälern.\n\n## Deine Skills und Eigenschaften\n- Gutes Deutsch und Italienisch oder Französisch in Wort und Schrift\n- Erfahrung im Service Desk und interessiert an einem längerfristigen Engagement\n- Erfahrung im medizinischen Umfeld\n- Abgeschlossene Lehre (EFZ; im medizinischen Umfeld zum Beispiel als MPA oder Arztsekretär*in, von Vorteil)\n- Kommunikativ mit angenehmen Umgangsformen\n- Gute IT-Kenntnisse\n- Zuverlässig, pünktlich und begeisterungsfähig\n- Leistungsbereit, lernbereit und belastbar\n\nBei uns hast du die Möglichkeit, im modernen Büro in Zürich oder im Homeoffice zu arbeiten. Dabei kommst du mit den neuesten Technologien in Kontakt. Wir bieten eine flexible Arbeitszeitgestaltung, um deinen persönlichen Bedürfnissen gerecht zu werden. Als Mitarbeitende*r von Swisscom kannst du dich auf eine Vielzahl von attraktiven Leistungen freuen, die deine Arbeitserfahrung bereichern werden. Dazu gehören ein angenehmes Arbeitsumfeld, finanzielle Vorteile und spannende Möglichkeiten zur beruflichen Weiterentwicklung. Benefits.\n\n## Is it a match? Candidati ora.\n\n## Scopri le tue possibilità\n\n## Hai delle domande?\nQui troverai risposte alle domande più importanti e frequenti.\nA tutte le agenzie di reclutamento: Swisscom non accetta curriculum inviati dalle agenzie. Vi preghiamo di non inoltrare curriculum all'indirizzo email dedicato alle posizioni di lavoro di Swisscom, né ai dipendenti di Swisscom o a qualsiasi altra sede dell'organizzazione. Swisscom non si assume responsabilità per eventuali spese legate a curriculum non richiesti.\n\n## Persona di contatto\n\n## La tua base operativa",
-      "descriptionByLocale": {
-        "it": "Supporto clienti per il sistema informativo pratico Il tuo futuro inizia qui Siete lieti di supportare i medici nell'uso del nostro sistema informativo pratico per telefono e per iscritto? Nel nostro Service Desk dedicato, supporterete professionisti medici di tutta la Svizzera con domande e sfide professionali nell'uso del nostro sistema informativo pratico. Sei disponibile per telefono o e-mail, e con la tua esperienza contribuisci a un servizio competente dei nostri clienti. In questo modo, si ricevono sia complesse richieste di informazioni e messaggi di interferenza ed eseguire una prima analisi e priorità. Per garantire che ci sia una descrizione accurata dei problemi, è possibile ricostruire la situazione del cliente. Ove possibile, è possibile offrire al cliente direttamente soluzioni o coinvolgere il supporto di secondo livello o un altro team di Swisscom Health in casi più complessi. È possibile documentare tutte le fasi in modo comprensibile nel nostro sistema di ticket e poi comunicare al cliente la soluzione preparata. Manteniamo una cultura aperta di feedback e apprendimento che ci permette di migliorare continuamente. Ci sosteniamo sempre. Nel nostro piccolo team dedicato, ogni individuo contribuisce al successo congiunto e apprezziamo i preziosi contributi di ogni membro del team. Con impegno, passione e grande competenza, Swisscom Health sviluppa e gestisce il sistema informativo pratico curaMED. Insieme ad altre soluzioni per i clienti aziendali nel settore sanitario, il portafoglio è completato. Le piattaforme sono in continua evoluzione per essere sul mercato. I clienti includono fornitori di servizi ambulatoriale da diverse discipline: pratiche individuali, pratiche di gruppo e anche pazienti in ospedali. Le tue capacità e caratteristiche - Buon tedesco e italiano o francese in parola e per iscritto - Esperienza nella Service Desk e interesse per un impegno a più lungo termine - Esperienza nell'ambiente medico - insegnamento completo (EFZ; nell'ambiente medico per esempio come MPA o segretaria del medico*in, di vantaggio) - Comunicativo con piacevoli forme di manipolazione - Buone competenze IT - Affidabile, puntuale ed entusiasta - Pronto per eseguire, pronto per imparare e durevole Con noi avete la possibilità di lavorare nell'ufficio moderno a Zurigo o in ufficio. Potrai entrare in contatto con le ultime tecnologie.\n• Offriamo orari di lavoro flessibili per soddisfare le vostre esigenze personali. In qualità di dipendente di Swisscom, puoi aspettarti una varietà di servizi interessanti che arricchiranno la tua esperienza di lavoro. Questi includono un ambiente di lavoro piacevole, vantaggi finanziari e interessanti opportunità di sviluppo professionale. Benefici. E' compatibile?",
-        "en": "Customer support for practical information system Il tuo futuro inizia qui Are you pleased to support medical professionals in the use of our practical information system by phone and in writing? In our dedicated Service Desk, you will support medical professionals from all over Switzerland with professional questions and challenges in the use of our practical information system. You are available by phone or e-mail, and with your expertise you contribute to a competent service of our customers. In doing so, you receive both complex information requests and interference messages and perform a first analysis and prioritization. To ensure that there is an accurate problem description, you may reconstruct the situation of the customer. Wherever possible, you can offer the customer directly solutions or involve the 2nd level support or another team of Swisscom Health in more complex cases. You can document all steps in a comprehensible manner in our ticket system and then communicate to the customer the prepared solution. We maintain an open feedback and learning culture that allows us to continuously improve. We always support each other. In our small, dedicated team, each individual contributes to the joint success and we appreciate the valuable contributions of each team member. With commitment, passion and broad expertise, Swisscom Health develops and operates the curaMED practical information system. Together with other solutions for corporate customers in the healthcare industry, the portfolio is completed. The platforms are constantly evolving to be on the market. Customers include outpatient service providers from different disciplines: individual practices, group practices and even outpatients in hospitals. Your skills and characteristics - Good German and Italian or French in word and writing - Experience in the Service Desk and interested in a longer term engagement - Experience in the medical environment - Complete teaching (EFZ; in the medical environment for example as MPA or doctor's secretary*in, of advantage) - Communicative with pleasant forms of handling - Good IT skills - Reliable, punctual and enthusiastic - Ready to perform, ready to learn and durable With us you have the opportunity to work in the modern office in Zurich or in the home office. You will get in touch with the latest technologies.\n• We offer flexible working hours to meet your personal needs. As a Swisscom employee, you can look forward to a variety of attractive services that will enrich your work experience. These include a pleasant working environment, financial advantages and exciting opportunities for professional development. Benefits. Is it a match?",
-        "de": "# Kundensupport für Praxisinformationssystem ## Il tuo futuro inizia qui Hast du Freude daran, medizinisches Fachpersonal in der Verwendung unseres Praxisinformationssystems telefonisch und schriftlich zu unterstützen? In unserem engagierten Service Desk unterstützt du medizinisches Fachpersonal aus der ganzen Schweiz bei fachlichen Fragen und Herausforderungen bei der Nutzung unseres Praxisinformationssystems. Du stehst telefonisch oder per E-Mail zur Verfügung und trägst mit deinem Fachwissen massgeblich zu einer kompetenten Betreuung unserer Kunden bei. Dabei nimmst du sowohl komplexe Informationsanfragen als auch Störungsmeldungen entgegen und führst eine erste Analyse und Priorisierung durch. Um sicherzustellen, dass eine genaue Problembeschreibung vorliegt, rekonstruierst du gegebenenfalls die Situation des Kunden. Wo immer möglich bietest du den Kunden direkt Lösungen an oder beziehst bei komplexeren Fällen den 2nd Level Support oder ein anderes Team von Swisscom Health mit ein. Alle Schritte dokumentierst du nachvollziehbar in unserem Ticketsystem und kommunizierst abschliessend die erarbeitete Lösung an den Kunden. Wir pflegen eine offene Feedback- und Lernkultur, die es uns ermöglicht, uns kontinuierlich zu verbessern. Dabei unterstützen wir uns immer gegenseitig. In unserem kleinen, engagierten Team trägt jeder Einzelne massgeblich zum gemeinsamen Erfolg bei, und wir schätzen die wertvollen Beiträge jedes Teammitglieds. Mit Engagement, Leidenschaft und breiter Fachexpertise entwickelt und betreibt Swisscom Health das Praxisinformationssystem curaMED. Zusammen mit weiteren Lösungen für Firmenkunden in der Gesundheitsbranche wird das Portfolio komplettiert. Die Plattformen werden laufend weiterentwickelt, um ganz vorne am Markt dabei zu sein. Zu den Kunden gehören ambulante Leistungserbringer verschiedener Fachrichtungen: Einzelpraxen, Gruppenpraxen und sogar Ambulatorien in Spitälern. ## Deine Skills und Eigenschaften - Gutes Deutsch und Italienisch oder Französisch in Wort und Schrift - Erfahrung im Service Desk und interessiert an einem längerfristigen Engagement - Erfahrung im medizinischen Umfeld - Abgeschlossene Lehre (EFZ; im medizinischen Umfeld zum Beispiel als MPA oder Arztsekretär*in, von Vorteil) - Kommunikativ mit angenehmen Umgangsformen - Gute IT-Kenntnisse - Zuverlässig, pünktlich und begeisterungsfähig - Leistungsbereit, lernbereit und belastbar Bei uns hast du die Möglichkeit, im modernen Büro in Zürich oder im Homeoffice zu arbeiten. Dabei kommst du mit den neuesten Technologien in Kontakt.\n• Wir bieten eine flexible Arbeitszeitgestaltung, um deinen persönlichen Bedürfnissen gerecht zu werden. Als Mitarbeitende*r von Swisscom kannst du dich auf eine Vielzahl von attraktiven Leistungen freuen, die deine Arbeitserfahrung bereichern werden. Dazu gehören ein angenehmes Arbeitsumfeld, finanzielle Vorteile und spannende Möglichkeiten zur beruflichen Weiterentwicklung. Benefits. ## Is it a match? Candidati ora. ## Scopri le tue possibilità ## Hai delle domande? Qui troverai risposte alle domande più importanti e frequenti. A tutte le agenzie di reclutamento: Swisscom non accetta curriculum inviati dalle agenzie. Vi preghiamo di non inoltrare curriculum all'indirizzo email dedicato alle posizioni di lavoro di Swisscom, né ai dipendenti di Swisscom o a qualsiasi altra sede dell'organizzazione. Swisscom non si assume responsabilità per eventuali spese legate a curriculum non richiesti. ## Persona di contatto ## La tua base operativa",
-        "fr": "Assistance client pour le système d'information pratique Il tuo futuro inizia qui Êtes-vous heureux de soutenir les professionnels de la santé dans l'utilisation de notre système d'information pratique par téléphone et par écrit? Dans notre Service Desk dédié, vous accompagnerez les professionnels de la santé de toute la Suisse avec des questions et des défis professionnels dans l'utilisation de notre système d'information pratique. Vous êtes disponible par téléphone ou par e-mail, et grâce à votre expertise, vous contribuez à un service compétent de nos clients. Ce faisant, vous recevez à la fois des demandes d'information complexes et des messages de brouillage et effectuez une première analyse et priorisation. Pour vous assurer qu'il y a une description précise du problème, vous pouvez reconstruire la situation du client. Dans la mesure du possible, vous pouvez proposer directement des solutions au client ou impliquer le support de 2ème niveau ou une autre équipe de Swisscom Health dans des cas plus complexes. Vous pouvez documenter toutes les étapes de manière compréhensible dans notre système de tickets et ensuite communiquer au client la solution préparée. Nous maintenons une culture ouverte de rétroaction et d'apprentissage qui nous permet d'améliorer continuellement. Nous nous soutenons toujours. Dans notre petite équipe dévouée, chaque personne contribue au succès conjoint et nous apprécions la précieuse contribution de chaque membre de l'équipe. Avec engagement, passion et grande expertise, Swisscom Health développe et exploite le système d'information pratique curaMED. Avec d'autres solutions pour les entreprises du secteur de la santé, le portefeuille est terminé. Les plateformes évoluent constamment pour être sur le marché. Les clients comprennent des prestataires de services ambulatoires de différentes disciplines : pratiques individuelles, pratiques de groupe et même consultations ambulatoires dans les hôpitaux.\n• Vos compétences et caractéristiques - Bon allemand et italien ou français en paroles et en écriture - Expérience au Service Desk et intérêt pour un engagement à plus long terme - Expérience dans le milieu médical - Enseignement complet (EFZ; dans l'environnement médical par exemple en tant que MPA ou secrétaire de médecin* dans, d'avantage) - Communication avec des formes agréables de manipulation - Bonnes compétences en informatique - Fiabilité, ponctualité et enthousiasme - Prêt à effectuer, prêt à apprendre et durable Avec nous, vous avez la possibilité de travailler dans le bureau moderne de Zurich ou dans le bureau à domicile. Vous serez en contact avec les dernières technologies.\n• Nous offrons des horaires flexibles pour répondre à vos besoins personnels. En tant qu'employé de Swisscom, vous pouvez vous attendre à une variété de services attrayants qui enrichiront votre expérience de travail. Il s'agit notamment d'un environnement de travail agréable, d'avantages financiers et de possibilités intéressantes de perfectionnement professionnel. Avantages. C'est une correspondance ?"
-      },
-      "requirements": [],
-      "requirementsByLocale": {
-        "it": []
-      },
-      "titleByLocale": {
-        "it": "Kundensupport per Praxisinformationssystem",
-        "en": "Customer support for practical information system",
-        "de": "Kundensupport für Praxisinformationssystem",
-        "fr": "Assistance client pour le système d'information pratique"
-      },
-      "slug": "kundensupport-per-praxisinformationssystem-swisscom-sede-ticino-zurich",
-      "slugByLocale": {
-        "it": "kundensupport-per-praxisinformationssystem-swisscom-sede-ticino-zurich",
-        "en": "customer-support-for-practical-information-system-swisscom-sede-ticino-zurich",
-        "de": "kundensupport-fur-praxisinformationssystem-swisscom-sede-ticino-zurich",
-        "fr": "assistance-client-pour-le-systeme-d-information-pratique-swisscom-sede-ticino-zurich"
-      },
-      "category": "technology",
-      "datePosted": "2026-04-15",
-      "source": "swisscom-workday-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "MID",
-      "sector": "Tecnologia & IT",
-      "_targetScope": {
-        "canton": "ZH",
-        "location": "Zurich"
-      },
-      "sourceLang": "de",
-      "jobReqId": "R-0005107",
-      "crawledAt": "",
-      "id": "swisscom-sede-ticino-bb821075b513",
-      "previousSlugsByLocale": {
-        "it": [
-          "kundensupport-fur-praxisinformationssystem-swisscom-zurich-fk53hu",
-          "supporto-clienti-per-il-sistema-informativo-pratico-swisscom-sede-ticino-zurich"
-        ],
-        "en": [
-          "kundensupport-fur-praxisinformationssystem-swisscom-zurich-fk53hu",
-          "kundensupport-fur-praxisinformationssystem-swisscom-sede-ticino-zurich"
-        ],
-        "fr": [
-          "kundensupport-fur-praxisinformationssystem-swisscom-sede-ticino-zurich"
-        ]
-      },
-      "previousSlugs": [
-        "kundensupport-fur-praxisinformationssystem-swisscom-zurich-fk53hu",
-        "supporto-clienti-per-il-sistema-informativo-pratico-swisscom-sede-ticino-zurich",
-        "kundensupport-fur-praxisinformationssystem-swisscom-sede-ticino-zurich"
       ],
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Via Ghiringhelli 15A",
-      "postalCode": "6500",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "firstSeenAt": "2026-05-10T10:58:32.802Z"
+      "needsRetranslation": true
     },
     {
       "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Geneva-Genve/ICT-Supporter_R-0001914",
@@ -2380,7 +2240,8 @@
         "it": [
           "ict-supporter-swisscom-geneva-geneve-12cy45"
         ]
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Zurich/Head-Container-Application-Operations_R-0003803-1",
@@ -2455,7 +2316,8 @@
       },
       "previousSlugs": [
         "head-container-application-operations-swisscom-zurich-9pl6kv"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Zurich/IT-Consultant---Full-Stack-Software-Engineer_R-0004536-1",
@@ -2530,7 +2392,8 @@
       },
       "previousSlugs": [
         "it-consultant-full-stack-software-engineer-swisscom-zurich-hmniej"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Vevey/Onsite-IT-Support-Specialist-in-Vevey_R-0003999",
@@ -2611,7 +2474,8 @@
       },
       "previousSlugs": [
         "onsite-vip-it-support-specialist-vevey-swisscom-vevey-1umsv7"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Zurich/IT-Consultant-Finance_R-0001100",
@@ -2927,7 +2791,8 @@
       },
       "previousSlugs": [
         "microsoft-dynamics-consultant-swisscom-geneva-geneve-cvswb8"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Lausanne/Apprentissage--Dveloppeur-se-de-business-numrique-CFC_R-0002699",
@@ -2959,8 +2824,8 @@
       "slug": "imparare-cfc-digital-business-developer-se-swisscom-sede-ticino-lausanne",
       "slugByLocale": {
         "it": "imparare-cfc-digital-business-developer-se-swisscom-sede-ticino-lausanne",
-        "en": "learning-cfc-digital-business-developer-se-swisscom-sede-ticino-lausanne",
-        "de": "lernen-cfc-digital-business-developer-se-swisscom-sede-ticino-lausanne",
+        "en": "apprentissage-developpeur-se-de-business-numerique-cfc-swisscom-lausanne-fowmuf",
+        "de": "apprentissage-developpeur-se-de-business-numerique-cfc-swisscom-lausanne-fowmuf",
         "fr": "apprentissage-developpeur-se-de-business-numerique-cfc-swisscom-sede-ticino-lausanne"
       },
       "category": "internship",
@@ -2983,15 +2848,19 @@
           "apprentissage-developpeur-se-de-business-numerique-cfc-swisscom-sede-ticino-lausanne"
         ],
         "en": [
+          "learning-cfc-digital-business-developer-se-swisscom-sede-ticino-lausanne",
           "apprentissage-developpeur-se-de-business-numerique-cfc-swisscom-lausanne-fowmuf"
         ],
         "de": [
+          "lernen-cfc-digital-business-developer-se-swisscom-sede-ticino-lausanne",
           "apprentissage-developpeur-se-de-business-numerique-cfc-swisscom-lausanne-fowmuf"
         ]
       },
       "previousSlugs": [
         "apprentissage-developpeur-se-de-business-numerique-cfc-swisscom-lausanne-fowmuf",
-        "apprentissage-developpeur-se-de-business-numerique-cfc-swisscom-sede-ticino-lausanne"
+        "apprentissage-developpeur-se-de-business-numerique-cfc-swisscom-sede-ticino-lausanne",
+        "learning-cfc-digital-business-developer-se-swisscom-sede-ticino-lausanne",
+        "lernen-cfc-digital-business-developer-se-swisscom-sede-ticino-lausanne"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -3042,7 +2911,7 @@
       "slug": "imparare-computer-operator-cfc-swisscom-sede-ticino-lausanne",
       "slugByLocale": {
         "it": "imparare-computer-operator-cfc-swisscom-sede-ticino-lausanne",
-        "en": "learning-computer-operator-cfc-swisscom-sede-ticino-lausanne",
+        "en": "apprentissage-operateur-trice-en-informatique-cfc-swisscom-lausanne-2r02ii",
         "de": "apprentissage-operateur-trice-en-informatique-cfc-swisscom-lausanne-2r02ii",
         "fr": "apprentissage-operateur-trice-en-informatique-cfc-swisscom-sede-ticino-lausanne"
       },
@@ -3066,12 +2935,14 @@
           "apprentissage-operateur-trice-en-informatique-cfc-swisscom-sede-ticino-lausanne"
         ],
         "en": [
+          "learning-computer-operator-cfc-swisscom-sede-ticino-lausanne",
           "apprentissage-operateur-trice-en-informatique-cfc-swisscom-lausanne-2r02ii"
         ]
       },
       "previousSlugs": [
         "apprentissage-operateur-trice-en-informatique-cfc-swisscom-lausanne-2r02ii",
-        "apprentissage-operateur-trice-en-informatique-cfc-swisscom-sede-ticino-lausanne"
+        "apprentissage-operateur-trice-en-informatique-cfc-swisscom-sede-ticino-lausanne",
+        "learning-computer-operator-cfc-swisscom-sede-ticino-lausanne"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -3090,7 +2961,8 @@
       "postalCode": "6500",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "firstSeenAt": "2026-05-10T10:58:32.802Z"
+      "firstSeenAt": "2026-05-10T10:58:32.802Z",
+      "needsRetranslation": true
     },
     {
       "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Zurich/OT-Cyber-Security-Sales-Spezialist-in_R-0004118",
@@ -3243,7 +3115,8 @@
       },
       "previousSlugs": [
         "senior-consultant-sap-for-utilities-swisscom-zurich-aqdb1m"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Bellinzona/Apprendistato--Impiegato-a-del-commercio-al-dettaglio-AFC_R-0002524",
@@ -3322,9 +3195,9 @@
       "slug": "apprendistato-impiegato-a-del-commercio-al-dettaglio-afc-swisscom-bellinzona",
       "slugByLocale": {
         "it": "apprendistato-impiegato-a-del-commercio-al-dettaglio-afc-swisscom-bellinzona",
-        "en": "apprenticeship-retail-sales-assistant-efz-swisscom-sede-ticino-bellinzona",
-        "de": "lehre-detailhandelsfachmann-frau-efz-swisscom-sede-ticino-bellinzona",
-        "fr": "apprentissage-employe-e-de-commerce-de-detail-cfc-swisscom-sede-ticino-bellinzona"
+        "en": "apprendistato-impiegato-a-del-commercio-al-dettaglio-afc-swisscom-sede-ticino-bellinzona-56yj6x",
+        "de": "apprendistato-impiegato-a-del-commercio-al-dettaglio-afc-swisscom-sede-ticino-bellinzona-56yj6x",
+        "fr": "apprendistato-impiegato-a-del-commercio-al-dettaglio-afc-swisscom-sede-ticino-bellinzona-56yj6x"
       },
       "category": "sales",
       "datePosted": "2025-09-01",
@@ -3407,17 +3280,20 @@
           "lehre-detailhandelsfachmann-frau-efz-swisscom-sede-ticino-bellinzona",
           "apprentissage-gestionnaire-du-commerce-de-detail-cfc-swisscom-sede-ticino-bellinzona",
           "apprenticeship-retail-sales-assistant-efz-swisscom-sede-ticino-balerna",
+          "apprenticeship-retail-sales-assistant-efz-swisscom-sede-ticino-bellinzona",
           "apprendistato-impiegato-a-del-commercio-al-dettaglio-afc-swisscom-sede-ticino-bellinzona-56yj6x"
         ],
         "de": [
           "apprentissage-gestionnaire-du-commerce-de-detail-cfc-swisscom-sede-ticino-bellinzona",
           "lehre-detailhandelsfachmann-frau-efz-swisscom-sede-ticino-balerna",
+          "lehre-detailhandelsfachmann-frau-efz-swisscom-sede-ticino-bellinzona",
           "apprendistato-impiegato-a-del-commercio-al-dettaglio-afc-swisscom-sede-ticino-bellinzona-56yj6x"
         ],
         "fr": [
           "lehre-detailhandelsfachmann-frau-efz-swisscom-sede-ticino-bellinzona",
           "apprentissage-gestionnaire-du-commerce-de-detail-cfc-swisscom-sede-ticino-bellinzona",
           "apprentissage-employe-e-de-commerce-de-detail-cfc-swisscom-sede-ticino-balerna",
+          "apprentissage-employe-e-de-commerce-de-detail-cfc-swisscom-sede-ticino-bellinzona",
           "apprendistato-impiegato-a-del-commercio-al-dettaglio-afc-swisscom-sede-ticino-bellinzona-56yj6x"
         ]
       },
@@ -3471,7 +3347,7 @@
       "slug": "apprendistato-impiegato-a-del-commercio-al-dettaglio-afc-swisscom-grancia",
       "slugByLocale": {
         "it": "apprendistato-impiegato-a-del-commercio-al-dettaglio-afc-swisscom-grancia",
-        "en": "apprenticeship-retail-sales-assistant-efz-swisscom-sede-ticino-grancia",
+        "en": "apprendistato-impiegato-a-del-commercio-al-dettaglio-afc-swisscom-sede-ticino-grancia-56yj6w",
         "de": "apprendistato-impiegato-a-del-commercio-al-dettaglio-afc-swisscom-sede-ticino-grancia-56yj6w",
         "fr": "apprendistato-impiegato-a-del-commercio-al-dettaglio-afc-swisscom-sede-ticino-grancia-56yj6w"
       },
@@ -3492,7 +3368,7 @@
       "previousSlugs": [
         "apprendistato-impiegato-a-del-commercio-al-dettaglio-afc-swisscom-grancia-56yj6w",
         "apprendistato-impiegato-a-del-commercio-al-dettaglio-afc-swisscom-sede-ticino-grancia",
-        "apprendistato-impiegato-a-del-commercio-al-dettaglio-afc-swisscom-sede-ticino-grancia-56yj6w",
+        "apprenticeship-retail-sales-assistant-efz-swisscom-sede-ticino-grancia",
         "lehre-detailhandelsfachmann-frau-efz-swisscom-sede-ticino-grancia",
         "lehre-einzelhandelskaufmann-frau-afc-swisscom-sede-ticino-grancia",
         "apprenticeship-retail-sales-clerk-afc-swisscom-sede-ticino-grancia",
@@ -3521,10 +3397,12 @@
           "apprendistato-impiegato-a-del-commercio-al-dettaglio-afc-swisscom-sede-ticino-grancia"
         ],
         "en": [
+          "apprenticeship-retail-sales-assistant-efz-swisscom-sede-ticino-grancia",
           "apprendistato-impiegato-a-del-commercio-al-dettaglio-afc-swisscom-sede-ticino-grancia-56yj6w"
         ]
       },
-      "firstSeenAt": "2026-04-13T22:31:40.193Z"
+      "firstSeenAt": "2026-04-13T22:31:40.193Z",
+      "needsRetranslation": true
     }
   ]
 }
