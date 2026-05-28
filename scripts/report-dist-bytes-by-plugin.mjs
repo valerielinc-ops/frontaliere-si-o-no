@@ -60,20 +60,26 @@ function parseArgs(argv) {
 const LOCALES = new Set(['en', 'de', 'fr']);
 
 const PLUGIN_RULES = [
-  // jobs SEO (active + soft-landing + previousSlugs bridges)
-  { plugin: 'jobs-seo', prefixes: [
-    'cerca-lavoro-ticino/', 'find-jobs-ticino/', 'jobs-im-tessin/', 'trouver-emploi-tessin/',
-    'cerca-lavoro-ticino.html', 'find-jobs-ticino.html', 'jobs-im-tessin.html', 'trouver-emploi-tessin.html',
-  ]},
+  // jobs SEO (active + soft-landing + previousSlugs bridges).
+  // jobsSeoPagesPlugin emits under canton-aware sections for every canton
+  // (TI, ZH, BE, GR, BS, VD, VS, LU, AG, GE, SO, SG, FR, TG, NE, …) plus a
+  // pan-Switzerland section. The IT/EN/DE/FR section names diverge per
+  // locale (e.g. cerca-lavoro-zurigo / find-jobs-zurich / jobs-in-zurich /
+  // trouver-emploi-zurich), so we use a regex to catch the whole family
+  // without enumerating every canton × every locale × every prefix.
+  { plugin: 'jobs-seo', regex:
+    /^(cerca-lavoro|find-jobs|jobs-im|jobs-in|trouver-emploi)-[a-z][a-z-]*(\/|\.html$)/ },
   // related search cluster pages
   { plugin: 'cluster', prefixes: [
     'ricerca-cluster/', 'search-cluster/', 'such-cluster/', 'recherche-cluster/',
     'ricerca/', 'cluster-ricerca/',
   ]},
-  // OG / article pages
-  { plugin: 'og-pages', prefixes: [
-    'articoli-frontaliere/', 'articles-frontaliere/', 'artikel-grenzgaenger/', 'articles-frontaliers/',
-  ]},
+  // OG / article pages — paths vary across locales (articoli-frontaliere
+  // / articles-frontalier / grenzgaenger-artikel / cross-border-articles
+  // …). Regex catches the family without enumerating singular/plural and
+  // EN/DE/FR/IT variants.
+  { plugin: 'og-pages', regex:
+    /^(articoli-frontaliere|articles?-frontaliers?|articles?-frontalier|grenzgaenger-artikel|cross-border-articles?)\// },
   // hub plugins
   { plugin: 'hub-salary', prefixes: ['stipendi/', 'salaries/', 'gehaelter/', 'salaires/'] },
   { plugin: 'hub-faq', prefixes: ['faq/', 'domande/', 'fragen/', 'questions/'] },
