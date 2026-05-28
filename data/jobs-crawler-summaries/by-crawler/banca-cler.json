@@ -1,16 +1,16 @@
 {
   "key": "banca-cler",
   "label": "Cler",
-  "generatedAt": "2026-05-28T06:43:37.580Z",
+  "generatedAt": "2026-05-28T12:03:31.345Z",
   "total": 5,
   "newCount": 0,
   "updatedCount": 5,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 49767,
-  "avgDurationMs": 49767,
+  "durationMs": 23688,
+  "avgDurationMs": 23688,
   "durationHistory": [
-    49767
+    23688
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -37,7 +37,7 @@
       "validThrough": "",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-05-28T06:42:50.077Z",
+      "crawledAt": "2026-05-28T12:03:10.520Z",
       "id": "company-4gqp43",
       "contract": "full-time",
       "currency": "CHF",
@@ -47,11 +47,11 @@
       "salaryMax": 150000,
       "streetAddress": "Bälliz 27",
       "postalCode": "3600",
-      "_qualityScore": 76,
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 4,
+        "translation": 15,
         "completeness": 25
       }
     },
@@ -78,7 +78,7 @@
       "validThrough": "",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-05-28T06:42:50.652Z",
+      "crawledAt": "2026-05-28T12:03:11.160Z",
       "id": "company-1r5az3",
       "contract": "full-time",
       "currency": "CHF",
@@ -88,11 +88,11 @@
       "salaryMax": 150000,
       "streetAddress": "Bälliz 27",
       "postalCode": "3600",
-      "_qualityScore": 76,
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 4,
+        "translation": 15,
         "completeness": 25
       }
     },
@@ -119,7 +119,7 @@
       "validThrough": "",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-05-28T06:42:51.305Z",
+      "crawledAt": "2026-05-28T12:03:11.795Z",
       "id": "company-a7q9i9",
       "contract": "full-time",
       "currency": "CHF",
@@ -129,11 +129,11 @@
       "salaryMax": 150000,
       "streetAddress": "Westbahnhofstrasse 1",
       "postalCode": "4500",
-      "_qualityScore": 76,
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 4,
+        "translation": 15,
         "completeness": 25
       }
     },
@@ -160,7 +160,7 @@
       "validThrough": "",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-05-28T06:42:51.862Z",
+      "crawledAt": "2026-05-28T12:03:12.411Z",
       "id": "company-crpf0w",
       "contract": "full-time",
       "currency": "CHF",
@@ -170,11 +170,11 @@
       "streetAddress": "Aarauerstrasse 7",
       "postalCode": "4600",
       "firstSeenAt": "2026-04-13T10:15:24.383Z",
-      "_qualityScore": 76,
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 4,
+        "translation": 15,
         "completeness": 25
       }
     },
@@ -201,7 +201,7 @@
       "validThrough": "",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-05-28T06:42:52.444Z",
+      "crawledAt": "2026-05-28T12:03:13.037Z",
       "id": "company-phytkj",
       "contract": "full-time",
       "currency": "CHF",
@@ -211,11 +211,11 @@
       "salaryMax": 150000,
       "streetAddress": "Uraniastrasse 6",
       "postalCode": "8001",
-      "_qualityScore": 76,
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 4,
+        "translation": 15,
         "completeness": 25
       }
     }
