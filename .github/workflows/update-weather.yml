@@ -63,7 +63,7 @@ jobs:
               exit 0
             fi
             echo "push failed (attempt $attempt), rebasing..."
-            git fetch origin main
+            git fetch origin main || true  # tolerate transient net failure; rebase below will signal staleness
             git rebase origin/main || { git rebase --abort; sleep 2; continue; }
             sleep $((attempt * 2))
           done
