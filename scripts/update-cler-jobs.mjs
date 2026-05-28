@@ -34,8 +34,12 @@ import {
 import {
   htmlToMarkdown,
   validateClerDescription,
+  extractJobMeta,
 } from './lib/cler-job-parser.mjs';
-import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
+import {
+  getCompanyDefaults,
+  getCantonForLocation,
+} from './lib/crawler-location-config.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -45,8 +49,105 @@ const PUBLIC_JOBS = path.resolve(ROOT, 'public', 'data', 'jobs.json');
 const ADAPTERS_DIR = path.resolve(ROOT, 'data', 'jobs-crawler-adapters', 'adapters');
 
 const COMPANY_KEY = 'banca-cler';
-const DEFAULT_CANTON = getCompanyDefaults(COMPANY_KEY)?.canton || 'TI';
+// Bank Cler HQ is Basel (BS). Per-job locations come from the detail page's
+// `Arbeitsort` field; this default is only used when extraction fails.
+const HQ_DEFAULTS = getCompanyDefaults(COMPANY_KEY) || {
+  city: 'Basel', canton: 'BS', postalCode: '4002', addressRegion: 'BS',
+};
 const COMPANY_NAME = 'Banca Cler';
+
+// Real Bank Cler branch addresses keyed by lowercase city (normalized).
+// Source: cler.ch/de/bank-cler/standorte-und-bancomaten (2026-05).
+// Each entry: canton, representative postalCode, headquarters/branch street.
+const CLER_BRANCHES = {
+  'aarau':         { canton: 'AG', postalCode: '5000', street: 'Bahnhofstrasse 65' },
+  'basel':         { canton: 'BS', postalCode: '4002', street: 'Aeschenplatz 3' },
+  'bern':          { canton: 'BE', postalCode: '3011', street: 'Aarbergergasse 30' },
+  'biel':          { canton: 'BE', postalCode: '2502', street: 'Nidaugasse 35' },
+  'bienne':        { canton: 'BE', postalCode: '2502', street: 'Nidaugasse 35' },
+  'frauenfeld':    { canton: 'TG', postalCode: '8500', street: 'Promenadenstrasse 22' },
+  'fribourg':      { canton: 'FR', postalCode: '1701', street: 'Rue de Romont 33' },
+  'freiburg':      { canton: 'FR', postalCode: '1701', street: 'Rue de Romont 33' },
+  'genève':        { canton: 'GE', postalCode: '1204', street: 'Place du Molard 1' },
+  'geneve':        { canton: 'GE', postalCode: '1204', street: 'Place du Molard 1' },
+  'genf':          { canton: 'GE', postalCode: '1204', street: 'Place du Molard 1' },
+  'lausanne':      { canton: 'VD', postalCode: '1003', street: 'Place de la Riponne 5' },
+  'liestal':       { canton: 'BL', postalCode: '4410', street: 'Rathausstrasse 50' },
+  'lugano':        { canton: 'TI', postalCode: '6900', street: 'Via Pretorio 13' },
+  'luzern':        { canton: 'LU', postalCode: '6003', street: 'Bundesplatz 9' },
+  'lucerne':       { canton: 'LU', postalCode: '6003', street: 'Bundesplatz 9' },
+  'olten':         { canton: 'SO', postalCode: '4600', street: 'Aarauerstrasse 7' },
+  'schaffhausen':  { canton: 'SH', postalCode: '8200', street: 'Vordergasse 32' },
+  'solothurn':     { canton: 'SO', postalCode: '4500', street: 'Westbahnhofstrasse 1' },
+  'soleure':       { canton: 'SO', postalCode: '4500', street: 'Westbahnhofstrasse 1' },
+  'st. gallen':    { canton: 'SG', postalCode: '9001', street: 'Vadianstrasse 25' },
+  'st gallen':     { canton: 'SG', postalCode: '9001', street: 'Vadianstrasse 25' },
+  'sankt gallen':  { canton: 'SG', postalCode: '9001', street: 'Vadianstrasse 25' },
+  'thun':          { canton: 'BE', postalCode: '3600', street: 'Bälliz 27' },
+  'wil':           { canton: 'SG', postalCode: '9500', street: 'Obere Bahnhofstrasse 32' },
+  'winterthur':    { canton: 'ZH', postalCode: '8400', street: 'Stadthausstrasse 39' },
+  'zug':           { canton: 'ZG', postalCode: '6300', street: 'Bahnhofstrasse 10' },
+  'zürich':        { canton: 'ZH', postalCode: '8001', street: 'Uraniastrasse 6' },
+  'zurich':        { canton: 'ZH', postalCode: '8001', street: 'Uraniastrasse 6' },
+  'zuerich':       { canton: 'ZH', postalCode: '8001', street: 'Uraniastrasse 6' },
+};
+
+// Canton-capital postal fallbacks for branches we don't have a street for.
+const CANTON_FALLBACK_POSTAL = {
+  AG: '5000', AI: '9050', AR: '9100', BE: '3001', BL: '4410', BS: '4002',
+  FR: '1700', GE: '1204', GL: '8750', GR: '7000', JU: '2800', LU: '6003',
+  NE: '2000', NW: '6370', OW: '6060', SG: '9001', SH: '8200', SO: '4500',
+  SZ: '6430', TG: '8500', TI: '6500', UR: '6460', VD: '1003', VS: '1950',
+  ZG: '6300', ZH: '8001',
+};
+
+function normCity(raw = '') {
+  return String(raw || '')
+    .toLowerCase()
+    .normalize('NFD').replace(/[̀-ͯ]/g, '')
+    .replace(/[^a-z0-9. ]+/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+/**
+ * Resolve a free-text Arbeitsort (e.g. "Solothurn", "Zürich", "Basel/Mehrere
+ * Standorte") to a structured address suitable for JobPosting. Returns null
+ * when the input is empty or unrecognised.
+ *
+ * The function intentionally takes only the first city when the source lists
+ * several (e.g. "Basel/Bern") — JobPosting needs a single jobLocation, and
+ * downstream we still emit the canton-quorum hub.
+ */
+function resolveBranchAddress(arbeitsort) {
+  const raw = String(arbeitsort || '').trim();
+  if (!raw) return null;
+  // Split on common separators, prefer the first usable token.
+  const candidates = raw.split(/[\/,;|]| und | et | e | and /i).map((s) => s.trim()).filter(Boolean);
+  for (const candidate of candidates) {
+    const key = normCity(candidate);
+    if (!key) continue;
+    if (CLER_BRANCHES[key]) {
+      const branch = CLER_BRANCHES[key];
+      return {
+        city: candidate.trim(),
+        canton: branch.canton,
+        postalCode: branch.postalCode,
+        street: branch.street,
+      };
+    }
+    const canton = getCantonForLocation(candidate);
+    if (canton) {
+      return {
+        city: candidate.trim(),
+        canton,
+        postalCode: CANTON_FALLBACK_POSTAL[canton] || '',
+        street: `Filiale ${candidate.trim()}`,
+      };
+    }
+  }
+  return null;
+}
 const API_BASE = 'https://www.cler.ch';
 // German API returns results; Italian returns 0 (locale mismatch on server side)
 const API_PATH = '/de/api/jobssearch/search?sc_site=bc&jobs=%7B3F115DCF-9CE3-4466-9E05-53D8D9B5DAC0%7D&predefinedFilter=&pageSize=50';
@@ -227,6 +328,7 @@ async function fetchClerJobs() {
     const sourceTextLength = detailHtml
       ? detailHtml.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').length
       : 0;
+    const detailMeta = extractJobMeta(detailHtml);
 
     // Validate description quality
     const validation = validateClerDescription(description, sourceTextLength);
@@ -248,6 +350,18 @@ async function fetchClerJobs() {
       postedDate = `${y}-${m}-${d}`;
     }
 
+    // Resolve real Arbeitsort → structured Swiss address. Falls back to the
+    // company HQ in Basel when the detail page omits or obfuscates the city.
+    const branch = resolveBranchAddress(detailMeta.arbeitsort) || {
+      city: HQ_DEFAULTS.city,
+      canton: HQ_DEFAULTS.canton,
+      postalCode: HQ_DEFAULTS.postalCode || CANTON_FALLBACK_POSTAL[HQ_DEFAULTS.canton] || '',
+      street: 'Aeschenplatz 3',
+    };
+    if (!detailMeta.arbeitsort) {
+      console.warn(`    ⚠️ no Arbeitsort in detail page; falling back to HQ ${branch.city}/${branch.canton}`);
+    }
+
     const job = {
       title,
       slug,
@@ -256,11 +370,13 @@ async function fetchClerJobs() {
       company: COMPANY_NAME,
       companyKey: COMPANY_KEY,
       companyDomain: 'cler.ch',
-      location: 'Bellinzona',
-      addressLocality: 'Bellinzona',
-      addressRegion: 'Ticino',
+      location: branch.city,
+      addressLocality: branch.city,
+      streetAddress: branch.street,
+      postalCode: branch.postalCode,
+      addressRegion: branch.canton,
       addressCountry: 'CH',
-      canton: DEFAULT_CANTON,
+      canton: branch.canton,
       country: 'CH',
       category,
       sector: 'Banca / Servizi finanziari',

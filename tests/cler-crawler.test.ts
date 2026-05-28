@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { htmlToMarkdown, validateClerDescription } from '../scripts/lib/cler-job-parser.mjs';
+import { htmlToMarkdown, validateClerDescription, extractJobMeta } from '../scripts/lib/cler-job-parser.mjs';
 
 // ──────────────────────────────────────────────────────────────
 // Real HTML fixture: Geschäftsstellenleiterin Schaffhausen
@@ -238,5 +238,48 @@ describe('validateClerDescription', () => {
     const { ok, warnings } = validateClerDescription(short, 10000);
     expect(ok).toBe(false);
     expect(warnings.some((w) => w.includes('coverage'))).toBe(true);
+  });
+});
+
+// ──────────────────────────────────────────────────────────────
+// extractJobMeta tests — guard against the Bellinzona force-stamp bug
+// ──────────────────────────────────────────────────────────────
+
+describe('extractJobMeta — JobPosting location source of truth', () => {
+  it('extracts Arbeitsort from a Schaffhausen detail page', () => {
+    const meta = extractJobMeta(FIXTURE_JOB1_HTML);
+    expect(meta.arbeitsort).toBe('Schaffhausen');
+    expect(meta.pensum).toBe('80-100%');
+    expect(meta.start).toBe('01.01.2026 oder nach Vereinbarung');
+    expect(meta.bereich).toContain('Private Banking');
+  });
+
+  it('extracts Arbeitsort from a Zürich detail page (no Stellenantritt)', () => {
+    const meta = extractJobMeta(FIXTURE_JOB2_HTML);
+    expect(meta.arbeitsort).toBe('Zürich');
+    expect(meta.pensum).toBe('80-100%');
+    expect(meta.start).toBe('');
+  });
+
+  it('returns empty fields for missing or empty HTML', () => {
+    expect(extractJobMeta('').arbeitsort).toBe('');
+    expect(extractJobMeta(undefined as unknown as string).arbeitsort).toBe('');
+    expect(extractJobMeta('<html><body></body></html>').arbeitsort).toBe('');
+  });
+
+  it('survives an Italian-localized label (luogo di lavoro)', () => {
+    const html = `<html><body><div class="JobDetail"><ul>
+      <li class="JobDetail__item">
+        <span class="JobDetail__item-slot">Luogo di lavoro</span>
+        <span class="JobDetail__item-slot">Lugano</span>
+      </li>
+      <li class="JobDetail__item">
+        <span class="JobDetail__item-slot">Percentuale</span>
+        <span class="JobDetail__item-slot">100%</span>
+      </li>
+    </ul></div></body></html>`;
+    const meta = extractJobMeta(html);
+    expect(meta.arbeitsort).toBe('Lugano');
+    expect(meta.pensum).toBe('100%');
   });
 });

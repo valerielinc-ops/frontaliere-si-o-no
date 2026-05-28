@@ -34,7 +34,7 @@ export const COMPANY_HQ_ADDRESSES: Record<string, CompanyHqAddress> = {
   'coop-ticino': { streetAddress: 'Via Vedeggio 4', postalCode: '6805', addressLocality: 'Mezzovico', addressRegion: 'TI' },
   'vf-international-the-north-face-timberland': { streetAddress: 'Via Laveggio 5', postalCode: '6855', addressLocality: 'Stabio', addressRegion: 'TI' },
   'zurich-insurance-sede-ticino': { streetAddress: 'Via Pretorio 22', postalCode: '6900', addressLocality: 'Lugano', addressRegion: 'TI' },
-  'banca-cler': { streetAddress: 'Piazza Grande 5', postalCode: '6600', addressLocality: 'Locarno', addressRegion: 'TI' },
+  'banca-cler': { streetAddress: 'Aeschenplatz 3', postalCode: '4002', addressLocality: 'Basel', addressRegion: 'BS' },
   'ffs-officine-ferrovie-federali': { streetAddress: 'Via Ludovico Benteler 12', postalCode: '6500', addressLocality: 'Bellinzona', addressRegion: 'TI' },
   'ubs': { streetAddress: 'Via G. Calgari 2', postalCode: '6900', addressLocality: 'Lugano', addressRegion: 'TI' },
   'corner-banca': { streetAddress: 'Via Canova 16', postalCode: '6901', addressLocality: 'Lugano', addressRegion: 'TI' },
