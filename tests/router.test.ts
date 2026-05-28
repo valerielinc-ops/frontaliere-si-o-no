@@ -688,6 +688,27 @@ describe('Router — query string preservation', () => {
     );
   });
 
+  it('updatePathForLocale translates VB border municipality slugs (villadossola)', () => {
+    const assignSpy = vi.fn();
+    Object.defineProperty(window, 'location', {
+      value: {
+        ...window.location,
+        pathname: '/vivere-in-ticino/comuni-di-frontiera/villadossola/',
+        search: '',
+        hash: '',
+        assign: assignSpy,
+      },
+      writable: true,
+      configurable: true,
+    });
+
+    updatePathForLocale('de');
+
+    expect(assignSpy).toHaveBeenCalledWith(
+      '/de/leben-im-tessin/grenzgemeinden/villadossola/',
+    );
+  });
+
   it('pushRoute still works (and writes empty search) when no query string is present', () => {
     setLocation('/compara-servizi/cambio-franco-euro', '');
     pushRoute({ activeTab: 'confronti', confrontiSubTab: 'exchange' });
