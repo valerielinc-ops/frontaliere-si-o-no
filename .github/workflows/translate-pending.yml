@@ -52,7 +52,10 @@ jobs:
     # in compound words). Use as high-priority tier for EN/DE/FR, free cascade handles IT.
     services:
       libretranslate:
-        image: libretranslate/libretranslate:latest
+        # Pinned to v1.9.6 (was :latest). Last-known-good as of 2026-05-28.
+        # `:latest` caused a flaky-healthcheck failure even on the same v1.9.6 build;
+        # explicit pin avoids upstream drift on every cron run.
+        image: libretranslate/libretranslate:v1.9.6
         ports:
           - 5000:5000
         env:
@@ -64,7 +67,7 @@ jobs:
           --health-interval 15s
           --health-timeout 10s
           --health-retries 20
-          --health-start-period 180s
+          --health-start-period 300s
 
     steps:
       - name: Wait for LibreTranslate service
@@ -80,6 +83,7 @@ jobs:
           echo "⚠️  LibreTranslate not ready after 200s — translations will use other providers"
 
       - name: Checkout
+        id: checkout
         uses: actions/checkout@v5
         with:
           fetch-depth: 50
@@ -141,7 +145,7 @@ jobs:
           echo "✅ Housekeeping complete"
 
       - name: Commit housekeeping
-        if: always() && steps.hk.outputs.run == 'true' && inputs.dry_run != true
+        if: always() && steps.checkout.outcome == 'success' && steps.hk.outputs.run == 'true' && inputs.dry_run != true
         run: bash scripts/lib/git-commit-data.sh --slice-only "🧹 Housekeeping — prune expired + validate URLs"
 
       # ── Phase 2: Translate pending jobs ──────────────────────────────────
@@ -176,7 +180,7 @@ jobs:
         run: node scripts/relocalize-pending-jobs.mjs --max-jobs ${{ inputs.max_jobs || '100' }} ${{ inputs.company_key && format('--company-key {0}', inputs.company_key) || '' }}
 
       - name: Log translation stats (after)
-        if: always() && inputs.skip_translate != true
+        if: always() && steps.checkout.outcome == 'success' && inputs.skip_translate != true
         run: node scripts/log-translation-stats.mjs after
 
       - name: Scatter changes back to per-crawler slices
@@ -184,7 +188,7 @@ jobs:
         run: node scripts/scatter-jobs-to-slices.mjs
 
       - name: Commit translations
-        if: always() && inputs.skip_translate != true && inputs.dry_run != true
+        if: always() && steps.checkout.outcome == 'success' && inputs.skip_translate != true && inputs.dry_run != true
         run: bash scripts/lib/git-commit-data.sh --slice-only "🌐 Auto-translate pending jobs" data/jobs/by-crawler/ data/translation-cache/ data/jobs-crawler-config.json data/slug-registry.json data/translation-stats-history.json
 
       # ── Phase 2b: Fix source-copy titles (daily 06:00 only) ──────────────
@@ -209,16 +213,16 @@ jobs:
       # This script ONLY regenerates slugByLocale from existing titleByLocale.
       # It NEVER modifies titles, descriptions, or needsRetranslation.
       - name: "Phase 3: Regenerate locale slugs"
-        if: always() && inputs.dry_run != true
+        if: always() && steps.checkout.outcome == 'success' && inputs.dry_run != true
         run: node scripts/regenerate-slugs-by-locale.mjs
 
       - name: Commit slug regeneration
-        if: always() && inputs.dry_run != true
+        if: always() && steps.checkout.outcome == 'success' && inputs.dry_run != true
         run: bash scripts/lib/git-commit-data.sh --slice-only "🔗 Regenerate locale slugs (post-translation)"
 
       # ── Phase 4: Validate + Deploy ──────────────────────────────────────
       - name: Trigger deploy
-        if: always() && inputs.dry_run != true
+        if: always() && steps.checkout.outcome == 'success' && inputs.dry_run != true
         run: |
           if node scripts/validate-translation-completeness.mjs 2>/dev/null; then
             echo "✅ All translations complete — triggering deploy"
