@@ -101,6 +101,20 @@ const STATIC_OVERLAY_HUB_CHROME: Record<string, StaticOverlayHubChrome> = {
  '/vita-in-ticino/outlet-svizzera-fox-town-mendrisio/': { hubKey: 'vita', activeSubTab: 'living-ch' },
  '/vita-in-ticino/ponti-2026-ticino/': { hubKey: 'vita', activeSubTab: 'living-ch' },
  '/vita-in-ticino/vacanze-scolastiche-ticino-2026/': { hubKey: 'vita', activeSubTab: 'living-ch' },
+ // Legacy TI job-board hub — non-overlay route (SPA renders JobBoard inside
+ // `#root`), but the static SEO body (15k+ chars: profession links, archive
+ // navigators, editorial prose) used to be emitted INSIDE `<div id="root">`
+ // by the fallback shell at ~line 4429, where React's
+ // `createRoot(...).render(<App/>)` wipes it on hydration. Crawlers see
+ // content; real users land on a blank `<main>` until the SPA finishes
+ // rendering (caught by spa-hydration-contract-live, 2026-05-28 run 26592389280).
+ // Routing through hubChromeSplit emits an empty `#root` (React hydrates the
+ // SPA UI) PLUS a sibling `<main class="seo-static-content">` that survives
+ // hydration, restoring above-fold visible content for end users.
+ '/cerca-lavoro-ticino/': { hubKey: 'job-board', activeSubTab: 'jobs' },
+ '/en/find-jobs-ticino/': { hubKey: 'job-board', activeSubTab: 'jobs' },
+ '/de/jobs-im-tessin/': { hubKey: 'job-board', activeSubTab: 'jobs' },
+ '/fr/trouver-emploi-tessin/': { hubKey: 'job-board', activeSubTab: 'jobs' },
 };
 
 function lookupStaticOverlayHubChrome(canonicalPath: string): StaticOverlayHubChrome | null {
