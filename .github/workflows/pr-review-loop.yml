@@ -62,31 +62,43 @@ jobs:
             - Errori/eccezioni gestiti dove serve, ignorati dove non serve?
             - Test/data fixtures coerenti con i cambi di logica?
 
-            Step 3 — segnala SOLO findings sostanziali:
-            - **Punto critico**: 1 problema reale di logica o design che impatta il risultato (non ipotesi remote, non micro-ottimizzazioni).
-            - **Possibili migliorie**: 1-3 suggerimenti concreti per rendere l'implementazione più semplice / corretta / leggibile, ognuno con razionale chiaro.
+            Step 3 — produci findings in **formato caveman-review** (ultra-terse, una riga per finding).
 
-            Considera anche regressioni dei gate AGENTS.md se evidenti dal diff (SEO/AdSense/structured data/accessibility/routing caps), ma NON è il focus principale.
+            ## Stile caveman-review
 
-            NO nitpick di stile. NO commenti su formatting. NO suggerimenti generici tipo "aggiungi test" senza specificare cosa testare. NO refactor speculativi non legati al diff.
+            Format: `<file>:L<linea>: <prefix> <problema>. <fix>.`
+
+            Severity prefix:
+            - `🔴 bug:` — comportamento rotto, causerà incident
+            - `🟡 risk:` — funziona ma fragile (race, null check mancante, error swallowed)
+            - `🔵 nit:` — style/naming/micro-optim, autore può ignorare
+            - `❓ q:` — domanda genuina, non suggerimento
+
+            Drop: "I noticed", "It seems", "You might want to consider", "perhaps/maybe", "Great work", restating cosa fa la riga. NO hedging.
+
+            Keep: numero di linea esatto, nomi simboli/funzioni in backtick, fix concreto (non "consider refactoring"), il *perché* solo se non ovvio dal problema.
+
+            Esempi:
+            - `services/router.ts:L42: 🔴 bug: user can be null after .find(). Add guard before .email.`
+            - `App.tsx:L88-140: 🔵 nit: 50-line fn does 4 things. Extract validate/normalize/persist.`
+            - `lib/api.ts:L23: 🟡 risk: no retry on 429. Wrap in withBackoff(3).`
+
+            Auto-clarity: per finding architetturali o gate AGENTS.md (SEO/AdSense/structured data/accessibility) che richiedono razionale, scrivi un paragrafo normale e poi torna terse.
 
             ## Output
             Posta UNA review via:
             `gh pr review $PR_NUMBER --comment --body "<markdown>"`
 
             Formato body:
-            - Se zero findings sostanziali: `## LGTM` + una riga che riassume cosa fa la PR e perché la logica regge.
+            - Se zero findings sostanziali: `## LGTM` + una riga che riassume cosa fa la PR.
             - Altrimenti:
               ```
-              ## Scopo dichiarato
-              <1 frase riassuntiva>
+              ## Scope
+              <1 frase: scopo dichiarato dalla PR>
 
-              ## Punto critico
-              **file:linea** — <problema + perché conta>
-
-              ## Possibili migliorie
-              - **file:linea** — <suggerimento + razionale>
-              - ...
+              ## Findings
+              - <file>:L<linea>: <prefix> <problema>. <fix>.
+              - <file>:L<linea>: <prefix> <problema>. <fix>.
               ```
 
             Single-pass: NON aprire più di una review. NON fare push. NON modificare file.
