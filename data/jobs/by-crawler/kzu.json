@@ -447,8 +447,8 @@
       "slugByLocale": {
         "de": "dipl-pflegefachmann-frau-hf-fh-30-100-spitex-kzu-embrach",
         "it": "dipl-pflegefachmann-frau-hf-fh-30-100-spitex-kzu-kompetenzzentrum-pflege-und-gesundheit-embrach",
-        "en": "dipl-pflegefachmann-frau-hf-fh-30-100-spitex-kzu-embrach",
-        "fr": "dipl-pflegefachmann-frau-hf-fh-30-100-spitex-kzu-embrach"
+        "en": "dipl-care-specialist-hf-fh-30-100-spitex-kzu-kompetenzzentrum-pflege-und-gesundheit-embrach",
+        "fr": "dipl-specialiste-des-soins-hf-fh-30-100-spitex-kzu-kompetenzzentrum-pflege-und-gesundheit-embrach"
       },
       "company": "KZU Kompetenzzentrum Pflege und Gesundheit",
       "companyKey": "kzu",
@@ -493,6 +493,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "dipl-pflegefachmann-frau-hf-fh-30-100-spitex-kzu-embrach"
+        ],
+        "en": [
+          "dipl-pflegefachmann-frau-hf-fh-30-100-spitex-kzu-embrach"
+        ],
+        "fr": [
           "dipl-pflegefachmann-frau-hf-fh-30-100-spitex-kzu-embrach"
         ]
       },
