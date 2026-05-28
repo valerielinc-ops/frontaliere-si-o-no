@@ -15,15 +15,21 @@ function jsonRes(body: unknown, { ok = true, status = 200 }: { ok?: boolean; sta
 
 describe('fetchPosthogPages', () => {
   it('aggregates newsletter_signup events per page path', async () => {
-    const fetchImpl = vi.fn(async () =>
-      jsonRes({
-        results: [
-          ['/articoli-frontaliere/stipendio/', 7],
-          ['/articoli-frontaliere/lamal/', 3],
-          ['/calcola-stipendio/', 0], // dropped (n < 1)
-        ],
-      }),
-    );
+    // PR #726 added a 2nd HogQL query for `$pageview`. Route by body so the
+    // signup assertion stays focused; pageview query returns empty here.
+    const fetchImpl = vi.fn(async (_url: string, init: { body: string }) => {
+      const hogql = JSON.parse(init.body).query.query as string;
+      if (hogql.includes("event = 'newsletter_signup'")) {
+        return jsonRes({
+          results: [
+            ['/articoli-frontaliere/stipendio/', 7],
+            ['/articoli-frontaliere/lamal/', 3],
+            ['/calcola-stipendio/', 0], // dropped (n < 1)
+          ],
+        });
+      }
+      return jsonRes({ results: [] });
+    });
 
     const result = await fetchPosthogPages({
       apiKey: 'k',
@@ -41,11 +47,13 @@ describe('fetchPosthogPages', () => {
   });
 
   it('normalises absolute URLs to pathname', async () => {
-    const fetchImpl = vi.fn(async () =>
-      jsonRes({
-        results: [['https://frontaliereticino.ch/articoli-frontaliere/foo/', 2]],
-      }),
-    );
+    const fetchImpl = vi.fn(async (_url: string, init: { body: string }) => {
+      const hogql = JSON.parse(init.body).query.query as string;
+      if (hogql.includes("event = 'newsletter_signup'")) {
+        return jsonRes({ results: [['https://frontaliereticino.ch/articoli-frontaliere/foo/', 2]] });
+      }
+      return jsonRes({ results: [] });
+    });
     const result = await fetchPosthogPages({
       apiKey: 'k',
       projectId: '123',
