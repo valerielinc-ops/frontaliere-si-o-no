@@ -16,7 +16,6 @@ import { writeJobsCrawlerSlice, writeSummaryCrawlerSlice,
 import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, mergeLocaleTextMap, detectLang,
 } from './lib/dedicated-crawler-common.mjs';
 import { parseListingPage, isSwissLocation, slugify, detectCategory, detectExperienceLevel, inferEmploymentType } from './lib/interroll-job-parser.mjs';
-import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -25,11 +24,36 @@ const PUBLIC_JOBS = path.resolve(ROOT, 'public', 'data', 'jobs.json');
 const ADAPTERS_DIR = path.resolve(ROOT, 'data', 'jobs-crawler-adapters', 'adapters');
 
 const COMPANY_KEY = 'interroll';
-const DEFAULT_CANTON = getCompanyDefaults(COMPANY_KEY)?.canton || 'TI';
 const COMPANY_NAME = 'Interroll Group';
 const COMPANY_HOST = 'www.interroll.com';
 const CAREERS_URL = 'https://www.interroll.com/company/careers/jobs/';
 const LOCALES = ['it', 'en', 'de', 'fr'];
+
+// Interroll's only confirmed Swiss site is Sant'Antonino (HQ). Jobs surfaced
+// at any other Swiss location must be skipped rather than mislabelled — the
+// listing parser captures the city, the runner refuses to invent an address.
+export const INTERROLL_SITES = [
+  {
+    key: 'sant-antonino',
+    aliases: ['sant antonino', "sant'antonino", 'santantonino', "s. antonino", 's antonino'],
+    location: "Sant'Antonino", addressLocality: "Sant'Antonino",
+    canton: 'TI', addressRegion: 'TI', addressCountry: 'CH',
+    postalCode: '6592', streetAddress: 'Via Gorelle 3',
+  },
+];
+
+/**
+ * Match a raw Interroll location string against the known sites registry.
+ * Returns the site entry or null. Caller decides what to do with unknowns
+ * (typically: skip with a log) — we never invent an address.
+ */
+export function resolveInterrollSiteAddress(rawLocation = '') {
+  const text = String(rawLocation || '').toLowerCase().replace(/'/g, "'");
+  for (const site of INTERROLL_SITES) {
+    if (site.aliases.some((a) => text.includes(a))) return site;
+  }
+  return null;
+}
 
 function normalize(v = '') { return String(v || '').trim().toLowerCase(); }
 function isCompanyJob(job) {
@@ -55,15 +79,21 @@ async function fetchJobs() {
   const swissJobs = listings.filter((j) => isSwissLocation(j.location));
   console.log(`  🇨🇭 Swiss jobs: ${swissJobs.length}`);
 
-  return swissJobs.map((raw) => {
+  const mapped = [];
+  for (const raw of swissJobs) {
+    const site = resolveInterrollSiteAddress(raw.location);
+    if (!site) {
+      console.log(`  ⏭️ Skipping job at unknown Interroll Swiss site: "${raw.title}" (${raw.location})`);
+      continue;
+    }
     const slug = slugify(raw.title, 'interroll');
-    return {
+    mapped.push({
       url: raw.url, applyUrl: raw.url, title: raw.title,
       company: COMPANY_NAME, companyKey: COMPANY_KEY,
-      location: "Sant'Antonino", canton: DEFAULT_CANTON, country: 'CH',
-      addressLocality: "Sant'Antonino", addressRegion: 'TI', addressCountry: 'CH',
-      postalCode: '6592', streetAddress: 'Via Gorelle 3',
-      description: `${raw.title} position at Interroll Group in Sant'Antonino, Ticino. Interroll is a global technology company providing material handling solutions.`,
+      location: site.location, canton: site.canton, country: 'CH',
+      addressLocality: site.addressLocality, addressRegion: site.addressRegion, addressCountry: site.addressCountry,
+      postalCode: site.postalCode, streetAddress: site.streetAddress,
+      description: `${raw.title} position at Interroll Group in ${site.location}, ${site.canton}. Interroll is a global technology company providing material handling solutions.`,
       titleByLocale: { en: raw.title }, descriptionByLocale: {},
       slug, slugByLocale: { en: slug, it: slug },
       category: detectCategory(raw.title),
@@ -72,8 +102,9 @@ async function fetchJobs() {
       sourceLang: detectLang(raw.title, 'en'),
       experienceLevel: detectExperienceLevel(raw.title),
       sector: 'Industria / Logistica',
-    };
-  });
+    });
+  }
+  return mapped;
 }
 
 function canonicalizeUrl(url = '') { try { return new URL(url).href.replace(/\/$/, '').toLowerCase(); } catch { return normalize(url); } }

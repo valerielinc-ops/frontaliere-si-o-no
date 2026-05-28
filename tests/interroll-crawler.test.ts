@@ -12,6 +12,10 @@ import {
   detectExperienceLevel,
   MIN_DESC_LENGTH,
 } from '@/scripts/lib/interroll-job-parser.mjs';
+import {
+  resolveInterrollSiteAddress,
+  INTERROLL_SITES,
+} from '@/scripts/update-interroll-jobs.mjs';
 
 // ─── Fixtures ───────────────────────────────────────────────────────────────
 
@@ -197,5 +201,36 @@ describe('detectExperienceLevel', () => {
 
   it('detects MID for regular title', () => {
     expect(detectExperienceLevel('Production Planner')).toBe('MID');
+  });
+});
+
+// ─── Site resolver (preventive: only Sant'Antonino is known) ───────────────
+
+describe('resolveInterrollSiteAddress', () => {
+  it("matches Sant'Antonino (apostrophe variant)", () => {
+    const site = resolveInterrollSiteAddress("Sant'Antonino, Switzerland");
+    expect(site).not.toBeNull();
+    expect(site?.canton).toBe('TI');
+    expect(site?.postalCode).toBe('6592');
+    expect(site?.streetAddress).toBe('Via Gorelle 3');
+  });
+
+  it('matches Sant Antonino (space variant)', () => {
+    const site = resolveInterrollSiteAddress('Sant Antonino, Switzerland');
+    expect(site?.canton).toBe('TI');
+  });
+
+  it('returns null for unknown Swiss location (caller must skip, not invent)', () => {
+    expect(resolveInterrollSiteAddress('Wermelskirchen, Switzerland')).toBeNull();
+    expect(resolveInterrollSiteAddress('Zurich, Switzerland')).toBeNull();
+  });
+
+  it('returns null for empty input', () => {
+    expect(resolveInterrollSiteAddress('')).toBeNull();
+  });
+
+  it('registry only contains the confirmed Sant\'Antonino site', () => {
+    expect(INTERROLL_SITES).toHaveLength(1);
+    expect(INTERROLL_SITES[0].key).toBe('sant-antonino');
   });
 });

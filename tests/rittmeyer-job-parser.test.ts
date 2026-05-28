@@ -5,6 +5,10 @@ import {
   parseRittmeyerJobDetail,
   buildRittmeyerLocalizedContent,
 } from '../scripts/lib/rittmeyer-job-parser.mjs';
+import {
+  resolveRittmeyerSiteAddress,
+  RITTMEYER_SITES,
+} from '../scripts/update-rittmeyer-jobs.mjs';
 
 describe('rittmeyer-job-parser', () => {
   it('parses listing links and detects Ticino rows', () => {
@@ -61,5 +65,51 @@ describe('rittmeyer-job-parser', () => {
     expect(localized.slugByLocale.it).toContain('sales-project-engineer-a-ticino-rittmeyer-ag-tessin');
     expect(localized.descriptionByLocale.it).toContain('## La tua area di competenza');
     expect(localized.descriptionByLocale.en).toContain('## Main responsibilities');
+  });
+});
+
+// ─── Site resolver (regression: Camorino jobs were getting Baar HQ postal) ──
+
+describe('resolveRittmeyerSiteAddress', () => {
+  it('maps the German label "Tessin" to Camorino TI 6528', () => {
+    const site = resolveRittmeyerSiteAddress('Tessin');
+    expect(site.canton).toBe('TI');
+    expect(site.postalCode).toBe('6528');
+    expect(site.streetAddress).toBe('Via Sottomontagna 9');
+    expect(site.addressLocality).toBe('Camorino');
+  });
+
+  it('maps "Romanshorn" to TG, not TI', () => {
+    const site = resolveRittmeyerSiteAddress('Romanshorn');
+    expect(site.canton).toBe('TG');
+    expect(site.postalCode).toBe('8590');
+    expect(site.addressLocality).toBe('Romanshorn');
+  });
+
+  it('maps "Baar" to ZG (HQ)', () => {
+    const site = resolveRittmeyerSiteAddress('Baar');
+    expect(site.canton).toBe('ZG');
+    expect(site.postalCode).toBe('6340');
+    expect(site.streetAddress).toBe('Inwilerriedstrasse 57');
+  });
+
+  it('falls back to Baar HQ for empty input', () => {
+    const site = resolveRittmeyerSiteAddress('');
+    expect(site.key).toBe('baar');
+  });
+
+  it('falls back to Baar HQ for unknown city (never to TI default)', () => {
+    const site = resolveRittmeyerSiteAddress('Bern');
+    expect(site.canton).toBe('ZG');
+    expect(site.canton).not.toBe('TI');
+  });
+
+  it('registry exposes Camorino with verified Via Sottomontagna 9 address', () => {
+    const camorino = RITTMEYER_SITES.find((s) => s.key === 'camorino');
+    expect(camorino?.streetAddress).toBe('Via Sottomontagna 9');
+    expect(camorino?.postalCode).toBe('6528');
+    // Regression guard: must NOT carry the Baar HQ postal/street.
+    expect(camorino?.postalCode).not.toBe('6340');
+    expect(camorino?.streetAddress).not.toBe('Inwilerriedstrasse 57');
   });
 });

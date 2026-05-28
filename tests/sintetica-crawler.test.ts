@@ -11,6 +11,10 @@ import {
   detectExperienceLevel,
   MIN_DESC_LENGTH,
 } from '@/scripts/lib/sintetica-job-parser.mjs';
+import {
+  detectSinteticaSite,
+  SINTETICA_SITES,
+} from '@/scripts/update-sintetica-jobs.mjs';
 
 // ─── Fixtures ───────────────────────────────────────────────────────────────
 
@@ -242,5 +246,40 @@ describe('detectExperienceLevel', () => {
 
   it('detects MID for regular title', () => {
     expect(detectExperienceLevel('Production Engineer')).toBe('MID');
+  });
+});
+
+// ─── Site detection (regression: Couvet jobs were stamped Mendrisio TI) ────
+
+describe('detectSinteticaSite', () => {
+  it('detects Mendrisio site from title marker', () => {
+    expect(detectSinteticaSite('Regulatory Affairs Specialist - Mendrisio site (Ticino)')).toBe('mendrisio');
+  });
+
+  it('detects Couvet site from title marker (no parens)', () => {
+    expect(detectSinteticaSite('Technicien de maintenance - Couvet site')).toBe('couvet');
+  });
+
+  it('detects Couvet site from title marker (with parens)', () => {
+    expect(detectSinteticaSite('Spontaneous application - Couvet Site (Neuchâtel)')).toBe('couvet');
+  });
+
+  it('returns empty string when no site marker present', () => {
+    expect(detectSinteticaSite('Apprendista operatore di edifici e infrastrutture AFC')).toBe('');
+  });
+
+  it('maps Couvet to Neuchâtel canton, never Ticino', () => {
+    const site = SINTETICA_SITES.couvet;
+    expect(site.canton).toBe('NE');
+    expect(site.postalCode).toBe('2108');
+    expect(site.addressLocality).toBe('Couvet');
+    expect(site.streetAddress).not.toContain('Penate');
+  });
+
+  it('keeps Mendrisio mapped to Ticino', () => {
+    const site = SINTETICA_SITES.mendrisio;
+    expect(site.canton).toBe('TI');
+    expect(site.postalCode).toBe('6850');
+    expect(site.streetAddress).toBe('Via Penate 5');
   });
 });
