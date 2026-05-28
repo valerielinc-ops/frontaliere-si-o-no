@@ -7838,6 +7838,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.tram-treno-ricorso-zali.title': 'Tram-treno, ancora un ricorso. Zali: «Contestazione temeraria»',
     'blog.article.tram-treno-ricorso-zali.excerpt': 'Il Tribunale federale riceve un nuovo ricorso contro il progetto del tram-treno del Luganese, ma senza effetto sospensivo. Zali: «Contestazione temeraria».',
     'blog.article.tram-treno-ricorso-zali.imageAlt': 'Vista panoramica di Locarno con tram in primo piano.',
+    'blog.article.mancato-pagamento-stipendio-lavoratrice.title': 'Mancato pagamento stipendio: il caso Nidil Cgil Varese',
+    'blog.article.mancato-pagamento-stipendio-lavoratrice.excerpt': 'Una lavoratrice attende ancora le spettanze per undici giorni di lavoro ad aprile. Nidil Cgil Varese denuncia la precarietà dei contratti di somministrazione.',
+    'blog.article.mancato-pagamento-stipendio-lavoratrice.imageAlt': 'Ufficio nel Mendrisiotto, Ticino',
 };
 
 export default blogMetaIt;

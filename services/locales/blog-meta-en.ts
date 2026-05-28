@@ -7837,6 +7837,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.tram-treno-ricorso-zali.title': 'Tram-train, another appeal. Zali: \'Frivolous challenge\'',
     'blog.article.tram-treno-ricorso-zali.excerpt': 'The Federal Court receives a new appeal against the Lugano tram-train project, but without suspensive effect. Zali: \'Frivolous challenge\'.',
     'blog.article.tram-treno-ricorso-zali.imageAlt': 'Panoramic view of Locarno with a tram in foreground.',
+    'blog.article.mancato-pagamento-stipendio-lavoratrice.title': 'Unpaid wages: the Nidil Cgil Varese case',
+    'blog.article.mancato-pagamento-stipendio-lavoratrice.excerpt': 'A worker is still waiting for payment for eleven days of work in April. Nidil Cgil Varese denounces the precarious nature of temporary employment contracts.',
+    'blog.article.mancato-pagamento-stipendio-lavoratrice.imageAlt': 'Office building in Mendrisiotto, Ticino',
 };
 
 export default blogMetaEn;
