@@ -10669,7 +10669,15 @@ ${staticAnalyticsHtml}
  // matching an approved pattern becomes a thin shell (HEAD verbatim,
  // article body replaced by a slim h1+p≥50 words). See
  // build-plugins/shared/softLandingThinShell.ts.
- const __slDecision = trafficFilter.decide(relPath, 'soft-landing-expired');
+ // PR #743 lesson: non-IT locales also emit a legacy-locale bridge
+ // (line ~10700 below) at `legacyRel`. Traffic may land there, so
+ // check both via decideMulti.
+ const __slCandidatePaths: string[] = [relPath];
+ if (locale !== 'it') {
+ const __slLegacyRel = `/${localePrefix[locale]}/${sectionByLocale[locale]}/${slug}`.replace(/\/+/g, '/');
+ if (__slLegacyRel !== relPath) __slCandidatePaths.push(__slLegacyRel);
+ }
+ const __slDecision = trafficFilter.decideMulti(__slCandidatePaths, 'soft-landing-expired');
  const __slAction: 'full' | 'thin' =
  __slDecision.action === 'thin' ? 'thin' : 'full';
  const softLandingHtml =
@@ -11037,8 +11045,17 @@ ${staticAnalyticsHtml}
  // thin-page-promotions-active.json. Decision applies to BOTH the
  // primary emit and the legacy-TI mirror emit below so the bridge
  // pair stays consistent.
+ // PR #743 lesson: GSC + GA4 see traffic at the legacy-TI mirror more
+ // often than the freshly-promoted canton-aware canonical (Google
+ // remembers the pre-PR-159 URL). Check both candidate paths via
+ // decideMulti so a hit at the mirror keeps the bridge full.
  const __brBridgeUrlPath = oldPath.startsWith('/') ? oldPath : `/${oldPath}`;
- const __brDecision = trafficFilter.decide(__brBridgeUrlPath, 'previousSlug');
+ const __brCandidatePaths: string[] = [__brBridgeUrlPath];
+ if (jobCantonForBridge !== 'TI') {
+ const __brLegacyTIPath = `/${localePrefix[locale]}/${buildCantonAwareSection(locale, 'TI')}/${oldSlug}`.replace(/\/+/g, '/');
+ __brCandidatePaths.push(__brLegacyTIPath);
+ }
+ const __brDecision = trafficFilter.decideMulti(__brCandidatePaths, 'previousSlug');
  const __brAction: 'full' | 'thin' =
  __brDecision.action === 'thin' ? 'thin' : 'full';
  if (__brAction === 'thin') bridgeThinCount++; else bridgeFullCount++;
