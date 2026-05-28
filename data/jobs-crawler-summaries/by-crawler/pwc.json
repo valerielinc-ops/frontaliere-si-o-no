@@ -1,16 +1,16 @@
 {
   "key": "pwc",
   "label": "PwC Switzerland",
-  "generatedAt": "2026-05-28T00:02:51.063Z",
-  "total": 133,
+  "generatedAt": "2026-05-28T13:49:15.251Z",
+  "total": 132,
   "newCount": 1,
-  "updatedCount": 99,
-  "removedCount": 0,
-  "unchangedCount": 11,
-  "durationMs": 2483,
-  "avgDurationMs": 2483,
+  "updatedCount": 96,
+  "removedCount": 1,
+  "unchangedCount": 13,
+  "durationMs": 2209,
+  "avgDurationMs": 2209,
   "durationHistory": [
-    2483
+    2209
   ],
   "newJobs": [
     {
@@ -567,12 +567,17 @@
       "validThrough": "2036-05-04",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "_qualityScore": 73,
+      "id": "pwc-3aa7523d85ec",
+      "salaryMin": 68000,
+      "salaryMax": 103000,
+      "currency": "CHF",
+      "firstSeenAt": "2026-05-08T10:28:56.294Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
-        "completeness": 14
+        "translation": 23,
+        "completeness": 19
       }
     },
     {
@@ -1116,7 +1121,44 @@
       }
     }
   ],
-  "removedJobs": [],
+  "removedJobs": [
+    {
+      "title": "Senior Associate – Risk Consulting with Focus on Internal Controls, and Internal Audit (Trade, Industries and Services)",
+      "slug": "senior-associate-consulenza-sui-rischi-con-particolare-attenzione-ai-controlli-interni-e-all-audit-interno-commercio-ind",
+      "url": "https://jobs.pwc.ch/job-vacancies/senior-associate-risk-consulting-with-focus-on-internal-controls-and-internal-audit-trade-industries-and-services/cc833d8b-09fc-49aa-adf8-933f295cdfa4",
+      "applyUrl": "https://pwc.wd3.myworkdayjobs.com/Global_Experienced_Careers/job/Zrich/Senior-Associate---Risk-Consulting-with-Focus-on-Internal-Controls--and-Internal-Audit--Trade--Industries-and-Services-_717903WD/apply",
+      "company": "PwC Switzerland",
+      "companyKey": "pwc",
+      "companyDomain": "pwc.ch",
+      "location": "Zurich",
+      "addressLocality": "Zurich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "canton": "ZH",
+      "country": "CH",
+      "category": "audit",
+      "sector": "Consulenza",
+      "source": "pwc-dedicated-crawler",
+      "sourceLang": "en",
+      "postedDate": "2026-03-31",
+      "validThrough": "2036-03-27",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "salaryMin": 72000,
+      "salaryMax": 97000,
+      "currency": "CHF",
+      "id": "pwc-c6351294f72a",
+      "postalCode": "8001",
+      "firstSeenAt": "2026-04-13T22:16:12.621Z",
+      "_qualityScore": 92,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 25,
+        "completeness": 22
+      }
+    }
+  ],
   "unchangedJobs": [
     {
       "title": "Senior Associate – IFRS & US GAAP Audit (Asset Management)",
@@ -1263,6 +1305,44 @@
       }
     },
     {
+      "title": "Director in Quality & Regulatory Management - Advisory Services",
+      "slug": "director-in-quality-regulatory-management-advisory-services-pwc-basel",
+      "url": "https://jobs.pwc.ch/job-vacancies/director-in-quality-regulatory-management-advisory-services/9cef594b-b3b6-4cbc-b9a8-e4eaaddd8a45",
+      "applyUrl": "https://pwc.wd3.myworkdayjobs.com/Global_Experienced_Careers/job/Zrich/Director-in-Quality---Regulatory-Management---Advisory-Services_710305WD/apply",
+      "company": "PwC Switzerland",
+      "companyKey": "pwc",
+      "companyDomain": "pwc.ch",
+      "location": "Basel",
+      "addressLocality": "Basel",
+      "addressRegion": "BS",
+      "addressCountry": "CH",
+      "canton": "BS",
+      "country": "CH",
+      "category": "consulting",
+      "sector": "Consulenza",
+      "source": "pwc-dedicated-crawler",
+      "sourceLang": "en",
+      "postedDate": "2026-03-03",
+      "validThrough": "2036-02-28",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "id": "pwc-14357198dc0e",
+      "salaryMin": 75500,
+      "salaryMax": 120500,
+      "currency": "CHF",
+      "postalCode": "4001",
+      "firstSeenAt": "2026-04-13T22:16:12.621Z",
+      "needsRetranslation": true,
+      "retranslationAttempts": 2,
+      "_qualityScore": 86,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 21,
+        "completeness": 22
+      }
+    },
+    {
       "title": "Audit Senior Associate / Assistant Manager - Trade, Industries & Services / US GAAP",
       "slug": "audit-senior-associate-assistant-manager-trade-industries-services-us-gaap-pwc-geneva",
       "url": "https://jobs.pwc.ch/job-vacancies/audit-senior-associate-assistant-manager-trade-industries-services-us-gaap/9ca0dcd9-a59a-460c-ab4b-c503f987799a",
@@ -1290,6 +1370,7 @@
       "currency": "CHF",
       "firstSeenAt": "2026-05-17T10:54:12.475Z",
       "needsRetranslation": true,
+      "retranslationAttempts": 1,
       "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1335,6 +1416,42 @@
       }
     },
     {
+      "title": "Associate - Payroll Consulting 80-100%",
+      "slug": "associate-payroll-consulting-80-100-pwc-luzern",
+      "url": "https://jobs.pwc.ch/job-vacancies/associate-payroll-consulting/649d5e2a-7bc5-4c7c-a71d-3b4923fe8ea3",
+      "applyUrl": "https://pwc.wd3.myworkdayjobs.com/Global_Experienced_Careers/job/Zrich/Payroll-Manager_707480WD/apply",
+      "company": "PwC Switzerland",
+      "companyKey": "pwc",
+      "companyDomain": "pwc.ch",
+      "location": "Luzern",
+      "addressLocality": "Luzern",
+      "addressRegion": "LU",
+      "addressCountry": "CH",
+      "canton": "LU",
+      "country": "CH",
+      "category": "tax",
+      "sector": "Consulenza",
+      "source": "pwc-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-02-19",
+      "validThrough": "2036-02-16",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "id": "pwc-d865d88c95a4",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "postalCode": "6003",
+      "firstSeenAt": "2026-04-30T11:20:06.387Z",
+      "_qualityScore": 90,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 22
+      }
+    },
+    {
       "title": "Career Start in Audit – Banking – Herbst 2026",
       "slug": "career-start-in-audit-banking-herbst-2026-pwc-st-gallen",
       "url": "https://jobs.pwc.ch/job-vacancies/career-start-in-audit-banking-herbst-2026/46b7e257-79ac-426b-873c-2a16d20232ab",
@@ -1363,6 +1480,7 @@
       "postalCode": "9000",
       "firstSeenAt": "2026-05-17T10:54:12.475Z",
       "needsRetranslation": true,
+      "retranslationAttempts": 1,
       "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1400,11 +1518,12 @@
       "postalCode": "9000",
       "firstSeenAt": "2026-05-17T10:54:12.475Z",
       "needsRetranslation": true,
-      "_qualityScore": 81,
+      "retranslationAttempts": 1,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 19,
         "completeness": 22
       }
     },
@@ -1503,17 +1622,16 @@
       "employmentType": "full-time",
       "contractType": "full-time",
       "id": "pwc-82014fee6d7e",
-      "needsRetranslation": true,
       "salaryMin": 75500,
       "salaryMax": 120500,
       "currency": "CHF",
       "postalCode": "1201",
       "firstSeenAt": "2026-04-13T22:16:12.621Z",
-      "_qualityScore": 81,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 25,
         "completeness": 22
       }
     }
