@@ -756,22 +756,20 @@ jobs:
           echo "TAR_BYTES=$TAR_BYTES" >> "$GITHUB_ENV"
 
       # ┌────────────────────────────────────────────────────────────────┐
-      # │ Audit dist bytes — attribute size per plugin/locale, append    │
-      # │ to data/dist-size-history.jsonl, and HARD GATE the build       │
-      # │ before upload if tar > 9.5 GB. GitHub Pages enforces a 10 GB   │
-      # │ cap on the artifact tarball; failing here surfaces the         │
-      # │ regression in the build log instead of as an opaque            │
-      # │ "Deployment failed" tail. PR #712 cleared the cap by ~160 MB   │
-      # │ — this gate keeps that headroom enforceable.                   │
+      # │ Audit dist bytes — attribute size per plugin/locale and append │
+      # │ to data/dist-size-history.jsonl. Observability only: the step  │
+      # │ NEVER blocks the upload. If GitHub Pages rejects the tar at    │
+      # │ 10 GB the deploy fails downstream with the canonical error,    │
+      # │ but we always attempt the upload so we can compare "did fit"   │
+      # │ vs "tried and bounced" across runs.                            │
       # │ Cost: stat-only walk, < 30 s on ~470 k files.                  │
       # └────────────────────────────────────────────────────────────────┘
-      - name: Audit dist bytes (per-plugin + 9.5 GB hard gate)
+      - name: Audit dist bytes (per-plugin report)
         if: github.event.inputs.profile_sequential != 'true'
         run: |
           node scripts/report-dist-bytes-by-plugin.mjs \
             --dist=dist \
             --tar-size-bytes="${TAR_BYTES}" \
-            --gate-total-bytes=9500000000 \
             --run-id="${GITHUB_RUN_ID}" \
             --sha="${GITHUB_SHA}"
 
