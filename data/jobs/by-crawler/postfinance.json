@@ -1,6 +1,6 @@
 {
   "crawlerKey": "postfinance",
-  "assembledAt": "2026-05-27T13:31:47.024Z",
+  "assembledAt": "2026-05-27T23:59:24.963Z",
   "jobs": [
     {
       "url": "https://job.post.ch/PostFinance/job/Bern-Homeoffice-Architecture-Owner-Telefonie-und-KOP-%28wmd%29/1384004633/",
@@ -146,6 +146,84 @@
           "kundeninteraktion-w-m-d-postfinance-bern"
         ]
       },
+      "needsRetranslation": true
+    },
+    {
+      "url": "https://job.post.ch/PostFinance/job/Bern-Homeoffice-Lead-Developer-%28wmd%29/1381588933/",
+      "applyUrl": "https://job.post.ch/PostFinance/job/Bern-Homeoffice-Lead-Developer-%28wmd%29/1381588933/",
+      "title": "Lead Developer (w/m/d)",
+      "company": "PostFinance",
+      "companyKey": "postfinance",
+      "location": "Bern",
+      "canton": "BE",
+      "country": "CH",
+      "description": "Bei PostFinance entwickeln wir hochwertige Applikationen, die mit modernen Technologien und hoher Qualität schnellstmöglich bei unseren Kund:innen ankommen. Unser Testautomatisierungsteam stellt dafür die passenden Tools bereit, um effiziente Testprozesse ab Stufe System sicherzustellen. Als Lead Developer (w/m/d) gestaltest du nicht nur die End-to-End-Testautomatisierungslösung aktiv mit, sondern führst das Team bei technischen Entscheidungen, förderst Best Practices und treibst Innovationen voran – mit Fachwissen, Teamgeist und strategischem Blick. Wir treffen uns zweimal im Monat in Bern und zusätzlich zweimal im Monat an einem anderen Standort (Zofingen, Olten oder Zürich).\n\nDas kannst du bewirken\n\nAls Lead Developer (w/m/d) gestaltest du gemeinsam mit dem Team die Umsetzung von \n• Anforderungen und stellst durch Clean Code, nachhaltige Architekturprinzipien und gezielte Testabdeckung die hohe Qualität unserer Software sicher\n\nDu gestaltest und optimierst die Systemlösung für End-to-End-Testautomatisierung in komplexen Softwarearchitekturen\n\nDu leitest die Entwicklung von kritischen Softwarekomponenten, Systemen und Funktionen zur Verbesserung von Verfügbarkeit, Skalierbarkeit, Latenz und Effizienz\n\nDu übernimmst die Mentoring-Rolle für Kolleg:innen, gibst technisches Know-how weiter und prägst die Weiterentwicklung des Teams\n\nDu bringst Vorschläge für technologische Weiterentwicklung und Tooling ein und entscheidest aktiv über Architektur- und Technologiefragen\n\nDas bringst du mit\n\nMindestens 10 Jahre Erfahrung in der agilen Softwareentwicklung mit Java und Angular\n\nErfahrung in der Führung und im Mentoring von Entwickler:innen sowie in der Weitergabe von technischem Know-how innerhalb von Teams\n\nAbgeschlossene höhere Aus- oder Weiterbildung in Informatik (HF, FH, Uni/ETH)\n\nFundierte Erfahrung in der Entwicklung von Testautomatisierungsframeworks (z. B. Appium, Selenium)\n\nVertiefte Kenntnisse in Softwarearchitektur sowie in der Testautomatisierung von Web-UIs, Mobile Apps und APIs von Vorteil\n\nErfahrung mit Kubernetes, Docker, GitLab und CI/CD-Pipelines sowie in der Entwicklung, Analyse und Fehlerbehebung grosser, dezentraler Systeme\n\nSehr gute Deutsch- sowie gute Englischkenntnisse",
+      "descriptionByLocale": {
+        "it": "Bei PostFinance entwickeln wir hochwertige Applikationen, die mit modernen Technologien und hoher Qualität schnellstmöglich bei unseren Kund:innen ankommen. Unser Testautomatisierungsteam stellt dafür die passenden Tools bereit, um effiziente Testprozesse ab Stufe System sicherzustellen. Als Lead Developer (w/m/d) gestaltest du nicht nur die End-to-End-Testautomatisierungslösung aktiv mit, sondern führst das Team bei technischen Entscheidungen, förderst Best Practices und treibst Innovationen voran – mit Fachwissen, Teamgeist und strategischem Blick. Wir treffen uns zweimal im Monat in Bern und zusätzlich zweimal im Monat an einem anderen Standort (Zofingen, Olten oder Zürich).\n\nDas kannst du bewirken\n\nAls Lead Developer (w/m/d) gestaltest du gemeinsam mit dem Team die Umsetzung von \n• Anforderungen und stellst durch Clean Code, nachhaltige Architekturprinzipien und gezielte Testabdeckung die hohe Qualität unserer Software sicher\n\nDu gestaltest und optimierst die Systemlösung für End-to-End-Testautomatisierung in komplexen Softwarearchitekturen\n\nDu leitest die Entwicklung von kritischen Softwarekomponenten, Systemen und Funktionen zur Verbesserung von Verfügbarkeit, Skalierbarkeit, Latenz und Effizienz\n\nDu übernimmst die Mentoring-Rolle für Kolleg:innen, gibst technisches Know-how weiter und prägst die Weiterentwicklung des Teams\n\nDu bringst Vorschläge für technologische Weiterentwicklung und Tooling ein und entscheidest aktiv über Architektur- und Technologiefragen\n\nDas bringst du mit\n\nMindestens 10 Jahre Erfahrung in der agilen Softwareentwicklung mit Java und Angular\n\nErfahrung in der Führung und im Mentoring von Entwickler:innen sowie in der Weitergabe von technischem Know-how innerhalb von Teams\n\nAbgeschlossene höhere Aus- oder Weiterbildung in Informatik (HF, FH, Uni/ETH)\n\nFundierte Erfahrung in der Entwicklung von Testautomatisierungsframeworks (z. B. Appium, Selenium)\n\nVertiefte Kenntnisse in Softwarearchitektur sowie in der Testautomatisierung von Web-UIs, Mobile Apps und APIs von Vorteil\n\nErfahrung mit Kubernetes, Docker, GitLab und CI/CD-Pipelines sowie in der Entwicklung, Analyse und Fehlerbehebung grosser, dezentraler Systeme\n\nSehr gute Deutsch- sowie gute Englischkenntnisse",
+        "en": "At PostFinance we develop high-quality applications that come with modern technologies and high quality as quickly as possible with our customers. Our test automation team provides the right tools to ensure efficient test processes from level system. As a lead developer (w/m/d), you not only actively shape the end-to-end test automation solution, but also guide the team in technical decisions, promote best practices and drive innovation – with expertise, team spirit and strategic view. We meet twice a month in Bern and additionally twice a month at another location (Zofingen, Olten or Zurich). You can do that As a Lead Developer (w/m/d), you will work together with the team to implement\n• Requirements and ensures the high quality of our software through clean code, sustainable architecture principles and targeted test coverage You design and optimize the system solution for end-to-end testing automation in complex software architectures You guide the development of critical software components, systems and functions to improve availability, scalability, latency and efficiency You take over the mentoring role for colleagues: you continue to provide technical know-how and shape the further development of the team You bring proposals for technological development and tooling and actively decide on architecture and technology issues That's what you bring At least 10 years of experience in agile software development with Java and Angular Experience in the management and mentoring of developers: in addition to sharing technical know-how within teams Completed higher education or training in computer science (HF, FH, Uni/ETH) Found experience in the development of test automation frameworks (e.g. Appium, Selenium) Enhanced knowledge in software architecture as well as in the test automation of web UIs, mobile apps and APIs Experience with Kubernetes, Docker, GitLab and CI/CD pipelines as well as in the development, analysis and troubleshooting of large, decentralised systems Very good German and good English skills",
+        "de": "Bei PostFinance entwickeln wir hochwertige Applikationen, die mit modernen Technologien und hoher Qualität schnellstmöglich bei unseren Kund:innen ankommen. Unser Testautomatisierungsteam stellt dafür die passenden Tools bereit, um effiziente Testprozesse ab Stufe System sicherzustellen. Als Lead Developer (w/m/d) gestaltest du nicht nur die End-to-End-Testautomatisierungslösung aktiv mit, sondern führst das Team bei technischen Entscheidungen, förderst Best Practices und treibst Innovationen voran – mit Fachwissen, Teamgeist und strategischem Blick. Wir treffen uns zweimal im Monat in Bern und zusätzlich zweimal im Monat an einem anderen Standort (Zofingen, Olten oder Zürich). Das kannst du bewirken Als Lead Developer (w/m/d) gestaltest du gemeinsam mit dem Team die Umsetzung von\n• Anforderungen und stellst durch Clean Code, nachhaltige Architekturprinzipien und gezielte Testabdeckung die hohe Qualität unserer Software sicher Du gestaltest und optimierst die Systemlösung für End-to-End-Testautomatisierung in komplexen Softwarearchitekturen Du leitest die Entwicklung von kritischen Softwarekomponenten, Systemen und Funktionen zur Verbesserung von Verfügbarkeit, Skalierbarkeit, Latenz und Effizienz Du übernimmst die Mentoring-Rolle für Kolleg:innen, gibst technisches Know-how weiter und prägst die Weiterentwicklung des Teams Du bringst Vorschläge für technologische Weiterentwicklung und Tooling ein und entscheidest aktiv über Architektur- und Technologiefragen Das bringst du mit Mindestens 10 Jahre Erfahrung in der agilen Softwareentwicklung mit Java und Angular Erfahrung in der Führung und im Mentoring von Entwickler:innen sowie in der Weitergabe von technischem Know-how innerhalb von Teams Abgeschlossene höhere Aus- oder Weiterbildung in Informatik (HF, FH, Uni/ETH) Fundierte Erfahrung in der Entwicklung von Testautomatisierungsframeworks (z. B. Appium, Selenium) Vertiefte Kenntnisse in Softwarearchitektur sowie in der Testautomatisierung von Web-UIs, Mobile Apps und APIs von Vorteil Erfahrung mit Kubernetes, Docker, GitLab und CI/CD-Pipelines sowie in der Entwicklung, Analyse und Fehlerbehebung grosser, dezentraler Systeme Sehr gute Deutsch- sowie gute Englischkenntnisse",
+        "fr": "Chez PostFinance, nous développons des applications de haute qualité qui viennent avec des technologies modernes et de haute qualité le plus rapidement possible avec nos clients. Notre équipe d'automatisation de test fournit les bons outils pour assurer des processus de test efficaces du système de niveau. En tant que développeur principal (w/m/d), vous non seulement façonnez activement la solution d'automatisation de test de bout en bout, mais également guidez l'équipe dans les décisions techniques, promouvoir les meilleures pratiques et stimuler l'innovation – avec expertise, esprit d'équipe et vision stratégique. Nous nous réunissons deux fois par mois à Berne et deux fois par mois à un autre endroit (Zofingen, Olten ou Zurich). Tu peux faire ça. En tant que développeur principal (w/m/d), vous travaillerez avec l'équipe pour mettre en œuvre\n• Exigences et garantie la haute qualité de notre logiciel grâce à un code propre, des principes d'architecture durable et une couverture de test ciblée Vous concevez et optimisez la solution système pour l'automatisation des tests de bout en bout dans des architectures logicielles complexes Vous guidez le développement de composants, systèmes et fonctions logiciels critiques pour améliorer la disponibilité, l'évolutivité, la latence et l'efficacité Vous prenez le rôle de mentor pour vos collègues : vous continuez à fournir un savoir-faire technique et à façonner le développement de l'équipe Vous apportez des propositions de développement technologique et d'outillage et décidez activement des questions d'architecture et de technologie C'est ce que vous apportez. Au moins 10 ans d'expérience dans le développement de logiciels agiles avec Java et Angular Expérience dans la gestion et le mentorat des développeurs: en plus de partager le savoir-faire technique au sein des équipes Études supérieures ou formation en informatique (HF, FH, Uni/ETH) Expérience acquise dans le développement de cadres d'automatisation des essais (par exemple Appium, Selenium) Meilleure connaissance de l'architecture logicielle ainsi que de l'automatisation des tests d'interfaces utilisateur Web, applications mobiles et API Expérience des pipelines Kubernetes, Docker, GitLab et CI/CD ainsi que du développement, de l'analyse et du dépannage de grands systèmes décentralisés Très bon allemand et de bonnes compétences en anglais"
+      },
+      "titleByLocale": {
+        "it": "Lead Sviluppatore (w/m/d)",
+        "en": "Lead Developer (w/m/d)",
+        "de": "Lead Entwickler (w/m/d)",
+        "fr": "Développeur principal (m/d)"
+      },
+      "slug": "lead-sviluppatore-w-m-d-postfinance-bern",
+      "slugByLocale": {
+        "it": "lead-sviluppatore-w-m-d-postfinance-bern",
+        "en": "lead-developer-w-m-d-postfinance-bern",
+        "de": "lead-developer-w-m-d-postfinance",
+        "fr": "lead-developpeur-w-m-d-postfinance-bern"
+      },
+      "sourceLang": "de",
+      "department": "",
+      "category": "servizi-finanziari",
+      "datePosted": "2026-05-21",
+      "validThrough": "",
+      "source": "postfinance-careers-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "",
+      "sector": "IT",
+      "workload": "",
+      "_targetScope": {
+        "canton": "BE",
+        "location": "Bern"
+      },
+      "crawledAt": "",
+      "id": "postfinance-7b604c82531b",
+      "salaryMin": 68000,
+      "salaryMax": 103000,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68000,
+          "maxValue": 103000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "3001",
+      "firstSeenAt": "2026-05-21T12:58:33.524Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "lead-developer-w-m-d-postfinance",
+          "sviluppatore-di-piombo-m-d-postfinance-bern"
+        ],
+        "fr": [
+          "lead-developer-w-m-d-postfinance",
+          "developpeur-principal-m-d-postfinance-bern",
+          "lead-developpeur-w-m-d-postfinance-bern"
+        ]
+      },
+      "previousSlugs": [
+        "lead-developer-w-m-d-postfinance",
+        "sviluppatore-di-piombo-m-d-postfinance-bern",
+        "developpeur-principal-m-d-postfinance-bern"
+      ],
       "needsRetranslation": true
     },
     {
@@ -526,83 +604,6 @@
       "previousSlugs": [
         "conseiller-ere-clientele-privee-carouge-postfinance",
         "consulente-clienti-privati-carouge-postfinance-carouge"
-      ],
-      "needsRetranslation": true
-    },
-    {
-      "url": "https://job.post.ch/PostFinance/job/Bern-Homeoffice-Lead-Developer-%28wmd%29/1381588933/",
-      "applyUrl": "https://job.post.ch/PostFinance/job/Bern-Homeoffice-Lead-Developer-%28wmd%29/1381588933/",
-      "title": "Lead Developer (w/m/d)",
-      "company": "PostFinance",
-      "companyKey": "postfinance",
-      "location": "Bern",
-      "canton": "BE",
-      "country": "CH",
-      "description": "Bei PostFinance entwickeln wir hochwertige Applikationen, die mit modernen Technologien und hoher Qualität schnellstmöglich bei unseren Kund:innen ankommen. Unser Testautomatisierungsteam stellt dafür die passenden Tools bereit, um effiziente Testprozesse ab Stufe System sicherzustellen. Als Lead Developer (w/m/d) gestaltest du nicht nur die End-to-End-Testautomatisierungslösung aktiv mit, sondern führst das Team bei technischen Entscheidungen, förderst Best Practices und treibst Innovationen voran – mit Fachwissen, Teamgeist und strategischem Blick. Wir treffen uns zweimal im Monat in Bern und zusätzlich zweimal im Monat an einem anderen Standort (Zofingen, Olten oder Zürich).\n\nDas kannst du bewirken\n\nAls Lead Developer (w/m/d) gestaltest du gemeinsam mit dem Team die Umsetzung von \n• Anforderungen und stellst durch Clean Code, nachhaltige Architekturprinzipien und gezielte Testabdeckung die hohe Qualität unserer Software sicher\n\nDu gestaltest und optimierst die Systemlösung für End-to-End-Testautomatisierung in komplexen Softwarearchitekturen\n\nDu leitest die Entwicklung von kritischen Softwarekomponenten, Systemen und Funktionen zur Verbesserung von Verfügbarkeit, Skalierbarkeit, Latenz und Effizienz\n\nDu übernimmst die Mentoring-Rolle für Kolleg:innen, gibst technisches Know-how weiter und prägst die Weiterentwicklung des Teams\n\nDu bringst Vorschläge für technologische Weiterentwicklung und Tooling ein und entscheidest aktiv über Architektur- und Technologiefragen\n\nDas bringst du mit\n\nMindestens 10 Jahre Erfahrung in der agilen Softwareentwicklung mit Java und Angular\n\nErfahrung in der Führung und im Mentoring von Entwickler:innen sowie in der Weitergabe von technischem Know-how innerhalb von Teams\n\nAbgeschlossene höhere Aus- oder Weiterbildung in Informatik (HF, FH, Uni/ETH)\n\nFundierte Erfahrung in der Entwicklung von Testautomatisierungsframeworks (z. B. Appium, Selenium)\n\nVertiefte Kenntnisse in Softwarearchitektur sowie in der Testautomatisierung von Web-UIs, Mobile Apps und APIs von Vorteil\n\nErfahrung mit Kubernetes, Docker, GitLab und CI/CD-Pipelines sowie in der Entwicklung, Analyse und Fehlerbehebung grosser, dezentraler Systeme\n\nSehr gute Deutsch- sowie gute Englischkenntnisse",
-      "descriptionByLocale": {
-        "it": "Bei PostFinance entwickeln wir hochwertige Applikationen, die mit modernen Technologien und hoher Qualität schnellstmöglich bei unseren Kund:innen ankommen. Unser Testautomatisierungsteam stellt dafür die passenden Tools bereit, um effiziente Testprozesse ab Stufe System sicherzustellen. Als Lead Developer (w/m/d) gestaltest du nicht nur die End-to-End-Testautomatisierungslösung aktiv mit, sondern führst das Team bei technischen Entscheidungen, förderst Best Practices und treibst Innovationen voran – mit Fachwissen, Teamgeist und strategischem Blick. Wir treffen uns zweimal im Monat in Bern und zusätzlich zweimal im Monat an einem anderen Standort (Zofingen, Olten oder Zürich).\n\nDas kannst du bewirken\n\nAls Lead Developer (w/m/d) gestaltest du gemeinsam mit dem Team die Umsetzung von \n• Anforderungen und stellst durch Clean Code, nachhaltige Architekturprinzipien und gezielte Testabdeckung die hohe Qualität unserer Software sicher\n\nDu gestaltest und optimierst die Systemlösung für End-to-End-Testautomatisierung in komplexen Softwarearchitekturen\n\nDu leitest die Entwicklung von kritischen Softwarekomponenten, Systemen und Funktionen zur Verbesserung von Verfügbarkeit, Skalierbarkeit, Latenz und Effizienz\n\nDu übernimmst die Mentoring-Rolle für Kolleg:innen, gibst technisches Know-how weiter und prägst die Weiterentwicklung des Teams\n\nDu bringst Vorschläge für technologische Weiterentwicklung und Tooling ein und entscheidest aktiv über Architektur- und Technologiefragen\n\nDas bringst du mit\n\nMindestens 10 Jahre Erfahrung in der agilen Softwareentwicklung mit Java und Angular\n\nErfahrung in der Führung und im Mentoring von Entwickler:innen sowie in der Weitergabe von technischem Know-how innerhalb von Teams\n\nAbgeschlossene höhere Aus- oder Weiterbildung in Informatik (HF, FH, Uni/ETH)\n\nFundierte Erfahrung in der Entwicklung von Testautomatisierungsframeworks (z. B. Appium, Selenium)\n\nVertiefte Kenntnisse in Softwarearchitektur sowie in der Testautomatisierung von Web-UIs, Mobile Apps und APIs von Vorteil\n\nErfahrung mit Kubernetes, Docker, GitLab und CI/CD-Pipelines sowie in der Entwicklung, Analyse und Fehlerbehebung grosser, dezentraler Systeme\n\nSehr gute Deutsch- sowie gute Englischkenntnisse",
-        "en": "At PostFinance we develop high-quality applications that come with modern technologies and high quality as quickly as possible with our customers. Our test automation team provides the right tools to ensure efficient test processes from level system. As a lead developer (w/m/d), you not only actively shape the end-to-end test automation solution, but also guide the team in technical decisions, promote best practices and drive innovation – with expertise, team spirit and strategic view. We meet twice a month in Bern and additionally twice a month at another location (Zofingen, Olten or Zurich). You can do that As a Lead Developer (w/m/d), you will work together with the team to implement\n• Requirements and ensures the high quality of our software through clean code, sustainable architecture principles and targeted test coverage You design and optimize the system solution for end-to-end testing automation in complex software architectures You guide the development of critical software components, systems and functions to improve availability, scalability, latency and efficiency You take over the mentoring role for colleagues: you continue to provide technical know-how and shape the further development of the team You bring proposals for technological development and tooling and actively decide on architecture and technology issues That's what you bring At least 10 years of experience in agile software development with Java and Angular Experience in the management and mentoring of developers: in addition to sharing technical know-how within teams Completed higher education or training in computer science (HF, FH, Uni/ETH) Found experience in the development of test automation frameworks (e.g. Appium, Selenium) Enhanced knowledge in software architecture as well as in the test automation of web UIs, mobile apps and APIs Experience with Kubernetes, Docker, GitLab and CI/CD pipelines as well as in the development, analysis and troubleshooting of large, decentralised systems Very good German and good English skills",
-        "de": "Bei PostFinance entwickeln wir hochwertige Applikationen, die mit modernen Technologien und hoher Qualität schnellstmöglich bei unseren Kund:innen ankommen. Unser Testautomatisierungsteam stellt dafür die passenden Tools bereit, um effiziente Testprozesse ab Stufe System sicherzustellen. Als Lead Developer (w/m/d) gestaltest du nicht nur die End-to-End-Testautomatisierungslösung aktiv mit, sondern führst das Team bei technischen Entscheidungen, förderst Best Practices und treibst Innovationen voran – mit Fachwissen, Teamgeist und strategischem Blick. Wir treffen uns zweimal im Monat in Bern und zusätzlich zweimal im Monat an einem anderen Standort (Zofingen, Olten oder Zürich). Das kannst du bewirken Als Lead Developer (w/m/d) gestaltest du gemeinsam mit dem Team die Umsetzung von\n• Anforderungen und stellst durch Clean Code, nachhaltige Architekturprinzipien und gezielte Testabdeckung die hohe Qualität unserer Software sicher Du gestaltest und optimierst die Systemlösung für End-to-End-Testautomatisierung in komplexen Softwarearchitekturen Du leitest die Entwicklung von kritischen Softwarekomponenten, Systemen und Funktionen zur Verbesserung von Verfügbarkeit, Skalierbarkeit, Latenz und Effizienz Du übernimmst die Mentoring-Rolle für Kolleg:innen, gibst technisches Know-how weiter und prägst die Weiterentwicklung des Teams Du bringst Vorschläge für technologische Weiterentwicklung und Tooling ein und entscheidest aktiv über Architektur- und Technologiefragen Das bringst du mit Mindestens 10 Jahre Erfahrung in der agilen Softwareentwicklung mit Java und Angular Erfahrung in der Führung und im Mentoring von Entwickler:innen sowie in der Weitergabe von technischem Know-how innerhalb von Teams Abgeschlossene höhere Aus- oder Weiterbildung in Informatik (HF, FH, Uni/ETH) Fundierte Erfahrung in der Entwicklung von Testautomatisierungsframeworks (z. B. Appium, Selenium) Vertiefte Kenntnisse in Softwarearchitektur sowie in der Testautomatisierung von Web-UIs, Mobile Apps und APIs von Vorteil Erfahrung mit Kubernetes, Docker, GitLab und CI/CD-Pipelines sowie in der Entwicklung, Analyse und Fehlerbehebung grosser, dezentraler Systeme Sehr gute Deutsch- sowie gute Englischkenntnisse",
-        "fr": "Chez PostFinance, nous développons des applications de haute qualité qui viennent avec des technologies modernes et de haute qualité le plus rapidement possible avec nos clients. Notre équipe d'automatisation de test fournit les bons outils pour assurer des processus de test efficaces du système de niveau. En tant que développeur principal (w/m/d), vous non seulement façonnez activement la solution d'automatisation de test de bout en bout, mais également guidez l'équipe dans les décisions techniques, promouvoir les meilleures pratiques et stimuler l'innovation – avec expertise, esprit d'équipe et vision stratégique. Nous nous réunissons deux fois par mois à Berne et deux fois par mois à un autre endroit (Zofingen, Olten ou Zurich). Tu peux faire ça. En tant que développeur principal (w/m/d), vous travaillerez avec l'équipe pour mettre en œuvre\n• Exigences et garantie la haute qualité de notre logiciel grâce à un code propre, des principes d'architecture durable et une couverture de test ciblée Vous concevez et optimisez la solution système pour l'automatisation des tests de bout en bout dans des architectures logicielles complexes Vous guidez le développement de composants, systèmes et fonctions logiciels critiques pour améliorer la disponibilité, l'évolutivité, la latence et l'efficacité Vous prenez le rôle de mentor pour vos collègues : vous continuez à fournir un savoir-faire technique et à façonner le développement de l'équipe Vous apportez des propositions de développement technologique et d'outillage et décidez activement des questions d'architecture et de technologie C'est ce que vous apportez. Au moins 10 ans d'expérience dans le développement de logiciels agiles avec Java et Angular Expérience dans la gestion et le mentorat des développeurs: en plus de partager le savoir-faire technique au sein des équipes Études supérieures ou formation en informatique (HF, FH, Uni/ETH) Expérience acquise dans le développement de cadres d'automatisation des essais (par exemple Appium, Selenium) Meilleure connaissance de l'architecture logicielle ainsi que de l'automatisation des tests d'interfaces utilisateur Web, applications mobiles et API Expérience des pipelines Kubernetes, Docker, GitLab et CI/CD ainsi que du développement, de l'analyse et du dépannage de grands systèmes décentralisés Très bon allemand et de bonnes compétences en anglais"
-      },
-      "titleByLocale": {
-        "it": "Lead Sviluppatore (w/m/d)",
-        "en": "Lead Developer (w/m/d)",
-        "de": "Lead Entwickler (w/m/d)",
-        "fr": "Développeur principal (m/d)"
-      },
-      "slug": "lead-sviluppatore-w-m-d-postfinance-bern",
-      "slugByLocale": {
-        "it": "lead-sviluppatore-w-m-d-postfinance-bern",
-        "en": "lead-developer-w-m-d-postfinance-bern",
-        "de": "lead-developer-w-m-d-postfinance",
-        "fr": "developpeur-principal-m-d-postfinance-bern"
-      },
-      "sourceLang": "de",
-      "department": "",
-      "category": "servizi-finanziari",
-      "datePosted": "2026-05-21",
-      "validThrough": "",
-      "source": "postfinance-careers-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "",
-      "sector": "IT",
-      "workload": "",
-      "_targetScope": {
-        "canton": "BE",
-        "location": "Bern"
-      },
-      "crawledAt": "",
-      "id": "postfinance-7b604c82531b",
-      "salaryMin": 68000,
-      "salaryMax": 103000,
-      "currency": "CHF",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68000,
-          "maxValue": 103000,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "3001",
-      "firstSeenAt": "2026-05-21T12:58:33.524Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "lead-developer-w-m-d-postfinance",
-          "sviluppatore-di-piombo-m-d-postfinance-bern"
-        ],
-        "fr": [
-          "lead-developer-w-m-d-postfinance",
-          "lead-developpeur-w-m-d-postfinance-bern"
-        ]
-      },
-      "previousSlugs": [
-        "lead-developer-w-m-d-postfinance",
-        "sviluppatore-di-piombo-m-d-postfinance-bern",
-        "lead-developpeur-w-m-d-postfinance-bern"
       ],
       "needsRetranslation": true
     }
