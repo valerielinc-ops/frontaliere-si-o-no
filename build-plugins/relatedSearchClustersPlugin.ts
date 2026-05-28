@@ -214,6 +214,11 @@ const CACHE_KEY_INPUTS = [
   'data/jobs.json',
   'data/related-search-candidates.json',
   'data/related-search-enriched.json',
+  // GSC/GA4/PostHog-driven mirror set: when the weekly workflow rewrites
+  // this file the build must re-emit so the new mirror paths land in dist.
+  // Missing file is hashed as `missing:<rel>` by computeCacheKey, so
+  // bootstrap stub vs. populated data still produce distinct cache keys.
+  'data/indexed-cluster-urls.json',
   'build-plugins/relatedSearchClustersPlugin.ts',
   'build-plugins/relatedSearchClustersData.ts',
   'build-plugins/shared/seoPageShell.ts',
@@ -484,6 +489,70 @@ function loadJobs(rootDir: string): RawJob[] {
     console.warn('\x1b[33m[related-search-clusters]\x1b[0m failed to parse jobs.json:', err);
     return [];
   }
+}
+
+/**
+ * Parse a cluster URL path into its (locale, slug) key so we can bucket the
+ * GSC-driven mirror paths by the same key the render loop uses.
+ *
+ * Returns null when the path doesn't match the cluster shape — including the
+ * Svizzera aggregator sections, since those ARE the canonical and don't need
+ * a mirror entry.
+ *
+ * Mirrors the `CLUSTER_PATH_RX` regex in scripts/refresh-indexed-cluster-urls.mjs.
+ * If you change one, change the other — keep the de/jobs-im, de/jobs-in,
+ * de/jobs-in-der prefixes in sync because the data file is consumed by this
+ * function unmodified.
+ */
+const CLUSTER_PATH_PARSE_RX = /^\/(?:(en|de|fr)\/)?(?:cerca-lavoro|find-jobs|jobs-im|jobs-in|jobs-in-der|trouver-emploi)-(?!svizzera\b|switzerland\b|schweiz\b|suisse\b)[a-z-]+\/((?:ricerca|search|suche|recherche)-[a-z0-9-]+)\/?$/;
+
+function parseClusterPathKey(p: string): { locale: Locale; slug: string } | null {
+  if (!p) return null;
+  const m = p.toLowerCase().match(CLUSTER_PATH_PARSE_RX);
+  if (!m) return null;
+  const locale = (m[1] || 'it') as Locale;
+  return { locale, slug: m[2] };
+}
+
+/**
+ * Load `data/indexed-cluster-urls.json` and bucket the listed paths by
+ * `${locale}::${slug}` so the render loop can look up additional mirror paths
+ * in O(1) per cluster.
+ *
+ * The file is populated by `scripts/refresh-indexed-cluster-urls.mjs` (run
+ * weekly via `.github/workflows/refresh-indexed-cluster-urls.yml`) — its
+ * union of GSC/GA4/PostHog cluster URLs under non-aggregator sections is the
+ * authoritative list of paths Google / users still hit.
+ *
+ * Missing file or malformed JSON returns an empty map → emit loop falls back
+ * to the default TI + legacyCantonGroup mirrors.
+ */
+function loadIndexedClusterUrls(rootDir: string): Map<string, string[]> {
+  const filePath = path.join(rootDir, 'data', 'indexed-cluster-urls.json');
+  const out = new Map<string, string[]>();
+  if (!fs.existsSync(filePath)) return out;
+  let raw: unknown;
+  try {
+    raw = JSON.parse(fs.readFileSync(filePath, 'utf-8'));
+  } catch (err) {
+    console.warn('\x1b[33m[related-search-clusters]\x1b[0m failed to parse indexed-cluster-urls.json:', err);
+    return out;
+  }
+  const indexedPaths = (raw as { indexedPaths?: unknown })?.indexedPaths;
+  if (!Array.isArray(indexedPaths)) return out;
+  for (const entry of indexedPaths) {
+    if (typeof entry !== 'string') continue;
+    const parsed = parseClusterPathKey(entry);
+    if (!parsed) continue;
+    const key = `${parsed.locale}::${parsed.slug}`;
+    const list = out.get(key) || [];
+    // Normalize to trailing-slash form so the emit-loop dedup against
+    // `out.urlPath` (always slashed) catches collisions with the canonical.
+    const normalized = entry.endsWith('/') ? entry : `${entry}/`;
+    if (!list.includes(normalized)) list.push(normalized);
+    out.set(key, list);
+  }
+  return out;
 }
 
 // ── Filtering & dedupe ──────────────────────────────────────────────────
@@ -1964,7 +2033,14 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
       const __tLoadJobs = profileStart();
       const jobs = loadJobs(rootDir);
       profileRecord('load-jobs', __tLoadJobs);
-      console.log(`\x1b[36m[related-search-clusters]\x1b[0m ${candidates.length} candidates, ${Object.keys(enriched).length} enriched entries, ${jobs.length} jobs`);
+      // GSC/GA4/PostHog-driven mirror paths, keyed by `${locale}::${slug}`.
+      // Empty map when the data file is missing or hasn't been populated yet
+      // (cron `.github/workflows/refresh-indexed-cluster-urls.yml` runs
+      // weekly; first run after deploy populates it). Empty map is safe:
+      // the emit loop still produces the TI + legacyCantonGroup default
+      // mirrors for every cluster.
+      const indexedClusterUrlsByKey = loadIndexedClusterUrls(rootDir);
+      console.log(`\x1b[36m[related-search-clusters]\x1b[0m ${candidates.length} candidates, ${Object.keys(enriched).length} enriched entries, ${jobs.length} jobs, ${indexedClusterUrlsByKey.size} GSC-driven mirror keys`);
 
       // Inverted token index: lazy posting lists per (locale, token), shared
       // across every candidate. Memory budget is dominated by the haystack
@@ -2177,39 +2253,53 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
         // legacy per-canton paths that this cluster previously occupied. The
         // mirror's `<link rel="canonical">` already points to Svizzera (it's
         // baked into the rendered HTML), so search engines fold the mirror
-        // into the canonical instead of treating it as a duplicate. Two
-        // mirror cantons are covered:
-        //   1. `ctx.legacyCantonGroup` — the canton of `matchingJobs[0]`,
-        //      which is where the pre-refactor build emitted the cluster
-        //      AND where the sitemap-search-clusters shards still advertise
-        //      it from previous deploys (every URL Google has crawled).
-        //   2. `'TI'` — the legacy default section. The JobBoard related-
-        //      search widget (components/community/JobBoard.tsx:5776) used
-        //      `buildPath` without `jobBoardCanton`, which falls back to
+        // into the canonical instead of treating it as a duplicate.
+        //
+        // Three mirror sources are merged into a single Set of absolute
+        // paths (deduped + collision-guarded against the canonical):
+        //   1. `ctx.legacyCantonGroup` — canton of `matchingJobs[0]`, the
+        //      URL the pre-refactor build emitted AND where the
+        //      sitemap-search-clusters shards still advertise the cluster
+        //      from previous deploys (definitely crawled by Google).
+        //   2. `'TI'` — legacy default section. The JobBoard related-search
+        //      widget (components/community/JobBoard.tsx:5776) used
+        //      `buildPath` without `jobBoardCanton`, falling back to
         //      `table.jobBoard` (cerca-lavoro-ticino / find-jobs-ticino /
-        //      jobs-im-tessin / trouver-emploi-tessin) — so Googlebot
+        //      jobs-im-tessin / trouver-emploi-tessin), so Googlebot
         //      followed those internal links and indexed the TI variant
         //      across all locales.
+        //   3. `data/indexed-cluster-urls.json` — GSC + GA4 + PostHog union
+        //      of cluster URLs under any non-aggregator section that still
+        //      receives traffic. Populated weekly by
+        //      `.github/workflows/refresh-indexed-cluster-urls.yml`. Lets
+        //      us preserve URLs Google indexed back when the top-match was
+        //      a now-stale canton (e.g. cluster pinned to BL last month,
+        //      pinned to ZH this month — GSC's BL impressions keep the BL
+        //      mirror alive even after legacyCantonGroup moved to ZH).
+        //
         // Mirrors are NOT added to sitemapLocs: only the Svizzera canonical
         // appears in sitemap-search-clusters.xml, so audit:sitemap-canonicals
         // continues to pass. Mirrors stay out of the index over time.
-        const mirrorCantons = new Set<string>([ctx.legacyCantonGroup, 'TI']);
-        // The canonical was already written under AGGREGATE_KEY → don't
-        // re-emit at the same path even if legacyCantonGroup somehow
-        // collapses to AGGREGATE (currently impossible: resolveJobCanton
-        // never returns it). Defensive only.
-        mirrorCantons.delete(AGGREGATE_KEY);
-        for (const mirrorCanton of mirrorCantons) {
-          const mirrorPath = buildClusterPath(locale, ctx.candidate.slug, mirrorCanton);
-          if (mirrorPath === out.urlPath) continue; // never overwrite canonical
+        const mirrorPaths = new Set<string>();
+        for (const mirrorCanton of [ctx.legacyCantonGroup, 'TI']) {
+          if (mirrorCanton === AGGREGATE_KEY) continue; // defensive — never emit canonical as mirror
+          mirrorPaths.add(buildClusterPath(locale, ctx.candidate.slug, mirrorCanton));
+        }
+        const extraIndexedKey = `${locale}::${ctx.candidate.slug}`;
+        const extraIndexedPaths = indexedClusterUrlsByKey.get(extraIndexedKey);
+        if (extraIndexedPaths) {
+          for (const p of extraIndexedPaths) mirrorPaths.add(p);
+        }
+        mirrorPaths.delete(out.urlPath); // never overwrite canonical
+        for (const mirrorPath of mirrorPaths) {
           // Mirrors emit ONLY index.html — no flat .html bridge. The slash
           // mirror already canonicalizes to Svizzera (via the rendered
           // HTML's `<link rel="canonical">`), so a flat .html bridge would
           // be a second redirect hop for a low-value URL form (visitors
           // typing the URL without trailing slash). Cuts mirror file count
-          // in half — relevant because ~70% of clusters emit 2 mirrors
-          // (legacyCanton + TI when legacy ≠ TI) so doubling mirrors via
-          // flat bridges would add hundreds of thousands of files for a
+          // in half — relevant because ~70% of clusters emit 2+ mirrors
+          // (legacyCanton + TI + any GSC-flagged extras) so doubling mirrors
+          // via flat bridges would add hundreds of thousands of files for a
           // negligible UX gain.
           const mirrorIndexPath = path.join(distDir, mirrorPath, 'index.html');
           collector.add(mirrorIndexPath, out.html);

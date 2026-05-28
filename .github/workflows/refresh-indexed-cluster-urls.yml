@@ -1,0 +1,84 @@
+name: Refresh indexed cluster URLs
+# Weekly: union of GSC + GA4 + PostHog trafficked related-search cluster URLs
+# under non-aggregator sections. The cluster build plugin reads
+# `data/indexed-cluster-urls.json` and emits byte-identical mirrors at every
+# listed path (in addition to the default TI + legacyCantonGroup mirrors), so
+# every Google-indexed cluster URL stays 200 OK and consolidates into the
+# Svizzera canonical instead of 404-ing.
+#
+# Script: scripts/refresh-indexed-cluster-urls.mjs
+# Sibling: refresh-noslash-keep.yml (same pattern, different filter+output)
+
+on:
+  schedule:
+    - cron: '10 5 * * 1'  # Every Monday at 05:10 UTC (10 min after noslash-keep refresh)
+  workflow_dispatch:
+    inputs:
+      days:
+        description: 'Lookback window in days'
+        required: false
+        default: '90'
+      min_impressions:
+        description: 'Minimum impressions/views to keep a path'
+        required: false
+        default: '1'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: indexed-cluster-urls-refresh
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Write Firebase service-account JSON to /tmp
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -n "${FIREBASE_SERVICE_ACCOUNT_JSON:-}" ]; then
+            printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+            echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+          else
+            echo "::warning::No FIREBASE_SERVICE_ACCOUNT_JSON — GSC + GA4 will be skipped gracefully."
+          fi
+
+      - name: Load secrets from Remote Config
+        # Maps SERVER_GA4_PROPERTY_ID / SERVER_POSTHOG_* (set in Firebase RC)
+        # to their unprefixed names in $GITHUB_ENV so the script can read them.
+        run: node scripts/load-rc-env.mjs
+
+      - name: Refresh indexed cluster URL list
+        env:
+          DAYS: ${{ inputs.days || '90' }}
+          MIN_IMP: ${{ inputs.min_impressions || '1' }}
+        run: node scripts/refresh-indexed-cluster-urls.mjs --days "$DAYS" --min-impressions "$MIN_IMP"
+
+      - name: Commit if changed
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/indexed-cluster-urls.json
+          if git diff --cached --quiet; then
+            echo "No change to indexed-cluster-urls.json"
+            exit 0
+          fi
+          git commit -m "chore(seo): refresh indexed cluster URLs (GSC+GA4+PostHog union)"
+          bash scripts/lib/git-push-with-retry.sh \
+            --regenerate-cmd "node scripts/refresh-indexed-cluster-urls.mjs --days $DAYS --min-impressions $MIN_IMP && git add data/indexed-cluster-urls.json"
