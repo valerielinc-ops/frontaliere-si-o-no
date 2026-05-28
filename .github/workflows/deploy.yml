@@ -843,15 +843,29 @@ jobs:
           # stashes those untracked/unstaged files before rebase and
           # pops them back after — purely scoped to this command, no
           # leftover stash state.
-          for i in 1 2 3; do
+          # Bumped 3 → 5 attempts + geometric-ish backoff
+          # (5/10/15/25/40 s) after annotation on run 26604491084 (and
+          # every prior deploy): `[dist-history] push failed after 3
+          # attempts`. Concurrent producers on main (crawlers +
+          # thin-promotions + fuel + weather + post-merge auto-commits)
+          # regularly out-race a 3×5 s window. The extended budget hits
+          # a ~95 s total wait before giving up, which empirically
+          # covers every observed conflict cluster on the main branch.
+          for i in 1 2 3 4 5; do
             if git -c rebase.autoStash=true pull --rebase origin main \
                 && git push origin HEAD:main; then
               echo "[dist-history] pushed on attempt $i"
               exit 0
             fi
-            sleep 5
+            case "$i" in
+              1) sleep 5 ;;
+              2) sleep 10 ;;
+              3) sleep 15 ;;
+              4) sleep 25 ;;
+              5) sleep 40 ;;
+            esac
           done
-          echo "::warning::[dist-history] push failed after 3 attempts — url-first-seen.json will not be available to the next build's grace-window check"
+          echo "::warning::[dist-history] push failed after 5 attempts — url-first-seen.json will not be available to the next build's grace-window check"
 
       - name: Upload Pages artifact (compression-level 9)
         if: github.event.inputs.profile_sequential != 'true'
