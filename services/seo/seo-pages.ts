@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2663,
+ "numberOfItems": 2664,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7303,7 +7303,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2660, "name": "Ucraini con permesso B, c'è preoccupazione?", "url": `${BASE_URL}/articoli-frontaliere/ucraini-con-permesso-b-preoccupazione` },
           { "@type": "ListItem", "position": 2661, "name": "Porrentruy: piscina comunale, frontalieri pagan...", "url": `${BASE_URL}/articoli-frontaliere/porrentruy-piscina-frontaliere-tariffe` },
           { "@type": "ListItem", "position": 2662, "name": "Arresto a Ponte Tresa: 100 chili di hashish tro...", "url": `${BASE_URL}/articoli-frontaliere/arresto-ponte-tresa-100-chili-hashish` },
-          { "@type": "ListItem", "position": 2663, "name": "Mostre più libere: il Padiglione italiano di Gu...", "url": `${BASE_URL}/articoli-frontaliere/mostre-nuove-virtu-e-limit-padiglione-italiano-guendalina-salimei` }
+          { "@type": "ListItem", "position": 2663, "name": "Mostre più libere: il Padiglione italiano di Gu...", "url": `${BASE_URL}/articoli-frontaliere/mostre-nuove-virtu-e-limit-padiglione-italiano-guendalina-salimei` },
+          { "@type": "ListItem", "position": 2664, "name": "TILO: cambi di percorso per Malpensa il 30-31 m...", "url": `${BASE_URL}/articoli-frontaliere/tilo-gallarate-malpensa-maggio-2026` }
  ]
  },
  {

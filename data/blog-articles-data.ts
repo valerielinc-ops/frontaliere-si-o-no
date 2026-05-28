@@ -24851,4 +24851,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'tilo-gallarate-malpensa-maggio-2026',
+ category: 'pratico',
+ date: '2026-05-28T05:25:33.227Z',
+ image: '/images/blog/tilo-gallarate-malpensa-maggio-2026.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

@@ -7825,6 +7825,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.mostre-nuove-virtu-e-limit-padiglione-italiano-guendalina-salimei.title': 'Freer Exhibitions: Guendalina Salimei\'s Italian Pavilion',
     'blog.article.mostre-nuove-virtu-e-limit-padiglione-italiano-guendalina-salimei.excerpt': 'Art exhibitions are changing: less scientific rigor, more freedom for the public, and an active role for curators. Guendalina Salimei\'s Italian Pavilion is an example of this.',
     'blog.article.mostre-nuove-virtu-e-limit-padiglione-italiano-guendalina-salimei.imageAlt': 'Contemporary art exhibition in a gallery in the center of Lugano',
+    'blog.article.tilo-gallarate-malpensa-maggio-2026.title': 'TILO: route changes for Malpensa on May 30-31',
+    'blog.article.tilo-gallarate-malpensa-maggio-2026.excerpt': 'TILO S50 trains will have Gallarate as their terminus next weekend due to work on the Italian network.',
+    'blog.article.tilo-gallarate-malpensa-maggio-2026.imageAlt': 'TILO train at Gallarate station with waiting passengers',
 };
 
 export default blogMetaEn;

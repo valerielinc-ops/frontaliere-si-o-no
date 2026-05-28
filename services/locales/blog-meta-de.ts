@@ -7824,6 +7824,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.mostre-nuove-virtu-e-limit-padiglione-italiano-guendalina-salimei.title': 'Freiere Ausstellungen: Der italienische Pavillon von Guendalina Salimei',
     'blog.article.mostre-nuove-virtu-e-limit-padiglione-italiano-guendalina-salimei.excerpt': 'Kunstausstellungen ändern sich: Weniger wissenschaftliche Strenge, mehr Freiheit für die Öffentlichkeit und eine aktive Rolle der Kuratoren. Der italienische Pavillon von Guendalina Salimei ist ein Beispiel dafür.',
     'blog.article.mostre-nuove-virtu-e-limit-padiglione-italiano-guendalina-salimei.imageAlt': 'Kunstausstellung in einer Galerie im Zentrum von Lugano',
+    'blog.article.tilo-gallarate-malpensa-maggio-2026.title': 'TILO: Streckenänderungen für Malpensa am 30.-31. Mai',
+    'blog.article.tilo-gallarate-malpensa-maggio-2026.excerpt': 'Die TILO-Züge S50 werden am kommenden Wochenende aufgrund von Arbeiten am italienischen Netz Gallarate als Endstation haben.',
+    'blog.article.tilo-gallarate-malpensa-maggio-2026.imageAlt': 'TILO-Zug am Bahnhof Gallarate mit wartenden Passagieren',
 };
 
 export default blogMetaDe;
