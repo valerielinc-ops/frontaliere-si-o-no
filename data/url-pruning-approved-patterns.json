@@ -1,0 +1,5 @@
+{
+  "_doc": "Approved URL-pruning patterns consumed by build-plugins/shared/trafficEvidenceFilter.ts. Empty array = filter dormant (every emit is 'full'). To activate: add one entry per URL class you want to tier-2 thin. Required: { id, urlClass: 'previousSlug'|'soft-landing-expired'|'cluster'|..., action: 'thin' }. The filter checks data/evidence-index.json (90d GSC/GA4 traffic) + data/thin-page-promotions-active.json (hourly self-heal): URLs in either set stay 'full', the rest get the pattern's action.",
+  "version": 1,
+  "patterns": []
+}
