@@ -34,7 +34,7 @@ export const PROVIDER_LOGOS: Record<string, ProviderLogoEntry> = {
   'windtre':            { domain: 'windtre.it', localPath: '/images/providers/windtre.png' },
   'very-mobile':        { domain: 'verymobile.it', localPath: '/images/providers/very-mobile.png' },
   'fastweb-mobile':     { domain: 'fastweb.it', localPath: '/images/providers/fastweb-mobile.png' },
-  'spusu-oltreconfine': { domain: 'spusu.it' },
+  'spusu-oltreconfine': { domain: 'spusu.it', localPath: '/images/providers/spusu-oltreconfine.png' },
   // ── Telecom — Swiss operators ──
   'swisscom':           { domain: 'swisscom.ch', localPath: '/images/providers/swisscom.png' },
   'salt':               { domain: 'salt.ch', localPath: '/images/providers/salt.png' },
@@ -44,8 +44,8 @@ export const PROVIDER_LOGOS: Record<string, ProviderLogoEntry> = {
   'yallo':              { domain: 'yallo.ch', localPath: '/images/providers/yallo.png' },
   'wingo':              { domain: 'wingo.ch', localPath: '/images/providers/wingo.png' },
   'aldi-mobile-ch':     { domain: 'aldisuisse.ch', localPath: '/images/providers/aldi-mobile-ch.png' },
-  'm-budget-mobile':    { domain: 'm-budget.migros.ch' },
-  'digitec-connect':    { domain: 'digitecconnect.ch' },
+  'm-budget-mobile':    { domain: 'm-budget.migros.ch', localPath: '/images/providers/m-budget-mobile.svg' },
+  'digitec-connect':    { domain: 'digitec.ch', localPath: '/images/providers/digitec-connect.png' },
 };
 
 /**
