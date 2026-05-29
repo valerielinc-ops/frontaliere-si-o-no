@@ -59,7 +59,6 @@
           "coiffeur-kosmetiker-in-oder-masseur-in-w-m-d-wintersaison-2026-27-tschuggen-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-05-17T11:16:33.133Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -72,8 +71,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 2
+      }
     },
     {
       "id": "tschuggen-569e89ca49d1",
@@ -124,7 +122,6 @@
       "requirementsByLocale": {},
       "department": "Housekeeping",
       "hotelName": "Carlton Hotel St. Moritz",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-05-17T11:16:32.081Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -137,8 +134,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 2
+      }
     },
     {
       "id": "tschuggen-01d1354d56c4",
@@ -198,7 +194,6 @@
           "etagenportier-m-w-d-wintersaison-2026-2027-tschuggen-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-05-17T11:16:31.064Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -211,8 +206,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 2
+      }
     },
     {
       "id": "tschuggen-8d1a677afc27",
@@ -272,7 +266,6 @@
           "chef-de-partie-tournant-m-w-d-wintersaison-2026-2027-tschuggen-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-05-17T11:16:30.049Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -285,8 +278,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 2
+      }
     },
     {
       "id": "tschuggen-b8ea0b25f793",
@@ -346,7 +338,6 @@
           "haustechniker-m-w-d-wintersaison-2026-2027-tschuggen-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-05-17T11:16:29.035Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -359,8 +350,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 2
+      }
     },
     {
       "id": "tschuggen-f50e3b0b4f33",
@@ -428,7 +418,6 @@
           "spa-rezeptionist-in-m-w-d-sommersaison-2026-tschuggen-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-05-19T12:49:09.335Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -441,8 +430,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 2
+      }
     },
     {
       "id": "tschuggen-aab5770d3181",
@@ -493,7 +481,6 @@
       "requirementsByLocale": {},
       "department": "Food and Beverage",
       "hotelName": "Carlton Hotel St. Moritz",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-05-27T14:17:01.753Z",
       "salaryMin": 68000,
       "salaryMax": 103000,
@@ -506,8 +493,7 @@
           "maxValue": 103000,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 2
+      }
     },
     {
       "id": "tschuggen-f9f0ae3ba780",
@@ -558,7 +544,6 @@
       "requirementsByLocale": {},
       "department": "Food and Beverage",
       "hotelName": "Carlton Hotel St. Moritz",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-05-27T14:17:00.840Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -571,8 +556,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 2
+      }
     },
     {
       "id": "tschuggen-2e54f859be33",
@@ -625,7 +609,6 @@
       },
       "department": "Rooms Division",
       "hotelName": "Carlton Hotel St. Moritz",
-      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -639,7 +622,6 @@
         }
       },
       "firstSeenAt": "2026-05-28T00:43:20.731Z",
-      "retranslationAttempts": 2,
       "previousSlugsByLocale": {
         "it": [
           "front-office-manager-m-w-d-in-unbefristeter-anstellung-tschuggen-ch"
@@ -653,7 +635,7 @@
       "id": "tschuggen-9d2cf0abe326",
       "slug": "account-manager-m-w-d-tschuggen-collection-ascona",
       "slugByLocale": {
-        "it": "account-manager-m-w-d-tschuggen-collection-ascona",
+        "it": "etagen-portier-m-w-d-tschuggen-ch",
         "en": "etagen-portier-m-w-d-tschuggen-ch",
         "de": "etagen-portier-m-w-d-tschuggen-collection-ascona",
         "fr": "gestionnaire-de-compte-m-w-d-tschuggen-collection-ascona"
@@ -703,13 +685,12 @@
         ],
         "de": [
           "etagen-portier-m-w-d-tschuggen-ch"
-        ],
-        "it": [
-          "etagen-portier-m-w-d-tschuggen-ch"
         ]
       },
       "previousSlugs": [
-        "etagen-portier-m-w-d-tschuggen-ch"
+        "etagen-portier-m-w-d-tschuggen-ch",
+        "gestionnaire-de-compte-m-w-d-tschuggen-collection-ascona",
+        "account-manager-m-w-d-tschuggen-collection-ascona"
       ],
       "firstSeenAt": "2026-05-06T11:50:09.955Z",
       "salaryMin": 68000,
