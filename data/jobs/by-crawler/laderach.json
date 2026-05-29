@@ -132,12 +132,12 @@
     },
     {
       "id": "laderach-f4e9a2944a8b",
-      "slug": "servicemitarbeiter-80-cafe-house-of-laderach-w-m-d-laderach-bilten",
+      "slug": "rappresentante-del-servizio-80-cafe-house-of-laderach-w-m-d-laderach-schweiz-ag-bilten",
       "slugByLocale": {
         "de": "servicemitarbeiter-80-cafe-house-of-laderach-w-m-d-laderach-bilten",
-        "it": "servicemitarbeiter-80-cafe-house-of-laderach-w-m-d-laderach-bilten",
-        "en": "servicemitarbeiter-80-cafe-house-of-laderach-w-m-d-laderach-bilten",
-        "fr": "servicemitarbeiter-80-cafe-house-of-laderach-w-m-d-laderach-bilten"
+        "it": "rappresentante-del-servizio-80-cafe-house-of-laderach-w-m-d-laderach-schweiz-ag-bilten",
+        "en": "service-representative-80-cafe-house-of-laderach-w-m-d-laderach-schweiz-ag-bilten",
+        "fr": "representant-du-service-80-cafe-house-of-laderach-w-m-d-laderach-schweiz-ag-bilten"
       },
       "company": "Läderach (Schweiz) AG",
       "companyKey": "laderach",
@@ -188,7 +188,21 @@
       },
       "country": "CH",
       "addressRegion": "GL",
-      "firstSeenAt": "2026-05-29T13:05:54.732Z"
+      "firstSeenAt": "2026-05-29T13:05:54.732Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "servicemitarbeiter-80-cafe-house-of-laderach-w-m-d-laderach-bilten"
+        ],
+        "en": [
+          "servicemitarbeiter-80-cafe-house-of-laderach-w-m-d-laderach-bilten"
+        ],
+        "fr": [
+          "servicemitarbeiter-80-cafe-house-of-laderach-w-m-d-laderach-bilten"
+        ]
+      },
+      "previousSlugs": [
+        "servicemitarbeiter-80-cafe-house-of-laderach-w-m-d-laderach-bilten"
+      ]
     },
     {
       "id": "laderach-ee252e2a0b85",
@@ -774,7 +788,7 @@
       "id": "laderach-e75ae8be71ea",
       "slug": "venditore-60-terminato-chocolaterie-aarau-w-m-d-laderach-schweiz-ag-aarau",
       "slugByLocale": {
-        "it": "verkaufer-60-befristet-chocolaterie-aarau-m-w-d-laderach-schweiz-ag-aarau",
+        "it": "venditore-60-terminato-chocolaterie-aarau-w-m-d-laderach-schweiz-ag-aarau",
         "en": "seller-60-terminated-chocolaterie-aarau-w-m-d-laderach-schweiz-ag-aarau",
         "de": "verkaufer-60-befristet-chocolaterie-aarau-w-m-d-laderach-aarau",
         "fr": "vendeur-60-chocolaterie-aarau-m-j-laderach-schweiz-ag-aarau"
@@ -814,16 +828,17 @@
       "crawledAt": "2026-05-29T13:05:52.412Z",
       "previousSlugs": [
         "verkaufer-60-befristet-chocolaterie-aarau-w-m-d-laderach-aarau",
+        "verkaufer-60-befristet-chocolaterie-aarau-m-w-d-laderach-schweiz-ag-aarau",
         "venditore-80-100-chocolaterie-interlaken-w-m-d-laderach-schweiz-ag-interlaken",
         "salesperson-80-100-chocolaterie-interlaken-w-m-d-laderach-schweiz-ag-interlaken",
         "verkaufer-80-100-chocolaterie-interlaken-w-m-d-laderach-interlaken",
         "vendeur-80-100-chocolaterie-interlaken-w-m-d-laderach-schweiz-ag-interlaken",
-        "verkaufer-80-100-chocolaterie-interlaken-w-m-d-laderach-schweiz-ag-interlaken",
-        "venditore-60-terminato-chocolaterie-aarau-w-m-d-laderach-schweiz-ag-aarau"
+        "verkaufer-80-100-chocolaterie-interlaken-w-m-d-laderach-schweiz-ag-interlaken"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-60-befristet-chocolaterie-aarau-w-m-d-laderach-aarau"
+          "verkaufer-60-befristet-chocolaterie-aarau-w-m-d-laderach-aarau",
+          "verkaufer-60-befristet-chocolaterie-aarau-m-w-d-laderach-schweiz-ag-aarau"
         ],
         "en": [
           "verkaufer-60-befristet-chocolaterie-aarau-w-m-d-laderach-aarau"
@@ -904,7 +919,6 @@
         ],
         "de": [
           "confiseur-fur-live-produktion-im-house-of-laderach-60-100-w-m-d-laderach-bilten",
-          "entertainer-fur-live-produktion-im-house-of-laderach-60-100-w-m-d-laderach-bilten",
           "confiseur-fur-live-produktion-im-house-of-laderach-60-100-w-m-d-laderach-schweiz-ag-bilten"
         ],
         "fr": [
@@ -1003,7 +1017,7 @@
       "id": "laderach-d658950ecc4a",
       "slug": "addetto-magazzino-supporto-negozio-20-40-chocolaterie-st-moritz-m-f-d-laderach-schweiz-ag-sankt-moritz",
       "slugByLocale": {
-        "it": "lagermitarbeiter-store-support-20-40-chocolaterie-st-moritz-w-m-d-laderach-schweiz-ag-sankt-moritz",
+        "it": "addetto-magazzino-supporto-negozio-20-40-chocolaterie-st-moritz-m-f-d-laderach-schweiz-ag-sankt-moritz",
         "en": "lagermitarbeiter-store-support-20-40-chocolaterie-st-moritz-w-m-d-laderach-sankt-moritz",
         "de": "lagermitarbeiter-store-support-20-40-chocolaterie-st-moritz-w-m-d-laderach-sankt-moritz",
         "fr": "assistant-d-entrepot-support-magasin-20-40-chocolaterie-st-moritz-h-f-d-laderach-schweiz-ag-sankt-moritz"
@@ -1044,13 +1058,12 @@
       "previousSlugs": [
         "lagermitarbeiter-store-support-20-40-chocolaterie-st-moritz-w-m-d-laderach-sankt-moritz",
         "lagermitarbeiter-store-support-20-40-chocolaterie-st-moritz-w-m-d-laderach-schweiz-ag-sankt-moritz",
-        "lagermitarbeiter-store-support-20-40-chocolaterie-st-moritz-w-m-d-laderach-schweiz-ag-sank",
-        "addetto-magazzino-supporto-negozio-20-40-chocolaterie-st-moritz-m-f-d-laderach-schweiz-ag-sankt-moritz",
-        "assistant-d-entrepot-support-magasin-20-40-chocolaterie-st-moritz-h-f-d-laderach-schweiz-ag-sankt-moritz"
+        "lagermitarbeiter-store-support-20-40-chocolaterie-st-moritz-w-m-d-laderach-schweiz-ag-sank"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lagermitarbeiter-store-support-20-40-chocolaterie-st-moritz-w-m-d-laderach-sankt-moritz"
+          "lagermitarbeiter-store-support-20-40-chocolaterie-st-moritz-w-m-d-laderach-sankt-moritz",
+          "lagermitarbeiter-store-support-20-40-chocolaterie-st-moritz-w-m-d-laderach-schweiz-ag-sankt-moritz"
         ],
         "fr": [
           "lagermitarbeiter-store-support-20-40-chocolaterie-st-moritz-w-m-d-laderach-schweiz-ag-sankt-moritz"
@@ -1122,8 +1135,7 @@
       "source": "Läderach Dedicated Parser",
       "crawledAt": "2026-05-29T13:05:51.825Z",
       "previousSlugs": [
-        "it-projektleiter-hr-corporate-service-applikationen-w-m-d-laderach-bilten",
-        "it-projektleiter-risorse-umane-corporate-service-applikationen-m-w-d-laderach-schweiz-ag-bilten"
+        "it-projektleiter-hr-corporate-service-applikationen-w-m-d-laderach-bilten"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1153,7 +1165,7 @@
       "id": "laderach-64b82059a475",
       "slug": "responsabile-della-filiale-di-chocolaterie-uster-d-m-f-laderach-schweiz-ag-uster",
       "slugByLocale": {
-        "it": "filialleiter-chocolaterie-uster-w-m-d-laderach-uster",
+        "it": "responsabile-della-filiale-di-chocolaterie-uster-d-m-f-laderach-schweiz-ag-uster",
         "en": "branch-manager-chocolaterie-uster-w-m-d-laderach-schweiz-ag-uster",
         "de": "filialleiter-chocolaterie-uster-w-m-d-laderach-schweiz-ag-uster",
         "fr": "responsable-de-la-succursale-de-chocolaterie-uster-f-h-m-laderach-schweiz-ag-uster"
@@ -1193,16 +1205,16 @@
       "crawledAt": "2026-05-29T13:05:50.949Z",
       "previousSlugs": [
         "filialleiter-chocolaterie-uster-w-m-d-laderach-uster",
-        "verkaufer-20-40-chocolaterie-uster-w-m-d-laderach-schweiz-ag-uster",
-        "responsabile-della-filiale-di-chocolaterie-uster-d-m-f-laderach-schweiz-ag-uster",
-        "branch-manager-chocolaterie-uster-w-m-d-laderach-schweiz-ag-uster",
-        "responsable-de-la-succursale-de-chocolaterie-uster-f-h-m-laderach-schweiz-ag-uster"
+        "verkaufer-20-40-chocolaterie-uster-w-m-d-laderach-schweiz-ag-uster"
       ],
       "previousSlugsByLocale": {
         "en": [
           "filialleiter-chocolaterie-uster-w-m-d-laderach-uster"
         ],
         "fr": [
+          "filialleiter-chocolaterie-uster-w-m-d-laderach-uster"
+        ],
+        "it": [
           "filialleiter-chocolaterie-uster-w-m-d-laderach-uster"
         ]
       },
@@ -1371,7 +1383,7 @@
       "id": "laderach-9b21fd967013",
       "slug": "vendita-aiuto-40-60-caffe-chocolaterie-bahnhofstrasse-zurich-laderach-schweiz-ag-zurich",
       "slugByLocale": {
-        "it": "verkaufsaushilfe-40-60-chocolaterie-bahnhofstrasse-zurich-laderach-schweiz-ag-zurich",
+        "it": "vendita-aiuto-40-60-caffe-chocolaterie-bahnhofstrasse-zurich-laderach-schweiz-ag-zurich",
         "en": "sales-assistant-40-60-chocolaterie-bahnhofstrasse-zurich-laderach-schweiz-ag-zurich",
         "de": "verkaufsaushilfe-40-60-chocolaterie-bahnhofstrasse-zurich-laderach-zurich",
         "fr": "aide-a-la-vente-40-60-chocolaterie-bahnhofstrasse-zurich-laderach-schweiz-ag-zurich"
@@ -1411,14 +1423,12 @@
       "crawledAt": "2026-05-29T13:05:49.909Z",
       "previousSlugs": [
         "verkaufsaushilfe-40-60-chocolaterie-bahnhofstrasse-zurich-laderach-zurich",
-        "verkaufsaushilfe-40-60-chocolaterie-bahnhofstrasse-zurich-laderach-schweiz-ag-zurich",
-        "vendita-aiuto-40-60-caffe-chocolaterie-bahnhofstrasse-zurich-laderach-schweiz-ag-zurich",
-        "sales-assistant-40-60-chocolaterie-bahnhofstrasse-zurich-laderach-schweiz-ag-zurich",
-        "aide-a-la-vente-40-60-chocolaterie-bahnhofstrasse-zurich-laderach-schweiz-ag-zurich"
+        "verkaufsaushilfe-40-60-chocolaterie-bahnhofstrasse-zurich-laderach-schweiz-ag-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufsaushilfe-40-60-chocolaterie-bahnhofstrasse-zurich-laderach-zurich"
+          "verkaufsaushilfe-40-60-chocolaterie-bahnhofstrasse-zurich-laderach-zurich",
+          "verkaufsaushilfe-40-60-chocolaterie-bahnhofstrasse-zurich-laderach-schweiz-ag-zurich"
         ],
         "en": [
           "verkaufsaushilfe-40-60-chocolaterie-bahnhofstrasse-zurich-laderach-schweiz-ag-zurich"
@@ -1772,7 +1782,7 @@
       "id": "laderach-e475b0514c24",
       "slug": "formazione-di-perfezionamento-in-confetteria-per-agosto-2026-h-m-d-laderach-schweiz-ag-ennenda",
       "slugByLocale": {
-        "it": "zusatzausbildung-specializzazione-confiserie-per-august-2026-w-m-d-laderach-schweiz-ag-ennenda",
+        "it": "formazione-di-perfezionamento-in-confetteria-per-agosto-2026-h-m-d-laderach-schweiz-ag-ennenda",
         "en": "advanced-training-in-confectionery-for-august-2026-m-f-d-laderach-schweiz-ag-ennenda",
         "de": "zusatzausbildung-fachrichtung-confiserie-fur-august-2026-w-m-d-laderach-ennenda",
         "fr": "formation-de-perfectionnement-en-confiserie-pour-aout-2026-h-m-d-laderach-schweiz-ag-ennenda"
@@ -1812,14 +1822,13 @@
       "crawledAt": "2026-05-29T13:05:48.582Z",
       "previousSlugs": [
         "zusatzausbildung-fachrichtung-confiserie-fur-august-2026-w-m-d-laderach-ennenda",
-        "zusatzausbildung-fachrichtung-confiserie-fur-august-2026-w-m-d-laderach-schweiz-ag-ennenda",
-        "formazione-di-perfezionamento-in-confetteria-per-agosto-2026-h-m-d-laderach-schweiz-ag-ennenda",
-        "advanced-training-in-confectionery-for-august-2026-m-f-d-laderach-schweiz-ag-ennenda",
-        "formation-de-perfectionnement-en-confiserie-pour-aout-2026-h-m-d-laderach-schweiz-ag-ennenda"
+        "zusatzausbildung-specializzazione-confiserie-per-august-2026-w-m-d-laderach-schweiz-ag-ennenda",
+        "zusatzausbildung-fachrichtung-confiserie-fur-august-2026-w-m-d-laderach-schweiz-ag-ennenda"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "zusatzausbildung-fachrichtung-confiserie-fur-august-2026-w-m-d-laderach-ennenda"
+          "zusatzausbildung-fachrichtung-confiserie-fur-august-2026-w-m-d-laderach-ennenda",
+          "zusatzausbildung-specializzazione-confiserie-per-august-2026-w-m-d-laderach-schweiz-ag-ennenda"
         ],
         "en": [
           "zusatzausbildung-fachrichtung-confiserie-fur-august-2026-w-m-d-laderach-schweiz-ag-ennenda"
