@@ -4,11 +4,25 @@ on:
   push:
     branches:
       - main
+    # paths-ignore è una DENYLIST applicata solo se TUTTI i file del push
+    # matchano (un push misto docs+codice deploya comunque). Sicuro per
+    # definizione: un path dimenticato deploya, non viene saltato.
+    # Obiettivo: non bruciare un build SEO da ~25min su merge che NON cambiano
+    # il dist deployato (deploy-starvation: build lungo vs merge ~5min via
+    # auto-merge PAT). I path sotto non sono letti dalla build del dist:
+    #   - docs/markdown, file CI/workflow, test, config agent: nessun output dist.
+    # NON ignorati (toccano il dist): build-plugins/, services/, components/,
+    # scripts/ (assemble-jobs gira a build-time), data/jobs*, vite/index/package.
     paths-ignore:
       - 'data/border-wait-current.json'
       - 'data/border-wait-history/**'
       - 'data/border-wait-averages.json'
       - 'data/weather-snapshot.json'
+      - '**/*.md'
+      - 'docs/**'
+      - '.github/**'
+      - 'tests/**'
+      - '.claude/**'
   workflow_dispatch:
     inputs:
       article_id:
