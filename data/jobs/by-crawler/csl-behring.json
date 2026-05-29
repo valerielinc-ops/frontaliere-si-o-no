@@ -980,7 +980,7 @@
       "id": "csl-behring-fe51311226e5",
       "slug": "abilitazione-globale-dei-partner-ot-csl-behring-bern",
       "slugByLocale": {
-        "it": "global-ot-partner-engage-csl-behring-bern",
+        "it": "abilitazione-globale-dei-partner-ot-csl-behring-bern",
         "en": "global-ot-partner-enablement-csl-behring-ch",
         "de": "globale-ot-partnerschaft-csl-behring-bern",
         "fr": "global-ot-partner-enablement-csl-behring-ch"
@@ -1026,13 +1026,13 @@
       "jobReqId": "Regular",
       "previousSlugs": [
         "global-ot-partner-enablement-csl-behring-ch",
-        "globaler-ot-partner-engage-csl-behring-bern",
-        "abilitazione-globale-dei-partner-ot-csl-behring-bern",
-        "globale-ot-partnerschaft-csl-behring-bern"
+        "global-ot-partner-engage-csl-behring-bern",
+        "globaler-ot-partner-engage-csl-behring-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "global-ot-partner-enablement-csl-behring-ch"
+          "global-ot-partner-enablement-csl-behring-ch",
+          "global-ot-partner-engage-csl-behring-bern"
         ],
         "de": [
           "globaler-ot-partner-engage-csl-behring-bern"
@@ -1858,8 +1858,7 @@
       },
       "jobReqId": "Regular",
       "previousSlugs": [
-        "director-commercial-and-medical-operations-it-product-manager-csl-behring-ch",
-        "direttore-commercial-and-medical-operations-it-product-manager-csl-behring-bern"
+        "director-commercial-and-medical-operations-it-product-manager-csl-behring-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2345,8 +2344,7 @@
       },
       "jobReqId": "Regular",
       "previousSlugs": [
-        "senior-director-search-evaluation-late-ta-lead-immunology-csl-behring-ch",
-        "senior-direttore-search-evaluation-late-ta-lead-immunology-csl-behring-bern"
+        "senior-director-search-evaluation-late-ta-lead-immunology-csl-behring-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2449,8 +2447,7 @@
       "jobReqId": "Regular",
       "previousSlugs": [
         "associate-director-statistical-programming-w-m-d-csl-behring-ch",
-        "associate-director-programmation-statistique-h-f-d-csl-behring-bern",
-        "associate-direttore-statistical-programming-w-m-d-csl-behring-bern"
+        "associate-director-programmation-statistique-h-f-d-csl-behring-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2632,10 +2629,7 @@
       "jobReqId": "Regular",
       "previousSlugs": [
         "gra-cmc-specialist-csl-behring-ch",
-        "gra-cmc-specialist-csl-behring-ch-2",
-        "gra-cmc-specialista-csl-behring-bern",
-        "gra-cmc-spezialist-csl-behring-bern",
-        "gra-cmc-specialiste-csl-behring-bern"
+        "gra-cmc-specialist-csl-behring-ch-2"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2670,7 +2664,7 @@
         "it": "responsabile-di-progetto-senior-operazioni-tecniche-csl-behring-bern",
         "en": "senior-project-manager-tech-ops-csl-behring-ch",
         "de": "leitender-projektmanager-tech-ops-csl-behring-bern",
-        "fr": "chef-de-projet-senior-tech-ops-csl-behring-bern"
+        "fr": "gestionnaire-de-projet-principal-operations-techniques-csl-behring-bern"
       },
       "company": "CSL Behring",
       "companyKey": "csl-behring",
@@ -2744,16 +2738,14 @@
       "jobReqId": "Regular",
       "previousSlugs": [
         "senior-project-manager-tech-ops-csl-behring-ch",
-        "chef-de-projet-senior-tech-ops-csl-behring-bern",
-        "gestionnaire-de-projet-principal-operations-techniques-csl-behring-bern"
+        "chef-de-projet-senior-tech-ops-csl-behring-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "senior-project-manager-tech-ops-csl-behring-ch"
         ],
         "fr": [
-          "chef-de-projet-senior-tech-ops-csl-behring-bern",
-          "gestionnaire-de-projet-principal-operations-techniques-csl-behring-bern"
+          "chef-de-projet-senior-tech-ops-csl-behring-bern"
         ]
       },
       "firstSeenAt": "2026-05-19T17:18:40.182Z",
@@ -4262,12 +4254,12 @@
     },
     {
       "id": "csl-behring-02f2418c33b6",
-      "slug": "senior-manager-total-rewards-emea-csl-behring-ch",
+      "slug": "senior-manager-ricompense-totali-emea-csl-behring-bern",
       "slugByLocale": {
         "en": "senior-manager-total-rewards-emea-csl-behring-ch",
-        "it": "senior-manager-total-rewards-emea-csl-behring-ch",
+        "it": "senior-manager-ricompense-totali-emea-csl-behring-bern",
         "de": "senior-manager-total-rewards-emea-csl-behring-ch",
-        "fr": "senior-manager-total-rewards-emea-csl-behring-ch"
+        "fr": "directeur-principal-total-des-recompenses-emea-csl-behring-bern"
       },
       "company": "CSL Behring",
       "companyKey": "csl-behring",
@@ -4323,14 +4315,25 @@
         }
       },
       "postalCode": "3001",
-      "firstSeenAt": "2026-05-28T22:48:06.145Z"
+      "firstSeenAt": "2026-05-28T22:48:06.145Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-manager-total-rewards-emea-csl-behring-ch"
+        ],
+        "fr": [
+          "senior-manager-total-rewards-emea-csl-behring-ch"
+        ]
+      },
+      "previousSlugs": [
+        "senior-manager-total-rewards-emea-csl-behring-ch"
+      ]
     },
     {
       "id": "csl-behring-a06a53896d18",
       "slug": "scienziato-senior-farmacocinetica-pk-csl-behring-glattbrugg-35069d",
       "slugByLocale": {
         "en": "senior-scientist-pharmacokinetics-pk-csl-behring-ch",
-        "it": "senior-scientist-pharmacokinetics-pk-csl-behring-ch-2",
+        "it": "scienziato-senior-farmacocinetica-pk-csl-behring-glattbrugg-35069d",
         "de": "senior-scientist-pharmacokinetics-pk-csl-behring-ch-2",
         "fr": "chercheur-principal-pharmacocinetique-pk-csl-behring-glattbrugg-35069d"
       },
@@ -4392,12 +4395,13 @@
       "previousSlugsByLocale": {
         "fr": [
           "senior-scientist-pharmacokinetics-pk-csl-behring-ch-2"
+        ],
+        "it": [
+          "senior-scientist-pharmacokinetics-pk-csl-behring-ch-2"
         ]
       },
       "previousSlugs": [
-        "senior-scientist-pharmacokinetics-pk-csl-behring-ch-2",
-        "scienziato-senior-farmacocinetica-pk-csl-behring-glattbrugg-35069d",
-        "chercheur-principal-pharmacocinetique-pk-csl-behring-glattbrugg-35069d"
+        "senior-scientist-pharmacokinetics-pk-csl-behring-ch-2"
       ]
     },
     {
@@ -4407,7 +4411,7 @@
         "it": "senior-direttore-global-clinical-program-lead-cardiovascular-renal-csl-behring-bern",
         "en": "senior-director-global-clinical-program-lead-cardiovascular-renal-csl-behring-ch",
         "de": "senior-director-global-clinical-program-lead-herz-kreislauf-niere-csl-behring-bern",
-        "fr": "senior-director-global-clinical-program-lead-cardiovasculaire-et-renal-csl-behring-bern"
+        "fr": "directeur-principal-programme-clinique-mondial-chef-de-file-cardiopathie-et-renale-csl-behring-bern"
       },
       "company": "CSL Behring",
       "companyKey": "csl-behring",
@@ -4452,8 +4456,7 @@
       "previousSlugs": [
         "direttore-senior-programma-clinico-globale-lead-cardiovascular-renal-csl-behring-bern",
         "senior-director-global-clinical-program-lead-cardiovascular-renal-csl-behring-ch",
-        "senior-director-global-clinical-program-lead-cardiovasculaire-et-renal-csl-behring-bern",
-        "directeur-principal-programme-clinique-mondial-chef-de-file-cardiopathie-et-renale-csl-behring-bern"
+        "senior-director-global-clinical-program-lead-cardiovasculaire-et-renal-csl-behring-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4461,8 +4464,7 @@
           "senior-director-global-clinical-program-lead-cardiovascular-renal-csl-behring-ch"
         ],
         "fr": [
-          "senior-director-global-clinical-program-lead-cardiovasculaire-et-renal-csl-behring-bern",
-          "directeur-principal-programme-clinique-mondial-chef-de-file-cardiopathie-et-renale-csl-behring-bern"
+          "senior-director-global-clinical-program-lead-cardiovasculaire-et-renal-csl-behring-bern"
         ]
       },
       "firstSeenAt": "2026-05-22T11:25:50.772Z",

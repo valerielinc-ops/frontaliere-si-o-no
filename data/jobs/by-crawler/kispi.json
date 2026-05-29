@@ -1073,8 +1073,7 @@
         ]
       },
       "previousSlugs": [
-        "oberarztin-oberarzt-80-100-einsatzbereich-psychosomatisch-psychiatrische-therapiestation",
-        "oberarztin-oberarzt-80-100-einsatzbereich-psychosomatisch-psychiatrische-therapiestation-sowie-kinder-e-jugendpsychiater"
+        "oberarztin-oberarzt-80-100-einsatzbereich-psychosomatisch-psychiatrische-therapiestation"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4432,7 +4431,7 @@
       "id": "kispi-453522b3637d",
       "slug": "dipl-carriera-dipl-specialista-infermieristico-per-nds-hf-anestesia-care-paediatrics-universitats-kinderspital-zurich",
       "slugByLocale": {
-        "it": "dipl-pflegefachfrau-dipl-pflegefachmann-per-das-nds-hf-anasthesiepflege-padiatrie-universitats-kinderspital-zurich",
+        "it": "dipl-carriera-dipl-specialista-infermieristico-per-nds-hf-anestesia-care-paediatrics-universitats-kinderspital-zurich",
         "en": "dipl-pflegefachfrau-dipl-pflegefachmann-fur-das-nds-hf-anasthesiepflege-padiatrie-universitats-kinderspital-zurich",
         "de": "dipl-pflegefachfrau-dipl-pflegefachmann-fur-das-nds-hf-anasthesiepflege-padiatrie-kispi",
         "fr": "dipl-carriere-dipl-specialiste-des-soins-infirmiers-pour-la-pediatrie-de-la-nds-hf-universitats-kinderspital-zurich"
@@ -4480,14 +4479,14 @@
       "previousSlugs": [
         "dipl-pflegefachfrau-dipl-pflegefachmann-fur-das-nds-hf-anasthesiepflege-padiatrie-kispi-2",
         "dipl-pflegefachfrau-dipl-pflegefachmann-fur-das-nds-hf-anasthesiepflege-padiatrie-kispi",
-        "dipl-pflegefachfrau-dipl-pflegefachmann-fur-das-nds-hf-anasthesiepflege-padiatrie-universitats-kinderspital-zurich",
-        "dipl-carriera-dipl-specialista-infermieristico-per-nds-hf-anestesia-care-paediatrics-universitats-kinderspital-zurich",
-        "dipl-carriere-dipl-specialiste-des-soins-infirmiers-pour-la-pediatrie-de-la-nds-hf-universitats-kinderspital-zurich"
+        "dipl-pflegefachfrau-dipl-pflegefachmann-per-das-nds-hf-anasthesiepflege-padiatrie-universitats-kinderspital-zurich",
+        "dipl-pflegefachfrau-dipl-pflegefachmann-fur-das-nds-hf-anasthesiepflege-padiatrie-universitats-kinderspital-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-dipl-pflegefachmann-fur-das-nds-hf-anasthesiepflege-padiatrie-kispi-2",
-          "dipl-pflegefachfrau-dipl-pflegefachmann-fur-das-nds-hf-anasthesiepflege-padiatrie-kispi"
+          "dipl-pflegefachfrau-dipl-pflegefachmann-fur-das-nds-hf-anasthesiepflege-padiatrie-kispi",
+          "dipl-pflegefachfrau-dipl-pflegefachmann-per-das-nds-hf-anasthesiepflege-padiatrie-universitats-kinderspital-zurich"
         ],
         "fr": [
           "dipl-pflegefachfrau-dipl-pflegefachmann-fur-das-nds-hf-anasthesiepflege-padiatrie-universitats-kinderspital-zurich"
@@ -4679,9 +4678,9 @@
       "slug": "arztsekretarin-m-w-60-80-logopala-universitats-kinderspital-zurich-zurich",
       "slugByLocale": {
         "it": "arztsekretarin-m-w-60-80-logopala-universitats-kinderspital-zurich-zurich",
-        "en": "arztsekretarin-m-w-60-80-logopadie-kispi-zurich",
+        "en": "senior-consultant-m-w-universitats-kinderspital-zurich-zurich",
         "de": "arztsekretarin-m-w-60-80-logopadie-universitats-kinderspital-zurich-zurich",
-        "fr": "arztsekretarin-m-w-60-80-logopadie-kispi-zurich"
+        "fr": "consultant-principal-m-m-universitats-kinderspital-zurich-zurich"
       },
       "company": "Universitäts-Kinderspital Zürich",
       "companyKey": "kispi",
@@ -4732,19 +4731,15 @@
           "consulente-senior-m-w-universitats-kinderspital-zurich-zurich"
         ],
         "en": [
-          "senior-consultant-m-w-universitats-kinderspital-zurich-zurich",
           "arztsekretarin-m-w-60-80-logopadie-kispi-zurich"
         ],
         "fr": [
-          "consultant-principal-m-m-universitats-kinderspital-zurich-zurich",
           "arztsekretarin-m-w-60-80-logopadie-kispi-zurich"
         ]
       },
       "previousSlugs": [
         "arztsekretarin-m-w-60-80-logopadie-kispi-zurich",
-        "consulente-senior-m-w-universitats-kinderspital-zurich-zurich",
-        "senior-consultant-m-w-universitats-kinderspital-zurich-zurich",
-        "consultant-principal-m-m-universitats-kinderspital-zurich-zurich"
+        "consulente-senior-m-w-universitats-kinderspital-zurich-zurich"
       ],
       "firstSeenAt": "2026-05-21T12:21:29.512Z",
       "salaryMin": 68000,
@@ -4923,7 +4918,7 @@
       "id": "kispi-9aacbea90ce7",
       "slug": "consulente-senior-m-w-80-100-universitats-kinderspital-zurich-zurich",
       "slugByLocale": {
-        "it": "leiterin-assistenzpool-medizinische-direktion-m-w-80-100-kispi-zurich",
+        "it": "consulente-senior-m-w-80-100-universitats-kinderspital-zurich-zurich",
         "en": "senior-consultant-m-w-80-100-universitats-kinderspital-zurich-zurich",
         "de": "leiterin-assistenzpool-medizinische-direktion-m-w-80-100-universitats-kinderspital-zurich-zurich",
         "fr": "consultant-principal-m-m-80-100-universitats-kinderspital-zurich-zurich"
@@ -4978,14 +4973,14 @@
         ],
         "de": [
           "leiterin-assistenzpool-medizinische-direktion-m-w-80-100-kispi-zurich"
+        ],
+        "it": [
+          "leiterin-assistenzpool-medizinische-direktion-m-w-80-100-kispi-zurich"
         ]
       },
       "previousSlugs": [
-        "leiterin-assistenzpool-medizinische-direktion-m-w-80-100-kispi-zurich",
         "senior-consultant-m-w-80-100-universitats-kinderspital-zurich-zurich-eec5a7",
-        "consulente-senior-m-w-80-100-universitats-kinderspital-zurich-zurich",
-        "senior-consultant-m-w-80-100-universitats-kinderspital-zurich-zurich",
-        "consultant-principal-m-m-80-100-universitats-kinderspital-zurich-zurich"
+        "leiterin-assistenzpool-medizinische-direktion-m-w-80-100-kispi-zurich"
       ],
       "firstSeenAt": "2026-05-22T22:36:25.535Z",
       "salaryMin": 68000,
@@ -5081,12 +5076,12 @@
     },
     {
       "id": "kispi-82951fbfc0d3",
-      "slug": "dipl-pflegefachfrau-dipl-pflegefachmann-80-100-neonatologie-br-la-kleinsten-sind-per-dich-la-grossten-universitats-kinderspital-zurich",
+      "slug": "dipl-carriera-dipl-specialista-di-cura-80-100-neonatologia-br-i-piu-piccoli-sono-i-piu-grandi-per-voi-universitats",
       "slugByLocale": {
-        "it": "dipl-pflegefachfrau-dipl-pflegefachmann-80-100-neonatologie-br-la-kleinsten-sind-per-dich-la-grossten-universitats-kinderspital-zurich",
-        "en": "dipl-pflegefachfrau-dipl-pflegefachmann-80-100-neonatologie-br-die-kleinsten-sind-fur-dich",
+        "it": "dipl-carriera-dipl-specialista-di-cura-80-100-neonatologia-br-i-piu-piccoli-sono-i-piu-grandi-per-voi-universitats",
+        "en": "dipl-career-dipl-care-specialist-80-100-neonatology-br-the-smallest-are-the-largest-for-you-universitats-kinderspital",
         "de": "dipl-pflegefachfrau-dipl-pflegefachmann-80-100-neonatologie-br-die-kleinsten-sind-fur-dich",
-        "fr": "dipl-pflegefachfrau-dipl-pflegefachmann-80-100-neonatologie-br-die-kleinsten-sind-fur-dich"
+        "fr": "dipl-carriere-dipl-specialiste-des-soins-80-100-neonatologie-br-les-plus-petits-sont-les-plus-grands-pour-vous"
       },
       "company": "Universitäts-Kinderspital Zürich",
       "companyKey": "kispi",
@@ -5129,10 +5124,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "dipl-pflegefachfrau-dipl-pflegefachmann-80-100-neonatologie-br-die-kleinsten-sind-fur-dich"
+        "dipl-pflegefachfrau-dipl-pflegefachmann-80-100-neonatologie-br-die-kleinsten-sind-fur-dich",
+        "dipl-pflegefachfrau-dipl-pflegefachmann-80-100-neonatologie-br-la-kleinsten-sind-per-dich-la-grossten-universitats-kinderspital-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "dipl-pflegefachfrau-dipl-pflegefachmann-80-100-neonatologie-br-die-kleinsten-sind-fur-dich",
+          "dipl-pflegefachfrau-dipl-pflegefachmann-80-100-neonatologie-br-la-kleinsten-sind-per-dich-la-grossten-universitats-kinderspital-zurich"
+        ],
+        "en": [
+          "dipl-pflegefachfrau-dipl-pflegefachmann-80-100-neonatologie-br-die-kleinsten-sind-fur-dich"
+        ],
+        "fr": [
           "dipl-pflegefachfrau-dipl-pflegefachmann-80-100-neonatologie-br-die-kleinsten-sind-fur-dich"
         ]
       },
@@ -5152,12 +5155,12 @@
     },
     {
       "id": "kispi-513f0724d8d0",
-      "slug": "berufsbildnerin-pflege-m-w-d-in-kombination-con-einer-anstellung-come-dipl-pflegefachperson-auf-der-schwerpunktstation-1-per-neurologie-neurochirurgie-e-allgemeine-padiatrie-univ",
+      "slug": "consulente-senior-m-w-in-combinazione-con-un-lavoro-come-dipl-specialista-di-cura-al-centro-della-stazione-di-gravita-1",
       "slugByLocale": {
-        "it": "berufsbildnerin-pflege-m-w-d-in-kombination-con-einer-anstellung-come-dipl-pflegefachperson-auf-der-schwerpunktstation-1-per-neurologie-neurochirurgie-e-allgemeine-padiatrie-univ",
-        "en": "berufsbildnerin-pflege-m-w-in-kombination-mit-einer-anstellung-als-dipl-pflegefachperson",
+        "it": "consulente-senior-m-w-in-combinazione-con-un-lavoro-come-dipl-specialista-di-cura-al-centro-della-stazione-di-gravita-1",
+        "en": "senior-consultant-m-w-in-combination-with-a-job-as-dipl-care-specialist-at-the-center-of-gravity-station-1-1-for",
         "de": "berufsbildnerin-pflege-m-w-in-kombination-mit-einer-anstellung-als-dipl-pflegefachperson",
-        "fr": "berufsbildnerin-pflege-m-w-in-kombination-mit-einer-anstellung-als-dipl-pflegefachperson"
+        "fr": "consultant-principal-m-m-en-combinaison-avec-un-emploi-comme-dipl-specialiste-des-soins-au-centre-de-gravite-1-1-pour-la"
       },
       "company": "Universitäts-Kinderspital Zürich",
       "companyKey": "kispi",
@@ -5200,10 +5203,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "berufsbildnerin-pflege-m-w-in-kombination-mit-einer-anstellung-als-dipl-pflegefachperson"
+        "berufsbildnerin-pflege-m-w-in-kombination-mit-einer-anstellung-als-dipl-pflegefachperson",
+        "berufsbildnerin-pflege-m-w-d-in-kombination-con-einer-anstellung-come-dipl-pflegefachperson-auf-der-schwerpunktstation-1-per-neurologie-neurochirurgie-e-allgemeine-padiatrie-univ"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "berufsbildnerin-pflege-m-w-in-kombination-mit-einer-anstellung-als-dipl-pflegefachperson",
+          "berufsbildnerin-pflege-m-w-d-in-kombination-con-einer-anstellung-come-dipl-pflegefachperson-auf-der-schwerpunktstation-1-per-neurologie-neurochirurgie-e-allgemeine-padiatrie-univ"
+        ],
+        "en": [
+          "berufsbildnerin-pflege-m-w-in-kombination-mit-einer-anstellung-als-dipl-pflegefachperson"
+        ],
+        "fr": [
           "berufsbildnerin-pflege-m-w-in-kombination-mit-einer-anstellung-als-dipl-pflegefachperson"
         ]
       },
@@ -5223,12 +5234,12 @@
     },
     {
       "id": "kispi-a09f2909625b",
-      "slug": "pflegeberaterin-m-w-d-20-40-con-klinischer-koordination-neuroorthopala-befristet-bis-ende-jahr-e-aussicht-auf-verlangerung-universitats-kinderspital-zurich",
+      "slug": "consulente-di-cura-m-w-20-40-con-coordinamento-clinico-neuroorthopaedia-terminato-entro-la-fine-dell-anno-e-prospettiva",
       "slugByLocale": {
         "de": "pflegeberaterin-m-w-20-40-mit-klinischer-koordination-neuroorthopadie-befristet-bis-ende",
-        "it": "pflegeberaterin-m-w-d-20-40-con-klinischer-koordination-neuroorthopala-befristet-bis-ende-jahr-e-aussicht-auf-verlangerung-universitats-kinderspital-zurich",
-        "en": "pflegeberaterin-m-w-20-40-mit-klinischer-koordination-neuroorthopadie-befristet-bis-ende",
-        "fr": "pflegeberaterin-m-w-20-40-mit-klinischer-koordination-neuroorthopadie-befristet-bis-ende"
+        "it": "consulente-di-cura-m-w-20-40-con-coordinamento-clinico-neuroorthopaedia-terminato-entro-la-fine-dell-anno-e-prospettiva",
+        "en": "care-consultant-m-w-20-40-with-clinical-coordination-neuroorthopaedia-terminated-by-the-end-of-year-and-prospect-of",
+        "fr": "consultant-en-soins-m-m-de-20-a-40-avec-coordination-clinique-neuroorthopedie-terminee-a-la-fin-de-l-annee-et"
       },
       "company": "Universitäts-Kinderspital Zürich",
       "companyKey": "kispi",
@@ -5274,11 +5285,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "pflegeberaterin-m-w-20-40-mit-klinischer-koordination-neuroorthopadie-befristet-bis-ende",
+          "pflegeberaterin-m-w-d-20-40-con-klinischer-koordination-neuroorthopala-befristet-bis-ende-jahr-e-aussicht-auf-verlangerung-universitats-kinderspital-zurich"
+        ],
+        "en": [
+          "pflegeberaterin-m-w-20-40-mit-klinischer-koordination-neuroorthopadie-befristet-bis-ende"
+        ],
+        "fr": [
           "pflegeberaterin-m-w-20-40-mit-klinischer-koordination-neuroorthopadie-befristet-bis-ende"
         ]
       },
       "previousSlugs": [
-        "pflegeberaterin-m-w-20-40-mit-klinischer-koordination-neuroorthopadie-befristet-bis-ende"
+        "pflegeberaterin-m-w-20-40-mit-klinischer-koordination-neuroorthopadie-befristet-bis-ende",
+        "pflegeberaterin-m-w-d-20-40-con-klinischer-koordination-neuroorthopala-befristet-bis-ende-jahr-e-aussicht-auf-verlangerung-universitats-kinderspital-zurich"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,

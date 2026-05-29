@@ -144,7 +144,6 @@
           "ernahrungsberater-in-hf-bsc-spital-thurgau-stgag-munsterlingen"
         ],
         "de": [
-          "ernahrungsberater-in-hf-bsc-spital-thurgau-stgag-diessenhofen",
           "ernahrungsberater-in-hf-bsc-spital-thurgau-stgag-munsterlingen"
         ],
         "fr": [
@@ -327,9 +326,9 @@
     },
     {
       "id": "stgag-9602659c37b0",
-      "slug": "assistente-medico-nell-ulteriore-educazione-psichiatria-infantile-e-giovanile-e-psicoterapia-spital-thurgau-stgag",
+      "slug": "assistente-medico-nell-ulteriore-educazione-psichiatria-infantile-e-giovanile-e-psicoterapia-spital-thurgau-stgag-19b932",
       "slugByLocale": {
-        "it": "assistenzarzt-arztin-in-facharztweiterbildung-kinder-e-jugendpsychiatrie-e-psychotherapie-spital-thurgau-stgag-munsterlingen",
+        "it": "assistente-medico-nell-ulteriore-educazione-psichiatria-infantile-e-giovanile-e-psicoterapia-spital-thurgau-stgag-19b932",
         "en": "assistant-physician-in-further-education-child-and-youth-psychiatry-and-psychotherapy-spital-thurgau-stgag-munsterlingen",
         "de": "assistenzarzt-arztin-in-facharztweiterbildung-kinder-und-jugendpsychiatrie-und",
         "fr": "medecin-adjoint-en-psychiatrie-et-psychotherapie-des-enfants-et-des-jeunes-spital-thurgau-stgag-munsterlingen"
@@ -376,13 +375,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "assistenzarzt-arztin-in-facharztweiterbildung-kinder-und-jugendpsychiatrie-und",
-        "assistente-medico-nell-ulteriore-educazione-psichiatria-infantile-e-giovanile-e-psicoterapia-spital-thurgau-stgag-19b932",
+        "assistenzarzt-arztin-in-facharztweiterbildung-kinder-e-jugendpsychiatrie-e-psychotherapie-spital-thurgau-stgag-munsterlingen",
         "assistente-medico-nell-ulteriore-educazione-psichiatria-infantile-e-giovanile-e-psicoterapia-spital-thurgau-stgag"
       ],
       "previousSlugsByLocale": {
         "it": [
           "assistenzarzt-arztin-in-facharztweiterbildung-kinder-und-jugendpsychiatrie-und",
-          "assistente-medico-nell-ulteriore-educazione-psichiatria-infantile-e-giovanile-e-psicoterapia-spital-thurgau-stgag-19b932"
+          "assistenzarzt-arztin-in-facharztweiterbildung-kinder-e-jugendpsychiatrie-e-psychotherapie-spital-thurgau-stgag-munsterlingen",
+          "assistente-medico-nell-ulteriore-educazione-psichiatria-infantile-e-giovanile-e-psicoterapia-spital-thurgau-stgag"
         ],
         "en": [
           "assistenzarzt-arztin-in-facharztweiterbildung-kinder-und-jugendpsychiatrie-und"
@@ -561,9 +561,9 @@
     },
     {
       "id": "stgag-40645d00dde2",
-      "slug": "lavoratore-sociale-in-fh-spital-thurgau-stgag-munsterlingen",
+      "slug": "lavoratore-sociale-in-fh-spital-thurgau-stgag-munsterlingen-f02489",
       "slugByLocale": {
-        "it": "sozialarbeiter-in-fh-stgag-munsterlingen",
+        "it": "lavoratore-sociale-in-fh-spital-thurgau-stgag-munsterlingen-f02489",
         "en": "social-worker-in-fh-spital-thurgau-stgag-munsterlingen",
         "de": "sozialarbeiter-in-fh-spital-thurgau-stgag-munsterlingen",
         "fr": "travailleurs-sociaux-en-fh-spital-thurgau-stgag-munsterlingen"
@@ -614,13 +614,15 @@
         ],
         "fr": [
           "sozialarbeiter-in-fh-stgag-munsterlingen"
+        ],
+        "it": [
+          "sozialarbeiter-in-fh-stgag-munsterlingen",
+          "lavoratore-sociale-in-fh-spital-thurgau-stgag-munsterlingen"
         ]
       },
       "previousSlugs": [
         "sozialarbeiter-in-fh-stgag-munsterlingen",
-        "lavoratore-sociale-in-fh-spital-thurgau-stgag-munsterlingen",
-        "social-worker-in-fh-spital-thurgau-stgag-munsterlingen",
-        "travailleurs-sociaux-en-fh-spital-thurgau-stgag-munsterlingen"
+        "lavoratore-sociale-in-fh-spital-thurgau-stgag-munsterlingen"
       ],
       "firstSeenAt": "2026-05-27T14:03:23.160Z",
       "salaryMin": 49500,
@@ -638,12 +640,12 @@
     },
     {
       "id": "stgag-dbcc69bd3abc",
-      "slug": "psychologen-in-con-freude-an-der-arbeit-in-einem-subakuten-setting-e-an-kurztherapien-spital-thurgau-stgag-munsterlingen",
+      "slug": "psicologo-con-piacere-nel-lavoro-in-un-ambiente-subacuto-e-brevi-terapie-spital-thurgau-stgag-munsterlingen",
       "slugByLocale": {
-        "it": "psychologen-in-con-freude-an-der-arbeit-in-einem-subakuten-setting-e-an-kurztherapien-spital-thurgau-stgag-munsterlingen",
-        "en": "psychologen-in-mit-freude-an-der-arbeit-in-einem-subakuten-setting-und-an-kurztherapien",
+        "it": "psicologo-con-piacere-nel-lavoro-in-un-ambiente-subacuto-e-brevi-terapie-spital-thurgau-stgag-munsterlingen",
+        "en": "psychologist-with-pleasure-in-work-in-a-subacute-setting-and-short-therapies-spital-thurgau-stgag-munsterlingen",
         "de": "psychologen-in-mit-freude-an-der-arbeit-in-einem-subakuten-setting-und-an-kurztherapien",
-        "fr": "psychologen-in-mit-freude-an-der-arbeit-in-einem-subakuten-setting-und-an-kurztherapien"
+        "fr": "psychologue-avec-plaisir-au-travail-dans-un-cadre-subaigu-et-des-therapies-courtes-spital-thurgau-stgag-munsterlingen"
       },
       "company": "Spital Thurgau (STGAG)",
       "companyKey": "stgag",
@@ -685,10 +687,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "psychologen-in-mit-freude-an-der-arbeit-in-einem-subakuten-setting-und-an-kurztherapien"
+        "psychologen-in-mit-freude-an-der-arbeit-in-einem-subakuten-setting-und-an-kurztherapien",
+        "psychologen-in-con-freude-an-der-arbeit-in-einem-subakuten-setting-e-an-kurztherapien-spital-thurgau-stgag-munsterlingen"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "psychologen-in-mit-freude-an-der-arbeit-in-einem-subakuten-setting-und-an-kurztherapien",
+          "psychologen-in-con-freude-an-der-arbeit-in-einem-subakuten-setting-e-an-kurztherapien-spital-thurgau-stgag-munsterlingen"
+        ],
+        "en": [
+          "psychologen-in-mit-freude-an-der-arbeit-in-einem-subakuten-setting-und-an-kurztherapien"
+        ],
+        "fr": [
           "psychologen-in-mit-freude-an-der-arbeit-in-einem-subakuten-setting-und-an-kurztherapien"
         ]
       },
@@ -708,10 +718,10 @@
     },
     {
       "id": "stgag-9659526c6043",
-      "slug": "facharzt-arztin-per-radiologie-con-schwerpunkt-brustbildgebung-oa-o-oambf-spital-thurgau-stgag-munsterlingen",
+      "slug": "specialista-in-radiologia-con-focus-sull-imaging-del-seno-oa-o-oambf-spital-thurgau-stgag-munsterlingen",
       "slugByLocale": {
-        "it": "facharzt-arztin-per-radiologie-con-schwerpunkt-brustbildgebung-oa-o-oambf-spital-thurgau-stgag-munsterlingen",
-        "en": "facharzt-arztin-fur-radiologie-mit-schwerpunkt-brustbildgebung-oa-oder-oambf-stgag",
+        "it": "specialista-in-radiologia-con-focus-sull-imaging-del-seno-oa-o-oambf-spital-thurgau-stgag-munsterlingen",
+        "en": "specialist-in-radiology-with-focus-on-breast-imaging-oa-or-oambf-spital-thurgau-stgag-munsterlingen",
         "de": "facharzt-arztin-fur-radiologie-mit-schwerpunkt-brustbildgebung-oa-oder-oambf-stgag",
         "fr": "facharzt-arztin-fur-radiologie-mit-schwerpunkt-brustbildgebung-oa-oder-oambf-stgag"
       },
@@ -755,10 +765,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "facharzt-arztin-fur-radiologie-mit-schwerpunkt-brustbildgebung-oa-oder-oambf-stgag"
+        "facharzt-arztin-fur-radiologie-mit-schwerpunkt-brustbildgebung-oa-oder-oambf-stgag",
+        "facharzt-arztin-per-radiologie-con-schwerpunkt-brustbildgebung-oa-o-oambf-spital-thurgau-stgag-munsterlingen"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "facharzt-arztin-fur-radiologie-mit-schwerpunkt-brustbildgebung-oa-oder-oambf-stgag",
+          "facharzt-arztin-per-radiologie-con-schwerpunkt-brustbildgebung-oa-o-oambf-spital-thurgau-stgag-munsterlingen"
+        ],
+        "en": [
           "facharzt-arztin-fur-radiologie-mit-schwerpunkt-brustbildgebung-oa-oder-oambf-stgag"
         ]
       },
