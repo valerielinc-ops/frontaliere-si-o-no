@@ -19,7 +19,7 @@ Ogni 🟡 nit, ❓ q del reviewer bot e voce `## Non implementato` del PR body D
 Estrai sezione `## Non implementato (ancora)`. Ogni bullet `- **X** — Y` → candidate item.
 
 - Voci con motivo `out of scope` o `posposto` → skip (esplicitamente droppate).
-- Voci con motivo `follow-up`, `blocked`, `deferred`, o senza motivo → candidate issue.
+- Voci con motivo `follow-up`, `blocked`, `deferred`, o senza motivo → candidate item (entreranno nella checklist unica).
 
 ### Da reviewer bot reviews
 
@@ -41,27 +41,27 @@ Prima di creare issue:
 - `gh issue list --label follow-up --state all --search "<keyword from item>"` — se match titolo >70% similar → skip + log "duplicate of #N".
 - Cerca link a issue/PR nel testo dell'item (`#NNN`) → se referenziato issue/PR open → skip.
 
-## Issue format
+## Issue format — UNA issue per PR (batch, anti-storm)
+
+**Mai una issue per item.** Tutti i candidate validi di una PR vanno in UNA sola issue con checklist. Riduce lo storm (era N issue/PR, es. #845→5, #852→6) a 1 issue/PR.
 
 ```markdown
-Title: follow-up(#<PR>): <one-line item>
+Title: follow-up(#<PR>): <N> item post-merge
 
 Body:
 ## Origine
-- PR: #<PR_NUMBER> <PR_TITLE> (merged <mergedAt>)
-- Source: <PR body Non implementato | reviewer 🟡 nit | reviewer ❓ q | adversarial check>
-- Original text:
-  > <verbatim>
+- PR: #<PR_NUMBER> <PR_TITLE> (merged <mergedAt>) — <url>
 
-## Scope filter
-- Funnel impact: <monetizzazione | traffico | funnel | none>
-- Rationale: <perché passa il filtro>
-
-## Suggested action
-<concrete next step se ovvio dal contesto; altrimenti "investigate + decide drop or impl">
+## Checklist
+- [ ] **<one-line item>** — _source: <Non implementato | 🟡 nit | ❓ q | adversarial>_ · funnel: <monetizzazione|traffico|funnel|none> · azione: <next step o "investigate">
+  > <verbatim, se utile>
+- [ ] **<item 2>** — ...
+- [ ] ...
 ```
 
-Labels: `follow-up`, e UNO tra `funnel-monetization` / `funnel-seo` / `funnel-ux` se inferibile dal scope filter.
+Se esiste già una issue aperta `follow-up(#<PR>)` → aggiungi i nuovi item alla sua checklist via `gh issue edit --body`, NON crearne un'altra.
+
+Labels: `follow-up`, e UNO tra `funnel-monetization` / `funnel-seo` / `funnel-ux` se la maggioranza degli item è inferibile a quel funnel.
 
 ## Closing comment
 
@@ -70,9 +70,9 @@ Dopo aver creato issue (o droppato item), posta UN commento sulla PR riepilogati
 ```markdown
 ## Post-merge follow-up triage
 
-Created: N issue
-- #<id1> <title1>
-- #<id2> <title2>
+Created: 1 issue #<id> (<N> item in checklist)
+- <item 1>
+- <item 2>
 
 Dropped: M item
 - "<verbatim>" — <reason: out-of-scope | dup-of-#X | non-funnel>
@@ -88,5 +88,5 @@ Se zero issue create + zero drop → posta `## Post-merge follow-up triage: zero
 - Mai modificare label/state/title della PR.
 - Mai chiudere/riaprire issue.
 - Zero finding accettabile (PR LGTM puro senza Non implementato). NON inventare.
-- Incerto sul filtro scopo → crea issue comunque, rationale "needs triage". Drop è più costoso di una issue extra.
-- Limite hard: max 10 issue create per PR. Oltre → posta commento "throttled, manual triage needed" e termina.
+- Incerto sul filtro scopo → includi l'item nella checklist con nota "needs triage". Drop è più costoso di una riga checklist.
+- **Limite hard: 1 issue per PR** (batch checklist). Mai aprire una seconda issue per la stessa PR.

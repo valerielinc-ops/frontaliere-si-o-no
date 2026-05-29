@@ -543,9 +543,15 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
+          # Titolo STABILE (senza run-number): github-issue-creator.mjs dedupa sui
+          # primi 60 char del titolo → con un run-number nel titolo ogni run aveva
+          # prefix unico e apriva una issue nuova (storm: 8 issue/giorno). Titolo
+          # stabile → le run successive diventano commenti 🔁 sulla issue canonica.
+          # Il run-number resta nella description.
           node scripts/lib/github-issue-creator.mjs \
-            --title "Validation Failure (dist): post-deploy — run ${{ github.run_number }}" \
+            --title "Validation Failure (dist): post-deploy" \
             --description "## Dist validation post-deploy fallita
+          **Validation run #:** ${{ github.run_number }}
           **Deploy run:** https://github.com/${{ github.repository }}/actions/runs/${{ inputs.deploy_run_id }}
           **Validation run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
           **Branch:** ${{ github.ref_name }}

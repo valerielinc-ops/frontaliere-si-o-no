@@ -51,16 +51,20 @@ Iniettato in ogni sessione agent. Detail durevole nei docs, carica on-demand.
 
 ## Auth automazioni & frugalità quota
 
-- **Auth Claude = SOLO `CLAUDE_CODE_OAUTH_TOKEN`** (subscription Max, zero costo $) per TUTTI i workflow agentici: `pr-review-loop`, `issue-triage`, `issue-fix`, `post-merge-followup`. **Mai aggiungere `ANTHROPIC_API_KEY`** (secret inesistente; l'`ANTHROPIC_API_KEY: ""` vuoto nei log è solo la action che sonda un secret assente, innocuo — non è la causa dei fallimenti).
-- **Quota condivisa**: l'OAuth token attinge alla STESSA quota Max della sessione interattiva owner. Burst di run CI (storm di issue, follow-up a cascata) → session limit esaurito anche per l'uso interattivo. Frugalità = ridurre il **numero di invocazioni Claude**, non solo i token/run.
-- Leve frugalità attive: lo step `Apply agent:fix via PAT` salta le issue dedup-chiuse (no fixer sprecato su storm-dup); concurrency serializzata (`cancel-in-progress: false`); dedup-storm chiude duplicati prima del routing. **Mai** abbassare max-turns di `issue-triage`/`pr-review-loop`/`issue-fix`: turni bassi troncano prima degli step obbligatori → `error_max_turns` (triage non instradato / PR #838 senza review). Lever su turni = claim non misurato (#795/#802 revertati).
-- Driver residuo del consumo = volume di issue auto-generate (es. follow-up storm da `post-merge-followup`). Se la quota resta stretta, la leva più grossa è **batchare i follow-up in 1 issue** invece di N.
+- **Auth Claude = SOLO `CLAUDE_CODE_OAUTH_TOKEN`** (subscription Max, zero costo $) per i workflow agentici che usano Claude: `pr-review-loop`, `issue-fix`, `post-merge-followup`. **Mai aggiungere `ANTHROPIC_API_KEY`** (secret inesistente; l'`ANTHROPIC_API_KEY: ""` vuoto nei log è solo la action che sonda un secret assente, innocuo — non è la causa dei fallimenti).
+- **Quota condivisa**: l'OAuth token attinge alla STESSA quota Max della sessione interattiva owner. Burst di run CI → session limit esaurito anche per l'uso interattivo. Frugalità = ridurre il **numero di invocazioni Claude** → si ottiene per **architettura**, non tagliando turni.
+- Leve frugalità attive:
+  - **`issue-triage` = ZERO Claude** (classificazione regex in bash) → eliminati ~50 run Claude/giorno, il driver principale del session-limit.
+  - **Dedup a monte**: titolo stabile per validation-failure (`github-issue-creator.mjs` commenta 🔁 sull'issue canonica, 8→1) + follow-up batchati 1-per-PR (checklist, era N) → meno issue → meno trigger `issue-fix`.
+  - Concurrency serializzata (`cancel-in-progress: false`); routing salta le issue non-OPEN.
+  - **Mai** abbassare max-turns di `pr-review-loop`/`issue-fix`/`post-merge-followup`: turni bassi troncano prima degli step obbligatori → `error_max_turns` (PR #838). Lever su turni = claim non misurato (#795/#802 revertati).
 
 ## Issue automation (loop autonomo)
 
-- Pipeline: monitor → issue → `issue-triage` (classify+dedup, **applica `agent:fix` via `GITHUB_PAT`** da Remote Config) → `issue-fix` (fix→PR) → `pr-review-loop` (`## LGTM`) → `auto-merge-on-lgtm` (merge via PAT) → deploy. Contratto completo in `ISSUES.md`.
-- **Auto-route consentito**: `crawler`, `follow-up`, `validation-failure` (non-storm). **Mai** `revenue`/`tracker` (giudizio strategico → label manuale o `/fix-issue`).
-- **Handoff triage→fix richiede PAT**: una label `agent:fix` aggiunta via `GITHUB_TOKEN` NON triggera `issue-fix` (anti-ricorsione GitHub) e ha sender `github-actions[bot]` che non passa il gate. Stesso vincolo del cascade merge→deploy (#844/#880). I workflow agentici che devono triggerarne altri caricano `GITHUB_PAT` via `scripts/load-rc-env.mjs` (serve Firebase SA).
+- Pipeline: monitor → issue → `issue-triage` (classify+route **deterministico, no Claude**; applica `agent:fix` via `GITHUB_PAT` da RC) → `issue-fix` (fix→PR) → `pr-review-loop` (`## LGTM`) → `auto-merge-on-lgtm` (merge via PAT) → deploy → `post-merge-followup` (batch 1 issue/PR). Contratto completo in `ISSUES.md` / `FOLLOWUP.md`.
+- **Auto-route consentito**: `crawler`, `follow-up`. **Mai** `revenue`/`tracker`/`validation-failure` (strategico o transiente → label manuale o `/fix-issue`).
+- **Dedup a MONTE, non nel triage**: i monitor non devono aprire issue duplicate. Usa `scripts/lib/github-issue-creator.mjs` con **titolo stabile** (no run-number/timestamp nei primi 60 char) → dedupa e commenta sull'issue canonica. I follow-up: 1 issue/PR con checklist (`post-merge-followup` / `FOLLOWUP.md`).
+- **Handoff triage→fix richiede PAT**: una label `agent:fix` via `GITHUB_TOKEN` NON triggera `issue-fix` (anti-ricorsione GitHub) e ha sender `github-actions[bot]` che non passa il gate. Stesso vincolo del cascade merge→deploy (#844/#880). I workflow che devono triggerarne altri caricano `GITHUB_PAT` via `scripts/load-rc-env.mjs` (serve Firebase SA).
 
 ## Build And Test
 
