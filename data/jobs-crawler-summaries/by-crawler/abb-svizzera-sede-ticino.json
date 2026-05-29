@@ -1,18 +1,53 @@
 {
   "key": "abb-svizzera-sede-ticino",
   "label": "ABB",
-  "generatedAt": "2026-05-29T11:19:21.993Z",
-  "total": 13,
-  "newCount": 0,
+  "generatedAt": "2026-05-29T21:55:02.699Z",
+  "total": 14,
+  "newCount": 1,
   "updatedCount": 12,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 40659,
-  "avgDurationMs": 40659,
+  "durationMs": 35490,
+  "avgDurationMs": 35490,
   "durationHistory": [
-    40659
+    35490
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "id": "company-j6oli2",
+      "slug": "80-100-senior-power-electronics-ingegnere-abb-svizzera-sede-ticino-quartino-ticino-j6oli2",
+      "company": "ABB Svizzera (sede Ticino)",
+      "title": "(80 - 100%) Senior Power Electronics Engineer",
+      "location": "Quartino, Ticino",
+      "canton": "TI",
+      "category": "tech",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-29",
+      "url": "https://careers.abb/global/en/job/ABB1GLOBALJR00027707EXTERNALENGLOBAL/XMLNAME--80---100---Senior-Power-Electronics-Engineer",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Quartino, Ticino, Switzerland",
+        "canton": "TI"
+      },
+      "companyKey": "abb-svizzera-sede-ticino",
+      "companyDomain": "abb.ch",
+      "crawledAt": "2026-05-29T21:55:01.928Z",
+      "firstSeenAt": "2026-05-29T21:55:01.928Z",
+      "needsRetranslation": true,
+      "country": "CH",
+      "sourceLang": "en",
+      "_qualityScore": 66,
+      "_qualityBreakdown": {
+        "cleanliness": 17,
+        "richness": 20,
+        "translation": 15,
+        "completeness": 14
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "id": "company-l4n7mk",
