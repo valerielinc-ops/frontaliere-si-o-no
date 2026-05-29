@@ -7850,6 +7850,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.gottardo-lavoratori-frontalieri.title': 'Gottardo: rallentamenti, costi e impatto sui pendolari',
     'blog.article.gottardo-lavoratori-frontalieri.excerpt': 'Il cantiere del secondo tunnel del San Gottardo riapre dopo 11 mesi: ecco come recuperare il tempo perso e le conseguenze sui frontalieri.',
     'blog.article.gottardo-lavoratori-frontalieri.imageAlt': 'Ingresso del tunnel di Airolo con la macchina escavatrice Paulina al lavoro, paesaggio montuoso del Ticino',
+    'blog.article.aumenti-stipendi-ticino-2025.title': 'Svizzera: stipendi 2025 in aumento fino al 2% per specialisti',
+    'blog.article.aumenti-stipendi-ticino-2025.excerpt': 'Secondo Adecco, i salari medi in Svizzera cresceranno fino al 2% nel 2025, con incrementi più alti per specialisti in IA e sostenibilità ESG.',
+    'blog.article.aumenti-stipendi-ticino-2025.imageAlt': 'Vista panoramica di Lugano con le Alpi sullo sfondo in una giornata primaverile',
 };
 
 export default blogMetaIt;

@@ -3858,6 +3858,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-chiusura-amministrazione-ticino-2025': { name: 'Chiusura amministrativa Ticino', path: '/articoli-frontaliere/chiusura-amministrazione-ticino-2025', parent: 'blog' },
     'blog-paulina-tunnel-san-gottardo-2026': { name: 'Tunnel San Gottardo', path: '/articoli-frontaliere/paulina-tunnel-san-gottardo-2026', parent: 'blog' },
     'blog-gottardo-lavoratori-frontalieri': { name: 'Gottardo e frontalieri', path: '/articoli-frontaliere/gottardo-lavoratori-frontalieri', parent: 'blog' },
+    'blog-aumenti-stipendi-ticino-2025': { name: 'Aumenti stipendi Ticino', path: '/articoli-frontaliere/aumenti-stipendi-ticino-2025', parent: 'blog' },
  };
 
  const info = sectionNames[section];

@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2671,
+ "numberOfItems": 2672,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7311,7 +7311,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2668, "name": "Mancato pagamento stipendio: il caso Nidil Cgil...", "url": `${BASE_URL}/articoli-frontaliere/mancato-pagamento-stipendio-lavoratrice` },
           { "@type": "ListItem", "position": 2669, "name": "Chiusura servizi amministrativi Ticino: 31 dice...", "url": `${BASE_URL}/articoli-frontaliere/chiusura-amministrazione-ticino-2025` },
           { "@type": "ListItem", "position": 2670, "name": "Paulina riattiva: ripresa scavo secondo tunnel ...", "url": `${BASE_URL}/articoli-frontaliere/paulina-tunnel-san-gottardo-2026` },
-          { "@type": "ListItem", "position": 2671, "name": "Gottardo: rallentamenti, costi e impatto sui pe...", "url": `${BASE_URL}/articoli-frontaliere/gottardo-lavoratori-frontalieri` }
+          { "@type": "ListItem", "position": 2671, "name": "Gottardo: rallentamenti, costi e impatto sui pe...", "url": `${BASE_URL}/articoli-frontaliere/gottardo-lavoratori-frontalieri` },
+          { "@type": "ListItem", "position": 2672, "name": "Svizzera: stipendi 2025 in aumento fino al 2% p...", "url": `${BASE_URL}/articoli-frontaliere/aumenti-stipendi-ticino-2025` }
  ]
  },
  {
