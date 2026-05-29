@@ -1,18 +1,19 @@
 {
   "key": "posta-svizzera-centro-regionale",
   "label": "Post.ch",
-  "generatedAt": "2026-05-28T13:45:02.564Z",
+  "generatedAt": "2026-05-29T00:12:17.360Z",
   "total": 9,
-  "newCount": 1,
+  "newCount": 0,
   "updatedCount": 7,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 26776,
-  "avgDurationMs": 26776,
+  "unchangedCount": 2,
+  "durationMs": 24976,
+  "avgDurationMs": 24976,
   "durationHistory": [
-    26776
+    24976
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "url": "https://job.post.ch/default/job/E-Mobility-Solution-Engineer/73649-de_DE",
       "applyUrl": "https://job.post.ch/default/job/E-Mobility-Solution-Engineer/73649-de_DE",
@@ -39,43 +40,7 @@
       },
       "crawledAt": "",
       "needsRetranslation": true,
-      "_qualityScore": 64,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 6,
-        "completeness": 9
-      }
-    }
-  ],
-  "updatedJobs": [
-    {
-      "url": "https://job.post.ch/default/job/Solution-Architektin-Customer-Touchpoints/73702-de_DE",
-      "applyUrl": "https://job.post.ch/default/job/Solution-Architektin-Customer-Touchpoints/73702-de_DE",
-      "title": "Solution Architekt:in Customer Touchpoints",
-      "company": "Die Schweizerische Post",
-      "companyKey": "posta-svizzera-centro-regionale",
-      "location": "Bellinzona",
-      "canton": "TI",
-      "country": "CH",
-      "slug": "soluzione-architetto-nei-punti-di-contatto-del-cliente-die-schweizerische-post-bellinzona",
-      "sourceLang": "de",
-      "department": "",
-      "category": "servizi-postali",
-      "datePosted": "2026-05-27",
-      "validThrough": "2026-06-17",
-      "source": "postch-careers-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "",
-      "sector": "Servizi Postali",
-      "workload": "80-100%",
-      "_targetScope": {
-        "canton": "TI",
-        "location": "Bellinzona"
-      },
-      "crawledAt": "",
-      "needsRetranslation": true,
-      "id": "posta-svizzera-centro-regionale-76e98f93c7cf",
+      "id": "posta-svizzera-centro-regionale-7d7319bf0321",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -84,12 +49,12 @@
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "firstSeenAt": "2026-05-27T23:59:14.508Z",
-      "_qualityScore": 85,
+      "firstSeenAt": "2026-05-28T13:45:02.562Z",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 16,
+        "translation": 21,
         "completeness": 20
       }
     },
@@ -362,6 +327,50 @@
   ],
   "removedJobs": [],
   "unchangedJobs": [
+    {
+      "url": "https://job.post.ch/default/job/Solution-Architektin-Customer-Touchpoints/73702-de_DE",
+      "applyUrl": "https://job.post.ch/default/job/Solution-Architektin-Customer-Touchpoints/73702-de_DE",
+      "title": "Solution Architekt:in Customer Touchpoints",
+      "company": "Die Schweizerische Post",
+      "companyKey": "posta-svizzera-centro-regionale",
+      "location": "Bellinzona",
+      "canton": "TI",
+      "country": "CH",
+      "slug": "soluzione-architetto-nei-punti-di-contatto-del-cliente-die-schweizerische-post-bellinzona",
+      "sourceLang": "de",
+      "department": "",
+      "category": "servizi-postali",
+      "datePosted": "2026-05-27",
+      "validThrough": "2026-06-17",
+      "source": "postch-careers-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "",
+      "sector": "Servizi Postali",
+      "workload": "80-100%",
+      "_targetScope": {
+        "canton": "TI",
+        "location": "Bellinzona"
+      },
+      "crawledAt": "",
+      "needsRetranslation": true,
+      "id": "posta-svizzera-centro-regionale-76e98f93c7cf",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "streetAddress": "Via la Santa 1",
+      "postalCode": "6500",
+      "addressLocality": "Bellinzona",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "firstSeenAt": "2026-05-27T23:59:14.508Z",
+      "_qualityScore": 85,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 16,
+        "completeness": 20
+      }
+    },
     {
       "url": "https://job.post.ch/default/job/Senior-Product-Managerin-Digital-Collaboration/73651-de_DE",
       "applyUrl": "https://job.post.ch/default/job/Senior-Product-Managerin-Digital-Collaboration/73651-de_DE",
