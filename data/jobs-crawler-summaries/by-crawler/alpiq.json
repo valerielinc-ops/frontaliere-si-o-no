@@ -1,16 +1,16 @@
 {
   "key": "alpiq",
   "label": "Alpiq",
-  "generatedAt": "2026-05-29T11:24:49.684Z",
+  "generatedAt": "2026-05-29T22:00:47.638Z",
   "total": 2,
   "newCount": 4,
   "updatedCount": 0,
   "removedCount": 2,
   "unchangedCount": 0,
-  "durationMs": 2703,
-  "avgDurationMs": 2703,
+  "durationMs": 3181,
+  "avgDurationMs": 3181,
   "durationHistory": [
-    2703
+    3181
   ],
   "newJobs": [
     {
@@ -37,7 +37,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9538&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-29T11:24:47.877Z",
+      "crawledAt": "2026-05-29T22:00:45.469Z",
       "_qualityScore": 56,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -70,7 +70,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9518&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-29T11:24:47.878Z",
+      "crawledAt": "2026-05-29T22:00:45.471Z",
       "_qualityScore": 43,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -103,7 +103,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9515&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-29T11:24:47.879Z",
+      "crawledAt": "2026-05-29T22:00:45.471Z",
       "_qualityScore": 60,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -136,7 +136,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9486&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-29T11:24:47.879Z",
+      "crawledAt": "2026-05-29T22:00:45.471Z",
       "_qualityScore": 60,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -176,6 +176,7 @@
       "salaryMin": 72000,
       "salaryMax": 97000,
       "firstSeenAt": "2026-03-30T19:56:14.221Z",
+      "country": "CH",
       "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -212,6 +213,7 @@
       "salaryMin": 72000,
       "salaryMax": 97000,
       "firstSeenAt": "2026-03-30T19:56:14.221Z",
+      "country": "CH",
       "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
