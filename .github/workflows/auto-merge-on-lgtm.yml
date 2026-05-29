@@ -77,22 +77,32 @@ jobs:
 
       - name: Squash-merge + delete branch
         env:
-          # env.GITHUB_PAT (da Remote Config) → il push del merge triggera
-          # deploy.yml + tests + lighthouse, e il pull_request:closed triggera
-          # post-merge-followup. Fallback a GITHUB_TOKEN se la RC non carica: il
-          # merge avviene comunque, ma senza cascade (comportamento pre-fix).
-          GH_TOKEN: ${{ env.GITHUB_PAT || secrets.GITHUB_TOKEN }}
+          # Token primario = env.GITHUB_PAT (da Remote Config): il push del merge
+          # triggera deploy.yml + tests + lighthouse, e il pull_request:closed
+          # triggera post-merge-followup. Il GITHUB_TOKEN di fallback serve in
+          # DUE casi (entrambi → merge avviene ma senza cascade, = pre-fix):
+          #   1. RC non carica → env.GITHUB_PAT vuoto → fallback diretto.
+          #   2. Merge col PAT fallisce (es. PAT senza scope PR-write) → retry
+          #      sotto con GITHUB_TOKEN, così l'auto-merge non si rompe mai.
+          PRIMARY_TOKEN: ${{ env.GITHUB_PAT || secrets.GITHUB_TOKEN }}
+          FALLBACK_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          HAS_PAT: ${{ env.GITHUB_PAT != '' }}
           PR_NUMBER: ${{ github.event.pull_request.number }}
+          REPO: ${{ github.repository }}
         run: |
-          if [ -n "${GITHUB_PAT:-}" ]; then
-            echo "Auto-merge PR #$PR_NUMBER via GITHUB_PAT (cascade attivo: deploy + followup)."
+          if [ "$HAS_PAT" = "true" ]; then
+            echo "Auto-merge PR #$PR_NUMBER via GITHUB_PAT (cascade atteso: deploy + followup)."
           else
             echo "::warning::GITHUB_PAT assente — merge via GITHUB_TOKEN, nessun cascade (deploy/followup non partiranno)."
           fi
-          gh pr merge "$PR_NUMBER" \
-            --squash \
-            --delete-branch \
-            --repo "${{ github.repository }}"
+          if ! GH_TOKEN="$PRIMARY_TOKEN" gh pr merge "$PR_NUMBER" --squash --delete-branch --repo "$REPO"; then
+            if [ "$HAS_PAT" = "true" ]; then
+              echo "::warning::Merge col GITHUB_PAT fallito (scope insufficiente?) — retry con GITHUB_TOKEN, nessun cascade."
+              GH_TOKEN="$FALLBACK_TOKEN" gh pr merge "$PR_NUMBER" --squash --delete-branch --repo "$REPO"
+            else
+              exit 1
+            fi
+          fi
 
       - name: Cleanup Firebase credentials
         if: always()
