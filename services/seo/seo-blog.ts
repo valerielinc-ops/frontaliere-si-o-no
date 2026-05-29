@@ -8269,8 +8269,8 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
         "height": 675,
         "caption": "Edificio Ustat a Lugano con neve al crepuscolo"
       },
-      "datePublished": "2026-04-17T09:45:06+00:00",
-      "dateModified": "2026-04-17T09:45:06+00:00",
+      "datePublished": "2025-12-18T09:45:06+00:00",
+      "dateModified": "2025-12-18T09:45:06+00:00",
       "inLanguage": "it",
       "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
