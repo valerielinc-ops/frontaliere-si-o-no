@@ -32,7 +32,12 @@ permissions:
 jobs:
   submit:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    # The full `build:ci` at cathedral scale (23k+ job-seo pages) needs
+    # ~10-15 min on ubuntu-latest (deploy.yml build-profile wall 634-716s);
+    # plus checkout + npm ci + assemble + submit. The old 10-min total cap
+    # turned the OOM fix into a timeout failure. deploy.yml gives its build
+    # job 360 min; 40 here leaves comfortable margin without masking a hang.
+    timeout-minutes: 40
     steps:
       - name: Checkout
         uses: actions/checkout@v5
@@ -53,10 +58,19 @@ jobs:
       - name: Assemble jobs dataset
         run: node scripts/assemble-jobs-dataset.mjs --stats
 
+      # Use the same build entrypoint as deploy.yml (`npm run build:ci`):
+      # 12 GB heap + --expose-gc + sequential plugins keep peak heap low
+      # (~150 MB/plugin). A plain `vite build` at 8 GB OOMs (exit 134) once
+      # the assembled data/jobs.json drives 23k+ job-seo pages — run
+      # 26632264296 hit "Reached heap limit" at the cathedral scale.
+      # SEQUENTIAL_PROFILE=1 forces the memory-safe sequential closeBundle
+      # path; JOBS_SKIP_URL_VALIDATION=1 skips the network HEAD checks we
+      # don't need just to emit sitemaps.
       - name: Build to generate full sitemaps
-        run: npx vite build --logLevel warn
+        run: npm run build:ci
         env:
-          NODE_OPTIONS: '--max-old-space-size=8192'
+          SEQUENTIAL_PROFILE: '1'
+          JOBS_SKIP_URL_VALIDATION: '1'
 
       - name: Submit IndexNow batch
         run: |
