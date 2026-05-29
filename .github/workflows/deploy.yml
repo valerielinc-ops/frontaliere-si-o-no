@@ -84,12 +84,10 @@ on:
         default: false
 
 permissions:
-  # This workflow only needs repository read access: the previous-slug winners
-  # sync moved to post-deploy-validation.yml, while the deploy itself only
-  # uploads artifacts and publishes to GitHub Pages.
+  # Workflow default is read-only. The build job overrides with contents:write
+  # for the gh-pages publish (branch-based deploy). pages:write / id-token:write
+  # were dropped: no actions/deploy-pages or upload-pages-artifact remains.
   contents: read
-  pages: write
-  id-token: write
   issues: write     # for github-issue-creator on build/deploy failure
 
 jobs:

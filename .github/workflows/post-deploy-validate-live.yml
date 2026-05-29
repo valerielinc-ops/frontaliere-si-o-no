@@ -112,7 +112,7 @@ jobs:
           # — now falls inside THIS wait instead of inside the old blocking
           # actions/deploy-pages step. Bump the propagation timeout from the
           # 4-min default to 25 min so build-id actually matches before we fail.
-          node scripts/wait-for-pages-propagation.mjs --timeout-ms 1500000
+          node scripts/wait-for-pages-propagation.mjs --timeout-ms=1500000
           npm run probe:5xx
           npm run test:e2e:live
 
