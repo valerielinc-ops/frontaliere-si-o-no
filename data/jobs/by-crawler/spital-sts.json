@@ -366,7 +366,7 @@
       "id": "spital-sts-bc19f72617d9",
       "slug": "assistente-in-salute-e-sociale-spital-sts-thun",
       "slugByLocale": {
-        "it": "assistente-in-salute-e-sociale-spital-sts-thun",
+        "it": "assistent-in-gesundheit-e-soziales-spital-sts-thun",
         "en": "assistant-in-health-and-social-spital-sts-thun",
         "de": "assistent-in-gesundheit-und-soziales-spital-sts-thun",
         "fr": "assistant-en-sante-et-social-spital-sts-thun"
@@ -413,12 +413,11 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "assistent-in-gesundheit-und-soziales-spital-sts-thun",
-        "assistent-in-gesundheit-e-soziales-spital-sts-thun"
+        "assistente-in-salute-e-sociale-spital-sts-thun"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistent-in-gesundheit-und-soziales-spital-sts-thun",
-          "assistent-in-gesundheit-e-soziales-spital-sts-thun"
+          "assistent-in-gesundheit-und-soziales-spital-sts-thun"
         ],
         "en": [
           "assistent-in-gesundheit-und-soziales-spital-sts-thun"
@@ -674,7 +673,7 @@
         "de": "dipl-pflegefachfrau-mann-beckenbodenzentrum-spital-sts-thun",
         "it": "dipl-pflegefachfrau-mann-beckenbodenzentrum-spital-sts-thun",
         "en": "dipl-pflegefachfrau-mann-beckenbodenzentrum-spital-sts-thun",
-        "fr": "dipl-specialiste-des-soins-infirmiers-mann-beckenbodenzentrum-spital-sts-thun"
+        "fr": "dipl-pflegefachfrau-mann-beckenbodenzentrum-spital-sts-thun"
       },
       "company": "Spital STS",
       "companyKey": "spital-sts",
@@ -738,12 +737,12 @@
     },
     {
       "id": "spital-sts-4032675dc240",
-      "slug": "medicina-sanitaria-professionale-spital-sts-thun",
+      "slug": "fachfrau-mann-gesundheit-medizin-spital-sts-thun",
       "slugByLocale": {
         "de": "fachfrau-mann-gesundheit-medizin-spital-sts-thun",
-        "it": "medicina-sanitaria-professionale-spital-sts-thun",
-        "en": "professional-health-medicine-spital-sts-thun",
-        "fr": "medecine-de-la-sante-professionnelle-spital-sts-thun"
+        "it": "fachfrau-mann-gesundheit-medizin-spital-sts-thun",
+        "en": "fachfrau-mann-gesundheit-medizin-spital-sts-thun",
+        "fr": "fachfrau-mann-gesundheit-medizin-spital-sts-thun"
       },
       "company": "Spital STS",
       "companyKey": "spital-sts",
@@ -800,23 +799,11 @@
       },
       "firstSeenAt": "2026-05-29T14:01:52.514Z",
       "previousSlugs": [
-        "fachfrau-mann-gesundheit-medizin-spital-sts-thun",
         "specialista-della-salute-spital-sts-thun",
         "healthcare-specialist-spital-sts-thun",
         "fachfrau-fachmann-gesundheit-spital-sts-thun",
         "specialiste-de-la-sante-spital-sts-thun"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "fachfrau-mann-gesundheit-medizin-spital-sts-thun"
-        ],
-        "en": [
-          "fachfrau-mann-gesundheit-medizin-spital-sts-thun"
-        ],
-        "fr": [
-          "fachfrau-mann-gesundheit-medizin-spital-sts-thun"
-        ]
-      }
+      ]
     }
   ]
 }
