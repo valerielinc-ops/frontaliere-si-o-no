@@ -1,6 +1,6 @@
 {
   "crawlerKey": "lis-lugano-istituti-sociali",
-  "assembledAt": "2026-05-29T13:09:23.309Z",
+  "assembledAt": "2026-05-29T23:44:52.937Z",
   "jobs": [
     {
       "title": "Capireparto",
@@ -501,7 +501,8 @@
           "collaboratori-sanitari"
         ]
       },
-      "firstSeenAt": "2026-04-13T22:02:43.951Z"
+      "firstSeenAt": "2026-04-13T22:02:43.951Z",
+      "needsRetranslation": true
     },
     {
       "title": "Operatori settore animazione",
@@ -835,7 +836,7 @@
       "slugByLocale": {
         "it": "operatori-socioassistenziali-infanza-lis-lugano-istituti-sociali-pregassona",
         "en": "social-workers-in-fact-lis-lugano-istituti-sociali-pregassona",
-        "de": "sozialarbeiter-in-der-tat-lis-lugano-istituti-sociali-pregassona",
+        "de": "operatori-socioassistenziali-infanza-lis-lugano-istituti-sociali-pregassona",
         "fr": "travailleurs-sociaux-en-fait-lis-lugano-istituti-sociali-pregassona"
       },
       "descriptionByLocale": {
@@ -852,6 +853,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "operatori-socioassistenziali-infanza-lis-lugano-istituti-sociali-pregassona-5xg3s1",
+        "sozialarbeiter-in-der-tat-lis-lugano-istituti-sociali-pregassona",
         "operatori-socioassistenziali-infanza",
         "operatori-socioassistenziali-infanza-lis-lugano-istituti-sociali-lugano"
       ],
@@ -880,7 +882,8 @@
           "operatori-socioassistenziali-infanza-lis-lugano-istituti-sociali-pregassona-5xg3s1"
         ],
         "de": [
-          "operatori-socioassistenziali-infanza-lis-lugano-istituti-sociali-pregassona-5xg3s1"
+          "operatori-socioassistenziali-infanza-lis-lugano-istituti-sociali-pregassona-5xg3s1",
+          "sozialarbeiter-in-der-tat-lis-lugano-istituti-sociali-pregassona"
         ],
         "fr": [
           "operatori-socioassistenziali-infanza-lis-lugano-istituti-sociali-pregassona-5xg3s1"
