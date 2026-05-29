@@ -46,8 +46,12 @@ jobs:
         run: node scripts/load-rc-env.mjs
 
       - name: Run GSC Job Indexation Monitor
-        env:
-          GITHUB_PAT: ${{ secrets.GITHUB_PAT }}
+        # GITHUB_PAT NON impostato qui: ereditato da $GITHUB_ENV via "Load secrets
+        # from Remote Config". Prima era `${{ secrets.GITHUB_PAT }}` (non esiste
+        # come secret → stringa vuota) che shadowava il valore RC →
+        # monitor-gsc-job-indexation.mjs cadeva su IndexNow invece di triggerare
+        # auto-redeploy su regressioni canonical (funnel-critical). Vedi nota in
+        # generate-article.yml: "Do NOT shadow it with secrets.GITHUB_PAT".
         run: node scripts/monitor-gsc-job-indexation.mjs
 
       - name: Cleanup credentials
