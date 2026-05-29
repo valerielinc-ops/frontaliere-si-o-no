@@ -13,12 +13,15 @@ on:
     #   - docs/markdown, file CI/workflow, test, config agent: nessun output dist.
     # NON ignorati (toccano il dist): build-plugins/, services/, components/,
     # scripts/ (assemble-jobs gira a build-time), data/jobs*, vite/index/package.
+    # NB: usiamo `*.md` (root) + `docs/**`, NON `**/*.md`: `public/**/*.md`
+    # (es. press-kit) è copiato verbatim da Vite (publicDir) nel dist → resta
+    # dist-bound e deve poter deployare.
     paths-ignore:
       - 'data/border-wait-current.json'
       - 'data/border-wait-history/**'
       - 'data/border-wait-averages.json'
       - 'data/weather-snapshot.json'
-      - '**/*.md'
+      - '*.md'
       - 'docs/**'
       - '.github/**'
       - 'tests/**'
