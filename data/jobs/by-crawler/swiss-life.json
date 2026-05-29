@@ -1,6 +1,6 @@
 {
   "crawlerKey": "swiss-life",
-  "assembledAt": "2026-05-29T00:53:42.003Z",
+  "assembledAt": "2026-05-29T14:16:04.759Z",
   "jobs": [
     {
       "id": "swiss-life-d704bb7df9ab",
@@ -33,7 +33,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Visp/Immobilienberater--w-m-d----Generalagentur-Visp-Oberwallis_R11690",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-29T00:53:39.616Z",
+      "crawledAt": "2026-05-29T14:16:02.292Z",
       "addressLocality": "Visp",
       "addressCountry": "CH",
       "country": "CH",
@@ -94,6 +94,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:22:40.576Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -106,7 +107,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "3930"
+      "postalCode": "3930",
+      "addressRegion": "VS"
     },
     {
       "id": "swiss-life-925a50eb1c92",
@@ -139,7 +141,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Visp/Vorsorge--und-Finanzberatende--w-m-d----im-Rahmen-einer-Nachfolgeregelung---Generalagentur-Visp-Oberwallis_R09488",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-29T00:53:38.929Z",
+      "crawledAt": "2026-05-29T14:16:01.515Z",
       "addressLocality": "Visp",
       "addressCountry": "CH",
       "country": "CH",
@@ -192,7 +194,6 @@
         "consulente-previdenziale-e-finanziario-f-m-d-nell-ambito-di-una-successione-agenzia-generale-visp-oberwallis-swiss-life-",
         "vorsorge-und-finanzberatende-w-m-d-im-rahmen-einer-nachfolgeregelung-generalagentur-visp",
         "pension-and-financial-advisor-f-m-d-as-part-of-a-succession-plan-general-agency-visp-oberwallis-swiss-life-visp",
-        "consulente-in-assicurazioni-e-finanza-w-m-d-nel-quadro-di-una-successione-agenzia-generale-visp-oberwallis-swiss-life-vi",
         "consulente-in-assicurazioni-e-finanza-w-m-d-nel-quadro-di-una-successione-agenzia-generale-visp-oberwallis-swiss-life-vi"
       ],
       "previousSlugsByLocale": {
@@ -206,6 +207,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:22:39.938Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -218,7 +220,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "3930"
+      "postalCode": "3930",
+      "addressRegion": "VS"
     },
     {
       "id": "swiss-life-a8186e2c72af",
@@ -251,7 +254,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Visp/Vorsorge--und-Finanzberatende--w-m-d----Quereinsteigende-willkommen--Generalagentur-Visp-Oberwallis_R08506-1",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-29T00:53:38.146Z",
+      "crawledAt": "2026-05-29T14:16:00.696Z",
       "addressLocality": "Visp",
       "addressCountry": "CH",
       "country": "CH",
@@ -323,6 +326,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:22:39.261Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -335,7 +339,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "3930"
+      "postalCode": "3930",
+      "addressRegion": "VS"
     },
     {
       "id": "swiss-life-e12b28060b4c",
@@ -368,7 +373,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Sion/Conseiller-en-immobilier--f-h-d-----Agence-gnrale-Sion-Valais-romand--Rgion-Sion---Sierre-_R11696",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-29T00:53:37.445Z",
+      "crawledAt": "2026-05-29T14:15:59.874Z",
       "addressLocality": "Sion",
       "addressCountry": "CH",
       "country": "CH",
@@ -436,6 +441,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:22:38.624Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -448,7 +454,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1950"
+      "postalCode": "1950",
+      "addressRegion": "VS"
     },
     {
       "id": "swiss-life-733ff068b71f",
@@ -481,7 +488,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Sion/Conseiller-conseillre-en-prvoyance-et-en-finance--f-h-d--dans-le-cadre-du-rglement-de-la-succession---Agence-gnrale-Sion-Valais-romand---rgion-Val-de-Bagnes_R09487",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-29T00:53:36.757Z",
+      "crawledAt": "2026-05-29T14:15:59.060Z",
       "addressLocality": "Sion",
       "addressCountry": "CH",
       "country": "CH",
@@ -549,6 +556,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:22:37.994Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -561,7 +569,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1950"
+      "postalCode": "1950",
+      "addressRegion": "VS"
     },
     {
       "id": "swiss-life-4f6fc0ebcee0",
@@ -594,7 +603,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Sion/Conseiller-conseillre-en-prvoyance-et-en-finance--f-h-d--dans-le-cadre-du-rglement-de-la-succession---Agence-gnrale-Sion-Valais-romand---rgion-Val-d-Anniviers_R09486",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-29T00:53:35.997Z",
+      "crawledAt": "2026-05-29T14:15:58.275Z",
       "addressLocality": "Sion",
       "addressCountry": "CH",
       "country": "CH",
@@ -656,6 +665,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:22:37.334Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -668,7 +678,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1950"
+      "postalCode": "1950",
+      "addressRegion": "VS"
     },
     {
       "id": "swiss-life-a86fd26bef3f",
@@ -701,7 +712,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Sion/Conseiller-conseillre-en-prvoyance-et-en-finance--f-h-d--avec-exprience-professionnelle---Agence-gnrale-Sion-Valais-romand_R09485",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-29T00:53:35.267Z",
+      "crawledAt": "2026-05-29T14:15:57.276Z",
       "addressLocality": "Sion",
       "addressCountry": "CH",
       "country": "CH",
@@ -772,6 +783,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:22:36.431Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -784,7 +796,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1950"
+      "postalCode": "1950",
+      "addressRegion": "VS"
     },
     {
       "id": "swiss-life-d19c34b9869e",
@@ -817,7 +830,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Lausanne/Conseiller-conseillre-en-prvoyance-et-en-finance--f-h-d----Romandie_R08713",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-29T00:53:34.488Z",
+      "crawledAt": "2026-05-29T14:15:56.483Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -886,6 +899,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:22:35.812Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -898,7 +912,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1003"
+      "postalCode": "1003",
+      "addressRegion": "VD"
     }
   ]
 }
