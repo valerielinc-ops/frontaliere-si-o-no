@@ -944,7 +944,7 @@
       "id": "spital-buelach-03116e6fd244",
       "slug": "casa-di-nascita-spital-bulach-bulach",
       "slugByLocale": {
-        "it": "casa-di-nascita-spital-bulach-bulach",
+        "it": "parto-in-seconda-posizione-spital-bulach-bulach",
         "en": "zweithebamme-geburtshaus-spital-buelach-bulach",
         "de": "zweithebamme-geburtshaus-spital-buelach-bulach",
         "fr": "maison-de-naissance-spital-bulach-bulach"
@@ -1009,13 +1009,13 @@
       },
       "previousSlugs": [
         "zweithebamme-geburtshaus-spital-buelach-bulach",
-        "parto-in-seconda-posizione-spital-bulach-bulach",
-        "sage-femme-de-garde-pour-accouchements-secondaires-spital-bulach-bulach"
+        "sage-femme-de-garde-pour-accouchements-secondaires-spital-bulach-bulach",
+        "casa-di-nascita-spital-bulach-bulach",
+        "maison-de-naissance-spital-bulach-bulach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "zweithebamme-geburtshaus-spital-buelach-bulach",
-          "parto-in-seconda-posizione-spital-bulach-bulach"
+          "zweithebamme-geburtshaus-spital-buelach-bulach"
         ],
         "fr": [
           "sage-femme-de-garde-pour-accouchements-secondaires-spital-bulach-bulach"
@@ -1373,7 +1373,7 @@
       "id": "spital-buelach-de11182034b0",
       "slug": "studenti-soggetti-operazionitechnik-hf-spital-bulach-bulach",
       "slugByLocale": {
-        "it": "studenti-soggetti-operazionitechnik-hf-spital-bulach-bulach",
+        "it": "studente-specialista-in-tecnologia-operatoria-hf-spital-bulach-bulach",
         "en": "studierende-fachperson-operationstechnik-hf-spital-buelach-bulach",
         "de": "studierende-fachperson-operationstechnik-hf-spital-buelach-bulach",
         "fr": "etudiant-specialiste-en-technologie-operatoire-hf-spital-bulach-bulach"
@@ -1445,13 +1445,12 @@
       },
       "previousSlugs": [
         "studierende-fachperson-operationstechnik-hf-spital-buelach-bulach",
-        "studente-specialista-in-tecnologia-operatoria-hf-spital-bulach-bulach",
-        "fachpersonal-operationstechnik-hf-spital-bulach-bulach"
+        "fachpersonal-operationstechnik-hf-spital-bulach-bulach",
+        "studenti-soggetti-operazionitechnik-hf-spital-bulach-bulach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "studierende-fachperson-operationstechnik-hf-spital-buelach-bulach",
-          "studente-specialista-in-tecnologia-operatoria-hf-spital-bulach-bulach"
+          "studierende-fachperson-operationstechnik-hf-spital-buelach-bulach"
         ],
         "de": [
           "fachpersonal-operationstechnik-hf-spital-bulach-bulach"
@@ -1475,7 +1474,7 @@
       "id": "spital-buelach-f2cc077f7436",
       "slug": "studenti-specialista-radiologia-hf-spital-bulach-bulach",
       "slugByLocale": {
-        "it": "studenti-specialista-radiologia-hf-spital-bulach-bulach",
+        "it": "studente-di-radiologia-hf-spital-bulach-bulach",
         "en": "students-radiology-specialist-hf-spital-bulach-bulach",
         "de": "studierende-radiologiefachperson-hf-spital-buelach-bulach",
         "fr": "etudiants-specialiste-en-radiologie-hf-spital-bulach-bulach"
@@ -1551,14 +1550,15 @@
       },
       "previousSlugs": [
         "studierende-radiologiefachperson-hf-spital-buelach-bulach",
-        "studente-di-radiologia-hf-spital-bulach-bulach",
         "radiology-student-hf-spital-bulach-bulach",
-        "etudiant-en-radiologie-hf-spital-bulach-bulach"
+        "etudiant-en-radiologie-hf-spital-bulach-bulach",
+        "studenti-specialista-radiologia-hf-spital-bulach-bulach",
+        "students-radiology-specialist-hf-spital-bulach-bulach",
+        "etudiants-specialiste-en-radiologie-hf-spital-bulach-bulach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "studierende-radiologiefachperson-hf-spital-buelach-bulach",
-          "studente-di-radiologia-hf-spital-bulach-bulach"
+          "studierende-radiologiefachperson-hf-spital-buelach-bulach"
         ],
         "en": [
           "radiology-student-hf-spital-bulach-bulach"
@@ -2236,7 +2236,7 @@
       "id": "spital-buelach-a918d8d25129",
       "slug": "dipl-specialista-di-cura-cura-intensiva-spital-bulach-bulach",
       "slugByLocale": {
-        "it": "dipl-specialista-di-cura-cura-intensiva-spital-bulach-bulach",
+        "it": "infermiere-specializzata-in-terapia-intensiva-spital-bulach-bulach",
         "en": "dipl-pflegefachperson-intensivstation-spital-buelach-bulach",
         "de": "dipl-pflegefachperson-intensivstation-spital-buelach-bulach",
         "fr": "dipl-specialiste-des-soins-soins-intensifs-spital-bulach-bulach"
@@ -2310,16 +2310,16 @@
       },
       "previousSlugs": [
         "dipl-pflegefachperson-intensivstation-spital-buelach-bulach",
-        "infermiere-specializzata-in-terapia-intensiva-spital-bulach-bulach",
         "infirmier-specialise-en-soins-intensifs-spital-bulach-bulach",
         "infermiere-professionale-chirurgia-spital-bulach-bulach",
         "dipl-pflegefachperson-chirurgie-spital-buelach-bulach",
-        "infirmier-diplome-chirurgie-spital-bulach-bulach"
+        "infirmier-diplome-chirurgie-spital-bulach-bulach",
+        "dipl-specialista-di-cura-cura-intensiva-spital-bulach-bulach",
+        "dipl-specialiste-des-soins-soins-intensifs-spital-bulach-bulach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-intensivstation-spital-buelach-bulach",
-          "infermiere-specializzata-in-terapia-intensiva-spital-bulach-bulach"
+          "dipl-pflegefachperson-intensivstation-spital-buelach-bulach"
         ],
         "fr": [
           "infirmier-specialise-en-soins-intensifs-spital-bulach-bulach"
@@ -2904,7 +2904,7 @@
       "id": "spital-buelach-963dc314638b",
       "slug": "responsabile-del-dipartimento-o-della-medicina-del-co-guide-spital-bulach-bulach",
       "slugByLocale": {
-        "it": "responsabile-del-dipartimento-o-della-medicina-del-co-guide-spital-bulach-bulach",
+        "it": "abteilungsleitung-o-co-leitung-pflegeabteilung-medizin-spital-bulach",
         "en": "head-of-department-or-co-guide-care-department-medicine-spital-bulach-bulach",
         "de": "abteilungsleitung-oder-co-leitung-pflegeabteilung-medizin-spital-buelach-bulach",
         "fr": "chef-de-departement-ou-co-guide-departement-de-soins-medecine-spital-bulach-bulach"
@@ -2951,12 +2951,11 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "abteilungsleitung-oder-co-leitung-pflegeabteilung-medizin-spital-buelach-bulach",
-        "abteilungsleitung-o-co-leitung-pflegeabteilung-medizin-spital-bulach"
+        "responsabile-del-dipartimento-o-della-medicina-del-co-guide-spital-bulach-bulach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "abteilungsleitung-oder-co-leitung-pflegeabteilung-medizin-spital-buelach-bulach",
-          "abteilungsleitung-o-co-leitung-pflegeabteilung-medizin-spital-bulach"
+          "abteilungsleitung-oder-co-leitung-pflegeabteilung-medizin-spital-buelach-bulach"
         ],
         "en": [
           "abteilungsleitung-oder-co-leitung-pflegeabteilung-medizin-spital-buelach-bulach"
@@ -3394,19 +3393,18 @@
       "companyDomain": "spitalbuelach.ch",
       "title": "Praktikant:in Pflege Akutgeriatrie",
       "titleByLocale": {
-        "it": "Praktikant:in Pflege Akutgeriatrie",
-        "en": "Praktikant:in Pflege Akutgeriatrie",
+        "it": "Interno/in Cura Akutgeriatrie",
+        "en": "Intern/in Care Akutgeriatrie",
         "de": "Praktikant:in Pflege Akutgeriatrie",
-        "fr": "Praktikant:in Pflege Akutgeriatrie"
+        "fr": "Stagiaire: à Pflege Akutgeriatrie"
       },
       "description": "<b>Das Spital Bülach wächst - wachsen Sie mit.</b>\n\nAufgaben:\n• Mithilfe beim Ausführen der Grundpflege und Betreuung der Patientinnen und Patienten gemäss Anweisung\n\n• Erledigen von hauswirtschaftlichen Tätigkeiten im direkten Umfeld der Patientinnen und Patienten\n\n• Ausführen von Boten- und Transportgängen\n\nAnforderungen:\n• Mindestalter von 18 Jahren ist Bedingung\n\n• Wunsch einer späteren Berufswahl im Gesundheitswesen\n\n• Bereitschaft zum Schichtdienst\n\n• Gute mündliche Deutschkenntnisse\n\nWir bieten:\nP1-oeV.svg,P2-Verpflegung.svg,P3-Verguenstigungen.svg,P4-Umkleidepauschale.svg,P5-Sozialleistungen.svg,P6-Gesundheitsfoerderung.svg,P15-Jahresarbeitszeit-Pflege.svg,P11-Wertschaetzung.svg\n\nDas Spital Bülach sichert mit seinen 170 Betten und rund 1'200 Mitarbeitenden die medizinische Versorgung von 180'000 Menschen im Zürcher Unterland und den angrenzenden Regionen. Jährlich behandeln und betreuen wir rund 10'000 stationäre und über 78'000 ambulante Patientinnen und Patienten. Insgesamt erblicken im Spital Bülach jährlich rund 1'400 Babys das Licht der Welt.",
       "descriptionByLocale": {
-        "it": "<b>Das Spital Bülach wächst - wachsen Sie mit.</b> Aufgaben:\n• Mithilfe beim Ausführen der Grundpflege und Betreuung der Patientinnen und Patienten gemäss Anweisung\n• Erledigen von hauswirtschaftlichen Tätigkeiten im direkten Umfeld der Patientinnen und Patienten\n• Ausführen von Boten- und Transportgängen Anforderungen:\n• Mindestalter von 18 Jahren ist Bedingung\n• Wunsch einer späteren Berufswahl im Gesundheitswesen\n• Bereitschaft zum Schichtdienst\n• Gute mündliche Deutschkenntnisse Wir bieten: P1-oeV.svg,P2-Verpflegung.svg,P3-Verguenstigungen.svg,P4-Umkleidepauschale.svg,P5-Sozialleistungen.svg,P6-Gesundheitsfoerderung.svg,P15-Jahresarbeitszeit-Pflege.svg,P11-Wertschaetzung.svg Das Spital Bülach sichert mit seinen 170 Betten und rund 1'200 Mitarbeitenden die medizinische Versorgung von 180'000 Menschen im Zürcher Unterland und den angrenzenden Regionen. Jährlich behandeln und betreuen wir rund 10'000 stationäre und über 78'000 ambulante Patientinnen und Patienten. Insgesamt erblicken im Spital Bülach jährlich rund 1'400 Babys das Licht der Welt.",
-        "en": "<b>Das Spital Bülach wächst - wachsen Sie mit.</b> Aufgaben:\n• Mithilfe beim Ausführen der Grundpflege und Betreuung der Patientinnen und Patienten gemäss Anweisung\n• Erledigen von hauswirtschaftlichen Tätigkeiten im direkten Umfeld der Patientinnen und Patienten\n• Ausführen von Boten- und Transportgängen Anforderungen:\n• Mindestalter von 18 Jahren ist Bedingung\n• Wunsch einer späteren Berufswahl im Gesundheitswesen\n• Bereitschaft zum Schichtdienst\n• Gute mündliche Deutschkenntnisse Wir bieten: P1-oeV.svg,P2-Verpflegung.svg,P3-Verguenstigungen.svg,P4-Umkleidepauschale.svg,P5-Sozialleistungen.svg,P6-Gesundheitsfoerderung.svg,P15-Jahresarbeitszeit-Pflege.svg,P11-Wertschaetzung.svg Das Spital Bülach sichert mit seinen 170 Betten und rund 1'200 Mitarbeitenden die medizinische Versorgung von 180'000 Menschen im Zürcher Unterland und den angrenzenden Regionen. Jährlich behandeln und betreuen wir rund 10'000 stationäre und über 78'000 ambulante Patientinnen und Patienten. Insgesamt erblicken im Spital Bülach jährlich rund 1'400 Babys das Licht der Welt.",
-        "de": "<b>Das Spital Bülach wächst - wachsen Sie mit.</b> Aufgaben:\n• Mithilfe beim Ausführen der Grundpflege und Betreuung der Patientinnen und Patienten gemäss Anweisung\n• Erledigen von hauswirtschaftlichen Tätigkeiten im direkten Umfeld der Patientinnen und Patienten\n• Ausführen von Boten- und Transportgängen Anforderungen:\n• Mindestalter von 18 Jahren ist Bedingung\n• Wunsch einer späteren Berufswahl im Gesundheitswesen\n• Bereitschaft zum Schichtdienst\n• Gute mündliche Deutschkenntnisse Wir bieten: P1-oeV.svg,P2-Verpflegung.svg,P3-Verguenstigungen.svg,P4-Umkleidepauschale.svg,P5-Sozialleistungen.svg,P6-Gesundheitsfoerderung.svg,P15-Jahresarbeitszeit-Pflege.svg,P11-Wertschaetzung.svg Das Spital Bülach sichert mit seinen 170 Betten und rund 1'200 Mitarbeitenden die medizinische Versorgung von 180'000 Menschen im Zürcher Unterland und den angrenzenden Regionen. Jährlich behandeln und betreuen wir rund 10'000 stationäre und über 78'000 ambulante Patientinnen und Patienten. Insgesamt erblicken im Spital Bülach jährlich rund 1'400 Babys das Licht der Welt.",
-        "fr": "<b>Das Spital Bülach wächst - wachsen Sie mit.</b> Aufgaben:\n• Mithilfe beim Ausführen der Grundpflege und Betreuung der Patientinnen und Patienten gemäss Anweisung\n• Erledigen von hauswirtschaftlichen Tätigkeiten im direkten Umfeld der Patientinnen und Patienten\n• Ausführen von Boten- und Transportgängen Anforderungen:\n• Mindestalter von 18 Jahren ist Bedingung\n• Wunsch einer späteren Berufswahl im Gesundheitswesen\n• Bereitschaft zum Schichtdienst\n• Gute mündliche Deutschkenntnisse Wir bieten: P1-oeV.svg,P2-Verpflegung.svg,P3-Verguenstigungen.svg,P4-Umkleidepauschale.svg,P5-Sozialleistungen.svg,P6-Gesundheitsfoerderung.svg,P15-Jahresarbeitszeit-Pflege.svg,P11-Wertschaetzung.svg Das Spital Bülach sichert mit seinen 170 Betten und rund 1'200 Mitarbeitenden die medizinische Versorgung von 180'000 Menschen im Zürcher Unterland und den angrenzenden Regionen. Jährlich behandeln und betreuen wir rund 10'000 stationäre und über 78'000 ambulante Patientinnen und Patienten. Insgesamt erblicken im Spital Bülach jährlich rund 1'400 Babys das Licht der Welt."
+        "it": "La Spital Bülach cresce - crescere con voi.\n\nCompiti:\n• Utilizzo della cura e della cura di base dei pazienti secondo le istruzioni\n\n• Fare attività domestiche nell'ambiente diretto dei pazienti\n\n• Eseguire messaggeri e trasporti\n\nRequisiti:\n• Età minima di 18 è condizione\n\n• Un desiderio di una scelta di carriera successiva nella sanità\n\n• prontezza del lavoro a turni\n\n• Buona conoscenza orale tedesca\n\nOffriamo:\nP1-oeV.svg,P2-Verpflage.svg,P3-Verguenstigungen.svg,P4-Umkleidepauschale.svg,P5-Social benefit.svg,P6-Gesundheitfoerderung.svg,P15-Jahresarbeitzeit-Pflege Sv.\n\nCon i suoi 170 letti e circa 1.200 dipendenti, Spital Bülach assicura l'assistenza medica di 180'000 persone nella Zürcher Unterland e nelle regioni adiacenti. Ogni anno trattiamo e manteniamo circa 10.000 pazienti stazionari e oltre 78'000 pazienti ambulatoriali. In totale, circa 1'400 bambini vedono la luce del mondo allo Spital Bülach ogni anno.",
+        "en": "The Spital Bülach grows - grow with you. Tasks: • With the help of the basic care and care of patients according to the instruction • Doing domestic activities in the direct environment of patients • Executing messengers and transport courses Requirements: • Minimum age of 18 is condition • A desire for a later career choice in the health sector • readiness to shiftwork • We offer: P1-oeV.svg,P2-Verpflage.svg,P3-Verguenstigungen.svg,P4-Umkleidepauschale.svg,P5-Social benefits.svg,P6-Gesundheitfoerderung.svg,P15-Jahrearbeitzeit-Pflege.svg,P11-vge Every year, we treat and maintain about 10,000 stationary patients and over 78'000 outpatient patients. In total, around 1'400 babies see the light of the world at the Spital Bülach annually.",
+        "de": "Das Spital Bülach wächst - wachsen Sie mit.\n\nAufgaben:\n• Mithilfe beim Ausführen der Grundpflege und Betreuung der Patientinnen und Patienten gemäss Anweisung\n\n• Erledigen von hauswirtschaftlichen Tätigkeiten im direkten Umfeld der Patientinnen und Patienten\n\n• Ausführen von Boten- und Transportgängen\n\nAnforderungen:\n• Mindestalter von 18 Jahren ist Bedingung\n\n• Wunsch einer späteren Berufswahl im Gesundheitswesen\n\n• Bereitschaft zum Schichtdienst\n\n• Gute mündliche Deutschkenntnisse\n\nWir bieten:\nP1-oeV.svg,P2-Verpflegung.svg,P3-Verguenstigungen.svg,P4-Umkleidepauschale.svg,P5-Sozialleistungen.svg,P6-Gesundheitsfoerderung.svg,P15-Jahresarbeitszeit-Pflege.svg,P11-Wertschaetzung.svg\n\nDas Spital Bülach sichert mit seinen 170 Betten und rund 1'200 Mitarbeitenden die medizinische Versorgung von 180'000 Menschen im Zürcher Unterland und den angrenzenden Regionen. Jährlich behandeln und betreuen wir rund 10'000 stationäre und über 78'000 ambulante Patientinnen und Patienten. Insgesamt erblicken im Spital Bülach jährlich rund 1'400 Babys das Licht der Welt.",
+        "fr": "Le Bülach Spital pousse - grandir avec vous.\n\nTâches :\n• Utiliser les soins de base et les soins des patients selon les instructions\n\n• Activités domestiques dans l'environnement direct des patients\n\n• Exécution de messagers et de transports\n\nExigences:\n• L'âge minimum de 18 ans est l'état\n\n• Le désir d'un choix de carrière ultérieur en soins de santé\n\n• préparation au travail posté\n\n• Bonne connaissance orale allemande\n\nNous offrons:\nP1-oeV.svg,P2-Verpflage.svg,P3-Verguentigungen.svg,P4-Umkleidepaschale.svg,P5-Prestations sociales.svg,P6-Gesundheitfoerderung.svg,P15-Jahresarbeitzeit-Pflege.svg,P11-Wertschaerung. Svg\n\nAvec ses 170 lits et environ 1'200 employés, Spital Bülach assure les soins médicaux de 180'000 personnes dans l'Unterland de Zürcher et les régions adjacentes. Chaque année, nous traitons et maintenons environ 10 000 patients en établissement et plus de 78'000 patients externes. Au total, environ 1'400 bébés voient la lumière du monde au Spital Bülach chaque année."
       },
-      "needsRetranslation": true,
       "location": "Bülach",
       "canton": "ZH",
       "url": "https://job.spitalbuelach.ch/offene-stellen/praktikant-in-pflege-akutgeriatrie/45c9d113-e74b-4b93-8000-85b625aa11dd",
@@ -3458,18 +3456,17 @@
       "title": "Dipl. Pflegefachperson Altersmedizin & Traumatologie",
       "titleByLocale": {
         "it": "Dipl. Pflegefachperson Altersmedizin & Traumatologie",
-        "en": "Dipl. Pflegefachperson Altersmedizin & Traumatologie",
-        "de": "Dipl. Pflegefachperson Altersmedizin & Traumatologie",
-        "fr": "Dipl. Pflegefachperson Altersmedizin & Traumatologie"
+        "en": "Certified Nurse in Geriatrics & Traumatology",
+        "de": "Pflegefachperson Altersmedizin und Traumatologie",
+        "fr": "Infirmier(ère) diplômé(e) en gériatrie et traumatologie"
       },
       "description": "<b>Das Spital Bülach wächst - wachse mit.</b>\n\nAufgaben:\n• Du betreust unsere geriatrischen Patient:innen nach einem Unfall oder einer Krankheit ganzheitlich, von der Akutphase bis zur Frührehabilitation\n\n• Du arbeitest Hand in Hand mit einem interprofessionellen Team zusammen. Gemeinsam plant ihr die Komplexbehandlung der Patient:innen\n\n• Du gibst Wissen weiter: Begleitung von Lernenden/Studierenden gehört für dich selbstverständlich dazu\n\n• Ob Teilzeit, Langzeitpflege oder Wiedereinstieg, bei uns sind Alle Willkommen!\n\nAnforderungen:\n• Du hast ein Diplom Pflegefachperson HF/FH oder gleichwertig\n\n• Du hast wie man so schön sagt, das \"Herz am rechten Fleck\"\n\n• Du bist teamstark, zuverlässig und arbeitest selbstständig\n\n• Du teilst mit uns die Begeisterung für die Altersmedizin\n Warum du es lieben wirst?\n• Start: strukturierte Einarbeitung, Mentoring und bezahlte Weiterbildungstage\n\n• Interdisziplinär ganz nah: Zusammenarbeit, die echt ist, nicht nur ein Schlagwort\n\n• Familiäres Umfeld: Wertschätzung, Humor und ein starker Zusammenhalt sind uns wichtig. Positiv Leadership gehört bei uns dazu\n\n• Dienstplanung: Dank unserem preisgekrönten Arbeitsmodell, planen wir die Dienste wie sie zu deinem Leben passen\n\nWir bieten:\nP1-oeV.svg,P2-Verpflegung.svg,P3-Verguenstigungen.svg,P4-Umkleidepauschale.svg,P5-Sozialleistungen.svg,P7-Arbeitszeit.svg,P9-Einsatzmodell-Pflege.svg,P11-Wertschaetzung.svg,P13-Kaffeepause.svg\n\nDas Spital Bülach sichert mit seinen 170 Betten und rund 1'200 Mitarbeitenden die medizinische Versorgung von 180'000 Menschen im Zürcher Unterland und den angrenzenden Regionen. Jährlich behandeln und betreuen wir rund 10'000 stationäre und über 78'000 ambulante Patientinnen und Patienten. Insgesamt erblicken im Spital Bülach jährlich rund 1'400 Babys das Licht der Welt.",
       "descriptionByLocale": {
-        "it": "<b>Das Spital Bülach wächst - wachse mit.</b> Aufgaben:\n• Du betreust unsere geriatrischen Patient:innen nach einem Unfall oder einer Krankheit ganzheitlich, von der Akutphase bis zur Frührehabilitation\n• Du arbeitest Hand in Hand mit einem interprofessionellen Team zusammen. Gemeinsam plant ihr die Komplexbehandlung der Patient:innen\n• Du gibst Wissen weiter: Begleitung von Lernenden/Studierenden gehört für dich selbstverständlich dazu\n• Ob Teilzeit, Langzeitpflege oder Wiedereinstieg, bei uns sind Alle Willkommen! Anforderungen:\n• Du hast ein Diplom Pflegefachperson HF/FH oder gleichwertig\n• Du hast wie man so schön sagt, das \"Herz am rechten Fleck\"\n• Du bist teamstark, zuverlässig und arbeitest selbstständig\n• Du teilst mit uns die Begeisterung für die Altersmedizin Warum du es lieben wirst?\n• Start: strukturierte Einarbeitung, Mentoring und bezahlte Weiterbildungstage\n• Interdisziplinär ganz nah: Zusammenarbeit, die echt ist, nicht nur ein Schlagwort\n• Familiäres Umfeld: Wertschätzung, Humor und ein starker Zusammenhalt sind uns wichtig. Positiv Leadership gehört bei uns dazu\n• Dienstplanung: Dank unserem preisgekrönten Arbeitsmodell, planen wir die Dienste wie sie zu deinem Leben passen Wir bieten: P1-oeV.svg,P2-Verpflegung.svg,P3-Verguenstigungen.svg,P4-Umkleidepauschale.svg,P5-Sozialleistungen.svg,P7-Arbeitszeit.svg,P9-Einsatzmodell-Pflege.svg,P11-Wertschaetzung.svg,P13-Kaffeepause.svg Das Spital Bülach sichert mit seinen 170 Betten und rund 1'200 Mitarbeitenden die medizinische Versorgung von 180'000 Menschen im Zürcher Unterland und den angrenzenden Regionen. Jährlich behandeln und betreuen wir rund 10'000 stationäre und über 78'000 ambulante Patientinnen und Patienten. Insgesamt erblicken im Spital Bülach jährlich rund 1'400 Babys das Licht der Welt.",
-        "en": "<b>Das Spital Bülach wächst - wachse mit.</b> Aufgaben:\n• Du betreust unsere geriatrischen Patient:innen nach einem Unfall oder einer Krankheit ganzheitlich, von der Akutphase bis zur Frührehabilitation\n• Du arbeitest Hand in Hand mit einem interprofessionellen Team zusammen. Gemeinsam plant ihr die Komplexbehandlung der Patient:innen\n• Du gibst Wissen weiter: Begleitung von Lernenden/Studierenden gehört für dich selbstverständlich dazu\n• Ob Teilzeit, Langzeitpflege oder Wiedereinstieg, bei uns sind Alle Willkommen! Anforderungen:\n• Du hast ein Diplom Pflegefachperson HF/FH oder gleichwertig\n• Du hast wie man so schön sagt, das \"Herz am rechten Fleck\"\n• Du bist teamstark, zuverlässig und arbeitest selbstständig\n• Du teilst mit uns die Begeisterung für die Altersmedizin Warum du es lieben wirst?\n• Start: strukturierte Einarbeitung, Mentoring und bezahlte Weiterbildungstage\n• Interdisziplinär ganz nah: Zusammenarbeit, die echt ist, nicht nur ein Schlagwort\n• Familiäres Umfeld: Wertschätzung, Humor und ein starker Zusammenhalt sind uns wichtig. Positiv Leadership gehört bei uns dazu\n• Dienstplanung: Dank unserem preisgekrönten Arbeitsmodell, planen wir die Dienste wie sie zu deinem Leben passen Wir bieten: P1-oeV.svg,P2-Verpflegung.svg,P3-Verguenstigungen.svg,P4-Umkleidepauschale.svg,P5-Sozialleistungen.svg,P7-Arbeitszeit.svg,P9-Einsatzmodell-Pflege.svg,P11-Wertschaetzung.svg,P13-Kaffeepause.svg Das Spital Bülach sichert mit seinen 170 Betten und rund 1'200 Mitarbeitenden die medizinische Versorgung von 180'000 Menschen im Zürcher Unterland und den angrenzenden Regionen. Jährlich behandeln und betreuen wir rund 10'000 stationäre und über 78'000 ambulante Patientinnen und Patienten. Insgesamt erblicken im Spital Bülach jährlich rund 1'400 Babys das Licht der Welt.",
-        "de": "<b>Das Spital Bülach wächst - wachse mit.</b> Aufgaben:\n• Du betreust unsere geriatrischen Patient:innen nach einem Unfall oder einer Krankheit ganzheitlich, von der Akutphase bis zur Frührehabilitation\n• Du arbeitest Hand in Hand mit einem interprofessionellen Team zusammen. Gemeinsam plant ihr die Komplexbehandlung der Patient:innen\n• Du gibst Wissen weiter: Begleitung von Lernenden/Studierenden gehört für dich selbstverständlich dazu\n• Ob Teilzeit, Langzeitpflege oder Wiedereinstieg, bei uns sind Alle Willkommen! Anforderungen:\n• Du hast ein Diplom Pflegefachperson HF/FH oder gleichwertig\n• Du hast wie man so schön sagt, das \"Herz am rechten Fleck\"\n• Du bist teamstark, zuverlässig und arbeitest selbstständig\n• Du teilst mit uns die Begeisterung für die Altersmedizin Warum du es lieben wirst?\n• Start: strukturierte Einarbeitung, Mentoring und bezahlte Weiterbildungstage\n• Interdisziplinär ganz nah: Zusammenarbeit, die echt ist, nicht nur ein Schlagwort\n• Familiäres Umfeld: Wertschätzung, Humor und ein starker Zusammenhalt sind uns wichtig. Positiv Leadership gehört bei uns dazu\n• Dienstplanung: Dank unserem preisgekrönten Arbeitsmodell, planen wir die Dienste wie sie zu deinem Leben passen Wir bieten: P1-oeV.svg,P2-Verpflegung.svg,P3-Verguenstigungen.svg,P4-Umkleidepauschale.svg,P5-Sozialleistungen.svg,P7-Arbeitszeit.svg,P9-Einsatzmodell-Pflege.svg,P11-Wertschaetzung.svg,P13-Kaffeepause.svg Das Spital Bülach sichert mit seinen 170 Betten und rund 1'200 Mitarbeitenden die medizinische Versorgung von 180'000 Menschen im Zürcher Unterland und den angrenzenden Regionen. Jährlich behandeln und betreuen wir rund 10'000 stationäre und über 78'000 ambulante Patientinnen und Patienten. Insgesamt erblicken im Spital Bülach jährlich rund 1'400 Babys das Licht der Welt.",
-        "fr": "<b>Das Spital Bülach wächst - wachse mit.</b> Aufgaben:\n• Du betreust unsere geriatrischen Patient:innen nach einem Unfall oder einer Krankheit ganzheitlich, von der Akutphase bis zur Frührehabilitation\n• Du arbeitest Hand in Hand mit einem interprofessionellen Team zusammen. Gemeinsam plant ihr die Komplexbehandlung der Patient:innen\n• Du gibst Wissen weiter: Begleitung von Lernenden/Studierenden gehört für dich selbstverständlich dazu\n• Ob Teilzeit, Langzeitpflege oder Wiedereinstieg, bei uns sind Alle Willkommen! Anforderungen:\n• Du hast ein Diplom Pflegefachperson HF/FH oder gleichwertig\n• Du hast wie man so schön sagt, das \"Herz am rechten Fleck\"\n• Du bist teamstark, zuverlässig und arbeitest selbstständig\n• Du teilst mit uns die Begeisterung für die Altersmedizin Warum du es lieben wirst?\n• Start: strukturierte Einarbeitung, Mentoring und bezahlte Weiterbildungstage\n• Interdisziplinär ganz nah: Zusammenarbeit, die echt ist, nicht nur ein Schlagwort\n• Familiäres Umfeld: Wertschätzung, Humor und ein starker Zusammenhalt sind uns wichtig. Positiv Leadership gehört bei uns dazu\n• Dienstplanung: Dank unserem preisgekrönten Arbeitsmodell, planen wir die Dienste wie sie zu deinem Leben passen Wir bieten: P1-oeV.svg,P2-Verpflegung.svg,P3-Verguenstigungen.svg,P4-Umkleidepauschale.svg,P5-Sozialleistungen.svg,P7-Arbeitszeit.svg,P9-Einsatzmodell-Pflege.svg,P11-Wertschaetzung.svg,P13-Kaffeepause.svg Das Spital Bülach sichert mit seinen 170 Betten und rund 1'200 Mitarbeitenden die medizinische Versorgung von 180'000 Menschen im Zürcher Unterland und den angrenzenden Regionen. Jährlich behandeln und betreuen wir rund 10'000 stationäre und über 78'000 ambulante Patientinnen und Patienten. Insgesamt erblicken im Spital Bülach jährlich rund 1'400 Babys das Licht der Welt."
+        "it": "La Spital Bülach cresce - wachse mit. Compiti: • Si entra nei nostri pazienti geriatrici: olistico dopo un incidente o una malattia, dalla fase acuta alla riabilitazione precoce • Lavori di pari passo con una squadra interprofessionale. Insieme, si pianifica il trattamento complesso dei pazienti: all'interno • Si passa alla conoscenza: Accompagnare gli studenti / studenti è naturalmente la vostra • Sia che part-time, la cura a lungo termine o il riavvio, con noi sono tutti i benvenuti! Requisiti: • Hai una persona infermieristica Diploma HF/FH o equivalente • Sai come dire il \"cuore sul posto giusto\" • Siete team forte, affidabile e di lavoro indipendentemente • Condividi con noi l'entusiasmo per la medicina di vecchiaia Perché ti piacerà? • Inizio: integrazione strutturata, mentoring e giornate di formazione a pagamento • Interdisciplina molto vicina: cooperazione genuina, non solo una parola chiave • ambiente familiare: apprezzamento, umorismo e forte coesione sono importanti per noi. Positive Leadership appartiene a noi • Progettazione del servizio: Grazie al nostro modello di lavoro pluripremiato, pianifichiamo i servizi come si adattano alla vostra vita Offriamo: P1-oeV.svg,P2-Verpflegung.svg,P3-Verguenstigungen.svg,P4-Umkleidepauschale.svg,P5-Socialgtime. Ogni anno trattiamo e manteniamo circa 10.000 pazienti stazionari e oltre 78'000 pazienti ambulatoriali. In totale, circa 1'400 bambini vedono la luce del mondo allo Spital Bülach ogni anno.",
+        "en": "The Spital Bülach grows - wachse mit.\n\nTasks:\n• You enter our geriatric patients: holistic after an accident or illness, from the acute phase to early rehabilitation\n\n• You work hand in hand with an interprofessional team. Together you plan the complex treatment of the patient: inside\n\n• You pass on knowledge: Accompaniment of learners/students belongs to you of course\n\n• Whether part-time, long-term care or restarting, with us are all welcome!\n\nRequirements:\n• You have a Diploma Nursing Person HF/FH or equivalent\n\n• You know how to say that \"heart on the right spot\"\n\n• You are team strong, reliable and work independently\n\n• You share with us the enthusiasm for old age medicine\nWhy do you love it?\n• Start: structured integration, mentoring and paid training days\n\n• Interdiscipline very close: cooperation that is genuine, not just a keyword\n\n• Family environment: appreciation, humour and strong cohesion are important to us. Positive Leadership belongs to us\n\n• Service planning: Thanks to our award-winning work model, we plan the services as they fit your life\n\nWe offer:\nP1-oeV.svg,P2-Verpflage.svg,P3-Verguenstigungen.svg,P4-Umkleidepauschale.svg,P5- Soziales.svg,P7- Arbeitszeit.svg,P9-Einsatzmodell-Pflege.svg,P11-Wertschaerung.svg,P13-Kaffeepause. Svg\n\nWith its 170 beds and around 1'200 employees, Spital Bülach ensures the medical care of 180'000 people in the Zürcher Unterland and the adjacent regions. Every year, we treat and maintain about 10,000 stationary patients and over 78'000 outpatient patients. In total, around 1'400 babies see the light of the world at the Spital Bülach annually.",
+        "de": "Das Spital Bülach wächst - wachse mit.\n\nAufgaben:\n• Du betreust unsere geriatrischen Patient:innen nach einem Unfall oder einer Krankheit ganzheitlich, von der Akutphase bis zur Frührehabilitation\n\n• Du arbeitest Hand in Hand mit einem interprofessionellen Team zusammen. Gemeinsam plant ihr die Komplexbehandlung der Patient:innen\n\n• Du gibst Wissen weiter: Begleitung von Lernenden/Studierenden gehört für dich selbstverständlich dazu\n\n• Ob Teilzeit, Langzeitpflege oder Wiedereinstieg, bei uns sind Alle Willkommen!\n\nAnforderungen:\n• Du hast ein Diplom Pflegefachperson HF/FH oder gleichwertig\n\n• Du hast wie man so schön sagt, das \"Herz am rechten Fleck\"\n\n• Du bist teamstark, zuverlässig und arbeitest selbstständig\n\n• Du teilst mit uns die Begeisterung für die Altersmedizin\nWarum du es lieben wirst?\n• Start: strukturierte Einarbeitung, Mentoring und bezahlte Weiterbildungstage\n\n• Interdisziplinär ganz nah: Zusammenarbeit, die echt ist, nicht nur ein Schlagwort\n\n• Familiäres Umfeld: Wertschätzung, Humor und ein starker Zusammenhalt sind uns wichtig. Positiv Leadership gehört bei uns dazu\n\n• Dienstplanung: Dank unserem preisgekrönten Arbeitsmodell, planen wir die Dienste wie sie zu deinem Leben passen\n\nWir bieten:\nP1-oeV.svg,P2-Verpflegung.svg,P3-Verguenstigungen.svg,P4-Umkleidepauschale.svg,P5-Sozialleistungen.svg,P7-Arbeitszeit.svg,P9-Einsatzmodell-Pflege.svg,P11-Wertschaetzung.svg,P13-Kaffeepause.svg\n\nDas Spital Bülach sichert mit seinen 170 Betten und rund 1'200 Mitarbeitenden die medizinische Versorgung von 180'000 Menschen im Zürcher Unterland und den angrenzenden Regionen. Jährlich behandeln und betreuen wir rund 10'000 stationäre und über 78'000 ambulante Patientinnen und Patienten. Insgesamt erblicken im Spital Bülach jährlich rund 1'400 Babys das Licht der Welt.",
+        "fr": "Le Bülach Spital pousse - wachse mit.\n\nTâches :\n• Vous entrez chez nos patients gériatriques : holistique après un accident ou une maladie, de la phase aiguë à la réadaptation précoce\n\n• Vous travaillez main dans la main avec une équipe interprofessionnelle. Ensemble, vous planifiez le traitement complexe du patient: à l'intérieur\n\n• Vous transmettez des connaissances: L'accompagnement des apprenants/étudiants vous appartient bien sûr\n\n• Qu'il s'agisse de soins à temps partiel, de soins de longue durée ou de reprise, nous sommes tous les bienvenus!\n\nExigences:\n• Vous avez un diplôme en soins infirmiers HF/FH ou équivalent\n\n• Vous savez dire que \"le cœur au bon endroit\"\n\n• Vous êtes une équipe forte, fiable et travaillez indépendamment\n\n• Vous partagez avec nous l'enthousiasme pour la médecine de la vieillesse\nPourquoi tu l'aimes ?\n• Début : journées d'intégration structurée, de mentorat et de formation rémunérée\n\n• Interdiscipline très proche : une coopération authentique, pas seulement un mot-clé\n\n• Environnement familial : l'appréciation, l'humour et une forte cohésion sont importants pour nous. Le leadership positif nous appartient\n\n• Planification des services : grâce à notre modèle de travail primé, nous planifions les services en fonction de votre vie\n\nNous offrons:\nP1-oeV.svg,P2-Verpflage.svg,P3-Verguentigungen.svg,P4-Umkleidepauschale.svg,P5- Soziales.svg,P7- Arbeitszeit.svg,P9-Einsatzmodell-Pflege.svg,P11-Wertschaerung.svg,P13-Kaffeepause. Svg\n\nAvec ses 170 lits et environ 1'200 employés, Spital Bülach assure les soins médicaux de 180'000 personnes dans l'Unterland de Zürcher et les régions adjacentes. Chaque année, nous traitons et maintenons environ 10 000 patients en établissement et plus de 78'000 patients externes. Au total, environ 1'400 bébés voient la lumière du monde au Spital Bülach chaque année."
       },
-      "needsRetranslation": true,
       "location": "Bülach",
       "canton": "ZH",
       "url": "https://job.spitalbuelach.ch/offene-stellen/dipl-pflegefachperson-altersmedizin-traumatologie/60f5728a-3b52-4151-87db-01ffdb4c1052",

@@ -1,117 +1,5 @@
 [
   {
-    "timestamp": "2026-05-12T09:41:21.784Z",
-    "label": "before",
-    "total": 4259,
-    "needsRetranslation": 944,
-    "incomplete": 369,
-    "complete": 3890,
-    "missingByLocale": {
-      "it": 283,
-      "en": 264,
-      "de": 89,
-      "fr": 295
-    },
-    "topPending": [
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 82
-      },
-      {
-        "company": "Geiser AG",
-        "pending": 74
-      },
-      {
-        "company": "Elektro-Bau AG Rothrist",
-        "pending": 37
-      },
-      {
-        "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
-        "pending": 20
-      },
-      {
-        "company": "UBS",
-        "pending": 19
-      },
-      {
-        "company": "IWC",
-        "pending": 16
-      },
-      {
-        "company": "Regionalspital Surselva",
-        "pending": 15
-      },
-      {
-        "company": "Lonza",
-        "pending": 10
-      },
-      {
-        "company": "Pictet Group",
-        "pending": 10
-      },
-      {
-        "company": "Badrutt's Palace Hotel",
-        "pending": 7
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-05-12T10:32:09.049Z",
-    "label": "after",
-    "total": 4259,
-    "needsRetranslation": 853,
-    "incomplete": 363,
-    "complete": 3896,
-    "missingByLocale": {
-      "it": 279,
-      "en": 259,
-      "de": 86,
-      "fr": 289
-    },
-    "topPending": [
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 82
-      },
-      {
-        "company": "Geiser AG",
-        "pending": 74
-      },
-      {
-        "company": "Elektro-Bau AG Rothrist",
-        "pending": 37
-      },
-      {
-        "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
-        "pending": 20
-      },
-      {
-        "company": "UBS",
-        "pending": 19
-      },
-      {
-        "company": "IWC",
-        "pending": 16
-      },
-      {
-        "company": "Regionalspital Surselva",
-        "pending": 15
-      },
-      {
-        "company": "Lonza",
-        "pending": 10
-      },
-      {
-        "company": "Pictet Group",
-        "pending": 10
-      },
-      {
-        "company": "Badrutt's Palace Hotel",
-        "pending": 7
-      }
-    ]
-  },
-  {
     "timestamp": "2026-05-12T12:24:32.036Z",
     "label": "before",
     "total": 4361,
@@ -11099,6 +10987,118 @@
       "en": 264,
       "de": 194,
       "fr": 350
+    },
+    "topPending": [
+      {
+        "company": "Sulzer",
+        "pending": 83
+      },
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 76
+      },
+      {
+        "company": "Geiser AG",
+        "pending": 76
+      },
+      {
+        "company": "Roche",
+        "pending": 46
+      },
+      {
+        "company": "UBS",
+        "pending": 29
+      },
+      {
+        "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
+        "pending": 23
+      },
+      {
+        "company": "VF International (The North Face, Timberland)",
+        "pending": 21
+      },
+      {
+        "company": "Nestlé",
+        "pending": 15
+      },
+      {
+        "company": "IWC",
+        "pending": 15
+      },
+      {
+        "company": "Regionalspital Surselva",
+        "pending": 15
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-05-29T07:07:19.023Z",
+    "label": "before",
+    "total": 8991,
+    "needsRetranslation": 2256,
+    "incomplete": 646,
+    "complete": 8345,
+    "missingByLocale": {
+      "it": 358,
+      "en": 266,
+      "de": 195,
+      "fr": 353
+    },
+    "topPending": [
+      {
+        "company": "Sulzer",
+        "pending": 83
+      },
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 76
+      },
+      {
+        "company": "Geiser AG",
+        "pending": 76
+      },
+      {
+        "company": "Roche",
+        "pending": 46
+      },
+      {
+        "company": "UBS",
+        "pending": 29
+      },
+      {
+        "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
+        "pending": 23
+      },
+      {
+        "company": "VF International (The North Face, Timberland)",
+        "pending": 21
+      },
+      {
+        "company": "Nestlé",
+        "pending": 15
+      },
+      {
+        "company": "IWC",
+        "pending": 15
+      },
+      {
+        "company": "Regionalspital Surselva",
+        "pending": 15
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-05-29T08:45:51.908Z",
+    "label": "after",
+    "total": 8991,
+    "needsRetranslation": 1891,
+    "incomplete": 588,
+    "complete": 8403,
+    "missingByLocale": {
+      "it": 338,
+      "en": 246,
+      "de": 192,
+      "fr": 333
     },
     "topPending": [
       {
