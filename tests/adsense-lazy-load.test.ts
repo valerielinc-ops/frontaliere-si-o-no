@@ -152,8 +152,24 @@ describe('AdSense lazy loading — SPA AdSenseBanner component', () => {
     // adsense-loader (e.g. the homepage), a no-scroll mobile bounce must still
     // load adsbygoogle.js so anchor + in-page Auto Ads fire. Guard the idle
     // fallback (rIC with setTimeout fallback) and its cleanup against removal.
-    expect(adSenseBanner).toContain('requestIdleCallback');
+    // Pin the *idle-load* call sites specifically, not the bare symbols.
+    // `setTimeout` appears at 4 sites in AdSenseBanner.tsx (fill timeout, idle
+    // fallback, collapse defer, width poll) and `requestIdleCallback` could be
+    // referenced elsewhere — a bare `toContain` would stay green if a refactor
+    // dropped *only* the idle fallback that loads adsbygoogle.js on no-scroll
+    // sessions. Match the exact `() => loadAdSenseScript()` scheduling sites so
+    // removing the Auto Ads idle load (rIC branch OR its setTimeout fallback)
+    // fails the test.
+    expect(adSenseBanner).toMatch(
+      /requestIdleCallback[\s\S]*?\(\s*\(\)\s*=>\s*loadAdSenseScript\(\),\s*\{\s*timeout:\s*3000\s*\}\s*\)/,
+    );
+    expect(adSenseBanner).toMatch(
+      /setTimeout\(\s*\(\)\s*=>\s*loadAdSenseScript\(\),\s*2500\s*\)/,
+    );
+    // Cleanup must cancel both the idle handle and its setTimeout fallback so a
+    // route change before the idle fires doesn't leak a load.
     expect(adSenseBanner).toContain('cancelIdleCallback');
+    expect(adSenseBanner).toContain('clearTimeout');
     // Bot-gated so the idle load never inflates AD_REQUESTS.
     expect(adSenseBanner).toMatch(/if\s*\(\s*!SKIP_FOR_BOT\s*\)/);
   });
