@@ -738,6 +738,12 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
      AR: { it: 'Appenzello Esterno', en: 'Appenzell Ausserrhoden', de: 'Appenzell Ausserrhoden', fr: 'Appenzell Rhodes-Extérieures' },
      AI: { it: 'Appenzello Interno', en: 'Appenzell Innerrhoden', de: 'Appenzell Innerrhoden', fr: 'Appenzell Rhodes-Intérieures' },
      UR: { it: 'Uri', en: 'Uri', de: 'Uri', fr: 'Uri' },
+     // URL group keys (BL+BS → BASILEA, AI+AR → APPENZELLO). The per-canton
+     // landing is emitted once per group under the group section slug, so the
+     // title/lede/breadcrumb must resolve the group key — otherwise the page
+     // renders the raw "BASILEA"/"APPENZELLO" code (e.g. "Lavoro in BASILEA").
+     BASILEA: { it: 'Basilea', en: 'Basel', de: 'Basel', fr: 'Bâle' },
+     APPENZELLO: { it: 'Appenzello', en: 'Appenzell', de: 'Appenzell', fr: 'Appenzell' },
    };
    return localised[code]?.[locale] ?? localised[code]?.it ?? code;
  }

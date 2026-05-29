@@ -104,7 +104,8 @@ import { buildFuelTodayPath } from '@/build-plugins/fuelDailyData';
 import { buildCurrentWeekPath } from '@/build-plugins/weeklyEmployersData';
 import { buildHubPath as buildJobMarketHubPath } from '@/build-plugins/jobMarketSnapshotData';
 import { buildHealthPremiumsCantonPath } from '@/build-plugins/healthPremiumsData';
-import { HUB_SLUGS as SEO_HUB_SLUGS, FOOTER_TOP_SECTORS as SEO_FOOTER_TOP_SECTORS, FOOTER_TOP_CITIES as SEO_FOOTER_TOP_CITIES, HUB_SECTORS as SEO_HUB_SECTORS, type HubLocale as SeoHubLocale } from '@/build-plugins/seoHubsData';
+import { HUB_SLUGS as SEO_HUB_SLUGS, FOOTER_TOP_SECTORS as SEO_FOOTER_TOP_SECTORS, FOOTER_TOP_CITIES as SEO_FOOTER_TOP_CITIES, HUB_SECTORS as SEO_HUB_SECTORS, hubSlugFor as seoHubSlugFor, type HubLocale as SeoHubLocale } from '@/build-plugins/seoHubsData';
+import { resolveCantonSection as resolveSeoCantonSection } from '@/build-plugins/shared/cantonSection';
 import { SECTOR_HUB_KEYS, buildSectorHubPath, type SectorHubKey } from '@/build-plugins/jobSectorLanding';
 import { pushRoute, buildPath, getSeoSection, AppRoute, parsePath } from '@/services/router';
 import type { ActiveTab, CalcolatoreSubTab, ConfrontiSubTab, FiscoSubTab, GuidaSubTab, VitaSubTab, StatsSubTab, BlogArticleId, GlossaryTermId } from '@/services/router';
@@ -2638,11 +2639,31 @@ const App: React.FC = () => {
  {/* Phase 2-UI — SEO hub-page entry points (close orphan/deep-page graph). */}
  {(() => {
    const hubLoc = (locale as SeoHubLocale) || 'it';
-   const hubs = SEO_HUB_SLUGS[hubLoc];
    const sectorMap = Object.fromEntries(SEO_HUB_SECTORS.map((s) => [s.key, s])) as Record<string, typeof SEO_HUB_SECTORS[number]>;
-   const sectionRoot = locale === 'it'
-     ? '/cerca-lavoro-ticino'
-     : `/${locale}/${locale === 'en' ? 'find-jobs-ticino' : locale === 'de' ? 'jobs-im-tessin' : 'trouver-emploi-tessin'}`;
+   // Canton-aware footer scoping. On a per-canton job-board route the SEO hub
+   // footer must point at THAT canton's section/hubs — otherwise every canton
+   // page (e.g. /cerca-lavoro-basilea/) renders Ticino cities, Ticino company
+   // hubs and the Ticino "Tutti i lavori →" links, leaking other cantons'
+   // content. Derived from the URL the same way JobBoard reads its filter
+   // canton (parsePath().route.jobBoardCanton). TI / aggregator / non-job-board
+   // routes keep the legacy Ticino footer byte-for-byte unchanged.
+   const routeCanton = (typeof window !== 'undefined' && activeTab === 'job-board')
+     ? (parsePath(window.location.pathname).route.jobBoardCanton ?? null)
+     : null;
+   const isCantonScoped = !!routeCanton && routeCanton !== 'TI' && routeCanton !== '_AGGREGATE_';
+   const hubs = isCantonScoped
+     ? {
+         jobsAll: seoHubSlugFor(routeCanton as string, hubLoc, 'tutti'),
+         sectorsAll: seoHubSlugFor(routeCanton as string, hubLoc, 'settori'),
+         companiesAll: seoHubSlugFor(routeCanton as string, hubLoc, 'aziende'),
+         articlesAll: SEO_HUB_SLUGS[hubLoc].articlesAll,
+       }
+     : SEO_HUB_SLUGS[hubLoc];
+   const sectionRoot = isCantonScoped
+     ? `${locale === 'it' ? '' : `/${locale}`}/${resolveSeoCantonSection(hubLoc, routeCanton as string)}`
+     : (locale === 'it'
+       ? '/cerca-lavoro-ticino'
+       : `/${locale}/${locale === 'en' ? 'find-jobs-ticino' : locale === 'de' ? 'jobs-im-tessin' : 'trouver-emploi-tessin'}`);
    return (
      <nav
        aria-label={t('seoHubs.footer.title') || 'SEO hub navigation'}
@@ -2663,7 +2684,10 @@ const App: React.FC = () => {
              // sectors without a curated hub. Routing footer traffic through the
              // canonical hub avoids diluting internal SEO equity to non-indexable
              // query URLs and gives users the richer landing page.
-             const hasHub = (SECTOR_HUB_KEYS as readonly string[]).includes(sk);
+             // buildSectorHubPath only emits Ticino sector hubs, so on a
+             // non-TI canton page route the sector chip through that canton's
+             // section search instead of leaking to a TI hub URL.
+             const hasHub = !isCantonScoped && (SECTOR_HUB_KEYS as readonly string[]).includes(sk);
              const href = hasHub
                ? buildSectorHubPath(hubLoc, sk as SectorHubKey)
                : `${sectionRoot}/?q=${encodeURIComponent(label)}`;
@@ -2690,7 +2714,13 @@ const App: React.FC = () => {
            {t('seoHubs.footer.cities') || 'Esplora città'}
          </h3>
          <ul className="space-y-1 list-none p-0 m-0">
-           {SEO_FOOTER_TOP_CITIES.map((c) => (
+           {/* TI-specific city chips. Suppressed on non-TI canton routes —
+               the city keys (lugano/mendrisio/…) are Ticino municipalities and
+               linking them under another canton's section produces wrong-canton
+               or thin/404 city pages. Per-canton top-city chips are deferred
+               (need a build-time top-cities-by-jobcount manifest). The canton's
+               own cities still surface in the JobBoard locality filter + cards. */}
+           {!isCantonScoped && SEO_FOOTER_TOP_CITIES.map((c) => (
              <li key={c.key}>
                <a
                  href={`${sectionRoot}/${c.key}/`}
@@ -2712,6 +2742,12 @@ const App: React.FC = () => {
            {t('seoHubs.footer.companies') || 'Aziende che assumono'}
          </h3>
          <ul className="space-y-1 list-none p-0 m-0">
+           {/* TI-specific employer chips (EOC/ABB/Coop/Migros TI sites).
+               Suppressed on non-TI canton routes — these company-hub slugs only
+               exist under the Ticino section. Per-canton employer chips are
+               deferred (need a per-canton top-employer manifest). */}
+           {!isCantonScoped && (
+             <>
            <li>
              <a href={`${sectionRoot}/azienda-eoc-ente-ospedaliero-cantonale/`} className="text-xs text-subtle hover:text-accent no-underline">EOC</a>
            </li>
@@ -2724,6 +2760,8 @@ const App: React.FC = () => {
            <li>
              <a href={`${sectionRoot}/azienda-migros/`} className="text-xs text-subtle hover:text-accent no-underline">Migros</a>
            </li>
+             </>
+           )}
            <li>
              <a href={hubs.companiesAll} className="text-xs font-semibold text-accent hover:underline no-underline">
                {t('seoHubs.footer.allCompanies') || 'Tutte le aziende →'}

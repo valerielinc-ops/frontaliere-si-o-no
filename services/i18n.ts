@@ -357,24 +357,63 @@ export function useLocale(): [Locale, (l: Locale) => void] {
  return [locale, setLocale];
 }
 
-const CANTON_NAMES: Record<string, Record<string, string>> = {
- TI: { it: 'Ticino', en: 'Ticino', de: 'Tessin', fr: 'Tessin' },
- GR: { it: 'Grigioni', en: 'Graubünden', de: 'Graubünden', fr: 'Grisons' },
- VS: { it: 'Vallese', en: 'Valais', de: 'Wallis', fr: 'Valais' },
+import { getCantonLabel, type CantonLocale } from './cantonList';
+
+const JOB_BOARD_CANTON_AGGREGATE = '_AGGREGATE_';
+
+// Switzerland-wide aggregator label (`/cerca-lavoro-svizzera/`) per locale.
+const AGGREGATE_CANTON_LABEL: Record<Locale, string> = {
+ it: 'Svizzera', en: 'Switzerland', de: 'Schweiz', fr: 'Suisse',
 };
-const CANTON_PREP: Record<string, Record<string, string>> = {
+const AGGREGATE_CANTON_PREP: Record<Locale, string> = {
+ it: 'in Svizzera', en: 'in Switzerland', de: 'in der Schweiz', fr: 'en Suisse',
+};
+
+// Curated prepositional phrases where the article/idiom is irregular and a
+// generic "im Kanton X" / "dans le canton de X" would read unnaturally. Every
+// other canton falls back to {@link defaultCantonPrep}, which is always
+// grammatically correct (just less idiomatic than these hand-tuned forms).
+const CANTON_PREP_OVERRIDES: Record<string, Partial<Record<Locale, string>>> = {
  TI: { it: 'in Ticino', en: 'in Ticino', de: 'im Tessin', fr: 'au Tessin' },
  GR: { it: 'in Grigioni', en: 'in Graubünden', de: 'in Graubünden', fr: 'aux Grisons' },
  VS: { it: 'in Vallese', en: 'in Valais', de: 'im Wallis', fr: 'en Valais' },
 };
 
-/** Returns {canton, cantonPrep} interpolation params for locale-aware strings. */
+function defaultCantonPrep(label: string, locale: Locale): string {
+ switch (locale) {
+ case 'de': return `im Kanton ${label}`;
+ case 'fr': return `dans le canton de ${label}`;
+ case 'en': return `in ${label}`;
+ case 'it':
+ default: return `in ${label}`;
+ }
+}
+
+/**
+ * Returns {canton, cantonPrep} interpolation params for locale-aware strings.
+ *
+ * `cantonCode` accepts any BFS code (`TI`, `ZH`, `BS`…), the URL group keys
+ * (`BASILEA` → "Basilea", `APPENZELLO` → "Appenzello"), or the aggregator
+ * sentinel `_AGGREGATE_` ("Svizzera"). Defaults to `TI` so the dozens of
+ * existing call sites that pass nothing keep rendering the Ticino label
+ * unchanged. Canton-scoped pages (per-canton job board) pass their real code
+ * so the H1/subtitle/CTA reflect the canton the user actually landed on
+ * instead of always saying "Ticino".
+ */
 export function getCantonI18nParams(cantonCode: string = 'TI'): Record<string, string> {
  const locale = getLocale();
+ const upper = String(cantonCode || 'TI').toUpperCase();
+
+ if (upper === JOB_BOARD_CANTON_AGGREGATE) {
  return {
- canton: CANTON_NAMES[cantonCode]?.[locale] || CANTON_NAMES['TI'][locale] || 'Ticino',
- cantonPrep: CANTON_PREP[cantonCode]?.[locale] || CANTON_PREP['TI'][locale] || 'in Ticino',
+ canton: AGGREGATE_CANTON_LABEL[locale],
+ cantonPrep: AGGREGATE_CANTON_PREP[locale],
  };
+ }
+
+ const label = getCantonLabel(upper, locale as CantonLocale);
+ const prep = CANTON_PREP_OVERRIDES[upper]?.[locale] || defaultCantonPrep(label, locale);
+ return { canton: label, cantonPrep: prep };
 }
 
 export function useTranslation() {
