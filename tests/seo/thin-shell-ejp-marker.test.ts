@@ -22,8 +22,9 @@ import { buildGscKeywordThinBody } from '../../build-plugins/shared/gscKeywordTh
 import { buildSoftLandingThinHtml } from '../../build-plugins/shared/softLandingThinShell';
 import { buildBridgeThinHtml } from '../../build-plugins/shared/bridgeThinShell';
 import { buildClusterThinHtml } from '../../build-plugins/shared/clusterThinShell';
+import { EJP_STRIPPED_MARKER } from '../../build-plugins/shared/ejpMarker';
 
-const MARKER = '<!--EJP_STRIPPED-->';
+const MARKER = EJP_STRIPPED_MARKER;
 
 // Wrap a body fragment in a minimal document so the auditor can scan it.
 const wrap = (body: string) =>

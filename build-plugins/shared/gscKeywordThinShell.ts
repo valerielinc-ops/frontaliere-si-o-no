@@ -26,6 +26,8 @@
 // URL into thin-page-promotions-active.json → next deploy returns
 // 'full' for it. Self-heal latency ≤25 h.
 
+import { EJP_STRIPPED_MARKER } from './ejpMarker';
+
 interface ThinBodyOpts {
   locale: string;
   /** Display string for the query, e.g. "infermieri turno notte". */
@@ -61,7 +63,7 @@ export function buildGscKeywordThinBody(opts: ThinBodyOpts): string {
     // Deliberately-thin shell (zero-traffic, SPA-hydrated): mark it so
     // audit:text-html-ratio skips it, same contract as the legacy STRIP_*
     // paths. Uppercase comment survives the HTML minifier's strip pass.
-    `<!--EJP_STRIPPED-->` +
+    EJP_STRIPPED_MARKER +
     `<h1>${opts.h1Title}</h1>` +
     `<p>${prose}</p>`
   );

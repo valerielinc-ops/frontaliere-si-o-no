@@ -20,6 +20,7 @@ import { readFile, stat, writeFile } from 'node:fs/promises';
 import { join, relative, isAbsolute } from 'node:path';
 import { writeAuditReport, relBaseline } from './lib/auditReport.mjs';
 import { walkHtmlFiles, ROOT, DEFAULT_DIST } from './lib/audit-runner.mjs';
+import { EJP_STRIPPED_MARKER } from '../build-plugins/shared/ejpMarker.mjs';
 
 const resolvePath = (p) => (isAbsolute(p) ? p : join(ROOT, p));
 
@@ -112,7 +113,7 @@ export function createAuditor(opts = {}) {
       // survives the HTML minifier's comment-strip pass (which only
       // preserves <!--[A-Z][A-Z0-9_]*-->); accept the legacy lowercase
       // form as well for backward compat with un-minified test fixtures.
-      if (html.includes('<!--EJP_STRIPPED-->') || html.includes('<!--ejp-stripped-->')) {
+      if (html.includes(EJP_STRIPPED_MARKER) || html.includes('<!--ejp-stripped-->')) {
         skippedEjpStripped++;
         return;
       }
