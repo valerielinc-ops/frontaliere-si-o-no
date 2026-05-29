@@ -35,11 +35,19 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PR_NUMBER: ${{ github.event.pull_request.number }}
-        # Tier high (opus, max-turns 25, adversarial pass): toccato test gate,
+        # Tier high (opus, max-turns 40, adversarial pass): toccato test gate,
         # workflow CI, script crawler/migrator/validator, build-plugin. Bug in
         # questi path = falso senso di sicurezza che si propaga su ogni merge,
         # quindi probing più profondo paga. Tier normal (sonnet, max-turns 15)
         # per tutto il resto. Vedi REVIEW.md → "Tier review".
+        #
+        # Budget 25→40: con l'espansione del contratto (REVIEW.md no-short-circuit
+        # su tier high + step 7 perf-claim + escalation ❓ funnel-critical, sopra
+        # il cross-file `rg` probing + adversarial check già presenti) il pass
+        # tier-high su un diff reale sforava i 25 turni e terminava
+        # `error_max_turns` SENZA postare review (PR #838, num_turns=26) — peggio
+        # del process gate, perché niente LGTM → PR bloccata e zero finding.
+        # 26 turni ≈ 3.5 min; 40 ≈ ~5.5 min, ben dentro il timeout 15 min.
         run: |
           set -euo pipefail
           files=$(gh pr view "$PR_NUMBER" --json files --jq '.files[].path')
@@ -57,7 +65,7 @@ jobs:
           if echo "$files" | grep -qE '^(tests/|\.github/workflows/|scripts/|build-plugins/)'; then
             echo "tier=high" >> "$GITHUB_OUTPUT"
             echo "model=claude-opus-4-7" >> "$GITHUB_OUTPUT"
-            echo "max_turns=25" >> "$GITHUB_OUTPUT"
+            echo "max_turns=40" >> "$GITHUB_OUTPUT"
           else
             echo "tier=normal" >> "$GITHUB_OUTPUT"
             echo "model=claude-sonnet-4-6" >> "$GITHUB_OUTPUT"
