@@ -63,7 +63,11 @@ async function main() {
     const loc = detail.location || 'Landquart';
     const company = detail.company || COMPANY_NAME;
     const urlHash = createHash('sha1').update(raw.url).digest('hex').slice(0, 12);
-    const jobSlug = slugify(`${raw.title}-hilcona-${loc}`);
+    // Guard the location token so a missing/invalid value can never leak the
+    // literal string "undefined" into an emitted URL (regression that produced
+    // live /…-hilcona-undefined/ pages and tripped the sitemap-canonical gate).
+    const slugLoc = loc && loc !== 'undefined' ? loc : 'landquart';
+    const jobSlug = slugify(`${raw.title}-hilcona-${slugLoc}`);
     parsedJobs.push({
       id: `hilcona-${urlHash}`, slug: jobSlug,
       slugByLocale: { de: jobSlug },
