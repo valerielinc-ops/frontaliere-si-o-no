@@ -7861,6 +7861,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.salari-specialisti-svizzera-2024.title': 'Swiss Salaries to Rise 1.5-2% in 2024, Favoring Specialists',
     'blog.article.salari-specialisti-svizzera-2024.excerpt': 'Swiss salaries are expected to increase by 1.5-2% in 2024, with specialists in corporate transformation and artificial intelligence benefiting the most. 💡 The growth is moderate, but experts warn that the Swiss labor market is facing significant challenges, including a shortage of skilled workers. 📊 The country\'s economic growth is expected to slow down in 2024, with the GDP forecast to increase by 1.5%. ⚠️ The Swiss government has introduced measures to attract foreign workers, including the introduction of a new cross-border worker permit. The permit allows cross-border workers to work in Switzerland without having to obtain a residence permit. 📊 However, the permit is only available to workers who meet certain requirements, including having a job offer and sufficient financial resources. 💡 The Swiss labor market is also facing challenges related to the aging population and the need for workers to adapt to new technologies. 📊 The country\'s education system is expected to play a key role in addressing these challenges, with a focus on promoting lifelong learning and upskilling. 💡',
     'blog.article.salari-specialisti-svizzera-2024.imageAlt': 'Panoramic view of Lugano\'s financial district with modern buildings and Lake Lugano in the background',
+    'blog.article.caso-nurnberg-risolto-rsi-paga-pretese.title': 'Nurnberg case settled: RSI pays all claims',
+    'blog.article.caso-nurnberg-risolto-rsi-paga-pretese.excerpt': 'The dispute between RSI and journalist Paola Nurnberg is closed. RSI has paid all claims.',
+    'blog.article.caso-nurnberg-risolto-rsi-paga-pretese.imageAlt': 'Panoramic view of Lugano with Lake Lugano and surrounding mountains',
 };
 
 export default blogMetaEn;

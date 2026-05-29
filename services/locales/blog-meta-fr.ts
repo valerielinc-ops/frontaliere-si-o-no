@@ -7862,6 +7862,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.salari-specialisti-svizzera-2024.title': 'Hausse des salaires en Suisse : +1,5-2% en 2024',
     'blog.article.salari-specialisti-svizzera-2024.excerpt': 'Les salaires moyens en Suisse augmenteront entre 1,5% et 2% en 2024, mais les spécialistes en transformation d\'entreprise et en intelligence artificielle en bénéficieront davantage.',
     'blog.article.salari-specialisti-svizzera-2024.imageAlt': 'Vue panoramique du quartier financier de Lugano avec des bâtiments modernes et le lac de Lugano en arrière-plan',
+    'blog.article.caso-nurnberg-risolto-rsi-paga-pretese.title': 'Affaire Nurnberg résolue: RSI paie toutes les demandes',
+    'blog.article.caso-nurnberg-risolto-rsi-paga-pretese.excerpt': 'Le litige entre la RSI et la journaliste Paola Nurnberg est clos. La RSI a payé toutes les demandes.',
+    'blog.article.caso-nurnberg-risolto-rsi-paga-pretese.imageAlt': 'Vue panoramique de Lugano avec le lac de Lugano et les montagnes environnantes',
 };
 
 export default blogMetaFr;

@@ -7860,6 +7860,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.salari-specialisti-svizzera-2024.title': 'Löhne in der Schweiz steigen: +1,5-2% im Jahr 2024, aber nur für Experten',
     'blog.article.salari-specialisti-svizzera-2024.excerpt': 'Die durchschnittlichen Löhne in der Schweiz werden zwischen 1,5 und 2 Prozent im Jahr 2024 steigen, aber die Experten in der Unternehmensumstellung und Künstlicher Intelligenz werden am stärksten davon profitieren. 📊💡⚠️',
     'blog.article.salari-specialisti-svizzera-2024.imageAlt': 'Panoramablick auf das Finanzviertel von Lugano mit modernen Gebäuden und dem Luganersee im Hintergrund',
+    'blog.article.caso-nurnberg-risolto-rsi-paga-pretese.title': 'Fall Nurnberg gelöst: RSI zahlt alle Forderungen',
+    'blog.article.caso-nurnberg-risolto-rsi-paga-pretese.excerpt': 'Der Streit zwischen RSI und der Journalistin Paola Nurnberg ist beendet. Die RSI hat alle Forderungen bezahlt.',
+    'blog.article.caso-nurnberg-risolto-rsi-paga-pretese.imageAlt': 'Panoramablick auf Lugano mit dem Luganersee und den umliegenden Bergen',
 };
 
 export default blogMetaDe;
