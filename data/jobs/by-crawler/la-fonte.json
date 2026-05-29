@@ -1,6 +1,6 @@
 {
   "crawlerKey": "la-fonte",
-  "assembledAt": "2026-05-28T23:45:01.024Z",
+  "assembledAt": "2026-05-29T13:06:11.240Z",
   "jobs": [
     {
       "title": "Supplenti nell’area abitativa a Fonte 3 e Fonte 6",
@@ -105,7 +105,7 @@
       },
       "slugByLocale": {
         "it": "apprendistato-fondazione-la-fonte-luganese-malcantone",
-        "en": "intern-fondazione-la-fonte-luganese-malcantone",
+        "en": "stagiaire-fondazione-la-fonte-luganese-malcantone-v4gbss",
         "de": "stagiaire-fondazione-la-fonte-luganese-malcantone-v4gbss",
         "fr": "stagiaire-fondazione-la-fonte-luganese-malcantone-v4gbss"
       },
@@ -118,6 +118,7 @@
       "id": "la-fonte-fbf80dc4d87c",
       "previousSlugsByLocale": {
         "en": [
+          "intern-fondazione-la-fonte-luganese-malcantone",
           "stagiaire-fondazione-la-fonte-luganese-malcantone-v4gbss"
         ],
         "fr": [
@@ -128,7 +129,7 @@
         ]
       },
       "previousSlugs": [
-        "stagiaire-fondazione-la-fonte-luganese-malcantone-v4gbss",
+        "intern-fondazione-la-fonte-luganese-malcantone",
         "stagiaire-fondazione-la-fonte-luganese-malcantone",
         "stagiaire-la-fonte-luganese-malcantone",
         "apprendistato-fondazione-la-fonte-lugano"
@@ -185,7 +186,7 @@
       },
       "slugByLocale": {
         "it": "apprendisti-e-operatori-trici-socioassistenziali-afc-la-fonte-lugano-neggio",
-        "en": "afc-social-assistance-apprentices-operators-fondazione-la-fonte-lugano-neggio",
+        "en": "apprentice-socio-assistential-worker-afc-fondazione-la-fonte-lugano-neggio",
         "de": "ausbildung-zum-zur-sozialassistenzfachmann-frau-afc-fondazione-la-fonte-lugano-neggio",
         "fr": "apprenti-e-operateur-trice-socio-assistanciale-afc-fondazione-la-fonte-lugano-neggio"
       },
@@ -216,13 +217,14 @@
       "addressCountry": "CH",
       "firstSeenAt": "2026-05-17T10:35:50.358Z",
       "previousSlugs": [
-        "apprentice-socio-assistential-worker-afc-fondazione-la-fonte-lugano-neggio",
+        "afc-social-assistance-apprentices-operators-fondazione-la-fonte-lugano-neggio",
         "apprendisti-e-operatori-trici-socioassistenziali-afc-fondazione-la-fonte-lugano-neggio",
         "apprendisti-e-operatori-trici-socioassistenziali-afc-fondazione-la-fonte-lugano-neggio-dmcchv",
         "apprendisti-e-operatori-trici-socioassistenziali-afc-fondazione-la-fonte-lugano"
       ],
       "previousSlugsByLocale": {
         "en": [
+          "afc-social-assistance-apprentices-operators-fondazione-la-fonte-lugano-neggio",
           "apprentice-socio-assistential-worker-afc-fondazione-la-fonte-lugano-neggio"
         ],
         "it": [
