@@ -7868,6 +7868,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.occupazione-svizzera-dati-2026-trimestre1.title': 'Occupazione Svizzera: +26.100 posti in un anno, dati UST Q1 2026',
     'blog.article.occupazione-svizzera-dati-2026-trimestre1.excerpt': 'Nel primo trimestre 2026 i posti di lavoro in Svizzera salgono a 5,5 milioni (+0,5% annuo). In Ticino calo dello 0,3% trimestrale.',
     'blog.article.occupazione-svizzera-dati-2026-trimestre1.imageAlt': 'Vista aerea del distretto finanziario di Lugano con uffici moderni e lago di Lugano sullo sfondo',
+    'blog.article.progetto-sintab-sentiero-rio-dei-gioghi.title': 'Progetto Sintab: riqualificazione del sentiero Rio dei Gioghi',
+    'blog.article.progetto-sintab-sentiero-rio-dei-gioghi.excerpt': 'Iniziati i lavori per la messa in sicurezza del sentiero CAI Rio dei Gioghi a Ligurno, Cantello, nel progetto Sintab.',
+    'blog.article.progetto-sintab-sentiero-rio-dei-gioghi.imageAlt': 'Sentiero Rio dei Gioghi con strutture informative in legno',
 };
 
 export default blogMetaIt;

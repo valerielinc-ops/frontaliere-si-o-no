@@ -7867,6 +7867,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.occupazione-svizzera-dati-2026-trimestre1.title': 'Swiss Employment: +26,100 Jobs in One Year, Q1 2026',
     'blog.article.occupazione-svizzera-dati-2026-trimestre1.excerpt': 'In the first quarter of 2026, jobs in Switzerland rise to 5.5 million (+0.5% year-on-year). In Ticino, a 0.3% quarterly decline.',
     'blog.article.occupazione-svizzera-dati-2026-trimestre1.imageAlt': 'Aerial view of Lugano\'s financial district with modern offices and Lake Lugano in the background',
+    'blog.article.progetto-sintab-sentiero-rio-dei-gioghi.title': 'Sintab Project: Rio dei Gioghi Trail Upgrade',
+    'blog.article.progetto-sintab-sentiero-rio-dei-gioghi.excerpt': 'Work begins on securing the CAI Rio dei Gioghi trail in Ligurno, Cantello, as part of the Sintab project.',
+    'blog.article.progetto-sintab-sentiero-rio-dei-gioghi.imageAlt': 'Rio dei Gioghi trail with wooden informative structures',
 };
 
 export default blogMetaEn;

@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2677,
+ "numberOfItems": 2678,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7317,7 +7317,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2674, "name": "Nuovo orario ferroviario in Lombardia: cosa cam...", "url": `${BASE_URL}/articoli-frontaliere/nuovo-orario-ferroviario-lombardia-2026` },
           { "@type": "ListItem", "position": 2675, "name": "Aumento salari in Svizzera: +1.5-2% nel 2024, m...", "url": `${BASE_URL}/articoli-frontaliere/salari-specialisti-svizzera-2024` },
           { "@type": "ListItem", "position": 2676, "name": "Caso Nurnberg risolto: RSI paga tutte le pretes...", "url": `${BASE_URL}/articoli-frontaliere/caso-nurnberg-risolto-rsi-paga-pretese` },
-          { "@type": "ListItem", "position": 2677, "name": "Occupazione Svizzera: +26.100 posti in un anno,...", "url": `${BASE_URL}/articoli-frontaliere/occupazione-svizzera-dati-2026-trimestre1` }
+          { "@type": "ListItem", "position": 2677, "name": "Occupazione Svizzera: +26.100 posti in un anno,...", "url": `${BASE_URL}/articoli-frontaliere/occupazione-svizzera-dati-2026-trimestre1` },
+          { "@type": "ListItem", "position": 2678, "name": "Progetto Sintab: riqualificazione del sentiero ...", "url": `${BASE_URL}/articoli-frontaliere/progetto-sintab-sentiero-rio-dei-gioghi` }
  ]
  },
  {

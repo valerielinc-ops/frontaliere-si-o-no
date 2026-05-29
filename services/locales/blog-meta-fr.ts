@@ -7868,6 +7868,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.occupazione-svizzera-dati-2026-trimestre1.title': 'Emploi en Suisse: +26.100 postes en un an, données UST T1 2026',
     'blog.article.occupazione-svizzera-dati-2026-trimestre1.excerpt': 'Au premier trimestre 2026, les postes de travail en Suisse ont augmenté à 5,5 millions (+0,5% annuel). En Suisse italienne, une baisse trimestrielle de 0,3% a été enregistrée.',
     'blog.article.occupazione-svizzera-dati-2026-trimestre1.imageAlt': 'Vue aérienne du quartier financier de Lugano avec des bureaux modernes et le lac de Lugano en arrière-plan',
+    'blog.article.progetto-sintab-sentiero-rio-dei-gioghi.title': 'Projet Sintab : réhabilitation du sentier Rio dei Gioghi',
+    'blog.article.progetto-sintab-sentiero-rio-dei-gioghi.excerpt': 'Les travaux de sécurisation du sentier CAI Rio dei Gioghi à Ligurno, Cantello, ont commencé dans le cadre du projet Sintab.',
+    'blog.article.progetto-sintab-sentiero-rio-dei-gioghi.imageAlt': 'Sentier Rio dei Gioghi avec structures informatives en bois',
 };
 
 export default blogMetaFr;
