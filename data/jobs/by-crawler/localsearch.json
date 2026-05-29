@@ -1,6 +1,6 @@
 {
   "crawlerKey": "localsearch",
-  "assembledAt": "2026-05-28T23:49:01.698Z",
+  "assembledAt": "2026-05-29T13:10:23.399Z",
   "jobs": [
     {
       "id": "localsearch-dbae903f8a6d",
@@ -33,7 +33,7 @@
       "url": "https://emp.jobylon.com/jobs/310123-localsearch-verkauferin-verkaufer-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-28T23:48:59.309Z",
+      "crawledAt": "2026-05-29T13:10:20.679Z",
       "addressLocality": "Bremgarten",
       "addressCountry": "CH",
       "country": "CH",
@@ -90,6 +90,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:55:19.132Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -102,7 +103,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8001"
+      "postalCode": "8001",
+      "addressRegion": "ZH"
     },
     {
       "id": "localsearch-df908a0afc3a",
@@ -135,7 +137,7 @@
       "url": "https://emp.jobylon.com/jobs/310124-localsearch-verkauferin-verkaufer-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-28T23:48:58.469Z",
+      "crawledAt": "2026-05-29T13:10:19.788Z",
       "addressLocality": "Visp",
       "addressCountry": "CH",
       "country": "CH",
@@ -192,6 +194,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:55:18.129Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -204,7 +207,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "3930"
+      "postalCode": "3930",
+      "addressRegion": "VS"
     },
     {
       "id": "localsearch-9cb4d33d8108",
@@ -237,7 +241,7 @@
       "url": "https://emp.jobylon.com/jobs/310125-localsearch-verkauferin-verkaufer-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-28T23:48:57.690Z",
+      "crawledAt": "2026-05-29T13:10:18.860Z",
       "addressLocality": "Thun",
       "addressCountry": "CH",
       "country": "CH",
@@ -294,6 +298,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:55:16.719Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -306,7 +311,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "3600"
+      "postalCode": "3600",
+      "addressRegion": "BE"
     },
     {
       "id": "localsearch-1b5335d88cc2",
@@ -339,7 +345,7 @@
       "url": "https://emp.jobylon.com/jobs/310141-localsearch-verkauferin-verkaufer-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-28T23:48:56.905Z",
+      "crawledAt": "2026-05-29T13:10:17.885Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -396,6 +402,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:55:15.782Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -408,7 +415,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8001"
+      "postalCode": "8001",
+      "addressRegion": "ZH"
     },
     {
       "id": "localsearch-b58da2c57d37",
@@ -441,7 +449,7 @@
       "url": "https://emp.jobylon.com/jobs/310143-localsearch-verkauferin-verkaufer-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-28T23:48:56.124Z",
+      "crawledAt": "2026-05-29T13:10:16.863Z",
       "addressLocality": "Landquart",
       "addressCountry": "CH",
       "country": "CH",
@@ -498,6 +506,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:55:14.891Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -510,7 +519,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "7302"
+      "postalCode": "7302",
+      "addressRegion": "GR"
     },
     {
       "id": "localsearch-36e90a512d06",
@@ -543,7 +553,7 @@
       "url": "https://emp.jobylon.com/jobs/310150-localsearch-verkauferin-verkaufer-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-28T23:48:55.347Z",
+      "crawledAt": "2026-05-29T13:10:15.963Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -597,6 +607,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:55:13.170Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -609,7 +620,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "4001"
+      "postalCode": "4001",
+      "addressRegion": "BS"
     },
     {
       "id": "localsearch-e3ff08ccecdb",
@@ -642,7 +654,7 @@
       "url": "https://emp.jobylon.com/jobs/310151-localsearch-verkauferin-verkaufer-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-28T23:48:54.558Z",
+      "crawledAt": "2026-05-29T13:10:15.069Z",
       "addressLocality": "Urdorf",
       "addressCountry": "CH",
       "country": "CH",
@@ -680,7 +692,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8001"
+      "postalCode": "8001",
+      "addressRegion": "ZH"
     },
     {
       "id": "localsearch-124dfc817854",
@@ -713,7 +726,7 @@
       "url": "https://emp.jobylon.com/jobs/310140-localsearch-verkauferin-verkaufer-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-28T23:48:53.760Z",
+      "crawledAt": "2026-05-29T13:10:14.189Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -757,7 +770,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8001"
+      "postalCode": "8001",
+      "addressRegion": "ZH"
     },
     {
       "id": "localsearch-c838db6788fb",
@@ -790,7 +804,7 @@
       "url": "https://emp.jobylon.com/jobs/310149-localsearch-verkauferin-verkaufer-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-28T23:48:52.990Z",
+      "crawledAt": "2026-05-29T13:10:13.231Z",
       "addressLocality": "Horgen",
       "addressCountry": "CH",
       "country": "CH",
@@ -846,6 +860,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:55:07.844Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -858,7 +873,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8001"
+      "postalCode": "8001",
+      "addressRegion": "ZH"
     },
     {
       "id": "localsearch-4e7a13045942",
@@ -891,7 +907,7 @@
       "url": "https://emp.jobylon.com/jobs/310070-localsearch-verkauferin-verkaufer-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-28T23:48:52.023Z",
+      "crawledAt": "2026-05-29T13:10:12.331Z",
       "addressLocality": "Unterentfelden",
       "addressCountry": "CH",
       "country": "CH",
@@ -947,6 +963,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:55:03.826Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -959,7 +976,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "5000"
+      "postalCode": "5000",
+      "addressRegion": "AG"
     },
     {
       "id": "localsearch-5f7f2e129012",
@@ -992,7 +1010,7 @@
       "url": "https://emp.jobylon.com/jobs/310081-localsearch-verkauferin-verkaufer-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-28T23:48:51.162Z",
+      "crawledAt": "2026-05-29T13:10:11.365Z",
       "addressLocality": "Langenthal",
       "addressCountry": "CH",
       "country": "CH",
@@ -1048,6 +1066,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:55:02.889Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1060,7 +1079,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "4900"
+      "postalCode": "4900",
+      "addressRegion": "BE"
     },
     {
       "id": "localsearch-e0a4a56f3edb",
@@ -1093,7 +1113,7 @@
       "url": "https://emp.jobylon.com/jobs/310122-localsearch-verkauferin-verkaufer-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-28T23:48:50.380Z",
+      "crawledAt": "2026-05-29T13:10:10.455Z",
       "addressLocality": "Muttenz",
       "addressCountry": "CH",
       "country": "CH",
@@ -1150,6 +1170,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:55:00.973Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1161,7 +1182,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "addressRegion": "BL"
     },
     {
       "id": "localsearch-febfb1177be2",
@@ -1194,7 +1216,7 @@
       "url": "https://emp.jobylon.com/jobs/310097-localsearch-verkauferin-verkaufer-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-28T23:48:49.457Z",
+      "crawledAt": "2026-05-29T13:10:09.168Z",
       "addressLocality": "Rapperswil-Jona",
       "addressCountry": "CH",
       "country": "CH",
@@ -1250,6 +1272,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:55:00.086Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1262,7 +1285,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8640"
+      "postalCode": "8640",
+      "addressRegion": "SG"
     },
     {
       "id": "localsearch-5ac107f55084",
@@ -1295,7 +1319,7 @@
       "url": "https://emp.jobylon.com/jobs/310027-localsearch-verkauferin-verkaufer-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-28T23:48:48.674Z",
+      "crawledAt": "2026-05-29T13:10:08.295Z",
       "addressLocality": "Sirnach",
       "addressCountry": "CH",
       "country": "CH",
@@ -1351,6 +1375,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:54:59.193Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1362,7 +1387,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "addressRegion": "TG"
     },
     {
       "id": "localsearch-78ec01d79b9b",
@@ -1395,7 +1421,7 @@
       "url": "https://emp.jobylon.com/jobs/310139-localsearch-verkauferin-verkaufer-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-28T23:48:47.891Z",
+      "crawledAt": "2026-05-29T13:10:07.354Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1452,6 +1478,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:54:56.002Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1464,7 +1491,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "3001"
+      "postalCode": "3001",
+      "addressRegion": "BE"
     },
     {
       "id": "localsearch-2c9e01e8f54f",
@@ -1497,7 +1525,7 @@
       "url": "https://emp.jobylon.com/jobs/310098-localsearch-verkauferin-verkaufer-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-28T23:48:47.104Z",
+      "crawledAt": "2026-05-29T13:10:06.275Z",
       "addressLocality": "Lyssach",
       "addressCountry": "CH",
       "country": "CH",
@@ -1554,6 +1582,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:54:54.880Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1566,7 +1595,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "3001"
+      "postalCode": "3001",
+      "addressRegion": "BE"
     },
     {
       "id": "localsearch-9f2c08e6b713",
@@ -1599,7 +1629,7 @@
       "url": "https://emp.jobylon.com/jobs/310100-localsearch-verkauferin-verkaufer-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-28T23:48:46.334Z",
+      "crawledAt": "2026-05-29T13:10:05.332Z",
       "addressLocality": "Lyssach",
       "addressCountry": "CH",
       "country": "CH",
@@ -1643,7 +1673,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "3001"
+      "postalCode": "3001",
+      "addressRegion": "BE"
     },
     {
       "id": "localsearch-bc732d1544a3",
@@ -1676,7 +1707,7 @@
       "url": "https://emp.jobylon.com/jobs/310148-localsearch-verkauferin-verkaufer-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-28T23:48:45.531Z",
+      "crawledAt": "2026-05-29T13:10:04.384Z",
       "addressLocality": "Volketswil",
       "addressCountry": "CH",
       "country": "CH",
@@ -1733,6 +1764,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:54:47.599Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1745,7 +1777,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8001"
+      "postalCode": "8001",
+      "addressRegion": "ZH"
     },
     {
       "id": "localsearch-d7662f6c150c",
@@ -1778,7 +1811,7 @@
       "url": "https://emp.jobylon.com/jobs/312122-localsearch-customer-success-sales-agent-fr-de-60-100/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-28T23:48:44.749Z",
+      "crawledAt": "2026-05-29T13:10:03.471Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1831,6 +1864,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:54:43.923Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1843,7 +1877,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8001"
+      "postalCode": "8001",
+      "addressRegion": "ZH"
     },
     {
       "id": "localsearch-aacae0abd9f0",
@@ -1876,7 +1911,7 @@
       "url": "https://emp.jobylon.com/jobs/354624-localsearch-customer-success-manager-de-80100/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-28T23:48:44.009Z",
+      "crawledAt": "2026-05-29T13:10:02.409Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1905,6 +1940,7 @@
         ]
       },
       "firstSeenAt": "2026-04-15T21:57:39.187Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -1917,7 +1953,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8001"
+      "postalCode": "8001",
+      "addressRegion": "ZH"
     },
     {
       "id": "localsearch-ac79685086d5",
@@ -1950,7 +1987,7 @@
       "url": "https://emp.jobylon.com/jobs/349346-localsearch-ai-product-engineer-80100/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-28T23:48:43.271Z",
+      "crawledAt": "2026-05-29T13:10:01.529Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1975,6 +2012,7 @@
         ]
       },
       "firstSeenAt": "2026-04-27T11:14:18.246Z",
+      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "baseSalary": {
@@ -1987,7 +2025,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8001"
+      "postalCode": "8001",
+      "addressRegion": "ZH"
     },
     {
       "id": "localsearch-cdb1ac9a5eff",
@@ -2005,22 +2044,22 @@
       "titleByLocale": {
         "it": "Internship AI-Powered Content & Innovation dal 01.07.26 (80%-100%)",
         "en": "AI-Powered Content & Innovation Internship from 01.07.26 (80%–100%)",
-        "de": "KI-gestützte Inhalts- und Innovationspraktikum ab 01.07.26 (80 %–100 %)",
+        "de": "AI-Powered Content & Innovation Praktikum ab 01.07.26 (80%–100%)",
         "fr": "AI-Powered Content & Innovation Praktikum ab 01.07.26 (80%–100%)"
       },
       "description": "Du willst AI nicht nur spannend finden, sondern damit wirklich etwas bauen?\n\nBei localsearch arbeiten wir an local.ch und search.ch – zwei der bekanntesten Plattformen der Schweiz. Klassische Suche, Content, lokale Sichtbarkeit und neue AI-Interfaces wachsen gerade zusammen. Für Schweizer KMU wird es wichtiger, online nicht nur sichtbar zu sein, sondern richtig verstanden, gefunden und ausgewählt zu werden.\n\nWir suchen keine Machine-Learning-Spezialist:innen und keine Data-Science-Praktikant:innen, die primär Modelle trainieren wollen. Wir suchen eine aufgestellte Person, die AI praktisch nutzt: für bessere Inhalte, schnellere Recherche, testbare Ideen, Prototypen, Marktfeedback und konkrete Learnings.\n\nKurz: Du hilfst uns, aus Ideen schnell Artefakte zu machen.\n\nWas du machst\n\n1. AI-gestützter Content (~35%)\n\n• AI-generierte Texte prüfen, verbessern und skalierbar machen\n\n• KMU-Texte, Ratgeber-Content und lokale Inhalte konkreter, nützlicher und vertrauenswürdiger machen\n\n• Prompt-Workflows, Qualitätskriterien und Beispiele dokumentieren\n\n• Inhalte auf Tonalität, Fakten, Nutzwert, SEO/GEO-Sichtbarkeit und lokale Relevanz prüfen\n\n• aus manuellen Learnings wiederholbare Content-Systeme bauen\n\nKein Influencer-Content. Wir wollen Inhalte, die Menschen helfen, Vertrauen schaffen und in Suche sowie AI-Antworten sichtbar werden.\n\n2. Innovation & Strategy (~25%)\n\nDu unterstützt unseren Innovation-Stream: Markt- und Wettbewerbsrecherche, Trend-Scans, Hypothesen, Test-Setups, Business-Model-Ideen und Learnings. Du lernst, wie aus einer rohen Idee ein testbares Experiment wird: Problem, Zielgruppe, Annahme, Test, Metrik, Entscheidung.\n\n3. Prototyping & Experimente (~20%)\n\nDu musst nicht coden wie ein Engineer. Aber du solltest Lust haben, Dinge greifbar zu machen: Figma-Mockups, Landingpage-Skizzen, Test-Copies, Formulare, Umfragen, No-/Low-Code-Prototypen, AI-generierte Klickdummys oder Research-Dokumente mit klarer Empfehlung.\n\nTools können sein: ChatGPT, Claude, Perplexity, Gemini, Figma, Canva/Adobe, Notion, Webflow oder Framer. Cursor, Codex oder Claude Code sind willkommen, aber kein Muss.\n\nWichtig ist nicht Perfektion. Wichtig ist, dass schnell etwas sichtbar wird, worauf man reagieren kann.\n\n4. Moderation, QA und echte Menschen (~20%)\n\nEin Teil der Rolle ist operativ:\n\n• Content Moderation auf local.ch/search.ch\n\n• Texte, Bilder und Bewertungen nach Guidelines prüfen\n\n• repetitive QA sauber erledigen\n\n• Nutzerfeedback einholen\n\n• KMU oder interne Stakeholder kontaktieren\n\n• bei Bedarf telefonieren und nachfassen\n\n• kleine Team- und Admin-Aufgaben übernehmen\n\nWenn du nur kreative AI-Arbeit machen willst, passt die Rolle wahrscheinlich nicht.\n\nWas du mitbringst\n\n• Studium oder Background in Kommunikation, Marketing, Medien, BWL, Innovation, Entrepreneurship, UX/Product Design, Wirtschaftsinformatik oder ähnlichem Bereich\n\n• Informatik oder Data Science passt auch, wenn du nahe an Menschen, Content, Business und Experimenten arbeiten willst\n\n• praktische AI-Erfahrung für Recherche, Struktur, Texte, Bilder, Präsentationen, Ideen, Mockups oder andere Outputs\n\n• Lust, AI im Arbeitsalltag deutlich besser zu nutzen\n\n• Freude daran, nicht nur Ideen zu haben, sondern Artefakte zu liefern\n\n• sehr gutes Deutsch und Englisch\n\n• Neugier, Struktur, Feedbackfähigkeit und Umgang mit Unklarheit\n\n• Freude daran, mit Menschen zu sprechen und Feedback aktiv einzuholen\n\nDas passt eher nicht, wenn …\n\n• du primär Machine Learning, Model Tuning oder Data Science machen möchtest\n\n• du am liebsten allein im Hintergrund arbeitest\n\n• du ungern mit Nutzer:innen, KMU oder Stakeholdern sprichst\n\n• du keine Lust auf Moderation, QA oder repetitive Aufgaben hast\n\n• du nur Strategie willst, aber keine konkreten Outputs liefern möchtest\n\n• du AI nur nutzt, um Texte schreiben zu lassen\n\nOptionaler Bewerbungsbooster\n\nSchick uns gerne ein kleines Beispiel: AI-Text, Mockup, Mini-Prototyp, Research-Notiz, Experiment, Prompt-Workflow, Präsentation oder ein anderes Artefakt, das zeigt, wie du AI praktisch nutzt.\n\nEs muss nicht perfekt sein. Es soll zeigen, wie du denkst, lernst und Dinge greifbar machst.",
       "descriptionByLocale": {
-        "it": "Descrizione\n\nNon vuoi solo trovare l'intelligenza artificiale eccitante, vuoi davvero costruire qualcosa?\n\nA localsearch lavoriamo su local.ch e search.ch – due delle piattaforme più famose della Svizzera. Ricerca classica, contenuti, visibilità locale e nuove interfacce AI stanno solo crescendo insieme. Per le PMI svizzere è più importante non solo essere visibili online, ma essere compresi, trovati e selezionati correttamente.\n\nNon siamo alla ricerca di specialisti dell'apprendimento automatico: interni e non professionisti della scienza dei dati: dentro, che vogliono formare modelli primari. Stiamo cercando una persona affermata che utilizza praticamente l'IA: per contenuti migliori, ricerca più veloce, idee testabili, prototipi, feedback di mercato e apprendimento concreto.\n\nIn breve, ci aiuta a fare rapidamente artefatti da idee.\n\nCosa fai\n\n1. Contenuto basato sull'intelligenza artificiale (~35%)\n\n- Controllare, migliorare e scalare i testi generati dall'IA\n- Rendere i testi delle PMI, i contenuti dei Ratgeber e i contenuti locali più concreti, utili e affidabili\n- Flussi di lavoro, criteri di qualità ed esempi\n- Controllare il contenuto sulla tonalità, fatti, valore utile, visibilità SEO/GEO e rilevanza locale\n- costruire sistemi di contenuti ripetibili da apprendimento manuale\n\nNessun contenuto di influencer. Vogliamo vedere i contenuti che aiutano le persone a creare fiducia e nella ricerca così come le risposte AI.\n\n2. Innovazione & Strategia (~25%)\n\nSupporti il nostro flusso di innovazione: ricerca di mercato e concorrenza, scansioni di tendenza, ipotesi, configurazioni di test, idee di modello di business e apprendimento. Si impara come un esperimento testabile diventa da un'idea cruda: problema, target group, supposizione, test, metrica, decisione.\n\n3. Prototipazione & Esperimenti (~20%)\n\nNon devi codificare come un ingegnere. Ma si dovrebbe rendere le cose tangibili: Figma mockups, pizze di pagina di atterraggio, punte di prova, forme, sondaggi, prototipi di codice no / basso, AI-generato clic manichini o documenti di ricerca con chiara raccomandazione.\n\nGli strumenti possono essere: ChatGPT, Claude, Perplexity, Gemini, Figma, Canva/Adobe, Notion, Webflow o Framer. Cursor, Codex o Claude Code sono i benvenuti, ma non c'è bisogno.\n\nImportante non è la perfezione. È importante che qualcosa diventi visibile rapidamente, a cui puoi reagire.\n\n4. Moderazione, QA e persone reali (~20%)\n\nParte del ruolo è operativo:\n\n- Moderazione dei contenuti su local.ch/search.ch\n- Controllare testi, immagini e recensioni di Guidelines\n- QA ripetitivo pulito\n- Recuperare il feedback degli utenti\n- Contattare le PMI o le parti interessate interne\n- chiamare e seguire se necessario\n- occupare piccoli compiti di squadra e amministrazione\n\nSe si vuole solo fare lavoro AI creativo, il ruolo probabilmente non si adatta.\n\nCosa porti\n\n- Studi o background in comunicazione, marketing, media, BWL, innovazione, imprenditorialità, UX/Product Design, informatica aziendale o campi simili\n- Scienza informatica o Data Science si adatta anche se si desidera lavorare vicino a persone, contenuti, business e esperimenti\n- pratica esperienza AI per ricerca, struttura, testi, immagini, presentazioni, idee, mockup o altre uscite\n- Sento di usare l'IA significativamente meglio nel lavoro quotidiano\n- Piacere non solo di avere idee ma di consegnare manufatti\n- molto buono tedesco e inglese\n- Curiosità, struttura, feedback e incertezza di gestione\n- Piacere di parlare con le persone e ottenere feedback attivo\n\nNon va bene quando...\n\n- si desidera principalmente fare machine learning, model tuning o data science\n- si preferisce lavorare da solo in background\n- non si parla con gli utenti:inside, PMI o stakeholder\n- non ti piace la moderazione, QA o compiti ripetitivi\n- vuoi solo una strategia, ma non vuoi fornire uscite specifiche\n- si utilizza solo AI per scrivere testi\n\nbooster di applicazione opzionale\n\nInviaci un piccolo esempio: testo AI, mockup, mini prototipo, nota di ricerca, esperimento, flusso di lavoro rapido, presentazione o un altro artefatto che mostra come si utilizza praticamente l'IA.\n\nNon deve essere perfetto. Dovrebbe mostrare come si pensa, imparare e rendere le cose tangibili.",
-        "en": "Descrizione\n\nYou don't just want to find AI exciting, you really want to build something?\n\nAt localsearch we work on local.ch and search.ch – two of the most famous platforms in Switzerland. Classical search, content, local visibility and new AI interfaces are just growing together. For Swiss SMEs it is more important not only to be visible online, but to be understood, found and selected correctly.\n\nWe are not looking for machine learning specialists:inside and no data science practitioners:inside, who want to train primary models. We are looking for an established person who practically uses AI: for better content, faster search, testable ideas, prototypes, market feedback and concrete learnings.\n\nIn short, you help us to quickly make artifacts from ideas.\n\nWhat you do\n\n1. AI-based content (~35%)\n\n- Check, improve and scalable AI-generated texts\n- Making SME Texts, Ratgeber Content and Local Content more concrete, useful and trustworthy\n- Document prompt workflows, quality criteria and examples\n- Check content on tonality, facts, useful value, SEO/GEO visibility and local relevance\n- build repeatable content systems from manual learnings\n\nNo influencer content. We want to see content that helps people create confidence and in search as well as AI responses.\n\n2. Innovation & Strategy (~25%)\n\nYou support our innovation stream: market and competition research, trend scans, hypotheses, test setups, business model ideas and learnings. You learn how a testable experiment becomes from a raw idea: problem, target group, assumption, test, metric, decision.\n\n3. Prototyping & Experiments (~20%)\n\nYou don't have to code like an engineer. But you should like to make things tangible: Figma mockups, landing page pizzas, test tips, forms, surveys, no/low code prototypes, AI-generated click dummies or research documents with clear recommendation.\n\nTools can be: ChatGPT, Claude, Perplexity, Gemini, Figma, Canva/Adobe, Notion, Webflow or Framer. Cursor, Codex or Claude Code are welcome, but no need.\n\nImportant is not perfection. It is important that something becomes visible quickly, what you can react to.\n\n4. Moderation, QA and real people (~20%)\n\nPart of the role is operative:\n\n- Content moderation on local.ch/search.ch\n- Check texts, pictures and reviews by Guidelines\n- repetitive QA clean\n- Retrieve user feedback\n- Contact SMEs or internal stakeholders\n- call and follow if needed\n- take over small team and admin tasks\n\nIf you just want to do creative AI work, the role probably doesn't fit.\n\nWhat you bring\n\n- Studies or background in communication, marketing, media, BWL, innovation, entrepreneurship, UX/Product Design, business informatics or similar fields\n- Computer Science or Data Science also fits if you want to work close to people, content, business and experiments\n- practical AI experience for research, structure, texts, images, presentations, ideas, mockups or other outputs\n- Feeling to use AI significantly better in everyday work\n- Pleasure not only to have ideas but to deliver artifacts\n- very good German and English\n- Curiosity, structure, feedback and handling uncertainty\n- Pleasure to talk to people and get feedback active\n\nIt doesn't fit when...\n\n- you primarily want to make machine learning, model tuning or data science\n- you prefer to work alone in the background\n- you are unspeaking with users:inside, SMEs or stakeholders\n- you don't like moderation, QA or repetitive tasks\n- you just want strategy, but don't want to deliver specific outputs\n- you only use AI to write texts\n\nOptional application booster\n\nSend us a small example: AI text, mockup, mini prototype, research note, experiment, prompt workflow, presentation or another artefact that shows how you practically use AI.\n\nIt doesn't have to be perfect. It should show how you think, learn and make things tangible.",
-        "de": "## Descrizione\n\nDu willst AI nicht nur spannend finden, sondern damit wirklich etwas bauen?\n\nBei localsearch arbeiten wir an local.ch und search.ch – zwei der bekanntesten Plattformen der Schweiz. Klassische Suche, Content, lokale Sichtbarkeit und neue AI-Interfaces wachsen gerade zusammen. Für Schweizer KMU wird es wichtiger, online nicht nur sichtbar zu sein, sondern richtig verstanden, gefunden und ausgewählt zu werden.\n\nWir suchen keine Machine-Learning-Spezialist:innen und keine Data-Science-Praktikant:innen, die primär Modelle trainieren wollen. Wir suchen eine aufgestellte Person, die AI praktisch nutzt: für bessere Inhalte, schnellere Recherche, testbare Ideen, Prototypen, Marktfeedback und konkrete Learnings.\n\nKurz: Du hilfst uns, aus Ideen schnell Artefakte zu machen.\n\n## Was du machst\n\n### 1. AI-gestützter Content (~35%)\n\n- AI-generierte Texte prüfen, verbessern und skalierbar machen\n- KMU-Texte, Ratgeber-Content und lokale Inhalte konkreter, nützlicher und vertrauenswürdiger machen\n- Prompt-Workflows, Qualitätskriterien und Beispiele dokumentieren\n- Inhalte auf Tonalität, Fakten, Nutzwert, SEO/GEO-Sichtbarkeit und lokale Relevanz prüfen\n- aus manuellen Learnings wiederholbare Content-Systeme bauen\n\nKein Influencer-Content. Wir wollen Inhalte, die Menschen helfen, Vertrauen schaffen und in Suche sowie AI-Antworten sichtbar werden.\n\n### 2. Innovation & Strategy (~25%)\n\nDu unterstützt unseren Innovation-Stream: Markt- und Wettbewerbsrecherche, Trend-Scans, Hypothesen, Test-Setups, Business-Model-Ideen und Learnings. Du lernst, wie aus einer rohen Idee ein testbares Experiment wird: Problem, Zielgruppe, Annahme, Test, Metrik, Entscheidung.\n\n### 3. Prototyping & Experimente (~20%)\n\nDu musst nicht coden wie ein Engineer. Aber du solltest Lust haben, Dinge greifbar zu machen: Figma-Mockups, Landingpage-Skizzen, Test-Copies, Formulare, Umfragen, No-/Low-Code-Prototypen, AI-generierte Klickdummys oder Research-Dokumente mit klarer Empfehlung.\n\nTools können sein: ChatGPT, Claude, Perplexity, Gemini, Figma, Canva/Adobe, Notion, Webflow oder Framer. Cursor, Codex oder Claude Code sind willkommen, aber kein Muss.\n\nWichtig ist nicht Perfektion. Wichtig ist, dass schnell etwas sichtbar wird, worauf man reagieren kann.\n\n### 4. Moderation, QA und echte Menschen (~20%)\n\nEin Teil der Rolle ist operativ:\n\n- Content Moderation auf local.ch/search.ch\n- Texte, Bilder und Bewertungen nach Guidelines prüfen\n- repetitive QA sauber erledigen\n- Nutzerfeedback einholen\n- KMU oder interne Stakeholder kontaktieren\n- bei Bedarf telefonieren und nachfassen\n- kleine Team- und Admin-Aufgaben übernehmen\n\nWenn du nur kreative AI-Arbeit machen willst, passt die Rolle wahrscheinlich nicht.\n\n## Was du mitbringst\n\n- Studium oder Background in Kommunikation, Marketing, Medien, BWL, Innovation, Entrepreneurship, UX/Product Design, Wirtschaftsinformatik oder ähnlichem Bereich\n- Informatik oder Data Science passt auch, wenn du nahe an Menschen, Content, Business und Experimenten arbeiten willst\n- praktische AI-Erfahrung für Recherche, Struktur, Texte, Bilder, Präsentationen, Ideen, Mockups oder andere Outputs\n- Lust, AI im Arbeitsalltag deutlich besser zu nutzen\n- Freude daran, nicht nur Ideen zu haben, sondern Artefakte zu liefern\n- sehr gutes Deutsch und Englisch\n- Neugier, Struktur, Feedbackfähigkeit und Umgang mit Unklarheit\n- Freude daran, mit Menschen zu sprechen und Feedback aktiv einzuholen\n\n## Das passt eher nicht, wenn …\n\n- du primär Machine Learning, Model Tuning oder Data Science machen möchtest\n- du am liebsten allein im Hintergrund arbeitest\n- du ungern mit Nutzer:innen, KMU oder Stakeholdern sprichst\n- du keine Lust auf Moderation, QA oder repetitive Aufgaben hast\n- du nur Strategie willst, aber keine konkreten Outputs liefern möchtest\n- du AI nur nutzt, um Texte schreiben zu lassen\n\n## Optionaler Bewerbungsbooster\n\nSchick uns gerne ein kleines Beispiel: AI-Text, Mockup, Mini-Prototyp, Research-Notiz, Experiment, Prompt-Workflow, Präsentation oder ein anderes Artefakt, das zeigt, wie du AI praktisch nutzt.\n\nEs muss nicht perfekt sein. Es soll zeigen, wie du denkst, lernst und Dinge greifbar machst.",
-        "fr": "Descrizione\n\nTu ne veux pas juste trouver l'IA excitante, tu veux vraiment construire quelque chose ?\n\nÀ la recherche locale, nous travaillons sur local.ch et search.ch – deux des plateformes les plus célèbres de Suisse. La recherche classique, le contenu, la visibilité locale et les nouvelles interfaces d'IA ne font que croître ensemble. Pour les PME suisses, il est plus important non seulement d'être visibles en ligne, mais d'être comprises, trouvées et sélectionnées correctement.\n\nNous ne recherchons pas de spécialistes de l'apprentissage automatique: à l'intérieur et pas de praticiens de la science des données: à l'intérieur, qui veulent former des modèles primaires. Nous recherchons une personne établie qui utilise pratiquement l'IA : pour un meilleur contenu, une recherche plus rapide, des idées testables, des prototypes, des retours sur le marché et des apprentissages concrets.\n\nBref, vous nous aidez à faire rapidement des artefacts à partir d'idées.\n\nCe que tu fais\n\n1. Contenu basé sur l'IA (~35 %)\n\n- Vérifier, améliorer et évoluer les textes générés par l'IA\n- Rendre les textes des PME, le contenu Ratgeber et le contenu local plus concrets, utiles et dignes de confiance\n- Documenter les flux de travail rapides, les critères de qualité et les exemples\n- Vérifier le contenu sur la tonalité, les faits, la valeur utile, la visibilité du SEO/GEO et la pertinence locale\n- construire des systèmes de contenu reproductibles à partir d'apprentissages manuels\n\nPas d'influence. Nous voulons voir des contenus qui aident les gens à créer de la confiance et dans la recherche ainsi que dans les réponses à l'IA.\n\n2. Innovation et stratégie (~25 %)\n\nVous soutenez notre flux d'innovation : recherche sur le marché et la concurrence, analyses de tendances, hypothèses, configurations de tests, idées de modèles d'affaires et apprentissages. Vous apprenez comment une expérience testable devient d'une idée brute : problème, groupe cible, hypothèse, test, métrique, décision.\n\n3. Prototypage et expériences (~20 %)\n\nPas besoin de coder comme un ingénieur. Mais vous aimeriez rendre les choses tangibles : maquettes de Figma, pizzerias, conseils de test, formulaires, sondages, prototypes de code non/faible, cliquets générés par l'IA ou documents de recherche avec une recommandation claire.\n\nLes outils peuvent être: ChatGPT, Claude, Perplexité, Gemini, Figma, Canva/Adobe, Notion, Webflow ou Framer. Cursor, Codex ou Claude Code sont les bienvenus, mais pas besoin.\n\nImportant n'est pas la perfection. Il est important que quelque chose devienne visible rapidement, ce à quoi vous pouvez réagir.\n\n4. Modération, QA et personnes réelles (~20%)\n\nUne partie du rôle est opérationnelle :\n\n- Modération du contenu sur local.ch/search.ch\n- Vérifiez les textes, photos et commentaires par Lignes directrices\n- un QA propre répétitif\n- Récupérer les commentaires des utilisateurs\n- Contacter les PME ou les acteurs internes\n- appeler et suivre si nécessaire\n- reprendre les petites tâches d'équipe et d'administration\n\nSi vous voulez simplement faire du travail créatif d'IA, le rôle ne convient probablement pas.\n\nCe que vous apportez\n\n- Études ou formation en communication, marketing, médias, BWL, innovation, entrepreneuriat, UX/Conception de produits, informatique commerciale ou domaines similaires\n- Informatique ou Data Science convient également si vous voulez travailler près des gens, du contenu, des affaires et des expériences\n- expérience pratique de l'IA pour la recherche, la structure, les textes, les images, les présentations, les idées, les maquettes ou autres sorties\n- Se sentir beaucoup mieux utiliser l'IA dans le travail quotidien\n- Le plaisir non seulement d'avoir des idées, mais aussi de livrer des artefacts\n- très bon allemand et anglais\n- Curiosité, structure, rétroaction et incertitude de manipulation\n- Le plaisir de parler aux gens et d'obtenir des commentaires actifs\n\nÇa ne va pas quand...\n\n- vous voulez principalement faire l'apprentissage automatique, l'accord de modèle ou la science des données\n- vous préférez travailler seul en arrière-plan\n- vous ne parlez pas avec les utilisateurs: à l'intérieur, PME ou parties prenantes\n- vous n'aimez pas la modération, l'AQ ou les tâches répétitives\n- vous voulez simplement une stratégie, mais ne voulez pas fournir des résultats spécifiques\n- vous n'utilisez l'IA que pour écrire des textes\n\nRehausseur d'application facultatif\n\nEnvoyez-nous un petit exemple : texte AI, maquette, mini prototype, note de recherche, expérience, flux de travail rapide, présentation ou autre artefact qui montre comment vous utilisez pratiquement l'IA.\n\nÇa ne doit pas être parfait. Il devrait montrer comment vous pensez, apprendre et rendre les choses tangibles."
+        "it": "Descrizione Non vuoi solo trovare l'intelligenza artificiale eccitante, vuoi davvero costruire qualcosa? A localsearch lavoriamo su local.ch e search.ch – due delle piattaforme più famose della Svizzera. Ricerca classica, contenuti, visibilità locale e nuove interfacce AI stanno solo crescendo insieme. Per le PMI svizzere è più importante non solo essere visibili online, ma essere compresi, trovati e selezionati correttamente. Non siamo alla ricerca di specialisti dell'apprendimento automatico: interni e non professionisti della scienza dei dati: dentro, che vogliono formare modelli primari. \n• Stiamo cercando una persona affermata che utilizza praticamente l'IA: per contenuti migliori, ricerca più veloce, idee testabili, prototipi, feedback di mercato e apprendimento concreto. In breve, ci aiuta a fare rapidamente artefatti da idee. Cosa fai 1. Contenuto basato sull'intelligenza artificiale (~35%) - Controllare, migliorare e scalare i testi generati dall'IA - Rendere i testi delle PMI, i contenuti dei Ratgeber e i contenuti locali più concreti, utili e affidabili - Flussi di lavoro, criteri di qualità ed esempi - Controllare il contenuto sulla tonalità, fatti, valore utile, visibilità SEO/GEO e rilevanza locale - costruire sistemi di contenuti ripetibili da apprendimento manuale Nessun contenuto di influencer. Vogliamo vedere i contenuti che aiutano le persone a creare fiducia e nella ricerca così come le risposte AI. 2. Innovazione & Strategia (~25%) Supporti il nostro flusso di innovazione: ricerca di mercato e concorrenza, scansioni di tendenza, ipotesi, configurazioni di test, idee di modello di business e apprendimento. Si impara come un esperimento testabile diventa da un'idea cruda: problema, target group, supposizione, test, metrica, decisione. 3. Prototipazione & Esperimenti (~20%) Non devi codificare come un ingegnere. Ma si dovrebbe rendere le cose tangibili: Figma mockups, pizze di pagina di atterraggio, punte di prova, forme, sondaggi, prototipi di codice no / basso, AI-generato clic manichini o documenti di ricerca con chiara raccomandazione. Gli strumenti possono essere: ChatGPT, Claude, Perplexity, Gemini, Figma, Canva/Adobe, Notion, Webflow o Framer. Cursor, Codex o Claude Code sono i benvenuti, ma non c'è bisogno. Importante non è la perfezione. È importante che qualcosa diventi visibile rapidamente, a cui puoi reagire. 4. Moderazione, QA e persone reali (~20%) Parte del ruolo è operativo: - Moderazione dei contenuti su local.ch/search.ch - Controllare testi, immagini e recensioni di Guidelines - QA ripetitivo pulito - Recuperare il feedback degli utenti - Contattare le PMI o le parti interessate interne - chiamare e seguire se necessario - occupare piccoli compiti di squadra e amministrazione Se si vuole solo fare lavoro AI creativo, il ruolo probabilmente non si adatta. Cosa porti - Studi o background in comunicazione, marketing, media, BWL, innovazione, imprenditorialità, UX/Product Design, informatica aziendale o campi simili - Scienza informatica o Data Science si adatta anche se si desidera lavorare vicino a persone, contenuti, business e esperimenti - pratica esperienza AI per ricerca, struttura, testi, immagini, presentazioni, idee, mockup o altre uscite - Sento di usare l'IA significativamente meglio nel lavoro quotidiano - Piacere non solo di avere idee ma di consegnare manufatti - molto buono tedesco e inglese - Curiosità, struttura, feedback e incertezza di gestione - Piacere di parlare con le persone e ottenere feedback attivo Non va bene quando... - si desidera principalmente fare machine learning, model tuning o data science - si preferisce lavorare da solo in background - non si parla con gli utenti:inside, PMI o stakeholder - non ti piace la moderazione, QA o compiti ripetitivi - vuoi solo una strategia, ma non vuoi fornire uscite specifiche - si utilizza solo AI per scrivere testi booster di applicazione opzionale Inviaci un piccolo esempio: testo AI, mockup, mini prototipo, nota di ricerca, esperimento, flusso di lavoro rapido, presentazione o un altro artefatto che mostra come si utilizza praticamente l'IA. Non deve essere perfetto. Dovrebbe mostrare come si pensa, imparare e rendere le cose tangibili.",
+        "en": "Descrizione You don't just want to find AI exciting, you really want to build something? At localsearch we work on local.ch and search.ch – two of the most famous platforms in Switzerland. Classical search, content, local visibility and new AI interfaces are just growing together. For Swiss SMEs it is more important not only to be visible online, but to be understood, found and selected correctly. We are not looking for machine learning specialists:inside and no data science practitioners:inside, who want to train primary models. We are looking for an established person who practically uses AI: for better content, faster search, testable ideas, prototypes, market feedback and concrete learnings. In short, you help us to quickly make artifacts from ideas. What you do 1. AI-based content (~35%) - Check, improve and scalable AI-generated texts - Making SME Texts, Ratgeber Content and Local Content more concrete, useful and trustworthy - Document prompt workflows, quality criteria and examples - Check content on tonality, facts, useful value, SEO/GEO visibility and local relevance - build repeatable content systems from manual learnings No influencer content. We want to see content that helps people create confidence and in search as well as AI responses. 2. Innovation & Strategy (~25%) You support our innovation stream: market and competition research, trend scans, hypotheses, test setups, business model ideas and learnings. You learn how a testable experiment becomes from a raw idea: problem, target group, assumption, test, metric, decision. 3. Prototyping & Experiments (~20%) You don't have to code like an engineer. But you should like to make things tangible: Figma mockups, landing page pizzas, test tips, forms, surveys, no/low code prototypes, AI-generated click dummies or research documents with clear recommendation. Tools can be: ChatGPT, Claude, Perplexity, Gemini, Figma, Canva/Adobe, Notion, Webflow or Framer. Cursor, Codex or Claude Code are welcome, but no need. Important is not perfection. It is important that something becomes visible quickly, what you can react to. 4. Moderation, QA and real people (~20%) Part of the role is operative: - Content moderation on local.ch/search.ch - Check texts, pictures and reviews by Guidelines - repetitive QA clean - Retrieve user feedback - Contact SMEs or internal stakeholders - call and follow if needed - take over small team and admin tasks If you just want to do creative AI work, the role probably doesn't fit. \n• What you bring - Studies or background in communication, marketing, media, BWL, innovation, entrepreneurship, UX/Product Design, business informatics or similar fields - Computer Science or Data Science also fits if you want to work close to people, content, business and experiments - practical AI experience for research, structure, texts, images, presentations, ideas, mockups or other outputs - Feeling to use AI significantly better in everyday work - Pleasure not only to have ideas but to deliver artifacts - very good German and English - Curiosity, structure, feedback and handling uncertainty - Pleasure to talk to people and get feedback active It doesn't fit when... - you primarily want to make machine learning, model tuning or data science - you prefer to work alone in the background - you are unspeaking with users:inside, SMEs or stakeholders - you don't like moderation, QA or repetitive tasks - you just want strategy, but don't want to deliver specific outputs - you only use AI to write texts Optional application booster Send us a small example: AI text, mockup, mini prototype, research note, experiment, prompt workflow, presentation or another artefact that shows how you practically use AI. It doesn't have to be perfect. It should show how you think, learn and make things tangible.",
+        "de": "Du willst AI nicht nur spannend finden, sondern damit wirklich etwas bauen? Bei localsearch arbeiten wir an local.ch und search.ch – zwei der bekanntesten Plattformen der Schweiz. Klassische Suche, Content, lokale Sichtbarkeit und neue AI-Interfaces wachsen gerade zusammen. Für Schweizer KMU wird es wichtiger, online nicht nur sichtbar zu sein, sondern richtig verstanden, gefunden und ausgewählt zu werden. Wir suchen keine Machine-Learning-Spezialist:innen und keine Data-Science-Praktikant:innen, die primär Modelle trainieren wollen. Wir suchen eine aufgestellte Person, die AI praktisch nutzt: für bessere Inhalte, schnellere Recherche, testbare Ideen, Prototypen, Marktfeedback und konkrete Learnings. Kurz: Du hilfst uns, aus Ideen schnell Artefakte zu machen. Was du machst 1. AI-gestützter Content (~35%)\n• AI-generierte Texte prüfen, verbessern und skalierbar machen\n• KMU-Texte, Ratgeber-Content und lokale Inhalte konkreter, nützlicher und vertrauenswürdiger machen\n• Prompt-Workflows, Qualitätskriterien und Beispiele dokumentieren\n• Inhalte auf Tonalität, Fakten, Nutzwert, SEO/GEO-Sichtbarkeit und lokale Relevanz prüfen\n• aus manuellen Learnings wiederholbare Content-Systeme bauen Kein Influencer-Content. Wir wollen Inhalte, die Menschen helfen, Vertrauen schaffen und in Suche sowie AI-Antworten sichtbar werden. 2. Innovation & Strategy (~25%) Du unterstützt unseren Innovation-Stream: Markt- und Wettbewerbsrecherche, Trend-Scans, Hypothesen, Test-Setups, Business-Model-Ideen und Learnings. Du lernst, wie aus einer rohen Idee ein testbares Experiment wird: Problem, Zielgruppe, Annahme, Test, Metrik, Entscheidung. 3. Prototyping & Experimente (~20%) Du musst nicht coden wie ein Engineer. Aber du solltest Lust haben, Dinge greifbar zu machen: Figma-Mockups, Landingpage-Skizzen, Test-Copies, Formulare, Umfragen, No-/Low-Code-Prototypen, AI-generierte Klickdummys oder Research-Dokumente mit klarer Empfehlung. Tools können sein: ChatGPT, Claude, Perplexity, Gemini, Figma, Canva/Adobe, Notion, Webflow oder Framer. Cursor, Codex oder Claude Code sind willkommen, aber kein Muss. Wichtig ist nicht Perfektion. Wichtig ist, dass schnell etwas sichtbar wird, worauf man reagieren kann. 4. Moderation, QA und echte Menschen (~20%) Ein Teil der Rolle ist operativ:\n• Content Moderation auf local.ch/search.ch\n• Texte, Bilder und Bewertungen nach Guidelines prüfen\n• repetitive QA sauber erledigen\n• Nutzerfeedback einholen\n• KMU oder interne Stakeholder kontaktieren\n• bei Bedarf telefonieren und nachfassen\n• kleine Team- und Admin-Aufgaben übernehmen Wenn du nur kreative AI-Arbeit machen willst, passt die Rolle wahrscheinlich nicht. Was du mitbringst\n• Studium oder Background in Kommunikation, Marketing, Medien, BWL, Innovation, Entrepreneurship, UX/Product Design, Wirtschaftsinformatik oder ähnlichem Bereich\n• Informatik oder Data Science passt auch, wenn du nahe an Menschen, Content, Business und Experimenten arbeiten willst\n• praktische AI-Erfahrung für Recherche, Struktur, Texte, Bilder, Präsentationen, Ideen, Mockups oder andere Outputs\n• Lust, AI im Arbeitsalltag deutlich besser zu nutzen\n• Freude daran, nicht nur Ideen zu haben, sondern Artefakte zu liefern\n• sehr gutes Deutsch und Englisch\n• Neugier, Struktur, Feedbackfähigkeit und Umgang mit Unklarheit\n• Freude daran, mit Menschen zu sprechen und Feedback aktiv einzuholen Das passt eher nicht, wenn …\n• du primär Machine Learning, Model Tuning oder Data Science machen möchtest\n• du am liebsten allein im Hintergrund arbeitest\n• du ungern mit Nutzer:innen, KMU oder Stakeholdern sprichst\n• du keine Lust auf Moderation, QA oder repetitive Aufgaben hast\n• du nur Strategie willst, aber keine konkreten Outputs liefern möchtest\n• du AI nur nutzt, um Texte schreiben zu lassen Optionaler Bewerbungsbooster Schick uns gerne ein kleines Beispiel: AI-Text, Mockup, Mini-Prototyp, Research-Notiz, Experiment, Prompt-Workflow, Präsentation oder ein anderes Artefakt, das zeigt, wie du AI praktisch nutzt. Es muss nicht perfekt sein. Es soll zeigen, wie du denkst, lernst und Dinge greifbar machst.",
+        "fr": "Descrizione Tu ne veux pas juste trouver l'IA excitante, tu veux vraiment construire quelque chose ? À la recherche locale, nous travaillons sur local.ch et search.ch – deux des plateformes les plus célèbres de Suisse. La recherche classique, le contenu, la visibilité locale et les nouvelles interfaces d'IA ne font que croître ensemble. Pour les PME suisses, il est plus important non seulement d'être visibles en ligne, mais d'être comprises, trouvées et sélectionnées correctement. Nous ne recherchons pas de spécialistes de l'apprentissage automatique: à l'intérieur et pas de praticiens de la science des données: à l'intérieur, qui veulent former des modèles primaires. Nous recherchons une personne établie qui utilise pratiquement l'IA : pour un meilleur contenu, une recherche plus rapide, des idées testables, des prototypes, des retours sur le marché et des apprentissages concrets. Bref, vous nous aidez à faire rapidement des artefacts à partir d'idées. Ce que tu fais 1. Contenu basé sur l'IA (~35 %) - Vérifier, améliorer et évoluer les textes générés par l'IA - Rendre les textes des PME, le contenu Ratgeber et le contenu local plus concrets, utiles et dignes de confiance - Documenter les flux de travail rapides, les critères de qualité et les exemples - Vérifier le contenu sur la tonalité, les faits, la valeur utile, la visibilité du SEO/GEO et la pertinence locale - construire des systèmes de contenu reproductibles à partir d'apprentissages manuels Pas d'influence. Nous voulons voir des contenus qui aident les gens à créer de la confiance et dans la recherche ainsi que dans les réponses à l'IA. 2. Innovation et stratégie (~25 %) Vous soutenez notre flux d'innovation : recherche sur le marché et la concurrence, analyses de tendances, hypothèses, configurations de tests, idées de modèles d'affaires et apprentissages. Vous apprenez comment une expérience testable devient d'une idée brute : problème, groupe cible, hypothèse, test, métrique, décision. 3. Prototypage et expériences (~20 %) Pas besoin de coder comme un ingénieur. Mais vous aimeriez rendre les choses tangibles : maquettes de Figma, pizzerias, conseils de test, formulaires, sondages, prototypes de code non/faible, cliquets générés par l'IA ou documents de recherche avec une recommandation claire. Les outils peuvent être: ChatGPT, Claude, Perplexité, Gemini, Figma, Canva/Adobe, Notion, Webflow ou Framer. Cursor, Codex ou Claude Code sont les bienvenus, mais pas besoin. Important n'est pas la perfection. Il est important que quelque chose devienne visible rapidement, ce à quoi vous pouvez réagir. 4. Modération, QA et personnes réelles (~20%) Une partie du rôle est opérationnelle : - Modération du contenu sur local.ch/search.ch - Vérifiez les textes, photos et commentaires par Lignes directrices - un QA propre répétitif - Récupérer les commentaires des utilisateurs - Contacter les PME ou les acteurs internes - appeler et suivre si nécessaire - reprendre les petites tâches d'équipe et d'administration Si vous voulez simplement faire du travail créatif d'IA, le rôle ne convient probablement pas. Ce que vous apportez - Études ou formation en communication, marketing, médias, BWL, innovation, entrepreneuriat, UX/Conception de produits, informatique commerciale ou domaines similaires - Informatique ou Data Science convient également si vous voulez travailler près des gens, du contenu, des affaires et des expériences - expérience pratique de l'IA pour la recherche, la structure, les textes, les images, les présentations, les idées, les maquettes ou autres sorties - Se sentir beaucoup mieux utiliser l'IA dans le travail quotidien - Le plaisir non seulement d'avoir des idées, mais aussi de livrer des artefacts - très bon allemand et anglais - Curiosité, structure, rétroaction et incertitude de manipulation - Le plaisir de parler aux gens et d'obtenir des commentaires actifs Ça ne va pas quand... - vous voulez principalement faire l'apprentissage automatique, l'accord de modèle ou la science des données - vous préférez travailler seul en arrière-plan - vous ne parlez pas avec les utilisateurs: à l'intérieur, PME ou parties prenantes - vous n'aimez pas la modération, l'AQ ou les tâches répétitives - vous voulez simplement une stratégie, mais ne voulez pas fournir des résultats spécifiques - vous n'utilisez l'IA que pour écrire des textes Rehausseur d'application facultatif Envoyez-nous un petit exemple : texte AI, maquette, mini prototype, note de recherche, expérience, flux de travail rapide, présentation ou autre artefact qui montre comment vous utilisez pratiquement l'IA. Ça ne doit pas être parfait. Il devrait montrer comment vous pensez, apprendre et rendre les choses tangibles."
       },
       "location": "Zürich",
       "canton": "ZH",
       "url": "https://emp.jobylon.com/jobs/351860-localsearch-ai-powered-content-innovation-praktikum-ab-010726-80100/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-28T23:48:42.528Z",
+      "crawledAt": "2026-05-29T13:10:00.701Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -2035,24 +2074,25 @@
       "applyUrl": "https://emp.jobylon.com/jobs/351860-localsearch-ai-powered-content-innovation-praktikum-ab-010726-80100/",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-04-27T11:14:17.258Z",
       "previousSlugsByLocale": {
         "it": [
-          "ai-powered-content-innovation-praktikum-ab-01-07-26-80-100-localsearch-ch",
+          "ai-content-product-prototyping-internship-ab-01-08-26-80-100-localsearch-ch",
+          "ai-powered-content-innovation-praktikum-ab-01-07-26-80-100-localsearch-ch"
+        ],
+        "en": [
           "ai-content-product-prototyping-internship-ab-01-08-26-80-100-localsearch-ch"
         ],
         "fr": [
           "contenu-de-l-ia-et-prototype-de-produits-stage-du-01-08-26-80-100-localsearch-zurich"
-        ],
-        "en": [
-          "ai-content-product-prototyping-internship-ab-01-08-26-80-100-localsearch-ch"
         ]
       },
       "previousSlugs": [
-        "ai-powered-content-innovation-praktikum-ab-01-07-26-80-100-localsearch-ch",
         "ai-content-product-prototyping-internship-ab-01-08-26-80-100-localsearch-ch",
+        "ai-powered-content-innovation-praktikum-ab-01-07-26-80-100-localsearch-ch",
         "contenu-de-l-ia-et-prototype-de-produits-stage-du-01-08-26-80-100-localsearch-zurich"
       ],
+      "firstSeenAt": "2026-04-27T11:14:17.258Z",
+      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "baseSalary": {
@@ -2065,7 +2105,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8001"
+      "postalCode": "8001",
+      "addressRegion": "ZH"
     },
     {
       "id": "localsearch-c73feddf0ce4",
@@ -2098,7 +2139,7 @@
       "url": "https://emp.jobylon.com/jobs/310087-localsearch-verkauferin-verkaufer-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-28T23:48:41.776Z",
+      "crawledAt": "2026-05-29T13:09:59.843Z",
       "addressLocality": "Regensdorf",
       "addressCountry": "CH",
       "country": "CH",
@@ -2142,7 +2183,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8001"
+      "postalCode": "8001",
+      "addressRegion": "ZH"
     },
     {
       "id": "localsearch-26589b932362",
@@ -2175,7 +2217,7 @@
       "url": "https://emp.jobylon.com/jobs/310107-localsearch-verkauferin-verkaufer-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-28T23:48:40.990Z",
+      "crawledAt": "2026-05-29T13:09:58.975Z",
       "addressLocality": "Fehraltorf",
       "addressCountry": "CH",
       "country": "CH",
@@ -2219,7 +2261,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8001"
+      "postalCode": "8001",
+      "addressRegion": "ZH"
     },
     {
       "id": "localsearch-9849027632f6",
@@ -2252,7 +2295,7 @@
       "url": "https://emp.jobylon.com/jobs/357955-localsearch-online-campaign-managerin-frde-80100/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-28T23:48:40.209Z",
+      "crawledAt": "2026-05-29T13:09:58.097Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -2268,6 +2311,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-05-04T11:13:12.721Z",
+      "needsRetranslation": true,
       "salaryMin": 75500,
       "salaryMax": 133000,
       "baseSalary": {
@@ -2280,7 +2324,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8001"
+      "postalCode": "8001",
+      "addressRegion": "ZH"
     },
     {
       "id": "localsearch-264852de8162",
@@ -2313,7 +2358,7 @@
       "url": "https://emp.jobylon.com/jobs/360005-localsearch-verkaufsberaterin-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-28T23:48:39.458Z",
+      "crawledAt": "2026-05-29T13:09:57.261Z",
       "addressLocality": "Aargau, Schweiz",
       "addressCountry": "CH",
       "country": "CH",
@@ -2362,7 +2407,7 @@
         }
       },
       "postalCode": "5000",
-      "retranslationAttempts": 1
+      "addressRegion": "AG"
     },
     {
       "id": "localsearch-4fe13b918f05",
@@ -2395,7 +2440,7 @@
       "url": "https://emp.jobylon.com/jobs/360110-localsearch-verkaufsberaterin-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-28T23:48:38.715Z",
+      "crawledAt": "2026-05-29T13:09:56.409Z",
       "addressLocality": "Baselland, Schweiz",
       "addressCountry": "CH",
       "country": "CH",
@@ -2439,7 +2484,7 @@
         }
       },
       "postalCode": "8001",
-      "retranslationAttempts": 1
+      "addressRegion": "ZH"
     },
     {
       "id": "localsearch-90cc2bda49a8",
@@ -2472,7 +2517,7 @@
       "url": "https://emp.jobylon.com/jobs/360113-localsearch-verkaufsberaterin-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-28T23:48:37.976Z",
+      "crawledAt": "2026-05-29T13:09:55.561Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -2523,7 +2568,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8001"
+      "postalCode": "8001",
+      "addressRegion": "ZH"
     },
     {
       "id": "localsearch-6d1ddda45eca",
@@ -2556,7 +2602,7 @@
       "url": "https://emp.jobylon.com/jobs/360117-localsearch-verkaufsberaterin-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-28T23:48:37.199Z",
+      "crawledAt": "2026-05-29T13:09:54.722Z",
       "addressLocality": "Graubünden, Schweiz",
       "addressCountry": "CH",
       "country": "CH",
@@ -2602,7 +2648,7 @@
         }
       },
       "postalCode": "7000",
-      "retranslationAttempts": 1
+      "addressRegion": "GR"
     },
     {
       "id": "localsearch-36f721160a26",
@@ -2635,7 +2681,7 @@
       "url": "https://emp.jobylon.com/jobs/357963-localsearch-senior-accountant-80-100/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-28T23:48:36.408Z",
+      "crawledAt": "2026-05-29T13:09:53.841Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -2659,6 +2705,7 @@
         ]
       },
       "firstSeenAt": "2026-05-13T22:35:32.758Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -2671,7 +2718,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8001"
+      "postalCode": "8001",
+      "addressRegion": "ZH"
     },
     {
       "id": "localsearch-2a88598c6dd9",
@@ -2704,7 +2752,7 @@
       "url": "https://emp.jobylon.com/jobs/360370-localsearch-outbound-sales-agent-60-100/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-28T23:48:35.663Z",
+      "crawledAt": "2026-05-29T13:09:53.000Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -2731,6 +2779,7 @@
         ]
       },
       "firstSeenAt": "2026-05-13T22:35:32.019Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2743,7 +2792,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8001"
+      "postalCode": "8001",
+      "addressRegion": "ZH"
     },
     {
       "id": "localsearch-611c97316a21",
@@ -2776,7 +2826,7 @@
       "url": "https://emp.jobylon.com/jobs/360378-localsearch-outbound-sales-agent-fr-60-100/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-28T23:48:34.918Z",
+      "crawledAt": "2026-05-29T13:09:52.124Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -2803,6 +2853,7 @@
         ]
       },
       "firstSeenAt": "2026-05-13T22:35:31.265Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2815,7 +2866,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8001"
+      "postalCode": "8001",
+      "addressRegion": "ZH"
     },
     {
       "id": "localsearch-bfd2a8f160bb",
@@ -2848,7 +2900,7 @@
       "url": "https://emp.jobylon.com/jobs/310147-localsearch-verkauferin-verkaufer-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-28T23:48:34.175Z",
+      "crawledAt": "2026-05-29T13:09:51.299Z",
       "addressLocality": "Buchrain",
       "addressCountry": "CH",
       "country": "CH",
@@ -2898,7 +2950,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "6003"
+      "postalCode": "6003",
+      "addressRegion": "LU"
     },
     {
       "id": "localsearch-7f3d3b9b3f1f",
@@ -2926,13 +2979,13 @@
         "de": "Region: St. Gallen / Kreuzlingen / Weinfelden / Rheintal localsearch ist der führende Marketing- und Werbepartner für Schweizer KMU. Wir machen Kunden erfolgreich in der digitalen Welt. Verkaufen ist deine Passion? Schlägt dein Herz für digitales Marketing? Bist du gerne unterwegs und möchtest in die KMU-Welt eintauchen? Und willst du deinen Verdienst selbst beeinflussen? Dann bist du hier genau richtig! Beratung und Betreuung von Bestands- und Neukunden: Du besuchst sowohl bestehende KMU-Kunden als auch potenzielle Neukunden und präsentierst ihnen massgeschneiderte digitale Marketinglösungen. Dein Ziel ist es, nachhaltige Mehrwerte zu schaffen und so KMU digital erfolgreich zu machen. Skills und Anforderungen Das bringst du mit, um bei uns erfolgreich zu sein:\n• Freude am Verkaufen und Beraten: Du brennst für den persönlichen und telefonischen Kundenkontakt und legst grossen Wert darauf, unsere Kunden wirklich zu verstehen.\n• Kundenorientierung : Du baust vertrauensvolle Beziehungen zu deinen Kunden auf und erklärst erfolgreich den Nutzen unserer Online-Marketing-Lösungen.\n• Erfolgsorientierung : Deine Eigenmotivation und dein Ehrgeiz sind deine Erfolgsfaktoren. Auch in turbulenten Zeiten bleibst du fokussiert und zielstrebig.\n• Kommunikativ : Du sprichst fliessend Deutsch und beherrschst die gängigen Kommunikationsmittel.\n• Ausstrahlung : Du hast Humor und zeigst gerne deine Persönlichkeit.\n• Mobilität: Du besitzt einen gültigen Führerausweis (Kat. B) und ein eigenes Auto, sodass du unsere Kunden zuverlässig vor Ort besuchen kannst.\n• Verantwortungsvolles Handeln : Dein Auftritt ist professionell und dein Ruf einwandfrei (Leumund)\n• Flexibilität: Teilzeitarbeit ist grundsätzlich möglich, jedoch erst ab dem zweiten Anstellungsmonat. Im ersten Monat ist die Teilnahme an der Grundausbildung an unserem Hauptsitz in Zürich erforderlich. Das bieten wir dir Darum willst du Teil von localsearch werden:\n• Teamwork: Du bist integriert in einem lebhaften Team, das sich gegenseitig unterstützt und sich zu regelmässigen Meetings trifft.\n• Eigenes Verkaufsgebiet: Dir wird ein Gebiet mit bestehenden KMU-Kunden und potenziellen Neukunden zugeteilt.\n• Marketinglösungen: Dir steht eine abwechslungsreiche Produktepalette aus dem digitalen Marketing zur Verfügung.\n• Selbstständiges Arbeiten: Du übernimmst Verantwortung für deine Aufgaben, planst deine Kundentermine eigenverantwortlich und handelst mit einem hohen Mass an Eigeninitiative.\n• Umfassende Schulungen und Weiterentwicklung: Du startest mit einer mehrwöchigen Ausbildung und erhältst regelmässig Begleitungen und Schulungen im Bereich Verkauf und Produkte.\n• Ein attraktives Provisionierungsmodell: Dein Erfolg wird unmittelbar belohnt – jede gute Beratung, die zu einem Auftrag führt, bestimmt dein Einkommen.\n• Auslagenpauschale: Dein eigenes Fahrzeug bringt dich sicher zum Kundentermin und wir entschädigen dich hierfür zeitgemäss. Kontakt & Bewerbung Bei fachlichen Fragen zur Stelle kannst du dich direkt an unseren Sales Manager Samson Appiah wenden: +41 79 825 16 47 Wir freuen uns darauf, dich kennenzulernen! Zusätzliche Informationen über die Stelle und localsearch findest du hier .",
         "fr": "Region: St. Gallen / Kreuzlingen / Weinfelden / Rheintal localsearch ist der führende Marketing- und Werbepartner für Schweizer KMU. Wir machen Kunden erfolgreich in der digitalen Welt. Verkaufen ist deine Passion? Schlägt dein Herz für digitales Marketing? Bist du gerne unterwegs und möchtest in die KMU-Welt eintauchen? Und willst du deinen Verdienst selbst beeinflussen? Dann bist du hier genau richtig! Beratung und Betreuung von Bestands- und Neukunden: Du besuchst sowohl bestehende KMU-Kunden als auch potenzielle Neukunden und präsentierst ihnen massgeschneiderte digitale Marketinglösungen. Dein Ziel ist es, nachhaltige Mehrwerte zu schaffen und so KMU digital erfolgreich zu machen. Skills und Anforderungen Das bringst du mit, um bei uns erfolgreich zu sein:\n• Freude am Verkaufen und Beraten: Du brennst für den persönlichen und telefonischen Kundenkontakt und legst grossen Wert darauf, unsere Kunden wirklich zu verstehen.\n• Kundenorientierung : Du baust vertrauensvolle Beziehungen zu deinen Kunden auf und erklärst erfolgreich den Nutzen unserer Online-Marketing-Lösungen.\n• Erfolgsorientierung : Deine Eigenmotivation und dein Ehrgeiz sind deine Erfolgsfaktoren. Auch in turbulenten Zeiten bleibst du fokussiert und zielstrebig.\n• Kommunikativ : Du sprichst fliessend Deutsch und beherrschst die gängigen Kommunikationsmittel.\n• Ausstrahlung : Du hast Humor und zeigst gerne deine Persönlichkeit.\n• Mobilität: Du besitzt einen gültigen Führerausweis (Kat. B) und ein eigenes Auto, sodass du unsere Kunden zuverlässig vor Ort besuchen kannst.\n• Verantwortungsvolles Handeln : Dein Auftritt ist professionell und dein Ruf einwandfrei (Leumund)\n• Flexibilität: Teilzeitarbeit ist grundsätzlich möglich, jedoch erst ab dem zweiten Anstellungsmonat. Im ersten Monat ist die Teilnahme an der Grundausbildung an unserem Hauptsitz in Zürich erforderlich. Das bieten wir dir Darum willst du Teil von localsearch werden:\n• Teamwork: Du bist integriert in einem lebhaften Team, das sich gegenseitig unterstützt und sich zu regelmässigen Meetings trifft.\n• Eigenes Verkaufsgebiet: Dir wird ein Gebiet mit bestehenden KMU-Kunden und potenziellen Neukunden zugeteilt.\n• Marketinglösungen: Dir steht eine abwechslungsreiche Produktepalette aus dem digitalen Marketing zur Verfügung.\n• Selbstständiges Arbeiten: Du übernimmst Verantwortung für deine Aufgaben, planst deine Kundentermine eigenverantwortlich und handelst mit einem hohen Mass an Eigeninitiative.\n• Umfassende Schulungen und Weiterentwicklung: Du startest mit einer mehrwöchigen Ausbildung und erhältst regelmässig Begleitungen und Schulungen im Bereich Verkauf und Produkte.\n• Ein attraktives Provisionierungsmodell: Dein Erfolg wird unmittelbar belohnt – jede gute Beratung, die zu einem Auftrag führt, bestimmt dein Einkommen.\n• Auslagenpauschale: Dein eigenes Fahrzeug bringt dich sicher zum Kundentermin und wir entschädigen dich hierfür zeitgemäss. Kontakt & Bewerbung Bei fachlichen Fragen zur Stelle kannst du dich direkt an unseren Sales Manager Samson Appiah wenden: +41 79 825 16 47 Wir freuen uns darauf, dich kennenzulernen! Zusätzliche Informationen über die Stelle und localsearch findest du hier ."
       },
-      "location": "St. Gallen",
+      "location": "St",
       "canton": "SG",
       "url": "https://emp.jobylon.com/jobs/310054-localsearch-verkauferin-verkaufer-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-28T23:48:33.313Z",
-      "addressLocality": "St. Gallen",
+      "crawledAt": "2026-05-29T13:09:50.077Z",
+      "addressLocality": "St",
       "addressCountry": "CH",
       "country": "CH",
       "category": "Commerciale",
@@ -2946,6 +2999,14 @@
       "applyUrl": "https://emp.jobylon.com/jobs/310054-localsearch-verkauferin-verkaufer-im-aussendienst/",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "verkauferin-verkaufer-im-aussendienst-localsearch-ch-22"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "verkauferin-verkaufer-im-aussendienst-localsearch-ch-22"
+        ]
+      },
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-28T13:20:21.908Z",
       "salaryMin": 49500,
@@ -2961,15 +3022,7 @@
         }
       },
       "postalCode": "9000",
-      "retranslationAttempts": 1,
-      "previousSlugsByLocale": {
-        "it": [
-          "verkauferin-verkaufer-im-aussendienst-localsearch-ch-22"
-        ]
-      },
-      "previousSlugs": [
-        "verkauferin-verkaufer-im-aussendienst-localsearch-ch-22"
-      ]
+      "addressRegion": "SG"
     }
   ]
 }
