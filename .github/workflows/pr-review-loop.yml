@@ -91,8 +91,11 @@ jobs:
             3. Carica PR: `gh pr view $PR_NUMBER --json title,body,labels`, `gh pr diff $PR_NUMBER`, `gh pr view $PR_NUMBER --json files`.
 
             **Esegui workflow di review come specificato in REVIEW.md:**
-            - completeness contract → Implementato critical thinking → Non implementato filtro scopo → scope drift → cross-file pattern repetition (step 5) → test plan compliance (step 6) → output.
+            - completeness contract → Implementato critical thinking → Non implementato filtro scopo → scope drift → cross-file pattern repetition (step 5) → test plan compliance (step 6) → claim perf non validato (step 7) → output.
             - Tier high: aggiungi sezione `## Adversarial check` con 3 cose NON verificate prima del summary finale.
+            - **Sezioni mancanti + tier high (REVIEW.md step 4): posta il 🔴 process MA NON terminare.** Prosegui con review sostanziale + `## Adversarial check` completi nello stesso pass — il 🔴 blocca solo l'auto-merge, non un merge manuale, quindi la sostanza deferita evapora. Solo tier normal può terminare al process gate.
+            - **Claim perf non validato (REVIEW.md step 7):** PR perf/build/CI che dichiara speedup/regressione attesa senza misura baseline pre-merge (solo "atteso X→Y" / "il profiler misura post-deploy") su tier high → 🔴 Important. Chiedi misura pre/post o revert-risk esplicito.
+            - **Escalation ❓ funnel-critical (REVIEW.md Verification):** un ❓ q (incluso quelli nell'adversarial check) il cui soggetto impatta monetizzazione/traffico (writeJson/persistenza dataset indicizzato, canonical/redirect/previousSlugs, structured data, sitemap, AdSense) → promuovi a 🔴 o apri follow-up issue + linkala. Mai ❓ funnel-critical passivo accanto a `## LGTM`.
 
             **Cross-file pattern probing (REVIEW.md step 5):** quando il diff fix-a un pattern (regex, parsing idiom, assertion shape), usa `rg` per cercare il pattern equivalente nel resto del repo. Pattern presente non toccato in file funnel-critico → 🔴; altrove → 🟡.
 
@@ -104,4 +107,5 @@ jobs:
             - Read-only: no push, no edit file.
             - Zero finding accettabile → chiudi con `## LGTM` (string esatta triggera auto-merge). Non inventare per riempire.
             - 🔴 aperto → NON scrivere `## LGTM`.
+            - ❓ funnel-critical non escalato (né 🔴 né follow-up issue) → NON scrivere `## LGTM`.
             - Incerto → `❓ q:`, no speculazione.
