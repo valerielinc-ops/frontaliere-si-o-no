@@ -3861,6 +3861,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-aumenti-stipendi-ticino-2025': { name: 'Aumenti stipendi Ticino', path: '/articoli-frontaliere/aumenti-stipendi-ticino-2025', parent: 'blog' },
     'blog-acquisto-abitazione-secondo-terzo-pilastro': { name: 'Acquisto casa pilastri', path: '/articoli-frontaliere/acquisto-abitazione-secondo-terzo-pilastro', parent: 'blog' },
     'blog-nuovo-orario-ferroviario-lombardia-2026': { name: 'Trasporti Ticino', path: '/articoli-frontaliere/nuovo-orario-ferroviario-lombardia-2026', parent: 'blog' },
+    'blog-salari-specialisti-svizzera-2024': { name: 'Aumento salari', path: '/articoli-frontaliere/salari-specialisti-svizzera-2024', parent: 'blog' },
  };
 
  const info = sectionNames[section];
