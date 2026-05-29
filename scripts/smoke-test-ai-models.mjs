@@ -45,7 +45,17 @@ for (const model of MODELS) {
     const msg = String(e?.message || e);
     detail = msg.slice(0, 220);
     const m = msg.match(/\bHTTP\s+(\d{3})\b/);
-    if (m) status = `http_${m[1]}`;
+    // Classify pre-flight skips FIRST: callLLM now records WHY a model was
+    // skipped ("skipped — exhausted", "skipped — no API key …", etc.). Before
+    // this, a fully-skipped single-model chain surfaced as a blank-cause
+    // "All AI models failed. … Errors: " and was bucketed into generic `error`,
+    // making the run undiagnosable. Surface the skip class so the summary tells
+    // us the regression is daily-quota exhaustion, not a broken adapter.
+    if (/skipped — no API key/i.test(msg)) status = 'no_key';
+    else if (/skipped — exhausted/i.test(msg)) status = 'skipped_exhausted';
+    else if (/skipped — provider .* cooling down/i.test(msg)) status = 'cooldown';
+    else if (/skipped — /i.test(msg)) status = 'skipped';
+    else if (m) status = `http_${m[1]}`;
     else if (/timeout|ETIMEDOUT|abort/i.test(msg)) status = 'timeout';
     else if (/ENOTFOUND|ECONNRESET|ECONN/i.test(msg)) status = 'net';
     else if (/No API key|missing.+key/i.test(msg)) status = 'no_key';
