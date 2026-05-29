@@ -7866,6 +7866,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.occupazione-svizzera-dati-2026-trimestre1.title': 'Schweizer Arbeitsmarkt: +26.100 Stellen in einem Jahr, UST-Daten Q1 2026',
     'blog.article.occupazione-svizzera-dati-2026-trimestre1.excerpt': 'Im ersten Quartal 2026 stieg die Zahl der Arbeitsplätze in der Schweiz auf 5,5 Millionen (+0,5% jährlich). Im Tessin nahm die Zahl um 0,3% im Vergleich zum Vorquartal ab.',
     'blog.article.occupazione-svizzera-dati-2026-trimestre1.imageAlt': 'Luftaufnahme des Finanzviertels von Lugano mit modernen Büros und dem Luganer See im Hintergrund',
+    'blog.article.progetto-sintab-sentiero-rio-dei-gioghi.title': 'Projekt Sintab: Sanierung des Rio-dei-Gioghi-Weges',
+    'blog.article.progetto-sintab-sentiero-rio-dei-gioghi.excerpt': 'Die Arbeiten zur Sicherung des CAI-Weges Rio dei Gioghi in Ligurno, Cantello, im Rahmen des Projekts Sintab haben begonnen.',
+    'blog.article.progetto-sintab-sentiero-rio-dei-gioghi.imageAlt': 'Wanderweg Rio dei Gioghi mit hölzernen Informationstafeln',
 };
 
 export default blogMetaDe;
