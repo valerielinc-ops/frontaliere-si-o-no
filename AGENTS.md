@@ -55,7 +55,7 @@ Iniettato in ogni sessione agent. Detail durevole nei docs, carica on-demand.
 - **Quota condivisa**: l'OAuth token attinge alla STESSA quota Max della sessione interattiva owner. Burst di run CI → session limit esaurito anche per l'uso interattivo. Frugalità = ridurre il **numero di invocazioni Claude** → si ottiene per **architettura**, non tagliando turni.
 - Leve frugalità attive:
   - **`issue-triage` = ZERO Claude** (classificazione regex in bash) → eliminati ~50 run Claude/giorno, il driver principale del session-limit.
-  - **Dedup a monte**: titolo stabile per validation-failure (`github-issue-creator.mjs` commenta 🔁 sull'issue canonica, 8→1) + follow-up batchati 1-per-PR (checklist, era N) → meno issue → meno trigger `issue-fix`.
+  - **Dedup a monte**: titolo stabile per validation-failure (`github-issue-creator.mjs` commenta 🔁 sull'issue canonica, 8→1) + follow-up batchati in 1 issue aggregata/PR (#925, era N) → meno issue → meno trigger `issue-fix`.
   - Concurrency serializzata (`cancel-in-progress: false`); routing salta le issue non-OPEN.
   - **Mai** abbassare max-turns di `pr-review-loop`/`issue-fix`/`post-merge-followup`: turni bassi troncano prima degli step obbligatori → `error_max_turns` (PR #838). Lever su turni = claim non misurato (#795/#802 revertati).
 
@@ -63,7 +63,7 @@ Iniettato in ogni sessione agent. Detail durevole nei docs, carica on-demand.
 
 - Pipeline: monitor → issue → `issue-triage` (classify+route **deterministico, no Claude**; applica `agent:fix` via `GITHUB_PAT` da RC) → `issue-fix` (fix→PR) → `pr-review-loop` (`## LGTM`) → `auto-merge-on-lgtm` (merge via PAT) → deploy → `post-merge-followup` (batch 1 issue/PR). Contratto completo in `ISSUES.md` / `FOLLOWUP.md`.
 - **Auto-route consentito**: `crawler`, `follow-up`. **Mai** `revenue`/`tracker`/`validation-failure` (strategico o transiente → label manuale o `/fix-issue`).
-- **Dedup a MONTE, non nel triage**: i monitor non devono aprire issue duplicate. Usa `scripts/lib/github-issue-creator.mjs` con **titolo stabile** (no run-number/timestamp nei primi 60 char) → dedupa e commenta sull'issue canonica. I follow-up: 1 issue/PR con checklist (`post-merge-followup` / `FOLLOWUP.md`).
+- **Dedup a MONTE, non nel triage**: i monitor non devono aprire issue duplicate. Usa `scripts/lib/github-issue-creator.mjs` con **titolo stabile** (no run-number/timestamp nei primi 60 char) → dedupa e commenta sull'issue canonica. I follow-up: 1 issue aggregata/PR (`post-merge-followup` / `FOLLOWUP.md`, #925).
 - **Handoff triage→fix richiede PAT**: una label `agent:fix` via `GITHUB_TOKEN` NON triggera `issue-fix` (anti-ricorsione GitHub) e ha sender `github-actions[bot]` che non passa il gate. Stesso vincolo del cascade merge→deploy (#844/#880). I workflow che devono triggerarne altri caricano `GITHUB_PAT` via `scripts/load-rc-env.mjs` (serve Firebase SA).
 
 ## Build And Test
