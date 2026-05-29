@@ -27,6 +27,7 @@ import { fileURLToPath } from 'node:url';
 
 import { fetchAllBitfinexJobs } from './lib/bitfinex-job-parser.mjs';
 import { fetchAllCsebJobs } from './lib/cseb-job-parser.mjs';
+import { normalizeParsedJobsForSlice } from './assemble-jobs-dataset.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -41,6 +42,11 @@ function readSlice(key) {
 
 function writeSlice(key, jobs) {
   const file = path.join(SLICES_DIR, `${key}.json`);
+  // Mirror writeJobsCrawlerSlice's safety net: sanitize location, backfill
+  // addressLocality, default addressCountry/region. Without this, raw parser
+  // output with an empty/unsanitized location is dropped by the assembler's
+  // Swiss whitelist → lost active jobs → lost traffic. Mutates jobs in place.
+  normalizeParsedJobsForSlice(jobs);
   fs.writeFileSync(file, JSON.stringify(jobs, null, 2) + '\n');
   console.log(`  ✏️  wrote ${jobs.length} jobs to ${path.relative(ROOT, file)}`);
 }
