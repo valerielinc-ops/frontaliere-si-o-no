@@ -2577,7 +2577,7 @@ function extractDateFromUrl(url) {
 }
 
 /** Build a map of URL → date from <time> elements found near <a> links in the HTML */
-function extractDatesFromHtml(html) {
+function extractDatesFromHtml(html, baseUrl) {
   const dateMap = new Map();
   // Match <time datetime="..."> anywhere in HTML — build global date context
   const timeRe = /<time[^>]*datetime=["']([^"']+)["'][^>]*>/gi;
@@ -2595,6 +2595,34 @@ function extractDatesFromHtml(html) {
       } catch { /* skip invalid dates */ }
     }
   }
+
+  // Plain-text DD.MM.YYYY dates nested inside the link — institutional listings
+  // such as Canton Ticino / USTAT (www3.ti.ch …fuseaction=news.dettaglio) render
+  // each row as `<a href=…><div class="data">28.05.2026</div><div class="testo">
+  // title</div></a>`, with no <time> element. Without this, every ti.ch headline
+  // arrives undated and bypasses the MAX_ARTICLE_AGE_DAYS recency filter — that
+  // is how a Dec-2025 office-closure notice was still surfaced on 28.05.2026
+  // (then false-matched into the proven pool). Scope the date to the anchor's
+  // own inner HTML so the link↔date pairing is exact (proximity windows misfire
+  // when the same nwsId appears in multiple sidebars).
+  const anchorRe = /<a\s[^>]*href=["']([^"']+)["'][^>]*>([\s\S]*?)<\/a>/gi;
+  let am;
+  while ((am = anchorRe.exec(html)) !== null) {
+    const inner = am[2];
+    const dmy = inner.match(/\b([0-3]?\d)\.(0?[1-9]|1[0-2])\.(20\d{2})\b/);
+    if (!dmy) continue;
+    const day = Number(dmy[1]);
+    const month = Number(dmy[2]);
+    const year = Number(dmy[3]);
+    if (day < 1 || day > 31) continue;
+    // Resolve to the absolute URL so the key matches extractHeadlines' lookup.
+    let href;
+    try { href = new URL(am[1], baseUrl).href; } catch { continue; }
+    if (!href.startsWith('http') || dateMap.has(href)) continue;
+    const d = new Date(year, month - 1, day);
+    if (!isNaN(d.getTime())) dateMap.set(href, d);
+  }
+
   return dateMap;
 }
 
@@ -2609,7 +2637,7 @@ function isWithinDays(date, days) {
 // ── Step 1b: Extract links and headlines from an HTML page ──
 function extractHeadlines(html, baseUrl) {
   const results = [];
-  const htmlDateMap = extractDatesFromHtml(html);
+  const htmlDateMap = extractDatesFromHtml(html, baseUrl);
   // Match <a href="...">text</a> — capture href and inner text
   const linkRe = /<a\s[^>]*href=["']([^"']+)["'][^>]*>([\s\S]*?)<\/a>/gi;
   let m;
