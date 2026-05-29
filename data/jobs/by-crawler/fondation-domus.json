@@ -1,6 +1,6 @@
 {
   "crawlerKey": "fondation-domus",
-  "assembledAt": "2026-05-28T23:03:45.705Z",
+  "assembledAt": "2026-05-29T12:24:30.944Z",
   "jobs": [
     {
       "id": "fondation-domus-2a8d3e7cca03",
@@ -33,7 +33,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/355a479a-747a-4fa2-8358-6cc0324a2e2f/?source=[platform]",
       "source": "Fondation Domus Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-28T23:03:44.067Z",
+      "crawledAt": "2026-05-29T12:24:29.298Z",
       "addressLocality": "Ardon",
       "postalCode": "1957",
       "addressCountry": "CH",
@@ -77,7 +77,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "addressRegion": "VS"
     },
     {
       "id": "fondation-domus-f67036d13286",
@@ -110,7 +111,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/8dd6425d-bfab-43de-8817-200922be7821/?source=[platform]",
       "source": "Fondation Domus Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-28T23:03:43.732Z",
+      "crawledAt": "2026-05-29T12:24:28.960Z",
       "addressLocality": "Ardon",
       "postalCode": "1957",
       "addressCountry": "CH",
@@ -156,7 +157,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "addressRegion": "VS"
     }
   ]
 }
