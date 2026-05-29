@@ -44,6 +44,7 @@ import {
   writeCrawlerSummaryStore,
 } from './lib/crawler-summary-store.mjs';
 import { buildStableJobIdentity } from './lib/job-identity.mjs';
+import { assembleUrlKey } from './lib/job-url-key.mjs';
 import { hardenJobsWithStructuredSalary } from './lib/structured-salary.mjs';
 import { normalizeDescriptionBullets, cleanCrawlerArtifacts } from './lib/crawler-template.mjs';
 import { computeCrawlerQualityAggregate, computeJobQualityScore, buildStableId, cleanPreviousSlugsPerLocale, isLocationExplicitlyForeign } from './lib/dedicated-crawler-common.mjs';
@@ -146,8 +147,73 @@ function sanitizeJobLocationField(rawValue) {
   return s === '' ? original : s;
 }
 
+/**
+ * Upstream normalization applied to every crawler slice BEFORE it is written
+ * to disk (the single funnel `writeJobsCrawlerSlice`). This moves location
+ * hardening to write-time so corrupted `location` strings never reach the
+ * assemble-time Swiss-municipality whitelist — the biggest source of dropped
+ * jobs. It also backfills SAFE, non-forged metadata defaults required by the
+ * JobPosting structured-data contract.
+ *
+ * Idempotent and additive:
+ *   - `location` / `addressLocality` run through `sanitizeJobLocationField`
+ *     (same logic as the assemble-time safety net, so that net becomes a
+ *     no-op for slices written after this change).
+ *   - `addressLocality` is backfilled from the (sanitized) `location`.
+ *   - `addressCountry` / `country` default to 'CH'; `addressRegion` defaults
+ *     to the canton code.
+ *
+ * Deliberately does NOT invent `postalCode` or `streetAddress`: forging an HQ
+ * postal code is exactly what slipped foreign jobs past the whitelist (the
+ * Swatch incident). Postal-code enrichment stays in the assembler, where it is
+ * derived from a city table rather than guessed. Job `id` backfill likewise
+ * stays in the assembler (`buildStableId`) to avoid a second, divergent id
+ * formula.
+ *
+ * @param {object[]} jobs jobs about to be persisted in a slice (mutated in place)
+ * @returns {{ locationFixed: number, localityBackfilled: number, countryDefaulted: number, regionDefaulted: number }}
+ */
+export function normalizeParsedJobsForSlice(jobs) {
+  let locationFixed = 0;
+  let localityBackfilled = 0;
+  let countryDefaulted = 0;
+  let regionDefaulted = 0;
+  for (const job of jobs) {
+    if (!job || typeof job !== 'object') continue;
+
+    if (typeof job.location === 'string') {
+      const cleaned = sanitizeJobLocationField(job.location);
+      if (cleaned !== job.location) {
+        job.location = cleaned;
+        locationFixed++;
+      }
+    }
+    if (typeof job.addressLocality === 'string') {
+      const cleanedAddr = sanitizeJobLocationField(job.addressLocality);
+      if (cleanedAddr !== job.addressLocality) job.addressLocality = cleanedAddr;
+    } else if (!job.addressLocality && typeof job.location === 'string' && job.location.trim()) {
+      job.addressLocality = job.location;
+      localityBackfilled++;
+    }
+
+    if (!job.addressCountry) {
+      job.addressCountry = 'CH';
+      countryDefaulted++;
+    }
+    if (!job.country) job.country = 'CH';
+    if (!job.addressRegion && job.canton) {
+      job.addressRegion = String(job.canton).toUpperCase();
+      regionDefaulted++;
+    }
+  }
+  return { locationFixed, localityBackfilled, countryDefaulted, regionDefaulted };
+}
+
 function assemblerIdentity(job = {}) {
-  const rawUrl = String(job.url || '').trim().toLowerCase().replace(/\/+$/, '');
+  // assembleUrlKey preserves the full raw URL incl. hash fragments (Galenica).
+  // Logic centralized in scripts/lib/job-url-key.mjs; behavior unchanged and
+  // pinned by tests/job-url-key.test.ts.
+  const rawUrl = assembleUrlKey(job.url);
   if (rawUrl) return `url:${rawUrl}`;
 
   // Delegate to the shared identity for non-URL fallbacks
@@ -595,6 +661,15 @@ export function writeJobsCrawlerSlice(crawlerKey, jobs) {
   }
   if (!Array.isArray(jobs)) {
     throw new TypeError('writeJobsCrawlerSlice: jobs must be an array');
+  }
+
+  // ── Upstream normalization (write-time) ───────────────────────────────
+  // Harden location + backfill safe metadata defaults BEFORE any downstream
+  // gate so corrupted location strings never reach the assemble-time Swiss
+  // whitelist (the biggest dropper). Idempotent with the assemble-time net.
+  const norm = normalizeParsedJobsForSlice(jobs);
+  if (norm.locationFixed > 0 || norm.localityBackfilled > 0 || norm.countryDefaulted > 0 || norm.regionDefaulted > 0) {
+    console.log(`  🧭 Upstream normalize: location cleaned ${norm.locationFixed}, addressLocality backfilled ${norm.localityBackfilled}, addressCountry defaulted ${norm.countryDefaulted}, addressRegion defaulted ${norm.regionDefaulted}`);
   }
 
   // Quality gate: flag jobs where any locale has content in the wrong language.
