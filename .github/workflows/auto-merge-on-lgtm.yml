@@ -35,13 +35,75 @@ jobs:
       github.event.pull_request.draft == false
     runs-on: ubuntu-latest
     steps:
+      # ── Perché tutto questo setup per un semplice merge ──────────────────
+      # Per design GitHub, un push/evento generato dal GITHUB_TOKEN di default
+      # NON triggera altri workflow (anti-ricorsione). Mergiare con GITHUB_TOKEN
+      # quindi:
+      #   - NON fa partire deploy.yml (`on: push: main`) → ogni PR auto-mergiata
+      #     saltava il deploy (es. #829: 0 run deploy per il suo merge commit).
+      #   - NON fa partire post-merge-followup.yml (`on: pull_request: closed`).
+      # Un PAT non ha questo limite: i suoi push/eventi triggerano i workflow.
+      # Il PAT vive in Firebase Remote Config come `GITHUB_PAT` (pattern
+      # zero-cost del repo, NON un Actions secret), caricato in $GITHUB_ENV da
+      # `scripts/load-rc-env.mjs`. Mergiando col PAT, il `pull_request: closed`
+      # fa partire post-merge-followup da solo → niente più dispatch esplicito
+      # (lo step #836/#839 usava `secrets.GH_PAT` che non esiste → era no-op).
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci --ignore-scripts
+
+      - name: Prepare Firebase credentials
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -n "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+            echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+          else
+            echo "⚠️ Nessuna credenziale Firebase SA — GITHUB_PAT non verrà caricato; il merge ripiega su GITHUB_TOKEN (nessun cascade deploy/followup)."
+          fi
+
+      - name: Load secrets from Remote Config
+        continue-on-error: true
+        run: node scripts/load-rc-env.mjs
+
       - name: Squash-merge + delete branch
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # Token primario = env.GITHUB_PAT (da Remote Config): il push del merge
+          # triggera deploy.yml + tests + lighthouse, e il pull_request:closed
+          # triggera post-merge-followup. Il GITHUB_TOKEN di fallback serve in
+          # DUE casi (entrambi → merge avviene ma senza cascade, = pre-fix):
+          #   1. RC non carica → env.GITHUB_PAT vuoto → fallback diretto.
+          #   2. Merge col PAT fallisce (es. PAT senza scope PR-write) → retry
+          #      sotto con GITHUB_TOKEN, così l'auto-merge non si rompe mai.
+          PRIMARY_TOKEN: ${{ env.GITHUB_PAT || secrets.GITHUB_TOKEN }}
+          FALLBACK_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          HAS_PAT: ${{ env.GITHUB_PAT != '' }}
           PR_NUMBER: ${{ github.event.pull_request.number }}
+          REPO: ${{ github.repository }}
         run: |
-          echo "Auto-merge PR #$PR_NUMBER triggered by Claude LGTM review."
-          gh pr merge "$PR_NUMBER" \
-            --squash \
-            --delete-branch \
-            --repo "${{ github.repository }}"
+          if [ "$HAS_PAT" = "true" ]; then
+            echo "Auto-merge PR #$PR_NUMBER via GITHUB_PAT (cascade atteso: deploy + followup)."
+          else
+            echo "::warning::GITHUB_PAT assente — merge via GITHUB_TOKEN, nessun cascade (deploy/followup non partiranno)."
+          fi
+          if ! GH_TOKEN="$PRIMARY_TOKEN" gh pr merge "$PR_NUMBER" --squash --delete-branch --repo "$REPO"; then
+            if [ "$HAS_PAT" = "true" ]; then
+              echo "::warning::Merge col GITHUB_PAT fallito (scope insufficiente?) — retry con GITHUB_TOKEN, nessun cascade."
+              GH_TOKEN="$FALLBACK_TOKEN" gh pr merge "$PR_NUMBER" --squash --delete-branch --repo "$REPO"
+            else
+              exit 1
+            fi
+          fi
+
+      - name: Cleanup Firebase credentials
+        if: always()
+        run: rm -f /tmp/firebase-sa.json

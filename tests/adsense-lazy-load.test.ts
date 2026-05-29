@@ -70,6 +70,11 @@ describe('AdSense lazy loading — ADSENSE_SNIPPET (static pages)', () => {
     );
     expect(ADSENSE_LOADER_CONTENT).toContain('IntersectionObserver');
     expect(ADSENSE_LOADER_CONTENT).toContain('rootMargin');
+    // Funnel-critical symmetry with the SPA AdSenseBanner idle fallback: the
+    // static-shell loader must also fall back to requestIdleCallback so Auto
+    // Ads fire on no-scroll sessions across the ~200k SEO pages, not only when
+    // a slot scrolls into view. Guards the rIC fallback against removal.
+    expect(ADSENSE_LOADER_CONTENT).toContain('requestIdleCallback');
   });
 
   it('exposes the correct client id + script URL', () => {
@@ -134,6 +139,17 @@ describe('AdSense lazy loading — SPA AdSenseBanner component', () => {
 
   it('still contains the singleton loadAdSenseScript helper', () => {
     expect(adSenseBanner).toContain('loadAdSenseScript');
+  });
+
+  it('idle-loads the script for Auto Ads even when no slot scrolls into view', () => {
+    // Funnel-critical: on SPA routes whose static shell omits the external
+    // adsense-loader (e.g. the homepage), a no-scroll mobile bounce must still
+    // load adsbygoogle.js so anchor + in-page Auto Ads fire. Guard the idle
+    // fallback (rIC with setTimeout fallback) and its cleanup against removal.
+    expect(adSenseBanner).toContain('requestIdleCallback');
+    expect(adSenseBanner).toContain('cancelIdleCallback');
+    // Bot-gated so the idle load never inflates AD_REQUESTS.
+    expect(adSenseBanner).toMatch(/if\s*\(\s*!SKIP_FOR_BOT\s*\)/);
   });
 
   it('defers unfilled-slot collapse while the reserved box is visible', () => {

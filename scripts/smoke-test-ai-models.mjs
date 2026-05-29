@@ -9,7 +9,12 @@
  *
  * Requires the same env that ai-models.mjs needs (load-rc-env.mjs first).
  */
-import { callLLM, DEFAULT_CHAIN, AI_MODELS } from './lib/ai-models.mjs';
+import { callLLM, DEFAULT_CHAIN, AI_MODELS, discoverFreeModels } from './lib/ai-models.mjs';
+
+// Run multi-provider discovery FIRST so dynamically-added models (OpenRouter,
+// Groq, Cerebras, Mistral) are included in the smoke test — otherwise we'd only
+// validate the static chain and never catch a bad auto-discovered id.
+await discoverFreeModels();
 
 const MODELS = [...new Set(DEFAULT_CHAIN)];
 console.error(`Smoke-testing ${MODELS.length} models, one-by-one…`);
