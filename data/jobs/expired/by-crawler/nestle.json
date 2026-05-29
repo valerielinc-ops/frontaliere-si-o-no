@@ -25,9 +25,52 @@
       "fr": "technicien-de-maintenance-en-horaire-d-equipe-4x8-h-f-d-nestle-ch"
     },
     "sector": "Food / Beverage",
-    "expiredAt": "2026-05-28T13:36:27.870Z",
+    "expiredAt": "2026-05-29T13:25:54.250Z",
     "salaryMin": 49500,
     "salaryMax": 75000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
+    "slug": "apprendista-logistico-nestle-henniez-ch",
+    "title": "Apprenti-e Logisticien-ne",
+    "titleByLocale": {
+      "it": "Apprendista logistico",
+      "en": "Apprenti-e Logisticien-ne",
+      "de": "Apprenti-e Logisticien-ne",
+      "fr": "Apprenti-e Logisticien-ne"
+    },
+    "company": "Nestlé",
+    "companyKey": "nestle",
+    "location": "Henniez, CH",
+    "addressLocality": "Henniez, CH",
+    "descriptionByLocale": {
+      "it": "Apprenti-e Logisticien-ne — Nestlé, Henniez, CH. Key details:\n• Location: Henniez, CH, VD canton, Switzerland\n• Employer: Nestlé — world's largest food and beverage company\n• Apply on: Nestlé careers portal This listing is part of Nestlé’s official Swiss careers feed. Review the role requirements, team context, contract details, and application instructions directly on the Nestlé job page before applying. The position is kept in this dataset only while the official careers portal keeps the requisition active.",
+      "en": "Apprenti-e Logisticien-ne — Nestlé, Henniez, CH. Key details:\n• Location: Henniez, CH, VD canton, Switzerland\n• Employer: Nestlé — world's largest food and beverage company\n• Apply on: Nestlé careers portal This listing is part of Nestlé’s official Swiss careers feed. Review the role requirements, team context, contract details, and application instructions directly on the Nestlé job page before applying. The position is kept in this dataset only while the official careers portal keeps the requisition active.",
+      "de": "Apprenti-e Logisticien-ne — Nestlé, Henniez, CH. Key details:\n• Location: Henniez, CH, VD canton, Switzerland\n• Employer: Nestlé — world's largest food and beverage company\n• Apply on: Nestlé careers portal This listing is part of Nestlé’s official Swiss careers feed. Review the role requirements, team context, contract details, and application instructions directly on the Nestlé job page before applying. The position is kept in this dataset only while the official careers portal keeps the requisition active.",
+      "fr": "Apprenti-e Logisticien-ne — Nestlé, Henniez, CH. Key details:\n• Location: Henniez, CH, VD canton, Switzerland\n• Employer: Nestlé — world's largest food and beverage company\n• Apply on: Nestlé careers portal This listing is part of Nestlé’s official Swiss careers feed. Review the role requirements, team context, contract details, and application instructions directly on the Nestlé job page before applying. The position is kept in this dataset only while the official careers portal keeps the requisition active."
+    },
+    "slugByLocale": {
+      "it": "apprendista-logistico-nestle-henniez-ch",
+      "en": "apprenti-e-logisticien-ne-nestle-henniez-ch",
+      "de": "apprenti-e-logisticien-ne-nestle-ch",
+      "fr": "apprenti-e-logisticien-ne-nestle-ch"
+    },
+    "sector": "Food / Beverage",
+    "expiredAt": "2026-05-29T13:25:54.250Z",
+    "previousSlugs": [
+      "apprenti-e-logisticien-ne-nestle-ch"
+    ],
+    "previousSlugsByLocale": {
+      "en": [
+        "apprenti-e-logisticien-ne-nestle-ch"
+      ],
+      "it": [
+        "apprenti-e-logisticien-ne-nestle-ch"
+      ]
+    },
+    "salaryMin": 41600,
+    "salaryMax": 63000,
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR"
   },
