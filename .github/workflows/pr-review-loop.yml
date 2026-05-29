@@ -84,6 +84,10 @@ jobs:
           REVIEW_TIER: ${{ steps.tier.outputs.tier }}
         with:
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          # Le PR fix-issue sono aperte da `claude[bot]`: senza whitelist
+          # claude-code-action aborta ("non-human actor"). `*` consente review
+          # anche su PR generate da bot (run 26621967484 → exit 1).
+          allowed_bots: "*"
           show_full_output: true
           # Tool expansion: aggiunti `Bash(rg:*)`, `Bash(git:*)` per consentire
           # cross-file pattern search (REVIEW.md → Reviewer behavior step 5) e
